@@ -1,7 +1,7 @@
 // Settings: Claude API key, model, tutor verbosity, data export/wipe, roadmap.
 
 import { store } from "../store.js";
-import { el, toast, icon, ICONS } from "../lib/dom.js";
+import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
 
 export function renderSettings() {
@@ -55,6 +55,8 @@ export function renderSettings() {
       el("label.field", {}, [el("span", {}, "Tutor reply length"), verbSel]),
     ]),
 
+    demoSection(),
+
     el("section.panel", {}, [
       el("h3", {}, "Your data"),
       el("p.note", { style: { margin: "6px 0 12px" } }, "Everything (assignments, attempts, progress) lives in this browser."),
@@ -77,6 +79,55 @@ export function renderSettings() {
     el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), "Back to menu"]),
   ]);
 
+  function demoSection() {
+    const status = el("p.note", { style: { margin: "6px 0 12px" } });
+    const actions = el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } });
+
+    function paint() {
+      const { loaded, total } = store.demoStatus;
+      status.textContent = loaded === 0
+        ? "Two ready-made sets (Photosynthesis Basics, Ancient Rome Quiz) you can try without an API key — the tutor works in demo mode too."
+        : loaded < total
+          ? `${loaded} of ${total} demo sets are in your library. You can add the missing one back, or clear them out.`
+          : "Both demo sets are in your library. They behave like any other set — study, edit, or delete them.";
+
+      clear(actions);
+      if (loaded < total) {
+        actions.appendChild(el("button.btn.btn--sm", {
+          type: "button",
+          onclick: async (e) => {
+            e.currentTarget.disabled = true;
+            try {
+              const n = await store.loadDemoContent();
+              toast(n ? `Added ${n} demo set${n === 1 ? "" : "s"}` : "Already in your library");
+            } catch {
+              toast("Couldn't load the demo sets");
+            }
+            paint();
+          },
+        }, [icon(ICONS.play, 16), loaded ? "Add the missing one" : "Load demo sets"]));
+      }
+      if (loaded > 0) {
+        actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
+          type: "button", style: { color: "var(--retry)" },
+          onclick: () => {
+            if (!confirm("Remove the demo sets from your library?\n\nAny attempts you made on them stay in your history.")) return;
+            store.removeDemoContent();
+            toast("Demo sets removed");
+            paint();
+          },
+        }, "Remove demo sets"));
+      }
+    }
+    paint();
+
+    return el("section.panel", {}, [
+      el("h3", {}, "Demo content"),
+      status,
+      actions,
+    ]);
+  }
+
   function exportData() {
     const blob = new Blob([store.exportJSON()], { type: "application/json" });
     const a = el("a", { href: URL.createObjectURL(blob), download: `studybuddy-backup-${localDayKey()}.json` });
@@ -85,7 +136,7 @@ export function renderSettings() {
   }
 
   function wipe() {
-    if (!confirm("Delete all assignments, attempts, and progress? The sample content will be restored. This can't be undone.")) return;
+    if (!confirm("Delete all sets, attempts, and progress?\n\nThis can't be undone. Export a backup first if you want to keep it.")) return;
     store.wipe();
     toast("Data wiped");
     location.hash = "#/";

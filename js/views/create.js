@@ -5,6 +5,7 @@ import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { extractPdfText, readImageFile, fitText } from "../material.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
+import { questionEditor } from "../components/question-editor.js";
 
 export function renderCreate() {
   const root = el("div");
@@ -179,65 +180,24 @@ export function renderCreate() {
   function reviewStep() {
     const doc = state.doc;
 
-    const titleInput = el("input", { type: "text", value: doc.title, oninput: (e) => { doc.title = e.target.value; } });
-    const subjectInput = el("input", { type: "text", value: doc.subject, list: "subject-list", oninput: (e) => { doc.subject = e.target.value; } });
-    const list = el("div");
+    const titleInput = el("input", {
+      type: "text", value: doc.title, "aria-label": "Set title",
+      oninput: (e) => { doc.title = e.target.value; },
+    });
+    const subjectInput = el("input", {
+      type: "text", value: doc.subject, list: "subject-list", "aria-label": "Subject",
+      oninput: (e) => { doc.subject = e.target.value; },
+    });
 
-    function paintList() {
-      clear(list);
-      doc.questions.forEach((q, idx) => list.appendChild(qEditor(q, idx)));
-    }
-
-    function qEditor(q, idx) {
-      const wrap = el("div.qedit");
-      const promptTa = el("textarea", { rows: "2", oninput: (e) => { q.prompt = e.target.value; } });
-      promptTa.value = q.prompt;
-
-      const body = el("div");
-      function paintBody() {
-        clear(body);
-        if (q.kind === "mc") {
-          q.choices = q.choices || ["", ""];
-          q.choices.forEach((c, ci) => {
-            body.appendChild(el("div.qedit__row", {}, [
-              el("input", { type: "radio", name: `correct-${q.id}`, checked: q.answer === ci, onchange: () => { q.answer = ci; } }),
-              el("input", { type: "text", value: c, style: { flex: "1" }, oninput: (e) => { q.choices[ci] = e.target.value; } }),
-              el("button.iconbtn", { type: "button", "aria-label": "Remove choice", onclick: () => { q.choices.splice(ci, 1); if (q.answer >= q.choices.length) q.answer = 0; paintBody(); } }, "×"),
-            ]));
-          });
-          body.appendChild(el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => { q.choices.push(""); paintBody(); } }, "+ choice"));
-        } else {
-          const ansTa = el("textarea", { rows: "2", oninput: (e) => { q.answer = e.target.value; } });
-          ansTa.value = q.answer || "";
-          body.appendChild(el("label.field", {}, [el("span", {}, q.kind === "flashcard" ? "Back of card" : "Model answer"), ansTa]));
-        }
-      }
-      paintBody();
-
-      const kindSel = el("select", { onchange: (e) => { q.kind = e.target.value; if (q.kind === "mc" && !Array.isArray(q.choices)) { q.choices = ["", ""]; q.answer = 0; } if (q.kind !== "mc" && typeof q.answer !== "string") q.answer = ""; paintBody(); } }, [
-        ["mc", "Multiple choice"], ["text", "Short answer"], ["flashcard", "Flashcard"], ["worked", "Worked problem"],
-      ].map(([v, l]) => el("option", { value: v }, l)));
-      kindSel.value = q.kind;
-
-      const topicInput = el("input", { type: "text", value: q.topic, style: { maxWidth: "180px" }, oninput: (e) => { q.topic = e.target.value.toLowerCase(); } });
-
-      wrap.appendChild(el("div.qedit__row", {}, [
-        el("span.badge", {}, `Q${idx + 1}`),
-        kindSel,
-        topicInput,
-        el("span", { style: { flex: "1" } }),
-        el("button.iconbtn", { type: "button", "aria-label": "Delete question", onclick: () => { doc.questions.splice(idx, 1); paintList(); } }, [icon(ICONS.back, 14)]),
-      ]));
-      wrap.appendChild(el("label.field", {}, [el("span", {}, "Question"), promptTa]));
-      wrap.appendChild(body);
-      return wrap;
-    }
-
-    paintList();
+    const countNote = el("p.note");
+    const editor = questionEditor(doc, {
+      onChange: (n) => { countNote.textContent = `${n} question${n === 1 ? "" : "s"} · edit anything below, then save.`; },
+    });
 
     function save() {
-      doc.questions = doc.questions.filter((q) => (q.prompt || "").trim());
-      if (!doc.questions.length) { toast("Add at least one question."); return; }
+      const questions = editor.commit();
+      if (!questions.length) { toast("Add at least one question."); return; }
+      if (!doc.title.trim()) { toast("Give the set a name."); titleInput.focus(); return; }
       const saved = store.addAssignmentDoc(doc);
       toast("Saved!");
       location.hash = `#/session/${saved.id}`;
@@ -249,13 +209,13 @@ export function renderCreate() {
           el("label.field", {}, [el("span", {}, "Title"), titleInput]),
           el("label.field", {}, [el("span", {}, "Subject"), subjectInput]),
         ]),
-        el("p.note", {}, `${doc.questions.length} questions · edit anything below, then save.`),
+        countNote,
       ]),
-      list,
+      editor.el,
       el("div.nav-row", {}, [
         el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "input"; paint(); } }, "Back"),
         el("div", { style: { display: "flex", gap: "10px" } }, [
-          el("button.btn.btn--ghost", { type: "button", onclick: () => { state.doc.questions.push({ id: uid(), kind: "text", topic: (doc.topics && doc.topics[0]) || "general", prompt: "", answer: "" }); paintList(); } }, "+ question"),
+          el("button.btn.btn--ghost", { type: "button", onclick: () => editor.addQuestion() }, "+ question"),
           el("button.btn.btn--ok", { type: "button", onclick: save }, [icon(ICONS.check, 18), "Save set"]),
         ]),
       ]),

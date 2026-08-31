@@ -6,7 +6,14 @@ import { localDayKey, currentStreak } from "./lib/activity.js";
 import { isDue } from "./lib/srs.js";
 
 const KEY = "studybuddy.v1";
-const SCHEMA_VERSION = 2;
+const SCHEMA_VERSION = 3;
+
+/** The bundled demo sets. They are no longer seeded automatically — they live
+ *  in Settings under "Demo content" so a real library starts clean. */
+export const SAMPLE_FILES = [
+  { id: "sample-photosynthesis", file: "data/samples/sample-assignment.json" },
+  { id: "sample-rome", file: "data/samples/sample-test.json" },
+];
 
 export const PALETTE = [
   { name: "grape", solid: "#7A5CFF", tint: "#EDE9FF" },
@@ -49,6 +56,16 @@ function migrate(state) {
     s.sessions = s.sessions || {};
   }
 
+  if (!(s.version >= 3)) {
+    // Demo sets moved out of the library. Only remove ones the user never
+    // touched — anything they've actually studied is their data now, and they
+    // can delete it themselves from the card menu.
+    const sampleIds = new Set(SAMPLE_FILES.map((x) => x.id));
+    const touched = new Set((s.attempts || []).map((a) => a.assignmentId));
+    for (const id of Object.keys(s.sessions || {})) touched.add(id);
+    s.assignments = (s.assignments || []).filter((a) => !sampleIds.has(a.id) || touched.has(a.id));
+  }
+
   s.version = SCHEMA_VERSION;
   s.settings = { ...seedState().settings, ...(s.settings || {}) };
   s.srs = s.srs || {};
@@ -69,25 +86,44 @@ class Store extends EventTarget {
     if (raw) {
       try { this.state = migrate(JSON.parse(raw)); }
       catch { this.state = seedState(); }
-      this.save();
     } else {
       this.state = seedState();
-      await this._seedSamples();
-      this.save();
     }
+    this.save();
     this.emit();
   }
 
-  async _seedSamples() {
-    try {
-      const [a, t] = await Promise.all([
-        fetch("data/samples/sample-assignment.json").then((r) => r.json()),
-        fetch("data/samples/sample-test.json").then((r) => r.json()),
-      ]);
-      for (const doc of [a, t]) this.addAssignmentDoc(doc, { silent: true });
-    } catch (e) {
-      console.warn("Could not seed sample content:", e);
+  // ---------- demo content (Settings → Demo content) ----------
+  /** {loaded, total} — the demo sets can be partially present, e.g. after
+   *  deleting one of them, so callers need the count, not a boolean. */
+  get demoStatus() {
+    const loaded = SAMPLE_FILES.filter(({ id }) => !!this.getAssignment(id)).length;
+    return { loaded, total: SAMPLE_FILES.length };
+  }
+
+  async loadDemoContent() {
+    const docs = await Promise.all(SAMPLE_FILES.map(({ file }) =>
+      fetch(file).then((r) => {
+        if (!r.ok) throw new Error(`Could not load ${file}`);
+        return r.json();
+      })));
+    let added = 0;
+    for (const doc of docs) {
+      if (this.getAssignment(doc.id)) continue;
+      this.addAssignmentDoc(doc, { silent: true });
+      added++;
     }
+    this.save();
+    this.emit();
+    return added;
+  }
+
+  removeDemoContent() {
+    const ids = new Set(SAMPLE_FILES.map((x) => x.id));
+    this.update((s) => {
+      s.assignments = s.assignments.filter((a) => !ids.has(a.id));
+      for (const id of ids) delete s.sessions[id];
+    });
   }
 
   save() {
@@ -176,10 +212,40 @@ class Store extends EventTarget {
     return a;
   }
 
+  updateAssignment(id, patch) {
+    this.update((s) => {
+      const a = s.assignments.find((x) => x.id === id);
+      if (!a) return;
+      Object.assign(a, patch);
+      if (patch.questions) {
+        a.topics = [...new Set(patch.questions.map((q) => q.topic).filter(Boolean))];
+      }
+    });
+  }
+
+  /** Copy a set. The copy gets fresh question ids so it keeps its own
+   *  spaced-repetition schedule rather than sharing the original's. */
+  duplicateAssignment(id) {
+    const a = this.getAssignment(id);
+    if (!a) return null;
+    const copy = {
+      ...structuredClone(a),
+      id: uid(),
+      title: nextCopyTitle(a.title, this.state.assignments.map((x) => x.title)),
+      createdAt: Date.now(),
+      questions: a.questions.map((q) => ({ ...structuredClone(q), id: uid() })),
+    };
+    this.update((s) => { s.assignments.unshift(copy); });
+    return copy;
+  }
+
   deleteAssignment(id) {
     this.update((s) => {
-      s.assignments = s.assignments.filter((a) => a.id !== id);
+      const a = s.assignments.find((x) => x.id === id);
+      s.assignments = s.assignments.filter((x) => x.id !== id);
       delete s.sessions[id];
+      // Drop review scheduling for questions that no longer exist.
+      for (const q of a?.questions || []) delete s.srs[q.id];
     });
   }
 
@@ -225,8 +291,18 @@ class Store extends EventTarget {
   wipe() {
     localStorage.removeItem(KEY);
     this.state = seedState();
-    this._seedSamples().then(() => { this.save(); this.emit(); });
+    this.save();
+    this.emit();
   }
+}
+
+/** "Rome Quiz" -> "Rome Quiz (copy)" -> "Rome Quiz (copy 2)" */
+function nextCopyTitle(title, existing) {
+  const base = title.replace(/\s*\(copy( \d+)?\)$/, "");
+  let candidate = `${base} (copy)`;
+  let n = 2;
+  while (existing.includes(candidate)) candidate = `${base} (copy ${n++})`;
+  return candidate;
 }
 
 export const store = new Store();

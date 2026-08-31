@@ -5,6 +5,7 @@ import { el, mount, icon, ICONS } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { renderMenu } from "./views/menu.js";
 import { renderCreate } from "./views/create.js";
+import { renderEdit } from "./views/edit.js";
 import { renderSession, renderReview } from "./views/session.js";
 import { renderResults } from "./views/results.js";
 import { renderProgress } from "./views/progress.js";
@@ -15,6 +16,7 @@ const app = document.getElementById("app");
 const routes = [
   { rx: /^\/?$/, view: () => renderMenu() },
   { rx: /^\/create$/, view: () => renderCreate() },
+  { rx: /^\/edit\/(.+)$/, view: (m) => renderEdit(m[1]) },
   { rx: /^\/review$/, view: () => renderReview() },
   { rx: /^\/session\/(.+)$/, view: (m) => renderSession(m[1]) },
   { rx: /^\/results\/(.+)$/, view: (m) => renderResults(m[1]) },
