@@ -1,0 +1,84 @@
+/* StudyBuddy design tokens — "bright & playful", tuned for K–12 without being babyish.
+   Every screen consumes these variables; avoid ad-hoc colors/sizes elsewhere. */
+
+:root {
+  /* --- canvas & ink --- */
+  --canvas:        #FFF9F2;
+  --surface:       #FFFFFF;
+  --surface-sunk:  #FBF3E9;
+  --ink:           #2B2B3A;
+  --ink-soft:      #5B5B6E;
+  --ink-faint:     #8A8A9C;
+  --line:          #ECE3D6;
+  --line-strong:   #DED2BF;
+
+  /* --- brand --- */
+  --brand:         #7A5CFF;
+  --brand-ink:     #4B33C7;
+  --brand-tint:    #EFEAFF;
+
+  /* --- semantic (kid-safe: success green, "try again" is warm amber, never red) --- */
+  --ok:            #2FA36B;
+  --ok-tint:       #E4F5EC;
+  --retry:         #E8863B;
+  --retry-tint:    #FCEEDF;
+  --info:          #2E86C1;
+  --info-tint:     #E4F1FA;
+
+  /* --- six subject colors: solid (accent/badge) + tint (card wash) --- */
+  --c-grape:       #7A5CFF;  --c-grape-tint:     #EDE9FF;
+  --c-ocean:       #1F9FB5;  --c-ocean-tint:     #E1F4F6;
+  --c-leaf:        #4C9F55;  --c-leaf-tint:      #E7F5E7;
+  --c-tangerine:   #F0913C;  --c-tangerine-tint: #FDEEDD;
+  --c-berry:       #E4588A;  --c-berry-tint:     #FCE7EF;
+  --c-sky:         #4C7DF0;  --c-sky-tint:       #E6EDFD;
+
+  /* --- typography --- */
+  --font-display: "Baloo 2", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  --font-body:    "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --fs-xxl: 2rem;      /* 32 */
+  --fs-xl:  1.5rem;    /* 24 */
+  --fs-lg:  1.25rem;   /* 20 */
+  --fs-md:  1rem;      /* 16 */
+  --fs-sm:  0.875rem;  /* 14 */
+  --lh-tight: 1.2;
+  --lh-body:  1.55;
+
+  /* --- spacing (4px base) --- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+
+  /* --- shape --- */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-full: 999px;
+
+  /* --- depth (soft two-layer shadows) --- */
+  --shadow-1: 0 1px 2px rgba(43,43,58,.06), 0 4px 12px rgba(43,43,58,.06);
+  --shadow-2: 0 2px 6px rgba(43,43,58,.08), 0 14px 32px rgba(43,43,58,.12);
+  --ring: 0 0 0 3px var(--canvas), 0 0 0 6px var(--brand);
+
+  /* --- motion --- */
+  --ease-spring: cubic-bezier(.2, .9, .3, 1.3);
+  --ease-out:    cubic-bezier(.2, .7, .3, 1);
+  --dur-fast: 120ms;
+  --dur-mid:  220ms;
+  --dur-slow: 400ms;
+
+  --maxw: 980px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * , *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* The app is bright by design; honor dark mode only for the outer chrome so it
+   isn't a blinding rectangle on a dark desktop. Content stays on its warm canvas. */
+@media (prefers-color-scheme: dark) {
+  body { background: #14131A; }
+}

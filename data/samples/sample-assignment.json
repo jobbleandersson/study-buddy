@@ -1,0 +1,57 @@
+{
+  "id": "sample-photosynthesis",
+  "type": "assignment",
+  "subject": "Science",
+  "title": "Photosynthesis Basics",
+  "sourceSummary": "A short intro to how plants make food from light, water, and carbon dioxide.",
+  "topics": ["photosynthesis", "plant cells"],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-photo-1",
+      "kind": "mc",
+      "topic": "photosynthesis",
+      "prompt": "Which gas do plants take IN from the air during photosynthesis?",
+      "choices": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": 1,
+      "explanation": "Plants absorb carbon dioxide (CO2) and release oxygen as a by-product."
+    },
+    {
+      "id": "q-photo-2",
+      "kind": "mc",
+      "topic": "plant cells",
+      "prompt": "Photosynthesis mostly happens inside which part of a plant cell?",
+      "choices": ["Nucleus", "Mitochondria", "Chloroplast", "Cell wall"],
+      "answer": 2,
+      "explanation": "Chloroplasts contain chlorophyll, the green pigment that captures light energy."
+    },
+    {
+      "id": "q-photo-3",
+      "kind": "text",
+      "topic": "photosynthesis",
+      "prompt": "In one or two sentences, explain what a plant does with the sugar (glucose) it makes.",
+      "answer": "The plant uses glucose for energy (through respiration) and to build new parts like stems, leaves, and roots; extra glucose is stored as starch.",
+      "rubric": "Full credit: mentions using glucose for energy/growth AND storage as starch. Partial: mentions only one of those."
+    },
+    {
+      "id": "q-photo-4",
+      "kind": "flashcard",
+      "topic": "photosynthesis",
+      "prompt": "What are the THREE things a plant needs for photosynthesis?",
+      "answer": "Light (sunlight), water, and carbon dioxide. (Chlorophyll captures the light.)"
+    },
+    {
+      "id": "q-photo-5",
+      "kind": "worked",
+      "topic": "photosynthesis",
+      "prompt": "A plant is left in a dark cupboard for a week. Predict what happens to it and explain why, step by step.",
+      "answer": "With no light the plant can't photosynthesise, so it makes no new glucose. It uses up stored starch for energy, the leaves turn yellow as chlorophyll breaks down, growth stops, and eventually the plant wilts and may die.",
+      "steps": [
+        "No light means the light-dependent step of photosynthesis can't run.",
+        "No glucose is produced, so the plant must use its stored starch.",
+        "Once stores run low, chlorophyll breaks down (leaves yellow) and growth stops.",
+        "The plant wilts and, if kept in the dark long enough, dies."
+      ]
+    }
+  ]
+}

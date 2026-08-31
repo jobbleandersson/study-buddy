@@ -1,0 +1,59 @@
+{
+  "id": "sample-rome",
+  "type": "test",
+  "subject": "History",
+  "title": "Ancient Rome Quiz",
+  "sourceSummary": "Key people, places, and ideas from the Roman Republic and Empire.",
+  "topics": ["ancient rome"],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rome-1",
+      "kind": "mc",
+      "topic": "ancient rome",
+      "prompt": "According to legend, who founded the city of Rome?",
+      "choices": ["Julius Caesar", "Romulus", "Augustus", "Hannibal"],
+      "answer": 1,
+      "explanation": "Legend says the twins Romulus and Remus founded Rome in 753 BCE, and Romulus became its first king."
+    },
+    {
+      "id": "q-rome-2",
+      "kind": "mc",
+      "topic": "ancient rome",
+      "prompt": "What was the Senate in the Roman Republic?",
+      "choices": [
+        "The Roman army's officer corps",
+        "A council of leading citizens that advised on laws and policy",
+        "A religious festival",
+        "The emperor's personal bodyguard"
+      ],
+      "answer": 1,
+      "explanation": "The Senate was a body of experienced statesmen (mostly patricians) that guided Roman policy, finances, and foreign affairs."
+    },
+    {
+      "id": "q-rome-3",
+      "kind": "text",
+      "topic": "ancient rome",
+      "prompt": "Name one way the Romans made travel and trade across their empire easier, and briefly say why it helped.",
+      "answer": "They built a huge network of straight, paved roads (and also aqueducts, bridges, and safe sea routes). Good roads let armies, messengers, and merchants move quickly and reliably in almost any weather.",
+      "rubric": "Full credit: names a specific infrastructure (roads/bridges/aqueducts/ports) AND explains the benefit. Partial: names it without the benefit."
+    },
+    {
+      "id": "q-rome-4",
+      "kind": "mc",
+      "topic": "ancient rome",
+      "prompt": "Who was the first Roman emperor?",
+      "choices": ["Nero", "Julius Caesar", "Augustus", "Constantine"],
+      "answer": 2,
+      "explanation": "Octavian took the name Augustus and became the first emperor in 27 BCE, ending the Republic."
+    },
+    {
+      "id": "q-rome-5",
+      "kind": "text",
+      "topic": "ancient rome",
+      "prompt": "In a sentence, explain what 'Pax Romana' means and why it mattered.",
+      "answer": "'Pax Romana' means 'Roman Peace' — roughly 200 years (27 BCE–180 CE) of relative stability across the empire, which allowed trade, building, and culture to flourish.",
+      "rubric": "Full credit: translates the term AND notes it was a long period of stability that helped trade/culture. Partial: only the translation."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.ps1 text eol=crlf
+vendor/** -text
+*.woff2 binary
+*.svg -text

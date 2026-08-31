@@ -1,0 +1,48 @@
+{
+  "_note": "Used only when no Claude API key is set. Gives every sample question a real hint ladder so the tutor panel is fully demoable offline.",
+  "generic": {
+    "intro": "Let's work through this one together. Have a think first — what do you already know that might help?",
+    "ladder": [
+      "Good start. Try breaking the question into smaller parts — what is it really asking for?",
+      "Here's a nudge: focus on the key word in the question and what it connects to. What comes to mind?",
+      "Okay, let me walk you through it. Look at the definition of the main idea, then apply it directly to what the question describes. Take your best guess now and I'll confirm."
+    ],
+    "correct": "Exactly right — nice work. Want to tell me *why* that's the answer, in your own words? Explaining it makes it stick.",
+    "encourage": "You're close. Don't worry about getting it perfect — that's what practice is for. Try once more."
+  },
+  "byQuestion": {
+    "q-photo-1": {
+      "intro": "Think about breathing in reverse. You breathe out carbon dioxide — what might a plant want with that?",
+      "ladder": [
+        "Plants and animals kind of trade gases. Animals take in oxygen and give out CO2. Plants do the opposite during the day.",
+        "So during photosynthesis a plant takes IN one gas and gives OUT oxygen. Which gas goes in?"
+      ],
+      "correct": "Yes! Carbon dioxide goes in, oxygen comes out. The carbon from CO2 ends up inside the sugar the plant builds."
+    },
+    "q-photo-3": {
+      "intro": "The plant just made glucose (a sugar). Sugar is basically stored energy and building material. What are two different things it could do with that?",
+      "ladder": [
+        "One use is immediate: 'burning' glucose in respiration to power the cell's activities.",
+        "The other is long-term: if there's spare glucose, the plant links it into long chains called starch and stores it in roots, seeds, or tubers."
+      ],
+      "correct": "That's it — energy now (respiration and growth) plus storage as starch for later."
+    },
+    "q-photo-5": {
+      "intro": "No light for a week. Start at the very first step of photosynthesis — what can't happen?",
+      "ladder": [
+        "Right, the light-dependent reactions stall with no light, so no glucose is produced.",
+        "If it can't make food, what must it live on instead? Think about where its reserves are.",
+        "It burns through stored starch. Then chlorophyll breaks down (leaves go yellow), growth halts, and it wilts. Put that chain together for me."
+      ],
+      "correct": "Great chain of reasoning: no light -> no glucose -> uses stored starch -> chlorophyll breaks down and leaves yellow -> wilts."
+    },
+    "q-rome-3": {
+      "intro": "Picture moving an army or a cartload of grain from Spain to Rome. What did the Romans famously build that would make that trip faster?",
+      "ladder": [
+        "They're famous for one type of construction that still survives today, running dead straight across the countryside.",
+        "Roads. Now the second half — *why* does a good road network help an empire hold together?"
+      ],
+      "correct": "Yep — roads (also bridges, ports, aqueducts). They let soldiers, messengers, and traders move fast and reliably, which keeps a big empire connected."
+    }
+  }
+}
