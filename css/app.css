@@ -411,6 +411,11 @@ h1:focus-visible, h2:focus-visible {
 .keyrow { display: flex; gap: var(--s-2); }
 .note { font-size: var(--fs-sm); color: var(--ink-soft); }
 .note--warn { background: var(--retry-tint); color: #9a531b; padding: var(--s-3) var(--s-4); border-radius: var(--r-md); }
+.preset-table { width: 100%; border-collapse: collapse; margin-top: var(--s-3); font-size: var(--fs-sm); }
+.preset-table th, .preset-table td { text-align: left; padding: 6px 8px; border-top: 1px solid var(--line); }
+.preset-table th { font-weight: 600; color: var(--ink-soft); width: 40%; }
+.preset-table td:nth-child(2) { font-weight: 700; }
+
 .roadmap { list-style: none; display: grid; gap: var(--s-2); }
 .roadmap li { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-3) var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); color: var(--ink-soft); }
 .roadmap li::before { content: "🔜"; }

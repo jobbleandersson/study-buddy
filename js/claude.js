@@ -9,6 +9,31 @@ import { generationSystem, gradingSystem } from "./prompts.js";
 
 const API_URL = "https://api.anthropic.com/v1/messages";
 
+/**
+ * Model choice is a preset, not a single model: the three jobs have very
+ * different requirements. Writing a question set is worth the best model
+ * (once per set); grading a one-line answer is not (many times per session).
+ */
+export const PRESETS = {
+  balanced: {
+    label: "Balanced — recommended",
+    hint: "Best model writes your questions; a lighter one marks answers. Good quality, much lower cost.",
+    generate: "claude-opus-5", tutor: "claude-sonnet-5", grade: "claude-haiku-4-5",
+  },
+  best: {
+    label: "Best quality",
+    hint: "Claude Opus 5 for everything. The strongest tutoring, and the most expensive.",
+    generate: "claude-opus-5", tutor: "claude-opus-5", grade: "claude-opus-5",
+  },
+  cheapest: {
+    label: "Lowest cost",
+    hint: "Fast and cheap throughout. Fine for drilling facts; weaker at explaining hard ideas.",
+    generate: "claude-sonnet-5", tutor: "claude-haiku-4-5", grade: "claude-haiku-4-5",
+  },
+};
+
+export const DEFAULT_PRESET = "balanced";
+
 function headers() {
   return {
     "content-type": "application/json",
@@ -18,7 +43,11 @@ function headers() {
   };
 }
 
-function model() { return store.settings.model || "claude-opus-5"; }
+/** task: "generate" | "tutor" | "grade" */
+export function modelFor(task) {
+  const preset = PRESETS[store.settings.preset] || PRESETS[DEFAULT_PRESET];
+  return preset[task] || PRESETS[DEFAULT_PRESET][task];
+}
 
 class ClaudeError extends Error {}
 
@@ -69,7 +98,7 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
   userContent.push({ type: "text", text: ask });
 
   const body = {
-    model: model(),
+    model: modelFor("generate"),
     max_tokens: 16000,
     system: generationSystem({ gradeHint }),
     messages: [{ role: "user", content: userContent }],
@@ -101,6 +130,9 @@ function normalizeDoc(doc) {
       explanation: q.explanation,
       rubric: q.rubric,
       steps: q.steps,
+      // Generated once, here — so the tutor can open with something specific
+      // to this question without an API call every time it's shown.
+      opener: typeof q.opener === "string" ? q.opener.trim() : undefined,
     };
     if (out.kind === "mc") {
       out.choices = Array.isArray(q.choices) ? q.choices : [];
@@ -127,7 +159,7 @@ function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
 export async function gradeAnswer({ question, studentAnswer }) {
   const raw = await callJSON({
-    model: model(),
+    model: modelFor("grade"),
     max_tokens: 700,
     system: gradingSystem(),
     messages: [{
@@ -154,7 +186,7 @@ export async function* tutorStream({ system, messages, signal }) {
     headers: headers(),
     signal,
     body: JSON.stringify({
-      model: model(),
+      model: modelFor("tutor"),
       max_tokens: 800,
       stream: true,
       system,

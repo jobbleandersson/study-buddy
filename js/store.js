@@ -6,7 +6,7 @@ import { localDayKey, currentStreak } from "./lib/activity.js";
 import { isDue } from "./lib/srs.js";
 
 const KEY = "studybuddy.v1";
-const SCHEMA_VERSION = 3;
+const SCHEMA_VERSION = 4;
 
 /** The bundled demo sets. They are no longer seeded automatically — they live
  *  in Settings under "Demo content" so a real library starts clean. */
@@ -32,7 +32,7 @@ export const PRACTICE_ID = "__practice__";
 function seedState() {
   return {
     version: SCHEMA_VERSION,
-    settings: { apiKey: "", model: "claude-opus-5", tutorVerbosity: "normal" },
+    settings: { apiKey: "", preset: "balanced", tutorVerbosity: "normal" },
     subjects: DEFAULT_SUBJECTS.map((name, i) => ({
       id: uid(), name, color: PALETTE[i % PALETTE.length].name,
     })),
@@ -65,6 +65,17 @@ function migrate(state) {
     const touched = new Set((s.attempts || []).map((a) => a.assignmentId));
     for (const id of Object.keys(s.sessions || {})) touched.add(id);
     s.assignments = (s.assignments || []).filter((a) => !sampleIds.has(a.id) || touched.has(a.id));
+  }
+
+  if (!(s.version >= 4)) {
+    // One model for every job became a per-task preset. Anyone who had left
+    // the default gets "balanced"; an explicit Opus choice maps to "best".
+    const old = s.settings?.model;
+    s.settings = s.settings || {};
+    s.settings.preset = old === "claude-haiku-4-5" ? "cheapest"
+      : old === "claude-sonnet-5" ? "balanced"
+      : "balanced";
+    delete s.settings.model;
   }
 
   s.version = SCHEMA_VERSION;
@@ -206,6 +217,7 @@ class Store extends EventTarget {
         rubric: q.rubric || undefined,
         explanation: q.explanation || undefined,
         steps: q.steps || undefined,
+        opener: q.opener || undefined,
       })),
     };
     this.state.assignments.unshift(a);

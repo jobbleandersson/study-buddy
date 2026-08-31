@@ -190,12 +190,15 @@ function runSession(config) {
           selfRating: result.selfRating || null,
           srsGrade: result.srsGrade,
           hintsUsed: result.hintsUsed || 0,
+          appealed: !!result.appealed,
         };
         skipBtn.hidden = true;
         nextBtn.disabled = false;
         nextBtn.textContent = unansweredCount() === 0 ? "Finish" : "Next";
         paintProgress();
         persist();
+        // An appeal re-fires onDone for the same question; only log it once.
+        if (!result.revised) tutor.recordOutcome(question, result);
         if (!testMode) announce(result.correct ? "Correct." : "Not correct. The tutor can help.");
         else announce("Answer recorded.");
       },

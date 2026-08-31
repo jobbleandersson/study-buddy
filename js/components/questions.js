@@ -4,7 +4,7 @@
 //
 // opts: { question, tutor, live, onDone }
 
-import { el, icon, ICONS } from "../lib/dom.js";
+import { el, clear, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { gradeAnswer } from "../claude.js";
 import { fromCorrect } from "../lib/srs.js";
@@ -156,22 +156,32 @@ function text({ question, tutor, live, testMode, onDone }) {
     if (verdict.correct) tutor?.celebrate("I think I got that one.");
     else tutor?.note(`Here's what I wrote: "${ans}". What am I missing?`);
 
-    // student self-assessment (source of truth for progress — honest + works offline)
-    selfRate.innerHTML = "";
-    selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, "How did you do?"));
-    const row = el("div.selfrate", {}, [
-      el("button.btn.btn--ok.btn--sm", { type: "button", onclick: () => finish(true) }, "I had it right"),
-      el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => finish(false) }, "I'll review this"),
-    ]);
-    if (!verdict.correct) row.children[0].textContent = "Actually, I was right";
-    selfRate.appendChild(row);
+    // The grade stands on its own — the student no longer marks their own
+    // work. They can appeal it, which is recorded rather than silently taken.
+    result.correct = verdict.correct;
     checkBtn.remove();
-  }
-
-  function finish(correct) {
-    result.correct = correct;
     onDone(finalize(result));
-    selfRate.querySelectorAll("button").forEach((b) => (b.disabled = true));
+
+    clear(selfRate);
+    if (!verdict.correct) {
+      const appeal = el("button.linkbtn", {
+        type: "button",
+        onclick: () => {
+          result.correct = true;
+          result.appealed = true;
+          result.revised = true;
+          // The grade changed, so its review schedule has to be recomputed —
+          // otherwise an appealed answer is still scheduled as a lapse.
+          result.srsGrade = null;
+          onDone(finalize(result));
+          clear(selfRate);
+          selfRate.appendChild(el("p.note", {}, "Marked as correct. Have a look at the model answer anyway — it's easy to miss a bit."));
+        },
+      }, "I think my answer was right");
+      selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, [
+        "Disagree with the marking? ", appeal, ".",
+      ]));
+    }
   }
 
   return { result, el: shell(question, el("div", {}, [ta, el("div", { style: { marginTop: "12px" } }, [checkBtn]), feedback, selfRate])) };
@@ -298,8 +308,8 @@ function heuristic(ans, model) {
   return {
     correct: hit >= 0.34,
     feedback: hit >= 0.34
-      ? "That lines up well with the key ideas — check the details below."
-      : "You may be missing some key ideas — compare with the model answer, then decide.",
+      ? "That covers the key ideas — check the details below."
+      : "This looks like it's missing some of the key ideas. Compare it with the model answer below.",
     missedPoints: [],
   };
 }

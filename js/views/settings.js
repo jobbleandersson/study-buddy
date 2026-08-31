@@ -3,6 +3,7 @@
 import { store } from "../store.js";
 import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
+import { PRESETS, DEFAULT_PRESET } from "../claude.js";
 
 export function renderSettings() {
   const s = store.settings;
@@ -17,13 +18,37 @@ export function renderSettings() {
     toast(keyInput.value.trim() ? "Key saved — live tutoring is on" : "Key cleared — demo mode");
   } }, "Save");
 
-  const modelSel = el("select", {}, [
-    opt("claude-opus-5", "Claude Opus 5 — best quality (default)"),
-    opt("claude-sonnet-5", "Claude Sonnet 5 — cheaper, still strong"),
-    opt("claude-haiku-4-5", "Claude Haiku 4.5 — fastest & cheapest"),
-  ]);
-  modelSel.value = s.model || "claude-opus-5";
-  modelSel.addEventListener("change", () => { store.setSettings({ model: modelSel.value }); toast("Model updated"); });
+  const presetHint = el("p.note", { style: { marginTop: "6px" } });
+  const presetSel = el("select", { "aria-describedby": "preset-hint" },
+    Object.entries(PRESETS).map(([k, p]) => opt(k, p.label)));
+  presetSel.value = PRESETS[s.preset] ? s.preset : DEFAULT_PRESET;
+
+  const presetDetail = el("div.preset-detail");
+  function paintPreset() {
+    const p = PRESETS[presetSel.value];
+    presetHint.textContent = p.hint;
+    clear(presetDetail);
+    presetDetail.appendChild(el("table.preset-table", {}, [
+      el("tbody", {}, [
+        presetRow("Writing a set", p.generate, "once per set"),
+        presetRow("Tutoring you", p.tutor, "every message"),
+        presetRow("Marking answers", p.grade, "every written answer"),
+      ]),
+    ]));
+  }
+  function presetRow(job, model, when) {
+    return el("tr", {}, [
+      el("th", {}, job),
+      el("td", {}, prettyModel(model)),
+      el("td.note", {}, when),
+    ]);
+  }
+  presetSel.addEventListener("change", () => {
+    store.setSettings({ preset: presetSel.value });
+    paintPreset();
+    toast("Model preset updated");
+  });
+  paintPreset();
 
   const verbSel = el("select", {}, [
     opt("concise", "Concise — short hints"),
@@ -51,8 +76,12 @@ export function renderSettings() {
 
     el("section.panel", {}, [
       el("h3", {}, "Model & tutor"),
-      el("label.field", { style: { marginTop: "12px" } }, [el("span", {}, "Model"), modelSel]),
-      el("label.field", {}, [el("span", {}, "Tutor reply length"), verbSel]),
+      el("p.note", { style: { margin: "6px 0 12px" } },
+        "StudyBuddy uses different Claude models for different jobs, so you're not paying top rates to mark a one-line answer."),
+      el("label.field", { style: { marginBottom: "6px" } }, [el("span", {}, "Quality & cost"), presetSel]),
+      el("div", { id: "preset-hint" }, [presetHint]),
+      presetDetail,
+      el("label.field", { style: { marginTop: "16px" } }, [el("span", {}, "Tutor reply length"), verbSel]),
     ]),
 
     demoSection(),
@@ -146,3 +175,11 @@ export function renderSettings() {
 }
 
 function opt(value, label) { return el("option", { value }, label); }
+
+function prettyModel(id) {
+  return ({
+    "claude-opus-5": "Claude Opus 5",
+    "claude-sonnet-5": "Claude Sonnet 5",
+    "claude-haiku-4-5": "Claude Haiku 4.5",
+  })[id] || id;
+}

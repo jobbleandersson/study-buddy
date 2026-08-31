@@ -1,4 +1,4 @@
-// System prompts + shared JSON shape description for Claude calls.
+// System prompts + the shared question shape for Claude calls.
 
 export const QUESTION_SHAPE = `Each question object has:
 - "kind": one of "mc" (multiple choice), "text" (short written answer), "flashcard" (recall / self-rated), "worked" (multi-step problem solved together).
@@ -9,7 +9,8 @@ export const QUESTION_SHAPE = `Each question object has:
 - "answer": REQUIRED for "text", "flashcard", "worked" — the correct/model answer as a string.
 - "rubric": for "text" only — one line on what earns full vs partial credit.
 - "explanation": for "mc" — one or two sentences on why the answer is right.
-- "steps": for "worked" — an array of 3-6 strings, the reasoning steps in order.`;
+- "steps": for "worked" — an array of 3-6 strings, the reasoning steps in order.
+- "opener": ALWAYS include. One short sentence the tutor says before the student answers — a nudge toward how to think about THIS question. Never state or give away the answer. Address the student as "you". Max 25 words.`;
 
 export function generationSystem({ gradeHint }) {
   return `You are an expert teacher who writes study material for K-12 students${gradeHint ? ` (around ${gradeHint})` : ""}.
@@ -29,17 +30,23 @@ ${QUESTION_SHAPE}`;
 }
 
 export function gradingSystem() {
-  return `You grade a K-12 student's short written answer. Be encouraging and fair — reward understanding over exact wording.
+  return `You grade a K-12 student's short written answer. Be encouraging and fair — reward understanding over exact wording, and don't penalise spelling or phrasing.
 Respond with ONLY a JSON object: { "correct": boolean, "feedback": string, "missedPoints": string[] }
 - "correct": true if the answer would earn full or near-full credit.
 - "feedback": one or two warm sentences addressed to the student ("you").
 - "missedPoints": specific things missing or wrong, [] if none.`;
 }
 
-export function tutorSystem({ assignment, question, verbosity = "normal" }) {
+/**
+ * The tutor prompt. `history` is a compact digest of how this session has
+ * gone so far, so the tutor can connect a question to earlier ones instead
+ * of starting from nothing every time.
+ */
+export function tutorSystem({ assignment, question, verbosity = "normal", history = [] }) {
   const len = verbosity === "concise" ? "Keep replies to 1-3 sentences."
     : verbosity === "detailed" ? "You may use up to a short paragraph, plus a list when it helps."
     : "Keep replies short — 2-4 sentences.";
+
   return `You are StudyBuddy, a warm, patient tutor for a K-12 student. You are helping with ONE question at a time.
 
 Tutoring style: ADAPTIVE.
@@ -53,7 +60,20 @@ Use $...$ / $$...$$ for math. Address the student as "you".
 
 The assignment is "${assignment.title}" (${assignment.type}). The current question is:
 "${question.prompt}"
-The correct answer (for your reference only — do not just paste it): ${answerForRef(question)}`;
+The correct answer (for your reference only — do not just paste it): ${answerForRef(question)}
+${sessionDigest(history)}`;
+}
+
+function sessionDigest(history) {
+  if (!history.length) return "";
+  const lines = history.slice(-8).map((h) =>
+    `- ${h.topic}: ${h.correct ? "got it" : "missed it"}${h.hintsUsed ? ` (needed ${h.hintsUsed} hint${h.hintsUsed === 1 ? "" : "s"})` : ""}`);
+  const struggled = history.filter((h) => !h.correct).map((h) => h.topic);
+  const unique = [...new Set(struggled)];
+  return `
+So far this session:
+${lines.join("\n")}${unique.length ? `
+They have been finding these topics hard: ${unique.join(", ")}. If this question connects to one of them, say so and build on it.` : ""}`;
 }
 
 function answerForRef(q) {
@@ -63,3 +83,12 @@ function answerForRef(q) {
   }
   return typeof q.answer === "string" ? q.answer : JSON.stringify(q.answer ?? "");
 }
+
+/** Used when a set predates stored openers. No API call, no repetition. */
+export const FALLBACK_OPENERS = [
+  "Have a look at this one — what's your first instinct?",
+  "Read it through once. What part of it do you already know something about?",
+  "Take a moment with this. What's the question really asking for?",
+  "What's the key word in this question? Start there.",
+  "Give it a go — I'll help if you get stuck.",
+];

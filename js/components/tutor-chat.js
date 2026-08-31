@@ -7,7 +7,7 @@ import { announce } from "../lib/a11y.js";
 import { markdown } from "../lib/markdown.js";
 import { mascot, setMood } from "./mascot.js";
 import { store } from "../store.js";
-import { tutorSystem } from "../prompts.js";
+import { tutorSystem, FALLBACK_OPENERS } from "../prompts.js";
 import { tutorStream, ClaudeError } from "../claude.js";
 
 let scripted = null;
@@ -21,12 +21,24 @@ export class TutorChat {
   constructor({ locked = false } = {}) {
     this.locked = locked;
     this.live = store.hasKey();
-    this.messages = [];       // Anthropic-format history (live mode)
+    this.messages = [];       // Anthropic-format history for the current question
     this.ladderIndex = -1;    // scripted mode
     this.turns = 0;
     this.busy = false;
     this.abort = null;
+    this.history = [];        // how the whole session has gone, for continuity
+    this._openerIndex = Math.floor(Math.random() * FALLBACK_OPENERS.length);
     this._build();
+  }
+
+  /** Called by the session when a question is finished, so later questions
+   *  can be tutored with some sense of how the student is doing. */
+  recordOutcome(question, result) {
+    this.history.push({
+      topic: question.topic || "general",
+      correct: !!result.correct,
+      hintsUsed: result.hintsUsed || 0,
+    });
   }
 
   _build() {
@@ -87,14 +99,25 @@ export class TutorChat {
     clear(this.logEl);
     setMood(this.mascotEl, "idle");
 
-    if (this.live) {
-      this._append("ai", `Let's tackle this one. What's your first thought?`);
-    } else {
-      const s = await loadScripted();
-      const intro = s.byQuestion?.[question.id]?.intro || s.generic?.intro || "Let's work through this together — what do you already know?";
-      this._append("ai", intro);
-    }
+    this._append("ai", await this._opener(question));
     this.logEl.scrollTop = 0;
+  }
+
+  /**
+   * The opening line for a question. Preference order:
+   *   1. the opener stored on the question (written once, at generation time)
+   *   2. the hand-written demo-mode intro
+   *   3. a rotating generic nudge — never the same line twice in a row
+   * No API call either way.
+   */
+  async _opener(question) {
+    if (question.opener) return question.opener;
+    const s = await loadScripted();
+    const scripted = s.byQuestion?.[question.id]?.intro;
+    if (scripted) return scripted;
+    if (!this.live && s.generic?.intro) return s.generic.intro;
+    this._openerIndex = (this._openerIndex + 1) % FALLBACK_OPENERS.length;
+    return FALLBACK_OPENERS[this._openerIndex];
   }
 
   // Programmatic nudge, phrased in the student's voice (e.g. after a wrong answer).
@@ -164,6 +187,7 @@ export class TutorChat {
       const system = tutorSystem({
         assignment: this.assignment, question: this.question,
         verbosity: store.settings.tutorVerbosity,
+        history: this.history,
       });
       for await (const chunk of tutorStream({ system, messages: this.messages, signal: this.abort.signal })) {
         acc += chunk;
