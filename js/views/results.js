@@ -12,14 +12,17 @@ export function renderResults(attemptId) {
     return el("div.empty", {}, [el("h2", {}, "No results to show"), el("a.btn.btn--ghost", { href: "#/" }, "Back to menu")]);
   }
   const assignment = store.getAssignment(attempt.assignmentId);
+  const isReview = !!attempt.isReview;
+  const heading = attempt.title || assignment?.title || "Session";
   const score = attempt.scorePct;
   const great = score >= 80;
 
   const before = store.attempts.filter((a) => a.finishedAt < attempt.finishedAt);
   const deltas = deltaFromAttempt(before, attempt);
 
+  // Look questions up across the whole library — a review session mixes sets.
   const wrong = (attempt.items || []).filter((i) => !i.correct);
-  const wrongQ = wrong.map((i) => (assignment?.questions || []).find((q) => q.id === i.questionId)).filter(Boolean);
+  const wrongQ = wrong.map((i) => store.findQuestion(i.questionId)?.question).filter(Boolean);
 
   const R = 74, C = 2 * Math.PI * R;
   const ringWrap = el("div.scorering");
@@ -42,7 +45,7 @@ export function renderResults(attemptId) {
 
   const node = el("div.results", {}, [
     el("h1", {}, great ? "Great work! 🎉" : "Nice effort 💪"),
-    el("p.note", {}, assignment ? assignment.title : ""),
+    el("p.note", {}, heading),
     ringWrap,
 
     deltaEntries.length ? el("div", {}, [
@@ -65,10 +68,12 @@ export function renderResults(attemptId) {
     ]) : null,
 
     el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" } }, [
-      assignment && el("a.btn", { href: `#/session/${assignment.id}` }, "Try again"),
+      isReview
+        ? el("a.btn", { href: "#/review" }, "Review again")
+        : assignment && el("a.btn", { href: `#/session/${assignment.id}` }, "Try again"),
       el("a.btn.btn--ghost", { href: "#/progress" }, "See progress"),
       el("a.btn.btn--ghost", { href: "#/" }, "Back to menu"),
-    ]),
+    ].filter(Boolean)),
   ]);
 
   requestAnimationFrame(() => {

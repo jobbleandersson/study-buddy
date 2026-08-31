@@ -2,6 +2,7 @@
 
 import { store } from "../store.js";
 import { el, toast, icon, ICONS } from "../lib/dom.js";
+import { localDayKey } from "../lib/activity.js";
 
 export function renderSettings() {
   const s = store.settings;
@@ -78,7 +79,7 @@ export function renderSettings() {
 
   function exportData() {
     const blob = new Blob([store.exportJSON()], { type: "application/json" });
-    const a = el("a", { href: URL.createObjectURL(blob), download: `studybuddy-backup-${new Date().toISOString().slice(0, 10)}.json` });
+    const a = el("a", { href: URL.createObjectURL(blob), download: `studybuddy-backup-${localDayKey()}.json` });
     document.body.appendChild(a); a.click(); a.remove();
     toast("Backup downloaded");
   }

@@ -57,16 +57,24 @@ export function renderMenu() {
     const subject = store.subjects.find((s) => s.id === a.subjectId);
     const m = masteryForAssignment(a, tm);
     const attempts = store.attempts.filter((x) => x.assignmentId === a.id).length;
+    const open = store.getSession(a.id);
+    const openCount = open ? Object.keys(open.items || {}).length : 0;
 
     return el("button.acard", {
       type: "button",
       style: { "--subject": color.solid, "--subject-tint": color.tint },
+      "aria-label": `${a.title}, ${subject?.name || "General"}, ${a.questions.length} questions${open ? ", in progress" : ""}`,
       onclick: () => { location.hash = `#/session/${a.id}`; },
     }, [
-      el("span.acard__tag", {}, subject?.name || "General"),
+      el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap" } }, [
+        el("span.acard__tag", {}, subject?.name || "General"),
+        open && el("span.acard__tag.acard__tag--open", {}, "In progress"),
+      ].filter(Boolean)),
       el("div.acard__title", {}, a.title),
       el("div.acard__meta", {}, [
-        el("span", {}, `${a.questions.length} question${a.questions.length === 1 ? "" : "s"}${attempts ? ` · done ${attempts}×` : ""}`),
+        el("span", {}, open
+          ? `${openCount} of ${a.questions.length} answered`
+          : `${a.questions.length} question${a.questions.length === 1 ? "" : "s"}${attempts ? ` · done ${attempts}×` : ""}`),
         m == null ? el("span", { style: { color: "var(--subject)" }, "aria-hidden": "true" }, icon(ICONS.arrow, 18))
           : ring(m, color.solid),
       ]),

@@ -3,6 +3,7 @@
 //   - scripted: walks a hint ladder from data/samples/scripted-tutor.json (offline demo)
 
 import { el, clear, icon, ICONS } from "../lib/dom.js";
+import { announce } from "../lib/a11y.js";
 import { markdown } from "../lib/markdown.js";
 import { mascot, setMood } from "./mascot.js";
 import { store } from "../store.js";
@@ -29,7 +30,9 @@ export class TutorChat {
 
   _build() {
     this.mascotEl = mascot("idle", 40);
-    this.logEl = el("div.tutor__log", { role: "log" });
+    // Deliberately NOT a live region: streaming text would be announced
+    // character by character. Finished messages are announced once instead.
+    this.logEl = el("div.tutor__log", { "aria-live": "off", tabindex: "0", "aria-label": "Tutor conversation" });
     this.inputEl = el("input.tutor__input", {
       type: "text", placeholder: "Ask the tutor…", "aria-label": "Message the tutor",
       onkeydown: (e) => { if (e.key === "Enter") this._submit(); },
@@ -72,6 +75,7 @@ export class TutorChat {
       const intro = s.byQuestion?.[question.id]?.intro || s.generic?.intro || "Let's work through this together — what do you already know?";
       this._append("ai", intro);
     }
+    this.logEl.scrollTop = 0;
   }
 
   // Programmatic nudge, phrased in the student's voice (e.g. after a wrong answer).
@@ -149,6 +153,7 @@ export class TutorChat {
       }
       this.messages.push({ role: "assistant", content: acc || "…" });
       setMood(this.mascotEl, opts.correct ? "cheer" : "idle");
+      announce(`Tutor: ${acc}`);
     } catch (e) {
       const msg = e instanceof ClaudeError ? e.message : "The tutor hit a snag. Try again in a moment.";
       bubble.innerHTML = markdown(`_${msg}_`);
@@ -159,13 +164,18 @@ export class TutorChat {
   async _typeOut(text) {
     const bubble = this._append("ai", "");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) { bubble.innerHTML = markdown(text); this._scroll(); return; }
-    const words = text.split(" ");
-    for (let i = 0; i < words.length; i++) {
-      bubble.innerHTML = markdown(words.slice(0, i + 1).join(" "));
+    if (reduce) {
+      bubble.innerHTML = markdown(text);
       this._scroll();
-      await new Promise((r) => setTimeout(r, 18));
+    } else {
+      const words = text.split(" ");
+      for (let i = 0; i < words.length; i++) {
+        bubble.innerHTML = markdown(words.slice(0, i + 1).join(" "));
+        this._scroll();
+        await new Promise((r) => setTimeout(r, 18));
+      }
     }
+    announce(`Tutor: ${text}`);
   }
 
   _append(who, text) {

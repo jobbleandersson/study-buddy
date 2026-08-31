@@ -2,9 +2,11 @@
 // future cloud/account backend can replace persistence without touching views.
 
 import { uid } from "./lib/dom.js";
+import { localDayKey, currentStreak } from "./lib/activity.js";
+import { isDue } from "./lib/srs.js";
 
 const KEY = "studybuddy.v1";
-const SCHEMA_VERSION = 1;
+const SCHEMA_VERSION = 2;
 
 export const PALETTE = [
   { name: "grape", solid: "#7A5CFF", tint: "#EDE9FF" },
@@ -17,6 +19,8 @@ export const PALETTE = [
 
 const DEFAULT_SUBJECTS = ["Science", "History", "Math", "English", "Geography"];
 
+export const REVIEW_ID = "__review__";
+
 function seedState() {
   return {
     version: SCHEMA_VERSION,
@@ -27,16 +31,30 @@ function seedState() {
     assignments: [],
     attempts: [],
     srs: {},
-    activity: { streakCount: 0, lastStudyDay: null, daysStudied: [] },
+    sessions: {},                    // in-progress sessions, keyed by session key
+    activity: { daysStudied: [] },   // streak is derived, never stored
   };
 }
 
-// --- migration seam: bump SCHEMA_VERSION and add cases here ---
+// --- migration seam: bump SCHEMA_VERSION and add a block here ---
 function migrate(state) {
   if (!state || typeof state !== "object") return seedState();
-  let s = state;
-  // if (s.version < 2) { ...transform...; s.version = 2; }
+  const s = state;
+
+  if (!(s.version >= 2)) {
+    // v1 stored a streak counter that went stale, and UTC day keys.
+    // Keep the day list (it's the real record), drop the derived fields.
+    const days = Array.isArray(s.activity?.daysStudied) ? s.activity.daysStudied : [];
+    s.activity = { daysStudied: [...new Set(days)].sort() };
+    s.sessions = s.sessions || {};
+  }
+
   s.version = SCHEMA_VERSION;
+  s.settings = { ...seedState().settings, ...(s.settings || {}) };
+  s.srs = s.srs || {};
+  s.sessions = s.sessions || {};
+  s.attempts = s.attempts || [];
+  s.assignments = s.assignments || [];
   return s;
 }
 
@@ -44,7 +62,6 @@ class Store extends EventTarget {
   constructor() {
     super();
     this.state = seedState();
-    this._loaded = false;
   }
 
   async init() {
@@ -52,12 +69,12 @@ class Store extends EventTarget {
     if (raw) {
       try { this.state = migrate(JSON.parse(raw)); }
       catch { this.state = seedState(); }
+      this.save();
     } else {
       this.state = seedState();
       await this._seedSamples();
       this.save();
     }
-    this._loaded = true;
     this.emit();
   }
 
@@ -108,6 +125,28 @@ class Store extends EventTarget {
 
   getAssignment(id) { return this.state.assignments.find((a) => a.id === id); }
 
+  /** Find a question anywhere in the library. Lets results and review
+   *  sessions work without knowing which set a question came from. */
+  findQuestion(questionId) {
+    for (const a of this.state.assignments) {
+      const q = a.questions.find((x) => x.id === questionId);
+      if (q) return { assignment: a, question: q };
+    }
+    return null;
+  }
+
+  /** Every question whose spaced-repetition record says it's due, across all sets. */
+  dueQuestions(now = Date.now()) {
+    const out = [];
+    for (const a of this.state.assignments) {
+      for (const q of a.questions) {
+        const rec = this.state.srs[q.id];
+        if (rec && isDue(rec, now)) out.push({ assignment: a, question: q, rec });
+      }
+    }
+    return out.sort((x, y) => (x.rec?.dueAt || 0) - (y.rec?.dueAt || 0));
+  }
+
   // Accepts a "doc" (sample file or model output): {type,subject,title,questions,...}
   addAssignmentDoc(doc, { silent = false } = {}) {
     const subject = this.ensureSubject(doc.subject);
@@ -138,23 +177,35 @@ class Store extends EventTarget {
   }
 
   deleteAssignment(id) {
-    this.update((s) => { s.assignments = s.assignments.filter((a) => a.id !== id); });
+    this.update((s) => {
+      s.assignments = s.assignments.filter((a) => a.id !== id);
+      delete s.sessions[id];
+    });
+  }
+
+  // ---------- in-progress sessions ----------
+  getSession(key) { return this.state.sessions[key] || null; }
+
+  saveSession(key, snapshot) {
+    this.update((s) => { s.sessions[key] = { ...snapshot, savedAt: Date.now() }; });
+  }
+
+  clearSession(key) {
+    this.update((s) => { delete s.sessions[key]; });
   }
 
   // ---------- attempts + progress ----------
   get attempts() { return this.state.attempts; }
 
+  get streak() { return currentStreak(this.state.activity.daysStudied); }
+
   recordAttempt(attempt) {
     this.update((s) => {
       s.attempts.push(attempt);
-      // activity / streak
-      const today = new Date().toISOString().slice(0, 10);
+      const today = localDayKey();
       if (!s.activity.daysStudied.includes(today)) {
         s.activity.daysStudied.push(today);
-        const y = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-        s.activity.streakCount = s.activity.lastStudyDay === y || s.activity.lastStudyDay === today
-          ? (s.activity.streakCount || 0) + 1 : 1;
-        s.activity.lastStudyDay = today;
+        s.activity.daysStudied.sort();
       }
     });
   }
