@@ -6,7 +6,7 @@ import { announce, focusHeading } from "./lib/a11y.js";
 import { renderMenu } from "./views/menu.js";
 import { renderCreate } from "./views/create.js";
 import { renderEdit } from "./views/edit.js";
-import { renderSession, renderReview } from "./views/session.js";
+import { renderSession, renderReview, renderPractice } from "./views/session.js";
 import { renderResults } from "./views/results.js";
 import { renderProgress } from "./views/progress.js";
 import { renderSettings } from "./views/settings.js";
@@ -18,6 +18,7 @@ const routes = [
   { rx: /^\/create$/, view: () => renderCreate() },
   { rx: /^\/edit\/(.+)$/, view: (m) => renderEdit(m[1]) },
   { rx: /^\/review$/, view: () => renderReview() },
+  { rx: /^\/practice\/(.+)$/, view: (m) => renderPractice(m[1]) },
   { rx: /^\/session\/(.+)$/, view: (m) => renderSession(m[1]) },
   { rx: /^\/results\/(.+)$/, view: (m) => renderResults(m[1]) },
   { rx: /^\/progress$/, view: () => renderProgress() },

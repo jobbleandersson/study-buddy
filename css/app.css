@@ -346,6 +346,9 @@ h1:focus-visible, h2:focus-visible {
   background: var(--ink); color: #fff; font-size: 12px; font-weight: 600;
   padding: 4px 8px; border-radius: 6px; white-space: nowrap;
 }
+.tutor__locked { padding: var(--s-4); text-align: center; color: var(--ink-soft); }
+.tutor__locked p:first-child { font-family: var(--font-display); font-weight: 600; margin-bottom: var(--s-2); }
+
 .typing span { display: inline-block; width: 6px; height: 6px; margin: 0 1px; border-radius: 50%; background: var(--ink-faint); animation: blink 1.2s infinite both; }
 .typing span:nth-child(2) { animation-delay: .2s; }
 .typing span:nth-child(3) { animation-delay: .4s; }

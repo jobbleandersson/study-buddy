@@ -1,10 +1,11 @@
 // Run a set of questions: question on the left, tutor chat on the right.
 //
-// A session is just {title, type, an ordered list of question ids, a cursor,
-// answers}. That shape covers a normal assignment, a test, and a cross-set
-// review session identically — and it's what gets saved so you can resume.
+// A session is {title, type, an ordered list of question ids, a cursor,
+// answers}. That shape covers a normal assignment, a test, a cross-set review
+// and a targeted practice run identically — and it's what gets saved so you
+// can resume.
 
-import { store, REVIEW_ID } from "../store.js";
+import { store, REVIEW_ID, PRACTICE_ID } from "../store.js";
 import { el, clear, icon, ICONS, uid } from "../lib/dom.js";
 import { announce } from "../lib/a11y.js";
 import { renderQuestion } from "../components/questions.js";
@@ -16,12 +17,17 @@ export async function renderSession(assignmentId) {
   if (!assignment) return notFound("That set no longer exists.");
   if (!assignment.questions.length) return notFound("That set has no questions yet.");
 
+  // Repeat runs are shuffled so a retry tests the material, not the order.
+  const isRetry = store.attempts.some((a) => a.assignmentId === assignment.id);
+
   return runSession({
     key: assignment.id,
     assignmentId: assignment.id,
     title: assignment.title,
     type: assignment.type,
+    retryHash: `#/session/${assignment.id}`,
     questionIds: assignment.questions.map((q) => q.id),
+    shuffle: isRetry,
   });
 }
 
@@ -44,8 +50,42 @@ export async function renderReview() {
     assignmentId: REVIEW_ID,
     title: "Review session",
     type: "assignment",
-    isReview: true,
+    retryHash: "#/review",
     questionIds: due.map((d) => d.question.id),
+  });
+}
+
+/** Practise just the questions missed in a given attempt. */
+export async function renderPractice(attemptId) {
+  const attempt = store.attempts.find((a) => a.id === attemptId);
+  if (!attempt) return notFound("That result is no longer available.");
+
+  const ids = (attempt.items || [])
+    .filter((i) => !i.correct)
+    .map((i) => i.questionId)
+    .filter((id) => store.findQuestion(id));
+
+  if (!ids.length) {
+    return {
+      title: "Practice",
+      node: el("div.empty", {}, [
+        icon(ICONS.check, 26),
+        el("h2", {}, "Nothing to practise"),
+        el("p", {}, "You got everything right in that session."),
+        el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, "Back to menu"),
+      ]),
+    };
+  }
+
+  return runSession({
+    key: PRACTICE_ID,
+    assignmentId: PRACTICE_ID,
+    title: "Practice",
+    type: "assignment",
+    retryHash: `#/practice/${attemptId}`,
+    questionIds: ids,
+    // Practice is where the tutoring happens after a test, so never lock it.
+    forceTutor: true,
   });
 }
 
@@ -57,24 +97,30 @@ function runSession(config) {
 
   const state = resumable
     ? { ...saved, order: saved.order.filter((id) => store.findQuestion(id)) }
-    : { ...config, order: config.questionIds, cursor: 0, items: {}, startedAt: Date.now() };
+    : freshState(config);
 
   if (!state.order.length) return notFound("These questions are no longer available.");
   state.cursor = Math.min(state.cursor, state.order.length - 1);
+  state.skipped = state.skipped || [];
+  state.choiceOrder = state.choiceOrder || {};
 
-  const tutor = new TutorChat();
+  // In a test the tutor is locked: one attempt per question, no hints, no
+  // reveal. All the teaching happens afterwards, on the results screen.
+  const testMode = config.type === "test" && !config.forceTutor;
+
+  const tutor = new TutorChat({ locked: testMode });
 
   const fill = el("div.progressbar__fill");
   const label = el("div.progress-label");
   const stage = el("div");
   const nextBtn = el("button.btn", { type: "button", disabled: true, onclick: next }, "Next");
+  const skipBtn = el("button.btn.btn--ghost", { type: "button", onclick: skip }, "Skip for now");
   const exitBtn = el("button.btn.btn--ghost", { type: "button", onclick: exit }, "Exit");
 
   function answeredCount() { return Object.keys(state.items).length; }
   function currentId() { return state.order[state.cursor]; }
+  function unansweredCount() { return state.order.filter((id) => !state.items[id]).length; }
 
-  /** Where "Continue" should drop you: the first question you haven't done.
-   *  Resuming onto an already-answered question would re-present it blank. */
   function firstUnansweredIndex() {
     const i = state.order.findIndex((id) => !state.items[id]);
     return i === -1 ? state.order.length - 1 : i;
@@ -86,10 +132,13 @@ function runSession(config) {
       assignmentId: config.assignmentId,
       title: config.title,
       type: config.type,
-      isReview: !!config.isReview,
+      retryHash: config.retryHash,
+      isReview: config.assignmentId === REVIEW_ID,
       order: state.order,
       cursor: state.cursor,
       items: state.items,
+      skipped: state.skipped,
+      choiceOrder: state.choiceOrder,
       startedAt: state.startedAt,
     });
   }
@@ -97,23 +146,42 @@ function runSession(config) {
   function paintProgress() {
     const done = answeredCount();
     fill.style.width = `${(done / state.order.length) * 100}%`;
-    label.textContent = `Question ${state.cursor + 1} of ${state.order.length} · ${done} answered`;
+    const skippedLeft = state.skipped.filter((id) => !state.items[id]).length;
+    label.textContent =
+      `Question ${state.cursor + 1} of ${state.order.length} · ${done} answered` +
+      (skippedLeft ? ` · ${skippedLeft} skipped` : "");
+  }
+
+  /** Apply this session's shuffled choice order without touching stored data. */
+  function viewQuestion(q) {
+    const perm = state.choiceOrder[q.id];
+    if (q.kind !== "mc" || !perm || !Array.isArray(q.choices)) return q;
+    return { ...q, choices: perm.map((i) => q.choices[i]), answer: perm.indexOf(q.answer) };
   }
 
   function loadQuestion() {
     clear(stage);
     const found = store.findQuestion(currentId());
-    if (!found) { skipMissing(); return; }
+    if (!found) { dropMissing(); return; }
     const { assignment, question } = found;
 
-    nextBtn.disabled = !state.items[question.id];
-    nextBtn.textContent = state.cursor === state.order.length - 1 ? "Finish" : "Next";
-    tutor.setQuestion(assignment, question);
+    const answered = !!state.items[question.id];
+    nextBtn.disabled = !answered;
+    nextBtn.textContent = unansweredCount() === 0 || (answered && state.cursor === state.order.length - 1)
+      ? "Finish" : "Next";
+
+    // Skipping is only offered while there's somewhere else to go.
+    const alreadySkipped = state.skipped.includes(question.id);
+    skipBtn.hidden = answered || alreadySkipped || unansweredCount() <= 1;
+
+    if (testMode) tutor.showLocked(config.title);
+    else tutor.setQuestion(assignment, question);
 
     const r = renderQuestion({
-      question,
-      tutor,
+      question: viewQuestion(question),
+      tutor: testMode ? null : tutor,
       live: store.hasKey(),
+      testMode,
       onDone: (result) => {
         state.items[question.id] = {
           questionId: question.id,
@@ -123,10 +191,13 @@ function runSession(config) {
           srsGrade: result.srsGrade,
           hintsUsed: result.hintsUsed || 0,
         };
+        skipBtn.hidden = true;
         nextBtn.disabled = false;
+        nextBtn.textContent = unansweredCount() === 0 ? "Finish" : "Next";
         paintProgress();
         persist();
-        announce(result.correct ? "Correct." : "Not correct. The tutor can help.");
+        if (!testMode) announce(result.correct ? "Correct." : "Not correct. The tutor can help.");
+        else announce("Answer recorded.");
       },
     });
 
@@ -134,24 +205,36 @@ function runSession(config) {
     paintProgress();
   }
 
-  function skipMissing() {
+  function dropMissing() {
     state.order = state.order.filter((id) => store.findQuestion(id));
     if (!state.order.length) { location.hash = "#/"; return; }
     state.cursor = Math.min(state.cursor, state.order.length - 1);
     loadQuestion();
   }
 
+  function skip() {
+    const id = currentId();
+    if (state.items[id] || state.skipped.includes(id) || unansweredCount() <= 1) return;
+    state.skipped.push(id);
+    state.order.splice(state.cursor, 1);
+    state.order.push(id);           // comes back at the end, not quietly dropped
+    if (state.cursor >= state.order.length) state.cursor = state.order.length - 1;
+    persist();
+    loadQuestion();
+    announce("Skipped. You'll see this one again at the end.");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   function next() {
     if (!state.items[currentId()]) return;
-    if (state.cursor < state.order.length - 1) {
-      state.cursor++;
-      persist();
-      loadQuestion();
-      announce(`Question ${state.cursor + 1} of ${state.order.length}.`);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      finish();
-    }
+    if (unansweredCount() === 0) { finish(); return; }
+    // Advance to the next question that still needs answering.
+    const remaining = firstUnansweredIndex();
+    state.cursor = remaining;
+    persist();
+    loadQuestion();
+    announce(`Question ${state.cursor + 1} of ${state.order.length}.`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function exit() {
@@ -167,8 +250,10 @@ function runSession(config) {
     const attempt = {
       id: uid(),
       assignmentId: config.assignmentId,
-      isReview: !!config.isReview,
+      isReview: config.assignmentId === REVIEW_ID,
       title: config.title,
+      retryHash: config.retryHash,
+      wasTest: config.type === "test",
       startedAt: state.startedAt,
       finishedAt: Date.now(),
       scorePct: answered.length ? Math.round((correct / answered.length) * 100) : 0,
@@ -187,14 +272,11 @@ function runSession(config) {
 
   function startOver() {
     store.clearSession(config.key);
-    state.order = config.questionIds;
-    state.cursor = 0;
-    state.items = {};
-    state.startedAt = Date.now();
+    Object.assign(state, freshState(config));
     loadQuestion();
   }
 
-  // ----- initial paint: resume prompt, or straight into the questions -----
+  // ----- initial paint -----
   if (resumable) {
     const done = answeredCount();
     const remaining = state.order.length - done;
@@ -211,6 +293,7 @@ function runSession(config) {
         el("button.btn.btn--ghost", { type: "button", onclick: startOver }, "Start over"),
       ]),
     ]));
+    skipBtn.hidden = true;
     paintProgress();
   } else {
     loadQuestion();
@@ -219,20 +302,54 @@ function runSession(config) {
   const node = el("div", {}, [
     el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", marginBottom: "8px", flexWrap: "wrap" } }, [
       el("h2", {}, config.title),
-      el("span.badge", {}, config.isReview ? "Review" : config.type === "test" ? "Test" : "Assignment"),
+      el("span.badge", {}, badgeLabel(config)),
     ]),
+    testMode ? el("p.note.note--warn", { style: { marginBottom: "10px" } },
+      "Test mode: one attempt per question and no hints. The tutor will go through it with you afterwards.") : null,
     el("div.progressbar", {}, [fill]),
     label,
     el("div.session", {}, [
       el("div", {}, [
         stage,
-        el("div.nav-row", {}, [exitBtn, nextBtn]),
+        el("div.nav-row", {}, [
+          exitBtn,
+          el("div", { style: { display: "flex", gap: "10px" } }, [skipBtn, nextBtn]),
+        ]),
       ]),
       tutor.el,
     ]),
-  ]);
+  ].filter(Boolean));
 
   return { title: config.title, node, cleanup: () => tutor.destroy() };
+}
+
+function freshState(config) {
+  const order = config.shuffle ? shuffled(config.questionIds) : [...config.questionIds];
+  const choiceOrder = {};
+  if (config.shuffle) {
+    for (const id of order) {
+      const q = store.findQuestion(id)?.question;
+      if (q?.kind === "mc" && Array.isArray(q.choices)) {
+        choiceOrder[id] = shuffled(q.choices.map((_, i) => i));
+      }
+    }
+  }
+  return { ...config, order, cursor: 0, items: {}, skipped: [], choiceOrder, startedAt: Date.now() };
+}
+
+function shuffled(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function badgeLabel(config) {
+  if (config.assignmentId === REVIEW_ID) return "Review";
+  if (config.assignmentId === PRACTICE_ID) return "Practice";
+  return config.type === "test" ? "Test" : "Assignment";
 }
 
 function notFound(message) {

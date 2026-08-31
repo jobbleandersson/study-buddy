@@ -50,13 +50,12 @@ export function masteryForAssignment(assignment, topicMastery) {
 }
 
 // Snapshot before, apply one attempt, return {topic: {before, after}}.
+// Only the topics this attempt actually covered — a Rome test shouldn't
+// report on your photosynthesis topics just because they exist.
 export function deltaFromAttempt(attempts, newAttempt) {
   const before = masteryByTopic(attempts);
   const after = masteryByTopic([...attempts, newAttempt]);
-  const topics = new Set([
-    ...Object.keys(before),
-    ...(newAttempt.items || []).map((i) => i.topic).filter(Boolean),
-  ]);
+  const topics = new Set((newAttempt.items || []).map((i) => i.topic).filter(Boolean));
   const out = {};
   for (const t of topics) out[t] = { before: before[t] ?? 0, after: after[t] ?? 0 };
   return out;

@@ -45,8 +45,13 @@ export function renderResults(attemptId) {
 
   const node = el("div.results", {}, [
     el("h1", {}, great ? "Great work! 🎉" : "Nice effort 💪"),
-    el("p.note", {}, heading),
+    el("p.note", {}, heading + (attempt.wasTest ? " · test" : "")),
     ringWrap,
+    el("p.note", { style: { marginTop: "-8px" } }, [
+      icon(ICONS.clock, 14),
+      " ",
+      elapsedLabel(attempt),
+    ]),
 
     deltaEntries.length ? el("div", {}, [
       el("h3", { style: { marginBottom: "8px" } }, "Topic mastery"),
@@ -61,16 +66,21 @@ export function renderResults(attemptId) {
     ]) : null,
 
     wrongQ.length ? el("div", { style: { marginTop: "8px", textAlign: "left" } }, [
-      el("h3", { style: { marginBottom: "8px" } }, "Worth another look"),
+      el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap", marginBottom: "8px" } }, [
+        el("h3", {}, "Worth another look"),
+        el("a.btn.btn--sm", { href: `#/practice/${attempt.id}` }, [icon(ICONS.spark, 16),
+          `Practise these ${wrongQ.length === 1 ? "" : `${wrongQ.length} `}now`]),
+      ]),
+      attempt.wasTest ? el("p.note", { style: { marginBottom: "8px" } },
+        "The tutor sat out the test — it'll work through these with you now.") : null,
       el("div.delta-list", {}, wrongQ.map((q) => el("div.delta", {}, [
         el("span", { html: renderRich(q.prompt.length > 90 ? q.prompt.slice(0, 90) + "…" : q.prompt) }),
       ]))),
-    ]) : null,
+    ].filter(Boolean)) : null,
 
     el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" } }, [
-      isReview
-        ? el("a.btn", { href: "#/review" }, "Review again")
-        : assignment && el("a.btn", { href: `#/session/${assignment.id}` }, "Try again"),
+      retryHash(attempt, assignment) && el("a.btn.btn--ghost", { href: retryHash(attempt, assignment) },
+        isReview ? "Review again" : "Try again"),
       el("a.btn.btn--ghost", { href: "#/progress" }, "See progress"),
       el("a.btn.btn--ghost", { href: "#/" }, "Back to menu"),
     ].filter(Boolean)),
@@ -87,4 +97,24 @@ function countLabel(attempt) {
   const n = (attempt.items || []).length;
   const c = (attempt.items || []).filter((i) => i.correct).length;
   return `${c} / ${n} correct`;
+}
+
+/** Attempts made before retryHash existed fall back to their assignment. */
+function retryHash(attempt, assignment) {
+  if (attempt.retryHash) return attempt.retryHash;
+  if (attempt.isReview) return "#/review";
+  return assignment ? `#/session/${assignment.id}` : null;
+}
+
+function elapsedLabel(attempt) {
+  const ms = (attempt.finishedAt || 0) - (attempt.startedAt || 0);
+  if (!(ms > 0)) return "";
+  const mins = Math.floor(ms / 60000);
+  const secs = Math.round((ms % 60000) / 1000);
+  if (mins >= 60) {
+    const h = Math.floor(mins / 60);
+    return `Took ${h}h ${mins % 60}m`;
+  }
+  if (!mins) return `Took ${secs}s`;
+  return `Took ${mins} min${secs >= 30 ? " 30s" : ""}`;
 }

@@ -18,7 +18,8 @@ async function loadScripted() {
 }
 
 export class TutorChat {
-  constructor() {
+  constructor({ locked = false } = {}) {
+    this.locked = locked;
     this.live = store.hasKey();
     this.messages = [];       // Anthropic-format history (live mode)
     this.ladderIndex = -1;    // scripted mode
@@ -42,21 +43,39 @@ export class TutorChat {
       dataset: { tip: "Voice mode — coming soon" },
     }, [icon(ICONS.mic, 18)]);
 
+    this.formEl = el("form.tutor__form", { onsubmit: (e) => { e.preventDefault(); this._submit(); } }, [
+      this.inputEl,
+      voiceBtn,
+      el("button.iconbtn", { type: "submit", "aria-label": "Send", style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]),
+    ]);
+
+    this.subEl = el("div.tutor__sub", {}, this.locked
+      ? "locked during the test"
+      : this.live ? "your tutor" : "your tutor · demo mode");
+
     this.el = el("div.tutor.card", {}, [
       el("div.tutor__head", {}, [
         this.mascotEl,
         el("div", {}, [
           el("div.tutor__title", {}, "StudyBuddy"),
-          el("div.tutor__sub", {}, this.live ? "your tutor" : "your tutor · demo mode"),
+          this.subEl,
         ]),
       ]),
       this.logEl,
-      el("form.tutor__form", { onsubmit: (e) => { e.preventDefault(); this._submit(); } }, [
-        this.inputEl,
-        voiceBtn,
-        el("button.iconbtn", { type: "submit", "aria-label": "Send", style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]),
-      ]),
+      this.formEl,
     ]);
+
+    if (this.locked) this.formEl.hidden = true;
+  }
+
+  /** Test mode: no hints while the test is running, and say why. */
+  showLocked() {
+    clear(this.logEl);
+    setMood(this.mascotEl, "thinking");
+    this.logEl.appendChild(el("div.tutor__locked", {}, [
+      el("p", {}, "I'm sitting this one out."),
+      el("p.note", {}, "It's a test, so no hints — answer as best you can. When you finish I'll go through everything you missed with you."),
+    ]));
   }
 
   async setQuestion(assignment, question) {

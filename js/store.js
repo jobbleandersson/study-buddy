@@ -27,6 +27,7 @@ export const PALETTE = [
 const DEFAULT_SUBJECTS = ["Science", "History", "Math", "English", "Geography"];
 
 export const REVIEW_ID = "__review__";
+export const PRACTICE_ID = "__practice__";
 
 function seedState() {
   return {

@@ -26,7 +26,7 @@ function shell(question, body, { showPrompt = true } = {}) {
 }
 
 /* ---------------- multiple choice ---------------- */
-function mc({ question, tutor, onDone }) {
+function mc({ question, tutor, testMode, onDone }) {
   const result = { correct: false, hintsUsed: 0 };
   let picked = -1, attempts = 0, done = false;
 
@@ -55,6 +55,21 @@ function mc({ question, tutor, onDone }) {
     attempts++;
     const correct = picked === question.answer;
     btns.forEach((b) => (b.disabled = true));
+
+    // In a test the answer is recorded as-is: no marking, no second try,
+    // no reveal. Everything is explained on the results screen instead.
+    if (testMode) {
+      done = true;
+      result.correct = correct;
+      result.hintsUsed = 0;
+      btns[picked].setAttribute("aria-pressed", "true");
+      feedback.className = "feedback";
+      feedback.textContent = "Answer recorded.";
+      checkBtn.remove();
+      onDone(finalize(result));
+      return;
+    }
+
     btns[picked].classList.add(correct ? "is-correct" : "is-wrong");
     if (correct) {
       btns[question.answer].classList.add("is-correct");
@@ -100,10 +115,11 @@ function mc({ question, tutor, onDone }) {
 }
 
 /* ---------------- short text ---------------- */
-function text({ question, tutor, live, onDone }) {
+function text({ question, tutor, live, testMode, onDone }) {
   const result = { correct: false, hintsUsed: 0 };
   const ta = el("textarea.answerbox", { placeholder: "Type your answer…", "aria-label": "Your answer" });
-  const checkBtn = el("button.btn.btn--sm", { type: "button", onclick: check }, "Check answer");
+  const checkBtn = el("button.btn.btn--sm", { type: "button", onclick: check },
+    testMode ? "Submit answer" : "Check answer");
   const feedback = el("div", {});
   const selfRate = el("div", {});
 
@@ -115,11 +131,21 @@ function text({ question, tutor, live, onDone }) {
 
     let verdict = null;
     if (live) {
-      checkBtn.textContent = "Checking…";
+      checkBtn.textContent = testMode ? "Submitting…" : "Checking…";
       try { verdict = await gradeAnswer({ question, studentAnswer: ans }); }
       catch { verdict = null; }
     }
     if (!verdict) verdict = heuristic(ans, question.answer);
+
+    // Test mode: grade silently, show nothing, move on.
+    if (testMode) {
+      result.correct = verdict.correct;
+      feedback.className = "feedback";
+      feedback.textContent = "Answer recorded.";
+      checkBtn.remove();
+      onDone(finalize(result));
+      return;
+    }
 
     feedback.className = `feedback ${verdict.correct ? "ok" : "retry"}`;
     feedback.innerHTML =
@@ -188,15 +214,19 @@ function flashcard({ question, tutor, onDone }) {
 }
 
 /* ---------------- worked problem ---------------- */
-function worked({ question, tutor, onDone }) {
+function worked({ question, tutor, live, testMode, onDone }) {
   const result = { correct: false, hintsUsed: 0 };
   const steps = question.steps || [];
-  const ta = el("textarea.answerbox", { placeholder: "Work it out here — the tutor on the right will help.", "aria-label": "Your working" });
+  const ta = el("textarea.answerbox", {
+    placeholder: testMode ? "Work it out here." : "Work it out here — the tutor on the right will help.",
+    "aria-label": "Your working",
+  });
   const revealed = el("ol", { style: { margin: "12px 0 0 18px" } });
-  const revealBtn = steps.length
+  const revealBtn = steps.length && !testMode
     ? el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: revealStep }, "Show a step")
     : null;
-  const doneBtn = el("button.btn.btn--sm", { type: "button", onclick: finish }, "I'm done — show the answer");
+  const doneBtn = el("button.btn.btn--sm", { type: "button", onclick: finish },
+    testMode ? "Submit answer" : "I'm done — show the answer");
   const feedback = el("div", {});
   const selfRate = el("div", {});
   let shown = 0;
@@ -209,7 +239,26 @@ function worked({ question, tutor, onDone }) {
     if (shown >= steps.length) revealBtn.disabled = true;
   }
 
-  function finish() {
+  async function finish() {
+    if (testMode) {
+      // Nothing is revealed during a test, so the answer has to be graded
+      // for real rather than assumed correct because something was typed.
+      const written = ta.value.trim();
+      doneBtn.disabled = true;
+      let verdict = null;
+      if (written && live) {
+        doneBtn.textContent = "Submitting…";
+        try { verdict = await gradeAnswer({ question, studentAnswer: written }); }
+        catch { verdict = null; }
+      }
+      if (!verdict) verdict = written ? heuristic(written, question.answer) : { correct: false };
+      result.correct = verdict.correct;
+      feedback.className = "feedback";
+      feedback.textContent = written ? "Answer recorded." : "Left blank.";
+      doneBtn.remove();
+      onDone(finalize(result));
+      return;
+    }
     feedback.className = "feedback ok";
     feedback.innerHTML = `<strong>Full solution:</strong> ${renderRich(question.answer)}`;
     doneBtn.remove();
