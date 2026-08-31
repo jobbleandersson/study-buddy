@@ -2,7 +2,7 @@
 //   - live:    streams from Claude (when an API key is set)
 //   - scripted: walks a hint ladder from data/samples/scripted-tutor.json (offline demo)
 
-import { el, clear, icon, ICONS } from "../lib/dom.js";
+import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { announce } from "../lib/a11y.js";
 import { markdown } from "../lib/markdown.js";
 import { mascot, setMood } from "./mascot.js";
@@ -50,10 +50,17 @@ export class TutorChat {
       type: "text", placeholder: "Ask the tutor…", "aria-label": "Message the tutor",
       onkeydown: (e) => { if (e.key === "Enter") this._submit(); },
     });
+    // Not disabled: a disabled button explains nothing on a touch screen,
+    // where there is no hover. Tapping it says why it doesn't work yet.
     const voiceBtn = el("button.iconbtn.voice-btn.tooltip", {
-      type: "button", disabled: true, "aria-label": "Voice mode (coming soon)",
+      type: "button", "aria-disabled": "true",
+      "aria-label": "Voice mode — coming soon",
       dataset: { tip: "Voice mode — coming soon" },
-    }, [icon(ICONS.mic, 18)]);
+      onclick: (e) => {
+        e.preventDefault();
+        toast("Voice mode is coming — you'll be able to talk through problems out loud.");
+      },
+    }, [icon(ICONS.mic, 18), el("span.voice-soon", {}, "soon")]);
 
     this.formEl = el("form.tutor__form", { onsubmit: (e) => { e.preventDefault(); this._submit(); } }, [
       this.inputEl,

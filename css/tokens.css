@@ -1,4 +1,4 @@
-/* StudyBuddy design tokens — "bright & playful", tuned for K–12 without being babyish.
+﻿/* StudyBuddy design tokens â€” "bright & playful", tuned for Kâ€“12 without being babyish.
    Every screen consumes these variables; avoid ad-hoc colors/sizes elsewhere. */
 
 :root {
@@ -8,30 +8,39 @@
   --surface-sunk:  #FBF3E9;
   --ink:           #2B2B3A;
   --ink-soft:      #5B5B6E;
-  --ink-faint:     #8A8A9C;
+  --ink-faint:     #6B6B7B;   /* AA on both canvas and surface; #8A8A9C was 3.2:1 */
   --line:          #ECE3D6;
   --line-strong:   #DED2BF;
 
-  /* --- brand --- */
-  --brand:         #7A5CFF;
+  /* --- brand ---
+     `--brand` sits behind white button text, so it has to clear 4.5:1.
+     `--brand-bright` keeps the original lighter purple for decoration. */
+  --brand:         #6E4EF5;
+  --brand-bright:  #7A5CFF;
   --brand-ink:     #4B33C7;
   --brand-tint:    #EFEAFF;
 
   /* --- semantic (kid-safe: success green, "try again" is warm amber, never red) --- */
-  --ok:            #2FA36B;
+  --ok:            #1B7A50;
+  --ok-bright:     #2FA36B;
+  --ok-ink:        #1C6B45;   /* text on --ok-tint */
   --ok-tint:       #E4F5EC;
   --retry:         #E8863B;
+  --retry-ink:     #9A531B;   /* text on --retry-tint, and as a standalone accent */
   --retry-tint:    #FCEEDF;
   --info:          #2E86C1;
   --info-tint:     #E4F1FA;
 
-  /* --- six subject colors: solid (accent/badge) + tint (card wash) --- */
-  --c-grape:       #7A5CFF;  --c-grape-tint:     #EDE9FF;
-  --c-ocean:       #1F9FB5;  --c-ocean-tint:     #E1F4F6;
-  --c-leaf:        #4C9F55;  --c-leaf-tint:      #E7F5E7;
-  --c-tangerine:   #F0913C;  --c-tangerine-tint: #FDEEDD;
-  --c-berry:       #E4588A;  --c-berry-tint:     #FCE7EF;
-  --c-sky:         #4C7DF0;  --c-sky-tint:       #E6EDFD;
+  /* --- six subject colors ---
+     solid = fills, bars, borders (graphical, 3:1 is enough)
+     ink   = anything with text on or of it (>= 4.5:1 against white AND its tint)
+     tint  = pale card wash */
+  --c-grape:       #7A5CFF;  --c-grape-ink:     #6B51E0;  --c-grape-tint:     #EDE9FF;
+  --c-ocean:       #1F9FB5;  --c-ocean-ink:     #177788;  --c-ocean-tint:     #E1F4F6;
+  --c-leaf:        #4C9F55;  --c-leaf-ink:      #3B7A41;  --c-leaf-tint:      #E7F5E7;
+  --c-tangerine:   #F0913C;  --c-tangerine-ink: #9C5E27;  --c-tangerine-tint: #FDEEDD;
+  --c-berry:       #E4588A;  --c-berry-ink:     #B0446A;  --c-berry-tint:     #FCE7EF;
+  --c-sky:         #4C7DF0;  --c-sky-ink:       #3E67C5;  --c-sky-tint:       #E6EDFD;
 
   /* --- typography --- */
   --font-display: "Baloo 2", "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
@@ -77,8 +86,103 @@
   }
 }
 
-/* The app is bright by design; honor dark mode only for the outer chrome so it
-   isn't a blinding rectangle on a dark desktop. Content stays on its warm canvas. */
-@media (prefers-color-scheme: dark) {
-  body { background: #14131A; }
+/* ---------------------------------------------------------------
+   Dark theme.
+   Same playful shapes and colour meanings, just re-grounded: the
+   warm cream becomes a warm-tinted charcoal, subject colours brighten
+   enough to stay legible, and every "tint" becomes a dark wash rather
+   than a pale one. Applied by [data-theme="dark"] on <html>, or by the
+   system preference when the user hasn't chosen (data-theme="system").
+   --------------------------------------------------------------- */
+:root[data-theme="dark"] {
+  --canvas:        #17161D;
+  --surface:       #201E29;
+  --surface-sunk:  #2A2733;
+  --ink:           #F1EFF7;
+  --ink-soft:      #BAB5C8;
+  --ink-faint:     #9A95A8;
+  --line:          #302D3B;
+  --line-strong:   #423E51;
+
+  /* On dark, text sits ON these colours as light-on-dark far less often, so
+     the bright hues double as the ink. */
+  --brand:         #6E4EF5;   /* white button text needs 4.5:1 here too */
+  --brand-bright:  #9179FF;
+  --brand-ink:     #B7A6FF;
+  --brand-tint:    #2B2542;
+
+  --ok:            #1B7A50;
+  --ok-bright:     #4FBF8B;
+  --ok-ink:        #7FD6A6;
+  --ok-tint:       #1B3A2B;
+  --retry:         #F2A45F;
+  --retry-ink:     #F2A45F;
+  --retry-tint:    #3B2A17;
+  --info:          #57ABDD;
+  --info-tint:     #17303F;
+
+  --c-grape:       #9179FF;  --c-grape-ink:     #7F62FF;  --c-grape-tint:     #28223D;
+  --c-ocean:       #45BCD0;  --c-ocean-ink:     #2A93A5;  --c-ocean-tint:     #14343A;
+  --c-leaf:        #6BC176;  --c-leaf-ink:      #47954F;  --c-leaf-tint:      #1B3520;
+  --c-tangerine:   #F5A65C;  --c-tangerine-ink: #C77A2F;  --c-tangerine-tint: #3B2A16;
+  --c-berry:       #F07BA6;  --c-berry-ink:     #C55074;  --c-berry-tint:     #3B1E2B;
+  --c-sky:         #7BA0F7;  --c-sky-ink:       #4E76D6;  --c-sky-tint:       #1E2740;
+
+  --shadow-1: 0 1px 2px rgba(0,0,0,.35), 0 4px 12px rgba(0,0,0,.30);
+  --shadow-2: 0 2px 6px rgba(0,0,0,.40), 0 14px 32px rgba(0,0,0,.45);
+  --ring: 0 0 0 3px var(--canvas), 0 0 0 6px var(--brand-bright);
+
+  color-scheme: dark;
 }
+
+/* On dark, subject text reads as the BRIGHT hue against its dark wash;
+   on light it reads as the darker ink against a pale wash. */
+:root[data-theme="dark"] .acard__tag { color: var(--subject, var(--brand-ink)); }
+:root[data-theme="dark"] .chip[aria-pressed="true"] { background: var(--subject-ink, var(--brand)); }
+
+/* Follow the OS only when the user hasn't picked a side. */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"] {
+    --canvas:        #17161D;
+    --surface:       #201E29;
+    --surface-sunk:  #2A2733;
+    --ink:           #F1EFF7;
+    --ink-soft:      #BAB5C8;
+    --ink-faint:     #9A95A8;
+    --line:          #302D3B;
+    --line-strong:   #423E51;
+
+    --brand:         #6E4EF5;
+    --brand-bright:  #9179FF;
+    --brand-ink:     #B7A6FF;
+    --brand-tint:    #2B2542;
+
+    --ok:            #1B7A50;
+    --ok-bright:     #4FBF8B;
+    --ok-ink:        #7FD6A6;
+    --ok-tint:       #1B3A2B;
+    --retry:         #F2A45F;
+    --retry-ink:     #F2A45F;
+    --retry-tint:    #3B2A17;
+    --info:          #57ABDD;
+    --info-tint:     #17303F;
+
+    --c-grape:       #9179FF;  --c-grape-ink:     #7F62FF;  --c-grape-tint:     #28223D;
+    --c-ocean:       #45BCD0;  --c-ocean-ink:     #2A93A5;  --c-ocean-tint:     #14343A;
+    --c-leaf:        #6BC176;  --c-leaf-ink:      #47954F;  --c-leaf-tint:      #1B3520;
+    --c-tangerine:   #F5A65C;  --c-tangerine-ink: #C77A2F;  --c-tangerine-tint: #3B2A16;
+    --c-berry:       #F07BA6;  --c-berry-ink:     #C55074;  --c-berry-tint:     #3B1E2B;
+    --c-sky:         #7BA0F7;  --c-sky-ink:       #4E76D6;  --c-sky-tint:       #1E2740;
+
+    --shadow-1: 0 1px 2px rgba(0,0,0,.35), 0 4px 12px rgba(0,0,0,.30);
+    --shadow-2: 0 2px 6px rgba(0,0,0,.40), 0 14px 32px rgba(0,0,0,.45);
+    --ring: 0 0 0 3px var(--canvas), 0 0 0 6px var(--brand-bright);
+
+    color-scheme: dark;
+  }
+
+  :root[data-theme="system"] .acard__tag { color: var(--subject, var(--brand-ink)); }
+  :root[data-theme="system"] .streakbadge { color: #21170C; }
+}
+
+

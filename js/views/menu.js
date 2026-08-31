@@ -115,7 +115,7 @@ export function renderMenu() {
       type: "button",
       "aria-pressed": String(subjectFilter === value),
       onclick: () => { subjectFilter = value; paint(); },
-      style: color ? { "--subject": color.solid } : {},
+      style: color ? { "--subject": color.solid, "--subject-ink": color.ink } : {},
     }, [color && el("span.chip__dot"), label].filter(Boolean));
   }
 
@@ -134,7 +134,7 @@ export function renderMenu() {
 
     return el("div.acard", {
       role: "button", tabindex: "0",
-      style: { "--subject": color.solid, "--subject-tint": color.tint },
+      style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
       "aria-label": `${a.title}, ${subject?.name || "General"}, ${a.questions.length} questions${open ? ", in progress" : ""}`,
       onclick: () => { location.hash = `#/session/${a.id}`; },
       onkeydown: (e) => {

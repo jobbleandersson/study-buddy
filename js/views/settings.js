@@ -1,21 +1,22 @@
-// Settings: Claude API key, model, tutor verbosity, data export/wipe, roadmap.
+﻿// Settings: Claude API key, model, tutor verbosity, data export/wipe, roadmap.
 
 import { store } from "../store.js";
 import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
 import { PRESETS, DEFAULT_PRESET } from "../claude.js";
+import { THEMES, getTheme, setTheme } from "../lib/theme.js";
 
 export function renderSettings() {
   const s = store.settings;
 
-  const keyInput = el("input", { type: "password", value: s.apiKey || "", placeholder: "sk-ant-…", autocomplete: "off", spellcheck: "false" });
+  const keyInput = el("input", { type: "password", value: s.apiKey || "", placeholder: "sk-ant-â€¦", autocomplete: "off", spellcheck: "false" });
   const showBtn = el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => {
     keyInput.type = keyInput.type === "password" ? "text" : "password";
     showBtn.textContent = keyInput.type === "password" ? "Show" : "Hide";
   } }, "Show");
   const saveKey = el("button.btn.btn--sm", { type: "button", onclick: () => {
     store.setSettings({ apiKey: keyInput.value.trim() });
-    toast(keyInput.value.trim() ? "Key saved — live tutoring is on" : "Key cleared — demo mode");
+    toast(keyInput.value.trim() ? "Key saved â€” live tutoring is on" : "Key cleared â€” demo mode");
   } }, "Save");
 
   const presetHint = el("p.note", { style: { marginTop: "6px" } });
@@ -51,15 +52,27 @@ export function renderSettings() {
   paintPreset();
 
   const verbSel = el("select", {}, [
-    opt("concise", "Concise — short hints"),
+    opt("concise", "Concise â€” short hints"),
     opt("normal", "Normal (default)"),
-    opt("detailed", "Detailed — fuller explanations"),
+    opt("detailed", "Detailed â€” fuller explanations"),
   ]);
   verbSel.value = s.tutorVerbosity || "normal";
   verbSel.addEventListener("change", () => { store.setSettings({ tutorVerbosity: verbSel.value }); toast("Tutor style updated"); });
 
+  const themeSel = el("select", { "aria-label": "Theme" },
+    THEMES.map(([v, l]) => opt(v, l)));
+  themeSel.value = getTheme();
+  themeSel.addEventListener("change", () => { setTheme(themeSel.value); toast("Theme updated"); });
+
   const node = el("div.settings", {}, [
     el("h1", {}, "Settings"),
+
+    el("section.panel", {}, [
+      el("h3", {}, "Appearance"),
+      el("label.field", { style: { marginTop: "12px", marginBottom: "0" } }, [
+        el("span", {}, "Theme"), themeSel,
+      ]),
+    ]),
 
     el("section.panel", {}, [
       el("h3", {}, "Claude API key"),
@@ -67,7 +80,7 @@ export function renderSettings() {
       el("label.field", {}, [el("span", {}, "Key"), el("div.keyrow", {}, [keyInput, showBtn, saveKey])]),
       el("p.note.note--warn", {}, [
         icon(ICONS.spark, 16),
-        " Your key is stored only in this browser (localStorage). That's fine for personal use. Don't put this app on a public website until a small backend holds the key instead — anyone visiting could otherwise use your key.",
+        " Your key is stored only in this browser (localStorage). That's fine for personal use. Don't put this app on a public website until a small backend holds the key instead â€” anyone visiting could otherwise use your key.",
       ]),
       el("p.note", { style: { marginTop: "10px" } }, [
         "Get a key at ", el("a", { href: "https://console.anthropic.com/settings/keys", target: "_blank", rel: "noopener" }, "console.anthropic.com"), ". Usage is billed to your Anthropic account.",
@@ -91,16 +104,16 @@ export function renderSettings() {
       el("p.note", { style: { margin: "6px 0 12px" } }, "Everything (assignments, attempts, progress) lives in this browser."),
       el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } }, [
         el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: exportData }, "Export JSON"),
-        el("button.btn.btn--ghost.btn--sm", { type: "button", style: { color: "var(--retry)" }, onclick: wipe }, "Wipe all data"),
+        el("button.btn.btn--ghost.btn--sm", { type: "button", style: { color: "var(--retry-ink)" }, onclick: wipe }, "Wipe all data"),
       ]),
     ]),
 
     el("section.panel", {}, [
       el("h3", { style: { marginBottom: "10px" } }, "Roadmap"),
       el("ul.roadmap", {}, [
-        el("li", {}, "Voice chat — talk through problems out loud"),
-        el("li", {}, "Accounts & sync — use StudyBuddy on any device"),
-        el("li", {}, "Parent / teacher view — assign work and track progress"),
+        el("li", {}, "Voice chat â€” talk through problems out loud"),
+        el("li", {}, "Accounts & sync â€” use StudyBuddy on any device"),
+        el("li", {}, "Parent / teacher view â€” assign work and track progress"),
         el("li", {}, "Share assignment sets with a friend"),
       ]),
     ]),
@@ -115,10 +128,10 @@ export function renderSettings() {
     function paint() {
       const { loaded, total } = store.demoStatus;
       status.textContent = loaded === 0
-        ? "Two ready-made sets (Photosynthesis Basics, Ancient Rome Quiz) you can try without an API key — the tutor works in demo mode too."
+        ? "Two ready-made sets (Photosynthesis Basics, Ancient Rome Quiz) you can try without an API key â€” the tutor works in demo mode too."
         : loaded < total
           ? `${loaded} of ${total} demo sets are in your library. You can add the missing one back, or clear them out.`
-          : "Both demo sets are in your library. They behave like any other set — study, edit, or delete them.";
+          : "Both demo sets are in your library. They behave like any other set â€” study, edit, or delete them.";
 
       clear(actions);
       if (loaded < total) {
@@ -138,7 +151,7 @@ export function renderSettings() {
       }
       if (loaded > 0) {
         actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
-          type: "button", style: { color: "var(--retry)" },
+          type: "button", style: { color: "var(--retry-ink)" },
           onclick: () => {
             if (!confirm("Remove the demo sets from your library?\n\nAny attempts you made on them stay in your history.")) return;
             store.removeDemoContent();

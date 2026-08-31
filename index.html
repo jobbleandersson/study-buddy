@@ -11,6 +11,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
+  <!-- Set the palette before first paint so there's no flash of the wrong theme. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("studybuddy.theme");
+        document.documentElement.setAttribute("data-theme",
+          ["light", "dark", "system"].indexOf(t) >= 0 ? t : "system");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "system");
+      }
+    })();
+  </script>
+
   <link rel="stylesheet" href="vendor/katex.min.css" />
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/app.css" />

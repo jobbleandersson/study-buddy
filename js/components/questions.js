@@ -111,7 +111,24 @@ function mc({ question, tutor, testMode, onDone }) {
     onDone(finalize(result));
   }
 
-  return { result, el: shell(question, el("div", {}, [list, el("div", { style: { marginTop: "16px" } }, [checkBtn]), feedback])) };
+  // A–D / 1–4 pick a choice; Enter checks it.
+  function handleKey(e) {
+    if (done) return false;
+    const letter = e.key.length === 1 ? e.key.toUpperCase().charCodeAt(0) - 65 : -1;
+    const digit = /^[1-9]$/.test(e.key) ? Number(e.key) - 1 : -1;
+    const idx = letter >= 0 && letter < btns.length ? letter : digit;
+    if (idx >= 0 && idx < btns.length && !btns[idx].disabled) {
+      picked = idx; sync(); btns[idx].focus();
+      return true;
+    }
+    if (e.key === "Enter" && picked >= 0) { check(); return true; }
+    return false;
+  }
+
+  return {
+    result, handleKey,
+    el: shell(question, el("div", {}, [list, el("div", { style: { marginTop: "16px" } }, [checkBtn]), feedback])),
+  };
 }
 
 /* ---------------- short text ---------------- */
@@ -220,7 +237,24 @@ function flashcard({ question, tutor, onDone }) {
     onDone(result);
   }
 
-  return { result, el: shell(question, el("div", {}, [card, el("p.note", { style: { marginTop: "10px" } }, "Tap the card to flip."), rate]), { showPrompt: false }) };
+  // Space flips; 1–4 rate it once it's flipped.
+  function handleKey(e) {
+    if (e.key === " ") { flip(); return true; }
+    if (flipped && /^[1-4]$/.test(e.key)) {
+      const btn = rate.children[Number(e.key) - 1];
+      if (btn && !btn.disabled) { btn.click(); return true; }
+    }
+    return false;
+  }
+
+  return {
+    result, handleKey,
+    el: shell(question, el("div", {}, [
+      card,
+      el("p.note", { style: { marginTop: "10px" } }, "Tap the card to flip, or press Space."),
+      rate,
+    ]), { showPrompt: false }),
+  };
 }
 
 /* ---------------- worked problem ---------------- */

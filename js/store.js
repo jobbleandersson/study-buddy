@@ -15,13 +15,15 @@ export const SAMPLE_FILES = [
   { id: "sample-rome", file: "data/samples/sample-test.json" },
 ];
 
+// `ink` is the text-safe variant: >= 4.5:1 against both white and its own tint.
+// `solid` is for fills and borders, where 3:1 is the bar.
 export const PALETTE = [
-  { name: "grape", solid: "#7A5CFF", tint: "#EDE9FF" },
-  { name: "ocean", solid: "#1F9FB5", tint: "#E1F4F6" },
-  { name: "leaf", solid: "#4C9F55", tint: "#E7F5E7" },
-  { name: "tangerine", solid: "#F0913C", tint: "#FDEEDD" },
-  { name: "berry", solid: "#E4588A", tint: "#FCE7EF" },
-  { name: "sky", solid: "#4C7DF0", tint: "#E6EDFD" },
+  { name: "grape", solid: "#7A5CFF", ink: "#6B51E0", tint: "#EDE9FF" },
+  { name: "ocean", solid: "#1F9FB5", ink: "#177788", tint: "#E1F4F6" },
+  { name: "leaf", solid: "#4C9F55", ink: "#3B7A41", tint: "#E7F5E7" },
+  { name: "tangerine", solid: "#F0913C", ink: "#9C5E27", tint: "#FDEEDD" },
+  { name: "berry", solid: "#E4588A", ink: "#B0446A", tint: "#FCE7EF" },
+  { name: "sky", solid: "#4C7DF0", ink: "#3E67C5", tint: "#E6EDFD" },
 ];
 
 const DEFAULT_SUBJECTS = ["Science", "History", "Math", "English", "Geography"];
@@ -150,10 +152,21 @@ class Store extends EventTarget {
   // ---------- subjects ----------
   get subjects() { return this.state.subjects; }
 
+  /**
+   * A subject's colours as CSS variable *references*, not literal hex, so the
+   * cards follow the active theme. Hard-coded hex here would keep the light
+   * palette in dark mode.
+   */
   subjectColor(subjectId) {
     const s = this.state.subjects.find((x) => x.id === subjectId);
     const p = PALETTE.find((c) => c.name === (s?.color || "grape")) || PALETTE[0];
-    return p;
+    return {
+      name: p.name,
+      solid: `var(--c-${p.name})`,
+      ink: `var(--c-${p.name}-ink)`,
+      tint: `var(--c-${p.name}-tint)`,
+      hex: p,           // literal values, for anywhere that needs a real colour
+    };
   }
 
   ensureSubject(name) {

@@ -117,6 +117,8 @@ function runSession(config) {
   const skipBtn = el("button.btn.btn--ghost", { type: "button", onclick: skip }, "Skip for now");
   const exitBtn = el("button.btn.btn--ghost", { type: "button", onclick: exit }, "Exit");
 
+  let currentRenderer = null;
+
   function answeredCount() { return Object.keys(state.items).length; }
   function currentId() { return state.order[state.cursor]; }
   function unansweredCount() { return state.order.filter((id) => !state.items[id]).length; }
@@ -205,6 +207,7 @@ function runSession(config) {
     });
 
     stage.appendChild(r.el);
+    currentRenderer = r;
     paintProgress();
   }
 
@@ -302,6 +305,72 @@ function runSession(config) {
     loadQuestion();
   }
 
+  /* ----- keyboard shortcuts ----- */
+  function onKeyDown(e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const t = e.target;
+    const typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
+
+    if (e.key === "?" || (e.key === "/" && e.shiftKey)) {
+      if (typing) return;
+      e.preventDefault(); toggleShortcuts(); return;
+    }
+    if (e.key === "Escape") { closeShortcuts(); return; }
+    if (typing) return;
+
+    if (e.key === "ArrowRight" || (e.key === "Enter" && !nextBtn.disabled && !currentRenderer)) {
+      if (!nextBtn.disabled) { e.preventDefault(); next(); }
+      return;
+    }
+    if (e.key.toLowerCase() === "s" && !skipBtn.hidden) { e.preventDefault(); skip(); return; }
+
+    if (currentRenderer?.handleKey?.(e)) { e.preventDefault(); return; }
+
+    // Enter advances once the question is done and the renderer didn't want it.
+    if (e.key === "Enter" && !nextBtn.disabled) { e.preventDefault(); next(); }
+  }
+
+  let shortcutsEl = null;
+  function toggleShortcuts() { shortcutsEl ? closeShortcuts() : openShortcuts(); }
+  function closeShortcuts() { shortcutsEl?.remove(); shortcutsEl = null; }
+  function openShortcuts() {
+    shortcutsEl = el("div.modal", { role: "dialog", "aria-modal": "true", "aria-label": "Keyboard shortcuts",
+      onclick: (e) => { if (e.target === shortcutsEl) closeShortcuts(); } }, [
+      el("div.modal__card", {}, [
+        el("h3", { style: { marginBottom: "12px" } }, "Keyboard shortcuts"),
+        el("table.preset-table", {}, [el("tbody", {}, [
+          keyRow("A – D  or  1 – 4", "Pick a multiple-choice answer"),
+          keyRow("Enter", "Check your answer, then move on"),
+          keyRow("→", "Next question"),
+          keyRow("S", "Skip for now"),
+          keyRow("Space", "Flip a flashcard"),
+          keyRow("?", "Show this list"),
+          keyRow("Esc", "Close"),
+        ])]),
+        el("button.btn.btn--ghost.btn--sm", { type: "button", style: { marginTop: "16px" }, onclick: closeShortcuts }, "Close"),
+      ]),
+    ]);
+    document.body.appendChild(shortcutsEl);
+    shortcutsEl.querySelector("button").focus();
+  }
+  function keyRow(keys, what) {
+    return el("tr", {}, [el("th", {}, el("kbd", {}, keys)), el("td", {}, what)]);
+  }
+
+  document.addEventListener("keydown", onKeyDown);
+
+  /* ----- mobile: tutor as a slide-up sheet ----- */
+  const hintFab = el("button.hintfab", {
+    type: "button",
+    onclick: () => {
+      tutor.el.classList.toggle("is-open");
+      const open = tutor.el.classList.contains("is-open");
+      hintFab.textContent = open ? "Hide tutor" : "Need a hint?";
+      if (open) tutor.el.querySelector(".tutor__log")?.scrollTo(0, 0);
+    },
+  }, "Need a hint?");
+  if (testMode) hintFab.hidden = true;
+
   const node = el("div", {}, [
     el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", marginBottom: "8px", flexWrap: "wrap" } }, [
       el("h2", {}, config.title),
@@ -321,9 +390,21 @@ function runSession(config) {
       ]),
       tutor.el,
     ]),
+    hintFab,
+    el("p.note.kbdhint", {}, [
+      "Tip: press ", el("kbd", {}, "?"), " for keyboard shortcuts.",
+    ]),
   ].filter(Boolean));
 
-  return { title: config.title, node, cleanup: () => tutor.destroy() };
+  return {
+    title: config.title,
+    node,
+    cleanup: () => {
+      document.removeEventListener("keydown", onKeyDown);
+      closeShortcuts();
+      tutor.destroy();
+    },
+  };
 }
 
 function freshState(config) {
