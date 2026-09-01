@@ -34,7 +34,6 @@ export const STRINGS = {
     /* ---- dates ---- */
     "date.today": "Today",
     "date.tomorrow": "Tomorrow",
-    "date.yesterday": "Yesterday",
     "date.inDays": "in {n} days",
     "date.inWeekOne": "in 1 week",
     "date.inWeeks": "in {n} weeks",
@@ -103,6 +102,8 @@ export const STRINGS = {
     "menu.upcoming": "Upcoming",
     "menu.upcomingStudy": "Study",
     "menu.upcomingStudyAria": "Study {title} now",
+    "menu.upcomingAll": "Show all ({n})",
+    "menu.upcomingLess": "Show fewer",
     "menu.dueLabel": "Due {date}",
 
     /* ---- due date dialog ---- */
@@ -354,7 +355,8 @@ export const STRINGS = {
 
     /* ---- settings ---- */
     "set.title": "Settings",
-    "set.appearance": "Appearance",
+    "set.lookFeel": "Look & feel",
+    "set.aiTitle": "AI",
     "set.theme": "Theme",
     "set.themeSystem": "Match my device",
     "set.themeLight": "Light",
@@ -470,7 +472,6 @@ export const STRINGS = {
     /* ---- dates ---- */
     "date.today": "Idag",
     "date.tomorrow": "Imorgon",
-    "date.yesterday": "Igår",
     "date.inDays": "om {n} dagar",
     "date.inWeekOne": "om 1 vecka",
     "date.inWeeks": "om {n} veckor",
@@ -539,6 +540,8 @@ export const STRINGS = {
     "menu.upcoming": "Kommande",
     "menu.upcomingStudy": "Plugga",
     "menu.upcomingStudyAria": "Plugga {title} nu",
+    "menu.upcomingAll": "Visa alla ({n})",
+    "menu.upcomingLess": "Visa färre",
     "menu.dueLabel": "Deadline {date}",
 
     /* ---- due date dialog ---- */
@@ -790,7 +793,8 @@ export const STRINGS = {
 
     /* ---- settings ---- */
     "set.title": "Inställningar",
-    "set.appearance": "Utseende",
+    "set.lookFeel": "Utseende & ljud",
+    "set.aiTitle": "AI",
     "set.theme": "Tema",
     "set.themeSystem": "Följ min enhet",
     "set.themeLight": "Ljust",

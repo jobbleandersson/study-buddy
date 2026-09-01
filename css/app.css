@@ -29,12 +29,14 @@ a { color: var(--brand-ink); }
   border-radius: var(--r-sm);
 }
 
-/* Headings receive focus on navigation; don't draw a box around them for it. */
-h1:focus, h2:focus, .content:focus { outline: none; }
-h1:focus-visible, h2:focus-visible {
+/* Elements with tabindex="-1" are only ever focused programmatically — we move
+   focus to a view's heading on navigation so keyboard and screen-reader users
+   start at the new content. A focus ring there is noise: the user didn't press
+   anything, and they can't Tab to it either. Genuine focus rings are untouched. */
+[tabindex="-1"]:focus,
+[tabindex="-1"]:focus-visible {
+  outline: none;
   box-shadow: none;
-  outline: 2px dashed var(--brand);
-  outline-offset: 6px;
 }
 
 /* Visible only to assistive tech. */
@@ -123,7 +125,16 @@ h1:focus-visible, h2:focus-visible {
 .btn--ghost:hover { background: var(--surface-sunk); }
 .btn--ok { background: var(--ok); }
 .btn--sm { padding: var(--s-2) var(--s-4); font-size: var(--fs-sm); }
-.btn:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+/* Not opacity — 0.5 on a coloured button drops the label to ~2.3:1 and reads as
+   broken rather than "not yet". Explicit muted colours stay legible. */
+.btn:disabled {
+  cursor: not-allowed; transform: none; box-shadow: none;
+  background: var(--surface-sunk); color: var(--ink-faint);
+  /* Softer edge than a ghost button's --line-strong, so "disabled" and
+     "secondary action" do not end up looking like the same control. */
+  border: 1px solid var(--line);
+}
+.btn:disabled:hover { transform: none; box-shadow: none; background: var(--surface-sunk); }
 
 /* ---------- cards & panels ---------- */
 .card {
@@ -145,7 +156,7 @@ h1:focus-visible, h2:focus-visible {
 }
 .tab[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-1); }
 
-.chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: var(--s-4) 0 var(--s-5); }
+.chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: 0 0 var(--s-4); }
 .chip {
   font-size: var(--fs-sm); font-weight: 600;
   border: 1px solid var(--line-strong); background: var(--surface);
@@ -159,7 +170,7 @@ h1:focus-visible, h2:focus-visible {
 .chip[aria-pressed="true"] .chip__dot { background: rgba(255,255,255,.85); }
 
 /* ---------- today strip ---------- */
-.today { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--s-3); margin-bottom: var(--s-5); }
+.today { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--s-3); margin-bottom: var(--s-4); }
 .tile {
   display: flex; align-items: center; gap: var(--s-3); text-decoration: none; color: inherit;
   padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
@@ -177,15 +188,17 @@ h1:focus-visible, h2:focus-visible {
 .tile--accent .tile__icon { background: var(--brand); color: #fff; }
 
 /* ---------- upcoming deadlines ---------- */
-.upcoming { margin-bottom: var(--s-5); }
+.upcoming { margin-bottom: var(--s-4); }
 .upcoming__title {
   display: flex; align-items: center; gap: var(--s-2);
-  font-size: var(--fs-lg); margin-bottom: var(--s-3); color: var(--ink);
+  /* Sized below the page h1 — this is a reminder strip, not the main heading. */
+  font-size: var(--fs-md); margin-bottom: var(--s-3); color: var(--ink-soft);
 }
 .upcoming__list { display: flex; flex-direction: column; gap: var(--s-2); }
 .upcoming__row {
+  /* Kept compact: three of these sit above the library on the home screen. */
   display: flex; align-items: center; gap: var(--s-3);
-  padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
+  padding: 10px var(--s-4); border-radius: var(--r-md);
   background: var(--surface); border: 1px solid var(--line);
 }
 .upcoming__row.is-soon { border-color: var(--retry); }
@@ -203,6 +216,15 @@ h1:focus-visible, h2:focus-visible {
 .upcoming__when { font-size: var(--fs-sm); font-weight: 700; color: var(--ink-soft); flex: none; }
 .upcoming__row.is-soon .upcoming__when,
 .upcoming__row.is-overdue .upcoming__when { color: var(--retry-ink); }
+/* Expander for the collapsed deadline list. Reads as a link, not a fourth
+   competing button in a section that already has one button per row. */
+.upcoming__more {
+  margin-top: var(--s-2); padding: 6px 2px;
+  border: none; background: none; cursor: pointer;
+  font-family: var(--font-display); font-weight: 600; font-size: var(--fs-sm);
+  color: var(--brand-ink); text-decoration: underline; text-underline-offset: 3px;
+}
+.upcoming__more:hover { color: var(--ink); }
 
 .acard__tag--due { background: var(--surface-sunk); color: var(--ink-soft); }
 .acard__tag--overdue { background: var(--retry-tint); color: var(--retry-ink); }
@@ -216,6 +238,14 @@ h1:focus-visible, h2:focus-visible {
 }
 
 /* ---------- search & sort ---------- */
+/* Tabs on the left, search + sort on the right, wrapping to two rows when
+   there is not enough width for both. */
+.librarybar {
+  display: flex; align-items: center; gap: var(--s-3);
+  flex-wrap: wrap; margin-bottom: var(--s-3);
+}
+.librarybar .tabs { flex: none; }
+.librarybar .tools { flex: 1; min-width: 260px; margin-bottom: 0; justify-content: flex-end; }
 .tools { display: flex; gap: var(--s-3); margin-bottom: var(--s-4); flex-wrap: wrap; }
 .search { position: relative; display: flex; align-items: center; flex: 1; min-width: 180px; color: var(--ink-faint); }
 .search svg { position: absolute; left: 12px; pointer-events: none; }
@@ -324,7 +354,13 @@ h1:focus-visible, h2:focus-visible {
 .shortcutsbtn { width: 36px; height: 36px; flex: none; }
 
 .session { display: grid; grid-template-columns: 1fr 380px; gap: var(--s-5); align-items: start; }
-.progressbar { height: 10px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; margin-bottom: var(--s-2); }
+/* The empty track was 1.05:1 against the page — invisible until it had fill.
+   The border gives the shape an edge without shouting. */
+.progressbar {
+  height: 10px; border-radius: var(--r-full); overflow: hidden; margin-bottom: var(--s-2);
+  background: color-mix(in srgb, var(--ink) 20%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--ink) 52%, var(--surface));
+}
 .progressbar__fill { height: 100%; border-radius: var(--r-full);
   background: linear-gradient(90deg, var(--c-sky), var(--c-grape));
   width: 0%; transition: width var(--dur-slow) var(--ease-spring); }
@@ -470,6 +506,27 @@ h1:focus-visible, h2:focus-visible {
 .spinner { width: 42px; height: 42px; border-radius: 50%; border: 4px solid var(--surface-sunk); border-top-color: var(--brand); animation: spin .8s linear infinite; margin: var(--s-6) auto; }
 
 /* ---------- settings ---------- */
+
+/* The three "how it looks and sounds" controls sit side by side and wrap on
+   narrow screens, instead of stacking as three separate panels. */
+.settings__row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--s-3); margin-top: var(--s-3);
+}
+.settings__row .field { margin-bottom: 0; }
+.settings__row + .note { margin-top: var(--s-3); }
+.settings__row + .note + .note { margin-top: var(--s-2); }
+
+/* Sub-heading inside a merged panel: a hairline rule carries the grouping so
+   the panel does not need to become two panels again. */
+.settings__sub {
+  font-family: var(--font-display); font-size: var(--fs-md); font-weight: 700;
+  margin-top: var(--s-5); padding-top: var(--s-4); border-top: 1px solid var(--line);
+}
+.panel > .settings__sub:first-of-type { margin-top: var(--s-4); padding-top: 0; border-top: none; }
+
+/* Not a panel — the roadmap is information, not something you can change. */
+.roadmapbox > h3 { font-size: var(--fs-md); color: var(--ink-soft); margin-bottom: var(--s-3); }
 .settings { display: grid; gap: var(--s-5); max-width: 620px; }
 .keyrow { display: flex; gap: var(--s-2); }
 .note { font-size: var(--fs-sm); color: var(--ink-soft); }
@@ -512,7 +569,8 @@ h1:focus-visible, h2:focus-visible {
 }
 kbd {
   font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 12px;
-  background: var(--surface-sunk); border: 1px solid var(--line-strong);
+  background: color-mix(in srgb, var(--ink) 20%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--ink) 52%, var(--surface));
   border-bottom-width: 2px; border-radius: 6px; padding: 2px 6px; color: var(--ink);
   white-space: nowrap;
 }

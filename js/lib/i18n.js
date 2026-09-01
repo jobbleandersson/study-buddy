@@ -105,7 +105,8 @@ export function relativeDay(dayKey, today = new Date()) {
   const d = daysUntil(dayKey, today);
   if (d === 0) return t("date.today");
   if (d === 1) return t("date.tomorrow");
-  if (d === -1) return t("date.yesterday");
+  // No "Yesterday" branch: a deadline one day past is overdue, and "Yesterday"
+  // made a missed deadline read like a neutral date stamp rather than a miss.
   if (d > 1) {
     if (d < 7) return t("date.inDays", { n: d });
     if (d < 30) return plural(Math.round(d / 7), "date.inWeekOne", "date.inWeeks");

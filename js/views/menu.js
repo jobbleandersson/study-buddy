@@ -335,9 +335,10 @@ export function renderMenu() {
     ]),
     todayStrip(),
     upcomingSection(),
-    tabsEl,
+    // Tabs and the search/sort tools are both "narrow this list" controls and
+    // each used a third of the width on its own row. One bar, two ends.
+    el("div.librarybar", {}, [tabsEl, toolsRow]),
     chipsRow,
-    toolsRow,
     countLabel,
     grid,
   ]);
@@ -395,14 +396,46 @@ function tile(href, iconPath, title, sub, accent) {
   ]);
 }
 
-/** Deadlines you've set, soonest first, each with a one-click way in. */
+/**
+ * Deadlines you've set, soonest first, each with a one-click way in.
+ *
+ * Only the next few are shown by default. Six rows at ~72px pushed the library
+ * itself below the fold on a laptop, which inverted the point of the home
+ * screen — deadlines are a reminder, not the main event. Overdue and nearest
+ * items sort first, so the collapsed view always holds the ones that matter.
+ */
+const UPCOMING_COLLAPSED = 3;
+let upcomingExpanded = false;
+
 function upcomingSection() {
   const items = store.upcomingDue();
   const section = el("section.upcoming");
   if (!items.length) { section.hidden = true; return section; }
 
   section.appendChild(el("h2.upcoming__title", {}, [icon(ICONS.calendar, 18), t("menu.upcoming")]));
-  section.appendChild(el("div.upcoming__list", {}, items.map((a) => {
+
+  const list = el("div.upcoming__list");
+  section.appendChild(list);
+
+  const more = items.length - UPCOMING_COLLAPSED;
+  const toggle = more > 0 ? el("button.upcoming__more", { type: "button" }) : null;
+  if (toggle) {
+    toggle.addEventListener("click", () => { upcomingExpanded = !upcomingExpanded; paintList(); });
+    section.appendChild(toggle);
+  }
+
+  paintList();
+  return section;
+
+  function paintList() {
+    const shown = toggle && !upcomingExpanded ? items.slice(0, UPCOMING_COLLAPSED) : items;
+    list.replaceChildren(...shown.map(row));
+    if (!toggle) return;
+    toggle.textContent = upcomingExpanded ? t("menu.upcomingLess") : t("menu.upcomingAll", { n: items.length });
+    toggle.setAttribute("aria-expanded", String(upcomingExpanded));
+  }
+
+  function row(a) {
     const left = daysUntil(a.dueAt);
     const overdue = left < 0;
     const soon = left >= 0 && left <= 1;
@@ -422,8 +455,7 @@ function upcomingSection() {
         "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
       }, t("menu.upcomingStudy")),
     ]);
-  })));
-  return section;
+  }
 }
 
 function ring(v, color) {
