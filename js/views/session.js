@@ -1,21 +1,26 @@
 // Run a set of questions: question on the left, tutor chat on the right.
 //
 // A session is {title, type, an ordered list of question ids, a cursor,
-// answers}. That shape covers a normal assignment, a test, a cross-set review
-// and a targeted practice run identically — and it's what gets saved so you
-// can resume.
+// answers}. That shape covers a normal assignment, a test, a cross-set review,
+// a targeted practice run and a weak-spots drill identically — and it's what
+// gets saved so you can resume.
 
-import { store, REVIEW_ID, PRACTICE_ID } from "../store.js";
-import { el, clear, icon, ICONS, uid } from "../lib/dom.js";
+import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID } from "../store.js";
+import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { announce } from "../lib/a11y.js";
+import { t } from "../lib/i18n.js";
 import { renderQuestion } from "../components/questions.js";
 import { TutorChat } from "../components/tutor-chat.js";
 import { review } from "../lib/srs.js";
+import { weakSpotQuestions } from "../lib/mastery.js";
+import { playCorrect, playWrong } from "../lib/sound.js";
+
+const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
 
 export async function renderSession(assignmentId) {
   const assignment = store.getAssignment(assignmentId);
-  if (!assignment) return notFound("That set no longer exists.");
-  if (!assignment.questions.length) return notFound("That set has no questions yet.");
+  if (!assignment) return notFound(t("session.goneSet"));
+  if (!assignment.questions.length) return notFound(t("session.emptySet"));
 
   // Repeat runs are shuffled so a retry tests the material, not the order.
   const isRetry = store.attempts.some((a) => a.assignmentId === assignment.id);
@@ -34,21 +39,13 @@ export async function renderSession(assignmentId) {
 export async function renderReview() {
   const due = store.dueQuestions();
   if (!due.length) {
-    return {
-      title: "Review",
-      node: el("div.empty", {}, [
-        icon(ICONS.check, 26),
-        el("h2", {}, "Nothing due right now"),
-        el("p", {}, "Spaced repetition brings questions back just before you'd forget them. Come back tomorrow, or study a set to add more."),
-        el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, "Back to menu"),
-      ]),
-    };
+    return emptyScreen(t("session.nothingDueTitle"), t("session.nothingDueBody"), t("session.badgeReview"));
   }
 
   return runSession({
     key: REVIEW_ID,
     assignmentId: REVIEW_ID,
-    title: "Review session",
+    title: t("session.reviewTitle"),
     type: "assignment",
     retryHash: "#/review",
     questionIds: due.map((d) => d.question.id),
@@ -58,7 +55,7 @@ export async function renderReview() {
 /** Practise just the questions missed in a given attempt. */
 export async function renderPractice(attemptId) {
   const attempt = store.attempts.find((a) => a.id === attemptId);
-  if (!attempt) return notFound("That result is no longer available.");
+  if (!attempt) return notFound(t("session.goneResult"));
 
   const ids = (attempt.items || [])
     .filter((i) => !i.correct)
@@ -66,25 +63,35 @@ export async function renderPractice(attemptId) {
     .filter((id) => store.findQuestion(id));
 
   if (!ids.length) {
-    return {
-      title: "Practice",
-      node: el("div.empty", {}, [
-        icon(ICONS.check, 26),
-        el("h2", {}, "Nothing to practise"),
-        el("p", {}, "You got everything right in that session."),
-        el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, "Back to menu"),
-      ]),
-    };
+    return emptyScreen(t("session.nothingPractiseTitle"), t("session.nothingPractiseBody"), t("session.badgePractice"));
   }
 
   return runSession({
     key: PRACTICE_ID,
     assignmentId: PRACTICE_ID,
-    title: "Practice",
+    title: t("session.practiceTitle"),
     type: "assignment",
     retryHash: `#/practice/${attemptId}`,
     questionIds: ids,
     // Practice is where the tutoring happens after a test, so never lock it.
+    forceTutor: true,
+  });
+}
+
+/** Drill whatever topics you keep getting wrong, across every set. */
+export async function renderWeakPractice() {
+  const weak = weakSpotQuestions(store.assignments, store.attempts);
+  if (!weak.length) {
+    return emptyScreen(t("session.noWeakTitle"), t("session.noWeakBody"), t("session.badgeWeak"));
+  }
+
+  return runSession({
+    key: WEAK_ID,
+    assignmentId: WEAK_ID,
+    title: t("session.weakTitle"),
+    type: "assignment",
+    retryHash: "#/practice-weak",
+    questionIds: weak.map((w) => w.question.id),
     forceTutor: true,
   });
 }
@@ -99,7 +106,7 @@ function runSession(config) {
     ? { ...saved, order: saved.order.filter((id) => store.findQuestion(id)) }
     : freshState(config);
 
-  if (!state.order.length) return notFound("These questions are no longer available.");
+  if (!state.order.length) return notFound(t("session.goneQuestions"));
   state.cursor = Math.min(state.cursor, state.order.length - 1);
   state.skipped = state.skipped || [];
   state.choiceOrder = state.choiceOrder || {};
@@ -113,9 +120,9 @@ function runSession(config) {
   const fill = el("div.progressbar__fill");
   const label = el("div.progress-label");
   const stage = el("div");
-  const nextBtn = el("button.btn", { type: "button", disabled: true, onclick: next }, "Next");
-  const skipBtn = el("button.btn.btn--ghost", { type: "button", onclick: skip }, "Skip for now");
-  const exitBtn = el("button.btn.btn--ghost", { type: "button", onclick: exit }, "Exit");
+  const nextBtn = el("button.btn", { type: "button", disabled: true, onclick: next }, t("session.next"));
+  const skipBtn = el("button.btn.btn--ghost", { type: "button", onclick: skip }, t("session.skip"));
+  const exitBtn = el("button.btn.btn--ghost", { type: "button", onclick: exit }, t("session.exit"));
 
   let currentRenderer = null;
 
@@ -150,8 +157,8 @@ function runSession(config) {
     fill.style.width = `${(done / state.order.length) * 100}%`;
     const skippedLeft = state.skipped.filter((id) => !state.items[id]).length;
     label.textContent =
-      `Question ${state.cursor + 1} of ${state.order.length} · ${done} answered` +
-      (skippedLeft ? ` · ${skippedLeft} skipped` : "");
+      t("session.questionOf", { n: state.cursor + 1, total: state.order.length, done })
+      + (skippedLeft ? t("session.skippedSuffix", { n: skippedLeft }) : "");
   }
 
   /** Apply this session's shuffled choice order without touching stored data. */
@@ -170,13 +177,13 @@ function runSession(config) {
     const answered = !!state.items[question.id];
     nextBtn.disabled = !answered;
     nextBtn.textContent = unansweredCount() === 0 || (answered && state.cursor === state.order.length - 1)
-      ? "Finish" : "Next";
+      ? t("session.finish") : t("session.next");
 
     // Skipping is only offered while there's somewhere else to go.
     const alreadySkipped = state.skipped.includes(question.id);
     skipBtn.hidden = answered || alreadySkipped || unansweredCount() <= 1;
 
-    if (testMode) tutor.showLocked(config.title);
+    if (testMode) tutor.showLocked();
     else tutor.setQuestion(assignment, question);
 
     const r = renderQuestion({
@@ -185,6 +192,7 @@ function runSession(config) {
       live: store.hasKey(),
       testMode,
       onDone: (result) => {
+        const isNew = !state.items[question.id];
         state.items[question.id] = {
           questionId: question.id,
           topic: question.topic,
@@ -196,13 +204,15 @@ function runSession(config) {
         };
         skipBtn.hidden = true;
         nextBtn.disabled = false;
-        nextBtn.textContent = unansweredCount() === 0 ? "Finish" : "Next";
+        nextBtn.textContent = unansweredCount() === 0 ? t("session.finish") : t("session.next");
         paintProgress();
         persist();
         // An appeal re-fires onDone for the same question; only log it once.
         if (!result.revised) tutor.recordOutcome(question, result);
-        if (!testMode) announce(result.correct ? "Correct." : "Not correct. The tutor can help.");
-        else announce("Answer recorded.");
+        // Sound follows the first verdict only — an appeal shouldn't re-chime.
+        if (isNew) (result.correct ? playCorrect : playWrong)();
+        if (!testMode) announce(result.correct ? t("session.annCorrect") : t("session.annWrong"));
+        else announce(t("session.annRecorded"));
       },
     });
 
@@ -227,7 +237,7 @@ function runSession(config) {
     if (state.cursor >= state.order.length) state.cursor = state.order.length - 1;
     persist();
     loadQuestion();
-    announce("Skipped. You'll see this one again at the end.");
+    announce(t("session.annSkipped"));
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -235,19 +245,16 @@ function runSession(config) {
     if (!state.items[currentId()]) return;
     if (unansweredCount() === 0) { finish(); return; }
     // Advance to the next question that still needs answering.
-    const remaining = firstUnansweredIndex();
-    state.cursor = remaining;
+    state.cursor = firstUnansweredIndex();
     persist();
     loadQuestion();
-    announce(`Question ${state.cursor + 1} of ${state.order.length}.`);
+    announce(t("session.annQuestion", { n: state.cursor + 1, total: state.order.length }));
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function exit() {
     persist();
-    if (confirm("Leave this session?\n\nYour progress is saved — you can pick up where you left off.")) {
-      location.hash = "#/";
-    }
+    if (confirm(t("session.exitConfirm"))) location.hash = "#/";
   }
 
   function finish() {
@@ -285,18 +292,18 @@ function runSession(config) {
   // ----- initial paint -----
   if (resumable) {
     const done = answeredCount();
-    const remaining = state.order.length - done;
+    const left = state.order.length - done;
     stage.appendChild(el("div.panel.resume", {}, [
-      el("h3", {}, "Pick up where you left off?"),
+      el("h3", {}, t("session.resumeTitle")),
       el("p.note", { style: { margin: "6px 0 16px" } },
-        `You answered ${done} of ${state.order.length} question${state.order.length === 1 ? "" : "s"} last time` +
-        (remaining ? ` — ${remaining} to go.` : ", so you're ready to finish.")),
+        left ? t("session.resumeRemaining", { n: done, total: state.order.length, left })
+             : t("session.resumeDone", { n: done, total: state.order.length })),
       el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } }, [
         el("button.btn", {
           type: "button",
           onclick: () => { state.cursor = firstUnansweredIndex(); persist(); loadQuestion(); },
-        }, [icon(ICONS.arrow, 18), "Continue"]),
-        el("button.btn.btn--ghost", { type: "button", onclick: startOver }, "Start over"),
+        }, [icon(ICONS.arrow, 18), t("session.continue")]),
+        el("button.btn.btn--ghost", { type: "button", onclick: startOver }, t("session.startOver")),
       ]),
     ]));
     skipBtn.hidden = true;
@@ -308,8 +315,8 @@ function runSession(config) {
   /* ----- keyboard shortcuts ----- */
   function onKeyDown(e) {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
-    const t = e.target;
-    const typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
+    const target = e.target;
+    const typing = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable);
 
     if (e.key === "?" || (e.key === "/" && e.shiftKey)) {
       if (typing) return;
@@ -334,20 +341,24 @@ function runSession(config) {
   function toggleShortcuts() { shortcutsEl ? closeShortcuts() : openShortcuts(); }
   function closeShortcuts() { shortcutsEl?.remove(); shortcutsEl = null; }
   function openShortcuts() {
-    shortcutsEl = el("div.modal", { role: "dialog", "aria-modal": "true", "aria-label": "Keyboard shortcuts",
-      onclick: (e) => { if (e.target === shortcutsEl) closeShortcuts(); } }, [
+    shortcutsEl = el("div.modal", {
+      role: "dialog", "aria-modal": "true", "aria-label": t("keys.title"),
+      onclick: (e) => { if (e.target === shortcutsEl) closeShortcuts(); },
+    }, [
       el("div.modal__card", {}, [
-        el("h3", { style: { marginBottom: "12px" } }, "Keyboard shortcuts"),
+        el("h3", { style: { marginBottom: "12px" } }, t("keys.title")),
         el("table.preset-table", {}, [el("tbody", {}, [
-          keyRow("A – D  or  1 – 4", "Pick a multiple-choice answer"),
-          keyRow("Enter", "Check your answer, then move on"),
-          keyRow("→", "Next question"),
-          keyRow("S", "Skip for now"),
-          keyRow("Space", "Flip a flashcard"),
-          keyRow("?", "Show this list"),
-          keyRow("Esc", "Close"),
+          keyRow("A – D  ·  1 – 4", t("keys.pick")),
+          keyRow("Enter", t("keys.enter")),
+          keyRow("→", t("keys.next")),
+          keyRow("S", t("keys.skip")),
+          keyRow("Space", t("keys.space")),
+          keyRow("?", t("keys.show")),
+          keyRow("Esc", t("keys.close")),
         ])]),
-        el("button.btn.btn--ghost.btn--sm", { type: "button", style: { marginTop: "16px" }, onclick: closeShortcuts }, "Close"),
+        el("button.btn.btn--ghost.btn--sm", {
+          type: "button", style: { marginTop: "16px" }, onclick: closeShortcuts,
+        }, t("common.close")),
       ]),
     ]);
     document.body.appendChild(shortcutsEl);
@@ -359,25 +370,44 @@ function runSession(config) {
 
   document.addEventListener("keydown", onKeyDown);
 
+  // A one-time nudge that the shortcuts exist at all — the button carries it
+  // from then on. Shown once ever, per browser.
+  let tipTimer = null;
+  try {
+    if (!localStorage.getItem(TIP_SEEN_KEY)) {
+      localStorage.setItem(TIP_SEEN_KEY, "1");
+      tipTimer = setTimeout(() => toast(t("session.shortcutTip")), 1200);
+    }
+  } catch { /* private mode — skip the tip rather than fail */ }
+
+  const shortcutsBtn = el("button.iconbtn.shortcutsbtn", {
+    type: "button",
+    "aria-label": t("session.shortcutsBtn"),
+    title: `${t("session.shortcutsBtn")}  (?)`,
+    onclick: toggleShortcuts,
+  }, [icon(ICONS.keyboard, 18)]);
+
   /* ----- mobile: tutor as a slide-up sheet ----- */
   const hintFab = el("button.hintfab", {
     type: "button",
     onclick: () => {
       tutor.el.classList.toggle("is-open");
       const open = tutor.el.classList.contains("is-open");
-      hintFab.textContent = open ? "Hide tutor" : "Need a hint?";
+      hintFab.textContent = open ? t("session.hideTutor") : t("session.needHint");
       if (open) tutor.el.querySelector(".tutor__log")?.scrollTo(0, 0);
     },
-  }, "Need a hint?");
+  }, t("session.needHint"));
   if (testMode) hintFab.hidden = true;
 
   const node = el("div", {}, [
-    el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", marginBottom: "8px", flexWrap: "wrap" } }, [
+    el("div.session__head", {}, [
       el("h2", {}, config.title),
-      el("span.badge", {}, badgeLabel(config)),
+      el("span.session__headright", {}, [
+        el("span.badge", {}, badgeLabel(config)),
+        shortcutsBtn,
+      ]),
     ]),
-    testMode ? el("p.note.note--warn", { style: { marginBottom: "10px" } },
-      "Test mode: one attempt per question and no hints. The tutor will go through it with you afterwards.") : null,
+    testMode ? el("p.note.note--warn", { style: { marginBottom: "10px" } }, t("session.testBanner")) : null,
     el("div.progressbar", {}, [fill]),
     label,
     el("div.session", {}, [
@@ -391,9 +421,6 @@ function runSession(config) {
       tutor.el,
     ]),
     hintFab,
-    el("p.note.kbdhint", {}, [
-      "Tip: press ", el("kbd", {}, "?"), " for keyboard shortcuts.",
-    ]),
   ].filter(Boolean));
 
   return {
@@ -401,6 +428,7 @@ function runSession(config) {
     node,
     cleanup: () => {
       document.removeEventListener("keydown", onKeyDown);
+      clearTimeout(tipTimer);
       closeShortcuts();
       tutor.destroy();
     },
@@ -431,18 +459,31 @@ function shuffled(arr) {
 }
 
 function badgeLabel(config) {
-  if (config.assignmentId === REVIEW_ID) return "Review";
-  if (config.assignmentId === PRACTICE_ID) return "Practice";
-  return config.type === "test" ? "Test" : "Assignment";
+  if (config.assignmentId === REVIEW_ID) return t("session.badgeReview");
+  if (config.assignmentId === PRACTICE_ID) return t("session.badgePractice");
+  if (config.assignmentId === WEAK_ID) return t("session.badgeWeak");
+  return config.type === "test" ? t("common.test") : t("common.assignment");
+}
+
+function emptyScreen(title, body, pageTitle) {
+  return {
+    title: pageTitle,
+    node: el("div.empty", {}, [
+      icon(ICONS.check, 26),
+      el("h2", {}, title),
+      el("p", {}, body),
+      el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
+    ]),
+  };
 }
 
 function notFound(message) {
   return {
-    title: "Not found",
+    title: t("session.notFoundTitle"),
     node: el("div.empty", {}, [
-      el("h2", {}, "Nothing to study here"),
+      el("h2", {}, t("session.notFoundTitle")),
       el("p", {}, message),
-      el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, "Back to menu"),
+      el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
     ]),
   };
 }

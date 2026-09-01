@@ -6,6 +6,7 @@
 
 import { store } from "./store.js";
 import { generationSystem, gradingSystem } from "./prompts.js";
+import { t } from "./lib/i18n.js";
 
 const API_URL = "https://api.anthropic.com/v1/messages";
 
@@ -16,18 +17,15 @@ const API_URL = "https://api.anthropic.com/v1/messages";
  */
 export const PRESETS = {
   balanced: {
-    label: "Balanced — recommended",
-    hint: "Best model writes your questions; a lighter one marks answers. Good quality, much lower cost.",
+    labelKey: "preset.balanced", hintKey: "preset.balancedHint",
     generate: "claude-opus-5", tutor: "claude-sonnet-5", grade: "claude-haiku-4-5",
   },
   best: {
-    label: "Best quality",
-    hint: "Claude Opus 5 for everything. The strongest tutoring, and the most expensive.",
+    labelKey: "preset.best", hintKey: "preset.bestHint",
     generate: "claude-opus-5", tutor: "claude-opus-5", grade: "claude-opus-5",
   },
   cheapest: {
-    label: "Lowest cost",
-    hint: "Fast and cheap throughout. Fine for drilling facts; weaker at explaining hard ideas.",
+    labelKey: "preset.cheapest", hintKey: "preset.cheapestHint",
     generate: "claude-sonnet-5", tutor: "claude-haiku-4-5", grade: "claude-haiku-4-5",
   },
 };
@@ -56,14 +54,14 @@ async function callJSON(body) {
   try {
     res = await fetch(API_URL, { method: "POST", headers: headers(), body: JSON.stringify(body) });
   } catch (e) {
-    throw new ClaudeError("Network error — check your connection.");
+    throw new ClaudeError(t("err.network"));
   }
   if (!res.ok) {
     let detail = "";
     try { detail = (await res.json())?.error?.message || ""; } catch {}
-    if (res.status === 401) throw new ClaudeError("That API key was rejected. Check it in Settings.");
-    if (res.status === 429) throw new ClaudeError("Rate limited by the API — wait a moment and try again.");
-    throw new ClaudeError(`API error ${res.status}${detail ? `: ${detail}` : ""}`);
+    if (res.status === 401) throw new ClaudeError(t("err.badKey"));
+    if (res.status === 429) throw new ClaudeError(t("err.rateLimited"));
+    throw new ClaudeError(detail ? t("err.apiDetail", { status: res.status, detail }) : t("err.api", { status: res.status }));
   }
   const data = await res.json();
   return data.content?.map((b) => b.text || "").join("") || "";
@@ -173,7 +171,7 @@ export async function gradeAnswer({ question, studentAnswer }) {
   const j = parseLooseJSON(raw);
   return {
     correct: !!j.correct,
-    feedback: j.feedback || (j.correct ? "Nice work!" : "Not quite — take another look."),
+    feedback: j.feedback || t(j.correct ? "q.heuristicOk" : "q.heuristicMiss"),
     missedPoints: Array.isArray(j.missedPoints) ? j.missedPoints : [],
   };
 }
@@ -197,8 +195,8 @@ export async function* tutorStream({ system, messages, signal }) {
     let detail = "";
     try { detail = (await res.json())?.error?.message || ""; } catch {}
     throw new ClaudeError(res.status === 401
-      ? "That API key was rejected. Check it in Settings."
-      : `Tutor unavailable (API ${res.status}${detail ? `: ${detail}` : ""}).`);
+      ? t("err.badKey")
+      : t("err.tutorUnavailable", { status: res.status }));
   }
 
   const reader = res.body.getReader();

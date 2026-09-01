@@ -6,6 +6,7 @@ import { renderRich } from "../lib/rich.js";
 import { extractPdfText, readImageFile, fitText } from "../material.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
 import { questionEditor } from "../components/question-editor.js";
+import { t, plural } from "../lib/i18n.js";
 
 export function renderCreate() {
   const root = el("div");
@@ -16,14 +17,14 @@ export function renderCreate() {
     topic: "",
     image: null,
     gradeHint: "",
-    subject: store.subjects[0]?.name || "General",
+    subject: store.subjects[0]?.name || t("common.general"),
     type: "assignment",
     count: 6,
     doc: null,                // generated + editable
   };
 
   function steps() {
-    const map = [["source", "Source"], ["input", "Material"], ["review", "Review"]];
+    const map = [["source", t("create.stepSource")], ["input", t("create.stepMaterial")], ["review", t("create.stepReview")]];
     const activeIdx = state.step === "generating" ? 1 : map.findIndex(([k]) => k === state.step);
     return el("div.steps", {}, map.map(([k, label], i) =>
       el("div", { class: "step" + (i <= activeIdx ? " on" : "") }, [
@@ -34,8 +35,8 @@ export function renderCreate() {
   function paint() {
     clear(root);
     root.appendChild(el("div", { style: { display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" } }, [
-      el("a.iconbtn", { href: "#/", "aria-label": "Cancel" }, [icon(ICONS.back, 18)]),
-      el("h1", {}, "New study set"),
+      el("a.iconbtn", { href: "#/", "aria-label": t("common.cancel") }, [icon(ICONS.back, 18)]),
+      el("h1", {}, t("create.title")),
     ]));
     root.appendChild(steps());
     root.appendChild(({ source: sourceStep, input: inputStep, generating: generatingStep, review: reviewStep }[state.step])());
@@ -49,16 +50,16 @@ export function renderCreate() {
     }, [el("span", {}, emoji), label, el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, desc)]);
 
     return el("div.panel", {}, [
-      el("p", { style: { marginBottom: "16px" } }, "Where should the questions come from?"),
+      el("p", { style: { marginBottom: "16px" } }, t("create.whereFrom")),
       el("div.source-grid", {}, [
-        opt("paste", "📝", "Paste text", "Notes, an article, a chapter"),
-        opt("pdf", "📄", "Upload PDF", "A worksheet or textbook page"),
-        opt("photo", "📷", "Upload photo", "A picture of a page or board"),
-        opt("topic", "💡", "Just a topic", "e.g. “Grade 5 fractions”"),
+        opt("paste", "📝", t("create.optPaste"), t("create.optPasteSub")),
+        opt("pdf", "📄", t("create.optPdf"), t("create.optPdfSub")),
+        opt("photo", "📷", t("create.optPhoto"), t("create.optPhotoSub")),
+        opt("topic", "💡", t("create.optTopic"), t("create.optTopicSub")),
       ]),
       !store.hasKey() && el("p.note.note--warn", { style: { marginTop: "16px" } }, [
-        "Generating needs a Claude API key. ", el("a", { href: "#/settings" }, "Add one in Settings"),
-        " — or explore the sample set on the menu for now.",
+        t("create.needKey"), el("a", { href: "#/settings" }, t("create.needKeyLink")),
+        t("create.needKeyTail"),
       ]),
     ]);
   }
@@ -68,18 +69,18 @@ export function renderCreate() {
     const body = el("div");
 
     if (state.source === "paste") {
-      const ta = el("textarea", { placeholder: "Paste your notes or reading here…", oninput: (e) => { state.material = e.target.value; } });
+      const ta = el("textarea", { placeholder: t("create.materialPlaceholder"), oninput: (e) => { state.material = e.target.value; } });
       ta.value = state.material;
-      body.appendChild(el("label.field", {}, [el("span", {}, "Study material"), ta]));
+      body.appendChild(el("label.field", {}, [el("span", {}, t("create.material")), ta]));
     }
 
     if (state.source === "topic") {
-      const ti = el("input", { type: "text", placeholder: "e.g. The water cycle, Grade 4", oninput: (e) => { state.topic = e.target.value; } });
+      const ti = el("input", { type: "text", placeholder: t("create.topicPlaceholder"), oninput: (e) => { state.topic = e.target.value; } });
       ti.value = state.topic;
-      body.appendChild(el("label.field", {}, [el("span", {}, "Topic"), ti]));
-      const gi = el("input", { type: "text", placeholder: "e.g. Year 8 / age 13 (optional)", oninput: (e) => { state.gradeHint = e.target.value; } });
+      body.appendChild(el("label.field", {}, [el("span", {}, t("create.topic")), ti]));
+      const gi = el("input", { type: "text", placeholder: t("create.gradePlaceholder"), oninput: (e) => { state.gradeHint = e.target.value; } });
       gi.value = state.gradeHint;
-      body.appendChild(el("label.field", {}, [el("span", {}, "Year / age level"), gi]));
+      body.appendChild(el("label.field", {}, [el("span", {}, t("create.grade")), gi]));
     }
 
     if (state.source === "pdf" || state.source === "photo") {
@@ -91,23 +92,23 @@ export function renderCreate() {
         onchange: async (e) => {
           const file = e.target.files[0];
           if (!file) return;
-          status.textContent = "Reading…"; state.material = ""; state.image = null; clear(preview);
+          status.textContent = t("create.reading"); state.material = ""; state.image = null; clear(preview);
           try {
             if (state.source === "pdf") {
               state.material = await extractPdfText(file);
-              status.textContent = `Extracted ${state.material.length.toLocaleString()} characters from “${file.name}”.`;
+              status.textContent = t("create.extracted", { n: state.material.length.toLocaleString(), name: file.name });
             } else {
               state.image = await readImageFile(file);
-              status.textContent = `Loaded “${file.name}”.`;
+              status.textContent = t("create.loadedFile", { name: file.name });
               preview.appendChild(el("img", { src: state.image.preview, alt: "", style: { maxWidth: "260px", borderRadius: "12px", border: "1px solid var(--line)" } }));
             }
           } catch (err) {
             status.className = "note note--warn";
-            status.textContent = err.message || "Could not read that file.";
+            status.textContent = err.message || t("create.readFail");
           }
         },
       });
-      body.appendChild(el("label.field", {}, [el("span", {}, state.source === "pdf" ? "PDF file" : "Photo"), input]));
+      body.appendChild(el("label.field", {}, [el("span", {}, t(state.source === "pdf" ? "create.pdfFile" : "create.photo")), input]));
       body.appendChild(status);
       body.appendChild(preview);
     }
@@ -116,18 +117,18 @@ export function renderCreate() {
     const subjectInput = el("input", { type: "text", list: "subject-list", value: state.subject, oninput: (e) => { state.subject = e.target.value; } });
     const datalist = el("datalist", { id: "subject-list" }, store.subjects.map((s) => el("option", { value: s.name })));
     const typeSel = el("select", { onchange: (e) => { state.type = e.target.value; } }, [
-      el("option", { value: "assignment" }, "Assignment (practice)"),
-      el("option", { value: "test" }, "Test (quiz)"),
+      el("option", { value: "assignment" }, t("create.typeAssignment")),
+      el("option", { value: "test" }, t("create.typeTest")),
     ]);
     typeSel.value = state.type;
     const countInput = el("input", { type: "number", min: "3", max: "15", value: state.count, oninput: (e) => { state.count = Math.max(3, Math.min(15, +e.target.value || 6)); } });
 
     const err = el("p.note.note--warn", { hidden: true });
-    const genBtn = el("button.btn", { type: "button", disabled: !store.hasKey(), onclick: generate }, [icon(ICONS.spark, 18), "Generate questions"]);
+    const genBtn = el("button.btn", { type: "button", disabled: !store.hasKey(), onclick: generate }, [icon(ICONS.spark, 18), t("create.generate")]);
 
     async function generate() {
       const hasInput = state.material.trim() || state.topic.trim() || state.image;
-      if (!hasInput) { err.hidden = false; err.textContent = "Add some material or a topic first."; return; }
+      if (!hasInput) { err.hidden = false; err.textContent = t("create.needMaterial"); return; }
       state.step = "generating"; paint();
       try {
         const doc = await generateAssignment({
@@ -137,7 +138,7 @@ export function renderCreate() {
           count: state.count,
           gradeHint: state.gradeHint.trim(),
         });
-        doc.subject = state.subject.trim() || doc.subject || "General";
+        doc.subject = state.subject.trim() || doc.subject || t("common.general");
         doc.type = state.type;
         doc.questions = doc.questions.map((q) => ({ ...q, id: uid() }));
         state.doc = doc;
@@ -145,7 +146,7 @@ export function renderCreate() {
       } catch (e) {
         state.step = "input"; paint();
         const m = root.querySelector(".note--warn");
-        const msg = e instanceof ClaudeError ? e.message : "Generation failed. Try again or simplify the material.";
+        const msg = e instanceof ClaudeError ? e.message : t("create.genFailed");
         toast(msg);
         if (m) { m.hidden = false; m.textContent = msg; }
       }
@@ -155,13 +156,13 @@ export function renderCreate() {
       body,
       datalist,
       el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" } }, [
-        el("label.field", {}, [el("span", {}, "Subject"), subjectInput]),
-        el("label.field", {}, [el("span", {}, "Type"), typeSel]),
+        el("label.field", {}, [el("span", {}, t("create.subject")), subjectInput]),
+        el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
       ]),
-      el("label.field", { style: { maxWidth: "160px" } }, [el("span", {}, "How many questions"), countInput]),
+      el("label.field", { style: { maxWidth: "160px" } }, [el("span", {}, t("create.howMany")), countInput]),
       err,
       el("div.nav-row", {}, [
-        el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "source"; paint(); } }, "Back"),
+        el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "source"; paint(); } }, t("common.back")),
         genBtn,
       ]),
     ]);
@@ -171,8 +172,8 @@ export function renderCreate() {
   function generatingStep() {
     return el("div.panel", { style: { textAlign: "center" } }, [
       el("div.spinner"),
-      el("p", {}, "Writing your questions…"),
-      el("p.note", {}, "This usually takes 10–30 seconds."),
+      el("p", {}, t("create.generating")),
+      el("p.note", {}, t("create.generatingSub")),
     ]);
   }
 
@@ -181,47 +182,54 @@ export function renderCreate() {
     const doc = state.doc;
 
     const titleInput = el("input", {
-      type: "text", value: doc.title, "aria-label": "Set title",
+      type: "text", value: doc.title, "aria-label": t("create.setTitleAria"),
       oninput: (e) => { doc.title = e.target.value; },
     });
     const subjectInput = el("input", {
-      type: "text", value: doc.subject, list: "subject-list", "aria-label": "Subject",
+      type: "text", value: doc.subject, list: "subject-list", "aria-label": t("create.subject"),
       oninput: (e) => { doc.subject = e.target.value; },
+    });
+
+    const dueInput = el("input", {
+      type: "date", value: doc.dueAt || "", "aria-label": t("create.dueDate"),
+      min: "2000-01-01", max: "2100-12-31",
     });
 
     const countNote = el("p.note");
     const editor = questionEditor(doc, {
-      onChange: (n) => { countNote.textContent = `${n} question${n === 1 ? "" : "s"} · edit anything below, then save.`; },
+      onChange: (n) => { countNote.textContent = t("create.countNote", { n: plural(n, "common.questionOne", "common.questionMany") }); },
     });
 
     function save() {
       const questions = editor.commit();
-      if (!questions.length) { toast("Add at least one question."); return; }
-      if (!doc.title.trim()) { toast("Give the set a name."); titleInput.focus(); return; }
+      if (!questions.length) { toast(t("create.addAtLeastOne")); return; }
+      if (!doc.title.trim()) { toast(t("create.giveName")); titleInput.focus(); return; }
+      doc.dueAt = dueInput.value || null;
       const saved = store.addAssignmentDoc(doc);
-      toast("Saved!");
+      toast(t("create.saved"));
       location.hash = `#/session/${saved.id}`;
     }
 
     return el("div", {}, [
       el("div.panel", {}, [
         el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" } }, [
-          el("label.field", {}, [el("span", {}, "Title"), titleInput]),
-          el("label.field", {}, [el("span", {}, "Subject"), subjectInput]),
+          el("label.field", {}, [el("span", {}, t("create.setTitle")), titleInput]),
+          el("label.field", {}, [el("span", {}, t("create.subject")), subjectInput]),
         ]),
+        el("label.field", { style: { maxWidth: "260px" } }, [el("span", {}, t("create.dueDate")), dueInput]),
         countNote,
       ]),
       editor.el,
       el("div.nav-row", {}, [
-        el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "input"; paint(); } }, "Back"),
+        el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "input"; paint(); } }, t("common.back")),
         el("div", { style: { display: "flex", gap: "10px" } }, [
-          el("button.btn.btn--ghost", { type: "button", onclick: () => editor.addQuestion() }, "+ question"),
-          el("button.btn.btn--ok", { type: "button", onclick: save }, [icon(ICONS.check, 18), "Save set"]),
+          el("button.btn.btn--ghost", { type: "button", onclick: () => editor.addQuestion() }, t("create.addQuestion")),
+          el("button.btn.btn--ok", { type: "button", onclick: save }, [icon(ICONS.check, 18), t("create.saveSet")]),
         ]),
       ]),
     ]);
   }
 
   paint();
-  return { title: "New set", node: root };
+  return { title: t("create.title"), node: root };
 }

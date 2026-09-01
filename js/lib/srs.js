@@ -2,6 +2,9 @@
 //   { ease, intervalDays, dueAt (ms), reps, lapses }
 // grade: "again" | "hard" | "good" | "easy"  (also accepts correct:boolean via fromCorrect)
 
+import { t, relativeDay } from "./i18n.js";
+import { localDayKey } from "./activity.js";
+
 const DAY = 86400000;
 
 export function fresh() {
@@ -42,13 +45,12 @@ export function isDue(rec, now = Date.now()) {
   return !rec || rec.dueAt <= now;
 }
 
+/** Reuses the same phrasing as due dates, so both lists read alike. */
 export function dueLabel(rec, now = Date.now()) {
-  if (isDue(rec, now)) return "due now";
+  if (isDue(rec, now)) return t("date.dueNow");
   const days = Math.ceil((rec.dueAt - now) / DAY);
-  if (days <= 1) return "tomorrow";
-  if (days < 7) return `in ${days} days`;
-  if (days < 30) return `in ${Math.round(days / 7)} wk`;
-  return `in ${Math.round(days / 30)} mo`;
+  const target = new Date(now + days * DAY);
+  return relativeDay(localDayKey(target), new Date(now));
 }
 
 function clamp(n, lo, hi) { return Math.min(hi, Math.max(lo, n)); }

@@ -60,3 +60,30 @@ export function deltaFromAttempt(attempts, newAttempt) {
   for (const t of topics) out[t] = { before: before[t] ?? 0, after: after[t] ?? 0 };
   return out;
 }
+
+/**
+ * Questions worth drilling because you keep getting their topic wrong.
+ * Uses the same recency-weighted mastery as everything else, so it reflects
+ * how you've been doing lately rather than your all-time average.
+ *
+ * Returns [{assignment, question, mastery}] weakest-topic first.
+ */
+export function weakSpotQuestions(assignments, attempts, { threshold = 0.6, limit = 20 } = {}) {
+  const tm = masteryByTopic(attempts);
+  const seen = new Set();
+  const out = [];
+
+  for (const a of assignments) {
+    for (const q of a.questions || []) {
+      const m = tm[q.topic];
+      // Untouched topics have unknown mastery, not weak mastery — skip them.
+      if (m == null || m >= threshold) continue;
+      if (seen.has(q.id)) continue;
+      seen.add(q.id);
+      out.push({ assignment: a, question: q, mastery: m });
+    }
+  }
+
+  out.sort((x, y) => x.mastery - y.mastery);
+  return out.slice(0, limit);
+}

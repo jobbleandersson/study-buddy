@@ -5,15 +5,17 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { deltaFromAttempt } from "../lib/mastery.js";
 import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
+import { t, plural } from "../lib/i18n.js";
+import { playFanfare } from "../lib/sound.js";
 
 export function renderResults(attemptId) {
   const attempt = store.attempts.find((a) => a.id === attemptId);
   if (!attempt) {
-    return el("div.empty", {}, [el("h2", {}, "No results to show"), el("a.btn.btn--ghost", { href: "#/" }, "Back to menu")]);
+    return el("div.empty", {}, [el("h2", {}, t("results.none")), el("a.btn.btn--ghost", { href: "#/" }, t("common.backToMenu"))]);
   }
   const assignment = store.getAssignment(attempt.assignmentId);
   const isReview = !!attempt.isReview;
-  const heading = attempt.title || assignment?.title || "Session";
+  const heading = attempt.title || assignment?.title || t("session.reviewTitle");
   const score = attempt.scorePct;
   const great = score >= 80;
 
@@ -39,13 +41,13 @@ export function renderResults(attemptId) {
     if (fg) fg.style.strokeDashoffset = String(C * (1 - score / 100));
   });
 
-  if (great) setTimeout(celebrate, 250);
+  if (great) setTimeout(() => { celebrate(); playFanfare(); }, 250);
 
   const deltaEntries = Object.entries(deltas).sort((a, b) => (b[1].after - b[1].before) - (a[1].after - a[1].before));
 
   const node = el("div.results", {}, [
-    el("h1", {}, great ? "Great work! 🎉" : "Nice effort 💪"),
-    el("p.note", {}, heading + (attempt.wasTest ? " · test" : "")),
+    el("h1", {}, t(great ? "results.great" : "results.nice")),
+    el("p.note", {}, heading + (attempt.wasTest ? t("results.testSuffix") : "")),
     ringWrap,
     el("p.note", { style: { marginTop: "-8px" } }, [
       icon(ICONS.clock, 14),
@@ -54,7 +56,7 @@ export function renderResults(attemptId) {
     ]),
 
     deltaEntries.length ? el("div", {}, [
-      el("h3", { style: { marginBottom: "8px" } }, "Topic mastery"),
+      el("h3", { style: { marginBottom: "8px" } }, t("results.topicMastery")),
       el("div.delta-list", {}, deltaEntries.map(([topic, d]) => {
         const change = Math.round((d.after - d.before) * 100);
         return el("div.delta", {}, [
@@ -67,12 +69,12 @@ export function renderResults(attemptId) {
 
     wrongQ.length ? el("div", { style: { marginTop: "8px", textAlign: "left" } }, [
       el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap", marginBottom: "8px" } }, [
-        el("h3", {}, "Worth another look"),
+        el("h3", {}, t("results.worthLook")),
         el("a.btn.btn--sm", { href: `#/practice/${attempt.id}` }, [icon(ICONS.spark, 16),
-          `Practise these ${wrongQ.length === 1 ? "" : `${wrongQ.length} `}now`]),
+          wrongQ.length === 1 ? t("results.practiseTheseOne") : t("results.practiseTheseMany", { n: wrongQ.length })]),
       ]),
       attempt.wasTest ? el("p.note", { style: { marginBottom: "8px" } },
-        "The tutor sat out the test — it'll work through these with you now.") : null,
+        t("results.tutorSatOut")) : null,
       el("div.delta-list", {}, wrongQ.map((q) => el("div.delta", {}, [
         el("span", { html: renderRich(q.prompt.length > 90 ? q.prompt.slice(0, 90) + "…" : q.prompt) }),
       ]))),
@@ -80,9 +82,9 @@ export function renderResults(attemptId) {
 
     el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" } }, [
       retryHash(attempt, assignment) && el("a.btn.btn--ghost", { href: retryHash(attempt, assignment) },
-        isReview ? "Review again" : "Try again"),
-      el("a.btn.btn--ghost", { href: "#/progress" }, "See progress"),
-      el("a.btn.btn--ghost", { href: "#/" }, "Back to menu"),
+        t(isReview ? "results.reviewAgain" : "results.tryAgain")),
+      el("a.btn.btn--ghost", { href: "#/progress" }, t("results.seeProgress")),
+      el("a.btn.btn--ghost", { href: "#/" }, t("common.backToMenu")),
     ].filter(Boolean)),
   ]);
 
@@ -90,13 +92,13 @@ export function renderResults(attemptId) {
     node.querySelectorAll(".delta__bar i").forEach((i) => { i.style.width = `${i.dataset.w}%`; });
   });
 
-  return { title: "Results", node, cleanup: clearConfetti };
+  return { title: t("results.title"), node, cleanup: clearConfetti };
 }
 
 function countLabel(attempt) {
   const n = (attempt.items || []).length;
   const c = (attempt.items || []).filter((i) => i.correct).length;
-  return `${c} / ${n} correct`;
+  return t("results.correctOf", { c, n });
 }
 
 /** Attempts made before retryHash existed fall back to their assignment. */
@@ -113,8 +115,8 @@ function elapsedLabel(attempt) {
   const secs = Math.round((ms % 60000) / 1000);
   if (mins >= 60) {
     const h = Math.floor(mins / 60);
-    return `Took ${h}h ${mins % 60}m`;
+    return t("results.tookHour", { h, m: mins % 60 });
   }
-  if (!mins) return `Took ${secs}s`;
-  return `Took ${mins} min${secs >= 30 ? " 30s" : ""}`;
+  if (!mins) return t("results.tookSec", { n: secs });
+  return t("results.tookMin", { n: mins });
 }

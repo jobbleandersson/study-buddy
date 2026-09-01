@@ -1,0 +1,63 @@
+{
+  "id": "sample-rome",
+  "type": "test",
+  "subject": "Historia",
+  "title": "Antikens Rom – prov",
+  "sourceSummary": "Viktiga personer, platser och idéer från den romerska republiken och kejsartiden.",
+  "topics": ["antikens rom"],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rome-1",
+      "kind": "mc",
+      "topic": "antikens rom",
+      "prompt": "Vem grundade enligt sägnen staden Rom?",
+      "opener": "Sägnen handlar om tvillingbröder som uppfostrades av en varginna. En av dem fick staden uppkallad efter sig.",
+      "choices": ["Julius Caesar", "Romulus", "Augustus", "Hannibal"],
+      "answer": 1,
+      "explanation": "Enligt sägnen grundade tvillingarna Romulus och Remus Rom år 753 f.Kr., och Romulus blev stadens förste kung."
+    },
+    {
+      "id": "q-rome-2",
+      "kind": "mc",
+      "topic": "antikens rom",
+      "prompt": "Vad var senaten i den romerska republiken?",
+      "opener": "Rom hade ingen ensam härskare under republiken. Så vem bestämde egentligen?",
+      "choices": [
+        "Arméns officerskår",
+        "Ett råd av ledande medborgare som rådgav om lagar och politik",
+        "En religiös högtid",
+        "Kejsarens livvakt"
+      ],
+      "answer": 1,
+      "explanation": "Senaten var en församling av erfarna statsmän (mest patricier) som styrde Roms politik, ekonomi och utrikesfrågor."
+    },
+    {
+      "id": "q-rome-3",
+      "kind": "text",
+      "topic": "antikens rom",
+      "prompt": "Nämn ett sätt som romarna gjorde resor och handel i riket enklare på, och säg kort varför det hjälpte.",
+      "answer": "De byggde ett stort nät av raka, stenlagda vägar (och även akvedukter, broar och säkra sjövägar). Bra vägar gjorde att arméer, budbärare och köpmän kunde ta sig fram snabbt och pålitligt i nästan alla väder.",
+      "rubric": "Full poäng: nämner en konkret sak (vägar/broar/akvedukter/hamnar) OCH förklarar nyttan. Halv poäng: nämner saken utan nyttan."
+    },
+    {
+      "id": "q-rome-4",
+      "kind": "mc",
+      "topic": "antikens rom",
+      "prompt": "Vem var Roms förste kejsare?",
+      "opener": "Se upp — det mest kända romerska namnet här var faktiskt aldrig kejsare. Tänk på vem som kom strax efter honom.",
+      "choices": ["Nero", "Julius Caesar", "Augustus", "Konstantin"],
+      "answer": 2,
+      "explanation": "Octavianus tog namnet Augustus och blev den förste kejsaren år 27 f.Kr., vilket avslutade republiken."
+    },
+    {
+      "id": "q-rome-5",
+      "kind": "text",
+      "topic": "antikens rom",
+      "prompt": "Förklara med en mening vad ”Pax Romana” betyder och varför det spelade roll.",
+      "opener": "”Pax” är roten till ett ord du redan kan på svenska. Börja med att översätta uttrycket.",
+      "answer": "”Pax Romana” betyder ”romersk fred” — ungefär 200 år (27 f.Kr.–180 e.Kr.) av relativt lugn i hela riket, vilket lät handel, byggande och kultur blomstra.",
+      "rubric": "Full poäng: översätter uttrycket OCH nämner att det var en lång period av stabilitet som gynnade handel/kultur. Halv poäng: bara översättningen."
+    }
+  ]
+}

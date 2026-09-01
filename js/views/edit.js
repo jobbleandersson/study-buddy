@@ -4,70 +4,79 @@
 import { store } from "../store.js";
 import { el, icon, ICONS, toast } from "../lib/dom.js";
 import { questionEditor } from "../components/question-editor.js";
+import { t, plural } from "../lib/i18n.js";
 
 export function renderEdit(assignmentId) {
   const original = store.getAssignment(assignmentId);
   if (!original) {
     return {
-      title: "Not found",
+      title: t("session.notFoundTitle"),
       node: el("div.empty", {}, [
-        el("h2", {}, "That set no longer exists"),
-        el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, "Back to menu"),
+        el("h2", {}, t("edit.gone")),
+        el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
       ]),
     };
   }
 
   // Work on a copy so Cancel really cancels.
   const draft = structuredClone(original);
-  const subjectName = store.subjects.find((s) => s.id === original.subjectId)?.name || "General";
+  const subjectName = store.subjects.find((s) => s.id === original.subjectId)?.name || t("common.general");
+  const dueInput = el("input", {
+    type: "date", value: original.dueAt || "", "aria-label": t("edit.dueDate"),
+    min: "2000-01-01", max: "2100-12-31",
+  });
 
   const titleInput = el("input", {
-    type: "text", value: draft.title, "aria-label": "Set title",
+    type: "text", value: draft.title, "aria-label": t("create.setTitleAria"),
     oninput: (e) => { draft.title = e.target.value; },
   });
   const subjectInput = el("input", {
-    type: "text", value: subjectName, list: "subject-list", "aria-label": "Subject",
+    type: "text", value: subjectName, list: "subject-list", "aria-label": t("create.subject"),
   });
-  const typeSel = el("select", { "aria-label": "Type" }, [
-    el("option", { value: "assignment" }, "Assignment (practice)"),
-    el("option", { value: "test" }, "Test (quiz)"),
+  const typeSel = el("select", { "aria-label": t("create.type") }, [
+    el("option", { value: "assignment" }, t("create.typeAssignment")),
+    el("option", { value: "test" }, t("create.typeTest")),
   ]);
   typeSel.value = draft.type;
 
   const countNote = el("p.note");
   const editor = questionEditor(draft, {
-    onChange: (n) => { countNote.textContent = `${n} question${n === 1 ? "" : "s"}`; },
+    onChange: (n) => { countNote.textContent = plural(n, "common.questionOne", "common.questionMany"); },
   });
 
   function save() {
     const title = draft.title.trim();
-    if (!title) { toast("Give the set a name"); titleInput.focus(); return; }
+    if (!title) { toast(t("edit.giveName")); titleInput.focus(); return; }
     const questions = editor.commit();
-    if (!questions.length) { toast("A set needs at least one question"); return; }
+    if (!questions.length) { toast(t("edit.needQuestion")); return; }
 
     const subject = store.ensureSubject(subjectInput.value.trim() || subjectName);
     store.updateAssignment(original.id, {
       title,
       type: typeSel.value,
       subjectId: subject.id,
+      dueAt: dueInput.value || null,
       questions,
     });
-    toast("Saved");
+    toast(t("edit.saved"));
     location.hash = "#/";
   }
 
   const node = el("div", {}, [
     el("div", { style: { display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" } }, [
-      el("a.iconbtn", { href: "#/", "aria-label": "Cancel" }, [icon(ICONS.back, 18)]),
-      el("h1", {}, "Edit set"),
+      el("a.iconbtn", { href: "#/", "aria-label": t("common.cancel") }, [icon(ICONS.back, 18)]),
+      el("h1", {}, t("edit.title")),
     ]),
 
     el("div.panel", {}, [
       el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" } }, [
-        el("label.field", {}, [el("span", {}, "Title"), titleInput]),
-        el("label.field", {}, [el("span", {}, "Subject"), subjectInput]),
+        el("label.field", {}, [el("span", {}, t("create.setTitle")), titleInput]),
+        el("label.field", {}, [el("span", {}, t("create.subject")), subjectInput]),
       ]),
-      el("label.field", { style: { maxWidth: "260px", marginBottom: "0" } }, [el("span", {}, "Type"), typeSel]),
+      el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" } }, [
+        el("label.field", { style: { marginBottom: "0" } }, [el("span", {}, t("create.type")), typeSel]),
+        el("label.field", { style: { marginBottom: "0" } }, [el("span", {}, t("edit.dueDate")), dueInput]),
+      ]),
       el("datalist", { id: "subject-list" }, store.subjects.map((s) => el("option", { value: s.name }))),
       countNote,
     ]),
@@ -75,13 +84,13 @@ export function renderEdit(assignmentId) {
     editor.el,
 
     el("div.nav-row", {}, [
-      el("a.btn.btn--ghost", { href: "#/" }, "Cancel"),
+      el("a.btn.btn--ghost", { href: "#/" }, t("common.cancel")),
       el("div", { style: { display: "flex", gap: "10px" } }, [
-        el("button.btn.btn--ghost", { type: "button", onclick: () => editor.addQuestion() }, "+ question"),
-        el("button.btn.btn--ok", { type: "button", onclick: save }, [icon(ICONS.check, 18), "Save changes"]),
+        el("button.btn.btn--ghost", { type: "button", onclick: () => editor.addQuestion() }, t("create.addQuestion")),
+        el("button.btn.btn--ok", { type: "button", onclick: save }, [icon(ICONS.check, 18), t("edit.saveChanges")]),
       ]),
     ]),
   ]);
 
-  return { title: `Edit — ${original.title}`, node };
+  return { title: t("edit.pageTitle", { title: original.title }), node };
 }

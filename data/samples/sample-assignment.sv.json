@@ -1,0 +1,59 @@
+{
+  "id": "sample-photosynthesis",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Fotosyntes – grunderna",
+  "sourceSummary": "En kort introduktion till hur växter tillverkar sin egen mat av ljus, vatten och koldioxid.",
+  "topics": ["fotosyntes", "växtceller"],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-photo-1",
+      "kind": "mc",
+      "topic": "fotosyntes",
+      "prompt": "Vilken gas tar växter IN från luften under fotosyntesen?",
+      "choices": ["Syre", "Koldioxid", "Kväve", "Väte"],
+      "answer": 1,
+      "explanation": "Växter tar upp koldioxid (CO2) och avger syre som en biprodukt."
+    },
+    {
+      "id": "q-photo-2",
+      "kind": "mc",
+      "topic": "växtceller",
+      "prompt": "I vilken del av växtcellen sker fotosyntesen huvudsakligen?",
+      "opener": "Tänk på vad som gör ett blad grönt — den delen som fångar ljuset är där jobbet görs.",
+      "choices": ["Cellkärnan", "Mitokondrien", "Kloroplasten", "Cellväggen"],
+      "answer": 2,
+      "explanation": "Kloroplasterna innehåller klorofyll, det gröna pigment som fångar ljusenergin."
+    },
+    {
+      "id": "q-photo-3",
+      "kind": "text",
+      "topic": "fotosyntes",
+      "prompt": "Förklara med en eller två meningar vad växten gör med sockret (glukosen) den tillverkar.",
+      "answer": "Växten använder glukosen som energi (genom cellandning) och för att bygga nya delar som stjälkar, blad och rötter; överskottet lagras som stärkelse.",
+      "rubric": "Full poäng: nämner både att glukosen används till energi/tillväxt OCH att den lagras som stärkelse. Halv poäng: bara en av delarna."
+    },
+    {
+      "id": "q-photo-4",
+      "kind": "flashcard",
+      "topic": "fotosyntes",
+      "prompt": "Vilka TRE saker behöver en växt för fotosyntesen?",
+      "opener": "Två av dem kommer utifrån och en kommer upp genom rötterna. Räkna dem för dig själv innan du vänder.",
+      "answer": "Ljus (solljus), vatten och koldioxid. (Klorofyllet fångar ljuset.)"
+    },
+    {
+      "id": "q-photo-5",
+      "kind": "worked",
+      "topic": "fotosyntes",
+      "prompt": "En växt står i ett mörkt skåp i en vecka. Förutsäg vad som händer med den och förklara varför, steg för steg.",
+      "answer": "Utan ljus kan växten inte utföra fotosyntes, så den tillverkar ingen ny glukos. Den förbrukar sin lagrade stärkelse som energi, bladen gulnar när klorofyllet bryts ner, tillväxten stannar av och till slut vissnar växten och kan dö.",
+      "steps": [
+        "Utan ljus kan det ljusberoende steget i fotosyntesen inte köras.",
+        "Ingen glukos tillverkas, så växten måste använda sin lagrade stärkelse.",
+        "När lagren tar slut bryts klorofyllet ner (bladen gulnar) och tillväxten stannar.",
+        "Växten vissnar och dör om den står i mörker tillräckligt länge."
+      ]
+    }
+  ]
+}

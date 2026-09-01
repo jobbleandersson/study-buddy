@@ -2,18 +2,42 @@
 // future cloud/account backend can replace persistence without touching views.
 
 import { uid } from "./lib/dom.js";
-import { localDayKey, currentStreak } from "./lib/activity.js";
+import { localDayKey, currentStreak, addDays } from "./lib/activity.js";
 import { isDue } from "./lib/srs.js";
+import { getLang } from "./lib/i18n.js";
 
 const KEY = "studybuddy.v1";
-const SCHEMA_VERSION = 4;
+const SCHEMA_VERSION = 5;
+
+/** How long an overdue date lingers before it clears itself, so a missed
+ *  deadline stays visible for a while but old ones don't pile up forever. */
+export const DUE_GRACE_DAYS = 7;
 
 /** The bundled demo sets. They are no longer seeded automatically — they live
- *  in Settings under "Demo content" so a real library starts clean. */
+ *  in Settings under "Demo content" so a real library starts clean.
+ *  `files` is per language; an unsupported language falls back to English. */
 export const SAMPLE_FILES = [
-  { id: "sample-photosynthesis", file: "data/samples/sample-assignment.json" },
-  { id: "sample-rome", file: "data/samples/sample-test.json" },
+  {
+    id: "sample-photosynthesis",
+    files: {
+      en: "data/samples/sample-assignment.json",
+      sv: "data/samples/sample-assignment.sv.json",
+    },
+  },
+  {
+    id: "sample-rome",
+    files: {
+      en: "data/samples/sample-test.json",
+      sv: "data/samples/sample-test.sv.json",
+    },
+  },
 ];
+
+function sampleFileFor(entry, lang = getLang()) {
+  return entry.files[lang] || entry.files.en;
+}
+
+const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 // `ink` is the text-safe variant: >= 4.5:1 against both white and its own tint.
 // `solid` is for fills and borders, where 3:1 is the bar.
@@ -30,11 +54,12 @@ const DEFAULT_SUBJECTS = ["Science", "History", "Math", "English", "Geography"];
 
 export const REVIEW_ID = "__review__";
 export const PRACTICE_ID = "__practice__";
+export const WEAK_ID = "__weak__";
 
 function seedState() {
   return {
     version: SCHEMA_VERSION,
-    settings: { apiKey: "", preset: "balanced", tutorVerbosity: "normal" },
+    settings: { apiKey: "", preset: "balanced", tutorVerbosity: "normal", sound: true },
     subjects: DEFAULT_SUBJECTS.map((name, i) => ({
       id: uid(), name, color: PALETTE[i % PALETTE.length].name,
     })),
@@ -80,6 +105,11 @@ function migrate(state) {
     delete s.settings.model;
   }
 
+  if (!(s.version >= 5)) {
+    // Due dates arrive. Nothing to convert — existing sets simply have none.
+    for (const a of s.assignments || []) if (!("dueAt" in a)) a.dueAt = null;
+  }
+
   s.version = SCHEMA_VERSION;
   s.settings = { ...seedState().settings, ...(s.settings || {}) };
   s.srs = s.srs || {};
@@ -103,8 +133,18 @@ class Store extends EventTarget {
     } else {
       this.state = seedState();
     }
+    this._sweepStaleDueDates();
     this.save();
     this.emit();
+  }
+
+  /** A deadline that passed more than DUE_GRACE_DAYS ago clears itself, so the
+   *  Upcoming list shows what still matters rather than every date ever set. */
+  _sweepStaleDueDates() {
+    const cutoff = addDays(localDayKey(), -DUE_GRACE_DAYS);
+    for (const a of this.state.assignments) {
+      if (a.dueAt && a.dueAt < cutoff) a.dueAt = null;
+    }
   }
 
   // ---------- demo content (Settings → Demo content) ----------
@@ -115,12 +155,16 @@ class Store extends EventTarget {
     return { loaded, total: SAMPLE_FILES.length };
   }
 
+  /** Loads the demo sets in the language that's active right now. Sets already
+   *  in the library keep whatever language they were loaded in. */
   async loadDemoContent() {
-    const docs = await Promise.all(SAMPLE_FILES.map(({ file }) =>
-      fetch(file).then((r) => {
+    const docs = await Promise.all(SAMPLE_FILES.map((entry) => {
+      const file = sampleFileFor(entry);
+      return fetch(file).then((r) => {
         if (!r.ok) throw new Error(`Could not load ${file}`);
         return r.json();
-      })));
+      });
+    }));
     let added = 0;
     for (const doc of docs) {
       if (this.getAssignment(doc.id)) continue;
@@ -218,6 +262,7 @@ class Store extends EventTarget {
       title: doc.title || "Untitled",
       sourceSummary: doc.sourceSummary || "",
       createdAt: Date.now(),
+      dueAt: DAY_RE.test(doc.dueAt || "") ? doc.dueAt : null,
       tutorStyle: doc.tutorStyle || "adaptive",
       topics: doc.topics || [...new Set((doc.questions || []).map((q) => q.topic).filter(Boolean))],
       questions: (doc.questions || []).map((q) => ({
@@ -273,6 +318,25 @@ class Store extends EventTarget {
       // Drop review scheduling for questions that no longer exist.
       for (const q of a?.questions || []) delete s.srs[q.id];
     });
+  }
+
+  // ---------- due dates ----------
+  /** dayKey is "YYYY-MM-DD", or null to clear. Rejects anything else. */
+  setDueDate(id, dayKey) {
+    const value = dayKey && DAY_RE.test(dayKey) ? dayKey : null;
+    if (dayKey && !value) return false;
+    this.update((s) => {
+      const a = s.assignments.find((x) => x.id === id);
+      if (a) a.dueAt = value;
+    });
+    return true;
+  }
+
+  /** Sets with a deadline, soonest first. Stale ones were swept at init. */
+  upcomingDue() {
+    return this.state.assignments
+      .filter((a) => !!a.dueAt)
+      .sort((x, y) => x.dueAt.localeCompare(y.dueAt));
   }
 
   // ---------- in-progress sessions ----------

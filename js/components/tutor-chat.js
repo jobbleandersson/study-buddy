@@ -7,14 +7,26 @@ import { announce } from "../lib/a11y.js";
 import { markdown } from "../lib/markdown.js";
 import { mascot, setMood } from "./mascot.js";
 import { store } from "../store.js";
-import { tutorSystem, FALLBACK_OPENERS } from "../prompts.js";
+import { tutorSystem, fallbackOpeners } from "../prompts.js";
+import { t, getLang } from "../lib/i18n.js";
 import { tutorStream, ClaudeError } from "../claude.js";
 
-let scripted = null;
+// Cached per language — switching language should pick up the other script,
+// not keep serving the one loaded first.
+const scriptedByLang = {};
+const SCRIPTED_FILES = {
+  en: "data/samples/scripted-tutor.json",
+  sv: "data/samples/scripted-tutor.sv.json",
+};
+
 async function loadScripted() {
-  if (scripted) return scripted;
-  scripted = await fetch("data/samples/scripted-tutor.json").then((r) => r.json()).catch(() => ({ generic: {}, byQuestion: {} }));
-  return scripted;
+  const lang = getLang();
+  if (scriptedByLang[lang]) return scriptedByLang[lang];
+  const file = SCRIPTED_FILES[lang] || SCRIPTED_FILES.en;
+  scriptedByLang[lang] = await fetch(file)
+    .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+    .catch(() => ({ generic: {}, byQuestion: {} }));
+  return scriptedByLang[lang];
 }
 
 export class TutorChat {
@@ -27,7 +39,7 @@ export class TutorChat {
     this.busy = false;
     this.abort = null;
     this.history = [];        // how the whole session has gone, for continuity
-    this._openerIndex = Math.floor(Math.random() * FALLBACK_OPENERS.length);
+    this._openerIndex = Math.floor(Math.random() * fallbackOpeners().length);
     this._build();
   }
 
@@ -45,38 +57,38 @@ export class TutorChat {
     this.mascotEl = mascot("idle", 40);
     // Deliberately NOT a live region: streaming text would be announced
     // character by character. Finished messages are announced once instead.
-    this.logEl = el("div.tutor__log", { "aria-live": "off", tabindex: "0", "aria-label": "Tutor conversation" });
+    this.logEl = el("div.tutor__log", { "aria-live": "off", tabindex: "0", "aria-label": t("tutor.convAria") });
     this.inputEl = el("input.tutor__input", {
-      type: "text", placeholder: "Ask the tutor…", "aria-label": "Message the tutor",
+      type: "text", placeholder: t("tutor.ask"), "aria-label": t("tutor.askAria"),
       onkeydown: (e) => { if (e.key === "Enter") this._submit(); },
     });
     // Not disabled: a disabled button explains nothing on a touch screen,
     // where there is no hover. Tapping it says why it doesn't work yet.
     const voiceBtn = el("button.iconbtn.voice-btn.tooltip", {
       type: "button", "aria-disabled": "true",
-      "aria-label": "Voice mode — coming soon",
-      dataset: { tip: "Voice mode — coming soon" },
+      "aria-label": t("tutor.voiceAria"),
+      dataset: { tip: t("tutor.voiceAria") },
       onclick: (e) => {
         e.preventDefault();
-        toast("Voice mode is coming — you'll be able to talk through problems out loud.");
+        toast(t("tutor.voiceToast"));
       },
-    }, [icon(ICONS.mic, 18), el("span.voice-soon", {}, "soon")]);
+    }, [icon(ICONS.mic, 18), el("span.voice-soon", {}, t("tutor.voiceSoon"))]);
 
     this.formEl = el("form.tutor__form", { onsubmit: (e) => { e.preventDefault(); this._submit(); } }, [
       this.inputEl,
       voiceBtn,
-      el("button.iconbtn", { type: "submit", "aria-label": "Send", style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]),
+      el("button.iconbtn", { type: "submit", "aria-label": t("tutor.send"), style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]),
     ]);
 
     this.subEl = el("div.tutor__sub", {}, this.locked
-      ? "locked during the test"
-      : this.live ? "your tutor" : "your tutor · demo mode");
+      ? t("tutor.subLocked")
+      : this.live ? t("tutor.subLive") : t("tutor.subDemo"));
 
     this.el = el("div.tutor.card", {}, [
       el("div.tutor__head", {}, [
         this.mascotEl,
         el("div", {}, [
-          el("div.tutor__title", {}, "StudyBuddy"),
+          el("div.tutor__title", {}, t("tutor.name")),
           this.subEl,
         ]),
       ]),
@@ -92,8 +104,8 @@ export class TutorChat {
     clear(this.logEl);
     setMood(this.mascotEl, "thinking");
     this.logEl.appendChild(el("div.tutor__locked", {}, [
-      el("p", {}, "I'm sitting this one out."),
-      el("p.note", {}, "It's a test, so no hints — answer as best you can. When you finish I'll go through everything you missed with you."),
+      el("p", {}, t("tutor.lockedTitle")),
+      el("p.note", {}, t("tutor.lockedBody")),
     ]));
   }
 
@@ -123,8 +135,9 @@ export class TutorChat {
     const scripted = s.byQuestion?.[question.id]?.intro;
     if (scripted) return scripted;
     if (!this.live && s.generic?.intro) return s.generic.intro;
-    this._openerIndex = (this._openerIndex + 1) % FALLBACK_OPENERS.length;
-    return FALLBACK_OPENERS[this._openerIndex];
+    const openers = fallbackOpeners();
+    this._openerIndex = (this._openerIndex + 1) % openers.length;
+    return openers[this._openerIndex];
   }
 
   // Programmatic nudge, phrased in the student's voice (e.g. after a wrong answer).
@@ -133,7 +146,7 @@ export class TutorChat {
     this._respond(studentVoicedText, { fromNote: true });
   }
 
-  celebrate(studentVoicedText = "I got it right!") {
+  celebrate(studentVoicedText = t("q.tutorRight")) {
     setMood(this.mascotEl, "cheer");
     this._respond(studentVoicedText, { correct: true });
   }
@@ -166,13 +179,14 @@ export class TutorChat {
 
     let reply;
     if (opts.correct) {
-      reply = q.correct || g.correct || "That's right — well done!";
+      reply = q.correct || g.correct || t("tutor.scriptedCorrect");
       setMood(this.mascotEl, "cheer");
     } else {
-      const stuck = /\b(i don'?t know|no idea|tell me|give up|just the answer|idk)\b/i.test(userText);
+      // "I give up" in either language jumps straight to the fullest hint.
+      const stuck = /\b(i don'?t know|no idea|tell me|give up|just the answer|idk|vet inte|ingen aning|säg svaret|ger upp|berätta)\b/i.test(userText);
       if (stuck) this.ladderIndex = ladder.length - 1;
       else this.ladderIndex = Math.min(this.ladderIndex + 1, ladder.length - 1);
-      reply = ladder[this.ladderIndex] || g.encourage || "Give it another try — you're close.";
+      reply = ladder[this.ladderIndex] || g.encourage || t("tutor.scriptedEncourage");
       setMood(this.mascotEl, this.ladderIndex >= ladder.length - 1 ? "thinking" : "encourage");
     }
     await this._typeOut(reply);
@@ -203,9 +217,9 @@ export class TutorChat {
       }
       this.messages.push({ role: "assistant", content: acc || "…" });
       setMood(this.mascotEl, opts.correct ? "cheer" : "idle");
-      announce(`Tutor: ${acc}`);
+      announce(t("tutor.prefix", { text: acc }));
     } catch (e) {
-      const msg = e instanceof ClaudeError ? e.message : "The tutor hit a snag. Try again in a moment.";
+      const msg = e instanceof ClaudeError ? e.message : t("tutor.snag");
       bubble.innerHTML = markdown(`_${msg}_`);
       this.messages.pop(); // drop the user turn that failed
     }
@@ -225,7 +239,7 @@ export class TutorChat {
         await new Promise((r) => setTimeout(r, 18));
       }
     }
-    announce(`Tutor: ${text}`);
+    announce(t("tutor.prefix", { text }));
   }
 
   _append(who, text) {

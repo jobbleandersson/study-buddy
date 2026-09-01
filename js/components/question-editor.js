@@ -8,13 +8,14 @@
 //   editor.commit()    -> drops blank questions, returns the cleaned list
 
 import { el, clear, icon, ICONS, uid } from "../lib/dom.js";
+import { t } from "../lib/i18n.js";
 
-const KINDS = [
-  ["mc", "Multiple choice"],
-  ["text", "Short answer"],
-  ["flashcard", "Flashcard"],
-  ["worked", "Worked problem"],
-];
+function kinds() { return [
+  ["mc", t("ed.kindMc")],
+  ["text", t("ed.kindText")],
+  ["flashcard", t("ed.kindFlash")],
+  ["worked", t("ed.kindWorked")],
+]; }
 
 export function questionEditor(doc, { onChange } = {}) {
   const list = el("div");
@@ -25,7 +26,7 @@ export function questionEditor(doc, { onChange } = {}) {
     clear(list);
     if (!doc.questions.length) {
       list.appendChild(el("p.note", { style: { padding: "16px 0" } },
-        "No questions yet — add one below."));
+        t("ed.none")));
     }
     doc.questions.forEach((q, i) => list.appendChild(questionBlock(q, i)));
     changed();
@@ -35,7 +36,7 @@ export function questionEditor(doc, { onChange } = {}) {
     const wrap = el("div.qedit");
 
     const promptTa = el("textarea", {
-      rows: "2", "aria-label": `Question ${idx + 1} text`,
+      rows: "2", "aria-label": t("ed.qTextAria", { n: idx + 1 }),
       oninput: (e) => { q.prompt = e.target.value; },
     });
     promptTa.value = q.prompt || "";
@@ -50,18 +51,18 @@ export function questionEditor(doc, { onChange } = {}) {
         q.choices.forEach((c, ci) => {
           const radio = el("input", {
             type: "radio", name: `correct-${q.id}`, checked: q.answer === ci,
-            "aria-label": `Choice ${String.fromCharCode(65 + ci)} is correct`,
+            "aria-label": t("ed.choiceCorrect", { letter: String.fromCharCode(65 + ci) }),
             onchange: () => { q.answer = ci; },
           });
           const text = el("input", {
             type: "text", value: c, style: { flex: "1" },
-            "aria-label": `Choice ${String.fromCharCode(65 + ci)}`,
+            "aria-label": t("ed.choiceAria", { letter: String.fromCharCode(65 + ci) }),
             oninput: (e) => { q.choices[ci] = e.target.value; },
           });
           body.appendChild(el("div.qedit__row", {}, [
             radio, text,
             q.choices.length > 2 && el("button.iconbtn.iconbtn--sm", {
-              type: "button", "aria-label": `Remove choice ${String.fromCharCode(65 + ci)}`,
+              type: "button", "aria-label": t("ed.removeChoice", { letter: String.fromCharCode(65 + ci) }),
               onclick: () => {
                 q.choices.splice(ci, 1);
                 if (q.answer >= q.choices.length) q.answer = 0;
@@ -71,21 +72,21 @@ export function questionEditor(doc, { onChange } = {}) {
             }, "×"),
           ].filter(Boolean)));
         });
-        body.appendChild(el("p.note", { style: { marginTop: "4px" } }, "Select the radio button next to the correct choice."));
+        body.appendChild(el("p.note", { style: { marginTop: "4px" } }, t("ed.selectCorrect")));
         if (q.choices.length < 5) {
           body.appendChild(el("button.btn.btn--ghost.btn--sm", {
             type: "button", style: { marginTop: "8px" },
             onclick: () => { q.choices.push(""); paintBody(); },
-          }, "+ choice"));
+          }, t("ed.addChoice")));
         }
       } else {
         const ansTa = el("textarea", {
-          rows: "2", "aria-label": "Answer",
+          rows: "2", "aria-label": t("ed.answerAria"),
           oninput: (e) => { q.answer = e.target.value; },
         });
         ansTa.value = typeof q.answer === "string" ? q.answer : "";
         body.appendChild(el("label.field", { style: { marginTop: "8px", marginBottom: "0" } }, [
-          el("span", {}, q.kind === "flashcard" ? "Back of card" : "Model answer"),
+          el("span", {}, t(q.kind === "flashcard" ? "ed.backOfCard" : "ed.modelAnswer")),
           ansTa,
         ]));
       }
@@ -93,7 +94,7 @@ export function questionEditor(doc, { onChange } = {}) {
     paintBody();
 
     const kindSel = el("select", {
-      "aria-label": "Question type",
+      "aria-label": t("ed.type"),
       onchange: (e) => {
         q.kind = e.target.value;
         if (q.kind === "mc") {
@@ -104,28 +105,28 @@ export function questionEditor(doc, { onChange } = {}) {
         }
         paintBody();
       },
-    }, KINDS.map(([v, l]) => el("option", { value: v }, l)));
+    }, kinds().map(([v, l]) => el("option", { value: v }, l)));
     kindSel.value = q.kind;
 
     const topicInput = el("input", {
       type: "text", value: q.topic || "", style: { maxWidth: "170px" },
-      placeholder: "topic", "aria-label": "Topic tag",
+      placeholder: t("ed.topicPlaceholder"), "aria-label": t("ed.topicAria"),
       oninput: (e) => { q.topic = e.target.value.toLowerCase(); },
     });
 
     wrap.appendChild(el("div.qedit__row", {}, [
-      el("span.badge", {}, `Q${idx + 1}`),
+      el("span.badge", {}, t("ed.qBadge", { n: idx + 1 })),
       kindSel,
       topicInput,
       el("span", { style: { flex: "1" } }),
       el("button.iconbtn.iconbtn--sm", {
-        type: "button", "aria-label": `Delete question ${idx + 1}`, title: "Delete question",
+        type: "button", "aria-label": t("ed.deleteQuestion", { n: idx + 1 }), title: t("ed.deleteQuestionTitle"),
         style: { color: "var(--retry-ink)" },
         onclick: () => { doc.questions.splice(idx, 1); paint(); },
       }, [icon(ICONS.trash, 15)]),
     ]));
     wrap.appendChild(el("label.field", { style: { marginBottom: "8px" } }, [
-      el("span", {}, "Question"), promptTa,
+      el("span", {}, t("ed.question")), promptTa,
     ]));
     wrap.appendChild(body);
     return wrap;

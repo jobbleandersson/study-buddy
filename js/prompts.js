@@ -1,5 +1,7 @@
 // System prompts + the shared question shape for Claude calls.
 
+import { aiLangInstruction, getLang } from "./lib/i18n.js";
+
 export const QUESTION_SHAPE = `Each question object has:
 - "kind": one of "mc" (multiple choice), "text" (short written answer), "flashcard" (recall / self-rated), "worked" (multi-step problem solved together).
 - "topic": a short lowercase topic tag (2-4 words) so progress can be tracked per topic. Reuse the same tag across related questions.
@@ -26,7 +28,7 @@ Respond with ONLY a single JSON object (no prose, no markdown fence) of this sha
   "questions": Question[]        // the questions
 }
 
-${QUESTION_SHAPE}`;
+${QUESTION_SHAPE}${aiLangInstruction()}`;
 }
 
 export function gradingSystem() {
@@ -34,7 +36,7 @@ export function gradingSystem() {
 Respond with ONLY a JSON object: { "correct": boolean, "feedback": string, "missedPoints": string[] }
 - "correct": true if the answer would earn full or near-full credit.
 - "feedback": one or two warm sentences addressed to the student ("you").
-- "missedPoints": specific things missing or wrong, [] if none.`;
+- "missedPoints": specific things missing or wrong, [] if none.${aiLangInstruction()}`;
 }
 
 /**
@@ -61,7 +63,7 @@ Use $...$ / $$...$$ for math. Address the student as "you".
 The assignment is "${assignment.title}" (${assignment.type}). The current question is:
 "${question.prompt}"
 The correct answer (for your reference only — do not just paste it): ${answerForRef(question)}
-${sessionDigest(history)}`;
+${sessionDigest(history)}${aiLangInstruction()}`;
 }
 
 function sessionDigest(history) {
@@ -85,10 +87,23 @@ function answerForRef(q) {
 }
 
 /** Used when a set predates stored openers. No API call, no repetition. */
-export const FALLBACK_OPENERS = [
-  "Have a look at this one — what's your first instinct?",
-  "Read it through once. What part of it do you already know something about?",
-  "Take a moment with this. What's the question really asking for?",
-  "What's the key word in this question? Start there.",
-  "Give it a go — I'll help if you get stuck.",
-];
+const OPENERS = {
+  en: [
+    "Have a look at this one — what's your first instinct?",
+    "Read it through once. What part of it do you already know something about?",
+    "Take a moment with this. What's the question really asking for?",
+    "What's the key word in this question? Start there.",
+    "Give it a go — I'll help if you get stuck.",
+  ],
+  sv: [
+    "Titta på den här — vad är din första ingivelse?",
+    "Läs igenom den en gång. Vilken del kan du redan något om?",
+    "Ta det lugnt med den här. Vad frågar den egentligen efter?",
+    "Vilket är nyckelordet i frågan? Börja där.",
+    "Kör på — jag hjälper till om du kör fast.",
+  ],
+};
+
+export function fallbackOpeners() {
+  return OPENERS[getLang()] || OPENERS.en;
+}

@@ -1,0 +1,48 @@
+{
+  "_note": "Används bara när ingen Claude API-nyckel är satt. Ger varje demofråga en riktig tipstrappa så att handledarpanelen går att testa helt offline.",
+  "generic": {
+    "intro": "Vi tar den här tillsammans. Fundera först — vad kan du redan som skulle kunna hjälpa?",
+    "ladder": [
+      "Bra början. Testa att dela upp frågan i mindre delar — vad frågar den egentligen efter?",
+      "Här kommer en knuff: fokusera på nyckelordet i frågan och vad det hänger ihop med. Vad kommer du på?",
+      "Okej, vi går igenom den. Titta på definitionen av huvudbegreppet och tillämpa den direkt på det frågan beskriver. Gissa nu så bekräftar jag."
+    ],
+    "correct": "Precis rätt — snyggt jobbat. Vill du berätta *varför* det är svaret, med egna ord? Att förklara gör att det fastnar.",
+    "encourage": "Du är nära. Strunta i att få det perfekt — det är därför man övar. Testa en gång till."
+  },
+  "byQuestion": {
+    "q-photo-1": {
+      "intro": "Tänk på andning fast tvärtom. Du andas ut koldioxid — vad skulle en växt vilja med den?",
+      "ladder": [
+        "Växter och djur byter liksom gaser med varandra. Djur tar in syre och avger koldioxid. Växter gör tvärtom på dagen.",
+        "Så under fotosyntesen tar växten IN en gas och avger syre. Vilken gas går in?"
+      ],
+      "correct": "Ja! Koldioxid in, syre ut. Kolet från koldioxiden hamnar i sockret som växten bygger."
+    },
+    "q-photo-3": {
+      "intro": "Växten har just tillverkat glukos (ett socker). Socker är i princip lagrad energi och byggmaterial. Vilka två olika saker skulle den kunna göra med det?",
+      "ladder": [
+        "En användning är direkt: att ”förbränna” glukos i cellandningen för att driva cellens arbete.",
+        "Den andra är långsiktig: finns det glukos över kopplar växten ihop den till långa kedjor som kallas stärkelse och lagrar den i rötter, frön eller knölar."
+      ],
+      "correct": "Det stämmer — energi nu (cellandning och tillväxt) plus lagring som stärkelse till senare."
+    },
+    "q-photo-5": {
+      "intro": "Inget ljus på en vecka. Börja vid allra första steget i fotosyntesen — vad kan inte hända?",
+      "ladder": [
+        "Just det, de ljusberoende reaktionerna stannar av utan ljus, så ingen glukos tillverkas.",
+        "Om den inte kan tillverka mat, vad måste den leva på i stället? Tänk på var dess reserver finns.",
+        "Den förbrukar den lagrade stärkelsen. Sedan bryts klorofyllet ner (bladen gulnar), tillväxten stannar och den vissnar. Sätt ihop den kedjan åt mig."
+      ],
+      "correct": "Fin resonemangskedja: inget ljus -> ingen glukos -> förbrukar lagrad stärkelse -> klorofyllet bryts ner och bladen gulnar -> vissnar."
+    },
+    "q-rome-3": {
+      "intro": "Föreställ dig att flytta en armé eller ett lass spannmål från Spanien till Rom. Vad byggde romarna som är känt för att göra den resan snabbare?",
+      "ladder": [
+        "De är kända för en typ av byggnadsverk som finns kvar än idag och går spikrakt genom landskapet.",
+        "Vägar. Nu andra halvan — *varför* hjälper ett bra vägnät ett rike att hålla ihop?"
+      ],
+      "correct": "Just det — vägar (och även broar, hamnar, akvedukter). De lät soldater, budbärare och handelsmän ta sig fram snabbt och pålitligt, vilket håller ihop ett stort rike."
+    }
+  }
+}

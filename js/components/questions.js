@@ -8,6 +8,7 @@ import { el, clear, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { gradeAnswer } from "../claude.js";
 import { fromCorrect } from "../lib/srs.js";
+import { t } from "../lib/i18n.js";
 
 export function renderQuestion(opts) {
   switch (opts.question.kind) {
@@ -39,7 +40,7 @@ function mc({ question, tutor, testMode, onDone }) {
       el("span", { html: renderRich(c) }),
     ]));
 
-  const checkBtn = el("button.btn.btn--sm", { type: "button", disabled: true, onclick: check }, "Check answer");
+  const checkBtn = el("button.btn.btn--sm", { type: "button", disabled: true, onclick: check }, t("q.check"));
   const feedback = el("div", {});
   const list = el("div.choices", {}, btns);
 
@@ -64,7 +65,7 @@ function mc({ question, tutor, testMode, onDone }) {
       result.hintsUsed = 0;
       btns[picked].setAttribute("aria-pressed", "true");
       feedback.className = "feedback";
-      feedback.textContent = "Answer recorded.";
+      feedback.textContent = t("q.recorded");
       checkBtn.remove();
       onDone(finalize(result));
       return;
@@ -77,17 +78,17 @@ function mc({ question, tutor, testMode, onDone }) {
       result.correct = true;
       result.hintsUsed = attempts - 1;
       feedback.className = "feedback ok";
-      feedback.innerHTML = renderRich(question.explanation || "Correct!");
+      feedback.innerHTML = renderRich(question.explanation || t("q.correct"));
       checkBtn.remove();
-      tutor?.celebrate("I picked the right one!");
+      tutor?.celebrate(t("q.tutorRight"));
       onDone(finalize(result));
     } else {
       result.hintsUsed = attempts;
       feedback.className = "feedback retry";
       feedback.textContent = attempts >= 2
-        ? "Still not right. Read the tutor's hint, then pick again — or reveal the answer below."
-        : "Not quite — have another go.";
-      tutor?.note(`I chose "${question.choices[picked]}" and it's wrong. Can you help me see why?`);
+        ? t("q.stillNotRight")
+        : t("q.notQuite");
+      tutor?.note(t("q.tutorWrongMc", { choice: question.choices[picked] }));
       triedWrong.add(picked);
       btns.forEach((b, i) => {
         b.setAttribute("aria-pressed", "false");
@@ -95,7 +96,7 @@ function mc({ question, tutor, testMode, onDone }) {
       });
       picked = -1; checkBtn.disabled = true;
       if (attempts >= 2 && !document.getElementById("mc-reveal")) {
-        const reveal = el("button.btn.btn--ghost.btn--sm", { id: "mc-reveal", type: "button", onclick: revealAnswer }, "Reveal answer & continue");
+        const reveal = el("button.btn.btn--ghost.btn--sm", { id: "mc-reveal", type: "button", onclick: revealAnswer }, t("q.reveal"));
         feedback.appendChild(el("div", { style: { marginTop: "10px" } }, [reveal]));
       }
     }
@@ -107,7 +108,7 @@ function mc({ question, tutor, testMode, onDone }) {
     btns.forEach((b) => (b.disabled = true));
     btns[question.answer].classList.add("is-correct");
     feedback.className = "feedback retry";
-    feedback.innerHTML = renderRich(question.explanation || `The answer is ${String.fromCharCode(65 + question.answer)}.`);
+    feedback.innerHTML = renderRich(question.explanation || t("q.answerIs", { letter: String.fromCharCode(65 + question.answer) }));
     onDone(finalize(result));
   }
 
@@ -134,9 +135,9 @@ function mc({ question, tutor, testMode, onDone }) {
 /* ---------------- short text ---------------- */
 function text({ question, tutor, live, testMode, onDone }) {
   const result = { correct: false, hintsUsed: 0 };
-  const ta = el("textarea.answerbox", { placeholder: "Type your answer…", "aria-label": "Your answer" });
+  const ta = el("textarea.answerbox", { placeholder: t("q.typeAnswer"), "aria-label": t("q.yourAnswer") });
   const checkBtn = el("button.btn.btn--sm", { type: "button", onclick: check },
-    testMode ? "Submit answer" : "Check answer");
+    t(testMode ? "q.submit" : "q.check"));
   const feedback = el("div", {});
   const selfRate = el("div", {});
 
@@ -148,7 +149,7 @@ function text({ question, tutor, live, testMode, onDone }) {
 
     let verdict = null;
     if (live) {
-      checkBtn.textContent = testMode ? "Submitting…" : "Checking…";
+      checkBtn.textContent = t(testMode ? "q.submitting" : "q.checking");
       try { verdict = await gradeAnswer({ question, studentAnswer: ans }); }
       catch { verdict = null; }
     }
@@ -158,7 +159,7 @@ function text({ question, tutor, live, testMode, onDone }) {
     if (testMode) {
       result.correct = verdict.correct;
       feedback.className = "feedback";
-      feedback.textContent = "Answer recorded.";
+      feedback.textContent = t("q.recorded");
       checkBtn.remove();
       onDone(finalize(result));
       return;
@@ -168,10 +169,10 @@ function text({ question, tutor, live, testMode, onDone }) {
     feedback.innerHTML =
       `<p>${escapeHtml(verdict.feedback)}</p>` +
       (verdict.missedPoints?.length ? `<ul>${verdict.missedPoints.map((m) => `<li>${escapeHtml(m)}</li>`).join("")}</ul>` : "") +
-      `<p style="margin-top:10px"><strong>Model answer:</strong> ${renderRich(question.answer)}</p>`;
+      `<p style="margin-top:10px"><strong>${escapeHtml(t("q.modelAnswer"))}</strong> ${renderRich(question.answer)}</p>`;
 
-    if (verdict.correct) tutor?.celebrate("I think I got that one.");
-    else tutor?.note(`Here's what I wrote: "${ans}". What am I missing?`);
+    if (verdict.correct) tutor?.celebrate(t("q.tutorGotIt"));
+    else tutor?.note(t("q.tutorWhatMissing", { answer: ans }));
 
     // The grade stands on its own — the student no longer marks their own
     // work. They can appeal it, which is recorded rather than silently taken.
@@ -192,11 +193,11 @@ function text({ question, tutor, live, testMode, onDone }) {
           result.srsGrade = null;
           onDone(finalize(result));
           clear(selfRate);
-          selfRate.appendChild(el("p.note", {}, "Marked as correct. Have a look at the model answer anyway — it's easy to miss a bit."));
+          selfRate.appendChild(el("p.note", {}, t("q.appealDone")));
         },
-      }, "I think my answer was right");
+      }, t("q.appeal"));
       selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, [
-        "Disagree with the marking? ", appeal, ".",
+        t("q.disagree"), appeal, ".",
       ]));
     }
   }
@@ -207,14 +208,14 @@ function text({ question, tutor, live, testMode, onDone }) {
 /* ---------------- flashcard ---------------- */
 function flashcard({ question, tutor, onDone }) {
   const result = { correct: false, hintsUsed: 0 };
-  const card = el("div.flashcard", { role: "button", tabindex: "0", "aria-label": "Flip card" }, [
+  const card = el("div.flashcard", { role: "button", tabindex: "0", "aria-label": t("q.flipAria") }, [
     el("div.flashcard__inner", {}, [
       el("div.flashcard__face", { html: renderRich(question.prompt) }),
       el("div.flashcard__face.flashcard__face--back", { html: renderRich(question.answer) }),
     ]),
   ]);
   const rate = el("div.selfrate", { hidden: true }, [
-    ["Again", "again"], ["Hard", "hard"], ["Good", "good"], ["Easy", "easy"],
+    [t("q.rateAgain"), "again"], [t("q.rateHard"), "hard"], [t("q.rateGood"), "good"], [t("q.rateEasy"), "easy"],
   ].map(([label, grade]) =>
     el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => pick(grade) }, label)));
 
@@ -232,8 +233,8 @@ function flashcard({ question, tutor, onDone }) {
     result.correct = grade !== "again";
     result.selfRating = grade;
     rate.querySelectorAll("button").forEach((b) => (b.disabled = true));
-    if (grade === "again") tutor?.note("I couldn't remember this one. Can you help it stick?");
-    else tutor?.celebrate("Remembered it!");
+    if (grade === "again") tutor?.note(t("q.tutorForgot"));
+    else tutor?.celebrate(t("q.tutorRemembered"));
     onDone(result);
   }
 
@@ -251,7 +252,7 @@ function flashcard({ question, tutor, onDone }) {
     result, handleKey,
     el: shell(question, el("div", {}, [
       card,
-      el("p.note", { style: { marginTop: "10px" } }, "Tap the card to flip, or press Space."),
+      el("p.note", { style: { marginTop: "10px" } }, t("q.tapFlip")),
       rate,
     ]), { showPrompt: false }),
   };
@@ -262,15 +263,15 @@ function worked({ question, tutor, live, testMode, onDone }) {
   const result = { correct: false, hintsUsed: 0 };
   const steps = question.steps || [];
   const ta = el("textarea.answerbox", {
-    placeholder: testMode ? "Work it out here." : "Work it out here — the tutor on the right will help.",
-    "aria-label": "Your working",
+    placeholder: t(testMode ? "q.workedPlaceholderTest" : "q.workedPlaceholder"),
+    "aria-label": t("q.yourWorking"),
   });
   const revealed = el("ol", { style: { margin: "12px 0 0 18px" } });
   const revealBtn = steps.length && !testMode
-    ? el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: revealStep }, "Show a step")
+    ? el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: revealStep }, t("q.showStep"))
     : null;
   const doneBtn = el("button.btn.btn--sm", { type: "button", onclick: finish },
-    testMode ? "Submit answer" : "I'm done — show the answer");
+    t(testMode ? "q.submit" : "q.doneShowAnswer"));
   const feedback = el("div", {});
   const selfRate = el("div", {});
   let shown = 0;
@@ -291,25 +292,25 @@ function worked({ question, tutor, live, testMode, onDone }) {
       doneBtn.disabled = true;
       let verdict = null;
       if (written && live) {
-        doneBtn.textContent = "Submitting…";
+        doneBtn.textContent = t("q.submitting");
         try { verdict = await gradeAnswer({ question, studentAnswer: written }); }
         catch { verdict = null; }
       }
       if (!verdict) verdict = written ? heuristic(written, question.answer) : { correct: false };
       result.correct = verdict.correct;
       feedback.className = "feedback";
-      feedback.textContent = written ? "Answer recorded." : "Left blank.";
+      feedback.textContent = t(written ? "q.recorded" : "q.leftBlank");
       doneBtn.remove();
       onDone(finalize(result));
       return;
     }
     feedback.className = "feedback ok";
-    feedback.innerHTML = `<strong>Full solution:</strong> ${renderRich(question.answer)}`;
+    feedback.innerHTML = `<strong>${escapeHtml(t("q.fullSolution"))}</strong> ${renderRich(question.answer)}`;
     doneBtn.remove();
-    selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, "Did your reasoning get there?"));
+    selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, t("q.reasoningGetThere")));
     selfRate.appendChild(el("div.selfrate", {}, [
-      el("button.btn.btn--ok.btn--sm", { type: "button", onclick: () => end(true) }, "Yes, I had it"),
-      el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => end(false) }, "Not quite"),
+      el("button.btn.btn--ok.btn--sm", { type: "button", onclick: () => end(true) }, t("q.yesHadIt")),
+      el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => end(false) }, t("q.notQuiteBtn")),
     ]));
   }
   function end(correct) {
@@ -337,13 +338,13 @@ function finalize(result) {
 function heuristic(ans, model) {
   const norm = (s) => s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w.length > 3);
   const a = new Set(norm(ans)), m = norm(model);
-  if (!m.length) return { correct: ans.length > 8, feedback: "Compare your answer with the model answer below." };
+  if (!m.length) return { correct: ans.length > 8, feedback: t("q.heuristicMiss") };
   const hit = m.filter((w) => a.has(w)).length / m.length;
   return {
     correct: hit >= 0.34,
     feedback: hit >= 0.34
-      ? "That covers the key ideas — check the details below."
-      : "This looks like it's missing some of the key ideas. Compare it with the model answer below.",
+      ? t("q.heuristicOk")
+      : t("q.heuristicMiss"),
     missedPoints: [],
   };
 }

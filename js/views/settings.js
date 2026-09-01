@@ -1,124 +1,162 @@
-// Settings: Claude API key, model, tutor verbosity, data export/wipe, roadmap.
+// Settings: appearance, language, API key, model preset, sound, data, roadmap.
 
 import { store } from "../store.js";
 import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
 import { PRESETS, DEFAULT_PRESET } from "../claude.js";
 import { THEMES, getTheme, setTheme } from "../lib/theme.js";
+import { LANGS, getLang, setLang, t, plural } from "../lib/i18n.js";
+import { playFanfare } from "../lib/sound.js";
 
 export function renderSettings() {
   const s = store.settings;
 
-  const keyInput = el("input", { type: "password", value: s.apiKey || "", placeholder: "sk-ant-…", autocomplete: "off", spellcheck: "false" });
+  /* ---------------- appearance ---------------- */
+  const themeSel = el("select", { "aria-label": t("set.theme") },
+    THEMES.map(([v]) => opt(v, t(`set.theme${v[0].toUpperCase()}${v.slice(1)}`))));
+  themeSel.value = getTheme();
+  themeSel.addEventListener("change", () => { setTheme(themeSel.value); toast(t("set.themeUpdated")); });
+
+  const langSel = el("select", { "aria-label": t("set.language") },
+    LANGS.map(([v, label]) => opt(v, label)));
+  langSel.value = getLang();
+  // setLang fires sb:langchange, which re-renders the whole app — so the toast
+  // has to be queued after that render, not before it.
+  langSel.addEventListener("change", () => {
+    const chosen = langSel.value;
+    setLang(chosen);
+    setTimeout(() => toast(t("set.langUpdated")), 0);
+  });
+
+  /* ---------------- key ---------------- */
+  const keyInput = el("input", {
+    type: "password", value: s.apiKey || "", placeholder: "sk-ant-…",
+    autocomplete: "off", spellcheck: "false", "aria-label": t("set.key"),
+  });
   const showBtn = el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => {
     keyInput.type = keyInput.type === "password" ? "text" : "password";
-    showBtn.textContent = keyInput.type === "password" ? "Show" : "Hide";
-  } }, "Show");
+    showBtn.textContent = t(keyInput.type === "password" ? "set.show" : "set.hide");
+  } }, t("set.show"));
   const saveKey = el("button.btn.btn--sm", { type: "button", onclick: () => {
     store.setSettings({ apiKey: keyInput.value.trim() });
-    toast(keyInput.value.trim() ? "Key saved — live tutoring is on" : "Key cleared — demo mode");
-  } }, "Save");
+    toast(t(keyInput.value.trim() ? "set.keySaved" : "set.keyCleared"));
+  } }, t("set.save"));
 
+  /* ---------------- model preset ---------------- */
   const presetHint = el("p.note", { style: { marginTop: "6px" } });
-  const presetSel = el("select", { "aria-describedby": "preset-hint" },
-    Object.entries(PRESETS).map(([k, p]) => opt(k, p.label)));
+  const presetSel = el("select", { "aria-describedby": "preset-hint", "aria-label": t("set.qualityCost") },
+    Object.entries(PRESETS).map(([k, p]) => opt(k, t(p.labelKey))));
   presetSel.value = PRESETS[s.preset] ? s.preset : DEFAULT_PRESET;
 
   const presetDetail = el("div.preset-detail");
   function paintPreset() {
     const p = PRESETS[presetSel.value];
-    presetHint.textContent = p.hint;
+    presetHint.textContent = t(p.hintKey);
     clear(presetDetail);
     presetDetail.appendChild(el("table.preset-table", {}, [
       el("tbody", {}, [
-        presetRow("Writing a set", p.generate, "once per set"),
-        presetRow("Tutoring you", p.tutor, "every message"),
-        presetRow("Marking answers", p.grade, "every written answer"),
+        presetRow(t("set.jobWriting"), p.generate, t("set.whenPerSet")),
+        presetRow(t("set.jobTutoring"), p.tutor, t("set.whenEveryMsg")),
+        presetRow(t("set.jobMarking"), p.grade, t("set.whenEveryAnswer")),
       ]),
     ]));
   }
   function presetRow(job, model, when) {
-    return el("tr", {}, [
-      el("th", {}, job),
-      el("td", {}, prettyModel(model)),
-      el("td.note", {}, when),
-    ]);
+    return el("tr", {}, [el("th", {}, job), el("td", {}, prettyModel(model)), el("td.note", {}, when)]);
   }
   presetSel.addEventListener("change", () => {
     store.setSettings({ preset: presetSel.value });
     paintPreset();
-    toast("Model preset updated");
+    toast(t("set.presetUpdated"));
   });
   paintPreset();
 
-  const verbSel = el("select", {}, [
-    opt("concise", "Concise — short hints"),
-    opt("normal", "Normal (default)"),
-    opt("detailed", "Detailed — fuller explanations"),
+  const verbSel = el("select", { "aria-label": t("set.replyLength") }, [
+    opt("concise", t("set.verbConcise")),
+    opt("normal", t("set.verbNormal")),
+    opt("detailed", t("set.verbDetailed")),
   ]);
   verbSel.value = s.tutorVerbosity || "normal";
-  verbSel.addEventListener("change", () => { store.setSettings({ tutorVerbosity: verbSel.value }); toast("Tutor style updated"); });
+  verbSel.addEventListener("change", () => {
+    store.setSettings({ tutorVerbosity: verbSel.value });
+    toast(t("set.tutorStyleUpdated"));
+  });
 
-  const themeSel = el("select", { "aria-label": "Theme" },
-    THEMES.map(([v, l]) => opt(v, l)));
-  themeSel.value = getTheme();
-  themeSel.addEventListener("change", () => { setTheme(themeSel.value); toast("Theme updated"); });
+  /* ---------------- sound ---------------- */
+  const soundSel = el("select", { "aria-label": t("set.sound") }, [
+    opt("on", t("set.soundOn")),
+    opt("off", t("set.soundOff")),
+  ]);
+  soundSel.value = s.sound === false ? "off" : "on";
+  soundSel.addEventListener("change", () => {
+    const on = soundSel.value === "on";
+    store.setSettings({ sound: on });
+    toast(t("set.soundUpdated"));
+    // Turning it on should demonstrate what "on" sounds like.
+    if (on) playFanfare();
+  });
 
   const node = el("div.settings", {}, [
-    el("h1", {}, "Settings"),
+    el("h1", {}, t("set.title")),
 
     el("section.panel", {}, [
-      el("h3", {}, "Appearance"),
-      el("label.field", { style: { marginTop: "12px", marginBottom: "0" } }, [
-        el("span", {}, "Theme"), themeSel,
+      el("h3", {}, t("set.appearance")),
+      el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginTop: "12px" } }, [
+        el("label.field", { style: { marginBottom: "0" } }, [el("span", {}, t("set.theme")), themeSel]),
+        el("label.field", { style: { marginBottom: "0" } }, [el("span", {}, t("set.language")), langSel]),
       ]),
+      el("p.note", { style: { marginTop: "10px" } }, t("set.languageNote")),
     ]),
 
     el("section.panel", {}, [
-      el("h3", {}, "Claude API key"),
-      el("p.note", { style: { margin: "6px 0 12px" } }, "Needed to generate assignments from your material and for live tutoring. Without it, StudyBuddy runs in demo mode on the sample content."),
-      el("label.field", {}, [el("span", {}, "Key"), el("div.keyrow", {}, [keyInput, showBtn, saveKey])]),
-      el("p.note.note--warn", {}, [
-        icon(ICONS.spark, 16),
-        " Your key is stored only in this browser (localStorage). That's fine for personal use. Don't put this app on a public website until a small backend holds the key instead — anyone visiting could otherwise use your key.",
-      ]),
+      el("h3", {}, t("set.keyTitle")),
+      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.keyBody")),
+      el("label.field", {}, [el("span", {}, t("set.key")), el("div.keyrow", {}, [keyInput, showBtn, saveKey])]),
+      el("p.note.note--warn", {}, [icon(ICONS.spark, 16), t("set.keyWarning")]),
       el("p.note", { style: { marginTop: "10px" } }, [
-        "Get a key at ", el("a", { href: "https://console.anthropic.com/settings/keys", target: "_blank", rel: "noopener" }, "console.anthropic.com"), ". Usage is billed to your Anthropic account.",
+        t("set.getKeyAt"),
+        el("a", { href: "https://console.anthropic.com/settings/keys", target: "_blank", rel: "noopener" }, "console.anthropic.com"),
+        t("set.billed"),
       ]),
     ]),
 
     el("section.panel", {}, [
-      el("h3", {}, "Model & tutor"),
-      el("p.note", { style: { margin: "6px 0 12px" } },
-        "StudyBuddy uses different Claude models for different jobs, so you're not paying top rates to mark a one-line answer."),
-      el("label.field", { style: { marginBottom: "6px" } }, [el("span", {}, "Quality & cost"), presetSel]),
+      el("h3", {}, t("set.modelTitle")),
+      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.modelIntro")),
+      el("label.field", { style: { marginBottom: "6px" } }, [el("span", {}, t("set.qualityCost")), presetSel]),
       el("div", { id: "preset-hint" }, [presetHint]),
       presetDetail,
-      el("label.field", { style: { marginTop: "16px" } }, [el("span", {}, "Tutor reply length"), verbSel]),
+      el("label.field", { style: { marginTop: "16px", marginBottom: "0" } }, [el("span", {}, t("set.replyLength")), verbSel]),
+    ]),
+
+    el("section.panel", {}, [
+      el("h3", {}, t("set.sound")),
+      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.soundNote")),
+      el("label.field", { style: { maxWidth: "220px", marginBottom: "0" } }, [el("span", {}, t("set.sound")), soundSel]),
     ]),
 
     demoSection(),
 
     el("section.panel", {}, [
-      el("h3", {}, "Your data"),
-      el("p.note", { style: { margin: "6px 0 12px" } }, "Everything (assignments, attempts, progress) lives in this browser."),
+      el("h3", {}, t("set.dataTitle")),
+      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.dataBody")),
       el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } }, [
-        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: exportData }, "Export JSON"),
-        el("button.btn.btn--ghost.btn--sm", { type: "button", style: { color: "var(--retry-ink)" }, onclick: wipe }, "Wipe all data"),
+        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: exportData }, t("set.export")),
+        el("button.btn.btn--ghost.btn--sm", { type: "button", style: { color: "var(--retry-ink)" }, onclick: wipe }, t("set.wipe")),
       ]),
     ]),
 
     el("section.panel", {}, [
-      el("h3", { style: { marginBottom: "10px" } }, "Roadmap"),
+      el("h3", { style: { marginBottom: "10px" } }, t("set.roadmap")),
       el("ul.roadmap", {}, [
-        el("li", {}, "Voice chat — talk through problems out loud"),
-        el("li", {}, "Accounts & sync — use StudyBuddy on any device"),
-        el("li", {}, "Parent / teacher view — assign work and track progress"),
-        el("li", {}, "Share assignment sets with a friend"),
+        el("li", {}, t("set.roadVoice")),
+        el("li", {}, t("set.roadAccounts")),
+        el("li", {}, t("set.roadTeacher")),
+        el("li", {}, t("set.roadShare")),
       ]),
     ]),
 
-    el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), "Back to menu"]),
+    el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), t("common.backToMenu")]),
   ]);
 
   function demoSection() {
@@ -127,11 +165,9 @@ export function renderSettings() {
 
     function paint() {
       const { loaded, total } = store.demoStatus;
-      status.textContent = loaded === 0
-        ? "Two ready-made sets (Photosynthesis Basics, Ancient Rome Quiz) you can try without an API key — the tutor works in demo mode too."
-        : loaded < total
-          ? `${loaded} of ${total} demo sets are in your library. You can add the missing one back, or clear them out.`
-          : "Both demo sets are in your library. They behave like any other set — study, edit, or delete them.";
+      status.textContent = loaded === 0 ? t("set.demoNone")
+        : loaded < total ? t("set.demoPartial", { loaded, total })
+        : t("set.demoAll");
 
       clear(actions);
       if (loaded < total) {
@@ -141,30 +177,30 @@ export function renderSettings() {
             e.currentTarget.disabled = true;
             try {
               const n = await store.loadDemoContent();
-              toast(n ? `Added ${n} demo set${n === 1 ? "" : "s"}` : "Already in your library");
+              toast(n ? plural(n, "set.demoAddedOne", "set.demoAddedMany") : t("set.demoAlready"));
             } catch {
-              toast("Couldn't load the demo sets");
+              toast(t("set.demoFailed"));
             }
             paint();
           },
-        }, [icon(ICONS.play, 16), loaded ? "Add the missing one" : "Load demo sets"]));
+        }, [icon(ICONS.play, 16), t(loaded ? "set.demoAddMissing" : "set.demoLoad")]));
       }
       if (loaded > 0) {
         actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
           type: "button", style: { color: "var(--retry-ink)" },
           onclick: () => {
-            if (!confirm("Remove the demo sets from your library?\n\nAny attempts you made on them stay in your history.")) return;
+            if (!confirm(t("set.demoRemoveConfirm"))) return;
             store.removeDemoContent();
-            toast("Demo sets removed");
+            toast(t("set.demoRemoved"));
             paint();
           },
-        }, "Remove demo sets"));
+        }, t("set.demoRemove")));
       }
     }
     paint();
 
     return el("section.panel", {}, [
-      el("h3", {}, "Demo content"),
+      el("h3", {}, t("set.demoTitle")),
       status,
       actions,
     ]);
@@ -174,17 +210,17 @@ export function renderSettings() {
     const blob = new Blob([store.exportJSON()], { type: "application/json" });
     const a = el("a", { href: URL.createObjectURL(blob), download: `studybuddy-backup-${localDayKey()}.json` });
     document.body.appendChild(a); a.click(); a.remove();
-    toast("Backup downloaded");
+    toast(t("set.backupDownloaded"));
   }
 
   function wipe() {
-    if (!confirm("Delete all sets, attempts, and progress?\n\nThis can't be undone. Export a backup first if you want to keep it.")) return;
+    if (!confirm(t("set.wipeConfirm"))) return;
     store.wipe();
-    toast("Data wiped");
+    toast(t("set.wiped"));
     location.hash = "#/";
   }
 
-  return { title: "Settings", node };
+  return { title: t("set.title"), node };
 }
 
 function opt(value, label) { return el("option", { value }, label); }
