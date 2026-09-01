@@ -98,6 +98,16 @@ async function render() {
 
 window.addEventListener("hashchange", render);
 
+// Offline support + home-screen install. Only over http(s) — a service worker
+// can't register from file://, and failing to register is not fatal.
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch((e) => {
+      console.warn("Service worker not registered:", e.message);
+    });
+  });
+}
+
 store.init().then(() => {
   render();
   // After first paint, keep menu/progress fresh when the store changes.

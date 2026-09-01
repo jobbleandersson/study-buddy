@@ -1,4 +1,4 @@
-﻿/* StudyBuddy â€” layout & components. Consumes css/tokens.css. */
+/* StudyBuddy — layout & components. Consumes css/tokens.css. */
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 [hidden] { display: none !important; }
@@ -53,7 +53,7 @@ h1:focus-visible, h2:focus-visible {
 }
 .skiplink:focus { transform: translate(-50%, 0); }
 
-/* Dark ink on the bright orange, not white â€” white on this amber is only
+/* Dark ink on the bright orange, not white — white on this amber is only
    2.7:1. Keeps the colour, passes AA. */
 .streakbadge {
   display: inline-flex; align-items: center; gap: 6px;
@@ -226,7 +226,7 @@ h1:focus-visible, h2:focus-visible {
 .empty { text-align: center; color: var(--ink-soft); padding: var(--s-7) var(--s-4); }
 .empty svg { margin-bottom: var(--s-3); }
 
-/* ---------- card â‹® menu ---------- */
+/* ---------- card ⋮ menu ---------- */
 .acard { position: relative; }
 .acard__menu {
   position: absolute; top: 8px; right: 8px; z-index: 2;
@@ -428,7 +428,7 @@ h1:focus-visible, h2:focus-visible {
 
 .roadmap { list-style: none; display: grid; gap: var(--s-2); }
 .roadmap li { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-3) var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); color: var(--ink-soft); }
-.roadmap li::before { content: "ðŸ”œ"; }
+.roadmap li::before { content: "🔜"; }
 
 .toast {
   position: fixed; left: 50%; bottom: var(--s-5); transform: translateX(-50%) translateY(20px);
@@ -476,7 +476,7 @@ kbd {
   /* Tutor becomes a slide-up sheet so a stuck student never has to scroll
      away from the question to reach help. */
   .tutor {
-    /* top: auto matters â€” the desktop rule sets top for sticky, and a fixed
+    /* top: auto matters — the desktop rule sets top for sticky, and a fixed
        box with both top and bottom set ignores bottom. */
     position: fixed; top: auto; left: 0; right: 0; bottom: 0; z-index: 70;
     max-height: min(70vh, 520px);

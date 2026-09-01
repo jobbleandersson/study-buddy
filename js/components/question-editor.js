@@ -1,4 +1,4 @@
-﻿// Editable list of questions. Shared by the Create flow (reviewing what Claude
+// Editable list of questions. Shared by the Create flow (reviewing what Claude
 // generated) and the Edit screen (changing a set you already saved), so the two
 // can't drift apart.
 //
@@ -25,7 +25,7 @@ export function questionEditor(doc, { onChange } = {}) {
     clear(list);
     if (!doc.questions.length) {
       list.appendChild(el("p.note", { style: { padding: "16px 0" } },
-        "No questions yet â€” add one below."));
+        "No questions yet — add one below."));
     }
     doc.questions.forEach((q, i) => list.appendChild(questionBlock(q, i)));
     changed();
@@ -68,7 +68,7 @@ export function questionEditor(doc, { onChange } = {}) {
                 else if (q.answer > ci) q.answer -= 1;
                 paintBody();
               },
-            }, "Ã—"),
+            }, "×"),
           ].filter(Boolean)));
         });
         body.appendChild(el("p.note", { style: { marginTop: "4px" } }, "Select the radio button next to the correct choice."));
