@@ -6,6 +6,9 @@ and adapts when you're stuck.
 
 Built for K–12. No framework, no build step, no npm — plain HTML, CSS, and ES modules.
 
+**Live:** <https://jobbleandersson.github.io/study-buddy/> — runs in demo mode; add
+your own Claude key in Settings for live tutoring and question generation.
+
 ## Run it
 
 **Windows (easiest):** double-click `serve.ps1` → "Run with PowerShell", then open the
