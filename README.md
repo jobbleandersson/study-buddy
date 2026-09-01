@@ -42,12 +42,19 @@ over http.
   at 80%+, and a **Practise these now** button that drills just what you missed.
 - **Progress** — study streak, mastery meter per subject, and **Review today**, which
   builds a session from the questions that are due across *every* set (SM-2-lite).
+- **Due dates** — give an assignment or test a deadline (in Create, Edit, or the card
+  ⋮ menu). The menu shows an **Upcoming** list, soonest first, with a one-click
+  Study button per row. Overdue rows go amber and clear themselves a week later.
+- **Practise weak spots** — a session built from the topics you keep getting wrong,
+  across every set. Appears once there is enough history to know what "weak" means.
 - **Create** — generate a new set from your own material: paste text, upload a PDF
   (text is extracted locally), upload a photo, or just type a topic. Review and edit
   every question before saving.
 
-Light and dark themes (or follow your device), full keyboard shortcuts in a session
-(press `?` to see them), and it installs to a home screen and runs offline in demo mode.
+Light and dark themes (or follow your device), **English and Swedish** (interface
+*and* the AI tutor), full keyboard shortcuts in a session (the ⌨ button in the
+session header, or press `?`), and it installs to a home screen and runs offline
+in demo mode.
 
 Everything (assignments, attempts, progress) is stored in your browser's
 `localStorage`. Settings → **Export JSON** makes a backup.
@@ -60,7 +67,8 @@ scripted hint ladder. Your library starts empty — load the demo sets from the 
 screen or from Settings → Demo content.
 
 Add a key in **Settings** to turn on **live mode**: real question generation from your
-material, a real streaming tutor, and AI grading of written answers.
+material, a real streaming tutor, and AI grading of written answers. In Swedish mode
+the tutor, generated questions and grading all come back in Swedish.
 
 **Model presets.** Different jobs use different models, so you're not paying top rates
 to mark a one-line answer:
@@ -97,8 +105,9 @@ js/material.js       paste / PDF / image / topic -> generation inputs
 js/views/            one file per screen (menu, create, edit, session, results,
                      progress, settings)
 js/components/       question renderers, shared question editor, tutor chat, mascot
-js/lib/              srs, mastery, activity/streak, theme, a11y, markdown, dom
-data/samples/        demo sets + scripted tutor (demo mode)
+js/lib/              srs, mastery, activity/streak, theme, i18n + strings, sound,
+                     a11y, markdown, dom
+data/samples/        demo sets + scripted tutor, English and Swedish (demo mode)
 vendor/              pdf.js, KaTeX, canvas-confetti (committed, no npm)
 ```
 
