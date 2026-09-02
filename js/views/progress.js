@@ -22,10 +22,12 @@ export function renderProgress() {
   const today = localDayKey();
   const dayCell = (key, cls) => {
     const on = studied.has(key), fz = frozen.has(key);
+    // "is-today", not "today": a bare .today rule (the menu strip) would
+    // otherwise turn this into a 210px grid column and shove the number out.
     return el("div", {
-      class: cls + (fz ? " frozen" : on ? " on" : "") + (key === today ? " today" : ""),
+      class: cls + (fz ? " frozen" : on ? " on" : "") + (key === today ? " is-today" : ""),
       title: key + (fz ? ` — ${t("streak.frozenDay")}` : on ? " — studied" : ""),
-    }, cls === "streak__day" ? [fz ? "🛡" : String(Number(key.slice(8, 10)))] : []);
+    }, cls === "streak__day" ? [String(Number(key.slice(8, 10)))] : []);
   };
   const days = recentDays(14).map((key) => dayCell(key, "streak__day"));
 
