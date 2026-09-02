@@ -7,6 +7,8 @@ import { extractPdfText, extractZipText, readImageFile, fitText } from "../mater
 import { generateAssignment, ClaudeError } from "../claude.js";
 import { questionEditor } from "../components/question-editor.js";
 import { t, plural } from "../lib/i18n.js";
+import { localDayKey } from "../lib/activity.js";
+import { datePicker } from "../components/calendar.js";
 import { NATIONAL_TEST_LEVELS, NATIONAL_TEST_SUBJECTS, nationalSubjectName } from "../data/national-tests.js";
 
 export function renderCreate(prefill) {
@@ -341,10 +343,7 @@ export function renderCreate(prefill) {
           oninput: (e) => { doc.subject = e.target.value; },
         });
 
-    const dueInput = el("input", {
-      type: "date", value: doc.dueAt || "", "aria-label": t("create.dueDate"),
-      min: "2000-01-01", max: "2100-12-31",
-    });
+    const duePicker = datePicker({ value: doc.dueAt || "", min: localDayKey() });
 
     const countNote = el("p.note");
     const editor = questionEditor(doc, {
@@ -355,7 +354,7 @@ export function renderCreate(prefill) {
       const questions = editor.commit();
       if (!questions.length) { toast(t("create.addAtLeastOne")); return; }
       if (!doc.title.trim()) { toast(t("create.giveName")); titleInput.focus(); return; }
-      doc.dueAt = dueInput.value || null;
+      doc.dueAt = duePicker.getValue() || null;
       const saved = store.addAssignmentDoc(doc);
       toast(t("create.saved"));
       location.hash = `#/session/${saved.id}`;
@@ -367,7 +366,7 @@ export function renderCreate(prefill) {
           el("label.field", {}, [el("span", {}, t("create.setTitle")), titleInput]),
           el("label.field", {}, [el("span", {}, t("create.subject")), subjectInput]),
         ]),
-        el("label.field", { style: { maxWidth: "260px" } }, [el("span", {}, t("create.dueDate")), dueInput]),
+        el("div.field", { style: { maxWidth: "320px" } }, [el("span", {}, t("create.dueDate")), duePicker.el]),
         countNote,
       ]),
       editor.el,

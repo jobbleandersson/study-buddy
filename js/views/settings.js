@@ -83,6 +83,17 @@ export function renderSettings() {
     if (on) playFanfare();
   });
 
+  const goalInput = el("input", {
+    type: "number", min: "0", max: "100", inputmode: "numeric",
+    value: String(s.dailyGoal ?? 10), "aria-label": t("set.dailyGoal"),
+  });
+  goalInput.addEventListener("change", () => {
+    const n = Math.max(0, Math.min(100, Math.round(Number(goalInput.value) || 0)));
+    goalInput.value = String(n);
+    store.setSettings({ dailyGoal: n });
+    toast(t("set.dailyGoalUpdated"));
+  });
+
   /* ---------------- tutor server status ---------------- */
   // The Claude key lives in the backend proxy now, so there's nothing to type
   // here — just whether live mode is available.
@@ -99,9 +110,11 @@ export function renderSettings() {
         el("label.field", {}, [el("span", {}, t("set.theme")), themeSel]),
         el("label.field", {}, [el("span", {}, t("set.language")), langSel]),
         el("label.field", {}, [el("span", {}, t("set.sound")), soundSel]),
+        el("label.field", {}, [el("span", {}, t("set.dailyGoal")), goalInput]),
       ]),
       el("p.note", {}, t("set.languageNote")),
       el("p.note", {}, t("set.soundNote")),
+      el("p.note", {}, t("set.dailyGoalNote")),
     ]),
 
     el("section.panel", {}, [

@@ -547,6 +547,27 @@ export const STRINGS = {
     "parent.dueHeading": "Due for review",
     "parent.dueCount": "{n} question(s) due.",
     "parent.dueNone": "Nothing due right now.",
+
+    "common.undo": "Undo",
+
+    "cal.prevMonth": "Previous month",
+    "cal.nextMonth": "Next month",
+    "datepick.tomorrow": "Tomorrow",
+    "datepick.in3days": "In 3 days",
+    "datepick.nextMon": "Next Monday",
+    "datepick.in1week": "In 1 week",
+    "datepick.in2weeks": "In 2 weeks",
+
+    "menu.goalToday": "{done} / {goal} today",
+    "menu.goalDone": "Daily goal reached",
+    "menu.goalSub": "Questions answered today",
+
+    "prog.heatmapTitle": "Study days",
+    "prog.heatmapSub": "The last 12 weeks — filled squares are days you studied.",
+
+    "set.dailyGoal": "Daily goal (questions)",
+    "set.dailyGoalNote": "The ring on the home screen and Progress fills as you answer questions each day. Set to 0 to hide it.",
+    "set.dailyGoalUpdated": "Daily goal updated",
   },
 
   /* ================================================================ */
@@ -1092,5 +1113,26 @@ export const STRINGS = {
     "parent.dueHeading": "Att repetera",
     "parent.dueCount": "{n} fråga/frågor att repetera.",
     "parent.dueNone": "Inget att repetera just nu.",
+
+    "common.undo": "Ångra",
+
+    "cal.prevMonth": "Föregående månad",
+    "cal.nextMonth": "Nästa månad",
+    "datepick.tomorrow": "Imorgon",
+    "datepick.in3days": "Om 3 dagar",
+    "datepick.nextMon": "Nästa måndag",
+    "datepick.in1week": "Om 1 vecka",
+    "datepick.in2weeks": "Om 2 veckor",
+
+    "menu.goalToday": "{done} / {goal} idag",
+    "menu.goalDone": "Dagsmålet klart",
+    "menu.goalSub": "Frågor besvarade idag",
+
+    "prog.heatmapTitle": "Pluggdagar",
+    "prog.heatmapSub": "De senaste 12 veckorna — ifyllda rutor är dagar du pluggade.",
+
+    "set.dailyGoal": "Dagsmål (frågor)",
+    "set.dailyGoalNote": "Ringen på startsidan och Framsteg fylls när du svarar på frågor varje dag. Sätt till 0 för att dölja den.",
+    "set.dailyGoalUpdated": "Dagsmål uppdaterat",
   },
 };

@@ -5,6 +5,8 @@ import { store } from "../store.js";
 import { el, icon, ICONS, toast } from "../lib/dom.js";
 import { questionEditor } from "../components/question-editor.js";
 import { t, plural } from "../lib/i18n.js";
+import { localDayKey } from "../lib/activity.js";
+import { datePicker } from "../components/calendar.js";
 
 export function renderEdit(assignmentId) {
   const original = store.getAssignment(assignmentId);
@@ -21,9 +23,11 @@ export function renderEdit(assignmentId) {
   // Work on a copy so Cancel really cancels.
   const draft = structuredClone(original);
   const subjectName = store.subjects.find((s) => s.id === original.subjectId)?.name || t("common.general");
-  const dueInput = el("input", {
-    type: "date", value: original.dueAt || "", "aria-label": t("edit.dueDate"),
-    min: "2000-01-01", max: "2100-12-31",
+  // A deadline already in the past stays editable — don't clamp to today here,
+  // only when creating.
+  const duePicker = datePicker({
+    value: original.dueAt || "",
+    min: original.dueAt && original.dueAt < localDayKey() ? original.dueAt : localDayKey(),
   });
 
   const titleInput = el("input", {
@@ -55,7 +59,7 @@ export function renderEdit(assignmentId) {
       title,
       type: typeSel.value,
       subjectId: subject.id,
-      dueAt: dueInput.value || null,
+      dueAt: duePicker.getValue() || null,
       questions,
     });
     toast(t("edit.saved"));
@@ -73,10 +77,8 @@ export function renderEdit(assignmentId) {
         el("label.field", {}, [el("span", {}, t("create.setTitle")), titleInput]),
         el("label.field", {}, [el("span", {}, t("create.subject")), subjectInput]),
       ]),
-      el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" } }, [
-        el("label.field", { style: { marginBottom: "0" } }, [el("span", {}, t("create.type")), typeSel]),
-        el("label.field", { style: { marginBottom: "0" } }, [el("span", {}, t("edit.dueDate")), dueInput]),
-      ]),
+      el("label.field", { style: { maxWidth: "260px" } }, [el("span", {}, t("create.type")), typeSel]),
+      el("div.field", { style: { maxWidth: "320px", marginBottom: "0" } }, [el("span", {}, t("edit.dueDate")), duePicker.el]),
       el("datalist", { id: "subject-list" }, store.subjects.map((s) => el("option", { value: s.name }))),
       countNote,
     ]),

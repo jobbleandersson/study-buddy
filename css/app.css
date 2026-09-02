@@ -187,37 +187,59 @@ a { color: var(--brand-ink); }
 .tile--accent { border-color: var(--brand); background: var(--brand-tint); }
 .tile--accent .tile__icon { background: var(--brand); color: #fff; }
 
+/* ---------- home: deadline rail + library ---------- */
+.home__cols {
+  display: grid; grid-template-columns: 264px minmax(0, 1fr);
+  gap: var(--s-6); align-items: start;
+}
+.home__cols--solo { grid-template-columns: 1fr; }
+.home__main { min-width: 0; }
+.home__rail { position: sticky; top: calc(var(--s-4) + 56px); }
+
+@media (max-width: 900px) {
+  .home__cols { grid-template-columns: 1fr; gap: var(--s-5); }
+  /* The library is the main thing on a small screen; deadlines follow it. */
+  .home__rail { position: static; order: 2; }
+  .home__rail .upcoming { max-width: 520px; }
+}
+@media (max-width: 620px) {
+  /* Below this the month grid is more bulk than help at the foot of the page
+     — the list already says when everything is due. */
+  .home__rail .cal { display: none; }
+}
+
 /* ---------- upcoming deadlines ---------- */
 .upcoming { margin-bottom: var(--s-4); }
 .upcoming__title {
   display: flex; align-items: center; gap: var(--s-2);
-  /* Sized below the page h1 — this is a reminder strip, not the main heading. */
   font-size: var(--fs-md); margin-bottom: var(--s-3); color: var(--ink-soft);
 }
+.upcoming .cal { margin-bottom: var(--s-4); }
 .upcoming__list { display: flex; flex-direction: column; gap: var(--s-2); }
 .upcoming__row {
-  /* Kept compact: three of these sit above the library on the home screen. */
   display: flex; align-items: center; gap: var(--s-3);
-  padding: 10px var(--s-4); border-radius: var(--r-md);
+  padding: 8px var(--s-3); border-radius: var(--r-md);
   background: var(--surface); border: 1px solid var(--line);
+  text-decoration: none; color: inherit;
+  transition: border-color var(--dur-fast), background var(--dur-fast);
 }
+.upcoming__row:hover { border-color: var(--brand); }
 .upcoming__row.is-soon { border-color: var(--retry); }
 .upcoming__row.is-overdue { border-color: var(--retry); background: var(--retry-tint); }
 .upcoming__dot {
-  width: 10px; height: 10px; flex: none; border-radius: var(--r-full);
+  width: 8px; height: 8px; flex: none; border-radius: var(--r-full);
   background: var(--subject, var(--brand));
 }
 .upcoming__main { flex: 1; min-width: 0; }
 .upcoming__main strong {
-  display: block; font-family: var(--font-display); font-weight: 600;
+  display: block; font-family: var(--font-display); font-weight: 600; font-size: var(--fs-sm);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.upcoming__meta { display: block; font-size: var(--fs-sm); color: var(--ink-soft); }
-.upcoming__when { font-size: var(--fs-sm); font-weight: 700; color: var(--ink-soft); flex: none; }
-.upcoming__row.is-soon .upcoming__when,
-.upcoming__row.is-overdue .upcoming__when { color: var(--retry-ink); }
-/* Expander for the collapsed deadline list. Reads as a link, not a fourth
-   competing button in a section that already has one button per row. */
+.upcoming__meta { display: block; font-size: 12px; color: var(--ink-soft); }
+.upcoming__row.is-soon .upcoming__meta,
+.upcoming__row.is-overdue .upcoming__meta { color: var(--retry-ink); }
+.upcoming__go { flex: none; color: var(--ink-faint); display: grid; place-items: center; }
+.upcoming__row:hover .upcoming__go { color: var(--brand); }
 .upcoming__more {
   margin-top: var(--s-2); padding: 6px 2px;
   border: none; background: none; cursor: pointer;
@@ -229,13 +251,65 @@ a { color: var(--brand-ink); }
 .acard__tag--due { background: var(--surface-sunk); color: var(--ink-soft); }
 .acard__tag--overdue { background: var(--retry-tint); color: var(--retry-ink); }
 
-@media (max-width: 540px) {
-  .upcoming__row { flex-wrap: wrap; }
-  .upcoming__main { flex-basis: 100%; order: 1; }
-  .upcoming__dot { order: 0; }
-  .upcoming__when { order: 2; }
-  .upcoming__row .btn { order: 3; margin-left: auto; }
+/* ---------- daily goal ring ---------- */
+.ring--goal { width: 34px; height: 34px; }
+.ring--goal .ring__fg { stroke: var(--brand); }
+.ring--goal .ring__label { font-size: 13px; fill: var(--ink); }
+.tile--goal .ring { flex: none; }
+
+/* ---------- calendar (js/components/calendar.js) ---------- */
+.cal__nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--s-2); }
+.cal__month {
+  font-family: var(--font-display); font-weight: 700; font-size: var(--fs-sm);
+  text-transform: capitalize; letter-spacing: .01em;
 }
+.cal__navbtn {
+  width: 30px; height: 30px; flex: none; border-radius: var(--r-sm);
+  border: 1px solid var(--line-strong); background: var(--surface);
+  color: var(--ink-soft); cursor: pointer; font-size: 18px; line-height: 1;
+  display: grid; place-items: center;
+}
+.cal__navbtn:hover { background: var(--surface-sunk); color: var(--ink); }
+.cal__week, .cal__grid { display: grid; grid-template-columns: repeat(7, 1fr); }
+.cal__week { margin-bottom: 4px; }
+.cal__wd {
+  text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .03em; color: var(--ink-faint); padding: 4px 0;
+}
+.cal__grid { gap: 2px; }
+.cal__cell {
+  position: relative; aspect-ratio: 1; min-height: 34px;
+  display: grid; place-items: center;
+  border: 1px solid transparent; border-radius: var(--r-sm);
+  background: none; font: inherit; font-size: var(--fs-sm); font-variant-numeric: tabular-nums;
+  color: var(--ink); cursor: default;
+}
+button.cal__cell { cursor: pointer; }
+button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
+.cal__cell.is-outside { color: var(--ink-faint); }
+.cal__cell.is-today { font-weight: 700; box-shadow: inset 0 0 0 1px var(--line-strong); }
+.cal__cell.is-selected {
+  background: var(--brand); color: #fff; font-weight: 700;
+  box-shadow: none;
+}
+.cal__cell:disabled { color: var(--ink-faint); opacity: .4; }
+.cal__cell:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+.cal__dot {
+  position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
+  width: 5px; height: 5px; border-radius: var(--r-full); background: var(--brand);
+}
+.cal__cell.is-marked { color: var(--brand-ink); font-weight: 700; }
+.cal--mini .cal__cell.is-marked:hover { background: var(--brand-tint); }
+
+.datepick { display: block; }
+.datepick__chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--s-3); }
+.datepick__chip {
+  font-size: var(--fs-sm); font-weight: 600; font-family: var(--font-display);
+  border: 1px solid var(--line-strong); background: var(--surface);
+  color: var(--ink-soft); padding: 5px var(--s-3); border-radius: var(--r-full);
+  cursor: pointer; transition: transform var(--dur-fast) var(--ease-spring), border-color var(--dur-fast);
+}
+.datepick__chip:hover { transform: translateY(-1px); border-color: var(--brand); color: var(--ink); }
 
 /* ---------- search & sort ---------- */
 /* Tabs on the left, search + sort on the right, wrapping to two rows when
@@ -473,6 +547,15 @@ a { color: var(--brand-ink); }
 .streak__day { width: 30px; height: 30px; border-radius: var(--r-sm); background: var(--surface-sunk); display: grid; place-items: center; font-size: 11px; color: var(--ink-faint); }
 .streak__day.on { background: var(--ok); color: #fff; font-weight: 700; }
 .streak__day.today { outline: 2px solid var(--brand); outline-offset: 1px; }
+
+/* 12-week study heatmap — 7 rows (Mon-Sun), columns are weeks, oldest left. */
+.heatmap {
+  display: grid; grid-template-rows: repeat(7, 13px); grid-auto-flow: column;
+  grid-auto-columns: 13px; gap: 3px; width: max-content; max-width: 100%;
+}
+.heatmap__cell { width: 13px; height: 13px; border-radius: 3px; background: var(--surface-sunk); }
+.heatmap__cell.on { background: var(--ok); }
+.heatmap__cell.today { outline: 2px solid var(--brand); outline-offset: 1px; }
 .meter { display: grid; grid-template-columns: 120px 1fr 44px; align-items: center; gap: var(--s-3); padding: var(--s-2) 0; }
 .meter__track { height: 10px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
 .meter__fill { height: 100%; border-radius: inherit; background: var(--subject, var(--brand)); transition: width var(--dur-slow) var(--ease-out); }
@@ -551,6 +634,14 @@ a { color: var(--brand-ink); }
   z-index: 50;
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast:has(.toast__action) { display: flex; align-items: center; gap: var(--s-3); }
+.toast:has(.toast__action).show { pointer-events: auto; }
+.toast__action {
+  font: inherit; font-weight: 700; cursor: pointer;
+  background: none; border: none; color: #C9B8FF;
+  text-decoration: underline; text-underline-offset: 3px; padding: 0;
+}
+.toast__action:hover { color: #fff; }
 
 /* ---------- animations ---------- */
 @keyframes pop-in { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: none; } }

@@ -4,7 +4,11 @@
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, fmtDate, relativeDay, daysUntil } from "../lib/i18n.js";
+import { localDayKey, questionsAnsweredToday } from "../lib/activity.js";
 import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
+import { datePicker, monthCalendar } from "../components/calendar.js";
+import { goalRing } from "../components/goal-ring.js";
+import { playFanfare } from "../lib/sound.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
 let tab = "assignment";
@@ -244,21 +248,22 @@ export function renderMenu() {
 
   function openDueDialog(a) {
     closeDueDialog();
-    const input = el("input", {
-      type: "date", value: a.dueAt || "", "aria-label": t("due.field"),
-      min: "2000-01-01", max: "2100-12-31",
-    });
+    const picker = datePicker({ value: a.dueAt || "", min: localDayKey() });
 
     function save() {
-      const v = input.value;
+      const v = picker.getValue();
       if (v && !store.setDueDate(a.id, v)) { toast(t("due.invalid")); return; }
       if (!v) store.setDueDate(a.id, null);
       toast(t(v ? "due.saved" : "due.cleared"));
       closeDueDialog();
     }
     function clearDate() {
+      const prev = a.dueAt;
       store.setDueDate(a.id, null);
-      toast(t("due.cleared"));
+      toast(t("due.cleared"), prev ? {
+        actionLabel: t("common.undo"),
+        onAction: () => store.setDueDate(a.id, prev),
+      } : undefined);
       closeDueDialog();
     }
 
@@ -269,8 +274,8 @@ export function renderMenu() {
       el("div.modal__card", {}, [
         el("h3", { style: { marginBottom: "6px" } }, t("due.title")),
         el("p.note", { style: { marginBottom: "14px" } }, t("due.body", { title: a.title })),
-        el("label.field", {}, [el("span", {}, t("due.field")), input]),
-        el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "8px" } }, [
+        picker.el,
+        el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "14px" } }, [
           el("button.btn.btn--sm", { type: "button", onclick: save }, t("due.save")),
           a.dueAt && el("button.btn.btn--ghost.btn--sm", {
             type: "button", style: { color: "var(--retry-ink)" }, onclick: clearDate,
@@ -281,7 +286,7 @@ export function renderMenu() {
     ]);
     document.body.appendChild(dueDialog);
     document.addEventListener("keydown", escClose);
-    input.focus();
+    picker.el.querySelector('.cal__cell[tabindex="0"]')?.focus();
   }
 
   function rename(a) {
@@ -300,8 +305,11 @@ export function renderMenu() {
       ? t("menu.deleteConfirmAttempts", { title: a.title, n: attempts })
       : t("menu.deleteConfirm", { title: a.title });
     if (!confirm(msg)) return;
-    store.deleteAssignment(a.id);
-    toast(t("menu.deleted"));
+    const snapshot = store.deleteAssignment(a.id);
+    toast(t("menu.deleted"), snapshot ? {
+      actionLabel: t("common.undo"),
+      onAction: () => store.restoreAssignment(snapshot),
+    } : undefined);
   }
 
   /* ---------------- header + tabs ---------------- */
@@ -325,6 +333,21 @@ export function renderMenu() {
 
   paint();
 
+  // The deadline rail is a left column beside the library — a calendar and the
+  // Upcoming list, kept separate from browsing. It renders nothing when there
+  // are no deadlines, and the layout falls back to a single column.
+  const rail = deadlineRail();
+  const cols = el(rail ? "div.home__cols" : "div.home__cols.home__cols--solo", {}, [
+    rail,
+    el("div.home__main", {}, [
+      // Tabs and the search/sort tools are both "narrow this list" controls.
+      el("div.librarybar", {}, [tabsEl, toolsRow]),
+      chipsRow,
+      countLabel,
+      grid,
+    ]),
+  ].filter(Boolean));
+
   const node = el("div", {}, [
     el("div.home__head", {}, [
       el("div", {}, [
@@ -334,13 +357,7 @@ export function renderMenu() {
       el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
     ]),
     todayStrip(),
-    upcomingSection(),
-    // Tabs and the search/sort tools are both "narrow this list" controls and
-    // each used a third of the width on its own row. One bar, two ends.
-    el("div.librarybar", {}, [tabsEl, toolsRow]),
-    chipsRow,
-    countLabel,
-    grid,
+    cols,
   ]);
 
   return {
@@ -359,6 +376,9 @@ function todayStrip() {
   const open = openKey ? store.state.sessions[openKey] : null;
   const weak = weakSpotQuestions(store.assignments, store.attempts).length;
   const tiles = [];
+
+  const goal = Number(store.settings.dailyGoal) || 0;
+  if (goal > 0 && store.assignments.length) tiles.push(goalTile(goal));
 
   if (due) {
     tiles.push(tile("#/review", ICONS.spark, t("menu.tileDue", { n: due }), t("menu.tileDueSub"), true));
@@ -396,36 +416,72 @@ function tile(href, iconPath, title, sub, accent) {
   ]);
 }
 
+/** Today's daily-goal progress: a ring showing answered / goal. Plays a small
+ *  fanfare the first time the goal is reached each day. */
+function goalTile(goal) {
+  const done = questionsAnsweredToday(store.attempts);
+  const hit = done >= goal;
+
+  if (hit) {
+    const today = localDayKey();
+    try {
+      if (localStorage.getItem("studybuddy.goalHit") !== today) {
+        localStorage.setItem("studybuddy.goalHit", today);
+        playFanfare();
+      }
+    } catch { /* private mode — skip the once-a-day guard */ }
+  }
+
+  return el("a.tile.tile--goal", { href: "#/progress" }, [
+    goalRing(done, goal),
+    el("span", {}, [
+      el("strong", {}, hit ? t("menu.goalDone") : t("menu.goalToday", { done, goal })),
+      el("span.tile__sub", {}, t("menu.goalSub")),
+    ]),
+  ]);
+}
+
 /**
- * Deadlines you've set, soonest first, each with a one-click way in.
- *
- * Only the next few are shown by default. Six rows at ~72px pushed the library
- * itself below the fold on a laptop, which inverted the point of the home
- * screen — deadlines are a reminder, not the main event. Overdue and nearest
- * items sort first, so the collapsed view always holds the ones that matter.
+ * The left rail: a mini month calendar with a dot on every day that has a
+ * deadline, above the "Upcoming" list of those deadlines soonest-first.
+ * Returns null when nothing is due, so the home layout falls back to one
+ * column. Overdue and nearest items sort first, so the collapsed list always
+ * holds the ones that matter.
  */
 const UPCOMING_COLLAPSED = 3;
 let upcomingExpanded = false;
 
-function upcomingSection() {
+function deadlineRail() {
   const items = store.upcomingDue();
-  const section = el("section.upcoming");
-  if (!items.length) { section.hidden = true; return section; }
+  if (!items.length) return null;
 
-  section.appendChild(el("h2.upcoming__title", {}, [icon(ICONS.calendar, 18), t("menu.upcoming")]));
-
-  const list = el("div.upcoming__list");
-  section.appendChild(list);
-
-  const more = items.length - UPCOMING_COLLAPSED;
-  const toggle = more > 0 ? el("button.upcoming__more", { type: "button" }) : null;
-  if (toggle) {
-    toggle.addEventListener("click", () => { upcomingExpanded = !upcomingExpanded; paintList(); });
-    section.appendChild(toggle);
+  // day key -> { ids, titles } for the calendar dots.
+  const marks = new Map();
+  for (const a of items) {
+    const m = marks.get(a.dueAt) || { ids: [], titles: [] };
+    m.ids.push(a.id); m.titles.push(a.title);
+    marks.set(a.dueAt, m);
   }
 
+  const cal = monthCalendar({
+    marks,
+    onPick: (_day, mark) => { location.hash = `#/session/${mark.ids[0]}`; },
+  });
+
+  const list = el("div.upcoming__list");
+  const more = items.length - UPCOMING_COLLAPSED;
+  const toggle = more > 0 ? el("button.upcoming__more", { type: "button" }) : null;
+  if (toggle) toggle.addEventListener("click", () => { upcomingExpanded = !upcomingExpanded; paintList(); });
   paintList();
-  return section;
+
+  return el("aside.home__rail", {}, [
+    el("section.upcoming", {}, [
+      el("h2.upcoming__title", {}, [icon(ICONS.calendar, 18), t("menu.upcoming")]),
+      cal.el,
+      list,
+      toggle,
+    ].filter(Boolean)),
+  ]);
 
   function paintList() {
     const shown = toggle && !upcomingExpanded ? items.slice(0, UPCOMING_COLLAPSED) : items;
@@ -440,20 +496,18 @@ function upcomingSection() {
     const overdue = left < 0;
     const soon = left >= 0 && left <= 1;
     const color = store.subjectColor(a.subjectId);
-    return el("div", {
+    return el("a", {
+      href: `#/session/${a.id}`,
       class: "upcoming__row" + (overdue ? " is-overdue" : soon ? " is-soon" : ""),
       style: { "--subject": color.solid },
+      "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
     }, [
       el("span.upcoming__dot"),
       el("span.upcoming__main", {}, [
         el("strong", {}, a.title),
-        el("span.upcoming__meta", {}, `${fmtDate(a.dueAt)} · ${plural(a.questions.length, "common.questionOne", "common.questionMany")}`),
+        el("span.upcoming__meta", {}, `${fmtDate(a.dueAt)} · ${relativeDay(a.dueAt)}`),
       ]),
-      el("span.upcoming__when", {}, relativeDay(a.dueAt)),
-      el("a.btn.btn--sm", {
-        href: `#/session/${a.id}`,
-        "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
-      }, t("menu.upcomingStudy")),
+      el("span.upcoming__go", {}, icon(ICONS.play, 14)),
     ]);
   }
 }

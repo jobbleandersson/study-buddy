@@ -52,3 +52,15 @@ export function recentDays(n, today = localDayKey()) {
   for (let i = n - 1; i >= 0; i--) out.push(addDays(today, -i));
   return out;
 }
+
+/** How many questions were answered in sessions finished today — the numerator
+ *  of the daily goal. Counts answered items, not questions in the set. */
+export function questionsAnsweredToday(attempts, today = localDayKey()) {
+  let n = 0;
+  for (const a of attempts || []) {
+    if (a.finishedAt && localDayKey(new Date(a.finishedAt)) === today) {
+      n += Array.isArray(a.items) ? a.items.length : 0;
+    }
+  }
+  return n;
+}

@@ -5,9 +5,10 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { masteryByTopic, masteryForSubject } from "../lib/mastery.js";
 import { dueLabel } from "../lib/srs.js";
-import { localDayKey, recentDays } from "../lib/activity.js";
+import { localDayKey, recentDays, questionsAnsweredToday } from "../lib/activity.js";
 import { t, plural } from "../lib/i18n.js";
 import { weakSpotQuestions } from "../lib/mastery.js";
+import { goalRing } from "../components/goal-ring.js";
 
 export function renderProgress() {
   const tm = masteryByTopic(store.attempts);
@@ -24,6 +25,20 @@ export function renderProgress() {
       title: key + (studied.has(key) ? " — studied" : ""),
     }, String(label));
   });
+
+  // ---- 12-week study heatmap, week-aligned (Mon top → Sun bottom) ----
+  const td = new Date();
+  const mondayIdx = (td.getDay() + 6) % 7;             // Mon=0 … Sun=6
+  const spanDays = mondayIdx + 11 * 7 + 1;             // back to the Monday 12 weeks ago
+  const heatCells = recentDays(spanDays).map((key) =>
+    el("span", {
+      class: "heatmap__cell" + (studied.has(key) ? " on" : "") + (key === today ? " today" : ""),
+      title: key,
+    }));
+
+  // ---- daily goal ----
+  const goal = Number(store.settings.dailyGoal) || 0;
+  const answeredToday = questionsAnsweredToday(store.attempts);
 
   // ---- mastery meters ----
   const subjectMeters = store.subjects
@@ -50,15 +65,27 @@ export function renderProgress() {
     el("h1", {}, t("prog.title")),
 
     el("section.panel", {}, [
-      el("h3", { style: { marginBottom: "12px", display: "flex", alignItems: "center", gap: "10px" } }, [
-        t("prog.streak"),
-        el("span.streakbadge", {}, [icon(ICONS.flame, 13), plural(streak, "prog.streakDaysOne", "prog.streakDaysMany")]),
-      ]),
+      el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "10px", flexWrap: "wrap", marginBottom: "12px" } }, [
+        el("h3", { style: { display: "flex", alignItems: "center", gap: "10px" } }, [
+          t("prog.streak"),
+          el("span.streakbadge", {}, [icon(ICONS.flame, 13), plural(streak, "prog.streakDaysOne", "prog.streakDaysMany")]),
+        ]),
+        goal > 0 && el("span", { style: { display: "flex", alignItems: "center", gap: "8px", color: "var(--ink-soft)", fontSize: "var(--fs-sm)", fontWeight: "700" } }, [
+          goalRing(answeredToday, goal),
+          answeredToday >= goal ? t("menu.goalDone") : t("menu.goalToday", { done: answeredToday, goal }),
+        ]),
+      ].filter(Boolean)),
       el("div.streak", { role: "img", "aria-label": t("prog.streakAria", { n: [...studied].filter((d) => recentDays(14).includes(d)).length }) }, days),
       el("p.note", { style: { marginTop: "10px" } }, t("prog.summary", {
         days: plural(store.state.activity.daysStudied.length, "prog.daysOne", "prog.daysMany"),
         sessions: plural(attemptsCount, "prog.sessionsOne", "prog.sessionsMany"),
       })),
+    ]),
+
+    el("section.panel", {}, [
+      el("h3", { style: { marginBottom: "6px" } }, t("prog.heatmapTitle")),
+      el("p.note", { style: { marginBottom: "12px" } }, t("prog.heatmapSub")),
+      el("div.heatmap", { role: "img", "aria-label": t("prog.heatmapSub") }, heatCells),
     ]),
 
     el("section.panel", {}, [

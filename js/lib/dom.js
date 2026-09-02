@@ -45,13 +45,29 @@ export function clear(node) { while (node.firstChild) node.removeChild(node.firs
 export function mount(root, ...nodes) { clear(root); append(root, nodes); return root; }
 
 let toastTimer;
-export function toast(message) {
+/**
+ * toast("Saved")                              — plain, 2.6s
+ * toast("Deleted", { actionLabel: "Undo", onAction })  — with a button, 6s
+ */
+export function toast(message, opts) {
   let t = document.querySelector(".toast");
   if (!t) { t = el("div.toast"); document.body.appendChild(t); }
-  t.textContent = message;
+  clear(t);
+  const dismiss = () => t.classList.remove("show");
+
+  if (opts?.actionLabel && typeof opts.onAction === "function") {
+    t.appendChild(el("span", {}, message));
+    t.appendChild(el("button.toast__action", {
+      type: "button",
+      onclick: () => { opts.onAction(); clearTimeout(toastTimer); dismiss(); },
+    }, opts.actionLabel));
+  } else {
+    t.textContent = message;
+  }
+
   requestAnimationFrame(() => t.classList.add("show"));
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
+  toastTimer = setTimeout(dismiss, opts?.actionLabel ? 6000 : 2600);
 }
 
 export const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);

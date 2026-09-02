@@ -72,7 +72,7 @@ export const nationalMixId = (subjectId) => `${NATIONAL_MIX_PREFIX}${subjectId}`
 function seedState() {
   return {
     version: SCHEMA_VERSION,
-    settings: { preset: "balanced", tutorVerbosity: "normal", sound: true },
+    settings: { preset: "balanced", tutorVerbosity: "normal", sound: true, dailyGoal: 10 },
     subjects: DEFAULT_SUBJECTS.map((name, i) => ({
       id: uid(), name, color: PALETTE[i % PALETTE.length].name,
     })),
@@ -361,13 +361,31 @@ class Store extends EventTarget {
     return copy;
   }
 
+  /** Removes the set and its review scheduling; attempt history is kept.
+   *  Returns { assignment, srs } so the caller can offer an undo. */
   deleteAssignment(id) {
+    let snapshot = null;
     this.update((s) => {
       const a = s.assignments.find((x) => x.id === id);
+      if (!a) return;
+      const srs = {};
+      for (const q of a.questions || []) {
+        if (s.srs[q.id]) { srs[q.id] = s.srs[q.id]; delete s.srs[q.id]; }
+      }
+      snapshot = { assignment: a, srs };
       s.assignments = s.assignments.filter((x) => x.id !== id);
       delete s.sessions[id];
-      // Drop review scheduling for questions that no longer exist.
-      for (const q of a?.questions || []) delete s.srs[q.id];
+    });
+    return snapshot;
+  }
+
+  /** Puts back a set removed by deleteAssignment(), scheduling included. */
+  restoreAssignment(snapshot) {
+    if (!snapshot?.assignment) return;
+    this.update((s) => {
+      if (s.assignments.some((x) => x.id === snapshot.assignment.id)) return;
+      s.assignments.unshift(snapshot.assignment);
+      Object.assign(s.srs, snapshot.srs || {});
     });
   }
 
