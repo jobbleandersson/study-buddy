@@ -51,6 +51,8 @@ function sampleFileFor(entry, lang = getLang()) {
   return entry.files[lang] || entry.files.en;
 }
 
+const SAMPLE_IDS = new Set(SAMPLE_FILES.map((x) => x.id));
+
 const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 // `ink` is the text-safe variant: >= 4.5:1 against both white and its own tint.
@@ -249,9 +251,10 @@ class Store extends EventTarget {
     return { loaded, total: SAMPLE_FILES.length };
   }
 
-  /** Loads the demo sets in the language that's active right now. Sets already
-   *  in the library keep whatever language they were loaded in. */
+  /** Loads the demo sets in the language that's active right now. Once loaded
+   *  they track the app language automatically — see syncDemoLanguage(). */
   async loadDemoContent() {
+    const lang = getLang();
     const docs = await Promise.all(SAMPLE_FILES.map((entry) => {
       const file = sampleFileFor(entry);
       return fetch(file).then((r) => {
@@ -262,12 +265,83 @@ class Store extends EventTarget {
     let added = 0;
     for (const doc of docs) {
       if (this.getAssignment(doc.id)) continue;
-      this.addAssignmentDoc(doc, { silent: true });
+      const a = this.addAssignmentDoc(doc, { silent: true });
+      a._sampleLang = lang;
       added++;
     }
     this.save();
     this.emit();
     return added;
+  }
+
+  /** Demo sets are examples, not the student's own content, so they follow the
+   *  UI language. Re-translates any bundled demo set in the library whose
+   *  question ids still match the bundle (i.e. the student hasn't restructured
+   *  it); question ids are stable across languages, so attempts, SRS records
+   *  and per-topic mastery all carry over. Fires "change" if anything moved. */
+  async syncDemoLanguage() {
+    const lang = getLang();
+    let changed = 0, tagged = 0;
+
+    for (const entry of SAMPLE_FILES) {
+      const a = this.getAssignment(entry.id);
+      if (!a || a._sampleLang === lang) continue;
+
+      let doc = null;
+      try {
+        const res = await fetch(sampleFileFor(entry, lang));
+        if (res.ok) doc = await res.json();
+      } catch { /* offline — try again next time */ }
+      if (!doc) continue;
+
+      const have = a.questions.map((q) => q.id).sort().join("|");
+      const want = (doc.questions || []).map((q) => q.id).sort().join("|");
+      // Structurally edited, or already in the target language: just remember
+      // the language so we stop re-checking it.
+      if (have !== want || a.title === doc.title) { a._sampleLang = lang; tagged++; continue; }
+
+      const t = a;
+      const byId = new Map((doc.questions || []).map((q) => [q.id, q]));
+      t.title = doc.title;
+      t.sourceSummary = doc.sourceSummary || "";
+      t.topics = doc.topics || t.topics;
+      t.questions = t.questions.map((q) => {
+        const d = byId.get(q.id) || {};
+        return {
+          ...q,
+          prompt: d.prompt ?? q.prompt,
+          choices: d.choices,
+          answer: d.answer,
+          rubric: d.rubric,
+          explanation: d.explanation,
+          steps: d.steps,
+          opener: d.opener,
+          topic: d.topic || q.topic,
+        };
+      });
+      // Keep history keyed on the new topic strings so mastery stays continuous.
+      const topicById = new Map(t.questions.map((q) => [q.id, q.topic]));
+      for (const att of this.state.attempts) {
+        for (const it of att.items || []) {
+          if (topicById.has(it.questionId)) it.topic = topicById.get(it.questionId);
+        }
+      }
+      // Translate the subject name in place (same id → mastery-by-subject
+      // intact) only when nothing but demo sets use it.
+      const subj = this.state.subjects.find((x) => x.id === t.subjectId);
+      if (subj && subj.name !== doc.subject &&
+          this.state.assignments.every((x) => x.subjectId !== subj.id || SAMPLE_IDS.has(x.id))) {
+        subj.name = doc.subject;
+      }
+      t._sampleLang = lang;
+      changed++;
+    }
+
+    // Demo content is fully reconstructible from the bundle + language, so it
+    // doesn't need a sync push of its own — the next real change carries it.
+    if (changed || tagged) this.save({ skipPush: true });
+    if (changed) this.emit();
+    return changed;
   }
 
   removeDemoContent() {
@@ -374,6 +448,11 @@ class Store extends EventTarget {
       if (patch.questions) {
         a.topics = [...new Set(patch.questions.map((q) => q.topic).filter(Boolean))];
       }
+      // Editing a demo set's wording or title makes it the student's own — stop
+      // auto-translating it (see syncDemoLanguage()).
+      if (("questions" in patch || "title" in patch) && "_sampleLang" in a) {
+        delete a._sampleLang;
+      }
     });
   }
 
@@ -389,6 +468,7 @@ class Store extends EventTarget {
       createdAt: Date.now(),
       questions: a.questions.map((q) => ({ ...structuredClone(q), id: uid() })),
     };
+    delete copy._sampleLang;   // a copy is the student's own, in its current language
     this.update((s) => { s.assignments.unshift(copy); });
     return copy;
   }

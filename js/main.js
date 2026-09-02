@@ -130,8 +130,13 @@ async function render() {
 }
 
 window.addEventListener("hashchange", render);
-// A language switch re-renders exactly like a navigation.
-window.addEventListener("sb:langchange", () => { applyLang(); render(); });
+// A language switch re-renders exactly like a navigation; demo sets follow the
+// UI language, so nudge the store to re-translate them (it re-renders when done).
+window.addEventListener("sb:langchange", () => {
+  applyLang();
+  render();
+  store.syncDemoLanguage();
+});
 
 // Offline support + home-screen install. Only over http(s) — a service worker
 // can't register from file://, and failing to register is not fatal.
@@ -146,6 +151,8 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
 store.init().then(() => {
   applyLang();
   render();
+  // Bring any demo sets loaded in a different language up to date.
+  store.syncDemoLanguage();
   // After first paint, keep menu/progress fresh when the store changes.
   store.addEventListener("change", () => {
     const h = location.hash.replace(/^#/, "");
