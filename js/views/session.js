@@ -5,7 +5,7 @@
 // a targeted practice run and a weak-spots drill identically — and it's what
 // gets saved so you can resume.
 
-import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID } from "../store.js";
+import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, NATIONAL_MIX_PREFIX, nationalMixId } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { announce } from "../lib/a11y.js";
 import { t } from "../lib/i18n.js";
@@ -93,6 +93,29 @@ export async function renderWeakPractice() {
     retryHash: "#/practice-weak",
     questionIds: weak.map((w) => w.question.id),
     forceTutor: true,
+  });
+}
+
+/** Mix questions from every set imported under one subject (e.g. every year
+ *  of a national exam a student has added) into one randomized session. */
+export async function renderNationalMix(subjectId, qs) {
+  const subject = store.subjects.find((s) => s.id === subjectId);
+  const sets = store.assignments.filter((a) => a.subjectId === subjectId);
+  const pool = sets.flatMap((a) => a.questions.map((q) => q.id));
+
+  if (!pool.length) return notFound(t("session.nationalMixEmpty"));
+
+  const count = Math.max(1, Math.min(Number(qs?.get("count")) || 15, pool.length));
+  const ids = shuffled(pool).slice(0, count);
+
+  return runSession({
+    key: nationalMixId(subjectId),
+    assignmentId: nationalMixId(subjectId),
+    title: t("session.nationalMixTitle", { subject: subject?.name || t("session.nationalMixFallback") }),
+    type: "assignment",
+    retryHash: `#/national/mix/${subjectId}?count=${count}`,
+    questionIds: ids,
+    shuffle: true,
   });
 }
 
@@ -462,6 +485,7 @@ function badgeLabel(config) {
   if (config.assignmentId === REVIEW_ID) return t("session.badgeReview");
   if (config.assignmentId === PRACTICE_ID) return t("session.badgePractice");
   if (config.assignmentId === WEAK_ID) return t("session.badgeWeak");
+  if (config.assignmentId?.startsWith?.(NATIONAL_MIX_PREFIX)) return t("session.badgeNationalMix");
   return config.type === "test" ? t("common.test") : t("common.assignment");
 }
 

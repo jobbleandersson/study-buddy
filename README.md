@@ -6,23 +6,31 @@ and adapts when you're stuck.
 
 Built for K–12. No framework, no build step, no npm — plain HTML, CSS, and ES modules.
 
-**Live:** <https://jobbleandersson.github.io/study-buddy/> — runs in demo mode; add
-your own Claude key in Settings for live tutoring and question generation.
+**Live:** <https://jobbleandersson.github.io/study-buddy/> — the frontend, hosted on
+GitHub Pages. Runs in demo mode only, since Pages serves static files and there's no
+`server/` behind it; run `server/` locally (or host it somewhere) for live mode and
+accounts — see below.
 
 ## Run it
 
-**Windows (easiest):** double-click `serve.ps1` → "Run with PowerShell", then open the
-URL it prints (default <http://localhost:8000>).
-
-Or from a terminal:
+`server/` now serves the whole app — frontend and API — from one process on one port,
+so this is the only step needed for the full experience (demo mode works with no setup;
+add a Claude key for live mode):
 
 ```bash
-powershell -ExecutionPolicy Bypass -File serve.ps1 -Port 8000
+cd server
+npm install
+cp .env.example .env   # optionally fill in ANTHROPIC_API_KEY for live mode
+npm start
 ```
 
-Any static file server works too (e.g. the VS Code "Live Server" extension). Opening
-`index.html` directly with `file://` will **not** work — ES modules need to be served
-over http.
+Then open <http://localhost:8787>. See `server/README.md` for details.
+
+**Frontend only, no Node:** double-click `serve.ps1` → "Run with PowerShell" (or
+`powershell -ExecutionPolicy Bypass -File serve.ps1 -Port 8000`), or use any other
+static file server. This runs the UI in demo mode only — with `server/` not serving
+it, there's no API for it to reach. Opening `index.html` directly with `file://` will
+**not** work either way — ES modules need to be served over http.
 
 ## What's in it
 
@@ -61,14 +69,15 @@ Everything (assignments, attempts, progress) is stored in your browser's
 
 ## Demo mode vs. live mode
 
-Without a Claude API key, StudyBuddy runs in **demo mode**: the two sample sets
-(Photosynthesis Basics, Ancient Rome Quiz) are fully playable and the tutor follows a
-scripted hint ladder. Your library starts empty — load the demo sets from the home
-screen or from Settings → Demo content.
+Without the backend proxy (see `server/`) running and reachable, StudyBuddy runs in
+**demo mode**: the two sample sets (Photosynthesis Basics, Ancient Rome Quiz) are fully
+playable and the tutor follows a scripted hint ladder. Your library starts empty — load
+the demo sets from the home screen or from Settings → Demo content.
 
-Add a key in **Settings** to turn on **live mode**: real question generation from your
-material, a real streaming tutor, and AI grading of written answers. In Swedish mode
-the tutor, generated questions and grading all come back in Swedish.
+Run `server/` with a Claude key configured (see `server/README.md`) to turn on **live
+mode**: real question generation from your material, a real streaming tutor, and AI
+grading of written answers. Settings shows whether the tutor server is connected. In
+Swedish mode the tutor, generated questions and grading all come back in Swedish.
 
 **Model presets.** Different jobs use different models, so you're not paying top rates
 to mark a one-line answer:
@@ -81,17 +90,17 @@ to mark a one-line answer:
 
 ### ⚠️ Security note
 
-In live mode the API key is stored in your browser and calls go straight from the page
-to `api.anthropic.com`. That's fine for **personal / family use on your own machine**.
-
-**Do not put this app on a public website as-is** — anyone who visits could use your
-key. Publishing it safely means adding a small backend that holds the key and proxies
-the requests. That's on the roadmap.
+The Claude API key lives only on the machine running `server/` — the browser never sees
+it. `/api/state`, `/api/links`, and `/api/assigned` all require a signed-in session.
+`/api/messages` (the Claude proxy) itself still has no per-request auth of its own,
+though — anyone who can reach the deployment can spend the configured key regardless of
+whether they've signed in. Understand that before hosting this somewhere public — see
+`server/README.md`.
 
 ## Project layout
 
 ```
-serve.ps1            local dev server (Windows PowerShell, no dependencies)
+serve.ps1            frontend-only dev server (Windows PowerShell, no dependencies) — demo mode only
 index.html           shell — fonts, vendored libs, manifest, theme bootstrap
 manifest.json        PWA manifest (installable to a home screen)
 sw.js                service worker — network-first, cache fallback for offline
@@ -106,15 +115,52 @@ js/views/            one file per screen (menu, create, edit, session, results,
                      progress, settings)
 js/components/       question renderers, shared question editor, tutor chat, mascot
 js/lib/              srs, mastery, activity/streak, theme, i18n + strings, sound,
-                     a11y, markdown, dom
+                     a11y, markdown, dom, library (pure findQuestion/dueQuestions)
+js/config.js         backend server URLs
+js/data/national-tests.js      curated links to public Swedish national exams
+js/views/login.js    email/password sign in, optional
+js/views/parent-dashboard.js   linking, assigning sets, read-only student progress
 data/samples/        demo sets + scripted tutor, English and Swedish (demo mode)
 vendor/              pdf.js, KaTeX, canvas-confetti (committed, no npm)
+server/              serves the frontend + API: key proxy, accounts/sync, parent-teacher
+                     linking (Node/Express/SQLite) — see server/README.md
 ```
+
+## Accounts & sync
+
+Optional. StudyBuddy works fully signed out — everything stays in this browser's
+`localStorage`, same as always. Sign in (Settings → Account) to also sync your
+library and progress to an account, so it's there on another device too. Auth is
+email/password; there's no email-sending step, so nothing to confirm — an account
+is ready to use immediately.
+
+Sync pushes your whole local library as one unit a moment after each change, and
+pulls it once when you sign in elsewhere. If the same account is edited on two
+devices before they've synced, the most recent save wins and the other device is
+told its unsynced local changes were replaced — there's no field-by-field merge.
+Fine for one person moving between their own devices; not built for simultaneous
+editing.
+
+## Parent / teacher view
+
+Also optional, and separate from accounts & sync — you need an account, but a parent
+or teacher watching a student doesn't need to be *the same* account. From the 🧑‍🤝‍🧑
+icon in the header (visible once signed in):
+
+- A student generates a short-lived invite code (Settings → Account → Parent / teacher
+  linking, or the hub directly) and shares it with a parent or teacher, who redeems it
+  to link the two accounts. Either side can unlink later.
+- Once linked, the parent/teacher can assign one of their own sets to the student —
+  it shows up under "Assigned to you" on the student's side, and importing it drops
+  it straight into their normal library, no different from any other set.
+- The parent/teacher gets a read-only progress view for each linked student (streak,
+  mastery by subject, what's due) — the same numbers the student sees on their own
+  Progress page, just fetched from their synced account instead of computed locally.
+
+A parent/teacher can't edit a student's data, and a student's raw material never
+leaves their account except the sets a linked parent/teacher explicitly assigned.
 
 ## Roadmap
 
 - Voice chat — talk through problems out loud
-- Accounts & sync — use StudyBuddy on any device
-- Parent / teacher view — assign work and track progress
 - Share assignment sets with a friend
-- A backend key proxy so it can be safely hosted

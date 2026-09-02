@@ -367,7 +367,7 @@ function todayStrip() {
   if (open) {
     const answered = Object.keys(open.items || {}).length;
     tiles.push(tile(
-      open.isReview ? "#/review" : `#/session/${open.assignmentId}`,
+      open.retryHash || (open.isReview ? "#/review" : `#/session/${open.assignmentId}`),
       ICONS.play,
       t("menu.tileContinue"),
       t("menu.tileContinueSub", { title: open.title, n: answered, total: open.order.length })));

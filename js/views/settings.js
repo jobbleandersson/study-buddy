@@ -1,4 +1,5 @@
-// Settings: look & feel, AI (key + models), demo content, your data, roadmap.
+// Settings: look & feel, AI (tutor server + models), account, demo content,
+// your data, roadmap.
 
 import { store } from "../store.js";
 import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
@@ -27,20 +28,6 @@ export function renderSettings() {
     setLang(chosen);
     setTimeout(() => toast(t("set.langUpdated")), 0);
   });
-
-  /* ---------------- key ---------------- */
-  const keyInput = el("input", {
-    type: "password", value: s.apiKey || "", placeholder: "sk-ant-…",
-    autocomplete: "off", spellcheck: "false", "aria-label": t("set.key"),
-  });
-  const showBtn = el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => {
-    keyInput.type = keyInput.type === "password" ? "text" : "password";
-    showBtn.textContent = t(keyInput.type === "password" ? "set.show" : "set.hide");
-  } }, t("set.show"));
-  const saveKey = el("button.btn.btn--sm", { type: "button", onclick: () => {
-    store.setSettings({ apiKey: keyInput.value.trim() });
-    toast(t(keyInput.value.trim() ? "set.keySaved" : "set.keyCleared"));
-  } }, t("set.save"));
 
   /* ---------------- model preset ---------------- */
   const presetHint = el("p.note", { style: { marginTop: "6px" } });
@@ -96,11 +83,13 @@ export function renderSettings() {
     if (on) playFanfare();
   });
 
-  /* Four panels, not seven. Seven identical bordered blocks in a 620px column
-     made Settings 2,300px of scrolling in which nothing stood out; the things
-     that belong together (how it looks and sounds; the key and the models it
-     unlocks) now sit together, and the roadmap drops its panel chrome because
-     it isn't a control. */
+  /* ---------------- tutor server status ---------------- */
+  // The Claude key lives in the backend proxy now, so there's nothing to type
+  // here — just whether live mode is available.
+  const serverStatus = !store.proxyUp ? t("set.serverDown")
+    : !store.proxyKeyConfigured ? t("set.serverNoKey")
+    : t("set.serverLive");
+
   const node = el("div.settings", {}, [
     el("h1", {}, t("set.title")),
 
@@ -118,14 +107,11 @@ export function renderSettings() {
     el("section.panel", {}, [
       el("h3", {}, t("set.aiTitle")),
 
-      el("h4.settings__sub", {}, t("set.keyTitle")),
-      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.keyBody")),
-      el("label.field", {}, [el("span", {}, t("set.key")), el("div.keyrow", {}, [keyInput, showBtn, saveKey])]),
-      el("p.note.note--warn", {}, [icon(ICONS.spark, 16), t("set.keyWarning")]),
-      el("p.note", { style: { marginTop: "10px" } }, [
-        t("set.getKeyAt"),
-        el("a", { href: "https://console.anthropic.com/settings/keys", target: "_blank", rel: "noopener" }, "console.anthropic.com"),
-        t("set.billed"),
+      el("h4.settings__sub", {}, t("set.serverTitle")),
+      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.serverBody")),
+      el("p.note", { style: { display: "flex", alignItems: "center", gap: "8px" } }, [
+        el("span.dot", { style: { background: store.hasKey() ? "var(--ok)" : "var(--retry-ink)" } }),
+        serverStatus,
       ]),
 
       el("h4.settings__sub", {}, t("set.modelTitle")),
@@ -136,11 +122,13 @@ export function renderSettings() {
       el("label.field", { style: { marginTop: "16px", marginBottom: "0" } }, [el("span", {}, t("set.replyLength")), verbSel]),
     ]),
 
+    accountSection(),
+
     demoSection(),
 
     el("section.panel", {}, [
       el("h3", {}, t("set.dataTitle")),
-      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.dataBody")),
+      el("p.note", { style: { margin: "6px 0 12px" } }, store.authed ? t("set.dataBodySynced") : t("set.dataBody")),
       el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } }, [
         el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: exportData }, t("set.export")),
         el("button.btn.btn--ghost.btn--sm", { type: "button", style: { color: "var(--retry-ink)" }, onclick: wipe }, t("set.wipe")),
@@ -151,8 +139,6 @@ export function renderSettings() {
       el("h3", {}, t("set.roadmap")),
       el("ul.roadmap", {}, [
         el("li", {}, t("set.roadVoice")),
-        el("li", {}, t("set.roadAccounts")),
-        el("li", {}, t("set.roadTeacher")),
         el("li", {}, t("set.roadShare")),
       ]),
     ]),
@@ -202,6 +188,41 @@ export function renderSettings() {
 
     return el("section.panel", {}, [
       el("h3", {}, t("set.demoTitle")),
+      status,
+      actions,
+    ]);
+  }
+
+  function accountSection() {
+    const status = el("p.note", { style: { margin: "6px 0 12px" } });
+    const actions = el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } });
+
+    function paint() {
+      status.textContent = store.authed
+        ? t("set.acctSignedIn", { email: store.authEmail })
+        : t("set.acctSignedOut");
+
+      clear(actions);
+      if (store.authed) {
+        actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
+          type: "button",
+          onclick: async (e) => {
+            e.currentTarget.disabled = true;
+            await store.logout();
+            toast(t("set.acctSignedOutToast"));
+            paint();
+          },
+        }, t("set.acctSignOut")));
+        actions.appendChild(el("a.btn.btn--ghost.btn--sm", { href: "#/parent" }, t("set.acctParentLink")));
+      } else {
+        actions.appendChild(el("a.btn.btn--sm", { href: "#/login" }, t("set.acctSignIn")));
+      }
+    }
+    paint();
+
+    return el("section.panel", {}, [
+      el("h3", {}, t("set.acctTitle")),
+      !store.proxyUp && el("p.note.note--warn", {}, t("set.acctNoServer")),
       status,
       actions,
     ]);

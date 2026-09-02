@@ -1,5 +1,5 @@
 // The tutor chat panel. Works in two modes:
-//   - live:    streams from Claude (when an API key is set)
+//   - live:    streams from Claude (when the tutor server is reachable)
 //   - scripted: walks a hint ladder from data/samples/scripted-tutor.json (offline demo)
 
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";

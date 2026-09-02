@@ -1,14 +1,12 @@
-// Claude API client — called directly from the browser.
-//
-// SECURITY: the API key lives in the browser (localStorage). That is fine for
-// personal / family use. Do NOT deploy this app publicly until a small backend
-// proxy holds the key instead. The Settings screen says this too.
+// Claude API client — calls the local backend proxy (server/), which holds
+// the actual Claude API key. The browser never sees it.
 
 import { store } from "./store.js";
 import { generationSystem, gradingSystem } from "./prompts.js";
 import { t } from "./lib/i18n.js";
+import { PROXY_URL } from "./config.js";
 
-const API_URL = "https://api.anthropic.com/v1/messages";
+const API_URL = PROXY_URL;
 
 /**
  * Model choice is a preset, not a single model: the three jobs have very
@@ -33,12 +31,7 @@ export const PRESETS = {
 export const DEFAULT_PRESET = "balanced";
 
 function headers() {
-  return {
-    "content-type": "application/json",
-    "x-api-key": store.settings.apiKey.trim(),
-    "anthropic-version": "2023-06-01",
-    "anthropic-dangerous-direct-browser-access": "true",
-  };
+  return { "content-type": "application/json" };
 }
 
 /** task: "generate" | "tutor" | "grade" */
@@ -59,6 +52,7 @@ async function callJSON(body) {
   if (!res.ok) {
     let detail = "";
     try { detail = (await res.json())?.error?.message || ""; } catch {}
+    if (res.status === 500 && /ANTHROPIC_API_KEY/.test(detail)) throw new ClaudeError(t("err.serverNoKey"));
     if (res.status === 401) throw new ClaudeError(t("err.badKey"));
     if (res.status === 429) throw new ClaudeError(t("err.rateLimited"));
     throw new ClaudeError(detail ? t("err.apiDetail", { status: res.status, detail }) : t("err.api", { status: res.status }));
@@ -79,7 +73,7 @@ function parseLooseJSON(text) {
 
 // ---------- assignment generation ----------
 
-export async function generateAssignment({ material, topic, image, count = 6, gradeHint = "" }) {
+export async function generateAssignment({ material, topic, image, count = 6, gradeHint = "", preferFlashcards = false }) {
   const userContent = [];
   if (image) {
     userContent.push({
@@ -98,7 +92,7 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
   const body = {
     model: modelFor("generate"),
     max_tokens: 16000,
-    system: generationSystem({ gradeHint }),
+    system: generationSystem({ gradeHint, preferFlashcards }),
     messages: [{ role: "user", content: userContent }],
   };
 
@@ -194,7 +188,9 @@ export async function* tutorStream({ system, messages, signal }) {
   if (!res.ok || !res.body) {
     let detail = "";
     try { detail = (await res.json())?.error?.message || ""; } catch {}
-    throw new ClaudeError(res.status === 401
+    throw new ClaudeError(res.status === 500 && /ANTHROPIC_API_KEY/.test(detail)
+      ? t("err.serverNoKey")
+      : res.status === 401
       ? t("err.badKey")
       : t("err.tutorUnavailable", { status: res.status }));
   }

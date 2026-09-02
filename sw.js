@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studybuddy-v2";
+const CACHE = "studybuddy-v3";
 
 const APP_SHELL = [
   "./",
@@ -19,6 +19,7 @@ const APP_SHELL = [
   "./assets/favicon.svg",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
+  "./js/config.js",
   "./js/main.js",
   "./js/store.js",
   "./js/claude.js",
@@ -36,6 +37,8 @@ const APP_SHELL = [
   "./js/lib/markdown.js",
   "./js/lib/rich.js",
   "./js/lib/confetti-helper.js",
+  "./js/lib/library.js",
+  "./js/data/national-tests.js",
   "./js/views/menu.js",
   "./js/views/create.js",
   "./js/views/edit.js",
@@ -43,6 +46,8 @@ const APP_SHELL = [
   "./js/views/results.js",
   "./js/views/progress.js",
   "./js/views/settings.js",
+  "./js/views/login.js",
+  "./js/views/parent-dashboard.js",
   "./js/components/questions.js",
   "./js/components/question-editor.js",
   "./js/components/tutor-chat.js",
@@ -51,6 +56,7 @@ const APP_SHELL = [
   "./vendor/katex.min.js",
   "./vendor/katex.min.css",
   "./vendor/pdf.min.js",
+  "./vendor/jszip.min.js",
   "./data/samples/sample-assignment.json",
   "./data/samples/sample-test.json",
   "./data/samples/scripted-tutor.json",
