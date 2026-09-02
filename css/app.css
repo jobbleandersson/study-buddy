@@ -404,7 +404,7 @@ h1:focus-visible, h2:focus-visible {
 
 .field { display: block; margin-bottom: var(--s-4); }
 .field > span { display: block; font-weight: 700; font-size: var(--fs-sm); margin-bottom: var(--s-2); }
-.field input[type=text], .field input[type=number], .field select, .field textarea {
+.field input[type=text], .field input[type=number], .field input[type=email], .field input[type=password], .field select, .field textarea {
   width: 100%; font: inherit; padding: var(--s-3); border-radius: var(--r-md);
   border: 1px solid var(--line-strong); background: var(--surface);
 }
@@ -432,7 +432,9 @@ h1:focus-visible, h2:focus-visible {
 
 .toast {
   position: fixed; left: 50%; bottom: var(--s-5); transform: translateX(-50%) translateY(20px);
-  background: var(--ink); color: #fff; padding: var(--s-3) var(--s-5); border-radius: var(--r-full);
+  /* Fixed dark pill regardless of theme — var(--ink) flips to near-white in
+     dark mode, which left the hardcoded white text unreadable against it. */
+  background: #2B2B3A; color: #fff; padding: var(--s-3) var(--s-5); border-radius: var(--r-full);
   font-weight: 600; font-size: var(--fs-sm); box-shadow: var(--shadow-2);
   opacity: 0; pointer-events: none; transition: opacity var(--dur-mid), transform var(--dur-mid) var(--ease-spring);
   z-index: 50;

@@ -12,10 +12,11 @@ export const QUESTION_SHAPE = `Each question object has:
 - "steps": for "worked" — an array of 3-6 strings, the reasoning steps in order.
 - "opener": ALWAYS include. One short sentence the tutor says before the student answers — a nudge toward how to think about THIS question. Never state or give away the answer. Address the student as "you". Max 25 words.`;
 
-export function generationSystem({ gradeHint }) {
+export function generationSystem({ gradeHint, preferFlashcards }) {
   return `You are an expert teacher who writes study material for K-12 students${gradeHint ? ` (around ${gradeHint})` : ""}.
 Write clear, age-appropriate questions that build real understanding — not trick questions.
 Cover the material at a range of difficulty. Vary the question kinds sensibly for the content.
+${preferFlashcards ? `Prefer the "flashcard" question kind where the content suits quick recall or definitions, unless the material clearly calls for another kind.\n` : ""}
 
 Respond with ONLY a single JSON object (no prose, no markdown fence) of this shape:
 {

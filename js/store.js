@@ -3,10 +3,18 @@
 
 import { uid } from "./lib/dom.js";
 import { localDayKey, currentStreak } from "./lib/activity.js";
-import { isDue } from "./lib/srs.js";
+import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } from "./lib/library.js";
+import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, STATE_URL } from "./config.js";
 
 const KEY = "studybuddy.v1";
-const SCHEMA_VERSION = 4;
+const SCHEMA_VERSION = 5;
+// Separate, unmigrated key: the last state_blobs version this browser is
+// known to be in sync with. Kept outside the main blob (and outside
+// SCHEMA_VERSION) because it's sync bookkeeping, not app data — but it must
+// still survive a page reload, unlike an in-memory field, or every reload
+// would reset it to 0 and desync from the server's real version, turning
+// every reload into a spurious conflict that clobbers local edits.
+const SYNC_VERSION_KEY = "studybuddy.syncVersion";
 
 /** The bundled demo sets. They are no longer seeded automatically — they live
  *  in Settings under "Demo content" so a real library starts clean. */
@@ -30,11 +38,15 @@ const DEFAULT_SUBJECTS = ["Science", "History", "Math", "English", "Geography"];
 
 export const REVIEW_ID = "__review__";
 export const PRACTICE_ID = "__practice__";
+// Per-subject, unlike the two above — several subjects can each have their
+// own in-progress "mix all years" session at once.
+export const NATIONAL_MIX_PREFIX = "__npmix__";
+export const nationalMixId = (subjectId) => `${NATIONAL_MIX_PREFIX}${subjectId}`;
 
 function seedState() {
   return {
     version: SCHEMA_VERSION,
-    settings: { apiKey: "", preset: "balanced", tutorVerbosity: "normal" },
+    settings: { preset: "balanced", tutorVerbosity: "normal" },
     subjects: DEFAULT_SUBJECTS.map((name, i) => ({
       id: uid(), name, color: PALETTE[i % PALETTE.length].name,
     })),
@@ -80,6 +92,12 @@ function migrate(state) {
     delete s.settings.model;
   }
 
+  if (!(s.version >= 5)) {
+    // The API key moved server-side (backend proxy) — Settings no longer has
+    // a key field, and any key a user had pasted in is stale/unused now.
+    delete s.settings?.apiKey;
+  }
+
   s.version = SCHEMA_VERSION;
   s.settings = { ...seedState().settings, ...(s.settings || {}) };
   s.srs = s.srs || {};
@@ -93,6 +111,27 @@ class Store extends EventTarget {
   constructor() {
     super();
     this.state = seedState();
+    // Backend proxy status — not app data, so it lives on the instance
+    // rather than in this.state (must not enter the synced blob or bump
+    // SCHEMA_VERSION). "up" tracks reachability alone, separate from
+    // "keyConfigured" so Settings can tell the two failure modes apart.
+    this.proxyUp = false;
+    this.proxyKeyConfigured = false;
+
+    // Auth/sync status — also instance-only, not synced app data. Sign-in is
+    // opt-in: local-only mode (authed === false) works exactly as before.
+    this.authed = false;
+    this.authEmail = null;
+    // The state_blobs version this device last synced against. Read from
+    // localStorage (not just defaulted to 0) so it survives a page reload —
+    // see SYNC_VERSION_KEY above.
+    this._syncVersion = Number(localStorage.getItem(SYNC_VERSION_KEY)) || 0;
+    this._pushTimer = null;
+  }
+
+  _setSyncVersion(v) {
+    this._syncVersion = v;
+    try { localStorage.setItem(SYNC_VERSION_KEY, String(v)); } catch {}
   }
 
   async init() {
@@ -103,7 +142,29 @@ class Store extends EventTarget {
     } else {
       this.state = seedState();
     }
-    this.save();
+    this.save({ skipPush: true });
+
+    try {
+      const res = await fetch(PROXY_HEALTH_URL);
+      const data = res.ok ? await res.json() : null;
+      this.proxyUp = !!data?.ok;
+      this.proxyKeyConfigured = !!data?.keyConfigured;
+    } catch {
+      this.proxyUp = false;
+      this.proxyKeyConfigured = false;
+    }
+
+    if (this.proxyUp) {
+      try {
+        const res = await fetch(AUTH_ME_URL, { credentials: "include" });
+        if (res.ok) {
+          const data = await res.json();
+          this.authed = true;
+          this.authEmail = data.email;
+        }
+      } catch { /* not signed in / server unreachable — stay local-only */ }
+    }
+
     this.emit();
   }
 
@@ -140,9 +201,13 @@ class Store extends EventTarget {
     });
   }
 
-  save() {
+  save({ skipPush = false } = {}) {
     try { localStorage.setItem(KEY, JSON.stringify(this.state)); }
     catch (e) { console.error("Save failed (storage full or blocked):", e); }
+    // Local write is always synchronous and unconditional — this is just the
+    // additive, debounced background half. Every existing save()/update()
+    // call site keeps working exactly as before, authed or not.
+    if (!skipPush && this.authed) this._schedulePush();
   }
 
   emit() { this.dispatchEvent(new CustomEvent("change")); }
@@ -188,25 +253,10 @@ class Store extends EventTarget {
 
   /** Find a question anywhere in the library. Lets results and review
    *  sessions work without knowing which set a question came from. */
-  findQuestion(questionId) {
-    for (const a of this.state.assignments) {
-      const q = a.questions.find((x) => x.id === questionId);
-      if (q) return { assignment: a, question: q };
-    }
-    return null;
-  }
+  findQuestion(questionId) { return findQuestionPure(this.state.assignments, questionId); }
 
   /** Every question whose spaced-repetition record says it's due, across all sets. */
-  dueQuestions(now = Date.now()) {
-    const out = [];
-    for (const a of this.state.assignments) {
-      for (const q of a.questions) {
-        const rec = this.state.srs[q.id];
-        if (rec && isDue(rec, now)) out.push({ assignment: a, question: q, rec });
-      }
-    }
-    return out.sort((x, y) => (x.rec?.dueAt || 0) - (y.rec?.dueAt || 0));
-  }
+  dueQuestions(now = Date.now()) { return dueQuestionsPure(this.state.assignments, this.state.srs, now); }
 
   // Accepts a "doc" (sample file or model output): {type,subject,title,questions,...}
   addAssignmentDoc(doc, { silent = false } = {}) {
@@ -309,7 +359,103 @@ class Store extends EventTarget {
   // ---------- settings ----------
   get settings() { return this.state.settings; }
   setSettings(patch) { this.update((s) => Object.assign(s.settings, patch)); }
-  hasKey() { return !!(this.state.settings.apiKey || "").trim(); }
+  /** Whether live mode is available — i.e. the backend proxy is reachable
+   *  and has a Claude key configured. Was "did the user paste a key" before
+   *  the key moved server-side; callers didn't need to change. */
+  hasKey() { return this.proxyUp && this.proxyKeyConfigured; }
+
+  // ---------- account + sync ----------
+  // Sign-in is opt-in: local-only mode keeps working unchanged when signed
+  // out. Local writes stay the offline cache (save() → localStorage,
+  // synchronous, unconditional); signing in adds a debounced background push
+  // to server/ on top, plus a one-time pull on login. Conflicts use
+  // last-write-wins: a stale push gets the server's current blob back and
+  // adopts it, surfacing a "syncConflict" event rather than clobbering it.
+
+  async signup(email, password) {
+    const res = await fetch(AUTH_SIGNUP_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data?.error?.message || "Could not create an account.");
+    this.authed = true;
+    this.authEmail = data.email;
+    this._setSyncVersion(0);
+    await this._pushNow(); // this device's local data becomes the account's data
+    this.emit();
+  }
+
+  async login(email, password) {
+    const res = await fetch(AUTH_LOGIN_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data?.error?.message || "Could not sign in.");
+    this.authed = true;
+    this.authEmail = data.email;
+    await this._pullOnLogin();
+    this.emit();
+  }
+
+  async logout() {
+    try { await fetch(AUTH_LOGOUT_URL, { method: "POST", credentials: "include" }); } catch {}
+    this.authed = false;
+    this.authEmail = null;
+    clearTimeout(this._pushTimer);
+    this.emit();
+  }
+
+  async _pullOnLogin() {
+    let res;
+    try { res = await fetch(STATE_URL, { credentials: "include" }); }
+    catch { return; } // offline — keep local state, next save() will retry the push once reachable
+    if (!res.ok) return;
+    const { version, blob } = await res.json();
+    if (blob) {
+      this.state = migrate(blob);
+      this._setSyncVersion(version);
+      this.save({ skipPush: true });
+    } else {
+      // Existing account with nothing synced yet — seed it from this device.
+      await this._pushNow();
+    }
+  }
+
+  _schedulePush() {
+    clearTimeout(this._pushTimer);
+    this._pushTimer = setTimeout(() => this._pushNow(), 800);
+  }
+
+  async _pushNow() {
+    let res;
+    try {
+      res = await fetch(STATE_URL, {
+        method: "PUT", credentials: "include",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ version: this._syncVersion, blob: this.state }),
+      });
+    } catch { return; } // offline/unreachable — the next save() will try again
+
+    if (res.status === 409) {
+      const { version, blob } = await res.json();
+      if (blob) {
+        this.state = migrate(blob);
+        this._setSyncVersion(version);
+        this.save({ skipPush: true });
+        this.emit();
+      }
+      this.dispatchEvent(new CustomEvent("syncConflict"));
+      return;
+    }
+    if (res.ok) {
+      const data = await res.json();
+      this._setSyncVersion(data.version);
+    }
+  }
 
   // ---------- data management ----------
   exportJSON() { return JSON.stringify(this.state, null, 2); }

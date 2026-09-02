@@ -5,7 +5,7 @@
 // and a targeted practice run identically — and it's what gets saved so you
 // can resume.
 
-import { store, REVIEW_ID, PRACTICE_ID } from "../store.js";
+import { store, REVIEW_ID, PRACTICE_ID, NATIONAL_MIX_PREFIX, nationalMixId } from "../store.js";
 import { el, clear, icon, ICONS, uid } from "../lib/dom.js";
 import { announce } from "../lib/a11y.js";
 import { renderQuestion } from "../components/questions.js";
@@ -86,6 +86,29 @@ export async function renderPractice(attemptId) {
     questionIds: ids,
     // Practice is where the tutoring happens after a test, so never lock it.
     forceTutor: true,
+  });
+}
+
+/** Mix questions from every set imported under one subject (e.g. every year
+ *  of a national exam a student has added) into one randomized session. */
+export async function renderNationalMix(subjectId, qs) {
+  const subject = store.subjects.find((s) => s.id === subjectId);
+  const sets = store.assignments.filter((a) => a.subjectId === subjectId);
+  const pool = sets.flatMap((a) => a.questions.map((q) => q.id));
+
+  if (!pool.length) return notFound("Inga importerade set för det här ämnet ännu.");
+
+  const count = Math.max(1, Math.min(Number(qs?.get("count")) || 15, pool.length));
+  const ids = shuffled(pool).slice(0, count);
+
+  return runSession({
+    key: nationalMixId(subjectId),
+    assignmentId: nationalMixId(subjectId),
+    title: `Blandat – ${subject?.name || "Nationellt prov"}`,
+    type: "assignment",
+    retryHash: `#/national/mix/${subjectId}?count=${count}`,
+    questionIds: ids,
+    shuffle: true,
   });
 }
 
@@ -433,6 +456,7 @@ function shuffled(arr) {
 function badgeLabel(config) {
   if (config.assignmentId === REVIEW_ID) return "Review";
   if (config.assignmentId === PRACTICE_ID) return "Practice";
+  if (config.assignmentId?.startsWith?.(NATIONAL_MIX_PREFIX)) return "Nationellt prov";
   return config.type === "test" ? "Test" : "Assignment";
 }
 

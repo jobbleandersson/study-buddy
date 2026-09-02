@@ -11,12 +11,11 @@ export function fitText(s) {
   return collapsed.length > MAX_CHARS ? collapsed.slice(0, MAX_CHARS) + "\n\n[...truncated]" : collapsed;
 }
 
-export async function extractPdfText(file) {
+async function extractPdfTextFromBuffer(buf) {
   const lib = window.pdfjsLib;
   if (!lib) throw new Error("PDF reader failed to load. Refresh and try again.");
   lib.GlobalWorkerOptions.workerSrc = "vendor/pdf.worker.min.js";
 
-  const buf = await file.arrayBuffer();
   const pdf = await lib.getDocument({ data: buf }).promise;
   const pages = [];
   const limit = Math.min(pdf.numPages, 40);
@@ -31,6 +30,41 @@ export async function extractPdfText(file) {
     throw new Error("Couldn't find selectable text in that PDF. If it's a scan, upload it as a photo instead.");
   }
   return text;
+}
+
+export async function extractPdfText(file) {
+  return extractPdfTextFromBuffer(await file.arrayBuffer());
+}
+
+/** Pulls text out of every PDF inside a ZIP (e.g. Skolverket's national-exam
+ *  downloads) and concatenates it — audio files (listening comprehension)
+ *  are counted but skipped; there's no transcription here. */
+export async function extractZipText(file) {
+  if (!window.JSZip) throw new Error("ZIP reader failed to load. Refresh and try again.");
+  const zip = await window.JSZip.loadAsync(file);
+  const entries = Object.values(zip.files).filter((f) => !f.dir);
+  const pdfEntries = entries.filter((f) => /\.pdf$/i.test(f.name)).slice(0, 20); // cap runaway zips
+  if (!pdfEntries.length) throw new Error("Hittade ingen PDF i zip-filen.");
+
+  const parts = [];
+  for (const entry of pdfEntries) {
+    try {
+      const text = await extractPdfTextFromBuffer(await entry.async("arraybuffer"));
+      parts.push(`--- ${entry.name} ---\n${text}`);
+    } catch {
+      // Skip an unreadable/scanned PDF inside the zip; keep going with the rest.
+    }
+    if (parts.join("\n\n").length > MAX_CHARS) break;
+  }
+  if (!parts.length) throw new Error("Kunde inte läsa text ur PDF-filerna i zip-filen (kan vara skannade sidor).");
+
+  const skippedAudio = entries.filter((f) => /\.mp3$/i.test(f.name)).length;
+  return {
+    text: fitText(parts.join("\n\n")),
+    pdfCount: parts.length,
+    totalPdfCount: pdfEntries.length,
+    skippedAudio,
+  };
 }
 
 export function readImageFile(file) {

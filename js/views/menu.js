@@ -274,7 +274,7 @@ export function renderMenu() {
         el("h1", {}, greeting()),
         el("p.home__hi", {}, store.hasKey()
           ? "Pick something to study, or make a new set."
-          : "Add a Claude key in Settings to generate sets from your own material."),
+          : "Running in demo mode — see Settings for how to turn on live mode."),
       ]),
       el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), "New set"]),
     ]),
@@ -310,7 +310,7 @@ function todayStrip() {
 
   if (open) {
     const answered = Object.keys(open.items || {}).length;
-    tiles.push(el("a.tile", { href: open.isReview ? "#/review" : `#/session/${open.assignmentId}` }, [
+    tiles.push(el("a.tile", { href: open.retryHash || (open.isReview ? "#/review" : `#/session/${open.assignmentId}`) }, [
       el("span.tile__icon", {}, icon(ICONS.play, 18)),
       el("span", {}, [
         el("strong", {}, "Continue"),
