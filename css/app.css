@@ -64,6 +64,9 @@ a { color: var(--brand-ink); }
   font-size: var(--fs-sm); font-weight: 700;
 }
 :root[data-theme="dark"] .streakbadge { color: #21170C; }
+/* At risk: a freeze is standing by. Cool blue instead of the warm streak amber. */
+.streakbadge--risk { background: var(--info); color: #fff; }
+:root[data-theme="dark"] .streakbadge--risk { color: #08222E; }
 
 .resume h3 { margin-bottom: 0; }
 
@@ -546,7 +549,30 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .streak { display: flex; gap: 6px; flex-wrap: wrap; }
 .streak__day { width: 30px; height: 30px; border-radius: var(--r-sm); background: var(--surface-sunk); display: grid; place-items: center; font-size: 11px; color: var(--ink-faint); }
 .streak__day.on { background: var(--ok); color: #fff; font-weight: 700; }
+.streak__day.frozen { background: var(--info); color: #fff; font-size: 13px; }
 .streak__day.today { outline: 2px solid var(--brand); outline-offset: 1px; }
+
+/* A banked streak freeze, shown next to the streak badge. */
+.freezechip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px var(--s-2); border-radius: var(--r-full);
+  background: var(--info-tint); color: var(--info);
+  font-size: var(--fs-sm); font-weight: 700;
+}
+
+/* Achievements shelf */
+.badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: var(--s-3); }
+.badge-card {
+  display: flex; align-items: center; gap: var(--s-3);
+  padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
+  border: 1px solid var(--line); background: var(--surface);
+}
+.badge-card__emoji { font-size: 26px; flex: none; line-height: 1; }
+.badge-card__text { display: flex; flex-direction: column; min-width: 0; }
+.badge-card__text strong { font-family: var(--font-display); font-size: var(--fs-md); }
+.badge-card.is-locked { background: var(--surface-sunk); border-style: dashed; }
+.badge-card.is-locked .badge-card__emoji { filter: grayscale(1); opacity: .45; }
+.badge-card.is-locked .badge-card__text strong { color: var(--ink-soft); }
 
 /* 12-week study heatmap — 7 rows (Mon-Sun), columns are weeks, oldest left. */
 .heatmap {
@@ -555,6 +581,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 }
 .heatmap__cell { width: 13px; height: 13px; border-radius: 3px; background: var(--surface-sunk); }
 .heatmap__cell.on { background: var(--ok); }
+.heatmap__cell.frozen { background: var(--info); }
 .heatmap__cell.today { outline: 2px solid var(--brand); outline-offset: 1px; }
 .meter { display: grid; grid-template-columns: 120px 1fr 44px; align-items: center; gap: var(--s-3); padding: var(--s-2) 0; }
 .meter__track { height: 10px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }

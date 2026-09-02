@@ -568,6 +568,29 @@ export const STRINGS = {
     "set.dailyGoal": "Daily goal (questions)",
     "set.dailyGoalNote": "The ring on the home screen and Progress fills as you answer questions each day. Set to 0 to hide it.",
     "set.dailyGoalUpdated": "Daily goal updated",
+
+    "common.view": "View",
+
+    "streak.freezeHelp": "Streak freezes — each one covers a single missed day. You earn one every 7-day streak, up to two.",
+    "streak.freezeNext": "next freeze in {n} days",
+    "streak.freezeUsedToast": "Streak freeze used — your {n}-day streak is safe",
+    "streak.frozenDay": "streak freeze used",
+    "streak.atRisk": "Study today to keep your {n}-day streak — a freeze is ready if you slip.",
+    "streak.atRiskShort": "Streak at risk — study today",
+
+    "prog.achievements": "Achievements",
+    "prog.achProgress": "{have} / {need} days",
+    "prog.personalBest": "personal best: {n} days",
+
+    "ach.multiToast": "{n} achievements unlocked!",
+    "ach.streak3.title": "Getting started",
+    "ach.streak3.desc": "A 3-day study streak.",
+    "ach.streak7.title": "One week strong",
+    "ach.streak7.desc": "A 7-day study streak.",
+    "ach.streak30.title": "A month of momentum",
+    "ach.streak30.desc": "A 30-day study streak.",
+    "ach.streak100.title": "Unstoppable",
+    "ach.streak100.desc": "A 100-day study streak.",
   },
 
   /* ================================================================ */
@@ -1134,5 +1157,28 @@ export const STRINGS = {
     "set.dailyGoal": "Dagsmål (frågor)",
     "set.dailyGoalNote": "Ringen på startsidan och Framsteg fylls när du svarar på frågor varje dag. Sätt till 0 för att dölja den.",
     "set.dailyGoalUpdated": "Dagsmål uppdaterat",
+
+    "common.view": "Visa",
+
+    "streak.freezeHelp": "Streak-frysningar — var och en täcker en missad dag. Du får en för varje 7-dagarssvit, upp till två.",
+    "streak.freezeNext": "nästa frysning om {n} dagar",
+    "streak.freezeUsedToast": "Streak-frysning använd — din {n}-dagarssvit är räddad",
+    "streak.frozenDay": "streak-frysning använd",
+    "streak.atRisk": "Plugga idag för att behålla din {n}-dagarssvit — en frysning finns redo om du missar.",
+    "streak.atRiskShort": "Svit i fara — plugga idag",
+
+    "prog.achievements": "Utmärkelser",
+    "prog.achProgress": "{have} / {need} dagar",
+    "prog.personalBest": "personbästa: {n} dagar",
+
+    "ach.multiToast": "{n} utmärkelser upplåsta!",
+    "ach.streak3.title": "På gång",
+    "ach.streak3.desc": "En 3-dagarssvit.",
+    "ach.streak7.title": "En vecka stark",
+    "ach.streak7.desc": "En 7-dagarssvit.",
+    "ach.streak30.title": "En månad av driv",
+    "ach.streak30.desc": "En 30-dagarssvit.",
+    "ach.streak100.title": "Ostoppbar",
+    "ach.streak100.desc": "En 100-dagarssvit.",
   },
 };

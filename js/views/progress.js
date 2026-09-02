@@ -9,32 +9,31 @@ import { localDayKey, recentDays, questionsAnsweredToday } from "../lib/activity
 import { t, plural } from "../lib/i18n.js";
 import { weakSpotQuestions } from "../lib/mastery.js";
 import { goalRing } from "../components/goal-ring.js";
+import { achievementRows, titleKey, descKey } from "../lib/achievements.js";
 
 export function renderProgress() {
   const tm = masteryByTopic(store.attempts);
   const attemptsCount = store.attempts.length;
-  const streak = store.streak;
+  const { streak, freezes, atRisk, displayStreak, bestStreak, nextFreezeIn } = store.streakInfo;
 
   // ---- streak strip: last 14 local days ----
   const studied = new Set(store.state.activity.daysStudied);
+  const frozen = new Set(store.state.activity.frozenDays);
   const today = localDayKey();
-  const days = recentDays(14).map((key) => {
-    const label = Number(key.slice(8, 10));
+  const dayCell = (key, cls) => {
+    const on = studied.has(key), fz = frozen.has(key);
     return el("div", {
-      class: "streak__day" + (studied.has(key) ? " on" : "") + (key === today ? " today" : ""),
-      title: key + (studied.has(key) ? " — studied" : ""),
-    }, String(label));
-  });
+      class: cls + (fz ? " frozen" : on ? " on" : "") + (key === today ? " today" : ""),
+      title: key + (fz ? ` — ${t("streak.frozenDay")}` : on ? " — studied" : ""),
+    }, cls === "streak__day" ? [fz ? "🛡" : String(Number(key.slice(8, 10)))] : []);
+  };
+  const days = recentDays(14).map((key) => dayCell(key, "streak__day"));
 
   // ---- 12-week study heatmap, week-aligned (Mon top → Sun bottom) ----
   const td = new Date();
   const mondayIdx = (td.getDay() + 6) % 7;             // Mon=0 … Sun=6
   const spanDays = mondayIdx + 11 * 7 + 1;             // back to the Monday 12 weeks ago
-  const heatCells = recentDays(spanDays).map((key) =>
-    el("span", {
-      class: "heatmap__cell" + (studied.has(key) ? " on" : "") + (key === today ? " today" : ""),
-      title: key,
-    }));
+  const heatCells = recentDays(spanDays).map((key) => dayCell(key, "heatmap__cell"));
 
   // ---- daily goal ----
   const goal = Number(store.settings.dailyGoal) || 0;
@@ -66,26 +65,48 @@ export function renderProgress() {
 
     el("section.panel", {}, [
       el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "10px", flexWrap: "wrap", marginBottom: "12px" } }, [
-        el("h3", { style: { display: "flex", alignItems: "center", gap: "10px" } }, [
+        el("h3", { style: { display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" } }, [
           t("prog.streak"),
-          el("span.streakbadge", {}, [icon(ICONS.flame, 13), plural(streak, "prog.streakDaysOne", "prog.streakDaysMany")]),
-        ]),
+          el("span.streakbadge" + (atRisk ? ".streakbadge--risk" : ""), {}, [
+            icon(atRisk ? ICONS.shield : ICONS.flame, 13),
+            plural(displayStreak, "prog.streakDaysOne", "prog.streakDaysMany"),
+          ]),
+          freezes > 0 && el("span.freezechip", { title: t("streak.freezeHelp") }, [icon(ICONS.shield, 13), `×${freezes}`]),
+        ].filter(Boolean)),
         goal > 0 && el("span", { style: { display: "flex", alignItems: "center", gap: "8px", color: "var(--ink-soft)", fontSize: "var(--fs-sm)", fontWeight: "700" } }, [
           goalRing(answeredToday, goal),
           answeredToday >= goal ? t("menu.goalDone") : t("menu.goalToday", { done: answeredToday, goal }),
         ]),
       ].filter(Boolean)),
+      atRisk && el("p.note.note--warn", { style: { marginBottom: "10px" } }, t("streak.atRisk", { n: displayStreak })),
       el("div.streak", { role: "img", "aria-label": t("prog.streakAria", { n: [...studied].filter((d) => recentDays(14).includes(d)).length }) }, days),
-      el("p.note", { style: { marginTop: "10px" } }, t("prog.summary", {
-        days: plural(store.state.activity.daysStudied.length, "prog.daysOne", "prog.daysMany"),
-        sessions: plural(attemptsCount, "prog.sessionsOne", "prog.sessionsMany"),
-      })),
+      el("p.note", { style: { marginTop: "10px" } }, [
+        t("prog.summary", {
+          days: plural(store.state.activity.daysStudied.length, "prog.daysOne", "prog.daysMany"),
+          sessions: plural(attemptsCount, "prog.sessionsOne", "prog.sessionsMany"),
+        }),
+        bestStreak > displayStreak ? " · " + t("prog.personalBest", { n: bestStreak }) : "",
+        freezes === 0 && displayStreak > 0 && nextFreezeIn > 0
+          ? " · " + t("streak.freezeNext", { n: nextFreezeIn }) : "",
+      ]),
     ]),
 
     el("section.panel", {}, [
       el("h3", { style: { marginBottom: "6px" } }, t("prog.heatmapTitle")),
       el("p.note", { style: { marginBottom: "12px" } }, t("prog.heatmapSub")),
       el("div.heatmap", { role: "img", "aria-label": t("prog.heatmapSub") }, heatCells),
+    ]),
+
+    el("section.panel", {}, [
+      el("h3", { style: { marginBottom: "12px" } }, t("prog.achievements")),
+      el("div.badges", {}, achievementRows(store.state).map(({ def, unlocked, have, need }) =>
+        el("div.badge-card" + (unlocked ? "" : ".is-locked"), {}, [
+          el("span.badge-card__emoji", {}, def.emoji),
+          el("span.badge-card__text", {}, [
+            el("strong", {}, t(titleKey(def))),
+            el("span.note", {}, unlocked ? t(descKey(def)) : t("prog.achProgress", { have, need })),
+          ]),
+        ]))),
     ]),
 
     el("section.panel", {}, [

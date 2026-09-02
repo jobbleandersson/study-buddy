@@ -4,6 +4,9 @@ import { store } from "./store.js";
 import { el, mount, icon, ICONS, toast } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, getLang, setLang, applyLang, LANGS } from "./lib/i18n.js";
+import { titleKey } from "./lib/achievements.js";
+import { celebrate } from "./lib/confetti-helper.js";
+import { playFanfare } from "./lib/sound.js";
 import { renderMenu } from "./views/menu.js";
 import { renderCreate } from "./views/create.js";
 import { renderEdit } from "./views/edit.js";
@@ -54,7 +57,7 @@ function nextLang() {
 }
 
 function shell(contentNode) {
-  const streak = store.streak;
+  const { displayStreak: streak, atRisk } = store.streakInfo;
   const next = nextLang();
   const nextLabel = LANGS.find(([c]) => c === next)?.[1] || next;
 
@@ -66,10 +69,14 @@ function shell(contentNode) {
           "StudyBuddy",
         ]),
         el("span.topbar__spacer"),
-        streak > 0 && el("span.streakbadge", {
+        streak > 0 && el("span.streakbadge" + (atRisk ? ".streakbadge--risk" : ""), {
           "aria-label": t("prog.streakAria", { n: streak }),
-          title: streak === 1 ? t("menu.tileStreakOne", { n: streak }) : t("menu.tileStreak", { n: streak }),
-        }, [icon(ICONS.flame, 14), el("span.tabular", {}, String(streak))]),
+          title: atRisk ? t("streak.atRiskShort")
+            : streak === 1 ? t("menu.tileStreakOne", { n: streak }) : t("menu.tileStreak", { n: streak }),
+        }, [
+          icon(atRisk ? ICONS.shield : ICONS.flame, 14),
+          el("span.tabular", {}, String(streak)),
+        ]),
         el("button.iconbtn.langbtn", {
           type: "button",
           "aria-label": `${t("common.language")}: ${nextLabel}`,
@@ -146,5 +153,16 @@ store.init().then(() => {
   });
   store.addEventListener("syncConflict", () => {
     toast(t("sync.conflict"));
+  });
+  store.addEventListener("streakFreezeUsed", (e) => {
+    toast(t("streak.freezeUsedToast", { n: e.detail.streak }));
+  });
+  store.addEventListener("achievements", (e) => {
+    const defs = e.detail;
+    const msg = defs.length === 1
+      ? `${defs[0].emoji} ${t(titleKey(defs[0]))}`
+      : t("ach.multiToast", { n: defs.length });
+    toast(msg, { actionLabel: t("common.view"), onAction: () => { location.hash = "#/progress"; } });
+    if (defs.some((d) => d.big)) { celebrate(); playFanfare(); }
   });
 });

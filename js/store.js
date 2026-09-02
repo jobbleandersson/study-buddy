@@ -2,13 +2,18 @@
 // future cloud/account backend can replace persistence without touching views.
 
 import { uid } from "./lib/dom.js";
-import { localDayKey, currentStreak, addDays } from "./lib/activity.js";
+import { localDayKey, currentStreak, addDays, studiedToday } from "./lib/activity.js";
 import { getLang } from "./lib/i18n.js";
+import { ACHIEVEMENTS } from "./lib/achievements.js";
 import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } from "./lib/library.js";
 import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, STATE_URL } from "./config.js";
 
 const KEY = "studybuddy.v1";
-const SCHEMA_VERSION = 6;
+const SCHEMA_VERSION = 7;
+
+/** A streak freeze is earned at every 7-day milestone and you can bank two. */
+const FREEZE_STEP = 7;
+const FREEZE_CAP = 2;
 
 /** How long an overdue date lingers before it clears itself, so a missed
  *  deadline stays visible for a while but old ones don't pile up forever. */
@@ -80,7 +85,14 @@ function seedState() {
     attempts: [],
     srs: {},
     sessions: {},                    // in-progress sessions, keyed by session key
-    activity: { daysStudied: [] },   // streak is derived, never stored
+    achievements: {},                // { id: unlockedAt } — 0 = "already true when shipped"
+    activity: {
+      daysStudied: [],               // the real record; the streak is derived from it
+      frozenDays: [],                // days a freeze covered — count as studied
+      freezes: 0,                    // banked, 0..FREEZE_CAP
+      freezeMark: 0,                 // highest 7-multiple streak already rewarded
+      bestStreak: 0,                 // longest streak ever, for a "personal best" line
+    },
   };
 }
 
@@ -129,8 +141,26 @@ function migrate(state) {
     if (s.settings) delete s.settings.apiKey;
   }
 
+  if (!(s.version >= 7)) {
+    // Streak freezes + achievements arrive. Existing streak history is kept as
+    // is; start earning freezes from the *next* 7-day milestone rather than
+    // handing out a full bank retroactively. Badges already earned get
+    // recorded silently by store.init()'s first check.
+    s.achievements = s.achievements || {};
+    const days = Array.isArray(s.activity?.daysStudied) ? s.activity.daysStudied : [];
+    s.activity = {
+      daysStudied: days,
+      frozenDays: [],
+      freezes: 0,
+      freezeMark: Math.floor(currentStreak(days) / FREEZE_STEP) * FREEZE_STEP,
+      bestStreak: currentStreak(days),
+    };
+  }
+
   s.version = SCHEMA_VERSION;
   s.settings = { ...seedState().settings, ...(s.settings || {}) };
+  s.activity = { ...seedState().activity, ...(s.activity || {}) };
+  s.achievements = s.achievements || {};
   s.srs = s.srs || {};
   s.sessions = s.sessions || {};
   s.attempts = s.attempts || [];
@@ -174,6 +204,8 @@ class Store extends EventTarget {
       this.state = seedState();
     }
     this._sweepStaleDueDates();
+    this._reconcileStreak({ silent: true, mutating: this.state });
+    this._checkAchievements({ silent: true, mutating: this.state });
     this.save({ skipPush: true });
 
     try {
@@ -422,9 +454,37 @@ class Store extends EventTarget {
   // ---------- attempts + progress ----------
   get attempts() { return this.state.attempts; }
 
-  get streak() { return currentStreak(this.state.activity.daysStudied); }
+  get streak() {
+    const a = this.state.activity;
+    return currentStreak(a.daysStudied, a.frozenDays);
+  }
+
+  /** Everything the streak UI needs, including the "protected but not yet
+   *  spent" state so the number never visibly drops to 0 while a freeze can
+   *  still save it. */
+  get streakInfo() {
+    const a = this.state.activity;
+    const today = localDayKey();
+    const y = addDays(today, -1);
+    const y2 = addDays(today, -2);
+    const counts = (d) => a.daysStudied.includes(d) || a.frozenDays.includes(d);
+    const streak = currentStreak(a.daysStudied, a.frozenDays, today);
+    const atRisk = !studiedToday(a.daysStudied, today) && !counts(y) && counts(y2) && a.freezes > 0;
+    const displayStreak = atRisk
+      ? currentStreak(a.daysStudied, [...a.frozenDays, y], today)
+      : streak;
+    return {
+      streak, displayStreak, atRisk,
+      freezes: a.freezes,
+      freezeMark: a.freezeMark,
+      bestStreak: Math.max(a.bestStreak || 0, streak),
+      nextFreezeIn: a.freezes < FREEZE_CAP ? a.freezeMark + FREEZE_STEP - streak : null,
+    };
+  }
 
   recordAttempt(attempt) {
+    let freezeUsed = false;
+    const unlocked = [];
     this.update((s) => {
       s.attempts.push(attempt);
       const today = localDayKey();
@@ -432,7 +492,70 @@ class Store extends EventTarget {
         s.activity.daysStudied.push(today);
         s.activity.daysStudied.sort();
       }
+      freezeUsed = this._reconcileStreak({ silent: false, mutating: s });
+      unlocked.push(...this._checkAchievements({ silent: false, mutating: s }));
     });
+    if (freezeUsed) {
+      this.dispatchEvent(new CustomEvent("streakFreezeUsed", { detail: { streak: this.streak } }));
+    }
+    if (unlocked.length) {
+      this.dispatchEvent(new CustomEvent("achievements", { detail: unlocked }));
+    }
+  }
+
+  /** Spend a freeze when — and only when — it saves the streak: studied today,
+   *  missed exactly yesterday, and the run was still alive the day before.
+   *  Then earn one at every 7-day milestone up to the cap. A freeze is never
+   *  spent on a gap it can't bridge, so it never silently evaporates.
+   *  Returns true if a freeze was just spent (and not the silent init pass). */
+  _reconcileStreak({ silent = false, mutating } = {}) {
+    let spent = false;
+    const run = (s) => {
+      const a = s.activity;
+      const today = localDayKey();
+      const y = addDays(today, -1);
+      const y2 = addDays(today, -2);
+      const counts = (d) => a.daysStudied.includes(d) || a.frozenDays.includes(d);
+
+      if (a.freezes > 0 && a.daysStudied.includes(today) && !counts(y) && counts(y2)) {
+        a.frozenDays.push(y);
+        a.frozenDays.sort();
+        a.freezes--;
+        spent = true;
+      }
+
+      const streak = currentStreak(a.daysStudied, a.frozenDays, today);
+      a.bestStreak = Math.max(a.bestStreak || 0, streak);
+      // Only reset progress-to-next-freeze when the run is *truly* gone — not
+      // while a banked freeze could still bridge yesterday's gap.
+      const recoverable = !counts(y) && counts(y2) && a.freezes > 0;
+      if (streak === 0 && !recoverable) a.freezeMark = 0;
+      while (streak >= a.freezeMark + FREEZE_STEP && a.freezes < FREEZE_CAP) {
+        a.freezes++;
+        a.freezeMark += FREEZE_STEP;
+      }
+    };
+    if (mutating) run(mutating);
+    else this.update(run);
+    return spent && !silent;
+  }
+
+  /** Record any streak-milestone badges now satisfied. Returns the newly
+   *  unlocked defs (empty during the silent init pass). */
+  _checkAchievements({ silent = false, mutating } = {}) {
+    const unlocked = [];
+    const run = (s) => {
+      const streak = currentStreak(s.activity.daysStudied, s.activity.frozenDays);
+      for (const def of ACHIEVEMENTS) {
+        if (!(def.id in s.achievements) && streak >= def.need) {
+          s.achievements[def.id] = silent ? 0 : Date.now();
+          if (!silent) unlocked.push(def);
+        }
+      }
+    };
+    if (mutating) run(mutating);
+    else this.update(run);
+    return unlocked;
   }
 
   setSrs(questionId, record) {

@@ -31,14 +31,19 @@ export function daysBetween(a, b) {
  * Consecutive days studied, counting back from today.
  * Today not studied yet is fine — the streak survives until the day ends,
  * so it only breaks once you've actually missed a full day.
+ *
+ * `frozenDays` are days a streak freeze was spent on: they count exactly like
+ * a studied day for the walk-back, so a protected gap doesn't break the run.
  */
-export function currentStreak(daysStudied, today = localDayKey()) {
+export function currentStreak(daysStudied, frozenDays = [], today = localDayKey()) {
   if (!daysStudied || !daysStudied.length) return 0;
   const days = new Set(daysStudied);
-  let cursor = days.has(today) ? today : addDays(today, -1);
-  if (!days.has(cursor)) return 0;
+  const frozen = new Set(frozenDays || []);
+  const counts = (d) => days.has(d) || frozen.has(d);
+  let cursor = counts(today) ? today : addDays(today, -1);
+  if (!counts(cursor)) return 0;
   let n = 0;
-  while (days.has(cursor)) { n++; cursor = addDays(cursor, -1); }
+  while (counts(cursor)) { n++; cursor = addDays(cursor, -1); }
   return n;
 }
 

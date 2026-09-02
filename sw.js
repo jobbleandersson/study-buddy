@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studybuddy-v4";
+const CACHE = "studybuddy-v5";
 
 const APP_SHELL = [
   "./",
@@ -38,6 +38,7 @@ const APP_SHELL = [
   "./js/lib/rich.js",
   "./js/lib/confetti-helper.js",
   "./js/lib/library.js",
+  "./js/lib/achievements.js",
   "./js/data/national-tests.js",
   "./js/views/menu.js",
   "./js/views/create.js",
