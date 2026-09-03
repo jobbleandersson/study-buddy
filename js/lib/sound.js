@@ -78,3 +78,11 @@ export function playFanfare() {
     note(783.99, { when: 0.2, dur: 0.26 });   // G5
   });
 }
+
+/** Two gentle descending notes — "time's up, take a break". */
+export function playChime() {
+  safely(() => {
+    note(659.25, { when: 0, dur: 0.3, gain: 0.045 });   // E5
+    note(440.0, { when: 0.32, dur: 0.5, gain: 0.045 }); // A4
+  });
+}

@@ -13,7 +13,7 @@ import { renderQuestion } from "../components/questions.js";
 import { TutorChat } from "../components/tutor-chat.js";
 import { review } from "../lib/srs.js";
 import { weakSpotQuestions, masteryByTopic } from "../lib/mastery.js";
-import { playCorrect, playWrong } from "../lib/sound.js";
+import { playCorrect, playWrong, playChime } from "../lib/sound.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
 
@@ -470,6 +470,30 @@ function runSession(config) {
     onclick: toggleShortcuts,
   }, [icon(ICONS.keyboard, 18)]);
 
+  /* ----- optional Pomodoro focus timer ----- */
+  const pomoMin = Number(store.settings.pomodoro) || 0;
+  const pomoEl = el("span.pomo", { hidden: !pomoMin, title: t("session.pomoTitle") });
+  let pomoLeft = pomoMin * 60, pomoTimer = null, pomoRung = false;
+  function paintPomo() {
+    const m = Math.floor(Math.max(0, pomoLeft) / 60);
+    const s = Math.max(0, pomoLeft) % 60;
+    pomoEl.textContent = `${m}:${String(s).padStart(2, "0")}`;
+    pomoEl.classList.toggle("is-up", pomoLeft <= 0);
+  }
+  if (pomoMin) {
+    paintPomo();
+    pomoTimer = setInterval(() => {
+      pomoLeft--;
+      paintPomo();
+      if (pomoLeft <= 0 && !pomoRung) {
+        pomoRung = true;
+        playChime();
+        toast(t("session.pomoDone"));
+        clearInterval(pomoTimer);
+      }
+    }, 1000);
+  }
+
   /* ----- mobile: tutor as a slide-up sheet ----- */
   const hintFab = el("button.hintfab", {
     type: "button",
@@ -486,6 +510,7 @@ function runSession(config) {
     el("div.session__head", {}, [
       el("h2", {}, config.title),
       el("span.session__headright", {}, [
+        pomoEl,
         el("span.badge", {}, badgeLabel(config)),
         shortcutsBtn,
       ]),
@@ -514,6 +539,7 @@ function runSession(config) {
     cleanup: () => {
       document.removeEventListener("keydown", onKeyDown);
       clearTimeout(tipTimer);
+      clearInterval(pomoTimer);
       closeShortcuts();
       tutor.destroy();
     },

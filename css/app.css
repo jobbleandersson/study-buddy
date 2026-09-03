@@ -524,6 +524,29 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 /* adaptive-pacing note in a session */
 .adaptive:not(:empty) { margin-bottom: var(--s-3); }
 
+/* Pomodoro countdown in the session header */
+.pomo {
+  font-variant-numeric: tabular-nums; font-weight: 700; font-size: var(--fs-sm);
+  padding: 4px var(--s-2); border-radius: var(--r-sm);
+  background: var(--surface-sunk); color: var(--ink-soft);
+}
+.pomo.is-up { background: var(--retry-tint); color: var(--retry-ink); }
+
+/* Weekly recap card on the menu */
+.recap {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
+  padding: var(--s-3) var(--s-4); margin-bottom: var(--s-4);
+  border-radius: var(--r-md); border: 1px solid var(--brand);
+  background: var(--brand-tint);
+}
+.recap strong { font-family: var(--font-display); display: block; }
+.recap__body { font-size: var(--fs-sm); color: var(--ink-soft); }
+.recap__x {
+  flex: none; border: none; background: none; cursor: pointer;
+  font-size: 20px; line-height: 1; color: var(--ink-soft); padding: 4px;
+}
+.recap__x:hover { color: var(--ink); }
+
 .nav-row { display: flex; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
 
 /* ---------- tutor chat ---------- */

@@ -99,17 +99,22 @@ export function renderProgress() {
       el("div.heatmap", { role: "img", "aria-label": t("prog.heatmapSub") }, heatCells),
     ]),
 
-    el("section.panel", {}, [
-      el("h3", { style: { marginBottom: "12px" } }, t("prog.achievements")),
-      el("div.badges", {}, achievementRows(store.state).map(({ def, unlocked, have, need }) =>
-        el("div.badge-card" + (unlocked ? "" : ".is-locked"), {}, [
-          el("span.badge-card__emoji", {}, def.emoji),
-          el("span.badge-card__text", {}, [
-            el("strong", {}, t(titleKey(def))),
-            el("span.note", {}, unlocked ? t(descKey(def)) : t("prog.achProgress", { have, need })),
-          ]),
-        ]))),
-    ]),
+    (() => {
+      const rows = achievementRows(store.state);
+      const got = rows.filter((r) => r.unlocked).length;
+      return el("section.panel", {}, [
+        el("h3", { style: { marginBottom: "4px" } }, t("prog.achievements")),
+        el("p.note", { style: { marginBottom: "12px" } }, t("prog.achCount", { have: got, need: rows.length })),
+        el("div.badges", {}, rows.map(({ def, unlocked, have, need }) =>
+          el("div.badge-card" + (unlocked ? "" : ".is-locked"), {}, [
+            el("span.badge-card__emoji", {}, def.emoji),
+            el("span.badge-card__text", {}, [
+              el("strong", {}, t(titleKey(def))),
+              el("span.note", {}, unlocked ? t(descKey(def)) : t("prog.achProgress", { have, need })),
+            ]),
+          ]))),
+      ]);
+    })(),
 
     el("section.panel", {}, [
       el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap", marginBottom: "8px" } }, [

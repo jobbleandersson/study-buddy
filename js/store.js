@@ -83,6 +83,9 @@ function seedState() {
       preset: "balanced", tutorVerbosity: "normal", sound: true, dailyGoal: 10,
       testHints: 2,        // tutor questions allowed during a test; 0 = tutor off
       adaptive: true,      // let a practice session react to how it's going
+      pomodoro: "off",     // "off" | "25" | "50" focus timer in a session
+      font: "system",      // "system" | "hyperlegible"
+      textSize: "m",       // "s" | "m" | "l"
     },
     subjects: DEFAULT_SUBJECTS.map((name, i) => ({
       id: uid(), name, color: PALETTE[i % PALETTE.length].name,
@@ -98,6 +101,8 @@ function seedState() {
       freezes: 0,                    // banked, 0..FREEZE_CAP
       freezeMark: 0,                 // highest 7-multiple streak already rewarded
       bestStreak: 0,                 // longest streak ever, for a "personal best" line
+      goalDays: [],                  // day keys where the daily goal was reached
+      recapWeek: null,               // ISO "YYYY-Www" of the last recap card dismissed
     },
   };
 }
@@ -212,6 +217,7 @@ class Store extends EventTarget {
     this._sweepStaleDueDates();
     this._reconcileStreak({ silent: true, mutating: this.state });
     this._checkAchievements({ silent: true, mutating: this.state });
+    this._updateAppBadge();
     this.save({ skipPush: true });
 
     try {
@@ -365,7 +371,21 @@ class Store extends EventTarget {
     if (!skipPush && this.authed) this._schedulePush();
   }
 
-  emit() { this.dispatchEvent(new CustomEvent("change")); }
+  emit() {
+    this._updateAppBadge();
+    this.dispatchEvent(new CustomEvent("change"));
+  }
+
+  /** Show the count of questions due for review on the installed-app icon.
+   *  Progressive enhancement — silently absent on browsers without the API. */
+  _updateAppBadge() {
+    try {
+      if (!("setAppBadge" in navigator)) return;
+      const n = this.dueQuestions().length;
+      if (n > 0) navigator.setAppBadge(n);
+      else navigator.clearAppBadge?.();
+    } catch { /* not installed / not permitted — fine */ }
+  }
 
   update(fn) { fn(this.state); this.save(); this.emit(); }
 
@@ -566,6 +586,28 @@ class Store extends EventTarget {
     };
   }
 
+  /** Marks today as a daily-goal day. Returns true only the first time it's
+   *  called for a given day (so the caller can celebrate once). */
+  markGoalReached() {
+    const today = localDayKey();
+    if (this.state.activity.goalDays.includes(today)) return false;
+    const unlocked = [];
+    this.update((s) => {
+      s.activity.goalDays.push(today);
+      s.activity.goalDays.sort();
+      // keep it bounded — only the last few months matter for any streak
+      if (s.activity.goalDays.length > 400) s.activity.goalDays = s.activity.goalDays.slice(-400);
+      unlocked.push(...this._checkAchievements({ silent: false, mutating: s }));
+    });
+    if (unlocked.length) this.dispatchEvent(new CustomEvent("achievements", { detail: unlocked }));
+    return true;
+  }
+
+  /** The user closed this week's recap card — don't show it again until next week. */
+  dismissRecap(weekKey) {
+    this.update((s) => { s.activity.recapWeek = weekKey; });
+  }
+
   recordAttempt(attempt) {
     let freezeUsed = false;
     const unlocked = [];
@@ -629,12 +671,13 @@ class Store extends EventTarget {
   _checkAchievements({ silent = false, mutating } = {}) {
     const unlocked = [];
     const run = (s) => {
-      const streak = currentStreak(s.activity.daysStudied, s.activity.frozenDays);
       for (const def of ACHIEVEMENTS) {
-        if (!(def.id in s.achievements) && streak >= def.need) {
-          s.achievements[def.id] = silent ? 0 : Date.now();
-          if (!silent) unlocked.push(def);
-        }
+        if (def.id in s.achievements) continue;
+        let earned = false;
+        try { earned = def.check(s); } catch { earned = false; }
+        if (!earned) continue;
+        s.achievements[def.id] = silent ? 0 : Date.now();
+        if (!silent) unlocked.push(def);
       }
     };
     if (mutating) run(mutating);

@@ -5,6 +5,7 @@ import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, fmtDate, relativeDay, daysUntil } from "../lib/i18n.js";
 import { localDayKey, questionsAnsweredToday } from "../lib/activity.js";
+import { weeklyRecap, isoWeek } from "../lib/recap.js";
 import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
 import { datePicker, monthCalendar } from "../components/calendar.js";
 import { goalRing } from "../components/goal-ring.js";
@@ -356,15 +357,43 @@ export function renderMenu() {
       ]),
       el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
     ]),
+    recapCard(),
     todayStrip(),
     cols,
-  ]);
+  ].filter(Boolean));
 
   return {
     title: t("menu.title"),
     node,
     cleanup: () => { closeCardMenu(); closeDueDialog(); },
   };
+}
+
+/** A once-a-week summary card, shown on the menu until dismissed. */
+function recapCard() {
+  const week = isoWeek();
+  if (store.state.activity.recapWeek === week) return null;
+  const r = weeklyRecap(store.state);
+  if (!r) return null;
+
+  const bits = [
+    plural(r.days, "recap.daysOne", "recap.daysMany"),
+    plural(r.questions, "recap.qOne", "recap.qMany"),
+  ];
+  if (r.topicsUp) bits.push(plural(r.topicsUp, "recap.topicsOne", "recap.topicsMany"));
+
+  const card = el("div.recap", { role: "status" }, [
+    el("div", {}, [
+      el("strong", {}, t("recap.title")),
+      el("span.recap__body", {}, bits.join(" · ")
+        + (r.topSubject ? " · " + t("recap.strongest", { subject: r.topSubject }) : "")),
+    ]),
+    el("button.recap__x", {
+      type: "button", "aria-label": t("common.close"),
+      onclick: () => { store.dismissRecap(week); card.remove(); },
+    }, "×"),
+  ]);
+  return card;
 }
 
 /** A compact row of what actually matters today: review, streak, weak spots,
@@ -422,15 +451,9 @@ function goalTile(goal) {
   const done = questionsAnsweredToday(store.attempts);
   const hit = done >= goal;
 
-  if (hit) {
-    const today = localDayKey();
-    try {
-      if (localStorage.getItem("studybuddy.goalHit") !== today) {
-        localStorage.setItem("studybuddy.goalHit", today);
-        playFanfare();
-      }
-    } catch { /* private mode — skip the once-a-day guard */ }
-  }
+  // First time the goal is hit today: record the day (feeds the 7-day-goal
+  // achievement + syncs across devices) and play the fanfare once.
+  if (hit) store.markGoalReached() && playFanfare();
 
   return el("a.tile.tile--goal", { href: "#/progress" }, [
     goalRing(done, goal),

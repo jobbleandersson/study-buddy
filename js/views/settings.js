@@ -117,6 +117,17 @@ export function renderSettings() {
     toast(t("set.saved"));
   });
 
+  const pomoSel = el("select", { "aria-label": t("set.pomodoro") }, [
+    opt("off", t("set.pomodoroOff")),
+    opt("25", t("set.pomodoro25")),
+    opt("50", t("set.pomodoro50")),
+  ]);
+  pomoSel.value = String(s.pomodoro || "off");
+  pomoSel.addEventListener("change", () => {
+    store.setSettings({ pomodoro: pomoSel.value });
+    toast(t("set.saved"));
+  });
+
   /* ---------------- tutor server status ---------------- */
   // The Claude key lives in the backend proxy now, so there's nothing to type
   // here — just whether live mode is available.
@@ -145,9 +156,11 @@ export function renderSettings() {
       el("div.settings__row", {}, [
         el("label.field", {}, [el("span", {}, t("set.testHints")), hintsSel]),
         el("label.field", {}, [el("span", {}, t("set.adaptive")), adaptiveSel]),
+        el("label.field", {}, [el("span", {}, t("set.pomodoro")), pomoSel]),
       ]),
       el("p.note", {}, t("set.testHintsNote")),
       el("p.note", {}, t("set.adaptiveNote")),
+      el("p.note", {}, t("set.pomodoroNote")),
     ]),
 
     el("section.panel", {}, [
