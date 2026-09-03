@@ -84,6 +84,42 @@ a.streakbadge:hover {
 
 /* ---------- app shell ---------- */
 #app { min-height: 100%; display: flex; flex-direction: column; }
+.shell { flex: 1; display: flex; align-items: stretch; }
+.shell__main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+/* Left sidebar — the whole nav on desktop. Hidden below 900px, where the
+   topbar (and its ⋮ menu) covers the same ground. */
+.sidebar { display: none; }
+.sidebar__brand {
+  display: flex; align-items: center; gap: var(--s-2);
+  font-family: var(--font-display); font-weight: 700; font-size: var(--fs-lg);
+  color: var(--ink); text-decoration: none;
+  padding: 0 var(--s-2); margin-bottom: var(--s-5);
+}
+.sidebar__brand img { width: 28px; height: 28px; }
+.sidebar__nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.sidebar__link {
+  display: flex; align-items: center; gap: var(--s-3);
+  padding: 9px var(--s-3); border-radius: var(--r-md);
+  color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: var(--fs-sm);
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.sidebar__link svg { flex: none; }
+.sidebar__link:hover { background: var(--surface-sunk); color: var(--ink); }
+.sidebar__link.is-active { background: var(--brand-tint); color: var(--brand-ink); }
+.sidebar__link.is-active svg { color: var(--brand-ink); }
+.sidebar__foot { display: flex; align-items: center; gap: var(--s-2); margin-top: var(--s-4); flex-wrap: wrap; }
+
+@media (min-width: 900px) {
+  .sidebar {
+    display: flex; flex-direction: column; flex: none;
+    width: 236px; position: sticky; top: 0; align-self: flex-start;
+    height: 100vh; overflow-y: auto;
+    padding: var(--s-5) var(--s-3);
+    background: var(--surface); border-right: 1px solid var(--line);
+  }
+  .topbar { display: none; }
+}
 
 .topbar {
   position: sticky; top: 0; z-index: 20;
@@ -104,9 +140,9 @@ a.streakbadge:hover {
 .brand img { width: 30px; height: 30px; }
 .topbar__spacer { flex: 1; }
 
-/* Top-bar overflow: below 560px, progress / parent / settings fold into one
-   ⋮ menu so the row never wraps. Streak + language stay visible. */
-.topmenu { display: none; position: relative; }
+/* Top-bar ⋮ menu — the full nav on mobile (the topbar itself is hidden by the
+   sidebar's media query on desktop). */
+.topmenu { display: inline-flex; position: relative; }
 .topmenu__list {
   position: absolute; right: 0; top: calc(100% + 6px); z-index: 30;
   min-width: 190px; padding: 6px;
@@ -121,13 +157,13 @@ a.streakbadge:hover {
 }
 .topmenu__item:hover { background: var(--surface-sunk); }
 .topmenu__item svg { flex: none; color: var(--ink-soft); }
+.topmenu__item.is-active { background: var(--brand-tint); color: var(--brand-ink); }
+.topmenu__item.is-active svg { color: var(--brand-ink); }
 
 @media (max-width: 560px) {
   .topbar__inner { gap: var(--s-2); }
   .topbar__inner .brand { font-size: var(--fs-md); }
   .topbar__inner .brand img { width: 26px; height: 26px; }
-  .topbar__inner .topbar__wide { display: none; }
-  .topbar__inner .topmenu { display: inline-flex; }
 }
 
 /* "← Home" control at the top of every sub-screen. */

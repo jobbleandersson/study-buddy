@@ -27,6 +27,7 @@ const app = document.getElementById("app");
 
 const routes = [
   { rx: /^\/?$/, view: () => renderMenu() },
+  { rx: /^\/study$/, view: () => renderMenu("study") },
   { rx: /^\/create$/, view: (m, qs) => renderCreate(qs) },
   { rx: /^\/edit\/(.+)$/, view: (m, qs) => renderEdit(m[1], qs) },
   { rx: /^\/review$/, view: () => renderReview() },
@@ -66,14 +67,37 @@ function nextLang() {
   return codes[(codes.indexOf(getLang()) + 1) % codes.length];
 }
 
-/** The narrow-screen ⋮ that holds progress / parent / settings (see .topmenu
- *  in css — hidden above 560px). Closes on outside click, Esc, or navigation. */
+/** The full app nav, in reading order. Used by the desktop sidebar and the
+ *  mobile ⋮ menu alike, so the two never drift. */
+function navItems() {
+  const items = [
+    { href: "#/",        match: "/",         icon: ICONS.home,      label: t("nav.home") },
+    { href: "#/study",   match: "/study",    icon: ICONS.clipboard, label: t("nav.study") },
+    { href: "#/library", match: "/library",  icon: ICONS.book,      label: t("nav.library") },
+    { href: "#/create",  match: "/create",   icon: ICONS.plus,      label: t("nav.create") },
+    { href: "#/progress",match: "/progress", icon: ICONS.chart,     label: t("common.progress") },
+  ];
+  if (store.authed) items.push({ href: "#/parent", match: "/parent", icon: ICONS.users, label: t("common.parent") });
+  items.push({ href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings") });
+  return items;
+}
+
+function currentPath() {
+  return "/" + location.hash.replace(/^#\/?/, "").split("?")[0];
+}
+function navActive(match) {
+  const p = currentPath();
+  return match === "/" ? p === "/" : p.startsWith(match);
+}
+
+/** The narrow-screen ⋮ menu — the same nav as the desktop sidebar.
+ *  Closes on outside click, Esc, or navigation. */
 function topOverflowMenu() {
-  const list = el("div.topmenu__list", { role: "menu", hidden: true }, [
-    el("a.topmenu__item", { href: "#/progress", role: "menuitem" }, [icon(ICONS.chart, 16), t("common.progress")]),
-    store.authed && el("a.topmenu__item", { href: "#/parent", role: "menuitem" }, [icon(ICONS.users, 16), t("common.parent")]),
-    el("a.topmenu__item", { href: "#/settings", role: "menuitem" }, [icon(ICONS.gear, 16), t("common.settings")]),
-  ].filter(Boolean));
+  const list = el("div.topmenu__list", { role: "menu", hidden: true },
+    navItems().map((it) => el("a.topmenu__item" + (navActive(it.match) ? ".is-active" : ""), {
+      href: it.href, role: "menuitem",
+      "aria-current": navActive(it.match) ? "page" : null,
+    }, [icon(it.icon, 16), it.label])));
 
   const btn = el("button.iconbtn", {
     type: "button", "aria-haspopup": "menu", "aria-expanded": "false",
@@ -105,42 +129,62 @@ function topOverflowMenu() {
   return wrap;
 }
 
-function shell(contentNode) {
-  const { displayStreak: streak, atRisk } = store.streakInfo;
+function langButton() {
   const next = nextLang();
   const nextLabel = LANGS.find(([c]) => c === next)?.[1] || next;
+  return el("button.iconbtn.langbtn", {
+    type: "button",
+    "aria-label": `${t("common.language")}: ${nextLabel}`,
+    title: `${t("common.language")} → ${nextLabel}`,
+    onclick: () => { setLang(next); toast(t("set.langUpdated")); },
+  }, [icon(ICONS.globe, 18), el("span.langbtn__code", {}, next.toUpperCase())]);
+}
 
-  return el("div", {}, [
-    el("header.topbar", {}, [
-      el("div.topbar__inner", {}, [
-        el("a.brand", { href: "#/" }, [
-          el("img", { src: "assets/favicon.svg", alt: "" }),
-          "StudyBuddy",
-        ]),
-        el("span.topbar__spacer"),
-        streak > 0 && el("a.streakbadge" + (atRisk ? ".streakbadge--risk" : ""), {
-          href: "#/progress",
-          "aria-label": t("prog.streakAria", { n: streak }),
-          title: atRisk ? t("streak.atRiskShort")
-            : streak === 1 ? t("menu.tileStreakOne", { n: streak }) : t("menu.tileStreak", { n: streak }),
-        }, [
-          icon(atRisk ? ICONS.shield : ICONS.flame, 14),
-          el("span.tabular", {}, String(streak)),
-        ]),
-        el("button.iconbtn.langbtn", {
-          type: "button",
-          "aria-label": `${t("common.language")}: ${nextLabel}`,
-          title: `${t("common.language")} → ${nextLabel}`,
-          onclick: () => { setLang(next); toast(t("set.langUpdated")); },
-        }, [icon(ICONS.globe, 18), el("span.langbtn__code", {}, next.toUpperCase())]),
-        el("a.iconbtn", { href: "#/library", "aria-label": t("common.library"), title: t("common.library") }, [icon(ICONS.book, 18)]),
-        el("a.iconbtn.topbar__wide", { href: "#/progress", "aria-label": t("common.progress"), title: t("common.progress") }, [icon(ICONS.chart, 18)]),
-        store.authed && el("a.iconbtn.topbar__wide", { href: "#/parent", "aria-label": t("common.parent"), title: t("common.parent") }, [icon(ICONS.users, 18)]),
-        el("a.iconbtn.topbar__wide", { href: "#/settings", "aria-label": t("common.settings"), title: t("common.settings") }, [icon(ICONS.gear, 18)]),
-        topOverflowMenu(),
-      ]),
+function streakBadge(streak, atRisk) {
+  if (!(streak > 0)) return null;
+  return el("a.streakbadge" + (atRisk ? ".streakbadge--risk" : ""), {
+    href: "#/progress",
+    "aria-label": t("prog.streakAria", { n: streak }),
+    title: atRisk ? t("streak.atRiskShort")
+      : streak === 1 ? t("menu.tileStreakOne", { n: streak }) : t("menu.tileStreak", { n: streak }),
+  }, [icon(atRisk ? ICONS.shield : ICONS.flame, 14), el("span.tabular", {}, String(streak))]);
+}
+
+function shell(contentNode) {
+  const { displayStreak: streak, atRisk } = store.streakInfo;
+
+  // Desktop: a left sidebar carries the whole nav (topbar hidden by CSS).
+  // Mobile: the topbar shows, and its ⋮ mirrors the same nav.
+  const sidebar = el("nav.sidebar", { "aria-label": t("common.menu") }, [
+    el("a.sidebar__brand", { href: "#/" }, [
+      el("img", { src: "assets/favicon.svg", alt: "" }), "StudyBuddy",
     ]),
-    el("main.content", { id: "main" }, [contentNode]),
+    el("div.sidebar__nav", {}, navItems().map((it) =>
+      el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
+        href: it.href, "aria-current": navActive(it.match) ? "page" : null,
+      }, [icon(it.icon, 18), it.label]))),
+    el("div.sidebar__foot", {}, [
+      streakBadge(streak, atRisk),
+      langButton(),
+    ].filter(Boolean)),
+  ]);
+
+  return el("div.shell", {}, [
+    sidebar,
+    el("div.shell__main", {}, [
+      el("header.topbar", {}, [
+        el("div.topbar__inner", {}, [
+          el("a.brand", { href: "#/" }, [
+            el("img", { src: "assets/favicon.svg", alt: "" }), "StudyBuddy",
+          ]),
+          el("span.topbar__spacer"),
+          streakBadge(streak, atRisk),
+          langButton(),
+          topOverflowMenu(),
+        ]),
+      ]),
+      el("main.content", { id: "main" }, [contentNode]),
+    ]),
   ]);
 }
 
@@ -211,7 +255,7 @@ store.init().then(() => {
   // After first paint, keep menu/progress fresh when the store changes.
   store.addEventListener("change", () => {
     const h = location.hash.replace(/^#/, "");
-    if (h === "" || h === "/" || h === "/progress") render();
+    if (h === "" || h === "/" || h === "/study" || h === "/progress") render();
   });
   store.addEventListener("syncConflict", () => {
     toast(t("sync.conflict"));

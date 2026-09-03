@@ -10,6 +10,7 @@ import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/
 import { datePicker, monthCalendar } from "../components/calendar.js";
 import { goalRing } from "../components/goal-ring.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
+import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
@@ -19,7 +20,7 @@ let sortBy = "recent";
 let query = "";
 let filtersOpen = false;
 
-export function renderMenu() {
+export function renderMenu(mode) {
   const topicMastery = masteryByTopic(store.attempts);
 
   const grid = el("div.grid");
@@ -390,14 +391,33 @@ export function renderMenu() {
 
   paint();
 
-  // "Dina set" — one panel holding everything about browsing the library:
-  // tabs, search, the Filter drawer, and the card grid.
-  const setsPanel = el("section.home-panel.home-panel--sets", {}, [
-    el("div.home-panel__label", {}, [el("span", {}, t("menu.panelSets"))]),
+  const libraryUI = [
     el("div.librarybar", {}, [tabsEl, searchWrap, filterToggle]),
     filterDrawer,
     countLabel,
     grid,
+  ];
+  const menuCleanup = () => { closeCardMenu(); closeDueDialog(); closeDayChooser(); closeCalendarDialog(); };
+
+  // "Study" = just the set library on its own page (reached from the nav).
+  if (mode === "study") {
+    return {
+      title: t("menu.studyTitle"),
+      node: el("div", {}, [
+        homeButton(),
+        el("h1", { style: { marginBottom: "4px" } }, t("menu.studyTitle")),
+        el("p.note", { style: { marginBottom: "18px" } }, t("menu.studySub")),
+        ...libraryUI,
+      ]),
+      cleanup: menuCleanup,
+    };
+  }
+
+  // "Dina set" — one panel holding everything about browsing the library:
+  // tabs, search, the Filter drawer, and the card grid.
+  const setsPanel = el("section.home-panel.home-panel--sets", {}, [
+    el("div.home-panel__label", {}, [el("span", {}, t("menu.panelSets"))]),
+    ...libraryUI,
   ]);
 
   const node = el("div", {}, [
@@ -415,11 +435,7 @@ export function renderMenu() {
     setsPanel,
   ].filter(Boolean));
 
-  return {
-    title: t("menu.title"),
-    node,
-    cleanup: () => { closeCardMenu(); closeDueDialog(); closeDayChooser(); closeCalendarDialog(); },
-  };
+  return { title: t("menu.title"), node, cleanup: menuCleanup };
 }
 
 /* ---------------- calendar day chooser (2+ deadlines on one day) ---------- */
