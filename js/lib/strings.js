@@ -723,6 +723,18 @@ export const STRINGS = {
     "cmd.settings": "Settings",
     "cmd.lang": "Switch to {lang}",
     "cmd.theme": "Toggle dark mode",
+
+    "create.optImport": "Import cards",
+    "create.optImportSub": "Quizlet / Anki / CSV export",
+    "create.takePhoto": "Take a photo",
+    "create.choosePhoto": "Choose a file",
+    "create.importPlaceholder": "term<tab>definition, one per line — or paste a Quizlet export here",
+    "create.importHint": "Paste exported cards or upload a .csv. Term and definition can be split by a tab, comma, or \" - \".",
+    "create.importPaste": "Paste cards",
+    "create.importFile": "Or upload a file",
+    "create.importFound": "Found {n} cards",
+    "create.importNone": "Couldn't find any term / definition pairs.",
+    "create.importBuild": "Build the set",
   },
 
   /* ================================================================ */
@@ -1444,5 +1456,17 @@ export const STRINGS = {
     "cmd.settings": "Inställningar",
     "cmd.lang": "Byt till {lang}",
     "cmd.theme": "Växla mörkt läge",
+
+    "create.optImport": "Importera kort",
+    "create.optImportSub": "Quizlet / Anki / CSV-export",
+    "create.takePhoto": "Ta ett foto",
+    "create.choosePhoto": "Välj en fil",
+    "create.importPlaceholder": "term<tabb>definition, en per rad — eller klistra in en Quizlet-export här",
+    "create.importHint": "Klistra in exporterade kort eller ladda upp en .csv. Term och definition kan delas med tabb, kommatecken eller \" - \".",
+    "create.importPaste": "Klistra in kort",
+    "create.importFile": "Eller ladda upp en fil",
+    "create.importFound": "Hittade {n} kort",
+    "create.importNone": "Kunde inte hitta några term-/definitionspar.",
+    "create.importBuild": "Skapa setet",
   },
 };

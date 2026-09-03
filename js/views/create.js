@@ -4,6 +4,7 @@ import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { extractPdfText, extractZipText, readImageFile, fitText } from "../material.js";
+import { parseCards, cardsToDoc } from "../lib/import.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
 import { questionEditor } from "../components/question-editor.js";
 import { t, plural } from "../lib/i18n.js";
@@ -75,6 +76,7 @@ export function renderCreate(prefill) {
         opt("pdf", "📄", t("create.optPdf"), t("create.optPdfSub")),
         opt("photo", "📷", t("create.optPhoto"), t("create.optPhotoSub")),
         opt("topic", "💡", t("create.optTopic"), t("create.optTopicSub")),
+        opt("import", "📋", t("create.optImport"), t("create.optImportSub")),
         opt("nationalprov", "🎓", t("create.optNational"), t("create.optNationalSub")),
       ]),
       !store.hasKey() && el("p.note.note--warn", { style: { marginTop: "16px" } }, [
@@ -186,26 +188,61 @@ export function renderCreate(prefill) {
     if (state.source === "photo") {
       const status = el("p.note", { style: { marginTop: "8px" } });
       const preview = el("div", { style: { marginTop: "10px" } });
-      const input = el("input", {
-        type: "file",
-        accept: "image/*",
-        onchange: async (e) => {
-          const file = e.target.files[0];
-          if (!file) return;
-          status.textContent = t("create.reading"); state.image = null; clear(preview);
-          try {
-            state.image = await readImageFile(file);
-            status.textContent = t("create.loadedFile", { name: file.name });
-            preview.appendChild(el("img", { src: state.image.preview, alt: "", style: { maxWidth: "260px", borderRadius: "12px", border: "1px solid var(--line)" } }));
-          } catch (err) {
-            status.className = "note note--warn";
-            status.textContent = err.message || t("create.readFail");
-          }
-        },
-      });
-      body.appendChild(el("label.field", {}, [el("span", {}, t("create.photo")), input]));
+      const onFile = async (file) => {
+        if (!file) return;
+        status.className = "note";
+        status.textContent = t("create.reading"); state.image = null; clear(preview);
+        try {
+          state.image = await readImageFile(file);
+          status.textContent = t("create.loadedFile", { name: file.name });
+          preview.appendChild(el("img", { src: state.image.preview, alt: "", style: { maxWidth: "260px", borderRadius: "12px", border: "1px solid var(--line)" } }));
+        } catch (err) {
+          status.className = "note note--warn";
+          status.textContent = err.message || t("create.readFail");
+        }
+      };
+      // capture="environment" opens the camera on mobile; ignored on desktop.
+      const camInput = el("input", { type: "file", accept: "image/*", capture: "environment",
+        onchange: (e) => onFile(e.target.files[0]) });
+      const fileInput = el("input", { type: "file", accept: "image/*",
+        onchange: (e) => onFile(e.target.files[0]) });
+      body.appendChild(el("label.field", {}, [el("span", {}, t("create.takePhoto")), camInput]));
+      body.appendChild(el("label.field", {}, [el("span", {}, t("create.choosePhoto")), fileInput]));
       body.appendChild(status);
       body.appendChild(preview);
+    }
+
+    if (state.source === "import") {
+      const status = el("p.note", { style: { marginTop: "8px" } });
+      const ta = el("textarea", {
+        placeholder: t("create.importPlaceholder"),
+        oninput: (e) => { state.material = e.target.value; refresh(); },
+      });
+      ta.value = state.material;
+      const fileInput = el("input", {
+        type: "file", accept: ".csv,.tsv,.txt,text/csv,text/plain",
+        onchange: async (e) => {
+          const f = e.target.files[0];
+          if (!f) return;
+          state.material = await f.text();
+          ta.value = state.material;
+          refresh();
+        },
+      });
+      body.append(
+        el("p.note", {}, t("create.importHint")),
+        el("label.field", {}, [el("span", {}, t("create.importPaste")), ta]),
+        el("label.field", {}, [el("span", {}, t("create.importFile")), fileInput]),
+        status,
+      );
+      function refresh() {
+        const cards = parseCards(state.material);
+        status.className = cards.length ? "note" : "note note--warn";
+        status.textContent = cards.length
+          ? t("create.importFound", { n: cards.length })
+          : (state.material.trim() ? t("create.importNone") : "");
+      }
+      refresh();
     }
 
     if (state.source === "nationalprov") {
@@ -267,6 +304,33 @@ export function renderCreate(prefill) {
 
     const err = el("p.note.note--warn", { hidden: true });
     const genBtn = el("button.btn", { type: "button", disabled: !store.hasKey(), onclick: generate }, [icon(ICONS.spark, 18), t("create.generate")]);
+
+    // Import needs no AI — the cards *are* the questions. Straight to review.
+    function buildFromImport() {
+      const cards = parseCards(state.material);
+      if (!cards.length) { err.hidden = false; err.textContent = t("create.importNone"); return; }
+      const doc = cardsToDoc(cards, { title: state.subject !== t("common.general") ? state.subject : "", subject: state.subject });
+      doc.subject = state.subject.trim() || t("common.general");
+      doc.type = state.type;
+      doc.questions = doc.questions.map((q) => ({ ...q, id: uid() }));
+      state.doc = doc;
+      state.step = "review"; paint();
+    }
+
+    if (state.source === "import") {
+      return el("div.panel", {}, [
+        body, datalist,
+        el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginTop: "8px" } }, [
+          el("label.field", {}, [el("span", {}, t("create.subject")), subjectInput]),
+          el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
+        ]),
+        err,
+        el("div.nav-row", {}, [
+          el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "source"; paint(); } }, t("common.back")),
+          el("button.btn", { type: "button", onclick: buildFromImport }, [icon(ICONS.check, 18), t("create.importBuild")]),
+        ]),
+      ]);
+    }
 
     async function generate() {
       const hasInput = state.material.trim() || state.topic.trim() || state.image;
