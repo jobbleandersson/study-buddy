@@ -73,7 +73,7 @@ function parseLooseJSON(text) {
 
 // ---------- assignment generation ----------
 
-export async function generateAssignment({ material, topic, image, count = 6, gradeHint = "", preferFlashcards = false }) {
+export async function generateAssignment({ material, topic, image, count = 6, gradeHint = "", preferFlashcards = false, moreLike = null }) {
   const userContent = [];
   if (image) {
     userContent.push({
@@ -81,12 +81,18 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
       source: { type: "base64", media_type: image.mediaType, data: image.data },
     });
   }
-  const ask = [
-    material ? `Study material:\n"""\n${material}\n"""` : null,
-    topic ? `Topic to build questions on: ${topic}` : null,
-    image ? "Use the attached image of the student's material." : null,
-    `Create about ${count} questions. Return the JSON object only.`,
-  ].filter(Boolean).join("\n\n");
+  const ask = moreLike
+    ? [
+        `Here is an existing question set titled "${moreLike.title}" (subject: ${moreLike.subject}).`,
+        `Existing questions (JSON):\n"""\n${JSON.stringify(moreLike.questions, null, 1)}\n"""`,
+        `Write about ${count} MORE questions in the same style, difficulty and topics. Do NOT repeat or lightly reword any existing question. Return the JSON object only — its "questions" array holds only the new questions.`,
+      ].join("\n\n")
+    : [
+        material ? `Study material:\n"""\n${material}\n"""` : null,
+        topic ? `Topic to build questions on: ${topic}` : null,
+        image ? "Use the attached image of the student's material." : null,
+        `Create about ${count} questions. Return the JSON object only.`,
+      ].filter(Boolean).join("\n\n");
   userContent.push({ type: "text", text: ask });
 
   const body = {

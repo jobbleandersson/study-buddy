@@ -601,6 +601,13 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .tutor__input:focus-visible { border-color: var(--brand); box-shadow: none; }
 .voice-btn { position: relative; color: var(--ink-faint); }
 .voice-btn:hover { color: var(--ink-soft); }
+.voice-btn:disabled { opacity: .4; cursor: not-allowed; }
+.voice-btn.is-listening {
+  color: var(--retry-ink); background: var(--retry);
+  animation: voicepulse 1.3s ease-in-out infinite;
+}
+@keyframes voicepulse { 0%, 100% { box-shadow: 0 0 0 0 var(--retry); } 50% { box-shadow: 0 0 0 5px transparent; } }
+@media (prefers-reduced-motion: reduce) { .voice-btn.is-listening { animation: none; } }
 .voice-soon {
   position: absolute; bottom: -3px; right: -3px;
   font-size: 8px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase;

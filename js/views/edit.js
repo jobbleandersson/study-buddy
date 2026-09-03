@@ -2,13 +2,14 @@
 // Reuses the same question editor the Create flow uses.
 
 import { store } from "../store.js";
-import { el, icon, ICONS, toast } from "../lib/dom.js";
+import { el, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { questionEditor } from "../components/question-editor.js";
+import { generateAssignment, ClaudeError } from "../claude.js";
 import { t, plural } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { datePicker } from "../components/calendar.js";
 
-export function renderEdit(assignmentId) {
+export function renderEdit(assignmentId, qs) {
   const original = store.getAssignment(assignmentId);
   if (!original) {
     return {
@@ -48,6 +49,40 @@ export function renderEdit(assignmentId) {
     onChange: (n) => { countNote.textContent = plural(n, "common.questionOne", "common.questionMany"); },
   });
 
+  /* ---- "Add more like these" (AI) ---- */
+  const moreStatus = el("p.note", { hidden: true });
+  const moreBtn = el("button.btn.btn--ghost.btn--sm", {
+    type: "button", disabled: !store.hasKey(),
+    title: store.hasKey() ? "" : t("create.needKeyShort"),
+    onclick: addMore,
+  }, [icon(ICONS.spark, 16), t("edit.moreLike")]);
+
+  async function addMore() {
+    const seed = editor.commit();
+    if (!seed.length) { toast(t("edit.needQuestion")); return; }
+    moreBtn.disabled = true;
+    moreStatus.hidden = false;
+    moreStatus.className = "note";
+    moreStatus.textContent = t("edit.moreWorking");
+    try {
+      const gen = await generateAssignment({
+        count: 8,
+        moreLike: { title: draft.title, subject: subjectInput.value.trim() || subjectName, questions: seed },
+      });
+      const fresh = (gen.questions || []).map((q) => ({ ...q, id: uid() }));
+      if (!fresh.length) throw new Error("empty");
+      draft.questions.push(...fresh);
+      editor.paint();
+      moreStatus.textContent = t("edit.moreAdded", { n: fresh.length });
+      toast(t("edit.moreAdded", { n: fresh.length }));
+    } catch (e) {
+      moreStatus.className = "note note--warn";
+      moreStatus.textContent = e instanceof ClaudeError ? e.message : t("edit.moreFailed");
+    } finally {
+      moreBtn.disabled = !store.hasKey();
+    }
+  }
+
   function save() {
     const title = draft.title.trim();
     if (!title) { toast(t("edit.giveName")); titleInput.focus(); return; }
@@ -83,6 +118,8 @@ export function renderEdit(assignmentId) {
       countNote,
     ]),
 
+    el("div", { style: { display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap", margin: "4px 0 12px" } }, [moreBtn, moreStatus]),
+
     editor.el,
 
     el("div.nav-row", {}, [
@@ -93,6 +130,9 @@ export function renderEdit(assignmentId) {
       ]),
     ]),
   ]);
+
+  // Arrived here from the card menu's "Add more questions" shortcut.
+  if (qs?.get?.("more") && store.hasKey()) setTimeout(addMore, 0);
 
   return { title: t("edit.pageTitle", { title: original.title }), node };
 }

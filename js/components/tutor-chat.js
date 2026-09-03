@@ -66,17 +66,43 @@ export class TutorChat {
       type: "text", placeholder: t("tutor.ask"), "aria-label": t("tutor.askAria"),
       onkeydown: (e) => { if (e.key === "Enter") this._submit(); },
     });
-    // Not disabled: a disabled button explains nothing on a touch screen,
-    // where there is no hover. Tapping it says why it doesn't work yet.
-    const voiceBtn = el("button.iconbtn.voice-btn.tooltip", {
-      type: "button", "aria-disabled": "true",
-      "aria-label": t("tutor.voiceAria"),
-      dataset: { tip: t("tutor.voiceAria") },
-      onclick: (e) => {
-        e.preventDefault();
-        toast(t("tutor.voiceToast"));
-      },
-    }, [icon(ICONS.mic, 18), el("span.voice-soon", {}, t("tutor.voiceSoon"))]);
+
+    // Voice in / voice out are independent. Speech recognition drives the mic
+    // button (tap to dictate); speech synthesis reads replies aloud when the
+    // student has turned that on in Settings. The button is hidden outright
+    // when the browser has neither.
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    this._canListen = !!SR;
+    this._canSpeak = "speechSynthesis" in window;
+
+    const voiceBtn = el("button.iconbtn.voice-btn", {
+      type: "button",
+      "aria-label": t("tutor.voiceStart"),
+      title: t("tutor.voiceStart"),
+      onclick: (e) => { e.preventDefault(); this._toggleMic(); },
+    }, [icon(ICONS.mic, 18)]);
+    this.voiceBtn = voiceBtn;
+    if (!this._canListen && !this._canSpeak) voiceBtn.hidden = true;
+    if (!this._canListen) { voiceBtn.disabled = true; voiceBtn.title = t("tutor.voiceListenUnsupported"); }
+
+    if (SR) {
+      const rec = new SR();
+      rec.lang = getLang() === "sv" ? "sv-SE" : "en-GB";
+      rec.interimResults = true;
+      rec.continuous = false;
+      rec.onresult = (e) => {
+        let txt = "";
+        for (const r of e.results) txt += r[0].transcript;
+        this.inputEl.value = txt;
+        if (e.results[e.results.length - 1].isFinal) {
+          this._stopMic();
+          this._submit();
+        }
+      };
+      rec.onerror = () => this._stopMic();
+      rec.onend = () => { if (this._listening) this._stopMic(); };
+      this._rec = rec;
+    }
 
     this.formEl = el("form.tutor__form", { onsubmit: (e) => { e.preventDefault(); this._submit(); } }, [
       this.inputEl,
@@ -160,6 +186,68 @@ export class TutorChat {
     this._respond(studentVoicedText, { correct: true });
   }
 
+  _toggleMic() {
+    if (!this._rec) return;
+    this._listening ? this._stopMic() : this._startMic();
+  }
+  _startMic() {
+    try { this._rec.lang = getLang() === "sv" ? "sv-SE" : "en-GB"; this._rec.start(); }
+    catch { return; }
+    this._listening = true;
+    this.voiceBtn.classList.add("is-listening");
+    this.voiceBtn.setAttribute("aria-label", t("tutor.voiceStop"));
+    this.inputEl.placeholder = t("tutor.voiceListening");
+  }
+  _stopMic() {
+    if (!this._listening) return;
+    this._listening = false;
+    try { this._rec.stop(); } catch {}
+    this.voiceBtn?.classList.remove("is-listening");
+    this.voiceBtn?.setAttribute("aria-label", t("tutor.voiceStart"));
+    this.inputEl.placeholder = t("tutor.ask");
+  }
+
+  /** Read a reply aloud, when the student has turned voice output on. */
+  _speak(text) {
+    if (!this._canSpeak || store.settings.voice !== true) return;
+    try {
+      const clean = String(text).replace(/[#*_`>~]|\$\$?/g, "").replace(/\s+/g, " ").trim();
+      if (!clean) return;
+      const u = new SpeechSynthesisUtterance(clean);
+      u.lang = getLang() === "sv" ? "sv-SE" : "en-GB";
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+    } catch {}
+  }
+
+  /**
+   * "Explain why I was wrong" — one templated turn after a missed practice
+   * question. Live mode sends it to the tutor; demo mode falls back to the
+   * scripted walk-through for this question.
+   */
+  async explainWrong(question, theirAnswer) {
+    // Wait out any in-flight scripted typing from the wrong-answer nudge.
+    for (let i = 0; i < 60 && this.busy; i++) await new Promise((r) => setTimeout(r, 50));
+    if (this.busy) return;
+    this.el.classList.add("is-open");
+    this._append("me", t("tutor.explainWhyLabel"));
+    this.turns++;
+    this.busy = true;
+    setMood(this.mascotEl, "encourage");
+    if (this.live) {
+      const prompt = t("tutor.explainWhyPrompt", {
+        answer: theirAnswer ? `"${theirAnswer}"` : t("tutor.explainWhyBlank"),
+      });
+      await this._respondLive(prompt, {});
+    } else {
+      const s = await loadScripted();
+      const q = s.byQuestion?.[question?.id] || {};
+      const g = s.generic || {};
+      await this._typeOut(q.correct || g.correct || t("tutor.explainWhyScripted"));
+    }
+    this.busy = false;
+  }
+
   _submit() {
     const text = this.inputEl.value.trim();
     if (!text || this.busy) return;
@@ -236,6 +324,7 @@ export class TutorChat {
       this.messages.push({ role: "assistant", content: acc || "…" });
       setMood(this.mascotEl, opts.correct ? "cheer" : "idle");
       announce(t("tutor.prefix", { text: acc }));
+      this._speak(acc);
     } catch (e) {
       const msg = e instanceof ClaudeError ? e.message : t("tutor.snag");
       bubble.innerHTML = markdown(`_${msg}_`);
@@ -258,6 +347,7 @@ export class TutorChat {
       }
     }
     announce(t("tutor.prefix", { text }));
+    this._speak(text);
   }
 
   _append(who, text) {
@@ -270,7 +360,11 @@ export class TutorChat {
 
   _scroll() { this.logEl.scrollTop = this.logEl.scrollHeight; }
 
-  destroy() { try { this.abort?.abort(); } catch {} }
+  destroy() {
+    try { this.abort?.abort(); } catch {}
+    try { this._stopMic(); } catch {}
+    try { if (this._canSpeak) window.speechSynthesis.cancel(); } catch {}
+  }
 }
 
 function escapeHtml(s) {

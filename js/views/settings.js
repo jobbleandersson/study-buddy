@@ -144,6 +144,17 @@ export function renderSettings() {
     toast(t("set.saved"));
   });
 
+  const voiceSupported = "speechSynthesis" in window;
+  const voiceSel = el("select", { "aria-label": t("set.voice"), disabled: !voiceSupported }, [
+    opt("off", t("set.voiceOff")),
+    opt("on", t("set.voiceOn")),
+  ]);
+  voiceSel.value = s.voice === true ? "on" : "off";
+  voiceSel.addEventListener("change", () => {
+    store.setSettings({ voice: voiceSel.value === "on" });
+    toast(t("set.saved"));
+  });
+
   /* ---------------- tutor server status ---------------- */
   // The Claude key lives in the backend proxy now, so there's nothing to type
   // here — just whether live mode is available.
@@ -175,10 +186,12 @@ export function renderSettings() {
         el("label.field", {}, [el("span", {}, t("set.testHints")), hintsSel]),
         el("label.field", {}, [el("span", {}, t("set.adaptive")), adaptiveSel]),
         el("label.field", {}, [el("span", {}, t("set.pomodoro")), pomoSel]),
+        el("label.field", {}, [el("span", {}, t("set.voice")), voiceSel]),
       ]),
       el("p.note", {}, t("set.testHintsNote")),
       el("p.note", {}, t("set.adaptiveNote")),
       el("p.note", {}, t("set.pomodoroNote")),
+      el("p.note", {}, voiceSupported ? t("set.voiceNote") : t("set.voiceUnsupported")),
     ]),
 
     el("section.panel", {}, [
@@ -215,7 +228,6 @@ export function renderSettings() {
     el("section.roadmapbox", {}, [
       el("h3", {}, t("set.roadmap")),
       el("ul.roadmap", {}, [
-        el("li", {}, t("set.roadVoice")),
         el("li", {}, t("set.roadShare")),
       ]),
     ]),

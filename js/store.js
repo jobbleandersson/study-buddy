@@ -86,6 +86,7 @@ function seedState() {
       pomodoro: "off",     // "off" | "25" | "50" focus timer in a session
       font: "system",      // "system" | "hyperlegible"
       textSize: "m",       // "s" | "m" | "l"
+      voice: false,        // read tutor replies aloud (speechSynthesis)
     },
     subjects: DEFAULT_SUBJECTS.map((name, i) => ({
       id: uid(), name, color: PALETTE[i % PALETTE.length].name,

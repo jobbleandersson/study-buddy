@@ -5,6 +5,7 @@ import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { extractPdfText, extractZipText, readImageFile, fitText } from "../material.js";
 import { parseCards, cardsToDoc } from "../lib/import.js";
+import { detectSections } from "../lib/split.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
 import { questionEditor } from "../components/question-editor.js";
 import { t, plural } from "../lib/i18n.js";
@@ -52,6 +53,39 @@ export function renderCreate(prefill) {
     ]));
     root.appendChild(steps());
     root.appendChild(({ source: sourceStep, input: inputStep, generating: generatingStep, review: reviewStep }[state.step])());
+  }
+
+  /* ---- bulk split: one generated set per detected section ---- */
+  async function runSplit(secs) {
+    clear(root);
+    const log = el("div", { style: { display: "grid", gap: "6px" } });
+    root.appendChild(el("div.panel", {}, [
+      el("h2", { style: { marginBottom: "4px" } }, t("create.splitTitle")),
+      el("p.note", { style: { marginBottom: "12px" } }, t("create.splitSub")),
+      log,
+    ]));
+    const rows = secs.map((s) => {
+      const r = el("p.note", {}, `⏳ ${s.title}`);
+      log.appendChild(r);
+      return r;
+    });
+    let made = 0;
+    for (let i = 0; i < secs.length; i++) {
+      try {
+        const doc = await generateAssignment({ material: fitText(secs[i].body), count: state.count });
+        doc.subject = state.subject.trim() || doc.subject || t("common.general");
+        doc.title = secs[i].title || doc.title;
+        doc.type = state.type;
+        doc.questions = doc.questions.map((q) => ({ ...q, id: uid() }));
+        store.addAssignmentDoc(doc);
+        made++;
+        rows[i].textContent = `✅ ${secs[i].title}`;
+      } catch (e) {
+        rows[i].textContent = `⚠️ ${secs[i].title} — ${e instanceof ClaudeError ? e.message : t("create.genFailed")}`;
+      }
+    }
+    toast(made ? t("create.splitDone", { n: made }) : t("create.genFailed"));
+    if (made) location.hash = "#/";
   }
 
   /* ---- step 1: source ---- */
@@ -169,9 +203,29 @@ export function renderCreate(prefill) {
     const body = el("div");
 
     if (state.source === "paste") {
-      const ta = el("textarea", { placeholder: t("create.materialPlaceholder"), oninput: (e) => { state.material = e.target.value; } });
+      const splitBox = el("div", { style: { marginTop: "10px" } });
+      const ta = el("textarea", {
+        placeholder: t("create.materialPlaceholder"),
+        oninput: (e) => { state.material = e.target.value; refreshSplit(); },
+      });
       ta.value = state.material;
       body.appendChild(el("label.field", {}, [el("span", {}, t("create.material")), ta]));
+      body.appendChild(splitBox);
+
+      function refreshSplit() {
+        clear(splitBox);
+        const secs = detectSections(state.material);
+        if (secs.length < 2) return;
+        splitBox.appendChild(el("p.note", {}, t("create.splitFound", { n: secs.length })));
+        splitBox.appendChild(el("div", { style: { display: "flex", flexWrap: "wrap", gap: "6px", margin: "6px 0" } },
+          secs.map((s) => el("span.badge", {}, s.title.length > 32 ? s.title.slice(0, 32) + "…" : s.title))));
+        splitBox.appendChild(el("button.btn.btn--ghost.btn--sm", {
+          type: "button", disabled: !store.hasKey(),
+          title: store.hasKey() ? "" : t("create.needKeyShort"),
+          onclick: () => runSplit(secs),
+        }, [icon(ICONS.spark, 16), t("create.splitEach", { n: secs.length })]));
+      }
+      refreshSplit();
     }
 
     if (state.source === "topic") {

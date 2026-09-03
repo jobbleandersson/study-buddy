@@ -18,6 +18,7 @@ import { renderLogin } from "./views/login.js";
 import { renderParentHub, renderParentStudent } from "./views/parent-dashboard.js";
 import { renderGallery } from "./views/gallery.js";
 import { renderPrint } from "./views/print.js";
+import { renderTeachback } from "./views/teachback.js";
 import { mountCommandPalette } from "./components/command-palette.js";
 import { maybeShowOnboarding } from "./components/onboarding.js";
 
@@ -26,7 +27,7 @@ const app = document.getElementById("app");
 const routes = [
   { rx: /^\/?$/, view: () => renderMenu() },
   { rx: /^\/create$/, view: (m, qs) => renderCreate(qs) },
-  { rx: /^\/edit\/(.+)$/, view: (m) => renderEdit(m[1]) },
+  { rx: /^\/edit\/(.+)$/, view: (m, qs) => renderEdit(m[1], qs) },
   { rx: /^\/review$/, view: () => renderReview() },
   { rx: /^\/practice-weak$/, view: () => renderWeakPractice() },
   { rx: /^\/practice\/(.+)$/, view: (m) => renderPractice(m[1]) },
@@ -36,6 +37,7 @@ const routes = [
   { rx: /^\/settings$/, view: () => renderSettings() },
   { rx: /^\/gallery$/, view: () => renderGallery() },
   { rx: /^\/print\/(.+)$/, view: (m) => renderPrint(m[1]) },
+  { rx: /^\/teachback\/(.+)$/, view: (m) => renderTeachback(m[1]) },
   { rx: /^\/login$/, view: () => renderLogin() },
   { rx: /^\/parent$/, view: () => renderParentHub() },
   { rx: /^\/parent\/(.+)$/, view: (m) => renderParentStudent(m[1]) },

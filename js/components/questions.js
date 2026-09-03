@@ -72,6 +72,7 @@ function mc({ question, tutor, testMode, onDone }) {
   }
 
   const triedWrong = new Set();
+  let lastWrongChoice = "";
 
   function check() {
     if (picked < 0 || done) return;
@@ -106,6 +107,7 @@ function mc({ question, tutor, testMode, onDone }) {
       confidenceStep(finalize(result), feedback, onDone);
     } else {
       result.hintsUsed = attempts;
+      lastWrongChoice = question.choices[picked];
       feedback.className = "feedback retry";
       feedback.textContent = attempts >= 2
         ? t("q.stillNotRight")
@@ -131,6 +133,7 @@ function mc({ question, tutor, testMode, onDone }) {
     btns[question.answer].classList.add("is-correct");
     feedback.className = "feedback retry";
     feedback.innerHTML = renderRich(question.explanation || t("q.answerIs", { letter: String.fromCharCode(65 + question.answer) }));
+    explainWhyRow(tutor, question, lastWrongChoice, feedback);
     confidenceStep(finalize(result), feedback, onDone);
   }
 
@@ -206,6 +209,7 @@ function text({ question, tutor, live, testMode, onDone }) {
 
     clear(selfRate);
     if (!verdict.correct) {
+      explainWhyRow(tutor, question, ans, selfRate);
       const appeal = el("button.linkbtn", {
         type: "button",
         onclick: () => {
@@ -293,7 +297,10 @@ function cloze({ question, tutor, testMode, onDone }) {
         (question.explanation ? renderRich(question.explanation) : "");
 
     if (allRight) tutor?.celebrate(t("q.tutorRight"));
-    else tutor?.note(t("q.tutorClozeWrong"));
+    else {
+      tutor?.note(t("q.tutorClozeWrong"));
+      explainWhyRow(tutor, question, blanks.map((b) => b.inp.value).filter(Boolean).join(", "), feedback);
+    }
     confidenceStep(finalize(result), feedback, onDone);
   }
 
@@ -473,6 +480,19 @@ function confidenceStep(result, host, onDone) {
   });
   row.append(...btns);
   host.appendChild(row);
+}
+
+/**
+ * A one-tap "Explain why" link shown after a missed question in practice mode.
+ * Hands the question and the student's answer to the tutor for one focused turn.
+ */
+function explainWhyRow(tutor, question, theirAnswer, host) {
+  if (!tutor) return;
+  const btn = el("button.linkbtn", {
+    type: "button",
+    onclick: () => { btn.disabled = true; tutor.explainWrong(question, theirAnswer); },
+  }, t("q.explainWhy"));
+  host.appendChild(el("p.note", { style: { marginTop: "10px" } }, [btn]));
 }
 
 function heuristic(ans, model) {

@@ -213,8 +213,9 @@ export function renderMenu() {
         if (copy) toast(t("menu.copiedAs", { title: copy.title }));
       }),
       item(ICONS.play, t("menu.itemPrint"), () => { location.hash = `#/print/${a.id}`; }),
+      store.hasKey() && item(ICONS.spark, t("menu.itemMore"), () => { location.hash = `#/edit/${a.id}?more=1`; }),
       item(ICONS.trash, t("menu.itemDelete"), () => remove(a), true),
-    ]);
+    ].filter(Boolean));
 
     function item(path, label, fn, danger) {
       return el("button.cardmenu__item", {

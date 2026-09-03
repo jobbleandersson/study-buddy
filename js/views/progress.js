@@ -49,13 +49,22 @@ export function renderProgress() {
     .map(({ s, m }) => {
       const color = store.subjectColor(s.id);
       const pct = Math.round(m * 100);
-      return el("div.meter", {}, [
+      const meter = el("div.meter", {}, [
         el("span", {}, s.name),
         el("div.meter__track", {
           role: "img", "aria-label": t("prog.masteryAria", { subject: s.name, pct }),
         }, [el("div.meter__fill", { style: { width: "0%", "--subject": color.solid }, dataset: { w: pct } })]),
         el("span.tabular", { style: { textAlign: "right", fontWeight: 700 } }, `${pct}%`),
       ]);
+      // A near-mastered subject earns a victory lap: explain it back.
+      if (m >= 0.8) {
+        return el("div", { style: { padding: "2px 0" } }, [
+          meter,
+          el("a.linkbtn", { href: `#/teachback/${s.id}`, style: { fontSize: "var(--fs-sm)" } },
+            [icon(ICONS.spark, 13), " ", t("teach.tile")]),
+        ]);
+      }
+      return meter;
     });
 
   // ---- due for review ----
