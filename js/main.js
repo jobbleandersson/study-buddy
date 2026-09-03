@@ -64,6 +64,45 @@ function nextLang() {
   return codes[(codes.indexOf(getLang()) + 1) % codes.length];
 }
 
+/** The narrow-screen ⋮ that holds progress / parent / settings (see .topmenu
+ *  in css — hidden above 560px). Closes on outside click, Esc, or navigation. */
+function topOverflowMenu() {
+  const list = el("div.topmenu__list", { role: "menu", hidden: true }, [
+    el("a.topmenu__item", { href: "#/progress", role: "menuitem" }, [icon(ICONS.chart, 16), t("common.progress")]),
+    store.authed && el("a.topmenu__item", { href: "#/parent", role: "menuitem" }, [icon(ICONS.users, 16), t("common.parent")]),
+    el("a.topmenu__item", { href: "#/settings", role: "menuitem" }, [icon(ICONS.gear, 16), t("common.settings")]),
+  ].filter(Boolean));
+
+  const btn = el("button.iconbtn", {
+    type: "button", "aria-haspopup": "menu", "aria-expanded": "false",
+    "aria-label": t("common.menu"), title: t("common.menu"),
+  }, [icon(ICONS.dots, 18)]);
+
+  function close() {
+    list.hidden = true;
+    btn.setAttribute("aria-expanded", "false");
+    document.removeEventListener("click", onDoc, true);
+    document.removeEventListener("keydown", onEsc, true);
+  }
+  function onDoc(e) { if (!wrap.contains(e.target)) close(); }
+  function onEsc(e) { if (e.key === "Escape") close(); }
+
+  btn.addEventListener("click", () => {
+    if (list.hidden) {
+      list.hidden = false;
+      btn.setAttribute("aria-expanded", "true");
+      setTimeout(() => {
+        document.addEventListener("click", onDoc, true);
+        document.addEventListener("keydown", onEsc, true);
+      }, 0);
+    } else close();
+  });
+  list.addEventListener("click", (e) => { if (e.target.closest("a")) close(); });
+
+  const wrap = el("div.topmenu", {}, [btn, list]);
+  return wrap;
+}
+
 function shell(contentNode) {
   const { displayStreak: streak, atRisk } = store.streakInfo;
   const next = nextLang();
@@ -77,7 +116,8 @@ function shell(contentNode) {
           "StudyBuddy",
         ]),
         el("span.topbar__spacer"),
-        streak > 0 && el("span.streakbadge" + (atRisk ? ".streakbadge--risk" : ""), {
+        streak > 0 && el("a.streakbadge" + (atRisk ? ".streakbadge--risk" : ""), {
+          href: "#/progress",
           "aria-label": t("prog.streakAria", { n: streak }),
           title: atRisk ? t("streak.atRiskShort")
             : streak === 1 ? t("menu.tileStreakOne", { n: streak }) : t("menu.tileStreak", { n: streak }),
@@ -91,9 +131,10 @@ function shell(contentNode) {
           title: `${t("common.language")} → ${nextLabel}`,
           onclick: () => { setLang(next); toast(t("set.langUpdated")); },
         }, [icon(ICONS.globe, 18), el("span.langbtn__code", {}, next.toUpperCase())]),
-        el("a.iconbtn", { href: "#/progress", "aria-label": t("common.progress"), title: t("common.progress") }, [icon(ICONS.chart, 18)]),
-        store.authed && el("a.iconbtn", { href: "#/parent", "aria-label": t("common.parent"), title: t("common.parent") }, [icon(ICONS.users, 18)]),
-        el("a.iconbtn", { href: "#/settings", "aria-label": t("common.settings"), title: t("common.settings") }, [icon(ICONS.gear, 18)]),
+        el("a.iconbtn.topbar__wide", { href: "#/progress", "aria-label": t("common.progress"), title: t("common.progress") }, [icon(ICONS.chart, 18)]),
+        store.authed && el("a.iconbtn.topbar__wide", { href: "#/parent", "aria-label": t("common.parent"), title: t("common.parent") }, [icon(ICONS.users, 18)]),
+        el("a.iconbtn.topbar__wide", { href: "#/settings", "aria-label": t("common.settings"), title: t("common.settings") }, [icon(ICONS.gear, 18)]),
+        topOverflowMenu(),
       ]),
     ]),
     el("main.content", { id: "main" }, [contentNode]),

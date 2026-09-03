@@ -9,6 +9,7 @@ import { THEMES, getTheme, setTheme } from "../lib/theme.js";
 import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
 import { LANGS, getLang, setLang, t, plural } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
+import { confirmDialog } from "../components/confirm-dialog.js";
 import { playFanfare } from "../lib/sound.js";
 
 export function renderSettings() {
@@ -266,8 +267,8 @@ export function renderSettings() {
       if (loaded > 0) {
         actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
           type: "button", style: { color: "var(--retry-ink)" },
-          onclick: () => {
-            if (!confirm(t("set.demoRemoveConfirm"))) return;
+          onclick: async () => {
+            if (!(await confirmDialog({ message: t("set.demoRemoveConfirm"), confirmLabel: t("set.demoRemove"), danger: true }))) return;
             store.removeDemoContent();
             toast(t("set.demoRemoved"));
             paint();
@@ -326,8 +327,8 @@ export function renderSettings() {
     toast(t("set.backupDownloaded"));
   }
 
-  function wipe() {
-    if (!confirm(t("set.wipeConfirm"))) return;
+  async function wipe() {
+    if (!(await confirmDialog({ message: t("set.wipeConfirm"), confirmLabel: t("set.wipe"), danger: true }))) return;
     store.wipe();
     toast(t("set.wiped"));
     location.hash = "#/";

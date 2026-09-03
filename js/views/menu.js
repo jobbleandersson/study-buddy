@@ -9,6 +9,7 @@ import { weeklyRecap, isoWeek } from "../lib/recap.js";
 import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
 import { datePicker, monthCalendar } from "../components/calendar.js";
 import { goalRing } from "../components/goal-ring.js";
+import { confirmDialog } from "../components/confirm-dialog.js";
 import { playFanfare } from "../lib/sound.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
@@ -302,12 +303,12 @@ export function renderMenu() {
     toast(t("menu.renamed"));
   }
 
-  function remove(a) {
+  async function remove(a) {
     const attempts = store.attempts.filter((x) => x.assignmentId === a.id).length;
     const msg = attempts
       ? t("menu.deleteConfirmAttempts", { title: a.title, n: attempts })
       : t("menu.deleteConfirm", { title: a.title });
-    if (!confirm(msg)) return;
+    if (!(await confirmDialog({ message: msg, confirmLabel: t("common.delete"), danger: true }))) return;
     const snapshot = store.deleteAssignment(a.id);
     toast(t("menu.deleted"), snapshot ? {
       actionLabel: t("common.undo"),
@@ -408,20 +409,24 @@ function todayStrip() {
   const weak = weakSpotQuestions(store.assignments, store.attempts).length;
   const tiles = [];
 
+  // "Pick up where you left off" leads and is the loudest tile — it's the one
+  // thing you almost certainly want when it's there.
+  if (open) {
+    const answered = Object.keys(open.items || {}).length;
+    const cont = tile(
+      open.retryHash || (open.isReview ? "#/review" : `#/session/${open.assignmentId}`),
+      ICONS.play,
+      t("menu.tileContinue"),
+      t("menu.tileContinueSub", { title: open.title, n: answered, total: open.order.length }));
+    cont.classList.add("tile--resume");
+    tiles.push(cont);
+  }
+
   const goal = Number(store.settings.dailyGoal) || 0;
   if (goal > 0 && store.assignments.length) tiles.push(goalTile(goal));
 
   if (due) {
-    tiles.push(tile("#/review", ICONS.spark, t("menu.tileDue", { n: due }), t("menu.tileDueSub"), true));
-  }
-
-  if (open) {
-    const answered = Object.keys(open.items || {}).length;
-    tiles.push(tile(
-      open.retryHash || (open.isReview ? "#/review" : `#/session/${open.assignmentId}`),
-      ICONS.play,
-      t("menu.tileContinue"),
-      t("menu.tileContinueSub", { title: open.title, n: answered, total: open.order.length })));
+    tiles.push(tile("#/review", ICONS.spark, t("menu.tileDue", { n: due }), t("menu.tileDueSub")));
   }
 
   if (weak) {
@@ -429,7 +434,9 @@ function todayStrip() {
   }
 
   if (streak > 0) {
-    tiles.push(tile("#/progress", ICONS.flame, plural(streak, "menu.tileStreakOne", "menu.tileStreak"), t("menu.tileStreakSub")));
+    const st = tile("#/progress", ICONS.flame, plural(streak, "menu.tileStreakOne", "menu.tileStreak"), t("menu.tileStreakSub"));
+    st.classList.add("tile--streak");
+    tiles.push(st);
   }
 
   const strip = el("div.today", {}, tiles);

@@ -7,6 +7,7 @@ import { store } from "../store.js";
 import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
 import { t, plural } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
+import { confirmDialog } from "../components/confirm-dialog.js";
 import { masteryByTopic, masteryForSubject } from "../lib/mastery.js";
 import { dueQuestions } from "../lib/library.js";
 import { currentStreak } from "../lib/activity.js";
@@ -83,7 +84,7 @@ export function renderParentHub() {
           el("button.btn.btn--ghost.btn--sm", {
             type: "button", style: { color: "var(--retry-ink)" },
             onclick: async () => {
-              if (!confirm(t("parent.unlinkConfirm", { email: link.studentEmail }))) return;
+              if (!(await confirmDialog({ message: t("parent.unlinkConfirm", { email: link.studentEmail }), confirmLabel: t("parent.unlink"), danger: true }))) return;
               try { await api(unlinkUrl(link.linkId), { method: "DELETE" }); refreshLinks(); }
               catch (e) { toast(e.message); }
             },
@@ -151,7 +152,7 @@ export function renderParentHub() {
               el("button.btn.btn--ghost.btn--sm", {
                 type: "button", style: { color: "var(--retry-ink)" },
                 onclick: async () => {
-                  if (!confirm(t("parent.unlinkConfirm", { email: link.parentEmail }))) return;
+                  if (!(await confirmDialog({ message: t("parent.unlinkConfirm", { email: link.parentEmail }), confirmLabel: t("parent.unlink"), danger: true }))) return;
                   try { await api(unlinkUrl(link.linkId), { method: "DELETE" }); refreshLinks(); }
                   catch (e) { toast(e.message); }
                 },

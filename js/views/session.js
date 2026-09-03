@@ -12,6 +12,7 @@ import { t } from "../lib/i18n.js";
 import { renderQuestion } from "../components/questions.js";
 import { TutorChat } from "../components/tutor-chat.js";
 import { homeButton } from "../components/nav.js";
+import { confirmDialog } from "../components/confirm-dialog.js";
 import { review } from "../lib/srs.js";
 import { weakSpotQuestions, masteryByTopic } from "../lib/mastery.js";
 import { playCorrect, playWrong, playChime } from "../lib/sound.js";
@@ -221,9 +222,16 @@ function runSession(config) {
     }
   }
 
-  function tryLeaveTestMode() {
+  async function tryLeaveTestMode() {
     // Explain the trade-off once; after that it's a free toggle.
-    if (!leftTestMode && !confirm(t("session.testOffConfirm"))) return;
+    if (!leftTestMode) {
+      const ok = await confirmDialog({
+        message: t("session.testOffConfirm"),
+        confirmLabel: t("session.testOff"),
+        cancelLabel: t("common.cancel"),
+      });
+      if (!ok) return;
+    }
     setTestMode(false);
   }
 
@@ -400,9 +408,13 @@ function runSession(config) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  function exit() {
+  async function exit() {
     persist();
-    if (confirm(t("session.exitConfirm"))) location.hash = "#/";
+    if (await confirmDialog({
+      message: t("session.exitConfirm"),
+      confirmLabel: t("nav.leave"),
+      cancelLabel: t("nav.stay"),
+    })) location.hash = "#/";
   }
 
   function finish() {
