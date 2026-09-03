@@ -1,0 +1,129 @@
+{
+  "id": "lib-bio7-djur",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Djurens indelning",
+  "sourceSummary": "Hur biologer delar in djurriket i ryggradsdjur och ryggradslösa djur. Du tränar på kännetecknen för fiskar, groddjur, kräldjur, fåglar och däggdjur samt på skillnaden mellan växelvarma och jämnvarma djur.",
+  "topics": [
+    "ryggradsdjur",
+    "ryggradslösa djur",
+    "däggdjur och fåglar",
+    "växelvarma och jämnvarma"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio7-dju-1",
+      "kind": "mc",
+      "topic": "ryggradsdjur",
+      "prompt": "Vilken av grupperna nedan hör INTE till ryggradsdjuren?",
+      "opener": "Fyra av alternativen har en ryggrad av benkotor — ett har det inte.",
+      "choices": [
+        "Groddjur",
+        "Insekter",
+        "Fåglar",
+        "Kräldjur"
+      ],
+      "answer": 1,
+      "explanation": "Insekter är ryggradslösa djur; de har i stället ett hårt yttre skelett. Groddjur, fåglar och kräldjur har alla en ryggrad av kotor och räknas därför som ryggradsdjur."
+    },
+    {
+      "id": "q-bio7-dju-2",
+      "kind": "mc",
+      "topic": "däggdjur och fåglar",
+      "prompt": "Vad är typiskt för däggdjur?",
+      "opener": "Tänk på namnet — vad gör en hondäggdjursmamma med sina ungar?",
+      "choices": [
+        "De lägger alltid ägg med hårt skal",
+        "De andas med gälar hela livet",
+        "De har fjädrar och näbb",
+        "De föder levande ungar och ammar dem med mjölk"
+      ],
+      "answer": 3,
+      "explanation": "Däggdjur diar sina ungar med mjölk från mjölkkörtlar och har hår eller päls. Det är fåglarna som har fjädrar och näbb, och fiskarna som andas med gälar hela livet."
+    },
+    {
+      "id": "q-bio7-dju-3",
+      "kind": "mc",
+      "topic": "ryggradsdjur",
+      "prompt": "Vilket djur är ett groddjur?",
+      "opener": "Groddjuren lever första delen av livet i vattnet och senare på land.",
+      "choices": [
+        "Grodan",
+        "Ormen",
+        "Abborren",
+        "Fladdermusen"
+      ],
+      "answer": 0,
+      "explanation": "Grodan är ett groddjur: den lägger ägg i vatten, ynglet andas med gälar och den vuxna grodan andas med lungor och hud. Ormen är ett kräldjur med torr fjällklädd hud och den lever hela livet på land."
+    },
+    {
+      "id": "q-bio7-dju-4",
+      "kind": "mc",
+      "topic": "växelvarma och jämnvarma",
+      "prompt": "Vad betyder det att en ödla är växelvarm?",
+      "opener": "Fundera på varför ödlor gärna ligger och solar sig på en varm sten.",
+      "choices": [
+        "Den håller alltid exakt 37 grader inuti kroppen",
+        "Den byter kroppstemperatur en gång per år",
+        "Dess kroppstemperatur följer omgivningens temperatur",
+        "Den blir varmare ju mer den äter"
+      ],
+      "answer": 2,
+      "explanation": "Växelvarma djur värms upp av omgivningen, därför solar sig ödlan för att bli aktiv och blir trög när det är kallt. Att alltid hålla samma kroppstemperatur är i stället vad jämnvarma djur som fåglar och däggdjur gör."
+    },
+    {
+      "id": "q-bio7-dju-5",
+      "kind": "mc",
+      "topic": "ryggradslösa djur",
+      "prompt": "Hur många ben har en insekt som fullvuxen?",
+      "opener": "Räkna på en humla eller en skalbagge — benen sitter parvis på mellankroppen.",
+      "choices": [
+        "4",
+        "8",
+        "10",
+        "6"
+      ],
+      "answer": 3,
+      "explanation": "Insekter har sex ben och kroppen är delad i huvud, mellankropp och bakkropp. Åtta ben har spindeldjuren, och det är just benantalet som gör att en spindel inte är en insekt."
+    },
+    {
+      "id": "q-bio7-dju-6",
+      "kind": "mc",
+      "topic": "ryggradslösa djur",
+      "prompt": "Vilket djur är ett blötdjur?",
+      "opener": "Många blötdjur har en mjuk kropp och ofta ett skal som skydd.",
+      "choices": [
+        "Myran",
+        "Snigeln",
+        "Fästingen",
+        "Gäddan"
+      ],
+      "answer": 1,
+      "explanation": "Snigeln är ett blötdjur med mjuk kropp utan skelett; snäckor och musslor hör till samma grupp. Myran är en insekt och fästingen ett spindeldjur — båda har ett hårt yttre skelett, inte en mjuk kropp."
+    },
+    {
+      "id": "q-bio7-dju-7",
+      "kind": "worked",
+      "topic": "ryggradsdjur",
+      "prompt": "Du hittar ett djur som har fjäll, andas med lungor, lägger ägg på land och blir slött när det är kallt. Vilken grupp av ryggradsdjur tillhör det? Visa hur du resonerar.",
+      "opener": "Gå igenom ledtrådarna en i taget och stryk de grupper som inte passar.",
+      "answer": "Det är ett kräldjur (reptil), till exempel en orm eller en ödla.",
+      "steps": [
+        "Fjäll och lungor: fiskar faller bort, de har gälar och lever i vatten.",
+        "Ägg som läggs på land: groddjuren faller bort, de lägger sina ägg i vatten.",
+        "Fjäll i stället för fjädrar eller päls: fåglar och däggdjur faller bort.",
+        "Att djuret blir slött i kyla visar att det är växelvarmt, vilket stämmer på kräldjur.",
+        "Kvar finns bara kräldjuren — svaret är alltså ett kräldjur."
+      ]
+    },
+    {
+      "id": "q-bio7-dju-8",
+      "kind": "flashcard",
+      "topic": "ryggradsdjur",
+      "prompt": "Vilka är de fem grupperna av ryggradsdjur och vad kännetecknar dem?",
+      "opener": "Ta grupperna i ordning och nämn hud, andning, ägg eller ungar samt kroppstemperatur.",
+      "answer": "Fiskar: fjäll · gälar · yttre befruktning och ägg i vatten · växelvarma · Groddjur: fuktig naken hud · yngel med gälar, vuxna med lungor och hud · ägg i vatten · växelvarma · Kräldjur: torra fjäll · lungor · ägg med läderartat skal på land · växelvarma · Fåglar: fjädrar och näbb · lungor · ägg med hårt skal, ruvas · jämnvarma · Däggdjur: hår eller päls · lungor · föder levande ungar och ger mjölk · jämnvarma · Ryggradslösa djur: insekter (6 ben, tredelad kropp) · spindeldjur (8 ben, tvådelad kropp) · blötdjur (mjuk kropp, ofta skal) · alla saknar ryggrad och är växelvarma."
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "lib-geo7-landformer",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Jordens landformer och naturkrafter",
+  "sourceSummary": "Jordens inre uppbyggnad och kontinentalplattornas rörelser, hur vulkaner och jordbävningar uppstår, hur erosion och inlandsisen har format landskapet i Sverige, hur berg, dalar och floder bildas samt hur landformerna påverkar var människor väljer att bo.",
+  "topics": [
+    "jordens uppbyggnad",
+    "kontinentalplattor",
+    "vulkaner och jordbävningar",
+    "erosion och istiden",
+    "berg, dalar och floder",
+    "landformer och bosättning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo7-lan-1",
+      "kind": "mc",
+      "topic": "jordens uppbyggnad",
+      "prompt": "Vad kallas jordens yttersta, tunna och hårda lager som vi bor på?",
+      "opener": "Tänk på jorden som ett äpple — vilket lager motsvarar skalet?",
+      "choices": [
+        "Manteln",
+        "Inre kärnan",
+        "Jordskorpan",
+        "Yttre kärnan"
+      ],
+      "answer": 2,
+      "explanation": "Jordskorpan är det yttersta lagret och är bara ungefär 5–70 km tjockt, tunnast under haven och tjockast under bergskedjor. Manteln ligger under jordskorpan och består av het, trögflytande berg, medan kärnan i mitten mest består av järn och nickel."
+    },
+    {
+      "id": "q-geo7-lan-2",
+      "kind": "mc",
+      "topic": "kontinentalplattor",
+      "prompt": "Varför rör sig jordens kontinentalplattor?",
+      "opener": "Drivkraften finns i lagret under plattorna, där det är mycket varmt.",
+      "choices": [
+        "Värmen från jordens inre skapar långsamma strömmar i manteln som drar och skjuter plattorna",
+        "Månens dragningskraft flyttar plattorna varje natt",
+        "Vindarna vid jordytan trycker plattorna framför sig",
+        "Plattorna rör sig bara när det regnar mycket"
+      ],
+      "answer": 0,
+      "explanation": "Värmen från jordens inre får materialet i manteln att röra sig i långsamma konvektionsströmmar, ungefär som vatten i en kastrull, och plattorna ovanpå flyttas några centimeter per år. Månen påverkar tidvattnet i haven, men inte plattornas rörelser, och väder och vind förändrar bara jordytan — inte plattorna."
+    },
+    {
+      "id": "q-geo7-lan-3",
+      "kind": "mc",
+      "topic": "vulkaner och jordbävningar",
+      "prompt": "Var på jorden inträffar de flesta jordbävningar och vulkanutbrott?",
+      "opener": "Titta på en karta över plattorna — olyckorna följer linjer, inte slumpen.",
+      "choices": [
+        "Mitt inne på stora kontinenter",
+        "Jämnt utspritt över hela jorden",
+        "Bara vid ekvatorn",
+        "Längs gränserna mellan kontinentalplattorna"
+      ],
+      "answer": 3,
+      "explanation": "De flesta jordbävningar och vulkaner ligger längs plattgränserna, till exempel i Eldringen runt Stilla havet och längs Medelhavsområdet, eftersom det är där plattorna krockar, glider isär eller skaver mot varandra. Inne på plattorna, som i Sverige, är det betydligt lugnare, och läget vid ekvatorn har inget med saken att göra."
+    },
+    {
+      "id": "q-geo7-lan-4",
+      "kind": "mc",
+      "topic": "erosion och istiden",
+      "prompt": "Vad menas med erosion?",
+      "opener": "Ordet handlar om nötning — vad är det som sliter på berg och jord?",
+      "choices": [
+        "Att nytt berg pressas upp ur marken",
+        "Att vatten, is, vind och temperaturväxlingar långsamt nöter ned och transporterar bort berg och jord",
+        "Att jordbävningar spricker sönder jordskorpan",
+        "Att människor bygger vägar genom bergen"
+      ],
+      "answer": 1,
+      "explanation": "Erosion är den långsamma nedbrytningen och borttransporten av berg och jord som orsakas av rinnande vatten, vågor, is, vind och frostsprängning. Att berg pressas upp är i stället en följd av plattornas rörelser, och jordbävningar är plötsliga skalv — erosion sker över mycket lång tid."
+    },
+    {
+      "id": "q-geo7-lan-5",
+      "kind": "mc",
+      "topic": "erosion och istiden",
+      "prompt": "Vilken landform i Sverige är ett tydligt spår efter den senaste inlandsisen?",
+      "opener": "Grus och sand som smältvattnet lämnade kvar i långa ryggar genom landskapet.",
+      "choices": [
+        "Rullstensåsar",
+        "Vulkankratrar",
+        "Korallrev",
+        "Sanddyner i öknen"
+      ],
+      "answer": 0,
+      "explanation": "Rullstensåsar är långa ryggar av rundslipat grus och sand som avsattes av älvar under och i kanten av inlandsisen — Uppsalaåsen och Badelundaåsen är exempel. Andra istidsspår är moränjord, flyttblock, isräfflor i berghällar och den landhöjning som fortfarande pågår, medan vulkankratrar och korallrev hör hemma i helt andra klimat och geologiska miljöer."
+    },
+    {
+      "id": "q-geo7-lan-6",
+      "kind": "mc",
+      "topic": "landformer och bosättning",
+      "prompt": "Varför bor det oftast fler människor på slätter och i floddalar än högt uppe i bergen?",
+      "opener": "Tänk på odling, transporter och hur jobbigt det är att bygga i brant terräng.",
+      "choices": [
+        "Bergen saknar helt vatten",
+        "Bergen ligger alltid för nära ekvatorn",
+        "Slätter är alltid varmare än berg vid samma latitud",
+        "Slätter och floddalar har bördig jord, tillgång till vatten och är lättare att odla, bygga och resa i"
+      ],
+      "answer": 3,
+      "explanation": "Flack mark med bördig jord och vatten i närheten gör det lätt att odla, bygga hus och dra vägar och järnvägar, vilket är därför Skåne, Mälardalen och stora floddalar som Nilens är tätbefolkade. I bergen finns ofta gott om vatten, men brant terräng, tunt jordlager, kyla och svåra transporter gör att färre bor där — det handlar alltså inte om vattenbrist eller om avståndet till ekvatorn."
+    },
+    {
+      "id": "q-geo7-lan-7",
+      "kind": "worked",
+      "topic": "vulkaner och jordbävningar",
+      "prompt": "Förklara varför Island har många vulkaner och jordbävningar medan Sverige nästan aldrig drabbas, trots att länderna ligger ganska nära varandra.",
+      "opener": "Utgå från var plattgränserna går, inte från hur långt norrut länderna ligger.",
+      "answer": "Skillnaden beror på var länderna ligger i förhållande till kontinentalplattornas gränser. Island ligger rakt ovanpå den mittatlantiska ryggen, där den nordamerikanska och den eurasiska plattan glider isär några centimeter per år. I springan mellan plattorna tränger het magma upp från manteln, vilket ger vulkanutbrott, heta källor och ofta små jordbävningar. Sverige ligger däremot mitt inne på den eurasiska plattan, långt från närmaste plattgräns. Här sker inga plattrörelser som kan pressa upp magma, så vi har inga aktiva vulkaner och bara enstaka svaga skalv, ofta kopplade till att landet fortfarande höjer sig efter inlandsisen. Läget i förhållande till plattgränserna är alltså avgörande — inte avståndet till nordpolen.",
+      "steps": [
+        "Vulkaner och jordbävningar uppstår framför allt där kontinentalplattor möts eller glider isär.",
+        "Island ligger på den mittatlantiska ryggen, där två plattor dras isär och magma tränger upp underifrån.",
+        "Därför får Island vulkanutbrott, heta källor, geysrar och återkommande skalv.",
+        "Sverige ligger mitt inne på den eurasiska plattan, långt från alla plattgränser, så magma når inte upp.",
+        "Slutsats: det är läget i förhållande till plattgränsen som avgör, inte avståndet mellan länderna."
+      ]
+    },
+    {
+      "id": "q-geo7-lan-8",
+      "kind": "flashcard",
+      "topic": "berg, dalar och floder",
+      "prompt": "Sammanfatta hur jordens landformer bildas och förändras.",
+      "opener": "Gå inifrån och ut: jordens inre, plattorna, de inre krafterna och till sist de yttre.",
+      "answer": "Jordens uppbyggnad: jordskorpa (5–70 km, tunnast under haven) · mantel av het, trögflytande berg · yttre och inre kärna av järn och nickel · Kontinentalplattor: jordskorpan är sprucken i stora plattor som rör sig några cm per år · drivkraft är konvektionsströmmar i manteln · plattor kan krocka, glida isär eller skava mot varandra · Inre krafter (bygger upp): veckning när plattor krockar ger bergskedjor som Himalaya, Alperna och Skanderna · vulkaner när magma tränger upp, blir lava vid ytan · jordbävningar när spänningar i berget plötsligt löses ut · flest vulkaner och skalv längs plattgränser, t.ex. Eldringen runt Stilla havet och mittatlantiska ryggen där Island ligger · Yttre krafter (bryter ned): erosion av rinnande vatten, vågor, vind, is och frostsprängning · vittring löser upp berget, sedan transporteras och avlagras materialet · floder gräver V-dalar och bildar deltan och flodslätter, glaciärer gräver breda U-dalar och fjordar · Istiden i Sverige: inlandsisen smälte för ungefär 10 000 år sedan · spår är rundhällar och isräfflor, morän, flyttblock, rullstensåsar som Uppsalaåsen och U-dalar i fjällen · landhöjningen pågår fortfarande, mest vid Höga kusten · Landformer och bosättning: slätter och floddalar har bördig jord, vatten och lätta transporter, därför tätbefolkade (Skåne, Mälardalen, Nildalen) · berg, öknar och stora kalla områden är glesbefolkade på grund av brant terräng, tunt jordlager och svåra kommunikationer."
+    }
+  ]
+}

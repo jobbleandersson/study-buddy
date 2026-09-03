@@ -1,0 +1,128 @@
+{
+  "id": "lib-en8-adjectives",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Grammar: komparation och adverb",
+  "sourceSummary": "Komparation av adjektiv med -er/-est eller more/most, de oregelbundna formerna good/better/best och bad/worse/worst, samt skillnaden mellan adjektiv och adverb. Här tränar du också jämförelser med as ... as och than.",
+  "topics": [
+    "komparation",
+    "oregelbundna adjektiv",
+    "adjektiv och adverb",
+    "jämförelser"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en8-adj-1",
+      "kind": "mc",
+      "topic": "komparation",
+      "prompt": "Choose the correct form: \"My bike is ___ than yours.\"",
+      "opener": "Korta adjektiv (en stavelse) kompareras med -er, inte med \"more\".",
+      "choices": [
+        "more fast",
+        "faster",
+        "fastest",
+        "more faster"
+      ],
+      "answer": 1,
+      "explanation": "\"Fast\" har bara en stavelse och kompareras med -er: faster. \"More fast\" är fel eftersom \"more\" används till längre adjektiv, och \"more faster\" är dubbel komparation."
+    },
+    {
+      "id": "q-en8-adj-2",
+      "kind": "mc",
+      "topic": "komparation",
+      "prompt": "Choose the correct form: \"This is the ___ film I have ever seen.\"",
+      "opener": "Långa adjektiv (tre stavelser eller fler) tar most i superlativ.",
+      "choices": [
+        "interestingest",
+        "most interesting",
+        "more interesting",
+        "most interestingest"
+      ],
+      "answer": 1,
+      "explanation": "\"Interesting\" är långt och kompareras med more/most: the most interesting. \"More interesting\" är komparativ och betyder \"mer intressant\", men här krävs superlativ efter \"the\"."
+    },
+    {
+      "id": "q-en8-adj-3",
+      "kind": "mc",
+      "topic": "oregelbundna adjektiv",
+      "prompt": "Choose the correct form: \"The weather today is ___ than yesterday — it's raining and freezing.\"",
+      "opener": "\"Bad\" följer inte -er-mönstret utan har en helt egen form.",
+      "choices": [
+        "badder",
+        "more bad",
+        "worse",
+        "worst"
+      ],
+      "answer": 2,
+      "explanation": "\"Bad\" kompareras oregelbundet: bad – worse – worst. \"Worst\" är superlativ och kan inte stå tillsammans med \"than\", som alltid hör ihop med komparativ."
+    },
+    {
+      "id": "q-en8-adj-4",
+      "kind": "mc",
+      "topic": "adjektiv och adverb",
+      "prompt": "Choose the correct word: \"He speaks English very ___.\"",
+      "opener": "Beskriver ordet substantivet \"English\" eller hur han talar?",
+      "choices": [
+        "good",
+        "well",
+        "best",
+        "goodly"
+      ],
+      "answer": 1,
+      "explanation": "Ordet beskriver hur han talar, alltså verbet — då används adverbet \"well\". \"Good\" är adjektiv och beskriver substantiv: \"His English is good.\""
+    },
+    {
+      "id": "q-en8-adj-5",
+      "kind": "mc",
+      "topic": "adjektiv och adverb",
+      "prompt": "Which sentence is correct?",
+      "opener": "Adverb bildas oftast av adjektivet + -ly och berättar hur något görs.",
+      "choices": [
+        "She answered the question quick and correct.",
+        "She answered the question quickly and correctly.",
+        "She answered quickly the question correct.",
+        "She quick answered the question correctly."
+      ],
+      "answer": 1,
+      "explanation": "Orden beskriver hur hon svarade, så adverbformerna quickly och correctly används. \"Quick\" och \"correct\" är adjektiv och skulle beskriva ett substantiv, till exempel \"a quick answer\"."
+    },
+    {
+      "id": "q-en8-adj-6",
+      "kind": "mc",
+      "topic": "jämförelser",
+      "prompt": "Choose the correct form: \"My sister is ___ me — we are both 165 cm.\"",
+      "opener": "Vid lika stor grad används en fast konstruktion med två småord runt adjektivet.",
+      "choices": [
+        "as tall as",
+        "as taller as",
+        "so tall than",
+        "as tall than"
+      ],
+      "answer": 0,
+      "explanation": "Lika grad uttrycks med as + adjektiv i grundform + as: \"as tall as me\". \"Than\" används bara efter komparativ, till exempel \"taller than me\"."
+    },
+    {
+      "id": "q-en8-adj-7",
+      "kind": "worked",
+      "topic": "komparation",
+      "prompt": "Correct the four errors: \"My new phone is more better than my old one. It is the expensivest phone in the shop, but the camera works very good and it starts more quick.\"",
+      "opener": "Leta efter dubbel komparation, fel superlativform och adjektiv som borde vara adverb.",
+      "answer": "My new phone is better than my old one. It is the most expensive phone in the shop, but the camera works very well and it starts more quickly.",
+      "steps": [
+        "\"more better\" → \"better\". \"Good\" kompareras oregelbundet till better, och man kombinerar aldrig \"more\" med en -er-form.",
+        "\"the expensivest\" → \"the most expensive\". Adjektiv med tre stavelser tar most i superlativ, inte -est.",
+        "\"works very good\" → \"works very well\". Ordet beskriver hur kameran fungerar, alltså behövs adverbet well.",
+        "\"starts more quick\" → \"starts more quickly\". Adverbet av quick är quickly, och det är adverbformen som kompareras här."
+      ]
+    },
+    {
+      "id": "q-en8-adj-8",
+      "kind": "flashcard",
+      "topic": "komparation",
+      "prompt": "Hur kompareras adjektiv på engelska, och när används adverb i stället för adjektiv?",
+      "opener": "Regelbundet · oregelbundet · adjektiv mot adverb.",
+      "answer": "Korta adjektiv (1 stavelse, ofta även 2 på -y): -er/-est — old/older/oldest · easy/easier/easiest (y blir i) · big/bigger/biggest (dubbel konsonant) · Långa adjektiv (2–3+ stavelser): more/most — more careful/most careful · Oregelbundet: good/better/best · bad/worse/worst · much–many/more/most · little/less/least · far/further/furthest · Aldrig dubbel komparation: \"more better\" och \"most easiest\" är fel · Komparativ + than (taller than me) · lika grad: as + grundform + as (as tall as me) · Adjektiv beskriver substantiv (a quick car, her English is good) · Adverb beskriver verb och bildas oftast med -ly (drives quickly, speaks well) · Kom ihåg: good → adverbet well."
+    }
+  ]
+}

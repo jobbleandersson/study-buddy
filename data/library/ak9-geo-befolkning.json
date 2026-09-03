@@ -1,0 +1,129 @@
+{
+  "id": "lib-geo-befolkning",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Befolkning och urbanisering",
+  "sourceSummary": "Hur jordens befolkning är fördelad och tät på olika platser, varför människor flyttar till städer (urbanisering) och över gränser (migration), samt grundläggande demografiska begrepp.",
+  "topics": [
+    "befolkningstäthet och befolkningsfördelning",
+    "urbanisering",
+    "migration och push/pull-faktorer",
+    "demografiska begrepp"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo-bef-1",
+      "kind": "mc",
+      "topic": "befolkningstäthet och befolkningsfördelning",
+      "prompt": "Vad menas med befolkningstäthet?",
+      "opener": "Tätheten säger något om hur \"trångt\" det är på en plats, inte hur många människor som bor i hela landet.",
+      "choices": [
+        "Det totala antalet invånare i ett land",
+        "Antal invånare per kvadratkilometer",
+        "Hur snabbt befolkningen växer per år",
+        "Andelen invånare som bor i städer"
+      ],
+      "answer": 1,
+      "explanation": "Befolkningstäthet mäts som antal invånare per kvadratkilometer och visar hur tätt befolkat ett område är. Ett land kan ha många invånare totalt (som Kanada) men ändå låg täthet om ytan är enorm, medan ett litet land som Bangladesh kan ha mycket hög täthet."
+    },
+    {
+      "id": "q-geo-bef-2",
+      "kind": "mc",
+      "topic": "befolkningstäthet och befolkningsfördelning",
+      "prompt": "Varför är stora delar av Sahara och norra Kanada mycket glest befolkade?",
+      "opener": "Tänk på vad människor behöver för att kunna bo och odla mat på en plats.",
+      "choices": [
+        "Där finns inga naturresurser alls",
+        "Klimatet är för extremt (torrt eller kallt) för jordbruk och bosättning",
+        "Regeringarna förbjuder folk att bo där",
+        "Där finns inga vägar byggda"
+      ],
+      "answer": 1,
+      "explanation": "Extrema klimat, som ökenklimatets torka i Sahara eller det bitande kalla klimatet i norra Kanada, gör det svårt att odla mat och leva permanent på platsen. Befolkningen samlas i stället där klimat, vatten och odlingsbar mark gör livet lättare, till exempel vid floddalar och kuster."
+    },
+    {
+      "id": "q-geo-bef-3",
+      "kind": "mc",
+      "topic": "urbanisering",
+      "prompt": "Vad betyder urbanisering?",
+      "opener": "Ordet kommer från \"urban\", som betyder stad.",
+      "choices": [
+        "Att industrier flyttar till landsbygden",
+        "Att en allt större andel av befolkningen bor och arbetar i städer",
+        "Att städer blir renare och mer miljövänliga",
+        "Att befolkningen i ett land minskar totalt"
+      ],
+      "answer": 1,
+      "explanation": "Urbanisering innebär att andelen av befolkningen som bor i städer ökar, ofta för att människor flyttar från landsbygden in till städerna. Det är en global trend, särskilt snabb i många låg- och medelinkomstländer i Afrika och Asien just nu."
+    },
+    {
+      "id": "q-geo-bef-4",
+      "kind": "mc",
+      "topic": "urbanisering",
+      "prompt": "Vilket är det VANLIGASTE skälet till att människor flyttar från landsbygden till städer i snabbt urbaniserande länder?",
+      "opener": "Tänk på vad en person prioriterar när hushållets försörjning inte räcker till på landsbygden.",
+      "choices": [
+        "Hopp om bättre jobb, utbildning och service i städerna",
+        "Städer har alltid svalare klimat",
+        "Lagen tvingar folk att flytta till städer",
+        "Landsbygden har för mycket naturresurser"
+      ],
+      "answer": 0,
+      "explanation": "Människor lockas till städer av fler och bättre betalda jobb, tillgång till skolor och sjukvård samt annan service — detta kallas ofta \"pull-faktorer\". Samtidigt kan brist på jobb och mark på landsbygden trycka i väg folk (\"push-faktorer\")."
+    },
+    {
+      "id": "q-geo-bef-5",
+      "kind": "mc",
+      "topic": "migration och push/pull-faktorer",
+      "prompt": "En jordbrukare lämnar sin by på grund av långvarig torka och missväxt. Vilken typ av faktor är detta ett exempel på?",
+      "opener": "Fundera på om orsaken TRYCKER bort personen från platsen eller DRAR personen mot en ny plats.",
+      "choices": [
+        "En pull-faktor, eftersom torkan lockar bort personen",
+        "En push-faktor, eftersom svåra förhållanden driver bort personen",
+        "Varken push- eller pull-faktor",
+        "En demografisk faktor"
+      ],
+      "answer": 1,
+      "explanation": "Push-faktorer är sådant som trycker bort människor från en plats, till exempel torka, krig, fattigdom eller brist på jobb. Pull-faktorer är i stället sådant som drar människor TILL en ny plats, till exempel bättre jobbmöjligheter eller trygghet."
+    },
+    {
+      "id": "q-geo-bef-6",
+      "kind": "mc",
+      "topic": "demografiska begrepp",
+      "prompt": "Vad innebär ett högt födelsetal i ett land?",
+      "opener": "Födelsetalet mäter hur många barn som föds i förhållande till befolkningen.",
+      "choices": [
+        "Att medellivslängden är hög",
+        "Att många barn föds per capita (per person) under en viss tidsperiod",
+        "Att befolkningen flyttar till städer",
+        "Att landet har hög befolkningstäthet"
+      ],
+      "answer": 1,
+      "explanation": "Födelsetal mäter hur många barn som föds i förhållande till folkmängden, ofta uttryckt som antal födslar per 1000 invånare per år. Höga födelsetal är vanliga i länder med lägre inkomstnivå och mindre tillgång till preventivmedel och utbildning, medan höginkomstländer ofta har låga födelsetal."
+    },
+    {
+      "id": "q-geo-bef-7",
+      "kind": "worked",
+      "topic": "demografiska begrepp",
+      "prompt": "Förklara varför många höginkomstländer, som Japan och Sverige, har en åldrande befolkning medan många låginkomstländer har en mycket ung befolkning.",
+      "opener": "Koppla ihop födelsetal och medellivslängd med hur ett land utvecklas ekonomiskt över tid.",
+      "answer": "I höginkomstländer är medellivslängden hög tack vare bra sjukvård och levnadsstandard, samtidigt som födelsetalen är låga eftersom fler kvinnor studerar och arbetar, familjer får barn senare och barnadödligheten är låg (man \"behöver\" inte få många barn). Det gör att andelen äldre växer och befolkningen åldras. I många låginkomstländer är födelsetalen fortfarande höga, ofta för att barn bidrar till familjens försörjning och barnadödligheten historiskt varit högre, vilket ger en befolkningspyramid med en bred bas av unga.",
+      "steps": [
+        "Höginkomstländer: hög medellivslängd (bra sjukvård, mat, boende) → fler äldre lever länge.",
+        "Höginkomstländer: lägre födelsetal (utbildning, karriär, preventivmedel, dyrt att ha barn) → färre nyfödda.",
+        "Hög medellivslängd + lågt födelsetal tillsammans → befolkningen åldras, andelen äldre ökar.",
+        "Låginkomstländer: högre födelsetal (behov av arbetskraft, mindre tillgång till utbildning/preventivmedel) → många unga.",
+        "Resultat: ung, snabbt växande befolkning i låginkomstländer jämfört med äldre, långsammare växande befolkning i höginkomstländer."
+      ]
+    },
+    {
+      "id": "q-geo-bef-8",
+      "kind": "flashcard",
+      "topic": "urbanisering",
+      "prompt": "Sammanfatta nyckelbegreppen kring befolkning, urbanisering och migration.",
+      "opener": "Samla ihop de viktigaste begreppen i en tät översikt du kan repetera snabbt.",
+      "answer": "Befolkningstäthet: antal invånare per kvadratkilometer · hög täthet i floddalar, kuster och storstäder, låg täthet i öknar, regnskog och polartrakter. Urbanisering: en ökande andel av befolkningen bor i städer · drivs av jobb, utbildning och service. Migration: när människor flyttar, inom eller mellan länder · push-faktorer trycker bort (krig, torka, fattigdom, arbetslöshet) · pull-faktorer drar till (jobb, trygghet, familj, bättre liv). Demografi: läran om befolkningens sammansättning · födelsetal (antal födslar per 1000 invånare) · medellivslängd (hur länge människor förväntas leva) · höga födelsetal + låg medellivslängd ofta i låginkomstländer, motsatsen ofta i höginkomstländer."
+    }
+  ]
+}

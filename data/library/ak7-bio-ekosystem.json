@@ -1,0 +1,130 @@
+{
+  "id": "lib-bio7-ekosystem",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Ekosystem och näringskedjor",
+  "sourceSummary": "Hur ett ekosystem hänger samman genom näringskedjor och näringsvävar, med producenter, konsumenter och nedbrytare. Du tränar också på anpassningar till olika miljöer och på svenska naturtyper som skog, sjö och äng.",
+  "topics": [
+    "ekosystem",
+    "producenter, konsumenter och nedbrytare",
+    "näringskedja och näringsväv",
+    "anpassningar",
+    "svenska naturtyper"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio7-eko-1",
+      "kind": "mc",
+      "topic": "producenter, konsumenter och nedbrytare",
+      "prompt": "Vad kallas de organismer som själva tillverkar sin näring med hjälp av solljus?",
+      "opener": "Tänk på vilka organismer som kan göra fotosyntes.",
+      "choices": [
+        "Konsumenter",
+        "Producenter",
+        "Nedbrytare",
+        "Rovdjur"
+      ],
+      "answer": 1,
+      "explanation": "Producenter är växter och alger som med fotosyntesen bygger socker av koldioxid, vatten och solenergi — de producerar sin egen näring. Konsumenter kan inte göra det utan måste äta andra organismer för att få energi."
+    },
+    {
+      "id": "q-bio7-eko-2",
+      "kind": "mc",
+      "topic": "producenter, konsumenter och nedbrytare",
+      "prompt": "Vilken roll har svampar och bakterier i ett ekosystem?",
+      "opener": "Fundera på vad som händer med löven som faller till marken på hösten.",
+      "choices": [
+        "De tillverkar socker med hjälp av fotosyntes",
+        "De jagar och äter levande djur",
+        "De sprider växternas frön till nya platser",
+        "De bryter ner döda växter och djur så att näringen kan användas igen"
+      ],
+      "answer": 3,
+      "explanation": "Nedbrytarna bryter ner dött material och frigör näringsämnen till jorden, där växterna kan ta upp dem igen — utan dem skulle näringen bli inlåst i döda kroppar. Fotosyntes kan de inte göra, eftersom de saknar klorofyll och därför inte kan tillverka egen näring."
+    },
+    {
+      "id": "q-bio7-eko-3",
+      "kind": "mc",
+      "topic": "näringskedja och näringsväv",
+      "prompt": "Vad står alltid först i en näringskedja?",
+      "opener": "Tänk på var energin kommer in i kedjan.",
+      "choices": [
+        "En producent, till exempel en växt",
+        "Ett rovdjur högst upp i kedjan",
+        "En nedbrytare",
+        "Ett växtätande djur"
+      ],
+      "answer": 0,
+      "explanation": "Näringskedjan börjar med en producent, eftersom det är växten som fångar in solens energi och gör den tillgänglig som näring. Nedbrytarna hör i stället till slutet av kedjan — de tar hand om det som dör i alla led."
+    },
+    {
+      "id": "q-bio7-eko-4",
+      "kind": "mc",
+      "topic": "näringskedja och näringsväv",
+      "prompt": "Vad är skillnaden mellan en näringskedja och en näringsväv?",
+      "opener": "Tänk på hur många olika saker en räv faktiskt äter.",
+      "choices": [
+        "En näringskedja gäller bara på land och en näringsväv bara i vatten",
+        "En näringsväv innehåller alltid färre arter än en näringskedja",
+        "En näringsväv visar hur flera näringskedjor hänger samman med varandra",
+        "De två orden betyder exakt samma sak"
+      ],
+      "answer": 2,
+      "explanation": "En näringskedja är en förenklad rad av arter, medan näringsväven visar hur många kedjor korsar varandra eftersom de flesta djur äter flera sorters mat och själva kan bli mat för flera arter. Att en näringsväv skulle ha färre arter är fel — den är tvärtom mer komplett och mer verklighetstrogen."
+    },
+    {
+      "id": "q-bio7-eko-5",
+      "kind": "mc",
+      "topic": "ekosystem",
+      "prompt": "Vad menas med ett ekosystem?",
+      "opener": "Ett ekosystem består av mer än bara arterna som lever där.",
+      "choices": [
+        "Alla individer av samma art som lever på en plats",
+        "Bara de växter som finns i ett område",
+        "Alla arter som finns i hela Sverige",
+        "Allt levande i ett område tillsammans med den icke-levande miljön och samspelet mellan dem"
+      ],
+      "answer": 3,
+      "explanation": "Ett ekosystem, till exempel en sjö eller en granskog, omfattar både organismerna och de icke-levande faktorerna som vatten, jord, ljus och temperatur — samt hur allt detta påverkar varandra. Alla individer av samma art på en plats kallas i stället en population, vilket är en mindre del av ekosystemet."
+    },
+    {
+      "id": "q-bio7-eko-6",
+      "kind": "mc",
+      "topic": "anpassningar",
+      "prompt": "Näckrosen växer i svenska sjöar och har långa stjälkar med blad som flyter på vattenytan. Vilken fördel ger den anpassningen?",
+      "opener": "Fundera på vad en växt behöver mest av för att kunna göra fotosyntes.",
+      "choices": [
+        "Bladen skyddar sjön mot regn och vind",
+        "Bladen når upp till ljuset vid vattenytan, där fotosyntesen fungerar bäst",
+        "Bladen gör att växten kan andas med gälar",
+        "Bladen hjälper växten att fånga och äta insekter"
+      ],
+      "answer": 1,
+      "explanation": "Ljuset försvagas snabbt nedåt i vattnet, så genom att låta bladen flyta högst upp får näckrosen tillräckligt med solljus för fotosyntesen medan rötterna sitter kvar i bottenslammet. Gälar är något djur kan ha, aldrig växter — en växt tar upp gaser direkt genom bladen."
+    },
+    {
+      "id": "q-bio7-eko-7",
+      "kind": "worked",
+      "topic": "näringskedja och näringsväv",
+      "prompt": "Skriv en näringskedja från en svensk granskog och förklara vilken roll varje led har. Ta också med vad som händer när djuren dör.",
+      "opener": "Börja med producenten och arbeta dig uppåt — och glöm inte nedbrytarna på slutet.",
+      "answer": "Blåbärsris → hare → räv. Blåbärsriset är producent, haren förstahandskonsument och räven andrahandskonsument. När de dör bryter svampar och bakterier ner kropparna så att näringen återförs till marken och kan tas upp av nya växter.",
+      "steps": [
+        "Börja med en producent: blåbärsriset gör fotosyntes och lagrar solens energi som socker.",
+        "Nästa led är en förstahandskonsument: haren är växtätare och äter blåbärsriset för att få energi.",
+        "Sedan kommer en andrahandskonsument: räven är rovdjur och äter haren.",
+        "I varje led försvinner mycket av energin som värme, därför finns det alltid färre rävar än harar och färre harar än blåbärsplantor.",
+        "Nedbrytare som svampar och bakterier bryter till sist ner döda djur och växtdelar, så att näringsämnena kommer tillbaka till jorden och kretsloppet sluts."
+      ]
+    },
+    {
+      "id": "q-bio7-eko-8",
+      "kind": "flashcard",
+      "topic": "ekosystem",
+      "prompt": "Vilka roller finns i ett ekosystem, hur ser en näringskedja ut och vad kännetecknar svenska naturtyper?",
+      "opener": "Ta rollerna först, sedan energins väg genom kedjan, och avsluta med anpassningar och naturtyper.",
+      "answer": "Ekosystem: allt levande i ett område tillsammans med den icke-levande miljön (ljus, vatten, jord, temperatur) och samspelet mellan dem · Population: alla individer av samma art i området · Producenter: växter och alger, gör socker och syre av koldioxid, vatten och solljus genom fotosyntes · Konsumenter: förstahandskonsumenter = växtätare (hare, sork, älg) · andrahands- och tredjehandskonsumenter = rovdjur (räv, gädda, ormvråk) · Nedbrytare: svampar, bakterier och daggmaskar, bryter ner dött material och frigör näring till jorden · Näringskedja: producent → växtätare → rovdjur, all energi kommer ursprungligen från solen och en stor del försvinner som värme i varje led, därför finns det färre individer högre upp · Näringsväv: många näringskedjor som hänger samman, eftersom de flesta arter äter mer än en sorts mat · Kretslopp: näringsämnena används om och om igen, energin måste hela tiden fyllas på från solen · Anpassningar: fjällrävens tjocka päls och korta öron mot kyla · näckrosens flytblad för att nå ljuset · granens smala barr som klarar torka och tunga snölaster · Svenska naturtyper: barrskog (gran och tall, sur och näringsfattig mark, älg, ekorre, tjäder) · sjö (alger och vattenväxter, mört och gädda, mest liv nära ytan där ljuset finns) · äng (många blommor och gräs, humlor och fjärilar, hålls öppen av slåtter eller betande djur)."
+    }
+  ]
+}

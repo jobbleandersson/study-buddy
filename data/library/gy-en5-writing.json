@@ -1,0 +1,127 @@
+{
+  "id": "lib-en5-writing",
+  "type": "assignment",
+  "subject": "Engelska 5",
+  "title": "Writing: register and linking words",
+  "sourceSummary": "Formellt kontra informellt språk, sambandsord som binder ihop en text, och styckets uppbyggnad — det som skiljer en godkänd text från en välskriven.",
+  "topics": [
+    "formal and informal register",
+    "linking words",
+    "paragraph structure"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en5-wri-1",
+      "kind": "mc",
+      "topic": "formal and informal register",
+      "prompt": "Which sentence is most appropriate in a formal essay?",
+      "opener": "Phrasal verbs och sammandragningar hör hemma i talspråk.",
+      "choices": [
+        "The meeting was called off 'cause of the weather.",
+        "They didn't wanna go ahead with it.",
+        "The meeting was cancelled due to the weather.",
+        "They put off the meeting, which was kinda annoying."
+      ],
+      "answer": 2,
+      "explanation": "Formellt skriftspråk undviker sammandragningar (didn't, 'cause), slang (kinda, wanna) och föredrar ofta ett latinskt verb framför en phrasal verb: cancel i stället för call off."
+    },
+    {
+      "id": "q-en5-wri-2",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking word: \"The team trained hard all season. ___, they failed to qualify.\"",
+      "opener": "Andra meningen går emot förväntningen som första skapar.",
+      "choices": [
+        "Moreover",
+        "For example",
+        "Therefore",
+        "However"
+      ],
+      "answer": 3,
+      "explanation": "\"However\" markerar motsättning. \"Therefore\" anger resultat, \"moreover\" tillägg och \"for example\" exemplifiering."
+    },
+    {
+      "id": "q-en5-wri-3",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking word: \"Ticket prices have doubled. ___, fewer people attend the matches.\"",
+      "opener": "Andra meningen är en följd av den första.",
+      "choices": [
+        "Consequently",
+        "Although",
+        "Nevertheless",
+        "In contrast"
+      ],
+      "answer": 0,
+      "explanation": "\"Consequently\" (liksom therefore och as a result) uttrycker orsak och verkan. \"Nevertheless\" och \"in contrast\" markerar motsättning."
+    },
+    {
+      "id": "q-en5-wri-4",
+      "kind": "mc",
+      "topic": "formal and informal register",
+      "prompt": "You are writing to a company you have never contacted before, and you do not know the recipient's name. How should the email begin?",
+      "opener": "Vad gör man när man inte vet vem som läser?",
+      "choices": [
+        "Hey there,",
+        "Dear Sir or Madam,",
+        "Hi guys,",
+        "To whoever reads this,"
+      ],
+      "answer": 1,
+      "explanation": "\"Dear Sir or Madam\" är standard när mottagarens namn är okänt. Känner du namnet skriver du \"Dear Ms Andersson\". De övriga är för informella för ett företagsmejl."
+    },
+    {
+      "id": "q-en5-wri-5",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "What is the function of a topic sentence?",
+      "opener": "Vad bör läsaren veta redan efter första meningen i ett stycke?",
+      "choices": [
+        "To list the sources used",
+        "To summarise the entire essay",
+        "To introduce the main idea of the paragraph",
+        "To provide a quotation"
+      ],
+      "answer": 2,
+      "explanation": "Kärnmeningen står oftast först och talar om vad stycket handlar om. Resten av stycket utvecklar, förklarar och exemplifierar den idén."
+    },
+    {
+      "id": "q-en5-wri-6",
+      "kind": "mc",
+      "topic": "formal and informal register",
+      "prompt": "Which is the most formal way to express \"we found out that\"?",
+      "opener": "Phrasal verbs har nästan alltid en formell motsvarighet i ett ord.",
+      "choices": [
+        "we came across that",
+        "we figured out that",
+        "we got to know that",
+        "we discovered that"
+      ],
+      "answer": 3,
+      "explanation": "\"Discover\" är den formella motsvarigheten till \"find out\". Samma mönster: find out → discover, put off → postpone, ask for → request, get → receive."
+    },
+    {
+      "id": "q-en5-wri-7",
+      "kind": "worked",
+      "topic": "formal and informal register",
+      "prompt": "Rewrite this in formal English: \"Hey! Just wanna say we didn't get the stuff you sent, and it's kinda urgent 'cause we need it ASAP. Get back to me.\"",
+      "opener": "Gå igenom fyra saker: hälsning, sammandragningar, slang och avslutning.",
+      "answer": "Dear Sir or Madam, I am writing to inform you that we have not received the items you sent. As the matter is urgent, I would appreciate a response at your earliest convenience.",
+      "steps": [
+        "Hälsningen: \"Hey!\" → \"Dear Sir or Madam,\" eller \"Dear Ms Larsson,\" om namnet är känt.",
+        "Sammandragningar skrivs ut: \"didn't\" → \"did not\" eller, bättre här, \"have not received\".",
+        "Slang och vaga ord ersätts: \"wanna\" → \"would like to\", \"stuff\" → \"the items\", \"kinda\" → utelämnas, \"'cause\" → \"as\".",
+        "Avslutningen: \"Get back to me\" → \"I would appreciate a response at your earliest convenience\" och avsluta med \"Yours faithfully\" (okänd mottagare) eller \"Yours sincerely\" (känd mottagare)."
+      ]
+    },
+    {
+      "id": "q-en5-wri-8",
+      "kind": "flashcard",
+      "topic": "linking words",
+      "prompt": "Group the most common linking words by function.",
+      "opener": "Fyra funktioner: tillägg, motsättning, orsak och exempel.",
+      "answer": "Tillägg: moreover, furthermore, in addition, besides. Motsättning: however, nevertheless, on the other hand, although, whereas. Orsak och följd: therefore, consequently, as a result, thus, since. Exempel: for example, for instance, such as. Sammanfattning: in conclusion, to sum up, overall."
+    }
+  ]
+}

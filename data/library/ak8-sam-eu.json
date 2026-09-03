@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam8-eu",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Sverige, EU och världen",
+  "sourceSummary": "Vad EU är och hur beslut fattas i unionen, hur EU-medlemskapet påverkar Sverige, FN:s uppgifter och organ, internationellt samarbete om fred, handel och miljö samt vad globalisering innebär.",
+  "topics": [
+    "vad EU är",
+    "EU och Sverige",
+    "FN:s uppgifter",
+    "internationellt samarbete",
+    "globalisering"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam8-eu-1",
+      "kind": "mc",
+      "topic": "vad EU är",
+      "prompt": "Vad är EU?",
+      "opener": "Fundera på vad slags organisation det är — militär, rättslig eller politiskt och ekonomiskt samarbete.",
+      "choices": [
+        "En militärallians som leds av USA",
+        "Ett politiskt och ekonomiskt samarbete mellan europeiska länder, där medlemsländerna fattar en del beslut gemensamt",
+        "Ett FN-organ som arbetar med mänskliga rättigheter",
+        "En internationell domstol för krigsförbrytelser"
+      ],
+      "answer": 1,
+      "explanation": "EU är ett samarbete mellan för närvarande 27 europeiska länder som överlåtit en del av beslutsfattandet till gemensamma institutioner, framför allt när det gäller handel, inre marknad, miljö och jordbruk. Sverige blev medlem 1995 efter en folkomröstning 1994. Militäralliansen som USA ingår i är Nato, en annan organisation, och den internationella brottmålsdomstolen ICC är inte heller en del av EU."
+    },
+    {
+      "id": "q-sam8-eu-2",
+      "kind": "mc",
+      "topic": "vad EU är",
+      "prompt": "Vilken av EU:s institutioner väljs direkt av medborgarna i medlemsländerna?",
+      "opener": "En av institutionerna får sitt mandat i ett allmänt val som hålls vart femte år.",
+      "choices": [
+        "Europeiska kommissionen",
+        "Ministerrådet (rådet)",
+        "Europaparlamentet",
+        "EU-domstolen"
+      ],
+      "answer": 2,
+      "explanation": "Europaparlamentets ledamöter väljs direkt av väljarna i medlemsländerna i EU-val vart femte år; Sverige väljer 21 ledamöter. Kommissionen föreslår nya EU-lagar och består av en kommissionär från varje land, ministerrådet består av medlemsländernas ministrar, och EU-domstolen tolkar EU-rätten — ingen av dem väljs direkt av väljarna. Kommissionens förslag beslutas gemensamt av parlamentet och ministerrådet."
+    },
+    {
+      "id": "q-sam8-eu-3",
+      "kind": "mc",
+      "topic": "EU och Sverige",
+      "prompt": "Vad innebär EU:s inre marknad för Sverige?",
+      "opener": "Fyra saker ska kunna röra sig fritt över gränserna.",
+      "choices": [
+        "Fri rörlighet för varor, tjänster, kapital och personer mellan medlemsländerna",
+        "Att Sverige måste ha euro som valuta",
+        "Att svenska företag inte får sälja utanför EU",
+        "Att alla priser i EU-länderna är lika höga"
+      ],
+      "answer": 0,
+      "explanation": "Den inre marknaden bygger på de fyra friheterna: varor, tjänster, kapital och personer ska kunna röra sig fritt mellan medlemsländerna, vilket gör det enklare att handla, studera och arbeta i andra EU-länder. Sverige har behållit kronan efter folkomröstningen om euron 2003, så gemensam valuta ingår inte i medlemskapet för Sveriges del. Företag får självklart handla också med länder utanför EU, och priserna skiljer sig fortfarande mellan länderna."
+    },
+    {
+      "id": "q-sam8-eu-4",
+      "kind": "mc",
+      "topic": "FN:s uppgifter",
+      "prompt": "Vilken är en av FN:s viktigaste uppgifter?",
+      "opener": "FN bildades 1945 med ett tydligt huvudsyfte efter världskriget.",
+      "choices": [
+        "Att besluta lagar som gäller direkt i alla världens länder",
+        "Att sköta EU:s gemensamma budget",
+        "Att döma enskilda personer för vanliga brott i medlemsländerna",
+        "Att arbeta för fred och säkerhet i världen, för mänskliga rättigheter och för utveckling"
+      ],
+      "answer": 3,
+      "explanation": "FN bildades 1945 och har som huvuduppgifter att bevara fred och säkerhet, främja mänskliga rättigheter, bistå vid katastrofer och arbeta för hållbar utveckling, bland annat genom de globala målen i Agenda 2030. Generalförsamlingen är forumet där alla medlemsstater har en röst var, och säkerhetsrådet kan besluta om sanktioner och fredsinsatser. FN stiftar däremot inte lagar som gäller direkt i länderna — konventioner måste godkännas av varje stat — och FN dömer inte vanliga brottmål."
+    },
+    {
+      "id": "q-sam8-eu-5",
+      "kind": "mc",
+      "topic": "internationellt samarbete",
+      "prompt": "Vad är Parisavtalet från 2015 ett exempel på?",
+      "opener": "Avtalet handlar om ett problem som inget land kan lösa på egen hand.",
+      "choices": [
+        "Ett handelsavtal mellan EU och USA",
+        "Internationellt samarbete om klimatet, där länder lovar att minska utsläppen av växthusgaser för att begränsa den globala uppvärmningen",
+        "En militär försvarspakt i Europa",
+        "En FN-konvention om barns rättigheter"
+      ],
+      "answer": 1,
+      "explanation": "Parisavtalet är ett globalt klimatavtal där länderna åtar sig att minska sina utsläpp så att uppvärmningen hålls väl under två grader, med sikte på 1,5 grader. Det är ett typexempel på gränsöverskridande problem som kräver samarbete, eftersom utsläpp i ett land påverkar hela världen. Konventionen om barns rättigheter är barnkonventionen från 1989, en helt annan överenskommelse."
+    },
+    {
+      "id": "q-sam8-eu-6",
+      "kind": "mc",
+      "topic": "globalisering",
+      "prompt": "Vad menas med globalisering?",
+      "opener": "Tänk på handel, teknik, resor och information som knyter samman världen.",
+      "choices": [
+        "Att alla länder får samma politiska system",
+        "Att världens länder stänger sina gränser för handel",
+        "Att länder, ekonomier och människor knyts närmare varandra genom handel, teknik, transporter, resor och informationsflöden",
+        "Att alla människor i världen talar samma språk"
+      ],
+      "answer": 2,
+      "explanation": "Globalisering betyder att avstånden i praktiken krymper: varor, kapital, information, kultur och människor rör sig över gränser i allt större omfattning. Det brukar beskrivas med både möjligheter — billigare varor, större utbud, kunskapsutbyte och att fattigdomen minskat i delar av världen — och problem, som att jobb flyttar, att ekonomiska kriser sprider sig snabbt och att utsläpp och arbetsvillkor i produktionsländer blir svåra att kontrollera. Globalisering handlar alltså om sammanlänkning, inte om att politiska system eller språk blir likadana."
+    },
+    {
+      "id": "q-sam8-eu-7",
+      "kind": "worked",
+      "topic": "EU och Sverige",
+      "prompt": "Ge exempel på tre olika sätt som EU-medlemskapet påverkar vardagen i Sverige, och förklara varför.",
+      "opener": "Tänk på att resa, att handla och att bo i ett land med gemensamma miljöregler.",
+      "answer": "Ett första exempel är den fria rörligheten för personer: som EU-medborgare kan man resa, studera och arbeta i andra medlemsländer utan arbetstillstånd, och utbytesprogram som Erasmus gör det lättare att studera utomlands. Passfrihet inom Schengenområdet hör också hit. Ett andra exempel är handel och konsumenträttigheter: den inre marknaden gör att varor kan säljas mellan EU-länder utan tullar, vilket påverkar utbud och priser i butikerna, och gemensamma regler ger konsumentskydd — till exempel avskaffade roamingavgifter så att mobilen kan användas till samma pris i hela EU, samt gemensamma krav på produktsäkerhet och innehållsförteckningar. Ett tredje exempel är miljö och klimat: många av de regler som gäller i Sverige om utsläpp, kemikalier, avfall och luftkvalitet är beslutade på EU-nivå, och EU:s system för handel med utsläppsrätter påverkar priset på el och industriproduktion. Bakom alla tre exemplen ligger samma mekanism: Sverige har som medlem överlåtit en del av beslutsfattandet till EU, EU-rätten har företräde framför nationell lag inom de områden som samarbetet omfattar, och Sverige påverkar besluten genom sina 21 ledamöter i Europaparlamentet och genom regeringens ministrar i ministerrådet.",
+      "steps": [
+        "Exempel 1 — fri rörlighet: rätten att resa, studera och arbeta i andra EU-länder, plus passfrihet inom Schengen.",
+        "Exempel 2 — handel och konsumentskydd: inga tullar inom den inre marknaden, gemensamma produktkrav och avskaffade roamingavgifter påverkar priser och rättigheter.",
+        "Exempel 3 — miljö och klimat: många svenska regler om utsläpp, kemikalier och avfall är beslutade på EU-nivå, liksom handeln med utsläppsrätter.",
+        "Förklara mekanismen: Sverige har överlåtit en del beslutsfattande till EU, och EU-rätten har företräde inom samarbetets områden.",
+        "Peka på Sveriges inflytande: 21 ledamöter i Europaparlamentet och svenska ministrar i ministerrådet deltar i besluten."
+      ]
+    },
+    {
+      "id": "q-sam8-eu-8",
+      "kind": "flashcard",
+      "topic": "vad EU är",
+      "prompt": "Sammanfatta EU, FN, internationellt samarbete och globalisering samt hur Sverige berörs.",
+      "opener": "Från Bryssel till New York — och hela världens sammanlänkning.",
+      "answer": "EU: politiskt och ekonomiskt samarbete mellan 27 europeiska länder · Sverige medlem sedan 1995 efter folkomröstning 1994 · behöll kronan efter eurofolkomröstningen 2003 · Institutioner: kommissionen föreslår lagar (en kommissionär per land) · Europaparlamentet väljs direkt av väljarna vart femte år (Sverige har 21 ledamöter) · ministerrådet består av medlemsländernas ministrar · Europeiska rådet samlar stats- och regeringscheferna · EU-domstolen tolkar EU-rätten · Inre marknaden: de fyra friheterna — fri rörlighet för varor, tjänster, kapital och personer · påverkar Sverige genom handel, arbete och studier utomlands, konsumentskydd och miljöregler · FN: bildat 1945 · arbetar för fred och säkerhet, mänskliga rättigheter, katastrofhjälp och hållbar utveckling (Agenda 2030) · generalförsamlingen = en röst per medlemsstat, säkerhetsrådet kan besluta om sanktioner och fredsinsatser · Internationellt samarbete: Parisavtalet 2015 om klimatet, WTO om handelsregler, fredsbevarande insatser · behövs eftersom problem som klimat, pandemier och konflikter går över gränserna · Globalisering: länder och människor knyts närmare varandra genom handel, teknik, transporter och information · möjligheter (utbud, kunskapsutbyte, minskad fattigdom i delar av världen) och problem (jobb flyttar, kriser sprids snabbt, utsläpp och arbetsvillkor svåra att kontrollera)."
+    }
+  ]
+}

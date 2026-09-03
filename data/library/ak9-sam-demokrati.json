@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam-demokrati",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Demokrati och politiska system",
+  "sourceSummary": "Hur demokrati fungerar i praktiken i Sverige — riksdag, regering och kommun, hur allmänna val går till och vad som skiljer demokrati från diktatur.",
+  "topics": [
+    "vad demokrati innebär",
+    "riksdag, regering och kommun",
+    "allmänna val i Sverige",
+    "demokrati och diktatur"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam-dem-1",
+      "kind": "mc",
+      "topic": "vad demokrati innebär",
+      "prompt": "Vad betyder ordet \"demokrati\" ordagrant?",
+      "opener": "Ordet kommer från grekiskan och består av två delar: \"folk\" och en form av styre.",
+      "choices": [
+        "Envälde",
+        "Folkstyre",
+        "Kunglig makt",
+        "Domstolsmakt"
+      ],
+      "answer": 1,
+      "explanation": "Demokrati kommer från grekiskans \"demos\" (folk) och \"kratos\" (makt/styre) — alltså folkstyre, att makten utgår från folket. Envälde och kunglig makt är motsatsen, där en enskild person bestämmer."
+    },
+    {
+      "id": "q-sam-dem-2",
+      "kind": "mc",
+      "topic": "riksdag, regering och kommun",
+      "prompt": "Vilket av följande stämmer om riksdagen?",
+      "opener": "Tänk på vem som stiftar lagarna i Sverige, till skillnad från vem som verkställer dem.",
+      "choices": [
+        "Riksdagen är Sveriges lagstiftande församling och beslutar om lagar och statsbudget",
+        "Riksdagen dömer i brottmål",
+        "Riksdagen sköter kommunernas skolor direkt",
+        "Riksdagen väljs av regeringen"
+      ],
+      "answer": 0,
+      "explanation": "Riksdagen är Sveriges högsta beslutande organ och stiftar lagar samt beslutar om statens budget. Att döma i brottmål är domstolarnas uppgift, och kommunala skolor sköts av kommunerna, inte riksdagen direkt."
+    },
+    {
+      "id": "q-sam-dem-3",
+      "kind": "mc",
+      "topic": "riksdag, regering och kommun",
+      "prompt": "Vad är regeringens huvudsakliga uppgift i det svenska styrelseskicket?",
+      "opener": "Regeringen genomför det som riksdagen beslutat — vilket ord i statskunskap betyder just \"att sätta i verket\"?",
+      "choices": [
+        "Att stifta grundlagar helt på egen hand",
+        "Att verkställa riksdagens beslut och styra myndigheterna",
+        "Att döma i tvistemål",
+        "Att välja statsminister genom folkomröstning varje år"
+      ],
+      "answer": 1,
+      "explanation": "Regeringen är den verkställande makten — den genomför riksdagens beslut och leder statens förvaltning genom sina myndigheter. Grundlagar stiftas av riksdagen, och domstolarna sköter rättskipningen."
+    },
+    {
+      "id": "q-sam-dem-4",
+      "kind": "mc",
+      "topic": "riksdag, regering och kommun",
+      "prompt": "En kommun i Sverige ansvarar bland annat för vilket av följande?",
+      "opener": "Kommunen sköter det som är nära invånarnas vardag, till skillnad från staten som sköter större, nationella frågor.",
+      "choices": [
+        "Försvarsmakten och utrikespolitik",
+        "Grundskola, äldreomsorg och socialtjänst",
+        "Riksbankens ränta",
+        "Sveriges relationer med EU"
+      ],
+      "answer": 1,
+      "explanation": "Kommuner ansvarar för verksamheter nära invånarna, som grundskola, förskola, äldreomsorg och socialtjänst. Försvar, utrikespolitik, riksbankens ränta och EU-frågor sköts på nationell/statlig nivå."
+    },
+    {
+      "id": "q-sam-dem-5",
+      "kind": "mc",
+      "topic": "allmänna val i Sverige",
+      "prompt": "Hur ofta hålls allmänna val (till riksdag, region och kommun) i Sverige?",
+      "opener": "Tänk på hur lång en mandatperiod är i Sverige.",
+      "choices": [
+        "Vart annat år",
+        "Vart fjärde år",
+        "Vart sjätte år",
+        "Endast när regeringen begär det"
+      ],
+      "answer": 1,
+      "explanation": "Allmänna val hålls i Sverige vart fjärde år, samtidigt till riksdag, regioner och kommuner. En extra val kan i undantagsfall utlysas mellan ordinarie val, men den ordinarie mandatperioden är fyra år."
+    },
+    {
+      "id": "q-sam-dem-6",
+      "kind": "mc",
+      "topic": "demokrati och diktatur",
+      "prompt": "Vad är en viktig skillnad mellan en demokrati och en diktatur?",
+      "opener": "Fundera på om medborgarna kan byta ut makthavarna eller inte, och om det finns fri press.",
+      "choices": [
+        "I en diktatur finns fria och regelbundna val samt oberoende domstolar, i en demokrati inte",
+        "I en demokrati kan medborgarna genom fria val byta ut makthavare, och det finns yttrandefrihet och oberoende domstolar — i en diktatur saknas ofta detta",
+        "Det finns ingen egentlig skillnad mellan demokrati och diktatur",
+        "I en diktatur bestämmer alltid en folkomröstning"
+      ],
+      "answer": 1,
+      "explanation": "I en demokrati kan folket genom fria, regelbundna val avsätta makthavare, och grundläggande rättigheter som yttrandefrihet och en oberoende domstolsmakt skyddas. I en diktatur saknas ofta fria val, oppositionen begränsas och makten kontrolleras inte av folket."
+    },
+    {
+      "id": "q-sam-dem-7",
+      "kind": "worked",
+      "topic": "allmänna val i Sverige",
+      "prompt": "Förklara steg för steg vad som händer, från att en väljare röstar i ett riksdagsval till att en ny regering bildas.",
+      "opener": "Följ kedjan: rösträkning → mandatfördelning → förhandlingar → regeringsbildning.",
+      "answer": "Väljarna röstar på ett parti (eller en person inom partiet). Rösterna räknas och fördelas till riksdagens 349 mandat i proportion till hur många röster varje parti fått, förutsatt att partiet klarat fyraprocentsspärren. De partier som vill bilda regering förhandlar om samarbete, ofta i block eller koalitioner. Talmannen föreslår en statsministerkandidat som riksdagen röstar om — kandidaten blir statsminister om inte en majoritet röstar nej. Statsministern utser sedan övriga statsråd och regeringen tillträder.",
+      "steps": [
+        "Rösterna räknas och fördelas mellan partierna proportionellt mot antal röster, men bara partier med minst 4 % av rösterna får mandat i riksdagen (fyraprocentsspärren).",
+        "De 349 riksdagsmandaten fördelas mellan partierna utifrån valresultatet.",
+        "Partierna förhandlar om vilka som ska samarbeta för att kunna bilda en regering som riksdagen accepterar.",
+        "Talmannen föreslår en statsministerkandidat, och riksdagen röstar — kandidaten godkänns om inte mer än hälften av ledamöterna röstar emot (negativ parlamentarism).",
+        "Den nya statsministern utser sina statsråd, och regeringen tillträder och börjar styra utifrån riksdagens beslut."
+      ]
+    },
+    {
+      "id": "q-sam-dem-8",
+      "kind": "flashcard",
+      "topic": "riksdag, regering och kommun",
+      "prompt": "Sammanfatta rollerna för riksdag, regering och kommun i Sverige.",
+      "opener": "Tre nivåer med olika uppgifter: den som stiftar lagar, den som verkställer och den som sköter lokala frågor.",
+      "answer": "Riksdagen: Sveriges högsta beslutande organ, 349 ledamöter, stiftar lagar och beslutar om statsbudgeten (lagstiftande makt) · Regeringen: verkställer riksdagens beslut, leder myndigheterna och Sveriges förvaltning, utses efter att statsministern godkänts av riksdagen (verkställande makt) · Domstolarna: dömer i brottmål och tvistemål, oberoende av riksdag och regering (dömande makt) · Kommunen: ansvarar för lokala frågor nära invånarna, t.ex. grundskola, förskola, äldreomsorg och socialtjänst, styrs av en kommunfullmäktige som väljs vart fjärde år · Regionen: ansvarar bland annat för sjukvård och kollektivtrafik · Maktdelningen mellan dessa nivåer och funktioner är central för att demokratin ska fungera och för att ingen ska få för mycket makt."
+    }
+  ]
+}

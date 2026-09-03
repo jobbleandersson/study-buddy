@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma8-procent",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Procent och förändringsfaktor",
+  "sourceSummary": "Räkna med förändringsfaktor vid höjningar och rabatter, räkna baklänges till ursprungspriset, och hålla isär procent och procentenheter.",
+  "topics": [
+    "procent",
+    "förändringsfaktor",
+    "ränta"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma8-pro-1",
+      "kind": "mc",
+      "topic": "förändringsfaktor",
+      "prompt": "Ett pris höjs med 25 %. Vilken förändringsfaktor ska du multiplicera med?",
+      "opener": "Utgå från hela priset, 100 %, och lägg till höjningen.",
+      "choices": [
+        "0,25",
+        "1,25",
+        "12,5",
+        "0,75"
+      ],
+      "answer": 1,
+      "explanation": "Det nya priset är $100\\,\\% + 25\\,\\% = 125\\,\\%$ av det gamla, alltså faktorn $1{,}25$. Faktorn $0{,}25$ ger bara själva höjningen, inte det nya priset."
+    },
+    {
+      "id": "q-ma8-pro-2",
+      "kind": "mc",
+      "topic": "förändringsfaktor",
+      "prompt": "En jacka kostar 400 kr och säljs med 20 % rabatt. Vad är det nya priset?",
+      "opener": "Vad är kvar av priset i procent när 20 % dragits bort?",
+      "choices": [
+        "380 kr",
+        "320 kr",
+        "80 kr",
+        "480 kr"
+      ],
+      "answer": 1,
+      "explanation": "Kvar är $100\\,\\% - 20\\,\\% = 80\\,\\%$, alltså faktorn $0{,}8$: $400 \\cdot 0{,}8 = 320$ kr. Svaret 80 kr är rabatten i kronor, inte priset du betalar."
+    },
+    {
+      "id": "q-ma8-pro-3",
+      "kind": "mc",
+      "topic": "procent",
+      "prompt": "Efter 20 % rabatt kostar en jacka 480 kr. Vad kostade den innan rabatten?",
+      "opener": "Baklänges: du vet resultatet och faktorn — vad gör du då i stället för att multiplicera?",
+      "choices": [
+        "576 kr",
+        "600 kr",
+        "500 kr",
+        "960 kr"
+      ],
+      "answer": 1,
+      "explanation": "480 kr motsvarar $80\\,\\%$ av ursprungspriset, så $480 / 0{,}8 = 600$ kr. Svaret 576 kr får man om man i stället lägger på 20 % på 480 — men 20 % av det lägre priset är en mindre summa än rabatten var."
+    },
+    {
+      "id": "q-ma8-pro-4",
+      "kind": "mc",
+      "topic": "procent",
+      "prompt": "Andelen elever som cyklar till skolan ökade från 15 % till 21 %. Hur stor är ökningen?",
+      "opener": "Här finns två olika sätt att svara — och orden avgör vilket som är vilket.",
+      "choices": [
+        "6 %",
+        "6 procentenheter",
+        "40 procentenheter",
+        "36 procentenheter"
+      ],
+      "answer": 1,
+      "explanation": "Skillnaden mellan två procenttal mäts i procentenheter: $21 - 15 = 6$ procentenheter. Uttryckt i procent är ökningen $6/15 = 0{,}40 = 40\\,\\%$. Att skriva \"6 %\" är fel eftersom en procentuell ökning alltid räknas i förhållande till utgångsvärdet."
+    },
+    {
+      "id": "q-ma8-pro-5",
+      "kind": "mc",
+      "topic": "ränta",
+      "prompt": "Du sätter in 4 000 kr på ett sparkonto med 3 % ränta per år. Hur mycket ränta får du efter ett år?",
+      "opener": "Ränta är bara procent av det insatta beloppet.",
+      "choices": [
+        "12 kr",
+        "120 kr",
+        "1 200 kr",
+        "400 kr"
+      ],
+      "answer": 1,
+      "explanation": "$4000 \\cdot 0{,}03 = 120$ kr. Ett vanligt fel är att räkna $4000 \\cdot 0{,}3$ och få 1 200 kr — kom ihåg att 3 % är $3/100 = 0{,}03$."
+    },
+    {
+      "id": "q-ma8-pro-6",
+      "kind": "mc",
+      "topic": "förändringsfaktor",
+      "prompt": "Ett pris höjs först med 10 % och sänks därefter med 10 %. Hur är slutpriset jämfört med startpriset?",
+      "opener": "Multiplicera ihop de två förändringsfaktorerna och se vad produkten blir.",
+      "choices": [
+        "Exakt samma som från början",
+        "1 % lägre än från början",
+        "1 % högre än från början",
+        "20 % lägre än från början"
+      ],
+      "answer": 1,
+      "explanation": "Faktorerna multipliceras: $1{,}1 \\cdot 0{,}9 = 0{,}99$, alltså 99 % av startpriset — 1 % lägre. Det känns som att det ska ta ut sig, men sänkningen räknas på det redan höjda priset och blir därför i kronor större än höjningen."
+    },
+    {
+      "id": "q-ma8-pro-7",
+      "kind": "worked",
+      "topic": "förändringsfaktor",
+      "prompt": "En cykel kostar 3 200 kr. Under rean sänks priset med 25 %. Efter rean höjs reapriset med 20 %. Vad kostar cykeln efter höjningen?",
+      "opener": "Ta en förändring i taget, och räkna alltid på det senaste priset.",
+      "answer": "2 880 kr",
+      "steps": [
+        "Sänkning med 25 % ger förändringsfaktorn $1 - 0{,}25 = 0{,}75$.",
+        "Reapriset: $3200 \\cdot 0{,}75 = 2400$ kr.",
+        "Höjning med 20 % ger förändringsfaktorn $1 + 0{,}20 = 1{,}20$.",
+        "Nytt pris: $2400 \\cdot 1{,}20 = 2880$ kr.",
+        "Kontroll med en enda faktor: $0{,}75 \\cdot 1{,}20 = 0{,}90$, och $3200 \\cdot 0{,}90 = 2880$ kr — cykeln är alltså 10 % billigare än från början. ✓"
+      ]
+    },
+    {
+      "id": "q-ma8-pro-8",
+      "kind": "flashcard",
+      "topic": "förändringsfaktor",
+      "prompt": "Hur använder du förändringsfaktor, och vad är skillnaden mellan procent och procentenheter?",
+      "opener": "Tre saker: hur faktorn bildas, hur du räknar baklänges, och skillnaden i orden.",
+      "answer": "Ökning med $p$ %: faktor $= 1 + p/100$ (t.ex. $+15\\,\\% \\to 1{,}15$) · Minskning med $p$ %: faktor $= 1 - p/100$ (t.ex. $-15\\,\\% \\to 0{,}85$) · Nytt värde $=$ gammalt värde $\\cdot$ faktorn · Baklänges: gammalt värde $=$ nytt värde $/$ faktorn · Flera förändringar efter varandra: multiplicera faktorerna · Faktor $> 1$ betyder ökning, faktor $< 1$ betyder minskning · Procentenheter $=$ skillnaden mellan två procenttal (15 % → 21 % är $+6$ procentenheter) · Procent $=$ förändringen jämfört med utgångsvärdet (samma ändring är $+40\\,\\%$) · Enkel ränta för ett år $=$ kapitalet $\\cdot$ räntesatsen."
+    }
+  ]
+}

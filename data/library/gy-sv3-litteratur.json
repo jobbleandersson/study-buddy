@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv3-litteratur",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Litteraturvetenskaplig analys",
+  "sourceSummary": "Att analysera ett verk utifrån vetenskapliga perspektiv som genus, historisk kontext och psykoanalys, fördjupade narratologiska begrepp samt att koppla ett verk till sin samtid.",
+  "topics": [
+    "analytiska perspektiv",
+    "narratologi",
+    "verk och samtid"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-litteratur-1",
+      "kind": "mc",
+      "topic": "analytiska perspektiv",
+      "prompt": "Vad innebär det att göra en genusanalys av en skönlitterär text?",
+      "opener": "Vilka strukturer riktar det här perspektivet in sig på?",
+      "choices": [
+        "Att undersöka hur könsroller, makt och normer kring kön framställs och eventuellt utmanas i texten",
+        "Att räkna hur många manliga respektive kvinnliga karaktärer som förekommer",
+        "Att enbart studera författarens eget kön och biografi",
+        "Att avgöra om texten är skriven för en manlig eller kvinnlig publik"
+      ],
+      "answer": 0,
+      "explanation": "En genusanalys undersöker hur kön, makt och normer gestaltas, upprätthålls eller ifrågasätts i texten — det handlar om strukturer och maktrelationer, inte om att räkna karaktärer eller enbart titta på författarens kön."
+    },
+    {
+      "id": "q-sv3-litteratur-2",
+      "kind": "mc",
+      "topic": "analytiska perspektiv",
+      "prompt": "Vad kännetecknar en historisk (idéhistorisk) läsning av ett litterärt verk?",
+      "opener": "Vilken kontext utanför själva texten flyttas i fokus?",
+      "choices": [
+        "Man bortser helt från när verket skrevs och läser det som om det vore skrivet idag",
+        "Man tolkar verket i ljuset av den tid, de idéer och de samhällsförhållanden som rådde när det skrevs",
+        "Man analyserar enbart meningsbyggnad och ordval",
+        "Man jämför enbart två olika filmatiseringar av verket"
+      ],
+      "answer": 1,
+      "explanation": "En historisk läsning sätter verket i relation till sin samtids idéer, värderingar och samhällsförhållanden för att förstå varför det skrevs som det gjorde. Att bortse från tillkomsttiden är motsatsen till detta perspektiv."
+    },
+    {
+      "id": "q-sv3-litteratur-3",
+      "kind": "mc",
+      "topic": "analytiska perspektiv",
+      "prompt": "Vad fokuserar en psykoanalytisk tolkning av en litterär text ofta på?",
+      "opener": "Tänk på vilken nivå av karaktärens medvetande det här perspektivet gärna undersöker.",
+      "choices": [
+        "Textens meter och rimschema",
+        "Omslagets grafiska formgivning",
+        "Omedvetna drivkrafter, begär, konflikter och symboler hos karaktärerna eller i författarens liv",
+        "Bokens försäljningssiffror vid utgivningen"
+      ],
+      "answer": 2,
+      "explanation": "En psykoanalytisk läsning söker efter omedvetna drivkrafter, konflikter och symbolik — ofta med begrepp hämtade från t.ex. Freud — hos karaktärer eller i förhållande till författaren. Formmässiga eller kommersiella aspekter hör inte till detta perspektiv."
+    },
+    {
+      "id": "q-sv3-litteratur-4",
+      "kind": "mc",
+      "topic": "narratologi",
+      "prompt": "Vad är skillnaden mellan berättarens och en karaktärs perspektiv i begreppet \"fokalisering\"?",
+      "opener": "Fokalisering handlar om VEMS perception läsaren tar del av, inte vem som formulerar orden.",
+      "choices": [
+        "Fokalisering är samma sak som berättarröst — de två begreppen betyder identiskt samma sak",
+        "Fokalisering handlar enbart om vilken tid berättelsen utspelar sig i",
+        "Fokalisering finns bara i förstapersonsberättelser",
+        "Fokalisering avser genom vems medvetande och varseblivning händelserna förmedlas, vilket kan skilja sig från vem som berättar"
+      ],
+      "answer": 3,
+      "explanation": "Fokalisering rör vems perspektiv och medvetande läsaren ser händelserna genom, medan berättarrösten är den instans som förmedlar orden — en berättare i tredje person kan t.ex. fokalisera genom en enskild karaktär. Fokalisering förekommer i både första- och tredjepersonsberättelser."
+    },
+    {
+      "id": "q-sv3-litteratur-5",
+      "kind": "mc",
+      "topic": "narratologi",
+      "prompt": "Vad innebär en opålitlig berättare?",
+      "opener": "Vad måste läsaren göra extra när berättaren inte går att lita på rakt av?",
+      "choices": [
+        "En berättare som skriver på ett gammaldags språk",
+        "En berättare vars skildring av händelserna av olika skäl inte helt går att lita på, vilket tvingar läsaren att läsa kritiskt mellan raderna",
+        "En berättare som endast förekommer i deckare",
+        "En berättare som byts ut mitt i boken"
+      ],
+      "answer": 1,
+      "explanation": "En opålitlig berättare ger, medvetet eller omedvetet, en skev eller ofullständig bild av händelserna — på grund av t.ex. begränsad kunskap, egenintresse eller psykisk instabilitet — vilket kräver att läsaren själv värderar det som berättas. Det handlar inte om språkstil eller genre."
+    },
+    {
+      "id": "q-sv3-litteratur-6",
+      "kind": "mc",
+      "topic": "verk och samtid",
+      "prompt": "Varför är det relevant att koppla ett litterärt verk till sin samtid i en fördjupad analys?",
+      "opener": "Vad kan samtidskopplingen förklara som en ren formanalys inte kan?",
+      "choices": [
+        "Det är irrelevant — ett verks kvalitet ska bara bedömas utifrån språket",
+        "Det gör att man kan förstå varför vissa teman, konflikter eller värderingar lyfts fram, och hur verket förhåller sig till eller ifrågasätter sin tids normer",
+        "Det innebär att man byter ut verkets handling mot en modern version",
+        "Det används bara vid analys av poesi, aldrig av prosa"
+      ],
+      "answer": 1,
+      "explanation": "Genom att koppla verket till sin samtid kan man förstå vilka frågor och normer det förhåller sig till, och om det bekräftar eller utmanar dem — det fördjupar tolkningen bortom enbart form och språk. Perspektivet gäller alla litterära genrer, inte enbart poesi."
+    },
+    {
+      "id": "q-sv3-litteratur-7",
+      "kind": "worked",
+      "topic": "analytiska perspektiv",
+      "prompt": "Beskriv kortfattat hur du skulle lägga upp en genusanalys av en roman där huvudpersonen är en kvinna som förväntas gifta sig men istället väljer en yrkeskarriär.",
+      "opener": "Utgå från vilka normer texten först etablerar och undersök sedan om och hur de bryts.",
+      "answer": "Analysen bör identifiera vilka könsnormer som etableras i romanens samhälle (t.ex. förväntan på äktenskap), visa hur huvudpersonens val bryter mot dessa normer, undersöka hur omgivningen (andra karaktärer, berättarrösten) reagerar på och värderar valet, samt avslutningsvis diskutera om texten som helhet stärker eller utmanar rådande könsroller och sätta detta i relation till när verket skrevs.",
+      "steps": [
+        "Identifiera vilka förväntningar och normer kring kön som texten etablerar, t.ex. genom andra karaktärers repliker eller berättarens beskrivningar.",
+        "Peka ut konkreta scener där huvudpersonen agerar i linje med eller emot dessa normer.",
+        "Undersök hur omgivningen i texten reagerar på normbrottet — bestraffas eller belönas det?",
+        "Koppla samman iakttagelserna till en tolkning: utmanar eller bekräftar texten till slut könsrollerna?",
+        "Sätt tolkningen i relation till verkets tillkomsttid för att förstå normbrottets sprängkraft då."
+      ]
+    },
+    {
+      "id": "q-sv3-litteratur-8",
+      "kind": "flashcard",
+      "topic": "narratologi",
+      "prompt": "Sammanfatta de tre analytiska perspektiven och de två narratologiska begreppen i denna del.",
+      "opener": "Håll isär vad varje perspektiv riktar blicken mot.",
+      "answer": "Genusperspektiv: kön, makt och normer i texten · Historiskt perspektiv: verket i relation till sin tids idéer och samhälle · Psykoanalytiskt perspektiv: omedvetna drivkrafter, begär och symboler · Fokalisering: genom vems medvetande händelserna förmedlas, skiljs från berättarrösten · Opålitlig berättare: en berättare vars skildring inte går att lita på rakt av, kräver kritisk läsning · Samtidskoppling: fördjupar tolkningen genom att visa hur verket förhåller sig till sin tids normer."
+    }
+  ]
+}

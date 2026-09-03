@@ -1,0 +1,130 @@
+{
+  "id": "lib-bio-kroppen",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Kroppen, hälsa och pubertet",
+  "sourceSummary": "Puberteten och hormonernas roll, grunderna i menstruationscykel, befruktning och preventivmedel, samt matspjälkning, cirkulation och vad som påverkar hälsan.",
+  "topics": [
+    "puberteten och hormoner",
+    "menstruationscykeln och befruktning",
+    "preventivmedel",
+    "matspjälkning och cirkulation",
+    "hälsa och livsstil"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio-kro-1",
+      "kind": "mc",
+      "topic": "puberteten och hormoner",
+      "prompt": "Vad är det som styr de kroppsliga förändringarna som sker under puberteten?",
+      "opener": "Tänk på vilka ämnen som skickar signaler i kroppen och gör att kroppen förändras.",
+      "choices": [
+        "Vitaminer",
+        "Hormoner",
+        "Enzymer i saliven",
+        "Röda blodkroppar"
+      ],
+      "answer": 1,
+      "explanation": "Puberteten styrs av hormoner, bland annat östrogen och testosteron, som frisätts i ökande mängd och gör att kroppen utvecklas och blir könsmogen. Vitaminer och enzymer har andra funktioner i kroppen."
+    },
+    {
+      "id": "q-bio-kro-2",
+      "kind": "mc",
+      "topic": "menstruationscykeln och befruktning",
+      "prompt": "Vad händer ungefär en gång i månaden hos en person med menstruationscykel om ingen befruktning sker?",
+      "opener": "Tänk på vad som händer med livmoderns slemhinna om inget ägg befruktas.",
+      "choices": [
+        "Livmoderns slemhinna byggs bara upp men lämnar aldrig kroppen",
+        "Slemhinnan i livmodern stöts ut tillsammans med blod, vilket kallas mens/menstruation",
+        "Kroppen slutar producera hormoner permanent",
+        "Ett nytt skelett bildas"
+      ],
+      "answer": 1,
+      "explanation": "Om ägget inte befruktas bryts den uppbyggda slemhinnan i livmodern ner och stöts ut genom slidan tillsammans med blod — detta kallas mens eller menstruation, och sker normalt ungefär en gång i månaden."
+    },
+    {
+      "id": "q-bio-kro-3",
+      "kind": "mc",
+      "topic": "menstruationscykeln och befruktning",
+      "prompt": "Vad krävs för att en befruktning ska kunna ske?",
+      "opener": "Tänk på vilka två celler som måste mötas.",
+      "choices": [
+        "Att en spermie och en äggcell smälter samman",
+        "Att man äter en viss typ av mat",
+        "Att man har hög kroppstemperatur",
+        "Att man tränar mycket"
+      ],
+      "answer": 0,
+      "explanation": "Befruktning innebär att en spermie från mannen smälter samman med en äggcell från kvinnan, oftast i äggledaren. Det befruktade ägget kan sedan fästa i livmodern och utvecklas till ett foster."
+    },
+    {
+      "id": "q-bio-kro-4",
+      "kind": "mc",
+      "topic": "preventivmedel",
+      "prompt": "Vad är syftet med preventivmedel, t.ex. kondom eller p-piller?",
+      "opener": "Tänk på vad man vill undvika genom att använda dem.",
+      "choices": [
+        "Att alltid orsaka graviditet",
+        "Att förhindra graviditet, och i vissa fall även skydda mot sexuellt överförbara infektioner",
+        "Att förändra ens arvsanlag",
+        "Att stoppa puberteten"
+      ],
+      "answer": 1,
+      "explanation": "Preventivmedel används för att minska risken för en oplanerad graviditet. Kondom är dessutom det enda vanliga preventivmedlet som också skyddar mot sexuellt överförbara infektioner, eftersom det hindrar direktkontakt mellan kroppsvätskor."
+    },
+    {
+      "id": "q-bio-kro-5",
+      "kind": "mc",
+      "topic": "matspjälkning och cirkulation",
+      "prompt": "Var i kroppen börjar den kemiska nedbrytningen av mat med hjälp av enzymer?",
+      "opener": "Tänk på vad som händer redan när du tuggar och saliven blandas i maten.",
+      "choices": [
+        "I magsäcken",
+        "I munnen, med hjälp av enzymer i saliven",
+        "I tjocktarmen",
+        "I levern"
+      ],
+      "answer": 1,
+      "explanation": "Redan i munnen börjar enzymer i saliven bryta ner kolhydrater kemiskt, samtidigt som tuggningen bryter ner maten mekaniskt. Nedbrytningen fortsätter sedan i magsäck och tunntarm."
+    },
+    {
+      "id": "q-bio-kro-6",
+      "kind": "mc",
+      "topic": "matspjälkning och cirkulation",
+      "prompt": "Vilken funktion har hjärtat i cirkulationssystemet?",
+      "opener": "Tänk på vad som får blodet att röra sig runt i kroppen.",
+      "choices": [
+        "Det renar blodet från avfallsämnen",
+        "Det pumpar blod med syre och näring runt i kroppen",
+        "Det tillverkar röda blodkroppar",
+        "Det bryter ner mat till näringsämnen"
+      ],
+      "answer": 1,
+      "explanation": "Hjärtat är en muskel som pumpar blodet genom blodkärlen, så att syre och näring når kroppens celler och koldioxid samt avfall förs bort. Att rena blodet är främst njurarnas uppgift."
+    },
+    {
+      "id": "q-bio-kro-7",
+      "kind": "worked",
+      "topic": "hälsa och livsstil",
+      "prompt": "Förklara varför god sömn, bra kost, fysisk aktivitet och att undvika droger som alkohol och tobak är viktigt för hälsan, särskilt under tonåren.",
+      "opener": "Tänk på vad kroppen och hjärnan faktiskt håller på med under tonårstiden.",
+      "answer": "Kroppen och hjärnan utvecklas och växer särskilt mycket under tonåren, så sömn, näring och rörelse behövs för att detta ska ske på bästa sätt, medan alkohol, tobak och andra droger kan störa både den fysiska utvecklingen och hjärnans utveckling.",
+      "steps": [
+        "Under tonåren växer kroppen snabbt och hjärnan fortsätter utvecklas ända upp i 20-årsåldern.",
+        "Sömn behövs för att kroppen ska kunna återhämta sig och för att hjärnan ska bearbeta intryck och minnen.",
+        "Bra kost ger de byggstenar (protein, vitaminer, mineraler) som kroppen behöver för tillväxt.",
+        "Fysisk aktivitet stärker hjärta, muskler och skelett samt påverkar humör och sömn positivt.",
+        "Alkohol, tobak och andra droger kan skada celler, störa hormonbalansen och påverka hjärnans utveckling negativt — riskerna är ofta större under tonåren än i vuxen ålder."
+      ]
+    },
+    {
+      "id": "q-bio-kro-8",
+      "kind": "flashcard",
+      "topic": "menstruationscykeln och befruktning",
+      "prompt": "Sammanfatta det viktigaste om puberteten, menstruationscykeln och befruktning.",
+      "opener": "Gå igenom vad som styr förändringarna och vad som händer steg för steg.",
+      "answer": "Puberteten: styrs av hormoner (bl.a. östrogen och testosteron), kroppen blir könsmogen och genomgår fysiska och psykiska förändringar · Menstruationscykeln: livmoderns slemhinna byggs upp varje månad för att ta emot ett eventuellt befruktat ägg; sker ingen befruktning stöts slemhinnan ut som mens · Ägglossning: en äggcell frigörs ungefär mitt i cykeln och kan befruktas i cirka ett dygn · Befruktning: en spermie smälter samman med en äggcell, oftast i äggledaren, varefter det befruktade ägget kan fästa i livmodern · Preventivmedel: används för att minska risken för graviditet, t.ex. kondom (skyddar även mot sexuellt överförbara infektioner) och p-piller (hormonellt, skyddar inte mot infektioner)."
+    }
+  ]
+}

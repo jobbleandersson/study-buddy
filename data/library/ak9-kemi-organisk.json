@@ -1,0 +1,129 @@
+{
+  "id": "lib-kemi-organisk",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Organisk kemi och kolföreningar",
+  "sourceSummary": "Vad organisk kemi är, varför kolatomen är så speciell, grundidén bakom kolväten, samt hur kol hänger ihop med vardagliga material som plast och fossila bränslen.",
+  "topics": [
+    "kolatomens egenskaper",
+    "kolväten",
+    "organisk kemi",
+    "kol i vardagen"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi-org-1",
+      "kind": "mc",
+      "topic": "organisk kemi",
+      "prompt": "Vad är organisk kemi?",
+      "opener": "Namnet 'organisk' kommer historiskt från att man trodde dessa ämnen bara kunde bildas i levande organismer.",
+      "choices": [
+        "Läran om alla ämnen som innehåller syre",
+        "Läran om kolföreningar, med några få undantag som koldioxid",
+        "Läran om metaller och deras egenskaper",
+        "Läran om radioaktiva ämnen"
+      ],
+      "answer": 1,
+      "explanation": "Organisk kemi är läran om kolföreningar. Några enkla kolföreningar, som koldioxid och karbonater, räknas ändå som oorganiska av historiska skäl."
+    },
+    {
+      "id": "q-kemi-org-2",
+      "kind": "mc",
+      "topic": "kolatomens egenskaper",
+      "prompt": "Varför kan kolatomen bilda så otroligt många olika föreningar?",
+      "opener": "Tänk på hur många bindningar en kolatom kan ha, och om den kan binda till sig själv.",
+      "choices": [
+        "Kol har bara en elektron totalt",
+        "Kol kan bilda fyra starka bindningar och binda till andra kolatomer i långa kedjor och ringar",
+        "Kol reagerar aldrig med väte",
+        "Kol finns bara i flytande form"
+      ],
+      "answer": 1,
+      "explanation": "Kol har fyra valenselektroner och kan därför bilda fyra kovalenta bindningar, ofta till andra kolatomer. Det gör att kolatomer kan byggas ihop i långa kedjor, förgreningar och ringar — grunden till den enorma variationen av organiska föreningar."
+    },
+    {
+      "id": "q-kemi-org-3",
+      "kind": "mc",
+      "topic": "kolväten",
+      "prompt": "Vad är ett kolväte?",
+      "opener": "Namnet talar om exakt vilka två grundämnen som ingår.",
+      "choices": [
+        "En förening som bara innehåller kol och väte",
+        "En förening som bara innehåller kol och syre",
+        "Ett annat namn för en metall",
+        "En jon med positiv laddning"
+      ],
+      "answer": 0,
+      "explanation": "Ett kolväte är en förening uppbyggd av enbart kol- och väteatomer, till exempel metan (CH4), bensin och naturgas."
+    },
+    {
+      "id": "q-kemi-org-4",
+      "kind": "mc",
+      "topic": "kolväten",
+      "prompt": "Metan (CH4) är det enklaste kolvätet. Vad bildas när metan förbränns fullständigt med syre?",
+      "opener": "Tänk på vad som bildas vid fullständig förbränning av ett kolväte i luft.",
+      "choices": [
+        "Koldioxid och vatten",
+        "Enbart kol och väte igen",
+        "Guld och salt",
+        "Kväve och syre"
+      ],
+      "answer": 0,
+      "explanation": "Vid fullständig förbränning av ett kolväte reagerar det med syre och bildar koldioxid och vatten, samtidigt som energi frigörs (exoterm reaktion)."
+    },
+    {
+      "id": "q-kemi-org-5",
+      "kind": "mc",
+      "topic": "kol i vardagen",
+      "prompt": "Vilket av dessa material är uppbyggt av långa kedjor av kolföreningar (polymerer)?",
+      "opener": "Tänk på vilket av materialen som ofta tillverkas från råolja.",
+      "choices": [
+        "Glas",
+        "Plast",
+        "Stål",
+        "Salt"
+      ],
+      "answer": 1,
+      "explanation": "Plast består av polymerer — långa kedjor av kolföreningar — och tillverkas ofta från råolja. Glas, stål och salt är uppbyggda på helt andra sätt."
+    },
+    {
+      "id": "q-kemi-org-6",
+      "kind": "mc",
+      "topic": "kol i vardagen",
+      "prompt": "Varför räknas olja, kol och naturgas som FOSSILA bränslen?",
+      "opener": "Tänk på hur lång tid det tar för dem att bildas i naturen och vad de bildats av.",
+      "choices": [
+        "De bildades av växt- och djurrester under miljontals år och innehåller lagrad kolföreningsenergi",
+        "De tillverkas industriellt av plast",
+        "De innehåller inga kolatomer alls",
+        "De bildas på några veckor i naturen"
+      ],
+      "answer": 0,
+      "explanation": "Fossila bränslen bildades av döda växt- och djurrester som pressats samman under mycket lång tid, ofta miljontals år. De är rika på kolväten och innehåller energi som frigörs vid förbränning, samtidigt som koldioxid släpps ut."
+    },
+    {
+      "id": "q-kemi-org-7",
+      "kind": "worked",
+      "topic": "kolatomens egenskaper",
+      "prompt": "Förklara varför kolatomens förmåga att binda till fyra andra atomer, inklusive andra kolatomer, gör att det finns miljontals olika organiska föreningar, trots att de bara byggs av några få grundämnen (kol, väte, syre, kväve med flera).",
+      "opener": "Tänk på hur många olika sätt man kan koppla ihop kolatomer i kedjor, grenar och ringar.",
+      "answer": "Eftersom varje kolatom kan bilda fyra bindningar och lätt binder till andra kolatomer kan otaliga olika kedjor, grenade strukturer och ringar byggas — det ger enormt många möjliga molekyler trots att bara ett fåtal grundämnen ingår.",
+      "steps": [
+        "Kol har 4 valenselektroner och kan därför bilda 4 kovalenta bindningar samtidigt.",
+        "Kolatomer kan binda till varandra i raka kedjor, grenade kedjor eller ringar — inte bara till väte eller syre.",
+        "Kedjans längd och hur den grenar av eller ringar sig ger olika molekyler med olika egenskaper (t.ex. metan, etan och propan har olika kedjelängd).",
+        "Även små skillnader i struktur, som var en gren sitter, ger olika ämnen med olika egenskaper trots samma grundämnen.",
+        "Kombinationen av kedjelängd, förgrening, ringar och andra grundämnen (som syre eller kväve) gör att antalet möjliga organiska föreningar blir enormt stort."
+      ]
+    },
+    {
+      "id": "q-kemi-org-8",
+      "kind": "flashcard",
+      "topic": "organisk kemi",
+      "prompt": "Sammanfatta organisk kemi och kolföreningar.",
+      "opener": "Tänk kolatomens bindningsförmåga, kolväten, förbränning och vardagliga exempel.",
+      "answer": "Organisk kemi: läran om kolföreningar, med några få undantag (t.ex. koldioxid och karbonater räknas som oorganiska) · Kolatomen: har 4 valenselektroner, bildar 4 kovalenta bindningar, kan binda till sig själv i kedjor, grenar och ringar, vilket ger enormt många möjliga föreningar · Kolväte: förening som bara innehåller kol och väte, t.ex. metan (CH4), bensin, naturgas · Förbränning av kolväten: kolväte + syre → koldioxid + vatten + energi (exoterm reaktion) · Fossila bränslen: olja, kol och naturgas, bildade av döda växt- och djurrester under miljontals år, innehåller lagrad energi i kolföreningar · Plast: konstgjorda polymerer, långa kedjor av kolföreningar, ofta tillverkade av råolja."
+    }
+  ]
+}

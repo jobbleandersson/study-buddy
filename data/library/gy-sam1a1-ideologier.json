@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam1a1-ideologier",
+  "type": "assignment",
+  "subject": "Samhällskunskap 1a1",
+  "title": "Politiska ideologier",
+  "sourceSummary": "Liberalism, konservatism och socialism beskrivna utifrån sina grundidéer, samt höger-vänster-skalan och GAL-TAN som verktyg för att analysera hur ideologier syns i konkreta sakfrågor.",
+  "topics": [
+    "liberalism",
+    "konservatism",
+    "socialism",
+    "höger-vänster och GAL-TAN"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam1a1-ideologier-1",
+      "kind": "mc",
+      "topic": "liberalism",
+      "prompt": "Vilken grundidé är central inom liberalismen som ideologi?",
+      "opener": "Vad sätts i centrum - individen, gruppen eller traditionen?",
+      "choices": [
+        "Individens frihet och rättigheter, med en marknadsekonomi och en begränsad statlig inblandning",
+        "Att staten ska äga alla produktionsmedel",
+        "Att bevara traditionella institutioner är viktigare än individuell frihet",
+        "Att klasskamp är historiens främsta drivkraft"
+      ],
+      "answer": 0,
+      "explanation": "Liberalismen utgår från individens frihet, rättigheter och egenansvar, och förespråkar ofta en marknadsekonomi med begränsad statlig styrning. Att staten ska äga produktionsmedlen hör istället till socialistisk tradition, och tonvikten på att bevara traditioner hör till konservatismen."
+    },
+    {
+      "id": "q-sam1a1-ideologier-2",
+      "kind": "mc",
+      "topic": "konservatism",
+      "prompt": "Vad betonar konservatismen som ideologisk tradition?",
+      "opener": "Tänk på hur konservatismen ser på snabb, radikal förändring jämfört med gradvis utveckling.",
+      "choices": [
+        "Revolution som det bästa medlet för samhällsförändring",
+        "Att förändring bör ske gradvis och att beprövade institutioner, traditioner och gemenskaper, som familj och nation, har ett värde i sig",
+        "Att marknaden helt ska ersätta alla statliga funktioner",
+        "Att alla ekonomiska skillnader ska avskaffas omedelbart"
+      ],
+      "answer": 1,
+      "explanation": "Konservatismen betonar att samhällen förändras bäst stegvis, med respekt för det som fungerat historiskt - institutioner, traditioner och gemenskaper. Revolutionär, snabb förändring associeras snarare med radikala strömningar, inte med konservatismens grundhållning."
+    },
+    {
+      "id": "q-sam1a1-ideologier-3",
+      "kind": "mc",
+      "topic": "socialism",
+      "prompt": "Vad är en grundtanke inom socialismen som ideologi?",
+      "opener": "Fundera på vad socialismen vill göra med ekonomiska klyftor och ägandet av produktionsmedel.",
+      "choices": [
+        "Att äganderätten är den viktigaste rättigheten och bör vara i princip obegränsad",
+        "Att traditioner ska bevaras framför allt annat",
+        "Att ekonomiska klyftor och ägandet av produktionsmedel bör utjämnas eller ägas gemensamt för att skapa större jämlikhet",
+        "Att staten inte bör ha någon roll alls i ekonomin"
+      ],
+      "answer": 2,
+      "explanation": "Socialismen utgår från att ekonomisk ojämlikhet och privat ägande av produktionsmedel skapar orättvisor, och förespråkar därför olika grader av utjämning eller kollektivt ägande. Obegränsad äganderätt och en helt frånvarande stat ligger snarare närmare liberala idétraditioner."
+    },
+    {
+      "id": "q-sam1a1-ideologier-4",
+      "kind": "mc",
+      "topic": "höger-vänster och GAL-TAN",
+      "prompt": "Vad handlar den traditionella vänster-högerskalan i första hand om?",
+      "opener": "Skalan mäter framför allt synen på en sak - vilken?",
+      "choices": [
+        "Synen på ekonomisk fördelning - hur mycket staten bör omfördela resurser och reglera marknaden",
+        "Synen på klimatfrågor uteslutande",
+        "Vilket land en person bor i",
+        "Religiös tillhörighet"
+      ],
+      "answer": 0,
+      "explanation": "Vänster-högerskalan mäter framför allt synen på ekonomisk fördelning: vänster förknippas oftare med mer omfördelning och statlig reglering, höger med mindre omfördelning och friare marknad. Frågor om t.ex. klimat och identitet fångas bättre av andra analysverktyg, som GAL-TAN."
+    },
+    {
+      "id": "q-sam1a1-ideologier-5",
+      "kind": "mc",
+      "topic": "höger-vänster och GAL-TAN",
+      "prompt": "Vad tillför GAL-TAN-skalan som den traditionella vänster-högerskalan inte fångar lika väl?",
+      "opener": "GAL står för grön/alternativ/libertär, TAN för traditionell/auktoritär/nationalistisk - vilken sorts frågor rör det?",
+      "choices": [
+        "Den ersätter helt vänster-högerskalan och gör den överflödig",
+        "Den mäter enbart ekonomisk politik, precis som vänster-höger",
+        "Den mäter uteslutande vilket parti som är störst i opinionsmätningar",
+        "En värderingsdimension om t.ex. synen på invandring, miljö, jämställdhet och auktoritet kontra individuell frihet - grön/alternativ/libertär (GAL) kontra traditionell/auktoritär/nationalistisk (TAN)"
+      ],
+      "answer": 3,
+      "explanation": "GAL-TAN kompletterar vänster-högerskalan med en värderingsdimension som handlar om kulturella och sociala frågor snarare än ekonomisk fördelning, till exempel synen på invandring, miljö och individuell frihet kontra auktoritet och tradition."
+    },
+    {
+      "id": "q-sam1a1-ideologier-6",
+      "kind": "mc",
+      "topic": "liberalism",
+      "prompt": "En politiker argumenterar för sänkt skatt och minskad statlig detaljreglering av företag, med motiveringen att individer och företag själva vet bäst hur resurser bör användas. Vilken ideologisk tradition ligger närmast detta resonemang?",
+      "choices": [
+        "Socialism",
+        "Liberalism",
+        "Kommunism",
+        "Fascism"
+      ],
+      "opener": "Vilken ideologi sätter individens frihet och en fri marknad högst?",
+      "answer": 1,
+      "explanation": "Tonvikten på individens frihet, minskad statlig inblandning och en fri marknad är ett kärnargument inom liberalismen. Socialism och kommunism förespråkar i stället mer kollektiv styrning av ekonomin, medan fascism bygger på helt andra idéer om en auktoritär, kollektivistisk stat."
+    },
+    {
+      "id": "q-sam1a1-ideologier-7",
+      "kind": "worked",
+      "topic": "höger-vänster och GAL-TAN",
+      "prompt": "En debatt handlar om huruvida bensinskatten bör höjas kraftigt för att minska klimatpåverkan, eller sänkas för att avlasta bilister på landsbygden. Analysera sakfrågan steg för steg med hjälp av vänster-höger-skalan och GAL-TAN som analysverktyg.",
+      "opener": "Fråga dig: handlar detta främst om ekonomisk fördelning, om värderingar, eller om båda samtidigt?",
+      "answer": "Sakfrågan om bensinskatt kan analyseras på flera dimensioner: den ekonomiska (vem bär kostnaden och hur mycket ska staten styra genom skatt) och värderingsdimensionen (miljöhänsyn kontra traditionella levnadsmönster på landsbygden). Ett argument för höjd skatt kan motiveras både av en vänsterinriktad vilja att styra marknaden och av en GAL-orienterad miljöprioritering. Ett argument för sänkt skatt kan motiveras både av en högerinriktad skepsis mot skattehöjningar och av en TAN-orienterad prioritering av vardagslivet för bilberoende grupper. Slutsatsen är att en och samma sakfråga ofta rör flera ideologiska dimensioner samtidigt, vilket är precis vad GAL-TAN som komplement till vänster-höger är tänkt att synliggöra.",
+      "steps": [
+        "Identifiera den ekonomiska dimensionen: hur mycket ska staten styra konsumtion och fördela kostnader genom skatt? Det är en vänster-högerfråga.",
+        "Identifiera värderingsdimensionen: väger miljöhänsyn (GAL) tyngre, eller traditionella levnadsvillkor och oberoende för bilburna grupper (TAN)?",
+        "Koppla argumenten för höjd skatt till både en vänsterinriktad marknadsreglering och en GAL-orienterad miljöprioritering.",
+        "Koppla argumenten för sänkt skatt till både en högerinriktad skattekritik och en TAN-orienterad prioritering av vardagslivet på landsbygden.",
+        "Dra slutsatsen att sakfrågan rör flera dimensioner samtidigt, vilket visar varför GAL-TAN används som komplement till vänster-högerskalan."
+      ]
+    },
+    {
+      "id": "q-sam1a1-ideologier-8",
+      "kind": "flashcard",
+      "topic": "konservatism",
+      "prompt": "Sammanfatta grundidéerna i liberalism, konservatism och socialism, samt vad höger-vänster och GAL-TAN mäter.",
+      "opener": "Tre klassiska ideologier, två analysskalor.",
+      "answer": "Liberalism: individens frihet och rättigheter, marknadsekonomi, begränsad statlig inblandning · Konservatism: gradvis förändring, värnar traditioner, institutioner och gemenskaper som familj och nation · Socialism: minskad ekonomisk ojämlikhet, kollektivt eller statligt ägande/styrning av produktionsmedel för ökad jämlikhet · Vänster-höger-skalan: mäter i huvudsak synen på ekonomisk fördelning och statens roll i marknaden · GAL-TAN-skalan: mäter en värderingsdimension - grön/alternativ/libertär (GAL) kontra traditionell/auktoritär/nationalistisk (TAN), t.ex. syn på invandring, miljö och individuell frihet kontra auktoritet · En sakfråga kan ofta förstås bättre genom att kombinera båda skalorna."
+    }
+  ]
+}

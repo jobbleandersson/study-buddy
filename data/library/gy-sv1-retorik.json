@@ -1,0 +1,127 @@
+{
+  "id": "lib-sv1-retorik",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Retorik och muntlig framställning",
+  "sourceSummary": "Ethos, pathos och logos, talets disposition och de vanligaste stilfigurerna — det du behöver för både muntliga anföranden och textanalys.",
+  "topics": [
+    "appellformer",
+    "disposition",
+    "stilfigurer"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-ret-1",
+      "kind": "mc",
+      "topic": "appellformer",
+      "prompt": "En talare inleder: \"Efter tjugo år som sjuksköterska har jag sett vad vårdkrisen gör med människor.\" Vilken appellform används främst?",
+      "opener": "Vad är det talaren lutar sig mot här — sin egen person, publikens känslor, eller siffror?",
+      "choices": [
+        "Ethos",
+        "Pathos",
+        "Logos",
+        "Kairos"
+      ],
+      "answer": 0,
+      "explanation": "Ethos handlar om talarens trovärdighet. Genom att hänvisa till sin yrkeserfarenhet bygger talaren auktoritet i frågan."
+    },
+    {
+      "id": "q-sv1-ret-2",
+      "kind": "mc",
+      "topic": "appellformer",
+      "prompt": "\"Tänk dig att det var ditt barn som fick vänta elva timmar på akuten.\" Vilken appellform är det?",
+      "opener": "Vad vill talaren få publiken att känna?",
+      "choices": [
+        "Logos",
+        "Pathos",
+        "Ethos",
+        "Metafor"
+      ],
+      "answer": 1,
+      "explanation": "Pathos vänder sig till publikens känslor. Här används en inlevelseövning för att väcka oro och medkänsla."
+    },
+    {
+      "id": "q-sv1-ret-3",
+      "kind": "mc",
+      "topic": "appellformer",
+      "prompt": "\"Väntetiderna har ökat med 34 procent sedan 2019, enligt Socialstyrelsens rapport.\" Vilken appellform?",
+      "opener": "Vad är det som ska övertyga här?",
+      "choices": [
+        "Pathos",
+        "Ethos",
+        "Logos",
+        "Ironi"
+      ],
+      "answer": 2,
+      "explanation": "Logos bygger på sakskäl: fakta, statistik och logiska resonemang. Källhänvisningen stärker dessutom talarens ethos."
+    },
+    {
+      "id": "q-sv1-ret-4",
+      "kind": "mc",
+      "topic": "stilfigurer",
+      "prompt": "\"Jag har en dröm om ett land där… Jag har en dröm om en skola där… Jag har en dröm om en framtid där…\" Vilken stilfigur?",
+      "opener": "Titta på var upprepningen sitter i meningarna.",
+      "choices": [
+        "Epifor",
+        "Allitteration",
+        "Liknelse",
+        "Anafor"
+      ],
+      "answer": 3,
+      "explanation": "Anafor är upprepning i början av flera efterföljande satser. (Epifor är motsatsen — upprepning i slutet.)"
+    },
+    {
+      "id": "q-sv1-ret-5",
+      "kind": "mc",
+      "topic": "stilfigurer",
+      "prompt": "\"Hur länge ska vi acceptera det här?\" — sagt utan att talaren väntar sig ett svar. Vad kallas det?",
+      "opener": "En fråga som egentligen är ett påstående.",
+      "choices": [
+        "Retorisk fråga",
+        "Hyperbol",
+        "Ironi",
+        "Metonymi"
+      ],
+      "answer": 0,
+      "explanation": "En retorisk fråga ställs inte för att få svar, utan för att få publiken att tänka i en viss riktning och känna delaktighet."
+    },
+    {
+      "id": "q-sv1-ret-6",
+      "kind": "mc",
+      "topic": "disposition",
+      "prompt": "Vad är huvudsyftet med inledningen (exordium) i ett anförande?",
+      "opener": "Vad måste hända allra först för att resten ska landa?",
+      "choices": [
+        "Att sammanfatta talet",
+        "Att fånga uppmärksamhet och skapa välvilja",
+        "Att bemöta motargument",
+        "Att presentera alla argument"
+      ],
+      "answer": 1,
+      "explanation": "Inledningen ska väcka intresse och göra publiken välvilligt inställd — ofta med en berättelse, en fråga eller ett överraskande påstående. Argumenten kommer i argumentatio."
+    },
+    {
+      "id": "q-sv1-ret-7",
+      "kind": "worked",
+      "topic": "appellformer",
+      "prompt": "Analysera utdraget: \"Som lärare i tjugo år har jag sett hur mobilerna tar över klassrummet. Forskning från Stockholms universitet visar att elever presterar 15 % sämre med mobilen framme. Vill vi verkligen offra våra barns framtid för en skärm?\" Vilka appellformer används, och var?",
+      "opener": "Gå mening för mening — varje mening gör något annat.",
+      "answer": "Ethos (lärarerfarenheten), logos (forskningen och siffran) och pathos (den avslutande frågan om barnens framtid).",
+      "steps": [
+        "Mening 1: \"Som lärare i tjugo år…\" — talaren åberopar sin egen erfarenhet och auktoritet. Det är ethos.",
+        "Mening 2: \"Forskning… visar att elever presterar 15 % sämre\" — sakskäl, statistik och en namngiven källa. Det är logos.",
+        "Mening 3: \"Vill vi verkligen offra våra barns framtid…\" — en retorisk fråga som väcker oro och skuldkänsla. Det är pathos.",
+        "Slutsats: utdraget använder alla tre appellformerna, vilket är typiskt för välbyggd argumentation — den övertygar på flera plan samtidigt."
+      ]
+    },
+    {
+      "id": "q-sv1-ret-8",
+      "kind": "flashcard",
+      "topic": "appellformer",
+      "prompt": "Förklara ethos, pathos och logos — och ge ett kort exempel på varje.",
+      "opener": "Tre sätt att övertyga: vem du är, vad publiken känner, och vad som är sant.",
+      "answer": "Ethos = talarens trovärdighet och karaktär (\"som läkare vet jag att…\"). Pathos = publikens känslor (\"tänk på barnen som drabbas\"). Logos = sakskäl och logik (\"studien visar en ökning med 34 %\"). Stark argumentation väver oftast samman alla tre."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-metod",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "Naturvetenskaplig metod och källkritik",
+  "sourceSummary": "Hypotes, experiment och teori, kontrollgrupper och variabler, att skilja vetenskap från pseudovetenskap, samt källkritisk granskning av naturvetenskapliga påståenden i media.",
+  "topics": [
+    "hypotes, experiment och teori",
+    "experimentell metod",
+    "vetenskap och pseudovetenskap",
+    "källkritik"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-metod-1",
+      "kind": "mc",
+      "topic": "hypotes, experiment och teori",
+      "prompt": "Vad kännetecknar en vetenskaplig hypotes?",
+      "opener": "Tänk på vad som krävs för att man ska kunna testa ett påstående med observationer eller experiment.",
+      "choices": [
+        "Ett påstående som redan är bevisat sant",
+        "Ett testbart antagande eller förslag till förklaring, som i princip går att motbevisa genom observation eller experiment",
+        "En personlig åsikt som inte behöver kunna testas",
+        "Ett annat ord för en naturvetenskaplig lag"
+      ],
+      "answer": 1,
+      "explanation": "En hypotes är ett testbart, preliminärt antagande om hur något fungerar eller hänger ihop — avgörande är att den går att pröva och i princip kunna motbevisas (falsifieras) genom observationer eller experiment. En redan bevisad sanning eller en otestbar åsikt räknas inte som en vetenskaplig hypotes."
+    },
+    {
+      "id": "q-nk1b-metod-2",
+      "kind": "mc",
+      "topic": "hypotes, experiment och teori",
+      "prompt": "Vad är skillnaden mellan en vetenskaplig teori och en hypotes?",
+      "opener": "Tänk på hur mycket stöd och hur brett förklaringsvärde respektive begrepp har.",
+      "choices": [
+        "En teori är bara en gissning, medan en hypotes är säkert bevisad",
+        "Det finns ingen skillnad, orden betyder exakt samma sak inom vetenskap",
+        "En hypotes är ett specifikt, ännu otestat antagande, medan en teori är en väl underbyggd förklaringsmodell som stöds av mycket samlad evidens från många observationer och experiment",
+        "En teori gäller bara inom matematik, aldrig inom naturvetenskap"
+      ],
+      "answer": 2,
+      "explanation": "Inom vetenskap är en hypotes ett specifikt antagande som ännu inte testats fullt ut, medan en teori (t.ex. evolutionsteorin eller cellteorin) är en omfattande, väl underbyggd förklaringsmodell som byggts upp och bekräftats genom mycket samlad evidens över tid. Vardagsspråkets \"teori\" som synonym till gissning skiljer sig alltså från den vetenskapliga betydelsen."
+    },
+    {
+      "id": "q-nk1b-metod-3",
+      "kind": "mc",
+      "topic": "experimentell metod",
+      "prompt": "Varför använder forskare ofta en kontrollgrupp när de testar effekten av t.ex. ett nytt läkemedel?",
+      "opener": "Tänk på hur man annars skulle kunna veta om en förändring beror på behandlingen eller på något annat.",
+      "choices": [
+        "Kontrollgruppen behövs bara för att göra studien dyrare och mer komplicerad",
+        "Kontrollgruppen, som inte får den testade behandlingen, gör det möjligt att jämföra och se om en effekt verkligen beror på behandlingen och inte på andra faktorer, t.ex. placeboeffekt eller slumpen",
+        "Kontrollgruppen används för att alla deltagare garanterat ska bli friska",
+        "En kontrollgrupp behövs bara vid experiment som saknar en hypotes"
+      ],
+      "answer": 1,
+      "explanation": "Genom att jämföra en behandlingsgrupp med en kontrollgrupp (som t.ex. får overksam behandling, placebo, eller ingen behandling alls) kan forskare avgöra om en observerad effekt faktiskt beror på behandlingen, eller om den hade uppstått ändå på grund av andra faktorer som placeboeffekten eller naturliga variationer."
+    },
+    {
+      "id": "q-nk1b-metod-4",
+      "kind": "mc",
+      "topic": "experimentell metod",
+      "prompt": "I ett experiment som undersöker om gödselmängd påverkar tomatplantors tillväxt, vad kallas gödselmängden, som forskaren medvetet varierar mellan grupperna?",
+      "opener": "Tänk på vad forskaren aktivt ändrar, till skillnad från det som mäts som resultat.",
+      "choices": [
+        "Den beroende variabeln",
+        "Kontrollvariabeln",
+        "Den oberoende variabeln",
+        "Nollhypotesen"
+      ],
+      "answer": 2,
+      "explanation": "Den oberoende variabeln är det forskaren medvetet ändrar mellan grupperna (här: gödselmängden), medan den beroende variabeln är det som mäts som resultat (här: plantornas tillväxt). Övriga faktorer, t.ex. ljus och vattenmängd, bör hållas konstanta (kontrollerade) mellan grupperna för att experimentet ska ge ett rättvisande resultat."
+    },
+    {
+      "id": "q-nk1b-metod-5",
+      "kind": "mc",
+      "topic": "vetenskap och pseudovetenskap",
+      "prompt": "Vad är ett viktigt kännetecken som skiljer vetenskapliga påståenden från pseudovetenskapliga?",
+      "opener": "Tänk på hur öppna respektive påståenden är för att prövas och eventuellt visas vara fel.",
+      "choices": [
+        "Vetenskapliga påståenden är alltid enklare att förstå än pseudovetenskapliga",
+        "Vetenskapliga påståenden går i princip att testa och motbevisa, granskas av andra forskare (peer review) och revideras när ny evidens framkommer, medan pseudovetenskap ofta undviker att bli testad eller ignorerar motsägande resultat",
+        "Pseudovetenskap använder alltid mer avancerade ord än vetenskap",
+        "Skillnaden går inte att avgöra på något systematiskt sätt"
+      ],
+      "answer": 1,
+      "explanation": "Ett centralt kännetecken för vetenskap är att påståenden är testbara och falsifierbara, att metoder och resultat granskas av andra forskare, och att slutsatser revideras när ny evidens kommer fram. Pseudovetenskap presenterar sig ofta som vetenskaplig men undviker verklig prövning, ignorerar motsägande resultat eller saknar oberoende granskning."
+    },
+    {
+      "id": "q-nk1b-metod-6",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Vilken fråga är särskilt viktig att ställa när man källkritiskt granskar ett naturvetenskapligt påstående i en nyhetsartikel eller på sociala medier?",
+      "opener": "Tänk på vad som skiljer en enskild, obekräftad studie från etablerad, samlad vetenskaplig kunskap.",
+      "choices": [
+        "Om artikeln har många delningar på sociala medier",
+        "Om påståendet bygger på en enskild, obekräftad studie eller på samlad, granskad forskning, samt vem avsändaren är och om det finns intressen som kan påverka framställningen",
+        "Om texten är kort och lättläst",
+        "Om artikeln publicerades samma vecka som man läser den"
+      ],
+      "answer": 1,
+      "explanation": "Viktiga källkritiska frågor är bland annat vem som ligger bakom påståendet, om det finns ekonomiska eller andra intressen som kan färga budskapet, och om påståendet stöds av samlad, granskad forskning eller bara av en enstaka, kanske inte upprepad studie. Antal delningar, textlängd eller publiceringsvecka säger i sig inget om innehållets tillförlitlighet."
+    },
+    {
+      "id": "q-nk1b-metod-7",
+      "kind": "worked",
+      "topic": "experimentell metod",
+      "prompt": "Beskriv, med ett eget exempel om att testa om en ny växtgödsel ökar tillväxten hos tomatplantor, hela den naturvetenskapliga arbetsgången från hypotes till slutsats.",
+      "opener": "Följ processen i ordning: fråga, hypotes, experimentupplägg med kontrollgrupp, resultat, slutsats.",
+      "answer": "Man formulerar en testbar hypotes (t.ex. att gödseln ökar tillväxten), planerar ett experiment med en försöksgrupp som får gödsel och en kontrollgrupp som inte får det, håller övriga faktorer konstanta, mäter resultatet och drar en slutsats om hypotesen stöds eller bör förkastas utifrån de insamlade mätdata.",
+      "steps": [
+        "Utifrån en observation eller fråga (\"växer tomater bättre med den nya gödseln?\") formuleras en testbar hypotes, t.ex. \"gödsel X ökar tomatplantors tillväxt jämfört med ingen gödsel\".",
+        "Ett experiment planeras med en försöksgrupp som får gödseln och en kontrollgrupp som inte får det, medan andra faktorer som ljus, vatten och temperatur hålls så lika som möjligt mellan grupperna.",
+        "Experimentet genomförs och plantornas tillväxt mäts systematiskt över tid i båda grupperna, gärna med tillräckligt många plantor för att minska slumpens inverkan.",
+        "Resultaten från försöks- och kontrollgruppen jämförs statistiskt för att se om skillnaden är tillräckligt stor för att sannolikt bero på gödseln och inte bara på slumpmässig variation.",
+        "Utifrån resultatet dras en slutsats: stöder resultatet hypotesen, eller bör den förkastas eller omformuleras? Resultatet bör helst kunna upprepas av andra för att öka tillförlitligheten."
+      ]
+    },
+    {
+      "id": "q-nk1b-metod-8",
+      "kind": "flashcard",
+      "topic": "vetenskap och pseudovetenskap",
+      "prompt": "Sammanfatta centrala begrepp inom naturvetenskaplig metod och källkritik: hypotes, teori, kontrollgrupp, variabler, pseudovetenskap och källkritik.",
+      "opener": "Gå igenom stegen i den vetenskapliga metoden och vad som skiljer god vetenskap från ovetenskapliga påståenden.",
+      "answer": "Hypotes: ett testbart, falsifierbart antagande som ska prövas · Teori: en väl underbyggd förklaringsmodell som stöds av mycket samlad evidens, inte en gissning · Kontrollgrupp: en jämförelsegrupp som inte får den testade behandlingen, gör det möjligt att avgöra om en effekt verkligen beror på behandlingen · Oberoende variabel: det forskaren medvetet ändrar · Beroende variabel: det som mäts som resultat · Peer review: att andra forskare oberoende granskar studien innan publicering · Pseudovetenskap: presenterar sig som vetenskap men undviker verklig prövning, saknar oberoende granskning eller ignorerar motsägande resultat · Källkritik: granska avsändare, syfte, eventuella intressen och om påståendet stöds av samlad forskning eller bara enskilda, obekräftade studier."
+    }
+  ]
+}

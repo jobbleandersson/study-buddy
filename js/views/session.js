@@ -19,22 +19,33 @@ import { playCorrect, playWrong, playChime } from "../lib/sound.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
 
-export async function renderSession(assignmentId) {
+export async function renderSession(assignmentId, qs) {
   const assignment = store.getAssignment(assignmentId);
   if (!assignment) return notFound(t("session.goneSet"));
   if (!assignment.questions.length) return notFound(t("session.emptySet"));
+
+  // ?exam=1[&min=N] runs ANY set under exam conditions — locked tutor, no
+  // immediate feedback, an on-screen clock — without touching how the set is
+  // stored. An exam run is kept under its own session key so resuming a normal
+  // run of the same set doesn't inherit the timer/lock state.
+  const examMode = qs?.get?.("exam") === "1";
+  const rawMin = examMode ? Number(qs?.get?.("min")) : 0;
+  const timeLimitMin = rawMin > 0 ? Math.max(1, Math.min(240, Math.round(rawMin))) : null;
+  const examQuery = examMode ? `?exam=1${timeLimitMin ? `&min=${timeLimitMin}` : ""}` : "";
 
   // Repeat runs are shuffled so a retry tests the material, not the order.
   const isRetry = store.attempts.some((a) => a.assignmentId === assignment.id);
 
   return runSession({
-    key: assignment.id,
+    key: examMode ? `${assignment.id}::exam` : assignment.id,
     assignmentId: assignment.id,
     title: assignment.title,
     type: assignment.type,
-    retryHash: `#/session/${assignment.id}`,
+    examMode,
+    timeLimitMin,
+    retryHash: `#/session/${assignment.id}${examQuery}`,
     questionIds: assignment.questions.map((q) => q.id),
-    shuffle: isRetry,
+    shuffle: isRetry || examMode,
   });
 }
 
@@ -141,8 +152,13 @@ function runSession(config) {
   // testMode / tutorSilent are mutable: the student can switch test mode off
   // (and back on) mid-run from the banner. Once it's been off at all, the
   // finished attempt is saved as practice, not a test.
-  const isTest = config.type === "test" && !config.forceTutor;
-  const hintBudget = isTest ? Math.max(0, Math.min(3, Number(store.settings.testHints ?? 2))) : Infinity;
+  // Exam mode = the same lock, but strict: no hint budget, no switching off,
+  // and a visible clock. It's triggered by ?exam=1 on any set.
+  const isExam = !!config.examMode;
+  const isTest = (config.type === "test" || isExam) && !config.forceTutor;
+  const hintBudget = isExam ? 0
+    : isTest ? Math.max(0, Math.min(3, Number(store.settings.testHints ?? 2)))
+    : Infinity;
   let testMode = isTest;
   let tutorSilent = testMode && hintBudget === 0;
   let leftTestMode = false;
@@ -175,6 +191,8 @@ function runSession(config) {
       assignmentId: config.assignmentId,
       title: config.title,
       type: config.type,
+      examMode: config.examMode,
+      timeLimitMin: config.timeLimitMin,
       retryHash: config.retryHash,
       isReview: config.assignmentId === REVIEW_ID,
       order: state.order,
@@ -183,6 +201,7 @@ function runSession(config) {
       skipped: state.skipped,
       choiceOrder: state.choiceOrder,
       startedAt: state.startedAt,
+      deadlineAt: state.deadlineAt,
     });
   }
 
@@ -202,8 +221,47 @@ function runSession(config) {
     return { ...q, choices: perm.map((i) => q.choices[i]), answer: perm.indexOf(q.answer) };
   }
 
+  /* ----- exam clock (exam mode only) ----- */
+  const examTimeText = el("span");
+  const examTimer = el("span.examtimer", { hidden: !isExam }, [icon(ICONS.clock, 13), examTimeText]);
+  let examTick = null, examAutoSubmitted = false;
+
+  function fmtClock(ms) {
+    const total = Math.max(0, Math.round(ms / 1000));
+    return `${Math.floor(total / 60)}:${String(total % 60).padStart(2, "0")}`;
+  }
+  function tickExam() {
+    if (state.deadlineAt) {
+      const left = state.deadlineAt - Date.now();
+      examTimer.classList.toggle("examtimer--warn", left <= 60000);
+      examTimeText.textContent = fmtClock(left);
+      if (left <= 0 && !examAutoSubmitted) {
+        examAutoSubmitted = true;
+        stopExam();
+        toast(t("session.examTimeUp"));
+        finish({ timedOut: true });
+      }
+    } else {
+      examTimeText.textContent = fmtClock(Date.now() - state.startedAt);
+    }
+  }
+  function startExam() {
+    if (!isExam || examTick) return;
+    tickExam();
+    examTick = setInterval(tickExam, 1000);
+  }
+  function stopExam() { if (examTick) { clearInterval(examTick); examTick = null; } }
+
   /* ----- test mode: leave / re-enter mid-run ----- */
   function paintTestBar() {
+    // Exam mode: a fixed warning, no toggle.
+    if (isExam) {
+      testBar.hidden = false;
+      clear(testBar);
+      testBar.className = "testbar note note--warn";
+      testBar.append(el("span", {}, t("session.examBanner")));
+      return;
+    }
     if (!isTest) { testBar.hidden = true; return; }
     testBar.hidden = false;
     clear(testBar);
@@ -417,7 +475,8 @@ function runSession(config) {
     })) location.hash = "#/";
   }
 
-  function finish() {
+  function finish(opts = {}) {
+    stopExam();
     const answered = Object.values(state.items);
     const correct = answered.filter((i) => i.correct).length;
     const attempt = {
@@ -427,7 +486,10 @@ function runSession(config) {
       title: config.title,
       retryHash: config.retryHash,
       // Switched out of test mode at any point → it's a practice run now.
-      wasTest: config.type === "test" && !leftTestMode,
+      wasTest: (config.type === "test" && !leftTestMode) || isExam,
+      examMode: isExam,
+      timeLimitMin: config.timeLimitMin || null,
+      timedOut: !!opts.timedOut,
       startedAt: state.startedAt,
       finishedAt: Date.now(),
       scorePct: answered.length ? Math.round((correct / answered.length) * 100) : 0,
@@ -473,6 +535,7 @@ function runSession(config) {
   } else {
     loadQuestion();
   }
+  startExam();
 
   /* ----- keyboard shortcuts ----- */
   function onKeyDown(e) {
@@ -592,6 +655,7 @@ function runSession(config) {
     el("div.session__head", {}, [
       el("h2", {}, config.title),
       el("span.session__headright", {}, [
+        examTimer,
         pomoEl,
         el("span.badge", {}, badgeLabel(config)),
         shortcutsBtn,
@@ -621,6 +685,7 @@ function runSession(config) {
       document.removeEventListener("keydown", onKeyDown);
       clearTimeout(tipTimer);
       clearInterval(pomoTimer);
+      stopExam();
       closeShortcuts();
       tutor.destroy();
     },
@@ -638,7 +703,9 @@ function freshState(config) {
       }
     }
   }
-  return { ...config, order, cursor: 0, items: {}, skipped: [], choiceOrder, startedAt: Date.now() };
+  const startedAt = Date.now();
+  const deadlineAt = config.examMode && config.timeLimitMin ? startedAt + config.timeLimitMin * 60000 : null;
+  return { ...config, order, cursor: 0, items: {}, skipped: [], choiceOrder, startedAt, deadlineAt };
 }
 
 function shuffled(arr) {
@@ -651,6 +718,7 @@ function shuffled(arr) {
 }
 
 function badgeLabel(config) {
+  if (config.examMode) return t("session.examBadge");
   if (config.assignmentId === REVIEW_ID) return t("session.badgeReview");
   if (config.assignmentId === PRACTICE_ID) return t("session.badgePractice");
   if (config.assignmentId === WEAK_ID) return t("session.badgeWeak");

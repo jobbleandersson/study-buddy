@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma2-exponential",
+  "type": "assignment",
+  "subject": "Matematik 2",
+  "title": "Exponentialfunktioner och logaritmer",
+  "sourceSummary": "Exponentiell tillväxt och avtagande, logaritmlagar på grundnivå och att lösa exponentialekvationer med tiologaritmen.",
+  "topics": [
+    "exponentiell förändring",
+    "logaritmlagar",
+    "exponentialekvationer"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma2-exponential-1",
+      "kind": "mc",
+      "topic": "exponentiell förändring",
+      "prompt": "En population bakterier startar på 200 stycken och tredubblas varje timme. Vilken funktion beskriver antalet bakterier $N$ efter $t$ timmar?",
+      "opener": "Startvärdet är basvärdet, och förändringsfaktorn per tidsenhet är basen i exponenten.",
+      "choices": [
+        "$N(t) = 200 \\cdot 3^t$",
+        "$N(t) = 3 \\cdot 200^t$",
+        "$N(t) = 200 + 3t$",
+        "$N(t) = 200 \\cdot t^3$"
+      ],
+      "answer": 0,
+      "explanation": "Exponentiell modell: $N(t) = N_0 \\cdot a^t$ där $N_0$ är startvärdet och $a$ förändringsfaktorn. Här är $N_0=200$ och $a=3$, så $N(t) = 200 \\cdot 3^t$. Alternativet med addition beskriver linjär, inte exponentiell, tillväxt."
+    },
+    {
+      "id": "q-ma2-exponential-2",
+      "kind": "mc",
+      "topic": "exponentiell förändring",
+      "prompt": "En bils värde minskar med 15 % per år. Vad är förändringsfaktorn per år?",
+      "opener": "Förändringsfaktorn för en minskning är 1 minus den decimala procentandelen.",
+      "choices": [
+        "$1{,}15$",
+        "$0{,}15$",
+        "$0{,}85$",
+        "$-0{,}15$"
+      ],
+      "answer": 2,
+      "explanation": "En minskning med 15 % ger förändringsfaktorn $1 - 0{,}15 = 0{,}85$. Att svara $0{,}15$ förväxlar procentandelen med förändringsfaktorn, och en ökning hade gett $1{,}15$."
+    },
+    {
+      "id": "q-ma2-exponential-3",
+      "kind": "mc",
+      "topic": "logaritmlagar",
+      "prompt": "Vad är $\\lg(100)$ (tiologaritmen av 100)?",
+      "opener": "$\\lg(x)$ svarar på frågan: 10 upphöjt till vad ger $x$?",
+      "choices": [
+        "$2$",
+        "$10$",
+        "$100$",
+        "$1$"
+      ],
+      "answer": 0,
+      "explanation": "$\\lg(100) = \\lg(10^2) = 2$, eftersom $10^2 = 100$. Tiologaritmen ger exponenten som 10 ska upphöjas till för att bli talet."
+    },
+    {
+      "id": "q-ma2-exponential-4",
+      "kind": "mc",
+      "topic": "logaritmlagar",
+      "prompt": "Vilket uttryck är samma sak som $\\lg(a) + \\lg(b)$?",
+      "opener": "En av logaritmlagarna handlar om summan av två logaritmer.",
+      "choices": [
+        "$\\lg(a+b)$",
+        "$\\lg(a \\cdot b)$",
+        "$\\lg(a) \\cdot \\lg(b)$",
+        "$\\lg\\left(\\frac{a}{b}\\right)$"
+      ],
+      "answer": 1,
+      "explanation": "Logaritmlagen för produkt: $\\lg(a) + \\lg(b) = \\lg(a \\cdot b)$. Det vanliga misstaget är att tro att $\\lg(a)+\\lg(b) = \\lg(a+b)$, men logaritmer omvandlar multiplikation till addition — inte addition till addition."
+    },
+    {
+      "id": "q-ma2-exponential-5",
+      "kind": "mc",
+      "topic": "exponentialekvationer",
+      "prompt": "Lös ekvationen $2^x = 16$.",
+      "opener": "Går det att skriva 16 som en potens med basen 2?",
+      "choices": [
+        "$x = 8$",
+        "$x = 4$",
+        "$x = 2$",
+        "$x = 16$"
+      ],
+      "answer": 1,
+      "explanation": "$16 = 2^4$, så $2^x = 2^4$ ger $x = 4$ eftersom baserna är lika. Att dividera 16 med 2 (vilket ger 8) är fel metod här — exponentekvationer med samma bas löses genom att jämföra exponenterna."
+    },
+    {
+      "id": "q-ma2-exponential-6",
+      "kind": "mc",
+      "topic": "exponentialekvationer",
+      "prompt": "Lös ekvationen $5^x = 20$ med hjälp av tiologaritmen. Vilket uttryck ger $x$?",
+      "opener": "Ta $\\lg$ av båda leden och använd att $\\lg(5^x) = x \\cdot \\lg(5)$.",
+      "choices": [
+        "$x = \\dfrac{\\lg(20)}{\\lg(5)}$",
+        "$x = \\lg(20) - \\lg(5)$",
+        "$x = \\dfrac{20}{5}$",
+        "$x = \\lg(20) \\cdot \\lg(5)$"
+      ],
+      "answer": 0,
+      "explanation": "Ta $\\lg$ av båda leden: $\\lg(5^x) = \\lg(20)$, vilket ger $x \\cdot \\lg(5) = \\lg(20)$. Lös ut $x$: $x = \\dfrac{\\lg(20)}{\\lg(5)} \\approx 1{,}86$. Att subtrahera logaritmerna (svar B) hade motsvarat en division inuti logaritmen, inte en lösning för $x$ i exponenten."
+    },
+    {
+      "id": "q-ma2-exponential-7",
+      "kind": "worked",
+      "topic": "exponentiell förändring",
+      "prompt": "Ett sparkapital på 5000 kr växer med 4 % per år. Hur mycket finns på kontot efter 3 år? Avrunda till hela kronor.",
+      "opener": "Bestäm förändringsfaktorn per år och upphöj den till antalet år.",
+      "answer": "Ungefär 5624 kr",
+      "steps": [
+        "Förändringsfaktorn för en ökning med 4 % är $1 + 0{,}04 = 1{,}04$.",
+        "Modellen blir $K(t) = 5000 \\cdot 1{,}04^t$.",
+        "Efter 3 år: $K(3) = 5000 \\cdot 1{,}04^3 = 5000 \\cdot 1{,}124864$.",
+        "$K(3) \\approx 5624{,}32$ kr, vilket avrundas till 5624 kr."
+      ]
+    },
+    {
+      "id": "q-ma2-exponential-8",
+      "kind": "flashcard",
+      "topic": "logaritmlagar",
+      "prompt": "Sammanfatta modellen för exponentiell förändring och de viktigaste logaritmlagarna.",
+      "opener": "Koppla ihop förändringsfaktorn med tillväxt/avtagande, och minns hur $\\lg$ hanterar produkter, kvoter och potenser.",
+      "answer": "Exponentiell modell: $y = C \\cdot a^x$, där $C$ är startvärdet och $a$ förändringsfaktorn ($a>1$ tillväxt, $0<a<1$ avtagande) · Förändringsfaktor vid $p\\,\\%$ ökning: $a = 1+\\dfrac{p}{100}$, vid minskning: $a = 1-\\dfrac{p}{100}$ · $\\lg(a\\cdot b) = \\lg(a)+\\lg(b)$ · $\\lg\\!\\left(\\dfrac{a}{b}\\right) = \\lg(a)-\\lg(b)$ · $\\lg(a^n) = n\\lg(a)$ · Lös $a^x=b$ genom att logaritmera båda led: $x = \\dfrac{\\lg(b)}{\\lg(a)}$."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-geo-varlden",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Världsdelar, länder och geografiska mönster",
+  "sourceSummary": "Jordens världsdelar och hav, grundläggande skillnader mellan höginkomst- och låginkomstländer, idén bakom globalisering och världshandel, samt viktiga geografiska landmärken som bergskedjor och ökenbälten.",
+  "topics": [
+    "världsdelar och hav",
+    "höginkomst- och låginkomstländer",
+    "globalisering och världshandel",
+    "geografiska landmärken och fenomen"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo-var-1",
+      "kind": "mc",
+      "topic": "världsdelar och hav",
+      "prompt": "Hur många världsdelar (kontinenter) brukar man vanligen räkna med i skolgeografin?",
+      "opener": "Räkna: Afrika, Asien, Europa, Nordamerika, Sydamerika, Oceanien och Antarktis.",
+      "choices": [
+        "5",
+        "6",
+        "7",
+        "9"
+      ],
+      "answer": 2,
+      "explanation": "Den vanligaste indelningen i svensk skolgeografi räknar sju världsdelar: Afrika, Asien, Europa, Nordamerika, Sydamerika, Oceanien och Antarktis. Ibland slås Europa och Asien ihop till \"Eurasien\", vilket ger andra siffror, men sjudelningen är den mest använda."
+    },
+    {
+      "id": "q-geo-var-2",
+      "kind": "mc",
+      "topic": "världsdelar och hav",
+      "prompt": "Vilket är världens till ytan största hav?",
+      "opener": "Detta hav täcker ensamt ungefär en tredjedel av jordens yta och ligger mellan Asien och Amerika.",
+      "choices": [
+        "Atlanten",
+        "Indiska oceanen",
+        "Ishavet",
+        "Stilla havet (Pacifiska oceanen)"
+      ],
+      "answer": 3,
+      "explanation": "Stilla havet (Pacifiska oceanen) är världens största och djupaste hav och täcker en större yta än alla jordens landmassor tillsammans. Atlanten är näst störst, följt av Indiska oceanen, medan Ishavet i norr är det minsta av de stora haven."
+    },
+    {
+      "id": "q-geo-var-3",
+      "kind": "mc",
+      "topic": "höginkomst- och låginkomstländer",
+      "prompt": "Vad används vanligen som ett grundläggande mått för att jämföra länders ekonomiska inkomstnivå?",
+      "opener": "Måttet brukar dela landets totala ekonomi med antalet invånare.",
+      "choices": [
+        "Landets yta i kvadratkilometer",
+        "BNP per capita (bruttonationalprodukt per invånare)",
+        "Antalet världsarv i landet",
+        "Landets huvudstads folkmängd"
+      ],
+      "answer": 1,
+      "explanation": "BNP per capita mäter värdet av allt som produceras i ett land under ett år, delat på antalet invånare, och används ofta som ett grundläggande (om än ofullständigt) mått för att jämföra ekonomisk levnadsstandard mellan länder. Måttet säger dock inget om hur inkomsterna är fördelade inom landet."
+    },
+    {
+      "id": "q-geo-var-4",
+      "kind": "mc",
+      "topic": "höginkomst- och låginkomstländer",
+      "prompt": "Vilket av följande är en typisk skillnad mellan ett höginkomstland och ett låginkomstland?",
+      "opener": "Tänk på tillgång till skola, sjukvård och infrastruktur som ofta hänger ihop med ett lands ekonomi.",
+      "choices": [
+        "Höginkomstländer har alltid större yta",
+        "Höginkomstländer har oftast bättre tillgång till utbildning, sjukvård och infrastruktur",
+        "Låginkomstländer har alltid fler invånare",
+        "Det finns inga mätbara skillnader mellan grupperna"
+      ],
+      "answer": 1,
+      "explanation": "Höginkomstländer har generellt mer resurser att investera i utbildning, sjukvård, vägar och annan infrastruktur, vilket bidrar till högre medellivslängd och levnadsstandard. Skillnaderna handlar dock inte om landets yta eller folkmängd, utan om ekonomisk utveckling och hur resurser fördelas och används."
+    },
+    {
+      "id": "q-geo-var-5",
+      "kind": "mc",
+      "topic": "globalisering och världshandel",
+      "prompt": "Vad innebär globalisering, kortfattat?",
+      "opener": "Tänk på hur länder, företag och människor i dag hänger ihop över gränser på ett sätt som var mer ovanligt förr.",
+      "choices": [
+        "Att alla länder blir precis likadana kulturellt",
+        "Att länder, ekonomier och människor i världen blir alltmer sammanlänkade genom handel, kommunikation och resor",
+        "Att varje land stänger sina gränser för handel",
+        "Att bara rika länder handlar med varandra"
+      ],
+      "answer": 1,
+      "explanation": "Globalisering handlar om att världens länder, ekonomier och människor knyts allt tätare samman genom handel, transporter, internet och migration, så att händelser och beslut på en plats snabbt kan påverka platser långt bort. Det är motsatsen till att länder isolerar sig från varandra."
+    },
+    {
+      "id": "q-geo-var-6",
+      "kind": "mc",
+      "topic": "globalisering och världshandel",
+      "prompt": "En tröja som säljs i en svensk butik kan ha bomullen odlad i ett land, tyget vävt i ett annat och sömnaden gjord i ett tredje. Vad är detta ett exempel på?",
+      "opener": "Produktionen av en enda vara sker alltså inte i ett enda land, utan sprids ut över flera.",
+      "choices": [
+        "Ett undantag som nästan aldrig förekommer i världshandeln",
+        "Globala produktionskedjor, där olika steg i tillverkningen sker i olika länder beroende på till exempel kostnad och kompetens",
+        "Ett bevis på att globalisering minskar",
+        "Att alla länder tillverkar allt de behöver själva"
+      ],
+      "answer": 1,
+      "explanation": "Detta är ett tydligt exempel på globala produktionskedjor (även kallat globala värdekedjor), där olika delar av tillverkningen läggs i olika länder utifrån var det är billigast eller finns rätt kompetens och resurser. Det är en central del av dagens globaliserade världshandel."
+    },
+    {
+      "id": "q-geo-var-7",
+      "kind": "worked",
+      "topic": "geografiska landmärken och fenomen",
+      "prompt": "Förklara varför Himalaya, världens högsta bergskedja, har bildats där Indiska subkontinenten möter den asiatiska kontinenten.",
+      "opener": "Tänk på vad som händer när två stora landmassor på jordskorpans plattor rör sig mot varandra över mycket lång tid.",
+      "answer": "Jordskorpan är uppdelad i stora kontinentalplattor som rör sig mycket långsamt. Den Indiska plattan har under miljontals år vandrat norrut och till slut kolliderat med den Eurasiska plattan. Eftersom båda plattorna bär kontinental (relativt lätt) berggrund kan ingen av dem lätt tryckas ner under den andra, så i stället har berggrunden vecklats och pressats uppåt vid kollisionszonen. Detta har byggt upp Himalaya, och plattorna fortsätter röra sig mot varandra i dag, vilket gör att bergskedjan fortfarande sakta växer och att området är utsatt för jordbävningar.",
+      "steps": [
+        "Jordskorpan består av flera stora plattor som rör sig långsamt över miljontals år.",
+        "Indiska plattan har drivit norrut och krockat med den Eurasiska plattan.",
+        "Båda plattorna har lätt, kontinental berggrund som inte lätt trycks ner under varandra.",
+        "Kollisionen pressar och vecklar upp berggrunden i stället, vilket bygger höga bergskedjor.",
+        "Resultat: Himalaya bildas och växer fortfarande sakta, med jordbävningar som ett kvarstående tecken på den pågående rörelsen."
+      ]
+    },
+    {
+      "id": "q-geo-var-8",
+      "kind": "flashcard",
+      "topic": "världsdelar och hav",
+      "prompt": "Sammanfatta världsdelar, inkomstskillnader mellan länder, globalisering och viktiga geografiska landmärken.",
+      "opener": "Bygg en tät översikt att repetera snabbt inför provet.",
+      "answer": "Världsdelar: Afrika, Asien, Europa, Nordamerika, Sydamerika, Oceanien, Antarktis (7 st) · största hav: Stilla havet, följt av Atlanten och Indiska oceanen. Höginkomst- och låginkomstländer: mäts ofta med BNP per capita · höginkomstländer har oftast bättre tillgång till utbildning, sjukvård och infrastruktur · skillnaderna beror på ekonomisk utveckling, inte på yta eller folkmängd. Globalisering: länder, ekonomier och människor blir alltmer sammanlänkade genom handel, resor och kommunikation · globala produktionskedjor sprider tillverkningen av en vara över flera länder. Geografiska landmärken: bergskedjor bildas där kontinentalplattor kolliderar (t.ex. Himalaya) · stora ökenbälten (t.ex. Sahara, Arabiska öknen) finns ofta kring vissa breddgrader med torrt, nedåtgående luftflöde · geografiska mönster hänger ofta ihop med plattektonik och klimat."
+    }
+  ]
+}

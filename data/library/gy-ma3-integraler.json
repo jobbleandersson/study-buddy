@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma3-integraler",
+  "type": "assignment",
+  "subject": "Matematik 3",
+  "title": "Primitiva funktioner och integraler",
+  "sourceSummary": "Primitiv funktion till potensfunktioner, bestämd integral som area under kurvan och integralkalkylens huvudsats på grundnivå.",
+  "topics": [
+    "primitiv funktion",
+    "bestämd integral",
+    "integralkalkylens huvudsats"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma3-integraler-1",
+      "kind": "mc",
+      "topic": "primitiv funktion",
+      "prompt": "Vad betyder det att $F$ är en primitiv funktion till $f$?",
+      "opener": "Tänk baklänges jämfört med derivering.",
+      "choices": [
+        "$F(x) = f'(x)$",
+        "$\\int F(x)\\,dx = f(x)$",
+        "$F'(x) = f(x)$",
+        "$F(x) = f(x)$"
+      ],
+      "answer": 2,
+      "explanation": "$F$ är en primitiv funktion till $f$ om derivatan av $F$ ger tillbaka $f$, alltså $F'(x)=f(x)$. Att integrera är det omvända till att derivera. Uttrycket $F(x)=f'(x)$ blandar ihop riktningen."
+    },
+    {
+      "id": "q-ma3-integraler-2",
+      "kind": "mc",
+      "topic": "primitiv funktion",
+      "prompt": "Vad är $\\displaystyle\\int x^3\\,dx$?",
+      "opener": "Öka exponenten med 1 och dividera med den nya exponenten.",
+      "choices": [
+        "$4x^3+C$",
+        "$\\dfrac{x^4}{4}+C$",
+        "$\\dfrac{x^4}{3}+C$",
+        "$x^4+C$"
+      ],
+      "answer": 1,
+      "explanation": "Regeln för potensfunktioner är $\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1}+C$. Med $n=3$ blir det $\\dfrac{x^4}{4}+C$. Svaret $4x^3+C$ är derivatan av $x^4$, inte en primitiv funktion till $x^3$ — det är motsatt riktning."
+    },
+    {
+      "id": "q-ma3-integraler-3",
+      "kind": "mc",
+      "topic": "primitiv funktion",
+      "prompt": "Beräkna $\\displaystyle\\int (3x^2 - 2x)\\,dx$.",
+      "opener": "Integrera term för term med potensregeln, och glöm inte integrationskonstanten.",
+      "choices": [
+        "$x^3-x^2+C$",
+        "$x^3+x^2+C$",
+        "$3x^3-2x^2+C$",
+        "$6x-2+C$"
+      ],
+      "answer": 0,
+      "explanation": "$\\int 3x^2\\,dx = 3\\cdot\\frac{x^3}{3}=x^3$ och $\\int(-2x)\\,dx = -2\\cdot\\frac{x^2}{2}=-x^2$. Summan blir $x^3-x^2+C$. Svaret $6x-2+C$ är derivatan av uttrycket, inte den primitiva funktionen."
+    },
+    {
+      "id": "q-ma3-integraler-4",
+      "kind": "mc",
+      "topic": "bestämd integral",
+      "prompt": "Beräkna $\\displaystyle\\int_0^2 x^2\\,dx$.",
+      "opener": "Hitta en primitiv funktion, sätt in gränserna och subtrahera.",
+      "choices": [
+        "$4$",
+        "$\\dfrac{4}{3}$",
+        "$8$",
+        "$\\dfrac{8}{3}$"
+      ],
+      "answer": 3,
+      "explanation": "En primitiv funktion är $F(x)=\\frac{x^3}{3}$. Då är $\\int_0^2 x^2\\,dx = F(2)-F(0) = \\frac{2^3}{3}-\\frac{0^3}{3} = \\frac{8}{3}$. Svaret $8$ fås om man glömmer att dividera med 3 i den primitiva funktionen."
+    },
+    {
+      "id": "q-ma3-integraler-5",
+      "kind": "mc",
+      "topic": "bestämd integral",
+      "prompt": "Vad representerar $\\int_a^b f(x)\\,dx$ geometriskt, om $f(x) \\geq 0$ på $[a,b]$?",
+      "opener": "Tänk på integralen som en summa av väldigt smala rektanglar under kurvan.",
+      "choices": [
+        "Lutningen på kurvan mellan $x=a$ och $x=b$",
+        "Arean mellan kurvan $y=f(x)$ och $x$-axeln, från $x=a$ till $x=b$",
+        "Derivatans värde vid $x=b$",
+        "Kurvans värde vid $x=a$"
+      ],
+      "answer": 1,
+      "explanation": "Den bestämda integralen av en icke-negativ funktion motsvarar arean mellan kurvan och $x$-axeln över intervallet $[a,b]$. Lutningen på kurvan beskrivs istället av derivatan, inte integralen."
+    },
+    {
+      "id": "q-ma3-integraler-6",
+      "kind": "mc",
+      "topic": "integralkalkylens huvudsats",
+      "prompt": "Enligt integralkalkylens huvudsats, hur beräknas $\\int_a^b f(x)\\,dx$ om $F$ är en primitiv funktion till $f$?",
+      "opener": "Sätt in övre och undre gränsen i den primitiva funktionen och jämför.",
+      "choices": [
+        "$F(a)-F(b)$",
+        "$F(b)+F(a)$",
+        "$F(b)-F(a)$",
+        "$f(b)-f(a)$"
+      ],
+      "answer": 2,
+      "explanation": "Integralkalkylens huvudsats säger att $\\int_a^b f(x)\\,dx = F(b)-F(a)$, där $F$ är en primitiv funktion till $f$. Att kasta om till $F(a)-F(b)$ ger fel tecken på svaret."
+    },
+    {
+      "id": "q-ma3-integraler-7",
+      "kind": "worked",
+      "topic": "bestämd integral",
+      "prompt": "Beräkna $\\displaystyle\\int_1^3 (2x+1)\\,dx$.",
+      "opener": "Hitta en primitiv funktion till $2x+1$, sätt sedan in gränserna enligt huvudsatsen.",
+      "answer": "$10$",
+      "steps": [
+        "Hitta en primitiv funktion: $F(x) = x^2+x$ (kontroll: $F'(x)=2x+1$, vilket stämmer).",
+        "Beräkna $F(3) = 3^2+3 = 9+3 = 12$.",
+        "Beräkna $F(1) = 1^2+1 = 1+1 = 2$.",
+        "Enligt huvudsatsen: $\\int_1^3(2x+1)\\,dx = F(3)-F(1) = 12-2 = 10$."
+      ]
+    },
+    {
+      "id": "q-ma3-integraler-8",
+      "kind": "flashcard",
+      "topic": "primitiv funktion",
+      "prompt": "Sammanfatta reglerna för primitiva funktioner och integralkalkylens huvudsats.",
+      "opener": "Tänk potensregel baklänges, summaregel och kopplingen till area.",
+      "answer": "$\\displaystyle\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1}+C$ (för $n \\neq -1$) · $\\displaystyle\\int k\\,dx = kx+C$ · $\\displaystyle\\int \\big(f(x)+g(x)\\big)\\,dx = \\int f(x)\\,dx + \\int g(x)\\,dx$ · Integralkalkylens huvudsats: $\\displaystyle\\int_a^b f(x)\\,dx = F(b)-F(a)$, där $F'(x)=f(x)$ · Om $f(x)\\geq 0$ på $[a,b]$ ger $\\int_a^b f(x)\\,dx$ arean mellan kurvan och $x$-axeln"
+    }
+  ]
+}

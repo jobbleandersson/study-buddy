@@ -1,0 +1,129 @@
+{
+  "id": "lib-sv7-lasforstaelse",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Läsförståelse",
+  "sourceSummary": "Att hitta information i en text, förstå vad den handlar om i stort, dra enkla slutsatser och lista ut vad ett okänt ord betyder med hjälp av sammanhanget.",
+  "topics": [
+    "hitta information",
+    "huvudbudskap",
+    "slutsatser",
+    "ordförståelse"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv7-las-1",
+      "kind": "mc",
+      "topic": "hitta information",
+      "prompt": "Läs texten och svara.\n\n\"Skolans bibliotek öppnar klockan åtta varje morgon. På måndagar och onsdagar är det öppet ända till klockan fem, andra dagar stänger det klockan tre. Under lovet är biblioteket helt stängt.\"\n\nVilken dag kan du låna böcker längst fram på eftermiddagen?",
+      "opener": "Svaret står rakt ut i texten — leta efter den dag som nämns tillsammans med den senaste tiden.",
+      "choices": [
+        "Tisdag",
+        "Onsdag",
+        "Torsdag",
+        "Fredag"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger att biblioteket är öppet till klockan fem på måndagar och onsdagar — av alternativen är onsdag den enda av dessa. Tisdag, torsdag och fredag hör till \"andra dagar\", då det stänger redan klockan tre."
+    },
+    {
+      "id": "q-sv7-las-2",
+      "kind": "mc",
+      "topic": "huvudbudskap",
+      "prompt": "Läs texten och svara.\n\n\"Att sova för lite gör det svårare att koncentrera sig i skolan. Många ungdomar sitter med mobilen sent på kvällen och somnar därför senare än de tänkt. Forskare rekommenderar att lägga undan skärmen en timme före läggdags. Då blir det lättare att somna.\"\n\nVad handlar texten främst om?",
+      "opener": "Fråga dig vad ALLA meningarna tillsammans handlar om, inte bara en av dem.",
+      "choices": [
+        "Att mobiler borde förbjudas i skolan",
+        "Att alla ungdomar somnar sent",
+        "Att forskare tycker att ungdomar är lata",
+        "Att för lite sömn påverkar skolan, och att skärmen på kvällen är en orsak"
+      ],
+      "answer": 3,
+      "explanation": "Texten kopplar ihop sömn, koncentration och mobilanvändning på kvällen, och ger ett råd. Att mobiler skulle förbjudas i skolan nämns aldrig — texten handlar om kvällarna, inte om lektionstid."
+    },
+    {
+      "id": "q-sv7-las-3",
+      "kind": "mc",
+      "topic": "slutsatser",
+      "prompt": "Läs texten och svara.\n\n\"Noor sneglade mot dörren varje gång den öppnades. Hon hade dukat fram tallrikarna för en timme sedan, och maten stod fortfarande orörd på bordet. Telefonen låg tyst bredvid glaset.\"\n\nVad kan man förstå om Noor?",
+      "opener": "Texten säger det inte rakt ut — vad avslöjar detaljerna om vad hon gör?",
+      "choices": [
+        "Hon väntar på någon som inte har kommit",
+        "Hon är hungrig och ska precis börja äta",
+        "Hon är arg på sin telefon",
+        "Hon håller på att laga mat"
+      ],
+      "answer": 0,
+      "explanation": "Blickarna mot dörren, den orörda maten och den tysta telefonen visar tillsammans att hon väntar på någon som är sen. Att hon skulle vara på väg att äta stämmer inte — maten har stått framme i en timme utan att hon rört den."
+    },
+    {
+      "id": "q-sv7-las-4",
+      "kind": "mc",
+      "topic": "ordförståelse",
+      "prompt": "Läs texten och svara.\n\n\"Vandringen blev längre än de trott. När de äntligen nådde stugan var alla utmattade. Elias slängde av sig ryggsäcken och sjönk ner på britsen utan att orka ta av sig skorna.\"\n\nVad betyder ordet \"utmattade\" i texten?",
+      "opener": "Läs meningarna före och efter ordet — vad gör personerna, och vad säger det om hur de mår?",
+      "choices": [
+        "Hungriga",
+        "Besvikna",
+        "Mycket trötta",
+        "Frusna"
+      ],
+      "answer": 2,
+      "explanation": "Vandringen var lång och Elias orkar inte ens ta av sig skorna — sammanhanget visar att \"utmattad\" betyder mycket trött. Att de skulle vara hungriga nämns inte alls i texten, även om det kanske låter rimligt efter en lång vandring."
+    },
+    {
+      "id": "q-sv7-las-5",
+      "kind": "mc",
+      "topic": "hitta information",
+      "prompt": "Läs texten och svara.\n\n\"Klassen ska åka till naturreservatet på torsdag. Bussen går från skolan klockan nio, så alla ska vara på plats kvart i nio. Ta med matsäck, regnkläder och rejäla skor. Mobiler får tas med men ska ligga i väskan under vandringen.\"\n\nVilken tid ska eleverna vara på skolan?",
+      "opener": "Två klockslag nämns — läs noga vilket som gäller bussen och vilket som gäller eleverna.",
+      "choices": [
+        "Klockan nio",
+        "Kvart över nio",
+        "Kvart i nio",
+        "Halv nio"
+      ],
+      "answer": 2,
+      "explanation": "Texten säger att bussen går klockan nio och att alla därför ska vara på plats kvart i nio. Klockan nio är alltså bussens avgång, inte samlingstiden."
+    },
+    {
+      "id": "q-sv7-las-6",
+      "kind": "mc",
+      "topic": "slutsatser",
+      "prompt": "Läs texten och svara.\n\n\"Det var första gången Milo skulle spela match med det nya laget. Han knöt om skosnörena tre gånger. Händerna var kalla trots att solen sken, och han svarade bara med en nick när tränaren frågade om han var redo.\"\n\nHur känner sig Milo troligen?",
+      "opener": "Vilka små detaljer i kroppen och beteendet brukar visa en känsla?",
+      "choices": [
+        "Uttråkad",
+        "Sjuk och frusen",
+        "Arg på tränaren",
+        "Nervös"
+      ],
+      "answer": 3,
+      "explanation": "Att knyta skorna om och om igen, ha kalla händer i solsken och knappt orka svara pekar mot nervositet inför den första matchen. Han är knappast frusen — texten säger uttryckligen att solen sken."
+    },
+    {
+      "id": "q-sv7-las-7",
+      "kind": "worked",
+      "topic": "hitta information",
+      "prompt": "Läs texten och svara med en mening: \"Skolans fritidsklubb håller öppet varje tisdag och torsdag efter skoldagens slut. Där kan man spela spel, pyssla eller bara umgås. Klubben är gratis, men man måste anmäla sig hos Sofia i expeditionen innan man kommer första gången.\"\n\nVad måste man göra innan man går till fritidsklubben första gången, och varför räcker det inte att bara dyka upp?",
+      "opener": "Leta först upp meningen som innehåller ordet \"måste\" — där finns kravet.",
+      "answer": "Man måste anmäla sig hos Sofia i expeditionen innan första besöket, eftersom texten säger att anmälan krävs innan man kommer första gången — det räcker alltså inte att bara komma dit.",
+      "steps": [
+        "Läs frågan först så du vet vad du letar efter: ett krav innan första besöket.",
+        "Sök i texten efter signalord som \"måste\", \"ska\" eller \"innan\".",
+        "Sista meningen innehåller kravet: anmälan hos Sofia i expeditionen.",
+        "Kontrollera att inget annat i texten motsäger svaret — klubben är gratis, men anmälan krävs ändå.",
+        "Skriv svaret i en egen mening och stöd det med det texten faktiskt säger."
+      ]
+    },
+    {
+      "id": "q-sv7-las-8",
+      "kind": "flashcard",
+      "topic": "läsförståelse",
+      "prompt": "Hur gör du när du ska svara på en läsförståelsefråga?",
+      "opener": "Fyra vanor som gör att du hittar rätt svar oftare.",
+      "answer": "Läs frågan först — då vet du vad du letar efter i texten. Hitta information: svaret står ofta rakt ut · gå tillbaka och peka på meningen istället för att gissa ur minnet. Huvudbudskap: fråga vad HELA texten handlar om, inte bara en detalj · poängen står ofta i första eller sista meningen. Slutsatser: bygg på ledtrådar i texten — vad personerna gör, säger och känner · aldrig på egna gissningar. Okända ord: läs meningarna runt omkring · testa vilket alternativ som passar in i sammanhanget. Varning: svarsalternativ som låter rimliga men aldrig nämns i texten är fel."
+    }
+  ]
+}

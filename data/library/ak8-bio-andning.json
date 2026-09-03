@@ -1,0 +1,130 @@
+{
+  "id": "lib-bio8-andning",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Andning och blodomlopp",
+  "sourceSummary": "Andningsorganens uppbyggnad och gasutbytet i lungblåsorna, samt hjärtats delar, blodomloppets två kretslopp, blodets beståndsdelar och hur kondition påverkar pulsen.",
+  "topics": [
+    "andningsorganen",
+    "gasutbyte",
+    "hjärtat och blodomloppet",
+    "blodet",
+    "kondition och puls"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio8-and-1",
+      "kind": "mc",
+      "topic": "andningsorganen",
+      "prompt": "Vilken väg tar luften när du andas in?",
+      "opener": "Följ luften från näsan hela vägen ner till de minsta blåsorna i lungan.",
+      "choices": [
+        "Näsa → matstrupe → magsäck → lungor",
+        "Näsa och mun → luftstrupe → luftrör → lungblåsor",
+        "Mun → luftstrupe → magsäck → lungblåsor",
+        "Näsa → lungblåsor → luftstrupe → luftrör"
+      ],
+      "answer": 1,
+      "explanation": "Luften värms och renas i näsan, går ner genom luftstrupen som delar sig i två luftrör och sedan i allt finare grenar som slutar i lungblåsorna. Matstrupen och magsäcken hör till matspjälkningen och har inget med andningen att göra — struplocket ser till att luft och mat hamnar rätt."
+    },
+    {
+      "id": "q-bio8-and-2",
+      "kind": "mc",
+      "topic": "gasutbyte",
+      "prompt": "Vad händer i lungblåsorna (alveolerna)?",
+      "opener": "Två gaser byter plats mellan luften och blodet.",
+      "choices": [
+        "Blodet renas från avfallsämnen och urin bildas",
+        "Näring från maten tas upp i blodet",
+        "Luften värms upp innan den når luftstrupen",
+        "Syre går från luften över till blodet och koldioxid går från blodet ut i luften"
+      ],
+      "answer": 3,
+      "explanation": "Lungblåsornas mycket tunna väggar och omgivande hårrörskärl gör att syre kan diffundera in i blodet samtidigt som koldioxid lämnar blodet och andas ut. Näringsupptag sker i tunntarmen, inte i lungorna."
+    },
+    {
+      "id": "q-bio8-and-3",
+      "kind": "mc",
+      "topic": "hjärtat och blodomloppet",
+      "prompt": "Hur många rum (hålrum) har människans hjärta?",
+      "opener": "Tänk på förmak och kammare, en uppsättning på varje sida.",
+      "choices": [
+        "Fyra: två förmak och två kammare",
+        "Två: ett förmak och en kammare",
+        "Tre: ett förmak och två kammare",
+        "Sex: fyra förmak och två kammare"
+      ],
+      "answer": 0,
+      "explanation": "Hjärtat har två förmak som tar emot blod och två kammare som pumpar ut det, med klaffar emellan så att blodet bara kan gå åt ett håll. Ett hjärta med bara två rum finns hos till exempel fiskar, inte hos människan."
+    },
+    {
+      "id": "q-bio8-and-4",
+      "kind": "mc",
+      "topic": "hjärtat och blodomloppet",
+      "prompt": "Vad är skillnaden mellan lilla och stora kretsloppet?",
+      "opener": "Tänk på vart blodet skickas när det lämnar respektive kammare.",
+      "choices": [
+        "Lilla kretsloppet går till benen och stora till armarna",
+        "Lilla kretsloppet transporterar näring och stora transporterar syre",
+        "Lilla kretsloppet går mellan hjärtat och lungorna, stora kretsloppet mellan hjärtat och resten av kroppen",
+        "Lilla kretsloppet finns bara hos barn och stora bara hos vuxna"
+      ],
+      "answer": 2,
+      "explanation": "I lilla kretsloppet pumpas syrefattigt blod från höger kammare till lungorna och kommer syrerikt tillbaka, medan stora kretsloppet för ut det syrerika blodet från vänster kammare till alla kroppens celler. Båda kretsloppen transporterar både syre och näring — skillnaden är vart blodet går."
+    },
+    {
+      "id": "q-bio8-and-5",
+      "kind": "mc",
+      "topic": "blodet",
+      "prompt": "Vilken uppgift har de röda blodkropparna?",
+      "opener": "Tänk på ämnet hemoglobin och varför blodet är rött.",
+      "choices": [
+        "De försvarar kroppen mot bakterier och virus",
+        "De transporterar syre från lungorna ut till kroppens celler",
+        "De får blodet att levra sig vid ett sår",
+        "De bryter ner näringsämnen i blodet"
+      ],
+      "answer": 1,
+      "explanation": "Röda blodkroppar innehåller järnämnet hemoglobin som binder syre i lungorna och släpper det i vävnaderna. Att försvara kroppen mot smitta är de vita blodkropparnas jobb, och blodplättarna sköter levringen vid sår."
+    },
+    {
+      "id": "q-bio8-and-6",
+      "kind": "mc",
+      "topic": "kondition och puls",
+      "prompt": "Varför har en person med god kondition ofta lägre vilopuls än en otränad person?",
+      "opener": "Tänk på vad som händer med hjärtmuskeln när man tränar kondition regelbundet.",
+      "choices": [
+        "Hjärtat blir starkare och pumpar mer blod per slag, så det behöver slå färre gånger",
+        "Kroppen behöver mindre syre när man är vältränad",
+        "Blodet blir tunnare och rinner snabbare av sig självt",
+        "Lungorna slutar ta upp koldioxid"
+      ],
+      "answer": 0,
+      "explanation": "Konditionsträning gör hjärtmuskeln starkare, så varje slag pumpar ut mer blod (större slagvolym) och färre slag per minut räcker i vila. Kroppens behov av syre försvinner inte — det täcks bara mer effektivt."
+    },
+    {
+      "id": "q-bio8-and-7",
+      "kind": "worked",
+      "topic": "gasutbyte",
+      "prompt": "Förklara hur en syremolekyl från luften du andas in tar sig hela vägen till en muskelcell i benet.",
+      "opener": "Följ syret genom lungan, in i blodet, genom hjärtat och ut i kroppen.",
+      "answer": "Syret följer luften genom näsa, luftstrupe och luftrör ner till en lungblåsa, diffunderar genom den tunna väggen in i blodet och binds till hemoglobin i en röd blodkropp, förs med lungvenen till hjärtats vänstra sida, pumpas ut i stora kretsloppet via artärer till hårrörskärlen i benmuskeln och lämnar där blodet för att användas i muskelcellens cellandning.",
+      "steps": [
+        "Du andas in och luften går via näsa eller mun ner genom luftstrupen och luftrören till lungblåsorna.",
+        "I lungblåsan passerar syret den mycket tunna väggen och de omgivande hårrörskärlens vägg, och binds till hemoglobin i en röd blodkropp.",
+        "Det syrerika blodet förs från lungorna till hjärtats vänstra förmak och vidare till vänster kammare.",
+        "Vänster kammare pumpar ut blodet i stora kroppspulsådern, och artärerna leder det ut i benet där de förgrenar sig till hårrörskärl.",
+        "I hårrörskärlen lämnar syret blodet och tas upp av muskelcellen, som använder det i cellandningen för att frigöra energi; koldioxiden som bildas tas med blodet tillbaka till lungorna."
+      ]
+    },
+    {
+      "id": "q-bio8-and-8",
+      "kind": "flashcard",
+      "topic": "blodet",
+      "prompt": "Sammanfatta blodets delar och blodomloppets uppbyggnad.",
+      "opener": "Gå igenom blodets fyra beståndsdelar, de tre kärltyperna och hjärtats rum.",
+      "answer": "Röda blodkroppar: innehåller hemoglobin och transporterar syre från lungorna till cellerna · Vita blodkroppar: en del av immunförsvaret, oskadliggör bakterier och virus · Blodplättar: får blodet att levra sig så att sår slutar blöda · Blodplasma: gulaktig vätska som mest består av vatten och transporterar näring, hormoner och avfall · Artärer: leder blod från hjärtat, tjocka och elastiska väggar · Vener: leder blod till hjärtat, har klaffar som hindrar backflöde · Hårrörskärl (kapillärer): mycket tunna kärl där utbytet med cellerna sker · Hjärtat: fyra rum — höger och vänster förmak samt höger och vänster kammare, med klaffar som gör att blodet bara går åt ett håll · Lilla kretsloppet: höger kammare → lungorna → vänster förmak · Stora kretsloppet: vänster kammare → kroppens organ → höger förmak · Puls: antalet hjärtslag per minut; god kondition ger starkare hjärta, större slagvolym och lägre vilopuls."
+    }
+  ]
+}

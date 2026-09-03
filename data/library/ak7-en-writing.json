@@ -1,0 +1,128 @@
+{
+  "id": "lib-en7-writing",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Writing: meningsbyggnad och vanliga fel",
+  "sourceSummary": "Engelsk ordföljd i påståenden och frågor, de vanligaste svensk-engelska felen och hur du binder ihop meningar med and, but och because.",
+  "topics": [
+    "word order",
+    "questions",
+    "common mistakes",
+    "linking words"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7-wri-1",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order?",
+      "opener": "Engelskan håller hårt på ordningen subjekt - verb - objekt, även när meningen börjar med ett tidsuttryck.",
+      "choices": [
+        "On Mondays play I football.",
+        "On Mondays I play football.",
+        "On Mondays football I play.",
+        "Play I football on Mondays."
+      ],
+      "answer": 1,
+      "explanation": "På engelska kommer subjektet före verbet: \"I play football\". Till skillnad från svenskan byter man inte plats på subjekt och verb bara för att meningen börjar med ett tidsuttryck — därför blir \"On Mondays play I football\" fel."
+    },
+    {
+      "id": "q-en7-wri-2",
+      "kind": "mc",
+      "topic": "questions",
+      "prompt": "Which question is correct?",
+      "opener": "Frågor i present simple behöver ett hjälpverb — och det står först.",
+      "choices": [
+        "Where you live?",
+        "Where live you?",
+        "Where do you live?",
+        "Where you do live?"
+      ],
+      "answer": 2,
+      "explanation": "Frågeordet kommer först, sedan hjälpverbet do/does, sedan subjektet och verbet: \"Where do you live?\". \"Where live you?\" är svensk ordföljd och fungerar inte på engelska."
+    },
+    {
+      "id": "q-en7-wri-3",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "How do you say \"Jag är 13 år gammal\" in English?",
+      "opener": "Svenskan och engelskan använder olika verb när man talar om ålder.",
+      "choices": [
+        "I have 13 years.",
+        "I am 13 years.",
+        "I have 13 years old.",
+        "I am 13 years old."
+      ],
+      "answer": 3,
+      "explanation": "På engelska används verbet \"be\" om ålder: \"I am 13 years old\". \"I have 13 years\" är en direktöversättning som låter fel på engelska."
+    },
+    {
+      "id": "q-en7-wri-4",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "Kolla vem som gör handlingen — vilken form av nekande hör ihop med \"he\"?",
+      "choices": [
+        "He don't like homework.",
+        "He doesn't likes homework.",
+        "He doesn't like homework.",
+        "He not like homework."
+      ],
+      "answer": 2,
+      "explanation": "Med he/she/it används \"doesn't\", och efter doesn't står verbet i grundform: \"He doesn't like homework\". \"He don't\" är ett av de vanligaste felen, och \"doesn't likes\" böjer verbet två gånger."
+    },
+    {
+      "id": "q-en7-wri-5",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking word: \"I stayed at home ___ I was ill.\"",
+      "opener": "Andra delen förklarar varför den första hände.",
+      "choices": [
+        "because",
+        "and",
+        "but",
+        "or"
+      ],
+      "answer": 0,
+      "explanation": "\"Because\" anger en orsak, och att vara sjuk är anledningen till att man stannade hemma. \"But\" skulle visa en motsättning, vilket inte passar här."
+    },
+    {
+      "id": "q-en7-wri-6",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Which sentence joins the two ideas best: \"I like football.\" + \"I don't like tennis.\"",
+      "opener": "De två meningarna säger olika saker — vilket bindeord visar en kontrast?",
+      "choices": [
+        "I like football and I don't like tennis.",
+        "I like football but I don't like tennis.",
+        "I like football because I don't like tennis.",
+        "I like football, I don't like tennis."
+      ],
+      "answer": 1,
+      "explanation": "\"But\" används när två delar står i kontrast till varandra, som gillar mot gillar inte. \"Because\" skulle betyda att den ena är orsaken till den andra, vilket inte stämmer här."
+    },
+    {
+      "id": "q-en7-wri-7",
+      "kind": "worked",
+      "topic": "common mistakes",
+      "prompt": "Correct the four errors: \"Hi! My name is Lisa and I have 13 years. My brother he don't like school. On Saturdays go I to my friend. Where you live?\"",
+      "opener": "Leta efter ålder, nekande form, ordföljd i påstående och ordföljd i fråga.",
+      "answer": "Hi! My name is Lisa and I am 13 years old. My brother doesn't like school. On Saturdays I go to my friend. Where do you live?",
+      "steps": [
+        "\"I have 13 years\" → \"I am 13 years old\". Engelskan använder verbet \"be\" om ålder och lägger till \"old\".",
+        "\"My brother he don't like\" → \"My brother doesn't like\". Subjektet ska bara stå en gång, och he/she/it tar doesn't + verb i grundform.",
+        "\"On Saturdays go I\" → \"On Saturdays I go\". Subjektet står före verbet på engelska även efter ett tidsuttryck.",
+        "\"Where you live?\" → \"Where do you live?\". Frågor i present simple behöver hjälpverbet do/does efter frågeordet."
+      ]
+    },
+    {
+      "id": "q-en7-wri-8",
+      "kind": "flashcard",
+      "topic": "word order",
+      "prompt": "Vilka regler och vanliga fel bör du kolla när du skriver på engelska?",
+      "opener": "En checklista att gå igenom innan du lämnar in din text.",
+      "answer": "Ordföljd: subjekt - verb - objekt (I play football) · subjektet står före verbet även efter tidsuttryck (Every day I read, inte Every day read I). Frågor: frågeord + do/does + subjekt + verb i grundform (Where do you live? Does she play?) · med \"be\" byter man plats i stället (Are you tired?). Vanliga svensk-engelska fel: I am 13 years old (inte I have 13 years) · he/she/it doesn't (inte he don't) · efter doesn't/didn't står verbet i grundform · glöm inte -s i he plays, she watches · upprepa inte subjektet (My brother he... ). Bindeord: and = och (lägger till) · but = men (kontrast) · because = eftersom (orsak) · so = så (följd). Läs alltid igenom texten en sista gång och kolla verben."
+    }
+  ]
+}

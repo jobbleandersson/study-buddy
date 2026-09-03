@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam8-politik",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Politik och styre i Sverige",
+  "sourceSummary": "Hur Sverige styrs: riksdagens, regeringens och statschefens roller, vägen från lagförslag till lag, vad kommuner och regioner ansvarar för, hur val fungerar och vad höger-vänster-skalan är för slags begrepp.",
+  "topics": [
+    "riksdag, regering och statschef",
+    "från lagförslag till lag",
+    "kommun och region",
+    "val och valsystem",
+    "höger-vänster-skalan"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam8-pol-1",
+      "kind": "mc",
+      "topic": "riksdag, regering och statschef",
+      "prompt": "Vilken är riksdagens viktigaste uppgift i det svenska politiska systemet?",
+      "opener": "Fundera på vilken uppgift som brukar kallas den lagstiftande makten.",
+      "choices": [
+        "Att döma personer som är misstänkta för brott",
+        "Att leda polisen och militären i det dagliga arbetet",
+        "Att besluta om lagar och om statens budget",
+        "Att utse Sveriges statschef"
+      ],
+      "answer": 2,
+      "explanation": "Riksdagen är Sveriges lagstiftande församling med 349 ledamöter som väljs av folket. Riksdagen beslutar om lagar, bestämmer hur statens pengar ska användas och granskar regeringen. Att döma i enskilda mål är domstolarnas uppgift, inte riksdagens — det hör till den så kallade maktdelningen mellan riksdag, regering och domstolar."
+    },
+    {
+      "id": "q-sam8-pol-2",
+      "kind": "mc",
+      "topic": "riksdag, regering och statschef",
+      "prompt": "Vem är Sveriges statschef och vilken roll har statschefen?",
+      "opener": "Sverige är en monarki men samtidigt en demokrati — fundera på vad det betyder för makten.",
+      "choices": [
+        "Kungen, som har en i huvudsak ceremoniell och representativ roll utan politisk makt",
+        "Statsministern, som leder riksdagens arbete",
+        "Talmannen, som både leder riksdagen och styr landet",
+        "Kungen, som beslutar om nya lagar tillsammans med riksdagen"
+      ],
+      "answer": 0,
+      "explanation": "Sverige är en monarki där kungen är statschef, men enligt 1974 års regeringsform har statschefen inga politiska maktbefogenheter — rollen är ceremoniell och representativ. Statsministern leder regeringen (inte riksdagen), och talmannen leder riksdagens arbete och föreslår statsminister, men styr inte landet."
+    },
+    {
+      "id": "q-sam8-pol-3",
+      "kind": "mc",
+      "topic": "från lagförslag till lag",
+      "prompt": "I vilken ordning behandlas normalt ett lagförslag innan det blir svensk lag?",
+      "opener": "Ett förslag hinner passera flera stationer innan riksdagen röstar.",
+      "choices": [
+        "Riksdagen röstar först, och därefter skriver regeringen ihop förslaget",
+        "Regeringen lämnar en proposition (eller en riksdagsledamot en motion) → ett utskott bereder förslaget → riksdagen debatterar och röstar → lagen börjar gälla",
+        "Kungen skriver förslaget → riksdagen godkänner det → domstolen beslutar om det ska gälla",
+        "Kommunfullmäktige beslutar → riksdagen verkställer beslutet"
+      ],
+      "answer": 1,
+      "explanation": "Vägen till en lag börjar oftast med en utredning och sedan en proposition från regeringen, men en riksdagsledamot kan också väcka en motion. Förslaget bereds i ett av riksdagens utskott, som lämnar ett betänkande, och därefter debatterar och röstar riksdagen i kammaren. Att riksdagen skulle rösta innan förslaget är skrivet stämmer inte — beredningen i utskott är just till för att förslaget ska granskas före omröstningen."
+    },
+    {
+      "id": "q-sam8-pol-4",
+      "kind": "mc",
+      "topic": "kommun och region",
+      "prompt": "Vad ansvarar en svensk kommun främst för?",
+      "opener": "Tänk på den verksamhet som finns nära dig där du bor, och skilj den från sjukvården.",
+      "choices": [
+        "Skola och förskola, äldreomsorg, socialtjänst, vatten och avfall samt lokala vägar",
+        "Sjukhusvård, vårdcentraler och kollektivtrafik i hela länet",
+        "Försvar, utrikespolitik och gränskontroll",
+        "Domstolar, polis och fängelser"
+      ],
+      "answer": 0,
+      "explanation": "Kommunen ansvarar för det som ligger nära invånarna: skola och förskola, äldreomsorg, socialtjänst, plan- och byggfrågor, vatten och avfall. Sjukvård och regional kollektivtrafik är i stället regionernas ansvar, medan försvar, utrikespolitik, polis och domstolar sköts av staten. Kommuner och regioner styrs av politiker som väljs i kommun- och regionval, och de får ta ut egen kommunalskatt."
+    },
+    {
+      "id": "q-sam8-pol-5",
+      "kind": "mc",
+      "topic": "val och valsystem",
+      "prompt": "Hur ofta hålls allmänna val till riksdag, kommun och region i Sverige?",
+      "opener": "Alla tre valen hålls samtidigt — men hur långt är mellanrummet?",
+      "choices": [
+        "Vartannat år",
+        "Vart femte år",
+        "Vart fjärde år, på samma valdag i september",
+        "Varje år"
+      ],
+      "answer": 2,
+      "explanation": "Riksdagsval, kommunval och regionval hålls samtidigt vart fjärde år, andra söndagen i september. Rösträtt i riksdagsval har svenska medborgare som fyllt 18 år senast på valdagen. Val till Europaparlamentet hålls däremot vart femte år, vilket är en vanlig sammanblandning. Sverige har ett proportionellt valsystem, och ett parti behöver minst fyra procent av rösterna i hela landet för att komma in i riksdagen."
+    },
+    {
+      "id": "q-sam8-pol-6",
+      "kind": "mc",
+      "topic": "höger-vänster-skalan",
+      "prompt": "Vad är höger-vänster-skalan i politiken?",
+      "opener": "Skalan är ett verktyg för att sortera idéer, inte en lista över vilka som styr just nu.",
+      "choices": [
+        "En lista över vilka partier som sitter i regeringen just nu",
+        "Ett mått på hur många mandat varje parti har i riksdagen",
+        "En karta över var i landet olika partier har sina väljare",
+        "Ett förenklat sätt att placera in politiska idéer, bland annat utifrån synen på statens roll i ekonomin och avvägningen mellan gemensamma lösningar och individens eget ansvar"
+      ],
+      "answer": 3,
+      "explanation": "Höger-vänster-skalan är ett analysverktyg som grovt sorterar politiska idéer, till exempel utifrån hur stor roll staten bör ha i ekonomin och hur man ser på skatter, gemensamma lösningar och individens eget ansvar. Skalan är en förenkling: ett parti kan ligga olika i olika frågor, och frågor om till exempel miljö eller migration följer inte alltid skalan. Antal mandat är i stället ett resultat av valet och säger inget om vilka idéer ett parti har."
+    },
+    {
+      "id": "q-sam8-pol-7",
+      "kind": "worked",
+      "topic": "från lagförslag till lag",
+      "prompt": "Beskriv steg för steg hur ett förslag blir till en ny lag i Sverige, och nämn vilka som är inblandade i varje steg.",
+      "opener": "Följ förslaget från idé till gällande lag och namnge aktören i varje led.",
+      "answer": "Först uppstår ett behov av en ny eller ändrad lag, och regeringen tillsätter ofta en utredning (en kommitté eller en enskild utredare) som lämnar sitt förslag i ett betänkande. Förslaget skickas sedan på remiss till myndigheter, organisationer och kommuner som får lämna synpunkter. Därefter skriver regeringen en proposition till riksdagen — ett färdigt lagförslag. Riksdagsledamöter kan också själva lägga fram förslag i form av motioner. Förslaget bereds i ett av riksdagens utskott, där ledamöter från olika partier granskar det och lämnar ett betänkande med en rekommendation. Sedan debatteras förslaget i riksdagens kammare och ledamöterna röstar. Om en majoritet röstar ja är lagen beslutad, och regeringen utfärdar den så att den publiceras i Svensk författningssamling och börjar gälla från ett bestämt datum. Myndigheter och domstolar ska därefter tillämpa lagen.",
+      "steps": [
+        "Behov och utredning: regeringen låter en utredning gå igenom frågan och lämna förslag i ett betänkande.",
+        "Remiss: myndigheter, organisationer och kommuner får lämna synpunkter på förslaget.",
+        "Proposition eller motion: regeringen lämnar ett färdigt lagförslag till riksdagen, eller en riksdagsledamot väcker en motion.",
+        "Utskottsberedning: ett riksdagsutskott granskar förslaget och lämnar ett betänkande med rekommendation.",
+        "Debatt, votering och utfärdande: riksdagen debatterar och röstar, och vid ja utfärdar regeringen lagen som börjar gälla från ett visst datum."
+      ]
+    },
+    {
+      "id": "q-sam8-pol-8",
+      "kind": "flashcard",
+      "topic": "riksdag, regering och statschef",
+      "prompt": "Sammanfatta hur Sverige styrs: riksdag, regering, statschef, kommun och region, val samt höger-vänster-skalan.",
+      "opener": "Från folkets röst till beslut på nationell och lokal nivå.",
+      "answer": "Riksdagen: 349 ledamöter valda av folket · beslutar om lagar och statens budget · granskar regeringen · Regeringen: statsministern och statsråden · styr landet, verkställer riksdagens beslut och lämnar propositioner · Statschef: kungen, ceremoniell roll utan politisk makt (regeringsformen 1974) · Lagens väg: utredning → remiss → proposition/motion → utskott → debatt och votering i kammaren → lagen utfärdas och börjar gälla · Kommun: skola, förskola, äldreomsorg, socialtjänst, vatten och avfall, plan och bygg · Region: sjukvård och regional kollektivtrafik · Staten: försvar, utrikespolitik, polis, domstolar · Val: riksdag, kommun och region vart fjärde år i september, rösträtt vid 18 år, proportionellt valsystem, fyraprocentspärr till riksdagen; EU-val vart femte år · Höger-vänster-skalan: ett förenklat verktyg för att sortera politiska idéer, bland annat om statens roll i ekonomin och avvägningen mellan gemensamma lösningar och eget ansvar — partier kan ligga olika i olika frågor."
+    }
+  ]
+}

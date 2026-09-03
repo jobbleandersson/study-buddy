@@ -1,0 +1,128 @@
+{
+  "id": "lib-kemi-reaktioner",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Kemiska reaktioner och bindningar",
+  "sourceSummary": "Skillnaden mellan kemisk och fysikalisk förändring, grundidén bakom kovalent bindning och jonbindning, hur man balanserar enkla reaktionsformler samt exoterma och endoterma reaktioner.",
+  "topics": [
+    "kemisk och fysikalisk förändring",
+    "kemiska bindningar",
+    "reaktionsformler",
+    "exoterma och endoterma reaktioner"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi-rea-1",
+      "kind": "mc",
+      "topic": "kemisk och fysikalisk förändring",
+      "prompt": "Vilket av följande är ett exempel på en KEMISK förändring?",
+      "opener": "Fundera på om det bildas ett nytt ämne med nya egenskaper, eller om det bara är samma ämne som byter form.",
+      "choices": [
+        "Is smälter till vatten",
+        "Papper brinner upp till aska",
+        "Socker löses upp i vatten",
+        "Vatten kokar och blir vattenånga"
+      ],
+      "answer": 1,
+      "explanation": "När papper brinner bildas nya ämnen (bland annat koldioxid, vatten och aska) med helt andra egenskaper än papperet — det är en kemisk förändring. De andra exemplen är fysikaliska förändringar där ämnet bara byter form eller aggregationstillstånd, utan att bli något nytt."
+    },
+    {
+      "id": "q-kemi-rea-2",
+      "kind": "mc",
+      "topic": "kemisk och fysikalisk förändring",
+      "prompt": "Vad kännetecknar en KEMISK reaktion, till skillnad från en fysikalisk förändring?",
+      "opener": "Tänk på vad som händer med ämnenas identitet, inte bara deras form.",
+      "choices": [
+        "Ämnets temperatur ändras",
+        "Ämnets form eller aggregationstillstånd ändras",
+        "Ett eller flera nya ämnen bildas med nya egenskaper",
+        "Ämnets massa försvinner helt"
+      ],
+      "answer": 2,
+      "explanation": "Det avgörande för en kemisk reaktion är att nya ämnen med nya egenskaper bildas. Temperaturändringar och formändringar kan förekomma vid båda typerna av förändring, och massan bevaras alltid enligt lagen om bevarande av massa."
+    },
+    {
+      "id": "q-kemi-rea-3",
+      "kind": "mc",
+      "topic": "kemiska bindningar",
+      "prompt": "Vad kallas bindningen där atomer DELAR ett elektronpar mellan sig, till exempel i en vattenmolekyl (H2O)?",
+      "opener": "Tänk på ordet 'ko-' som betyder 'tillsammans' eller 'delat'.",
+      "choices": [
+        "Jonbindning",
+        "Kovalent bindning",
+        "Metallbindning",
+        "Kärnbindning"
+      ],
+      "answer": 1,
+      "explanation": "Kovalent bindning innebär att atomer delar ett eller flera elektronpar mellan sig, vanligt mellan icke-metaller som väte och syre. Jonbindning bygger i stället på att elektroner flyttas helt mellan atomer."
+    },
+    {
+      "id": "q-kemi-rea-4",
+      "kind": "mc",
+      "topic": "kemiska bindningar",
+      "prompt": "Vad kallas bindningen som bildas mellan en positiv och en negativ jon, till exempel i vanligt koksalt (NaCl)?",
+      "opener": "Tänk på vad som händer när natrium lämnar ifrån sig en elektron till klor.",
+      "choices": [
+        "Kovalent bindning",
+        "Metallbindning",
+        "Jonbindning",
+        "Molekylbindning"
+      ],
+      "answer": 2,
+      "explanation": "Jonbindning uppstår när en atom lämnar ifrån sig elektroner till en annan, så att en positiv och en negativ jon bildas som sedan attraherar varandra elektriskt. I NaCl har natrium lämnat en elektron till klor, vilket ger Na+ och Cl−."
+    },
+    {
+      "id": "q-kemi-rea-5",
+      "kind": "mc",
+      "topic": "reaktionsformler",
+      "prompt": "I en reaktionsformel som 2H2 + O2 → 2H2O talar siffrorna framför formlerna (koefficienterna) om...",
+      "opener": "Tänk på varför man behöver 'justera' antalet molekyler för att formeln ska stämma.",
+      "choices": [
+        "Hur många elektroner varje atom har",
+        "Hur många molekyler av respektive ämne som reagerar eller bildas",
+        "Atomens massa i gram",
+        "Hur giftigt ämnet är"
+      ],
+      "answer": 1,
+      "explanation": "Koefficienterna visar förhållandet mellan antalet molekyler som reagerar och bildas. De balanseras så att antalet atomer av varje grundämne är lika på båda sidor om pilen, enligt lagen om bevarande av massa."
+    },
+    {
+      "id": "q-kemi-rea-6",
+      "kind": "mc",
+      "topic": "exoterma och endoterma reaktioner",
+      "prompt": "En reaktion där energi frigörs till omgivningen, till exempel som värme, kallas för...",
+      "opener": "'Exo-' betyder 'ut' — tänk på i vilken riktning energin rör sig.",
+      "choices": [
+        "En endoterm reaktion",
+        "En exoterm reaktion",
+        "En katalytisk reaktion",
+        "En neutral reaktion"
+      ],
+      "answer": 1,
+      "explanation": "Exoterm reaktion frigör energi till omgivningen, till exempel förbränning som känns varm. Endoterm reaktion är motsatsen — den tar upp energi från omgivningen, vilket ofta känns kallt."
+    },
+    {
+      "id": "q-kemi-rea-7",
+      "kind": "worked",
+      "topic": "reaktionsformler",
+      "prompt": "Balansera reaktionsformeln för förbränning av vätgas: H2 + O2 → H2O. Hur många av varje molekyl behövs för att lika många atomer av varje grundämne ska finnas på båda sidor?",
+      "opener": "Räkna antalet väte- och syreatomer på varje sida och justera koefficienterna tills de stämmer överens.",
+      "answer": "Den balanserade formeln är 2H2 + O2 → 2H2O.",
+      "steps": [
+        "Skriv upp formeln: H2 + O2 → H2O. Räkna atomer: vänster sida har 2 väte och 2 syre, höger sida har 2 väte men bara 1 syre — obalanserat.",
+        "Sätt en tvåa framför H2O för att få två syreatomer på höger sida: H2 + O2 → 2H2O. Nu är syret balanserat (2 = 2), men höger sida har nu 4 väteatomer mot vänster sidans 2.",
+        "Sätt en tvåa framför H2 på vänster sida för att också få 4 väteatomer där: 2H2 + O2 → 2H2O.",
+        "Kontrollera: vänster sida har 4 väte och 2 syre. Höger sida har 4 väte (2×2) och 2 syre (2×1). Antalet atomer av varje grundämne stämmer nu på båda sidor — formeln är balanserad enligt lagen om bevarande av massa."
+      ]
+    },
+    {
+      "id": "q-kemi-rea-8",
+      "kind": "flashcard",
+      "topic": "kemiska bindningar",
+      "prompt": "Sammanfatta kemiska reaktioner och bindningar: vad skiljer kemisk från fysikalisk förändring, vilka bindningstyper finns, och vad är exoterm/endoterm?",
+      "opener": "Tänk nytt ämne eller inte, delade eller flyttade elektroner, och energi in eller ut.",
+      "answer": "Fysikalisk förändring: ämnets form eller aggregationstillstånd ändras, men det förblir samma ämne (t.ex. is smälter) · Kemisk förändring/reaktion: ett eller flera nya ämnen bildas med nya egenskaper (t.ex. förbränning, rostbildning) · Kovalent bindning: atomer DELAR elektronpar, vanligt mellan icke-metaller (t.ex. vatten, H2O) · Jonbindning: elektroner flyttas helt mellan atomer så att positiva och negativa joner attraherar varandra (t.ex. koksalt, NaCl) · Reaktionsformel: visar vilka ämnen som reagerar (vänster om pilen) och bildas (höger om pilen); koefficienterna balanseras så att antalet atomer av varje grundämne är lika på båda sidor (lagen om bevarande av massa) · Exoterm reaktion: frigör energi till omgivningen, ofta som värme (t.ex. förbränning) · Endoterm reaktion: tar upp energi från omgivningen (t.ex. vissa upplösningsreaktioner)."
+    }
+  ]
+}

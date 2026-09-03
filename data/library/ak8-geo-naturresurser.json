@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo8-naturresurser",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Naturresurser och energi",
+  "sourceSummary": "Vad som skiljer förnybara från icke-förnybara resurser, var i världen de viktigaste resurserna finns, för- och nackdelar med olika energikällor, hur sötvattnet är fördelat och varför resursanvändningen är så ojämn mellan rika och fattiga länder.",
+  "topics": [
+    "förnybara och icke-förnybara resurser",
+    "var resurserna finns i världen",
+    "energikällors för- och nackdelar",
+    "vattenresurser",
+    "resursanvändning i rika och fattiga länder"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo8-nat-1",
+      "kind": "mc",
+      "topic": "förnybara och icke-förnybara resurser",
+      "prompt": "Vilken av följande är en icke-förnybar naturresurs?",
+      "opener": "En icke-förnybar resurs nybildas inte inom mänsklig tid – när den tagits ut är den borta.",
+      "choices": [
+        "Vindkraft",
+        "Solenergi",
+        "Olja",
+        "Skog"
+      ],
+      "answer": 2,
+      "explanation": "Olja har bildats under miljontals år av rester från växter och djur, så när den pumpas upp och bränns kan den inte ersättas – den är icke-förnybar. Vind och sol förnyas hela tiden, och skog räknas som förnybar så länge man planterar och avverkar i balans."
+    },
+    {
+      "id": "q-geo8-nat-2",
+      "kind": "mc",
+      "topic": "var resurserna finns i världen",
+      "prompt": "I vilken del av världen finns några av de största kända oljetillgångarna?",
+      "opener": "Länder som Saudiarabien, Irak och Kuwait ligger där.",
+      "choices": [
+        "Nordeuropa",
+        "Området runt Persiska viken i Mellanöstern",
+        "Centralafrika",
+        "Sydostasien"
+      ],
+      "answer": 1,
+      "explanation": "Länderna runt Persiska viken – bland andra Saudiarabien, Iran, Irak, Kuwait och Förenade Arabemiraten – har en mycket stor del av världens kända oljereserver, vilket gett dem stor ekonomisk och politisk betydelse. Nordsjön har olja men i betydligt mindre mängd, och Centralafrika och Sydostasien har andra viktiga resurser, som mineraler och tropiskt trä."
+    },
+    {
+      "id": "q-geo8-nat-3",
+      "kind": "mc",
+      "topic": "energikällors för- och nackdelar",
+      "prompt": "Vilken är en nackdel med vattenkraft?",
+      "opener": "Tänk på vad som händer med älven och landskapet när en damm byggs.",
+      "choices": [
+        "Den släpper ut mycket koldioxid när elen produceras",
+        "Den ger mycket lite el i förhållande till kostnaden",
+        "Bränslet tar snabbt slut",
+        "Dammar förändrar älvens ekosystem och kan tvinga människor att flytta"
+      ],
+      "answer": 3,
+      "explanation": "Vattenkraft ger stora mängder el nästan utan utsläpp, men dammbyggen dämmer upp älvar, hindrar fiskvandring, förändrar ekosystemet och kan sätta byar och odlingsmark under vatten. Koldioxidutsläpp vid elproduktionen och bränsle som tar slut är i stället problem med fossila bränslen."
+    },
+    {
+      "id": "q-geo8-nat-4",
+      "kind": "mc",
+      "topic": "energikällors för- och nackdelar",
+      "prompt": "Vilka energikällor står för den största delen av Sveriges elproduktion?",
+      "opener": "Tänk på älvarna i Norrland och de stora kraftverken vid kusten.",
+      "choices": [
+        "Vattenkraft och kärnkraft, tillsammans med en snabbt växande vindkraft",
+        "Kolkraft och oljekraftverk",
+        "Solkraft och biogas",
+        "Naturgas och torv"
+      ],
+      "answer": 0,
+      "explanation": "Sveriges el kommer främst från vattenkraft och kärnkraft, medan vindkraften har vuxit kraftigt de senaste åren – tillsammans ger de en elproduktion med låga koldioxidutsläpp. Kol, olja och naturgas används mycket sparsamt i svensk elproduktion, till skillnad från i många andra länder."
+    },
+    {
+      "id": "q-geo8-nat-5",
+      "kind": "mc",
+      "topic": "vattenresurser",
+      "prompt": "Hur stor del av jordens vatten är sötvatten som människor lätt kan använda?",
+      "opener": "Det mesta vattnet på jorden finns i haven, och en stor del av sötvattnet är fruset.",
+      "choices": [
+        "Ungefär hälften",
+        "Ungefär en fjärdedel",
+        "En mycket liten del – det mesta är saltvatten eller bundet i glaciärer och djup mark",
+        "Nästan allt, men det är ojämnt fördelat"
+      ],
+      "answer": 2,
+      "explanation": "Omkring 97 procent av jordens vatten är saltvatten, och av det lilla sötvatten som finns är största delen bundet i glaciärer, inlandsis och djupt grundvatten – bara någon bråkdel av en procent finns lättillgängligt i sjöar och floder. Därför är vattenbrist ett växande problem i många regioner trots att jorden ser vattenrik ut."
+    },
+    {
+      "id": "q-geo8-nat-6",
+      "kind": "mc",
+      "topic": "resursanvändning i rika och fattiga länder",
+      "prompt": "Vad mäter ett ekologiskt fotavtryck?",
+      "opener": "Måttet räknar om vår konsumtion till hur mycket natur den kräver.",
+      "choices": [
+        "Hur mycket avfall ett hushåll slänger per vecka",
+        "Hur mycket natur och naturresurser en människa eller ett land förbrukar",
+        "Hur stor yta ett land täcker på kartan",
+        "Hur många grader temperaturen stiger i ett land"
+      ],
+      "answer": 1,
+      "explanation": "Det ekologiska fotavtrycket räknar om mat, transporter, boende och varor till den yta natur som krävs för att producera detta och ta upp utsläppen – ofta angivet i \"antal jordklot\" om alla levde likadant. Avfallsmängd är bara en liten del av detta, och landets yta på kartan har inget med måttet att göra."
+    },
+    {
+      "id": "q-geo8-nat-7",
+      "kind": "worked",
+      "topic": "resursanvändning i rika och fattiga länder",
+      "prompt": "Förklara varför en person i ett höginkomstland förbrukar betydligt mer naturresurser än en person i ett låginkomstland.",
+      "opener": "Gå igenom en vanlig dag: hur man reser, vad man äter, hur man bor och vad man köper.",
+      "answer": "Skillnaden beror på konsumtionsnivå och levnadsstil. I ett höginkomstland reser man längre och oftare med bil och flyg, bor i större och uppvärmda bostäder med många apparater, äter mer kött och mejeriprodukter som kräver mycket mark, vatten och foder, och köper ofta nya kläder och elektronik som byts ut i snabb takt. Varje sådan vara kräver metaller, energi och transporter, och en stor del av produktionen sker dessutom i andra länder – utsläppen och resursuttaget hamnar där, men varan används här. I ett låginkomstland är inkomsten mycket lägre, maten oftare vegetabilisk och lokalproducerad, resandet kortare och ägodelarna färre och används längre. Därför kan det ekologiska fotavtrycket per person skilja sig många gånger om mellan länderna.",
+      "steps": [
+        "Högre inkomst gör att man kan köpa mer varor, energi och resor.",
+        "Transporter: bil och flyg kräver stora mängder fossil energi jämfört med gång, cykel och buss.",
+        "Boende: större bostäder som värms eller kyls, plus många elapparater.",
+        "Mat: mycket kött och mejeri kräver mer mark, foder och vatten än vegetabilisk kost.",
+        "Varor: kläder, elektronik och möbler byts ofta ut, och resurserna tas dessutom ofta ut i andra länder än där varan används."
+      ]
+    },
+    {
+      "id": "q-geo8-nat-8",
+      "kind": "flashcard",
+      "topic": "förnybara och icke-förnybara resurser",
+      "prompt": "Sammanfatta naturresurser, energikällor och vatten.",
+      "opener": "Tänk resurstyper, var de finns, energikällornas för- och nackdelar och hur vattnet är fördelat.",
+      "answer": "Naturresurs: något i naturen som människan använder · förnybara: sol, vind, vatten, vågor, geotermisk energi, skog och fisk (om de används i takt med att de återbildas) · icke-förnybara: olja, kol, naturgas, uran och metaller som bildats under miljontals år · fossila bränslen ger koldioxidutsläpp och klimatpåverkan men är lätta att lagra och transportera · kärnkraft: låga koldioxidutsläpp och mycket el, men radioaktivt avfall och höga byggkostnader · vattenkraft: mycket el och reglerbar, men dammar skadar ekosystem och kan tvinga folk att flytta · vindkraft och solkraft: inga utsläpp under drift men varierar med väder och kräver material till anläggningarna · bioenergi: förnybar om skogen återväxer, men konkurrerar om mark · Sveriges el kommer främst från vattenkraft, kärnkraft och vindkraft · resurser är ojämnt fördelade: olja kring Persiska viken, järn i Australien, Brasilien och Sverige, koppar i Chile, sällsynta jordartsmetaller i Kina · vatten: cirka 97 procent är saltvatten och mycket av sötvattnet är bundet i is, så bara en bråkdel är lätt att använda · vattenbrist och sinkande grundvatten är stora problem i torra områden · ekologiskt fotavtryck: mått på hur mycket natur en person eller ett land förbrukar – mångdubbelt större i höginkomstländer än i låginkomstländer."
+    }
+  ]
+}

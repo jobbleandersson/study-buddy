@@ -1,0 +1,130 @@
+{
+  "id": "lib-rel7-livsfragor",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Livsfrågor och etik",
+  "sourceSummary": "Vad en livsfråga är och varför människor svarar olika på den, skillnaden mellan etik och moral och hur man resonerar kring rätt och fel, den gyllene regeln i olika religioner, vad religionsfrihet innebär samt ateism och humanism som icke-religiösa livsåskådningar.",
+  "topics": [
+    "livsfrågor",
+    "etik och moral",
+    "den gyllene regeln",
+    "religionsfrihet",
+    "ateism och humanism"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel7-liv-1",
+      "kind": "mc",
+      "topic": "livsfrågor",
+      "prompt": "Vad kännetecknar en livsfråga?",
+      "opener": "Tänk på om frågan går att slå upp ett facit till.",
+      "choices": [
+        "Det är en fråga som alltid har ett enda vetenskapligt bevisat svar",
+        "Det är en stor fråga om livet, döden och meningen som människor svarar olika på",
+        "Det är en fråga som bara religiösa människor kan ställa",
+        "Det är en fråga om vad lagen säger i ett visst land"
+      ],
+      "answer": 1,
+      "explanation": "Livsfrågor handlar om sådant som meningen med livet, vad som händer efter döden, vad ett bra liv är och varför det finns lidande — frågor som människor besvarar olika utifrån sin livsåskådning, sina erfarenheter och sin kultur. Det finns alltså inget facit, och både religiösa och icke-religiösa människor ställer dem."
+    },
+    {
+      "id": "q-rel7-liv-2",
+      "kind": "mc",
+      "topic": "etik och moral",
+      "prompt": "Vad är skillnaden mellan etik och moral?",
+      "opener": "Det ena är tanken bakom, det andra är vad du faktiskt gör.",
+      "choices": [
+        "Etik gäller religiösa människor och moral gäller icke-religiösa",
+        "Det är två ord för exakt samma sak",
+        "Etik är lagar och moral är regler i skolan",
+        "Etik är att tänka och resonera kring vad som är rätt och fel, moral är hur man faktiskt handlar"
+      ],
+      "answer": 3,
+      "explanation": "Etik är reflektionen — själva tänkandet och resonemanget om vad som är rätt och fel — medan moral är hur en person eller ett samhälle faktiskt handlar i praktiken. Orden hänger ihop men betyder inte samma sak, och båda används om alla människor, oavsett livsåskådning; lagar är dessutom något annat än moral, även om de ofta påverkar varandra."
+    },
+    {
+      "id": "q-rel7-liv-3",
+      "kind": "mc",
+      "topic": "etik och moral",
+      "prompt": "En elev resonerar: \"Att fuska på provet är fel eftersom det leder till att betygen blir orättvisa och att andra elever drabbas.\" Vilken sorts etiskt resonemang är det närmast?",
+      "opener": "Lägg märke till om eleven tittar på följderna eller på själva regeln.",
+      "choices": [
+        "Konsekvensetik, eftersom eleven bedömer handlingen utifrån dess följder",
+        "Pliktetik, eftersom eleven följer en regel oavsett vad som händer",
+        "Sinnelagsetik, eftersom eleven bedömer avsikten bakom handlingen",
+        "Inget etiskt resonemang alls, eftersom det handlar om skolan"
+      ],
+      "answer": 0,
+      "explanation": "Eleven pekar på vad fusket leder till — orättvisa betyg och drabbade klasskamrater — och det är typiskt konsekvensetik, där följderna avgör om något är rätt. Ett pliktetiskt resonemang hade i stället lytt \"man ska aldrig fuska, för det är en regel\", och ett sinnelagsetiskt hade utgått från avsikten bakom handlingen."
+    },
+    {
+      "id": "q-rel7-liv-4",
+      "kind": "mc",
+      "topic": "den gyllene regeln",
+      "prompt": "Vad innebär den gyllene regeln?",
+      "opener": "Byt plats med den andra personen och tänk efter.",
+      "choices": [
+        "Att alltid följa landets lagar",
+        "Att den starkaste bestämmer",
+        "Att behandla andra som du själv vill bli behandlad",
+        "Att man ska hämnas det man har blivit utsatt för"
+      ],
+      "answer": 2,
+      "explanation": "Den gyllene regeln innebär att du ska behandla andra så som du själv vill bli behandlad, ibland formulerad negativt: gör inte mot andra det du inte vill att de gör mot dig. Den handlar om att sätta sig in i andras situation och är alltså varken en laglydnadsregel eller en hämndprincip."
+    },
+    {
+      "id": "q-rel7-liv-5",
+      "kind": "mc",
+      "topic": "den gyllene regeln",
+      "prompt": "I vilka religioner finns den gyllene regeln i någon form?",
+      "opener": "Leta efter tanken, inte efter exakt samma ord.",
+      "choices": [
+        "Endast inom kristendomen",
+        "Endast inom judendomen och islam",
+        "Bara i icke-religiösa livsåskådningar",
+        "Den finns i liknande formuleringar inom flera religioner, bland annat judendom, kristendom, islam, hinduism och buddhism"
+      ],
+      "answer": 3,
+      "explanation": "Liknande formuleringar återfinns i flera traditioner: inom judendomen tillskrivs rabbinen Hillel orden om att inte göra mot andra det man själv hatar, inom kristendomen finns regeln i Bergspredikan, inom islam i haditherna, och inom hinduism och buddhism uttrycks samma tanke i skrifter som Mahabharata och Dhammapada. Liknande principer finns dessutom i icke-religiösa livsåskådningar, så regeln hör inte till en enda religion."
+    },
+    {
+      "id": "q-rel7-liv-6",
+      "kind": "mc",
+      "topic": "religionsfrihet",
+      "prompt": "Vad innebär religionsfrihet enligt FN:s deklaration om de mänskliga rättigheterna och svensk lag?",
+      "opener": "Tänk på att friheten går åt båda hållen.",
+      "choices": [
+        "Att alla måste tillhöra ett trossamfund",
+        "Att var och en har rätt att ha, byta och lämna en religion, att utöva den — och att låta bli att tro",
+        "Att staten bestämmer vilka religioner som får finnas",
+        "Att religiösa regler alltid går före landets lagar"
+      ],
+      "answer": 1,
+      "explanation": "Religionsfriheten skyddar både rätten att tro, byta tro och utöva sin religion ensam eller tillsammans med andra, och rätten att inte tro alls — i Sverige är den grundlagsskyddad och kom i full form med religionsfrihetslagen 1951. Friheten innebär däremot inte att religiösa regler står över landets lagar, och den kan begränsas om utövandet skadar andra människor."
+    },
+    {
+      "id": "q-rel7-liv-7",
+      "kind": "worked",
+      "topic": "ateism och humanism",
+      "prompt": "Förklara skillnaden mellan ateism, agnosticism och sekulär humanism, och varför alla tre räknas som livsåskådningar eller ståndpunkter i livsfrågor.",
+      "opener": "Börja med vad begreppen betyder var för sig, jämför dem sedan med hur religiösa livsåskådningar fungerar.",
+      "answer": "Ateism betyder att man inte tror att någon gud finns. Agnosticism är ståndpunkten att man inte kan veta om det finns någon gud — en agnostiker tar alltså inte ställning i frågan. Sekulär humanism är en bredare livsåskådning utan gudstro, där man menar att människan själv får söka svaren och att förnuft, vetenskap, medmänsklighet och mänskliga rättigheter ska vägleda hur vi lever. En ateist behöver inte kalla sig humanist, men de flesta humanister är ateister eller agnostiker. Begreppet livsåskådning är vidare än begreppet religion: det rymmer både religiösa och icke-religiösa sätt att se på tillvaron. Alla tre svarar därför på samma slags livsfrågor som religionerna gör — vad som är meningen med livet, vad som händer efter döden och hur man bör leva — men de gör det utan att utgå från en gud. I Sverige skyddar religionsfriheten både rätten att tro och rätten att inte tro, och ingen av ståndpunkterna kan sägas vara mer rätt än en annan.",
+      "steps": [
+        "Ateism: att inte tro att någon gud finns.",
+        "Agnosticism: uppfattningen att man inte kan veta om någon gud finns, alltså ingen ståndpunkt för eller emot.",
+        "Sekulär humanism: en livsåskådning utan gudstro som betonar förnuft, medmänsklighet, ansvar och mänskliga rättigheter.",
+        "Livsåskådning är ett vidare begrepp än religion och rymmer både religiösa och icke-religiösa svar på livsfrågor.",
+        "Alla tre besvarar samma livsfrågor som religionerna, men utan gud — och religionsfriheten skyddar såväl tro som icke-tro."
+      ]
+    },
+    {
+      "id": "q-rel7-liv-8",
+      "kind": "flashcard",
+      "topic": "livsfrågor",
+      "prompt": "Sammanfatta livsfrågor, etik och olika livsåskådningar.",
+      "opener": "Ta begreppen i tur och ordning: livsfråga, etik, gyllene regeln, religionsfrihet, livsåskådningar.",
+      "answer": "Livsfråga: stor fråga om tillvaron utan facit, t.ex. meningen med livet, vad som händer efter döden, varför det finns lidande, vad ett bra liv är · människor svarar olika utifrån livsåskådning, kultur och egna erfarenheter · Livsåskådning: en persons samlade syn på tillvaron, kan vara religiös (judendom, kristendom, islam, hinduism, buddhism) eller icke-religiös (sekulär humanism) · Etik: att tänka och resonera kring rätt och fel · Moral: hur man faktiskt handlar · Etiska modeller: konsekvensetik ser till följderna av handlingen · pliktetik ser till regler och plikter som gäller oavsett följd · sinnelagsetik ser till avsikten bakom handlingen · dygdetik frågar vilken sorts människa man vill vara · Gyllene regeln: behandla andra som du själv vill bli behandlad · finns i liknande form inom judendom (Hillel), kristendom (Bergspredikan), islam (haditherna), hinduism (Mahabharata) och buddhism (Dhammapada), samt i icke-religiösa livsåskådningar · Religionsfrihet: rätten att ha, byta, lämna och utöva en religion — och rätten att inte tro · finns i FN:s deklaration om de mänskliga rättigheterna artikel 18 och i svensk grundlag · full religionsfrihet i Sverige genom religionsfrihetslagen 1951 · gäller inte över landets lagar och kan begränsas om andra skadas · Ateism: att inte tro att någon gud finns · Agnosticism: att anse att man inte kan veta · Sekulär humanism: livsåskådning utan gudstro som betonar förnuft, vetenskap, medmänsklighet och mänskliga rättigheter · Att studera livsfrågor jämförande betyder att beskriva hur olika människor tänker, inte att avgöra vem som har rätt."
+    }
+  ]
+}

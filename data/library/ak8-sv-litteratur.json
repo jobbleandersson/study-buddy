@@ -1,0 +1,130 @@
+{
+  "id": "lib-sv8-litteratur",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Litterära begrepp och analys",
+  "sourceSummary": "Genrer, berättarperspektiv, miljö, tema och motiv samt bildspråk som liknelse, metafor och personifikation. Begreppen du behöver för att skriva en bokanalys som håller ihop.",
+  "topics": [
+    "genrer",
+    "berättarperspektiv",
+    "tema och motiv",
+    "bildspråk",
+    "karaktärer"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv8-lit-1",
+      "kind": "mc",
+      "topic": "genrer",
+      "prompt": "Vad skiljer främst en novell från en roman?",
+      "opener": "Tänk inte bara på antalet sidor, utan på hur många trådar berättelsen hinner ha.",
+      "choices": [
+        "Novellen är alltid sann, romanen är påhittad",
+        "Novellen saknar berättare",
+        "Novellen är kort och koncentrerad kring få personer och ett händelseförlopp",
+        "Novellen skrivs alltid i presens"
+      ],
+      "answer": 2,
+      "explanation": "Novellen är en kort prosaberättelse som koncentrerar sig på ett fåtal personer och ofta en enda avgörande händelse, medan romanen har plats för flera handlingstrådar och en längre utveckling. Både noveller och romaner är skönlitteratur och alltså inte sanna berättelser."
+    },
+    {
+      "id": "q-sv8-lit-2",
+      "kind": "mc",
+      "topic": "genrer",
+      "prompt": "Vilket drag är typiskt för genren fantasy men inte för deckaren?",
+      "opener": "Fråga vilken sorts värld berättelsen utspelar sig i.",
+      "choices": [
+        "Det finns en spänningskurva",
+        "Berättelsen utspelar sig i en påhittad värld med egna lagar, ofta med magi",
+        "Det finns en huvudperson som löser ett problem",
+        "Berättelsen har en miljöbeskrivning"
+      ],
+      "answer": 1,
+      "explanation": "Fantasy bygger på en sekundärvärld med egna regler, ofta magi eller mytiska varelser. Spänningskurva, huvudperson och miljöbeskrivning finns i båda genrerna och kan därför inte skilja dem åt — deckarens kännetecken är i stället brottet och utredningen."
+    },
+    {
+      "id": "q-sv8-lit-3",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "Vilket berättarperspektiv används här? \"Hon visste inte att Elias hade sett allt från fönstret, och Elias tänkte att han aldrig skulle berätta det.\"",
+      "opener": "Kolla hur många personers tankar berättaren har tillgång till.",
+      "choices": [
+        "Jagberättare",
+        "Allvetande berättare (tredje person)",
+        "Du-perspektiv",
+        "Begränsad jagberättare"
+      ],
+      "answer": 1,
+      "explanation": "Berättaren kan se in i både hennes och Elias tankar och står utanför handlingen — det är en allvetande berättare i tredje person. En jagberättare skulle säga \"jag\" och bara kunna redovisa sina egna tankar."
+    },
+    {
+      "id": "q-sv8-lit-4",
+      "kind": "mc",
+      "topic": "tema och motiv",
+      "prompt": "En bok handlar om en tjej som byter skola och sakta hittar nya vänner. Vad är rimligast som TEMA?",
+      "opener": "Motiv är det konkreta som händer, tema är den större frågan boken handlar om på djupet.",
+      "choices": [
+        "Skolbyte",
+        "En tjej i högstadiet",
+        "Bussresor till den nya skolan",
+        "Utanförskap och tillhörighet"
+      ],
+      "answer": 3,
+      "explanation": "Temat är den övergripande idén, här utanförskap och tillhörighet. \"Skolbyte\" är ett motiv — en konkret återkommande situation i handlingen — och fungerar som exempel på temat, inte som temat självt."
+    },
+    {
+      "id": "q-sv8-lit-5",
+      "kind": "mc",
+      "topic": "bildspråk",
+      "prompt": "Vilken mening innehåller en liknelse?",
+      "opener": "Liknelsen använder ett jämförelseord, metaforen gör det inte.",
+      "choices": [
+        "Han sprang som ett lejon över planen.",
+        "Han var ett lejon på fotbollsplanen.",
+        "Vinden viskade i trädkronorna.",
+        "Planen låg tom i kvällsljuset."
+      ],
+      "answer": 0,
+      "explanation": "Liknelsen jämför med hjälp av ordet \"som\": han sprang som ett lejon. \"Han var ett lejon\" är i stället en metafor, eftersom jämförelsen är underförstådd, och \"vinden viskade\" är personifikation."
+    },
+    {
+      "id": "q-sv8-lit-6",
+      "kind": "mc",
+      "topic": "karaktärer",
+      "prompt": "Vad menas med att en karaktär genomgår en utveckling i en berättelse?",
+      "opener": "Tänk på skillnaden mellan att byta plats och att byta sig själv.",
+      "choices": [
+        "Att karaktären flyttar till en ny miljö",
+        "Att karaktären förändras i sitt sätt att tänka, känna eller handla under berättelsens gång",
+        "Att karaktären beskrivs utförligt i början",
+        "Att karaktären nämns i flera kapitel"
+      ],
+      "answer": 1,
+      "explanation": "En karaktärsutveckling innebär en inre förändring — personen tänker eller agerar annorlunda i slutet än i början, ofta på grund av det hen varit med om. En flytt eller en lång beskrivning ger yttre förändring men behöver inte betyda att personen utvecklats."
+    },
+    {
+      "id": "q-sv8-lit-7",
+      "kind": "worked",
+      "topic": "bildspråk",
+      "prompt": "Analysera bildspråket i textstycket: \"Regnet trummade mot rutan. Sara satt tyst som en sten i soffan, och tankarna var ett myller av myror som inte gick att stoppa.\" Namnge varje bild och förklara vad den gör med texten.",
+      "opener": "Leta först efter jämförelseordet \"som\", sedan efter bilder utan jämförelseord, och till sist efter något livlöst som beter sig som en människa.",
+      "answer": "Tre bilder: personifikation (\"regnet trummade\"), liknelse (\"tyst som en sten\") och metafor (\"tankarna var ett myller av myror\"). Tillsammans målar de upp Saras inre oro genom yttre bilder.",
+      "steps": [
+        "\"Regnet trummade\" ger regnet en mänsklig handling — personifikation, som gör miljön levande och lite hotfull.",
+        "\"Tyst som en sten\" innehåller jämförelseordet \"som\" — liknelse, som förstärker att Sara är helt orörlig och stum.",
+        "\"Tankarna var ett myller av myror\" jämför utan jämförelseord — metafor, som visar att tankarna är många, snabba och omöjliga att kontrollera.",
+        "Notera kontrasten: kroppen är stilla (stenen) medan huvudet kryllar (myrorna). Bildspråket bär alltså textens tema om inre oro.",
+        "I en analys räcker det inte att namnge bilden — skriv alltid vad den gör för stämningen eller karaktären."
+      ]
+    },
+    {
+      "id": "q-sv8-lit-8",
+      "kind": "flashcard",
+      "topic": "tema och motiv",
+      "prompt": "Vilka begrepp behöver du för en bokanalys, och vad betyder de?",
+      "opener": "Sex begrepp du bör kunna använda utan att blanda ihop dem.",
+      "answer": "Genre · berättelsens typ · roman (lång, flera trådar), novell (kort, en händelse), deckare (brott och utredning), fantasy (påhittad värld med magi). Berättarperspektiv · jagberättare (\"jag\", ser bara sina egna tankar), allvetande tredjeperson (ser alla tankar), begränsad tredjeperson (följer en person). Miljö · var och när berättelsen utspelar sig · yttre miljö (plats, tid) och social miljö (klass, familj, samhälle) · skapar stämning. Motiv · det konkreta som återkommer (skolbyte, en resa, ett svek). Tema · den stora frågan under ytan (vänskap, utanförskap, rättvisa). Bildspråk · liknelse med \"som\" · metafor utan jämförelseord · personifikation när något livlöst gör mänskliga saker. Karaktärsutveckling · inre förändring från början till slut."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist-kolonialism",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Kolonialism och imperialism",
+  "sourceSummary": "Hur europeiska stormakter erövrade och styrde stora delar av världen, vilka konsekvenser det fick för de koloniserade områdena, och hur avkoloniseringen till slut förändrade världskartan.",
+  "topics": [
+    "vad kolonialism och imperialism innebar",
+    "europeiska stormakters kolonier",
+    "konsekvenser för koloniserade områden",
+    "avkolonisering"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist-kol-1",
+      "kind": "mc",
+      "topic": "vad kolonialism och imperialism innebar",
+      "prompt": "Vad innebär kolonialism?",
+      "opener": "Tänk på vem som bestämmer och vem som utnyttjas.",
+      "choices": [
+        "Att en stat tar kontroll över och styr ett annat territorium, ofta för att utnyttja dess resurser och arbetskraft",
+        "Att länder handlar fritt med varandra på helt lika villkor",
+        "Att ett land bygger infrastruktur i ett annat land som en gåva utan motkrav",
+        "Att två självständiga länder frivilligt går samman till ett enda land"
+      ],
+      "answer": 0,
+      "explanation": "Kolonialism innebär att en stat (kolonialmakten) erövrar, styr och kontrollerar ett annat territorium (kolonin), ofta för att få tillgång till råvaror, arbetskraft och nya marknader — vanligtvis utan att den lokala befolkningen har något verkligt inflytande över besluten."
+    },
+    {
+      "id": "q-hist-kol-2",
+      "kind": "mc",
+      "topic": "vad kolonialism och imperialism innebar",
+      "prompt": "Vad är skillnaden mellan begreppen imperialism och kolonialism, allmänt sett?",
+      "opener": "Imperialism är det bredare begreppet — kolonialism är ett sätt att utöva imperialism i praktiken.",
+      "choices": [
+        "Imperialism är den bredare strävan efter makt och inflytande över andra områden, medan kolonialism är en konkret form där kolonier grundas och styrs direkt",
+        "Begreppen betyder exakt samma sak utan någon skillnad",
+        "Imperialism handlar bara om handel, kolonialism bara om krigföring",
+        "Kolonialism ägde bara rum i Afrika, imperialism bara i Asien"
+      ],
+      "answer": 0,
+      "explanation": "Imperialism är det övergripande begreppet för en stats strävan att utöka sin makt och sitt inflytande över andra områden, exempelvis genom ekonomisk dominans eller militärt tryck. Kolonialism är ett konkret sätt att göra detta genom att direkt erövra, bosätta och styra kolonier."
+    },
+    {
+      "id": "q-hist-kol-3",
+      "kind": "mc",
+      "topic": "europeiska stormakters kolonier",
+      "prompt": "Vilka europeiska länder byggde upp några av de allra största kolonialrikena?",
+      "opener": "Tänk på länder vars språk fortfarande talas i stora delar av Afrika, Asien och Amerika.",
+      "choices": [
+        "Storbritannien och Frankrike, men även Spanien, Portugal, Nederländerna och Belgien",
+        "Endast Sverige och Norge",
+        "Endast Tyskland och Italien",
+        "Endast USA och Kanada"
+      ],
+      "answer": 0,
+      "explanation": "Storbritannien och Frankrike byggde upp de största kolonialrikena, men även Spanien och Portugal (särskilt i Amerika), samt Nederländerna och Belgien (särskilt i Asien och Afrika) hade omfattande kolonier under flera hundra år."
+    },
+    {
+      "id": "q-hist-kol-4",
+      "kind": "mc",
+      "topic": "europeiska stormakters kolonier",
+      "prompt": "Vad var en vanlig drivkraft bakom europeisk kolonisering?",
+      "opener": "Tänk ekonomi, makt och prestige — vad ville stormakterna vinna?",
+      "choices": [
+        "Att få tillgång till råvaror och nya marknader samt öka landets politiska makt och prestige",
+        "Att demokrati var det enda skälet till all kolonisering",
+        "Att hjälpa de koloniserade folken bli självständiga så snabbt som möjligt",
+        "Att minska Europas egen befolkning"
+      ],
+      "answer": 0,
+      "explanation": "Kolonialmakterna drevs framför allt av ekonomiska motiv (råvaror som bomull, socker och senare olja och mineraler, samt nya marknader för egna varor) och av strävan efter politisk makt och nationell prestige gentemot andra stormakter."
+    },
+    {
+      "id": "q-hist-kol-5",
+      "kind": "mc",
+      "topic": "konsekvenser för koloniserade områden",
+      "prompt": "Vilka konsekvenser fick kolonialismen ofta för de koloniserade områdena?",
+      "opener": "Tänk på både ekonomiska, kulturella och politiska följder, samt hur gränser drogs.",
+      "choices": [
+        "Utnyttjande av naturresurser och arbetskraft, undertryckt lokal kultur och godtyckligt dragna gränser som senare orsakade konflikter",
+        "Enbart positiva effekter helt utan nackdelar för lokalbefolkningen",
+        "Att de koloniserade områdena snabbt blev rikare än kolonialmakterna",
+        "Att lokalbefolkningen fick full politisk makt över sina egna länder redan under kolonialtiden"
+      ],
+      "answer": 0,
+      "explanation": "Kolonialismen ledde ofta till att naturresurser och arbetskraft utnyttjades för kolonialmaktens vinning, att lokala kulturer och samhällsstrukturer undertrycktes, och att gränser drogs efter kolonialmakternas intressen snarare än efter folkgrupper — gränser som i många fall skapade konflikter långt senare."
+    },
+    {
+      "id": "q-hist-kol-6",
+      "kind": "mc",
+      "topic": "avkolonisering",
+      "prompt": "Vad innebär avkolonisering?",
+      "opener": "Tänk på motsatsen till att en stormakt tar kontroll över ett territorium.",
+      "choices": [
+        "Processen där kolonier steg för steg blev självständiga stater, särskilt efter andra världskriget",
+        "Processen där kolonialmakter grundade fler nya kolonier",
+        "En annan benämning på Europeiska unionens grundande",
+        "En annan benämning på kalla krigets slut"
+      ],
+      "answer": 0,
+      "explanation": "Avkolonisering är den process där kolonier gradvis blev självständiga nationer, ofta genom självständighetsrörelser och förhandlingar eller väpnad kamp. Processen tog fart särskilt under åren efter andra världskriget."
+    },
+    {
+      "id": "q-hist-kol-7",
+      "kind": "worked",
+      "topic": "avkolonisering",
+      "prompt": "Förklara varför avkoloniseringen tog fart efter andra världskriget.",
+      "opener": "Tänk på hur kriget påverkade kolonialmakterna själva, och vilka idéer som växte sig starkare i världen.",
+      "answer": "Efter andra världskriget var flera kolonialmakter, som Storbritannien och Frankrike, ekonomiskt och militärt försvagade av kriget och hade svårare att upprätthålla kontrollen över sina kolonier. Samtidigt hade självständighetsrörelser växt sig starkare i många kolonier, delvis inspirerade av idéer om folkens rätt till självbestämmande som lyftes fram i bland annat FN-stadgan. Indiens självständighet 1947 blev ett tidigt och inflytelserikt exempel, och under 1950- och 60-talen blev de flesta afrikanska och asiatiska kolonier självständiga stater.",
+      "steps": [
+        "Andra världskriget försvagade kolonialmakterna ekonomiskt och militärt, vilket gjorde det svårare att kontrollera kolonierna.",
+        "Idéer om folkens rätt till självbestämmande spreds internationellt, bland annat genom FN.",
+        "Självständighetsrörelser i kolonierna växte sig starkare och krävde frihet, ibland genom förhandlingar och ibland genom väpnad kamp.",
+        "Indien blev självständigt 1947, vilket inspirerade andra rörelser i Asien och Afrika.",
+        "Under 1950- och 60-talen blev de flesta återstående kolonierna i Afrika och Asien självständiga stater."
+      ]
+    },
+    {
+      "id": "q-hist-kol-8",
+      "kind": "flashcard",
+      "topic": "vad kolonialism och imperialism innebar",
+      "prompt": "Sammanfatta kolonialismens och imperialismens viktigaste drag och följder.",
+      "opener": "Tänk begrepp, drivkrafter, exempel på kolonialmakter, konsekvenser och avkolonisering.",
+      "answer": "Kolonialism innebär att en stat erövrar och styr ett annat territorium, ofta för att utnyttja dess resurser · imperialism är det bredare begreppet för strävan efter makt och inflytande över andra områden · de största europeiska kolonialmakterna var Storbritannien och Frankrike, men även Spanien, Portugal, Nederländerna och Belgien · drivkrafterna var framför allt ekonomiska (råvaror, marknader) och politiska (makt och prestige) · kolonialismen ledde ofta till utnyttjande av naturresurser och arbetskraft, undertryckt lokal kultur och godtyckligt dragna gränser · avkoloniseringen tog fart efter andra världskriget, då kolonialmakterna var försvagade och självständighetsrörelser växte sig starkare · Indiens självständighet 1947 blev ett tidigt exempel, och de flesta afrikanska och asiatiska kolonier blev fria under 1950- och 60-talen."
+    }
+  ]
+}

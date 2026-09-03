@@ -1,0 +1,129 @@
+{
+  "id": "lib-ma8-statistik",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Statistik och diagram",
+  "sourceSummary": "Räkna ut medelvärde, median, typvärde och variationsbredd, och läsa stapel-, linje- och cirkeldiagram — inklusive att upptäcka när ett diagram vilseleder.",
+  "topics": [
+    "lägesmått",
+    "spridning",
+    "diagram",
+    "källkritik"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma8-sta-1",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Vad är medelvärdet av talen 4, 7, 9 och 12?",
+      "opener": "Lägg ihop allt och fördela jämnt på antalet värden.",
+      "choices": [
+        "7",
+        "8",
+        "9",
+        "32"
+      ],
+      "answer": 1,
+      "explanation": "$4 + 7 + 9 + 12 = 32$ och $32 / 4 = 8$. Svaret 32 är summan — man måste dela med antalet värden också."
+    },
+    {
+      "id": "q-ma8-sta-2",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Vad är medianen i talserien 3, 5, 9, 2, 7?",
+      "opener": "Medianen kräver att talen står i ordning först.",
+      "choices": [
+        "9",
+        "5",
+        "5,2",
+        "7"
+      ],
+      "answer": 1,
+      "explanation": "Sorterat: 2, 3, 5, 7, 9. Det mittersta av fem värden är 5. Svaret 5,2 är medelvärdet ($26/5$), inte medianen — och 9 är det största värdet."
+    },
+    {
+      "id": "q-ma8-sta-3",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Vad är typvärdet i serien 2, 3, 3, 5, 7, 3, 8?",
+      "opener": "Typvärdet handlar om hur ofta ett värde dyker upp, inte om hur stort det är.",
+      "choices": [
+        "3",
+        "5",
+        "4,4",
+        "8"
+      ],
+      "answer": 0,
+      "explanation": "Talet 3 förekommer tre gånger, alla andra bara en gång — typvärdet är 3. Svaret 4,4 är medelvärdet ($31/7 \\approx 4{,}4$), inte typvärdet. (Medianen blir också 3: sorterat står talen 2, 3, 3, 3, 5, 7, 8.)"
+    },
+    {
+      "id": "q-ma8-sta-4",
+      "kind": "mc",
+      "topic": "spridning",
+      "prompt": "I ett linjediagram över veckans temperaturer avläser du värdena −3, −1, 2, 5, 7, 4 och 0 °C. Vad är variationsbredden?",
+      "opener": "Variationsbredd är avståndet mellan ytterligheterna — och tänk på minustecknen.",
+      "choices": [
+        "4 °C",
+        "7 °C",
+        "10 °C",
+        "14 °C"
+      ],
+      "answer": 2,
+      "explanation": "Största värdet är 7 och minsta är −3: $7 - (-3) = 7 + 3 = 10$ °C. Svaret 7 °C får man om man glömmer att minustecknet gör avståndet längre, inte kortare."
+    },
+    {
+      "id": "q-ma8-sta-5",
+      "kind": "mc",
+      "topic": "diagram",
+      "prompt": "Av 40 elever valde 10 fotboll. Hur stor blir fotbollens sektor i ett cirkeldiagram?",
+      "opener": "Räkna först ut andelen, och kom ihåg att hela cirkeln är 360°.",
+      "choices": [
+        "25°",
+        "36°",
+        "90°",
+        "100°"
+      ],
+      "answer": 2,
+      "explanation": "Andelen är $10/40 = 0{,}25 = 25\\,\\%$, och $0{,}25 \\cdot 360° = 90°$. Svaret 25° är andelen i procent utan att den räknats om till grader."
+    },
+    {
+      "id": "q-ma8-sta-6",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Ett stapeldiagram över tre partiers stöd (30 %, 32 % och 34 %) har en y-axel som börjar på 29 % i stället för 0. Vad blir effekten?",
+      "opener": "Fundera på hur mycket av staplarna som faktiskt syns i bilden.",
+      "choices": [
+        "Skillnaderna mellan partierna ser mycket större ut än de är",
+        "Skillnaderna mellan partierna ser mindre ut än de är",
+        "Diagrammet blir helt felaktigt eftersom talen ändras",
+        "Det spelar ingen roll var y-axeln börjar"
+      ],
+      "answer": 0,
+      "explanation": "Siffrorna är rätt, men eftersom bara toppen av staplarna visas ser den högsta stapeln ut att vara flera gånger så hög som den lägsta — trots att skillnaden bara är 4 procentenheter. Ett ärligt stapeldiagram börjar på 0."
+    },
+    {
+      "id": "q-ma8-sta-7",
+      "kind": "worked",
+      "topic": "lägesmått",
+      "prompt": "Fem elever fick poängen 12, 15, 15, 18 och 20 på ett prov. Beräkna medelvärde, median och typvärde.",
+      "opener": "Ta ett lägesmått i taget — sortera talen först, så blir två av dem enkla att avläsa.",
+      "answer": "Medelvärde 16 p, median 15 p, typvärde 15 p",
+      "steps": [
+        "Sortera: 12, 15, 15, 18, 20 (redan i ordning).",
+        "Medelvärde: $12 + 15 + 15 + 18 + 20 = 80$, och $80 / 5 = 16$ poäng.",
+        "Median: det mittersta av fem värden är det tredje, alltså 15 poäng.",
+        "Typvärde: 15 förekommer två gånger, övriga en gång — typvärdet är 15 poäng.",
+        "Medelvärdet är högre än medianen eftersom det höga värdet 20 drar upp summan. ✓"
+      ]
+    },
+    {
+      "id": "q-ma8-sta-8",
+      "kind": "flashcard",
+      "topic": "lägesmått",
+      "prompt": "Vilka lägesmått och diagramtyper behöver du kunna, och när passar de?",
+      "opener": "Två listor: vad måtten betyder, och vilket diagram som passar vilken sorts data.",
+      "answer": "Medelvärde $=$ summan $/$ antalet — påverkas mycket av extremvärden · Median $=$ det mittersta värdet när talen sorterats; vid jämnt antal medelvärdet av de två mittersta — tål extremvärden bra · Typvärde $=$ det värde som förekommer oftast (kan vara flera eller inget) · Variationsbredd $=$ största värdet $-$ minsta värdet, ett mått på spridning · Stapeldiagram passar för att jämföra kategorier · Linjediagram passar för förändring över tid · Cirkeldiagram passar för delar av en helhet; hela cirkeln $= 360° = 100\\,\\%$ · Källkritik: kontrollera att y-axeln börjar på 0, att skalan är jämn och att det framgår hur många som ingår i undersökningen."
+    }
+  ]
+}

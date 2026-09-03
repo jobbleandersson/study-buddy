@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam7-samhallet",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Samhället och individen",
+  "sourceSummary": "Vad ett samhälle är och hur du som individ formas av det — familjen och olika familjeformer, grupper och grupptryck, normer och värderingar samt hur identitet växer fram.",
+  "topics": [
+    "vad ett samhälle är",
+    "familj och familjeformer",
+    "grupper och grupptryck",
+    "normer och värderingar",
+    "identitet och socialisation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam7-sam-1",
+      "kind": "mc",
+      "topic": "vad ett samhälle är",
+      "prompt": "Vad menas med ett samhälle?",
+      "opener": "Tänk på vad som krävs när många människor ska leva tillsammans på samma plats.",
+      "choices": [
+        "En grupp människor som lever tillsammans och har gemensamma regler, uppgifter och verksamheter",
+        "Ett enda hus där en familj bor",
+        "Ett företag som säljer varor till kunder",
+        "En idrottsförening med en styrelse"
+      ],
+      "answer": 0,
+      "explanation": "Ett samhälle är många människor som lever tillsammans och som behöver organisera sig med gemensamma regler och verksamheter, till exempel skola, sjukvård och polis. Ett företag eller en förening finns däremot inuti samhället — de är delar av det, inte hela samhället."
+    },
+    {
+      "id": "q-sam7-sam-2",
+      "kind": "mc",
+      "topic": "familj och familjeformer",
+      "prompt": "Vilket påstående om familjeformer i Sverige stämmer bäst?",
+      "opener": "Fundera på hur många olika sätt en familj kan se ut bland dem du känner.",
+      "choices": [
+        "Bara en mamma, en pappa och deras barn räknas som en familj",
+        "Alla familjer i Sverige har exakt två vuxna",
+        "Familjer kan se ut på många olika sätt, till exempel kärnfamilj, ensamstående förälder, bonusfamilj eller två föräldrar av samma kön",
+        "Kommunen bestämmer vilken familjeform man ska ha"
+      ],
+      "answer": 2,
+      "explanation": "I Sverige finns många familjeformer: kärnfamilj, ensamstående förälder, bonusfamilj (styvfamilj), familjer med två mammor eller två pappor och familjer där släktingar är med. Att bara räkna kärnfamiljen som familj stämmer alltså inte med hur det faktiskt ser ut."
+    },
+    {
+      "id": "q-sam7-sam-3",
+      "kind": "mc",
+      "topic": "grupper och grupptryck",
+      "prompt": "Vad menas med grupptryck?",
+      "opener": "Handlar det om vad du själv vill, eller om vad andra förväntar sig av dig?",
+      "choices": [
+        "Att en grupp trycker på politiker för att ändra en lag",
+        "Att man gör något man annars inte skulle göra, för att andra i gruppen gör det eller förväntar sig det",
+        "Att en lärare delar in klassen i grupper",
+        "Att man alltid mår bra av att vara med i en grupp"
+      ],
+      "answer": 1,
+      "explanation": "Grupptryck är när förväntningarna i gruppen styr en persons handlingar mer än personens egen vilja. Att en grupp försöker påverka politiker är i stället påverkansarbete — det är något helt annat än grupptryck mellan enskilda personer."
+    },
+    {
+      "id": "q-sam7-sam-4",
+      "kind": "mc",
+      "topic": "normer och värderingar",
+      "prompt": "Vad är en norm?",
+      "opener": "Skillnaden mot en lag är att en norm inte står nedskriven någonstans.",
+      "choices": [
+        "En lag som riksdagen har beslutat om",
+        "En avgift man får betala om man gör fel",
+        "En åsikt som bara en enda person har",
+        "En oskriven regel för hur man förväntas bete sig"
+      ],
+      "answer": 3,
+      "explanation": "En norm är en oskriven regel, till exempel att man hälsar när man kommer in i ett rum eller står i kö. Lagar är däremot skrivna regler som beslutas av riksdagen och som kan leda till straff om man bryter mot dem — att bryta mot en norm ger oftast bara reaktioner från andra."
+    },
+    {
+      "id": "q-sam7-sam-5",
+      "kind": "mc",
+      "topic": "identitet och socialisation",
+      "prompt": "Vad menas med socialisation?",
+      "opener": "Ordet handlar om hur vi lär oss att fungera i samhället, inte om att umgås på fritiden.",
+      "choices": [
+        "Att man umgås mycket med kompisar på helgerna",
+        "Processen där vi lär oss samhällets språk, normer och roller genom familj, skola, kompisar och medier",
+        "Att flytta till ett nytt land",
+        "Att staten bestämmer vilket yrke man ska ha"
+      ],
+      "answer": 1,
+      "explanation": "Socialisation är den långa process där en människa lär sig hur samhället fungerar — språk, normer, värderingar och roller. Att umgås med kompisar är en del av socialisationen, men själva begreppet betyder inlärningen, inte umgänget i sig."
+    },
+    {
+      "id": "q-sam7-sam-6",
+      "kind": "mc",
+      "topic": "grupper och grupptryck",
+      "prompt": "Vad kallas den grupp som en person själv tillhör och känner gemenskap med?",
+      "opener": "Begreppet är motsatsen till dom-grupp.",
+      "choices": [
+        "Dom-grupp",
+        "Formell myndighet",
+        "Minoritet",
+        "Vi-grupp"
+      ],
+      "answer": 3,
+      "explanation": "Den grupp man själv tillhör kallas vi-grupp, och grupper man ställer sig utanför kallas dom-grupper. Att dela in människor i vi och dom kan skapa gemenskap, men också fördomar mot dem som hamnar i dom-gruppen."
+    },
+    {
+      "id": "q-sam7-sam-7",
+      "kind": "worked",
+      "topic": "grupper och grupptryck",
+      "prompt": "Några i klassen vill att du ska vara med och skriva elaka kommentarer om en annan elev. Beskriv steg för steg hur du kan tänka för att hantera situationen.",
+      "opener": "Börja med att sätta ord på vad som händer, och tänk sedan på vem som drabbas.",
+      "answer": "Först konstaterar du att det handlar om grupptryck: du känner press att göra något du egentligen inte vill. Sedan tänker du på vem som drabbas — den utsatta eleven, men också du själv om du är med. Du väger dina alternativ: vara med, säga nej, gå därifrån eller berätta för en vuxen. Du testar valet mot dina egna värderingar och frågar dig hur du själv skulle vilja bli behandlad. Slutligen väljer du att inte vara med, och berättar för en lärare eller annan vuxen om det fortsätter, eftersom kränkningar på nätet kan vara både brott mot skolans regler och mot lagen.",
+      "steps": [
+        "Sätt namn på situationen: det här är grupptryck, inte ditt eget beslut.",
+        "Fundera på vem som påverkas — den som blir utsatt, gruppen och du själv.",
+        "Räkna upp dina alternativ: vara med, säga nej, gå därifrån eller berätta för en vuxen.",
+        "Testa alternativen mot dina egna värderingar: hur skulle du vilja bli behandlad?",
+        "Välj att inte vara med och berätta för en vuxen om det fortsätter — skolan är skyldig att stoppa kränkningar."
+      ]
+    },
+    {
+      "id": "q-sam7-sam-8",
+      "kind": "flashcard",
+      "topic": "vad ett samhälle är",
+      "prompt": "Sammanfatta grundbegreppen om samhället, gruppen och individen.",
+      "opener": "Gå igenom samhälle, familj, grupp, normer och identitet som fem korta punkter.",
+      "answer": "Samhälle: många människor som lever tillsammans med gemensamma regler och verksamheter som skola, vård och polis · Familjeformer: kärnfamilj, ensamstående förälder, bonusfamilj, två föräldrar av samma kön, släktingar som vårdnadshavare — alla räknas som familjer · Grupp: primärgrupp är nära och personlig (familj, kompisar), sekundärgrupp är mer opersonlig (klassen, laget, arbetsplatsen) · Vi-grupp och dom-grupp: indelningen skapar gemenskap men kan också skapa fördomar · Grupptryck: att göra något för gruppens förväntningars skull i stället för sin egen vilja · Norm: oskriven regel för hur man förväntas bete sig · Värdering: vad en person eller grupp tycker är viktigt och rätt · Lag: skriven regel beslutad av riksdagen, kan ge straff · Socialisation: processen där vi lär oss språk, normer och roller — familjen först, sedan skola, kompisar och medier · Identitet: uppfattningen om vem man är, formas hela livet av bakgrund, intressen och grupper man tillhör."
+    }
+  ]
+}

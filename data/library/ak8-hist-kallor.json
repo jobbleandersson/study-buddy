@@ -1,0 +1,130 @@
+{
+  "id": "lib-hist8-kallor",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Historiska källor och historiebruk",
+  "sourceSummary": "Hur historiker arbetar: skillnaden mellan kvarlevor och berättande källor, primär- och sekundärkällor, de källkritiska frågorna om äkthet, tid, beroende och tendens – samt hur historia används i dag och varför historieskrivningen förändras.",
+  "topics": [
+    "kvarlevor och berättande källor",
+    "primär- och sekundärkällor",
+    "källkritiska frågor",
+    "historiebruk",
+    "föränderlig historiesyn"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist8-kal-1",
+      "kind": "mc",
+      "topic": "kvarlevor och berättande källor",
+      "prompt": "Vilket av följande är ett exempel på en kvarleva?",
+      "opener": "En kvarleva är en rest av något som hänt – den berättar inget själv, den finns bara kvar.",
+      "choices": [
+        "En medeltida yxa som hittats i en åker",
+        "En dagbok som beskriver en strid",
+        "En tidningsartikel om en kung",
+        "En krönika nedtecknad av en munk"
+      ],
+      "answer": 0,
+      "explanation": "En kvarleva är ett fysiskt spår av en verksamhet, till exempel ett verktyg, ett mynt, en grundmur eller en räkenskapsbok – den blev inte till för att berätta något för framtiden. Dagboken, tidningsartikeln och krönikan är berättande källor, eftersom någon medvetet skildrar en händelse med ord."
+    },
+    {
+      "id": "q-hist8-kal-2",
+      "kind": "mc",
+      "topic": "primär- och sekundärkällor",
+      "prompt": "Vad kännetecknar en primärkälla?",
+      "opener": "Tänk på hur nära i tid källan står den händelse den handlar om.",
+      "choices": [
+        "Att den är skriven av en professionell historiker",
+        "Att den finns på ett museum",
+        "Att den kommer från den tid eller händelse den handlar om",
+        "Att den alltid är helt sanningsenlig"
+      ],
+      "answer": 2,
+      "explanation": "En primärkälla har uppstått i samband med händelsen, till exempel ett brev, ett protokoll eller ett foto från tillfället, medan en sekundärkälla bygger vidare på andras uppgifter – som en läroboks text. Att vara primärkälla betyder däremot inte att uppgifterna är sanna; även den som var med kan minnas fel eller vinkla."
+    },
+    {
+      "id": "q-hist8-kal-3",
+      "kind": "mc",
+      "topic": "källkritiska frågor",
+      "prompt": "Vad undersöker man när man prövar en källas tendens?",
+      "opener": "Fråga dig vad avsändaren skulle vinna på att beskriva saken på ett visst sätt.",
+      "choices": [
+        "Om källan verkligen är från den tid den utger sig för att vara",
+        "Om källan är vinklad för att gynna någons intressen eller åsikter",
+        "Om källan har kopierat en annan källa",
+        "Hur lång tid som gått mellan händelsen och nedtecknandet"
+      ],
+      "answer": 1,
+      "explanation": "Tendenskriteriet handlar om partiskhet: har avsändaren ett intresse av att framställa händelsen på ett visst sätt, till exempel en kung som beskriver sin egen seger? De andra alternativen beskriver äkthetskriteriet, beroendekriteriet och tidskriteriet, som är egna källkritiska frågor."
+    },
+    {
+      "id": "q-hist8-kal-4",
+      "kind": "mc",
+      "topic": "källkritiska frågor",
+      "prompt": "Två tidningar berättar exakt likadant om en händelse, men det visar sig att den ena bara har skrivit av den andra. Vilket källkritiskt problem handlar det om?",
+      "opener": "Att två källor säger samma sak stärker bara uppgiften om de är oberoende av varandra.",
+      "choices": [
+        "Äkthetsproblem",
+        "Tidsproblem",
+        "Tendensproblem",
+        "Beroendeproblem"
+      ],
+      "answer": 3,
+      "explanation": "Detta är ett beroendeproblem: de två tidningarna räknas i praktiken som en enda källa, eftersom den ena hämtat allt från den andra. Äkthet handlar om huruvida källan är falsk, tid om avståndet till händelsen och tendens om vinkling – inget av det är kärnproblemet här."
+    },
+    {
+      "id": "q-hist8-kal-5",
+      "kind": "mc",
+      "topic": "historiebruk",
+      "prompt": "Vad menas med historiebruk?",
+      "opener": "Ordet handlar om hur historia används i dag, inte om vad som faktiskt hände.",
+      "choices": [
+        "Hur historia används i dag, till exempel i museer, filmer, politik, reklam och minnesdagar",
+        "Metoden att datera fynd med kol-14",
+        "Regler för hur arkiv ska bevara gamla dokument",
+        "Läran om hur språk förändras över tid"
+      ],
+      "answer": 0,
+      "explanation": "Historiebruk är hur människor, grupper och stater använder det förflutna för olika syften: för att underhålla, undervisa, stärka en identitet, sälja en produkt eller motivera politiska beslut. Kol-14-datering och arkivregler är tekniska metoder inom forskningen, inte historiebruk."
+    },
+    {
+      "id": "q-hist8-kal-6",
+      "kind": "mc",
+      "topic": "föränderlig historiesyn",
+      "prompt": "Varför förändras historieskrivningen över tid, trots att det förflutna är detsamma?",
+      "opener": "Tänk på både vad forskarna hittar och vilka frågor varje ny generation ställer.",
+      "choices": [
+        "Därför att historiker aldrig är överens om något",
+        "Därför att gamla källor slutar gälla efter hundra år",
+        "Därför att nya källor och metoder tillkommer och varje tid ställer nya frågor till det förflutna",
+        "Därför att skolans läroplan bestämmer vad som hände"
+      ],
+      "answer": 2,
+      "explanation": "Arkeologiska fynd, nyöppnade arkiv och nya metoder ger ny kunskap, och samtidigt riktar varje tid intresset mot nya frågor – till exempel kvinnors, barns och minoriteters historia, som länge fick lite plats. Källor blir inte ogiltiga med åldern, och läroplanen beskriver vad som ska undervisas, inte vad som hänt."
+    },
+    {
+      "id": "q-hist8-kal-7",
+      "kind": "worked",
+      "topic": "källkritiska frågor",
+      "prompt": "En elev hittar en kort film om vikingatiden på nätet. Förklara steg för steg hur eleven kan granska filmen källkritiskt.",
+      "opener": "Börja med vem som gjort filmen, inte med vad den påstår.",
+      "answer": "Eleven bör först ta reda på vem avsändaren är: ett museum, en universitetsforskare, ett dataspelsföretag eller en privatperson? Sedan undersöks syftet – vill filmen undervisa, underhålla eller sälja något? Därefter granskas innehållet: anges källor, och skiljer filmen mellan vad forskarna vet och vad som är gissningar eller dramatisering? Uppgifterna bör också jämföras med minst en oberoende källa, till exempel en lärobok eller ett museums webbplats, så att man inte bara får samma uppgift återberättad. Slutligen bedömer eleven hur användbar filmen är: den kan vara en bra sekundärkälla om vikingatiden, men kan samtidigt vara en bra primärkälla för hur vi i dag väljer att framställa vikingar.",
+      "steps": [
+        "Vem är avsändaren, och vilken kunskap eller vilket uppdrag har den personen eller organisationen?",
+        "Vilket är syftet – undervisa, underhålla, sälja eller övertyga? Det avgör risken för tendens.",
+        "Vilka källor bygger filmen på, och skiljer den mellan bevisad kunskap och dramatiserade gissningar?",
+        "Jämför uppgifterna med minst en oberoende källa och se om de stämmer.",
+        "Dra slutsats: vad kan filmen användas till – som kunskap om vikingatiden eller som exempel på dagens historiebruk?"
+      ]
+    },
+    {
+      "id": "q-hist8-kal-8",
+      "kind": "flashcard",
+      "topic": "primär- och sekundärkällor",
+      "prompt": "Sammanfatta begreppen om historiska källor, källkritik och historiebruk.",
+      "opener": "Samla ihop typer av källor, de fyra kriterierna och hur historia används.",
+      "answer": "Kvarleva: fysiskt spår av en verksamhet, till exempel verktyg, mynt, husgrund eller räkenskapsbok – blev inte till för att berätta något · berättande källa: någon skildrar medvetet en händelse, till exempel brev, dagbok, krönika, tidningsartikel eller foto · primärkälla: från själva tiden eller händelsen · sekundärkälla: bygger på andras uppgifter, till exempel lärobok eller dokumentärfilm · fyra källkritiska frågor: äkthet (är källan verkligen vad den utger sig för?), tid (hur lång tid mellan händelse och nedteckning?), beroende (är källorna oberoende av varandra eller avskrifter?), tendens (är källan vinklad för att gynna någon?) · en och samma källa kan vara både kvarleva och berättande källa beroende på vilken fråga man ställer · historiebruk: hur historia används i dag i museer, filmer, spel, reklam, minnesdagar och politik – för att undervisa, underhålla, stärka identitet eller motivera beslut · historiesynen förändras eftersom nya källor och metoder tillkommer och varje tid ställer nya frågor, till exempel om kvinnors, barns och minoriteters historia."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "lib-en7-present",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Grammar: present simple och present continuous",
+  "sourceSummary": "Present simple för vanor och rutiner, present continuous för något som pågår just nu, samt do/does i frågor och nekande satser.",
+  "topics": [
+    "present simple",
+    "present continuous",
+    "do/does"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7-pre-1",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Choose the correct form: \"My brother ___ football every Saturday.\"",
+      "opener": "Titta på \"every Saturday\" — det handlar om en vana. Kom ihåg vad som händer med verbet efter he/she/it.",
+      "choices": [
+        "plays",
+        "play",
+        "playing",
+        "is play"
+      ],
+      "answer": 0,
+      "explanation": "\"Every Saturday\" visar att det är en vana, alltså present simple. \"My brother\" är samma sak som \"he\", och då får verbet -s: \"plays\". \"Play\" utan -s används med I/you/we/they."
+    },
+    {
+      "id": "q-en7-pre-2",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the correct form: \"Be quiet! The baby ___ right now.\"",
+      "opener": "\"Right now\" betyder att något pågår i detta ögonblick.",
+      "choices": [
+        "sleeps",
+        "sleep",
+        "is sleeping",
+        "slept"
+      ],
+      "answer": 2,
+      "explanation": "Något som pågår just nu uttrycks med present continuous: is/am/are + verb med -ing, alltså \"is sleeping\". \"Sleeps\" skulle betyda att det är en vana, men \"right now\" pekar på just detta ögonblick."
+    },
+    {
+      "id": "q-en7-pre-3",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Which sentence is correct?",
+      "opener": "Kolla vem som gör handlingen: ska verbet ha -s eller inte?",
+      "choices": [
+        "She like pizza.",
+        "She is like pizza.",
+        "She liking pizza.",
+        "She likes pizza."
+      ],
+      "answer": 3,
+      "explanation": "Med \"she\" (tredje person singular) läggs -s till verbet i present simple: \"She likes pizza\". \"She like\" är ett av de allra vanligaste felen — glöm inte -s efter he, she och it."
+    },
+    {
+      "id": "q-en7-pre-4",
+      "kind": "mc",
+      "topic": "do/does",
+      "prompt": "Choose the correct question: \"___ your sister play the guitar?\"",
+      "opener": "I frågor i present simple används do eller does. Vilket passar med \"your sister\"?",
+      "choices": [
+        "Do",
+        "Does",
+        "Is",
+        "Are"
+      ],
+      "answer": 1,
+      "explanation": "\"Your sister\" är tredje person singular (she), och då används \"Does\" i frågan: \"Does your sister play...\". Notera att huvudverbet står i grundform utan -s när \"does\" redan finns i meningen."
+    },
+    {
+      "id": "q-en7-pre-5",
+      "kind": "mc",
+      "topic": "do/does",
+      "prompt": "Choose the correct negative sentence: \"He ___ like fish.\"",
+      "opener": "I nekande satser i present simple används don't eller doesn't. Vilket hör ihop med \"he\"?",
+      "choices": [
+        "don't",
+        "isn't",
+        "doesn't",
+        "not"
+      ],
+      "answer": 2,
+      "explanation": "Med he/she/it används \"doesn't\" + verb i grundform: \"He doesn't like fish\". \"He don't like\" hörs ofta i sånger och filmer, men räknas som fel i skriven engelska."
+    },
+    {
+      "id": "q-en7-pre-6",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the sentence that describes a habit, not something happening now.",
+      "opener": "Vana = present simple. Just nu = present continuous. Vilken mening beskriver något som händer varje gång?",
+      "choices": [
+        "I am watching TV at the moment.",
+        "They are eating dinner right now.",
+        "We always take the bus to school.",
+        "She is doing her homework now."
+      ],
+      "answer": 2,
+      "explanation": "\"We always take the bus\" är present simple med ordet \"always\" — det beskriver en vana. De andra meningarna har is/am/are + -ing tillsammans med \"now\" eller \"at the moment\", vilket betyder att något pågår just nu."
+    },
+    {
+      "id": "q-en7-pre-7",
+      "kind": "worked",
+      "topic": "present simple",
+      "prompt": "Correct the three errors: \"My friend live in London. Right now he watch TV. He don't like sport.\"",
+      "opener": "Leta efter tre saker: -s i tredje person, tempus vid \"right now\", och rätt form av nekande.",
+      "answer": "My friend lives in London. Right now he is watching TV. He doesn't like sport.",
+      "steps": [
+        "\"My friend live\" → \"My friend lives\". \"My friend\" är samma som \"he\", så verbet får -s i present simple.",
+        "\"Right now he watch TV\" → \"Right now he is watching TV\". \"Right now\" betyder att det pågår, så vi använder present continuous: is + watching.",
+        "\"He don't like\" → \"He doesn't like\". Med he/she/it används doesn't, inte don't.",
+        "Efter \"doesn't\" står verbet i grundform: \"like\", aldrig \"likes\"."
+      ]
+    },
+    {
+      "id": "q-en7-pre-8",
+      "kind": "flashcard",
+      "topic": "present simple",
+      "prompt": "När använder du present simple och när använder du present continuous?",
+      "opener": "Två tempus, två situationer — plus reglerna för -s och do/does.",
+      "answer": "Present simple = vanor och det som alltid gäller (I play football every week) · he/she/it får -s: he plays, she watches · frågor: Do you play? / Does he play? · nekande: I don't play / He doesn't play · efter do/does står verbet i grundform. Present continuous = något som pågår just nu (I am playing right now) · bildas med am/is/are + verb-ing · signalord: now, right now, at the moment, look!, listen! · signalord för present simple: always, usually, often, sometimes, never, every day."
+    }
+  ]
+}

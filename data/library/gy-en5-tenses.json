@@ -1,0 +1,127 @@
+{
+  "id": "lib-en5-tenses",
+  "type": "assignment",
+  "subject": "Engelska 5",
+  "title": "Tenses: present perfect and past simple",
+  "sourceSummary": "Skillnaden mellan present perfect och past simple — det svenska elever oftast gör fel på — plus continuous-formerna.",
+  "topics": [
+    "present perfect",
+    "past simple",
+    "continuous tenses"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en5-ten-1",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"I ___ in Stockholm since 2019.\"",
+      "opener": "Ordet \"since\" är en stark ledtråd — handlar det om något avslutat eller något som pågår än?",
+      "choices": [
+        "have lived",
+        "was living",
+        "am living",
+        "lived"
+      ],
+      "answer": 0,
+      "explanation": "\"Since\" markerar något som började i det förflutna och fortfarande pågår — då krävs present perfect: \"have lived\". På svenska säger vi \"jag har bott\", vilket stämmer väl här."
+    },
+    {
+      "id": "q-en5-ten-2",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"She ___ to Paris last summer.\"",
+      "opener": "\"Last summer\" är en avslutad tidpunkt — spelar det någon roll?",
+      "choices": [
+        "has been going",
+        "went",
+        "goes",
+        "has gone"
+      ],
+      "answer": 1,
+      "explanation": "När tidpunkten är avslutad och utsatt (last summer, yesterday, in 2020) används past simple: \"went\". Ett vanligt svenskt fel är att säga \"has gone last summer\"."
+    },
+    {
+      "id": "q-en5-ten-3",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Which sentence is correct?",
+      "opener": "Titta på tidsuttrycket i varje mening.",
+      "choices": [
+        "I was seeing that film yesterday.",
+        "I have seen that film yesterday.",
+        "I saw that film yesterday.",
+        "I have saw that film yesterday."
+      ],
+      "answer": 2,
+      "explanation": "\"Yesterday\" är en avslutad tidpunkt och kräver past simple: \"I saw\". Present perfect kan aldrig kombineras med ett utsatt förflutet tidsuttryck."
+    },
+    {
+      "id": "q-en5-ten-4",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"I ___ my keys. Can you help me look for them?\"",
+      "opener": "Vad är poängen med att nämna det — när det hände, eller att de fortfarande är borta?",
+      "choices": [
+        "was losing",
+        "am losing",
+        "lost",
+        "have lost"
+      ],
+      "answer": 3,
+      "explanation": "Present perfect används när den förflutna handlingen har ett resultat som gäller nu — nycklarna är fortfarande borta. Tidpunkten är oviktig, konsekvensen är poängen."
+    },
+    {
+      "id": "q-en5-ten-5",
+      "kind": "mc",
+      "topic": "continuous tenses",
+      "prompt": "Choose the correct form: \"Be quiet! The baby ___.\"",
+      "opener": "Något som pågår just i detta ögonblick.",
+      "choices": [
+        "is sleeping",
+        "slept",
+        "sleeps",
+        "has slept"
+      ],
+      "answer": 0,
+      "explanation": "Present continuous (\"is sleeping\") används för något som pågår just nu. Present simple (\"sleeps\") beskriver vanor och allmänna sanningar: \"The baby sleeps ten hours a night.\""
+    },
+    {
+      "id": "q-en5-ten-6",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"For\" och \"since\" hör ihop med en särskild tempusform.",
+      "choices": [
+        "We waited here for two hours and still wait.",
+        "We have been waiting here for two hours.",
+        "We are waiting here for two hours.",
+        "We wait here for two hours."
+      ],
+      "answer": 1,
+      "explanation": "Present perfect continuous (\"have been waiting\") uttrycker något som började tidigare, pågått en tid och fortfarande pågår. Svenskan säger \"vi har väntat i två timmar\", vilket motsvarar samma tanke."
+    },
+    {
+      "id": "q-en5-ten-7",
+      "kind": "worked",
+      "topic": "present perfect",
+      "prompt": "Explain which tense fits each gap and why: \"I ___ (visit) London three times. The last time I ___ (go) there, I ___ (see) the British Museum.\"",
+      "opener": "Fråga dig för varje lucka: är tidpunkten utsatt och avslutad, eller är det erfarenheten som räknas?",
+      "answer": "have visited / went / saw",
+      "steps": [
+        "Lucka 1: \"three times\" handlar om erfarenhet fram till nu, utan utsatt tidpunkt → present perfect: \"have visited\".",
+        "Lucka 2: \"the last time\" pekar ut ett specifikt, avslutat tillfälle → past simple: \"went\".",
+        "Lucka 3: samma avslutade tillfälle som lucka 2, alltså samma tempus → past simple: \"saw\".",
+        "Mönstret är typiskt: man öppnar med present perfect för att etablera erfarenheten, och växlar till past simple så snart man berättar om ett bestämt tillfälle."
+      ]
+    },
+    {
+      "id": "q-en5-ten-8",
+      "kind": "flashcard",
+      "topic": "present perfect",
+      "prompt": "When do you use present perfect instead of past simple?",
+      "opener": "Två frågor avgör nästan alltid saken.",
+      "answer": "Present perfect när tidpunkten är oviktig eller ospecificerad, när handlingen har ett resultat som gäller nu, eller när något pågått från förr till nu (ofta med for/since/ever/never/just/already/yet). Past simple när tidpunkten är utsatt och avslutad (yesterday, last week, in 2020, when I was ten). Tumregel: står det ett avslutat tidsuttryck i meningen — använd past simple."
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "lib-en9-vocabulary",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Vocabulary: vardagsord och phrasal verbs",
+  "sourceSummary": "Vanliga phrasal verbs och ord som ofta blandas ihop — grunden för att låta naturlig i vardagligt engelskt tal och skrift.",
+  "topics": [
+    "everyday vocabulary",
+    "phrasal verbs"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en9-voc-1",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "What does \"turn off\" mean in: \"Please turn off the lights before you leave.\"",
+      "opener": "Vad gör man med en lampa när man lämnar rummet?",
+      "choices": [
+        "Switch on",
+        "Switch something so it stops working",
+        "Turn around",
+        "Make brighter"
+      ],
+      "answer": 1,
+      "explanation": "\"Turn off\" betyder att stänga av något (t.ex. en apparat eller ljus). Motsatsen är \"turn on\"."
+    },
+    {
+      "id": "q-en9-voc-2",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"Can you ___ the volume? I can't hear the movie.\"",
+      "opener": "Vilket uttryck betyder att öka något?",
+      "choices": [
+        "turn down",
+        "turn up",
+        "turn off",
+        "turn over"
+      ],
+      "answer": 1,
+      "explanation": "\"Turn up\" betyder att höja (t.ex. volym). \"Turn down\" är motsatsen — att sänka."
+    },
+    {
+      "id": "q-en9-voc-3",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "What does \"give up\" mean in: \"Don't give up, you're almost finished!\"",
+      "opener": "Vad ska man INTE göra när man nästan är klar?",
+      "choices": [
+        "Continue trying",
+        "Stop trying / quit",
+        "Give something away",
+        "Speed up"
+      ],
+      "answer": 1,
+      "explanation": "\"Give up\" betyder att ge upp, sluta försöka. Att säga \"don't give up\" är en uppmuntran att fortsätta."
+    },
+    {
+      "id": "q-en9-voc-4",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"I need to ___ what \"ubiquitous\" means.\"",
+      "opener": "Vad gör man när man inte vet vad ett ord betyder — man slår upp det.",
+      "choices": [
+        "look for",
+        "look after",
+        "look up",
+        "look into"
+      ],
+      "answer": 2,
+      "explanation": "\"Look up\" betyder att slå upp något, t.ex. i ordbok eller på internet. \"Look for\" är att leta efter, \"look after\" att ta hand om."
+    },
+    {
+      "id": "q-en9-voc-5",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Which word best completes: \"I'm really ___ about the test tomorrow. I haven't studied enough.\"",
+      "opener": "Vilket ord beskriver en orolig känsla inför något som ska hända?",
+      "choices": [
+        "nervous",
+        "boring",
+        "exciting",
+        "comfortable"
+      ],
+      "answer": 0,
+      "explanation": "\"Nervous\" betyder nervös/orolig — passar känslan inför ett prov man inte pluggat klart för. \"Boring\" betyder tråkig och beskriver inte en känsla man själv har."
+    },
+    {
+      "id": "q-en9-voc-6",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "\"Bored\" and \"boring\" — which sentence is correct?",
+      "opener": "Vem KÄNNER sig uttråkad, och vad ÄR tråkigt?",
+      "choices": [
+        "The movie was bored.",
+        "I was boring during the movie.",
+        "I was bored during the movie.",
+        "The movie made me boring."
+      ],
+      "answer": 2,
+      "explanation": "\"Bored\" beskriver hur en person känner sig (uttråkad). \"Boring\" beskriver vad som orsakar känslan (tråkigt). Filmen kan vara \"boring\", men bara en person kan vara \"bored\"."
+    },
+    {
+      "id": "q-en9-voc-7",
+      "kind": "worked",
+      "topic": "phrasal verbs",
+      "prompt": "Fill in the correct phrasal verb for each blank, choosing from: turn off, look after, give up, turn up. \"Could you (1) ___ my dog while I'm away? Also, remember to (2) ___ the heater before you leave. And please don't (3) ___ on your homework — the last question just needs you to (4) ___ the answer in a dictionary.\"",
+      "opener": "Fyra olika phrasal verbs, fyra olika betydelser: ta hand om, stänga av, ge upp, slå upp.",
+      "answer": "1) look after (ta hand om), 2) turn off (stänga av), 3) give up (ge upp), 4) look up (slå upp).",
+      "steps": [
+        "\"___ my dog\" betyder ta hand om hunden — det matchar \"look after\", inte \"look up\" (slå upp) eller \"turn up\" (höja/dyka upp).",
+        "\"___ the heater\" innan man lämnar rummet betyder att stänga av den — \"turn off\".",
+        "\"don't ___ on your homework\" betyder att inte ge upp — \"give up\".",
+        "\"___ the answer in a dictionary\" betyder att slå upp svaret — \"look up\"."
+      ]
+    },
+    {
+      "id": "q-en9-voc-8",
+      "kind": "flashcard",
+      "topic": "phrasal verbs",
+      "prompt": "List common everyday phrasal verbs and what they mean.",
+      "opener": "Åtta vanliga phrasal verbs att kunna utantill.",
+      "answer": "turn on/off = sätta på/stänga av · turn up/down = höja/sänka (volym) · look up = slå upp · look after = ta hand om · look for = leta efter · give up = ge upp · find out = ta reda på · get up = gå upp (ur sängen) · pick up = plocka upp/hämta · put on = ta på sig (kläder)."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist1a1-kallkritik",
+  "type": "assignment",
+  "subject": "Historia 1a1",
+  "title": "Källkritik och historiebruk",
+  "sourceSummary": "De källkritiska kriterierna (äkthet, tid, beroende, tendens) tillämpade på historiska källor, skillnaden mellan primär- och sekundärkälla, samt historiebruk och historiesynens föränderlighet över tid.",
+  "topics": [
+    "källkritiska kriterier",
+    "primär- och sekundärkällor",
+    "historiebruk",
+    "historiesynens föränderlighet"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist1a1-kallkritik-1",
+      "kind": "mc",
+      "topic": "källkritiska kriterier",
+      "prompt": "Vad innebär äkthetskriteriet inom källkritik?",
+      "opener": "Tänk på om källan verkligen är vad den utger sig för att vara.",
+      "choices": [
+        "Källan är vad den utger sig för att vara – inte förfalskad eller ett senare tillägg",
+        "Källan ligger nära i tid till händelsen den skildrar",
+        "Källan är oberoende av andra källor",
+        "Källan är skriven utan någon partiskhet"
+      ],
+      "answer": 0,
+      "explanation": "Äkthetskriteriet handlar om att fastställa att en källa verkligen är vad den utger sig för att vara – till exempel att ett brev verkligen skrevs av den påstådda avsändaren och inte är en förfalskning eller ett senare tillägg. Att källan ligger nära i tid (tidskriteriet), är oberoende (beroendekriteriet) eller opartisk (tendenskriteriet) är andra, separata kriterier."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-2",
+      "kind": "mc",
+      "topic": "källkritiska kriterier",
+      "prompt": "Vad avser tidskriteriet vid källkritisk granskning?",
+      "opener": "Tänk på avståndet i tid mellan händelsen och källans tillkomst.",
+      "choices": [
+        "Om källan är förfalskad eller inte",
+        "Hur lång tid som förflutit mellan händelsen och källans tillkomst – ju kortare tid, desto mer tillförlitlig anses källan vanligen vara",
+        "Om källan bygger på en annan källa",
+        "Om upphovspersonen hade skäl att vinkla sin skildring"
+      ],
+      "answer": 1,
+      "explanation": "Tidskriteriet innebär att man bedömer hur lång tid som gått mellan händelsen och källans tillkomst. En källa som skapats nära i tid till händelsen anses generellt mer tillförlitlig än en som skrivits långt senare, eftersom minnet och uppgifterna då hunnit förvanskas mer. De andra alternativen beskriver äkthets-, beroende- respektive tendenskriteriet."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-3",
+      "kind": "mc",
+      "topic": "källkritiska kriterier",
+      "prompt": "Vad innebär beroendekriteriet inom källkritik?",
+      "opener": "Fundera på om källan bygger på en annan källa eller är självständig.",
+      "choices": [
+        "Att källan är skriven nära händelsen i tiden",
+        "Att källan är fri från förfalskning",
+        "Att man undersöker om källan är en självständig förstahandsuppgift eller om den bygger på (är beroende av) en annan källa",
+        "Att källan har ett tydligt syfte att övertyga läsaren"
+      ],
+      "answer": 2,
+      "explanation": "Beroendekriteriet innebär att man undersöker om en källa är självständig eller om den i själva verket bygger på – är beroende av – en annan, tidigare källa. Två källor som verkar bekräfta varandra kan i själva verket vara samma uppgift återberättad, vilket gör dem mindre värda som oberoende bevis. De andra svaren beskriver tids-, äkthets- och tendenskriteriet."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-4",
+      "kind": "mc",
+      "topic": "källkritiska kriterier",
+      "prompt": "Vad menas med tendenskriteriet vid källkritisk granskning?",
+      "opener": "Tänk på om upphovspersonen kan ha haft ett intresse av att framställa något på ett visst sätt.",
+      "choices": [
+        "Att avgöra om källan är förstahands- eller andrahandsuppgift",
+        "Att avgöra hur gammal källan är",
+        "Att avgöra om källan är förfalskad",
+        "Att undersöka om upphovspersonen hade ett politiskt, ekonomiskt eller personligt intresse som kan ha färgat framställningen"
+      ],
+      "answer": 3,
+      "explanation": "Tendenskriteriet handlar om att bedöma om upphovspersonen hade ett intresse – politiskt, ekonomiskt, personligt eller annat – som kan ha gjort att källan medvetet eller omedvetet vinklats. En propagandaaffisch eller ett tal av en part i en konflikt har till exempel ofta en tydlig tendens. De andra alternativen rör beroende-, tids- och äkthetskriteriet."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-5",
+      "kind": "mc",
+      "topic": "primär- och sekundärkällor",
+      "prompt": "Vad kännetecknar en primärkälla till skillnad från en sekundärkälla?",
+      "opener": "Tänk på källans närhet till själva händelsen.",
+      "choices": [
+        "En primärkälla är alltid skriven av en historiker långt senare",
+        "En primärkälla kommer direkt från eller nära den tid och det sammanhang som skildras, medan en sekundärkälla bygger på och tolkar redan existerande källor",
+        "En sekundärkälla är alltid mer tillförlitlig eftersom den är nyare",
+        "Det finns ingen egentlig skillnad, begreppen används synonymt inom historievetenskapen"
+      ],
+      "answer": 1,
+      "explanation": "En primärkälla är en förstahandskälla som kommer direkt från eller ligger nära den tid och det sammanhang den skildrar, till exempel ett brev, ett fotografi eller ett riksdagsprotokoll. En sekundärkälla, som en historiebok eller en artikel, bygger istället på och tolkar redan existerande källor. Sekundärkällor är inte automatiskt mer tillförlitliga bara för att de är nyare – de kan innehålla feltolkningar av primärmaterialet."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-6",
+      "kind": "mc",
+      "topic": "historiebruk",
+      "prompt": "Vad menas med begreppet historiebruk?",
+      "opener": "Tänk på hur historia används i nutiden, inte bara vad som faktiskt hände.",
+      "choices": [
+        "Den vetenskapliga metod historiker använder för att datera källor",
+        "Ett annat ord för historieskrivning i skolböcker",
+        "Hur historia används och görs relevant i nutiden – till exempel politiskt, kommersiellt eller för att skapa identitet och gemenskap",
+        "Historikers gemensamma uppfattning om vad som verkligen hände förr"
+      ],
+      "answer": 2,
+      "explanation": "Historiebruk syftar på hur människor, organisationer och stater aktivt använder historia i nutiden för olika syften – politiskt (för att legitimera makt eller en nation), kommersiellt (till exempel i reklam eller turism) eller identitetsskapande (för att bygga gemenskap kring ett ursprung eller en tradition). Det handlar alltså inte om själva den historievetenskapliga metoden, utan om hur historia förvaltas och nyttjas."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-7",
+      "kind": "worked",
+      "topic": "historiesynens föränderlighet",
+      "prompt": "Historiesynen på vikingatiden har förändrats kraftigt över tid – från 1800-talets nationalromantiska hjältebild till dagens mer nyanserade forskning. Förklara varför historiesynen förändras och ge minst tre exempel på faktorer som påverkar den.",
+      "opener": "Tänk på vem som skriver historien, i vilken tid, och med vilka källor och frågor.",
+      "answer": "Historiesynen förändras eftersom varje generation tolkar det förflutna utifrån sin egen tids värderingar, kunskaper och behov – historia skrivs alltid av människor i en viss samtid, med de källor, metoder och frågor som då är tillgängliga och relevanta.",
+      "steps": [
+        "Nya källor och arkeologiska fynd, till exempel DNA-analyser av vikingagravar, kan omkullkasta tidigare uppfattningar.",
+        "Nya metoder inom historieforskningen, som mer kritisk källgranskning, gör att äldre tolkningar ifrågasätts.",
+        "Samhällets värderingar förändras – 1800-talets nationalromantik ville hylla vikingarna som hjältar för att stärka nationell identitet, medan dagens forskning intresserar sig mer för handel, vardagsliv och mångfald.",
+        "Vilka frågor som ställs till det förflutna förändras över tid, till exempel ett ökat intresse för kvinnors och vanliga människors historia snarare än enbart kungar och krig.",
+        "Historiebruket i samtiden påverkar också vilken historiesyn som får genomslag, exempelvis hur vikingatiden används i turism, populärkultur och politik idag."
+      ]
+    },
+    {
+      "id": "q-hist1a1-kallkritik-8",
+      "kind": "flashcard",
+      "topic": "historiebruk",
+      "prompt": "Sammanfatta källkritik och historiebruk: de källkritiska kriterierna, primär- och sekundärkällor samt historiebruk och historiesynens föränderlighet.",
+      "opener": "Tänk kedjan: granska källan → avgör dess status → förstå hur historia används och tolkas om.",
+      "answer": "De fyra källkritiska kriterierna: äkthet (är källan vad den utger sig för att vara?) · tid (hur nära händelsen tillkom källan?) · beroende (är källan självständig eller bygger den på en annan källa?) · tendens (hade upphovspersonen ett intresse som kan ha vinklat framställningen?) · primärkälla = förstahandskälla nära händelsen, sekundärkälla = tolkning/bearbetning av redan existerande källor · historiebruk = hur historia används och görs relevant i nutiden, t.ex. politiskt (legitimera makt eller nation), kommersiellt (reklam, turism) och identitetsskapande (gemenskap kring ursprung eller tradition) · historiesynen förändras över tid genom nya källor, nya metoder, förändrade värderingar och nya frågor som ställs till det förflutna."
+    }
+  ]
+}

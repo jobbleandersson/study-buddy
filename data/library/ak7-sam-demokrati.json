@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam7-demokrati",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Demokrati och inflytande",
+  "sourceSummary": "Vad demokrati betyder i praktiken — majoritetsbeslut och skydd för minoriteter, hur du kan påverka i skolan och samhället, vad som skiljer demokrati från diktatur och vad allmän rösträtt innebär.",
+  "topics": [
+    "vad demokrati betyder",
+    "majoritet och minoritet",
+    "påverka i skolan och samhället",
+    "demokrati och diktatur",
+    "allmän rösträtt"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam7-dem-1",
+      "kind": "mc",
+      "topic": "vad demokrati betyder",
+      "prompt": "Ordet demokrati kommer från grekiskan. Vad betyder det ordagrant?",
+      "opener": "Ordet består av två delar: en som betyder folk och en som betyder makt.",
+      "choices": [
+        "Kungastyre",
+        "Militärstyre",
+        "Folkstyre",
+        "Domarstyre"
+      ],
+      "answer": 2,
+      "explanation": "Demokrati kommer från demos (folk) och kratos (makt eller styre) och betyder alltså folkstyre — makten utgår från folket. Kungastyre och militärstyre är i stället exempel på att en enda person eller en liten grupp har makten."
+    },
+    {
+      "id": "q-sam7-dem-2",
+      "kind": "mc",
+      "topic": "majoritet och minoritet",
+      "prompt": "Vad menas med ett majoritetsbeslut?",
+      "opener": "Tänk på hur ni gör i klassen när ni röstar om något.",
+      "choices": [
+        "Det förslag som får flest röster vinner",
+        "Alla måste vara helt överens innan beslutet gäller",
+        "Den som pratar högst får bestämma",
+        "Läraren väljer bland förslagen efter röstningen"
+      ],
+      "answer": 0,
+      "explanation": "Ett majoritetsbeslut betyder att det förslag som får flest röster blir det som gäller. Att alla måste vara överens kallas i stället konsensus, och det är en annan beslutsform som ofta tar mycket längre tid."
+    },
+    {
+      "id": "q-sam7-dem-3",
+      "kind": "mc",
+      "topic": "majoritet och minoritet",
+      "prompt": "Varför behövs skydd för minoriteter i en demokrati?",
+      "opener": "Fundera på vad som händer med den som röstade på det förslag som förlorade.",
+      "choices": [
+        "För att minoriteten alltid ska få bestämma i stället",
+        "För att röstningar ska gå snabbare",
+        "För att minoriteten inte ska behöva följa lagarna",
+        "För att grundläggande rättigheter ska gälla även dem som röstade i minoritet — majoriteten får inte rösta bort andras mänskliga rättigheter"
+      ],
+      "answer": 3,
+      "explanation": "Demokrati är mer än att räkna röster: rättigheter som yttrandefrihet, religionsfrihet och rätten att inte bli diskriminerad gäller alla, även den som förlorade omröstningen. Minoritetsskydd betyder däremot inte att minoriteten får bestämma i stället eller slipper följa lagarna."
+    },
+    {
+      "id": "q-sam7-dem-4",
+      "kind": "mc",
+      "topic": "påverka i skolan och samhället",
+      "prompt": "Vad är ett elevråd?",
+      "opener": "Namnet avslöjar vilka som sitter i det — men vem har utsett dem?",
+      "choices": [
+        "En grupp lärare som beslutar om elevernas scheman",
+        "Elever som valts av sina klasser för att föra fram elevernas synpunkter till skolan",
+        "Rektorns egen ledningsgrupp",
+        "En grupp föräldrar som granskar skolan"
+      ],
+      "answer": 1,
+      "explanation": "Elevrådet består av elever som klasserna själva har valt, och det är en av de vanligaste vägarna för elever att påverka sin skola. Rektorns ledningsgrupp och föräldrasamverkan finns också, men de är inte elevråd."
+    },
+    {
+      "id": "q-sam7-dem-5",
+      "kind": "mc",
+      "topic": "demokrati och diktatur",
+      "prompt": "Vilket av följande är typiskt för en diktatur men inte för en demokrati?",
+      "opener": "Fundera på om medborgarna kan byta ut makthavarna, och om medierna får granska dem.",
+      "choices": [
+        "Regelbundna fria val där flera partier får ställa upp",
+        "Domstolar som är oberoende av makthavarna",
+        "Rätt att demonstrera mot regeringen",
+        "Att medierna styrs av makthavarna och att kritik mot ledningen kan straffas"
+      ],
+      "answer": 3,
+      "explanation": "I en diktatur kontrollerar makthavarna ofta medierna och kritik kan leda till straff, samtidigt som fria val och oberoende domstolar saknas. Fria val, oberoende domstolar och rätten att demonstrera är just det som kännetecknar en demokrati."
+    },
+    {
+      "id": "q-sam7-dem-6",
+      "kind": "mc",
+      "topic": "allmän rösträtt",
+      "prompt": "Vad innebär allmän rösträtt?",
+      "opener": "Ordet allmän betyder att rätten inte är begränsad till en viss grupp.",
+      "choices": [
+        "Att bara den som betalar mycket skatt får rösta",
+        "Att alla vuxna medborgare har rätt att rösta, oavsett kön, inkomst eller bakgrund",
+        "Att man måste rösta, annars får man böter",
+        "Att man får rösta så många gånger man vill"
+      ],
+      "answer": 1,
+      "explanation": "Allmän rösträtt betyder att rösträtten gäller alla vuxna medborgare och inte är kopplad till kön, inkomst eller samhällsklass. I Sverige beslutades allmän och lika rösträtt för kvinnor och män 1919 och 1921, och den användes första gången i riksdagsvalet 1921. Att rösta är en rättighet, inte en plikt, så det är frivilligt."
+    },
+    {
+      "id": "q-sam7-dem-7",
+      "kind": "worked",
+      "topic": "påverka i skolan och samhället",
+      "prompt": "Du och dina klasskompisar tycker att skolgården behöver fler sittplatser. Beskriv steg för steg hur ni kan gå till väga för att påverka på ett demokratiskt sätt.",
+      "opener": "Börja i det egna klassrummet och arbeta er uppåt i skolans beslutsvägar.",
+      "answer": "Ni börjar med att formulera förslaget tydligt: fler sittplatser på skolgården, och varför det behövs. Sedan tar ni upp det på klassrådet så att hela klassen får diskutera och rösta om förslaget. Klassens representant tar med förslaget till elevrådet, där alla klasser är med och kan stödja det. Elevrådet lämnar förslaget vidare till rektor eller skolans ledning, som fattar beslut och kan behöva ta hänsyn till pengar och säkerhet. Om ni får nej kan ni fråga varför, komma med ett billigare förslag eller vända er till kommunen, som äger många skolor.",
+      "steps": [
+        "Formulera förslaget kort och konkret, och skriv ner skälen till varför det behövs.",
+        "Ta upp förslaget på klassrådet och rösta — då visar ni att fler än en person står bakom det.",
+        "Klassens representant tar förslaget vidare till elevrådet, där alla klasser är representerade.",
+        "Elevrådet lämnar förslaget till rektor eller skolledning, som beslutar och tar hänsyn till budget och säkerhet.",
+        "Får ni nej: fråga efter skälen, justera förslaget eller vänd er till kommunen som ansvarar för skolans lokaler."
+      ]
+    },
+    {
+      "id": "q-sam7-dem-8",
+      "kind": "flashcard",
+      "topic": "vad demokrati betyder",
+      "prompt": "Sammanfatta det viktigaste om demokrati, inflytande och rösträtt.",
+      "opener": "Ta demokratins innebörd först, sedan beslutsformer, påverkansvägar och motsatsen diktatur.",
+      "answer": "Demokrati: från grekiskans demos (folk) och kratos (makt) — folkstyre, makten utgår från folket · Direkt demokrati: alla röstar själva om varje fråga, t.ex. klassråd eller folkomröstning · Representativ demokrati: folket väljer representanter som beslutar, t.ex. riksdagen och kommunfullmäktige · Majoritetsbeslut: förslaget med flest röster vinner · Minoritetsskydd: rättigheter som yttrandefrihet och religionsfrihet gäller alla, även dem som röstade i minoritet · Påverka i skolan: klassråd, elevråd, samtal med rektor · Påverka i samhället: rösta, gå med i parti eller förening, skriva insändare, demonstrera, starta upprop · Demokrati kännetecknas av fria val, flera partier, yttrandefrihet, fria medier och oberoende domstolar · Diktatur: makten kan inte bytas ut i fria val, medierna styrs och kritik kan straffas · Allmän rösträtt: alla vuxna medborgare får rösta oavsett kön, inkomst eller bakgrund — i Sverige från valet 1921 · Rösträttsålder i Sverige idag: 18 år."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-kemi-syrabas",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Syror, baser och pH",
+  "sourceSummary": "pH-skalan och vad som kännetecknar syror och baser, vad som händer vid neutralisation, samt vanliga exempel på syror och baser i vardagen.",
+  "topics": [
+    "pH-skalan",
+    "syror och baser",
+    "neutralisation",
+    "syror och baser i vardagen"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi-syr-1",
+      "kind": "mc",
+      "topic": "pH-skalan",
+      "prompt": "Vad visar pH-skalan?",
+      "opener": "Skalan går från 0 till 14 — fundera på vad de olika ändarna av skalan brukar beskriva.",
+      "choices": [
+        "Hur giftigt ett ämne är",
+        "Hur sur eller basisk en lösning är",
+        "Hur varmt ett ämne är",
+        "Hur tätt ett ämne är"
+      ],
+      "answer": 1,
+      "explanation": "pH-skalan (0–14) visar hur sur eller basisk en lösning är. Låga värden är sura, höga värden är basiska, och den säger inget direkt om giftighet, temperatur eller densitet."
+    },
+    {
+      "id": "q-kemi-syr-2",
+      "kind": "mc",
+      "topic": "pH-skalan",
+      "prompt": "Vilket pH-värde räknas som neutralt, till exempel för rent vatten?",
+      "opener": "Neutralt ligger mitt emellan surt och basiskt på skalan 0–14.",
+      "choices": [
+        "0",
+        "7",
+        "10",
+        "14"
+      ],
+      "answer": 1,
+      "explanation": "pH 7 är neutralt. Värden under 7 är sura och värden över 7 är basiska — ju längre från 7, desto starkare syra eller bas."
+    },
+    {
+      "id": "q-kemi-syr-3",
+      "kind": "mc",
+      "topic": "syror och baser",
+      "prompt": "Vad kännetecknar en SYRA?",
+      "opener": "Syror avger en viss typ av jon när de löses i vatten.",
+      "choices": [
+        "Den avger vätejoner (H+) i vatten och har pH under 7",
+        "Den avger hydroxidjoner (OH−) i vatten och har pH över 7",
+        "Den är alltid frätande på metall",
+        "Den saknar smak helt"
+      ],
+      "answer": 0,
+      "explanation": "Syror avger vätejoner (H+) när de löses i vatten, vilket ger ett pH under 7. Baser avger i stället hydroxidjoner (OH−) och har pH över 7 — inte alla syror är starkt frätande, styrkan varierar."
+    },
+    {
+      "id": "q-kemi-syr-4",
+      "kind": "mc",
+      "topic": "syror och baser",
+      "prompt": "Vad kännetecknar en BAS?",
+      "opener": "Baser är i viss mån syrors motsats — tänk på vilken jon de avger.",
+      "choices": [
+        "Den har alltid pH under 7",
+        "Den avger hydroxidjoner (OH−) i vatten och har pH över 7",
+        "Den innehåller alltid koldioxid",
+        "Den kan aldrig vara frätande"
+      ],
+      "answer": 1,
+      "explanation": "Baser avger hydroxidjoner (OH−) när de löses i vatten, vilket ger pH över 7. Starka baser, precis som starka syror, kan vara frätande."
+    },
+    {
+      "id": "q-kemi-syr-5",
+      "kind": "mc",
+      "topic": "neutralisation",
+      "prompt": "Vad händer vid en NEUTRALISATION mellan en syra och en bas?",
+      "opener": "Tänk på vad vätejoner och hydroxidjoner bildar när de möts.",
+      "choices": [
+        "De reagerar och bildar salt och vatten, samtidigt som lösningens pH närmar sig 7",
+        "Syran försvinner utan att något nytt bildas",
+        "Basen omvandlas direkt till en starkare syra",
+        "Temperaturen sjunker alltid kraftigt"
+      ],
+      "answer": 0,
+      "explanation": "Vid neutralisation reagerar syra och bas och bildar salt och vatten, samtidigt som lösningens pH rör sig mot 7. Vätejoner (H+) och hydroxidjoner (OH−) binder till varandra och bildar vatten."
+    },
+    {
+      "id": "q-kemi-syr-6",
+      "kind": "mc",
+      "topic": "syror och baser i vardagen",
+      "prompt": "Vilket av följande ämnen är en syra som du kan hitta i vardagen?",
+      "opener": "Namnet på ämnet avslöjar ofta vilken sorts kemisk förening det är.",
+      "choices": [
+        "Bakpulver (natriumvätekarbonat)",
+        "Ättika (ättiksyra)",
+        "Tvål",
+        "Såpa"
+      ],
+      "answer": 1,
+      "explanation": "Ättika innehåller ättiksyra och har lågt pH — en syra. Bakpulver, tvål och såpa är i stället basiska ämnen som du också stöter på i vardagen."
+    },
+    {
+      "id": "q-kemi-syr-7",
+      "kind": "worked",
+      "topic": "neutralisation",
+      "prompt": "Magsyra i magsäcken är en stark syra med lågt pH. Vissa mediciner mot halsbränna, så kallade antacida, innehåller basiska ämnen som magnesiumhydroxid. Förklara med hjälp av kemi varför en sådan medicin lindrar halsbränna.",
+      "opener": "Tänk på vad som händer kemiskt när en syra möter en bas.",
+      "answer": "Antacidans basiska ämne neutraliserar en del av magsyran, vilket höjer pH i magsäcken mot ett mindre surt värde och minskar den sveda som halsbränna orsakar.",
+      "steps": [
+        "Magsyra (bland annat saltsyra, HCl) har lågt pH och irriterar matstrupen vid halsbränna.",
+        "Antacidan innehåller en bas, till exempel magnesiumhydroxid (Mg(OH)2), som avger hydroxidjoner (OH−) i vatten.",
+        "När basen möter syran i magsäcken sker en neutralisationsreaktion: syra + bas → salt + vatten.",
+        "Vätejonerna (H+) från syran binder till hydroxidjonerna (OH−) och bildar vatten, vilket gör lösningen mindre sur — pH stiger mot 7.",
+        "Med mindre fri syra kvar minskar irritationen i matstrupen och obehaget av halsbränna lindras."
+      ]
+    },
+    {
+      "id": "q-kemi-syr-8",
+      "kind": "flashcard",
+      "topic": "pH-skalan",
+      "prompt": "Sammanfatta syror, baser, pH-skalan och neutralisation.",
+      "opener": "Tänk skala 0–14, vilken jon som avges, och vad som bildas vid neutralisation.",
+      "answer": "pH-skalan: går från 0–14 och visar hur sur eller basisk en lösning är · pH under 7 = surt (syra) · pH = 7 = neutralt (t.ex. rent vatten) · pH över 7 = basiskt (bas) · Syra: avger vätejoner (H+) i vatten, exempel: ättiksyra, saltsyra, magsyra, citronsyra · Bas: avger hydroxidjoner (OH−) i vatten, exempel: bakpulver (natriumvätekarbonat), såpa, tvål, ammoniak · Neutralisation: syra + bas → salt + vatten, pH går mot 7 · Vardagsexempel: ättika (surt) reagerar med bikarbonat (basiskt) och bubblar av koldioxid bildas."
+    }
+  ]
+}

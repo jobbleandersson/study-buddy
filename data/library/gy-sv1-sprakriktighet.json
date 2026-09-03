@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv1-sprakriktighet",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Språkriktighet och meningsbyggnad",
+  "sourceSummary": "De och dem, särskrivning, skiljetecken och satsradning — felen som oftast drar ner betyget på skriftliga uppgifter.",
+  "topics": [
+    "de och dem",
+    "särskrivning",
+    "skiljetecken",
+    "meningsbyggnad"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-spr-1",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Vilken mening är korrekt?",
+      "opener": "Testa att byta ut ordet mot engelskans \"they\" eller \"them\".",
+      "choices": [
+        "Båda de och dem fungerar lika bra här.",
+        "Jag gav boken till de som satt längst bak.",
+        "Jag gav boken till dem som satt längst bak.",
+        "Jag gav boken till dom som satt längst bak i skriftspråk."
+      ],
+      "answer": 2,
+      "explanation": "Efter prepositionen \"till\" krävs objektsform: \"dem\". Testet fungerar: man säger \"to them\", inte \"to they\"."
+    },
+    {
+      "id": "q-sv1-spr-2",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Välj rätt ord: \"___ som kom sist fick stå upp.\"",
+      "opener": "Vem är det som utför handlingen i meningen?",
+      "choices": [
+        "Dom",
+        "Det",
+        "Dem",
+        "De"
+      ],
+      "answer": 3,
+      "explanation": "Ordet är subjekt — det är de som kom sist. Subjektsform är \"de\" (jämför \"they came last\", inte \"them came last\")."
+    },
+    {
+      "id": "q-sv1-spr-3",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "Vilket alternativ är korrekt skrivet?",
+      "opener": "Ett sammansatt ord är ETT begrepp — inte två som råkar stå bredvid varandra.",
+      "choices": [
+        "Sjukhuset är ett rökfritt område.",
+        "Sjukhuset är ett rök-fritt område.",
+        "Sjukhuset är ett Rökfritt område.",
+        "Sjukhuset är ett rök fritt område."
+      ],
+      "answer": 0,
+      "explanation": "\"Rökfritt\" är ett sammansatt ord och skrivs ihop. Särskrivning ändrar ofta betydelsen helt — jämför \"en brun hårig man\" med \"en brunhårig man\"."
+    },
+    {
+      "id": "q-sv1-spr-4",
+      "kind": "mc",
+      "topic": "meningsbyggnad",
+      "prompt": "\"Jag läste boken, den var spännande.\" Vad är problemet med meningen?",
+      "opener": "Räkna hur många fullständiga meningar som klämts ihop med bara ett kommatecken.",
+      "choices": [
+        "Det saknas ett subjekt",
+        "Satsradning — två huvudsatser binds ihop med enbart komma",
+        "Ordföljden är felaktig",
+        "Ingenting, den är korrekt"
+      ],
+      "answer": 1,
+      "explanation": "Två huvudsatser kan inte bindas ihop med enbart komma. Lös det med punkt, semikolon eller en konjunktion: \"Jag läste boken. Den var spännande.\" eller \"…boken, och den var spännande.\""
+    },
+    {
+      "id": "q-sv1-spr-5",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "När använder du semikolon?",
+      "opener": "Det ligger mitt emellan två andra skiljetecken i styrka.",
+      "choices": [
+        "I stället för kommatecken i långa meningar",
+        "Före citat",
+        "Mellan två huvudsatser som hör nära ihop",
+        "För att inleda en uppräkning"
+      ],
+      "answer": 2,
+      "explanation": "Semikolon binder samman två fullständiga huvudsatser med nära samband: \"Hon sa inget; hon behövde inte.\" Att inleda uppräkning eller citat gör man med kolon."
+    },
+    {
+      "id": "q-sv1-spr-6",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Vilken mening använder kolon korrekt?",
+      "opener": "Kolon pekar framåt mot något som förklarar eller räknar upp.",
+      "choices": [
+        "Vi behöver: penna, papper och tid att arbeta.",
+        "Han sa: att han skulle komma senare.",
+        "Boken var: spännande och välskriven.",
+        "Vi behöver tre saker: penna, papper och tid."
+      ],
+      "answer": 3,
+      "explanation": "Kolon används före en uppräkning, förklaring eller ett anfört yttrande — men bara när det som står före kolonet är en fullständig sats. I de andra alternativen bryter kolonet mitt i en sats."
+    },
+    {
+      "id": "q-sv1-spr-7",
+      "kind": "worked",
+      "topic": "meningsbyggnad",
+      "prompt": "Rätta meningen och förklara varje ändring: \"Läraren delade ut proven till de som var klara, många var nervösa dem hade inte hunnit plugga.\"",
+      "opener": "Leta efter tre saker: fel form av de/dem, satsradning, och en mening som behöver delas.",
+      "answer": "Läraren delade ut proven till dem som var klara. Många var nervösa; de hade inte hunnit plugga.",
+      "steps": [
+        "\"till de som var klara\" → \"till dem som var klara\". Efter prepositionen \"till\" krävs objektsform.",
+        "\"…var klara, många var nervösa\" är satsradning: två huvudsatser med bara komma. Sätt punkt efter \"klara\".",
+        "\"många var nervösa dem hade inte hunnit plugga\" saknar skiljetecken helt. Sätt semikolon (eller punkt) mellan huvudsatserna.",
+        "\"dem hade inte hunnit plugga\" → \"de hade inte hunnit plugga\". Här är ordet subjekt — det är de som inte hunnit plugga."
+      ]
+    },
+    {
+      "id": "q-sv1-spr-8",
+      "kind": "flashcard",
+      "topic": "de och dem",
+      "prompt": "Vilket knep använder du för att avgöra om det ska vara \"de\" eller \"dem\"?",
+      "opener": "Två test som båda fungerar.",
+      "answer": "Byt ut ordet mot engelskans they/them: blir det \"they\" skriver du \"de\", blir det \"them\" skriver du \"dem\". Alternativt byt mot vi/oss: \"vi\" → de, \"oss\" → dem. Kort regel: \"de\" är subjekt (den som gör något), \"dem\" är objekt (den som något görs med) och står alltid efter preposition."
+    }
+  ]
+}

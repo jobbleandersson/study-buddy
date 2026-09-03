@@ -1,0 +1,130 @@
+{
+  "id": "lib-bio-genetik",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Genetik och ärftlighet",
+  "sourceSummary": "DNA, gener och kromosomer, dominant och recessiv arv samt hur man läser ett korsningsschema för att beräkna sannolikheter.",
+  "topics": [
+    "DNA och gener",
+    "kromosomer",
+    "dominant och recessiv arv",
+    "mutationer",
+    "korsningsschema"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio-gen-1",
+      "kind": "mc",
+      "topic": "DNA och gener",
+      "prompt": "Vad är DNA?",
+      "opener": "Tänk på vad som finns i cellkärnan och bär informationen om hur du ska byggas.",
+      "choices": [
+        "Ett protein som bygger muskler",
+        "Ett ämne som lagrar och bär arvsinformation",
+        "En typ av cellmembran",
+        "En sockerart som ger cellen energi"
+      ],
+      "answer": 1,
+      "explanation": "DNA är arvsmassan — en lång molekyl som innehåller instruktionerna (generna) för hur en organism ska byggas och fungera. Det är inte ett protein, ett membran eller en energikälla i sig."
+    },
+    {
+      "id": "q-bio-gen-2",
+      "kind": "mc",
+      "topic": "DNA och gener",
+      "prompt": "Vad är en gen?",
+      "opener": "Tänk på DNA som en receptbok — vad motsvarar då ett enskilt recept?",
+      "choices": [
+        "En hel kromosom",
+        "Ett avsnitt av DNA som bär information om en viss egenskap",
+        "En cell som delar sig",
+        "Ett protein som bryter ner mat"
+      ],
+      "answer": 1,
+      "explanation": "En gen är en bit av DNA-molekylen som innehåller information om en specifik egenskap, t.ex. ögonfärg. En kromosom består av många gener packade tillsammans."
+    },
+    {
+      "id": "q-bio-gen-3",
+      "kind": "mc",
+      "topic": "kromosomer",
+      "prompt": "Var i cellen finns kromosomerna?",
+      "opener": "Var finns DNA lagrat i cellen?",
+      "choices": [
+        "I cellväggen",
+        "I mitokondrien",
+        "I cellkärnan",
+        "I cellmembranet"
+      ],
+      "answer": 2,
+      "explanation": "Kromosomerna, som är tätt hoppackat DNA, finns i cellkärnan. Människan har 46 kromosomer (23 par) i nästan alla sina celler."
+    },
+    {
+      "id": "q-bio-gen-4",
+      "kind": "mc",
+      "topic": "dominant och recessiv arv",
+      "prompt": "Om anlaget för bruna ögon (B) är dominant över anlaget för blå ögon (b), vilken ögonfärg får en person med anlagsparet Bb?",
+      "opener": "Vid dominant/recessivt arv räcker det med ett dominant anlag för att egenskapen ska synas.",
+      "choices": [
+        "Blå ögon",
+        "Bruna ögon",
+        "Gröna ögon",
+        "Både blå och bruna samtidigt"
+      ],
+      "answer": 1,
+      "explanation": "Eftersom B (bruna ögon) är dominant räcker ett B-anlag för att egenskapen ska visa sig, även om personen också bär på b. Bara den som har bb (två recessiva anlag) får blå ögon."
+    },
+    {
+      "id": "q-bio-gen-5",
+      "kind": "mc",
+      "topic": "mutationer",
+      "prompt": "Vad är en mutation?",
+      "opener": "Tänk på vad som kan hända när DNA kopieras eller skadas.",
+      "choices": [
+        "En normal celldelning utan förändring",
+        "En plötslig förändring i DNA:t",
+        "Ett annat ord för kromosom",
+        "En process där två celler smälter samman"
+      ],
+      "answer": 1,
+      "explanation": "En mutation är en förändring i DNA-sekvensen, som kan uppstå av misstag vid kopiering eller på grund av yttre påverkan som strålning. Mutationer kan vara skadliga, neutrala eller ibland fördelaktiga."
+    },
+    {
+      "id": "q-bio-gen-6",
+      "kind": "mc",
+      "topic": "korsningsschema",
+      "prompt": "Två personer som båda är Bb (B = bruna ögon, dominant; b = blå ögon, recessiv) får barn. Hur stor är sannolikheten att barnet får blå ögon (bb)?",
+      "opener": "Rita ett korsningsschema med Bb x Bb och räkna hur många av fyra rutor som blir bb.",
+      "choices": [
+        "0%",
+        "25%",
+        "50%",
+        "100%"
+      ],
+      "answer": 1,
+      "explanation": "Korsningsschemat Bb x Bb ger kombinationerna BB, Bb, Bb, bb — alltså 1 av 4 (25%) blir bb och får blå ögon. De andra 3 av 4 får bruna ögon eftersom B är dominant."
+    },
+    {
+      "id": "q-bio-gen-7",
+      "kind": "worked",
+      "topic": "korsningsschema",
+      "prompt": "Två ärtplantor som båda har anlagsparet Tt (T = hög växt, dominant; t = låg växt, recessiv) korsas. Gör ett korsningsschema och beräkna hur stor andel av avkomman som blir låga plantor.",
+      "opener": "Sätt upp en 2x2-ruta med föräldrarnas könsceller (T och t) längs sidorna och fyll i kombinationerna.",
+      "answer": "25% (1 av 4) blir låga plantor (tt). 75% blir höga (TT eller Tt).",
+      "steps": [
+        "Varje förälder är Tt och bildar könsceller med antingen T eller t.",
+        "Sätt upp en ruta med T och t från ena föräldern överst, T och t från andra föräldern på sidan.",
+        "Fyll i de fyra rutorna: TT, Tt, Tt, tt.",
+        "TT och Tt (3 av 4) blir höga plantor eftersom T är dominant, tt (1 av 4) blir låg eftersom båda anlagen är recessiva.",
+        "Sannolikheten för en låg planta är alltså 25%."
+      ]
+    },
+    {
+      "id": "q-bio-gen-8",
+      "kind": "flashcard",
+      "topic": "DNA och gener",
+      "prompt": "Sammanfatta grundbegreppen inom genetik: DNA, gen, kromosom, dominant och recessiv.",
+      "opener": "Gå igenom begreppen i storleksordning, från minst till störst.",
+      "answer": "DNA: molekylen som bär all arvsinformation, finns i cellkärnan · Gen: ett avsnitt av DNA med information om en viss egenskap · Kromosom: tätt hoppackat DNA, människan har 46 st (23 par) · Dominant anlag: syns även om personen bara har ett exemplar av anlaget (skrivs med stor bokstav, t.ex. B) · Recessivt anlag: syns bara om personen har två exemplar av anlaget (skrivs med liten bokstav, t.ex. b) · Mutation: en förändring i DNA som kan ge nya egenskaper och är en grund för variation och evolution."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-kemi-material",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Material, metaller och kretslopp",
+  "sourceSummary": "Metallers egenskaper och var de kommer ifrån, hur återvinning och materialkretslopp fungerar, vanliga vardagsmaterial som plast, glas och metall, samt grundidén bakom korrosion och rost.",
+  "topics": [
+    "metaller",
+    "återvinning och kretslopp",
+    "material i vardagen",
+    "korrosion"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi-mat-1",
+      "kind": "mc",
+      "topic": "metaller",
+      "prompt": "Vilken egenskap är typisk för metaller men INTE för de flesta andra material?",
+      "opener": "Tänk på varför man kan leda ström och värme genom en metallkabel eller en kastrull.",
+      "choices": [
+        "De löser sig lätt i vatten",
+        "De leder elektricitet och värme bra",
+        "De är genomskinliga",
+        "De är alltid mjuka och böjliga"
+      ],
+      "answer": 1,
+      "explanation": "Metaller leder elektricitet och värme bra tack vare fria elektroner som kan röra sig genom materialet. De är oftast inte genomskinliga, löser sig inte i vatten och varierar mycket i hårdhet — järn är hårt medan bly är mjukt."
+    },
+    {
+      "id": "q-kemi-mat-2",
+      "kind": "mc",
+      "topic": "metaller",
+      "prompt": "Var i naturen finns de flesta metaller innan de bryts och utvinns?",
+      "opener": "Rena metaller är ovanliga i naturen — de sitter oftast bundna till andra ämnen.",
+      "choices": [
+        "Fritt i luften som gas",
+        "Bundna i malm tillsammans med andra grundämnen, till exempel syre",
+        "Upplösta i havsvatten i stora mängder",
+        "De bildas bara i fabriker"
+      ],
+      "answer": 1,
+      "explanation": "De flesta metaller finns i naturen bundna i malm, ofta tillsammans med syre som metalloxider. För att få fram ren metall måste malmen brytas och sedan bearbetas, till exempel genom smältning."
+    },
+    {
+      "id": "q-kemi-mat-3",
+      "kind": "mc",
+      "topic": "återvinning och kretslopp",
+      "prompt": "Varför är det särskilt bra för miljön att återvinna metaller som aluminium?",
+      "opener": "Jämför energin det tar att bryta ny malm och smälta fram ny metall med att smälta om skrot.",
+      "choices": [
+        "Metaller kan bara återvinnas en gång",
+        "Det tar mycket mindre energi att smälta om skrot än att utvinna ny metall ur malm",
+        "Återvunnen metall blir alltid starkare än ny metall",
+        "Metaller bryts ner naturligt om man slänger dem i naturen"
+      ],
+      "answer": 1,
+      "explanation": "Att smälta om skrotmetall kräver betydligt mindre energi än att bryta malm och utvinna ny metall från grunden, vilket sparar både energi och naturresurser. Metaller kan dessutom återvinnas om och om igen utan att förlora sina egenskaper."
+    },
+    {
+      "id": "q-kemi-mat-4",
+      "kind": "mc",
+      "topic": "återvinning och kretslopp",
+      "prompt": "Vad menas med ett materialkretslopp?",
+      "opener": "Tänk på skillnaden mellan att ett material används en gång och slängs, och att det används om och om igen.",
+      "choices": [
+        "Att material tillverkas en gång och sedan alltid slängs i naturen",
+        "Att material samlas in, bearbetas och används till nya produkter igen och igen, i stället för att bli avfall",
+        "Att material bara kan användas till exakt samma produkt som tidigare",
+        "Ett annat ord för soptippen"
+      ],
+      "answer": 1,
+      "explanation": "Ett materialkretslopp innebär att material samlas in efter användning, bearbetas och blir råvara till nya produkter, i stället för att bli avfall som slängs. Det sparar råvaror och energi jämfört med att alltid tillverka nytt från grunden."
+    },
+    {
+      "id": "q-kemi-mat-5",
+      "kind": "mc",
+      "topic": "material i vardagen",
+      "prompt": "Vad är den viktigaste kemiska skillnaden mellan plast och glas?",
+      "opener": "Tänk på vad ämnena är uppbyggda av på molekylnivå — långa kedjor jämfört med ett nätverk av kiseldioxid.",
+      "choices": [
+        "Plast är alltid genomskinligt och glas är det aldrig",
+        "Plast består av långa kedjor av kolatomer (polymerer), medan glas huvudsakligen består av kiseldioxid i ett hårt nätverk",
+        "Glas innehåller alltid metall och plast gör det aldrig",
+        "Det finns ingen kemisk skillnad, bara utseendemässig"
+      ],
+      "answer": 1,
+      "explanation": "Plast är uppbyggt av polymerer — långa kedjor av kolatomer som gör materialet formbart. Glas är i stället huvudsakligen kiseldioxid (samma ämne som finns i sand) som bildar ett hårt, stelt nätverk när det stelnar från smält form."
+    },
+    {
+      "id": "q-kemi-mat-6",
+      "kind": "mc",
+      "topic": "korrosion",
+      "prompt": "Vad är rost, kemiskt sett?",
+      "opener": "Tänk på vilka ämnen i luften som reagerar med järn över tid.",
+      "choices": [
+        "Ren järnmetall som bara bytt färg",
+        "En järnoxidförening som bildas när järn reagerar med syre och fukt",
+        "Smuts som fastnat på järnets yta utifrån",
+        "Ett annat namn för aluminiumoxid"
+      ],
+      "answer": 1,
+      "explanation": "Rost är järnoxid (egentligen en blandning av järnoxider och järnhydroxider) som bildas när järn långsamt reagerar med syre och vatten i luften. Rost är alltså inte samma ämne som järnet, utan en helt ny kemisk förening — korrosion är en kemisk reaktion, inte bara smuts."
+    },
+    {
+      "id": "q-kemi-mat-7",
+      "kind": "worked",
+      "topic": "korrosion",
+      "prompt": "Förklara varför en järnspik rostar när den ligger ute i regn, men en spik av rostfritt stål inte gör det lika lätt.",
+      "opener": "Tänk på vad järn behöver för att rosta, och vad som skiljer rostfritt stål från vanligt järn kemiskt sett.",
+      "answer": "Järnspiken rostar eftersom rent järn reagerar direkt med syre och fukt och bildar järnoxid. Rostfritt stål innehåller krom, som bildar ett tunt, osynligt skyddande oxidskikt på ytan som hindrar syre och fukt från att nå järnet under.",
+      "steps": [
+        "Rost bildas genom en kemisk reaktion mellan järn, syre (från luften) och vatten (från regnet).",
+        "Ren järnyta har inget skydd, så reaktionen kan fortsätta hela tiden ytan är utsatt, och rosten byggs på lager efter lager.",
+        "Rostfritt stål är en legering av järn med bland annat krom tillsatt.",
+        "Kromet reagerar snabbt med syre och bildar ett mycket tunt, tätt kromoxidskikt som 'täcker över' ytan.",
+        "Det skiktet hindrar syre och fukt från att komma åt järnet under, så det vanliga rostangreppet uteblir eller går mycket långsammare."
+      ]
+    },
+    {
+      "id": "q-kemi-mat-8",
+      "kind": "flashcard",
+      "topic": "material i vardagen",
+      "prompt": "Sammanfatta det viktigaste om metaller, vanliga vardagsmaterial och återvinning.",
+      "opener": "Tänk igenom var metaller kommer ifrån, vad som skiljer plast/glas/metall åt, och varför återvinning lönar sig.",
+      "answer": "Metaller: leder el och värme bra, är oftast blanka och formbara, finns i naturen bundna i malm och måste utvinnas · Legering = blandning av en metall med andra ämnen för nya egenskaper, t.ex. rostfritt stål (järn + krom) · Plast: byggd av långa kolkedjor (polymerer), lätt och formbar, bryts ner mycket långsamt i naturen · Glas: huvudsakligen kiseldioxid, hårt och genomskinligt men sprött · Korrosion/rost: järn reagerar med syre och fukt och bildar järnoxid — en kemisk reaktion, inte bara smuts · Materialkretslopp = material samlas in, bearbetas och blir råvara till nya produkter i stället för att bli avfall · Återvinning av metall (t.ex. aluminium) kräver mycket mindre energi än att utvinna ny metall ur malm."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-en7gy-idiom",
+  "type": "assignment",
+  "subject": "Engelska 7",
+  "title": "Idiomatic and nuanced expression",
+  "sourceSummary": "Avancerade idiom och deras register, konnotation kontra denotation, phrasal verbs med flera betydelser beroende på sammanhang, samt false friends på avancerad nivå.",
+  "topics": [
+    "advanced idioms and register",
+    "connotation vs denotation",
+    "phrasal verbs with multiple meanings",
+    "advanced false friends"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7gy-idiom-1",
+      "kind": "mc",
+      "topic": "advanced idioms and register",
+      "prompt": "What does the idiom 'to read between the lines' mean?",
+      "opener": "Idiomet handlar inte om bokstäver, utan om vad texten INTE säger rakt ut.",
+      "choices": [
+        "To read very carefully, word by word.",
+        "To understand a meaning that is implied but not directly stated.",
+        "To skip parts of a text.",
+        "To translate a text literally."
+      ],
+      "answer": 1,
+      "explanation": "\"Read between the lines\" betyder att förstå en underförstådd innebörd, inte att läsa noggrant eller ordagrant. Idiomet passar formellt/neutralt register och används ofta i analys av texter."
+    },
+    {
+      "id": "q-en7gy-idiom-2",
+      "kind": "mc",
+      "topic": "advanced idioms and register",
+      "prompt": "Which idiom would be appropriate in a formal discussion of a difficult compromise?",
+      "opener": "Vilket idiom passar en formell, allvarlig diskussion om ett svårt beslut?",
+      "choices": [
+        "That's a piece of cake.",
+        "It's raining cats and dogs.",
+        "It was a bitter pill to swallow, but necessary.",
+        "He kicked the bucket over it."
+      ],
+      "answer": 2,
+      "explanation": "\"A bitter pill to swallow\" beskriver något obehagligt man ändå måste acceptera, och passar en formell/allvarlig diskussion. De andra är antingen för vardagliga (\"piece of cake\", \"raining cats and dogs\") eller olämpliga i sammanhanget (\"kick the bucket\" betyder att dö och är slang)."
+    },
+    {
+      "id": "q-en7gy-idiom-3",
+      "kind": "mc",
+      "topic": "connotation vs denotation",
+      "prompt": "Which word has a more negative connotation than 'thin', even though all four words share a similar denotation?",
+      "opener": "Denotationen (den bokstavliga betydelsen) är densamma, men konnotationen (känslomässiga laddningen) skiljer sig.",
+      "choices": [
+        "slim",
+        "slender",
+        "lean",
+        "skinny"
+      ],
+      "answer": 3,
+      "explanation": "\"Skinny\" har ofta en negativ eller kritisk klang, medan \"slim\"/\"slender\"/\"lean\" oftast uppfattas som neutrala eller positiva, trots att alla fyra ord i grunden betyder \"smal\"."
+    },
+    {
+      "id": "q-en7gy-idiom-4",
+      "kind": "mc",
+      "topic": "connotation vs denotation",
+      "prompt": "Which word choice conveys the most positive connotation while still meaning 'not spending much money'?",
+      "opener": "Alla fyra ord betyder ungefär samma sak bokstavligt — men vilket klingar som ett beröm?",
+      "choices": [
+        "thrifty",
+        "stingy",
+        "cheap",
+        "tight-fisted"
+      ],
+      "answer": 0,
+      "explanation": "\"Thrifty\" har en positiv klang (sparsam på ett smart sätt), medan \"stingy\", \"cheap\" och \"tight-fisted\" alla har negativa, kritiska konnotationer trots liknande denotation."
+    },
+    {
+      "id": "q-en7gy-idiom-5",
+      "kind": "mc",
+      "topic": "phrasal verbs with multiple meanings",
+      "prompt": "In 'The meeting was called off due to bad weather', what does 'called off' mean?",
+      "opener": "\"Call off\" har flera betydelser beroende på sammanhang — vilken passar här?",
+      "choices": [
+        "Postponed to a later date.",
+        "Started earlier than planned.",
+        "Cancelled.",
+        "Held by phone instead."
+      ],
+      "answer": 2,
+      "explanation": "I detta sammanhang betyder \"called off\" avbokat/inställt, inte framflyttat. Notera att \"call off\" i andra sammanhang (t.ex. \"call off the dogs\") kan betyda att avbryta en aggressiv handling."
+    },
+    {
+      "id": "q-en7gy-idiom-6",
+      "kind": "mc",
+      "topic": "phrasal verbs with multiple meanings",
+      "prompt": "Compare: (a) 'She took after her mother.' (b) 'The plane took off on time.' What do these uses of 'take' have in common?",
+      "opener": "Jämför partiklarna \"after\" och \"off\" — vad gör de med grundbetydelsen av \"take\"?",
+      "choices": [
+        "Both mean 'to remove'.",
+        "The same base verb changes meaning entirely depending on the particle that follows it.",
+        "Both are used only in formal writing.",
+        "Both mean 'to travel'."
+      ],
+      "answer": 1,
+      "explanation": "\"Take after\" betyder att likna (t.ex. en förälder), medan \"take off\" betyder att lyfta (flygplan) eller ta av (kläder). Samma grundverb får helt olika betydelser beroende på partikeln — ett kännetecken för phrasal verbs."
+    },
+    {
+      "id": "q-en7gy-idiom-7",
+      "kind": "worked",
+      "topic": "advanced false friends",
+      "prompt": "Correct the two advanced false-friend errors in this sentence and explain: 'The professor was very sympathetic in his lecture, and the audience felt he was quite eventually going to change their minds.'",
+      "opener": "Två ord ser bekanta ut för en svensk läsare men betyder något annat i det här sammanhanget.",
+      "answer": "The professor was very likeable/engaging in his lecture, and the audience felt he would eventually change their minds.",
+      "steps": [
+        "\"sympathetic\" → \"likeable\"/\"engaging\": på engelska betyder \"sympathetic\" medkännande/förstående (inte \"sympatisk\" i betydelsen trevlig).",
+        "\"quite eventually\" → \"eventually\": \"quite\" passar inte ihop med \"eventually\" här; meningen ville troligen säga att publiken kände att han så småningom SKULLE ändra deras uppfattning, alltså en tydlig framtidsprognos, inte en gradmätning.",
+        "Notera skillnaden: \"sympathetic\" (medkännande) mot svenskans \"sympatisk\" (likeable/nice) är ett klassiskt fel även på avancerad nivå.",
+        "\"Eventually\" betyder till slut/så småningom — helt oberoende av svenskans \"eventuellt\" (possibly)."
+      ]
+    },
+    {
+      "id": "q-en7gy-idiom-8",
+      "kind": "flashcard",
+      "topic": "advanced false friends",
+      "prompt": "List advanced false friends and connotation traps common at Engelska 7 level.",
+      "opener": "Ord som är extra lätta att missbruka på avancerad nivå.",
+      "answer": "sympathetic = medkännande (ej sympatisk/trevlig = likeable) · eventually = till slut (ej eventuellt = possibly) · skinny vs slim/slender = negativ vs neutral/positiv konnotation, samma denotation · stingy vs thrifty = negativ vs positiv konnotation för \"sparsam\" · take after (likna) vs take off (lyfta/ta av) — samma verb, olika partikel, helt olika betydelse · a bitter pill to swallow = något obehagligt man accepterar; passar formellt register, till skillnad från slangiga idiom som \"kick the bucket\""
+    }
+  ]
+}

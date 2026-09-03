@@ -1,0 +1,128 @@
+{
+  "id": "lib-en9-tenses",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Grammar: tempus (tenses)",
+  "sourceSummary": "Present simple mot present continuous, past simple och att uttrycka framtid med \"going to\" och \"will\" — grunderna innan gymnasiets fördjupning.",
+  "topics": [
+    "present simple",
+    "present continuous",
+    "past simple",
+    "future"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en9-tns-1",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Choose the correct form: \"She ___ to school every day.\"",
+      "opener": "Vanor och rutiner uttrycks med present simple — och tredje person singular (he/she/it) tar -s.",
+      "choices": [
+        "walk",
+        "walks",
+        "walking",
+        "is walk"
+      ],
+      "answer": 1,
+      "explanation": "Vardagliga rutiner uttrycks i present simple. Med \"she\" (tredje person singular) läggs -s till verbet: \"walks\"."
+    },
+    {
+      "id": "q-en9-tns-2",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the correct form: \"Look! It ___ outside right now.\"",
+      "opener": "Något som pågår just i detta ögonblick — vilket tempus används då?",
+      "choices": [
+        "rains",
+        "rain",
+        "is raining",
+        "rained"
+      ],
+      "answer": 2,
+      "explanation": "\"Right now\" signalerar att något pågår just nu — det kräver present continuous: is/am/are + verb-ing."
+    },
+    {
+      "id": "q-en9-tns-3",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Which sentence is correct?",
+      "opener": "Rutiner tar inte -ing-form, även om det \"känns\" pågående.",
+      "choices": [
+        "I usually am eating breakfast at seven.",
+        "I usually eat breakfast at seven.",
+        "I usually eats breakfast at seven.",
+        "I am usually eat breakfast at seven."
+      ],
+      "answer": 1,
+      "explanation": "\"Usually\" signalerar en vana — det kräver present simple utan -ing. \"I\" tar ingen -s (den läggs bara till vid he/she/it)."
+    },
+    {
+      "id": "q-en9-tns-4",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"We ___ to the cinema last Friday.\"",
+      "opener": "\"Last Friday\" pekar på en avslutad händelse i det förflutna.",
+      "choices": [
+        "go",
+        "goes",
+        "went",
+        "have gone"
+      ],
+      "answer": 2,
+      "explanation": "\"Last Friday\" är ett tydligt dåtidsuttryck som kräver past simple. \"Go\" är oregelbundet: go → went (inte \"goed\")."
+    },
+    {
+      "id": "q-en9-tns-5",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct negative form: \"She ___ finish her homework yesterday.\"",
+      "opener": "I nekande satser i dåtid används hjälpverbet \"did\" — och då står huvudverbet i grundform.",
+      "choices": [
+        "didn't finished",
+        "didn't finish",
+        "doesn't finish",
+        "not finished"
+      ],
+      "answer": 1,
+      "explanation": "Nekande dåtid bildas med \"didn't\" + verb i grundform: \"didn't finish\", inte \"didn't finished\" (dubbel böjning är ett vanligt fel)."
+    },
+    {
+      "id": "q-en9-tns-6",
+      "kind": "mc",
+      "topic": "future",
+      "prompt": "Choose the best option: \"I've already decided — I ___ study medicine after school.\"",
+      "opener": "Ett beslut som redan är fattat uttrycks oftast med \"going to\", inte \"will\".",
+      "choices": [
+        "will",
+        "am going to",
+        "am",
+        "study"
+      ],
+      "answer": 1,
+      "explanation": "\"Going to\" används för planer och beslut som redan är fattade. \"Will\" passar bättre för spontana beslut eller löften i talögonblicket."
+    },
+    {
+      "id": "q-en9-tns-7",
+      "kind": "worked",
+      "topic": "present continuous",
+      "prompt": "Correct the three tense errors: \"Every day I am walking to school. Yesterday I go by bus because it rain a lot. Tomorrow I will going by bike.\"",
+      "opener": "Tre tempus blandas ihop: en rutin, en avslutad händelse och en framtidsplan.",
+      "answer": "Every day I walk to school. Yesterday I went by bus because it rained a lot. Tomorrow I will go by bike.",
+      "steps": [
+        "\"I am walking\" (rutin, \"every day\") → \"I walk\". Vanor tar present simple, inte continuous.",
+        "\"Yesterday I go\" → \"Yesterday I went\". \"Yesterday\" kräver past simple; \"go\" är oregelbundet: go → went.",
+        "\"it rain a lot\" → \"it rained a lot\". Regelbundet verb i dåtid: rain → rained (-ed).",
+        "\"I will going\" → \"I will go\". Efter \"will\" står verbet alltid i grundform, aldrig med -ing."
+      ]
+    },
+    {
+      "id": "q-en9-tns-8",
+      "kind": "flashcard",
+      "topic": "present simple",
+      "prompt": "När använder du present simple, present continuous, past simple och \"going to\"/\"will\"?",
+      "opener": "Fyra tempus, fyra situationer.",
+      "answer": "Present simple: vanor och rutiner (I play football every week). Present continuous: något som pågår just nu (I am playing football right now). Past simple: avslutade händelser i dåtid, ofta med tidsuttryck som yesterday/last week (I played football yesterday). Going to: planer och beslut som redan är fattade (I'm going to play tomorrow). Will: spontana beslut, löften och förutsägelser i stunden (I think it will rain)."
+    }
+  ]
+}

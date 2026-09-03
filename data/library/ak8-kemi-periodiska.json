@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi8-periodiska",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Periodiska systemet och atommodellen",
+  "sourceSummary": "Atomens uppbyggnad med protoner, neutroner och elektroner, hur atomnummer och masstal hänger ihop, elektronskalens uppbyggnad samt hur grupper och perioder i periodiska systemet förklarar varför ädelgaser och alkalimetaller beter sig så olika.",
+  "topics": [
+    "atomens uppbyggnad",
+    "atomnummer och masstal",
+    "elektronskal",
+    "grupper och perioder",
+    "ädelgaser och alkalimetaller"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi8-per-1",
+      "kind": "mc",
+      "topic": "atomens uppbyggnad",
+      "prompt": "Vilka partiklar finns i atomkärnan?",
+      "opener": "Atomen har en tung kärna i mitten och något mycket lättare som rör sig utanför.",
+      "choices": [
+        "Bara elektroner",
+        "Protoner och neutroner",
+        "Protoner och elektroner",
+        "Neutroner och elektroner"
+      ],
+      "answer": 1,
+      "explanation": "Atomkärnan innehåller protoner (positivt laddade) och neutroner (oladdade), och där finns nästan hela atomens massa. Elektronerna sitter inte i kärnan — de är negativt laddade och rör sig i elektronskal utanför kärnan."
+    },
+    {
+      "id": "q-kemi8-per-2",
+      "kind": "mc",
+      "topic": "atomnummer och masstal",
+      "prompt": "En atom har atomnummer 6. Vad betyder det?",
+      "opener": "Atomnummret är atomens ID-nummer i periodiska systemet och räknar en enda sorts partikel.",
+      "choices": [
+        "Att atomen har 6 neutroner i kärnan",
+        "Att atomen väger 6 gram",
+        "Att atomen har 6 elektronskal",
+        "Att atomen har 6 protoner i kärnan"
+      ],
+      "answer": 3,
+      "explanation": "Atomnummer 6 betyder 6 protoner i kärnan, och ämnet är kol. I en oladdad atom finns lika många elektroner som protoner, alltså 6 elektroner. Antalet neutroner får man däremot fram ur masstalet, inte ur atomnummret."
+    },
+    {
+      "id": "q-kemi8-per-3",
+      "kind": "mc",
+      "topic": "atomnummer och masstal",
+      "prompt": "En natriumatom har masstal 23 och atomnummer 11. Hur många neutroner har den?",
+      "opener": "Masstalet räknar kärnans partiklar tillsammans, medan atomnummret bara räknar protonerna.",
+      "choices": [
+        "12",
+        "11",
+        "23",
+        "34"
+      ],
+      "answer": 0,
+      "explanation": "Masstalet är protoner + neutroner, så antalet neutroner blir 23 − 11 = 12. Talet 11 är antalet protoner, och 34 uppstår om man av misstag adderar masstal och atomnummer i stället för att subtrahera."
+    },
+    {
+      "id": "q-kemi8-per-4",
+      "kind": "mc",
+      "topic": "elektronskal",
+      "prompt": "Hur många elektroner ryms som mest i det innersta elektronskalet (K-skalet)?",
+      "opener": "Det innersta skalet är minst av alla och blir fullt väldigt fort.",
+      "choices": [
+        "1",
+        "8",
+        "2",
+        "18"
+      ],
+      "answer": 2,
+      "explanation": "K-skalet rymmer högst 2 elektroner, därför har till exempel neon fördelningen 2, 8. Talet 8 gäller nästa skal (L-skalet), och det är en vanlig sammanblandning att lägga 8 elektroner redan i det innersta skalet."
+    },
+    {
+      "id": "q-kemi8-per-5",
+      "kind": "mc",
+      "topic": "grupper och perioder",
+      "prompt": "Vad har alla ämnen i samma GRUPP (lodrät kolumn) i periodiska systemet gemensamt?",
+      "opener": "Det är det yttersta elektronskalet som styr hur ett ämne reagerar.",
+      "choices": [
+        "De har lika många elektronskal",
+        "De har samma masstal",
+        "De är alla metaller",
+        "De har lika många elektroner i sitt yttersta skal och därför liknande kemiska egenskaper"
+      ],
+      "answer": 3,
+      "explanation": "Ämnen i samma grupp har lika många valenselektroner i det yttersta skalet, och därför reagerar de på liknande sätt — natrium och kalium i grupp 1 är båda mycket reaktiva metaller. Att ha lika många elektronskal gäller i stället ämnen i samma period, alltså samma vågräta rad."
+    },
+    {
+      "id": "q-kemi8-per-6",
+      "kind": "mc",
+      "topic": "ädelgaser och alkalimetaller",
+      "prompt": "Varför är ädelgaser som helium och neon så reaktionströga?",
+      "opener": "Fundera på hur deras yttersta elektronskal ser ut jämfört med andra ämnens.",
+      "choices": [
+        "De har redan fullt yttersta elektronskal och behöver därför inte avge eller ta upp elektroner",
+        "De saknar elektroner helt",
+        "De har en enda valenselektron som de mycket gärna avger",
+        "De är metaller med så hög densitet att de inte kan reagera"
+      ],
+      "answer": 0,
+      "explanation": "Ädelgaserna i grupp 18 har fullt yttersta skal (helium 2 elektroner, neon 8) och är därför redan stabila — de behöver inte byta elektroner med andra atomer. Att ha en enda valenselektron som gärna avges gäller alkalimetallerna i grupp 1, som tvärtom är extremt reaktiva."
+    },
+    {
+      "id": "q-kemi8-per-7",
+      "kind": "worked",
+      "topic": "atomnummer och masstal",
+      "prompt": "Kalium (K) har atomnummer 19 och masstal 39. Bestäm antalet protoner, neutroner och elektroner i atomen, och förklara med hjälp av elektronskalen varför kalium gärna bildar jonen K+.",
+      "opener": "Börja med att plocka ut protoner och neutroner ur talen, och fördela sedan elektronerna i skal.",
+      "answer": "Kalium har 19 protoner, 20 neutroner och 19 elektroner. Elektronerna fördelas 2, 8, 8, 1, så kalium har en enda valenselektron i det yttersta skalet. Genom att avge den elektronen får kalium fullt yttersta skal och blir jonen K+.",
+      "steps": [
+        "Antalet protoner är samma som atomnummret: 19 protoner.",
+        "Antalet neutroner är masstal − atomnummer: 39 − 19 = 20 neutroner.",
+        "Atomen är oladdad, så antalet elektroner är lika med antalet protoner: 19 elektroner.",
+        "Fördela elektronerna i skal: 2 i K-skalet, 8 i L-skalet, 8 i M-skalet och 1 kvar längst ut, alltså 2, 8, 8, 1.",
+        "Det är lättare att göra sig av med en ensam valenselektron än att fylla på sju nya, så kalium avger den och bildar den positiva jonen K+ med fullt yttersta skal."
+      ]
+    },
+    {
+      "id": "q-kemi8-per-8",
+      "kind": "flashcard",
+      "topic": "atomens uppbyggnad",
+      "prompt": "Sammanfatta atomens uppbyggnad, atomnummer och masstal samt hur periodiska systemet är ordnat.",
+      "opener": "Ta partiklarna först, sedan talen som beskriver kärnan, och avsluta med grupper och perioder.",
+      "answer": "Proton: positiv (+), i kärnan · Neutron: oladdad, i kärnan · Elektron: negativ (−), rör sig i elektronskal utanför kärnan, mycket lätt · Atomnummer = antal protoner (och antal elektroner i en oladdad atom) · Masstal = protoner + neutroner · Antal neutroner = masstal − atomnummer · Elektronskal: K rymmer max 2, L max 8, M max 8 (på grundnivå) · Valenselektroner = elektronerna i yttersta skalet, de styr hur ämnet reagerar · Grupp = lodrät kolumn, samma antal valenselektroner, liknande egenskaper · Period = vågrät rad, samma antal elektronskal · Grupp 1 alkalimetaller: 1 valenselektron, avger den och bildar joner som Na+ och K+, mycket reaktiva · Grupp 17 halogener: 7 valenselektroner, tar upp en och bildar joner som Cl− · Grupp 18 ädelgaser: fullt yttersta skal, stabila och reaktionströga (helium, neon, argon) · Metaller avger elektroner och blir positiva joner, icke-metaller tar upp elektroner och blir negativa joner."
+    }
+  ]
+}

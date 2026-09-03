@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma3-optimering",
+  "type": "assignment",
+  "subject": "Matematik 3",
+  "title": "Optimering med derivata",
+  "sourceSummary": "Att ställa upp en formel för det som ska optimeras (t.ex. area eller volym), derivera och lösa ut extremvärdet, samt tolka svaret i sitt sammanhang.",
+  "topics": [
+    "optimeringsmetod",
+    "areaoptimering",
+    "volymoptimering"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma3-optimering-1",
+      "kind": "mc",
+      "topic": "optimeringsmetod",
+      "prompt": "Vid optimering med hjälp av derivata (t.ex. för att maximera en area eller volym), vilket är rätt tillvägagångssätt?",
+      "opener": "Tänk på vad derivatan säger om en funktions kritiska punkter.",
+      "choices": [
+        "Ställ upp en formel för storheten som ska optimeras, derivera, sätt derivatan till noll och lös ut variabeln",
+        "Sätt storheten som ska optimeras direkt till noll och lös ekvationen",
+        "Derivera formeln två gånger och sätt andraderivatan till det värde som ska optimeras",
+        "Gissa ett värde och kontrollera genom insättning"
+      ],
+      "answer": 0,
+      "explanation": "Metoden är att skriva den storhet som ska optimeras som en funktion av en variabel, derivera funktionen, sätta derivatan till noll och lösa ut variabeln — det ger de kritiska punkterna där max eller min kan finnas. Att sätta själva storheten (inte derivatan) till noll ger istället nollställen, vilket sällan har med extremvärden att göra."
+    },
+    {
+      "id": "q-ma3-optimering-2",
+      "kind": "mc",
+      "topic": "areaoptimering",
+      "prompt": "En rektangulär hage ska inhägnas utmed en rak vägg, som utgör en av sidorna. Stängslet, som är 100 m långt, ska räcka till de två kortsidorna (längd $x$ vardera) och den långsida som ligger mitt emot väggen. Vilket uttryck ger hagens area som funktion av $x$?",
+      "opener": "Uttryck först den fjärde sidans längd med hjälp av $x$, utifrån att den totala stängsellängden är 100 m.",
+      "choices": [
+        "$A(x)=100x-x^2$",
+        "$A(x)=100x-2x^2$",
+        "$A(x)=50x-2x^2$",
+        "$A(x)=x(100-x)$"
+      ],
+      "answer": 1,
+      "explanation": "Stängslet går åt till två kortsidor och en långsida: $2x + y = 100 \\Rightarrow y = 100-2x$. Arean blir $A(x) = x \\cdot y = x(100-2x) = 100x - 2x^2$. Uttrycket $100x-x^2$ hade gällt om bara en kortsida behövt stängsel."
+    },
+    {
+      "id": "q-ma3-optimering-3",
+      "kind": "mc",
+      "topic": "areaoptimering",
+      "prompt": "Vilket värde på $x$ maximerar arean $A(x) = 100x - 2x^2$ från föregående uppgift?",
+      "opener": "Derivera arean och sätt derivatan till noll.",
+      "choices": [
+        "$x=50$ m",
+        "$x=20$ m",
+        "$x=25$ m",
+        "$x=12{,}5$ m"
+      ],
+      "answer": 2,
+      "explanation": "$A'(x) = 100 - 4x$. Sätt $A'(x)=0$: $100-4x=0 \\Rightarrow x=25$. Då blir $y=100-2\\cdot25=50$ och arean $A=25\\cdot50=1250\\text{ m}^2$, vilket är maximum eftersom $A''(x)=-4<0$."
+    },
+    {
+      "id": "q-ma3-optimering-4",
+      "kind": "mc",
+      "topic": "volymoptimering",
+      "prompt": "En låda utan lock ska tillverkas av en kvadratisk skiva med sidan 12 cm, genom att klippa bort kvadrater med sidan $x$ i varje hörn och vika upp kanterna. Volymen ges av $V(x) = x(12-2x)^2$. Vad är $V'(x)$?",
+      "opener": "Utveckla kvadraten $(12-2x)^2$ och skriv $V(x)$ som ett polynom innan du deriverar.",
+      "choices": [
+        "$4x^2-48x+144$",
+        "$12x^2-96x$",
+        "$-96x+144$",
+        "$12x^2-96x+144$"
+      ],
+      "answer": 3,
+      "explanation": "Utveckla: $V(x) = x(144-48x+4x^2) = 144x-48x^2+4x^3$. Derivera term för term: $V'(x) = 144-96x+12x^2 = 12x^2-96x+144$. Svaret $4x^2-48x+144$ är bara den utvecklade parentesen, inte derivatan av $V(x)$."
+    },
+    {
+      "id": "q-ma3-optimering-5",
+      "kind": "mc",
+      "topic": "volymoptimering",
+      "prompt": "Vilket värde på $x$ (i intervallet $0 < x < 6$) ger lådan i föregående uppgift maximal volym?",
+      "opener": "Lös ekvationen $V'(x)=0$ och välj den lösning som ligger i det tillåtna intervallet.",
+      "choices": [
+        "$x=2$ cm",
+        "$x=6$ cm",
+        "$x=4$ cm",
+        "$x=8$ cm"
+      ],
+      "answer": 0,
+      "explanation": "$12x^2-96x+144=0$ ger, efter division med 12, $x^2-8x+12=0$. Lösningarna är $x=\\frac{8\\pm\\sqrt{64-48}}{2}=\\frac{8\\pm4}{2}=2$ eller $6$. Eftersom $x=6$ ger sidlängden $12-2\\cdot6=0$ (ingen låda alls) är det bara $x=2$ som ligger i det tillåtna intervallet och ger maximal volym."
+    },
+    {
+      "id": "q-ma3-optimering-6",
+      "kind": "mc",
+      "topic": "optimeringsmetod",
+      "prompt": "Hur kontrollerar man att en kritisk punkt (där derivatan är noll) verkligen ger ett maximivärde och inte ett minimivärde?",
+      "opener": "Vad säger derivatans respektive andraderivatans tecken om kurvans form kring punkten?",
+      "choices": [
+        "Genom att alltid anta att det är ett maximum om uppgiften handlar om area eller volym",
+        "Genom teckenstudium av derivatan runt punkten, eller genom att kontrollera att andraderivatan är negativ där",
+        "Genom att sätta $x=0$ och jämföra med startvärdet",
+        "Genom att bara titta på definitionsmängdens ändpunkter"
+      ],
+      "answer": 1,
+      "explanation": "Man gör antingen ett teckenstudium av $f'(x)$ kring punkten (byte från plus till minus ger max) eller kontrollerar andraderivatan: om $f''(x_0)<0$ är punkten en lokal maxpunkt. Att bara anta att det är ett maximum utan att kontrollera kan ge fel svar, särskilt vid flera kritiska punkter."
+    },
+    {
+      "id": "q-ma3-optimering-7",
+      "kind": "worked",
+      "topic": "areaoptimering",
+      "prompt": "En rektangel har omkretsen 40 cm. Bestäm sidornas längd som ger maximal area, och beräkna den maximala arean.",
+      "opener": "Uttryck ena sidan med hjälp av den andra utifrån omkretsvillkoret, skriv sedan arean som en funktion av en variabel.",
+      "answer": "Sidorna är 10 cm och 10 cm (en kvadrat), maximal area $100\\text{ cm}^2$",
+      "steps": [
+        "Låt sidorna vara $x$ och $y$. Omkretsen ger $2x+2y=40 \\Rightarrow y=20-x$.",
+        "Arean som funktion av $x$: $A(x)=x\\cdot y=x(20-x)=20x-x^2$.",
+        "Derivera: $A'(x)=20-2x$. Sätt $A'(x)=0$: $20-2x=0 \\Rightarrow x=10$.",
+        "Eftersom $A''(x)=-2<0$ är $x=10$ en maxpunkt. Då är $y=20-10=10$, alltså blir rektangeln en kvadrat.",
+        "Maximal area: $A=10\\cdot10=100\\text{ cm}^2$."
+      ]
+    },
+    {
+      "id": "q-ma3-optimering-8",
+      "kind": "flashcard",
+      "topic": "optimeringsmetod",
+      "prompt": "Sammanfatta metoden för att lösa ett optimeringsproblem med derivata, steg för steg.",
+      "opener": "Fem steg, från formel till tolkning av svaret i sammanhanget.",
+      "answer": "1) Skriv en formel för storheten som ska optimeras som funktion av en variabel · 2) Använd eventuella bivillkor för att uttrycka formeln med endast en variabel · 3) Derivera funktionen · 4) Sätt derivatan till noll och lös ut variabeln (kritiska punkter) · 5) Kontrollera med teckenstudium eller andraderivatan att punkten ger max/min, och kom ihåg definitionsmängdens gränser · 6) Tolka och redovisa svaret i uppgiftens sammanhang, med rätt enhet"
+    }
+  ]
+}

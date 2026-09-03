@@ -1,0 +1,128 @@
+{
+  "id": "lib-en5-grammar",
+  "type": "assignment",
+  "subject": "Engelska 5",
+  "title": "Grammar essentials: articles, prepositions and conditionals",
+  "sourceSummary": "Obestämd och bestämd artikel, prepositioner som styr fast, if-satser och relativa pronomen.",
+  "topics": [
+    "articles",
+    "prepositions",
+    "conditionals",
+    "relative pronouns"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en5-gra-1",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"The meeting lasted ___ hour.\"",
+      "opener": "Det är uttalet som styr, inte stavningen. Hur börjar ordet när du säger det?",
+      "choices": [
+        "no article",
+        "a",
+        "an",
+        "the"
+      ],
+      "answer": 2,
+      "explanation": "\"Hour\" uttalas med stumt h, alltså med vokalljud — därför \"an hour\". Regeln följer ljudet, inte bokstaven."
+    },
+    {
+      "id": "q-en5-gra-2",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"She is studying at ___ university in Manchester.\"",
+      "opener": "Samma regel som förra frågan — men åt andra hållet.",
+      "choices": [
+        "the",
+        "no article",
+        "an",
+        "a"
+      ],
+      "answer": 3,
+      "explanation": "\"University\" börjar visserligen med vokalen u, men uttalas /juː/ — ett konsonantljud. Därför \"a university\"."
+    },
+    {
+      "id": "q-en5-gra-3",
+      "kind": "mc",
+      "topic": "prepositions",
+      "prompt": "Choose the correct preposition: \"He has always been interested ___ history.\"",
+      "opener": "Svenskans \"intresserad av\" leder ofta fel här.",
+      "choices": [
+        "in",
+        "about",
+        "of",
+        "for"
+      ],
+      "answer": 0,
+      "explanation": "Engelskan säger \"interested in\". Direktöversättning från svenskans \"intresserad av\" ger det vanliga felet \"interested of\"."
+    },
+    {
+      "id": "q-en5-gra-4",
+      "kind": "mc",
+      "topic": "conditionals",
+      "prompt": "Choose the correct form: \"If it ___ tomorrow, we will stay at home.\"",
+      "opener": "Vad händer med tempus i själva if-satsen? Den ser inte ut som man tror.",
+      "choices": [
+        "would rain",
+        "rains",
+        "is raining",
+        "will rain"
+      ],
+      "answer": 1,
+      "explanation": "I first conditional står presens i if-satsen och \"will\" i huvudsatsen: \"If it rains…, we will stay…\". Att skriva \"will\" i båda satserna är ett av de vanligaste felen."
+    },
+    {
+      "id": "q-en5-gra-5",
+      "kind": "mc",
+      "topic": "conditionals",
+      "prompt": "Choose the correct form: \"If I ___ more time, I would learn another language.\"",
+      "opener": "Det här är något hypotetiskt — inte något som troligen händer.",
+      "choices": [
+        "have",
+        "will have",
+        "had",
+        "would have"
+      ],
+      "answer": 2,
+      "explanation": "Second conditional beskriver något hypotetiskt eller osannolikt: \"If + past simple, would + infinitiv\". \"If I would have\" är ett vanligt fel som aldrig är korrekt i if-satsen."
+    },
+    {
+      "id": "q-en5-gra-6",
+      "kind": "mc",
+      "topic": "relative pronouns",
+      "prompt": "Choose the correct relative pronoun: \"That's the woman ___ won the competition.\"",
+      "opener": "Handlar det om en person eller en sak?",
+      "choices": [
+        "which",
+        "what",
+        "whose",
+        "who"
+      ],
+      "answer": 3,
+      "explanation": "\"Who\" används om personer, \"which\" om saker och \"whose\" uttrycker ägande (\"the woman whose car was stolen\"). \"What\" fungerar inte som relativt pronomen efter ett substantiv."
+    },
+    {
+      "id": "q-en5-gra-7",
+      "kind": "worked",
+      "topic": "prepositions",
+      "prompt": "Find and correct the four errors: \"I am looking forward to meet you on the picture I sent, and I hope you are interested of coming to the party in Friday.\"",
+      "opener": "Leta efter tre prepositioner och en verbform som inte stämmer.",
+      "answer": "I am looking forward to meeting you. In the picture I sent… interested in coming… on Friday.",
+      "steps": [
+        "\"looking forward to meet\" → \"looking forward to meeting\". Här är \"to\" en preposition, inte infinitivmärke, så verbet ska stå i -ing-form.",
+        "\"on the picture\" → \"in the picture\". Engelskan säger \"in a picture/photo\", medan svenskan säger \"på bilden\".",
+        "\"interested of\" → \"interested in\". Fast prepositionsstyrning som skiljer sig från svenskans \"intresserad av\".",
+        "\"in Friday\" → \"on Friday\". Regeln är: \"in\" för månader och år, \"on\" för dagar och datum, \"at\" för klockslag."
+      ]
+    },
+    {
+      "id": "q-en5-gra-8",
+      "kind": "flashcard",
+      "topic": "conditionals",
+      "prompt": "Explain the three main conditionals: form and when to use each.",
+      "opener": "Tre typer — verklig möjlighet, hypotetiskt nu, och ändrat förflutet.",
+      "answer": "First conditional (trolig framtid): If + presens, will + infinitiv — \"If it rains, I will stay home.\" Second conditional (hypotetiskt nu): If + past simple, would + infinitiv — \"If I had time, I would travel.\" Third conditional (ogjort förflutet): If + past perfect, would have + perfekt particip — \"If I had known, I would have come.\" Regel: \"would\" står aldrig i själva if-satsen."
+    }
+  ]
+}

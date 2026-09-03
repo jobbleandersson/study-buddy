@@ -1,0 +1,128 @@
+{
+  "id": "lib-en7gy-debate",
+  "type": "assignment",
+  "subject": "Engelska 7",
+  "title": "Debate and persuasive language",
+  "sourceSummary": "Retoriska grepp i engelsk debatt (retoriska frågor, repetition, eftergift), skillnaden mellan att övertyga och manipulera, motargumentens struktur och hedging-språk.",
+  "topics": [
+    "rhetorical devices",
+    "persuasive vs manipulative language",
+    "counter-argument structure",
+    "hedging language"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7gy-debate-1",
+      "kind": "mc",
+      "topic": "rhetorical devices",
+      "prompt": "Identify the rhetorical device in: 'Is this really the future we want for our children? Is this the legacy we wish to leave?'",
+      "opener": "Frågor som inte förväntar sig ett svar, utan ska få lyssnaren att tänka efter.",
+      "choices": [
+        "Rhetorical question",
+        "Concession",
+        "Hedging",
+        "Statistic"
+      ],
+      "answer": 0,
+      "explanation": "Frågorna ställs inte för att få svar utan för att engagera lyssnaren och driva hem en poäng — det är en retorisk fråga. Ingen eftergift eller statistik förekommer här."
+    },
+    {
+      "id": "q-en7gy-debate-2",
+      "kind": "mc",
+      "topic": "rhetorical devices",
+      "prompt": "Which sentence uses repetition as a rhetorical device?",
+      "opener": "Vilken mening upprepar samma struktur flera gånger för att förstärka effekten?",
+      "choices": [
+        "We need change. We need it now. We need it for our future.",
+        "Some people believe that change is necessary.",
+        "It could be argued that change is overdue.",
+        "According to recent data, 60% support change."
+      ],
+      "answer": 0,
+      "explanation": "Den upprepade meningsstrukturen \"We need...\" är ett klassiskt retoriskt grepp (anafora) som ger kraft och rytm åt argumentet. De andra alternativen innehåller ingen upprepning."
+    },
+    {
+      "id": "q-en7gy-debate-3",
+      "kind": "mc",
+      "topic": "persuasive vs manipulative language",
+      "prompt": "Which technique makes an argument manipulative rather than simply persuasive?",
+      "opener": "Skillnaden ligger i om lyssnarens förnuft eller rädsla/känslor utnyttjas.",
+      "choices": [
+        "Providing evidence and citing sources.",
+        "Using fear and exaggeration to bypass the audience's reasoning.",
+        "Acknowledging the opposing view before responding to it.",
+        "Using a rhetorical question to introduce a topic."
+      ],
+      "answer": 1,
+      "explanation": "Manipulativt språk kringgår mottagarens rationella bedömning genom överdrift och skrämsel istället för att övertyga med argument. Bevis, eftergifter och retoriska frågor är legitima persuasiva verktyg."
+    },
+    {
+      "id": "q-en7gy-debate-4",
+      "kind": "mc",
+      "topic": "persuasive vs manipulative language",
+      "prompt": "Which sentence is an example of a manipulative slippery-slope argument?",
+      "opener": "Vilken mening hävdar att en liten förändring oundvikligen leder till katastrof, utan belägg?",
+      "choices": [
+        "Studies show that the policy reduced costs by 12%.",
+        "Opponents argue the policy is too expensive; however, long-term savings outweigh the initial cost.",
+        "If we allow this small change, soon everything will fall apart and society as we know it will collapse.",
+        "It could be argued that further research is needed before a final decision."
+      ],
+      "answer": 2,
+      "explanation": "Detta är ett \"slippery slope\"-argument: det hävdar utan belägg att en liten förändring oundvikligen leder till katastrof, vilket är ett manipulativt sätt att skrämma lyssnaren snarare än att argumentera sakligt."
+    },
+    {
+      "id": "q-en7gy-debate-5",
+      "kind": "mc",
+      "topic": "counter-argument structure",
+      "prompt": "Which sentence best introduces a counter-argument before refuting it?",
+      "opener": "Ett bra motargument erkänner den andra sidan INNAN det bemöter den — vilken mening gör det?",
+      "choices": [
+        "This proves that my argument is correct.",
+        "In conclusion, the evidence supports my view.",
+        "Furthermore, the data confirms the trend.",
+        "Although some argue that costs would rise, the long-term savings suggest otherwise."
+      ],
+      "answer": 3,
+      "explanation": "\"Although some argue that...\" (en eftergift) följt av ett gensvar är den klassiska strukturen för att bemöta en motpart respektfullt och effektivt. De andra alternativen bara hävdar eller sammanfattar, utan att bemöta en motsatt ståndpunkt."
+    },
+    {
+      "id": "q-en7gy-debate-6",
+      "kind": "mc",
+      "topic": "hedging language",
+      "prompt": "Which sentence uses hedging language appropriately in an academic argument?",
+      "opener": "Hedging används för att uttrycka försiktighet och undvika alltför starka påståenden — vilken mening gör det?",
+      "choices": [
+        "This definitely proves that social media causes anxiety.",
+        "It could be argued that social media contributes to anxiety in some individuals.",
+        "Everybody knows social media causes anxiety.",
+        "Social media obviously ruins mental health."
+      ],
+      "answer": 1,
+      "explanation": "\"It could be argued that...\" och \"in some individuals\" mildrar påståendet och signalerar akademisk försiktighet. De övriga meningarna använder alltför starka, ohedgade formuleringar (\"definitely\", \"obviously\", \"everybody knows\")."
+    },
+    {
+      "id": "q-en7gy-debate-7",
+      "kind": "worked",
+      "topic": "counter-argument structure",
+      "prompt": "Write a short counter-argument paragraph responding to this claim, using concession and hedging language: 'Homework should be abolished because it causes stress.'",
+      "opener": "Börja med att erkänna poängen, använd sedan hedging, och bemöt sedan med ett motargument.",
+      "answer": "It could be argued that homework causes stress; however, when used in moderation, it may also reinforce learning and build independent study habits that benefit students in the long run.",
+      "steps": [
+        "Börja med en eftergift (concession): erkänn att motpartens poäng har viss substans — \"It could be argued that homework causes stress\".",
+        "Använd hedging (\"could be argued\", \"may also\") för att undvika alltför skarpa påståenden och framstå som balanserad.",
+        "Introducera motargumentet med ett sambandsord som \"however\" för att markera vändningen.",
+        "Avsluta med en konkret fördel (\"reinforce learning\", \"independent study habits\") som väger upp den ursprungliga invändningen."
+      ]
+    },
+    {
+      "id": "q-en7gy-debate-8",
+      "kind": "flashcard",
+      "topic": "rhetorical devices",
+      "prompt": "List the key rhetorical and persuasive devices used in English-language debate.",
+      "opener": "Vanliga retoriska knep och hur du känner igen dem.",
+      "answer": "Retorisk fråga = fråga utan förväntat svar, för att engagera · Repetition/anafora = upprepning för att förstärka en poäng · Tretal (rule of three) = tre exempel/ord i rad för rytm och kraft · Eftergift (concession) = erkänna motpartens poäng innan man bemöter den · Hedging = \"it could be argued\", \"some suggest\" — mildrar påståenden · Skrämselretorik/slippery slope = manipulativt, kringgår förnuftet · Statistik/källhänvisning = stärker trovärdighet på ett legitimt sätt"
+    }
+  ]
+}

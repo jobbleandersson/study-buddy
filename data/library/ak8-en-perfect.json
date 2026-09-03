@@ -1,0 +1,128 @@
+{
+  "id": "lib-en8-perfect",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Grammar: present perfect",
+  "sourceSummary": "Present perfect bildas med have/has + perfektparticip och används när tidpunkten är oviktig eller när något fortfarande pågår. Här tränar du skillnaden mot past simple samt tidsuttrycken ever, never, just, already, yet, for och since.",
+  "topics": [
+    "present perfect",
+    "past simple",
+    "tidsuttryck",
+    "for och since"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en8-per-1",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"I ___ my homework, so I can watch TV now.\"",
+      "opener": "Present perfect bildas med have/has + perfektparticip (tredje verbformen).",
+      "choices": [
+        "have finish",
+        "have finished",
+        "has finished",
+        "am finished"
+      ],
+      "answer": 1,
+      "explanation": "Present perfect är have/has + perfektparticip: \"have finished\". Med \"I\" används \"have\", inte \"has\" — \"has\" hör ihop med he/she/it."
+    },
+    {
+      "id": "q-en8-per-2",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"She ___ lost her keys again.\"",
+      "opener": "Vilket hjälpverb hör ihop med \"she\"?",
+      "choices": [
+        "have",
+        "has",
+        "is",
+        "did"
+      ],
+      "answer": 1,
+      "explanation": "Tredje person singular (he/she/it) tar \"has\" i present perfect: \"She has lost her keys.\" \"Have\" används med I/you/we/they."
+    },
+    {
+      "id": "q-en8-per-3",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"We ___ to London last summer.\"",
+      "opener": "Ett avslutat tillfälle med tydlig tidpunkt — då fungerar inte present perfect.",
+      "choices": [
+        "have travelled",
+        "travelled",
+        "have travel",
+        "has travelled"
+      ],
+      "answer": 1,
+      "explanation": "\"Last summer\" anger en bestämd tidpunkt i dåtid, och då används past simple: \"travelled\". Present perfect används tvärtom när tidpunkten är oviktig eller osagd."
+    },
+    {
+      "id": "q-en8-per-4",
+      "kind": "mc",
+      "topic": "tidsuttryck",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Yet\" hör hemma i frågor och nekande satser — och hamnar sist.",
+      "choices": [
+        "Have you finished your project yet?",
+        "Have you yet finished your project?",
+        "Did you have finished your project yet?",
+        "You have finished your project yet?"
+      ],
+      "answer": 0,
+      "explanation": "I frågor står \"have\" före subjektet och \"yet\" sist: \"Have you finished your project yet?\" \"Yet\" kan inte stå mitt i satsen — där placeras i stället ord som already och just."
+    },
+    {
+      "id": "q-en8-per-5",
+      "kind": "mc",
+      "topic": "for och since",
+      "prompt": "Choose the correct word: \"They have lived in Malmö ___ 2019.\"",
+      "opener": "Handlar \"2019\" om en tidsperiods längd eller om en startpunkt?",
+      "choices": [
+        "for",
+        "since",
+        "in",
+        "from"
+      ],
+      "answer": 1,
+      "explanation": "\"Since\" används om en startpunkt: since 2019, since Monday, since I was six. \"For\" används om längden på en period: for three years, for a week."
+    },
+    {
+      "id": "q-en8-per-6",
+      "kind": "mc",
+      "topic": "tidsuttryck",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Never\" placeras mellan hjälpverbet och huvudverbet — och sätter inte ordet i dåtid.",
+      "choices": [
+        "I have never ate sushi.",
+        "I never have eaten sushi.",
+        "I have never eaten sushi.",
+        "I have not never eaten sushi."
+      ],
+      "answer": 2,
+      "explanation": "\"Never\" står mellan have och perfektparticipet: \"I have never eaten sushi.\" Formen \"ate\" är past simple och kan inte användas efter have — perfektparticipet av eat är \"eaten\"."
+    },
+    {
+      "id": "q-en8-per-7",
+      "kind": "worked",
+      "topic": "present perfect",
+      "prompt": "Correct the four errors: \"I have saw that film last week. My brother have already watch it two times, and we live here since 2020.\"",
+      "opener": "Blanda inte ihop present perfect och past simple — och kolla hjälpverb, particip och tidsord.",
+      "answer": "I saw that film last week. My brother has already watched it two times, and we have lived here since 2020.",
+      "steps": [
+        "\"I have saw ... last week\" → \"I saw ... last week\". \"Last week\" är en bestämd tidpunkt i dåtid och kräver past simple, inte present perfect.",
+        "\"My brother have\" → \"My brother has\". Tredje person singular tar \"has\" som hjälpverb.",
+        "\"already watch\" → \"already watched\". Efter have/has står perfektparticipet, som för regelbundna verb slutar på -ed.",
+        "\"we live here since 2020\" → \"we have lived here since 2020\". Något som började i dåtid och fortfarande pågår uttrycks med present perfect + since."
+      ]
+    },
+    {
+      "id": "q-en8-per-8",
+      "kind": "flashcard",
+      "topic": "present perfect",
+      "prompt": "Hur bildas present perfect, när används det i stället för past simple, och hur fungerar for/since?",
+      "opener": "Bildning · användning · tidsord.",
+      "answer": "Bildning: have/has + perfektparticip (I have played · she has gone) · Använd present perfect när tidpunkten är oviktig eller osagd (I have been to Spain), när något började förr och pågår än (We have lived here for two years) och vid färska händelser med just/already/yet · Använd past simple när tiden är bestämd: yesterday, last week, in 2019, when I was ten · Tidsord: ever/never i erfarenheter, just = nyss, already = redan (jakande), yet = ännu/redan (frågor och nekande, sist i satsen) · for + längd (for three days) · since + startpunkt (since Monday) · Vanliga fel: \"have saw\" (ska vara have seen), \"he have\" (ska vara he has)."
+    }
+  ]
+}

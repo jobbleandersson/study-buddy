@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam-internationellt",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "EU och internationellt samarbete",
+  "sourceSummary": "Grundidén med EU-samarbetet, FN:s roll i världen, varför länder samarbetar internationellt kring handel, fred och miljö, samt Sveriges roll i internationella sammanhang.",
+  "topics": [
+    "vad EU är och grundidén med samarbetet",
+    "FN:s roll grundidé",
+    "varför länder samarbetar internationellt",
+    "Sveriges roll i internationella sammanhang"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam-int-1",
+      "kind": "mc",
+      "topic": "vad EU är och grundidén med samarbetet",
+      "prompt": "Vad är EU (Europeiska unionen) i grunden?",
+      "opener": "Tänk på att det handlar om självständiga länder som valt att samarbeta på flera områden.",
+      "choices": [
+        "En enskild stat som ersatt alla medlemsländers regeringar",
+        "Ett samarbete mellan självständiga europeiska länder inom bland annat ekonomi, handel och lagstiftning",
+        "En militärallians utan koppling till ekonomi",
+        "En organisation som bara sköter idrottsevenemang"
+      ],
+      "answer": 1,
+      "explanation": "EU är ett samarbete mellan självständiga europeiska länder som gemensamt beslutar om regler inom bland annat handel, ekonomi, miljö och delvis lagstiftning, samtidigt som varje land behåller sin egen regering och mycket av sin självständighet."
+    },
+    {
+      "id": "q-sam-int-2",
+      "kind": "mc",
+      "topic": "vad EU är och grundidén med samarbetet",
+      "prompt": "Vad är en av huvudidéerna bakom EU:s inre marknad?",
+      "opener": "Tänk på vad som ska kunna röra sig fritt mellan medlemsländerna.",
+      "choices": [
+        "Att varor, tjänster, personer och kapital ska kunna röra sig fritt mellan medlemsländerna",
+        "Att varje land ska ha egna tullar mot alla andra medlemsländer",
+        "Att bara varor får korsa gränser, aldrig personer",
+        "Att alla länder måste ha samma valuta"
+      ],
+      "answer": 0,
+      "explanation": "EU:s inre marknad bygger på fri rörlighet för varor, tjänster, personer och kapital mellan medlemsländerna, vilket bland annat gör det lättare att handla, arbeta och resa inom unionen. Alla medlemsländer har dock inte gemensam valuta — Sverige har till exempel kvar kronan."
+    },
+    {
+      "id": "q-sam-int-3",
+      "kind": "mc",
+      "topic": "FN:s roll grundidé",
+      "prompt": "Vad är FN:s (Förenta nationernas) huvudsakliga syfte?",
+      "opener": "FN bildades efter andra världskriget — vad ville man framför allt undvika i framtiden?",
+      "choices": [
+        "Att verka för fred, säkerhet, mänskliga rättigheter och samarbete mellan världens länder",
+        "Att styra alla länders inrikespolitik direkt",
+        "Att enbart dela ut idrottspriser",
+        "Att ersätta ländernas egna regeringar"
+      ],
+      "answer": 0,
+      "explanation": "FN bildades 1945 efter andra världskriget för att främja fred och säkerhet mellan länder, mänskliga rättigheter, social utveckling och internationellt samarbete. FN styr inte medlemsländernas inrikespolitik utan bygger på frivilligt samarbete mellan suveräna stater."
+    },
+    {
+      "id": "q-sam-int-4",
+      "kind": "mc",
+      "topic": "FN:s roll grundidé",
+      "prompt": "Vilket FN-organ har ett särskilt ansvar för internationell fred och säkerhet, bland annat genom att kunna besluta om sanktioner?",
+      "opener": "Detta organ har fem permanenta medlemmar med vetorätt.",
+      "choices": [
+        "Generalförsamlingen",
+        "Säkerhetsrådet",
+        "Internationella valutafonden",
+        "Världshälsoorganisationen (WHO)"
+      ],
+      "answer": 1,
+      "explanation": "FN:s säkerhetsråd har huvudansvaret för internationell fred och säkerhet och kan bland annat besluta om sanktioner eller godkänna fredsbevarande insatser. Generalförsamlingen samlar alla medlemsländer men har mer rådgivande makt i säkerhetsfrågor."
+    },
+    {
+      "id": "q-sam-int-5",
+      "kind": "mc",
+      "topic": "varför länder samarbetar internationellt",
+      "prompt": "Vilket av följande är ett vanligt skäl till att länder väljer att samarbeta internationellt?",
+      "opener": "Tänk på problem som inte stannar vid en enda landsgräns, t.ex. klimatfrågor eller handel.",
+      "choices": [
+        "Gränsöverskridande frågor som klimat, handel och säkerhet löses ofta bättre gemensamt än av ett land ensamt",
+        "Länder samarbetar bara för att det är ett krav från FN",
+        "Internationellt samarbete gynnar aldrig de enskilda länderna",
+        "Samarbete förekommer bara mellan grannländer"
+      ],
+      "answer": 0,
+      "explanation": "Många frågor, som klimatförändringar, internationell handel, smittspridning och säkerhet, är gränsöverskridande och svåra för ett enskilt land att lösa på egen hand. Samarbete kan ge fördelar som gemensamma regler, minskad risk för konflikt och delade resurser."
+    },
+    {
+      "id": "q-sam-int-6",
+      "kind": "mc",
+      "topic": "Sveriges roll i internationella sammanhang",
+      "prompt": "Vilket av följande stämmer om Sveriges medlemskap i internationella organisationer?",
+      "opener": "Tänk på vilka organisationer Sverige faktiskt är medlem i.",
+      "choices": [
+        "Sverige är medlem i både FN och EU, samt sedan 2024 i Nato",
+        "Sverige är inte medlem i FN",
+        "Sverige har aldrig varit medlem i EU",
+        "Sverige får inte samarbeta med andra länder enligt grundlagen"
+      ],
+      "answer": 0,
+      "explanation": "Sverige är medlem i FN sedan 1946, i EU sedan 1995, och blev 2024 medlem i den militära försvarsalliansen Nato, efter att tidigare ha stått utanför militära allianser under lång tid."
+    },
+    {
+      "id": "q-sam-int-7",
+      "kind": "worked",
+      "topic": "varför länder samarbetar internationellt",
+      "prompt": "Förklara varför klimatfrågan är ett bra exempel på en fråga som kräver internationellt samarbete, och beskriv hur ett sådant samarbete kan gå till.",
+      "opener": "Fundera på om utsläpp i ett land stannar innanför landets gränser, och vad som krävs för att en global lösning ska fungera.",
+      "answer": "Klimatförändringar orsakas av utsläpp av växthusgaser som sprids i hela atmosfären, oavsett i vilket land de släpps ut, och effekterna (t.ex. extremväder, havsnivåhöjning) drabbar alla länder, inte bara de som släpper ut mest. Om bara ett land minskar sina utsläpp löser det inte problemet globalt. Därför samlas länder i internationella avtal, som Parisavtalet inom FN-systemet, där länder gemensamt sätter mål för att minska utsläppen, rapporterar sina framsteg och håller varandra ansvariga, vilket ger bättre effekt än om varje land agerade helt på egen hand.",
+      "steps": [
+        "Utsläpp av växthusgaser sprids globalt genom atmosfären — det spelar ingen roll för klimatet i vilket land utsläppen sker.",
+        "Effekterna av klimatförändringar (extremväder, stigande havsnivåer) drabbar alla länder, även de som släppt ut lite.",
+        "Om enstaka länder agerar ensamma räcker det inte för att lösa ett globalt problem — andra länders fortsatta utsläpp motverkar effekten.",
+        "Länder samlas därför i internationella avtal, t.ex. Parisavtalet inom FN, för att gemensamt sätta mål och rapportera sina utsläpp.",
+        "Genom gemensamma mål och uppföljning blir det tydligare för varje land vad andra länder gör, vilket ökar chansen att alla bidrar och håller sina löften."
+      ]
+    },
+    {
+      "id": "q-sam-int-8",
+      "kind": "flashcard",
+      "topic": "vad EU är och grundidén med samarbetet",
+      "prompt": "Sammanfatta grunderna kring EU, FN, internationellt samarbete och Sveriges roll internationellt.",
+      "opener": "Från Europasamarbetet till Sveriges plats i världen.",
+      "answer": "EU: samarbete mellan självständiga europeiska länder inom bland annat ekonomi, handel och delvis lagstiftning, med en inre marknad som ger fri rörlighet för varor, tjänster, personer och kapital · FN: global organisation bildad 1945 för att verka för fred, säkerhet, mänskliga rättigheter och samarbete mellan länder · Säkerhetsrådet: FN-organ med särskilt ansvar för internationell fred och säkerhet, kan besluta om sanktioner · Skäl till internationellt samarbete: gränsöverskridande problem som klimat, handel, säkerhet och smittspridning löses ofta bättre gemensamt · Sverige internationellt: medlem i FN sedan 1946, EU sedan 1995 och Nato sedan 2024, och deltar aktivt i internationellt bistånd och diplomati."
+    }
+  ]
+}

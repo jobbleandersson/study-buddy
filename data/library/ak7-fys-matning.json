@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys7-matning",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Mätning och enheter",
+  "sourceSummary": "SI-enheterna för längd, massa, tid och volym samt prefixen milli, centi och kilo. Du övar på att omvandla mellan enheter, mäta noggrant och uppskatta storleksordningar.",
+  "topics": [
+    "SI-enheter",
+    "prefix",
+    "enhetsomvandling",
+    "mätnoggrannhet",
+    "storleksordning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys7-mat-1",
+      "kind": "mc",
+      "topic": "SI-enheter",
+      "prompt": "Vilken är grundenheten för längd i SI-systemet?",
+      "opener": "Grundenheten är den enhet som inte har något prefix framför sig.",
+      "choices": [
+        "Kilometer",
+        "Meter",
+        "Centimeter",
+        "Mil"
+      ],
+      "answer": 1,
+      "explanation": "Meter (m) är SI-systemets grundenhet för längd. Kilometer och centimeter är också längdenheter, men de är meter med ett prefix framför — och mil är inte ens en SI-enhet."
+    },
+    {
+      "id": "q-fys7-mat-2",
+      "kind": "mc",
+      "topic": "prefix",
+      "prompt": "Vad betyder prefixet milli-?",
+      "opener": "Tänk på hur många millimeter det går på en meter.",
+      "choices": [
+        "Tusen gånger så mycket",
+        "En tiondel",
+        "En hundradel",
+        "En tusendel"
+      ],
+      "answer": 3,
+      "explanation": "Milli betyder en tusendel, alltså 1 mm = 0,001 m och 1 ml = 0,001 l. Att svara \"tusen gånger så mycket\" är att blanda ihop milli med kilo, som är det tusenfaldiga."
+    },
+    {
+      "id": "q-fys7-mat-3",
+      "kind": "mc",
+      "topic": "enhetsomvandling",
+      "prompt": "Hur många centimeter är 2,5 meter?",
+      "opener": "På en meter går det 100 centimeter.",
+      "choices": [
+        "250 cm",
+        "25 cm",
+        "2500 cm",
+        "0,025 cm"
+      ],
+      "answer": 0,
+      "explanation": "2,5 m · 100 = 250 cm, eftersom 1 m = 100 cm. Svaret 25 cm får man om man bara multiplicerar med 10, vilket är omvandlingen till decimeter."
+    },
+    {
+      "id": "q-fys7-mat-4",
+      "kind": "mc",
+      "topic": "SI-enheter",
+      "prompt": "Vilken enhet passar bäst för att ange massan hos ett äpple?",
+      "opener": "Massa mäts i kilogram — men ett äpple är litet, så vilket prefix passar?",
+      "choices": [
+        "Liter",
+        "Newton",
+        "Gram",
+        "Sekunder"
+      ],
+      "answer": 2,
+      "explanation": "Ett äpple väger ungefär 150 gram, så gram är en lagom stor massenhet här. Liter är en volymenhet och newton mäter kraft (tyngd), inte massa."
+    },
+    {
+      "id": "q-fys7-mat-5",
+      "kind": "mc",
+      "topic": "enhetsomvandling",
+      "prompt": "Vilken volym motsvarar 1 liter?",
+      "opener": "En kubikdecimeter är en kub med sidan 1 dm.",
+      "choices": [
+        "1 cm³",
+        "1 m³",
+        "1 ml",
+        "1 dm³"
+      ],
+      "answer": 3,
+      "explanation": "1 liter = 1 dm³, alltså en kub med sidan 10 cm. 1 cm³ är i stället lika med 1 milliliter, och 1 m³ är hela 1000 liter."
+    },
+    {
+      "id": "q-fys7-mat-6",
+      "kind": "mc",
+      "topic": "mätnoggrannhet",
+      "prompt": "Du mäter en penna med en linjal som har millimeterstreck. Vilket mätvärde är rimligt att skriva ner?",
+      "opener": "Du kan inte avläsa mer noggrant än de minsta strecken på linjalen.",
+      "choices": [
+        "14,3 cm",
+        "14,3172 cm",
+        "14 m",
+        "0,143 mm"
+      ],
+      "answer": 0,
+      "explanation": "Millimeterstreck betyder att du kan avläsa till tiondels centimeter, alltså 14,3 cm. Att skriva 14,3172 cm låtsas om en noggrannhet som linjalen inte klarar, och 14 m vore längre än ett klassrum."
+    },
+    {
+      "id": "q-fys7-mat-7",
+      "kind": "worked",
+      "topic": "enhetsomvandling",
+      "prompt": "En löparbana är 400 meter lång. Du springer 5 varv. Hur långt har du sprungit, uttryckt i kilometer?",
+      "opener": "Räkna först ut sträckan i meter, och omvandla sedan till kilometer.",
+      "answer": "2 km",
+      "steps": [
+        "Sträckan i meter: 5 varv · 400 m = 2000 m.",
+        "Kom ihåg omvandlingen: 1 km = 1000 m.",
+        "Dela därför antalet meter med 1000: 2000 / 1000 = 2.",
+        "Svaret blir 2 km — rimligt, eftersom fem varv på en löparbana är ungefär en kort promenad."
+      ]
+    },
+    {
+      "id": "q-fys7-mat-8",
+      "kind": "flashcard",
+      "topic": "SI-enheter",
+      "prompt": "Sammanfatta grundenheterna och prefixen du behöver kunna.",
+      "opener": "Gå igenom längd, massa, tid och volym först, sedan prefixen.",
+      "answer": "Längd: meter (m) · Massa: kilogram (kg), ofta gram (g) i skolan · Tid: sekund (s) · Volym: kubikmeter (m³), i praktiken liter (l) · Prefix: kilo = 1000 gånger, centi = en hundradel, milli = en tusendel · 1 m = 10 dm = 100 cm = 1000 mm · 1 km = 1000 m · 1 kg = 1000 g · 1 l = 1 dm³ = 1000 ml · 1 ml = 1 cm³ · Mätnoggrannhet: skriv aldrig fler decimaler än mätinstrumentet klarar av att visa · Storleksordning: kontrollera alltid att svaret är rimligt, en penna är centimeter och inte meter."
+    }
+  ]
+}

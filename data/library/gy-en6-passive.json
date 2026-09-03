@@ -1,0 +1,129 @@
+{
+  "id": "lib-en6-passive",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Grammar: passive voice and reported speech",
+  "sourceSummary": "Aktiv och passiv form i olika tempus, samt hur man gör om direkt tal till indirekt tal (reported speech) med korrekt tempusbackning.",
+  "topics": [
+    "active vs passive",
+    "passive tenses",
+    "reported statements",
+    "reported questions",
+    "reported commands"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-passive-1",
+      "kind": "mc",
+      "topic": "active vs passive",
+      "prompt": "Which sentence is in the passive voice?",
+      "opener": "Leta efter formen \"be\" + perfekt particip — det är kännetecknet.",
+      "choices": [
+        "The committee announced the results yesterday.",
+        "The results were announced by the committee yesterday.",
+        "The committee will announce the results soon.",
+        "The committee is announcing the results now."
+      ],
+      "answer": 1,
+      "explanation": "I passiv voice blir den som drabbas av handlingen (\"the results\") subjekt, och verbet står i \"be\" + perfekt particip: \"were announced\". De andra alternativen har subjektet som utför handlingen, alltså aktiv form."
+    },
+    {
+      "id": "q-en6-passive-2",
+      "kind": "mc",
+      "topic": "active vs passive",
+      "prompt": "Rewrite in the passive: \"Millions of people watch this show every week.\"",
+      "opener": "Vem eller vad blir det som \"drabbas\" av handlingen? Det ska bli den nya meningens subjekt.",
+      "choices": [
+        "This show is watched by millions of people every week.",
+        "This show was watched by millions of people every week.",
+        "This show watches millions of people every week.",
+        "Millions of people are watched by this show every week."
+      ],
+      "answer": 0,
+      "explanation": "Objektet \"this show\" blir subjekt, och eftersom huvudsatsen står i presens blir passivformen \"is watched\". Alternativ 4 kastar om vem som utför och vem som utsätts för handlingen, vilket ändrar betydelsen helt."
+    },
+    {
+      "id": "q-en6-passive-3",
+      "kind": "mc",
+      "topic": "passive tenses",
+      "prompt": "Choose the correct passive form: \"The results ___ yet.\" (announce)",
+      "opener": "Present perfect passive byggs med have/has been + perfekt particip.",
+      "choices": [
+        "haven't announced",
+        "haven't been announced",
+        "aren't announced",
+        "weren't been announced"
+      ],
+      "answer": 1,
+      "explanation": "Present perfect passive: have/has (not) been + particip — \"haven't been announced\". \"haven't announced\" saknar \"been\" och blir aktiv form med fel betydelse (den kräver ett objekt)."
+    },
+    {
+      "id": "q-en6-passive-4",
+      "kind": "mc",
+      "topic": "passive tenses",
+      "prompt": "Choose the correct passive form: \"A decision ___ by Friday.\" (make)",
+      "opener": "Future passive: will be + perfekt particip.",
+      "choices": [
+        "will make",
+        "is made",
+        "will be made",
+        "will have make"
+      ],
+      "answer": 2,
+      "explanation": "Future passive bildas med \"will be\" + particip: \"will be made\". \"will make\" är aktiv form och kräver ett objekt (vem som fattar beslutet), vilket saknas här."
+    },
+    {
+      "id": "q-en6-passive-5",
+      "kind": "mc",
+      "topic": "reported statements",
+      "prompt": "Report this statement: \"I am tired,\" she said.",
+      "opener": "Tempus flyttas ofta ett steg bakåt (backshift) när det inledande verbet står i preteritum.",
+      "choices": [
+        "She said she is tired.",
+        "She said she was tired.",
+        "She said I was tired.",
+        "She says she was tired."
+      ],
+      "answer": 1,
+      "explanation": "\"am\" backshiftas till \"was\", och \"I\" byts till \"she\" eftersom det är hon som talar om sig själv. Att behålla presens (\"is\") eller \"I\" är de vanligaste felen vid reported speech."
+    },
+    {
+      "id": "q-en6-passive-6",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "Report this question: \"Where do you live?\" he asked.",
+      "opener": "I indirekta frågor blir ordföljden som i ett vanligt påstående — ingen hjälpverb-inversion och inget frågetecken.",
+      "choices": [
+        "He asked where do I live.",
+        "He asked where did I live.",
+        "He asked where I live.",
+        "He asked where I lived."
+      ],
+      "answer": 3,
+      "explanation": "Indirekta frågor tappar hjälpverbet \"do/did\" och får rak ordföljd (subjekt före verb), och tempus backshiftas: \"where I lived\". \"where do/did I live\" behåller felaktigt frågeordföljden."
+    },
+    {
+      "id": "q-en6-passive-7",
+      "kind": "worked",
+      "topic": "reported commands",
+      "prompt": "Find and correct the three errors: \"The teacher told to us turn off our phones, and she said that we not must talk during the test.\"",
+      "opener": "Titta på tre saker: prepositionen efter \"told\", verbformen efter objektet, och var \"not\" ska stå ihop med \"must\".",
+      "answer": "The teacher told us to turn off our phones, and she said that we must not talk during the test.",
+      "steps": [
+        "\"told to us\" → \"told us\": verbet \"tell\" följs direkt av objektet, utan preposition (\"tell someone to do something\").",
+        "\"us turn off\" → \"us to turn off\": reported command kräver infinitiv med \"to\" efter objektet.",
+        "\"we not must talk\" → \"we must not talk\": nekande modala verb bildas med \"must not\", aldrig \"not must\".",
+        "Sammanfattning: reported commands byggs med tell/ask + objekt + infinitiv med \"to\", t.ex. \"told us to turn off\", \"asked us not to talk\"."
+      ]
+    },
+    {
+      "id": "q-en6-passive-8",
+      "kind": "flashcard",
+      "topic": "passive tenses",
+      "prompt": "Summarize how to form the passive in different tenses.",
+      "opener": "Samma mönster i alla tempus — bara hjälpverbet \"be\" ändras.",
+      "answer": "Present simple: am/is/are + particip — \"The letter is sent.\" · Past simple: was/were + particip — \"The letter was sent.\" · Present perfect: have/has been + particip — \"The letter has been sent.\" · Future: will be + particip — \"The letter will be sent.\" · Modal: modal + be + particip — \"The letter must be sent.\" · Regel: bara transitiva verb (verb som tar objekt) kan bli passiva, och \"by + agent\" läggs bara till när det är viktigt vem som utförde handlingen."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-geo-hallbarhet",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Hållbar utveckling och klimatförändringar",
+  "sourceSummary": "Vad hållbar utveckling innebär utifrån ekologisk, social och ekonomisk hållbarhet, hur växthuseffekten och klimatförändringarna hänger ihop, deras globala konsekvenser samt grundidén bakom FN:s globala mål.",
+  "topics": [
+    "hållbar utveckling",
+    "växthuseffekten och klimatförändringar",
+    "konsekvenser av klimatförändringar",
+    "FN:s globala mål"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo-hal-1",
+      "kind": "mc",
+      "topic": "hållbar utveckling",
+      "prompt": "Vilka tre dimensioner brukar hållbar utveckling delas in i?",
+      "opener": "Tänk dig hållbarhet som tre pusselbitar som alla måste finnas med samtidigt för att utvecklingen ska hålla i längden.",
+      "choices": [
+        "Ekologisk, social och ekonomisk hållbarhet",
+        "Politisk, religiös och kulturell hållbarhet",
+        "Lokal, nationell och global hållbarhet",
+        "Historisk, nutida och framtida hållbarhet"
+      ],
+      "answer": 0,
+      "explanation": "Hållbar utveckling brukar delas in i ekologisk hållbarhet (att inte skada naturen och ekosystemen), social hållbarhet (att människor har goda levnadsvillkor, rättvisa och trygghet) och ekonomisk hållbarhet (att ekonomin utvecklas utan att förbruka resurser som kommande generationer behöver). Alla tre behövs samtidigt för att utvecklingen ska vara hållbar på lång sikt."
+    },
+    {
+      "id": "q-geo-hal-2",
+      "kind": "mc",
+      "topic": "hållbar utveckling",
+      "prompt": "Ett företag bygger en fabrik som skapar många jobb och stärker ekonomin, men den släpper ut stora mängder gifter i en närliggande sjö som lokalbefolkningen fiskar i. Vilken typ av hållbarhet brister det i?",
+      "opener": "Fundera på vilken av de tre dimensionerna som direkt skadas av utsläppen.",
+      "choices": [
+        "Ekonomisk hållbarhet",
+        "Ekologisk hållbarhet (och därmed även social hållbarhet, eftersom människors hälsa och försörjning påverkas)",
+        "Ingen hållbarhetsdimension påverkas",
+        "Bara politisk hållbarhet"
+      ],
+      "answer": 1,
+      "explanation": "Utsläppen skadar ekosystemet i sjön (ekologisk hållbarhet) och drabbar samtidigt de människor som är beroende av fisket för mat och inkomst (social hållbarhet). Det visar att de tre dimensionerna hänger ihop — man kan inte bara titta på den ekonomiska vinsten utan måste väga in effekterna på miljö och människor."
+    },
+    {
+      "id": "q-geo-hal-3",
+      "kind": "mc",
+      "topic": "växthuseffekten och klimatförändringar",
+      "prompt": "Vad är den naturliga växthuseffekten, och varför är den i grunden nödvändig för liv på jorden?",
+      "opener": "Utan någon växthuseffekt alls skulle jorden vara mycket kallare än den är i dag.",
+      "choices": [
+        "Den är ett modernt fenomen orsakat enbart av människan, och helt skadlig",
+        "Växthusgaser i atmosfären fångar upp värme från solen och håller jorden varm nog för liv",
+        "Den beskriver hur odling i växthus fungerar",
+        "Den handlar om att ozonlagret bryts ner"
+      ],
+      "answer": 1,
+      "explanation": "Den naturliga växthuseffekten uppstår när gaser som koldioxid och vattenånga i atmosfären fångar upp en del av värmen från solen i stället för att låta den stråla ut i rymden. Utan denna naturliga effekt skulle jordens medeltemperatur vara långt under fryspunkten. Problemet i dag är att människans utsläpp FÖRSTÄRKER effekten mer än vad som är naturligt."
+    },
+    {
+      "id": "q-geo-hal-4",
+      "kind": "mc",
+      "topic": "växthuseffekten och klimatförändringar",
+      "prompt": "Vilken mänsklig aktivitet bidrar MEST till den förstärkta växthuseffekten globalt?",
+      "opener": "Tänk på vad som frigör stora mängder koldioxid som annars varit bunden i marken.",
+      "choices": [
+        "Förbränning av fossila bränslen som kol, olja och naturgas",
+        "Att människor andas",
+        "Att det regnar mer på vissa platser",
+        "Att jorden roterar runt sin egen axel"
+      ],
+      "answer": 0,
+      "explanation": "Förbränning av fossila bränslen inom industri, transporter och elproduktion frigör stora mängder koldioxid som varit bunden i marken under miljontals år, vilket är den enskilt största källan till människans utsläpp av växthusgaser. Även avskogning bidrar betydligt, eftersom träd annars binder koldioxid."
+    },
+    {
+      "id": "q-geo-hal-5",
+      "kind": "mc",
+      "topic": "konsekvenser av klimatförändringar",
+      "prompt": "Vilken av följande är en direkt konsekvens av att jordens medeltemperatur stiger?",
+      "opener": "Tänk på vad som händer med is och glaciärer när det blir varmare.",
+      "choices": [
+        "Havsnivån stiger på grund av smältande glaciärer och inlandsisar samt att havsvatten expanderar när det värms",
+        "Jordens omloppsbana runt solen förändras",
+        "Antalet kontinenter ökar",
+        "Ozonlagret repareras automatiskt"
+      ],
+      "answer": 0,
+      "explanation": "När medeltemperaturen stiger smälter glaciärer och inlandsisar (till exempel på Grönland och Antarktis), och dessutom expanderar havsvatten när det blir varmare. Båda effekterna gör att havsnivån stiger, vilket hotar låglänta kustområden och önationer med översvämning."
+    },
+    {
+      "id": "q-geo-hal-6",
+      "kind": "mc",
+      "topic": "konsekvenser av klimatförändringar",
+      "prompt": "Varför drabbas ofta låginkomstländer hårdast av klimatförändringarnas konsekvenser, trots att de historiskt släppt ut minst växthusgaser?",
+      "opener": "Tänk på skillnaden mellan att UTSÄTTAS för en risk och att ha RESURSER för att skydda sig mot den.",
+      "choices": [
+        "De ligger alltid närmare ekvatorn och det spelar ingen annan roll",
+        "De har ofta mindre ekonomiska resurser att skydda sig mot exempelvis torka, översvämningar och skördebortfall",
+        "Klimatförändringar påverkar bara rika länder",
+        "Låginkomstländer orsakar mest utsläpp i dag"
+      ],
+      "answer": 1,
+      "explanation": "Många låginkomstländer är starkt beroende av jordbruk och har mindre ekonomiska resurser att bygga skydd mot extremväder, bevattningssystem eller katastrofberedskap, vilket gör dem extra sårbara för torka, översvämningar och skördebortfall. Det är en viktig orättvisa i klimatfrågan: länderna som bidragit minst till utsläppen drabbas ofta hårdast av konsekvenserna."
+    },
+    {
+      "id": "q-geo-hal-7",
+      "kind": "worked",
+      "topic": "FN:s globala mål",
+      "prompt": "Förklara idén bakom FN:s globala mål (Agenda 2030) och varför de globala målen anses hänga ihop med varandra.",
+      "opener": "Tänk på varför man inte kan lösa till exempel fattigdom eller klimatfrågan helt separat från varandra.",
+      "answer": "FN:s globala mål, även kallade Agenda 2030, är 17 mål som världens länder enats om för att uppnå en hållbar utveckling till år 2030 — de täcker allt från att utrota fattigdom och hunger, till jämställdhet, rent vatten, klimatåtgärder och fredliga samhällen. Målen anses hänga ihop eftersom framsteg inom ett område ofta påverkar andra: till exempel kan klimatförändringar (mål 13) förvärra fattigdom (mål 1) och hunger (mål 2) genom missväxt, medan bättre utbildning (mål 4) ofta leder till både minskad fattigdom och mer jämställdhet (mål 5). Man kan därför inte lösa hållbarhetsutmaningarna en och en isolerat, utan måste se helheten.",
+      "steps": [
+        "Agenda 2030 innehåller 17 globala mål som FN:s medlemsländer enats om.",
+        "Målen täcker ekologisk, social och ekonomisk hållbarhet tillsammans (t.ex. klimat, fattigdom, jämställdhet, utbildning).",
+        "Målen är sammanlänkade: en förändring i ett mål påverkar ofta flera andra, positivt eller negativt.",
+        "Exempel: klimatförändringar (mål 13) kan förvärra hunger (mål 2) genom missväxt, vilket i sin tur ökar fattigdom (mål 1).",
+        "Slutsats: hållbar utveckling kräver att man arbetar med målen tillsammans, inte var för sig."
+      ]
+    },
+    {
+      "id": "q-geo-hal-8",
+      "kind": "flashcard",
+      "topic": "hållbar utveckling",
+      "prompt": "Sammanfatta hållbar utveckling och klimatförändringarna: begrepp, orsaker och konsekvenser.",
+      "opener": "Samla de viktigaste begreppen i en tät översikt att repetera snabbt.",
+      "answer": "Hållbar utveckling: utveckling som möter dagens behov utan att äventyra kommande generationers möjligheter · tre dimensioner: ekologisk (miljö och ekosystem), social (rättvisa, hälsa, trygghet) och ekonomisk (resurser räcker på lång sikt) hållbarhet. Växthuseffekten: naturlig process där växthusgaser (koldioxid, metan m.fl.) håller kvar värme i atmosfären · människans utsläpp av fossila bränslen och avskogning FÖRSTÄRKER effekten. Konsekvenser: stigande medeltemperatur · smältande glaciärer och is → stigande havsnivå · fler extremväder (torka, översvämningar, stormar) · skördebortfall och hot mot matförsörjning · låginkomstländer ofta hårdast drabbade trots minst utsläpp. FN:s globala mål (Agenda 2030): 17 mål för hållbar utveckling till 2030 · målen hänger ihop och måste angripas tillsammans."
+    }
+  ]
+}

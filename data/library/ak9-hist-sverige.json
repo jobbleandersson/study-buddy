@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist-sverige",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Sveriges historia och demokratins framväxt",
+  "sourceSummary": "Hur Sverige steg för steg blev en demokrati under 1900-talets första decennier — rösträttens utveckling, parlamentarismens genombrott, folkhemmet och Sveriges väg genom världskrigen.",
+  "topics": [
+    "allmän rösträtt",
+    "parlamentarismens genombrott",
+    "viktiga reformer",
+    "Sverige under världskrigen"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist-sve-1",
+      "kind": "mc",
+      "topic": "allmän rösträtt",
+      "prompt": "Vilket år genomfördes det första riksdagsvalet i Sverige med allmän och lika rösträtt för både kvinnor och män?",
+      "opener": "Männens rösträtt kom några år tidigare — men det dröjde innan kvinnor kunde rösta i ett riktigt val.",
+      "choices": [
+        "1921",
+        "1809",
+        "1945",
+        "1971"
+      ],
+      "answer": 0,
+      "explanation": "Allmän rösträtt för män infördes 1909, och riksdagen beslutade om kvinnlig rösträtt 1919 — men det första valet där både kvinnor och män med allmän och lika rösträtt fick rösta hölls 1921. 1809 är Sveriges regeringsforms år, och de andra årtalen är för sena."
+    },
+    {
+      "id": "q-hist-sve-2",
+      "kind": "mc",
+      "topic": "parlamentarismens genombrott",
+      "prompt": "Vad innebär parlamentarism?",
+      "opener": "Tänk på vem regeringen måste ha stöd av för att få sitta kvar vid makten.",
+      "choices": [
+        "Att regeringen måste ha stöd av en majoritet i riksdagen för att kunna sitta kvar vid makten",
+        "Att kungen ensam bestämmer vilka lagar som ska gälla",
+        "Att bara adeln har rätt att rösta i val",
+        "Att Sverige helt saknar en folkvald riksdag"
+      ],
+      "answer": 0,
+      "explanation": "Parlamentarism innebär att regeringens makt bygger på stöd från en majoritet i riksdagen (parlamentet), i stället för att utses fritt av kungen. Parlamentarismens genombrott i Sverige brukar dateras till 1917–1918, då kungens makt över regeringsbildningen minskade avsevärt."
+    },
+    {
+      "id": "q-hist-sve-3",
+      "kind": "mc",
+      "topic": "viktiga reformer",
+      "prompt": "Vilken rörelse kämpade för bättre villkor för arbetare och kom att prägla svensk politik under stora delar av 1900-talet?",
+      "opener": "Tänk på fackföreningar och det politiska parti som växte fram ur dem.",
+      "choices": [
+        "Arbetarrörelsen, med fackföreningar och Socialdemokraterna som drivande krafter",
+        "Bondeförbundet, helt utan koppling till fackföreningar",
+        "Svenska kyrkans ledning",
+        "Den svenska adeln"
+      ],
+      "answer": 0,
+      "explanation": "Arbetarrörelsen, som organiserade sig i fackföreningar och i Socialdemokratiska partiet, kämpade för bättre löner, arbetsvillkor och politiskt inflytande för arbetarklassen och blev en av de mest inflytelserika krafterna i svensk politik under 1900-talet."
+    },
+    {
+      "id": "q-hist-sve-4",
+      "kind": "mc",
+      "topic": "viktiga reformer",
+      "prompt": "Vad var grundidén med begreppet \"folkhemmet\", som blev centralt i svensk politik från slutet av 1920-talet?",
+      "opener": "Tänk på ordet bokstavligt: Sverige som ett gemensamt hem för alla.",
+      "choices": [
+        "Att Sverige skulle vara som ett gemensamt hem där staten tar ansvar för medborgarnas trygghet och välfärd",
+        "Att alla svenskar skulle bo i samma bostadsområde",
+        "Att staten helt skulle avskaffas till förmån för privata lösningar",
+        "Att bara rika familjer skulle få del av statligt stöd"
+      ],
+      "answer": 0,
+      "explanation": "\"Folkhemmet\" var en idé, förknippad särskilt med socialdemokraten Per Albin Hansson, om att Sverige skulle fungera som ett gemensamt hem där staten tar ansvar för medborgarnas välfärd, trygghet och jämlikhet — en grund för den svenska välfärdsstatens utveckling."
+    },
+    {
+      "id": "q-hist-sve-5",
+      "kind": "mc",
+      "topic": "Sverige under världskrigen",
+      "prompt": "Vilken officiell politik förde Sverige under både första och andra världskriget?",
+      "opener": "Sverige deltog inte militärt i något av världskrigen.",
+      "choices": [
+        "Neutralitetspolitik, vilket innebar att Sverige inte deltog militärt i krigen",
+        "Sverige gick med i krigen på Tysklands sida",
+        "Sverige gick med i krigen på de allierades sida",
+        "Sverige ockuperade Danmark under andra världskriget"
+      ],
+      "answer": 0,
+      "explanation": "Sverige förde en officiell neutralitetspolitik under båda världskrigen och deltog inte militärt i striderna, till skillnad från grannländer som ockuperades. Under andra världskriget gjorde Sverige dock flera eftergifter gentemot Nazityskland, vilket har debatterats i efterhand."
+    },
+    {
+      "id": "q-hist-sve-6",
+      "kind": "mc",
+      "topic": "allmän rösträtt",
+      "prompt": "Vad blev en viktig konsekvens av att kvinnor fick rösträtt i Sverige?",
+      "opener": "Tänk på vilka nya röster som nu kunde göra sig hörda i politiken.",
+      "choices": [
+        "Fler kvinnor kunde delta i politiskt beslutsfattande och driva frågor som jämställdhet",
+        "Rösträtten togs bort igen efter några år",
+        "Kvinnor fick automatiskt högre lön än män",
+        "Rösträtten gällde bara för adliga kvinnor"
+      ],
+      "answer": 0,
+      "explanation": "Kvinnlig rösträtt gav kvinnor möjlighet att rösta och senare även bli valda till politiska uppdrag, vilket på sikt bidrog till att frågor om jämställdhet och kvinnors rättigheter fick större plats i svensk politik."
+    },
+    {
+      "id": "q-hist-sve-7",
+      "kind": "worked",
+      "topic": "parlamentarismens genombrott",
+      "prompt": "Förklara hur Sverige utvecklades från ett land med begränsad rösträtt till en fullständig demokrati under början av 1900-talet.",
+      "opener": "Gå igenom utvecklingen steg för steg: från männens rösträtt, via parlamentarismens genombrott, till kvinnors rösträtt.",
+      "answer": "Sveriges väg mot demokrati gick i flera steg under 1900-talets första decennier. År 1909 infördes allmän rösträtt för män till riksdagens andra kammare, men kvinnor saknade fortfarande rösträtt. Under och efter första världskriget, då sociala spänningar och krav på reformer ökade, skedde 1917–1918 parlamentarismens genombrott, vilket innebar att regeringen måste ha stöd av riksdagens majoritet. År 1919 beslutade riksdagen om kvinnlig rösträtt, och 1921 hölls det första riksdagsvalet där både kvinnor och män hade allmän och lika rösträtt. Därefter fortsatte reformarbetet med bland annat utbyggnaden av folkhemmet och välfärdsstaten.",
+      "steps": [
+        "1909: Allmän rösträtt för män infördes till riksdagens andra kammare, men kvinnor kunde fortfarande inte rösta.",
+        "1917–1918: Parlamentarismens genombrott innebar att regeringen måste ha stöd av riksdagens majoritet för att sitta kvar.",
+        "1919: Riksdagen beslutade om kvinnlig rösträtt.",
+        "1921: Det första riksdagsvalet hölls med allmän och lika rösträtt för både kvinnor och män.",
+        "Efter demokratins genombrott fortsatte reformarbetet, bland annat med idén om folkhemmet och en växande välfärdsstat."
+      ]
+    },
+    {
+      "id": "q-hist-sve-8",
+      "kind": "flashcard",
+      "topic": "viktiga reformer",
+      "prompt": "Sammanfatta de viktigaste stegen i Sveriges demokratiska utveckling och Sveriges roll under världskrigen.",
+      "opener": "Tänk rösträtt, parlamentarism, arbetarrörelse, folkhem och neutralitet.",
+      "answer": "Allmän rösträtt för män infördes 1909 · parlamentarismens genombrott skedde 1917–1918, vilket innebar att regeringen måste ha stöd av riksdagens majoritet · kvinnlig rösträtt beslutades 1919, och 1921 hölls det första valet med allmän och lika rösträtt för kvinnor och män · arbetarrörelsen, med fackföreningar och Socialdemokraterna, blev en drivande kraft i svensk politik · begreppet \"folkhemmet\" (från slutet av 1920-talet) byggde på idén att staten skulle ta ansvar för medborgarnas trygghet och välfärd · Sverige förde en neutralitetspolitik under både första och andra världskriget och deltog inte militärt i striderna · efter världskrigen fortsatte Sverige att bygga ut välfärdsstaten under 1900-talet."
+    }
+  ]
+}

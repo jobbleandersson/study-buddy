@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv1-texttyper",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Texttyper, referat och källhantering",
+  "sourceSummary": "Argumenterande och utredande text, tes och argument, referatteknik, citat kontra referat samt vad som räknas som plagiat.",
+  "topics": [
+    "argumenterande text",
+    "utredande text",
+    "referat och citat",
+    "källhantering"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-txt-1",
+      "kind": "mc",
+      "topic": "argumenterande text",
+      "prompt": "Vilket av följande fungerar bäst som TES i en argumenterande text?",
+      "opener": "En tes måste gå att hålla med om — eller inte hålla med om.",
+      "choices": [
+        "Många elever använder mobiler i skolan.",
+        "Sverige har 21 regioner.",
+        "Mobiltelefoner bör förbjudas under lektionstid.",
+        "Den här texten handlar om mobiler i skolan."
+      ],
+      "answer": 2,
+      "explanation": "En tes är ett diskutabelt påstående som du sedan ska driva med argument. De övriga är antingen fakta, ämnesbeskrivningar eller neutrala konstateranden som ingen kan invända mot."
+    },
+    {
+      "id": "q-sv1-txt-2",
+      "kind": "mc",
+      "topic": "utredande text",
+      "prompt": "Vad kännetecknar en utredande text jämfört med en argumenterande?",
+      "opener": "Vad gör skribenten med sin egen åsikt?",
+      "choices": [
+        "Den är alltid kortare",
+        "Den saknar källhänvisningar",
+        "Den driver en tes så tydligt som möjligt",
+        "Den undersöker en frågeställning från flera håll utan att ta ställning"
+      ],
+      "answer": 3,
+      "explanation": "En utredande text utgår från en frågeställning och belyser den ur olika perspektiv. Skribenten redovisar vad olika källor säger snarare än att argumentera för en egen ståndpunkt."
+    },
+    {
+      "id": "q-sv1-txt-3",
+      "kind": "mc",
+      "topic": "referat och citat",
+      "prompt": "Vad är kännetecknande för ett bra referat?",
+      "opener": "Vems ord ska stå i texten, och vems tankar ska återges?",
+      "choices": [
+        "Innehållet återges med egna ord och med referatmarkörer",
+        "Man lägger till sina egna åsikter löpande",
+        "Man återger bara det man håller med om",
+        "Källans text återges ordagrant men utan citattecken"
+      ],
+      "answer": 0,
+      "explanation": "Ett referat sammanfattar källans innehåll med egna ord, sakligt och med referatmarkörer som \"enligt Andersson\" eller \"författaren menar att\". Ordagrann återgivning utan citattecken är plagiat."
+    },
+    {
+      "id": "q-sv1-txt-4",
+      "kind": "mc",
+      "topic": "referat och citat",
+      "prompt": "Vilken formulering är en korrekt referatmarkör?",
+      "opener": "Läsaren ska aldrig behöva gissa vem som tycker vad.",
+      "choices": [
+        "Mobiler stör undervisningen.",
+        "Enligt Lindqvist (2023) stör mobiler undervisningen.",
+        "Alla vet att mobiler stör undervisningen.",
+        "Det är ju uppenbart att mobiler stör."
+      ],
+      "answer": 1,
+      "explanation": "En referatmarkör visar tydligt att påståendet kommer från en källa och vem källan är. De andra alternativen presenterar andras påståenden som om de vore skribentens egna eller allmänt vedertagna."
+    },
+    {
+      "id": "q-sv1-txt-5",
+      "kind": "mc",
+      "topic": "källhantering",
+      "prompt": "Du skriver om ett stycke från en artikel genom att byta ut några ord mot synonymer, men behåller meningsbyggnaden — utan att ange källa. Vad är det?",
+      "opener": "Räcker det att byta ut några ord för att texten ska bli din egen?",
+      "choices": [
+        "Ett korrekt referat",
+        "Ett tillåtet citat",
+        "Plagiat",
+        "Källkritik"
+      ],
+      "answer": 2,
+      "explanation": "Att behålla någon annans struktur och formuleringar utan källhänvisning är plagiat, även om enskilda ord bytts ut. Ett referat kräver både egna formuleringar och angiven källa."
+    },
+    {
+      "id": "q-sv1-txt-6",
+      "kind": "mc",
+      "topic": "argumenterande text",
+      "prompt": "Varför bör en argumenterande text ta upp och bemöta motargument?",
+      "opener": "Vad tänker en skeptisk läsare som redan har en invändning i huvudet?",
+      "choices": [
+        "Det är ett formellt krav utan egentlig funktion",
+        "Det gör texten längre",
+        "Det försvagar den egna tesen",
+        "Det stärker trovärdigheten och visar att du prövat frågan"
+      ],
+      "answer": 3,
+      "explanation": "Att bemöta motargument visar att du känner till frågans komplexitet och stärker ditt ethos. En text som ignorerar invändningar framstår som ensidig."
+    },
+    {
+      "id": "q-sv1-txt-7",
+      "kind": "worked",
+      "topic": "referat och citat",
+      "prompt": "Originaltext: \"Sömnbrist bland ungdomar har ökat kraftigt de senaste tio åren, framför allt på grund av skärmanvändning på kvällen.\" (Ek, 2022). Skriv ett korrekt referat av meningen.",
+      "opener": "Tre saker måste med: egna ord, referatmarkör och källa.",
+      "answer": "Enligt Ek (2022) har ungdomars sömnbrist blivit betydligt vanligare under det senaste decenniet, vilket främst förklaras av att de använder skärmar på kvällstid.",
+      "steps": [
+        "Börja med en referatmarkör som anger källan: \"Enligt Ek (2022)…\" eller \"Ek (2022) menar att…\".",
+        "Formulera om innehållet med egna ord: \"ökat kraftigt\" → \"blivit betydligt vanligare\", \"de senaste tio åren\" → \"under det senaste decenniet\".",
+        "Byt även meningsbyggnad, inte bara enstaka ord — annars ligger det för nära originalet.",
+        "Kontrollera att innehållet inte förvanskats: orsaken (skärmanvändning på kvällen) ska finnas kvar och inte förstärkas eller tonas ner."
+      ]
+    },
+    {
+      "id": "q-sv1-txt-8",
+      "kind": "flashcard",
+      "topic": "referat och citat",
+      "prompt": "När använder du citat och när använder du referat?",
+      "opener": "Ett återger orden, det andra innehållet.",
+      "answer": "Citat: när den exakta formuleringen har betydelse — ordagrant, inom citattecken, med källa. Använd sparsamt. Referat: när innehållet är det viktiga — sammanfatta med egna ord och referatmarkör. I skoluppgifter ska merparten vara referat; för många citat visar att du inte bearbetat materialet."
+    }
+  ]
+}

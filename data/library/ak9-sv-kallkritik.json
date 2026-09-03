@@ -1,0 +1,127 @@
+{
+  "id": "lib-sv9-kallkritik",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Källkritik och sakprosa",
+  "sourceSummary": "Att skilja fakta från åsikt, känna igen vinklade texter och bedöma om en källa går att lita på — grunderna innan gymnasiets fördjupning.",
+  "topics": [
+    "källgranskning",
+    "fakta och åsikt",
+    "argumenterande text"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv9-kk-1",
+      "kind": "mc",
+      "topic": "fakta och åsikt",
+      "prompt": "Vilken av meningarna är en FAKTA-mening (går att kontrollera)?",
+      "opener": "Fakta kan bevisas sant eller falskt. En åsikt uttrycker någons tycke.",
+      "choices": [
+        "Fotboll är den roligaste sporten som finns.",
+        "Sveriges huvudstad är Stockholm.",
+        "Alla borde träna minst en timme om dagen.",
+        "Vintern är den bästa årstiden."
+      ],
+      "answer": 1,
+      "explanation": "Att Stockholm är Sveriges huvudstad går att kontrollera och är objektivt sant. De andra påståendena uttrycker tycke och smak — de går inte att bevisa som sanna eller falska."
+    },
+    {
+      "id": "q-sv9-kk-2",
+      "kind": "mc",
+      "topic": "källgranskning",
+      "prompt": "Vad bör du kolla FÖRST när du bedömer om en artikel på internet går att lita på?",
+      "opener": "Innan du ens läser innehållet — vad säger AVSÄNDAREN dig?",
+      "choices": [
+        "Om texten har många bilder",
+        "Vem som skrivit texten och vilken organisation som ligger bakom",
+        "Hur lång texten är",
+        "Om texten är skriven på svenska"
+      ],
+      "answer": 1,
+      "explanation": "Avsändaren (vem som skrivit och vilken organisation som står bakom) avgör mycket om trovärdigheten — en okänd anonym sida är mer osäker än en etablerad nyhetsbyrå eller myndighet."
+    },
+    {
+      "id": "q-sv9-kk-3",
+      "kind": "mc",
+      "topic": "källgranskning",
+      "prompt": "En artikel om ett nytt kosttillskott är skriven av företaget som säljer det. Vad bör du tänka på?",
+      "opener": "Vem tjänar på att du tror på påståendena i texten?",
+      "choices": [
+        "Artikeln är automatiskt falsk",
+        "Företaget har ett ekonomiskt intresse av att framställa produkten positivt, så texten bör granskas extra noga",
+        "Det spelar ingen roll vem som skrivit den",
+        "Företag får aldrig skriva om sina egna produkter"
+      ],
+      "answer": 1,
+      "explanation": "Ett ekonomiskt intresse (företaget säljer produkten) gör texten partisk, inte automatiskt falsk. Du bör jämföra med oberoende källor innan du drar slutsatser."
+    },
+    {
+      "id": "q-sv9-kk-4",
+      "kind": "mc",
+      "topic": "argumenterande text",
+      "prompt": "Vad kallas den ståndpunkt en argumenterande text vill övertyga läsaren om?",
+      "opener": "Det är textens huvudpåstående — det som argumenten ska stödja.",
+      "choices": [
+        "Källa",
+        "Tes",
+        "Referat",
+        "Anekdot"
+      ],
+      "answer": 1,
+      "explanation": "Tesen är textens huvudpåstående — den åsikt eller ståndpunkt som resten av texten argumenterar för med hjälp av argument och belägg."
+    },
+    {
+      "id": "q-sv9-kk-5",
+      "kind": "mc",
+      "topic": "källgranskning",
+      "prompt": "Du hittar en nyhet på en sida du aldrig hört talas om. Vad är ett bra första steg?",
+      "opener": "Ett enkelt sätt att kontrollera trovärdighet utan att vara expert.",
+      "choices": [
+        "Dela nyheten direkt om den känns viktig",
+        "Söka om andra, kända nyhetskällor rapporterar samma sak",
+        "Anta att den är sann eftersom den är skriven",
+        "Kolla bara hur många som delat den"
+      ],
+      "answer": 1,
+      "explanation": "Om flera oberoende, etablerade källor rapporterar samma sak ökar det trovärdigheten. Antal delningar säger ingenting om sanningshalt — falska nyheter sprids ofta snabbt."
+    },
+    {
+      "id": "q-sv9-kk-6",
+      "kind": "mc",
+      "topic": "fakta och åsikt",
+      "prompt": "\"Studier visar att 68 % av eleverna sover mindre än åtta timmar per natt, vilket är oroväckande.\" Vilken del av meningen är en åsikt?",
+      "opener": "En del av meningen är mätbar statistik, en annan del är ett värdeord.",
+      "choices": [
+        "\"68 %\"",
+        "\"sover mindre än åtta timmar\"",
+        "\"vilket är oroväckande\"",
+        "Hela meningen är fakta"
+      ],
+      "answer": 2,
+      "explanation": "Siffran och sömntiden är mätbara fakta. \"Oroväckande\" är ett värdeord som uttrycker skribentens bedömning — det är åsikten i meningen."
+    },
+    {
+      "id": "q-sv9-kk-7",
+      "kind": "worked",
+      "topic": "källgranskning",
+      "prompt": "Du ska skriva om klimatförändringar till ett skolarbete och hittar tre källor: (A) en blogg utan angiven författare, (B) en rapport från SMHI, (C) ett inlägg på sociala medier utan källhänvisning. Rangordna källorna efter trovärdighet och motivera.",
+      "opener": "Fråga för varje källa: vem är avsändaren, och går påståendena att kontrollera?",
+      "answer": "1. SMHI-rapporten (B) — myndighet med expertkunskap och ansvar för korrekthet. 2. Bloggen (A) — okänd avsändare gör den svårbedömd, men kan innehålla länkar till bättre källor. 3. Sociala medier-inlägget (C) — minst trovärdigt utan avsändare eller källhänvisning.",
+      "steps": [
+        "Källa B (SMHI): en statlig myndighet med expertkompetens inom just klimat och väder — hög trovärdighet, går ofta att verifiera mot andra myndigheter.",
+        "Källa A (bloggen): utan angiven författare vet du inte vem som ligger bakom eller vilken kompetens de har — måste granskas mer, t.ex. genom att se om den länkar till egna, verifierbara källor.",
+        "Källa C (sociala medier): utan källhänvisning eller avsändare är detta den svagaste källan — lättast att sprida felaktig information okontrollerat.",
+        "Slutsats: en bra uppsats bör i första hand utgå från B, eventuellt komplettera med A om den visar sig ha bra underliggande källor, och undvika att bygga argument enbart på C."
+      ]
+    },
+    {
+      "id": "q-sv9-kk-8",
+      "kind": "flashcard",
+      "topic": "källgranskning",
+      "prompt": "Vilka fyra frågor bör du ställa dig när du källkritiskt granskar en text?",
+      "opener": "Fyra grundfrågor innan du litar på en källa.",
+      "answer": "Vem är avsändaren, och vilken kompetens/vilket syfte har de? Är innehållet fakta eller åsikt — går det att kontrollera? När publicerades det, och kan informationen vara föråldrad? Finns oberoende källor som säger samma sak? Ha extra koll när avsändaren har ett ekonomiskt eller politiskt intresse av att du tror på ett visst budskap."
+    }
+  ]
+}

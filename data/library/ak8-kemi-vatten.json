@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi8-vatten",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Vatten, lösningar och miljö",
+  "sourceSummary": "Vattenmolekylens byggnad och varför vatten är ett så bra lösningsmedel, lösningar och löslighet, koncentration på grundnivå samt vattenrening, övergödning och miljögifter.",
+  "topics": [
+    "vattenmolekylen",
+    "lösningar och löslighet",
+    "koncentration",
+    "vattenrening",
+    "övergödning och miljögifter"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi8-vat-1",
+      "kind": "mc",
+      "topic": "vattenmolekylen",
+      "prompt": "Hur är en vattenmolekyl uppbyggd?",
+      "opener": "Formeln H2O talar om hur många atomer av varje slag som finns i molekylen.",
+      "choices": [
+        "En väteatom bunden till en syreatom",
+        "Två väteatomer bundna till en syreatom",
+        "Två syreatomer bundna till en väteatom",
+        "Två väteatomer och två syreatomer"
+      ],
+      "answer": 1,
+      "explanation": "Vatten har formeln H2O: två väteatomer sitter med kovalenta bindningar till en syreatom, och molekylen är vinklad. Två väteatomer och två syreatomer ger i stället H2O2, väteperoxid, som är ett helt annat ämne."
+    },
+    {
+      "id": "q-kemi8-vat-2",
+      "kind": "mc",
+      "topic": "vattenmolekylen",
+      "prompt": "Vattenmolekylen är en dipol (polär molekyl). Vad betyder det?",
+      "opener": "Syreatomen drar elektronerna hårdare till sig än väteatomerna gör.",
+      "choices": [
+        "Att molekylen som helhet har laddningen 1−",
+        "Att den bara kan lösa fetter och oljor",
+        "Att den saknar bindningar mellan atomerna",
+        "Att molekylen har en något negativ sida vid syreatomen och en något positiv sida vid väteatomerna"
+      ],
+      "answer": 3,
+      "explanation": "Syret drar elektronerna närmare sig, så syresidan blir svagt negativ och vätesidan svagt positiv — molekylen blir en dipol. Molekylen som helhet är ändå oladdad, den är alltså ingen jon, och det är just polariteten som gör vatten bra på att lösa salter men dåligt på att lösa fetter."
+    },
+    {
+      "id": "q-kemi8-vat-3",
+      "kind": "mc",
+      "topic": "lösningar och löslighet",
+      "prompt": "Vad kallas en lösning som inte kan lösa mer av ett ämne vid en viss temperatur?",
+      "opener": "Namnet betyder att lösningen har fått precis så mycket den orkar bära.",
+      "choices": [
+        "Mättad lösning",
+        "Utspädd lösning",
+        "Neutral lösning",
+        "Emulsion"
+      ],
+      "answer": 0,
+      "explanation": "En mättad lösning innehåller den största mängd av ämnet som går att lösa vid den temperaturen — allt extra lägger sig som bottensats. En utspädd lösning innehåller tvärtom lite lösta ämnen jämfört med lösningsmedlet, och \"neutral\" handlar om pH, inte om löslighet. Värmer man lösningen kan oftast mer socker eller salt lösas."
+    },
+    {
+      "id": "q-kemi8-vat-4",
+      "kind": "mc",
+      "topic": "lösningar och löslighet",
+      "prompt": "Varför löser sig socker och salt bra i vatten, men inte matolja?",
+      "opener": "Kom ihåg tumregeln \"lika löser lika\" och att vatten är polärt.",
+      "choices": [
+        "Olja är tyngre än vatten och sjunker därför i stället",
+        "Olja är en jonförening och kan inte lösas",
+        "Vatten är polärt och löser polära ämnen och salter, medan olja är opolär",
+        "Olja innehåller inga atomer alls"
+      ],
+      "answer": 2,
+      "explanation": "Vatten är polärt och drar isär salternas joner och binder till polära ämnen som socker — \"lika löser lika\". Olja är opolär och löser sig därför inte, utan lägger sig som ett skikt ovanpå eftersom oljan har lägre densitet än vatten, alltså är lättare och inte tyngre."
+    },
+    {
+      "id": "q-kemi8-vat-5",
+      "kind": "mc",
+      "topic": "koncentration",
+      "prompt": "I 2 liter vatten löses 40 g koksalt. Vilken koncentration har lösningen i gram per liter?",
+      "opener": "Koncentration betyder mängd löst ämne per volym — dela upp mängden på antalet liter.",
+      "choices": [
+        "80 g/l",
+        "20 g/l",
+        "40 g/l",
+        "2 g/l"
+      ],
+      "answer": 1,
+      "explanation": "Koncentrationen är 40 g / 2 l = 20 g/l. Att i stället multiplicera 40 med 2 ger 80 g/l, och att svara 40 g/l vore att glömma att saltet är fördelat i två liter."
+    },
+    {
+      "id": "q-kemi8-vat-6",
+      "kind": "mc",
+      "topic": "övergödning och miljögifter",
+      "prompt": "Vad orsakar övergödning i sjöar och hav?",
+      "opener": "Fundera på vad som läcker ut från jordbruksmark och avlopp och som växter älskar.",
+      "choices": [
+        "Att det finns för lite näring i vattnet",
+        "Att vattnet blir för surt av svaveloxider",
+        "Att vattnet renas för hårt i reningsverken",
+        "Att för mycket näringsämnen som fosfor och kväve läcker ut, till exempel från gödsel och avlopp"
+      ],
+      "answer": 3,
+      "explanation": "Övergödning beror på ett överskott av näringsämnena fosfor och kväve, som får alger och växter att växa kraftigt; när de dör förbrukar nedbrytningen syret på bottnen och det kan bli bottendöd. Att vattnet blir surt av svaveloxider är i stället försurning, ett annat miljöproblem."
+    },
+    {
+      "id": "q-kemi8-vat-7",
+      "kind": "worked",
+      "topic": "vattenrening",
+      "prompt": "Beskriv de tre reningsstegen i ett kommunalt avloppsreningsverk och förklara varför det kemiska steget är viktigt för att minska övergödningen.",
+      "opener": "Följ vattnets väg genom verket: först det grövsta, sedan bakteriernas arbete och till sist kemikalierna.",
+      "answer": "Avloppsvattnet renas i tre steg: mekanisk rening som silar bort skräp, sand och partiklar, biologisk rening där bakterier bryter ner organiskt material, och kemisk rening där fällningskemikalier binder fosfor så att den kan tas bort som slam. Det kemiska steget är viktigt eftersom fosfor är ett näringsämne som annars skulle göda alger i sjön eller havet och orsaka övergödning.",
+      "steps": [
+        "Mekanisk rening: galler och sandfång silar bort skräp, sand och partiklar som sjunker till botten.",
+        "Biologisk rening: i luftade bassänger bryter bakterier ner organiskt material, och kväveföreningar omvandlas så att en del kväve kan avgå som kvävgas.",
+        "Kemisk rening: man tillsätter fällningskemikalier, till exempel järn- eller aluminiumsalter, som binder fosfor till flockar som sjunker som slam.",
+        "Det renade vattnet släpps ut i sjö eller hav, medan slammet tas om hand separat.",
+        "Utan det kemiska steget skulle fosforn gödsla vattnet: algerna växer kraftigt, dör och sjunker, och nedbrytningen förbrukar syret på bottnen — det vill säga övergödning."
+      ]
+    },
+    {
+      "id": "q-kemi8-vat-8",
+      "kind": "flashcard",
+      "topic": "vattenmolekylen",
+      "prompt": "Sammanfatta vattenmolekylen, lösningar, koncentration och vattnets miljöfrågor.",
+      "opener": "Molekylen och dipolen först, sedan lösningsbegreppen och till sist rening och miljöproblem.",
+      "answer": "Vattenmolekyl: H2O, två väteatomer kovalent bundna till en syreatom, vinklad form · Dipol: syresidan svagt negativ, vätesidan svagt positiv, molekylen som helhet oladdad · Vätebindningar mellan molekylerna ger hög smält- och kokpunkt (0 °C och 100 °C), ytspänning och kapillärkraft · Is är lättare än vatten och flyter, eftersom vatten har störst densitet vid +4 °C · Lösning: löst ämne + lösningsmedel, t.ex. salt i vatten · Lika löser lika: polärt vatten löser salter och socker, men inte opolär olja (som lägger sig ovanpå, lägre densitet) · Mättad lösning: mer kan inte lösas vid den temperaturen, resten blir bottensats · Löslighet ökar oftast med högre temperatur (gaser tvärtom: mindre lösliga i varmt vatten) · Koncentration = mängd löst ämne / volym, t.ex. 40 g i 2 l ger 20 g/l · Vattenrening i tre steg: mekanisk (galler, sandfång) · biologisk (bakterier bryter ner organiskt material) · kemisk (fällning av fosfor) · Dricksvattenverk: sedimentering, filtrering genom sand och kol, desinficering · Övergödning: överskott av fosfor och kväve från gödsel och avlopp → algblomning → nedbrytning förbrukar syret → bottendöd · Försurning: annat problem, orsakas av svavel- och kväveoxider · Miljögifter: t.ex. tungmetaller som kvicksilver och bly samt svårnedbrytbara ämnen — de bryts ner långsamt, lagras i fett och anrikas uppåt i näringskedjan."
+    }
+  ]
+}

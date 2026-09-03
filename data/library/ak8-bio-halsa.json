@@ -1,0 +1,131 @@
+{
+  "id": "lib-bio8-halsa",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Hälsa, sjukdomar och immunförsvar",
+  "sourceSummary": "Immunförsvarets barriärer och vita blodkroppar, skillnaden mellan bakterier och virus, hur vaccin och antibiotika verkar och varför antibiotikaresistens uppstår, hur smitta sprids, samt hur sömn, kost, motion och droger påverkar hälsan.",
+  "topics": [
+    "immunförsvaret",
+    "bakterier och virus",
+    "vaccination och antibiotika",
+    "smittspridning",
+    "levnadsvanor och hälsa",
+    "droger"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio8-hal-1",
+      "kind": "mc",
+      "topic": "immunförsvaret",
+      "prompt": "Vilka celler i blodet är kroppens viktigaste försvar mot bakterier och virus?",
+      "opener": "Tänk på vilken sorts blodkropp som ökar i antal när du är sjuk.",
+      "choices": [
+        "De röda blodkropparna",
+        "Blodplättarna",
+        "Cellerna i blodplasman",
+        "De vita blodkropparna"
+      ],
+      "answer": 3,
+      "explanation": "De vita blodkropparna är immunförsvarets celler: några äter upp inkräktare medan andra bildar antikroppar som passar just den mikroorganismen. De röda blodkropparna har en helt annan uppgift — de transporterar syre — och blodplättarna sköter levringen vid sår."
+    },
+    {
+      "id": "q-bio8-hal-2",
+      "kind": "mc",
+      "topic": "bakterier och virus",
+      "prompt": "Vad är en viktig skillnad mellan bakterier och virus?",
+      "opener": "Tänk på vilken av dem som är en egen levande cell.",
+      "choices": [
+        "Bakterier är alltid farliga medan virus alltid är ofarliga",
+        "Bakterier är egna celler som kan förökas själva, medan virus måste in i en värdcell för att förökas",
+        "Bakterier är mycket mindre än virus",
+        "Virus är celler medan bakterier bara är arvsmassa i ett skal"
+      ],
+      "answer": 1,
+      "explanation": "En bakterie är en encellig organism med egen ämnesomsättning som kan dela sig på egen hand, medan ett virus bara är arvsmassa i ett proteinskal och måste kapa en levande cell för att kunna föröka sig. Dessutom är virus tydligt mindre än bakterier, inte större, och de flesta bakterier är helt ofarliga eller till och med nyttiga."
+    },
+    {
+      "id": "q-bio8-hal-3",
+      "kind": "mc",
+      "topic": "vaccination och antibiotika",
+      "prompt": "Hur fungerar ett vaccin?",
+      "opener": "Tänk på att immunförsvaret får en ofarlig övning inför den riktiga smittan.",
+      "choices": [
+        "Det dödar bakterier som redan finns i kroppen",
+        "Det byter ut de vita blodkropparna mot nya",
+        "Det gör att immunförsvaret bildar antikroppar och minnesceller i förväg",
+        "Det gör huden tätare så att smittan inte kommer in"
+      ],
+      "answer": 2,
+      "explanation": "Ett vaccin innehåller avdödade eller ofarliga delar av en mikroorganism, vilket får immunförsvaret att bilda antikroppar och minnesceller — kommer den riktiga smittan senare känns den igen och stoppas innan man blir sjuk. Att döda bakterier som redan finns i kroppen är i stället antibiotikans uppgift; vaccin ges i förebyggande syfte."
+    },
+    {
+      "id": "q-bio8-hal-4",
+      "kind": "mc",
+      "topic": "vaccination och antibiotika",
+      "prompt": "Varför hjälper inte antibiotika mot en vanlig förkylning?",
+      "opener": "Tänk på vad som orsakar en förkylning och vad antibiotika verkar på.",
+      "choices": [
+        "Förkylning orsakas av virus, och antibiotika verkar bara på bakterier",
+        "Antibiotika verkar bara i magen och når aldrig luftvägarna",
+        "Förkylningsbakterierna är för små för antibiotika",
+        "Antibiotika fungerar bara på barn"
+      ],
+      "answer": 0,
+      "explanation": "Antibiotika angriper strukturer som bara bakterier har, till exempel cellväggen, och virus saknar dessa strukturer — därför är antibiotika helt verkningslöst mot förkylning och influensa. Att ändå använda antibiotika i onödan är dessutom skadligt, eftersom det snabbar på utvecklingen av resistenta bakterier."
+    },
+    {
+      "id": "q-bio8-hal-5",
+      "kind": "mc",
+      "topic": "smittspridning",
+      "prompt": "Vilken åtgärd minskar mest effektivt spridningen av vanliga luftvägsinfektioner i en skolklass?",
+      "opener": "Tänk på hur smittan tar sig från en persons luftvägar till en annans.",
+      "choices": [
+        "Att dricka mer vatten under dagen",
+        "Att tvätta händerna ofta, hosta i armvecket och stanna hemma när man är sjuk",
+        "Att ta en extra dos vitaminer varje morgon",
+        "Att öppna fönstret bara på vintern"
+      ],
+      "answer": 1,
+      "explanation": "Luftvägsinfektioner sprids främst som droppsmitta och kontaktsmitta, så handtvätt, hosta i armvecket och att hålla sig hemma bryter just de smittvägarna. Vatten och vitamintillskott är bra för hälsan men gör ingenting för att hindra smittan från att nå nästa person."
+    },
+    {
+      "id": "q-bio8-hal-6",
+      "kind": "mc",
+      "topic": "levnadsvanor och hälsa",
+      "prompt": "Vilket påstående om levnadsvanor och hälsa stämmer bäst?",
+      "opener": "Tänk på hur sömn, mat och motion samverkar över tid.",
+      "choices": [
+        "Bara motion påverkar hälsan; sömn och kost har ingen betydelse",
+        "Tillräcklig sömn, varierad kost och regelbunden motion stärker både kroppen och immunförsvaret",
+        "Man kan hoppa över sömnen om man äter tillräckligt mycket",
+        "Motion är bara nyttigt för den som redan är vältränad"
+      ],
+      "answer": 1,
+      "explanation": "Sömn låter kroppen reparera sig och immunförsvaret arbeta, varierad kost ger näringen som cellerna behöver och motion stärker hjärta, lungor, skelett och muskler samtidigt som det påverkar humöret positivt — de tre hänger ihop och kan inte ersätta varandra. Mer mat kompenserar därför inte för sömnbrist, och effekten av motion är som störst hos den som rör sig lite från början."
+    },
+    {
+      "id": "q-bio8-hal-7",
+      "kind": "worked",
+      "topic": "immunförsvaret",
+      "prompt": "Förklara steg för steg vad som händer i kroppen från att en bakterie kommer in genom ett sår tills du är immun mot just den bakterien.",
+      "opener": "Följ bakterien genom hudens barriär och vidare till de vita blodkropparnas motangrepp.",
+      "answer": "Bakterien kommer in genom hål i hudens yttre barriär och möter först det ospecifika försvaret, där vita blodkroppar äter upp inkräktare och området blir rött, varmt och svullet av inflammationen; samtidigt känner andra vita blodkroppar igen bakteriens yta och börjar bilda antikroppar som passar just den, vilket tar några dagar och gör att man kan känna sig sjuk under tiden. När bakterierna är oskadliggjorda blir vissa celler kvar som minnesceller, och nästa gång samma bakterie kommer in kan kroppen bilda antikroppar så snabbt att man inte blir sjuk — man är immun.",
+      "steps": [
+        "Huden är kroppens första barriär, men vid ett sår finns en öppning där bakterien kan komma in.",
+        "Det ospecifika försvaret går i gång direkt: vita blodkroppar söker upp och äter upp bakterier, och området blir rött, varmt och svullet — en inflammation.",
+        "Andra vita blodkroppar känner igen bakteriens yta och börjar tillverka antikroppar som passar exakt den bakterien, vilket tar några dagar.",
+        "Antikropparna märker ut bakterierna så att de lättare oskadliggörs, och infektionen läker ut.",
+        "En del celler sparas som minnesceller. Kommer samma bakterie tillbaka bildas antikroppar mycket snabbare och du blir inte sjuk — det är immunitet, och samma sak händer efter en vaccination."
+      ]
+    },
+    {
+      "id": "q-bio8-hal-8",
+      "kind": "flashcard",
+      "topic": "levnadsvanor och hälsa",
+      "prompt": "Sammanfatta immunförsvaret, smittvägarna och hur levnadsvanor och droger påverkar hälsan.",
+      "opener": "Gå igenom försvarets nivåer, hur smitta sprids och sedan sömn, kost, motion och droger.",
+      "answer": "Barriärer: hud, slemhinnor, tårvätska, saliv och magsäckens saltsyra stoppar de flesta mikroorganismer · Ospecifikt försvar: vita blodkroppar som äter upp inkräktare, feber och inflammation (rodnad, värme, svullnad) · Specifikt försvar: vita blodkroppar bildar antikroppar som passar just en mikroorganism, tar några dagar · Minnesceller: gör att man blir immun och slipper bli sjuk nästa gång · Bakterier: egna celler, kan föröka sig själva, de flesta ofarliga eller nyttiga (tarmflora); behandlas vid behov med antibiotika · Virus: arvsmassa i ett proteinskal, måste in i en värdcell, mycket mindre än bakterier; antibiotika verkar inte på virus · Vaccin: avdödade eller ofarliga delar av smittämnet ger antikroppar och minnesceller i förväg · Antibiotikaresistens: bakterier som tål antibiotika överlever och förökas — använd antibiotika bara när det behövs och ta hela kuren · Smittvägar: droppsmitta (hosta, nysning), kontaktsmitta (händer, ytor), livsmedel och vatten, blod och sex, samt via insekter · Skydd: handtvätt, hosta i armvecket, stanna hemma vid sjukdom, vädra, vaccination · Sömn: 8–10 timmar för tonåringar, hjärnan lagrar minnen, kroppen reparerar celler, immunförsvaret stärks · Kost: varierad mat med lagom energi ger näring till alla celler; för mycket socker och för lite fibrer ökar risken för sjukdom på lång sikt · Motion: stärker hjärta, lungor, skelett och muskler, ger bättre kondition, lägre vilopuls och bättre humör · Tobak och nikotin: skadar lungorna och blodkärlen, ökar risken för cancer och hjärt-kärlsjukdom, nikotin är starkt beroendeframkallande · Alkohol: påverkar hjärnan och reaktionsförmågan, skadar lever och hjärna särskilt mycket under tonåren när hjärnan fortfarande utvecklas · Narkotika: påverkar hjärnans signalämnen, ger snabbt beroende och stora risker för både kropp och psykisk hälsa."
+    }
+  ]
+}

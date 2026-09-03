@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel-islam",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Islam",
+  "sourceSummary": "Islams grundläggande tro, de fem pelarna, skillnaden mellan sunni och shia samt Koranen och viktiga högtider som ramadan — grunden för att förstå världens näst största religion.",
+  "topics": [
+    "grundläggande tro",
+    "de fem pelarna",
+    "sunni och shia",
+    "koranen och högtider"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel-isl-1",
+      "kind": "mc",
+      "topic": "grundläggande tro",
+      "prompt": "Vad är kärnan i islams gudstro?",
+      "opener": "Ordet \"islam\" betyder ungefär \"underkastelse\" — underkastelse inför vad?",
+      "choices": [
+        "Att det finns flera gudar som styr olika delar av världen",
+        "Att det bara finns en Gud, Allah, som är densamma som judendomens och kristendomens Gud",
+        "Att Muhammed själv är gud",
+        "Att naturen i sig är gudomlig"
+      ],
+      "answer": 1,
+      "explanation": "Islam är en strikt monoteistisk religion — man tror på en enda Gud, Allah, som inom islam ses som samma Gud som i judendom och kristendom, fast med en annan uppenbarelse. Muhammed ses som profet, inte som gud."
+    },
+    {
+      "id": "q-rel-isl-2",
+      "kind": "mc",
+      "topic": "grundläggande tro",
+      "prompt": "Vilken roll har Muhammed inom islam?",
+      "opener": "Tänk på vad muslimer anser att Muhammed tog emot, och från vem.",
+      "choices": [
+        "Han räknas som gud på jorden",
+        "Han ses som den siste och viktigaste profeten, som tog emot Koranens uppenbarelser från Allah",
+        "Han skrev Koranen som ett vanligt bokverk utan gudomligt ursprung",
+        "Han grundade kristendomen"
+      ],
+      "answer": 1,
+      "explanation": "Inom islam ses Muhammed som den siste och viktigaste profeten, genom vilken Koranen uppenbarades av Allah via ängeln Gabriel. Han räknas inte som gudomlig, utan som människa och sändebud."
+    },
+    {
+      "id": "q-rel-isl-3",
+      "kind": "mc",
+      "topic": "de fem pelarna",
+      "prompt": "Vilken av de fem pelarna innebär att fasta under en hel månad?",
+      "opener": "Fastan är kopplad till en specifik månad i den islamiska kalendern.",
+      "choices": [
+        "Shahada",
+        "Zakat",
+        "Ramadan",
+        "Hajj"
+      ],
+      "answer": 2,
+      "explanation": "Under ramadan fastar muslimer från gryning till solnedgång som en av de fem pelarna. Shahada är trosbekännelsen, zakat är allmosan och hajj är pilgrimsfärden till Mecka."
+    },
+    {
+      "id": "q-rel-isl-4",
+      "kind": "mc",
+      "topic": "de fem pelarna",
+      "prompt": "Vad innebär pelaren \"zakat\"?",
+      "opener": "Tänk på en av pelarna som handlar om att dela med sig ekonomiskt.",
+      "choices": [
+        "Att be fem gånger om dagen",
+        "Att ge en fastställd andel av sin förmögenhet till fattiga och behövande",
+        "Att göra pilgrimsfärd till Mecka",
+        "Att fasta under ramadan"
+      ],
+      "answer": 1,
+      "explanation": "Zakat är allmosan — en religiös plikt att ge en bestämd del av sin egendom till fattiga och behövande. Bönen kallas salat, pilgrimsfärden hajj och fastan ramadan."
+    },
+    {
+      "id": "q-rel-isl-5",
+      "kind": "mc",
+      "topic": "sunni och shia",
+      "prompt": "Vad var den ursprungliga tvistefrågan som ledde till uppdelningen mellan sunni- och shiamuslimer?",
+      "opener": "Fundera på vad som hände direkt efter att Muhammed dog — vem som skulle ta över ledarskapet.",
+      "choices": [
+        "Vilken bön man skulle be först på dagen",
+        "Vem som skulle efterträda Muhammed som ledare för muslimerna",
+        "Om Koranen skulle finnas på arabiska eller inte",
+        "Om man skulle fira ramadan eller inte"
+      ],
+      "answer": 1,
+      "explanation": "Splittringen uppstod i frågan om vem som skulle bli Muhammeds efterträdare (kalif). Shiamuslimer ansåg att ledarskapet skulle gå i Muhammeds släkt, medan sunnimuslimer accepterade en vald efterträdare. Frågan handlade alltså om ledarskap, inte om böner eller språk."
+    },
+    {
+      "id": "q-rel-isl-6",
+      "kind": "mc",
+      "topic": "koranen och högtider",
+      "prompt": "Vad är Koranen, enligt muslimsk tro?",
+      "opener": "Jämför med hur bibeln beskrivs inom kristendomen, men lägg märke till skillnaden i hur den kom till.",
+      "choices": [
+        "En historisk roman skriven av flera författare under lång tid",
+        "Guds egna ord, uppenbarade för Muhammed genom ängeln Gabriel",
+        "En samling myter utan religiös betydelse för muslimer idag",
+        "En bok som bara handlar om Muhammeds liv"
+      ],
+      "answer": 1,
+      "explanation": "Inom islam ses Koranen som Guds direkta, oförändrade ord, uppenbarade för Muhammed genom ängeln Gabriel under drygt tjugo år. Det skiljer sig från bibeln, som inom kristendomen ofta ses som skriven av människor inspirerade av Gud."
+    },
+    {
+      "id": "q-rel-isl-7",
+      "kind": "worked",
+      "topic": "de fem pelarna",
+      "prompt": "Beskriv alla fem pelarna inom islam och förklara kort varför de tillsammans är viktiga för en muslims trosliv.",
+      "opener": "Gå igenom pelarna en efter en: tro, bön, allmosa, fasta, pilgrimsfärd.",
+      "answer": "De fem pelarna är: 1) Shahada, trosbekännelsen (\"det finns ingen gud utom Allah och Muhammed är hans profet\"). 2) Salat, den dagliga bönen fem gånger om dagen. 3) Zakat, allmosan till fattiga. 4) Sawm, fastan under ramadan. 5) Hajj, pilgrimsfärden till Mecka minst en gång i livet om man har hälsa och ekonomi för det. Tillsammans utgör pelarna en praktisk grund för hur en muslim lever ut sin tro varje dag, varje vecka, varje år och minst en gång i livet.",
+      "steps": [
+        "Shahada är själva trosbekännelsen — den grund alla andra pelare bygger på.",
+        "Salat sker dagligen, fem gånger, och håller bönen närvarande i vardagen.",
+        "Zakat kopplar tron till socialt ansvar genom att dela med sig till behövande.",
+        "Sawm under ramadan handlar om självdisciplin och att påminna sig om dem som har det svårt.",
+        "Hajj är en pilgrimsfärd som utförs minst en gång i livet, om man kan, och binder ihop muslimer världen över kring en gemensam plats: Mecka."
+      ]
+    },
+    {
+      "id": "q-rel-isl-8",
+      "kind": "flashcard",
+      "topic": "grundläggande tro",
+      "prompt": "Sammanfatta islams grunder: gudstro, Muhammed, de fem pelarna, sunni/shia och Koranen.",
+      "opener": "Dela upp svaret i tro, profet, pelare, inriktningar och helig skrift.",
+      "answer": "Gudstro: islam är monoteistisk — en enda Gud, Allah. Muhammed: ses som den siste profeten, mottog Koranens uppenbarelser via ängeln Gabriel. De fem pelarna: shahada (trosbekännelse) · salat (bön fem ggr/dag) · zakat (allmosa) · sawm (fasta under ramadan) · hajj (pilgrimsfärd till Mecka). Sunni och shia: de två största inriktningarna, splittrade ursprungligen kring frågan om vem som skulle efterträda Muhammed som ledare — sunni är den klart största inriktningen globalt. Koranen: islams heliga skrift, ses som Guds egna ord på arabiska. Ramadan: fastemånaden, en av årets viktigaste högtider, avslutas med högtiden id al-fitr."
+    }
+  ]
+}

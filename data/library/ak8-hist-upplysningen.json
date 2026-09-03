@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist8-upplysningen",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Upplysningen och revolutionerna",
+  "sourceSummary": "Hur 1700-talets nya idéer om förnuft, frihet och mänskliga rättigheter utmanade kungar och kyrka, och hur idéerna omsattes i praktiken i den amerikanska och den franska revolutionen.",
+  "topics": [
+    "upplysningens idéer",
+    "amerikanska revolutionen",
+    "franska revolutionen",
+    "Napoleon och idéernas spridning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist8-upl-1",
+      "kind": "mc",
+      "topic": "upplysningens idéer",
+      "prompt": "Vad menade upplysningens tänkare var den viktigaste vägen till kunskap?",
+      "opener": "Ordet \"upplysning\" handlar om att sprida ljus över okunnighet – med hjälp av något som varje människa har.",
+      "choices": [
+        "Kyrkans traditioner och bibeltolkning",
+        "Förnuftet och den egna kritiska tankeförmågan",
+        "Kungens befallningar och lagar",
+        "Gamla myter och folktro"
+      ],
+      "answer": 1,
+      "explanation": "Upplysningsfilosoferna hävdade att människan med sitt eget förnuft och vetenskapliga metoder kunde förstå världen och förbättra samhället. Just därför ifrågasatte de att kyrkans traditioner eller kungens vilja skulle avgöra vad som är sant, vilket gör alternativen om kyrkan och kungen fel."
+    },
+    {
+      "id": "q-hist8-upl-2",
+      "kind": "mc",
+      "topic": "upplysningens idéer",
+      "prompt": "Vilken tänkare är mest känd för idén att makten ska delas mellan lagstiftande, verkställande och dömande makt?",
+      "opener": "Idén kallas maktdelningsläran och kommer från en fransk 1700-talstänkare.",
+      "choices": [
+        "Voltaire",
+        "Jean-Jacques Rousseau",
+        "John Locke",
+        "Montesquieu"
+      ],
+      "answer": 3,
+      "explanation": "Montesquieu utvecklade maktdelningsläran i verket \"Om lagarnas anda\" (1748): delas makten upp kan de olika delarna kontrollera varandra så att ingen blir enväldig. Voltaire skrev framför allt om yttrandefrihet och religiös tolerans, medan Rousseau utvecklade tanken om folkviljan och samhällsfördraget."
+    },
+    {
+      "id": "q-hist8-upl-3",
+      "kind": "mc",
+      "topic": "amerikanska revolutionen",
+      "prompt": "Vad var en viktig orsak till att de amerikanska kolonierna gjorde uppror mot Storbritannien?",
+      "opener": "Kolonisternas slagord löd \"no taxation without representation\".",
+      "choices": [
+        "Kolonierna tvingades betala nya skatter till Storbritannien utan att ha egna representanter i det brittiska parlamentet",
+        "Storbritannien vägrade sälja varor till kolonierna",
+        "Kolonisterna ville återinföra kungamakt i Amerika",
+        "Frankrike krävde att kolonierna skulle bli självständiga"
+      ],
+      "answer": 0,
+      "explanation": "Efter kostsamma krig lade Storbritannien nya skatter och tullar på kolonierna, som samtidigt saknade representanter i parlamentet i London – kravet på inflytande blev en central orsak till upproret 1775. Kolonisterna ville tvärtom bli av med kungamakten, och Frankrike blev en bundsförvant först under kriget, inte den som ställde kravet."
+    },
+    {
+      "id": "q-hist8-upl-4",
+      "kind": "mc",
+      "topic": "franska revolutionen",
+      "prompt": "Vilket år stormades Bastiljen i Paris, händelsen som brukar räknas som franska revolutionens början?",
+      "opener": "Datumet är Frankrikes nationaldag: 14 juli.",
+      "choices": [
+        "1689",
+        "1776",
+        "1789",
+        "1815"
+      ],
+      "answer": 2,
+      "explanation": "Bastiljen stormades den 14 juli 1789 och blev symbolen för att folket utmanade kungens envälde. Årtalet 1776 hör till den amerikanska självständighetsförklaringen och 1815 till Napoleons slutliga nederlag, alltså senare skeden."
+    },
+    {
+      "id": "q-hist8-upl-5",
+      "kind": "mc",
+      "topic": "franska revolutionen",
+      "prompt": "Vilka tre ord blev franska revolutionens mest kända paroll?",
+      "opener": "De står fortfarande på franska offentliga byggnader.",
+      "choices": [
+        "Kung, kyrka och fosterland",
+        "Frihet, jämlikhet, broderskap",
+        "Bröd, fred och jord",
+        "Ordning, lag och lydnad"
+      ],
+      "answer": 1,
+      "explanation": "\"Liberté, égalité, fraternité\" – frihet, jämlikhet, broderskap – sammanfattade revolutionens krav på medborgerliga rättigheter och att ståndssamhällets privilegier skulle avskaffas. \"Kung, kyrka och fosterland\" uttrycker i stället just den gamla ordning som revolutionärerna vände sig mot."
+    },
+    {
+      "id": "q-hist8-upl-6",
+      "kind": "mc",
+      "topic": "Napoleon och idéernas spridning",
+      "prompt": "Vad hände med Napoleon efter nederlaget vid Waterloo år 1815?",
+      "opener": "Han fick lämna Europa för gott – till en avlägsen ö i Atlanten.",
+      "choices": [
+        "Han kröntes till kung av Frankrike",
+        "Han flydde till USA och levde där resten av livet",
+        "Han återtog makten i Paris efter några år",
+        "Han fördes i fångenskap till ön Sankt Helena, där han dog 1821"
+      ],
+      "answer": 3,
+      "explanation": "Efter Waterloo fördes Napoleon som fånge till den brittiska ön Sankt Helena långt ute i Atlanten, där han dog 1821. Han kunde alltså inte återta makten; hans korta återkomst \"de hundra dagarna\" ägde rum före Waterloo, inte efter."
+    },
+    {
+      "id": "q-hist8-upl-7",
+      "kind": "worked",
+      "topic": "franska revolutionen",
+      "prompt": "Förklara varför franska revolutionen bröt ut just år 1789.",
+      "opener": "Väg samman långsiktiga orättvisor, statens ekonomi, dåliga skördar och de nya idéerna.",
+      "answer": "Revolutionen bröt ut 1789 därför att flera problem sammanföll. Frankrike var ett ståndssamhälle där adel och präster hade privilegier och nästan inga skatter, medan tredje ståndet – bönder, arbetare och borgare – bar skattebördan. Statens ekonomi var samtidigt körd i botten efter dyra krig, bland annat stödet till de amerikanska kolonisterna. Missväxt gjorde brödet mycket dyrt just dessa år, vilket skapade akut nöd i städerna. Upplysningens idéer hade dessutom gett människor ett språk för att kräva frihet, jämlikhet och folkets inflytande. När kungen tvingades kalla in ständerna för att lösa skattekrisen tog tredje ståndet tillfället att kräva en ny författning, och när kungen svarade med militär svarade folket i Paris med att storma Bastiljen.",
+      "steps": [
+        "Långsiktig orsak: ståndssamhällets orättvisor, där adel och kyrka hade privilegier och tredje ståndet betalade skatterna.",
+        "Ekonomisk orsak: statskassan var tömd efter dyra krig, och kungen behövde nya skatteinkomster.",
+        "Akut orsak: missväxt och höga brödpriser 1788–1789 gjorde att många i städerna svalt.",
+        "Idémässig orsak: upplysningens tankar om rättigheter och folkstyre gav kraven legitimitet.",
+        "Utlösande händelse: ständerna kallades in, tredje ståndet krävde en författning och den 14 juli 1789 stormades Bastiljen."
+      ]
+    },
+    {
+      "id": "q-hist8-upl-8",
+      "kind": "flashcard",
+      "topic": "Napoleon och idéernas spridning",
+      "prompt": "Sammanfatta upplysningen, revolutionerna och hur idéerna spreds vidare.",
+      "opener": "Tänk idéer, tänkare, två revolutioner, Napoleon och långsiktiga följder.",
+      "answer": "Upplysningen var en idéströmning på 1700-talet som satte förnuft, vetenskap, tolerans och mänskliga rättigheter främst · Montesquieu: maktdelning mellan lagstiftande, verkställande och dömande makt · Voltaire: yttrandefrihet och religiös tolerans · Rousseau: folkviljan och samhällsfördraget · Locke: naturliga rättigheter till liv, frihet och egendom · amerikanska revolutionen 1775–1783: skatter utan representation, självständighetsförklaringen 1776, USA fick en konstitution med maktdelning · franska revolutionen 1789: orsaker var ståndssamhällets orättvisor, statens skuldkris, missväxt och upplysningens idéer · Bastiljen stormades 14 juli 1789, förklaringen om människans och medborgarens rättigheter antogs samma år, kungamakten avskaffades och skräckväldet följde · Napoleon tog makten 1799, krönte sig till kejsare 1804, förde krig över hela Europa och spred samtidigt lagar (Code Napoléon) och idéer · besegrad vid Waterloo 1815 och förd till Sankt Helena · idéerna spreds genom böcker, tidningar, encyklopedin, salonger och krig och gav upphov till senare krav på författningar, rösträtt och nationell frihet."
+    }
+  ]
+}

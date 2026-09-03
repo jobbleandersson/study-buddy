@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel1-etik",
+  "type": "assignment",
+  "subject": "Religionskunskap 1",
+  "title": "Normativ etik: fördjupning",
+  "sourceSummary": "Fördjupning i de normativa etiska modellerna pliktetik, konsekvensetik, sinnelagsetik och dygdetik, samt hur man tillämpar flera modeller på samma dilemma och jämför slutsatserna.",
+  "topics": [
+    "pliktetik",
+    "konsekvensetik",
+    "sinnelagsetik",
+    "dygdetik"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel1-etik-1",
+      "kind": "mc",
+      "topic": "pliktetik",
+      "prompt": "Filosofen Immanuel Kant förknippas med en form av pliktetik. Vad menar Kant kännetecknar en moraliskt rätt handling?",
+      "opener": "Kant lade stor vikt vid om en handlingsregel skulle kunna gälla som allmän lag för alla.",
+      "choices": [
+        "Att handlingen ger störst lycka åt flest människor",
+        "Att handlingen följer en maxim (handlingsregel) som man skulle kunna vilja se som en allmän lag för alla människor, oavsett konsekvenser",
+        "Att handlingen känns rätt i stunden",
+        "Att handlingen godkänns av en religiös ledare"
+      ],
+      "answer": 1,
+      "explanation": "Kants pliktetik utgår från det så kallade kategoriska imperativet: en handling är moraliskt rätt om den handlingsregel (maxim) den bygger på skulle kunna upphöjas till en allmän lag som alla kan handla efter, oavsett vilka konsekvenser handlingen råkar få. Att fokusera på störst lycka för flest är i stället kännetecknande för konsekvensetik (utilitarism)."
+    },
+    {
+      "id": "q-rel1-etik-2",
+      "kind": "mc",
+      "topic": "konsekvensetik",
+      "prompt": "Utilitarismen är en inflytelserik form av konsekvensetik. Vad är det centrala kriteriet för en moraliskt rätt handling enligt klassisk utilitarism?",
+      "opener": "Tänk på vad som ska maximeras: individens känsla i stunden, eller något som gäller alla berörda.",
+      "choices": [
+        "Att handlingen följer en fast regel, oavsett resultat",
+        "Att handlingen maximerar den sammanlagda nyttan (t.ex. lycka och minskat lidande) för alla som berörs av den",
+        "Att handlingsutövaren har goda avsikter, oavsett resultat",
+        "Att handlingen är i linje med en helig skrift"
+      ],
+      "answer": 1,
+      "explanation": "Klassisk utilitarism, förknippad med bland andra Jeremy Bentham och John Stuart Mill, bedömer handlingar utifrån om de maximerar den sammanlagda nyttan för alla berörda, inte bara för den handlande själv. Att en handling följer en fast regel oavsett konsekvens är i stället kärnan i pliktetik."
+    },
+    {
+      "id": "q-rel1-etik-3",
+      "kind": "mc",
+      "topic": "sinnelagsetik",
+      "prompt": "Vad skiljer sinnelagsetik från konsekvensetik när man bedömer en handling där avsikten var god men resultatet blev dåligt?",
+      "opener": "Fundera på vilket av de två perspektiven som lägger tonvikten på avsikten snarare än utfallet.",
+      "choices": [
+        "Sinnelagsetiken bedömer handlingen som moraliskt god eftersom avsikten var god, medan konsekvensetiken främst väger in det faktiska, dåliga utfallet",
+        "Sinnelagsetik och konsekvensetik ger alltid exakt samma bedömning",
+        "Sinnelagsetik bryr sig bara om resultatet, aldrig om avsikten",
+        "Konsekvensetik bryr sig bara om avsikten, aldrig om resultatet"
+      ],
+      "answer": 0,
+      "explanation": "Sinnelagsetiken lägger den moraliska tyngdpunkten på personens avsikt och vilja, vilket gör att en handling med god avsikt kan bedömas som moraliskt god trots ett dåligt utfall. Konsekvensetiken bedömer i första hand handlingen utifrån dess faktiska konsekvenser, oavsett hur goda avsikterna var."
+    },
+    {
+      "id": "q-rel1-etik-4",
+      "kind": "mc",
+      "topic": "dygdetik",
+      "prompt": "Dygdetik brukar räknas som en fjärde normativ modell, vid sidan av pliktetik, konsekvensetik och sinnelagsetik. Vad står i fokus inom dygdetik?",
+      "opener": "Dygdetiken frågar mindre \"vad ska jag göra?\" och mer \"vad slags person vill jag vara?\".",
+      "choices": [
+        "Vilka regler som måste följas i varje enskild situation",
+        "Vilka konsekvenser en enskild handling ger upphov till",
+        "Att utveckla goda karaktärsdrag (dygder), som mod, klokhet och rättrådighet, och handla som en person med sådan karaktär skulle göra",
+        "Vilken helig text som ska tolkas bokstavligt"
+      ],
+      "answer": 2,
+      "explanation": "Dygdetik, med rötter hos bland andra Aristoteles, fokuserar på att odla goda karaktärsdrag (dygder) som klokhet, mod och rättrådighet, snarare än på enskilda regler eller konsekvensberäkningar. Frågan blir då inte i första hand \"vilken regel gäller här\" utan \"hur skulle en dygdig person handla i den här situationen\"."
+    },
+    {
+      "id": "q-rel1-etik-5",
+      "kind": "mc",
+      "topic": "pliktetik",
+      "prompt": "En sjuksköterska överväger att ljuga för en döende patient om hens diagnos för att skona patienten känslomässigt. En strikt kantiansk pliktetiker skulle troligen invända mot detta genom att resonera hur?",
+      "opener": "Testa handlingsregeln \"man får ljuga när det gagnar någon känslomässigt\" som en allmän lag för alla.",
+      "choices": [
+        "Att lögnen är moraliskt oproblematisk så länge patienten blir lugnare",
+        "Att man bör fråga vad som ger mest nytta totalt sett innan man bestämmer sig",
+        "Att en handlingsregel som tillåter lögn, om den upphöjs till allmän lag, skulle undergräva själva möjligheten till tillit mellan människor, och att lögnen därför är fel oavsett hur skonsam avsikten är",
+        "Att frågan helt saknar etisk relevans"
+      ],
+      "answer": 2,
+      "explanation": "En kantiansk pliktetiker prövar om handlingsregeln (\"det är tillåtet att ljuga när det skonar någon\") skulle kunna gälla som allmän lag för alla; eftersom en värld där lögn är allmänt tillåten skulle underminera tilliten mellan människor, blir slutsatsen att lögnen är fel, oavsett den goda avsikten eller de eventuellt goda konsekvenserna. Att väga nyttan är i stället ett konsekvensetiskt resonemang."
+    },
+    {
+      "id": "q-rel1-etik-6",
+      "kind": "mc",
+      "topic": "konsekvensetik",
+      "prompt": "Vad är en vanlig kritik mot utilitarismen som etisk modell?",
+      "opener": "Fundera på vad som kan hända med en minoritets rättigheter om enbart den sammanlagda nyttan för majoriteten räknas.",
+      "choices": [
+        "Att den är för strikt bunden till religiösa regler",
+        "Att den, i sin strävan att maximera den sammanlagda nyttan, i princip kan rättfärdiga att en enskild människas eller en minoritets rättigheter offras om det gynnar majoritetens nytta totalt sett",
+        "Att den helt saknar hänsyn till konsekvenser",
+        "Att den kräver att man aldrig får bryta mot en regel"
+      ],
+      "answer": 1,
+      "explanation": "En återkommande kritik mot utilitarismen är att den, om den tillämpas strikt, riskerar att rättfärdiga att en enskild individs eller en minoritets rättigheter kränks, så länge den sammanlagda nyttan för flertalet blir tillräckligt stor. Pliktetiker invänder ofta med att vissa rättigheter bör skyddas oavsett vilken nytta en kränkning skulle ge."
+    },
+    {
+      "id": "q-rel1-etik-7",
+      "kind": "worked",
+      "topic": "dygdetik",
+      "prompt": "Ett dilemma: en vän ber dig hjälpa till att fuska på ett prov, annars riskerar hen att bli underkänd i kursen. Analysera dilemmat med hjälp av alla fyra modellerna: pliktetik, konsekvensetik, sinnelagsetik och dygdetik. Landar de i samma eller olika slutsatser?",
+      "opener": "Gå igenom modellerna en och en, notera slutsatsen från var och en, och jämför till sist.",
+      "answer": "Pliktetiskt resonemang: en regel som \"man ska inte fuska eller hjälpa andra att fuska\" pekar mot att neka, oavsett vad konsekvenserna blir för vännen — att pröva handlingsregeln \"det är tillåtet att fuska för att hjälpa en vän\" som allmän lag visar att den skulle undergräva hela poängen med prov, vilket talar mot att hjälpa till. Konsekvensetiskt resonemang: man väger vännens kortsiktiga vinst (godkänt betyg) mot bredare skador, som orättvisa mot andra elever som inte fuskar och risken att undergräva förtroendet för betygssystemet om fusket upptäcks — den sammanlagda nyttan blir troligen större av att neka. Sinnelagsetiskt resonemang: avsikten att hjälpa en vän i nöd är i grunden god, men den goda avsikten väger inte automatiskt tyngre än skadan handlingen orsakar andra, så en sinnelagsetiker skulle ändå kunna ifrågasätta om fusket verkligen är den bästa uttrycket för omtanke. Dygdetiskt resonemang: frågan blir vad en person med goda karaktärsdrag, som ärlighet och mod att säga nej, skulle göra — troligen skulle en sådan person hjälpa vännen på ett ärligt sätt, till exempel genom att plugga tillsammans, snarare än att fuska. I det här fallet landar alla fyra modellerna i en liknande praktisk slutsats (att inte fuska), men de motiverar den olika: genom en regel, genom en nyttokalkyl, genom en granskning av avsikten, respektive genom frågan om vilken karaktär man vill odla.",
+      "steps": [
+        "Identifiera dilemmat: vänskaplig lojalitet och hjälpsamhet står mot ärlighet och rättvisa mot andra elever.",
+        "Pliktetik: pröva om handlingsregeln \"hjälp till att fuska om det gynnar en vän\" kan gälla som allmän lag — nej, den undergräver hela poängen med prov.",
+        "Konsekvensetik: väg vännens kortsiktiga vinst mot skadan för andra elever och för förtroendet för betygssystemet — nekandet ger troligen större sammanlagd nytta.",
+        "Sinnelagsetik: bedöm avsikten (omtanke om vännen) men fråga om den goda avsikten räcker för att motivera skadan mot andra.",
+        "Dygdetik: fråga vad en person med dygder som ärlighet och mod skulle göra, och jämför slutsatserna från alla fyra modeller."
+      ]
+    },
+    {
+      "id": "q-rel1-etik-8",
+      "kind": "flashcard",
+      "topic": "dygdetik",
+      "prompt": "Sammanfatta de fyra normativa etiska modellerna pliktetik, konsekvensetik, sinnelagsetik och dygdetik.",
+      "opener": "Gå igenom modellerna en efter en, med fokus på vad var och en lägger tonvikten vid.",
+      "answer": "Pliktetik (t.ex. Kant): en handling är rätt om den följer en princip/maxim som skulle kunna gälla som allmän lag för alla, oavsett konsekvenser. Konsekvensetik/utilitarism: en handling är rätt om den maximerar den sammanlagda nyttan för alla berörda; kritiseras ibland för att kunna rättfärdiga att en minoritets rättigheter offras. Sinnelagsetik: fokus på avsikten och viljan bakom handlingen — en god avsikt räknas moraliskt, även vid ett dåligt utfall. Dygdetik (t.ex. Aristoteles): fokus på att odla goda karaktärsdrag (dygder) som mod, klokhet och rättrådighet, och fråga hur en dygdig person skulle handla, snarare än att följa en enskild regel eller räkna konsekvenser. Att tillämpa flera modeller på samma dilemma kan ge samma praktiska slutsats men med olika motivering, eller ibland olika slutsatser helt."
+    }
+  ]
+}

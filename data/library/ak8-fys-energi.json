@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys8-energi",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Energi och energikällor",
+  "sourceSummary": "Energiformer, energiprincipen och energiomvandlingar med exempel från vardagen och kraftverk. Här finns också förnybara och icke-förnybara energikällor, verkningsgrad samt effekt i watt och energi i kilowattimmar.",
+  "topics": [
+    "energiformer och energiprincipen",
+    "energiomvandlingar",
+    "förnybara och icke-förnybara energikällor",
+    "verkningsgrad",
+    "effekt och energi"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys8-ene-1",
+      "kind": "mc",
+      "topic": "energiformer och energiprincipen",
+      "prompt": "Vad säger energiprincipen?",
+      "opener": "Tänk på om energi någonsin kan försvinna helt eller uppstå ur ingenting.",
+      "choices": [
+        "Energi tar slut när den används upp",
+        "Energi kan varken skapas eller förstöras, bara omvandlas från en form till en annan",
+        "Energi kan skapas i ett kraftverk",
+        "Energi finns bara i elektrisk form"
+      ],
+      "answer": 1,
+      "explanation": "Energiprincipen säger att den totala energin är konstant — den byter bara form. Att säga att energin \"tar slut\" är slarvigt: den omvandlas oftast till värme som sprids ut i omgivningen och blir svår att använda igen. Ett kraftverk skapar inte energi, det omvandlar energi som redan finns."
+    },
+    {
+      "id": "q-fys8-ene-2",
+      "kind": "mc",
+      "topic": "energiomvandlingar",
+      "prompt": "Vilken kedja av energiomvandlingar sker i ett vattenkraftverk?",
+      "opener": "Följ vattnet från dammen högt upp, genom turbinen och vidare till generatorn.",
+      "choices": [
+        "Kemisk energi till värme till elektrisk energi",
+        "Elektrisk energi till rörelseenergi till lägesenergi",
+        "Strålningsenergi till kemisk energi till elektrisk energi",
+        "Lägesenergi till rörelseenergi till elektrisk energi"
+      ],
+      "answer": 3,
+      "explanation": "Vattnet i dammen har lägesenergi. När det faller nedåt blir lägesenergin rörelseenergi som får turbinen att snurra, och generatorn omvandlar rörelsen till elektrisk energi. Kemisk energi finns inte med i kedjan — den hör till kol-, olje- och biobränslekraftverk."
+    },
+    {
+      "id": "q-fys8-ene-3",
+      "kind": "mc",
+      "topic": "förnybara och icke-förnybara energikällor",
+      "prompt": "Vilken av dessa energikällor är INTE förnybar?",
+      "opener": "Fundera på vilken av dem som tog miljontals år att bildas och inte nybildas i takt med att vi använder den.",
+      "choices": [
+        "Vindkraft",
+        "Solenergi",
+        "Naturgas",
+        "Biobränsle"
+      ],
+      "answer": 2,
+      "explanation": "Naturgas är ett fossilt bränsle som bildades under miljontals år och nybildas inte i den takt vi använder den, så den är icke-förnybar och ger dessutom utsläpp av koldioxid. Vind, sol och biobränsle räknas som förnybara eftersom de återbildas eller ständigt fylls på."
+    },
+    {
+      "id": "q-fys8-ene-4",
+      "kind": "mc",
+      "topic": "verkningsgrad",
+      "prompt": "En lampa tar emot 20 W elektrisk effekt och avger 5 W som ljus. Vilken verkningsgrad har lampan?",
+      "opener": "Verkningsgraden är nyttig effekt delat med tillförd effekt.",
+      "choices": [
+        "25 %",
+        "75 %",
+        "400 %",
+        "15 %"
+      ],
+      "answer": 0,
+      "explanation": "Verkningsgraden är 5 W / 20 W = 0,25, alltså 25 %. De 75 % som blir över försvinner som värme — det är energiförlusten, inte verkningsgraden. Att bara subtrahera 20 − 5 = 15 ger ingen verkningsgrad, eftersom verkningsgrad alltid är en kvot."
+    },
+    {
+      "id": "q-fys8-ene-5",
+      "kind": "mc",
+      "topic": "effekt och energi",
+      "prompt": "Vad betyder det att en apparat har effekten 1500 W?",
+      "opener": "Effekt handlar om hur snabbt energi omvandlas, inte om hur mycket totalt.",
+      "choices": [
+        "Att den innehåller 1500 joule energi",
+        "Att den kan användas i högst 1500 sekunder",
+        "Att den kostar 1500 kronor per timme att använda",
+        "Att den omvandlar 1500 joule energi varje sekund"
+      ],
+      "answer": 3,
+      "explanation": "Effekt är energi per tid, och 1 W = 1 J/s, så 1500 W betyder 1500 joule per sekund. Effekten säger däremot inget om hur mycket energi apparaten totalt använder — det beror på hur länge den är på, och det är därför man räknar energi i kilowattimmar."
+    },
+    {
+      "id": "q-fys8-ene-6",
+      "kind": "mc",
+      "topic": "effekt och energi",
+      "prompt": "En lampa har effekten 60 W och lyser i 5 timmar. Hur mycket energi använder den, uttryckt i kilowattimmar?",
+      "opener": "Gör om watt till kilowatt först, sedan multiplicerar du med tiden i timmar.",
+      "choices": [
+        "3 kWh",
+        "0,3 kWh",
+        "300 kWh",
+        "12 kWh"
+      ],
+      "answer": 1,
+      "explanation": "60 W är 0,06 kW, och energin blir 0,06 kW · 5 h = 0,3 kWh. Svaret 3 kWh får man om man glömmer att dela med 1000 ordentligt, och 12 kWh om man dividerar 60 med 5 i stället för att multiplicera."
+    },
+    {
+      "id": "q-fys8-ene-7",
+      "kind": "worked",
+      "topic": "effekt och energi",
+      "prompt": "En vattenkokare har effekten 2000 W och används i 15 minuter. Hur mycket energi förbrukar den i kilowattimmar, och vad kostar det om elen kostar 2 kr/kWh?",
+      "opener": "Skriv om effekten i kilowatt och tiden i timmar innan du multiplicerar.",
+      "answer": "0,5 kWh, vilket kostar 1 krona",
+      "steps": [
+        "Gör om effekten till kilowatt: 2000 W = 2 kW.",
+        "Gör om tiden till timmar: 15 min = 15/60 h = 0,25 h.",
+        "Energi = effekt · tid = 2 kW · 0,25 h = 0,5 kWh.",
+        "Kostnaden blir 0,5 kWh · 2 kr/kWh = 1 kr."
+      ]
+    },
+    {
+      "id": "q-fys8-ene-8",
+      "kind": "flashcard",
+      "topic": "energiformer och energiprincipen",
+      "prompt": "Sammanfatta energiformer, energiprincipen, energikällor, verkningsgrad samt effekt och energi med enheter.",
+      "opener": "Ta energiformerna först, sedan principen, därefter källorna och avsluta med enheterna.",
+      "answer": "Energiformer: lägesenergi · rörelseenergi · värmeenergi · kemisk energi (mat, bränsle, batteri) · elektrisk energi · strålningsenergi (ljus) · kärnenergi · Energiprincipen: energi kan varken skapas eller förstöras, bara omvandlas — totala energin är konstant · Energikvalitet: vid varje omvandling blir en del värme som sprids ut och blir svår att använda igen · Exempel på kedjor: vattenkraft = lägesenergi → rörelseenergi → elektrisk energi · kolkraft = kemisk energi → värme → rörelseenergi → elektrisk energi · solcell = strålningsenergi → elektrisk energi · Förnybara källor: vatten, vind, sol, biobränsle, våg och geotermisk energi — återbildas hela tiden · Icke-förnybara källor: kol, olja, naturgas (fossila, ger koldioxidutsläpp) och uran till kärnkraft · Verkningsgrad: nyttig energi delat med tillförd energi, ofta i procent — 5 W ljus av 20 W el ger 25 % · Effekt (P): energi per tid, enhet watt, 1 W = 1 J/s · Energi: enhet joule (J) eller kilowattimme (kWh) · Räkna kWh: effekt i kW · tid i timmar, t.ex. 2 kW · 0,25 h = 0,5 kWh · 1 kWh = 1000 W under 1 timme."
+    }
+  ]
+}

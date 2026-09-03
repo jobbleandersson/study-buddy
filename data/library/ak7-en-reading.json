@@ -1,0 +1,128 @@
+{
+  "id": "lib-en7-reading",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Reading comprehension",
+  "sourceSummary": "Korta engelska texter där du övar på att hitta information, förstå huvudbudskapet, dra enkla slutsatser och gissa ord utifrån sammanhanget.",
+  "topics": [
+    "find information",
+    "main idea",
+    "inference",
+    "words in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7-rea-1",
+      "kind": "mc",
+      "topic": "find information",
+      "prompt": "Read the text:\n\nTom is twelve years old and lives in Manchester. He goes to school by bus every morning. His favourite subject is history, but he thinks maths is difficult. After school he plays basketball with his friends.\n\nHow does Tom travel to school?",
+      "opener": "Svaret står direkt i texten. Leta efter meningen som handlar om resan till skolan.",
+      "choices": [
+        "By bus",
+        "By bike",
+        "By car",
+        "He walks"
+      ],
+      "answer": 0,
+      "explanation": "Andra meningen säger \"He goes to school by bus every morning\". Cykel och bil nämns inte alls i texten — de är bara distraktioner."
+    },
+    {
+      "id": "q-en7-rea-2",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text:\n\nTom is twelve years old and lives in Manchester. He goes to school by bus every morning. His favourite subject is history, but he thinks maths is difficult. After school he plays basketball with his friends.\n\nWhich subject does Tom probably need the most help with?",
+      "opener": "Texten säger inte rakt ut vad han behöver hjälp med — men ett ord om ett ämne ger en ledtråd.",
+      "choices": [
+        "History",
+        "Maths",
+        "English",
+        "Sport"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger att han tycker att matte är \"difficult\" (svårt), så det är rimligt att han behöver mest hjälp där. History är tvärtom hans favoritämne, så det svaret stämmer inte."
+    },
+    {
+      "id": "q-en7-rea-3",
+      "kind": "mc",
+      "topic": "find information",
+      "prompt": "Read the text:\n\nThe school library is open from Monday to Friday. On weekdays it opens at 8 a.m. and closes at 4 p.m. It is closed on Saturdays and Sundays. Students can borrow up to five books at a time.\n\nHow many books can a student borrow at the same time?",
+      "opener": "Sök efter siffran i den sista meningen.",
+      "choices": [
+        "Two",
+        "Four",
+        "Five",
+        "Ten"
+      ],
+      "answer": 2,
+      "explanation": "Sista meningen säger \"up to five books at a time\", alltså högst fem böcker. Siffran fyra kommer från öppettiden (4 p.m.) och hör inte ihop med antalet böcker."
+    },
+    {
+      "id": "q-en7-rea-4",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text:\n\nThe school library is open from Monday to Friday. On weekdays it opens at 8 a.m. and closes at 4 p.m. It is closed on Saturdays and Sundays. Students can borrow up to five books at a time.\n\nSara wants to visit the library on Sunday afternoon. What will happen?",
+      "opener": "Jämför Saras dag med de dagar texten säger att biblioteket är stängt.",
+      "choices": [
+        "The library will be open until 4 p.m.",
+        "She can borrow ten books.",
+        "The library opens at 8 a.m.",
+        "The library will be closed."
+      ],
+      "answer": 3,
+      "explanation": "Texten säger att biblioteket är stängt på lördagar och söndagar, så Sara kommer till ett stängt bibliotek. Tiderna 8 a.m. och 4 p.m. gäller bara på vardagar (weekdays)."
+    },
+    {
+      "id": "q-en7-rea-5",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text:\n\nMany young people in Britain have a part-time job. Some of them deliver newspapers in the morning, and others work in a shop at the weekend. The money is useful, but it can be hard to do homework after a long day. Most students say it is important to find a good balance.\n\nWhat is the main idea of the text?",
+      "opener": "Huvudbudskapet handlar om hela texten, inte bara om en enda mening.",
+      "choices": [
+        "Delivering newspapers is the best job for young people.",
+        "Young people in Britain should not work.",
+        "Part-time jobs give young people money but can make schoolwork harder.",
+        "Homework is more important than money."
+      ],
+      "answer": 2,
+      "explanation": "Texten tar upp både fördelen (pengarna är användbara) och nackdelen (svårt att göra läxor), vilket är huvudbudskapet. Att tidningsutdelning skulle vara det bästa jobbet står ingenstans — det nämns bara som ett exempel."
+    },
+    {
+      "id": "q-en7-rea-6",
+      "kind": "mc",
+      "topic": "words in context",
+      "prompt": "Read the text:\n\nMany young people in Britain have a part-time job. Some of them deliver newspapers in the morning, and others work in a shop at the weekend. The money is useful, but it can be hard to do homework after a long day. Most students say it is important to find a good balance.\n\nWhat does \"deliver\" mean in this text?",
+      "opener": "Tänk på vad man gör med tidningar på morgonen — sammanhanget avslöjar ordet.",
+      "choices": [
+        "Read something",
+        "Take something to people's homes",
+        "Buy something in a shop",
+        "Throw something away"
+      ],
+      "answer": 1,
+      "explanation": "\"Deliver newspapers\" betyder att dela ut tidningar hem till människor. Att det handlar om ett jobb på morgonen visar att det inte kan betyda \"läsa\" eller \"köpa\"."
+    },
+    {
+      "id": "q-en7-rea-7",
+      "kind": "worked",
+      "topic": "find information",
+      "prompt": "Read the text and answer the two questions in full sentences.\n\nEmma lives in a small town in Wales. She has two dogs and she walks them every afternoon. On Saturdays she helps her father in the garden, and in the evening she watches films with her mother.\n\n1) How often does Emma walk her dogs?\n2) What does Emma do on Saturday evenings?",
+      "opener": "Leta upp den mening som innehåller nyckelordet i varje fråga, och svara sedan med en hel mening.",
+      "answer": "1) Emma walks her dogs every afternoon. 2) On Saturday evenings she watches films with her mother.",
+      "steps": [
+        "Fråga 1 innehåller nyckelordet \"walk\". Hitta meningen med \"walks them every afternoon\" i texten.",
+        "Svara med en hel mening och byt ut \"them\" mot vad det syftar på: \"Emma walks her dogs every afternoon.\"",
+        "Fråga 2 innehåller nyckelordet \"evening\". Texten säger \"in the evening she watches films with her mother\".",
+        "Kontrollera att verbet får -s eftersom \"she\" är tredje person singular: \"she watches\", inte \"she watch\"."
+      ]
+    },
+    {
+      "id": "q-en7-rea-8",
+      "kind": "flashcard",
+      "topic": "main idea",
+      "prompt": "Hur läser du en engelsk text och svarar på frågorna?",
+      "opener": "En arbetsgång i fyra steg — plus knep för svåra ord.",
+      "answer": "Steg 1: läs hela texten snabbt för att se vad den handlar om · Steg 2: läs frågan och leta efter nyckelordet i texten — svaret på en faktafråga står nästan alltid i samma mening · Steg 3: svara och kontrollera att du kan peka på svaret i texten. Main idea (huvudbudskap) = det som gäller hela texten, inte ett enskilt exempel · ett svarsalternativ som bara stämmer för en mening är oftast fel. Inference (slutledning) = kombinera det texten säger med vanligt förnuft · hitta aldrig på fakta som saknas. Svåra ord: stanna inte upp — läs meningen före och efter och gissa utifrån sammanhanget. Vanliga fällor: alternativ med ord som finns i texten men svarar på fel fråga · siffror som hör till något annat i texten. Svara i hela meningar när frågan ber om det, och byt ut pronomen som it och them mot vad de syftar på."
+    }
+  ]
+}

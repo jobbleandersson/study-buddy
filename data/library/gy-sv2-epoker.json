@@ -1,0 +1,132 @@
+{
+  "id": "lib-sv2-epoker",
+  "type": "assignment",
+  "subject": "Svenska 2",
+  "title": "Litteraturhistoriska epoker",
+  "sourceSummary": "Antiken, medeltiden, renässansen, upplysningen, romantiken, realismen och modernismen — kännetecken och centrala författare och verk för varje epok.",
+  "topics": [
+    "antiken",
+    "medeltiden",
+    "renässansen",
+    "upplysningen",
+    "romantiken",
+    "realismen",
+    "modernismen",
+    "epoköversikt"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv2-epoker-1",
+      "kind": "mc",
+      "topic": "antiken",
+      "prompt": "Vilket är ett av de äldsta bevarade litterära verken från antiken som fortfarande läses idag?",
+      "opener": "Tänk grekisk hjältedikt, inte romersk eller medeltida.",
+      "choices": [
+        "Divina Commedia",
+        "Decamerone",
+        "Iliaden (Homeros)",
+        "Faust"
+      ],
+      "answer": 2,
+      "explanation": "Iliaden av Homeros skrevs omkring 700-talet f.Kr. och räknas som ett av de äldsta bevarade litterära verken som fortfarande läses. Faust och Decamerone hör till betydligt senare epoker."
+    },
+    {
+      "id": "q-sv2-epoker-2",
+      "kind": "mc",
+      "topic": "medeltiden",
+      "prompt": "Vad är Eufemiavisorna?",
+      "opener": "Namnet kommer från en norsk drottning som beställde verken.",
+      "choices": [
+        "Tre franska riddarromaner översatta till svensk vers på 1300-talet",
+        "En samling folkvisor från 1600-talet",
+        "Sveriges första tryckta bok",
+        "En psalmbok från reformationen"
+      ],
+      "answer": 0,
+      "explanation": "Eufemiavisorna är tre franska/tyska riddarromaner som översattes till svensk vers på uppdrag av drottning Eufemia i början av 1300-talet — viktiga tidiga exempel på svensk skönlitteratur. Sveriges första tryckta bok kom långt senare, på 1480-talet."
+    },
+    {
+      "id": "q-sv2-epoker-3",
+      "kind": "mc",
+      "topic": "renässansen",
+      "prompt": "Vad kännetecknar renässansens litterära ideal?",
+      "opener": "Ordet renässans betyder pånyttfödelse — av vad?",
+      "choices": [
+        "Fokus på Gud och det gudomliga ovanför människan",
+        "Känslor och naturen överordnas förnuftet",
+        "Vardagslivets sociala problem skildras vetenskapligt",
+        "Människan och antikens ideal sätts i centrum (humanism)"
+      ],
+      "answer": 3,
+      "explanation": "Renässansen (ca 1400–1600) återupplivade antikens människosyn — humanism och det jordiska livet sätts i centrum, till skillnad från medeltidens gudscentrerade världsbild. Känslans och naturens överordning hör i stället till romantiken."
+    },
+    {
+      "id": "q-sv2-epoker-4",
+      "kind": "mc",
+      "topic": "upplysningen",
+      "prompt": "Vilken svensk vetenskapsman och författare förknippas särskilt med upplysningstidens tro på förnuft och systematisering?",
+      "opener": "Vem systematiserade naturen med förnuftet som verktyg?",
+      "choices": [
+        "Carl Michael Bellman",
+        "Carl von Linné",
+        "Esaias Tegnér",
+        "August Strindberg"
+      ],
+      "answer": 1,
+      "explanation": "Carl von Linné representerar upplysningens tro på förnuft, vetenskap och systematisering. Bellman skrev i en mer känslosam, rokokoinspirerad stil, och Tegnér och Strindberg tillhör senare epoker."
+    },
+    {
+      "id": "q-sv2-epoker-5",
+      "kind": "mc",
+      "topic": "romantiken",
+      "prompt": "Vad var centralt för den romantiska litteraturen, i motsats till upplysningens förnuftstro?",
+      "opener": "Vad satte romantikerna emot upplysningens förnuft?",
+      "choices": [
+        "Vetenskaplig objektivitet och samhällskritik",
+        "Det korta, komprimerade uttrycket utan bildspråk",
+        "Känslan, naturen, fantasin och det förflutna",
+        "Skildring av arbetarklassens vardag"
+      ],
+      "answer": 2,
+      "explanation": "Romantiken (ca 1800–1850) lyfte fram känslan, naturen, det nationella och gärna det medeltida förflutna som motvikt till upplysningens rationalism. Vetenskaplig objektivitet och samhällskritik är i stället kännetecken för realismen."
+    },
+    {
+      "id": "q-sv2-epoker-6",
+      "kind": "mc",
+      "topic": "realismen",
+      "prompt": "Vad kännetecknar den realistiska litteraturen som växte fram under 1800-talets andra hälft?",
+      "opener": "Tänk på tidiga Ibsen och Strindberg — vad ville de visa upp?",
+      "choices": [
+        "En verklighetstrogen skildring av samhället, ofta med social kritik",
+        "Idealiserade hjältar och sagolika miljöer",
+        "Fri vers helt utan versmått",
+        "Fokus på drömmar och det undermedvetna"
+      ],
+      "answer": 0,
+      "explanation": "Realismen ville skildra verkligheten sådan den var, ofta med kritisk blick på samhällsproblem som kvinnans ställning. Idealisering och sagovärldar hör i stället till romantiken, och fri vers utan versmått är typiskt för modernismen."
+    },
+    {
+      "id": "q-sv2-epoker-7",
+      "kind": "worked",
+      "topic": "modernismen",
+      "prompt": "Förklara vad som är nytt och annorlunda i modernismens sätt att skriva jämfört med tidigare epoker, med utgångspunkt i till exempel Edith Södergrans diktning.",
+      "opener": "Tänk på formen, inte bara innehållet.",
+      "answer": "Modernismen bryter med traditionella versmått och en sammanhållen berättarröst — texten kan vara fragmentarisk, använda fri vers och skildra ett splittrat inre jag, ofta som en reaktion på det moderna samhällets omvälvningar och första världskriget.",
+      "steps": [
+        "Modernismen växer fram kring sekelskiftet 1900 och tar fart efter första världskriget, som skakade tilltron till framsteg och förnuft.",
+        "Formen förändras radikalt: fri vers ersätter traditionella versmått, och språket kan vara fragmentariskt eller elliptiskt.",
+        "Berättandet blir mer subjektivt — inre monolog och splittrade perspektiv speglar en osäker, komplex verklighet.",
+        "Edith Södergran och senare de svenska fyrtiotalisterna är exempel på hur modernismen sökte nya uttryck för en ny tid."
+      ]
+    },
+    {
+      "id": "q-sv2-epoker-8",
+      "kind": "flashcard",
+      "topic": "epoköversikt",
+      "prompt": "Ge en snabb översikt av de litterära epokerna från antiken till modernismen: tidsperiod och kännetecken.",
+      "opener": "Sju epoker, sju hållpunkter.",
+      "answer": "Antiken (ca 800 f.Kr.–500 e.Kr.): grekisk-romerska ideal, epos och drama · Medeltiden (500–1400-tal): religiösa texter, riddarromaner (t.ex. Eufemiavisorna) · Renässansen (1400–1600-tal): människan och antiken i centrum, humanism · Upplysningen (1700-talet): förnuft, vetenskap, kritik av auktoriteter (t.ex. Linné) · Romantiken (ca 1800–1850): känsla, natur, det nationella och förflutna · Realismen/naturalismen (1800-talets andra hälft): verklighetstrogen samhällsskildring och social kritik (t.ex. Ibsen) · Modernismen (från ca 1900): brutna former, fri vers, splittrat jag (t.ex. Södergran)."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo7-sverige",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Sveriges geografi",
+  "sourceSummary": "Sveriges landskap och landsdelar, naturen från fjällkedjan till slättbygderna, de stora sjöarna och älvarna, var befolkningen bor och varför, samt vilka näringar som finns i olika delar av landet.",
+  "topics": [
+    "landskap och landsdelar",
+    "Sveriges natur",
+    "sjöar och älvar",
+    "befolkning",
+    "näringar"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo7-sve-1",
+      "kind": "mc",
+      "topic": "landskap och landsdelar",
+      "prompt": "Vilka är Sveriges tre landsdelar?",
+      "opener": "De delar in landet i en nordlig, en mellersta och en sydlig del.",
+      "choices": [
+        "Norrbotten, Mellansverige och Skåne",
+        "Norden, Svealand och Danmark",
+        "Norrland, Svealand och Götaland",
+        "Fjällen, skogslandet och slätten"
+      ],
+      "answer": 2,
+      "explanation": "Sverige delas traditionellt in i Norrland i norr, Svealand i mitten och Götaland i söder, och dessa landsdelar består tillsammans av 25 landskap. Fjäll, skogsland och slätt är naturtyper, inte landsdelar, och Norrbotten är ett av landskapen i Norrland."
+    },
+    {
+      "id": "q-geo7-sve-2",
+      "kind": "mc",
+      "topic": "sjöar och älvar",
+      "prompt": "Vilken är Sveriges största sjö?",
+      "opener": "Sjön ligger i Götaland, väster om Vättern.",
+      "choices": [
+        "Vänern",
+        "Vättern",
+        "Mälaren",
+        "Hjälmaren"
+      ],
+      "answer": 0,
+      "explanation": "Vänern är Sveriges största sjö med en yta på ungefär 5 600 km², följd av Vättern, Mälaren och Hjälmaren. Vänern är dessutom EU:s största sjö, och genom Göta älv rinner dess vatten ut i Kattegatt vid Göteborg."
+    },
+    {
+      "id": "q-geo7-sve-3",
+      "kind": "mc",
+      "topic": "Sveriges natur",
+      "prompt": "Var ligger den svenska fjällkedjan?",
+      "opener": "Den följer gränsen mot ett av våra nordiska nabolander.",
+      "choices": [
+        "Längs Sveriges östkust",
+        "I nordvästra Sverige, längs gränsen mot Norge",
+        "I mellersta Sverige kring Mälaren",
+        "På Gotland och Öland"
+      ],
+      "answer": 1,
+      "explanation": "Fjällkedjan (Skanderna) sträcker sig längs gränsen mot Norge i nordvästra Sverige, och där ligger Kebnekaise som är landets högsta berg på drygt 2 000 meter. Östkusten och Mälardalen är däremot låglänta, och Gotland och Öland är flacka kalkstensöar."
+    },
+    {
+      "id": "q-geo7-sve-4",
+      "kind": "mc",
+      "topic": "befolkning",
+      "prompt": "Var bor de flesta av Sveriges invånare?",
+      "opener": "Tänk på var klimatet är mildast, jorden bördigast och storstäderna ligger.",
+      "choices": [
+        "Jämnt fördelat över hela landet",
+        "Framför allt i fjällvärlden",
+        "Framför allt i inlandet i Norrland",
+        "I den södra delen av landet och kring de tre storstadsregionerna"
+      ],
+      "answer": 3,
+      "explanation": "Ungefär 85 procent av befolkningen bor i den södra tredjedelen av landet, där klimatet är mildare, jordbruksmarken bördigare och arbetsplatserna fler — framför allt kring Stockholm, Göteborg och Malmö. Norrlands inland är mycket glest befolkat, med långa avstånd och få invånare per kvadratkilometer."
+    },
+    {
+      "id": "q-geo7-sve-5",
+      "kind": "mc",
+      "topic": "näringar",
+      "prompt": "Vilken näring är särskilt viktig på Skånes slättbygder?",
+      "opener": "Tänk på vad bördig jord och ett milt klimat är bra för.",
+      "choices": [
+        "Gruvdrift",
+        "Jordbruk",
+        "Rennäring",
+        "Vattenkraft"
+      ],
+      "answer": 1,
+      "explanation": "Skåne har Sveriges bördigaste jordar och landets längsta odlingssäsong, vilket gör jordbruket dominerande där med bland annat vete, sockerbetor och potatis. Gruvdrift och vattenkraft hör i stället främst till Norrland, och rennäring bedrivs i fjäll- och skogsområdena i norr."
+    },
+    {
+      "id": "q-geo7-sve-6",
+      "kind": "mc",
+      "topic": "sjöar och älvar",
+      "prompt": "I vilken riktning rinner de stora norrländska älvarna, som Luleälven och Umeälven?",
+      "opener": "De börjar i fjällen — och havet ligger på andra sidan landet.",
+      "choices": [
+        "Från fjällen i nordväst mot sydost och ut i Bottenhavet och Bottenviken",
+        "Från kusten upp mot fjällen",
+        "Rakt västerut ut i Norska havet",
+        "Söderut och ut i Öresund"
+      ],
+      "answer": 0,
+      "explanation": "Älvarna har sina källor i fjällkedjan i nordväst och rinner nedåt i sydostlig riktning genom skogslandet till Bottenviken och Bottenhavet. Höjdskillnaden på vägen gör dem lämpliga för vattenkraft, och det är därför de flesta svenska vattenkraftverken ligger i Norrland. Vatten kan aldrig rinna uppåt från kusten mot fjällen."
+    },
+    {
+      "id": "q-geo7-sve-7",
+      "kind": "worked",
+      "topic": "befolkning",
+      "prompt": "Förklara varför så många fler människor bor i södra Sverige än i Norrlands inland.",
+      "opener": "Tänk på tre saker: klimatet, jorden och arbetstillfällena.",
+      "answer": "Södra Sverige har ett mildare klimat och en längre växtsäsong, vilket historiskt gjorde det möjligt att odla mycket mat och därmed försörja många människor på liten yta. Där finns också de bördigaste jordarna, framför allt i Skåne, Västergötland och Östergötland. När industrier och senare tjänsteföretag växte fram byggdes de i stor utsträckning i de redan tätbefolkade områdena, och storstadsregionerna Stockholm, Göteborg och Malmö erbjuder i dag flest arbeten, utbildningar och service. Norrlands inland har kallare klimat, magrare jordar, långa avstånd och färre arbetstillfällen, och därför har många flyttat därifrån under 1900-talet.",
+      "steps": [
+        "Klimat: mildare vintrar och längre växtsäsong i söder gav bättre förutsättningar för jordbruk.",
+        "Jordmån: de bördigaste slätterna finns i Skåne, Västergötland, Östergötland och Mälardalen.",
+        "Historia: tätbefolkade jordbruksbygder blev sedan platsen där industrier och städer växte fram.",
+        "Arbete och service: storstadsregionerna erbjuder flest jobb, utbildningar och kommunikationer i dag.",
+        "Norrlands inland: kallt klimat, magra jordar och långa avstånd har lett till utflyttning och gles befolkning."
+      ]
+    },
+    {
+      "id": "q-geo7-sve-8",
+      "kind": "flashcard",
+      "topic": "Sveriges natur",
+      "prompt": "Sammanfatta Sveriges geografi.",
+      "opener": "Landsdelar, natur, vatten, befolkning och näringar.",
+      "answer": "Landsdelar: Norrland (norr), Svealand (mitten), Götaland (söder), tillsammans 25 landskap · Natur i nordväst: fjällkedjan längs norska gränsen, Kebnekaise drygt 2 000 m, kalfjäll och renbetesland · Natur i mitten: stora barrskogar och myrar, det så kallade skogslandet · Natur i söder: bördiga slättbygder i Skåne, Västergötland, Östergötland och Mälardalen, samt lövskog och kalkstensöarna Öland och Gotland · Kust: långa kuster mot Bottenviken, Bottenhavet, Östersjön, Öresund, Kattegatt och Skagerrak, med skärgårdar utanför Stockholm och Göteborg · Sjöar: Vänern (störst), Vättern, Mälaren, Hjälmaren · Älvar: rinner från fjällen i nordväst mot Bottenviken och Bottenhavet, t.ex. Torneälven, Luleälven, Umeälven, Dalälven, samt Klarälven–Göta älv som är landets längsta · Befolkning: ungefär 85 procent bor i den södra tredjedelen, tätast kring Stockholm, Göteborg och Malmö, Norrlands inland är mycket glest befolkat · Näringar: jordbruk i södra slättbygderna, skogsbruk och pappersindustri i Norrland och Mellansverige, järnmalm i Kiruna och Malmberget, vattenkraft i norrlandsälvarna, verkstadsindustri i Mellansverige och tjänsteföretag i storstäderna · Turism: fjällen på vintern, kust och skärgård på sommaren."
+    }
+  ]
+}

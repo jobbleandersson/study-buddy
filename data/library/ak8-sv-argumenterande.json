@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv8-argumenterande",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Argumenterande text",
+  "sourceSummary": "Tes, argument och motargument — och hur en insändare eller debattartikel byggs upp. Här tränar du också på skillnaden mellan sakskäl och känsloargument.",
+  "topics": [
+    "tes och argument",
+    "motargument",
+    "textens uppbyggnad"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv8-arg-1",
+      "kind": "mc",
+      "topic": "tes och argument",
+      "prompt": "Vad är en tes i en argumenterande text?",
+      "opener": "Tesen är det du vill att läsaren ska hålla med om när texten är slut.",
+      "choices": [
+        "En fråga som texten utreder utan att svara på",
+        "En sammanfattning av vad andra tycker",
+        "Skribentens åsikt, formulerad som ett tydligt påstående",
+        "Det starkaste faktaargumentet i texten"
+      ],
+      "answer": 2,
+      "explanation": "Tesen är själva ståndpunkten, till exempel \"Skolan ska börja senare på morgonen\" — ett påstående som går att hålla med om eller argumentera emot. Ett argument är inte samma sak som tesen: argumenten är skälen som stöttar den."
+    },
+    {
+      "id": "q-sv8-arg-2",
+      "kind": "mc",
+      "topic": "tes och argument",
+      "prompt": "Tesen är \"Alla högstadieelever borde få gratis busskort\". Vilket alternativ är ett argument FÖR tesen?",
+      "opener": "Ett argument svarar på frågan \"varför?\" — det ska stötta tesen, inte upprepa den.",
+      "choices": [
+        "Gratis busskort är en bra idé.",
+        "Elever som bor långt bort kommer i tid oftare om resan är gratis.",
+        "Många kommuner har busskort.",
+        "Jag tycker verkligen att det borde införas."
+      ],
+      "answer": 1,
+      "explanation": "Alternativet ger ett skäl med en följd: gratis resa leder till fler elever i tid. \"Gratis busskort är en bra idé\" är bara tesen omformulerad, och \"jag tycker verkligen\" är en åsikt utan skäl."
+    },
+    {
+      "id": "q-sv8-arg-3",
+      "kind": "mc",
+      "topic": "tes och argument",
+      "prompt": "Vilket av påståendena är ett sakskäl snarare än ett känsloargument?",
+      "opener": "Sakskäl går att kontrollera eller resonera kring, känsloargument vädjar till hur läsaren känner sig.",
+      "choices": [
+        "Tänk på alla ledsna elever som sitter ensamma!",
+        "Det är hjärtlöst att inte bry sig om ungdomar.",
+        "Skolor med rastvärdar rapporterar färre konflikter på skolgården.",
+        "Vem vill leva i ett kallt samhälle?"
+      ],
+      "answer": 2,
+      "explanation": "Påståendet om rastvärdar bygger på en iakttagelse som går att undersöka och kontrollera — det är ett sakskäl. De övriga vädjar till medkänsla och skam, vilket kan förstärka en text men inte bevisar något."
+    },
+    {
+      "id": "q-sv8-arg-4",
+      "kind": "mc",
+      "topic": "motargument",
+      "prompt": "Varför tar en skribent med motargument i sin egen text?",
+      "opener": "Tänk på hur du själv reagerar på någon som bara ser en sida av en fråga.",
+      "choices": [
+        "För att fylla ut texten så att den blir längre",
+        "För att låta läsaren välja vilken sida som är rätt",
+        "För att byta åsikt i slutet av texten",
+        "För att visa att man känner till invändningarna och kan bemöta dem — det gör texten mer trovärdig"
+      ],
+      "answer": 3,
+      "explanation": "Genom att ta upp och bemöta motargument visar skribenten att hen tänkt igenom frågan, vilket stärker trovärdigheten. Meningen är inte att lämna frågan öppen — efter bemötandet ska tesen stå kvar starkare än förut."
+    },
+    {
+      "id": "q-sv8-arg-5",
+      "kind": "mc",
+      "topic": "motargument",
+      "prompt": "Motargumentet lyder: \"Senare skolstart gör att eleverna slutar senare på eftermiddagen.\" Vilket svar bemöter motargumentet bäst?",
+      "opener": "Ett bra bemötande erkänner invändningen först och visar sedan varför den väger lättare.",
+      "choices": [
+        "Det är ett dåligt argument som inte är värt att diskutera.",
+        "Det stämmer att dagen slutar senare, men eleverna är mer utvilade och behöver därför färre timmar på läxor hemma.",
+        "Alla vet ju att senare skolstart är bättre.",
+        "Många andra länder har redan senare skolstart."
+      ],
+      "answer": 1,
+      "explanation": "Svaret erkänner att invändningen delvis stämmer och lägger sedan fram ett skäl som väger tyngre — det är så ett motargument bemöts. Att avfärda invändningen som dålig eller hänvisa till att \"alla vet\" bemöter ingenting och sänker trovärdigheten."
+    },
+    {
+      "id": "q-sv8-arg-6",
+      "kind": "mc",
+      "topic": "textens uppbyggnad",
+      "prompt": "I vilken ordning byggs en insändare vanligtvis upp?",
+      "opener": "Tänk på att läsaren måste veta vad du tycker innan hen kan följa varför.",
+      "choices": [
+        "Rubrik – inledning med tes – argument – bemött motargument – avslutning med uppmaning",
+        "Argument – tes – rubrik – avslutning",
+        "Inledning – motargument – avslutning – tes",
+        "Rubrik – slutsats – rubrik igen – argument"
+      ],
+      "answer": 0,
+      "explanation": "Insändaren inleds med en rubrik som väcker intresse och en tes som gör ståndpunkten tydlig, följt av argument, ett bemött motargument och en avslutning som ofta innehåller en uppmaning. Att spara tesen till slutet gör det svårt för läsaren att följa argumenten på vägen."
+    },
+    {
+      "id": "q-sv8-arg-7",
+      "kind": "worked",
+      "topic": "motargument",
+      "prompt": "Planera en insändare med tesen \"Mobilfri lektionstid ska gälla på hela skolan\". Formulera två argument, ett motargument och ett bemötande, samt en avslutande uppmaning.",
+      "opener": "Börja i tesen, hitta sedan skäl som går att pröva. Tänk till sist ut vad någon som tycker tvärtom skulle säga.",
+      "answer": "Tes: Mobilfri lektionstid ska gälla på hela skolan. Argument 1: Koncentrationen ökar när notiser inte avbryter arbetet. Argument 2: Klasser med mobilförbud rapporterar färre konflikter kring bilder och filmer. Motargument: Mobilen behövs som hjälpmedel och för att nå hemmet. Bemötande: Det stämmer att kontakt kan behövas, men skolans telefon och lärarens dator löser det utan att alla har mobilen framme. Avslutning: Låt oss testa mobilfria lektioner en termin och sedan utvärdera.",
+      "steps": [
+        "Formulera tesen som ett påstående, inte som en fråga — läsaren ska direkt veta vad du vill.",
+        "Välj argument som är sakskäl och går att pröva: koncentration och färre konflikter, inte bara \"mobiler är störiga\".",
+        "Ställ dig på motståndarens sida en stund: det starkaste motargumentet är att mobilen behövs som hjälpmedel och för kontakt.",
+        "Bemöt genom att först erkänna det som stämmer och sedan visa att problemet går att lösa på annat sätt.",
+        "Avsluta med en konkret uppmaning — ett förslag att testa och utvärdera är lättare att säga ja till än ett krav."
+      ]
+    },
+    {
+      "id": "q-sv8-arg-8",
+      "kind": "flashcard",
+      "topic": "tes och argument",
+      "prompt": "Vad ska finnas med i en argumenterande text, och hur skiljer sig insändare från debattartikel?",
+      "opener": "Delarna först, sedan de två textformerna.",
+      "answer": "Delar · tes: din åsikt som ett tydligt påstående · argument: skäl som svarar på \"varför?\", helst 2-3 stycken, ett per stycke · motargument: invändningen någon annan skulle komma med · bemötande: erkänn det som stämmer, visa sedan varför ditt skäl väger tyngre · avslutning: sammanfattning plus uppmaning. Sakskäl · går att kontrollera eller resonera kring · starkast. Känsloargument · vädjar till medkänsla eller rädsla · kan förstärka men bevisar inget · fungerar bäst som krydda. Insändare · kort, personlig, skriven av vem som helst · publiceras på tidningens insändarsida · ofta signatur. Debattartikel · längre, sakligare, oftast undertecknad med namn och titel · riktar sig mot en bestämd beslutsfattare eller motpart."
+    }
+  ]
+}

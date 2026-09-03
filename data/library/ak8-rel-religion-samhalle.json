@@ -1,0 +1,130 @@
+{
+  "id": "lib-rel8-religion-samhalle",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Religion och samhälle",
+  "sourceSummary": "Religionsfriheten och vad den innebär i Sverige, sekulariseringen och religionens plats i samhället, relationen mellan stat och kyrka fram till skilsmässan år 2000, religionens roll i både konflikter och fredsarbete samt fördomar och religiös mångfald i dagens Sverige.",
+  "topics": [
+    "religionsfrihet",
+    "sekularisering",
+    "stat och kyrka",
+    "religion i konflikt och fredsarbete",
+    "fördomar och religiös mångfald"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel8-res-1",
+      "kind": "mc",
+      "topic": "religionsfrihet",
+      "prompt": "Vad innebär religionsfriheten i Sverige?",
+      "opener": "Friheten har både en positiv och en negativ sida — tänk på båda.",
+      "choices": [
+        "Att alla som bor i Sverige måste tillhöra något trossamfund",
+        "Att bara de fem största världsreligionerna är tillåtna i landet",
+        "Att var och en har rätt att ensam eller tillsammans med andra utöva sin religion — och också rätt att stå utanför alla religioner",
+        "Att religiösa regler går före svensk lag för den som är troende"
+      ],
+      "answer": 2,
+      "explanation": "Religionsfriheten skyddas i regeringsformen, som är en av Sveriges grundlagar, och även i Europakonventionen och i FN:s allmänna förklaring om de mänskliga rättigheterna. Den har en positiv sida — rätten att tro, utöva sin religion och byta religion — och en negativ sida, rätten att stå helt utanför. Friheten är däremot inte obegränsad: svensk lag gäller lika för alla, och en handling blir inte tillåten för att den motiveras religiöst, vilket gör sista alternativet fel."
+    },
+    {
+      "id": "q-rel8-res-2",
+      "kind": "mc",
+      "topic": "sekularisering",
+      "prompt": "Vad menas med sekularisering?",
+      "opener": "Ordet beskriver en förändring i religionens roll — inte ett förbud.",
+      "choices": [
+        "Att religionen får en mindre framträdande roll i samhället och i många människors vardag, och att religion och politik hålls isär",
+        "Att en religion förbjuds i lag",
+        "Att alla invånare i ett land byter till samma religion",
+        "Att staten bygger fler kyrkor och moskéer"
+      ],
+      "answer": 0,
+      "explanation": "Sekularisering betyder att religionens inflytande minskar över samhällets institutioner, som skola, sjukvård och politik, och för många människor också i det egna livet. Sverige brukar i internationella undersökningar räknas som ett av världens mest sekulariserade länder, samtidigt som många fortfarande är medlemmar i trossamfund och den religiösa mångfalden har ökat. Sekularisering innebär alltså inte att religion förbjuds — ett sådant förbud vore tvärtom ett brott mot religionsfriheten."
+    },
+    {
+      "id": "q-rel8-res-3",
+      "kind": "mc",
+      "topic": "stat och kyrka",
+      "prompt": "Vad hände med relationen mellan staten och Svenska kyrkan år 2000?",
+      "opener": "Ett flerhundraårigt förhållande tog slut vid millennieskiftet.",
+      "choices": [
+        "Svenska kyrkan blev statskyrka och fick ansvar för folkbokföringen",
+        "Svenska kyrkan skildes från staten och blev ett trossamfund bland andra, även om den fortfarande regleras av en särskild lag",
+        "Alla kyrkor i Sverige stängdes och verksamheten flyttades till hemmen",
+        "Sverige införde katolicismen som ny statsreligion"
+      ],
+      "answer": 1,
+      "explanation": "Den 1 januari 2000 upphörde Svenska kyrkan att vara statskyrka. Medlemskap följer sedan dess inte automatiskt av födseln utan bygger på dop eller ett eget val, kyrkoavgiften är inte längre en skatt, och ansvaret för folkbokföringen hade redan 1991 flyttats till staten. Svenska kyrkan är fortfarande Sveriges största trossamfund och regleras av en särskild lag om Svenska kyrkan, men har i religionsfrihetshänseende samma ställning som andra samfund. Någon ny statsreligion infördes alltså inte."
+    },
+    {
+      "id": "q-rel8-res-4",
+      "kind": "mc",
+      "topic": "religion i konflikt och fredsarbete",
+      "prompt": "Vilket påstående om religionens roll i konflikter stämmer bäst?",
+      "opener": "Fundera på om religion är den enda orsaken — och på vad religiösa aktörer också gör.",
+      "choices": [
+        "Alla krig i världen orsakas av religion",
+        "Religion har aldrig något med väpnade konflikter att göra",
+        "Religion kan användas för att motivera och förstärka konflikter, men konflikter har oftast flera orsaker som makt, mark och ekonomi — och religiösa ledare och organisationer arbetar också ofta för försoning och fred",
+        "Religiösa organisationer får enligt folkrätten inte delta i fredsarbete"
+      ],
+      "answer": 2,
+      "explanation": "Konflikter som kallas religiösa har nästan alltid sammansatta orsaker: kamp om makt, territorium, resurser och identitet, där religion kan bli en gruppmarkör eller ett sätt att motivera våld. Samtidigt har religiösa aktörer spelat viktiga roller i fredsarbete, till exempel genom medling, hjälparbete och försoningsprocesser, och interreligiös dialog används som metod för att minska spänningar. Både det första och det andra alternativet är alltså för tvärsäkra och missar den mer nyanserade bilden."
+    },
+    {
+      "id": "q-rel8-res-5",
+      "kind": "mc",
+      "topic": "fördomar och religiös mångfald",
+      "prompt": "Vad är en fördom?",
+      "opener": "Ordet innehåller \"för\" — något som kommer före.",
+      "choices": [
+        "En slutsats man dragit efter att noggrant ha undersökt fakta",
+        "En lag som skyddar minoriteter mot diskriminering",
+        "Ett annat ord för religionsfrihet",
+        "En förutfattad uppfattning om en person eller grupp, som man har redan innan man vet något om dem"
+      ],
+      "answer": 3,
+      "explanation": "En fördom är en uppfattning man bildat sig i förväg, utan grund i kunskap eller egen erfarenhet. Fördomar kan leda till diskriminering och till hatbrott riktade mot exempelvis muslimer (islamofobi), judar (antisemitism) eller kristna, och de bygger ofta på generaliseringar där en hel grupp tillskrivs samma egenskaper. Kunskap, personliga möten och vanan att granska sina egna generaliseringar minskar fördomar. En fördom är alltså raka motsatsen till en välgrundad slutsats."
+    },
+    {
+      "id": "q-rel8-res-6",
+      "kind": "mc",
+      "topic": "fördomar och religiös mångfald",
+      "prompt": "Vilket påstående om religiös mångfald i Sverige i dag stämmer?",
+      "opener": "Tänk på hur invandring och sekularisering har samverkat.",
+      "choices": [
+        "I Sverige finns i dag många olika religioner och livsåskådningar sida vid sida, samtidigt som en stor del av befolkningen inte ser sig som religiöst troende",
+        "Alla som bor i Sverige tillhör Svenska kyrkan",
+        "Endast kristna samfund är tillåtna att verka i Sverige",
+        "Religiösa minoriteter saknar rättsligt skydd i Sverige"
+      ],
+      "answer": 0,
+      "explanation": "Genom invandring och globalisering finns i dag bland annat islam, ortodox kristendom, katolicism, judendom, buddhism och hinduism representerade i Sverige, vid sidan av Svenska kyrkan och frikyrkorna — samtidigt som många är icke-troende eller identifierar sig som exempelvis sekulära humanister. Religiösa minoriteter skyddas dessutom av religionsfriheten i grundlagen och av diskrimineringslagen, där religion eller annan trosuppfattning är en av diskrimineringsgrunderna, vilket gör sista alternativet fel."
+    },
+    {
+      "id": "q-rel8-res-7",
+      "kind": "worked",
+      "topic": "stat och kyrka",
+      "prompt": "Förklara steg för steg hur Sverige gick från att vara ett land med en enda tillåten kyrka till dagens religionsfrihet och religiösa mångfald.",
+      "opener": "Följ tidslinjen från reformationen fram till i dag, och notera vad varje steg gjorde tillåtet.",
+      "answer": "Efter reformationen på 1500-talet blev Sverige ett evangelisk-lutherskt rike, och vid Uppsala möte 1593 slogs det fast att landet skulle ha en enda lära. Under lång tid var alla invånare skyldiga att tillhöra statskyrkan, och att lämna den eller sprida en annan lära kunde straffas. Under 1700- och 1800-talen kom de första undantagen: invandrade grupper fick vissa rättigheter, och år 1774–1775 tilläts Aaron Isaac som förste jude att bosätta sig i Stockholm utan att konvertera. Med dissenterlagarna 1860 blev det tillåtet att lämna Svenska kyrkan, men bara om man i stället gick med i ett annat av staten godkänt samfund — samma period då frikyrkorna växte fram ur väckelserörelserna. Ett avgörande steg togs med religionsfrihetslagen 1951, som gav rätten att stå helt utanför alla trossamfund. Under efterkrigstiden förändrades landet ytterligare genom arbetskrafts- och flyktinginvandring, som förde med sig islam, ortodox kristendom, katolicism, buddhism och hinduism i större omfattning. År 1996 ändrades reglerna så att medlemskap i Svenska kyrkan följde av dop i stället för av födsel, och den 1 januari 2000 skildes kyrkan från staten och blev ett trossamfund bland andra. I dag skyddas religionsfriheten i regeringsformen och i Europakonventionen, samtidigt som Sverige är starkt sekulariserat — många är inte troende, men de som är det har rätt att utöva sin tro, och religion eller annan trosuppfattning är en av grunderna i diskrimineringslagen.",
+      "steps": [
+        "1500- och 1600-talen: efter reformationen blir Sverige evangelisk-lutherskt, och Uppsala möte 1593 slår fast en enda tillåten lära.",
+        "1700- och 1800-talen: enskilda undantag växer fram, bland annat rätten för judar att bosätta sig från 1774–1775.",
+        "1860: dissenterlagarna gör det tillåtet att lämna Svenska kyrkan om man går med i ett annat godkänt samfund — frikyrkorna växer.",
+        "1951: religionsfrihetslagen ger rätten att stå helt utanför alla trossamfund.",
+        "1996 och 2000: medlemskap knyts till dopet i stället för födseln, och den 1 januari 2000 skiljs Svenska kyrkan från staten — i dag präglas Sverige av både sekularisering och religiös mångfald."
+      ]
+    },
+    {
+      "id": "q-rel8-res-8",
+      "kind": "flashcard",
+      "topic": "religionsfrihet",
+      "prompt": "Sammanfatta religion och samhälle: religionsfrihet, sekularisering, stat och kyrka, religion i konflikt och fredsarbete samt fördomar och mångfald.",
+      "opener": "Rättigheten först, sedan utvecklingen i Sverige och religionens roll i världen.",
+      "answer": "Religionsfrihet: skyddas i regeringsformen (grundlag), i Europakonventionen och i FN:s allmänna förklaring artikel 18 · positiv sida = rätt att tro, utöva och byta religion · negativ sida = rätt att stå utanför · begränsning: svensk lag gäller lika för alla, religiösa motiv gör inte en brottslig handling tillåten · Sekularisering: religionens minskade inflytande över samhällets institutioner och över många människors vardag · Sverige räknas som ett av världens mest sekulariserade länder, men många är fortfarande medlemmar i trossamfund · Stat och kyrka i Sverige: Uppsala möte 1593 (en lära) → judisk bosättning tillåts 1774–1775 → dissenterlagarna 1860 (utträde tillåts om man går med i annat godkänt samfund) → religionsfrihetslagen 1951 (rätt att stå helt utanför) → 1996 medlemskap genom dop → 1 januari 2000 Svenska kyrkan skiljs från staten · Religion i konflikter: konflikter har oftast flera orsaker — makt, mark, resurser, identitet — och religion kan användas för att motivera eller förstärka dem · Religion i fredsarbete: medling, hjälparbete, försoningsprocesser och interreligiös dialog · Fördom: förutfattad uppfattning om en person eller grupp utan grund i kunskap · kan leda till diskriminering och hatbrott, t.ex. islamofobi och antisemitism · motverkas av kunskap, möten och självgranskning · Mångfald i Sverige: Svenska kyrkan och frikyrkor, islam, ortodox kristendom, katolicism, judendom, buddhism, hinduism och icke-religiösa livsåskådningar som sekulär humanism · religion eller annan trosuppfattning är en av diskrimineringsgrunderna i diskrimineringslagen."
+    }
+  ]
+}

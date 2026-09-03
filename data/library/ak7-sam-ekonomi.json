@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam7-ekonomi",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Privatekonomi",
+  "sourceSummary": "Din egen ekonomi — inkomster och utgifter, hur man gör en budget, sparande och lån, skillnaden mellan behov och önskemål samt hur reklam påverkar och vilka rättigheter du har som konsument.",
+  "topics": [
+    "inkomst och utgift",
+    "budget",
+    "sparande och lån",
+    "behov och önskemål",
+    "reklam och konsumenträtt"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam7-eko-1",
+      "kind": "mc",
+      "topic": "inkomst och utgift",
+      "prompt": "Vad är en utgift?",
+      "opener": "Tänk på vilken väg pengarna rör sig — in eller ut?",
+      "choices": [
+        "Pengar som kommer in till dig, till exempel lön eller månadspeng",
+        "Pengar du har kvar på kontot vid månadens slut",
+        "Pengar du har satt in på ett sparkonto",
+        "Pengar du betalar ut för något, till exempel busskort eller mobilabonnemang"
+      ],
+      "answer": 3,
+      "explanation": "En utgift är pengar som går ut, till exempel mat, buss eller mobil. Pengar som kommer in kallas i stället inkomst — och det som blir kvar när utgifterna är betalda är överskott som kan sparas."
+    },
+    {
+      "id": "q-sam7-eko-2",
+      "kind": "mc",
+      "topic": "budget",
+      "prompt": "Vad är en budget?",
+      "opener": "En budget görs i förväg, inte efteråt.",
+      "choices": [
+        "En plan över vilka inkomster och utgifter man räknar med under en viss tid",
+        "En lista över allt man redan har köpt förra året",
+        "Ett lån man tar från banken",
+        "Ett annat ord för hela sitt sparkonto"
+      ],
+      "answer": 0,
+      "explanation": "En budget är en plan framåt: du räknar upp dina förväntade inkomster och utgifter, till exempel för en månad, och ser om pengarna räcker. En lista över redan gjorda köp är i stället en uppföljning av hur det faktiskt blev."
+    },
+    {
+      "id": "q-sam7-eko-3",
+      "kind": "mc",
+      "topic": "budget",
+      "prompt": "Du får 500 kr i månadspeng och har utgifter på 380 kr under månaden. Hur mycket kan du spara?",
+      "opener": "Räkna inkomst minus utgifter.",
+      "choices": [
+        "880 kr",
+        "180 kr",
+        "120 kr",
+        "0 kr"
+      ],
+      "answer": 2,
+      "explanation": "500 kr − 380 kr = 120 kr, alltså det överskott du kan spara. Svaret 880 kr får man om man av misstag adderar inkomst och utgift i stället för att subtrahera."
+    },
+    {
+      "id": "q-sam7-eko-4",
+      "kind": "mc",
+      "topic": "sparande och lån",
+      "prompt": "Vad är ränta på ett lån?",
+      "opener": "Det är priset för en tjänst — att få låna någon annans pengar.",
+      "choices": [
+        "En rabatt man får när man lånar pengar",
+        "Kostnaden för att låna pengar — extra pengar du betalar utöver själva lånesumman",
+        "En avgift som banken betalar till dig när du lånar",
+        "Ett annat ord för hur många månader lånet varar"
+      ],
+      "answer": 1,
+      "explanation": "Ränta är vad det kostar att låna: du betalar tillbaka lånesumman plus en procentsats extra. På ett sparkonto fungerar det åt andra hållet — då är det banken som betalar dig ränta för att du sparar."
+    },
+    {
+      "id": "q-sam7-eko-5",
+      "kind": "mc",
+      "topic": "behov och önskemål",
+      "prompt": "Vilket av följande är ett behov snarare än ett önskemål?",
+      "opener": "Ett behov är något du inte klarar dig utan.",
+      "choices": [
+        "Ett nytt spel till konsolen",
+        "Märkeskläder från en viss butik",
+        "Ett dyrare mobilskal",
+        "Mat och någonstans att bo"
+      ],
+      "answer": 3,
+      "explanation": "Behov är sådant man måste ha för att klara sig, som mat, bostad och kläder som håller värmen. Ett nytt spel eller märkeskläder är önskemål — sådant som är trevligt att ha men som man klarar sig utan, och det är där man oftast kan spara pengar."
+    },
+    {
+      "id": "q-sam7-eko-6",
+      "kind": "mc",
+      "topic": "reklam och konsumenträtt",
+      "prompt": "Vad innebär ångerrätten när du handlar något på nätet?",
+      "opener": "Regeln ger dig en viss tid att ändra dig efter att varan kommit hem.",
+      "choices": [
+        "Att du aldrig får lämna tillbaka något du beställt",
+        "Att butiken får ångra din order när som helst",
+        "Att du oftast har 14 dagar på dig att ändra dig och lämna tillbaka varan",
+        "Att du bara kan byta varan mot en annan i samma butik"
+      ],
+      "answer": 2,
+      "explanation": "Vid köp på nätet eller per telefon har du enligt lag oftast 14 dagars ångerrätt räknat från att du fått varan, och du behöver inte ange något skäl. Vissa varor är undantagna, till exempel specialtillverkade produkter och nedladdad digital media — men ångerrätten är inte samma sak som den frivilliga bytesrätt som butiker kan erbjuda i en fysisk affär."
+    },
+    {
+      "id": "q-sam7-eko-7",
+      "kind": "worked",
+      "topic": "budget",
+      "prompt": "Du har 400 kr i månadspeng och tjänar 300 kr på ett extrajobb. Dina utgifter är mobil 99 kr, busskort 150 kr och fika och nöje 200 kr. Hur mycket kan du spara per månad, och hur många månader tar det att spara till hörlurar för 1 500 kr?",
+      "opener": "Summera först inkomsterna, sedan utgifterna, och jämför.",
+      "answer": "Du kan spara 251 kr per månad, och det tar 6 månader att spara till hörlurarna.",
+      "steps": [
+        "Summera inkomsterna: 400 kr + 300 kr = 700 kr.",
+        "Summera utgifterna: 99 kr + 150 kr + 200 kr = 449 kr.",
+        "Räkna ut överskottet: 700 kr − 449 kr = 251 kr som du kan spara varje månad.",
+        "Dela målet med sparbeloppet: 1 500 / 251 ≈ 5,98 månader.",
+        "Eftersom du bara sparar en gång per månad måste du avrunda uppåt: det tar 6 månader."
+      ]
+    },
+    {
+      "id": "q-sam7-eko-8",
+      "kind": "flashcard",
+      "topic": "reklam och konsumenträtt",
+      "prompt": "Sammanfatta grunderna i privatekonomi och konsumenträtt.",
+      "opener": "Gå igenom inkomst och utgift, budget, sparande och lån, behov och önskemål samt dina rättigheter.",
+      "answer": "Inkomst: pengar in — lön, månadspeng, studiebidrag · Utgift: pengar ut — mat, buss, mobil, prenumerationer · Överskott: inkomst minus utgift, det du kan spara · Underskott: utgifterna är större än inkomsterna, då måste något ändras · Budget: plan över kommande inkomster och utgifter, oftast per månad · Fasta utgifter: samma varje månad, t.ex. abonnemang och busskort · Rörliga utgifter: varierar, t.ex. nöjen och kläder · Sparande: pengar man lägger undan, banken betalar ränta till dig · Lån: pengar man får låna och betala tillbaka, du betalar ränta till banken — dyra snabblån och delbetalningar kan snabbt bli en skuldfälla · Behov: det man inte klarar sig utan (mat, bostad, kläder) · Önskemål: det man klarar sig utan men gärna vill ha · Reklam: vill få dig att köpa, ofta genom känslor, influerare och tidspress — dold reklam måste märkas som annons · Konsumenträtt: 14 dagars ångerrätt vid köp på nätet, reklamationsrätt i 3 år om varan är felaktig, spara alltid kvittot · Hjälp och råd: Hallå konsument och kommunens konsumentvägledare."
+    }
+  ]
+}

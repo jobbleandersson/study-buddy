@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam-lagar",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Lagar, rättigheter och rättssystemet",
+  "sourceSummary": "Grunderna i mänskliga rättigheter, hur en rättegång går till i Sverige, skillnaden mellan brottmål och tvistemål, samt barns särskilda rättigheter enligt barnkonventionen.",
+  "topics": [
+    "mänskliga rättigheter grundidé",
+    "hur en rättegång går till i Sverige",
+    "skillnad brottmål/tvistemål",
+    "barns rättigheter"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam-lag-1",
+      "kind": "mc",
+      "topic": "mänskliga rättigheter grundidé",
+      "prompt": "Vad kännetecknar mänskliga rättigheter?",
+      "opener": "Tänk på vem de gäller för och om man kan förtjäna bort dem.",
+      "choices": [
+        "De gäller bara för medborgare i rika länder",
+        "De gäller alla människor, oavsett t.ex. kön, ursprung eller religion, och kan inte tas bort",
+        "De måste förtjänas genom gott uppförande",
+        "De gäller bara vuxna personer"
+      ],
+      "answer": 1,
+      "explanation": "Mänskliga rättigheter är universella — de gäller alla människor lika, oavsett bakgrund, och de är omistliga, vilket betyder att de inte kan tas bort eller behöva förtjänas. De gäller såväl barn som vuxna, i alla länder."
+    },
+    {
+      "id": "q-sam-lag-2",
+      "kind": "mc",
+      "topic": "mänskliga rättigheter grundidé",
+      "prompt": "Vilket dokument från FN från 1948 räknas som grunden för dagens mänskliga rättigheter?",
+      "opener": "Det antogs strax efter andra världskriget som en gemensam standard för alla länder.",
+      "choices": [
+        "Barnkonventionen",
+        "FN:s allmänna förklaring om de mänskliga rättigheterna",
+        "Parisavtalet",
+        "EU:s stadga om grundläggande rättigheter"
+      ],
+      "answer": 1,
+      "explanation": "FN:s allmänna förklaring om de mänskliga rättigheterna antogs 1948 och blev grunden för senare konventioner, bland annat barnkonventionen. Parisavtalet gäller klimat, och EU:s stadga är en senare, europeisk motsvarighet."
+    },
+    {
+      "id": "q-sam-lag-3",
+      "kind": "mc",
+      "topic": "skillnad brottmål/tvistemål",
+      "prompt": "Vad kännetecknar ett brottmål, till skillnad från ett tvistemål?",
+      "opener": "Fundera på vem som driver saken till domstol — staten eller en enskild part.",
+      "choices": [
+        "I ett brottmål åtalar staten (åklagaren) en person för ett brott, i ett tvistemål tvistar två enskilda parter om t.ex. pengar eller avtal",
+        "Brottmål handlar alltid om pengar mellan grannar",
+        "Tvistemål avgörs alltid av en jury i Sverige",
+        "Det finns ingen skillnad mellan brottmål och tvistemål"
+      ],
+      "answer": 0,
+      "explanation": "I ett brottmål är det åklagaren, på statens vägnar, som väcker åtal mot en misstänkt person. I ett tvistemål är det två enskilda parter (t.ex. privatpersoner eller företag) som är oense om något, som ett avtal eller en skuld, och domstolen avgör tvisten."
+    },
+    {
+      "id": "q-sam-lag-4",
+      "kind": "mc",
+      "topic": "skillnad brottmål/tvistemål",
+      "prompt": "Vem för talan mot den misstänkte i ett brottmål i svensk domstol?",
+      "opener": "Det är inte den som utsatts för brottet som personligen väcker åtal.",
+      "choices": [
+        "Den drabbade personen själv, alltid ensam",
+        "Åklagaren, på statens vägnar",
+        "Domaren",
+        "Försvarsadvokaten"
+      ],
+      "answer": 1,
+      "explanation": "Åklagaren för talan mot den misstänkte i ett brottmål, på statens vägnar, efter att ha utrett om det finns tillräckliga bevis. Den drabbade kan vara målsägande och ibland kräva skadestånd i samma rättegång, men det är åklagaren som driver åtalet."
+    },
+    {
+      "id": "q-sam-lag-5",
+      "kind": "mc",
+      "topic": "hur en rättegång går till i Sverige",
+      "prompt": "Vad är huvuduppgiften för en försvarsadvokat i ett brottmål?",
+      "opener": "Tänk på principen att alla, även misstänkta, har rätt till ett rättvist försvar.",
+      "choices": [
+        "Att bevisa att den åtalade är skyldig",
+        "Att företräda och försvara den misstänktes rättigheter och intressen under rättegången",
+        "Att döma i målet tillsammans med domaren",
+        "Att åtala den misstänkte för fler brott"
+      ],
+      "answer": 1,
+      "explanation": "Försvarsadvokaten ska tillvarata den misstänktes rättigheter och föra fram dennes sida, så att rättegången blir rättvis. Det är åklagaren som ska bevisa skuld, och domaren (eventuellt med nämndemän) som avgör målet."
+    },
+    {
+      "id": "q-sam-lag-6",
+      "kind": "mc",
+      "topic": "hur en rättegång går till i Sverige",
+      "prompt": "Vilken domstol tar först upp de flesta brottmål och tvistemål i Sverige?",
+      "opener": "Det finns flera nivåer av domstolar — vilken är den första instansen?",
+      "choices": [
+        "Högsta domstolen",
+        "Hovrätten",
+        "Tingsrätten",
+        "Riksdagen"
+      ],
+      "answer": 2,
+      "explanation": "Tingsrätten är första instans för de flesta brottmål och tvistemål. Om domen överklagas kan målet gå vidare till hovrätten och i vissa fall till Högsta domstolen, som är sista instans. Riksdagen dömer inte i enskilda mål."
+    },
+    {
+      "id": "q-sam-lag-7",
+      "kind": "worked",
+      "topic": "barns rättigheter",
+      "prompt": "Förklara vad barnkonventionen är och ge exempel på två centrala rättigheter den ger barn under 18 år.",
+      "opener": "Tänk på att barnkonventionen är svensk lag sedan 2020 och bygger på några grundprinciper.",
+      "answer": "Barnkonventionen är FN:s konvention om barnets rättigheter, antagen 1989, och sedan 2020 är den svensk lag. Den slår fast att alla under 18 år har särskilda rättigheter, bland annat rätten till liv och utveckling, rätten att uttrycka sin åsikt och få den beaktad i frågor som rör barnet (artikel 12), samt principen om barnets bästa i främsta rummet vid beslut som rör barn (artikel 3). Konventionen omfattar också rätt till utbildning, skydd mot våld och utnyttjande samt rätt till vila och lek.",
+      "steps": [
+        "Barnkonventionen antogs av FN 1989 och är ett särskilt dokument om rättigheter för alla under 18 år.",
+        "Sedan 1 januari 2020 gäller barnkonventionen som svensk lag, inte bara som en internationell överenskommelse Sverige skrivit under.",
+        "Grundprincip 1 — barnets bästa: vid beslut som rör barn ska barnets bästa komma i främsta rummet (artikel 3).",
+        "Grundprincip 2 — rätten att bli hörd: barn har rätt att uttrycka sin åsikt i frågor som rör dem, och åsikten ska beaktas utifrån ålder och mognad (artikel 12).",
+        "Andra exempel: rätt till utbildning, skydd mot våld och utnyttjande, samt rätt till vila, fritid och lek."
+      ]
+    },
+    {
+      "id": "q-sam-lag-8",
+      "kind": "flashcard",
+      "topic": "hur en rättegång går till i Sverige",
+      "prompt": "Sammanfatta rättssystemets grunder: mänskliga rättigheter, rättegångens gång, brottmål/tvistemål och barnkonventionen.",
+      "opener": "Från internationella rättigheter till hur en dom faktiskt blir till i Sverige.",
+      "answer": "Mänskliga rättigheter: universella och omistliga rättigheter som gäller alla människor, grundade i FN:s allmänna förklaring från 1948 · Brottmål: åklagaren åtalar en misstänkt person på statens vägnar för ett brott · Tvistemål: två enskilda parter (privatpersoner/företag) tvistar om t.ex. avtal eller skuld, ingen åklagare inblandad · Rättegångens gång: polis/åklagare utreder → åklagaren väcker åtal (i brottmål) → förhandling i tingsrätten med åklagare, försvarsadvokat, ev. målsägande och vittnen → domstolen (domare och ibland nämndemän) meddelar dom → domen kan överklagas till hovrätten och i vissa fall Högsta domstolen · Barnkonventionen: FN:s konvention om barns rättigheter (1989), svensk lag sedan 2020, bygger bland annat på barnets bästa och barnets rätt att bli hörd."
+    }
+  ]
+}

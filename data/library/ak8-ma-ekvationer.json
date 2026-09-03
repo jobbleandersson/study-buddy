@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma8-ekvationer",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Ekvationer och algebraiska uttryck",
+  "sourceSummary": "Förenkla uttryck med parenteser, lösa ekvationer där den obekanta finns i båda leden, och teckna en egen ekvation utifrån en text.",
+  "topics": [
+    "algebraiska uttryck",
+    "ekvationer",
+    "problemlösning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma8-ekv-1",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Multiplicera in i parentesen: $4(x + 3)$.",
+      "opener": "Talet utanför parentesen ska möta varje term inuti — inte bara den första.",
+      "choices": [
+        "$4x + 3$",
+        "$4x + 12$",
+        "$4x + 7$",
+        "$x + 12$"
+      ],
+      "answer": 1,
+      "explanation": "Både $x$ och $3$ ska multipliceras med 4: $4 \\cdot x = 4x$ och $4 \\cdot 3 = 12$, alltså $4x + 12$. Svaret $4x + 3$ är ett vanligt slarvfel där man glömmer bort trean."
+    },
+    {
+      "id": "q-ma8-ekv-2",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $3(2x - 1) + 4x$.",
+      "opener": "Ta parentesen först, samla lika termer sedan.",
+      "choices": [
+        "$6x - 3$",
+        "$10x - 3$",
+        "$10x + 3$",
+        "$2x - 1$"
+      ],
+      "answer": 1,
+      "explanation": "$3(2x - 1) = 6x - 3$. Lägg till $4x$: $6x + 4x = 10x$, så uttrycket blir $10x - 3$. Svaret $6x - 3$ betyder att $4x$ helt glömts bort."
+    },
+    {
+      "id": "q-ma8-ekv-3",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $8x - (3x + 2)$.",
+      "opener": "Ett minus framför en parentes byter tecken på allt inuti.",
+      "choices": [
+        "$5x + 2$",
+        "$11x - 2$",
+        "$5x - 2$",
+        "$5x + 6$"
+      ],
+      "answer": 2,
+      "explanation": "Minustecknet gäller hela parentesen: $8x - 3x - 2 = 5x - 2$. Svaret $5x + 2$ är fällan — där har bara $3x$ fått byta tecken, inte tvåan."
+    },
+    {
+      "id": "q-ma8-ekv-4",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $7x - 4 = 3x + 12$.",
+      "opener": "$x$ finns i båda leden — samla dem på samma sida först.",
+      "choices": [
+        "$x = 2$",
+        "$x = 4$",
+        "$x = 8$",
+        "$x = 16$"
+      ],
+      "answer": 1,
+      "explanation": "Dra bort $3x$ från båda leden: $4x - 4 = 12$. Lägg till 4: $4x = 16$. Dela med 4: $x = 4$. Svaret $x = 16$ är det du fastnar på om du glömmer sista divisionen."
+    },
+    {
+      "id": "q-ma8-ekv-5",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $4(x - 3) = 2x + 6$.",
+      "opener": "Multiplicera in parentesen innan du börjar flytta termer.",
+      "choices": [
+        "$x = 3$",
+        "$x = 6$",
+        "$x = 9$",
+        "$x = 12$"
+      ],
+      "answer": 2,
+      "explanation": "$4(x - 3) = 4x - 12$, så ekvationen blir $4x - 12 = 2x + 6$. Dra bort $2x$: $2x - 12 = 6$. Lägg till 12: $2x = 18$, alltså $x = 9$. Kontroll: $4(9 - 3) = 24$ och $2 \\cdot 9 + 6 = 24$. ✓"
+    },
+    {
+      "id": "q-ma8-ekv-6",
+      "kind": "mc",
+      "topic": "problemlösning",
+      "prompt": "Ett gymkort kostar 250 kr i startavgift plus $x$ kr per månad. Efter 6 månader har Sam betalat 1 150 kr totalt. Vilken ekvation beskriver situationen?",
+      "opener": "Startavgiften betalas en gång — månadsavgiften sex gånger.",
+      "choices": [
+        "$6x + 250 = 1150$",
+        "$250x + 6 = 1150$",
+        "$6(x + 250) = 1150$",
+        "$6x - 250 = 1150$"
+      ],
+      "answer": 0,
+      "explanation": "Sex månadsavgifter är $6x$, och startavgiften läggs till en enda gång: $6x + 250 = 1150$. Alternativet $6(x + 250)$ skulle betyda att startavgiften betalas varje månad."
+    },
+    {
+      "id": "q-ma8-ekv-7",
+      "kind": "worked",
+      "topic": "problemlösning",
+      "prompt": "Ett rektangulärt rum är dubbelt så långt som det är brett. Omkretsen är 36 m. Teckna en ekvation och räkna ut rummets bredd och längd.",
+      "opener": "Kalla det du vet minst om för $x$ — här bredden — och uttryck längden med hjälp av den.",
+      "answer": "Bredden är 6 m och längden 12 m",
+      "steps": [
+        "Låt $x$ vara bredden i meter. Då är längden $2x$.",
+        "Omkretsen är två bredder plus två längder: $2(x + 2x) = 36$.",
+        "Förenkla inuti parentesen: $2 \\cdot 3x = 36$, alltså $6x = 36$.",
+        "Dela med 6: $x = 6$. Bredden är 6 m och längden $2 \\cdot 6 = 12$ m.",
+        "Kontroll: $6 + 6 + 12 + 12 = 36$ m. ✓"
+      ]
+    },
+    {
+      "id": "q-ma8-ekv-8",
+      "kind": "flashcard",
+      "topic": "algebraiska uttryck",
+      "prompt": "Vilka regler gäller för parenteser och för att lösa ekvationer?",
+      "opener": "Två delar att minnas: hur parenteser öppnas, och balansregeln.",
+      "answer": "Multiplicera in: $a(b + c) = ab + ac$ — talet utanför möter varje term inuti · Minus framför parentes byter tecken på allt inuti: $-(3x + 2) = -3x - 2$ · Bara lika termer kan slås ihop: $x$-termer med $x$-termer, tal med tal · Balansregeln: det du gör i ena ledet gör du i det andra · Arbetsordning vid ekvation: förenkla båda leden → samla $x$ på ena sidan och tal på den andra → dividera med koefficienten framför $x$ · Kontrollera alltid genom att sätta in svaret i den ursprungliga ekvationen."
+    }
+  ]
+}

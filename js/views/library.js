@@ -1,0 +1,216 @@
+// The practice library: pick a level, then a subject, and see just that
+// subject's sets — instead of one endless page. Works with no API key; every
+// set is a static file that's copied into the student's own library on "Add".
+
+import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
+import { t, plural } from "../lib/i18n.js";
+import { homeButton } from "../components/nav.js";
+import { loadLibraryIndex, isImported, importSet } from "../data/library.js";
+
+export async function renderLibrary() {
+  let index;
+  try {
+    index = await loadLibraryIndex();
+  } catch {
+    return {
+      title: t("lib.title"),
+      node: el("div.empty", {}, [
+        el("h2", {}, t("lib.loadFail")),
+        el("p", {}, t("lib.loadFailBody")),
+        el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
+      ]),
+    };
+  }
+
+  const root = el("div");
+  const state = { level: null, subject: null, query: "", examMin: 0 };
+
+  // Built once so typing never loses focus — paintBody() only touches bodyEl.
+  const searchInput = el("input.search__input", {
+    type: "search", placeholder: t("lib.search"), "aria-label": t("lib.searchAria"),
+    value: state.query,
+    oninput: (e) => { state.query = e.target.value; paintBody(); },
+    onkeydown: (e) => {
+      if (e.key === "Escape" && state.query) { e.preventDefault(); state.query = ""; searchInput.value = ""; paintBody(); }
+    },
+  });
+  const searchWrap = el("div.search", { style: { marginBottom: "16px" } }, [icon(ICONS.search, 16), searchInput]);
+  const headerEl = el("div");
+  const bodyEl = el("div");
+
+  function paint() { paintHeader(); paintBody(); }
+
+  function paintHeader() {
+    clear(headerEl);
+    const back = state.subject
+      ? () => { state.subject = null; paint(); }
+      : state.level
+        ? () => { state.level = null; paint(); }
+        : null;
+
+    headerEl.appendChild(homeButton());
+    headerEl.appendChild(el("div", { style: { display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" } }, [
+      back && el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.back"), onclick: back }, [icon(ICONS.back, 16)]),
+      el("h1", {}, t("lib.title")),
+    ].filter(Boolean)));
+  }
+
+  function paintBody() {
+    clear(bodyEl);
+    const q = state.query.trim().toLowerCase();
+    if (q) bodyEl.appendChild(searchResults(q));
+    else if (!state.level) bodyEl.appendChild(levelPicker());
+    else if (!state.subject) bodyEl.appendChild(subjectPicker());
+    else bodyEl.appendChild(setList());
+  }
+
+  /* ---- search across the whole library, wherever you are ---- */
+  function searchResults(q) {
+    const matches = index.sets.filter((s) => {
+      const subject = index.subjects.find((sub) => sub.id === s.subject);
+      const level = index.levels.find((l) => l.id === subject?.level);
+      return [s.title, s.summary, subject?.name, level?.label].filter(Boolean).join(" ").toLowerCase().includes(q);
+    });
+
+    if (!matches.length) {
+      return el("div.panel", {}, [el("p.note", {}, t("lib.noHits", { q: state.query.trim() }))]);
+    }
+
+    const bySubject = new Map();
+    for (const s of matches) {
+      if (!bySubject.has(s.subject)) bySubject.set(s.subject, []);
+      bySubject.get(s.subject).push(s);
+    }
+
+    const sections = [...bySubject.entries()].map(([subjId, sets]) => {
+      const subject = index.subjects.find((s) => s.id === subjId);
+      const level = index.levels.find((l) => l.id === subject?.level);
+      return el("section.panel", { style: { marginBottom: "20px" } }, [
+        el("p.note", { style: { marginBottom: "8px" } }, [level?.label, subject?.name].filter(Boolean).join(" · ")),
+        el("div.libgrid", {}, sets.map(setCard)),
+      ]);
+    });
+
+    return el("div", {}, [
+      el("p.note", { style: { marginBottom: "12px" } }, plural(matches.length, "lib.hitsOne", "lib.hitsMany")),
+      ...sections,
+    ]);
+  }
+
+  /* ---- step 1: pick a level ---- */
+  function levelPicker() {
+    const levels = index.levels.filter((l) => index.subjects.some((s) => s.level === l.id));
+    return el("div.panel", {}, [
+      el("p", { style: { marginBottom: "16px" } }, t("lib.intro")),
+      el("div.source-grid", {}, levels.map((lvl) =>
+        el("button.source-opt", { type: "button", onclick: () => { state.level = lvl.id; paint(); } }, [
+          el("span", {}, "🎓"), lvl.label,
+        ]))),
+    ]);
+  }
+
+  /* ---- step 2: pick a subject ---- */
+  function subjectPicker() {
+    const level = index.levels.find((l) => l.id === state.level);
+    const subjects = index.subjects.filter((s) => s.level === state.level);
+    return el("div.panel", {}, [
+      el("p", { style: { marginBottom: "16px" } }, t("lib.pickSubject", { level: level?.label || "" })),
+      el("div.source-grid", {}, subjects.map((subject) =>
+        el("button.source-opt", { type: "button", onclick: () => { state.subject = subject.id; paint(); } }, [
+          el("span", {}, "📘"), subject.name,
+          el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, subject.description),
+        ]))),
+    ]);
+  }
+
+  /* ---- step 3: sets for the chosen subject ---- */
+  function setList() {
+    const subject = index.subjects.find((s) => s.id === state.subject);
+    const sets = index.sets.filter((s) => s.subject === subject.id);
+    const missing = sets.filter((s) => !isImported(s.id));
+
+    const addAllBtn = el("button.btn.btn--sm", {
+      type: "button",
+      onclick: async (e) => {
+        e.currentTarget.disabled = true;
+        let added = 0;
+        for (const s of missing) {
+          try { if (await importSet(s)) added++; } catch { /* skip the ones that fail */ }
+        }
+        toast(added ? t("lib.addedN", { n: added }) : t("lib.allThere"));
+        paint();
+      },
+    }, [icon(ICONS.plus, 16), t("lib.addAll", { n: missing.length })]);
+
+    const examSel = el("select", { "aria-label": t("lib.examLenLabel"), onchange: (e) => { state.examMin = Number(e.target.value) || 0; } }, [
+      el("option", { value: "0" }, t("lib.examLenNone")),
+      el("option", { value: "20" }, "20 min"),
+      el("option", { value: "40" }, "40 min"),
+      el("option", { value: "60" }, "60 min"),
+    ]);
+    examSel.value = String(state.examMin);
+
+    return el("div", {}, [
+      el("section.panel", {}, [
+        el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "start", gap: "12px", flexWrap: "wrap", marginBottom: "6px" } }, [
+          el("div", {}, [
+            el("h3", {}, subject.name),
+            el("p.note", { style: { marginTop: "4px" } }, subject.description),
+          ]),
+          missing.length ? addAllBtn : el("span.note", {}, t("lib.allAdded")),
+        ]),
+        el("label.field", { style: { maxWidth: "220px", margin: "8px 0 0" } }, [
+          el("span", {}, t("lib.examLenLabel")), examSel,
+        ]),
+        el("div.libgrid", {}, sets.map(setCard)),
+      ]),
+    ]);
+  }
+
+  function setCard(entry) {
+    const imported = isImported(entry.id);
+
+    const action = imported
+      ? el("a.btn.btn--ghost.btn--sm", { href: `#/session/${entry.id}` }, [icon(ICONS.play, 16), t("lib.study")])
+      : el("button.btn.btn--sm", {
+          type: "button",
+          onclick: async (e) => {
+            e.currentTarget.disabled = true;
+            try {
+              await importSet(entry);
+              toast(t("lib.added", { title: entry.title }));
+              paint();
+            } catch {
+              toast(t("lib.addFail"));
+              e.currentTarget.disabled = false;
+            }
+          },
+        }, [icon(ICONS.plus, 16), t("lib.add")]);
+
+    // Exam conditions: locked tutor, no answer key until the end, on a clock —
+    // only offered once the set is in the library.
+    const examAction = imported
+      ? el("button.btn.btn--ghost.btn--sm", {
+          type: "button", title: t("lib.examTip"),
+          onclick: () => { location.hash = `#/session/${entry.id}?exam=1${state.examMin ? `&min=${state.examMin}` : ""}`; },
+        }, [icon(ICONS.clock, 16), t("lib.exam")])
+      : null;
+
+    return el("div.libcard", {}, [
+      el("div", {}, [
+        el("div.libcard__title", {}, entry.title),
+        el("p.note", { style: { margin: "4px 0 0" } }, entry.summary),
+      ]),
+      el("div.libcard__foot", {}, [
+        el("span.note", {}, plural(entry.count, "common.questionOne", "common.questionMany")),
+        el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap" } }, [examAction, action].filter(Boolean)),
+      ]),
+    ]);
+  }
+
+  root.appendChild(headerEl);
+  root.appendChild(searchWrap);
+  root.appendChild(bodyEl);
+  paint();
+  return { title: t("lib.title"), node: root };
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-en8-vocabulary",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Vocabulary: phrasal verbs och kollokationer",
+  "sourceSummary": "Vanliga phrasal verbs som find out och look forward to, kollokationer med do och make, skillnaden mellan say, tell, speak och talk samt enkel ordbildning med prefix och suffix.",
+  "topics": [
+    "phrasal verbs",
+    "kollokationer",
+    "say och tell",
+    "ordbildning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en8-voc-1",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the best option: \"I need to ___ what time the train leaves.\"",
+      "opener": "Ett phrasal verb betyder något annat än verbets grundbetydelse — vilket betyder \"ta reda på\"?",
+      "choices": [
+        "find out",
+        "look after",
+        "give up",
+        "put off"
+      ],
+      "answer": 0,
+      "explanation": "\"Find out\" betyder ta reda på information. \"Look after\" betyder ta hand om någon och passar inte ihop med en avgångstid."
+    },
+    {
+      "id": "q-en8-voc-2",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the correct form: \"I'm really looking forward ___ the summer holidays.\"",
+      "opener": "Uttrycket har en fast preposition, och efter den står substantiv eller -ing-form.",
+      "choices": [
+        "for",
+        "to",
+        "at",
+        "on"
+      ],
+      "answer": 1,
+      "explanation": "Uttrycket är \"look forward to\" + substantiv eller -ing-form: looking forward to the holidays, looking forward to seeing you. \"Look forward for\" är ett vanligt fel som inte finns på engelska."
+    },
+    {
+      "id": "q-en8-voc-3",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the best option: \"We had to stop baking because we ___ eggs.\"",
+      "opener": "Vad hände med äggen — de tog slut.",
+      "choices": [
+        "ran out of",
+        "got on with",
+        "took off",
+        "looked up"
+      ],
+      "answer": 0,
+      "explanation": "\"Run out of something\" betyder att något har tagit slut: we ran out of eggs. \"Get on with someone\" betyder komma överens med någon och handlar om personer, inte varor."
+    },
+    {
+      "id": "q-en8-voc-4",
+      "kind": "mc",
+      "topic": "kollokationer",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Do\" hör ihop med uppgifter och arbete, \"make\" med att skapa något nytt.",
+      "choices": [
+        "I have to make my homework before I do dinner.",
+        "I have to do my homework before I make dinner.",
+        "I have to make my homework before I make dinner.",
+        "I have to do my homework before I do dinner."
+      ],
+      "answer": 1,
+      "explanation": "På engelska gör man \"do homework\" (en uppgift man utför) men \"make dinner\" (något man tillverkar). \"Make homework\" är en direktöversättning från svenskans \"göra läxor\" och används inte."
+    },
+    {
+      "id": "q-en8-voc-5",
+      "kind": "mc",
+      "topic": "say och tell",
+      "prompt": "Choose the correct word: \"Can you ___ me what happened yesterday?\"",
+      "opener": "Ett av verben tar alltid en person direkt efter sig, utan preposition.",
+      "choices": [
+        "say",
+        "tell",
+        "speak",
+        "talk"
+      ],
+      "answer": 1,
+      "explanation": "\"Tell\" följs direkt av personen: tell me, tell him a story. \"Say\" kräver \"to\" före personen (say something to me), och speak/talk används om själva samtalandet: speak English, talk to a friend."
+    },
+    {
+      "id": "q-en8-voc-6",
+      "kind": "mc",
+      "topic": "ordbildning",
+      "prompt": "Which word means \"not possible\"?",
+      "opener": "Prefixet im- fungerar som svenskans o- framför vissa adjektiv.",
+      "choices": [
+        "unpossible",
+        "impossible",
+        "dispossible",
+        "possibleless"
+      ],
+      "answer": 1,
+      "explanation": "Framför ord som börjar på p används prefixet im-: impossible, impolite. Prefixet un- är vanligare i övrigt (unhappy, unfair), men \"unpossible\" finns inte."
+    },
+    {
+      "id": "q-en8-voc-7",
+      "kind": "worked",
+      "topic": "kollokationer",
+      "prompt": "Correct the four errors: \"Yesterday my teacher said me to make my homework. I am looking forward for the weekend, but first I must find the answer out.\"",
+      "opener": "Fyra vanliga fel: fel verb till person, fel kollokation, fel preposition och fel ordföljd i ett phrasal verb.",
+      "answer": "Yesterday my teacher told me to do my homework. I am looking forward to the weekend, but first I must find out the answer.",
+      "steps": [
+        "\"said me\" → \"told me\". \"Tell\" följs direkt av personen, medan \"say\" kräver \"to\": said to me.",
+        "\"make my homework\" → \"do my homework\". Läxor och uppgifter tar alltid \"do\" på engelska.",
+        "\"looking forward for\" → \"looking forward to\". Uttrycket har den fasta prepositionen \"to\".",
+        "\"find the answer out\" → \"find out the answer\". När objektet är ett helt substantiv står det oftast efter partikeln; bara korta pronomen kan delas in i mitten (find it out)."
+      ]
+    },
+    {
+      "id": "q-en8-voc-8",
+      "kind": "flashcard",
+      "topic": "phrasal verbs",
+      "prompt": "Vilka phrasal verbs, kollokationer och ordbildningsregler behöver du kunna på den här nivån?",
+      "opener": "Phrasal verbs · do/make · say/tell/speak/talk · prefix och suffix.",
+      "answer": "Phrasal verbs: find out = ta reda på · look forward to + substantiv/-ing = se fram emot · get on with someone = komma överens med · run out of = få slut på · give up = ge upp · look after = ta hand om · turn up = dyka upp · Do: do homework, do the dishes, do your best, do an exercise · Make: make dinner, make a mistake, make friends, make a decision · Say something (to someone) · tell someone something · speak a language · talk to/with someone about something · Prefix: un- (unhappy), im- före p (impossible), in- (incorrect), dis- (dislike), re- = igen (rewrite) · Suffix: -ful = full av (helpful), -less = utan (careless), -ness gör adjektiv till substantiv (kindness), -ly gör adjektiv till adverb (quickly)."
+    }
+  ]
+}

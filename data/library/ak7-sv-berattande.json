@@ -1,0 +1,130 @@
+{
+  "id": "lib-sv7-berattande",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Berättande texter",
+  "sourceSummary": "Hur en berättelse är uppbyggd från inledning till lösning, hur man beskriver miljöer och personer, vilket berättarperspektiv man väljer och hur man gestaltar istället för att bara berätta.",
+  "topics": [
+    "berättelsens uppbyggnad",
+    "miljöbeskrivning",
+    "personbeskrivning",
+    "berättarperspektiv",
+    "gestaltning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv7-ber-1",
+      "kind": "mc",
+      "topic": "berättelsens uppbyggnad",
+      "prompt": "I vilken ordning byggs en vanlig berättelse upp?",
+      "opener": "Tänk på hur en film brukar vara: lugnt först, värst i mitten, klart i slutet.",
+      "choices": [
+        "Inledning – problem – upptrappning – lösning",
+        "Problem – inledning – lösning – upptrappning",
+        "Lösning – problem – inledning – upptrappning",
+        "Inledning – lösning – problem – upptrappning"
+      ],
+      "answer": 0,
+      "explanation": "Först presenteras personer och miljö i inledningen, sedan uppstår ett problem som trappas upp, och till sist kommer lösningen. Om lösningen kommer före problemet finns det inget kvar att vara spänd inför."
+    },
+    {
+      "id": "q-sv7-ber-2",
+      "kind": "mc",
+      "topic": "berättelsens uppbyggnad",
+      "prompt": "Vilken mening hör hemma i berättelsens UPPTRAPPNING?",
+      "opener": "Upptrappningen är där det blir värre och värre — spänningen ska stiga.",
+      "choices": [
+        "Det var en vanlig tisdag i mars och Sara cyklade till skolan som alltid.",
+        "Först försvann nyckeln, sedan slocknade lampan och till slut hörde hon steg i trappan.",
+        "Till slut hittade de nyckeln under mattan och kunde gå in.",
+        "Sara bodde i ett gult hus tillsammans med sin pappa och en katt."
+      ],
+      "answer": 1,
+      "explanation": "Meningen radar upp problem som blir allt värre — det är precis vad upptrappning innebär. Den första och sista meningen är typiska inledningar som presenterar miljö och personer, och \"till slut hittade de nyckeln\" är lösningen."
+    },
+    {
+      "id": "q-sv7-ber-3",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "Vilken mening är skriven i jag-form?",
+      "opener": "Jag-form betyder att berättaren själv är med i historien och säger \"jag\".",
+      "choices": [
+        "Hon öppnade dörren försiktigt och lyssnade.",
+        "De öppnade dörren försiktigt och lyssnade.",
+        "Emil öppnade dörren försiktigt och lyssnade.",
+        "Jag öppnade dörren försiktigt och lyssnade."
+      ],
+      "answer": 3,
+      "explanation": "Bara i meningen \"Jag öppnade dörren\" berättar personen om sig själv med ordet \"jag\" — det är jag-form. De övriga är han/hon-form, där en berättare utifrån beskriver vad personerna gör."
+    },
+    {
+      "id": "q-sv7-ber-4",
+      "kind": "mc",
+      "topic": "gestaltning",
+      "prompt": "Vilken mening GESTALTAR att någon är arg istället för att bara berätta det?",
+      "opener": "Gestaltning betyder att visa känslan genom vad personen gör, säger eller känner i kroppen.",
+      "choices": [
+        "Han var jättearg.",
+        "Han kände sig arg när han kom hem.",
+        "Han slängde igen dörren så att tavlan skakade och svarade inte när mamma ropade.",
+        "Han var arg hela kvällen och gick och la sig."
+      ],
+      "answer": 2,
+      "explanation": "Läsaren får se handlingarna — den igenslängda dörren och tystnaden — och förstår själv att han är arg. De andra alternativen talar bara om känslan med ordet \"arg\", vilket är att berätta istället för att visa."
+    },
+    {
+      "id": "q-sv7-ber-5",
+      "kind": "mc",
+      "topic": "miljöbeskrivning",
+      "prompt": "Vilken miljöbeskrivning ger läsaren tydligast bild?",
+      "opener": "En bra miljöbeskrivning använder sinnen: vad ser, hör och luktar man?",
+      "choices": [
+        "Det var ett hus.",
+        "Huset var gammalt och lite läskigt.",
+        "Färgen flagnade från väggarna, fönstren var täckta av damm och det luktade fuktig källare i hallen.",
+        "Huset låg där det låg och var ganska stort."
+      ],
+      "answer": 2,
+      "explanation": "Här får läsaren se den flagnande färgen, de dammiga fönstren och känna lukten — konkreta detaljer skapar en bild. \"Gammalt och lite läskigt\" talar bara om vad man ska tycka, utan att visa något."
+    },
+    {
+      "id": "q-sv7-ber-6",
+      "kind": "mc",
+      "topic": "personbeskrivning",
+      "prompt": "Vad hör till en INRE personbeskrivning?",
+      "opener": "Yttre är det man kan se på utsidan, inre är hur personen är som människa.",
+      "choices": [
+        "Att hon har långt brunt hår",
+        "Att hon har en röd jacka",
+        "Att hon är lång och smal",
+        "Att hon är blyg men modig när det gäller"
+      ],
+      "answer": 3,
+      "explanation": "Blyghet och mod är egenskaper inuti personen — alltså inre beskrivning. Hår, längd och kläder är sådant man ser på utsidan och räknas som yttre beskrivning."
+    },
+    {
+      "id": "q-sv7-ber-7",
+      "kind": "worked",
+      "topic": "gestaltning",
+      "prompt": "Skriv om meningen \"Lina var nervös inför provet\" så att den gestaltar känslan istället för att berätta den.",
+      "opener": "Fråga dig: vad gör kroppen, vad gör händerna, och vad tänker eller hör personen?",
+      "answer": "\"Lina läste samma fråga tre gånger utan att förstå ett ord. Pennan gled i handen och hon hörde sitt eget hjärta slå ända upp i öronen.\"",
+      "steps": [
+        "Stryk ordet som avslöjar känslan rakt ut: \"nervös\".",
+        "Fundera på vad kroppen gör när man är nervös: svettiga händer, snabb puls, darrningar.",
+        "Fundera på vad personen gör: läser om samma mening, tappar fokus, fingrar på pennan.",
+        "Skriv ihop två eller tre konkreta detaljer till en eller två meningar.",
+        "Testa på en kompis: förstår hen att Lina är nervös utan att ordet står där? Då fungerar gestaltningen."
+      ]
+    },
+    {
+      "id": "q-sv7-ber-8",
+      "kind": "flashcard",
+      "topic": "berättande texter",
+      "prompt": "Vad ska du tänka på när du skriver en berättelse?",
+      "opener": "En snabbrepetition av byggstenarna innan du börjar skriva.",
+      "answer": "Uppbyggnad: inledning (personer, miljö, tid) · problem (något går fel eller ändras) · upptrappning (det blir värre, spänningen stiger) · lösning (problemet reds ut och berättelsen avslutas). Berättarperspektiv: jag-form (\"jag öppnade dörren\") ger närhet men bara en persons tankar · han/hon-form ger överblick — välj ett och håll dig till det genom hela texten. Personbeskrivning: yttre (utseende, kläder) och inre (egenskaper, känslor, tankar). Miljöbeskrivning: använd sinnen — vad ser, hör, luktar och känns det? Gestaltning: visa istället för att berätta — inte \"han var rädd\" utan \"han backade mot väggen och vågade inte andas\"."
+    }
+  ]
+}

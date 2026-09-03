@@ -1,0 +1,130 @@
+{
+  "id": "lib-rel7-kristendom",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Kristendomen",
+  "sourceSummary": "Kristendomens grunder — vad man tror om Jesus, hur bibeln är uppbyggd, vad som händer i en gudstjänst, vad jul och påsk betyder och vilken roll kristendomen har haft i Sveriges historia.",
+  "topics": [
+    "tro om Jesus",
+    "bibeln",
+    "kyrkan och gudstjänsten",
+    "jul och påsk",
+    "kristendomen i Sverige"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel7-kri-1",
+      "kind": "mc",
+      "topic": "tro om Jesus",
+      "prompt": "Vad tror man om Jesus inom kristendomen?",
+      "opener": "Det är just synen på Jesus som gör kristendomen till en egen religion.",
+      "choices": [
+        "Att han var en kejsare i Romarriket",
+        "Att han skrev hela bibeln själv",
+        "Att han var en vanlig lärare utan någon särskild roll",
+        "Att han är Guds son, som dog på korset och uppstod från de döda"
+      ],
+      "answer": 3,
+      "explanation": "Inom kristendomen tror man att Jesus är Guds son som blev människa, korsfästes och uppstod från de döda — uppståndelsen är själva kärnan i tron. Bibeln skrevs däremot av många olika personer, varav flera levde långt efter Jesus."
+    },
+    {
+      "id": "q-rel7-kri-2",
+      "kind": "mc",
+      "topic": "bibeln",
+      "prompt": "Vilka två huvuddelar består bibeln av?",
+      "opener": "Delarna är namngivna efter om de handlar om tiden före eller efter Jesus.",
+      "choices": [
+        "Gamla testamentet och Nya testamentet",
+        "Toran och Koranen",
+        "Evangelierna och Talmud",
+        "Psalmboken och katekesen"
+      ],
+      "answer": 0,
+      "explanation": "Bibeln består av Gamla testamentet, som handlar om tiden före Jesus och till stor del delas med judendomen, och Nya testamentet, som handlar om Jesus och den tidiga kyrkan. Toran hör till judendomen och Koranen till islam — de är inte delar av bibeln."
+    },
+    {
+      "id": "q-rel7-kri-3",
+      "kind": "mc",
+      "topic": "kyrkan och gudstjänsten",
+      "prompt": "Vad brukar ingå i en kristen gudstjänst?",
+      "opener": "Tänk på vad man gör tillsammans i kyrkan: sjunger, lyssnar och ber.",
+      "choices": [
+        "Fasta i en hel månad varje dag",
+        "Vandring runt en helig sten fem gånger",
+        "Bön, psalmsång, bibelläsning och predikan",
+        "Offer av djur på ett altare"
+      ],
+      "answer": 2,
+      "explanation": "En kristen gudstjänst innehåller oftast böner, psalmsång, läsning ur bibeln och en predikan där prästen eller pastorn tolkar texten, och i många kyrkor även nattvard. Djuroffer förekom i det gamla templet i Jerusalem men hör inte till kristen gudstjänst, och fasta i en månad respektive vandring kring Kaba hör till islam."
+    },
+    {
+      "id": "q-rel7-kri-4",
+      "kind": "mc",
+      "topic": "jul och påsk",
+      "prompt": "Vad firas vid jul inom kristendomen?",
+      "opener": "Högtiden handlar om en berättelse från Betlehem.",
+      "choices": [
+        "Att Jesus uppstod från de döda",
+        "Att Jesus föddes",
+        "Att bibeln skrevs färdigt",
+        "Att den heliga Anden kom till lärjungarna"
+      ],
+      "answer": 1,
+      "explanation": "Julen firar Jesu födelse enligt berättelsen om hur han föddes i Betlehem. Uppståndelsen firas i stället vid påsk, och att den heliga Anden kom till lärjungarna firas vid pingst."
+    },
+    {
+      "id": "q-rel7-kri-5",
+      "kind": "mc",
+      "topic": "jul och påsk",
+      "prompt": "Vilken dag under påsken firar kristna att Jesus uppstod från de döda?",
+      "opener": "Det är dagen efter påskaftonen, inte dagen då man minns korsfästelsen.",
+      "choices": [
+        "Palmsöndagen",
+        "Skärtorsdagen",
+        "Långfredagen",
+        "Påskdagen"
+      ],
+      "answer": 3,
+      "explanation": "Påskdagen är den dag då kristna firar att Jesus enligt tron uppstod från de döda. Långfredagen är i stället dagen då man minns korsfästelsen, skärtorsdagen handlar om den sista måltiden och palmsöndagen om Jesu intåg i Jerusalem."
+    },
+    {
+      "id": "q-rel7-kri-6",
+      "kind": "mc",
+      "topic": "kristendomen i Sverige",
+      "prompt": "Vilket påstående om kristendomens roll i Sveriges historia stämmer?",
+      "opener": "Fundera på hur länge kyrkan och staten hörde ihop i Sverige.",
+      "choices": [
+        "Svenska kyrkan var statskyrka fram till år 2000, och kyrkan skötte länge både folkbokföring och skolundervisning",
+        "Kristendomen kom till Sverige först på 1900-talet",
+        "Sverige har alltid haft religionsfrihet med helt skilda kyrka och stat",
+        "Svenska kyrkan är fortfarande statskyrka och styrs av regeringen"
+      ],
+      "answer": 0,
+      "explanation": "Svenska kyrkan var statskyrka fram till år 2000, då kyrka och stat skildes, och innan dess ansvarade kyrkan under lång tid för folkbokföring och för folkskolans undervisning. Kristendomen kom till Sverige redan under vikingatiden och blev dominerande under medeltiden, så påståendet om 1900-talet stämmer inte."
+    },
+    {
+      "id": "q-rel7-kri-7",
+      "kind": "worked",
+      "topic": "jul och påsk",
+      "prompt": "Förklara skillnaden mellan jul och påsk inom kristendomen, och varför påsken brukar räknas som den viktigaste högtiden.",
+      "opener": "Ta reda på vad varje högtid handlar om innan du jämför deras betydelse.",
+      "answer": "Julen firar att Jesus föddes i Betlehem, och den inleds efter adventstiden med julafton och juldagen. Påsken handlar i stället om slutet av Jesu liv: palmsöndagen minner om intåget i Jerusalem, skärtorsdagen om den sista måltiden, långfredagen om korsfästelsen och påskdagen om uppståndelsen. Påsken räknas oftast som kristendomens viktigaste högtid eftersom uppståndelsen enligt kristen tro är det som visar att Jesus är Guds son och som ger hopp om evigt liv. Utan uppståndelsen skulle själva grunden i tron falla, medan födelsen är början på berättelsen snarare än dess kärna.",
+      "steps": [
+        "Julen: firar Jesu födelse i Betlehem, efter adventstiden.",
+        "Påsken: en hel vecka som följer slutet av Jesu liv — intåg, sista måltiden, korsfästelse och uppståndelse.",
+        "Påskdagen är höjdpunkten, eftersom uppståndelsen firas då.",
+        "Enligt kristen tro är uppståndelsen beviset på att Jesus är Guds son och grunden för hoppet om evigt liv.",
+        "Slutsats: därför räknas påsken oftast som viktigare än julen, även om julen är den högtid som märks mest i Sverige."
+      ]
+    },
+    {
+      "id": "q-rel7-kri-8",
+      "kind": "flashcard",
+      "topic": "tro om Jesus",
+      "prompt": "Sammanfatta kristendomens grunder: tro, skrift, kyrka och högtider.",
+      "opener": "Gå igenom tro, bibeln, inriktningar, gudstjänst och högtider som fem korta punkter.",
+      "answer": "Tro: en enda gud som enligt kristen tro visar sig som Fadern, Sonen och den heliga Anden (treenigheten) · Jesus: enligt kristen tro Guds son, född i Betlehem, korsfäst och uppstånden — uppståndelsen är trons kärna · Helig skrift: bibeln, i två delar — Gamla testamentet (tiden före Jesus, delas till stor del med judendomen) och Nya testamentet (Jesus, de fyra evangelierna och den tidiga kyrkan) · Byggnad: kyrka · Ledare: präst, pastor eller diakon · Gudstjänst: bön, psalmsång, bibelläsning, predikan och i många kyrkor nattvard · Riter: dop, konfirmation, bröllop, begravning · Inriktningar: katolsk (påven i Rom), ortodox (starkast i östra Europa, ikoner) och protestantisk (t.ex. Svenska kyrkan) · Högtider: advent · jul (Jesu födelse) · påsk (korsfästelse långfredag, uppståndelse påskdagen) · pingst (den heliga Anden) · Kristendomen i Sverige: kom under vikingatiden, dominerande under medeltiden, Svenska kyrkan var statskyrka till år 2000, kyrkan skötte länge folkbokföring och skola · Symbol: korset."
+    }
+  ]
+}

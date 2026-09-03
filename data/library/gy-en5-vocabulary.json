@@ -1,0 +1,127 @@
+{
+  "id": "lib-en5-vocabulary",
+  "type": "assignment",
+  "subject": "Engelska 5",
+  "title": "Vocabulary: collocations, phrasal verbs and word formation",
+  "sourceSummary": "Do eller make, vanliga phrasal verbs och hur du bygger nya ord med prefix och suffix — det som lyfter ordförrådet från godkänt till nyanserat.",
+  "topics": [
+    "collocations",
+    "phrasal verbs",
+    "word formation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en5-voc-1",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct verb: \"You need to ___ a decision before Friday.\"",
+      "opener": "Svenskans \"ta ett beslut\" hjälper dig inte här.",
+      "choices": [
+        "make",
+        "do",
+        "give",
+        "take"
+      ],
+      "answer": 0,
+      "explanation": "På engelska \"make a decision\". Svenskans \"ta ett beslut\" leder ofta till felet \"take a decision\"."
+    },
+    {
+      "id": "q-en5-voc-2",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct verb: \"I have to ___ my homework before dinner.\"",
+      "opener": "Uppgifter och sysslor tar ett visst verb, resultat och skapelser ett annat.",
+      "choices": [
+        "take",
+        "do",
+        "have",
+        "make"
+      ],
+      "answer": 1,
+      "explanation": "\"Do homework\" — \"do\" används om uppgifter, arbete och sysslor. \"Make\" används när något skapas eller uppstår: make a cake, make a mistake."
+    },
+    {
+      "id": "q-en5-voc-3",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "What does \"put off\" mean in: \"They had to put off the meeting until next week\"?",
+      "opener": "Vad händer med mötet — ställs det in, eller flyttas det?",
+      "choices": [
+        "prepare for",
+        "cancel completely",
+        "postpone",
+        "shorten"
+      ],
+      "answer": 2,
+      "explanation": "\"Put off\" betyder skjuta upp till en senare tidpunkt. Att ställa in helt heter \"call off\" eller \"cancel\"."
+    },
+    {
+      "id": "q-en5-voc-4",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"Could you ___ my cat while I'm away?\"",
+      "opener": "Vilket uttryck betyder att ta hand om någon eller något?",
+      "choices": [
+        "look into",
+        "look for",
+        "look up",
+        "look after"
+      ],
+      "answer": 3,
+      "explanation": "\"Look after\" = ta hand om. \"Look for\" = leta efter, \"look up\" = slå upp, \"look into\" = undersöka."
+    },
+    {
+      "id": "q-en5-voc-5",
+      "kind": "mc",
+      "topic": "word formation",
+      "prompt": "What is the opposite of \"possible\"?",
+      "opener": "Alla negationer använder inte samma prefix.",
+      "choices": [
+        "impossible",
+        "dispossible",
+        "nonpossible",
+        "unpossible"
+      ],
+      "answer": 0,
+      "explanation": "Prefixet \"im-\" används före ord som börjar på m och p: impossible, impatient, immature. \"Un-\" är vanligast generellt (unhappy), men fungerar inte här."
+    },
+    {
+      "id": "q-en5-voc-6",
+      "kind": "mc",
+      "topic": "word formation",
+      "prompt": "Which noun is formed from the verb \"develop\"?",
+      "opener": "Vilket suffix gör ett verb till ett substantiv här?",
+      "choices": [
+        "developation",
+        "development",
+        "developity",
+        "developness"
+      ],
+      "answer": 1,
+      "explanation": "Suffixet \"-ment\" bildar substantiv av vissa verb: develop → development, agree → agreement, improve → improvement."
+    },
+    {
+      "id": "q-en5-voc-7",
+      "kind": "worked",
+      "topic": "collocations",
+      "prompt": "Correct the four collocation errors: \"I made my homework, then I took a decision to make a break and take a photo of the sunset. It made me a lot of good.\"",
+      "opener": "Tre av felen handlar om do/make/take — och ett uttryck är helt fel formulerat.",
+      "answer": "I did my homework, then I made a decision to take a break and take a photo of the sunset. It did me a lot of good.",
+      "steps": [
+        "\"made my homework\" → \"did my homework\". Uppgifter och sysslor tar \"do\".",
+        "\"took a decision\" → \"made a decision\". Beslut \"görs\" på engelska.",
+        "\"make a break\" → \"take a break\". Paus, dusch och buss \"tas\" på engelska.",
+        "\"It made me a lot of good\" → \"It did me a lot of good\". Fast uttryck med \"do\". Notera att \"take a photo\" i originalet redan var korrekt."
+      ]
+    },
+    {
+      "id": "q-en5-voc-8",
+      "kind": "flashcard",
+      "topic": "collocations",
+      "prompt": "When do you use \"do\" and when do you use \"make\"?",
+      "opener": "En tumregel plus de fasta uttryck du behöver kunna utantill.",
+      "answer": "Do: uppgifter, arbete, sysslor och obestämda aktiviteter — do homework, do the dishes, do research, do business, do someone a favour, do good. Make: när något skapas eller uppstår — make a decision, make a mistake, make progress, make an effort, make money, make friends, make noise. Tumregel: \"do\" om aktiviteten, \"make\" om resultatet."
+    }
+  ]
+}

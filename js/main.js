@@ -19,6 +19,7 @@ import { renderParentHub, renderParentStudent } from "./views/parent-dashboard.j
 import { renderGallery } from "./views/gallery.js";
 import { renderPrint } from "./views/print.js";
 import { renderTeachback } from "./views/teachback.js";
+import { renderLibrary } from "./views/library.js";
 import { mountCommandPalette } from "./components/command-palette.js";
 import { maybeShowOnboarding } from "./components/onboarding.js";
 
@@ -31,11 +32,12 @@ const routes = [
   { rx: /^\/review$/, view: () => renderReview() },
   { rx: /^\/practice-weak$/, view: () => renderWeakPractice() },
   { rx: /^\/practice\/(.+)$/, view: (m) => renderPractice(m[1]) },
-  { rx: /^\/session\/(.+)$/, view: (m) => renderSession(m[1]) },
+  { rx: /^\/session\/(.+)$/, view: (m, qs) => renderSession(m[1], qs) },
   { rx: /^\/results\/(.+)$/, view: (m) => renderResults(m[1]) },
   { rx: /^\/progress$/, view: () => renderProgress() },
   { rx: /^\/settings$/, view: () => renderSettings() },
   { rx: /^\/gallery$/, view: () => renderGallery() },
+  { rx: /^\/library$/, view: () => renderLibrary() },
   { rx: /^\/print\/(.+)$/, view: (m) => renderPrint(m[1]) },
   { rx: /^\/teachback\/(.+)$/, view: (m) => renderTeachback(m[1]) },
   { rx: /^\/login$/, view: () => renderLogin() },
@@ -131,6 +133,7 @@ function shell(contentNode) {
           title: `${t("common.language")} → ${nextLabel}`,
           onclick: () => { setLang(next); toast(t("set.langUpdated")); },
         }, [icon(ICONS.globe, 18), el("span.langbtn__code", {}, next.toUpperCase())]),
+        el("a.iconbtn", { href: "#/library", "aria-label": t("common.library"), title: t("common.library") }, [icon(ICONS.book, 18)]),
         el("a.iconbtn.topbar__wide", { href: "#/progress", "aria-label": t("common.progress"), title: t("common.progress") }, [icon(ICONS.chart, 18)]),
         store.authed && el("a.iconbtn.topbar__wide", { href: "#/parent", "aria-label": t("common.parent"), title: t("common.parent") }, [icon(ICONS.users, 18)]),
         el("a.iconbtn.topbar__wide", { href: "#/settings", "aria-label": t("common.settings"), title: t("common.settings") }, [icon(ICONS.gear, 18)]),

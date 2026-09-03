@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo8-befolkning",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Befolkning och migration",
+  "sourceSummary": "Var på jorden människor bor och varför, hur man läser en befolkningspyramid, vad födelse- och dödstal säger om ett land, samt varför människor flyttar inom och mellan länder och hur världens storstäder växer.",
+  "topics": [
+    "befolkningstäthet och bosättningsmönster",
+    "befolkningspyramider",
+    "födelse- och dödstal",
+    "migration och push- och pullfaktorer",
+    "urbanisering och storstäder"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo8-bef-1",
+      "kind": "mc",
+      "topic": "befolkningstäthet och bosättningsmönster",
+      "prompt": "Hur räknar man ut befolkningstätheten i ett område?",
+      "opener": "Tätheten anges i invånare per kvadratkilometer – vad ska då delas med vad?",
+      "choices": [
+        "Man delar ytan i kvadratkilometer med antalet invånare",
+        "Man delar antalet invånare med ytan i kvadratkilometer",
+        "Man räknar antalet födda barn per år",
+        "Man delar antalet invånare med antalet städer"
+      ],
+      "answer": 1,
+      "explanation": "Befolkningstäthet = antal invånare dividerat med ytan i kvadratkilometer, alltså hur många människor som i genomsnitt bor på varje kvadratkilometer. Om man delar ytan med invånarna får man i stället kvadratkilometer per person, vilket är ett annat mått och inte det som brukar användas i kartor och statistik."
+    },
+    {
+      "id": "q-geo8-bef-2",
+      "kind": "mc",
+      "topic": "befolkningstäthet och bosättningsmönster",
+      "prompt": "Var bor de flesta av världens människor?",
+      "opener": "Tänk på vad man behöver för att kunna odla mat, hämta vatten och transportera varor.",
+      "choices": [
+        "Nära kuster och floder, i områden med tempererat eller tropiskt klimat och odlingsbar mark",
+        "Jämnt fördelat över alla världsdelar",
+        "Framför allt högt upp i bergen",
+        "Framför allt i öken- och polarområden"
+      ],
+      "answer": 0,
+      "explanation": "Människor har genom historien bosatt sig där det finns vatten, bördig jord, ett hanterbart klimat och möjlighet till transport – därför är kustband och floddalar som Ganges, Nilen och de kinesiska floddalarna mycket tätbefolkade. Öknar, höga bergsområden och polartrakter är glesbefolkade eftersom det är svårt att odla och leva där."
+    },
+    {
+      "id": "q-geo8-bef-3",
+      "kind": "mc",
+      "topic": "befolkningspyramider",
+      "prompt": "Vad visar en befolkningspyramid?",
+      "opener": "Diagrammet har åldrar på ena axeln och två sidor som speglar varandra.",
+      "choices": [
+        "Hur befolkningstätheten varierar mellan olika landsdelar",
+        "Hur många som flyttar in och ut ur ett land varje år",
+        "Hur befolkningen är fördelad på olika åldersgrupper och kön",
+        "Hur stor andel av befolkningen som bor i städer"
+      ],
+      "answer": 2,
+      "explanation": "En befolkningspyramid är ett stapeldiagram där varje stapel visar hur många (eller hur stor andel) som tillhör en åldersgrupp, med män på ena sidan och kvinnor på den andra. Befolkningstäthet, migration och urbaniseringsgrad visas i stället med kartor eller andra diagram."
+    },
+    {
+      "id": "q-geo8-bef-4",
+      "kind": "mc",
+      "topic": "befolkningspyramider",
+      "prompt": "Ett lands befolkningspyramid har mycket bred bas och smal topp. Vad tyder det på?",
+      "opener": "Basen visar de yngsta åldersgrupperna.",
+      "choices": [
+        "Låga födelsetal och många äldre",
+        "Att många människor utvandrar från landet",
+        "Att landet har hög befolkningstäthet",
+        "Höga födelsetal och en ung befolkning"
+      ],
+      "answer": 3,
+      "explanation": "En bred bas betyder att det föds många barn, och en smal topp att relativt få blir gamla – ett mönster som är vanligt i låginkomstländer med höga födelsetal. Låga födelsetal och en åldrande befolkning ger tvärtom en pyramid som är smal i botten och bred i mitten och toppen, som i Japan och Sverige."
+    },
+    {
+      "id": "q-geo8-bef-5",
+      "kind": "mc",
+      "topic": "födelse- och dödstal",
+      "prompt": "Vad menas med naturlig befolkningsökning?",
+      "opener": "Ordet \"naturlig\" markerar att flyttningar inte räknas in.",
+      "choices": [
+        "Hur många som flyttar in i landet minus hur många som flyttar ut",
+        "Skillnaden mellan antalet födda och antalet döda under en period",
+        "Hur snabbt städerna växer i förhållande till landsbygden",
+        "Hur många barn en kvinna föder i genomsnitt"
+      ],
+      "answer": 1,
+      "explanation": "Naturlig befolkningsökning är födelsetalet minus dödstalet: föds det fler än det dör växer befolkningen av egen kraft, oavsett in- och utflyttning. Skillnaden mellan in- och utflyttning kallas i stället nettomigration, och genomsnittligt antal barn per kvinna kallas fruktsamhetstal."
+    },
+    {
+      "id": "q-geo8-bef-6",
+      "kind": "mc",
+      "topic": "urbanisering och storstäder",
+      "prompt": "Vad är en megastad?",
+      "opener": "Gränsen går vid ett runt tal i miljoner invånare.",
+      "choices": [
+        "En stad med mer än 10 miljoner invånare",
+        "En stad som är huvudstad i sitt land",
+        "En stad med mer än 1 miljon invånare",
+        "Ett storstadsområde som sträcker sig över en landsgräns"
+      ],
+      "answer": 0,
+      "explanation": "En megastad definieras som ett stadsområde med över 10 miljoner invånare – exempel är Tokyo, Delhi, Shanghai, São Paulo, Kairo och Lagos. Städer över en miljon invånare kallas miljonstäder, och att vara huvudstad har inget med storleken att göra."
+    },
+    {
+      "id": "q-geo8-bef-7",
+      "kind": "worked",
+      "topic": "migration och push- och pullfaktorer",
+      "prompt": "En familj i ett låginkomstland flyttar från sin by till huvudstaden. Förklara varför de flyttar och vilka utmaningar den snabba stadstillväxten skapar.",
+      "opener": "Dela upp orsakerna i push och pull, och tänk sedan på vad staden måste hinna bygga ut.",
+      "answer": "Familjen trycks bort från byn av pushfaktorer: jorden räcker inte till när befolkningen växer, skördarna kan slå fel vid torka, och det finns få jobb, sämre skolor och begränsad sjukvård. Samtidigt dras de till huvudstaden av pullfaktorer: fler arbeten inom industri, byggen och handel, bättre skolor och sjukhus, elektricitet och vatten samt släktingar som redan bor där. När mycket många flyttar in samtidigt hinner staden inte bygga ut bostäder, vatten, avlopp, kollektivtrafik och skolor i samma takt. Följden blir ofta informella bostadsområden med enkla hus, trängsel, brist på rent vatten, luftföroreningar och konkurrens om de jobb som finns. Samtidigt kan staden ge familjen högre inkomst och barnen bättre utbildning än byn kunde.",
+      "steps": [
+        "Pushfaktorer i byn: jordbrist, missväxt och torka, låga inkomster, få jobb, svag skola och sjukvård.",
+        "Pullfaktorer i staden: jobb, utbildning, sjukvård, el och vatten samt kontakter som redan finns där.",
+        "Många flyttar samtidigt, så befolkningen växer snabbare än bostäder och infrastruktur byggs.",
+        "Följder: informella bosättningar, trängsel, brist på rent vatten och avlopp, luftföroreningar och hård konkurrens om jobben.",
+        "Samtidigt finns möjligheter: högre inkomst, skolgång för barnen och tillgång till service – därför fortsätter inflyttningen."
+      ]
+    },
+    {
+      "id": "q-geo8-bef-8",
+      "kind": "flashcard",
+      "topic": "födelse- och dödstal",
+      "prompt": "Sammanfatta nyckelbegreppen om befolkning och migration.",
+      "opener": "Samla täthet, pyramider, tal och flyttningar i en tät översikt.",
+      "answer": "Befolkningstäthet: invånare per kvadratkilometer · tätt befolkat vid kuster, floddalar och storstäder, glest i öknar, regnskog, höga berg och polartrakter · befolkningspyramid: stapeldiagram över åldersgrupper och kön · bred bas = höga födelsetal och ung befolkning (många låginkomstländer) · smal bas och bred topp = låga födelsetal och åldrande befolkning (Japan, Sverige) · födelsetal och dödstal räknas per 1000 invånare och år · naturlig befolkningsökning = födda minus döda · nettomigration = inflyttade minus utflyttade · fruktsamhetstal = antal barn per kvinna i genomsnitt · migration: att flytta inom (intern) eller mellan (internationell) länder · pushfaktorer trycker bort: krig, förtryck, fattigdom, arbetslöshet, torka och naturkatastrofer · pullfaktorer drar till: jobb, trygghet, utbildning, sjukvård, familj · flykting: någon som tvingats fly och har rätt till skydd · urbanisering: en ökande andel av befolkningen bor i städer, snabbast i Afrika och Asien i dag · megastad: stadsområde med över 10 miljoner invånare, till exempel Tokyo, Delhi och Lagos."
+    }
+  ]
+}

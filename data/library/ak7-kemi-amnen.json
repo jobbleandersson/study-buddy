@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi7-amnen",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Ämnen och deras egenskaper",
+  "sourceSummary": "Skillnaden mellan rena ämnen och blandningar, vad lösningar och legeringar är, hur man separerar blandningar med filtrering, indunstning och destillation, samt fysikaliska egenskaper som smältpunkt och löslighet.",
+  "topics": [
+    "rena ämnen och blandningar",
+    "lösningar",
+    "legeringar",
+    "separationsmetoder",
+    "fysikaliska egenskaper"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi7-amn-1",
+      "kind": "mc",
+      "topic": "rena ämnen och blandningar",
+      "prompt": "Vilket av följande är ett rent ämne?",
+      "opener": "Ett rent ämne innehåller bara ett enda slags ämne — inget annat är inblandat.",
+      "choices": [
+        "Havsvatten",
+        "Luft",
+        "Destillerat vatten",
+        "Mjölk"
+      ],
+      "answer": 2,
+      "explanation": "Destillerat vatten innehåller bara vatten och är därför ett rent ämne. Havsvatten är en blandning av vatten och salter, precis som luft är en blandning av flera gaser — de ser bara enhetliga ut."
+    },
+    {
+      "id": "q-kemi7-amn-2",
+      "kind": "mc",
+      "topic": "separationsmetoder",
+      "prompt": "Du har en bägare med sand blandat i vatten. Vilken metod skiljer bäst sanden från vattnet?",
+      "opener": "Fundera på om sanden har löst sig i vattnet eller bara ligger som korn i det.",
+      "choices": [
+        "Filtrering",
+        "Destillation",
+        "Indunstning",
+        "Att låta blandningen frysa"
+      ],
+      "answer": 0,
+      "explanation": "Sandkornen har inte löst sig, så de fastnar i filtret medan vattnet rinner igenom — filtrering fungerar. Indunstning skulle i stället få bort vattnet och lämna kvar sanden, vilket är onödigt krångligt om det är vattnet du vill ha."
+    },
+    {
+      "id": "q-kemi7-amn-3",
+      "kind": "mc",
+      "topic": "separationsmetoder",
+      "prompt": "Du har saltvatten och vill få tillbaka saltet i fast form. Vilken metod använder du?",
+      "opener": "Saltet är löst i vattnet, så inget filter kan fånga det.",
+      "choices": [
+        "Filtrering",
+        "Sila blandningen genom ett durkslag",
+        "Dra ut saltet med en magnet",
+        "Indunstning"
+      ],
+      "answer": 3,
+      "explanation": "Vid indunstning får vattnet avdunsta och saltet blir kvar som kristaller i kärlet. Filtrering fungerar inte, eftersom salt som är löst i vatten passerar rakt igenom filtret tillsammans med vattnet."
+    },
+    {
+      "id": "q-kemi7-amn-4",
+      "kind": "mc",
+      "topic": "legeringar",
+      "prompt": "Vad är en legering?",
+      "opener": "Tänk på messing, som består av koppar och zink.",
+      "choices": [
+        "Ett rent metalliskt grundämne",
+        "En blandning där metaller har smälts samman med varandra eller med något annat ämne",
+        "En vätska som löser upp metaller",
+        "En kemisk förening mellan en metall och syre"
+      ],
+      "answer": 1,
+      "explanation": "En legering är en blandning, till exempel messing (koppar + zink) eller stål (järn + kol), och man gör den för att få bättre egenskaper som hårdhet eller rostmotstånd. En metall som reagerat med syre är i stället en kemisk förening, en metalloxid — inte en legering."
+    },
+    {
+      "id": "q-kemi7-amn-5",
+      "kind": "mc",
+      "topic": "lösningar",
+      "prompt": "Du rör ut en tesked socker i ett glas vatten. Vad är lösningsmedlet i den lösningen?",
+      "opener": "Lösningsmedlet är det som finns i störst mängd och som löser upp det andra.",
+      "choices": [
+        "Vattnet",
+        "Sockret",
+        "Luften i vattnet",
+        "Både sockret och vattnet är lösningsmedel"
+      ],
+      "answer": 0,
+      "explanation": "Vattnet är lösningsmedlet eftersom det finns i störst mängd och löser upp sockret; sockret kallas det lösta ämnet. Sockret försvinner inte — det finns kvar utspritt i vattnet, vilket du märker på smaken."
+    },
+    {
+      "id": "q-kemi7-amn-6",
+      "kind": "mc",
+      "topic": "fysikaliska egenskaper",
+      "prompt": "Vad menas med att ett ämne är lättlösligt i vatten?",
+      "opener": "Tänk på hur socker beter sig i vatten jämfört med hur sand gör.",
+      "choices": [
+        "Att ämnet smälter så fort det läggs i vatten",
+        "Att ämnet reagerar kemiskt med vattnet och bildar ett nytt ämne",
+        "Att ämnet flyter ovanpå vattnet",
+        "Att stora mängder av ämnet kan blandas jämnt i vattnet och bilda en lösning"
+      ],
+      "answer": 3,
+      "explanation": "Lättlöslig betyder att mycket av ämnet kan spridas jämnt i vattnet, så att blandningen blir en klar lösning. Det är inte samma sak som att smälta — smältning handlar om att ett ämne går från fast till flytande när det värms upp, alltså om temperatur och inte om vatten."
+    },
+    {
+      "id": "q-kemi7-amn-7",
+      "kind": "worked",
+      "topic": "separationsmetoder",
+      "prompt": "Du har en bägare med en blandning av sand, salt och vatten. Hur gör du för att till slut ha torr sand i en skål och torrt salt i en annan?",
+      "opener": "Ta en metod i taget, och börja med det som inte har löst sig.",
+      "answer": "Filtrera först bort sanden och låt den torka, indunsta sedan filtratet så att saltet blir kvar som kristaller.",
+      "steps": [
+        "Tänk igenom blandningen: sanden ligger som korn i vattnet, medan saltet är löst i vattnet.",
+        "Häll blandningen genom ett filter i en tratt. Sanden fastnar i filtret och den salta vätskan (filtratet) rinner ner i ett kärl.",
+        "Låt filtret med sanden ligga och torka — då har du torr sand.",
+        "Värm filtratet försiktigt i en avdunstningsskål så att vattnet avdunstar. Kvar i skålen blir vita saltkristaller.",
+        "Kontrollera rimligheten: ingen av metoderna förändrar ämnena kemiskt, du har bara delat upp blandningen i sina delar igen."
+      ]
+    },
+    {
+      "id": "q-kemi7-amn-8",
+      "kind": "flashcard",
+      "topic": "rena ämnen och blandningar",
+      "prompt": "Sammanfatta rena ämnen, blandningar och de vanligaste separationsmetoderna.",
+      "opener": "Gå igenom begreppen först och metoderna sedan — vilken metod passar till vilken blandning?",
+      "answer": "Rent ämne: bara ett slags ämne, har bestämd smältpunkt och kokpunkt (rent vatten smälter vid 0 °C och kokar vid 100 °C) · Blandning: två eller flera ämnen blandade utan att reagera, delarna finns kvar · Ojämn blandning: delarna syns, t.ex. sand i vatten, grus, müsli · Jämn blandning (lösning): delarna syns inte, t.ex. saltvatten, sockerlösning, luft · Lösning = lösningsmedel (störst mängd, oftast vatten) + löst ämne · Legering: blandning av metaller, t.ex. messing (koppar + zink), stål (järn + kol), brons (koppar + tin) · Filtrering: skiljer olösta partiklar från vätska, t.ex. sand från vatten · Indunstning: vätskan avdunstar, det lösta ämnet blir kvar, t.ex. salt ur saftvatten · Destillation: vätskan kokas, ångan kyls och blir vätska igen i ett annat kärl — ger rent vatten ur saltvatten · Löslighet: hur mycket av ett ämne som kan lösas, ökar oftast med högre temperatur · Fysikaliska egenskaper som hjälper dig känna igen ett ämne: smältpunkt, kokpunkt, densitet, färg, löslighet."
+    }
+  ]
+}

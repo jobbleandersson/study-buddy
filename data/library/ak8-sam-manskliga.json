@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam8-manskliga",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Mänskliga rättigheter och jämlikhet",
+  "sourceSummary": "FN:s allmänna förklaring om de mänskliga rättigheterna, barnkonventionen som svensk lag, diskrimineringsgrunderna i diskrimineringslagen, jämställdhet mellan könen samt de fri- och rättigheter som skyddas i svensk grundlag.",
+  "topics": [
+    "FN:s allmänna förklaring",
+    "barnkonventionen",
+    "diskrimineringsgrunderna",
+    "jämställdhet",
+    "demokratiska fri- och rättigheter"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam8-man-1",
+      "kind": "mc",
+      "topic": "FN:s allmänna förklaring",
+      "prompt": "Vad innebär det att de mänskliga rättigheterna är universella?",
+      "opener": "Universell handlar om vilka rättigheterna gäller för, inte om hur väl de följs.",
+      "choices": [
+        "Att de gäller alla människor i hela världen, oavsett bakgrund, kön, religion eller medborgarskap",
+        "Att alla länder i praktiken följer dem fullt ut",
+        "Att de bara gäller i länder som är demokratier",
+        "Att de kan tas ifrån en person som bryter mot lagen"
+      ],
+      "answer": 0,
+      "explanation": "Universalitet betyder att rättigheterna gäller varje människa överallt, just för att hon är människa. Att rättigheterna gäller är inte samma sak som att de alltid respekteras — många stater kränker dem, vilket är själva anledningen till att de behöver bevakas. Rättigheterna är också omistliga: de kan inte förtjänas bort, även om vissa rättigheter i praktiken kan begränsas, till exempel friheten att röra sig för den som avtjänar ett fängelsestraff."
+    },
+    {
+      "id": "q-sam8-man-2",
+      "kind": "mc",
+      "topic": "FN:s allmänna förklaring",
+      "prompt": "När och av vem antogs den allmänna förklaringen om de mänskliga rättigheterna?",
+      "opener": "Den kom strax efter andra världskriget, från en global organisation.",
+      "choices": [
+        "Av EU år 1995",
+        "Av Sveriges riksdag år 1974",
+        "Av FN:s generalförsamling år 1948",
+        "Av Nationernas förbund år 1919"
+      ],
+      "answer": 2,
+      "explanation": "FN:s generalförsamling antog den allmänna förklaringen om de mänskliga rättigheterna den 10 december 1948, i skuggan av andra världskrigets övergrepp. Den blev grunden för senare bindande konventioner, till exempel barnkonventionen. 1974 är i stället året för Sveriges nuvarande regeringsform, och 1995 året då Sverige gick med i EU."
+    },
+    {
+      "id": "q-sam8-man-3",
+      "kind": "mc",
+      "topic": "barnkonventionen",
+      "prompt": "Vad gäller för barnkonventionen i Sverige i dag?",
+      "opener": "Något förändrades i konventionens ställning den 1 januari 2020.",
+      "choices": [
+        "Den gäller som svensk lag sedan 2020 och omfattar alla under 18 år",
+        "Den gäller bara barn under 12 år",
+        "Sverige har inte skrivit under den",
+        "Den är enbart en rekommendation utan betydelse för svenska myndigheter"
+      ],
+      "answer": 0,
+      "explanation": "Barnkonventionen antogs av FN 1989, Sverige ratificerade den 1990 och sedan den 1 januari 2020 gäller den som svensk lag. Den omfattar alla under 18 år, inte bara små barn, och myndigheter, kommuner och domstolar ska tillämpa den. Fyra grundprinciper bär upp konventionen: icke-diskriminering, barnets bästa, rätten till liv och utveckling samt barnets rätt att bli hört."
+    },
+    {
+      "id": "q-sam8-man-4",
+      "kind": "mc",
+      "topic": "diskrimineringsgrunderna",
+      "prompt": "Vilket av följande är en av de sju diskrimineringsgrunderna i den svenska diskrimineringslagen?",
+      "opener": "Grunderna handlar om egenskaper och tillhörigheter som lagen särskilt skyddar.",
+      "choices": [
+        "Vilken frisyr man har",
+        "Vilket fotbollslag man håller på",
+        "Hur stor bostad man bor i",
+        "Sexuell läggning"
+      ],
+      "answer": 3,
+      "explanation": "De sju diskrimineringsgrunderna är kön, könsöverskridande identitet eller uttryck, etnisk tillhörighet, religion eller annan trosuppfattning, funktionsnedsättning, sexuell läggning och ålder. Sexuell läggning är alltså skyddad. Frisyr eller favoritlag är inte diskrimineringsgrunder — att bli sämre behandlad av sådana skäl kan vara orättvist och till exempel utgöra kränkande behandling i skolan, men det faller inte under diskrimineringslagen."
+    },
+    {
+      "id": "q-sam8-man-5",
+      "kind": "mc",
+      "topic": "jämställdhet",
+      "prompt": "Vad menas med jämställdhet?",
+      "opener": "Skilj begreppet från det bredare ordet jämlikhet.",
+      "choices": [
+        "Att alla människor ska ha exakt samma inkomst",
+        "Att kvinnor och män har samma rättigheter, skyldigheter och möjligheter inom alla områden i livet",
+        "Att alla behandlas exakt likadant i alla situationer, oavsett behov",
+        "Att kvinnor ska ha fler rättigheter än män"
+      ],
+      "answer": 1,
+      "explanation": "Jämställdhet handlar specifikt om förhållandet mellan könen: samma rättigheter, skyldigheter och möjligheter i arbete, utbildning, familjeliv och samhällsliv. Det ska inte blandas ihop med jämlikhet, som är det bredare begreppet om alla människors lika värde och villkor oavsett bakgrund. Jämställdhet betyder inte identiska inkomster för alla, utan att kön inte ska avgöra vilka möjligheter en person får."
+    },
+    {
+      "id": "q-sam8-man-6",
+      "kind": "mc",
+      "topic": "demokratiska fri- och rättigheter",
+      "prompt": "Vilken av följande är en fri- och rättighet som skyddas i svensk grundlag?",
+      "opener": "Leta efter friheten som gör det möjligt att kritisera makthavare öppet.",
+      "choices": [
+        "Rätten att alltid få sin vilja igenom i en omröstning",
+        "Rätten att slippa betala skatt",
+        "Yttrandefriheten — rätten att uttrycka tankar, åsikter och känslor",
+        "Rätten att köra bil utan körkort"
+      ],
+      "answer": 2,
+      "explanation": "Yttrandefriheten är en av de grundläggande fri- och rättigheter som skyddas i regeringsformen, tillsammans med bland annat informationsfrihet, mötesfrihet, demonstrationsfrihet, föreningsfrihet och religionsfrihet. Sverige har fyra grundlagar: regeringsformen, successionsordningen, tryckfrihetsförordningen och yttrandefrihetsgrundlagen. Att alltid få sin vilja igenom är inte en rättighet — i en demokrati gäller majoritetsbeslut, samtidigt som minoriteters rättigheter skyddas. Yttrandefriheten har också gränser, till exempel förbudet mot hets mot folkgrupp och förtal."
+    },
+    {
+      "id": "q-sam8-man-7",
+      "kind": "worked",
+      "topic": "diskrimineringsgrunderna",
+      "prompt": "En elev som använder rullstol får inte följa med på klassens studiebesök, eftersom skolan tycker att det blir för krångligt att ordna transport. Resonera kring vad diskrimineringslagen säger om situationen och vad eleven kan göra.",
+      "opener": "Koppla situationen till en diskrimineringsgrund och till skolans skyldighet att anpassa.",
+      "answer": "Situationen rör diskrimineringsgrunden funktionsnedsättning, som är en av de sju grunderna i diskrimineringslagen. Skolan är en verksamhet som omfattas av lagen, och en skola får inte behandla en elev sämre på grund av en funktionsnedsättning. Att utestänga eleven från ett studiebesök som resten av klassen deltar i innebär att eleven missgynnas, och skolan har dessutom en skyldighet att göra skäliga anpassningar så att elever med funktionsnedsättning kan delta på lika villkor — till exempel att boka tillgänglig transport eller välja ett besöksmål som fungerar för alla. Att det upplevs som krångligt eller kostar lite mer är normalt inte ett giltigt skäl att utesluta eleven. Eleven eller elevens vårdnadshavare kan först ta upp det med läraren, rektorn och skolans huvudman, som är skyldig att utreda och åtgärda. Om det inte hjälper kan man anmäla till Diskrimineringsombudsmannen (DO) eller till Skolinspektionen och Barn- och elevombudet. Även barnkonventionen är relevant, eftersom beslut som rör barn ska utgå från barnets bästa och barnet har rätt att komma till tals i frågor som rör det själv.",
+      "steps": [
+        "Identifiera diskrimineringsgrunden: funktionsnedsättning, en av de sju grunderna i diskrimineringslagen.",
+        "Konstatera att skolan omfattas av lagen och inte får missgynna en elev på grund av en funktionsnedsättning.",
+        "Pröva skolans skyldighet till skäliga anpassningar, till exempel tillgänglig transport eller ett annat besöksmål — merarbete är sällan ett giltigt skäl att utesluta.",
+        "Beskriv vägen framåt: ta upp det med lärare, rektor och huvudman, som ska utreda och åtgärda.",
+        "Nämn vart man kan vända sig vidare — Diskrimineringsombudsmannen, Skolinspektionen eller Barn- och elevombudet — och koppla till barnkonventionens principer om barnets bästa och rätten att bli hörd."
+      ]
+    },
+    {
+      "id": "q-sam8-man-8",
+      "kind": "flashcard",
+      "topic": "FN:s allmänna förklaring",
+      "prompt": "Sammanfatta mänskliga rättigheter och jämlikhet: FN:s förklaring, barnkonventionen, diskrimineringsgrunderna, jämställdhet och grundlagsskyddade friheter.",
+      "opener": "Från global förklaring till konkreta rättigheter i svensk lag.",
+      "answer": "FN:s allmänna förklaring om de mänskliga rättigheterna: antagen av FN:s generalförsamling 10 december 1948 · rättigheterna är universella (gäller alla människor) och omistliga (kan inte förtjänas bort) · Barnkonventionen: antagen av FN 1989, ratificerad av Sverige 1990, svensk lag sedan 1 januari 2020 · gäller alla under 18 år · fyra grundprinciper: icke-diskriminering, barnets bästa, rätt till liv och utveckling, barnets rätt att bli hört · Diskrimineringsgrunderna i diskrimineringslagen: kön · könsöverskridande identitet eller uttryck · etnisk tillhörighet · religion eller annan trosuppfattning · funktionsnedsättning · sexuell läggning · ålder · skolor och arbetsgivare omfattas och ska göra skäliga anpassningar · anmälan kan göras till Diskrimineringsombudsmannen · Jämställdhet: samma rättigheter, skyldigheter och möjligheter för kvinnor och män · jämlikhet är det bredare begreppet om alla människors lika villkor · Grundlagsskyddade fri- och rättigheter: yttrandefrihet, informationsfrihet, mötes-, demonstrations-, förenings- och religionsfrihet · Sveriges fyra grundlagar: regeringsformen, successionsordningen, tryckfrihetsförordningen och yttrandefrihetsgrundlagen · friheterna har vissa gränser, t.ex. förbud mot hets mot folkgrupp."
+    }
+  ]
+}

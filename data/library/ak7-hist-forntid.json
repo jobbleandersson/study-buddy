@@ -1,0 +1,130 @@
+{
+  "id": "lib-hist7-forntid",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Forntiden och de första civilisationerna",
+  "sourceSummary": "Stenålder, bronsålder och järnålder, hur jordbruket förändrade människans liv, de första civilisationerna i Mesopotamien och Egypten, skriftens betydelse och hur historiker använder källor och lämningar.",
+  "topics": [
+    "stenålder, bronsålder och järnålder",
+    "jordbrukets uppkomst",
+    "de första civilisationerna",
+    "skriftens betydelse",
+    "historiska källor och lämningar"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist7-fnt-1",
+      "kind": "mc",
+      "topic": "stenålder, bronsålder och järnålder",
+      "prompt": "Varför kallas den äldsta perioden i människans historia för stenåldern?",
+      "opener": "Perioderna har fått sina namn efter det material som verktygen tillverkades av.",
+      "choices": [
+        "Människorna bodde uteslutande i grottor av sten",
+        "Det fanns bara sten och inget annat på jorden",
+        "Verktyg och vapen tillverkades främst av sten, trä och ben",
+        "Man byggde de första stenhusen under den tiden"
+      ],
+      "answer": 2,
+      "explanation": "Namnet kommer av att människorna gjorde sina viktigaste redskap av sten, till exempel yxor, knivar och spjutspetsar av flinta. Alla bodde inte i grottor, utan man byggde också hyddor och tält av skinn och trä — namnet handlar om materialet i verktygen, inte om bostäderna."
+    },
+    {
+      "id": "q-hist7-fnt-2",
+      "kind": "mc",
+      "topic": "jordbrukets uppkomst",
+      "prompt": "Vad blev en viktig följd av att människor började odla och hålla djur i stället för att jaga och samla?",
+      "opener": "Fundera på hur ofta man behöver flytta om maten växer på ett och samma ställe.",
+      "choices": [
+        "Människor kunde bosätta sig på samma plats och byar växte fram",
+        "Människor började vandra ännu längre varje år",
+        "Befolkningen minskade eftersom maten tog slut",
+        "Man slutade helt att använda redskap"
+      ],
+      "answer": 0,
+      "explanation": "Med jordbruk fanns maten på samma plats år efter år, så människor kunde bli bofasta och bygga byar. Jägare och samlare behövde i stället flytta efter villebråd och årstider — det är alltså den nomadiska livsstilen som minskade, inte den bofasta."
+    },
+    {
+      "id": "q-hist7-fnt-3",
+      "kind": "mc",
+      "topic": "de första civilisationerna",
+      "prompt": "Mellan vilka två floder låg Mesopotamien, ett av världens första civilisationsområden?",
+      "opener": "Namnet Mesopotamien betyder ungefär \"landet mellan floderna\".",
+      "choices": [
+        "Nilen och Kongofloden",
+        "Eufrat och Tigris",
+        "Donau och Rhen",
+        "Ganges och Indus"
+      ],
+      "answer": 1,
+      "explanation": "Mesopotamien låg mellan floderna Eufrat och Tigris, i området som i dag mest är Irak. Där gjorde flodernas vatten jorden bördig så att stora städer kunde försörjas. Nilen hör i stället till Egypten och Indus till en annan tidig civilisation i dagens Pakistan."
+    },
+    {
+      "id": "q-hist7-fnt-4",
+      "kind": "mc",
+      "topic": "de första civilisationerna",
+      "prompt": "Varför var Nilen så viktig för det forna Egypten?",
+      "opener": "Tänk på vad floden lämnade efter sig på markerna varje år.",
+      "choices": [
+        "Den gav skydd mot alla fiender",
+        "Den gjorde att egyptierna inte behövde odla mat",
+        "Den var kall och kylde ner landet",
+        "Dess årliga översvämningar gjorde jorden bördig och gav vatten till odlingarna"
+      ],
+      "answer": 3,
+      "explanation": "Nilen svämmade över varje år och lade ett lager näringsrik lera på åkrarna, vilket gav goda skördar i ett annars mycket torrt land. Egyptierna odlade alltså tvärtom mycket tack vare floden — den var landets livsnerv för både mat, dryck och transporter."
+    },
+    {
+      "id": "q-hist7-fnt-5",
+      "kind": "mc",
+      "topic": "skriftens betydelse",
+      "prompt": "Vilken var den viktigaste betydelsen av att skriften uppfanns?",
+      "opener": "Fundera på vad man kan göra med information när den inte bara finns i minnet.",
+      "choices": [
+        "Alla människor lärde sig läsa på en gång",
+        "Man kunde sluta använda talat språk",
+        "Kunskap, lagar och affärer kunde sparas och föras vidare över tid",
+        "Man kunde börja bygga hus av sten"
+      ],
+      "answer": 2,
+      "explanation": "Med skrift kunde man skriva ner hur mycket säd som lämnats in, vilka lagar som gällde och vad som hänt — informationen blev bevarad och kunde läsas långt senare. Bara ett litet fåtal, ofta skrivare och präster, kunde däremot läsa och skriva i början, så det var inte alla som lärde sig."
+    },
+    {
+      "id": "q-hist7-fnt-6",
+      "kind": "mc",
+      "topic": "historiska källor och lämningar",
+      "prompt": "Hur får historiker och arkeologer kunskap om tiden innan människor började skriva?",
+      "opener": "Om det inte finns några texter — vad finns kvar i marken att undersöka?",
+      "choices": [
+        "Genom att läsa dagböcker från stenåldern",
+        "Genom att undersöka lämningar som redskap, gravar, benrester och boplatser",
+        "Genom att gissa utifrån hur vi lever i dag",
+        "Genom att intervjua människor som minns"
+      ],
+      "answer": 1,
+      "explanation": "Tiden före skriften kallas förhistorisk tid just eftersom det saknas skriftliga källor. Kunskapen kommer i stället från materiella lämningar som arkeologer gräver fram: verktyg, krukskärvor, gravar, ben och rester av boplatser. Dagböcker fanns inte, och ingen levande människa kan minnas så långt tillbaka."
+    },
+    {
+      "id": "q-hist7-fnt-7",
+      "kind": "worked",
+      "topic": "jordbrukets uppkomst",
+      "prompt": "Förklara steg för steg hur jordbruket kunde leda till att de första städerna växte fram.",
+      "opener": "Börja med maten: vad händer när man kan odla mer än man själv behöver?",
+      "answer": "När människor lärde sig odla säd och hålla husdjur kunde de producera mer mat än de själva behövde. Överskottet gjorde att en del människor kunde ägna sig åt annat än matproduktion, till exempel hantverk, handel, religion eller styre. Fler människor kunde bo tätt på samma plats, byarna växte till städer, och i städerna behövdes regler, ledare och ett sätt att hålla reda på förråd — vilket bland annat ledde till skriften.",
+      "steps": [
+        "Jordbruk gjorde människor bofasta: maten fanns kvar på samma plats år efter år.",
+        "Goda skördar gav ett matöverskott som kunde lagras i förråd.",
+        "Alla behövde inte längre odla, så några kunde bli hantverkare, präster, soldater eller köpmän.",
+        "Fler människor kunde försörjas på liten yta, och byar växte till städer med tusentals invånare.",
+        "Städerna krävde ledare, lagar och bokföring av förråden, vilket bidrog till att skriften uppfanns."
+      ]
+    },
+    {
+      "id": "q-hist7-fnt-8",
+      "kind": "flashcard",
+      "topic": "stenålder, bronsålder och järnålder",
+      "prompt": "Sammanfatta forntidens perioder och de första civilisationerna.",
+      "opener": "Gå igenom de tre åldrarna i ordning, sedan de första civilisationerna och källorna.",
+      "answer": "Stenåldern: den längsta perioden, redskap av sten, trä och ben · först jägare och samlare, senare bönder när jordbruket spred sig · Bronsåldern (i Sverige ca 1800–500 f.Kr.): brons är en blandning av koppar och tinn, hårdare än sten, men metallen måste handlas in långväga · Järnåldern (i Sverige ca 500 f.Kr.–1050 e.Kr.): järn fanns på fler platser, blev billigare och gav bättre verktyg och vapen · Jordbruksrevolutionen: bofasthet, matöverskott, fler yrken, byar som växte till städer · Mesopotamien: mellan Eufrat och Tigris, sumererna, kilskrift, en av världens första civilisationer · Egypten: kring Nilen, årliga översvämningar gav bördig jord, hieroglyfer, faraoner och pyramider · Skriftens betydelse: kunskap, lagar och affärer kunde bevaras och föras vidare · Historiska källor: skriftliga källor finns först efter skriftens uppkomst, före det bygger kunskapen på arkeologiska lämningar som redskap, gravar och boplatser."
+    }
+  ]
+}

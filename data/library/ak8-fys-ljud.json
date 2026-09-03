@@ -1,0 +1,130 @@
+{
+  "id": "lib-fys8-ljud",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Ljud och vågor",
+  "sourceSummary": "Ljud som longitudinella vågor, hur frekvens ger tonhöjd och amplitud ger ljudstyrka samt ljudets hastighet i luft, vatten och fasta material. Här finns också eko, resonans, hörselns område och risker med buller.",
+  "topics": [
+    "ljud som longitudinella vågor",
+    "frekvens och tonhöjd",
+    "amplitud och ljudstyrka",
+    "ljudets hastighet i olika material",
+    "eko och resonans",
+    "hörsel och buller"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys8-lju-1",
+      "kind": "mc",
+      "topic": "ljud som longitudinella vågor",
+      "prompt": "Vad kännetecknar ljud som en longitudinell våg?",
+      "opener": "Jämför riktningen som partiklarna svänger i med riktningen som vågen rör sig i.",
+      "choices": [
+        "Luftens partiklar svänger fram och tillbaka i samma riktning som vågen rör sig, så att förtätningar och förtunningar bildas",
+        "Luftens partiklar svänger upp och ner tvärs mot vågens riktning",
+        "Partiklarna följer med hela vägen från ljudkällan till öronen",
+        "Ljudet rör sig utan att något material behöver finnas"
+      ],
+      "answer": 0,
+      "explanation": "I en longitudinell våg svänger partiklarna längs samma riktning som vågen går, vilket skapar omväxlande förtätningar och förtunningar i luften. Att svänga tvärs mot vågriktningen gäller transversella vågor, till exempel en vågrörelse på ett rep. Partiklarna svänger dessutom bara kring sitt läge — de färdas inte med ljudet."
+    },
+    {
+      "id": "q-fys8-lju-2",
+      "kind": "mc",
+      "topic": "ljud som longitudinella vågor",
+      "prompt": "Varför hörs inget ljud i vakuum, till exempel i rymden?",
+      "opener": "Fundera på vad ljudvågen behöver för att kunna föras vidare.",
+      "choices": [
+        "Ljudet fryser till is i kylan",
+        "Ljudet går för fort för att öronen ska hinna uppfatta det",
+        "Det finns inga partiklar som kan svänga och föra ljudvågen vidare",
+        "Ljuset i rymden tar över och dämpar ljudet"
+      ],
+      "answer": 2,
+      "explanation": "Ljud behöver ett medium — gas, vätska eller fast material — vars partiklar kan svänga och skicka vidare förtätningarna. I vakuum finns inga partiklar, så vågen kan inte spridas. Ljus är däremot en elektromagnetisk våg och behöver inget medium, vilket är därför vi kan se stjärnor men inte höra dem."
+    },
+    {
+      "id": "q-fys8-lju-3",
+      "kind": "mc",
+      "topic": "frekvens och tonhöjd",
+      "prompt": "En gitarrsträng svänger 440 gånger per sekund. Vad händer med tonen om strängen i stället svänger 880 gånger per sekund?",
+      "opener": "Frekvensen mäts i hertz och styr en bestämd egenskap hos tonen.",
+      "choices": [
+        "Tonen blir starkare men lika hög",
+        "Tonen blir högre, eftersom högre frekvens ger högre tonhöjd",
+        "Tonen blir djupare",
+        "Tonen blir svagare"
+      ],
+      "answer": 1,
+      "explanation": "Frekvensen (antal svängningar per sekund, enhet hertz) bestämmer tonhöjden: dubbel frekvens ger en ton som ligger en oktav högre. Hur stark tonen låter beror i stället på amplituden, inte på frekvensen."
+    },
+    {
+      "id": "q-fys8-lju-4",
+      "kind": "mc",
+      "topic": "amplitud och ljudstyrka",
+      "prompt": "Du skruvar upp volymen på en högtalare. Vad förändras i ljudvågen?",
+      "opener": "Volymen hänger ihop med hur stora svängningarna är, inte hur många de är.",
+      "choices": [
+        "Frekvensen ökar",
+        "Ljudets hastighet i luften ökar",
+        "Våglängden blir kortare",
+        "Amplituden ökar, alltså svängningarnas storlek, och ljudstyrkan mätt i decibel blir högre"
+      ],
+      "answer": 3,
+      "explanation": "Ljudstyrkan beror på amplituden — större svängningar ger mer energi och högre ljudnivå i decibel (dB). Frekvensen och därmed tonhöjden är oförändrad, och ljudets hastighet påverkas inte alls av volymen utan bara av materialet ljudet går genom."
+    },
+    {
+      "id": "q-fys8-lju-5",
+      "kind": "mc",
+      "topic": "ljudets hastighet i olika material",
+      "prompt": "I vilket av dessa material går ljudet snabbast?",
+      "opener": "Ju tätare partiklarna sitter och ju hårdare materialet är, desto snabbare skickas svängningen vidare.",
+      "choices": [
+        "Luft",
+        "Vatten",
+        "Stål",
+        "Ljudet går lika fort i alla material"
+      ],
+      "answer": 2,
+      "explanation": "Ljudet går snabbast i fasta material eftersom partiklarna sitter tätt och styvt ihop: cirka 5000 m/s i stål, cirka 1500 m/s i vatten och bara cirka 340 m/s i luft. Hastigheten är alltså inte densamma i alla material — det är därför man kan höra ett tåg genom rälsen innan man hör det genom luften."
+    },
+    {
+      "id": "q-fys8-lju-6",
+      "kind": "mc",
+      "topic": "eko och resonans",
+      "prompt": "Vad menas med resonans?",
+      "opener": "Tänk på när ett föremål börjar svänga med av sig självt vid en viss ton.",
+      "choices": [
+        "Att ett föremål börjar svänga kraftigt när det utsätts för ljud med samma frekvens som dess egen svängningsfrekvens",
+        "Att ljudet studsar mot en vägg och kommer tillbaka som ett eko",
+        "Att ljudet blir svagare när det sprider sig ut i rummet",
+        "Att två toner tillsammans bildar en högre ton"
+      ],
+      "answer": 0,
+      "explanation": "Resonans innebär att ett föremål tar upp energi och svänger kraftigt när det träffas av ljud med just dess egenfrekvens — som när ett glas börjar vibrera vid en viss ton. Att ljudet studsar tillbaka från en yta är i stället reflektion, vilket är det som ger eko."
+    },
+    {
+      "id": "q-fys8-lju-7",
+      "kind": "worked",
+      "topic": "eko och resonans",
+      "prompt": "Du ropar mot en bergvägg och hör ekot 2,0 sekunder senare. Ljudets hastighet i luften är 340 m/s. Hur långt bort är bergväggen?",
+      "opener": "Kom ihåg att ljudet hinner både dit och tillbaka under de 2 sekunderna.",
+      "answer": "340 meter",
+      "steps": [
+        "Räkna ut hela sträckan ljudet färdas: s = v · t = 340 m/s · 2,0 s = 680 m.",
+        "Den sträckan är fram till berget och tillbaka igen, alltså två gånger avståndet.",
+        "Dividera med 2: 680 m / 2 = 340 m.",
+        "Bergväggen är alltså 340 meter bort."
+      ]
+    },
+    {
+      "id": "q-fys8-lju-8",
+      "kind": "flashcard",
+      "topic": "hörsel och buller",
+      "prompt": "Sammanfatta ljud som våg, frekvens och amplitud, ljudhastighet, eko och resonans samt hörsel och buller.",
+      "opener": "Börja med vad ljud är, gå vidare till vågens två egenskaper och avsluta med öronen och bullerskydd.",
+      "answer": "Ljud: svängningar som sprids som longitudinella vågor genom ett medium — partiklarna svänger i vågens riktning och bildar förtätningar och förtunningar · Vakuum: inget ljud, eftersom det saknas partiklar som kan svänga · Frekvens: svängningar per sekund, enhet hertz (Hz), styr tonhöjden — hög frekvens = hög ton, dubbel frekvens = en oktav högre · Amplitud: svängningens storlek, styr ljudstyrkan som mäts i decibel (dB) · Ljudets hastighet: cirka 340 m/s i luft, cirka 1500 m/s i vatten, cirka 5000 m/s i stål — snabbast där partiklarna sitter tätt och styvt · Formel: s = v · t · Eko: ljud som reflekteras mot en hård yta och kommer tillbaka — vid ekomätning gäller att ljudet färdas dubbla avståndet · Resonans: föremål svänger kraftigt när det träffas av ljud med sin egen frekvens · Hörselområdet: cirka 20 Hz till 20 000 Hz, det övre gränsen sjunker med åldern · Infraljud: under 20 Hz · Ultraljud: över 20 000 Hz, används vid undersökningar och av fladdermöss · Buller: oönskat ljud som ger trötthet, stress och koncentrationssvårigheter · Hörselskada: höga ljudnivåer kan förstöra hårcellerna i innerörat permanent och ge tinnitus — använd hörselskydd och sänk volymen i hörlurar."
+    }
+  ]
+}

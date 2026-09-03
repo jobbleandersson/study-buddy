@@ -1,0 +1,129 @@
+{
+  "id": "lib-sv9-sprakriktighet",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Skrivregler och språkriktighet",
+  "sourceSummary": "De och dem, särskrivning, kommatering och stor bokstav — de vanligaste felen som drar ner betyget på inlämningar.",
+  "topics": [
+    "de och dem",
+    "särskrivning",
+    "skiljetecken",
+    "stor bokstav"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv9-spr-1",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Välj rätt ord: \"___ sprang hela vägen till skolan.\"",
+      "opener": "Byt ut ordet mot engelskans \"they\" eller \"them\" — vilket passar?",
+      "choices": [
+        "Dem",
+        "De",
+        "Dom",
+        "Den"
+      ],
+      "answer": 1,
+      "explanation": "Ordet är subjekt (det är de som springer) — subjektsform är \"de\". Testa: \"they ran\", inte \"them ran\"."
+    },
+    {
+      "id": "q-sv9-spr-2",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Välj rätt ord: \"Jag pratade med ___ på rasten.\"",
+      "opener": "Ordet står efter en preposition (\"med\") — vilken form kräver det?",
+      "choices": [
+        "de",
+        "dem",
+        "dom",
+        "den"
+      ],
+      "answer": 1,
+      "explanation": "Efter prepositioner (med, till, för, av...) används alltid objektsform: \"dem\". Testa: \"with them\", inte \"with they\"."
+    },
+    {
+      "id": "q-sv9-spr-3",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "Vilket alternativ är korrekt skrivet?",
+      "opener": "Ett sammansatt ord är EN sak — inte två lösa ord bredvid varandra.",
+      "choices": [
+        "Vi åt en jord gubbs tårta.",
+        "Vi åt en jordgubbstårta.",
+        "Vi åt en jordgubbs tårta.",
+        "Vi åt en Jordgubbstårta."
+      ],
+      "answer": 1,
+      "explanation": "\"Jordgubbstårta\" är ett sammansatt ord och ska skrivas ihop. Särskrivning kan ändra betydelsen: \"jordgubbs tårta\" låter som en tårta som TILLHÖR jordgubbarna."
+    },
+    {
+      "id": "q-sv9-spr-4",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "Vad betyder \"en rödhårig flicka\" jämfört med \"en röd hårig flicka\"?",
+      "opener": "Läs de två uttrycken högt och lyssna på skillnaden.",
+      "choices": [
+        "Exakt samma sak",
+        "Rödhårig = har rött hår. Röd hårig = flickan är röd och hårig.",
+        "Röd hårig är korrekt, rödhårig är fel",
+        "Det finns ingen skillnad i skrift, bara i tal"
+      ],
+      "answer": 1,
+      "explanation": "Särskrivning ändrar betydelsen: \"rödhårig\" är ett sammansatt adjektiv (rött hår), medan \"röd, hårig\" beskriver flickan som både röd OCH hårig — helt olika bild."
+    },
+    {
+      "id": "q-sv9-spr-5",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Var ska kommatecken sättas ut? \"Innan vi gick hemifrån ___ kollade vi att spisen var avstängd.\"",
+      "opener": "En bisats som kommer FÖRE huvudsatsen avslutas ofta med komma.",
+      "choices": [
+        "Efter \"Innan\"",
+        "Efter \"hemifrån\"",
+        "Efter \"kollade\"",
+        "Inget komma behövs"
+      ],
+      "answer": 1,
+      "explanation": "\"Innan vi gick hemifrån\" är en bisats som står först i meningen — den avslutas med komma innan huvudsatsen börjar: \"...hemifrån, kollade vi...\""
+    },
+    {
+      "id": "q-sv9-spr-6",
+      "kind": "mc",
+      "topic": "stor bokstav",
+      "prompt": "Vilken mening har korrekt användning av stor bokstav?",
+      "opener": "Stor bokstav används för egennamn — inte för vanliga substantiv, årstider eller väderstreck.",
+      "choices": [
+        "Jag älskar Sommaren mest av alla Årstider.",
+        "Vi åkte till Stockholm i somras.",
+        "Min Mamma jobbar som Lärare.",
+        "Vi bor i Norra delen av Sverige."
+      ],
+      "answer": 1,
+      "explanation": "\"Stockholm\" är ett egennamn (ort) och ska ha stor bokstav. Årstider, släktord (mamma) och yrken (lärare) skrivs med liten bokstav om de inte inleder en mening."
+    },
+    {
+      "id": "q-sv9-spr-7",
+      "kind": "worked",
+      "topic": "de och dem",
+      "prompt": "Rätta meningen och förklara varje ändring: \"Läraren gav de som var färdiga extra uppgifter, dom andra fick jord gubbs saft medans dem väntade.\"",
+      "opener": "Leta efter fyra fel: de/dem-fel, dom i skrift, särskrivning och satsradning.",
+      "answer": "Läraren gav dem som var färdiga extra uppgifter. De andra fick jordgubbssaft medan de väntade.",
+      "steps": [
+        "\"gav de som var färdiga\" → \"gav dem som var färdiga\". Efter verbet \"gav\" (till vem?) krävs objektsform.",
+        "\"dom andra\" → \"de andra\". \"Dom\" är talspråk och undviks i skrift; här är ordet dessutom subjekt.",
+        "\"jord gubbs saft\" → \"jordgubbssaft\". Sammansatt ord skrivs ihop, inte som tre lösa ord.",
+        "\"medans dem väntade\" → \"medan de väntade\". \"Medans\" är felaktig form av \"medan\", och ordet är subjekt i bisatsen (de väntade) — inte dem.",
+        "Meningen delades även upp med punkt efter \"uppgifter\" för att undvika en alltför lång, svårläst mening (satsradning)."
+      ]
+    },
+    {
+      "id": "q-sv9-spr-8",
+      "kind": "flashcard",
+      "topic": "de och dem",
+      "prompt": "Vilka knep använder du för att skriva rätt: de/dem, särskrivning och stor bokstav?",
+      "opener": "Tre snabba minnesregler.",
+      "answer": "De/dem: byt ut mot they/them (eller vi/oss) — blir det \"they\"/\"vi\" skriver du \"de\", blir det \"them\"/\"oss\" skriver du \"dem\". Efter preposition (med, till, för, av) är det alltid \"dem\". Särskrivning: fråga om orden bildar EN sammanhängande betydelse — då skrivs de ihop (jordgubbstårta, glasögonfodral). Stor bokstav: bara för egennamn (personer, platser, företag, dagens första ord) — inte för yrken, släktord eller årstider."
+    }
+  ]
+}

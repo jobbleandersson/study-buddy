@@ -1,0 +1,130 @@
+{
+  "id": "lib-hist7-antiken",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Antikens Grekland och Rom",
+  "sourceSummary": "De grekiska stadsstaterna och demokratin i Athen, grekisk kultur och filosofi, romarrikets uppbyggnad och expansion, livet i det romerska samhället och vad vi ännu i dag har kvar från antiken.",
+  "topics": [
+    "stadsstater och Athens demokrati",
+    "grekisk kultur och filosofi",
+    "romarriket och expansionen",
+    "romersk vardag och samhällsklasser",
+    "arvet från antiken"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist7-ant-1",
+      "kind": "mc",
+      "topic": "stadsstater och Athens demokrati",
+      "prompt": "Vad var en grekisk stadsstat (polis)?",
+      "opener": "Grekland var inte ett enda land på den här tiden.",
+      "choices": [
+        "Ett stort rike som styrde hela Medelhavet",
+        "En stad med omgivande landsbygd som styrde sig själv",
+        "En stad där bara soldater fick bo",
+        "En handelsplats utan fast befolkning"
+      ],
+      "answer": 1,
+      "explanation": "En polis var en stad tillsammans med jordbruksmarken runt omkring, med egna lagar, egna gudar och egen krigsmakt — Athen och Sparta är de mest kända exemplen. Grekland var alltså inte ett enat rike, utan hundratals självstyrande stadsstater som ibland samarbetade och ibland stred mot varandra."
+    },
+    {
+      "id": "q-hist7-ant-2",
+      "kind": "mc",
+      "topic": "stadsstater och Athens demokrati",
+      "prompt": "Vilka fick vara med och rösta i folkförsamlingen i Athens demokrati?",
+      "opener": "Demokratin i Athen omfattade betydligt färre människor än dagens svenska demokrati.",
+      "choices": [
+        "Alla som bodde i Athen",
+        "Alla vuxna, både kvinnor och män",
+        "Bara kungen och hans rådgivare",
+        "Fria vuxna män som var medborgare i Athen"
+      ],
+      "answer": 3,
+      "explanation": "Rösträtten gällde bara fria vuxna män som var medborgare, vilket var ungefär en tiondel av befolkningen. Kvinnor, slavar och inflyttade utan medborgarskap fick inte rösta, så det var inte alla som bodde i Athen — och någon kung fanns inte i demokratins Athen."
+    },
+    {
+      "id": "q-hist7-ant-3",
+      "kind": "mc",
+      "topic": "grekisk kultur och filosofi",
+      "prompt": "Vad kännetecknade de grekiska filosoferna, till exempel Sokrates, Platon och Aristoteles?",
+      "opener": "Ordet filosofi betyder ungefär \"kärlek till kunskap\".",
+      "choices": [
+        "De ställde frågor och sökte förklaringar genom att tänka och resonera",
+        "De skrev bara ner gudarnas befallningar",
+        "De var soldater som ledde krig",
+        "De vägrade att undervisa någon"
+      ],
+      "answer": 0,
+      "explanation": "Filosoferna undersökte frågor om hur världen fungerar, vad som är rätt och hur samhället bör styras, och de byggde sina svar på resonemang och samtal i stället för enbart på myter. Platon och Aristoteles hade dessutom egna skolor där de undervisade — de var alltså inte soldater eller enbart religiösa nedtecknare."
+    },
+    {
+      "id": "q-hist7-ant-4",
+      "kind": "mc",
+      "topic": "romarriket och expansionen",
+      "prompt": "Hur stort blev romarriket när det var som störst?",
+      "opener": "Romarna kallade själva Medelhavet för \"vårt hav\".",
+      "choices": [
+        "Bara staden Rom och dess närmaste omgivning",
+        "Hela Afrika och Asien",
+        "Områdena runt hela Medelhavet, med delar av Europa, Nordafrika och Mellanöstern",
+        "Enbart dagens Italien"
+      ],
+      "answer": 2,
+      "explanation": "Under kejsartiden sträckte sig riket från Britannien i nordväst till Egypten och Mellanöstern i sydöst, och alla länder runt Medelhavet låg innanför gränserna. Riket var alltså mycket större än Italien, men det omfattade inte hela Afrika och Asien — stora delar av dessa världsdelar låg långt utanför."
+    },
+    {
+      "id": "q-hist7-ant-5",
+      "kind": "mc",
+      "topic": "romersk vardag och samhällsklasser",
+      "prompt": "Vilka grupper fanns i det romerska samhället?",
+      "opener": "Samhället var tydligt uppdelat, och långt ifrån alla var fria.",
+      "choices": [
+        "Alla romare hade exakt samma rättigheter",
+        "Patricier (rika och mäktiga familjer), plebejer (vanligt folk) och slavar",
+        "Bara soldater och kejsare",
+        "Enbart bönder och präster"
+      ],
+      "answer": 1,
+      "explanation": "Patricierna var de förnäma, rika familjerna som länge hade makten, plebejerna var det stora flertalet vanliga fria romare, och dessutom fanns ett stort antal slavar som saknade rättigheter och tillhörde en ägare. Rättigheterna var alltså mycket ojämnt fördelade, vilket också ledde till återkommande krav på reformer från plebejerna."
+    },
+    {
+      "id": "q-hist7-ant-6",
+      "kind": "mc",
+      "topic": "arvet från antiken",
+      "prompt": "Vilket av följande är ett tydligt arv från antiken i dagens samhälle?",
+      "opener": "Tänk på styrelseformer, byggnader, språk och ord vi använder.",
+      "choices": [
+        "Bensinmotorn",
+        "Internet",
+        "Järnvägen",
+        "Ordet och idén demokrati, latinska ord i våra språk och pelarhus som byggnadsstil"
+      ],
+      "answer": 3,
+      "explanation": "Ordet demokrati är grekiskt, mängder av ord i svenska och engelska kommer från latin, och byggnader med pelare och kupoler efterliknar än i dag grekiska tempel och romersk arkitektur. Bensinmotor, järnväg och internet är däremot uppfinningar från de senaste två århundradena och har inget med antiken att göra."
+    },
+    {
+      "id": "q-hist7-ant-7",
+      "kind": "worked",
+      "topic": "stadsstater och Athens demokrati",
+      "prompt": "Jämför Athens demokrati med den svenska demokratin i dag. Vilka är de största skillnaderna?",
+      "opener": "Fundera på två saker: vilka som får rösta, och hur besluten fattas.",
+      "answer": "I Athen var demokratin direkt: de medborgare som hade rösträtt samlades själva i folkförsamlingen och röstade om besluten. I Sverige har vi i stället en representativ demokrati, där vi röstar fram riksdagsledamöter som fattar besluten åt oss. Den största skillnaden är dock vilka som räknades: i Athen fick bara fria vuxna män med medborgarskap rösta, alltså en minoritet av befolkningen, medan alla svenska medborgare från 18 år i dag har rösträtt oavsett kön eller bakgrund.",
+      "steps": [
+        "Athen hade direkt demokrati: medborgarna röstade själva i folkförsamlingen om lagar och krig.",
+        "Sverige har representativ demokrati: vi röstar i val på partier och personer som beslutar i vårt namn.",
+        "I Athen omfattade rösträtten bara fria vuxna manliga medborgare — kvinnor, slavar och inflyttade uteslöts.",
+        "I Sverige har alla medborgare från 18 år lika rösträtt, en rättighet som byggdes ut steg för steg fram till 1921.",
+        "Slutsats: idén om folkstyre kommer från Athen, men dagens demokrati omfattar alla och fungerar genom valda företrädare."
+      ]
+    },
+    {
+      "id": "q-hist7-ant-8",
+      "kind": "flashcard",
+      "topic": "romarriket och expansionen",
+      "prompt": "Sammanfatta antikens Grekland och Rom.",
+      "opener": "Ta Grekland först — stadsstater, demokrati, kultur — och sedan Rom.",
+      "answer": "Grekland: hundratals självstyrande stadsstater (polis), främst Athen och Sparta · Athens demokrati från 500-talet f.Kr., direkt demokrati i folkförsamlingen, men rösträtt bara för fria vuxna manliga medborgare · grekisk kultur: teater, olympiska spel, tempel med pelare, myter om gudarna på Olympen · filosofer som Sokrates, Platon och Aristoteles sökte svar genom resonemang · Rom: grundat vid floden Tibern, först kungatid, sedan republik och från 27 f.Kr. kejsartid med Augustus som förste kejsare · romarriket växte till att omfatta hela Medelhavsområdet, Britannien och Mellanöstern · romerskt samhälle: patricier, plebejer och slavar, mycket ojämlika rättigheter · romersk teknik: vägar, akvedukter, betong, bad och stora byggnader som Colosseum · Västrom föll 476 e.Kr., Östrom (Bysantinska riket) levde vidare till 1453 · Arvet från antiken: demokratins idé och ord, latinet i våra språk, arkitektur med pelare, teater, olympiska spel, romersk rätt."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-hist8-industri",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Industrialiseringen i Sverige",
+  "sourceSummary": "Hur Sverige under 1800-talets andra hälft gick från jordbrukssamhälle till industrisamhälle: järnvägar, uppfinningar och fabriker, flytten in till städerna, nya arbetsvillkor och de folkrörelser som vanliga människor byggde upp.",
+  "topics": [
+    "från jordbrukssamhälle till industrisamhälle",
+    "järnvägar och nya uppfinningar",
+    "urbanisering och arbetsvillkor",
+    "folkrörelser",
+    "fattigdom och klasskillnader"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist8-ind-1",
+      "kind": "mc",
+      "topic": "från jordbrukssamhälle till industrisamhälle",
+      "prompt": "Vilka varor var viktigast för den svenska industrins genombrott under 1800-talets andra hälft?",
+      "opener": "Tänk på vilka råvaror Sverige hade gott om i skogarna och i berget.",
+      "choices": [
+        "Bomull och siden",
+        "Bilar och flygplan",
+        "Trävaror, järn och senare pappersmassa",
+        "Kaffe, socker och kryddor"
+      ],
+      "answer": 2,
+      "explanation": "Sveriges industrialisering byggde på landets egna råvaror: sågade trävaror till Europas städer, järn från Bergslagen och från 1870-talet pappersmassa. Bomull och siden var brittiska och asiatiska varor, medan bilar och flygplan hörde till 1900-talet."
+    },
+    {
+      "id": "q-hist8-ind-2",
+      "kind": "mc",
+      "topic": "järnvägar och nya uppfinningar",
+      "prompt": "Vad betydde utbyggnaden av järnvägen från 1850-talet mest för Sverige?",
+      "opener": "Jämför med hur varor tidigare fraktades: på dåliga vägar eller på vatten som frös om vintern.",
+      "choices": [
+        "Varor och människor kunde transporteras snabbt och billigt över långa avstånd året runt",
+        "Alla svenskar kunde börja resa utomlands på semester",
+        "Jordbruket kunde överges helt",
+        "Städerna slutade växa eftersom folk kunde bo kvar på landet"
+      ],
+      "answer": 0,
+      "explanation": "Järnvägen band samman skogar, gruvor och bruk med hamnar och städer, och gick även under vintern då sjöar och kanaler var isbelagda – det sänkte transportkostnaderna och band ihop marknaden. Städerna växte tvärtom snabbare, och jordbruket var fortfarande den största näringen långt in på 1900-talet."
+    },
+    {
+      "id": "q-hist8-ind-3",
+      "kind": "mc",
+      "topic": "järnvägar och nya uppfinningar",
+      "prompt": "Vilken svensk uppfinnare blev världskänd för dynamiten och grundade sedan Nobelprisen?",
+      "opener": "Efternamnet delas ut varje år den 10 december.",
+      "choices": [
+        "Gustaf de Laval",
+        "Lars Magnus Ericsson",
+        "Jonas Wenström",
+        "Alfred Nobel"
+      ],
+      "answer": 3,
+      "explanation": "Alfred Nobel patenterade dynamiten 1867 och testamenterade sin förmögenhet till de priser som bär hans namn. De Laval utvecklade separatorn för mjölk, Ericsson byggde telefoner och Wenström arbetade med generatorer – viktiga uppfinnare, men inte dynamitens."
+    },
+    {
+      "id": "q-hist8-ind-4",
+      "kind": "mc",
+      "topic": "fattigdom och klasskillnader",
+      "prompt": "Vad var statare i det svenska jordbruket?",
+      "opener": "Ordet kommer från \"stat\" – den ersättning man fick i varor i stället för pengar.",
+      "choices": [
+        "Bönder som ägde sin egen gård",
+        "Lantarbetare som var anställda med hela familjen ett år i taget och fick lönen mest i natura, till exempel mjölk och bostad",
+        "Statens tjänstemän på landsbygden",
+        "Soldater som fick ett torp av staten"
+      ],
+      "answer": 1,
+      "explanation": "Statarna var jordbruksarbetare som anställdes familjevis på ettårskontrakt och till största delen betalades i natura – mjölk, säd och en bostad i en statarlänga. Självägande bönder hade eget hus och jord, och soldattorpen hörde till det äldre indelningsverket."
+    },
+    {
+      "id": "q-hist8-ind-5",
+      "kind": "mc",
+      "topic": "folkrörelser",
+      "prompt": "Vad var nykterhetsrörelsens främsta mål?",
+      "opener": "Rörelsens namn syftar på en dryck som orsakade stora problem i många hem.",
+      "choices": [
+        "Att bygga fler fabriker på landsbygden",
+        "Att alla barn skulle få gå i skola",
+        "Att minska alkoholens skadeverkningar i samhället",
+        "Att kvinnor skulle få rösträtt"
+      ],
+      "answer": 2,
+      "explanation": "Nykterhetsrörelsen, med organisationer som IOGT och Blåbandsrörelsen, ville minska drickandet och de sociala problem – fattigdom, sjukdom och otrygghet i familjerna – som alkoholen förde med sig. Rösträttsfrågan drevs framför allt av rösträttsrörelsen och arbetarrörelsen, även om många medlemmar var engagerade i flera rörelser."
+    },
+    {
+      "id": "q-hist8-ind-6",
+      "kind": "mc",
+      "topic": "folkrörelser",
+      "prompt": "Varför kallas arbetarrörelsen, nykterhetsrörelsen och frikyrkorörelsen för folkrörelser?",
+      "opener": "Tänk på vem som startade dem – kom initiativet ovanifrån eller nedifrån?",
+      "choices": [
+        "De byggdes upp av vanliga människor som själva organiserade sig i föreningar över hela landet",
+        "De grundades av kungen och riksdagen",
+        "De styrdes av Svenska kyrkan",
+        "De bestod bara av medlemmar från städernas borgarklass"
+      ],
+      "answer": 0,
+      "explanation": "Folkrörelser kännetecknas av att vanliga människor gick samman frivilligt i lokala föreningar, valde egna ledare, höll möten och lärde sig tala, skriva och organisera – en skola i demokrati. Frikyrkorna växte tvärtom fram i opposition mot statskyrkan, och rörelserna hade sin bas bland arbetare och småbrukare snarare än i borgarklassen."
+    },
+    {
+      "id": "q-hist8-ind-7",
+      "kind": "worked",
+      "topic": "urbanisering och arbetsvillkor",
+      "prompt": "Förklara hur livet för en vanlig svensk familj förändrades mellan 1850 och 1900.",
+      "opener": "Följ familjen från gården till staden: arbete, bostad, barnens dagar och möjligheten att påverka.",
+      "answer": "År 1850 bodde de flesta svenskar på landsbygden och levde av jordbruk, ofta som torpare, statare eller lantarbetare, med arbetsuppgifter som följde årstiderna och lönen delvis i natura. Fram till 1900 hade befolkningen vuxit kraftigt, jordbruket blivit effektivare och industrin skapat nya jobb i städer och bruksorter. Många familjer flyttade därför in till städer som Stockholm, Göteborg och Norrköping, där de fick lönearbete med fasta tider, långa arbetsdagar och trångboddhet i hyreskaserner. Samtidigt växte nya möjligheter: folkskolan gav barnen läskunnighet, järnvägen och posten kortade avstånden, och i fackföreningar, nykterhetsloger och frikyrkor kunde vanliga människor organisera sig och kräva förändring.",
+      "steps": [
+        "Utgångsläge 1850: jordbrukssamhälle, arbete efter årstiderna, betalning delvis i natura, hög barnadödlighet.",
+        "Befolkningsökning och effektivare jordbruk gjorde att jorden inte räckte till alla – många blev egendomslösa.",
+        "Industri och järnväg skapade nya arbeten i städer och bruksorter, vilket drog till sig inflyttare.",
+        "I staden blev livet lönearbete med klocka och långa dagar, trångboddhet och beroende av att lönen räckte till mat och hyra.",
+        "Nya institutioner och rörelser – folkskolan, fackföreningar, nykterhetsrörelsen och frikyrkorna – gav kunskap, gemenskap och möjlighet att påverka."
+      ]
+    },
+    {
+      "id": "q-hist8-ind-8",
+      "kind": "flashcard",
+      "topic": "från jordbrukssamhälle till industrisamhälle",
+      "prompt": "Sammanfatta industrialiseringen i Sverige.",
+      "opener": "Tänk tidpunkt, råvaror, uppfinningar, städer, arbetsvillkor och folkrörelser.",
+      "answer": "Sverige industrialiserades senare än Storbritannien, framför allt från 1850-talet och framåt · basen var egna råvaror: sågade trävaror, järn från Bergslagen och från 1870-talet pappersmassa · järnvägen byggdes ut från 1856 och band samman skog, gruvor, bruk och hamnar året runt · svenska uppfinnare och företag: Alfred Nobel (dynamiten), Gustaf de Laval (separatorn), Lars Magnus Ericsson (telefoner), senare ASEA och SKF · urbanisering: människor flyttade från landsbygd till städer och bruksorter, Stockholm och Göteborg växte snabbt · arbetsvillkor: långa arbetsdagar, låga löner, olycksrisker, barnarbete och trångboddhet i hyreskaserner · på landsbygden fanns torpare och statare, som fick lön i natura · klasskillnaderna var stora mellan arbetare och fabriksägare · folkrörelserna växte fram nedifrån: arbetarrörelsen med fackföreningar och socialdemokrati, nykterhetsrörelsen mot alkoholens skador och frikyrkorna utanför statskyrkan · folkrörelserna blev en skola i demokrati och drev fram krav på rösträtt, bättre arbetsvillkor och sociala reformer."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi7-reaktioner",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Kemiska reaktioner",
+  "sourceSummary": "Skillnaden mellan fysikaliska förändringar och kemiska reaktioner, tecken på att en reaktion har skett, förbränning och syrets roll, att massan bevaras samt hur en enkel reaktionsformel läses.",
+  "topics": [
+    "fysikalisk förändring eller kemisk reaktion",
+    "tecken på reaktion",
+    "förbränning",
+    "massans bevarande",
+    "reaktionsformler"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi7-rea-1",
+      "kind": "mc",
+      "topic": "fysikalisk förändring eller kemisk reaktion",
+      "prompt": "Vilket av följande är en kemisk reaktion?",
+      "opener": "Fråga dig om ett helt nytt ämne bildas, eller om ämnet bara byter form.",
+      "choices": [
+        "En järnspik rostar",
+        "Vatten fryser till is",
+        "Socker löser sig i te",
+        "En glasruta går sönder"
+      ],
+      "answer": 0,
+      "explanation": "När järn rostar reagerar järnet med syre och vatten, och det bildas ett helt nytt ämne — rost — med andra egenskaper än järnet. Att vatten fryser är bara en fysikalisk förändring: ämnet är fortfarande vatten och kan smälta tillbaka igen."
+    },
+    {
+      "id": "q-kemi7-rea-2",
+      "kind": "mc",
+      "topic": "tecken på reaktion",
+      "prompt": "Vilket av följande är ett tydligt tecken på att en kemisk reaktion har skett?",
+      "opener": "Tecknen handlar alla om att något NYTT har uppstått.",
+      "choices": [
+        "Ämnet har flyttats till ett annat kärl",
+        "Ämnet blev varmare för att du värmde det på en platta",
+        "Det bubblar upp en gas eller bildas en fällning, färgen ändras bestående eller det utvecklas värme av sig självt",
+        "Ämnet blev blött när du hällde på vatten"
+      ],
+      "answer": 2,
+      "explanation": "Gasutveckling, fällning, en bestående färgändring eller värme som frigörs av sig självt visar att nya ämnen har bildats — det är kemi. Att ett ämne blir varmare för att du värmer det är ingen reaktion, bara energi som tillförs utifrån."
+    },
+    {
+      "id": "q-kemi7-rea-3",
+      "kind": "mc",
+      "topic": "förbränning",
+      "prompt": "Vilket ämne måste alltid finnas med för att något ska kunna brinna?",
+      "opener": "Tänk på varför en låga slocknar om du sätter ett glas över den.",
+      "choices": [
+        "Koldioxid",
+        "Syre",
+        "Kväve",
+        "Vattenånga"
+      ],
+      "answer": 1,
+      "explanation": "Förbränning är en reaktion med syre (O₂), och därför slocknar lågan när syret i glaset tar slut. Koldioxid är i stället det som ofta BILDAS vid förbränning — och det används i brandsläckare just eftersom det tränger bort syret."
+    },
+    {
+      "id": "q-kemi7-rea-4",
+      "kind": "mc",
+      "topic": "förbränning",
+      "prompt": "Vad bildas när kol (C) brinner fullständigt i syre?",
+      "opener": "Sätt ihop kolet med syret och tänk på vilken gas växterna behöver.",
+      "choices": [
+        "Vatten",
+        "Kolmonoxid",
+        "Kväveoxid",
+        "Koldioxid"
+      ],
+      "answer": 3,
+      "explanation": "Vid fullständig förbränning av kol bildas koldioxid: C + O₂ → CO₂. Kolmonoxid (CO) bildas bara vid OFULLSTÄNDIG förbränning när syret inte räcker till, och den gasen är mycket giftig."
+    },
+    {
+      "id": "q-kemi7-rea-5",
+      "kind": "mc",
+      "topic": "massans bevarande",
+      "prompt": "Ett magnesiumband med massan 2 g brinner i luft och det bildas ett vitt pulver som väger mer än 2 g. Vilken förklaring är rätt?",
+      "opener": "Något har kommit till från luften — vad?",
+      "choices": [
+        "Magnesiumet har reagerat med syre från luften, och syrets massa har lagts till pulvrets massa",
+        "Massa kan skapas ur ingenting i kemiska reaktioner",
+        "Pulvret blev tyngre eftersom det tog upp värme",
+        "Lågan som brann har en egen massa som blev kvar"
+      ],
+      "answer": 0,
+      "explanation": "Magnesium reagerar med syre och bildar magnesiumoxid, så syreatomernas massa räknas in i pulvret: 2 Mg + O₂ → 2 MgO. Massan bevaras alltid — den skapas inte ur ingenting, och värme har ingen massa som kan göra pulvret tyngre."
+    },
+    {
+      "id": "q-kemi7-rea-6",
+      "kind": "mc",
+      "topic": "reaktionsformler",
+      "prompt": "I reaktionsformeln 2 H₂ + O₂ → 2 H₂O, vad kallas ämnena som står till vänster om pilen?",
+      "opener": "Pilen betyder \"blir till\" — vad står före respektive efter den?",
+      "choices": [
+        "Produkter",
+        "Blandningar",
+        "Reaktanter, alltså utgångsämnena",
+        "Lösningsmedel"
+      ],
+      "answer": 2,
+      "explanation": "Till vänster om pilen står reaktanterna (utgångsämnena) som reagerar, här vätgas och syrgas. Produkten är det som bildas och står till höger om pilen — i det här fallet vatten."
+    },
+    {
+      "id": "q-kemi7-rea-7",
+      "kind": "worked",
+      "topic": "förbränning",
+      "prompt": "Du tänder ett stearinljus. Förklara vad som händer kemiskt: vilka ämnen reagerar, vad bildas, och varför slocknar lågan om du sätter ett glas över ljuset?",
+      "opener": "Börja med vad som brinner och vad det brinner ihop med.",
+      "answer": "Stearinet (ett bränsle med kol och väte) reagerar med syre från luften. Det bildas koldioxid och vattenånga, samtidigt som värme och ljus frigörs. Under ett glas tar syret slut och då slocknar lågan, eftersom förbränning kräver syre.",
+      "steps": [
+        "Identifiera bränslet: stearinet smälter, sugs upp i veken, förgasas och är det ämne som brinner. Det innehåller kol och väte.",
+        "Identifiera det andra utgångsämnet: syre (O₂) från luften. Utan syre ingen förbränning.",
+        "Bestäm produkterna: kolet blir koldioxid (CO₂) och vätet blir vattenånga (H₂O). Reaktionen avger energi som värme och ljus.",
+        "Förklara glaset: luften under glaset innehåller en begränsad mängd syre. När syret förbrukats kan reaktionen inte fortsätta och lågan slocknar.",
+        "Kontrollera att det verkligen är en kemisk reaktion: nya ämnen har bildats och energi har frigjorts — inte bara en förändring av form."
+      ]
+    },
+    {
+      "id": "q-kemi7-rea-8",
+      "kind": "flashcard",
+      "topic": "fysikalisk förändring eller kemisk reaktion",
+      "prompt": "Sammanfatta skillnaden mellan fysikalisk förändring och kemisk reaktion, samt vad du behöver veta om förbränning.",
+      "opener": "Nya ämnen eller inte — det är huvudfrågan. Ta sedan förbränning och massa.",
+      "answer": "Fysikalisk förändring: samma ämne, ny form — smälta, frysa, koka, lösa upp, krossa, går oftast att göra om baklänges · Kemisk reaktion: nya ämnen bildas med nya egenskaper — rostning, förbränning, bakning, matsmältning, svårt eller omöjligt att vända tillbaka · Tecken på reaktion: gasbubblor, fällning, bestående färgändring, värme eller ljus som frigörs, ny lukt · Reaktionsformel: reaktanter (utgångsämnen) till vänster om pilen, produkter till höger, pilen läses \"blir till\" · Förbränning: bränsle + syre → nya ämnen + värme och ljus · Brandtriangeln: bränsle, syre och värme måste alla finnas — tar man bort en del slocknar det · C + O₂ → CO₂ (kol brinner till koldioxid) · 2 H₂ + O₂ → 2 H₂O (vätgas brinner till vatten) · Ofullständig förbränning ger sot och giftig kolmonoxid (CO) · Massans bevarande: atomerna försvinner aldrig och skapas aldrig, de byter bara plats, så den totala massan är lika stor före och efter reaktionen."
+    }
+  ]
+}

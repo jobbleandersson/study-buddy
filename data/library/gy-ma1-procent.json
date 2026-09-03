@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma1-procent",
+  "type": "assignment",
+  "subject": "Matematik 1",
+  "title": "Procent, förändringsfaktor och index",
+  "sourceSummary": "Förändringsfaktor, upprepad förändring, procentenheter kontra procent, ränta och index — momentet där flest tappar poäng på prov.",
+  "topics": [
+    "förändringsfaktor",
+    "upprepad förändring",
+    "procentenheter",
+    "index"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma1-proc-1",
+      "kind": "mc",
+      "topic": "förändringsfaktor",
+      "prompt": "Vilken förändringsfaktor motsvarar en minskning med 12 %?",
+      "opener": "Hur stor andel är kvar efter minskningen?",
+      "choices": [
+        "0,88",
+        "-0,12",
+        "0,12",
+        "1,12"
+      ],
+      "answer": 0,
+      "explanation": "Efter en minskning med 12 % är 88 % kvar, alltså faktorn $0{,}88$. En förändringsfaktor är aldrig negativ."
+    },
+    {
+      "id": "q-ma1-proc-2",
+      "kind": "mc",
+      "topic": "förändringsfaktor",
+      "prompt": "Ett pris ändras från 250 kr till 300 kr. Vilken är förändringsfaktorn?",
+      "opener": "Dela det nya värdet med det gamla.",
+      "choices": [
+        "1,05",
+        "1,2",
+        "0,83",
+        "1,5"
+      ],
+      "answer": 1,
+      "explanation": "$\\frac{300}{250} = 1{,}2$, alltså en ökning med 20 %. Förändringsfaktorn är alltid nytt värde delat med gammalt."
+    },
+    {
+      "id": "q-ma1-proc-3",
+      "kind": "mc",
+      "topic": "förändringsfaktor",
+      "prompt": "Efter 15 % rabatt kostar en vara 850 kr. Vad var ordinarie pris?",
+      "opener": "850 kr motsvarar inte 100 % — vilken andel motsvarar det?",
+      "choices": [
+        "950 kr",
+        "977,50 kr",
+        "1 000 kr",
+        "865 kr"
+      ],
+      "answer": 2,
+      "explanation": "850 kr är 85 % av ordinarie pris. Alltså $\\frac{850}{0{,}85} = 1\\,000$ kr. Att lägga på 15 % på 850 ger fel svar (977,50), eftersom procenten räknas på olika utgångsvärden."
+    },
+    {
+      "id": "q-ma1-proc-4",
+      "kind": "mc",
+      "topic": "upprepad förändring",
+      "prompt": "En vara minskar i värde med 10 % två år i rad. Hur mycket har den minskat totalt?",
+      "opener": "Andra årets minskning räknas på ett redan sänkt värde.",
+      "choices": [
+        "18 %",
+        "20 %",
+        "21 %",
+        "19 %"
+      ],
+      "answer": 3,
+      "explanation": "Faktorn blir $0{,}9 \\cdot 0{,}9 = 0{,}81$, alltså är 81 % kvar och minskningen är 19 % — inte 20 %, eftersom år två räknas på det lägre värdet."
+    },
+    {
+      "id": "q-ma1-proc-5",
+      "kind": "mc",
+      "topic": "procentenheter",
+      "prompt": "Räntan på ett lån höjs från 2 % till 3 %. Vilket påstående är korrekt?",
+      "opener": "Skilj på hur många enheter räntan flyttat sig och hur stor den relativa ökningen är.",
+      "choices": [
+        "Räntan har ökat med 1 procentenhet, vilket är en ökning med 50 %",
+        "Räntan har ökat med 50 procentenheter",
+        "Räntan har ökat med 1,5 %",
+        "Räntan har ökat med 1 %"
+      ],
+      "answer": 0,
+      "explanation": "Skillnaden är 1 procentenhet. Relativt sett är det $\\frac{1}{2} = 50\\ \\%$ ökning. Procentenheter beskriver skillnaden, procent beskriver den relativa förändringen."
+    },
+    {
+      "id": "q-ma1-proc-6",
+      "kind": "mc",
+      "topic": "index",
+      "prompt": "Ett prisindex har basåret 2015 (index 100). År 2024 är index 118. Vad betyder det?",
+      "opener": "Index 100 är utgångsläget — vad står de 18 extra för?",
+      "choices": [
+        "Priserna har ökat med 18 kr",
+        "Priserna har ökat med 18 % sedan 2015",
+        "Priserna har ökat med 118 % sedan 2015",
+        "Priserna är 18 % av 2015 års nivå"
+      ],
+      "answer": 1,
+      "explanation": "Index 118 jämfört med basåret 100 betyder att priserna är $\\frac{118}{100} = 1{,}18$ gånger så höga, alltså 18 % högre."
+    },
+    {
+      "id": "q-ma1-proc-7",
+      "kind": "worked",
+      "topic": "upprepad förändring",
+      "prompt": "Du sätter in 2 000 kr på ett sparkonto med 3 % ränta per år. Hur mycket finns på kontot efter 5 år? Avrunda till hela kronor.",
+      "opener": "Räntan läggs på ett allt större belopp varje år — vilken sorts förändring är det?",
+      "answer": "≈ 2 319 kr",
+      "steps": [
+        "Varje år multipliceras beloppet med förändringsfaktorn $1{,}03$.",
+        "Efter 5 år: $2\\,000 \\cdot 1{,}03^5$.",
+        "$1{,}03^5 \\approx 1{,}1593$.",
+        "$2\\,000 \\cdot 1{,}1593 \\approx 2\\,319$ kr. (Enkel ränta hade gett 2 300 kr — skillnaden är ränta på räntan.)"
+      ]
+    },
+    {
+      "id": "q-ma1-proc-8",
+      "kind": "flashcard",
+      "topic": "förändringsfaktor",
+      "prompt": "Hur räknar du ut en förändringsfaktor, och hur använder du den vid upprepad förändring?",
+      "opener": "En formel för faktorn, och en för flera perioder.",
+      "answer": "Förändringsfaktor = nytt värde / gammalt värde. En ökning med $p$ % ger faktorn $1 + p/100$, en minskning ger $1 - p/100$. Vid upprepad förändring multipliceras faktorerna: efter $n$ lika stora förändringar blir slutvärdet $\\text{startvärde} \\cdot \\text{faktor}^n$."
+    }
+  ]
+}

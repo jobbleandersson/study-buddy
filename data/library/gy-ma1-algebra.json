@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma1-algebra",
+  "type": "assignment",
+  "subject": "Matematik 1",
+  "title": "Algebra, ekvationer och olikheter",
+  "sourceSummary": "Förenkla uttryck med parenteser, lösa ekvationer och olikheter, och lösa ut en variabel ur en formel.",
+  "topics": [
+    "algebraiska uttryck",
+    "ekvationer",
+    "olikheter",
+    "formelhantering"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma1-alg-1",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $3(x + 4) - 2(x - 1)$.",
+      "opener": "Var extra noga med tecknen när du multiplicerar in $-2$ i den andra parentesen.",
+      "choices": [
+        "$x + 10$",
+        "$5x + 14$",
+        "$x + 14$",
+        "$x + 11$"
+      ],
+      "answer": 2,
+      "explanation": "$3(x+4) = 3x + 12$ och $-2(x-1) = -2x + 2$. Tillsammans: $3x - 2x + 12 + 2 = x + 14$. Minustecknet gäller båda termerna i parentesen."
+    },
+    {
+      "id": "q-ma1-alg-2",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Utveckla $(x + 3)(x - 2)$.",
+      "opener": "Varje term i första parentesen ska multipliceras med varje term i den andra.",
+      "choices": [
+        "$x^2 + 5x - 6$",
+        "$x^2 - x - 6$",
+        "$x^2 - 6$",
+        "$x^2 + x - 6$"
+      ],
+      "answer": 3,
+      "explanation": "$x \\cdot x = x^2$, $x \\cdot (-2) = -2x$, $3 \\cdot x = 3x$, $3 \\cdot (-2) = -6$. Summan blir $x^2 + x - 6$."
+    },
+    {
+      "id": "q-ma1-alg-3",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $4x - 7 = 2x + 9$.",
+      "opener": "Samla obekanta på ena sidan och konstanter på den andra.",
+      "choices": [
+        "$x = 8$",
+        "$x = 1$",
+        "$x = 4$",
+        "$x = 16$"
+      ],
+      "answer": 0,
+      "explanation": "Dra bort $2x$: $2x - 7 = 9$. Lägg till 7: $2x = 16$. Dela med 2: $x = 8$."
+    },
+    {
+      "id": "q-ma1-alg-4",
+      "kind": "mc",
+      "topic": "olikheter",
+      "prompt": "Lös olikheten $3x - 5 > 7$.",
+      "opener": "Behandla den som en ekvation — men håll koll på om olikhetstecknet ska vändas.",
+      "choices": [
+        "$x > \\frac{2}{3}$",
+        "$x > 4$",
+        "$x < 4$",
+        "$x > 12$"
+      ],
+      "answer": 1,
+      "explanation": "Lägg till 5: $3x > 12$. Dela med 3 (positivt tal, tecknet står kvar): $x > 4$."
+    },
+    {
+      "id": "q-ma1-alg-5",
+      "kind": "mc",
+      "topic": "olikheter",
+      "prompt": "Lös olikheten $-2x > 6$.",
+      "opener": "Här delar du med ett negativt tal — det får en konsekvens.",
+      "choices": [
+        "$x < 3$",
+        "$x > -3$",
+        "$x < -3$",
+        "$x > 3$"
+      ],
+      "answer": 2,
+      "explanation": "Dela båda leden med $-2$. Vid division med ett negativt tal vänds olikhetstecknet: $x < -3$."
+    },
+    {
+      "id": "q-ma1-alg-6",
+      "kind": "mc",
+      "topic": "formelhantering",
+      "prompt": "Lös ut $t$ ur formeln $s = v \\cdot t$.",
+      "opener": "Vad behöver du dividera bort för att få $t$ ensamt?",
+      "choices": [
+        "$t = s \\cdot v$",
+        "$t = \\frac{v}{s}$",
+        "$t = s - v$",
+        "$t = \\frac{s}{v}$"
+      ],
+      "answer": 3,
+      "explanation": "Dela båda leden med $v$: $t = \\frac{s}{v}$. (Sträcka delat med hastighet ger tid, vilket också stämmer med enheterna.)"
+    },
+    {
+      "id": "q-ma1-alg-7",
+      "kind": "worked",
+      "topic": "formelhantering",
+      "prompt": "Arean av en cirkel ges av $A = \\pi r^2$. Lös ut radien $r$, och beräkna radien för en cirkel med arean 50 cm² (en decimal).",
+      "opener": "Först algebra: få $r$ ensamt. Sedan sätter du in siffrorna.",
+      "answer": "$r = \\sqrt{A/\\pi} \\approx 4{,}0$ cm",
+      "steps": [
+        "Dela båda leden med $\\pi$: $\\frac{A}{\\pi} = r^2$.",
+        "Dra roten ur båda leden: $r = \\sqrt{\\frac{A}{\\pi}}$ (radien är positiv, så vi tar den positiva roten).",
+        "Sätt in $A = 50$: $r = \\sqrt{\\frac{50}{\\pi}} = \\sqrt{15{,}9...}$.",
+        "Räkna ut: $r \\approx 4{,}0$ cm."
+      ]
+    },
+    {
+      "id": "q-ma1-alg-8",
+      "kind": "flashcard",
+      "topic": "olikheter",
+      "prompt": "När måste du vända på olikhetstecknet, och varför?",
+      "opener": "Det handlar om en specifik sorts operation.",
+      "answer": "När du multiplicerar eller dividerar båda leden med ett negativt tal. Skälet är att negativa tal kastar om storleksordningen: $2 < 3$, men $-2 > -3$. Att addera eller subtrahera påverkar däremot aldrig tecknet."
+    }
+  ]
+}

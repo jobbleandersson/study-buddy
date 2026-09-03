@@ -1,0 +1,130 @@
+{
+  "id": "lib-hist1a1-antiken",
+  "type": "assignment",
+  "subject": "Historia 1a1",
+  "title": "Antiken och medeltiden",
+  "sourceSummary": "Grekisk och romersk civilisation, kristendomens spridning, romerska rikets fall och det feodala samhället under medeltiden.",
+  "topics": [
+    "antikens Grekland och Rom",
+    "kristendomens spridning",
+    "Romerska rikets fall",
+    "feodalsamhället",
+    "kyrkans och kungamaktens roll"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist1a1-antiken-1",
+      "kind": "mc",
+      "topic": "antikens Grekland och Rom",
+      "prompt": "Vad var utmärkande för demokratin i antikens Aten?",
+      "opener": "Tänk på vilka som faktiskt räknades som medborgare med rösträtt.",
+      "choices": [
+        "Alla vuxna invånare, inklusive kvinnor och slavar, fick rösta",
+        "Beslut fattades enbart av en ärftlig kung",
+        "Endast fria vuxna män med medborgarskap fick delta i beslutsfattandet",
+        "Aten styrdes efter romersk lag"
+      ],
+      "answer": 2,
+      "explanation": "Den atenska demokratin var direkt, men mycket begränsad: endast fria vuxna män med medborgarskap deltog i folkförsamlingen. Kvinnor, slavar och utlänningar var uteslutna, till skillnad från dagens representativa demokratier med allmän rösträtt."
+    },
+    {
+      "id": "q-hist1a1-antiken-2",
+      "kind": "mc",
+      "topic": "antikens Grekland och Rom",
+      "prompt": "Vad bidrog mest till att det romerska riket kunde expandera och hålla ihop ett så stort territorium?",
+      "opener": "Tänk på infrastruktur, militär organisation och gemensamma lagar.",
+      "choices": [
+        "Ett välorganiserat vägnät, en professionell armé och ett gemensamt rättssystem",
+        "Att alla erövrade folk automatiskt fick rösträtt i senaten",
+        "Att riket saknade en fast armé och byggde enbart på handelsavtal",
+        "Att grekiska var det enda tillåtna språket i hela riket"
+      ],
+      "answer": 0,
+      "explanation": "Roms väldiga vägnät gjorde det möjligt att snabbt flytta trupper och varor, den professionella armén kunde erövra och försvara territorium, och ett gemensamt rättssystem band samman olika folk under samma styre. Riket var tvärtom mångspråkigt och rösträtt i senaten var långt ifrån automatisk."
+    },
+    {
+      "id": "q-hist1a1-antiken-3",
+      "kind": "mc",
+      "topic": "kristendomens spridning",
+      "prompt": "Vilken händelse var avgörande för att kristendomen blev tillåten och senare statsreligion i det romerska riket?",
+      "opener": "Tänk på ett kejserligt beslut om religionsfrihet, och ett senare beslut som gick ännu längre.",
+      "choices": [
+        "Julius Caesars erövring av Gallien",
+        "Perserkrigen mellan Grekland och Persien",
+        "Digerdöden på 1300-talet",
+        "Milanoediktet 313 och kejsar Theodosius beslut 380 att göra kristendomen till statsreligion"
+      ],
+      "answer": 3,
+      "explanation": "Genom Milanoediktet 313 blev kristendomen tillåten i romerska riket, och 380 gjorde kejsar Theodosius den till rikets officiella statsreligion. De andra alternativen hör till helt andra tider och sammanhang i antiken respektive medeltiden."
+    },
+    {
+      "id": "q-hist1a1-antiken-4",
+      "kind": "mc",
+      "topic": "Romerska rikets fall",
+      "prompt": "Vilka faktorer brukar historiker lyfta fram som orsaker till västroms fall 476 e.Kr.?",
+      "opener": "Tänk på både yttre hot och inre svagheter i riket.",
+      "choices": [
+        "Att romarna frivilligt gav bort makten till Egypten",
+        "En kombination av germanska folkvandringar, ekonomisk kris, politisk instabilitet och rikets delning i en västlig och östlig del",
+        "Att kristendomen förbjöds i hela riket",
+        "En enskild stor naturkatastrof i Rom"
+      ],
+      "answer": 1,
+      "explanation": "Västroms fall berodde inte på en enda orsak utan på flera samverkande faktorer: germanska folkgruppers intrång, en långvarig ekonomisk kris, en alltmer ineffektiv administration och rikets delning i en väst- och östdel som försvagade det gemensamma försvaret."
+    },
+    {
+      "id": "q-hist1a1-antiken-5",
+      "kind": "mc",
+      "topic": "feodalsamhället",
+      "prompt": "Hur var makt och jord fördelade i det feodala samhällssystemet under medeltiden?",
+      "opener": "Tänk på en kedja av löften om jord i utbyte mot militär tjänst.",
+      "choices": [
+        "Kungen förlänade jord till adeln (länsherrar) mot löfte om militär tjänst, som i sin tur hade vasaller och livegna bönder under sig",
+        "Kungen ägde all jord och styrde direkt över varje enskild bonde utan mellanhänder",
+        "All jord ägdes gemensamt av kyrkan och bönderna i lika delar",
+        "Handelsmän i städerna styrde över både kungen och adeln"
+      ],
+      "answer": 0,
+      "explanation": "Feodalsamhället byggde på en pyramid av ömsesidiga förpliktelser: kungen förlänade jord (län) till adeln mot löfte om militär trohet, adeln hade i sin tur egna vasaller, och längst ner stod de livegna bönderna som brukade jorden. Makten var alltså decentraliserad, inte direktstyrd av kungen."
+    },
+    {
+      "id": "q-hist1a1-antiken-6",
+      "kind": "mc",
+      "topic": "kyrkans och kungamaktens roll",
+      "prompt": "Vad handlade den så kallade investiturstriden om under medeltiden?",
+      "opener": "Tänk på en maktkamp om vem som fick utse kyrkans ledare.",
+      "choices": [
+        "En strid om rätten att bedriva handel på Medelhavet",
+        "En strid mellan Frankrike och England om Skottland",
+        "En strid om vem som hade rätt att utse biskopar — kejsaren/kungen eller påven",
+        "En strid om vem som skulle leda korstågen till Jerusalem"
+      ],
+      "answer": 2,
+      "explanation": "Investiturstriden handlade om vem som skulle ha rätt att tillsätta biskopar och andra kyrkliga ämbeten: den världsliga makten (kejsaren) eller den andliga (påven). Konflikten visar hur kyrkans och kungamaktens intressen ofta krockade under medeltiden."
+    },
+    {
+      "id": "q-hist1a1-antiken-7",
+      "kind": "worked",
+      "topic": "Romerska rikets fall",
+      "prompt": "Historiker har länge diskuterat varför västrom föll 476 e.Kr. Förklara minst tre orsaker och hur de hänger samman.",
+      "opener": "Tänk på både yttre hot och inre svagheter — de förstärkte varandra.",
+      "answer": "Västroms fall berodde inte på en enskild orsak utan på flera samverkande faktorer: militärt tryck utifrån från germanska folkgrupper, en långvarig ekonomisk och administrativ kris samt en politisk splittring där riket delades i en väst- och östdel, vilket försvagade den gemensamma försvarsförmågan.",
+      "steps": [
+        "Under 300- och 400-talen ökade trycket från germanska folkgrupper som goter och vandaler, som trängde in över rikets gränser.",
+        "Samtidigt hade riket länge lidit av ekonomisk kris, med inflation, tunga skatter och sviktande handel.",
+        "Administrationen blev alltmer ineffektiv och armén bestod i allt högre grad av inhyrda germanska legosoldater med svag lojalitet mot Rom.",
+        "År 395 delades riket definitivt i en väst- och en östlig del, vilket gjorde att västdelen fick klara sig utan östdelens resurser.",
+        "Faktorerna förstärkte varandra: en svagare ekonomi gav sämre försvar, vilket gjorde riket mer sårbart för angrepp, till dess att den siste västromerske kejsaren avsattes 476."
+      ]
+    },
+    {
+      "id": "q-hist1a1-antiken-8",
+      "kind": "flashcard",
+      "topic": "kyrkans och kungamaktens roll",
+      "prompt": "Sammanfatta antiken och medeltiden: viktiga drag hos Grekland och Rom, kristendomens spridning, Roms fall och det feodala samhället.",
+      "opener": "Tänk kedjan: antikens arv → kristendomens spridning → rikets fall → nytt samhällssystem.",
+      "answer": "Antikens Grekland gav idéer om demokrati (i Aten) och filosofi · antikens Rom byggde ett stort rike med vägar, arméer och ett rättssystem som spred romersk kultur och lag · kristendomen spreds inom riket och blev tillåten genom Milanoediktet 313 och statsreligion 380 · västrom föll 476 e.Kr. genom en kombination av folkvandringar, ekonomisk kris och politisk splittring · efter Roms fall växte det feodala samhället fram i Europa, där kungen förlänade jord mot militär tjänst till adeln, som i sin tur hade vasaller och livegna bönder · kyrkan blev en central maktfaktor under medeltiden, ibland i konflikt med kungamakten, som i investiturstriden om rätten att utse biskopar."
+    }
+  ]
+}

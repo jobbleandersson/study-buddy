@@ -1,0 +1,126 @@
+{
+  "id": "lib-en9-writing",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Writing: meningsbyggnad och vanliga fel",
+  "sourceSummary": "Ordföljd, verbändelser och de vanligaste svenska-till-engelska-felen — grunderna för att skriva korrekta meningar.",
+  "topics": [
+    "word order",
+    "common mistakes"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en9-wri-1",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order?",
+      "opener": "Engelskans ordföljd i frågor: hjälpverb + subjekt + huvudverb.",
+      "choices": [
+        "Where you are going?",
+        "Where are you going?",
+        "Where going you are?",
+        "You are going where?"
+      ],
+      "answer": 1,
+      "explanation": "I engelska frågor kommer hjälpverbet (are) före subjektet (you): \"Where are you going?\" — samma mönster som \"Are you coming?\""
+    },
+    {
+      "id": "q-en9-wri-2",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order for adjectives?",
+      "opener": "På svenska säger man ofta \"ett hus stort och gammalt\" — men engelskan har en fast ordning.",
+      "choices": [
+        "I bought a house big and old.",
+        "I bought a big, old house.",
+        "I bought a house old and big.",
+        "I bought big a old house."
+      ],
+      "answer": 1,
+      "explanation": "På engelska står adjektiv FÖRE substantivet, i en viss ordning (storlek före ålder här): \"a big, old house\", inte efter substantivet som ibland görs på svenska."
+    },
+    {
+      "id": "q-en9-wri-3",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"People\" är redan pluralt — det tar aldrig -s.",
+      "choices": [
+        "Many peoples came to the party.",
+        "Many people came to the party.",
+        "Many person came to the party.",
+        "Much people came to the party."
+      ],
+      "answer": 1,
+      "explanation": "\"People\" betyder redan \"människor\" (plural) och tar aldrig -s. \"Peoples\" används bara om man menar flera FOLKSLAG/nationer, ett ovanligt specialfall."
+    },
+    {
+      "id": "q-en9-wri-4",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "Svenskans \"jag är 15 år\" översätts ordagrant fel till engelska.",
+      "choices": [
+        "I am 15 years.",
+        "I have 15 years.",
+        "I am 15 years old.",
+        "I am 15 years age."
+      ],
+      "answer": 2,
+      "explanation": "På engelska säger man \"I am ... years old\", inte en direktöversättning av \"jag är ... år\". Frasen kräver \"old\" på slutet."
+    },
+    {
+      "id": "q-en9-wri-5",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Information\" räknas som ett osräknebart substantiv på engelska.",
+      "choices": [
+        "I need some informations about the trip.",
+        "I need an information about the trip.",
+        "I need some information about the trip.",
+        "I need many informations about the trip."
+      ],
+      "answer": 2,
+      "explanation": "\"Information\" är osräknebart på engelska (till skillnad från svenskans \"information/informationer\") — det tar aldrig -s och aldrig \"an\" framför sig."
+    },
+    {
+      "id": "q-en9-wri-6",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order for time expressions?",
+      "opener": "Tidsuttryck som \"every day\" hamnar oftast sist i en engelsk mening.",
+      "choices": [
+        "I every day play football.",
+        "Every day I play football after school.",
+        "I play every day football.",
+        "I play football every day."
+      ],
+      "answer": 3,
+      "explanation": "Standardordningen på engelska är subjekt + verb + objekt + tidsuttryck sist: \"I play football every day.\" (Alternativ 2 fungerar också, men är mindre vanligt.)"
+    },
+    {
+      "id": "q-en9-wri-7",
+      "kind": "worked",
+      "topic": "common mistakes",
+      "prompt": "Correct the four errors: \"I have 14 years and I have many informations about football. Every day after school I football play with my friends peoples.\"",
+      "opener": "Fyra typiska svensk-till-engelska-fel i en kort text.",
+      "answer": "I am 14 years old and I have a lot of information about football. Every day after school I play football with my friends.",
+      "steps": [
+        "\"I have 14 years\" → \"I am 14 years old\". Ålder uttrycks med \"be\", inte \"have\", och kräver \"old\" på slutet.",
+        "\"many informations\" → \"a lot of information\". \"Information\" är osräknebart och tar aldrig -s.",
+        "\"I football play\" → \"I play football\". Engelskans ordföljd är subjekt-verb-objekt: verbet kommer direkt efter subjektet.",
+        "\"my friends peoples\" → \"my friends\". \"Friends\" är redan plural; \"peoples\" ska inte läggas till här."
+      ]
+    },
+    {
+      "id": "q-en9-wri-8",
+      "kind": "flashcard",
+      "topic": "common mistakes",
+      "prompt": "List the most common Swedish-to-English writing mistakes.",
+      "opener": "Sex vanliga fallgropar att kolla i din egen text.",
+      "answer": "Ålder: \"I am X years old\", inte \"I have X years\". People/information är osräknebara och tar aldrig -s. Ordföljd i frågor: hjälpverb före subjekt (\"Where are you going?\"). Verbet kommer direkt efter subjektet (\"I play football\", inte \"I football play\"). Adjektiv står FÖRE substantivet på engelska (\"a big house\"). Tidsuttryck som \"every day\" hamnar oftast sist i meningen."
+    }
+  ]
+}

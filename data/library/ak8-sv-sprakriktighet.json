@@ -1,0 +1,129 @@
+{
+  "id": "lib-sv8-sprakriktighet",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Språkriktighet",
+  "sourceSummary": "De, dem och dom, särskrivning, satsradning och komma vid bisats. Här tränar du också på att skilja talspråk från skriftspråk i skoluppgifter.",
+  "topics": [
+    "de och dem",
+    "särskrivning",
+    "skiljetecken",
+    "talspråk och skriftspråk"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv8-spr-1",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Välj rätt ord: \"Vi hälsade på ___ under sommarlovet.\"",
+      "opener": "Ordet står efter prepositionen \"på\" — testa att byta ut det mot \"oss\" eller \"vi\".",
+      "choices": [
+        "dem",
+        "de",
+        "dom",
+        "dessa de"
+      ],
+      "answer": 0,
+      "explanation": "Efter en preposition används objektsform: \"dem\". Testet fungerar också med vi/oss — \"vi hälsade på oss\" visar att objektsform behövs, alltså inte \"de\"."
+    },
+    {
+      "id": "q-sv8-spr-2",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Vilken mening är korrekt skriven i en skoluppgift?",
+      "opener": "Fundera både på om ordet är subjekt eller objekt, och på om formen hör hemma i skrift.",
+      "choices": [
+        "Dom sa att dom skulle komma.",
+        "De sa att de skulle komma.",
+        "Dem sa att dem skulle komma.",
+        "De sa att dem skulle komma."
+      ],
+      "answer": 1,
+      "explanation": "I båda satserna är ordet subjekt — det är de som säger och de som ska komma — alltså \"de\" båda gångerna. \"Dom\" fungerar i tal och i skönlitterära repliker, men i skoluppgifter förväntas de/dem."
+    },
+    {
+      "id": "q-sv8-spr-3",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "Vilket alternativ är korrekt skrivet?",
+      "opener": "Läs orden högt: hör du ett betoningsfall mitt i, är det troligen ett sammansatt ord.",
+      "choices": [
+        "Han köpte en ny cykel hjälm.",
+        "Han köpte en ny Cykelhjälm.",
+        "Han köpte en ny cykelhjälm.",
+        "Han köpte en ny cykels hjälm."
+      ],
+      "answer": 2,
+      "explanation": "\"Cykelhjälm\" är ett sammansatt ord och skrivs ihop. Skriver man \"cykel hjälm\" blir det två separata saker, ungefär som om han köpte både en cykel och en hjälm."
+    },
+    {
+      "id": "q-sv8-spr-4",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Vad är felet i meningen? \"Jag hann inte äta frukost, bussen gick tidigare idag.\"",
+      "opener": "Titta på vad som står på var sida om kommatecknet — kan båda delarna stå som egna meningar?",
+      "choices": [
+        "Särskrivning",
+        "Fel användning av de och dem",
+        "Meningen saknar subjekt",
+        "Satsradning — två huvudsatser binds ihop med bara komma"
+      ],
+      "answer": 3,
+      "explanation": "Båda delarna är fullständiga huvudsatser, och då räcker inte ett komma. Rätta med punkt, semikolon eller en konjunktion: \"...frukost, för bussen gick tidigare idag.\" Det finns varken särskrivning eller de/dem-fel i meningen."
+    },
+    {
+      "id": "q-sv8-spr-5",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Var ska kommatecknet stå? \"Om du hinner före mig ___ kan du börja utan mig.\"",
+      "opener": "Meningen inleds med en bisats — var slutar den?",
+      "choices": [
+        "Efter \"Om\"",
+        "Efter \"mig\" (första gången)",
+        "Efter \"kan\"",
+        "Inget komma alls behövs"
+      ],
+      "answer": 1,
+      "explanation": "Bisatsen \"Om du hinner före mig\" står först och avslutas med komma innan huvudsatsen börjar. Komma efter \"Om\" skulle klippa mitt i bisatsen, vilket aldrig är rätt."
+    },
+    {
+      "id": "q-sv8-spr-6",
+      "kind": "mc",
+      "topic": "talspråk och skriftspråk",
+      "prompt": "Vilken formulering hör hemma i en skriven text?",
+      "opener": "Vissa småord hänger med från talet men räknas som fel eller slarv i skrift.",
+      "choices": [
+        "Hon är störst utav alla i laget.",
+        "Hon är störst utav dom alla i laget.",
+        "Hon är störst av alla i laget.",
+        "Hon är den störste utav alla i laget."
+      ],
+      "answer": 2,
+      "explanation": "Det heter \"av\", inte \"utav\" — \"utav\" är talspråkligt och bör undvikas i skrift. Samma sak gäller \"dom\", \"ba\", \"typ\" och \"asså\", som hör hemma i tal men inte i en inlämning."
+    },
+    {
+      "id": "q-sv8-spr-7",
+      "kind": "worked",
+      "topic": "de och dem",
+      "prompt": "Rätta meningen och förklara varje ändring: \"Dom som var sena fick inte följa med, dem andra åkte iväg direkt utav glädje på en klass resa.\"",
+      "opener": "Leta efter fyra typer av fel: dom i skrift, de/dem-fel, satsradning och särskrivning.",
+      "answer": "De som var sena fick inte följa med. De andra åkte iväg direkt av glädje på en klassresa.",
+      "steps": [
+        "\"Dom som var sena\" → \"De som var sena\". Ordet är subjekt, och \"dom\" är talspråk som inte hör hemma i en skoluppgift.",
+        "\"fick inte följa med, dem andra åkte\" → sätt punkt efter \"med\". Två fullständiga huvudsatser får inte bindas ihop med bara komma (satsradning).",
+        "\"dem andra\" → \"De andra\". Det är de som åker iväg, alltså subjekt — testa med \"they\", inte \"them\".",
+        "\"utav glädje\" → \"av glädje\". \"Utav\" är talspråkligt.",
+        "\"klass resa\" → \"klassresa\". Sammansatt ord som ska skrivas ihop."
+      ]
+    },
+    {
+      "id": "q-sv8-spr-8",
+      "kind": "flashcard",
+      "topic": "de och dem",
+      "prompt": "Vilka regler och knep använder du för de/dem, särskrivning, satsradning och komma vid bisats?",
+      "opener": "Fyra vanliga fällor — en minnesregel för varje.",
+      "answer": "De/dem · byt ut mot vi/oss eller they/them · blir det \"vi\"/\"they\" skriver du de, blir det \"oss\"/\"them\" skriver du dem · efter preposition (med, till, av, på, för) alltid dem · \"dom\" hör till talet, inte till skoluppgiften. Särskrivning · hör orden ihop till EN sak skrivs de ihop (klassresa, cykelhjälm) · särskrivning ändrar betydelsen. Satsradning · två huvudsatser får inte hållas ihop av bara komma · fixa med punkt, semikolon eller konjunktion (och, men, för, så). Komma vid bisats · bisats före huvudsats avslutas med komma (\"När vi kom hem, åt vi\") · inskjuten bisats ramas in av komma på båda sidor. Talspråk i skrift · undvik utav, dom, typ, ba, asså."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam8-rattssystem",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Rättssystemet och brottslighet",
+  "sourceSummary": "Rättsväsendets aktörer polis, åklagare, domstol och kriminalvård, hur en rättegång går till, skillnaden mellan brottmål och tvistemål, vanliga påföljder och straffets syften samt vad forskningen säger om orsaker till brottslighet.",
+  "topics": [
+    "rättsväsendets aktörer",
+    "hur en rättegång går till",
+    "brottmål och tvistemål",
+    "påföljder och straffets syften",
+    "orsaker till brottslighet"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam8-rat-1",
+      "kind": "mc",
+      "topic": "rättsväsendets aktörer",
+      "prompt": "Vad är åklagarens uppgift i ett brottmål?",
+      "opener": "Åklagaren kommer in före rättegången och fattar ett viktigt beslut.",
+      "choices": [
+        "Att döma den misstänkte till ett straff",
+        "Att leda förundersökningen vid allvarligare brott och besluta om åtal ska väckas",
+        "Att försvara den misstänkte i rätten",
+        "Att verkställa straffet efter domen"
+      ],
+      "answer": 1,
+      "explanation": "Åklagaren leder förundersökningen vid allvarligare brott, bedömer om bevisen räcker och beslutar om åtal ska väckas. Under rättegången är det åklagaren som ska bevisa att den åtalade är skyldig. Att döma är domstolens uppgift, att försvara är försvarsadvokatens och att verkställa straffet är Kriminalvårdens — rollerna är medvetet åtskilda för att rättegången ska bli rättvis."
+    },
+    {
+      "id": "q-sam8-rat-2",
+      "kind": "mc",
+      "topic": "rättsväsendets aktörer",
+      "prompt": "Vilken myndighet ansvarar för fängelser, häkten och frivård i Sverige?",
+      "opener": "Den här myndigheten tar över först efter att domen är klar.",
+      "choices": [
+        "Polismyndigheten",
+        "Åklagarmyndigheten",
+        "Kriminalvården",
+        "Tingsrätten"
+      ],
+      "answer": 2,
+      "explanation": "Kriminalvården driver fängelser och häkten och sköter frivården, som övervakar personer med till exempel skyddstillsyn eller fotboja. Uppdraget är både att verkställa straffet och att arbeta för att den dömde inte ska begå nya brott. Polisen utreder brott, åklagaren väcker åtal och tingsrätten dömer — ingen av dem ansvarar för att straffet genomförs."
+    },
+    {
+      "id": "q-sam8-rat-3",
+      "kind": "mc",
+      "topic": "hur en rättegång går till",
+      "prompt": "I vilken ordning sker stegen i ett brottmål i Sverige?",
+      "opener": "Följ ärendet från anmälan till att straffet genomförs.",
+      "choices": [
+        "Rättegång → anmälan → utredning → dom → straffet verkställs",
+        "Anmälan → dom → utredning → åtal → rättegång",
+        "Åtal → anmälan → rättegång → utredning → dom",
+        "Brottet anmäls → polis och åklagare utreder i en förundersökning → åklagaren väcker åtal → rättegång i tingsrätten → dom → straffet verkställs"
+      ],
+      "answer": 3,
+      "explanation": "Kedjan börjar med en anmälan eller att polisen upptäcker brottet, följs av en förundersökning som polis och åklagare gör tillsammans, och först när bevisen bedöms räcka väcker åklagaren åtal. Därefter hålls huvudförhandling i tingsrätten, domstolen meddelar dom, och om domen står fast verkställs påföljden. Domen kan inte komma före utredningen — hela poängen med förundersökningen är att bevisen ska prövas innan någon döms."
+    },
+    {
+      "id": "q-sam8-rat-4",
+      "kind": "mc",
+      "topic": "brottmål och tvistemål",
+      "prompt": "Vad är skillnaden mellan ett brottmål och ett tvistemål?",
+      "opener": "Fundera på vem som driver saken till domstol i respektive fall.",
+      "choices": [
+        "I ett brottmål åtalar åklagaren någon för ett brott på statens vägnar, medan ett tvistemål handlar om att två enskilda parter är oense om till exempel ett avtal eller pengar",
+        "Brottmål handlar alltid om pengar, tvistemål alltid om våld",
+        "Tvistemål avgörs av en jury, brottmål av en domare",
+        "Det finns ingen egentlig skillnad — bara olika namn på samma sak"
+      ],
+      "answer": 0,
+      "explanation": "I brottmål företräder åklagaren staten och åtalar en person för något som är straffbart enligt brottsbalken. I tvistemål står två enskilda parter — privatpersoner, företag eller organisationer — mot varandra om till exempel ett köp, ett avtal eller en skuld, och där finns ingen åklagare. Sverige har inte heller något jurysystem i vanliga mål; det är domare, i tingsrätten ofta tillsammans med nämndemän, som avgör."
+    },
+    {
+      "id": "q-sam8-rat-5",
+      "kind": "mc",
+      "topic": "påföljder och straffets syften",
+      "prompt": "Vilka är de vanligaste påföljderna som en svensk domstol kan döma en vuxen person till?",
+      "opener": "Fängelse är bara ett av flera alternativ i den svenska påföljdstrappan.",
+      "choices": [
+        "Enbart fängelse",
+        "Kroppsstraff eller landsförvisning",
+        "Böter, villkorlig dom, skyddstillsyn och fängelse",
+        "Enbart samhällstjänst"
+      ],
+      "answer": 2,
+      "explanation": "Vanliga påföljder är böter, villkorlig dom (ofta i kombination med samhällstjänst), skyddstillsyn och fängelse, och domstolen väljer utifrån brottets allvar och personens situation. För unga under 18 år används i stället oftast ungdomsvård eller ungdomstjänst. Att fängelse skulle vara den enda påföljden stämmer inte, och kroppsstraff är förbjudet i Sverige. Straffets syften brukar beskrivas som att markera samhällets gräns, avskräcka från brott, skydda andra och ge den dömde möjlighet att komma tillbaka till ett liv utan brott."
+    },
+    {
+      "id": "q-sam8-rat-6",
+      "kind": "mc",
+      "topic": "orsaker till brottslighet",
+      "prompt": "Vad visar forskningen om orsakerna till brottslighet?",
+      "opener": "Fundera på om det brukar räcka med en enda förklaring.",
+      "choices": [
+        "Att det alltid finns exakt en orsak bakom varje brott",
+        "Att brottslighet oftast har flera samverkande orsaker, till exempel sociala förhållanden, skolmisslyckande, missbruk och umgänge",
+        "Att brottslighet enbart beror på hur stränga straffen är",
+        "Att brottslighet är helt slumpmässig och inte går att förklara"
+      ],
+      "answer": 1,
+      "explanation": "Kriminologisk forskning pekar på att flera faktorer samverkar: uppväxtvillkor, skolgång, arbetslöshet, missbruk, psykisk ohälsa och vilka man umgås med, tillsammans med tillfället och risken att bli upptäckt. Att enbart peka på strafflängden är en för enkel förklaring — straffnivån är en av många faktorer, och förebyggande arbete i skola och socialtjänst brukar räknas som minst lika viktigt. Att förklara orsaker är inte samma sak som att försvara brott."
+    },
+    {
+      "id": "q-sam8-rat-7",
+      "kind": "worked",
+      "topic": "hur en rättegång går till",
+      "prompt": "Beskriv vilka personer som deltar i en rättegång i tingsrätten i ett brottmål och vad var och en gör.",
+      "opener": "Gå runt i rättssalen och ge varje deltagare sin uppgift.",
+      "answer": "I en huvudförhandling i tingsrätten sitter en juristdomare som ordförande och leder förhandlingen, och i brottmål oftast tre nämndemän, som är lekmän utsedda av kommun- eller regionfullmäktige och som dömer tillsammans med domaren. En notarie eller protokollförare för anteckningar. Åklagaren sitter på ena sidan och lägger fram åtalet och bevisen, och ska styrka att den åtalade är skyldig. På andra sidan sitter den åtalade tillsammans med sin försvarsadvokat, som ska tillvarata den åtalades rättigheter och föra fram hans eller hennes sida. Är någon utsatt för brottet kallas den personen målsägande och kan ha ett målsägandebiträde med sig, och målsäganden kan begära skadestånd. Vittnen kallas in ett i taget för att berätta vad de sett eller hört, och vittnen har vittnesplikt och avlägger vittnesed. Efter att alla har hörts håller åklagare och försvarare sina slutanföranden, varefter domstolen överlägger i enrum och meddelar dom, ofta senare samma dag eller inom några veckor. Domen kan överklagas till hovrätten.",
+      "steps": [
+        "Domare och nämndemän: juristdomaren leder förhandlingen, nämndemännen är lekmän som dömer tillsammans med domaren.",
+        "Åklagaren: lägger fram åtalet och bevisen och ska styrka att den åtalade är skyldig.",
+        "Den åtalade och försvarsadvokaten: försvararen tillvaratar den åtalades rättigheter och lägger fram hans eller hennes version.",
+        "Målsägande och eventuellt målsägandebiträde: den som utsatts för brottet berättar och kan kräva skadestånd.",
+        "Vittnen och avslutning: vittnen hörs under ed, sedan följer slutanföranden, överläggning och dom — som kan överklagas till hovrätten."
+      ]
+    },
+    {
+      "id": "q-sam8-rat-8",
+      "kind": "flashcard",
+      "topic": "rättsväsendets aktörer",
+      "prompt": "Sammanfatta rättssystemet: aktörerna, rättegångens gång, måltyperna, påföljderna och orsaker till brottslighet.",
+      "opener": "Från anmälan till verkställd påföljd — och varför brott begås.",
+      "answer": "Aktörer: polisen utreder och griper · åklagaren leder förundersökningen vid allvarligare brott och beslutar om åtal · domstolen (tingsrätt, hovrätt, Högsta domstolen) dömer · Kriminalvården sköter fängelser, häkten och frivård · Rättegångens gång i brottmål: anmälan → förundersökning → åtal → huvudförhandling i tingsrätten → dom → påföljden verkställs · överklagan går till hovrätten och i vissa fall Högsta domstolen · I rättssalen: juristdomare, oftast tre nämndemän, åklagare, åtalad med försvarsadvokat, målsägande med biträde, vittnen under ed · Brottmål: åklagaren åtalar för brott på statens vägnar · Tvistemål: två enskilda parter oense om avtal, pengar eller egendom, ingen åklagare · Påföljder: böter, villkorlig dom (ofta med samhällstjänst), skyddstillsyn, fängelse; för unga under 18 oftast ungdomsvård eller ungdomstjänst · Straffets syften: markera samhällets gränser, avskräcka, skydda andra och ge möjlighet till återanpassning · Orsaker till brottslighet: flera samverkande faktorer — uppväxtvillkor, skolmisslyckande, arbetslöshet, missbruk, psykisk ohälsa, umgänge, tillfälle och upptäcktsrisk."
+    }
+  ]
+}

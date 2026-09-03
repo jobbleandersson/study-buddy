@@ -1,0 +1,130 @@
+{
+  "id": "lib-hist8-emigration",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Emigrationen från Sverige",
+  "sourceSummary": "Varför ungefär 1,3 miljoner svenskar utvandrade mellan 1850 och 1930, hur resan till Amerika gick till och hur livet blev där – samt vad utvandringen betydde för Sverige och vilka källor som berättar om den.",
+  "topics": [
+    "orsaker till utvandringen",
+    "push- och pullfaktorer",
+    "resan och livet i Amerika",
+    "emigrationens följder för Sverige",
+    "brev och register som källor"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist8-emi-1",
+      "kind": "mc",
+      "topic": "orsaker till utvandringen",
+      "prompt": "Ungefär hur många svenskar utvandrade under den stora emigrationen mellan 1850 och 1930?",
+      "opener": "Sverige hade omkring fem miljoner invånare år 1900 – utvandrarna var en stor del av det.",
+      "choices": [
+        "Ungefär 50 000",
+        "Ungefär 200 000",
+        "Ungefär 500 000",
+        "Ungefär 1,3 miljoner"
+      ],
+      "answer": 3,
+      "explanation": "Omkring 1,3 miljoner svenskar lämnade landet under perioden, vilket motsvarade nästan en fjärdedel av befolkningen – i vissa socknar i Småland och på Öland försvann en stor del av de unga. Siffror som 50 000 eller 200 000 är alltför låga för att förklara varför utvandringen blev en av tidens största samhällsfrågor."
+    },
+    {
+      "id": "q-hist8-emi-2",
+      "kind": "mc",
+      "topic": "resan och livet i Amerika",
+      "prompt": "Vilket land reste de flesta svenska emigranterna till?",
+      "opener": "Tänk på vilket land som lockade med \"fri jord\" i mitten av 1800-talet.",
+      "choices": [
+        "Kanada",
+        "USA",
+        "Australien",
+        "Brasilien"
+      ],
+      "answer": 1,
+      "explanation": "Den stora majoriteten av svenska utvandrare reste till USA, där jordbruksmark och industriarbete lockade. En mindre del reste till Kanada och några enstaka till Sydamerika eller Australien, men de utgjorde bara en liten andel."
+    },
+    {
+      "id": "q-hist8-emi-3",
+      "kind": "mc",
+      "topic": "push- och pullfaktorer",
+      "prompt": "Vilket av följande är ett tydligt exempel på en pushfaktor bakom emigrationen från Sverige?",
+      "opener": "En pushfaktor trycker bort människor från hemlandet.",
+      "choices": [
+        "Missväxten och hungersnöden under nödåren i slutet av 1860-talet",
+        "Löftet om billig jord i Mellanvästern",
+        "Brev från släktingar som redan hade det bra i Amerika",
+        "Billiga biljetter med ångbåt över Atlanten"
+      ],
+      "answer": 0,
+      "explanation": "Missväxt och svält, som under nödåren 1867–1869, jordbrist, fattigdom, hårda klasskillnader och tvånget att tillhöra statskyrkan var pushfaktorer som drev människor bort från Sverige. Billig jord, lockande brev och billiga biljetter är i stället pullfaktorer som drog människor till Amerika."
+    },
+    {
+      "id": "q-hist8-emi-4",
+      "kind": "mc",
+      "topic": "push- och pullfaktorer",
+      "prompt": "Vilken amerikansk lag från 1862 lockade många svenskar med möjligheten att få egen jord?",
+      "opener": "Lagens namn betyder ungefär \"hemmanslagen\".",
+      "choices": [
+        "Monroedoktrinen",
+        "Bill of Rights",
+        "Homestead Act",
+        "Marshallplanen"
+      ],
+      "answer": 2,
+      "explanation": "Homestead Act gav nybyggare rätt att få ett stycke statlig mark nästan gratis om de brukade den i några år, vilket var oerhört lockande för jordlösa svenskar. Monroedoktrinen handlade om USA:s utrikespolitik, Bill of Rights om medborgerliga rättigheter och Marshallplanen om hjälp till Europa efter 1945."
+    },
+    {
+      "id": "q-hist8-emi-5",
+      "kind": "mc",
+      "topic": "resan och livet i Amerika",
+      "prompt": "I vilken del av USA bosatte sig särskilt många svenska emigranter?",
+      "opener": "Klimatet och skogarna där påminde om hemlandet.",
+      "choices": [
+        "Södra USA, som Alabama och Georgia",
+        "Sydvästra USA, som Arizona och New Mexico",
+        "Alaska",
+        "Mellanvästern, till exempel Minnesota, Illinois och Iowa"
+      ],
+      "answer": 3,
+      "explanation": "Svenskarna sökte sig framför allt till Mellanvästern, där jordbruksmarken var billig och klimatet liknade det svenska; Chicago blev under en tid en av världens \"svenskaste\" städer. Södra USA och sydvästern lockade få svenskar, och Alaska var i praktiken ingen destination alls."
+    },
+    {
+      "id": "q-hist8-emi-6",
+      "kind": "mc",
+      "topic": "brev och register som källor",
+      "prompt": "Varför är kyrkböcker och husförhörslängder viktiga källor när man forskar om emigrationen?",
+      "opener": "Fundera på vem som förde register över befolkningen innan Skatteverket fanns.",
+      "choices": [
+        "De innehåller foton av alla utvandrare",
+        "Prästerna skrev systematiskt ner vilka som föddes, gifte sig, dog och flyttade ut ur församlingen",
+        "De beskriver vad utvandrarna kände och tänkte om resan",
+        "De innehåller amerikanska myndigheters beslut om invandring"
+      ],
+      "answer": 1,
+      "explanation": "Församlingsprästen förde noggranna register, och i utflyttningslängderna står namn, ålder, yrke och destination – därför kan forskare räkna och följa utvandrare person för person. Känslor och upplevelser hittar man i stället i brev och dagböcker, och foton är sällsynta i kyrkböckerna."
+    },
+    {
+      "id": "q-hist8-emi-7",
+      "kind": "worked",
+      "topic": "emigrationens följder för Sverige",
+      "prompt": "Förklara hur den stora utvandringen påverkade Sverige.",
+      "opener": "Tänk både på vad som försvann ur landet och på vad utvandringen satte i rörelse hemma.",
+      "answer": "Utvandringen påverkade Sverige på flera sätt. Rent demografiskt förlorade landet omkring 1,3 miljoner människor, mest unga i arbetsför ålder, vilket gjorde att befolkningen växte långsammare och att vissa landsbygdssocknar tömdes. På kort sikt minskade trycket på jorden och arbetslösheten, och pengar som utvandrarna skickade hem hjälpte många familjer. Politiskt blev utvandringen en larmsignal: en statlig emigrationsutredning tillsattes 1907, och både konservativa och liberala krafter menade att Sverige måste bli ett land värt att stanna i. Det stärkte kraven på rösträtt, bättre bostäder, egnahem, högre löner och sociala reformer. Kulturellt skapades starka band över Atlanten genom brev, besök och svenskamerikanska tidningar och föreningar.",
+      "steps": [
+        "Befolkningsförlust: cirka 1,3 miljoner utvandrare, framför allt unga i arbetsför ålder.",
+        "Landsbygden drabbades hårdast – i vissa socknar försvann en stor del av ungdomarna och gårdar lades ner.",
+        "Kortsiktigt minskade konkurrensen om jord och arbete, och hemskickade pengar stärkte kvarvarande familjer.",
+        "Politiskt reagerade Sverige: emigrationsutredningen 1907 och krav på rösträtt, egnahem och sociala reformer för att folk skulle vilja stanna.",
+        "Långsiktigt uppstod varaktiga band till USA genom brev, återvändare, föreningar och svenskamerikansk kultur."
+      ]
+    },
+    {
+      "id": "q-hist8-emi-8",
+      "kind": "flashcard",
+      "topic": "orsaker till utvandringen",
+      "prompt": "Sammanfatta den svenska emigrationen: omfattning, orsaker, resa, liv och följder.",
+      "opener": "Tänk siffror, push och pull, resvägen, livet i Amerika och effekterna hemma.",
+      "answer": "Cirka 1,3 miljoner svenskar utvandrade mellan 1850 och 1930, de flesta till USA · toppar kring nödåren 1867–1869 och under 1880-talet · pushfaktorer: jordbrist vid befolkningsökning, fattigdom, missväxt och svält, hårda klasskillnader, tvånget att tillhöra statskyrkan, militärtjänst och brist på framtidsutsikter · pullfaktorer: Homestead Act 1862 med nästan fri jord, jobb i amerikansk industri, religionsfrihet, billiga ångbåtsbiljetter, agenters reklam och \"Amerikabrev\" från släktingar · resan gick ofta Göteborg–Hull–Liverpool–New York, senare direkt med ångbåt, och tog en till tre veckor i trånga utrymmen · många bosatte sig i Mellanvästern (Minnesota, Illinois, Iowa) som nybyggare, andra arbetade i städer som Chicago · svenskamerikaner byggde kyrkor, föreningar och tidningar och bevarade språket i generationer · följder för Sverige: långsammare befolkningstillväxt, avfolkad landsbygd, hemskickade pengar, emigrationsutredningen 1907 och stärkta krav på rösträtt, egnahem och sociala reformer · källor: kyrkböckernas utflyttningslängder och passagerarlistor ger siffror, medan brev, dagböcker och foton berättar om upplevelser – men brev kan vara vinklade eftersom man ogärna skrev om misslyckanden."
+    }
+  ]
+}

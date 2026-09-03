@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv8-satsdelar",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Satsdelar och meningsbyggnad",
+  "sourceSummary": "Subjekt, predikat och objekt — och hur en mening byggs av huvudsatser och bisatser. Här tränar du också på fundament och ordföljd, alltså vad som får stå först i en mening.",
+  "topics": [
+    "satsdelar",
+    "huvudsats och bisats",
+    "ordföljd"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv8-sat-1",
+      "kind": "mc",
+      "topic": "satsdelar",
+      "prompt": "Vilket ord är subjekt i meningen? \"På morgonen bakade Amir en sockerkaka.\"",
+      "opener": "Fråga \"vem eller vad gör det som verbet säger?\" — svaret är subjektet, även om det inte står först.",
+      "choices": [
+        "morgonen",
+        "bakade",
+        "Amir",
+        "sockerkaka"
+      ],
+      "answer": 2,
+      "explanation": "Det är Amir som bakar, alltså är \"Amir\" subjekt. Många väljer \"morgonen\" för att det står först i meningen, men det första ordet är inte automatiskt subjektet — här är \"På morgonen\" bara en tidsbestämning."
+    },
+    {
+      "id": "q-sv8-sat-2",
+      "kind": "mc",
+      "topic": "satsdelar",
+      "prompt": "Vilken ordgrupp är predikat i meningen? \"Klassen har diskuterat boken i en hel vecka.\"",
+      "opener": "Predikatet är verbet — och om det finns flera verb i rad hör de ihop till en verbkedja.",
+      "choices": [
+        "Klassen",
+        "har diskuterat",
+        "boken",
+        "i en hel vecka"
+      ],
+      "answer": 1,
+      "explanation": "Predikatet är hela verbkedjan \"har diskuterat\", inte bara huvudverbet. \"Boken\" är objekt och \"i en hel vecka\" är en tidsbestämning."
+    },
+    {
+      "id": "q-sv8-sat-3",
+      "kind": "mc",
+      "topic": "satsdelar",
+      "prompt": "Vilket ord är objekt i meningen? \"Tränaren lånade ut bollarna till nybörjarna.\"",
+      "opener": "Objektet är det som handlingen går ut över — fråga \"vad lånade tränaren ut?\"",
+      "choices": [
+        "Tränaren",
+        "lånade",
+        "bollarna",
+        "nybörjarna"
+      ],
+      "answer": 2,
+      "explanation": "Det tränaren lånar ut är bollarna, alltså är \"bollarna\" objekt. \"Nybörjarna\" står efter prepositionen \"till\" och är en bestämning som talar om vem som fick dem, inte det direkta objektet."
+    },
+    {
+      "id": "q-sv8-sat-4",
+      "kind": "mc",
+      "topic": "huvudsats och bisats",
+      "prompt": "Vilken del av meningen är en bisats? \"Vi stannade inne eftersom det regnade.\"",
+      "opener": "En bisats kan inte stå ensam som mening — den inleds ofta av ord som eftersom, att, när, om eller som.",
+      "choices": [
+        "Vi stannade inne",
+        "eftersom det regnade",
+        "stannade inne eftersom",
+        "Hela meningen är en bisats"
+      ],
+      "answer": 1,
+      "explanation": "\"Eftersom det regnade\" inleds av bisatsinledaren \"eftersom\" och fungerar inte som egen mening — det är bisatsen. \"Vi stannade inne\" klarar sig ensamt och är därför huvudsatsen."
+    },
+    {
+      "id": "q-sv8-sat-5",
+      "kind": "mc",
+      "topic": "huvudsats och bisats",
+      "prompt": "Vilket knep avgör säkrast om en sats är en bisats?",
+      "opener": "Tänk på var ordet \"inte\" hamnar i satsen.",
+      "choices": [
+        "Man kan skjuta in \"inte\" före verbet: \"eftersom han inte kom\"",
+        "Satsen är kortare än fem ord",
+        "Satsen börjar alltid med ett verb",
+        "Satsen innehåller alltid ett komma"
+      ],
+      "answer": 0,
+      "explanation": "I en bisats står \"inte\" före verbet (\"eftersom han inte kom\"), i en huvudsats efter (\"han kom inte\"). Längden säger ingenting — en bisats kan vara både lång och kort, och komma är ingen garanti."
+    },
+    {
+      "id": "q-sv8-sat-6",
+      "kind": "mc",
+      "topic": "ordföljd",
+      "prompt": "Vilken mening har korrekt svensk ordföljd när meningen inleds med en tidsbestämning?",
+      "opener": "I svenska huvudsatser kommer verbet alltid på plats två — det kallas omvänd ordföljd när något annat än subjektet står först.",
+      "choices": [
+        "Igår vi såg en film på biografen.",
+        "Igår vi såg på biografen en film.",
+        "Såg igår vi en film på biografen.",
+        "Igår såg vi en film på biografen."
+      ],
+      "answer": 3,
+      "explanation": "När fundamentet (första platsen) upptas av \"Igår\" måste verbet \"såg\" komma direkt efter, och subjektet \"vi\" flyttar bakom verbet. Alternativet \"Igår vi såg...\" behåller rak ordföljd och bryter mot regeln att verbet står på plats två."
+    },
+    {
+      "id": "q-sv8-sat-7",
+      "kind": "worked",
+      "topic": "satsdelar",
+      "prompt": "Analysera meningen: \"När lektionen slutade lämnade eleverna in sina prov.\" Ange vilken del som är bisats respektive huvudsats, och ta ut subjekt, predikat och objekt i huvudsatsen.",
+      "opener": "Börja med att dela meningen i två satser. Leta sedan efter verbet i varje sats och fråga vem som gör det.",
+      "answer": "Bisats: \"När lektionen slutade\" (fundament i meningen). Huvudsats: \"lämnade eleverna in sina prov\" med predikat \"lämnade in\", subjekt \"eleverna\" och objekt \"sina prov\".",
+      "steps": [
+        "\"När lektionen slutade\" inleds av bisatsinledaren \"när\" och kan inte stå ensam — det är bisatsen.",
+        "Bisatsen står först och fungerar som fundament, därför kommer verbet \"lämnade\" direkt efter: omvänd ordföljd.",
+        "Predikatet i huvudsatsen är \"lämnade in\" — partikeln \"in\" hör ihop med verbet och ändrar dess betydelse.",
+        "Fråga \"vem lämnade in?\" → \"eleverna\" är subjekt.",
+        "Fråga \"vad lämnade de in?\" → \"sina prov\" är objekt. Ett komma efter \"slutade\" är tillåtet men inte obligatoriskt."
+      ]
+    },
+    {
+      "id": "q-sv8-sat-8",
+      "kind": "flashcard",
+      "topic": "huvudsats och bisats",
+      "prompt": "Hur skiljer du på huvudsats och bisats, och vad menas med fundament?",
+      "opener": "Tre saker att minnas: självständighet, inte-testet och första platsen.",
+      "answer": "Huvudsats · kan stå ensam som fullständig mening · verbet står på plats två · \"inte\" kommer efter verbet (\"han sov inte\"). Bisats · kan inte stå ensam · inleds av bisatsinledare som att, när, eftersom, om, som, medan · \"inte\" kommer före verbet (\"eftersom han inte sov\") · fungerar som en del av huvudsatsen. Fundament · det som står först i en huvudsats, alltså före verbet · kan vara subjekt (\"Vi åt sent\"), tidsbestämning (\"Igår åt vi sent\") eller en hel bisats (\"När vi kom hem åt vi sent\") · när fundamentet inte är subjektet får meningen omvänd ordföljd: verb före subjekt."
+    }
+  ]
+}

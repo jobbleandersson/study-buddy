@@ -229,7 +229,8 @@ export function renderMenu() {
       el("p", {}, isFirstRun ? t("menu.emptyFirstBody")
         : t(tab === "assignment" ? "menu.emptyAssignBody" : "menu.emptyTestBody")),
       el("div", { style: { display: "flex", gap: "10px", justifyContent: "center", marginTop: "16px", flexWrap: "wrap" } }, [
-        el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
+        el("a.btn", { href: "#/library" }, [icon(ICONS.book, 18), t("menu.libraryCta")]),
+        el("a.btn.btn--ghost", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
         isFirstRun && store.demoStatus.loaded === 0 && el("button.btn.btn--ghost", {
           type: "button",
           onclick: async (e) => {
@@ -399,7 +400,10 @@ export function renderMenu() {
         el("h1", {}, greeting()),
         el("p.home__hi", {}, store.hasKey() ? t("menu.subHasKey") : t("menu.subNoKey")),
       ]),
-      el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
+      el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [
+        el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("menu.libraryLink")]),
+        el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
+      ]),
     ]),
     recapCard(),
     todayStrip(),

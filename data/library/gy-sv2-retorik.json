@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv2-retorik",
+  "type": "assignment",
+  "subject": "Svenska 2",
+  "title": "Retorisk analys",
+  "sourceSummary": "Att analysera verkliga tal med retoriska begrepp — appellformer, stilfigurer och den klassiska dispositionens sex delar — samt skillnaden mellan att hålla och att analysera ett tal.",
+  "topics": [
+    "appellformer",
+    "stilfigurer",
+    "disposition",
+    "talanalys"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv2-retorik-1",
+      "kind": "mc",
+      "topic": "disposition",
+      "prompt": "Vilken del av den klassiska talardispositionen har till uppgift att bemöta och avfärda motargument?",
+      "opener": "Namnet betyder ungefär \"motbevisning\".",
+      "choices": [
+        "Narratio",
+        "Propositio",
+        "Peroratio",
+        "Confutatio (refutatio)"
+      ],
+      "answer": 3,
+      "explanation": "Confutatio (även kallad refutatio) är den del av talet där talaren bemöter och vederlägger motståndarens argument. Propositio presenterar talarens huvudtes, och peroratio är avslutningen."
+    },
+    {
+      "id": "q-sv2-retorik-2",
+      "kind": "mc",
+      "topic": "disposition",
+      "prompt": "Vad är skillnaden mellan narratio och argumentatio i den klassiska dispositionen?",
+      "opener": "En del berättar vad som hänt, en annan del övertygar.",
+      "choices": [
+        "De är synonyma begrepp för talets inledning",
+        "Narratio redogör för bakgrund och sakförhållanden, argumentatio lägger fram bevis för talarens tes",
+        "Narratio är avslutningen, argumentatio är inledningen",
+        "Argumentatio kommer alltid före exordium"
+      ],
+      "answer": 1,
+      "explanation": "Narratio ger bakgrundsinformation och redogör för sakläget, medan argumentatio är den del där talaren lägger fram sina argument och bevis för sin ståndpunkt."
+    },
+    {
+      "id": "q-sv2-retorik-3",
+      "kind": "mc",
+      "topic": "stilfigurer",
+      "prompt": "\"Vi kom, vi såg, vi segrade.\" Vilken stilfigur bygger denna formulering på?",
+      "opener": "Räkna leden — hur många är de, och vad händer med rytmen?",
+      "choices": [
+        "Metonymi",
+        "Eufemism",
+        "Trikolon",
+        "Litotes"
+      ],
+      "answer": 2,
+      "explanation": "Trikolon är en uppräkning i tre led som skapar rytm och eftertryck — ett klassiskt exempel är Caesars \"veni, vidi, vici\". Metonymi innebär i stället att ett ord ersätts med ett närbesläktat begrepp."
+    },
+    {
+      "id": "q-sv2-retorik-4",
+      "kind": "mc",
+      "topic": "stilfigurer",
+      "prompt": "\"Det är ett litet steg för en människa, men ett stort steg för mänskligheten.\" Meningen bygger på vilken stilfigur genom att ställa \"liten\" mot \"stor\" och \"en människa\" mot \"mänskligheten\"?",
+      "opener": "Två motsatser ställs mot varandra för effekt.",
+      "choices": [
+        "Antites",
+        "Allitteration",
+        "Ironi",
+        "Personifikation"
+      ],
+      "answer": 0,
+      "explanation": "Antites innebär att motsatser ställs mot varandra för att skapa kontrast och eftertryck. Formuleringen bygger på just kontrasten mellan det lilla och det stora."
+    },
+    {
+      "id": "q-sv2-retorik-5",
+      "kind": "mc",
+      "topic": "talanalys",
+      "prompt": "Vad är den viktigaste skillnaden mellan att hålla ett tal och att analysera ett tal?",
+      "opener": "Den ena rollen övertygar, den andra granskar.",
+      "choices": [
+        "Det finns ingen skillnad",
+        "Analys handlar bara om att sammanfatta talets innehåll",
+        "Att hålla ett tal handlar om att övertyga en publik, att analysera ett tal handlar om att undersöka HUR talaren försöker övertyga",
+        "Att hålla ett tal kräver inga retoriska begrepp, det gör analys"
+      ],
+      "answer": 2,
+      "explanation": "När man håller ett tal använder man retoriska medel för att övertyga en publik. När man analyserar ett tal tar man i stället ett steg tillbaka och undersöker vilka medel (appellformer, stilfigurer, disposition) talaren använder och varför de fungerar — eller inte fungerar."
+    },
+    {
+      "id": "q-sv2-retorik-6",
+      "kind": "mc",
+      "topic": "appellformer",
+      "prompt": "En talare väljer att hålla ett tal om jämställdhet på internationella kvinnodagen. Vilket retoriskt begrepp beskriver vikten av att välja rätt tillfälle för ett tal?",
+      "opener": "Ett begrepp för \"det rätta ögonblicket\".",
+      "choices": [
+        "Logos",
+        "Kairos",
+        "Ethos",
+        "Dispositio"
+      ],
+      "answer": 1,
+      "explanation": "Kairos handlar om att välja det lämpligaste tillfället eller sammanhanget för ett budskap — att tala om jämställdhet just på kvinnodagen stärker talets genomslagskraft."
+    },
+    {
+      "id": "q-sv2-retorik-7",
+      "kind": "worked",
+      "topic": "talanalys",
+      "prompt": "Greta Thunbergs tal vid FN:s klimattoppmöte 2019 fick stort genomslag trots att talaren var ung och tidigare okänd för de flesta åhörarna. Analysera vilka retoriska medel som ändå ger talet stark genomslagskraft.",
+      "opener": "Fundera på vad som kan kompensera för bristande formell auktoritet.",
+      "answer": "Talet får kraft genom en ovanlig kombination av starkt pathos (ett vredgat, känsloladdat tonfall), upprepningar som bygger upp ett stegrande crescendo, samt ett ethos som byggs upp genom talarens personliga trovärdighet som representant för en hel generation snarare än genom formell expertis.",
+      "steps": [
+        "Talarens ethos bygger inte på traditionell auktoritet (ålder, titel eller expertkunskap), utan på moralisk trovärdighet som representant för unga som drabbas av klimatförändringarna.",
+        "Pathos är framträdande genom det vredgade, känslostarka tonläget som förmedlar allvar och brådska till åhörarna.",
+        "Upprepade, anklagande formuleringar bygger stegvis upp intensiteten mot slutet av talet, vilket är ett exempel på anafor.",
+        "Kombinationen av personligt patos och en tydligt disponerad stegring gör talet minnesvärt trots avsaknaden av traditionell formell auktoritet."
+      ]
+    },
+    {
+      "id": "q-sv2-retorik-8",
+      "kind": "flashcard",
+      "topic": "disposition",
+      "prompt": "Sammanfatta den klassiska talardispositionens sex delar.",
+      "opener": "Från hälsning till avslutande uppmaning — sex steg.",
+      "answer": "Exordium: inledning som fångar uppmärksamhet och skapar välvilja · Narratio: bakgrund och redogörelse för sakläget · Propositio: talarens tes eller huvudbudskap · Argumentatio: argument och bevis för tesen · Confutatio (refutatio): bemötande av motargument · Peroratio: sammanfattande och känslomässigt laddad avslutning som ska sätta sig kvar hos publiken."
+    }
+  ]
+}

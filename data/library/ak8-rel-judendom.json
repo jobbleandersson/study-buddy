@@ -1,0 +1,130 @@
+{
+  "id": "lib-rel8-judendom",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Judendomen",
+  "sourceSummary": "Judendomens grundläggande tro och tanken om förbundet, de heliga skrifterna Toran och Talmud, synagogan och sabbaten, högtiderna pesach, jom kippur och chanukka samt judisk historia i korthet och judarnas ställning som nationell minoritet i Sverige.",
+  "topics": [
+    "tro och förbundet",
+    "Toran och Talmud",
+    "synagogan och sabbaten",
+    "judiska högtider",
+    "judendomens historia och judar i Sverige"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel8-jud-1",
+      "kind": "mc",
+      "topic": "tro och förbundet",
+      "prompt": "Vad menas med \"förbundet\" inom judendomen?",
+      "opener": "Ordet handlar om ett ömsesidigt löfte mellan Gud och ett folk — tänk på Abraham och Mose.",
+      "choices": [
+        "Ett fredsavtal som slöts mellan Israel och grannländerna under 1900-talet",
+        "Överenskommelsen mellan Gud och det judiska folket, som enligt judisk tro slöts med Abraham och förnyades när Mose fick lagen vid berget Sinai",
+        "En överenskommelse mellan synagogans medlemmar om hur mycket de ska betala i medlemsavgift",
+        "Regeln att man måste bo i Israel för att räknas som jude"
+      ],
+      "answer": 1,
+      "explanation": "Förbundet (hebreiska brit) är en bärande tanke inom judendomen: enligt judisk tro slöt Gud ett förbund med Abraham och förnyade det när Mose tog emot lagen på Sinai. Folket lovar att följa buden, och Gud lovar beskydd. Omskärelsen av pojkar ses som ett tecken på förbundet. Att man måste bo i Israel stämmer inte — judar har levt spridda i världen i årtusenden, och enligt traditionell judisk lag går tillhörigheten via modern eller genom konvertering."
+    },
+    {
+      "id": "q-rel8-jud-2",
+      "kind": "mc",
+      "topic": "Toran och Talmud",
+      "prompt": "Vad är Toran?",
+      "opener": "Tänk på de allra första böckerna i den judiska bibeln, och på hur de förvaras i synagogan.",
+      "choices": [
+        "De fem Moseböckerna, judendomens viktigaste skrift, som skrivs för hand på en rulle och läses högt i synagogan",
+        "En samling böner som bara får läsas under sabbaten",
+        "Rabbinernas nedskrivna diskussioner om hur lagen ska tolkas",
+        "En berättelse om profeten Muhammeds liv"
+      ],
+      "answer": 0,
+      "explanation": "Toran är de fem Moseböckerna och den mest centrala delen av den judiska bibeln Tanakh (som också innehåller profeterna och skrifterna). Toran skrivs för hand på hebreiska i en rulle, sefer Tora, som förvaras i arken i synagogan och läses högt vid gudstjänsten. Alternativet om rabbinernas diskussioner beskriver i stället Talmud, som består av Mishna och Gemara och innehåller tolkningar av Toran — Talmud är alltså en tolkningstradition, inte Toran själv."
+    },
+    {
+      "id": "q-rel8-jud-3",
+      "kind": "mc",
+      "topic": "synagogan och sabbaten",
+      "prompt": "När infaller sabbaten (shabbat) och vad kännetecknar den inom judendomen?",
+      "opener": "Dygnet räknas från kvällen, och dagen knyts till den sjunde dagen i skapelseberättelsen.",
+      "choices": [
+        "Från fredag morgon till lördag morgon, och då förväntas man arbeta extra mycket",
+        "Från lördag kväll till söndag kväll, och då går man i kyrkan",
+        "Från solnedgången på fredagen till mörkrets inbrott på lördagen, och det är en vilodag då man avstår från arbete",
+        "Hela veckan efter pesach, då man fastar dygnet runt"
+      ],
+      "answer": 2,
+      "explanation": "Sabbaten börjar vid solnedgången på fredagen och slutar när det blir mörkt på lördagen. Den motiveras i judisk tradition av budet om vilodagen och av att Gud enligt skapelseberättelsen vilade den sjunde dagen. Hemma tänds ljus, välsignelsen kiddush läses över vin och familjen äter en festmåltid, och i synagogan hålls gudstjänst med toraläsning. Alternativet om söndagen beskriver den kristna vilodagen, inte den judiska."
+    },
+    {
+      "id": "q-rel8-jud-4",
+      "kind": "mc",
+      "topic": "judiska högtider",
+      "prompt": "Vad firas under den judiska högtiden pesach?",
+      "opener": "Högtiden knyter an till en av de mest kända berättelserna i Andra Moseboken.",
+      "choices": [
+        "Att Toran enligt traditionen gavs till Mose på berget Sinai",
+        "Templets återinvigning i Jerusalem, som firas med en ljusstake med nio armar",
+        "Det judiska nyåret, då man blåser i ett vädurshorn",
+        "Uttåget ur Egypten, då israeliterna enligt berättelsen befriades ur slaveriet"
+      ],
+      "answer": 3,
+      "explanation": "Pesach är påskhögtiden som påminner om uttåget ur Egypten. Den firas med en sedermåltid där berättelsen läses ur Haggadan, och man äter osyrat bröd (matza) eftersom brödet enligt berättelsen inte hann jäsa när folket flydde. Alternativet om templets återinvigning beskriver chanukka, där ljusstaken chanukkian har nio armar, och alternativet om vädurshornet beskriver nyårshögtiden rosh hashana."
+    },
+    {
+      "id": "q-rel8-jud-5",
+      "kind": "mc",
+      "topic": "judiska högtider",
+      "prompt": "Vad kännetecknar jom kippur, försoningsdagen?",
+      "opener": "Dagen kommer strax efter det judiska nyåret och handlar om att göra upp med det gångna året.",
+      "choices": [
+        "En fastedag med långa gudstjänster, då man ber om förlåtelse och söker försoning med Gud och med andra människor",
+        "En glädjefest med presenter till barnen och stora måltider varje kväll",
+        "En dag då man vandrar till templet i Jerusalem för att offra djur",
+        "En dag då man enligt judisk sed inte får läsa ur Toran"
+      ],
+      "answer": 0,
+      "explanation": "Jom kippur infaller tio dagar efter nyårshögtiden rosh hashana och är judendomens allvarligaste dag. Många vuxna fastar ett helt dygn, tillbringar stor del av dagen i synagogan och ber om förlåtelse — men traditionen betonar att man också måste be de människor man sårat om förlåtelse. Alternativet om djuroffer stämmer inte i dag: det andra templet förstördes år 70 e.Kr. och offerkulten upphörde, varefter bön och toraläsning i synagogan tog över dess plats."
+    },
+    {
+      "id": "q-rel8-jud-6",
+      "kind": "mc",
+      "topic": "judendomens historia och judar i Sverige",
+      "prompt": "Vilket påstående om judendomens historia och om judar i Sverige stämmer?",
+      "opener": "Tänk på begreppet diaspora, och på när judar först fick bosätta sig i Sverige.",
+      "choices": [
+        "Judendomen uppstod på 1500-talet i samband med reformationen",
+        "Judar har alltid bott samlade i ett enda land och spreds ut i världen först på 1900-talet",
+        "Efter templets förstöring år 70 e.Kr. kom judar att leva spridda över stora delar av världen (diasporan); i Sverige tilläts judisk bosättning från slutet av 1700-talet, och judar är i dag en av landets fem nationella minoriteter",
+        "Judar fick bosätta sig i Sverige först på 1970-talet och räknas inte som en nationell minoritet"
+      ],
+      "answer": 2,
+      "explanation": "Judendomen har rötter långt före vår tideräkning och är en av världens äldsta ännu levande religioner. När romarna förstörde det andra templet år 70 e.Kr. förstärktes diasporan, alltså livet utanför det historiska landet. I Sverige fick Aaron Isaac år 1774–1775 som förste jude tillstånd att bosätta sig utan att konvertera, och sedan år 2000 är judar en av Sveriges fem nationella minoriteter tillsammans med romer, samer, sverigefinnar och tornedalingar, med jiddisch som nationellt minoritetsspråk. Alternativet om reformationen blandar ihop judendomen med en händelse inom kristendomens historia."
+    },
+    {
+      "id": "q-rel8-jud-7",
+      "kind": "worked",
+      "topic": "synagogan och sabbaten",
+      "prompt": "Beskriv steg för steg hur en sabbat kan firas i ett judiskt hem och i synagogan, från fredag kväll till lördag kväll.",
+      "opener": "Följ dygnet i ordning: förberedelser, kvällen hemma, dagen i synagogan och avslutningen.",
+      "answer": "Sabbaten förbereds under fredagen: maten lagas i förväg och hemmet städas, eftersom man vill undvika arbete när sabbaten väl har börjat. Strax före solnedgången tänds sabbatsljusen, ofta två stycken, och sabbaten inleds. Vid kvällsmåltiden läses välsignelsen kiddush över ett glas vin eller druvjuice, och man välsignar två flätade bröd (challot) innan familjen äter tillsammans; många hälsar varandra med orden shabbat shalom. Under lördagen hålls gudstjänst i synagogan, där en rabbin eller kantor leder bön och sång och där man läser veckans avsnitt ur torarullen, som tas ut ur arken. Resten av dagen ägnas åt vila, umgänge, måltider och studier av texter, och graden av arbetsvila varierar mellan ortodoxa, konservativa och reformjudiska riktningar — vissa avstår helt från att köra bil, laga mat eller använda elektronik, medan andra tolkar reglerna friare. När det blivit mörkt på lördagskvällen avslutas sabbaten med den korta ceremonin havdala, där man tänder ett flätat ljus, luktar på kryddor och läser en välsignelse som markerar skillnaden mellan sabbaten och vardagen.",
+      "steps": [
+        "Fredag före solnedgången: hemmet förbereds och maten lagas färdigt, eftersom sabbaten är en vilodag.",
+        "Sabbaten inleds när ljusen tänds strax före solnedgången på fredagen.",
+        "Kvällsmåltid hemma: kiddush läses över vinet, de två flätade bröden välsignas och familjen äter tillsammans.",
+        "Lördagens gudstjänst i synagogan: bön, sång och läsning ur torarullen, följt av vila, umgänge och textstudier.",
+        "Sabbaten avslutas vid mörkrets inbrott på lördagen med ceremonin havdala, med flätat ljus, kryddor och välsignelse."
+      ]
+    },
+    {
+      "id": "q-rel8-jud-8",
+      "kind": "flashcard",
+      "topic": "tro och förbundet",
+      "prompt": "Sammanfatta judendomen: tro och förbund, skrifter, synagoga och sabbat, högtider samt historia och judar i Sverige.",
+      "opener": "Gå igenom tron, skrifterna, praktiken och historien i tur och ordning.",
+      "answer": "Tro: monoteism — enligt judisk tro finns en enda Gud, vars namn av vördnad inte uttalas · Förbundet (brit): enligt traditionen slutet med Abraham och förnyat med Mose vid Sinai; folket följer buden, Gud lovar beskydd; omskärelsen är förbundets tecken · Skrifter: Tanakh (Toran = de fem Moseböckerna, profeterna, skrifterna) · Toran skrivs för hand i en rulle och förvaras i arken · Talmud (Mishna + Gemara) = rabbinernas tolkningar av lagen · Halacha = de religiösa levnadsreglerna, t.ex. kosher-reglerna om mat · Synagogan: samlingslokal för bön, läsning och studier; rabbinen är lärare och tolkare, inte präst · Sabbat: fredag solnedgång till lördag mörker, ljuständning, kiddush, challot, gudstjänst, havdala vid avslutningen · Högtider: rosh hashana (nyår, shofar) · jom kippur (försoningsdagen, fasta och förlåtelse) · pesach (uttåget ur Egypten, seder, matza) · shavuot (Toran ges vid Sinai) · sukkot (lövhyddohögtiden) · chanukka (templets återinvigning, chanukkia med nio armar) · Historia: templet förstördes år 70 e.Kr. → diasporan · århundraden av förföljelser i Europa, kulminerande i Förintelsen under andra världskriget · staten Israel bildades 1948 · Riktningar: ortodox, konservativ och reformjudendom, med olika syn på hur reglerna ska tolkas · Sverige: judisk bosättning tilläts från 1774–1775 (Aaron Isaac) · judar är sedan år 2000 en av fem nationella minoriteter, jiddisch är nationellt minoritetsspråk · församlingar finns bl.a. i Stockholm, Göteborg och Malmö."
+    }
+  ]
+}

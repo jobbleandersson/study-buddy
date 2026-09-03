@@ -1,0 +1,127 @@
+{
+  "id": "lib-sv3-stilistik",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Stilistik och språklig variation",
+  "sourceSummary": "Stilnivåer, hur ordval och meningsbyggnad skapar stil, sociolekt och register, samt att anpassa sin egen text stilistiskt.",
+  "topics": [
+    "stilnivåer",
+    "sociolekt och register",
+    "stilistiska medel"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-stilistik-1",
+      "kind": "mc",
+      "topic": "stilnivåer",
+      "prompt": "Vilken mening är skriven på en tydligt FORMELL stilnivå?",
+      "opener": "Titta på ordval och meningsbyggnad — är de vardagliga eller högtidliga?",
+      "choices": [
+        "Grejen är typ att vi måste fixa det här snabbt.",
+        "Härmed meddelas att ärendet kommer att behandlas vid nästa sammanträde.",
+        "Vi borde nog kolla på det där ganska snart, va?",
+        "Kan vi typ ta det där sen liksom?"
+      ],
+      "answer": 1,
+      "explanation": "Den formella meningen använder kanslispråk (\"härmed meddelas\", \"ärendet\", \"sammanträde\") och en fullständig, opersonlig meningsbyggnad. De övriga alternativen innehåller talspråkliga markörer som \"typ\", \"liksom\" och \"va\", vilket signalerar en informell/vardaglig stil."
+    },
+    {
+      "id": "q-sv3-stilistik-2",
+      "kind": "mc",
+      "topic": "stilnivåer",
+      "prompt": "Vad är typiskt för en VARDAGLIG (talspråksnära) stilnivå i skrift?",
+      "opener": "Tänk på hur man faktiskt pratar med kompisar, jämfört med hur man skriver ett myndighetsbrev.",
+      "choices": [
+        "Långa, komplexa bisatser och passiv form",
+        "Utfyllnadsord (\"typ\", \"liksom\"), vardagliga ord och kortare, enklare meningar",
+        "Enbart facktermer och latinska uttryck",
+        "Total avsaknad av pronomen"
+      ],
+      "answer": 1,
+      "explanation": "Vardaglig stil kännetecknas av talspråksnära drag som utfyllnadsord, enklare ordval och kortare meningar. Långa bisatser, passivkonstruktioner och facktermer hör snarare till en formell eller vetenskaplig stil."
+    },
+    {
+      "id": "q-sv3-stilistik-3",
+      "kind": "mc",
+      "topic": "stilistiska medel",
+      "prompt": "En författare skriver \"Vinden viskade genom trädens grenar\" istället för \"Det blåste lätt\". Vilket stilistiskt grepp används för att skapa en mer litterär stil?",
+      "opener": "Vad tillskrivs vinden här som egentligen är ett mänskligt drag?",
+      "choices": [
+        "Konkretisering av ett abstrakt begrepp",
+        "Passivisering av satsen",
+        "Byte till talspråklig stilnivå",
+        "Personifikation — vinden tillskrivs en mänsklig handling (att viska)"
+      ],
+      "answer": 3,
+      "explanation": "Att låta vinden \"viska\" är personifikation: ett mänskligt drag (att viska) tillskrivs något icke-mänskligt, vilket ger en mer bildrik, litterär stil jämfört med den neutrala varianten \"det blåste lätt\"."
+    },
+    {
+      "id": "q-sv3-stilistik-4",
+      "kind": "mc",
+      "topic": "stilistiska medel",
+      "prompt": "Hur påverkar meningslängd och satsbyggnad ofta stilintrycket i en text?",
+      "opener": "Jämför känslan av flera korta, huggande meningar med en enda lång, förgrenad mening.",
+      "choices": [
+        "Meningslängd har ingen betydelse för stilintrycket, bara ordvalet räknas",
+        "Korta meningar ger alltid en mer formell stil än långa",
+        "Korta, enkla meningar kan ge ett kärvt eller intensivt intryck, medan långa, komplexa meningar med bisatser ofta ger ett mer utredande eller högtidligt intryck",
+        "Långa meningar är automatiskt ett tecken på dålig skrivförmåga"
+      ],
+      "answer": 2,
+      "explanation": "Meningsbyggnaden bidrar starkt till stilen: korta, huggande meningar skapar ofta driv eller spänning, medan längre meningar med underordnade bisatser signalerar eftertänksamhet, komplexitet eller formalitet. Långa meningar är i sig inget kvalitetsproblem, bara ett stilmedel bland flera."
+    },
+    {
+      "id": "q-sv3-stilistik-5",
+      "kind": "mc",
+      "topic": "sociolekt och register",
+      "prompt": "Vad är en SOCIOLEKT?",
+      "opener": "Skilj detta från dialekt, som är knutet till geografi.",
+      "choices": [
+        "En regional variant av språket kopplad till en viss ort eller landsdel",
+        "Ett språkbruk kopplat till en social grupp, t.ex. utifrån ålder, yrke eller samhällsklass",
+        "Ett annat ord för formellt skriftspråk",
+        "Ett språk som talas i ett annat land"
+      ],
+      "answer": 1,
+      "explanation": "En sociolekt är en språklig variant kopplad till en social grupp — t.ex. ungdomsspråk, ett visst yrkesspråk eller en samhällsklass — till skillnad från en dialekt, som istället är knuten till geografisk hemvist."
+    },
+    {
+      "id": "q-sv3-stilistik-6",
+      "kind": "mc",
+      "topic": "sociolekt och register",
+      "prompt": "Vad menas med REGISTER i språkligt sammanhang?",
+      "opener": "Tänk på hur samma person kan tala olika beroende på situation, inte beroende på vilken grupp den tillhör.",
+      "choices": [
+        "Den språkliga variant en talare eller skribent väljer beroende på situation och mottagare, t.ex. formellt register på jobbet och informellt bland vänner",
+        "En förteckning över alla ord i ett språk",
+        "Ett annat ord för sociolekt, helt utbytbart",
+        "Den dialekt en person föddes med och aldrig kan ändra"
+      ],
+      "answer": 0,
+      "explanation": "Register handlar om att samma person medvetet växlar språklig stil beroende på sammanhang — formellt på ett myndighetsmöte, informellt bland vänner. Till skillnad från sociolekt, som är kopplad till grupptillhörighet, är register en situationsanpassning som varje individ gör."
+    },
+    {
+      "id": "q-sv3-stilistik-7",
+      "kind": "worked",
+      "topic": "stilnivåer",
+      "prompt": "Skriv om meningen \"Vi måste typ fixa det där problemet asap, annars blir det kaos\" till en formell stilnivå lämplig för ett myndighetsbrev.",
+      "opener": "Byt ut talspråksord och gör meningsbyggnaden mer fullständig och opersonlig.",
+      "answer": "Problemet bör åtgärdas skyndsamt, då underlåtenhet att göra så riskerar att medföra allvarliga konsekvenser.",
+      "steps": [
+        "Ta bort talspråkliga utfyllnadsord som \"typ\" och förkortningar som \"asap\".",
+        "Byt vardagliga uttryck mot mer formella motsvarigheter: \"fixa\" → \"åtgärda\", \"kaos\" → \"allvarliga konsekvenser\".",
+        "Gör meningsbyggnaden mer fullständig och skriftspråklig, gärna med bisats istället för \"annars\".",
+        "Tona ner det personliga \"vi\" till förmån för en mer opersonlig konstruktion, t.ex. passiv form."
+      ]
+    },
+    {
+      "id": "q-sv3-stilistik-8",
+      "kind": "flashcard",
+      "topic": "stilnivåer",
+      "prompt": "Sammanfatta stilnivåer, sociolekt, register och centrala stilistiska medel.",
+      "opener": "Håll isär vad som beror på situation och vad som beror på grupptillhörighet.",
+      "answer": "Stilnivåer: formell (kanslispråk, opersonlig) · neutral · informell/vardaglig (talspråksnära, utfyllnadsord) · Sociolekt: språkbruk kopplat till social grupp (ålder, yrke, klass) · Register: den stilnivå en person medvetet väljer beroende på situation · Meningsbyggnad: korta meningar ger kärvhet/driv, långa ger eftertänksamhet/formalitet · Personifikation: mänskliga drag tillskrivs icke-mänskliga företeelser · Ordval avgör stilintryck lika mycket som grammatik."
+    }
+  ]
+}

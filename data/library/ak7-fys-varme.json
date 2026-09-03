@@ -1,0 +1,130 @@
+{
+  "id": "lib-fys7-varme",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Värme och temperatur",
+  "sourceSummary": "Skillnaden mellan värme som energi och temperatur som mått, Celsius-skalans fixpunkter samt de tre sätten värme sprids: ledning, strömning och strålning. Du övar också på värmeutvidgning och på varför isolering håller värmen kvar.",
+  "topics": [
+    "värme och temperatur",
+    "Celsius-skalan",
+    "värmetransport",
+    "värmeutvidgning",
+    "isolering"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys7-var-1",
+      "kind": "mc",
+      "topic": "värme och temperatur",
+      "prompt": "Vad är skillnaden mellan värme och temperatur?",
+      "opener": "Det ena är en energiform, det andra är ett mätvärde.",
+      "choices": [
+        "Det är två ord för exakt samma sak",
+        "Värme är energi som överförs, temperatur är ett mått på hur snabbt partiklarna rör sig",
+        "Värme mäts i grader, temperatur mäts i joule",
+        "Temperatur finns bara i varma föremål, värme bara i kalla"
+      ],
+      "answer": 1,
+      "explanation": "Värme är energi som flyttar sig från något varmare till något kallare och mäts i joule (J), medan temperatur är ett mått på partiklarnas rörelse och mäts i grader Celsius. Att kalla dem samma sak fungerar inte: en kopp och en badbalja kan ha samma temperatur, men baljan innehåller mycket mer värmeenergi eftersom den har mer vatten."
+    },
+    {
+      "id": "q-fys7-var-2",
+      "kind": "mc",
+      "topic": "Celsius-skalan",
+      "prompt": "Vilka två fixpunkter bygger Celsius-skalan på?",
+      "opener": "Båda punkterna handlar om vatten vid normalt lufttryck.",
+      "choices": [
+        "Vattnets fryspunkt och kroppstemperatur",
+        "Rumstemperatur och vattnets kokpunkt",
+        "Vattnets fryspunkt vid 0 °C och kokpunkt vid 100 °C",
+        "Absoluta nollpunkten och vattnets kokpunkt"
+      ],
+      "answer": 2,
+      "explanation": "Celsius-skalan är byggd på vatten: 0 °C där vatten fryser och 100 °C där det kokar vid normalt lufttryck, och avståndet delades i 100 lika stora grader. Kroppstemperaturen (cirka 37 °C) är inte någon fixpunkt — den varierar mellan människor och under dygnet."
+    },
+    {
+      "id": "q-fys7-var-3",
+      "kind": "mc",
+      "topic": "värmetransport",
+      "prompt": "Varför känns ett metallhandtag kallare än ett trähandtag, fast de står i samma rum?",
+      "opener": "Fundera på vilket material som snabbast leder bort värme från din hand.",
+      "choices": [
+        "Metallen leder värme bra och drar snabbt bort värme från handen",
+        "Metallen har verkligen lägre temperatur än träet",
+        "Träet skickar ut värmestrålning mot handen",
+        "Metallen innehåller kall luft inuti"
+      ],
+      "answer": 0,
+      "explanation": "Båda föremålen har rumstemperatur, men metall är en bra värmeledare och för snabbt bort värme från huden, vilket vi upplever som kyla. Träet är en isolator och leder bort värmen långsamt, så det känns varmare trots exakt samma temperatur."
+    },
+    {
+      "id": "q-fys7-var-4",
+      "kind": "mc",
+      "topic": "värmetransport",
+      "prompt": "Hur når solens värme fram till jorden genom rymden?",
+      "opener": "Rymden är nästan tom — det finns nästan inga partiklar där.",
+      "choices": [
+        "Genom värmeledning i luften mellan solen och jorden",
+        "Genom strömning av varma gaser hela vägen",
+        "Genom att solvinden blåser hit värmen",
+        "Genom värmestrålning"
+      ],
+      "answer": 3,
+      "explanation": "Värmestrålning behöver inget material att gå igenom och kan därför färdas genom tomma rymden. Ledning och strömning kräver partiklar som kan föra värmen vidare, och i rymden finns nästan inga partiklar alls."
+    },
+    {
+      "id": "q-fys7-var-5",
+      "kind": "mc",
+      "topic": "värmeutvidgning",
+      "prompt": "Vad händer med de flesta ämnen när de värms upp?",
+      "opener": "Partiklarna rör sig mer när temperaturen stiger och behöver då mer plats.",
+      "choices": [
+        "De får mindre massa",
+        "De blir mindre, alltså krymper",
+        "De utvidgas, alltså blir större i volym",
+        "Ingenting alls ändras förutom temperaturen"
+      ],
+      "answer": 2,
+      "explanation": "När temperaturen stiger rör sig partiklarna kraftigare och hamnar i genomsnitt längre ifrån varandra, så volymen ökar — det kallas värmeutvidgning, och det är därför broar byggs med rörelsefogar. Massan påverkas inte: det är samma partiklar, de tar bara mer plats."
+    },
+    {
+      "id": "q-fys7-var-6",
+      "kind": "mc",
+      "topic": "isolering",
+      "prompt": "Varför isolerar ett fönster med två glasrutor och luft mellan dem bättre än en enkel ruta?",
+      "opener": "Tänk på hur bra stillastående luft är på att leda värme.",
+      "choices": [
+        "Dubbelt glas gör rummet varmare av sig själv",
+        "Stillastående luft leder värme dåligt och bromsar värmeflödet ut",
+        "Luften mellan rutorna suger upp all kyla utifrån",
+        "Två rutor släpper inte in något solljus"
+      ],
+      "answer": 1,
+      "explanation": "Luft är en dålig värmeledare, så länge den står still, och luftspalten mellan rutorna gör därför att mycket mindre värme läcker ut. Kyla är för övrigt inget som kan sugas upp — det är alltid värme som flyttar sig, från det varmare till det kallare."
+    },
+    {
+      "id": "q-fys7-var-7",
+      "kind": "worked",
+      "topic": "Celsius-skalan",
+      "prompt": "En vinterdag är det -7 °C ute och 21 °C inne i klassrummet. Hur stor är temperaturskillnaden mellan ute och inne?",
+      "opener": "Ta hjälp av nollan och räkna sträckan i två steg på termometern.",
+      "answer": "Temperaturskillnaden är 28 grader.",
+      "steps": [
+        "Steg 1: från -7 °C upp till 0 °C är 7 grader.",
+        "Steg 2: från 0 °C upp till 21 °C är 21 grader.",
+        "Lägg ihop stegen: 7 + 21 = 28.",
+        "Svaret blir 28 grader, alltså 21 - (-7) = 28 om du räknar direkt.",
+        "Rimlighetskoll: det är minus ute och plus inne, så skillnaden måste bli större än 21 grader."
+      ]
+    },
+    {
+      "id": "q-fys7-var-8",
+      "kind": "flashcard",
+      "topic": "värmetransport",
+      "prompt": "Sammanfatta värme, temperatur och de tre sätten värme sprids.",
+      "opener": "Skilj först på värme och temperatur, gå sedan igenom ledning, strömning och strålning.",
+      "answer": "Värme: energi som överförs från varmare till kallare, mäts i joule (J) · Temperatur: mått på partiklarnas rörelse, mäts i grader Celsius (°C) · Celsius: 0 °C = vattnets fryspunkt, 100 °C = vattnets kokpunkt vid normalt lufttryck · Ledning: värmen förs vidare mellan partiklar som rör vid varandra, bäst i metaller, dåligt i luft, trä och plast · Strömning: varm vätska eller gas har lägre densitet, stiger uppåt och kall strömmar in underifrån, till exempel luften över ett element · Strålning: värme som färdas som strålning och inte behöver något material, till exempel solens värme genom rymden · Värmeutvidgning: nästan alla ämnen ökar i volym när de värms och krymper när de kyls, massan är oförändrad · Isolering: material med stillastående luft (dun, ull, frigolit, luftspalt i fönster) bromsar värmeledningen · Kyla kan aldrig flytta sig — det är alltid värme som flyttar sig"
+    }
+  ]
+}

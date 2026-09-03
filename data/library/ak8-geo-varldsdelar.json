@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo8-varldsdelar",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Världsdelarna",
+  "sourceSummary": "En översikt av jordens världsdelar och världshav, viktiga länder och deras läge, de stora bergskedjorna, floderna och öknarna, hur klimat och natur skiftar mellan och inom världsdelarna samt hur man läser av en tematisk karta.",
+  "topics": [
+    "världsdelar och världshav",
+    "länder och gränser",
+    "bergskedjor, floder och öknar",
+    "klimat och natur i världsdelarna",
+    "tematiska kartor"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo8-var-1",
+      "kind": "mc",
+      "topic": "världsdelar och världshav",
+      "prompt": "Vilket är jordens största världshav?",
+      "opener": "Det breder ut sig mellan Asien och Amerika och täcker nästan en tredjedel av jordytan.",
+      "choices": [
+        "Atlanten",
+        "Indiska oceanen",
+        "Stilla havet",
+        "Norra ishavet"
+      ],
+      "answer": 2,
+      "explanation": "Stilla havet är det största och djupaste av världshaven och sträcker sig från Asien och Australien i väster till Nord- och Sydamerika i öster. Atlanten är näst störst, medan Norra ishavet är det minsta och till stora delar täckt av havsis."
+    },
+    {
+      "id": "q-geo8-var-2",
+      "kind": "mc",
+      "topic": "världsdelar och världshav",
+      "prompt": "Vilken världsdel är störst både till ytan och till folkmängd?",
+      "opener": "Där ligger både Kina och Indien, och den gränsar till Europa vid Uralbergen.",
+      "choices": [
+        "Asien",
+        "Afrika",
+        "Nordamerika",
+        "Europa"
+      ],
+      "answer": 0,
+      "explanation": "Asien är världens största världsdel, ungefär 44 miljoner kvadratkilometer, och där bor omkring 60 procent av jordens befolkning. Afrika är näst störst till ytan och har den snabbast växande befolkningen, men färre invånare än Asien, medan Europa är en av de minsta världsdelarna."
+    },
+    {
+      "id": "q-geo8-var-3",
+      "kind": "mc",
+      "topic": "länder och gränser",
+      "prompt": "Vilket är världens största land till ytan?",
+      "opener": "Landet sträcker sig över elva tidszoner och ligger i både Europa och Asien.",
+      "choices": [
+        "Kanada",
+        "Kina",
+        "USA",
+        "Ryssland"
+      ],
+      "answer": 3,
+      "explanation": "Ryssland är med cirka 17 miljoner kvadratkilometer världens överlägset största land till ytan och breder ut sig från Östersjön till Stilla havet, med Uralbergen som gräns mellan den europeiska och den asiatiska delen. Kanada, Kina och USA kommer därefter men är alla mindre än hälften så stora. Störst till ytan har inget med folkmängd att göra – Indien och Kina har långt fler invånare."
+    },
+    {
+      "id": "q-geo8-var-4",
+      "kind": "mc",
+      "topic": "bergskedjor, floder och öknar",
+      "prompt": "Vilken bergskedja sträcker sig längs hela Sydamerikas västkust?",
+      "opener": "Den går genom länder som Chile, Peru och Colombia.",
+      "choices": [
+        "Alperna",
+        "Anderna",
+        "Himalaya",
+        "Klippiga bergen"
+      ],
+      "answer": 1,
+      "explanation": "Anderna löper cirka 700 mil längs Sydamerikas västkust och är världens längsta bergskedja på land, uppbyggd där två jordskorpeplattor pressas mot varandra. Himalaya ligger i Asien och har världens högsta toppar, Alperna ligger i Europa och Klippiga bergen i Nordamerika."
+    },
+    {
+      "id": "q-geo8-var-5",
+      "kind": "mc",
+      "topic": "bergskedjor, floder och öknar",
+      "prompt": "Vilken är världens största varma öken och var ligger den?",
+      "opener": "Den täcker en stor del av en hel världsdels norra hälft.",
+      "choices": [
+        "Sahara i norra Afrika",
+        "Gobiöknen i Centralasien",
+        "Atacamaöknen i Sydamerika",
+        "Kalahari i södra Afrika"
+      ],
+      "answer": 0,
+      "explanation": "Sahara täcker större delen av norra Afrika, ungefär lika stor yta som hela Europa, och är världens största varma öken. Gobi, Atacama och Kalahari är också öknar men betydligt mindre – Atacama är däremot känd som en av jordens allra torraste platser."
+    },
+    {
+      "id": "q-geo8-var-6",
+      "kind": "mc",
+      "topic": "tematiska kartor",
+      "prompt": "Vad är det som utmärker en tematisk karta?",
+      "opener": "Namnet kommer av att kartan är byggd kring ett enda tema.",
+      "choices": [
+        "Den visar bara gränser mellan länder och var huvudstäderna ligger",
+        "Den visar terrängens höjd över havet med hjälp av höjdkurvor",
+        "Den visar ett bestämt ämne, till exempel nederbörd, befolkningstäthet eller BNP, ofta med en färgskala",
+        "Den visar vägar och järnvägar så att man kan planera en resa"
+      ],
+      "answer": 2,
+      "explanation": "En tematisk karta lyfter fram ett tema – klimat, folkmängd, jordbruk, inkomst och så vidare – och redovisar det med färger, symboler eller punkter som förklaras i teckenförklaringen. Kartor med enbart gränser och huvudstäder är politiska kartor, medan höjdkurvor hör hemma på topografiska kartor."
+    },
+    {
+      "id": "q-geo8-var-7",
+      "kind": "worked",
+      "topic": "klimat och natur i världsdelarna",
+      "prompt": "Beskriv hur klimatet och naturen förändras när man reser genom Afrika från ekvatorn norrut till Medelhavet, och förklara varför.",
+      "opener": "Följ nederbörden: var på jorden regnar det mest, och var sjunker torr luft ner?",
+      "answer": "Vid ekvatorn, till exempel i Kongobäckenet, är det varmt och regnar mycket året om. Där växer tät tropisk regnskog. Reser man norrut kommer man till savannen, där det finns en tydlig regnperiod och en torrperiod och naturen består av högt gräs med enstaka träd. Ännu längre norrut minskar regnet ytterligare i Sahelområdet, som är en torr övergångszon med taggbuskar och gles gräsmark. Därefter tar Sahara vid, en öken där det knappt regnar alls och där dygnets temperaturskillnader är mycket stora. Allra längst i norr, längs kusten i Marocko, Algeriet och Tunisien, kommer man till medelhavsklimat med milda, regniga vintrar och varma, torra somrar. Orsaken är jordens luftcirkulation: vid ekvatorn värms luften kraftigt av solen, stiger, kyls av och ger kraftiga regn. Högt uppe rör sig luften norrut, och kring 30 graders bredd sjunker den ner igen som torr högtrycksluft, vilket ger ökenbälten. Ännu längre norrut påverkas kusten under vinterhalvåret av lågtryck från Atlanten, vilket ger nederbörd på vintern.",
+      "steps": [
+        "Vid ekvatorn: varmt och blött hela året, tropisk regnskog i Kongobäckenet.",
+        "Norr om regnskogen: savann med regnperiod och torrperiod, gräs och enstaka träd.",
+        "Sahelbältet och Sahara: allt mindre regn, först torr stäpp med taggbuskar och sedan öken med stora skillnader mellan dag och natt.",
+        "Nordafrikas kust: medelhavsklimat med milda, regniga vintrar och varma, torra somrar.",
+        "Förklaringen är luftcirkulationen – stigande fuktig luft ger regn vid ekvatorn, sjunkande torr luft kring 30 grader ger ökenbältet."
+      ]
+    },
+    {
+      "id": "q-geo8-var-8",
+      "kind": "flashcard",
+      "topic": "världsdelar och världshav",
+      "prompt": "Sammanfatta världsdelarna, de stora landformerna och hur man läser kartor.",
+      "opener": "Samla världsdelar, hav, berg, floder, öknar, klimatzoner och kartkunskap i en tät översikt.",
+      "answer": "Världsdelar: Europa · Asien · Afrika · Nordamerika · Sydamerika · Oceanien (Australien) · Antarktis · världshav: Stilla havet (störst och djupast) · Atlanten · Indiska oceanen · Norra ishavet · Södra ishavet · Asien störst till ytan (cirka 44 miljoner km²) och folkrikast, Afrika näst störst · Ryssland är världens största land, Kina och Indien de folkrikaste · bergskedjor: Himalaya i Asien med Mount Everest cirka 8 849 m · Anderna längs Sydamerikas västkust, längst på land · Klippiga bergen i Nordamerika · Alperna i Europa · Atlasbergen i norra Afrika · Uralbergen som gräns mellan Europa och Asien · floder: Nilen och Amazonfloden är världens längsta, Amazonfloden har störst vattenföring · Yangtze i Kina · Kongofloden i Afrika · Mississippi i USA · Volga är Europas längsta · öknar: Sahara är världens största varma öken, Gobi i Asien, Kalahari och Namib i södra Afrika, Atacama i Chile är en av de torraste platserna på jorden · Antarktis räknas som världens största köldöken · klimatzoner från ekvatorn mot polerna: tropiskt (regnskog och savann) · subtropiskt och torrt (öken, stäpp, medelhavsklimat) · tempererat (lövskog och barrskog) · kallt och polart (tundra och inlandsis) · kartor: skala visar hur mycket verkligheten är förminskad · teckenförklaring förklarar färger och symboler · latitud (breddgrad) mäts från ekvatorn, longitud (längdgrad) från nollmeridianen i Greenwich · topografisk karta visar höjd och terräng, politisk karta visar gränser och städer, tematisk karta visar ett tema som klimat, befolkningstäthet eller inkomst."
+    }
+  ]
+}

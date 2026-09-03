@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma2-andragrad",
+  "type": "assignment",
+  "subject": "Matematik 2",
+  "title": "Andragradsekvationer",
+  "sourceSummary": "Faktorisering, kvadratkomplettering, pq-formeln och diskriminanten — de olika vägarna till en andragradsekvations lösningar.",
+  "topics": [
+    "faktorisering",
+    "pq-formeln",
+    "kvadratkomplettering",
+    "diskriminanten"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma2-andragrad-1",
+      "kind": "mc",
+      "topic": "faktorisering",
+      "prompt": "Lös ekvationen $x^2 - 5x + 6 = 0$ genom faktorisering.",
+      "opener": "Sök två tal som multiplicerade ger 6 och adderade ger $-5$.",
+      "choices": [
+        "$x = 2$ eller $x = 3$",
+        "$x = -2$ eller $x = -3$",
+        "$x = 1$ eller $x = 6$",
+        "$x = -1$ eller $x = -6$"
+      ],
+      "answer": 0,
+      "explanation": "Talen $-2$ och $-3$ ger produkten $6$ och summan $-5$, så $x^2 - 5x + 6 = (x-2)(x-3) = 0$. Det ger $x = 2$ eller $x = 3$. Att välja negativa tal (svar B) blandar ihop tecknet på summan och produkten."
+    },
+    {
+      "id": "q-ma2-andragrad-2",
+      "kind": "mc",
+      "topic": "pq-formeln",
+      "prompt": "Lös $x^2 + 2x - 8 = 0$ med pq-formeln.",
+      "opener": "Här är $p = 2$ och $q = -8$. Sätt in i $x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}$.",
+      "choices": [
+        "$x = 4$ eller $x = -2$",
+        "$x = 2$ eller $x = -4$",
+        "$x = -1 \\pm 3$",
+        "$x = 8$ eller $x = -1$"
+      ],
+      "answer": 1,
+      "explanation": "$x = -1 \\pm \\sqrt{1 - (-8)} = -1 \\pm \\sqrt{9} = -1 \\pm 3$, alltså $x = 2$ eller $x = -4$. Svar C visar bara mellansteget utan att räkna klart."
+    },
+    {
+      "id": "q-ma2-andragrad-3",
+      "kind": "mc",
+      "topic": "diskriminanten",
+      "prompt": "Ekvationen $x^2 - 4x + 4 = 0$ har hur många lösningar?",
+      "opener": "Räkna ut vad som står under rottecknet i pq-formeln innan du drar roten.",
+      "choices": [
+        "Två olika lösningar",
+        "Ingen lösning",
+        "En (dubbel) lösning",
+        "Oändligt många lösningar"
+      ],
+      "answer": 2,
+      "explanation": "Med $p = -4$, $q = 4$ blir diskriminanten $\\left(\\frac{p}{2}\\right)^2 - q = 4 - 4 = 0$. När uttrycket under roten är 0 finns exakt en (dubbel) lösning, här $x = 2$. Ett negativt värde hade gett noll reella lösningar."
+    },
+    {
+      "id": "q-ma2-andragrad-4",
+      "kind": "mc",
+      "topic": "diskriminanten",
+      "prompt": "För vilket av alternativen saknar ekvationen $x^2 + 2x + q = 0$ reella lösningar?",
+      "opener": "Kräv att uttrycket under rottecknet, $\\left(\\frac{p}{2}\\right)^2 - q$, blir negativt.",
+      "choices": [
+        "$q = -3$",
+        "$q = 0$",
+        "$q = 1$",
+        "$q = 5$"
+      ],
+      "answer": 3,
+      "explanation": "Här är $p = 2$, så villkoret för reella lösningar är $1 - q \\geq 0$, dvs. $q \\leq 1$. Med $q = 5$ blir $1 - 5 = -4 < 0$, så ekvationen saknar reella lösningar. De andra alternativen ger $q \\leq 1$ och därmed lösningar."
+    },
+    {
+      "id": "q-ma2-andragrad-5",
+      "kind": "mc",
+      "topic": "kvadratkomplettering",
+      "prompt": "Skriv om $x^2 + 6x + 1$ på formen $(x+a)^2 + b$.",
+      "opener": "Halvera koefficienten framför $x$ för att hitta $a$.",
+      "choices": [
+        "$(x+3)^2 - 8$",
+        "$(x+6)^2 + 1$",
+        "$(x+3)^2 + 1$",
+        "$(x+3)^2 + 10$"
+      ],
+      "answer": 0,
+      "explanation": "Halva koefficienten framför $x$ är 3, så $(x+3)^2 = x^2 + 6x + 9$. Eftersom uttrycket bara ska innehålla $+1$, dras överskottet bort: $x^2+6x+1 = (x+3)^2 - 9 + 1 = (x+3)^2 - 8$."
+    },
+    {
+      "id": "q-ma2-andragrad-6",
+      "kind": "mc",
+      "topic": "faktorisering",
+      "prompt": "Vilken faktorisering stämmer för $2x^2 - 8x = 0$?",
+      "opener": "Det finns en gemensam faktor i båda termerna — bryt ut den först.",
+      "choices": [
+        "$2x(x + 4) = 0$, alltså $x = 0$ eller $x = -4$",
+        "$2x(x - 4) = 0$, alltså $x = 0$ eller $x = 4$",
+        "$x(2x - 8) = 0$, alltså $x = 0$ eller $x = 8$",
+        "$(x-2)(x-4) = 0$, alltså $x = 2$ eller $x = 4$"
+      ],
+      "answer": 1,
+      "explanation": "Bryt ut $2x$: $2x^2 - 8x = 2x(x-4) = 0$. Nollproduktmetoden ger $x = 0$ eller $x = 4$. Svar C bryter bara ut $x$ (inte $2x$) och räknar sedan fel på $2x-8=0$, som faktiskt ger $x=4$ och inte $x=8$."
+    },
+    {
+      "id": "q-ma2-andragrad-7",
+      "kind": "worked",
+      "topic": "pq-formeln",
+      "prompt": "Lös ekvationen $2x^2 - 4x - 6 = 0$ med pq-formeln.",
+      "opener": "Ekvationen måste ha koefficienten 1 framför $x^2$ innan pq-formeln kan användas direkt.",
+      "answer": "$x = 3$ eller $x = -1$",
+      "steps": [
+        "Dela alla termer med 2 för att få formen $x^2 + px + q = 0$: $x^2 - 2x - 3 = 0$.",
+        "Nu är $p = -2$ och $q = -3$.",
+        "Pq-formeln: $x = -\\frac{p}{2} \\pm \\sqrt{\\left(\\frac{p}{2}\\right)^2 - q} = 1 \\pm \\sqrt{1 - (-3)} = 1 \\pm \\sqrt{4} = 1 \\pm 2$.",
+        "Det ger $x = 3$ eller $x = -1$."
+      ]
+    },
+    {
+      "id": "q-ma2-andragrad-8",
+      "kind": "flashcard",
+      "topic": "pq-formeln",
+      "prompt": "Sammanfatta metoderna för att lösa en andragradsekvation och vad diskriminanten säger om antalet lösningar.",
+      "opener": "Tänk igenom när varje metod passar bäst.",
+      "answer": "Faktorisering: hitta två tal vars produkt är $q$ (eller $c$) och summa är $p$ (eller $b$) · Kvadratkomplettering: $x^2+px+q = \\left(x+\\dfrac{p}{2}\\right)^2 - \\left(\\dfrac{p}{2}\\right)^2 + q$ · Pq-formeln: $x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}$ för $x^2+px+q=0$ · Diskriminanten $D = \\left(\\dfrac{p}{2}\\right)^2 - q$: $D>0$ ger två lösningar, $D=0$ ger en dubbelrot, $D<0$ ger ingen reell lösning."
+    }
+  ]
+}

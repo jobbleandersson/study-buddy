@@ -1,0 +1,127 @@
+{
+  "id": "lib-en7-past",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Grammar: past simple",
+  "sourceSummary": "Dåtid på engelska: regelbundna verb med -ed, de vanligaste oregelbundna verben och did/didn't i frågor och nekande satser.",
+  "topics": [
+    "past simple",
+    "irregular verbs",
+    "did/didn't"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7-pas-1",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"Yesterday we ___ football in the park.\"",
+      "opener": "\"Yesterday\" betyder att det redan har hänt. Regelbundna verb får en känd ändelse i dåtid.",
+      "choices": [
+        "played",
+        "play",
+        "plays",
+        "playing"
+      ],
+      "answer": 0,
+      "explanation": "\"Yesterday\" kräver past simple. \"Play\" är ett regelbundet verb, så dåtid bildas med -ed: \"played\". \"Plays\" är presens och passar inte ihop med yesterday."
+    },
+    {
+      "id": "q-en7-pas-2",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Choose the correct form: \"Last summer I ___ to Spain with my family.\"",
+      "opener": "\"Go\" är ett oregelbundet verb — det får ingen -ed-ändelse.",
+      "choices": [
+        "goed",
+        "go",
+        "went",
+        "gone"
+      ],
+      "answer": 2,
+      "explanation": "\"Go\" är oregelbundet och blir \"went\" i past simple. \"Goed\" finns inte på engelska — oregelbundna verb måste läras utantill."
+    },
+    {
+      "id": "q-en7-pas-3",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Which past simple form is correct?",
+      "opener": "Fyra vanliga oregelbundna verb. Vilken rad stämmer?",
+      "choices": [
+        "have → haved",
+        "see → seed",
+        "buy → buyed",
+        "take → took"
+      ],
+      "answer": 3,
+      "explanation": "\"Take\" blir \"took\" i dåtid. De andra är oregelbundna men böjs annorlunda: have → had, see → saw, buy → bought. Ingen av dem tar -ed."
+    },
+    {
+      "id": "q-en7-pas-4",
+      "kind": "mc",
+      "topic": "did/didn't",
+      "prompt": "Choose the correct negative sentence: \"I ___ my homework last night.\"",
+      "opener": "I nekande dåtid används \"didn't\". Vad händer med huvudverbet då?",
+      "choices": [
+        "didn't did",
+        "didn't do",
+        "don't do",
+        "didn't done"
+      ],
+      "answer": 1,
+      "explanation": "Nekande past simple bildas med \"didn't\" + verb i grundform: \"I didn't do my homework\". Dåtiden ligger redan i \"didn't\", så verbet ska inte böjas en gång till."
+    },
+    {
+      "id": "q-en7-pas-5",
+      "kind": "mc",
+      "topic": "did/didn't",
+      "prompt": "Choose the correct question: \"___ you see the film last week?\"",
+      "opener": "Frågor i dåtid börjar med ett hjälpverb — vilket?",
+      "choices": [
+        "Do",
+        "Did",
+        "Does",
+        "Are"
+      ],
+      "answer": 1,
+      "explanation": "\"Last week\" visar att det är dåtid, och då används \"Did\" i frågan: \"Did you see...\". Efter \"did\" står verbet i grundform, alltså \"see\" och inte \"saw\"."
+    },
+    {
+      "id": "q-en7-pas-6",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Which time expression fits: \"She watched a movie ___.\"",
+      "opener": "Verbet står i dåtid — då måste tidsuttrycket också peka bakåt i tiden.",
+      "choices": [
+        "tomorrow",
+        "next week",
+        "last night",
+        "every day"
+      ],
+      "answer": 2,
+      "explanation": "\"Watched\" är past simple, så tidsuttrycket måste handla om det förflutna: \"last night\". \"Every day\" beskriver en vana och kräver present simple: \"She watches a movie every day\"."
+    },
+    {
+      "id": "q-en7-pas-7",
+      "kind": "worked",
+      "topic": "past simple",
+      "prompt": "Correct the three errors: \"Last weekend I go to my grandmother. We eat pizza and I didn't watched TV.\"",
+      "opener": "Alla verb ska stå i dåtid — men tänk på vad som händer efter \"didn't\".",
+      "answer": "Last weekend I went to my grandmother. We ate pizza and I didn't watch TV.",
+      "steps": [
+        "\"Last weekend\" är ett dåtidsuttryck, så alla verb i texten ska stå i past simple.",
+        "\"I go\" → \"I went\". \"Go\" är oregelbundet: go → went.",
+        "\"We eat\" → \"We ate\". \"Eat\" är också oregelbundet: eat → ate.",
+        "\"I didn't watched\" → \"I didn't watch\". Efter \"didn't\" står verbet alltid i grundform."
+      ]
+    },
+    {
+      "id": "q-en7-pas-8",
+      "kind": "flashcard",
+      "topic": "past simple",
+      "prompt": "Hur bildar du past simple, och vilka vanliga oregelbundna verb bör du kunna?",
+      "opener": "En regel för regelbundna verb, en lista för de oregelbundna.",
+      "answer": "Regelbundna verb: verb + -ed (play → played, watch → watched, want → wanted) · slutar verbet på -e räcker det med -d (like → liked) · konsonant + y blir -ied (study → studied). Vanliga oregelbundna: go → went · have → had · see → saw · take → took · eat → ate · get → got · make → made · come → came · say → said · buy → bought. Frågor: Did you play? · Nekande: I didn't play · efter did/didn't står verbet alltid i grundform. Signalord: yesterday, last week, last summer, two days ago, in 2019."
+    }
+  ]
+}

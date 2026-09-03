@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel-kristendom",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Kristendom",
+  "sourceSummary": "Kristendomens grundläggande tro, de tre stora inriktningarna, bibeln som helig skrift samt vad påsk och jul betyder — kunskaper som hjälper dig förstå både historia och dagens samhälle.",
+  "topics": [
+    "grundläggande tro",
+    "inriktningar",
+    "högtider",
+    "bibeln"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel-kris-1",
+      "kind": "mc",
+      "topic": "grundläggande tro",
+      "prompt": "Vad tror kristna om Jesus, enligt kristen tro?",
+      "opener": "Fundera på vad som gör kristendomen till just en egen religion och inte bara judendom.",
+      "choices": [
+        "Att han var en vanlig profet bland många andra",
+        "Att han var Guds son, som dog och uppstod från de döda",
+        "Att han skrev hela bibeln själv",
+        "Att han var en kejsare i romarriket"
+      ],
+      "answer": 1,
+      "explanation": "Inom kristendomen tror man att Jesus var Guds son som blev människa, korsfästes och uppstod från de döda — det är själva grunden för tron. Att kalla honom \"en profet bland andra\" är snarare hur till exempel islam ser på honom."
+    },
+    {
+      "id": "q-rel-kris-2",
+      "kind": "mc",
+      "topic": "grundläggande tro",
+      "prompt": "Vad menas med treenigheten inom kristen tro?",
+      "opener": "Ordet \"tre-enighet\" ger en ledtråd — tre delar som ändå räknas som en enhet.",
+      "choices": [
+        "Att det finns tre olika gudar som konkurrerar med varandra",
+        "Att Gud är Fadern, Sonen och den heliga Anden i en enda gudom",
+        "Att det finns tre heliga böcker",
+        "Att kristendomen har tre grundare"
+      ],
+      "answer": 1,
+      "explanation": "Treenigheten är läran att Gud är en enda gud som visar sig i tre former: Fadern, Sonen (Jesus) och den heliga Anden. Det handlar alltså inte om tre skilda gudar, utan om en gud i tre gestalter."
+    },
+    {
+      "id": "q-rel-kris-3",
+      "kind": "mc",
+      "topic": "inriktningar",
+      "prompt": "Vilken är en central skillnad mellan katolicism och protestantism?",
+      "opener": "Tänk på vem eller vad som har högst auktoritet i trosfrågor inom de olika inriktningarna.",
+      "choices": [
+        "Katoliker tror på Jesus, protestanter gör det inte",
+        "Katolska kyrkan har påven som ledare, medan protestantiska kyrkor inte erkänner påvens auktoritet",
+        "Protestanter firar inte jul",
+        "Katoliker läser inte bibeln"
+      ],
+      "answer": 1,
+      "explanation": "En central skillnad är att katolska kyrkan har påven i Rom som högsta ledare, medan protestantiska kyrkor (t.ex. Svenska kyrkan) inte erkänner den auktoriteten och lägger större vikt vid bibeln som enskild vägledning. Båda inriktningarna tror på Jesus och firar jul."
+    },
+    {
+      "id": "q-rel-kris-4",
+      "kind": "mc",
+      "topic": "inriktningar",
+      "prompt": "Var är den ortodoxa kyrkan som starkast, och vad kännetecknar den?",
+      "opener": "Tänk på det gamla romerska riket som en gång delades i en västlig och en östlig del.",
+      "choices": [
+        "I Sydamerika, med stort fokus på gospelmusik",
+        "I östra Europa och Ryssland, med rikt utsmyckade kyrkor, ikoner och gamla traditioner",
+        "I Nordafrika, utan några egna kyrkobyggnader",
+        "Den finns bara i Sverige"
+      ],
+      "answer": 1,
+      "explanation": "Den ortodoxa kyrkan är starkast i länder som Ryssland, Grekland och andra delar av östra Europa. Den kännetecknas av ikoner (heliga bilder), rikt utsmyckade kyrkorum och gudstjänster som följt liknande former i mycket lång tid."
+    },
+    {
+      "id": "q-rel-kris-5",
+      "kind": "mc",
+      "topic": "högtider",
+      "prompt": "Vad firar kristna framför allt vid påsk?",
+      "opener": "Koppla ihop högtiden med det som är kärnan i kristen tro om Jesus.",
+      "choices": [
+        "Att Jesus föddes",
+        "Att Jesus dog och uppstod från de döda",
+        "Att kyrkoåret börjar om",
+        "Att den heliga Anden kom till lärjungarna"
+      ],
+      "answer": 1,
+      "explanation": "Påsken firar att Jesus, enligt kristen tro, korsfästes (långfredagen) och uppstod från de döda (påskdagen) — händelser som är helt centrala för kristendomen. Att Jesus föddes firas i stället vid jul."
+    },
+    {
+      "id": "q-rel-kris-6",
+      "kind": "mc",
+      "topic": "högtider",
+      "prompt": "Vad symboliserar julen framför allt inom kristendomen?",
+      "opener": "Vad hände enligt kristen tro just den natten i Betlehem?",
+      "choices": [
+        "Att Jesus uppstod från de döda",
+        "Att Jesus föddes",
+        "Att bibeln färdigställdes",
+        "Att kyrkan grundades"
+      ],
+      "answer": 1,
+      "explanation": "Julen firar Jesu födelse, enligt berättelsen om hur han föddes i Betlehem. Jesu död och uppståndelse firas i stället vid påsk."
+    },
+    {
+      "id": "q-rel-kris-7",
+      "kind": "worked",
+      "topic": "bibeln",
+      "prompt": "Förklara vad bibeln är och hur den är uppbyggd, samt varför den har en central roll för kristendomen.",
+      "opener": "Tänk på att bibeln inte är en enda bok, utan en samling texter uppdelad i två stora delar.",
+      "answer": "Bibeln är kristendomens heliga skrift och består av två delar: Gamla testamentet, som handlar om tiden före Jesus och som till stor del delas med judendomen, och Nya testamentet, som handlar om Jesu liv, död och uppståndelse samt den tidiga kristna kyrkan. Bibeln har en central roll eftersom den används som grund för kristen tro, etik och gudstjänst, även om olika inriktningar tolkar och använder texterna på delvis olika sätt.",
+      "steps": [
+        "Bibeln är egentligen en samling av många olika böcker och texter, skrivna av olika personer under lång tid.",
+        "Gamla testamentet skildrar tiden före Jesus och delas till stor del med judendomens heliga skrift, Tanak/Toran.",
+        "Nya testamentet handlar om Jesu liv, lärjungarna och den tidiga kyrkan — här finns bland annat de fyra evangelierna.",
+        "Bibeln används som vägledning för tro och moral, men olika kristna inriktningar (katoliker, protestanter, ortodoxa) kan tolka och värdera texterna lite olika.",
+        "Slutsats: bibeln binder ihop kristendomens historia, tro och etik i en och samma samling texter."
+      ]
+    },
+    {
+      "id": "q-rel-kris-8",
+      "kind": "flashcard",
+      "topic": "grundläggande tro",
+      "prompt": "Sammanfatta kristendomens grunder: Gud, Jesus, de tre inriktningarna och de två stora högtiderna.",
+      "opener": "Gå igenom tro, inriktningar och högtider som tre separata delar.",
+      "answer": "Gud: kristna tror på en gud som visar sig som Fadern, Sonen och den heliga Anden (treenigheten). Jesus: enligt kristen tro Guds son, som korsfästes och uppstod från de döda — uppståndelsen är central för hoppet om evigt liv. De tre stora inriktningarna: katolicism (påven i Rom som ledare), protestantism (t.ex. Svenska kyrkan, ingen påve, stort fokus på bibeln) och ortodox kristendom (starkast i östra Europa/Ryssland, ikoner och gamla traditioner). Bibeln: helig skrift i två delar, Gamla och Nya testamentet. Högtider: påsk firar Jesu död och uppståndelse · jul firar Jesu födelse."
+    }
+  ]
+}

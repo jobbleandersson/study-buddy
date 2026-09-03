@@ -1,0 +1,128 @@
+{
+  "id": "lib-en6-vocabulary",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Vocabulary: idioms and abstract language",
+  "sourceSummary": "Vanliga engelska idiom, abstrakta substantiv, kollokationer och formella synonymer för uppsatsskrivande.",
+  "topics": [
+    "idioms",
+    "abstract nouns",
+    "collocations",
+    "formal synonyms"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-vocabulary-1",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does the idiom \"to hit the nail on the head\" mean?",
+      "opener": "Tänk bildligt — vad innebär det att träffa spiken mitt i huvudet?",
+      "choices": [
+        "To say exactly the right thing",
+        "To make a big mistake",
+        "To work very hard",
+        "To fix something quickly"
+      ],
+      "answer": 0,
+      "explanation": "Idiomet betyder att träffa exakt rätt, till exempel genom att uttrycka något perfekt. Det handlar inte om hårt arbete eller misstag — betydelsen går inte att gissa ord för ord."
+    },
+    {
+      "id": "q-en6-vocabulary-2",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does it mean if someone is \"on the fence\" about a decision?",
+      "opener": "Bilden är någon som sitter på ett staket — varken på ena sidan eller den andra.",
+      "choices": [
+        "They have already decided",
+        "They are very confident",
+        "They regret their choice",
+        "They are undecided"
+      ],
+      "answer": 3,
+      "explanation": "\"On the fence\" betyder obeslutsam — man lutar varken åt ena eller andra hållet. Uttrycket beskriver inte ånger eller säkerhet i ett beslut."
+    },
+    {
+      "id": "q-en6-vocabulary-3",
+      "kind": "mc",
+      "topic": "abstract nouns",
+      "prompt": "Which word best completes the sentence? \"The government's ___ to reduce emissions was praised by environmental groups.\"",
+      "opener": "Vilken ordklass krävs efter possessivformen \"government's\"? Ett substantiv.",
+      "choices": [
+        "commit",
+        "committee",
+        "commitment",
+        "committed"
+      ],
+      "answer": 2,
+      "explanation": "Efter possessiv (\"government's\") krävs ett substantiv, och \"commitment\" (åtagande) är det abstrakta substantiv som passar betydelsemässigt. \"Committee\" betyder kommitté, ett annat ord helt."
+    },
+    {
+      "id": "q-en6-vocabulary-4",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct collocation: \"In her essay, she ___ a strong argument for stricter laws.\"",
+      "opener": "Tänk på det vanliga uttrycket \"make a point/an argument\" i uppsatser.",
+      "choices": [
+        "did",
+        "made",
+        "took",
+        "had"
+      ],
+      "answer": 1,
+      "explanation": "Kollokationen är \"make an argument\" (föra fram ett argument). \"Have an argument\" betyder istället att gräla, och \"do/take an argument\" är inga fasta uttryck."
+    },
+    {
+      "id": "q-en6-vocabulary-5",
+      "kind": "mc",
+      "topic": "formal synonyms",
+      "prompt": "Which is the most formal synonym for \"get better\"?",
+      "opener": "I en formell uppsats undviker man phrasal verbs som \"pick up\" eller \"look up\".",
+      "choices": [
+        "improve",
+        "get well",
+        "pick up",
+        "look up"
+      ],
+      "answer": 0,
+      "explanation": "\"Improve\" är den formella, enkla motsvarigheten till \"get better\". Phrasal verbs som \"pick up\" och \"look up\" är mer informella och passar sämre i formellt skriftspråk."
+    },
+    {
+      "id": "q-en6-vocabulary-6",
+      "kind": "mc",
+      "topic": "formal synonyms",
+      "prompt": "Which word means roughly the same as \"widespread\" in the sentence: \"There is widespread concern about climate change.\"",
+      "opener": "Vilket ord uttrycker att något förekommer på många håll?",
+      "choices": [
+        "limited",
+        "common",
+        "occasional",
+        "hidden"
+      ],
+      "answer": 1,
+      "explanation": "\"Widespread\" betyder utbrett eller vanligt förekommande, vilket ligger nära \"common\". \"Limited\" och \"occasional\" är nästan motsatsen, och \"hidden\" handlar om något annat."
+    },
+    {
+      "id": "q-en6-vocabulary-7",
+      "kind": "worked",
+      "topic": "collocations",
+      "prompt": "Find and correct the three errors: \"She has a big interest for renewable energy. After many discussions, the committee made finally a decision, and they decided to do research about the subject.\"",
+      "opener": "Leta efter en preposition, en adverbplacering och ännu en preposition som alla bryter mot vanliga kollokationer.",
+      "answer": "She has a big interest in renewable energy. After many discussions, the committee finally made a decision, and they decided to do research into the subject.",
+      "steps": [
+        "\"interest for\" → \"interest in\": fast kollokation, \"an interest in something\".",
+        "\"made finally a decision\" → \"finally made a decision\": adverb som \"finally\" placeras vanligtvis före huvudverbet, inte mellan verb och objekt.",
+        "\"research about\" → \"research into\": kollokationen är \"research into/on a subject\", inte \"about\".",
+        "Sammanfattning: kollokationer måste läras in som fasta fraser — direktöversättning från svenskan (\"intresse för\", \"forskning om\") leder ofta fel."
+      ]
+    },
+    {
+      "id": "q-en6-vocabulary-8",
+      "kind": "flashcard",
+      "topic": "idioms",
+      "prompt": "List five common English idioms and their meanings.",
+      "opener": "Idiom betyder inte alltid det orden bokstavligen säger — lär dig dem som hela fraser.",
+      "answer": "\"Hit the nail on the head\" = säga exakt rätt sak · \"On the fence\" = obeslutsam · \"Break the ice\" = få igång ett samtal, minska spänning · \"Once in a blue moon\" = mycket sällan · \"Bite the bullet\" = tvinga sig att göra något obehagligt · \"Under the weather\" = känna sig lite sjuk. Kom ihåg: idiom ska aldrig översättas ord för ord."
+    }
+  ]
+}

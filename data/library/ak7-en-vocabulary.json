@@ -1,0 +1,129 @@
+{
+  "id": "lib-en7-vocabulary",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Vocabulary: vardagsord och fraser",
+  "sourceSummary": "Vanliga ord om skola, familj, fritid och mat tillsammans med artighetsfraser och grunderna i there is/there are, some/any och a/an/the.",
+  "topics": [
+    "everyday vocabulary",
+    "phrases",
+    "there is/there are",
+    "some/any",
+    "articles"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7-voc-1",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Which word means \"morbror\" or \"farbror\" in English?",
+      "opener": "Engelskan skiljer inte på mor- och farsidan i familjen.",
+      "choices": [
+        "cousin",
+        "aunt",
+        "uncle",
+        "nephew"
+      ],
+      "answer": 2,
+      "explanation": "\"Uncle\" används både för morbror och farbror. \"Aunt\" är moster/faster, \"cousin\" är kusin och \"nephew\" är brorson eller systerson."
+    },
+    {
+      "id": "q-en7-voc-2",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Choose the word that fits: \"We have maths in the first ___ every Monday morning.\"",
+      "opener": "Vilket ord används om en lektion i skolan?",
+      "choices": [
+        "lesson",
+        "lecture",
+        "break",
+        "subject"
+      ],
+      "answer": 0,
+      "explanation": "\"Lesson\" betyder lektion och passar i skolschemat. \"Subject\" betyder ämne (t.ex. maths i sig), och \"break\" betyder rast."
+    },
+    {
+      "id": "q-en7-voc-3",
+      "kind": "mc",
+      "topic": "phrases",
+      "prompt": "Someone says: \"Thank you very much!\" What is a polite answer?",
+      "opener": "Vad svarar man på engelska när någon tackar?",
+      "choices": [
+        "Please.",
+        "Excuse me.",
+        "Never mind me.",
+        "You're welcome."
+      ],
+      "answer": 3,
+      "explanation": "\"You're welcome\" är det vanliga svaret på ett tack (ungefär \"varsågod\"). Svenskans \"varsågod\" när man ger något heter \"here you are\" — inte \"please\", som betyder \"tack\" eller \"snälla\" när man ber om något."
+    },
+    {
+      "id": "q-en7-voc-4",
+      "kind": "mc",
+      "topic": "there is/there are",
+      "prompt": "Choose the correct form: \"___ three apples on the table.\"",
+      "opener": "Ett eller flera? Det avgör om det heter is eller are.",
+      "choices": [
+        "There is",
+        "There are",
+        "It is",
+        "They is"
+      ],
+      "answer": 1,
+      "explanation": "\"Three apples\" är plural, så det heter \"There are\". \"There is\" används bara när det som följer är i singular: \"There is an apple on the table\"."
+    },
+    {
+      "id": "q-en7-voc-5",
+      "kind": "mc",
+      "topic": "some/any",
+      "prompt": "Choose the correct word: \"I don't have ___ money with me today.\"",
+      "opener": "Some och any styrs av om meningen är jakande, nekande eller en fråga.",
+      "choices": [
+        "some",
+        "the",
+        "any",
+        "a"
+      ],
+      "answer": 2,
+      "explanation": "I nekande satser och frågor används \"any\": \"I don't have any money\". \"Some\" används i jakande satser: \"I have some money\"."
+    },
+    {
+      "id": "q-en7-voc-6",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"My sister wants to be ___ engineer.\"",
+      "opener": "Lyssna på hur nästa ord börjar — på ett vokalljud eller ett konsonantljud?",
+      "choices": [
+        "a",
+        "an",
+        "the",
+        "some"
+      ],
+      "answer": 1,
+      "explanation": "\"Engineer\" börjar med vokalljudet /e/, och då används \"an\": \"an engineer\". \"A\" används framför konsonantljud, som i \"a teacher\"."
+    },
+    {
+      "id": "q-en7-voc-7",
+      "kind": "worked",
+      "topic": "there is/there are",
+      "prompt": "Correct the three errors: \"There is two shops near my house. I want to buy a apple, but I don't have some money.\"",
+      "opener": "Tre saker att kolla: singular eller plural, vilken artikel som passar, och some eller any.",
+      "answer": "There are two shops near my house. I want to buy an apple, but I don't have any money.",
+      "steps": [
+        "\"There is two shops\" → \"There are two shops\". \"Two shops\" är plural, så det heter \"there are\".",
+        "\"a apple\" → \"an apple\". \"Apple\" börjar med ett vokalljud, och då används \"an\".",
+        "\"I don't have some money\" → \"I don't have any money\". I nekande satser används \"any\", inte \"some\".",
+        "Läs igenom meningen igen till slut och kontrollera att is/are stämmer med det som kommer efter."
+      ]
+    },
+    {
+      "id": "q-en7-voc-8",
+      "kind": "flashcard",
+      "topic": "everyday vocabulary",
+      "prompt": "Vilka vardagsord, fraser och småord bör du kunna på åk7-nivå?",
+      "opener": "Ord om skola, familj, fritid och mat — plus de vanligaste artighetsfraserna.",
+      "answer": "Skola: lesson = lektion · break = rast · subject = ämne · homework = läxa · timetable = schema. Familj: uncle = morbror/farbror · aunt = moster/faster · cousin = kusin · grandparents = mor-/farföräldrar. Fritid: hobby · spare time = fritid · practise = träna/öva · club = förening. Mat: breakfast/lunch/dinner · vegetables = grönsaker · meal = måltid. Fraser: You're welcome = varsågod (svar på tack) · Here you are = varsågod (när du ger något) · Excuse me = ursäkta (för att få kontakt) · I'm sorry = förlåt · Could you help me, please? Småord: there is + singular / there are + plural · some i jakande satser, any i nekande satser och frågor · a framför konsonantljud, an framför vokalljud, the när lyssnaren vet vilken sak du menar."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-sv7-muntligt",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Muntlig framställning och samtal",
+  "sourceSummary": "Att förbereda och hålla ett kort anförande med tydlig disposition, använda röst och kroppsspråk, lyssna aktivt och ställa följdfrågor — och skillnaden mellan talspråk och skriftspråk.",
+  "topics": [
+    "anförande",
+    "disposition",
+    "kroppsspråk och röst",
+    "aktivt lyssnande",
+    "talspråk och skriftspråk"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv7-mun-1",
+      "kind": "mc",
+      "topic": "disposition",
+      "prompt": "Hur bör ett kort anförande vara upplagt?",
+      "opener": "Ett tal har samma tre delar som en text — tänk början, mitt och slut.",
+      "choices": [
+        "Avslutning – inledning – innehåll",
+        "Inledning – innehåll – avslutning",
+        "Innehåll – inledning – avslutning",
+        "Inledning – avslutning – innehåll"
+      ],
+      "answer": 1,
+      "explanation": "Inledningen fångar intresset och säger vad talet handlar om, innehållet ger fakta och exempel, och avslutningen sammanfattar. Om avslutningen kommer först vet publiken inte ännu vad som ska sammanfattas."
+    },
+    {
+      "id": "q-sv7-mun-2",
+      "kind": "mc",
+      "topic": "anförande",
+      "prompt": "Vad är bäst att göra när du förbereder ett kort anförande?",
+      "opener": "Tänk på vad som hjälper dig att prata FRITT, inte att läsa upp.",
+      "choices": [
+        "Skriva hela talet ordagrant och läsa innantill",
+        "Lära dig hela talet utantill ord för ord",
+        "Lita på att orden kommer när du står där",
+        "Skriva stödord på ett kort och öva högt några gånger"
+      ],
+      "answer": 3,
+      "explanation": "Stödord gör att du minns ordningen men ändå pratar med egna ord och kan titta upp på publiken. Att läsa innantill låter monotont och gör att du tappar ögonkontakten — och att lära sig allt utantill gör det lätt att fastna om du glömmer ett ord."
+    },
+    {
+      "id": "q-sv7-mun-3",
+      "kind": "mc",
+      "topic": "kroppsspråk och röst",
+      "prompt": "Vilket råd om kroppsspråk och röst hjälper dig mest när du talar inför klassen?",
+      "opener": "Tänk på vad som gör att publiken både hör dig och känner sig sedd.",
+      "choices": [
+        "Titta ner i papperet och prata snabbt så att det går fort över",
+        "Stå stilla med händerna i fickorna och prata tyst",
+        "Titta ut över klassen, prata lite långsammare än vanligt och gör korta pauser",
+        "Prata så högt du kan och röra dig hela tiden fram och tillbaka"
+      ],
+      "answer": 2,
+      "explanation": "Ögonkontakt, lugnt tempo och pauser gör att publiken hinner följa med och att du själv känner dig tryggare. Att prata snabbt med blicken i papperet är vanligt när man är nervös, men då når budskapet inte fram."
+    },
+    {
+      "id": "q-sv7-mun-4",
+      "kind": "mc",
+      "topic": "aktivt lyssnande",
+      "prompt": "Vilken av frågorna är en bra följdfråga om en kompis just berättat att hen börjat spela innebandy?",
+      "opener": "En följdfråga bygger vidare på det som just sagts och går inte att svara på med bara ja eller nej.",
+      "choices": [
+        "Gillar du innebandy?",
+        "Vad var det som fick dig att välja just innebandy?",
+        "Ska vi prata om något annat?",
+        "Jag spelade också innebandy förut."
+      ],
+      "answer": 1,
+      "explanation": "Frågan bygger vidare på ämnet och kräver ett utvecklat svar — det är en äkta följdfråga. \"Gillar du innebandy?\" kan besvaras med ett enda ord, och sista alternativet är inte ens en fråga utan flyttar fokus till dig själv."
+    },
+    {
+      "id": "q-sv7-mun-5",
+      "kind": "mc",
+      "topic": "aktivt lyssnande",
+      "prompt": "Vad innebär det att lyssna aktivt i ett samtal?",
+      "opener": "Aktivt lyssnande syns utanpå — den som pratar ska märka att du lyssnar.",
+      "choices": [
+        "Att titta på den som talar, nicka och ställa frågor om det du undrar över",
+        "Att vara helt tyst och tänka på vad du själv ska säga sen",
+        "Att avbryta med egna exempel så att samtalet blir livligt",
+        "Att hålla med om allt som sägs"
+      ],
+      "answer": 0,
+      "explanation": "Ögonkontakt, korta signaler och frågor visar att du följer med och hjälper den andra att berätta vidare. Att vara tyst medan du planerar ditt eget inlägg är inte lyssnande — då missar du vad som faktiskt sägs."
+    },
+    {
+      "id": "q-sv7-mun-6",
+      "kind": "mc",
+      "topic": "talspråk och skriftspråk",
+      "prompt": "Vilken mening är skriven på skriftspråk?",
+      "opener": "Skriftspråk följer skrivreglerna, talspråk är så som vi säger orden till vardags.",
+      "choices": [
+        "Vi ska dit imorron å så käkar vi nåt sen.",
+        "Ja vet inte va han menar liksom.",
+        "Vi ska dit imorgon och sedan äter vi något.",
+        "Dom kom sent för att bussen strula."
+      ],
+      "answer": 2,
+      "explanation": "Meningen \"Vi ska dit imorgon och sedan äter vi något\" har fullständiga ord och vanlig stavning: imorgon, och, sedan, äter, något. De andra innehåller talspråksformer som \"imorron\", \"å\", \"nåt\", \"ja\", \"va\", \"dom\" och utfyllnadsordet \"liksom\" — sådant fungerar när man pratar men hör inte hemma i en skoluppgift."
+    },
+    {
+      "id": "q-sv7-mun-7",
+      "kind": "worked",
+      "topic": "anförande",
+      "prompt": "Planera ett två minuter långt anförande om din favoritbok. Vad ska finnas med, och i vilken ordning?",
+      "opener": "Dela upp tiden i tre delar och bestäm vad varje del ska innehålla.",
+      "answer": "Inledning: fånga intresset med en fråga eller en scen ur boken och säg vilken bok och författare det gäller. Innehåll: berätta kort vad boken handlar om utan att avslöja slutet, ta upp en person du gillar och ett exempel på varför boken är bra. Avslutning: sammanfatta med en mening om vem boken passar för och tacka för att de lyssnat.",
+      "steps": [
+        "Bestäm ditt budskap i en mening: vad vill du att klassen ska minnas om boken?",
+        "Inledning (cirka 20 sekunder): en fråga, en scen eller ett citat som väcker nyfikenhet, plus titel och författare.",
+        "Innehåll (cirka 80 sekunder): handlingen i korthet, en person eller händelse du fastnade för, och ett konkret exempel — men avslöja aldrig slutet.",
+        "Avslutning (cirka 20 sekunder): sammanfatta varför du rekommenderar boken och till vem.",
+        "Skriv stödorden på ett litet kort och öva högt med tidtagning minst två gånger."
+      ]
+    },
+    {
+      "id": "q-sv7-mun-8",
+      "kind": "flashcard",
+      "topic": "muntlig framställning",
+      "prompt": "Vad behöver du komma ihåg inför en muntlig redovisning och ett samtal?",
+      "opener": "En checklista för både när du talar och när du lyssnar.",
+      "answer": "Disposition: inledning som väcker intresse och säger vad det handlar om · innehåll med fakta och exempel · avslutning som sammanfattar. Förberedelse: stödord på ett kort, aldrig hela texten · öva högt och ta tid. Röst och kroppsspråk: prata lite långsammare än vanligt · håll pauser · ögonkontakt med publiken · stå stadigt och undvik att gunga. Aktivt lyssnande: titta på den som talar · nicka och humma · avbryt inte · ställ följdfrågor som börjar med hur, varför eller vad — inte frågor som besvaras med ja eller nej. Talspråk (dom, nåt, ba, liksom) fungerar när du pratar; skriftspråk (de, något, bara) hör hemma i det du skriver."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam1a1-ekonomi",
+  "type": "assignment",
+  "subject": "Samhällskunskap 1a1",
+  "title": "Samhällsekonomi och privatekonomi",
+  "sourceSummary": "Marknadsekonomi och blandekonomi, konjunkturcykeln med arbetslöshet och inflation, samt grunderna i privatekonomi som budget, lån, ränta och konsumenträtt.",
+  "topics": [
+    "marknadsekonomi och blandekonomi",
+    "konjunktur och arbetslöshet",
+    "inflation och penningpolitik",
+    "privatekonomi"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam1a1-ekonomi-1",
+      "kind": "mc",
+      "topic": "marknadsekonomi och blandekonomi",
+      "prompt": "Vad kännetecknar en marknadsekonomi?",
+      "opener": "Vad är det som avgör priser och produktion - en central plan eller köpare och säljare?",
+      "choices": [
+        "Staten bestämmer alla priser och produktionsmål centralt",
+        "Det finns ingen privat äganderätt alls",
+        "Utbud och efterfrågan styr priser och produktion, och privat äganderätt är central",
+        "All produktion sker uteslutande i statliga företag"
+      ],
+      "answer": 2,
+      "explanation": "I en marknadsekonomi bestäms priser och produktion i huvudsak av utbud och efterfrågan mellan privata aktörer, med privat äganderätt som grund. Central prisplanering och enbart statlig produktion hör istället till en planekonomi."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-2",
+      "kind": "mc",
+      "topic": "marknadsekonomi och blandekonomi",
+      "prompt": "Sverige brukar beskrivas som en blandekonomi. Vad innebär det?",
+      "opener": "Tänk på vad som blandas - marknad och något annat.",
+      "choices": [
+        "En kombination av marknadsekonomi och statlig inblandning, till exempel genom skatter, regleringar och offentligt finansierad välfärd",
+        "En ekonomi helt utan fungerande marknad",
+        "En ekonomi där enbart jordbruk och industri förekommer",
+        "En ekonomi som styrs uteslutande av EU:s institutioner"
+      ],
+      "answer": 0,
+      "explanation": "En blandekonomi kombinerar marknadsmekanismer med statlig styrning, till exempel genom skatter, lagstiftning och en offentligt finansierad välfärd som skola, vård och socialförsäkringar. Sverige är ett vanligt exempel på detta."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-3",
+      "kind": "mc",
+      "topic": "konjunktur och arbetslöshet",
+      "prompt": "Vad kännetecknar en lågkonjunktur i konjunkturcykeln?",
+      "opener": "Fundera på vad som händer med efterfrågan, produktion och arbetslöshet när ekonomin bromsar in.",
+      "choices": [
+        "Hög efterfrågan, stigande produktion och sjunkande arbetslöshet",
+        "Minskad efterfrågan, lägre produktion och ofta stigande arbetslöshet",
+        "Att BNP alltid blir exakt noll",
+        "Att inflationen helt försvinner för gott"
+      ],
+      "answer": 1,
+      "explanation": "En lågkonjunktur kännetecknas av att efterfrågan i ekonomin minskar, vilket leder till lägre produktion och ofta stigande arbetslöshet. Motsatsen, högkonjunktur, innebär i stället hög efterfrågan och stigande sysselsättning."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-4",
+      "kind": "mc",
+      "topic": "konjunktur och arbetslöshet",
+      "prompt": "Vad kallas arbetslöshet som uppstår för att arbetstagares kompetens inte längre matchar de jobb som efterfrågas, till exempel vid stora teknikskiften?",
+      "opener": "Det handlar om en varaktig obalans mellan de kunskaper som finns och de som efterfrågas - inte om konjunkturens svängningar.",
+      "choices": [
+        "Konjunkturarbetslöshet",
+        "Säsongsarbetslöshet",
+        "Friktionsarbetslöshet",
+        "Strukturell arbetslöshet"
+      ],
+      "answer": 3,
+      "explanation": "Strukturell arbetslöshet uppstår när det finns en varaktig obalans mellan den kompetens som arbetssökande har och den som arbetsgivare efterfrågar, till exempel när en bransch omvandlas av ny teknik. Konjunkturarbetslöshet beror i stället på svängningar i ekonomin som helhet."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-5",
+      "kind": "mc",
+      "topic": "inflation och penningpolitik",
+      "prompt": "Vad innebär inflation?",
+      "opener": "Tänk på vad som händer med priserna generellt, och därmed med pengarnas köpkraft.",
+      "choices": [
+        "Den allmänna prisnivån i ekonomin stiger, vilket gör att pengar minskar i värde",
+        "Priserna sjunker generellt i hela ekonomin",
+        "Styrräntan blir alltid noll procent",
+        "Arbetslösheten ökar automatiskt och alltid"
+      ],
+      "answer": 0,
+      "explanation": "Inflation innebär att den allmänna prisnivån stiger över tid, vilket gör att samma summa pengar köper mindre än tidigare - pengarnas köpkraft minskar. Motsatsen, att priserna sjunker generellt, kallas deflation."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-6",
+      "kind": "mc",
+      "topic": "inflation och penningpolitik",
+      "prompt": "Vilket verktyg använder Riksbanken främst för att försöka påverka inflationen i Sverige?",
+      "opener": "Vad blir dyrare eller billigare att låna beroende på Riksbankens beslut?",
+      "choices": [
+        "Att sätta priser på livsmedel direkt",
+        "Att bestämma nivån på bolagsskatten",
+        "Styrräntan, som påverkar hur dyrt eller billigt det är att låna och spara pengar",
+        "Att trycka obegränsat med nya sedlar varje månad"
+      ],
+      "answer": 2,
+      "explanation": "Riksbanken bedriver penningpolitik främst genom att justera styrräntan, vilket påverkar bankernas ränta till hushåll och företag och därmed hur mycket som lånas, sparas och konsumeras - ett sätt att styra mot inflationsmålet."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-7",
+      "kind": "worked",
+      "topic": "privatekonomi",
+      "prompt": "Maja ska låna 100 000 kr till en bil, med 5 procents ränta per år och en avbetalningstid på 5 år. Förklara steg för steg vad som påverkar hur mycket hon totalt kommer att betala tillbaka.",
+      "opener": "Skilj på räntekostnad, amortering och andra avgifter - och tänk på att den effektiva räntan visar hela den verkliga kostnaden.",
+      "answer": "Majas totala kostnad består av själva lånebeloppet (100 000 kr), räntekostnaden som beräknas på det kvarstående lånet varje år, och eventuella avgifter som uppläggnings- eller aviavgift. Räntan gör att hon totalt betalar mer än 100 000 kr, och ju kortare återbetalningstid desto mindre blir den totala räntekostnaden eftersom skulden minskar snabbare. Den effektiva räntan, som inkluderar avgifter, ger den mest rättvisande bilden av vad lånet egentligen kostar och gör det möjligt att jämföra olika lån.",
+      "steps": [
+        "Lånebeloppet på 100 000 kr är grunden som ränta beräknas på.",
+        "Räntekostnaden (5 % per år) beräknas löpande på det belopp som återstår att betala, så den minskar allt eftersom lånet amorteras.",
+        "Amortering är den del av betalningen som minskar själva skulden, till skillnad från räntan som är kostnaden för att låna.",
+        "Eventuella avgifter, till exempel uppläggnings- eller aviavgift, läggs till den totala kostnaden.",
+        "Den effektiva räntan väger samman ränta och avgifter till en jämförbar årlig kostnad, vilket gör det lättare att jämföra olika lånealternativ innan man skriver på."
+      ]
+    },
+    {
+      "id": "q-sam1a1-ekonomi-8",
+      "kind": "flashcard",
+      "topic": "privatekonomi",
+      "prompt": "Sammanfatta viktiga begrepp inom privatekonomi: budget, ränta, amortering och konsumenträtt.",
+      "opener": "Grunderna för att hålla koll på sin egen ekonomi.",
+      "answer": "Budget: en plan över inkomster och utgifter, grunden för att hålla koll på sin ekonomi · Ränta: kostnaden för att låna pengar, eller avkastningen på sparande · Amortering: den del av en betalning som minskar själva skulden, skild från räntan · Effektiv ränta: den verkliga årliga kostnaden för ett lån inklusive avgifter, bra för att jämföra lån · Kreditupplysning: kontroll av en persons ekonomiska historik som långivare gör innan lån beviljas · Konsumenträtt: regler som skyddar konsumenter, t.ex. ångerrätt vid distansavtal och reklamationsrätt vid fel på varor och tjänster."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-en9-wordconfusion",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Vanliga ordförväxlingar",
+  "sourceSummary": "Its/it's, your/you're, there/their/they're och a lot/alot — ord som låter lika men skrivs och betyder olika saker.",
+  "topics": [
+    "its and it's",
+    "your and you're",
+    "there their and they're",
+    "a lot"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en9-wc-1",
+      "kind": "mc",
+      "topic": "its and it's",
+      "prompt": "Choose the correct word: \"The dog wagged ___ tail.\"",
+      "opener": "Ägande (vems svans?) eller \"it is\"/\"it has\"?",
+      "choices": [
+        "it's",
+        "its",
+        "its'",
+        "it is"
+      ],
+      "answer": 1,
+      "explanation": "\"Its\" (utan apostrof) betyder \"dess\" — ägande. \"It's\" (med apostrof) är alltid en förkortning av \"it is\" eller \"it has\", vilket inte passar här."
+    },
+    {
+      "id": "q-en9-wc-2",
+      "kind": "mc",
+      "topic": "its and it's",
+      "prompt": "Choose the correct word: \"___ raining outside, take an umbrella.\"",
+      "opener": "Går det att skriva ut \"it is\" i stället? Om ja, ska det vara med apostrof.",
+      "choices": [
+        "Its",
+        "It's",
+        "Its'",
+        "Is it"
+      ],
+      "answer": 1,
+      "explanation": "\"It's\" = \"it is\" här (\"It is raining outside\"). Testa alltid genom att skriva ut \"it is\"/\"it has\" — funkar det, ska du använda apostrof."
+    },
+    {
+      "id": "q-en9-wc-3",
+      "kind": "mc",
+      "topic": "your and you're",
+      "prompt": "Choose the correct word: \"Is this ___ jacket?\"",
+      "opener": "Ägande (vems jacka?) eller \"you are\"?",
+      "choices": [
+        "you're",
+        "your",
+        "yours'",
+        "your's"
+      ],
+      "answer": 1,
+      "explanation": "\"Your\" (utan apostrof) betyder \"din/ditt\" — ägande. \"You're\" är alltid en förkortning av \"you are\"."
+    },
+    {
+      "id": "q-en9-wc-4",
+      "kind": "mc",
+      "topic": "your and you're",
+      "prompt": "Choose the correct word: \"___ going to love this movie.\"",
+      "opener": "Går det att skriva ut \"you are\" i stället?",
+      "choices": [
+        "Your",
+        "You're",
+        "Yore",
+        "Yours"
+      ],
+      "answer": 1,
+      "explanation": "\"You're\" = \"you are\" (\"You are going to love this movie\"). Testet fungerar precis som med it's/its: skriv ut hela frasen och se om den låter rätt."
+    },
+    {
+      "id": "q-en9-wc-5",
+      "kind": "mc",
+      "topic": "there their and they're",
+      "prompt": "Choose the correct word: \"___ house is the blue one on the corner.\"",
+      "opener": "Vems hus? Det är ägande — vilket av de tre orden betyder det?",
+      "choices": [
+        "There",
+        "Their",
+        "They're",
+        "Theyre"
+      ],
+      "answer": 1,
+      "explanation": "\"Their\" betyder \"deras\" — ägande. \"There\" pekar ut en plats (\"over there\") och \"they're\" är en förkortning av \"they are\"."
+    },
+    {
+      "id": "q-en9-wc-6",
+      "kind": "mc",
+      "topic": "there their and they're",
+      "prompt": "Choose the correct word: \"___ coming to the party tonight.\"",
+      "opener": "Går det att skriva ut \"they are\" i stället?",
+      "choices": [
+        "There",
+        "Their",
+        "They're",
+        "Theyr"
+      ],
+      "answer": 2,
+      "explanation": "\"They're\" = \"they are\" (\"They are coming to the party tonight\"). Skriv ut frasen för att kontrollera — funkar \"they are\", ska det vara \"they're\"."
+    },
+    {
+      "id": "q-en9-wc-7",
+      "kind": "worked",
+      "topic": "there their and they're",
+      "prompt": "Correct the five errors: \"There going to visit they're grandparents. Its a long drive, but there house has a big garden. Your always welcome their.\"",
+      "opener": "Fem ord ur samma familjer blandas ihop — testa varje ord genom att skriva ut den fulla frasen.",
+      "answer": "They're going to visit their grandparents. It's a long drive, but their house has a big garden. You're always welcome there.",
+      "steps": [
+        "\"There going\" → \"They're going\". Testa: \"they are going\" fungerar — alltså \"they're\".",
+        "\"they're grandparents\" → \"their grandparents\". Här är det ägande (vems mor-/farföräldrar) — \"their\".",
+        "\"Its a long drive\" → \"It's a long drive\". Testa: \"it is a long drive\" fungerar — alltså \"it's\".",
+        "\"there house\" → \"their house\". Ägande igen — vems hus, alltså \"their\".",
+        "\"Your always welcome their\" → \"You're always welcome there\". \"You are always welcome\" fungerar (you're), och sista ordet pekar ut en plats, inte ägande — \"there\"."
+      ]
+    },
+    {
+      "id": "q-en9-wc-8",
+      "kind": "flashcard",
+      "topic": "its and it's",
+      "prompt": "How do you tell apart its/it's, your/you're, and there/their/they're?",
+      "opener": "Ett enkelt test som fungerar på alla tre par.",
+      "answer": "Testa genom att skriva ut den fulla frasen: fungerar \"it is\"/\"it has\", \"you are\" eller \"they are\" i meningen, ska du använda apostrof-formen (it's, you're, they're). Fungerar det INTE, är det ägande- eller platsordet utan apostrof (its, your) — utom \"there\" som pekar ut en plats (\"over there\") och \"their\" som betyder \"deras\" (ägande)."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma2-linjara",
+  "type": "assignment",
+  "subject": "Matematik 2",
+  "title": "Räta linjen och linjära ekvationssystem",
+  "sourceSummary": "K- och m-värde för räta linjen, samt att lösa linjära ekvationssystem med substitutions- och additionsmetoden och tolka lösningen grafiskt.",
+  "topics": [
+    "k- och m-värde",
+    "substitutionsmetoden",
+    "additionsmetoden",
+    "grafisk tolkning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma2-linjara-1",
+      "kind": "mc",
+      "topic": "k- och m-värde",
+      "prompt": "En rät linje går genom punkterna $(0, 4)$ och $(2, 10)$. Vad är linjens k-värde?",
+      "opener": "K-värdet är förändringen i y delat med förändringen i x mellan två punkter.",
+      "choices": [
+        "$3$",
+        "$4$",
+        "$6$",
+        "$2$"
+      ],
+      "answer": 0,
+      "explanation": "$k = \\dfrac{\\Delta y}{\\Delta x} = \\dfrac{10-4}{2-0} = \\dfrac{6}{2} = 3$. Att svara $6$ (svar C) missar att dividera med förändringen i x."
+    },
+    {
+      "id": "q-ma2-linjara-2",
+      "kind": "mc",
+      "topic": "k- och m-värde",
+      "prompt": "Linjen $y = -2x + 5$ jämförs med $y = 3x + 5$. Vilket påstående stämmer?",
+      "opener": "M-värdet avgör var linjen skär y-axeln, k-värdet avgör lutningen.",
+      "choices": [
+        "Båda linjerna har samma lutning men skär y-axeln olika",
+        "Båda linjerna skär y-axeln i samma punkt men har olika lutning",
+        "Linjerna är parallella",
+        "Linjerna skär varandra i origo"
+      ],
+      "answer": 1,
+      "explanation": "Båda har $m=5$, alltså samma skärningspunkt med y-axeln $(0,5)$. Men $k=-2$ respektive $k=3$ ger olika lutning — den ena avtar, den andra ökar. Parallella linjer (svar C) kräver samma k-värde, vilket inte är fallet här."
+    },
+    {
+      "id": "q-ma2-linjara-3",
+      "kind": "mc",
+      "topic": "substitutionsmetoden",
+      "prompt": "Lös ekvationssystemet $\\begin{cases} y = 2x + 1 \\\\ y = -x + 7 \\end{cases}$ med substitution.",
+      "opener": "Eftersom båda uttrycken är lika med y kan de sättas lika med varandra.",
+      "choices": [
+        "$x = 3,\\ y = 4$",
+        "$x = -2,\\ y = -3$",
+        "$x = 2,\\ y = 5$",
+        "$x = 1,\\ y = 3$"
+      ],
+      "answer": 2,
+      "explanation": "Sätt uttrycken lika: $2x+1 = -x+7 \\Rightarrow 3x = 6 \\Rightarrow x=2$. Insatt: $y = 2(2)+1 = 5$. Kontroll i andra ekvationen: $-2+7=5$. Stämmer."
+    },
+    {
+      "id": "q-ma2-linjara-4",
+      "kind": "mc",
+      "topic": "additionsmetoden",
+      "prompt": "Lös $\\begin{cases} 2x + y = 8 \\\\ x - y = 1 \\end{cases}$ med additionsmetoden.",
+      "opener": "Addera ekvationerna ledvis så att $y$-termerna tar ut varandra.",
+      "choices": [
+        "$x = 2,\\ y = 4$",
+        "$x = 4,\\ y = 0$",
+        "$x = 1,\\ y = 6$",
+        "$x = 3,\\ y = 2$"
+      ],
+      "answer": 3,
+      "explanation": "Addera raderna: $(2x+y)+(x-y) = 8+1 \\Rightarrow 3x = 9 \\Rightarrow x=3$. Sätt in i andra ekvationen: $3-y=1 \\Rightarrow y=2$. Kontroll i första: $2(3)+2=8$. Stämmer."
+    },
+    {
+      "id": "q-ma2-linjara-5",
+      "kind": "mc",
+      "topic": "grafisk tolkning",
+      "prompt": "Två linjer har samma k-värde men olika m-värde. Vad gäller för ekvationssystemet de bildar?",
+      "opener": "Vad innebär samma lutning men olika startpunkt för linjernas grafer?",
+      "choices": [
+        "Systemet har exakt en lösning",
+        "Systemet saknar lösning eftersom linjerna är parallella och aldrig möts",
+        "Systemet har oändligt många lösningar",
+        "Linjerna korsar varandra i en punkt på y-axeln"
+      ],
+      "answer": 1,
+      "explanation": "Samma k-värde betyder att linjerna är parallella. Med olika m-värde skär de aldrig varandra, så ekvationssystemet saknar lösning. Oändligt många lösningar (svar C) hade krävt att linjerna vore identiska, dvs. samma k- och m-värde."
+    },
+    {
+      "id": "q-ma2-linjara-6",
+      "kind": "mc",
+      "topic": "k- och m-värde",
+      "prompt": "En rät linje har k-värdet 0. Hur ser linjen ut?",
+      "opener": "Vad betyder det att y inte förändras alls när x ökar?",
+      "choices": [
+        "En linje som går genom origo",
+        "En vertikal linje",
+        "En linje med brantast möjliga lutning",
+        "En horisontell linje"
+      ],
+      "answer": 3,
+      "explanation": "$k=0$ innebär att y-värdet är konstant oavsett x, vilket ger en horisontell linje, t.ex. $y=3$. En vertikal linje (svar B) kan inte ens skrivas som $y=kx+m$ eftersom k-värdet där är odefinierat."
+    },
+    {
+      "id": "q-ma2-linjara-7",
+      "kind": "worked",
+      "topic": "additionsmetoden",
+      "prompt": "Lös ekvationssystemet $\\begin{cases} 3x + 2y = 12 \\\\ 5x - 2y = 4 \\end{cases}$ med additionsmetoden.",
+      "opener": "Titta på koefficienterna framför y — de har redan motsatt tecken.",
+      "answer": "$x = 2,\\ y = 3$",
+      "steps": [
+        "Koefficienterna framför $y$ är $+2$ och $-2$, så de tar ut varandra direkt vid addition.",
+        "Addera ekvationerna: $(3x+2y)+(5x-2y) = 12+4 \\Rightarrow 8x = 16$.",
+        "Lös ut $x$: $x = 2$.",
+        "Sätt in i första ekvationen: $3(2)+2y=12 \\Rightarrow 6+2y=12 \\Rightarrow y=3$. Kontroll i andra: $5(2)-2(3)=10-6=4$."
+      ]
+    },
+    {
+      "id": "q-ma2-linjara-8",
+      "kind": "flashcard",
+      "topic": "substitutionsmetoden",
+      "prompt": "Sammanfatta räta linjens ekvation och de två metoderna för att lösa linjära ekvationssystem, samt vad graferna visar om antalet lösningar.",
+      "opener": "Koppla ihop algebraisk lösning med hur linjerna ligger i förhållande till varandra.",
+      "answer": "Räta linjens ekvation: $y = kx + m$, där $k$ är lutningen och $m$ värdet där linjen skär y-axeln · Substitutionsmetoden: lös ut en variabel ur ena ekvationen och sätt in i den andra · Additionsmetoden: multiplicera vid behov så att en variabels koefficienter blir motsatta, addera ekvationerna ledvis · Grafiskt: olika k ger en skärningspunkt (en lösning) · samma k, olika m ger parallella linjer (ingen lösning) · samma k och m ger identiska linjer (oändligt många lösningar)."
+    }
+  ]
+}

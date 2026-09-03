@@ -1,0 +1,128 @@
+{
+  "id": "lib-bio7-vaxter",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Växter och fotosyntesen",
+  "sourceSummary": "Växtens delar och vad de gör, samt fotosyntesen där koldioxid, vatten och solljus blir socker och syre. Du tränar också på cellandning, pollinering och fröspridning.",
+  "topics": [
+    "växtens delar",
+    "fotosyntes",
+    "cellandning",
+    "pollinering och frön"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio7-vax-1",
+      "kind": "mc",
+      "topic": "växtens delar",
+      "prompt": "Vilken uppgift har växtens rot?",
+      "opener": "Tänk på vad som finns nere i jorden som växten behöver.",
+      "choices": [
+        "Att ta upp vatten och näring ur jorden och hålla fast växten",
+        "Att tillverka socker med hjälp av solljus",
+        "Att locka till sig insekter",
+        "Att sprida fröna med vinden"
+      ],
+      "answer": 0,
+      "explanation": "Roten suger upp vatten och mineralnäring ur jorden och förankrar växten. Att tillverka socker är bladens jobb i fotosyntesen, och att locka insekter är blommans uppgift."
+    },
+    {
+      "id": "q-bio7-vax-2",
+      "kind": "mc",
+      "topic": "fotosyntes",
+      "prompt": "Vilka ämnen behöver växten för att kunna göra fotosyntes?",
+      "opener": "Två ämnen plus en energikälla — vad tar bladet in från luften och roten upp ur jorden?",
+      "choices": [
+        "Syre och socker",
+        "Kväve och salt",
+        "Koldioxid och vatten",
+        "Syre och vatten"
+      ],
+      "answer": 2,
+      "explanation": "Växten tar in koldioxid genom klyvöppningarna i bladen och vatten via rötterna, och med solljusets energi bildas socker och syre. Syre och socker är i stället det som blir kvar efteråt — de är resultatet, inte råvarorna."
+    },
+    {
+      "id": "q-bio7-vax-3",
+      "kind": "mc",
+      "topic": "fotosyntes",
+      "prompt": "Vad bildas vid fotosyntesen?",
+      "opener": "Ett ämne blir växtens mat, det andra andas vi in.",
+      "choices": [
+        "Koldioxid och vatten",
+        "Socker (druvsocker) och syre",
+        "Kväve och koldioxid",
+        "Vatten och salt"
+      ],
+      "answer": 1,
+      "explanation": "Fotosyntesen bildar druvsocker som växten använder som näring och byggmaterial, samt syre som släpps ut i luften. Koldioxid och vatten är råvarorna som går in i processen, inte det som kommer ut."
+    },
+    {
+      "id": "q-bio7-vax-4",
+      "kind": "mc",
+      "topic": "cellandning",
+      "prompt": "Vad gör växten vid cellandningen?",
+      "opener": "Cellandningen är fotosyntesens motsats — vad händer med sockret?",
+      "choices": [
+        "Den bildar nytt socker med hjälp av ljus",
+        "Den tar upp kväve ur luften",
+        "Den delar upp vatten i väte och syre",
+        "Den bryter ner socker med hjälp av syre och frigör energi"
+      ],
+      "answer": 3,
+      "explanation": "Vid cellandningen används syre för att bryta ner socker, och energin som frigörs driver växtens livsprocesser; koldioxid och vatten bildas. Att bilda socker med ljusets hjälp är just fotosyntesen — den motsatta processen."
+    },
+    {
+      "id": "q-bio7-vax-5",
+      "kind": "mc",
+      "topic": "pollinering och frön",
+      "prompt": "Vad menas med pollinering?",
+      "opener": "Något litet gult måste flyttas från en blomdel till en annan.",
+      "choices": [
+        "Att fröna sprids med vinden till nya platser",
+        "Att bladen fäller sin gröna färg på hösten",
+        "Att pollen förs från ståndare till pistill",
+        "Att roten växer ner i jorden"
+      ],
+      "answer": 2,
+      "explanation": "Pollinering betyder att pollenkorn från ståndarna hamnar på pistillens märke, ofta med hjälp av insekter eller vind — först då kan befruktning och fröbildning ske. Att fröna sprids sker senare och kallas fröspridning, inte pollinering."
+    },
+    {
+      "id": "q-bio7-vax-6",
+      "kind": "mc",
+      "topic": "pollinering och frön",
+      "prompt": "Varför har många växter frön som sitter inuti söta, färgglada bär?",
+      "opener": "Vem äter bäret, och vart tar fröna vägen sedan?",
+      "choices": [
+        "För att djur ska äta bären och sprida fröna med sin avföring",
+        "För att fröna ska kunna göra fotosyntes inuti bäret",
+        "För att bären ska skydda växten mot regn",
+        "För att bären lockar till sig pollen från andra växter"
+      ],
+      "answer": 0,
+      "explanation": "Djur äter bären och fröna följer med tarmen ut på en ny plats, vilket sprider växten längre bort än den själv når. Fröna kan inte göra fotosyntes inuti bäret — där är det mörkt och fröet lever på sitt eget näringsförråd."
+    },
+    {
+      "id": "q-bio7-vax-7",
+      "kind": "worked",
+      "topic": "fotosyntes",
+      "prompt": "En kruka med en grönväxt ställs i en mörk garderob i två veckor. Förklara steg för steg varför växten börjar vissna och blekna.",
+      "opener": "Börja med vad fotosyntesen behöver, och fundera sedan på vad som händer när en av delarna försvinner.",
+      "answer": "Utan ljus kan fotosyntesen inte ske, så växten får inget nytt socker. Den lever ett tag på sitt lagrade förråd, men när det tar slut vissnar den och klorofyllet bryts ner så bladen bleknar.",
+      "steps": [
+        "Fotosyntesen behöver koldioxid, vatten OCH solljus — i garderoben saknas ljuset.",
+        "Utan ljus kan kloroplasterna inte tillverka nytt socker.",
+        "Växten fortsätter ändå med cellandning och gör av med det socker den har lagrat.",
+        "När förrådet tar slut får cellerna för lite energi, växten vissnar och klorofyllet bryts ner så bladen blir gula eller bleka."
+      ]
+    },
+    {
+      "id": "q-bio7-vax-8",
+      "kind": "flashcard",
+      "topic": "fotosyntes",
+      "prompt": "Vad gör växtens olika delar, och hur ser fotosyntesen och cellandningen ut?",
+      "opener": "Ta först de fyra växtdelarna, sedan de två processerna som hör ihop.",
+      "answer": "Rot: tar upp vatten och mineralnäring, förankrar växten · Stam/stjälk: bär upp växten och transporterar vatten uppåt och socker nedåt · Blad: gör fotosyntes, har klyvöppningar för gasutbyte · Blomma: växtens fortplantningsorgan med ståndare (pollen) och pistill (fröämnen) · Fotosyntes: koldioxid + vatten + solljus → druvsocker + syre, sker i kloroplasterna med klorofyll, bara i ljus · Cellandning: druvsocker + syre → koldioxid + vatten + energi, sker i mitokondrierna, dygnet runt hos både växter och djur · Pollinering: pollen från ståndare till pistill via insekter eller vind · Fröspridning: vind, vatten, djur som äter bär eller frön som fastnar i pälsen."
+    }
+  ]
+}

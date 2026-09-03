@@ -1,0 +1,129 @@
+{
+  "id": "lib-en6-clauses",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Grammar: relative clauses and conditionals",
+  "sourceSummary": "Definierande och icke-definierande relativsatser samt second, third och blandade conditionals.",
+  "topics": [
+    "defining relative clauses",
+    "non-defining relative clauses",
+    "second conditional",
+    "third conditional",
+    "mixed conditionals"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-clauses-1",
+      "kind": "mc",
+      "topic": "defining relative clauses",
+      "prompt": "Choose the correct relative pronoun: \"The book ___ I borrowed from the library was fascinating.\"",
+      "opener": "Handlar det om en sak eller en person? Och behövs satsen för att meningen ska gå att förstå (definierande)?",
+      "choices": [
+        "who",
+        "which",
+        "whose",
+        "where"
+      ],
+      "answer": 1,
+      "explanation": "\"Which\" (eller \"that\") används om saker i definierande bisatser. \"Who\" gäller personer, \"whose\" uttrycker ägande och \"where\" gäller platser."
+    },
+    {
+      "id": "q-en6-clauses-2",
+      "kind": "mc",
+      "topic": "non-defining relative clauses",
+      "prompt": "Which sentence correctly uses a non-defining relative clause?",
+      "opener": "Icke-definierande bisatser ger extra information och ska omges av kommatecken — och \"that\" funkar aldrig där.",
+      "choices": [
+        "My brother who lives in Berlin is a doctor.",
+        "My brother, who lives in Berlin, is a doctor.",
+        "My brother, that lives in Berlin, is a doctor.",
+        "My brother whose lives in Berlin is a doctor."
+      ],
+      "answer": 1,
+      "explanation": "\"My brother\" är redan en specifik person, så bisatsen ger bara extra information och ska ha kommatecken och \"who\". \"That\" används aldrig i icke-definierande bisatser, och \"whose\" uttrycker ägande, inte plats."
+    },
+    {
+      "id": "q-en6-clauses-3",
+      "kind": "mc",
+      "topic": "non-defining relative clauses",
+      "prompt": "When do you need commas around a relative clause?",
+      "opener": "Tänk på om satsen går att ta bort utan att meningens grundbetydelse förändras.",
+      "choices": [
+        "Always",
+        "Never",
+        "Only when the clause refers to a place",
+        "Only when the clause adds extra, non-essential information"
+      ],
+      "answer": 3,
+      "explanation": "Kommatecken används kring icke-definierande bisatser, som lägger till extra information men inte är nödvändiga för att veta vem eller vad som avses. Definierande bisatser, som är nödvändiga för betydelsen, har inga kommatecken."
+    },
+    {
+      "id": "q-en6-clauses-4",
+      "kind": "mc",
+      "topic": "second conditional",
+      "prompt": "Choose the correct form: \"If I ___ the lottery, I would travel around the world.\"",
+      "opener": "Hypotetiskt scenario i nutid/framtid — samma mönster som i Engelska 5, fast nu ska du känna igen det snabbt.",
+      "choices": [
+        "win",
+        "won",
+        "would win",
+        "had won"
+      ],
+      "answer": 1,
+      "explanation": "Second conditional: if + past simple, would + infinitiv — \"If I won…, I would travel…\". \"Would\" i if-satsen (\"would win\") är alltid fel."
+    },
+    {
+      "id": "q-en6-clauses-5",
+      "kind": "mc",
+      "topic": "third conditional",
+      "prompt": "Choose the correct form: \"If she ___ earlier, she wouldn't have missed the train.\"",
+      "opener": "Det handlar om något som redan hänt (eller inte hänt) i det förflutna.",
+      "choices": [
+        "left",
+        "would leave",
+        "had left",
+        "has left"
+      ],
+      "answer": 2,
+      "explanation": "Third conditional beskriver ett overkligt förflutet: if + past perfect, would have + particip — \"If she had left…, she wouldn't have missed…\". \"has left\" är fel tempus och \"would leave\" hör inte hemma i if-satsen."
+    },
+    {
+      "id": "q-en6-clauses-6",
+      "kind": "mc",
+      "topic": "mixed conditionals",
+      "prompt": "Choose the correct form (mixed conditional — a past cause with a present result): \"If I hadn't stayed up so late, I ___ so tired now.\"",
+      "opener": "Orsaken ligger i det förflutna (if-satsen), men resultatet gäller nu (huvudsatsen) — därför blandas tempus.",
+      "choices": [
+        "wouldn't be",
+        "wouldn't have been",
+        "hadn't been",
+        "won't be"
+      ],
+      "answer": 0,
+      "explanation": "Blandad conditional: if + past perfect (förflutet orsak), would + infinitiv (nutida resultat) — \"wouldn't be\". \"wouldn't have been\" hade istället beskrivit ett resultat i det förflutna, inte nu."
+    },
+    {
+      "id": "q-en6-clauses-7",
+      "kind": "worked",
+      "topic": "defining relative clauses",
+      "prompt": "Find and correct the three errors: \"The scientist which won the Nobel Prize she comes from Sweden and my aunt that lives next door to her, works at the same university.\"",
+      "opener": "Tre saker att fixa: rätt relativt pronomen för person, ett dubblerat subjekt, och en bisats som egentligen bara ger extra info om en redan namngiven person.",
+      "answer": "The scientist who won the Nobel Prize comes from Sweden, and my aunt, who lives next door to her, works at the same university.",
+      "steps": [
+        "\"which\" → \"who\": om det som beskrivs är en person används \"who\", inte \"which\".",
+        "\"she comes\" → \"comes\": det relativa pronomenet ersätter subjektet, det ska inte upprepas med \"she\".",
+        "\"that lives next door to her,\" → \", who lives next door to her,\": en redan specifik person (\"my aunt\") kräver en icke-definierande bisats med kommatecken och \"who\", inte \"that\".",
+        "Sammanfattning: \"that\" används bara i definierande bisatser och ska aldrig omges av kommatecken."
+      ]
+    },
+    {
+      "id": "q-en6-clauses-8",
+      "kind": "flashcard",
+      "topic": "mixed conditionals",
+      "prompt": "Explain second, third and mixed conditionals: form and use.",
+      "opener": "Bygg vidare på first conditional från Engelska 5 — nu handlar det om overkligt nu, overkligt då, och kombinationer av de två.",
+      "answer": "Second conditional (overkligt nu/framtid): If + past simple, would + infinitiv — \"If I had more money, I would buy a car.\" Third conditional (overkligt förflutet, ånger): If + past perfect, would have + particip — \"If I had studied, I would have passed.\" Mixed conditional (förflutet orsak → nutida resultat): If + past perfect, would + infinitiv — \"If I hadn't broken my leg, I would be playing football now.\" Kom ihåg: \"would\" finns aldrig i själva if-satsen i någon av dessa."
+    }
+  ]
+}

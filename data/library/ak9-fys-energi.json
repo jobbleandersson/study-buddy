@@ -1,0 +1,128 @@
+{
+  "id": "lib-fys-energi",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Energi och energiomvandlingar",
+  "sourceSummary": "Energiformer, energiprincipen och skillnaden mellan förnybara och icke-förnybara energikällor — grunden för att förstå energi i vardagen och samhället.",
+  "topics": [
+    "energiformer",
+    "energiprincipen",
+    "energikällor",
+    "verkningsgrad"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys-ene-1",
+      "kind": "mc",
+      "topic": "energiformer",
+      "prompt": "En sten ligger högst upp på ett stup. Vilken energiform har stenen mest av just då?",
+      "opener": "Tänk på vad som gör att stenen kan börja röra sig om den knuffas ut.",
+      "choices": [
+        "Rörelseenergi",
+        "Lägesenergi",
+        "Värmeenergi",
+        "Kemisk energi"
+      ],
+      "answer": 1,
+      "explanation": "Stenens höga läge ger den lägesenergi (potentiell energi) — energin som beror på höjden i tyngdkraftsfältet. Den har ingen rörelseenergi förrän den faktiskt börjar röra sig."
+    },
+    {
+      "id": "q-fys-ene-2",
+      "kind": "mc",
+      "topic": "energiformer",
+      "prompt": "När stenen från föregående fråga faller, vad händer med dess lägesenergi?",
+      "opener": "Energi försvinner aldrig, den omvandlas till en annan form.",
+      "choices": [
+        "Den försvinner helt",
+        "Den omvandlas till rörelseenergi (och lite värme/ljud)",
+        "Den omvandlas till elektrisk energi",
+        "Den blir till massa"
+      ],
+      "answer": 1,
+      "explanation": "När stenen faller minskar lägesenergin och omvandlas till rörelseenergi eftersom farten ökar. En liten del övergår också till värme och ljud på grund av luftmotstånd. Energi försvinner aldrig, den byter bara form."
+    },
+    {
+      "id": "q-fys-ene-3",
+      "kind": "mc",
+      "topic": "energiprincipen",
+      "prompt": "Vad säger energiprincipen (energins bevarande)?",
+      "opener": "Fundera på om energi kan skapas eller förstöras.",
+      "choices": [
+        "Energi kan skapas men aldrig förstöras",
+        "Energi kan varken skapas eller förstöras, bara omvandlas mellan olika former",
+        "Energi minskar alltid över tid",
+        "All energi omvandlas till slut till rörelseenergi"
+      ],
+      "answer": 1,
+      "explanation": "Energiprincipen innebär att den totala mängden energi i ett slutet system alltid är densamma — energi omvandlas bara mellan olika former, till exempel från kemisk energi i mat till rörelseenergi när du springer."
+    },
+    {
+      "id": "q-fys-ene-4",
+      "kind": "mc",
+      "topic": "energikällor",
+      "prompt": "Vilket av följande är en förnybar energikälla?",
+      "opener": "Förnybar betyder att källan förnyas naturligt inom rimlig tid och inte tar slut.",
+      "choices": [
+        "Kol",
+        "Olja",
+        "Vindkraft",
+        "Naturgas"
+      ],
+      "answer": 2,
+      "explanation": "Vindkraft räknas som förnybar eftersom vinden hela tiden förnyas av solens uppvärmning av atmosfären. Kol, olja och naturgas är fossila bränslen som tar miljontals år att bildas och därför räknas som icke-förnybara."
+    },
+    {
+      "id": "q-fys-ene-5",
+      "kind": "mc",
+      "topic": "energiformer",
+      "prompt": "Vilken typ av energi lagras i ett batteri?",
+      "opener": "Tänk på vad som händer inuti batteriet innan strömmen börjar flyta.",
+      "choices": [
+        "Rörelseenergi",
+        "Kemisk energi",
+        "Lägesenergi",
+        "Strålningsenergi"
+      ],
+      "answer": 1,
+      "explanation": "Ett batteri lagrar kemisk energi som omvandlas till elektrisk energi när batteriet används i en krets. Lägesenergi och rörelseenergi hör ihop med föremåls höjd och fart, inte med kemiska reaktioner."
+    },
+    {
+      "id": "q-fys-ene-6",
+      "kind": "mc",
+      "topic": "verkningsgrad",
+      "prompt": "En glödlampa omvandlar 100 J elektrisk energi till 20 J ljusenergi, resten blir värme. Vad är lampans verkningsgrad för ljus?",
+      "opener": "Verkningsgrad = nyttig energi ut delat med tillförd energi, ofta i procent.",
+      "choices": [
+        "20 %",
+        "80 %",
+        "100 %",
+        "5 %"
+      ],
+      "answer": 0,
+      "explanation": "Verkningsgrad = nyttig energi / tillförd energi = 20 J / 100 J = 0,20 = 20 %. De återstående 80 J blir värme, vilket är ett vanligt \"spill\" hos glödlampor."
+    },
+    {
+      "id": "q-fys-ene-7",
+      "kind": "worked",
+      "topic": "energiformer",
+      "prompt": "En cyklist med kroppen och cykeln på totalt 70 kg cyklar i 4 m/s. Ungefär hur stor är rörelseenergin? (Formel: E = 0,5 · m · v²)",
+      "opener": "Sätt in massa och hastighet i formeln för rörelseenergi och räkna steg för steg.",
+      "answer": "560 J",
+      "steps": [
+        "Formeln för rörelseenergi är E = 0,5 · m · v².",
+        "Kvadrera hastigheten: v² = 4² = 16.",
+        "Multiplicera med massan: 70 · 16 = 1120.",
+        "Multiplicera med 0,5: 0,5 · 1120 = 560 J."
+      ]
+    },
+    {
+      "id": "q-fys-ene-8",
+      "kind": "flashcard",
+      "topic": "energiformer",
+      "prompt": "Sammanfatta de vanligaste energiformerna, energiprincipen och skillnaden mellan förnybara och icke-förnybara energikällor.",
+      "opener": "Räkna upp energiformerna en efter en innan du vänder på kortet.",
+      "answer": "Rörelseenergi: energi hos något som rör sig, beror på massa och hastighet · Lägesenergi: energi som beror på höjd i tyngdkraftsfältet · Värmeenergi: energi kopplad till temperatur och partiklars rörelse · Kemisk energi: lagrad i ämnens bindningar, t.ex. i mat, bränsle och batterier · Strålningsenergi: energi som transporteras som ljus eller annan elektromagnetisk strålning · Elektrisk energi: energi hos elektrisk ström · Energiprincipen: energi kan varken skapas eller förstöras, bara omvandlas mellan former · Förnybara energikällor (sol, vind, vatten, biobränsle) förnyas naturligt och tar inte slut · Icke-förnybara energikällor (kol, olja, naturgas, uran) finns i begränsad mängd och tar mycket lång tid att nybildas · Verkningsgrad = nyttig energi ut / tillförd energi, anger hur effektivt en omvandling är."
+    }
+  ]
+}

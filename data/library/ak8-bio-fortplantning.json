@@ -1,0 +1,131 @@
+{
+  "id": "lib-bio8-fortplantning",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Fortplantning och utveckling",
+  "sourceSummary": "Könsorganens uppbyggnad och funktion, menstruationscykeln och hormonerna bakom puberteten, samt befruktning, fosterutveckling och hur olika preventivmedel fungerar på grundnivå.",
+  "topics": [
+    "könsorganen",
+    "menstruationscykeln",
+    "befruktning",
+    "fosterutveckling",
+    "puberteten och hormoner",
+    "preventivmedel"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio8-for-1",
+      "kind": "mc",
+      "topic": "könsorganen",
+      "prompt": "Vilken uppgift har äggledarna?",
+      "opener": "Tänk på vägen mellan äggstocken och livmodern.",
+      "choices": [
+        "De bildar ägg varje månad",
+        "De leder ägget från äggstocken till livmodern",
+        "De tillverkar könshormonet testosteron",
+        "De leder ut urin från kroppen"
+      ],
+      "answer": 1,
+      "explanation": "Äggledarna är två rör som fångar upp ägget efter ägglossningen och transporterar det vidare mot livmodern — det är också här befruktningen oftast sker. Själva äggen bildas i äggstockarna, inte i äggledarna, och urinen har ett helt eget rör (urinröret)."
+    },
+    {
+      "id": "q-bio8-for-2",
+      "kind": "mc",
+      "topic": "könsorganen",
+      "prompt": "Var bildas sädescellerna (spermierna)?",
+      "opener": "Tänk på varför testiklarna ligger utanför kroppen i pungen.",
+      "choices": [
+        "I prostatan",
+        "I sädesledarna",
+        "I urinblåsan",
+        "I testiklarna"
+      ],
+      "answer": 3,
+      "explanation": "Sädescellerna bildas i testiklarna, som ligger i pungen utanför kroppen eftersom bildningen kräver några grader lägre temperatur än kroppstemperaturen. Sädesledarna transporterar bara cellerna vidare och prostatan bidrar med vätska till sädesvätskan."
+    },
+    {
+      "id": "q-bio8-for-3",
+      "kind": "mc",
+      "topic": "menstruationscykeln",
+      "prompt": "Vad händer vid ägglossningen?",
+      "opener": "Tänk på vad som lämnar äggstocken mitt i cykeln.",
+      "choices": [
+        "Ett moget ägg lossnar från äggstocken och fångas upp av äggledaren",
+        "Livmoderns slemhinna stöts ut och menstruationen börjar",
+        "Ett befruktat ägg fäster i livmoderväggen",
+        "Livmodern börjar bygga upp en ny slemhinna"
+      ],
+      "answer": 0,
+      "explanation": "Vid ägglossningen, som ofta sker omkring 14 dagar in i en cykel på cirka 28 dagar, lossnar ett moget ägg från en äggstock och fångas upp av äggledaren, där det kan befruktas under ungefär ett dygn. Att slemhinnan stöts ut är i stället menstruationen, som inleder cykeln — inte ägglossningen."
+    },
+    {
+      "id": "q-bio8-for-4",
+      "kind": "mc",
+      "topic": "puberteten och hormoner",
+      "prompt": "Vad är det som gör att kroppen förändras under puberteten?",
+      "opener": "Tänk på vilka ämnen som transporteras med blodet och styr kroppens utveckling.",
+      "choices": [
+        "Nervsignaler från ryggmärgen till huden",
+        "Enzymer som bildas i magsäcken",
+        "Könshormoner som bildas i könsorganen och styrs från hjärnan",
+        "Vitaminer som lagras i levern"
+      ],
+      "answer": 2,
+      "explanation": "Hypofysen i hjärnan börjar skicka ut hormoner som får äggstockarna respektive testiklarna att bilda könshormoner (bland annat östrogen och testosteron), och dessa hormoner transporteras med blodet och styr längdökning, kroppshår, röstförändring, bröstutveckling och könsorganens mognad. Enzymer bryter ner mat och har inget att göra med pubertetens förändringar."
+    },
+    {
+      "id": "q-bio8-for-5",
+      "kind": "mc",
+      "topic": "fosterutveckling",
+      "prompt": "Vilken uppgift har moderkakan och navelsträngen under graviditeten?",
+      "opener": "Tänk på hur fostret får syre och näring när det inte kan andas eller äta själv.",
+      "choices": [
+        "De ger fostret ett eget blodomlopp som är helt skilt från kroppen i övrigt",
+        "De skyddar fostret mot stötar med hjälp av vätska",
+        "De gör så att fostrets lungor kan andas luft redan i livmodern",
+        "De för över syre och näring från den gravida personens blod till fostret och tar bort avfall"
+      ],
+      "answer": 3,
+      "explanation": "I moderkakan ligger den gravidas och fostrets blodkärl mycket nära varandra så att syre och näring kan passera över till fostret, medan koldioxid och andra avfallsämnen går åt andra hållet; navelsträngen är förbindelsen mellan moderkakan och fostret. Att skydda mot stötar är fostervattnets uppgift, och fostrets lungor används först efter födseln."
+    },
+    {
+      "id": "q-bio8-for-6",
+      "kind": "mc",
+      "topic": "preventivmedel",
+      "prompt": "Vilket preventivmedel skyddar både mot graviditet och mot könssjukdomar?",
+      "opener": "Tänk på vilket skydd som är en fysisk barriär.",
+      "choices": [
+        "P-piller",
+        "Kondom",
+        "Spiral",
+        "P-stav"
+      ],
+      "answer": 1,
+      "explanation": "Kondomen är en barriär som hindrar sädesvätskan från att komma in i slidan, och eftersom den samtidigt hindrar kontakt med kroppsvätskor skyddar den också mot könssjukdomar som klamydia och hiv. P-piller, spiral och p-stav påverkar hormoner eller livmodern och kan förhindra graviditet, men de stoppar inte smitta."
+    },
+    {
+      "id": "q-bio8-for-7",
+      "kind": "worked",
+      "topic": "befruktning",
+      "prompt": "Förklara steg för steg vad som händer från befruktningen till att ett foster börjar utvecklas i livmodern.",
+      "opener": "Följ ägget från ägglossningen, via äggledaren, till livmoderns slemhinna.",
+      "answer": "Vid ägglossningen lossnar ett moget ägg från äggstocken och fångas upp av äggledaren, där en sädescell kan tränga in i ägget så att äggets och sädescellens arvsmassa smälter samman till en enda cell med 46 kromosomer; det befruktade ägget delar sig sedan gång på gång medan det förs vidare mot livmodern, fäster efter några dagar i livmoderns slemhinna, och där bildas moderkakan som via navelsträngen förser det växande fostret med syre och näring under de ungefär 40 veckor graviditeten varar.",
+      "steps": [
+        "Vid ägglossningen lossnar ett moget ägg från en äggstock och fångas upp av äggledaren, där det kan befruktas i cirka ett dygn.",
+        "En sädescell tränger in i ägget och äggets och sädescellens arvsmassa förenas — nu finns 46 kromosomer, hälften från varje förälder, i en enda cell.",
+        "Det befruktade ägget delar sig om och om igen till en liten cellklump samtidigt som det förs genom äggledaren till livmodern, vilket tar ungefär en vecka.",
+        "Cellklumpen fäster i livmoderns tjocka slemhinna, och där bildas moderkakan med navelsträngen som förbindelse.",
+        "Under de följande veckorna specialiseras cellerna till olika organ, fostret växer skyddat av fostervattnet och får syre och näring via moderkakan fram till födseln efter omkring 40 veckor."
+      ]
+    },
+    {
+      "id": "q-bio8-for-8",
+      "kind": "flashcard",
+      "topic": "könsorganen",
+      "prompt": "Sammanfatta könsorganens delar, menstruationscykeln och de vanligaste preventivmedlen.",
+      "opener": "Gå igenom de inre organen, cykelns faser och sedan hur preventivmedlen fungerar.",
+      "answer": "Äggstockar: bildar ägg och könshormonet östrogen; äggen finns anlagda från födseln · Äggledare: leder ägget till livmodern, oftast platsen för befruktning · Livmoder: muskelorgan med slemhinna där fostret växer · Slida: förbindelsen mellan livmodern och kroppens utsida · Testiklar: bildar sädesceller och testosteron, ligger i pungen där det är några grader svalare · Sädesledare och prostata: transporterar sädescellerna och tillför vätska så att sädesvätska bildas · Penis: leder ut både urin och sädesvätska, men aldrig samtidigt · Menstruationscykeln: cirka 28 dagar (varierar mycket) — mens dag 1–5 då slemhinnan stöts ut, sedan byggs en ny slemhinna upp, ägglossning omkring dag 14, och om ägget inte befruktas stöts slemhinnan ut igen · Befruktning: sädescell + ägg ger en cell med 46 kromosomer, hälften från varje förälder · Graviditet: cellklumpen fäster i livmoderslemhinnan, moderkakan och navelsträngen ger syre och näring, fostervattnet skyddar, förlossning efter ungefär 40 veckor · Puberteten: hypofysen sätter i gång könshormonerna — längdökning, kroppshår, svettlukt, akne, röstförändring, bröstutveckling, första mens respektive första utlösning · Preventivmedel: kondom är en barriär och skyddar även mot könssjukdomar · P-piller, p-stav, p-ring och p-spruta är hormonella och hindrar oftast ägglossningen · Hormonspiral och kopparspiral sitter i livmodern och hindrar graviditet men inte smitta · Könssjukdomar som klamydia och hiv smittar vid oskyddat sex — kondom är enda preventivmedlet som skyddar mot dem."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo8-klimatpaverkan",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Klimat och miljöpåverkan",
+  "sourceSummary": "Skillnaden mellan den naturliga och den förstärkta växthuseffekten, vad som orsakar dagens klimatförändringar, hur konsekvenserna slår olika i olika delar av världen, varför fattiga länder är mest sårbara för naturkatastrofer samt vad som kan göras för klimatet både lokalt och globalt.",
+  "topics": [
+    "växthuseffekten",
+    "orsaker till klimatförändringar",
+    "konsekvenser i olika delar av världen",
+    "naturkatastrofer och sårbarhet",
+    "åtgärder lokalt och globalt"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo8-kli-1",
+      "kind": "mc",
+      "topic": "växthuseffekten",
+      "prompt": "Vad menas med den naturliga växthuseffekten?",
+      "opener": "Utan den skulle jorden vara en isplanet – tänk på vad atmosfären gör med värmestrålningen.",
+      "choices": [
+        "Att ozonlagret hindrar farlig UV-strålning från solen att nå marken",
+        "Att människans utsläpp av koldioxid gör jorden varmare än förr",
+        "Att luftföroreningar i storstäder gör luften ohälsosam att andas",
+        "Att gaser i atmosfären håller kvar en del av jordens värmestrålning, så att medeltemperaturen blir cirka +15 °C i stället för ungefär -18 °C"
+      ],
+      "answer": 3,
+      "explanation": "Solstrålningen värmer jordytan, som strålar tillbaka värme, och växthusgaser som vattenånga och koldioxid absorberar en del av den värmen så att den stannar kvar i atmosfären – utan denna naturliga effekt skulle jordens medeltemperatur vara omkring 18 minusgrader. Att människans utsläpp gör det varmare kallas i stället den förstärkta växthuseffekten, och ozonlagrets skydd mot UV-strålning är en helt annan sak."
+    },
+    {
+      "id": "q-geo8-kli-2",
+      "kind": "mc",
+      "topic": "växthuseffekten",
+      "prompt": "Vilket av alternativen innehåller bara växthusgaser?",
+      "opener": "De gaser som utgör det mesta av luften är faktiskt inte växthusgaser.",
+      "choices": [
+        "Syre och kväve",
+        "Koldioxid, metan och lustgas",
+        "Argon och helium",
+        "Vätgas och kväve"
+      ],
+      "answer": 1,
+      "explanation": "Koldioxid, metan, lustgas och vattenånga är växthusgaser eftersom deras molekyler kan absorbera värmestrålning från jordytan. Kväve och syre utgör tillsammans omkring 99 procent av luften men fungerar inte som växthusgaser, och ädelgaser som argon och helium gör det inte heller."
+    },
+    {
+      "id": "q-geo8-kli-3",
+      "kind": "mc",
+      "topic": "orsaker till klimatförändringar",
+      "prompt": "Vilken mänsklig verksamhet bidrar mest till den förstärkta växthuseffekten?",
+      "opener": "Tänk på vad som händer när kol som legat lagrat i miljontals år plötsligt bränns upp.",
+      "choices": [
+        "Förbränning av fossila bränslen som kol, olja och naturgas",
+        "Att människor och djur andas ut koldioxid",
+        "Att jordbruket använder stora mängder vatten för bevattning",
+        "Att ny skog planteras på gammal jordbruksmark"
+      ],
+      "answer": 0,
+      "explanation": "När fossila bränslen förbränns i kraftverk, fabriker, bilar och flygplan frigörs kol som varit bundet under miljontals år, och halten koldioxid i atmosfären stiger. Utandning ingår i kolets naturliga kretslopp och tillför inget nytt kol, och att plantera skog binder tvärtom koldioxid i stället för att släppa ut den."
+    },
+    {
+      "id": "q-geo8-kli-4",
+      "kind": "mc",
+      "topic": "konsekvenser i olika delar av världen",
+      "prompt": "Vilken är en väntad konsekvens av ett varmare klimat?",
+      "opener": "Fundera på vad som händer både med isen på land och med vattnet i haven när det blir varmare.",
+      "choices": [
+        "Alla delar av världen får mer nederbörd än i dag",
+        "Vindarna på jorden avtar och stormar blir omöjliga",
+        "Havsnivån stiger när glaciärer och landisar smälter och havsvattnet utvidgas när det värms",
+        "Havsnivån sjunker eftersom mer vatten avdunstar från haven"
+      ],
+      "answer": 2,
+      "explanation": "Havsnivån stiger av två skäl: smältvatten från glaciärer, Grönland och Antarktis rinner ut i haven, och vatten tar större plats när det värms upp. Nederbörden ökar inte överallt – vissa områden som Sahel och Medelhavsområdet väntas i stället bli torrare – och avdunstat vatten faller tillbaka som regn, så det får inte havsnivån att sjunka."
+    },
+    {
+      "id": "q-geo8-kli-5",
+      "kind": "mc",
+      "topic": "naturkatastrofer och sårbarhet",
+      "prompt": "Varför får en naturkatastrof ofta mycket värre följder i ett låginkomstland än i ett höginkomstland?",
+      "opener": "Samma jordbävning, olika hus – vad avgör hur många som klarar sig?",
+      "choices": [
+        "Låginkomstländer ligger alltid i områden med jordbävningar och vulkaner",
+        "De har svagare byggnader, sämre varningssystem, sämre sjukvård och saknar pengar och försäkringar för att bygga upp igen",
+        "Låginkomstländer har alltid fler invånare än höginkomstländer",
+        "Naturkatastrofer är av naturliga skäl kraftigare i fattiga länder"
+      ],
+      "answer": 1,
+      "explanation": "Sårbarheten avgörs av samhället, inte av naturhändelsen i sig: hållfasta hus, fungerande varningssystem, räddningstjänst, sjukvård och försäkringar gör att färre dör och att återuppbyggnaden går snabbare. En jordbävning av samma styrka kan därför kräva några tiotal liv i Japan och tiotusentals liv i ett fattigt land – händelsen är inte kraftigare, men skyddet är sämre."
+    },
+    {
+      "id": "q-geo8-kli-6",
+      "kind": "mc",
+      "topic": "åtgärder lokalt och globalt",
+      "prompt": "Vad kom världens länder överens om i Parisavtalet 2015?",
+      "opener": "Överenskommelsen handlar om ett tak för hur mycket temperaturen får stiga.",
+      "choices": [
+        "Att all användning av kol och olja skulle förbjudas omedelbart",
+        "Att endast EU-länderna skulle minska sina utsläpp",
+        "Att skydda ozonlagret genom att sluta använda freoner",
+        "Att hålla den globala uppvärmningen väl under 2 grader och helst under 1,5 grader jämfört med förindustriell tid"
+      ],
+      "answer": 3,
+      "explanation": "I Parisavtalet enades nästan alla världens länder om målet att begränsa uppvärmningen till väl under 2 grader, med 1,5 grader som strävansmål, och varje land lämnar in egna klimatplaner för hur utsläppen ska minska. Något omedelbart förbud mot fossila bränslen finns inte, och avtalet om ozonlagret och freoner är Montrealprotokollet från 1987."
+    },
+    {
+      "id": "q-geo8-kli-7",
+      "kind": "worked",
+      "topic": "naturkatastrofer och sårbarhet",
+      "prompt": "Förklara varför Bangladesh är ett av världens mest sårbara länder för klimatförändringar, och ge exempel på vad som kan göras.",
+      "opener": "Titta först på kartan: hur högt ligger landet, och vilka floder och hav möts där?",
+      "answer": "Bangladesh ligger i ett stort flodlandskap där Ganges och Brahmaputra mynnar ut i Bengaliska viken, och stora delar av landet ligger bara några meter över havet. Redan i dag översvämmas betydande ytor varje monsunsäsong, och landet drabbas regelbundet av tropiska cykloner som pressar in havsvatten över den låglänta kusten. När havsnivån stiger blir översvämningarna djupare och når längre in, samtidigt som saltvatten tränger in i åkermark och brunnar så att risodlingar förstörs och dricksvattnet blir odrickbart. Kraftigare skyfall och snabbare avsmältning av glaciärerna i Himalaya ökar dessutom flödet i floderna. Sårbarheten förstärks av att landet är extremt tätbefolkat med omkring 170 miljoner invånare, att många är fattiga och bor i enkla hus, och att staten har begränsade resurser för skydd och återuppbyggnad. Landet har ändå kommit långt med anpassning: varningssystem via mobiltelefon och radio, tusentals cyklonskydd i betong dit människor kan ta sig, vallar och upphöjda vägar, salttåliga rissorter, flytande odlingar och skydd av mangroveskogen i Sundarbans som dämpar stormvågorna. Samtidigt kan ingen anpassning ensam lösa problemet – det krävs också att världens utsläpp av växthusgaser minskar kraftigt.",
+      "steps": [
+        "Läget: ett tätbefolkat, låglänt deltaland där Ganges och Brahmaputra möter Bengaliska viken.",
+        "Hoten: monsunöversvämningar, tropiska cykloner, stigande havsnivå och saltvatten som förstör åkrar och brunnar.",
+        "Sårbarheten förstärks av fattigdom, enkla hus, hög befolkningstäthet och begränsade statliga resurser.",
+        "Anpassning: varningssystem, cyklonskydd, vallar och upphöjda vägar, salttåliga grödor och skyddad mangroveskog.",
+        "Men anpassning räcker inte – de globala utsläppen måste minska, och Bangladesh har själv bidragit mycket lite till dem."
+      ]
+    },
+    {
+      "id": "q-geo8-kli-8",
+      "kind": "flashcard",
+      "topic": "växthuseffekten",
+      "prompt": "Sammanfatta växthuseffekten, klimatförändringarna och åtgärderna.",
+      "opener": "Samla orsaker, gaser, konsekvenser, sårbarhet och åtgärder i en tät översikt.",
+      "answer": "Naturlig växthuseffekt: växthusgaser håller kvar värmestrålning så att jordens medeltemperatur blir cirka +15 °C i stället för ungefär -18 °C · växthusgaser: vattenånga, koldioxid, metan, lustgas och ozon – däremot inte kväve och syre · förstärkt växthuseffekt: människans utsläpp ökar halten växthusgaser och temperaturen stiger · huvudorsaker: förbränning av fossila bränslen (kol, olja, naturgas) för el, industri och transporter · avskogning, särskilt av regnskog · jordbruk och boskap som ger metan och lustgas · cement- och stålproduktion · jordens medeltemperatur har stigit drygt en grad sedan förindustriell tid · konsekvenser: smältande glaciärer och havsis · stigande havsnivå · värmeböljor och torka · kraftigare skyfall och stormar · försurade hav och blekta korallrev · förändrade odlingszoner och arter som flyttar eller dör ut · klimatflyktingar · regionalt: Arktis värms ungefär dubbelt så snabbt som jorden i stort · Sahel och Medelhavsområdet får ökad torka · låglänta önationer som Maldiverna, Tuvalu och Kiribati hotas av havet · Sverige får varmare och blötare klimat, kortare vintrar samt större risk för skyfall och skogsbränder · sårbarhet: samma naturhändelse blir en katastrof i fattiga länder med svaga hus, dåliga varningssystem, svag sjukvård och inga försäkringar · naturkatastrofer: jordbävningar, vulkanutbrott, tropiska cykloner, översvämningar, torka och skogsbränder · två strategier: minska utsläppen och klimatanpassning · globalt: FN:s klimatpanel IPCC sammanställer forskningen · Kyotoprotokollet 1997 · Parisavtalet 2015 med målet väl under 2 grader, helst 1,5 · utsläppsrätter och koldioxidskatt · lokalt och personligt: förnybar energi, energieffektivisering, kollektivtrafik och cykel, färre flygresor, mindre kött, återvinning, mindre nyproduktion och konsumtion · Sveriges mål är nettonollutsläpp senast 2045."
+    }
+  ]
+}

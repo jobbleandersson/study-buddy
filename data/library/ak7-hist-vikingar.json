@@ -1,0 +1,131 @@
+{
+  "id": "lib-hist7-vikingar",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Vikingatiden och Sveriges medeltid",
+  "sourceSummary": "Vikingarnas handel, resor och samhälle, runstenar som historisk källa, kristnandet av Sverige, hur landet gradvis blev ett rike och Kalmarunionen.",
+  "topics": [
+    "vikingatiden som tidsperiod",
+    "handel och resor",
+    "vikingarnas samhälle",
+    "runstenar som källa",
+    "kristnandet av Sverige",
+    "Sveriges medeltid och Kalmarunionen"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist7-vik-1",
+      "kind": "mc",
+      "topic": "vikingatiden som tidsperiod",
+      "prompt": "När räknar man att vikingatiden pågick i Norden?",
+      "opener": "Perioden avslutar järnåldern och övergår i medeltiden.",
+      "choices": [
+        "Cirka 200–500 e.Kr.",
+        "Cirka 500–800 e.Kr.",
+        "Cirka 800–1050 e.Kr.",
+        "Cirka 1200–1500 e.Kr."
+      ],
+      "answer": 2,
+      "explanation": "Vikingatiden räknas vanligen från omkring år 800 till omkring 1050, då kristendomen och kungamakten hade slagit igenom och medeltiden inleds i Norden. Perioden 1200–1500 är alltså redan svensk medeltid, inte vikingatid."
+    },
+    {
+      "id": "q-hist7-vik-2",
+      "kind": "mc",
+      "topic": "handel och resor",
+      "prompt": "Vart reste vikingarna från dagens Sverige framför allt när de handlade?",
+      "opener": "Tänk på floderna österut och en stor stad som kallades Miklagård.",
+      "choices": [
+        "Västerut till Grönland och Nordamerika",
+        "Österut längs floderna genom dagens Ryssland, ända ner till Miklagård (Konstantinopel)",
+        "Söderut runt Afrika",
+        "Norrut över Nordpolen"
+      ],
+      "answer": 1,
+      "explanation": "Vikingar från Svealand reste främst österut, längs floder som Volga och Dnepr, och handlade med pälsverk, järn och slavar i utbyte mot silver och siden — arabiska silvermynt har hittats i tusental i svensk jord. Färderna till Grönland och Nordamerika gjordes framför allt av norrmän och islänningar, och Afrika runt seglade ingen förrän på 1400-talet."
+    },
+    {
+      "id": "q-hist7-vik-3",
+      "kind": "mc",
+      "topic": "vikingarnas samhälle",
+      "prompt": "Vad var Birka?",
+      "opener": "Platsen ligger på Björkö i Mälaren och grävs fortfarande ut av arkeologer.",
+      "choices": [
+        "En viktig handelsplats i Mälaren under vikingatiden",
+        "En medeltida borg i Skåne",
+        "En kungagrav i Uppsala",
+        "En vikingatida lag om arv"
+      ],
+      "answer": 0,
+      "explanation": "Birka på Björkö var Sveriges viktigaste handelsstad under 700- och 800-talen, där varor och mynt från både Västeuropa och Orienten har hittats i gravar och avfallslager. Det var alltså en handelsplats, inte en borg, en grav eller en lag."
+    },
+    {
+      "id": "q-hist7-vik-4",
+      "kind": "mc",
+      "topic": "runstenar som källa",
+      "prompt": "Varför är runstenar en värdefull källa till kunskap om vikingatiden?",
+      "opener": "Fundera på när stenarna gjordes i förhållande till händelserna de berättar om.",
+      "choices": [
+        "De innehåller kompletta historieböcker om hela Norden",
+        "De skrevs av munkar långt senare och är därför pålitliga",
+        "De är målade bilder av vikingaskepp",
+        "De är samtida källor, ristade av människor som själva levde då, och berättar om personer, resor och tro"
+      ],
+      "answer": 3,
+      "explanation": "Runstenarna restes under själva vikingatiden och tidiga medeltiden, oftast som minnesmärken över någon som dött, och deras korta texter nämner namn, släktband, resor och ibland kristen tro. Det gör dem till samtida källor. Texterna är däremot mycket korta — några rader, inte hela historieböcker — och de skrevs av nordbor, inte av senare munkar."
+    },
+    {
+      "id": "q-hist7-vik-5",
+      "kind": "mc",
+      "topic": "kristnandet av Sverige",
+      "prompt": "Vem var Olof Skötkonung?",
+      "opener": "Han brukar nämnas som den förste i en lång rad kristna svenska kungar.",
+      "choices": [
+        "En munk som skrev Sveriges första lag",
+        "Den förste svenske kungen som lät döpa sig till kristendomen, omkring år 1000",
+        "En dansk kung som erövrade Sverige",
+        "Ledaren för Hansan i Visby"
+      ],
+      "answer": 1,
+      "explanation": "Olof Skötkonung anses vara den förste svenske kungen som var kristen och lät döpa sig, enligt traditionen i Husaby i Västergötland omkring år 1000. Kristnandet gick dock långsamt och tog ytterligare hundra år eller mer innan det var genomfört i hela landet — han var alltså varken munk, dansk kung eller handelsledare."
+    },
+    {
+      "id": "q-hist7-vik-6",
+      "kind": "mc",
+      "topic": "Sveriges medeltid och Kalmarunionen",
+      "prompt": "Vad var Kalmarunionen, som bildades 1397?",
+      "opener": "Tre nordiska riken, en och samma regent.",
+      "choices": [
+        "Ett handelsavtal mellan Kalmar och Lübeck",
+        "En ny lagbok för hela Norden",
+        "En union där Danmark, Norge och Sverige hade samma regent",
+        "En allians mellan Sverige och Tyskland mot Ryssland"
+      ],
+      "answer": 2,
+      "explanation": "I Kalmar 1397 kröntes Erik av Pommern till kung över Danmark, Norge och Sverige, en union som drottning Margareta hade arbetat fram. Länderna behöll sina egna lagar och råd men delade regent. Unionen präglades av återkommande konflikter och upplöstes i praktiken när Gustav Vasa blev svensk kung 1523."
+    },
+    {
+      "id": "q-hist7-vik-7",
+      "kind": "worked",
+      "topic": "Sveriges medeltid och Kalmarunionen",
+      "prompt": "Förklara steg för steg hur Sverige gick från många små landskap till att bli ett rike.",
+      "opener": "Börja med hur makten såg ut under vikingatiden och följ den sedan framåt i tiden.",
+      "answer": "Under vikingatiden bestod Sverige av landskap med egna ting och egna lagar, där hövdingar och stormän hade makten lokalt. Under 1000- och 1100-talen växte kungamakten, och kristendomen gav kungen stöd av kyrkan som organiserade landet i stift och socknar. Under 1200-talet infördes skatter, en gemensam kyrkoorganisation och skrivna landskapslagar, och Magnus Erikssons landslag på 1300-talet gällde hela riket. Därmed hade Sverige blivit ett rike med kung, kyrka, skatter och gemensamma lagar, om än med fortsatt starkt landskapsstyre.",
+      "steps": [
+        "Vikingatiden: landskapen styrde sig själva genom ting, och makten låg hos lokala stormän.",
+        "Kungamakten växte när en kung kunde kräva skatt och krigstjänst av flera landskap.",
+        "Kristnandet gav kungen kyrkans stöd, och landet delades in i stift och socknar med biskopar och präster.",
+        "Under 1200-talet skrevs landskapslagarna ner och en fastare skatteuppbörd byggdes upp.",
+        "På 1300-talet fick riket en gemensam lag för hela landet, och Sverige gick sedan in i Kalmarunionen 1397."
+      ]
+    },
+    {
+      "id": "q-hist7-vik-8",
+      "kind": "flashcard",
+      "topic": "handel och resor",
+      "prompt": "Sammanfatta vikingatiden och Sveriges väg till ett medeltida rike.",
+      "opener": "Ta resor och handel, samhället, källorna, kristnandet och unionen i tur och ordning.",
+      "answer": "Vikingatiden: ca 800–1050, avslutar järnåldern i Norden · Resor: svenska vikingar reste främst österut längs floderna genom dagens Ryssland till Miklagård (Konstantinopel), norrmän och islänningar västerut till Island, Grönland och Nordamerika, danskar och norrmän mot England och Frankrike · Handel: pälsverk, järn, skinn och slavar byttes mot silver, siden och glas — tusentals arabiska silvermynt har hittats i svensk jord · Handelsplatser: Birka i Mälaren, senare Sigtuna och Visby · Samhället: de flesta var bönder, ting fattade beslut och dömde, samhället var uppdelat i stormän, fria bönder och trälar · Runstenar: samtida källa, oftast minnesstenar med korta texter om namn, släkt, resor och tro · Kristnandet: Ansgar besökte Birka på 800-talet, Olof Skötkonung döptes omkring år 1000, processen tog över hundra år · Sveriges medeltid: kungamakt, kyrkoorganisation, skatter och landskapslagar byggde ett rike · Kalmarunionen 1397: Danmark, Norge och Sverige under samma regent, driven av drottning Margareta, upplöstes med Gustav Vasa 1523."
+    }
+  ]
+}

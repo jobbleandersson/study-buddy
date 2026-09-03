@@ -1,0 +1,131 @@
+{
+  "id": "lib-rel8-etik",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Etik och moral",
+  "sourceSummary": "Skillnaden mellan etik och moral, de tre etiska modellerna pliktetik, konsekvensetik och sinnelagsetik, hur man steg för steg resonerar kring ett etiskt dilemma, den gyllene regeln och hur den återfinns i många traditioner, samt etiska frågor som dyker upp i vardagen.",
+  "topics": [
+    "etik och moral",
+    "pliktetik",
+    "konsekvensetik",
+    "sinnelagsetik",
+    "gyllene regeln",
+    "etiska frågor i vardagen"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel8-eti-1",
+      "kind": "mc",
+      "topic": "etik och moral",
+      "prompt": "Vad är skillnaden mellan etik och moral?",
+      "opener": "Det ena ordet handlar om hur man faktiskt gör, det andra om att tänka och resonera kring det.",
+      "choices": [
+        "Etik är detsamma som landets lagar, och moral är detsamma som skolans ordningsregler",
+        "Etik är läran om och reflektionen kring vad som är rätt och fel, medan moral är hur en människa faktiskt handlar och vilka värderingar hon lever efter",
+        "Etik gäller bara religiösa människor och moral bara icke-religiösa",
+        "Det finns ingen skillnad alls — orden betyder exakt samma sak i alla sammanhang"
+      ],
+      "answer": 1,
+      "explanation": "Etik är teorin: själva tänkandet och resonerandet om hur man bör handla. Moral är praktiken: hur en människa verkligen handlar och vilka värderingar hon lever efter. Man kan alltså kunna mycket om etik och ändå handla omoraliskt. Första alternativet blandar ihop etik med juridik — lagar är samhällets regler, och de sammanfaller inte alltid med det som anses moraliskt rätt."
+    },
+    {
+      "id": "q-rel8-eti-2",
+      "kind": "mc",
+      "topic": "pliktetik",
+      "prompt": "En pliktetiker ska bedöma om det är rätt att bryta ett löfte. Vad blir avgörande i resonemanget?",
+      "opener": "Pliktetik utgår från regler och principer som gäller oavsett vad som händer sedan.",
+      "choices": [
+        "Om löftesbrottet leder till att fler människor blir glada",
+        "Hur personen kände sig i stunden när löftet gavs",
+        "Om handlingen bryter mot en princip, till exempel \"man ska hålla sina löften\", som gäller oavsett följderna",
+        "Om någon annan råkar upptäcka löftesbrottet"
+      ],
+      "answer": 2,
+      "explanation": "Pliktetik utgår från att vissa handlingar är rätt eller fel i sig själva, eftersom de följer eller bryter mot en princip. En pliktetiker frågar därför om löftesbrottet bryter mot regeln, inte vad det leder till. Att väga hur många som blir glada är i stället ett konsekvensetiskt resonemang, och att fokusera på känslan bakom handlingen hör hemma i sinnelagsetiken."
+    },
+    {
+      "id": "q-rel8-eti-3",
+      "kind": "mc",
+      "topic": "konsekvensetik",
+      "prompt": "Vilket resonemang är typiskt konsekvensetiskt?",
+      "opener": "Titta framåt: vad blir resultatet av handlingen?",
+      "choices": [
+        "\"Jag ljuger aldrig, eftersom det alltid är fel att ljuga.\"",
+        "\"Jag väljer det alternativ som ger mest nytta och minst skada för dem som berörs.\"",
+        "\"Det viktigaste är att jag menade väl, hur det än gick till slut.\"",
+        "\"Jag gör som mina kompisar gör, så slipper jag tänka själv.\""
+      ],
+      "answer": 1,
+      "explanation": "Konsekvensetiken bedömer en handling utifrån dess följder: rätt är det som ger mest nytta och minst skada totalt sett för dem som berörs. Första alternativet är i stället pliktetiskt, eftersom det utgår från en regel som gäller oavsett resultat, och tredje alternativet är sinnelagsetiskt, eftersom det sätter avsikten i centrum."
+    },
+    {
+      "id": "q-rel8-eti-4",
+      "kind": "mc",
+      "topic": "sinnelagsetik",
+      "prompt": "Elin vill hjälpa en granne och bär hans matkassar hem, men snubblar så att äggen går sönder. Hur skulle en sinnelagsetiker bedöma handlingen?",
+      "opener": "Sinnelag betyder avsikten och viljan bakom det man gör.",
+      "choices": [
+        "Handlingen var moraliskt god, eftersom Elins avsikt var att hjälpa — även om resultatet blev dåligt",
+        "Handlingen var fel, eftersom resultatet blev sämre än om hon inte gjort någonting alls",
+        "Handlingen var fel, eftersom hon bröt mot regeln att man inte ska tappa andras saker",
+        "Handlingen går inte att bedöma moraliskt över huvud taget"
+      ],
+      "answer": 0,
+      "explanation": "Sinnelagsetiken bedömer handlingen utifrån avsikten och viljan bakom den. Eftersom Elin ville hjälpa räknas handlingen som moraliskt god, trots det olyckliga resultatet. En konsekvensetiker skulle i stället peka på att följderna blev dåliga, och en pliktetiker skulle fråga om någon regel brutits — de tre modellerna kan alltså landa i olika bedömningar av samma händelse."
+    },
+    {
+      "id": "q-rel8-eti-5",
+      "kind": "mc",
+      "topic": "gyllene regeln",
+      "prompt": "Vad innebär den gyllene regeln?",
+      "opener": "Regeln ber dig byta plats med den andra personen ett ögonblick.",
+      "choices": [
+        "Att man alltid ska lyda den som är äldst i sällskapet",
+        "Att den som gör mest nytta för samhället får bestämma",
+        "Att man aldrig får ändra sig när man en gång tagit ställning i en moralisk fråga",
+        "Att man ska behandla andra så som man själv vill bli behandlad"
+      ],
+      "answer": 3,
+      "explanation": "Den gyllene regeln uppmanar dig att sätta dig in i den andres situation och behandla andra som du själv vill bli behandlad. Liknande formuleringar finns i många religioner och livsåskådningar — bland annat i kristendomens bergspredikan, i judisk tradition hos rabbinen Hillel, inom islam, buddhism och konfucianism, och i sekulär humanism. Regeln säger däremot ingenting om ålder eller auktoritet, vilket gör första alternativet fel."
+    },
+    {
+      "id": "q-rel8-eti-6",
+      "kind": "mc",
+      "topic": "etiska frågor i vardagen",
+      "prompt": "Vad kännetecknar ett etiskt dilemma?",
+      "opener": "Fundera på situationer där varje val kostar något.",
+      "choices": [
+        "En fråga där svaret står tydligt formulerat i lagen",
+        "En situation där två eller flera värden krockar, så att man måste välja bort något viktigt hur man än gör",
+        "En fråga som bara religiösa människor kan ta ställning till",
+        "En situation där alla inblandade redan är överens om vad som är rätt"
+      ],
+      "answer": 1,
+      "explanation": "I ett etiskt dilemma står värden mot varandra, till exempel ärlighet mot omtanke eller lojalitet mot rättvisa, så att varje val innebär att man går emot något man tycker är viktigt. Just därför är dilemman svåra. Om svaret redan står i lagen eller om alla är överens är det ingen konflikt mellan värden, och etiska frågor kan dessutom resoneras kring på både religiös och icke-religiös grund."
+    },
+    {
+      "id": "q-rel8-eti-7",
+      "kind": "worked",
+      "topic": "etiska frågor i vardagen",
+      "prompt": "En kompis berättar i förtroende att hen fuskat på ett prov och ber dig att inte säga något till läraren. Resonera steg för steg kring vad du bör göra, med hjälp av pliktetik, konsekvensetik och sinnelagsetik.",
+      "opener": "Börja med att sätta ord på vilka värden som krockar, och pröva sedan modellerna en i taget.",
+      "answer": "Här krockar flera värden: lojaliteten mot en vän och löftet att hålla ett förtroende står mot ärlighet och rättvisa gentemot klasskamraterna, som har gjort provet på riktigt. Pliktetiskt: om man utgår från principen att man ska vara ärlig och inte hjälpa till att dölja fusk, pekar det mot att fusket bör komma fram — men också principen att hålla ett förtroende är en regel, och en pliktetiker måste därför avgöra vilken princip som väger tyngst. Konsekvensetiskt: man väger följderna av att tiga mot följderna av att berätta. Om fusket förblir dolt får kompisen ett betyg hen inte förtjänat, andra elever behandlas orättvist och kompisen lär sig inget av situationen; om det kommer fram blir konsekvensen obehaglig för kompisen på kort sikt, men troligen bättre för både klassen och kompisen på längre sikt. Sinnelagsetiskt: avsikten bakom valet blir avgörande — att prata med kompisen av omtanke, för att hen ska ta ansvar, väger moraliskt tyngre än att skvallra för att man vill se kompisen straffad eller själv framstå som duktig. En rimlig slutsats kan vara ett mellansteg: att först prata med kompisen, förklara varför du tycker att det är fel och uppmana hen att själv berätta för läraren, och först därefter fundera på om du behöver göra något mer. Viktigt att komma ihåg är att modellerna är verktyg för att tänka klart — de ger inte alltid ett enda självklart svar.",
+      "steps": [
+        "Sätt ord på dilemmat: lojalitet och förtroende krockar med ärlighet och rättvisa mot klasskamraterna.",
+        "Pliktetik: vilka principer gäller — ärlighet och att inte dölja fusk, men också att hålla ett förtroende? Avgör vilken som väger tyngst.",
+        "Konsekvensetik: väg följderna av att tiga (orättvist betyg, ingen lärdom) mot följderna av att berätta (obehag nu, rimligare utfall sedan).",
+        "Sinnelagsetik: granska din egen avsikt — handlar du av omtanke om kompisen eller för att du vill se hen straffad?",
+        "Väg samman och landa i ett handlingsalternativ, till exempel att först tala med kompisen själv, och kom ihåg att modellerna kan peka åt olika håll."
+      ]
+    },
+    {
+      "id": "q-rel8-eti-8",
+      "kind": "flashcard",
+      "topic": "etik och moral",
+      "prompt": "Sammanfatta etikens grunder: etik och moral, de tre modellerna, gyllene regeln och hur man hanterar ett etiskt dilemma.",
+      "opener": "Begreppen först, sedan modellerna, sist arbetsgången i ett dilemma.",
+      "answer": "Etik: läran om och reflektionen kring vad som är rätt och fel — teorin · Moral: hur en människa faktiskt handlar och vilka värderingar hon lever efter — praktiken · Lag ≠ moral: allt som är lagligt är inte moraliskt rätt, och allt som känns moraliskt rätt är inte alltid lagligt · Pliktetik: handlingen bedöms utifrån om den följer en regel eller princip (\"håll dina löften\", \"ljug inte\"), oavsett konsekvenser · styrka: förutsägbart och rättvist · svaghet: kan bli hårt när regler krockar med människors bästa · Konsekvensetik: handlingen bedöms utifrån följderna — rätt är det som ger mest nytta och minst skada · styrka: tar hänsyn till verkliga effekter · svaghet: svårt att förutse alla följder, och en minoritet kan komma i kläm · Sinnelagsetik: handlingen bedöms utifrån avsikten och viljan bakom den · styrka: en god vilja räknas även när något går fel · svaghet: goda avsikter kan leda till skada · Gyllene regeln: behandla andra som du själv vill bli behandlad — finns i liknande form i bl.a. kristendom, judendom, islam, buddhism, konfucianism och sekulär humanism · Etiskt dilemma: två eller flera värden krockar, så att varje val innebär att något viktigt väljs bort · Arbetsgång: 1) beskriv situationen och vilka som berörs · 2) sätt ord på vilka värden som krockar · 3) pröva pliktetik, konsekvensetik och sinnelagsetik · 4) väg samman, välj handling och motivera · Etik och religion: religioner ger ofta etisk vägledning genom bud och berättelser, men man kan också resonera etiskt utifrån förnuft, empati och erfarenhet."
+    }
+  ]
+}

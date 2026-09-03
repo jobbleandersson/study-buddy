@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv3-muntligt",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Muntlig framställning: utredande anförande",
+  "sourceSummary": "Att hålla ett längre, komplext anförande med tydlig struktur och belägg, att bemöta motargument muntligt samt anpassning till en kritisk publik.",
+  "topics": [
+    "anförandets struktur",
+    "belägg och motargument",
+    "publikanpassning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-muntligt-1",
+      "kind": "mc",
+      "topic": "anförandets struktur",
+      "prompt": "Vad är den viktigaste funktionen hos en tydlig disposition i ett längre utredande anförande?",
+      "opener": "Vad behöver lyssnaren, som inte kan bläddra tillbaka som en läsare kan?",
+      "choices": [
+        "Att göra anförandet så långt som möjligt",
+        "Att hjälpa lyssnaren följa med och hänga kvar genom hela resonemanget, eftersom man inte kan bläddra tillbaka i ett talat anförande",
+        "Att imponera på publiken med avancerat språk",
+        "Att undvika att behöva förbereda sig i förväg"
+      ],
+      "answer": 1,
+      "explanation": "En tydlig disposition (t.ex. inledning med tydlig fråga, tydliga huvuddelar, sammanfattande avslutning) är extra viktig muntligt eftersom lyssnaren, till skillnad från en läsare, inte kan gå tillbaka och läsa om ett stycke. Anförandets längd eller avancerat språk är inte i sig ett mål."
+    },
+    {
+      "id": "q-sv3-muntligt-2",
+      "kind": "mc",
+      "topic": "anförandets struktur",
+      "prompt": "Vilket är ett effektivt sätt att hjälpa publiken hänga med under ett längre, komplext anförande?",
+      "opener": "Tänk på vad en bra lärare eller föreläsare gör mellan olika delar av ett resonemang.",
+      "choices": [
+        "Att använda tydliga muntliga signalord som \"för det första\", \"å andra sidan\" och korta sammanfattningar mellan delarna",
+        "Att undvika att i förväg berätta vad anförandet ska handla om",
+        "Att prata så fort som möjligt för att hinna med allt innehåll",
+        "Att aldrig upprepa eller sammanfatta någonting"
+      ],
+      "answer": 0,
+      "explanation": "Muntliga signalord och korta sammanfattningar fungerar som vägvisare i talet och hjälper publiken orientera sig i strukturen, särskilt i ett längre och mer komplext anförande. Snabbt tal och avsaknad av sammanfattningar gör istället anförandet svårare att följa."
+    },
+    {
+      "id": "q-sv3-muntligt-3",
+      "kind": "mc",
+      "topic": "belägg och motargument",
+      "prompt": "Varför bör ett utredande anförande innehålla konkreta belägg, t.ex. statistik eller källhänvisningar, snarare än enbart egna åsikter?",
+      "opener": "Vad skiljer ett utredande anförande från ett rent känsloargument?",
+      "choices": [
+        "Belägg gör anförandet automatiskt roligare att lyssna på",
+        "Belägg krävs enbart i skriftliga texter, inte muntligt",
+        "Belägg stärker anförandets trovärdighet och visar att slutsatserna vilar på mer än talarens personliga tyckande",
+        "Belägg är valfritt och påverkar inte hur trovärdigt anförandet uppfattas"
+      ],
+      "answer": 2,
+      "explanation": "Konkreta belägg (källor, statistik, exempel) visar att resonemanget bygger på mer än talarens personliga åsikt, vilket stärker ethos och gör slutsatserna mer trovärdiga för publiken. Belägg behövs lika mycket muntligt som skriftligt."
+    },
+    {
+      "id": "q-sv3-muntligt-4",
+      "kind": "mc",
+      "topic": "belägg och motargument",
+      "prompt": "Hur bör en talare hantera ett tänkbart motargument i ett utredande anförande?",
+      "opener": "Vad händer med talarens trovärdighet om ett uppenbart motargument ignoreras helt?",
+      "choices": [
+        "Genom att helt undvika att nämna det, för att inte försvaga sitt eget resonemang",
+        "Genom att lyfta fram motargumentet tydligt, bemöta det sakligt och förklara varför den egna slutsatsen ändå står sig",
+        "Genom att avfärda den som skulle kunna ha motargumentet som okunnig",
+        "Genom att byta ämne så fort motargumentet nämns"
+      ],
+      "answer": 1,
+      "explanation": "Att medvetet lyfta fram och sakligt bemöta motargument visar att talaren prövat frågan från flera håll, vilket stärker trovärdigheten. Att ignorera eller avfärda motargument riskerar istället att göra anförandet ensidigt och mindre trovärdigt."
+    },
+    {
+      "id": "q-sv3-muntligt-5",
+      "kind": "mc",
+      "topic": "publikanpassning",
+      "prompt": "Du ska hålla ett anförande om ett tekniskt ämne för en publik som är kritiskt inställd och har god förkunskap. Vad bör du särskilt tänka på?",
+      "opener": "En kritisk, kunnig publik är snabb att upptäcka luckor i argumentationen — vad krävs för att möta det?",
+      "choices": [
+        "Att förenkla så mycket att viktiga nyanser försvinner",
+        "Att undvika källhänvisningar för att verka mer självsäker",
+        "Att prata enbart om egna känslor kring ämnet",
+        "Att förbereda välgrundade belägg, vara redo att bemöta invändningar direkt och undvika överdrifter som lätt kan ifrågasättas"
+      ],
+      "answer": 3,
+      "explanation": "Inför en kritisk och kunnig publik bör talaren ha starkt underbyggda belägg, vara beredd att möta invändningar direkt och undvika överdrifter eller ogrundade påståenden som lätt genomskådas. Överdriven förenkling eller avsaknad av källor undergräver trovärdigheten hos just den här publiken."
+    },
+    {
+      "id": "q-sv3-muntligt-6",
+      "kind": "mc",
+      "topic": "publikanpassning",
+      "prompt": "Samma anförande om skattepolitik ska hållas dels för klasskompisar, dels för en panel av ekonomilärare. Vad bör framför allt skilja sig mellan de två framförandena?",
+      "opener": "Innehållet i sak ska vara detsamma — vad är det då som anpassas?",
+      "choices": [
+        "Anförandets slutsats, som bör vändas till motsatsen beroende på publik",
+        "Grad av fackterminologi, exempel som används och hur mycket bakgrund som förklaras, medan den grundläggande slutsatsen är densamma",
+        "Ingenting, eftersom ett bra anförande alltid ska vara identiskt oavsett publik",
+        "Enbart röststyrkan, allt annat ska vara identiskt"
+      ],
+      "answer": 1,
+      "explanation": "Anpassning till mottagaren innebär att fackspråk, exempel och förklaringsnivå justeras efter publikens förkunskaper, medan anförandets sakliga innehåll och slutsats bör vara konsekvent. Att ändra själva slutsatsen beroende på publik skulle undergräva anförandets trovärdighet."
+    },
+    {
+      "id": "q-sv3-muntligt-7",
+      "kind": "worked",
+      "topic": "anförandets struktur",
+      "prompt": "Skissa dispositionen för ett sex minuter långt utredande anförande om huruvida sociala medier påverkar ungdomars psykiska hälsa negativt, inklusive hur du bemöter ett motargument.",
+      "opener": "Utgå från en tydlig fråga, bygg upp resonemanget med belägg och lämna tid för ett tydligt motargument mot slutet.",
+      "answer": "Inledning (ca 30 sek): väck intresse och presentera frågeställningen om sociala mediers effekt på ungdomars psykiska hälsa. Bakgrund/belägg (ca 2 min): redovisa forskning och statistik som visar samband mellan skärmtid och psykisk ohälsa, med tydliga källhänvisningar. Nyansering och motargument (ca 1,5 min): lyft fram att sambandet inte nödvändigtvis är orsak-verkan och att sociala medier även kan ge socialt stöd, bemöt sedan varför de negativa effekterna ändå väger tyngre enligt beläggen. Sammanfattning (ca 1 min): knyt ihop resonemanget och upprepa huvudpoängen. Avslutning (ca 30 sek): en tydlig, minnesvärd slutsats som knyter an till inledningens fråga.",
+      "steps": [
+        "Börja med en tydlig fråga eller tes som resten av anförandet ska besvara, för att ge lyssnaren en ram att hänga upp innehållet på.",
+        "Bygg mittpartiet kring konkreta belägg, inte enbart egna åsikter, och ange källor muntligt.",
+        "Avsätt tid för att aktivt lyfta fram och bemöta minst ett rimligt motargument, för att stärka trovärdigheten.",
+        "Sammanfatta huvudpoängerna innan du avslutar, eftersom lyssnaren inte kan bläddra tillbaka.",
+        "Avsluta med en tydlig slutsats som knyter tillbaka till den inledande frågan."
+      ]
+    },
+    {
+      "id": "q-sv3-muntligt-8",
+      "kind": "flashcard",
+      "topic": "belägg och motargument",
+      "prompt": "Sammanfatta vad som kännetecknar ett starkt utredande anförande.",
+      "opener": "Tänk struktur, innehåll och anpassning som tre olika delar.",
+      "answer": "Tydlig disposition: inledning med fråga, tydliga huvuddelar, sammanfattande avslutning · Muntliga signalord (\"för det första\", \"sammanfattningsvis\") vägleder lyssnaren · Konkreta belägg (källor, statistik) stärker trovärdigheten mer än rena åsikter · Motargument lyfts fram aktivt och bemöts sakligt, stärker ethos · Publikanpassning: fackspråk, exempel och förklaringsnivå justeras efter mottagarens förkunskaper, medan slutsatsen förblir densamma · Extra viktigt muntligt: lyssnaren kan inte bläddra tillbaka, så repetition och tydlighet väger tyngre än i skrift."
+    }
+  ]
+}

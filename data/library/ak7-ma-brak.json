@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma7-brak",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Bråk och decimaltal",
+  "sourceSummary": "Förkorta och förlänga bråk, jämföra dem och räkna med dem. Du tränar också på att växla mellan bråkform, decimalform och procent.",
+  "topics": [
+    "bråk",
+    "decimaltal",
+    "förkorta och förlänga",
+    "procentform"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma7-bra-1",
+      "kind": "mc",
+      "topic": "decimaltal",
+      "prompt": "Vilket decimaltal är lika mycket som $\\frac{3}{4}$?",
+      "opener": "Bråkstrecket betyder division — vad blir 3 delat med 4?",
+      "choices": [
+        "$0{,}34$",
+        "$0{,}75$",
+        "$0{,}25$",
+        "$3{,}4$"
+      ],
+      "answer": 1,
+      "explanation": "$\\frac{3}{4}$ betyder $3 / 4 = 0{,}75$. Svaret $0{,}34$ får man om man bara sätter ihop siffrorna 3 och 4, men bråkstrecket är en division."
+    },
+    {
+      "id": "q-ma7-bra-2",
+      "kind": "mc",
+      "topic": "förkorta och förlänga",
+      "prompt": "Förkorta $\\frac{6}{8}$ så långt det går.",
+      "opener": "Finns det ett tal som både 6 och 8 är delbara med?",
+      "choices": [
+        "$\\frac{3}{4}$",
+        "$\\frac{2}{4}$",
+        "$\\frac{6}{4}$",
+        "$\\frac{1}{2}$"
+      ],
+      "answer": 0,
+      "explanation": "Dela både täljare och nämnare med 2: $\\frac{6}{8} = \\frac{3}{4}$. Man måste dela båda med samma tal — delar man bara nämnaren, som i $\\frac{6}{4}$, ändras bråkets värde."
+    },
+    {
+      "id": "q-ma7-bra-3",
+      "kind": "mc",
+      "topic": "bråk",
+      "prompt": "Vilket av bråken är störst?",
+      "opener": "Gör om varje bråk till decimalform, så blir de lätta att jämföra.",
+      "choices": [
+        "$\\frac{2}{5}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{3}$",
+        "$\\frac{1}{4}$"
+      ],
+      "answer": 1,
+      "explanation": "$\\frac{1}{2} = 0{,}5$, $\\frac{2}{5} = 0{,}4$, $\\frac{1}{3} \\approx 0{,}33$ och $\\frac{1}{4} = 0{,}25$. Störst nämnare betyder inte störst bråk — ju fler delar tårtan delas i, desto mindre blir varje bit."
+    },
+    {
+      "id": "q-ma7-bra-4",
+      "kind": "mc",
+      "topic": "bråk",
+      "prompt": "Beräkna $\\frac{2}{7} + \\frac{3}{7}$.",
+      "opener": "Nämnarna är redan lika — vad är det då bara du behöver addera?",
+      "choices": [
+        "$\\frac{5}{14}$",
+        "$\\frac{5}{7}$",
+        "$\\frac{6}{7}$",
+        "$\\frac{6}{14}$"
+      ],
+      "answer": 1,
+      "explanation": "Med samma nämnare adderar du bara täljarna: $2 + 3 = 5$, alltså $\\frac{5}{7}$. Nämnaren säger hur stora delarna är och ska inte adderas — därför är $\\frac{5}{14}$ fel."
+    },
+    {
+      "id": "q-ma7-bra-5",
+      "kind": "mc",
+      "topic": "bråk",
+      "prompt": "Beräkna $\\frac{1}{2} + \\frac{1}{4}$.",
+      "opener": "Olika nämnare — skriv om halvan så att båda bråken har fjärdedelar.",
+      "choices": [
+        "$\\frac{2}{6}$",
+        "$\\frac{1}{6}$",
+        "$\\frac{3}{4}$",
+        "$\\frac{2}{4}$"
+      ],
+      "answer": 2,
+      "explanation": "Förläng $\\frac{1}{2}$ med 2 så att den blir $\\frac{2}{4}$. Då är det $\\frac{2}{4} + \\frac{1}{4} = \\frac{3}{4}$. Svaret $\\frac{2}{6}$ kommer av att addera täljare och nämnare var för sig, vilket inte fungerar."
+    },
+    {
+      "id": "q-ma7-bra-6",
+      "kind": "mc",
+      "topic": "procentform",
+      "prompt": "Hur många procent är $\\frac{1}{5}$?",
+      "opener": "Procent betyder hundradelar — förläng bråket så att nämnaren blir 100.",
+      "choices": [
+        "15 %",
+        "20 %",
+        "25 %",
+        "50 %"
+      ],
+      "answer": 1,
+      "explanation": "Förläng med 20: $\\frac{1}{5} = \\frac{20}{100} = 20$ %. Svaret 15 % kommer ofta av att man blandar ihop siffrorna 1 och 5 i bråket istället för att räkna om till hundradelar."
+    },
+    {
+      "id": "q-ma7-bra-7",
+      "kind": "worked",
+      "topic": "bråk",
+      "prompt": "Beräkna $\\frac{2}{3} - \\frac{1}{6}$ och förkorta svaret så långt det går.",
+      "opener": "Hitta en gemensam nämnare först — 6 fungerar bra här.",
+      "answer": "$\\frac{1}{2}$",
+      "steps": [
+        "Gemensam nämnare: 6, eftersom $3 \\cdot 2 = 6$.",
+        "Förläng $\\frac{2}{3}$ med 2: $\\frac{2}{3} = \\frac{4}{6}$.",
+        "Subtrahera täljarna: $\\frac{4}{6} - \\frac{1}{6} = \\frac{3}{6}$.",
+        "Förkorta med 3: $\\frac{3}{6} = \\frac{1}{2}$."
+      ]
+    },
+    {
+      "id": "q-ma7-bra-8",
+      "kind": "flashcard",
+      "topic": "bråk",
+      "prompt": "Hur räknar du med bråk, och hur växlar du mellan bråk, decimaltal och procent?",
+      "opener": "Tänk på tre saker: förkorta/förlänga, addera, och omvandla.",
+      "answer": "Förkorta = dela täljare och nämnare med samma tal · förlänga = multiplicera båda med samma tal · bråkets värde ändras inte i något av fallen · Addition och subtraktion kräver samma nämnare: förläng först, addera sedan bara täljarna · Bråk till decimaltal: dela täljaren med nämnaren, $\\frac{3}{4} = 0{,}75$ · Decimaltal till procent: multiplicera med 100, $0{,}75 = 75$ % · Bra att kunna utantill: $\\frac{1}{2} = 0{,}5 = 50$ %, $\\frac{1}{4} = 0{,}25 = 25$ %, $\\frac{1}{5} = 0{,}2 = 20$ %, $\\frac{1}{10} = 0{,}1 = 10$ %."
+    }
+  ]
+}

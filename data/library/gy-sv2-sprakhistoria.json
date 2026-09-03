@@ -1,0 +1,131 @@
+{
+  "id": "lib-sv2-sprakhistoria",
+  "type": "assignment",
+  "subject": "Svenska 2",
+  "title": "Svenska språkets historia",
+  "sourceSummary": "Från runsvenska och fornsvenska via nysvenska till nusvenska — viktiga språkförändringar, lånord från olika perioder och varför språk förändras.",
+  "topics": [
+    "runsvenska",
+    "fornsvenska",
+    "nysvenska",
+    "nusvenska",
+    "lånord",
+    "språkförändring",
+    "epokindelning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv2-sprakhistoria-1",
+      "kind": "mc",
+      "topic": "runsvenska",
+      "prompt": "Vilket skriftsystem användes under runsvensk tid (ca 800–1225)?",
+      "opener": "Vad ristade man in i sten under vikingatiden?",
+      "choices": [
+        "Det latinska alfabetet",
+        "Grekiska bokstäver",
+        "Runor",
+        "Bildskrift utan alfabet"
+      ],
+      "answer": 2,
+      "explanation": "Runsvenska är namnet på det äldsta stadiet av det svenska språket, då runor (framför allt den yngre futharken) användes för att skriva, till exempel på runstenar. Det latinska alfabetet infördes först i samband med kristnandet."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-2",
+      "kind": "mc",
+      "topic": "fornsvenska",
+      "prompt": "Vilken händelse markerar vanligtvis övergången från runsvenska till fornsvenska?",
+      "opener": "Vilket alfabetbyte hänger ihop med en ny religion?",
+      "choices": [
+        "Reformationen och Gustav Vasas bibel",
+        "Att Sverige blev en enad nation",
+        "Den industriella revolutionen",
+        "Att kristendomen och det latinska alfabetet infördes"
+      ],
+      "answer": 3,
+      "explanation": "Fornsvenskan (ca 1225–1526) tar vid när det latinska alfabetet börjar användas i samband med kristnandet av Sverige. Gustav Vasas bibel (1541) markerar i stället början av nysvenskan."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-3",
+      "kind": "mc",
+      "topic": "fornsvenska",
+      "prompt": "Vilket verk räknas som ett viktigt fornsvenskt dokument som visar hur rätts- och skriftspråket såg ut på 1300-talet?",
+      "opener": "Tänk lagtext, inte skönlitteratur.",
+      "choices": [
+        "Magnus Erikssons landslag",
+        "Nya testamentet på svenska",
+        "Fritänkaren av Thorild",
+        "Röda rummet"
+      ],
+      "answer": 0,
+      "explanation": "Magnus Erikssons landslag (ca 1350) är ett centralt fornsvenskt dokument som ger inblick i medeltida svenska rätts- och skriftspråk. De övriga alternativen hör till senare epoker."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-4",
+      "kind": "mc",
+      "topic": "nysvenska",
+      "prompt": "Vad innebar Gustav Vasas bibel (1541) för det svenska språkets historia?",
+      "opener": "En bibelöversättning som blev språkligt vägledande för hela landet.",
+      "choices": [
+        "Den är det första exemplet på runsvenska",
+        "Den bidrog till en mer enhetlig svensk stavning och markerar övergången till nysvenska",
+        "Den skrevs helt på latin",
+        "Den var den första svenska romanen"
+      ],
+      "answer": 1,
+      "explanation": "Gustav Vasas bibel (1541) användes i kyrkor över hela landet och bidrog till att sprida en mer enhetlig svensk stavning och grammatik — därför räknas den ofta som startpunkten för nysvenskan."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-5",
+      "kind": "mc",
+      "topic": "lånord",
+      "prompt": "Under 1700-talet lånade svenskan in många ord från franskan, till exempel \"balkong\" och \"affär\". Varför var franskan så inflytelserik då?",
+      "opener": "Tänk på vilket land som dominerade Europas kultur och hov på 1700-talet.",
+      "choices": [
+        "Franska var handelsspråk i Hansan",
+        "Sverige ockuperades av Frankrike",
+        "Franska var det ledande kultur- och hovspråket i Europa under den epoken",
+        "Franska var kyrkans officiella språk"
+      ],
+      "answer": 2,
+      "explanation": "Franskan var 1700-talets internationella prestigespråk inom kultur, mode och diplomati, vilket ledde till en våg av franska lånord i svenskan. Lågtyska lånord dominerade i stället under medeltiden via Hansan."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-6",
+      "kind": "mc",
+      "topic": "nusvenska",
+      "prompt": "Vilken typ av lånord har dominerat svenskan starkast under 1900- och 2000-talet?",
+      "opener": "Vilket språk möter du i teknik, film och internet idag?",
+      "choices": [
+        "Engelska lånord",
+        "Lågtyska lånord",
+        "Franska lånord",
+        "Latinska lånord"
+      ],
+      "answer": 0,
+      "explanation": "Engelskan har varit den klart dominerande källan till nya lånord i svenskan under nusvensk tid, särskilt inom teknik, populärkultur och vetenskap."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-7",
+      "kind": "worked",
+      "topic": "språkförändring",
+      "prompt": "Verbformer som \"de sjöngo\" och \"vi sprungo\" har försvunnit ur talad svenska, och hövlighetsuttryck som niandet används sällan idag. Förklara varför språk förändras över tid och ge minst två orsaker.",
+      "opener": "Språk är inte statiskt — vad påverkar hur vi pratar om hundra år?",
+      "answer": "Språk förändras ständigt på grund av bland annat social och kulturell utveckling, kontakt med andra språk och en naturlig strävan mot enklare, mer regelbundna former — till exempel har verbens pluralböjning (vi sjöngo) försvunnit för att språket förenklats.",
+      "steps": [
+        "Språkkontakt: möten med andra språk genom handel, krig, invandring och medier för in nya ord och uttryck (lånord).",
+        "Social och teknisk utveckling: nya företeelser och uppfinningar kräver nya ord, medan gamla ord kan försvinna när det de beskrev försvinner.",
+        "Språklig förenkling: komplicerade böjningsmönster, som verbens pluralformer (vi sjöngo, de sprungo), tenderar att försvinna till förmån för enklare, mer regelbundna former.",
+        "Attityder och normer förändras också — vad som en gång var hövligt eller korrekt kan med tiden uppfattas som ålderdomligt, som niandet."
+      ]
+    },
+    {
+      "id": "q-sv2-sprakhistoria-8",
+      "kind": "flashcard",
+      "topic": "epokindelning",
+      "prompt": "Sammanfatta det svenska språkets historiska epoker och deras ungefärliga tidsperioder.",
+      "opener": "Fyra namn, fyra tidsåldrar.",
+      "answer": "Runsvenska (ca 800–1225): skrevs med runor, äldsta belagda svenska · Fornsvenska (1225–1526): latinska alfabetet införs med kristendomen, t.ex. Magnus Erikssons landslag · Nysvenska (1526–ca 1900): Gustav Vasas bibel (1541) ger enhetligare stavning, franska lånord under 1700-talet · Nusvenska (från ca 1900): dagens svenska, starkt påverkad av engelska lånord. Språket förändras hela tiden genom språkkontakt, samhällsförändringar och strävan mot enklare former."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist-varldskrigen",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Världskrigen",
+  "sourceSummary": "Vad som orsakade första och andra världskriget, viktiga vändpunkter under krigen, och hur världen försökte bygga en varaktig fred efteråt genom FN.",
+  "topics": [
+    "orsaker till första världskriget",
+    "orsaker till andra världskriget",
+    "händelseförlopp och vändpunkter",
+    "konsekvenser"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist-vk-1",
+      "kind": "mc",
+      "topic": "orsaker till första världskriget",
+      "prompt": "Vilken händelse blev den utlösande gnistan till första världskriget 1914?",
+      "opener": "Tänk på ett mord i Sarajevo som satte igång en kedjereaktion mellan allierade stater.",
+      "choices": [
+        "Mordet på den österrikisk-ungerske tronföljaren Franz Ferdinand",
+        "Tysklands invasion av Polen",
+        "Den ryska revolutionen",
+        "Den japanska attacken mot Pearl Harbor"
+      ],
+      "answer": 0,
+      "explanation": "Mordet på ärkehertig Franz Ferdinand i Sarajevo i juni 1914 fick Österrike-Ungern att förklara krig mot Serbien, vilket via alliansernas kedjereaktion drog in stora delar av Europa i kriget. Polens invasion och Pearl Harbor hör till andra världskriget, och den ryska revolutionen skedde 1917, mitt under kriget."
+    },
+    {
+      "id": "q-hist-vk-2",
+      "kind": "mc",
+      "topic": "orsaker till första världskriget",
+      "prompt": "Varför spred sig konflikten mellan Österrike-Ungern och Serbien till nästan hela Europa?",
+      "opener": "Länderna var indelade i två stora block som lovat att försvara varandra.",
+      "choices": [
+        "Europas stater var bundna av allianser (t.ex. trippelalliansen och trippelententen) som drog med sig varandra i kriget",
+        "Alla länder i Europa styrdes av samma kung",
+        "FN krävde att alla medlemsländer skulle delta",
+        "Serbien hade koloniserat resten av Europa"
+      ],
+      "answer": 0,
+      "explanation": "Genom alliansystemet — trippelalliansen (Tyskland, Österrike-Ungern, Italien) och trippelententen (Frankrike, Ryssland, Storbritannien) — blev en regional konflikt snabbt till ett storkrig, eftersom länderna var förpliktade att stödja sina allierade. FN fanns inte ens under första världskriget."
+    },
+    {
+      "id": "q-hist-vk-3",
+      "kind": "mc",
+      "topic": "orsaker till andra världskriget",
+      "prompt": "Hur bidrog Versaillesfreden efter första världskriget till att andra världskriget bröt ut?",
+      "opener": "Tänk på hur Tyskland behandlades i fredsavtalet 1919, och hur det kunde utnyttjas politiskt senare.",
+      "choices": [
+        "Tyskland tvingades betala enorma krigsskadestånd och avträda territorium, vilket skapade bitterhet som nazisterna senare utnyttjade i sin propaganda",
+        "Versaillesfreden gav Tyskland nya kolonier och stärkte landets ekonomi",
+        "Versaillesfreden handlade enbart om handel mellan Frankrike och Storbritannien",
+        "Versaillesfreden garanterade evig fred och hade inget samband med senare händelser"
+      ],
+      "answer": 0,
+      "explanation": "De hårda villkoren i Versaillesfreden — stora skadestånd, förlorat territorium och begränsad militär — förnedrade Tyskland och bidrog till ekonomisk kris och nationell bitterhet. Nazisterna använde detta missnöje för att vinna stöd under 1920- och 30-talen."
+    },
+    {
+      "id": "q-hist-vk-4",
+      "kind": "mc",
+      "topic": "orsaker till andra världskriget",
+      "prompt": "Vilka faktorer bidrog till att nazismen och Hitler fick makt i Tyskland på 1930-talet?",
+      "opener": "Tänk på det ekonomiska läget i Tyskland och vilka löften nazisterna gav ett missnöjt folk.",
+      "choices": [
+        "Ekonomisk kris, massarbetslöshet och missnöje med Versaillesfreden gjorde att många tyskar lockades av nazisternas löften om nationell upprättelse",
+        "Tyskland var vid den tiden ett av Europas rikaste och mest stabila länder",
+        "Nazisterna kom till makten genom ett beslut av Nationernas förbund",
+        "Andra europeiska länder krävde att Tyskland skulle välja Hitler till ledare"
+      ],
+      "answer": 0,
+      "explanation": "Den ekonomiska världskrisen på 1930-talet slog hårt mot Tyskland med skyhög arbetslöshet, samtidigt som många tyskar kände sig förödmjukade av Versaillesfreden. Hitler och nazisterna lovade ordning, arbete och nationell stolthet, vilket gav dem växande stöd innan Hitler utsågs till rikskansler 1933."
+    },
+    {
+      "id": "q-hist-vk-5",
+      "kind": "mc",
+      "topic": "händelseförlopp och vändpunkter",
+      "prompt": "Vilken händelse räknas som en av de viktigaste vändpunkterna i andra världskriget, då Nazitysklands krigslycka började vända?",
+      "opener": "Tänk på ett långt och blodigt slag på östfronten där en tysk armé till slut besegrades.",
+      "choices": [
+        "Slaget om Stalingrad, där den tyska armén led ett förkrossande nederlag mot Sovjetunionen",
+        "Freden i Versailles",
+        "Mordet på Franz Ferdinand i Sarajevo",
+        "Slaget vid Trafalgar"
+      ],
+      "answer": 0,
+      "explanation": "Slaget om Stalingrad (1942–1943) slutade med en avgörande sovjetisk seger och blev en vändpunkt som inledde Nazitysklands tillbakagång på östfronten. De andra alternativen hör antingen till första världskriget eller till en helt annan tid."
+    },
+    {
+      "id": "q-hist-vk-6",
+      "kind": "mc",
+      "topic": "konsekvenser",
+      "prompt": "Varför bildades FN (Förenta nationerna) efter andra världskriget?",
+      "opener": "Tänk på vad världens ledare ville förhindra efter att två världskrig hade skördat enorma antal offer.",
+      "choices": [
+        "För att skapa ett forum för internationellt samarbete och förhindra att nya världskrig bryter ut",
+        "För att ersätta alla enskilda länders regeringar",
+        "För att enbart fördela Europas kolonier mellan segrarmakterna",
+        "För att kontrollera Sveriges neutralitetspolitik"
+      ],
+      "answer": 0,
+      "explanation": "FN grundades 1945 med målet att främja fred, säkerhet och samarbete mellan världens stater, som en lärdom av de två världskrigens fasor. Nationernas förbund, som bildats efter första världskriget med liknande syfte, hade misslyckats med att förhindra ett nytt storkrig."
+    },
+    {
+      "id": "q-hist-vk-7",
+      "kind": "worked",
+      "topic": "orsaker till andra världskriget",
+      "prompt": "Jämför orsakerna till första och andra världskriget. Vilket samband finns mellan de två krigen?",
+      "opener": "Tänk på hur fredsavtalet efter det första kriget lade grunden för missnöje som ledde till det andra.",
+      "answer": "Första världskriget orsakades främst av allianssystem, nationalism och stormaktsrivalitet, utlöst av mordet på Franz Ferdinand. Andra världskriget hänger direkt samman med hur första världskriget avslutades: Versaillesfredens hårda villkor mot Tyskland skapade ekonomisk kris och nationell förnedring, vilket gav grogrund för nazismen och Hitlers maktövertagande. På så sätt kan man säga att andra världskriget till stor del var en konsekvens av hur det första kriget avslutades, inte bara en helt separat händelse.",
+      "steps": [
+        "Första världskriget utlöstes av mordet i Sarajevo 1914 och spreds via allianssystemet mellan europeiska stormakter.",
+        "Kriget avslutades 1919 med Versaillesfreden, som ålade Tyskland stora skadestånd, landförluster och militära begränsningar.",
+        "De hårda fredsvillkoren skapade ekonomisk kris och bitterhet i Tyskland under 1920- och 30-talen.",
+        "Nazisterna utnyttjade missnöjet och lovade nationell upprättelse, vilket gav dem växande politiskt stöd.",
+        "Hitlers aggressiva utrikespolitik, byggd på detta missnöje, ledde till slut till att andra världskriget bröt ut 1939."
+      ]
+    },
+    {
+      "id": "q-hist-vk-8",
+      "kind": "flashcard",
+      "topic": "händelseförlopp och vändpunkter",
+      "prompt": "Sammanfatta de viktigaste orsakerna, händelserna och konsekvenserna av världskrigen.",
+      "opener": "Tänk orsaker, vändpunkter och vad som hände efteråt för båda krigen.",
+      "answer": "Första världskriget (1914–1918) utlöstes av mordet på Franz Ferdinand i Sarajevo och spreds via allianssystemet (trippelalliansen mot trippelententen) · kriget avslutades med Versaillesfreden, som straffade Tyskland hårt med skadestånd och landförluster · de hårda fredsvillkoren skapade ekonomisk kris och bitterhet som bidrog till nazismens uppkomst i Tyskland på 1930-talet · andra världskriget (1939–1945) startade när Tyskland invaderade Polen · viktiga vändpunkter var bland annat slaget om Stalingrad och de allierades landstigning i Normandie · kriget slutade med Tysklands och Japans nederlag 1945 · efter kriget bildades FN för att främja fred och internationellt samarbete och förhindra nya världskrig · nya gränser drogs och Europa delades i öst och väst, vilket lade grunden för kalla kriget."
+    }
+  ]
+}

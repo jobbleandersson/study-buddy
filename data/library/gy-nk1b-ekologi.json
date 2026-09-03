@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-ekologi",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "Ekologi och hållbar utveckling",
+  "sourceSummary": "Ekosystemtjänster och biologisk mångfald, fördjupning i kretsloppen för kol, kväve och fosfor, samt hållbar utveckling som ekologiskt, socialt och ekonomiskt begrepp.",
+  "topics": [
+    "ekosystemtjänster",
+    "biologisk mångfald",
+    "kretslopp fördjupning",
+    "hållbar utveckling"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-ekologi-1",
+      "kind": "mc",
+      "topic": "ekosystemtjänster",
+      "prompt": "Vad menas med en ekosystemtjänst?",
+      "opener": "Tänk på sådant naturen gör åt oss gratis, utan att vi behöver bygga eller betala för det.",
+      "choices": [
+        "En nytta som människan får av ekosystem, t.ex. pollinering, rent vatten eller virke",
+        "En tjänst där staten sköter om skog och mark åt privatpersoner",
+        "Ett annat ord för naturreservat",
+        "En avgift man betalar för att få vistas i naturen"
+      ],
+      "answer": 0,
+      "explanation": "Ekosystemtjänster är de nyttor som ekosystem ger människan, t.ex. att bin pollinerar grödor, att våtmarker renar vatten och att skogen ger virke och binder koldioxid. Det handlar inte om en avgift eller en statlig tjänst."
+    },
+    {
+      "id": "q-nk1b-ekologi-2",
+      "kind": "mc",
+      "topic": "ekosystemtjänster",
+      "prompt": "Bin och andra insekter som pollinerar grödor är ett exempel på vilken typ av ekosystemtjänst?",
+      "opener": "Fundera på om tjänsten direkt ger en produkt, reglerar något i naturen, eller är kulturell.",
+      "choices": [
+        "En kulturell ekosystemtjänst",
+        "En reglerande ekosystemtjänst",
+        "En stödjande ekosystemtjänst",
+        "En försörjande (producerande) ekosystemtjänst"
+      ],
+      "answer": 1,
+      "explanation": "Pollinering räknas som en reglerande ekosystemtjänst eftersom den reglerar en biologisk process (växters fortplantning) som i sin tur möjliggör skörd. Försörjande tjänster är själva produkterna, t.ex. mat, virke och vatten."
+    },
+    {
+      "id": "q-nk1b-ekologi-3",
+      "kind": "mc",
+      "topic": "biologisk mångfald",
+      "prompt": "Vad innebär begreppet biologisk mångfald?",
+      "opener": "Begreppet handlar om variation på flera olika nivåer, inte bara antal arter.",
+      "choices": [
+        "Enbart det totala antalet djur i ett område",
+        "Hur många nationalparker ett land har",
+        "Variationsrikedomen bland gener, arter och ekosystem",
+        "Mängden växter jämfört med djur i ett ekosystem"
+      ],
+      "answer": 2,
+      "explanation": "Biologisk mångfald omfattar variation på tre nivåer: genetisk variation inom en art, mångfalden av arter och mångfalden av ekosystem. Det handlar alltså om mer än bara ett räknat antal djur."
+    },
+    {
+      "id": "q-nk1b-ekologi-4",
+      "kind": "mc",
+      "topic": "biologisk mångfald",
+      "prompt": "Varför är hög biologisk mångfald viktig för ett ekosystems förmåga att klara störningar, t.ex. torka eller sjukdomsutbrott?",
+      "opener": "Tänk på vad som händer om alla arter i systemet är beroende av exakt samma förhållanden.",
+      "choices": [
+        "Mångfald gör ekosystemet mer sårbart eftersom fler arter kan dö samtidigt",
+        "Mångfald är irrelevant för hur ett ekosystem klarar störningar",
+        "Mångfald minskar bara konkurrensen om föda utan andra effekter",
+        "Fler arter och genetisk variation gör att systemet har större chans att några arter eller individer klarar förändringen och kan fylla viktiga funktioner"
+      ],
+      "answer": 3,
+      "explanation": "Med många arter och stor genetisk variation ökar chansen att åtminstone några klarar en förändrad situation, vilket gör ekosystemet mer motståndskraftigt (resilient). Ett artfattigt system är sårbarare eftersom hela funktionen kan slås ut om en enda art drabbas hårt."
+    },
+    {
+      "id": "q-nk1b-ekologi-5",
+      "kind": "mc",
+      "topic": "kretslopp fördjupning",
+      "prompt": "Vilka organismer omvandlar kvävgas (N2) i luften till en form som växter kan ta upp, och som därmed startar kvävets kretslopp i marken?",
+      "opener": "Kvävgas i luften är i sig svår för växter att använda direkt — någon måste \"fixera\" den först.",
+      "choices": [
+        "Kvävefixerande bakterier, bland annat i rotknölar hos ärtväxter",
+        "Gröna växters blad genom fotosyntes",
+        "Svampar som bryter ner döda djur",
+        "Alger i sjöar och hav"
+      ],
+      "answer": 0,
+      "explanation": "Kvävefixerande bakterier, som lever fritt i marken eller i symbios i rotknölar hos ärtväxter, omvandlar (fixerar) kvävgas till ammonium som växter kan använda. Fotosyntesen handlar istället om kol och energi, inte om att fixera kväve."
+    },
+    {
+      "id": "q-nk1b-ekologi-6",
+      "kind": "mc",
+      "topic": "hållbar utveckling",
+      "prompt": "Enligt Brundtlandrapportens definition, vad kännetecknar en hållbar utveckling?",
+      "opener": "Definitionen handlar om relationen mellan dagens och framtidens generationer.",
+      "choices": [
+        "En utveckling som enbart fokuserar på ekonomisk tillväxt",
+        "En utveckling som tillfredsställer dagens behov utan att äventyra kommande generationers möjligheter att tillfredsställa sina behov",
+        "En utveckling där naturen fredas helt från mänsklig påverkan",
+        "En utveckling som prioriterar rika länders behov före fattiga länders"
+      ],
+      "answer": 1,
+      "explanation": "Den klassiska definitionen (från FN:s Brundtlandrapport 1987) beskriver hållbar utveckling som en utveckling som möter nutidens behov utan att äventyra framtida generationers möjligheter. Begreppet vilar på tre samverkande delar: ekologisk, social och ekonomisk hållbarhet — inte enbart ekonomi."
+    },
+    {
+      "id": "q-nk1b-ekologi-7",
+      "kind": "worked",
+      "topic": "kretslopp fördjupning",
+      "prompt": "Förklara hur fosforns kretslopp skiljer sig från kolets och kvävets kretslopp, och varför övergödning av sjöar och hav ofta kopplas till just fosfor och kväve.",
+      "opener": "Jämför var i naturen respektive ämne huvudsakligen finns lagrat, och vad som händer när för mycket av ämnet hamnar i vatten.",
+      "answer": "Fosforns kretslopp saknar en betydande gasfas och rör sig långsamt via berggrund och sediment, medan kol och kväve till stor del cirkulerar via atmosfären; när överskott av fosfor och kväve från t.ex. gödsel läcker ut i sjöar och hav gynnas algtillväxt kraftigt, vilket leder till övergödning och syrebrist när algerna sedan bryts ner.",
+      "steps": [
+        "Kolets och kvävets kretslopp har en gasfas: koldioxid respektive kvävgas rör sig fritt genom atmosfären mellan mark, vatten, organismer och luft.",
+        "Fosfor saknar en gasform under naturliga förhållanden och finns istället bundet i berggrund, mineraler och sediment, varför fosforns kretslopp går mycket långsammare.",
+        "Fosfor och kväve är ofta det som begränsar växters och algers tillväxt, eftersom de behövs i relativt stor mängd men naturligt finns i begränsad tillgång.",
+        "Konstgödsel och avloppsvatten tillför stora mängder extra fosfor och kväve till mark och vattendrag.",
+        "När dessa ämnen når sjöar och hav orsakar de kraftig algblomning; när algerna dör och bryts ner förbrukas syre i vattnet, vilket kan leda till syrebrist och döda bottnar — det som kallas övergödning."
+      ]
+    },
+    {
+      "id": "q-nk1b-ekologi-8",
+      "kind": "flashcard",
+      "topic": "hållbar utveckling",
+      "prompt": "Sammanfatta centrala begrepp inom ekologi och hållbar utveckling: ekosystemtjänster, biologisk mångfald, kretslopp och hållbarhetens tre delar.",
+      "opener": "Gå igenom vad naturen ger oss, varför variation spelar roll och vad som håller ämnena i omlopp.",
+      "answer": "Ekosystemtjänster: nyttor människan får av naturen — försörjande (mat, virke), reglerande (pollinering, vattenrening), stödjande (fotosyntes, jordbildning) och kulturella (rekreation, naturupplevelser) · Biologisk mångfald: variation på gen-, art- och ekosystemnivå, ökar naturens motståndskraft mot störningar · Kolets kretslopp: cirkulerar snabbt via atmosfären genom fotosyntes, andning och förbränning · Kvävets kretslopp: kvävefixerande bakterier omvandlar kvävgas till en form växter kan använda · Fosforns kretslopp: långsamt, saknar gasfas, binds i berggrund och sediment — överskott av fosfor och kväve orsakar övergödning · Hållbar utveckling: tillgodoser dagens behov utan att äventyra framtida generationers, vilar på ekologisk, social och ekonomisk hållbarhet tillsammans."
+    }
+  ]
+}

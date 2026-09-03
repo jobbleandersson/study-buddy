@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam-ekonomi",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Privatekonomi och samhällsekonomi",
+  "sourceSummary": "Grunderna i att sköta sin egen ekonomi — budget, inkomst och sparande — och hur skatter, utbud/efterfrågan och inflation hänger ihop på samhällsnivå.",
+  "topics": [
+    "budget och privatekonomi grunder",
+    "skatter och vad de finansierar",
+    "utbud och efterfrågan grundidé",
+    "inflation grundidé"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam-eko-1",
+      "kind": "mc",
+      "topic": "budget och privatekonomi grunder",
+      "prompt": "Vad kallas en plan där du ställer dina inkomster mot dina utgifter under en viss period?",
+      "opener": "Det är ett grundverktyg för att hålla koll på pengarna in och ut.",
+      "choices": [
+        "Ett kvitto",
+        "En budget",
+        "En faktura",
+        "Ett kontoutdrag"
+      ],
+      "answer": 1,
+      "explanation": "En budget är en plan där man ställer inkomster (t.ex. lön, fickpengar) mot utgifter (t.ex. hyra, mat, nöjen) för att se om pengarna räcker och hur mycket som kan sparas. Ett kvitto och ett kontoutdrag visar redan genomförda köp/transaktioner, en faktura är en betalningsbegäran."
+    },
+    {
+      "id": "q-sam-eko-2",
+      "kind": "mc",
+      "topic": "budget och privatekonomi grunder",
+      "prompt": "Vilket av följande är ett exempel på en fast utgift?",
+      "opener": "Fasta utgifter är ungefär lika stora varje månad, till skillnad från utgifter som varierar.",
+      "choices": [
+        "Hyra för lägenheten",
+        "Glass en varm sommardag",
+        "En present till en kompis födelsedag",
+        "Biobiljett på fredagen"
+      ],
+      "answer": 0,
+      "explanation": "Hyra är en fast utgift som återkommer med ungefär samma belopp varje månad. Glass, presenter och biobiljetter är exempel på rörliga eller tillfälliga utgifter som varierar från månad till månad."
+    },
+    {
+      "id": "q-sam-eko-3",
+      "kind": "mc",
+      "topic": "budget och privatekonomi grunder",
+      "prompt": "Varför är det klokt att spara en del av sin inkomst regelbundet, även små summor?",
+      "opener": "Tänk på oväntade utgifter och långsiktiga mål, t.ex. en flyttbil eller en dator.",
+      "choices": [
+        "Det är inte klokt, pengar ska alltid användas direkt",
+        "Sparande ger en buffert vid oväntade utgifter och gör det möjligt att nå större mål över tid",
+        "Sparande gör att pengarna minskar i värde",
+        "Man får bara spara om man tjänar väldigt mycket"
+      ],
+      "answer": 1,
+      "explanation": "Regelbundet sparande bygger upp en buffert för oväntade kostnader (t.ex. en trasig cykel) och gör det möjligt att med tiden ha råd med större saker, som en resa eller en dator, utan att behöva låna."
+    },
+    {
+      "id": "q-sam-eko-4",
+      "kind": "mc",
+      "topic": "skatter och vad de finansierar",
+      "prompt": "Vad används skatteintäkter i Sverige framför allt till?",
+      "opener": "Tänk på sådant som alla i samhället använder gemensamt, oavsett vad var och en betalar.",
+      "choices": [
+        "Enbart till statsministerns privata utgifter",
+        "Till gemensam välfärd som skola, sjukvård, äldreomsorg, polis och infrastruktur",
+        "De sparas bara på ett bankkonto och används aldrig",
+        "Till att betala tillbaka pengar till de rikaste invånarna"
+      ],
+      "answer": 1,
+      "explanation": "Skatter finansierar gemensamma samhällsfunktioner som skola, sjukvård, äldreomsorg, polis, försvar och vägar — sådant som är svårt eller olämpligt för varje individ att betala för på egen hand."
+    },
+    {
+      "id": "q-sam-eko-5",
+      "kind": "mc",
+      "topic": "skatter och vad de finansierar",
+      "prompt": "Vad kallas skatten som läggs på de flesta varor och tjänster när man handlar i en butik?",
+      "opener": "Den syns ofta som en procentsats inräknad i priset du betalar i kassan.",
+      "choices": [
+        "Inkomstskatt",
+        "Fastighetsskatt",
+        "Moms (mervärdesskatt)",
+        "Bolagsskatt"
+      ],
+      "answer": 2,
+      "explanation": "Moms (mervärdesskatt) läggs på de flesta varor och tjänster och betalas av konsumenten vid köp. Inkomstskatt tas ut på lön, fastighetsskatt på boende och bolagsskatt på företags vinster."
+    },
+    {
+      "id": "q-sam-eko-6",
+      "kind": "mc",
+      "topic": "utbud och efterfrågan grundidé",
+      "prompt": "Vad händer med priset på en vara om efterfrågan ökar kraftigt samtidigt som utbudet är oförändrat?",
+      "opener": "Fler som vill köpa samma mängd varor brukar påverka priset åt ett visst håll.",
+      "choices": [
+        "Priset sjunker vanligtvis",
+        "Priset brukar stiga eftersom fler vill ha samma mängd",
+        "Priset påverkas aldrig av efterfrågan",
+        "Varan blir automatiskt gratis"
+      ],
+      "answer": 1,
+      "explanation": "När efterfrågan ökar men utbudet förblir detsamma vill fler köpare ha samma mängd vara, vilket vanligtvis pressar upp priset. Om istället utbudet ökar mer än efterfrågan brukar priset sjunka."
+    },
+    {
+      "id": "q-sam-eko-7",
+      "kind": "worked",
+      "topic": "inflation grundidé",
+      "prompt": "Förklara vad inflation innebär och varför en löneökning på 2 % inte nödvändigtvis förbättrar din köpkraft om inflationen samtidigt är 4 %.",
+      "opener": "Jämför hur mycket pengarna är värda i förhållande till priserna, inte bara hur stor summan är i kronor.",
+      "answer": "Inflation innebär att den allmänna prisnivån i samhället stiger över tid, vilket gör att varje krona köper mindre varor och tjänster än tidigare — pengarnas köpkraft minskar. Om din lön ökar med 2 % men priserna i genomsnitt stiger med 4 % under samma period, har din reallön (köpkraft) i praktiken minskat med ungefär 2 %, eftersom priserna stigit mer än din inkomst. Du har alltså fler kronor men de räcker till mindre än innan.",
+      "steps": [
+        "Inflation = den allmänna prisnivån i ekonomin ökar över tid, mätt t.ex. med konsumentprisindex.",
+        "Köpkraft handlar om hur mycket varor och tjänster en given summa pengar räcker till, inte bara hur många kronor du har.",
+        "Din lön (i kronor räknat) ökar med 2 %, men priserna ökar med 4 % — priserna har alltså ökat mer än din inkomst.",
+        "Eftersom priserna stigit mer än lönen räcker dina pengar till mindre varor och tjänster än förut — din reala köpkraft minskar, trots att du nominellt tjänar mer.",
+        "Slutsats: det är skillnaden mellan löneökning och inflation (den reala löneutvecklingen) som avgör om du faktiskt har råd med mer eller mindre än tidigare."
+      ]
+    },
+    {
+      "id": "q-sam-eko-8",
+      "kind": "flashcard",
+      "topic": "budget och privatekonomi grunder",
+      "prompt": "Sammanfatta de viktigaste begreppen inom privatekonomi och samhällsekonomi.",
+      "opener": "Från den egna plånboken till hela samhällets ekonomi i några nyckelbegrepp.",
+      "answer": "Budget: plan där inkomster ställs mot utgifter för att se vad som blir kvar att spara · Fasta utgifter: återkommer med ungefär samma belopp (t.ex. hyra), rörliga utgifter varierar (t.ex. mat, nöjen) · Sparande: bygger buffert för oväntade utgifter och möjliggör större framtida köp · Skatt: pengar medborgare och företag betalar till stat, region och kommun, som finansierar gemensam välfärd (skola, vård, omsorg, infrastruktur) · Moms: skatt på de flesta varor/tjänster, betalas av konsumenten vid köp · Utbud och efterfrågan: hög efterfrågan + oförändrat utbud brukar ge högre pris, ökat utbud utan ökad efterfrågan brukar ge lägre pris · Inflation: allmän prisnivå stiger över tid, vilket minskar pengars köpkraft om inte inkomsten ökar minst lika mycket."
+    }
+  ]
+}

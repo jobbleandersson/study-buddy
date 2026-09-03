@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-universum",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "Universum och astronomi",
+  "sourceSummary": "Big Bang-teorin i korthet, stjärnors livscykel, solsystemets uppbyggnad och hur astronomer tar reda på avstånd och sammansättning med hjälp av spektroskopi.",
+  "topics": [
+    "Big Bang och universums utveckling",
+    "stjärnors livscykel",
+    "solsystemet",
+    "astronomiska metoder"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-universum-1",
+      "kind": "mc",
+      "topic": "Big Bang och universums utveckling",
+      "prompt": "Vad innebär Big Bang-teorin i korthet?",
+      "opener": "Tänk på vad teorin säger om universums storlek och temperatur allra längst tillbaka i tiden, inte om en explosion i vanlig mening.",
+      "choices": [
+        "Att en stjärna exploderade i ett redan existerande, oändligt stort universum",
+        "Att universum för cirka 13,8 miljarder år sedan expanderade från ett extremt hett och tätt tillstånd, och att det sedan dess fortsatt att expandera",
+        "Att jorden bildades genom en enda stor kollision mellan planeter",
+        "Att universum alltid har haft exakt samma storlek och temperatur"
+      ],
+      "answer": 1,
+      "explanation": "Big Bang-teorin beskriver hur hela universum expanderat från ett extremt hett, tätt tillstånd för cirka 13,8 miljarder år sedan, och att denna expansion fortsätter än idag. Det handlar inte om en explosion i en redan existerande rymd, utan om att själva rummet expanderar."
+    },
+    {
+      "id": "q-nk1b-universum-2",
+      "kind": "mc",
+      "topic": "Big Bang och universums utveckling",
+      "prompt": "Vilket observationellt bevis brukar lyftas fram som ett av de starkaste stöden för Big Bang-teorin?",
+      "opener": "Tänk på vad som skulle synas om avlägsna galaxer rör sig bort från oss, samt på den svaga strålning som fyller hela rymden.",
+      "choices": [
+        "Att alla stjärnor har exakt samma ålder",
+        "Bland annat att galaxer generellt rör sig bort från varandra (rödförskjutning) och att det finns en bakgrundsstrålning, den kosmiska bakgrundsstrålningen, som fyller hela universum",
+        "Att månen alltid visar samma sida mot jorden",
+        "Att solen roterar runt jorden en gång per år"
+      ],
+      "answer": 1,
+      "explanation": "Två av de starkaste beläggen är att avlägsna galaxer uppvisar rödförskjutning, vilket visar att universum expanderar, samt upptäckten av den kosmiska bakgrundsstrålningen — ett svagt \"eko\" av det tidiga heta universum som finns åt alla håll i rymden. Månens och jordens rörelser har inget att göra med Big Bang som sådant."
+    },
+    {
+      "id": "q-nk1b-universum-3",
+      "kind": "mc",
+      "topic": "stjärnors livscykel",
+      "prompt": "Vad är det som huvudsakligen håller emot en stjärnas egen gravitation under större delen av dess liv och hindrar den från att kollapsa?",
+      "opener": "Tänk på vad som pågår i stjärnans kärna som frigör enorma mängder energi.",
+      "choices": [
+        "Stjärnans rotation runt sin egen axel",
+        "Trycket och strålningen från fusionsreaktioner i kärnan, t.ex. när väte omvandlas till helium",
+        "Magnetfält från andra stjärnor i samma galax",
+        "Stjärnans avstånd till närmaste planet"
+      ],
+      "answer": 1,
+      "explanation": "Under större delen av en stjärnas liv råder jämvikt mellan gravitationens inåtriktade dragningskraft och det utåtriktade trycket från energin som frigörs vid kärnfusion, framför allt när väte fuserar till helium. När bränslet tar slut rubbas jämvikten och stjärnan förändras drastiskt."
+    },
+    {
+      "id": "q-nk1b-universum-4",
+      "kind": "mc",
+      "topic": "stjärnors livscykel",
+      "prompt": "Vad avgör i störst utsträckning hur en stjärna avslutar sitt liv — t.ex. som en vit dvärg, en neutronstjärna eller ett svart hål?",
+      "opener": "Tänk på vilken egenskap hos stjärnan som brukar nämnas som mest avgörande för dess slutstadium.",
+      "choices": [
+        "Stjärnans färg vid födseln",
+        "Stjärnans ursprungliga massa",
+        "Hur många planeter som kretsar kring stjärnan",
+        "Avståndet till jorden"
+      ],
+      "answer": 1,
+      "explanation": "Stjärnans massa är den huvudsakliga faktorn som avgör dess öde: stjärnor med massa i närheten av solens slutar oftast som vita dvärgar, mer massiva stjärnor kan explodera som supernovor och lämna kvar en neutronstjärna, och de allra mest massiva stjärnorna kan kollapsa till ett svart hål. Färg, antal planeter och avstånd till jorden avgör inte slutstadiet."
+    },
+    {
+      "id": "q-nk1b-universum-5",
+      "kind": "mc",
+      "topic": "solsystemet",
+      "prompt": "Vad är den huvudsakliga skillnaden mellan de inre stenplaneterna (t.ex. jorden och mars) och de yttre gasjättarna (t.ex. jupiter och saturnus) i solsystemet?",
+      "opener": "Tänk på vad planeterna huvudsakligen är uppbyggda av, och på deras ungefärliga storlek.",
+      "choices": [
+        "Stenplaneterna är alltid större än gasjättarna",
+        "Stenplaneterna är relativt små och har en fast yta av berg och metall, medan gasjättarna är mycket större och huvudsakligen består av gaser som väte och helium",
+        "Gasjättarna saknar helt gravitation",
+        "Det finns ingen egentlig skillnad mellan planettyperna"
+      ],
+      "answer": 1,
+      "explanation": "De inre planeterna är relativt små med en fast yta huvudsakligen av berg och metall, medan de yttre gasjättarna är betydligt större och till största delen består av gaser, framför allt väte och helium, kring en mindre, tät kärna. Alla planeter har gravitation proportionerlig mot sin massa."
+    },
+    {
+      "id": "q-nk1b-universum-6",
+      "kind": "mc",
+      "topic": "astronomiska metoder",
+      "prompt": "Hur kan astronomer med hjälp av spektroskopi ta reda på vilka grundämnen som finns i en avlägsen stjärna?",
+      "opener": "Tänk på att varje grundämne absorberar och sänder ut ljus vid alldeles specifika våglängder, som ett unikt \"fingeravtryck\".",
+      "choices": [
+        "Genom att mäta stjärnans temperatur med en termometer på plats",
+        "Genom att dela upp stjärnans ljus i ett spektrum och jämföra de mörka (eller ljusa) linjerna med kända linjer för olika grundämnen, eftersom varje ämne har ett unikt mönster",
+        "Genom att räkna antalet stjärnor i samma stjärnbild",
+        "Genom att mäta hur snabbt stjärnan roterar runt sin egen axel"
+      ],
+      "answer": 1,
+      "explanation": "Varje grundämne absorberar och sänder ut ljus vid specifika, unika våglängder. Genom att dela upp stjärnljuset i ett spektrum med ett prisma eller gitter och jämföra mönstret av linjer med kända spektrallinjer från laboratorier på jorden kan astronomer avgöra vilka grundämnen som finns i stjärnan, utan att någonsin resa dit."
+    },
+    {
+      "id": "q-nk1b-universum-7",
+      "kind": "worked",
+      "topic": "astronomiska metoder",
+      "prompt": "Förklara hur rödförskjutning av ljus från avlägsna galaxer används som ett bevis för att universum expanderar.",
+      "opener": "Tänk på hur ljudet från en ambulans som kör bort från dig förändras (Dopplereffekten) — samma princip gäller för ljus.",
+      "answer": "Ljus från de flesta avlägsna galaxer är rödförskjutet, det vill säga att spektrallinjernas våglängder är förskjutna mot rött jämfört med samma ämnens linjer uppmätta i laboratorium, vilket enligt Dopplereffekten visar att galaxerna rör sig bort från oss — och att ju längre bort en galax är, desto snabbare rör den sig bort, precis som väntat om själva rymden expanderar.",
+      "steps": [
+        "När en ljuskälla rör sig bort från en observatör förskjuts våglängden hos ljuset mot den röda (längre våglängd) delen av spektrumet — detta kallas rödförskjutning och är en form av Dopplereffekt.",
+        "Astronomer tar spektrum av ljus från avlägsna galaxer och jämför de karakteristiska spektrallinjerna för kända grundämnen med samma linjer uppmätta i laboratorium på jorden.",
+        "Hos i stort sett alla avlägsna galaxer är dessa linjer förskjutna mot rött, vilket visar att galaxerna rör sig bort från oss.",
+        "Ju längre bort en galax befinner sig, desto större är rödförskjutningen, det vill säga desto snabbare rör den sig bort — ett samband som kallas Hubbles lag.",
+        "Att avstånd och hastighet hänger ihop på det sättet, åt alla håll i rymden, stämmer med att det är själva rummet som expanderar, vilket är ett av de viktigaste beläggen för Big Bang-teorin."
+      ]
+    },
+    {
+      "id": "q-nk1b-universum-8",
+      "kind": "flashcard",
+      "topic": "Big Bang och universums utveckling",
+      "prompt": "Sammanfatta det viktigaste om Big Bang, stjärnors livscykel, solsystemets uppbyggnad och astronomiska metoder.",
+      "opener": "Gå igenom universums historia, en stjärnas liv, planettyperna och hur vi vet något om det vi inte kan besöka.",
+      "answer": "Big Bang: universum expanderade från ett hett, tätt tillstånd för ca 13,8 miljarder år sedan och fortsätter expandera, stöds av rödförskjutning och kosmisk bakgrundsstrålning · Stjärnors liv: jämvikt mellan gravitation och fusionens strålningstryck håller stjärnan stabil; massan avgör slutstadiet — vit dvärg, neutronstjärna eller svart hål · Solsystemet: inre stenplaneter (litet, fast yta av berg/metall) och yttre gasjättar (stora, mest väte och helium) kretsar kring solen · Spektroskopi: varje grundämne har unika spektrallinjer, vilket gör att astronomer kan avgöra sammansättning på avstånd genom att analysera ljusets spektrum · Rödförskjutning: förskjutning av spektrallinjer mot rött visar att en galax rör sig bort från oss, och används för att mäta hastighet och stödja universums expansion."
+    }
+  ]
+}

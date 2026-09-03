@@ -1,0 +1,130 @@
+{
+  "id": "lib-bio7-kroppen",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Kroppens organsystem",
+  "sourceSummary": "Kroppens organsystem på grundnivå: skelett och muskler, andningsorganen, blodomloppet med hjärtat och matspjälkningen. Du tränar också på varför kroppens celler behöver både syre och näring.",
+  "topics": [
+    "skelett och muskler",
+    "andningsorganen",
+    "blodomloppet och hjärtat",
+    "matspjälkningen",
+    "syre och näring"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio7-kro-1",
+      "kind": "mc",
+      "topic": "skelett och muskler",
+      "prompt": "Vilka är skelettets viktigaste uppgifter i kroppen?",
+      "opener": "Tänk på vad som håller dig upprätt och vad som skyddar hjärnan.",
+      "choices": [
+        "Att pumpa runt blodet i kroppen",
+        "Att bryta ner maten till näringsämnen",
+        "Att ge kroppen stadga, skydda inre organ och vara fästen för musklerna",
+        "Att rena blodet från koldioxid"
+      ],
+      "answer": 2,
+      "explanation": "Skelettet bär upp kroppen, skallbenet skyddar hjärnan och revbenen skyddar hjärta och lungor, samtidigt som musklerna fäster i benen med senor. Att bryta ner maten är matspjälkningsorganens uppgift, inte skelettets — skelettet bidrar i stället genom att benmärgen bildar blodkroppar."
+    },
+    {
+      "id": "q-bio7-kro-2",
+      "kind": "mc",
+      "topic": "skelett och muskler",
+      "prompt": "Varför säger man att musklerna i överarmen arbetar i par?",
+      "opener": "Böj och sträck armen och känn efter vilken muskel som spänns varje gång.",
+      "choices": [
+        "För att en muskel bara kan dra ihop sig, så det behövs en annan muskel för att röra leden tillbaka",
+        "För att musklerna byter av varandra så fort den ena blir trött",
+        "För att varje muskel måste ha två senor",
+        "För att den ena muskeln sköter andningen och den andra rörelsen"
+      ],
+      "answer": 0,
+      "explanation": "En muskel kan bara kontrahera, alltså dra ihop sig och kortas — den kan inte skjuta ifrån. Därför böjer biceps på framsidan armbågen medan triceps på baksidan sträcker den igen. Att de skulle byta av varandra vid trötthet stämmer inte, eftersom de drar leden i motsatta riktningar."
+    },
+    {
+      "id": "q-bio7-kro-3",
+      "kind": "mc",
+      "topic": "andningsorganen",
+      "prompt": "Var i andningsorganen tas syret upp i blodet?",
+      "opener": "Längst ut i lungorna delar luftrören upp sig i massor av små blåsor.",
+      "choices": [
+        "I luftstrupen",
+        "I näsan och svalget",
+        "I mellangärdet (diafragman)",
+        "I lungblåsorna (alveolerna)"
+      ],
+      "answer": 3,
+      "explanation": "Lungblåsorna har mycket tunna väggar och är omgivna av hårfina blodkärl, så syret kan gå över till blodet samtidigt som koldioxid går ut i luften. Luftstrupen bara transporterar luften vidare, och mellangärdet är en muskel som drar ner lungorna vid inandning — inget gasutbyte sker där."
+    },
+    {
+      "id": "q-bio7-kro-4",
+      "kind": "mc",
+      "topic": "blodomloppet och hjärtat",
+      "prompt": "Vilka blodkärl leder blodet FRÅN hjärtat ut i kroppen?",
+      "opener": "Riktningen är det som skiljer kärltyperna åt — tänk på var pulsen känns.",
+      "choices": [
+        "Venerna",
+        "Artärerna, alltså pulsådrorna",
+        "Kapillärerna",
+        "Lymfkärlen"
+      ],
+      "answer": 1,
+      "explanation": "Artärerna leder blod från hjärtat och har tjocka elastiska väggar som klarar det höga trycket, vilket är därför man kan känna pulsen i dem. Venerna är lätta att blanda ihop med artärerna, men de gör motsatsen: de leder blodet tillbaka till hjärtat."
+    },
+    {
+      "id": "q-bio7-kro-5",
+      "kind": "mc",
+      "topic": "matspjälkningen",
+      "prompt": "I vilken ordning passerar maten genom matspjälkningskanalen?",
+      "opener": "Följ maten hela vägen från det första tugget.",
+      "choices": [
+        "Mun → magsäck → matstrupe → tjocktarm → tunntarm",
+        "Mun → matstrupe → tunntarm → magsäck → tjocktarm",
+        "Mun → matstrupe → magsäck → tunntarm → tjocktarm",
+        "Mun → luftstrupe → magsäck → tarmarna"
+      ],
+      "answer": 2,
+      "explanation": "Maten tuggas i munnen, förs genom matstrupen till magsäcken, fortsätter till tunntarmen där näringen tas upp i blodet och sist till tjocktarmen där vatten tas upp. Luftstrupen ingår inte alls — den leder till lungorna, och det är därför man sätter i halsen om maten hamnar fel."
+    },
+    {
+      "id": "q-bio7-kro-6",
+      "kind": "mc",
+      "topic": "syre och näring",
+      "prompt": "Varför behöver kroppens celler både syre och näring?",
+      "opener": "Tänk på vad som händer inne i cellen när den ska få energi.",
+      "choices": [
+        "Syret bygger upp nya celler medan näringen värmer kroppen",
+        "Näringen behövs bara i musklerna och syret bara i hjärnan",
+        "Syret gör blodet rött och näringen gör blodet tjockare",
+        "Cellerna använder syret för att frigöra energi ur näringen vid cellandningen"
+      ],
+      "answer": 3,
+      "explanation": "Vid cellandningen reagerar socker med syre så att energi frigörs, och kvar blir koldioxid och vatten: näringen är bränslet och syret behövs för att bränslet ska kunna brytas ner. Att syret bara skulle behövas i hjärnan är fel — alla celler i hela kroppen andas och behöver energi hela tiden."
+    },
+    {
+      "id": "q-bio7-kro-7",
+      "kind": "worked",
+      "topic": "blodomloppet och hjärtat",
+      "prompt": "Förklara hur syret i luften du andas in tar sig ända fram till en muskelcell i benet.",
+      "opener": "Följ syret steg för steg: luftvägarna, lungblåsorna, blodet, hjärtat och kärlen.",
+      "answer": "Syret går via näsan, luftstrupen och luftrören till lungblåsorna, tas upp av de röda blodkropparna i blodet, förs till hjärtats vänstra sida och pumpas ut genom artärer och kapillärer till muskelcellen, som använder syret för att frigöra energi ur näringen.",
+      "steps": [
+        "Vid inandningen dras mellangärdet ner och luften sugs in genom näsan, svalget, luftstrupen och luftrören ut i lungblåsorna.",
+        "Lungblåsornas väggar är mycket tunna, så syret går över till blodet i kapillärerna runt dem medan koldioxid går åt motsatt håll.",
+        "Syret binds till de röda blodkropparna och förs med blodet till hjärtats vänstra sida.",
+        "Hjärtat pumpar det syrerika blodet ut i stora kroppspulsådern och vidare genom artärer och kapillärer fram till muskeln i benet.",
+        "I muskelcellen används syret vid cellandningen för att frigöra energi ur näringen, och koldioxiden som bildas följer venerna tillbaka till hjärtat och ut via lungorna."
+      ]
+    },
+    {
+      "id": "q-bio7-kro-8",
+      "kind": "flashcard",
+      "topic": "skelett och muskler",
+      "prompt": "Vilka organsystem har kroppen och vad gör de viktigaste organen?",
+      "opener": "Ta ett organsystem i taget: rörelse, andning, blod och mat — och avsluta med varför allt behövs.",
+      "answer": "Skelett och muskler: skelettet ger stadga och form · skyddar organ (skallbenet hjärnan, revbenen hjärta och lungor) · benmärgen bildar blodkroppar · leder gör rörelse möjlig · musklerna fäster i benen med senor och kan bara dra ihop sig, därför arbetar de i par (biceps böjer armen, triceps sträcker den) · Andningsorganen: näsa → svalg → luftstrupe → luftrör → lungblåsor (alveoler) · mellangärdet drar ner och vidgar lungorna vid inandning · gasutbyte i lungblåsorna: syre in i blodet, koldioxid ut i luften · Blodomloppet: hjärtat är en muskel med två förmak och två kamrar · lilla kretsloppet går hjärta → lungor → hjärta · stora kretsloppet går hjärta → kroppen → hjärta · artärer (pulsådror) leder blod från hjärtat · vener leder blod till hjärtat · kapillärer är hårfina kärl där utbytet med cellerna sker · röda blodkroppar bär syre · vita blodkroppar försvarar mot bakterier och virus · blodplättar får blodet att levra sig · Matspjälkningen: mun (tänder och saliv) → matstrupe → magsäck (magsaft och muskelrörelser) → tunntarm (näringen tas upp till blodet via tarmludden) → tjocktarm (vatten tas upp) → ändtarm · levern och bukspottkörteln bidrar med matspjälkningssafter · Varför: cellandningen använder syre för att frigöra energi ur näringen — socker + syre → koldioxid + vatten + energi."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-bio-ekologi",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Ekologi och kretslopp",
+  "sourceSummary": "Näringskedjor och näringsvävar, kretslopp för kol och vatten, samt hur producenter, konsumenter och nedbrytare hänger ihop i ett ekosystem.",
+  "topics": [
+    "näringskedjor och näringsvävar",
+    "kretslopp",
+    "ekosystem och populationer",
+    "producenter, konsumenter och nedbrytare"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio-eko-1",
+      "kind": "mc",
+      "topic": "producenter, konsumenter och nedbrytare",
+      "prompt": "Vad kallas organismer som, precis som växter, kan tillverka sin egen näring genom fotosyntes?",
+      "opener": "Tänk på var i näringskedjan energin kommer in i systemet.",
+      "choices": [
+        "Konsumenter",
+        "Producenter",
+        "Nedbrytare",
+        "Rovdjur"
+      ],
+      "answer": 1,
+      "explanation": "Producenter, t.ex. gröna växter och alger, tillverkar sin egen näring genom fotosyntes med hjälp av solljus. Konsumenter äter andra organismer, och nedbrytare bryter ner dött material."
+    },
+    {
+      "id": "q-bio-eko-2",
+      "kind": "mc",
+      "topic": "producenter, konsumenter och nedbrytare",
+      "prompt": "Vad gör nedbrytare, t.ex. svampar och bakterier, i ett ekosystem?",
+      "opener": "Tänk på vad som händer med döda växter och djur i naturen.",
+      "choices": [
+        "De tillverkar näring genom fotosyntes",
+        "De bryter ner dött organiskt material och frigör näringsämnen tillbaka till marken",
+        "De äter enbart levande växter",
+        "De omvandlar koldioxid till syre"
+      ],
+      "answer": 1,
+      "explanation": "Nedbrytare bryter ner döda växter, djur och avföring till enklare ämnen, vilket gör näringsämnen tillgängliga för producenterna igen — helt centralt för kretsloppet. De tillverkar inte egen näring genom fotosyntes."
+    },
+    {
+      "id": "q-bio-eko-3",
+      "kind": "mc",
+      "topic": "näringskedjor och näringsvävar",
+      "prompt": "I näringskedjan gräs → kanin → räv, vad är kaninen?",
+      "opener": "Kaninen äter gräs men blir i sin tur uppäten — vad kallas en sådan organism?",
+      "choices": [
+        "Producent",
+        "Förstahandskonsument (primärkonsument)",
+        "Nedbrytare",
+        "Andrahandskonsument (sekundärkonsument)"
+      ],
+      "answer": 1,
+      "explanation": "Kaninen äter växter (gräs) och är därför en förstahandskonsument. Räven, som äter kaninen, är en andrahandskonsument. Gräset är producenten."
+    },
+    {
+      "id": "q-bio-eko-4",
+      "kind": "mc",
+      "topic": "kretslopp",
+      "prompt": "Vad kallas kretsloppet där kol går mellan atmosfären, växter, djur och förbränning av t.ex. fossila bränslen?",
+      "opener": "Vilket grundämne binds vid fotosyntes och frigörs vid andning och förbränning?",
+      "choices": [
+        "Kvävets kretslopp",
+        "Vattnets kretslopp",
+        "Kolets kretslopp",
+        "Syrgasens kretslopp"
+      ],
+      "answer": 2,
+      "explanation": "Kolets kretslopp beskriver hur kol (bland annat som koldioxid) tas upp av växter vid fotosyntes, förs vidare genom näringskedjan och frigörs igen vid andning, nedbrytning och förbränning av t.ex. olja och kol."
+    },
+    {
+      "id": "q-bio-eko-5",
+      "kind": "mc",
+      "topic": "ekosystem och populationer",
+      "prompt": "Vad kallas alla individer av samma art som lever inom ett visst område?",
+      "opener": "Skillnaden mellan detta begrepp och ett helt ekosystem.",
+      "choices": [
+        "Ett ekosystem",
+        "En population",
+        "En näringsväv",
+        "En biotop"
+      ],
+      "answer": 1,
+      "explanation": "En population är alla individer av samma art inom ett visst område, t.ex. alla harar i en skog. Ett ekosystem omfattar alla populationer (av olika arter) tillsammans med den icke-levande miljön."
+    },
+    {
+      "id": "q-bio-eko-6",
+      "kind": "mc",
+      "topic": "ekosystem och populationer",
+      "prompt": "Vad händer ofta med en population av rovdjur om bytesdjurens antal minskar kraftigt, t.ex. på grund av sjukdom?",
+      "opener": "Tänk på vad rovdjuren är beroende av för att överleva och föröka sig.",
+      "choices": [
+        "Rovdjurspopulationen ökar alltid oavsett tillgång på föda",
+        "Rovdjurspopulationen minskar ofta eftersom det blir mindre föda tillgänglig",
+        "Rovdjuren byter automatiskt till att bli producenter",
+        "Ingenting förändras i ekosystemet"
+      ],
+      "answer": 1,
+      "explanation": "Eftersom rovdjuren är beroende av bytesdjuren som föda leder färre bytesdjur ofta till svält och minskad fortplantning hos rovdjuren, så deras population minskar. Populationer i ett ekosystem är alltså beroende av varandra."
+    },
+    {
+      "id": "q-bio-eko-7",
+      "kind": "worked",
+      "topic": "kretslopp",
+      "prompt": "Förklara vattnets kretslopp med hjälp av begreppen avdunstning, kondensation och nederbörd.",
+      "opener": "Följ en vattendroppe från havet, upp i luften och tillbaka ner igen.",
+      "answer": "Vatten avdunstar från hav och sjöar till vattenånga, vattenångan stiger, kyls av och kondenserar till moln, och faller sedan som nederbörd (regn eller snö) som till slut rinner tillbaka till haven via floder och grundvatten.",
+      "steps": [
+        "Solen värmer vatten i hav, sjöar och mark så att det avdunstar och blir vattenånga.",
+        "Vattenångan stiger upp i atmosfären där det är kallare.",
+        "När vattenångan kyls av kondenserar den till små droppar som bildar moln.",
+        "Dropparna växer och faller till slut ner som nederbörd — regn eller snö.",
+        "Vattnet rinner via floder och grundvatten tillbaka till haven, och kretsloppet börjar om."
+      ]
+    },
+    {
+      "id": "q-bio-eko-8",
+      "kind": "flashcard",
+      "topic": "producenter, konsumenter och nedbrytare",
+      "prompt": "Sammanfatta grundbegreppen inom ekologi: producent, konsument, nedbrytare, näringskedja, näringsväv och ekosystem.",
+      "opener": "Gå igenom vem som äter vem och hur allt hänger ihop.",
+      "answer": "Producent: tillverkar egen näring genom fotosyntes, t.ex. växter · Konsument: äter andra organismer — förstahandskonsument äter växter, andrahandskonsument äter andra djur · Nedbrytare: bryter ner dött material och återför näring till kretsloppet, t.ex. svampar och bakterier · Näringskedja: visar vem som äter vem i en rak följd, t.ex. gräs → kanin → räv · Näringsväv: flera sammankopplade näringskedjor som visar det verkliga, mer komplexa mönstret · Population: alla individer av samma art i ett område · Ekosystem: alla levande organismer i ett område tillsammans med den icke-levande miljön (vatten, mark, klimat) · Kretslopp: ämnen som kol, kväve och vatten återanvänds ständigt i naturen."
+    }
+  ]
+}

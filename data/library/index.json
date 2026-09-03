@@ -1,0 +1,2115 @@
+{
+  "version": 1,
+  "levels": [
+    {
+      "id": "ak7",
+      "label": "Årskurs 7"
+    },
+    {
+      "id": "ak8",
+      "label": "Årskurs 8"
+    },
+    {
+      "id": "ak9",
+      "label": "Årskurs 9"
+    },
+    {
+      "id": "gymnasiet",
+      "label": "Gymnasiet"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "ak9-matematik",
+      "level": "ak9",
+      "name": "Matematik",
+      "description": "Centralt innehåll för åk 9 — det som brukar komma på prov och nationella provet."
+    },
+    {
+      "id": "ak9-svenska",
+      "level": "ak9",
+      "name": "Svenska",
+      "description": "Ordklasser, språkriktighet, läsförståelse, litterära begrepp och källkritik."
+    },
+    {
+      "id": "ak9-engelska",
+      "level": "ak9",
+      "name": "Engelska",
+      "description": "Grammatik, ordförråd och läsförståelse. Frågorna är på engelska, förklaringarna på svenska."
+    },
+    {
+      "id": "gy-matematik-1",
+      "level": "gymnasiet",
+      "name": "Matematik 1",
+      "description": "Kursen alla gymnasieelever läser (Ma1a/1b/1c) — innehållet som återkommer på prov och nationellt prov."
+    },
+    {
+      "id": "gy-svenska-1",
+      "level": "gymnasiet",
+      "name": "Svenska 1",
+      "description": "Retorik, litterära begrepp, språkriktighet, referatteknik och källkritik."
+    },
+    {
+      "id": "gy-engelska-5",
+      "level": "gymnasiet",
+      "name": "Engelska 5",
+      "description": "Grammatik, ordförråd och läsförståelse. Frågorna är på engelska, förklaringarna på svenska."
+    },
+    {
+      "id": "ak9-biologi",
+      "level": "ak9",
+      "name": "Biologi",
+      "description": "Centralt innehåll för åk 9 — celler, genetik, evolution, ekologi och kroppen, det som brukar komma på prov."
+    },
+    {
+      "id": "ak9-fysik",
+      "level": "ak9",
+      "name": "Fysik",
+      "description": "Fysik för åk 9 — krafter, energi, el, tryck, ljud, ljus och universum."
+    },
+    {
+      "id": "ak9-kemi",
+      "level": "ak9",
+      "name": "Kemi",
+      "description": "Grundläggande kemi för åk 9 — atomer, reaktioner, syror och baser, organisk kemi samt material och kretslopp."
+    },
+    {
+      "id": "ak9-historia",
+      "level": "ak9",
+      "name": "Historia",
+      "description": "Övningar i historia för åk 9: industriella revolutionen, världskrigen, kalla kriget, kolonialism och Sveriges demokratiska utveckling."
+    },
+    {
+      "id": "ak9-samhallskunskap",
+      "level": "ak9",
+      "name": "Samhällskunskap",
+      "description": "Centralt innehåll för åk 9 — demokrati, ekonomi, lagar och rättigheter, media och internationellt samarbete, det som brukar komma på prov."
+    },
+    {
+      "id": "ak9-geografi",
+      "level": "ak9",
+      "name": "Geografi",
+      "description": "Övningar i geografi för åk 9: kartor och klimat, befolkning, naturresurser, hållbar utveckling och världens länder."
+    },
+    {
+      "id": "ak9-religion",
+      "level": "ak9",
+      "name": "Religionskunskap",
+      "description": "Världsreligionerna, etik och livsfrågor — icke-konfessionellt och jämförande, så som ämnet undervisas i grundskolan."
+    },
+    {
+      "id": "ak7-matematik",
+      "level": "ak7",
+      "name": "Matematik",
+      "description": "Grunderna i högstadiematematiken: tal och räknesätt, bråk och procent, geometri samt de första stegen i algebra."
+    },
+    {
+      "id": "ak7-svenska",
+      "level": "ak7",
+      "name": "Svenska",
+      "description": "Grunderna i svenska för åk 7: ordklasser, skrivregler, läsförståelse, berättande texter och muntlig framställning."
+    },
+    {
+      "id": "ak7-engelska",
+      "level": "ak7",
+      "name": "Engelska",
+      "description": "Grundläggande engelsk grammatik, ordförråd, läsförståelse och skrivande för åk7 — frågorna är på engelska medan ledtrådar och förklaringar är på svenska."
+    },
+    {
+      "id": "ak8-matematik",
+      "level": "ak8",
+      "name": "Matematik",
+      "description": "Matematiken i årskurs 8: ekvationer och algebraiska uttryck, geometri med volym och skala, procent och förändringsfaktor, statistik samt potenser och grundpotensform."
+    },
+    {
+      "id": "ak8-svenska",
+      "level": "ak8",
+      "name": "Svenska",
+      "description": "Svenska för åk 8: satsdelar och meningsbyggnad, språkriktighet, litterär analys, argumenterande text samt källkritik och referat."
+    },
+    {
+      "id": "ak8-engelska",
+      "level": "ak8",
+      "name": "Engelska",
+      "description": "Grammatik, ordförråd, läsförståelse och skrivande för åk 8. Frågorna är på engelska, förklaringarna på svenska."
+    },
+    {
+      "id": "ak7-biologi",
+      "level": "ak7",
+      "name": "Biologi",
+      "description": "Livets kännetecken, celler, djur och växter, ekosystem och kroppens organsystem — grunderna i biologi för åk 7."
+    },
+    {
+      "id": "ak7-fysik",
+      "level": "ak7",
+      "name": "Fysik",
+      "description": "Grunderna i fysik för årskurs 7: mätning och enheter, materiens faser och densitet, värme, krafter och rörelse samt solsystemet."
+    },
+    {
+      "id": "ak7-kemi",
+      "level": "ak7",
+      "name": "Kemi",
+      "description": "Grunderna i kemi för åk 7: ämnen och blandningar, atomer och grundämnen, kemiska reaktioner, luft och vatten samt säkert arbete i labbsalen."
+    },
+    {
+      "id": "ak8-biologi",
+      "level": "ak8",
+      "name": "Biologi",
+      "description": "Människokroppen i årskurs 8: matspjälkning, andning och blodomlopp, nervsystem och sinnen, fortplantning samt hälsa och immunförsvar."
+    },
+    {
+      "id": "ak8-fysik",
+      "level": "ak8",
+      "name": "Fysik",
+      "description": "Fysik för årskurs 8 med elektricitet, magnetism, energi, ljud och ljus."
+    },
+    {
+      "id": "ak8-kemi",
+      "level": "ak8",
+      "name": "Kemi",
+      "description": "Kemi för åk 8: periodiska systemet och atommodellen, kemiska bindningar och joner, syror och baser, kemiska reaktioner och energi samt vatten, lösningar och miljö."
+    },
+    {
+      "id": "ak7-historia",
+      "level": "ak7",
+      "name": "Historia",
+      "description": "Från forntiden till renässansen — tidsperioder, samhällen och källkritik för åk 7."
+    },
+    {
+      "id": "ak7-geografi",
+      "level": "ak7",
+      "name": "Geografi",
+      "description": "Geografi för årskurs 7 — kartkunskap, Sverige, Norden och Europa, klimat och klimatzoner samt jordens landformer och naturkrafter."
+    },
+    {
+      "id": "ak7-samhallskunskap",
+      "level": "ak7",
+      "name": "Samhällskunskap",
+      "description": "Samhället, demokratin, lagarna, privatekonomin och medierna — grunderna för åk 7."
+    },
+    {
+      "id": "ak7-religion",
+      "level": "ak7",
+      "name": "Religionskunskap",
+      "description": "Religionskunskap för årskurs 7 — världsreligionerna, deras skrifter, högtider och symboler samt livsfrågor, etik och icke-religiösa livsåskådningar."
+    },
+    {
+      "id": "ak8-historia",
+      "level": "ak8",
+      "name": "Historia",
+      "description": "Från stormaktstid och upplysning till industrialisering, emigration och källkritik för åk 8."
+    },
+    {
+      "id": "ak8-geografi",
+      "level": "ak8",
+      "name": "Geografi",
+      "description": "Världens befolkning, resurser, världsdelar, utvecklingsklyftor och klimatpåverkan för åk 8."
+    },
+    {
+      "id": "ak8-samhallskunskap",
+      "level": "ak8",
+      "name": "Samhällskunskap",
+      "description": "Sveriges styre, samhällsekonomi, rättssystemet, mänskliga rättigheter samt EU och omvärlden — för åk 8."
+    },
+    {
+      "id": "ak8-religion",
+      "level": "ak8",
+      "name": "Religionskunskap",
+      "description": "Judendom, islam och kristendomens inriktningar, etiska modeller och religionens plats i samhället — för åk 8."
+    },
+    {
+      "id": "gy-matematik-2",
+      "level": "gymnasiet",
+      "name": "Matematik 2",
+      "description": "Fortsättningskursen (Ma2a/2b/2c) som bygger vidare på Ma1 mot andragradsfunktioner, exponentialekvationer och trigonometri."
+    },
+    {
+      "id": "gy-matematik-3",
+      "level": "gymnasiet",
+      "name": "Matematik 3",
+      "description": "Kursen för naturvetenskaps- och teknikprogrammet (Ma3b/3c) — derivator, integraler, polynomekvationer och trigonometri på fördjupad nivå."
+    },
+    {
+      "id": "gy-svenska-2",
+      "level": "gymnasiet",
+      "name": "Svenska 2",
+      "description": "Litteraturhistoriska epoker, fördjupad litteraturanalys, språkhistoria, retorisk analys samt utredande, argumenterande och muntlig framställning."
+    },
+    {
+      "id": "gy-svenska-3",
+      "level": "gymnasiet",
+      "name": "Svenska 3",
+      "description": "Vetenskapligt skrivande, källhantering, fördjupad litteraturanalys, retorik, stilistik och muntlig framställning på universitetsförberedande nivå."
+    },
+    {
+      "id": "gy-engelska-6",
+      "level": "gymnasiet",
+      "name": "Engelska 6",
+      "description": "Fördjupad grammatik, idiomatiskt ordförråd, argumenterande läsförståelse samt litteratur- och uppsatsanalys. Frågorna är på engelska, förklaringarna på svenska."
+    },
+    {
+      "id": "gy-engelska-7",
+      "level": "gymnasiet",
+      "name": "Engelska 7",
+      "description": "Avancerad grammatik, akademiskt ordförråd, komplex läsförståelse samt debatt- och uppsatsskrivande på högsta gymnasienivå. Frågorna är på engelska, förklaringarna på svenska."
+    },
+    {
+      "id": "gy-historia-1a1",
+      "level": "gymnasiet",
+      "name": "Historia 1a1",
+      "description": "Gymnasiets historiekurs från antiken till kalla krigets slut — orsakssamband, epoker och källkritik som brukar komma på prov."
+    },
+    {
+      "id": "gy-samhallskunskap-1a1",
+      "level": "gymnasiet",
+      "name": "Samhällskunskap 1a1",
+      "description": "Den kompakta 50-poängskursen alla gymnasieprogram läser — demokrati och statsskick, ideologier, samhällsekonomi, mänskliga rättigheter, medier och individ/samhälle."
+    },
+    {
+      "id": "gy-naturkunskap-1b",
+      "level": "gymnasiet",
+      "name": "Naturkunskap 1b",
+      "description": "Den breda naturvetenskapskursen för elever som inte läser separata Biologi-, Fysik- och Kemikurser — ekologi, energi, evolution, hälsa och astronomi på en integrerad, sammanhängande nivå."
+    },
+    {
+      "id": "gy-religion-1",
+      "level": "gymnasiet",
+      "name": "Religionskunskap 1",
+      "description": "Den obligatoriska religionskursen på de flesta gymnasieprogram — religionsvetenskapliga begrepp, jämförande fördjupning i världsreligionerna, normativ etik, sekulära livsåskådningar samt religion i relation till kön och globala konflikter, allt behandlat icke-konfessionellt."
+    }
+  ],
+  "sets": [
+    {
+      "id": "lib-ma9-tal",
+      "subject": "ak9-matematik",
+      "title": "Tal och räkning",
+      "summary": "Negativa tal, potenser och prioriteringsregler.",
+      "count": 8,
+      "file": "data/library/ak9-matematik-tal.json"
+    },
+    {
+      "id": "lib-ma9-procent",
+      "subject": "ak9-matematik",
+      "title": "Bråk, decimaler och procent",
+      "summary": "Bråkräkning, procentuell förändring, förändringsfaktor och ränta.",
+      "count": 8,
+      "file": "data/library/ak9-matematik-procent.json"
+    },
+    {
+      "id": "lib-ma9-algebra",
+      "subject": "ak9-matematik",
+      "title": "Algebra och ekvationer",
+      "summary": "Förenkla uttryck, lösa ekvationer och beskriva mönster med formler.",
+      "count": 8,
+      "file": "data/library/ak9-matematik-algebra.json"
+    },
+    {
+      "id": "lib-ma9-geometri",
+      "subject": "ak9-matematik",
+      "title": "Geometri",
+      "summary": "Area, omkrets, volym, Pythagoras sats och skala.",
+      "count": 8,
+      "file": "data/library/ak9-matematik-geometri.json"
+    },
+    {
+      "id": "lib-ma9-samband",
+      "subject": "ak9-matematik",
+      "title": "Samband och funktioner",
+      "summary": "Linjära funktioner, proportionalitet och grafens k- och m-värde.",
+      "count": 8,
+      "file": "data/library/ak9-matematik-samband.json"
+    },
+    {
+      "id": "lib-ma9-statistik",
+      "subject": "ak9-matematik",
+      "title": "Sannolikhet och statistik",
+      "summary": "Lägesmått, sannolikhet i flera steg och kombinatorik.",
+      "count": 8,
+      "file": "data/library/ak9-matematik-statistik.json"
+    },
+    {
+      "id": "lib-sv9-ordklasser",
+      "subject": "ak9-svenska",
+      "title": "Ordklasser och satsdelar",
+      "summary": "Substantiv, verb, adjektiv, pronomen samt subjekt, predikat och objekt.",
+      "count": 8,
+      "file": "data/library/ak9-sv-ordklasser.json"
+    },
+    {
+      "id": "lib-sv9-sprakriktighet",
+      "subject": "ak9-svenska",
+      "title": "Skrivregler och språkriktighet",
+      "summary": "De och dem, särskrivning, kommatering och stor bokstav.",
+      "count": 8,
+      "file": "data/library/ak9-sv-sprakriktighet.json"
+    },
+    {
+      "id": "lib-sv9-lasforstaelse",
+      "subject": "ak9-svenska",
+      "title": "Läsförståelse",
+      "summary": "Huvudbudskap, slutsatser och sammanfattning.",
+      "count": 8,
+      "file": "data/library/ak9-sv-lasforstaelse.json"
+    },
+    {
+      "id": "lib-sv9-litteratur",
+      "subject": "ak9-svenska",
+      "title": "Litterära begrepp",
+      "summary": "Genre, berättarperspektiv, miljö och tema samt bildspråk.",
+      "count": 8,
+      "file": "data/library/ak9-sv-litteratur.json"
+    },
+    {
+      "id": "lib-sv9-kallkritik",
+      "subject": "ak9-svenska",
+      "title": "Källkritik och sakprosa",
+      "summary": "Källgranskning, fakta och åsikt samt argumenterande text.",
+      "count": 8,
+      "file": "data/library/ak9-sv-kallkritik.json"
+    },
+    {
+      "id": "lib-en9-tenses",
+      "subject": "ak9-engelska",
+      "title": "Grammar: tempus (tenses)",
+      "summary": "Present simple, present continuous, past simple och framtid.",
+      "count": 8,
+      "file": "data/library/ak9-en-tenses.json"
+    },
+    {
+      "id": "lib-en9-vocabulary",
+      "subject": "ak9-engelska",
+      "title": "Vocabulary: vardagsord och phrasal verbs",
+      "summary": "Vanliga phrasal verbs och ord som lätt blandas ihop.",
+      "count": 8,
+      "file": "data/library/ak9-en-vocabulary.json"
+    },
+    {
+      "id": "lib-en9-reading",
+      "subject": "ak9-engelska",
+      "title": "Reading comprehension",
+      "summary": "Huvudbudskap, slutledning och ord i sammanhang.",
+      "count": 8,
+      "file": "data/library/ak9-en-reading.json"
+    },
+    {
+      "id": "lib-en9-writing",
+      "subject": "ak9-engelska",
+      "title": "Writing: meningsbyggnad och vanliga fel",
+      "summary": "Ordföljd, verbändelser och typiska svensk-engelska-fel.",
+      "count": 8,
+      "file": "data/library/ak9-en-writing.json"
+    },
+    {
+      "id": "lib-en9-wordconfusion",
+      "subject": "ak9-engelska",
+      "title": "Vanliga ordförväxlingar",
+      "summary": "Its/it's, your/you're, there/their/they're.",
+      "count": 8,
+      "file": "data/library/ak9-en-wordconfusion.json"
+    },
+    {
+      "id": "lib-ma1-tal",
+      "subject": "gy-matematik-1",
+      "title": "Taluppfattning och potenser",
+      "summary": "Potenslagar, grundpotensform, prefix och avrundning.",
+      "count": 8,
+      "file": "data/library/gy-ma1-tal.json"
+    },
+    {
+      "id": "lib-ma1-algebra",
+      "subject": "gy-matematik-1",
+      "title": "Algebra, ekvationer och olikheter",
+      "summary": "Parenteser, ekvationer, olikheter och att lösa ut en variabel ur en formel.",
+      "count": 8,
+      "file": "data/library/gy-ma1-algebra.json"
+    },
+    {
+      "id": "lib-ma1-procent",
+      "subject": "gy-matematik-1",
+      "title": "Procent, förändringsfaktor och index",
+      "summary": "Förändringsfaktor, upprepad förändring, procentenheter och index.",
+      "count": 8,
+      "file": "data/library/gy-ma1-procent.json"
+    },
+    {
+      "id": "lib-ma1-geometri",
+      "subject": "gy-matematik-1",
+      "title": "Geometri, likformighet och skala",
+      "summary": "Pythagoras sats, likformighet samt längd-, area- och volymskala.",
+      "count": 8,
+      "file": "data/library/gy-ma1-geometri.json"
+    },
+    {
+      "id": "lib-ma1-samband",
+      "subject": "gy-matematik-1",
+      "title": "Samband och förändring",
+      "summary": "Räta linjens ekvation, linjära modeller och exponentiell förändring.",
+      "count": 8,
+      "file": "data/library/gy-ma1-samband.json"
+    },
+    {
+      "id": "lib-ma1-statistik",
+      "subject": "gy-matematik-1",
+      "title": "Sannolikhet och statistik",
+      "summary": "Lägesmått, spridningsmått, beroende händelser och källkritik.",
+      "count": 8,
+      "file": "data/library/gy-ma1-statistik.json"
+    },
+    {
+      "id": "lib-sv1-retorik",
+      "subject": "gy-svenska-1",
+      "title": "Retorik och muntlig framställning",
+      "summary": "Ethos, pathos och logos, talets disposition och stilfigurer.",
+      "count": 8,
+      "file": "data/library/gy-sv1-retorik.json"
+    },
+    {
+      "id": "lib-sv1-sprakriktighet",
+      "subject": "gy-svenska-1",
+      "title": "Språkriktighet och meningsbyggnad",
+      "summary": "De och dem, särskrivning, skiljetecken och satsradning.",
+      "count": 8,
+      "file": "data/library/gy-sv1-sprakriktighet.json"
+    },
+    {
+      "id": "lib-sv1-litteratur",
+      "subject": "gy-svenska-1",
+      "title": "Litterära begrepp och analys",
+      "summary": "Genrer, berättarperspektiv, bildspråk samt tema och motiv.",
+      "count": 8,
+      "file": "data/library/gy-sv1-litteratur.json"
+    },
+    {
+      "id": "lib-sv1-texttyper",
+      "subject": "gy-svenska-1",
+      "title": "Texttyper, referat och källhantering",
+      "summary": "Tes och argument, utredande text, referatteknik och plagiat.",
+      "count": 8,
+      "file": "data/library/gy-sv1-texttyper.json"
+    },
+    {
+      "id": "lib-sv1-kallkritik",
+      "subject": "gy-svenska-1",
+      "title": "Källkritik",
+      "summary": "Äkthet, tid, beroende och tendens — samt primär- och sekundärkällor.",
+      "count": 8,
+      "file": "data/library/gy-sv1-kallkritik.json"
+    },
+    {
+      "id": "lib-sv1-sprakhistoria",
+      "subject": "gy-svenska-1",
+      "title": "Språksociologi och nordiska språk",
+      "summary": "Dialekt och sociolekt, minoritetsspråk, grannspråk och lånord.",
+      "count": 8,
+      "file": "data/library/gy-sv1-sprakhistoria.json"
+    },
+    {
+      "id": "lib-en5-tenses",
+      "subject": "gy-engelska-5",
+      "title": "Tenses: present perfect and past simple",
+      "summary": "Skillnaden svenskar oftast gör fel på, plus continuous-formerna.",
+      "count": 8,
+      "file": "data/library/gy-en5-tenses.json"
+    },
+    {
+      "id": "lib-en5-grammar",
+      "subject": "gy-engelska-5",
+      "title": "Grammar: articles, prepositions and conditionals",
+      "summary": "A/an/the, fasta prepositioner, if-satser och relativa pronomen.",
+      "count": 8,
+      "file": "data/library/gy-en5-grammar.json"
+    },
+    {
+      "id": "lib-en5-vocabulary",
+      "subject": "gy-engelska-5",
+      "title": "Vocabulary: collocations and phrasal verbs",
+      "summary": "Do eller make, vanliga phrasal verbs och ordbildning.",
+      "count": 8,
+      "file": "data/library/gy-en5-vocabulary.json"
+    },
+    {
+      "id": "lib-en5-falsefriends",
+      "subject": "gy-engelska-5",
+      "title": "False friends and typical Swedish mistakes",
+      "summary": "Eventually, fabric, lend/borrow, teach/learn och fun/funny.",
+      "count": 8,
+      "file": "data/library/gy-en5-falsefriends.json"
+    },
+    {
+      "id": "lib-en5-reading",
+      "subject": "gy-engelska-5",
+      "title": "Reading comprehension",
+      "summary": "Huvudbudskap, slutledning, ord i sammanhang, ton och syfte.",
+      "count": 8,
+      "file": "data/library/gy-en5-reading.json"
+    },
+    {
+      "id": "lib-en5-writing",
+      "subject": "gy-engelska-5",
+      "title": "Writing: register and linking words",
+      "summary": "Formellt kontra informellt, sambandsord och styckets uppbyggnad.",
+      "count": 8,
+      "file": "data/library/gy-en5-writing.json"
+    },
+    {
+      "id": "lib-bio-celler",
+      "subject": "ak9-biologi",
+      "title": "Celler och organsystem",
+      "summary": "Cellens delar, växt- och djurceller, samt vävnader, organ och organsystem.",
+      "count": 8,
+      "file": "data/library/ak9-bio-celler.json"
+    },
+    {
+      "id": "lib-bio-genetik",
+      "subject": "ak9-biologi",
+      "title": "Genetik och ärftlighet",
+      "summary": "DNA, gener och kromosomer, dominant/recessiv arv och korsningsschema.",
+      "count": 8,
+      "file": "data/library/ak9-bio-genetik.json"
+    },
+    {
+      "id": "lib-bio-evolution",
+      "subject": "ak9-biologi",
+      "title": "Evolution och naturligt urval",
+      "summary": "Darwins evolutionsteori, naturligt urval, anpassning och artbildning.",
+      "count": 8,
+      "file": "data/library/ak9-bio-evolution.json"
+    },
+    {
+      "id": "lib-bio-ekologi",
+      "subject": "ak9-biologi",
+      "title": "Ekologi och kretslopp",
+      "summary": "Näringskedjor, kretslopp för kol och vatten, samt ekosystemets delar.",
+      "count": 8,
+      "file": "data/library/ak9-bio-ekologi.json"
+    },
+    {
+      "id": "lib-bio-kroppen",
+      "subject": "ak9-biologi",
+      "title": "Kroppen, hälsa och pubertet",
+      "summary": "Pubertet, hormoner, befruktning, preventivmedel och kroppens organsystem.",
+      "count": 8,
+      "file": "data/library/ak9-bio-kroppen.json"
+    },
+    {
+      "id": "lib-fys-krafter",
+      "subject": "ak9-fysik",
+      "title": "Krafter och rörelse",
+      "summary": "Newtons lagar, friktion, tyngdkraft och jämvikt.",
+      "count": 8,
+      "file": "data/library/ak9-fys-krafter.json"
+    },
+    {
+      "id": "lib-fys-energi",
+      "subject": "ak9-fysik",
+      "title": "Energi och energiomvandlingar",
+      "summary": "Energiformer, energiprincipen och förnybara kontra icke-förnybara energikällor.",
+      "count": 8,
+      "file": "data/library/ak9-fys-energi.json"
+    },
+    {
+      "id": "lib-fys-el",
+      "subject": "ak9-fysik",
+      "title": "Elektricitet och magnetism",
+      "summary": "Ström, spänning och resistans, kopplingar samt magnetism.",
+      "count": 8,
+      "file": "data/library/ak9-fys-el.json"
+    },
+    {
+      "id": "lib-fys-tryck",
+      "subject": "ak9-fysik",
+      "title": "Tryck och väder",
+      "summary": "Tryck, lufttryck, hög- och lågtryck samt vattnets kretslopp.",
+      "count": 8,
+      "file": "data/library/ak9-fys-tryck.json"
+    },
+    {
+      "id": "lib-fys-ljud-ljus",
+      "subject": "ak9-fysik",
+      "title": "Ljud, ljus och universum",
+      "summary": "Ljudvågor, ljusets reflektion och brytning samt solsystemet och universum.",
+      "count": 8,
+      "file": "data/library/ak9-fys-ljud-ljus.json"
+    },
+    {
+      "id": "lib-kemi-atomer",
+      "subject": "ak9-kemi",
+      "title": "Atomer, grundämnen och periodiska systemet",
+      "summary": "Atomens uppbyggnad, periodiska systemets grupper och perioder, samt grundidén bakom joner.",
+      "count": 8,
+      "file": "data/library/ak9-kemi-atomer.json"
+    },
+    {
+      "id": "lib-kemi-reaktioner",
+      "subject": "ak9-kemi",
+      "title": "Kemiska reaktioner och bindningar",
+      "summary": "Kemisk kontra fysikalisk förändring, kovalent bindning och jonbindning, balansering av reaktionsformler samt exoterma/endoterma reaktioner.",
+      "count": 8,
+      "file": "data/library/ak9-kemi-reaktioner.json"
+    },
+    {
+      "id": "lib-kemi-syrabas",
+      "subject": "ak9-kemi",
+      "title": "Syror, baser och pH",
+      "summary": "pH-skalan, kännetecken för syror och baser, neutralisation och vardagliga exempel.",
+      "count": 8,
+      "file": "data/library/ak9-kemi-syrabas.json"
+    },
+    {
+      "id": "lib-kemi-organisk",
+      "subject": "ak9-kemi",
+      "title": "Organisk kemi och kolföreningar",
+      "summary": "Kolatomens speciella egenskaper, kolväten och hur organisk kemi hänger ihop med plast och fossila bränslen.",
+      "count": 8,
+      "file": "data/library/ak9-kemi-organisk.json"
+    },
+    {
+      "id": "lib-kemi-material",
+      "subject": "ak9-kemi",
+      "title": "Material, metaller och kretslopp",
+      "summary": "Metallers egenskaper, återvinning och materialkretslopp, vanliga vardagsmaterial samt korrosion och rost.",
+      "count": 8,
+      "file": "data/library/ak9-kemi-material.json"
+    },
+    {
+      "id": "lib-hist-industriella",
+      "subject": "ak9-historia",
+      "title": "Industriella revolutionen",
+      "summary": "Hur ångmaskinen, fabriker och nya uppfinningar förvandlade Europa från jordbrukssamhälle till industrisamhälle, samt urbanisering, arbetsvillkor och fackföreningarnas framväxt.",
+      "count": 8,
+      "file": "data/library/ak9-hist-industriella.json"
+    },
+    {
+      "id": "lib-hist-varldskrigen",
+      "subject": "ak9-historia",
+      "title": "Världskrigen",
+      "summary": "Orsakerna till första och andra världskriget, Versaillesfredens roll i nazismens uppkomst, viktiga vändpunkter och konsekvenser som FN:s bildande.",
+      "count": 8,
+      "file": "data/library/ak9-hist-varldskrigen.json"
+    },
+    {
+      "id": "lib-hist-kallakriget",
+      "subject": "ak9-historia",
+      "title": "Kalla kriget",
+      "summary": "Konflikten mellan USA och Sovjetunionen, järnridån och Berlinmuren, kapprustning med kärnvapen och rymdkapplöpning, samt kalla krigets slut.",
+      "count": 8,
+      "file": "data/library/ak9-hist-kallakriget.json"
+    },
+    {
+      "id": "lib-hist-kolonialism",
+      "subject": "ak9-historia",
+      "title": "Kolonialism och imperialism",
+      "summary": "Vad kolonialism och imperialism innebar, europeiska stormakters kolonier, konsekvenser för koloniserade områden och avkoloniseringen efter andra världskriget.",
+      "count": 8,
+      "file": "data/library/ak9-hist-kolonialism.json"
+    },
+    {
+      "id": "lib-hist-sverige",
+      "subject": "ak9-historia",
+      "title": "Sveriges historia och demokratins framväxt",
+      "summary": "Allmän rösträtts införande, parlamentarismens genombrott, viktiga reformer som folkhemmet och arbetarrörelsen, samt Sveriges neutralitetspolitik under världskrigen.",
+      "count": 8,
+      "file": "data/library/ak9-hist-sverige.json"
+    },
+    {
+      "id": "lib-sam-demokrati",
+      "subject": "ak9-samhallskunskap",
+      "title": "Demokrati och politiska system",
+      "summary": "Vad demokrati innebär, riksdag, regering och kommun, allmänna val och skillnaden mot diktatur.",
+      "count": 8,
+      "file": "data/library/ak9-sam-demokrati.json"
+    },
+    {
+      "id": "lib-sam-ekonomi",
+      "subject": "ak9-samhallskunskap",
+      "title": "Privatekonomi och samhällsekonomi",
+      "summary": "Budget och sparande, skatter, utbud och efterfrågan samt vad inflation innebär.",
+      "count": 8,
+      "file": "data/library/ak9-sam-ekonomi.json"
+    },
+    {
+      "id": "lib-sam-lagar",
+      "subject": "ak9-samhallskunskap",
+      "title": "Lagar, rättigheter och rättssystemet",
+      "summary": "Mänskliga rättigheter, hur en rättegång går till, brottmål mot tvistemål och barnkonventionen.",
+      "count": 8,
+      "file": "data/library/ak9-sam-lagar.json"
+    },
+    {
+      "id": "lib-sam-media",
+      "subject": "ak9-samhallskunskap",
+      "title": "Media och källkritik",
+      "summary": "Mediernas roll i demokratin, yttrande- och tryckfrihet samt källkritik, propaganda och desinformation.",
+      "count": 8,
+      "file": "data/library/ak9-sam-media.json"
+    },
+    {
+      "id": "lib-sam-internationellt",
+      "subject": "ak9-samhallskunskap",
+      "title": "EU och internationellt samarbete",
+      "summary": "Vad EU och FN är, varför länder samarbetar internationellt och Sveriges internationella roll.",
+      "count": 8,
+      "file": "data/library/ak9-sam-internationellt.json"
+    },
+    {
+      "id": "lib-geo-kartor",
+      "subject": "ak9-geografi",
+      "title": "Kartkunskap och klimatzoner",
+      "summary": "Kartprojektioner, skala, väderstreck och koordinater samt hur klimatzoner hänger ihop med breddgrad och höjd över havet.",
+      "count": 8,
+      "file": "data/library/ak9-geo-kartor.json"
+    },
+    {
+      "id": "lib-geo-befolkning",
+      "subject": "ak9-geografi",
+      "title": "Befolkning och urbanisering",
+      "summary": "Befolkningstäthet och befolkningsfördelning, urbanisering, migration med push- och pull-faktorer samt grundläggande demografiska begrepp.",
+      "count": 8,
+      "file": "data/library/ak9-geo-befolkning.json"
+    },
+    {
+      "id": "lib-geo-naturresurser",
+      "subject": "ak9-geografi",
+      "title": "Naturresurser och energikällor",
+      "summary": "Förnybara och icke-förnybara resurser, hur naturresurser är fördelade globalt, energikällors miljöpåverkan och kopplingen till konflikter.",
+      "count": 8,
+      "file": "data/library/ak9-geo-naturresurser.json"
+    },
+    {
+      "id": "lib-geo-hallbarhet",
+      "subject": "ak9-geografi",
+      "title": "Hållbar utveckling och klimatförändringar",
+      "summary": "Ekologisk, social och ekonomisk hållbarhet, växthuseffekten, klimatförändringarnas konsekvenser och FN:s globala mål.",
+      "count": 8,
+      "file": "data/library/ak9-geo-hallbarhet.json"
+    },
+    {
+      "id": "lib-geo-varlden",
+      "subject": "ak9-geografi",
+      "title": "Världsdelar, länder och geografiska mönster",
+      "summary": "Världsdelar och hav, skillnader mellan hög- och låginkomstländer, globalisering och världshandel samt geografiska landmärken.",
+      "count": 8,
+      "file": "data/library/ak9-geo-varlden.json"
+    },
+    {
+      "id": "lib-rel-kristendom",
+      "subject": "ak9-religion",
+      "title": "Kristendom",
+      "summary": "Grundläggande tro, kyrkans inriktningar, bibeln och de stora högtiderna.",
+      "count": 8,
+      "file": "data/library/ak9-rel-kristendom.json"
+    },
+    {
+      "id": "lib-rel-islam",
+      "subject": "ak9-religion",
+      "title": "Islam",
+      "summary": "Gudstro, Muhammed, de fem pelarna, sunni/shia och Koranen.",
+      "count": 8,
+      "file": "data/library/ak9-rel-islam.json"
+    },
+    {
+      "id": "lib-rel-judendom-etc",
+      "subject": "ak9-religion",
+      "title": "Judendom, hinduism och buddhism",
+      "summary": "Toran, karma och reinkarnation, de fyra ädla sanningarna samt religionsjämförelse.",
+      "count": 8,
+      "file": "data/library/ak9-rel-judendom-etc.json"
+    },
+    {
+      "id": "lib-rel-etik",
+      "subject": "ak9-religion",
+      "title": "Etik och moraliska dilemman",
+      "summary": "Pliktetik, konsekvensetik, sinnelagsetik och kopplingen mellan religion och moral.",
+      "count": 8,
+      "file": "data/library/ak9-rel-etik.json"
+    },
+    {
+      "id": "lib-rel-livsfragor",
+      "subject": "ak9-religion",
+      "title": "Livsfrågor och identitet",
+      "summary": "Livsåskådningar, existentiella frågor, religionsfrihet och sekularisering.",
+      "count": 8,
+      "file": "data/library/ak9-rel-livsfragor.json"
+    },
+    {
+      "id": "lib-ma7-tal",
+      "subject": "ak7-matematik",
+      "title": "Tal och räknesätt",
+      "summary": "Negativa tal, prioriteringsregler, avrundning och överslagsräkning.",
+      "count": 8,
+      "file": "data/library/ak7-ma-tal.json"
+    },
+    {
+      "id": "lib-ma7-brak",
+      "subject": "ak7-matematik",
+      "title": "Bråk och decimaltal",
+      "summary": "Förkorta, förlänga, jämföra och addera bråk samt omvandla till decimaltal och procent.",
+      "count": 8,
+      "file": "data/library/ak7-ma-brak.json"
+    },
+    {
+      "id": "lib-ma7-procent",
+      "subject": "ak7-matematik",
+      "title": "Procent och andelar",
+      "summary": "Andelen av ett tal, hur många procent något är och enkla höjningar och sänkningar.",
+      "count": 8,
+      "file": "data/library/ak7-ma-procent.json"
+    },
+    {
+      "id": "lib-ma7-geometri",
+      "subject": "ak7-matematik",
+      "title": "Geometri: vinklar, omkrets och area",
+      "summary": "Vinkeltyper, vinkelsumman i en triangel, omkrets och area samt enhetsomvandling.",
+      "count": 8,
+      "file": "data/library/ak7-ma-geometri.json"
+    },
+    {
+      "id": "lib-ma7-algebra",
+      "subject": "ak7-matematik",
+      "title": "Algebra och enkla ekvationer",
+      "summary": "Variabler, förenkling av uttryck, insättning av värden och enkla ekvationer.",
+      "count": 8,
+      "file": "data/library/ak7-ma-algebra.json"
+    },
+    {
+      "id": "lib-sv7-ordklasser",
+      "subject": "ak7-svenska",
+      "title": "Ordklasser",
+      "summary": "Känn igen substantiv, verb, adjektiv, pronomen och räkneord i en mening, och lär dig hur orden böjs.",
+      "count": 8,
+      "file": "data/library/ak7-sv-ordklasser.json"
+    },
+    {
+      "id": "lib-sv7-skrivregler",
+      "subject": "ak7-svenska",
+      "title": "Skrivregler och stavning",
+      "summary": "Stor bokstav och punkt, komma vid uppräkning, vanliga stavfel, särskrivning och hur man skriver dialog.",
+      "count": 8,
+      "file": "data/library/ak7-sv-skrivregler.json"
+    },
+    {
+      "id": "lib-sv7-lasforstaelse",
+      "subject": "ak7-svenska",
+      "title": "Läsförståelse",
+      "summary": "Hitta information i texten, förstå huvudbudskapet, dra enkla slutsatser och tolka okända ord med hjälp av sammanhanget.",
+      "count": 8,
+      "file": "data/library/ak7-sv-lasforstaelse.json"
+    },
+    {
+      "id": "lib-sv7-berattande",
+      "subject": "ak7-svenska",
+      "title": "Berättande texter",
+      "summary": "Berättelsens uppbyggnad, miljö- och personbeskrivning, berättarperspektiv och konsten att visa istället för att berätta.",
+      "count": 8,
+      "file": "data/library/ak7-sv-berattande.json"
+    },
+    {
+      "id": "lib-sv7-muntligt",
+      "subject": "ak7-svenska",
+      "title": "Muntlig framställning och samtal",
+      "summary": "Förbered och håll ett kort anförande, använd röst och kroppsspråk, lyssna aktivt och skilj talspråk från skriftspråk.",
+      "count": 8,
+      "file": "data/library/ak7-sv-muntligt.json"
+    },
+    {
+      "id": "lib-en7-present",
+      "subject": "ak7-engelska",
+      "title": "Grammar: present simple och present continuous",
+      "summary": "Vanor med present simple, pågående handlingar med present continuous samt do/does i frågor och nekande satser.",
+      "count": 8,
+      "file": "data/library/ak7-en-present.json"
+    },
+    {
+      "id": "lib-en7-past",
+      "subject": "ak7-engelska",
+      "title": "Grammar: past simple",
+      "summary": "Dåtid med -ed, de vanligaste oregelbundna verben och did/didn't i frågor och nekande satser.",
+      "count": 8,
+      "file": "data/library/ak7-en-past.json"
+    },
+    {
+      "id": "lib-en7-vocabulary",
+      "subject": "ak7-engelska",
+      "title": "Vocabulary: vardagsord och fraser",
+      "summary": "Vardagsord om skola, familj, fritid och mat tillsammans med artighetsfraser, there is/there are, some/any och a/an/the.",
+      "count": 8,
+      "file": "data/library/ak7-en-vocabulary.json"
+    },
+    {
+      "id": "lib-en7-reading",
+      "subject": "ak7-engelska",
+      "title": "Reading comprehension",
+      "summary": "Korta engelska texter där du tränar på att hitta information, förstå huvudbudskapet, dra slutsatser och tolka ord i sammanhang.",
+      "count": 8,
+      "file": "data/library/ak7-en-reading.json"
+    },
+    {
+      "id": "lib-en7-writing",
+      "subject": "ak7-engelska",
+      "title": "Writing: meningsbyggnad och vanliga fel",
+      "summary": "Engelsk ordföljd i påståenden och frågor, vanliga svensk-engelska fel och bindeorden and, but och because.",
+      "count": 8,
+      "file": "data/library/ak7-en-writing.json"
+    },
+    {
+      "id": "lib-ma8-ekvationer",
+      "subject": "ak8-matematik",
+      "title": "Ekvationer och algebraiska uttryck",
+      "summary": "Parenteser i uttryck, ekvationer med obekant i båda leden och att teckna en egen ekvation utifrån en text.",
+      "count": 8,
+      "file": "data/library/ak8-ma-ekvationer.json"
+    },
+    {
+      "id": "lib-ma8-geometri",
+      "subject": "ak8-matematik",
+      "title": "Geometri: area, volym och skala",
+      "summary": "Area och omkrets för parallellogram, triangel och cirkel, volym för rätblock och cylinder, skala och enhetsomvandling.",
+      "count": 8,
+      "file": "data/library/ak8-ma-geometri.json"
+    },
+    {
+      "id": "lib-ma8-procent",
+      "subject": "ak8-matematik",
+      "title": "Procent och förändringsfaktor",
+      "summary": "Räkna med förändringsfaktor vid höjning och rabatt, räkna baklänges till ursprungspriset och håll isär procent och procentenheter.",
+      "count": 8,
+      "file": "data/library/ak8-ma-procent.json"
+    },
+    {
+      "id": "lib-ma8-statistik",
+      "subject": "ak8-matematik",
+      "title": "Statistik och diagram",
+      "summary": "Medelvärde, median, typvärde och variationsbredd samt att läsa och granska stapel-, linje- och cirkeldiagram.",
+      "count": 8,
+      "file": "data/library/ak8-ma-statistik.json"
+    },
+    {
+      "id": "lib-ma8-potenser",
+      "subject": "ak8-matematik",
+      "title": "Potenser och grundpotensform",
+      "summary": "Potenslagarna för samma bas, exponenten 0, grundpotensform för stora och små tal samt prefixen kilo, mega och milli.",
+      "count": 8,
+      "file": "data/library/ak8-ma-potenser.json"
+    },
+    {
+      "id": "lib-sv8-satsdelar",
+      "subject": "ak8-svenska",
+      "title": "Satsdelar och meningsbyggnad",
+      "summary": "Ta ut subjekt, predikat och objekt, skilj huvudsats från bisats och håll koll på fundament och ordföljd.",
+      "count": 8,
+      "file": "data/library/ak8-sv-satsdelar.json"
+    },
+    {
+      "id": "lib-sv8-sprakriktighet",
+      "subject": "ak8-svenska",
+      "title": "Språkriktighet",
+      "summary": "De, dem och dom, särskrivning, satsradning, komma vid bisats och talspråk som inte hör hemma i skrift.",
+      "count": 8,
+      "file": "data/library/ak8-sv-sprakriktighet.json"
+    },
+    {
+      "id": "lib-sv8-litteratur",
+      "subject": "ak8-svenska",
+      "title": "Litterära begrepp och analys",
+      "summary": "Genrer, berättarperspektiv, miljö, tema och motiv, bildspråk och karaktärsutveckling i en bokanalys.",
+      "count": 8,
+      "file": "data/library/ak8-sv-litteratur.json"
+    },
+    {
+      "id": "lib-sv8-argumenterande",
+      "subject": "ak8-svenska",
+      "title": "Argumenterande text",
+      "summary": "Formulera en tes, bygg argument, bemöt motargument och skriv insändare och debattartikel med tydlig struktur.",
+      "count": 8,
+      "file": "data/library/ak8-sv-argumenterande.json"
+    },
+    {
+      "id": "lib-sv8-kallor",
+      "subject": "ak8-svenska",
+      "title": "Källkritik och referat",
+      "summary": "Bedöm källors trovärdighet, skilj fakta från åsikt, använd referatmarkörer och undvik plagiat genom rätt källhänvisning.",
+      "count": 8,
+      "file": "data/library/ak8-sv-kallor.json"
+    },
+    {
+      "id": "lib-en8-perfect",
+      "subject": "ak8-engelska",
+      "title": "Grammar: present perfect",
+      "summary": "Have/has + perfektparticip, skillnaden mot past simple samt ever, never, just, already, yet, for och since.",
+      "count": 8,
+      "file": "data/library/ak8-en-perfect.json"
+    },
+    {
+      "id": "lib-en8-adjectives",
+      "subject": "ak8-engelska",
+      "title": "Grammar: komparation och adverb",
+      "summary": "Komparation med -er/-est och more/most, oregelbundna former samt skillnaden mellan adjektiv och adverb.",
+      "count": 8,
+      "file": "data/library/ak8-en-adjectives.json"
+    },
+    {
+      "id": "lib-en8-vocabulary",
+      "subject": "ak8-engelska",
+      "title": "Vocabulary: phrasal verbs och kollokationer",
+      "summary": "Vanliga phrasal verbs, do- och make-kollokationer, say/tell/speak/talk samt prefix och suffix.",
+      "count": 8,
+      "file": "data/library/ak8-en-vocabulary.json"
+    },
+    {
+      "id": "lib-en8-reading",
+      "subject": "ak8-engelska",
+      "title": "Reading comprehension",
+      "summary": "Korta engelska texter där du tränar huvudbudskap, slutledning, ord i sammanhang och skribentens syfte.",
+      "count": 8,
+      "file": "data/library/ak8-en-reading.json"
+    },
+    {
+      "id": "lib-en8-writing",
+      "subject": "ak8-engelska",
+      "title": "Writing: texttyper och sambandsord",
+      "summary": "Sambandsord, styckeindelning med kärnmening, formellt kontra informellt språk och korta mejl eller berättelser.",
+      "count": 8,
+      "file": "data/library/ak8-en-writing.json"
+    },
+    {
+      "id": "lib-bio7-livet",
+      "subject": "ak7-biologi",
+      "title": "Vad är liv? Celler och organisation",
+      "summary": "Kännetecken för liv, cellens delar och vägen från cell till organsystem.",
+      "count": 8,
+      "file": "data/library/ak7-bio-livet.json"
+    },
+    {
+      "id": "lib-bio7-djur",
+      "subject": "ak7-biologi",
+      "title": "Djurens indelning",
+      "summary": "Ryggradsdjur och ryggradslösa djur samt växelvarma och jämnvarma djur.",
+      "count": 8,
+      "file": "data/library/ak7-bio-djur.json"
+    },
+    {
+      "id": "lib-bio7-vaxter",
+      "subject": "ak7-biologi",
+      "title": "Växter och fotosyntesen",
+      "summary": "Växtens delar, fotosyntesen, cellandning och pollinering.",
+      "count": 8,
+      "file": "data/library/ak7-bio-vaxter.json"
+    },
+    {
+      "id": "lib-bio7-ekosystem",
+      "subject": "ak7-biologi",
+      "title": "Ekosystem och näringskedjor",
+      "summary": "Producenter, konsumenter och nedbrytare i näringskedjor, samt svenska naturtyper.",
+      "count": 8,
+      "file": "data/library/ak7-bio-ekosystem.json"
+    },
+    {
+      "id": "lib-bio7-kroppen",
+      "subject": "ak7-biologi",
+      "title": "Kroppens organsystem",
+      "summary": "Skelett och muskler, andning, blodomlopp och matspjälkning på grundnivå.",
+      "count": 8,
+      "file": "data/library/ak7-bio-kroppen.json"
+    },
+    {
+      "id": "lib-fys7-matning",
+      "subject": "ak7-fysik",
+      "title": "Mätning och enheter",
+      "summary": "SI-enheter, prefixen milli, centi och kilo, enhetsomvandling och mätnoggrannhet.",
+      "count": 8,
+      "file": "data/library/ak7-fys-matning.json"
+    },
+    {
+      "id": "lib-fys7-materia",
+      "subject": "ak7-fysik",
+      "title": "Materiens faser och densitet",
+      "summary": "De tre faserna på partikelnivå, fasövergångar samt massa, volym och densitet.",
+      "count": 8,
+      "file": "data/library/ak7-fys-materia.json"
+    },
+    {
+      "id": "lib-fys7-varme",
+      "subject": "ak7-fysik",
+      "title": "Värme och temperatur",
+      "summary": "Värme som energi och temperatur som mått, Celsius-skalan, värmetransport, värmeutvidgning och isolering.",
+      "count": 8,
+      "file": "data/library/ak7-fys-varme.json"
+    },
+    {
+      "id": "lib-fys7-krafter",
+      "subject": "ak7-fysik",
+      "title": "Krafter och rörelse",
+      "summary": "Kraft i newton, tyngdkraft och skillnaden mellan massa och tyngd, friktion och hastighet.",
+      "count": 8,
+      "file": "data/library/ak7-fys-krafter.json"
+    },
+    {
+      "id": "lib-fys7-astronomi",
+      "subject": "ak7-fysik",
+      "title": "Solsystemet och årstiderna",
+      "summary": "Solsystemets planeter, dag och natt, jordaxelns lutning och årstider, månens faser och förmörkelser.",
+      "count": 8,
+      "file": "data/library/ak7-fys-astronomi.json"
+    },
+    {
+      "id": "lib-kemi7-amnen",
+      "subject": "ak7-kemi",
+      "title": "Ämnen och deras egenskaper",
+      "summary": "Rena ämnen och blandningar, lösningar och legeringar, separationsmetoder som filtrering, indunstning och destillation samt egenskaper som smältpunkt och löslighet.",
+      "count": 8,
+      "file": "data/library/ak7-kemi-amnen.json"
+    },
+    {
+      "id": "lib-kemi7-atomer",
+      "subject": "ak7-kemi",
+      "title": "Atomer och grundämnen",
+      "summary": "Atomen som byggsten, skillnaden mellan grundämne och kemisk förening, kemiska tecken, molekyler och hur periodiska systemet är ordnat.",
+      "count": 8,
+      "file": "data/library/ak7-kemi-atomer.json"
+    },
+    {
+      "id": "lib-kemi7-reaktioner",
+      "subject": "ak7-kemi",
+      "title": "Kemiska reaktioner",
+      "summary": "Fysikalisk förändring kontra kemisk reaktion, tecken på att en reaktion skett, förbränning med syre, massans bevarande och enkla reaktionsformler.",
+      "count": 8,
+      "file": "data/library/ak7-kemi-reaktioner.json"
+    },
+    {
+      "id": "lib-kemi7-luft-vatten",
+      "subject": "ak7-kemi",
+      "title": "Luft och vatten",
+      "summary": "Luftens gaser med kväve, syre och koldioxid, vattnets kretslopp och faser, vatten som lösningsmedel, varför is flyter och vanliga luftföroreningar.",
+      "count": 8,
+      "file": "data/library/ak7-kemi-luft-vatten.json"
+    },
+    {
+      "id": "lib-kemi7-labb",
+      "subject": "ak7-kemi",
+      "title": "Laborationssäkerhet och metod",
+      "summary": "Säkerhetsregler och skyddsutrustning, faropiktogram, vanlig labbutrustning och hur du planerar, genomför och dokumenterar ett experiment med hypotes och slutsats.",
+      "count": 8,
+      "file": "data/library/ak7-kemi-labb.json"
+    },
+    {
+      "id": "lib-bio8-matspjalkning",
+      "subject": "ak8-biologi",
+      "title": "Matspjälkning och näringslära",
+      "summary": "Matspjälkningskanalens delar, enzymernas nedbrytning och näringsämnena kroppen behöver.",
+      "count": 8,
+      "file": "data/library/ak8-bio-matspjalkning.json"
+    },
+    {
+      "id": "lib-bio8-andning",
+      "subject": "ak8-biologi",
+      "title": "Andning och blodomlopp",
+      "summary": "Andningsorganen och gasutbytet, hjärtat och de två kretsloppen samt blodets beståndsdelar.",
+      "count": 8,
+      "file": "data/library/ak8-bio-andning.json"
+    },
+    {
+      "id": "lib-bio8-nervsystem",
+      "subject": "ak8-biologi",
+      "title": "Nervsystem och sinnen",
+      "summary": "Hjärnans delar och nervcellernas signaler, reflexer, de fem sinnena och varför vi behöver sömn.",
+      "count": 8,
+      "file": "data/library/ak8-bio-nervsystem.json"
+    },
+    {
+      "id": "lib-bio8-fortplantning",
+      "subject": "ak8-biologi",
+      "title": "Fortplantning och utveckling",
+      "summary": "Könsorganen och menstruationscykeln, befruktning och fosterutveckling, puberteten och preventivmedel.",
+      "count": 8,
+      "file": "data/library/ak8-bio-fortplantning.json"
+    },
+    {
+      "id": "lib-bio8-halsa",
+      "subject": "ak8-biologi",
+      "title": "Hälsa, sjukdomar och immunförsvar",
+      "summary": "Immunförsvaret, bakterier och virus, vaccin och antibiotika, smittspridning och levnadsvanor.",
+      "count": 8,
+      "file": "data/library/ak8-bio-halsa.json"
+    },
+    {
+      "id": "lib-fys8-el",
+      "subject": "ak8-fysik",
+      "title": "Elektricitet och kretsar",
+      "summary": "Spänning, ström och resistans, Ohms lag, serie- och parallellkoppling samt säkringar och elsäkerhet.",
+      "count": 8,
+      "file": "data/library/ak8-fys-el.json"
+    },
+    {
+      "id": "lib-fys8-magnetism",
+      "subject": "ak8-fysik",
+      "title": "Magnetism och elektromagnetism",
+      "summary": "Magnetpoler och magnetfält, jordens magnetfält och kompassen, elektromagneter, induktion samt generator och elmotor.",
+      "count": 8,
+      "file": "data/library/ak8-fys-magnetism.json"
+    },
+    {
+      "id": "lib-fys8-energi",
+      "subject": "ak8-fysik",
+      "title": "Energi och energikällor",
+      "summary": "Energiformer och energiprincipen, energiomvandlingar, förnybara och icke-förnybara energikällor, verkningsgrad samt effekt i watt och energi i kilowattimmar.",
+      "count": 8,
+      "file": "data/library/ak8-fys-energi.json"
+    },
+    {
+      "id": "lib-fys8-ljud",
+      "subject": "ak8-fysik",
+      "title": "Ljud och vågor",
+      "summary": "Ljud som longitudinella vågor, frekvens och tonhöjd, amplitud och ljudstyrka, ljudets hastighet i olika material, eko och resonans samt hörsel och buller.",
+      "count": 8,
+      "file": "data/library/ak8-fys-ljud.json"
+    },
+    {
+      "id": "lib-fys8-ljus",
+      "subject": "ak8-fysik",
+      "title": "Ljus och optik",
+      "summary": "Ljusets rätlinjiga utbredning och skuggor, reflektionslagen, brytning i vatten och glas, linser och ögat samt färger och spektrum.",
+      "count": 8,
+      "file": "data/library/ak8-fys-ljus.json"
+    },
+    {
+      "id": "lib-kemi8-periodiska",
+      "subject": "ak8-kemi",
+      "title": "Periodiska systemet och atommodellen",
+      "summary": "Protoner, neutroner och elektroner, atomnummer och masstal, elektronskal samt grupper och perioder med ädelgaser och alkalimetaller som exempel.",
+      "count": 8,
+      "file": "data/library/ak8-kemi-periodiska.json"
+    },
+    {
+      "id": "lib-kemi8-bindningar",
+      "subject": "ak8-kemi",
+      "title": "Kemiska bindningar och joner",
+      "summary": "Varför atomer binder ihop sig, jonbindning och jonföreningar, kovalent bindning och molekyler, salter samt vanliga joner och deras laddning.",
+      "count": 8,
+      "file": "data/library/ak8-kemi-bindningar.json"
+    },
+    {
+      "id": "lib-kemi8-syrabas",
+      "subject": "ak8-kemi",
+      "title": "Syror, baser och pH",
+      "summary": "pH-skalan och indikatorer, vanliga syror och baser, neutralisation och saltbildning, försurning av mark och vatten samt exempel från vardagen.",
+      "count": 8,
+      "file": "data/library/ak8-kemi-syrabas.json"
+    },
+    {
+      "id": "lib-kemi8-reaktioner",
+      "subject": "ak8-kemi",
+      "title": "Kemiska reaktioner och energi",
+      "summary": "Att balansera enkla reaktionsformler, exoterma och endoterma reaktioner, förbränning och oxidation, reaktionshastighet samt massans bevarande.",
+      "count": 8,
+      "file": "data/library/ak8-kemi-reaktioner.json"
+    },
+    {
+      "id": "lib-kemi8-vatten",
+      "subject": "ak8-kemi",
+      "title": "Vatten, lösningar och miljö",
+      "summary": "Vattenmolekylens byggnad och egenskaper, lösningar och löslighet, koncentration på grundnivå, vattenrening samt övergödning och miljögifter.",
+      "count": 8,
+      "file": "data/library/ak8-kemi-vatten.json"
+    },
+    {
+      "id": "lib-hist7-forntid",
+      "subject": "ak7-historia",
+      "title": "Forntiden och de första civilisationerna",
+      "summary": "Stenålder, bronsålder, järnålder och de första civilisationerna.",
+      "count": 8,
+      "file": "data/library/ak7-hist-forntid.json"
+    },
+    {
+      "id": "lib-hist7-antiken",
+      "subject": "ak7-historia",
+      "title": "Antikens Grekland och Rom",
+      "summary": "Stadsstater, Athens demokrati, romarriket och arvet från antiken.",
+      "count": 8,
+      "file": "data/library/ak7-hist-antiken.json"
+    },
+    {
+      "id": "lib-hist7-medeltiden",
+      "subject": "ak7-historia",
+      "title": "Medeltiden i Europa",
+      "summary": "Feodalsamhället, kyrkans makt, städernas framväxt och digerdöden.",
+      "count": 8,
+      "file": "data/library/ak7-hist-medeltiden.json"
+    },
+    {
+      "id": "lib-hist7-vikingar",
+      "subject": "ak7-historia",
+      "title": "Vikingatiden och Sveriges medeltid",
+      "summary": "Vikingarnas handel och samhälle, runstenar, kristnandet och Kalmarunionen.",
+      "count": 8,
+      "file": "data/library/ak7-hist-vikingar.json"
+    },
+    {
+      "id": "lib-hist7-upptackter",
+      "subject": "ak7-historia",
+      "title": "Upptäcktsresor och renässansen",
+      "summary": "Renässansen, boktryckarkonsten, upptäcktsresorna och reformationen.",
+      "count": 8,
+      "file": "data/library/ak7-hist-upptackter.json"
+    },
+    {
+      "id": "lib-geo7-kartor",
+      "subject": "ak7-geografi",
+      "title": "Kartor och kartkunskap",
+      "summary": "Väderstreck, skala och skalräkning, teckenförklaring, höjdkurvor, latitud och longitud samt olika karttyper.",
+      "count": 8,
+      "file": "data/library/ak7-geo-kartor.json"
+    },
+    {
+      "id": "lib-geo7-sverige",
+      "subject": "ak7-geografi",
+      "title": "Sveriges geografi",
+      "summary": "Landskap och landsdelar, naturen från fjäll till slätt, stora sjöar och älvar, befolkning och näringar.",
+      "count": 8,
+      "file": "data/library/ak7-geo-sverige.json"
+    },
+    {
+      "id": "lib-geo7-norden",
+      "subject": "ak7-geografi",
+      "title": "Norden och Europa",
+      "summary": "De nordiska länderna och huvudstäderna, Nordens natur och klimat samt Europas indelning, bergskedjor och floder.",
+      "count": 8,
+      "file": "data/library/ak7-geo-norden.json"
+    },
+    {
+      "id": "lib-geo7-klimat",
+      "subject": "ak7-geografi",
+      "title": "Väder, klimat och klimatzoner",
+      "summary": "Skillnaden mellan väder och klimat, jordens klimatzoner, vad som påverkar klimatet, Golfströmmen och vegetationszonerna.",
+      "count": 8,
+      "file": "data/library/ak7-geo-klimat.json"
+    },
+    {
+      "id": "lib-geo7-landformer",
+      "subject": "ak7-geografi",
+      "title": "Jordens landformer och naturkrafter",
+      "summary": "Jordens uppbyggnad och kontinentalplattor, vulkaner och jordbävningar, erosion och istidens spår samt hur landformer styr var vi bor.",
+      "count": 8,
+      "file": "data/library/ak7-geo-landformer.json"
+    },
+    {
+      "id": "lib-sam7-samhallet",
+      "subject": "ak7-samhallskunskap",
+      "title": "Samhället och individen",
+      "summary": "Familj, grupper, normer och hur identiteten formas.",
+      "count": 8,
+      "file": "data/library/ak7-sam-samhallet.json"
+    },
+    {
+      "id": "lib-sam7-demokrati",
+      "subject": "ak7-samhallskunskap",
+      "title": "Demokrati och inflytande",
+      "summary": "Majoritet och minoritet, allmän rösträtt och sätt att påverka.",
+      "count": 8,
+      "file": "data/library/ak7-sam-demokrati.json"
+    },
+    {
+      "id": "lib-sam7-lagar",
+      "subject": "ak7-samhallskunskap",
+      "title": "Lagar, regler och rättigheter",
+      "summary": "Lagar och regler, polis och domstol samt barnkonventionen.",
+      "count": 8,
+      "file": "data/library/ak7-sam-lagar.json"
+    },
+    {
+      "id": "lib-sam7-ekonomi",
+      "subject": "ak7-samhallskunskap",
+      "title": "Privatekonomi",
+      "summary": "Inkomster, utgifter, budget, sparande och konsumenträtt.",
+      "count": 8,
+      "file": "data/library/ak7-sam-ekonomi.json"
+    },
+    {
+      "id": "lib-sam7-media",
+      "subject": "ak7-samhallskunskap",
+      "title": "Medier och information",
+      "summary": "Mediernas roll, källkritik, sociala medier och yttrandefrihet.",
+      "count": 8,
+      "file": "data/library/ak7-sam-media.json"
+    },
+    {
+      "id": "lib-rel7-abrahamitiska",
+      "subject": "ak7-religion",
+      "title": "De abrahamitiska religionerna",
+      "summary": "Judendom, kristendom och islam — gemensamma drag, heliga skrifter, gudstjänstbyggnader och de viktigaste skillnaderna.",
+      "count": 8,
+      "file": "data/library/ak7-rel-abrahamitiska.json"
+    },
+    {
+      "id": "lib-rel7-kristendom",
+      "subject": "ak7-religion",
+      "title": "Kristendomen",
+      "summary": "Synen på Jesus, bibelns uppbyggnad, gudstjänsten, jul och påsk samt kristendomens roll i Sveriges historia.",
+      "count": 8,
+      "file": "data/library/ak7-rel-kristendom.json"
+    },
+    {
+      "id": "lib-rel7-osterlandska",
+      "subject": "ak7-religion",
+      "title": "Hinduism och buddhism",
+      "summary": "Religionerna med rötter i Indien — gudabilder, karma och reinkarnation, buddhismens syn på lidandet och nirvana samt heliga platser.",
+      "count": 8,
+      "file": "data/library/ak7-rel-osterlandska.json"
+    },
+    {
+      "id": "lib-rel7-hogtider",
+      "subject": "ak7-religion",
+      "title": "Högtider, riter och symboler",
+      "summary": "Vad kors, davidsstjärna, halvmåne och hjul står för, övergångsriter genom livet och de viktigaste högtiderna i olika religioner.",
+      "count": 8,
+      "file": "data/library/ak7-rel-hogtider.json"
+    },
+    {
+      "id": "lib-rel7-livsfragor",
+      "subject": "ak7-religion",
+      "title": "Livsfrågor och etik",
+      "summary": "Vad en livsfråga är, etik och moral, den gyllene regeln i olika religioner, religionsfrihet samt ateism och humanism.",
+      "count": 8,
+      "file": "data/library/ak7-rel-livsfragor.json"
+    },
+    {
+      "id": "lib-hist8-stormaktstiden",
+      "subject": "ak8-historia",
+      "title": "Sveriges stormaktstid",
+      "summary": "1600-talets krig och erövringar, hur riket styrdes och varför stormaktstiden tog slut.",
+      "count": 8,
+      "file": "data/library/ak8-hist-stormaktstiden.json"
+    },
+    {
+      "id": "lib-hist8-upplysningen",
+      "subject": "ak8-historia",
+      "title": "Upplysningen och revolutionerna",
+      "summary": "1700-talets idéer om förnuft och rättigheter samt den amerikanska och franska revolutionen.",
+      "count": 8,
+      "file": "data/library/ak8-hist-upplysningen.json"
+    },
+    {
+      "id": "lib-hist8-industri",
+      "subject": "ak8-historia",
+      "title": "Industrialiseringen i Sverige",
+      "summary": "Järnvägar, fabriker och uppfinningar, flytten till städerna, arbetsvillkor och folkrörelser.",
+      "count": 8,
+      "file": "data/library/ak8-hist-industri.json"
+    },
+    {
+      "id": "lib-hist8-emigration",
+      "subject": "ak8-historia",
+      "title": "Emigrationen från Sverige",
+      "summary": "Varför 1,3 miljoner svenskar utvandrade, resan till Amerika och livet där.",
+      "count": 8,
+      "file": "data/library/ak8-hist-emigration.json"
+    },
+    {
+      "id": "lib-hist8-kallor",
+      "subject": "ak8-historia",
+      "title": "Historiska källor och historiebruk",
+      "summary": "Källtyper, källkritiska frågor om äkthet, tid, beroende och tendens samt hur historia används.",
+      "count": 8,
+      "file": "data/library/ak8-hist-kallor.json"
+    },
+    {
+      "id": "lib-geo8-befolkning",
+      "subject": "ak8-geografi",
+      "title": "Befolkning och migration",
+      "summary": "Befolkningstäthet, befolkningspyramider, födelse- och dödstal, migration och urbanisering.",
+      "count": 8,
+      "file": "data/library/ak8-geo-befolkning.json"
+    },
+    {
+      "id": "lib-geo8-naturresurser",
+      "subject": "ak8-geografi",
+      "title": "Naturresurser och energi",
+      "summary": "Förnybara och icke-förnybara resurser, energikällornas för- och nackdelar, vatten och ekologiska fotavtryck.",
+      "count": 8,
+      "file": "data/library/ak8-geo-naturresurser.json"
+    },
+    {
+      "id": "lib-geo8-varldsdelar",
+      "subject": "ak8-geografi",
+      "title": "Världsdelarna",
+      "summary": "Världsdelar och världshav, bergskedjor, floder och öknar, klimatzoner och tematiska kartor.",
+      "count": 8,
+      "file": "data/library/ak8-geo-varldsdelar.json"
+    },
+    {
+      "id": "lib-geo8-utveckling",
+      "subject": "ak8-geografi",
+      "title": "Rikedom, fattigdom och utveckling",
+      "summary": "Hög- och låginkomstländer, BNP och HDI, orsaker till ojämlikhet, handel, bistånd och globala målen.",
+      "count": 8,
+      "file": "data/library/ak8-geo-utveckling.json"
+    },
+    {
+      "id": "lib-geo8-klimatpaverkan",
+      "subject": "ak8-geografi",
+      "title": "Klimat och miljöpåverkan",
+      "summary": "Växthuseffekten, orsaker till klimatförändringar, konsekvenser, sårbarhet och klimatåtgärder.",
+      "count": 8,
+      "file": "data/library/ak8-geo-klimatpaverkan.json"
+    },
+    {
+      "id": "lib-sam8-politik",
+      "subject": "ak8-samhallskunskap",
+      "title": "Politik och styre i Sverige",
+      "summary": "Riksdag, regering och statschef, lagens väg, kommun och region samt val och valsystem.",
+      "count": 8,
+      "file": "data/library/ak8-sam-politik.json"
+    },
+    {
+      "id": "lib-sam8-ekonomi",
+      "subject": "ak8-samhallskunskap",
+      "title": "Samhällsekonomi",
+      "summary": "Det ekonomiska kretsloppet, skatter och välfärd, utbud och efterfrågan samt konjunkturer.",
+      "count": 8,
+      "file": "data/library/ak8-sam-ekonomi.json"
+    },
+    {
+      "id": "lib-sam8-rattssystem",
+      "subject": "ak8-samhallskunskap",
+      "title": "Rättssystemet och brottslighet",
+      "summary": "Polis, åklagare, domstol och kriminalvård, rättegången, påföljder och orsaker till brott.",
+      "count": 8,
+      "file": "data/library/ak8-sam-rattssystem.json"
+    },
+    {
+      "id": "lib-sam8-manskliga",
+      "subject": "ak8-samhallskunskap",
+      "title": "Mänskliga rättigheter och jämlikhet",
+      "summary": "FN:s förklaring, barnkonventionen, diskrimineringsgrunderna, jämställdhet och grundlagsskydd.",
+      "count": 8,
+      "file": "data/library/ak8-sam-manskliga.json"
+    },
+    {
+      "id": "lib-sam8-eu",
+      "subject": "ak8-samhallskunskap",
+      "title": "Sverige, EU och världen",
+      "summary": "Vad EU är och hur beslut fattas, medlemskapets betydelse, FN:s roll och globalisering.",
+      "count": 8,
+      "file": "data/library/ak8-sam-eu.json"
+    },
+    {
+      "id": "lib-rel8-judendom",
+      "subject": "ak8-religion",
+      "title": "Judendomen",
+      "summary": "Förbundet, Toran och Talmud, synagogan och sabbaten, högtiderna samt judar i Sverige.",
+      "count": 8,
+      "file": "data/library/ak8-rel-judendom.json"
+    },
+    {
+      "id": "lib-rel8-islam",
+      "subject": "ak8-religion",
+      "title": "Islam",
+      "summary": "Tron på Guds enhet, Koranen, de fem pelarna, moskén, sunni och shia samt högtiderna.",
+      "count": 8,
+      "file": "data/library/ak8-rel-islam.json"
+    },
+    {
+      "id": "lib-rel8-kristendomen",
+      "subject": "ak8-religion",
+      "title": "Kristendomens inriktningar",
+      "summary": "Katolskt, ortodoxt och protestantiskt, reformationen, sakramenten och kyrkorna i Sverige.",
+      "count": 8,
+      "file": "data/library/ak8-rel-kristendomen.json"
+    },
+    {
+      "id": "lib-rel8-etik",
+      "subject": "ak8-religion",
+      "title": "Etik och moral",
+      "summary": "Etik och moral, pliktetik, konsekvensetik, sinnelagsetik, gyllene regeln och etiska dilemman.",
+      "count": 8,
+      "file": "data/library/ak8-rel-etik.json"
+    },
+    {
+      "id": "lib-rel8-religion-samhalle",
+      "subject": "ak8-religion",
+      "title": "Religion och samhälle",
+      "summary": "Religionsfrihet, sekularisering, stat och kyrka år 2000, fredsarbete och religiös mångfald.",
+      "count": 8,
+      "file": "data/library/ak8-rel-religion-samhalle.json"
+    },
+    {
+      "id": "lib-ma2-andragrad",
+      "subject": "gy-matematik-2",
+      "title": "Andragradsekvationer",
+      "summary": "Faktorisering, kvadratkomplettering, pq-formeln och diskriminanten.",
+      "count": 8,
+      "file": "data/library/gy-ma2-andragrad.json"
+    },
+    {
+      "id": "lib-ma2-funktioner",
+      "subject": "gy-matematik-2",
+      "title": "Andragradsfunktioner och parabler",
+      "summary": "Vertexform, symmetrilinje, extremvärde och koefficienternas betydelse.",
+      "count": 8,
+      "file": "data/library/gy-ma2-funktioner.json"
+    },
+    {
+      "id": "lib-ma2-exponential",
+      "subject": "gy-matematik-2",
+      "title": "Exponentialfunktioner och logaritmer",
+      "summary": "Exponentiell förändring, logaritmlagar och att lösa exponentialekvationer.",
+      "count": 8,
+      "file": "data/library/gy-ma2-exponential.json"
+    },
+    {
+      "id": "lib-ma2-linjara",
+      "subject": "gy-matematik-2",
+      "title": "Räta linjen och linjära ekvationssystem",
+      "summary": "K- och m-värde samt substitutions- och additionsmetoden.",
+      "count": 8,
+      "file": "data/library/gy-ma2-linjara.json"
+    },
+    {
+      "id": "lib-ma2-trigonometri",
+      "subject": "gy-matematik-2",
+      "title": "Trigonometri: sinus, cosinus och tangens",
+      "summary": "Trigonometriska förhållanden i rätvinkliga trianglar och tillämpningar.",
+      "count": 8,
+      "file": "data/library/gy-ma2-trigonometri.json"
+    },
+    {
+      "id": "lib-ma2-statistik",
+      "subject": "gy-matematik-2",
+      "title": "Sannolikhet och statistik",
+      "summary": "Betingad sannolikhet, oberoende händelser och fördjupade läges- och spridningsmått.",
+      "count": 8,
+      "file": "data/library/gy-ma2-statistik.json"
+    },
+    {
+      "id": "lib-ma3-derivata",
+      "subject": "gy-matematik-3",
+      "title": "Derivator: gränsvärde och deriveringsregler",
+      "summary": "Derivatans definition som gränsvärde, deriveringsregler och tolkning som momentan förändringstakt.",
+      "count": 8,
+      "file": "data/library/gy-ma3-derivata.json"
+    },
+    {
+      "id": "lib-ma3-extrem",
+      "subject": "gy-matematik-3",
+      "title": "Derivatans användning: extremvärden",
+      "summary": "Teckenstudium, växande och avtagande funktioner, lokala extrempunkter och andraderivatan.",
+      "count": 8,
+      "file": "data/library/gy-ma3-extrem.json"
+    },
+    {
+      "id": "lib-ma3-optimering",
+      "subject": "gy-matematik-3",
+      "title": "Optimering med derivata",
+      "summary": "Att ställa upp, derivera och lösa ut extremvärden för area- och volymproblem.",
+      "count": 8,
+      "file": "data/library/gy-ma3-optimering.json"
+    },
+    {
+      "id": "lib-ma3-integraler",
+      "subject": "gy-matematik-3",
+      "title": "Primitiva funktioner och integraler",
+      "summary": "Primitiva funktioner, bestämd integral som area under kurvan och integralkalkylens huvudsats.",
+      "count": 8,
+      "file": "data/library/gy-ma3-integraler.json"
+    },
+    {
+      "id": "lib-ma3-polynom",
+      "subject": "gy-matematik-3",
+      "title": "Polynomekvationer och faktorsatsen",
+      "summary": "Polynom av högre grad, faktorsatsen, rationella nollställen och polynomdivision.",
+      "count": 8,
+      "file": "data/library/gy-ma3-polynom.json"
+    },
+    {
+      "id": "lib-ma3-trigonometri",
+      "subject": "gy-matematik-3",
+      "title": "Trigonometriska funktioner och ekvationer",
+      "summary": "Radianer, enhetscirkeln, trigonometriska ekvationer och fördjupade trigonometriska samband.",
+      "count": 8,
+      "file": "data/library/gy-ma3-trigonometri.json"
+    },
+    {
+      "id": "lib-sv2-epoker",
+      "subject": "gy-svenska-2",
+      "title": "Litteraturhistoriska epoker",
+      "summary": "Antiken, medeltiden, renässansen, upplysningen, romantiken, realismen och modernismen.",
+      "count": 8,
+      "file": "data/library/gy-sv2-epoker.json"
+    },
+    {
+      "id": "lib-sv2-analys",
+      "subject": "gy-svenska-2",
+      "title": "Litteraturanalys och berättarteknik",
+      "summary": "Berättarperspektiv, symbolik och motiv, komposition och samspelet mellan form och innehåll.",
+      "count": 8,
+      "file": "data/library/gy-sv2-analys.json"
+    },
+    {
+      "id": "lib-sv2-sprakhistoria",
+      "subject": "gy-svenska-2",
+      "title": "Svenska språkets historia",
+      "summary": "Runsvenska, fornsvenska, nysvenska och nusvenska samt lånord och språkförändring.",
+      "count": 8,
+      "file": "data/library/gy-sv2-sprakhistoria.json"
+    },
+    {
+      "id": "lib-sv2-retorik",
+      "subject": "gy-svenska-2",
+      "title": "Retorisk analys",
+      "summary": "Att analysera verkliga tal med appellformer, stilfigurer och den klassiska dispositionens sex delar.",
+      "count": 8,
+      "file": "data/library/gy-sv2-retorik.json"
+    },
+    {
+      "id": "lib-sv2-text",
+      "subject": "gy-svenska-2",
+      "title": "Utredande och argumenterande text",
+      "summary": "Disposition, källhantering i löpande text och skillnaden mellan att utreda och att argumentera.",
+      "count": 8,
+      "file": "data/library/gy-sv2-text.json"
+    },
+    {
+      "id": "lib-sv2-muntligt",
+      "subject": "gy-svenska-2",
+      "title": "Muntlig framställning och presentationsteknik",
+      "summary": "Mottagaranpassning, retoriska hjälpmedel, nervositet, frågestund och visuella hjälpmedel.",
+      "count": 8,
+      "file": "data/library/gy-sv2-muntligt.json"
+    },
+    {
+      "id": "lib-sv3-vetenskap",
+      "subject": "gy-svenska-3",
+      "title": "Vetenskapligt skrivande och PM",
+      "summary": "PM-strukturens delar, objektivt språk och vad som skiljer en vetenskaplig text från andra texttyper.",
+      "count": 8,
+      "file": "data/library/gy-sv3-vetenskap.json"
+    },
+    {
+      "id": "lib-sv3-kallor",
+      "subject": "gy-svenska-3",
+      "title": "Källhantering och referensteknik",
+      "summary": "Löpande hänvisning och fotnoter, källförteckning, citat kontra parafras samt plagiat.",
+      "count": 8,
+      "file": "data/library/gy-sv3-kallor.json"
+    },
+    {
+      "id": "lib-sv3-litteratur",
+      "subject": "gy-svenska-3",
+      "title": "Litteraturvetenskaplig analys",
+      "summary": "Genus-, historiskt och psykoanalytiskt perspektiv, fokalisering, opålitlig berättare och verk i samtiden.",
+      "count": 8,
+      "file": "data/library/gy-sv3-litteratur.json"
+    },
+    {
+      "id": "lib-sv3-retorik",
+      "subject": "gy-svenska-3",
+      "title": "Retorisk analys och argumentation",
+      "summary": "Argumentationsfel, ethos och trovärdighet samt anpassning till mottagaren i komplexa texter.",
+      "count": 8,
+      "file": "data/library/gy-sv3-retorik.json"
+    },
+    {
+      "id": "lib-sv3-stilistik",
+      "subject": "gy-svenska-3",
+      "title": "Stilistik och språklig variation",
+      "summary": "Stilnivåer, sociolekt och register samt hur ordval och meningsbyggnad skapar stil.",
+      "count": 8,
+      "file": "data/library/gy-sv3-stilistik.json"
+    },
+    {
+      "id": "lib-sv3-muntligt",
+      "subject": "gy-svenska-3",
+      "title": "Muntlig framställning: utredande anförande",
+      "summary": "Struktur i längre anföranden, belägg och motargument samt anpassning till en kritisk publik.",
+      "count": 8,
+      "file": "data/library/gy-sv3-muntligt.json"
+    },
+    {
+      "id": "lib-en6-passive",
+      "subject": "gy-engelska-6",
+      "title": "Grammar: passive voice and reported speech",
+      "summary": "Aktiv/passiv i olika tempus samt direkt tal till reported speech med tempusbackning.",
+      "count": 8,
+      "file": "data/library/gy-en6-passive.json"
+    },
+    {
+      "id": "lib-en6-clauses",
+      "subject": "gy-engelska-6",
+      "title": "Grammar: relative clauses and conditionals",
+      "summary": "Definierande/icke-definierande relativsatser samt second, third och blandade conditionals.",
+      "count": 8,
+      "file": "data/library/gy-en6-clauses.json"
+    },
+    {
+      "id": "lib-en6-vocabulary",
+      "subject": "gy-engelska-6",
+      "title": "Vocabulary: idioms and abstract language",
+      "summary": "Idiom, abstrakta substantiv, kollokationer och formella synonymer.",
+      "count": 8,
+      "file": "data/library/gy-en6-vocabulary.json"
+    },
+    {
+      "id": "lib-en6-reading",
+      "subject": "gy-engelska-6",
+      "title": "Reading comprehension: opinion and argument",
+      "summary": "Författarens hållning, fakta kontra åsikt, motargument samt ton och vinkling.",
+      "count": 8,
+      "file": "data/library/gy-en6-reading.json"
+    },
+    {
+      "id": "lib-en6-litfilm",
+      "subject": "gy-engelska-6",
+      "title": "Literature and film analysis",
+      "summary": "Handling, karaktärer, tema, miljö, berättarperspektiv och filmtermer.",
+      "count": 8,
+      "file": "data/library/gy-en6-litfilm.json"
+    },
+    {
+      "id": "lib-en6-writing",
+      "subject": "gy-engelska-6",
+      "title": "Writing: essay structure and cohesion",
+      "summary": "Thesis statement, sambandsord, styckestruktur och formella avslutningar.",
+      "count": 8,
+      "file": "data/library/gy-en6-writing.json"
+    },
+    {
+      "id": "lib-en7gy-grammar",
+      "subject": "gy-engelska-7",
+      "title": "Grammar: advanced tenses and modality",
+      "summary": "Nyanserade modala verb, future perfect/continuous och subjunktiv i formell engelska.",
+      "count": 8,
+      "file": "data/library/gy-en7-grammar.json"
+    },
+    {
+      "id": "lib-en7gy-vocabulary",
+      "subject": "gy-engelska-7",
+      "title": "Vocabulary: academic and formal register",
+      "summary": "Formellt kontra informellt ordval, akademisk ordlista och precisa ordval i uppsatser.",
+      "count": 8,
+      "file": "data/library/gy-en7-vocabulary.json"
+    },
+    {
+      "id": "lib-en7gy-reading",
+      "subject": "gy-engelska-7",
+      "title": "Reading comprehension: complex texts",
+      "summary": "Underförstådda argument, korrelation kontra kausalitet, ironi och sammanfattning av komplexa resonemang.",
+      "count": 8,
+      "file": "data/library/gy-en7-reading.json"
+    },
+    {
+      "id": "lib-en7gy-debate",
+      "subject": "gy-engelska-7",
+      "title": "Debate and persuasive language",
+      "summary": "Retoriska grepp, skillnaden mellan att övertyga och manipulera, motargument och hedging.",
+      "count": 8,
+      "file": "data/library/gy-en7-debate.json"
+    },
+    {
+      "id": "lib-en7gy-writing",
+      "subject": "gy-engelska-7",
+      "title": "Writing: formal essays and reports",
+      "summary": "Rapportstruktur, formella brev/mejl, och signalord för långa argumenterande uppsatser.",
+      "count": 8,
+      "file": "data/library/gy-en7-writing.json"
+    },
+    {
+      "id": "lib-en7gy-idiom",
+      "subject": "gy-engelska-7",
+      "title": "Idiomatic and nuanced expression",
+      "summary": "Avancerade idiom, konnotation kontra denotation, flertydiga phrasal verbs och avancerade false friends.",
+      "count": 8,
+      "file": "data/library/gy-en7-idiom.json"
+    },
+    {
+      "id": "lib-hist1a1-antiken",
+      "subject": "gy-historia-1a1",
+      "title": "Antiken och medeltiden",
+      "summary": "Demokrati och rike i Grekland och Rom, kristendomens spridning, Roms fall och det feodala samhället.",
+      "count": 8,
+      "file": "data/library/gy-hist1a1-antiken.json"
+    },
+    {
+      "id": "lib-hist1a1-upplysning",
+      "subject": "gy-historia-1a1",
+      "title": "Från renässans till upplysning",
+      "summary": "Humanism, reformationen, vetenskapliga revolutionen och upplysningens idéer om förnuft och rättigheter.",
+      "count": 8,
+      "file": "data/library/gy-hist1a1-upplysning.json"
+    },
+    {
+      "id": "lib-hist1a1-revolutioner",
+      "subject": "gy-historia-1a1",
+      "title": "Revolutionernas tid",
+      "summary": "Amerikanska och franska revolutionen, industrialiseringens samhällsomvandling och nationalismens framväxt.",
+      "count": 8,
+      "file": "data/library/gy-hist1a1-revolutioner.json"
+    },
+    {
+      "id": "lib-hist1a1-varldskrigen",
+      "subject": "gy-historia-1a1",
+      "title": "1900-talets världskrig",
+      "summary": "Orsaker till och konsekvenser av världskrigen, totalitära ideologier, Förintelsen och FN:s bildande.",
+      "count": 8,
+      "file": "data/library/gy-hist1a1-varldskrigen.json"
+    },
+    {
+      "id": "lib-hist1a1-kallakriget",
+      "subject": "gy-historia-1a1",
+      "title": "Kalla kriget och avkolonisering",
+      "summary": "Supermaktskonflikten USA–Sovjet, kapprustning och doktriner samt avkoloniseringen i Afrika och Asien.",
+      "count": 8,
+      "file": "data/library/gy-hist1a1-kallakriget.json"
+    },
+    {
+      "id": "lib-hist1a1-kallkritik",
+      "subject": "gy-historia-1a1",
+      "title": "Källkritik och historiebruk",
+      "summary": "Äkthet, tid, beroende och tendens, primär- och sekundärkällor samt historiebruk och historiesynens föränderlighet.",
+      "count": 8,
+      "file": "data/library/gy-hist1a1-kallkritik.json"
+    },
+    {
+      "id": "lib-sam1a1-demokrati",
+      "subject": "gy-samhallskunskap-1a1",
+      "title": "Demokrati och statsskick",
+      "summary": "Demokratimodeller, Sveriges statsskick med monarki, parlamentarism och maktdelning, samt jämförelser med andra staters statsskick.",
+      "count": 8,
+      "file": "data/library/gy-sam1a1-demokrati.json"
+    },
+    {
+      "id": "lib-sam1a1-ideologier",
+      "subject": "gy-samhallskunskap-1a1",
+      "title": "Politiska ideologier",
+      "summary": "Liberalism, konservatism och socialism, samt höger-vänster-skalan och GAL-TAN som analysverktyg.",
+      "count": 8,
+      "file": "data/library/gy-sam1a1-ideologier.json"
+    },
+    {
+      "id": "lib-sam1a1-ekonomi",
+      "subject": "gy-samhallskunskap-1a1",
+      "title": "Samhällsekonomi och privatekonomi",
+      "summary": "Marknadsekonomi och blandekonomi, konjunkturcykeln, arbetslöshet och inflation, samt budget, lån och konsumenträtt.",
+      "count": 8,
+      "file": "data/library/gy-sam1a1-ekonomi.json"
+    },
+    {
+      "id": "lib-sam1a1-manskliga",
+      "subject": "gy-samhallskunskap-1a1",
+      "title": "Mänskliga rättigheter och internationell rätt",
+      "summary": "FN:s allmänna förklaring, olika rättighetskategorier, folkrätt och humanitär rätt, samt rättigheter som kan komma i konflikt.",
+      "count": 8,
+      "file": "data/library/gy-sam1a1-manskliga.json"
+    },
+    {
+      "id": "lib-sam1a1-media",
+      "subject": "gy-samhallskunskap-1a1",
+      "title": "Massmedier och opinionsbildning",
+      "summary": "Mediernas granskande roll, opinionsbildning och påverkanskanaler, algoritmer och filterbubblor samt medieetik.",
+      "count": 8,
+      "file": "data/library/gy-sam1a1-media.json"
+    },
+    {
+      "id": "lib-sam1a1-individer",
+      "subject": "gy-samhallskunskap-1a1",
+      "title": "Individer, grupper och identitet",
+      "summary": "Socialisation och identitetsskapande, grupptryck, sociala strukturer och begrepp som klass och intersektionalitet.",
+      "count": 8,
+      "file": "data/library/gy-sam1a1-individer.json"
+    },
+    {
+      "id": "lib-nk1b-ekologi",
+      "subject": "gy-naturkunskap-1b",
+      "title": "Ekologi och hållbar utveckling",
+      "summary": "Ekosystemtjänster, biologisk mångfald, kretsloppen för kol, kväve och fosfor, samt hållbar utveckling som begrepp.",
+      "count": 8,
+      "file": "data/library/gy-nk1b-ekologi.json"
+    },
+    {
+      "id": "lib-nk1b-energi",
+      "subject": "gy-naturkunskap-1b",
+      "title": "Energi och klimat",
+      "summary": "Energiprincipen, energiomvandlingar, förnybara och icke-förnybara energikällor samt växthuseffekten och klimatförändringar.",
+      "count": 8,
+      "file": "data/library/gy-nk1b-energi.json"
+    },
+    {
+      "id": "lib-nk1b-evolution",
+      "subject": "gy-naturkunskap-1b",
+      "title": "Evolution och genetik",
+      "summary": "Naturligt urval, artbildning, DNA och genens funktion, arv och variation samt genteknikens möjligheter och etiska frågor.",
+      "count": 8,
+      "file": "data/library/gy-nk1b-evolution.json"
+    },
+    {
+      "id": "lib-nk1b-halsa",
+      "subject": "gy-naturkunskap-1b",
+      "title": "Kropp och hälsa",
+      "summary": "Vad som påverkar hälsan, sexuell hälsa och relationer på vuxennivå, droger och beroende, samt folkhälsa som begrepp.",
+      "count": 8,
+      "file": "data/library/gy-nk1b-halsa.json"
+    },
+    {
+      "id": "lib-nk1b-universum",
+      "subject": "gy-naturkunskap-1b",
+      "title": "Universum och astronomi",
+      "summary": "Big Bang-teorin, stjärnors livscykel, solsystemets uppbyggnad och hur astronomer tar reda på avstånd och sammansättning.",
+      "count": 8,
+      "file": "data/library/gy-nk1b-universum.json"
+    },
+    {
+      "id": "lib-nk1b-metod",
+      "subject": "gy-naturkunskap-1b",
+      "title": "Naturvetenskaplig metod och källkritik",
+      "summary": "Hypotes, experiment och teori, kontrollgrupper och variabler, samt att skilja vetenskap från pseudovetenskap.",
+      "count": 8,
+      "file": "data/library/gy-nk1b-metod.json"
+    },
+    {
+      "id": "lib-rel1-metod",
+      "subject": "gy-religion-1",
+      "title": "Religionsvetenskapliga begrepp och metoder",
+      "summary": "Vad religionsvetenskap är, centrala begrepp som myt, ritual och kult, insider- kontra outsiderperspektiv samt jämförande metod.",
+      "count": 8,
+      "file": "data/library/gy-rel1-metod.json"
+    },
+    {
+      "id": "lib-rel1-varldsreligioner",
+      "subject": "gy-religion-1",
+      "title": "Världsreligionerna: jämförande fördjupning",
+      "summary": "Jämförande fördjupning i gudsuppfattningar och efterlivsföreställningar, inre mångfald av inriktningar samt heliga texters roll och tolkning.",
+      "count": 8,
+      "file": "data/library/gy-rel1-varldsreligioner.json"
+    },
+    {
+      "id": "lib-rel1-etik",
+      "subject": "gy-religion-1",
+      "title": "Normativ etik: fördjupning",
+      "summary": "Pliktetik, konsekvensetik, sinnelagsetik och dygdetik, samt hur flera modeller kan tillämpas på samma dilemma och jämföras.",
+      "count": 8,
+      "file": "data/library/gy-rel1-etik.json"
+    },
+    {
+      "id": "lib-rel1-sekular",
+      "subject": "gy-religion-1",
+      "title": "Sekulära livsåskådningar",
+      "summary": "Humanism, ateism och agnosticism, sekularisering som samhällsprocess samt hur sekulära livsåskådningar besvarar existentiella frågor.",
+      "count": 8,
+      "file": "data/library/gy-rel1-sekular.json"
+    },
+    {
+      "id": "lib-rel1-genus",
+      "subject": "gy-religion-1",
+      "title": "Religion, kön och identitet",
+      "summary": "Religiösa traditioners förhållande till kön, religiös feminism, religion och sexuell identitet samt tolkningsmångfald inom traditionerna.",
+      "count": 8,
+      "file": "data/library/gy-rel1-genus.json"
+    },
+    {
+      "id": "lib-rel1-konflikter",
+      "subject": "gy-religion-1",
+      "title": "Religion i konflikter och globala sammanhang",
+      "summary": "Religion som identitetsmarkör i konflikter, religiöst fredsarbete, religionsfrihet som mänsklig rättighet samt religion och migration.",
+      "count": 8,
+      "file": "data/library/gy-rel1-konflikter.json"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo7-norden",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Norden och Europa",
+  "sourceSummary": "De nordiska länderna och deras huvudstäder, Nordens natur och klimat, Europas indelning samt världsdelens stora bergskedjor och floder — och vad som förenar och skiljer länderna.",
+  "topics": [
+    "de nordiska länderna",
+    "Nordens natur och klimat",
+    "Europas indelning",
+    "Europas berg och floder",
+    "likheter och skillnader"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo7-nor-1",
+      "kind": "mc",
+      "topic": "de nordiska länderna",
+      "prompt": "Vilken är Norges huvudstad?",
+      "opener": "Staden ligger innerst i en lång fjord i sydöstra Norge.",
+      "choices": [
+        "Bergen",
+        "Oslo",
+        "Köpenhamn",
+        "Helsingfors"
+      ],
+      "answer": 1,
+      "explanation": "Oslo är Norges huvudstad och största stad, belägen innerst i Oslofjorden. Bergen är Norges näst största stad men inte huvudstad, medan Köpenhamn är Danmarks och Helsingfors Finlands huvudstad."
+    },
+    {
+      "id": "q-geo7-nor-2",
+      "kind": "mc",
+      "topic": "de nordiska länderna",
+      "prompt": "Vilka fem länder räknas till Norden?",
+      "opener": "Fyra av dem hänger ihop kring Östersjön och Nordsjön, det femte ligger ute i Atlanten.",
+      "choices": [
+        "Sverige, Norge, Danmark, Finland och Estland",
+        "Sverige, Norge, Danmark, Tyskland och Island",
+        "Sverige, Norge, Finland, Ryssland och Island",
+        "Sverige, Norge, Danmark, Finland och Island"
+      ],
+      "answer": 3,
+      "explanation": "Norden består av Sverige, Norge, Danmark, Finland och Island, samt de självstyrande områdena Färöarna, Grönland och Åland. Estland hör till Baltikum, och Tyskland och Ryssland räknas inte till Norden även om de ligger vid Östersjön."
+    },
+    {
+      "id": "q-geo7-nor-3",
+      "kind": "mc",
+      "topic": "Nordens natur och klimat",
+      "prompt": "Vad är typiskt för Islands natur?",
+      "opener": "Ön ligger där två kontinentalplattor glider ifrån varandra.",
+      "choices": [
+        "Aktiva vulkaner, varma källor, geysrar och glaciärer",
+        "Stora ökenområden med sanddyner",
+        "Tropisk regnskog",
+        "Vidsträckta bördiga slättbygder utan berg"
+      ],
+      "answer": 0,
+      "explanation": "Island ligger på den mittatlantiska ryggen, där jordskorpan spricker upp, och därför finns där vulkaner, geysrar och varma källor som dessutom används till uppvärmning och elproduktion. Samtidigt täcks delar av ön av glaciärer. Öknar och regnskog kräver helt andra klimat än Islands kyliga, fuktiga havsklimat."
+    },
+    {
+      "id": "q-geo7-nor-4",
+      "kind": "mc",
+      "topic": "Europas berg och floder",
+      "prompt": "Vilken är Europas mest kända och högsta bergskedja?",
+      "opener": "Den sträcker sig genom bland annat Schweiz, Österrike och norra Italien.",
+      "choices": [
+        "Uralbergen",
+        "Karpaterna",
+        "Alperna",
+        "Pyrenéerna"
+      ],
+      "answer": 2,
+      "explanation": "Alperna är Europas högsta bergskedja, med Mont Blanc på cirka 4 800 meter, och sträcker sig i en båge genom Frankrike, Schweiz, Italien och Österrike. Pyrenéerna skiljer Spanien från Frankrike, Karpaterna ligger i östra Centraleuropa och Uralbergen utgör gränsen mellan Europa och Asien — alla lägre än Alperna."
+    },
+    {
+      "id": "q-geo7-nor-5",
+      "kind": "mc",
+      "topic": "Europas berg och floder",
+      "prompt": "Vilken flod rinner genom flera länder i Mellan- och Sydosteuropa och mynnar i Svarta havet?",
+      "opener": "Den passerar bland annat Wien, Bratislava, Budapest och Belgrad.",
+      "choices": [
+        "Rhen",
+        "Volga",
+        "Themsen",
+        "Donau"
+      ],
+      "answer": 3,
+      "explanation": "Donau rinner från södra Tyskland genom tio länder och mynnar i Svarta havet, vilket gör den till Europas mest internationella flod. Rhen mynnar i stället i Nordsjön, Themsen rinner genom London, och Volga är Europas längsta flod men mynnar i Kaspiska havet i Ryssland."
+    },
+    {
+      "id": "q-geo7-nor-6",
+      "kind": "mc",
+      "topic": "likheter och skillnader",
+      "prompt": "Vilket av de nordiska språken skiljer sig mest från de övriga?",
+      "opener": "Fyra av språken är släkt med varandra — ett kommer från en helt annan språkfamilj.",
+      "choices": [
+        "Finska",
+        "Norska",
+        "Danska",
+        "Svenska"
+      ],
+      "answer": 0,
+      "explanation": "Svenska, norska, danska och isländska är alla nordgermanska språk med gemensamt ursprung, vilket gör att svenskar, norrmän och danskar ofta kan förstå varandra. Finska tillhör i stället den finsk-ugriska språkfamiljen och är inte släkt med de övriga, även om Finland delar mycket av Nordens historia och kultur."
+    },
+    {
+      "id": "q-geo7-nor-7",
+      "kind": "worked",
+      "topic": "Nordens natur och klimat",
+      "prompt": "Förklara varför Norges kust är mildare och snöfattigare på vintern än inlandet i norra Sverige, trots att de ligger på liknande breddgrader.",
+      "opener": "Tänk på havet: både havsströmmen och vattnets egenskaper spelar roll.",
+      "answer": "Norges kust ligger direkt mot Atlanten och påverkas av Golfströmmen, en varm havsström som för med sig vatten från tropikerna upp längs Nordeuropas kust. Vatten värms upp och kyls ner långsamt, så havet fungerar som en värmebuffert som gör vintrarna milda och somrarna svalare — ett kustklimat (maritimt klimat). Norrlands inland ligger långt från öppet, varmt hav och har därför inlandsklimat med stora skillnader mellan årstiderna: mycket kalla vintrar och relativt varma somrar. Fjällkedjan bromsar dessutom de milda västvindarna, så mycket av nederbörden faller på den norska sidan.",
+      "steps": [
+        "Golfströmmen för varmt vatten från Mexikanska golfen nordost mot Nordeuropa.",
+        "Vatten värms och kyls långsamt, så havet jämnar ut temperaturen året runt vid kusten.",
+        "Västvindar tar med sig den milda, fuktiga havsluften in över Norges kust.",
+        "Fjällkedjan tvingar upp luften, som avger nederbörd på västsidan innan den når svenska inlandet.",
+        "Norrlands inland ligger långt från havet och får inlandsklimat med kalla vintrar och varma somrar."
+      ]
+    },
+    {
+      "id": "q-geo7-nor-8",
+      "kind": "flashcard",
+      "topic": "Europas indelning",
+      "prompt": "Sammanfatta Norden och Europa.",
+      "opener": "Först de nordiska länderna, sedan Europas indelning, berg och floder.",
+      "answer": "Nordens länder och huvudstäder: Sverige–Stockholm · Norge–Oslo · Danmark–Köpenhamn · Finland–Helsingfors · Island–Reykjavik · självstyrande områden: Färöarna, Grönland (Danmark) och Åland (Finland) · Nordens natur: fjällkedjan i Sverige och Norge, norska fjordar, finska tusen sjöar och skogar, danska låglandet och Islands vulkaner och glaciärer · Klimat: kustklimat i väster med milda vintrar tack vare Golfströmmen, inlandsklimat i norra Sverige och Finland med stora årstidsskillnader, polart klimat på Grönland · Europas indelning: Nordeuropa, Västeuropa, Sydeuropa, Central-/Mellaneuropa och Östeuropa · Europas gräns mot Asien: Uralbergen, Kaukasus och Svarta havet · Bergskedjor: Alperna (högst, Mont Blanc ca 4 800 m), Pyrenéerna, Karpaterna, Apenninerna, Skanderna och Uralbergen · Floder: Volga (längst, till Kaspiska havet), Donau (genom tio länder till Svarta havet), Rhen (till Nordsjön), Themsen, Seine, Po · Likheter i Norden: liknande samhällen, välfärd, demokrati, nordiskt samarbete och tre nära släkta språk · Skillnader: finskan hör till en annan språkfamilj, Norge och Island är inte EU-medlemmar, och naturen skiljer sig kraftigt mellan platt Danmark och vulkaniska Island."
+    }
+  ]
+}

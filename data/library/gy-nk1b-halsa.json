@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-halsa",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "Kropp och hälsa",
+  "sourceSummary": "Vad som påverkar hälsan (livsstil, miljö och arv), sexuell hälsa och relationer på vuxennivå, droger och beroende, samt folkhälsa som begrepp.",
+  "topics": [
+    "hälsans bestämningsfaktorer",
+    "sexuell hälsa och relationer",
+    "droger och beroende",
+    "folkhälsa"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-halsa-1",
+      "kind": "mc",
+      "topic": "hälsans bestämningsfaktorer",
+      "prompt": "Vad menas med hälsans bestämningsfaktorer (determinanter)?",
+      "opener": "Tänk brett — det handlar om mer än bara livsstilsval som kost och motion.",
+      "choices": [
+        "De faktorer, t.ex. levnadsvanor, miljö, arv och sociala och ekonomiska förhållanden, som tillsammans påverkar en individs eller en befolknings hälsa",
+        "Enbart de gener man ärvt från sina föräldrar",
+        "Ett annat ord för sjukvårdens resurser i en region",
+        "Enbart hur mycket man tränar varje vecka"
+      ],
+      "answer": 0,
+      "explanation": "Hälsans bestämningsfaktorer omfattar ett brett spektrum: levnadsvanor (kost, motion, sömn, droger), arv, miljöfaktorer och sociala/ekonomiska förhållanden som utbildning och inkomst. Att bara se till gener eller enbart motion missar hur många faktorer som samverkar."
+    },
+    {
+      "id": "q-nk1b-halsa-2",
+      "kind": "mc",
+      "topic": "hälsans bestämningsfaktorer",
+      "prompt": "Varför kopplas ofta socioekonomiska faktorer, som utbildningsnivå och inkomst, till skillnader i hälsa mellan olika grupper i samhället?",
+      "opener": "Tänk på vad t.ex. inkomst och utbildning kan påverka indirekt, som boende, matvanor och tillgång till vård.",
+      "choices": [
+        "Socioekonomiska faktorer har inget samband med hälsa enligt forskning",
+        "De påverkar bland annat tillgång till bra boende, hälsosam mat, utbildning om hälsa och tillgång till vård, vilket i sin tur kan påverka hälsoutfall",
+        "Enbart genetiska skillnader förklarar alla hälsoskillnader mellan grupper",
+        "Sambandet gäller bara i låginkomstländer"
+      ],
+      "answer": 1,
+      "explanation": "Forskning visar återkommande samband mellan socioekonomisk status och hälsa: högre inkomst och utbildning hänger ofta ihop med bättre boendemiljö, mer kunskap om hälsosamma val och lättare tillgång till vård, vilket bidrar till bättre hälsoutfall i genomsnitt. Detta gäller i olika grad i många länder, inte bara låginkomstländer."
+    },
+    {
+      "id": "q-nk1b-halsa-3",
+      "kind": "mc",
+      "topic": "sexuell hälsa och relationer",
+      "prompt": "Vad innebär samtycke i en sexuell relation?",
+      "opener": "Tänk på att samtycke måste vara aktuellt, frivilligt och kunna dras tillbaka.",
+      "choices": [
+        "Att en person en gång sagt ja innebär att samtycke gäller för alltid",
+        "Att båda parter frivilligt och medvetet går med på det som sker, och att samtycket när som helst kan dras tillbaka",
+        "Att det räcker att en part antar att den andra vill",
+        "Att samtycke bara behövs i fasta relationer, inte vid tillfälliga möten"
+      ],
+      "answer": 1,
+      "explanation": "Samtycke ska vara frivilligt, tydligt och gälla just den aktuella situationen — det kan alltid dras tillbaka, och det gäller oavsett relationsstatus. Ett tidigare ja innebär inte automatiskt ja i en annan situation, och att bara anta samtycke räcker inte."
+    },
+    {
+      "id": "q-nk1b-halsa-4",
+      "kind": "mc",
+      "topic": "sexuell hälsa och relationer",
+      "prompt": "Vilket är det enda vanliga preventivmedlet som både minskar risken för graviditet och skyddar mot de flesta sexuellt överförbara infektionerna (STI)?",
+      "opener": "Tänk på vilket preventivmedel som fungerar som en fysisk barriär mellan kroppsvätskor.",
+      "choices": [
+        "P-piller",
+        "Kondom",
+        "Spiral",
+        "P-stav"
+      ],
+      "answer": 1,
+      "explanation": "Kondom fungerar som en barriär som hindrar direktkontakt mellan kroppsvätskor och skyddar därför både mot graviditet och mot de flesta sexuellt överförbara infektioner. Hormonella metoder som p-piller, spiral och p-stav skyddar mot graviditet men inte mot STI."
+    },
+    {
+      "id": "q-nk1b-halsa-5",
+      "kind": "mc",
+      "topic": "droger och beroende",
+      "prompt": "Vad kännetecknar ett fysiskt beroende av en drog, t.ex. alkohol eller nikotin?",
+      "opener": "Tänk på vad som händer i kroppen om personen plötsligt slutar använda drogen.",
+      "choices": [
+        "Att personen enbart känner ett psykiskt sug efter drogen, utan kroppsliga reaktioner",
+        "Att kroppen har anpassat sig till drogen så att abstinensbesvär, t.ex. skakningar eller illamående, uppstår när användningen upphör",
+        "Att beroendet försvinner automatiskt efter en vecka utan drogen",
+        "Att endast unga personer kan utveckla fysiskt beroende"
+      ],
+      "answer": 1,
+      "explanation": "Fysiskt beroende innebär att kroppen anpassat sin funktion till att drogen finns närvarande, så att abstinenssymtom (t.ex. skakningar, svettningar, illamående) uppstår när användningen minskar eller upphör. Detta skiljer sig från rent psykiskt beroende, som handlar om ett starkt begär utan samma kroppsliga abstinens, men båda formerna kan förekomma samtidigt."
+    },
+    {
+      "id": "q-nk1b-halsa-6",
+      "kind": "mc",
+      "topic": "folkhälsa",
+      "prompt": "Vad menas med folkhälsa, till skillnad från en enskild individs hälsa?",
+      "opener": "Tänk på vilken nivå begreppet befinner sig på — en person, eller en hel befolkning.",
+      "choices": [
+        "Ett annat ord för hälso- och sjukvårdens organisation",
+        "Hälsotillståndet och dess fördelning i en hel befolkning, samt de insatser som görs för att förbättra och utjämna hälsan i samhället",
+        "Enbart hur många som är sjukskrivna vid ett givet tillfälle",
+        "Ett mått på en enskild persons kondition"
+      ],
+      "answer": 1,
+      "explanation": "Folkhälsa handlar om hälsoläget för en hel befolkning eller grupp, inklusive hur hälsan är fördelad mellan olika grupper, samt det förebyggande och hälsofrämjande arbete (folkhälsoarbete) som bedrivs för att förbättra och jämna ut hälsan. Det är alltså ett bredare, samhälleligt perspektiv än en enskild individs hälsotillstånd."
+    },
+    {
+      "id": "q-nk1b-halsa-7",
+      "kind": "worked",
+      "topic": "hälsans bestämningsfaktorer",
+      "prompt": "Förklara med ett exempel hur livsstil, miljö och arv kan samverka för att påverka risken att utveckla en livsstilsrelaterad sjukdom, t.ex. typ 2-diabetes.",
+      "opener": "Tänk dig en person med ärftlig risk för sjukdomen — vad avgör om risken faktiskt realiseras?",
+      "answer": "Genetisk sårbarhet ökar risken för typ 2-diabetes men avgör sällan ensam om sjukdomen utvecklas; miljöfaktorer och levnadsvanor, som tillgång till hälsosam mat, fysisk aktivitet och stressnivå, samverkar med arvet och avgör tillsammans hur stor den faktiska risken blir för en given individ.",
+      "steps": [
+        "Vissa personer har en ärftlig (genetisk) sårbarhet som gör att kroppens insulinkänslighet lättare rubbas — det ger en förhöjd grundrisk för typ 2-diabetes.",
+        "Miljön en person lever i, t.ex. tillgång till hälsosam och prisvärd mat samt möjligheter till fysisk aktivitet i närområdet, påverkar vilka val som är enkla att göra i vardagen.",
+        "Levnadsvanor som kost, fysisk aktivitet, sömn och stresshantering påverkar sedan direkt kroppens ämnesomsättning och vikt.",
+        "Socioekonomiska förhållanden, som inkomst, arbetstid och utbildning, styr ofta indirekt både miljön och vilka levnadsvanor som är realistiska att upprätthålla.",
+        "Slutresultatet är att sjukdomsrisken sällan beror på en enda faktor, utan uppstår i samspelet mellan arv, miljö och livsstil tillsammans — det gör förebyggande arbete på flera nivåer (individ och samhälle) viktigt."
+      ]
+    },
+    {
+      "id": "q-nk1b-halsa-8",
+      "kind": "flashcard",
+      "topic": "sexuell hälsa och relationer",
+      "prompt": "Sammanfatta det viktigaste om hälsans bestämningsfaktorer, sexuell hälsa, droger och beroende, samt folkhälsa.",
+      "opener": "Gå igenom vad som påverkar hälsa, vad som krävs för en trygg relation, och vad som skiljer individ- och befolkningsnivå.",
+      "answer": "Hälsans bestämningsfaktorer: levnadsvanor, arv, miljö och socioekonomiska förhållanden samverkar och påverkar hälsan · Samtycke: ska vara frivilligt, tydligt, gälla den aktuella situationen och kunna dras tillbaka när som helst · Preventivmedel: kondom är det enda vanliga medlet som skyddar både mot graviditet och mot de flesta sexuellt överförbara infektionerna, hormonella metoder som p-piller skyddar bara mot graviditet · Fysiskt beroende: kroppen har anpassat sig till drogen, abstinens uppstår vid uppehåll · Psykiskt beroende: starkt begär efter drogen utan samma kroppsliga abstinens · Folkhälsa: hälsoläget och dess fördelning i en hel befolkning samt det förebyggande arbetet för att förbättra och utjämna hälsan i samhället."
+    }
+  ]
+}

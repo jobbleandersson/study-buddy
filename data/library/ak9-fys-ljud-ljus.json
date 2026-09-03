@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys-ljud-ljus",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Ljud, ljus och universum",
+  "sourceSummary": "Ljudvågor och hur vi uppfattar ton och volym, ljusets utbredning, reflektion och brytning, samt grundläggande fakta om solsystemet och universums enorma avstånd.",
+  "topics": [
+    "ljudvågor",
+    "ljus, reflektion och brytning",
+    "solsystemet",
+    "universum"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys-lju-1",
+      "kind": "mc",
+      "topic": "ljudvågor",
+      "prompt": "Vad är ljud fysikaliskt sett?",
+      "opener": "Tänk på vad som händer i luften när något vibrerar, till exempel en gitarrsträng.",
+      "choices": [
+        "Ljus som rör sig i vågor",
+        "Tryckvågor som sprids genom ett medium, till exempel luft, när något vibrerar",
+        "En elektrisk signal i luften",
+        "Ett tomrum som rör sig framåt"
+      ],
+      "answer": 1,
+      "explanation": "Ljud uppstår när något vibrerar och sätter partiklarna i ett medium (t.ex. luft) i svängning, vilket skapar tryckvågor som sprider sig utåt och når örat. Ljud är inte ljus och behöver ett medium för att spridas."
+    },
+    {
+      "id": "q-fys-lju-2",
+      "kind": "mc",
+      "topic": "ljudvågor",
+      "prompt": "Vad avgör tonhöjden (om en ton låter hög eller låg)?",
+      "opener": "Fundera på hur snabbt något vibrerar.",
+      "choices": [
+        "Ljudets hastighet",
+        "Frekvensen, det vill säga hur många svängningar per sekund ljudkällan gör",
+        "Hur högt volymen är",
+        "Avståndet till lyssnaren"
+      ],
+      "answer": 1,
+      "explanation": "Tonhöjden bestäms av frekvensen, mätt i hertz (Hz) — fler svängningar per sekund ger en högre ton, färre svängningar ger en lägre ton. Volymen styrs i stället av ljudvågens amplitud (svängningens storlek), inte av frekvensen."
+    },
+    {
+      "id": "q-fys-lju-3",
+      "kind": "mc",
+      "topic": "ljudvågor",
+      "prompt": "Varför hör man åskan efter att man sett blixten, trots att de sker samtidigt?",
+      "opener": "Jämför hur fort ljus respektive ljud färdas genom luften.",
+      "choices": [
+        "Ljudet skapas senare än blixten",
+        "Ljus färdas mycket fortare än ljud, så ljuset från blixten når ögat nästan direkt medan ljudet tar längre tid",
+        "Örat är långsammare än ögat på att reagera",
+        "Blixten är tystare än åskan"
+      ],
+      "answer": 1,
+      "explanation": "Ljus färdas cirka 300 000 km/s medan ljud bara färdas ungefär 340 m/s i luft. Därför når ljuset från blixten oss näst intill omedelbart, medan ljudet (åskan) hinner efter och hörs senare, särskilt om avståndet är stort."
+    },
+    {
+      "id": "q-fys-lju-4",
+      "kind": "mc",
+      "topic": "ljus, reflektion och brytning",
+      "prompt": "Vad kallas det när ljus studsar mot en yta, till exempel en spegel?",
+      "opener": "Tänk på ordet för när något \"kastas tillbaka\".",
+      "choices": [
+        "Brytning",
+        "Reflektion",
+        "Absorption",
+        "Diffraktion"
+      ],
+      "answer": 1,
+      "explanation": "Reflektion innebär att ljus studsar tillbaka från en yta, exempelvis en spegel. Brytning är i stället när ljus ändrar riktning när det passerar mellan olika medier (t.ex. luft och vatten)."
+    },
+    {
+      "id": "q-fys-lju-5",
+      "kind": "mc",
+      "topic": "ljus, reflektion och brytning",
+      "prompt": "Varför ser en sugrör i ett glas vatten ut att \"knäckas\" vid vattenytan?",
+      "opener": "Ljuset byter medium (luft till vatten) och ändrar då fart och riktning.",
+      "choices": [
+        "Sugröret är faktiskt böjt",
+        "Ljuset bryts (ändrar riktning) när det går från luft till vatten eftersom det ändrar fart i de olika medierna",
+        "Vattnet förstorar bilden jämnt över hela sugröret",
+        "Ögat kan inte uppfatta räta linjer under vatten"
+      ],
+      "answer": 1,
+      "explanation": "Ljus färdas olika fort i luft och vatten, och när ljuset passerar gränsen mellan medierna ändrar det riktning — detta kallas brytning. Det gör att sugröret ser förskjutet eller \"knäckt\" ut vid vattenytan, trots att det egentligen är rakt."
+    },
+    {
+      "id": "q-fys-lju-6",
+      "kind": "mc",
+      "topic": "solsystemet",
+      "prompt": "Vad är skillnaden mellan en stjärna och en planet?",
+      "opener": "Tänk på om himlakroppen lyser med eget ljus eller inte.",
+      "choices": [
+        "Stjärnor är alltid mindre än planeter",
+        "En stjärna producerar sitt eget ljus och sin egen värme genom kärnreaktioner, medan en planet bara reflekterar ljus från en stjärna",
+        "Planeter är alltid varmare än stjärnor",
+        "Det finns ingen egentlig skillnad"
+      ],
+      "answer": 1,
+      "explanation": "En stjärna, som solen, genererar energi genom kärnreaktioner i sin kärna och lyser därför med eget ljus. En planet, som jorden, har ingen egen ljuskälla utan syns för att den reflekterar ljus från en stjärna den kretsar kring."
+    },
+    {
+      "id": "q-fys-lju-7",
+      "kind": "worked",
+      "topic": "universum",
+      "prompt": "Ljus från solen tar ungefär 8 minuter att nå jorden. Ljus från nästa närmaste stjärna tar ungefär 4 år. Förklara vad detta säger om avstånden i universum, och varför astronomer använder ljusår som avståndsenhet.",
+      "opener": "Jämför hur långt ljus, som är det snabbaste vi känner till, hinner på så olika lång tid.",
+      "answer": "Att stjärnljus tar minuter respektive år visar att avstånden i rymden är enormt mycket större än avstånd på jorden — även med ljusets otroliga hastighet (ca 300 000 km/s) tar det åratal att nå oss från andra stjärnor. Ett ljusår är den sträcka ljus färdas på ett år, och används som enhet eftersom vanliga mått som kilometer skulle ge orimligt stora och svårhanterliga tal för avstånd mellan stjärnor och galaxer.",
+      "steps": [
+        "Solen är vår närmaste stjärna, och dess ljus tar bara 8 minuter att nå jorden.",
+        "Nästa närmaste stjärna är så mycket längre bort att dess ljus tar cirka 4 år att nå oss.",
+        "Ljus är det snabbaste vi känner till (ca 300 000 km/s), ändå tar resan år — det visar hur enorma avstånden i universum är.",
+        "Att mäta sådana avstånd i kilometer skulle ge extremt stora, ohanterliga tal.",
+        "Därför används ljusår (sträckan ljus färdas på ett år) som en praktisk avståndsenhet inom astronomin."
+      ]
+    },
+    {
+      "id": "q-fys-lju-8",
+      "kind": "flashcard",
+      "topic": "ljudvågor",
+      "prompt": "Sammanfatta grundbegreppen inom ljud, ljus och universum.",
+      "opener": "Gå igenom ljud, sedan ljus, sedan rymden innan du vänder på kortet.",
+      "answer": "Ljud: tryckvågor som sprids genom ett medium (t.ex. luft) när något vibrerar, kräver ett medium för att spridas · Frekvens (Hz) avgör tonhöjd — fler svängningar per sekund ger högre ton · Amplitud avgör volym/ljudstyrka · Ljudhastighet i luft är ca 340 m/s, mycket långsammare än ljusets ca 300 000 km/s · Reflektion: ljus studsar tillbaka mot en yta, t.ex. en spegel · Brytning: ljus ändrar riktning när det byter medium, t.ex. från luft till vatten · Solsystemet: solen är en stjärna som lyser med eget ljus via kärnreaktioner, planeterna (bl.a. jorden) kretsar kring solen och reflekterar bara ljus · Universum: innehåller oräkneliga stjärnor och galaxer, och avstånden är så enorma att de mäts i ljusår (sträckan ljus färdas på ett år)."
+    }
+  ]
+}

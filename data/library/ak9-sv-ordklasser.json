@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv9-ordklasser",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Ordklasser och satsdelar",
+  "sourceSummary": "Substantiv, verb, adjektiv och pronomen — och skillnaden mellan ordklass (vad ordet ÄR) och satsdel (vilken ROLL ordet har i just den här meningen).",
+  "topics": [
+    "ordklasser",
+    "satsdelar"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv9-ord-1",
+      "kind": "mc",
+      "topic": "ordklasser",
+      "prompt": "Vilket ord i meningen är ett verb? \"Den trötta hunden sprang snabbt hem.\"",
+      "opener": "Verb är det ord som talar om vad någon GÖR eller VAR någon är.",
+      "choices": [
+        "trötta",
+        "hunden",
+        "sprang",
+        "snabbt"
+      ],
+      "answer": 2,
+      "explanation": "\"Sprang\" är verbet — det talar om vad hunden gör. \"Trötta\" är adjektiv, \"hunden\" är substantiv och \"snabbt\" är adverb."
+    },
+    {
+      "id": "q-sv9-ord-2",
+      "kind": "mc",
+      "topic": "ordklasser",
+      "prompt": "Vilket ord är ett adjektiv? \"Hon köpte en dyr, blå cykel igår.\"",
+      "opener": "Adjektiv beskriver hur något ÄR eller SER UT — de böjs ofta med -t eller -a.",
+      "choices": [
+        "köpte",
+        "dyr",
+        "igår",
+        "cykel"
+      ],
+      "answer": 1,
+      "explanation": "\"Dyr\" beskriver cykeln — det är ett adjektiv (liksom \"blå\"). \"Köpte\" är verb, \"igår\" är adverb och \"cykel\" är substantiv."
+    },
+    {
+      "id": "q-sv9-ord-3",
+      "kind": "mc",
+      "topic": "ordklasser",
+      "prompt": "Vilket ord är ett pronomen i meningen? \"Han gav henne boken innan han gick.\"",
+      "opener": "Pronomen ersätter ett substantiv i stället för att upprepa namnet.",
+      "choices": [
+        "boken",
+        "henne",
+        "gick",
+        "innan"
+      ],
+      "answer": 1,
+      "explanation": "\"Henne\" står i stället för ett namn (t.ex. \"Anna\") — det är ett pronomen. \"Han\" är också pronomen, men \"henne\" var det efterfrågade svaret här."
+    },
+    {
+      "id": "q-sv9-ord-4",
+      "kind": "mc",
+      "topic": "satsdelar",
+      "prompt": "Vilket ord är subjekt i meningen? \"Läraren rättade proven på kvällen.\"",
+      "opener": "Subjektet är den som UTFÖR handlingen — fråga \"vem eller vad gör detta?\"",
+      "choices": [
+        "Läraren",
+        "rättade",
+        "proven",
+        "kvällen"
+      ],
+      "answer": 0,
+      "explanation": "\"Läraren\" är den som utför handlingen (rättar) — alltså subjekt. Observera att subjekt är en satsdel (en roll), medan \"substantiv\" är ordklassen ordet tillhör."
+    },
+    {
+      "id": "q-sv9-ord-5",
+      "kind": "mc",
+      "topic": "satsdelar",
+      "prompt": "Vilket ord är predikat i meningen? \"Vi åt middag klockan sju.\"",
+      "opener": "Predikatet är verbet i meningen — det som talar om vad som händer.",
+      "choices": [
+        "Vi",
+        "åt",
+        "middag",
+        "klockan"
+      ],
+      "answer": 1,
+      "explanation": "Predikatet är alltid verbet (eller verbkedjan) i satsen — här \"åt\". \"Vi\" är subjekt och \"middag\" är objekt."
+    },
+    {
+      "id": "q-sv9-ord-6",
+      "kind": "mc",
+      "topic": "satsdelar",
+      "prompt": "Vilket ord är objekt i meningen? \"Pelle målade staketet i helgen.\"",
+      "opener": "Objektet är det som handlingen RIKTAS mot — fråga \"vad/vem gjorde han det MED eller PÅ?\"",
+      "choices": [
+        "Pelle",
+        "målade",
+        "staketet",
+        "helgen"
+      ],
+      "answer": 2,
+      "explanation": "\"Staketet\" är det Pelle målade — objektet tar emot handlingen. \"Pelle\" är subjekt, \"målade\" är predikat."
+    },
+    {
+      "id": "q-sv9-ord-7",
+      "kind": "worked",
+      "topic": "satsdelar",
+      "prompt": "Analysera meningen: \"Den nya eleven hälsade glatt på alla.\" Ange ordklass för varje ord och satsdel för subjekt, predikat och objekt.",
+      "opener": "Gå ord för ord. Fråga sedan: vem gör det (subjekt), vad gör hen (predikat), och finns det ett objekt?",
+      "answer": "Den (bestämd artikel/pronomen), nya (adjektiv), eleven (substantiv, = subjekt), hälsade (verb, = predikat), glatt (adverb), på alla (preposition + pronomen, = objekt/bestämning).",
+      "steps": [
+        "\"Den\" pekar ut ett bestämt substantiv — räknas ofta som en bestämande fundamentspartikel/pronomen.",
+        "\"Nya\" beskriver eleven — adjektiv.",
+        "\"Eleven\" är den som utför handlingen (hälsar) — substantiv i ordklass, subjekt som satsdel.",
+        "\"Hälsade\" är verbet — predikat.",
+        "\"Glatt\" beskriver HUR hälsningen sker — adverb, inte adjektiv (adjektiv beskriver substantiv, adverb beskriver verb).",
+        "\"På alla\" talar om vem hälsningen riktas mot — fungerar som objekt/bestämning till predikatet."
+      ]
+    },
+    {
+      "id": "q-sv9-ord-8",
+      "kind": "flashcard",
+      "topic": "ordklasser",
+      "prompt": "Vad är skillnaden mellan ordklass och satsdel?",
+      "opener": "Ett ord kan ha samma ordklass i alla meningar, men olika satsdel beroende på var det står.",
+      "answer": "Ordklass är VAD ett ord är i sig — substantiv, verb, adjektiv, adverb, pronomen, preposition, konjunktion, räkneord. Det ändras aldrig, oavsett var i meningen ordet står. Satsdel är vilken ROLL ordet spelar i just den meningen — subjekt (den som gör), predikat (verbet/handlingen), objekt (den som tar emot handlingen) eller bestämning. Exempel: \"hund\" är alltid ett substantiv (ordklass), men kan vara subjekt i \"Hunden skäller\" och objekt i \"Jag ser hunden\"."
+    }
+  ]
+}

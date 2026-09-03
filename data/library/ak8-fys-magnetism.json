@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys8-magnetism",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Magnetism och elektromagnetism",
+  "sourceSummary": "Magneters poler och magnetfält, jordens magnetfält och kompassen samt hur en elektromagnet byggs och förstärks. Här finns också induktion och grunderna för hur en generator och en elmotor fungerar.",
+  "topics": [
+    "magnetpoler och magnetfält",
+    "jordens magnetfält och kompassen",
+    "elektromagneter",
+    "induktion",
+    "generator och elmotor"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys8-mag-1",
+      "kind": "mc",
+      "topic": "magnetpoler och magnetfält",
+      "prompt": "Vad händer om du håller nordpolen på en stavmagnet mot nordpolen på en annan stavmagnet?",
+      "opener": "Tänk på grundregeln för hur magnetpoler beter sig mot varandra.",
+      "choices": [
+        "De dras kraftigt till varandra",
+        "Ingenting händer, poler påverkar bara järn",
+        "De stöter bort varandra",
+        "Den ena magneten förlorar sin magnetism"
+      ],
+      "answer": 2,
+      "explanation": "Lika poler repellerar varandra, olika poler attraherar. Två nordpoler stöter alltså bort varandra. Att de skulle dras till varandra gäller bara om du vänder på en av magneterna så att nordpol möter sydpol."
+    },
+    {
+      "id": "q-fys8-mag-2",
+      "kind": "mc",
+      "topic": "magnetpoler och magnetfält",
+      "prompt": "Hur ritar man magnetfältets fältlinjer utanför en stavmagnet?",
+      "opener": "Fältlinjer har en bestämd riktning, och den bestäms av magnetens poler.",
+      "choices": [
+        "Som bågar från nordpolen runt magneten till sydpolen, tätast närmast polerna",
+        "Som raka streck rakt ut från magnetens mitt i alla riktningar",
+        "Som cirklar runt magnetens mitt, utan någon riktning",
+        "Bara som en enda linje mellan de två polerna"
+      ],
+      "answer": 0,
+      "explanation": "Utanför magneten går fältlinjerna från nordpolen till sydpolen och de ligger tätast vid polerna, där fältet är starkast. Att linjerna skulle gå rakt ut från mitten stämmer inte — det är vid polerna magnetismen är kraftigast, inte på magnetens mitt."
+    },
+    {
+      "id": "q-fys8-mag-3",
+      "kind": "mc",
+      "topic": "jordens magnetfält och kompassen",
+      "prompt": "Varför pekar kompassnålens nordände mot norr?",
+      "opener": "Kompassnålen är en liten magnet, och den påverkas av en mycket större magnet.",
+      "choices": [
+        "Nålen dras mot polstjärnan",
+        "Nålen är gjord av ett material som alltid pekar norrut",
+        "Jordens rotation vrider nålen norrut",
+        "Jorden har ett magnetfält med en magnetisk sydpol nära den geografiska nordpolen, och olika poler attraherar varandra"
+      ],
+      "answer": 3,
+      "explanation": "Jorden fungerar som en gigantisk magnet. Nära den geografiska nordpolen ligger en magnetisk sydpol, och eftersom olika poler attraherar varandra dras nålens nordände dit. Jordens rotation har inget med saken att göra — det är magnetfältet som styr nålen."
+    },
+    {
+      "id": "q-fys8-mag-4",
+      "kind": "mc",
+      "topic": "elektromagneter",
+      "prompt": "Du har en elektromagnet av koppartråd lindad kring en spik. Vilken åtgärd gör magneten starkare?",
+      "opener": "Fundera på vad du kan ändra i spolen utan att byta ut själva järnkärnan.",
+      "choices": [
+        "Vira upp tråden så att den ligger som en rak ledning",
+        "Öka antalet lindningsvarv och öka strömmen genom tråden",
+        "Byta ut spiken mot en träpinne",
+        "Vända batteriet så att strömmen går åt andra hållet"
+      ],
+      "answer": 1,
+      "explanation": "Magnetfältet i en spole blir starkare när antalet varv ökar, när strömmen ökar och när spolen har en järnkärna. Att vända batteriet byter bara plats på nord- och sydpol — styrkan blir exakt densamma."
+    },
+    {
+      "id": "q-fys8-mag-5",
+      "kind": "mc",
+      "topic": "induktion",
+      "prompt": "Vad menas med induktion?",
+      "opener": "Tänk på vad som händer i en spole när ett magnetfält runt den förändras.",
+      "choices": [
+        "Att en spänning uppstår i en ledare när magnetfältet genom den förändras, till exempel när en magnet rör sig in i en spole",
+        "Att en magnet blir varm när den ligger nära en ledning",
+        "Att en ledning tappar all sin resistans i ett magnetfält",
+        "Att en magnet drar till sig koppar och aluminium"
+      ],
+      "answer": 0,
+      "explanation": "Induktion betyder att ett föränderligt magnetfält skapar en spänning i en ledare — rör magneten sig inte händer ingenting, det är just förändringen som krävs. Koppar och aluminium är dessutom inte magnetiska, så det sista alternativet stämmer inte."
+    },
+    {
+      "id": "q-fys8-mag-6",
+      "kind": "mc",
+      "topic": "generator och elmotor",
+      "prompt": "Vilken energiomvandling sker i en generator?",
+      "opener": "Jämför med en elmotor — generatorn gör precis det omvända.",
+      "choices": [
+        "Elektrisk energi omvandlas till rörelseenergi",
+        "Värme omvandlas direkt till ljus",
+        "Rörelseenergi omvandlas till elektrisk energi",
+        "Kemisk energi omvandlas till elektrisk energi"
+      ],
+      "answer": 2,
+      "explanation": "I en generator snurrar en spole i ett magnetfält, magnetfältet genom spolen förändras och det induceras en spänning — rörelseenergi blir elektrisk energi. Det motsatta, elektrisk energi till rörelse, är i stället vad en elmotor gör, och kemisk energi till elektrisk energi sker i ett batteri."
+    },
+    {
+      "id": "q-fys8-mag-7",
+      "kind": "worked",
+      "topic": "elektromagneter",
+      "prompt": "En elektromagnet har 50 lindningsvarv och strömmen 0,5 A. Du lindar om den till 100 varv och ökar strömmen till 1,5 A. Hur många gånger starkare blir magnetfältet, om styrkan beror på antalet varv gånger strömmen?",
+      "opener": "Räkna ut varv gånger ström före och efter, och jämför sedan de två talen.",
+      "answer": "Magnetfältet blir 6 gånger starkare",
+      "steps": [
+        "Före: 50 varv · 0,5 A = 25.",
+        "Efter: 100 varv · 1,5 A = 150.",
+        "Jämför genom att dividera: 150 / 25 = 6.",
+        "Magnetfältet blir alltså 6 gånger starkare — dubbelt så många varv gånger tre gånger så stor ström."
+      ]
+    },
+    {
+      "id": "q-fys8-mag-8",
+      "kind": "flashcard",
+      "topic": "magnetpoler och magnetfält",
+      "prompt": "Sammanfatta magnetism, elektromagneter, induktion samt hur generator och elmotor fungerar.",
+      "opener": "Börja med polerna och fältet, gå vidare till elektromagneten och avsluta med induktion och maskinerna.",
+      "answer": "Magnet: har alltid en nordpol och en sydpol, går aldrig att få bara en pol · Polregeln: lika poler repellerar, olika poler attraherar · Magnetfält: området runt magneten där kraften märks, ritas med fältlinjer från nordpol till sydpol, tätast och starkast vid polerna · Magnetiska material: järn, kobolt och nickel — inte koppar, aluminium eller plast · Jordens magnetfält: jorden är som en jättemagnet med en magnetisk sydpol nära geografiska nordpolen, skyddar mot laddade partiklar från solen · Kompass: liten vridbar magnetnål vars nordände dras mot norr · Elektromagnet: ström genom en spole ger magnetfält, förstärks av fler varv, högre ström och järnkärna, kan stängas av — används i reläer, högtalare och skrotmagneter · Induktion: förändrat magnetfält genom en spole ger inducerad spänning, kräver rörelse eller växlande ström · Generator: spole snurrar i magnetfält, rörelseenergi till elektrisk energi, används i kraftverk · Elmotor: strömförande spole i magnetfält vrids av magnetiska krafter, elektrisk energi till rörelseenergi · Transformator: två spolar kring en järnkärna, ändrar växelspänning med hjälp av induktion."
+    }
+  ]
+}

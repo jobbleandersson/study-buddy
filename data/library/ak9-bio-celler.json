@@ -1,0 +1,128 @@
+{
+  "id": "lib-bio-celler",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Celler och organsystem",
+  "sourceSummary": "Cellens delar och deras funktioner, skillnaden mellan växt- och djurceller, samt hur celler bygger upp vävnader, organ och organsystem.",
+  "topics": [
+    "cellens delar",
+    "växtcell och djurcell",
+    "organsystem",
+    "vävnader och organ"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio-cel-1",
+      "kind": "mc",
+      "topic": "cellens delar",
+      "prompt": "Vilken del av cellen innehåller arvsmassan (DNA) och styr cellens verksamhet?",
+      "opener": "Tänk på vilken del som fungerar som cellens \"kommandocentral\".",
+      "choices": [
+        "Cellmembranet",
+        "Cellkärnan",
+        "Mitokondrien",
+        "Cellväggen"
+      ],
+      "answer": 1,
+      "explanation": "Cellkärnan innehåller DNA och styr vilka proteiner cellen ska tillverka. Cellmembranet reglerar transport in och ut, mitokondrien står för energiproduktion och cellväggen finns bara hos växtceller."
+    },
+    {
+      "id": "q-bio-cel-2",
+      "kind": "mc",
+      "topic": "cellens delar",
+      "prompt": "Vilken del av cellen kallas ofta cellens \"kraftverk\" eftersom den bryter ner näring och frigör energi?",
+      "opener": "Tänk på cellandning — var i cellen sker den?",
+      "choices": [
+        "Cellkärnan",
+        "Cellväggen",
+        "Mitokondrien",
+        "Cellmembranet"
+      ],
+      "answer": 2,
+      "explanation": "Mitokondrien utför cellandning och omvandlar energi i socker till energi som cellen kan använda. Cellkärnan styr cellen, cellväggen ger stadga hos växter och cellmembranet reglerar transport."
+    },
+    {
+      "id": "q-bio-cel-3",
+      "kind": "mc",
+      "topic": "växtcell och djurcell",
+      "prompt": "Vilket av följande finns hos växtceller men INTE hos djurceller?",
+      "opener": "Tänk på vad som gör att växter kan stå upprätt och fotosyntetisera.",
+      "choices": [
+        "Cellkärna",
+        "Cellmembran",
+        "Cellvägg och kloroplaster",
+        "Mitokondrier"
+      ],
+      "answer": 2,
+      "explanation": "Växtceller har en cellvägg av cellulosa som ger stadga, samt kloroplaster för fotosyntes. Cellkärna, cellmembran och mitokondrier finns i båda celltyperna."
+    },
+    {
+      "id": "q-bio-cel-4",
+      "kind": "mc",
+      "topic": "cellens delar",
+      "prompt": "Vad är cellmembranets huvudsakliga uppgift?",
+      "opener": "Tänk på cellen som ett hus — vad gör ytterväggen med dörren?",
+      "choices": [
+        "Att lagra cellens arvsmassa",
+        "Att reglera vilka ämnen som kommer in i och ut ur cellen",
+        "Att producera energi åt cellen",
+        "Att ge cellen dess gröna färg"
+      ],
+      "answer": 1,
+      "explanation": "Cellmembranet omger cellen och släpper selektivt igenom ämnen som näring, syre och avfall. Att lagra DNA är cellkärnans uppgift, och energiproduktion sker i mitokondrierna."
+    },
+    {
+      "id": "q-bio-cel-5",
+      "kind": "mc",
+      "topic": "vävnader och organ",
+      "prompt": "Vad kallas en grupp celler av samma typ och med samma uppgift som sitter tillsammans?",
+      "opener": "Nästa steg efter cellen i kroppens byggnad.",
+      "choices": [
+        "Ett organ",
+        "En vävnad",
+        "Ett organsystem",
+        "En molekyl"
+      ],
+      "answer": 1,
+      "explanation": "Celler av samma typ bildar tillsammans en vävnad, t.ex. muskelvävnad. Flera olika vävnader bildar ett organ, och flera organ som samarbetar bildar ett organsystem."
+    },
+    {
+      "id": "q-bio-cel-6",
+      "kind": "mc",
+      "topic": "organsystem",
+      "prompt": "Vilket organ ingår i andningssystemet?",
+      "opener": "Tänk på var syre tas upp i kroppen.",
+      "choices": [
+        "Magsäcken",
+        "Lungorna",
+        "Njurarna",
+        "Levern"
+      ],
+      "answer": 1,
+      "explanation": "Lungorna är det centrala organet i andningssystemet, där syre tas upp i blodet och koldioxid lämnar kroppen. Magsäcken hör till matspjälkningssystemet och njurarna till urinsystemet."
+    },
+    {
+      "id": "q-bio-cel-7",
+      "kind": "worked",
+      "topic": "vävnader och organ",
+      "prompt": "Förklara hur celler bygger upp en människokropp, från cell till organsystem. Använd hjärtat som exempel.",
+      "opener": "Det finns fyra nivåer: cell, vävnad, organ, organsystem — gå igenom dem i ordning.",
+      "answer": "Celler av samma typ bildar vävnad (t.ex. hjärtmuskelvävnad), flera vävnader bildar ett organ (hjärtat), och hjärtat samarbetar med blodkärlen i cirkulationssystemet (organsystemet) för att pumpa blod runt i kroppen.",
+      "steps": [
+        "Cellen är kroppens minsta levande byggsten, t.ex. en hjärtmuskelcell.",
+        "Många hjärtmuskelceller med samma uppgift sitter ihop och bildar en vävnad — hjärtmuskelvävnad.",
+        "Olika vävnader (muskelvävnad, bindväv, nervvävnad) bygger tillsammans upp organet hjärtat.",
+        "Hjärtat samarbetar med blodkärlen och bildar cirkulationssystemet, ett organsystem som transporterar syre och näring i kroppen."
+      ]
+    },
+    {
+      "id": "q-bio-cel-8",
+      "kind": "flashcard",
+      "topic": "cellens delar",
+      "prompt": "Vad heter cellens viktigaste delar och vad gör de?",
+      "opener": "Gå igenom kärnan, membranet, mitokondrien och (för växter) cellväggen.",
+      "answer": "Cellkärna: innehåller DNA/arvsmassan och styr cellens verksamhet · Cellmembran: omger cellen och reglerar vad som transporteras in och ut · Cellplasma (cytoplasma): geléaktig vätska där cellens delar finns och reaktioner sker · Mitokondrier: sköter cellandning, bryter ner socker och frigör energi · Cellvägg: finns bara hos växtceller, ger stadga och skydd, byggd av cellulosa · Kloroplaster: finns bara hos växtceller, utför fotosyntes · Vakuol: förvarar vatten och ämnen, ofta stor hos växtceller."
+    }
+  ]
+}

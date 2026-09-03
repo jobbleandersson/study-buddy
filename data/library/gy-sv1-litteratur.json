@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv1-litteratur",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Litterära begrepp och analys",
+  "sourceSummary": "Genrer, berättarperspektiv, bildspråk samt skillnaden mellan tema och motiv — begreppen du behöver för att skriva en analys som håller.",
+  "topics": [
+    "genrer",
+    "berättarperspektiv",
+    "bildspråk",
+    "tema och motiv"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-lit-1",
+      "kind": "mc",
+      "topic": "genrer",
+      "prompt": "Till vilken huvudgenre hör en novell?",
+      "opener": "Handlar det om berättande, om dikt, eller om något som ska spelas upp?",
+      "choices": [
+        "Epik",
+        "Dramatik",
+        "Sakprosa",
+        "Lyrik"
+      ],
+      "answer": 0,
+      "explanation": "Epik är berättande litteratur — romaner, noveller och epos. Lyrik är poesi och dramatik är text skriven för att framföras på scen."
+    },
+    {
+      "id": "q-sv1-lit-2",
+      "kind": "mc",
+      "topic": "bildspråk",
+      "prompt": "\"Hennes ögon var som två mörka brunnar.\" Vilket bildspråk är det?",
+      "opener": "Titta efter ett litet ord som avslöjar att det är en jämförelse.",
+      "choices": [
+        "Personifikation",
+        "Liknelse",
+        "Symbol",
+        "Metafor"
+      ],
+      "answer": 1,
+      "explanation": "En liknelse jämför två saker med hjälp av \"som\" eller \"liksom\". Utan jämförelseordet — \"hennes ögon var två mörka brunnar\" — hade det varit en metafor."
+    },
+    {
+      "id": "q-sv1-lit-3",
+      "kind": "mc",
+      "topic": "bildspråk",
+      "prompt": "\"Vinden viskade genom trädkronorna.\" Vilket bildspråk är det?",
+      "opener": "Vad är det vinden gör, som egentligen bara människor kan göra?",
+      "choices": [
+        "Hyperbol",
+        "Metonymi",
+        "Personifikation",
+        "Liknelse"
+      ],
+      "answer": 2,
+      "explanation": "Personifikation innebär att något icke-mänskligt ges mänskliga egenskaper. Vinden kan inte viska — det kan bara människor."
+    },
+    {
+      "id": "q-sv1-lit-4",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "Berättaren återger vad flera olika karaktärer tänker och känner, även sådant ingen av dem vet om varandra. Vilket berättarperspektiv?",
+      "opener": "Hur mycket vet berättaren jämfört med karaktärerna?",
+      "choices": [
+        "Begränsad tredjepersonsberättare",
+        "Opålitlig berättare",
+        "Jagberättare",
+        "Allvetande berättare"
+      ],
+      "answer": 3,
+      "explanation": "En allvetande berättare står utanför handlingen och har tillgång till alla karaktärers inre. En begränsad tredjepersonsberättare följer bara en karaktärs perspektiv."
+    },
+    {
+      "id": "q-sv1-lit-5",
+      "kind": "mc",
+      "topic": "tema och motiv",
+      "prompt": "En roman handlar om en pojke som flyttar till en ny stad, byter skola och till slut hittar en vän. Vad är rimligen verkets TEMA?",
+      "opener": "Motivet är vad som händer. Temat är vad boken egentligen handlar om.",
+      "choices": [
+        "Utanförskap och gemenskap",
+        "En pojke som får en vän",
+        "En flytt till en ny stad",
+        "Skolbyten i tonåren"
+      ],
+      "answer": 0,
+      "explanation": "Temat är den övergripande, abstrakta idén — här utanförskap och gemenskap. De andra alternativen beskriver motiv och handling, alltså det konkreta som sker."
+    },
+    {
+      "id": "q-sv1-lit-6",
+      "kind": "mc",
+      "topic": "bildspråk",
+      "prompt": "I en novell återkommer en trasig klocka gång på gång, och den tycks stå för huvudpersonens stillastående liv. Vad kallas ett sådant konkret föremål med överförd betydelse?",
+      "opener": "Ett föremål som betyder mer än sig självt.",
+      "choices": [
+        "Allitteration",
+        "Symbol",
+        "Liknelse",
+        "Ironi"
+      ],
+      "answer": 1,
+      "explanation": "En symbol är något konkret som representerar något abstrakt — här klockan som bild för ett liv som stannat."
+    },
+    {
+      "id": "q-sv1-lit-7",
+      "kind": "worked",
+      "topic": "tema och motiv",
+      "prompt": "Skilj på motiv och tema i följande: en novell skildrar en gammal man som varje dag matar duvor i parken och pratar med sin bortgångna fru. Vad är motiv och vad är tema?",
+      "opener": "Fråga dig: vad SER vi hända, och vad HANDLAR det egentligen om?",
+      "answer": "Motiv: den dagliga duvmatningen och samtalen med den döda frun. Tema: sorg, ensamhet och att hantera förlust.",
+      "steps": [
+        "Motiv är de konkreta, återkommande elementen i texten — det du kan peka på: parken, duvorna, de dagliga samtalen med hustrun.",
+        "Tema är den abstrakta idén som motiven bär fram: sorg och ensamhet, och hur man håller kvar någon som är borta.",
+        "Ett bra test: motivet kan du sammanfatta som handling (\"en man matar duvor\"), temat måste formuleras som ett begrepp eller påstående om livet (\"sorg tar sig uttryck i vardagliga ritualer\").",
+        "I en analys bör du alltid koppla temat till konkreta exempel ur texten — annars blir påståendet obelagt."
+      ]
+    },
+    {
+      "id": "q-sv1-lit-8",
+      "kind": "flashcard",
+      "topic": "bildspråk",
+      "prompt": "Förklara skillnaden mellan liknelse, metafor, personifikation och symbol.",
+      "opener": "Fyra sätt att säga något bildligt — vad skiljer dem åt?",
+      "answer": "Liknelse: jämförelse med \"som\" (\"stark som en björn\"). Metafor: jämförelse utan jämförelseord — något ÄR något annat (\"han är en björn\"). Personifikation: icke-mänskligt ges mänskliga drag (\"solen log\"). Symbol: ett konkret föremål som genomgående står för något abstrakt (duvan för fred)."
+    }
+  ]
+}

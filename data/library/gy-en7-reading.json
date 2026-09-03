@@ -1,0 +1,128 @@
+{
+  "id": "lib-en7gy-reading",
+  "type": "assignment",
+  "subject": "Engelska 7",
+  "title": "Reading comprehension: complex texts",
+  "sourceSummary": "Underförstådda argument, korrelation kontra kausalitet, ironisk/nyanserad ton och att sammanfatta ett komplext resonemang korrekt.",
+  "topics": [
+    "implicit argument",
+    "correlation vs causation",
+    "tone and irony",
+    "summarising complex arguments"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7gy-reading-1",
+      "kind": "mc",
+      "topic": "implicit argument",
+      "prompt": "Read the text and answer.\n\n\"Not everyone welcomed the new bypass. Local traders warned that reduced footpath traffic would hurt small shops, while environmental groups pointed to a modest drop in town-centre air pollution since it opened. The council's official statement praised improved 'traffic flow' without mentioning either concern. Meanwhile, three shops on the old high street have closed since construction began.\"\n\nWhat implicit argument does the text make, without stating it directly?",
+      "opener": "Läs mellan raderna: vad avslöjar det kommunen INTE nämner, jämfört med det som faktiskt hänt (butiker som stängt)?",
+      "choices": [
+        "The bypass has been an unqualified success.",
+        "Traffic flow has improved dramatically.",
+        "The council may be avoiding uncomfortable questions about the bypass's local costs.",
+        "Environmental groups oppose the bypass."
+      ],
+      "answer": 2,
+      "explanation": "Genom att ställa kommunens tystnad om butiksnedläggningarna mot det faktum att tre butiker stängt, antyder texten indirekt att kommunen undviker obekväma frågor. Texten säger aldrig detta rakt ut, men sammanställningen av fakta bär argumentet."
+    },
+    {
+      "id": "q-en7gy-reading-2",
+      "kind": "mc",
+      "topic": "correlation vs causation",
+      "prompt": "Read the text and answer.\n\n\"A recent study found that towns with more cafés per capita also have higher average incomes. Some commentators have concluded that opening cafés boosts local wealth. Researchers behind the study, however, note that wealthier towns simply attract more café businesses in the first place, and caution against drawing causal conclusions from the data.\"\n\nWhat is the main flaw in the commentators' conclusion?",
+      "opener": "Forskarna själva varnar för en specifik logisk felslutning — vilken?",
+      "choices": [
+        "They assumed causation from a correlation that may run in the opposite direction.",
+        "They ignored the sample size of the study.",
+        "They misunderstood what 'per capita' means.",
+        "They confused income with wealth."
+      ],
+      "answer": 0,
+      "explanation": "Kommentatorerna tolkar ett samband (korrelation) som orsak (kausation), trots att forskarna påpekar att orsakssambandet kan gå åt andra hållet — rika städer lockar caféer, inte tvärtom. Det handlar inte om urvalsstorlek eller ordens betydelse."
+    },
+    {
+      "id": "q-en7gy-reading-3",
+      "kind": "mc",
+      "topic": "correlation vs causation",
+      "prompt": "Read the text and answer.\n\n\"Ice cream sales and drowning incidents both rise sharply in the summer months. A tabloid headline claimed that 'eating ice cream increases drowning risk'.\"\n\nWhat is missing from the tabloid's reasoning?",
+      "opener": "Vad orsakar troligen båda trenderna samtidigt, utan att de orsakar varandra?",
+      "choices": [
+        "A larger sample of drownings.",
+        "Consideration of a third factor — hot weather — that likely explains both trends.",
+        "Data from winter months.",
+        "A definition of 'drowning'."
+      ],
+      "answer": 1,
+      "explanation": "Detta är det klassiska exemplet på en confounding variable: varmt väder ökar både glassförsäljning och badande (och därmed drunkningsrisk). Ingen av variablerna orsakar den andra."
+    },
+    {
+      "id": "q-en7gy-reading-4",
+      "kind": "mc",
+      "topic": "tone and irony",
+      "prompt": "Read the text and answer.\n\n\"Oh wonderful, another 'mandatory optional' training session. I'm sure my afternoon was crying out to be filled with a two-hour webinar on a policy nobody asked for. Truly, my career has been waiting for this moment.\"\n\nWhat is the writer's tone?",
+      "opener": "Orden säger en sak, men sammanhanget (\"mandatory optional\", \"crying out\") signalerar motsatsen.",
+      "choices": [
+        "Genuinely enthusiastic",
+        "Neutral and informative",
+        "Anxious and apologetic",
+        "Ironic and sarcastic"
+      ],
+      "answer": 3,
+      "explanation": "Frasen \"mandatory optional\" är en självmotsägelse, och överdrivet positiva ord (\"wonderful\", \"truly... waiting for this moment\") om något skribenten uppenbarligen ogillar är klassisk ironi/sarkasm — den underliggande meningen är motsatsen till det som sägs."
+    },
+    {
+      "id": "q-en7gy-reading-5",
+      "kind": "mc",
+      "topic": "summarising complex arguments",
+      "prompt": "Read the text and answer.\n\n\"Universal basic income (UBI) has been trialled in several countries. Advocates argue it reduces poverty and gives people freedom to retrain or start businesses. Critics counter that it is prohibitively expensive at scale and may reduce the incentive to work. Early trial results are mixed: poverty indicators improve, but long-term employment effects remain unclear due to short trial periods.\"\n\nWhich summary most accurately reflects the text?",
+      "opener": "En bra sammanfattning väger BÅDA sidor och de osäkerheter texten faktiskt nämner.",
+      "choices": [
+        "UBI trials prove that basic income has no drawbacks.",
+        "UBI reduces poverty short-term, but its cost and long-term employment effects remain disputed.",
+        "UBI is too expensive and should be abandoned.",
+        "Critics have been proven wrong by trial data."
+      ],
+      "answer": 1,
+      "explanation": "Texten presenterar nytta (minskad fattigdom) och olösta frågor (kostnad, sysselsättningseffekter) utan att ta ställning. Alternativ 2 fångar denna balans; de övriga överdriver eller förvränger texten."
+    },
+    {
+      "id": "q-en7gy-reading-6",
+      "kind": "mc",
+      "topic": "implicit argument",
+      "prompt": "Read the text and answer.\n\n\"The company's annual report devotes four pages to its new recycling initiative and a single sentence to a 12% drop in full-time staff. Both changes occurred in the same fiscal year.\"\n\nWhat can the reader reasonably infer about the report's purpose?",
+      "opener": "Jämför hur mycket utrymme varje nyhet får — vad säger det om vad företaget vill att du ska lägga märke till?",
+      "choices": [
+        "The report proves the company only cares about the environment.",
+        "The staff reduction was unrelated to the recycling programme.",
+        "The report is purely factual with no persuasive intent.",
+        "The company wants to highlight the recycling initiative while downplaying the staff reduction."
+      ],
+      "answer": 3,
+      "explanation": "Den ojämna fördelningen av utrymme (fyra sidor mot en mening) är ett sätt att styra läsarens uppmärksamhet bort från en obekväm nyhet — ett vanligt retoriskt grepp i årsredovisningar. Alternativ 1 säger för mycket; texten visar inte att företaget \"bara\" bryr sig om miljön."
+    },
+    {
+      "id": "q-en7gy-reading-7",
+      "kind": "worked",
+      "topic": "correlation vs causation",
+      "prompt": "Read the text and explain the logical flaw in the claim.\n\nA news article states: 'Countries with more registered doctors per capita also report higher rates of certain diagnosed illnesses. This proves that doctors are causing disease.'",
+      "opener": "Fundera på om det finns ett rimligare sätt att förklara sambandet, utan att någon av variablerna orsakar den andra.",
+      "answer": "The claim confuses correlation with causation: more doctors likely means better access to diagnosis, not that doctors cause illness.",
+      "steps": [
+        "Texten observerar en korrelation: fler läkare per capita hänger ihop med fler diagnostiserade sjukdomar.",
+        "Slutsatsen \"doctors are causing disease\" är en kausal claim som inte följer automatiskt av en korrelation.",
+        "En rimligare förklaring: fler läkare innebär bättre tillgång till vård, vilket leder till att FLER sjukdomar upptäcks och diagnostiseras — inte att fler sjukdomar uppstår.",
+        "Detta är ett exempel på en confounding variable (tillgång till vård) som förklarar båda observationerna bättre än ett direkt orsakssamband."
+      ]
+    },
+    {
+      "id": "q-en7gy-reading-8",
+      "kind": "flashcard",
+      "topic": "summarising complex arguments",
+      "prompt": "Summarise key strategies for analysing complex texts: implicit argument, correlation vs causation, tone/irony, and accurate summary.",
+      "opener": "Fyra vanliga fallgropar och hur du undviker dem på en avancerad läsförståelseuppgift.",
+      "answer": "Implicit argument: leta efter vad texten INTE säger, och vad som ställs mot vad (juxtaposition) · Korrelation ≠ kausation: fråga om en tredje faktor kan förklara båda trenderna (confounding variable) · Ironi/sarkasm: orden säger en sak, sammanhanget/överdriften avslöjar motsatsen · Sammanfattning: väg in ALLA sidor texten presenterar, inte bara den du håller med om, och lägg inte till egna slutsatser texten inte stödjer"
+    }
+  ]
+}

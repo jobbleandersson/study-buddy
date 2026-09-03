@@ -49,16 +49,18 @@ export function renderResults(attemptId) {
   const node = el("div.results", {}, [
     el("div", { style: { textAlign: "left" } }, [homeButton()]),
     el("h1", {}, t(great ? "results.great" : "results.nice")),
-    el("p.note", {}, heading + (attempt.wasTest ? t("results.testSuffix") : "")),
+    el("p.note", {}, heading + (attempt.examMode ? t("results.examSuffix") : attempt.wasTest ? t("results.testSuffix") : "")),
     ringWrap,
     el("p.note", { style: { marginTop: "-8px" } }, [
       icon(ICONS.clock, 14),
       " ",
       elapsedLabel(attempt),
-      attempt.wasTest && attempt.tutorHints > 0
+      attempt.timeLimitMin ? t("results.examLimit", { n: attempt.timeLimitMin }) : "",
+      attempt.wasTest && !attempt.examMode && attempt.tutorHints > 0
         ? "  ·  " + plural(attempt.tutorHints, "results.hintsUsedOne", "results.hintsUsedMany")
         : "",
     ]),
+    attempt.timedOut ? el("p.note.note--warn", {}, t("results.timedOut")) : null,
 
     deltaEntries.length ? el("div", {}, [
       el("h3", { style: { marginBottom: "8px" } }, t("results.topicMastery")),

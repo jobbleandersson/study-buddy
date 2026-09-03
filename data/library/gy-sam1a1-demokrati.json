@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam1a1-demokrati",
+  "type": "assignment",
+  "subject": "Samhällskunskap 1a1",
+  "title": "Demokrati och statsskick",
+  "sourceSummary": "Olika demokratimodeller, Sveriges statsskick med monarki, parlamentarism och maktdelning, samt en jämförelse med andra staters statsskick och demokratins förutsättningar.",
+  "topics": [
+    "demokratimodeller",
+    "Sveriges statsskick",
+    "statsskick i jämförelse",
+    "demokratins förutsättningar"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam1a1-demokrati-1",
+      "kind": "mc",
+      "topic": "demokratimodeller",
+      "prompt": "Vad kännetecknar direkt demokrati jämfört med representativ demokrati?",
+      "opener": "Fundera på vem som fattar besluten i sakfrågan - medborgarna själva eller ombud de valt.",
+      "choices": [
+        "I direkt demokrati röstar medborgarna själva i varje enskild fråga, i representativ demokrati väljer de företrädare som beslutar åt dem",
+        "I representativ demokrati har medborgarna ingen möjlighet att påverka politiken",
+        "Direkt demokrati innebär att en monark fattar alla beslut",
+        "Det finns ingen egentlig skillnad mellan de två formerna"
+      ],
+      "answer": 0,
+      "explanation": "Direkt demokrati, t.ex. folkomröstningar, låter medborgarna rösta direkt i sakfrågan. Representativ demokrati, som Sveriges riksdagssystem, bygger på att medborgarna väljer ombud som sedan fattar besluten. Sverige är i grunden representativt men har inslag av direktdemokrati genom folkomröstningar."
+    },
+    {
+      "id": "q-sam1a1-demokrati-2",
+      "kind": "mc",
+      "topic": "Sveriges statsskick",
+      "prompt": "Sverige är en monarki. Vad innebär det i praktiken för kungens makt idag?",
+      "opener": "Jämför med hur det såg ut innan 1974 års regeringsform - vad hände med kungens politiska befogenheter?",
+      "choices": [
+        "Kungen är statschef men saknar formell politisk makt - en i huvudsak symbolisk och ceremoniell roll",
+        "Kungen leder regeringen och utser statsråd på egen hand",
+        "Kungen kan upplösa riksdagen när hen själv önskar",
+        "Kungen har vetorätt mot lagar som riksdagen beslutat om"
+      ],
+      "answer": 0,
+      "explanation": "Sedan 1974 års regeringsform har den svenska monarken enbart en representativ och ceremoniell roll, utan politisk makt. Att utse regering, upplösa riksdagen eller stoppa lagar sköts av andra aktörer - talmannen, riksdagen och regeringen själva."
+    },
+    {
+      "id": "q-sam1a1-demokrati-3",
+      "kind": "mc",
+      "topic": "Sveriges statsskick",
+      "prompt": "Vad innebär parlamentarism, den princip som styr förhållandet mellan riksdag och regering i Sverige?",
+      "opener": "Tänk på vem regeringen måste ha stöd av, eller åtminstone inte bli nedröstad av, för att sitta kvar.",
+      "choices": [
+        "Att regeringen måste ha riksdagens stöd eller tolerans för att kunna sitta kvar vid makten",
+        "Att kungen utser regeringen helt efter eget tycke",
+        "Att domstolarna kan avsätta regeringen genom dom",
+        "Att bara ett parti får finnas representerat i riksdagen"
+      ],
+      "answer": 0,
+      "explanation": "Parlamentarism innebär att regeringens makt vilar på riksdagens förtroende. Sverige tillämpar negativ parlamentarism: regeringen sitter kvar så länge inte en majoritet i riksdagen aktivt röstar emot den. Varken kungen eller domstolarna avgör vem som är regering."
+    },
+    {
+      "id": "q-sam1a1-demokrati-4",
+      "kind": "mc",
+      "topic": "statsskick i jämförelse",
+      "prompt": "Vad är en central skillnad mellan Sveriges parlamentariska statsskick och ett presidentiellt system som USA:s?",
+      "opener": "Fundera på hur den verkställande makten utses och om den är beroende av den lagstiftande församlingens förtroende.",
+      "choices": [
+        "I Sverige väljs statschefen genom ett separat val, i USA inte",
+        "USA saknar helt en uppdelning mellan lagstiftande och verkställande makt",
+        "I USA väljs presidenten (verkställande makt) separat från kongressen (lagstiftande makt) och sitter kvar under sin mandatperiod oavsett kongressens förtroende, medan den svenska regeringen är beroende av riksdagens stöd",
+        "Sverige saknar en folkvald lagstiftande församling"
+      ],
+      "answer": 2,
+      "explanation": "USA:s system bygger på tydlig maktdelning där presidenten väljs för en fast mandatperiod oberoende av kongressens stöd. Sveriges parlamentariska system kopplar däremot ihop regeringens fortlevnad med riksdagens förtroende, vilket är den avgörande skillnaden mellan systemen."
+    },
+    {
+      "id": "q-sam1a1-demokrati-5",
+      "kind": "mc",
+      "topic": "demokratimodeller",
+      "prompt": "Vad kännetecknar deliberativ demokrati som modell?",
+      "opener": "Ordet \"deliberation\" betyder överläggning - vad ligger i fokus mer än själva röstningen?",
+      "choices": [
+        "Beslut fattas enbart genom snabba omröstningar utan någon diskussion",
+        "Endast experter och tjänstemän får delta i besluten",
+        "Makten samlas hos en enda ledare som avgör allt",
+        "Tonvikten ligger på samtal och argumentation, där medborgare får ompröva sina åsikter genom att lyssna på andras skäl innan beslut fattas"
+      ],
+      "answer": 3,
+      "explanation": "Deliberativ demokrati betonar att legitima beslut ska föregås av öppen diskussion och utbyte av argument, inte bara sammanräkning av röster. Idén är att förslag blir bättre och mer förankrade om medborgare får resonera tillsammans innan de tar ställning."
+    },
+    {
+      "id": "q-sam1a1-demokrati-6",
+      "kind": "mc",
+      "topic": "demokratins förutsättningar",
+      "prompt": "Vilket av följande brukar räknas som en viktig förutsättning för att en demokrati ska fungera väl över tid?",
+      "opener": "Tänk på vad som händer om makthavare kan styra domstolar och medier fritt.",
+      "choices": [
+        "Att ett och samma parti alltid vinner valen med stor marginal",
+        "En fri och oberoende press samt en rättsstat där lagarna gäller lika för alla, inklusive makthavare",
+        "Att val hålls så sällan som möjligt för att skapa stabilitet",
+        "Att domstolarna följer regeringens instruktioner i enskilda mål"
+      ],
+      "answer": 1,
+      "explanation": "En fungerande demokrati förutsätter bland annat en rättsstat, oberoende domstolar och en fri press som kan granska makten. Om domstolar styrs av regeringen eller pressen inte är fri urholkas kontrollmekanismerna som håller makthavare ansvariga."
+    },
+    {
+      "id": "q-sam1a1-demokrati-7",
+      "kind": "worked",
+      "topic": "statsskick i jämförelse",
+      "prompt": "Jämför steg för steg hur en regering bildas i Sveriges parlamentariska system med hur en president tillträder i ett presidentiellt system som USA:s.",
+      "opener": "Följ två parallella kedjor: val → mandatfördelning/valresultat → hur den verkställande makten utses → vad som gör att den sitter kvar eller avgår.",
+      "answer": "I Sverige väljs riksdagens 349 ledamöter proportionellt efter valresultatet. Talmannen föreslår en statsministerkandidat som riksdagen röstar om, och kandidaten blir statsminister om inte en majoritet röstar emot. Statsministern utser sedan regeringen, som sitter kvar så länge den tolereras av riksdagen. I USA väljs presidenten i ett eget, från kongressvalet skilt, val (via elektorssystemet) för en fast mandatperiod på fyra år. Presidenten utser sitt kabinett utan att behöva kongressens fortlöpande förtroende, och kan bara avsättas i förtid genom riksrätt (impeachment), inte genom en vanlig misstroendeomröstning.",
+      "steps": [
+        "Sverige: riksdagsvalet ger en mandatfördelning mellan partierna baserat på röstandelar (med fyraprocentsspärr).",
+        "Sverige: talmannen föreslår en statsministerkandidat som riksdagen röstar om enligt principen om negativ parlamentarism.",
+        "Sverige: statsministern utser regeringen, som är beroende av riksdagens fortsatta tolerans för att sitta kvar.",
+        "USA: presidenten väljs i ett separat, nationellt val för en fast fyraårsperiod, skild från valet till kongressen.",
+        "USA: presidenten utser sitt kabinett och sitter kvar oavsett kongressens stöd, med riksrätt som enda ordinarie sätt att avsätta presidenten i förtid."
+      ]
+    },
+    {
+      "id": "q-sam1a1-demokrati-8",
+      "kind": "flashcard",
+      "topic": "Sveriges statsskick",
+      "prompt": "Sammanfatta centrala begrepp om demokratimodeller och Sveriges statsskick.",
+      "opener": "Tre demokratimodeller, tre svenska maktprinciper.",
+      "answer": "Direkt demokrati: medborgarna röstar själva i sakfrågor (t.ex. folkomröstning) · Representativ demokrati: medborgarna väljer ombud som beslutar åt dem, Sveriges huvudform · Deliberativ demokrati: fokus på samtal och argumentation innan beslut · Monarki: Sverige har en kung som statschef utan politisk makt, en ceremoniell roll sedan 1974 års regeringsform · Parlamentarism: regeringen måste tolereras av riksdagen för att sitta kvar (negativ parlamentarism i Sverige) · Maktdelning: lagstiftande makt (riksdagen), verkställande makt (regeringen) och dömande makt (domstolarna) hålls isär · Jämförelse: i presidentiella system som USA:s väljs den verkställande makten separat och oberoende av parlamentets förtroende, till skillnad från parlamentariska system."
+    }
+  ]
+}

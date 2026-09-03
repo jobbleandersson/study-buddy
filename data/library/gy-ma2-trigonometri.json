@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma2-trigonometri",
+  "type": "assignment",
+  "subject": "Matematik 2",
+  "title": "Trigonometri: sinus, cosinus och tangens",
+  "sourceSummary": "Trigonometriska förhållanden i rätvinkliga trianglar, att beräkna okända sidor och vinklar, samt enkla tillämpningar i vardagliga situationer.",
+  "topics": [
+    "trigonometriska förhållanden",
+    "beräkna sidor",
+    "beräkna vinklar",
+    "tillämpningar"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma2-trig-1",
+      "kind": "mc",
+      "topic": "trigonometriska förhållanden",
+      "prompt": "I en rätvinklig triangel, vad är definitionen av $\\sin(v)$ för vinkeln $v$?",
+      "opener": "Tänk SOH-CAH-TOA — vilken sida hör till sinus?",
+      "choices": [
+        "$\\dfrac{\\text{motstående katet}}{\\text{hypotenusan}}$",
+        "$\\dfrac{\\text{närliggande katet}}{\\text{hypotenusan}}$",
+        "$\\dfrac{\\text{motstående katet}}{\\text{närliggande katet}}$",
+        "$\\dfrac{\\text{hypotenusan}}{\\text{motstående katet}}$"
+      ],
+      "answer": 0,
+      "explanation": "Sinus definieras som förhållandet mellan motstående katet och hypotenusan: $\\sin(v) = \\dfrac{\\text{motstående}}{\\text{hypotenusan}}$. Alternativet med närliggande katet över hypotenusan (svar B) är istället definitionen av cosinus."
+    },
+    {
+      "id": "q-ma2-trig-2",
+      "kind": "mc",
+      "topic": "beräkna sidor",
+      "prompt": "En rätvinklig triangel har hypotenusan 10 cm och en vinkel på 30°. Hur lång är kateten mitt emot 30°-vinkeln?",
+      "opener": "Sätt upp $\\sin(30°) = \\dfrac{\\text{motstående}}{10}$ och lös ut motstående katet.",
+      "choices": [
+        "$8{,}66$ cm",
+        "$5$ cm",
+        "$5{,}77$ cm",
+        "$10$ cm"
+      ],
+      "answer": 1,
+      "explanation": "Motstående katet $= 10 \\cdot \\sin(30°) = 10 \\cdot 0{,}5 = 5$ cm. Svar A ($8{,}66$ cm) fås om man av misstag använder cosinus istället för sinus."
+    },
+    {
+      "id": "q-ma2-trig-3",
+      "kind": "mc",
+      "topic": "tillämpningar",
+      "prompt": "En stege som är 6 m lång lutas mot en vägg så att vinkeln mellan stegen och marken är 60°. Hur högt upp på väggen når stegen?",
+      "opener": "Höjden på väggen är motstående katet till 60°-vinkeln, och stegen är hypotenusan.",
+      "choices": [
+        "$3$ m",
+        "$6{,}9$ m",
+        "$5{,}2$ m",
+        "$6$ m"
+      ],
+      "answer": 2,
+      "explanation": "Höjden $= 6 \\cdot \\sin(60°) = 6 \\cdot 0{,}866 \\approx 5{,}2$ m. Svar A ($3$ m) fås om man använder cosinus istället för sinus, och svar B fås om man felaktigt dividerar med $\\sin(60°)$ istället för att multiplicera."
+    },
+    {
+      "id": "q-ma2-trig-4",
+      "kind": "mc",
+      "topic": "trigonometriska förhållanden",
+      "prompt": "En rätvinklig triangel har kateterna 6 cm och 8 cm samt hypotenusan 10 cm. Vad är $\\tan(v)$ för vinkeln $v$ som ligger mitt emot kateten 6 cm?",
+      "opener": "Tangens jämför de två kateterna med varandra, inte hypotenusan.",
+      "choices": [
+        "$0{,}6$",
+        "$0{,}8$",
+        "$1{,}33$",
+        "$0{,}75$"
+      ],
+      "answer": 3,
+      "explanation": "$\\tan(v) = \\dfrac{\\text{motstående}}{\\text{närliggande}} = \\dfrac{6}{8} = 0{,}75$. Svar A ($0{,}6$) är istället $\\sin(v) = \\frac{6}{10}$, och svar B ($0{,}8$) är $\\cos(v) = \\frac{8}{10}$ — vanliga sammanblandningar."
+    },
+    {
+      "id": "q-ma2-trig-5",
+      "kind": "mc",
+      "topic": "beräkna vinklar",
+      "prompt": "En rätvinklig triangel har kateterna 5 cm och 12 cm (hypotenusan är 13 cm). Vad är vinkeln mellan hypotenusan och den längre kateten (12 cm), avrundat till närmaste grad?",
+      "opener": "Använd den inversa tangensfunktionen med de två kateterna.",
+      "choices": [
+        "$23°$",
+        "$67°$",
+        "$45°$",
+        "$35°$"
+      ],
+      "answer": 0,
+      "explanation": "$\\tan(v) = \\dfrac{5}{12} \\approx 0{,}417$, så $v = \\tan^{-1}(0{,}417) \\approx 23°$. Svar B ($67°$) är den andra spetsiga vinkeln i triangeln (komplementvinkeln), inte den som efterfrågas."
+    },
+    {
+      "id": "q-ma2-trig-6",
+      "kind": "mc",
+      "topic": "trigonometriska förhållanden",
+      "prompt": "Vilket påstående om exakta trigonometriska värden är korrekt?",
+      "opener": "Kontrollera varje påstående mot enhetscirkeln eller en standardtriangel.",
+      "choices": [
+        "$\\cos(60°) = 0{,}866$",
+        "$\\sin(30°) = 0{,}5$",
+        "$\\tan(45°) = 0$",
+        "$\\sin(90°) = 0$"
+      ],
+      "answer": 1,
+      "explanation": "$\\sin(30°) = 0{,}5$ stämmer. De andra är fel: $\\cos(60°) = 0{,}5$ (inte $0{,}866$, som istället är $\\sin(60°)$), $\\tan(45°) = 1$ (inte 0), och $\\sin(90°) = 1$ (inte 0)."
+    },
+    {
+      "id": "q-ma2-trig-7",
+      "kind": "worked",
+      "topic": "beräkna sidor",
+      "prompt": "En rätvinklig triangel har en vinkel på 40°, och kateten mitt emot vinkeln är 7 cm. Beräkna hypotenusans längd.",
+      "opener": "Bestäm vilket trigonometriskt samband som kopplar ihop motstående katet och hypotenusan.",
+      "answer": "$\\approx 10{,}9$ cm",
+      "steps": [
+        "Kända värden: vinkeln $v = 40°$, motstående katet $= 7$ cm. Sökt: hypotenusan $c$.",
+        "Sambandet är $\\sin(v) = \\dfrac{\\text{motstående}}{c}$.",
+        "Lös ut $c$: $c = \\dfrac{\\text{motstående}}{\\sin(v)} = \\dfrac{7}{\\sin(40°)}$.",
+        "Med $\\sin(40°) \\approx 0{,}643$ blir $c \\approx \\dfrac{7}{0{,}643} \\approx 10{,}9$ cm."
+      ]
+    },
+    {
+      "id": "q-ma2-trig-8",
+      "kind": "flashcard",
+      "topic": "trigonometriska förhållanden",
+      "prompt": "Sammanfatta de trigonometriska förhållandena i en rätvinklig triangel och hur man beräknar en okänd vinkel.",
+      "opener": "SOH-CAH-TOA är minnesregeln — vad står varje bokstav för?",
+      "answer": "$\\sin(v) = \\dfrac{\\text{motstående}}{\\text{hypotenusan}}$ (SOH) · $\\cos(v) = \\dfrac{\\text{närliggande}}{\\text{hypotenusan}}$ (CAH) · $\\tan(v) = \\dfrac{\\text{motstående}}{\\text{närliggande}}$ (TOA) · Pythagoras sats för sidorna: $a^2+b^2=c^2$ (c = hypotenusan) · För att hitta en vinkel används de inversa funktionerna: $v=\\sin^{-1}(\\ldots)$, $v=\\cos^{-1}(\\ldots)$ eller $v=\\tan^{-1}(\\ldots)$."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv2-text",
+  "type": "assignment",
+  "subject": "Svenska 2",
+  "title": "Utredande och argumenterande text",
+  "sourceSummary": "Disposition för utredande text, källhantering i löpande text, skillnaden mellan att utreda och att argumentera samt styckeindelning och sammanhang.",
+  "topics": [
+    "utredande text",
+    "argumenterande text",
+    "källhantering",
+    "styckeindelning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv2-text-1",
+      "kind": "mc",
+      "topic": "utredande text",
+      "prompt": "Vad är den viktigaste skillnaden mellan en utredande text och en argumenterande text?",
+      "opener": "En vill visa flera sidor, den andra vill vinna dig över.",
+      "choices": [
+        "De är samma texttyp med olika namn",
+        "Utredande text belyser en fråga sakligt och allsidigt, argumenterande text driver en tes och vill övertyga",
+        "Utredande text får aldrig innehålla fakta",
+        "Argumenterande text saknar alltid en tydlig struktur"
+      ],
+      "answer": 1,
+      "explanation": "En utredande text belyser en fråga sakligt och allsidigt utan att nödvändigtvis ta ställning, medan en argumenterande text har en tydlig tes som författaren vill övertyga läsaren om."
+    },
+    {
+      "id": "q-sv2-text-2",
+      "kind": "mc",
+      "topic": "utredande text",
+      "prompt": "Vilken disposition följer oftast en utredande text?",
+      "opener": "Tänk på hur en utredning ska kunna följas av en läsare som inte redan bestämt sig.",
+      "choices": [
+        "Bara en lång sammanhängande argumentation utan indelning",
+        "Enbart en sammanfattning av andras åsikter utan egen struktur",
+        "Dikt, refräng, dikt",
+        "Inledning med frågeställning, utredande del som belyser olika perspektiv, avslutande slutsats"
+      ],
+      "answer": 3,
+      "explanation": "En utredande text inleds ofta med en frågeställning eller ett syfte, följs av en utredande del där olika perspektiv och fakta vägs mot varandra, och avslutas med en slutsats eller sammanfattande reflektion."
+    },
+    {
+      "id": "q-sv2-text-3",
+      "kind": "mc",
+      "topic": "källhantering",
+      "prompt": "Vad kännetecknar god källhantering i löpande text?",
+      "opener": "Källan ska stödja ditt resonemang, inte ta över det.",
+      "choices": [
+        "Källor vävs in naturligt i texten och anges tydligt, utan att bara staplas som en lista",
+        "Man skriver om andras texter utan att ange varifrån informationen kommer",
+        "Man citerar så mycket som möjligt ordagrant för att undvika eget skrivande",
+        "Källor behöver bara anges i en bilaga, aldrig i texten"
+      ],
+      "answer": 0,
+      "explanation": "God källhantering innebär att källor integreras naturligt i den löpande texten — genom omskrivning, sammanfattning eller korta citat — samtidigt som det tydligt framgår varifrån informationen kommer. Att bara stapla citat eller utelämna källhänvisningar försvagar trovärdigheten."
+    },
+    {
+      "id": "q-sv2-text-4",
+      "kind": "mc",
+      "topic": "källhantering",
+      "prompt": "En elev skriver om en mening från en artikel med nästan exakt samma ordval, utan citattecken eller källhänvisning. Vad är problemet?",
+      "opener": "Fråga dig om en läsare kan se vad som är ditt och vad som är någon annans.",
+      "choices": [
+        "Inget problem, det räcker att ha läst artikeln",
+        "Problemet är bara att meningen är för kort",
+        "Det räknas som plagiat eftersom källan varken citeras korrekt eller anges",
+        "Det är bara ett problem om artikeln är skriven på ett annat språk"
+      ],
+      "answer": 2,
+      "explanation": "Att återge någon annans formuleringar nästan ordagrant utan citattecken och källhänvisning räknas som plagiat, oavsett om man läst källan noga. Text ska antingen omformuleras tydligt med egna ord och källhänvisning, eller citeras korrekt."
+    },
+    {
+      "id": "q-sv2-text-5",
+      "kind": "mc",
+      "topic": "styckeindelning",
+      "prompt": "Vad är syftet med tydlig styckeindelning i en utredande text?",
+      "opener": "Vad händer med läsbarheten om allt är en enda lång textmassa?",
+      "choices": [
+        "Att göra texten längre",
+        "Att varje stycke ska föra fram en huvudtanke och skapa en logisk läsbar struktur",
+        "Att undvika att behöva skriva en sammanhängande slutsats",
+        "Styckeindelning har ingen betydelse för läsbarheten"
+      ],
+      "answer": 1,
+      "explanation": "Tydlig styckeindelning gör texten lättare att följa — varje stycke bör bygga på en huvudtanke, och styckena bör hänga ihop logiskt med hjälp av sambandsord och en röd tråd genom texten."
+    },
+    {
+      "id": "q-sv2-text-6",
+      "kind": "mc",
+      "topic": "argumenterande text",
+      "prompt": "En argumenterande text bemöter aktivt de starkaste motargumenten innan den återupprepar sin tes. Vilket syfte fyller detta?",
+      "opener": "Vad säger det om en skribent som vågar ta upp motargument?",
+      "choices": [
+        "Det försvagar textens trovärdighet eftersom motargument aldrig ska nämnas",
+        "Det är bara ett sätt att göra texten längre utan egentligt syfte",
+        "Motargument ska alltid placeras allra först i texten",
+        "Det stärker textens trovärdighet genom att visa att författaren känner till och kan bemöta invändningar"
+      ],
+      "answer": 3,
+      "explanation": "Att bemöta motargument visar att skribenten är påläst och har övervägt olika perspektiv, vilket stärker textens trovärdighet och argumentationens styrka — snarare än att bara ignorera invändningar."
+    },
+    {
+      "id": "q-sv2-text-7",
+      "kind": "worked",
+      "topic": "argumenterande text",
+      "prompt": "En text har rubriken \"Bör skolan förbjuda mobiler i klassrummet?\" och väger fördelar och nackdelar mot varandra utan att ta tydlig ställning i slutet. En annan text med samma rubrik landar i en tydlig ståndpunkt: skolan bör förbjuda mobiler. Analysera vilken texttyp respektive text tillhör och varför.",
+      "opener": "Titta på om texten landar i en tes eller stannar vid en avvägning.",
+      "answer": "Den första texten är utredande eftersom den allsidigt belyser för- och nackdelar utan att ta ställning. Den andra är argumenterande eftersom den har en tydlig tes (mobilförbud) som den försöker övertyga läsaren om.",
+      "steps": [
+        "Utredande text: syftet är att belysa en fråga sakligt från flera håll, ofta utan en slutgiltig ställning — texten stannar vid en avvägning.",
+        "Argumenterande text: syftet är att övertyga — texten har en tydlig tes som backas upp med argument riktade mot en specifik ståndpunkt.",
+        "Samma ämne (mobiler i klassrummet) kan alltså behandlas i båda texttyperna — det är syftet och strukturen, inte ämnet, som avgör texttypen.",
+        "En vanlig missuppfattning är att utredande text saknar åsikter helt — den kan mycket väl ha en avslutande reflektion, men den väger ändå in flera perspektiv i stället för att driva en tes."
+      ]
+    },
+    {
+      "id": "q-sv2-text-8",
+      "kind": "flashcard",
+      "topic": "källhantering",
+      "prompt": "Sammanfatta grunderna för god källhantering och disposition i utredande och argumenterande text.",
+      "opener": "Struktur och källor — de två saker som avgör om en text håller.",
+      "answer": "Utredande text: allsidig belysning av en fråga, disposition inledning–utredning–slutsats · Argumenterande text: tydlig tes, argument, bemötande av motargument, avslutande upprepning av tesen · Källhantering: väv in källor naturligt i löpande text, ange alltid varifrån information kommer, undvik nästan ordagranna omskrivningar utan citat (plagiat) · Styckeindelning: varje stycke en huvudtanke, sambandsord skapar röd tråd genom hela texten."
+    }
+  ]
+}

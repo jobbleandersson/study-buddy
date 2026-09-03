@@ -1,0 +1,128 @@
+{
+  "id": "lib-en6-litfilm",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Literature and film analysis",
+  "sourceSummary": "Begrepp för att analysera handling, karaktärer, tema, miljö, berättarperspektiv och grundläggande filmtermer.",
+  "topics": [
+    "plot and character",
+    "theme and setting",
+    "narrative perspective",
+    "film terms"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-litfilm-1",
+      "kind": "mc",
+      "topic": "plot and character",
+      "prompt": "What is a \"protagonist\"?",
+      "opener": "Jämför med motsatsen — \"antagonist\".",
+      "choices": [
+        "The main character, often the hero",
+        "The villain of a story",
+        "A minor character with few lines",
+        "The narrator of a story"
+      ],
+      "answer": 0,
+      "explanation": "Protagonisten är huvudkaraktären, ofta den vars mål och konflikt driver handlingen. Skurken kallas istället \"antagonist\"."
+    },
+    {
+      "id": "q-en6-litfilm-2",
+      "kind": "mc",
+      "topic": "plot and character",
+      "prompt": "What is a \"plot twist\"?",
+      "opener": "Något som får läsaren att se om hela historien.",
+      "choices": [
+        "The final scene of a film",
+        "An unexpected turn in the story that changes the reader's understanding",
+        "A secondary storyline",
+        "The introduction of a new character"
+      ],
+      "answer": 1,
+      "explanation": "En \"plot twist\" är en oväntad vändning som förändrar hur läsaren eller tittaren förstår det som redan hänt. Det handlar inte bara om slutscenen eller att en ny karaktär dyker upp."
+    },
+    {
+      "id": "q-en6-litfilm-3",
+      "kind": "mc",
+      "topic": "theme and setting",
+      "prompt": "What does \"theme\" mean in literary analysis?",
+      "opener": "Skilj det från \"setting\", som är något helt annat.",
+      "choices": [
+        "The physical location where the story takes place",
+        "The order in which events happen",
+        "The underlying message or central idea of a work",
+        "A summary of the plot"
+      ],
+      "answer": 2,
+      "explanation": "Temat är verkets underliggande budskap eller centrala idé, till exempel kärlek, makt eller identitet. Miljön (\"setting\") är istället tid och plats."
+    },
+    {
+      "id": "q-en6-litfilm-4",
+      "kind": "mc",
+      "topic": "theme and setting",
+      "prompt": "Which sentence best describes \"setting\"?",
+      "opener": "Var och när utspelar sig berättelsen?",
+      "choices": [
+        "The main conflict in the story",
+        "The author's opinion of the characters",
+        "The moral lesson of the story",
+        "The time and place in which a story occurs"
+      ],
+      "answer": 3,
+      "explanation": "\"Setting\" är tiden och platsen för handlingen. Konflikten, den moraliska lärdomen och författarens hållning till karaktärerna är andra analysbegrepp."
+    },
+    {
+      "id": "q-en6-litfilm-5",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "A story told using \"I\" and \"we\", from inside a character's head, uses which narrative perspective?",
+      "opener": "Vilket pronomen står i centrum av berättandet?",
+      "choices": [
+        "Third person omniscient",
+        "First person",
+        "Second person",
+        "Third person limited"
+      ],
+      "answer": 1,
+      "explanation": "Förstapersonsperspektiv (\"first person\") använder \"I\"/\"we\" och ger tillgång till en enda karaktärs tankar. Tredje person, oavsett om den är allvetande eller begränsad, använder istället \"he\"/\"she\"/\"they\"."
+    },
+    {
+      "id": "q-en6-litfilm-6",
+      "kind": "mc",
+      "topic": "film terms",
+      "prompt": "What does \"cinematography\" refer to?",
+      "opener": "Tänk på ordets rot: samma som \"foto-\" men för rörlig bild.",
+      "choices": [
+        "The written script of a film",
+        "The visual style and camera work of a film",
+        "The music composed for a film",
+        "The actors' performances"
+      ],
+      "answer": 1,
+      "explanation": "\"Cinematography\" handlar om filmens bildspråk — kameravinklar, ljussättning och bildkomposition. Manus, musik och skådespel är andra delar av filmproduktionen."
+    },
+    {
+      "id": "q-en6-litfilm-7",
+      "kind": "worked",
+      "topic": "narrative perspective",
+      "prompt": "Read the short passage and identify the narrative perspective, then explain how you know.\n\n\"I stood at the edge of the platform, watching the train pull away. She never looked back, and I wondered if she ever would.\"",
+      "opener": "Vilket pronomen dominerar berättelsen, och vems tankar får vi ta del av?",
+      "answer": "First person narrative perspective.",
+      "steps": [
+        "Berättaren använder \"I\" och \"I wondered\" — ett tydligt tecken på förstapersonsperspektiv.",
+        "Vi får bara tillgång till berättarens egna tankar och känslor, inte till \"she\":s inre liv — det bekräftar att vi är låsta till en enda persons perspektiv.",
+        "Om berättelsen istället hade följt flera karaktärers tankar (t.ex. även vad \"she\" tänkte) hade det varit tredje person allvetande (omniscient) istället.",
+        "Slutsats: förstapersonsberättande skapar närhet till en karaktär men begränsar samtidigt vad läsaren kan veta."
+      ]
+    },
+    {
+      "id": "q-en6-litfilm-8",
+      "kind": "flashcard",
+      "topic": "film terms",
+      "prompt": "List key vocabulary for discussing literature and film.",
+      "opener": "Grundbegreppen du behöver för att analysera text och film på engelska.",
+      "answer": "Plot = händelseförlopp · Protagonist = huvudkaraktär · Antagonist = motståndare/skurk · Theme = underliggande budskap · Setting = tid och plats · Narrative perspective = berättarperspektiv (first person, third person limited, third person omniscient) · Plot twist = oväntad vändning · Cinematography = filmens bildspråk och kameraarbete · Foreshadowing = förebud om vad som komma skall."
+    }
+  ]
+}

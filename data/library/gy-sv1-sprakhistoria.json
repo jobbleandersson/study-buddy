@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv1-sprakhistoria",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Språksociologi och nordiska språk",
+  "sourceSummary": "Dialekt, sociolekt och kronolekt, svenskans släktskap, de nationella minoritetsspråken och grannspråken i Norden.",
+  "topics": [
+    "språklig variation",
+    "minoritetsspråk",
+    "nordiska språk",
+    "lånord"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-hist-1",
+      "kind": "mc",
+      "topic": "minoritetsspråk",
+      "prompt": "Vilka är Sveriges fem nationella minoritetsspråk?",
+      "opener": "Fem språk som fick officiell status i Sverige år 2000.",
+      "choices": [
+        "Engelska, arabiska, finska, samiska och jiddisch",
+        "Samiska, meänkieli, jiddisch, tyska och finska",
+        "Finska, meänkieli, samiska, romani chib och jiddisch",
+        "Finska, norska, danska, samiska och romani chib"
+      ],
+      "answer": 2,
+      "explanation": "De fem erkända nationella minoritetsspråken är finska, meänkieli (tornedalsfinska), samiska, romani chib och jiddisch. De har status tack vare historisk hävd i Sverige — inte antal talare."
+    },
+    {
+      "id": "q-sv1-hist-2",
+      "kind": "mc",
+      "topic": "nordiska språk",
+      "prompt": "Vilket av dessa språk är INTE besläktat med svenskan?",
+      "opener": "Ett av dem tillhör en helt annan språkfamilj, trots geografisk närhet.",
+      "choices": [
+        "Norska",
+        "Isländska",
+        "Danska",
+        "Finska"
+      ],
+      "answer": 3,
+      "explanation": "Finskan tillhör den finsk-ugriska (uraliska) språkfamiljen och är inte besläktad med svenskan. Isländska, danska och norska är liksom svenskan nordgermanska språk."
+    },
+    {
+      "id": "q-sv1-hist-3",
+      "kind": "mc",
+      "topic": "språklig variation",
+      "prompt": "Ungdomar i en storstad använder ord och uttryck som deras föräldrar inte känner till. Vilken typ av språklig variation är det främst?",
+      "opener": "Vad är det som skiljer grupperna åt här — plats, ålder eller yrke?",
+      "choices": [
+        "Kronolekt",
+        "Nationsspråk",
+        "Dialekt",
+        "Idiolekt"
+      ],
+      "answer": 0,
+      "explanation": "Kronolekt är språklig variation kopplad till ålder. Dialekt hänger ihop med geografi, sociolekt med social grupp och idiolekt med den enskilda individens sätt att tala."
+    },
+    {
+      "id": "q-sv1-hist-4",
+      "kind": "mc",
+      "topic": "språklig variation",
+      "prompt": "Vad är en sociolekt?",
+      "opener": "Vad har talarna gemensamt, om det inte är var de bor?",
+      "choices": [
+        "Språkvariation kopplad till geografiskt område",
+        "Språkvariation kopplad till social grupp eller klass",
+        "En enskild persons unika språkbruk",
+        "Ett officiellt minoritetsspråk"
+      ],
+      "answer": 1,
+      "explanation": "Sociolekt är variation som hänger samman med social tillhörighet — yrkesgrupp, klass eller utbildningsbakgrund. Geografisk variation kallas dialekt."
+    },
+    {
+      "id": "q-sv1-hist-5",
+      "kind": "mc",
+      "topic": "lånord",
+      "prompt": "Under medeltiden fick svenskan in mängder av ord som \"betala\", \"arbete\" och \"språk\". Varifrån kom de?",
+      "opener": "Tänk på vilka som dominerade handeln i Östersjön på den tiden.",
+      "choices": [
+        "Latinet",
+        "Engelskan",
+        "Lågtyskan",
+        "Franskan"
+      ],
+      "answer": 2,
+      "explanation": "Hansan gjorde lågtyskan till handelsspråk i Norden, och lågtyska lånord strömmade in i svenskan under medeltiden. Franska lånord kom främst på 1700-talet och engelska dominerar i modern tid."
+    },
+    {
+      "id": "q-sv1-hist-6",
+      "kind": "mc",
+      "topic": "språklig variation",
+      "prompt": "En elev skriver \"typ liksom asball\" i en inlämningsuppgift. Vad är det främsta problemet ur ett språkriktighetsperspektiv?",
+      "opener": "Är orden fel i sig — eller fel just här?",
+      "choices": [
+        "Orden är grammatiskt inkorrekta",
+        "Orden är felstavade",
+        "Orden finns inte i svenska språket",
+        "Stilnivån passar inte sammanhanget"
+      ],
+      "answer": 3,
+      "explanation": "Orden är inte fel i sig — de fungerar i talspråk bland vänner. Problemet är stilnivån: en skoluppgift kräver formellt skriftspråk. Språkriktighet handlar ofta om att anpassa språket till mottagare och situation."
+    },
+    {
+      "id": "q-sv1-hist-7",
+      "kind": "worked",
+      "topic": "språklig variation",
+      "prompt": "Förklara varför samma person kan säga \"Ge mig den där grejen\" hemma, \"Skulle jag kunna få verktyget?\" på jobbet och \"Kan du skicka hammaren?\" till en kollega. Vilka begrepp beskriver detta?",
+      "opener": "Samma person, samma sak — men olika språk. Vad styr valet?",
+      "answer": "Situationsanpassning genom register och stilnivå — personen växlar mellan olika språkliga varieteter beroende på mottagare och sammanhang.",
+      "steps": [
+        "Alla tre yttranden betyder ungefär samma sak, men de skiljer sig i formalitetsgrad.",
+        "Valet styrs av situationen och relationen till mottagaren — hemma är tonen avspänd, i en formell arbetssituation mer artig.",
+        "Detta kallas att anpassa register eller stilnivå. Att behärska flera register är en språklig styrka, inte ett tecken på osäkerhet.",
+        "Begreppet idiolekt beskriver personens samlade individuella språkbruk — inklusive förmågan att växla mellan varieteter."
+      ]
+    },
+    {
+      "id": "q-sv1-hist-8",
+      "kind": "flashcard",
+      "topic": "språklig variation",
+      "prompt": "Förklara dialekt, sociolekt, kronolekt och idiolekt.",
+      "opener": "Fyra sorters variation — vad avgör vilken det är?",
+      "answer": "Dialekt: variation efter geografiskt område (skånska, norrländska). Sociolekt: variation efter social grupp, klass eller yrke. Kronolekt: variation efter ålder (ungdomsspråk). Idiolekt: den enskilda individens unika språkbruk — summan av alla varieteter en person bär med sig."
+    }
+  ]
+}

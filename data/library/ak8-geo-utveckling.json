@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo8-utveckling",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Rikedom, fattigdom och utveckling",
+  "sourceSummary": "Vad som skiljer hög- och låginkomstländer, hur utveckling mäts med BNP per capita, HDI och andra mått, vilka historiska och ekonomiska orsaker som ligger bakom klyftorna mellan länder, hur handel och globalisering påverkar fattiga länder samt vad bistånd och hållbar utveckling innebär.",
+  "topics": [
+    "hög- och låginkomstländer",
+    "BNP och utvecklingsmått",
+    "orsaker till ojämlikhet",
+    "handel och globalisering",
+    "bistånd och hållbar utveckling"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo8-utv-1",
+      "kind": "mc",
+      "topic": "BNP och utvecklingsmått",
+      "prompt": "Vad menas med BNP per capita?",
+      "opener": "Per capita betyder per person – vad är det som ska delas med antalet invånare?",
+      "choices": [
+        "Det sammanlagda värdet av alla varor och tjänster som produceras i ett land under ett år",
+        "Värdet av landets produktion under ett år delat med antalet invånare",
+        "Hur mycket staten tar in i skatt varje år delat med antalet invånare",
+        "Hur mycket landet säljer till andra länder varje år"
+      ],
+      "answer": 1,
+      "explanation": "BNP, bruttonationalprodukten, är värdet av allt som produceras i ett land under ett år, och BNP per capita får man när den summan delas med folkmängden. Alternativet med enbart produktionens värde beskriver BNP utan per capita, vilket gör att stora länder alltid ser rika ut även om varje invånare har lite – därför använder man per capita när man jämför länder."
+    },
+    {
+      "id": "q-geo8-utv-2",
+      "kind": "mc",
+      "topic": "BNP och utvecklingsmått",
+      "prompt": "Vilket mått väger samman förväntad livslängd, utbildning och inkomst?",
+      "opener": "FN:s mått försöker fånga mer av människors liv än bara pengar.",
+      "choices": [
+        "BNP per capita",
+        "Gini-koefficienten",
+        "Inflationstakten",
+        "HDI, Human Development Index"
+      ],
+      "answer": 3,
+      "explanation": "HDI är FN:s index för mänsklig utveckling och kombinerar förväntad livslängd, utbildningsnivå och inkomst (BNI per capita) till ett värde mellan 0 och 1. BNP per capita mäter bara inkomst, Gini-koefficienten mäter hur jämnt inkomsterna är fördelade inom ett land, och inflation handlar om hur snabbt priserna stiger."
+    },
+    {
+      "id": "q-geo8-utv-3",
+      "kind": "mc",
+      "topic": "hög- och låginkomstländer",
+      "prompt": "Vad är typiskt för ett låginkomstland jämfört med ett höginkomstland?",
+      "opener": "Tänk på hur många som arbetar i jordbruket, och på hälsan hos de allra yngsta.",
+      "choices": [
+        "Högre barnadödlighet, kortare förväntad livslängd och att en större del av befolkningen arbetar i jordbruket",
+        "Låga födelsetal och en åldrande befolkning med många pensionärer",
+        "Att den största delen av arbetskraften jobbar inom tjänstesektorn",
+        "Hög BNP per capita men mycket lågt HDI"
+      ],
+      "answer": 0,
+      "explanation": "I låginkomstländer är sjukvården sämre utbyggd och tillgången till rent vatten sämre, vilket ger högre barnadödlighet och kortare förväntad livslängd, samtidigt som många försörjer sig på jordbruk. Låga födelsetal, åldrande befolkning och en stor tjänstesektor är i stället kännetecken för höginkomstländer som Sverige och Japan."
+    },
+    {
+      "id": "q-geo8-utv-4",
+      "kind": "mc",
+      "topic": "orsaker till ojämlikhet",
+      "prompt": "Vilken historisk faktor brukar nämnas som en viktig orsak till dagens klyftor mellan länder?",
+      "opener": "Under flera hundra år styrdes stora delar av Afrika, Asien och Amerika av europeiska stater.",
+      "choices": [
+        "Att låginkomstländerna ligger längre från polerna än rika länder",
+        "Att människor i låginkomstländer arbetar färre timmar per vecka",
+        "Kolonialismen, då europeiska stater styrde stora områden och förde ut råvaror därifrån",
+        "Att höginkomstländerna har betydligt fler naturresurser i marken"
+      ],
+      "answer": 2,
+      "explanation": "Under kolonialtiden byggdes kolonierna upp för att leverera billiga råvaror till Europa, gränser drogs utan hänsyn till folkgrupper och lokal industri utvecklades knappt – mönster som lever kvar i handel och ekonomi långt efter självständigheten. Att rika länder skulle ha mer naturresurser stämmer inte: många låginkomstländer, som Kongo-Kinshasa, är mycket rika på mineraler men fattiga ändå."
+    },
+    {
+      "id": "q-geo8-utv-5",
+      "kind": "mc",
+      "topic": "handel och globalisering",
+      "prompt": "Vad menas med globalisering?",
+      "opener": "Tänk på var din mobil är tillverkad och var bomullen i din tröja odlades.",
+      "choices": [
+        "Att alla länder i världen inför samma valuta och samma lagar",
+        "Att länder och människor knyts allt närmare varandra genom handel, transporter, kommunikation och kultur",
+        "Att fler människor flyttar från städerna ut till landsbygden",
+        "Att länder stänger sina gränser för utländska varor för att skydda den egna industrin"
+      ],
+      "answer": 1,
+      "explanation": "Globalisering innebär att varor, pengar, information, idéer och människor rör sig allt lättare över gränserna, så att en vara kan ha delar från många länder och monteras i ett tredje. Att stänga gränser för utländska varor är motsatsen och kallas protektionism, medan gemensam valuta bara finns inom vissa samarbeten som euroområdet."
+    },
+    {
+      "id": "q-geo8-utv-6",
+      "kind": "mc",
+      "topic": "handel och globalisering",
+      "prompt": "Många låginkomstländer exporterar främst obearbetade råvaror. Varför är det ett problem?",
+      "opener": "Jämför vad ett ton kakaobönor är värt med vad chokladen i affären kostar.",
+      "choices": [
+        "Råvaror får inte säljas vidare till andra världsdelar",
+        "Råvaror är alltid dyrare än färdiga industrivaror",
+        "Det finns nästan ingen efterfrågan på råvaror i världen i dag",
+        "Priserna på råvaror svänger kraftigt, och förädlade varor ger mycket större inkomst än obearbetade råvaror"
+      ],
+      "answer": 3,
+      "explanation": "Den stora vinsten uppstår när råvaran förädlas till en färdig produkt, och den delen av kedjan ligger oftast i höginkomstländer – därför får producentlandet bara en liten del av slutpriset. Dessutom kan världsmarknadspriset på till exempel kakao, kaffe eller koppar falla kraftigt på kort tid, vilket slår hårt mot ett land som är beroende av en enda exportvara. Att efterfrågan skulle saknas stämmer inte alls, tvärtom är efterfrågan på råvaror stor."
+    },
+    {
+      "id": "q-geo8-utv-7",
+      "kind": "worked",
+      "topic": "orsaker till ojämlikhet",
+      "prompt": "Ett land i Afrika söder om Sahara får nästan alla sina exportinkomster från kakao. Förklara varför landet har svårt att bli rikare och vad som skulle kunna förbättra situationen.",
+      "opener": "Följ kakaobönan hela vägen från odlingen till chokladkakan i butiken – var tjänas pengarna?",
+      "answer": "Problemet är att landet säljer en obearbetad råvara och därför fastnar längst ned i värdekedjan. Bonden får bara en liten del av vad chokladkakan kostar i butiken, medan förädlingen till choklad, marknadsföringen och försäljningen sker i höginkomstländer och ger den stora vinsten. Eftersom nästan hela exporten består av en enda vara blir ekonomin dessutom mycket sårbar: faller världsmarknadspriset på kakao, eller slår skörden fel på grund av torka eller växtsjukdom, minskar statens inkomster kraftigt samtidigt som skolor och sjukvård ska betalas. Många odlare är fattiga, har små odlingar och saknar pengar att investera, och tullar på förädlade varor i importländerna gör det svårare att sälja färdig choklad i stället för bönor. Situationen kan förbättras genom att landet bygger upp egen förädlingsindustri, satsar på utbildning och infrastruktur, breddar ekonomin med fler näringar så att den inte hänger på en enda vara, och genom rättvisare handelsregler och certifieringar som ger odlarna ett högre och mer förutsägbart pris.",
+      "steps": [
+        "Landet exporterar en obearbetad råvara och får bara en liten del av slutpriset – förädlingen sker någon annanstans.",
+        "Beroendet av en enda vara gör ekonomin sårbar för prisfall, torka och skadade skördar.",
+        "Låga inkomster ger lite pengar till skolor, vägar, el och investeringar, vilket bromsar utvecklingen.",
+        "Tullar på förädlade varor i rika länder gör det svårare att sälja färdig choklad än råa bönor.",
+        "Vägar framåt: egen förädlingsindustri, utbildning och infrastruktur, bredare näringsliv samt rättvisare handelsvillkor och certifiering."
+      ]
+    },
+    {
+      "id": "q-geo8-utv-8",
+      "kind": "flashcard",
+      "topic": "bistånd och hållbar utveckling",
+      "prompt": "Sammanfatta begreppen om utveckling, ojämlikhet, handel och bistånd.",
+      "opener": "Samla måtten, orsakerna, handeln och de globala målen i en tät översikt.",
+      "answer": "BNP: värdet av alla varor och tjänster ett land producerar under ett år · BNP per capita: BNP delat med folkmängden, används för att jämföra länder · HDI: FN:s index som väger samman förväntad livslängd, utbildning och inkomst, värde mellan 0 och 1 · Gini-koefficienten: mäter hur ojämnt inkomsterna är fördelade inom ett land · andra mått: barnadödlighet, förväntad livslängd, läskunnighet, andel med rent vatten och elektricitet · höginkomstländer: hög BNP per capita, låga födelsetal, åldrande befolkning, stor tjänstesektor, utbyggd skola och sjukvård · låginkomstländer: låg BNP per capita, höga födelsetal, ung befolkning, många i jordbruket, hög barnadödlighet · medelinkomstländer växer snabbt, till exempel Kina, Indien, Brasilien och Vietnam · orsaker till ojämlikhet: kolonialismens arv, ensidig ekonomi med få exportvaror, korruption, krig och konflikter, svag utbildning och infrastruktur, skuldsättning, torka och naturkatastrofer · handel: låginkomstländer exporterar ofta råvaror medan förädlingen och vinsten hamnar i rika länder · tullar och handelshinder försvårar export av färdiga varor · frihandel innebär handel utan tullar, protektionism innebär att man skyddar den egna industrin · globalisering: varor, pengar, information och människor rör sig lättare över gränserna, multinationella företag producerar i många länder · bistånd: katastrofbistånd vid akuta kriser och långsiktigt bistånd till skola, sjukvård, vatten och jordbruk · FN:s mål är att rika länder ger 0,7 procent av BNI i bistånd, och Sverige hör till de länder som ger mest · kritik mot bistånd: kan skapa beroende eller försvinna i korruption, därför betonas ägarskap och långsiktighet · hållbar utveckling: att tillgodose dagens behov utan att förstöra kommande generationers möjligheter, med ekologisk, ekonomisk och social dimension · Agenda 2030: FN:s 17 globala mål, bland annat ingen fattigdom, god utbildning, jämställdhet, rent vatten och bekämpa klimatförändringarna."
+    }
+  ]
+}

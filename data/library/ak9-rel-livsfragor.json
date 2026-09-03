@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel-livsfragor",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Livsfrågor och identitet",
+  "sourceSummary": "Vad en livsåskådning är, hur olika perspektiv — religiösa och sekulära — svarar på existentiella frågor om mening och död, samt religionsfrihet och sekularisering i Sverige.",
+  "topics": [
+    "livsåskådning",
+    "existentiella frågor",
+    "religionsfrihet",
+    "sekularisering"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel-liv-1",
+      "kind": "mc",
+      "topic": "livsåskådning",
+      "prompt": "Vad menas med en livsåskådning?",
+      "opener": "Tänk brett — en livsåskådning behöver inte innehålla någon gud alls.",
+      "choices": [
+        "Bara religioner räknas som livsåskådningar",
+        "Ett sammanhängande sätt att se på tillvaron, meningen med livet och vad som är rätt och fel — kan vara religiöst eller sekulärt",
+        "Enbart en persons åsikt om politik",
+        "Ett annat ord för en enskild högtid"
+      ],
+      "answer": 1,
+      "explanation": "En livsåskådning är ett mer sammanhängande sätt att se på tillvaron, existensens mening och vad som är gott och rätt. Den kan vara religiös (t.ex. kristendom, islam) eller sekulär, det vill säga icke-religiös (t.ex. humanism)."
+    },
+    {
+      "id": "q-rel-liv-2",
+      "kind": "mc",
+      "topic": "livsåskådning",
+      "prompt": "Vad kännetecknar humanism som sekulär livsåskådning?",
+      "opener": "Humanism betonar människan själv, snarare än en gudomlig kraft, som utgångspunkt.",
+      "choices": [
+        "Tron på flera gudar som styr människors öden",
+        "Betoning på förnuft, människovärde och etik utan att utgå från en gud",
+        "Att alla religiösa högtider ska firas gemensamt",
+        "Att bara vetenskap räknas, och känslor spelar ingen roll"
+      ],
+      "answer": 1,
+      "explanation": "Humanism är en sekulär livsåskådning som betonar förnuft, människovärde och etiskt ansvar utan att utgå från en gudstro. Det är alltså inte en religion med gudar, men den tar ändå ställning i frågor om mening och moral, precis som religiösa livsåskådningar gör."
+    },
+    {
+      "id": "q-rel-liv-3",
+      "kind": "mc",
+      "topic": "existentiella frågor",
+      "prompt": "Vad kallas frågor som \"Vad är meningen med livet?\" och \"Vad händer efter döden?\"",
+      "opener": "Dessa frågor rör människans grundvillkor — de kallas med ett samlingsnamn.",
+      "choices": [
+        "Statistiska frågor",
+        "Existentiella frågor",
+        "Juridiska frågor",
+        "Geografiska frågor"
+      ],
+      "answer": 1,
+      "explanation": "Frågor om livets mening, döden, lidande och varför vi finns till kallas existentiella frågor — de rör människans grundläggande villkor och besvaras olika beroende på vilken livsåskådning man har."
+    },
+    {
+      "id": "q-rel-liv-4",
+      "kind": "mc",
+      "topic": "existentiella frågor",
+      "prompt": "Hur skiljer sig ofta en religiös och en sekulär syn på frågan om vad som händer efter döden?",
+      "opener": "Fundera på om svaret hänvisar till något gudomligt/andligt eller till något inom naturens ramar.",
+      "choices": [
+        "Det finns ingen skillnad alls mellan synsätten",
+        "En religiös syn hänvisar ofta till något efter detta livet, som himmel eller återfödelse, medan en sekulär syn ofta ser döden som livets definitiva slut",
+        "Sekulära livsåskådningar tror alltid på reinkarnation",
+        "Religiösa livsåskådningar saknar helt uppfattning om döden"
+      ],
+      "answer": 1,
+      "explanation": "Religiösa livsåskådningar ger ofta svar som pekar bortom det jordiska livet, till exempel ett liv efter detta eller återfödelse. En sekulär syn, som inom humanism, betraktar oftare döden som livets slut och lägger i stället meningen i själva livet som levs."
+    },
+    {
+      "id": "q-rel-liv-5",
+      "kind": "mc",
+      "topic": "religionsfrihet",
+      "prompt": "Vad innebär religionsfrihet, som den formuleras i svensk grundlag och mänskliga rättigheter?",
+      "opener": "Frihet gäller åt flera håll — både att tro och att inte tro.",
+      "choices": [
+        "Att staten bestämmer vilken religion alla ska tillhöra",
+        "Rätten att fritt välja, utöva, byta eller helt avstå från en religion, utan att förföljas för det",
+        "Att bara en religion får utövas offentligt",
+        "Att religiösa samfund är befriade från alla lagar"
+      ],
+      "answer": 1,
+      "explanation": "Religionsfrihet innebär rätten att fritt tro, utöva, byta religion eller vara utan religion, utan att bli diskriminerad eller förföljd. Den innebär inte att religiösa samfund står över lagen, eller att staten bestämmer vad medborgarna ska tro."
+    },
+    {
+      "id": "q-rel-liv-6",
+      "kind": "mc",
+      "topic": "sekularisering",
+      "prompt": "Vad innebär sekularisering, som ofta beskrivs ha skett i Sverige under 1900- och 2000-talet?",
+      "opener": "Tänk på hur mycket religionen syns i lagar, skola och vardagsliv jämfört med tidigare.",
+      "choices": [
+        "Att religionen fått en allt starkare roll i statens lagstiftning",
+        "Att religionens roll i samhället och i människors vardag gradvis minskat, till exempel genom att staten och kyrkan skildes åt",
+        "Att alla svenskar blivit religiösa",
+        "Att bara en religion numera är tillåten i Sverige"
+      ],
+      "answer": 1,
+      "explanation": "Sekularisering innebär att religionens roll i samhället, lagstiftningen och många människors vardag gradvis minskat. Ett tydligt exempel i Sverige är skilsmässan mellan staten och Svenska kyrkan år 2000."
+    },
+    {
+      "id": "q-rel-liv-7",
+      "kind": "worked",
+      "topic": "existentiella frågor",
+      "prompt": "Jämför hur en religiös livsåskådning och en sekulär livsåskådning som humanism kan resonera kring frågan \"Vad är meningen med livet?\"",
+      "opener": "Utgå från vad var och en av åskådningarna grundar sin mening i — något bortom det jordiska, eller livet här och nu.",
+      "answer": "En religiös livsåskådning grundar ofta meningen med livet i en relation till något gudomligt eller andligt — till exempel att leva enligt Guds vilja, att nå frälsning, eller att sträva mot upplysning/nirvana. Meningen kopplas då till något som sträcker sig bortom det jordiska livet. En sekulär livsåskådning som humanism grundar i stället meningen i människan själv och det liv som faktiskt levs — till exempel genom relationer, kunskap, att bidra till andra människors väl och att förverkliga sin potential, utan att förutsätta något liv efter detta. Båda perspektiven kan alltså ge svar som upplevs som meningsfulla, men de bygger på olika grundantaganden om vad som finns bortom det jordiska.",
+      "steps": [
+        "Identifiera frågan: var hämtas livets mening ifrån, enligt respektive perspektiv?",
+        "Religiöst perspektiv: meningen kopplas ofta till en gudomlig plan, ett förbund, eller ett mål bortom detta liv (t.ex. paradis, nirvana, moksha).",
+        "Sekulärt/humanistiskt perspektiv: meningen söks i det levda livet självt — relationer, kunskap, bidrag till andra, utan hänvisning till något efter detta liv.",
+        "Jämförelse: skillnaden ligger inte i om frågan tas på allvar, utan i var svaret hämtas ifrån — något bortom det jordiska eller inom det jordiska livet.",
+        "Slutsats: olika livsåskådningar kan ge lika genomtänkta, men olika, svar på samma existentiella fråga."
+      ]
+    },
+    {
+      "id": "q-rel-liv-8",
+      "kind": "flashcard",
+      "topic": "livsåskådning",
+      "prompt": "Sammanfatta begreppen livsåskådning, existentiella frågor, religionsfrihet och sekularisering.",
+      "opener": "Gå igenom varje begrepp med en kort, tydlig definition.",
+      "answer": "Livsåskådning: ett sammanhängande sätt att se på tillvaron och meningen med livet, kan vara religiöst (t.ex. kristendom) eller sekulärt (t.ex. humanism). Existentiella frågor: grundläggande frågor om livets mening, döden och lidande, som olika livsåskådningar svarar på olika sätt. Religionsfrihet: rätten att fritt tro, utöva, byta eller avstå från religion, en mänsklig rättighet skyddad i svensk grundlag. Sekularisering: processen där religionens roll i samhälle och vardagsliv minskat över tid · exempel i Sverige: skilsmässan mellan staten och Svenska kyrkan år 2000. Humanism: en sekulär livsåskådning som betonar förnuft, människovärde och etik utan att utgå från en gud."
+    }
+  ]
+}

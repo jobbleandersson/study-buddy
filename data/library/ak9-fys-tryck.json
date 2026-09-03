@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys-tryck",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Tryck och väder",
+  "sourceSummary": "Vad tryck är och hur det beräknas, hur lufttryck skapar högtryck och lågtryck, samt kopplingen mellan vattnets kretslopp och vädret vi upplever.",
+  "topics": [
+    "tryck och area",
+    "lufttryck",
+    "högtryck och lågtryck",
+    "vattnets kretslopp och väder"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys-try-1",
+      "kind": "mc",
+      "topic": "tryck och area",
+      "prompt": "Hur beräknas tryck?",
+      "opener": "Tryck handlar om hur en kraft sprids ut över en yta.",
+      "choices": [
+        "Tryck = kraft gånger area",
+        "Tryck = kraft delat med area",
+        "Tryck = massa gånger area",
+        "Tryck = area delat med kraft"
+      ],
+      "answer": 1,
+      "explanation": "Tryck (p) beräknas som p = F / A, kraft delat med den area kraften fördelas över. Ju mindre area samma kraft verkar på, desto större blir trycket. Att multiplicera kraft och area ger fel storhet."
+    },
+    {
+      "id": "q-fys-try-2",
+      "kind": "mc",
+      "topic": "tryck och area",
+      "prompt": "Varför sjunker en person lättare ner i snö med vanliga skor än med skidor, trots att personen väger lika mycket?",
+      "opener": "Tänk på hur samma kraft (tyngden) fördelas över olika stora ytor.",
+      "choices": [
+        "Skidor väger mindre än skor",
+        "Skidor har större area, så tyngdkraften fördelas över en större yta och trycket mot snön blir mindre",
+        "Skidor har mindre area vilket ger lägre tryck",
+        "Snön är alltid hårdare under skidor"
+      ],
+      "answer": 1,
+      "explanation": "Samma tyngdkraft fördelad över skidornas större area ger lägre tryck (p = F/A) mot snön, så personen sjunker inte lika djupt. Med skor är arean liten, vilket ger högre tryck och personen sjunker ner."
+    },
+    {
+      "id": "q-fys-try-3",
+      "kind": "mc",
+      "topic": "lufttryck",
+      "prompt": "Vad orsakar lufttryck?",
+      "opener": "Luften runt jorden har massa och påverkas av tyngdkraften.",
+      "choices": [
+        "Att jorden roterar runt sin axel",
+        "Luftens egen tyngd som trycker mot allt den omger, till exempel jordytan",
+        "Att solen värmer havet",
+        "Månens dragningskraft på atmosfären"
+      ],
+      "answer": 1,
+      "explanation": "Luften i atmosfären har massa och dras nedåt av tyngdkraften, vilket skapar ett tryck mot allt den omger — jordytan, hus och kroppar. Jordens rotation och solens uppvärmning påverkar väder och vindar, men det är luftens tyngd som ger själva lufttrycket."
+    },
+    {
+      "id": "q-fys-try-4",
+      "kind": "mc",
+      "topic": "lufttryck",
+      "prompt": "Varför är lufttrycket lägre högt upp på ett berg än vid havsnivån?",
+      "opener": "Tänk på hur mycket luft som finns ovanför dig på olika höjder.",
+      "choices": [
+        "Det finns mindre luft ovanför dig högt upp, så luftens sammanlagda tyngd som trycker nedåt blir mindre",
+        "Luften är kallare högt upp, och kall luft har inget tryck",
+        "Berget själv trycker bort luften",
+        "Solen värmer bergstoppar mindre"
+      ],
+      "answer": 0,
+      "explanation": "Lufttrycket beror på hur mycket luft som finns ovanför en given punkt. Högt upp på ett berg finns mindre luft ovanför, så den sammanlagda tyngden av luftpelaren är mindre och lufttrycket blir lägre. Temperaturen påverkar luftens densitet men är inte huvudorsaken till tryckskillnaden."
+    },
+    {
+      "id": "q-fys-try-5",
+      "kind": "mc",
+      "topic": "högtryck och lågtryck",
+      "prompt": "Vilket väder förknippas oftast med ett högtryck?",
+      "opener": "Vid högtryck sjunker luften och pressas samman på vägen ner.",
+      "choices": [
+        "Regn och blåst",
+        "Lugnt väder med klar himmel och lite moln",
+        "Åska och kraftiga skyfall",
+        "Snöstorm"
+      ],
+      "answer": 1,
+      "explanation": "I ett högtryck sjunker luften nedåt, värms upp och torkar ut, vilket ger lugnt väder med klar himmel och få moln. Regn, blåst och åska är typiskt för lågtryck, där luft stiger och bildar moln."
+    },
+    {
+      "id": "q-fys-try-6",
+      "kind": "mc",
+      "topic": "högtryck och lågtryck",
+      "prompt": "Vad händer med luften i ett lågtryck?",
+      "opener": "Tänk på motsatsen till vad som sker i ett högtryck.",
+      "choices": [
+        "Luften sjunker och trycks samman",
+        "Luften stiger, vilket kyls av och bildar moln och ofta nederbörd",
+        "Luften står helt stilla",
+        "Luften blir varmare ju högre upp den kommer"
+      ],
+      "answer": 1,
+      "explanation": "I ett lågtryck stiger luften uppåt. När den stigande luften kyls av bildas moln, och ofta leder det till regn eller snö samt blåsigare väder. Det är motsatsen till vad som händer i ett högtryck där luften sjunker."
+    },
+    {
+      "id": "q-fys-try-7",
+      "kind": "worked",
+      "topic": "vattnets kretslopp och väder",
+      "prompt": "Förklara hur vattnets kretslopp hänger ihop med bildandet av regn, och koppla det till vad som händer i ett lågtryck.",
+      "opener": "Följ vattnet från hav och sjöar hela vägen upp i luften och tillbaka ner igen.",
+      "answer": "Solen värmer vatten i hav och sjöar så att det avdunstar och blir vattenånga i luften. Vattenångan stiger, kyls av och kondenserar till små vattendroppar som bildar moln. I ett lågtryck stiger luften extra mycket, vilket förstärker denna avkylning och molnbildning, och när dropparna blir tillräckligt stora och tunga faller de som nederbörd (regn eller snö) — vattnet rinner sedan tillbaka till hav och sjöar via mark och vattendrag, och kretsloppet börjar om.",
+      "steps": [
+        "Solen värmer vattenytor så att vatten avdunstar och blir osynlig vattenånga i luften.",
+        "Vattenångan stiger med varm luft uppåt i atmosfären.",
+        "Uppe i den kallare luften kondenserar ångan till små vattendroppar som bildar moln.",
+        "I ett lågtryck stiger luften kraftigt, vilket ger mer avkylning, fler och större moln.",
+        "När droppar i molnen blir för tunga för att sväva faller de som regn eller snö, och vattnet rinner tillbaka till hav och sjöar."
+      ]
+    },
+    {
+      "id": "q-fys-try-8",
+      "kind": "flashcard",
+      "topic": "tryck och area",
+      "prompt": "Sammanfatta begreppen tryck, lufttryck, högtryck/lågtryck och vattnets kretslopp.",
+      "opener": "Gå igenom varje begrepp för sig innan du vänder på kortet.",
+      "answer": "Tryck: p = F / A, kraft delat med den area kraften verkar över — mindre area ger högre tryck vid samma kraft · Lufttryck: uppstår för att luften i atmosfären har massa och tyngdkraften drar den nedåt, vilket skapar ett tryck mot jordytan · Lufttrycket är lägre högre upp eftersom mindre luft finns ovanför en given punkt där · Högtryck: luften sjunker, värms upp och torkar ut → lugnt, klart väder · Lågtryck: luften stiger, kyls av, bildar moln → regn, blåst och ostadigt väder · Vattnets kretslopp: avdunstning (sol värmer vatten till ånga) → kondensation (ånga kyls till moln) → nederbörd (regn/snö faller) → avrinning tillbaka till hav och sjöar, och kretsloppet upprepas."
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "id": "lib-rel8-islam",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Islam",
+  "sourceSummary": "Islams grundläggande trosuppfattning, Muhammeds roll och Koranen som helig skrift, de fem pelarna, moskén och bönens former, uppdelningen i sunni och shia samt högtiderna ramadan och id — och hur islam ser ut i Sverige i dag.",
+  "topics": [
+    "grundläggande tro",
+    "Muhammed och Koranen",
+    "de fem pelarna",
+    "moskén och bönen",
+    "sunni och shia",
+    "högtider och islam i Sverige"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel8-isl-1",
+      "kind": "mc",
+      "topic": "grundläggande tro",
+      "prompt": "Vad är mest centralt i den islamiska trosuppfattningen?",
+      "opener": "Trosbekännelsen inleds med ett påstående om hur många gudar det finns.",
+      "choices": [
+        "Att Gud (arabiska: Allah) är en och odelbar, och att Muhammed är Guds sändebud",
+        "Att Gud består av tre personer: Fadern, Sonen och den heliga Anden",
+        "Att en människa genom goda gärningar själv kan bli en gud",
+        "Att det finns många gudar med olika ansvarsområden"
+      ],
+      "answer": 0,
+      "explanation": "Tanken om Guds absoluta enhet, tawhid, är bärande inom islam och uttrycks i trosbekännelsen shahada: att det inte finns någon gud utom Gud och att Muhammed är hans sändebud. Inom islam räknas Muhammed som den siste i en lång rad profeter, bland dem Abraham, Mose och Jesus. Alternativet om tre personer beskriver den kristna läran om treenigheten, alltså en annan religions uppfattning — inte islams."
+    },
+    {
+      "id": "q-rel8-isl-2",
+      "kind": "mc",
+      "topic": "Muhammed och Koranen",
+      "prompt": "Vad är Koranen enligt islamisk tro?",
+      "opener": "Fundera på vem som enligt traditionen förmedlade texten, och på vilket språk.",
+      "choices": [
+        "En biografi över Muhammeds liv som skrevs av hans närmaste vänner",
+        "Guds ord, som enligt traditionen uppenbarades på arabiska för Muhammed genom ängeln Gabriel (Jibril)",
+        "En lagsamling som kaliferna beslutade om på 1000-talet",
+        "Berättelser om vad Muhammed sade och gjorde, insamlade av senare lärda"
+      ],
+      "answer": 1,
+      "explanation": "Enligt islamisk tro är Koranen Guds eget ord, uppenbarat på arabiska för Muhammed under drygt tjugo år från omkring år 610 och senare sammanställt i skrift. Just därför läses och reciteras Koranen gärna på arabiska, även av muslimer som har andra modersmål. Det sista alternativet beskriver i stället hadither, alltså berättelser om Muhammeds ord och handlingar, som tillsammans bildar sunna — en viktig men separat vägledning vid sidan av Koranen."
+    },
+    {
+      "id": "q-rel8-isl-3",
+      "kind": "mc",
+      "topic": "de fem pelarna",
+      "prompt": "Vilka är islams fem pelare?",
+      "opener": "De fem handlar om bekännelse, bön, givande, fasta och en resa.",
+      "choices": [
+        "Trosbekännelsen, bönen, allmosan, fastan under ramadan och vallfärden till Mecka",
+        "Dopet, konfirmationen, nattvarden, bikten och äktenskapet",
+        "Bönen, fastan, tystnaden, meditationen och vegetarisk kost",
+        "Trosbekännelsen, korstecknet, psalmsången, kollekten och pilgrimsfärden till Rom"
+      ],
+      "answer": 0,
+      "explanation": "De fem pelarna är shahada (trosbekännelsen), salat (de fem dagliga bönerna), zakat (den obligatoriska gåvan till behövande, ofta omkring 2,5 procent av besparingarna), sawm (fastan under ramadan) och hajj (vallfärden till Mecka, som förväntas göras minst en gång i livet av den som har hälsa och råd). Alternativet med dop, konfirmation och nattvard räknar upp sakrament inom kristendomen, alltså en annan religions riter."
+    },
+    {
+      "id": "q-rel8-isl-4",
+      "kind": "mc",
+      "topic": "moskén och bönen",
+      "prompt": "Vad kännetecknar bönen (salat) och moskén inom islam?",
+      "opener": "Tänk på vilken riktning man vänder sig åt, och på vem som leder bönen.",
+      "choices": [
+        "Man ber en gång i veckan, alltid på söndagen, och moskén är utsmyckad med statyer av profeterna",
+        "Man ber när man känner för det, och i moskén finns ett altare där en präst bär fram offer",
+        "Man ber fem gånger om dagen vänd mot Kaba i Mecka och tvättar sig först; i moskén visar nischen mihrab böneriktningen och en imam leder bönen",
+        "Man ber tre gånger om dagen vänd mot Jerusalem, och moskén används bara vid begravningar"
+      ],
+      "answer": 2,
+      "explanation": "Bönen sker vid fem bestämda tider på dygnet, föregås av en rituell tvagning (wudu) och riktas mot Kaba i Mecka — riktningen kallas qibla och visas i moskén av nischen mihrab. En imam leder bönen, och fredagsbönen samlar särskilt många. Moskéer saknar oftast bilder och statyer av människor och djur; utsmyckningen består i stället gärna av kalligrafi och geometriska mönster. Kvinnor deltar i moskélivet, ofta i ett eget utrymme, och sedvänjorna varierar mellan olika länder och församlingar."
+    },
+    {
+      "id": "q-rel8-isl-5",
+      "kind": "mc",
+      "topic": "sunni och shia",
+      "prompt": "Vilken fråga låg bakom den ursprungliga uppdelningen mellan sunni och shia?",
+      "opener": "Frågan uppstod efter Muhammeds död år 632 och gällde ledarskapet.",
+      "choices": [
+        "Om Koranen skulle få översättas till persiska",
+        "Om man skulle be fem eller tre gånger om dagen",
+        "Om moskéer skulle få byggas utanför den arabiska halvön",
+        "Vem som skulle efterträda Muhammed som ledare för de troende"
+      ],
+      "answer": 3,
+      "explanation": "När Muhammed dog år 632 uppstod oenighet om ledarskapet. De som kom att kallas sunnimuslimer menade att en lämplig ledare, en kalif, skulle utses bland de troende, medan de som kom att kallas shiamuslimer menade att ledarskapet borde följa Muhammeds släkt genom kusinen och svärsonen Ali. I dag är sunni den klart största inriktningen, ungefär 85–90 procent av världens muslimer, medan shia är störst i bland annat Iran och Irak. Skillnaden gällde alltså ledarskapet, inte antalet böner — båda inriktningarna delar de fem pelarna, även om vissa högtider och traditioner skiljer sig åt."
+    },
+    {
+      "id": "q-rel8-isl-6",
+      "kind": "mc",
+      "topic": "högtider och islam i Sverige",
+      "prompt": "Vad kännetecknar ramadan och id al-fitr?",
+      "opener": "Den ena är en hel månad, den andra är festen som avslutar den.",
+      "choices": [
+        "Ramadan är en enskild högtidsdag med presenter, och id al-fitr är en fastemånad",
+        "Ramadan är den månad då många muslimer fastar från gryning till solnedgång, och id al-fitr är festen som firas när fastemånaden är slut",
+        "Ramadan är vallfärden till Mecka, och id al-fitr är namnet på fredagsbönen",
+        "Både ramadan och id al-fitr är namn på moskéer i Medina"
+      ],
+      "answer": 1,
+      "explanation": "Ramadan är den nionde månaden i den islamiska månkalendern. Vuxna och friska muslimer avstår då från mat, dryck och rökning under dagsljus och äter i stället före gryningen och efter solnedgången; barn, sjuka, gravida och resande är undantagna. Månaden avslutas med id al-fitr, en glädjefest med gudstjänst, mat och gåvor, och den andra stora högtiden är id al-adha i samband med vallfärden. Eftersom kalendern följer månen förskjuts ramadan omkring elva dagar per år jämfört med den svenska kalendern. Vallfärden hajj är alltså inte samma sak som ramadan."
+    },
+    {
+      "id": "q-rel8-isl-7",
+      "kind": "worked",
+      "topic": "de fem pelarna",
+      "prompt": "Förklara steg för steg vad islams fem pelare innebär, och ge exempel på hur de kan påverka vardagen för en muslim som bor i Sverige.",
+      "opener": "Ta en pelare i taget och koppla varje till något konkret i vardagen.",
+      "answer": "Den första pelaren är shahada, trosbekännelsen, som uttrycker att det inte finns någon gud utom Gud och att Muhammed är hans sändebud. Den uttalas i bönen och vid högtidliga tillfällen och är det som gör en människa till muslim. Den andra pelaren är salat, de fem dagliga bönerna, som föregås av tvagning och riktas mot Mecka. I Sverige innebär det att bönetiderna förskjuts kraftigt över året eftersom dagsljuset varierar, och många ber hemma, på arbetsplatsen eller i skolan snarare än i en moské. Den tredje pelaren är zakat, en obligatorisk gåva på ofta omkring 2,5 procent av besparingarna till behövande; i Sverige samlas den ofta in via moskéföreningar eller biståndsorganisationer. Den fjärde pelaren är sawm, fastan under ramadan, då man avstår från mat och dryck under dagsljus — i Sverige kan sommarens fastedagar bli mycket långa, och elever kan behöva planera skoldagen och träningen därefter, medan barn, sjuka och gravida är undantagna. Den femte pelaren är hajj, vallfärden till Mecka, som förväntas göras minst en gång i livet av den som har hälsa och råd; för många i Sverige innebär det en planerad och kostsam resa som kanske görs en enda gång. Hur mycket varje pelare präglar vardagen varierar mycket mellan olika individer och familjer, precis som inom andra religioner.",
+      "steps": [
+        "Shahada: trosbekännelsen om Guds enhet och Muhammed som sändebud — den uttalas i bönen och vid högtidliga tillfällen.",
+        "Salat: fem böner om dagen efter tvagning, riktade mot Mecka; i Sverige varierar bönetiderna mycket mellan sommar och vinter.",
+        "Zakat: en fastställd del av besparingarna ges till behövande, ofta via moskéföreningar eller biståndsorganisationer.",
+        "Sawm: fasta under ramadan från gryning till solnedgång, med undantag för barn, sjuka, gravida och resande.",
+        "Hajj: vallfärden till Mecka minst en gång i livet för den som har hälsa och råd — och kom ihåg att praktiken varierar mellan individer."
+      ]
+    },
+    {
+      "id": "q-rel8-isl-8",
+      "kind": "flashcard",
+      "topic": "grundläggande tro",
+      "prompt": "Sammanfatta islam: tro, Muhammed och Koranen, de fem pelarna, moskén, sunni och shia samt högtider och islam i Sverige.",
+      "opener": "Från trosbekännelsen till högtiderna och situationen i Sverige.",
+      "answer": "Tro: tawhid — enligt islamisk tro är Gud en och odelbar · Muhammed räknas som den siste profeten i raden efter bl.a. Abraham, Mose och Jesus · Muhammed: född ca 570 i Mecka, uppenbarelserna börjar ca 610, utvandringen till Medina år 622 (hijra) inleder den islamiska tideräkningen, död 632 · Koranen: enligt tron Guds ord på arabiska, förmedlat genom ängeln Jibril; indelad i 114 suror · Sunna och hadither: berättelser om Muhammeds ord och handlingar, förebild för livet · Sharia: den religiösa vägledningen, tolkad på olika sätt i olika rättsskolor och länder · Fem pelare: shahada (trosbekännelse) · salat (fem böner per dag mot Mecka, efter tvagning) · zakat (gåva till behövande) · sawm (fasta under ramadan) · hajj (vallfärd till Mecka) · Moskén: mihrab visar böneriktningen (qibla), minaret, imam leder bönen, fredagsbönen samlar många, kalligrafi och mönster i stället för bilder av människor · Sunni: ledaren (kalifen) väljs bland de troende — ca 85–90 % av världens muslimer · Shia: ledarskapet bör följa Muhammeds släkt via Ali — störst i Iran och Irak · Högtider: ramadan (fastemånad) · id al-fitr (fastan bryts) · id al-adha (offerhögtiden vid vallfärden) · månkalendern gör att högtiderna flyttar ca 11 dagar per år · Islam i Sverige: kom framför allt med arbetskrafts- och flyktinginvandring från 1960-talet och framåt · moskéer och föreningar finns i de flesta större städer · muslimer i Sverige är en mångfaldig grupp med olika ursprung, inriktningar och grad av religiös praktik."
+    }
+  ]
+}

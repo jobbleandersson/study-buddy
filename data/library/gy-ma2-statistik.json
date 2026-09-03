@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma2-statistik",
+  "type": "assignment",
+  "subject": "Matematik 2",
+  "title": "Sannolikhet och statistik",
+  "sourceSummary": "Betingad sannolikhet, villkoret för oberoende händelser samt fördjupning av läges- och spridningsmått med kvartiler och standardavvikelse.",
+  "topics": [
+    "betingad sannolikhet",
+    "oberoende händelser",
+    "lägesmått",
+    "spridningsmått"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma2-statistik-1",
+      "kind": "mc",
+      "topic": "betingad sannolikhet",
+      "prompt": "Vad betyder skrivsättet $P(A \\mid B)$?",
+      "opener": "Läs symbolen som \"sannolikheten för ... givet ...\".",
+      "choices": [
+        "Sannolikheten att både A och B inträffar",
+        "Sannolikheten att A inträffar, givet att B redan har inträffat",
+        "Sannolikheten att B inträffar, givet att A redan har inträffat",
+        "Sannolikheten att A eller B inträffar"
+      ],
+      "answer": 1,
+      "explanation": "$P(A\\mid B)$ utläses \"sannolikheten för A givet B\" och beräknas $P(A\\mid B) = \\dfrac{P(A \\text{ och } B)}{P(B)}$. Att kasta om ordningen (svar C) ger istället $P(B\\mid A)$, vilket i allmänhet är ett annat tal."
+    },
+    {
+      "id": "q-ma2-statistik-2",
+      "kind": "mc",
+      "topic": "betingad sannolikhet",
+      "prompt": "I en klass gillar 70 % matte och 40 % gillar både matte och fysik. Vad är sannolikheten att en elev som gillar matte också gillar fysik, dvs. $P(\\text{fysik} \\mid \\text{matte})$?",
+      "opener": "Dela sannolikheten för båda ämnena med sannolikheten för villkoret (matte).",
+      "choices": [
+        "57 %",
+        "28 %",
+        "40 %",
+        "70 %"
+      ],
+      "answer": 0,
+      "explanation": "$P(\\text{fysik}\\mid\\text{matte}) = \\dfrac{P(\\text{matte och fysik})}{P(\\text{matte})} = \\dfrac{0{,}4}{0{,}7} \\approx 0{,}571 = 57\\ \\%$. Svar B ($28\\ \\%$) fås om man av misstag multiplicerar sannolikheterna istället för att dividera."
+    },
+    {
+      "id": "q-ma2-statistik-3",
+      "kind": "mc",
+      "topic": "oberoende händelser",
+      "prompt": "Två händelser A och B är oberoende om och endast om vilket villkor gäller?",
+      "opener": "Oberoende betyder att den ena händelsen inte påverkar sannolikheten för den andra.",
+      "choices": [
+        "$P(A\\mid B) = P(A)$",
+        "$P(A \\text{ och } B) = 0$",
+        "$P(A) + P(B) = 1$",
+        "$P(A\\mid B) = P(B)$"
+      ],
+      "answer": 0,
+      "explanation": "Oberoende innebär att B:s inträffande inte förändrar sannolikheten för A, det vill säga $P(A\\mid B) = P(A)$. Att $P(A \\text{ och } B) = 0$ (svar B) beskriver istället ömsesidigt uteslutande händelser, vilket är något annat."
+    },
+    {
+      "id": "q-ma2-statistik-4",
+      "kind": "mc",
+      "topic": "oberoende händelser",
+      "prompt": "I ett experiment är $P(A) = 0{,}3$, $P(B) = 0{,}5$ och $P(A \\text{ och } B) = 0{,}15$. Är A och B oberoende händelser?",
+      "opener": "Testa om produkten av de enskilda sannolikheterna stämmer med sannolikheten för att båda inträffar.",
+      "choices": [
+        "Nej, eftersom $P(A) + P(B) \\neq 1$",
+        "Nej, eftersom $P(A\\mid B)$ är okänt",
+        "Ja, eftersom $P(A) \\cdot P(B) = P(A \\text{ och } B)$",
+        "Ja, eftersom båda sannolikheterna är mindre än 1"
+      ],
+      "answer": 2,
+      "explanation": "Testa oberoende-villkoret: $P(A)\\cdot P(B) = 0{,}3 \\cdot 0{,}5 = 0{,}15$, vilket stämmer med det givna $P(A \\text{ och } B) = 0{,}15$. Alltså är händelserna oberoende. Summan $P(A)+P(B)=1$ (svar A) är inte ett relevant villkor för oberoende."
+    },
+    {
+      "id": "q-ma2-statistik-5",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Talen 2, 5, 6, 8, 9, 12, 15, 20 är sorterade i storleksordning. Vad är den undre kvartilen $Q_1$?",
+      "opener": "$Q_1$ är medianen av den nedre halvan av värdena.",
+      "choices": [
+        "5",
+        "6",
+        "8",
+        "5,5"
+      ],
+      "answer": 3,
+      "explanation": "Den nedre halvan (de fyra minsta värdena) är 2, 5, 6, 8. Medianen av dessa fyra är $\\frac{5+6}{2} = 5{,}5$, vilket är $Q_1$. Att bara välja det mittersta talet i gruppen (svar B) missar att man ska ta medelvärdet av de två mittersta värdena."
+    },
+    {
+      "id": "q-ma2-statistik-6",
+      "kind": "mc",
+      "topic": "spridningsmått",
+      "prompt": "Vilket spridningsmått tar hänsyn till alla värden i datamängden, inte bara de två extremvärdena?",
+      "opener": "Variationsbredden använder bara max och min — vilket mått räknar med varje enskilt värde?",
+      "choices": [
+        "Variationsbredden",
+        "Standardavvikelsen",
+        "Medianen",
+        "Typvärdet"
+      ],
+      "answer": 1,
+      "explanation": "Standardavvikelsen beräknas utifrån avståndet mellan varje enskilt värde och medelvärdet, så alla observationer påverkar måttet. Variationsbredden (svar A) använder bara det största och minsta värdet. Median och typvärde är lägesmått, inte spridningsmått."
+    },
+    {
+      "id": "q-ma2-statistik-7",
+      "kind": "worked",
+      "topic": "betingad sannolikhet",
+      "prompt": "I en undersökning med 200 personer svarade man om man tränar regelbundet och om man sover bra: Tränar och sover bra: 80 personer. Tränar och sover dåligt: 20 personer. Tränar inte och sover bra: 30 personer. Tränar inte och sover dåligt: 70 personer. Vad är sannolikheten att en person sover bra, givet att personen tränar?",
+      "opener": "Begränsa dig först till gruppen som tränar — hur många är de totalt?",
+      "answer": "80 % (0,8)",
+      "steps": [
+        "Antalet som tränar totalt: $80 + 20 = 100$ personer.",
+        "Av dessa 100 sover 80 personer bra.",
+        "$P(\\text{sover bra} \\mid \\text{tränar}) = \\dfrac{80}{100} = 0{,}8$.",
+        "Alltså 80 % sannolikhet att en person som tränar också sover bra."
+      ]
+    },
+    {
+      "id": "q-ma2-statistik-8",
+      "kind": "flashcard",
+      "topic": "betingad sannolikhet",
+      "prompt": "Sammanfatta formeln för betingad sannolikhet, villkoret för oberoende händelser och de fördjupade läges- och spridningsmåtten.",
+      "opener": "Koppla ihop formeln för betingad sannolikhet med testet för oberoende.",
+      "answer": "$P(A\\mid B) = \\dfrac{P(A \\text{ och } B)}{P(B)}$ · A och B är oberoende om $P(A\\mid B) = P(A)$, vilket är samma sak som $P(A \\text{ och } B) = P(A)\\cdot P(B)$ · Kvartiler: $Q_1$ = medianen av nedre halvan, $Q_2$ = medianen av alla värden, $Q_3$ = medianen av övre halvan · Kvartilavstånd $= Q_3 - Q_1$ · Standardavvikelsen mäter genomsnittligt avstånd till medelvärdet och tar, till skillnad från variationsbredden, hänsyn till alla värden."
+    }
+  ]
+}

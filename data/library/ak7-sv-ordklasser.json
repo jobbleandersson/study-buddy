@@ -1,0 +1,130 @@
+{
+  "id": "lib-sv7-ordklasser",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Ordklasser",
+  "sourceSummary": "Substantiv, verb, adjektiv, pronomen och räkneord — att känna igen ordklasserna i en mening och veta hur orden böjs.",
+  "topics": [
+    "substantiv",
+    "verb",
+    "adjektiv",
+    "pronomen",
+    "räkneord"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv7-ord-1",
+      "kind": "mc",
+      "topic": "substantiv",
+      "prompt": "Vilket ord är ett substantiv? \"Min lillasyster ritade en fin bild igår.\"",
+      "opener": "Substantiv är namn på saker, personer och platser — testa att sätta \"en\" eller \"ett\" framför ordet.",
+      "choices": [
+        "ritade",
+        "fin",
+        "bild",
+        "igår"
+      ],
+      "answer": 2,
+      "explanation": "\"Bild\" är en sak — man kan säga \"en bild\", alltså är det ett substantiv. \"Ritade\" är verb (något man gör) och \"fin\" är adjektiv (hur något är)."
+    },
+    {
+      "id": "q-sv7-ord-2",
+      "kind": "mc",
+      "topic": "substantiv",
+      "prompt": "Vilken rad visar substantivet \"stol\" böjt i rätt ordning: en stol – flera stolar?",
+      "opener": "Tänk på hur du säger ordet när det är ETT och när det är MÅNGA, och när det är bestämt (\"den där\").",
+      "choices": [
+        "en stol – stolen – stolar – stolarna",
+        "en stol – stolet – stolar – stolerna",
+        "ett stol – stolet – stoler – stolerna",
+        "en stol – stolen – stoler – stolarna"
+      ],
+      "answer": 0,
+      "explanation": "Rätt böjning är en stol – stolen – stolar – stolarna. \"Stol\" är ett en-ord, så bestämd form blir \"stolen\", inte \"stolet\" — ändelsen -et hör till ett-ord som \"ett bord – bordet\"."
+    },
+    {
+      "id": "q-sv7-ord-3",
+      "kind": "mc",
+      "topic": "verb",
+      "prompt": "Vilket verb står i preteritum (dåtid)? \"Jag springer varje dag, men igår vilade jag och ska träna imorgon.\"",
+      "opener": "Preteritum berättar om något som redan har hänt — leta efter tidsordet \"igår\".",
+      "choices": [
+        "springer",
+        "vilade",
+        "ska",
+        "träna"
+      ],
+      "answer": 1,
+      "explanation": "\"Vilade\" står i preteritum — handlingen hände igår. \"Springer\" är presens (nu) och \"träna\" är infinitiv, grundformen som ofta står efter \"att\" eller \"ska\"."
+    },
+    {
+      "id": "q-sv7-ord-4",
+      "kind": "mc",
+      "topic": "adjektiv",
+      "prompt": "Hur komparerar man adjektivet \"snabb\"?",
+      "opener": "Komparation är när adjektivet jämför: hur något är, mer och mest.",
+      "choices": [
+        "snabb – snabbare – snabbast",
+        "snabb – mer snabb – mest snabb",
+        "snabb – snabbaste – snabbare",
+        "snabb – snabbt – snabba"
+      ],
+      "answer": 0,
+      "explanation": "Korta svenska adjektiv kompareras med ändelserna -are och -ast: snabb – snabbare – snabbast. \"Snabbt\" och \"snabba\" är inte jämförelser utan bara andra former av samma grundnivå (ett snabbt tåg, snabba tåg)."
+    },
+    {
+      "id": "q-sv7-ord-5",
+      "kind": "mc",
+      "topic": "pronomen",
+      "prompt": "Vilket ord är ett pronomen? \"Anna glömde sin jacka, så vi lämnade den i receptionen.\"",
+      "opener": "Pronomen är småord som ersätter ett namn eller ett substantiv så att man slipper upprepa det.",
+      "choices": [
+        "Anna",
+        "glömde",
+        "jacka",
+        "vi"
+      ],
+      "answer": 3,
+      "explanation": "\"Vi\" står i stället för namnen på personerna — det är ett pronomen (liksom \"sin\" och \"den\"). \"Anna\" är ett substantiv (ett namn), inte ett pronomen: pronomen ERSÄTTER namnet."
+    },
+    {
+      "id": "q-sv7-ord-6",
+      "kind": "mc",
+      "topic": "räkneord",
+      "prompt": "Vilket ord är ett räkneord? \"De tre vännerna åt varsin pizza på fredagen.\"",
+      "opener": "Räkneord svarar på frågan \"hur många?\" eller \"vilken i ordningen?\".",
+      "choices": [
+        "De",
+        "tre",
+        "vännerna",
+        "fredagen"
+      ],
+      "answer": 1,
+      "explanation": "\"Tre\" talar om hur många vänner det är — ett räkneord. \"De\" är pronomen och \"vännerna\" är substantiv, även om de står precis intill räkneordet."
+    },
+    {
+      "id": "q-sv7-ord-7",
+      "kind": "worked",
+      "topic": "ordklasser",
+      "prompt": "Bestäm ordklass för varje ord i meningen: \"Två glada elever läste en bok.\"",
+      "opener": "Gå ord för ord från vänster till höger och fråga: hur många, hurdan, vad, eller vad gör man?",
+      "answer": "Två = räkneord, glada = adjektiv, elever = substantiv, läste = verb (preteritum), en = artikel/räkneord, bok = substantiv.",
+      "steps": [
+        "\"Två\" svarar på frågan hur många — räkneord.",
+        "\"Glada\" beskriver hurdana eleverna är — adjektiv.",
+        "\"Elever\" är personer och kan böjas en elev – eleven – elever — substantiv.",
+        "\"Läste\" är vad de gör, och det har redan hänt — verb i preteritum.",
+        "\"En bok\": \"en\" är artikeln som hör ihop med substantivet \"bok\"."
+      ]
+    },
+    {
+      "id": "q-sv7-ord-8",
+      "kind": "flashcard",
+      "topic": "ordklasser",
+      "prompt": "Hur känner du igen de fem vanligaste ordklasserna?",
+      "opener": "Ett knep per ordklass räcker långt när du ska sortera orden i en mening.",
+      "answer": "Substantiv = saker, personer, platser · testa \"en/ett\" framför · böjs en bok – boken – böcker – böckerna. Verb = vad man gör eller är · testa \"jag ...\" framför · tempus: infinitiv (att läsa), presens (läser), preteritum (läste). Adjektiv = hurdan något är · komparation: glad – gladare – gladast. Pronomen = ersätter ett substantiv · jag, du, han, hon, den, det, vi, ni, de, min, sin. Räkneord = hur många eller vilken i ordningen · en, två, tre (grundtal) · första, andra, tredje (ordningstal)."
+    }
+  ]
+}

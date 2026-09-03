@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv1-kallkritik",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Källkritik",
+  "sourceSummary": "De källkritiska kriterierna, primär- och sekundärkällor, tendens och vinkling — och hur du granskar det du hittar på nätet.",
+  "topics": [
+    "källkritiska kriterier",
+    "källtyper",
+    "tendens"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-kall-1",
+      "kind": "mc",
+      "topic": "källkritiska kriterier",
+      "prompt": "Vilka är de fyra klassiska källkritiska kriterierna?",
+      "opener": "Fyra frågor du ställer till varje källa.",
+      "choices": [
+        "Äkthet, tid, beroende och tendens",
+        "Sanning, längd, språk och form",
+        "Titel, författare, förlag och år",
+        "Relevans, längd, tydlighet och stil"
+      ],
+      "answer": 0,
+      "explanation": "Äkthet (är källan vad den utger sig för att vara?), tid (hur nära i tid?), beroende (är den självständig eller bygger den på någon annan?) och tendens (finns det ett intresse av att vinkla?)."
+    },
+    {
+      "id": "q-sv1-kall-2",
+      "kind": "mc",
+      "topic": "källtyper",
+      "prompt": "Du läser en tidningsartikel som refererar till en forskningsrapport. Vad är tidningsartikeln i förhållande till rapporten?",
+      "opener": "Vilken av texterna kommer först — och vilken återger den andra?",
+      "choices": [
+        "Primärkälla",
+        "Sekundärkälla",
+        "Förstahandskälla",
+        "Tendensfri källa"
+      ],
+      "answer": 1,
+      "explanation": "Rapporten är primärkällan (originalet). Artikeln som återger den är en sekundärkälla. Gå alltid till primärkällan när det går — information förvanskas lätt i återgivningen."
+    },
+    {
+      "id": "q-sv1-kall-3",
+      "kind": "mc",
+      "topic": "tendens",
+      "prompt": "Ett godisföretag publicerar en studie som visar att socker inte påverkar barns koncentration. Vilket kriterium bör du främst granska?",
+      "opener": "Vem tjänar på att resultatet ser ut som det gör?",
+      "choices": [
+        "Tid",
+        "Beroende",
+        "Tendens",
+        "Äkthet"
+      ],
+      "answer": 2,
+      "explanation": "Tendens handlar om partiskhet — avsändaren har ett ekonomiskt intresse av ett visst resultat. Studien kan vara korrekt, men den kräver extra granskning och helst oberoende bekräftelse."
+    },
+    {
+      "id": "q-sv1-kall-4",
+      "kind": "mc",
+      "topic": "källkritiska kriterier",
+      "prompt": "Tre nyhetssajter rapporterar samma uppgift, men alla hänvisar till samma ursprungliga inlägg. Vad innebär det?",
+      "opener": "Är det verkligen tre oberoende bekräftelser?",
+      "choices": [
+        "Uppgiften blir mer trovärdig ju fler som återger den",
+        "Det handlar om äkthet, inte beroende",
+        "Uppgiften är bekräftad av tre källor",
+        "Källorna är beroende — det är i praktiken en enda källa"
+      ],
+      "answer": 3,
+      "explanation": "Beroendekriteriet: källor som alla bygger på samma ursprung räknas som en källa. Flera återgivningar av samma uppgift ökar inte trovärdigheten."
+    },
+    {
+      "id": "q-sv1-kall-5",
+      "kind": "mc",
+      "topic": "källkritiska kriterier",
+      "prompt": "För vilken typ av fråga spelar tidskriteriet störst roll?",
+      "opener": "När blir information gammal — och när gör den inte det?",
+      "choices": [
+        "Aktuell statistik över arbetslöshet",
+        "En beskrivning av Pythagoras sats",
+        "En redogörelse för antikens Grekland",
+        "En analys av Strindbergs språk"
+      ],
+      "answer": 0,
+      "explanation": "Färsk statistik blir snabbt inaktuell, medan matematiska satser och historiska förhållanden inte förändras. Tidskriteriet väger olika tungt beroende på ämne."
+    },
+    {
+      "id": "q-sv1-kall-6",
+      "kind": "mc",
+      "topic": "tendens",
+      "prompt": "Vilken rubrik är tydligast vinklad?",
+      "opener": "Leta efter värdeladdade ord som styr läsarens tolkning.",
+      "choices": [
+        "Skattehöjning klubbad i kommunfullmäktige",
+        "Girig kommunledning plundrar hushållen igen",
+        "Kommunfullmäktige beslutade om höjd skatt",
+        "Kommunen höjer skatten med 50 öre"
+      ],
+      "answer": 1,
+      "explanation": "Ord som \"girig\" och \"plundrar\" är starkt värdeladdade och styr läsarens tolkning. De övriga rubrikerna beskriver samma händelse neutralt."
+    },
+    {
+      "id": "q-sv1-kall-7",
+      "kind": "worked",
+      "topic": "källkritiska kriterier",
+      "prompt": "Du hittar en sajt som saknar uppgift om författare, är senast uppdaterad 2011 och säljer kosttillskott i marginalen. Den påstår att en viss diet botar sjukdomar. Granska källan med de fyra kriterierna.",
+      "opener": "Gå igenom ett kriterium i taget — vilka brister hittar du?",
+      "answer": "Källan brister på samtliga fyra kriterier och bör inte användas som stöd för påståendet.",
+      "steps": [
+        "Äkthet: ingen angiven författare och ingen ansvarig utgivare gör det omöjligt att avgöra vem som står bakom eller vilken kompetens de har.",
+        "Tid: uppgifterna är från 2011. På hälsoområdet uppdateras forskningsläget löpande, så informationen kan vara överspelad.",
+        "Beroende: inga källhänvisningar finns, så påståendet går inte att spåra till någon primärkälla eller forskning.",
+        "Tendens: sajten säljer kosttillskott och har därmed ett kommersiellt intresse av att dieten framstår som effektiv.",
+        "Slutsats: sök i stället upp myndigheter (Livsmedelsverket, 1177) eller granskad forskning som primärkällor."
+      ]
+    },
+    {
+      "id": "q-sv1-kall-8",
+      "kind": "flashcard",
+      "topic": "källkritiska kriterier",
+      "prompt": "Vilka frågor ställer du till en källa du hittat på nätet?",
+      "opener": "Fyra kriterier, plus ett par praktiska frågor.",
+      "answer": "Äkthet: vem är avsändaren, går det att verifiera? Tid: när publicerades den, är den fortfarande aktuell? Beroende: bygger den på egna iakttagelser eller återger den någon annan? Tendens: har avsändaren något att vinna på en viss bild? Fråga också: vad är syftet — informera, övertyga eller sälja? Och finns uppgiften bekräftad i en oberoende källa?"
+    }
+  ]
+}

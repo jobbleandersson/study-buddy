@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma9-geometri",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Geometri",
+  "sourceSummary": "Area, omkrets och volym, Pythagoras sats och skala — de geometriformler du behöver kunna använda, inte bara känna igen.",
+  "topics": [
+    "area och omkrets",
+    "volym",
+    "pythagoras sats",
+    "skala"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma9-geo-1",
+      "kind": "mc",
+      "topic": "area och omkrets",
+      "prompt": "En triangel har basen 10 cm och höjden 6 cm. Vad är arean?",
+      "opener": "Triangelns area är hälften av en rektangel med samma bas och höjd.",
+      "choices": [
+        "60 cm²",
+        "16 cm²",
+        "30 cm²",
+        "32 cm²"
+      ],
+      "answer": 2,
+      "explanation": "$A = \\frac{b \\cdot h}{2} = \\frac{10 \\cdot 6}{2} = 30$ cm². Ett vanligt fel är att glömma att dela med 2."
+    },
+    {
+      "id": "q-ma9-geo-2",
+      "kind": "mc",
+      "topic": "pythagoras sats",
+      "prompt": "En rätvinklig triangel har kateterna 6 cm och 8 cm. Hur lång är hypotenusan?",
+      "opener": "Hypotenusan är den längsta sidan, mitt emot den räta vinkeln.",
+      "choices": [
+        "14 cm",
+        "12 cm",
+        "48 cm",
+        "10 cm"
+      ],
+      "answer": 3,
+      "explanation": "$6^2 + 8^2 = 36 + 64 = 100$, och $\\sqrt{100} = 10$ cm."
+    },
+    {
+      "id": "q-ma9-geo-3",
+      "kind": "mc",
+      "topic": "area och omkrets",
+      "prompt": "Vad är arean av en cirkel med radien 3 cm? (Avrunda till en decimal.)",
+      "opener": "Vilken av formlerna gäller area — den med $r$ eller den med $r^2$?",
+      "choices": [
+        "28,3 cm²",
+        "6,3 cm²",
+        "18,8 cm²",
+        "9,4 cm²"
+      ],
+      "answer": 0,
+      "explanation": "$A = \\pi r^2 = \\pi \\cdot 3^2 = 9\\pi \\approx 28{,}3$ cm². ($18{,}8$ cm är omkretsen, $2\\pi r$.)"
+    },
+    {
+      "id": "q-ma9-geo-4",
+      "kind": "mc",
+      "topic": "volym",
+      "prompt": "Ett rätblock är 2 cm × 3 cm × 4 cm. Vad är volymen?",
+      "opener": "Volym av ett rätblock är en enkel multiplikation.",
+      "choices": [
+        "9 cm³",
+        "24 cm³",
+        "12 cm³",
+        "48 cm³"
+      ],
+      "answer": 1,
+      "explanation": "$V = l \\cdot b \\cdot h = 2 \\cdot 3 \\cdot 4 = 24$ cm³."
+    },
+    {
+      "id": "q-ma9-geo-5",
+      "kind": "mc",
+      "topic": "skala",
+      "prompt": "På en ritning i skala 1:100 är en vägg 3 cm lång. Hur lång är väggen i verkligheten?",
+      "opener": "Skala 1:100 betyder att verkligheten är 100 gånger större än ritningen.",
+      "choices": [
+        "100 cm",
+        "30 cm",
+        "3 m",
+        "30 m"
+      ],
+      "answer": 2,
+      "explanation": "$3 \\text{ cm} \\cdot 100 = 300$ cm $= 3$ m."
+    },
+    {
+      "id": "q-ma9-geo-6",
+      "kind": "mc",
+      "topic": "area och omkrets",
+      "prompt": "Vinkelsumman i en triangel är 180°. Två vinklar är 65° och 40°. Hur stor är den tredje?",
+      "opener": "Alla tre vinklar tillsammans ska bli 180°.",
+      "choices": [
+        "105°",
+        "85°",
+        "65°",
+        "75°"
+      ],
+      "answer": 3,
+      "explanation": "$180° - 65° - 40° = 75°$."
+    },
+    {
+      "id": "q-ma9-geo-7",
+      "kind": "worked",
+      "topic": "volym",
+      "prompt": "En cylinder har radien 2 cm och höjden 5 cm. Beräkna volymen, avrundat till en decimal. Visa stegen.",
+      "opener": "Tänk på cylindern som en cirkel som fått höjd — vad blir basytan?",
+      "answer": "≈ 62,8 cm³",
+      "steps": [
+        "Basytan är en cirkel: $A = \\pi r^2 = \\pi \\cdot 2^2 = 4\\pi$ cm².",
+        "Volymen är basytan gånger höjden: $V = 4\\pi \\cdot 5 = 20\\pi$ cm³.",
+        "Räkna ut: $20\\pi \\approx 62{,}8$ cm³."
+      ]
+    },
+    {
+      "id": "q-ma9-geo-8",
+      "kind": "flashcard",
+      "topic": "pythagoras sats",
+      "prompt": "Vad säger Pythagoras sats, och när får du använda den?",
+      "opener": "Två saker att få med: formeln och villkoret för när den gäller.",
+      "answer": "I en rätvinklig triangel gäller $a^2 + b^2 = c^2$, där $a$ och $b$ är kateterna och $c$ är hypotenusan (sidan mitt emot den räta vinkeln). Satsen gäller endast för rätvinkliga trianglar."
+    }
+  ]
+}

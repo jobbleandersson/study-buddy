@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi8-bindningar",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Kemiska bindningar och joner",
+  "sourceSummary": "Varför atomer binder ihop sig till föreningar, skillnaden mellan jonbindning och kovalent bindning, hur salter är uppbyggda av joner i kristaller samt vanliga joner och deras laddningar.",
+  "topics": [
+    "varför atomer binder ihop sig",
+    "jonbindning och jonföreningar",
+    "kovalent bindning och molekyler",
+    "salter",
+    "vanliga joner och laddningar"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi8-bin-1",
+      "kind": "mc",
+      "topic": "varför atomer binder ihop sig",
+      "prompt": "Varför binder atomer ihop sig till föreningar?",
+      "opener": "Tänk på vad ädelgaserna har som gör dem så stabila, och vad andra atomer saknar.",
+      "choices": [
+        "För att de dras till varandra av magnetism",
+        "För att de vill bli tyngre",
+        "För att de strävar efter fullt yttersta elektronskal, vilket ger ett stabilare tillstånd",
+        "För att alla atomer måste sitta två och två"
+      ],
+      "answer": 2,
+      "explanation": "Atomer binder ihop sig för att uppnå fullt yttersta elektronskal, alltså samma stabila elektronuppsättning som ädelgaserna har. Det handlar om elektronerna i yttersta skalet, inte om magnetism — och antalet atomer i en förening kan variera, det behöver inte vara två."
+    },
+    {
+      "id": "q-kemi8-bin-2",
+      "kind": "mc",
+      "topic": "jonbindning och jonföreningar",
+      "prompt": "Vad är en jonbindning?",
+      "opener": "Namnet avslöjar att det är joner inblandade — fundera på vad joner har som drar dem till varandra.",
+      "choices": [
+        "Elektrisk attraktion mellan positiva och negativa joner, som bildats när en atom avgett elektroner till en annan",
+        "Två atomer som delar på ett elektronpar",
+        "En bindning där två atomkärnor smälter samman till en",
+        "En bindning som bara kan finnas mellan två metaller"
+      ],
+      "answer": 0,
+      "explanation": "Vid jonbindning har elektroner flyttat helt från en atom till en annan, så att det bildas positiva och negativa joner som dras till varandra av elektrisk attraktion. Att dela ett elektronpar är i stället en kovalent bindning, och jonbindning uppstår typiskt mellan en metall och en icke-metall — inte mellan två metaller."
+    },
+    {
+      "id": "q-kemi8-bin-3",
+      "kind": "mc",
+      "topic": "kovalent bindning och molekyler",
+      "prompt": "Vad kännetecknar en kovalent bindning (molekylbindning)?",
+      "opener": "Här flyttar inga elektroner hela vägen över — de används i stället gemensamt.",
+      "choices": [
+        "Att en atom tar över alla elektroner från den andra atomen",
+        "Att två atomer delar på ett eller flera elektronpar",
+        "Att joner byter plats med varandra i en kristall",
+        "Att en metall avger elektroner till en icke-metall"
+      ],
+      "answer": 1,
+      "explanation": "I en kovalent bindning delar två atomer på ett eller flera elektronpar, och på så sätt får båda fullt yttersta skal — så sitter till exempel H2O och O2 ihop. Att elektroner flyttar helt från en metall till en icke-metall är i stället jonbindning."
+    },
+    {
+      "id": "q-kemi8-bin-4",
+      "kind": "mc",
+      "topic": "salter",
+      "prompt": "Vilket påstående om koksalt, NaCl, är rätt?",
+      "opener": "Fundera på om salt består av fristående molekyler eller av något annat mönster.",
+      "choices": [
+        "Det består av fristående NaCl-molekyler som sitter ihop två och två",
+        "Det innehåller bara natriumatomer",
+        "Det leder aldrig ström, inte ens när det är löst i vatten",
+        "Det är en jonförening av natriumjoner (Na+) och kloridjoner (Cl−) som sitter i ett kristallgitter"
+      ],
+      "answer": 3,
+      "explanation": "Koksalt är en jonförening där Na+ och Cl− sitter regelbundet packade i ett kristallgitter — formeln NaCl visar förhållandet 1:1, inte en enskild molekyl. Löser man saltet i vatten frigörs jonerna och kan röra sig, och då leder lösningen ström."
+    },
+    {
+      "id": "q-kemi8-bin-5",
+      "kind": "mc",
+      "topic": "vanliga joner och laddningar",
+      "prompt": "Magnesium ligger i grupp 2 i periodiska systemet. Vilken jon bildar en magnesiumatom?",
+      "opener": "Gruppnummer 2 säger hur många valenselektroner atomen har att göra sig av med.",
+      "choices": [
+        "Mg−",
+        "Mg+",
+        "Mg2+",
+        "Mg2−"
+      ],
+      "answer": 2,
+      "explanation": "Magnesium har två valenselektroner och avger båda för att få fullt yttersta skal, vilket ger jonen Mg2+ med laddningen 2+. Metaller avger elektroner och blir positiva joner, så en negativ magnesiumjon bildas inte."
+    },
+    {
+      "id": "q-kemi8-bin-6",
+      "kind": "mc",
+      "topic": "vanliga joner och laddningar",
+      "prompt": "En syreatom har sex valenselektroner. Vilken jon bildar den?",
+      "opener": "Räkna ut hur många elektroner som saknas för att skalet ska bli fullt med åtta.",
+      "choices": [
+        "O+",
+        "O2−",
+        "O2+",
+        "O−"
+      ],
+      "answer": 1,
+      "explanation": "Syre saknar två elektroner för att nå åtta i yttersta skalet, så atomen tar upp två elektroner och blir oxidjonen O2− med laddningen 2−. Att ta upp elektroner ger negativ laddning, så en positiv syrejon bildas inte, och O− har bara tagit upp en elektron av två."
+    },
+    {
+      "id": "q-kemi8-bin-7",
+      "kind": "worked",
+      "topic": "jonbindning och jonföreningar",
+      "prompt": "Magnesium (grupp 2) reagerar med klor (grupp 17). Visa vilka joner som bildas och ta reda på formeln för jonföreningen.",
+      "opener": "Bestäm laddningen på varje jon först, och se sedan hur många av varje som behövs för att laddningarna ska ta ut varandra.",
+      "answer": "Magnesium avger två elektroner och bildar Mg2+, medan varje kloratom tar upp en elektron och bildar Cl−. Det behövs två kloridjoner per magnesiumjon för att laddningarna ska ta ut varandra, så formeln blir MgCl2 (magnesiumklorid).",
+      "steps": [
+        "Magnesium ligger i grupp 2 och har två valenselektroner som metallen gärna avger.",
+        "När båda elektronerna avges bildas jonen Mg2+.",
+        "Klor ligger i grupp 17 och har sju valenselektroner — varje kloratom tar upp en elektron och bildar Cl−.",
+        "Jonföreningen måste vara oladdad totalt, så laddningen 2+ måste balanseras av två joner med laddningen 1−.",
+        "Det ger förhållandet en Mg2+ till två Cl−, alltså formeln MgCl2, magnesiumklorid."
+      ]
+    },
+    {
+      "id": "q-kemi8-bin-8",
+      "kind": "flashcard",
+      "topic": "varför atomer binder ihop sig",
+      "prompt": "Sammanfatta kemiska bindningar, joner och jonföreningar.",
+      "opener": "Börja med drivkraften bakom alla bindningar, ta sedan de två bindningstyperna och avsluta med vanliga joner.",
+      "answer": "Drivkraft: atomer binder ihop sig för att få fullt yttersta elektronskal, som ädelgaserna · Jonbindning: elektroner flyttar helt över, positiva och negativa joner dras till varandra, sker mellan metall och icke-metall · Jonförening (salt): joner packade i kristallgitter, formeln visar förhållandet mellan jonerna, t.ex. NaCl · Salt löst i vatten: jonerna frigörs och lösningen leder ström · Kovalent bindning (molekylbindning): två icke-metallatomer delar på elektronpar, bildar molekyler som H2, O2, H2O och CO2 · Positiva joner (metaller avger elektroner): Na+, K+, Mg2+, Ca2+, Al3+ · Negativa joner (icke-metaller tar upp elektroner): Cl−, O2−, S2− · Sammansatta joner: OH− (hydroxidjon), NO3− (nitratjon), SO42− (sulfatjon), CO32− (karbonatjon) · Regel för formler: laddningarna måste ta ut varandra, t.ex. Mg2+ + 2 Cl− → MgCl2 och Ca2+ + O2− → CaO · Jonföreningar har höga smältpunkter, molekylföreningar oftast låga."
+    }
+  ]
+}

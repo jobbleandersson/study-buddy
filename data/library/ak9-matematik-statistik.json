@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma9-statistik",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Sannolikhet och statistik",
+  "sourceSummary": "Lägesmått (medelvärde, median, typvärde), sannolikhet i ett och två steg, och kombinatorik.",
+  "topics": [
+    "lägesmått",
+    "sannolikhet",
+    "kombinatorik"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma9-stat-1",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Vad är medelvärdet av talen 4, 7, 9 och 12?",
+      "opener": "Lägg ihop allt först — sedan delar du med något.",
+      "choices": [
+        "32",
+        "7",
+        "8",
+        "9"
+      ],
+      "answer": 2,
+      "explanation": "$4 + 7 + 9 + 12 = 32$, och $32 / 4 = 8$."
+    },
+    {
+      "id": "q-ma9-stat-2",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Vad är medianen i talföljden 3, 5, 8, 9, 12?",
+      "opener": "Medianen handlar om placering i mitten, inte om att räkna ut något.",
+      "choices": [
+        "9",
+        "7,4",
+        "5",
+        "8"
+      ],
+      "answer": 3,
+      "explanation": "Talen är redan i storleksordning och det är fem tal, så medianen är det tredje: 8."
+    },
+    {
+      "id": "q-ma9-stat-3",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Vad är medianen i talföljden 2, 4, 6, 10?",
+      "opener": "Jämnt antal tal — då finns ingen enskild mittpunkt.",
+      "choices": [
+        "5",
+        "6",
+        "5,5",
+        "4"
+      ],
+      "answer": 0,
+      "explanation": "Vid jämnt antal tar man medelvärdet av de två mittersta: $(4 + 6)/2 = 5$."
+    },
+    {
+      "id": "q-ma9-stat-4",
+      "kind": "mc",
+      "topic": "sannolikhet",
+      "prompt": "Du kastar en vanlig sexsidig tärning. Vad är sannolikheten att få en fyra?",
+      "opener": "Hur många utfall är gynnsamma, och hur många är möjliga totalt?",
+      "choices": [
+        "$\\frac{4}{6}$",
+        "$\\frac{1}{6}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{4}$"
+      ],
+      "answer": 1,
+      "explanation": "Ett gynnsamt utfall (fyran) av sex möjliga: $\\frac{1}{6} \\approx 17\\ \\%$."
+    },
+    {
+      "id": "q-ma9-stat-5",
+      "kind": "mc",
+      "topic": "sannolikhet",
+      "prompt": "I en påse finns 3 röda och 7 blå kulor. Du drar en kula utan att titta. Vad är sannolikheten att den är röd?",
+      "opener": "Hur många kulor finns det totalt i påsen?",
+      "choices": [
+        "43 %",
+        "70 %",
+        "30 %",
+        "3 %"
+      ],
+      "answer": 2,
+      "explanation": "Totalt 10 kulor, varav 3 röda: $\\frac{3}{10} = 0{,}3 = 30\\ \\%$."
+    },
+    {
+      "id": "q-ma9-stat-6",
+      "kind": "mc",
+      "topic": "kombinatorik",
+      "prompt": "Du har 3 tröjor och 4 par byxor. Hur många olika kombinationer kan du sätta ihop?",
+      "opener": "För varje tröja — hur många byxor kan du välja till?",
+      "choices": [
+        "16",
+        "7",
+        "34",
+        "12"
+      ],
+      "answer": 3,
+      "explanation": "Varje tröja kan kombineras med alla fyra byxorna: $3 \\cdot 4 = 12$ kombinationer."
+    },
+    {
+      "id": "q-ma9-stat-7",
+      "kind": "worked",
+      "topic": "sannolikhet",
+      "prompt": "Du singlar slant två gånger. Vad är sannolikheten att få krona båda gångerna? Visa hur du tänker.",
+      "opener": "Vad är sannolikheten för krona i ett kast — och hur kombineras två oberoende händelser?",
+      "answer": "1/4 (25 %)",
+      "steps": [
+        "Sannolikheten för krona i ett kast är $\\frac{1}{2}$.",
+        "Kasten påverkar inte varandra, så sannolikheterna multipliceras.",
+        "$\\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}$, alltså 25 %.",
+        "Kontroll: de fyra lika sannolika utfallen är KK, KG, GK, GG — ett av fyra ger två kronor."
+      ]
+    },
+    {
+      "id": "q-ma9-stat-8",
+      "kind": "flashcard",
+      "topic": "lägesmått",
+      "prompt": "Förklara skillnaden mellan medelvärde, median och typvärde.",
+      "opener": "Tre olika sätt att svara på frågan \"vad är typiskt?\".",
+      "answer": "Medelvärde: summan av alla värden delat med antalet. Median: det mittersta värdet när de sorterats i storleksordning (medelvärdet av de två mittersta vid jämnt antal). Typvärde: det värde som förekommer flest gånger. Medianen påverkas minst av extremvärden."
+    }
+  ]
+}

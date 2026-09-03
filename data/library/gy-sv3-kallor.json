@@ -1,0 +1,129 @@
+{
+  "id": "lib-sv3-kallor",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Källhantering och referensteknik",
+  "sourceSummary": "Löpande hänvisning kontra fotnot, källförteckningens uppbyggnad, citat kontra parafras samt plagiat och hur man undviker det.",
+  "topics": [
+    "referenssystem",
+    "källförteckning",
+    "citat och parafras",
+    "plagiat"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-kallor-1",
+      "kind": "mc",
+      "topic": "referenssystem",
+      "prompt": "Vad kännetecknar löpande hänvisning (t.ex. Harvardsystemet) jämfört med fotnotssystemet?",
+      "opener": "Var i texten hamnar källuppgiften — direkt i meningen eller längst ner på sidan?",
+      "choices": [
+        "Källan anges i en parentes direkt i den löpande texten, t.ex. (Andersson, 2020)",
+        "Källan anges aldrig i själva texten, bara i källförteckningen",
+        "Källan anges med en upphöjd siffra som hänvisar till sidans nederkant",
+        "Källan anges enbart i inledningen, en gång för hela texten"
+      ],
+      "answer": 0,
+      "explanation": "Vid löpande hänvisning skrivs författare och år (och ibland sida) i en parentes direkt i brödtexten. Fotnotssystemet är istället det som använder upphöjda siffror som hänvisar till noter längst ner på sidan."
+    },
+    {
+      "id": "q-sv3-kallor-2",
+      "kind": "mc",
+      "topic": "referenssystem",
+      "prompt": "Vilken är den viktigaste fördelen med fotnotssystemet jämfört med löpande hänvisning?",
+      "opener": "Tänk på vad en parentes mitt i en mening gör med läsflytet, jämfört med en liten siffra.",
+      "choices": [
+        "Det kräver ingen källförteckning alls",
+        "Det stör läsflytet i brödtexten mindre, samtidigt som det tillåter längre kommentarer i noten",
+        "Det är det enda systemet som godkänns i vetenskapliga texter",
+        "Det gör att man aldrig behöver ange årtal"
+      ],
+      "answer": 1,
+      "explanation": "En liten upphöjd siffra stör läsningen mindre än en parentes mitt i meningen, och i noten kan man även lägga till förklarande kommentarer utöver själva källhänvisningen. Båda systemen kräver en källförteckning, och båda är vedertagna."
+    },
+    {
+      "id": "q-sv3-kallor-3",
+      "kind": "mc",
+      "topic": "källförteckning",
+      "prompt": "Vilken ordning används vanligen för att sortera källor i en källförteckning?",
+      "opener": "Tänk på hur en bibliotekskatalog eller en ordlista sorteras.",
+      "choices": [
+        "Efter publiceringsår, äldst till nyast",
+        "Efter textens omfång, kortast till längst",
+        "I den ordning källorna första gången nämns i texten",
+        "Alfabetiskt efter författarens efternamn"
+      ],
+      "answer": 3,
+      "explanation": "Källförteckningen sorteras normalt alfabetiskt efter författarens efternamn (eller titel om författare saknas), vilket gör det lätt för läsaren att slå upp en viss källa. Ordning efter år eller omfång används inte som huvudprincip."
+    },
+    {
+      "id": "q-sv3-kallor-4",
+      "kind": "mc",
+      "topic": "citat och parafras",
+      "prompt": "Vad krävs för att ett citat ska vara korrekt återgivet?",
+      "opener": "Hur mycket får man ändra i själva ordvalet när man citerar?",
+      "choices": [
+        "Citatet ska sammanfattas kortfattat med egna ord",
+        "Citatet ska återges ordagrant, markeras med citattecken (eller indrag vid längre citat) och förses med källhänvisning",
+        "Citatet får förkortas fritt utan att det markeras",
+        "Citatet behöver ingen källhänvisning om det är kort"
+      ],
+      "answer": 1,
+      "explanation": "Ett citat ska återge källans exakta ordalydelse, tydligt markerat och med källhänvisning. Om man tar bort delar av citatet ska det markeras med [...]. Att sammanfatta med egna ord är istället en parafras, inte ett citat."
+    },
+    {
+      "id": "q-sv3-kallor-5",
+      "kind": "mc",
+      "topic": "citat och parafras",
+      "prompt": "Vad är en parafras?",
+      "opener": "Jämför med referat: vad är likheten och vad är skillnaden i omfång?",
+      "choices": [
+        "En ordagrann avskrift av en kort textpassage utan källa",
+        "En förteckning över alla källor som använts",
+        "Ett återgivande av en specifik tanke eller mening med egna ord och egen meningsbyggnad, med bibehållen innebörd",
+        "En sammanfattning av en hel bok i några meningar"
+      ],
+      "answer": 2,
+      "explanation": "En parafras omformulerar en avgränsad tanke eller passage med egna ord och egen struktur, men behåller innebörden — och ska liksom referat och citat förses med källhänvisning. Det skiljer sig från en fullständig sammanfattning av ett helt verk, som snarare är ett referat i större skala."
+    },
+    {
+      "id": "q-sv3-kallor-6",
+      "kind": "mc",
+      "topic": "plagiat",
+      "prompt": "Vilket av följande räknas som plagiat, trots att skribenten inte kopierat texten ordagrant?",
+      "opener": "Det räcker inte att formuleringarna skiljer sig om källan saknas eller om idén framställs som skribentens egen.",
+      "choices": [
+        "Att citera en mening med citattecken och källhänvisning",
+        "Att återge en författares centrala idé med egna ord men helt utan källhänvisning",
+        "Att parafrasera en passage och tydligt ange varifrån den kommer",
+        "Att skriva ett referat med referatmarkörer och källförteckning"
+      ],
+      "answer": 1,
+      "explanation": "Plagiat handlar inte bara om ordagrann kopiering utan om att presentera någon annans idéer, resonemang eller resultat som sina egna — även med egna ord blir det plagiat om källan saknas. De övriga alternativen är korrekt källhanterade."
+    },
+    {
+      "id": "q-sv3-kallor-7",
+      "kind": "worked",
+      "topic": "citat och parafras",
+      "prompt": "Originalcitat ur en artikel av Berg (2021): \"Den ökade skärmtiden bland tonåringar har lett till kortare sömn och sämre koncentration i skolan.\" Skriv dels ett korrekt citat, dels en korrekt parafras av meningen, båda med källhänvisning enligt löpande system.",
+      "opener": "Citatet ska vara ordagrant och markerat, parafrasen ska ha egna ord och egen meningsbyggnad.",
+      "answer": "Citat: Berg (2021) skriver: \"Den ökade skärmtiden bland tonåringar har lett till kortare sömn och sämre koncentration i skolan.\" Parafras: Enligt Berg (2021) har tonåringars ökade tid framför skärmar bidragit till att de sover mindre och har svårare att koncentrera sig i skolan.",
+      "steps": [
+        "För citatet: behåll originalets exakta ordalydelse och sätt citattecken runt det.",
+        "Lägg till en tydlig källhänvisning i anslutning till citatet, t.ex. \"Berg (2021) skriver:\".",
+        "För parafrasen: formulera om innehållet med egna ord och en annan meningsbyggnad än originalet.",
+        "Kontrollera att parafrasen behåller den ursprungliga innebörden utan att lägga till eller ta bort information.",
+        "Ange källa även till parafrasen, t.ex. med \"Enligt Berg (2021)\" — parafraser kräver källhänvisning precis som citat."
+      ]
+    },
+    {
+      "id": "q-sv3-kallor-8",
+      "kind": "flashcard",
+      "topic": "referenssystem",
+      "prompt": "Sammanfatta löpande hänvisning, fotnotssystem, citat, parafras och plagiat.",
+      "opener": "Sortera begreppen efter var källan hamnar och hur mycket av originalets ord som behålls.",
+      "answer": "Löpande hänvisning: källa i parentes i brödtexten, t.ex. (Berg, 2021) · Fotnotssystem: upphöjd siffra som hänvisar till not längst ner på sidan, stör läsflytet mindre · Citat: ordagrann återgivning, citattecken/indrag, alltid med källa · Parafras: omformulering av en avgränsad tanke med egna ord, med källa · Referat: sammanfattning av ett längre innehåll med egna ord, med källa · Plagiat: att presentera andras ord eller idéer som sina egna, oavsett om formuleringarna ändrats, när källa saknas · Källförteckning: sorteras alfabetiskt efter författarens efternamn."
+    }
+  ]
+}

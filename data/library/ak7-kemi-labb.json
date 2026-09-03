@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi7-labb",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Laborationssäkerhet och metod",
+  "sourceSummary": "Säkerhetsregler och skyddsutrustning i labbsalen, vad de vanligaste faropiktogrammen betyder, namn och användning för vanlig labbutrustning samt hur man planerar, genomför och dokumenterar ett experiment med hypotes och slutsats.",
+  "topics": [
+    "säkerhetsregler",
+    "skyddsutrustning",
+    "faropiktogram",
+    "labbutrustning",
+    "experimentmetod"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi7-lab-1",
+      "kind": "mc",
+      "topic": "säkerhetsregler",
+      "prompt": "Vad ska du alltid göra INNAN du börjar en laboration?",
+      "opener": "Det handlar om att veta vad som ska hända och vad som kan gå fel.",
+      "choices": [
+        "Smaka lite på ämnena för att ta reda på vad de är",
+        "Läsa igenom hela instruktionen och ta reda på vilka risker som finns",
+        "Ta av skyddsglasögonen så att du ser tydligare",
+        "Tända brännaren så att den är varm när du behöver den"
+      ],
+      "answer": 1,
+      "explanation": "Genom att läsa instruktionen först vet du vilka steg som kommer, vilken skyddsutrustning du behöver och vilka risker ämnena har. Att smaka på ämnen i labbsalen är förbjudet — man vet aldrig om ett ämne är giftigt eller frätande."
+    },
+    {
+      "id": "q-kemi7-lab-2",
+      "kind": "mc",
+      "topic": "skyddsutrustning",
+      "prompt": "Vilken skyddsutrustning använder du när du arbetar med kemikalier eller värmer ämnen?",
+      "opener": "Ögonen är det som är känsligast och svårast att laga.",
+      "choices": [
+        "Skyddsglasögon och labbrock eller skyddsförkläde, samt uppsatt långt hår",
+        "Bara ett par tunna engångshandskar",
+        "Hörselkåpor och varselväst",
+        "Ingen utrustning behövs så länge läraren är i rummet"
+      ],
+      "answer": 0,
+      "explanation": "Skyddsglasögon skyddar ögonen mot stänk, rocken eller förklädet skyddar kläder och hud, och uppsatt hår kan inte fatta eld över brännaren. Handskar kan behövas ibland, men de skyddar inte ögonen — som är den allvarligaste skaderisken."
+    },
+    {
+      "id": "q-kemi7-lab-3",
+      "kind": "mc",
+      "topic": "faropiktogram",
+      "prompt": "På en flaska sitter ett faropiktogram som visar vätska som droppar på en hand och på en yta, så att de fräts sönder. Vad betyder det?",
+      "opener": "Titta på vad vätskan gör med handen i bilden.",
+      "choices": [
+        "Brandfarligt",
+        "Miljöfarligt",
+        "Frätande — kan ge allvarliga skador på hud och ögon",
+        "Explosivt"
+      ],
+      "answer": 2,
+      "explanation": "Symbolen med vätska som fräter hand och yta betyder frätande, och sådana ämnen ska hanteras med skyddsglasögon och stor försiktighet. Brandfarligt visas i stället med en flamma, och miljöfarligt med ett dött träd och en död fisk."
+    },
+    {
+      "id": "q-kemi7-lab-4",
+      "kind": "mc",
+      "topic": "labbutrustning",
+      "prompt": "Du behöver mäta upp exakt 50 ml vatten. Vilken utrustning ger noggrannast resultat?",
+      "opener": "Vissa kärl är gjorda för att blanda i, andra för att mäta med.",
+      "choices": [
+        "En bägare",
+        "Ett provrör",
+        "En petriskål",
+        "Ett mätglas (mätcylinder)"
+      ],
+      "answer": 3,
+      "explanation": "Mätglaset är smalt och har en tydlig gradering, så du kan läsa av volymen noggrant i höjd med vätskeytans nedersta del. Bägarens streck är bara ungefärliga — den är gjord för att blanda och hälla i, inte för att mäta exakt."
+    },
+    {
+      "id": "q-kemi7-lab-5",
+      "kind": "mc",
+      "topic": "säkerhetsregler",
+      "prompt": "Läraren säger att du får lukta på innehållet i ett provrör. Hur gör du?",
+      "opener": "Du vill få en liten mängd luft till näsan, inte en stor.",
+      "choices": [
+        "Sätter näsan i öppningen och andas in djupt",
+        "Håller provröret en bit från ansiktet och viftar försiktigt luften mot dig",
+        "Värmer ämnet först så att lukten blir starkare",
+        "Blåser i provröret och luktar på luften som kommer ut"
+      ],
+      "answer": 1,
+      "explanation": "Genom att vifta luften mot dig på avstånd får du bara en liten mängd ånga i näsan, vilket är säkert även om ämnet är irriterande. Att andas in djupt direkt över öppningen kan skada luftvägarna om ångan är frätande eller giftig."
+    },
+    {
+      "id": "q-kemi7-lab-6",
+      "kind": "mc",
+      "topic": "experimentmetod",
+      "prompt": "Vad är en hypotes?",
+      "opener": "Den skrivs innan experimentet, inte efter.",
+      "choices": [
+        "En förutsägelse om vad som kommer att hända, som man kan testa i ett experiment",
+        "Det resultat man faktiskt mätte upp under experimentet",
+        "Slutsatsen man drar när experimentet är klart",
+        "Listan över den utrustning man behöver"
+      ],
+      "answer": 0,
+      "explanation": "En hypotes är en testbar gissning som formuleras före experimentet, till exempel \"socker löser sig snabbare i varmt vatten\". Slutsatsen kommer först efteråt, när man jämför resultatet med hypotesen och bedömer om den stämde."
+    },
+    {
+      "id": "q-kemi7-lab-7",
+      "kind": "worked",
+      "topic": "experimentmetod",
+      "prompt": "Du vill undersöka om socker löser sig snabbare i varmt vatten än i kallt. Beskriv hur du planerar, genomför och dokumenterar experimentet så att resultatet blir tillförlitligt.",
+      "opener": "Fundera på vad du ändrar och vad du måste hålla exakt lika i båda försöken.",
+      "answer": "Formulera en hypotes, ändra bara temperaturen och håll allt annat lika, mät upplösningstiden i båda glasen med tidtagarur, skriv ner resultatet i en tabell och jämför sedan med hypotesen i en slutsats.",
+      "steps": [
+        "Skriv en hypotes före försöket, till exempel: \"Sockret löser sig snabbare i det varma vattnet, eftersom molekylerna rör sig snabbare när temperaturen är högre.\"",
+        "Bestäm variablerna: det du ÄNDRAR är vattnets temperatur (t.ex. 10 °C och 50 °C). Allt annat hålls lika — samma volym vatten (mät med mätglas), samma mängd socker (väg på våg), samma omrörning.",
+        "Genomför försöket: häll upp vattnet i två glas, tillsätt sockret samtidigt och starta tidtagaruret. Rör lika mycket i båda och stoppa tiden när sockret inte längre syns.",
+        "Dokumentera: skriv ner temperatur, mängder och uppmätt tid i en tabell. Gör om försöket ett par gånger för att se om resultatet blir likadant.",
+        "Dra en slutsats: jämför tiderna med hypotesen och svara på om den stämde. Nämn också vad som kan ha gett fel, till exempel att du rörde olika mycket i glasen."
+      ]
+    },
+    {
+      "id": "q-kemi7-lab-8",
+      "kind": "flashcard",
+      "topic": "säkerhetsregler",
+      "prompt": "Sammanfatta säkerhetsreglerna, utrustningen och stegen i en laborationsrapport.",
+      "opener": "Ta säkerheten först, sedan utrustningen och till sist rapportens delar.",
+      "answer": "Säkerhetsregler: läs instruktionen innan du börjar · ät, drick och smaka aldrig i labbsalen · spring inte, håll arbetsplatsen ren · håll långt hår uppsatt nära öppen låga · lukta genom att vifta luften mot dig på avstånd · häll aldrig tillbaka kemikalier i originalflaskan · rapportera spill och olyckor till läraren direkt · tvätta händerna efteråt · veta var ögonduschen, nöddusch, brandsläckare och brandfilt finns · Skyddsutrustning: skyddsglasögon, labbrock eller förkläde, handskar vid behov · Faropiktogram (röd ram, vit botten): flamma = brandfarligt · frätande vätska på hand = frätande · dödskalle = akut giftigt · utropstecken = irriterande eller hälsoskadligt · dött träd och död fisk = miljöfarligt · exploderande bomb = explosivt · Labbutrustning: bägare (blanda och hälla, grov volym) · mätglas/mätcylinder (mäta volym noggrant) · provrör och provrörsställ (små mängder, värmning) · e-kolv (blanda utan att skvätta) · tratt och filtrerpapper (filtrering) · gasbrännare med trefot och trådnät (värmning) · degeltång, våg, termometer, urglas · Labbrapportens delar: syfte · hypotes (testbar förutsägelse före försöket) · material och utrustning · utförande (så tydligt att någon annan kan göra om det) · resultat (mätvärden, tabell, diagram) · slutsats (stämde hypotesen, och vilka felkällor fanns?)."
+    }
+  ]
+}

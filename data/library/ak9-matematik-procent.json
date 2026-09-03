@@ -1,0 +1,126 @@
+{
+  "id": "lib-ma9-procent",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Bråk, decimaler och procent",
+  "sourceSummary": "Räkna med bråk, växla mellan bråk/decimal/procent, och hantera procentuell förändring och ränta.",
+  "topics": [
+    "bråk",
+    "procent",
+    "procentuell förändring"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma9-proc-1",
+      "kind": "mc",
+      "topic": "procent",
+      "prompt": "Hur mycket är 25 % av 80 kr?",
+      "opener": "25 % är en fjärdedel — kan du använda det?",
+      "choices": [
+        "16 kr",
+        "25 kr",
+        "20 kr",
+        "32 kr"
+      ],
+      "answer": 2,
+      "explanation": "25 % är samma sak som $\\frac{1}{4}$, och $\\frac{80}{4} = 20$ kr."
+    },
+    {
+      "id": "q-ma9-proc-2",
+      "kind": "mc",
+      "topic": "bråk",
+      "prompt": "Beräkna $\\frac{3}{4} + \\frac{1}{8}$.",
+      "opener": "Nämnarna är olika — vad behöver du göra först?",
+      "choices": [
+        "$\\frac{4}{8}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{4}{12}$",
+        "$\\frac{7}{8}$"
+      ],
+      "answer": 3,
+      "explanation": "Gör samma nämnare: $\\frac{3}{4} = \\frac{6}{8}$. Sedan $\\frac{6}{8} + \\frac{1}{8} = \\frac{7}{8}$."
+    },
+    {
+      "id": "q-ma9-proc-3",
+      "kind": "mc",
+      "topic": "bråk",
+      "prompt": "Vilket av dessa är $\\frac{2}{5}$ uttryckt i procent?",
+      "opener": "Hur många hundradelar motsvarar två femtedelar?",
+      "choices": [
+        "40 %",
+        "25 %",
+        "45 %",
+        "52 %"
+      ],
+      "answer": 0,
+      "explanation": "$\\frac{2}{5} = \\frac{4}{10} = \\frac{40}{100} = 40\\ \\%$."
+    },
+    {
+      "id": "q-ma9-proc-4",
+      "kind": "mc",
+      "topic": "procentuell förändring",
+      "prompt": "Ett pris höjs från 200 kr till 250 kr. Hur många procent är höjningen?",
+      "opener": "Jämför förändringen med det ursprungliga priset, inte med det nya.",
+      "choices": [
+        "20 %",
+        "25 %",
+        "50 %",
+        "80 %"
+      ],
+      "answer": 1,
+      "explanation": "Förändringen är 50 kr. $\\frac{50}{200} = 0{,}25 = 25\\ \\%$. Man jämför alltid med utgångsvärdet."
+    },
+    {
+      "id": "q-ma9-proc-5",
+      "kind": "mc",
+      "topic": "procentuell förändring",
+      "prompt": "En tröja kostar 600 kr och sänks med 20 %. Vad kostar den efter rabatten?",
+      "opener": "Vilken andel av priset är kvar när 20 % dragits bort?",
+      "choices": [
+        "520 kr",
+        "580 kr",
+        "480 kr",
+        "420 kr"
+      ],
+      "answer": 2,
+      "explanation": "Efter 20 % rabatt är 80 % kvar: $600 \\cdot 0{,}80 = 480$ kr."
+    },
+    {
+      "id": "q-ma9-proc-6",
+      "kind": "mc",
+      "topic": "procentuell förändring",
+      "prompt": "Ett pris höjs med 10 % och sänks sedan med 10 %. Vad gäller om slutpriset?",
+      "opener": "Höjningen och sänkningen räknas på olika utgångsvärden.",
+      "choices": [
+        "Det är högre än från början",
+        "Det beror på om priset var jämnt",
+        "Det är samma som från början",
+        "Det är lägre än från början"
+      ],
+      "answer": 3,
+      "explanation": "Säg 100 kr: efter höjning 110 kr, sedan $110 \\cdot 0{,}9 = 99$ kr. Sänkningen räknas på det högre priset, så du hamnar under start."
+    },
+    {
+      "id": "q-ma9-proc-7",
+      "kind": "worked",
+      "topic": "procent",
+      "prompt": "Du sätter in 5 000 kr på ett konto med 2 % ränta per år. Hur mycket finns på kontot efter ett år? Visa uträkningen.",
+      "opener": "Räntan är en procentandel av det insatta beloppet.",
+      "answer": "5 100 kr",
+      "steps": [
+        "Räntan i kronor: $5\\,000 \\cdot 0{,}02 = 100$ kr.",
+        "Lägg till räntan på beloppet: $5\\,000 + 100 = 5\\,100$ kr.",
+        "Alternativt i ett steg: $5\\,000 \\cdot 1{,}02 = 5\\,100$ kr."
+      ]
+    },
+    {
+      "id": "q-ma9-proc-8",
+      "kind": "flashcard",
+      "topic": "procentuell förändring",
+      "prompt": "Vad är en förändringsfaktor, och vilken förändringsfaktor motsvarar en ökning med 15 %?",
+      "opener": "Tänk på talet du multiplicerar med för att göra förändringen i ett steg.",
+      "answer": "Förändringsfaktorn är talet du multiplicerar med för att göra hela förändringen i ett steg. En ökning med 15 % ger faktorn 1,15 (och en minskning med 15 % ger 0,85)."
+    }
+  ]
+}

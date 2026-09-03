@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam1a1-manskliga",
+  "type": "assignment",
+  "subject": "Samhällskunskap 1a1",
+  "title": "Mänskliga rättigheter och internationell rätt",
+  "sourceSummary": "FN:s allmänna förklaring och konventioner, skillnaden mellan olika kategorier av rättigheter, folkrätt och internationell humanitär rätt i korthet, samt hur rättigheter ibland kan komma i konflikt med varandra.",
+  "topics": [
+    "FN:s förklaring om mänskliga rättigheter",
+    "rättighetskategorier",
+    "folkrätt och humanitär rätt",
+    "rättigheter i konflikt"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam1a1-manskliga-1",
+      "kind": "mc",
+      "topic": "FN:s förklaring om mänskliga rättigheter",
+      "prompt": "Vad är FN:s allmänna förklaring om de mänskliga rättigheterna, antagen 1948?",
+      "opener": "Fundera på skillnaden mellan en förklaring som slår fast grundläggande principer och en juridiskt bindande konvention.",
+      "choices": [
+        "En dom som direkt kan verkställas av Internationella brottmålsdomstolen",
+        "En förklaring som slår fast grundläggande rättigheter som alla människor anses ha, och som blivit en central norm i internationell rätt även om den i sig inte är juridiskt bindande som en konvention",
+        "En lag som bara gäller inom EU:s medlemsländer",
+        "En svensk grundlag"
+      ],
+      "answer": 1,
+      "explanation": "Den allmänna förklaringen från 1948 är i grunden en politisk och moralisk deklaration, inte ett bindande fördrag, men den har blivit en central utgångspunkt för senare bindande konventioner om mänskliga rättigheter och för internationell rätt i stort."
+    },
+    {
+      "id": "q-sam1a1-manskliga-2",
+      "kind": "mc",
+      "topic": "rättighetskategorier",
+      "prompt": "Vad skiljer medborgerliga och politiska rättigheter från ekonomiska och sociala rättigheter?",
+      "opener": "Den ena kategorin handlar om frihet från statligt ingripande, den andra ofta om vad staten aktivt ska tillhandahålla.",
+      "choices": [
+        "Medborgerliga/politiska rättigheter handlar till exempel om yttrandefrihet och rösträtt, medan ekonomiska/sociala rättigheter handlar om till exempel rätt till utbildning, hälsa och en skälig levnadsstandard",
+        "De två kategorierna betyder exakt samma sak",
+        "Ekonomiska och sociala rättigheter gäller enbart företag",
+        "Medborgerliga och politiska rättigheter gäller enbart politiker"
+      ],
+      "answer": 0,
+      "explanation": "Medborgerliga och politiska rättigheter (t.ex. yttrandefrihet, rösträtt, rättssäkerhet) skyddar ofta individen från statligt maktmissbruk. Ekonomiska och sociala rättigheter (t.ex. utbildning, hälsa, arbete) handlar mer om vad samhället ska sträva efter att erbjuda alla medborgare."
+    },
+    {
+      "id": "q-sam1a1-manskliga-3",
+      "kind": "mc",
+      "topic": "rättighetskategorier",
+      "prompt": "Rätten att fritt få uttrycka sina åsikter utan censur är ett exempel på vilken typ av rättighet?",
+      "opener": "Handlar det om frihet från statligt ingripande i vad man får säga, eller om vad staten aktivt ska tillhandahålla?",
+      "choices": [
+        "En ekonomisk rättighet",
+        "En social rättighet",
+        "En rättighet som enbart gäller journalister",
+        "En medborgerlig/politisk rättighet (yttrandefrihet)"
+      ],
+      "answer": 3,
+      "explanation": "Yttrandefrihet räknas som en medborgerlig och politisk rättighet - den skyddar individens frihet att uttrycka åsikter utan otillbörligt statligt ingripande, till skillnad från ekonomiska och sociala rättigheter som rör till exempel utbildning och hälsa."
+    },
+    {
+      "id": "q-sam1a1-manskliga-4",
+      "kind": "mc",
+      "topic": "folkrätt och humanitär rätt",
+      "prompt": "Vad är folkrätt (internationell rätt)?",
+      "opener": "Tänk på vilka aktörer det är som huvudsakligen omfattas av dessa regler - individer eller stater.",
+      "choices": [
+        "En synonym för Sveriges grundlagar",
+        "Regler som bara gäller relationer mellan privatpersoner inom ett och samma land",
+        "Regler och avtal som styr relationerna mellan stater, till exempel genom FN-stadgan och internationella konventioner",
+        "Ett annat namn för svensk brottsbalk"
+      ],
+      "answer": 2,
+      "explanation": "Folkrätten reglerar i första hand förhållandet mellan stater, till exempel genom FN-stadgan, fördrag och internationella konventioner, samt vissa skyldigheter stater har gentemot individer. Den skiljer sig från nationell lagstiftning som gäller inom ett enskilt land."
+    },
+    {
+      "id": "q-sam1a1-manskliga-5",
+      "kind": "mc",
+      "topic": "folkrätt och humanitär rätt",
+      "prompt": "Vad regleras huvudsakligen av internationell humanitär rätt, till exempel Genèvekonventionerna?",
+      "opener": "Detta kallas ibland \"krigets lagar\" - vad tror du de reglerar?",
+      "choices": [
+        "Handelstullar mellan länder",
+        "Hur väpnade konflikter ska föras, bland annat skydd för civila, sårade och krigsfångar",
+        "Vilka officiella språk som talas inom FN",
+        "Internationella klimatavtal"
+      ],
+      "answer": 1,
+      "explanation": "Internationell humanitär rätt, ofta kallad krigets lagar, reglerar hur väpnade konflikter får föras och syftar bland annat till att skydda civila, sårade och krigsfångar. Genèvekonventionerna är centrala dokument inom detta rättsområde."
+    },
+    {
+      "id": "q-sam1a1-manskliga-6",
+      "kind": "mc",
+      "topic": "rättigheter i konflikt",
+      "prompt": "Vilket exempel visar hur två rättigheter kan komma i konflikt med varandra?",
+      "opener": "Fundera på en situation där en persons frihet att uttrycka sig kan drabba en annan grupps skydd mot kränkningar.",
+      "choices": [
+        "Yttrandefrihet kan komma i konflikt med skyddet mot diskriminering och hets mot folkgrupp, vilket gör att avvägningar ibland måste göras",
+        "Rätten till utbildning kan aldrig påverka någon annan rättighet",
+        "Alla rättigheter är alltid exakt lika viktiga i varje enskild situation, utan undantag",
+        "Mänskliga rättigheter gäller enbart under fredstid"
+      ],
+      "answer": 0,
+      "explanation": "Rättigheter kan ibland stå i spänning mot varandra, till exempel när yttrandefrihet vägs mot skyddet mot diskriminering och hets mot folkgrupp. Sådana avvägningar görs ofta i lagstiftning och rättspraxis, snarare än att en rättighet alltid automatiskt går före en annan."
+    },
+    {
+      "id": "q-sam1a1-manskliga-7",
+      "kind": "worked",
+      "topic": "rättigheter i konflikt",
+      "prompt": "En kommun överväger att förbjuda en planerad demonstration med hänvisning till risken för allvarliga oroligheter. Analysera steg för steg vilka rättigheter som ställs mot varandra och hur en sådan avvägning brukar resoneras.",
+      "opener": "Identifiera först vilka rättigheter som är inblandade innan du väger dem mot varandra.",
+      "answer": "Situationen ställer mötes- och demonstrationsfriheten mot allmän säkerhet och andra människors trygghet. Mötesfrihet är en grundläggande medborgerlig och politisk rättighet, men den är i de flesta rättssystem, inklusive det svenska, inte absolut utan kan begränsas om det finns starka skäl som exempelvis fara för allmän ordning och säkerhet. En sådan begränsning måste vara proportionerlig, tydligt motiverad och prövningsbar, till exempel genom att myndigheten anger konkreta säkerhetsskäl snarare än att bara ogilla demonstrationens budskap - annars riskerar beslutet att i praktiken bli en inskränkning av yttrandefriheten.",
+      "steps": [
+        "Identifiera de rättigheter som är inblandade: mötes- och demonstrationsfrihet å ena sidan, allmän säkerhet och andra medborgares trygghet å andra sidan.",
+        "Konstatera att mötesfriheten är grundläggande men inte absolut - den kan i undantagsfall begränsas av lag.",
+        "Kräv att en eventuell begränsning är proportionerlig: bara så ingripande som situationen faktiskt kräver.",
+        "Kräv en saklig motivering grundad på konkreta säkerhetsrisker, inte på ogillande av budskapet i sig.",
+        "Dra slutsatsen att avvägningen ska göras utifrån tydliga, prövningsbara kriterier - inte godtyckligt av den som fattar beslutet."
+      ]
+    },
+    {
+      "id": "q-sam1a1-manskliga-8",
+      "kind": "flashcard",
+      "topic": "FN:s förklaring om mänskliga rättigheter",
+      "prompt": "Sammanfatta centrala begrepp om mänskliga rättigheter och internationell rätt.",
+      "opener": "Från deklaration till konvention till konkreta rättighetskategorier.",
+      "answer": "FN:s allmänna förklaring (1948): slår fast grundläggande rättigheter för alla människor, i sig inte juridiskt bindande men grund för senare konventioner · Konventioner: juridiskt bindande avtal mellan stater som ratificerat dem, t.ex. barnkonventionen och Europakonventionen · Medborgerliga/politiska rättigheter: t.ex. yttrandefrihet, rösträtt, rätt till en rättvis rättegång · Ekonomiska/sociala rättigheter: t.ex. rätt till utbildning, hälsa och en skälig levnadsstandard · Folkrätt: regler som styr relationer mellan stater, bland annat via FN-stadgan · Internationell humanitär rätt: krigets lagar, t.ex. Genèvekonventionerna, skyddar civila och krigsfångar i väpnad konflikt · Rättigheter i konflikt: rättigheter kan ibland ställas mot varandra och kräver avvägningar, t.ex. yttrandefrihet kontra skydd mot diskriminering."
+    }
+  ]
+}

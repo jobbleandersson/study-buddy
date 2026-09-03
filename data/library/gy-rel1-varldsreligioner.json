@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel1-varldsreligioner",
+  "type": "assignment",
+  "subject": "Religionskunskap 1",
+  "title": "Världsreligionerna: jämförande fördjupning",
+  "sourceSummary": "Jämförande fördjupning i hur judendom, kristendom, islam, hinduism och buddhism ser på gud och efterliv, samt den inre mångfalden av inriktningar och tolkningstraditioner inom varje religion.",
+  "topics": [
+    "gudsuppfattningar",
+    "efterlivsföreställningar",
+    "inre mångfald",
+    "heliga texter och tolkning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel1-varldsreligioner-1",
+      "kind": "mc",
+      "topic": "gudsuppfattningar",
+      "prompt": "Vilket påstående beskriver bäst skillnaden mellan gudsuppfattningen inom monoteistiska religioner (judendom, kristendom, islam) och hinduism?",
+      "opener": "Hinduism brukar beskrivas som mer mångfacetterad i sin gudsbild än de tre abrahamitiska religionerna.",
+      "choices": [
+        "Monoteistiska religioner tror på en enda gud, medan hinduism rymmer en stor mångfald av gudsuppfattningar, från dyrkan av många gudar (som ses som uttryck för en underliggande verklighet, Brahman) till mer filosofiska, icke-personliga gudsbilder",
+        "Alla fem religionerna har exakt samma gudsuppfattning",
+        "Hinduism saknar helt föreställningar om gudomlighet",
+        "Judendom, kristendom och islam har helt olika gudar utan någon gemensam rot"
+      ],
+      "answer": 0,
+      "explanation": "Judendom, kristendom och islam räknas som monoteistiska och delar en gemensam abrahamitisk rot i föreställningen om en enda Gud, om än med olika uppfattningar om Guds natur. Hinduism är mer mångfacetterad: många hinduer dyrkar flera gudar som olika uttryck för en bakomliggande verklighet (Brahman), medan andra inriktningar betonar en mer filosofisk, opersonlig gudsbild — det finns alltså ingen enda \"hinduisk gudsuppfattning\"."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-2",
+      "kind": "mc",
+      "topic": "gudsuppfattningar",
+      "prompt": "Hur skiljer sig gudsuppfattningen inom buddhism generellt från de abrahamitiska religionerna?",
+      "opener": "Fundera på vilken roll en skapargud spelar i buddhismens lära om lidande och befrielse.",
+      "choices": [
+        "Buddhismen sätter en skapargud i centrum på samma sätt som islam gör",
+        "Traditionell buddhism fokuserar inte på en skapargud, utan på insikt, medveten närvaro och befrielse från lidande (nirvana); frågan om gudars existens ges ofta underordnad betydelse",
+        "Buddhister förnekar aktivt att några gudar någonsin funnits nämnda i buddhistiska texter",
+        "Buddhismen och islam har identisk gudsuppfattning"
+      ],
+      "answer": 1,
+      "explanation": "Buddhismen har historiskt inte kretsat kring en allsmäktig skapargud på samma sätt som judendom, kristendom och islam; fokus ligger i stället på insikt om tillvarons beskaffenhet och befrielse från lidande. Gudomliga väsen förekommer i vissa buddhistiska traditioner och texter, men spelar inte samma centrala, avgörande roll som i de monoteistiska religionerna."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-3",
+      "kind": "mc",
+      "topic": "efterlivsföreställningar",
+      "prompt": "Vad kännetecknar synen på efterlivet inom hinduism och buddhism, jämfört med de abrahamitiska religionerna?",
+      "opener": "Tänk på begreppen återfödelse och karma, som är centrala i båda de asiatiska traditionerna.",
+      "choices": [
+        "Alla religioner delar exakt samma syn på ett evigt liv i paradis eller helvete",
+        "Hinduism och buddhism förknippas ofta med föreställningar om återfödelse (samsara), där karma påverkar nästa liv, medan judendom, kristendom och islam oftare betonar ett slutligt tillstånd efter döden, till exempel evigt liv eller uppståndelse",
+        "Hinduism och buddhism saknar helt föreställningar om vad som händer efter döden",
+        "De abrahamitiska religionerna tror alla på återfödelse"
+      ],
+      "answer": 1,
+      "explanation": "Inom hinduism och buddhism är föreställningen om samsara, en cykel av födelse, död och återfödelse formad av karma, central, även om målet (moksha respektive nirvana) är att till sist bryta cykeln. De abrahamitiska religionerna betonar i stället oftast ett slutgiltigt tillstånd efter döden, som paradis, uppståndelse eller dom, snarare än upprepad återfödelse — även om synen varierar mellan och inom traditionerna."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-4",
+      "kind": "mc",
+      "topic": "inre mångfald",
+      "prompt": "Vilket påstående stämmer bäst om inre mångfald inom islam?",
+      "opener": "Fundera på om alla muslimer världen över tolkar sin tro och praxis på exakt samma sätt.",
+      "choices": [
+        "Islam har ingen intern mångfald alls, alla muslimer tror och praktiserar identiskt",
+        "Islam rymmer flera inriktningar, framför allt sunni och shia, samt olika rättsskolor och andliga traditioner som sufismen, vilka kan skilja sig åt i tolkning, praxis och betoning",
+        "Endast sunniislam räknas som \"riktig\" islam ur religionsvetenskaplig synvinkel",
+        "Shiamuslimer och sunnimuslimer tror på helt olika gudar"
+      ],
+      "answer": 1,
+      "explanation": "Precis som andra världsreligioner rymmer islam betydande inre mångfald, med sunni och shia som de största inriktningarna, olika rättsskolor (madhhab) och andliga traditioner som sufismen. Religionsvetenskap beskriver denna mångfald neutralt, utan att rangordna vilken inriktning som är \"mest riktig\"."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-5",
+      "kind": "mc",
+      "topic": "heliga texter och tolkning",
+      "prompt": "Varför kan två personer inom samma religion, som båda utgår från samma heliga text, ändå komma fram till olika slutsatser om hur man bör leva?",
+      "opener": "Tänk på att en text sällan \"talar för sig själv\" utan tolkas i ljuset av tradition, sammanhang och tolkningsprinciper.",
+      "choices": [
+        "Det är omöjligt, en helig text kan bara tolkas på ett enda sätt",
+        "Heliga texter tolkas ofta i ljuset av olika tolkningstraditioner, historisk kontext och auktoriteter, vilket gör att samma text kan ge upphov till skilda praktiker och läror inom en och samma religion",
+        "Bara en av personerna kan då räknas som verkligt religiös",
+        "Tolkning av heliga texter förekommer bara inom kristendomen"
+      ],
+      "answer": 1,
+      "explanation": "Tolkning (exegetik) av heliga texter sker alltid inom en tradition, med hjälp av kommentarer, auktoriteter och metoder som utvecklats över tid, vilket gör att skilda tolkningstraditioner kan komma fram till olika slutsatser utifrån samma grundtext. Detta fenomen finns inom alla världsreligioner som bygger på skrivna texter, inte bara kristendomen."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-6",
+      "kind": "mc",
+      "topic": "heliga texter och tolkning",
+      "prompt": "Vilket par av religion och central helig skrift stämmer?",
+      "opener": "Koppla ihop religionen med den text som traditionellt räknas som dess främsta skrift.",
+      "choices": [
+        "Judendom – Toran, islam – Koranen, hinduism – Veda-skrifterna",
+        "Buddhism – Koranen, judendom – Bhagavad-gita",
+        "Islam – Toran, kristendom – Veda-skrifterna",
+        "Hinduism – Bibeln, judendom – Koranen"
+      ],
+      "answer": 0,
+      "explanation": "Toran är judendomens centrala skrift, Koranen räknas inom islam som Guds uppenbarade ord till profeten Muhammed, och Veda-skrifterna hör till hinduismens äldsta och mest auktoritativa texter. De andra alternativen blandar ihop religioner och skrifter som inte hör ihop på det sättet."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-7",
+      "kind": "worked",
+      "topic": "efterlivsföreställningar",
+      "prompt": "Jämför synen på efterlivet inom kristendom och buddhism. Vilka likheter och skillnader finns, och vad beror skillnaderna på?",
+      "opener": "Utgå från nyckelbegrepp: uppståndelse/evigt liv för kristendomen, samsara/nirvana för buddhismen.",
+      "answer": "Inom kristendom tror man i regel på ett evigt liv efter döden, ofta kopplat till Jesu uppståndelse och en slutlig dom, där själen (eller hela människan, beroende på inriktning) antingen förenas med Gud eller skiljs från Gud. Livet ses oftast som en enda, avgörande genomgång fram till detta slutgiltiga tillstånd. Inom buddhism är utgångspunkten i stället samsara, en kretsloppsprocess av födelse, död och återfödelse som formas av karma, och målet är att genom insikt och etisk träning nå nirvana, ett tillstånd bortom lidande och begär, snarare än en plats som paradiset. En likhet är att båda traditionerna kopplar det som händer efter döden till hur man levt: gärningar och sinnelag spelar roll i båda systemen. En viktig skillnad är tidsstrukturen: kristendomen tänker sig i regel ett enda liv följt av ett evigt tillstånd, medan buddhismen utgår från upprepade liv tills befrielse nås. Skillnaderna hänger ihop med olika grundläggande världsbilder: en skapargud och en linjär tidsuppfattning i kristendomen, jämfört med en cyklisk tidsuppfattning och fokus på orsak och verkan (karma) i buddhismen.",
+      "steps": [
+        "Beskriv den kristna föreställningen: evigt liv efter döden, kopplat till uppståndelse och en slutgiltig relation till Gud.",
+        "Beskriv den buddhistiska föreställningen: samsara (återfödelsecykel) formad av karma, med nirvana som slutmål.",
+        "Identifiera en likhet: i båda traditionerna påverkar det levda livet (gärningar, sinnelag) vad som händer efter döden.",
+        "Identifiera en skillnad: linjär tid och ett enda avgörande liv i kristendomen, jämfört med cyklisk tid och upprepade liv i buddhismen.",
+        "Koppla skillnaden till en bakomliggande orsak: olika grundläggande världsbilder om tid, gudomlighet och orsakssamband."
+      ]
+    },
+    {
+      "id": "q-rel1-varldsreligioner-8",
+      "kind": "flashcard",
+      "topic": "gudsuppfattningar",
+      "prompt": "Sammanfatta gudsuppfattningar, efterlivsföreställningar, inre mångfald och heliga texter i de fem stora världsreligionerna.",
+      "opener": "Gå igenom gudssyn, efterliv, inre mångfald och heliga texter i tur och ordning.",
+      "answer": "Gudsuppfattningar: judendom, kristendom och islam är monoteistiska (en Gud) · hinduism rymmer allt från dyrkan av många gudar till en filosofisk, opersonlig gudsbild (Brahman) · buddhism fokuserar inte primärt på en skapargud, utan på insikt och befrielse. Efterliv: judendom/kristendom/islam betonar ofta ett slutgiltigt tillstånd (uppståndelse, evigt liv, dom) · hinduism/buddhism utgår från samsara (återfödelse formad av karma) med moksha respektive nirvana som mål. Inre mångfald: varje religion rymmer flera inriktningar, t.ex. sunni/shia inom islam, katolicism/protestantism/ortodoxi inom kristendom, olika skolor inom hinduism och buddhism. Heliga texter: Toran (judendom), Bibeln (kristendom), Koranen (islam), Veda-skrifterna (hinduism) och buddhistiska kanoniska texter · samma text kan tolkas olika inom en tradition beroende på tolkningstradition och kontext."
+    }
+  ]
+}

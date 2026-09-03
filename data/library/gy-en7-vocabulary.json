@@ -1,0 +1,127 @@
+{
+  "id": "lib-en7gy-vocabulary",
+  "type": "assignment",
+  "subject": "Engelska 7",
+  "title": "Vocabulary: academic and formal register",
+  "sourceSummary": "Formellt kontra informellt ordval, akademisk ordlista (t.ex. significant, consequently, furthermore) och precisa ordval i formella uppsatser.",
+  "topics": [
+    "formal vs informal register",
+    "academic vocabulary",
+    "precise word choice"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7gy-vocabulary-1",
+      "kind": "mc",
+      "topic": "formal vs informal register",
+      "prompt": "Which word is most appropriate in a formal academic essay?",
+      "opener": "Vilket ord signalerar akademisk stil snarare än talspråk?",
+      "choices": [
+        "a lot of",
+        "loads of",
+        "considerable",
+        "tons of"
+      ],
+      "answer": 2,
+      "explanation": "\"Considerable\" är en formell kvantifierare lämplig för akademisk text. De övriga är vardagliga/talspråkliga uttryck som bör undvikas i formella uppsatser."
+    },
+    {
+      "id": "q-en7gy-vocabulary-2",
+      "kind": "mc",
+      "topic": "formal vs informal register",
+      "prompt": "Replace the informal phrase in bold with the most formal alternative: 'The results **kind of** support the hypothesis.'",
+      "opener": "Vilket ord uttrycker samma osäkerhet men i ett formellt register?",
+      "choices": [
+        "somewhat",
+        "sort of",
+        "pretty much",
+        "basically"
+      ],
+      "answer": 0,
+      "explanation": "\"Somewhat\" är den formella motsvarigheten till \"kind of\" och behåller nyansen av delvis stöd. \"Sort of\", \"pretty much\" och \"basically\" är alla talspråkliga."
+    },
+    {
+      "id": "q-en7gy-vocabulary-3",
+      "kind": "mc",
+      "topic": "academic vocabulary",
+      "prompt": "Choose the word that best completes the sentence in an academic context: 'Fossil fuel use has declined; ___, emissions have fallen sharply.'",
+      "opener": "Vilket sambandsord signalerar en orsak-verkan-relation på en formell nivå?",
+      "choices": [
+        "but",
+        "consequently",
+        "anyway",
+        "so"
+      ],
+      "answer": 1,
+      "explanation": "\"Consequently\" är ett formellt sambandsord som visar orsak och verkan, lämpligt i akademisk text. \"So\" och \"anyway\" är för vardagliga, och \"but\" signalerar motsats, inte konsekvens."
+    },
+    {
+      "id": "q-en7gy-vocabulary-4",
+      "kind": "mc",
+      "topic": "academic vocabulary",
+      "prompt": "Which word best conveys 'important' in a formal report without being vague?",
+      "opener": "Ett ord från akademisk ordlista uttrycker \"betydande\" mer precist än ett vardagsord.",
+      "choices": [
+        "big",
+        "significant",
+        "huge",
+        "major-ish"
+      ],
+      "answer": 1,
+      "explanation": "\"Significant\" är ett precist akademiskt ord som ofta även signalerar statistisk betydelse. \"Big\"/\"huge\" är vaga och vardagliga, och \"major-ish\" är inte standardengelska."
+    },
+    {
+      "id": "q-en7gy-vocabulary-5",
+      "kind": "mc",
+      "topic": "precise word choice",
+      "prompt": "Which sentence uses the most precise verb?",
+      "opener": "Vilket verb visar att texten inte bara nämner något, utan för ett argument?",
+      "choices": [
+        "The report says that funding should increase.",
+        "The report argues that funding should increase.",
+        "The report goes on about funding increasing.",
+        "The report talks about funding increasing."
+      ],
+      "answer": 1,
+      "explanation": "\"Argues\" är precist och visar att rapporten aktivt driver en tes. \"Says\" och \"talks about\" är vaga, och \"goes on about\" är informellt och något nedsättande."
+    },
+    {
+      "id": "q-en7gy-vocabulary-6",
+      "kind": "mc",
+      "topic": "precise word choice",
+      "prompt": "Choose the most precise alternative to the vague word 'stuff' in: 'The article discusses various stuff related to climate policy.'",
+      "opener": "Vilket ord är specifikt nog för akademisk text men fortfarande naturligt?",
+      "choices": [
+        "issues",
+        "things",
+        "junk",
+        "matters in general"
+      ],
+      "answer": 0,
+      "explanation": "\"Issues\" är precist och passar akademisk text om klimatpolitik. \"Things\" är lika vagt som \"stuff\", och \"junk\"/\"matters in general\" passar inte alls i sammanhanget."
+    },
+    {
+      "id": "q-en7gy-vocabulary-7",
+      "kind": "worked",
+      "topic": "formal vs informal register",
+      "prompt": "Rewrite the following informal sentence in a formal, academic register: 'A lot of people think the plan is kind of a bad idea, but I guess it could work.'",
+      "opener": "Byt ut varje vagt/talspråkligt uttryck mot en precis, formell motsvarighet.",
+      "answer": "Many people consider the plan to be flawed; however, it may nonetheless prove effective.",
+      "steps": [
+        "\"A lot of people\" → \"many people\": ett mer formellt kvantifierande uttryck.",
+        "\"think... is kind of a bad idea\" → \"consider... to be flawed\": preciserar attityden och undviker det vaga \"kind of\".",
+        "\"but I guess\" → \"however\": formellt sambandsord istället för det talspråkliga \"but I guess\".",
+        "\"it could work\" → \"it may nonetheless prove effective\": mer precist och akademiskt ordval än det vaga \"work\"."
+      ]
+    },
+    {
+      "id": "q-en7gy-vocabulary-8",
+      "kind": "flashcard",
+      "topic": "academic vocabulary",
+      "prompt": "List common informal-to-formal word swaps useful in academic writing.",
+      "opener": "Vardagsord och deras formella motsvarigheter.",
+      "answer": "a lot of → numerous/considerable · kind of/sort of → somewhat/rather · get → obtain/receive · show → demonstrate/indicate · big → significant/substantial · but → however/nevertheless · so → therefore/consequently · think → consider/argue · stuff/things → issues/factors/aspects · a bit → slightly/somewhat"
+    }
+  ]
+}

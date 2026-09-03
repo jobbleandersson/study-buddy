@@ -1,0 +1,129 @@
+{
+  "id": "lib-geo-naturresurser",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Naturresurser och energikällor",
+  "sourceSummary": "Skillnaden mellan förnybara och icke-förnybara resurser, hur naturresurser som olja och mineraler är ojämnt fördelade i världen, samt olika energikällors miljöpåverkan och kopplingen till konflikter.",
+  "topics": [
+    "förnybara och icke-förnybara resurser",
+    "fördelning av naturresurser globalt",
+    "energikällor och miljöpåverkan",
+    "konflikter kopplade till naturresurser"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo-nat-1",
+      "kind": "mc",
+      "topic": "förnybara och icke-förnybara resurser",
+      "prompt": "Vad är skillnaden mellan en förnybar och en icke-förnybar naturresurs?",
+      "opener": "Fråga dig: kan resursen förnyas inom en människas livstid, eller tar det miljontals år?",
+      "choices": [
+        "Förnybara resurser är alltid billigare att utvinna",
+        "Förnybara resurser nybildas eller förnyas naturligt inom rimlig tid, icke-förnybara gör det inte",
+        "Icke-förnybara resurser finns bara i havet",
+        "Det finns ingen egentlig skillnad, bara olika namn"
+      ],
+      "answer": 1,
+      "explanation": "Förnybara resurser, som sol-, vind- och vattenkraft eller skog (om den brukas hållbart), förnyas naturligt eller är i praktiken outtömliga. Icke-förnybara resurser, som olja, kol och mineraler, bildas under miljontals år och tar därför slut när de använts, eftersom de inte hinner nybildas i mänsklig tidsskala."
+    },
+    {
+      "id": "q-geo-nat-2",
+      "kind": "mc",
+      "topic": "förnybara och icke-förnybara resurser",
+      "prompt": "Vilket av följande är ett exempel på en icke-förnybar naturresurs?",
+      "opener": "Tänk på hur lång tid det tar för resursen att bildas i naturen.",
+      "choices": [
+        "Vindkraft",
+        "Naturgas",
+        "Solenergi",
+        "Skog som brukas hållbart"
+      ],
+      "answer": 1,
+      "explanation": "Naturgas, precis som olja och kol, är ett fossilt bränsle som bildats av organiskt material under miljontals år under jordens yta. Det räknas som icke-förnybart eftersom det tar slut snabbare än det bildas. Vind- och solenergi är förnybara eftersom de bygger på ständigt pågående naturliga processer."
+    },
+    {
+      "id": "q-geo-nat-3",
+      "kind": "mc",
+      "topic": "fördelning av naturresurser globalt",
+      "prompt": "Varför är regioner som Mellanöstern särskilt betydelsefulla på den globala energimarknaden?",
+      "opener": "Naturresurser är inte jämnt utspridda över jordens yta — vissa geologiska formationer finns bara på vissa platser.",
+      "choices": [
+        "Där finns de största guldreserverna i världen",
+        "Geologin gör att där finns mycket stora oljereserver",
+        "Där tillverkas mest solpaneler",
+        "Där finns världens största skogar"
+      ],
+      "answer": 1,
+      "explanation": "Mellanöstern har genom geologisk historia fått mycket stora fyndigheter av olja och naturgas, vilket gör regionen central för världens energiförsörjning och ekonomi. Naturresurser är ojämnt fördelade globalt: till exempel finns mycket av världens koppar i Chile, och sällsynta mineraler i Kongo-Kinshasa (DR Kongo)."
+    },
+    {
+      "id": "q-geo-nat-4",
+      "kind": "mc",
+      "topic": "fördelning av naturresurser globalt",
+      "prompt": "Kongo-Kinshasa (DR Kongo) är en av världens ledande producenter av kobolt, en metall som används i batterier till elbilar och mobiltelefoner. Vad säger detta om global resursfördelning?",
+      "opener": "Tänk på att ett lands geologi avgör vilka mineraler som finns där, oavsett landets ekonomiska situation.",
+      "choices": [
+        "Alla länder har ungefär samma tillgång till viktiga mineraler",
+        "Vissa länder sitter på en stor andel av världens tillgång till specifika resurser, vilket ger dem stor betydelse globalt",
+        "Kobolt finns bara i Kongo-Kinshasa och ingen annanstans",
+        "Resursfördelning har inget samband med geologi"
+      ],
+      "answer": 1,
+      "explanation": "Naturresurser som mineraler är starkt kopplade till ett lands geologi och kan vara mycket koncentrerade till vissa platser. Kongo-Kinshasa står för en mycket stor andel av världens koboltproduktion, vilket gör landet viktigt globalt trots att det är ett låginkomstland — men fördelningen av vinsterna från utvinningen är en helt annan fråga."
+    },
+    {
+      "id": "q-geo-nat-5",
+      "kind": "mc",
+      "topic": "energikällor och miljöpåverkan",
+      "prompt": "Vad är den huvudsakliga miljömässiga nackdelen med att förbränna fossila bränslen som kol och olja för energi?",
+      "opener": "Tänk på vad som händer med det kol som legat bundet i marken i miljontals år när det plötsligt förbränns.",
+      "choices": [
+        "De släpper ut stora mängder koldioxid som bidrar till växthuseffekten",
+        "De är för dyra att utvinna",
+        "De kan bara användas i kalla länder",
+        "De ger för lite energi per kilo"
+      ],
+      "answer": 0,
+      "explanation": "När fossila bränslen förbränns frigörs koldioxid som legat bunden i marken under miljontals år, vilket ökar mängden växthusgaser i atmosfären och förstärker växthuseffekten. Förnybara energikällor som vind- och vattenkraft släpper inte ut koldioxid vid själva elproduktionen, även om till exempel byggandet av anläggningarna också har viss miljöpåverkan."
+    },
+    {
+      "id": "q-geo-nat-6",
+      "kind": "mc",
+      "topic": "energikällor och miljöpåverkan",
+      "prompt": "Vad är en tydlig miljömässig fördel med vattenkraft jämfört med kolkraft?",
+      "opener": "Jämför vad som händer vid själva energiutvinningen för de två energislagen.",
+      "choices": [
+        "Vattenkraft släpper inte ut koldioxid vid elproduktionen och är en förnybar energikälla",
+        "Vattenkraft kräver ingen infrastruktur alls",
+        "Vattenkraft påverkar aldrig ekosystem i floder",
+        "Vattenkraft är billigare i alla länder"
+      ],
+      "answer": 0,
+      "explanation": "Vattenkraft utnyttjar vattnets rörelseenergi och släpper inte ut koldioxid när elen produceras, till skillnad från kolkraft som eldar fossilt bränsle. Vattenkraft är dock inte helt utan miljöpåverkan — dammar kan påverka fiskvandring och ekosystem i älvar, så det handlar om att väga olika typer av miljöpåverkan mot varandra."
+    },
+    {
+      "id": "q-geo-nat-7",
+      "kind": "worked",
+      "topic": "konflikter kopplade till naturresurser",
+      "prompt": "Förklara hur ojämn fördelning av värdefulla naturresurser, till exempel olja eller mineraler, kan bidra till konflikter i ett land eller en region.",
+      "opener": "Tänk på vem som tjänar på resurserna och varför olika grupper kan vilja kontrollera dem.",
+      "answer": "Naturresurser som olja, diamanter eller mineraler kan vara mycket värdefulla på världsmarknaden, vilket gör att olika grupper — regeringar, väpnade grupper eller andra länder — vill kontrollera var de utvinns och vem som får intäkterna. Om resurserna finns koncentrerade i vissa regioner av ett land kan det skapa konflikt mellan den regionen och centralmakten om vem som ska få vinsten. Bristande demokrati och svaga institutioner gör det lättare för enskilda grupper att lägga beslag på resursintäkterna i stället för att de kommer hela befolkningen till godo, vilket kan trappa upp spänningar till väpnad konflikt.",
+      "steps": [
+        "Värdefulla resurser (olja, mineraler, diamanter) ger stora ekonomiska intäkter till den som kontrollerar utvinningen.",
+        "Resurserna finns ofta koncentrerade till specifika platser, inte jämnt spridda över hela landet.",
+        "Olika aktörer (regering, lokala grupper, utländska intressen) vill säkra kontrollen över dessa intäkter.",
+        "Svaga institutioner och bristande rättvis fördelning gör att vinsterna lätt hamnar hos få, vilket skapar missnöje.",
+        "Missnöje och kamp om kontroll kan eskalera till väpnad konflikt, särskilt om resursintäkterna används för att finansiera vapen."
+      ]
+    },
+    {
+      "id": "q-geo-nat-8",
+      "kind": "flashcard",
+      "topic": "förnybara och icke-förnybara resurser",
+      "prompt": "Sammanfatta naturresurser och energikällor: förnybart kontra icke-förnybart, fördelning och miljöpåverkan.",
+      "opener": "Bygg en tät översikt du snabbt kan repetera inför provet.",
+      "answer": "Förnybara resurser: förnyas naturligt inom rimlig tid · exempel: sol, vind, vatten, biomassa, hållbart brukad skog. Icke-förnybara resurser: bildas under miljontals år, tar slut · exempel: olja, kol, naturgas, mineraler och metaller. Global fördelning: naturresurser är ojämnt fördelade beroende på geologi · exempel: olja i Mellanöstern, koppar i Chile, kobolt i Kongo-Kinshasa. Miljöpåverkan: fossila bränslen släpper ut koldioxid vid förbränning → förstärker växthuseffekten · förnybar energi (sol, vind, vatten) släpper inte ut koldioxid vid elproduktion men kan påverka natur och landskap på andra sätt. Konflikter: ojämnt fördelade, värdefulla resurser kan trigga maktkamp om vem som kontrollerar intäkterna, särskilt där institutioner är svaga."
+    }
+  ]
+}

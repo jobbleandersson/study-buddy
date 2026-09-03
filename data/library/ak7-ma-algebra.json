@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma7-algebra",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Algebra och enkla ekvationer",
+  "sourceSummary": "Vad en variabel är och hur du skriver, förenklar och sätter in värden i enkla uttryck. Du löser också ekvationer av typen $x + 5 = 12$ och $3x = 15$.",
+  "topics": [
+    "variabler",
+    "algebraiska uttryck",
+    "ekvationer"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma7-alg-1",
+      "kind": "mc",
+      "topic": "variabler",
+      "prompt": "Vad står bokstaven $x$ för i uttrycket $x + 4$?",
+      "opener": "I algebra används bokstäver för att kunna skriva ner något man ännu inte vet.",
+      "choices": [
+        "Bokstaven x, alltså en text",
+        "Ett tal som vi inte vet värdet på ännu",
+        "Alltid talet 10",
+        "Att man ska multiplicera"
+      ],
+      "answer": 1,
+      "explanation": "En variabel är en bokstav som står för ett tal, och värdet kan variera eller vara okänt. Bokstaven har inget fast värde i sig — $x$ betyder alltså inte alltid samma sak i olika uppgifter."
+    },
+    {
+      "id": "q-ma7-alg-2",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $3x + 2x$.",
+      "opener": "Tänk på det som 3 äpplen plus 2 äpplen.",
+      "choices": [
+        "$5x$",
+        "$6x$",
+        "$5x^2$",
+        "$5 + x$"
+      ],
+      "answer": 0,
+      "explanation": "Termerna innehåller samma variabel, så du adderar bara antalet: $3 + 2 = 5$, alltså $5x$. Svaret $6x$ kommer av att multiplicera istället för att addera."
+    },
+    {
+      "id": "q-ma7-alg-3",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $4a + 3 + 2a - 1$.",
+      "opener": "Samla det som hör ihop — $a$-termer för sig och vanliga tal för sig.",
+      "choices": [
+        "$8a$",
+        "$6a + 4$",
+        "$6a + 2$",
+        "$2a + 2$"
+      ],
+      "answer": 2,
+      "explanation": "$4a + 2a = 6a$ och $3 - 1 = 2$, alltså $6a + 2$. Svaret $8a$ får man om man slår ihop siffrorna med $a$-termerna, men ett tal och en $a$-term kan inte adderas ihop."
+    },
+    {
+      "id": "q-ma7-alg-4",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Vad är värdet av $2x + 3$ när $x = 4$?",
+      "opener": "Byt ut $x$ mot 4 och räkna sedan som vanligt — kom ihåg räkneordningen.",
+      "choices": [
+        "9",
+        "11",
+        "14",
+        "24"
+      ],
+      "answer": 1,
+      "explanation": "$2 \\cdot 4 + 3 = 8 + 3 = 11$. Svaret 14 får man om man adderar 3 till 4 först, alltså $2 \\cdot (4 + 3)$, men multiplikation går före addition."
+    },
+    {
+      "id": "q-ma7-alg-5",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $x + 5 = 12$.",
+      "opener": "Vad behöver du göra bort från vänsterledet för att få $x$ ensamt?",
+      "choices": [
+        "$x = 17$",
+        "$x = 7$",
+        "$x = 5$",
+        "$x = 60$"
+      ],
+      "answer": 1,
+      "explanation": "Dra bort 5 från båda leden: $x = 12 - 5 = 7$. Svaret 17 får man om man adderar 5 istället för att subtrahera — du ska göra motsatsen till det som står i ekvationen."
+    },
+    {
+      "id": "q-ma7-alg-6",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $3x = 15$.",
+      "opener": "Här står 3 gånger $x$ — vilket räknesätt tar bort en multiplikation?",
+      "choices": [
+        "$x = 12$",
+        "$x = 18$",
+        "$x = 45$",
+        "$x = 5$"
+      ],
+      "answer": 3,
+      "explanation": "Dela båda leden med 3: $x = 15 / 3 = 5$. Svaret 12 får man om man subtraherar 3, men $3x$ betyder $3 \\cdot x$, så motsatsen är division."
+    },
+    {
+      "id": "q-ma7-alg-7",
+      "kind": "worked",
+      "topic": "ekvationer",
+      "prompt": "Ett tal multipliceras med 4 och sedan adderas 3. Resultatet blir 23. Ställ upp en ekvation och räkna ut talet.",
+      "opener": "Kalla talet du letar efter för $x$ och skriv ner meningen som en ekvation.",
+      "answer": "Talet är 5",
+      "steps": [
+        "Låt $x$ vara talet. Multiplicerat med 4 blir det $4x$, plus 3 blir $4x + 3$.",
+        "Ekvationen blir $4x + 3 = 23$.",
+        "Dra bort 3 från båda leden: $4x = 20$.",
+        "Dela båda leden med 4: $x = 5$.",
+        "Kontroll: $4 \\cdot 5 + 3 = 23$. ✓"
+      ]
+    },
+    {
+      "id": "q-ma7-alg-8",
+      "kind": "flashcard",
+      "topic": "ekvationer",
+      "prompt": "Vad är en variabel, och hur löser du en enkel ekvation?",
+      "opener": "Tänk på en våg som ska hållas i balans.",
+      "answer": "Variabel = en bokstav som står för ett okänt tal, t.ex. $x$ · $3x$ betyder $3 \\cdot x$ · Förenkla: slå bara ihop termer med samma variabel, $4a + 2a = 6a$, men $6a$ och $2$ kan inte slås ihop · Sätta in värde: byt ut bokstaven mot talet och följ räkneordningen · Lösa ekvation: gör motsatt räknesätt och gör alltid samma sak i båda leden · $x + 5 = 12$ ger $x = 7$ (subtrahera 5) · $3x = 15$ ger $x = 5$ (dividera med 3) · Kontrollera alltid genom att sätta in svaret."
+    }
+  ]
+}

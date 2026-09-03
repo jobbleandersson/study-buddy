@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma1-geometri",
+  "type": "assignment",
+  "subject": "Matematik 1",
+  "title": "Geometri, likformighet och skala",
+  "sourceSummary": "Pythagoras sats, likformiga figurer samt längd-, area- och volymskala — inklusive den klassiska fällan att area och volym inte skalar linjärt.",
+  "topics": [
+    "pythagoras sats",
+    "likformighet",
+    "skala",
+    "area och volym"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma1-geo-1",
+      "kind": "mc",
+      "topic": "pythagoras sats",
+      "prompt": "En rätvinklig triangel har kateterna 5 cm och 12 cm. Hur lång är hypotenusan?",
+      "opener": "Kvadrera kateterna, addera, och glöm inte sista steget.",
+      "choices": [
+        "8,5 cm",
+        "17 cm",
+        "13 cm",
+        "169 cm"
+      ],
+      "answer": 2,
+      "explanation": "$5^2 + 12^2 = 25 + 144 = 169$ och $\\sqrt{169} = 13$ cm. Ett vanligt fel är att glömma dra roten ur och svara 169."
+    },
+    {
+      "id": "q-ma1-geo-2",
+      "kind": "mc",
+      "topic": "pythagoras sats",
+      "prompt": "En rätvinklig triangel har hypotenusan 10 cm och en katet på 6 cm. Hur lång är den andra kateten?",
+      "opener": "Här är det största talet känt — vad innebär det för hur du ställer upp?",
+      "choices": [
+        "4 cm",
+        "16 cm",
+        "11,7 cm",
+        "8 cm"
+      ],
+      "answer": 3,
+      "explanation": "$a^2 + 6^2 = 10^2$ ger $a^2 = 100 - 36 = 64$, alltså $a = 8$ cm. När hypotenusan är känd subtraherar man i stället för att addera."
+    },
+    {
+      "id": "q-ma1-geo-3",
+      "kind": "mc",
+      "topic": "likformighet",
+      "prompt": "Två trianglar är likformiga. Den mindre har en sida på 4 cm, den större motsvarande sida på 12 cm. Vilken är längdskalan från den mindre till den större?",
+      "opener": "Hur många gånger större är den stora figuren?",
+      "choices": [
+        "3:1",
+        "1:8",
+        "4:12 kan inte förenklas",
+        "1:3"
+      ],
+      "answer": 0,
+      "explanation": "$\\frac{12}{4} = 3$, alltså skalan 3:1 (förstoring). Alla motsvarande sidor är 3 gånger så långa, och alla vinklar är oförändrade."
+    },
+    {
+      "id": "q-ma1-geo-4",
+      "kind": "mc",
+      "topic": "skala",
+      "prompt": "En figur förstoras så att alla längder blir 3 gånger så långa. Hur många gånger större blir arean?",
+      "opener": "Area är två dimensioner — vad gör det med skalan?",
+      "choices": [
+        "6 gånger",
+        "9 gånger",
+        "27 gånger",
+        "3 gånger"
+      ],
+      "answer": 1,
+      "explanation": "Areaskalan är längdskalan i kvadrat: $3^2 = 9$ gånger större area. (Volymskalan hade blivit $3^3 = 27$.)"
+    },
+    {
+      "id": "q-ma1-geo-5",
+      "kind": "mc",
+      "topic": "skala",
+      "prompt": "En modellbil har alla längder hälften så stora som en större modell. Hur förhåller sig volymerna?",
+      "opener": "Volym är tre dimensioner.",
+      "choices": [
+        "Den lilla har hälften så stor volym",
+        "Den lilla har en fjärdedel av volymen",
+        "Den lilla har en åttondel av volymen",
+        "Volymerna är lika stora"
+      ],
+      "answer": 2,
+      "explanation": "Volymskalan är längdskalan i kubik: $\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$. Halverad längd ger alltså bara en åttondel av volymen."
+    },
+    {
+      "id": "q-ma1-geo-6",
+      "kind": "mc",
+      "topic": "area och volym",
+      "prompt": "Vad är omkretsen av en cirkel med radien 5 cm? (En decimal.)",
+      "opener": "Vilken formel gäller omkrets — den med $r$ eller den med $r^2$?",
+      "choices": [
+        "25,0 cm",
+        "78,5 cm",
+        "15,7 cm",
+        "31,4 cm"
+      ],
+      "answer": 3,
+      "explanation": "$O = 2\\pi r = 2\\pi \\cdot 5 = 10\\pi \\approx 31{,}4$ cm. ($78{,}5$ cm² är arean, $\\pi r^2$.)"
+    },
+    {
+      "id": "q-ma1-geo-7",
+      "kind": "worked",
+      "topic": "area och volym",
+      "prompt": "En cylinderformad vattentank har radien 3 m och höjden 10 m. Hur många kubikmeter rymmer den? Avrunda till en decimal.",
+      "opener": "Basytan först, sedan höjden.",
+      "answer": "≈ 282,7 m³",
+      "steps": [
+        "Basytan är en cirkel: $A = \\pi r^2 = \\pi \\cdot 3^2 = 9\\pi$ m².",
+        "Volymen är basytan gånger höjden: $V = 9\\pi \\cdot 10 = 90\\pi$ m³.",
+        "Räkna ut: $90\\pi \\approx 282{,}7$ m³.",
+        "(Det motsvarar ungefär 282 700 liter, eftersom 1 m³ = 1 000 liter.)"
+      ]
+    },
+    {
+      "id": "q-ma1-geo-8",
+      "kind": "flashcard",
+      "topic": "skala",
+      "prompt": "Om längdskalan är $k$, vad blir areaskalan och volymskalan?",
+      "opener": "Tänk på hur många dimensioner area respektive volym har.",
+      "answer": "Areaskalan är $k^2$ och volymskalan är $k^3$. Exempel: dubbleras alla längder ($k = 2$) blir arean 4 gånger större och volymen 8 gånger större. Det är därför en dubbelt så stor pizza innehåller fyra gånger så mycket pizza."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-fys8-el",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Elektricitet och kretsar",
+  "sourceSummary": "Spänning, ström och resistans med rätt enheter, Ohms lag på enkel nivå samt skillnaden mellan serie- och parallellkoppling. Här finns också kopplingsscheman, säkringar och elsäkerhet.",
+  "topics": [
+    "spänning, ström och resistans",
+    "Ohms lag",
+    "serie- och parallellkoppling",
+    "kopplingsschema",
+    "säkringar och elsäkerhet"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys8-el-1",
+      "kind": "mc",
+      "topic": "spänning, ström och resistans",
+      "prompt": "I vilken enhet mäts spänning?",
+      "opener": "Varje el-storhet har sin egen enhet — fundera på vad som står på ett batteri.",
+      "choices": [
+        "Ampere (A)",
+        "Volt (V)",
+        "Ohm (Ω)",
+        "Watt (W)"
+      ],
+      "answer": 1,
+      "explanation": "Spänning (U) mäts i volt (V) — därför står det till exempel 1,5 V på ett batteri. Ampere är enheten för ström, ohm för resistans och watt för effekt."
+    },
+    {
+      "id": "q-fys8-el-2",
+      "kind": "mc",
+      "topic": "Ohms lag",
+      "prompt": "Genom en resistor på 5 Ω flyter strömmen 2 A. Hur stor är spänningen över resistorn enligt Ohms lag (U = R · I)?",
+      "opener": "Här är både resistans och ström kända, så du kan använda formeln precis som den står.",
+      "choices": [
+        "2,5 V",
+        "7 V",
+        "0,4 V",
+        "10 V"
+      ],
+      "answer": 3,
+      "explanation": "U = R · I = 5 Ω · 2 A = 10 V. Att i stället dividera 5 med 2 ger 2,5 och att addera talen ger 7 — båda är vanliga misstag när man inte håller reda på vilken storhet som ska räknas ut."
+    },
+    {
+      "id": "q-fys8-el-3",
+      "kind": "mc",
+      "topic": "serie- och parallellkoppling",
+      "prompt": "Två resistorer på 3 Ω och 4 Ω seriekopplas. Vad händer med den totala resistansen?",
+      "opener": "I en seriekoppling måste strömmen ta sig igenom båda resistorerna efter varandra.",
+      "choices": [
+        "Den blir summan, 7 Ω — alltså större än var och en av resistorerna",
+        "Den blir 1 Ω, alltså skillnaden mellan resistorerna",
+        "Den blir 12 Ω, alltså produkten av resistorerna",
+        "Den blir mindre än 3 Ω"
+      ],
+      "answer": 0,
+      "explanation": "Vid seriekoppling adderas resistanserna: R = 3 Ω + 4 Ω = 7 Ω. Totala resistansen blir alltid större än den största enskilda resistorn. Att totalresistansen blir mindre än den minsta gäller för parallellkoppling, inte seriekoppling."
+    },
+    {
+      "id": "q-fys8-el-4",
+      "kind": "mc",
+      "topic": "serie- och parallellkoppling",
+      "prompt": "Tre lampor är parallellkopplade till ett batteri på 6 V. Hur stor spänning ligger över varje lampa?",
+      "opener": "I en parallellkoppling sitter varje lampa direkt mellan batteriets båda poler.",
+      "choices": [
+        "2 V, spänningen delas lika mellan lamporna",
+        "18 V, spänningen adderas för varje lampa",
+        "6 V, varje lampa får hela batterispänningen",
+        "Det går inte att veta utan att känna till resistansen"
+      ],
+      "answer": 2,
+      "explanation": "Vid parallellkoppling ligger samma spänning, 6 V, över varje gren. Det är i en seriekoppling som spänningen delas upp mellan komponenterna — det är därför parallellkopplade lampor lyser lika starkt som om de satt ensamma."
+    },
+    {
+      "id": "q-fys8-el-5",
+      "kind": "mc",
+      "topic": "kopplingsschema",
+      "prompt": "Vad menas med att kretsen är sluten i ett kopplingsschema?",
+      "opener": "Titta på om strömmen har en obruten väg hela vägen runt.",
+      "choices": [
+        "Att strömbrytaren är öppen så att inget kan hända",
+        "Att det finns en obruten ledningsväg från batteriets ena pol genom komponenterna tillbaka till den andra polen",
+        "Att kretsen bara innehåller en enda komponent",
+        "Att alla komponenter är ritade med samma symbol"
+      ],
+      "answer": 1,
+      "explanation": "En sluten krets är en obruten strömväg från batteriets ena pol, genom komponenterna och tillbaka till den andra polen — först då kan ström flyta. En öppen strömbrytare bryter i stället kretsen, och då slocknar lampan."
+    },
+    {
+      "id": "q-fys8-el-6",
+      "kind": "mc",
+      "topic": "säkringar och elsäkerhet",
+      "prompt": "Vilken uppgift har en säkring (propp) i en elinstallation?",
+      "opener": "Tänk på vad som skulle hända med ledningarna om alldeles för mycket ström flöt genom dem.",
+      "choices": [
+        "Den ökar spänningen i kretsen så att apparaterna fungerar bättre",
+        "Den mäter hur mycket el du använder",
+        "Den gör att strömmen alltid går åt samma håll",
+        "Den bryter strömmen om strömstyrkan blir för hög, så att ledningarna inte överhettas och börjar brinna"
+      ],
+      "answer": 3,
+      "explanation": "En säkring är en avsiktlig svag punkt som löser ut och bryter kretsen när strömmen blir farligt hög, till exempel vid kortslutning eller överbelastning. Den mäter inte elförbrukningen — det gör elmätaren — och den påverkar inte spänningen."
+    },
+    {
+      "id": "q-fys8-el-7",
+      "kind": "worked",
+      "topic": "Ohms lag",
+      "prompt": "Genom en liten motor flyter strömmen 0,5 A när den kopplas till en spänning på 6 V. Beräkna motorns resistans.",
+      "opener": "Ohms lag är U = R · I. Lös ut R innan du sätter in värdena.",
+      "answer": "12 Ω",
+      "steps": [
+        "Skriv upp det du vet: U = 6 V och I = 0,5 A.",
+        "Utgå från Ohms lag: U = R · I.",
+        "Lös ut resistansen: R = U / I.",
+        "Sätt in värdena: R = 6 V / 0,5 A.",
+        "Att dividera med 0,5 är samma sak som att multiplicera med 2, så R = 12 Ω."
+      ]
+    },
+    {
+      "id": "q-fys8-el-8",
+      "kind": "flashcard",
+      "topic": "spänning, ström och resistans",
+      "prompt": "Sammanfatta el-storheterna med enheter, Ohms lag, serie- och parallellkoppling samt elsäkerhet.",
+      "opener": "Ta en storhet i taget med rätt enhet, knyt ihop dem med Ohms lag och avsluta med kopplingssätten.",
+      "answer": "Spänning (U), volt (V): drivkraften som får laddningarna att röra sig · Ström (I), ampere (A): hur mycket laddning som passerar per sekund · Resistans (R), ohm (Ω): motståndet som bromsar strömmen · Ohms lag: U = R · I, alltså I = U/R och R = U/I · Sluten krets: obruten strömväg från batteriets ena pol tillbaka till den andra — annars flyter ingen ström · Seriekoppling: en enda strömväg, resistanserna adderas, samma ström överallt, spänningen delas upp, ett avbrott släcker allt · Parallellkoppling: flera grenar, samma spänning över varje gren, strömmen delas upp, ett avbrott i en gren påverkar inte de andra — används i hus · Kopplingsschema: krets ritad med standardsymboler för batteri, lampa, strömbrytare och resistor · Säkring: bryter kretsen vid för hög ström, skyddar mot överhettning och brand · Elsäkerhet: kortslutning ger mycket hög ström, jordfelsbrytare bryter snabbt vid fel, laborera bara med låga spänningar."
+    }
+  ]
+}

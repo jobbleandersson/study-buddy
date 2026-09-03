@@ -1,0 +1,128 @@
+{
+  "id": "lib-kemi-atomer",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Atomer, grundämnen och periodiska systemet",
+  "sourceSummary": "Atomens uppbyggnad med protoner, neutroner och elektroner, hur periodiska systemet är uppbyggt i grupper och perioder, samt grundidén bakom joner.",
+  "topics": [
+    "atomens uppbyggnad",
+    "grundämnen",
+    "periodiska systemet",
+    "joner"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi-ato-1",
+      "kind": "mc",
+      "topic": "atomens uppbyggnad",
+      "prompt": "Vilken partikel i atomen har negativ laddning?",
+      "opener": "Tänk på vilka partiklar som finns i atomens elektronskal jämfört med i kärnan.",
+      "choices": [
+        "Protonen",
+        "Neutronen",
+        "Elektronen",
+        "Atomkärnan som helhet"
+      ],
+      "answer": 2,
+      "explanation": "Elektronen har negativ laddning och rör sig i skal runt kärnan. Protonen har positiv laddning och neutronen är oladdad — båda dessa finns i atomkärnan."
+    },
+    {
+      "id": "q-kemi-ato-2",
+      "kind": "mc",
+      "topic": "atomens uppbyggnad",
+      "prompt": "Vad avgör vilket grundämne en atom tillhör?",
+      "opener": "Det är samma tal som atomnumret i periodiska systemet.",
+      "choices": [
+        "Antalet neutroner",
+        "Antalet protoner",
+        "Antalet elektroner i yttersta skalet",
+        "Atomens totala massa"
+      ],
+      "answer": 1,
+      "explanation": "Antalet protoner (atomnumret) avgör vilket grundämne atomen är — väte har alltid 1 proton, syre alltid 8. Antalet neutroner kan variera (isotoper) utan att grundämnet ändras."
+    },
+    {
+      "id": "q-kemi-ato-3",
+      "kind": "mc",
+      "topic": "grundämnen",
+      "prompt": "Vilket kemiskt tecken står för grundämnet natrium?",
+      "opener": "Många kemiska tecken kommer från grundämnets latinska namn, inte det svenska.",
+      "choices": [
+        "N",
+        "Na",
+        "Ni",
+        "No"
+      ],
+      "answer": 1,
+      "explanation": "Natrium har det kemiska tecknet Na (från latinets natrium). N står för kväve (nitrogenium) och Ni för nickel — lätt att blanda ihop om man bara tänker på svenska namn."
+    },
+    {
+      "id": "q-kemi-ato-4",
+      "kind": "mc",
+      "topic": "periodiska systemet",
+      "prompt": "Vad har grundämnen i samma GRUPP (samma vertikala kolumn) i periodiska systemet gemensamt?",
+      "opener": "Grupper går uppifrån och ner i systemet — perioder går i sidled.",
+      "choices": [
+        "Samma antal elektronskal",
+        "Samma antal valenselektroner, vilket ger liknande kemiska egenskaper",
+        "Samma atommassa",
+        "Samma antal neutroner"
+      ],
+      "answer": 1,
+      "explanation": "Grundämnen i samma grupp har samma antal valenselektroner (elektroner i yttersta skalet), vilket ger dem liknande kemiska egenskaper. Samma antal elektronskal är i stället det som gäller för ämnen i samma PERIOD."
+    },
+    {
+      "id": "q-kemi-ato-5",
+      "kind": "mc",
+      "topic": "periodiska systemet",
+      "prompt": "Grundämnena i grupp 18 (t.ex. helium, neon och argon) kallas ädelgaser. Varför reagerar de nästan aldrig med andra ämnen?",
+      "opener": "Tänk på hur fyllt deras yttersta elektronskal är.",
+      "choices": [
+        "De saknar elektroner helt",
+        "De har fullt yttersta elektronskal och är därför mycket stabila",
+        "De har väldigt få protoner",
+        "De är alltid i gasform vid rumstemperatur"
+      ],
+      "answer": 1,
+      "explanation": "Ädelgaser har fullt yttersta skal, vilket gör atomen mycket stabil — den varken tar upp eller lämnar ifrån sig elektroner lätt. Att de råkar vara gaser vid rumstemperatur förklarar inte varför de är oreaktiva."
+    },
+    {
+      "id": "q-kemi-ato-6",
+      "kind": "mc",
+      "topic": "joner",
+      "prompt": "Vad är en jon?",
+      "opener": "Fundera på vad som händer med laddningen när en atom tar upp eller lämnar ifrån sig elektroner.",
+      "choices": [
+        "En atom med extra neutroner",
+        "En atom eller molekyl som fått elektrisk laddning genom att ta upp eller lämna elektroner",
+        "Ett annat namn för en molekyl",
+        "En atom som förlorat en proton"
+      ],
+      "answer": 1,
+      "explanation": "En jon bildas när en atom (eller molekyl) tar upp eller lämnar ifrån sig en eller flera elektroner, vilket ger den en positiv eller negativ laddning. Antalet protoner ändras inte vid jonbildning, bara antalet elektroner."
+    },
+    {
+      "id": "q-kemi-ato-7",
+      "kind": "worked",
+      "topic": "joner",
+      "prompt": "En natriumatom (Na) har 11 protoner och 11 elektroner. Den bildar lätt en jon genom att lämna ifrån sig en elektron. Vilken laddning får jonen, och varför bildas den?",
+      "opener": "Räkna laddningarna efter att en elektron försvunnit, och tänk på att natrium 'vill' efterlikna en ädelgas.",
+      "answer": "Natriumjonen får laddningen +1 och skrivs Na+.",
+      "steps": [
+        "Na har från början 11 positiva protoner och 11 negativa elektroner — laddningarna tar ut varandra (total laddning 0).",
+        "Genom att lämna ifrån sig 1 elektron blir det fortfarande 11 protoner men bara 10 elektroner kvar.",
+        "11 positiva laddningar minus 10 negativa laddningar ger en total laddning på +1.",
+        "Natrium gör detta för att få samma elektronstruktur som ädelgasen neon (fullt yttersta skal), vilket är energimässigt gynnsamt och gör jonen stabil."
+      ]
+    },
+    {
+      "id": "q-kemi-ato-8",
+      "kind": "flashcard",
+      "topic": "atomens uppbyggnad",
+      "prompt": "Sammanfatta atomens uppbyggnad: vilka partiklar finns, var sitter de, och vilken laddning har de?",
+      "opener": "Tänk kärna kontra skal, och laddning plus, minus eller neutral.",
+      "answer": "Proton: finns i atomkärnan, positiv laddning (+) · Neutron: finns i atomkärnan, ingen laddning (neutral) · Elektron: rör sig i skal runt kärnan, negativ laddning (−), mycket lättare än proton och neutron · Atomnummer = antal protoner (avgör vilket grundämne det är) · Masstal = antal protoner + antal neutroner · I en oladdad atom är antalet protoner och elektroner alltid lika · Jon = atom som fått laddning genom att ta upp eller lämna ifrån sig elektroner."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel-judendom-etc",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Judendom, hinduism och buddhism",
+  "sourceSummary": "Judendomens grundtro och Toran, hinduismens och buddhismens centrala idéer samt likheter och skillnader mellan österländska och abrahamitiska religioner.",
+  "topics": [
+    "judendom",
+    "hinduism",
+    "buddhism",
+    "religionsjämförelse"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel-jud-1",
+      "kind": "mc",
+      "topic": "judendom",
+      "prompt": "Vad är Toran inom judendomen?",
+      "opener": "Toran är den mest centrala delen av judendomens heliga skrifter.",
+      "choices": [
+        "En bönebok som bara används under högtider",
+        "De fem Moseböckerna, judendomens mest centrala heliga text",
+        "En samling myter utan religiös betydelse",
+        "En bok skriven av Muhammed"
+      ],
+      "answer": 1,
+      "explanation": "Toran består av de fem Moseböckerna och är judendomens mest centrala heliga skrift, med bland annat berättelser om skapelsen och de tio budorden. Den ingår också, tillsammans med andra texter, i den större samlingen Tanak."
+    },
+    {
+      "id": "q-rel-jud-2",
+      "kind": "mc",
+      "topic": "judendom",
+      "prompt": "Vad kännetecknar judendomens gudsuppfattning?",
+      "opener": "Judendomen räknas, tillsammans med kristendom och islam, som en av de abrahamitiska religionerna.",
+      "choices": [
+        "Man tror på många olika gudar med olika ansvarsområden",
+        "Man tror på en enda Gud, som slöt ett särskilt förbund med det judiska folket",
+        "Man tror inte på någon gud alls",
+        "Gud ses som en opersonlig kraft utan vilja"
+      ],
+      "answer": 1,
+      "explanation": "Judendomen är monoteistisk — man tror på en enda Gud. Centralt är också idén om ett förbund mellan Gud och det judiska folket, som bland annat innebär att följa Guds bud (mitzvot)."
+    },
+    {
+      "id": "q-rel-jud-3",
+      "kind": "mc",
+      "topic": "hinduism",
+      "prompt": "Vad menas med karma inom hinduismen?",
+      "opener": "Tänk på ordet som en princip om orsak och verkan som sträcker sig genom flera liv.",
+      "choices": [
+        "En helig flod i Indien",
+        "Principen att ens handlingar får konsekvenser, som påverkar kommande återfödelser",
+        "Namnet på en av de stora gudarna",
+        "En daglig bön"
+      ],
+      "answer": 1,
+      "explanation": "Karma är principen om att handlingar (goda och dåliga) får konsekvenser, som inom hinduismen tros påverka hur man återföds i nästa liv (reinkarnation). Det är alltså inte en flod eller gud, utan en princip om orsak och verkan."
+    },
+    {
+      "id": "q-rel-jud-4",
+      "kind": "mc",
+      "topic": "hinduism",
+      "prompt": "Hur beskrivs gudsuppfattningen inom hinduismen oftast?",
+      "opener": "Hinduismen har många gudar och gudinnor, men det finns ofta en tanke om något gemensamt bakom dem.",
+      "choices": [
+        "Strikt monoteistisk, precis som judendomen — bara en enda gud finns",
+        "Många gudar och gudinnar, som ofta ses som olika uttryck för en gemensam, gudomlig kraft (Brahman)",
+        "Helt ateistisk, utan någon gudstro",
+        "Gudarna ses som helt separata och obesläktade krafter"
+      ],
+      "answer": 1,
+      "explanation": "Hinduismen rymmer många gudar och gudinnor (t.ex. Shiva, Vishnu, Brahma), men de ses ofta som olika uttryck eller ansikten av en underliggande gudomlig kraft, Brahman. Det gör hinduismen mer mångfacetterad än en strikt monoteistisk religion."
+    },
+    {
+      "id": "q-rel-jud-5",
+      "kind": "mc",
+      "topic": "buddhism",
+      "prompt": "Vad handlar de fyra ädla sanningarna om, i grunden?",
+      "opener": "Tänk på vad Buddha enligt traditionen insåg om livet, lidandet och vägen bort från det.",
+      "choices": [
+        "Att det finns fyra gudar som styr världen",
+        "Att lidande finns, att det har en orsak, att det går att upphöra och att det finns en väg dit (åttafaldiga vägen)",
+        "Att man måste offra djur för att nå lycka",
+        "Att bara munkar kan nå upplysning"
+      ],
+      "answer": 1,
+      "explanation": "De fyra ädla sanningarna handlar om att lidande (dukkha) finns, att det orsakas av begär, att det går att upphöra, samt att den åttafaldiga vägen leder dit. De handlar alltså inte om gudar eller offer."
+    },
+    {
+      "id": "q-rel-jud-6",
+      "kind": "mc",
+      "topic": "buddhism",
+      "prompt": "Vem var Buddha, enligt buddhistisk tradition?",
+      "opener": "Buddha ses inte som en gud, utan som något annat — fundera på vad ordet \"buddha\" betyder.",
+      "choices": [
+        "En gud som skapade världen",
+        "En person, Siddharta Gautama, som genom meditation nådde upplysning (nirvana)",
+        "En bok med heliga texter",
+        "En kejsare i antikens Indien som styrde med hård hand"
+      ],
+      "answer": 1,
+      "explanation": "Buddha (\"den upplyste\") syftar på Siddharta Gautama, en person som enligt traditionen nådde upplysning genom meditation och eftertanke. Han sågs inte som en gud, utan som en människa som visade vägen för andra."
+    },
+    {
+      "id": "q-rel-jud-7",
+      "kind": "worked",
+      "topic": "religionsjämförelse",
+      "prompt": "Förklara en central skillnad mellan österländska religioner som hinduism/buddhism och abrahamitiska religioner som judendom/kristendom/islam, när det gäller synen på livet efter döden.",
+      "opener": "Jämför tanken om ett enda liv med tanken om många liv efter varandra.",
+      "answer": "Inom de abrahamitiska religionerna (judendom, kristendom, islam) tror man vanligen på ett enda jordeliv följt av en form av evighet, till exempel himmel/paradis eller helvete, beroende på inriktning. Inom hinduism och buddhism finns i stället ofta tanken om reinkarnation — att själen (eller, inom buddhismen, en form av medvetandeström) återföds i nya liv, styrt av karma, tills man till exempel når moksha (hinduism) eller nirvana (buddhism) och lämnar kretsloppet av födelse och död.",
+      "steps": [
+        "Abrahamitiska religioner: ett jordeliv, sedan en övergång till en evig existens (t.ex. paradis) enligt respektive tradition.",
+        "Hinduism och buddhism: tanken om ett kretslopp av födelse, död och återfödelse (samsara), där karma påverkar nästa liv.",
+        "Målet inom hinduismen är ofta moksha — att bli fri från kretsloppet och förenas med det gudomliga.",
+        "Målet inom buddhismen är nirvana — att släcka begären och lämna kretsloppet av lidande.",
+        "Slutsats: skillnaden handlar om linjär tid (ett liv, en evighet) jämfört med cyklisk tid (många liv, ett slutgiltigt mål bortom kretsloppet)."
+      ]
+    },
+    {
+      "id": "q-rel-jud-8",
+      "kind": "flashcard",
+      "topic": "religionsjämförelse",
+      "prompt": "Sammanfatta grunderna i judendom, hinduism och buddhism, samt en central skillnad mot de abrahamitiska religionerna.",
+      "opener": "Gå igenom en religion i taget, och avsluta med jämförelsen.",
+      "answer": "Judendom: monoteistisk, tror på ett förbund mellan Gud och det judiska folket, Toran (de fem Moseböckerna) är centralaste skriften, ingår i Tanak. Hinduism: många gudar/gudinnor som ofta ses som uttryck för en gemensam gudomlig kraft (Brahman) · centrala begrepp: karma, reinkarnation (samsara), moksha som slutmål. Buddhism: grundad av Siddharta Gautama (Buddha) · de fyra ädla sanningarna om lidande och vägen bort från det · åttafaldiga vägen · nirvana som slutmål. Jämförelse: hinduism och buddhism (österländska religioner) betonar ofta kretslopp av liv och återfödelse, medan judendom, kristendom och islam (abrahamitiska religioner) betonar ett jordeliv, en Gud och ett förbund/uppenbarelse."
+    }
+  ]
+}

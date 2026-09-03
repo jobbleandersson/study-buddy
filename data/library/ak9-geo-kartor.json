@@ -1,0 +1,128 @@
+{
+  "id": "lib-geo-kartor",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Kartkunskap och klimatzoner",
+  "sourceSummary": "Hur kartor fungerar (projektioner, skala, väderstreck och koordinater) och hur jordens klimatzoner hänger ihop med breddgrad och höjd över havet.",
+  "topics": [
+    "kartprojektioner och skala",
+    "väderstreck och koordinater",
+    "klimatzoner",
+    "klimat, breddgrad och höjd"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo-kar-1",
+      "kind": "mc",
+      "topic": "kartprojektioner och skala",
+      "prompt": "En karta har skalan 1:100 000. Hur långt är det i verkligheten mellan två punkter som ligger 4 cm från varandra på kartan?",
+      "opener": "Skalan talar om hur många gånger större verkligheten är än kartan — multiplicera.",
+      "choices": [
+        "400 meter",
+        "4 kilometer",
+        "40 kilometer",
+        "4 000 kilometer"
+      ],
+      "answer": 1,
+      "explanation": "4 cm × 100 000 = 400 000 cm = 4 000 m = 4 km. Ett vanligt fel är att glömma omvandla från cm till km på slutet, vilket ger 400 meter i stället."
+    },
+    {
+      "id": "q-geo-kar-2",
+      "kind": "mc",
+      "topic": "kartprojektioner och skala",
+      "prompt": "Varför blir Grönland så orimligt stort på många världskartor, nästan lika stort som Afrika, trots att Afrika i verkligheten är 14 gånger större?",
+      "opener": "Tänk på att jorden är rund men kartan är platt — något måste förvrängas när man \"packar upp\" jordklotet.",
+      "choices": [
+        "Grönland har fel färg på kartan",
+        "Kartprojektionen förvränger ytor, särskilt nära polerna",
+        "Grönland har verkligen en stor yta",
+        "Det beror på skalan som används"
+      ],
+      "answer": 1,
+      "explanation": "När jordens rundade yta projiceras till en platt karta (t.ex. Mercatorprojektionen) förstoras områden nära polerna för att vinklar och former ska stämma. Det gör att Grönland ser ut som ett jättekontinent trots att det i verkligheten är litet. Det handlar alltså inte om skalan (som bara anger förminskningen) utan om själva projektionen."
+    },
+    {
+      "id": "q-geo-kar-3",
+      "kind": "mc",
+      "topic": "väderstreck och koordinater",
+      "prompt": "Vad anger latitud (breddgrad) för en plats?",
+      "opener": "Latitudlinjerna löper vågrätt runt jorden, parallellt med ekvatorn.",
+      "choices": [
+        "Hur långt öster eller väster om Greenwich platsen ligger",
+        "Hur långt norr eller söder om ekvatorn platsen ligger",
+        "Hur högt över havet platsen ligger",
+        "Vilken tidszon platsen tillhör"
+      ],
+      "answer": 1,
+      "explanation": "Latitud mäter avståndet norr eller söder om ekvatorn (0°) upp till polerna (90°). Avstånd öster/väster om Greenwich är i stället longitud, och höjd över havet är en helt annan mätning."
+    },
+    {
+      "id": "q-geo-kar-4",
+      "kind": "mc",
+      "topic": "väderstreck och koordinater",
+      "prompt": "Du står och tittar mot norr. Vilket väderstreck har du då på din högra sida?",
+      "opener": "Föreställ dig en kompass framför dig med N längst upp.",
+      "choices": [
+        "Väster",
+        "Söder",
+        "Öster",
+        "Nordost"
+      ],
+      "answer": 2,
+      "explanation": "Om du vänder dig mot norr hamnar öster på din högra sida och väster på din vänstra — precis som på en karta där norr pekar uppåt och öster är åt höger."
+    },
+    {
+      "id": "q-geo-kar-5",
+      "kind": "mc",
+      "topic": "klimatzoner",
+      "prompt": "Vilken klimatzon kännetecknas av jämn hög temperatur året runt och riklig nederbörd, till exempel kring Amazonas?",
+      "opener": "Tänk på vilken klimatzon som ligger närmast ekvatorn, där solen står högt hela året.",
+      "choices": [
+        "Polart klimat",
+        "Tempererat klimat",
+        "Tropiskt klimat",
+        "Arktiskt klimat"
+      ],
+      "answer": 2,
+      "explanation": "Tropiskt klimat finns nära ekvatorn där solinstrålningen är hög och jämn hela året, vilket ger höga temperaturer och ofta mycket nederbörd (t.ex. regnskog). Tempererat klimat har tydliga årstider och finns längre från ekvatorn, medan polart klimat är kallt hela året."
+    },
+    {
+      "id": "q-geo-kar-6",
+      "kind": "mc",
+      "topic": "klimat, breddgrad och höjd",
+      "prompt": "Två städer ligger på ungefär samma breddgrad, men den ena ligger vid havet på låg höjd och den andra ligger högt uppe i en bergskedja. Vad är mest sannolikt sant om bergsstaden?",
+      "opener": "Temperaturen sjunker med höjden — ju högre upp, desto kallare, oavsett breddgrad.",
+      "choices": [
+        "Bergsstaden är varmare eftersom den ligger närmare solen",
+        "Bergsstaden är kallare eftersom temperaturen sjunker med höjden",
+        "Klimatet är exakt likadant eftersom breddgraden är densamma",
+        "Bergsstaden har mer tropiskt klimat"
+      ],
+      "answer": 1,
+      "explanation": "Temperaturen sjunker med ungefär 0,6 °C per 100 meters höjdökning, så en stad högt i bergen är kallare än en stad på samma breddgrad vid havsnivå — därför kan man ha snötäckta berg nära ekvatorn. Avståndet till solen förändras försumbart lite av några tusen meters höjdskillnad, så det förklarar inte skillnaden."
+    },
+    {
+      "id": "q-geo-kar-7",
+      "kind": "worked",
+      "topic": "klimat, breddgrad och höjd",
+      "prompt": "Förklara varför Kilimanjaro, som ligger nära ekvatorn i Tanzania, har snötäckt topp trots att omgivningen runt berget har tropiskt klimat.",
+      "opener": "Kombinera det du vet om breddgrad OCH höjd — de påverkar temperaturen på olika sätt samtidigt.",
+      "answer": "Breddgraden gör att området i grunden har tropiskt, varmt klimat eftersom det ligger nära ekvatorn. Men Kilimanjaros topp når nästan 5 900 meter över havet, och temperaturen sjunker med höjden. På den höjden är det så kallt att nederbörden faller och ligger kvar som snö och is, trots att marken runt bergets fot är varm och grön.",
+      "steps": [
+        "Ekvatornära läge → hög, jämn solinstrålning → varmt klimat vid havsnivå.",
+        "Med ökande höjd blir luften tunnare och kallare — ungefär 0,6 °C kallare per 100 meter.",
+        "Kilimanjaro är så högt (cirka 5 900 m) att temperaturen vid toppen ligger under fryspunkten året runt.",
+        "Resultat: tropiskt klimat vid foten, men polarliknande köld och snö vid toppen — höjden \"vinner\" över breddgraden lokalt."
+      ]
+    },
+    {
+      "id": "q-geo-kar-8",
+      "kind": "flashcard",
+      "topic": "klimatzoner",
+      "prompt": "Sammanfatta jordens tre huvudsakliga klimatzoner och vad som styr klimatet på en plats.",
+      "opener": "Tänk dig ett band runt jorden från ekvatorn till polerna — klimatet ändras stegvis.",
+      "answer": "Tropiskt klimat: kring ekvatorn, hög och jämn värme året runt, ofta riklig nederbörd (regnskog) eller distinkta regn-/torrperioder (savann). Tempererat klimat: mellan tropikerna och polartrakterna (bland annat Sverige), tydliga årstider med varma somrar och kalla vintrar. Polart klimat: vid och kring polerna, kallt större delen av året, kort eller ingen riktig sommar. Klimatet på en plats styrs främst av · breddgrad (avstånd till ekvatorn, avgör solinstrålningens vinkel och styrka) · höjd över havet (temperaturen sjunker med höjden) · närhet till hav (vatten jämnar ut temperaturen och ger fuktigare klimat) · havsströmmar och vindar (kan föra värme eller kyla långa sträckor)."
+    }
+  ]
+}

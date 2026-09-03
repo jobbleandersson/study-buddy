@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-energi",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "Energi och klimat",
+  "sourceSummary": "Energiprincipen och energiomvandlingar på djupet, förnybara och icke-förnybara energikällor, samt växthuseffekten och klimatförändringarnas orsaker och konsekvenser.",
+  "topics": [
+    "energiprincipen och energiomvandlingar",
+    "energikällor",
+    "växthuseffekten",
+    "klimatförändringar"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-energi-1",
+      "kind": "mc",
+      "topic": "energiprincipen och energiomvandlingar",
+      "prompt": "Vad säger energiprincipen (energins bevarande)?",
+      "opener": "Tänk på vad som faktiskt händer med energin i en omvandling — försvinner den?",
+      "choices": [
+        "Energi kan varken skapas eller förstöras, bara omvandlas mellan olika former",
+        "Energi kan skapas men aldrig försvinna",
+        "Energi minskar alltid något vid varje omvandling utan att bli något annat",
+        "Total energimängd i universum ökar hela tiden"
+      ],
+      "answer": 0,
+      "explanation": "Energiprincipen innebär att den totala energimängden i ett slutet system alltid är konstant — energi omvandlas mellan former som rörelseenergi, lägesenergi, värme och kemisk energi, men skapas eller förstörs aldrig. Att energi \"försvinner\" är en vanlig missuppfattning; i praktiken omvandlas den ofta till värme som sprids ut."
+    },
+    {
+      "id": "q-nk1b-energi-2",
+      "kind": "mc",
+      "topic": "energiprincipen och energiomvandlingar",
+      "prompt": "När ett vindkraftverk producerar el, vilken energiomvandling sker huvudsakligen?",
+      "opener": "Följ energin från vinden, via rotorbladen och generatorn, till eluttaget.",
+      "choices": [
+        "Kemisk energi omvandlas direkt till elektrisk energi",
+        "Rörelseenergi i luften omvandlas via rotorns rörelse till elektrisk energi i generatorn",
+        "Strålningsenergi omvandlas direkt till elektrisk energi",
+        "Lägesenergi i luften omvandlas till värmeenergi"
+      ],
+      "answer": 1,
+      "explanation": "Vindens rörelseenergi får rotorbladen att snurra, och den mekaniska rörelseenergin omvandlas i generatorn till elektrisk energi. Det handlar alltså inte om kemisk energi eller strålningsenergi, som är typiska för till exempel förbränning respektive solceller."
+    },
+    {
+      "id": "q-nk1b-energi-3",
+      "kind": "mc",
+      "topic": "energikällor",
+      "prompt": "Vad är den huvudsakliga skillnaden mellan förnybara och icke-förnybara energikällor?",
+      "opener": "Tänk på tidsperspektivet — hur snabbt källan fylls på jämfört med hur snabbt vi använder den.",
+      "choices": [
+        "Förnybara energikällor ger alltid mer energi per kilogram bränsle",
+        "Icke-förnybara energikällor är alltid renare för miljön",
+        "Förnybara energikällor nybildas i ungefär samma takt som de förbrukas, medan icke-förnybara (t.ex. olja, kol och naturgas) tar miljontals år att bildas",
+        "Förnybara energikällor kan bara användas i varma länder"
+      ],
+      "answer": 2,
+      "explanation": "Förnybara energikällor, som sol-, vind- och vattenkraft, bygger på processer som ständigt förnyas. Fossila bränslen räknas som icke-förnybara eftersom de bildas under geologiska tidsrymder och därför tar slut i mänsklig tidsskala om de förbrukas snabbare än de nybildas."
+    },
+    {
+      "id": "q-nk1b-energi-4",
+      "kind": "mc",
+      "topic": "energikällor",
+      "prompt": "Vad är en vanlig nackdel som ofta lyfts fram med vatten- och vindkraft, trots att de är förnybara och har låga utsläpp av växthusgaser under drift?",
+      "opener": "Fundera på annat än klimatpåverkan — t.ex. hur jämnt energin produceras, eller vad anläggningen påverkar lokalt.",
+      "choices": [
+        "De ger upphov till stora mängder radioaktivt avfall",
+        "De släpper ut lika mycket koldioxid som kolkraft under drift",
+        "De kan inte alls kombineras med annan elproduktion i samma elnät",
+        "Vindkraft ger ojämn produktion beroende på väder, och vattenkraft kan påverka lokala ekosystem och vandrande fiskar"
+      ],
+      "answer": 3,
+      "explanation": "Vindkraftens produktion varierar med vindstyrkan, vilket kräver komplement eller lagring, och vattenkraftsdammar kan påverka vattenflöden, livsmiljöer och fiskars vandringsvägar. Radioaktivt avfall är istället en fråga kopplad till kärnkraft, inte vatten- eller vindkraft."
+    },
+    {
+      "id": "q-nk1b-energi-5",
+      "kind": "mc",
+      "topic": "växthuseffekten",
+      "prompt": "Vad är den naturliga växthuseffekten, och varför är den nödvändig för livet på jorden?",
+      "opener": "Tänk på hur kall jorden skulle vara utan atmosfärens förmåga att hålla kvar värme.",
+      "choices": [
+        "Ett fenomen där ozonlagret läcker ut skadlig UV-strålning",
+        "Atmosfärens gaser (bl.a. koldioxid och vattenånga) fångar upp värmestrålning från jorden och håller planeten varmare än den annars skulle vara",
+        "Jordens rotation som skapar årstider",
+        "Havens förmåga att lagra koldioxid i djupvatten"
+      ],
+      "answer": 1,
+      "explanation": "Växthusgaser i atmosfären släpper igenom solljus men fångar upp en del av den värmestrålning jorden sänder tillbaka ut i rymden, vilket håller jordens medeltemperatur på en nivå som gör liv möjligt. Utan denna naturliga effekt skulle jorden vara betydligt kallare."
+    },
+    {
+      "id": "q-nk1b-energi-6",
+      "kind": "mc",
+      "topic": "klimatförändringar",
+      "prompt": "Vad menas med den förstärkta växthuseffekten, som är kopplad till dagens klimatförändringar?",
+      "opener": "Skillnaden ligger i vad människan tillfört utöver det naturliga systemet.",
+      "choices": [
+        "Att solen numera strålar betydligt starkare än tidigare",
+        "Att människans utsläpp av växthusgaser, framför allt från förbränning av fossila bränslen, ökar halten växthusgaser och därmed förstärker uppvärmningen utöver den naturliga nivån",
+        "Att jordens atmosfär håller på att försvinna ut i rymden",
+        "Att ozonlagrets hål orsakar all global uppvärmning"
+      ],
+      "answer": 1,
+      "explanation": "Den förstärkta växthuseffekten orsakas av att mänsklig verksamhet, särskilt förbränning av fossila bränslen, avskogning och viss jordbruksproduktion, ökar mängden växthusgaser i atmosfären utöver de naturliga nivåerna, vilket förstärker uppvärmningen. Ozonlagrets hål är ett separat problem som huvudsakligen rör UV-strålning, inte klimatuppvärmning."
+    },
+    {
+      "id": "q-nk1b-energi-7",
+      "kind": "worked",
+      "topic": "klimatförändringar",
+      "prompt": "Förklara kopplingen mellan förbränning av fossila bränslen, koldioxidhalten i atmosfären och några av de konsekvenser klimatförändringarna för med sig.",
+      "opener": "Följ kolet från marken, via förbränningen, upp i atmosfären och vidare till effekterna på klimatet.",
+      "answer": "Förbränning av fossila bränslen frigör kol som varit bundet under miljontals år, vilket höjer koldioxidhalten i atmosfären, förstärker växthuseffekten och höjer jordens medeltemperatur, vilket i sin tur leder till bland annat smältande isar, stigande havsnivåer och mer extremväder.",
+      "steps": [
+        "Fossila bränslen (kol, olja, naturgas) består av kol som bundits av växter och organismer under miljontals år och sedan legat lagrat i marken.",
+        "Vid förbränning frigörs detta kol snabbt som koldioxid till atmosfären, mycket snabbare än det ursprungligen bands.",
+        "Ökad koldioxidhalt förstärker växthuseffekten eftersom mer värmestrålning fångas upp i atmosfären.",
+        "Det leder till en höjning av jordens medeltemperatur, vilket får isar och glaciärer att smälta samt havsvatten att utvidgas, vilket höjer havsnivån.",
+        "Ett varmare klimat ger även mer extrema väderhändelser, som värmeböljor, kraftig nederbörd och ökad torka i vissa regioner, samt påverkar ekosystem och odlingsmöjligheter."
+      ]
+    },
+    {
+      "id": "q-nk1b-energi-8",
+      "kind": "flashcard",
+      "topic": "energikällor",
+      "prompt": "Sammanfatta energiprincipen, skillnaden mellan förnybara och icke-förnybara energikällor, samt växthuseffekten (naturlig och förstärkt).",
+      "opener": "Gå igenom vad som händer med energin, varifrån den kommer, och varför jorden blir varmare.",
+      "answer": "Energiprincipen: energi kan varken skapas eller förstöras, bara omvandlas mellan former (t.ex. rörelse-, läges-, kemisk och värmeenergi) · Förnybara energikällor: sol, vind, vatten och biobränsle — förnyas i ungefär samma takt som de används · Icke-förnybara energikällor: kol, olja och naturgas (fossila bränslen) samt uran — tar mycket lång tid att bildas · Naturlig växthuseffekt: atmosfärens gaser håller kvar värme och gör jorden beboelig · Förstärkt växthuseffekt: mänskliga utsläpp av växthusgaser, främst koldioxid från fossila bränslen, ökar halten och förstärker uppvärmningen · Konsekvenser: höjd medeltemperatur, smältande is, stigande havsnivåer och mer extremväder."
+    }
+  ]
+}

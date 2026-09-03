@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel-etik",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Etik och moraliska dilemman",
+  "sourceSummary": "Pliktetik, konsekvensetik och sinnelagsetik som verktyg för att resonera om rätt och fel, samt hur etik kan hänga ihop med religion utan att vara beroende av den.",
+  "topics": [
+    "pliktetik",
+    "konsekvensetik",
+    "sinnelagsetik",
+    "etiska dilemman"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel-etik-1",
+      "kind": "mc",
+      "topic": "pliktetik",
+      "prompt": "Vad kännetecknar pliktetik?",
+      "opener": "Pliktetik handlar om regler och principer — fundera på vad som avgör om en handling är rätt.",
+      "choices": [
+        "Att en handling är rätt om den ger bäst konsekvenser för flest människor",
+        "Att vissa handlingar är rätt eller fel i sig själva, oavsett vilka konsekvenser de får",
+        "Att man ska handla efter sitt hjärtas första impuls",
+        "Att inga regler någonsin ska följas"
+      ],
+      "answer": 1,
+      "explanation": "Pliktetik utgår från att vissa handlingar (t.ex. att ljuga eller att hålla löften) är rätt eller fel i sig, oavsett konsekvenserna — man följer en princip eller regel. Att bedöma handlingar efter konsekvenserna är i stället kännetecknande för konsekvensetik."
+    },
+    {
+      "id": "q-rel-etik-2",
+      "kind": "mc",
+      "topic": "konsekvensetik",
+      "prompt": "En konsekvensetiker resonerar om huruvida det är rätt att ljuga för en vän. Vad blir avgörande i resonemanget?",
+      "opener": "Konsekvensetik tittar framåt, mot resultatet av handlingen.",
+      "choices": [
+        "Om lögnen bryter mot en fast regel om att alltid tala sanning",
+        "Vilka följder lögnen får — om den leder till mer nytta eller skada totalt sett",
+        "Vad som känns rätt i stunden, utan vidare eftertanke",
+        "Vad en religiös auktoritet säger om saken"
+      ],
+      "answer": 1,
+      "explanation": "Konsekvensetik bedömer en handling utifrån dess konsekvenser — om resultatet blir mer nytta än skada. En pliktetiker skulle i stället fråga om lögnen bryter mot en regel, oavsett vad följderna blir."
+    },
+    {
+      "id": "q-rel-etik-3",
+      "kind": "mc",
+      "topic": "sinnelagsetik",
+      "prompt": "Vad ligger i fokus inom sinnelagsetik?",
+      "opener": "Ordet \"sinnelag\" pekar på något inuti personen som handlar, snarare än på handlingen eller resultatet.",
+      "choices": [
+        "Handlingens konsekvenser för samhället",
+        "Om handlingen följer en skriven lag eller regel",
+        "Avsikten och viljan bakom handlingen — vad personen menade och kände",
+        "Hur många som blir påverkade av handlingen"
+      ],
+      "answer": 2,
+      "explanation": "Sinnelagsetik fokuserar på avsikten och viljan bakom en handling — om personen menade väl, snarare än på reglerna (pliktetik) eller på konsekvenserna (konsekvensetik). En god avsikt kan alltså räknas som moraliskt viktig även om resultatet blir dåligt."
+    },
+    {
+      "id": "q-rel-etik-4",
+      "kind": "mc",
+      "topic": "etiska dilemman",
+      "prompt": "En kompis frågar om du gillar dennes nya frisyr, som du egentligen tycker är ful. En pliktetiker som anser att man alltid ska tala sanning skulle troligen resonera hur?",
+      "opener": "Tänk på vad pliktetik lägger vikt vid — regeln, inte känslan hos den andra.",
+      "choices": [
+        "Man bör ljuga om det gör kompisen glad",
+        "Man bör säga sanningen, eftersom regeln \"tala alltid sanning\" gäller oavsett hur det känns för mottagaren",
+        "Det spelar ingen roll vad man svarar",
+        "Man bör fråga en religiös ledare om lov innan man svarar"
+      ],
+      "answer": 1,
+      "explanation": "En strikt pliktetiker som utgår från regeln \"tala alltid sanning\" skulle resonera att sanningen ska sägas oavsett konsekvenserna för kompisens känslor. En konsekvensetiker skulle i stället väga in hur svaret påverkar kompisens känslor och kanske landa i ett annat svar."
+    },
+    {
+      "id": "q-rel-etik-5",
+      "kind": "mc",
+      "topic": "etiska dilemman",
+      "prompt": "Vad kallas en situation där två etiska principer eller värden krockar med varandra, så att man inte kan följa båda?",
+      "opener": "Fundera på ordet som beskriver ett val mellan två svåra alternativ.",
+      "choices": [
+        "Ett etiskt dilemma",
+        "En dogm",
+        "Ett axiom",
+        "En allmosa"
+      ],
+      "answer": 0,
+      "explanation": "Ett etiskt dilemma är en situation där olika värden eller principer krockar, till exempel sanning mot omtanke, så att varje val innebär att man går emot något man värdesätter. En dogm är i stället en fastslagen trossats, inte en valsituation."
+    },
+    {
+      "id": "q-rel-etik-6",
+      "kind": "mc",
+      "topic": "koppling mellan religion och etik",
+      "prompt": "Vilket påstående stämmer bäst när det gäller religion och moral?",
+      "opener": "Fundera på om moraliska val bara kan göras av religiösa personer eller om det finns fler grunder för etik.",
+      "choices": [
+        "Alla religioner har exakt samma etiska regler",
+        "Många religioner ger vägledning i etiska frågor, men människor kan också resonera etiskt utifrån andra grunder, t.ex. förnuft och empati, utan att vara religiösa",
+        "Etik kan bara komma från religion",
+        "Etik och religion har ingenting med varandra att göra"
+      ],
+      "answer": 1,
+      "explanation": "Många religioner erbjuder etisk vägledning, till exempel genom regler eller berättelser om gott handlande, men etiskt resonerande kan också bygga på andra grunder som förnuft, empati eller filosofiska teorier (pliktetik, konsekvensetik, sinnelagsetik) — man behöver alltså inte vara religiös för att resonera moraliskt."
+    },
+    {
+      "id": "q-rel-etik-7",
+      "kind": "worked",
+      "topic": "etiska dilemman",
+      "prompt": "Ett dilemma: du hittar en plånbok full med pengar på gatan, utan legitimation, så du vet inte vem den tillhör. Resonera med hjälp av pliktetik, konsekvensetik och sinnelagsetik kring vad du bör göra.",
+      "opener": "Gå igenom de tre etiska modellerna en och en, och se om de leder till samma eller olika slutsats.",
+      "answer": "Pliktetiskt resonemang: en regel som \"man ska inte stjäla, och man bör försöka lämna tillbaka det som inte är ens eget\" pekar mot att lämna in plånboken, till exempel till polisen, oavsett vilka konsekvenser det får. Konsekvensetiskt resonemang: man väger nyttan för ägaren, som troligen vill ha tillbaka sina pengar och kort, mot den egna, kortsiktiga vinsten av att behålla dem — den sammantagna nyttan blir troligen större av att lämna tillbaka plånboken, särskilt om man tänker på hur samhället skulle fungera om alla behöll hittat gods. Sinnelagsetiskt resonemang: avsikten bakom handlingen värderas — att lämna tillbaka plånboken av omtanke om ägaren väger tyngre moraliskt än att göra det bara för att man är rädd att åka fast. I det här fallet landar alla tre modeller i samma praktiska slutsats (lämna tillbaka plånboken), men av olika skäl.",
+      "steps": [
+        "Identifiera dilemmat: egen kortsiktig vinst (behålla pengarna) står mot ägarens intresse av att få tillbaka sin egendom.",
+        "Pliktetik: finns det en regel (t.ex. \"stjäl inte\", \"ljug inte om vad du hittat\") som ska följas oavsett konsekvens? Ja — regeln pekar mot att lämna tillbaka.",
+        "Konsekvensetik: väg nyttan för alla inblandade — ägarens förlust och samhällets tillit väger tyngre än den egna vinsten av att behålla pengarna.",
+        "Sinnelagsetik: fråga vilken avsikt som ligger bakom handlingen — god vilja att hjälpa ägaren väger moraliskt tyngre än ren egennytta eller rädsla för straff.",
+        "Jämför slutsatserna: här pekar alla tre modellerna åt samma håll, vilket ofta (men inte alltid) är fallet i tydliga dilemman."
+      ]
+    },
+    {
+      "id": "q-rel-etik-8",
+      "kind": "flashcard",
+      "topic": "pliktetik",
+      "prompt": "Sammanfatta de tre etiska modellerna pliktetik, konsekvensetik och sinnelagsetik, samt hur religion kan kopplas till etik.",
+      "opener": "Gå igenom modellerna en efter en, och avsluta med kopplingen till religion.",
+      "answer": "Pliktetik: en handling är rätt eller fel utifrån om den följer en regel eller princip (t.ex. \"ljug inte\"), oavsett konsekvenser. Konsekvensetik: en handling bedöms utifrån sina följder — rätt är det som ger mest nytta/minst skada totalt sett. Sinnelagsetik: fokus på avsikten och viljan bakom handlingen — en god avsikt räknas som moraliskt viktig, även om resultatet blir dåligt. Etiskt dilemma: en situation där olika värden eller principer krockar, så att varje val innebär en avvägning. Religion och etik: många religioner ger etisk vägledning (t.ex. genom bud och berättelser), men etiskt resonerande behöver inte bygga på religion — förnuft, empati och filosofiska teorier är andra grunder för moral."
+    }
+  ]
+}

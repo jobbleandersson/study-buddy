@@ -1,0 +1,131 @@
+{
+  "id": "lib-geo7-kartor",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Kartor och kartkunskap",
+  "sourceSummary": "Väderstreck, skala och skalräkning, kartans tecken och teckenförklaring, höjdkurvor, latitud och longitud på grundnivå samt vilka olika karttyper som finns och vad de används till.",
+  "topics": [
+    "väderstreck",
+    "skala",
+    "teckenförklaring",
+    "höjdkurvor",
+    "latitud och longitud",
+    "karttyper"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo7-kar-1",
+      "kind": "mc",
+      "topic": "väderstreck",
+      "prompt": "Vilket väderstreck ligger mellan norr och öster?",
+      "opener": "Namnet är en kombination av de två väderstrecken.",
+      "choices": [
+        "Nordväst",
+        "Nordost",
+        "Sydost",
+        "Sydväst"
+      ],
+      "answer": 1,
+      "explanation": "Mellan norr och öster ligger nordost, precis som sydväst ligger mellan syd och väst. Nordväst ligger i stället mellan norr och väster, alltså på motsatt sida av nordpilen."
+    },
+    {
+      "id": "q-geo7-kar-2",
+      "kind": "mc",
+      "topic": "skala",
+      "prompt": "En karta har skalan 1:50 000. Hur långt är det i verkligheten mellan två platser som ligger 4 cm från varandra på kartan?",
+      "opener": "Multiplicera avståndet på kartan med 50 000 och omvandla sedan till kilometer.",
+      "choices": [
+        "200 meter",
+        "20 kilometer",
+        "200 kilometer",
+        "2 kilometer"
+      ],
+      "answer": 3,
+      "explanation": "4 cm · 50 000 = 200 000 cm, och 200 000 cm = 2 000 m = 2 km. Ett vanligt fel är att stanna vid meter eller glömma ett nollsteg i omvandlingen, vilket ger 200 meter i stället för 2 kilometer."
+    },
+    {
+      "id": "q-geo7-kar-3",
+      "kind": "mc",
+      "topic": "teckenförklaring",
+      "prompt": "Vad är teckenförklaringen (kartans legend) till för?",
+      "opener": "Kartan använder symboler och färger — men vem berättar vad de betyder?",
+      "choices": [
+        "Den förklarar vad kartans symboler, färger och linjer betyder",
+        "Den visar vem som har ritat kartan",
+        "Den anger hur gammal kartan är",
+        "Den räknar ut avstånd åt dig"
+      ],
+      "answer": 0,
+      "explanation": "I teckenförklaringen ser du att exempelvis blått är vatten, grönt är skog, en tjock röd linje är en större väg och en särskild symbol står för en kyrka eller en camping. Skalan används för att räkna ut avstånd, och kartans ålder anges separat — teckenförklaringen handlar bara om symbolernas betydelse."
+    },
+    {
+      "id": "q-geo7-kar-4",
+      "kind": "mc",
+      "topic": "höjdkurvor",
+      "prompt": "På en karta ligger höjdkurvorna mycket tätt i ett område. Vad betyder det?",
+      "opener": "Varje kurva visar en viss höjd — tänk på hur snabbt höjden ändras om kurvorna ligger nära varandra.",
+      "choices": [
+        "Marken är helt platt där",
+        "Området är ett vattendrag",
+        "Terrängen är brant där",
+        "Kartan är ritad i fel skala"
+      ],
+      "answer": 2,
+      "explanation": "Höjdkurvor förbinder punkter som ligger på samma höjd över havet. Ligger de tätt stiger marken mycket på kort avstånd, alltså brant sluttning; ligger de långt ifrån varandra är terrängen flack. Platt mark visas därför av glesa kurvor, inte täta."
+    },
+    {
+      "id": "q-geo7-kar-5",
+      "kind": "mc",
+      "topic": "latitud och longitud",
+      "prompt": "Vilken linje på jordklotet har latituden (breddgraden) 0 grader?",
+      "opener": "Det är linjen som delar jorden i en norra och en södra halva.",
+      "choices": [
+        "Nollmeridianen genom Greenwich",
+        "Ekvatorn",
+        "Polcirkeln",
+        "Kräftans vändkrets"
+      ],
+      "answer": 1,
+      "explanation": "Ekvatorn är 0 grader latitud och delar jorden i norra och södra halvklotet, och latituden räknas därifrån upp till 90 grader vid polerna. Nollmeridianen genom Greenwich har i stället longituden 0 grader och delar jorden i öst och väst."
+    },
+    {
+      "id": "q-geo7-kar-6",
+      "kind": "mc",
+      "topic": "karttyper",
+      "prompt": "Vilken karttyp använder du bäst om du vill se var bergen, skogarna och sjöarna finns i ett land?",
+      "opener": "Karttypen visar naturen, inte gränserna mellan länder.",
+      "choices": [
+        "Politisk karta",
+        "Vägkarta",
+        "Befolkningskarta",
+        "Naturgeografisk karta"
+      ],
+      "answer": 3,
+      "explanation": "En naturgeografisk karta (fysisk karta) visar naturens former: höjder, berg, slätter, sjöar och vattendrag, ofta med färger för olika höjder över havet. En politisk karta visar i stället länder och gränser, en vägkarta visar vägar och orter, och en befolkningskarta visar hur tätt människor bor."
+    },
+    {
+      "id": "q-geo7-kar-7",
+      "kind": "worked",
+      "topic": "skala",
+      "prompt": "På en karta med skalan 1:25 000 mäter du 6 cm mellan skolan och simhallen. Hur långt är det i verkligheten?",
+      "opener": "Multiplicera först, omvandla sedan från centimeter till meter och kilometer.",
+      "answer": "1,5 km (1 500 meter)",
+      "steps": [
+        "Skalan 1:25 000 betyder att 1 cm på kartan är 25 000 cm i verkligheten.",
+        "Multiplicera: 6 cm · 25 000 = 150 000 cm.",
+        "Omvandla till meter: 150 000 / 100 = 1 500 m.",
+        "Omvandla till kilometer: 1 500 / 1 000 = 1,5 km.",
+        "Rimlighetskontroll: 1,5 km är en promenad på ungefär en kvart, vilket stämmer bra inom en tätort."
+      ]
+    },
+    {
+      "id": "q-geo7-kar-8",
+      "kind": "flashcard",
+      "topic": "teckenförklaring",
+      "prompt": "Sammanfatta vad du behöver kunna för att läsa en karta.",
+      "opener": "Väderstreck, skala, tecken, höjdkurvor och koordinater — i den ordningen.",
+      "answer": "Väderstreck: norr, öster, söder, väster, samt nordost, sydost, sydväst och nordväst · norr är nästan alltid uppåt på kartan, och en nordpil visar riktningen · Skala: 1:50 000 betyder att verkligheten är 50 000 gånger större än kartan · räkna: avstånd på kartan (cm) · skaltalet = verkligt avstånd i cm, dela med 100 för meter och med 100 000 för kilometer · liten skala (1:1 000 000) = stort område men få detaljer, stor skala (1:10 000) = litet område med många detaljer · Teckenförklaring: förklarar symboler, färger och linjer, t.ex. blått för vatten och grönt för skog · Höjdkurvor: linjer genom punkter på samma höjd över havet · täta kurvor = brant, glesa kurvor = flackt · Latitud (breddgrad): hur långt norr eller söder om ekvatorn (0°), upp till 90° vid polerna · Longitud (längdgrad): hur långt öster eller väster om nollmeridianen genom Greenwich, upp till 180° · Karttyper: naturgeografisk (natur och höjder), politisk (länder och gränser), vägkarta, temakarta som befolkningskarta eller klimatkarta."
+    }
+  ]
+}

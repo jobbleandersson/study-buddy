@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam-media",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Media och källkritik",
+  "sourceSummary": "Mediernas roll i en demokrati, yttrande- och tryckfrihet, samt hur man källkritiskt granskar nyheter, sociala medier, propaganda och desinformation.",
+  "topics": [
+    "mediers roll i ett demokratiskt samhälle",
+    "yttrandefrihet och tryckfrihet grundidé",
+    "källkritik av nyheter och sociala medier",
+    "propaganda och desinformation grundbegrepp"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam-med-1",
+      "kind": "mc",
+      "topic": "mediers roll i ett demokratiskt samhälle",
+      "prompt": "Vilken roll brukar medier (t.ex. nyhetsredaktioner) sägas ha i en demokrati, ibland kallad \"den tredje statsmakten\"?",
+      "opener": "Tänk på vad medier gör som medborgare annars inte skulle ha lika lätt att göra själva.",
+      "choices": [
+        "Att sköta rättskipningen i domstolarna",
+        "Att granska makthavare och sprida information så att medborgarna kan bilda sig en uppfattning",
+        "Att stifta lagar tillsammans med riksdagen",
+        "Att ersätta allmänna val"
+      ],
+      "answer": 1,
+      "explanation": "Medier granskar makthavare (politiker, myndigheter, företag) och informerar allmänheten, vilket gör det möjligt för medborgare att bilda sig en uppfattning och hålla makthavare ansvariga. Detta kallas ibland mediernas granskande roll eller \"den tredje statsmakten\", vid sidan av lagstiftande och verkställande makt."
+    },
+    {
+      "id": "q-sam-med-2",
+      "kind": "mc",
+      "topic": "yttrandefrihet och tryckfrihet grundidé",
+      "prompt": "Vad innebär yttrandefrihet i grunden?",
+      "opener": "Tänk på rätten att säga vad man tycker offentligt, jämfört med att bli tystad av staten.",
+      "choices": [
+        "Rätten att säga vad man vill utan några som helst begränsningar",
+        "Rätten att fritt uttrycka åsikter och sprida information, skyddad i grundlagen men inte helt utan gränser (t.ex. förbud mot hets mot folkgrupp)",
+        "En rättighet som bara journalister har",
+        "Skyldigheten att alltid hålla med regeringen"
+      ],
+      "answer": 1,
+      "explanation": "Yttrandefrihet skyddas i grundlagen och ger rätt att fritt uttrycka åsikter och sprida information. Den är dock inte obegränsad — vissa yttranden, som hets mot folkgrupp och uppvigling, är brottsliga även i en demokrati som Sverige."
+    },
+    {
+      "id": "q-sam-med-3",
+      "kind": "mc",
+      "topic": "yttrandefrihet och tryckfrihet grundidé",
+      "prompt": "Vad skyddar tryckfrihetsförordningen, en av Sveriges grundlagar, framför allt?",
+      "opener": "Namnet ger en ledtråd — det handlar om det tryckta ordet.",
+      "choices": [
+        "Rätten att ge ut tryckta skrifter, t.ex. böcker och tidningar, utan förhandsgranskning från staten",
+        "Rätten att slippa betala skatt",
+        "Rätten att alltid få sina texter publicerade av vem som helst",
+        "Skyldigheten att alla tidningar ska tycka likadant"
+      ],
+      "answer": 0,
+      "explanation": "Tryckfrihetsförordningen är en av Sveriges grundlagar och skyddar bland annat rätten att ge ut tryckta skrifter utan att staten i förväg granskar och godkänner innehållet (censurförbud), samt principen om källskydd för journalister."
+    },
+    {
+      "id": "q-sam-med-4",
+      "kind": "mc",
+      "topic": "källkritik av nyheter och sociala medier",
+      "prompt": "Vad är ett viktigt varningstecken när du bedömer ett inlägg på sociala medier?",
+      "opener": "Tänk på om det går att kontrollera vem som ligger bakom och om innehållet väcker starka känslor.",
+      "choices": [
+        "Att inlägget har många kommentarer",
+        "Att avsändaren är okänd eller anonym och inlägget är utformat för att väcka starka känslor snarare än att informera sakligt",
+        "Att texten innehåller siffror",
+        "Att inlägget är kort"
+      ],
+      "answer": 1,
+      "explanation": "En okänd eller anonym avsändare gör det svårt att bedöma trovärdighet, och innehåll som är utformat för att väcka starka känslor (upprördhet, rädsla) sprids ofta snabbare oavsett sanningshalt. Antal kommentarer, textlängd eller siffror i sig säger inget om trovärdighet."
+    },
+    {
+      "id": "q-sam-med-5",
+      "kind": "mc",
+      "topic": "propaganda och desinformation grundbegrepp",
+      "prompt": "Vad är skillnaden mellan desinformation och missinformation?",
+      "opener": "Båda är felaktig information, men en av dem sprids med avsikt att vilseleda.",
+      "choices": [
+        "Det finns ingen skillnad, orden betyder exakt samma sak",
+        "Desinformation sprids medvetet för att vilseleda, medan missinformation kan spridas av misstag utan avsikt att lura",
+        "Missinformation är alltid sann",
+        "Desinformation förekommer bara i tryckta tidningar"
+      ],
+      "answer": 1,
+      "explanation": "Desinformation är felaktig information som sprids medvetet i syfte att vilseleda, ofta för att påverka opinionen. Missinformation är också felaktig, men kan spridas av misstag, till exempel när någon delar felaktiga uppgifter utan att veta att de är fel."
+    },
+    {
+      "id": "q-sam-med-6",
+      "kind": "mc",
+      "topic": "propaganda och desinformation grundbegrepp",
+      "prompt": "Vad kännetecknar propaganda?",
+      "opener": "Tänk på syftet: att informera sakligt eller att styra vad mottagaren ska tycka.",
+      "choices": [
+        "Information som ensidigt syftar till att påverka människors åsikter och beteenden åt ett visst håll, ofta genom att undanhålla motargument",
+        "Enbart neutrala nyhetsrapporter",
+        "Vetenskapliga studier granskade av andra forskare",
+        "Information som alltid kommer från myndigheter"
+      ],
+      "answer": 0,
+      "explanation": "Propaganda är ensidig information som syftar till att påverka människors åsikter eller beteenden i en viss riktning, ofta genom att förenkla, vinkla eller undanhålla motargument, till skillnad från saklig och allsidig nyhetsrapportering."
+    },
+    {
+      "id": "q-sam-med-7",
+      "kind": "worked",
+      "topic": "källkritik av nyheter och sociala medier",
+      "prompt": "Du ser en chockerande nyhet spridas snabbt på sociala medier utan angiven källa. Förklara steg för steg hur du källkritiskt bör gå tillväga innan du delar den vidare.",
+      "opener": "Använd samma grundfrågor som för alla källor: avsändare, syfte, tid och oberoende bekräftelse.",
+      "answer": "Innan du delar nyheten bör du först identifiera vem avsändaren är och om den går att verifiera. Därefter bör du fråga dig vilket syfte inlägget verkar ha — att informera sakligt eller att väcka starka känslor. Sedan bör du söka efter om etablerade, oberoende nyhetskällor rapporterar samma sak, och slutligen kontrollera när uppgiften publicerades, eftersom gammal information ibland återanvänds som att den vore ny. Om du inte kan verifiera nyheten bör du avstå från att dela den.",
+      "steps": [
+        "Kontrollera avsändaren: finns det ett namn, en organisation eller ett konto du kan identifiera och bedöma trovärdigheten hos?",
+        "Fundera på syftet: är inlägget utformat för att informera sakligt, eller för att väcka starka känslor som ilska eller rädsla (ett tecken på möjlig desinformation eller propaganda)?",
+        "Sök efter bekräftelse: rapporterar flera oberoende, etablerade medier samma sak?",
+        "Kolla tidpunkten: är uppgiften ny, eller är det en gammal nyhet/bild som återanvänds i ett nytt sammanhang?",
+        "Om du inte kan verifiera nyheten genom oberoende källor bör du avstå från att dela den vidare, för att inte bidra till spridning av felaktig information."
+      ]
+    },
+    {
+      "id": "q-sam-med-8",
+      "kind": "flashcard",
+      "topic": "mediers roll i ett demokratiskt samhälle",
+      "prompt": "Sammanfatta mediernas roll, yttrandefrihet och grundbegreppen kring källkritik, propaganda och desinformation.",
+      "opener": "Från mediernas samhällsuppdrag till hur du själv granskar det du läser.",
+      "answer": "Mediernas roll: granskar makthavare och informerar medborgare, kallas ibland \"den tredje statsmakten\" · Yttrandefrihet: grundlagsskyddad rätt att uttrycka åsikter och sprida information, med vissa lagliga begränsningar (t.ex. hets mot folkgrupp) · Tryckfrihetsförordningen: grundlag som skyddar rätten att ge ut tryckta skrifter utan statlig förhandsgranskning, samt källskydd för journalister · Källkritik: granska avsändare, syfte, tidpunkt och om oberoende källor bekräftar uppgiften · Desinformation: felaktig information som sprids medvetet för att vilseleda · Missinformation: felaktig information som sprids av misstag, utan avsikt att lura · Propaganda: ensidig, känslostyrd information som syftar till att påverka åsikter åt ett visst håll."
+    }
+  ]
+}

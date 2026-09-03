@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam8-ekonomi",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Samhällsekonomi",
+  "sourceSummary": "Det ekonomiska kretsloppet mellan hushåll, företag och offentlig sektor, skatter och välfärd, prisbildning genom utbud och efterfrågan, arbetsmarknadens parter samt hög- och lågkonjunktur på grundnivå.",
+  "topics": [
+    "det ekonomiska kretsloppet",
+    "skatter och välfärd",
+    "utbud och efterfrågan",
+    "arbetsmarknad och parter",
+    "konjunktur"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam8-eko-1",
+      "kind": "mc",
+      "topic": "det ekonomiska kretsloppet",
+      "prompt": "Vad menas med det ekonomiska kretsloppet?",
+      "opener": "Tänk på hur pengar och arbete rör sig i en cirkel mellan olika aktörer.",
+      "choices": [
+        "Att pengar bara rör sig mellan olika banker",
+        "Att pengar, varor, tjänster och arbete cirkulerar mellan hushåll, företag, offentlig sektor och banker",
+        "Att staten bestämmer alla priser i landet",
+        "Att ekonomin växer med exakt lika mycket varje år"
+      ],
+      "answer": 1,
+      "explanation": "Det ekonomiska kretsloppet är en modell som visar hur hushåll säljer sitt arbete till företag och får lön, hur hushållen köper varor och tjänster av företagen, och hur både hushåll och företag betalar skatt till stat, kommun och region som i sin tur betalar för välfärd, bidrag och offentliga jobb. Banker lånar ut och tar emot sparande. Att pengar bara skulle röra sig mellan banker missar hela poängen: kretsloppet handlar om samspelet mellan flera aktörer."
+    },
+    {
+      "id": "q-sam8-eko-2",
+      "kind": "mc",
+      "topic": "skatter och välfärd",
+      "prompt": "Vad används skatteintäkterna i Sverige framför allt till?",
+      "opener": "Fundera på vilka tjänster som är gemensamt finansierade.",
+      "choices": [
+        "Att betala ut vinst till företagens ägare",
+        "Att köpa aktier i utländska företag",
+        "Enbart till försvaret",
+        "Att finansiera välfärd som skola, sjukvård och omsorg, socialförsäkringar samt gemensam infrastruktur"
+      ],
+      "answer": 3,
+      "explanation": "Skatterna finansierar den gemensamma välfärden: skola, sjukvård, omsorg, socialförsäkringar som sjukpenning och pension, samt sådant som vägar, polis, domstolar och försvar. Försvaret är alltså bara en av många poster, inte den enda. Företagens vinster går till ägarna men beskattas — de betalas inte ut av skattemedel."
+    },
+    {
+      "id": "q-sam8-eko-3",
+      "kind": "mc",
+      "topic": "utbud och efterfrågan",
+      "prompt": "Vad händer vanligtvis med priset på en vara om efterfrågan ökar kraftigt medan utbudet är oförändrat?",
+      "opener": "Många vill köpa, men mängden varor är densamma — vad brukar hända då?",
+      "choices": [
+        "Priset tenderar att stiga",
+        "Priset tenderar att sjunka",
+        "Priset påverkas inte alls av efterfrågan",
+        "Varan slutar automatiskt att tillverkas"
+      ],
+      "answer": 0,
+      "explanation": "När många vill köpa en vara som det finns begränsad mängd av, kan säljarna ta ut ett högre pris — priset stiger. Priset sjunker i stället i det motsatta läget, när utbudet är stort men få vill köpa. Att priset inte skulle påverkas alls stämmer inte på en marknad där köpare och säljare möts fritt; det är just mötet mellan utbud och efterfrågan som bildar priset."
+    },
+    {
+      "id": "q-sam8-eko-4",
+      "kind": "mc",
+      "topic": "arbetsmarknad och parter",
+      "prompt": "Vad är ett fackförbunds huvudsakliga uppgift?",
+      "opener": "Fundera på vems intressen facket är till för att företräda.",
+      "choices": [
+        "Att äga de företag där medlemmarna arbetar",
+        "Att bestämma hur mycket skatt löntagarna ska betala",
+        "Att företräda de anställdas intressen, till exempel i förhandlingar om löner och arbetsvillkor",
+        "Att döma i tvister mellan olika länder"
+      ],
+      "answer": 2,
+      "explanation": "Ett fackförbund organiserar anställda och företräder dem i förhandlingar om löner, arbetstider och arbetsmiljö. Motparten är arbetsgivaren eller en arbetsgivarorganisation, och tillsammans kallas de arbetsmarknadens parter. Resultatet av förhandlingarna blir ofta ett kollektivavtal. Skattenivåer beslutas av riksdagen, kommuner och regioner — inte av facket."
+    },
+    {
+      "id": "q-sam8-eko-5",
+      "kind": "mc",
+      "topic": "konjunktur",
+      "prompt": "Vad kännetecknar en lågkonjunktur?",
+      "opener": "Tänk på vad som händer med efterfrågan, produktion och jobb när ekonomin bromsar in.",
+      "choices": [
+        "Hög efterfrågan, många nyanställningar och brist på arbetskraft",
+        "Efterfrågan och produktion minskar, företagen säljer mindre och arbetslösheten stiger",
+        "Att staten alltid höjer skatterna",
+        "Att alla priser är helt oförändrade under flera år"
+      ],
+      "answer": 1,
+      "explanation": "I en lågkonjunktur minskar efterfrågan, företagen säljer och producerar mindre, investeringarna dröjer och arbetslösheten stiger. Det första alternativet beskriver i stället en högkonjunktur, då efterfrågan är hög, företagen anställer och det kan bli brist på arbetskraft. Konjunkturen svänger över tid i vad som brukar kallas konjunktursvängningar."
+    },
+    {
+      "id": "q-sam8-eko-6",
+      "kind": "mc",
+      "topic": "skatter och välfärd",
+      "prompt": "Vilken av följande är ett exempel på en indirekt skatt?",
+      "opener": "En indirekt skatt betalas inte på lönen utan när du handlar.",
+      "choices": [
+        "Kommunal inkomstskatt",
+        "Statlig inkomstskatt",
+        "Skatt på kapitalinkomst",
+        "Moms (mervärdesskatt) som läggs på priset för varor och tjänster"
+      ],
+      "answer": 3,
+      "explanation": "Moms är en indirekt skatt: den ingår i priset du betalar i butiken och redovisas av företaget till staten, så du betalar den utan att skicka in pengarna själv. Inkomstskatt är en direkt skatt som dras direkt på din lön eller inkomst och är kopplad till just din inkomst. Även punktskatter, till exempel på bensin, alkohol och tobak, räknas som indirekta skatter."
+    },
+    {
+      "id": "q-sam8-eko-7",
+      "kind": "worked",
+      "topic": "det ekonomiska kretsloppet",
+      "prompt": "Förklara det ekonomiska kretsloppet genom att följa en tusenlapp i lön från ett företag hela vägen runt i ekonomin.",
+      "opener": "Följ pengarna: från lön till konsumtion, skatt och välfärd — och tillbaka till företagen.",
+      "answer": "Ett företag betalar ut lön till en anställd i ett hushåll som ersättning för arbetet — hushållet bidrar med arbetskraft och får inkomst. En del av lönen dras direkt som inkomstskatt till kommun, region och stat, och arbetsgivaren betalar dessutom arbetsgivaravgifter. Det som blir kvar, nettolönen, använder hushållet till att köpa varor och tjänster, och i de priserna ingår moms som också går till staten. Pengarna hamnar därmed hos företagen igen som intäkter, och företagen använder dem till att betala löner, köpa material och investera — samt betala bolagsskatt på vinsten. Skattepengarna använder stat, kommun och region till välfärd som skola, sjukvård och omsorg, till bidrag och socialförsäkringar och till löner för anställda i offentlig sektor, och de pengarna blir i sin tur inkomster för nya hushåll. Den del av lönen som hushållet sparar sätts ofta in på banken, som kan låna ut den till företag som vill investera eller till hushåll som vill köpa bostad. Så snurrar kretsloppet vidare, och ju mer som konsumeras och produceras, desto mer pengar rör sig i systemet.",
+      "steps": [
+        "Företaget betalar lön till hushållet i utbyte mot arbetskraft.",
+        "Skatt dras på lönen till kommun, region och stat, och arbetsgivaren betalar arbetsgivaravgifter.",
+        "Hushållet konsumerar med nettolönen, och moms på varor och tjänster går till staten.",
+        "Företagen får pengarna som intäkter och använder dem till löner, inköp, investeringar och bolagsskatt.",
+        "Offentlig sektor använder skatterna till välfärd, bidrag och offentliga löner, medan sparande via banker lånas ut till nya investeringar — och kretsloppet fortsätter."
+      ]
+    },
+    {
+      "id": "q-sam8-eko-8",
+      "kind": "flashcard",
+      "topic": "konjunktur",
+      "prompt": "Sammanfatta samhällsekonomins grunder: kretsloppet, skatter och välfärd, prisbildning, arbetsmarknaden och konjunkturen.",
+      "opener": "Från kretsloppets aktörer till svängningarna i ekonomin.",
+      "answer": "Ekonomiska kretsloppet: hushåll säljer arbete och får lön · hushåll konsumerar hos företag · hushåll och företag betalar skatt · offentlig sektor betalar välfärd, bidrag och offentliga löner · banker förmedlar sparande och lån · Skatter: direkta (inkomstskatt, bolagsskatt) och indirekta (moms, punktskatter) · finansierar skola, sjukvård, omsorg, socialförsäkringar och infrastruktur · Utbud och efterfrågan: priset bildas där köpare och säljare möts · ökad efterfrågan vid oförändrat utbud → högre pris · stort utbud och svag efterfrågan → lägre pris · Arbetsmarknaden: fackförbund företräder anställda, arbetsgivarorganisationer företräder arbetsgivare, tillsammans arbetsmarknadens parter · förhandlingarna leder ofta till kollektivavtal · Högkonjunktur: hög efterfrågan, ökad produktion, fler nyanställningar, låg arbetslöshet · Lågkonjunktur: sjunkande efterfrågan och produktion, färre investeringar, stigande arbetslöshet · ekonomin svänger mellan dessa lägen i konjunktursvängningar."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma9-algebra",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Algebra och ekvationer",
+  "sourceSummary": "Förenkla uttryck, lösa ekvationer med obekant i båda leden, och beskriva mönster med formler.",
+  "topics": [
+    "algebraiska uttryck",
+    "ekvationer",
+    "mönster"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma9-alg-1",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $3x + 5 = 20$.",
+      "opener": "Vad behöver du göra bort först för att få $x$ ensamt?",
+      "choices": [
+        "$x = 5$",
+        "$x = 15$",
+        "$x = 25$",
+        "$x = 3$"
+      ],
+      "answer": 0,
+      "explanation": "Dra bort 5 från båda leden: $3x = 15$. Dela sedan båda leden med 3: $x = 5$."
+    },
+    {
+      "id": "q-ma9-alg-2",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $4x + 3 - 2x + 5$.",
+      "opener": "Samla det som hör ihop — $x$-termer för sig, siffror för sig.",
+      "choices": [
+        "$10x$",
+        "$2x + 8$",
+        "$6x + 8$",
+        "$2x + 2$"
+      ],
+      "answer": 1,
+      "explanation": "$4x - 2x = 2x$ och $3 + 5 = 8$, alltså $2x + 8$. Termer med $x$ kan inte slås ihop med vanliga tal."
+    },
+    {
+      "id": "q-ma9-alg-3",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $2(x + 3) = 14$.",
+      "opener": "Du kan antingen dela med 2 först, eller multiplicera in parentesen.",
+      "choices": [
+        "$x = 2$",
+        "$x = 7$",
+        "$x = 4$",
+        "$x = 11$"
+      ],
+      "answer": 2,
+      "explanation": "Dela båda leden med 2: $x + 3 = 7$. Dra bort 3: $x = 4$."
+    },
+    {
+      "id": "q-ma9-alg-4",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $5x - 3 = 2x + 9$.",
+      "opener": "Obekanta i båda leden — samla alla $x$ på en sida först.",
+      "choices": [
+        "$x = 2$",
+        "$x = 12$",
+        "$x = 6$",
+        "$x = 4$"
+      ],
+      "answer": 3,
+      "explanation": "Dra bort $2x$ från båda leden: $3x - 3 = 9$. Lägg till 3: $3x = 12$. Dela med 3: $x = 4$."
+    },
+    {
+      "id": "q-ma9-alg-5",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Vad är värdet av $3x^2$ när $x = -2$?",
+      "opener": "Räkna ut potensen innan du multiplicerar med 3 — och tänk på tecknet.",
+      "choices": [
+        "12",
+        "-12",
+        "36",
+        "-36"
+      ],
+      "answer": 0,
+      "explanation": "$(-2)^2 = 4$ eftersom minus gånger minus blir plus. Sedan $3 \\cdot 4 = 12$."
+    },
+    {
+      "id": "q-ma9-alg-6",
+      "kind": "mc",
+      "topic": "mönster",
+      "prompt": "Talföljden börjar 3, 7, 11, 15, … Vilket uttryck ger det $n$:te talet?",
+      "opener": "Hur mycket ökar det varje steg, och var börjar följden?",
+      "choices": [
+        "$n + 4$",
+        "$4n - 1$",
+        "$4n + 3$",
+        "$3n$"
+      ],
+      "answer": 1,
+      "explanation": "Följden ökar med 4 varje steg, så uttrycket innehåller $4n$. För $n = 1$ ska det bli 3: $4 \\cdot 1 - 1 = 3$. ✓"
+    },
+    {
+      "id": "q-ma9-alg-7",
+      "kind": "worked",
+      "topic": "ekvationer",
+      "prompt": "Anna och Ben har tillsammans 45 kr. Ben har dubbelt så mycket som Anna. Ställ upp en ekvation och räkna ut hur mycket Anna har.",
+      "opener": "Sätt ett namn på det du inte vet — kalla Annas pengar för $x$.",
+      "answer": "Anna har 15 kr",
+      "steps": [
+        "Låt $x$ vara Annas pengar. Då har Ben $2x$.",
+        "Tillsammans: $x + 2x = 45$.",
+        "Förenkla: $3x = 45$.",
+        "Dela med 3: $x = 15$. Anna har 15 kr (och Ben har 30 kr)."
+      ]
+    },
+    {
+      "id": "q-ma9-alg-8",
+      "kind": "flashcard",
+      "topic": "ekvationer",
+      "prompt": "Vad är grundregeln när du löser en ekvation?",
+      "opener": "Tänk på en våg som ska hållas i balans.",
+      "answer": "Det du gör med ena ledet måste du göra med det andra. Ekvationen är som en våg i balans — adderar, subtraherar, multiplicerar eller dividerar du på ena sidan måste samma sak ske på andra sidan."
+    }
+  ]
+}

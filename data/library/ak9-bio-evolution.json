@@ -1,0 +1,130 @@
+{
+  "id": "lib-bio-evolution",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Evolution och naturligt urval",
+  "sourceSummary": "Naturligt urval, anpassning och artbildning — grunderna i Darwins evolutionsteori och hur fossil fungerar som bevis.",
+  "topics": [
+    "naturligt urval",
+    "anpassning",
+    "artbildning",
+    "fossil som bevis",
+    "Darwin"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio-evo-1",
+      "kind": "mc",
+      "topic": "naturligt urval",
+      "prompt": "Vad menas med naturligt urval?",
+      "opener": "Tänk på vilka individer som oftast överlever och får flest ungar.",
+      "choices": [
+        "Att alla individer i en art är exakt likadana",
+        "Att individer med egenskaper som passar miljön bäst oftare överlever och för sina anlag vidare",
+        "Att djur medvetet väljer att förändra sina egenskaper",
+        "Att människor avlar fram nya husdjursraser"
+      ],
+      "answer": 1,
+      "explanation": "Naturligt urval innebär att individer med egenskaper som ger fördel i just den miljön har större chans att överleva och fortplanta sig, så deras anlag blir vanligare i populationen över tid. Att medvetet välja fram egenskaper är snarare avel (konstgjort urval)."
+    },
+    {
+      "id": "q-bio-evo-2",
+      "kind": "mc",
+      "topic": "Darwin",
+      "prompt": "Vem är känd för att ha beskrivit teorin om evolution genom naturligt urval?",
+      "opener": "En brittisk naturforskare som reste med skeppet Beagle på 1800-talet.",
+      "choices": [
+        "Gregor Mendel",
+        "Charles Darwin",
+        "Carl von Linné",
+        "Louis Pasteur"
+      ],
+      "answer": 1,
+      "explanation": "Charles Darwin formulerade teorin om evolution genom naturligt urval, bland annat efter sin resa med skeppet HMS Beagle. Mendel forskade om ärftlighet, Linné om artindelning och Pasteur om mikroorganismer."
+    },
+    {
+      "id": "q-bio-evo-3",
+      "kind": "mc",
+      "topic": "anpassning",
+      "prompt": "Vad är en anpassning (adaptation)?",
+      "opener": "Tänk på en egenskap som gör att en art klarar sig bättre i sin miljö.",
+      "choices": [
+        "En tillfällig skada hos en individ",
+        "En egenskap som gör en organism bättre lämpad för sin livsmiljö",
+        "En sjukdom som sprids i en population",
+        "Ett namn på en djurart"
+      ],
+      "answer": 1,
+      "explanation": "En anpassning är en egenskap, t.ex. kamouflagefärg eller ett visst näbbformat, som har utvecklats genom naturligt urval och gör organismen bättre lämpad att överleva och fortplanta sig i sin miljö."
+    },
+    {
+      "id": "q-bio-evo-4",
+      "kind": "mc",
+      "topic": "artbildning",
+      "prompt": "Vad krävs vanligen för att en ny art ska kunna bildas (artbildning)?",
+      "opener": "Tänk på vad som händer om två grupper av samma art är isolerade från varandra under lång tid.",
+      "choices": [
+        "Att alla individer dör samtidigt",
+        "Att grupper isoleras från varandra och utvecklas olika under lång tid tills de inte längre kan få fertil avkomma tillsammans",
+        "Att en enskild individ muterar en gång",
+        "Att djur flyttar till ett annat land"
+      ],
+      "answer": 1,
+      "explanation": "Artbildning sker oftast när populationer blir isolerade från varandra, t.ex. av ett hav eller en bergskedja, och över lång tid utvecklas så olika (genom mutationer och naturligt urval) att de inte längre kan få fertil avkomma tillsammans."
+    },
+    {
+      "id": "q-bio-evo-5",
+      "kind": "mc",
+      "topic": "fossil som bevis",
+      "prompt": "Vad kan fossil visa oss?",
+      "opener": "Tänk på vad som lämnas kvar av djur och växter som levde för mycket länge sedan.",
+      "choices": [
+        "Exakt vilken färg djuren hade",
+        "Hur arter har förändrats över mycket lång tid",
+        "Att alla arter alltid sett likadana ut",
+        "Vilket språk förhistoriska människor talade"
+      ],
+      "answer": 1,
+      "explanation": "Fossil är bevarade rester eller avtryck av organismer som levt förr, och genom att jämföra fossil från olika tidsperioder kan forskare se hur arter gradvis förändrats över miljontals år — ett viktigt bevis för evolutionen."
+    },
+    {
+      "id": "q-bio-evo-6",
+      "kind": "mc",
+      "topic": "naturligt urval",
+      "prompt": "Varför har dagens giraffer långa halsar, enligt evolutionsteorin?",
+      "opener": "Det handlar inte om att enskilda giraffer sträckte på halsen — vad handlar det om istället?",
+      "choices": [
+        "Giraffer sträckte medvetet på halsen och det gick i arv",
+        "Giraffer med längre hals nådde av naturlig variation mer föda och fick fler överlevande ungar, så anlaget för lång hals blev vanligare",
+        "Alla giraffer föddes plötsligt med lång hals samtidigt",
+        "Halsen blev lång för att giraffer tränade nacken"
+      ],
+      "answer": 1,
+      "explanation": "Enligt naturligt urval fanns det redan variation i halslängd bland giraffer. De med längre hals kunde nå mer föda högt upp i träden, överlevde oftare och fick fler ungar som ärvde anlaget. Att en enskild individ \"tränar\" eller sträcker sig ger inget som går i arv — det är en vanlig missuppfattning."
+    },
+    {
+      "id": "q-bio-evo-7",
+      "kind": "worked",
+      "topic": "naturligt urval",
+      "prompt": "Förklara med hjälp av exemplet insekter som blir motståndskraftiga mot bekämpningsmedel hur naturligt urval leder till att en population förändras över tid.",
+      "opener": "Utgå från att det redan finns naturlig variation i populationen innan miljön förändras.",
+      "answer": "Eftersom det redan finns naturlig variation i motståndskraft i insektspopulationen, dör de känsliga insekterna när bekämpningsmedel används, medan de mer motståndskraftiga överlever och förökar sig. Över flera generationer blir andelen motståndskraftiga insekter allt större, tills nästan hela populationen är resistent.",
+      "steps": [
+        "Innan bekämpningsmedlet används finns det redan naturlig variation — några insekter har av slump anlag som gör dem lite mer motståndskraftiga.",
+        "När bekämpningsmedlet sprids dör de flesta känsliga insekterna.",
+        "De motståndskraftiga insekterna överlever och fortplantar sig, och för sina anlag vidare till nästa generation.",
+        "Andelen motståndskraftiga insekter ökar för varje generation.",
+        "Efter många generationer består populationen mest av motståndskraftiga insekter — ett tydligt exempel på naturligt urval i verkligheten."
+      ]
+    },
+    {
+      "id": "q-bio-evo-8",
+      "kind": "flashcard",
+      "topic": "naturligt urval",
+      "prompt": "Sammanfatta grundidéerna i evolutionsteorin.",
+      "opener": "Gå igenom variation, urval och resultat.",
+      "answer": "Variation: individer inom en art skiljer sig något åt, delvis på grund av mutationer · Konkurrens: fler ungar föds än vad miljön kan försörja, så det blir konkurrens om resurser · Naturligt urval: individer med egenskaper som passar miljön bäst överlever och fortplantar sig oftare · Ärftlighet: fördelaktiga anlag förs vidare till nästa generation och blir vanligare över tid · Artbildning: om populationer isoleras länge kan de utvecklas till skilda arter · Bevis: fossil, DNA-likheter mellan arter och observationer av naturligt urval i verkligheten (t.ex. antibiotikaresistens) stödjer teorin."
+    }
+  ]
+}

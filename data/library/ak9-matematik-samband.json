@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma9-samband",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Samband och funktioner",
+  "sourceSummary": "Linjära funktioner, proportionella samband, grafens k- och m-värde, och att översätta vardagssituationer till formler.",
+  "topics": [
+    "linjära funktioner",
+    "proportionalitet",
+    "grafer"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma9-sam-1",
+      "kind": "mc",
+      "topic": "linjära funktioner",
+      "prompt": "För funktionen $y = 2x + 3$, vad är $y$ när $x = 4$?",
+      "opener": "Byt ut $x$ mot 4 och räkna — tänk på ordningen.",
+      "choices": [
+        "11",
+        "24",
+        "9",
+        "14"
+      ],
+      "answer": 0,
+      "explanation": "$y = 2 \\cdot 4 + 3 = 8 + 3 = 11$. Multiplikationen görs före additionen."
+    },
+    {
+      "id": "q-ma9-sam-2",
+      "kind": "mc",
+      "topic": "grafer",
+      "prompt": "I funktionen $y = -3x + 7$, vad beskriver talet $-3$?",
+      "opener": "Ett av talen säger var linjen börjar, det andra hur den lutar.",
+      "choices": [
+        "Var grafen skär y-axeln",
+        "Hur mycket $y$ ändras när $x$ ökar med 1",
+        "Grafens högsta värde",
+        "Var grafen skär x-axeln"
+      ],
+      "answer": 1,
+      "explanation": "$k$-värdet ($-3$) är lutningen: varje gång $x$ ökar med 1 minskar $y$ med 3. Talet 7 är $m$-värdet, där grafen skär y-axeln."
+    },
+    {
+      "id": "q-ma9-sam-3",
+      "kind": "mc",
+      "topic": "grafer",
+      "prompt": "Var skär grafen till $y = 2x + 1$ y-axeln?",
+      "opener": "Vad är $x$ i alla punkter som ligger på y-axeln?",
+      "choices": [
+        "I punkten (0, 2)",
+        "I punkten (2, 1)",
+        "I punkten (0, 1)",
+        "I punkten (1, 0)"
+      ],
+      "answer": 2,
+      "explanation": "På y-axeln är $x = 0$. Då blir $y = 2 \\cdot 0 + 1 = 1$, alltså punkten $(0, 1)$ — det är $m$-värdet."
+    },
+    {
+      "id": "q-ma9-sam-4",
+      "kind": "mc",
+      "topic": "proportionalitet",
+      "prompt": "Vilket av dessa samband är proportionellt?",
+      "opener": "Ett proportionellt samband ska ge dubbelt så mycket när du dubblar — vad kräver det av grafen?",
+      "choices": [
+        "$y = 2x - 3$",
+        "$y = x^2$",
+        "$y = x + 5$",
+        "$y = 4x$"
+      ],
+      "answer": 3,
+      "explanation": "Ett proportionellt samband har formen $y = kx$ och går genom origo. $y = 4x$ uppfyller det; de övriga har antingen ett $m$-värde eller är inte linjära."
+    },
+    {
+      "id": "q-ma9-sam-5",
+      "kind": "mc",
+      "topic": "linjära funktioner",
+      "prompt": "En webbutik tar 25 kr per vara plus 50 kr i frakt. Vilken formel ger totalkostnaden $y$ för $x$ varor?",
+      "opener": "Vilken del av kostnaden ändras med antalet, och vilken är fast?",
+      "choices": [
+        "$y = 25x + 50$",
+        "$y = 25x - 50$",
+        "$y = 25 + 50x$",
+        "$y = 75x$"
+      ],
+      "answer": 0,
+      "explanation": "Varje vara kostar 25 kr, alltså $25x$, och frakten är fast 50 kr oavsett antal: $y = 25x + 50$."
+    },
+    {
+      "id": "q-ma9-sam-6",
+      "kind": "mc",
+      "topic": "proportionalitet",
+      "prompt": "En bil kör i 60 km/h. Hur långt kommer den på 2,5 timmar?",
+      "opener": "Sträcka är hastighet gånger tid.",
+      "choices": [
+        "120 km",
+        "150 km",
+        "24 km",
+        "180 km"
+      ],
+      "answer": 1,
+      "explanation": "$s = v \\cdot t = 60 \\cdot 2{,}5 = 150$ km."
+    },
+    {
+      "id": "q-ma9-sam-7",
+      "kind": "worked",
+      "topic": "linjära funktioner",
+      "prompt": "Ett gymkort kostar 200 kr i startavgift plus 150 kr per månad. Efter hur många månader har du betalat 1 400 kr? Ställ upp en ekvation och lös den.",
+      "opener": "Skriv först en formel för totalkostnaden, sätt den sedan lika med 1 400.",
+      "answer": "8 månader",
+      "steps": [
+        "Totalkostnad efter $x$ månader: $y = 150x + 200$.",
+        "Sätt lika med 1 400: $150x + 200 = 1400$.",
+        "Dra bort 200: $150x = 1200$.",
+        "Dela med 150: $x = 8$ månader."
+      ]
+    },
+    {
+      "id": "q-ma9-sam-8",
+      "kind": "flashcard",
+      "topic": "grafer",
+      "prompt": "Vad betyder $k$ och $m$ i en rät linjes ekvation $y = kx + m$?",
+      "opener": "Ett av dem bestämmer lutningen, det andra startpunkten.",
+      "answer": "$k$ är lutningen (riktningskoefficienten) — hur mycket $y$ ändras när $x$ ökar med 1. $m$ är där linjen skär y-axeln, alltså $y$-värdet när $x = 0$."
+    }
+  ]
+}

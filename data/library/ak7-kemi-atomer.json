@@ -1,0 +1,129 @@
+{
+  "id": "lib-kemi7-atomer",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Atomer och grundämnen",
+  "sourceSummary": "Atomen som allting är uppbyggt av, skillnaden mellan grundämne och kemisk förening, kemiska tecken för vanliga grundämnen, vad en molekyl är och hur periodiska systemet är ordnat.",
+  "topics": [
+    "atomen som byggsten",
+    "grundämnen och föreningar",
+    "kemiska tecken",
+    "molekyler",
+    "periodiska systemet"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi7-ato-1",
+      "kind": "mc",
+      "topic": "atomen som byggsten",
+      "prompt": "Vad är en atom?",
+      "opener": "Tänk på det minsta man kan dela ett grundämne i och fortfarande ha kvar samma ämne.",
+      "choices": [
+        "Den minsta droppen man kan dela en vätska i",
+        "Den minsta byggstenen som ett grundämne är uppbyggt av",
+        "En blandning av flera olika ämnen",
+        "Ett annat namn för en vattenmolekyl"
+      ],
+      "answer": 1,
+      "explanation": "Atomen är den minsta byggstenen i ett grundämne — allt omkring dig är byggt av atomer. En droppe vatten är inte alls minst möjlig, den innehåller ofattbart många miljarder atomer."
+    },
+    {
+      "id": "q-kemi7-ato-2",
+      "kind": "mc",
+      "topic": "kemiska tecken",
+      "prompt": "Vilket kemiskt tecken har grundämnet syre?",
+      "opener": "Tecknet kommer från det latinska namnet oxygenium, inte från det svenska ordet.",
+      "choices": [
+        "S",
+        "Sy",
+        "C",
+        "O"
+      ],
+      "answer": 3,
+      "explanation": "Syre har det kemiska tecknet O, från latinets oxygenium. S är tecknet för svavel och C för kol — man kan alltså inte gissa tecknet utifrån första bokstaven i det svenska namnet."
+    },
+    {
+      "id": "q-kemi7-ato-3",
+      "kind": "mc",
+      "topic": "grundämnen och föreningar",
+      "prompt": "Vilket av följande är ett grundämne?",
+      "opener": "Ett grundämne består av bara ett enda slags atomer.",
+      "choices": [
+        "Järn (Fe)",
+        "Vatten (H₂O)",
+        "Koldioxid (CO₂)",
+        "Koksalt (NaCl)"
+      ],
+      "answer": 0,
+      "explanation": "Järn innehåller bara järnatomer och är därför ett grundämne. Vatten, koldioxid och koksalt är kemiska föreningar — du ser det i formlerna, som innehåller mer än ett kemiskt tecken."
+    },
+    {
+      "id": "q-kemi7-ato-4",
+      "kind": "mc",
+      "topic": "periodiska systemet",
+      "prompt": "Hur är grundämnena ordnade i periodiska systemet?",
+      "opener": "Siffran som står vid varje ämne kallas atomnummer.",
+      "choices": [
+        "Efter hur stora atomerna är",
+        "Efter atomnummer, alltså antalet protoner i atomkärnan",
+        "Efter de svenska namnen i bokstavsordning",
+        "Efter hur mycket ämnena kostar att köpa"
+      ],
+      "answer": 1,
+      "explanation": "Ämnena står i ordning efter atomnummer, som är antalet protoner i kärnan: väte har nummer 1, helium 2, litium 3 och så vidare. De står inte i bokstavsordning — det ser man direkt, eftersom väte (H) står först och inte något ämne på A."
+    },
+    {
+      "id": "q-kemi7-ato-5",
+      "kind": "mc",
+      "topic": "molekyler",
+      "prompt": "I formeln H₂O står en liten tvåa efter H. Vad betyder den?",
+      "opener": "Siffran talar om hur många atomer av just det slaget som finns i molekylen.",
+      "choices": [
+        "Att det finns två vattenmolekyler",
+        "Att vätet har laddningen 2",
+        "Att molekylen innehåller två väteatomer",
+        "Att syret väger dubbelt så mycket som vätet"
+      ],
+      "answer": 2,
+      "explanation": "Tvåan visar antalet väteatomer i molekylen: en vattenmolekyl består av två väteatomer och en syreatom. Om man vill visa två hela molekyler skriver man i stället siffran framför formeln, alltså 2 H₂O."
+    },
+    {
+      "id": "q-kemi7-ato-6",
+      "kind": "mc",
+      "topic": "kemiska tecken",
+      "prompt": "Vilket grundämne har det kemiska tecknet Cu?",
+      "opener": "Tecknet kommer från det latinska namnet cuprum — tänk på en färg som är rödbrun.",
+      "choices": [
+        "Kol",
+        "Kalcium",
+        "Klor",
+        "Koppar"
+      ],
+      "answer": 3,
+      "explanation": "Cu är tecknet för koppar, från latinets cuprum. Kol har tecknet C, kalcium Ca och klor Cl — alla börjar på K på svenska, vilket är just därför man måste lära sig tecknen och inte gissa."
+    },
+    {
+      "id": "q-kemi7-ato-7",
+      "kind": "worked",
+      "topic": "grundämnen och föreningar",
+      "prompt": "Koldioxid har formeln CO₂. Förklara med hjälp av formeln varför koldioxid är en kemisk förening och inte ett grundämne, och räkna ut hur många atomer en koldioxidmolekyl består av.",
+      "opener": "Läs formeln tecken för tecken: vilka slags atomer finns med, och hur många av varje?",
+      "answer": "Koldioxid är en kemisk förening eftersom molekylen innehåller två olika slags atomer (kol och syre), och varje molekyl består av sammanlagt 3 atomer: 1 kolatom och 2 syreatomer.",
+      "steps": [
+        "Dela upp formeln i dess kemiska tecken: C står för kol och O står för syre.",
+        "Läs av siffrorna: efter C står ingen siffra, vilket betyder 1 kolatom. Efter O står en tvåa, alltså 2 syreatomer.",
+        "Räkna totalt antal atomer: 1 + 2 = 3 atomer i varje koldioxidmolekyl.",
+        "Dra slutsatsen: eftersom molekylen innehåller två OLIKA slags atomer som sitter ihop är koldioxid en kemisk förening. Ett grundämne, som syrgas O₂, innehåller bara ett slags atomer."
+      ]
+    },
+    {
+      "id": "q-kemi7-ato-8",
+      "kind": "flashcard",
+      "topic": "kemiska tecken",
+      "prompt": "Sammanfatta atombegreppen och de kemiska tecken du behöver kunna utantill.",
+      "opener": "Ta begreppen atom, grundämne, molekyl och förening först, sedan tecknen.",
+      "answer": "Atom: minsta byggstenen i ett grundämne, allt är uppbyggt av atomer · Grundämne: bara ett slags atomer, t.ex. järn (Fe), syrgas (O₂) · Kemisk förening: minst två olika slags atomer bundna till varandra, t.ex. vatten (H₂O), koldioxid (CO₂), koksalt (NaCl) · Molekyl: två eller flera atomer som sitter ihop, kan vara av samma slag (O₂) eller olika slag (H₂O) · Kemisk formel: tecknen visar vilka atomer, den lilla siffran efter ett tecken visar hur många av just den atomen · Kemiska tecken: H = väte, O = syre, C = kol, N = kväve, Fe = järn (ferrum), Cu = koppar (cuprum), Na = natrium, Cl = klor, S = svavel · Stor bokstav först, liten bokstav sedan: Co är kobolt men CO är kolmonoxid · Periodiska systemet: alla kända grundämnen ordnade efter atomnummer (antalet protoner), metaller till vänster och nedåt, icke-metaller upp till höger, ädelgaserna längst till höger."
+    }
+  ]
+}

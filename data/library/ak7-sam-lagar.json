@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam7-lagar",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Lagar, regler och rättigheter",
+  "sourceSummary": "Skillnaden mellan lagar och regler, varför samhället behöver lagar, vad polisen och domstolarna gör, vad straffmyndighetsåldern innebär och vilka rättigheter barn har enligt barnkonventionen.",
+  "topics": [
+    "lagar och regler",
+    "varför samhället har lagar",
+    "polis och domstol",
+    "straffmyndighetsålder",
+    "barnkonventionen"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam7-lag-1",
+      "kind": "mc",
+      "topic": "lagar och regler",
+      "prompt": "Vad är skillnaden mellan en lag och en regel?",
+      "opener": "Tänk på vem som har bestämt den och hur många den gäller för.",
+      "choices": [
+        "Det är samma sak, orden betyder exakt lika mycket",
+        "En lag beslutas av riksdagen och gäller alla i landet, medan en regel kan bestämmas av till exempel en skola eller förening och gäller bara där",
+        "En regel beslutas av riksdagen och en lag av rektorn",
+        "Lagar gäller bara vuxna och regler bara barn"
+      ],
+      "answer": 1,
+      "explanation": "Lagar beslutas av riksdagen och gäller alla i Sverige, och den som bryter mot en lag kan straffas av en domstol. Regler kan en skola, en förening eller en familj bestämma själv, och de gäller bara i den miljön — att bryta mot en skolregel är alltså inte samma sak som att bryta mot lagen."
+    },
+    {
+      "id": "q-sam7-lag-2",
+      "kind": "mc",
+      "topic": "varför samhället har lagar",
+      "prompt": "Vilket är ett viktigt skäl till att samhället har lagar?",
+      "opener": "Fundera på hur det skulle vara att leva någonstans där ingenting var bestämt i förväg.",
+      "choices": [
+        "För att staten ska tjäna pengar på böter",
+        "För att göra det svårare att veta vad som gäller",
+        "För att skapa trygghet och ordning, skydda människors rättigheter och göra det tydligt vad som är tillåtet",
+        "För att alla ska tycka exakt likadant"
+      ],
+      "answer": 2,
+      "explanation": "Lagar finns för att skydda människor och deras rättigheter, göra samhället förutsägbart och tydliggöra vad som är tillåtet och otillåtet. Böter är en följd av att någon bryter mot en lag, inte syftet med lagarna."
+    },
+    {
+      "id": "q-sam7-lag-3",
+      "kind": "mc",
+      "topic": "polis och domstol",
+      "prompt": "Vad är polisens uppgift när ett brott har begåtts?",
+      "opener": "Polisen tar reda på vad som hänt — men vem är det som avgör skuldfrågan?",
+      "choices": [
+        "Att utreda brottet och gripa misstänkta, men inte att avgöra om någon är skyldig",
+        "Att döma den misstänkte till fängelse",
+        "Att skriva nya lagar mot brottet",
+        "Att bestämma hur långt straffet ska bli"
+      ],
+      "answer": 0,
+      "explanation": "Polisen utreder brott, samlar bevis och kan gripa misstänkta, men det är domstolen som avgör skuldfrågan och beslutar om straff. Nya lagar stiftas dessutom av riksdagen, inte av polisen."
+    },
+    {
+      "id": "q-sam7-lag-4",
+      "kind": "mc",
+      "topic": "polis och domstol",
+      "prompt": "Vad gör en domstol i ett brottmål?",
+      "opener": "Domstolen kommer sist i kedjan, efter polis och åklagare.",
+      "choices": [
+        "Utreder brottet och förhör vittnen på brottsplatsen",
+        "Beslutar om nya lagar ska införas",
+        "Väljer vilka poliser som ska arbeta med fallet",
+        "Prövar bevisen, avgör om den åtalade är skyldig och beslutar i så fall om straff"
+      ],
+      "answer": 3,
+      "explanation": "Domstolen håller rättegång, prövar bevisen och avgör om den åtalade är skyldig — och beslutar i så fall vilket straff som ska följa. Att utreda brottet är polisens uppgift, och att stifta lagar är riksdagens."
+    },
+    {
+      "id": "q-sam7-lag-5",
+      "kind": "mc",
+      "topic": "straffmyndighetsålder",
+      "prompt": "Från vilken ålder är man straffmyndig i Sverige?",
+      "opener": "Åldern ligger mitt i högstadietiden.",
+      "choices": [
+        "13 år",
+        "15 år",
+        "18 år",
+        "21 år"
+      ],
+      "answer": 1,
+      "explanation": "I Sverige är man straffmyndig från 15 års ålder, vilket betyder att man först då kan dömas till straff av en domstol. Yngre barn som begår brott kan inte dömas, men polisen kan ändå utreda händelsen och socialtjänsten kopplas in för att hjälpa och sätta in åtgärder. 18 år är gränsen för att räknas som vuxen i andra sammanhang, inte för straffmyndighet."
+    },
+    {
+      "id": "q-sam7-lag-6",
+      "kind": "mc",
+      "topic": "barnkonventionen",
+      "prompt": "Vilket av följande är rättigheter som barn har enligt barnkonventionen?",
+      "opener": "Konventionen handlar om vad varje barn har rätt till, inte om vad barn måste kunna prestera.",
+      "choices": [
+        "Rätt att köra bil och rösta i val",
+        "Rätt att slippa gå i skolan om man inte vill",
+        "Rätt till utbildning, rätt att komma till tals i frågor som rör en själv och rätt att skyddas mot våld",
+        "Rätt att alltid få bestämma själv utan vuxnas inblandning"
+      ],
+      "answer": 2,
+      "explanation": "Barnkonventionen ger alla under 18 år rättigheter som utbildning, hälsa, skydd mot våld och rätten att bli lyssnad på i frågor som rör barnet. Den betyder däremot inte att barn får bestämma allt själva — barnets bästa ska sättas i centrum, men vuxna har fortfarande ansvar. Barnkonventionen gäller som svensk lag sedan 2020."
+    },
+    {
+      "id": "q-sam7-lag-7",
+      "kind": "worked",
+      "topic": "polis och domstol",
+      "prompt": "Beskriv steg för steg vad som händer i Sverige från att ett brott anmäls till att en dom faller.",
+      "opener": "Följ kedjan: anmälan, utredning, beslut om åtal, rättegång, dom.",
+      "answer": "Först anmäls brottet till polisen, till exempel av den som drabbats. Polisen inleder en förundersökning, samlar bevis och håller förhör. Sedan tar en åklagare ställning till om bevisen räcker: om de gör det väcker åklagaren åtal, annars läggs utredningen ner. Om åtal väcks hålls en rättegång i tingsrätten, där åklagaren, den åtalade med sin försvarsadvokat och eventuella vittnen får komma till tals. Till sist meddelar domstolen dom — friande eller fällande med ett straff — och domen kan överklagas till hovrätten.",
+      "steps": [
+        "Brottet anmäls till polisen, ofta av den som utsatts eller av ett vittne.",
+        "Polisen gör en förundersökning: samlar bevis, håller förhör och letar efter en misstänkt.",
+        "En åklagare bedömer bevisen och beslutar om åtal ska väckas eller om utredningen läggs ner.",
+        "Om åtal väcks hålls rättegång i tingsrätten, där åklagare, åtalad med försvarare och vittnen hörs.",
+        "Domstolen meddelar dom — friande eller fällande med straff — och domen kan överklagas till hovrätten."
+      ]
+    },
+    {
+      "id": "q-sam7-lag-8",
+      "kind": "flashcard",
+      "topic": "lagar och regler",
+      "prompt": "Sammanfatta det viktigaste om lagar, rättsväsendet och barns rättigheter.",
+      "opener": "Ta lag kontra regel först, sedan rättsväsendets roller och till sist rättigheterna.",
+      "answer": "Lag: skriven regel beslutad av riksdagen, gäller alla i Sverige, kan ge straff · Regel: bestäms av t.ex. skola, förening eller familj och gäller bara där · Varför lagar behövs: trygghet, ordning, skydd för rättigheter och tydlighet om vad som är tillåtet · Polisen: utreder brott, håller förhör, griper misstänkta — avgör inte skuldfrågan · Åklagaren: leder förundersökningen och beslutar om åtal ska väckas · Domstolen: prövar bevisen, avgör skuld och beslutar om straff — tingsrätt först, sedan hovrätt och Högsta domstolen vid överklagande · Vanliga straff: böter, villkorlig dom, skyddstillsyn, samhällstjänst, fängelse · Straffmyndig i Sverige: från 15 år — yngre kan inte dömas men socialtjänsten kopplas in · Myndig: 18 år · Barnkonventionen: FN:s konvention om barnets rättigheter, gäller alla under 18 år, svensk lag sedan 2020 · Fyra grundprinciper: alla barn har samma rättigheter, barnets bästa ska komma först, rätt till liv och utveckling, rätt att komma till tals."
+    }
+  ]
+}

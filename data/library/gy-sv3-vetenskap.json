@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv3-vetenskap",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Vetenskapligt skrivande och PM",
+  "sourceSummary": "PM-strukturens delar, objektivt och opersonligt språk samt vad som skiljer en vetenskaplig text från andra texttyper.",
+  "topics": [
+    "PM-struktur",
+    "objektivt språk",
+    "vetenskaplig text"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-vetenskap-1",
+      "kind": "mc",
+      "topic": "PM-struktur",
+      "prompt": "Vilken uppgift har SYFTET i ett PM?",
+      "opener": "Syftet svarar på frågan \"varför skriver jag det här?\"",
+      "choices": [
+        "Att sammanfatta resultatet i korthet",
+        "Att redovisa vilka källor som använts",
+        "Att presentera skribentens slutsats direkt",
+        "Att ange vilken fråga eller vilket problem texten ska undersöka"
+      ],
+      "answer": 3,
+      "explanation": "Syftet talar om vad undersökningen ska ta reda på — det styr resten av texten. Att sammanfatta resultat eller dra slutsatser hör hemma i resultat- och diskussionsdelen, inte i syftesformuleringen."
+    },
+    {
+      "id": "q-sv3-vetenskap-2",
+      "kind": "mc",
+      "topic": "PM-struktur",
+      "prompt": "Var i ett PM redovisar man HUR undersökningen genomförts, t.ex. vilka källor och metoder som använts?",
+      "opener": "Tänk på vilken del som fungerar som en \"kokbok\" för läsaren.",
+      "choices": [
+        "I inledningen",
+        "I diskussionen",
+        "I metodavsnittet",
+        "I resultatdelen"
+      ],
+      "answer": 2,
+      "explanation": "Metodavsnittet beskriver tillvägagångssättet så att läsaren kan bedöma undersökningens tillförlitlighet och i princip upprepa den. Resultatdelen redovisar istället vad man kom fram till, inte hur."
+    },
+    {
+      "id": "q-sv3-vetenskap-3",
+      "kind": "mc",
+      "topic": "PM-struktur",
+      "prompt": "Vad ska en väl fungerande DISKUSSION i ett PM innehålla?",
+      "opener": "Diskussionen går bortom att bara räkna upp fakta igen.",
+      "choices": [
+        "En ordagrann upprepning av resultatet",
+        "Nya källor som inte nämnts tidigare i texten",
+        "Skribentens tolkning av resultatet, kopplat till syftet, samt eventuella felkällor",
+        "En kort sammanfattning av varje styckes innehåll"
+      ],
+      "answer": 2,
+      "explanation": "Diskussionen tolkar och värderar resultatet i relation till syftet och lyfter fram styrkor, svagheter och möjliga felkällor. Att bara upprepa resultatet eller sammanfatta stycken tillför inget nytt."
+    },
+    {
+      "id": "q-sv3-vetenskap-4",
+      "kind": "mc",
+      "topic": "objektivt språk",
+      "prompt": "Vilken mening är skriven med objektivt och opersonligt vetenskapligt språk?",
+      "opener": "Vem eller vad står i fokus — skribentens känsla eller undersökningens resultat?",
+      "choices": [
+        "Resultatet visar att andelen ökade med 12 procentenheter mellan 2015 och 2023.",
+        "Jag tycker verkligen att resultatet är superintressant och lite chockerande.",
+        "Alla vet ju att det här är ett stort problem i skolan.",
+        "Det känns rimligt att anta att fler kommer hålla med om detta."
+      ],
+      "answer": 0,
+      "explanation": "Objektivt språk redovisar sakförhållanden utan värdeladdade ord eller personliga känslouttryck som \"jag tycker\" eller \"känns rimligt\". Alternativet med siffror och neutral formulering är sakligt och verifierbart."
+    },
+    {
+      "id": "q-sv3-vetenskap-5",
+      "kind": "mc",
+      "topic": "objektivt språk",
+      "prompt": "Varför undviker man ofta jag-formen i vetenskapliga texter, och använder t.ex. passiv form eller \"man\" istället?",
+      "opener": "Vad vill man rikta läsarens uppmärksamhet mot: skribentens person, eller undersökningen?",
+      "choices": [
+        "Jag-formen är grammatiskt felaktig i svenskan",
+        "Det gör texten kortare",
+        "Det flyttar fokus från skribenten till undersökningen och resultatet, vilket stärker objektiviteten",
+        "Det är ett krav enligt svensk lag för alla skoltexter"
+      ],
+      "answer": 2,
+      "explanation": "Genom att tona ner skribentens synliga närvaro (t.ex. \"undersökningen visar\" istället för \"jag tycker mig se\") betonas att slutsatserna bygger på data, inte på personliga intryck. Jag-formen är inte grammatiskt fel, bara stilistiskt olämplig i sammanhanget."
+    },
+    {
+      "id": "q-sv3-vetenskap-6",
+      "kind": "mc",
+      "topic": "vetenskaplig text",
+      "prompt": "Vad skiljer en vetenskaplig/utredande text tydligast från en argumenterande text eller en krönika?",
+      "opener": "Jämför vad skribenten gör med sin egen ståndpunkt i de olika texttyperna.",
+      "choices": [
+        "Den vetenskapliga texten är alltid skriven i jag-form",
+        "Den vetenskapliga texten strävar efter opartiskhet, belägg och en tydlig metod, snarare än att övertyga läsaren om en åsikt",
+        "Den vetenskapliga texten saknar rubriker och struktur",
+        "Den vetenskapliga texten får bygga enbart på skribentens personliga erfarenhet"
+      ],
+      "answer": 1,
+      "explanation": "En krönika eller argumenterande text får gärna vara personlig och driva en åsikt; den vetenskapliga texten ska istället vara systematisk, källbelagd och sträva efter att undersöka snarare än att övertala. Struktur och rubriker är tvärtom typiskt för vetenskapliga texter."
+    },
+    {
+      "id": "q-sv3-vetenskap-7",
+      "kind": "worked",
+      "topic": "PM-struktur",
+      "prompt": "Du ska skriva ett PM om huruvida distansundervisning påverkar elevers studieresultat. Beskriv kortfattat vad som ska stå under respektive rubrik: Inledning, Syfte, Metod, Resultat, Diskussion.",
+      "opener": "Gå igenom delarna i den ordning läsaren möter dem, och håll isär vad som är fakta och vad som är tolkning.",
+      "answer": "Inledning: bakgrund till frågan, t.ex. att distansundervisning blivit vanligare och att dess effekter är omdiskuterade. Syfte: att undersöka om och hur distansundervisning påverkar studieresultat. Metod: beskrivning av vilka källor (t.ex. forskningsrapporter, statistik) som använts och hur de valts ut. Resultat: en saklig redovisning av vad källorna visar, utan tolkning. Diskussion: skribentens tolkning av resultatet kopplat till syftet, eventuella motstridiga fynd och felkällor i undersökningen.",
+      "steps": [
+        "Inledningen ger bakgrund och väcker läsarens intresse för frågan, utan att redan dra slutsatser.",
+        "Syftet formuleras som en tydlig fråga eller ett tydligt mål för undersökningen.",
+        "Metoden redovisar hur informationen samlats in, så att undersökningen går att granska.",
+        "Resultatet presenterar enbart vad källorna säger, sakligt och utan värderingar.",
+        "Diskussionen knyter ihop resultatet med syftet och lyfter osäkerheter och tolkningar."
+      ]
+    },
+    {
+      "id": "q-sv3-vetenskap-8",
+      "kind": "flashcard",
+      "topic": "objektivt språk",
+      "prompt": "Vad kännetecknar objektivt och opersonligt vetenskapligt språk?",
+      "opener": "Tänk källa, ton och avstånd till egna känslor.",
+      "answer": "Sakliga, verifierbara påståenden · undviker värdeladdade ord (\"chockerande\", \"fantastisk\") · undviker jag-form till förmån för passiv form eller opersonliga uttryck (\"undersökningen visar\") · belägger påståenden med källor och siffror · håller isär fakta (resultat) och tolkning (diskussion) · neutral, distanserad ton snarare än personligt engagemang."
+    }
+  ]
+}

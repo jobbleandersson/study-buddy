@@ -1,0 +1,131 @@
+{
+  "id": "lib-fys7-astronomi",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Solsystemet och årstiderna",
+  "sourceSummary": "Solsystemets uppbyggnad med sol, stenplaneter och gasjättar samt hur jordens rotation ger dag och natt och jordaxelns lutning ger årstider. Du övar också på månens faser och på skillnaden mellan sol- och månförmörkelse.",
+  "topics": [
+    "solsystemet",
+    "planeterna",
+    "dag och natt",
+    "årstider",
+    "månens faser",
+    "förmörkelser"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys7-ast-1",
+      "kind": "mc",
+      "topic": "planeterna",
+      "prompt": "Vilken av dessa planeter ligger närmast solen?",
+      "opener": "Gå igenom planetordningen inifrån och utåt.",
+      "choices": [
+        "Venus",
+        "Merkurius",
+        "Mars",
+        "Jupiter"
+      ],
+      "answer": 1,
+      "explanation": "Merkurius är den innersta planeten, följd av Venus, jorden och Mars. Venus är näst innerst — den är faktiskt varmast av alla planeter, men det beror på dess tjocka atmosfär och inte på att den ligger närmast solen."
+    },
+    {
+      "id": "q-fys7-ast-2",
+      "kind": "mc",
+      "topic": "dag och natt",
+      "prompt": "Varför har vi dag och natt på jorden?",
+      "opener": "Fundera på vilken rörelse som tar ungefär 24 timmar.",
+      "choices": [
+        "Jorden rör sig ett varv runt solen på ett dygn",
+        "Solen slocknar under natten och tänds igen på morgonen",
+        "Månen skymmer solen varje natt",
+        "Jorden roterar ett varv runt sin egen axel på cirka 24 timmar"
+      ],
+      "answer": 3,
+      "explanation": "Jorden snurrar runt sin egen axel på cirka 24 timmar, och den halva som är vänd mot solen har dag medan den bortvända halvan har natt. Att jorden går runt solen tar i stället ett helt år, så det kan inte förklara dygnet."
+    },
+    {
+      "id": "q-fys7-ast-3",
+      "kind": "mc",
+      "topic": "årstider",
+      "prompt": "Vad är den viktigaste orsaken till att vi har årstider?",
+      "opener": "Titta på hur jordens axel står i förhållande till dess bana runt solen.",
+      "choices": [
+        "Jordaxeln lutar, så halvkloten får solstrålarna i olika vinkel under året",
+        "Jorden är mycket närmare solen på sommaren än på vintern",
+        "Solen strålar starkare under sommarhalvåret",
+        "Månen skärmar av solljuset under vintern"
+      ],
+      "answer": 0,
+      "explanation": "Jordaxeln lutar cirka 23,5 grader, så under sommaren lutar vårt halvklot mot solen, solen står högt och strålarna träffar mer rakt ovanifrån och på fler timmar per dygn. Avståndet till solen ändras bara några få procent under året — dessutom är det sommar på södra halvklotet samtidigt som vi har vinter, vilket avståndet till solen inte kan förklara."
+    },
+    {
+      "id": "q-fys7-ast-4",
+      "kind": "mc",
+      "topic": "månens faser",
+      "prompt": "Varför ser månen olika ut under loppet av en månad?",
+      "opener": "Solen lyser alltid upp exakt halva månen — men vi ser den halvan från olika håll.",
+      "choices": [
+        "Månen ändrar form när den snurrar",
+        "Jordens skugga faller på månen varje kväll",
+        "Vi ser olika stor del av månens solbelysta halva beroende på var månen är i sin bana",
+        "Månen lyser med eget ljus som varierar i styrka"
+      ],
+      "answer": 2,
+      "explanation": "Månen lyser inte själv utan speglar solens ljus, och solen lyser alltid upp halva månen. När månen rör sig runt jorden ser vi den upplysta halvan från olika vinklar, och det ger faserna nymåne, halvmåne och fullmåne. Jordens skugga är inte med i bilden — den ger bara månförmörkelse, vilket händer sällan."
+    },
+    {
+      "id": "q-fys7-ast-5",
+      "kind": "mc",
+      "topic": "förmörkelser",
+      "prompt": "Vad händer vid en solförmörkelse?",
+      "opener": "Något kommer i vägen mellan dig och solen.",
+      "choices": [
+        "Jorden hamnar mellan solen och månen",
+        "Solen slocknar en kort stund",
+        "Jordens skugga faller på månen",
+        "Månen hamnar mellan solen och jorden och skuggar en del av jorden"
+      ],
+      "answer": 3,
+      "explanation": "Vid en solförmörkelse står månen rakt mellan solen och jorden, och månens skugga faller på ett smalt område av jordytan där solen skyms. Att jorden hamnar mellan solen och månen är i stället en månförmörkelse, då jordens skugga täcker månen."
+    },
+    {
+      "id": "q-fys7-ast-6",
+      "kind": "mc",
+      "topic": "solsystemet",
+      "prompt": "Vilka fyra planeter är de inre stenplaneterna?",
+      "opener": "Stenplaneterna är de fyra som ligger närmast solen.",
+      "choices": [
+        "Merkurius, Venus, jorden och Mars",
+        "Jupiter, Saturnus, Uranus och Neptunus",
+        "Venus, jorden, Mars och Jupiter",
+        "Merkurius, jorden, Saturnus och Neptunus"
+      ],
+      "answer": 0,
+      "explanation": "De fyra innersta planeterna Merkurius, Venus, jorden och Mars är små och har fast yta av sten, därför kallas de stenplaneter. Jupiter, Saturnus, Uranus och Neptunus ligger utanför asteroidbältet och är i stället stora gasjättar utan fast yta att landa på."
+    },
+    {
+      "id": "q-fys7-ast-7",
+      "kind": "worked",
+      "topic": "månens faser",
+      "prompt": "Månens fascykel, alltså tiden från en nymåne till nästa, är cirka 29,5 dygn. Hur många dygn tar det från nymåne till fullmåne?",
+      "opener": "Fullmåne inträffar mitt i cykeln, alltså efter halva tiden.",
+      "answer": "Ungefär 15 dygn (14,75 dygn).",
+      "steps": [
+        "Ordningen i cykeln är nymåne, växande halvmåne, fullmåne, avtagande halvmåne och sedan nymåne igen.",
+        "Fullmånen ligger alltså precis halvvägs genom cykeln.",
+        "Dela cykeln i två: 29,5 / 2 = 14,75 dygn.",
+        "Svaret blir alltså ungefär 15 dygn, drygt två veckor.",
+        "Rimlighetskoll: halvmånen ligger halvvägs dit, cirka en vecka efter nymåne — precis som vi ser på himlen."
+      ]
+    },
+    {
+      "id": "q-fys7-ast-8",
+      "kind": "flashcard",
+      "topic": "solsystemet",
+      "prompt": "Sammanfatta solsystemet, dygnet, årstiderna och månen.",
+      "opener": "Ta planeterna i ordning först, sedan jordens två rörelser och till sist månen.",
+      "answer": "Solsystemet: solen i mitten, åtta planeter i banor runt den, plus månar, asteroider och kometer · Planetordning inifrån: Merkurius, Venus, jorden, Mars, Jupiter, Saturnus, Uranus, Neptunus · Stenplaneter: de fyra inre, små med fast yta · Gasjättar: de fyra yttre, stora utan fast yta · Solen är en stjärna som lyser med eget ljus, planeterna speglar solljus · Rotation: jorden snurrar ett varv runt sin egen axel på cirka 24 timmar, det ger dag och natt · Bana: jorden går ett varv runt solen på cirka 365 dygn, det ger året · Årstider: jordaxeln lutar cirka 23,5 grader, sommar när vårt halvklot lutar mot solen (hög sol, långa dagar), vinter när det lutar bort · Norra och södra halvklotet har motsatta årstider · Månens faser: nymåne, växande halvmåne, fullmåne, avtagande halvmåne, hela cykeln cirka 29,5 dygn · Solförmörkelse: månen mellan solen och jorden · Månförmörkelse: jorden mellan solen och månen, jordens skugga på månen"
+    }
+  ]
+}

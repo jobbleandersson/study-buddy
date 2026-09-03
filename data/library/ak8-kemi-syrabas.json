@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi8-syrabas",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Syror, baser och pH",
+  "sourceSummary": "pH-skalan och hur indikatorer används, vanliga syror och baser med formler, neutralisation och vilket salt som bildas, samt försurning av mark och vatten och syror och baser i vardagen.",
+  "topics": [
+    "pH-skalan och indikatorer",
+    "vanliga syror och baser",
+    "neutralisation och saltbildning",
+    "försurning",
+    "syror och baser i vardagen"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi8-syr-1",
+      "kind": "mc",
+      "topic": "pH-skalan och indikatorer",
+      "prompt": "Vilken färg får indikatorn BTB (bromtymolblått) i en sur lösning?",
+      "opener": "BTB har tre färger: en för surt, en för neutralt och en för basiskt.",
+      "choices": [
+        "Blå",
+        "Röd",
+        "Färglös",
+        "Gul"
+      ],
+      "answer": 3,
+      "explanation": "BTB blir gul i sura lösningar, grön vid neutralt pH och blå i basiska lösningar. Blått är alltså tvärtom tecknet på en bas, och rött hör i stället till lakmuspapper, som blir rött i syra."
+    },
+    {
+      "id": "q-kemi8-syr-2",
+      "kind": "mc",
+      "topic": "pH-skalan och indikatorer",
+      "prompt": "En lösning har pH 3. Vad vet du då om lösningen?",
+      "opener": "pH under 7 hör till en av de två grupperna — koppla det till vilken jon som dominerar.",
+      "choices": [
+        "Den är basisk",
+        "Den är sur och innehåller gott om vätejoner (H+)",
+        "Den är neutral",
+        "Den innehåller gott om hydroxidjoner (OH−)"
+      ],
+      "answer": 1,
+      "explanation": "pH 3 ligger under 7, alltså är lösningen sur och innehåller ett överskott av vätejoner (H+). Ett överskott av hydroxidjoner (OH−) hör till basiska lösningar med pH över 7, och neutralt är pH 7."
+    },
+    {
+      "id": "q-kemi8-syr-3",
+      "kind": "mc",
+      "topic": "vanliga syror och baser",
+      "prompt": "Vilken syra är huvudbeståndsdelen i magsyran?",
+      "opener": "Magsyran är en stark syra, och dess vardagsnamn börjar på samma sätt som ett vanligt kryddskåpsämne.",
+      "choices": [
+        "Svavelsyra (H2SO4)",
+        "Kolsyra (H2CO3)",
+        "Saltsyra (HCl)",
+        "Citronsyra"
+      ],
+      "answer": 2,
+      "explanation": "Magsyra består i huvudsak av saltsyra, HCl, som ger magsäcken ett pH kring 1–2. Svavelsyra finns till exempel i bilbatterier, kolsyra i kolsyrat vatten och citronsyra i citrusfrukter — alla syror, men inte magsyra."
+    },
+    {
+      "id": "q-kemi8-syr-4",
+      "kind": "mc",
+      "topic": "vanliga syror och baser",
+      "prompt": "Vilket av följande ämnen är en BAS?",
+      "opener": "Leta efter ordet hydroxid — det avslöjar vilken jon ämnet avger i vatten.",
+      "choices": [
+        "Natriumhydroxid (NaOH), som finns i propplösare",
+        "Ättiksyra, som finns i ättika",
+        "Askorbinsyra, alltså C-vitamin",
+        "Kolsyra, som finns i läsk"
+      ],
+      "answer": 0,
+      "explanation": "Natriumhydroxid (NaOH) avger hydroxidjoner (OH−) i vatten och är en stark bas med högt pH. De övriga tre är syror — namnändelsen \"-syra\" är en bra ledtråd."
+    },
+    {
+      "id": "q-kemi8-syr-5",
+      "kind": "mc",
+      "topic": "neutralisation och saltbildning",
+      "prompt": "Saltsyra (HCl) neutraliseras med natriumhydroxid (NaOH). Vilka ämnen bildas?",
+      "opener": "Vid neutralisation bildas alltid två sorters produkter — ett av dem känner du igen från matbordet.",
+      "choices": [
+        "Vätgas och syrgas",
+        "Enbart vatten",
+        "Koldioxid och vatten",
+        "Natriumklorid (NaCl) och vatten (H2O)"
+      ],
+      "answer": 3,
+      "explanation": "Reaktionen blir HCl + NaOH → NaCl + H2O, alltså salt (koksalt) och vatten. Koldioxid bildas när en syra reagerar med karbonater som bikarbonat, inte vid neutralisation med en hydroxid — och natriumjonerna och kloridjonerna försvinner inte, de blir kvar som salt i lösningen."
+    },
+    {
+      "id": "q-kemi8-syr-6",
+      "kind": "mc",
+      "topic": "försurning",
+      "prompt": "Vad orsakar främst försurning av mark och sjöar?",
+      "opener": "Tänk på vilka gaser som släpps ut vid förbränning av kol och olja, och vad de gör med regnvattnet.",
+      "choices": [
+        "Att det sprids för mycket kalk i markerna",
+        "Att sjöarna blir varmare på sommaren",
+        "Svavel- och kväveoxider från förbränning, som bildar syror i regnvattnet",
+        "Att växterna tar upp för mycket vatten ur marken"
+      ],
+      "answer": 2,
+      "explanation": "Svaveldioxid och kväveoxider från förbränning löser sig i regnvattnet och bildar svavelsyra och salpetersyra, vilket sänker pH i mark och sjöar. Kalk är tvärtom motmedlet: kalk är basiskt och används för att höja pH i försurade sjöar."
+    },
+    {
+      "id": "q-kemi8-syr-7",
+      "kind": "worked",
+      "topic": "försurning",
+      "prompt": "En skogssjö har blivit försurad och har pH 4,5. Kommunen bestämmer sig för att kalka sjön genom att sprida kalk (kalciumkarbonat, CaCO3) i vattnet. Förklara med kemiska begrepp varför kalkningen hjälper.",
+      "opener": "Fundera på vad som finns för mycket av i en sur sjö, och vad ett basiskt ämne gör med det.",
+      "answer": "Kalk är ett basiskt ämne som neutraliserar en del av syran i sjön. Vätejonerna binds upp, pH stiger från 4,5 mot 7 och vattnet blir igen en livsmiljö där fiskyngel och andra vattenorganismer klarar sig.",
+      "steps": [
+        "pH 4,5 är lägre än 7, så sjön är sur och innehåller ett överskott av vätejoner (H+).",
+        "Syran kommer främst från nedfall av svavel- och kväveoxider som bildar syror i regnet.",
+        "Kalk (CaCO3) är basiskt och reagerar med syran i en neutralisationsreaktion.",
+        "Vätejonerna binds upp och det bildas bland annat vatten och koldioxid, så pH stiger mot 7.",
+        "Med högre pH klarar fiskyngel, snäckor och kräftdjur att leva i sjön igen — men kalkningen måste upprepas så länge nedfallet fortsätter."
+      ]
+    },
+    {
+      "id": "q-kemi8-syr-8",
+      "kind": "flashcard",
+      "topic": "pH-skalan och indikatorer",
+      "prompt": "Sammanfatta pH-skalan, indikatorer, vanliga syror och baser, neutralisation och försurning.",
+      "opener": "Skalan först, sedan indikatorfärgerna, därefter exempel på syror och baser och till sist neutralisation.",
+      "answer": "pH-skalan: 0–14, visar hur sur eller basisk en lösning är · pH under 7 = surt, överskott av vätejoner (H+) · pH 7 = neutralt, t.ex. rent vatten · pH över 7 = basiskt, överskott av hydroxidjoner (OH−) · Syra: avger H+ i vatten · Bas: avger OH− i vatten · BTB: gul i surt, grön vid neutralt, blå i basiskt · Lakmus: rött i surt, blått i basiskt · Universalindikator/pH-papper: ger färgskala för hela pH-området · Vanliga syror: saltsyra HCl (magsyra), svavelsyra H2SO4 (bilbatteri), salpetersyra HNO3, kolsyra H2CO3 (läsk), ättiksyra (ättika), citronsyra (citron) · Vanliga baser: natriumhydroxid NaOH (propplösare), kalciumhydroxid Ca(OH)2 (släckt kalk), ammoniak NH3, natriumvätekarbonat (bikarbonat) · Neutralisation: syra + bas → salt + vatten, pH går mot 7, t.ex. HCl + NaOH → NaCl + H2O · Saltets namn kommer från basens metalljon + syrans jon (t.ex. natrium + klorid = natriumklorid) · Försurning: svavel- och kväveoxider från förbränning bildar syror i regnet, sänker pH i mark och sjöar, skadar fisk och löser ut giftiga metaller · Motmedel: rening av utsläpp och kalkning av sjöar och skogsmark · Späd alltid syra genom att hälla syran i vattnet, aldrig omvänt."
+    }
+  ]
+}

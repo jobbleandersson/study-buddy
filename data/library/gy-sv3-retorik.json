@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv3-retorik",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Retorisk analys och argumentation",
+  "sourceSummary": "Fördjupad argumentationsanalys med argumentationsfel, att bedöma en texts trovärdighet retoriskt samt hur avsändare anpassar språket efter mottagare i komplexa texter.",
+  "topics": [
+    "argumentationsfel",
+    "trovärdighet",
+    "avsändare och mottagare"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-retorik-1",
+      "kind": "mc",
+      "topic": "argumentationsfel",
+      "prompt": "\"Du kan inte ha rätt om klimatpolitik, du är ju inte ens forskare.\" Vilket argumentationsfel är detta ett exempel på?",
+      "opener": "Angrips sakfrågan, eller angrips personen som för fram den?",
+      "choices": [
+        "Halmgubbe (att förvränga motståndarens ståndpunkt)",
+        "Ad hominem (personangrepp istället för att bemöta sakfrågan)",
+        "Cirkelbevis",
+        "Falsk dikotomi"
+      ],
+      "answer": 1,
+      "explanation": "Ad hominem innebär att man angriper personen som framför ett argument istället för att bemöta själva argumentet — här avfärdas ståndpunkten enbart för att personen saknar viss titel, vilket inte säger något om sakfrågans riktighet."
+    },
+    {
+      "id": "q-sv3-retorik-2",
+      "kind": "mc",
+      "topic": "argumentationsfel",
+      "prompt": "\"Antingen satsar vi allt på kärnkraft, eller så kommer landet stå utan el.\" Vilket argumentationsfel bygger detta påstående på?",
+      "opener": "Finns det verkligen bara två möjliga utfall här?",
+      "choices": [
+        "Halmgubbe",
+        "Auktoritetsargument",
+        "Falsk dikotomi (att bara framställa två ytterligheter som de enda alternativen)",
+        "Ad hominem"
+      ],
+      "answer": 2,
+      "explanation": "En falsk dikotomi presenterar bara två motsatta alternativ som om de vore de enda möjliga, trots att fler nyanserade alternativ finns (t.ex. en kombination av energikällor). Det är varken ett personangrepp eller ett auktoritetsargument."
+    },
+    {
+      "id": "q-sv3-retorik-3",
+      "kind": "mc",
+      "topic": "argumentationsfel",
+      "prompt": "En debattör säger: \"Mina motståndare vill visst att vi ska stänga alla skolor helt.\" — trots att motståndarna egentligen bara föreslagit färre administrativa möten. Vad kallas detta argumentationsfel?",
+      "opener": "Ståndpunkten som bemöts är kraftigt förvrängd jämfört med vad som faktiskt sades.",
+      "choices": [
+        "Halmgubbe (att förvränga och överdriva motståndarens ståndpunkt för att lättare kunna avfärda den)",
+        "Cirkelbevis",
+        "Falsk dikotomi",
+        "Auktoritetsargument"
+      ],
+      "answer": 0,
+      "explanation": "En halmgubbe skapas genom att förvränga eller överdriva motståndarens faktiska ståndpunkt till något lättare att avfärda, och sedan bemöta den förvrängda versionen istället för det verkliga argumentet."
+    },
+    {
+      "id": "q-sv3-retorik-4",
+      "kind": "mc",
+      "topic": "trovärdighet",
+      "prompt": "Vilket av följande stärker mest en talares ETHOS i en debatt om skolpolitik?",
+      "opener": "Ethos handlar om avsändarens trovärdighet — vad bygger den?",
+      "choices": [
+        "Att tala med hög röst och avbryta motståndaren ofta",
+        "Att undvika att nämna några källor alls för att verka självsäker",
+        "Att skämta bort svåra frågor",
+        "Att redovisa relevant erfarenhet, hänvisa till pålitliga källor och bemöta motargument sakligt"
+      ],
+      "answer": 3,
+      "explanation": "Ethos byggs genom att visa kompetens, hederlighet och gott omdöme — t.ex. genom relevant erfarenhet, pålitliga källor och sakligt bemötande av motargument. Att avbryta eller skämta bort svåra frågor undergräver istället trovärdigheten."
+    },
+    {
+      "id": "q-sv3-retorik-5",
+      "kind": "mc",
+      "topic": "trovärdighet",
+      "prompt": "En insändare bygger hela sin argumentation på en enda anekdot (\"min granne blev av med jobbet, så invandring är dåligt för ekonomin\"). Vad är den retoriska svagheten här?",
+      "opener": "Räcker ett enskilt exempel för att belägga ett generellt påstående?",
+      "choices": [
+        "Anekdoten är för känslosam för att räknas som ett argument överhuvudtaget",
+        "Ett enstaka exempel generaliseras till en bred slutsats, utan stöd i bredare statistik eller forskning",
+        "Anekdoten innehåller för många siffror",
+        "Insändaren har fel typ av avsändare för ämnet"
+      ],
+      "answer": 1,
+      "explanation": "Att dra en generell slutsats från ett enda exempel (förhastad generalisering) gör argumentationen svag, eftersom en anekdot inte visar hur representativ den är. Känslosamhet i sig diskvalificerar inte ett argument, men bristen på bredare belägg gör det."
+    },
+    {
+      "id": "q-sv3-retorik-6",
+      "kind": "mc",
+      "topic": "avsändare och mottagare",
+      "prompt": "En vetenskapsjournalist skriver samma forskningsresultat dels i en facktidskrift för experter, dels i en kvällstidning för allmänheten. Vad anpassas typiskt mest mellan de två texterna?",
+      "opener": "Vad vet den ena mottagargruppen redan, som den andra inte gör?",
+      "choices": [
+        "Själva forskningsresultatet, som måste ändras beroende på målgrupp",
+        "Ordval, fackterminologi, exempel och grad av bakgrundsförklaring anpassas efter mottagarens förkunskaper",
+        "Ingenting behöver anpassas eftersom fakta alltid ska presenteras identiskt",
+        "Enbart typsnittet i den tryckta texten"
+      ],
+      "answer": 1,
+      "explanation": "God anpassning till mottagaren innebär att ordval, fackuttryck, exempel och förklaringsnivå justeras efter mottagarens förkunskaper — experter behöver mindre bakgrund och tål mer terminologi än en bred allmänhet. Själva sakinnehållet ska däremot vara detsamma i båda texterna."
+    },
+    {
+      "id": "q-sv3-retorik-7",
+      "kind": "worked",
+      "topic": "argumentationsfel",
+      "prompt": "Analysera följande argument och identifiera argumentationsfelet: \"Vi vet att klimatförändringarna är verkliga eftersom nästan alla forskare säger det, och nästan alla forskare säger det eftersom klimatförändringarna är verkliga.\"",
+      "opener": "Titta på vad som används som bevis för slutsatsen, och vad som används som bevis för det beviset.",
+      "answer": "Argumentet bygger på ett cirkelbevis: slutsatsen (klimatförändringarna är verkliga) motiveras med en premiss (forskare säger det), och den premissen motiveras i sin tur med samma slutsats den skulle bevisa. Argumentet ger därmed inget oberoende stöd för påståendet, även om slutsatsen i sig kan vara sann av andra, oberoende skäl (t.ex. faktiska mätdata och konsensusstudier).",
+      "steps": [
+        "Identifiera vad som är slutsatsen i resonemanget: att klimatförändringarna är verkliga.",
+        "Identifiera vad som anges som stöd (premissen): att nästan alla forskare säger det.",
+        "Undersök hur premissen i sin tur motiveras — här visar det sig motiveras med samma slutsats.",
+        "Konstatera att resonemanget går i cirkel och därför inte ger oberoende belägg.",
+        "Skilj på att argumentationen är felaktig och på om slutsatsen ändå kan vara sann av andra skäl."
+      ]
+    },
+    {
+      "id": "q-sv3-retorik-8",
+      "kind": "flashcard",
+      "topic": "argumentationsfel",
+      "prompt": "Sammanfatta de vanligaste argumentationsfelen samt vad som bygger trovärdighet respektive mottagaranpassning.",
+      "opener": "Gruppera efter vilken typ av \"genväg\" argumentationsfelet tar.",
+      "answer": "Ad hominem: angriper personen, inte argumentet · Halmgubbe: förvränger motståndarens ståndpunkt · Falsk dikotomi: framställer bara två alternativ som enda möjligheterna · Cirkelbevis: slutsatsen används som stöd för sig själv · Förhastad generalisering: drar bred slutsats från ett enda exempel · Ethos: byggs av kompetens, hederlighet och sakligt bemötande av motargument · Mottagaranpassning: ordval, fackspråk och förklaringsnivå justeras efter mottagarens förkunskaper, sakinnehållet förblir detsamma."
+    }
+  ]
+}

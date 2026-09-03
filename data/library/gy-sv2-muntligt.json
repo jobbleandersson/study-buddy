@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv2-muntligt",
+  "type": "assignment",
+  "subject": "Svenska 2",
+  "title": "Muntlig framställning och presentationsteknik",
+  "sourceSummary": "Att anpassa ett anförande till mottagare och syfte, retoriska hjälpmedel i tal, hantera nervositet och frågor, samt visuella hjälpmedel.",
+  "topics": [
+    "mottagaranpassning",
+    "retoriska hjälpmedel",
+    "nervositet",
+    "visuella hjälpmedel"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv2-muntligt-1",
+      "kind": "mc",
+      "topic": "mottagaranpassning",
+      "prompt": "En elev ska hålla samma anförande om klimatförändringar för både sin klass och för yngre elever i årskurs 4. Vad bör främst anpassas mellan de två tillfällena?",
+      "opener": "Vad vet en tioåring om klimatfrågan som en gymnasieelev redan kan?",
+      "choices": [
+        "Ingenting, samma tal fungerar för alla mottagare",
+        "Enbart talets längd, inte innehållet",
+        "Ordval, exempel och detaljnivå utifrån mottagarens förkunskaper",
+        "Talarens klädsel, men inget annat"
+      ],
+      "answer": 2,
+      "explanation": "God mottagaranpassning innebär att ordval, exempel, detaljnivå och ibland disposition anpassas efter mottagarens ålder, förkunskaper och intressen — annars riskerar talet att bli obegripligt eller ointressant."
+    },
+    {
+      "id": "q-sv2-muntligt-2",
+      "kind": "mc",
+      "topic": "mottagaranpassning",
+      "prompt": "Vilket av dessa är INTE ett vanligt syfte att utgå från när man planerar ett anförande?",
+      "opener": "Tre handlar om vad talet ska åstadkomma — en handlar om något helt annat.",
+      "choices": [
+        "Att undvika ögonkontakt",
+        "Att informera",
+        "Att övertyga",
+        "Att underhålla"
+      ],
+      "answer": 0,
+      "explanation": "Ett anförande planeras vanligen utifrån syftet att informera, övertyga eller underhålla (ofta en kombination). Ögonkontakt är en presentationsteknisk fråga, inte ett syfte med talet."
+    },
+    {
+      "id": "q-sv2-muntligt-3",
+      "kind": "mc",
+      "topic": "retoriska hjälpmedel",
+      "prompt": "Vilket retoriskt hjälpmedel handlar om att medvetet göra en kort tystnad före ett viktigt budskap för att skapa spänning?",
+      "opener": "Vad händer med publikens uppmärksamhet precis innan du säger det viktigaste?",
+      "choices": [
+        "Antites",
+        "Anafor",
+        "Dispositio",
+        "Talarpaus"
+      ],
+      "answer": 3,
+      "explanation": "En talarpaus används medvetet för att skapa spänning, ge publiken tid att smälta information eller betona det som kommer härnäst. Antites och anafor är stilfigurer i själva språket, inte i framförandet."
+    },
+    {
+      "id": "q-sv2-muntligt-4",
+      "kind": "mc",
+      "topic": "retoriska hjälpmedel",
+      "prompt": "Vad menas med prosodi i muntlig framställning?",
+      "opener": "Handlar om HUR något låter, inte vad som sägs.",
+      "choices": [
+        "Textens skriftliga disposition",
+        "Röstens variation i tonhöjd, tempo och betoning",
+        "Antalet stilfigurer i talet",
+        "Publikens sammansättning"
+      ],
+      "answer": 1,
+      "explanation": "Prosodi syftar på röstens variation — tonhöjd, tempo, betoning och pauser — vilket är avgörande för hur ett budskap uppfattas och engagerar lyssnarna, oavsett innehållets kvalitet."
+    },
+    {
+      "id": "q-sv2-muntligt-5",
+      "kind": "mc",
+      "topic": "nervositet",
+      "prompt": "Vilken metod rekommenderas oftast för att hantera nervositet inför en muntlig presentation?",
+      "opener": "Vad brukar faktiskt minska nervositeten mest — improvisation eller förberedelse?",
+      "choices": [
+        "Att undvika all förberedelse för att verka spontan",
+        "Att läsa hela talet innantill utan att titta upp",
+        "Grundlig förberedelse, andningsövningar och att öva framförandet i förväg",
+        "Att tala så snabbt som möjligt för att bli klar"
+      ],
+      "answer": 2,
+      "explanation": "Grundlig förberedelse och att öva på framförandet i förväg är den mest effektiva metoden mot nervositet, ofta i kombination med andningsövningar. Att läsa innantill utan ögonkontakt eller att tala för snabbt försämrar snarare framförandet."
+    },
+    {
+      "id": "q-sv2-muntligt-6",
+      "kind": "mc",
+      "topic": "visuella hjälpmedel",
+      "prompt": "Vad är en vanlig fallgrop när man använder bildspel (till exempel PowerPoint) som stöd i ett anförande?",
+      "opener": "Vad konkurrerar om publikens uppmärksamhet om en bild har för mycket text?",
+      "choices": [
+        "Att bilderna blir så textrika att publiken läser i stället för att lyssna på talaren",
+        "Att bilderna har för få ord",
+        "Att man inte använder några bilder alls",
+        "Att bildspelet visas i fel färg"
+      ],
+      "answer": 0,
+      "explanation": "Ett vanligt misstag är att fylla bilderna med för mycket text, vilket får publiken att läsa i stället för att lyssna på talaren. Visuella hjälpmedel bör komplettera talet med nyckelord, bilder eller diagram — inte ersätta det talade ordet."
+    },
+    {
+      "id": "q-sv2-muntligt-7",
+      "kind": "worked",
+      "topic": "nervositet",
+      "prompt": "Efter ett anförande om skolans betygssystem får talaren en kritisk fråga som hen inte har ett självklart svar på. Beskriv hur talaren bäst kan hantera situationen.",
+      "opener": "Vad är värre — att erkänna osäkerhet eller att bluffa?",
+      "answer": "Talaren bör bekräfta att frågan är relevant, svara ärligt om osäkerheten finns, resonera utifrån det man faktiskt vet, och eventuellt erbjuda att återkomma med ett fullständigare svar — snarare än att bluffa eller bli defensiv.",
+      "steps": [
+        "Lyssna klart på hela frågan och bekräfta att den är relevant och intressant, för att visa respekt för frågeställaren.",
+        "Om svaret inte är helt klart är det bättre att ärligt säga det än att bluffa — trovärdigheten (ethos) skadas mer av ett uppenbart falskt svar.",
+        "Resonera utifrån det man faktiskt vet eller tror, och var tydlig med vad som är fakta och vad som är en egen reflektion.",
+        "Vid behov kan talaren erbjuda att återkomma med ett mer utförligt svar senare, vilket visar ansvarstagande snarare än att osäkerheten framstår som en svaghet."
+      ]
+    },
+    {
+      "id": "q-sv2-muntligt-8",
+      "kind": "flashcard",
+      "topic": "visuella hjälpmedel",
+      "prompt": "Sammanfatta viktiga presentationstekniska begrepp för muntlig framställning.",
+      "opener": "Röst, blick, bild och förberedelse — fyra pusselbitar för ett bra anförande.",
+      "answer": "Mottagaranpassning: ordval, exempel och detaljnivå utifrån publikens förkunskaper och ålder · Prosodi: röstens tonhöjd, tempo, betoning och pauser · Talarpaus: medveten tystnad för att skapa spänning eller eftertanke · Visuella hjälpmedel: bör komplettera talet med nyckelord och bilder, inte fyllas med långa textrader · Nervositet: motverkas bäst med grundlig förberedelse och övning, inte med att undvika förberedelse · Frågestund: ärlighet och lugn hantering av osäkerhet stärker trovärdigheten mer än ett bluffat svar."
+    }
+  ]
+}

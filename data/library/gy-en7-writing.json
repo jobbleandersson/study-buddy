@@ -1,0 +1,129 @@
+{
+  "id": "lib-en7gy-writing",
+  "type": "assignment",
+  "subject": "Engelska 7",
+  "title": "Writing: formal essays and reports",
+  "sourceSummary": "Rapportens struktur (executive summary, findings, recommendations), formella brev/mejl, att undvika sammandragningar och talspråk, samt signalord i en lång argumenterande uppsats.",
+  "topics": [
+    "report structure",
+    "formal correspondence conventions",
+    "avoiding contractions and colloquialisms",
+    "signposting language"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7gy-writing-1",
+      "kind": "mc",
+      "topic": "report structure",
+      "prompt": "In a formal report, which section should appear first, immediately after the title page?",
+      "opener": "Vilken del ger läsaren en snabb överblick innan de går in på detaljerna?",
+      "choices": [
+        "Recommendations",
+        "Findings",
+        "Executive summary",
+        "Appendices"
+      ],
+      "answer": 2,
+      "explanation": "The executive summary sammanfattar syfte, metod och huvudsakliga slutsatser kort, direkt efter titelsidan, så att läsaren snabbt förstår helheten. Findings och recommendations kommer senare, och appendix längst bak."
+    },
+    {
+      "id": "q-en7gy-writing-2",
+      "kind": "mc",
+      "topic": "report structure",
+      "prompt": "Which section of a formal report should contain concrete, actionable suggestions based on the findings?",
+      "opener": "Vilken del svarar på frågan \"vad bör göras nu?\"",
+      "choices": [
+        "Introduction",
+        "Recommendations",
+        "Executive summary",
+        "Methodology"
+      ],
+      "answer": 1,
+      "explanation": "Recommendations innehåller konkreta, handlingsbara förslag byggda på resultaten (findings). Introduction ger bakgrund, methodology beskriver tillvägagångssättet, och executive summary sammanfattar hela rapporten kort."
+    },
+    {
+      "id": "q-en7gy-writing-3",
+      "kind": "mc",
+      "topic": "formal correspondence conventions",
+      "prompt": "Which closing is most appropriate for a formal letter when you do not know the recipient's name?",
+      "opener": "Det finns en klassisk regel för \"Dear Sir/Madam\" kontra \"Dear Mr Smith\".",
+      "choices": [
+        "Yours faithfully,",
+        "Yours sincerely,",
+        "Best,",
+        "Cheers,"
+      ],
+      "answer": 0,
+      "explanation": "\"Dear Sir/Madam\" (okänd mottagare) följs traditionellt av \"Yours faithfully\". \"Yours sincerely\" används när mottagarens namn är känt (\"Dear Mr Smith\"). \"Best\" och \"Cheers\" är för informella."
+    },
+    {
+      "id": "q-en7gy-writing-4",
+      "kind": "mc",
+      "topic": "formal correspondence conventions",
+      "prompt": "Which opening line is appropriate for a formal email to a company you have not contacted before?",
+      "opener": "Vilken inledning håller rätt formell distans mot en okänd mottagare?",
+      "choices": [
+        "Hey there, quick question...",
+        "Hiya, hope you're well!",
+        "So basically I wanted to ask...",
+        "I am writing to enquire about..."
+      ],
+      "answer": 3,
+      "explanation": "\"I am writing to enquire about...\" är en standardformulering för formella förfrågningar. De övriga är för informella för ett förstakontaktsmejl till ett företag."
+    },
+    {
+      "id": "q-en7gy-writing-5",
+      "kind": "mc",
+      "topic": "avoiding contractions and colloquialisms",
+      "prompt": "Which sentence is correctly written in formal register (no contractions or colloquialisms)?",
+      "opener": "Formell text undviker sammandragningar (\"can't\") och vardagsord (\"reckon\", \"kind of\").",
+      "choices": [
+        "We can't complete the project without extra funding.",
+        "We reckon the project won't be finished on time.",
+        "It is unlikely that the project will be completed without additional funding.",
+        "The project's kind of stuck without more cash."
+      ],
+      "answer": 2,
+      "explanation": "Meningen undviker sammandragningar och vardagliga uttryck, och använder istället fullständiga former och precist ordval. De andra innehåller antingen \"can't\"/\"won't\" eller informella ord som \"reckon\" och \"kind of\"."
+    },
+    {
+      "id": "q-en7gy-writing-6",
+      "kind": "mc",
+      "topic": "signposting language",
+      "prompt": "Which phrase best signals a shift to a counter-argument in a long argumentative essay?",
+      "opener": "Vilken fras varnar läsaren om att ett motsatt perspektiv kommer nu?",
+      "choices": [
+        "Firstly,",
+        "On the other hand,",
+        "In addition,",
+        "For example,"
+      ],
+      "answer": 1,
+      "explanation": "\"On the other hand\" signalerar tydligt att ett motsatt perspektiv introduceras. \"Firstly\" inleder en ny punkt, \"in addition\" bygger vidare på samma linje, och \"for example\" ger ett konkret exempel — ingen av dem signalerar en vändning."
+    },
+    {
+      "id": "q-en7gy-writing-7",
+      "kind": "worked",
+      "topic": "report structure",
+      "prompt": "Outline the standard structure of a formal report on a school survey about students' study habits, listing each section in the correct order with a one-line description.",
+      "opener": "Tänk på ordningen: från översikt, via metod och resultat, till konkreta förslag.",
+      "answer": "Title page; Executive summary; Introduction; Methodology; Findings; Recommendations; Appendices.",
+      "steps": [
+        "Title page: titel, författare, datum.",
+        "Executive summary: kort sammanfattning av syfte, metod och huvudsakliga slutsatser (för läsare som inte hinner läsa hela rapporten).",
+        "Introduction och Methodology: bakgrund/syfte, samt hur undersökningen genomfördes (t.ex. enkät, antal deltagare).",
+        "Findings: resultaten presenterade objektivt, ofta med diagram/tabeller.",
+        "Recommendations och Appendices: konkreta förslag baserade på resultaten, samt bilagor (t.ex. enkätfrågorna) sist."
+      ]
+    },
+    {
+      "id": "q-en7gy-writing-8",
+      "kind": "flashcard",
+      "topic": "avoiding contractions and colloquialisms",
+      "prompt": "List key conventions for formal essay and report writing in English.",
+      "opener": "Checklista för formell skriftlig engelska.",
+      "answer": "Undvik sammandragningar: do not, cannot, it is (ej don't, can't, it's) · Undvik talspråk: \"a lot of\" → \"considerable\"; \"kind of\" → \"somewhat\" · Använd signalord: firstly/moreover/however/on the other hand/in conclusion · Rapportstruktur: title page → executive summary → introduction → methodology → findings → recommendations → appendices · Brev: \"Dear Sir/Madam\" + \"Yours faithfully\"; \"Dear Mr/Ms X\" + \"Yours sincerely\" · Undvik jag-tilltal och känsloladdat språk i rapporter — håll en objektiv, saklig ton"
+    }
+  ]
+}

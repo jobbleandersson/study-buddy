@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist8-stormaktstiden",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Sveriges stormaktstid",
+  "sourceSummary": "Hur ett litet och fattigt Sverige under 1600-talet blev en av Europas militära stormakter, hur landet styrdes och vad kriget kostade bönder och soldater – samt varför stormaktstiden tog slut i början av 1700-talet.",
+  "topics": [
+    "Gustav II Adolf och trettioåriga kriget",
+    "Sveriges expansion runt Östersjön",
+    "Karl XII och stormaktstidens slut",
+    "livet för bönder och soldater"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist8-sto-1",
+      "kind": "mc",
+      "topic": "Gustav II Adolf och trettioåriga kriget",
+      "prompt": "Vilken svensk kung ledde Sverige in i trettioåriga kriget år 1630?",
+      "opener": "Kungen kallas ofta \"lejonet från Norden\" och dog redan 1632.",
+      "choices": [
+        "Gustav II Adolf",
+        "Karl XII",
+        "Gustav Vasa",
+        "Karl XI"
+      ],
+      "answer": 0,
+      "explanation": "Gustav II Adolf landsteg med sin armé i norra Tyskland 1630 och gjorde Sverige till en av huvudparterna i trettioåriga kriget. Gustav Vasa levde hundra år tidigare (1500-talet) och Karl XII regerade först kring år 1700, så ingen av dem kan vara svaret."
+    },
+    {
+      "id": "q-hist8-sto-2",
+      "kind": "mc",
+      "topic": "Gustav II Adolf och trettioåriga kriget",
+      "prompt": "I vilket slag stupade Gustav II Adolf år 1632?",
+      "opener": "Slaget stod i Tyskland, två år efter att kungen gått i krig där.",
+      "choices": [
+        "Slaget vid Breitenfeld",
+        "Slaget vid Poltava",
+        "Slaget vid Lützen",
+        "Slaget vid Narva"
+      ],
+      "answer": 2,
+      "explanation": "Gustav II Adolf dog i slaget vid Lützen i Sachsen 1632. Vid Breitenfeld (1631) vann han i stället en stor seger, medan Narva (1700) och Poltava (1709) hörde till Karl XII:s krig nästan sjuttio år senare."
+    },
+    {
+      "id": "q-hist8-sto-3",
+      "kind": "mc",
+      "topic": "Sveriges expansion runt Östersjön",
+      "prompt": "Varför brukar man säga att Östersjön under stormaktstiden nästan blev ett \"svenskt innanhav\"?",
+      "opener": "Titta på en karta över Sveriges område kring år 1660 – inte bara dagens Sverige.",
+      "choices": [
+        "Sverige hade världens största handelsflotta på Östersjön",
+        "Sverige kontrollerade land runt större delen av Östersjöns kuster",
+        "Ingen annan än svenskar fick segla på Östersjön",
+        "Östersjön hörde formellt till den svenska kungen enligt fredsavtal"
+      ],
+      "answer": 1,
+      "explanation": "Efter freder som Brömsebro (1645) och Roskilde (1658) hörde Finland, Estland, Livland, delar av norra Tyskland samt Skåne, Blekinge och Halland till det svenska riket – Sverige kontrollerade alltså land runt nästan hela Östersjön. Det handlade om landområden och militär kontroll, inte om något förbud för andra att segla där."
+    },
+    {
+      "id": "q-hist8-sto-4",
+      "kind": "mc",
+      "topic": "Karl XII och stormaktstidens slut",
+      "prompt": "Vilket krig innebar slutet på Sveriges stormaktstid?",
+      "opener": "Kriget pågick 1700–1721 och Sverige stred mot Ryssland, Danmark och Polen–Sachsen.",
+      "choices": [
+        "Trettioåriga kriget",
+        "Kalmarkriget",
+        "Skånska kriget",
+        "Stora nordiska kriget"
+      ],
+      "answer": 3,
+      "explanation": "Stora nordiska kriget (1700–1721) slutade med freden i Nystad, där Sverige tvingades lämna ifrån sig de baltiska provinserna och Ryssland tog över som Östersjöns starkaste makt. Trettioåriga kriget hörde till stormaktstidens uppgång, inte dess fall, och Kalmarkriget stod redan 1611–1613."
+    },
+    {
+      "id": "q-hist8-sto-5",
+      "kind": "mc",
+      "topic": "livet för bönder och soldater",
+      "prompt": "Vad var indelningsverket som byggdes upp under Karl XI?",
+      "opener": "Tänk på hur en fattig stat kunde hålla en stor armé utan att ha pengar till löner.",
+      "choices": [
+        "En indelning av riket i län med landshövdingar",
+        "Ett system där ett antal bondgårdar tillsammans höll en soldat med torp, mat och utrustning",
+        "En skatt som bara adeln betalade till kungens armé",
+        "Ett system för att dela ut jord till hemvändande soldater"
+      ],
+      "answer": 1,
+      "explanation": "I indelningsverket gick ett antal gårdar samman i en rote som skulle skaffa och underhålla en soldat – han fick ett soldattorp och naturaförmåner i stället för lön. Systemet gav Sverige en stående armé utan reda pengar, medan länsindelningen och skatterna var helt andra delar av statens organisation."
+    },
+    {
+      "id": "q-hist8-sto-6",
+      "kind": "mc",
+      "topic": "Karl XII och stormaktstidens slut",
+      "prompt": "Vilken förklaring stämmer bäst till att Sverige inte kunde behålla sin stormaktsställning?",
+      "opener": "Jämför Sveriges folkmängd och ekonomi med de stora områden landet skulle försvara.",
+      "choices": [
+        "Sverige hade inte längre någon armé kvar efter 1660",
+        "De svenska kungarna slutade intressera sig för utrikespolitik",
+        "Sverige var ett folkfattigt och fattigt land som fick svårt att försvara stora områden mot flera fiender samtidigt",
+        "Alla svenska bönder vägrade betala skatt"
+      ],
+      "answer": 2,
+      "explanation": "Sverige hade bara drygt en miljon invånare och en svag ekonomi, men skulle försvara vidsträckta besittningar mot Ryssland, Danmark, Polen och Preussen – när grannländerna gick samman blev bördan för stor. Armén fanns kvar och kungarna var mycket aktiva i utrikespolitiken; problemet var resurserna, inte bristande vilja."
+    },
+    {
+      "id": "q-hist8-sto-7",
+      "kind": "worked",
+      "topic": "Sveriges expansion runt Östersjön",
+      "prompt": "Förklara hur ett folkfattigt land som Sverige kunde bli en europeisk stormakt på 1600-talet.",
+      "opener": "Tänk på pengar, vapen, organisation och vilka fiender Sverige mötte just då.",
+      "answer": "Sverige byggde sin stormaktsställning på en kombination av naturresurser, effektiv statsförvaltning och militär organisation. Järn och koppar från Bergslagen och Falun kunde säljas i Europa och gav inkomster som finansierade vapen och soldater. Staten organiserades med kansli, skatteuppbörd och senare indelningsverket, så att kungen kunde hålla en stor och välövad armé. Samtidigt var flera av de tänkbara motståndarna svaga eller inbegripna i egna konflikter, vilket gav Sverige tillfälle att expandera runt Östersjön. Grunden var dock hela tiden bräcklig, eftersom befolkningen var liten och rikedomen begränsad.",
+      "steps": [
+        "Järn och koppar exporterades till Europa och gav staten inkomster och kredit.",
+        "Statsförvaltningen byggdes ut med kansli och skatteuppbörd, så att resurserna verkligen nådde kungen.",
+        "Armén moderniserades med utskrivning av bönder, rörligt artilleri och senare indelningsverket.",
+        "Grannländerna Danmark, Polen och Ryssland var tidvis svaga eller upptagna av andra krig.",
+        "Segrar i krig gav nya provinser, tullinkomster från Östersjöhandeln och därmed pengar till nästa krig."
+      ]
+    },
+    {
+      "id": "q-hist8-sto-8",
+      "kind": "flashcard",
+      "topic": "livet för bönder och soldater",
+      "prompt": "Sammanfatta Sveriges stormaktstid: tid, kungar, krig och vardagsliv.",
+      "opener": "Tänk period, viktiga kungar, hur riket växte och krympte, och vad det kostade befolkningen.",
+      "answer": "Stormaktstiden varade cirka 1611–1721 · Gustav II Adolf gick in i trettioåriga kriget 1630 och stupade vid Lützen 1632 · segrar och freder (Brömsebro 1645, Westfaliska freden 1648, Roskilde 1658) gjorde Östersjön till nästan ett svenskt innanhav med Finland, Baltikum, nordtyska områden samt Skåne, Blekinge och Halland · Karl XI ordnade statens ekonomi och byggde indelningsverket, där rotar av bondgårdar höll soldater med torp och naturaförmåner · Karl XII förde stora nordiska kriget 1700–1721, vann vid Narva 1700 men förlorade vid Poltava 1709 och dog 1718 vid Fredriksten i Norge · freden i Nystad 1721 avslutade stormaktstiden och Ryssland blev Östersjöns starkaste makt · för vanliga människor betydde tiden höga skatter, utskrivningar av unga män till armén, många döda soldater och hårt arbete för kvinnor och barn som blev kvar på gårdarna · grunden var svag: liten befolkning, fattigt land och för stora områden att försvara."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-bio7-livet",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Vad är liv? Celler och organisation",
+  "sourceSummary": "Vad som kännetecknar levande organismer och hur cellen är livets minsta byggsten. Du tränar också på skillnaden mellan växtceller och djurceller och hur celler bygger upp vävnader och organ.",
+  "topics": [
+    "kännetecken för liv",
+    "cellen",
+    "växtcell och djurcell",
+    "från cell till organ",
+    "mikroskop"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio7-liv-1",
+      "kind": "mc",
+      "topic": "kännetecken för liv",
+      "prompt": "Vilket av följande är ett kännetecken som ALLA levande organismer har?",
+      "opener": "Tänk på vad en katt, en tall och en bakterie faktiskt har gemensamt.",
+      "choices": [
+        "De kan gå eller simma",
+        "De har ögon",
+        "De förökar sig och får avkomma",
+        "De har ett hjärta"
+      ],
+      "answer": 2,
+      "explanation": "Alla levande organismer förökar sig, växer, andas, tar upp näring och reagerar på sin omgivning. Att kunna gå eller ha ett hjärta gäller bara vissa djur — en tall har varken ben eller hjärta men lever ändå."
+    },
+    {
+      "id": "q-bio7-liv-2",
+      "kind": "mc",
+      "topic": "cellen",
+      "prompt": "Vad menas med att cellen är livets minsta byggsten?",
+      "opener": "Fundera på vad som är det minsta som kan leva helt på egen hand.",
+      "choices": [
+        "Cellen är den minsta delen som kan leva och utföra livets funktioner",
+        "Cellen är den minsta delen man kan se med blotta ögat",
+        "Cellen är den minsta delen av ett skelett",
+        "Cellen är den minsta molekylen i kroppen"
+      ],
+      "answer": 0,
+      "explanation": "En cell kan ta upp näring, göra sig av med avfall och dela sig — den lever. Molekyler är visserligen mindre, men en enskild molekyl lever inte, den kan bara ingå i något levande."
+    },
+    {
+      "id": "q-bio7-liv-3",
+      "kind": "mc",
+      "topic": "växtcell och djurcell",
+      "prompt": "Vilken celldel finns i en växtcell men saknas i en djurcell?",
+      "opener": "Tänk på varför en blomstjälk kan stå rakt upp och varför bladen är gröna.",
+      "choices": [
+        "Cellkärna",
+        "Cellmembran",
+        "Cellplasma",
+        "Kloroplast"
+      ],
+      "answer": 3,
+      "explanation": "Kloroplasterna innehåller det gröna färgämnet klorofyll och sköter fotosyntesen — de finns bara hos växter, som dessutom har en cellvägg. Cellkärna, cellmembran och cellplasma finns i båda celltyperna, så de duger inte som skillnad."
+    },
+    {
+      "id": "q-bio7-liv-4",
+      "kind": "mc",
+      "topic": "cellen",
+      "prompt": "Vilken uppgift har cellkärnan?",
+      "opener": "Någonstans i cellen finns ritningen över hur allt ska fungera.",
+      "choices": [
+        "Den ger cellen energi",
+        "Den innehåller arvsmassan och styr cellens arbete",
+        "Den släpper in och ut ämnen ur cellen",
+        "Den ger cellen dess gröna färg"
+      ],
+      "answer": 1,
+      "explanation": "I cellkärnan finns DNA:t, alltså arvsmassan, som bestämmer vad cellen ska göra. Ett vanligt fel är att blanda ihop kärnan med cellmembranet — men det är membranet, inte kärnan, som sköter transporten in och ut."
+    },
+    {
+      "id": "q-bio7-liv-5",
+      "kind": "mc",
+      "topic": "från cell till organ",
+      "prompt": "Vad bildas när många celler av samma sort sitter tillsammans och gör samma jobb?",
+      "opener": "Det är nivån precis ovanför cellen.",
+      "choices": [
+        "En vävnad",
+        "Ett organ",
+        "Ett organsystem",
+        "En organism"
+      ],
+      "answer": 0,
+      "explanation": "Likadana celler bildar tillsammans en vävnad, till exempel muskelvävnad. Ett organ, som magsäcken, är nästa nivå och består av flera olika vävnader tillsammans."
+    },
+    {
+      "id": "q-bio7-liv-6",
+      "kind": "mc",
+      "topic": "mikroskop",
+      "prompt": "Varför behöver man ett mikroskop för att studera celler?",
+      "opener": "Tänk på hur stor en cell är jämfört med det du kan se utan hjälpmedel.",
+      "choices": [
+        "För att celler rör sig för snabbt",
+        "För att celler bara finns i vatten",
+        "För att celler är farliga att röra vid",
+        "För att de flesta celler är alldeles för små för att se med blotta ögat"
+      ],
+      "answer": 3,
+      "explanation": "De flesta celler är bara några hundradels millimeter stora, så ögat kan inte urskilja dem — mikroskopet förstorar bilden många gånger. Att celler skulle röra sig för snabbt stämmer inte; problemet är storleken, inte farten."
+    },
+    {
+      "id": "q-bio7-liv-7",
+      "kind": "worked",
+      "topic": "från cell till organ",
+      "prompt": "Beskriv hur kroppen är uppbyggd från cell till organsystem. Använd magsäcken som exempel.",
+      "opener": "Gå igenom fyra nivåer i tur och ordning: cell, vävnad, organ, organsystem.",
+      "answer": "Celler av samma sort bildar en vävnad, flera vävnader bygger upp organet magsäcken, och magsäcken samarbetar med munnen, matstrupen och tarmarna i matspjälkningssystemet.",
+      "steps": [
+        "Cellen är den minsta levande byggstenen, till exempel en muskelcell i magsäckens vägg.",
+        "Många likadana celler tillsammans bildar en vävnad, här muskelvävnad.",
+        "Flera olika vävnader bygger ihop ett organ — magsäcken.",
+        "Magsäcken arbetar tillsammans med matstrupen och tarmarna och bildar matspjälkningssystemet, ett organsystem."
+      ]
+    },
+    {
+      "id": "q-bio7-liv-8",
+      "kind": "flashcard",
+      "topic": "kännetecken för liv",
+      "prompt": "Vad kännetecknar allt levande, och vilka delar har en cell?",
+      "opener": "Nämn först kännetecknen för liv, sedan celldelarna — och vilka som bara finns hos växter.",
+      "answer": "Kännetecken för liv: växer och utvecklas · tar upp näring · andas och omsätter energi · gör sig av med avfall · reagerar på omgivningen · förökar sig · är uppbyggt av celler · Celldelar hos både växt och djur: cellkärna (arvsmassan, styr cellen) · cellmembran (reglerar vad som går in och ut) · cellplasma (geléaktig vätska där delarna ligger) · mitokondrier (frigör energi ur näringen) · Bara hos växtceller: cellvägg (ger stadga) · kloroplaster (fotosyntes, grönt klorofyll) · stor vakuol (vattenförråd) · Nivåer i kroppen: cell → vävnad → organ → organsystem → organism · Mikroskopet behövs eftersom celler är för små för blotta ögat."
+    }
+  ]
+}

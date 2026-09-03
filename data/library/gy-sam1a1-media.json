@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam1a1-media",
+  "type": "assignment",
+  "subject": "Samhällskunskap 1a1",
+  "title": "Massmedier och opinionsbildning",
+  "sourceSummary": "Mediernas granskande roll och medielogik, opinionsbildning och påverkanskanaler, hur algoritmer och filterbubblor påverkar vad vi ser, samt medieetik och pressetiska regler i korthet.",
+  "topics": [
+    "mediernas roll och medielogik",
+    "opinionsbildning och påverkanskanaler",
+    "algoritmer och filterbubblor",
+    "medieetik"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam1a1-media-1",
+      "kind": "mc",
+      "topic": "mediernas roll och medielogik",
+      "prompt": "Medierna brukar ibland kallas för \"den tredje statsmakten\". Vad syftar det på?",
+      "opener": "Tänk på vilken funktion medierna fyller gentemot dem som har politisk makt.",
+      "choices": [
+        "Att medierna formellt är en del av riksdagen",
+        "Att medierna har en viktig granskande funktion gentemot makthavare, vid sidan av den lagstiftande, verkställande och dömande makten",
+        "Att medierna bestämmer vilka lagar som stiftas",
+        "Att journalister utses genom allmänna val"
+      ],
+      "answer": 1,
+      "explanation": "Uttrycket \"tredje statsmakten\" syftar på mediernas viktiga roll att granska och rapportera om makthavare, som ett komplement till den lagstiftande, verkställande och dömande makten - inte att medierna formellt ingår i statsapparaten eller stiftar lagar."
+    },
+    {
+      "id": "q-sam1a1-media-2",
+      "kind": "mc",
+      "topic": "mediernas roll och medielogik",
+      "prompt": "Vad menas med \"medielogik\" när det gäller vilka nyheter som får stort utrymme?",
+      "opener": "Vilken sorts händelser tenderar att bli stora nyheter - de odramatiska eller de som fångar uppmärksamhet?",
+      "choices": [
+        "Att alla nyheter behandlas exakt likvärdigt oavsett innehåll",
+        "Att bara statligt godkända nyheter publiceras",
+        "Att medier tenderar att prioritera det som är dramatiskt, personifierat, konfliktfyllt eller aktuellt, eftersom det fångar publikens uppmärksamhet",
+        "Att nyhetsvärderingen aldrig förändras över tid"
+      ],
+      "answer": 2,
+      "explanation": "Medielogik beskriver hur nyhetsmedier tenderar att prioritera innehåll som är dramatiskt, konfliktfyllt, personifierat eller tidsaktuellt, eftersom sådant innehåll bättre fångar publikens uppmärksamhet - vilket kan påverka vilken bild av samhället som förmedlas."
+    },
+    {
+      "id": "q-sam1a1-media-3",
+      "kind": "mc",
+      "topic": "opinionsbildning och påverkanskanaler",
+      "prompt": "Vad innebär opinionsbildning?",
+      "opener": "Fundera på hur människors uppfattningar i samhällsfrågor formas över tid.",
+      "choices": [
+        "Processen där människors åsikter i samhällsfrågor formas och påverkas, till exempel via medier, debatter, sociala rörelser och politiska kampanjer",
+        "Att en enda myndighet officiellt bestämmer allas åsikter",
+        "Att enbart riksdagsledamöter får ha åsikter i sakfrågor",
+        "Ett annat ord för ett allmänt val"
+      ],
+      "answer": 0,
+      "explanation": "Opinionsbildning är den pågående processen där människors uppfattningar i samhällsfrågor formas och förändras genom exempelvis medierapportering, offentlig debatt, sociala rörelser och politiska kampanjer - inte en enskild händelse eller myndighetsbeslut."
+    },
+    {
+      "id": "q-sam1a1-media-4",
+      "kind": "mc",
+      "topic": "opinionsbildning och påverkanskanaler",
+      "prompt": "Vilket av följande är exempel på kanaler som används för att påverka opinionen i samhällsfrågor?",
+      "opener": "Tänk brett - opinionsbildning sker genom flera olika kanaler, inte bara en.",
+      "choices": [
+        "Enbart statliga presskonferenser",
+        "Enbart skolans undervisning",
+        "Enbart domstolarnas avgöranden",
+        "Insändare, debattartiklar, demonstrationer, sociala medier och lobbying är alla exempel på kanaler för att påverka opinionen"
+      ],
+      "answer": 3,
+      "explanation": "Opinionsbildning sker genom en rad olika kanaler - insändare, debattartiklar, demonstrationer, sociala medier, intresseorganisationers lobbying och mycket mer. Att bara peka ut en enskild kanal, som presskonferenser eller domstolsbeslut, ger en alltför snäv bild."
+    },
+    {
+      "id": "q-sam1a1-media-5",
+      "kind": "mc",
+      "topic": "algoritmer och filterbubblor",
+      "prompt": "Vad menas med en \"filterbubbla\" i sociala medier?",
+      "opener": "Tänk på hur ett flöde anpassas efter vad du redan klickat på och gillat tidigare.",
+      "choices": [
+        "Ett tekniskt fel som gör att appen kraschar",
+        "Att algoritmer visar innehåll anpassat efter det man redan gillat eller klickat på, vilket kan göra att man i huvudsak möter åsikter man redan delar",
+        "Ett filter som tar bort all reklam från flödet",
+        "Ett system där en statlig myndighet väljer vad varje medborgare får se online"
+      ],
+      "answer": 1,
+      "explanation": "En filterbubbla uppstår när algoritmer, utifrån tidigare beteende, i huvudsak visar innehåll som bekräftar det man redan tycker eller intresserar sig för, vilket kan göra att man möter färre avvikande perspektiv - inte ett tekniskt fel eller en statlig styrning."
+    },
+    {
+      "id": "q-sam1a1-media-6",
+      "kind": "mc",
+      "topic": "algoritmer och filterbubblor",
+      "prompt": "Vilken risk brukar kopplas till filterbubblor och algoritmisk nyhetsspridning?",
+      "opener": "Fundera på vad som händer med den samlade bilden av samhället om folk i praktiken ser olika verkligheter.",
+      "choices": [
+        "Att alla användare garanterat får en mer allsidig bild av världen",
+        "Att internetanvändningen helt upphör",
+        "Att man i mindre utsträckning möter andra perspektiv, vilket kan förstärka polarisering och göra det svårare att bedöma vad som är brett accepterat",
+        "Att algoritmer aldrig påverkar vad enskilda användare får se"
+      ],
+      "answer": 2,
+      "explanation": "En vanlig risk med filterbubblor är att människor i mindre utsträckning möter perspektiv som skiljer sig från deras egna, vilket kan bidra till ökad polarisering och göra det svårare att ha en gemensam bild av vad som är brett accepterade fakta och normer."
+    },
+    {
+      "id": "q-sam1a1-media-7",
+      "kind": "worked",
+      "topic": "medieetik",
+      "prompt": "En tidning överväger att publicera en icke namngiven persons anklagelser mot en lokal politiker, utan att först kontakta politikern för en kommentar. Analysera steg för steg vilka pressetiska principer som är relevanta i beslutet.",
+      "opener": "Tänk på vederhäftighet, källkritik och rätten för den anklagade att bemöta uppgifterna innan publicering.",
+      "answer": "Beslutet aktualiserar flera pressetiska principer: kravet på vederhäftighet (att uppgifterna är korrekta och väl underbyggda), källkritik (att bedöma den anonyma källans trovärdighet och motiv) och genmälesprincipen (att den som anklagas normalt ska få möjlighet att bemöta uppgifterna innan publicering). Att publicera utan att ge politikern chans att kommentera riskerar att bryta mot god publicistisk sed, även om uppgifterna i sig skulle visa sig vara sanna, eftersom processen då blir orättvis mot den som pekas ut.",
+      "steps": [
+        "Bedöm källans trovärdighet: varför är personen anonym, och vilka belägg finns för anklagelserna?",
+        "Kontrollera vederhäftigheten genom att om möjligt verifiera uppgifterna mot fler oberoende källor.",
+        "Ge den anklagade politikern möjlighet att bemöta anklagelserna innan publicering (genmäle), som pressetiska regler normalt kräver.",
+        "Väg allmänintresset av publiceringen mot risken för skada på den enskildes anseende om uppgifterna senare visar sig felaktiga.",
+        "Dra slutsatsen att en ansvarsfull publicering bör invänta politikerns kommentar, om inte starka skäl talar emot det."
+      ]
+    },
+    {
+      "id": "q-sam1a1-media-8",
+      "kind": "flashcard",
+      "topic": "mediernas roll och medielogik",
+      "prompt": "Sammanfatta centrala begrepp om massmedier, opinionsbildning och algoritmer.",
+      "opener": "Mediernas roll, hur opinion formas och vad tekniken gör med det vi ser.",
+      "answer": "Den tredje statsmakten: mediernas granskande roll gentemot politisk och ekonomisk makt · Medielogik: tendensen att prioritera dramatiskt, konfliktfyllt och personifierat innehåll · Opinionsbildning: processen där människors åsikter i samhällsfrågor formas, via t.ex. medier, debatt och kampanjer · Påverkanskanaler: insändare, debattartiklar, demonstrationer, sociala medier, lobbying · Filterbubbla: algoritmer visar mest innehåll man redan håller med om, vilket minskar mötet med andra perspektiv · Medieetik/pressetik: principer som vederhäftighet, källkritik och genmäle - att den som anklagas ska få bemöta uppgifter innan publicering."
+    }
+  ]
+}

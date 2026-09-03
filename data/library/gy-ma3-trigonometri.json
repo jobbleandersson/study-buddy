@@ -1,0 +1,129 @@
+{
+  "id": "lib-ma3-trigonometri",
+  "type": "assignment",
+  "subject": "Matematik 3",
+  "title": "Trigonometriska funktioner och ekvationer",
+  "sourceSummary": "Radianer, enhetscirkeln, trigonometriska ekvationer av typen $\\sin x = a$ samt trigonometriska samband som fördjupar det som togs upp i Matematik 2.",
+  "topics": [
+    "radianer",
+    "enhetscirkeln",
+    "trigonometriska ekvationer",
+    "trigonometriska samband"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma3-trig-1",
+      "kind": "mc",
+      "topic": "radianer",
+      "prompt": "Hur många radianer motsvarar $90°$?",
+      "opener": "Kom ihåg att $180°$ motsvarar $\\pi$ radianer, sätt upp en proportion.",
+      "choices": [
+        "$\\dfrac{\\pi}{2}$",
+        "$\\pi$",
+        "$\\dfrac{\\pi}{4}$",
+        "$2\\pi$"
+      ],
+      "answer": 0,
+      "explanation": "Eftersom $180° = \\pi$ rad motsvarar $90°$ hälften: $\\dfrac{180°}{2}=90° \\Rightarrow \\dfrac{\\pi}{2}$ rad. Att svara $\\pi$ hade betytt $180°$, en hel halvcirkel."
+    },
+    {
+      "id": "q-ma3-trig-2",
+      "kind": "mc",
+      "topic": "radianer",
+      "prompt": "Hur många grader motsvarar $\\dfrac{3\\pi}{4}$ radianer?",
+      "opener": "Använd att $\\pi$ radianer motsvarar $180°$ och skala om.",
+      "choices": [
+        "$120°$",
+        "$150°$",
+        "$135°$",
+        "$270°$"
+      ],
+      "answer": 2,
+      "explanation": "$\\dfrac{3\\pi}{4}\\ \\text{rad} = \\dfrac{3}{4}\\cdot180° = 135°$. Svaret $270°$ fås om man av misstag multiplicerar med $360°$ istället för $180°$."
+    },
+    {
+      "id": "q-ma3-trig-3",
+      "kind": "mc",
+      "topic": "enhetscirkeln",
+      "prompt": "En punkt på enhetscirkeln motsvarar vinkeln $\\dfrac{\\pi}{3}$. Vilka koordinater har punkten?",
+      "opener": "Koordinaterna på enhetscirkeln ges av $(\\cos v, \\sin v)$ — vilka är de exakta värdena för $\\frac{\\pi}{3}$ (60°)?",
+      "choices": [
+        "$\\left(\\dfrac{\\sqrt3}{2},\\ \\dfrac{1}{2}\\right)$",
+        "$\\left(\\dfrac{1}{2},\\ \\dfrac{\\sqrt3}{2}\\right)$",
+        "$\\left(\\dfrac{\\sqrt2}{2},\\ \\dfrac{\\sqrt2}{2}\\right)$",
+        "$(1,\\ 0)$"
+      ],
+      "answer": 1,
+      "explanation": "Punkten på enhetscirkeln ges av $(\\cos v,\\ \\sin v)$. För $v=\\frac{\\pi}{3}$ (60°) är $\\cos\\frac{\\pi}{3}=\\frac{1}{2}$ och $\\sin\\frac{\\pi}{3}=\\frac{\\sqrt3}{2}$, alltså $\\left(\\frac12,\\frac{\\sqrt3}{2}\\right)$. Att kasta om koordinaterna till $\\left(\\frac{\\sqrt3}{2},\\frac12\\right)$ är istället värdena för $\\frac{\\pi}{6}$ (30°)."
+    },
+    {
+      "id": "q-ma3-trig-4",
+      "kind": "mc",
+      "topic": "trigonometriska ekvationer",
+      "prompt": "Lös ekvationen $\\sin x = \\dfrac{1}{2}$ för $0 \\le x < 2\\pi$.",
+      "opener": "Sinus är positiv i två kvadranter på enhetscirkeln — hitta båda lösningarna.",
+      "choices": [
+        "$x=\\dfrac{\\pi}{6}$ eller $x=\\dfrac{7\\pi}{6}$",
+        "$x=\\dfrac{\\pi}{3}$ eller $x=\\dfrac{2\\pi}{3}$",
+        "$x=\\dfrac{\\pi}{6}$ (enda lösningen)",
+        "$x=\\dfrac{\\pi}{6}$ eller $x=\\dfrac{5\\pi}{6}$"
+      ],
+      "answer": 3,
+      "explanation": "Referensvinkeln är $\\frac{\\pi}{6}$ eftersom $\\sin\\frac{\\pi}{6}=\\frac12$. Sinus är positiv i första och andra kvadranten, vilket ger $x=\\frac{\\pi}{6}$ och $x=\\pi-\\frac{\\pi}{6}=\\frac{5\\pi}{6}$. Lösningen $\\frac{7\\pi}{6}$ ligger i tredje kvadranten där sinus är negativ, så den är fel."
+    },
+    {
+      "id": "q-ma3-trig-5",
+      "kind": "mc",
+      "topic": "trigonometriska samband",
+      "prompt": "Vilket av följande är den trigonometriska ettan?",
+      "opener": "Sambandet gäller för alla vinklar $x$ och kommer från Pythagoras sats på enhetscirkeln.",
+      "choices": [
+        "$\\sin x+\\cos x=1$",
+        "$\\sin^2x-\\cos^2x=1$",
+        "$\\sin^2x+\\cos^2x=1$",
+        "$\\sin(2x)=\\sin x+\\cos x$"
+      ],
+      "answer": 2,
+      "explanation": "Den trigonometriska ettan är $\\sin^2x+\\cos^2x=1$ för alla vinklar $x$, vilket följer av Pythagoras sats tillämpad på enhetscirkelns punkter $(\\cos x,\\sin x)$. Uttrycket $\\sin x+\\cos x=1$ gäller bara för vissa specifika vinklar, inte generellt."
+    },
+    {
+      "id": "q-ma3-trig-6",
+      "kind": "mc",
+      "topic": "trigonometriska samband",
+      "prompt": "Vilken av följande formler för dubbla vinkeln är korrekt?",
+      "opener": "Det finns flera likvärdiga former av $\\cos(2x)$ — en bygger direkt på $\\cos^2x$ och $\\sin^2x$.",
+      "choices": [
+        "$\\cos(2x)=2\\cos x\\sin x$",
+        "$\\cos(2x)=\\cos^2x-\\sin^2x$",
+        "$\\cos(2x)=\\cos^2x+\\sin^2x$",
+        "$\\cos(2x)=\\sin^2x-\\cos^2x$"
+      ],
+      "answer": 1,
+      "explanation": "Formeln för dubbla vinkeln är $\\cos(2x)=\\cos^2x-\\sin^2x$. Uttrycket $2\\cos x\\sin x$ är istället formeln för $\\sin(2x)$, och $\\cos^2x+\\sin^2x$ är alltid lika med $1$ enligt trigonometriska ettan, inte $\\cos(2x)$."
+    },
+    {
+      "id": "q-ma3-trig-7",
+      "kind": "worked",
+      "topic": "trigonometriska ekvationer",
+      "prompt": "Lös ekvationen $\\cos x = -\\dfrac{\\sqrt2}{2}$ för $0 \\le x < 2\\pi$.",
+      "opener": "Hitta referensvinkeln där cosinus är positiv och lika stor, avgör sedan i vilka kvadranter cosinus är negativ.",
+      "answer": "$x=\\dfrac{3\\pi}{4}$ eller $x=\\dfrac{5\\pi}{4}$",
+      "steps": [
+        "Referensvinkel: $\\cos\\frac{\\pi}{4}=\\frac{\\sqrt2}{2}$, alltså är referensvinkeln $\\frac{\\pi}{4}$.",
+        "Cosinus är negativ i andra och tredje kvadranten på enhetscirkeln.",
+        "Andra kvadranten: $x=\\pi-\\frac{\\pi}{4}=\\frac{3\\pi}{4}$.",
+        "Tredje kvadranten: $x=\\pi+\\frac{\\pi}{4}=\\frac{5\\pi}{4}$.",
+        "Lösningarna i intervallet är $x=\\frac{3\\pi}{4}$ eller $x=\\frac{5\\pi}{4}$."
+      ]
+    },
+    {
+      "id": "q-ma3-trig-8",
+      "kind": "flashcard",
+      "topic": "trigonometriska samband",
+      "prompt": "Sammanfatta radianbegreppet, enhetscirkeln, lösning av $\\sin x=a$ och de trigonometriska sambanden.",
+      "opener": "Tänk grad-till-radian, kvadranternas tecken och identiteterna för dubbla vinkeln.",
+      "answer": "$180°=\\pi$ rad, alltså $1$ rad $=\\dfrac{180°}{\\pi}$ · Punkt på enhetscirkeln vid vinkel $v$: $(\\cos v,\\ \\sin v)$ · Trigonometriska ettan: $\\sin^2x+\\cos^2x=1$ · $\\sin(2x)=2\\sin x\\cos x$ · $\\cos(2x)=\\cos^2x-\\sin^2x=1-2\\sin^2x=2\\cos^2x-1$ · $\\sin x=a$ har lösningarna $x=v+2\\pi n$ eller $x=\\pi-v+2\\pi n$, där $v$ är en lösning · $\\cos x=a$ har lösningarna $x=\\pm v+2\\pi n$, där $v$ är en lösning"
+    }
+  ]
+}

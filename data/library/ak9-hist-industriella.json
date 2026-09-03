@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist-industriella",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Industriella revolutionen",
+  "sourceSummary": "Hur ångmaskinen, fabriker och nya uppfinningar förvandlade Europa från jordbrukssamhälle till industrisamhälle på bara några generationer – och vilka sociala följder det fick.",
+  "topics": [
+    "industriella revolutionen",
+    "ångmaskinen och mekanisering",
+    "urbanisering",
+    "arbetsvillkor och fackföreningar"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist-ind-1",
+      "kind": "mc",
+      "topic": "industriella revolutionen",
+      "prompt": "Var startade industriella revolutionen?",
+      "opener": "Tänk på vilket land som först hade kol, järn och ett fungerande textilhantverk att bygga vidare på.",
+      "choices": [
+        "Storbritannien",
+        "Frankrike",
+        "Tyskland",
+        "USA"
+      ],
+      "answer": 0,
+      "explanation": "Storbritannien hade goda tillgångar på kol och järn, ett utbyggt textilhantverk och kapital att investera — därför startade industrialiseringen där under andra hälften av 1700-talet. Frankrike och Tyskland industrialiserades senare, och USA:s industrialisering tog fart först på 1800-talet."
+    },
+    {
+      "id": "q-hist-ind-2",
+      "kind": "mc",
+      "topic": "ångmaskinen och mekanisering",
+      "prompt": "Vad var ångmaskinens viktigaste betydelse för industrialiseringen?",
+      "opener": "Fundera på vad fabriker tidigare var tvungna att ligga nära för att få kraft.",
+      "choices": [
+        "Den gjorde det möjligt att bygga fabriker oberoende av vattenkraft",
+        "Den ersatte hästar som transportmedel på landsbygden",
+        "Den gjorde jordbruket helt automatiskt",
+        "Den användes bara för att värma bostäder"
+      ],
+      "answer": 0,
+      "explanation": "Innan ångmaskinen var fabriker beroende av att ligga vid strömmande vatten för kraft. Ångmaskinen, som drevs av kol, gjorde det möjligt att placera fabriker var som helst och drev även lok och fartyg. De andra alternativen beskriver inte ångmaskinens centrala roll."
+    },
+    {
+      "id": "q-hist-ind-3",
+      "kind": "mc",
+      "topic": "urbanisering",
+      "prompt": "Vad menas med urbanisering?",
+      "opener": "Ordet har samma rot som \"urban\" — stad.",
+      "choices": [
+        "Att människor flyttar från landsbygden till städerna",
+        "Att jordbruket blir mer effektivt",
+        "Att fabriker flyttar utomlands",
+        "Att befolkningen minskar totalt"
+      ],
+      "answer": 0,
+      "explanation": "Urbanisering innebär att allt fler människor flyttar från landsbygden till städerna, ofta för att söka arbete i de nya fabrikerna. Under industrialiseringen växte städer som Manchester och senare Stockholm snabbt av just detta skäl."
+    },
+    {
+      "id": "q-hist-ind-4",
+      "kind": "mc",
+      "topic": "urbanisering",
+      "prompt": "Varför flyttade så många människor till städerna under industrialiseringen?",
+      "opener": "Vad hände på landsbygden samtidigt som fabrikerna växte fram i städerna?",
+      "choices": [
+        "Nya jordbruksmetoder krävde färre arbetare på landet, samtidigt som fabrikerna behövde arbetskraft",
+        "Regeringen tvingade alla bönder att flytta",
+        "Det fanns inte längre någon mat på landsbygden",
+        "Skolplikten krävde att alla bodde i städer"
+      ],
+      "answer": 0,
+      "explanation": "Effektivare jordbruksmetoder gjorde att färre människor behövdes för att odla samma mängd mat, samtidigt som fabrikerna i städerna erbjöd nya arbetstillfällen — en kombination av \"push\" från landsbygden och \"pull\" från städerna. De andra alternativen stämmer inte med historien."
+    },
+    {
+      "id": "q-hist-ind-5",
+      "kind": "mc",
+      "topic": "arbetsvillkor och fackföreningar",
+      "prompt": "Hur var arbetsvillkoren för många fabriksarbetare under tidig industrialisering?",
+      "opener": "Tänk på att det ännu inte fanns lagar som skyddade arbetare.",
+      "choices": [
+        "Långa arbetsdagar, låga löner och farliga arbetsmiljöer, ofta även för barn",
+        "Kortare arbetsdagar än på landsbygden och höga löner",
+        "Sex timmars arbetsdag med betald semester",
+        "Arbetet var frivilligt och välbetalt för alla åldrar"
+      ],
+      "answer": 0,
+      "explanation": "Fabriksarbetare, inklusive barn, fick ofta arbeta 12–16 timmar per dag under farliga förhållanden och för låga löner, eftersom det saknades lagar som reglerade arbetsmiljö och arbetstid. De andra alternativen beskriver villkor som inte fanns förrän efter decennier av kamp för bättre rättigheter."
+    },
+    {
+      "id": "q-hist-ind-6",
+      "kind": "mc",
+      "topic": "arbetsvillkor och fackföreningar",
+      "prompt": "Varför bildades fackföreningar under industrialiseringen?",
+      "opener": "Vad kunde arbetare uppnå tillsammans som de inte kunde uppnå ensamma?",
+      "choices": [
+        "För att arbetare tillsammans skulle kunna kräva bättre löner och arbetsvillkor",
+        "För att fabriksägarna skulle tjäna mer pengar",
+        "För att staten skulle kunna kontrollera arbetarna bättre",
+        "För att minska antalet fabriker"
+      ],
+      "answer": 0,
+      "explanation": "Genom att gå samman i fackföreningar fick arbetarna en starkare förhandlingsposition gentemot fabriksägarna och kunde tillsammans kräva högre löner, kortare arbetsdagar och bättre säkerhet. Fackföreningar bildades av arbetarna själva, inte av fabriksägarna eller staten."
+    },
+    {
+      "id": "q-hist-ind-7",
+      "kind": "worked",
+      "topic": "arbetsvillkor och fackföreningar",
+      "prompt": "Förklara hur industriella revolutionen ledde till nya klasskillnader i samhället.",
+      "opener": "Tänk på vem som ägde fabrikerna och vem som arbetade i dem.",
+      "answer": "Industrialiseringen skapade en tydlig klyfta mellan en växande arbetarklass, som ägde sin arbetskraft men inte några produktionsmedel, och en borgarklass av fabriksägare och kapitalister som tjänade pengar på arbetarnas arbete. Arbetarna levde ofta trångt och fattigt i städerna medan fabriksägarna kunde bli mycket förmögna, vilket ledde till spänningar och så småningom till arbetarrörelsens organisering.",
+      "steps": [
+        "Fabriksägarna (borgarklassen) investerade kapital i maskiner och fabriker och ägde produktionsmedlen.",
+        "Arbetarna hade bara sin arbetskraft att sälja och var beroende av lönearbete för att överleva.",
+        "Löneskillnaderna var stora: fabriksägare kunde bli rika medan arbetare ofta levde i fattigdom och trångboddhet.",
+        "Denna klyfta ledde till växande missnöje och till att arbetare organiserade sig i fackföreningar och senare politiska rörelser.",
+        "På sikt bidrog klasskillnaderna till krav på reformer, rösträtt och bättre arbetsvillkor."
+      ]
+    },
+    {
+      "id": "q-hist-ind-8",
+      "kind": "flashcard",
+      "topic": "industriella revolutionen",
+      "prompt": "Sammanfatta industriella revolutionens viktigaste drag och konsekvenser.",
+      "opener": "Tänk startland, drivkraft, samhällsförändring och följder.",
+      "answer": "Industriella revolutionen startade i Storbritannien i slutet av 1700-talet · drevs av nya uppfinningar som ångmaskinen (James Watt) och mekaniska vävstolar · innebar en övergång från hantverk och jordbruk till fabriksproduktion · ledde till urbanisering, då människor flyttade från landsbygden till växande städer för fabriksarbete · skapade nya klasskillnader mellan arbetarklass och borgarklass (fabriksägare) · innebar ofta hårda arbetsvillkor med långa arbetsdagar, låga löner och barnarbete · ledde till att fackföreningar bildades för att kämpa för arbetares rättigheter · spred sig gradvis till andra länder i Europa och till USA under 1800-talet."
+    }
+  ]
+}

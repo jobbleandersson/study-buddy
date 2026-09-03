@@ -1,0 +1,130 @@
+{
+  "id": "lib-rel7-osterlandska",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Hinduism och buddhism",
+  "sourceSummary": "De två stora religionerna med rötter i Indien — hinduismens gudabilder, karma och reinkarnation, buddhismens syn på lidandet och nirvana, heliga platser och riter samt hur de skiljer sig från de abrahamitiska religionerna.",
+  "topics": [
+    "hinduismens grundtankar",
+    "buddhismens grundtankar",
+    "karma och reinkarnation",
+    "heliga platser och riter",
+    "jämförelse med de abrahamitiska religionerna"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel7-ost-1",
+      "kind": "mc",
+      "topic": "hinduismens grundtankar",
+      "prompt": "Vilket påstående om gudar inom hinduismen stämmer bäst?",
+      "opener": "Antalet gudabilder är stort — men många hinduer beskriver dem som delar av något större.",
+      "choices": [
+        "Inom hinduismen tror man på en enda gud och avvisar alla gudabilder",
+        "Inom hinduismen finns inga gudar alls",
+        "Inom hinduismen finns många gudar, som ofta beskrivs som olika sidor av samma gudomliga kraft, brahman",
+        "Inom hinduismen dyrkas endast Buddha"
+      ],
+      "answer": 2,
+      "explanation": "Hinduismen har många gudar, till exempel Brahma, Vishnu, Shiva, Lakshmi och Ganesha, och många hinduer förklarar dem som olika uttryck för en enda gudomlig kraft som kallas brahman. Att avvisa gudabilder är i stället typiskt för judendom och islam, och Buddha hör hemma i buddhismen."
+    },
+    {
+      "id": "q-rel7-ost-2",
+      "kind": "mc",
+      "topic": "karma och reinkarnation",
+      "prompt": "Vad menas med karma?",
+      "opener": "Begreppet handlar om vad handlingar leder till, inte om vad man tror på.",
+      "choices": [
+        "Tanken att handlingar får konsekvenser som påverkar en människas framtid och kommande liv",
+        "En helig byggnad i Indien",
+        "Namnet på hinduismens heliga skrift",
+        "En särskild fasteperiod"
+      ],
+      "answer": 0,
+      "explanation": "Karma betyder handling, och tanken är att både goda och onda handlingar får följder som påverkar det liv man föds till nästa gång. Hinduismens heligaste skrifter kallas i stället Vedaskrifterna, så det alternativet blandar ihop två helt olika begrepp."
+    },
+    {
+      "id": "q-rel7-ost-3",
+      "kind": "mc",
+      "topic": "karma och reinkarnation",
+      "prompt": "Vad menas med reinkarnation?",
+      "opener": "Ordet betyder ordagrant att åter bli kött.",
+      "choices": [
+        "Att man efter döden kommer till ett paradis för alltid",
+        "Att själen föds på nytt i en ny kropp efter döden",
+        "Att kroppen bevaras för att kunna användas igen",
+        "Att man aldrig dör om man lever rätt"
+      ],
+      "answer": 1,
+      "explanation": "Reinkarnation, eller själavandring, är tanken att själen föds om i en ny kropp efter döden, och att kretsloppet av liv och död kallas samsara. Tron på ett evigt paradis direkt efter döden hör snarare till de abrahamitiska religionerna."
+    },
+    {
+      "id": "q-rel7-ost-4",
+      "kind": "mc",
+      "topic": "buddhismens grundtankar",
+      "prompt": "Vem var Buddha?",
+      "opener": "Han levde i norra Indien för omkring 2 500 år sedan och lämnade ett rikt liv.",
+      "choices": [
+        "En gud som skapade världen",
+        "En kung i Kina som förbjöd religion",
+        "En hinduisk gud med elefanthuvud",
+        "Siddharta Gautama, en prins i norra Indien som enligt buddhismen nådde upplysning"
+      ],
+      "answer": 3,
+      "explanation": "Buddha var enligt traditionen prinsen Siddharta Gautama, som lämnade sitt bekväma liv för att söka svaret på varför människor lider och som nådde upplysning under ett fikonträd. Ordet buddha betyder den uppvaknade — inom buddhismen räknas han alltså inte som en skapargud. Guden med elefanthuvud är Ganesha inom hinduismen."
+    },
+    {
+      "id": "q-rel7-ost-5",
+      "kind": "mc",
+      "topic": "buddhismens grundtankar",
+      "prompt": "Vad är nirvana inom buddhismen?",
+      "opener": "Det är målet med hela den buddhistiska vägen.",
+      "choices": [
+        "Namnet på buddhismens heliga skrift",
+        "En stor tempelbyggnad i Nepal",
+        "Ett tillstånd där lidandet och kretsloppet av återfödelser upphör",
+        "Den dag då Buddha föddes"
+      ],
+      "answer": 2,
+      "explanation": "Nirvana är enligt buddhismen det tillstånd där begären och därmed lidandet slocknar, och där själavandringen upphör — det är målet med den åttafaldiga vägen. Det är alltså inte en byggnad, en skrift eller en högtidsdag."
+    },
+    {
+      "id": "q-rel7-ost-6",
+      "kind": "mc",
+      "topic": "jämförelse med de abrahamitiska religionerna",
+      "prompt": "Vad skiljer buddhismen tydligast från judendom, kristendom och islam?",
+      "opener": "Fundera på vilken roll en skapargud har i respektive religion.",
+      "choices": [
+        "Buddhismen har inga heliga texter eller byggnader",
+        "I buddhismen står ingen skapargud i centrum — i stället handlar läran om vägen bort från lidandet",
+        "Buddhismen saknar helt regler för hur man bör leva",
+        "Buddhismen uppstod i Mellanöstern precis som de tre andra"
+      ],
+      "answer": 1,
+      "explanation": "Den tydligaste skillnaden är att buddhismen inte har någon skapargud i centrum; fokus ligger på insikt, meditation och vägen ut ur lidandet. Buddhismen har däremot både heliga texter och tempel, och den har tydliga etiska regler — och den uppstod i Indien, inte i Mellanöstern."
+    },
+    {
+      "id": "q-rel7-ost-7",
+      "kind": "worked",
+      "topic": "heliga platser och riter",
+      "prompt": "Förklara varför floden Ganges är en helig plats inom hinduismen och beskriv vad pilgrimer gör där.",
+      "opener": "Tänk på vad vatten ofta får symbolisera i religioner, och vad hinduer vill uppnå.",
+      "answer": "Inom hinduismen ses Ganges som en helig flod, och floden beskrivs ibland som gudinnan Ganga. Många hinduer tror att floden kan rena en människa från dåliga handlingar. Därför reser pilgrimer till städer längs floden, framför allt Varanasi, för att bada i vattnet och utföra ritualer med bön, ljus och blommor. Många vill också att askan efter en avliden anhörig ska spridas i Ganges, eftersom det enligt traditionen kan hjälpa själen vidare i kretsloppet och närmare befrielsen, moksha. Att floden både används i livets riter och vid döden gör den till en av hinduismens viktigaste heliga platser.",
+      "steps": [
+        "Ganges räknas som helig inom hinduismen och beskrivs ibland som gudinnan Ganga.",
+        "Många hinduer tror att flodens vatten kan rena människan från dåliga handlingar.",
+        "Pilgrimer reser till städer längs floden, särskilt Varanasi, för att bada och utföra ritualer med bön, ljus och blommor.",
+        "Askan efter avlidna sprids ofta i floden, eftersom det enligt traditionen hjälper själen vidare mot moksha.",
+        "Slutsats: Ganges är helig eftersom den knyter ihop rening, riter och synen på livet efter döden."
+      ]
+    },
+    {
+      "id": "q-rel7-ost-8",
+      "kind": "flashcard",
+      "topic": "jämförelse med de abrahamitiska religionerna",
+      "prompt": "Sammanfatta hinduism och buddhism och jämför dem med de abrahamitiska religionerna.",
+      "opener": "Ta hinduismen först, sedan buddhismen, och avsluta med likheter och skillnader.",
+      "answer": "Hinduism: uppstod i Indien, världens äldsta av de stora religionerna, ingen enskild grundare · heliga skrifter Vedaskrifterna, även Bhagavadgita · många gudar, t.ex. Brahma (skaparen), Vishnu (bevararen), Shiva (förstöraren), Ganesha och Lakshmi, som ofta ses som sidor av brahman · byggnad tempel · karma: handlingar får följder · samsara: kretsloppet av återfödelser · moksha: befrielse från kretsloppet, hinduismens mål · heliga platser floden Ganges och staden Varanasi · högtid Diwali, ljusfesten · Buddhism: grundare Siddharta Gautama, Buddha, i norra Indien för ca 2 500 år sedan · ingen skapargud i centrum · fyra ädla sanningar: lidandet finns, det beror på begär, det kan upphöra, den åttafaldiga vägen leder dit · nirvana: tillståndet där lidandet och återfödelserna upphör · meditation är en central övning · munkar och nunnor lever i kloster · symbol dharmahjulet · Likheter mellan de två: karma, återfödelse och målet att komma ur kretsloppet · Skillnad mot judendom, kristendom och islam: där står en enda skapargud, uppenbarelse och ett liv efter döden i centrum, medan hinduism och buddhism betonar återfödelse och befrielse från kretsloppet."
+    }
+  ]
+}

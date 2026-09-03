@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi8-reaktioner",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Kemiska reaktioner och energi",
+  "sourceSummary": "Att balansera enkla reaktionsformler, skillnaden mellan exoterma och endoterma reaktioner, förbränning och oxidation, vad som påverkar reaktionshastigheten samt lagen om massans bevarande.",
+  "topics": [
+    "reaktionsformler och balansering",
+    "exoterma och endoterma reaktioner",
+    "förbränning och oxidation",
+    "reaktionshastighet",
+    "massans bevarande"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi8-rea-1",
+      "kind": "mc",
+      "topic": "reaktionsformler och balansering",
+      "prompt": "Vilken koefficient ska stå framför H2O för att formeln ska bli balanserad? 2 H2 + O2 → ___ H2O",
+      "opener": "Räkna antalet väte- och syreatomer i vänsterledet först.",
+      "choices": [
+        "2",
+        "1",
+        "3",
+        "4"
+      ],
+      "answer": 0,
+      "explanation": "Vänsterledet har 4 väteatomer (2 · H2) och 2 syreatomer (O2). Med 2 H2O i högerledet får man 4 väteatomer och 2 syreatomer — då stämmer det. Med bara 1 H2O skulle atomer försvinna, vilket inte kan hända i en kemisk reaktion."
+    },
+    {
+      "id": "q-kemi8-rea-2",
+      "kind": "mc",
+      "topic": "massans bevarande",
+      "prompt": "Vad säger lagen om massans bevarande?",
+      "opener": "Tänk på vad som händer med atomerna i en reaktion — de flyttar bara om sig.",
+      "choices": [
+        "Massan ökar alltid vid en kemisk reaktion",
+        "Massan minskar när ett ämne brinner upp",
+        "Den totala massan är lika stor före och efter reaktionen, eftersom inga atomer försvinner eller nybildas",
+        "Massan bevaras bara när reaktionen sker i vätskeform"
+      ],
+      "answer": 2,
+      "explanation": "Atomerna omgrupperas i nya föreningar, men antalet atomer av varje slag är detsamma före och efter, så den totala massan är oförändrad. När ved brinner ser det ut som att massan minskar, men det är bara för att koldioxid och vattenånga försvinner ut i luften — väger man med gaserna stämmer massan."
+    },
+    {
+      "id": "q-kemi8-rea-3",
+      "kind": "mc",
+      "topic": "förbränning och oxidation",
+      "prompt": "Vad bildas vid FULLSTÄNDIG förbränning av metan (CH4) i syre?",
+      "opener": "Kolet och vätet i bränslet får varsin syrehaltig produkt när syret räcker till.",
+      "choices": [
+        "Kolmonoxid och vätgas",
+        "Koldioxid och vatten",
+        "Sot och syrgas",
+        "Enbart koldioxid"
+      ],
+      "answer": 1,
+      "explanation": "Vid fullständig förbränning gäller CH4 + 2 O2 → CO2 + 2 H2O, alltså koldioxid och vatten. Kolmonoxid (CO) och sot bildas i stället vid ofullständig förbränning, när syretillförseln inte räcker — och vätet måste ta vägen någonstans, så det kan inte bli enbart koldioxid."
+    },
+    {
+      "id": "q-kemi8-rea-4",
+      "kind": "mc",
+      "topic": "exoterma och endoterma reaktioner",
+      "prompt": "Vad kännetecknar en EXOTERM reaktion?",
+      "opener": "Förleden \"exo-\" betyder ut — fundera på vilken väg energin går.",
+      "choices": [
+        "Den tar upp energi från omgivningen så att temperaturen sjunker",
+        "Den kan bara ske i mörker",
+        "Den kräver ständig tillförsel av elektricitet",
+        "Den avger energi till omgivningen, ofta som värme, så att temperaturen stiger"
+      ],
+      "answer": 3,
+      "explanation": "En exoterm reaktion avger energi till omgivningen, precis som förbränning gör när det blir varmt. En reaktion som i stället tar upp energi och kyler av omgivningen är endoterm — till exempel en kylpåse eller fotosyntesen."
+    },
+    {
+      "id": "q-kemi8-rea-5",
+      "kind": "mc",
+      "topic": "förbränning och oxidation",
+      "prompt": "Vad menas med att ett järnföremål oxiderar när det rostar?",
+      "opener": "Ordet oxidation hänger ihop med ett av luftens vanligaste ämnen.",
+      "choices": [
+        "Järnet reagerar med syre och vatten och bildar en ny förening, järnoxid",
+        "Järnet smälter långsamt utan att förändras kemiskt",
+        "Järnet avger syre till luften runt omkring",
+        "Järnatomerna faller sönder till mindre atomer"
+      ],
+      "answer": 0,
+      "explanation": "Oxidation betyder att ett ämne reagerar med syre — järn plus syre och vatten ger rost, alltså järnoxid, och föremålet blir därför tyngre. Atomer kan inte falla sönder till mindre atomer i en kemisk reaktion, de omgrupperas bara till nya föreningar."
+    },
+    {
+      "id": "q-kemi8-rea-6",
+      "kind": "mc",
+      "topic": "reaktionshastighet",
+      "prompt": "Vilket av följande gör att en kemisk reaktion går SNABBARE?",
+      "opener": "Reaktionen går fortare om partiklarna krockar med varandra oftare.",
+      "choices": [
+        "Att sänka temperaturen",
+        "Att använda en enda stor bit av det fasta ämnet i stället för pulver",
+        "Att höja temperaturen, eftersom partiklarna då rör sig snabbare och kolliderar oftare",
+        "Att späda lösningen så att koncentrationen blir lägre"
+      ],
+      "answer": 2,
+      "explanation": "Högre temperatur ger snabbare partiklar och fler kollisioner med tillräcklig energi, så reaktionen går fortare — det är därför kylskåp bromsar att maten förstörs. Pulver har mycket större yta än en stor bit och reagerar därför snabbare, och lägre koncentration ger färre kollisioner, alltså långsammare reaktion."
+    },
+    {
+      "id": "q-kemi8-rea-7",
+      "kind": "worked",
+      "topic": "reaktionsformler och balansering",
+      "prompt": "Magnesium brinner i syre med ett starkt vitt ljus och bildar magnesiumoxid. Balansera reaktionsformeln: Mg + O2 → MgO",
+      "opener": "Räkna atomer av varje slag på båda sidor och justera koefficienterna, aldrig indexsiffrorna.",
+      "answer": "2 Mg + O2 → 2 MgO. Reaktionen är exoterm och avger mycket värme och ljus, och den totala massan är lika stor före och efter.",
+      "steps": [
+        "Räkna atomerna i den obalanserade formeln Mg + O2 → MgO: vänster har 1 Mg och 2 O, höger har 1 Mg och 1 O.",
+        "Syret stämmer inte, så sätt koefficienten 2 framför MgO: Mg + O2 → 2 MgO. Nu finns 2 syreatomer på båda sidor.",
+        "Men nu står det 2 Mg i högerledet och bara 1 i vänsterledet, så sätt 2 framför Mg: 2 Mg + O2 → 2 MgO.",
+        "Kontrollera: 2 Mg och 2 O i vänsterledet, 2 Mg och 2 O i högerledet — formeln är balanserad.",
+        "Eftersom antalet atomer av varje slag är lika på båda sidor är massan bevarad: magnesiumoxiden väger mer än magnesiumet, för syret från luften har byggts in."
+      ]
+    },
+    {
+      "id": "q-kemi8-rea-8",
+      "kind": "flashcard",
+      "topic": "reaktionsformler och balansering",
+      "prompt": "Sammanfatta reaktionsformler, energi i reaktioner, förbränning och reaktionshastighet.",
+      "opener": "Balansering först, sedan energiriktningen, därefter förbränning och till sist hastighetsfaktorerna.",
+      "answer": "Kemisk reaktion: atomerna omgrupperas till nya ämnen, inga atomer försvinner eller nybildas · Massans bevarande: total massa lika före och efter, gaser kan lura ögat · Reaktionsformel: reaktanter → produkter, balanseras med koefficienter framför formlerna, aldrig genom att ändra indexsiffror · Exempel: 2 H2 + O2 → 2 H2O · 2 Mg + O2 → 2 MgO · CH4 + 2 O2 → CO2 + 2 H2O · Exoterm: avger energi, omgivningen blir varmare (förbränning, neutralisation, cellandning) · Endoterm: tar upp energi, omgivningen blir kallare (kylpåse, fotosyntes, upplösning av vissa salter) · Förbränning: ämne + syre, kräver bränsle, syre och tillräcklig värme (brandtriangeln) · Fullständig förbränning av kolväten ger CO2 + H2O; ofullständig ger sot och giftig kolmonoxid CO · Oxidation: ämne reagerar med syre, t.ex. rostbildning (järnoxid) — föremålet blir tyngre · Reaktionshastighet ökar av: högre temperatur · högre koncentration · större yta (pulver i stället för bit) · katalysator, som snabbar upp utan att förbrukas · Reaktionshastighet minskar av kyla, spädning och mindre kontaktyta."
+    }
+  ]
+}

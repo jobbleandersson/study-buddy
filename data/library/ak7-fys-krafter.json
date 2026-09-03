@@ -1,0 +1,130 @@
+{
+  "id": "lib-fys7-krafter",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Krafter och rörelse",
+  "sourceSummary": "Vad en kraft är, att den mäts i newton och hur tyngdkraften ger ett föremål dess tyngd — som inte är samma sak som massan. Du övar också på friktion, på hur krafter kan ta ut varandra och på att räkna ut hastighet som sträcka delat med tid.",
+  "topics": [
+    "kraft och newton",
+    "tyngdkraft",
+    "massa och tyngd",
+    "friktion",
+    "hastighet"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys7-kra-1",
+      "kind": "mc",
+      "topic": "kraft och newton",
+      "prompt": "Vilken enhet mäts en kraft i?",
+      "opener": "Enheten är döpt efter en känd fysiker och förkortas med en stor bokstav.",
+      "choices": [
+        "Kilogram (kg)",
+        "Newton (N)",
+        "Joule (J)",
+        "Meter per sekund (m/s)"
+      ],
+      "answer": 1,
+      "explanation": "Kraft mäts i newton (N), och man kan mäta den med en dynamometer, alltså en kraftmätare med en fjäder. Kilogram är enheten för massa och säger hur mycket materia ett föremål består av, inte hur stor kraft som verkar på det."
+    },
+    {
+      "id": "q-fys7-kra-2",
+      "kind": "mc",
+      "topic": "massa och tyngd",
+      "prompt": "Du reser till månen. Vad händer med din massa och din tyngd?",
+      "opener": "Massan handlar om hur mycket materia du består av, tyngden om hur hårt du dras nedåt.",
+      "choices": [
+        "Både massan och tyngden blir mindre",
+        "Massan är oförändrad men tyngden blir mindre",
+        "Massan blir mindre men tyngden är oförändrad",
+        "Både massan och tyngden är oförändrade"
+      ],
+      "answer": 1,
+      "explanation": "Massan är mängden materia i din kropp och den följer med oförändrad vart du än reser. Tyngden är däremot tyngdkraften på dig, och eftersom månen är mycket mindre än jorden drar den svagare — på månen väger du bara ungefär en sjättedel av vad du gör på jorden."
+    },
+    {
+      "id": "q-fys7-kra-3",
+      "kind": "mc",
+      "topic": "tyngdkraft",
+      "prompt": "På jorden är tyngdkraften ungefär 10 N per kilogram. Hur stor är tyngden hos en väska med massan 3 kg?",
+      "opener": "Multiplicera massan i kilogram med 10 N/kg.",
+      "choices": [
+        "3 N",
+        "0,3 N",
+        "30 N",
+        "300 N"
+      ],
+      "answer": 2,
+      "explanation": "Tyngd = massa · tyngdkraft per kilo = 3 kg · 10 N/kg = 30 N. Att svara 3 N är att blanda ihop massan med tyngden — talet 3 är massan i kilogram, inte kraften i newton."
+    },
+    {
+      "id": "q-fys7-kra-4",
+      "kind": "mc",
+      "topic": "friktion",
+      "prompt": "Varför är det svårare att bromsa en cykel på en isig väg än på torr asfalt?",
+      "opener": "Bromsningen bygger på kraften mellan hjulen och vägen.",
+      "choices": [
+        "Friktionen mellan hjulen och isen är mycket mindre",
+        "Tyngdkraften försvinner när det är kallt",
+        "Cykeln får större massa på isen",
+        "Friktionen blir större på is och skjuter cykeln framåt"
+      ],
+      "answer": 0,
+      "explanation": "Friktion är den bromsande kraften mellan två ytor som rör sig mot varandra, och den är liten mellan gummi och blank is. På torr asfalt är ytorna mycket ojämnare, friktionen blir större och cykeln kan därför stanna på kortare sträcka."
+    },
+    {
+      "id": "q-fys7-kra-5",
+      "kind": "mc",
+      "topic": "kraft och newton",
+      "prompt": "En låda står helt stilla på ett bord. Vad gäller för krafterna som verkar på lådan?",
+      "opener": "Något måste balansera tyngdkraften, annars skulle lådan falla.",
+      "choices": [
+        "Det verkar inga krafter alls på lådan",
+        "Bara tyngdkraften verkar, men den är för svag",
+        "Tyngdkraften nedåt och bordets kraft uppåt är lika stora och tar ut varandra",
+        "Bordets kraft uppåt är större än tyngdkraften"
+      ],
+      "answer": 2,
+      "explanation": "Tyngdkraften drar lådan nedåt medan bordsskivan trycker tillbaka lika hårt uppåt. Krafterna är lika stora och motriktade, så de tar ut varandra och lådan står stilla. Om bordets kraft varit större skulle lådan i stället lyfta från bordet."
+    },
+    {
+      "id": "q-fys7-kra-6",
+      "kind": "mc",
+      "topic": "hastighet",
+      "prompt": "En cyklist kör 30 km på 2 timmar. Vilken är medelhastigheten?",
+      "opener": "Hastighet är sträckan delad med tiden.",
+      "choices": [
+        "60 km/h",
+        "30 km/h",
+        "20 km/h",
+        "15 km/h"
+      ],
+      "answer": 3,
+      "explanation": "Hastighet = sträcka / tid = 30 km / 2 h = 15 km/h. Att svara 60 km/h är att multiplicera i stället för att dividera, vilket ger en orimligt hög fart för en cykel."
+    },
+    {
+      "id": "q-fys7-kra-7",
+      "kind": "worked",
+      "topic": "hastighet",
+      "prompt": "Emma springer 100 meter på 20 sekunder. Beräkna hennes medelhastighet i meter per sekund.",
+      "opener": "Sträckan är redan i meter och tiden i sekunder, så du kan sätta in direkt.",
+      "answer": "5 m/s",
+      "steps": [
+        "Skriv upp sambandet: hastighet = sträcka / tid.",
+        "Sätt in värdena: 100 m / 20 s.",
+        "Räkna ut: 100 / 20 = 5.",
+        "Svaret blir 5 m/s, alltså 5 meter varje sekund.",
+        "Rimlighetskoll: en gående person håller ungefär 1,5 m/s, så 5 m/s är en bra löparfart."
+      ]
+    },
+    {
+      "id": "q-fys7-kra-8",
+      "kind": "flashcard",
+      "topic": "kraft och newton",
+      "prompt": "Sammanfatta krafter, tyngd och hastighet.",
+      "opener": "Börja med vad en kraft är och avsluta med hastighetsformeln.",
+      "answer": "Kraft: något som drar eller trycker och kan ändra ett föremåls fart, riktning eller form · Enhet: newton (N), mäts med dynamometer · Krafter har både storlek och riktning och ritas som pilar · Tyngdkraft: kraften som drar allt mot jordens mitt, ungefär 10 N per kilogram · Tyngd = massa · 10 N/kg, till exempel 2 kg ger 20 N · Massa: mängden materia, mäts i kg, samma överallt · Tyngd: en kraft, mäts i N, mindre på månen än på jorden · Friktion: bromsande kraft mellan ytor som rör sig mot varandra, stor mot asfalt och sandpapper, liten mot is och olja · Krafter som är lika stora och motriktade tar ut varandra, då står föremålet stilla eller rör sig med jämn fart · Hastighet = sträcka / tid, enhet m/s eller km/h · 100 m på 20 s ger 5 m/s"
+    }
+  ]
+}

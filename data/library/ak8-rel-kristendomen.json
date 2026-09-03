@@ -1,0 +1,130 @@
+{
+  "id": "lib-rel8-kristendomen",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Kristendomens inriktningar",
+  "sourceSummary": "Kristendomens tre huvudinriktningar katolsk, ortodox och protestantisk och vad som skiljer dem åt, reformationen på 1500-talet och dess följder, sakrament och gudstjänst, Svenska kyrkan och frikyrkorna samt hur kristendomen ser ut i världen i dag.",
+  "topics": [
+    "kyrkans tre huvudinriktningar",
+    "reformationen",
+    "sakrament och gudstjänst",
+    "Svenska kyrkan och frikyrkorna",
+    "kristendomen globalt"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel8-kri-1",
+      "kind": "mc",
+      "topic": "kyrkans tre huvudinriktningar",
+      "prompt": "Vilka är kristendomens tre största inriktningar?",
+      "opener": "Två av dem skildes åt år 1054, den tredje växte fram på 1500-talet.",
+      "choices": [
+        "Katolska kyrkan, ortodoxa kyrkan och de protestantiska kyrkorna",
+        "Katolska kyrkan, sunni och shia",
+        "Ortodoxa kyrkan, Svenska kyrkan och judendomen",
+        "Baptister, metodister och pingstvänner"
+      ],
+      "answer": 0,
+      "explanation": "Kristendomen brukar delas in i tre huvudinriktningar. Den stora schismen år 1054 delade kyrkan i en västlig, katolsk del och en östlig, ortodox del, och reformationen på 1500-talet ledde till att de protestantiska kyrkorna växte fram. Sista alternativet räknar upp tre samfund som alla är protestantiska frikyrkor — de är alltså grenar inom en av de tre inriktningarna, inte tre skilda inriktningar. Sunni och shia är dessutom inriktningar inom islam, inte inom kristendomen."
+    },
+    {
+      "id": "q-rel8-kri-2",
+      "kind": "mc",
+      "topic": "kyrkans tre huvudinriktningar",
+      "prompt": "Vilken skillnad mellan katolska och ortodoxa kyrkan stämmer?",
+      "opener": "Tänk på vem som är kyrkans högsta ledare i respektive tradition.",
+      "choices": [
+        "Ortodoxa kyrkan leds av en påve, medan katolska kyrkan leds av flera patriarker",
+        "Katolska kyrkan har påven i Rom som högsta ledare, medan ortodoxa kyrkan består av flera självstyrande kyrkor som leds av patriarker och biskopar",
+        "Katolska kyrkan använder inga bilder alls, medan ortodoxa kyrkan kräver att alla präster lever i celibat",
+        "Ortodoxa kyrkan uppstod på 1500-talet genom reformationen"
+      ],
+      "answer": 1,
+      "explanation": "Påven, som är biskop av Rom, är katolska kyrkans överhuvud. Ortodoxa kyrkan är i stället en gemenskap av självstyrande nationella kyrkor, till exempel den grekisk-ortodoxa och den rysk-ortodoxa, där patriarken av Konstantinopel har en hedersställning men inte samma beslutsmakt som påven. Tredje alternativet blir närmast tvärtom: ikoner har en mycket central plats i ortodox gudstjänst, och ortodoxa församlingspräster får gifta sig, medan präster i den katolska latinska kyrkan lever i celibat."
+    },
+    {
+      "id": "q-rel8-kri-3",
+      "kind": "mc",
+      "topic": "reformationen",
+      "prompt": "Vad handlade reformationen om, och vem brukar räknas som dess mest kända person?",
+      "opener": "Årtalet 1517 och en tysk munk brukar nämnas först.",
+      "choices": [
+        "Karl den store lät kröna sig till kejsare och grundade en ny kyrka",
+        "Kyrkomötet i Nicaea bestämde vilka skrifter som skulle ingå i Bibeln",
+        "Martin Luther kritiserade bland annat avlatshandeln och menade att Bibeln, inte kyrkans traditioner, skulle vara högsta auktoritet — vilket ledde till att protestantiska kyrkor växte fram",
+        "Påven beslutade att alla kyrkor i Europa skulle slås samman till en enda"
+      ],
+      "answer": 2,
+      "explanation": "Reformationen brukar räknas från år 1517, då Martin Luther offentliggjorde sina teser i Wittenberg med kritik mot bland annat avlatsbreven, som sades förkorta tiden i skärselden. Luther betonade att Bibeln skulle vara högsta auktoritet och att människan enligt hans tolkning frälses genom tron, inte genom gärningar eller pengar. Alternativet om Nicaea beskriver ett kyrkomöte på 300-talet, alltså mer än tusen år tidigare, och har inget med reformationen att göra."
+    },
+    {
+      "id": "q-rel8-kri-4",
+      "kind": "mc",
+      "topic": "sakrament och gudstjänst",
+      "prompt": "Hur skiljer sig synen på sakrament mellan katolska kyrkan och de flesta protestantiska kyrkor?",
+      "opener": "Räkna antalet — det är olika i de två traditionerna.",
+      "choices": [
+        "De protestantiska kyrkorna har sju sakrament, medan katolska kyrkan har två",
+        "Ingen av traditionerna räknar med några sakrament alls",
+        "Båda har exakt samma tre sakrament: dopet, bikten och begravningen",
+        "Katolska kyrkan har sju sakrament, medan de flesta protestantiska kyrkor räknar med två: dopet och nattvarden"
+      ],
+      "answer": 3,
+      "explanation": "Katolska kyrkan räknar med sju sakrament: dop, konfirmation, nattvard (eukaristi), bikt, äktenskap, prästvigning och de sjukas smörjelse. De flesta protestantiska kyrkor räknar bara dopet och nattvarden som sakrament, eftersom man menar att det är dessa två som Jesus enligt evangelierna själv instiftade. Ortodoxa kyrkan har sju motsvarande heliga handlingar, ofta kallade mysterier. Begravningen räknas inte som sakrament i någon av traditionerna, vilket gör tredje alternativet fel."
+    },
+    {
+      "id": "q-rel8-kri-5",
+      "kind": "mc",
+      "topic": "Svenska kyrkan och frikyrkorna",
+      "prompt": "Vad kännetecknar frikyrkorna i Sverige jämfört med Svenska kyrkan?",
+      "opener": "Ordet \"fri\" syftar på förhållandet till staten och statskyrkan.",
+      "choices": [
+        "Frikyrkorna är katolska församlingar som lyder under påven i Rom",
+        "Frikyrkorna är protestantiska samfund som vuxit fram utanför statskyrkan, ofta med betoning på personlig tro, eget beslut och stort engagemang från medlemmarna — till exempel Pingströrelsen och Equmeniakyrkan",
+        "Frikyrkorna får enligt svensk lag inte hålla egna gudstjänster",
+        "Frikyrkorna är ett annat namn på Svenska kyrkans församlingar på landsbygden"
+      ],
+      "answer": 1,
+      "explanation": "Frikyrkorna växte fram ur 1800-talets väckelserörelser vid sidan av den dåvarande statskyrkan, och exempel är Pingströrelsen, Equmeniakyrkan, Evangeliska frikyrkan och Svenska Alliansmissionen. De betonar ofta personlig tro och ett eget beslut att tillhöra församlingen, och flera praktiserar troendedop av ungdomar och vuxna, medan Svenska kyrkan, som är evangelisk-luthersk, oftast döper spädbarn. Frikyrkorna är alltså protestantiska och står inte under påven. Svenska kyrkan är fortfarande Sveriges största trossamfund, men är sedan år 2000 skild från staten."
+    },
+    {
+      "id": "q-rel8-kri-6",
+      "kind": "mc",
+      "topic": "kristendomen globalt",
+      "prompt": "Vilket påstående om kristendomen i världen i dag stämmer bäst?",
+      "opener": "Fundera på var de flesta kristna bor — och om det är där religionen en gång uppstod.",
+      "choices": [
+        "Kristendomen finns i praktiken bara kvar i Europa",
+        "Alla kristna i världen tillhör samma kyrka och har samma gudstjänstordning",
+        "Kristendomen är antalsmässigt världens största religion, och i dag bor de flesta kristna utanför Europa — bland annat i Latinamerika, Afrika söder om Sahara, Asien och Nordamerika",
+        "Kristendomen är den minsta av de fem världsreligionerna"
+      ],
+      "answer": 2,
+      "explanation": "Med omkring 2,3–2,4 miljarder anhängare är kristendomen den största religionen räknat i antal. Tyngdpunkten har förskjutits kraftigt: antalet kristna växer snabbt i Afrika söder om Sahara och i delar av Asien, medan andelen aktivt praktiserande i Europa har minskat. Kristendomen är dessutom uppdelad i mängder av samfund med olika gudstjänstformer, från stillsam högmässa till livlig lovsång — alternativet om en enda gemensam kyrka och gudstjänstordning stämmer alltså inte."
+    },
+    {
+      "id": "q-rel8-kri-7",
+      "kind": "worked",
+      "topic": "reformationen",
+      "prompt": "Förklara steg för steg hur reformationen gick till och vilka följder den fick, både i Europa och i Sverige.",
+      "opener": "Följ kedjan: kritiken, spridningen, splittringen och konsekvenserna i Sverige.",
+      "answer": "Bakgrunden var en utbredd kritik mot den katolska kyrkans rikedom och maktställning, och särskilt mot avlatsbreven som såldes med löfte om förkortad tid i skärselden. År 1517 offentliggjorde munken och teologen Martin Luther sina 95 teser i Wittenberg, där han ifrågasatte avlatshandeln. Luther menade att Bibeln, inte kyrkans traditioner eller påvens auktoritet, skulle vara högsta rättesnöre, och att människan enligt hans tolkning frälses genom tron. Tack vare boktryckarkonsten spreds hans skrifter snabbt över Europa, och Bibeln började översättas till folkspråken så att fler kunde läsa den själva. Kyrkan i Västeuropa splittrades: lutherska, reformerta (calvinistiska) och anglikanska kyrkor växte fram, medan katolska kyrkan svarade med sin egen motreformation genom konciliet i Trient. Följderna blev både religiösa och politiska — flera länder drogs in i religionskrig under 1500- och 1600-talen, och furstar som anslöt sig till reformationen kunde ta över kyrkans egendomar och stärka sin egen makt. I Sverige drev Gustav Vasa igenom reformationen från 1527, då riksdagen i Västerås gav kronan rätt till kyrkans egendom; Nya testamentet kom på svenska 1526 och hela Bibeln 1541. Sverige blev evangelisk-lutherskt, vilket slogs fast vid Uppsala möte 1593, och kyrkan blev nära knuten till staten — en koppling som bestod ända fram till år 2000. På längre sikt bidrog reformationens betoning på att var och en skulle kunna läsa Bibeln till ökad läskunnighet i Sverige.",
+      "steps": [
+        "Bakgrund: kritik mot den katolska kyrkans rikedom, maktställning och försäljning av avlatsbrev.",
+        "1517: Martin Luther offentliggör sina 95 teser i Wittenberg och menar att Bibeln, inte kyrkans traditioner, är högsta auktoritet.",
+        "Spridning: boktryckarkonsten sprider skrifterna, och Bibeln översätts till folkspråken.",
+        "Splittring i Europa: lutherska, reformerta och anglikanska kyrkor bildas, katolska kyrkan svarar med motreformationen, och religionskrig följer.",
+        "Sverige: Gustav Vasa driver igenom reformationen från 1527, Bibeln kommer på svenska 1541, landet blir evangelisk-lutherskt vid Uppsala möte 1593 och kyrkan knyts till staten fram till år 2000."
+      ]
+    },
+    {
+      "id": "q-rel8-kri-8",
+      "kind": "flashcard",
+      "topic": "kyrkans tre huvudinriktningar",
+      "prompt": "Sammanfatta kristendomens inriktningar: katolskt, ortodoxt och protestantiskt, reformationen, sakrament, Svenska kyrkan och frikyrkorna samt kristendomen i världen.",
+      "opener": "Jämför de tre inriktningarna först, ta sedan historien och läget i dag.",
+      "answer": "Gemensamt för alla kristna: tron på en Gud · Jesus som Kristus · Bibeln (GT och NT) som helig skrift · dopet och nattvarden · Tre huvudinriktningar: katolsk, ortodox, protestantisk · Katolska kyrkan: påven i Rom som överhuvud · sju sakrament · mässan i centrum · präster i latinska kyrkan lever i celibat · störst i världen räknat i antal · Ortodoxa kyrkan: självstyrande nationella kyrkor (grekisk-, rysk-, serbisk-ortodox m.fl.) · patriarken av Konstantinopel har hedersställning · ikoner och liturgi centrala · församlingspräster får gifta sig · Protestantiska kyrkor: Bibeln som högsta auktoritet · oftast två sakrament (dop och nattvard) · predikan i centrum · inga påveanspråk · Schismen 1054: kyrkan delas i öst och väst · Reformationen 1517: Luthers teser mot avlatshandeln → protestantiska kyrkor, boktryck, bibelöversättningar, religionskrig, motreformationen (Trient) · Sverige: Gustav Vasa från 1527 · Bibeln på svenska 1541 · Uppsala möte 1593 · Svenska kyrkan: evangelisk-luthersk, största trossamfundet, spädbarnsdop, skild från staten år 2000 · Frikyrkor: ur 1800-talets väckelse — Pingströrelsen, Equmeniakyrkan m.fl. · personlig tro, ofta troendedop, stort medlemsengagemang · Globalt: ca 2,3–2,4 miljarder kristna · flest bor i dag utanför Europa, med snabb tillväxt i Afrika söder om Sahara och delar av Asien."
+    }
+  ]
+}

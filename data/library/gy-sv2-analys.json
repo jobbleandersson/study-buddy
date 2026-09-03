@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv2-analys",
+  "type": "assignment",
+  "subject": "Svenska 2",
+  "title": "Litteraturanalys och berättarteknik",
+  "sourceSummary": "Fördjupning i berättarperspektiv, symbolik och motiv, komposition och hur form hänger ihop med innehåll.",
+  "topics": [
+    "berättarperspektiv",
+    "symbolik och motiv",
+    "komposition",
+    "form och innehåll"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv2-analys-1",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "En berättare skildrar handlingen ur en enda karaktärs perspektiv, i tredje person, men läsaren anar att karaktären missförstår sin omgivning. Vad kallas denna typ av berättare?",
+      "opener": "Fundera på om vi kan lita på det vi får veta.",
+      "choices": [
+        "Allvetande berättare",
+        "Jagberättare",
+        "Auktorial berättare",
+        "Opålitlig berättare"
+      ],
+      "answer": 3,
+      "explanation": "En opålitlig berättare ger läsaren information som är vinklad, ofullständig eller felaktig, vilket gör att läsaren måste läsa mellan raderna. Att perspektivet är tredje person men bundet till en karaktär gör den inte automatiskt allvetande eller auktorial."
+    },
+    {
+      "id": "q-sv2-analys-2",
+      "kind": "mc",
+      "topic": "symbolik och motiv",
+      "prompt": "Vad är skillnaden mellan ett motiv och en symbol i en litterär text?",
+      "opener": "Ett handlar om vad som återkommer, det andra om vad något betyder utöver sig själv.",
+      "choices": [
+        "Motiv är alltid konkreta föremål, symboler är alltid abstrakta känslor",
+        "Motiv är återkommande teman eller inslag, medan en symbol står för något mer än sig själv",
+        "Det finns ingen skillnad — orden är synonyma",
+        "Symbol handlar om berättarperspektiv, motiv om komposition"
+      ],
+      "answer": 1,
+      "explanation": "Motiv är ett återkommande inslag eller tema i en text (t.ex. döden, kärleken), medan en symbol är ett konkret föremål eller en företeelse som representerar något abstrakt (t.ex. en fågel som symboliserar frihet)."
+    },
+    {
+      "id": "q-sv2-analys-3",
+      "kind": "mc",
+      "topic": "komposition",
+      "prompt": "En roman inleds mitt i en dramatisk händelse, innan läsaren fått veta något om förhistorien. Vad kallas detta kompositionsgrepp?",
+      "opener": "Latin för \"mitt i händelserna\".",
+      "choices": [
+        "Ramberättelse",
+        "Retrospektiv komposition",
+        "In medias res",
+        "Cirkelkomposition"
+      ],
+      "answer": 2,
+      "explanation": "In medias res innebär att berättelsen börjar mitt i handlingen, ofta i en dramatisk scen, och att bakgrunden fylls i efterhand. En ramberättelse är i stället en berättelse inom berättelsen."
+    },
+    {
+      "id": "q-sv2-analys-4",
+      "kind": "mc",
+      "topic": "komposition",
+      "prompt": "Vad kännetecknar en ramberättelse?",
+      "opener": "Tänk Tusen och en natt — en berättelse föder en annan.",
+      "choices": [
+        "En huvudhandling omger en eller flera inre berättelser",
+        "Handlingen berättas i strikt kronologisk ordning",
+        "Berättelsen saknar en tydlig avslutning",
+        "Läsaren möter flera jagberättare samtidigt"
+      ],
+      "answer": 0,
+      "explanation": "I en ramberättelse finns en yttre handling (ramen) som omsluter en eller flera inre berättelser, som i Tusen och en natt där Shahrazad berättar nya historier varje natt."
+    },
+    {
+      "id": "q-sv2-analys-5",
+      "kind": "mc",
+      "topic": "symbolik och motiv",
+      "prompt": "I en novell skildras en kall, snötäckt vinter parallellt med huvudpersonens sorg efter en förlust. Vad är detta ett exempel på?",
+      "opener": "Naturen speglar ofta något annat än väderleken.",
+      "choices": [
+        "Personifikation",
+        "In medias res",
+        "Opålitlig berättare",
+        "Naturen som symbol för känslotillstånd"
+      ],
+      "answer": 3,
+      "explanation": "Naturskildringar används ofta symboliskt för att spegla en karaktärs inre tillstånd — här förstärker vintern känslan av sorg och tomhet. Personifikation hade krävt att naturen tillskrevs mänskliga egenskaper."
+    },
+    {
+      "id": "q-sv2-analys-6",
+      "kind": "mc",
+      "topic": "form och innehåll",
+      "prompt": "En text om ett kaotiskt krig skrivs med korta, huggande meningar och plötsliga perspektivbyten. Vad är sambandet mellan form och innehåll här?",
+      "opener": "Fråga dig varför författaren valt just den här stilen.",
+      "choices": [
+        "Formen är slumpmässig och saknar koppling till innehållet",
+        "Den splittrade formen förstärker upplevelsen av kaos och oro som innehållet skildrar",
+        "Formen visar att berättaren är allvetande",
+        "Korta meningar betyder alltid att texten är en dikt"
+      ],
+      "answer": 1,
+      "explanation": "I god litteratur samspelar form och innehåll — här förstärker den fragmentariska, hackiga stilen känslan av kaos och desorientering som kriget skapar. Formval är sällan slumpmässiga i genomarbetad litteratur."
+    },
+    {
+      "id": "q-sv2-analys-7",
+      "kind": "worked",
+      "topic": "berättarperspektiv",
+      "prompt": "En roman berättas i jagform av en person som gång på gång motsäger sig själv och vars minnen inte stämmer med vad andra karaktärer säger. Analysera vilken typ av berättare det är och vilken effekt det ger.",
+      "opener": "Fokusera på vad som INTE stämmer i det berättaren säger.",
+      "answer": "Det är en opålitlig jagberättare — effekten är att läsaren tvingas ifrågasätta sanningshalten i berättelsen och själv försöka lista ut vad som egentligen hänt.",
+      "steps": [
+        "Berättandet sker i jagform, vilket ger närhet till en enda persons tankar och känslor.",
+        "Motsägelserna och avvikelserna från andra karaktärers version signalerar att berättaren är opålitlig.",
+        "Effekten blir att läsaren måste läsa aktivt och kritiskt, och själv fylla i luckorna eller ifrågasätta det som sägs.",
+        "Tekniken används ofta för att skildra psykisk instabilitet eller självbedrägeri, eller för att skapa spänning och gåtfullhet i texten."
+      ]
+    },
+    {
+      "id": "q-sv2-analys-8",
+      "kind": "flashcard",
+      "topic": "komposition",
+      "prompt": "Sammanfatta viktiga kompositionsgrepp och berättartekniska begrepp för litteraturanalys.",
+      "opener": "Verktygslådan för att analysera hur en text är byggd.",
+      "answer": "In medias res: börja mitt i handlingen · Ramberättelse: en yttre berättelse omsluter inre berättelser · Kronologisk vs. icke-kronologisk: rak tidsordning eller hopp i tid (flashbacks, förebud) · Cirkelkomposition: slutet återknyter till början · Berättarperspektiv: allvetande, jag-, opålitlig eller personal (bunden till en karaktärs synvinkel) · Symbol och motiv: konkreta bilder som bär abstrakt betydelse respektive återkommande teman · Form och innehåll samspelar — hur något berättas förstärker vad som berättas."
+    }
+  ]
+}

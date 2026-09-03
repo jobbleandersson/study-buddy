@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam7-media",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Medier och information",
+  "sourceSummary": "Mediernas roll i en demokrati, skillnaden mellan nyheter och åsikter, hur du granskar källor på nätet, vad som gäller kring sociala medier och näthat samt vad yttrandefrihet innebär.",
+  "topics": [
+    "mediernas roll",
+    "nyheter och åsikter",
+    "källkritik",
+    "sociala medier och näthat",
+    "yttrandefrihet"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam7-med-1",
+      "kind": "mc",
+      "topic": "mediernas roll",
+      "prompt": "Vilken viktig uppgift har nyhetsmedier i en demokrati?",
+      "opener": "Fundera på vad medborgarna behöver veta för att kunna rösta klokt.",
+      "choices": [
+        "Att bestämma vilka lagar som ska gälla",
+        "Att granska makthavare och ge medborgarna information så att de kan bilda sig en egen uppfattning",
+        "Att utse regeringen efter valet",
+        "Att döma dem som brutit mot lagen"
+      ],
+      "answer": 1,
+      "explanation": "Nyhetsmedier informerar, granskar dem som har makt och ger utrymme för debatt — därför kallas de ibland den tredje statsmakten. Att stifta lagar, utse regering och döma är i stället uppgifter för riksdagen, talmannen och domstolarna."
+    },
+    {
+      "id": "q-sam7-med-2",
+      "kind": "mc",
+      "topic": "nyheter och åsikter",
+      "prompt": "Vad skiljer en debattartikel från en nyhetsartikel?",
+      "opener": "Den ena vill övertyga dig, den andra vill informera dig.",
+      "choices": [
+        "Debattartikeln är alltid längre än nyhetsartikeln",
+        "Nyhetsartikeln är skriven av en läsare och debattartikeln av en journalist",
+        "Det finns ingen skillnad, båda är nyheter",
+        "Debattartikeln framför en åsikt och vill övertyga, medan nyhetsartikeln ska beskriva vad som hänt så sakligt som möjligt"
+      ],
+      "answer": 3,
+      "explanation": "En debattartikel eller insändare framför skribentens åsikt, medan en nyhetsartikel ska rapportera fakta så neutralt som möjligt och redovisa flera sidor. Längden säger ingenting om vilken texttyp det är — och debattartiklar skrivs ofta just av läsare eller experter, inte av redaktionens journalister."
+    },
+    {
+      "id": "q-sam7-med-3",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Vilken fråga är mest användbar när du bedömer en källa på nätet?",
+      "opener": "Den viktigaste frågan handlar om avsändaren.",
+      "choices": [
+        "Vem står bakom informationen, och varför är den publicerad?",
+        "Hur många färger finns på webbsidan?",
+        "Hur många ord är texten?",
+        "Har sidan en snygg logotyp?"
+      ],
+      "answer": 0,
+      "explanation": "Källkritik börjar med avsändaren och syftet: vem har skrivit, vad vill de uppnå och tjänar de något på att du tror på informationen? Hur snygg sidan ser ut säger nästan ingenting om innehållets tillförlitlighet — en välgjord sida kan innehålla helt felaktiga uppgifter."
+    },
+    {
+      "id": "q-sam7-med-4",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Du ser ett dramatiskt påstående i ett inlägg i ditt flöde. Vad är det bästa första steget?",
+      "opener": "Innan du sprider vidare: se om någon annan, oberoende av inlägget, säger samma sak.",
+      "choices": [
+        "Dela inlägget direkt så att fler får veta",
+        "Lita på det om många har gillat inlägget",
+        "Söka upp om flera oberoende källor rapporterar samma sak",
+        "Anta att det är falskt eftersom det står på sociala medier"
+      ],
+      "answer": 2,
+      "explanation": "Att jämföra med flera oberoende källor, till exempel etablerade nyhetsmedier eller myndigheter, är det säkraste sättet att kontrollera en uppgift. Antalet gillningar och delningar säger ingenting om sanningshalten — och att automatiskt avfärda allt på sociala medier är inte källkritik utan bara en annan sorts förutfattad mening."
+    },
+    {
+      "id": "q-sam7-med-5",
+      "kind": "mc",
+      "topic": "sociala medier och näthat",
+      "prompt": "Vad gäller om någon skriver kränkande saker om en annan person på nätet?",
+      "opener": "Fundera på om internet är ett laglöst område eller inte.",
+      "choices": [
+        "Det är alltid tillåtet eftersom det bara är ord",
+        "Det kan vara brottsligt, till exempel som förtal, olaga hot eller ofredande — samma lagar gäller på nätet som i verkliga livet",
+        "Det är tillåtet så länge man använder ett anonymt konto",
+        "Bara vuxna kan göra sig skyldiga till något på nätet"
+      ],
+      "answer": 1,
+      "explanation": "Samma lagar gäller på internet som utanför: hot, förtal, ofredande och hets mot folkgrupp är brott även när de begås i en chatt eller kommentar. Att använda ett anonymt konto ändrar inte det, eftersom polisen ofta kan ta reda på vem som skrivit."
+    },
+    {
+      "id": "q-sam7-med-6",
+      "kind": "mc",
+      "topic": "yttrandefrihet",
+      "prompt": "Vad innebär yttrandefriheten i Sverige?",
+      "opener": "Friheten är stor, men inte helt obegränsad.",
+      "choices": [
+        "Att man får säga precis vad som helst utan några gränser",
+        "Att bara journalister får uttrycka åsikter offentligt",
+        "Att staten godkänner alla texter innan de publiceras",
+        "Att man har rätt att uttrycka sina åsikter, men att friheten har gränser — till exempel är olaga hot och hets mot folkgrupp förbjudet"
+      ],
+      "answer": 3,
+      "explanation": "Yttrandefriheten är en grundlagsskyddad rättighet som ger alla rätt att uttrycka åsikter, men den begränsas av lagar mot bland annat hot, förtal och hets mot folkgrupp. Att staten skulle förhandsgranska texter är motsatsen till yttrandefrihet — sådan censur är förbjuden i Sverige."
+    },
+    {
+      "id": "q-sam7-med-7",
+      "kind": "worked",
+      "topic": "källkritik",
+      "prompt": "Du hittar en artikel i ditt flöde med rubriken att skolorna ska stängas i din kommun nästa vecka. Beskriv steg för steg hur du granskar informationen källkritiskt.",
+      "opener": "Använd källkritikens frågor i tur och ordning: vem, när, varför och kan det bekräftas?",
+      "answer": "Först tittar du på avsändaren: vem står bakom sidan, finns det en redaktion och en ansvarig utgivare? Sedan kontrollerar du datumet — en gammal artikel kan spridas som om den vore ny. Därefter funderar du på syftet: vill sidan informera, övertyga, sälja något eller locka klick? Nästa steg är att söka efter samma uppgift i flera oberoende källor, till exempel kommunens webbplats eller etablerade nyhetsmedier. Till sist jämför du rubriken med texten, eftersom rubriker ofta överdriver, och kontrollerar bilderna — de kan vara tagna i ett annat sammanhang. Om ingen oberoende källa bekräftar uppgiften ska du inte sprida den vidare.",
+      "steps": [
+        "Kolla avsändaren: vem har publicerat, finns redaktion och kontaktuppgifter?",
+        "Kolla datumet — gamla artiklar sprids ofta som om de vore aktuella nyheter.",
+        "Fundera på syftet: informera, övertyga, sälja eller få klick?",
+        "Sök samma uppgift i minst två oberoende källor, till exempel kommunens webbplats eller etablerade nyhetsmedier.",
+        "Jämför rubrik med innehåll och kontrollera bilderna — sprid inte vidare om ingen oberoende källa bekräftar."
+      ]
+    },
+    {
+      "id": "q-sam7-med-8",
+      "kind": "flashcard",
+      "topic": "källkritik",
+      "prompt": "Sammanfatta mediernas roll, källkritikens frågor och reglerna på nätet.",
+      "opener": "Ta mediernas uppgift först, sedan texttyperna, källkritiken och till sist rättigheter och gränser.",
+      "answer": "Mediernas roll: informera, granska makthavare och ge plats för debatt — kallas ibland tredje statsmakten · Nyhet: ska rapportera vad som hänt sakligt och med flera perspektiv · Åsiktstext: debattartikel, insändare, krönika, ledare — vill övertyga · Reklam: vill sälja, måste märkas som annons, även när en influerare gör den · Källkritikens frågor: Vem är avsändaren? När publicerades det? Varför är det publicerat? Kan uppgiften bekräftas av oberoende källor? · Beroende källor: sidor som bara upprepar varandra räknas som en enda källa · Desinformation: falsk information som sprids medvetet · Filterbubbla: algoritmer visar mest sådant du redan gillar, så du ser färre andra perspektiv · Yttrandefrihet: grundlagsskyddad rätt att uttrycka åsikter, censur i förväg är förbjuden · Gränser: olaga hot, förtal, ofredande och hets mot folkgrupp är brott — samma lagar gäller på nätet som utanför · Vid näthat: spara bevis (skärmdumpar), blockera, berätta för en vuxen och anmäl till polisen."
+    }
+  ]
+}

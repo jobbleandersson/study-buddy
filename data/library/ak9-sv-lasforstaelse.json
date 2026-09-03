@@ -1,0 +1,127 @@
+{
+  "id": "lib-sv9-lasforstaelse",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Läsförståelse",
+  "sourceSummary": "Huvudbudskap, slutsatser och sammanfattning — att läsa mellan raderna och skilja på vad texten säger och vad den antyder.",
+  "topics": [
+    "huvudbudskap",
+    "slutsatser",
+    "sammanfattning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv9-las-1",
+      "kind": "mc",
+      "topic": "huvudbudskap",
+      "prompt": "Läs texten och svara.\n\n\"Många ungdomar tränar mindre idag än för tio år sedan. Skolidrotten har minskat, och färre går med i föreningar. Samtidigt visar undersökningar att psykisk ohälsa bland unga ökar. Forskare menar att sambandet inte är en slump.\"\n\nVad är textens huvudbudskap?",
+      "opener": "Sista meningen brukar knyta ihop textens poäng — vad säger den?",
+      "choices": [
+        "Skolidrotten borde vara obligatorisk",
+        "Det finns troligen ett samband mellan minskad rörelse och psykisk ohälsa hos unga",
+        "Föreningar är det bästa sättet att träna på",
+        "Psykisk ohälsa har alltid funnits bland unga"
+      ],
+      "answer": 1,
+      "explanation": "Texten bygger upp ett samband mellan minskad träning och ökad psykisk ohälsa, och avslutar med att forskare tror på ett samband. Det är textens poäng — inte ett krav på obligatorisk idrott, vilket aldrig nämns."
+    },
+    {
+      "id": "q-sv9-las-2",
+      "kind": "mc",
+      "topic": "slutsatser",
+      "prompt": "Läs texten och svara.\n\n\"Emma tittade på klockan för tredje gången. Hon hade redan packat väskan två gånger och lagt tillbaka samma tröja. När mamma ropade att bilen var klar rusade hon nerför trappan utan att knyta skorna.\"\n\nVad kan man dra slutsatsen om Emma?",
+      "opener": "Vad avslöjar det att hon packar om samma väska och glömmer knyta skorna?",
+      "choices": [
+        "Hon är trött och vill sova",
+        "Hon är arg på sin mamma",
+        "Hon är nervös eller uppspelt inför något",
+        "Hon har glömt vart de ska"
+      ],
+      "answer": 2,
+      "explanation": "Att kolla klockan upprepade gånger, packa om och rusa utan att knyta skorna signalerar nervositet eller förväntan — texten säger det aldrig rakt ut, men detaljerna pekar åt samma håll."
+    },
+    {
+      "id": "q-sv9-las-3",
+      "kind": "mc",
+      "topic": "huvudbudskap",
+      "prompt": "Läs texten och svara.\n\n\"Att plocka bär i skogen kräver varken medlemskap, avgift eller särskild utrustning. Allemansrätten ger alla i Sverige rätt att vistas i naturen, plocka bär och svamp, så länge man inte stör eller förstör.\"\n\nVilken sammanfattning stämmer bäst?",
+      "opener": "Vilken mening i texten förklarar VARFÖR man kan plocka bär fritt?",
+      "choices": [
+        "Bärplockning är gratis om man har rätt utrustning",
+        "Allemansrätten gör det möjligt för alla att fritt vistas i och plocka från naturen, inom vissa gränser",
+        "Man måste vara medlem i en förening för att plocka bär",
+        "Svamp och bär får bara plockas av markägaren"
+      ],
+      "answer": 1,
+      "explanation": "Texten förklarar att allemansrätten ger den fria tillgången — men med villkoret \"så länge man inte stör eller förstör\", vilket alternativ 1 utelämnar."
+    },
+    {
+      "id": "q-sv9-las-4",
+      "kind": "mc",
+      "topic": "sammanfattning",
+      "prompt": "Läs texten och svara.\n\n\"Skolbiblioteket har utökat sina öppettider efter önskemål från eleverna. Nu går det att låna böcker även på morgonen innan lektionerna börjar, inte bara på håltimmar som tidigare.\"\n\nVilken rubrik sammanfattar texten bäst?",
+      "opener": "En bra rubrik fångar VAD som förändrats och VARFÖR.",
+      "choices": [
+        "Skolbiblioteket byggs om",
+        "Fler böcker till skolbiblioteket",
+        "Skolbiblioteket har längre öppettider efter elevernas önskemål",
+        "Eleverna får inte längre låna böcker på håltimmar"
+      ],
+      "answer": 2,
+      "explanation": "Texten handlar specifikt om utökade öppettider på grund av elevernas önskemål — inte ombyggnad, fler böcker, eller att håltimmarna tagits bort (morgontiden är ett TILLÄGG, inte en ersättning)."
+    },
+    {
+      "id": "q-sv9-las-5",
+      "kind": "mc",
+      "topic": "slutsatser",
+      "prompt": "Läs texten och svara.\n\n\"Restaurangen hade kö redan klockan elva på förmiddagen, trots att den öppnat bara en vecka tidigare. Ägaren log brett när hon räknade in gästerna.\"\n\nVad antyder texten om restaurangen?",
+      "opener": "Vad säger kön och ägarens leende om hur det går för restaurangen?",
+      "choices": [
+        "Restaurangen har för lite personal",
+        "Restaurangen verkar redan vara populär och gå bra",
+        "Restaurangen kommer snart att stänga",
+        "Ägaren är missnöjd med köerna"
+      ],
+      "answer": 1,
+      "explanation": "Kön trots att restaurangen är ny, plus ägarens leende, antyder framgång — texten säger det aldrig rakt ut men detaljerna pekar tydligt åt det hållet."
+    },
+    {
+      "id": "q-sv9-las-6",
+      "kind": "mc",
+      "topic": "huvudbudskap",
+      "prompt": "Läs texten och svara.\n\n\"Många tror att man tänker bäst i tystnad. Men studier visar att en del personer faktiskt löser problem snabbare med bakgrundsljud, som ett svagt sorl på ett café. Tystnad passar inte alla lika bra.\"\n\nVad är textens poäng?",
+      "opener": "Texten börjar med en vanlig uppfattning och vänder sedan på den — vad blir slutsatsen?",
+      "choices": [
+        "Alla tänker bäst på café",
+        "Tystnad är alltid bäst för koncentration",
+        "Vad som hjälper koncentrationen varierar från person till person",
+        "Bakgrundsljud stör alltid koncentrationen"
+      ],
+      "answer": 2,
+      "explanation": "Texten utmanar antagandet att tystnad alltid är bäst och visar att det varierar mellan individer — det är poängen, inte att café generellt är bättre."
+    },
+    {
+      "id": "q-sv9-las-7",
+      "kind": "worked",
+      "topic": "sammanfattning",
+      "prompt": "Sammanfatta texten i högst två meningar: \"Kommunen har beslutat att bygga en ny cykelväg mellan skolan och centrum. Beslutet kom efter att flera föräldrar klagat på att barnen cyklade på en trafikerad väg utan cykelbana. Bygget beräknas vara klart till hösten.\"",
+      "opener": "Hitta det viktigaste: VAD har beslutats, VARFÖR, och när det är klart (om det får plats).",
+      "answer": "Kommunen bygger en ny cykelväg mellan skolan och centrum efter klagomål om trafikfarlig cykling. Bygget ska vara klart till hösten.",
+      "steps": [
+        "Identifiera huvudhändelsen: kommunen har beslutat bygga en cykelväg.",
+        "Identifiera orsaken: föräldrar klagade på trafikfarlig cykling utan cykelbana.",
+        "Identifiera en detalj som kan vara med om det får plats: klart till hösten.",
+        "Sortera bort detaljer som inte är nödvändiga för sammanfattningen (t.ex. exakt vilken väg de cyklade på tidigare) och skriv ihop det viktigaste till max två meningar."
+      ]
+    },
+    {
+      "id": "q-sv9-las-8",
+      "kind": "flashcard",
+      "topic": "huvudbudskap",
+      "prompt": "Vilka strategier hjälper dig att svara rätt på läsförståelsefrågor?",
+      "opener": "Några vanor som gör skillnad på prov.",
+      "answer": "Läs frågan innan du läser texten noga, så vet du vad du letar efter. Skilj på huvudbudskap (textens poäng som helhet) och detaljer (enskilda fakta som stödjer poängen). Vid slutsatser: bygg bara på det texten faktiskt antyder genom detaljer — gissa inte fritt. Var misstänksam mot svarsalternativ som är sanna i sig men inte svarar på frågan, eller som påstår mer än texten stödjer."
+    }
+  ]
+}

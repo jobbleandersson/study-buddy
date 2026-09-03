@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel1-metod",
+  "type": "assignment",
+  "subject": "Religionskunskap 1",
+  "title": "Religionsvetenskapliga begrepp och metoder",
+  "sourceSummary": "Religionsvetenskapens grundläggande begrepp och arbetssätt — hur man studerar religion akademiskt och jämförande utan att ta ställning i trosfrågor.",
+  "topics": [
+    "religionsvetenskap",
+    "centrala begrepp",
+    "insider- och outsiderperspektiv",
+    "jämförande metod"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel1-metod-1",
+      "kind": "mc",
+      "topic": "religionsvetenskap",
+      "prompt": "Vad kännetecknar religionsvetenskap som akademiskt ämne, till skillnad från teologi?",
+      "opener": "Fundera på om ämnet utgår från en religions egen sanning eller studerar religion utifrån, oavsett trosinnehåll.",
+      "choices": [
+        "Religionsvetenskap utgår från att en viss religion är sann och undervisar utifrån den",
+        "Religionsvetenskap studerar religioner och livsåskådningar utifrån, jämförande och beskrivande, utan att ta ställning till om trosuppfattningarna är sanna",
+        "Religionsvetenskap handlar bara om kristendomens historia",
+        "Religionsvetenskap och teologi är alltid exakt samma sak"
+      ],
+      "answer": 1,
+      "explanation": "Religionsvetenskap är ett icke-konfessionellt ämne som beskriver och jämför religioner och livsåskådningar utifrån, utan att ta ställning till sanningshalten i olika trosuppfattningar. Teologi bedrivs ofta inom en tradition och kan utgå från den traditionens trossatser som en grund."
+    },
+    {
+      "id": "q-rel1-metod-2",
+      "kind": "mc",
+      "topic": "centrala begrepp",
+      "prompt": "Vad menas med \"myt\" inom religionsvetenskaplig terminologi?",
+      "opener": "I vardagsspråk betyder \"myt\" ofta \"påhitt\", men det religionsvetenskapliga begreppet är snävare.",
+      "choices": [
+        "En berättelse som forskare bevisat är helt falsk",
+        "En berättelse, ofta om gudar eller ursprung, som inom en tradition bär mening och förklarar tillvaron, oavsett om den är historiskt bekräftad",
+        "Ett annat ord för helig lag",
+        "En modern populärvetenskaplig text om rymden"
+      ],
+      "answer": 1,
+      "explanation": "Inom religionsvetenskap är en myt en meningsbärande berättelse, ofta om gudomliga väsen eller världens uppkomst, som förklarar och förankrar en gemenskaps syn på tillvaron — begreppet säger ingenting om huruvida berättelsen är sann eller falsk i vardaglig mening. Att kalla en berättelse \"myt\" är alltså inte att avfärda den som lögn."
+    },
+    {
+      "id": "q-rel1-metod-3",
+      "kind": "mc",
+      "topic": "centrala begrepp",
+      "prompt": "Vilket av följande är ett exempel på en ritual, enligt religionsvetenskaplig terminologi?",
+      "opener": "En ritual är en handling som upprepas enligt ett mönster och som ofta har symbolisk betydelse.",
+      "choices": [
+        "Ett spontant, engångsartat beslut utan koppling till tradition",
+        "En strukturerad, återkommande handling med symbolisk innebörd, till exempel en dop- eller initiationsceremoni",
+        "En helig text i skriven form",
+        "En religiös byggnad"
+      ],
+      "answer": 1,
+      "explanation": "En ritual är en formaliserad, ofta upprepad handling som utförs enligt ett bestämt mönster och som bär symbolisk mening för de som deltar, till exempel dop, bön vid bestämda tider eller övergångsriter. En helig text eller en byggnad är i sig ingen ritual, även om de kan användas i en."
+    },
+    {
+      "id": "q-rel1-metod-4",
+      "kind": "mc",
+      "topic": "insider- och outsiderperspektiv",
+      "prompt": "Vad skiljer ett insiderperspektiv från ett outsiderperspektiv i religionsvetenskaplig analys?",
+      "opener": "Tänk på vem som formulerar beskrivningen och utifrån vilken position.",
+      "choices": [
+        "Insiderperspektivet är alltid mer vetenskapligt korrekt än outsiderperspektivet",
+        "Insiderperspektivet beskriver hur en person inom traditionen själv förstår och upplever sin tro, medan outsiderperspektivet är en utomståendes, ofta mer distanserade, beskrivning och analys",
+        "Outsiderperspektivet innebär att man är fientlig mot religionen man studerar",
+        "De två perspektiven är samma sak, bara med olika namn"
+      ],
+      "answer": 1,
+      "explanation": "Insiderperspektivet utgår från den troendes egna upplevelse och tolkning av sin tradition, medan outsiderperspektivet är en utifrånbeskrivning, till exempel en forskares jämförande analys. Båda perspektiven kan vara vetenskapligt värdefulla och används ofta tillsammans för en fylligare bild — outsiderperspektiv innebär inte fientlighet, bara ett annat utgångsläge."
+    },
+    {
+      "id": "q-rel1-metod-5",
+      "kind": "mc",
+      "topic": "centrala begrepp",
+      "prompt": "Hur används begreppet \"kult\" inom religionsvetenskap, till skillnad från den nedsättande vardagsbetydelsen (\"sekt\")?",
+      "opener": "Det akademiska begreppet är betydligt bredare och mer neutralt än slanguttrycket.",
+      "choices": [
+        "Som en beteckning på en farlig, manipulativ grupp",
+        "Som ett neutralt begrepp för dyrkan, vördnad eller organiserad religiös praktik kring till exempel en gud eller ett helgon, utan värdering",
+        "Som synonym till \"helig text\"",
+        "Begreppet används aldrig inom religionsvetenskap"
+      ],
+      "answer": 1,
+      "explanation": "Inom religionsvetenskap betecknar \"kult\" (av latinets cultus, \"vördnad\") en organiserad form av dyrkan eller religiös praktik, till exempel helgonkult, utan den negativa värdering som ordet ofta får i vardagligt tal om slutna, manipulativa grupper. Det är viktigt att skilja det akademiska begreppet från slangordet \"sekt\"."
+    },
+    {
+      "id": "q-rel1-metod-6",
+      "kind": "mc",
+      "topic": "jämförande metod",
+      "prompt": "Vad är en styrka med att jämföra flera religioner utifrån samma teman, till exempel syn på gud eller efterlivet?",
+      "opener": "Fundera på vad man kan upptäcka genom jämförelse som man missar om man bara studerar en religion i taget.",
+      "choices": [
+        "Det gör att man kan avgöra vilken religion som är mest sann",
+        "Det synliggör både likheter och skillnader mellan traditioner och hjälper till att undvika att en enskild religion tas som en allmängiltig norm för \"hur religion är\"",
+        "Det är bara meningsfullt om religionerna har exakt samma ursprung",
+        "Jämförelser mellan religioner är alltid missvisande och bör undvikas"
+      ],
+      "answer": 1,
+      "explanation": "Jämförande metod gör det möjligt att se mönster, likheter och skillnader mellan traditioner, och den motverkar risken att en religion (ofta den man själv känner bäst) blir en outtalad måttstock för vad religion \"egentligen\" är. Metoden syftar inte till att rangordna religioner efter sanningshalt, vilket ligger utanför religionsvetenskapens icke-konfessionella ansats."
+    },
+    {
+      "id": "q-rel1-metod-7",
+      "kind": "worked",
+      "topic": "insider- och outsiderperspektiv",
+      "prompt": "En elev ska skriva om fastemånaden ramadan. Visa hur samma fenomen kan beskrivas både ur ett insiderperspektiv och ur ett outsiderperspektiv, och förklara varför båda perspektiven har ett värde i en religionsvetenskaplig text.",
+      "opener": "Skriv först en mening som en troende själv skulle kunna säga, och sedan en mening som en forskare utifrån skulle skriva om samma sak.",
+      "answer": "Insiderperspektiv: en muslim skulle kunna beskriva ramadan som en tid av andlig närhet till Gud, självrannsakan och gemenskap, där fastan upplevs som meningsfull och stärkande för tron. Outsiderperspektiv: en religionsvetare skulle i stället kunna beskriva ramadan som en årligen återkommande ritual inom islam, förlagd till den nionde månaden i den islamiska kalendern, och analysera dess sociala funktion, till exempel hur den stärker gruppidentitet och synkroniserar en global gemenskap. En välskriven religionsvetenskaplig text väver ofta samman båda perspektiven: insiderrösten ger inblick i den subjektiva innebörden, medan outsideranalysen sätter fenomenet i ett bredare, jämförande sammanhang.",
+      "steps": [
+        "Identifiera fenomenet som ska beskrivas: ramadan, den islamiska fastemånaden.",
+        "Formulera en insiderbeskrivning: hur en troende själv upplever och motiverar fastan, i egna termer som andlighet och gemenskap.",
+        "Formulera en outsiderbeskrivning: en distanserad, analytisk beskrivning av ritualens struktur, tidpunkt och sociala funktion.",
+        "Jämför perspektiven: insiderperspektivet ger mening och upplevelse, outsiderperspektivet ger kontext och analys.",
+        "Dra slutsatsen att en religionsvetenskaplig text ofta blir starkare av att kombinera båda, snarare än att bara använda ett av dem."
+      ]
+    },
+    {
+      "id": "q-rel1-metod-8",
+      "kind": "flashcard",
+      "topic": "centrala begrepp",
+      "prompt": "Sammanfatta de centrala religionsvetenskapliga begreppen myt, ritual, helig text, kult samt insider- och outsiderperspektiv.",
+      "opener": "Gå igenom begreppen ett efter ett, och avsluta med de två perspektiven.",
+      "answer": "Religionsvetenskap: studerar religion akademiskt, jämförande och beskrivande, utan att ta ställning till sanningshalt (icke-konfessionellt). Myt: en meningsbärande berättelse, ofta om gudar eller ursprung, som förklarar tillvaron inom en tradition. Ritual: en strukturerad, återkommande handling med symbolisk innebörd, t.ex. initiationsriter. Helig text: en skrift som inom en tradition tillskrivs särskild auktoritet och ofta tolkas i flera olika riktningar. Kult: neutralt begrepp för dyrkan/organiserad religiös praktik, ej detsamma som slangordet \"sekt\". Insiderperspektiv: den troendes egen förståelse inifrån · outsiderperspektiv: en utomståendes distanserade, jämförande analys · båda perspektiven kan komplettera varandra i en religionsvetenskaplig text."
+    }
+  ]
+}

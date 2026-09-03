@@ -1,0 +1,129 @@
+{
+  "id": "lib-sv8-kallor",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Källkritik och referat",
+  "sourceSummary": "Hur du bedömer om en källa går att lita på, skiljer fakta från åsikt och skriver ett referat med egna ord. Här ingår också referatmarkörer, källhänvisning och vad plagiat innebär.",
+  "topics": [
+    "källkritik",
+    "fakta och åsikt",
+    "referatteknik",
+    "källhänvisning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv8-kal-1",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Vilken fråga hör till källkritikens äkthetskriterium?",
+      "opener": "Äkthet handlar om vem som egentligen står bakom texten.",
+      "choices": [
+        "Är källan den den utger sig för att vara?",
+        "Hur gammal är informationen?",
+        "Vill avsändaren sälja något?",
+        "Finns samma uppgift på andra ställen?"
+      ],
+      "answer": 0,
+      "explanation": "Äkthet svarar på om källan verkligen är den den påstår sig vara, till exempel om en myndighetssida är riktig eller en kopia. Frågan om åldern hör till tidskriteriet, försäljning till tendens och jämförelser till beroende."
+    },
+    {
+      "id": "q-sv8-kal-2",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Vilken källa är mest trovärdig om du ska ta reda på hur mycket svenskar sover i snitt?",
+      "opener": "Fråga vem som samlat in uppgiften och vad avsändaren tjänar på att du tror på den.",
+      "choices": [
+        "Ett blogginlägg där någon berättar om sina sovvanor",
+        "En rapport från Folkhälsomyndigheten med redovisad undersökning",
+        "En reklamsida för madrasser som citerar \"forskning\"",
+        "En kommentar under ett inlägg på sociala medier"
+      ],
+      "answer": 1,
+      "explanation": "Myndighetsrapporten bygger på en redovisad undersökning och har ingen vinst att göra på svaret — den är både saklig och kontrollerbar. Madrassidan har en tydlig tendens eftersom den vill sälja, och bloggen och kommentaren beskriver enstaka personers upplevelser."
+    },
+    {
+      "id": "q-sv8-kal-3",
+      "kind": "mc",
+      "topic": "fakta och åsikt",
+      "prompt": "Vilket av påståendena är ett faktapåstående?",
+      "opener": "Ett faktapåstående går att kontrollera och kan visa sig vara falskt — en åsikt kan bara delas eller inte.",
+      "choices": [
+        "Sverige är det trevligaste landet i Norden.",
+        "Alla borde besöka Sverige minst en gång.",
+        "Svenska somrar är alldeles för korta.",
+        "Sverige har omkring 10,5 miljoner invånare."
+      ],
+      "answer": 3,
+      "explanation": "Invånarantalet går att kontrollera i statistik och är därför ett faktapåstående, oavsett om siffran är exakt rätt. \"Trevligast\", \"borde\" och \"för kort\" är värderingar som inte går att mäta."
+    },
+    {
+      "id": "q-sv8-kal-4",
+      "kind": "mc",
+      "topic": "referatteknik",
+      "prompt": "Vad kännetecknar ett bra referat?",
+      "opener": "Ett referat ska ge läsaren innehållet — inte din reaktion på det.",
+      "choices": [
+        "Man återger innehållet med egna ord, sakligt och utan egna åsikter",
+        "Man skriver av de viktigaste meningarna ordagrant",
+        "Man skriver vad man själv tycker om texten",
+        "Man återger allt i originaltexten, lika långt som förlagan"
+      ],
+      "answer": 0,
+      "explanation": "Referatet återger källans huvudinnehåll med egna ord och i komprimerad form, utan att du lägger till dina värderingar. Att skriva av meningar ordagrant är citat eller, utan källhänvisning, plagiat."
+    },
+    {
+      "id": "q-sv8-kal-5",
+      "kind": "mc",
+      "topic": "referatteknik",
+      "prompt": "Vilken mening använder en referatmarkör korrekt?",
+      "opener": "Referatmarkören visar var informationen kommer ifrån och att åsikten inte är din.",
+      "choices": [
+        "Skärmtid före läggdags försämrar sömnen.",
+        "Jag tycker att skärmtid före läggdags försämrar sömnen.",
+        "Enligt Folkhälsomyndigheten försämrar skärmtid före läggdags sömnen.",
+        "Det är känt att skärmtid före läggdags försämrar sömnen."
+      ],
+      "answer": 2,
+      "explanation": "\"Enligt Folkhälsomyndigheten\" är en referatmarkör som placerar uppgiften hos en namngiven källa. Utan markör låter påståendet som ditt eget, och \"det är känt att\" pekar inte ut någon källa alls."
+    },
+    {
+      "id": "q-sv8-kal-6",
+      "kind": "mc",
+      "topic": "källhänvisning",
+      "prompt": "Vad räknas som plagiat i en skoluppgift?",
+      "opener": "Plagiat handlar om vems arbete läsaren tror att hen läser.",
+      "choices": [
+        "Att citera en text med citattecken och källhänvisning",
+        "Att kopiera text från en webbplats utan att ange varifrån den kommer",
+        "Att referera en artikel med egna ord och ange källan",
+        "Att använda flera källor i samma uppgift"
+      ],
+      "answer": 1,
+      "explanation": "Plagiat är att lämna in någon annans formuleringar eller idéer som om de vore dina egna, alltså utan att ange källan. Citat med citattecken och korrekt hänvisning är däremot helt tillåtet, liksom referat med egna ord och källa."
+    },
+    {
+      "id": "q-sv8-kal-7",
+      "kind": "worked",
+      "topic": "referatteknik",
+      "prompt": "Skriv ett referat av följande stycke ur en artikel av Sara Lind i Dagens Nyheter (2024): \"Vi ser att elever som rör på sig under skoldagen orkar mer på eftermiddagen. Skolan borde därför lägga in en rörelsepaus varje förmiddag.\"",
+      "opener": "Skilj först på vad som är faktapåstående och vad som är skribentens åsikt. Formulera sedan om med egna ord och sätt dit en referatmarkör.",
+      "answer": "Enligt Sara Lind (DN, 2024) orkar elever som rör på sig under skoldagen mer på eftermiddagen. Hon menar därför att skolan bör införa en daglig rörelsepaus på förmiddagen.",
+      "steps": [
+        "Läs stycket och sortera: att eleverna orkar mer är ett faktapåstående, att skolan borde införa pauser är skribentens åsikt.",
+        "Formulera om med egna ord — byt ut \"orkar mer på eftermiddagen\" mot en egen konstruktion i stället för att kopiera meningen.",
+        "Sätt in referatmarkörer: \"enligt Sara Lind\" för faktadelen och \"hon menar att\" för åsiktsdelen, så att läsaren ser att det inte är dina åsikter.",
+        "Ange källan med namn, publikation och år — här Sara Lind, Dagens Nyheter, 2024.",
+        "Kontrollera till sist att inget eget tyckande smugit sig in och att referatet är tydligt kortare än originalet."
+      ]
+    },
+    {
+      "id": "q-sv8-kal-8",
+      "kind": "flashcard",
+      "topic": "källkritik",
+      "prompt": "Vilka källkritiska kriterier finns, och hur skriver du ett referat utan att plagiera?",
+      "opener": "Fyra kriterier och tre regler för referatet.",
+      "answer": "Källkritiska kriterier · äkthet: är källan den den utger sig för att vara? · tid: hur gammal är uppgiften, kan den ha ändrats? · beroende: är källan förstahandsuppgift eller bygger den på någon annan? · tendens: vem är avsändaren och vad vinner hen på att du tror på det? Fakta och åsikt · fakta går att kontrollera och kan vara falskt · åsikter innehåller värdeord som bäst, borde, för mycket. Referat · återge huvudinnehållet med egna ord, kortare än originalet · saklig ton, inga egna åsikter · använd referatmarkörer: enligt X, X menar att, X hävdar, skribenten framhåller. Plagiat · att lämna in andras ord eller idéer som sina egna · undviks genom egna formuleringar, citattecken vid ordagranna citat och en källhänvisning med författare, titel, publikation och år."
+    }
+  ]
+}

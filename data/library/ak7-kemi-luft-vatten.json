@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi7-luft-vatten",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Luft och vatten",
+  "sourceSummary": "Luftens sammansättning av kväve, syre och koldioxid, vattnets kretslopp och faser, vatten som lösningsmedel, varför is flyter samt de vanligaste luftföroreningarna.",
+  "topics": [
+    "luftens sammansättning",
+    "vattnets kretslopp",
+    "vatten som lösningsmedel",
+    "vattnets egenskaper",
+    "luftföroreningar"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi7-luv-1",
+      "kind": "mc",
+      "topic": "luftens sammansättning",
+      "prompt": "Vilken gas finns det mest av i luften?",
+      "opener": "Det är inte gasen vi andas för att leva — den kommer på andra plats.",
+      "choices": [
+        "Syre",
+        "Koldioxid",
+        "Vattenånga",
+        "Kväve"
+      ],
+      "answer": 3,
+      "explanation": "Kväve (N₂) utgör ungefär 78 procent av luften, alltså nästan fyra femtedelar. Syre är förstås livsviktigt men står bara för cirka 21 procent, och koldioxid för mindre än en halv procent."
+    },
+    {
+      "id": "q-kemi7-luv-2",
+      "kind": "mc",
+      "topic": "luftens sammansättning",
+      "prompt": "Hur stor del av luften består av syre, ungefär?",
+      "opener": "Drygt en femtedel av luften är syre.",
+      "choices": [
+        "Ungefär 1 procent",
+        "Ungefär 21 procent",
+        "Ungefär 50 procent",
+        "Ungefär 78 procent"
+      ],
+      "answer": 1,
+      "explanation": "Syre utgör cirka 21 procent av luften, alltså drygt en femtedel. 78 procent är i stället kvävets andel — lätt att blanda ihop om man tror att luft mest består av det vi andas."
+    },
+    {
+      "id": "q-kemi7-luv-3",
+      "kind": "mc",
+      "topic": "vattnets kretslopp",
+      "prompt": "Vad kallas det när vattenånga i luften kyls ner och blir flytande vatten, till exempel när moln och dimma bildas?",
+      "opener": "Det är motsatsen till avdunstning.",
+      "choices": [
+        "Kondensation",
+        "Avdunstning",
+        "Smältning",
+        "Sublimering"
+      ],
+      "answer": 0,
+      "explanation": "Kondensation är övergången från gas till vätska, och den sker när ånga kyls ner — därför bildas moln högt upp där det är kallt. Avdunstning är den motsatta övergången, från vätska till gas, som när solen värmer havet."
+    },
+    {
+      "id": "q-kemi7-luv-4",
+      "kind": "mc",
+      "topic": "vattnets egenskaper",
+      "prompt": "Varför flyter is på vatten?",
+      "opener": "Jämför hur tätt packade vattenmolekylerna är i is jämfört med i flytande vatten.",
+      "choices": [
+        "Eftersom is är kallare än vatten",
+        "Eftersom is alltid innehåller luftbubblor",
+        "Eftersom vatten utvidgas när det fryser, så isen får lägre densitet än vattnet",
+        "Eftersom is är ett helt annat ämne än vatten"
+      ],
+      "answer": 2,
+      "explanation": "När vatten fryser lägger molekylerna sig i ett glesare mönster, så samma massa tar större plats — isen får lägre densitet och flyter. Att is är kallt räcker inte som förklaring: kallt vatten sjunker ju inte upp till ytan."
+    },
+    {
+      "id": "q-kemi7-luv-5",
+      "kind": "mc",
+      "topic": "vatten som lösningsmedel",
+      "prompt": "Varför kallas vatten för \"det universella lösningsmedlet\"?",
+      "opener": "Tänk på hur många vardagliga ämnen som faktiskt löser sig i vatten.",
+      "choices": [
+        "Eftersom vatten kan lösa upp absolut alla ämnen som finns",
+        "Eftersom vatten kokar vid 100 grader",
+        "Eftersom vatten aldrig reagerar med något annat ämne",
+        "Eftersom ovanligt många ämnen, till exempel salt och socker, löser sig lätt i vatten"
+      ],
+      "answer": 3,
+      "explanation": "Vatten löser ovanligt många ämnen, vilket är därför blod, saft och havsvatten alla är vattenlösningar. Men det löser inte allt — fett och olja löser sig inte i vatten utan lägger sig som en hinna ovanpå."
+    },
+    {
+      "id": "q-kemi7-luv-6",
+      "kind": "mc",
+      "topic": "luftföroreningar",
+      "prompt": "Vilken gas i luften ökar när vi förbränner fossila bränslen som bensin, olja och kol, och förstärker växthuseffekten?",
+      "opener": "Det är den gas som bildas när kolet i bränslet reagerar med syre.",
+      "choices": [
+        "Kväve",
+        "Koldioxid",
+        "Syre",
+        "Argon"
+      ],
+      "answer": 1,
+      "explanation": "Koldioxid (CO₂) bildas när kolet i bränslet brinner, och den förstärkta växthuseffekten beror på att halten ökat. Kväve och argon deltar knappt i förbränningen alls, och syre förbrukas i stället för att öka."
+    },
+    {
+      "id": "q-kemi7-luv-7",
+      "kind": "worked",
+      "topic": "vattnets kretslopp",
+      "prompt": "Solen värmer havsytan. Följ en vattenmolekyl genom vattnets kretslopp hela vägen tillbaka till havet, och namnge de faser och fasövergångar som sker.",
+      "opener": "Börja i havet som vätska, och tänk på vad värme respektive kyla gör med vattnet.",
+      "answer": "Vattnet avdunstar från havet (vätska till gas), stiger, kondenserar högt upp i kall luft till moln (gas till vätska), faller som nedbörd i form av regn eller snö och rinner via marken, sjöar och älvar tillbaka till havet.",
+      "steps": [
+        "Solen tillför energi till havsvattnet. Vattnet avdunstar, alltså går från vätska till gas — det blir vattenånga.",
+        "Den fuktiga luften stiger uppåt och möter kallare luft högre upp i atmosfären.",
+        "Ångan kondenserar till små vattendroppar (gas till vätska) och bildar moln. Är det tillräckligt kallt bildas iskristaller i stället.",
+        "Dropparna växer och faller ner som nedbörd: regn, eller snö och hagel om det fryser.",
+        "Vattnet rinner som yt- och grundvatten via bäckar, sjöar och älvar tillbaka till havet, och kretsloppet kan börja om. Ingen ny vattenmängd skapas — samma vatten används om och om igen."
+      ]
+    },
+    {
+      "id": "q-kemi7-luv-8",
+      "kind": "flashcard",
+      "topic": "luftens sammansättning",
+      "prompt": "Sammanfatta luftens sammansättning, vattnets egenskaper och kretsloppets steg.",
+      "opener": "Ta luftens gaser med siffror först, sedan vattnets faser och egenskaper.",
+      "answer": "Luftens sammansättning: kväve (N₂) cirka 78 % · syre (O₂) cirka 21 % · argon knappt 1 % · koldioxid (CO₂) cirka 0,04 % · dessutom varierande mängd vattenånga · Syre behövs för andning och för all förbränning · Koldioxid används av växterna vid fotosyntesen och bildas vid förbränning och andning · Vattnets faser: is (fast), vatten (vätska), vattenånga (gas) · Smältpunkt 0 °C, kokpunkt 100 °C vid normalt lufttryck · Fasövergångar: smältning, avdunstning (förångning), kondensation, stelning (frysning) · Is flyter eftersom vatten utvidgas när det fryser, isen har lägre densitet än vattnet — därför fryser sjöar från ytan och nedåt så att fiskarna klarar vintern · Vatten som lösningsmedel: löser ovanligt många ämnen, t.ex. salt och socker, men inte fett och olja · Vattnets kretslopp: avdunstning från hav och sjöar → kondensation till moln → nedbörd som regn eller snö → vattnet rinner via mark, sjöar och älvar tillbaka till havet · Luftföroreningar: koldioxid från fossila bränslen förstärker växthuseffekten, svavel- och kväveoxider ger försurning, sot och partiklar skadar lungorna."
+    }
+  ]
+}

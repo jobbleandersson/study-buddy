@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel1-genus",
+  "type": "assignment",
+  "subject": "Religionskunskap 1",
+  "title": "Religion, kön och identitet",
+  "sourceSummary": "Hur religiösa traditioner historiskt och idag förhåller sig till kön, exempel på religiöst feministiskt tänkande, religion och sexuell identitet, samt mångfalden av tolkningar inom en och samma religion.",
+  "topics": [
+    "religion och könsroller",
+    "religiös feminism",
+    "religion och sexuell identitet",
+    "tolkningsmångfald"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel1-genus-1",
+      "kind": "mc",
+      "topic": "religion och könsroller",
+      "prompt": "Vilket påstående beskriver bäst hur religiösa traditioner förhåller sig till kön och könsroller, ur ett religionsvetenskapligt perspektiv?",
+      "opener": "Fundera på om det finns en enda, entydig \"religiös syn på kön\" eller om det varierar mellan traditioner, inriktningar och tid.",
+      "choices": [
+        "Alla religioner har alltid haft exakt samma syn på kön och könsroller, utan förändring över tid",
+        "Synen på kön och könsroller varierar mellan och inom religiösa traditioner, och har förändrats historiskt, ofta i samspel med det omgivande samhället",
+        "Religion har aldrig något samband med hur kön och könsroller uppfattas i ett samhälle",
+        "Endast en religion i världen har någonsin haft manliga religiösa ledare"
+      ],
+      "answer": 1,
+      "explanation": "Religionsvetenskaplig forskning visar att synen på kön och könsroller varierar både mellan religioner och inom en och samma religion, samt att den förändrats historiskt i samspel med samhället i övrigt. Att påstå en enda, oföränderlig \"religiös syn\" på kön förenklar en betydligt mer komplex verklighet."
+    },
+    {
+      "id": "q-rel1-genus-2",
+      "kind": "mc",
+      "topic": "religiös feminism",
+      "prompt": "Vad kännetecknar religiös feminism som fenomen, till exempel kristen eller islamisk feminism?",
+      "opener": "Tänk på att feministisk kritik kan komma både utifrån en religion och inifrån den, med hänvisning till dess egna källor.",
+      "choices": [
+        "Att man helt lämnar sin religiösa tradition för att kunna vara feminist",
+        "Att man, utifrån den egna religiösa traditionens texter, historia och teologi, argumenterar för jämställdhet och ifrågasätter tolkningar som man menar missgynnat kvinnor",
+        "Att alla religiösa feminister är överens i exakt samma frågor och tolkningar",
+        "Att religiös feminism bara existerar inom en enda religion"
+      ],
+      "answer": 1,
+      "explanation": "Religiös feminism, till exempel kristen eller islamisk feminism, utgår vanligen från den egna traditionens texter och teologiska resurser för att argumentera för jämställdhet, och ifrågasätter tolkningar som anses ha missgynnat kvinnor, snarare än att lämna traditionen. Religiös feminism finns i flera olika religioner och rymmer, precis som andra teologiska riktningar, en intern mångfald av ståndpunkter."
+    },
+    {
+      "id": "q-rel1-genus-3",
+      "kind": "mc",
+      "topic": "tolkningsmångfald",
+      "prompt": "Inom flera religiösa traditioner finns skilda uppfattningar om huruvida kvinnor kan inneha religiösa ledarpositioner, till exempel som präst eller imam. Vad säger detta om religiösa traditioner?",
+      "opener": "Fundera på om en enskild fråga om ledarskap kan besvaras på ett enda sätt \"för hela religionen\".",
+      "choices": [
+        "Att frågan alltid besvaras identiskt inom en religion, oavsett inriktning eller land",
+        "Att det finns en inre mångfald av tolkningar inom samma religion, där olika inriktningar, samfund eller teologiska skolor kan komma till olika slutsatser i samma fråga",
+        "Att kvinnor aldrig någonsin haft religiösa ledarroller i någon religion",
+        "Att frågan om ledarskap är irrelevant för religionsvetenskaplig analys"
+      ],
+      "answer": 1,
+      "explanation": "Frågan om kvinnligt religiöst ledarskap besvaras olika inom olika inriktningar av samma religion, till exempel mellan olika kristna samfund, vilket visar på den betydande inre tolkningsmångfald som finns inom varje världsreligion. Det är därför missvisande att tala om \"religionens syn\" på en fråga som om den vore enhetlig."
+    },
+    {
+      "id": "q-rel1-genus-4",
+      "kind": "mc",
+      "topic": "religion och sexuell identitet",
+      "prompt": "Hur förhåller sig religiösa traditioner till frågor om sexuell identitet, ur ett religionsvetenskapligt perspektiv?",
+      "opener": "Tänk på att detta är ett område med stor spridning i synsätt, både mellan och inom religioner.",
+      "choices": [
+        "Exakt likadant inom alla religioner och inriktningar, utan någon variation",
+        "På mycket varierande sätt: inom och mellan religiösa traditioner finns allt från samfund som fullt ut välkomnar hbtq-personer till mer restriktiva tolkningar, och debatten pågår ofta inom traditionerna själva",
+        "Religion och frågor om sexuell identitet har historiskt aldrig korsat varandra",
+        "Alla religiösa samfund har alltid haft identiska regler i frågan, fastställda för alltid"
+      ],
+      "answer": 1,
+      "explanation": "Synen på sexuell identitet varierar stort både mellan och inom religiösa traditioner: vissa samfund och teologiska riktningar välkomnar och viger samkönade par, medan andra håller fast vid mer restriktiva tolkningar, och frågan diskuteras ofta livligt inom traditionerna själva. En religionsvetenskaplig beskrivning måste därför fånga denna mångfald snarare än att beskriva \"religionens ståndpunkt\" som enhetlig."
+    },
+    {
+      "id": "q-rel1-genus-5",
+      "kind": "mc",
+      "topic": "religion och könsroller",
+      "prompt": "En elev skriver att \"islam förtrycker kvinnor\" som ett allmängiltigt påstående. Vad är den viktigaste religionsvetenskapliga invändningen mot ett sådant påstående?",
+      "opener": "Fundera på om påståendet tar hänsyn till mångfalden av tolkningar, länder och individuella erfarenheter inom en global religion.",
+      "choices": [
+        "Påståendet är korrekt och behöver inte nyanseras",
+        "Påståendet generaliserar en enskild tolkning till att gälla en hel, global religion med miljardtals anhängare och stor intern mångfald i fråga om kultur, lagstiftning, inriktning och individuell tolkning",
+        "Frågan om kön saknar helt relevans inom islamstudier",
+        "Alla muslimska kvinnor delar exakt samma uppfattning i frågan"
+      ],
+      "answer": 1,
+      "explanation": "Ett religionsvetenskapligt sätt att bemöta ett sådant påstående är att peka på att det generaliserar en global religion, med enorm variation mellan länder, kulturer, inriktningar och individuella tolkningar, utifrån en enskild, ofta förenklad bild. En noggrann analys skiljer på religiösa texter, specifika tolkningstraditioner, kulturella sedvänjor och enskilda staters lagstiftning, som alla kan skilja sig åt."
+    },
+    {
+      "id": "q-rel1-genus-6",
+      "kind": "mc",
+      "topic": "religiös feminism",
+      "prompt": "Vilket är ett exempel på ett religionsvetenskapligt relevant argument som religiösa feminister ofta för fram?",
+      "opener": "Tänk på om kritiken riktas mot religionens källor i sig, eller mot hur källorna historiskt tolkats av (oftast) män.",
+      "choices": [
+        "Att heliga texter alltid måste läsas exakt bokstavligt utan tolkning",
+        "Att flera ojämställda tolkningar inte nödvändigtvis följer direkt av de heliga källorna själva, utan snarare av historiska, mansdominerade tolkningstraditioner, och att texterna därför kan läsas på nya sätt",
+        "Att religion och feminism alltid är fullständigt oförenliga",
+        "Att endast en enda tolkning av en religiös text någonsin är möjlig"
+      ],
+      "answer": 1,
+      "explanation": "Ett vanligt argument inom religiös feminism är att många ojämställda tolkningar formats av historiska, ofta mansdominerade, tolkningstraditioner snarare än av de heliga källorna i sig, och att en förnyad läsning av texterna kan ge utrymme för en mer jämställd tolkning. Detta skiljer sig från påståendet att texter bara kan läsas på ett enda, bokstavligt sätt."
+    },
+    {
+      "id": "q-rel1-genus-7",
+      "kind": "worked",
+      "topic": "tolkningsmångfald",
+      "prompt": "Förklara, med ett konkret exempel, varför det är missvisande att tala om \"den kristna synen på kvinnligt prästerskap\" som om den vore en enda, entydig ståndpunkt.",
+      "opener": "Utgå från att kristendomen rymmer flera stora inriktningar, och jämför hur de förhåller sig till frågan.",
+      "answer": "Inom Svenska kyrkan och flera andra protestantiska samfund har kvinnor kunnat vigas till präster sedan mitten av 1900-talet, och kvinnligt prästerskap är där en etablerad praxis. Inom romersk-katolska kyrkan är prästämbetet däremot förbehållet män, en hållning som kyrkans ledning menar bygger på en flerhundraårig tolkningstradition. Inom den ortodoxa kyrkan gäller på liknande sätt att prästämbetet är förbehållet män. Samtidigt finns det inom både katolska och ortodoxa sammanhang teologer och rörelser som argumenterar för en förändring. Att tala om \"den kristna synen\" som om den vore en enda ståndpunkt osynliggör alltså den betydande skillnaden mellan kristna inriktningar, och även de interna diskussioner som pågår inom var och en av dem. En mer precis religionsvetenskaplig beskrivning specificerar därför alltid vilken inriktning, vilket samfund eller vilken tidsperiod ett påstående gäller.",
+      "steps": [
+        "Beskriv en inriktning där kvinnligt prästerskap är etablerat: t.ex. Svenska kyrkan och flera protestantiska samfund.",
+        "Beskriv en inriktning där ämbetet är förbehållet män: t.ex. romersk-katolska och ortodoxa kyrkan.",
+        "Notera att det ändå finns interna röster och debatter för förändring även inom de mer restriktiva inriktningarna.",
+        "Dra slutsatsen att \"den kristna synen\" är en förenkling som osynliggör skillnader mellan och inom inriktningar.",
+        "Formulera en mer precis religionsvetenskaplig princip: ange alltid vilken inriktning, vilket samfund och vilken tid ett påstående om en religions syn gäller."
+      ]
+    },
+    {
+      "id": "q-rel1-genus-8",
+      "kind": "flashcard",
+      "topic": "religion och könsroller",
+      "prompt": "Sammanfatta religion och könsroller, religiös feminism, religion och sexuell identitet samt tolkningsmångfald.",
+      "opener": "Gå igenom teman i tur och ordning: könsroller, feminism, sexuell identitet, tolkningsmångfald.",
+      "answer": "Religion och könsroller: synen på kön varierar mellan och inom religiösa traditioner och har förändrats historiskt i samspel med samhället — det finns ingen enda, entydig \"religiös syn\" på kön. Religiös feminism: argumenterar utifrån den egna traditionens källor för jämställdhet, och menar ofta att ojämställda tolkningar formats av historiska, mansdominerade tolkningstraditioner snarare än av källorna själva. Religion och sexuell identitet: stor variation mellan och inom traditioner, från fullt inkluderande samfund till mer restriktiva hållningar, ofta livligt diskuterat inifrån. Tolkningsmångfald: samma religion kan ge upphov till mycket olika ståndpunkter i frågor som kvinnligt ledarskap eller hbtq-frågor, beroende på inriktning, samfund och tidsperiod — en religionsvetenskaplig analys bör alltid specificera vilken del av en tradition ett påstående gäller."
+    }
+  ]
+}

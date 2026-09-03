@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys8-ljus",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Ljus och optik",
+  "sourceSummary": "Ljusets rätlinjiga utbredning med skuggor och halvskuggor, reflektionslagen samt brytning i vatten och glas. Här finns också linser, hur ögat bildar en bild på näthinnan och hur färger och spektrum uppstår.",
+  "topics": [
+    "ljusets rätlinjiga utbredning och skuggor",
+    "reflektion och reflektionslagen",
+    "brytning i vatten och glas",
+    "linser och ögat",
+    "färger och spektrum"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys8-ljs-1",
+      "kind": "mc",
+      "topic": "ljusets rätlinjiga utbredning och skuggor",
+      "prompt": "Varför uppstår en skugga bakom ett föremål som står i solljus?",
+      "opener": "Tänk på hur ljuset rör sig från ljuskällan och vad det inte kan göra.",
+      "choices": [
+        "Föremålet suger upp allt ljus i hela rummet",
+        "Ljuset böjer sig runt föremålet och samlas bakom det",
+        "Föremålet skickar ut mörker på baksidan",
+        "Ljuset går rätlinjigt och kan inte passera genom det ogenomskinliga föremålet, så området bakom får inget ljus"
+      ],
+      "answer": 3,
+      "explanation": "Ljus breder ut sig rätlinjigt, så ett ogenomskinligt föremål blockerar strålarna och lämnar ett obelyst område bakom sig — det är skuggan. Ljuset böjer sig alltså inte runt föremålet, och mörker är inget som skickas ut utan bara frånvaro av ljus."
+    },
+    {
+      "id": "q-fys8-ljs-2",
+      "kind": "mc",
+      "topic": "ljusets rätlinjiga utbredning och skuggor",
+      "prompt": "När får ett föremål både kärnskugga och halvskugga?",
+      "opener": "Jämför en liten punktformig lampa med en stor lysande yta.",
+      "choices": [
+        "När ljuskällan är mycket liten och punktformig",
+        "När ljuskällan är stor eller när det finns flera ljuskällor, så att en del av ytan får ljus från bara en del av källan",
+        "När föremålet är genomskinligt",
+        "När ljuset kommer rakt underifrån"
+      ],
+      "answer": 1,
+      "explanation": "En stor ljuskälla lyser upp delar av området bakom föremålet från vissa håll men inte från andra, och där bildas halvskugga runt den helt mörka kärnskuggan. En punktformig ljuskälla ger tvärtom en enda skarp skugga utan halvskugga."
+    },
+    {
+      "id": "q-fys8-ljs-3",
+      "kind": "mc",
+      "topic": "reflektion och reflektionslagen",
+      "prompt": "Vad säger reflektionslagen?",
+      "opener": "Lagen jämför två vinklar, och båda mäts mot samma hjälplinje.",
+      "choices": [
+        "Infallsvinkeln är lika stor som reflektionsvinkeln, båda mätta från normalen till ytan",
+        "Infallsvinkeln är alltid dubbelt så stor som reflektionsvinkeln",
+        "Reflektionsvinkeln är alltid 90°",
+        "Ljuset reflekteras alltid rakt tillbaka samma väg det kom"
+      ],
+      "answer": 0,
+      "explanation": "Reflektionslagen säger att infallsvinkel = reflektionsvinkel, där båda vinklarna mäts från normalen, det vill säga den tänkta linjen som står lodrätt mot ytan. Att ljuset skulle gå rakt tillbaka gäller bara i specialfallet när strålen träffar ytan längs normalen, alltså med infallsvinkeln 0°."
+    },
+    {
+      "id": "q-fys8-ljs-4",
+      "kind": "mc",
+      "topic": "brytning i vatten och glas",
+      "prompt": "Varför ser en sked ut att vara bruten där den sticker ner i ett glas vatten?",
+      "opener": "Något händer med ljusets riktning precis vid vattenytan.",
+      "choices": [
+        "Vattnet förstorar bara den nedre delen av skeden",
+        "Skeden böjs faktiskt av vattnets tryck",
+        "Ljuset byter hastighet när det går mellan vatten och luft och byter därför riktning, alltså bryts, i ytan",
+        "Vattnet reflekterar bort en del av skeden"
+      ],
+      "answer": 2,
+      "explanation": "Ljuset går långsammare i vatten än i luft, och när det passerar snett genom ytan ändrar det riktning — det bryts. Hjärnan tror att ljuset gått rätlinjigt hela vägen, så den nedre delen av skeden ser förskjuten ut. Skeden är förstås fysiskt hel hela tiden."
+    },
+    {
+      "id": "q-fys8-ljs-5",
+      "kind": "mc",
+      "topic": "linser och ögat",
+      "prompt": "Hur bildas en bild i ögat?",
+      "opener": "Följ ljuset från pupillen och fram till det ställe där sinnescellerna sitter.",
+      "choices": [
+        "Ögat skickar ut strålar som känner av föremålen",
+        "Bilden bildas i pupillen och skickas som ljus till hjärnan",
+        "Linsen sprider ljuset så att hela ögat blir jämnt upplyst",
+        "Hornhinnan och linsen bryter ljuset så att det samlas till en skarp, upp-och-nedvänd bild på näthinnan, och synnerven skickar signaler till hjärnan"
+      ],
+      "answer": 3,
+      "explanation": "Hornhinnan och den konvexa linsen bryter ljuset och fokuserar det till en omvänd bild på näthinnan, varefter synnerven skickar nervsignaler till hjärnan som tolkar bilden rättvänd. Ögat skickar inte ut några strålar — vi ser bara ljus som kommer in i ögat."
+    },
+    {
+      "id": "q-fys8-ljs-6",
+      "kind": "mc",
+      "topic": "färger och spektrum",
+      "prompt": "Vad händer när vitt ljus passerar genom ett prisma?",
+      "opener": "Olika färger bryts olika mycket i glaset.",
+      "choices": [
+        "Ljuset försvinner helt inne i glaset",
+        "Ljuset delas upp i ett spektrum av färger, från rött till violett, eftersom färgerna bryts olika mycket",
+        "Ljuset blir starkare men behåller sin vita färg",
+        "Ljuset blir svart eftersom glaset absorberar alla färger"
+      ],
+      "answer": 1,
+      "explanation": "Vitt ljus är en blandning av alla synliga färger, och eftersom violett bryts mest och rött minst sprids de åt olika håll i prismat och bildar ett spektrum. Samma sak händer i vattendropparna när en regnbåge uppstår. Glaset absorberar alltså inte färgerna, det böjer dem olika mycket."
+    },
+    {
+      "id": "q-fys8-ljs-7",
+      "kind": "worked",
+      "topic": "reflektion och reflektionslagen",
+      "prompt": "En ljusstråle träffar en plan spegel så att strålen bildar vinkeln 30° mot själva spegelytan. Hur stor blir reflektionsvinkeln mätt från normalen?",
+      "opener": "Vinklar i optiken mäts från normalen, inte från ytan — börja med att räkna om.",
+      "answer": "60°",
+      "steps": [
+        "Normalen står lodrätt mot spegelytan, alltså i 90° mot den.",
+        "Infallsvinkeln mätt från normalen blir 90° − 30° = 60°.",
+        "Reflektionslagen ger att reflektionsvinkeln = infallsvinkeln.",
+        "Reflektionsvinkeln är alltså 60° från normalen, vilket motsvarar 30° mot spegelytan."
+      ]
+    },
+    {
+      "id": "q-fys8-ljs-8",
+      "kind": "flashcard",
+      "topic": "färger och spektrum",
+      "prompt": "Sammanfatta ljusets utbredning, reflektion, brytning, linser och ögat samt färger.",
+      "opener": "Gå från hur ljuset rör sig, via reflektion och brytning, till linser, ögat och färgerna.",
+      "answer": "Ljus: elektromagnetisk strålning som breder ut sig rätlinjigt och kan gå genom vakuum · Hastighet: cirka 300 000 km/s i vakuum, långsammare i vatten och glas · Skugga: ogenomskinligt föremål blockerar strålarna — punktformig ljuskälla ger skarp kärnskugga, stor ljuskälla ger även halvskugga · Reflektion: ljus studsar mot en yta · Reflektionslagen: infallsvinkel = reflektionsvinkel, båda mätta från normalen (linjen lodrätt mot ytan) · Plan spegel: ger en spegelvänd bild som verkar ligga lika långt bakom spegeln som föremålet är framför · Diffus reflektion: ljus sprids åt alla håll av ojämna ytor — därför syns vanliga föremål · Brytning (refraktion): ljus ändrar riktning när det byter material eftersom hastigheten ändras — från luft till vatten eller glas bryts strålen mot normalen, tillbaka ut bryts den från normalen · Effekt av brytning: skeden ser bruten ut, bassängen ser grundare ut, prismat delar upp ljuset · Konvex (samlande) lins: buktar utåt, samlar strålarna i en brännpunkt — lupp, kamera, ögats lins · Konkav (spridande) lins: buktar inåt, sprider strålarna · Ögat: hornhinnan och linsen bryter ljuset till en skarp upp-och-nedvänd bild på näthinnan, pupillen reglerar ljusmängden, synnerven skickar signaler till hjärnan · Synfel: närsynt ser dåligt på långt håll och hjälps av konkav lins, översynt hjälps av konvex lins · Vitt ljus: blandning av alla synliga färger, delas i prisma till spektrum rött–orange–gult–grönt–blått–violett · Färg på föremål: ytan reflekterar sin egen färg och absorberar de andra — en röd tröja reflekterar rött, svart absorberar nästan allt, vitt reflekterar allt."
+    }
+  ]
+}

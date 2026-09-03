@@ -1,0 +1,131 @@
+{
+  "id": "lib-bio8-nervsystem",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Nervsystem och sinnen",
+  "sourceSummary": "Nervsystemets uppbyggnad med hjärnans delar och nervceller som skickar signaler, hur reflexer fungerar, de fem sinnena och deras sinnesorgan, samt varför kroppen behöver sömn.",
+  "topics": [
+    "nervsystemets uppbyggnad",
+    "hjärnans delar",
+    "nervceller och signaler",
+    "reflexer",
+    "sinnena",
+    "sömn"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio8-ner-1",
+      "kind": "mc",
+      "topic": "nervsystemets uppbyggnad",
+      "prompt": "Vilka delar räknas till det centrala nervsystemet?",
+      "opener": "Tänk på vilka nervdelar som ligger skyddade inne i skelettet.",
+      "choices": [
+        "Alla nerver ute i armar och ben",
+        "Hjärnan och sinnesorganen",
+        "Hjärnan och ryggmärgen",
+        "Ryggmärgen och hjärtat"
+      ],
+      "answer": 2,
+      "explanation": "Det centrala nervsystemet består av hjärnan, som skyddas av skallbenet, och ryggmärgen, som skyddas av ryggkotorna — det är där signalerna bearbetas. Nerverna ute i kroppen hör i stället till det perifera nervsystemet; de leder signaler men fattar inga beslut."
+    },
+    {
+      "id": "q-bio8-ner-2",
+      "kind": "mc",
+      "topic": "hjärnans delar",
+      "prompt": "Vilken del av hjärnan styr framför allt balans och samordnade rörelser?",
+      "opener": "Tänk på vilken del som behövs när du cyklar utan att ramla.",
+      "choices": [
+        "Lillhjärnan",
+        "Storhjärnans bark",
+        "Hjärnstammen",
+        "Ryggmärgen"
+      ],
+      "answer": 0,
+      "explanation": "Lillhjärnan sitter baktill och nedtill och finjusterar rörelser så att de blir mjuka och balanserade, ofta helt utan att du tänker på det. Storhjärnan sköter i stället tankar, minne, språk och medvetna beslut, så den är inte rätt svar här."
+    },
+    {
+      "id": "q-bio8-ner-3",
+      "kind": "mc",
+      "topic": "nervceller och signaler",
+      "prompt": "Hur skickas en signal vidare från en nervcell till nästa?",
+      "opener": "Nervcellerna sitter inte helt ihop — det finns en liten spalt emellan.",
+      "choices": [
+        "Nervcellerna växer ihop så att signalen kan hoppa direkt",
+        "Signalen förs vidare med blodet till nästa nervcell",
+        "Signalen förs vidare som ljud genom vävnaden",
+        "Signalämnen släpps ut i synapsen och tas upp av nästa nervcell"
+      ],
+      "answer": 3,
+      "explanation": "Inne i nervcellen går signalen som en elektrisk impuls längs nervtråden, men vid kopplingsstället (synapsen) finns en spalt där cellen släpper ut signalämnen som nästa cell känner igen. Blodet transporterar näring, syre och hormoner — det är alldeles för långsamt för nervsignaler."
+    },
+    {
+      "id": "q-bio8-ner-4",
+      "kind": "mc",
+      "topic": "reflexer",
+      "prompt": "Varför drar du undan handen från en het plåt redan innan du känner att det gör ont?",
+      "opener": "Tänk på hur kort vägen är om signalen inte måste hela vägen upp till hjärnan.",
+      "choices": [
+        "Huden drar ihop sig av värmen utan att nerverna är inblandade",
+        "Signalen kopplas om i ryggmärgen som direkt skickar order till muskeln",
+        "Hjärnan hinner tänka snabbare än signalen hinner fram",
+        "Muskeln känner själv av värmen och reagerar"
+      ],
+      "answer": 1,
+      "explanation": "Vid en reflex går signalen från känselcellerna in till ryggmärgen, som direkt kopplar den vidare till muskeln — smärtsignalen fortsätter samtidigt upp till hjärnan, men den kommer fram lite senare. Hjärnan är alltså inte snabbare; poängen är just att den kopplas bort ur den snabba vägen."
+    },
+    {
+      "id": "q-bio8-ner-5",
+      "kind": "mc",
+      "topic": "sinnena",
+      "prompt": "Var i ögat finns de sinnesceller som reagerar på ljus?",
+      "opener": "Tänk på var bilden hamnar när ljuset har passerat linsen.",
+      "choices": [
+        "I näthinnan längst bak i ögat",
+        "I linsen",
+        "I hornhinnan längst fram",
+        "I pupillen"
+      ],
+      "answer": 0,
+      "explanation": "Ljuset bryts av hornhinnan och linsen och bildar en bild på näthinnan, där tapparna ser färger i bra ljus och stavarna ser svagt ljus i svartvitt; därifrån går signalen via synnerven till hjärnan. Pupillen är bara ett hål som släpper in ljus och innehåller inga sinnesceller."
+    },
+    {
+      "id": "q-bio8-ner-6",
+      "kind": "mc",
+      "topic": "sömn",
+      "prompt": "Vad är en viktig anledning till att kroppen och hjärnan behöver sömn?",
+      "opener": "Tänk på vad som händer med minnen och kroppens celler under natten.",
+      "choices": [
+        "Hjärnan stängs helt av och all aktivitet upphör",
+        "Kroppen slutar behöva syre och sparar därför energi",
+        "Hjärnan gör intryck från dagen till minnen och kroppen reparerar celler och växer",
+        "Musklerna växer bara när man är vaken men sover för att vila"
+      ],
+      "answer": 2,
+      "explanation": "Under sömnen bearbetar hjärnan dagens intryck och flyttar över det viktiga till långtidsminnet, samtidigt som tillväxthormon frisätts och kroppen reparerar celler — därför blir man både glömsk och lättirriterad av för lite sömn. Hjärnan är inte avstängd under sömnen; den är tvärtom mycket aktiv, särskilt under drömsömnen."
+    },
+    {
+      "id": "q-bio8-ner-7",
+      "kind": "worked",
+      "topic": "reflexer",
+      "prompt": "Förklara steg för steg vad som händer i nervsystemet från att du trampar på en vass sten till att du lyfter foten och känner smärtan.",
+      "opener": "Följ signalen från känselcellerna i huden in till ryggmärgen och sedan vidare uppåt.",
+      "answer": "Känselceller i fotens hud reagerar på trycket och skadan och skickar en elektrisk nervsignal genom känselnerven in till ryggmärgen, där signalen kopplas om direkt till en rörelsenerv som får benets muskler att dra ihop sig så att foten lyfts — allt detta hinner ske innan signalen, som samtidigt fortsätter uppåt genom ryggmärgen till hjärnan, tolkas där som smärta och du hinner tänka på vad som hände.",
+      "steps": [
+        "Känselcellerna i fotsulans hud registrerar det hårda trycket och skadan och startar en nervsignal.",
+        "Signalen går som en elektrisk impuls längs känselnerven in till ryggmärgen.",
+        "I ryggmärgen kopplas signalen över synapser direkt vidare till en rörelsenerv, utan att gå upp till hjärnan först — det är själva reflexen.",
+        "Rörelsenerven får musklerna i ben och fot att dra ihop sig, och foten lyfts på bråkdelen av en sekund.",
+        "Samtidigt fortsätter en signal uppåt till hjärnan, som tolkar den som smärta; först då blir du medveten om vad du trampade på och kan bestämma vad du gör härnäst."
+      ]
+    },
+    {
+      "id": "q-bio8-ner-8",
+      "kind": "flashcard",
+      "topic": "sinnena",
+      "prompt": "Sammanfatta nervsystemets delar, sinnena och deras sinnesorgan.",
+      "opener": "Gå igenom centrala och perifera nervsystemet, hjärnans delar och sedan de fem sinnena.",
+      "answer": "Centrala nervsystemet: hjärnan (skyddad av skallbenet) och ryggmärgen (skyddad av ryggkotorna) — bearbetar och beslutar · Perifera nervsystemet: alla nerver ut i kroppen, känselnerver in och rörelsenerver ut · Storhjärnan: tankar, minne, språk, känslor och viljestyrda rörelser; barken är den skrynkliga ytan · Lillhjärnan: balans och samordnade, mjuka rörelser · Hjärnstammen: automatiska funktioner som andning, hjärtslag och kroppstemperatur · Nervcell (neuron): cellkropp med korta utskott som tar emot signaler och en lång nervtråd som skickar signalen vidare · Synaps: spalten mellan två nervceller där signalämnen förmedlar signalen · Reflex: snabb koppling i ryggmärgen utan att hjärnan behöver fatta beslut, skyddar kroppen · Syn: ögat — ljuset bryts i hornhinna och lins, bilden hamnar på näthinnan med tappar (färg) och stavar (svagt ljus), signalen går via synnerven · Hörsel: örat — ljudvågor får trumhinnan att svänga, hörselbenen förstärker, hårceller i snäckan omvandlar till nervsignaler; balansorganet sitter också i innerörat · Känsel: huden — olika celler för tryck, värme, kyla och smärta, tätast i fingertoppar och läppar · Smak: smaklökar på tungan känner sött, salt, surt, beskt och umami · Lukt: luktceller högt upp i näsan; lukt och smak samverkar, därför smakar maten lite när man är förkyld · Sömn: hjärnan bearbetar intryck och lagrar minnen, tillväxthormon frisätts, celler repareras; tonåringar behöver ungefär 8–10 timmar."
+    }
+  ]
+}

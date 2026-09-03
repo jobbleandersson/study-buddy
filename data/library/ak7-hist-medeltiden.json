@@ -1,0 +1,131 @@
+{
+  "id": "lib-hist7-medeltiden",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Medeltiden i Europa",
+  "sourceSummary": "Hur Europa var uppbyggt under medeltiden: feodalsamhället och ståndssamhället, kyrkans stora makt, städernas och handelns framväxt, digerdöden och dess följder samt korstågen i korthet.",
+  "topics": [
+    "medeltiden som tidsperiod",
+    "feodalsamhället och ståndssamhället",
+    "kyrkans makt",
+    "städer och handel",
+    "digerdöden",
+    "korstågen"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist7-med-1",
+      "kind": "mc",
+      "topic": "medeltiden som tidsperiod",
+      "prompt": "Vilken tidsperiod räknas ungefär som medeltiden i Europa?",
+      "opener": "Perioden börjar när Västrom faller och slutar när renässansen tar över.",
+      "choices": [
+        "Cirka 1000 f.Kr.–0",
+        "Cirka 500–1500 e.Kr.",
+        "Cirka 1500–1800 e.Kr.",
+        "Cirka 1800–1900 e.Kr."
+      ],
+      "answer": 1,
+      "explanation": "Medeltiden räknas vanligtvis från Västroms fall år 476 fram till omkring 1500, då renässansen och upptäcktsresorna inleder den nya tiden. Perioden 1500–1800 kallas i stället nya tiden, och 1800-talet hör till den moderna tiden."
+    },
+    {
+      "id": "q-hist7-med-2",
+      "kind": "mc",
+      "topic": "feodalsamhället och ståndssamhället",
+      "prompt": "Hur fungerade feodalsamhället i stora drag?",
+      "opener": "Tänk på det som ett byte: mark i utbyte mot tjänster.",
+      "choices": [
+        "Kungen gav mark (län) till adelsmän, som i utbyte lovade krigstjänst och trohet, medan bönderna arbetade på marken",
+        "Alla ägde marken tillsammans och delade lika på skörden",
+        "Bönderna valde själva vem som skulle vara kung",
+        "Marken tillhörde städerna, som betalade bönderna lön"
+      ],
+      "answer": 0,
+      "explanation": "Feodalsamhället byggde på att kungen lånade ut mark till stormän och adelsmän, som i gengäld ställde upp med ryttare och soldater när kungen behövde dem. Bönderna brukade jorden och betalade skatt eller gjorde dagsverken till markägaren. Det var alltså inget system med gemensamt ägande eller lönearbete, och bönderna hade mycket litet politiskt inflytande."
+    },
+    {
+      "id": "q-hist7-med-3",
+      "kind": "mc",
+      "topic": "kyrkans makt",
+      "prompt": "Varför hade den katolska kyrkan så stor makt under medeltiden?",
+      "opener": "Fundera på vad kyrkan hade som nästan ingen annan hade: mark, kunskap och svar om livet efter döden.",
+      "choices": [
+        "Kyrkan hade en egen armé som var starkare än kungarnas",
+        "Kyrkan bestämde priset på all mat i Europa",
+        "Nästan alla var kristna, kyrkan ägde mycket mark, tog in skatt och hade nästan monopol på skolor och skrivkunnighet",
+        "Kyrkan var den enda som fick handla med andra länder"
+      ],
+      "answer": 2,
+      "explanation": "Kyrkan var en del av alla människors liv från födsel till död, ägde stora jordegendomar, tog in tionde (en tiondel av skörden) och drev de skolor och kloster där man lärde sig läsa och skriva. Den hade däremot ingen egen stor armé och styrde varken matpriser eller handeln — makten byggde på tro, mark, kunskap och organisation."
+    },
+    {
+      "id": "q-hist7-med-4",
+      "kind": "mc",
+      "topic": "städer och handel",
+      "prompt": "Vad var Hansan?",
+      "opener": "Det handlar om handel kring Östersjön, och Visby och Lübeck var viktiga platser.",
+      "choices": [
+        "En medeltida religiös orden",
+        "Ett stort krig mellan Sverige och Danmark",
+        "En kunglig skatt som togs in i städerna",
+        "Ett förbund av handelsstäder kring Nordsjön och Östersjön"
+      ],
+      "answer": 3,
+      "explanation": "Hansan var ett samarbete mellan tyska och nordeuropeiska handelsstäder, med Lübeck som ledande stad, som tillsammans skaffade sig stort inflytande över handeln i Östersjön — bland annat i Visby, Stockholm och Kalmar. Det var alltså ett handelsförbund, inte en religiös orden, ett krig eller en skatt."
+    },
+    {
+      "id": "q-hist7-med-5",
+      "kind": "mc",
+      "topic": "digerdöden",
+      "prompt": "Vad var digerdöden?",
+      "opener": "Ordet \"diger\" betyder stor — det handlar om en sjukdom som spreds över hela Europa.",
+      "choices": [
+        "En pestepidemi som spreds över Europa från 1347 och som ungefär en tredjedel av befolkningen dog av",
+        "En lång period av kraftiga jordbävningar",
+        "En hungersnöd som orsakades av att alla djur dog",
+        "Ett krig mellan England och Frankrike"
+      ],
+      "answer": 0,
+      "explanation": "Digerdöden var pesten, som kom till Europa via handelsfartyg 1347 och nådde Sverige 1350. Uppskattningsvis en tredjedel av Europas befolkning dog under några få år. Kriget mellan England och Frankrike (hundraårskriget) pågick under samma tid men är en helt annan händelse."
+    },
+    {
+      "id": "q-hist7-med-6",
+      "kind": "mc",
+      "topic": "korstågen",
+      "prompt": "Vad var huvudsyftet med de första korstågen som inleddes 1096?",
+      "opener": "Målet var en stad som är helig för flera religioner.",
+      "choices": [
+        "Att hitta en ny sjöväg till Indien",
+        "Att grunda universitet i Mellanöstern",
+        "Att erövra Jerusalem och det heliga landet, som stod under muslimskt styre",
+        "Att sprida boktryckarkonsten"
+      ],
+      "answer": 2,
+      "explanation": "Påven uppmanade kristna riddare att tåga österut för att ta kontroll över Jerusalem och pilgrimsvägarna dit. Sjövägen till Indien söktes först flera hundra år senare, under upptäcktsresornas tid, och boktryckarkonsten uppfanns omkring 1450."
+    },
+    {
+      "id": "q-hist7-med-7",
+      "kind": "worked",
+      "topic": "digerdöden",
+      "prompt": "Förklara hur digerdöden kunde leda till att bönderna i Europa fick det bättre efter epidemin.",
+      "opener": "Tänk på hur många som fanns kvar att arbeta jämfört med hur mycket mark som fanns.",
+      "answer": "Eftersom en mycket stor del av befolkningen dog blev det plötsligt brist på arbetskraft, samtidigt som all jord fanns kvar. Godsägare som behövde folk till sina åkrar måste därför erbjuda bättre villkor, högre lön eller lägre avgifter för att någon skulle vilja arbeta hos dem. Många bönder kunde också flytta till bättre gårdar som stod öde. På längre sikt bidrog detta till att de allra hårdaste formerna av livegenskap försvagades i stora delar av Västeuropa.",
+      "steps": [
+        "Digerdöden minskade Europas befolkning med ungefär en tredjedel på några år.",
+        "Mängden odlingsbar mark var däremot oförändrad — många gårdar stod tomma.",
+        "Det blev brist på arbetskraft, och den som kunde arbeta blev efterfrågad.",
+        "Godsägare fick konkurrera om arbetare genom högre löner och mildare villkor.",
+        "Resultat: bönders förhandlingsläge stärktes, och livegenskapen försvagades i stora delar av Västeuropa."
+      ]
+    },
+    {
+      "id": "q-hist7-med-8",
+      "kind": "flashcard",
+      "topic": "feodalsamhället och ståndssamhället",
+      "prompt": "Sammanfatta medeltidens samhälle i Europa.",
+      "opener": "Tänk tidsperiod, samhällsordning, kyrkan, städerna och de stora händelserna.",
+      "answer": "Medeltiden: ungefär 500–1500 e.Kr., från Västroms fall till renässansen · Feodalsamhället: kungen gav län (mark) till adeln, som lovade krigstjänst och trohet, och bönderna brukade jorden mot skatt och dagsverken · Ståndssamhället: de som bad (präster), de som stred (adel) och de som arbetade (bönder), senare även borgare i städerna · Kyrkans makt: katolska kyrkan var gemensam för hela Västeuropa, ägde mycket mark, tog in tionde och drev kloster och skolor där skrivkunskapen fanns · Städer och handel: städer växte kring marknader och hamnar, hantverkare organiserade sig i skrån, Hansan dominerade handeln i Östersjön med Lübeck och Visby som centrum · Digerdöden: pest som nådde Europa 1347 och Sverige 1350, ungefär en tredjedel av befolkningen dog, vilket gav brist på arbetskraft och på sikt bättre villkor för bönder · Korstågen: från 1096, kristna härar tågade mot Jerusalem och det heliga landet, vilket också ökade kontakterna och handeln mellan Europa och Mellanöstern."
+    }
+  ]
+}

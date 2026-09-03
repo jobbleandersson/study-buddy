@@ -1,0 +1,127 @@
+{
+  "id": "lib-fys-el",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Elektricitet och magnetism",
+  "sourceSummary": "Ström, spänning och resistans, seriekoppling kontra parallellkoppling samt grunderna i magnetism och elektromagnetism.",
+  "topics": [
+    "ström, spänning och resistans",
+    "seriekoppling och parallellkoppling",
+    "magneter och elektromagnetism"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys-el-1",
+      "kind": "mc",
+      "topic": "ström, spänning och resistans",
+      "prompt": "Vad mäts i enheten ampere (A)?",
+      "opener": "Ampere är enheten för en av de tre grundläggande el-storheterna ström, spänning och resistans.",
+      "choices": [
+        "Spänning",
+        "Resistans",
+        "Elektrisk ström",
+        "Effekt"
+      ],
+      "answer": 2,
+      "explanation": "Ampere (A) är enheten för elektrisk ström, det vill säga mängden laddning som passerar per sekund. Spänning mäts i volt (V) och resistans i ohm (Ω)."
+    },
+    {
+      "id": "q-fys-el-2",
+      "kind": "mc",
+      "topic": "ström, spänning och resistans",
+      "prompt": "En krets har spänningen 12 V och resistansen 4 Ω. Hur stor är strömmen enligt Ohms lag (U = R · I)?",
+      "opener": "Lös ut I ur formeln: I = U / R.",
+      "choices": [
+        "48 A",
+        "3 A",
+        "8 A",
+        "0,33 A"
+      ],
+      "answer": 1,
+      "explanation": "I = U / R = 12 V / 4 Ω = 3 A. Att i stället multiplicera 12 med 4 ger det felaktiga svaret 48."
+    },
+    {
+      "id": "q-fys-el-3",
+      "kind": "mc",
+      "topic": "ström, spänning och resistans",
+      "prompt": "Vad beskriver resistans (mätt i ohm)?",
+      "opener": "Tänk på vad som händer när en sladd eller komponent gör det svårare för strömmen att flyta.",
+      "choices": [
+        "Hur mycket energi som lagras i en komponent",
+        "Hur mycket en komponent motstår eller \"bromsar\" den elektriska strömmen",
+        "Hur snabbt strömmen rör sig genom kretsen",
+        "Hur många elektroner som finns i kretsen totalt"
+      ],
+      "answer": 1,
+      "explanation": "Resistans är ett mått på hur mycket en ledare eller komponent motverkar strömmen. Hög resistans ger, vid samma spänning, en lägre ström (enligt Ohms lag I = U/R)."
+    },
+    {
+      "id": "q-fys-el-4",
+      "kind": "mc",
+      "topic": "seriekoppling och parallellkoppling",
+      "prompt": "Två lampor är seriekopplade till ett batteri. Vad händer om den ena lampan går sönder (kretsen bryts)?",
+      "opener": "I en seriekoppling finns bara en enda väg för strömmen att ta.",
+      "choices": [
+        "Bara den trasiga lampan slocknar, den andra lyser som vanligt",
+        "Båda lamporna slocknar eftersom strömvägen bryts",
+        "Den andra lampan lyser starkare",
+        "Ingenting förändras"
+      ],
+      "answer": 1,
+      "explanation": "I en seriekoppling går strömmen i en enda sluten slinga genom alla komponenter. Om en lampa går sönder bryts hela kretsen och strömmen kan inte flyta någonstans, så båda lamporna slocknar."
+    },
+    {
+      "id": "q-fys-el-5",
+      "kind": "mc",
+      "topic": "seriekoppling och parallellkoppling",
+      "prompt": "Varför kopplas lamporna i ett hus normalt parallellt och inte i serie?",
+      "opener": "Tänk på vad som händer med resten av lamporna om en enda lampa slocknar eller stängs av.",
+      "choices": [
+        "Parallellkoppling gör att varje lampa kan tändas och släckas oberoende av de andra",
+        "Parallellkoppling drar mindre ström totalt",
+        "Parallellkoppling gör att lamporna aldrig kan gå sönder",
+        "Det finns ingen fördel, det är bara en tradition"
+      ],
+      "answer": 0,
+      "explanation": "I en parallellkoppling har varje lampa sin egen strömväg, så om en lampa slocknar eller stängs av fortsätter de andra att lysa som vanligt. Det är därför hemmets eluttag och lampor kopplas parallellt."
+    },
+    {
+      "id": "q-fys-el-6",
+      "kind": "mc",
+      "topic": "magneter och elektromagnetism",
+      "prompt": "Vad händer om man för en ström genom en spole av ledningstråd?",
+      "opener": "En rörlig elektrisk laddning skapar alltid något runt sig som kan påverka andra magneter.",
+      "choices": [
+        "Ingenting särskilt, tråden blir bara varm",
+        "Det uppstår ett magnetfält runt spolen, en elektromagnet",
+        "Spolen blir permanent magnetisk för alltid",
+        "Strömmen omvandlas direkt till ljus"
+      ],
+      "answer": 1,
+      "explanation": "En ström genom en ledare skapar ett magnetfält, och lindas tråden till en spole förstärks fältet — man får en elektromagnet. Till skillnad från en permanentmagnet försvinner fältet när strömmen stängs av."
+    },
+    {
+      "id": "q-fys-el-7",
+      "kind": "worked",
+      "topic": "ström, spänning och resistans",
+      "prompt": "En lampa är kopplad till en spänning på 9 V och resistansen i kretsen är 3 Ω. Beräkna strömmen genom lampan med Ohms lag.",
+      "opener": "Ohms lag: U = R · I. Lös ut I och sätt in de kända värdena.",
+      "answer": "3 A",
+      "steps": [
+        "Utgå från Ohms lag: U = R · I.",
+        "Lös ut strömmen: I = U / R.",
+        "Sätt in värdena: I = 9 V / 3 Ω.",
+        "Beräkna: I = 3 A."
+      ]
+    },
+    {
+      "id": "q-fys-el-8",
+      "kind": "flashcard",
+      "topic": "ström, spänning och resistans",
+      "prompt": "Sammanfatta grundbegreppen ström, spänning, resistans, Ohms lag, seriekoppling/parallellkoppling och elektromagnetism.",
+      "opener": "Gå igenom en storhet i taget och koppla ihop dem med Ohms lag innan du vänder på kortet.",
+      "answer": "Ström (I), mäts i ampere (A): mängden laddning som flyter per sekund · Spänning (U), mäts i volt (V): \"drivkraften\" som får strömmen att flyta · Resistans (R), mäts i ohm (Ω): motståndet som bromsar strömmen · Ohms lag: U = R · I, sambandet mellan spänning, resistans och ström · Seriekoppling: komponenterna sitter efter varandra i en enda strömväg — går en komponent sönder bryts hela kretsen · Parallellkoppling: komponenterna har varsin egen strömväg — en trasig komponent påverkar inte de andra, används i hushållsel · Magnetism: magneter har en nordpol och en sydpol, lika poler stöter bort varandra och olika poler attraherar · Elektromagnetism: en elektrisk ström skapar alltid ett magnetfält, vilket utnyttjas i elektromagneter, motorer och generatorer."
+    }
+  ]
+}

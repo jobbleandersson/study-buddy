@@ -1,0 +1,128 @@
+{
+  "id": "lib-en6-reading",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Reading comprehension: opinion and argument",
+  "sourceSummary": "Träna på att identifiera författarens hållning, skilja fakta från åsikt, förstå motargument samt ton och vinkling i argumenterande texter.",
+  "topics": [
+    "author's stance",
+    "fact vs opinion",
+    "counter-arguments",
+    "tone and bias"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-reading-1",
+      "kind": "mc",
+      "topic": "author's stance",
+      "prompt": "Read the text and answer.\n\n\"Social media has fundamentally reshaped how teenagers communicate, and not for the better. While it promises connection, study after study links heavy use to rising anxiety and shortened attention spans among young people. Parents and schools now have a responsibility to set clearer limits before another generation grows up struggling to concentrate or feel at ease offline.\"\n\nWhat is the author's stance on social media use among teenagers?",
+      "opener": "Titta på ordval som \"not for the better\" och \"responsibility to set clearer limits\" — vad avslöjar de?",
+      "choices": [
+        "Neutral — the author simply reports research findings.",
+        "Critical — the author believes social media harms teenagers and limits are needed.",
+        "Supportive — the author believes social media improves communication.",
+        "Undecided — the author presents no clear opinion."
+      ],
+      "answer": 1,
+      "explanation": "Fraser som \"not for the better\" och kravet på att sätta \"clearer limits\" visar tydligt en kritisk hållning till social medieanvändning. Texten är för värderande för att vara neutral eller odelad."
+    },
+    {
+      "id": "q-en6-reading-2",
+      "kind": "mc",
+      "topic": "fact vs opinion",
+      "prompt": "Read the text and answer.\n\n\"The city council voted to ban plastic bags in all supermarkets starting next January. This is clearly the right decision, since plastic waste has become one of the biggest environmental problems of our time.\"\n\nWhich sentence in the text is a fact rather than an opinion?",
+      "opener": "Ett faktum går att verifiera objektivt — en åsikt uttrycker en värdering.",
+      "choices": [
+        "The city council voted to ban plastic bags in all supermarkets starting next January.",
+        "This is clearly the right decision.",
+        "Plastic waste has become one of the biggest environmental problems of our time.",
+        "Plastic bags should never have been allowed."
+      ],
+      "answer": 0,
+      "explanation": "Att rådet röstade för ett förbud går att kontrollera objektivt — det är ett faktum. De andra alternativen innehåller värderande ord som \"clearly the right\" eller \"should never\", vilket signalerar åsikt."
+    },
+    {
+      "id": "q-en6-reading-3",
+      "kind": "mc",
+      "topic": "counter-arguments",
+      "prompt": "Read the text and answer.\n\n\"Some argue that homework should be abolished because it adds unnecessary stress to students' lives. However, without any practice outside the classroom, many students would struggle to retain what they have learned, and teachers would lose an important tool for tracking progress.\"\n\nWhat is the function of the word \"However\" in this text?",
+      "opener": "Ord som \"however\" markerar att texten vänder riktning — men mot vad?",
+      "choices": [
+        "It introduces an example that supports the first argument.",
+        "It introduces a counter-argument to the claim that homework should be abolished.",
+        "It signals that the author agrees homework should be abolished.",
+        "It has no particular function; it is decorative."
+      ],
+      "answer": 1,
+      "explanation": "\"However\" markerar en vändning: efter att ha nämnt argumentet för att avskaffa läxor presenterar texten ett motargument. Det är precis så motargument ofta introduceras i argumenterande text."
+    },
+    {
+      "id": "q-en6-reading-4",
+      "kind": "mc",
+      "topic": "tone and bias",
+      "prompt": "Read the text and answer.\n\n\"The so-called 'experts' claim the new policy will save money, but anyone with common sense can see it will only burden ordinary families even more.\"\n\nWhat does the phrase \"so-called 'experts'\" suggest about the writer's attitude?",
+      "opener": "Citattecken och \"so-called\" runt ett ord signalerar ofta ironi eller misstro.",
+      "choices": [
+        "The writer fully trusts the experts' judgement.",
+        "The writer is being neutral and objective.",
+        "The writer is skeptical of and somewhat dismissive toward the experts.",
+        "The writer works as one of the experts."
+      ],
+      "answer": 2,
+      "explanation": "\"So-called\" och citattecknen ifrågasätter expertens auktoritet — det signalerar misstro, inte förtroende. En neutral text hade skrivit \"experts\" utan dessa markörer."
+    },
+    {
+      "id": "q-en6-reading-5",
+      "kind": "mc",
+      "topic": "fact vs opinion",
+      "prompt": "Read the text and answer.\n\n\"Electric cars produced 50% fewer emissions than petrol cars over their lifetime, according to a 2023 study. Even so, electric cars are obviously not a complete solution to climate change.\"\n\nWhich word in the second sentence signals that an opinion is being expressed?",
+      "opener": "Vilket ord uttrycker en värdering snarare än ett neutralt konstaterande?",
+      "choices": [
+        "Even so",
+        "climate",
+        "solution",
+        "obviously"
+      ],
+      "answer": 3,
+      "explanation": "\"Obviously\" signalerar att skribenten tycker något är självklart — ett värderande ord, inte ett neutralt faktum. Den första meningen, som hänvisar till en studie, är däremot ett faktapåstående."
+    },
+    {
+      "id": "q-en6-reading-6",
+      "kind": "mc",
+      "topic": "author's stance",
+      "prompt": "Read the text and answer.\n\n\"Proponents of the four-day work week point to happier, more productive employees. Critics counter that some industries simply cannot function with reduced hours. The truth, as with most reforms, probably lies somewhere between the two extremes.\"\n\nHow would you best describe the author's overall stance?",
+      "opener": "Sista meningen sammanfattar ofta textens hållning som helhet.",
+      "choices": [
+        "Strongly in favour of the four-day work week",
+        "Strongly against the four-day work week",
+        "Balanced, acknowledging both sides without taking a strong side",
+        "Focused only on criticizing employers"
+      ],
+      "answer": 2,
+      "explanation": "Texten presenterar båda sidor lika mycket och avslutar med att sanningen \"probably lies somewhere between the two extremes\" — det visar en balanserad, inte en ensidig, hållning."
+    },
+    {
+      "id": "q-en6-reading-7",
+      "kind": "worked",
+      "topic": "counter-arguments",
+      "prompt": "Read the text and explain the author's stance on fast fashion, citing evidence from the text.\n\n\"Fast fashion retailers churn out new clothing lines every few weeks, encouraging shoppers to buy more than they need. Defenders of the industry point to the jobs it creates in manufacturing countries. Yet the environmental cost — from water pollution to textile waste in landfills — is difficult to ignore, and cheap prices often come at the expense of garment workers' wages and safety.\"",
+      "opener": "Väg argumenten för och emot mot varandra — vilken sida får mest utrymme och starkast språk?",
+      "answer": "The author is critical of the fast fashion industry, despite briefly acknowledging one argument in its favour.",
+      "steps": [
+        "Texten nämner en motpart: \"jobs it creates\" — ett argument FÖR industrin.",
+        "Men efter \"Yet\" vänder texten: miljökostnader och dåliga arbetsvillkor lyfts fram som allvarligare problem.",
+        "Ordval som \"difficult to ignore\" och \"at the expense of\" signalerar kritik, inte neutralitet.",
+        "Slutsats: författaren erkänner motargumentet men landar tydligt i en kritisk hållning till fast fashion."
+      ]
+    },
+    {
+      "id": "q-en6-reading-8",
+      "kind": "flashcard",
+      "topic": "tone and bias",
+      "prompt": "What should you look for to identify an author's stance and bias in an opinion text?",
+      "opener": "Fem saker att alltid scanna texten efter.",
+      "answer": "Laddade ord (t.ex. \"so-called\", \"obviously\", \"sadly\") avslöjar värderingar · Vändord som \"however\", \"yet\", \"but\" markerar motargument eller åsiktsskifte · Fakta går att verifiera objektivt, åsikter uttrycker värdering eller tolkning · Vem som citeras och hur (namngivna experter vs. \"vissa säger\") kan avslöja vinkling · Den sammanfattande sista meningen avslöjar ofta textens huvudbudskap eller hållning."
+    }
+  ]
+}

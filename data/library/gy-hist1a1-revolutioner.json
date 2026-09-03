@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist1a1-revolutioner",
+  "type": "assignment",
+  "subject": "Historia 1a1",
+  "title": "Revolutionernas tid",
+  "sourceSummary": "Amerikanska och franska revolutionen, industriella revolutionens samhällsomvandling och nationalismens framväxt under 1800-talet.",
+  "topics": [
+    "amerikanska revolutionen",
+    "franska revolutionen",
+    "industriella revolutionen",
+    "nationalismens framväxt"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist1a1-revolutioner-1",
+      "kind": "mc",
+      "topic": "amerikanska revolutionen",
+      "prompt": "Vad var en central orsak till den amerikanska revolutionen?",
+      "opener": "Tänk på kolonisternas förhållande till det brittiska parlamentet.",
+      "choices": [
+        "Kolonisterna protesterade mot skatter beslutade av det brittiska parlamentet, där de själva saknade representation ('ingen beskattning utan representation')",
+        "Kolonisterna ville återinföra monarkin i Frankrike",
+        "Storbritannien vägrade handla med sina egna kolonier",
+        "Kolonisterna krävde att bli en del av Spanien i stället för Storbritannien"
+      ],
+      "answer": 0,
+      "explanation": "De brittiska nordamerikanska kolonisterna saknade representation i parlamentet i London men tvingades ändå betala skatter som beslutats där. Parollen 'ingen beskattning utan representation' blev central i protesterna som ledde fram till självständighetskriget."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-2",
+      "kind": "mc",
+      "topic": "amerikanska revolutionen",
+      "prompt": "Vad blev en viktig följd av den amerikanska revolutionen för politiska idéer i världen?",
+      "opener": "Tänk på vilket styrelseskick som prövades och vilka som senare tog intryck av det.",
+      "choices": [
+        "Den ledde till att Storbritannien avskaffade sitt parlament",
+        "Den fick inget genomslag utanför Nordamerika",
+        "Den visade att det gick att grunda en republik byggd på en skriven författning och folkets suveränitet, vilket inspirerade senare revolutioner, bland annat den franska",
+        "Den ledde till att kolonierna frivilligt återvände under brittisk krona"
+      ],
+      "answer": 2,
+      "explanation": "USA:s författning från 1787, byggd på folksuveränitet och maktdelning, blev ett konkret exempel på att upplysningens idéer kunde omsättas i praktiken. Detta inspirerade senare revolutionärer i Europa, inte minst i Frankrike."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-3",
+      "kind": "mc",
+      "topic": "franska revolutionen",
+      "prompt": "Vilka var de främsta orsakerna till franska revolutionen 1789?",
+      "opener": "Tänk på statens ekonomi och vilka som slapp betala skatt.",
+      "choices": [
+        "En invasion från Storbritannien som utlöste uppror bland befolkningen",
+        "Statens skuldkris, ett orättvist skattesystem där adel och kyrka var befriade, samt missnöje med enväldet och ståndssamhället",
+        "Att kungen frivilligt avskaffade monarkin",
+        "En allmän hungersnöd orsakad enbart av dåligt väder, utan koppling till politiken"
+      ],
+      "answer": 1,
+      "explanation": "Frankrikes statsfinanser var i djup kris, samtidigt som adeln och kyrkan (första och andra ståndet) var befriade från skatt medan tredje ståndet fick bära bördan. Detta, tillsammans med missnöje med enväldet och dåliga skördar, utlöste revolutionen."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-4",
+      "kind": "mc",
+      "topic": "franska revolutionen",
+      "prompt": "Vad hände under skräckväldet (1793–1794) under franska revolutionen?",
+      "opener": "Tänk på vilken grupp som styrde och vilket verktyg de använde mot sina motståndare.",
+      "choices": [
+        "Adeln återtog makten och avskaffade nationalförsamlingen",
+        "Napoleon kröntes till kejsare",
+        "Frankrike blev en fredlig konstitutionell monarki utan konflikter",
+        "Jakobinerna under Robespierre lät avrätta tusentals påstådda motståndare till revolutionen via giljotinen"
+      ],
+      "answer": 3,
+      "explanation": "Under skräckväldet styrde jakobinerna med Robespierre i spetsen genom terror: tusentals personer som misstänktes vara motståndare till revolutionen avrättades i giljotinen, ofta efter mycket summariska rättegångar."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-5",
+      "kind": "mc",
+      "topic": "industriella revolutionen",
+      "prompt": "Vad var utmärkande för den industriella revolutionens samhällsomvandling?",
+      "opener": "Tänk på var produktionen flyttade, och vilka nya samhällsgrupper som växte fram i städerna.",
+      "choices": [
+        "Ny teknik som ångmaskinen flyttade produktionen från hantverk i hemmen till fabriker, vilket ledde till urbanisering och en ny arbetarklass",
+        "Jordbruket försvann helt och ersattes direkt av tjänstesektorn",
+        "Produktionen minskade kraftigt på grund av teknikfientlighet",
+        "Alla länder industrialiserades samtidigt och i exakt samma takt"
+      ],
+      "answer": 0,
+      "explanation": "Ny teknik, med ångmaskinen som en central uppfinning, gjorde det möjligt att flytta produktionen till fabriker. Detta drev på en stark urbanisering när människor flyttade från landsbygden till växande industristäder, och skapade en ny samhällsklass av fabriksarbetare."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-6",
+      "kind": "mc",
+      "topic": "nationalismens framväxt",
+      "prompt": "Hur bidrog nationalismen till att förändra Europas politiska karta under 1800-talet?",
+      "opener": "Tänk på idén om ett folk, ett språk, en nation — och vilka stora länder som bildades av det.",
+      "choices": [
+        "Nationalismen ledde till att Europas gränser förblev helt oförändrade",
+        "Nationalismen innebar enbart en kulturell rörelse utan politiska följder",
+        "Idén om att folk med gemensamt språk och kultur borde forma egna nationalstater drev bland annat fram Italiens och Tysklands enande",
+        "Nationalismen ledde till att flera länder gick samman till ett enda världsrike"
+      ],
+      "answer": 2,
+      "explanation": "Nationalismen byggde på tanken att folk med gemensamt språk, kultur och historia borde utgöra en egen nationalstat. Denna idé var en drivkraft bakom både Italiens (1861) och Tysklands (1871) enande under 1800-talet, och bidrog senare även till spänningar inför första världskriget."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-7",
+      "kind": "worked",
+      "topic": "franska revolutionen",
+      "prompt": "Jämför den amerikanska och franska revolutionen. Vilka likheter och skillnader finns i deras orsaker och förlopp?",
+      "opener": "Tänk på vem revolutionen riktade sig mot, och hur våldsam den blev.",
+      "answer": "Båda revolutionerna byggde på upplysningsidéer om folkets rättigheter och kritik av godtycklig makt, men de skiljde sig åt i mål och förlopp: den amerikanska revolutionen var i första hand en frigörelse från en utländsk kolonialmakt och ledde till en relativt ordnad författning, medan franska revolutionen var ett inrikes uppror mot det egna ståndssamhället och enväldet, som urartade i inbördes våld och skräckvälde innan Napoleon till slut tog makten.",
+      "steps": [
+        "Den amerikanska revolutionen (1775–1783) riktade sig mot en utländsk kolonialmakt, Storbritannien, och krävde självstyre och representation.",
+        "Den slutade med en ny författning 1787 som byggde på maktdelning och individuella rättigheter, relativt ordnat efter självständighetskriget.",
+        "Franska revolutionen (från 1789) riktade sig i stället mot det egna landets kungamakt, adel och ståndssamhälle.",
+        "Den blev betydligt mer omvälvande och våldsam, med avrättningen av kungen 1793 och skräckväldet under Robespierre.",
+        "Båda inspirerades av upplysningens idéer om rättigheter och folkstyre, men medan USA fick en relativt stabil författning slutade Frankrikes revolution med att Napoleon tog makten som kejsare 1804."
+      ]
+    },
+    {
+      "id": "q-hist1a1-revolutioner-8",
+      "kind": "flashcard",
+      "topic": "nationalismens framväxt",
+      "prompt": "Sammanfatta revolutionernas tid: amerikanska och franska revolutionen, industriella revolutionen och nationalismen.",
+      "opener": "Fyra stora omvälvningar som format det moderna samhället.",
+      "answer": "Amerikanska revolutionen (1775–1783): kolonisterna gjorde uppror mot brittisk beskattning utan representation och grundade en republik med skriven författning · franska revolutionen (från 1789): missnöje med enväldet, ståndssamhället och statens skuldkris ledde till kungens avrättning, skräckvälde och till slut Napoleons kejsardöme · industriella revolutionen (från cirka 1760): ny teknik som ångmaskinen flyttade produktionen till fabriker, vilket skapade urbanisering och en ny arbetarklass · nationalismen växte fram under 1800-talet och drev fram enandet av Italien och Tyskland samt krav på självstyre för många folkgrupper i Europa."
+    }
+  ]
+}

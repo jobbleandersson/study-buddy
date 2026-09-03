@@ -1,0 +1,127 @@
+{
+  "id": "lib-en9-reading",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Reading comprehension",
+  "sourceSummary": "Korta texter där du tränar huvudbudskap, slutledning och ord i sammanhang — grundläggande lässtrategier på engelska.",
+  "topics": [
+    "main idea",
+    "inference",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en9-read-1",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Many schools now let students choose their own seats instead of assigning them. Teachers say it can help students focus if they choose wisely, but some students end up sitting with friends and talking too much.\"\n\nWhat is the main idea of the text?",
+      "opener": "Texten visar för- och nackdelar — vad är helheten?",
+      "choices": [
+        "Free seating has both benefits and drawbacks depending on students' choices",
+        "All schools should stop letting students choose seats",
+        "Students always talk too much when seated freely",
+        "Teachers dislike free seating"
+      ],
+      "answer": 0,
+      "explanation": "Texten visar båda sidor: det kan hjälpa fokus OM man väljer klokt, men kan också leda till för mycket prat — helheten är att det beror på elevernas val, inte ett entydigt bra eller dåligt system."
+    },
+    {
+      "id": "q-en9-read-2",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Jake kept checking his phone during dinner. When it finally buzzed, he smiled and quickly typed a reply before anyone noticed.\"\n\nWhat can we infer about Jake?",
+      "opener": "Vad avslöjar det att han kollar telefonen upprepade gånger och sedan ler?",
+      "choices": [
+        "He is bored with the food",
+        "He is waiting for an important or exciting message",
+        "He has lost his phone before",
+        "He does not like his family"
+      ],
+      "answer": 1,
+      "explanation": "Att han kollar telefonen ofta och sedan ler när den ringer antyder att han väntar på ett meddelande som betyder något för honom — texten säger det aldrig rakt ut."
+    },
+    {
+      "id": "q-en9-read-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"The new student seemed shy at first, but after a few days she became more talkative and made several friends.\"\n\nIn this context, \"talkative\" means:",
+      "opener": "Motsatsen till \"shy\" (blyg) — vad blir hon i stället?",
+      "choices": [
+        "quiet",
+        "likes to talk a lot",
+        "confused",
+        "tired"
+      ],
+      "answer": 1,
+      "explanation": "\"Talkative\" beskriver någon som gärna pratar mycket — motsatsen till blyg och tystlåten, vilket stämmer med att hon gick från blyg till att göra flera vänner."
+    },
+    {
+      "id": "q-en9-read-4",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Recycling one aluminium can saves enough energy to power a TV for three hours. Yet millions of cans are thrown away every day instead of recycled.\"\n\nWhat is the writer's point?",
+      "opener": "Texten kombinerar en fakta med ett problem — vad blir slutsatsen?",
+      "choices": [
+        "TVs use too much energy",
+        "Recycling cans could save a lot of energy, but too few people do it",
+        "Aluminium cans are dangerous",
+        "People should stop watching TV"
+      ],
+      "answer": 1,
+      "explanation": "Texten visar hur mycket energi återvinning sparar och kontrasterar det med att många burkar ändå slängs — poängen är att potentialen finns men utnyttjas inte."
+    },
+    {
+      "id": "q-en9-read-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Sara packed her bag the night before, set two alarms, and laid out her clothes. The next morning she was ready an hour early.\"\n\nWhat can we infer about Sara?",
+      "opener": "Vad säger förberedelserna kvällen innan om hennes personlighet?",
+      "choices": [
+        "She is very disorganized",
+        "She is careful and well-prepared",
+        "She forgot something important",
+        "She does not care about being on time"
+      ],
+      "answer": 1,
+      "explanation": "Att packa i förväg, ställa två väckarklockor och lägga fram kläder visar att hon är noggrann och förberedd — detaljerna bygger bilden utan att texten säger det rakt ut."
+    },
+    {
+      "id": "q-en9-read-6",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"The hikers were exhausted after climbing for six hours, but the view from the top made it worth the effort.\"\n\nIn this context, \"exhausted\" means:",
+      "opener": "Hur känner man sig efter att ha klättrat i sex timmar?",
+      "choices": [
+        "very tired",
+        "excited",
+        "confused",
+        "happy"
+      ],
+      "answer": 0,
+      "explanation": "\"Exhausted\" betyder utmattad, väldigt trött — vilket passar efter en sex timmar lång vandring uppför."
+    },
+    {
+      "id": "q-en9-read-7",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Read the text and explain what has happened, and how you know: \"The trophy that had stood on the shelf for years was gone. Boxes filled the living room, and Anna's name was already written on the door of her new room.\"",
+      "opener": "Tre detaljer nämns — vad betyder de tillsammans?",
+      "answer": "Familjen håller på att flytta, och Anna har fått ett nytt rum i det nya huset.",
+      "steps": [
+        "Detalj 1: bokhyllan är tom där trofén brukade stå — saker packas ner eller är redan borta.",
+        "Detalj 2: lådor fyller vardagsrummet — ett tydligt tecken på packning inför en flytt.",
+        "Detalj 3: Annas namn står redan på en dörr till ett NYTT rum — det tyder på att familjen flyttar till ett nytt hus där Anna får ett eget rum.",
+        "Sammantaget: texten säger aldrig ordet \"flytt\", men detaljerna pekar entydigt åt den slutsatsen."
+      ]
+    },
+    {
+      "id": "q-en9-read-8",
+      "kind": "flashcard",
+      "topic": "main idea",
+      "prompt": "What strategies help you answer reading comprehension questions in English?",
+      "opener": "Ett par vanor som gör skillnad på prov.",
+      "answer": "Read the question first so you know what to look for. Separate the main idea (what the whole text is really about) from details (single facts). For unknown words: use context — the surrounding sentence often explains the word. For inference: base your answer only on what the text actually suggests, not on guesses. Watch out for answer choices that are true in general but don't actually answer the question asked."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-evolution",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "Evolution och genetik",
+  "sourceSummary": "Naturligt urval och artbildning på djupet, DNA och genens funktion, arv och variation, samt genteknikens möjligheter och etiska frågor i korthet.",
+  "topics": [
+    "naturligt urval och artbildning",
+    "DNA och genens funktion",
+    "arv och variation",
+    "genteknik"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-evolution-1",
+      "kind": "mc",
+      "topic": "naturligt urval och artbildning",
+      "prompt": "Vad krävs för att naturligt urval ska kunna leda till evolution i en population?",
+      "opener": "Tänk på tre saker: variation, ärftlighet och vad som avgör vem som får flest avkommor.",
+      "choices": [
+        "Att det finns ärftlig variation mellan individer, och att vissa egenskaper ger bättre överlevnad eller fortplantning i den aktuella miljön",
+        "Att alla individer är exakt lika från början",
+        "Att individerna medvetet väljer att förändra sina egenskaper",
+        "Att miljön aldrig förändras"
+      ],
+      "answer": 0,
+      "explanation": "Naturligt urval kräver ärftlig variation mellan individer och att denna variation påverkar chansen att överleva och fortplanta sig i en given miljö — individer med gynnsamma egenskaper får statistiskt fler avkommor, som ärver egenskaperna. Utan variation eller ärftlighet sker inget urval, och individer väljer inte medvetet sina egenskaper."
+    },
+    {
+      "id": "q-nk1b-evolution-2",
+      "kind": "mc",
+      "topic": "naturligt urval och artbildning",
+      "prompt": "Hur kan en geografisk barriär, t.ex. ett bergsmassiv som delar en population i två, leda till artbildning över tid?",
+      "opener": "Tänk på vad som händer med genpoolerna i de två grupperna när de inte längre kan para sig med varandra.",
+      "choices": [
+        "Barriären har ingen betydelse för artbildning så länge klimatet är detsamma",
+        "De två populationerna utvecklas identiskt eftersom mutationer alltid sker i samma takt",
+        "De isolerade populationerna utsätts för olika urvalstryck och ansamlar olika mutationer, och kan med tiden bli så olika att de inte längre kan få fertil avkomma tillsammans",
+        "Barriären gör att alla individer i båda grupperna dör ut inom en generation"
+      ],
+      "answer": 2,
+      "explanation": "När genflödet mellan två populationer bryts av en barriär utvecklas de oberoende av varandra — olika mutationer uppstår och olika egenskaper gynnas av naturligt urval i respektive miljö. Med tillräckligt lång tid kan skillnaderna bli så stora att de räknas som skilda arter, eftersom de inte längre kan ge upphov till fertil avkomma tillsammans."
+    },
+    {
+      "id": "q-nk1b-evolution-3",
+      "kind": "mc",
+      "topic": "DNA och genens funktion",
+      "prompt": "Vad är en gen?",
+      "opener": "Tänk på var i DNA-molekylen informationen för en viss egenskap finns lagrad.",
+      "choices": [
+        "En hel kromosom",
+        "En typ av cell som bara finns i könsorganen",
+        "Ett annat ord för hela arvsmassan (genomet)",
+        "Ett avsnitt av DNA som innehåller information (en \"ritning\") för att bygga ett protein eller reglera en egenskap"
+      ],
+      "answer": 3,
+      "explanation": "En gen är en sekvens av DNA som bär information för uppbyggnaden av ett protein eller för att reglera andra gener. Många gener tillsammans bildar en kromosom, och hela arvsmassan (genomet) består av alla gener och övrigt DNA i en organism."
+    },
+    {
+      "id": "q-nk1b-evolution-4",
+      "kind": "mc",
+      "topic": "DNA och genens funktion",
+      "prompt": "Vad är en mutation?",
+      "opener": "Tänk på vad som kan gå fel, eller förändras, när DNA kopieras eller skadas.",
+      "choices": [
+        "En medveten förändring en organism gör av sin egen arvsmassa",
+        "En förändring i DNA-sekvensen, som kan uppstå t.ex. vid celldelning eller av strålning, och som kan vara skadlig, neutral eller ibland fördelaktig",
+        "Ett annat ord för naturligt urval",
+        "En process som bara sker hos bakterier"
+      ],
+      "answer": 1,
+      "explanation": "En mutation är en förändring i DNA:s baspar-sekvens. Mutationer kan uppstå spontant vid DNA-kopiering eller orsakas av yttre faktorer som UV-strålning, och de är den grundläggande källan till ny genetisk variation som naturligt urval sedan kan verka på."
+    },
+    {
+      "id": "q-nk1b-evolution-5",
+      "kind": "mc",
+      "topic": "arv och variation",
+      "prompt": "Två föräldrar som båda är bärare av samma recessiva allel (anlag) för en egenskap, men själva inte visar egenskapen, får barn. Vad är sannolikheten att ett barn får egenskapen (är homozygot recessiv), enligt enkel mendelsk nedärvning?",
+      "opener": "Rita gärna upp en korsningsruta: Aa x Aa. Vilken kombination krävs för att egenskapen ska synas?",
+      "choices": [
+        "0 %",
+        "25 %",
+        "50 %",
+        "100 %"
+      ],
+      "answer": 1,
+      "explanation": "Vid en korsning Aa x Aa blir avkommans genotyper i genomsnitt 1 AA : 2 Aa : 1 aa, det vill säga 25 % chans för genotypen aa, som är den enda kombinationen där den recessiva egenskapen syns. De två bärarna (Aa) visar själva inte egenskapen eftersom den dominanta allelen A maskerar den recessiva."
+    },
+    {
+      "id": "q-nk1b-evolution-6",
+      "kind": "mc",
+      "topic": "genteknik",
+      "prompt": "Vad innebär det, ur ett etiskt perspektiv, att genredigeringstekniker som CRISPR gör det möjligt att förändra arvsmassan hos framtida generationer om man redigerar könsceller eller embryon?",
+      "opener": "Tänk på skillnaden mellan att redigera gener i en enskild patients kroppsceller, och att redigera gener som förs vidare till barn och barnbarn.",
+      "choices": [
+        "Det innebär ingen skillnad jämfört med att behandla en sjukdom hos en vuxen patient",
+        "Förändringar i könsceller eller embryon kan föras vidare till kommande generationer, vilket väcker särskilt svåra etiska frågor om samtycke och långsiktiga konsekvenser",
+        "Tekniken kan bara användas på växter, aldrig på människor",
+        "Det är enbart en teknisk fråga utan etisk betydelse"
+      ],
+      "answer": 1,
+      "explanation": "Till skillnad från att redigera gener i vanliga kroppsceller hos en patient, som bara påverkar den individen, förs förändringar i könsceller eller tidiga embryon vidare till alla framtida generationer. Det väcker särskilda etiska frågor, till exempel att framtida individer inte kan ge sitt samtycke och att långsiktiga effekter är svåra att förutse."
+    },
+    {
+      "id": "q-nk1b-evolution-7",
+      "kind": "worked",
+      "topic": "naturligt urval och artbildning",
+      "prompt": "Förklara med ett eget resonemang, t.ex. om antibiotikaresistenta bakterier, hur naturligt urval fungerar steg för steg.",
+      "opener": "Utgå från en population bakterier som utsätts för antibiotika, och följ vad som händer med variationen i populationen över tid.",
+      "answer": "I en bakteriepopulation finns redan från början slumpmässig variation, bland annat i känslighet för antibiotika; när antibiotika används överlever och förökar sig framför allt de redan motståndskraftiga bakterierna, vilket gör att andelen resistenta bakterier ökar i populationen över flera generationer.",
+      "steps": [
+        "I en stor population bakterier finns naturlig, slumpmässig variation mellan individerna, bland annat i hur känsliga de är för ett visst antibiotikum, orsakad av redan existerande mutationer.",
+        "När antibiotika sätts in dör de flesta känsliga bakterierna, men enstaka individer med en mutation som ger motståndskraft överlever.",
+        "De överlevande resistenta bakterierna fortsätter att föröka sig och för vidare sina gener, inklusive resistensen, till nästa generation.",
+        "Eftersom de resistenta bakterierna får relativt fler avkommor ökar deras andel av populationen för varje generation.",
+        "Med tiden kan hela eller merparten av populationen bli resistent mot antibiotikumet — ett tydligt, snabbt exempel på naturligt urval i praktiken, eftersom bakterier har korta generationstider."
+      ]
+    },
+    {
+      "id": "q-nk1b-evolution-8",
+      "kind": "flashcard",
+      "topic": "DNA och genens funktion",
+      "prompt": "Sammanfatta grundbegreppen inom evolution och genetik: naturligt urval, artbildning, DNA, gen, mutation och genteknik.",
+      "opener": "Gå igenom hur variation uppstår, hur den ärvs och hur den kan leda till förändring över tid.",
+      "answer": "Naturligt urval: individer med gynnsamma, ärftliga egenskaper får i genomsnitt fler avkommor, vilket gör att egenskaperna blir vanligare i populationen över generationer · Artbildning: när populationer isoleras (t.ex. geografiskt) och utvecklas olika tills de inte längre kan få fertil avkomma tillsammans · DNA: molekylen som bär arvsinformationen, uppbyggd av baspar i en dubbelspiral · Gen: ett avsnitt av DNA med information för ett protein eller en reglerande funktion · Mutation: en förändring i DNA-sekvensen, grundkällan till ny genetisk variation · Dominant/recessiv allel: en dominant allel syns även i enkel uppsättning, en recessiv kräver dubbel uppsättning för att synas · Genteknik: metoder som CRISPR för att läsa av och förändra arvsmassa, med stor medicinsk potential men även etiska frågor, särskilt vid redigering av könsceller och embryon."
+    }
+  ]
+}

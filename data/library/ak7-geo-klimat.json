@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo7-klimat",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Väder, klimat och klimatzoner",
+  "sourceSummary": "Skillnaden mellan väder och klimat, jordens klimatzoner, vad som påverkar klimatet på en plats, Golfströmmens betydelse för Nordeuropa och hur vegetationszonerna följer klimatet.",
+  "topics": [
+    "väder och klimat",
+    "klimatzoner",
+    "vad som påverkar klimatet",
+    "Golfströmmen",
+    "vegetationszoner"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo7-kli-1",
+      "kind": "mc",
+      "topic": "väder och klimat",
+      "prompt": "Vad är skillnaden mellan väder och klimat?",
+      "opener": "Tänk på hur lång tid de två orden handlar om.",
+      "choices": [
+        "Väder gäller hela världen, klimat gäller bara en stad",
+        "Det är två ord för exakt samma sak",
+        "Väder är hur det är just nu eller under några dagar, klimat är det genomsnittliga vädret under många år",
+        "Klimat handlar bara om temperatur, väder bara om nederbörd"
+      ],
+      "answer": 2,
+      "explanation": "Vädret är tillfälligt — regn i dag, sol i morgon — medan klimatet är mönstret av temperatur, nederbörd och vind som mäts som medelvärde över lång tid, oftast 30 år. Att det snöar en dag i april säger alltså inget om klimatet, och båda begreppen omfattar såväl temperatur som nederbörd."
+    },
+    {
+      "id": "q-geo7-kli-2",
+      "kind": "mc",
+      "topic": "klimatzoner",
+      "prompt": "Vilka är jordens tre stora klimatzoner, räknat från ekvatorn mot polerna?",
+      "opener": "Zonerna ligger som breda band runt jordklotet.",
+      "choices": [
+        "Tropiskt, tempererat och polart klimat",
+        "Varmt, blött och blåsigt klimat",
+        "Sommarklimat, vinterklimat och höstklimat",
+        "Kustklimat, inlandsklimat och bergsklimat"
+      ],
+      "answer": 0,
+      "explanation": "Närmast ekvatorn ligger den tropiska zonen med hög värme året runt, därefter den tempererade zonen med tydliga årstider (där Sverige ligger) och längst norr och söder den polara zonen som är kall större delen av året. Kust-, inlands- och bergsklimat är i stället lokala klimattyper som kan förekomma inom flera av zonerna."
+    },
+    {
+      "id": "q-geo7-kli-3",
+      "kind": "mc",
+      "topic": "vad som påverkar klimatet",
+      "prompt": "Vilken faktor har allra störst betydelse för hur varmt det är på en plats?",
+      "opener": "Tänk på i vilken vinkel solens strålar träffar marken.",
+      "choices": [
+        "Hur många människor som bor där",
+        "Breddgraden, alltså avståndet till ekvatorn",
+        "Vilken tidszon platsen ligger i",
+        "Hur stort landet är"
+      ],
+      "answer": 1,
+      "explanation": "Nära ekvatorn träffar solstrålarna marken nästan rakt ovanifrån och värmer kraftigt, medan de nära polerna kommer in snett och sprids över en större yta, vilket ger mindre värme per kvadratmeter. Tidszoner handlar bara om klockan, och landets storlek eller befolkning styr inte solinstrålningen."
+    },
+    {
+      "id": "q-geo7-kli-4",
+      "kind": "mc",
+      "topic": "Golfströmmen",
+      "prompt": "Vilken betydelse har Golfströmmen för Nordeuropa?",
+      "opener": "Jämför Sveriges vintrar med vintrarna i Kanada på samma breddgrad.",
+      "choices": [
+        "Den gör vintrarna kallare än de annars skulle vara",
+        "Den påverkar bara Sydeuropa",
+        "Den orsakar jordbävningar i Norge",
+        "Den för varmt vatten norrut och gör klimatet betydligt mildare än på samma breddgrad i andra delar av världen"
+      ],
+      "answer": 3,
+      "explanation": "Golfströmmen är en varm havsström som transporterar vatten från Mexikanska golfen nordost över Atlanten, och den milda, fuktiga luften ovanför den förs in över Nordeuropa av västvindarna. Därför är Stockholm och Oslo betydligt mildare än platser på samma breddgrad i Kanada och Sibirien. Havsströmmar har inget att göra med jordbävningar, som beror på rörelser i jordskorpan."
+    },
+    {
+      "id": "q-geo7-kli-5",
+      "kind": "mc",
+      "topic": "vegetationszoner",
+      "prompt": "Vilken vegetationszon täcker största delen av norra och mellersta Sverige?",
+      "opener": "Tänk på vilka träd som klarar korta somrar och kalla vintrar bäst.",
+      "choices": [
+        "Barrskog (taiga)",
+        "Tropisk regnskog",
+        "Savann",
+        "Öken"
+      ],
+      "answer": 0,
+      "explanation": "Barrskogsbältet, taigan, sträcker sig som ett brett band genom norra och mellersta Sverige och vidare genom Finland, Ryssland och Kanada, eftersom gran och tall klarar kort växtsäsong och kyla. Regnskog, savann och öken kräver helt andra, varmare klimat och finns inte naturligt i Sverige — längst i söder övergår barrskogen i stället i lövskog och blandskog."
+    },
+    {
+      "id": "q-geo7-kli-6",
+      "kind": "mc",
+      "topic": "vad som påverkar klimatet",
+      "prompt": "Hur påverkar närheten till ett stort hav klimatet på en plats?",
+      "opener": "Vatten värms upp och kyls ner mycket långsammare än land.",
+      "choices": [
+        "Det ger extremt stora skillnader mellan sommar och vinter",
+        "Det gör klimatet helt torrt",
+        "Det jämnar ut temperaturen: svalare somrar, mildare vintrar och ofta mer nederbörd",
+        "Det påverkar inte klimatet alls"
+      ],
+      "answer": 2,
+      "explanation": "Eftersom vatten lagrar värme länge blir kustplatser svalare på sommaren och mildare på vintern än inlandsplatser på samma breddgrad, och luften som kommer in från havet är fuktig och ger nederbörd. Det är tvärtom inlandsklimatet som har de stora årstidsskillnaderna, exempelvis i norra Sveriges inland eller i Sibirien."
+    },
+    {
+      "id": "q-geo7-kli-7",
+      "kind": "worked",
+      "topic": "Golfströmmen",
+      "prompt": "Göteborg och staden Goose Bay i Kanada ligger på nästan samma breddgrad, men Göteborg har mycket mildare vintrar. Förklara varför.",
+      "opener": "Breddgraden är lika — så förklaringen måste ligga i något annat, till exempel havet och vindarna.",
+      "answer": "Breddgraden ger ungefär lika mycket solinstrålning på båda platserna, så skillnaden måste bero på andra faktorer. Göteborg ligger vid Atlantens östra sida, där Golfströmmen och dess förlängning Nordatlantiska driften för varmt vatten norrut. De rådande västvindarna tar med sig den uppvärmda, fuktiga havsluften in över Västeuropa, vilket gör vintrarna milda och nederbörden riklig. Goose Bay ligger på Atlantens västra sida, där vindarna i stället kommer in från det stora, kalla nordamerikanska inlandet, och där finns dessutom en kall havsström utanför kusten. Därför blir vintern där mycket kallare trots samma breddgrad.",
+      "steps": [
+        "Samma breddgrad → i stort sett samma solinstrålning, så solen förklarar inte skillnaden.",
+        "Golfströmmen för varmt vatten från tropikerna nordost över Atlanten mot Europa.",
+        "Västvindar bär den milda, fuktiga luften från havet in över Göteborg och Västeuropa.",
+        "Goose Bay får i stället vindar från det kalla nordamerikanska inlandet, och kalla havsströmmar utanför kusten.",
+        "Slutsats: havsströmmar och vindriktning kan påverka klimatet mycket kraftigt, även på samma breddgrad."
+      ]
+    },
+    {
+      "id": "q-geo7-kli-8",
+      "kind": "flashcard",
+      "topic": "klimatzoner",
+      "prompt": "Sammanfatta väder, klimat, klimatzoner och vegetationszoner.",
+      "opener": "Börja med begreppen, sedan zonerna och faktorerna som styr klimatet.",
+      "answer": "Väder: hur det är just nu eller under några dagar — temperatur, nederbörd, vind, molnighet · Klimat: det genomsnittliga vädret på en plats över lång tid, oftast mätt som medelvärde över 30 år · Klimatzoner: tropiskt klimat kring ekvatorn med hög jämn värme och mycket nederbörd eller regn- och torrtid · tempererat klimat mellan tropikerna och polartrakterna med fyra tydliga årstider, här ligger Sverige · polart klimat vid polerna med kyla större delen av året och kort eller ingen sommar · Vad som påverkar klimatet: breddgrad (solstrålarnas vinkel, viktigast) · höjd över havet (ca 0,6 °C kallare per 100 m) · närhet till hav (jämnar ut temperaturen, ger nederbörd) · havsströmmar och vindar (kan flytta värme långa sträckor) · berg som hindrar luftmassor · Golfströmmen: varm havsström från Mexikanska golfen som med Nordatlantiska driften och västvindarna gör Nordeuropa flera grader mildare än andra platser på samma breddgrad · Vegetationszoner följer klimatet: regnskog vid ekvatorn · savann · öken kring vändkretsarna · medelhavsvegetation · lövskog · barrskog (taiga) · tundra · polarklimat med is och snö · I Sverige: fjällvegetation och kalfjäll i nordväst, barrskog i norr och mitten, lövskog och blandskog i söder."
+    }
+  ]
+}

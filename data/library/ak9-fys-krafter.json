@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys-krafter",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Krafter och rörelse",
+  "sourceSummary": "Newtons lagar, friktion, tyngdkraft och jämvikt — grunden för att förstå varför saker rör sig, står stilla eller ändrar fart.",
+  "topics": [
+    "kraft och Newtons lagar",
+    "friktion",
+    "tyngdkraft",
+    "hastighet och acceleration",
+    "jämvikt av krafter"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys-kra-1",
+      "kind": "mc",
+      "topic": "kraft och Newtons lagar",
+      "prompt": "Vad säger Newtons första lag (tröghetslagen)?",
+      "opener": "Tänk på vad som krävs för att ändra en rörelse, inte för att hålla den igång.",
+      "choices": [
+        "Ett föremål fortsätter i vila eller rör sig med konstant hastighet om ingen kraft påverkar det",
+        "Kraft är massa gånger acceleration",
+        "Varje kraft har en motkraft av samma storlek",
+        "Tyngre föremål faller alltid fortare än lättare"
+      ],
+      "answer": 0,
+      "explanation": "Tröghetslagen säger att ett föremål behåller sitt rörelsetillstånd (vila eller rätlinjig, jämn rörelse) om ingen resulterande kraft verkar på det. Alternativ 2 är Newtons andra lag och alternativ 3 är Newtons tredje lag — de beskriver andra saker."
+    },
+    {
+      "id": "q-fys-kra-2",
+      "kind": "mc",
+      "topic": "kraft och Newtons lagar",
+      "prompt": "En kälke med massan 20 kg får kraften 40 N rakt framåt på is (friktionen bortses från). Vilken acceleration får kälken?",
+      "opener": "Använd sambandet F = m · a och lös ut a.",
+      "choices": [
+        "0,5 m/s²",
+        "2 m/s²",
+        "800 m/s²",
+        "20 m/s²"
+      ],
+      "answer": 1,
+      "explanation": "a = F / m = 40 N / 20 kg = 2 m/s². Ett vanligt fel är att multiplicera i stället för att dividera, vilket ger 800 — orimligt stort för en så liten kraft."
+    },
+    {
+      "id": "q-fys-kra-3",
+      "kind": "mc",
+      "topic": "friktion",
+      "prompt": "Varför är det lättare att dra en låda över is än över asfalt?",
+      "opener": "Friktion beror på hur ytorna som gnids mot varandra är beskaffade.",
+      "choices": [
+        "Is har mindre massa än asfalt",
+        "Friktionskraften mellan lådan och underlaget är mindre på is",
+        "Tyngdkraften är svagare på is",
+        "Lådan väger mindre på is"
+      ],
+      "answer": 1,
+      "explanation": "Is är halt, vilket ger en mycket lägre friktionskraft mellan lådan och underlaget än den ojämnare asfalten. Varken massa eller tyngdkraft påverkas av vilket underlag man befinner sig på."
+    },
+    {
+      "id": "q-fys-kra-4",
+      "kind": "mc",
+      "topic": "tyngdkraft",
+      "prompt": "Vad är skillnaden mellan massa och tyngd (tyngdkraft)?",
+      "opener": "En av storheterna mäts i kilogram, den andra i newton.",
+      "choices": [
+        "Det finns ingen skillnad, orden betyder samma sak",
+        "Massa mäts i newton och tyngd mäts i kilogram",
+        "Massa är mängden materia i kilogram och är konstant, tyngd är kraften som gravitationen ger upphov till och mäts i newton",
+        "Tyngd är alltid dubbelt så stor som massan"
+      ],
+      "answer": 2,
+      "explanation": "Massa (kg) beskriver hur mycket materia ett föremål består av och ändras inte. Tyngdkraften (N) beror på massan och gravitationen (F = m · g) och blir t.ex. mindre på månen fast massan är oförändrad."
+    },
+    {
+      "id": "q-fys-kra-5",
+      "kind": "mc",
+      "topic": "hastighet och acceleration",
+      "prompt": "En cyklist kör 150 meter på 30 sekunder med jämn fart. Vilken hastighet håller cyklisten?",
+      "opener": "Hastighet beräknas som sträcka delat med tid: v = s/t.",
+      "choices": [
+        "5 m/s",
+        "0,2 m/s",
+        "180 m/s",
+        "50 m/s"
+      ],
+      "answer": 0,
+      "explanation": "v = s / t = 150 m / 30 s = 5 m/s. Att av misstag dividera tiden med sträckan ger det felaktiga svaret 0,2 m/s."
+    },
+    {
+      "id": "q-fys-kra-6",
+      "kind": "mc",
+      "topic": "jämvikt av krafter",
+      "prompt": "En bok ligger still på ett bord. Vad kan man säga om krafterna som verkar på boken?",
+      "opener": "Boken varken rör sig uppåt eller nedåt — vad säger det om kraftsumman?",
+      "choices": [
+        "Ingen kraft alls verkar på boken",
+        "Tyngdkraften nedåt och normalkraften från bordet uppåt tar ut varandra, så den resulterande kraften är noll",
+        "Endast tyngdkraften verkar på boken",
+        "Normalkraften är större än tyngdkraften"
+      ],
+      "answer": 1,
+      "explanation": "Boken är i jämvikt: tyngdkraften drar nedåt och bordets normalkraft trycker lika mycket uppåt, så de tar ut varandra och nettokraften blir noll — därför står boken still. Att säga att ingen kraft verkar stämmer inte, båda krafterna finns men balanserar varandra."
+    },
+    {
+      "id": "q-fys-kra-7",
+      "kind": "worked",
+      "topic": "kraft och Newtons lagar",
+      "prompt": "En kundvagn med massan 15 kg knuffas med kraften 30 N. Friktionen mot golvet ger en motriktad kraft på 10 N. Beräkna vagnens acceleration.",
+      "opener": "Börja med att räkna ut den resulterande (totala) kraften innan du använder F = m · a.",
+      "answer": "1,33 m/s²",
+      "steps": [
+        "Identifiera krafterna: 30 N framåt (knuff) och 10 N bakåt (friktion).",
+        "Beräkna resulterande kraft: F_res = 30 N − 10 N = 20 N.",
+        "Använd Newtons andra lag: F = m · a, alltså a = F / m.",
+        "Sätt in värden: a = 20 N / 15 kg ≈ 1,33 m/s²."
+      ]
+    },
+    {
+      "id": "q-fys-kra-8",
+      "kind": "flashcard",
+      "topic": "kraft och Newtons lagar",
+      "prompt": "Sammanfatta Newtons tre lagar samt begreppen friktion och jämvikt.",
+      "opener": "Gå igenom lag för lag i ordning innan du vänder på kortet.",
+      "answer": "Newtons första lag (tröghetslagen): ett föremål fortsätter i vila eller med konstant hastighet om ingen resulterande kraft verkar på det · Newtons andra lag: F = m · a, kraften som krävs är massa gånger acceleration — större massa eller acceleration kräver större kraft · Newtons tredje lag: för varje kraft finns en lika stor motriktad kraft (kraft och motkraft) · Friktion är en kraft som motverkar rörelse mellan två ytor som gnids mot varandra, och beror på ytornas beskaffenhet · Jämvikt råder när summan av alla krafter på ett föremål är noll, då står föremålet still eller rör sig med konstant hastighet · Tyngdkraft: F = m · g, där g ≈ 10 N/kg på jorden."
+    }
+  ]
+}

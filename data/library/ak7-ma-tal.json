@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma7-tal",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Tal och räknesätt",
+  "sourceSummary": "Negativa tal, prioriteringsregler och överslagsräkning — grunderna i de fyra räknesätten som du behöver ha säkra i början av högstadiet.",
+  "topics": [
+    "negativa tal",
+    "prioriteringsregler",
+    "avrundning",
+    "överslagsräkning"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma7-tal-1",
+      "kind": "mc",
+      "topic": "negativa tal",
+      "prompt": "Vad är $-5 + 8$?",
+      "opener": "Tänk på en tallinje: du står på $-5$ och går 8 steg åt höger.",
+      "choices": [
+        "3",
+        "-3",
+        "13",
+        "-13"
+      ],
+      "answer": 0,
+      "explanation": "Du går 8 steg uppåt från $-5$ och passerar noll: $-5 + 8 = 3$. Svaret $-3$ får man om man glömmer att man passerar nollan."
+    },
+    {
+      "id": "q-ma7-tal-2",
+      "kind": "mc",
+      "topic": "negativa tal",
+      "prompt": "Vad är $4 - 9$?",
+      "opener": "Du drar bort mer än du har — då hamnar du på andra sidan nollan.",
+      "choices": [
+        "5",
+        "13",
+        "-5",
+        "-13"
+      ],
+      "answer": 2,
+      "explanation": "Från 4 går du 9 steg åt vänster och hamnar på $-5$. Svaret 5 är differensen men med fel tecken — det är 9 som är störst här."
+    },
+    {
+      "id": "q-ma7-tal-3",
+      "kind": "mc",
+      "topic": "prioriteringsregler",
+      "prompt": "Beräkna $2 + 3 \\cdot 4$.",
+      "opener": "Vilket räknesätt ska göras först, plus eller gånger?",
+      "choices": [
+        "20",
+        "14",
+        "24",
+        "9"
+      ],
+      "answer": 1,
+      "explanation": "Multiplikation går före addition: $3 \\cdot 4 = 12$ och sedan $2 + 12 = 14$. Svaret 20 får man om man räknar $2 + 3 = 5$ först, vilket är fel ordning."
+    },
+    {
+      "id": "q-ma7-tal-4",
+      "kind": "mc",
+      "topic": "prioriteringsregler",
+      "prompt": "Beräkna $(6 + 2) \\cdot 3$.",
+      "opener": "Här finns en parentes — den bestämmer vad som ska hända först.",
+      "choices": [
+        "11",
+        "20",
+        "24",
+        "12"
+      ],
+      "answer": 2,
+      "explanation": "Parentesen först: $6 + 2 = 8$, sedan $8 \\cdot 3 = 24$. Utan parentes hade det blivit $6 + 2 \\cdot 3 = 12$, så parentesen ändrar verkligen svaret."
+    },
+    {
+      "id": "q-ma7-tal-5",
+      "kind": "mc",
+      "topic": "avrundning",
+      "prompt": "Avrunda 347 till närmaste tiotal.",
+      "opener": "Titta på entalssiffran — är den 5 eller större rundar du uppåt.",
+      "choices": [
+        "340",
+        "350",
+        "300",
+        "400"
+      ],
+      "answer": 1,
+      "explanation": "Entalssiffran är 7, alltså 5 eller mer, så du rundar uppåt till 350. Svaret 300 är avrundning till närmaste hundratal, inte tiotal."
+    },
+    {
+      "id": "q-ma7-tal-6",
+      "kind": "mc",
+      "topic": "överslagsräkning",
+      "prompt": "Du handlar tre saker som kostar 98 kr, 51 kr och 149 kr. Ungefär hur mycket blir det?",
+      "opener": "Gör om varje pris till ett enkelt tal innan du adderar.",
+      "choices": [
+        "ca 300 kr",
+        "ca 200 kr",
+        "ca 400 kr",
+        "ca 250 kr"
+      ],
+      "answer": 0,
+      "explanation": "Avrunda till 100, 50 och 150: $100 + 50 + 150 = 300$ kr. Exakta summan är 298 kr, så överslaget ligger mycket nära."
+    },
+    {
+      "id": "q-ma7-tal-7",
+      "kind": "worked",
+      "topic": "prioriteringsregler",
+      "prompt": "Beräkna $36 / 4 + 2 \\cdot 5$. Visa hur du tänker steg för steg.",
+      "opener": "Division och multiplikation går båda före addition — ta dem först, från vänster till höger.",
+      "answer": "19",
+      "steps": [
+        "Det finns ingen parentes, så börja med division och multiplikation.",
+        "Divisionen: $36 / 4 = 9$.",
+        "Multiplikationen: $2 \\cdot 5 = 10$.",
+        "Till sist additionen: $9 + 10 = 19$."
+      ]
+    },
+    {
+      "id": "q-ma7-tal-8",
+      "kind": "flashcard",
+      "topic": "prioriteringsregler",
+      "prompt": "I vilken ordning räknar du, och vad gäller för tecken med negativa tal?",
+      "opener": "Tre steg i ordningen plus två teckenregler — säg dem innan du vänder på kortet.",
+      "answer": "Prioriteringsordning: 1) parenteser · 2) multiplikation och division, från vänster till höger · 3) addition och subtraktion, från vänster till höger · Teckenregler: att subtrahera ett negativt tal är samma sak som att addera, $5 - (-3) = 5 + 3 = 8$ · minus gånger minus blir plus, plus gånger minus blir minus · Överslag: avrunda till enkla tal först och kontrollera att ditt exakta svar ligger nära överslaget."
+    }
+  ]
+}

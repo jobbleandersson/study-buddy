@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma7-procent",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Procent och andelar",
+  "sourceSummary": "Vad procent egentligen betyder och hur du räknar ut andelen av ett tal. Du tränar också på att hitta hur många procent något är och på enkla höjningar och sänkningar.",
+  "topics": [
+    "procent",
+    "andelar",
+    "procentuell förändring"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma7-pro-1",
+      "kind": "mc",
+      "topic": "procent",
+      "prompt": "Vad betyder 1 %?",
+      "opener": "Ordet procent kommer från latin och betyder \"per hundra\".",
+      "choices": [
+        "En tiondel",
+        "En hundradel",
+        "En tusendel",
+        "Hälften"
+      ],
+      "answer": 1,
+      "explanation": "1 % är en hundradel, alltså $\\frac{1}{100} = 0{,}01$. En tiondel är $\\frac{1}{10}$, vilket är 10 % — tio gånger så mycket."
+    },
+    {
+      "id": "q-ma7-pro-2",
+      "kind": "mc",
+      "topic": "andelar",
+      "prompt": "Hur mycket är 25 % av 80?",
+      "opener": "25 % är samma sak som en fjärdedel.",
+      "choices": [
+        "16",
+        "25",
+        "20",
+        "40"
+      ],
+      "answer": 2,
+      "explanation": "25 % är $\\frac{1}{4}$, och $80 / 4 = 20$. Svaret 40 är hälften, alltså 50 % — dubbelt så mycket som frågan gäller."
+    },
+    {
+      "id": "q-ma7-pro-3",
+      "kind": "mc",
+      "topic": "andelar",
+      "prompt": "Hur mycket är 10 % av 250 kr?",
+      "opener": "10 % är en tiondel — vad händer om du delar med 10?",
+      "choices": [
+        "$2{,}5$ kr",
+        "25 kr",
+        "250 kr",
+        "50 kr"
+      ],
+      "answer": 1,
+      "explanation": "10 % av ett tal får du genom att dela med 10: $250 / 10 = 25$ kr. Svaret $2{,}5$ kr är 1 % av 250, alltså tio gånger för lite."
+    },
+    {
+      "id": "q-ma7-pro-4",
+      "kind": "mc",
+      "topic": "andelar",
+      "prompt": "I en klass på 60 elever är 15 stycken med i skolkören. Hur många procent är det?",
+      "opener": "Skriv först andelen som ett bråk: delen genom det hela.",
+      "choices": [
+        "15 %",
+        "20 %",
+        "25 %",
+        "45 %"
+      ],
+      "answer": 2,
+      "explanation": "Andelen är $\\frac{15}{60} = \\frac{1}{4} = 25$ %. Svaret 15 % är bara antalet elever, men antal och procent är inte samma sak när det hela inte är 100."
+    },
+    {
+      "id": "q-ma7-pro-5",
+      "kind": "mc",
+      "topic": "procentuell förändring",
+      "prompt": "En tröja kostar 200 kr. Priset höjs med 10 %. Vad kostar tröjan nu?",
+      "opener": "Räkna först ut hur många kronor höjningen är, och lägg sedan till dem.",
+      "choices": [
+        "210 kr",
+        "220 kr",
+        "300 kr",
+        "190 kr"
+      ],
+      "answer": 1,
+      "explanation": "10 % av 200 kr är 20 kr, och $200 + 20 = 220$ kr. Svaret 210 kr får man om man lägger till 10 kr istället för 10 % — procenten räknas alltid på priset, inte som ett fast belopp."
+    },
+    {
+      "id": "q-ma7-pro-6",
+      "kind": "mc",
+      "topic": "procentuell förändring",
+      "prompt": "En cykel kostar 500 kr och sänks med 20 %. Vad kostar cykeln efter sänkningen?",
+      "opener": "Räkna ut rabatten i kronor först, och dra sedan bort den från priset.",
+      "choices": [
+        "480 kr",
+        "400 kr",
+        "300 kr",
+        "450 kr"
+      ],
+      "answer": 1,
+      "explanation": "20 % av 500 kr är 100 kr, och $500 - 100 = 400$ kr. Svaret 480 kr får man om man drar bort 20 kr istället för 20 %."
+    },
+    {
+      "id": "q-ma7-pro-7",
+      "kind": "worked",
+      "topic": "procentuell förändring",
+      "prompt": "En jacka kostar 600 kr. På rean sänks priset med 25 %. Vad kostar jackan på rean?",
+      "opener": "25 % är en fjärdedel — det gör räkningen enkel utan miniräknare.",
+      "answer": "450 kr",
+      "steps": [
+        "25 % är samma sak som $\\frac{1}{4}$ av priset.",
+        "Rabatten i kronor: $600 / 4 = 150$ kr.",
+        "Nytt pris: $600 - 150 = 450$ kr.",
+        "Kontroll: 450 kr är 75 % av 600 kr, vilket stämmer eftersom $100 \\% - 25 \\% = 75 \\%$."
+      ]
+    },
+    {
+      "id": "q-ma7-pro-8",
+      "kind": "flashcard",
+      "topic": "procent",
+      "prompt": "Hur räknar du med procent? Räkna upp de viktigaste reglerna.",
+      "opener": "Tre saker: vad procent betyder, andelen av ett tal, och hur många procent något är.",
+      "answer": "Procent = hundradelar, 1 % = $\\frac{1}{100}$ = $0{,}01$ · Andelen av ett tal: gör om procenten till decimaltal och multiplicera, 30 % av 200 = $0{,}3 \\cdot 200 = 60$ · Hur många procent: delen delat med det hela, sedan gånger 100 · Snabbknep: 10 % = dela med 10 · 25 % = dela med 4 · 50 % = dela med 2 · Ökning: lägg till förändringen i kronor · minskning: dra bort den · räkna alltid procenten på ursprungsvärdet."
+    }
+  ]
+}

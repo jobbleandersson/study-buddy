@@ -1,0 +1,128 @@
+{
+  "id": "lib-en6-writing",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Writing: essay structure and cohesion",
+  "sourceSummary": "Hur man bygger en tydlig thesis statement, sambandsord för sammanhang, styckestruktur och formella avslutningar i uppsatser.",
+  "topics": [
+    "thesis statements",
+    "cohesive devices",
+    "paragraph structure",
+    "essay conclusions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-writing-1",
+      "kind": "mc",
+      "topic": "thesis statements",
+      "prompt": "Which sentence works best as a thesis statement for an argumentative essay about school uniforms?",
+      "opener": "En thesis statement ska ta ställning och antyda argumenten som kommer — inte bara nämna ämnet.",
+      "choices": [
+        "Some schools have uniforms and some don't.",
+        "This essay will discuss uniforms.",
+        "Uniforms are a topic that many people have opinions about.",
+        "School uniforms should be mandatory because they reduce bullying and promote equality among students."
+      ],
+      "answer": 3,
+      "explanation": "En stark thesis statement tar tydligt ställning (\"should be mandatory\") och antyder de argument som kommer att utvecklas i uppsatsen. De andra alternativen bara konstaterar att ämnet finns, utan att ta ställning."
+    },
+    {
+      "id": "q-en6-writing-2",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "What is the main function of a topic sentence in a paragraph?",
+      "opener": "Den kommer nästan alltid först i stycket.",
+      "choices": [
+        "To conclude the essay",
+        "To introduce the paragraph's main idea",
+        "To quote another author",
+        "To list every source used"
+      ],
+      "answer": 1,
+      "explanation": "En \"topic sentence\" inleder stycket och presenterar dess huvudidé, som resten av stycket sedan utvecklar och belägger. Den avslutar varken stycket eller hela uppsatsen."
+    },
+    {
+      "id": "q-en6-writing-3",
+      "kind": "mc",
+      "topic": "cohesive devices",
+      "prompt": "Which linking word best fits: \"The experiment was expensive. ___, the results justified the cost.\"",
+      "opener": "Vilket ord markerar en kontrast mellan de två meningarna?",
+      "choices": [
+        "Similarly",
+        "However",
+        "For example",
+        "In addition"
+      ],
+      "answer": 1,
+      "explanation": "\"However\" markerar en kontrast — trots att experimentet var dyrt, var resultaten värda det. \"Similarly\" och \"in addition\" signalerar likhet/tillägg, och \"for example\" inleder ett exempel, inget av det stämmer här."
+    },
+    {
+      "id": "q-en6-writing-4",
+      "kind": "mc",
+      "topic": "cohesive devices",
+      "prompt": "Identify the cohesion problem: \"Sarah told Emma that she had won the prize.\"",
+      "opener": "Pronomenreferens: vem syftar \"she\" tillbaka på?",
+      "choices": [
+        "There is no problem; the sentence is perfectly clear.",
+        "\"Told\" should be \"tells\".",
+        "It is unclear whether \"she\" refers to Sarah or Emma.",
+        "\"Prize\" should be plural."
+      ],
+      "answer": 2,
+      "explanation": "Pronomenet \"she\" kan syfta på både Sarah och Emma, vilket gör meningen tvetydig — ett vanligt cohesion-problem. Tempus och pluralform är inte det som orsakar otydligheten här."
+    },
+    {
+      "id": "q-en6-writing-5",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "What should a well-structured body paragraph typically contain?",
+      "opener": "Tre delar som hör ihop: en idé, ett belägg, och en koppling tillbaka.",
+      "choices": [
+        "A topic sentence, supporting evidence, and a link to the essay's overall argument",
+        "Only examples, no main idea",
+        "A list of unrelated facts",
+        "The thesis statement repeated word for word"
+      ],
+      "answer": 0,
+      "explanation": "Ett välbyggt stycke inleds med en \"topic sentence\", utvecklas med belägg (exempel, fakta, citat) och knyts tillbaka till uppsatsens huvudargument. Att bara rada upp fakta eller upprepa thesis statement ordagrant ger inget sammanhang."
+    },
+    {
+      "id": "q-en6-writing-6",
+      "kind": "mc",
+      "topic": "essay conclusions",
+      "prompt": "Which sentence is most appropriate for a formal essay conclusion?",
+      "opener": "En formell avslutning sammanfattar argumentet utan vardagligt språk.",
+      "choices": [
+        "So yeah, that's basically it.",
+        "In conclusion, the evidence strongly suggests that stricter regulations are necessary.",
+        "Anyway, moving on to my next point...",
+        "I guess uniforms could be good or bad, who knows."
+      ],
+      "answer": 1,
+      "explanation": "En formell slutsats sammanfattar argumentet tydligt, ofta med en fras som \"in conclusion\", och undviker vardagligt eller osäkert språk som \"so yeah\" eller \"who knows\"."
+    },
+    {
+      "id": "q-en6-writing-7",
+      "kind": "worked",
+      "topic": "cohesive devices",
+      "prompt": "Improve the cohesion of this paragraph by adding a linking word and fixing the unclear pronoun reference: \"Many students work part-time jobs. It is difficult to focus on homework in the evening. Lisa told her friend Anna that her grades had improved.\"",
+      "opener": "Två saker saknas: en tydlig koppling mellan de två första meningarna, och ett pronomen som är dubbeltydigt.",
+      "answer": "Many students work part-time jobs. As a result, it is difficult for them to focus on homework in the evening. Lisa told her friend Anna that Anna's grades had improved.",
+      "steps": [
+        "Lade till \"As a result\" mellan mening 1 och 2 för att visa orsak-verkan — utan sambandsord blir kopplingen otydlig.",
+        "Lade till \"for them\" för att tydliggöra vem som har svårt att fokusera, annars är det oklart om det gäller studenterna eller någon annan.",
+        "Ändrade \"her grades\" till \"Anna's grades\" eftersom pronomenet \"her\" annars är tvetydigt — det kan syfta på både Lisa och Anna.",
+        "Sammanfattning: sambandsord (t.ex. \"as a result\", \"however\", \"in addition\") och tydlig pronomenreferens är det som binder ihop en text till en sammanhängande helhet (cohesion)."
+      ]
+    },
+    {
+      "id": "q-en6-writing-8",
+      "kind": "flashcard",
+      "topic": "essay conclusions",
+      "prompt": "What are the key components of a well-structured formal essay?",
+      "opener": "Fem byggstenar som binder ihop en argumenterande uppsats.",
+      "answer": "Thesis statement = tar tydligt ställning i inledningen och antyder argumenten · Topic sentences = inleder varje stycke med styckets huvudidé · Supporting evidence = exempel, fakta eller citat som stödjer varje argument · Cohesive devices = sambandsord (however, therefore, in addition) och tydlig pronomenreferens som binder ihop meningar och stycken · Conclusion = sammanfattar argumenten formellt utan att introducera ny information, ofta med fraser som \"in conclusion\" eller \"to sum up\"."
+    }
+  ]
+}

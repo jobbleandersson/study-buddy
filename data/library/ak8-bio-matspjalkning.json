@@ -1,0 +1,129 @@
+{
+  "id": "lib-bio8-matspjalkning",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Matspjälkning och näringslära",
+  "sourceSummary": "Matspjälkningskanalens delar och hur enzymer bryter ner maten, samt vilka näringsämnen kroppen behöver och varför energi och kost hänger ihop.",
+  "topics": [
+    "matspjälkningskanalen",
+    "enzymer och nedbrytning",
+    "näringsämnen",
+    "energi och kost"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio8-mat-1",
+      "kind": "mc",
+      "topic": "matspjälkningskanalen",
+      "prompt": "I vilken ordning passerar maten genom matspjälkningskanalens huvuddelar?",
+      "opener": "Följ maten från första tuggan tills resterna lämnar kroppen.",
+      "choices": [
+        "Mun → matstrupe → magsäck → tunntarm → tjocktarm",
+        "Mun → magsäck → matstrupe → tjocktarm → tunntarm",
+        "Mun → matstrupe → tunntarm → magsäck → tjocktarm",
+        "Mun → magsäck → tunntarm → matstrupe → tjocktarm"
+      ],
+      "answer": 0,
+      "explanation": "Maten tuggas i munnen, transporteras genom matstrupen ner till magsäcken, fortsätter till tunntarmen där det mesta av näringen tas upp och sist till tjocktarmen där vatten tas upp. Matstrupen kommer alltid före magsäcken — den är bara ett transportrör och kan inte ligga efter magsäcken."
+    },
+    {
+      "id": "q-bio8-mat-2",
+      "kind": "mc",
+      "topic": "enzymer och nedbrytning",
+      "prompt": "Vad är ett enzym och vad gör det i matspjälkningen?",
+      "opener": "Tänk på skillnaden mellan att tugga sönder mat och att bryta ner den kemiskt.",
+      "choices": [
+        "Ett näringsämne som ger kroppen energi",
+        "En syra som dödar bakterier i magsäcken",
+        "Ett protein som skyndar på den kemiska nedbrytningen av maten",
+        "Ett hormon som styr hur hungrig man blir"
+      ],
+      "answer": 2,
+      "explanation": "Enzymer är proteiner som fungerar som verktyg och snabbar på kemiska reaktioner, till exempel när stora näringsmolekyler klipps sönder till små bitar som kan tas upp i blodet. Enzymer förbrukas inte och ger inte energi själva — det gör näringsämnena i maten."
+    },
+    {
+      "id": "q-bio8-mat-3",
+      "kind": "mc",
+      "topic": "matspjälkningskanalen",
+      "prompt": "Var i matspjälkningskanalen tas det mesta av näringen upp i blodet?",
+      "opener": "Tänk på var tarmludden (villi) sitter och varför de gör ytan så stor.",
+      "choices": [
+        "I magsäcken",
+        "I tjocktarmen",
+        "I matstrupen",
+        "I tunntarmen"
+      ],
+      "answer": 3,
+      "explanation": "Tunntarmens insida är täckt av miljontals tarmludd som ger en enorm yta, och det är där näringsämnena passerar över till blodet. Tjocktarmen tar framför allt upp vatten och salter, inte huvuddelen av näringen."
+    },
+    {
+      "id": "q-bio8-mat-4",
+      "kind": "mc",
+      "topic": "näringsämnen",
+      "prompt": "Vilket näringsämne används framför allt som kroppens byggmaterial, till exempel i muskler?",
+      "opener": "Tänk på vad du behöver mycket av när kroppen växer och bygger nya celler.",
+      "choices": [
+        "Kolhydrater",
+        "Protein",
+        "Vatten",
+        "Fett"
+      ],
+      "answer": 1,
+      "explanation": "Protein bryts ner till aminosyror som kroppen bygger ihop till egna proteiner i muskler, hud, enzymer och antikroppar. Kolhydrater är i första hand ett snabbt bränsle och används sällan som byggmaterial."
+    },
+    {
+      "id": "q-bio8-mat-5",
+      "kind": "mc",
+      "topic": "näringsämnen",
+      "prompt": "Vad är typiskt för vitaminer och mineraler jämfört med kolhydrater, fett och protein?",
+      "opener": "Jämför hur stora mängder kroppen behöver och om ämnena ger energi.",
+      "choices": [
+        "De ger mest energi av alla näringsämnen",
+        "De behövs bara av barn under tio år",
+        "De behövs i små mängder och ger ingen energi, men krävs för att kroppen ska fungera",
+        "De kan alla tillverkas av kroppen själv och behöver inte ätas"
+      ],
+      "answer": 2,
+      "explanation": "Vitaminer och mineraler kallas skyddsämnen: de behövs i mycket små mängder och innehåller ingen energi, men utan dem fungerar inte processer som blodbildning, skelettuppbyggnad och immunförsvar. Energin kommer i stället från kolhydrater, fett och protein."
+    },
+    {
+      "id": "q-bio8-mat-6",
+      "kind": "mc",
+      "topic": "energi och kost",
+      "prompt": "Vad händer i kroppen om man under lång tid får i sig mer energi genom maten än man gör av med?",
+      "opener": "Tänk på vad kroppen gör med energi som blir över.",
+      "choices": [
+        "Överskottet försvinner direkt ut med urinen",
+        "Kroppen slutar ta upp näring från tarmen",
+        "Kroppen gör om överskottet till vitaminer",
+        "Överskottet lagras, bland annat som fett, och vikten ökar"
+      ],
+      "answer": 3,
+      "explanation": "Energi som inte förbrukas lagras — en del som glykogen i lever och muskler, resten som fett i fettvävnad — vilket gör att vikten ökar över tid. Kroppen kan inte tillverka vitaminer av överskottsenergi; vitaminer måste komma från maten."
+    },
+    {
+      "id": "q-bio8-mat-7",
+      "kind": "worked",
+      "topic": "enzymer och nedbrytning",
+      "prompt": "Förklara steg för steg vad som händer med en smörgås från det att du tuggar den tills näringen finns i blodet.",
+      "opener": "Tänk både på den mekaniska sönderdelningen och på den kemiska nedbrytningen med enzymer.",
+      "answer": "Smörgåsen tuggas sönder mekaniskt i munnen samtidigt som saliv och enzymer börjar bryta ner stärkelsen, sväljs ner genom matstrupen till magsäcken där saltsyra och enzymer bryter ner proteiner, fortsätter till tunntarmen där enzymer från bukspottkörteln och galla från levern avslutar nedbrytningen, och de små näringsmolekylerna tas sedan upp genom tarmludden till blodet medan resterna går vidare till tjocktarmen.",
+      "steps": [
+        "I munnen tuggar tänderna sönder maten (mekanisk nedbrytning) och enzymer i saliven börjar bryta ner stärkelse till socker (kemisk nedbrytning).",
+        "Tuggan sväljs och pressas ner genom matstrupen till magsäcken med hjälp av muskelrörelser.",
+        "I magsäcken blandas maten med saltsyra som dödar bakterier, och enzymer börjar bryta ner proteiner till mindre delar.",
+        "I tunntarmen tillsätts galla från levern som finfördelar fettet, och enzymer från bukspottkörteln bryter ner kolhydrater, fett och protein till små molekyler.",
+        "Näringsmolekylerna tas upp genom tarmludden till blodet och förs till kroppens celler, medan outnyttjade rester går till tjocktarmen där vatten tas upp innan avföringen lämnar kroppen."
+      ]
+    },
+    {
+      "id": "q-bio8-mat-8",
+      "kind": "flashcard",
+      "topic": "näringsämnen",
+      "prompt": "Sammanfatta näringsämnena och matspjälkningskanalens viktigaste delar.",
+      "opener": "Gå igenom de energigivande ämnena, skyddsämnena och organen i tur och ordning.",
+      "answer": "Kolhydrater: kroppens snabbaste bränsle, finns i bröd, pasta, potatis och frukt; bryts ner till socker (glukos) · Fett: energirikast, behövs för cellmembran, hormoner och för att ta upp vissa vitaminer · Protein: byggmaterial för muskler, enzymer och antikroppar; bryts ner till aminosyror · Vitaminer: behövs i små mängder, ger ingen energi, t.ex. C-vitamin och D-vitamin · Mineraler: t.ex. järn (blodet) och kalcium (skelett och tänder) · Vatten och fibrer: vatten behövs i alla kroppens processer, fibrer får tarmen att fungera · Munnen: tuggning + enzym i saliven som bryter ner stärkelse · Matstrupen: transport med muskelrörelser · Magsäcken: saltsyra och enzymer, nedbrytning av protein · Tunntarmen: mest nedbrytning och nästan allt näringsupptag via tarmludd · Levern och bukspottkörteln: bidrar med galla respektive enzymer · Tjocktarmen: tar upp vatten och salter, resten blir avföring."
+    }
+  ]
+}

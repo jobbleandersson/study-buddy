@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma3-extrem",
+  "type": "assignment",
+  "subject": "Matematik 3",
+  "title": "Derivatans användning: extremvärden",
+  "sourceSummary": "Teckenstudium av derivatan, växande och avtagande funktioner, lokala max- och minpunkter samt andraderivatan för att avgöra typ av extrempunkt.",
+  "topics": [
+    "teckenstudium",
+    "extrempunkter",
+    "andraderivatan"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma3-extrem-1",
+      "kind": "mc",
+      "topic": "teckenstudium",
+      "prompt": "En funktion $f$ har $f'(x) > 0$ för alla $x$ i intervallet $(2, 5)$. Vad gäller för $f$ i intervallet?",
+      "opener": "Kopplingen mellan derivatans tecken och funktionens beteende är central här.",
+      "choices": [
+        "$f$ är avtagande i intervallet",
+        "$f$ är växande i intervallet",
+        "$f$ har ett maximum i intervallet",
+        "$f$ är konstant i intervallet"
+      ],
+      "answer": 1,
+      "explanation": "Om $f'(x) > 0$ på ett intervall betyder det att tangentens lutning är positiv överallt där, alltså är $f$ växande i hela intervallet. Ett maximum kräver att derivatan byter tecken från plus till minus, vilket inte händer här eftersom derivatan är positiv hela vägen."
+    },
+    {
+      "id": "q-ma3-extrem-2",
+      "kind": "mc",
+      "topic": "extrempunkter",
+      "prompt": "Funktionen $f(x) = x^2 - 4x + 1$ har en extrempunkt. Var ligger den?",
+      "opener": "Extrempunkter finns där derivatan är noll. Derivera och lös $f'(x)=0$.",
+      "choices": [
+        "$x = 4$",
+        "$x = -2$",
+        "$x = 2$",
+        "$x = 1$"
+      ],
+      "answer": 2,
+      "explanation": "$f'(x) = 2x - 4$. Sätt $f'(x)=0$: $2x-4=0 \\Rightarrow x=2$. Att förväxla med koefficienten $-4$ i $f$ direkt (utan att derivera och lösa ekvationen) ger felaktigt svar $x=4$."
+    },
+    {
+      "id": "q-ma3-extrem-3",
+      "kind": "mc",
+      "topic": "extrempunkter",
+      "prompt": "$f'(x)$ går från positiv till negativ vid $x = a$. Vad är $x=a$ för typ av punkt?",
+      "opener": "Tänk på hur kurvan beter sig precis före och precis efter punkten.",
+      "choices": [
+        "Lokal maxpunkt",
+        "Lokal minpunkt",
+        "Terrasspunkt",
+        "Ingen extrempunkt"
+      ],
+      "answer": 0,
+      "explanation": "Om derivatan byter tecken från plus (växande) till minus (avtagande) i $x=a$ har funktionen en lokal maxpunkt där. Byte från minus till plus ger istället en lokal minpunkt."
+    },
+    {
+      "id": "q-ma3-extrem-4",
+      "kind": "mc",
+      "topic": "andraderivatan",
+      "prompt": "I en punkt gäller $f'(x_0) = 0$ och $f''(x_0) < 0$. Vad kan man dra för slutsats?",
+      "opener": "Andraderivatans tecken beskriver om kurvan är konkav uppåt eller nedåt i punkten.",
+      "choices": [
+        "$x_0$ är en lokal minpunkt",
+        "$x_0$ är en terrasspunkt",
+        "Man kan inte dra någon slutsats",
+        "$x_0$ är en lokal maxpunkt"
+      ],
+      "answer": 3,
+      "explanation": "Om $f'(x_0)=0$ och $f''(x_0) < 0$ är kurvan konkav nedåt (buktar nedåt) vid punkten, vilket innebär en lokal maxpunkt. Motsatt tecken, $f''(x_0) > 0$, hade istället gett en lokal minpunkt."
+    },
+    {
+      "id": "q-ma3-extrem-5",
+      "kind": "mc",
+      "topic": "andraderivatan",
+      "prompt": "Vad är andraderivatan av $f(x) = x^3 - 6x^2 + 2$?",
+      "opener": "Derivera $f$ en gång, derivera sedan resultatet en gång till.",
+      "choices": [
+        "$f''(x) = 3x^2 - 12x$",
+        "$f''(x) = 6x - 12$",
+        "$f''(x) = 6x$",
+        "$f''(x) = x - 12$"
+      ],
+      "answer": 1,
+      "explanation": "$f'(x) = 3x^2 - 12x$. Derivera igen: $f''(x) = 6x - 12$. Svaret $3x^2-12x$ är bara första derivatan, inte andraderivatan."
+    },
+    {
+      "id": "q-ma3-extrem-6",
+      "kind": "mc",
+      "topic": "teckenstudium",
+      "prompt": "$f'(x) = (x-1)(x-3)$. I vilket intervall är $f$ avtagande?",
+      "opener": "Gör en teckentabell för $f'(x)$ med hjälp av nollställena $x=1$ och $x=3$.",
+      "choices": [
+        "$x < 1$",
+        "$1 < x < 3$",
+        "$x > 3$",
+        "Alla $x$"
+      ],
+      "answer": 1,
+      "explanation": "Nollställena till $f'$ är $x=1$ och $x=3$. Mellan dem, t.ex. vid $x=2$: $f'(2) = (2-1)(2-3) = 1 \\cdot (-1) = -1 < 0$, så $f$ är avtagande där. Utanför intervallet, t.ex. vid $x=0$ eller $x=4$, är $f'(x) > 0$ och $f$ växande."
+    },
+    {
+      "id": "q-ma3-extrem-7",
+      "kind": "worked",
+      "topic": "extrempunkter",
+      "prompt": "Bestäm och klassificera extrempunkterna till $f(x) = x^3 - 3x^2$.",
+      "opener": "Derivera, hitta nollställena till derivatan och gör en teckenstudie kring dem.",
+      "answer": "Lokal max i $(0,0)$ och lokal min i $(2,-4)$",
+      "steps": [
+        "Derivera: $f'(x) = 3x^2 - 6x = 3x(x-2)$.",
+        "Sätt $f'(x)=0$: $3x(x-2)=0 \\Rightarrow x=0$ eller $x=2$.",
+        "Teckenstudium: för $x<0$ är $f'(x)>0$ (växande), för $0<x<2$ är $f'(x)<0$ (avtagande), för $x>2$ är $f'(x)>0$ (växande).",
+        "Vid $x=0$ byter derivatan tecken från plus till minus $\\Rightarrow$ lokal maxpunkt, $f(0)=0$.",
+        "Vid $x=2$ byter derivatan tecken från minus till plus $\\Rightarrow$ lokal minpunkt, $f(2) = 8-12=-4$."
+      ]
+    },
+    {
+      "id": "q-ma3-extrem-8",
+      "kind": "flashcard",
+      "topic": "andraderivatan",
+      "prompt": "Sammanfatta hur man hittar och klassificerar extrempunkter med första- och andraderivatan.",
+      "opener": "Två metoder: teckenstudium av $f'$, eller teckentest med $f''$.",
+      "answer": "Extrempunkter finns där $f'(x)=0$ (eller där $f'$ inte är definierad) · Teckenbyte i $f'$ från $+$ till $-$ $\\Rightarrow$ lokal maxpunkt · Teckenbyte i $f'$ från $-$ till $+$ $\\Rightarrow$ lokal minpunkt · Inget teckenbyte $\\Rightarrow$ terrasspunkt · Andraderivatatestet: $f'(x_0)=0$ och $f''(x_0)<0 \\Rightarrow$ lokal max · $f'(x_0)=0$ och $f''(x_0)>0 \\Rightarrow$ lokal min · $f''(x_0)=0 \\Rightarrow$ testet ger inget svar, gör teckenstudium istället"
+    }
+  ]
+}

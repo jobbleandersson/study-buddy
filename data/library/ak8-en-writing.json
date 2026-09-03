@@ -1,0 +1,128 @@
+{
+  "id": "lib-en8-writing",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Writing: texttyper och sambandsord",
+  "sourceSummary": "Sambandsord som however, because, therefore och for example, styckeindelning med kärnmening, skillnaden mellan formellt och informellt språk samt hur du skriver ett kort mejl eller en berättelse.",
+  "topics": [
+    "sambandsord",
+    "styckeindelning",
+    "formellt och informellt",
+    "texttyper"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en8-wri-1",
+      "kind": "mc",
+      "topic": "sambandsord",
+      "prompt": "Choose the best linking word: \"I wanted to go to the concert. ___, all the tickets were sold out.\"",
+      "opener": "De två meningarna säger emot varandra — vilket ord signalerar en motsats?",
+      "choices": [
+        "Therefore",
+        "However",
+        "For example",
+        "Because"
+      ],
+      "answer": 1,
+      "explanation": "\"However\" markerar en motsats mellan det man ville och det som hindrade en. \"Therefore\" skulle betyda att biljetterna tog slut på grund av att han ville gå, vilket inte går ihop."
+    },
+    {
+      "id": "q-en8-wri-2",
+      "kind": "mc",
+      "topic": "sambandsord",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Because\" inleder en orsak, \"therefore\" inleder en följd — de kan inte byta plats.",
+      "choices": [
+        "I stayed at home therefore I was ill.",
+        "I was ill, because I stayed at home.",
+        "I stayed at home because I was ill.",
+        "Because I stayed at home, so I was ill."
+      ],
+      "answer": 2,
+      "explanation": "Sjukdomen är orsaken och att stanna hemma är följden: \"I stayed at home because I was ill.\" Alternativ 2 vänder på orsak och verkan, och \"because ... so\" är dubbel bindning som inte används på engelska."
+    },
+    {
+      "id": "q-en8-wri-3",
+      "kind": "mc",
+      "topic": "sambandsord",
+      "prompt": "Choose the best linking phrase: \"Many sports are popular at our school. ___, more than fifty students play floorball.\"",
+      "opener": "Andra meningen ger ett konkret fall av det som sägs i den första.",
+      "choices": [
+        "For example",
+        "However",
+        "In conclusion",
+        "On the other hand"
+      ],
+      "answer": 0,
+      "explanation": "Innebandy är ett exempel på de populära sporterna, så \"for example\" passar. \"In conclusion\" används i slutet av en text för att sammanfatta, inte för att införa ett exempel."
+    },
+    {
+      "id": "q-en8-wri-4",
+      "kind": "mc",
+      "topic": "styckeindelning",
+      "prompt": "Which sentence works best as the topic sentence of a paragraph about school lunches?",
+      "opener": "Kärnmeningen ska säga vad hela stycket handlar om — inte ge en liten detalj.",
+      "choices": [
+        "On Tuesday we had fish and potatoes.",
+        "School lunches are important for how students learn during the afternoon.",
+        "I sat next to my friend Ali in the canteen.",
+        "The queue was quite long yesterday."
+      ],
+      "answer": 1,
+      "explanation": "En kärnmening sammanfattar styckets ämne och ger de andra meningarna något att bygga vidare på. De övriga alternativen är detaljer eller exempel som hör hemma längre in i stycket."
+    },
+    {
+      "id": "q-en8-wri-5",
+      "kind": "mc",
+      "topic": "formellt och informellt",
+      "prompt": "You are writing a formal email to a hotel. Which opening is most suitable?",
+      "opener": "Formellt språk undviker slang och förkortningar som gonna och wanna.",
+      "choices": [
+        "Hi guys! I wanna ask about a room.",
+        "Hey, got any rooms left?",
+        "Dear Sir or Madam, I would like to ask about a room.",
+        "Yo, we're gonna need a room."
+      ],
+      "answer": 2,
+      "explanation": "\"Dear Sir or Madam\" och \"I would like to\" är standardfraser i formella mejl till någon man inte känner. \"Hi guys\" och \"wanna\" hör till vardagligt talspråk och passar bara till vänner."
+    },
+    {
+      "id": "q-en8-wri-6",
+      "kind": "mc",
+      "topic": "texttyper",
+      "prompt": "Which sentence is the best opening for a short story?",
+      "opener": "En berättelse öppnar oftast med något konkret som händer, inte med en sammanfattning.",
+      "choices": [
+        "In this text I am going to tell you about a scary night.",
+        "The door slammed shut behind me, and the lights went out.",
+        "My story is about a night that was very scary and strange.",
+        "First of all, I will describe the night and then the morning."
+      ],
+      "answer": 1,
+      "explanation": "En berättelse fångar läsaren genom att visa en händelse direkt: dörren slår igen och lamporna slocknar. De andra alternativen förklarar vad texten ska handla om, vilket hör hemma i en faktatext eller uppsats — inte i en berättelse."
+    },
+    {
+      "id": "q-en8-wri-7",
+      "kind": "worked",
+      "topic": "sambandsord",
+      "prompt": "Improve this short paragraph by adding linking words and fixing the informal language: \"I like our school library. It is small. It has a lot of good books. I go there every lunch break. It is quiet. Its awesome and I wanna stay there all day.\"",
+      "opener": "Bind ihop de korta meningarna med sambandsord och byt ut talspråket.",
+      "answer": "I like our school library. Although it is small, it has a lot of good books. I go there every lunch break because it is quiet. It is a very pleasant place, and I would like to stay there all day.",
+      "steps": [
+        "\"It is small. It has a lot of good books.\" → \"Although it is small, it has a lot of good books.\" Meningarna står i motsats till varandra, så although binder ihop dem.",
+        "\"I go there every lunch break. It is quiet.\" → \"... because it is quiet.\" Den andra meningen förklarar orsaken, och because visar sambandet.",
+        "\"Its awesome\" → \"It is a very pleasant place\". Dels saknades apostrofen (it's = it is), dels är awesome vardagligt slang.",
+        "\"I wanna stay\" → \"I would like to stay\". \"Wanna\" är talspråk och skrivs aldrig i en skoluppgift."
+      ]
+    },
+    {
+      "id": "q-en8-wri-8",
+      "kind": "flashcard",
+      "topic": "sambandsord",
+      "prompt": "Vilka sambandsord, styckeregler och stilnivåer behöver du kunna när du skriver på engelska?",
+      "opener": "Sambandsord · stycken · stilnivå · mejl och berättelse.",
+      "answer": "Motsats: however, but, although, on the other hand · Orsak: because, since, as · Följd: therefore, so, as a result · Tillägg: also, in addition, moreover · Exempel: for example, such as · Avslutning: in conclusion, to sum up · Stycke: en tanke per stycke, kärnmening först, sedan förklaring och exempel, nytt stycke vid nytt ämne · Formellt: Dear Sir or Madam, I would like to, I am writing to ask, Yours sincerely — inga förkortningar (do not i stället för don't), ingen slang · Informellt: Hi Sam, Thanks a lot, See you soon, förkortningar går bra · Kort mejl: hälsning, syfte i första meningen, detaljer, artig avslutning, namn · Berättelse: börja mitt i händelsen, past simple som grundtempus, tidsord (then, after that, suddenly, finally), avsluta med hur det gick."
+    }
+  ]
+}

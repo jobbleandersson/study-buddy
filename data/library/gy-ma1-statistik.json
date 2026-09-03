@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma1-statistik",
+  "type": "assignment",
+  "subject": "Matematik 1",
+  "title": "Sannolikhet och statistik",
+  "sourceSummary": "Lägesmått och spridningsmått, beroende och oberoende händelser, komplementhändelser och kritisk granskning av statistik.",
+  "topics": [
+    "lägesmått",
+    "spridningsmått",
+    "sannolikhet",
+    "källkritik"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma1-stat-1",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Månadslönerna på ett litet företag är 24, 25, 26, 27 och 150 (tusen kr). Vilket lägesmått beskriver bäst vad en typisk anställd tjänar?",
+      "opener": "Ett av värdena sticker ut rejält — hur påverkar det de olika måtten?",
+      "choices": [
+        "Summan",
+        "Medelvärdet",
+        "Medianen",
+        "Variationsbredden"
+      ],
+      "answer": 2,
+      "explanation": "Medelvärdet blir 50,4 tkr, vilket ingen faktiskt tjänar — det dras upp av chefens 150. Medianen (26 tkr) påverkas inte av extremvärden och beskriver därför gruppen bättre."
+    },
+    {
+      "id": "q-ma1-stat-2",
+      "kind": "mc",
+      "topic": "spridningsmått",
+      "prompt": "Vad är variationsbredden för talen 4, 7, 9, 12 och 20?",
+      "opener": "Variationsbredden bryr sig bara om två av talen.",
+      "choices": [
+        "20",
+        "10,4",
+        "9",
+        "16"
+      ],
+      "answer": 3,
+      "explanation": "Variationsbredd = största värdet minus minsta: $20 - 4 = 16$."
+    },
+    {
+      "id": "q-ma1-stat-3",
+      "kind": "mc",
+      "topic": "sannolikhet",
+      "prompt": "Du kastar två tärningar. Vad är sannolikheten att båda visar sexa?",
+      "opener": "Påverkar den ena tärningen den andra?",
+      "choices": [
+        "$\\frac{1}{36}$",
+        "$\\frac{2}{6}$",
+        "$\\frac{1}{12}$",
+        "$\\frac{1}{6}$"
+      ],
+      "answer": 0,
+      "explanation": "Kasten är oberoende, så sannolikheterna multipliceras: $\\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$."
+    },
+    {
+      "id": "q-ma1-stat-4",
+      "kind": "mc",
+      "topic": "sannolikhet",
+      "prompt": "I en påse finns 3 röda och 7 blå kulor. Du drar två kulor utan att lägga tillbaka. Vad är sannolikheten att båda är röda?",
+      "opener": "Vad har hänt med påsen inför det andra draget?",
+      "choices": [
+        "$\\frac{9}{100}$",
+        "$\\frac{1}{15}$",
+        "$\\frac{3}{10}$",
+        "$\\frac{6}{100}$"
+      ],
+      "answer": 1,
+      "explanation": "Första draget: $\\frac{3}{10}$. Inför andra draget finns 2 röda kvar av 9 kulor: $\\frac{2}{9}$. Tillsammans $\\frac{3}{10} \\cdot \\frac{2}{9} = \\frac{6}{90} = \\frac{1}{15}$. Utan återläggning är händelserna beroende."
+    },
+    {
+      "id": "q-ma1-stat-5",
+      "kind": "mc",
+      "topic": "sannolikhet",
+      "prompt": "Sannolikheten att det regnar en viss dag är 0,3. Vad är sannolikheten att det INTE regnar?",
+      "opener": "Alla möjliga utfall tillsammans måste bli 1.",
+      "choices": [
+        "0,3",
+        "0,5",
+        "0,7",
+        "1,3"
+      ],
+      "answer": 2,
+      "explanation": "Komplementhändelsen: $P(\\text{inte regn}) = 1 - P(\\text{regn}) = 1 - 0{,}3 = 0{,}7$."
+    },
+    {
+      "id": "q-ma1-stat-6",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Ett företag skriver: \"Vår försäljning ökade med 200 %!\" men visar ett stapeldiagram där y-axeln börjar på 950 istället för 0. Vad är problemet?",
+      "opener": "Vad gör en beskuren y-axel med hur stapeln ser ut?",
+      "choices": [
+        "Procent kan inte överstiga 100 %",
+        "Stapeldiagram får inte användas för försäljning",
+        "Inget — diagrammet är korrekt",
+        "Att y-axeln inte börjar på noll överdriver skillnaden visuellt"
+      ],
+      "answer": 3,
+      "explanation": "En avklippt y-axel gör att en liten skillnad ser dramatisk ut. Diagrammet kan vara tekniskt korrekt men ändå vilseledande — granska alltid axlarnas skala."
+    },
+    {
+      "id": "q-ma1-stat-7",
+      "kind": "worked",
+      "topic": "sannolikhet",
+      "prompt": "Du singlar slant tre gånger. Vad är sannolikheten att du får minst en krona? Visa hur du tänker.",
+      "opener": "\"Minst en\" är ofta enklare att räkna ut baklänges.",
+      "answer": "7/8 (87,5 %)",
+      "steps": [
+        "Att räkna alla fall med minst en krona är krångligt — räkna i stället komplementhändelsen: ingen krona alls.",
+        "Ingen krona betyder klave alla tre gångerna: $\\frac{1}{2} \\cdot \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{8}$.",
+        "Minst en krona är allt annat: $1 - \\frac{1}{8} = \\frac{7}{8}$.",
+        "Alltså 87,5 % chans."
+      ]
+    },
+    {
+      "id": "q-ma1-stat-8",
+      "kind": "flashcard",
+      "topic": "sannolikhet",
+      "prompt": "När multiplicerar du sannolikheter, och när adderar du dem?",
+      "opener": "Nyckelorden är \"och\" respektive \"eller\".",
+      "answer": "Multiplicera när båda händelserna ska inträffa (\"A OCH B\") — t.ex. två kast i rad. Addera när antingen den ena eller den andra ska inträffa och de inte kan ske samtidigt (\"A ELLER B\") — t.ex. att en tärning visar 1 eller 6. Vid beroende händelser måste du justera den andra sannolikheten efter vad som hänt först."
+    }
+  ]
+}

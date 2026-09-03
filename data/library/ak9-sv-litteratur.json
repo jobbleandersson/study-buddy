@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv9-litteratur",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Litterära begrepp",
+  "sourceSummary": "Genrer, berättarperspektiv, miljö och tema samt bildspråk — grundbegreppen du behöver för att analysera en skönlitterär text.",
+  "topics": [
+    "genre",
+    "berättarperspektiv",
+    "miljö och tema",
+    "bildspråk"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv9-lit-1",
+      "kind": "mc",
+      "topic": "genre",
+      "prompt": "En bok om rymdskepp, tidsresor och avancerad teknik i framtiden tillhör vilken genre?",
+      "opener": "Vilken genre bygger på teknik och vetenskap som (ännu) inte finns?",
+      "choices": [
+        "Fantasy",
+        "Science fiction",
+        "Deckare",
+        "Realistisk roman"
+      ],
+      "answer": 1,
+      "explanation": "Science fiction bygger på vetenskap och teknik, ofta i en framtid. Fantasy handlar i stället om magi och påhittade världar utan vetenskaplig grund."
+    },
+    {
+      "id": "q-sv9-lit-2",
+      "kind": "mc",
+      "topic": "genre",
+      "prompt": "Vad kännetecknar en deckare?",
+      "opener": "Vilken typ av gåta driver handlingen framåt?",
+      "choices": [
+        "Handlingen kretsar kring att lösa ett brott eller mysterium",
+        "Handlingen utspelar sig alltid i en fantasivärld",
+        "Boken saknar en tydlig handling",
+        "Boken handlar alltid om kärlek"
+      ],
+      "answer": 0,
+      "explanation": "Deckare (kriminalroman) kretsar kring ett brott som ska lösas, ofta med en detektiv eller polis som huvudperson och ledtrådar som läsaren följer."
+    },
+    {
+      "id": "q-sv9-lit-3",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "\"Jag visste inte vad jag skulle säga. Mina händer skakade när jag öppnade dörren.\" Vilket berättarperspektiv är detta?",
+      "opener": "Vilket pronomen berättar historien — och vems tankar får vi ta del av?",
+      "choices": [
+        "Jag-perspektiv (förstapersonsberättare)",
+        "Allvetande berättare",
+        "Han/hon-perspektiv (tredjepersonsberättare)",
+        "Objektiv berättare"
+      ],
+      "answer": 0,
+      "explanation": "\"Jag\" berättar historien och vi får bara ta del av den personens egna tankar och känslor — det är ett jag-perspektiv."
+    },
+    {
+      "id": "q-sv9-lit-4",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "En berättare som vet vad ALLA personer i boken tänker och känner, även samtidigt på olika platser, kallas för:",
+      "opener": "Vilken typ av berättare har tillgång till allas tankar, inte bara en persons?",
+      "choices": [
+        "Jag-berättare",
+        "Opålitlig berättare",
+        "Allvetande berättare",
+        "Dagboksberättare"
+      ],
+      "answer": 2,
+      "explanation": "En allvetande berättare (tredjepersonsperspektiv med insyn i flera personers tankar) kan hoppa mellan olika karaktärers inre tankar och platser."
+    },
+    {
+      "id": "q-sv9-lit-5",
+      "kind": "mc",
+      "topic": "miljö och tema",
+      "prompt": "Vad är skillnaden mellan en berättelses miljö och dess tema?",
+      "opener": "Det ena är VAR/NÄR handlingen sker, det andra är vad boken egentligen HANDLAR OM på ett djupare plan.",
+      "choices": [
+        "Det finns ingen skillnad, orden betyder samma sak",
+        "Miljö är plats och tid handlingen utspelar sig i, tema är den djupare idé eller fråga boken behandlar",
+        "Miljö är huvudpersonens personlighet, tema är handlingen",
+        "Tema är alltid namnet på boken"
+      ],
+      "answer": 1,
+      "explanation": "Miljö = var och när (t.ex. en småstad på 1950-talet). Tema = den övergripande idén eller frågan texten utforskar (t.ex. vänskap, ensamhet, makt)."
+    },
+    {
+      "id": "q-sv9-lit-6",
+      "kind": "mc",
+      "topic": "bildspråk",
+      "prompt": "\"Hennes ögon var som stjärnor.\" Vilket bildspråk används här?",
+      "opener": "Jämförs två saker med ordet \"som\", eller likställs de helt utan jämförelseord?",
+      "choices": [
+        "Metafor",
+        "Liknelse",
+        "Personifikation",
+        "Allitteration"
+      ],
+      "answer": 1,
+      "explanation": "En liknelse jämför två saker med ord som \"som\" eller \"liksom\". En metafor hade sagt \"hennes ögon var stjärnor\" — utan jämförelseordet, som ett direkt likställande."
+    },
+    {
+      "id": "q-sv9-lit-7",
+      "kind": "worked",
+      "topic": "bildspråk",
+      "prompt": "Identifiera bildspråket i varje mening och förklara vilken typ det är: (1) \"Vinden viskade genom träden.\" (2) \"Han är ett lejon på planen.\" (3) \"Livet är en berg-och-dalbana.\"",
+      "opener": "Fråga för varje mening: ges något mänskliga egenskaper (personifikation), eller likställs två olika saker helt (metafor)?",
+      "answer": "(1) Personifikation — vinden får en mänsklig förmåga (viska). (2) Metafor — han likställs direkt med ett lejon (utan \"som\"). (3) Metafor — livet likställs direkt med en berg-och-dalbana.",
+      "steps": [
+        "Mening 1: \"vinden viskade\" ger vinden en mänsklig handling (att viska) — det är personifikation, att ge icke-mänskliga saker mänskliga egenskaper.",
+        "Mening 2: \"han ÄR ett lejon\", inte \"han är SOM ett lejon\" — det direkta likställandet utan jämförelseord gör det till en metafor.",
+        "Mening 3: samma mönster som mening 2 — \"livet ÄR en berg-och-dalbana\" är en metafor, inte en liknelse.",
+        "Minnesregel: liknelse innehåller \"som\"/\"liksom\", metafor likställer direkt utan jämförelseord, personifikation ger saker/djur mänskliga egenskaper."
+      ]
+    },
+    {
+      "id": "q-sv9-lit-8",
+      "kind": "flashcard",
+      "topic": "bildspråk",
+      "prompt": "Vilka är de vanligaste typerna av bildspråk och hur känner du igen dem?",
+      "opener": "Fyra vanliga typer att kunna skilja på.",
+      "answer": "Liknelse: jämför två saker med \"som\" eller \"liksom\" (\"stark som en björn\"). Metafor: likställer två saker direkt utan jämförelseord (\"han är en björn\"). Personifikation: ger icke-mänskliga saker mänskliga egenskaper (\"solen log\"). Allitteration: flera ord i rad börjar på samma bokstav/ljud (\"vilda vindar viskar\"). Symbol: ett konkret föremål som står för något abstrakt (en duva som symbol för fred)."
+    }
+  ]
+}

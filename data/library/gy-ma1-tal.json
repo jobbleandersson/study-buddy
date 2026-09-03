@@ -1,0 +1,126 @@
+{
+  "id": "lib-ma1-tal",
+  "type": "assignment",
+  "subject": "Matematik 1",
+  "title": "Taluppfattning och potenser",
+  "sourceSummary": "Potenslagar, grundpotensform, prefix och avrundning — det som återkommer i nästan varje senare moment i kursen.",
+  "topics": [
+    "potenslagar",
+    "grundpotensform",
+    "prefix och enheter"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma1-tal-1",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Förenkla $2^3 \\cdot 2^4$.",
+      "opener": "Samma bas — då finns en regel för vad som händer med exponenterna.",
+      "choices": [
+        "$2^7$",
+        "$4^7$",
+        "$2^{34}$",
+        "$2^{12}$"
+      ],
+      "answer": 0,
+      "explanation": "Vid multiplikation med samma bas adderas exponenterna: $2^3 \\cdot 2^4 = 2^{3+4} = 2^7 = 128$."
+    },
+    {
+      "id": "q-ma1-tal-2",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Förenkla $(3^2)^3$.",
+      "opener": "En potens upphöjd till en potens — vad händer med exponenterna då?",
+      "choices": [
+        "$9^3$",
+        "$3^6$",
+        "$3^5$",
+        "$3^8$"
+      ],
+      "answer": 1,
+      "explanation": "Vid potens av potens multipliceras exponenterna: $(3^2)^3 = 3^{2 \\cdot 3} = 3^6 = 729$."
+    },
+    {
+      "id": "q-ma1-tal-3",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Vad är $2^{-3}$?",
+      "opener": "En negativ exponent betyder inte ett negativt svar.",
+      "choices": [
+        "$-8$",
+        "$-6$",
+        "$\\frac{1}{8}$",
+        "$0$"
+      ],
+      "answer": 2,
+      "explanation": "$a^{-n} = \\frac{1}{a^n}$, alltså $2^{-3} = \\frac{1}{2^3} = \\frac{1}{8} = 0{,}125$. Negativ exponent ger inversen, inte ett negativt tal."
+    },
+    {
+      "id": "q-ma1-tal-4",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Vad är $5^0$?",
+      "opener": "Det här är en definition som är värd att kunna utantill.",
+      "choices": [
+        "5",
+        "Odefinierat",
+        "0",
+        "1"
+      ],
+      "answer": 3,
+      "explanation": "Alla tal (utom 0) upphöjt till 0 är 1. Det följer av potenslagen: $\\frac{5^n}{5^n} = 5^{n-n} = 5^0 = 1$."
+    },
+    {
+      "id": "q-ma1-tal-5",
+      "kind": "mc",
+      "topic": "grundpotensform",
+      "prompt": "Skriv $0{,}00042$ i grundpotensform.",
+      "opener": "Första faktorn ska ligga mellan 1 och 10 — åt vilket håll flyttas decimaltecknet?",
+      "choices": [
+        "$4{,}2 \\cdot 10^{-4}$",
+        "$42 \\cdot 10^{-5}$",
+        "$4{,}2 \\cdot 10^{4}$",
+        "$0{,}42 \\cdot 10^{-3}$"
+      ],
+      "answer": 0,
+      "explanation": "Flytta decimaltecknet fyra steg åt höger för att få 4,2. Eftersom talet är litet blir exponenten negativ: $4{,}2 \\cdot 10^{-4}$."
+    },
+    {
+      "id": "q-ma1-tal-6",
+      "kind": "mc",
+      "topic": "prefix och enheter",
+      "prompt": "Hur många meter är 2,5 mikrometer ($\\mu$m)?",
+      "opener": "Vilken tiopotens svarar prefixet mikro mot?",
+      "choices": [
+        "$2{,}5 \\cdot 10^{-9}$ m",
+        "$2{,}5 \\cdot 10^{-6}$ m",
+        "$2{,}5 \\cdot 10^{6}$ m",
+        "$2{,}5 \\cdot 10^{-3}$ m"
+      ],
+      "answer": 1,
+      "explanation": "Prefixet mikro betyder $10^{-6}$, alltså $2{,}5\\ \\mu\\text{m} = 2{,}5 \\cdot 10^{-6}$ m. (Milli är $10^{-3}$ och nano är $10^{-9}$.)"
+    },
+    {
+      "id": "q-ma1-tal-7",
+      "kind": "worked",
+      "topic": "potenslagar",
+      "prompt": "Förenkla $\\dfrac{6^5 \\cdot 6^{-2}}{6^{2}}$ och skriv svaret som en potens och som ett tal.",
+      "opener": "Ta täljaren först med multiplikationsregeln, sedan divisionen.",
+      "answer": "$6^1 = 6$",
+      "steps": [
+        "Täljaren: samma bas vid multiplikation ger addition av exponenter, $6^5 \\cdot 6^{-2} = 6^{5 + (-2)} = 6^3$.",
+        "Divisionen: samma bas ger subtraktion av exponenter, $\\frac{6^3}{6^2} = 6^{3-2} = 6^1$.",
+        "Alltså $6^1 = 6$."
+      ]
+    },
+    {
+      "id": "q-ma1-tal-8",
+      "kind": "flashcard",
+      "topic": "potenslagar",
+      "prompt": "Räkna upp potenslagarna för multiplikation, division, potens av potens, exponent 0 och negativ exponent.",
+      "opener": "Fem regler — försök formulera dem allmänt med $a$, $m$ och $n$.",
+      "answer": "$a^m \\cdot a^n = a^{m+n}$ · $\\dfrac{a^m}{a^n} = a^{m-n}$ · $(a^m)^n = a^{m \\cdot n}$ · $a^0 = 1$ (för $a \\neq 0$) · $a^{-n} = \\dfrac{1}{a^n}$"
+    }
+  ]
+}

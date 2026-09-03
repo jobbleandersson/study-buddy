@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma8-potenser",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Potenser och grundpotensform",
+  "sourceSummary": "Vad en potens betyder, potenslagarna för multiplikation och division med samma bas, och hur mycket stora och små tal skrivs i grundpotensform med rätt prefix.",
+  "topics": [
+    "potenser",
+    "potenslagar",
+    "grundpotensform",
+    "prefix"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma8-pot-1",
+      "kind": "mc",
+      "topic": "potenser",
+      "prompt": "Vad är $2^5$?",
+      "opener": "Exponenten talar om hur många gånger basen ska multipliceras med sig själv.",
+      "choices": [
+        "10",
+        "25",
+        "32",
+        "16"
+      ],
+      "answer": 2,
+      "explanation": "$2^5 = 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 2 = 32$. Svaret 10 kommer av att man multiplicerar bas och exponent ($2 \\cdot 5$) — det är inte vad en potens betyder."
+    },
+    {
+      "id": "q-ma8-pot-2",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Förenkla $3^4 \\cdot 3^2$ till en enda potens.",
+      "opener": "Skriv ut några faktorer om du är osäker — hur många treor blir det totalt?",
+      "choices": [
+        "$3^8$",
+        "$3^6$",
+        "$9^6$",
+        "$3^2$"
+      ],
+      "answer": 1,
+      "explanation": "Vid multiplikation med samma bas adderas exponenterna: $3^4 \\cdot 3^2 = 3^{4+2} = 3^6$. Svaret $3^8$ får man om man multiplicerar exponenterna, och $9^6$ om man även ändrar basen — basen ska stå kvar oförändrad."
+    },
+    {
+      "id": "q-ma8-pot-3",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Förenkla $\\frac{5^7}{5^3}$ till en enda potens.",
+      "opener": "Division är motsatsen till multiplikation — så vad händer med exponenterna?",
+      "choices": [
+        "$5^4$",
+        "$5^{10}$",
+        "$5^{21}$",
+        "$1^4$"
+      ],
+      "answer": 0,
+      "explanation": "Vid division med samma bas subtraheras exponenterna: $5^{7-3} = 5^4$. Svaret $5^{10}$ är vad du får om du adderar dem (det gäller vid multiplikation) och $5^{21}$ om du multiplicerar dem."
+    },
+    {
+      "id": "q-ma8-pot-4",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Vad är $7^0$?",
+      "opener": "Testa med divisionslagen: vad blir $7^3 / 7^3$?",
+      "choices": [
+        "0",
+        "1",
+        "7",
+        "Odefinierat"
+      ],
+      "answer": 1,
+      "explanation": "$\\frac{7^3}{7^3} = 7^{3-3} = 7^0$, men samma tal delat med sig självt är alltid 1. Därför är $7^0 = 1$ — och det gäller för alla baser utom 0. Svaret 0 är den vanliga gissningen, men exponenten 0 betyder inte att potensen är noll."
+    },
+    {
+      "id": "q-ma8-pot-5",
+      "kind": "mc",
+      "topic": "grundpotensform",
+      "prompt": "Vilket alternativ visar 4 500 000 skrivet i grundpotensform?",
+      "opener": "I grundpotensform ska det första talet ligga mellan 1 och 10.",
+      "choices": [
+        "$45 \\cdot 10^5$",
+        "$4{,}5 \\cdot 10^6$",
+        "$4{,}5 \\cdot 10^7$",
+        "$0{,}45 \\cdot 10^7$"
+      ],
+      "answer": 1,
+      "explanation": "Flytta decimaltecknet till efter första siffran: $4{,}5$, och räkna stegen — sex steg åt vänster ger $4{,}5 \\cdot 10^6$. Både $45 \\cdot 10^5$ och $0{,}45 \\cdot 10^7$ är visserligen lika med 4 500 000, men de är inte grundpotensform eftersom talet framför tian måste vara minst 1 och mindre än 10."
+    },
+    {
+      "id": "q-ma8-pot-6",
+      "kind": "mc",
+      "topic": "prefix",
+      "prompt": "Ett pappersark är 0,004 m tjockt. Vilket alternativ visar tjockleken korrekt i grundpotensform och med rätt prefix?",
+      "opener": "Negativ exponent betyder små tal — och prefixet milli hör ihop med tusendelar.",
+      "choices": [
+        "$4 \\cdot 10^{3}$ m $= 4$ km",
+        "$4 \\cdot 10^{-3}$ m $= 4$ mm",
+        "$4 \\cdot 10^{-2}$ m $= 4$ cm",
+        "$4 \\cdot 10^{-4}$ m $= 4$ mm"
+      ],
+      "answer": 1,
+      "explanation": "$0{,}004 = 4 \\cdot 0{,}001 = 4 \\cdot 10^{-3}$, och milli betyder just tusendel, så $4 \\cdot 10^{-3}$ m $= 4$ mm. Alternativet $4 \\cdot 10^{-2}$ m är 0,04 m, alltså tio gånger för mycket."
+    },
+    {
+      "id": "q-ma8-pot-7",
+      "kind": "worked",
+      "topic": "grundpotensform",
+      "prompt": "Ljusets hastighet är ungefär 300 000 km/s. Skriv hastigheten i meter per sekund, i grundpotensform. Visa stegen.",
+      "opener": "Gör om till grundpotensform först och byt enhet sedan — då slipper du hålla reda på alla nollor.",
+      "answer": "$3 \\cdot 10^8$ m/s",
+      "steps": [
+        "Skriv 300 000 i grundpotensform: $3 \\cdot 10^5$ km/s.",
+        "Prefixet kilo betyder tusen, så $1$ km $= 1000$ m $= 10^3$ m.",
+        "Multiplicera: $3 \\cdot 10^5 \\cdot 10^3 = 3 \\cdot 10^{5+3}$ m/s.",
+        "Addera exponenterna: $3 \\cdot 10^8$ m/s, alltså 300 000 000 m/s."
+      ]
+    },
+    {
+      "id": "q-ma8-pot-8",
+      "kind": "flashcard",
+      "topic": "potenslagar",
+      "prompt": "Vilka potenslagar, regler för grundpotensform och prefix behöver du kunna?",
+      "opener": "Tre block att minnas: lagarna, formen och prefixen.",
+      "answer": "$a^n$ betyder att basen $a$ multipliceras med sig själv $n$ gånger · $a^m \\cdot a^n = a^{m+n}$ (samma bas: addera exponenterna) · $\\frac{a^m}{a^n} = a^{m-n}$ (samma bas: subtrahera exponenterna) · $a^0 = 1$ för alla $a \\neq 0$ · $a^{-n} = \\frac{1}{a^n}$, så negativ exponent ger ett tal mindre än 1 · Grundpotensform: $a \\cdot 10^n$ där $1 \\leq a < 10$ och $n$ är ett heltal · Stora tal ger positiv exponent, små tal ger negativ · Exponenten $=$ antalet steg decimaltecknet flyttas · Prefix: kilo $= 10^3$ · mega $= 10^6$ · milli $= 10^{-3}$."
+    }
+  ]
+}

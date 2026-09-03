@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma8-geometri",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Geometri: area, volym och skala",
+  "sourceSummary": "Area och omkrets för parallellogram, triangel och cirkel, volym för rätblock och cylinder, samt skala och omvandling mellan area- och volymenheter.",
+  "topics": [
+    "area och omkrets",
+    "volym",
+    "skala",
+    "enheter"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma8-geo-1",
+      "kind": "mc",
+      "topic": "area och omkrets",
+      "prompt": "En parallellogram har basen 7 cm och höjden 4 cm. Vad är arean?",
+      "opener": "En parallellogram kan klippas om till en rektangel med samma bas och höjd.",
+      "choices": [
+        "11 cm²",
+        "14 cm²",
+        "22 cm²",
+        "28 cm²"
+      ],
+      "answer": 3,
+      "explanation": "$A = b \\cdot h = 7 \\cdot 4 = 28$ cm². Svaret 14 cm² kommer av att man delar med 2 — det gör man för en triangel, inte för en parallellogram."
+    },
+    {
+      "id": "q-ma8-geo-2",
+      "kind": "mc",
+      "topic": "area och omkrets",
+      "prompt": "En triangel har basen 9 cm och höjden 6 cm. Vad är arean?",
+      "opener": "Triangeln är exakt halva parallellogrammen med samma bas och höjd.",
+      "choices": [
+        "27 cm²",
+        "54 cm²",
+        "15 cm²",
+        "30 cm²"
+      ],
+      "answer": 0,
+      "explanation": "$A = \\frac{b \\cdot h}{2} = \\frac{9 \\cdot 6}{2} = \\frac{54}{2} = 27$ cm². Svaret 54 cm² är arean utan att man delat med 2."
+    },
+    {
+      "id": "q-ma8-geo-3",
+      "kind": "mc",
+      "topic": "area och omkrets",
+      "prompt": "En cirkel har diametern 10 cm. Vad är omkretsen, avrundat till en decimal?",
+      "opener": "Omkretsformeln finns i två varianter — en med radien och en med diametern.",
+      "choices": [
+        "31,4 cm",
+        "15,7 cm",
+        "78,5 cm",
+        "62,8 cm"
+      ],
+      "answer": 0,
+      "explanation": "$O = \\pi \\cdot d = \\pi \\cdot 10 \\approx 31{,}4$ cm. Svaret 78,5 är arean ($\\pi r^2 = 25\\pi$), och 62,8 får man om man använder diametern i formeln $2\\pi r$."
+    },
+    {
+      "id": "q-ma8-geo-4",
+      "kind": "mc",
+      "topic": "area och omkrets",
+      "prompt": "En cirkel har radien 4 cm. Vad är arean, avrundat till en decimal?",
+      "opener": "Area handlar alltid om två längder multiplicerade — leta efter formeln med $r^2$.",
+      "choices": [
+        "25,1 cm²",
+        "50,3 cm²",
+        "12,6 cm²",
+        "201,1 cm²"
+      ],
+      "answer": 1,
+      "explanation": "$A = \\pi r^2 = \\pi \\cdot 4^2 = 16\\pi \\approx 50{,}3$ cm². Svaret 25,1 är omkretsen $2\\pi r$, och 201,1 får man om man använder diametern i stället för radien."
+    },
+    {
+      "id": "q-ma8-geo-5",
+      "kind": "mc",
+      "topic": "volym",
+      "prompt": "En låda är 20 cm lång, 10 cm bred och 5 cm hög. Hur många liter rymmer den?",
+      "opener": "Räkna först ut volymen i kubikcentimeter — hur många cm³ går det på en liter?",
+      "choices": [
+        "0,1 liter",
+        "1 liter",
+        "10 liter",
+        "100 liter"
+      ],
+      "answer": 1,
+      "explanation": "$V = 20 \\cdot 10 \\cdot 5 = 1000$ cm³. Eftersom 1 liter $= 1$ dm³ $= 1000$ cm³ rymmer lådan 1 liter. Svaret 10 liter kommer av att man växlar mellan cm³ och dm³ med faktorn 100 i stället för 1000."
+    },
+    {
+      "id": "q-ma8-geo-6",
+      "kind": "mc",
+      "topic": "skala",
+      "prompt": "En myra är 5 mm lång. På ett foto i skala 20:1 — hur lång är myran på bilden?",
+      "opener": "Skala 20:1 betyder att bilden är större än verkligheten, inte mindre.",
+      "choices": [
+        "0,25 mm",
+        "25 mm",
+        "100 mm",
+        "4 mm"
+      ],
+      "answer": 2,
+      "explanation": "Skala 20:1 är en förstoring: bilden är 20 gånger så stor. $5 \\text{ mm} \\cdot 20 = 100$ mm $= 10$ cm. Svaret 0,25 mm får man om man dividerar i stället — det hade gällt vid skala 1:20."
+    },
+    {
+      "id": "q-ma8-geo-7",
+      "kind": "worked",
+      "topic": "volym",
+      "prompt": "En cylindrisk burk har radien 3 cm och höjden 10 cm. Beräkna volymen, avrundat till en decimal. Visa stegen.",
+      "opener": "En cylinder är en cirkel som fått höjd — börja med basytan.",
+      "answer": "≈ 282,7 cm³",
+      "steps": [
+        "Basytan är en cirkel: $A = \\pi r^2 = \\pi \\cdot 3^2 = 9\\pi$ cm².",
+        "Volymen är basytan gånger höjden: $V = 9\\pi \\cdot 10 = 90\\pi$ cm³.",
+        "Räkna ut: $90\\pi \\approx 282{,}7$ cm³.",
+        "Rimlighetskoll: burken rymmer knappt 0,3 liter, ungefär ett litet glas. ✓"
+      ]
+    },
+    {
+      "id": "q-ma8-geo-8",
+      "kind": "flashcard",
+      "topic": "enheter",
+      "prompt": "Vilka formler och enhetssamband behöver du ha i huvudet?",
+      "opener": "Dela upp minneslistan i tre: area, volym och enheter.",
+      "answer": "Rektangel: $A = b \\cdot h$ · Parallellogram: $A = b \\cdot h$ · Triangel: $A = \\frac{b \\cdot h}{2}$ · Cirkel: $A = \\pi r^2$ och $O = 2\\pi r = \\pi d$ · Rätblock: $V = l \\cdot b \\cdot h$ · Cylinder: $V = \\pi r^2 \\cdot h$ (basytan gånger höjden) · Areaenheter växlar med faktorn 100: 1 m² = 100 dm² = 10 000 cm² · Volymenheter växlar med faktorn 1000: 1 m³ = 1000 dm³ = 1 000 000 cm³ · 1 liter = 1 dm³ = 1000 cm³ · Skala 1:$n$ är förminskning (verkligheten = bilden $\\cdot\\, n$), skala $n$:1 är förstoring."
+    }
+  ]
+}

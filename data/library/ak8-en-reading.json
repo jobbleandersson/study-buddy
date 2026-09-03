@@ -1,0 +1,128 @@
+{
+  "id": "lib-en8-reading",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Reading comprehension",
+  "sourceSummary": "Korta engelska texter där du tränar att hitta huvudbudskapet, dra slutsatser, förstå ord utifrån sammanhanget och avgöra skribentens syfte.",
+  "topics": [
+    "main idea",
+    "inference",
+    "vocabulary in context",
+    "author's purpose"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en8-rea-1",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Every Friday, our class spends the last hour cleaning the schoolyard. At first, most of us thought it was a waste of time. But after a few months, we noticed that people threw away less rubbish. Even the younger students started picking things up. Now the yard looks better than it has in years.\"\n\nWhat is the main idea of the text?",
+      "opener": "Leta efter hur situationen förändras från början till slutet av texten.",
+      "choices": [
+        "The class enjoys cleaning more than studying",
+        "The cleaning project changed both the schoolyard and the students' attitudes",
+        "Younger students make the most rubbish at the school",
+        "Friday afternoons are the worst time for schoolwork"
+      ],
+      "answer": 1,
+      "explanation": "Texten börjar med motstånd (\"a waste of time\") och slutar med att både gården och elevernas beteende har blivit bättre — det är helheten. Att yngre elever skräpar ner mest står inte i texten alls; de nämns tvärtom som elever som började plocka upp skräp."
+    },
+    {
+      "id": "q-en8-rea-2",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Sara read the message twice. Then she put her phone face down on the table and stared out of the window. Her tea had gone cold, but she did not touch it. When her mum asked if everything was fine, Sara only nodded.\"\n\nWhat can we infer about Sara?",
+      "opener": "Texten säger aldrig hur hon känner sig — läs mellan raderna i det hon gör.",
+      "choices": [
+        "She has received news that upset her",
+        "She is angry with her mother",
+        "She dislikes drinking tea",
+        "She is waiting for a friend to arrive"
+      ],
+      "answer": 0,
+      "explanation": "Att hon läser om meddelandet, lägger telefonen med skärmen nedåt, glömmer teet och bara nickar antyder att nyheten gjorde henne ledsen eller orolig. Inget i texten riktar sig mot mamman — hon nickar bara i stället för att förklara."
+    },
+    {
+      "id": "q-en8-rea-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"The hike was harder than we expected. The path was steep and the sun was burning. After two hours, several people in the group were exhausted and had to sit down in the shade before we could continue.\"\n\nIn this context, \"exhausted\" means:",
+      "opener": "Vad förklarar att de måste sätta sig ner i skuggan?",
+      "choices": [
+        "excited",
+        "very tired",
+        "confused",
+        "hungry"
+      ],
+      "answer": 1,
+      "explanation": "Sammanhanget — brant stig, brännande sol, två timmars vandring och behovet av att vila — visar att \"exhausted\" betyder mycket trött. \"Excited\" betyder ivrig och skulle inte förklara varför de måste stanna."
+    },
+    {
+      "id": "q-en8-rea-4",
+      "kind": "mc",
+      "topic": "author's purpose",
+      "prompt": "Read the text and answer.\n\n\"Do you spend more than three hours a day on your phone? You are not alone. But small changes help: turn off notifications at night, keep the phone out of your bedroom, and use a timer for social media. Try one of these tips this week — you may sleep better than you think.\"\n\nWhat is the writer's main purpose?",
+      "opener": "Vad vill skribenten att läsaren ska göra efter att ha läst texten?",
+      "choices": [
+        "To entertain the reader with a funny story",
+        "To advise the reader on how to use the phone less",
+        "To describe how mobile phones are made",
+        "To argue that phones should be banned in schools"
+      ],
+      "answer": 1,
+      "explanation": "Texten ger konkreta tips och uppmanar läsaren att pröva ett av dem — syftet är att ge råd. Den argumenterar inte för något förbud; skolor nämns inte alls."
+    },
+    {
+      "id": "q-en8-rea-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Tom arrived at the football pitch in his ordinary shoes. He had left his kit bag on the bus, and the match was starting in ten minutes. His teammates were already warming up. The coach looked at Tom, then at the clock, and said nothing.\"\n\nWhat will most likely happen next?",
+      "opener": "Kombinera det som saknas med hur lite tid som finns kvar.",
+      "choices": [
+        "Tom will play the whole match as usual",
+        "Tom will probably not be able to start the match",
+        "The coach will cancel the match",
+        "Tom's teammates will go home"
+      ],
+      "answer": 1,
+      "explanation": "Tom saknar sin utrustning, har fel skor och har bara tio minuter på sig, vilket gör det osannolikt att han kan börja matchen. Att matchen ställs in nämns inte — laget värmer redan upp."
+    },
+    {
+      "id": "q-en8-rea-6",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Reading in a second language feels slow at first. Many students stop at every unknown word and look it up, which breaks the flow. Teachers often suggest a different method: read the whole paragraph first and guess the meaning from the context. Only look up a word if the sentence still does not make sense.\"\n\nWhich sentence best summarises the text?",
+      "opener": "Vilken av meningarna täcker både problemet och lösningen?",
+      "choices": [
+        "Students should never use a dictionary",
+        "Reading in a second language is impossible without a teacher",
+        "Guessing words from context is often better than looking up every word",
+        "Paragraphs are easier to read than single sentences"
+      ],
+      "answer": 2,
+      "explanation": "Texten beskriver problemet (att slå upp varje ord bryter flytet) och rekommendationen (gissa utifrån sammanhanget) — det är sammanfattningen. Att aldrig använda ordbok är för starkt: texten säger att man ska slå upp ordet om meningen fortfarande är obegriplig."
+    },
+    {
+      "id": "q-en8-rea-7",
+      "kind": "worked",
+      "topic": "main idea",
+      "prompt": "Read the text and answer in one or two sentences.\n\n\"Our school started a bike week in May. Students who cycled to school got a stamp each morning, and the class with the most stamps won a picnic. During that week, the bike racks were full every day. When the competition ended, however, about half of the students went back to taking the bus.\"\n\nWhat is the main idea of the text, and what does the last sentence add?",
+      "opener": "Sammanfatta först vad som hände, och fundera sedan på vad ordet \"however\" signalerar.",
+      "answer": "The main idea is that a competition made many students cycle to school, but the last sentence shows that the effect did not last, because about half of them started taking the bus again once the competition was over.",
+      "steps": [
+        "Hitta ämnet: texten handlar om skolans cykelvecka och tävlingen med stämplar.",
+        "Hitta resultatet: cykelställen var fulla varje dag, alltså fungerade tävlingen medan den pågick.",
+        "Lägg märke till \"however\" i sista meningen — signalordet visar att något går emot det som just sagts.",
+        "Formulera helheten: belöningen ändrade beteendet på kort sikt, men förändringen höll inte i sig efteråt."
+      ]
+    },
+    {
+      "id": "q-en8-rea-8",
+      "kind": "flashcard",
+      "topic": "main idea",
+      "prompt": "Vilka lässtrategier använder du för huvudbudskap, slutledning, ord i sammanhang och skribentens syfte?",
+      "opener": "Fyra frågetyper, fyra strategier.",
+      "answer": "Huvudbudskap: fråga \"vad handlar HELA texten om?\" — svaret täcker både början och slutet, inte bara en detalj · Akta dig för svar som är sanna men för smala, eller för generella · Slutledning: kombinera vad personerna gör med vad du vet om världen; svaret står aldrig ordagrant i texten men måste ha stöd i den · Ord i sammanhang: läs meningen före och efter, leta efter förklaringar, exempel eller motsatser (but, however) och testa ordet du gissar i meningen · Skribentens syfte: to inform (berätta fakta), to advise (ge råd), to persuade (övertyga), to entertain (underhålla) — titta på tips, uppmaningar och tilltal · Signalord som styr betydelsen: but, however, although = motsats · because, therefore, so = orsak och följd · for example = exempel."
+    }
+  ]
+}

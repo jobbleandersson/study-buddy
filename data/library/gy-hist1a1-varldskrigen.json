@@ -1,0 +1,130 @@
+{
+  "id": "lib-hist1a1-varldskrigen",
+  "type": "assignment",
+  "subject": "Historia 1a1",
+  "title": "1900-talets världskrig",
+  "sourceSummary": "Orsaker till första och andra världskriget, totalitära ideologier, krigens förlopp och konsekvenser, Förintelsen i korthet och FN:s bildande.",
+  "topics": [
+    "orsaker till världskrigen",
+    "totalitära ideologier",
+    "krigens förlopp",
+    "Förintelsen",
+    "FN:s bildande"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist1a1-varldskrigen-1",
+      "kind": "mc",
+      "topic": "orsaker till världskrigen",
+      "prompt": "Vilka strukturella faktorer, utöver mordet i Sarajevo, gjorde att första världskriget kunde bryta ut?",
+      "opener": "Tänk på upprustning, kamp om kolonier och de bindande allianserna mellan stormakterna.",
+      "choices": [
+        "Att Frankrike och Tyskland kommit överens om att dela Europa",
+        "Att Nationernas förbund krävde att alla länder skulle gå i krig",
+        "Militarism, imperialistisk rivalitet om kolonier och ett allianssystem som band samman Europas stormakter",
+        "Att alla europeiska länder styrdes av samma regering"
+      ],
+      "answer": 2,
+      "explanation": "Mordet på Franz Ferdinand var bara den utlösande gnistan. Bakomliggande strukturella orsaker var en långvarig kapprustning (militarism), rivalitet om kolonier och inflytande (imperialism) samt allianssystemet som drog in stormakterna i varandras konflikter. Nationernas förbund bildades först efter kriget, 1920."
+    },
+    {
+      "id": "q-hist1a1-varldskrigen-2",
+      "kind": "mc",
+      "topic": "orsaker till världskrigen",
+      "prompt": "Vad var en viktig skillnad mellan orsakerna till första och andra världskriget?",
+      "opener": "Tänk på om kriget växte fram ur ett system av allianser, eller ur en medveten erövringspolitik.",
+      "choices": [
+        "Första världskriget växte fram ur allianser och stormaktsrivalitet, medan andra världskriget till stor del drevs av en medveten expansionspolitik från nazityskt och japanskt håll",
+        "Båda krigen orsakades enbart av samma enskilda händelse",
+        "Andra världskriget hade inget samband med första världskrigets följder",
+        "Första världskriget orsakades av ekonomisk kris på 1930-talet"
+      ],
+      "answer": 0,
+      "explanation": "Första världskriget utlöstes relativt oplanerat via allianssystemets kedjereaktion, medan andra världskriget till stor del drevs av Nazitysklands och Japans medvetna strävan efter territoriell expansion. Samtidigt hänger krigen samman: Versaillesfredens hårda villkor bidrog till det missnöje som nazismen utnyttjade."
+    },
+    {
+      "id": "q-hist1a1-varldskrigen-3",
+      "kind": "mc",
+      "topic": "totalitära ideologier",
+      "prompt": "Vad kännetecknar en totalitär ideologi, som nazism, fascism eller kommunism under Stalin, jämfört med en vanlig diktatur?",
+      "opener": "Tänk på hur mycket av samhället och individens liv staten strävar efter att kontrollera.",
+      "choices": [
+        "En totalitär stat lägger sig aldrig i medborgarnas privatliv",
+        "En totalitär stat tillåter fri press och flera politiska partier",
+        "En totalitär stat styrs enbart genom demokratiska val utan begränsningar",
+        "Staten strävar efter att kontrollera i princip alla delar av samhället och individens liv, ofta genom propaganda, terror och en enda tillåten ideologi"
+      ],
+      "answer": 3,
+      "explanation": "Totalitära stater kännetecknas av att makten strävar efter total kontroll — över politik, ekonomi, kultur, utbildning och även privatlivet — med hjälp av propaganda, övervakning och terror mot oliktänkande, samt förbud mot andra partier och ideologier än den egna."
+    },
+    {
+      "id": "q-hist1a1-varldskrigen-4",
+      "kind": "mc",
+      "topic": "totalitära ideologier",
+      "prompt": "Vad skilde nazismens ideologi särskilt från den italienska fascismen?",
+      "opener": "Tänk på vilken roll rasbiologi och antisemitism spelade i respektive ideologi.",
+      "choices": [
+        "Fascismen i Italien byggde på samma rasbiologiska antisemitism som nazismen från början",
+        "Nazismen byggde på en rasbiologisk ideologi med extrem antisemitism som central del, medan italiensk fascism i första hand byggde på ultranationalism och ledarkult utan samma rasbiologiska kärna",
+        "Nazismen och fascismen hade inga gemensamma drag alls",
+        "Fascismen avvisade all form av nationalism"
+      ],
+      "answer": 1,
+      "explanation": "Både nazism och fascism var totalitära, ultranationalistiska och byggde på en stark ledarkult, men nazismen hade en rasbiologisk kärna med extrem antisemitism som central del av ideologin, vilket inte var lika centralt i den italienska fascismen från början."
+    },
+    {
+      "id": "q-hist1a1-varldskrigen-5",
+      "kind": "mc",
+      "topic": "krigens förlopp",
+      "prompt": "Vilken händelse innebar att kriget i Europa blev ett världskrig i egentlig mening genom att även USA drogs in?",
+      "opener": "Tänk på ett japanskt anfall mot en amerikansk flottbas i Stilla havet i december 1941.",
+      "choices": [
+        "Slaget om Stalingrad",
+        "Invasionen av Polen 1939",
+        "Japans anfall mot den amerikanska flottbasen Pearl Harbor i december 1941",
+        "Münchenöverenskommelsen 1938"
+      ],
+      "answer": 2,
+      "explanation": "Japans överraskningsanfall mot Pearl Harbor i december 1941 fick USA att formellt gå in i kriget, både mot Japan och mot Nazityskland. Därmed blev kriget verkligen globalt, med stridigheter i både Europa, Nordafrika och Stilla havsområdet."
+    },
+    {
+      "id": "q-hist1a1-varldskrigen-6",
+      "kind": "mc",
+      "topic": "Förintelsen",
+      "prompt": "Vad innebar Förintelsen?",
+      "opener": "Tänk på ett systematiskt, industriellt organiserat folkmord riktat mot en specifik folkgrupp.",
+      "choices": [
+        "Nazitysklands systematiska, industriellt organiserade folkmord på cirka sex miljoner judar samt förföljelse av romer, funktionsnedsatta och andra grupper",
+        "En serie strider mellan Tyskland och Sovjetunionen om territorium",
+        "Ett fredsavtal som avslutade andra världskriget",
+        "En ekonomisk kris i Tyskland under 1920-talet"
+      ],
+      "answer": 0,
+      "explanation": "Förintelsen var Nazitysklands systematiska mord på omkring sex miljoner judar, genomfört med industriell organisation i koncentrations- och förintelseläger. Även romer, funktionsnedsatta, politiska motståndare och andra grupper förföljdes och mördades."
+    },
+    {
+      "id": "q-hist1a1-varldskrigen-7",
+      "kind": "worked",
+      "topic": "FN:s bildande",
+      "prompt": "Jämför Nationernas förbund (bildat efter första världskriget) med FN (bildat efter andra världskriget). Varför lyckades det ena bättre än det andra med att bevara freden?",
+      "opener": "Tänk på vilka länder som var med, och vilka maktmedel organisationen hade.",
+      "answer": "FN byggdes med lärdomar från Nationernas förbunds svagheter: fler stormakter var med från början (bland annat USA och Sovjetunionen), och säkerhetsrådet fick möjlighet att besluta om kollektiva, även militära, åtgärder mot angripare, vilket gav organisationen större tyngd — även om FN inte heller har kunnat förhindra alla konflikter.",
+      "steps": [
+        "Nationernas förbund bildades 1920 för att förhindra nya krig, men USA gick aldrig med, vilket försvagade organisationen från start.",
+        "NF saknade egna maktmedel för att stoppa angripare, vilket blev tydligt när Japan invaderade Manchuriet och Italien anföll Etiopien utan verkliga konsekvenser.",
+        "FN bildades 1945 med lärdom av detta: alla stormakter, inklusive USA och Sovjetunionen, blev medlemmar från början.",
+        "FN:s säkerhetsråd fick befogenhet att besluta om sanktioner och militära insatser mot stater som hotar freden.",
+        "Trots detta har vetorätten för de fem permanenta medlemmarna ibland gjort FN handlingsförlamat, så organisationen har inte kunnat förhindra alla konflikter efter 1945."
+      ]
+    },
+    {
+      "id": "q-hist1a1-varldskrigen-8",
+      "kind": "flashcard",
+      "topic": "krigens förlopp",
+      "prompt": "Sammanfatta 1900-talets världskrig: orsaker, ideologier, förlopp och konsekvenser.",
+      "opener": "Två krig, totalitära ideologier, ett folkmord och en ny världsordning.",
+      "answer": "Första världskriget (1914–1918) utlöstes av mordet i Sarajevo men berodde på militarism, imperialism och allianssystemet · andra världskriget (1939–1945) drevs av nazityskt och japanskt expansionsanspråk och startade när Tyskland invaderade Polen · totalitära ideologier som nazism, fascism och stalinistisk kommunism strävade efter att kontrollera hela samhället, med propaganda och terror · Förintelsen var Nazitysklands systematiska folkmord på cirka sex miljoner judar och förföljelse av andra grupper · vändpunkter som slaget om Stalingrad och de allierades landstigning i Normandie vände krigslyckan mot Tyskland · kriget slutade 1945 med Tysklands och Japans nederlag, efter atombomberna över Hiroshima och Nagasaki · FN bildades 1945 för att, med lärdom av Nationernas förbunds misslyckande, bättre kunna bevara internationell fred."
+    }
+  ]
+}

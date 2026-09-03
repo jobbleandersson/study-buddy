@@ -1,0 +1,127 @@
+{
+  "id": "lib-en7gy-grammar",
+  "type": "assignment",
+  "subject": "Engelska 7",
+  "title": "Grammar: advanced tenses and modality",
+  "sourceSummary": "Nyanserade modala verb (must/have to/should/ought to/might have), future perfect och future continuous, samt subjunktiv i formell engelska.",
+  "topics": [
+    "modal verbs of deduction and obligation",
+    "future perfect and future continuous",
+    "subjunctive mood"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7gy-grammar-1",
+      "kind": "mc",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Which sentence expresses a logical deduction rather than an obligation?",
+      "opener": "Tänk på skillnaden mellan \"must\" som regel och \"must\" som slutsats.",
+      "choices": [
+        "You must complete the form before Friday.",
+        "You have to wear a helmet on a construction site.",
+        "He must have left already — his coat is gone.",
+        "Students must attend at least 80% of lessons."
+      ],
+      "answer": 2,
+      "explanation": "\"He must have left already\" är en logisk slutsats baserad på bevis (rocken är borta), inte en regel. De andra alternativen uttrycker skyldighet eller krav."
+    },
+    {
+      "id": "q-en7gy-grammar-2",
+      "kind": "mc",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Choose the sentence that expresses a strong recommendation rather than a strict obligation.",
+      "opener": "\"Ought to\" är starkare än \"could\" men svagare än \"must\" — det är ett råd, inte ett krav.",
+      "choices": [
+        "You must renew your driving licence before it expires.",
+        "You really ought to see a doctor about that cough.",
+        "You have to submit your tax return by the deadline.",
+        "Passengers must fasten their seatbelts."
+      ],
+      "answer": 1,
+      "explanation": "\"Ought to\" ger ett starkt råd utan att det är juridiskt eller formellt tvingande. De andra meningarna beskriver regler eller lagkrav där \"must\"/\"have to\" är korrekt."
+    },
+    {
+      "id": "q-en7gy-grammar-3",
+      "kind": "mc",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Complete the sentence with the modal verb that best fits: 'The museum is closed and the lights are off. They ___ already gone home.'",
+      "opener": "Bevisen (stängt, mörkt) pekar mot en säker slutsats, inte en gissning.",
+      "choices": [
+        "might have",
+        "should have",
+        "can't have",
+        "must have"
+      ],
+      "answer": 3,
+      "explanation": "\"Must have\" uttrycker en stark, bevisbaserad slutsats. \"Might have\" hade passat om det bara var en möjlighet, och \"can't have\" används för att utesluta något — motsatsen till vad bevisen visar här."
+    },
+    {
+      "id": "q-en7gy-grammar-4",
+      "kind": "mc",
+      "topic": "future perfect and future continuous",
+      "prompt": "Choose the correct form: 'By the time the plane lands, we ___ for over ten hours.'",
+      "opener": "En pågående handling som pågått fram till en framtida tidpunkt — vilken form signalerar det?",
+      "choices": [
+        "will travel",
+        "will have been travelling",
+        "travel",
+        "will be travelling"
+      ],
+      "answer": 1,
+      "explanation": "Future perfect continuous (\"will have been travelling\") används för handlingar som pågått under en period fram till en angiven framtida tidpunkt. \"Will be travelling\" (future continuous) beskriver bara en pågående handling vid den tidpunkten, utan att betona varaktigheten."
+    },
+    {
+      "id": "q-en7gy-grammar-5",
+      "kind": "mc",
+      "topic": "future perfect and future continuous",
+      "prompt": "Which sentence correctly uses the future continuous to describe an action in progress at a specific future moment?",
+      "opener": "Vilken form beskriver något som pågår vid en specifik framtida tidpunkt?",
+      "choices": [
+        "This time next week, I will be lying on a beach in Greece.",
+        "This time next week, I will have lain on a beach in Greece.",
+        "This time next week, I lie on a beach in Greece.",
+        "This time next week, I will lain on a beach in Greece."
+      ],
+      "answer": 0,
+      "explanation": "\"Will be lying\" (future continuous) beskriver en handling som pågår vid en angiven framtida tidpunkt. \"Will have lain\" (future perfect) hade istället betytt att handlingen redan var avslutad vid den tidpunkten."
+    },
+    {
+      "id": "q-en7gy-grammar-6",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Choose the grammatically correct, formal sentence.",
+      "opener": "I formellt, hypotetiskt engelskt tal används en speciell verbform efter \"if\", oavsett subjekt.",
+      "choices": [
+        "If I was you, I would accept the offer.",
+        "If I would be you, I would accept the offer.",
+        "If I were you, I would accept the offer.",
+        "If I am you, I would accept the offer."
+      ],
+      "answer": 2,
+      "explanation": "I hypotetiska if-satser används subjunktivformen \"were\" för alla personer, även \"I\" och \"he/she\": \"If I were you...\". \"Was\" är vanligt i talspråk men anses inte korrekt i formell engelska."
+    },
+    {
+      "id": "q-en7gy-grammar-7",
+      "kind": "worked",
+      "topic": "subjunctive mood",
+      "prompt": "Rewrite the sentence in correct, formal English and explain the grammar: 'It is essential that he attends the interview on time.'",
+      "opener": "Efter uttryck som \"it is essential/important/vital that\" används en särskild verbform — grundformen, oavsett subjekt.",
+      "answer": "It is essential that he attend the interview on time.",
+      "steps": [
+        "Detta kallas the mandative subjunctive och används efter uttryck som \"it is essential/important/vital/necessary that\".",
+        "Verbet efter \"that\" står i sin grundform (bare infinitive utan \"to\"), oavsett subjekt — alltså \"attend\", inte \"attends\".",
+        "Detta gäller även i tredje person singular, till skillnad från vanlig presens där vi normalt lägger till -s.",
+        "I mer vardaglig amerikansk och brittisk engelska hörs ibland \"should attend\" istället, men i formell skriftlig engelska (rapporter, PM) är subjunktivformen att föredra."
+      ]
+    },
+    {
+      "id": "q-en7gy-grammar-8",
+      "kind": "flashcard",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Summarise the key differences between must, have to, should, ought to, and the modal perfect forms (must have / might have / can't have).",
+      "opener": "En snabb översikt över de mest nyanserade modala verben.",
+      "answer": "must = stark skyldighet (talarens egen regel) eller stark slutsats · have to = skyldighet utifrån (lag, regel, omständighet) · should/ought to = rekommendation, inte krav; \"ought to\" är något mer formellt · must have + perfect particip = säker slutsats om det förflutna · might/could have = möjlig slutsats · can't have = utesluten slutsats (motsatsen till must have) · should have = förväntning som inte uppfylldes, ofta med ånger"
+    }
+  ]
+}

@@ -637,6 +637,16 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 }
 .pomo.is-up { background: var(--retry-tint); color: var(--retry-ink); }
 
+/* exam clock in the session header */
+.examtimer {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-variant-numeric: tabular-nums; font-weight: 700; font-size: var(--fs-sm);
+  padding: 4px var(--s-2); border-radius: var(--r-sm);
+  background: var(--surface-sunk); color: var(--ink-soft);
+}
+.examtimer--warn { background: var(--retry-tint); color: var(--retry-ink); }
+.examtimer svg { flex: none; }
+
 /* editor: drag handle + reorder */
 .qedit__grip { cursor: grab; color: var(--ink-faint); font-size: 16px; user-select: none; padding: 0 4px; }
 .qedit.is-dragging { opacity: .5; }
@@ -651,6 +661,16 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .gallery__card h3 { font-size: var(--fs-md); }
 .gallery__card .btn { margin-top: auto; }
 .gallery__preview { font-style: italic; color: var(--ink-soft); font-size: var(--fs-sm); }
+
+/* practice library */
+.libgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: var(--s-3); margin-top: var(--s-4); }
+.libcard {
+  border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--s-4);
+  background: var(--surface); display: flex; flex-direction: column; gap: var(--s-3);
+  justify-content: space-between; min-width: 0;
+}
+.libcard__title { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-md); }
+.libcard__foot { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); flex-wrap: wrap; }
 
 /* first-run walkthrough */
 .onb .modal__card { max-width: 400px; text-align: center; position: relative; }

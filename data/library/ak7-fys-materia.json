@@ -1,0 +1,130 @@
+{
+  "id": "lib-fys7-materia",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Materiens faser och densitet",
+  "sourceSummary": "Hur partiklarna sitter i fast form, flytande form och gasform samt vad som händer vid smältning, kokning, avdunstning och kondensation. Du övar också på skillnaden mellan massa och volym och på att räkna ut densitet för att avgöra om något flyter eller sjunker.",
+  "topics": [
+    "partikelmodellen",
+    "faser",
+    "fasövergångar",
+    "massa och volym",
+    "densitet"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys7-mte-1",
+      "kind": "mc",
+      "topic": "partikelmodellen",
+      "prompt": "I vilken fas sitter partiklarna tätt ihop och vibrerar kring bestämda platser?",
+      "opener": "Fundera på i vilken fas ett ämne har en egen bestämd form.",
+      "choices": [
+        "Gasform",
+        "Flytande form",
+        "Fast form",
+        "Alla faser lika mycket"
+      ],
+      "answer": 2,
+      "explanation": "I fast form hålls partiklarna kvar på sina platser av starka krafter och kan bara vibrera lite — därför har ett fast ämne en egen form. I flytande form sitter partiklarna också tätt, men de kan glida förbi varandra, vilket är varför en vätska rinner ut och tar formen av kärlet."
+    },
+    {
+      "id": "q-fys7-mte-2",
+      "kind": "mc",
+      "topic": "fasövergångar",
+      "prompt": "Vad kallas det när ett fast ämne övergår till flytande form?",
+      "opener": "Tänk på vad som händer med en isbit som ligger i handen.",
+      "choices": [
+        "Smältning",
+        "Kokning",
+        "Kondensation",
+        "Stelning"
+      ],
+      "answer": 0,
+      "explanation": "Smältning är övergången från fast till flytande form, och den sker vid ämnets smältpunkt (0 °C för vatten). Stelning är samma övergång men i motsatt riktning, alltså från flytande till fast form."
+    },
+    {
+      "id": "q-fys7-mte-3",
+      "kind": "mc",
+      "topic": "fasövergångar",
+      "prompt": "Varför bildas det små vattendroppar på utsidan av ett glas med iskall dricka?",
+      "opener": "Luften runt omkring innehåller vattenånga som du inte kan se.",
+      "choices": [
+        "Vattnet läcker långsamt ut genom glaset",
+        "Vattenånga i luften kondenserar mot den kalla ytan",
+        "Glaset börjar smälta en aning",
+        "Luften kokar när den rör vid glaset"
+      ],
+      "answer": 1,
+      "explanation": "Luften innehåller osynlig vattenånga. När ångan kyls ner mot det kalla glaset förlorar partiklarna rörelseenergi och övergår till flytande form — det kallas kondensation. Vattnet kommer alltså från luften, inte inifrån glaset, som är helt tätt."
+    },
+    {
+      "id": "q-fys7-mte-4",
+      "kind": "mc",
+      "topic": "densitet",
+      "prompt": "Vad menas med ett ämnes densitet?",
+      "opener": "Densitet handlar om hur mycket massa som är packad i en viss volym.",
+      "choices": [
+        "Hur tungt ett föremål känns när man lyfter det",
+        "Hur stor volym föremålet har",
+        "Föremålets massa mätt i kilogram",
+        "Ämnets massa dividerad med dess volym"
+      ],
+      "answer": 3,
+      "explanation": "Densitet = massa / volym, till exempel i g/cm³ eller kg/m³, och den säger hur mycket massa som ryms i varje volymenhet. Bara massan räcker inte: ett kilo bomull och ett kilo bly har samma massa men helt olika densitet, eftersom blyet tar mycket mindre plats."
+    },
+    {
+      "id": "q-fys7-mte-5",
+      "kind": "mc",
+      "topic": "densitet",
+      "prompt": "En träkloss har densiteten 0,6 g/cm³. Vad händer när du lägger den i vatten?",
+      "opener": "Jämför med vattnets densitet, som är 1 g/cm³.",
+      "choices": [
+        "Den sjunker till botten",
+        "Den flyter med en del ovanför vattenytan",
+        "Den löser upp sig i vattnet",
+        "Den svävar stilla mitt i vattnet"
+      ],
+      "answer": 1,
+      "explanation": "Träklossen har lägre densitet än vatten (0,6 < 1), och då flyter den med en del av volymen ovanför ytan. Om densiteten i stället hade varit högre än 1 g/cm³ — som för en sten — skulle klossen sjunka."
+    },
+    {
+      "id": "q-fys7-mte-6",
+      "kind": "mc",
+      "topic": "massa och volym",
+      "prompt": "Du låter 100 g is smälta i ett glas. Vad gäller för massan när all is har blivit vatten?",
+      "opener": "Partiklarna byter plats och packning, men de försvinner inte.",
+      "choices": [
+        "Massan är fortfarande 100 g",
+        "Massan blir större än 100 g",
+        "Massan blir mindre än 100 g",
+        "Massan försvinner helt"
+      ],
+      "answer": 0,
+      "explanation": "Vid en fasövergång är det samma partiklar hela tiden, så massan bevaras: 100 g is ger 100 g vatten. Det som ändras är volymen — is har lägre densitet än vatten, så vattnet tar faktiskt något mindre plats än isen gjorde."
+    },
+    {
+      "id": "q-fys7-mte-7",
+      "kind": "worked",
+      "topic": "densitet",
+      "prompt": "En sten har massan 300 g och volymen 100 cm³. Beräkna stenens densitet och avgör om den flyter i vatten, som har densiteten 1 g/cm³.",
+      "opener": "Använd sambandet densitet = massa / volym och jämför sedan med vattnet.",
+      "answer": "Densiteten är 3 g/cm³, vilket är mer än vattnets 1 g/cm³, så stenen sjunker.",
+      "steps": [
+        "Skriv upp formeln: densitet = massa / volym.",
+        "Sätt in värdena: 300 g / 100 cm³.",
+        "Räkna ut: 300 / 100 = 3, alltså densiteten 3 g/cm³.",
+        "Jämför med vatten: 3 g/cm³ > 1 g/cm³, så stenen är tyngre än lika mycket vatten.",
+        "Slutsats: stenen sjunker — precis som vi är vana vid när vi kastar en sten i en sjö."
+      ]
+    },
+    {
+      "id": "q-fys7-mte-8",
+      "kind": "flashcard",
+      "topic": "faser",
+      "prompt": "Sammanfatta faserna, fasövergångarna och densitet.",
+      "opener": "Börja med partiklarna i de tre faserna och avsluta med densitetsformeln.",
+      "answer": "Fast form: partiklarna tätt packade på bestämda platser, egen form · Flytande form: partiklarna tätt men rörliga, tar kärlets form · Gasform: partiklarna långt ifrån varandra och i snabb rörelse, fyller hela utrymmet · Smältning: fast → flytande · Stelning: flytande → fast · Kokning: flytande → gas i hela vätskan vid kokpunkten · Avdunstning: flytande → gas vid ytan, även under kokpunkten · Kondensation: gas → flytande · Massan bevaras alltid vid fasövergångar, volymen kan ändras · Massa mäts i gram eller kilogram, volym i cm³, dm³ eller liter · Densitet = massa / volym, enhet g/cm³ eller kg/m³ · Vatten: 1 g/cm³ = 1000 kg/m³ · Lägre densitet än vätskan → föremålet flyter, högre densitet → det sjunker"
+    }
+  ]
+}

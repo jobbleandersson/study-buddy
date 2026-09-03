@@ -1,0 +1,130 @@
+{
+  "id": "lib-sv7-skrivregler",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Skrivregler och stavning",
+  "sourceSummary": "Stor bokstav och punkt, kommatecken vid uppräkning, vanliga stavfel, sär- och ihopskrivning samt hur man skriver dialog med talstreck och citattecken.",
+  "topics": [
+    "meningsbyggnad",
+    "skiljetecken",
+    "stavning",
+    "särskrivning",
+    "dialog"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv7-skr-1",
+      "kind": "mc",
+      "topic": "meningsbyggnad",
+      "prompt": "Vilken rad är skriven med rätt stor bokstav och punkt?",
+      "opener": "Ny mening börjar alltid med stor bokstav, och namn skrivs med stor bokstav mitt i meningen.",
+      "choices": [
+        "vi åkte till stockholm i lördags. det regnade hela dagen.",
+        "Vi åkte till Stockholm i lördags. Det regnade hela dagen.",
+        "Vi åkte till stockholm i lördags, det regnade hela dagen",
+        "vi åkte till Stockholm i Lördags. Det Regnade hela dagen."
+      ],
+      "answer": 1,
+      "explanation": "Båda meningarna börjar med stor bokstav, staden Stockholm är ett namn och skrivs med stor bokstav, och varje mening avslutas med punkt. Veckodagar och vanliga ord som \"lördags\" och \"regnade\" skrivs däremot med liten bokstav på svenska."
+    },
+    {
+      "id": "q-sv7-skr-2",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Var ska kommatecknen sitta i uppräkningen? \"Jag packade en tröja ett par strumpor en mössa och vantar.\"",
+      "opener": "I en uppräkning sätts komma mellan delarna — men inte framför det sista \"och\".",
+      "choices": [
+        "Jag packade en tröja, ett par strumpor, en mössa och vantar.",
+        "Jag packade en tröja, ett par strumpor, en mössa, och vantar.",
+        "Jag packade, en tröja ett par strumpor, en mössa och vantar.",
+        "Jag packade en tröja ett par strumpor, en mössa och vantar."
+      ],
+      "answer": 0,
+      "explanation": "Komma skiljer delarna i uppräkningen åt, och det sista ledet binds ihop med \"och\" utan komma före. Alternativet med komma före \"och\" är en engelsk vana som inte används i svensk uppräkning."
+    },
+    {
+      "id": "q-sv7-skr-3",
+      "kind": "mc",
+      "topic": "stavning",
+      "prompt": "Vilken mening är rättstavad?",
+      "opener": "Titta särskilt på dubbelteckning och på ord som låter lika men stavas olika.",
+      "choices": [
+        "Han sa att han skulle komma sennare på kvällen.",
+        "Han sa att han skule komma senare på kvälen.",
+        "Han sa att han skulle komma senare på kvällen.",
+        "Han sa at han skulle komma senare på kvällen."
+      ],
+      "answer": 2,
+      "explanation": "\"Skulle\", \"senare\" och \"kvällen\" är rättstavade här. Vanliga fel är att dubbelteckna för mycket (\"sennare\") eller för lite (\"skule\", \"kvälen\") — dubbelteckning används efter kort vokal, som i kväll."
+    },
+    {
+      "id": "q-sv7-skr-4",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "Vilket ord är rätt skrivet?",
+      "opener": "Sammansatta ord skrivs ihop på svenska — testa att säga ordet: hör du det som ETT ord?",
+      "choices": [
+        "fotbolls plan",
+        "fotbollsplan",
+        "fot bollsplan",
+        "fotbolls-plan"
+      ],
+      "answer": 1,
+      "explanation": "\"Fotbollsplan\" är ett sammansatt ord och skrivs ihop i ett ord. Om man särskriver till \"fotbolls plan\" blir det två ord som var för sig betyder något annat — jämför \"en rök fri restaurang\" och \"en rökfri restaurang\"."
+    },
+    {
+      "id": "q-sv7-skr-5",
+      "kind": "mc",
+      "topic": "dialog",
+      "prompt": "Vilken rad visar rätt sätt att skriva repliker med talstreck?",
+      "opener": "Talstreck står först på raden, och varje ny talare får en ny rad.",
+      "choices": [
+        "- Var har du varit? frågade pappa. - På träningen, svarade Ali.",
+        "\"Var har du varit? frågade pappa. På träningen, svarade Ali.\"",
+        "Var har du varit? frågade pappa. På träningen, svarade Ali.",
+        "- Var har du varit? frågade pappa. På träningen, svarade Ali."
+      ],
+      "answer": 0,
+      "explanation": "Varje replik inleds med talstreck, och när talaren byts börjar en ny replik med nytt talstreck. Utan talstreck framför Alis svar blir det oklart vem som säger vad."
+    },
+    {
+      "id": "q-sv7-skr-6",
+      "kind": "mc",
+      "topic": "dialog",
+      "prompt": "Vilken mening använder citattecken rätt?",
+      "opener": "Citattecken sätts runt exakt de ord som sägs — inte runt hela meningen med anföringen.",
+      "choices": [
+        "\"Jag hinner inte nu, sa Maja.\"",
+        "Jag hinner inte nu, \"sa Maja\".",
+        "\"Jag hinner inte nu\", sa Maja.",
+        "Jag \"hinner inte nu, sa Maja\"."
+      ],
+      "answer": 2,
+      "explanation": "Bara Majas egna ord står inom citattecken, och \"sa Maja\" står utanför. I det första alternativet hamnar även anföringen innanför citattecknen, vilket får det att se ut som om Maja säger \"sa Maja\"."
+    },
+    {
+      "id": "q-sv7-skr-7",
+      "kind": "worked",
+      "topic": "skrivregler",
+      "prompt": "Rätta meningen och förklara varje ändring: \"på fredag ska vi laga mat vi köper potatis morötter och kött i mat affären\"",
+      "opener": "Leta i tur och ordning efter stor bokstav, punkt, komma i uppräkningen och särskrivning.",
+      "answer": "\"På fredag ska vi laga mat. Vi köper potatis, morötter och kött i mataffären.\"",
+      "steps": [
+        "Meningen börjar med stor bokstav: \"på\" blir \"På\".",
+        "Här finns två meningar — sätt punkt efter \"mat\" och stor bokstav på \"Vi\".",
+        "Uppräkningen får komma mellan delarna: \"potatis, morötter och kött\" — inget komma före \"och\".",
+        "\"Mat affären\" är ett sammansatt ord och skrivs ihop: \"mataffären\".",
+        "Avsluta sista meningen med punkt."
+      ]
+    },
+    {
+      "id": "q-sv7-skr-8",
+      "kind": "flashcard",
+      "topic": "skrivregler",
+      "prompt": "Vilka skrivregler ska du alltid kontrollera innan du lämnar in en text?",
+      "opener": "En kort checklista att gå igenom vid genomläsningen.",
+      "answer": "Stor bokstav först i varje mening och på namn (personer, städer, länder) · punkt i slutet av varje mening · komma mellan delarna i en uppräkning, men inte före sista \"och\" · sammansatta ord skrivs ihop: fotbollsplan, mataffär, klassrum · dubbelteckning efter kort vokal: kväll, glass, kommer · dialog: talstreck först på raden och ny rad för varje ny talare, eller citattecken runt bara de talade orden med anföringen (sa Maja) utanför · läs alltid igenom texten en extra gång, gärna högt."
+    }
+  ]
+}
