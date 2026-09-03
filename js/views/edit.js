@@ -8,6 +8,7 @@ import { generateAssignment, ClaudeError } from "../claude.js";
 import { t, plural } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { datePicker } from "../components/calendar.js";
+import { subjectField } from "../components/subject-field.js";
 import { homeButton } from "../components/nav.js";
 
 export function renderEdit(assignmentId, qs) {
@@ -36,9 +37,7 @@ export function renderEdit(assignmentId, qs) {
     type: "text", value: draft.title, "aria-label": t("create.setTitleAria"),
     oninput: (e) => { draft.title = e.target.value; },
   });
-  const subjectInput = el("input", {
-    type: "text", value: subjectName, list: "subject-list", "aria-label": t("create.subject"),
-  });
+  const subjectFld = subjectField({ value: subjectName });
   const typeSel = el("select", { "aria-label": t("create.type") }, [
     el("option", { value: "assignment" }, t("create.typeAssignment")),
     el("option", { value: "test" }, t("create.typeTest")),
@@ -68,7 +67,7 @@ export function renderEdit(assignmentId, qs) {
     try {
       const gen = await generateAssignment({
         count: 8,
-        moreLike: { title: draft.title, subject: subjectInput.value.trim() || subjectName, questions: seed },
+        moreLike: { title: draft.title, subject: subjectFld.getValue() || subjectName, questions: seed },
       });
       const fresh = (gen.questions || []).map((q) => ({ ...q, id: uid() }));
       if (!fresh.length) throw new Error("empty");
@@ -90,7 +89,7 @@ export function renderEdit(assignmentId, qs) {
     const questions = editor.commit();
     if (!questions.length) { toast(t("edit.needQuestion")); return; }
 
-    const subject = store.ensureSubject(subjectInput.value.trim() || subjectName);
+    const subject = store.ensureSubject(subjectFld.getValue() || subjectName);
     store.updateAssignment(original.id, {
       title,
       type: typeSel.value,
@@ -107,13 +106,12 @@ export function renderEdit(assignmentId, qs) {
     el("h1", { style: { marginBottom: "16px" } }, t("edit.title")),
 
     el("div.panel", {}, [
-      el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" } }, [
+      el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", alignItems: "start" } }, [
         el("label.field", {}, [el("span", {}, t("create.setTitle")), titleInput]),
-        el("label.field", {}, [el("span", {}, t("create.subject")), subjectInput]),
+        el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
       ]),
       el("label.field", { style: { maxWidth: "260px" } }, [el("span", {}, t("create.type")), typeSel]),
       el("div.field", { style: { maxWidth: "320px", marginBottom: "0" } }, [el("span", {}, t("edit.dueDate")), duePicker.el]),
-      el("datalist", { id: "subject-list" }, store.subjects.map((s) => el("option", { value: s.name }))),
       countNote,
     ]),
 

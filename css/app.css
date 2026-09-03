@@ -797,6 +797,11 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .source-opt:hover { transform: translateY(-2px); border-color: var(--brand); }
 .source-opt span { display: block; font-size: 26px; margin-bottom: var(--s-2); }
 
+/* Subject field: text input + one-tap chips for the subjects that exist. */
+.subjectfield { display: flex; flex-direction: column; gap: var(--s-2); }
+.subjchips { display: flex; flex-wrap: wrap; gap: 6px; }
+.subjchips .chip { font-size: var(--fs-sm); font-weight: 600; }
+
 .field { display: block; margin-bottom: var(--s-4); }
 .field > span { display: block; font-weight: 700; font-size: var(--fs-sm); margin-bottom: var(--s-2); }
 .field input[type=text], .field input[type=number], .field input[type=email], .field input[type=password], .field select, .field textarea {

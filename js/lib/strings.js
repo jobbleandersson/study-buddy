@@ -743,6 +743,8 @@ export const STRINGS = {
     "create.blankTitle": "Untitled set",
     "create.blankQ": "Sample question {n} — edit me",
     "create.blankCloze": "Sample {n}: the capital of France is {{Paris}}",
+    "create.subjectPlaceholder": "New subject, or pick one below",
+    "create.subjectExisting": "Existing subjects",
 
     "create.needKeyShort": "Add a Claude key in Settings to use this",
     "create.splitFound": "Looks like {n} sections in here.",
@@ -1551,6 +1553,8 @@ export const STRINGS = {
     "create.blankTitle": "Namnlöst set",
     "create.blankQ": "Exempelfråga {n} — redigera mig",
     "create.blankCloze": "Exempel {n}: Frankrikes huvudstad är {{Paris}}",
+    "create.subjectPlaceholder": "Nytt ämne, eller välj ett nedan",
+    "create.subjectExisting": "Befintliga ämnen",
 
     "create.needKeyShort": "Lägg till en Claude-nyckel i Inställningar för att använda detta",
     "create.splitFound": "Ser ut som {n} avsnitt här.",

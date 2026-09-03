@@ -9,6 +9,7 @@ import { detectSections } from "../lib/split.js";
 import { homeButton } from "../components/nav.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
 import { questionEditor } from "../components/question-editor.js";
+import { subjectField } from "../components/subject-field.js";
 import { t, plural } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { datePicker } from "../components/calendar.js";
@@ -360,10 +361,9 @@ export function renderCreate(prefill) {
     }
 
     // shared options
-    const subjectInput = state.subjectLocked
-      ? el("input", { type: "text", value: state.subject, disabled: true })
-      : el("input", { type: "text", list: "subject-list", value: state.subject, oninput: (e) => { state.subject = e.target.value; } });
-    const datalist = el("datalist", { id: "subject-list" }, store.subjects.map((s) => el("option", { value: s.name })));
+    const subjectFld = state.subjectLocked
+      ? { el: el("input", { type: "text", value: state.subject, disabled: true, "aria-label": t("create.subject") }) }
+      : subjectField({ value: state.subject, onChange: (v) => { state.subject = v; } });
     const typeSel = el("select", { onchange: (e) => { state.type = e.target.value; } }, [
       el("option", { value: "assignment" }, t("create.typeAssignment")),
       el("option", { value: "test" }, t("create.typeTest")),
@@ -389,9 +389,9 @@ export function renderCreate(prefill) {
 
     if (state.source === "import") {
       return el("div.panel", {}, [
-        body, datalist,
-        el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginTop: "8px" } }, [
-          el("label.field", {}, [el("span", {}, t("create.subject")), subjectInput]),
+        body,
+        el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginTop: "8px", alignItems: "start" } }, [
+          el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
           el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
         ]),
         err,
@@ -419,9 +419,8 @@ export function renderCreate(prefill) {
     if (state.source === "blank") {
       return el("div.panel", {}, [
         el("p.note", { style: { marginBottom: "12px" } }, t("create.blankHint")),
-        datalist,
-        el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" } }, [
-          el("label.field", {}, [el("span", {}, t("create.subject")), subjectInput]),
+        el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", alignItems: "start" } }, [
+          el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
           el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
         ]),
         el("label.field", { style: { maxWidth: "160px" } }, [el("span", {}, t("create.howMany")), countInput]),
@@ -461,10 +460,9 @@ export function renderCreate(prefill) {
 
     return el("div.panel", {}, [
       body,
-      datalist,
-      el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" } }, [
+      el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", alignItems: "start" } }, [
         el("label.field", {}, [
-          el("span", {}, t("create.subject")), subjectInput,
+          el("span", {}, t("create.subject")), subjectFld.el,
           state.subjectLocked && el("span.note", { style: { display: "block", marginTop: "4px" } }, t("create.subjectLocked")),
         ]),
         el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
@@ -500,12 +498,9 @@ export function renderCreate(prefill) {
       type: "text", value: doc.title, "aria-label": t("create.setTitleAria"),
       oninput: (e) => { doc.title = e.target.value; },
     });
-    const subjectInput = state.subjectLocked
-      ? el("input", { type: "text", value: doc.subject, "aria-label": t("create.subject"), disabled: true })
-      : el("input", {
-          type: "text", value: doc.subject, list: "subject-list", "aria-label": t("create.subject"),
-          oninput: (e) => { doc.subject = e.target.value; },
-        });
+    const subjectFld = state.subjectLocked
+      ? { el: el("input", { type: "text", value: doc.subject, "aria-label": t("create.subject"), disabled: true }) }
+      : subjectField({ value: doc.subject, onChange: (v) => { doc.subject = v; } });
 
     const duePicker = datePicker({ value: doc.dueAt || "", min: localDayKey() });
 
@@ -526,9 +521,9 @@ export function renderCreate(prefill) {
 
     return el("div", {}, [
       el("div.panel", {}, [
-        el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" } }, [
+        el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", alignItems: "start" } }, [
           el("label.field", {}, [el("span", {}, t("create.setTitle")), titleInput]),
-          el("label.field", {}, [el("span", {}, t("create.subject")), subjectInput]),
+          el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
         ]),
         el("div.field", { style: { maxWidth: "320px" } }, [el("span", {}, t("create.dueDate")), duePicker.el]),
         countNote,

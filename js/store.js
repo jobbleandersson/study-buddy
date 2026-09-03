@@ -181,6 +181,28 @@ function migrate(state) {
   s.sessions = s.sessions || {};
   s.attempts = s.attempts || [];
   s.assignments = s.assignments || [];
+
+  // Merge subjects duplicated by name (a demo set's subject could get recreated
+  // after a language swap left the original renamed). Keep the first, repoint
+  // every assignment on the others. Idempotent — safe to run on every load.
+  if (Array.isArray(s.subjects) && s.subjects.length) {
+    const seen = new Map();       // lowercased name -> kept subject
+    const remap = new Map();      // dropped id -> kept id
+    const kept = [];
+    for (const subj of s.subjects) {
+      const key = (subj.name || "").trim().toLowerCase();
+      const first = seen.get(key);
+      if (first) remap.set(subj.id, first.id);
+      else { seen.set(key, subj); kept.push(subj); }
+    }
+    if (remap.size) {
+      s.subjects = kept;
+      for (const a of s.assignments) {
+        if (remap.has(a.subjectId)) a.subjectId = remap.get(a.subjectId);
+      }
+    }
+  }
+
   return s;
 }
 
