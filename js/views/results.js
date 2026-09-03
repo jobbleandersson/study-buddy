@@ -53,6 +53,9 @@ export function renderResults(attemptId) {
       icon(ICONS.clock, 14),
       " ",
       elapsedLabel(attempt),
+      attempt.wasTest && attempt.tutorHints > 0
+        ? "  ·  " + plural(attempt.tutorHints, "results.hintsUsedOne", "results.hintsUsedMany")
+        : "",
     ]),
 
     deltaEntries.length ? el("div", {}, [
@@ -73,7 +76,7 @@ export function renderResults(attemptId) {
         el("a.btn.btn--sm", { href: `#/practice/${attempt.id}` }, [icon(ICONS.spark, 16),
           wrongQ.length === 1 ? t("results.practiseTheseOne") : t("results.practiseTheseMany", { n: wrongQ.length })]),
       ]),
-      attempt.wasTest ? el("p.note", { style: { marginBottom: "8px" } },
+      attempt.wasTest && !attempt.tutorHints ? el("p.note", { style: { marginBottom: "8px" } },
         t("results.tutorSatOut")) : null,
       el("div.delta-list", {}, wrongQ.map((q) => el("div.delta", {}, [
         el("span", { html: renderRich(q.prompt.length > 90 ? q.prompt.slice(0, 90) + "…" : q.prompt) }),

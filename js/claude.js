@@ -116,7 +116,7 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
 function normalizeDoc(doc) {
   const questions = (doc.questions || []).map((q) => {
     const out = {
-      kind: ["mc", "text", "flashcard", "worked"].includes(q.kind) ? q.kind : "text",
+      kind: ["mc", "text", "cloze", "flashcard", "worked"].includes(q.kind) ? q.kind : "text",
       topic: (q.topic || (doc.topics && doc.topics[0]) || "general").toLowerCase(),
       prompt: q.prompt || "",
       explanation: q.explanation,

@@ -9,14 +9,36 @@ import { renderRich } from "../lib/rich.js";
 import { gradeAnswer } from "../claude.js";
 import { fromCorrect } from "../lib/srs.js";
 import { t } from "../lib/i18n.js";
+import { mathKeypad } from "./math-keypad.js";
 
 export function renderQuestion(opts) {
   switch (opts.question.kind) {
     case "mc": return mc(opts);
     case "flashcard": return flashcard(opts);
     case "worked": return worked(opts);
+    // A cloze with no {{blanks}} is just a short-answer question — fall through
+    // rather than render a sentence nobody can answer.
+    case "cloze": return parseCloze(opts.question.prompt).some((p) => p.blank) ? cloze(opts) : text(opts);
     default: return text(opts);
   }
+}
+
+/**
+ * Splits a cloze prompt into text runs and blanks.
+ * "The capital is {{Paris|paris}}." -> [{text}, {blank:["Paris","paris"]}, {text}]
+ */
+export function parseCloze(prompt) {
+  const parts = [];
+  const re = /\{\{(.+?)\}\}/g;
+  let last = 0, m;
+  const src = String(prompt || "");
+  while ((m = re.exec(src))) {
+    if (m.index > last) parts.push({ text: src.slice(last, m.index) });
+    parts.push({ blank: m[1].split("|").map((s) => s.trim()).filter(Boolean) });
+    last = m.index + m[0].length;
+  }
+  if (last < src.length) parts.push({ text: src.slice(last) });
+  return parts;
 }
 
 function shell(question, body, { showPrompt = true } = {}) {
@@ -81,7 +103,7 @@ function mc({ question, tutor, testMode, onDone }) {
       feedback.innerHTML = renderRich(question.explanation || t("q.correct"));
       checkBtn.remove();
       tutor?.celebrate(t("q.tutorRight"));
-      onDone(finalize(result));
+      confidenceStep(finalize(result), feedback, onDone);
     } else {
       result.hintsUsed = attempts;
       feedback.className = "feedback retry";
@@ -109,7 +131,7 @@ function mc({ question, tutor, testMode, onDone }) {
     btns[question.answer].classList.add("is-correct");
     feedback.className = "feedback retry";
     feedback.innerHTML = renderRich(question.explanation || t("q.answerIs", { letter: String.fromCharCode(65 + question.answer) }));
-    onDone(finalize(result));
+    confidenceStep(finalize(result), feedback, onDone);
   }
 
   // A–D / 1–4 pick a choice; Enter checks it.
@@ -136,6 +158,7 @@ function mc({ question, tutor, testMode, onDone }) {
 function text({ question, tutor, live, testMode, onDone }) {
   const result = { correct: false, hintsUsed: 0 };
   const ta = el("textarea.answerbox", { placeholder: t("q.typeAnswer"), "aria-label": t("q.yourAnswer") });
+  const keypad = mathKeypad(ta);
   const checkBtn = el("button.btn.btn--sm", { type: "button", onclick: check },
     t(testMode ? "q.submit" : "q.check"));
   const feedback = el("div", {});
@@ -145,6 +168,7 @@ function text({ question, tutor, live, testMode, onDone }) {
     const ans = ta.value.trim();
     if (!ans) return;
     checkBtn.disabled = true; ta.disabled = true;
+    keypad.toggle.remove(); keypad.pad.remove();
     result.hintsUsed++;
 
     let verdict = null;
@@ -178,7 +202,7 @@ function text({ question, tutor, live, testMode, onDone }) {
     // work. They can appeal it, which is recorded rather than silently taken.
     result.correct = verdict.correct;
     checkBtn.remove();
-    onDone(finalize(result));
+    confidenceStep(finalize(result), feedback, onDone);
 
     clear(selfRate);
     if (!verdict.correct) {
@@ -202,7 +226,86 @@ function text({ question, tutor, live, testMode, onDone }) {
     }
   }
 
-  return { result, el: shell(question, el("div", {}, [ta, el("div", { style: { marginTop: "12px" } }, [checkBtn]), feedback, selfRate])) };
+  return {
+    result,
+    el: shell(question, el("div", {}, [
+      ta, keypad.pad,
+      el("div", { style: { marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" } }, [checkBtn, keypad.toggle]),
+      feedback, selfRate,
+    ])),
+  };
+}
+
+/* ---------------- cloze (fill in the blank) ---------------- */
+function cloze({ question, tutor, testMode, onDone }) {
+  const result = { correct: false, hintsUsed: 0 };
+  const blanks = [];
+  const line = el("div.cloze");
+
+  for (const p of parseCloze(question.prompt)) {
+    if (p.blank) {
+      const inp = el("input.cloze__blank", {
+        type: "text", autocomplete: "off", spellcheck: "false",
+        size: String(Math.max(5, Math.min(20, (p.blank[0] || "").length + 3))),
+        "aria-label": t("q.blankAria", { n: blanks.length + 1 }),
+        onkeydown: (e) => { if (e.key === "Enter") { e.preventDefault(); check(); } },
+      });
+      blanks.push({ inp, alts: p.blank });
+      line.appendChild(inp);
+    } else {
+      line.appendChild(el("span", { html: renderRich(p.text) }));
+    }
+  }
+
+  const checkBtn = el("button.btn.btn--sm", { type: "button", onclick: check },
+    t(testMode ? "q.submit" : "q.check"));
+  const feedback = el("div", {});
+  let done = false;
+
+  const norm = (s) => String(s).trim().toLowerCase().replace(/\s+/g, " ");
+
+  function check() {
+    if (done) return;
+    done = true;
+    let allRight = true;
+    for (const b of blanks) {
+      const ok = b.alts.some((a) => norm(a) === norm(b.inp.value));
+      if (!ok) allRight = false;
+      b.inp.disabled = true;
+      b.inp.classList.add(ok ? "is-correct" : "is-wrong");
+    }
+    result.correct = allRight;
+    checkBtn.remove();
+
+    if (testMode) {
+      feedback.className = "feedback";
+      feedback.textContent = t("q.recorded");
+      onDone(finalize(result));
+      return;
+    }
+
+    feedback.className = `feedback ${allRight ? "ok" : "retry"}`;
+    const missed = blanks.filter((b) => !b.inp.classList.contains("is-correct"));
+    feedback.innerHTML = allRight
+      ? renderRich(question.explanation || t("q.correct"))
+      : `<p>${escapeHtml(t("q.clozeMissed"))}</p><ul>${missed
+          .map((b) => `<li>${escapeHtml(b.alts[0])}</li>`).join("")}</ul>` +
+        (question.explanation ? renderRich(question.explanation) : "");
+
+    if (allRight) tutor?.celebrate(t("q.tutorRight"));
+    else tutor?.note(t("q.tutorClozeWrong"));
+    confidenceStep(finalize(result), feedback, onDone);
+  }
+
+  return {
+    result,
+    // The prompt IS the sentence with the blanks, so don't print it twice.
+    el: shell(question, el("div", {}, [
+      line,
+      el("div", { style: { marginTop: "16px" } }, [checkBtn]),
+      feedback,
+    ]), { showPrompt: false }),
+  };
 }
 
 /* ---------------- flashcard ---------------- */
@@ -266,6 +369,7 @@ function worked({ question, tutor, live, testMode, onDone }) {
     placeholder: t(testMode ? "q.workedPlaceholderTest" : "q.workedPlaceholder"),
     "aria-label": t("q.yourWorking"),
   });
+  const keypad = mathKeypad(ta);
   const revealed = el("ol", { style: { margin: "12px 0 0 18px" } });
   const revealBtn = steps.length && !testMode
     ? el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: revealStep }, t("q.showStep"))
@@ -285,6 +389,8 @@ function worked({ question, tutor, live, testMode, onDone }) {
   }
 
   async function finish() {
+    ta.disabled = true;
+    keypad.toggle.remove(); keypad.pad.remove();
     if (testMode) {
       // Nothing is revealed during a test, so the answer has to be graded
       // for real rather than assumed correct because something was typed.
@@ -309,12 +415,17 @@ function worked({ question, tutor, live, testMode, onDone }) {
     doneBtn.remove();
     selfRate.appendChild(el("p.note", { style: { marginTop: "12px" } }, t("q.reasoningGetThere")));
     selfRate.appendChild(el("div.selfrate", {}, [
-      el("button.btn.btn--ok.btn--sm", { type: "button", onclick: () => end(true) }, t("q.yesHadIt")),
-      el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => end(false) }, t("q.notQuiteBtn")),
+      el("button.btn.btn--ok.btn--sm", { type: "button", onclick: () => end("nailed") }, t("q.workedNailed")),
+      el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => end("roughly") }, t("q.workedRoughly")),
+      el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => end("missed") }, t("q.workedMissed")),
     ]));
   }
-  function end(correct) {
-    result.correct = correct;
+  // The worked-problem self-rate doubles as its confidence signal.
+  const WORKED_GRADE = { nailed: "easy", roughly: "good", missed: "again" };
+  function end(conf) {
+    result.confidence = conf;
+    result.correct = conf !== "missed";
+    result.srsGrade = WORKED_GRADE[conf];
     selfRate.querySelectorAll("button").forEach((b) => (b.disabled = true));
     onDone(finalize(result));
   }
@@ -322,8 +433,9 @@ function worked({ question, tutor, live, testMode, onDone }) {
   return {
     result,
     el: shell(question, el("div", {}, [
-      ta,
-      el("div", { style: { marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" } }, [revealBtn, doneBtn].filter(Boolean)),
+      ta, keypad.pad,
+      el("div", { style: { marginTop: "12px", display: "flex", gap: "8px", flexWrap: "wrap" } },
+        [revealBtn, doneBtn, keypad.toggle].filter(Boolean)),
       revealed, feedback, selfRate,
     ])),
   };
@@ -333,6 +445,34 @@ function worked({ question, tutor, live, testMode, onDone }) {
 function finalize(result) {
   if (!result.srsGrade) result.srsGrade = fromCorrect(result.correct, result.hintsUsed);
   return result;
+}
+
+// A correct answer's real review interval depends on how it was reached: a
+// lucky guess should come back soon, something you knew cold can wait.
+const CONF_GRADE = { guessed: "hard", unsure: "good", knew: "easy" };
+
+/**
+ * A one-tap "how sure were you?" row, shown after a practice-mode answer is
+ * graded. Sets result.confidence, re-grades a *correct* answer accordingly,
+ * then calls onDone. Wrong answers still schedule as "again".
+ */
+function confidenceStep(result, host, onDone) {
+  const row = el("div.confrow", {}, [el("span.confrow__q", {}, t("q.confPrompt"))]);
+  const btns = ["guessed", "unsure", "knew"].map((key) => {
+    const b = el("button.btn.btn--ghost.btn--sm", {
+      type: "button",
+      onclick: () => {
+        result.confidence = key;
+        if (result.correct) result.srsGrade = CONF_GRADE[key];
+        btns.forEach((x) => { x.disabled = true; });
+        b.classList.add("is-picked");
+        onDone(result);
+      },
+    }, t(`q.conf_${key}`));
+    return b;
+  });
+  row.append(...btns);
+  host.appendChild(row);
 }
 
 function heuristic(ans, model) {

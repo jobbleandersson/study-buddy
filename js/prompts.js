@@ -3,12 +3,13 @@
 import { aiLangInstruction, getLang } from "./lib/i18n.js";
 
 export const QUESTION_SHAPE = `Each question object has:
-- "kind": one of "mc" (multiple choice), "text" (short written answer), "flashcard" (recall / self-rated), "worked" (multi-step problem solved together).
+- "kind": one of "mc" (multiple choice), "text" (short written answer), "cloze" (fill in the blank), "flashcard" (recall / self-rated), "worked" (multi-step problem solved together).
 - "topic": a short lowercase topic tag (2-4 words) so progress can be tracked per topic. Reuse the same tag across related questions.
 - "prompt": the question text. Use $...$ for inline math and $$...$$ for display math when helpful.
+  For "cloze" the prompt IS the sentence, with each missing word wrapped in double braces — e.g. "The powerhouse of the cell is the {{mitochondrion}}." Put accepted alternatives inside the braces separated by | (e.g. {{mitochondrion|mitochondria}}). Use 1-3 blanks, each a single word or short phrase, and never blank out something guessable from the sentence alone.
 - "choices": REQUIRED for "mc" only — an array of 3-5 short option strings.
 - "answerIndex": REQUIRED for "mc" only — the 0-based index of the correct choice.
-- "answer": REQUIRED for "text", "flashcard", "worked" — the correct/model answer as a string.
+- "answer": REQUIRED for "text", "flashcard", "worked" — the correct/model answer as a string. Not used for "cloze".
 - "rubric": for "text" only — one line on what earns full vs partial credit.
 - "explanation": for "mc" — one or two sentences on why the answer is right.
 - "steps": for "worked" — an array of 3-6 strings, the reasoning steps in order.

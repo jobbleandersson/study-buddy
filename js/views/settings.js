@@ -94,6 +94,29 @@ export function renderSettings() {
     toast(t("set.dailyGoalUpdated"));
   });
 
+  /* ---------------- studying ---------------- */
+  const hintsSel = el("select", { "aria-label": t("set.testHints") }, [
+    opt("0", t("set.testHints0")),
+    opt("1", t("set.testHints1")),
+    opt("2", t("set.testHints2")),
+    opt("3", t("set.testHints3")),
+  ]);
+  hintsSel.value = String(s.testHints ?? 2);
+  hintsSel.addEventListener("change", () => {
+    store.setSettings({ testHints: Number(hintsSel.value) });
+    toast(t("set.saved"));
+  });
+
+  const adaptiveSel = el("select", { "aria-label": t("set.adaptive") }, [
+    opt("on", t("set.adaptiveOn")),
+    opt("off", t("set.adaptiveOff")),
+  ]);
+  adaptiveSel.value = s.adaptive === false ? "off" : "on";
+  adaptiveSel.addEventListener("change", () => {
+    store.setSettings({ adaptive: adaptiveSel.value === "on" });
+    toast(t("set.saved"));
+  });
+
   /* ---------------- tutor server status ---------------- */
   // The Claude key lives in the backend proxy now, so there's nothing to type
   // here — just whether live mode is available.
@@ -115,6 +138,16 @@ export function renderSettings() {
       el("p.note", {}, t("set.languageNote")),
       el("p.note", {}, t("set.soundNote")),
       el("p.note", {}, t("set.dailyGoalNote")),
+    ]),
+
+    el("section.panel", {}, [
+      el("h3", {}, t("set.studying")),
+      el("div.settings__row", {}, [
+        el("label.field", {}, [el("span", {}, t("set.testHints")), hintsSel]),
+        el("label.field", {}, [el("span", {}, t("set.adaptive")), adaptiveSel]),
+      ]),
+      el("p.note", {}, t("set.testHintsNote")),
+      el("p.note", {}, t("set.adaptiveNote")),
     ]),
 
     el("section.panel", {}, [

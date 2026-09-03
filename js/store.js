@@ -79,7 +79,11 @@ export const nationalMixId = (subjectId) => `${NATIONAL_MIX_PREFIX}${subjectId}`
 function seedState() {
   return {
     version: SCHEMA_VERSION,
-    settings: { preset: "balanced", tutorVerbosity: "normal", sound: true, dailyGoal: 10 },
+    settings: {
+      preset: "balanced", tutorVerbosity: "normal", sound: true, dailyGoal: 10,
+      testHints: 2,        // tutor questions allowed during a test; 0 = tutor off
+      adaptive: true,      // let a practice session react to how it's going
+    },
     subjects: DEFAULT_SUBJECTS.map((name, i) => ({
       id: uid(), name, color: PALETTE[i % PALETTE.length].name,
     })),
@@ -424,7 +428,7 @@ class Store extends EventTarget {
       topics: doc.topics || [...new Set((doc.questions || []).map((q) => q.topic).filter(Boolean))],
       questions: (doc.questions || []).map((q) => ({
         id: q.id || uid(),
-        kind: ["mc", "text", "flashcard", "worked"].includes(q.kind) ? q.kind : "text",
+        kind: ["mc", "text", "cloze", "flashcard", "worked"].includes(q.kind) ? q.kind : "text",
         topic: q.topic || (doc.topics && doc.topics[0]) || "general",
         prompt: q.prompt || "",
         choices: q.choices || undefined,

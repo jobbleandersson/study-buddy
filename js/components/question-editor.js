@@ -9,13 +9,17 @@
 
 import { el, clear, icon, ICONS, uid } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
+import { parseCloze } from "./questions.js";
 
 function kinds() { return [
   ["mc", t("ed.kindMc")],
   ["text", t("ed.kindText")],
+  ["cloze", t("ed.kindCloze")],
   ["flashcard", t("ed.kindFlash")],
   ["worked", t("ed.kindWorked")],
 ]; }
+
+const blankCount = (s) => parseCloze(s).filter((p) => p.blank).length;
 
 export function questionEditor(doc, { onChange } = {}) {
   const list = el("div");
@@ -79,6 +83,13 @@ export function questionEditor(doc, { onChange } = {}) {
             onclick: () => { q.choices.push(""); paintBody(); },
           }, t("ed.addChoice")));
         }
+      } else if (q.kind === "cloze") {
+        // The prompt *is* the question — the answers live inside {{…}}.
+        const count = el("p.note", { style: { marginTop: "8px" } }, t("ed.clozeCount", { n: blankCount(q.prompt) }));
+        promptTa.addEventListener("input", () => {
+          count.textContent = t("ed.clozeCount", { n: blankCount(promptTa.value) });
+        });
+        body.append(el("p.note", { style: { marginTop: "8px" } }, t("ed.clozeHint")), count);
       } else {
         const ansTa = el("textarea", {
           rows: "2", "aria-label": t("ed.answerAria"),

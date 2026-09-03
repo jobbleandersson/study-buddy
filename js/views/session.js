@@ -12,7 +12,7 @@ import { t } from "../lib/i18n.js";
 import { renderQuestion } from "../components/questions.js";
 import { TutorChat } from "../components/tutor-chat.js";
 import { review } from "../lib/srs.js";
-import { weakSpotQuestions } from "../lib/mastery.js";
+import { weakSpotQuestions, masteryByTopic } from "../lib/mastery.js";
 import { playCorrect, playWrong } from "../lib/sound.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
@@ -134,14 +134,17 @@ function runSession(config) {
   state.skipped = state.skipped || [];
   state.choiceOrder = state.choiceOrder || {};
 
-  // In a test the tutor is locked: one attempt per question, no hints, no
-  // reveal. All the teaching happens afterwards, on the results screen.
+  // In a test the tutor is locked by default — one attempt per question, no
+  // reveal. Settings can hand it a small hint allowance; 0 = the old behaviour.
   const testMode = config.type === "test" && !config.forceTutor;
+  const hintBudget = testMode ? Math.max(0, Math.min(3, Number(store.settings.testHints ?? 2))) : Infinity;
+  const tutorSilent = testMode && hintBudget === 0;
 
-  const tutor = new TutorChat({ locked: testMode });
+  const tutor = new TutorChat({ locked: tutorSilent, hintBudget });
 
   const fill = el("div.progressbar__fill");
   const label = el("div.progress-label");
+  const adaptiveEl = el("div.adaptive");
   const stage = el("div");
   const nextBtn = el("button.btn", { type: "button", disabled: true, onclick: next }, t("session.next"));
   const skipBtn = el("button.btn.btn--ghost", { type: "button", onclick: skip }, t("session.skip"));
@@ -206,12 +209,12 @@ function runSession(config) {
     const alreadySkipped = state.skipped.includes(question.id);
     skipBtn.hidden = answered || alreadySkipped || unansweredCount() <= 1;
 
-    if (testMode) tutor.showLocked();
+    if (tutorSilent) tutor.showLocked();
     else tutor.setQuestion(assignment, question);
 
     const r = renderQuestion({
       question: viewQuestion(question),
-      tutor: testMode ? null : tutor,
+      tutor: tutorSilent ? null : tutor,
       live: store.hasKey(),
       testMode,
       onDone: (result) => {
@@ -221,6 +224,7 @@ function runSession(config) {
           topic: question.topic,
           correct: !!result.correct,
           selfRating: result.selfRating || null,
+          confidence: result.confidence || null,
           srsGrade: result.srsGrade,
           hintsUsed: result.hintsUsed || 0,
           appealed: !!result.appealed,
@@ -230,6 +234,7 @@ function runSession(config) {
         nextBtn.textContent = unansweredCount() === 0 ? t("session.finish") : t("session.next");
         paintProgress();
         persist();
+        if (isNew) adapt();
         // An appeal re-fires onDone for the same question; only log it once.
         if (!result.revised) tutor.recordOutcome(question, result);
         // Sound follows the first verdict only — an appeal shouldn't re-chime.
@@ -242,6 +247,60 @@ function runSession(config) {
     stage.appendChild(r.el);
     currentRenderer = r;
     paintProgress();
+  }
+
+  /* ----- adaptive pacing -----
+   * A practice run reacts once to how it's going: struggling opens the tutor
+   * and pulls the student's stronger topics forward; cruising offers an early
+   * finish. Session-local, never persisted, at most one of each. */
+  let easedAlready = false, cruiseOffered = false;
+
+  function recentAccuracy(n = 4) {
+    const items = Object.values(state.items).slice(-n);
+    if (!items.length) return null;
+    return items.filter((i) => i.correct).length / items.length;
+  }
+
+  function easeUpcoming() {
+    // Blend lifetime mastery with what's happened in this session so far.
+    const tm = masteryByTopic(store.attempts);
+    for (const it of Object.values(state.items)) {
+      if (!it.topic) continue;
+      const now = it.correct ? 1 : 0;
+      tm[it.topic] = tm[it.topic] == null ? now : (tm[it.topic] + now) / 2;
+    }
+    const rest = state.order.filter((id) => !state.items[id]);
+    const topicOf = (id) => store.findQuestion(id)?.question.topic;
+    rest.sort((a, b) => (tm[topicOf(b)] ?? 0.5) - (tm[topicOf(a)] ?? 0.5));
+    let i = 0;
+    state.order = state.order.map((id) => (state.items[id] ? id : rest[i++]));
+    persist();
+  }
+
+  function adapt() {
+    if (testMode || store.settings.adaptive === false) return;
+    const acc = recentAccuracy();
+    if (acc == null) return;
+
+    if (!easedAlready && answeredCount() >= 3 && acc < 0.4 && unansweredCount() > 1) {
+      easedAlready = true;
+      easeUpcoming();
+      tutor.el.classList.add("is-open");   // matters on mobile, harmless on desktop
+      clear(adaptiveEl);
+      adaptiveEl.appendChild(el("p.note.note--warn", {}, t("session.adaptiveEase")));
+      announce(t("session.adaptiveEase"));
+      return;
+    }
+
+    if (!cruiseOffered && answeredCount() >= 5 && acc >= 0.85 && unansweredCount() > 1) {
+      cruiseOffered = true;
+      clear(adaptiveEl);
+      adaptiveEl.appendChild(el("p.note", {}, [
+        t("session.adaptiveCruise"),
+        " ",
+        el("button.linkbtn", { type: "button", onclick: finish }, t("session.adaptiveFinishNow")),
+      ]));
+    }
   }
 
   function dropMissing() {
@@ -293,6 +352,7 @@ function runSession(config) {
       startedAt: state.startedAt,
       finishedAt: Date.now(),
       scorePct: answered.length ? Math.round((correct / answered.length) * 100) : 0,
+      tutorHints: Number.isFinite(hintBudget) ? hintBudget - tutor.hintsLeft : 0,
       items: answered,
     };
     store.recordAttempt(attempt);
@@ -420,7 +480,7 @@ function runSession(config) {
       if (open) tutor.el.querySelector(".tutor__log")?.scrollTo(0, 0);
     },
   }, t("session.needHint"));
-  if (testMode) hintFab.hidden = true;
+  if (tutorSilent) hintFab.hidden = true;
 
   const node = el("div", {}, [
     el("div.session__head", {}, [
@@ -430,9 +490,11 @@ function runSession(config) {
         shortcutsBtn,
       ]),
     ]),
-    testMode ? el("p.note.note--warn", { style: { marginBottom: "10px" } }, t("session.testBanner")) : null,
+    testMode ? el("p.note.note--warn", { style: { marginBottom: "10px" } },
+      tutorSilent ? t("session.testBanner") : t("session.testBannerHints", { n: hintBudget })) : null,
     el("div.progressbar", {}, [fill]),
     label,
+    adaptiveEl,
     el("div.session", {}, [
       el("div", {}, [
         stage,

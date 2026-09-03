@@ -492,6 +492,38 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .flashcard__face--back { transform: rotateY(180deg); background: var(--brand-tint); }
 .selfrate { display: flex; gap: var(--s-2); margin-top: var(--s-4); flex-wrap: wrap; }
 
+/* "how sure were you?" row after a practice answer */
+.confrow { display: flex; align-items: center; gap: var(--s-2); margin-top: var(--s-4); flex-wrap: wrap; }
+.confrow__q { font-size: var(--fs-sm); font-weight: 700; color: var(--ink-soft); }
+.confrow .btn.is-picked { background: var(--brand); color: #fff; border-color: transparent; }
+
+/* cloze fill-in-the-blank */
+.cloze { font-size: var(--fs-md); line-height: 2.1; }
+.cloze__blank {
+  font: inherit; width: auto; min-width: 60px;
+  border: none; border-bottom: 2px solid var(--brand);
+  background: var(--surface-sunk); border-radius: var(--r-sm) var(--r-sm) 0 0;
+  padding: 2px 6px; margin: 0 2px; color: var(--ink);
+}
+.cloze__blank:focus-visible { outline: none; background: var(--brand-tint); }
+.cloze__blank.is-correct { border-color: var(--ok); background: var(--ok-tint); color: var(--ok-ink); }
+.cloze__blank.is-wrong { border-color: var(--retry); background: var(--retry-tint); color: var(--retry-ink); }
+
+/* math keypad */
+.mathpad {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 4px; margin-top: var(--s-3); max-width: 340px;
+}
+.mathpad__key {
+  font: inherit; font-size: var(--fs-md); cursor: pointer;
+  aspect-ratio: 1; border: 1px solid var(--line-strong); border-radius: var(--r-sm);
+  background: var(--surface); color: var(--ink);
+}
+.mathpad__key:hover { background: var(--surface-sunk); border-color: var(--brand); }
+
+/* adaptive-pacing note in a session */
+.adaptive:not(:empty) { margin-bottom: var(--s-3); }
+
 .nav-row { display: flex; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
 
 /* ---------- tutor chat ---------- */

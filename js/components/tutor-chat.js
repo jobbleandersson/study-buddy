@@ -30,8 +30,12 @@ async function loadScripted() {
 }
 
 export class TutorChat {
-  constructor({ locked = false } = {}) {
+  constructor({ locked = false, hintBudget = Infinity } = {}) {
     this.locked = locked;
+    // In a test the tutor can be given a small hint allowance instead of being
+    // shut off entirely. hintBudget counts student questions, not tutor lines.
+    this.hintBudget = hintBudget;
+    this.hintsLeft = hintBudget;
     this.live = store.hasKey();
     this.messages = [];       // Anthropic-format history for the current question
     this.ladderIndex = -1;    // scripted mode
@@ -80,9 +84,7 @@ export class TutorChat {
       el("button.iconbtn", { type: "submit", "aria-label": t("tutor.send"), style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]),
     ]);
 
-    this.subEl = el("div.tutor__sub", {}, this.locked
-      ? t("tutor.subLocked")
-      : this.live ? t("tutor.subLive") : t("tutor.subDemo"));
+    this.subEl = el("div.tutor__sub", {}, this._subText());
 
     this.el = el("div.tutor.card", {}, [
       el("div.tutor__head", {}, [
@@ -98,6 +100,13 @@ export class TutorChat {
 
     if (this.locked) this.formEl.hidden = true;
   }
+
+  _subText() {
+    if (this.locked) return t("tutor.subLocked");
+    if (Number.isFinite(this.hintBudget)) return t("tutor.hintsLeft", { n: this.hintsLeft });
+    return this.live ? t("tutor.subLive") : t("tutor.subDemo");
+  }
+  _refreshSub() { if (this.subEl) this.subEl.textContent = this._subText(); }
 
   /** Test mode: no hints while the test is running, and say why. */
   showLocked() {
@@ -154,7 +163,16 @@ export class TutorChat {
   _submit() {
     const text = this.inputEl.value.trim();
     if (!text || this.busy) return;
+    if (this.hintsLeft <= 0) { toast(t("tutor.hintsGone")); return; }
     this.inputEl.value = "";
+    if (Number.isFinite(this.hintBudget)) {
+      this.hintsLeft--;
+      this._refreshSub();
+      if (this.hintsLeft <= 0) {
+        this.inputEl.disabled = true;
+        this.inputEl.placeholder = t("tutor.hintsGone");
+      }
+    }
     this._respond(text);
   }
 

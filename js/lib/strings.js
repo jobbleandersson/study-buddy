@@ -591,6 +591,47 @@ export const STRINGS = {
     "ach.streak30.desc": "A 30-day study streak.",
     "ach.streak100.title": "Unstoppable",
     "ach.streak100.desc": "A 100-day study streak.",
+
+    "set.saved": "Saved",
+
+    "q.confPrompt": "How sure were you?",
+    "q.conf_guessed": "Guessed",
+    "q.conf_unsure": "Unsure",
+    "q.conf_knew": "Knew it",
+    "q.workedNailed": "Nailed it",
+    "q.workedRoughly": "Roughly right",
+    "q.workedMissed": "Missed it",
+    "q.blankAria": "Blank {n}",
+    "q.clozeMissed": "Not quite. The missing word(s):",
+    "q.tutorClozeWrong": "I filled in the blanks but I'm not sure they're right.",
+    "q.mathKeypad": "Insert a maths symbol",
+
+    "session.testBannerHints": "Test mode: one attempt per question. You can ask the tutor up to {n} times.",
+    "session.adaptiveEase": "Let's slow down a little — the tutor's here, and the next few questions play to your strengths.",
+    "session.adaptiveCruise": "You're cruising through these.",
+    "session.adaptiveFinishNow": "Finish now",
+
+    "tutor.hintsLeft": "{n} hints left in this test",
+    "tutor.hintsGone": "No hints left in this test",
+
+    "results.hintsUsedOne": "{n} hint used",
+    "results.hintsUsedMany": "{n} hints used",
+
+    "set.studying": "Studying",
+    "set.testHints": "Hints during a test",
+    "set.testHints0": "None — tutor off",
+    "set.testHints1": "1 hint",
+    "set.testHints2": "2 hints",
+    "set.testHints3": "3 hints",
+    "set.testHintsNote": "How many times the tutor will answer during a test before it locks. None keeps a test a pure test.",
+    "set.adaptive": "Adaptive practice",
+    "set.adaptiveOn": "On",
+    "set.adaptiveOff": "Off",
+    "set.adaptiveNote": "A practice session reacts to how it's going — opening the tutor if you're struggling, or offering an early finish if you're breezing through.",
+
+    "ed.kindCloze": "Fill in the blank",
+    "ed.clozeHint": "Write the sentence and wrap each missing word in double braces, e.g. The capital of France is {{Paris}}. Separate alternatives with a pipe: {{Paris|paris}}.",
+    "ed.clozeCount": "{n} blank(s)",
   },
 
   /* ================================================================ */
@@ -1180,5 +1221,46 @@ export const STRINGS = {
     "ach.streak30.desc": "En 30-dagarssvit.",
     "ach.streak100.title": "Ostoppbar",
     "ach.streak100.desc": "En 100-dagarssvit.",
+
+    "set.saved": "Sparat",
+
+    "q.confPrompt": "Hur säker var du?",
+    "q.conf_guessed": "Gissade",
+    "q.conf_unsure": "Osäker",
+    "q.conf_knew": "Kunde det",
+    "q.workedNailed": "Helt rätt",
+    "q.workedRoughly": "Ungefär rätt",
+    "q.workedMissed": "Missade",
+    "q.blankAria": "Lucka {n}",
+    "q.clozeMissed": "Inte riktigt. Ordet/orden som saknades:",
+    "q.tutorClozeWrong": "Jag fyllde i luckorna men är inte säker på att de stämmer.",
+    "q.mathKeypad": "Infoga en matematisk symbol",
+
+    "session.testBannerHints": "Provläge: ett försök per fråga. Du kan fråga handledaren upp till {n} gånger.",
+    "session.adaptiveEase": "Vi tar det lite lugnare — handledaren är här, och de närmaste frågorna spelar på dina styrkor.",
+    "session.adaptiveCruise": "Det här går som en dans för dig.",
+    "session.adaptiveFinishNow": "Avsluta nu",
+
+    "tutor.hintsLeft": "{n} tips kvar i provet",
+    "tutor.hintsGone": "Inga tips kvar i provet",
+
+    "results.hintsUsedOne": "{n} tips använt",
+    "results.hintsUsedMany": "{n} tips använda",
+
+    "set.studying": "Studier",
+    "set.testHints": "Tips under prov",
+    "set.testHints0": "Inga — handledare av",
+    "set.testHints1": "1 tips",
+    "set.testHints2": "2 tips",
+    "set.testHints3": "3 tips",
+    "set.testHintsNote": "Hur många gånger handledaren svarar under ett prov innan den låses. Inga tips gör provet till ett riktigt prov.",
+    "set.adaptive": "Anpassad övning",
+    "set.adaptiveOn": "På",
+    "set.adaptiveOff": "Av",
+    "set.adaptiveNote": "Ett övningspass anpassar sig efter hur det går — öppnar handledaren om du kämpar, eller erbjuder att avsluta tidigt om det flyter på.",
+
+    "ed.kindCloze": "Fyll i luckan",
+    "ed.clozeHint": "Skriv meningen och omge varje ord som saknas med dubbla klammerparenteser, t.ex. Frankrikes huvudstad är {{Paris}}. Skilj alternativ med lodstreck: {{Paris|paris}}.",
+    "ed.clozeCount": "{n} lucka/luckor",
   },
 };
