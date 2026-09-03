@@ -788,6 +788,16 @@ export const STRINGS = {
     "teach.attemptTitle": "Taught back: {subject}",
     "teach.goneTitle": "Nothing to teach back yet",
     "teach.goneBody": "Study a subject up to 80% mastery and it'll show up here.",
+
+    "nav.home": "Home",
+    "nav.leaveConfirm": "Leave this session? Your progress is saved — you can pick it back up from the menu.",
+
+    "session.testOff": "Turn off test mode",
+    "session.testOn": "Turn test mode back on",
+    "session.testOffConfirm": "Turn off test mode? You'll get the tutor and a second try on each question, and this won't be saved as a test result.",
+    "session.testOffToast": "Test mode off — the tutor's here to help.",
+    "session.testOnToast": "Test mode back on.",
+    "session.testModeOff": "Test mode is off for this run.",
   },
 
   /* ================================================================ */
@@ -1574,5 +1584,15 @@ export const STRINGS = {
     "teach.attemptTitle": "Förklarat: {subject}",
     "teach.goneTitle": "Inget att förklara än",
     "teach.goneBody": "Plugga ett ämne till 80 % behärskning så dyker det upp här.",
+
+    "nav.home": "Hem",
+    "nav.leaveConfirm": "Lämna passet? Dina framsteg sparas — du kan fortsätta från menyn.",
+
+    "session.testOff": "Stäng av provläge",
+    "session.testOn": "Sätt på provläge igen",
+    "session.testOffConfirm": "Stänga av provläge? Du får tillgång till handledaren och ett andra försök på varje fråga, och detta sparas inte som ett provresultat.",
+    "session.testOffToast": "Provläge av — handledaren finns här för att hjälpa.",
+    "session.testOnToast": "Provläge på igen.",
+    "session.testModeOff": "Provläge är avstängt för den här omgången.",
   },
 };

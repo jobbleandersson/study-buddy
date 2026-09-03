@@ -11,6 +11,7 @@ import { announce } from "../lib/a11y.js";
 import { t } from "../lib/i18n.js";
 import { renderQuestion } from "../components/questions.js";
 import { TutorChat } from "../components/tutor-chat.js";
+import { homeButton } from "../components/nav.js";
 import { review } from "../lib/srs.js";
 import { weakSpotQuestions, masteryByTopic } from "../lib/mastery.js";
 import { playCorrect, playWrong, playChime } from "../lib/sound.js";
@@ -136,15 +137,21 @@ function runSession(config) {
 
   // In a test the tutor is locked by default — one attempt per question, no
   // reveal. Settings can hand it a small hint allowance; 0 = the old behaviour.
-  const testMode = config.type === "test" && !config.forceTutor;
-  const hintBudget = testMode ? Math.max(0, Math.min(3, Number(store.settings.testHints ?? 2))) : Infinity;
-  const tutorSilent = testMode && hintBudget === 0;
+  // testMode / tutorSilent are mutable: the student can switch test mode off
+  // (and back on) mid-run from the banner. Once it's been off at all, the
+  // finished attempt is saved as practice, not a test.
+  const isTest = config.type === "test" && !config.forceTutor;
+  const hintBudget = isTest ? Math.max(0, Math.min(3, Number(store.settings.testHints ?? 2))) : Infinity;
+  let testMode = isTest;
+  let tutorSilent = testMode && hintBudget === 0;
+  let leftTestMode = false;
 
   const tutor = new TutorChat({ locked: tutorSilent, hintBudget });
 
   const fill = el("div.progressbar__fill");
   const label = el("div.progress-label");
   const adaptiveEl = el("div.adaptive");
+  const testBar = el("div.testbar");
   const stage = el("div");
   const nextBtn = el("button.btn", { type: "button", disabled: true, onclick: next }, t("session.next"));
   const skipBtn = el("button.btn.btn--ghost", { type: "button", onclick: skip }, t("session.skip"));
@@ -194,6 +201,64 @@ function runSession(config) {
     return { ...q, choices: perm.map((i) => q.choices[i]), answer: perm.indexOf(q.answer) };
   }
 
+  /* ----- test mode: leave / re-enter mid-run ----- */
+  function paintTestBar() {
+    if (!isTest) { testBar.hidden = true; return; }
+    testBar.hidden = false;
+    clear(testBar);
+    if (testMode) {
+      testBar.className = "testbar note note--warn";
+      testBar.append(
+        el("span", {}, tutorSilent ? t("session.testBanner") : t("session.testBannerHints", { n: hintBudget })),
+        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: tryLeaveTestMode }, t("session.testOff")),
+      );
+    } else {
+      testBar.className = "testbar note";
+      testBar.append(
+        el("span", {}, t("session.testModeOff")),
+        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => setTestMode(true) }, t("session.testOn")),
+      );
+    }
+  }
+
+  function tryLeaveTestMode() {
+    // Explain the trade-off once; after that it's a free toggle.
+    if (!leftTestMode && !confirm(t("session.testOffConfirm"))) return;
+    setTestMode(false);
+  }
+
+  function setTestMode(on) {
+    testMode = on;
+    tutorSilent = testMode && hintBudget === 0;
+    if (!on) leftTestMode = true;
+
+    tutor.locked = tutorSilent;
+    tutor.formEl.hidden = tutorSilent;
+    hintFab.hidden = tutorSilent;
+
+    paintTestBar();
+    // Redo the current question so the change lands now, not next question —
+    // but only if it hasn't been answered yet.
+    const cur = currentId();
+    if (cur && !state.items[cur]) loadQuestion();
+    toast(t(on ? "session.testOnToast" : "session.testOffToast"));
+  }
+
+  /* ----- confidence prompt: only ask when it changes the schedule ----- */
+  // In spaced review / weak-spot drills it stays after every correct answer;
+  // in ordinary assignment practice it's trimmed to the ambiguous case (a
+  // clean first-try correct answer that might be a guess), capped per session.
+  const trimConfidence = !(config.assignmentId === REVIEW_ID || config.assignmentId === WEAK_ID);
+  let confidenceAsks = 0;
+  function askConfidence(result) {
+    if (!result.correct) return false;
+    if (!trimConfidence) return true;
+    if (result.srsGrade !== "easy") return false;
+    if (confidenceAsks >= 2) return false;
+    confidenceAsks++;
+    return true;
+  }
+
   function loadQuestion() {
     clear(stage);
     const found = store.findQuestion(currentId());
@@ -217,6 +282,7 @@ function runSession(config) {
       tutor: tutorSilent ? null : tutor,
       live: store.hasKey(),
       testMode,
+      askConfidence,
       onDone: (result) => {
         const isNew = !state.items[question.id];
         state.items[question.id] = {
@@ -348,7 +414,8 @@ function runSession(config) {
       isReview: config.assignmentId === REVIEW_ID,
       title: config.title,
       retryHash: config.retryHash,
-      wasTest: config.type === "test",
+      // Switched out of test mode at any point → it's a practice run now.
+      wasTest: config.type === "test" && !leftTestMode,
       startedAt: state.startedAt,
       finishedAt: Date.now(),
       scorePct: answered.length ? Math.round((correct / answered.length) * 100) : 0,
@@ -506,7 +573,10 @@ function runSession(config) {
   }, t("session.needHint"));
   if (tutorSilent) hintFab.hidden = true;
 
+  paintTestBar();
+
   const node = el("div", {}, [
+    homeButton({ confirm: true }),
     el("div.session__head", {}, [
       el("h2", {}, config.title),
       el("span.session__headright", {}, [
@@ -515,8 +585,7 @@ function runSession(config) {
         shortcutsBtn,
       ]),
     ]),
-    testMode ? el("p.note.note--warn", { style: { marginBottom: "10px" } },
-      tutorSilent ? t("session.testBanner") : t("session.testBannerHints", { n: hintBudget })) : null,
+    testBar,
     el("div.progressbar", {}, [fill]),
     label,
     adaptiveEl,

@@ -8,6 +8,7 @@ import { PRESETS, DEFAULT_PRESET } from "../claude.js";
 import { THEMES, getTheme, setTheme } from "../lib/theme.js";
 import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
 import { LANGS, getLang, setLang, t, plural } from "../lib/i18n.js";
+import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
 
 export function renderSettings() {
@@ -163,6 +164,7 @@ export function renderSettings() {
     : t("set.serverLive");
 
   const node = el("div.settings", {}, [
+    homeButton({ grid: true }),
     el("h1", {}, t("set.title")),
 
     el("section.panel", {}, [

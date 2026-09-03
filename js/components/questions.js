@@ -49,7 +49,7 @@ function shell(question, body, { showPrompt = true } = {}) {
 }
 
 /* ---------------- multiple choice ---------------- */
-function mc({ question, tutor, testMode, onDone }) {
+function mc({ question, tutor, testMode, onDone, askConfidence }) {
   const result = { correct: false, hintsUsed: 0 };
   let picked = -1, attempts = 0, done = false;
 
@@ -104,7 +104,7 @@ function mc({ question, tutor, testMode, onDone }) {
       feedback.innerHTML = renderRich(question.explanation || t("q.correct"));
       checkBtn.remove();
       tutor?.celebrate(t("q.tutorRight"));
-      confidenceStep(finalize(result), feedback, onDone);
+      maybeConfidence(finalize(result), feedback, onDone, askConfidence);
     } else {
       result.hintsUsed = attempts;
       lastWrongChoice = question.choices[picked];
@@ -134,7 +134,7 @@ function mc({ question, tutor, testMode, onDone }) {
     feedback.className = "feedback retry";
     feedback.innerHTML = renderRich(question.explanation || t("q.answerIs", { letter: String.fromCharCode(65 + question.answer) }));
     explainWhyRow(tutor, question, lastWrongChoice, feedback);
-    confidenceStep(finalize(result), feedback, onDone);
+    maybeConfidence(finalize(result), feedback, onDone, askConfidence);
   }
 
   // A–D / 1–4 pick a choice; Enter checks it.
@@ -158,7 +158,7 @@ function mc({ question, tutor, testMode, onDone }) {
 }
 
 /* ---------------- short text ---------------- */
-function text({ question, tutor, live, testMode, onDone }) {
+function text({ question, tutor, live, testMode, onDone, askConfidence }) {
   const result = { correct: false, hintsUsed: 0 };
   const ta = el("textarea.answerbox", { placeholder: t("q.typeAnswer"), "aria-label": t("q.yourAnswer") });
   const keypad = mathKeypad(ta);
@@ -205,7 +205,7 @@ function text({ question, tutor, live, testMode, onDone }) {
     // work. They can appeal it, which is recorded rather than silently taken.
     result.correct = verdict.correct;
     checkBtn.remove();
-    confidenceStep(finalize(result), feedback, onDone);
+    maybeConfidence(finalize(result), feedback, onDone, askConfidence);
 
     clear(selfRate);
     if (!verdict.correct) {
@@ -241,7 +241,7 @@ function text({ question, tutor, live, testMode, onDone }) {
 }
 
 /* ---------------- cloze (fill in the blank) ---------------- */
-function cloze({ question, tutor, testMode, onDone }) {
+function cloze({ question, tutor, testMode, onDone, askConfidence }) {
   const result = { correct: false, hintsUsed: 0 };
   const blanks = [];
   const line = el("div.cloze");
@@ -301,7 +301,7 @@ function cloze({ question, tutor, testMode, onDone }) {
       tutor?.note(t("q.tutorClozeWrong"));
       explainWhyRow(tutor, question, blanks.map((b) => b.inp.value).filter(Boolean).join(", "), feedback);
     }
-    confidenceStep(finalize(result), feedback, onDone);
+    maybeConfidence(finalize(result), feedback, onDone, askConfidence);
   }
 
   return {
@@ -457,6 +457,17 @@ function finalize(result) {
 // A correct answer's real review interval depends on how it was reached: a
 // lucky guess should come back soon, something you knew cold can wait.
 const CONF_GRADE = { guessed: "hard", unsure: "good", knew: "easy" };
+
+/**
+ * Show the confidence row only when the session says it's worth asking
+ * (see askConfidence in views/session.js), otherwise finish straight away.
+ * A wrong answer never gets the prompt — its grade is always "again".
+ */
+function maybeConfidence(result, host, onDone, askConfidence) {
+  const ask = askConfidence ? askConfidence(result) : result.correct;
+  if (ask) confidenceStep(result, host, onDone);
+  else onDone(result);
+}
 
 /**
  * A one-tap "how sure were you?" row, shown after a practice-mode answer is

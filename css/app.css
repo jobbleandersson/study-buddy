@@ -92,6 +92,18 @@ a { color: var(--brand-ink); }
 .brand img { width: 30px; height: 30px; }
 .topbar__spacer { flex: 1; }
 
+/* "← Home" control at the top of every sub-screen. */
+.homebtn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft);
+  padding: 5px 12px 5px 8px; border-radius: var(--r-full);
+  border: 1px solid var(--line-strong); background: var(--surface);
+  margin-bottom: var(--s-4);
+}
+.homebtn:hover { color: var(--brand); border-color: var(--brand); }
+.homebtn svg { flex: none; }
+.psheet__bar .homebtn { margin-bottom: 0; }
+
 .iconbtn {
   display: inline-flex; align-items: center; justify-content: center;
   width: 40px; height: 40px; border-radius: var(--r-full);
@@ -523,6 +535,13 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 
 /* adaptive-pacing note in a session */
 .adaptive:not(:empty) { margin-bottom: var(--s-3); }
+
+/* test-mode banner + its "turn off / turn on" toggle */
+.testbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px 16px; flex-wrap: wrap; margin-bottom: var(--s-3);
+}
+.testbar .btn { flex: none; }
 
 /* Pomodoro countdown in the session header */
 .pomo {

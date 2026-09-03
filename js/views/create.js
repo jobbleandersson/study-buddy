@@ -6,6 +6,7 @@ import { renderRich } from "../lib/rich.js";
 import { extractPdfText, extractZipText, readImageFile, fitText } from "../material.js";
 import { parseCards, cardsToDoc } from "../lib/import.js";
 import { detectSections } from "../lib/split.js";
+import { homeButton } from "../components/nav.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
 import { questionEditor } from "../components/question-editor.js";
 import { t, plural } from "../lib/i18n.js";
@@ -47,10 +48,8 @@ export function renderCreate(prefill) {
 
   function paint() {
     clear(root);
-    root.appendChild(el("div", { style: { display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" } }, [
-      el("a.iconbtn", { href: "#/", "aria-label": t("common.cancel") }, [icon(ICONS.back, 18)]),
-      el("h1", {}, t("create.title")),
-    ]));
+    root.appendChild(homeButton());
+    root.appendChild(el("h1", { style: { marginBottom: "8px" } }, t("create.title")));
     root.appendChild(steps());
     root.appendChild(({ source: sourceStep, input: inputStep, generating: generatingStep, review: reviewStep }[state.step])());
   }

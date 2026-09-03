@@ -9,6 +9,7 @@ import { localDayKey, recentDays, questionsAnsweredToday } from "../lib/activity
 import { t, plural } from "../lib/i18n.js";
 import { weakSpotQuestions } from "../lib/mastery.js";
 import { goalRing } from "../components/goal-ring.js";
+import { homeButton } from "../components/nav.js";
 import { achievementRows, titleKey, descKey } from "../lib/achievements.js";
 
 export function renderProgress() {
@@ -72,6 +73,7 @@ export function renderProgress() {
   const weakCount = weakSpotQuestions(store.assignments, store.attempts).length;
 
   const node = el("div.dash", {}, [
+    homeButton({ grid: true }),
     el("h1", {}, t("prog.title")),
 
     el("section.panel", {}, [

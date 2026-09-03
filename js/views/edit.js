@@ -8,6 +8,7 @@ import { generateAssignment, ClaudeError } from "../claude.js";
 import { t, plural } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { datePicker } from "../components/calendar.js";
+import { homeButton } from "../components/nav.js";
 
 export function renderEdit(assignmentId, qs) {
   const original = store.getAssignment(assignmentId);
@@ -102,10 +103,8 @@ export function renderEdit(assignmentId, qs) {
   }
 
   const node = el("div", {}, [
-    el("div", { style: { display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" } }, [
-      el("a.iconbtn", { href: "#/", "aria-label": t("common.cancel") }, [icon(ICONS.back, 18)]),
-      el("h1", {}, t("edit.title")),
-    ]),
+    homeButton(),
+    el("h1", { style: { marginBottom: "16px" } }, t("edit.title")),
 
     el("div.panel", {}, [
       el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" } }, [

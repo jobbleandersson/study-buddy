@@ -4,6 +4,7 @@
 import { store, SAMPLE_FILES } from "../store.js";
 import { el, icon, ICONS, toast } from "../lib/dom.js";
 import { getLang, t } from "../lib/i18n.js";
+import { homeButton } from "../components/nav.js";
 
 export async function renderGallery() {
   const lang = getLang();
@@ -45,6 +46,7 @@ export async function renderGallery() {
   grid.replaceChildren(...metas.map(card).filter(Boolean));
 
   const node = el("div", {}, [
+    homeButton(),
     el("h1", {}, t("gallery.title")),
     el("p.note", { style: { marginBottom: "16px" } }, t("gallery.intro")),
     grid,

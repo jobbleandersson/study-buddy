@@ -6,6 +6,7 @@ import { renderRich } from "../lib/rich.js";
 import { deltaFromAttempt } from "../lib/mastery.js";
 import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
 import { t, plural } from "../lib/i18n.js";
+import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
 
 export function renderResults(attemptId) {
@@ -46,6 +47,7 @@ export function renderResults(attemptId) {
   const deltaEntries = Object.entries(deltas).sort((a, b) => (b[1].after - b[1].before) - (a[1].after - a[1].before));
 
   const node = el("div.results", {}, [
+    el("div", { style: { textAlign: "left" } }, [homeButton()]),
     el("h1", {}, t(great ? "results.great" : "results.nice")),
     el("p.note", {}, heading + (attempt.wasTest ? t("results.testSuffix") : "")),
     ringWrap,

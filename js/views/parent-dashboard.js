@@ -6,6 +6,7 @@
 import { store } from "../store.js";
 import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
 import { t, plural } from "../lib/i18n.js";
+import { homeButton } from "../components/nav.js";
 import { masteryByTopic, masteryForSubject } from "../lib/mastery.js";
 import { dueQuestions } from "../lib/library.js";
 import { currentStreak } from "../lib/activity.js";
@@ -206,6 +207,7 @@ export function renderParentHub() {
   paintInvite();
 
   const node = el("div.settings", {}, [
+    homeButton({ grid: true }),
     el("h1", {}, t("parent.title")),
     invitePanel,
     studentsPanel,
@@ -267,6 +269,7 @@ export async function renderParentStudent(studentUserId) {
     });
 
   const node = el("div.settings", {}, [
+    homeButton({ grid: true }),
     el("h1", {}, t("parent.studentProgressTitle")),
 
     el("section.panel", {}, [

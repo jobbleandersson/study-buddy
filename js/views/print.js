@@ -7,6 +7,7 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { parseCloze } from "../components/questions.js";
 import { t } from "../lib/i18n.js";
+import { homeButton } from "../components/nav.js";
 
 export function renderPrint(id) {
   const a = store.getAssignment(id);
@@ -40,6 +41,7 @@ export function renderPrint(id) {
 
   const node = el("div.printsheet", {}, [
     el("div.psheet__bar", { "data-noprint": "" }, [
+      homeButton(),
       el("a.btn.btn--ghost.btn--sm", { href: `#/edit/${id}` }, [icon(ICONS.back, 16), t("common.back")]),
       el("button.btn.btn--sm", { type: "button", onclick: () => window.print() }, [icon(ICONS.play, 16), t("print.action")]),
     ]),

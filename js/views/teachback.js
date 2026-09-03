@@ -11,6 +11,7 @@ import { t } from "../lib/i18n.js";
 import { gradeAnswer } from "../claude.js";
 import { review, fromCorrect } from "../lib/srs.js";
 import { masteryByTopic } from "../lib/mastery.js";
+import { homeButton } from "../components/nav.js";
 
 const ROUNDS = 3;
 
@@ -41,10 +42,8 @@ export function renderTeachback(subjectId) {
 
   function paint() {
     clear(root);
-    root.appendChild(el("div", { style: { display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" } }, [
-      el("a.iconbtn", { href: "#/progress", "aria-label": t("common.back") }, [icon(ICONS.back, 18)]),
-      el("h1", {}, t("teach.title")),
-    ]));
+    root.appendChild(homeButton());
+    root.appendChild(el("h1", { style: { marginBottom: "8px" } }, t("teach.title")));
     root.appendChild(el("p.note", { style: { marginBottom: "16px" } }, t("teach.intro", { subject: subject.name })));
 
     if (state.round >= topics.length) { root.appendChild(summary()); return; }
