@@ -78,6 +78,15 @@
   --maxw: 1060px;
 }
 
+/* Reading-support options (Settings -> Look & feel). Set on <html> pre-paint
+   by the bootstrap in index.html, so there's no flash. */
+:root[data-font="hyperlegible"] {
+  --font-display: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --font-body:    "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+}
+:root[data-textsize="s"] body { font-size: 13px; }
+:root[data-textsize="l"] body { font-size: 17px; }
+
 @media (prefers-reduced-motion: reduce) {
   * , *::before, *::after {
     animation-duration: .001ms !important;

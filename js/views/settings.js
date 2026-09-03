@@ -6,6 +6,7 @@ import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
 import { PRESETS, DEFAULT_PRESET } from "../claude.js";
 import { THEMES, getTheme, setTheme } from "../lib/theme.js";
+import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
 import { LANGS, getLang, setLang, t, plural } from "../lib/i18n.js";
 import { playFanfare } from "../lib/sound.js";
 
@@ -17,6 +18,21 @@ export function renderSettings() {
     THEMES.map(([v]) => opt(v, t(`set.theme${v[0].toUpperCase()}${v.slice(1)}`))));
   themeSel.value = getTheme();
   themeSel.addEventListener("change", () => { setTheme(themeSel.value); toast(t("set.themeUpdated")); });
+
+  const fontSel = el("select", { "aria-label": t("set.font") }, [
+    opt("system", t("set.fontSystem")),
+    opt("hyperlegible", t("set.fontHyperlegible")),
+  ]);
+  fontSel.value = getFont();
+  fontSel.addEventListener("change", () => { setFont(fontSel.value); toast(t("set.saved")); });
+
+  const sizeSel = el("select", { "aria-label": t("set.textSize") }, [
+    opt("s", t("set.textSizeS")),
+    opt("m", t("set.textSizeM")),
+    opt("l", t("set.textSizeL")),
+  ]);
+  sizeSel.value = getTextSize();
+  sizeSel.addEventListener("change", () => { setTextSize(sizeSel.value); toast(t("set.saved")); });
 
   const langSel = el("select", { "aria-label": t("set.language") },
     LANGS.map(([v, label]) => opt(v, label)));
@@ -145,6 +161,8 @@ export function renderSettings() {
         el("label.field", {}, [el("span", {}, t("set.language")), langSel]),
         el("label.field", {}, [el("span", {}, t("set.sound")), soundSel]),
         el("label.field", {}, [el("span", {}, t("set.dailyGoal")), goalInput]),
+        el("label.field", {}, [el("span", {}, t("set.font")), fontSel]),
+        el("label.field", {}, [el("span", {}, t("set.textSize")), sizeSel]),
       ]),
       el("p.note", {}, t("set.languageNote")),
       el("p.note", {}, t("set.soundNote")),

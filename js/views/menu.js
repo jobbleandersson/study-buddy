@@ -212,6 +212,7 @@ export function renderMenu() {
         const copy = store.duplicateAssignment(a.id);
         if (copy) toast(t("menu.copiedAs", { title: copy.title }));
       }),
+      item(ICONS.play, t("menu.itemPrint"), () => { location.hash = `#/print/${a.id}`; }),
       item(ICONS.trash, t("menu.itemDelete"), () => remove(a), true),
     ]);
 

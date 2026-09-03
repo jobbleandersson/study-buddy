@@ -94,6 +94,7 @@ function seedState() {
     attempts: [],
     srs: {},
     sessions: {},                    // in-progress sessions, keyed by session key
+    onboarded: false,                // has the first-run walkthrough been seen?
     achievements: {},                // { id: unlockedAt } — 0 = "already true when shipped"
     activity: {
       daysStudied: [],               // the real record; the streak is derived from it
@@ -172,6 +173,9 @@ function migrate(state) {
   s.settings = { ...seedState().settings, ...(s.settings || {}) };
   s.activity = { ...seedState().activity, ...(s.activity || {}) };
   s.achievements = s.achievements || {};
+  // Existing users have already "onboarded" by virtue of having data — only a
+  // genuinely fresh seedState() starts with onboarded: false.
+  s.onboarded = s.onboarded ?? ((s.assignments || []).length > 0 || (s.attempts || []).length > 0);
   s.srs = s.srs || {};
   s.sessions = s.sessions || {};
   s.attempts = s.attempts || [];
@@ -282,6 +286,27 @@ class Store extends EventTarget {
     this.save();
     this.emit();
     return added;
+  }
+
+  /** Add one bundled sample set to the library (used by the gallery). Returns
+   *  the assignment, or the existing one if it's already there. */
+  async loadSample(id) {
+    const entry = SAMPLE_FILES.find((e) => e.id === id);
+    if (!entry) return null;
+    const existing = this.getAssignment(id);
+    if (existing) return existing;
+    const doc = await fetch(sampleFileFor(entry)).then((r) => r.json());
+    const a = this.addAssignmentDoc(doc, { silent: true });
+    a._sampleLang = getLang();
+    this.save();
+    this.emit();
+    return a;
+  }
+
+  /** True once the first-run walkthrough has been seen or skipped. */
+  markOnboarded() {
+    if (this.state.onboarded) return;
+    this.update((s) => { s.onboarded = true; });
   }
 
   /** Demo sets are examples, not the student's own content, so they follow the

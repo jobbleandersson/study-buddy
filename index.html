@@ -14,7 +14,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Baloo+2:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
   <!-- Set the palette and language before first paint, so there's no flash of
        the wrong theme and <html lang> is right for screen readers from the start. -->
@@ -26,6 +26,15 @@
         root.setAttribute("data-theme", ["light", "dark", "system"].indexOf(t) >= 0 ? t : "system");
       } catch (e) {
         root.setAttribute("data-theme", "system");
+      }
+      try {
+        var f = localStorage.getItem("studybuddy.font");
+        root.setAttribute("data-font", f === "hyperlegible" ? "hyperlegible" : "system");
+        var sz = localStorage.getItem("studybuddy.textSize");
+        root.setAttribute("data-textsize", ["s", "m", "l"].indexOf(sz) >= 0 ? sz : "m");
+      } catch (e) {
+        root.setAttribute("data-font", "system");
+        root.setAttribute("data-textsize", "m");
       }
       try {
         var supported = ["en", "sv"];

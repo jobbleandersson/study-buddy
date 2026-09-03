@@ -36,8 +36,33 @@ export function questionEditor(doc, { onChange } = {}) {
     changed();
   }
 
+  function move(from, to) {
+    if (to < 0 || to >= doc.questions.length || from === to) return;
+    const [q] = doc.questions.splice(from, 1);
+    doc.questions.splice(to, 0, q);
+    paint();
+  }
+
   function questionBlock(q, idx) {
-    const wrap = el("div.qedit");
+    const wrap = el("div.qedit", { dataset: { i: String(idx) } });
+    // Only the grip starts a drag — leaving text selection inside the fields alone.
+    const grip = el("span.qedit__grip", {
+      draggable: "true", title: t("ed.dragReorder"), "aria-hidden": "true",
+    }, "⠿");
+    grip.addEventListener("dragstart", (e) => {
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.setData("text/plain", String(idx));
+      wrap.classList.add("is-dragging");
+    });
+    grip.addEventListener("dragend", () => wrap.classList.remove("is-dragging"));
+    wrap.addEventListener("dragover", (e) => { e.preventDefault(); wrap.classList.add("is-dragover"); });
+    wrap.addEventListener("dragleave", () => wrap.classList.remove("is-dragover"));
+    wrap.addEventListener("drop", (e) => {
+      e.preventDefault();
+      wrap.classList.remove("is-dragover");
+      const from = Number(e.dataTransfer.getData("text/plain"));
+      if (!Number.isNaN(from)) move(from, idx);
+    });
 
     const promptTa = el("textarea", {
       rows: "2", "aria-label": t("ed.qTextAria", { n: idx + 1 }),
@@ -126,10 +151,19 @@ export function questionEditor(doc, { onChange } = {}) {
     });
 
     wrap.appendChild(el("div.qedit__row", {}, [
+      grip,
       el("span.badge", {}, t("ed.qBadge", { n: idx + 1 })),
       kindSel,
       topicInput,
       el("span", { style: { flex: "1" } }),
+      el("button.iconbtn.iconbtn--sm", {
+        type: "button", "aria-label": t("ed.moveUp", { n: idx + 1 }), disabled: idx === 0,
+        onclick: () => move(idx, idx - 1),
+      }, "↑"),
+      el("button.iconbtn.iconbtn--sm", {
+        type: "button", "aria-label": t("ed.moveDown", { n: idx + 1 }), disabled: idx === doc.questions.length - 1,
+        onclick: () => move(idx, idx + 1),
+      }, "↓"),
       el("button.iconbtn.iconbtn--sm", {
         type: "button", "aria-label": t("ed.deleteQuestion", { n: idx + 1 }), title: t("ed.deleteQuestionTitle"),
         style: { color: "var(--retry-ink)" },

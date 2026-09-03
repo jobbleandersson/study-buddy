@@ -16,6 +16,10 @@ import { renderProgress } from "./views/progress.js";
 import { renderSettings } from "./views/settings.js";
 import { renderLogin } from "./views/login.js";
 import { renderParentHub, renderParentStudent } from "./views/parent-dashboard.js";
+import { renderGallery } from "./views/gallery.js";
+import { renderPrint } from "./views/print.js";
+import { mountCommandPalette } from "./components/command-palette.js";
+import { maybeShowOnboarding } from "./components/onboarding.js";
 
 const app = document.getElementById("app");
 
@@ -30,6 +34,8 @@ const routes = [
   { rx: /^\/results\/(.+)$/, view: (m) => renderResults(m[1]) },
   { rx: /^\/progress$/, view: () => renderProgress() },
   { rx: /^\/settings$/, view: () => renderSettings() },
+  { rx: /^\/gallery$/, view: () => renderGallery() },
+  { rx: /^\/print\/(.+)$/, view: (m) => renderPrint(m[1]) },
   { rx: /^\/login$/, view: () => renderLogin() },
   { rx: /^\/parent$/, view: () => renderParentHub() },
   { rx: /^\/parent\/(.+)$/, view: (m) => renderParentStudent(m[1]) },
@@ -148,9 +154,12 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   });
 }
 
+mountCommandPalette();
+
 store.init().then(() => {
   applyLang();
   render();
+  maybeShowOnboarding();
   // Bring any demo sets loaded in a different language up to date.
   store.syncDemoLanguage();
   // After first paint, keep menu/progress fresh when the store changes.
