@@ -286,25 +286,73 @@ a.streakbadge:hover {
 .daymenu { z-index: 60; min-width: 190px; }
 .daymenu__dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
 
-/* ---------- home: deadline rail + library ---------- */
-.home__cols {
-  display: grid; grid-template-columns: 264px minmax(0, 1fr);
-  gap: var(--s-6); align-items: start;
+/* ---------- home: "Today" + "Your sets" panels ---------- */
+.home-panel {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-1);
+  padding: var(--s-4) var(--s-5); margin-bottom: var(--s-5);
 }
-.home__cols--solo { grid-template-columns: 1fr; }
-.home__main { min-width: 0; }
-.home__rail { position: sticky; top: calc(var(--s-4) + 56px); }
+.home-panel__label {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
+  font-family: var(--font-display); font-weight: 700; font-size: var(--fs-md);
+  color: var(--ink); margin-bottom: var(--s-3);
+}
 
-@media (max-width: 900px) {
-  .home__cols { grid-template-columns: 1fr; gap: var(--s-5); }
-  /* The library is the main thing on a small screen; deadlines follow it. */
-  .home__rail { position: static; order: 2; }
-  .home__rail .upcoming { max-width: 520px; }
+/* "Continue where you left off" — the wide banner at the top of Today. */
+.continue-banner {
+  display: flex; align-items: center; gap: var(--s-3); text-decoration: none;
+  padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
+  background: var(--brand-tint); border: 1px solid var(--brand); border-left-width: 4px;
+  color: inherit; margin-bottom: var(--s-3);
+  transition: box-shadow var(--dur-fast);
 }
-@media (max-width: 620px) {
-  /* Below this the month grid is more bulk than help at the foot of the page
-     — the list already says when everything is due. */
-  .home__rail .cal { display: none; }
+.continue-banner:hover { box-shadow: 0 4px 20px -6px color-mix(in srgb, var(--brand) 55%, transparent); }
+.continue-banner__ic {
+  width: 34px; height: 34px; flex: none; border-radius: var(--r-full);
+  display: grid; place-items: center; background: var(--brand); color: #fff;
+}
+.continue-banner__body { flex: 1; min-width: 0; }
+.continue-banner__body strong { display: block; font-family: var(--font-display); color: var(--brand-ink); }
+.continue-banner__body span { display: block; font-size: var(--fs-sm); color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.continue-banner__go { flex: none; font-family: var(--font-display); font-weight: 700; font-size: var(--fs-sm); color: var(--brand-ink); }
+.continue-banner__go::after { content: " ›"; }
+
+/* the small stat pills below the banner */
+.pillrow { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.pill {
+  display: inline-flex; align-items: center; gap: var(--s-2); text-decoration: none;
+  font-size: var(--fs-sm); font-weight: 700; color: var(--ink-soft);
+  padding: 6px var(--s-3); border-radius: var(--r-full);
+  background: var(--surface); border: 1px solid var(--line-strong);
+  transition: transform var(--dur-fast) var(--ease-spring);
+}
+.pill:hover { transform: translateY(-1px); color: var(--ink); }
+.pill__ic { width: 18px; height: 18px; flex: none; border-radius: var(--r-full); display: grid; place-items: center; background: var(--surface-sunk); color: var(--ink-soft); }
+.pill .ring { width: 26px; height: 26px; flex: none; }
+.pill--due .pill__ic { background: var(--brand); color: #fff; }
+.pill--weak { border-color: color-mix(in srgb, var(--c-berry) 45%, var(--line-strong)); }
+.pill--weak .pill__ic { background: var(--c-berry); color: #fff; }
+.pill--streak { border-color: color-mix(in srgb, var(--retry) 45%, var(--line-strong)); }
+.pill--streak .pill__ic { background: var(--retry); color: #2B2B3A; }
+.pill--goal { border-color: color-mix(in srgb, var(--ok-bright) 45%, var(--line-strong)); }
+:root[data-theme="dark"] .pill--streak .pill__ic { color: #21170C; }
+
+/* "Filter" toggle + the collapsible drawer holding sort + subject chips */
+.filtertoggle .caret { display: inline-block; margin-left: 4px; transition: transform var(--dur-fast); }
+.filtertoggle.is-on .caret { transform: rotate(180deg); }
+.filterdrawer { display: flex; flex-direction: column; gap: var(--s-3); margin: var(--s-2) 0 var(--s-3); }
+.filterdrawer .sortsel { align-self: flex-start; }
+
+/* calendar / upcoming, shown in a dialog off the Today panel */
+.caldialog { max-width: 460px; }
+.caldialog__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); margin-bottom: var(--s-3); }
+.caldialog__head h3 { display: flex; align-items: center; gap: var(--s-2); }
+.caldialog .upcoming { margin-bottom: 0; }
+
+@media (max-width: 480px) {
+  /* In the calendar dialog on a phone the month grid is more bulk than help —
+     the Upcoming list already says when everything is due. */
+  .caldialog .cal { display: none; }
 }
 
 /* ---------- upcoming deadlines ---------- */
@@ -693,18 +741,19 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .cmd__row.is-sel { background: var(--brand-tint); }
 .cmd__sub { font-size: 12px; color: var(--ink-faint); flex: none; }
 
-/* Weekly recap card on the menu */
+/* Weekly recap — a slim line at the top of the Today panel */
 .recap {
   display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
-  padding: var(--s-3) var(--s-4); margin-bottom: var(--s-4);
-  border-radius: var(--r-md); border: 1px solid var(--brand);
-  background: var(--brand-tint);
+  padding: 6px var(--s-3); margin-bottom: var(--s-3);
+  border-radius: var(--r-sm); border: 1px solid var(--line);
+  background: var(--surface-sunk); font-size: var(--fs-sm);
 }
-.recap strong { font-family: var(--font-display); display: block; }
-.recap__body { font-size: var(--fs-sm); color: var(--ink-soft); }
+.recap > div { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; min-width: 0; }
+.recap strong { font-family: var(--font-display); }
+.recap__body { color: var(--ink-soft); }
 .recap__x {
   flex: none; border: none; background: none; cursor: pointer;
-  font-size: 20px; line-height: 1; color: var(--ink-soft); padding: 4px;
+  font-size: 18px; line-height: 1; color: var(--ink-faint); padding: 2px 4px;
 }
 .recap__x:hover { color: var(--ink); }
 

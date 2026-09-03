@@ -107,7 +107,12 @@ export const STRINGS = {
     "menu.upcomingStudyAria": "Study {title} now",
     "menu.upcomingAll": "Show all ({n})",
     "menu.upcomingLess": "Show fewer",
+    "menu.upcomingCount": "Upcoming ({n})",
     "menu.dueLabel": "Due {date}",
+    "menu.panelToday": "Today",
+    "menu.panelSets": "Your sets",
+    "menu.filter": "Filter",
+    "menu.resumeGo": "Continue",
 
     /* ---- due date dialog ---- */
     "due.title": "Due date",
@@ -950,7 +955,12 @@ export const STRINGS = {
     "menu.upcomingStudyAria": "Plugga {title} nu",
     "menu.upcomingAll": "Visa alla ({n})",
     "menu.upcomingLess": "Visa färre",
+    "menu.upcomingCount": "Kommande ({n})",
     "menu.dueLabel": "Deadline {date}",
+    "menu.panelToday": "Idag",
+    "menu.panelSets": "Dina set",
+    "menu.filter": "Filter",
+    "menu.resumeGo": "Fortsätt",
 
     /* ---- due date dialog ---- */
     "due.title": "Deadline",
