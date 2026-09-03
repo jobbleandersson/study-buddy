@@ -214,8 +214,8 @@ export function monthCalendar({ marks = new Map(), onPick } = {}) {
           cell.key === today && "is-today",
           mark && "is-marked",
         ].filter(Boolean).join(" "),
-        onclick: mark && onPick ? () => onPick(cell.key, mark) : undefined,
-      }, [String(cell.date.getDate()), mark && el("span.cal__dot")]);
+        onclick: mark && onPick ? (e) => onPick(cell.key, mark, e.currentTarget) : undefined,
+      }, [String(cell.date.getDate()), mark && el("span.cal__dot" + (mark.ids.length > 1 ? ".cal__dot--multi" : ""))]);
       grid.appendChild(node);
     }
   }

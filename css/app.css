@@ -251,13 +251,32 @@ a.streakbadge:hover {
 .tile--resume .tile__icon { background: var(--brand); color: #fff; }
 .tile--resume strong { color: var(--brand-ink); }
 
-/* Streak tile — matches the warm glow of the top-bar streak badge. */
+/* Streak / goal / weak-spot tiles all get the same glowing treatment as the
+   top-bar streak badge, each in its own colour. */
 .tile--streak {
   border-color: color-mix(in srgb, var(--retry) 55%, var(--line));
   box-shadow: 0 2px 16px -4px color-mix(in srgb, var(--retry) 60%, transparent);
 }
 .tile--streak .tile__icon { background: var(--retry); color: #2B2B3A; }
 :root[data-theme="dark"] .tile--streak .tile__icon { color: #21170C; }
+
+.tile--goal {
+  border-color: color-mix(in srgb, var(--ok-bright) 55%, var(--line));
+  box-shadow: 0 2px 16px -4px color-mix(in srgb, var(--ok-bright) 60%, transparent);
+}
+.tile--goal:hover { box-shadow: 0 5px 22px -5px color-mix(in srgb, var(--ok-bright) 65%, transparent); }
+
+.tile--weak {
+  border-color: color-mix(in srgb, var(--c-berry) 55%, var(--line));
+  box-shadow: 0 2px 16px -4px color-mix(in srgb, var(--c-berry) 60%, transparent);
+}
+.tile--weak:hover { box-shadow: 0 5px 22px -5px color-mix(in srgb, var(--c-berry) 65%, transparent); }
+.tile--weak .tile__icon { background: var(--c-berry); color: #fff; }
+:root[data-theme="dark"] .tile--weak .tile__icon { color: #3B1E2B; }
+
+/* Calendar day chooser: subject dot in each row. */
+.daymenu { z-index: 60; min-width: 190px; }
+.daymenu__dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
 
 /* ---------- home: deadline rail + library ---------- */
 .home__cols {
@@ -370,6 +389,8 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
   width: 5px; height: 5px; border-radius: var(--r-full); background: var(--brand);
 }
+/* More than one deadline that day — a wider pill hints "there's a few". */
+.cal__dot--multi { width: 12px; }
 .cal__cell.is-marked { color: var(--brand-ink); font-weight: 700; }
 .cal--mini .cal__cell.is-marked:hover { background: var(--brand-tint); }
 

@@ -368,8 +368,46 @@ export function renderMenu() {
   return {
     title: t("menu.title"),
     node,
-    cleanup: () => { closeCardMenu(); closeDueDialog(); },
+    cleanup: () => { closeCardMenu(); closeDueDialog(); closeDayChooser(); },
   };
+}
+
+/* ---------------- calendar day chooser (2+ deadlines on one day) ---------- */
+
+let dayMenuEl = null;
+function dayChooserDocClick(e) { if (dayMenuEl && !dayMenuEl.contains(e.target)) closeDayChooser(); }
+function dayChooserEsc(e) { if (e.key === "Escape") closeDayChooser(); }
+function closeDayChooser() {
+  dayMenuEl?.remove();
+  dayMenuEl = null;
+  document.removeEventListener("click", dayChooserDocClick, true);
+  document.removeEventListener("keydown", dayChooserEsc);
+}
+function openDayChooser(anchor, mark) {
+  closeDayChooser();
+  const menu = el("div.cardmenu.daymenu", { role: "menu" },
+    mark.items.map((a) => {
+      const color = store.subjectColor(a.subjectId);
+      return el("a.cardmenu__item", {
+        href: `#/session/${a.id}`, role: "menuitem",
+        onclick: () => closeDayChooser(),
+      }, [
+        el("span.daymenu__dot", { style: { background: color.solid } }),
+        el("span", {}, a.title),
+      ]);
+    }));
+
+  const r = anchor.getBoundingClientRect();
+  menu.style.top = `${r.bottom + window.scrollY + 4}px`;
+  menu.style.left = `${Math.max(8, Math.min(r.left + window.scrollX, window.innerWidth - 210))}px`;
+  document.body.appendChild(menu);
+  dayMenuEl = menu;
+  menu.querySelector("a")?.focus();
+
+  setTimeout(() => {
+    document.addEventListener("click", dayChooserDocClick, true);
+    document.addEventListener("keydown", dayChooserEsc);
+  }, 0);
 }
 
 /** A once-a-week summary card, shown on the menu until dismissed. */
@@ -430,7 +468,9 @@ function todayStrip() {
   }
 
   if (weak) {
-    tiles.push(tile("#/practice-weak", ICONS.target, t("menu.tileWeak"), t("menu.tileWeakSub")));
+    const w = tile("#/practice-weak", ICONS.target, t("menu.tileWeak"), t("menu.tileWeakSub"));
+    w.classList.add("tile--weak");
+    tiles.push(w);
   }
 
   if (streak > 0) {
@@ -487,17 +527,20 @@ function deadlineRail() {
   const items = store.upcomingDue();
   if (!items.length) return null;
 
-  // day key -> { ids, titles } for the calendar dots.
+  // day key -> { ids, titles, items } for the calendar dots + the day chooser.
   const marks = new Map();
   for (const a of items) {
-    const m = marks.get(a.dueAt) || { ids: [], titles: [] };
-    m.ids.push(a.id); m.titles.push(a.title);
+    const m = marks.get(a.dueAt) || { ids: [], titles: [], items: [] };
+    m.ids.push(a.id); m.titles.push(a.title); m.items.push(a);
     marks.set(a.dueAt, m);
   }
 
   const cal = monthCalendar({
     marks,
-    onPick: (_day, mark) => { location.hash = `#/session/${mark.ids[0]}`; },
+    onPick: (_day, mark, cellEl) => {
+      if (mark.items.length === 1) { location.hash = `#/session/${mark.items[0].id}`; return; }
+      openDayChooser(cellEl, mark);
+    },
   });
 
   const list = el("div.upcoming__list");
