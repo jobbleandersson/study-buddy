@@ -201,6 +201,13 @@ function migrate(state) {
         if (remap.has(a.subjectId)) a.subjectId = remap.get(a.subjectId);
       }
     }
+
+    // Drop subjects nothing uses — the English starter list and any orphan left
+    // behind by a demo. ensureSubject() recreates one the moment a set needs it.
+    const used = new Set(s.assignments.map((a) => a.subjectId));
+    if (s.subjects.some((x) => !used.has(x.id))) {
+      s.subjects = s.subjects.filter((x) => used.has(x.id));
+    }
   }
 
   return s;

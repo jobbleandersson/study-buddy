@@ -1,6 +1,9 @@
-// A subject input with one-tap chips for every subject that already exists,
-// so a new set lands under the same subject as its siblings instead of a
-// near-duplicate ("Science" vs "science"). Typing a new name still works.
+// A subject input with one-tap chips for the subjects already in use, so a
+// new set lands under the same subject as its siblings instead of a near-
+// duplicate ("Science" vs "science"). Typing a new name still works.
+//
+// Only subjects that have at least one set are offered — the empty starter
+// subjects and any orphaned leftovers stay out of the way.
 
 import { el } from "../lib/dom.js";
 import { store } from "../store.js";
@@ -22,7 +25,10 @@ export function subjectField({ value = "", onChange } = {}) {
       c.setAttribute("aria-pressed", String(c.dataset.name.toLowerCase() === cur)));
   }
 
-  for (const s of store.subjects) {
+  const inUse = new Set(store.assignments.map((a) => a.subjectId));
+  const subjects = store.subjects.filter((s) => inUse.has(s.id));
+
+  for (const s of subjects) {
     const color = store.subjectColor(s.id);
     chipRow.appendChild(el("button.chip", {
       type: "button",
@@ -35,7 +41,7 @@ export function subjectField({ value = "", onChange } = {}) {
 
   const wrap = el("div.subjectfield", {}, [
     input,
-    store.subjects.length ? chipRow : null,
+    subjects.length ? chipRow : null,
   ].filter(Boolean));
 
   return { el: wrap, getValue: () => input.value.trim() };
