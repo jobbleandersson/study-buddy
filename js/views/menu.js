@@ -71,18 +71,26 @@ export function renderMenu() {
   }
 
   function paint() {
-    // subject chips, limited to subjects present in this tab
+    // subject chips: subjects present in this tab, plus any the user added
+    // ahead of time (dimmed until they have a set), then a "+ add" control.
     clear(chipsRow);
     const inTab = store.assignments.filter((a) => a.type === tab);
     chipsRow.appendChild(chip(t("menu.chipAll"), "all", null));
     for (const s of store.subjects) {
-      if (!inTab.some((a) => a.subjectId === s.id)) continue;
-      chipsRow.appendChild(chip(s.name, s.id, store.subjectColor(s.id)));
+      const hasSets = inTab.some((a) => a.subjectId === s.id);
+      if (!hasSets && !s.pinned) continue;
+      const c = chip(s.name, s.id, store.subjectColor(s.id));
+      if (!hasSets) c.classList.add("chip--empty");
+      chipsRow.appendChild(c);
     }
-    if (subjectFilter !== "all" && !inTab.some((a) => a.subjectId === subjectFilter)) {
+    if (subjectFilter !== "all"
+        && !inTab.some((a) => a.subjectId === subjectFilter)
+        && !store.subjects.some((s) => s.id === subjectFilter && s.pinned)) {
       subjectFilter = "all";
     }
-    chipsRow.hidden = chipsRow.children.length <= 1;
+    chipsRow.appendChild(addSubjectChip());
+    // Always shown now — it carries the "add a subject" control.
+    chipsRow.hidden = false;
 
     // Search + sort only earn their space once there's enough to sift through —
     // but never hide them while a query is active, or the filter becomes
@@ -122,6 +130,39 @@ export function renderMenu() {
       onclick: () => { subjectFilter = value; paint(); },
       style: color ? { "--subject": color.solid, "--subject-ink": color.ink } : {},
     }, [color && el("span.chip__dot"), label].filter(Boolean));
+  }
+
+  /** The "+ add subject" control at the end of the chip row. Click it to type a
+   *  name inline; the subject is created (pinned) and selected as the filter. */
+  function addSubjectChip() {
+    const btn = el("button.chip.chip--add", {
+      type: "button", "aria-label": t("menu.addSubject"), title: t("menu.addSubject"),
+    }, [icon(ICONS.plus, 14)]);
+
+    btn.addEventListener("click", () => {
+      let done = false;
+      const commit = (raw) => {
+        if (done) return;
+        done = true;
+        const name = (raw || "").trim();
+        if (!name) { paint(); return; }
+        const s = store.addSubject(name);           // fires "change" → menu re-renders
+        if (s) toast(t("menu.subjectAdded", { name: s.name }));
+        else paint();
+      };
+      const inp = el("input.chip.chip--addinput", {
+        type: "text", placeholder: t("menu.addSubjectPh"), "aria-label": t("menu.addSubject"),
+        onblur: () => commit(inp.value),
+        onkeydown: (e) => {
+          if (e.key === "Enter") { e.preventDefault(); commit(inp.value); }
+          else if (e.key === "Escape") { done = true; inp.replaceWith(btn); }
+        },
+      });
+      btn.replaceWith(inp);
+      inp.focus();
+    });
+
+    return btn;
   }
 
   function card(a, tm) {

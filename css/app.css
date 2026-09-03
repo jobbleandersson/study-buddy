@@ -222,6 +222,14 @@ a.streakbadge:hover {
 .chip__dot { width: 10px; height: 10px; border-radius: var(--r-full); background: var(--subject, var(--ink-faint)); }
 .chip[aria-pressed="true"] { color: #fff; background: var(--subject-ink, var(--brand)); border-color: transparent; }
 .chip[aria-pressed="true"] .chip__dot { background: rgba(255,255,255,.85); }
+/* A subject the user pre-added — no sets under it yet. */
+.chip--empty:not([aria-pressed="true"]) { opacity: .5; }
+/* "+ add subject" control at the end of the row, and its inline input. */
+.chip--add { color: var(--ink-faint); border-style: dashed; padding-inline: 9px; }
+.chip--add:hover { color: var(--brand); border-color: var(--brand); }
+.chip--add svg { display: block; }
+.chip--addinput { width: 130px; font: inherit; font-size: var(--fs-sm); font-weight: 600; padding: 5px var(--s-3); color: var(--ink); }
+.chip--addinput:focus-visible { border-color: var(--brand); outline: none; }
 
 /* ---------- today strip ---------- */
 .today { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--s-3); margin-bottom: var(--s-4); }

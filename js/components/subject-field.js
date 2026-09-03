@@ -26,7 +26,7 @@ export function subjectField({ value = "", onChange } = {}) {
   }
 
   const inUse = new Set(store.assignments.map((a) => a.subjectId));
-  const subjects = store.subjects.filter((s) => inUse.has(s.id));
+  const subjects = store.subjects.filter((s) => inUse.has(s.id) || s.pinned);
 
   for (const s of subjects) {
     const color = store.subjectColor(s.id);

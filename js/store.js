@@ -203,10 +203,11 @@ function migrate(state) {
     }
 
     // Drop subjects nothing uses — the English starter list and any orphan left
-    // behind by a demo. ensureSubject() recreates one the moment a set needs it.
+    // behind by a demo. A pinned subject (the user named it deliberately) and
+    // one with sets both stay. ensureSubject() recreates any other on demand.
     const used = new Set(s.assignments.map((a) => a.subjectId));
-    if (s.subjects.some((x) => !used.has(x.id))) {
-      s.subjects = s.subjects.filter((x) => used.has(x.id));
+    if (s.subjects.some((x) => !used.has(x.id) && !x.pinned)) {
+      s.subjects = s.subjects.filter((x) => used.has(x.id) || x.pinned);
     }
   }
 
@@ -474,6 +475,26 @@ class Store extends EventTarget {
       this.state.subjects.push(s);
     }
     return s;
+  }
+
+  /** Add a subject the user named deliberately (from the home menu). `pinned`
+   *  keeps it around even with no sets yet — migrate() won't prune it. */
+  addSubject(name) {
+    const clean = (name || "").trim();
+    if (!clean) return null;
+    let created = null;
+    this.update((s) => {
+      let x = s.subjects.find((y) => y.name.toLowerCase() === clean.toLowerCase());
+      if (!x) {
+        const used = new Set(s.subjects.map((y) => y.color));
+        const color = (PALETTE.find((c) => !used.has(c.name)) || PALETTE[s.subjects.length % PALETTE.length]).name;
+        x = { id: uid(), name: clean, color };
+        s.subjects.push(x);
+      }
+      x.pinned = true;
+      created = x;
+    });
+    return created;
   }
 
   // ---------- assignments ----------

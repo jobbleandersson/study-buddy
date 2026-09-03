@@ -36,7 +36,7 @@ export function renderCreate(prefill) {
   const prefillSubject = prefill?.get?.("subject");
   const state = {
     step: "source",           // source | input | generating | review
-    source: null,             // paste | pdf | photo | topic | import | blank | nationalprov
+    source: null,             // paste | pdf | photo | import | blank | nationalprov
     material: "",
     topic: "",
     image: null,
@@ -125,7 +125,6 @@ export function renderCreate(prefill) {
         opt("paste", "📝", t("create.optPaste"), t("create.optPasteSub")),
         opt("pdf", "📄", t("create.optPdf"), t("create.optPdfSub")),
         opt("photo", "📷", t("create.optPhoto"), t("create.optPhotoSub")),
-        opt("topic", "💡", t("create.optTopic"), t("create.optTopicSub")),
         opt("import", "📋", t("create.optImport"), t("create.optImportSub")),
         opt("blank", "✏️", t("create.optBlank"), t("create.optBlankSub")),
         opt("nationalprov", "🎓", t("create.optNational"), t("create.optNationalSub")),
@@ -243,15 +242,6 @@ export function renderCreate(prefill) {
         }, [icon(ICONS.spark, 16), t("create.splitEach", { n: secs.length })]));
       }
       refreshSplit();
-    }
-
-    if (state.source === "topic") {
-      const ti = el("input", { type: "text", placeholder: t("create.topicPlaceholder"), oninput: (e) => { state.topic = e.target.value; } });
-      ti.value = state.topic;
-      body.appendChild(el("label.field", {}, [el("span", {}, t("create.topic")), ti]));
-      const gi = el("input", { type: "text", placeholder: t("create.gradePlaceholder"), oninput: (e) => { state.gradeHint = e.target.value; } });
-      gi.value = state.gradeHint;
-      body.appendChild(el("label.field", {}, [el("span", {}, t("create.grade")), gi]));
     }
 
     if (state.source === "pdf") appendPdfOrZipField(body);
