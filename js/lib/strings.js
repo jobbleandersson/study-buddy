@@ -736,6 +736,14 @@ export const STRINGS = {
     "create.importNone": "Couldn't find any term / definition pairs.",
     "create.importBuild": "Build the set",
 
+    "create.optBlank": "Build it myself",
+    "create.optBlankSub": "A blank set to fill in — no AI",
+    "create.blankHint": "Starts you off with a few editable questions of each kind. Handy for trying the app out.",
+    "create.blankBuild": "Create blank set",
+    "create.blankTitle": "Untitled set",
+    "create.blankQ": "Sample question {n} — edit me",
+    "create.blankCloze": "Sample {n}: the capital of France is {{Paris}}",
+
     "create.needKeyShort": "Add a Claude key in Settings to use this",
     "create.splitFound": "Looks like {n} sections in here.",
     "create.splitEach": "Make a set for each ({n})",
@@ -1535,6 +1543,14 @@ export const STRINGS = {
     "create.importFound": "Hittade {n} kort",
     "create.importNone": "Kunde inte hitta några term-/definitionspar.",
     "create.importBuild": "Skapa setet",
+
+    "create.optBlank": "Bygg själv",
+    "create.optBlankSub": "Ett tomt set att fylla i — ingen AI",
+    "create.blankHint": "Ger dig några redigerbara frågor av varje typ att börja med. Bra för att testa appen.",
+    "create.blankBuild": "Skapa tomt set",
+    "create.blankTitle": "Namnlöst set",
+    "create.blankQ": "Exempelfråga {n} — redigera mig",
+    "create.blankCloze": "Exempel {n}: Frankrikes huvudstad är {{Paris}}",
 
     "create.needKeyShort": "Lägg till en Claude-nyckel i Inställningar för att använda detta",
     "create.splitFound": "Ser ut som {n} avsnitt här.",

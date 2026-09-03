@@ -14,12 +14,28 @@ import { localDayKey } from "../lib/activity.js";
 import { datePicker } from "../components/calendar.js";
 import { NATIONAL_TEST_LEVELS, NATIONAL_TEST_SUBJECTS, nationalSubjectName } from "../data/national-tests.js";
 
+// Starter questions for a "build it myself" set — one of each kind, cycling.
+// Prompts are filled so the set saves and runs straight away; answers are
+// placeholders the student can edit (or leave blank while testing).
+const BLANK_KINDS = ["mc", "text", "cloze", "flashcard", "worked"];
+function blankQuestions(n) {
+  return Array.from({ length: Math.max(1, n || 5) }, (_, i) => {
+    const kind = BLANK_KINDS[i % BLANK_KINDS.length];
+    const q = { id: uid(), topic: "demo", kind, prompt: t("create.blankQ", { n: i + 1 }) };
+    if (kind === "mc") { q.choices = ["A", "B", "C"]; q.answer = 0; }
+    else if (kind === "cloze") { q.prompt = t("create.blankCloze", { n: i + 1 }); }
+    else if (kind === "worked") { q.answer = ""; q.steps = []; }
+    else { q.answer = ""; }
+    return q;
+  });
+}
+
 export function renderCreate(prefill) {
   const root = el("div");
   const prefillSubject = prefill?.get?.("subject");
   const state = {
     step: "source",           // source | input | generating | review
-    source: null,             // paste | pdf | photo | topic | nationalprov
+    source: null,             // paste | pdf | photo | topic | import | blank | nationalprov
     material: "",
     topic: "",
     image: null,
@@ -110,6 +126,7 @@ export function renderCreate(prefill) {
         opt("photo", "📷", t("create.optPhoto"), t("create.optPhotoSub")),
         opt("topic", "💡", t("create.optTopic"), t("create.optTopicSub")),
         opt("import", "📋", t("create.optImport"), t("create.optImportSub")),
+        opt("blank", "✏️", t("create.optBlank"), t("create.optBlankSub")),
         opt("nationalprov", "🎓", t("create.optNational"), t("create.optNationalSub")),
       ]),
       !store.hasKey() && el("p.note.note--warn", { style: { marginTop: "16px" } }, [
@@ -381,6 +398,36 @@ export function renderCreate(prefill) {
         el("div.nav-row", {}, [
           el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "source"; paint(); } }, t("common.back")),
           el("button.btn", { type: "button", onclick: buildFromImport }, [icon(ICONS.check, 18), t("create.importBuild")]),
+        ]),
+      ]);
+    }
+
+    // A blank set — no AI. Drops straight into the editor with a few starter
+    // questions of each kind (blank answers OK), for trying the app out.
+    function buildBlank() {
+      state.doc = {
+        title: t("create.blankTitle"),
+        subject: state.subject.trim() || t("common.general"),
+        type: state.type,
+        sourceSummary: "",
+        topics: ["demo"],
+        questions: blankQuestions(state.count),
+      };
+      state.step = "review"; paint();
+    }
+
+    if (state.source === "blank") {
+      return el("div.panel", {}, [
+        el("p.note", { style: { marginBottom: "12px" } }, t("create.blankHint")),
+        datalist,
+        el("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" } }, [
+          el("label.field", {}, [el("span", {}, t("create.subject")), subjectInput]),
+          el("label.field", {}, [el("span", {}, t("create.type")), typeSel]),
+        ]),
+        el("label.field", { style: { maxWidth: "160px" } }, [el("span", {}, t("create.howMany")), countInput]),
+        el("div.nav-row", {}, [
+          el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "source"; paint(); } }, t("common.back")),
+          el("button.btn", { type: "button", onclick: buildBlank }, [icon(ICONS.check, 18), t("create.blankBuild")]),
         ]),
       ]);
     }
