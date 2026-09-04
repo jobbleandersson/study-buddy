@@ -183,7 +183,11 @@ export function datePicker({ value = "", min = "", max = "", onChange } = {}) {
 /*  monthCalendar — read-only, dots on marked days                     */
 /* ------------------------------------------------------------------ */
 
-export function monthCalendar({ marks = new Map(), onPick } = {}) {
+/** `onView(start, end)` fires on every paint — initial and after paging —
+ *  with the day-key range of the actual displayed month (not the grid's
+ *  dimmed lead/trail days from neighbouring months), so a caller can filter
+ *  its own list to match. */
+export function monthCalendar({ marks = new Map(), onPick, onView } = {}) {
   const today = localDayKey();
   const now = new Date();
   let viewY = now.getFullYear();
@@ -218,6 +222,8 @@ export function monthCalendar({ marks = new Map(), onPick } = {}) {
       }, [String(cell.date.getDate()), mark && el("span.cal__dot" + (mark.ids.length > 1 ? ".cal__dot--multi" : ""))]);
       grid.appendChild(node);
     }
+    // The actual month, not the grid's dimmed lead/trail days from neighbours.
+    onView?.(keyOf(new Date(viewY, viewM, 1)), keyOf(new Date(viewY, viewM + 1, 0)));
   }
   paint();
 
@@ -232,9 +238,10 @@ export function monthCalendar({ marks = new Map(), onPick } = {}) {
  *  as monthCalendar so a visitor can page to last/next week. Starts on the
  *  current week. The compact form of monthCalendar() for tight spaces (the
  *  home rail, collapsed) — no weekday-letter header, to keep it light; the
- *  Upcoming list right below already spells out each day. `onView(hasMarks)`
- *  fires on every paint — initial and after paging — so the caller can
- *  show/hide an empty-state message for whichever week is currently in view. */
+ *  Upcoming list right below already spells out each day. `onView(start, end)`
+ *  fires on every paint — initial and after paging — with the day keys of
+ *  the visible week, so the caller can filter its own list/empty-state to
+ *  match whichever week is currently in view. */
 export function weekStrip({ marks = new Map(), onPick, onView } = {}) {
   const today = localDayKey();
   let weekStart = addDays(keyOf(new Date()), -mondayIndex(new Date()));
@@ -258,12 +265,10 @@ export function weekStrip({ marks = new Map(), onPick, onView } = {}) {
     head.appendChild(navHeader(rangeLabel(), () => shiftWeek(-1), () => shiftWeek(1), "cal.prevWeek", "cal.nextWeek"));
 
     clear(grid);
-    let hasMarks = false;
     for (let i = 0; i < 7; i++) {
       const key = addDays(weekStart, i);
       const date = parseKey(key);
       const mark = marks.get(key);
-      if (mark) hasMarks = true;
       grid.appendChild(el(mark ? "button.cal__cell" : "span.cal__cell", {
         type: mark ? "button" : undefined,
         title: mark ? mark.titles.join(", ") : undefined,
@@ -274,7 +279,7 @@ export function weekStrip({ marks = new Map(), onPick, onView } = {}) {
         onclick: mark && onPick ? (e) => onPick(key, mark, e.currentTarget) : undefined,
       }, [String(date.getDate()), mark && el("span.cal__dot" + (mark.ids.length > 1 ? ".cal__dot--multi" : ""))]));
     }
-    onView?.(hasMarks);
+    onView?.(weekStart, addDays(weekStart, 6));
   }
   paint();
 

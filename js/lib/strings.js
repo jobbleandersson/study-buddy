@@ -809,6 +809,7 @@ export const STRINGS = {
 
     "nav.home": "Home",
     "nav.study": "Study",
+    "nav.calendar": "Calendar",
     "nav.library": "Library",
     "nav.create": "Create",
     "nav.leaveConfirm": "Leave this session?\n\nYour progress is saved — you'll come back to exactly where you left off.",
@@ -818,6 +819,9 @@ export const STRINGS = {
     "common.menu": "Menu",
     "menu.studyTitle": "Study",
     "menu.studySub": "Every assignment and test in your library.",
+    "menu.calendarTitle": "Calendar",
+    "menu.calendarSub": "Every assignment and test with a due date.",
+    "menu.calendarNone": "Nothing has a due date yet — set one from a set's ⋮ menu, or when you create it.",
 
     "session.testOff": "Turn off test mode",
     "session.testOn": "Turn test mode back on",
@@ -911,6 +915,9 @@ export const STRINGS = {
     "menu.subNoKey": "Kör i demoläge — anslut handledarservern för live-generering och handledning.",
     "menu.studyTitle": "Studera",
     "menu.studySub": "Alla uppgifter och prov i ditt bibliotek.",
+    "menu.calendarTitle": "Kalender",
+    "menu.calendarSub": "Alla uppgifter och prov med ett datum.",
+    "menu.calendarNone": "Inget har ett datum ännu — lägg till ett via ett sets ⋮-meny, eller när du skapar det.",
     "menu.searchPlaceholder": "Sök bland set…",
     "menu.searchAria": "Sök bland dina set",
     "menu.sortAria": "Sortera set",
@@ -1670,6 +1677,7 @@ export const STRINGS = {
 
     "nav.home": "Hem",
     "nav.study": "Studera",
+    "nav.calendar": "Kalender",
     "nav.library": "Bibliotek",
     "nav.create": "Skapa",
     "nav.leaveConfirm": "Lämna passet?\n\nDina framsteg sparas — du kommer tillbaka exakt där du slutade.",

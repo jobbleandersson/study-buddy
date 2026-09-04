@@ -414,6 +414,23 @@ export function renderMenu(mode) {
     };
   }
 
+  // "Calendar" = the full month + every upcoming item, its own page (reached
+  // from the nav) — unlike the home rail's collapsed copy, this one always
+  // shows everything (same non-collapsible content as the "Kommande" dialog).
+  if (mode === "calendar") {
+    const content = deadlineRailContent();
+    return {
+      title: t("menu.calendarTitle"),
+      node: el("div", {}, [
+        homeButton(),
+        el("h1", { style: { marginBottom: "4px" } }, t("menu.calendarTitle")),
+        el("p.note", { style: { marginBottom: "18px" } }, t("menu.calendarSub")),
+        el("div.calendarpage", {}, [content ? content.el : el("p.note", {}, t("menu.calendarNone"))]),
+      ]),
+      cleanup: menuCleanup,
+    };
+  }
+
   // "Dina set" — one panel holding everything about browsing the library:
   // tabs, search, the Filter drawer, and the card grid.
   const setsPanel = el("section.home-panel.home-panel--sets", {}, [
@@ -689,25 +706,30 @@ function deadlineRailContent({ collapsible = false } = {}) {
 
   // Only the home-rail copy collapses to a single, navigable week — the
   // "Kommande" dialog is an explicit "show me everything" action, so it
-  // always gets the full month with no toggle.
+  // always gets the full month with no toggle, and its list is never
+  // filtered down to whatever's currently paged in.
   const calWrap = el("div.cal-collapse");
   const calEmpty = collapsible ? el("p.note.cal-empty", {}, t("menu.calendarEmptyWeek")) : null;
   const calToggle = collapsible ? el("button.linkbtn.cal-collapse__toggle", { type: "button" }) : null;
   if (calToggle) calToggle.addEventListener("click", () => { calendarExpanded = !calendarExpanded; paintCal(); });
-  paintCal();
 
   const list = el("div.upcoming__list");
-  const more = items.length - UPCOMING_COLLAPSED;
-  const toggle = more > 0 ? el("button.upcoming__more", { type: "button" }) : null;
-  if (toggle) toggle.addEventListener("click", () => { upcomingExpanded = !upcomingExpanded; paintList(); });
-  paintList();
+  const more = el("button.upcoming__more", { type: "button" });
+  more.addEventListener("click", () => { upcomingExpanded = !upcomingExpanded; paintList(visibleItems); });
+
+  // The rail's list always mirrors whichever week/month the calendar is
+  // currently showing; the dialog's onView never fires, so it keeps the
+  // full sorted list.
+  let visibleItems = items;
+  paintCal();
+  if (!collapsible) paintList(visibleItems);
 
   return {
     el: el("section.upcoming", {}, [
       calEmpty,
       calWrap,
       list,
-      toggle,
+      more,
     ].filter(Boolean)),
     calToggle,
   };
@@ -716,13 +738,10 @@ function deadlineRailContent({ collapsible = false } = {}) {
     const expanded = !collapsible || calendarExpanded;
     clear(calWrap);
     if (expanded) {
-      calWrap.appendChild(monthCalendar({ marks, onPick }).el);
+      calWrap.appendChild(monthCalendar({ marks, onPick, onView: collapsible ? onMonthView : undefined }).el);
       if (calEmpty) calEmpty.hidden = true;
     } else {
-      calWrap.appendChild(weekStrip({
-        marks, onPick,
-        onView: (hasMarks) => { if (calEmpty) calEmpty.hidden = hasMarks; },
-      }).el);
+      calWrap.appendChild(weekStrip({ marks, onPick, onView: onWeekView }).el);
     }
     if (calToggle) {
       calToggle.textContent = expanded ? t("menu.calendarShowWeek") : t("menu.calendarShowMonth");
@@ -730,12 +749,26 @@ function deadlineRailContent({ collapsible = false } = {}) {
     }
   }
 
-  function paintList() {
-    const shown = toggle && !upcomingExpanded ? items.slice(0, UPCOMING_COLLAPSED) : items;
+  function onWeekView(start, end) {
+    visibleItems = items.filter((a) => a.dueAt >= start && a.dueAt <= end);
+    if (calEmpty) calEmpty.hidden = visibleItems.length > 0;
+    paintList(visibleItems);
+  }
+
+  function onMonthView(start, end) {
+    visibleItems = items.filter((a) => a.dueAt >= start && a.dueAt <= end);
+    paintList(visibleItems);
+  }
+
+  function paintList(shownItems) {
+    const overflow = shownItems.length - UPCOMING_COLLAPSED;
+    const shown = overflow > 0 && !upcomingExpanded ? shownItems.slice(0, UPCOMING_COLLAPSED) : shownItems;
     list.replaceChildren(...shown.map(row));
-    if (!toggle) return;
-    toggle.textContent = upcomingExpanded ? t("menu.upcomingLess") : t("menu.upcomingAll", { n: items.length });
-    toggle.setAttribute("aria-expanded", String(upcomingExpanded));
+    more.hidden = overflow <= 0;
+    if (overflow > 0) {
+      more.textContent = upcomingExpanded ? t("menu.upcomingLess") : t("menu.upcomingAll", { n: shownItems.length });
+      more.setAttribute("aria-expanded", String(upcomingExpanded));
+    }
   }
 
   function row(a) {

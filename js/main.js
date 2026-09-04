@@ -28,6 +28,7 @@ const app = document.getElementById("app");
 const routes = [
   { rx: /^\/?$/, view: () => renderMenu() },
   { rx: /^\/study$/, view: () => renderMenu("study") },
+  { rx: /^\/calendar$/, view: () => renderMenu("calendar") },
   { rx: /^\/create$/, view: (m, qs) => renderCreate(qs) },
   { rx: /^\/edit\/(.+)$/, view: (m, qs) => renderEdit(m[1], qs) },
   { rx: /^\/review$/, view: () => renderReview() },
@@ -73,6 +74,7 @@ function navItems() {
   const items = [
     { href: "#/",        match: "/",         icon: ICONS.home,      label: t("nav.home") },
     { href: "#/study",   match: "/study",    icon: ICONS.clipboard, label: t("nav.study") },
+    { href: "#/calendar",match: "/calendar", icon: ICONS.calendar,  label: t("nav.calendar") },
     { href: "#/library", match: "/library",  icon: ICONS.book,      label: t("nav.library") },
     { href: "#/create",  match: "/create",   icon: ICONS.plus,      label: t("nav.create") },
     { href: "#/progress",match: "/progress", icon: ICONS.chart,     label: t("common.progress") },
@@ -255,7 +257,7 @@ store.init().then(() => {
   // After first paint, keep menu/progress fresh when the store changes.
   store.addEventListener("change", () => {
     const h = location.hash.replace(/^#/, "");
-    if (h === "" || h === "/" || h === "/study" || h === "/progress") render();
+    if (h === "" || h === "/" || h === "/study" || h === "/calendar" || h === "/progress") render();
   });
   store.addEventListener("syncConflict", () => {
     toast(t("sync.conflict"));

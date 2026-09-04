@@ -408,6 +408,10 @@ a.streakbadge:hover {
 .caldialog__head h3 { display: flex; align-items: center; gap: var(--s-2); }
 .caldialog .upcoming { margin-bottom: 0; }
 
+/* Dedicated #/calendar page — same content as the dialog, capped to the
+   same width so the month grid doesn't stretch across a wide screen. */
+.calendarpage { max-width: 460px; }
+
 @media (max-width: 480px) {
   /* In the calendar dialog on a phone the month grid is more bulk than help —
      the Upcoming list already says when everything is due. */
