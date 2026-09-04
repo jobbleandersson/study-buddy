@@ -223,8 +223,8 @@ function shell(contentNode) {
         href: it.href, "aria-current": navActive(it.match) ? "page" : null,
       }, [icon(it.icon, 18), it.label]))),
     el("div.sidebar__foot", {}, [
-      sidebarStreak(streak, atRisk),
       langButton(),
+      sidebarStreak(streak, atRisk),
       themePicker(),
     ].filter(Boolean)),
   ]);
