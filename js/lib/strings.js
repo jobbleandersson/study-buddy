@@ -113,6 +113,7 @@ export const STRINGS = {
     "menu.panelSets": "Your sets",
     "menu.filter": "Filter",
     "menu.resumeGo": "Continue",
+    "menu.achAllDone": "Every achievement unlocked — nicely done. 🎉",
 
     /* ---- due date dialog ---- */
     "due.title": "Due date",
@@ -968,6 +969,7 @@ export const STRINGS = {
     "menu.panelSets": "Dina set",
     "menu.filter": "Filter",
     "menu.resumeGo": "Fortsätt",
+    "menu.achAllDone": "Alla utmärkelser upplåsta — snyggt jobbat. 🎉",
 
     /* ---- due date dialog ---- */
     "due.title": "Deadline",

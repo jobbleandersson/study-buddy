@@ -334,6 +334,29 @@ a.streakbadge:hover {
   color: var(--ink); margin-bottom: var(--s-3);
 }
 
+/* Two-column home page: the panels on the left, a sticky rail (upcoming
+   deadlines + achievements teaser) on the right. Falls back to one column
+   below 1100px, or whenever homeRail() has nothing to show. */
+.home-layout { display: grid; grid-template-columns: minmax(0, 1fr) 288px; gap: var(--s-5); align-items: start; }
+.home-layout--solo { grid-template-columns: minmax(0, 1fr); }
+.home-main { min-width: 0; }
+.home-rail { display: flex; flex-direction: column; gap: var(--s-5); position: sticky; top: calc(var(--s-4) + 16px); }
+.home-rail .home-panel { margin-bottom: 0; }
+.home-rail .upcoming { margin-bottom: 0; }
+@media (max-width: 1100px) {
+  .home-layout { grid-template-columns: minmax(0, 1fr); }
+  .home-rail { position: static; }
+}
+
+/* Achievements teaser: the badge closest to unlocking, with a slim bar. */
+.ach-next { display: flex; gap: var(--s-3); align-items: flex-start; }
+.ach-next__emoji { font-size: 26px; line-height: 1.1; flex: none; }
+.ach-next__bar {
+  height: 6px; border-radius: var(--r-full); background: var(--surface-sunk);
+  overflow: hidden; margin: 6px 0 4px;
+}
+.ach-next__fill { height: 100%; background: var(--brand); border-radius: inherit; }
+
 /* "Continue where you left off" — the wide banner at the top of Today. */
 .continue-banner {
   display: flex; align-items: center; gap: var(--s-3); text-decoration: none;

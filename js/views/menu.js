@@ -12,6 +12,7 @@ import { goalRing } from "../components/goal-ring.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
+import { achievementRows, titleKey } from "../lib/achievements.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
 let tab = "assignment";
@@ -420,6 +421,15 @@ export function renderMenu(mode) {
     ...libraryUI,
   ]);
 
+  // Right-hand rail: upcoming deadlines (calendar) + an achievements teaser.
+  // Nothing to show yet (fresh library, everything unlocked with no next
+  // badge) → no rail, and the layout falls back to one column.
+  const rail = homeRail();
+  const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
+    el("div.home-main", {}, [todayPanel(), setsPanel].filter(Boolean)),
+    rail,
+  ].filter(Boolean));
+
   const node = el("div", {}, [
     el("div.home__head", {}, [
       el("div", {}, [
@@ -431,11 +441,55 @@ export function renderMenu(mode) {
         el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
       ]),
     ]),
-    todayPanel(),
-    setsPanel,
+    layout,
   ].filter(Boolean));
 
   return { title: t("menu.title"), node, cleanup: menuCleanup };
+}
+
+/** The right-hand rail on the home page: a mini calendar + Upcoming list
+ *  (only while there are deadlines) and an achievements teaser (the badge
+ *  closest to unlocking, or a "you got them all" note). Null when both are
+ *  empty, so the layout collapses to one column. */
+function homeRail() {
+  const panels = [calendarPanel(), achievementsPanel()].filter(Boolean);
+  return panels.length ? el("aside.home-rail", {}, panels) : null;
+}
+
+function calendarPanel() {
+  const content = deadlineRailContent();
+  if (!content) return null;
+  return el("section.home-panel.home-panel--cal", {}, [
+    el("div.home-panel__label", {}, [el("span", {}, t("menu.upcoming"))]),
+    content,
+  ]);
+}
+
+function achievementsPanel() {
+  const rows = achievementRows(store.state);
+  if (!rows.length) return null;
+  const unlocked = rows.filter((r) => r.unlocked).length;
+  const next = rows.filter((r) => !r.unlocked && r.need > 0)
+    .sort((a, b) => (b.have / b.need) - (a.have / a.need))[0];
+
+  return el("section.home-panel.home-panel--ach", {}, [
+    el("div.home-panel__label", {}, [
+      el("span", {}, t("prog.achievements")),
+      el("a.linkbtn", { href: "#/progress" }, t("prog.achCount", { have: unlocked, need: rows.length })),
+    ]),
+    next
+      ? el("div.ach-next", {}, [
+          el("span.ach-next__emoji", { "aria-hidden": "true" }, next.def.emoji),
+          el("div", { style: { flex: "1", minWidth: "0" } }, [
+            el("strong", {}, t(titleKey(next.def))),
+            el("div.ach-next__bar", {}, [
+              el("div.ach-next__fill", { style: { width: `${Math.min(100, Math.round((next.have / next.need) * 100))}%` } }),
+            ]),
+            el("span.note", {}, t("prog.achProgress", { have: next.have, need: next.need })),
+          ]),
+        ])
+      : el("p.note", {}, t("menu.achAllDone")),
+  ]);
 }
 
 /* ---------------- calendar day chooser (2+ deadlines on one day) ---------- */

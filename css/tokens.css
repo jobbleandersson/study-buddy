@@ -2,15 +2,17 @@
    Every screen consumes these variables; avoid ad-hoc colors/sizes elsewhere. */
 
 :root {
-  /* --- canvas & ink --- */
-  --canvas:        #FFF9F2;
+  /* --- canvas & ink ---
+     Neutral family taken from a friend's cooler "Nordic edtech" background —
+     ink, brand and subject colours stay ours. */
+  --canvas:        #F6F7FA;
   --surface:       #FFFFFF;
-  --surface-sunk:  #FBF3E9;
+  --surface-sunk:  #EEF0F4;
   --ink:           #2B2B3A;
   --ink-soft:      #5B5B6E;
   --ink-faint:     #6B6B7B;   /* AA on both canvas and surface; #8A8A9C was 3.2:1 */
-  --line:          #ECE3D6;
-  --line-strong:   #DED2BF;
+  --line:          #E4E6EC;
+  --line-strong:   #CBCFDA;
 
   /* --- brand ---
      `--brand` sits behind white button text, so it has to clear 4.5:1.
@@ -104,14 +106,14 @@
    system preference when the user hasn't chosen (data-theme="system").
    --------------------------------------------------------------- */
 :root[data-theme="dark"] {
-  --canvas:        #17161D;
-  --surface:       #201E29;
-  --surface-sunk:  #2A2733;
+  --canvas:        #13151B;
+  --surface:       #1B1D25;
+  --surface-sunk:  #242630;
   --ink:           #F1EFF7;
   --ink-soft:      #BAB5C8;
   --ink-faint:     #9A95A8;
-  --line:          #302D3B;
-  --line-strong:   #423E51;
+  --line:          #2B2E38;
+  --line-strong:   #3B3F4C;
 
   /* On dark, text sits ON these colours as light-on-dark far less often, so
      the bright hues double as the ink. */
@@ -152,14 +154,14 @@
 /* Follow the OS only when the user hasn't picked a side. */
 @media (prefers-color-scheme: dark) {
   :root[data-theme="system"] {
-    --canvas:        #17161D;
-    --surface:       #201E29;
-    --surface-sunk:  #2A2733;
+    --canvas:        #13151B;
+    --surface:       #1B1D25;
+    --surface-sunk:  #242630;
     --ink:           #F1EFF7;
     --ink-soft:      #BAB5C8;
     --ink-faint:     #9A95A8;
-    --line:          #302D3B;
-    --line-strong:   #423E51;
+    --line:          #2B2E38;
+    --line-strong:   #3B3F4C;
 
     --brand:         #6E4EF5;
     --brand-bright:  #9179FF;
