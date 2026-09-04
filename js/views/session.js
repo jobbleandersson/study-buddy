@@ -325,13 +325,15 @@ function runSession(config) {
   /* ----- confidence prompt: only ask when it changes the schedule ----- */
   // Same rule everywhere — regular practice, Review, and Weak-spots alike:
   // only the ambiguous case (a clean first-try correct answer that might be
-  // a guess), capped per session so it's an occasional check-in, not a
-  // running commentary.
+  // a guess). Two is a ceiling, not a quota — rolling for it instead of
+  // always taking it means it doesn't land on the first eligible answer
+  // every time, and plenty of sessions get asked once or not at all.
   let confidenceAsks = 0;
   function askConfidence(result) {
     if (!result.correct) return false;
     if (result.srsGrade !== "easy") return false;
     if (confidenceAsks >= 2) return false;
+    if (Math.random() >= 0.3) return false;
     confidenceAsks++;
     return true;
   }
