@@ -2,7 +2,7 @@
 // your data, roadmap.
 
 import { store } from "../store.js";
-import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
+import { el, clear, toast, icon, ICONS, downloadText } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
 import { PRESETS, DEFAULT_PRESET } from "../claude.js";
 import { THEMES, getTheme, setTheme } from "../lib/theme.js";
@@ -219,14 +219,7 @@ export function renderSettings() {
 
     demoSection(),
 
-    el("section.panel", {}, [
-      el("h3", {}, t("set.dataTitle")),
-      el("p.note", { style: { margin: "6px 0 12px" } }, store.authed ? t("set.dataBodySynced") : t("set.dataBody")),
-      el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } }, [
-        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: exportData }, t("set.export")),
-        el("button.btn.btn--ghost.btn--sm", { type: "button", style: { color: "var(--retry-ink)" }, onclick: wipe }, t("set.wipe")),
-      ]),
-    ]),
+    dataSection(),
 
     el("section.roadmapbox", {}, [
       el("h3", {}, t("set.roadmap")),
@@ -320,18 +313,80 @@ export function renderSettings() {
     ]);
   }
 
-  function exportData() {
-    const blob = new Blob([store.exportJSON()], { type: "application/json" });
-    const a = el("a", { href: URL.createObjectURL(blob), download: `studybuddy-backup-${localDayKey()}.json` });
-    document.body.appendChild(a); a.click(); a.remove();
-    toast(t("set.backupDownloaded"));
-  }
+  function dataSection() {
+    const recovery = el("p.note.note--warn", { style: { margin: "6px 0 12px" } });
+    const importInput = el("input", {
+      type: "file", accept: "application/json,.json", style: { display: "none" },
+      onchange: onImportFile,
+    });
+    const importStatus = el("p.note", { style: { margin: "8px 0 0" } });
 
-  async function wipe() {
-    if (!(await confirmDialog({ message: t("set.wipeConfirm"), confirmLabel: t("set.wipe"), danger: true }))) return;
-    store.wipe();
-    toast(t("set.wiped"));
-    location.hash = "#/";
+    function paintRecovery() {
+      const blob = store.recoveryBlob;
+      if (!blob) { clear(recovery); recovery.hidden = true; return; }
+      recovery.hidden = false;
+      clear(recovery);
+      recovery.appendChild(el("span", {}, t("set.recoveryFound") + " "));
+      recovery.appendChild(el("button.linkbtn", {
+        type: "button",
+        onclick: () => downloadText(`studybuddy-recovered-${localDayKey()}.txt`, blob, "text/plain"),
+      }, t("set.recoveryDownload")));
+      recovery.appendChild(el("span", {}, " · "));
+      recovery.appendChild(el("button.linkbtn", {
+        type: "button",
+        onclick: () => { store.clearRecoveryBlob(); paintRecovery(); },
+      }, t("set.recoveryDismiss")));
+    }
+    paintRecovery();
+
+    function exportData() {
+      downloadText(`studybuddy-backup-${localDayKey()}.json`, store.exportJSON());
+      toast(t("set.backupDownloaded"));
+    }
+
+    async function onImportFile(e) {
+      const file = e.target.files[0];
+      e.target.value = ""; // allow re-picking the same file later
+      if (!file) return;
+      let text;
+      try { text = await file.text(); }
+      catch {
+        importStatus.className = "note note--warn";
+        importStatus.textContent = t("set.importReadFail");
+        return;
+      }
+      if (!(await confirmDialog({ message: t("set.importConfirm"), confirmLabel: t("set.import"), danger: true }))) return;
+      try {
+        store.importJSON(text);
+        importStatus.className = "note";
+        importStatus.textContent = "";
+        toast(t("set.imported"));
+        location.hash = "#/";
+      } catch {
+        importStatus.className = "note note--warn";
+        importStatus.textContent = t("set.importBadFile");
+      }
+    }
+
+    async function wipe() {
+      if (!(await confirmDialog({ message: t("set.wipeConfirm"), confirmLabel: t("set.wipe"), danger: true }))) return;
+      store.wipe();
+      toast(t("set.wiped"));
+      location.hash = "#/";
+    }
+
+    return el("section.panel", {}, [
+      el("h3", {}, t("set.dataTitle")),
+      el("p.note", { style: { margin: "6px 0 12px" } }, store.authed ? t("set.dataBodySynced") : t("set.dataBody")),
+      recovery,
+      el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } }, [
+        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: exportData }, t("set.export")),
+        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => importInput.click() }, t("set.import")),
+        importInput,
+        el("button.btn.btn--ghost.btn--sm", { type: "button", style: { color: "var(--retry-ink)" }, onclick: wipe }, t("set.wipe")),
+      ]),
+      importStatus,
+    ]);
   }
 
   return { title: t("set.title"), node };

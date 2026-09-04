@@ -887,6 +887,14 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .delta__n { font-size: var(--fs-sm); font-weight: 700; }
 .delta__n.up { color: var(--ok); } .delta__n.down { color: var(--retry-ink); }
 
+/* Wrong-answer review on the results screen — the correct answer + any
+   authored explanation, reusing the .delta-list card look but stacked
+   instead of the topic-mastery rows' left/right layout. */
+.delta-list--review .delta--review { flex-direction: column; align-items: flex-start; gap: 6px; }
+.delta__prompt { font-weight: 600; }
+.delta__answer, .delta__explain { margin: 0; font-size: var(--fs-sm); }
+.delta__explain { color: var(--ink-faint); }
+
 /* ---------- progress dashboard ---------- */
 .dash { display: grid; gap: var(--s-5); }
 .streak { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -1019,6 +1027,28 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 }
 .toast__action:hover { color: #fff; }
 
+/* Persistent top banner (js/lib/dom.js showBanner) — unlike .toast, never
+   auto-dismisses. Reserved for things the student must actually see, like a
+   failed save. */
+.savebar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 110;
+  display: flex; align-items: center; gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  background: var(--retry-tint); color: var(--retry-ink);
+  font-weight: 600; font-size: var(--fs-sm);
+  transform: translateY(-100%); transition: transform var(--dur-mid) var(--ease-out);
+}
+.savebar.show { transform: translateY(0); }
+.savebar__action {
+  margin-left: auto; font: inherit; font-weight: 700; cursor: pointer;
+  background: none; border: none; color: inherit;
+  text-decoration: underline; text-underline-offset: 3px; padding: 0;
+}
+.savebar__close {
+  font: inherit; cursor: pointer; background: none; border: none; color: inherit;
+  font-size: 18px; line-height: 1; padding: 0 2px; flex: none;
+}
+
 /* ---------- animations ---------- */
 @keyframes pop-in { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: none; } }
 @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.04); } 100% { transform: scale(1); } }
@@ -1123,7 +1153,7 @@ kbd {
 .psheet__akey { margin: 3px 0; font-size: var(--fs-sm); }
 
 @media print {
-  .topbar, .hintfab, [data-noprint], .toast { display: none !important; }
+  .topbar, .hintfab, [data-noprint], .toast, .savebar { display: none !important; }
   body { background: #fff; color: #000; }
   .content { max-width: none; padding: 0; }
   .psheet__lines { background: none; height: 60px; border-bottom: 1px solid #999; }

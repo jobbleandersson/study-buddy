@@ -1,9 +1,10 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
-import { el, mount, icon, ICONS, toast } from "./lib/dom.js";
+import { el, mount, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, getLang, setLang, applyLang, LANGS } from "./lib/i18n.js";
+import { localDayKey } from "./lib/activity.js";
 import { titleKey } from "./lib/achievements.js";
 import { celebrate } from "./lib/confetti-helper.js";
 import { playFanfare } from "./lib/sound.js";
@@ -273,4 +274,39 @@ store.init().then(() => {
     toast(msg, { actionLabel: t("common.view"), onAction: () => { location.hash = "#/progress"; } });
     if (defs.some((d) => d.big)) { celebrate(); playFanfare(); }
   });
+  store.addEventListener("saveFailed", () => {
+    showBanner(t("save.failedBanner"), {
+      actionLabel: t("save.emergencyExport"),
+      onAction: () => {
+        downloadText(`studybuddy-backup-${localDayKey()}.json`, store.exportJSON());
+        toast(t("set.backupDownloaded"));
+      },
+    });
+  });
+  store.addEventListener("saveRecovered", hideBanner);
+}).catch((e) => {
+  console.error("Boot failed:", e);
+  bootFailure(e);
 });
+
+/** Last resort: the app failed to start. Deliberately independent of `store`
+ *  and shell() — the thing that just broke — so it reads localStorage
+ *  directly rather than through the Store class, which may never have
+ *  finished constructing correctly. */
+function bootFailure(err) {
+  let raw = null;
+  try { raw = localStorage.getItem("studybuddy.v1"); } catch {}
+
+  mount(app, el("div.empty", {}, [
+    el("h2", {}, t("boot.failedTitle")),
+    el("p", {}, t("boot.failedBody")),
+    el("p.note", {}, String(err?.message || err)),
+    el("div", { style: { display: "flex", gap: "10px", justifyContent: "center", marginTop: "16px", flexWrap: "wrap" } }, [
+      el("button.btn", { type: "button", onclick: () => location.reload() }, t("boot.reload")),
+      raw ? el("button.btn.btn--ghost", {
+        type: "button",
+        onclick: () => downloadText(`studybuddy-emergency-${new Date().toISOString().slice(0, 10)}.json`, raw),
+      }, t("boot.downloadData")) : null,
+    ].filter(Boolean)),
+  ]));
+}

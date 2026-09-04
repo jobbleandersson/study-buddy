@@ -39,18 +39,11 @@
       try {
         var supported = ["en", "sv"];
         var l = localStorage.getItem("studybuddy.lang");
-        if (supported.indexOf(l) < 0) {
-          l = "en";
-          var tags = navigator.languages && navigator.languages.length
-            ? navigator.languages : [navigator.language];
-          for (var i = 0; i < tags.length; i++) {
-            var base = String(tags[i] || "").toLowerCase().split("-")[0];
-            if (supported.indexOf(base) >= 0) { l = base; break; }
-          }
-        }
-        root.setAttribute("lang", l);
+        // Every bundled set is Swedish curriculum content, so that's the
+        // default when the student hasn't chosen — not a browser-language guess.
+        root.setAttribute("lang", supported.indexOf(l) >= 0 ? l : "sv");
       } catch (e) {
-        root.setAttribute("lang", "en");
+        root.setAttribute("lang", "sv");
       }
     })();
   </script>

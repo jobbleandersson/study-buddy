@@ -14,14 +14,11 @@ export const LANGS = [
 const SUPPORTED = LANGS.map(([code]) => code);
 const FALLBACK = "en";
 
-/** What the browser suggests, when the user hasn't chosen. */
+/** Default when the user hasn't chosen. Every bundled set is Swedish
+ *  curriculum content, so that's the default regardless of what the browser
+ *  reports — not a browser-language guess. */
 function detectLang() {
-  const candidates = navigator.languages?.length ? navigator.languages : [navigator.language];
-  for (const tag of candidates) {
-    const base = String(tag || "").toLowerCase().split("-")[0];
-    if (SUPPORTED.includes(base)) return base;
-  }
-  return FALLBACK;
+  return "sv";
 }
 
 export function getLang() {

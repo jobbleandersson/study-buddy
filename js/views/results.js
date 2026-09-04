@@ -8,6 +8,7 @@ import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
 import { t, plural } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
+import { parseCloze } from "../components/questions.js";
 
 export function renderResults(attemptId) {
   const attempt = store.attempts.find((a) => a.id === attemptId);
@@ -24,8 +25,12 @@ export function renderResults(attemptId) {
   const deltas = deltaFromAttempt(before, attempt);
 
   // Look questions up across the whole library — a review session mixes sets.
+  // Paired (not two parallel arrays) so a since-deleted question can't
+  // silently misalign the item and its question.
   const wrong = (attempt.items || []).filter((i) => !i.correct);
-  const wrongQ = wrong.map((i) => store.findQuestion(i.questionId)?.question).filter(Boolean);
+  const wrongEntries = wrong
+    .map((item) => ({ item, question: store.findQuestion(item.questionId)?.question }))
+    .filter((e) => e.question);
 
   const R = 74, C = 2 * Math.PI * R;
   const ringWrap = el("div.scorering");
@@ -74,17 +79,22 @@ export function renderResults(attemptId) {
       })),
     ]) : null,
 
-    wrongQ.length ? el("div", { style: { marginTop: "8px", textAlign: "left" } }, [
+    wrongEntries.length ? el("div", { style: { marginTop: "8px", textAlign: "left" } }, [
       el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap", marginBottom: "8px" } }, [
         el("h3", {}, t("results.worthLook")),
         el("a.btn.btn--sm", { href: `#/practice/${attempt.id}` }, [icon(ICONS.spark, 16),
-          wrongQ.length === 1 ? t("results.practiseTheseOne") : t("results.practiseTheseMany", { n: wrongQ.length })]),
+          wrongEntries.length === 1 ? t("results.practiseTheseOne") : t("results.practiseTheseMany", { n: wrongEntries.length })]),
       ]),
       attempt.wasTest && !attempt.tutorHints ? el("p.note", { style: { marginBottom: "8px" } },
         t("results.tutorSatOut")) : null,
-      el("div.delta-list", {}, wrongQ.map((q) => el("div.delta", {}, [
-        el("span", { html: renderRich(q.prompt.length > 90 ? q.prompt.slice(0, 90) + "…" : q.prompt) }),
-      ]))),
+      el("div.delta-list.delta-list--review", {}, wrongEntries.map(({ question: q }) => {
+        const answerHtml = correctAnswerLine(q);
+        return el("div.delta.delta--review", {}, [
+          el("span.delta__prompt", { html: renderRich(q.prompt.length > 90 ? q.prompt.slice(0, 90) + "…" : q.prompt) }),
+          answerHtml ? el("p.delta__answer", {}, [el("strong", {}, t("results.correctAnswerLabel")), " ", el("span", { html: answerHtml })]) : null,
+          q.explanation ? el("p.delta__explain", { html: renderRich(q.explanation) }) : null,
+        ].filter(Boolean));
+      })),
     ].filter(Boolean)) : null,
 
     el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" } }, [
@@ -106,6 +116,22 @@ function countLabel(attempt) {
   const n = (attempt.items || []).length;
   const c = (attempt.items || []).filter((i) => i.correct).length;
   return t("results.correctOf", { c, n });
+}
+
+/** The correct answer, in whatever shape fits the question's kind — reuses
+ *  the exact answer/explanation content already authored on the question,
+ *  never shown anywhere until now for a test/exam run. */
+function correctAnswerLine(q) {
+  switch (q.kind) {
+    case "mc":
+      return Array.isArray(q.choices) && q.choices[q.answer] != null ? renderRich(q.choices[q.answer]) : "";
+    case "cloze":
+      return parseCloze(q.prompt).filter((p) => p.blank).map((b) => renderRich(b.blank[0])).join(", ");
+    case "text": case "worked": case "flashcard":
+      return q.answer ? renderRich(q.answer) : "";
+    default:
+      return "";
+  }
 }
 
 /** Attempts made before retryHash existed fall back to their assignment. */

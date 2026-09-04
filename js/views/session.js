@@ -49,11 +49,17 @@ export async function renderSession(assignmentId, qs) {
   });
 }
 
+// A review can span the whole library's backlog — cap a single sitting so
+// it's never hundreds of questions long, and let the rest wait for next time.
+const REVIEW_CAP = 40;
+
 export async function renderReview() {
-  const due = store.dueQuestions();
+  const due = store.dueQuestions(); // most-overdue-first
   if (!due.length) {
     return emptyScreen(t("session.nothingDueTitle"), t("session.nothingDueBody"), t("session.badgeReview"));
   }
+
+  const batch = due.slice(0, REVIEW_CAP);
 
   return runSession({
     key: REVIEW_ID,
@@ -61,7 +67,8 @@ export async function renderReview() {
     title: t("session.reviewTitle"),
     type: "assignment",
     retryHash: "#/review",
-    questionIds: due.map((d) => d.question.id),
+    questionIds: batch.map((d) => d.question.id),
+    reviewRemaining: due.length - batch.length,
   });
 }
 
@@ -146,6 +153,10 @@ function runSession(config) {
   state.cursor = Math.min(state.cursor, state.order.length - 1);
   state.skipped = state.skipped || [];
   state.choiceOrder = state.choiceOrder || {};
+  // Question ids already written to SRS this session, whether by an earlier
+  // exit or a completed finish — lets commitSrs() below run from both without
+  // ever reviewing the same question twice.
+  state.committedSrs = state.committedSrs || [];
 
   // In a test the tutor is locked by default — one attempt per question, no
   // reveal. Settings can hand it a small hint allowance; 0 = the old behaviour.
@@ -200,6 +211,7 @@ function runSession(config) {
       items: state.items,
       skipped: state.skipped,
       choiceOrder: state.choiceOrder,
+      committedSrs: state.committedSrs,
       startedAt: state.startedAt,
       deadlineAt: state.deadlineAt,
     });
@@ -466,13 +478,36 @@ function runSession(config) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  // Writes SRS for whatever in `items` hasn't already been committed this
+  // session (by an earlier exit, or an earlier call here), and marks it
+  // committed — so exiting partway through no longer throws away spaced-
+  // repetition credit for what was actually answered, and a later finish()
+  // of the same resumed session can't review the same question twice.
+  function commitSrs(items) {
+    const committed = new Set(state.committedSrs);
+    const fresh = items.filter((it) => !committed.has(it.questionId));
+    for (const it of fresh) {
+      const rec = review(store.state.srs[it.questionId], it.srsGrade || (it.correct ? "good" : "again"));
+      store.setSrs(it.questionId, rec);
+      committed.add(it.questionId);
+    }
+    state.committedSrs = [...committed];
+  }
+
   async function exit() {
     persist();
     if (await confirmDialog({
       message: t("session.exitConfirm"),
       confirmLabel: t("nav.leave"),
       cancelLabel: t("nav.stay"),
-    })) location.hash = "#/";
+    })) {
+      // Only once the leave is actually confirmed — not speculatively before
+      // — so cancelling and then appealing the current question can still
+      // reschedule it (its id wouldn't be marked committed yet).
+      commitSrs(Object.values(state.items));
+      persist();
+      location.hash = "#/";
+    }
   }
 
   function finish(opts = {}) {
@@ -497,11 +532,7 @@ function runSession(config) {
       items: answered,
     };
     store.recordAttempt(attempt);
-
-    for (const it of answered) {
-      const rec = review(store.state.srs[it.questionId], it.srsGrade || (it.correct ? "good" : "again"));
-      store.setSrs(it.questionId, rec);
-    }
+    commitSrs(answered);
 
     store.clearSession(config.key);
     location.hash = `#/results/${attempt.id}`;
@@ -662,6 +693,7 @@ function runSession(config) {
       ]),
     ]),
     testBar,
+    config.reviewRemaining > 0 ? el("p.note", {}, t("session.reviewMore", { n: config.reviewRemaining })) : null,
     el("div.progressbar", {}, [fill]),
     label,
     adaptiveEl,

@@ -27,6 +27,11 @@ export const DUE_GRACE_DAYS = 7;
 // every reload into a spurious conflict that clobbers local edits.
 const SYNC_VERSION_KEY = "studybuddy.syncVersion";
 
+// Rescue copy of a main blob that failed to parse at boot — its own key,
+// unmigrated, outside SCHEMA_VERSION, so init()'s fallback to seedState()
+// doesn't destroy the only copy of whatever was actually there.
+const RECOVERY_KEY = "studybuddy.v1.recovery";
+
 /** The bundled demo sets. They are no longer seeded automatically — they live
  *  in Settings under "Demo content" so a real library starts clean.
  *  `files` is per language; an unsupported language falls back to English. */
@@ -234,6 +239,11 @@ class Store extends EventTarget {
     // see SYNC_VERSION_KEY above.
     this._syncVersion = Number(localStorage.getItem(SYNC_VERSION_KEY)) || 0;
     this._pushTimer = null;
+
+    // Set when a save() write fails (full quota, blocked storage) — instance
+    // only, so a UI listener can show/hide a persistent warning without this
+    // ever entering the synced blob.
+    this._saveFailed = false;
   }
 
   _setSyncVersion(v) {
@@ -245,7 +255,13 @@ class Store extends EventTarget {
     const raw = localStorage.getItem(KEY);
     if (raw) {
       try { this.state = migrate(JSON.parse(raw)); }
-      catch { this.state = seedState(); }
+      catch (e) {
+        console.error("Corrupt save data, falling back to a fresh start:", e);
+        // Preserve the original bytes before overwriting them below — the
+        // corruption could itself be quota-related, hence its own try/catch.
+        try { localStorage.setItem(RECOVERY_KEY, raw); } catch {}
+        this.state = seedState();
+      }
     } else {
       this.state = seedState();
     }
@@ -419,8 +435,15 @@ class Store extends EventTarget {
   }
 
   save({ skipPush = false } = {}) {
-    try { localStorage.setItem(KEY, JSON.stringify(this.state)); }
-    catch (e) { console.error("Save failed (storage full or blocked):", e); }
+    try {
+      localStorage.setItem(KEY, JSON.stringify(this.state));
+      if (this._saveFailed) { this._saveFailed = false; this.dispatchEvent(new CustomEvent("saveRecovered")); }
+    } catch (e) {
+      console.error("Save failed (storage full or blocked):", e);
+      // Only dispatch on the first failure in a streak — a broken write
+      // shouldn't fire an event on every keystroke/answer while it stays broken.
+      if (!this._saveFailed) { this._saveFailed = true; this.dispatchEvent(new CustomEvent("saveFailed", { detail: e })); }
+    }
     // Local write is always synchronous and unconditional — this is just the
     // additive, debounced background half. Every existing save()/update()
     // call site keeps working exactly as before, authed or not.
@@ -868,6 +891,23 @@ class Store extends EventTarget {
 
   // ---------- data management ----------
   exportJSON() { return JSON.stringify(this.state, null, 2); }
+
+  /** Reuses the exact migrate() the normal boot path already trusts — no new
+   *  validation logic. Throws on bad JSON so the caller can show an inline
+   *  error; does not touch SCHEMA_VERSION. */
+  importJSON(text) {
+    const parsed = JSON.parse(text);
+    this.state = migrate(parsed);
+    this.save();
+    this.emit();
+  }
+
+  get recoveryBlob() {
+    try { return localStorage.getItem(RECOVERY_KEY); } catch { return null; }
+  }
+  clearRecoveryBlob() {
+    try { localStorage.removeItem(RECOVERY_KEY); } catch {}
+  }
 
   wipe() {
     localStorage.removeItem(KEY);

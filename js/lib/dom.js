@@ -70,6 +70,28 @@ export function toast(message, opts) {
   toastTimer = setTimeout(dismiss, opts?.actionLabel ? 6000 : 2600);
 }
 
+let banner = null;
+/** A persistent top banner — unlike toast(), it never auto-dismisses. For
+ *  things the student must actually see, like a failed save. */
+export function showBanner(message, opts = {}) {
+  if (!banner) { banner = el("div.savebar"); document.body.appendChild(banner); }
+  clear(banner);
+  banner.appendChild(el("span", {}, message));
+  if (opts.actionLabel && typeof opts.onAction === "function") {
+    banner.appendChild(el("button.savebar__action", { type: "button", onclick: opts.onAction }, opts.actionLabel));
+  }
+  banner.appendChild(el("button.savebar__close", { type: "button", "aria-label": "Dismiss", onclick: hideBanner }, "×"));
+  requestAnimationFrame(() => banner.classList.add("show"));
+}
+export function hideBanner() { banner?.classList.remove("show"); }
+
+/** Shared by Settings' Export and the emergency-export banner action. */
+export function downloadText(filename, text, mime = "application/json") {
+  const blob = new Blob([text], { type: mime });
+  const a = el("a", { href: URL.createObjectURL(blob), download: filename });
+  document.body.appendChild(a); a.click(); a.remove();
+}
+
 export const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
 
 export function icon(path, size = 20) {

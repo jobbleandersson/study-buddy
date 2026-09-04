@@ -10,6 +10,7 @@ import { gradeAnswer } from "../claude.js";
 import { fromCorrect } from "../lib/srs.js";
 import { t } from "../lib/i18n.js";
 import { mathKeypad } from "./math-keypad.js";
+import { heuristic, normalizeAnswer } from "../lib/answer-match.js";
 
 export function renderQuestion(opts) {
   switch (opts.question.kind) {
@@ -175,12 +176,17 @@ function text({ question, tutor, live, testMode, onDone, askConfidence }) {
     result.hintsUsed++;
 
     let verdict = null;
-    if (live) {
-      checkBtn.textContent = t(testMode ? "q.submitting" : "q.checking");
-      try { verdict = await gradeAnswer({ question, studentAnswer: ans }); }
-      catch { verdict = null; }
+    try {
+      if (live) {
+        checkBtn.textContent = t(testMode ? "q.submitting" : "q.checking");
+        try { verdict = await gradeAnswer({ question, studentAnswer: ans }); }
+        catch { verdict = null; }
+      }
+      if (!verdict) verdict = heuristic(ans, question.answer);
+    } catch (e) {
+      console.error("Grading failed:", e);
+      verdict = { correct: false, feedback: t("q.gradingFailed"), missedPoints: [] };
     }
-    if (!verdict) verdict = heuristic(ans, question.answer);
 
     // Test mode: grade silently, show nothing, move on.
     if (testMode) {
@@ -266,14 +272,12 @@ function cloze({ question, tutor, testMode, onDone, askConfidence }) {
   const feedback = el("div", {});
   let done = false;
 
-  const norm = (s) => String(s).trim().toLowerCase().replace(/\s+/g, " ");
-
   function check() {
     if (done) return;
     done = true;
     let allRight = true;
     for (const b of blanks) {
-      const ok = b.alts.some((a) => norm(a) === norm(b.inp.value));
+      const ok = b.alts.some((a) => normalizeAnswer(a) === normalizeAnswer(b.inp.value));
       if (!ok) allRight = false;
       b.inp.disabled = true;
       b.inp.classList.add(ok ? "is-correct" : "is-wrong");
@@ -316,8 +320,52 @@ function cloze({ question, tutor, testMode, onDone, askConfidence }) {
 }
 
 /* ---------------- flashcard ---------------- */
-function flashcard({ question, tutor, onDone }) {
+function flashcard({ question, tutor, live, testMode, onDone }) {
   const result = { correct: false, hintsUsed: 0 };
+
+  // In a test/exam, flipping the card would just be a free answer key — the
+  // same "recorded as-is, no reveal" contract every other kind gets there.
+  // A flashcard has no typed answer to record, so ask for one and grade it
+  // through the same live/heuristic path text() already uses.
+  if (testMode) {
+    const ta = el("textarea.answerbox", { placeholder: t("q.flashcardRecallPlaceholder"), "aria-label": t("q.yourAnswer") });
+    const submitBtn = el("button.btn.btn--sm", { type: "button", onclick: submit }, t("q.submit"));
+    const feedback = el("div", {});
+
+    async function submit() {
+      const ans = ta.value.trim();
+      submitBtn.disabled = true; ta.disabled = true;
+      result.hintsUsed++;
+
+      let verdict = null;
+      try {
+        if (ans && live) {
+          submitBtn.textContent = t("q.submitting");
+          try { verdict = await gradeAnswer({ question, studentAnswer: ans }); }
+          catch { verdict = null; }
+        }
+        if (!verdict) verdict = ans ? heuristic(ans, question.answer) : { correct: false };
+      } catch (e) {
+        console.error("Grading failed:", e);
+        verdict = { correct: false };
+      }
+      result.correct = verdict.correct;
+      feedback.className = "feedback";
+      feedback.textContent = t(ans ? "q.recorded" : "q.leftBlank");
+      submitBtn.remove();
+      onDone(finalize(result));
+    }
+
+    return {
+      result,
+      el: shell(question, el("div", {}, [
+        ta,
+        el("div", { style: { marginTop: "12px" } }, [submitBtn]),
+        feedback,
+      ])),
+    };
+  }
+
   const card = el("div.flashcard", { role: "button", tabindex: "0", "aria-label": t("q.flipAria") }, [
     el("div.flashcard__inner", {}, [
       el("div.flashcard__face", { html: renderRich(question.prompt) }),
@@ -404,12 +452,17 @@ function worked({ question, tutor, live, testMode, onDone }) {
       const written = ta.value.trim();
       doneBtn.disabled = true;
       let verdict = null;
-      if (written && live) {
-        doneBtn.textContent = t("q.submitting");
-        try { verdict = await gradeAnswer({ question, studentAnswer: written }); }
-        catch { verdict = null; }
+      try {
+        if (written && live) {
+          doneBtn.textContent = t("q.submitting");
+          try { verdict = await gradeAnswer({ question, studentAnswer: written }); }
+          catch { verdict = null; }
+        }
+        if (!verdict) verdict = written ? heuristic(written, question.answer) : { correct: false };
+      } catch (e) {
+        console.error("Grading failed:", e);
+        verdict = { correct: false };
       }
-      if (!verdict) verdict = written ? heuristic(written, question.answer) : { correct: false };
       result.correct = verdict.correct;
       feedback.className = "feedback";
       feedback.textContent = t(written ? "q.recorded" : "q.leftBlank");
@@ -504,20 +557,6 @@ function explainWhyRow(tutor, question, theirAnswer, host) {
     onclick: () => { btn.disabled = true; tutor.explainWrong(question, theirAnswer); },
   }, t("q.explainWhy"));
   host.appendChild(el("p.note", { style: { marginTop: "10px" } }, [btn]));
-}
-
-function heuristic(ans, model) {
-  const norm = (s) => s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w.length > 3);
-  const a = new Set(norm(ans)), m = norm(model);
-  if (!m.length) return { correct: ans.length > 8, feedback: t("q.heuristicMiss") };
-  const hit = m.filter((w) => a.has(w)).length / m.length;
-  return {
-    correct: hit >= 0.34,
-    feedback: hit >= 0.34
-      ? t("q.heuristicOk")
-      : t("q.heuristicMiss"),
-    missedPoints: [],
-  };
 }
 
 function escapeHtml(s) {
