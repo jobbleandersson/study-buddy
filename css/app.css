@@ -457,7 +457,9 @@ a.streakbadge:hover {
 /* Home-rail calendar collapse — a single, navigable week by default (the
    "Show full month" link sits in the panel label, next to "Upcoming"); a
    note up top when the week in view has nothing due. The dialog version
-   gets neither. */
+   gets neither. Kept plain (no underline, regular weight) so the label row
+   stays quiet next to the bold "Upcoming" heading. */
+.cal-collapse__toggle { font-weight: 400; text-decoration: none; }
 .cal-empty { margin: 0 0 var(--s-2); }
 
 .acard__tag--due { background: var(--surface-sunk); color: var(--ink-soft); }

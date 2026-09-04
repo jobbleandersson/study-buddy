@@ -692,7 +692,7 @@ function deadlineRailContent({ collapsible = false } = {}) {
   // always gets the full month with no toggle.
   const calWrap = el("div.cal-collapse");
   const calEmpty = collapsible ? el("p.note.cal-empty", {}, t("menu.calendarEmptyWeek")) : null;
-  const calToggle = collapsible ? el("button.linkbtn", { type: "button" }) : null;
+  const calToggle = collapsible ? el("button.linkbtn.cal-collapse__toggle", { type: "button" }) : null;
   if (calToggle) calToggle.addEventListener("click", () => { calendarExpanded = !calendarExpanded; paintCal(); });
   paintCal();
 

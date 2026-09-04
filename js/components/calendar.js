@@ -231,16 +231,17 @@ export function monthCalendar({ marks = new Map(), onPick } = {}) {
 /** A single Monday-first week, dots on marked days, with the same ‹ › nav
  *  as monthCalendar so a visitor can page to last/next week. Starts on the
  *  current week. The compact form of monthCalendar() for tight spaces (the
- *  home rail, collapsed). `onView(hasMarks)` fires on every paint — initial
- *  and after paging — so the caller can show/hide an empty-state message for
- *  whichever week is currently in view. */
+ *  home rail, collapsed) — no weekday-letter header, to keep it light; the
+ *  Upcoming list right below already spells out each day. `onView(hasMarks)`
+ *  fires on every paint — initial and after paging — so the caller can
+ *  show/hide an empty-state message for whichever week is currently in view. */
 export function weekStrip({ marks = new Map(), onPick, onView } = {}) {
   const today = localDayKey();
   let weekStart = addDays(keyOf(new Date()), -mondayIndex(new Date()));
 
   const head = el("div");
   const grid = el("div.cal__grid");
-  const root = el("div.cal.cal--mini.cal--week", {}, [head, weekdayRow(), grid]);
+  const root = el("div.cal.cal--mini.cal--week", {}, [head, grid]);
 
   function shiftWeek(delta) {
     weekStart = addDays(weekStart, delta * 7);
