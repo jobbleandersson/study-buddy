@@ -7,9 +7,26 @@
 import { STRINGS } from "./strings.js";
 
 const KEY = "studybuddy.lang";
+
+// Flag emoji render as bare "GB"/"SE" text on platforms without a color-emoji
+// font (stock Windows Chrome included), so these are small inline SVGs
+// instead — draws the same everywhere, no font dependency.
+const FLAG_GB = '<svg viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">' +
+  '<rect width="20" height="14" fill="#00247d"/>' +
+  '<path d="M0 0L20 14M20 0L0 14" stroke="#fff" stroke-width="2.4" fill="none"/>' +
+  '<path d="M0 0L20 14M20 0L0 14" stroke="#cf142b" stroke-width="1.6" fill="none"/>' +
+  '<path d="M10 0V14M0 7H20" stroke="#fff" stroke-width="4" fill="none"/>' +
+  '<path d="M10 0V14M0 7H20" stroke="#cf142b" stroke-width="2.4" fill="none"/>' +
+  '</svg>';
+const FLAG_SE = '<svg viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">' +
+  '<rect width="20" height="14" fill="#006aa7"/>' +
+  '<rect x="7" width="3.5" height="14" fill="#fecc02"/>' +
+  '<rect y="5.5" width="20" height="3" fill="#fecc02"/>' +
+  '</svg>';
+
 export const LANGS = [
-  ["en", "English", "🇬🇧"],
-  ["sv", "Svenska", "🇸🇪"],
+  ["en", "English", FLAG_GB],
+  ["sv", "Svenska", FLAG_SE],
 ];
 const SUPPORTED = LANGS.map(([code]) => code);
 const FALLBACK = "en";
