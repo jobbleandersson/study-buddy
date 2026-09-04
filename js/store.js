@@ -271,6 +271,16 @@ class Store extends EventTarget {
     this._updateAppBadge();
     this.save({ skipPush: true });
 
+    // On GitHub Pages (or any other purely static host) there's no server/
+    // behind this, so this would 404 on every single load — which the
+    // browser logs to the console as a resource-load failure regardless of
+    // how gracefully the catch below handles it. `api/health` at the repo
+    // root is a static stand-in for exactly that case (ok:false,
+    // keyConfigured:false — same shape as server/src/routes/health.js,
+    // same as this call already assumes when unreachable). It never shadows
+    // the real endpoint: server/src/index.js registers the Express health
+    // route before it falls back to serving static files, so a real
+    // server/ deployment always answers first.
     try {
       const res = await fetch(PROXY_HEALTH_URL);
       const data = res.ok ? await res.json() : null;
