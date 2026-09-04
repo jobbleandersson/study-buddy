@@ -8,8 +8,8 @@ import { STRINGS } from "./strings.js";
 
 const KEY = "studybuddy.lang";
 export const LANGS = [
-  ["en", "English"],
-  ["sv", "Svenska"],
+  ["en", "English", "🇬🇧"],
+  ["sv", "Svenska", "🇸🇪"],
 ];
 const SUPPORTED = LANGS.map(([code]) => code);
 const FALLBACK = "en";

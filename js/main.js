@@ -134,14 +134,16 @@ function topOverflowMenu() {
 }
 
 function langButton() {
+  const current = getLang();
   const next = nextLang();
+  const flag = LANGS.find(([c]) => c === current)?.[2] || "🌐";
   const nextLabel = LANGS.find(([c]) => c === next)?.[1] || next;
   return el("button.iconbtn.langbtn", {
     type: "button",
-    "aria-label": `${t("common.language")}: ${nextLabel}`,
+    "aria-label": `${t("common.language")} → ${nextLabel}`,
     title: `${t("common.language")} → ${nextLabel}`,
     onclick: () => { setLang(next); toast(t("set.langUpdated")); },
-  }, [icon(ICONS.globe, 18), el("span.langbtn__code", {}, next.toUpperCase())]);
+  }, [el("span.langbtn__flag", { "aria-hidden": "true" }, flag), el("span.langbtn__code", {}, current.toUpperCase())]);
 }
 
 function streakBadge(streak, atRisk) {
@@ -222,8 +224,8 @@ function shell(contentNode) {
       }, [icon(it.icon, 18), it.label]))),
     el("div.sidebar__foot", {}, [
       sidebarStreak(streak, atRisk),
-      themePicker(),
       langButton(),
+      themePicker(),
     ].filter(Boolean)),
   ]);
 
