@@ -126,6 +126,10 @@ a.streakbadge:hover {
   display: grid; place-items: center; color: var(--retry); background: var(--retry-tint);
 }
 .sidebar__streak--risk .sidebar__streak-icon { color: var(--info); background: var(--info-tint); }
+/* Zero-streak: same fixed spot in the footer, just muted rather than the
+   vivid orange — that's reserved for an actually-running streak. */
+.sidebar__streak--none { color: var(--ink-soft); }
+.sidebar__streak--none .sidebar__streak-icon { color: var(--ink-faint); background: var(--surface); }
 
 /* Segmented light/system/dark switcher, sidebar footer. */
 .sidebar__theme { display: flex; gap: 2px; padding: 3px; border-radius: var(--r-full); background: var(--surface-sunk); }

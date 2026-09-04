@@ -159,10 +159,11 @@ function streakBadge(streak, atRisk) {
 /** The sidebar footer's fuller streak row — same streak/at-risk logic as the
  *  compact topbar badge, just spelled out (icon + the day count in words)
  *  instead of a bare number. Sidebar-only, so the topbar's compact badge is
- *  untouched. */
+ *  untouched. Always shown, muted at zero — a fixed spot in the footer
+ *  rather than something that pops in once a streak starts. */
 function sidebarStreak(streak, atRisk) {
-  if (!(streak > 0)) return null;
-  return el("a.sidebar__streak" + (atRisk ? ".sidebar__streak--risk" : ""), {
+  const none = !(streak > 0);
+  return el("a.sidebar__streak" + (atRisk ? ".sidebar__streak--risk" : none ? ".sidebar__streak--none" : ""), {
     href: "#/progress",
     "aria-label": t("prog.streakAria", { n: streak }),
   }, [
