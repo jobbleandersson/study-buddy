@@ -7,18 +7,28 @@
 // server/ again, set this back to that server's absolute origin.
 export const SERVER_ORIGIN = "";
 
-export const PROXY_URL = `${SERVER_ORIGIN}/api/messages`;
-export const PROXY_HEALTH_URL = `${SERVER_ORIGIN}/api/health`;
-export const AUTH_SIGNUP_URL = `${SERVER_ORIGIN}/api/auth/signup`;
-export const AUTH_LOGIN_URL = `${SERVER_ORIGIN}/api/auth/login`;
-export const AUTH_LOGOUT_URL = `${SERVER_ORIGIN}/api/auth/logout`;
-export const AUTH_ME_URL = `${SERVER_ORIGIN}/api/auth/me`;
-export const STATE_URL = `${SERVER_ORIGIN}/api/state`;
-export const LINKS_URL = `${SERVER_ORIGIN}/api/links`;
-export const INVITE_CODE_URL = `${SERVER_ORIGIN}/api/links/invite-code`;
-export const REDEEM_CODE_URL = `${SERVER_ORIGIN}/api/links/redeem`;
-export const ASSIGNED_FOR_ME_URL = `${SERVER_ORIGIN}/api/assigned-for-me`;
-export const ASSIGN_URL = `${SERVER_ORIGIN}/api/assigned`;
-export const studentStateUrl = (studentUserId) => `${SERVER_ORIGIN}/api/parent/students/${studentUserId}/state`;
-export const unlinkUrl = (linkId) => `${SERVER_ORIGIN}/api/links/${linkId}`;
-export const clearAssignedUrl = (id) => `${SERVER_ORIGIN}/api/assigned/${id}`;
+// A leading "/" resolves against the *domain* root, which breaks the moment
+// this app is hosted under a subpath (e.g. GitHub Pages' /study-buddy/) —
+// every /api/* URL then misses the subpath and hits the wrong place
+// entirely. `.` resolves relative to this page's own directory instead, so
+// it lands correctly whether that's a domain root (server/ serving the
+// frontend itself) or a subpath (GitHub Pages). Only used when
+// SERVER_ORIGIN is empty — an absolute origin above already anchors these
+// unambiguously.
+const API = SERVER_ORIGIN || ".";
+
+export const PROXY_URL = `${API}/api/messages`;
+export const PROXY_HEALTH_URL = `${API}/api/health`;
+export const AUTH_SIGNUP_URL = `${API}/api/auth/signup`;
+export const AUTH_LOGIN_URL = `${API}/api/auth/login`;
+export const AUTH_LOGOUT_URL = `${API}/api/auth/logout`;
+export const AUTH_ME_URL = `${API}/api/auth/me`;
+export const STATE_URL = `${API}/api/state`;
+export const LINKS_URL = `${API}/api/links`;
+export const INVITE_CODE_URL = `${API}/api/links/invite-code`;
+export const REDEEM_CODE_URL = `${API}/api/links/redeem`;
+export const ASSIGNED_FOR_ME_URL = `${API}/api/assigned-for-me`;
+export const ASSIGN_URL = `${API}/api/assigned`;
+export const studentStateUrl = (studentUserId) => `${API}/api/parent/students/${studentUserId}/state`;
+export const unlinkUrl = (linkId) => `${API}/api/links/${linkId}`;
+export const clearAssignedUrl = (id) => `${API}/api/assigned/${id}`;
