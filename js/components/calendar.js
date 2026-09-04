@@ -223,3 +223,34 @@ export function monthCalendar({ marks = new Map(), onPick } = {}) {
 
   return { el: root };
 }
+
+/* ------------------------------------------------------------------ */
+/*  weekStrip — the collapsed form of monthCalendar: just this week    */
+/* ------------------------------------------------------------------ */
+
+/** A single row of the current Monday-first week, dots on marked days.
+ *  No month navigation — it always shows *this* week. The compact form
+ *  of monthCalendar() for tight spaces (the home rail, collapsed). */
+export function weekStrip({ marks = new Map(), onPick } = {}) {
+  const today = localDayKey();
+  const now = new Date();
+  const monday = addDays(keyOf(now), -mondayIndex(now));
+
+  const grid = el("div.cal__grid");
+  for (let i = 0; i < 7; i++) {
+    const key = addDays(monday, i);
+    const date = parseKey(key);
+    const mark = marks.get(key);
+    grid.appendChild(el(mark ? "button.cal__cell" : "span.cal__cell", {
+      type: mark ? "button" : undefined,
+      title: mark ? mark.titles.join(", ") : undefined,
+      class: [
+        key === today && "is-today",
+        mark && "is-marked",
+      ].filter(Boolean).join(" "),
+      onclick: mark && onPick ? (e) => onPick(key, mark, e.currentTarget) : undefined,
+    }, [String(date.getDate()), mark && el("span.cal__dot" + (mark.ids.length > 1 ? ".cal__dot--multi" : ""))]));
+  }
+
+  return { el: el("div.cal.cal--mini.cal--week", {}, [weekdayRow(), grid]) };
+}

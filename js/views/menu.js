@@ -7,7 +7,7 @@ import { t, plural, fmtDate, relativeDay, daysUntil } from "../lib/i18n.js";
 import { localDayKey, questionsAnsweredToday } from "../lib/activity.js";
 import { weeklyRecap, isoWeek } from "../lib/recap.js";
 import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
-import { datePicker, monthCalendar } from "../components/calendar.js";
+import { datePicker, monthCalendar, weekStrip } from "../components/calendar.js";
 import { goalRing } from "../components/goal-ring.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
@@ -457,7 +457,7 @@ function homeRail() {
 }
 
 function calendarPanel() {
-  const content = deadlineRailContent();
+  const content = deadlineRailContent({ collapsible: true });
   if (!content) return null;
   return el("section.home-panel.home-panel--cal", {}, [
     el("div.home-panel__label", {}, [el("span", {}, t("menu.upcoming"))]),
@@ -630,12 +630,14 @@ function goalPill(goal) {
 }
 
 /**
- * The month calendar (a dot on every day with a deadline) above the "Upcoming"
- * list, soonest-first. Shown in a dialog off the "Idag" panel's "Kommande"
- * button. Returns null when nothing is due.
+ * A calendar (a dot on every day with a deadline) above the "Upcoming" list,
+ * soonest-first. Full month in the "Kommande" dialog; the home-rail copy
+ * defaults to a single collapsed week, expandable to the full month.
+ * Returns null when nothing is due.
  */
 const UPCOMING_COLLAPSED = 3;
 let upcomingExpanded = false;
+let calendarExpanded = false;
 
 let calDialogEl = null;
 function calDialogEsc(e) { if (e.key === "Escape") closeCalendarDialog(); }
@@ -665,7 +667,7 @@ function openCalendarDialog() {
   calDialogEl.querySelector(".cal__cell, .upcoming__row, button")?.focus();
 }
 
-function deadlineRailContent() {
+function deadlineRailContent({ collapsible = false } = {}) {
   const items = store.upcomingDue();
   if (!items.length) return null;
 
@@ -677,13 +679,18 @@ function deadlineRailContent() {
     marks.set(a.dueAt, m);
   }
 
-  const cal = monthCalendar({
-    marks,
-    onPick: (_day, mark, cellEl) => {
-      if (mark.items.length === 1) { closeCalendarDialog(); location.hash = `#/session/${mark.items[0].id}`; return; }
-      openDayChooser(cellEl, mark);
-    },
-  });
+  const onPick = (_day, mark, cellEl) => {
+    if (mark.items.length === 1) { closeCalendarDialog(); location.hash = `#/session/${mark.items[0].id}`; return; }
+    openDayChooser(cellEl, mark);
+  };
+
+  // Only the home-rail copy collapses to a single week — the "Kommande"
+  // dialog is an explicit "show me everything" action, so it always gets
+  // the full month.
+  const calWrap = el("div.cal-collapse");
+  const calToggle = collapsible ? el("button.upcoming__more.cal-collapse__toggle", { type: "button" }) : null;
+  if (calToggle) calToggle.addEventListener("click", () => { calendarExpanded = !calendarExpanded; paintCal(); });
+  paintCal();
 
   const list = el("div.upcoming__list");
   const more = items.length - UPCOMING_COLLAPSED;
@@ -692,10 +699,21 @@ function deadlineRailContent() {
   paintList();
 
   return el("section.upcoming", {}, [
-    cal.el,
+    calToggle ? el("div.cal-collapse__bar", {}, [calToggle]) : null,
+    calWrap,
     list,
     toggle,
   ].filter(Boolean));
+
+  function paintCal() {
+    const expanded = !collapsible || calendarExpanded;
+    clear(calWrap);
+    calWrap.appendChild((expanded ? monthCalendar({ marks, onPick }) : weekStrip({ marks, onPick })).el);
+    if (calToggle) {
+      calToggle.textContent = expanded ? t("menu.calendarShowWeek") : t("menu.calendarShowMonth");
+      calToggle.setAttribute("aria-expanded", String(expanded));
+    }
+  }
 
   function paintList() {
     const shown = toggle && !upcomingExpanded ? items.slice(0, UPCOMING_COLLAPSED) : items;
