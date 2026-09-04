@@ -52,14 +52,14 @@ function daysToNextMonday() {
   return wd === 0 ? 7 : 7 - wd;
 }
 
-function navHeader(label, onPrev, onNext) {
+function navHeader(label, onPrev, onNext, prevKey = "cal.prevMonth", nextKey = "cal.nextMonth") {
   return el("div.cal__nav", {}, [
     el("button.cal__navbtn", {
-      type: "button", "aria-label": t("cal.prevMonth"), onclick: onPrev,
+      type: "button", "aria-label": t(prevKey), onclick: onPrev,
     }, "‹"),
     el("span.cal__month", {}, label),
     el("button.cal__navbtn", {
-      type: "button", "aria-label": t("cal.nextMonth"), onclick: onNext,
+      type: "button", "aria-label": t(nextKey), onclick: onNext,
     }, "›"),
   ]);
 }
@@ -228,29 +228,54 @@ export function monthCalendar({ marks = new Map(), onPick } = {}) {
 /*  weekStrip — the collapsed form of monthCalendar: just this week    */
 /* ------------------------------------------------------------------ */
 
-/** A single row of the current Monday-first week, dots on marked days.
- *  No month navigation — it always shows *this* week. The compact form
- *  of monthCalendar() for tight spaces (the home rail, collapsed). */
-export function weekStrip({ marks = new Map(), onPick } = {}) {
+/** A single Monday-first week, dots on marked days, with the same ‹ › nav
+ *  as monthCalendar so a visitor can page to last/next week. Starts on the
+ *  current week. The compact form of monthCalendar() for tight spaces (the
+ *  home rail, collapsed). `onView(hasMarks)` fires on every paint — initial
+ *  and after paging — so the caller can show/hide an empty-state message for
+ *  whichever week is currently in view. */
+export function weekStrip({ marks = new Map(), onPick, onView } = {}) {
   const today = localDayKey();
-  const now = new Date();
-  const monday = addDays(keyOf(now), -mondayIndex(now));
+  let weekStart = addDays(keyOf(new Date()), -mondayIndex(new Date()));
 
+  const head = el("div");
   const grid = el("div.cal__grid");
-  for (let i = 0; i < 7; i++) {
-    const key = addDays(monday, i);
-    const date = parseKey(key);
-    const mark = marks.get(key);
-    grid.appendChild(el(mark ? "button.cal__cell" : "span.cal__cell", {
-      type: mark ? "button" : undefined,
-      title: mark ? mark.titles.join(", ") : undefined,
-      class: [
-        key === today && "is-today",
-        mark && "is-marked",
-      ].filter(Boolean).join(" "),
-      onclick: mark && onPick ? (e) => onPick(key, mark, e.currentTarget) : undefined,
-    }, [String(date.getDate()), mark && el("span.cal__dot" + (mark.ids.length > 1 ? ".cal__dot--multi" : ""))]));
+  const root = el("div.cal.cal--mini.cal--week", {}, [head, weekdayRow(), grid]);
+
+  function shiftWeek(delta) {
+    weekStart = addDays(weekStart, delta * 7);
+    paint();
   }
 
-  return { el: el("div.cal.cal--mini.cal--week", {}, [weekdayRow(), grid]) };
+  function rangeLabel() {
+    const fmt = new Intl.DateTimeFormat(locale(), { day: "numeric", month: "short" });
+    return `${fmt.format(parseKey(weekStart))} – ${fmt.format(parseKey(addDays(weekStart, 6)))}`;
+  }
+
+  function paint() {
+    clear(head);
+    head.appendChild(navHeader(rangeLabel(), () => shiftWeek(-1), () => shiftWeek(1), "cal.prevWeek", "cal.nextWeek"));
+
+    clear(grid);
+    let hasMarks = false;
+    for (let i = 0; i < 7; i++) {
+      const key = addDays(weekStart, i);
+      const date = parseKey(key);
+      const mark = marks.get(key);
+      if (mark) hasMarks = true;
+      grid.appendChild(el(mark ? "button.cal__cell" : "span.cal__cell", {
+        type: mark ? "button" : undefined,
+        title: mark ? mark.titles.join(", ") : undefined,
+        class: [
+          key === today && "is-today",
+          mark && "is-marked",
+        ].filter(Boolean).join(" "),
+        onclick: mark && onPick ? (e) => onPick(key, mark, e.currentTarget) : undefined,
+      }, [String(date.getDate()), mark && el("span.cal__dot" + (mark.ids.length > 1 ? ".cal__dot--multi" : ""))]));
+    }
+    onView?.(hasMarks);
+  }
+  paint();
+
+  return { el: root };
 }

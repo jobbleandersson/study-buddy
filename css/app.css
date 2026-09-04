@@ -454,10 +454,11 @@ a.streakbadge:hover {
 }
 .upcoming__more:hover { color: var(--ink); }
 
-/* Home-rail calendar collapse — a single week by default, "Show full
-   month" expands it. The dialog version never gets this bar. */
-.cal-collapse__bar { display: flex; justify-content: flex-end; }
-.cal-collapse__bar .upcoming__more { margin-top: 0; margin-bottom: var(--s-2); }
+/* Home-rail calendar collapse — a single, navigable week by default (the
+   "Show full month" link sits in the panel label, next to "Upcoming"); a
+   note up top when the week in view has nothing due. The dialog version
+   gets neither. */
+.cal-empty { margin: 0 0 var(--s-2); }
 
 .acard__tag--due { background: var(--surface-sunk); color: var(--ink-soft); }
 .acard__tag--overdue { background: var(--retry-tint); color: var(--retry-ink); }

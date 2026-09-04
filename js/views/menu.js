@@ -460,8 +460,11 @@ function calendarPanel() {
   const content = deadlineRailContent({ collapsible: true });
   if (!content) return null;
   return el("section.home-panel.home-panel--cal", {}, [
-    el("div.home-panel__label", {}, [el("span", {}, t("menu.upcoming"))]),
-    content,
+    el("div.home-panel__label", {}, [
+      el("span", {}, t("menu.upcoming")),
+      content.calToggle,
+    ].filter(Boolean)),
+    content.el,
   ]);
 }
 
@@ -659,7 +662,7 @@ function openCalendarDialog() {
         el("h3", {}, [icon(ICONS.calendar, 18), t("menu.upcoming")]),
         el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.close"), onclick: closeCalendarDialog }, "×"),
       ]),
-      content,
+      content.el,
     ]),
   ]);
   document.body.appendChild(calDialogEl);
@@ -684,11 +687,12 @@ function deadlineRailContent({ collapsible = false } = {}) {
     openDayChooser(cellEl, mark);
   };
 
-  // Only the home-rail copy collapses to a single week — the "Kommande"
-  // dialog is an explicit "show me everything" action, so it always gets
-  // the full month.
+  // Only the home-rail copy collapses to a single, navigable week — the
+  // "Kommande" dialog is an explicit "show me everything" action, so it
+  // always gets the full month with no toggle.
   const calWrap = el("div.cal-collapse");
-  const calToggle = collapsible ? el("button.upcoming__more.cal-collapse__toggle", { type: "button" }) : null;
+  const calEmpty = collapsible ? el("p.note.cal-empty", {}, t("menu.calendarEmptyWeek")) : null;
+  const calToggle = collapsible ? el("button.linkbtn", { type: "button" }) : null;
   if (calToggle) calToggle.addEventListener("click", () => { calendarExpanded = !calendarExpanded; paintCal(); });
   paintCal();
 
@@ -698,17 +702,28 @@ function deadlineRailContent({ collapsible = false } = {}) {
   if (toggle) toggle.addEventListener("click", () => { upcomingExpanded = !upcomingExpanded; paintList(); });
   paintList();
 
-  return el("section.upcoming", {}, [
-    calToggle ? el("div.cal-collapse__bar", {}, [calToggle]) : null,
-    calWrap,
-    list,
-    toggle,
-  ].filter(Boolean));
+  return {
+    el: el("section.upcoming", {}, [
+      calEmpty,
+      calWrap,
+      list,
+      toggle,
+    ].filter(Boolean)),
+    calToggle,
+  };
 
   function paintCal() {
     const expanded = !collapsible || calendarExpanded;
     clear(calWrap);
-    calWrap.appendChild((expanded ? monthCalendar({ marks, onPick }) : weekStrip({ marks, onPick })).el);
+    if (expanded) {
+      calWrap.appendChild(monthCalendar({ marks, onPick }).el);
+      if (calEmpty) calEmpty.hidden = true;
+    } else {
+      calWrap.appendChild(weekStrip({
+        marks, onPick,
+        onView: (hasMarks) => { if (calEmpty) calEmpty.hidden = hasMarks; },
+      }).el);
+    }
     if (calToggle) {
       calToggle.textContent = expanded ? t("menu.calendarShowWeek") : t("menu.calendarShowMonth");
       calToggle.setAttribute("aria-expanded", String(expanded));

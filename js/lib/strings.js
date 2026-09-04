@@ -109,6 +109,7 @@ export const STRINGS = {
     "menu.upcomingLess": "Show fewer",
     "menu.calendarShowMonth": "Show full month",
     "menu.calendarShowWeek": "Show this week only",
+    "menu.calendarEmptyWeek": "Nothing due this week.",
     "menu.upcomingCount": "Upcoming ({n})",
     "menu.dueLabel": "Due {date}",
     "menu.panelToday": "Today",
@@ -557,6 +558,8 @@ export const STRINGS = {
 
     "cal.prevMonth": "Previous month",
     "cal.nextMonth": "Next month",
+    "cal.prevWeek": "Previous week",
+    "cal.nextWeek": "Next week",
     "datepick.tomorrow": "Tomorrow",
     "datepick.in3days": "In 3 days",
     "datepick.nextMon": "Next Monday",
@@ -967,6 +970,7 @@ export const STRINGS = {
     "menu.upcomingLess": "Visa färre",
     "menu.calendarShowMonth": "Visa hela månaden",
     "menu.calendarShowWeek": "Visa bara denna vecka",
+    "menu.calendarEmptyWeek": "Inget att göra denna vecka.",
     "menu.upcomingCount": "Kommande ({n})",
     "menu.dueLabel": "Deadline {date}",
     "menu.panelToday": "Idag",
@@ -1415,6 +1419,8 @@ export const STRINGS = {
 
     "cal.prevMonth": "Föregående månad",
     "cal.nextMonth": "Nästa månad",
+    "cal.prevWeek": "Föregående vecka",
+    "cal.nextWeek": "Nästa vecka",
     "datepick.tomorrow": "Imorgon",
     "datepick.in3days": "Om 3 dagar",
     "datepick.nextMon": "Nästa måndag",
