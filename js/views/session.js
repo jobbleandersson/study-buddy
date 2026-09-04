@@ -323,14 +323,13 @@ function runSession(config) {
   }
 
   /* ----- confidence prompt: only ask when it changes the schedule ----- */
-  // In spaced review / weak-spot drills it stays after every correct answer;
-  // in ordinary assignment practice it's trimmed to the ambiguous case (a
-  // clean first-try correct answer that might be a guess), capped per session.
-  const trimConfidence = !(config.assignmentId === REVIEW_ID || config.assignmentId === WEAK_ID);
+  // Same rule everywhere — regular practice, Review, and Weak-spots alike:
+  // only the ambiguous case (a clean first-try correct answer that might be
+  // a guess), capped per session so it's an occasional check-in, not a
+  // running commentary.
   let confidenceAsks = 0;
   function askConfidence(result) {
     if (!result.correct) return false;
-    if (!trimConfidence) return true;
     if (result.srsGrade !== "easy") return false;
     if (confidenceAsks >= 2) return false;
     confidenceAsks++;
