@@ -366,6 +366,10 @@ a.streakbadge:hover {
   font-family: var(--font-display); font-weight: 700; font-size: var(--fs-md);
   color: var(--ink); margin-bottom: var(--s-3);
 }
+/* Quieter link-style text on the home page specifically (the achievements
+   count, "switch to Tests", "Show all") — same elsewhere (Study, Progress,
+   Settings, the Kommande dialog), just not underlined here. */
+.home-panel .linkbtn, .home-panel .upcoming__more { text-decoration: none; }
 
 /* Two-column home page: the panels on the left, a sticky rail (upcoming
    deadlines + achievements teaser) on the right. Falls back to one column
