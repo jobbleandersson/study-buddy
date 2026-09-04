@@ -21,6 +21,7 @@ export function applyTheme(theme = getTheme()) {
 export function setTheme(theme) {
   localStorage.setItem(KEY, theme);
   applyTheme(theme);
+  window.dispatchEvent(new CustomEvent("sb:themechange", { detail: { theme } }));
 }
 
 /** True if what's on screen right now is the dark palette. */

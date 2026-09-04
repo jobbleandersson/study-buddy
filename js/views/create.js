@@ -106,7 +106,7 @@ export function renderCreate(prefill) {
 
   /* ---- step 1: source ---- */
   function sourceStep() {
-    const opt = (key, emoji, label, desc) => el("button.source-opt", {
+    const opt = (key, iconPath, label, desc) => el("button.source-opt", {
       type: "button",
       onclick: () => {
         // Leaving the Nationellt prov source: drop any stale subject lock.
@@ -117,17 +117,17 @@ export function renderCreate(prefill) {
         }
         state.source = key; state.step = "input"; paint();
       },
-    }, [el("span", {}, emoji), label, el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, desc)]);
+    }, [icon(iconPath, 26), label, el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, desc)]);
 
     return el("div.panel", {}, [
       el("p", { style: { marginBottom: "16px" } }, t("create.whereFrom")),
       el("div.source-grid", {}, [
-        opt("paste", "📝", t("create.optPaste"), t("create.optPasteSub")),
-        opt("pdf", "📄", t("create.optPdf"), t("create.optPdfSub")),
-        opt("photo", "📷", t("create.optPhoto"), t("create.optPhotoSub")),
-        opt("import", "📋", t("create.optImport"), t("create.optImportSub")),
-        opt("blank", "✏️", t("create.optBlank"), t("create.optBlankSub")),
-        opt("nationalprov", "🎓", t("create.optNational"), t("create.optNationalSub")),
+        opt("paste", ICONS.pencil, t("create.optPaste"), t("create.optPasteSub")),
+        opt("pdf", ICONS.fileText, t("create.optPdf"), t("create.optPdfSub")),
+        opt("photo", ICONS.camera, t("create.optPhoto"), t("create.optPhotoSub")),
+        opt("import", ICONS.clipboard, t("create.optImport"), t("create.optImportSub")),
+        opt("blank", ICONS.plus, t("create.optBlank"), t("create.optBlankSub")),
+        opt("nationalprov", ICONS.graduation, t("create.optNational"), t("create.optNationalSub")),
       ]),
       !store.hasKey() && el("p.note.note--warn", { style: { marginTop: "16px" } }, [
         t("create.needKey"), el("a", { href: "#/settings" }, t("create.needKeyLink")),

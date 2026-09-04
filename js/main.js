@@ -1,10 +1,11 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
-import { el, mount, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
+import { el, clear, mount, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, getLang, setLang, applyLang, LANGS } from "./lib/i18n.js";
 import { localDayKey } from "./lib/activity.js";
+import { THEMES, getTheme, setTheme } from "./lib/theme.js";
 import { titleKey } from "./lib/achievements.js";
 import { celebrate } from "./lib/confetti-helper.js";
 import { playFanfare } from "./lib/sound.js";
@@ -153,6 +154,59 @@ function streakBadge(streak, atRisk) {
   }, [icon(atRisk ? ICONS.shield : ICONS.flame, 14), el("span.tabular", {}, String(streak))]);
 }
 
+/** The sidebar footer's fuller streak row — same streak/at-risk logic as the
+ *  compact topbar badge, just spelled out (icon + the day count in words)
+ *  instead of a bare number. Sidebar-only, so the topbar's compact badge is
+ *  untouched. */
+function sidebarStreak(streak, atRisk) {
+  if (!(streak > 0)) return null;
+  return el("a.sidebar__streak" + (atRisk ? ".sidebar__streak--risk" : ""), {
+    href: "#/progress",
+    "aria-label": t("prog.streakAria", { n: streak }),
+  }, [
+    el("span.sidebar__streak-icon", {}, icon(atRisk ? ICONS.shield : ICONS.flame, 18)),
+    atRisk ? t("streak.atRiskShort")
+      : streak === 1 ? t("menu.tileStreakOne", { n: streak }) : t("menu.tileStreak", { n: streak }),
+  ]);
+}
+
+const THEME_ICONS = { system: ICONS.monitor, light: ICONS.sun, dark: ICONS.moon };
+
+/** Segmented light/system/dark switcher for the sidebar footer. Self-painting
+ *  so a click doesn't have to re-render the whole shell just to update itself.
+ *  Also listens for a theme change made elsewhere (the Settings dropdown,
+ *  while staying on that page) — a full render() would work too, but flashes
+ *  the loading state for what's really just an instant CSS swap. The listener
+ *  unhooks itself once this instance's node is no longer on the page, so
+ *  navigating away (which replaces the whole sidebar) doesn't pile up stale
+ *  listeners. */
+function themePicker() {
+  const wrap = el("div.sidebar__theme", { role: "group", "aria-label": t("set.theme") });
+
+  function paint() {
+    clear(wrap);
+    const current = getTheme();
+    for (const [value] of THEMES) {
+      const label = t(`set.theme${value[0].toUpperCase()}${value.slice(1)}`);
+      wrap.appendChild(el("button.sidebar__theme-btn", {
+        type: "button",
+        "aria-pressed": String(value === current),
+        "aria-label": label, title: label,
+        onclick: () => setTheme(value),
+      }, icon(THEME_ICONS[value], 15)));
+    }
+  }
+  // Only the event-triggered path needs the disconnect check — the initial
+  // call below runs before the caller has mounted `wrap` at all.
+  function onExternalChange() {
+    if (!wrap.isConnected) { window.removeEventListener("sb:themechange", onExternalChange); return; }
+    paint();
+  }
+  window.addEventListener("sb:themechange", onExternalChange);
+  paint();
+  return wrap;
+}
+
 function shell(contentNode) {
   const { displayStreak: streak, atRisk } = store.streakInfo;
 
@@ -167,7 +221,8 @@ function shell(contentNode) {
         href: it.href, "aria-current": navActive(it.match) ? "page" : null,
       }, [icon(it.icon, 18), it.label]))),
     el("div.sidebar__foot", {}, [
-      streakBadge(streak, atRisk),
+      sidebarStreak(streak, atRisk),
+      themePicker(),
       langButton(),
     ].filter(Boolean)),
   ]);

@@ -104,7 +104,7 @@ export async function renderLibrary() {
       el("p", { style: { marginBottom: "16px" } }, t("lib.intro")),
       el("div.source-grid", {}, levels.map((lvl) =>
         el("button.source-opt", { type: "button", onclick: () => { state.level = lvl.id; paint(); } }, [
-          el("span", {}, "🎓"), lvl.label,
+          icon(ICONS.graduation, 26), lvl.label,
         ]))),
     ]);
   }
@@ -117,7 +117,7 @@ export async function renderLibrary() {
       el("p", { style: { marginBottom: "16px" } }, t("lib.pickSubject", { level: level?.label || "" })),
       el("div.source-grid", {}, subjects.map((subject) =>
         el("button.source-opt", { type: "button", onclick: () => { state.subject = subject.id; paint(); } }, [
-          el("span", {}, "📘"), subject.name,
+          icon(ICONS.book, 26), subject.name,
           el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, subject.description),
         ]))),
     ]);

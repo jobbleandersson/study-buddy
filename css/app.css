@@ -108,7 +108,34 @@ a.streakbadge:hover {
 .sidebar__link:hover { background: var(--surface-sunk); color: var(--ink); }
 .sidebar__link.is-active { background: var(--brand-tint); color: var(--brand-ink); }
 .sidebar__link.is-active svg { color: var(--brand-ink); }
-.sidebar__foot { display: flex; align-items: center; gap: var(--s-2); margin-top: var(--s-4); flex-wrap: wrap; }
+.sidebar__foot { display: flex; flex-direction: column; gap: var(--s-2); margin-top: var(--s-4); }
+.sidebar__foot .langbtn { align-self: flex-start; }
+
+/* Fuller streak row (icon + the day count in words) — sidebar only, the
+   topbar keeps the compact .streakbadge pill. */
+.sidebar__streak {
+  display: flex; align-items: center; gap: var(--s-3);
+  padding: var(--s-3); border-radius: var(--r-md);
+  background: var(--surface-sunk); color: var(--ink);
+  font-size: var(--fs-sm); font-weight: 700; text-decoration: none;
+  transition: background var(--dur-fast);
+}
+.sidebar__streak:hover { background: var(--line); }
+.sidebar__streak-icon {
+  width: 32px; height: 32px; flex: none; border-radius: var(--r-full);
+  display: grid; place-items: center; color: var(--retry); background: var(--retry-tint);
+}
+.sidebar__streak--risk .sidebar__streak-icon { color: var(--info); background: var(--info-tint); }
+
+/* Segmented light/system/dark switcher, sidebar footer. */
+.sidebar__theme { display: flex; gap: 2px; padding: 3px; border-radius: var(--r-full); background: var(--surface-sunk); }
+.sidebar__theme-btn {
+  flex: 1; display: grid; place-items: center; height: 30px; font: inherit;
+  border: none; border-radius: var(--r-full); background: transparent; color: var(--ink-faint);
+  cursor: pointer; transition: background var(--dur-fast), color var(--dur-fast);
+}
+.sidebar__theme-btn:hover { color: var(--ink); }
+.sidebar__theme-btn[aria-pressed="true"] { background: var(--surface); color: var(--brand-ink); box-shadow: var(--shadow-1); }
 
 @media (min-width: 900px) {
   .sidebar {
@@ -951,7 +978,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .source-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s-3); }
 .source-opt { cursor: pointer; padding: var(--s-5) var(--s-4); border-radius: var(--r-md); border: 2px solid var(--line-strong); background: var(--surface); text-align: center; font-family: var(--font-display); font-weight: 600; transition: transform var(--dur-fast) var(--ease-spring), border-color var(--dur-fast); }
 .source-opt:hover { transform: translateY(-2px); border-color: var(--brand); }
-.source-opt span { display: block; font-size: 26px; margin-bottom: var(--s-2); }
+.source-opt svg { display: block; margin: 0 auto var(--s-2); }
 
 /* Subject field: text input + one-tap chips for the subjects that exist. */
 .subjectfield { display: flex; flex-direction: column; gap: var(--s-2); }
