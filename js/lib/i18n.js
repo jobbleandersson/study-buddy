@@ -24,9 +24,13 @@ const FLAG_SE = '<svg viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg">' +
   '<rect y="5.5" width="20" height="3" fill="#fecc02"/>' +
   '</svg>';
 
+// Swedish first — every bundled set is Swedish curriculum content, and the
+// app itself defaults to sv (see detectLang() below), so this is the order
+// that matches, everywhere LANGS drives a listing (Settings' dropdown,
+// the sidebar's two-flag picker).
 export const LANGS = [
-  ["en", "English", FLAG_GB],
   ["sv", "Svenska", FLAG_SE],
+  ["en", "English", FLAG_GB],
 ];
 const SUPPORTED = LANGS.map(([code]) => code);
 const FALLBACK = "en";

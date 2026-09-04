@@ -109,7 +109,6 @@ a.streakbadge:hover {
 .sidebar__link.is-active { background: var(--brand-tint); color: var(--brand-ink); }
 .sidebar__link.is-active svg { color: var(--brand-ink); }
 .sidebar__foot { display: flex; flex-direction: column; gap: var(--s-2); margin-top: var(--s-4); }
-.sidebar__foot .langbtn { align-self: flex-start; }
 
 /* Fuller streak row (icon + the day count in words) — sidebar only, the
    topbar keeps the compact .streakbadge pill. */
@@ -140,6 +139,18 @@ a.streakbadge:hover {
 }
 .sidebar__theme-btn:hover { color: var(--ink); }
 .sidebar__theme-btn[aria-pressed="true"] { background: var(--surface); color: var(--brand-ink); box-shadow: var(--shadow-1); }
+
+/* Two-flag direct-select switcher, sidebar footer — same segmented-group
+   look as .sidebar__theme, sized for flags rather than icon glyphs. */
+.sidebar__lang { display: flex; gap: 2px; padding: 3px; border-radius: var(--r-md); background: var(--surface-sunk); }
+.sidebar__lang-btn {
+  flex: 1; display: grid; place-items: center; padding: var(--s-2) 0;
+  border: none; border-radius: var(--r-sm); background: transparent;
+  cursor: pointer; transition: background var(--dur-fast), box-shadow var(--dur-fast);
+}
+.sidebar__lang-btn:hover { background: var(--line); }
+.sidebar__lang-btn[aria-pressed="true"] { background: var(--surface); box-shadow: var(--shadow-1); }
+.sidebar__lang-btn svg { width: 28px; height: auto; display: block; border-radius: 3px; }
 
 @media (min-width: 900px) {
   .sidebar {

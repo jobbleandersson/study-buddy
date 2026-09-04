@@ -174,6 +174,9 @@ function sidebarStreak(streak, atRisk) {
 }
 
 const THEME_ICONS = { system: ICONS.monitor, light: ICONS.sun, dark: ICONS.moon };
+// Light / system / dark, left to right — independent of THEMES' own order
+// (which Settings' dropdown uses instead), just this widget's layout.
+const THEME_ORDER = ["light", "system", "dark"];
 
 /** Segmented light/system/dark switcher for the sidebar footer. Self-painting
  *  so a click doesn't have to re-render the whole shell just to update itself.
@@ -189,7 +192,7 @@ function themePicker() {
   function paint() {
     clear(wrap);
     const current = getTheme();
-    for (const [value] of THEMES) {
+    for (const value of THEME_ORDER) {
       const label = t(`set.theme${value[0].toUpperCase()}${value.slice(1)}`);
       wrap.appendChild(el("button.sidebar__theme-btn", {
         type: "button",
@@ -210,6 +213,25 @@ function themePicker() {
   return wrap;
 }
 
+/** Two-flag segmented switcher for the sidebar footer — direct-select
+ *  (each flag its own button) rather than the single cycling button used
+ *  in the topbar (langButton(), left unchanged — no room here for both
+ *  flags at that size). No self-sync listener needed: setLang() already
+ *  dispatches "sb:langchange", which main.js's top-level listener answers
+ *  with a full render() — that rebuilds this picker fresh with the new
+ *  current language already reflected, unlike the theme picker which
+ *  deliberately avoids a full render to skip the loading-state flash. */
+function sidebarLangPicker() {
+  const current = getLang();
+  return el("div.sidebar__lang", { role: "group", "aria-label": t("common.language") },
+    LANGS.map(([code, label, flagSvg]) => el("button.sidebar__lang-btn", {
+      type: "button",
+      "aria-pressed": String(code === current),
+      "aria-label": label, title: label,
+      onclick: () => setLang(code),
+    }, [el("span", { "aria-hidden": "true", html: flagSvg })])));
+}
+
 function shell(contentNode) {
   const { displayStreak: streak, atRisk } = store.streakInfo;
 
@@ -224,9 +246,9 @@ function shell(contentNode) {
         href: it.href, "aria-current": navActive(it.match) ? "page" : null,
       }, [icon(it.icon, 18), it.label]))),
     el("div.sidebar__foot", {}, [
-      langButton(),
       sidebarStreak(streak, atRisk),
       themePicker(),
+      sidebarLangPicker(),
     ].filter(Boolean)),
   ]);
 
