@@ -692,8 +692,8 @@ function deadlineRailContent({ collapsible = false } = {}) {
   if (!items.length) return null;
 
   // items is soonest-first, so the first test in it is the next one due.
-  // Shown as a plain countdown line under the calendar — independent of
-  // which week/month the calendar is currently paged to.
+  // Shown as a countdown + study shortcut under the calendar — independent
+  // of which week/month the calendar is currently paged to.
   const nextTest = items.find((a) => a.type === "test");
 
   // day key -> { ids, titles, items } for the calendar dots + the day chooser.
@@ -799,20 +799,35 @@ function deadlineRailContent({ collapsible = false } = {}) {
   }
 }
 
-/** Plain countdown line to the soonest test, sat under the calendar.
- *  Days-only (deadlines are stored as a date, not a time). Null when no
- *  test has a due date — an assignment-only calendar shows nothing here. */
+/** Hours from now until the end of today. Deadlines carry no time of day,
+ *  so on the due date itself this counts down to midnight — enough to say
+ *  "today, and not much of it left". At least 1 so it never reads "0h". */
+function hoursLeftToday() {
+  const now = new Date();
+  const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  return Math.max(1, Math.ceil((endOfDay - now) / 3600000));
+}
+
+/** Countdown + one-tap shortcut to the soonest test, sat under the
+ *  calendar. Days elsewhere, but hours once it's due today (deadlines have
+ *  no time of day — this counts to midnight). Null when no test has a due
+ *  date — an assignment-only calendar shows nothing here. */
 function nextTestLine(a) {
   if (!a) return null;
   const d = daysUntil(a.dueAt);
   const soon = d <= 1;
-  const text = d < 0 ? t("menu.nextTestOverdue")
-    : d === 0 ? t("menu.nextTestToday")
+  const when = d < 0 ? t("menu.nextTestOverdue")
+    : d === 0 ? t("menu.nextTestHours", { n: hoursLeftToday() })
     : d === 1 ? t("menu.nextTestTomorrow")
     : t("menu.nextTestIn", { n: d });
-  return el("p.next-test" + (soon ? ".next-test--soon" : ""), {}, [
-    icon(ICONS.clock, 14),
-    el("span", {}, text),
+  return el("a.next-test" + (soon ? ".next-test--soon" : ""), {
+    href: `#/session/${a.id}`,
+    "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
+    onclick: () => closeCalendarDialog(),
+  }, [
+    el("span.next-test__when", {}, [icon(ICONS.clock, 14), el("span", {}, when)]),
+    el("span.next-test__title", {}, a.title),
+    el("span.next-test__go", {}, icon(ICONS.play, 14)),
   ]);
 }
 
