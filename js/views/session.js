@@ -720,7 +720,9 @@ function runSession(config) {
    *  still unanswered — so a student's own set (or an answered question the
    *  student's done with) keeps its tutor thread and any half-typed answer. */
   function onLangSession() {
-    headH2.textContent = headTitle();
+    const title = headTitle();
+    headH2.textContent = title;
+    document.title = `${title} · StudyBuddy`;   // render() skips this on the chrome-only path
     badgeEl.textContent = badgeLabel(config);
     nextBtn.textContent = nextBtnLabel();
     skipBtn.textContent = t("session.skip");
