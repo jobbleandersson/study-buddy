@@ -268,6 +268,16 @@ export const STRINGS = {
     "results.tryAgain": "Try again",
     "results.reviewAgain": "Review again",
     "results.seeProgress": "See progress",
+    "results.srsTitle": "Scheduled for review",
+    "results.srsScheduledOne": "1 question is now in your review schedule.",
+    "results.srsScheduledMany": "{n} questions are now in your review schedule.",
+    "results.srsNext": "Next review: {when}",
+    "results.srsRelearnLabel": "in a few minutes",
+    "results.srsRelearn": "{n} back again shortly",
+    "results.srsSoon": "{n} back in a day or two",
+    "results.srsLater": "{n} back in several days",
+    "results.srsReviewNow": "Review {n} due now",
+    "results.srsComeBack": "We'll bring these back on your home screen when they're due.",
 
     /* ---- progress ---- */
     "prog.title": "Your progress",
@@ -290,6 +300,13 @@ export const STRINGS = {
     "prog.reviewExplain": "“Review today” practises just these questions, pulled from every set.",
     "prog.nothingDue": "Nothing due right now. Spaced repetition brings questions back just before you'd forget them.",
     "prog.moreDue": "+ {n} more",
+    "prog.recallTitle": "Recall over time",
+    "prog.recallSub": "Your score on your last {n} review sessions.",
+    "prog.recallAria": "Review session scores, oldest to newest: {list}",
+    "srs.reasonMissed": "missed before",
+    "srs.reasonOverdue": "overdue",
+    "srs.reasonFirst": "first review",
+    "srs.reasonSolid": "well learned",
 
     /* ---- create ---- */
     "create.title": "New study set",
@@ -1158,6 +1175,16 @@ export const STRINGS = {
     "results.tryAgain": "Försök igen",
     "results.reviewAgain": "Repetera igen",
     "results.seeProgress": "Se framsteg",
+    "results.srsTitle": "Inlagt för repetition",
+    "results.srsScheduledOne": "1 fråga ligger nu i ditt repetitionsschema.",
+    "results.srsScheduledMany": "{n} frågor ligger nu i ditt repetitionsschema.",
+    "results.srsNext": "Nästa repetition: {when}",
+    "results.srsRelearnLabel": "om några minuter",
+    "results.srsRelearn": "{n} tillbaka om en stund",
+    "results.srsSoon": "{n} tillbaka om en dag eller två",
+    "results.srsLater": "{n} tillbaka om flera dagar",
+    "results.srsReviewNow": "Repetera {n} som väntar",
+    "results.srsComeBack": "De dyker upp på startsidan när det är dags att repetera dem.",
 
     /* ---- progress ---- */
     "prog.title": "Dina framsteg",
@@ -1180,6 +1207,13 @@ export const STRINGS = {
     "prog.reviewExplain": "”Repetera idag” övar bara på de här frågorna, hämtade från alla dina set.",
     "prog.nothingDue": "Inget att repetera just nu. Repetition tar tillbaka frågor precis innan du hinner glömma dem.",
     "prog.moreDue": "+ {n} till",
+    "prog.recallTitle": "Minne över tid",
+    "prog.recallSub": "Ditt resultat på de senaste {n} repetitionspassen.",
+    "prog.recallAria": "Resultat på repetitionspass, äldst till nyast: {list}",
+    "srs.reasonMissed": "fel tidigare",
+    "srs.reasonOverdue": "försenad",
+    "srs.reasonFirst": "första repetitionen",
+    "srs.reasonSolid": "sitter bra",
 
     /* ---- create ---- */
     "create.title": "Nytt pluggset",

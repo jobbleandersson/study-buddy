@@ -980,6 +980,9 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .delta__answer, .delta__explain { margin: 0; font-size: var(--fs-sm); }
 .delta__explain { color: var(--ink-faint); }
 
+/* "Scheduled for review" summary on the results screen. */
+.results .srs-next { color: var(--ink); font-weight: 700; }
+
 /* ---------- progress dashboard ---------- */
 .dash { display: grid; gap: var(--s-5); }
 .streak { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -1025,6 +1028,14 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .meter__fill { height: 100%; border-radius: inherit; background: var(--subject, var(--brand)); transition: width var(--dur-slow) var(--ease-out); }
 .due-list { display: flex; flex-direction: column; gap: var(--s-2); }
 .due-item { display: flex; justify-content: space-between; gap: var(--s-3); padding: var(--s-3) var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+.due-item__main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.due-item__why { font-size: var(--fs-sm); color: var(--ink-faint); }
+
+/* Review-recall sparkline — bare line chart, scales to the panel width. */
+.sparkline { width: 100%; height: auto; display: block; }
+.sparkline polyline { fill: none; stroke: var(--brand); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.sparkline circle { fill: var(--brand); }
+.sparkline circle.last { fill: var(--ok); }
 
 /* ---------- create flow ---------- */
 .steps { display: flex; gap: var(--s-2); margin-bottom: var(--s-5); flex-wrap: wrap; }

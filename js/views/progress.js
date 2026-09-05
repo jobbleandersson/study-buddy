@@ -4,8 +4,8 @@ import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { masteryByTopic, masteryForSubject } from "../lib/mastery.js";
-import { dueLabel } from "../lib/srs.js";
-import { localDayKey, recentDays, questionsAnsweredToday } from "../lib/activity.js";
+import { dueLabel, reviewReason } from "../lib/srs.js";
+import { localDayKey, recentDays, questionsAnsweredToday, reviewAccuracyTrend } from "../lib/activity.js";
 import { t, plural } from "../lib/i18n.js";
 import { weakSpotQuestions } from "../lib/mastery.js";
 import { goalRing } from "../components/goal-ring.js";
@@ -71,6 +71,7 @@ export function renderProgress() {
   // ---- due for review ----
   const dueItems = store.dueQuestions();
   const weakCount = weakSpotQuestions(store.assignments, store.attempts).length;
+  const recall = reviewAccuracyTrend(store.attempts);
 
   const node = el("div.dash", {}, [
     homeButton({ grid: true }),
@@ -138,6 +139,14 @@ export function renderProgress() {
         : el("p.note", {}, t("prog.masteryEmpty")),
     ]),
 
+    // "Is my recall actually improving?" — score on the last few cross-set
+    // review sessions. Needs a few before a line means anything.
+    recall.length >= 3 ? el("section.panel", {}, [
+      el("h3", { style: { marginBottom: "6px" } }, t("prog.recallTitle")),
+      el("p.note", { style: { marginBottom: "12px" } }, t("prog.recallSub", { n: recall.length })),
+      sparkline(recall),
+    ]) : null,
+
     el("section.panel", {}, [
       el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap", marginBottom: "10px" } }, [
         el("h3", {}, dueItems.length ? t("prog.dueCount", { n: dueItems.length }) : t("prog.due")),
@@ -147,14 +156,19 @@ export function renderProgress() {
         ? el("div", {}, [
             el("p.note", { style: { marginBottom: "10px" } },
               t("prog.reviewExplain")),
-            el("div.due-list", {}, dueItems.slice(0, 12).map(({ assignment, question, rec }) =>
-              el("div.due-item", {}, [
-                el("span", { html: renderRich(question.prompt.length > 80 ? question.prompt.slice(0, 80) + "…" : question.prompt) }),
+            el("div.due-list", {}, dueItems.slice(0, 12).map(({ assignment, question, rec }) => {
+              const why = reviewReason(rec);
+              return el("div.due-item", {}, [
+                el("div.due-item__main", {}, [
+                  el("span", { html: renderRich(question.prompt.length > 80 ? question.prompt.slice(0, 80) + "…" : question.prompt) }),
+                  why ? el("span.due-item__why", {}, why) : null,
+                ].filter(Boolean)),
                 el("span", { style: { display: "flex", gap: "8px", flex: "none", alignItems: "center" } }, [
                   el("span.note", {}, dueLabel(rec)),
                   el("span.badge", {}, assignment.title),
                 ]),
-              ]))),
+              ]);
+            })),
             dueItems.length > 12 ? el("p.note", { style: { marginTop: "10px" } }, t("prog.moreDue", { n: dueItems.length - 12 })) : null,
           ].filter(Boolean))
         : el("p.note", {}, t("prog.nothingDue")),
@@ -168,4 +182,27 @@ export function renderProgress() {
   });
 
   return { title: t("common.progress"), node };
+}
+
+/** A bare line chart of review-session scores, built like the results-screen
+ *  ring — SVG via innerHTML, no library. viewBox is wide so it scales up
+ *  uniformly to the panel width; y maps 0%→bottom, 100%→top. */
+function sparkline(pts) {
+  const w = 600, h = 60, pad = 6;
+  const x = (i) => pad + (i * (w - 2 * pad)) / Math.max(1, pts.length - 1);
+  const y = (p) => h - pad - (p / 100) * (h - 2 * pad);
+  const poly = pts.map((d, i) => `${x(i).toFixed(1)},${y(d.pct).toFixed(1)}`).join(" ");
+  const wrap = el("div", {
+    role: "img",
+    "aria-label": t("prog.recallAria", { list: pts.map((d) => `${d.pct}%`).join(", ") }),
+  });
+  wrap.innerHTML =
+    `<svg class="sparkline" viewBox="0 0 ${w} ${h}">` +
+    `<polyline points="${poly}"/>` +
+    pts.map((d, i) => {
+      const last = i === pts.length - 1;
+      return `<circle cx="${x(i).toFixed(1)}" cy="${y(d.pct).toFixed(1)}" r="${last ? 5 : 3.5}"${last ? ' class="last"' : ""}/>`;
+    }).join("") +
+    `</svg>`;
+  return wrap;
 }

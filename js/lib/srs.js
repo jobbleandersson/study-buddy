@@ -45,12 +45,50 @@ export function isDue(rec, now = Date.now()) {
   return !rec || rec.dueAt <= now;
 }
 
-/** Reuses the same phrasing as due dates, so both lists read alike. */
+/** Reuses the same phrasing as due dates, so both lists read alike.
+ *  Note: a record due in ~10 minutes (a just-missed question) still formats as
+ *  "Tomorrow" here — that's deliberate, so the due list and the review list
+ *  read alike. summarizeSchedule() sidesteps it by bucketing those separately. */
 export function dueLabel(rec, now = Date.now()) {
   if (isDue(rec, now)) return t("date.dueNow");
   const days = Math.ceil((rec.dueAt - now) / DAY);
   const target = new Date(now + days * DAY);
   return relativeDay(localDayKey(target), new Date(now));
+}
+
+/** What a finished session did to the review schedule, for the results screen.
+ *  Pure — reads the already-updated srs map. A wrong answer ("again") comes
+ *  back in ~10 minutes (intervalDays 0); those are bucketed as `relearn` and
+ *  kept out of `nextRec`, so the headline never reads "Tomorrow" for a
+ *  same-day retry. `firstTime` is a heuristic (fresh-looking record), not an
+ *  exact "was this brand new" — that isn't recoverable at render time. */
+export function summarizeSchedule(items, srs, now = Date.now()) {
+  let scheduled = 0, firstTime = 0, relearn = 0, soon = 0, later = 0;
+  let nextRec = null;
+  for (const it of items || []) {
+    const rec = srs[it.questionId];
+    if (!rec) continue;
+    scheduled++;
+    if (rec.reps <= 1 && rec.lapses === 0) firstTime++;
+    if (rec.intervalDays === 0) { relearn++; continue; }
+    const days = Math.ceil((rec.dueAt - now) / DAY);
+    if (days <= 2) soon++; else later++;
+    if (!nextRec || rec.dueAt < nextRec.dueAt) nextRec = rec;
+  }
+  return { scheduled, firstTime, relearn, soon, later, nextRec, relearnOnly: !nextRec && relearn > 0 };
+}
+
+/** A one-glance reason a question is back, from its record. "" when there's
+ *  nothing worth saying (a normal, on-track review) — callers skip empties.
+ *  Priority: a lapse not yet recovered is the most useful thing to flag. */
+export function reviewReason(rec, now = Date.now()) {
+  if (!rec) return "";
+  const overdueDays = Math.floor((now - rec.dueAt) / DAY);
+  if (rec.lapses > 0 && rec.reps <= 2) return t("srs.reasonMissed");
+  if (overdueDays >= 7) return t("srs.reasonOverdue");
+  if (rec.reps <= 1) return t("srs.reasonFirst");
+  if (rec.reps >= 4) return t("srs.reasonSolid");
+  return "";
 }
 
 function clamp(n, lo, hi) { return Math.min(hi, Math.max(lo, n)); }

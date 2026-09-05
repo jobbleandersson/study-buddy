@@ -4,6 +4,7 @@ import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { deltaFromAttempt } from "../lib/mastery.js";
+import { summarizeSchedule, dueLabel } from "../lib/srs.js";
 import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
 import { t, plural } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
@@ -31,6 +32,14 @@ export function renderResults(attemptId) {
   const wrongEntries = wrong
     .map((item) => ({ item, question: store.findQuestion(item.questionId)?.question }))
     .filter((e) => e.question);
+
+  // finish() commits SRS before redirecting here, so store.state.srs is already
+  // "as of now" — but only for the freshly-finished attempt. Re-opening an
+  // older result would read a schedule that has since moved, so gate on latest.
+  const isLatest = store.attempts[store.attempts.length - 1]?.id === attempt.id;
+  const sched = isLatest && attempt.items?.length
+    ? summarizeSchedule(attempt.items, store.state.srs)
+    : null;
 
   const R = 74, C = 2 * Math.PI * R;
   const ringWrap = el("div.scorering");
@@ -97,6 +106,16 @@ export function renderResults(attemptId) {
       })),
     ].filter(Boolean)) : null,
 
+    sched && sched.scheduled ? el("div", { style: { marginTop: "8px", textAlign: "left" } }, [
+      el("h3", { style: { marginBottom: "8px" } }, t("results.srsTitle")),
+      el("p.note", {}, plural(sched.scheduled, "results.srsScheduledOne", "results.srsScheduledMany")),
+      el("p.note.srs-next", {}, t("results.srsNext", {
+        when: sched.relearnOnly ? t("results.srsRelearnLabel") : dueLabel(sched.nextRec),
+      })),
+      bucketLine(sched) ? el("p.note", {}, bucketLine(sched)) : null,
+      reviewCta(),
+    ].filter(Boolean)) : null,
+
     el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" } }, [
       retryHash(attempt, assignment) && el("a.btn.btn--ghost", { href: retryHash(attempt, assignment) },
         t(isReview ? "results.reviewAgain" : "results.tryAgain")),
@@ -132,6 +151,27 @@ function correctAnswerLine(q) {
     default:
       return "";
   }
+}
+
+/** "3 back in a day or two · 2 back again shortly" — the same `·`-joined
+ *  idiom the elapsed-time line uses. Empty when there's nothing to break down. */
+function bucketLine(s) {
+  const p = [];
+  if (s.relearn) p.push(t("results.srsRelearn", { n: s.relearn }));
+  if (s.soon) p.push(t("results.srsSoon", { n: s.soon }));
+  if (s.later) p.push(t("results.srsLater", { n: s.later }));
+  return p.join("  ·  ");
+}
+
+/** Right after a session almost nothing is due *now* — everything's scheduled
+ *  forward. Only show a live "Review N" button when there's a real backlog;
+ *  otherwise the honest message is that the home screen will surface these
+ *  when their time comes (the "due" pill + app badge already track it). */
+function reviewCta() {
+  const dueNow = store.dueQuestions().length;
+  return dueNow
+    ? el("a.btn.btn--sm", { href: "#/review" }, [icon(ICONS.spark, 16), t("results.srsReviewNow", { n: dueNow })])
+    : el("p.note", {}, t("results.srsComeBack"));
 }
 
 /** Attempts made before retryHash existed fall back to their assignment. */

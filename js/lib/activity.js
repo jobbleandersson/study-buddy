@@ -69,3 +69,14 @@ export function questionsAnsweredToday(attempts, today = localDayKey()) {
   }
   return n;
 }
+
+/** Score on each of the last N cross-set review sessions, oldest first — the
+ *  "is my recall improving?" line on Progress. Reads only attempt.scorePct, so
+ *  no mastery recompute; works retroactively on existing history. */
+export function reviewAccuracyTrend(attempts, { limit = 12 } = {}) {
+  return (attempts || [])
+    .filter((a) => a.isReview && a.finishedAt && Array.isArray(a.items) && a.items.length)
+    .sort((a, b) => a.finishedAt - b.finishedAt)
+    .slice(-limit)
+    .map((a) => ({ day: localDayKey(new Date(a.finishedAt)), pct: a.scorePct, n: a.items.length }));
+}
