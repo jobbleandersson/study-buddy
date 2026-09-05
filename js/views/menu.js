@@ -691,6 +691,11 @@ function deadlineRailContent({ collapsible = false } = {}) {
   const items = store.upcomingDue();
   if (!items.length) return null;
 
+  // items is soonest-first, so the first test in it is the next one due.
+  // Shown as a plain countdown line under the calendar — independent of
+  // which week/month the calendar is currently paged to.
+  const nextTest = items.find((a) => a.type === "test");
+
   // day key -> { ids, titles, items } for the calendar dots + the day chooser.
   const marks = new Map();
   for (const a of items) {
@@ -728,6 +733,7 @@ function deadlineRailContent({ collapsible = false } = {}) {
     el: el("section.upcoming", {}, [
       calEmpty,
       calWrap,
+      nextTestLine(nextTest),
       list,
       more,
     ].filter(Boolean)),
@@ -791,6 +797,23 @@ function deadlineRailContent({ collapsible = false } = {}) {
       el("span.upcoming__go", {}, icon(ICONS.play, 14)),
     ]);
   }
+}
+
+/** Plain countdown line to the soonest test, sat under the calendar.
+ *  Days-only (deadlines are stored as a date, not a time). Null when no
+ *  test has a due date — an assignment-only calendar shows nothing here. */
+function nextTestLine(a) {
+  if (!a) return null;
+  const d = daysUntil(a.dueAt);
+  const soon = d <= 1;
+  const text = d < 0 ? t("menu.nextTestOverdue")
+    : d === 0 ? t("menu.nextTestToday")
+    : d === 1 ? t("menu.nextTestTomorrow")
+    : t("menu.nextTestIn", { n: d });
+  return el("p.next-test" + (soon ? ".next-test--soon" : ""), {}, [
+    icon(ICONS.clock, 14),
+    el("span", {}, text),
+  ]);
 }
 
 function ring(v, color) {

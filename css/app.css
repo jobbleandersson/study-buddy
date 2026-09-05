@@ -514,6 +514,16 @@ a.streakbadge:hover {
 .cal-collapse__toggle { font-weight: 400; text-decoration: none; }
 .cal-empty { margin: 0 0 var(--s-2); }
 
+/* Countdown to the soonest test, directly under the calendar. */
+.next-test {
+  display: flex; align-items: center; gap: var(--s-2);
+  margin: 0 0 var(--s-3); font-size: var(--fs-sm); font-weight: 600;
+  color: var(--ink-soft);
+}
+.next-test svg { flex: none; color: var(--ink-faint); }
+.next-test--soon { color: var(--retry-ink); }
+.next-test--soon svg { color: var(--retry-ink); }
+
 .acard__tag--due { background: var(--surface-sunk); color: var(--ink-soft); }
 .acard__tag--overdue { background: var(--retry-tint); color: var(--retry-ink); }
 
