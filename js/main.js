@@ -12,7 +12,7 @@ import { playFanfare } from "./lib/sound.js";
 import { renderMenu } from "./views/menu.js";
 import { renderCreate } from "./views/create.js";
 import { renderEdit } from "./views/edit.js";
-import { renderSession, renderReview, renderPractice, renderWeakPractice, renderNationalMix } from "./views/session.js";
+import { renderSession, renderReview, renderPractice, renderWeakPractice, renderNationalMix, isSessionActive } from "./views/session.js";
 import { renderResults } from "./views/results.js";
 import { renderProgress } from "./views/progress.js";
 import { renderSettings } from "./views/settings.js";
@@ -51,6 +51,7 @@ const routes = [
 ];
 
 let currentCleanup = null;
+let currentViewNode = null;
 let firstPaintDone = false;
 
 function parseHash() {
@@ -271,7 +272,17 @@ function shell(contentNode) {
   ]);
 }
 
-async function render() {
+async function render({ chromeOnly = false } = {}) {
+  // chromeOnly: re-run the shell (nav labels, sidebar) around the view that's
+  // already mounted, without rebuilding the view itself. Used on a language
+  // switch while a session is running — the session refreshes its own
+  // content in place (see its "sb:langsession" listener) so a full re-render
+  // would needlessly wipe the tutor thread and bounce the scroll.
+  if (chromeOnly) {
+    if (currentViewNode) mount(app, shell(currentViewNode));
+    return;
+  }
+
   if (typeof currentCleanup === "function") { try { currentCleanup(); } catch {} }
   currentCleanup = null;
 
@@ -284,6 +295,7 @@ async function render() {
     const result = await viewFn();
     const node = result?.node || result;
     currentCleanup = result?.cleanup || null;
+    currentViewNode = node;
     mount(app, shell(node));
 
     const title = result?.title || "StudyBuddy";
@@ -308,14 +320,20 @@ async function render() {
   }
 }
 
-window.addEventListener("hashchange", render);
-// A language switch re-renders exactly like a navigation; demo sets follow the
-// UI language, so nudge the store to re-translate them (it re-renders when done).
-window.addEventListener("sb:langchange", () => {
+window.addEventListener("hashchange", () => render());
+// A language switch: demo and library set content follows the UI language, so
+// re-translate it in the store *first* — then one refresh lands everything in
+// the new language. A running session refreshes its question + tutor in place
+// (so the switch doesn't interrupt the set); every other screen re-renders.
+window.addEventListener("sb:langchange", async () => {
   applyLang();
-  render();
-  store.syncDemoLanguage();
-  store.syncLibraryLanguage();
+  await Promise.all([store.syncDemoLanguage(), store.syncLibraryLanguage()]);
+  if (isSessionActive()) {
+    window.dispatchEvent(new Event("sb:langsession"));
+    render({ chromeOnly: true });
+  } else {
+    render();
+  }
 });
 
 // Offline support + home-screen install. Only over http(s) — a service worker
@@ -334,9 +352,14 @@ store.init().then(() => {
   applyLang();
   render();
   maybeShowOnboarding();
-  // Bring any demo or library sets loaded in a different language up to date.
-  store.syncDemoLanguage();
-  store.syncLibraryLanguage();
+  // Bring any demo or library sets loaded in a different language up to date —
+  // then refresh whatever's on screen so a deep-linked session or the home
+  // grid shows the corrected wording.
+  Promise.all([store.syncDemoLanguage(), store.syncLibraryLanguage()]).then((counts) => {
+    if (!counts.some(Boolean)) return;
+    if (isSessionActive()) { window.dispatchEvent(new Event("sb:langsession")); render({ chromeOnly: true }); }
+    else render();
+  });
   // After first paint, keep menu/progress fresh when the store changes.
   store.addEventListener("change", () => {
     const h = location.hash.replace(/^#/, "");

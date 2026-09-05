@@ -59,6 +59,16 @@ function sampleFileFor(entry, lang = getLang()) {
 
 const SAMPLE_IDS = new Set(SAMPLE_FILES.map((x) => x.id));
 
+/** Does a stored set's wording still match a bundle doc verbatim (same ids,
+ *  same prompts)? Tells an untouched library import apart from one the
+ *  student has reworded — the latter shouldn't be auto-re-translated. */
+function bundleMatches(a, doc) {
+  const d = doc.questions || [];
+  if (a.questions.length !== d.length) return false;
+  const byId = new Map(d.map((x) => [x.id, x]));
+  return a.questions.every((x) => byId.get(x.id)?.prompt === x.prompt);
+}
+
 const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 // `ink` is the text-safe variant: >= 4.5:1 against both white and its own tint.
@@ -442,13 +452,20 @@ class Store extends EventTarget {
    *  lib/library-content.js); a set imported from it is tagged _libLang, and
    *  on a language switch this re-fetches it in the new language and swaps the
    *  wording in place — keyed by question id, so attempts, SRS records and
-   *  per-topic mastery all carry over. A set the student has restructured
-   *  (question ids no longer match the bundle) is left alone. Like demo
-   *  content it's reconstructible from the bundle, so no sync push of its own. */
+   *  per-topic mastery all carry over.
+   *
+   *  A set with a library id but no _libLang was imported before tagging
+   *  existed (the library was Swedish-only then) — it's adopted here, but only
+   *  after checking its stored wording still matches the Swedish bundle. If it
+   *  doesn't (the student reworded it) — or if question ids no longer match —
+   *  it's marked "custom" and never touched again. Like demo content it's
+   *  reconstructible from the bundle, so no sync push of its own. */
   async syncLibraryLanguage() {
     const lang = getLang();
-    const targets = this.state.assignments.filter((a) => a._libLang && a._libLang !== lang);
-    if (!targets.length) return 0;
+
+    // Fast path: nothing from the library is present, so there's nothing to do
+    // and no reason to fetch the index.
+    if (!this.state.assignments.some((a) => a._libLang || /^lib-/.test(a.id))) return 0;
 
     let index, tr;
     try {
@@ -457,10 +474,29 @@ class Store extends EventTarget {
     } catch { return 0; } // index not reachable/cached — try again next time
     const entryById = new Map(index.sets.map((s) => [s.id, s]));
 
+    const targets = this.state.assignments.filter((a) => {
+      if (a._sampleLang) return false;             // a demo set — syncDemoLanguage's job
+      if (a._libLang === "custom") return false;   // the student's own now
+      if (!a._libLang && !entryById.has(a.id)) return false;
+      return (a._libLang || "sv") !== lang;        // untagged sets count as Swedish
+    });
+    if (!targets.length) return 0;
+
     let changed = 0;
     for (const a of targets) {
       const entry = entryById.get(a.id);
-      if (!entry) { a._libLang = lang; continue; } // no longer a known library set
+      if (!entry) { a._libLang = "custom"; continue; } // unknown library id — leave it
+
+      // Adopt an untagged set only if it still is the Swedish bundle verbatim.
+      if (!a._libLang) {
+        let svDoc = null;
+        try { const r = await fetch(entry.file); if (r.ok) svDoc = await r.json(); }
+        catch { /* offline */ }
+        if (!svDoc) continue;                                   // try again next time
+        if (!bundleMatches(a, svDoc)) { a._libLang = "custom"; continue; }
+        a._libLang = "sv";
+      }
+      if (a._libLang === lang) continue;
 
       let doc = null;
       try {
@@ -473,7 +509,7 @@ class Store extends EventTarget {
 
       const have = a.questions.map((q) => q.id).sort().join("|");
       const want = (doc.questions || []).map((q) => q.id).sort().join("|");
-      if (have !== want) { a._libLang = lang; continue; } // restructured — leave it
+      if (have !== want) { a._libLang = "custom"; continue; } // restructured — theirs now
 
       const byId = new Map((doc.questions || []).map((q) => [q.id, q]));
       a.title = doc.title || a.title;

@@ -19,6 +19,12 @@ import { playCorrect, playWrong, playChime } from "../lib/sound.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
 
+// True while a session is on screen. main.js checks this on a language switch:
+// a running session updates its own question + tutor in place rather than
+// being torn down and rebuilt mid-set.
+let sessionActive = false;
+export function isSessionActive() { return sessionActive; }
+
 export async function renderSession(assignmentId, qs) {
   const assignment = store.getAssignment(assignmentId);
   if (!assignment) return notFound(t("session.goneSet"));
@@ -150,6 +156,7 @@ function runSession(config) {
     : freshState(config);
 
   if (!state.order.length) return notFound(t("session.goneQuestions"));
+  sessionActive = true;   // cleared in cleanup()
   state.cursor = Math.min(state.cursor, state.order.length - 1);
   state.skipped = state.skipped || [];
   state.choiceOrder = state.choiceOrder || {};
@@ -186,6 +193,8 @@ function runSession(config) {
   const exitBtn = el("button.btn.btn--ghost", { type: "button", onclick: exit }, t("session.exit"));
 
   let currentRenderer = null;
+  let lastPrompt = null;   // wording of the question currently on stage — lets
+                           // onLangSession tell whether the content re-translated
 
   function answeredCount() { return Object.keys(state.items).length; }
   function currentId() { return state.order[state.cursor]; }
@@ -194,6 +203,22 @@ function runSession(config) {
   function firstUnansweredIndex() {
     const i = state.order.findIndex((id) => !state.items[id]);
     return i === -1 ? state.order.length - 1 : i;
+  }
+
+  /** The header title, recomputed (not baked) so a language switch updates it.
+   *  Review/practice/weak have a translated label; a real set uses its own
+   *  (now possibly re-translated) title. */
+  function headTitle() {
+    if (config.assignmentId === REVIEW_ID) return t("session.reviewTitle");
+    if (config.assignmentId === PRACTICE_ID) return t("session.practiceTitle");
+    if (config.assignmentId === WEAK_ID) return t("session.weakTitle");
+    return store.getAssignment(config.assignmentId)?.title || config.title;
+  }
+
+  function nextBtnLabel() {
+    const answered = !!state.items[currentId()];
+    return unansweredCount() === 0 || (answered && state.cursor === state.order.length - 1)
+      ? t("session.finish") : t("session.next");
   }
 
   function persist() {
@@ -343,11 +368,11 @@ function runSession(config) {
     const found = store.findQuestion(currentId());
     if (!found) { dropMissing(); return; }
     const { assignment, question } = found;
+    lastPrompt = question.prompt;
 
     const answered = !!state.items[question.id];
     nextBtn.disabled = !answered;
-    nextBtn.textContent = unansweredCount() === 0 || (answered && state.cursor === state.order.length - 1)
-      ? t("session.finish") : t("session.next");
+    nextBtn.textContent = nextBtnLabel();
 
     // Skipping is only offered while there's somewhere else to go.
     const alreadySkipped = state.skipped.includes(question.id);
@@ -682,19 +707,49 @@ function runSession(config) {
 
   paintTestBar();
 
+  // Kept as refs so a mid-session language switch can refresh their text
+  // without rebuilding the session (see onLangSession below).
+  const headH2 = el("h2", {}, headTitle());
+  const badgeEl = el("span.badge", {}, badgeLabel(config));
+  const reviewMoreEl = config.reviewRemaining > 0
+    ? el("p.note", {}, t("session.reviewMore", { n: config.reviewRemaining })) : null;
+
+  /** Language switched mid-session. main.js has already re-translated demo and
+   *  library set content in the store; refresh this session's chrome text, and
+   *  reload the current question only if its wording actually changed and it's
+   *  still unanswered — so a student's own set (or an answered question the
+   *  student's done with) keeps its tutor thread and any half-typed answer. */
+  function onLangSession() {
+    headH2.textContent = headTitle();
+    badgeEl.textContent = badgeLabel(config);
+    nextBtn.textContent = nextBtnLabel();
+    skipBtn.textContent = t("session.skip");
+    exitBtn.textContent = t("session.exit");
+    if (reviewMoreEl) reviewMoreEl.textContent = t("session.reviewMore", { n: config.reviewRemaining });
+    if (!hintFab.hidden) {
+      hintFab.textContent = tutor.el.classList.contains("is-open")
+        ? t("session.hideTutor") : t("session.needHint");
+    }
+    paintProgress();
+    paintTestBar();
+    const q = store.findQuestion(currentId())?.question;
+    if (q && lastPrompt != null && q.prompt !== lastPrompt && !state.items[q.id]) loadQuestion();
+  }
+  window.addEventListener("sb:langsession", onLangSession);
+
   const node = el("div", {}, [
     homeButton({ confirm: true }),
     el("div.session__head", {}, [
-      el("h2", {}, config.title),
+      headH2,
       el("span.session__headright", {}, [
         examTimer,
         pomoEl,
-        el("span.badge", {}, badgeLabel(config)),
+        badgeEl,
         shortcutsBtn,
       ]),
     ]),
     testBar,
-    config.reviewRemaining > 0 ? el("p.note", {}, t("session.reviewMore", { n: config.reviewRemaining })) : null,
+    reviewMoreEl,
     el("div.progressbar", {}, [fill]),
     label,
     adaptiveEl,
@@ -715,7 +770,9 @@ function runSession(config) {
     title: config.title,
     node,
     cleanup: () => {
+      sessionActive = false;
       document.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("sb:langsession", onLangSession);
       clearTimeout(tipTimer);
       clearInterval(pomoTimer);
       stopExam();
