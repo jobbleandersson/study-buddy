@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv3-vetenskap",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Academic writing and the PM report",
+  "sourceSummary": "The parts of a PM report's structure, objective and impersonal language, and what distinguishes an academic text from other text types.",
+  "topics": [
+    "PM structure",
+    "objective language",
+    "academic text"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-vetenskap-1",
+      "kind": "mc",
+      "topic": "PM structure",
+      "prompt": "What is the function of the PURPOSE section in a PM report?",
+      "opener": "The purpose answers the question \"why am I writing this?\"",
+      "choices": [
+        "To briefly summarise the result",
+        "To state which sources were used",
+        "To present the writer's conclusion directly",
+        "To state which question or problem the text is going to examine"
+      ],
+      "answer": 3,
+      "explanation": "The purpose states what the investigation is meant to find out — it governs the rest of the text. Summarising results or drawing conclusions belongs in the results and discussion sections, not in the statement of purpose."
+    },
+    {
+      "id": "q-sv3-vetenskap-2",
+      "kind": "mc",
+      "topic": "PM structure",
+      "prompt": "Where in a PM report do you state HOW the investigation was carried out, e.g. which sources and methods were used?",
+      "opener": "Consider which section functions as a \"recipe\" for the reader.",
+      "choices": [
+        "In the introduction",
+        "In the discussion",
+        "In the method section",
+        "In the results section"
+      ],
+      "answer": 2,
+      "explanation": "The method section describes the procedure so the reader can assess the reliability of the investigation and, in principle, repeat it. The results section instead reports what was found, not how."
+    },
+    {
+      "id": "q-sv3-vetenskap-3",
+      "kind": "mc",
+      "topic": "PM structure",
+      "prompt": "What should a well-functioning DISCUSSION section in a PM report contain?",
+      "opener": "The discussion goes beyond simply listing facts again.",
+      "choices": [
+        "A word-for-word repetition of the results",
+        "New sources not mentioned earlier in the text",
+        "The writer's interpretation of the results, linked to the purpose, along with any possible sources of error",
+        "A short summary of the content of each paragraph"
+      ],
+      "answer": 2,
+      "explanation": "The discussion interprets and evaluates the results in relation to the purpose and highlights strengths, weaknesses and possible sources of error. Simply repeating the results or summarising paragraphs adds nothing new."
+    },
+    {
+      "id": "q-sv3-vetenskap-4",
+      "kind": "mc",
+      "topic": "objective language",
+      "prompt": "Which sentence is written in objective and impersonal academic language?",
+      "opener": "What is the focus on — the writer's feelings or the investigation's results?",
+      "choices": [
+        "The results show that the share increased by 12 percentage points between 2015 and 2023.",
+        "I really think the result is super interesting and a little shocking.",
+        "Everyone knows this is a big problem in schools.",
+        "It feels reasonable to assume that more people will agree with this."
+      ],
+      "answer": 0,
+      "explanation": "Objective language reports facts without value-laden words or personal expressions of feeling such as \"I think\" or \"feels reasonable\". The option with figures and neutral phrasing is factual and verifiable."
+    },
+    {
+      "id": "q-sv3-vetenskap-5",
+      "kind": "mc",
+      "topic": "objective language",
+      "prompt": "Why is the first person often avoided in academic texts, using, for example, the passive voice or an impersonal construction instead?",
+      "opener": "What do you want to direct the reader's attention to: the writer as a person, or the investigation?",
+      "choices": [
+        "The first person is grammatically incorrect in Swedish",
+        "It makes the text shorter",
+        "It shifts the focus from the writer to the investigation and the results, which strengthens objectivity",
+        "It is a requirement under Swedish law for all school texts"
+      ],
+      "answer": 2,
+      "explanation": "By downplaying the writer's visible presence (e.g. \"the investigation shows\" instead of \"I feel I see\"), the emphasis is placed on the conclusions being based on data, not on personal impressions. The first person is not grammatically wrong, just stylistically unsuitable in this context."
+    },
+    {
+      "id": "q-sv3-vetenskap-6",
+      "kind": "mc",
+      "topic": "academic text",
+      "prompt": "What most clearly distinguishes an academic/expository text from an argumentative text or a column?",
+      "opener": "Compare what the writer does with their own position in the different text types.",
+      "choices": [
+        "The academic text is always written in the first person",
+        "The academic text strives for impartiality, evidence and a clear method, rather than trying to persuade the reader of an opinion",
+        "The academic text lacks headings and structure",
+        "The academic text may be based solely on the writer's personal experience"
+      ],
+      "answer": 1,
+      "explanation": "A column or an argumentative text may well be personal and argue for an opinion; the academic text should instead be systematic, evidence-based, and aim to investigate rather than to persuade. Structure and headings, if anything, are typical of academic texts."
+    },
+    {
+      "id": "q-sv3-vetenskap-7",
+      "kind": "worked",
+      "topic": "PM structure",
+      "prompt": "You are going to write a PM report on whether remote teaching affects students' academic results. Briefly describe what should go under each heading: Introduction, Purpose, Method, Results, Discussion.",
+      "opener": "Go through the sections in the order the reader encounters them, and keep apart what is fact and what is interpretation.",
+      "answer": "Introduction: background to the question, e.g. that remote teaching has become more common and that its effects are debated. Purpose: to investigate whether and how remote teaching affects academic results. Method: a description of which sources (e.g. research reports, statistics) were used and how they were selected. Results: a factual account of what the sources show, without interpretation. Discussion: the writer's interpretation of the results linked to the purpose, any conflicting findings, and sources of error in the investigation.",
+      "steps": [
+        "The introduction provides background and sparks the reader's interest in the question, without already drawing conclusions.",
+        "The purpose is formulated as a clear question or a clear goal for the investigation.",
+        "The method reports how the information was gathered, so the investigation can be scrutinised.",
+        "The results present only what the sources say, factually and without value judgements.",
+        "The discussion ties the results together with the purpose and highlights uncertainties and interpretations."
+      ]
+    },
+    {
+      "id": "q-sv3-vetenskap-8",
+      "kind": "flashcard",
+      "topic": "objective language",
+      "prompt": "What characterises objective and impersonal academic language?",
+      "opener": "Think source, tone, and distance from your own feelings.",
+      "answer": "Factual, verifiable statements · avoids value-laden words (\"shocking\", \"amazing\") · avoids the first person in favour of the passive voice or impersonal expressions (\"the investigation shows\") · backs up statements with sources and figures · keeps fact (results) and interpretation (discussion) separate · a neutral, detached tone rather than personal engagement."
+    }
+  ]
+}

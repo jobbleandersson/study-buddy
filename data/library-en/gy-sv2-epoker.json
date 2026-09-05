@@ -1,0 +1,132 @@
+{
+  "id": "lib-sv2-epoker",
+  "type": "assignment",
+  "subject": "Svenska 2",
+  "title": "Periods in literary history",
+  "sourceSummary": "Antiquity, the Middle Ages, the Renaissance, the Enlightenment, Romanticism, Realism and Modernism — the characteristics and central authors and works of each period.",
+  "topics": [
+    "antiquity",
+    "the Middle Ages",
+    "the Renaissance",
+    "the Enlightenment",
+    "Romanticism",
+    "Realism",
+    "Modernism",
+    "overview of periods"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv2-epoker-1",
+      "kind": "mc",
+      "topic": "antiquity",
+      "prompt": "Which is one of the oldest surviving literary works from antiquity still read today?",
+      "opener": "Think Greek heroic poem, not Roman or medieval.",
+      "choices": [
+        "The Divine Comedy",
+        "The Decameron",
+        "The Iliad (Homer)",
+        "Faust"
+      ],
+      "answer": 2,
+      "explanation": "The Iliad by Homer was written around the 8th century BC and is counted as one of the oldest surviving literary works still read today. Faust and The Decameron belong to considerably later periods."
+    },
+    {
+      "id": "q-sv2-epoker-2",
+      "kind": "mc",
+      "topic": "the Middle Ages",
+      "prompt": "What are the Eufemiavisor (\"Songs of Euphemia\")?",
+      "opener": "The name comes from a Norwegian queen who commissioned the works.",
+      "choices": [
+        "Three French chivalric romances translated into Swedish verse in the 14th century",
+        "A collection of folk songs from the 17th century",
+        "Sweden's first printed book",
+        "A hymnal from the Reformation"
+      ],
+      "answer": 0,
+      "explanation": "The Eufemiavisor are three French/German chivalric romances that were translated into Swedish verse on the orders of Queen Euphemia in the early 14th century — important early examples of Swedish fiction. Sweden's first printed book came much later, in the 1480s."
+    },
+    {
+      "id": "q-sv2-epoker-3",
+      "kind": "mc",
+      "topic": "the Renaissance",
+      "prompt": "What characterises the literary ideals of the Renaissance?",
+      "opener": "The word renaissance means rebirth — of what?",
+      "choices": [
+        "Focus on God and the divine above humankind",
+        "Feeling and nature placed above reason",
+        "The social problems of everyday life depicted scientifically",
+        "Humankind and the ideals of antiquity placed at the centre (humanism)"
+      ],
+      "answer": 3,
+      "explanation": "The Renaissance (c. 1400–1600) revived antiquity's view of humankind — humanism and earthly life are placed at the centre, in contrast to the God-centred worldview of the Middle Ages. The primacy of feeling and nature belongs instead to Romanticism."
+    },
+    {
+      "id": "q-sv2-epoker-4",
+      "kind": "mc",
+      "topic": "the Enlightenment",
+      "prompt": "Which Swedish scientist and author is particularly associated with the Enlightenment's faith in reason and systematisation?",
+      "opener": "Who systematised nature using reason as a tool?",
+      "choices": [
+        "Carl Michael Bellman",
+        "Carl von Linné (Linnaeus)",
+        "Esaias Tegnér",
+        "August Strindberg"
+      ],
+      "answer": 1,
+      "explanation": "Carl von Linné (Linnaeus) represents the Enlightenment's faith in reason, science and systematisation. Bellman wrote in a more sentimental, rococo-inspired style, and Tegnér and Strindberg belong to later periods."
+    },
+    {
+      "id": "q-sv2-epoker-5",
+      "kind": "mc",
+      "topic": "Romanticism",
+      "prompt": "What was central to Romantic literature, in contrast to the Enlightenment's faith in reason?",
+      "opener": "What did the Romantics set against the Enlightenment's reason?",
+      "choices": [
+        "Scientific objectivity and social criticism",
+        "The short, compressed expression without figurative language",
+        "Feeling, nature, imagination and the past",
+        "Depictions of working-class everyday life"
+      ],
+      "answer": 2,
+      "explanation": "Romanticism (c. 1800–1850) foregrounded feeling, nature, the national, and often the medieval past, as a counterweight to the Enlightenment's rationalism. Scientific objectivity and social criticism are instead characteristic of Realism."
+    },
+    {
+      "id": "q-sv2-epoker-6",
+      "kind": "mc",
+      "topic": "Realism",
+      "prompt": "What characterises the realist literature that emerged during the second half of the 19th century?",
+      "opener": "Think of early Ibsen and Strindberg — what did they want to expose?",
+      "choices": [
+        "A true-to-life depiction of society, often with social criticism",
+        "Idealised heroes and fairy-tale settings",
+        "Free verse entirely without metre",
+        "Focus on dreams and the subconscious"
+      ],
+      "answer": 0,
+      "explanation": "Realism sought to depict reality as it was, often with a critical eye on social problems such as the status of women. Idealisation and fairy-tale worlds belong instead to Romanticism, and free verse without metre is typical of Modernism."
+    },
+    {
+      "id": "q-sv2-epoker-7",
+      "kind": "worked",
+      "topic": "Modernism",
+      "prompt": "Explain what is new and different about Modernism's way of writing compared with earlier periods, taking as a starting point, for example, Edith Södergran's poetry.",
+      "opener": "Think about form, not just content.",
+      "answer": "Modernism breaks with traditional metres and a unified narrative voice — the text can be fragmentary, use free verse, and depict a fractured inner self, often as a reaction to the upheavals of modern society and the First World War.",
+      "steps": [
+        "Modernism emerges around the turn of the 20th century and gathers pace after the First World War, which shook confidence in progress and reason.",
+        "The form changes radically: free verse replaces traditional metres, and the language can be fragmentary or elliptical.",
+        "The narration becomes more subjective — interior monologue and fractured perspectives mirror an uncertain, complex reality.",
+        "Edith Södergran and, later, the Swedish poets of the 1940s are examples of how Modernism sought new means of expression for a new age."
+      ]
+    },
+    {
+      "id": "q-sv2-epoker-8",
+      "kind": "flashcard",
+      "topic": "overview of periods",
+      "prompt": "Give a quick overview of the literary periods from antiquity to Modernism: time period and characteristics.",
+      "opener": "Seven periods, seven landmarks.",
+      "answer": "Antiquity (c. 800 BC–500 AD): Greco-Roman ideals, epic and drama · The Middle Ages (5th–14th century): religious texts, chivalric romances (e.g. the Eufemiavisor) · The Renaissance (15th–16th century): humankind and antiquity at the centre, humanism · The Enlightenment (18th century): reason, science, criticism of authorities (e.g. Linnaeus) · Romanticism (c. 1800–1850): feeling, nature, the national and the past · Realism/Naturalism (second half of the 19th century): true-to-life depictions of society and social criticism (e.g. Ibsen) · Modernism (from c. 1900): broken forms, free verse, a fractured self (e.g. Södergran)."
+    }
+  ]
+}

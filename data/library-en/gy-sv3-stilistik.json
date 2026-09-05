@@ -1,0 +1,127 @@
+{
+  "id": "lib-sv3-stilistik",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Stylistics and linguistic variation",
+  "sourceSummary": "Levels of style, how word choice and sentence structure create style, sociolect and register, and stylistically adapting your own text.",
+  "topics": [
+    "levels of style",
+    "sociolect and register",
+    "stylistic devices"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-stilistik-1",
+      "kind": "mc",
+      "topic": "levels of style",
+      "prompt": "Which sentence is written at a clearly FORMAL level of style?",
+      "opener": "Look at the word choice and sentence structure — are they everyday or elevated?",
+      "choices": [
+        "Grejen är typ att vi måste fixa det här snabbt.",
+        "Härmed meddelas att ärendet kommer att behandlas vid nästa sammanträde.",
+        "Vi borde nog kolla på det där ganska snart, va?",
+        "Kan vi typ ta det där sen liksom?"
+      ],
+      "answer": 1,
+      "explanation": "The formal sentence uses officialese (\"härmed meddelas\" [\"hereby notified\"], \"ärendet\" [\"the matter\"], \"sammanträde\" [\"meeting\"]) and a complete, impersonal sentence structure. The other options contain spoken-language markers such as \"typ\", \"liksom\" and \"va\" (roughly \"like\", \"sort of\" and \"right?\"), which signal an informal/everyday style."
+    },
+    {
+      "id": "q-sv3-stilistik-2",
+      "kind": "mc",
+      "topic": "levels of style",
+      "prompt": "What is typical of an EVERYDAY (speech-like) level of style in writing?",
+      "opener": "Consider how you actually talk with friends, compared with how you write an official letter.",
+      "choices": [
+        "Long, complex subordinate clauses and the passive voice",
+        "Filler words (\"typ\", \"liksom\" — roughly \"like\", \"sort of\"), everyday words, and shorter, simpler sentences",
+        "Only technical terms and Latin expressions",
+        "A total absence of pronouns"
+      ],
+      "answer": 1,
+      "explanation": "Everyday style is characterised by speech-like features such as filler words, simpler word choice and shorter sentences. Long subordinate clauses, passive constructions and technical terms instead belong to a more formal or academic style."
+    },
+    {
+      "id": "q-sv3-stilistik-3",
+      "kind": "mc",
+      "topic": "stylistic devices",
+      "prompt": "An author writes \"The wind whispered through the branches of the trees\" instead of \"It was blowing gently\". Which stylistic device is used to create a more literary style?",
+      "opener": "What is attributed to the wind here that is really a human trait?",
+      "choices": [
+        "Concretisation of an abstract concept",
+        "Turning the sentence into the passive voice",
+        "A shift to a spoken-language style",
+        "Personification — the wind is attributed a human action (whispering)"
+      ],
+      "answer": 3,
+      "explanation": "Having the wind \"whisper\" is personification: a human trait (whispering) is attributed to something non-human, which gives a more vivid, literary style compared with the neutral version \"it was blowing gently\"."
+    },
+    {
+      "id": "q-sv3-stilistik-4",
+      "kind": "mc",
+      "topic": "stylistic devices",
+      "prompt": "How do sentence length and clause structure often affect the stylistic impression of a text?",
+      "opener": "Compare the feeling of several short, clipped sentences with a single long, branching sentence.",
+      "choices": [
+        "Sentence length has no bearing on the stylistic impression, only word choice matters",
+        "Short sentences always give a more formal style than long ones",
+        "Short, simple sentences can give a terse or intense impression, while long, complex sentences with subordinate clauses often give a more expository or elevated impression",
+        "Long sentences are automatically a sign of poor writing ability"
+      ],
+      "answer": 2,
+      "explanation": "Sentence structure contributes strongly to style: short, clipped sentences often create drive or tension, while longer sentences with subordinate clauses signal thoughtfulness, complexity or formality. Long sentences are not in themselves a quality problem, just one stylistic device among several."
+    },
+    {
+      "id": "q-sv3-stilistik-5",
+      "kind": "mc",
+      "topic": "sociolect and register",
+      "prompt": "What is a SOCIOLECT?",
+      "opener": "Distinguish this from dialect, which is tied to geography.",
+      "choices": [
+        "A regional variant of the language linked to a particular place or part of the country",
+        "A way of using language linked to a social group, e.g. based on age, occupation or social class",
+        "Another word for formal written language",
+        "A language spoken in another country"
+      ],
+      "answer": 1,
+      "explanation": "A sociolect is a linguistic variant linked to a social group — e.g. youth slang, a particular professional jargon, or a social class — as distinct from a dialect, which is instead tied to geographical origin."
+    },
+    {
+      "id": "q-sv3-stilistik-6",
+      "kind": "mc",
+      "topic": "sociolect and register",
+      "prompt": "What is meant by REGISTER in a linguistic context?",
+      "opener": "Consider how the same person can speak differently depending on the situation, not depending on which group they belong to.",
+      "choices": [
+        "The linguistic variant a speaker or writer chooses depending on the situation and recipient, e.g. a formal register at work and an informal one among friends",
+        "A list of all the words in a language",
+        "Another word for sociolect, fully interchangeable",
+        "The dialect a person was born with and can never change"
+      ],
+      "answer": 0,
+      "explanation": "Register is about the same person deliberately switching linguistic style depending on the context — formal at an official meeting, informal among friends. Unlike sociolect, which is linked to group membership, register is a situational adaptation each individual makes."
+    },
+    {
+      "id": "q-sv3-stilistik-7",
+      "kind": "worked",
+      "topic": "levels of style",
+      "prompt": "Rewrite the sentence \"Vi måste typ fixa det där problemet asap, annars blir det kaos\" at a formal level of style suitable for an official letter.",
+      "opener": "Replace spoken-language words and make the sentence structure more complete and impersonal.",
+      "answer": "Problemet bör åtgärdas skyndsamt, då underlåtenhet att göra så riskerar att medföra allvarliga konsekvenser.",
+      "steps": [
+        "Remove spoken-language filler words such as \"typ\" (\"like\") and abbreviations such as \"asap\".",
+        "Replace everyday expressions with more formal equivalents: \"fixa\" (\"sort out\") → \"åtgärda\" (\"address/rectify\"), \"kaos\" (\"chaos\") → \"allvarliga konsekvenser\" (\"serious consequences\").",
+        "Make the sentence structure more complete and written in style, preferably with a subordinate clause instead of \"annars\" (\"otherwise\").",
+        "Tone down the personal \"vi\" (\"we\") in favour of a more impersonal construction, e.g. the passive voice."
+      ]
+    },
+    {
+      "id": "q-sv3-stilistik-8",
+      "kind": "flashcard",
+      "topic": "levels of style",
+      "prompt": "Summarise levels of style, sociolect, register and key stylistic devices.",
+      "opener": "Keep apart what depends on situation and what depends on group membership.",
+      "answer": "Levels of style: formal (officialese, impersonal) · neutral · informal/everyday (speech-like, filler words) · Sociolect: language use linked to a social group (age, occupation, class) · Register: the level of style a person deliberately chooses depending on the situation · Sentence structure: short sentences give terseness/drive, long ones give thoughtfulness/formality · Personification: human traits attributed to non-human phenomena · Word choice determines the stylistic impression just as much as grammar."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "lib-en7gy-grammar",
+  "type": "assignment",
+  "subject": "Engelska 7",
+  "title": "Grammar: advanced tenses and modality",
+  "sourceSummary": "Nuanced modal verbs (must/have to/should/ought to/might have), future perfect and future continuous, and the subjunctive in formal English.",
+  "topics": [
+    "modal verbs of deduction and obligation",
+    "future perfect and future continuous",
+    "subjunctive mood"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7gy-grammar-1",
+      "kind": "mc",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Which sentence expresses a logical deduction rather than an obligation?",
+      "opener": "Think about the difference between \"must\" as a rule and \"must\" as a deduction.",
+      "choices": [
+        "You must complete the form before Friday.",
+        "You have to wear a helmet on a construction site.",
+        "He must have left already — his coat is gone.",
+        "Students must attend at least 80% of lessons."
+      ],
+      "answer": 2,
+      "explanation": "\"He must have left already\" is a logical deduction based on evidence (the coat is gone), not a rule. The other options express obligation or requirement."
+    },
+    {
+      "id": "q-en7gy-grammar-2",
+      "kind": "mc",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Choose the sentence that expresses a strong recommendation rather than a strict obligation.",
+      "opener": "\"Ought to\" is stronger than \"could\" but weaker than \"must\" — it's advice, not a requirement.",
+      "choices": [
+        "You must renew your driving licence before it expires.",
+        "You really ought to see a doctor about that cough.",
+        "You have to submit your tax return by the deadline.",
+        "Passengers must fasten their seatbelts."
+      ],
+      "answer": 1,
+      "explanation": "\"Ought to\" gives strong advice without it being legally or formally binding. The other sentences describe rules or legal requirements where \"must\"/\"have to\" is correct."
+    },
+    {
+      "id": "q-en7gy-grammar-3",
+      "kind": "mc",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Complete the sentence with the modal verb that best fits: 'The museum is closed and the lights are off. They ___ already gone home.'",
+      "opener": "The evidence (closed, dark) points to a confident conclusion, not a guess.",
+      "choices": [
+        "might have",
+        "should have",
+        "can't have",
+        "must have"
+      ],
+      "answer": 3,
+      "explanation": "\"Must have\" expresses a strong, evidence-based conclusion. \"Might have\" would have fitted if it were just a possibility, and \"can't have\" is used to rule something out — the opposite of what the evidence shows here."
+    },
+    {
+      "id": "q-en7gy-grammar-4",
+      "kind": "mc",
+      "topic": "future perfect and future continuous",
+      "prompt": "Choose the correct form: 'By the time the plane lands, we ___ for over ten hours.'",
+      "opener": "An ongoing action that has continued up to a future point in time — which form signals that?",
+      "choices": [
+        "will travel",
+        "will have been travelling",
+        "travel",
+        "will be travelling"
+      ],
+      "answer": 1,
+      "explanation": "The future perfect continuous (\"will have been travelling\") is used for actions that have continued over a period up to a specified future point in time. \"Will be travelling\" (future continuous) simply describes an action in progress at that point, without emphasising duration."
+    },
+    {
+      "id": "q-en7gy-grammar-5",
+      "kind": "mc",
+      "topic": "future perfect and future continuous",
+      "prompt": "Which sentence correctly uses the future continuous to describe an action in progress at a specific future moment?",
+      "opener": "Which form describes something in progress at a specific future point in time?",
+      "choices": [
+        "This time next week, I will be lying on a beach in Greece.",
+        "This time next week, I will have lain on a beach in Greece.",
+        "This time next week, I lie on a beach in Greece.",
+        "This time next week, I will lain on a beach in Greece."
+      ],
+      "answer": 0,
+      "explanation": "\"Will be lying\" (future continuous) describes an action in progress at a specified future point in time. \"Will have lain\" (future perfect) would instead mean that the action was already completed by that point."
+    },
+    {
+      "id": "q-en7gy-grammar-6",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Choose the grammatically correct, formal sentence.",
+      "opener": "In formal, hypothetical English, a special verb form is used after \"if\", regardless of the subject.",
+      "choices": [
+        "If I was you, I would accept the offer.",
+        "If I would be you, I would accept the offer.",
+        "If I were you, I would accept the offer.",
+        "If I am you, I would accept the offer."
+      ],
+      "answer": 2,
+      "explanation": "In hypothetical if-clauses, the subjunctive form \"were\" is used for all persons, even \"I\" and \"he/she\": \"If I were you...\". \"Was\" is common in spoken English but is not considered correct in formal English."
+    },
+    {
+      "id": "q-en7gy-grammar-7",
+      "kind": "worked",
+      "topic": "subjunctive mood",
+      "prompt": "Rewrite the sentence in correct, formal English and explain the grammar: 'It is essential that he attends the interview on time.'",
+      "opener": "After expressions like \"it is essential/important/vital that\", a special verb form is used — the base form, regardless of subject.",
+      "answer": "It is essential that he attend the interview on time.",
+      "steps": [
+        "This is called the mandative subjunctive and is used after expressions like \"it is essential/important/vital/necessary that\".",
+        "The verb after \"that\" takes its base form (bare infinitive without \"to\"), regardless of subject — so \"attend\", not \"attends\".",
+        "This applies even in the third person singular, unlike ordinary present tense where we normally add -s.",
+        "In more everyday American and British English, \"should attend\" is sometimes heard instead, but in formal written English (reports, memos) the subjunctive form is preferred."
+      ]
+    },
+    {
+      "id": "q-en7gy-grammar-8",
+      "kind": "flashcard",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Summarise the key differences between must, have to, should, ought to, and the modal perfect forms (must have / might have / can't have).",
+      "opener": "A quick overview of the most nuanced modal verbs.",
+      "answer": "must = strong obligation (the speaker's own rule) or a strong deduction · have to = obligation imposed from outside (law, rule, circumstance) · should/ought to = recommendation, not requirement; \"ought to\" is slightly more formal · must have + past participle = confident conclusion about the past · might/could have = possible conclusion · can't have = ruled-out conclusion (the opposite of must have) · should have = an expectation that was not met, often with regret"
+    }
+  ]
+}

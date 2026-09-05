@@ -1,0 +1,128 @@
+{
+  "id": "lib-fys-energi",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Energy and energy transformations",
+  "sourceSummary": "Forms of energy, the conservation of energy, and the difference between renewable and non-renewable energy sources — the foundation for understanding energy in everyday life and society.",
+  "topics": [
+    "forms of energy",
+    "conservation of energy",
+    "energy sources",
+    "efficiency"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys-ene-1",
+      "kind": "mc",
+      "topic": "forms of energy",
+      "prompt": "A rock is lying at the top of a cliff. Which form of energy does the rock mostly have at that moment?",
+      "opener": "Think about what allows the rock to start moving if it's pushed off.",
+      "choices": [
+        "Kinetic energy",
+        "Potential energy",
+        "Heat energy",
+        "Chemical energy"
+      ],
+      "answer": 1,
+      "explanation": "The rock's high position gives it potential energy — the energy that depends on height within a gravitational field. It has no kinetic energy until it actually starts moving."
+    },
+    {
+      "id": "q-fys-ene-2",
+      "kind": "mc",
+      "topic": "forms of energy",
+      "prompt": "When the rock from the previous question falls, what happens to its potential energy?",
+      "opener": "Energy never disappears, it is converted into another form.",
+      "choices": [
+        "It disappears completely",
+        "It is converted into kinetic energy (and a bit of heat/sound)",
+        "It is converted into electrical energy",
+        "It turns into mass"
+      ],
+      "answer": 1,
+      "explanation": "As the rock falls, its potential energy decreases and is converted into kinetic energy as its speed increases. A small part also turns into heat and sound due to air resistance. Energy never disappears, it just changes form."
+    },
+    {
+      "id": "q-fys-ene-3",
+      "kind": "mc",
+      "topic": "conservation of energy",
+      "prompt": "What does the principle of conservation of energy state?",
+      "opener": "Think about whether energy can be created or destroyed.",
+      "choices": [
+        "Energy can be created but never destroyed",
+        "Energy can neither be created nor destroyed, only converted between different forms",
+        "Energy always decreases over time",
+        "All energy eventually converts into kinetic energy"
+      ],
+      "answer": 1,
+      "explanation": "The principle of conservation of energy means that the total amount of energy in a closed system is always the same — energy is only converted between different forms, for example from chemical energy in food to kinetic energy when you run."
+    },
+    {
+      "id": "q-fys-ene-4",
+      "kind": "mc",
+      "topic": "energy sources",
+      "prompt": "Which of the following is a renewable energy source?",
+      "opener": "Renewable means the source is naturally replenished within a reasonable time and doesn't run out.",
+      "choices": [
+        "Coal",
+        "Oil",
+        "Wind power",
+        "Natural gas"
+      ],
+      "answer": 2,
+      "explanation": "Wind power is considered renewable because the wind is constantly replenished by the sun heating the atmosphere. Coal, oil and natural gas are fossil fuels that take millions of years to form and are therefore considered non-renewable."
+    },
+    {
+      "id": "q-fys-ene-5",
+      "kind": "mc",
+      "topic": "forms of energy",
+      "prompt": "What type of energy is stored in a battery?",
+      "opener": "Think about what happens inside the battery before the current starts to flow.",
+      "choices": [
+        "Kinetic energy",
+        "Chemical energy",
+        "Potential energy",
+        "Radiant energy"
+      ],
+      "answer": 1,
+      "explanation": "A battery stores chemical energy, which is converted into electrical energy when the battery is used in a circuit. Potential and kinetic energy relate to an object's height and speed, not to chemical reactions."
+    },
+    {
+      "id": "q-fys-ene-6",
+      "kind": "mc",
+      "topic": "efficiency",
+      "prompt": "A light bulb converts 100 J of electrical energy into 20 J of light energy, the rest becomes heat. What is the bulb's efficiency for light?",
+      "opener": "Efficiency = useful energy out divided by energy supplied, often expressed as a percentage.",
+      "choices": [
+        "20%",
+        "80%",
+        "100%",
+        "5%"
+      ],
+      "answer": 0,
+      "explanation": "Efficiency = useful energy / energy supplied = 20 J / 100 J = 0.20 = 20%. The remaining 80 J becomes heat, which is a common \"loss\" in light bulbs."
+    },
+    {
+      "id": "q-fys-ene-7",
+      "kind": "worked",
+      "topic": "forms of energy",
+      "prompt": "A cyclist, with body and bike totalling 70 kg, is cycling at 4 m/s. Roughly how large is the kinetic energy? (Formula: E = 0.5 · m · v²)",
+      "opener": "Substitute the mass and speed into the formula for kinetic energy and calculate step by step.",
+      "answer": "560 J",
+      "steps": [
+        "The formula for kinetic energy is E = 0.5 · m · v².",
+        "Square the speed: v² = 4² = 16.",
+        "Multiply by the mass: 70 · 16 = 1120.",
+        "Multiply by 0.5: 0.5 · 1120 = 560 J."
+      ]
+    },
+    {
+      "id": "q-fys-ene-8",
+      "kind": "flashcard",
+      "topic": "forms of energy",
+      "prompt": "Summarise the most common forms of energy, the principle of conservation of energy, and the difference between renewable and non-renewable energy sources.",
+      "opener": "List the forms of energy one by one before turning the card over.",
+      "answer": "Kinetic energy: the energy of something that is moving, depends on mass and speed · Potential energy: energy that depends on height within a gravitational field · Heat energy: energy linked to temperature and the motion of particles · Chemical energy: stored in the bonds of substances, e.g. in food, fuel and batteries · Radiant energy: energy transported as light or other electromagnetic radiation · Electrical energy: the energy of an electric current · Conservation of energy: energy can neither be created nor destroyed, only converted between forms · Renewable energy sources (sun, wind, water, biofuel) are naturally replenished and don't run out · Non-renewable energy sources (coal, oil, natural gas, uranium) exist in limited amounts and take a very long time to form again · Efficiency = useful energy out / energy supplied, indicates how effective a conversion is."
+    }
+  ]
+}

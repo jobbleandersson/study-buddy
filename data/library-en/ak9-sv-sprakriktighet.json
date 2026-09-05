@@ -1,0 +1,129 @@
+{
+  "id": "lib-sv9-sprakriktighet",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Writing rules and correct Swedish",
+  "sourceSummary": "De and dem, särskrivning (incorrect word splitting), comma placement and capital letters — the most common mistakes that lower your grade on written assignments.",
+  "topics": [
+    "de and dem",
+    "särskrivning",
+    "punctuation",
+    "capital letters"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv9-spr-1",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Choose the correct word: \"___ sprang hela vägen till skolan.\"",
+      "opener": "Substitute the word with English \"they\" or \"them\" — which one fits?",
+      "choices": [
+        "Dem",
+        "De",
+        "Dom",
+        "Den"
+      ],
+      "answer": 1,
+      "explanation": "The word is the subject (it's them who are running) — the subject form is \"de\". Test: \"they ran\", not \"them ran\"."
+    },
+    {
+      "id": "q-sv9-spr-2",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Choose the correct word: \"Jag pratade med ___ på rasten.\"",
+      "opener": "The word comes after a preposition (\"med\") — which form does that require?",
+      "choices": [
+        "de",
+        "dem",
+        "dom",
+        "den"
+      ],
+      "answer": 1,
+      "explanation": "After prepositions (med, till, för, av...) the object form is always used: \"dem\". Test: \"with them\", not \"with they\"."
+    },
+    {
+      "id": "q-sv9-spr-3",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "Which option is written correctly?",
+      "opener": "A compound word is ONE thing — not two separate words side by side.",
+      "choices": [
+        "Vi åt en jord gubbs tårta.",
+        "Vi åt en jordgubbstårta.",
+        "Vi åt en jordgubbs tårta.",
+        "Vi åt en Jordgubbstårta."
+      ],
+      "answer": 1,
+      "explanation": "\"Jordgubbstårta\" is a compound word and should be written as one word. Splitting it up (särskrivning) can change the meaning: \"jordgubbs tårta\" sounds like a cake that BELONGS TO the strawberries."
+    },
+    {
+      "id": "q-sv9-spr-4",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "What does \"en rödhårig flicka\" mean compared to \"en röd hårig flicka\"?",
+      "opener": "Read the two phrases aloud and listen for the difference.",
+      "choices": [
+        "Exactly the same thing",
+        "Rödhårig = has red hair. Röd hårig = the girl is red and hairy.",
+        "Röd hårig is correct, rödhårig is wrong",
+        "There is no difference in writing, only in speech"
+      ],
+      "answer": 1,
+      "explanation": "Splitting the word up (särskrivning) changes the meaning: \"rödhårig\" is a compound adjective (red hair), while \"röd, hårig\" describes the girl as both red AND hairy — a completely different picture."
+    },
+    {
+      "id": "q-sv9-spr-5",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "Where should the comma be placed? \"Innan vi gick hemifrån ___ kollade vi att spisen var avstängd.\"",
+      "opener": "A subordinate clause that comes BEFORE the main clause is often closed off with a comma.",
+      "choices": [
+        "After \"Innan\"",
+        "After \"hemifrån\"",
+        "After \"kollade\"",
+        "No comma needed"
+      ],
+      "answer": 1,
+      "explanation": "\"Innan vi gick hemifrån\" is a subordinate clause that comes first in the sentence — it's closed off with a comma before the main clause begins: \"...hemifrån, kollade vi...\""
+    },
+    {
+      "id": "q-sv9-spr-6",
+      "kind": "mc",
+      "topic": "capital letters",
+      "prompt": "Which sentence uses capital letters correctly?",
+      "opener": "Capital letters are used for proper nouns — not for common nouns, seasons or compass directions.",
+      "choices": [
+        "Jag älskar Sommaren mest av alla Årstider.",
+        "Vi åkte till Stockholm i somras.",
+        "Min Mamma jobbar som Lärare.",
+        "Vi bor i Norra delen av Sverige."
+      ],
+      "answer": 1,
+      "explanation": "\"Stockholm\" is a proper noun (a place) and should be capitalised. Seasons, family words (mamma) and occupations (lärare) are written with a lowercase letter unless they begin a sentence."
+    },
+    {
+      "id": "q-sv9-spr-7",
+      "kind": "worked",
+      "topic": "de and dem",
+      "prompt": "Correct the sentence and explain each change: \"Läraren gav de som var färdiga extra uppgifter, dom andra fick jord gubbs saft medans dem väntade.\"",
+      "opener": "Look for four mistakes: a de/dem error, \"dom\" in writing, incorrect word splitting (särskrivning), and a run-on sentence.",
+      "answer": "Läraren gav dem som var färdiga extra uppgifter. De andra fick jordgubbssaft medan de väntade.",
+      "steps": [
+        "\"gav de som var färdiga\" → \"gav dem som var färdiga\". After the verb \"gav\" (to whom?) the object form is required.",
+        "\"dom andra\" → \"de andra\". \"Dom\" is a spoken-language form and is avoided in writing; here the word is also the subject.",
+        "\"jord gubbs saft\" → \"jordgubbssaft\". A compound word is written as one word, not as three separate words.",
+        "\"medans dem väntade\" → \"medan de väntade\". \"Medans\" is an incorrect form of \"medan\", and the word is the subject in the subordinate clause (de väntade) — not dem.",
+        "The sentence was also split with a full stop after \"uppgifter\" to avoid an overly long, hard-to-read sentence (a run-on sentence)."
+      ]
+    },
+    {
+      "id": "q-sv9-spr-8",
+      "kind": "flashcard",
+      "topic": "de and dem",
+      "prompt": "What tricks can you use to write correctly: de/dem, särskrivning and capital letters?",
+      "opener": "Three quick memory rules.",
+      "answer": "De/dem: substitute with they/them (or we/us) — if it becomes \"they\"/\"we\" you write \"de\", if it becomes \"them\"/\"us\" you write \"dem\". After a preposition (med, till, för, av) it's always \"dem\". Särskrivning: ask whether the words form ONE connected meaning — if so, they're written as one word (jordgubbstårta, glasögonfodral). Capital letters: only for proper nouns (people, places, companies, the first word of a sentence) — not for occupations, family words or seasons."
+    }
+  ]
+}

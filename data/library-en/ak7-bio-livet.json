@@ -1,0 +1,129 @@
+{
+  "id": "lib-bio7-livet",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "What is life? Cells and organisation",
+  "sourceSummary": "What characterises living organisms and how the cell is life's smallest building block. You also practise the difference between plant cells and animal cells, and how cells build up tissues and organs.",
+  "topics": [
+    "characteristics of life",
+    "the cell",
+    "plant cell and animal cell",
+    "from cell to organ",
+    "microscope"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio7-liv-1",
+      "kind": "mc",
+      "topic": "characteristics of life",
+      "prompt": "Which of the following is a characteristic that ALL living organisms have?",
+      "opener": "Think about what a cat, a pine tree and a bacterium actually have in common.",
+      "choices": [
+        "They can walk or swim",
+        "They have eyes",
+        "They reproduce and produce offspring",
+        "They have a heart"
+      ],
+      "answer": 2,
+      "explanation": "All living organisms reproduce, grow, respire, take up nutrients and react to their surroundings. Being able to walk or having a heart only applies to certain animals — a pine tree has neither legs nor a heart but is still alive."
+    },
+    {
+      "id": "q-bio7-liv-2",
+      "kind": "mc",
+      "topic": "the cell",
+      "prompt": "What is meant by the cell being life's smallest building block?",
+      "opener": "Think about what the smallest thing is that can live entirely on its own.",
+      "choices": [
+        "The cell is the smallest part that can live and carry out the functions of life",
+        "The cell is the smallest part you can see with the naked eye",
+        "The cell is the smallest part of a skeleton",
+        "The cell is the smallest molecule in the body"
+      ],
+      "answer": 0,
+      "explanation": "A cell can take up nutrients, get rid of waste and divide — it is alive. Molecules are indeed smaller, but a single molecule is not alive; it can only be part of something living."
+    },
+    {
+      "id": "q-bio7-liv-3",
+      "kind": "mc",
+      "topic": "plant cell and animal cell",
+      "prompt": "Which cell part is found in a plant cell but missing from an animal cell?",
+      "opener": "Think about why a flower stalk can stand upright and why the leaves are green.",
+      "choices": [
+        "Nucleus",
+        "Cell membrane",
+        "Cytoplasm",
+        "Chloroplast"
+      ],
+      "answer": 3,
+      "explanation": "Chloroplasts contain the green pigment chlorophyll and carry out photosynthesis — they are found only in plants, which also have a cell wall. The nucleus, cell membrane and cytoplasm are found in both cell types, so they do not work as a difference."
+    },
+    {
+      "id": "q-bio7-liv-4",
+      "kind": "mc",
+      "topic": "the cell",
+      "prompt": "What is the function of the nucleus?",
+      "opener": "Somewhere in the cell is the blueprint for how everything should work.",
+      "choices": [
+        "It gives the cell energy",
+        "It contains the genetic material and controls the cell's work",
+        "It lets substances in and out of the cell",
+        "It gives the cell its green colour"
+      ],
+      "answer": 1,
+      "explanation": "The nucleus contains the DNA, the genetic material, which determines what the cell should do. A common mistake is to confuse the nucleus with the cell membrane — but it is the membrane, not the nucleus, that handles transport in and out."
+    },
+    {
+      "id": "q-bio7-liv-5",
+      "kind": "mc",
+      "topic": "from cell to organ",
+      "prompt": "What is formed when many cells of the same kind sit together and do the same job?",
+      "opener": "It is the level right above the cell.",
+      "choices": [
+        "A tissue",
+        "An organ",
+        "An organ system",
+        "An organism"
+      ],
+      "answer": 0,
+      "explanation": "Identical cells together form a tissue, for example muscle tissue. An organ, such as the stomach, is the next level and consists of several different tissues together."
+    },
+    {
+      "id": "q-bio7-liv-6",
+      "kind": "mc",
+      "topic": "microscope",
+      "prompt": "Why do you need a microscope to study cells?",
+      "opener": "Think about how big a cell is compared with what you can see without any aid.",
+      "choices": [
+        "Because cells move too fast",
+        "Because cells only exist in water",
+        "Because cells are dangerous to touch",
+        "Because most cells are far too small to see with the naked eye"
+      ],
+      "answer": 3,
+      "explanation": "Most cells are only a few hundredths of a millimetre in size, so the eye cannot make them out — the microscope magnifies the image many times over. The idea that cells would move too fast is not correct; the problem is size, not speed."
+    },
+    {
+      "id": "q-bio7-liv-7",
+      "kind": "worked",
+      "topic": "from cell to organ",
+      "prompt": "Describe how the body is built up from cell to organ system. Use the stomach as an example.",
+      "opener": "Go through four levels in order: cell, tissue, organ, organ system.",
+      "answer": "Cells of the same kind form a tissue, several tissues build up the organ called the stomach, and the stomach works together with the mouth, the oesophagus and the intestines in the digestive system.",
+      "steps": [
+        "The cell is the smallest living building block, for example a muscle cell in the wall of the stomach.",
+        "Many identical cells together form a tissue, here muscle tissue.",
+        "Several different tissues build up an organ — the stomach.",
+        "The stomach works together with the oesophagus and the intestines and forms the digestive system, an organ system."
+      ]
+    },
+    {
+      "id": "q-bio7-liv-8",
+      "kind": "flashcard",
+      "topic": "characteristics of life",
+      "prompt": "What characterises everything living, and what parts does a cell have?",
+      "opener": "First name the characteristics of life, then the cell parts — and which ones are found only in plants.",
+      "answer": "Characteristics of life: grows and develops · takes up nutrients · respires and converts energy · gets rid of waste · reacts to its surroundings · reproduces · is built up of cells · Cell parts in both plant and animal: nucleus (genetic material, controls the cell) · cell membrane (regulates what goes in and out) · cytoplasm (jelly-like fluid where the parts sit) · mitochondria (release energy from nutrients) · Only in plant cells: cell wall (gives structure) · chloroplasts (photosynthesis, green chlorophyll) · large vacuole (water storage) · Levels in the body: cell → tissue → organ → organ system → organism · A microscope is needed because cells are too small for the naked eye."
+    }
+  ]
+}

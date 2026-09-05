@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-ekologi",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "Ecology and sustainable development",
+  "sourceSummary": "Ecosystem services and biodiversity, an in-depth look at the carbon, nitrogen and phosphorus cycles, and sustainable development as an ecological, social and economic concept.",
+  "topics": [
+    "ecosystem services",
+    "biodiversity",
+    "cycles in depth",
+    "sustainable development"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-ekologi-1",
+      "kind": "mc",
+      "topic": "ecosystem services",
+      "prompt": "What is meant by an ecosystem service?",
+      "opener": "Think of things nature does for us for free, without us having to build or pay for them.",
+      "choices": [
+        "A benefit that humans get from ecosystems, e.g. pollination, clean water or timber",
+        "A service where the state manages forest and land on behalf of private individuals",
+        "Another word for a nature reserve",
+        "A fee you pay to be allowed to spend time in nature"
+      ],
+      "answer": 0,
+      "explanation": "Ecosystem services are the benefits that ecosystems provide to humans, e.g. bees pollinating crops, wetlands purifying water, and forests providing timber and storing carbon dioxide. It is not about a fee or a state service."
+    },
+    {
+      "id": "q-nk1b-ekologi-2",
+      "kind": "mc",
+      "topic": "ecosystem services",
+      "prompt": "Bees and other insects that pollinate crops are an example of which type of ecosystem service?",
+      "opener": "Consider whether the service directly provides a product, regulates something in nature, or is cultural.",
+      "choices": [
+        "A cultural ecosystem service",
+        "A regulating ecosystem service",
+        "A supporting ecosystem service",
+        "A provisioning ecosystem service"
+      ],
+      "answer": 1,
+      "explanation": "Pollination counts as a regulating ecosystem service because it regulates a biological process (plant reproduction) that in turn enables harvests. Provisioning services are the products themselves, e.g. food, timber and water."
+    },
+    {
+      "id": "q-nk1b-ekologi-3",
+      "kind": "mc",
+      "topic": "biodiversity",
+      "prompt": "What does the concept of biodiversity mean?",
+      "opener": "The concept concerns variation at several different levels, not just the number of species.",
+      "choices": [
+        "Only the total number of animals in an area",
+        "How many national parks a country has",
+        "The richness of variation among genes, species and ecosystems",
+        "The amount of plants compared with animals in an ecosystem"
+      ],
+      "answer": 2,
+      "explanation": "Biodiversity covers variation at three levels: genetic variation within a species, the diversity of species, and the diversity of ecosystems. It is therefore about more than just a count of animals."
+    },
+    {
+      "id": "q-nk1b-ekologi-4",
+      "kind": "mc",
+      "topic": "biodiversity",
+      "prompt": "Why is high biodiversity important for an ecosystem's ability to withstand disturbances, e.g. drought or disease outbreaks?",
+      "opener": "Think about what happens if all species in the system depend on exactly the same conditions.",
+      "choices": [
+        "Diversity makes the ecosystem more vulnerable because more species can die at the same time",
+        "Diversity is irrelevant to how an ecosystem copes with disturbances",
+        "Diversity only reduces competition for food with no other effects",
+        "More species and genetic variation give the system a greater chance that some species or individuals cope with the change and can fulfil important functions"
+      ],
+      "answer": 3,
+      "explanation": "With many species and great genetic variation, the chances increase that at least some cope with a changed situation, which makes the ecosystem more resilient. A species-poor system is more vulnerable because the entire function can collapse if a single species is hit hard."
+    },
+    {
+      "id": "q-nk1b-ekologi-5",
+      "kind": "mc",
+      "topic": "cycles in depth",
+      "prompt": "Which organisms convert nitrogen gas (N2) in the air into a form that plants can absorb, thereby starting the nitrogen cycle in the soil?",
+      "opener": "Nitrogen gas in the air is, on its own, hard for plants to use directly — something must \"fix\" it first.",
+      "choices": [
+        "Nitrogen-fixing bacteria, including those in the root nodules of legumes",
+        "Green plants' leaves through photosynthesis",
+        "Fungi that decompose dead animals",
+        "Algae in lakes and seas"
+      ],
+      "answer": 0,
+      "explanation": "Nitrogen-fixing bacteria, which live freely in the soil or in symbiosis in the root nodules of legumes, convert (fix) nitrogen gas into ammonium that plants can use. Photosynthesis instead concerns carbon and energy, not fixing nitrogen."
+    },
+    {
+      "id": "q-nk1b-ekologi-6",
+      "kind": "mc",
+      "topic": "sustainable development",
+      "prompt": "According to the Brundtland Report's definition, what characterises sustainable development?",
+      "opener": "The definition concerns the relationship between today's and future generations.",
+      "choices": [
+        "Development that focuses solely on economic growth",
+        "Development that meets the needs of the present without compromising the ability of future generations to meet their own needs",
+        "Development where nature is completely protected from human influence",
+        "Development that prioritises rich countries' needs ahead of poor countries'"
+      ],
+      "answer": 1,
+      "explanation": "The classic definition (from the UN's Brundtland Report, 1987) describes sustainable development as development that meets the needs of the present without compromising future generations' ability to do the same. The concept rests on three interacting parts: ecological, social and economic sustainability — not economics alone."
+    },
+    {
+      "id": "q-nk1b-ekologi-7",
+      "kind": "worked",
+      "topic": "cycles in depth",
+      "prompt": "Explain how the phosphorus cycle differs from the carbon and nitrogen cycles, and why eutrophication of lakes and seas is often linked specifically to phosphorus and nitrogen.",
+      "opener": "Compare where in nature each substance is mainly stored, and what happens when too much of the substance ends up in water.",
+      "answer": "The phosphorus cycle lacks a significant gas phase and moves slowly via bedrock and sediment, while carbon and nitrogen largely circulate via the atmosphere; when excess phosphorus and nitrogen from, for example, fertiliser leak into lakes and seas, algal growth is strongly favoured, leading to eutrophication and oxygen depletion when the algae are later broken down.",
+      "steps": [
+        "The carbon and nitrogen cycles have a gas phase: carbon dioxide and nitrogen gas respectively move freely through the atmosphere between soil, water, organisms and air.",
+        "Phosphorus lacks a gas form under natural conditions and is instead bound in bedrock, minerals and sediment, which is why the phosphorus cycle moves much more slowly.",
+        "Phosphorus and nitrogen are often what limits the growth of plants and algae, since they are needed in relatively large amounts but are naturally available in limited supply.",
+        "Artificial fertiliser and wastewater add large amounts of extra phosphorus and nitrogen to soil and waterways.",
+        "When these substances reach lakes and seas, they cause intense algal blooms; when the algae die and are broken down, oxygen in the water is consumed, which can lead to oxygen depletion and dead seabeds — what is called eutrophication."
+      ]
+    },
+    {
+      "id": "q-nk1b-ekologi-8",
+      "kind": "flashcard",
+      "topic": "sustainable development",
+      "prompt": "Summarise key concepts within ecology and sustainable development: ecosystem services, biodiversity, cycles, and the three parts of sustainability.",
+      "opener": "Go through what nature gives us, why variation matters, and what keeps substances in circulation.",
+      "answer": "Ecosystem services: benefits humans get from nature — provisioning (food, timber), regulating (pollination, water purification), supporting (photosynthesis, soil formation) and cultural (recreation, experiences of nature) · Biodiversity: variation at the gene, species and ecosystem levels, increases nature's resilience against disturbances · Carbon cycle: circulates quickly via the atmosphere through photosynthesis, respiration and combustion · Nitrogen cycle: nitrogen-fixing bacteria convert nitrogen gas into a form plants can use · Phosphorus cycle: slow, lacks a gas phase, bound in bedrock and sediment — excess phosphorus and nitrogen cause eutrophication · Sustainable development: meets the needs of the present without compromising those of future generations, rests on ecological, social and economic sustainability together."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-kemi-syrabas",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Acids, bases and pH",
+  "sourceSummary": "The pH scale and what characterises acids and bases, what happens during neutralisation, and common examples of acids and bases in everyday life.",
+  "topics": [
+    "the pH scale",
+    "acids and bases",
+    "neutralisation",
+    "acids and bases in everyday life"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi-syr-1",
+      "kind": "mc",
+      "topic": "the pH scale",
+      "prompt": "What does the pH scale show?",
+      "opener": "The scale runs from 0 to 14 — think about what the different ends of the scale usually describe.",
+      "choices": [
+        "How toxic a substance is",
+        "How acidic or basic a solution is",
+        "How hot a substance is",
+        "How dense a substance is"
+      ],
+      "answer": 1,
+      "explanation": "The pH scale (0–14) shows how acidic or basic a solution is. Low values are acidic, high values are basic, and it says nothing directly about toxicity, temperature or density."
+    },
+    {
+      "id": "q-kemi-syr-2",
+      "kind": "mc",
+      "topic": "the pH scale",
+      "prompt": "Which pH value counts as neutral, for example for pure water?",
+      "opener": "Neutral lies exactly halfway between acidic and basic on the 0–14 scale.",
+      "choices": [
+        "0",
+        "7",
+        "10",
+        "14"
+      ],
+      "answer": 1,
+      "explanation": "pH 7 is neutral. Values below 7 are acidic and values above 7 are basic — the further from 7, the stronger the acid or base."
+    },
+    {
+      "id": "q-kemi-syr-3",
+      "kind": "mc",
+      "topic": "acids and bases",
+      "prompt": "What characterises an ACID?",
+      "opener": "Acids release a particular type of ion when dissolved in water.",
+      "choices": [
+        "It releases hydrogen ions (H+) in water and has a pH below 7",
+        "It releases hydroxide ions (OH−) in water and has a pH above 7",
+        "It is always corrosive to metal",
+        "It has no taste at all"
+      ],
+      "answer": 0,
+      "explanation": "Acids release hydrogen ions (H+) when dissolved in water, giving a pH below 7. Bases instead release hydroxide ions (OH−) and have a pH above 7 — not all acids are strongly corrosive, strength varies."
+    },
+    {
+      "id": "q-kemi-syr-4",
+      "kind": "mc",
+      "topic": "acids and bases",
+      "prompt": "What characterises a BASE?",
+      "opener": "Bases are, to some extent, the opposite of acids — think about which ion they release.",
+      "choices": [
+        "It always has a pH below 7",
+        "It releases hydroxide ions (OH−) in water and has a pH above 7",
+        "It always contains carbon dioxide",
+        "It can never be corrosive"
+      ],
+      "answer": 1,
+      "explanation": "Bases release hydroxide ions (OH−) when dissolved in water, giving a pH above 7. Strong bases, just like strong acids, can be corrosive."
+    },
+    {
+      "id": "q-kemi-syr-5",
+      "kind": "mc",
+      "topic": "neutralisation",
+      "prompt": "What happens during a NEUTRALISATION between an acid and a base?",
+      "opener": "Think about what hydrogen ions and hydroxide ions form when they meet.",
+      "choices": [
+        "They react and form salt and water, while the solution's pH moves towards 7",
+        "The acid disappears without anything new being formed",
+        "The base is converted directly into a stronger acid",
+        "The temperature always drops sharply"
+      ],
+      "answer": 0,
+      "explanation": "During neutralisation, acid and base react to form salt and water, while the solution's pH moves towards 7. Hydrogen ions (H+) and hydroxide ions (OH−) bond together and form water."
+    },
+    {
+      "id": "q-kemi-syr-6",
+      "kind": "mc",
+      "topic": "acids and bases in everyday life",
+      "prompt": "Which of the following substances is an acid you can find in everyday life?",
+      "opener": "The name of the substance often reveals what kind of chemical compound it is.",
+      "choices": [
+        "Baking soda (sodium bicarbonate)",
+        "Vinegar (acetic acid)",
+        "Soap",
+        "Soft soap"
+      ],
+      "answer": 1,
+      "explanation": "Vinegar contains acetic acid and has a low pH — an acid. Baking soda, soap and soft soap are instead basic substances that you also encounter in everyday life."
+    },
+    {
+      "id": "q-kemi-syr-7",
+      "kind": "worked",
+      "topic": "neutralisation",
+      "prompt": "Stomach acid in the stomach is a strong acid with a low pH. Some heartburn medicines, so-called antacids, contain basic substances such as magnesium hydroxide. Explain, using chemistry, why such a medicine relieves heartburn.",
+      "opener": "Think about what happens chemically when an acid meets a base.",
+      "answer": "The antacid's basic substance neutralises some of the stomach acid, which raises the pH in the stomach towards a less acidic value and reduces the burning sensation caused by heartburn.",
+      "steps": [
+        "Stomach acid (including hydrochloric acid, HCl) has a low pH and irritates the oesophagus during heartburn.",
+        "The antacid contains a base, for example magnesium hydroxide (Mg(OH)2), which releases hydroxide ions (OH−) in water.",
+        "When the base meets the acid in the stomach, a neutralisation reaction occurs: acid + base → salt + water.",
+        "The hydrogen ions (H+) from the acid bond with the hydroxide ions (OH−) and form water, making the solution less acidic — pH rises towards 7.",
+        "With less free acid remaining, irritation of the oesophagus decreases and the discomfort of heartburn is relieved."
+      ]
+    },
+    {
+      "id": "q-kemi-syr-8",
+      "kind": "flashcard",
+      "topic": "the pH scale",
+      "prompt": "Summarise acids, bases, the pH scale and neutralisation.",
+      "opener": "Think scale 0–14, which ion is released, and what is formed during neutralisation.",
+      "answer": "The pH scale: runs from 0–14 and shows how acidic or basic a solution is · pH below 7 = acidic (acid) · pH = 7 = neutral (e.g. pure water) · pH above 7 = basic (base) · Acid: releases hydrogen ions (H+) in water, examples: acetic acid, hydrochloric acid, stomach acid, citric acid · Base: releases hydroxide ions (OH−) in water, examples: baking soda (sodium bicarbonate), soft soap, soap, ammonia · Neutralisation: acid + base → salt + water, pH moves towards 7 · Everyday example: vinegar (acidic) reacts with bicarbonate (basic) and bubbles of carbon dioxide are formed."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma9-samband",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Relationships and functions",
+  "sourceSummary": "Linear functions, proportional relationships, a graph's k- and m-values, and translating everyday situations into formulas.",
+  "topics": [
+    "linear functions",
+    "proportionality",
+    "graphs"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma9-sam-1",
+      "kind": "mc",
+      "topic": "linear functions",
+      "prompt": "For the function $y = 2x + 3$, what is $y$ when $x = 4$?",
+      "opener": "Substitute 4 for $x$ and calculate — think about the order of operations.",
+      "choices": [
+        "11",
+        "24",
+        "9",
+        "14"
+      ],
+      "answer": 0,
+      "explanation": "$y = 2 \\cdot 4 + 3 = 8 + 3 = 11$. Multiplication is done before addition."
+    },
+    {
+      "id": "q-ma9-sam-2",
+      "kind": "mc",
+      "topic": "graphs",
+      "prompt": "In the function $y = -3x + 7$, what does the number $-3$ describe?",
+      "opener": "One of the numbers tells you where the line starts, the other how steep it is.",
+      "choices": [
+        "Where the graph crosses the y-axis",
+        "How much $y$ changes when $x$ increases by 1",
+        "The graph's highest value",
+        "Where the graph crosses the x-axis"
+      ],
+      "answer": 1,
+      "explanation": "The $k$-value ($-3$) is the slope: every time $x$ increases by 1, $y$ decreases by 3. The number 7 is the $m$-value, where the graph crosses the y-axis."
+    },
+    {
+      "id": "q-ma9-sam-3",
+      "kind": "mc",
+      "topic": "graphs",
+      "prompt": "Where does the graph of $y = 2x + 1$ cross the y-axis?",
+      "opener": "What is $x$ for every point that lies on the y-axis?",
+      "choices": [
+        "At the point (0, 2)",
+        "At the point (2, 1)",
+        "At the point (0, 1)",
+        "At the point (1, 0)"
+      ],
+      "answer": 2,
+      "explanation": "On the y-axis, $x = 0$. Then $y = 2 \\cdot 0 + 1 = 1$, so the point is $(0, 1)$ — that's the $m$-value."
+    },
+    {
+      "id": "q-ma9-sam-4",
+      "kind": "mc",
+      "topic": "proportionality",
+      "prompt": "Which of these relationships is proportional?",
+      "opener": "A proportional relationship should give double the output when you double the input — what does that require of the graph?",
+      "choices": [
+        "$y = 2x - 3$",
+        "$y = x^2$",
+        "$y = x + 5$",
+        "$y = 4x$"
+      ],
+      "answer": 3,
+      "explanation": "A proportional relationship has the form $y = kx$ and passes through the origin. $y = 4x$ satisfies this; the others either have an $m$-value or are not linear."
+    },
+    {
+      "id": "q-ma9-sam-5",
+      "kind": "mc",
+      "topic": "linear functions",
+      "prompt": "An online shop charges 25 kr per item plus 50 kr in shipping. Which formula gives the total cost $y$ for $x$ items?",
+      "opener": "Which part of the cost changes with the number of items, and which is fixed?",
+      "choices": [
+        "$y = 25x + 50$",
+        "$y = 25x - 50$",
+        "$y = 25 + 50x$",
+        "$y = 75x$"
+      ],
+      "answer": 0,
+      "explanation": "Each item costs 25 kr, so $25x$, and shipping is a fixed 50 kr regardless of quantity: $y = 25x + 50$."
+    },
+    {
+      "id": "q-ma9-sam-6",
+      "kind": "mc",
+      "topic": "proportionality",
+      "prompt": "A car travels at 60 km/h. How far does it go in 2,5 hours?",
+      "opener": "Distance is speed times time.",
+      "choices": [
+        "120 km",
+        "150 km",
+        "24 km",
+        "180 km"
+      ],
+      "answer": 1,
+      "explanation": "$s = v \\cdot t = 60 \\cdot 2{,}5 = 150$ km."
+    },
+    {
+      "id": "q-ma9-sam-7",
+      "kind": "worked",
+      "topic": "linear functions",
+      "prompt": "A gym membership costs 200 kr as a start-up fee plus 150 kr per month. After how many months have you paid 1 400 kr? Set up an equation and solve it.",
+      "opener": "First write a formula for the total cost, then set it equal to 1 400.",
+      "answer": "8 months",
+      "steps": [
+        "Total cost after $x$ months: $y = 150x + 200$.",
+        "Set it equal to 1 400: $150x + 200 = 1400$.",
+        "Subtract 200: $150x = 1200$.",
+        "Divide by 150: $x = 8$ months."
+      ]
+    },
+    {
+      "id": "q-ma9-sam-8",
+      "kind": "flashcard",
+      "topic": "graphs",
+      "prompt": "What do $k$ and $m$ mean in the equation of a straight line, $y = kx + m$?",
+      "opener": "One of them determines the slope, the other the starting point.",
+      "answer": "$k$ is the slope (the gradient) — how much $y$ changes when $x$ increases by 1. $m$ is where the line crosses the y-axis, i.e. the $y$-value when $x = 0$."
+    }
+  ]
+}

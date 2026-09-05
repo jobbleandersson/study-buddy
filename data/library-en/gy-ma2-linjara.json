@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma2-linjara",
+  "type": "assignment",
+  "subject": "Matematik 2",
+  "title": "The straight line and systems of linear equations",
+  "sourceSummary": "Gradient and y-intercept of the straight line, solving systems of linear equations using the substitution and elimination methods, and interpreting the solution graphically.",
+  "topics": [
+    "gradient and y-intercept",
+    "the substitution method",
+    "the elimination method",
+    "graphical interpretation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma2-linjara-1",
+      "kind": "mc",
+      "topic": "gradient and y-intercept",
+      "prompt": "A straight line passes through the points $(0, 4)$ and $(2, 10)$. What is the gradient of the line?",
+      "opener": "The gradient is the change in y divided by the change in x between two points.",
+      "choices": [
+        "$3$",
+        "$4$",
+        "$6$",
+        "$2$"
+      ],
+      "answer": 0,
+      "explanation": "$k = \\dfrac{\\Delta y}{\\Delta x} = \\dfrac{10-4}{2-0} = \\dfrac{6}{2} = 3$. Answering $6$ (option C) misses dividing by the change in x."
+    },
+    {
+      "id": "q-ma2-linjara-2",
+      "kind": "mc",
+      "topic": "gradient and y-intercept",
+      "prompt": "The line $y = -2x + 5$ is compared with $y = 3x + 5$. Which statement is correct?",
+      "opener": "The y-intercept determines where the line crosses the y-axis, the gradient determines the slope.",
+      "choices": [
+        "Both lines have the same slope but cross the y-axis at different points",
+        "Both lines cross the y-axis at the same point but have different slopes",
+        "The lines are parallel",
+        "The lines intersect at the origin"
+      ],
+      "answer": 1,
+      "explanation": "Both have $m=5$, i.e. the same y-intercept $(0,5)$. But $k=-2$ and $k=3$ respectively give different slopes — one decreases, the other increases. Parallel lines (option C) require the same gradient, which is not the case here."
+    },
+    {
+      "id": "q-ma2-linjara-3",
+      "kind": "mc",
+      "topic": "the substitution method",
+      "prompt": "Solve the system of equations $\\begin{cases} y = 2x + 1 \\\\ y = -x + 7 \\end{cases}$ using substitution.",
+      "opener": "Since both expressions equal y, they can be set equal to each other.",
+      "choices": [
+        "$x = 3,\\ y = 4$",
+        "$x = -2,\\ y = -3$",
+        "$x = 2,\\ y = 5$",
+        "$x = 1,\\ y = 3$"
+      ],
+      "answer": 2,
+      "explanation": "Set the expressions equal: $2x+1 = -x+7 \\Rightarrow 3x = 6 \\Rightarrow x=2$. Substituting back: $y = 2(2)+1 = 5$. Check in the second equation: $-2+7=5$. Correct."
+    },
+    {
+      "id": "q-ma2-linjara-4",
+      "kind": "mc",
+      "topic": "the elimination method",
+      "prompt": "Solve $\\begin{cases} 2x + y = 8 \\\\ x - y = 1 \\end{cases}$ using the elimination method.",
+      "opener": "Add the equations together so that the $y$-terms cancel out.",
+      "choices": [
+        "$x = 2,\\ y = 4$",
+        "$x = 4,\\ y = 0$",
+        "$x = 1,\\ y = 6$",
+        "$x = 3,\\ y = 2$"
+      ],
+      "answer": 3,
+      "explanation": "Add the rows: $(2x+y)+(x-y) = 8+1 \\Rightarrow 3x = 9 \\Rightarrow x=3$. Substitute into the second equation: $3-y=1 \\Rightarrow y=2$. Check in the first: $2(3)+2=8$. Correct."
+    },
+    {
+      "id": "q-ma2-linjara-5",
+      "kind": "mc",
+      "topic": "graphical interpretation",
+      "prompt": "Two lines have the same gradient but different y-intercepts. What holds for the system of equations they form?",
+      "opener": "What does the same slope but a different starting point mean for the graphs of the lines?",
+      "choices": [
+        "The system has exactly one solution",
+        "The system has no solution because the lines are parallel and never meet",
+        "The system has infinitely many solutions",
+        "The lines cross each other at a point on the y-axis"
+      ],
+      "answer": 1,
+      "explanation": "The same gradient means the lines are parallel. With different y-intercepts they never cross, so the system of equations has no solution. Infinitely many solutions (option C) would require the lines to be identical, i.e. the same gradient and y-intercept."
+    },
+    {
+      "id": "q-ma2-linjara-6",
+      "kind": "mc",
+      "topic": "gradient and y-intercept",
+      "prompt": "A straight line has a gradient of 0. What does the line look like?",
+      "opener": "What does it mean that y does not change at all as x increases?",
+      "choices": [
+        "A line that passes through the origin",
+        "A vertical line",
+        "A line with the steepest possible slope",
+        "A horizontal line"
+      ],
+      "answer": 3,
+      "explanation": "$k=0$ means the y-value is constant regardless of x, giving a horizontal line, e.g. $y=3$. A vertical line (option B) cannot even be written as $y=kx+m$ since its gradient is undefined."
+    },
+    {
+      "id": "q-ma2-linjara-7",
+      "kind": "worked",
+      "topic": "the elimination method",
+      "prompt": "Solve the system of equations $\\begin{cases} 3x + 2y = 12 \\\\ 5x - 2y = 4 \\end{cases}$ using the elimination method.",
+      "opener": "Look at the coefficients in front of y — they already have opposite signs.",
+      "answer": "$x = 2,\\ y = 3$",
+      "steps": [
+        "The coefficients in front of $y$ are $+2$ and $-2$, so they cancel out directly when added.",
+        "Add the equations: $(3x+2y)+(5x-2y) = 12+4 \\Rightarrow 8x = 16$.",
+        "Solve for $x$: $x = 2$.",
+        "Substitute into the first equation: $3(2)+2y=12 \\Rightarrow 6+2y=12 \\Rightarrow y=3$. Check in the second: $5(2)-2(3)=10-6=4$."
+      ]
+    },
+    {
+      "id": "q-ma2-linjara-8",
+      "kind": "flashcard",
+      "topic": "the substitution method",
+      "prompt": "Summarise the equation of the straight line and the two methods for solving systems of linear equations, and what the graphs show about the number of solutions.",
+      "opener": "Connect the algebraic solution with how the lines are positioned relative to each other.",
+      "answer": "Equation of the straight line: $y = kx + m$, where $k$ is the gradient and $m$ is the value where the line crosses the y-axis · Substitution method: solve for one variable in one equation and substitute it into the other · Elimination method: multiply as needed so that one variable's coefficients become opposites, then add the equations together · Graphically: different gradients give one intersection point (one solution) · same gradient, different y-intercept gives parallel lines (no solution) · same gradient and y-intercept gives identical lines (infinitely many solutions)."
+    }
+  ]
+}

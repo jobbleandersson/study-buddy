@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam8-politik",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Politics and government in Sweden",
+  "sourceSummary": "How Sweden is governed: the roles of the Riksdag, the government and the head of state, the path from a bill to a law, what municipalities and regions are responsible for, how elections work, and what kind of concept the left-right scale is.",
+  "topics": [
+    "the Riksdag, the government and the head of state",
+    "from bill to law",
+    "municipality and region",
+    "elections and the electoral system",
+    "the left-right scale"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam8-pol-1",
+      "kind": "mc",
+      "topic": "the Riksdag, the government and the head of state",
+      "prompt": "What is the Riksdag's most important task in the Swedish political system?",
+      "opener": "Think about which task is usually called the legislative power.",
+      "choices": [
+        "Judging people suspected of crimes",
+        "Leading the police and the military in day-to-day work",
+        "Deciding on laws and the state budget",
+        "Appointing Sweden's head of state"
+      ],
+      "answer": 2,
+      "explanation": "The Riksdag is Sweden's legislative assembly, with 349 members elected by the people. The Riksdag decides on laws, determines how the state's money is to be used, and scrutinises the government. Judging in individual cases is the courts' task, not the Riksdag's — that belongs to what is called the separation of powers between the Riksdag, the government and the courts."
+    },
+    {
+      "id": "q-sam8-pol-2",
+      "kind": "mc",
+      "topic": "the Riksdag, the government and the head of state",
+      "prompt": "Who is Sweden's head of state, and what role does the head of state have?",
+      "opener": "Sweden is a monarchy but also a democracy — think about what that means for power.",
+      "choices": [
+        "The King, who has a mainly ceremonial and representative role without political power",
+        "The Prime Minister, who leads the Riksdag's work",
+        "The Speaker, who both leads the Riksdag and governs the country",
+        "The King, who decides on new laws together with the Riksdag"
+      ],
+      "answer": 0,
+      "explanation": "Sweden is a monarchy where the King is head of state, but under the 1974 Instrument of Government the head of state has no political powers — the role is ceremonial and representative. The Prime Minister leads the government (not the Riksdag), and the Speaker leads the Riksdag's work and proposes a Prime Minister, but does not govern the country."
+    },
+    {
+      "id": "q-sam8-pol-3",
+      "kind": "mc",
+      "topic": "from bill to law",
+      "prompt": "In what order is a bill normally processed before it becomes Swedish law?",
+      "opener": "A proposal passes through several stations before the Riksdag votes.",
+      "choices": [
+        "The Riksdag votes first, and only afterwards does the government draft the proposal",
+        "The government submits a government bill (or a member of the Riksdag submits a motion) → a committee prepares the proposal → the Riksdag debates and votes → the law comes into force",
+        "The King writes the proposal → the Riksdag approves it → the court decides whether it should apply",
+        "The municipal council decides → the Riksdag implements the decision"
+      ],
+      "answer": 1,
+      "explanation": "The path to a law usually begins with an inquiry and then a government bill, but a member of the Riksdag can also introduce a motion. The proposal is prepared in one of the Riksdag's committees, which issues a committee report, and only then does the Riksdag debate and vote in the chamber. The idea that the Riksdag would vote before the proposal is drafted is wrong — preparation in committee exists precisely so the proposal can be scrutinised before the vote."
+    },
+    {
+      "id": "q-sam8-pol-4",
+      "kind": "mc",
+      "topic": "municipality and region",
+      "prompt": "What is a Swedish municipality mainly responsible for?",
+      "opener": "Think about the services that exist close to where you live, and separate them from healthcare.",
+      "choices": [
+        "Schools and preschools, elderly care, social services, water and waste, and local roads",
+        "Hospital care, health centres and public transport across the whole county",
+        "Defence, foreign policy and border control",
+        "Courts, police and prisons"
+      ],
+      "answer": 0,
+      "explanation": "The municipality is responsible for what is close to residents: schools and preschools, elderly care, social services, planning and building matters, water and waste. Healthcare and regional public transport are instead the regions' responsibility, while defence, foreign policy, police and courts are handled by the state. Municipalities and regions are governed by politicians elected in municipal and regional elections, and they can levy their own local income tax."
+    },
+    {
+      "id": "q-sam8-pol-5",
+      "kind": "mc",
+      "topic": "elections and the electoral system",
+      "prompt": "How often are general elections to the Riksdag, municipality and region held in Sweden?",
+      "opener": "All three elections are held at the same time — but how far apart are they?",
+      "choices": [
+        "Every other year",
+        "Every fifth year",
+        "Every fourth year, on the same election day in September",
+        "Every year"
+      ],
+      "answer": 2,
+      "explanation": "Riksdag elections, municipal elections and regional elections are held at the same time every fourth year, on the second Sunday in September. The right to vote in Riksdag elections belongs to Swedish citizens who have turned 18 by election day at the latest. Elections to the European Parliament, however, are held every fifth year, which is a common mix-up. Sweden has a proportional electoral system, and a party needs at least four per cent of the votes nationwide to enter the Riksdag."
+    },
+    {
+      "id": "q-sam8-pol-6",
+      "kind": "mc",
+      "topic": "the left-right scale",
+      "prompt": "What is the left-right scale in politics?",
+      "opener": "The scale is a tool for sorting ideas, not a list of who currently governs.",
+      "choices": [
+        "A list of which parties are currently in government",
+        "A measure of how many seats each party has in the Riksdag",
+        "A map of where in the country different parties have their voters",
+        "A simplified way of placing political ideas, partly based on views of the state's role in the economy and the balance between shared solutions and individual responsibility"
+      ],
+      "answer": 3,
+      "explanation": "The left-right scale is an analytical tool that roughly sorts political ideas, for example based on how large a role the state should have in the economy and views on taxes, shared solutions and individual responsibility. The scale is a simplification: a party can position itself differently on different issues, and issues such as the environment or migration don't always follow the scale. The number of seats is instead a result of the election and says nothing about what ideas a party holds."
+    },
+    {
+      "id": "q-sam8-pol-7",
+      "kind": "worked",
+      "topic": "from bill to law",
+      "prompt": "Describe step by step how a proposal becomes a new law in Sweden, and name who is involved at each step.",
+      "opener": "Follow the proposal from idea to law in force, and name the actor at each stage.",
+      "answer": "First a need for a new or amended law arises, and the government often appoints an inquiry (a committee or an individual investigator) which presents its proposal in a report. The proposal is then sent for consultation (remiss) to agencies, organisations and municipalities, who may submit their views. After that the government writes a government bill to the Riksdag — a finished legislative proposal. Members of the Riksdag can also put forward proposals themselves in the form of motions. The proposal is prepared in one of the Riksdag's committees, where members from different parties scrutinise it and issue a committee report with a recommendation. The proposal is then debated in the Riksdag's chamber and the members vote. If a majority votes yes, the law is decided, and the government promulgates it so that it is published in the Swedish Code of Statutes and comes into force from a set date. Agencies and courts must then apply the law.",
+      "steps": [
+        "Need and inquiry: the government has an inquiry examine the issue and present a proposal in a report.",
+        "Consultation: agencies, organisations and municipalities are given the chance to comment on the proposal.",
+        "Government bill or motion: the government submits a finished legislative proposal to the Riksdag, or a member of the Riksdag introduces a motion.",
+        "Committee preparation: a Riksdag committee scrutinises the proposal and issues a committee report with a recommendation.",
+        "Debate, vote and promulgation: the Riksdag debates and votes, and if the vote is yes, the government promulgates the law, which then comes into force from a set date."
+      ]
+    },
+    {
+      "id": "q-sam8-pol-8",
+      "kind": "flashcard",
+      "topic": "the Riksdag, the government and the head of state",
+      "prompt": "Summarise how Sweden is governed: the Riksdag, the government, the head of state, municipality and region, elections, and the left-right scale.",
+      "opener": "From the people's vote to decisions at national and local level.",
+      "answer": "The Riksdag: 349 members elected by the people · decides on laws and the state budget · scrutinises the government · The government: the Prime Minister and ministers · governs the country, implements the Riksdag's decisions and submits government bills · Head of state: the King, a ceremonial role without political power (the 1974 Instrument of Government) · The path of a law: inquiry → consultation → government bill/motion → committee → debate and vote in the chamber → the law is promulgated and comes into force · Municipality: schools, preschools, elderly care, social services, water and waste, planning and building · Region: healthcare and regional public transport · The state: defence, foreign policy, police, courts · Elections: Riksdag, municipality and region every fourth year in September, right to vote at 18, proportional electoral system, four-per-cent threshold for the Riksdag; EU elections every fifth year · The left-right scale: a simplified tool for sorting political ideas, including on the state's role in the economy and the balance between shared solutions and individual responsibility — parties can position themselves differently on different issues."
+    }
+  ]
+}

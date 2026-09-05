@@ -1,0 +1,129 @@
+{
+  "id": "lib-sv8-sprakriktighet",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Correct Swedish usage",
+  "sourceSummary": "De, dem and dom, incorrect word splitting, comma splices, and commas with subordinate clauses. Here you also practise distinguishing spoken language from written language in school assignments.",
+  "topics": [
+    "de and dem",
+    "incorrect word splitting",
+    "punctuation",
+    "spoken and written language"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv8-spr-1",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Choose the correct word: \"Vi hälsade på ___ under sommarlovet.\"",
+      "opener": "The word comes after the preposition \"på\" — try replacing it with \"oss\" or \"vi\".",
+      "choices": [
+        "dem",
+        "de",
+        "dom",
+        "dessa de"
+      ],
+      "answer": 0,
+      "explanation": "After a preposition, the object form is used: \"dem\". The test also works with vi/oss — \"vi hälsade på oss\" shows that the object form is needed, so not \"de\"."
+    },
+    {
+      "id": "q-sv8-spr-2",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Which sentence is correctly written for a school assignment?",
+      "opener": "Think about both whether the word is a subject or an object, and whether the form belongs in writing.",
+      "choices": [
+        "Dom sa att dom skulle komma.",
+        "De sa att de skulle komma.",
+        "Dem sa att dem skulle komma.",
+        "De sa att dem skulle komma."
+      ],
+      "answer": 1,
+      "explanation": "In both clauses the word is a subject — it is de who say and de who will come — so \"de\" both times. \"Dom\" works in speech and in fictional dialogue, but in school assignments de/dem is expected."
+    },
+    {
+      "id": "q-sv8-spr-3",
+      "kind": "mc",
+      "topic": "incorrect word splitting",
+      "prompt": "Which option is written correctly?",
+      "opener": "Read the words aloud: if you hear a stress dip in the middle, it's probably a compound word.",
+      "choices": [
+        "Han köpte en ny cykel hjälm.",
+        "Han köpte en ny Cykelhjälm.",
+        "Han köpte en ny cykelhjälm.",
+        "Han köpte en ny cykels hjälm."
+      ],
+      "answer": 2,
+      "explanation": "\"Cykelhjälm\" is a compound word and is written as one word. Writing \"cykel hjälm\" turns it into two separate things, roughly as if he had bought both a bike and a helmet."
+    },
+    {
+      "id": "q-sv8-spr-4",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "What is wrong with the sentence? \"Jag hann inte äta frukost, bussen gick tidigare idag.\"",
+      "opener": "Look at what's on either side of the comma — could both parts stand as their own sentences?",
+      "choices": [
+        "Incorrect word splitting",
+        "Incorrect use of de and dem",
+        "The sentence is missing a subject",
+        "A comma splice — two main clauses joined by only a comma"
+      ],
+      "answer": 3,
+      "explanation": "Both parts are complete main clauses, so a comma alone is not enough. Fix it with a full stop, a semicolon, or a conjunction: \"...frukost, för bussen gick tidigare idag.\" There is neither a word-splitting error nor a de/dem error in the sentence."
+    },
+    {
+      "id": "q-sv8-spr-5",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "Where should the comma go? \"Om du hinner före mig ___ kan du börja utan mig.\"",
+      "opener": "The sentence opens with a subordinate clause — where does it end?",
+      "choices": [
+        "After \"Om\"",
+        "After \"mig\" (the first time)",
+        "After \"kan\"",
+        "No comma is needed at all"
+      ],
+      "answer": 1,
+      "explanation": "The subordinate clause \"Om du hinner före mig\" comes first and ends with a comma before the main clause begins. A comma after \"Om\" would cut straight through the subordinate clause, which is never correct."
+    },
+    {
+      "id": "q-sv8-spr-6",
+      "kind": "mc",
+      "topic": "spoken and written language",
+      "prompt": "Which phrasing belongs in a written text?",
+      "opener": "Certain small words carry over from speech but count as mistakes or carelessness in writing.",
+      "choices": [
+        "Hon är störst utav alla i laget.",
+        "Hon är störst utav dom alla i laget.",
+        "Hon är störst av alla i laget.",
+        "Hon är den störste utav alla i laget."
+      ],
+      "answer": 2,
+      "explanation": "It's \"av\", not \"utav\" — \"utav\" is colloquial and should be avoided in writing. The same goes for \"dom\", \"ba\", \"typ\" and \"asså\", which belong in speech but not in a submitted assignment."
+    },
+    {
+      "id": "q-sv8-spr-7",
+      "kind": "worked",
+      "topic": "de and dem",
+      "prompt": "Correct the sentence and explain every change: \"Dom som var sena fick inte följa med, dem andra åkte iväg direkt utav glädje på en klass resa.\"",
+      "opener": "Look for four types of errors: dom in writing, de/dem errors, comma splices and incorrect word splitting.",
+      "answer": "De som var sena fick inte följa med. De andra åkte iväg direkt av glädje på en klassresa.",
+      "steps": [
+        "\"Dom som var sena\" → \"De som var sena\". The word is a subject, and \"dom\" is spoken language that doesn't belong in a school assignment.",
+        "\"fick inte följa med, dem andra åkte\" → put a full stop after \"med\". Two complete main clauses may not be joined together with just a comma (a comma splice).",
+        "\"dem andra\" → \"De andra\". It is they who go off, i.e. a subject — test with \"they\", not \"them\".",
+        "\"utav glädje\" → \"av glädje\". \"Utav\" is colloquial.",
+        "\"klass resa\" → \"klassresa\". A compound word that should be written as one."
+      ]
+    },
+    {
+      "id": "q-sv8-spr-8",
+      "kind": "flashcard",
+      "topic": "de and dem",
+      "prompt": "What rules and tricks do you use for de/dem, incorrect word splitting, comma splices and commas with subordinate clauses?",
+      "opener": "Four common traps — one memory rule for each.",
+      "answer": "De/dem · replace with vi/oss or they/them · if it becomes \"vi\"/\"they\" you write de, if it becomes \"oss\"/\"them\" you write dem · after a preposition (med, till, av, på, för) always dem · \"dom\" belongs to speech, not to the school assignment. Incorrect word splitting · if the words belong together as ONE thing they are written together (klassresa, cykelhjälm) · splitting the word changes the meaning. Comma splices · two main clauses may not be held together by just a comma · fix it with a full stop, semicolon or a conjunction (och, men, för, så). Comma with a subordinate clause · a subordinate clause before the main clause ends with a comma (\"När vi kom hem, åt vi\") · an inserted subordinate clause is framed by commas on both sides. Spoken language in writing · avoid utav, dom, typ, ba, asså."
+    }
+  ]
+}

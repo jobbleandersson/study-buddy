@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv1-kallkritik",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Source criticism",
+  "sourceSummary": "The source-criticism criteria, primary and secondary sources, bias and slant - and how to scrutinise what you find online.",
+  "topics": [
+    "source-criticism criteria",
+    "types of sources",
+    "bias"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-kall-1",
+      "kind": "mc",
+      "topic": "source-criticism criteria",
+      "prompt": "What are the four classic source-criticism criteria?",
+      "opener": "Four questions you ask of every source.",
+      "choices": [
+        "Authenticity, time, dependence and bias",
+        "Truth, length, language and form",
+        "Title, author, publisher and year",
+        "Relevance, length, clarity and style"
+      ],
+      "answer": 0,
+      "explanation": "Authenticity (is the source what it claims to be?), time (how close in time?), dependence (is it independent, or does it build on something else?) and bias (is there an interest in slanting it?)."
+    },
+    {
+      "id": "q-sv1-kall-2",
+      "kind": "mc",
+      "topic": "types of sources",
+      "prompt": "You read a newspaper article that refers to a research report. What is the newspaper article in relation to the report?",
+      "opener": "Which of the texts comes first - and which one reports on the other?",
+      "choices": [
+        "Primary source",
+        "Secondary source",
+        "First-hand source",
+        "Bias-free source"
+      ],
+      "answer": 1,
+      "explanation": "The report is the primary source (the original). The article that reports on it is a secondary source. Always go to the primary source when you can - information is easily distorted when it's relayed."
+    },
+    {
+      "id": "q-sv1-kall-3",
+      "kind": "mc",
+      "topic": "bias",
+      "prompt": "A confectionery company publishes a study showing that sugar doesn't affect children's concentration. Which criterion should you scrutinise above all?",
+      "opener": "Who benefits from the result looking the way it does?",
+      "choices": [
+        "Time",
+        "Dependence",
+        "Bias",
+        "Authenticity"
+      ],
+      "answer": 2,
+      "explanation": "Bias is about partiality - the sender has a financial interest in a particular result. The study may be correct, but it requires extra scrutiny and, ideally, independent confirmation."
+    },
+    {
+      "id": "q-sv1-kall-4",
+      "kind": "mc",
+      "topic": "source-criticism criteria",
+      "prompt": "Three news sites report the same piece of information, but all of them refer back to the same original post. What does that mean?",
+      "opener": "Is this really three independent confirmations?",
+      "choices": [
+        "The information becomes more credible the more sites repeat it",
+        "This is about authenticity, not dependence",
+        "The information is confirmed by three sources",
+        "The sources are dependent - in practice it's a single source"
+      ],
+      "answer": 3,
+      "explanation": "The dependence criterion: sources that all build on the same origin count as one source. Several repetitions of the same information do not increase its credibility."
+    },
+    {
+      "id": "q-sv1-kall-5",
+      "kind": "mc",
+      "topic": "source-criticism criteria",
+      "prompt": "For which type of question does the time criterion matter most?",
+      "opener": "When does information become outdated - and when does it not?",
+      "choices": [
+        "Current unemployment statistics",
+        "A description of the Pythagorean theorem",
+        "An account of ancient Greece",
+        "An analysis of Strindberg's language"
+      ],
+      "answer": 0,
+      "explanation": "Fresh statistics quickly become outdated, while mathematical theorems and historical facts don't change. The time criterion carries different weight depending on the subject."
+    },
+    {
+      "id": "q-sv1-kall-6",
+      "kind": "mc",
+      "topic": "bias",
+      "prompt": "Which headline is most clearly slanted?",
+      "opener": "Look for loaded words that steer the reader's interpretation.",
+      "choices": [
+        "Tax rise passed by the municipal council",
+        "Greedy council leadership plunders households again",
+        "The municipal council decided on a tax rise",
+        "The municipality raises tax by 50 öre"
+      ],
+      "answer": 1,
+      "explanation": "Words like \"greedy\" and \"plunders\" are strongly loaded and steer the reader's interpretation. The other headlines describe the same event neutrally."
+    },
+    {
+      "id": "q-sv1-kall-7",
+      "kind": "worked",
+      "topic": "source-criticism criteria",
+      "prompt": "You find a site that gives no author, was last updated in 2011, and sells dietary supplements on the side. It claims that a certain diet cures diseases. Scrutinise the source using the four criteria.",
+      "opener": "Go through one criterion at a time - what flaws do you find?",
+      "answer": "The source fails on all four criteria and should not be used to support the claim.",
+      "steps": [
+        "Authenticity: no stated author and no responsible publisher make it impossible to judge who is behind it or what expertise they have.",
+        "Time: the information is from 2011. In the health field the state of research is updated continuously, so the information may be outdated.",
+        "Dependence: there are no source references, so the claim cannot be traced to any primary source or research.",
+        "Bias: the site sells dietary supplements and therefore has a commercial interest in the diet appearing effective.",
+        "Conclusion: look instead for authorities (the National Food Agency, the national healthcare information service) or peer-reviewed research as primary sources."
+      ]
+    },
+    {
+      "id": "q-sv1-kall-8",
+      "kind": "flashcard",
+      "topic": "source-criticism criteria",
+      "prompt": "What questions do you ask of a source you found online?",
+      "opener": "Four criteria, plus a couple of practical questions.",
+      "answer": "Authenticity: who is the sender, can it be verified? Time: when was it published, is it still current? Dependence: is it built on its own observations, or does it relay someone else's? Bias: does the sender stand to gain from a particular picture? Also ask: what is the purpose - to inform, to persuade or to sell? And is the information confirmed by an independent source?"
+    }
+  ]
+}

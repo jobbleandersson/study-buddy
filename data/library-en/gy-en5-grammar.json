@@ -1,0 +1,128 @@
+{
+  "id": "lib-en5-grammar",
+  "type": "assignment",
+  "subject": "Engelska 5",
+  "title": "Grammar essentials: articles, prepositions and conditionals",
+  "sourceSummary": "Indefinite and definite articles, fixed prepositions, if-clauses and relative pronouns.",
+  "topics": [
+    "articles",
+    "prepositions",
+    "conditionals",
+    "relative pronouns"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en5-gra-1",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"The meeting lasted ___ hour.\"",
+      "opener": "It's the pronunciation that decides, not the spelling. How does the word sound when you say it?",
+      "choices": [
+        "no article",
+        "a",
+        "an",
+        "the"
+      ],
+      "answer": 2,
+      "explanation": "\"Hour\" is pronounced with a silent h, i.e. it starts with a vowel sound — hence \"an hour\". The rule follows the sound, not the letter."
+    },
+    {
+      "id": "q-en5-gra-2",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"She is studying at ___ university in Manchester.\"",
+      "opener": "Same rule as the previous question — but the other way round.",
+      "choices": [
+        "the",
+        "no article",
+        "an",
+        "a"
+      ],
+      "answer": 3,
+      "explanation": "\"University\" does start with the vowel u, but is pronounced /juː/ — a consonant sound. Hence \"a university\"."
+    },
+    {
+      "id": "q-en5-gra-3",
+      "kind": "mc",
+      "topic": "prepositions",
+      "prompt": "Choose the correct preposition: \"He has always been interested ___ history.\"",
+      "opener": "The Swedish phrase \"intresserad av\" often leads you astray here.",
+      "choices": [
+        "in",
+        "about",
+        "of",
+        "for"
+      ],
+      "answer": 0,
+      "explanation": "English says \"interested in\". A direct translation of the Swedish \"intresserad av\" produces the common mistake \"interested of\"."
+    },
+    {
+      "id": "q-en5-gra-4",
+      "kind": "mc",
+      "topic": "conditionals",
+      "prompt": "Choose the correct form: \"If it ___ tomorrow, we will stay at home.\"",
+      "opener": "What happens to the tense in the if-clause itself? It doesn't look the way you'd expect.",
+      "choices": [
+        "would rain",
+        "rains",
+        "is raining",
+        "will rain"
+      ],
+      "answer": 1,
+      "explanation": "In the first conditional, the if-clause takes the present tense and the main clause takes \"will\": \"If it rains…, we will stay…\". Writing \"will\" in both clauses is one of the most common mistakes."
+    },
+    {
+      "id": "q-en5-gra-5",
+      "kind": "mc",
+      "topic": "conditionals",
+      "prompt": "Choose the correct form: \"If I ___ more time, I would learn another language.\"",
+      "opener": "This is something hypothetical — not something likely to happen.",
+      "choices": [
+        "have",
+        "will have",
+        "had",
+        "would have"
+      ],
+      "answer": 2,
+      "explanation": "The second conditional describes something hypothetical or unlikely: \"If + past simple, would + infinitive\". \"If I would have\" is a common mistake that is never correct in the if-clause."
+    },
+    {
+      "id": "q-en5-gra-6",
+      "kind": "mc",
+      "topic": "relative pronouns",
+      "prompt": "Choose the correct relative pronoun: \"That's the woman ___ won the competition.\"",
+      "opener": "Are we talking about a person or a thing?",
+      "choices": [
+        "which",
+        "what",
+        "whose",
+        "who"
+      ],
+      "answer": 3,
+      "explanation": "\"Who\" is used for people, \"which\" for things, and \"whose\" expresses ownership (\"the woman whose car was stolen\"). \"What\" does not work as a relative pronoun after a noun."
+    },
+    {
+      "id": "q-en5-gra-7",
+      "kind": "worked",
+      "topic": "prepositions",
+      "prompt": "Find and correct the four errors: \"I am looking forward to meet you on the picture I sent, and I hope you are interested of coming to the party in Friday.\"",
+      "opener": "Look for three prepositions and one verb form that are wrong.",
+      "answer": "I am looking forward to meeting you. In the picture I sent… interested in coming… on Friday.",
+      "steps": [
+        "\"looking forward to meet\" → \"looking forward to meeting\". Here \"to\" is a preposition, not the infinitive marker, so the verb must take the -ing form.",
+        "\"on the picture\" → \"in the picture\". English says \"in a picture/photo\", whereas Swedish says \"på bilden\" (literally \"on the picture\").",
+        "\"interested of\" → \"interested in\". A fixed preposition that differs from the Swedish \"intresserad av\".",
+        "\"in Friday\" → \"on Friday\". The rule is: \"in\" for months and years, \"on\" for days and dates, \"at\" for clock times."
+      ]
+    },
+    {
+      "id": "q-en5-gra-8",
+      "kind": "flashcard",
+      "topic": "conditionals",
+      "prompt": "Explain the three main conditionals: form and when to use each.",
+      "opener": "Three types — a real possibility, something hypothetical now, and a changed past.",
+      "answer": "First conditional (likely future): If + present simple, will + infinitive — \"If it rains, I will stay home.\" Second conditional (hypothetical now): If + past simple, would + infinitive — \"If I had time, I would travel.\" Third conditional (undone past): If + past perfect, would have + past participle — \"If I had known, I would have come.\" Rule: \"would\" never appears in the if-clause itself."
+    }
+  ]
+}

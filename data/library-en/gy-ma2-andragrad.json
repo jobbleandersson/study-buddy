@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma2-andragrad",
+  "type": "assignment",
+  "subject": "Matematik 2",
+  "title": "Quadratic equations",
+  "sourceSummary": "Factorisation, completing the square, the pq-formula and the discriminant — the different routes to a quadratic equation's solutions.",
+  "topics": [
+    "factorisation",
+    "the pq-formula",
+    "completing the square",
+    "the discriminant"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma2-andragrad-1",
+      "kind": "mc",
+      "topic": "factorisation",
+      "prompt": "Solve the equation $x^2 - 5x + 6 = 0$ by factorising.",
+      "opener": "Look for two numbers that multiply to give 6 and add to give $-5$.",
+      "choices": [
+        "$x = 2$ or $x = 3$",
+        "$x = -2$ or $x = -3$",
+        "$x = 1$ or $x = 6$",
+        "$x = -1$ or $x = -6$"
+      ],
+      "answer": 0,
+      "explanation": "The numbers $-2$ and $-3$ give the product $6$ and the sum $-5$, so $x^2 - 5x + 6 = (x-2)(x-3) = 0$. That gives $x = 2$ or $x = 3$. Choosing negative numbers (answer B) mixes up the sign of the sum and the product."
+    },
+    {
+      "id": "q-ma2-andragrad-2",
+      "kind": "mc",
+      "topic": "the pq-formula",
+      "prompt": "Solve $x^2 + 2x - 8 = 0$ using the pq-formula.",
+      "opener": "Here $p = 2$ and $q = -8$. Substitute into $x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}$.",
+      "choices": [
+        "$x = 4$ or $x = -2$",
+        "$x = 2$ or $x = -4$",
+        "$x = -1 \\pm 3$",
+        "$x = 8$ or $x = -1$"
+      ],
+      "answer": 1,
+      "explanation": "$x = -1 \\pm \\sqrt{1 - (-8)} = -1 \\pm \\sqrt{9} = -1 \\pm 3$, so $x = 2$ or $x = -4$. Answer C only shows the intermediate step without finishing the calculation."
+    },
+    {
+      "id": "q-ma2-andragrad-3",
+      "kind": "mc",
+      "topic": "the discriminant",
+      "prompt": "How many solutions does the equation $x^2 - 4x + 4 = 0$ have?",
+      "opener": "Work out what's under the square root in the pq-formula before you take the root.",
+      "choices": [
+        "Two different solutions",
+        "No solution",
+        "One (double) solution",
+        "Infinitely many solutions"
+      ],
+      "answer": 2,
+      "explanation": "With $p = -4$, $q = 4$, the discriminant is $\\left(\\frac{p}{2}\\right)^2 - q = 4 - 4 = 0$. When the expression under the root is 0, there is exactly one (double) solution, here $x = 2$. A negative value would have given zero real solutions."
+    },
+    {
+      "id": "q-ma2-andragrad-4",
+      "kind": "mc",
+      "topic": "the discriminant",
+      "prompt": "For which of these values does the equation $x^2 + 2x + q = 0$ have no real solutions?",
+      "opener": "Require that the expression under the square root, $\\left(\\frac{p}{2}\\right)^2 - q$, becomes negative.",
+      "choices": [
+        "$q = -3$",
+        "$q = 0$",
+        "$q = 1$",
+        "$q = 5$"
+      ],
+      "answer": 3,
+      "explanation": "Here $p = 2$, so the condition for real solutions is $1 - q \\geq 0$, i.e. $q \\leq 1$. With $q = 5$, $1 - 5 = -4 < 0$, so the equation has no real solutions. The other options give $q \\leq 1$ and therefore have solutions."
+    },
+    {
+      "id": "q-ma2-andragrad-5",
+      "kind": "mc",
+      "topic": "completing the square",
+      "prompt": "Rewrite $x^2 + 6x + 1$ in the form $(x+a)^2 + b$.",
+      "opener": "Halve the coefficient in front of $x$ to find $a$.",
+      "choices": [
+        "$(x+3)^2 - 8$",
+        "$(x+6)^2 + 1$",
+        "$(x+3)^2 + 1$",
+        "$(x+3)^2 + 10$"
+      ],
+      "answer": 0,
+      "explanation": "Half the coefficient in front of $x$ is 3, so $(x+3)^2 = x^2 + 6x + 9$. Since the expression should only contain $+1$, the excess is subtracted back: $x^2+6x+1 = (x+3)^2 - 9 + 1 = (x+3)^2 - 8$."
+    },
+    {
+      "id": "q-ma2-andragrad-6",
+      "kind": "mc",
+      "topic": "factorisation",
+      "prompt": "Which factorisation is correct for $2x^2 - 8x = 0$?",
+      "opener": "There is a common factor in both terms — take it out first.",
+      "choices": [
+        "$2x(x + 4) = 0$, so $x = 0$ or $x = -4$",
+        "$2x(x - 4) = 0$, so $x = 0$ or $x = 4$",
+        "$x(2x - 8) = 0$, so $x = 0$ or $x = 8$",
+        "$(x-2)(x-4) = 0$, so $x = 2$ or $x = 4$"
+      ],
+      "answer": 1,
+      "explanation": "Take out $2x$: $2x^2 - 8x = 2x(x-4) = 0$. The zero-product method gives $x = 0$ or $x = 4$. Answer C only takes out $x$ (not $2x$) and then miscalculates $2x-8=0$, which actually gives $x=4$, not $x=8$."
+    },
+    {
+      "id": "q-ma2-andragrad-7",
+      "kind": "worked",
+      "topic": "the pq-formula",
+      "prompt": "Solve the equation $2x^2 - 4x - 6 = 0$ using the pq-formula.",
+      "opener": "The equation must have a coefficient of 1 in front of $x^2$ before the pq-formula can be used directly.",
+      "answer": "$x = 3$ or $x = -1$",
+      "steps": [
+        "Divide every term by 2 to get the form $x^2 + px + q = 0$: $x^2 - 2x - 3 = 0$.",
+        "Now $p = -2$ and $q = -3$.",
+        "The pq-formula: $x = -\\frac{p}{2} \\pm \\sqrt{\\left(\\frac{p}{2}\\right)^2 - q} = 1 \\pm \\sqrt{1 - (-3)} = 1 \\pm \\sqrt{4} = 1 \\pm 2$.",
+        "That gives $x = 3$ or $x = -1$."
+      ]
+    },
+    {
+      "id": "q-ma2-andragrad-8",
+      "kind": "flashcard",
+      "topic": "the pq-formula",
+      "prompt": "Summarise the methods for solving a quadratic equation and what the discriminant tells you about the number of solutions.",
+      "opener": "Think through when each method is best suited.",
+      "answer": "Factorisation: find two numbers whose product is $q$ (or $c$) and whose sum is $p$ (or $b$) · Completing the square: $x^2+px+q = \\left(x+\\dfrac{p}{2}\\right)^2 - \\left(\\dfrac{p}{2}\\right)^2 + q$ · The pq-formula: $x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}$ for $x^2+px+q=0$ · The discriminant $D = \\left(\\dfrac{p}{2}\\right)^2 - q$: $D>0$ gives two solutions, $D=0$ gives one double root, $D<0$ gives no real solution."
+    }
+  ]
+}

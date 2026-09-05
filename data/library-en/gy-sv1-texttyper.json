@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv1-texttyper",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Text types, summarising and source handling",
+  "sourceSummary": "Argumentative and expository text, thesis and arguments, summarising technique, quotation versus summary, and what counts as plagiarism.",
+  "topics": [
+    "argumentative text",
+    "expository text",
+    "summary and quotation",
+    "source handling"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-txt-1",
+      "kind": "mc",
+      "topic": "argumentative text",
+      "prompt": "Which of the following works best as a THESIS in an argumentative text?",
+      "opener": "A thesis must be something you can agree with — or disagree with.",
+      "choices": [
+        "Many students use mobile phones at school.",
+        "Sweden has 21 regions.",
+        "Mobile phones should be banned during lesson time.",
+        "This text is about mobile phones at school."
+      ],
+      "answer": 2,
+      "explanation": "A thesis is a debatable claim that you then argue for. The other options are either facts, descriptions of the topic, or neutral statements that no one could object to."
+    },
+    {
+      "id": "q-sv1-txt-2",
+      "kind": "mc",
+      "topic": "expository text",
+      "prompt": "What characterises an expository text compared with an argumentative one?",
+      "opener": "What does the writer do with their own opinion?",
+      "choices": [
+        "It is always shorter",
+        "It lacks source references",
+        "It argues for a thesis as clearly as possible",
+        "It examines a question from several angles without taking a position"
+      ],
+      "answer": 3,
+      "explanation": "An expository text proceeds from a question and sheds light on it from different perspectives. The writer reports what various sources say rather than arguing for their own position."
+    },
+    {
+      "id": "q-sv1-txt-3",
+      "kind": "mc",
+      "topic": "summary and quotation",
+      "prompt": "What characterises a good summary?",
+      "opener": "Whose words should appear in the text, and whose thoughts should be conveyed?",
+      "choices": [
+        "The content is conveyed in your own words and with reporting markers",
+        "You add your own opinions throughout",
+        "You only convey what you agree with",
+        "The source's text is reproduced word for word but without quotation marks"
+      ],
+      "answer": 0,
+      "explanation": "A summary conveys the source's content in your own words, objectively, and with reporting markers such as \"according to Andersson\" or \"the author argues that\". Reproducing something word for word without quotation marks is plagiarism."
+    },
+    {
+      "id": "q-sv1-txt-4",
+      "kind": "mc",
+      "topic": "summary and quotation",
+      "prompt": "Which phrasing is a correct reporting marker?",
+      "opener": "The reader should never have to guess who thinks what.",
+      "choices": [
+        "Mobile phones disrupt teaching.",
+        "According to Lindqvist (2023), mobile phones disrupt teaching.",
+        "Everyone knows mobile phones disrupt teaching.",
+        "It's obvious that phones are disruptive."
+      ],
+      "answer": 1,
+      "explanation": "A reporting marker clearly shows that the claim comes from a source and who that source is. The other options present someone else's claims as if they were the writer's own or generally accepted."
+    },
+    {
+      "id": "q-sv1-txt-5",
+      "kind": "mc",
+      "topic": "source handling",
+      "prompt": "You rewrite a passage from an article by swapping a few words for synonyms, but keep the sentence structure — without citing the source. What is that?",
+      "opener": "Is it enough to swap out a few words for the text to become your own?",
+      "choices": [
+        "A correct summary",
+        "A permitted quotation",
+        "Plagiarism",
+        "Source criticism"
+      ],
+      "answer": 2,
+      "explanation": "Keeping someone else's structure and phrasing without a source reference is plagiarism, even if individual words have been swapped out. A summary requires both your own phrasing and a stated source."
+    },
+    {
+      "id": "q-sv1-txt-6",
+      "kind": "mc",
+      "topic": "argumentative text",
+      "prompt": "Why should an argumentative text raise and address counterarguments?",
+      "opener": "What does a sceptical reader think when they already have an objection in mind?",
+      "choices": [
+        "It is a formal requirement with no real function",
+        "It makes the text longer",
+        "It weakens your own thesis",
+        "It strengthens credibility and shows that you have examined the issue"
+      ],
+      "answer": 3,
+      "explanation": "Addressing counterarguments shows that you are aware of the complexity of the issue and strengthens your ethos. A text that ignores objections comes across as one-sided."
+    },
+    {
+      "id": "q-sv1-txt-7",
+      "kind": "worked",
+      "topic": "summary and quotation",
+      "prompt": "Original text: \"Sleep deprivation among young people has increased sharply over the past ten years, mainly due to screen use in the evening.\" (Ek, 2022). Write a correct summary of the sentence.",
+      "opener": "Three things must be included: your own words, a reporting marker, and the source.",
+      "answer": "According to Ek (2022), sleep deprivation among young people has become significantly more common over the past decade, which is mainly explained by their use of screens in the evening.",
+      "steps": [
+        "Start with a reporting marker that states the source: \"According to Ek (2022)…\" or \"Ek (2022) argues that…\".",
+        "Rephrase the content in your own words: \"increased sharply\" → \"become significantly more common\", \"the past ten years\" → \"the past decade\".",
+        "Also change the sentence structure, not just individual words — otherwise it stays too close to the original.",
+        "Check that the content has not been distorted: the cause (screen use in the evening) must remain, without being amplified or downplayed."
+      ]
+    },
+    {
+      "id": "q-sv1-txt-8",
+      "kind": "flashcard",
+      "topic": "summary and quotation",
+      "prompt": "When do you use a quotation and when do you use a summary?",
+      "opener": "One conveys the words, the other the content.",
+      "answer": "Quotation: when the exact wording matters — word for word, within quotation marks, with a source. Use sparingly. Summary: when the content is what matters — summarise in your own words with a reporting marker. In school assignments, most of the text should be summary; too many quotations show that you have not processed the material yourself."
+    }
+  ]
+}

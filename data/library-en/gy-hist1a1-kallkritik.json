@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist1a1-kallkritik",
+  "type": "assignment",
+  "subject": "Historia 1a1",
+  "title": "Source criticism and the uses of history",
+  "sourceSummary": "The source-critical criteria (authenticity, time, dependence, tendency) applied to historical sources, the difference between primary and secondary sources, and the uses of history and the changeability of historical perspectives over time.",
+  "topics": [
+    "source-critical criteria",
+    "primary and secondary sources",
+    "uses of history",
+    "the changeability of historical perspectives"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist1a1-kallkritik-1",
+      "kind": "mc",
+      "topic": "source-critical criteria",
+      "prompt": "What does the criterion of authenticity mean in source criticism?",
+      "opener": "Think about whether the source really is what it claims to be.",
+      "choices": [
+        "The source is what it claims to be – not forged or a later addition",
+        "The source is close in time to the event it depicts",
+        "The source is independent of other sources",
+        "The source is written without any bias"
+      ],
+      "answer": 0,
+      "explanation": "The criterion of authenticity is about establishing that a source really is what it claims to be – for example, that a letter really was written by its supposed sender and is not a forgery or a later addition. Whether the source is close in time (the criterion of time), independent (the criterion of dependence) or impartial (the criterion of tendency) are other, separate criteria."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-2",
+      "kind": "mc",
+      "topic": "source-critical criteria",
+      "prompt": "What does the criterion of time refer to in source-critical examination?",
+      "opener": "Think about the gap in time between the event and the source's creation.",
+      "choices": [
+        "Whether the source is forged or not",
+        "How much time has passed between the event and the source's creation – the shorter the time, the more reliable the source is generally considered to be",
+        "Whether the source is based on another source",
+        "Whether the author had reason to slant their account"
+      ],
+      "answer": 1,
+      "explanation": "The criterion of time involves assessing how much time has passed between the event and the source's creation. A source created close in time to the event is generally considered more reliable than one written much later, since memory and details will have had more time to become distorted. The other options describe the criteria of authenticity, dependence and tendency respectively."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-3",
+      "kind": "mc",
+      "topic": "source-critical criteria",
+      "prompt": "What does the criterion of dependence mean in source criticism?",
+      "opener": "Consider whether the source is based on another source or is independent.",
+      "choices": [
+        "That the source is written close in time to the event",
+        "That the source is free from forgery",
+        "That one examines whether the source is an independent first-hand account or whether it is based on (dependent on) another source",
+        "That the source has a clear purpose of persuading the reader"
+      ],
+      "answer": 2,
+      "explanation": "The criterion of dependence involves examining whether a source is independent or whether it is in fact based on – dependent on – another, earlier source. Two sources that appear to confirm each other may in fact be the same account retold, which makes them less valuable as independent evidence. The other answers describe the criteria of time, authenticity and tendency."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-4",
+      "kind": "mc",
+      "topic": "source-critical criteria",
+      "prompt": "What is meant by the criterion of tendency in source-critical examination?",
+      "opener": "Think about whether the author may have had an interest in presenting something in a particular way.",
+      "choices": [
+        "Determining whether the source is a first-hand or second-hand account",
+        "Determining how old the source is",
+        "Determining whether the source is forged",
+        "Examining whether the author had a political, economic or personal interest that may have coloured the account"
+      ],
+      "answer": 3,
+      "explanation": "The criterion of tendency is about assessing whether the author had an interest – political, economic, personal or otherwise – that may have caused the source to be slanted, consciously or unconsciously. A propaganda poster or a speech by a party to a conflict, for example, often has a clear tendency. The other options concern the criteria of dependence, time and authenticity."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-5",
+      "kind": "mc",
+      "topic": "primary and secondary sources",
+      "prompt": "What distinguishes a primary source from a secondary source?",
+      "opener": "Think about the source's closeness to the actual event.",
+      "choices": [
+        "A primary source is always written by a historian much later",
+        "A primary source comes directly from, or close to, the time and context it depicts, while a secondary source is based on and interprets already-existing sources",
+        "A secondary source is always more reliable because it is newer",
+        "There is no real difference; the terms are used synonymously in historical scholarship"
+      ],
+      "answer": 1,
+      "explanation": "A primary source is a first-hand source that comes directly from, or is close to, the time and context it depicts, for example a letter, a photograph or parliamentary minutes. A secondary source, such as a history book or an article, is instead based on and interprets already-existing sources. Secondary sources are not automatically more reliable just because they are newer – they can contain misinterpretations of the primary material."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-6",
+      "kind": "mc",
+      "topic": "uses of history",
+      "prompt": "What is meant by the concept of the uses of history?",
+      "opener": "Think about how history is used in the present, not just what actually happened.",
+      "choices": [
+        "The scientific method historians use to date sources",
+        "Another word for the way history is written in school textbooks",
+        "How history is used and made relevant in the present – for example politically, commercially or to create identity and community",
+        "Historians' shared understanding of what actually happened in the past"
+      ],
+      "answer": 2,
+      "explanation": "The uses of history refers to how people, organisations and states actively use history in the present for various purposes – politically (to legitimise power or a nation), commercially (for example in advertising or tourism) or to build identity (to create community around an origin or tradition). It is not about the historical method itself, but about how history is managed and put to use."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-7",
+      "kind": "worked",
+      "topic": "the changeability of historical perspectives",
+      "prompt": "The historical perspective on the Viking Age has changed dramatically over time – from the 19th century's national-romantic heroic image to today's more nuanced research. Explain why historical perspectives change and give at least three examples of factors that influence it.",
+      "opener": "Think about who writes the history, in which era, and with which sources and questions.",
+      "answer": "Historical perspectives change because each generation interprets the past based on its own era's values, knowledge and needs – history is always written by people in a particular present, with the sources, methods and questions available and relevant at that time.",
+      "steps": [
+        "New sources and archaeological finds, for example DNA analyses of Viking graves, can overturn previous understandings.",
+        "New methods in historical research, such as more critical source examination, mean older interpretations are questioned.",
+        "Society's values change – 19th-century national romanticism wanted to celebrate the Vikings as heroes to strengthen national identity, while today's research is more interested in trade, everyday life and diversity.",
+        "The questions asked of the past change over time, for example an increased interest in the history of women and ordinary people rather than solely kings and wars.",
+        "The uses of history in the present also affect which historical perspective gains traction, for example how the Viking Age is used in tourism, popular culture and politics today."
+      ]
+    },
+    {
+      "id": "q-hist1a1-kallkritik-8",
+      "kind": "flashcard",
+      "topic": "uses of history",
+      "prompt": "Summarise source criticism and the uses of history: the source-critical criteria, primary and secondary sources, and the uses of history and the changeability of historical perspectives.",
+      "opener": "Think of the chain: examine the source → determine its status → understand how history is used and reinterpreted.",
+      "answer": "The four source-critical criteria: authenticity (is the source what it claims to be?) · time (how close to the event was the source created?) · dependence (is the source independent or is it based on another source?) · tendency (did the author have an interest that may have slanted the account?) · primary source = first-hand source close to the event, secondary source = interpretation/processing of already-existing sources · uses of history = how history is used and made relevant in the present, e.g. politically (legitimising power or a nation), commercially (advertising, tourism) and for building identity (community around an origin or tradition) · historical perspectives change over time through new sources, new methods, changing values and new questions asked of the past."
+    }
+  ]
+}

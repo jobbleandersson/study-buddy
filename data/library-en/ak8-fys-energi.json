@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys8-energi",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Energy and energy sources",
+  "sourceSummary": "Forms of energy, the principle of conservation of energy, and energy conversions with examples from everyday life and power stations. This also covers renewable and non-renewable energy sources, efficiency, and power in watts and energy in kilowatt-hours.",
+  "topics": [
+    "forms of energy and the conservation principle",
+    "energy conversions",
+    "renewable and non-renewable energy sources",
+    "efficiency",
+    "power and energy"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys8-ene-1",
+      "kind": "mc",
+      "topic": "forms of energy and the conservation principle",
+      "prompt": "What does the principle of conservation of energy state?",
+      "opener": "Think about whether energy can ever disappear completely or arise from nothing.",
+      "choices": [
+        "Energy runs out when it is used up",
+        "Energy can neither be created nor destroyed, only converted from one form to another",
+        "Energy can be created in a power station",
+        "Energy only exists in electrical form"
+      ],
+      "answer": 1,
+      "explanation": "The principle of conservation of energy states that the total energy is constant — it only changes form. Saying that energy \"runs out\" is sloppy: it is usually converted into heat that spreads into the surroundings and becomes difficult to use again. A power station doesn't create energy, it converts energy that already exists."
+    },
+    {
+      "id": "q-fys8-ene-2",
+      "kind": "mc",
+      "topic": "energy conversions",
+      "prompt": "Which chain of energy conversions happens in a hydroelectric power station?",
+      "opener": "Follow the water from the dam high up, through the turbine and on to the generator.",
+      "choices": [
+        "Chemical energy to heat to electrical energy",
+        "Electrical energy to kinetic energy to potential energy",
+        "Radiant energy to chemical energy to electrical energy",
+        "Potential energy to kinetic energy to electrical energy"
+      ],
+      "answer": 3,
+      "explanation": "The water in the dam has potential energy. As it falls, the potential energy becomes kinetic energy that makes the turbine spin, and the generator converts the motion into electrical energy. Chemical energy isn't part of the chain here — that belongs to coal, oil and biofuel power stations."
+    },
+    {
+      "id": "q-fys8-ene-3",
+      "kind": "mc",
+      "topic": "renewable and non-renewable energy sources",
+      "prompt": "Which of these energy sources is NOT renewable?",
+      "opener": "Think about which one took millions of years to form and isn't replenished at the rate we use it.",
+      "choices": [
+        "Wind power",
+        "Solar energy",
+        "Natural gas",
+        "Biofuel"
+      ],
+      "answer": 2,
+      "explanation": "Natural gas is a fossil fuel that formed over millions of years and isn't replenished at the rate we use it, so it is non-renewable and also releases carbon dioxide emissions. Wind, solar and biofuel are considered renewable because they are regenerated or constantly replenished."
+    },
+    {
+      "id": "q-fys8-ene-4",
+      "kind": "mc",
+      "topic": "efficiency",
+      "prompt": "A lamp receives 20 W of electrical power and gives off 5 W as light. What is the lamp's efficiency?",
+      "opener": "Efficiency is useful power divided by power supplied.",
+      "choices": [
+        "25%",
+        "75%",
+        "400%",
+        "15%"
+      ],
+      "answer": 0,
+      "explanation": "The efficiency is 5 W / 20 W = 0.25, that is, 25%. The remaining 75% is lost as heat — that's the energy loss, not the efficiency. Simply subtracting 20 − 5 = 15 doesn't give an efficiency, since efficiency is always a ratio."
+    },
+    {
+      "id": "q-fys8-ene-5",
+      "kind": "mc",
+      "topic": "power and energy",
+      "prompt": "What does it mean that an appliance has a power of 1500 W?",
+      "opener": "Power is about how quickly energy is converted, not about how much in total.",
+      "choices": [
+        "That it contains 1500 joules of energy",
+        "That it can be used for at most 1500 seconds",
+        "That it costs 1500 kronor per hour to use",
+        "That it converts 1500 joules of energy every second"
+      ],
+      "answer": 3,
+      "explanation": "Power is energy per time, and 1 W = 1 J/s, so 1500 W means 1500 joules per second. Power, on the other hand, says nothing about how much energy the appliance uses in total — that depends on how long it's on, which is why energy is measured in kilowatt-hours."
+    },
+    {
+      "id": "q-fys8-ene-6",
+      "kind": "mc",
+      "topic": "power and energy",
+      "prompt": "A lamp has a power of 60 W and is lit for 5 hours. How much energy does it use, expressed in kilowatt-hours?",
+      "opener": "Convert watts to kilowatts first, then multiply by the time in hours.",
+      "choices": [
+        "3 kWh",
+        "0.3 kWh",
+        "300 kWh",
+        "12 kWh"
+      ],
+      "answer": 1,
+      "explanation": "60 W is 0.06 kW, and the energy is 0.06 kW · 5 h = 0.3 kWh. You get 3 kWh if you forget to divide by 1000 properly, and 12 kWh if you divide 60 by 5 instead of multiplying."
+    },
+    {
+      "id": "q-fys8-ene-7",
+      "kind": "worked",
+      "topic": "power and energy",
+      "prompt": "An electric kettle has a power of 2000 W and is used for 15 minutes. How much energy does it use in kilowatt-hours, and what does it cost if electricity costs 2 kr/kWh?",
+      "opener": "Convert the power to kilowatts and the time to hours before you multiply.",
+      "answer": "0.5 kWh, which costs 1 krona",
+      "steps": [
+        "Convert the power to kilowatts: 2000 W = 2 kW.",
+        "Convert the time to hours: 15 min = 15/60 h = 0.25 h.",
+        "Energy = power · time = 2 kW · 0.25 h = 0.5 kWh.",
+        "The cost is 0.5 kWh · 2 kr/kWh = 1 kr."
+      ]
+    },
+    {
+      "id": "q-fys8-ene-8",
+      "kind": "flashcard",
+      "topic": "forms of energy and the conservation principle",
+      "prompt": "Summarise the forms of energy, the conservation principle, energy sources, efficiency, and power and energy with units.",
+      "opener": "Take the forms of energy first, then the principle, then the sources, and finish with the units.",
+      "answer": "Forms of energy: potential energy · kinetic energy · thermal energy · chemical energy (food, fuel, battery) · electrical energy · radiant energy (light) · nuclear energy · Conservation principle: energy can neither be created nor destroyed, only converted — the total energy is constant · Energy quality: at every conversion some becomes heat that spreads out and becomes hard to use again · Example chains: hydropower = potential energy → kinetic energy → electrical energy · coal power = chemical energy → heat → kinetic energy → electrical energy · solar cell = radiant energy → electrical energy · Renewable sources: water, wind, sun, biofuel, waves and geothermal energy — constantly replenished · Non-renewable sources: coal, oil, natural gas (fossil, produce carbon dioxide emissions) and uranium for nuclear power · Efficiency: useful energy divided by energy supplied, often as a percentage — 5 W of light out of 20 W of electricity gives 25% · Power (P): energy per time, unit watt, 1 W = 1 J/s · Energy: unit joule (J) or kilowatt-hour (kWh) · Calculating kWh: power in kW · time in hours, e.g. 2 kW · 0.25 h = 0.5 kWh · 1 kWh = 1000 W for 1 hour."
+    }
+  ]
+}

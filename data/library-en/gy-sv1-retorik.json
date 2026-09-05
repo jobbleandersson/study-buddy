@@ -1,0 +1,127 @@
+{
+  "id": "lib-sv1-retorik",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Rhetoric and oral presentation",
+  "sourceSummary": "Ethos, pathos and logos, a speech's structure and the most common figures of speech - what you need for both oral presentations and text analysis.",
+  "topics": [
+    "modes of persuasion",
+    "structure",
+    "figures of speech"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-ret-1",
+      "kind": "mc",
+      "topic": "modes of persuasion",
+      "prompt": "A speaker begins: \"After twenty years as a nurse, I've seen what the healthcare crisis does to people.\" Which mode of persuasion is mainly being used?",
+      "opener": "What is the speaker leaning on here - their own person, the audience's feelings, or figures?",
+      "choices": [
+        "Ethos",
+        "Pathos",
+        "Logos",
+        "Kairos"
+      ],
+      "answer": 0,
+      "explanation": "Ethos concerns the speaker's credibility. By referring to their professional experience, the speaker builds authority on the issue."
+    },
+    {
+      "id": "q-sv1-ret-2",
+      "kind": "mc",
+      "topic": "modes of persuasion",
+      "prompt": "\"Imagine it was your child who had to wait eleven hours in A&E.\" Which mode of persuasion is this?",
+      "opener": "What does the speaker want the audience to feel?",
+      "choices": [
+        "Logos",
+        "Pathos",
+        "Ethos",
+        "Metaphor"
+      ],
+      "answer": 1,
+      "explanation": "Pathos appeals to the audience's emotions. Here an exercise in empathy is used to stir worry and compassion."
+    },
+    {
+      "id": "q-sv1-ret-3",
+      "kind": "mc",
+      "topic": "modes of persuasion",
+      "prompt": "\"Waiting times have increased by 34 per cent since 2019, according to the National Board of Health and Welfare's report.\" Which mode of persuasion?",
+      "opener": "What is meant to be persuasive here?",
+      "choices": [
+        "Pathos",
+        "Ethos",
+        "Logos",
+        "Irony"
+      ],
+      "answer": 2,
+      "explanation": "Logos builds on factual grounds: facts, statistics and logical reasoning. The source reference also strengthens the speaker's ethos."
+    },
+    {
+      "id": "q-sv1-ret-4",
+      "kind": "mc",
+      "topic": "figures of speech",
+      "prompt": "\"I have a dream that a country where... I have a dream that a school where... I have a dream that a future where...\" Which figure of speech is this?",
+      "opener": "Look at where the repetition sits within the sentences.",
+      "choices": [
+        "Epistrophe",
+        "Alliteration",
+        "Simile",
+        "Anaphora"
+      ],
+      "answer": 3,
+      "explanation": "Anaphora is repetition at the beginning of several successive clauses. (Epistrophe is the opposite - repetition at the end.)"
+    },
+    {
+      "id": "q-sv1-ret-5",
+      "kind": "mc",
+      "topic": "figures of speech",
+      "prompt": "\"How long are we supposed to accept this?\" - said without the speaker expecting an answer. What is this called?",
+      "opener": "A question that is really a statement.",
+      "choices": [
+        "Rhetorical question",
+        "Hyperbole",
+        "Irony",
+        "Metonymy"
+      ],
+      "answer": 0,
+      "explanation": "A rhetorical question is not asked to get an answer, but to get the audience to think in a certain direction and feel involved."
+    },
+    {
+      "id": "q-sv1-ret-6",
+      "kind": "mc",
+      "topic": "structure",
+      "prompt": "What is the main purpose of the introduction (exordium) in a speech?",
+      "opener": "What has to happen right at the start for the rest to land?",
+      "choices": [
+        "To summarise the speech",
+        "To capture attention and build goodwill",
+        "To counter opposing arguments",
+        "To present all the arguments"
+      ],
+      "answer": 1,
+      "explanation": "The introduction should spark interest and put the audience in a favourable frame of mind - often with a story, a question or a surprising statement. The arguments come in the argumentatio."
+    },
+    {
+      "id": "q-sv1-ret-7",
+      "kind": "worked",
+      "topic": "modes of persuasion",
+      "prompt": "Analyse the excerpt: \"As a teacher for twenty years, I've seen how phones take over the classroom. Research from Stockholm University shows that pupils perform 15% worse with their phone out. Do we really want to sacrifice our children's future for a screen?\" Which modes of persuasion are used, and where?",
+      "opener": "Go sentence by sentence - each sentence does something different.",
+      "answer": "Ethos (the teaching experience), logos (the research and the figure) and pathos (the closing question about the children's future).",
+      "steps": [
+        "Sentence 1: \"As a teacher for twenty years...\" - the speaker invokes their own experience and authority. That's ethos.",
+        "Sentence 2: \"Research... shows that pupils perform 15% worse\" - factual grounds, statistics and a named source. That's logos.",
+        "Sentence 3: \"Do we really want to sacrifice our children's future...\" - a rhetorical question that stirs worry and guilt. That's pathos.",
+        "Conclusion: the excerpt uses all three modes of persuasion, which is typical of well-built argumentation - it persuades on several levels at once."
+      ]
+    },
+    {
+      "id": "q-sv1-ret-8",
+      "kind": "flashcard",
+      "topic": "modes of persuasion",
+      "prompt": "Explain ethos, pathos and logos - and give a short example of each.",
+      "opener": "Three ways to persuade: who you are, what the audience feels, and what is true.",
+      "answer": "Ethos = the speaker's credibility and character (\"as a doctor, I know that...\"). Pathos = the audience's emotions (\"think of the children affected\"). Logos = factual grounds and logic (\"the study shows an increase of 34%\"). Strong argumentation usually weaves all three together."
+    }
+  ]
+}

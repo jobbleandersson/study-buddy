@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo7-sverige",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "The geography of Sweden",
+  "sourceSummary": "Sweden's provinces and regions, its nature from the mountain range to the plains, the great lakes and rivers, where the population lives and why, and which industries are found in different parts of the country.",
+  "topics": [
+    "provinces and regions",
+    "Sweden's nature",
+    "lakes and rivers",
+    "population",
+    "industries"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo7-sve-1",
+      "kind": "mc",
+      "topic": "provinces and regions",
+      "prompt": "What are Sweden's three regions?",
+      "opener": "They divide the country into a northern, a middle and a southern part.",
+      "choices": [
+        "Norrbotten, Central Sweden and Skåne",
+        "Norden, Svealand and Denmark",
+        "Norrland, Svealand and Götaland",
+        "The mountains, the forest land and the plains"
+      ],
+      "answer": 2,
+      "explanation": "Sweden is traditionally divided into Norrland in the north, Svealand in the middle and Götaland in the south, and together these regions consist of 25 provinces. Mountains, forest land and plains are types of terrain, not regions, and Norrbotten is one of the provinces of Norrland."
+    },
+    {
+      "id": "q-geo7-sve-2",
+      "kind": "mc",
+      "topic": "lakes and rivers",
+      "prompt": "What is Sweden's largest lake?",
+      "opener": "The lake lies in Götaland, west of Vättern.",
+      "choices": [
+        "Vänern",
+        "Vättern",
+        "Mälaren",
+        "Hjälmaren"
+      ],
+      "answer": 0,
+      "explanation": "Vänern is Sweden's largest lake, with an area of about 5,600 km², followed by Vättern, Mälaren and Hjälmaren. Vänern is also the EU's largest lake, and its water flows out into the Kattegat at Gothenburg via the Göta River."
+    },
+    {
+      "id": "q-geo7-sve-3",
+      "kind": "mc",
+      "topic": "Sweden's nature",
+      "prompt": "Where does the Swedish mountain range lie?",
+      "opener": "It follows the border with one of our Nordic neighbouring countries.",
+      "choices": [
+        "Along Sweden's east coast",
+        "In north-western Sweden, along the border with Norway",
+        "In central Sweden around Mälaren",
+        "On Gotland and Öland"
+      ],
+      "answer": 1,
+      "explanation": "The mountain range (the Scandinavian Mountains) stretches along the border with Norway in north-western Sweden, and that's where Kebnekaise, the country's highest mountain at just over 2,000 metres, is located. The east coast and the Mälaren valley are, by contrast, low-lying, and Gotland and Öland are flat limestone islands."
+    },
+    {
+      "id": "q-geo7-sve-4",
+      "kind": "mc",
+      "topic": "population",
+      "prompt": "Where do most of Sweden's inhabitants live?",
+      "opener": "Think about where the climate is mildest, the soil most fertile, and the big cities are located.",
+      "choices": [
+        "Evenly spread across the whole country",
+        "Mainly in the mountain region",
+        "Mainly in the interior of Norrland",
+        "In the southern part of the country and around the three big-city regions"
+      ],
+      "answer": 3,
+      "explanation": "About 85 per cent of the population lives in the southern third of the country, where the climate is milder, the farmland more fertile and there are more workplaces — above all around Stockholm, Gothenburg and Malmö. The interior of Norrland is very sparsely populated, with long distances and few inhabitants per square kilometre."
+    },
+    {
+      "id": "q-geo7-sve-5",
+      "kind": "mc",
+      "topic": "industries",
+      "prompt": "Which industry is especially important on the plains of Skåne?",
+      "opener": "Think about what fertile soil and a mild climate are good for.",
+      "choices": [
+        "Mining",
+        "Agriculture",
+        "Reindeer husbandry",
+        "Hydropower"
+      ],
+      "answer": 1,
+      "explanation": "Skåne has Sweden's most fertile soils and the country's longest growing season, which makes agriculture dominant there, including wheat, sugar beet and potatoes. Mining and hydropower instead belong mainly to Norrland, and reindeer husbandry is carried out in the mountain and forest areas of the north."
+    },
+    {
+      "id": "q-geo7-sve-6",
+      "kind": "mc",
+      "topic": "lakes and rivers",
+      "prompt": "In which direction do the great rivers of Norrland, such as the Lule River and the Ume River, flow?",
+      "opener": "They start in the mountains — and the sea lies on the other side of the country.",
+      "choices": [
+        "From the mountains in the north-west towards the south-east and out into the Gulf of Bothnia",
+        "From the coast up towards the mountains",
+        "Straight west out into the Norwegian Sea",
+        "Southward and out into the Öresund strait"
+      ],
+      "answer": 0,
+      "explanation": "The rivers have their sources in the mountain range in the north-west and flow downward in a south-easterly direction through the forest land to the Gulf of Bothnia. The difference in height along the way makes them suitable for hydropower, which is why most Swedish hydropower plants are located in Norrland. Water can never flow uphill from the coast towards the mountains."
+    },
+    {
+      "id": "q-geo7-sve-7",
+      "kind": "worked",
+      "topic": "population",
+      "prompt": "Explain why so many more people live in southern Sweden than in the interior of Norrland.",
+      "opener": "Think about three things: the climate, the soil and the job opportunities.",
+      "answer": "Southern Sweden has a milder climate and a longer growing season, which historically made it possible to grow a lot of food and thereby support many people on a small area. It also has the most fertile soils, above all in Skåne, Västergötland and Östergötland. As industries and later service companies grew up, they were largely built in the already densely populated areas, and today the big-city regions of Stockholm, Gothenburg and Malmö offer the most jobs, education and services. The interior of Norrland has a colder climate, poorer soils, long distances and fewer job opportunities, which is why many people have moved away from there during the 20th century.",
+      "steps": [
+        "Climate: milder winters and a longer growing season in the south gave better conditions for farming.",
+        "Soil: the most fertile plains are found in Skåne, Västergötland, Östergötland and the Mälaren valley.",
+        "History: densely populated farming districts later became the places where industries and cities grew up.",
+        "Jobs and services: the big-city regions offer the most jobs, education and transport links today.",
+        "The interior of Norrland: a cold climate, poor soils and long distances have led to people moving away and a sparse population."
+      ]
+    },
+    {
+      "id": "q-geo7-sve-8",
+      "kind": "flashcard",
+      "topic": "Sweden's nature",
+      "prompt": "Summarise the geography of Sweden.",
+      "opener": "Regions, nature, water, population and industries.",
+      "answer": "Regions: Norrland (north), Svealand (middle), Götaland (south), together 25 provinces · Nature in the north-west: the mountain range along the Norwegian border, Kebnekaise at just over 2,000 m, bare mountain and reindeer grazing land · Nature in the middle: large coniferous forests and marshland, the so-called forest land · Nature in the south: fertile plains in Skåne, Västergötland, Östergötland and the Mälaren valley, plus deciduous forest and the limestone islands of Öland and Gotland · Coast: long coastlines facing the Gulf of Bothnia, the Baltic Sea, the Öresund strait, the Kattegat and the Skagerrak, with archipelagos off Stockholm and Gothenburg · Lakes: Vänern (largest), Vättern, Mälaren, Hjälmaren · Rivers: flow from the mountains in the north-west towards the Gulf of Bothnia, e.g. the Torne River, the Lule River, the Ume River, the Dal River, plus the Klarälven-Göta River system, the country's longest · Population: about 85 per cent live in the southern third, densest around Stockholm, Gothenburg and Malmö, the interior of Norrland is very sparsely populated · Industries: agriculture in the southern plains, forestry and the paper industry in Norrland and central Sweden, iron ore in Kiruna and Malmberget, hydropower on the rivers of Norrland, engineering industry in central Sweden and service companies in the big cities · Tourism: the mountains in winter, the coast and archipelagos in summer."
+    }
+  ]
+}

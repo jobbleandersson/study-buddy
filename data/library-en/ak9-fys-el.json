@@ -1,0 +1,127 @@
+{
+  "id": "lib-fys-el",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Electricity and magnetism",
+  "sourceSummary": "Current, voltage and resistance, series versus parallel circuits, and the basics of magnetism and electromagnetism.",
+  "topics": [
+    "current, voltage and resistance",
+    "series and parallel circuits",
+    "magnets and electromagnetism"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys-el-1",
+      "kind": "mc",
+      "topic": "current, voltage and resistance",
+      "prompt": "What is measured in the unit ampere (A)?",
+      "opener": "Ampere is the unit for one of the three basic electrical quantities: current, voltage and resistance.",
+      "choices": [
+        "Voltage",
+        "Resistance",
+        "Electric current",
+        "Power"
+      ],
+      "answer": 2,
+      "explanation": "Ampere (A) is the unit of electric current, that is, the amount of charge passing per second. Voltage is measured in volts (V) and resistance in ohms (Ω)."
+    },
+    {
+      "id": "q-fys-el-2",
+      "kind": "mc",
+      "topic": "current, voltage and resistance",
+      "prompt": "A circuit has a voltage of 12 V and a resistance of 4 Ω. What is the current, according to Ohm's law (U = R · I)?",
+      "opener": "Solve for I in the formula: I = U / R.",
+      "choices": [
+        "48 A",
+        "3 A",
+        "8 A",
+        "0.33 A"
+      ],
+      "answer": 1,
+      "explanation": "I = U / R = 12 V / 4 Ω = 3 A. Multiplying 12 by 4 instead gives the incorrect answer of 48."
+    },
+    {
+      "id": "q-fys-el-3",
+      "kind": "mc",
+      "topic": "current, voltage and resistance",
+      "prompt": "What does resistance (measured in ohms) describe?",
+      "opener": "Think about what happens when a wire or component makes it harder for the current to flow.",
+      "choices": [
+        "How much energy is stored in a component",
+        "How much a component resists or \"slows down\" the electric current",
+        "How fast the current moves through the circuit",
+        "How many electrons there are in the circuit in total"
+      ],
+      "answer": 1,
+      "explanation": "Resistance is a measure of how much a conductor or component opposes the current. High resistance, at the same voltage, gives a lower current (according to Ohm's law I = U/R)."
+    },
+    {
+      "id": "q-fys-el-4",
+      "kind": "mc",
+      "topic": "series and parallel circuits",
+      "prompt": "Two lamps are connected in series to a battery. What happens if one lamp breaks (the circuit is interrupted)?",
+      "opener": "In a series circuit, there is only one single path for the current to take.",
+      "choices": [
+        "Only the broken lamp goes out, the other one shines as usual",
+        "Both lamps go out because the current path is broken",
+        "The other lamp shines more brightly",
+        "Nothing changes"
+      ],
+      "answer": 1,
+      "explanation": "In a series circuit, the current flows in a single closed loop through all the components. If one lamp breaks, the whole circuit is interrupted and current cannot flow anywhere, so both lamps go out."
+    },
+    {
+      "id": "q-fys-el-5",
+      "kind": "mc",
+      "topic": "series and parallel circuits",
+      "prompt": "Why are the lamps in a house normally connected in parallel and not in series?",
+      "opener": "Think about what happens to the rest of the lamps if a single lamp goes out or is switched off.",
+      "choices": [
+        "A parallel connection allows each lamp to be switched on and off independently of the others",
+        "A parallel connection draws less current overall",
+        "A parallel connection means the lamps can never break",
+        "There is no advantage, it's just a tradition"
+      ],
+      "answer": 0,
+      "explanation": "In a parallel connection, each lamp has its own current path, so if one lamp goes out or is switched off, the others continue to shine as usual. This is why household outlets and lamps are connected in parallel."
+    },
+    {
+      "id": "q-fys-el-6",
+      "kind": "mc",
+      "topic": "magnets and electromagnetism",
+      "prompt": "What happens if you pass a current through a coil of wire?",
+      "opener": "A moving electric charge always creates something around it that can affect other magnets.",
+      "choices": [
+        "Nothing in particular, the wire just gets warm",
+        "A magnetic field is created around the coil, an electromagnet",
+        "The coil becomes permanently magnetic forever",
+        "The current is converted directly into light"
+      ],
+      "answer": 1,
+      "explanation": "A current through a conductor creates a magnetic field, and if the wire is wound into a coil the field is strengthened — you get an electromagnet. Unlike a permanent magnet, the field disappears when the current is switched off."
+    },
+    {
+      "id": "q-fys-el-7",
+      "kind": "worked",
+      "topic": "current, voltage and resistance",
+      "prompt": "A lamp is connected to a voltage of 9 V and the resistance in the circuit is 3 Ω. Calculate the current through the lamp using Ohm's law.",
+      "opener": "Ohm's law: U = R · I. Solve for I and substitute the known values.",
+      "answer": "3 A",
+      "steps": [
+        "Start from Ohm's law: U = R · I.",
+        "Solve for the current: I = U / R.",
+        "Substitute the values: I = 9 V / 3 Ω.",
+        "Calculate: I = 3 A."
+      ]
+    },
+    {
+      "id": "q-fys-el-8",
+      "kind": "flashcard",
+      "topic": "current, voltage and resistance",
+      "prompt": "Summarise the basic concepts of current, voltage, resistance, Ohm's law, series/parallel circuits and electromagnetism.",
+      "opener": "Go through one quantity at a time and link them with Ohm's law before turning the card over.",
+      "answer": "Current (I), measured in amperes (A): the amount of charge flowing per second · Voltage (U), measured in volts (V): the \"driving force\" that makes the current flow · Resistance (R), measured in ohms (Ω): the opposition that slows down the current · Ohm's law: U = R · I, the relationship between voltage, resistance and current · Series circuit: the components sit one after another in a single current path — if one component breaks, the whole circuit is interrupted · Parallel circuit: the components each have their own current path — a broken component doesn't affect the others, used in household wiring · Magnetism: magnets have a north pole and a south pole, like poles repel each other and unlike poles attract · Electromagnetism: an electric current always creates a magnetic field, which is used in electromagnets, motors and generators."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma1-statistik",
+  "type": "assignment",
+  "subject": "Matematik 1",
+  "title": "Probability and statistics",
+  "sourceSummary": "Measures of central tendency and spread, dependent and independent events, complementary events, and critical evaluation of statistics.",
+  "topics": [
+    "measures of central tendency",
+    "measures of spread",
+    "probability",
+    "source criticism"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma1-stat-1",
+      "kind": "mc",
+      "topic": "measures of central tendency",
+      "prompt": "The monthly salaries at a small company are 24, 25, 26, 27 and 150 (thousand kr). Which measure of central tendency best describes what a typical employee earns?",
+      "opener": "One of the values stands out significantly — how does that affect the different measures?",
+      "choices": [
+        "The sum",
+        "The mean",
+        "The median",
+        "The range"
+      ],
+      "answer": 2,
+      "explanation": "The mean comes out at 50.4 thousand kr, which nobody actually earns — it's pulled up by the boss's 150. The median (26 thousand kr) is not affected by extreme values and therefore describes the group better."
+    },
+    {
+      "id": "q-ma1-stat-2",
+      "kind": "mc",
+      "topic": "measures of spread",
+      "prompt": "What is the range of the numbers 4, 7, 9, 12 and 20?",
+      "opener": "The range only cares about two of the numbers.",
+      "choices": [
+        "20",
+        "10.4",
+        "9",
+        "16"
+      ],
+      "answer": 3,
+      "explanation": "Range = largest value minus smallest: $20 - 4 = 16$."
+    },
+    {
+      "id": "q-ma1-stat-3",
+      "kind": "mc",
+      "topic": "probability",
+      "prompt": "You roll two dice. What is the probability that both show a six?",
+      "opener": "Does one die affect the other?",
+      "choices": [
+        "$\\frac{1}{36}$",
+        "$\\frac{2}{6}$",
+        "$\\frac{1}{12}$",
+        "$\\frac{1}{6}$"
+      ],
+      "answer": 0,
+      "explanation": "The rolls are independent, so the probabilities are multiplied: $\\frac{1}{6} \\cdot \\frac{1}{6} = \\frac{1}{36}$."
+    },
+    {
+      "id": "q-ma1-stat-4",
+      "kind": "mc",
+      "topic": "probability",
+      "prompt": "A bag contains 3 red and 7 blue marbles. You draw two marbles without replacement. What is the probability that both are red?",
+      "opener": "What has happened to the bag before the second draw?",
+      "choices": [
+        "$\\frac{9}{100}$",
+        "$\\frac{1}{15}$",
+        "$\\frac{3}{10}$",
+        "$\\frac{6}{100}$"
+      ],
+      "answer": 1,
+      "explanation": "First draw: $\\frac{3}{10}$. Before the second draw, 2 red remain out of 9 marbles: $\\frac{2}{9}$. Together $\\frac{3}{10} \\cdot \\frac{2}{9} = \\frac{6}{90} = \\frac{1}{15}$. Without replacement, the events are dependent."
+    },
+    {
+      "id": "q-ma1-stat-5",
+      "kind": "mc",
+      "topic": "probability",
+      "prompt": "The probability that it rains on a given day is 0.3. What is the probability that it does NOT rain?",
+      "opener": "All possible outcomes together must add up to 1.",
+      "choices": [
+        "0.3",
+        "0.5",
+        "0.7",
+        "1.3"
+      ],
+      "answer": 2,
+      "explanation": "The complementary event: $P(\\text{no rain}) = 1 - P(\\text{rain}) = 1 - 0.3 = 0.7$."
+    },
+    {
+      "id": "q-ma1-stat-6",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "A company writes: \"Our sales increased by 200%!\" but shows a bar chart where the y-axis starts at 950 instead of 0. What is the problem?",
+      "opener": "What does a truncated y-axis do to how the bar looks?",
+      "choices": [
+        "Percentages cannot exceed 100%",
+        "Bar charts must not be used for sales figures",
+        "Nothing — the chart is correct",
+        "The fact that the y-axis doesn't start at zero visually exaggerates the difference"
+      ],
+      "answer": 3,
+      "explanation": "A truncated y-axis makes a small difference look dramatic. The chart may be technically correct but still misleading — always check the scale of the axes."
+    },
+    {
+      "id": "q-ma1-stat-7",
+      "kind": "worked",
+      "topic": "probability",
+      "prompt": "You flip a coin three times. What is the probability that you get at least one heads? Show your reasoning.",
+      "opener": "\"At least one\" is often easier to work out backwards.",
+      "answer": "7/8 (87.5%)",
+      "steps": [
+        "Counting all the cases with at least one heads is awkward — instead, work out the complementary event: no heads at all.",
+        "No heads means tails all three times: $\\frac{1}{2} \\cdot \\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{8}$.",
+        "At least one heads is everything else: $1 - \\frac{1}{8} = \\frac{7}{8}$.",
+        "So an 87.5% chance."
+      ]
+    },
+    {
+      "id": "q-ma1-stat-8",
+      "kind": "flashcard",
+      "topic": "probability",
+      "prompt": "When do you multiply probabilities, and when do you add them?",
+      "opener": "The key words are \"and\" versus \"or\".",
+      "answer": "Multiply when both events must occur (\"A AND B\") — e.g. two rolls in a row. Add when either one or the other must occur and they cannot happen at the same time (\"A OR B\") — e.g. a die showing 1 or 6. For dependent events, you must adjust the second probability based on what happened first."
+    }
+  ]
+}

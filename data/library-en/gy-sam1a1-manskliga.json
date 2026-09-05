@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam1a1-manskliga",
+  "type": "assignment",
+  "subject": "Samhällskunskap 1a1",
+  "title": "Human rights and international law",
+  "sourceSummary": "The UN's Universal Declaration and conventions, the difference between categories of rights, public international law and international humanitarian law in brief, and how rights can sometimes come into conflict with each other.",
+  "topics": [
+    "the UN Declaration of Human Rights",
+    "categories of rights",
+    "international law and humanitarian law",
+    "rights in conflict"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam1a1-manskliga-1",
+      "kind": "mc",
+      "topic": "the UN Declaration of Human Rights",
+      "prompt": "What is the UN's Universal Declaration of Human Rights, adopted in 1948?",
+      "opener": "Think about the difference between a declaration that sets out basic principles and a legally binding convention.",
+      "choices": [
+        "A ruling that can be directly enforced by the International Criminal Court",
+        "A declaration that sets out fundamental rights considered to belong to all people, which has become a central norm in international law even though it is not itself legally binding like a convention",
+        "A law that only applies within EU member states",
+        "A Swedish fundamental law"
+      ],
+      "answer": 1,
+      "explanation": "The Universal Declaration of 1948 is essentially a political and moral declaration, not a binding treaty, but it has become a central starting point for later binding human rights conventions and for international law as a whole."
+    },
+    {
+      "id": "q-sam1a1-manskliga-2",
+      "kind": "mc",
+      "topic": "categories of rights",
+      "prompt": "What distinguishes civil and political rights from economic and social rights?",
+      "opener": "One category is about freedom from state interference, the other is often about what the state should actively provide.",
+      "choices": [
+        "Civil/political rights concern things like freedom of expression and the right to vote, while economic/social rights concern things like the right to education, health and an adequate standard of living",
+        "The two categories mean exactly the same thing",
+        "Economic and social rights apply only to companies",
+        "Civil and political rights apply only to politicians"
+      ],
+      "answer": 0,
+      "explanation": "Civil and political rights (e.g. freedom of expression, the right to vote, due process) often protect the individual from abuse of state power. Economic and social rights (e.g. education, health, work) are more about what society should strive to provide to all citizens."
+    },
+    {
+      "id": "q-sam1a1-manskliga-3",
+      "kind": "mc",
+      "topic": "categories of rights",
+      "prompt": "The right to freely express one's opinions without censorship is an example of which type of right?",
+      "opener": "Is this about freedom from state interference in what one may say, or about what the state should actively provide?",
+      "choices": [
+        "An economic right",
+        "A social right",
+        "A right that applies only to journalists",
+        "A civil/political right (freedom of expression)"
+      ],
+      "answer": 3,
+      "explanation": "Freedom of expression counts as a civil and political right - it protects the individual's freedom to express opinions without undue state interference, as distinct from economic and social rights concerning, for example, education and health."
+    },
+    {
+      "id": "q-sam1a1-manskliga-4",
+      "kind": "mc",
+      "topic": "international law and humanitarian law",
+      "prompt": "What is public international law?",
+      "opener": "Think about which actors are mainly covered by these rules - individuals or states.",
+      "choices": [
+        "A synonym for Sweden's fundamental laws",
+        "Rules that apply only to relations between private individuals within a single country",
+        "Rules and agreements that govern relations between states, for example through the UN Charter and international conventions",
+        "Another name for the Swedish Penal Code"
+      ],
+      "answer": 2,
+      "explanation": "International law primarily regulates relations between states, for example through the UN Charter, treaties and international conventions, as well as certain obligations states have towards individuals. It differs from national legislation, which applies within a single country."
+    },
+    {
+      "id": "q-sam1a1-manskliga-5",
+      "kind": "mc",
+      "topic": "international law and humanitarian law",
+      "prompt": "What is mainly regulated by international humanitarian law, for example the Geneva Conventions?",
+      "opener": "This is sometimes called \"the laws of war\" - what do you think they regulate?",
+      "choices": [
+        "Trade tariffs between countries",
+        "How armed conflicts are to be conducted, including protection for civilians, the wounded and prisoners of war",
+        "Which official languages are spoken within the UN",
+        "International climate agreements"
+      ],
+      "answer": 1,
+      "explanation": "International humanitarian law, often called the laws of war, regulates how armed conflicts may be conducted and aims, among other things, to protect civilians, the wounded and prisoners of war. The Geneva Conventions are central documents in this area of law."
+    },
+    {
+      "id": "q-sam1a1-manskliga-6",
+      "kind": "mc",
+      "topic": "rights in conflict",
+      "prompt": "Which example shows how two rights can come into conflict with each other?",
+      "opener": "Think of a situation where one person's freedom to express themselves could affect another group's protection against violations.",
+      "choices": [
+        "Freedom of expression can come into conflict with protection against discrimination and incitement against an ethnic group, meaning trade-offs sometimes have to be made",
+        "The right to education can never affect any other right",
+        "All rights are always exactly equally important in every single situation, without exception",
+        "Human rights apply only in peacetime"
+      ],
+      "answer": 0,
+      "explanation": "Rights can sometimes be in tension with each other, for example when freedom of expression is weighed against protection against discrimination and incitement against an ethnic group. Such trade-offs are often made in legislation and case law, rather than one right always automatically taking precedence over another."
+    },
+    {
+      "id": "q-sam1a1-manskliga-7",
+      "kind": "worked",
+      "topic": "rights in conflict",
+      "prompt": "A municipality is considering banning a planned demonstration, citing the risk of serious unrest. Analyse step by step which rights are set against each other and how such a trade-off is usually reasoned.",
+      "opener": "First identify which rights are involved before weighing them against each other.",
+      "answer": "The situation sets freedom of assembly and demonstration against public safety and the security of other people. Freedom of assembly is a fundamental civil and political right, but in most legal systems, including the Swedish one, it is not absolute and can be restricted if there are strong grounds, such as a danger to public order and safety. Such a restriction must be proportionate, clearly justified and open to review, for example by the authority stating concrete safety grounds rather than simply disapproving of the demonstration's message - otherwise the decision risks becoming, in practice, a restriction on freedom of expression.",
+      "steps": [
+        "Identify the rights involved: freedom of assembly and demonstration on one side, public safety and the security of other citizens on the other.",
+        "Establish that freedom of assembly is fundamental but not absolute - it can, in exceptional cases, be restricted by law.",
+        "Require that any restriction be proportionate: only as far-reaching as the situation actually requires.",
+        "Require a factual justification grounded in concrete safety risks, not in disapproval of the message itself.",
+        "Conclude that the trade-off should be made using clear, reviewable criteria - not arbitrarily by whoever makes the decision."
+      ]
+    },
+    {
+      "id": "q-sam1a1-manskliga-8",
+      "kind": "flashcard",
+      "topic": "the UN Declaration of Human Rights",
+      "prompt": "Summarise key concepts about human rights and international law.",
+      "opener": "From declaration to convention to concrete categories of rights.",
+      "answer": "The UN's Universal Declaration (1948): sets out fundamental rights for all people, not itself legally binding but the basis for later conventions · Conventions: legally binding agreements between states that have ratified them, e.g. the Convention on the Rights of the Child and the European Convention on Human Rights · Civil/political rights: e.g. freedom of expression, the right to vote, the right to a fair trial · Economic/social rights: e.g. the right to education, health and an adequate standard of living · International law: rules governing relations between states, partly via the UN Charter · International humanitarian law: the laws of war, e.g. the Geneva Conventions, protecting civilians and prisoners of war in armed conflict · Rights in conflict: rights can sometimes be set against each other and require trade-offs, e.g. freedom of expression versus protection against discrimination."
+    }
+  ]
+}

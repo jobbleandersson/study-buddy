@@ -1,0 +1,131 @@
+{
+  "id": "lib-hist7-medeltiden",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "The Middle Ages in Europe",
+  "sourceSummary": "How Europe was structured during the Middle Ages: feudal society and the society of estates, the great power of the Church, the growth of towns and trade, the Black Death and its consequences, and the Crusades in brief.",
+  "topics": [
+    "the Middle Ages as a period",
+    "feudal society and the society of estates",
+    "the power of the Church",
+    "towns and trade",
+    "the Black Death",
+    "the Crusades"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist7-med-1",
+      "kind": "mc",
+      "topic": "the Middle Ages as a period",
+      "prompt": "Which time period is roughly counted as the Middle Ages in Europe?",
+      "opener": "The period begins when the Western Roman Empire falls and ends when the Renaissance takes over.",
+      "choices": [
+        "About 1000 BC-0",
+        "About 500-1500 AD",
+        "About 1500-1800 AD",
+        "About 1800-1900 AD"
+      ],
+      "answer": 1,
+      "explanation": "The Middle Ages is usually counted from the fall of the Western Roman Empire in 476 up until around 1500, when the Renaissance and the voyages of discovery usher in the early modern period. The period 1500-1800 is instead called the early modern period, and the 1800s belong to the modern era."
+    },
+    {
+      "id": "q-hist7-med-2",
+      "kind": "mc",
+      "topic": "feudal society and the society of estates",
+      "prompt": "How did feudal society broadly work?",
+      "opener": "Think of it as a trade: land in exchange for services.",
+      "choices": [
+        "The king gave land (fiefs) to noblemen, who in exchange promised military service and loyalty, while the peasants worked the land",
+        "Everyone owned the land together and shared the harvest equally",
+        "The peasants themselves chose who should be king",
+        "The land belonged to the towns, which paid the peasants a wage"
+      ],
+      "answer": 0,
+      "explanation": "Feudal society was built on the king lending out land to lords and noblemen, who in return provided horsemen and soldiers when the king needed them. The peasants worked the land and paid tax or performed labour service to the landowner. So it was not a system of shared ownership or wage labour, and the peasants had very little political influence."
+    },
+    {
+      "id": "q-hist7-med-3",
+      "kind": "mc",
+      "topic": "the power of the Church",
+      "prompt": "Why did the Catholic Church have such great power during the Middle Ages?",
+      "opener": "Think about what the Church had that almost no one else did: land, knowledge and answers about life after death.",
+      "choices": [
+        "The Church had its own army that was stronger than the kings'",
+        "The Church decided the price of all food in Europe",
+        "Almost everyone was Christian, the Church owned a great deal of land, collected taxes and had almost a monopoly on schools and literacy",
+        "The Church was the only body allowed to trade with other countries"
+      ],
+      "answer": 2,
+      "explanation": "The Church was part of everyone's life from birth to death, owned large landholdings, collected tithes (a tenth of the harvest), and ran the schools and monasteries where people learned to read and write. It did not, however, have its own large army, and it controlled neither food prices nor trade — its power was built on faith, land, knowledge and organisation."
+    },
+    {
+      "id": "q-hist7-med-4",
+      "kind": "mc",
+      "topic": "towns and trade",
+      "prompt": "What was the Hanseatic League?",
+      "opener": "It's about trade around the Baltic Sea, and Visby and Lübeck were important places.",
+      "choices": [
+        "A medieval religious order",
+        "A great war between Sweden and Denmark",
+        "A royal tax collected in the towns",
+        "An alliance of trading towns around the North Sea and the Baltic Sea"
+      ],
+      "answer": 3,
+      "explanation": "The Hanseatic League was a cooperation between German and Northern European trading towns, with Lübeck as the leading town, which together gained great influence over trade in the Baltic — including in Visby, Stockholm and Kalmar. So it was a trading alliance, not a religious order, a war or a tax."
+    },
+    {
+      "id": "q-hist7-med-5",
+      "kind": "mc",
+      "topic": "the Black Death",
+      "prompt": "What was the Black Death?",
+      "opener": "It's about a disease that spread across the whole of Europe.",
+      "choices": [
+        "A plague epidemic that spread across Europe from 1347, which about a third of the population died from",
+        "A long period of severe earthquakes",
+        "A famine caused by all the animals dying",
+        "A war between England and France"
+      ],
+      "answer": 0,
+      "explanation": "The Black Death was the plague, which arrived in Europe via trading ships in 1347 and reached Sweden in 1350. An estimated third of Europe's population died within a few years. The war between England and France (the Hundred Years' War) took place during the same period but is an entirely separate event."
+    },
+    {
+      "id": "q-hist7-med-6",
+      "kind": "mc",
+      "topic": "the Crusades",
+      "prompt": "What was the main purpose of the first Crusades, which began in 1096?",
+      "opener": "The goal was a city that is holy to several religions.",
+      "choices": [
+        "To find a new sea route to India",
+        "To found universities in the Middle East",
+        "To conquer Jerusalem and the Holy Land, which was under Muslim rule",
+        "To spread the art of printing"
+      ],
+      "answer": 2,
+      "explanation": "The Pope called on Christian knights to march east to take control of Jerusalem and the pilgrim routes there. The sea route to India was only sought several hundred years later, during the age of exploration, and the art of printing was invented around 1450."
+    },
+    {
+      "id": "q-hist7-med-7",
+      "kind": "worked",
+      "topic": "the Black Death",
+      "prompt": "Explain how the Black Death could lead to peasants in Europe having a better life after the epidemic.",
+      "opener": "Think about how many people were left to work compared with how much land there was.",
+      "answer": "Because a very large share of the population died, there was suddenly a shortage of labour, while all the land remained. Landowners who needed people for their fields therefore had to offer better conditions, higher pay or lower dues to get anyone to want to work for them. Many peasants could also move to better farms that stood empty. In the longer term this contributed to the harshest forms of serfdom weakening across large parts of Western Europe.",
+      "steps": [
+        "The Black Death reduced Europe's population by roughly a third within a few years.",
+        "The amount of farmable land, however, stayed the same — many farms stood empty.",
+        "There was a shortage of labour, and anyone who could work became sought after.",
+        "Landowners had to compete for workers through higher wages and milder conditions.",
+        "Result: peasants' bargaining position strengthened, and serfdom weakened across large parts of Western Europe."
+      ]
+    },
+    {
+      "id": "q-hist7-med-8",
+      "kind": "flashcard",
+      "topic": "feudal society and the society of estates",
+      "prompt": "Summarise medieval society in Europe.",
+      "opener": "Think time period, social order, the Church, the towns and the major events.",
+      "answer": "The Middle Ages: roughly 500-1500 AD, from the fall of the Western Roman Empire to the Renaissance · Feudal society: the king gave fiefs (land) to the nobility, who promised military service and loyalty, and the peasants worked the land in return for tax and labour service · The society of estates: those who prayed (clergy), those who fought (nobility) and those who worked (peasants), later also burghers in the towns · The power of the Church: the Catholic Church was shared across the whole of Western Europe, owned a great deal of land, collected tithes and ran the monasteries and schools where literacy was held · Towns and trade: towns grew up around markets and harbours, craftspeople organised themselves into guilds, the Hanseatic League dominated trade in the Baltic with Lübeck and Visby as its centres · The Black Death: a plague that reached Europe in 1347 and Sweden in 1350, roughly a third of the population died, which caused a labour shortage and, in the long run, better conditions for peasants · The Crusades: from 1096, Christian armies marched towards Jerusalem and the Holy Land, which also increased contact and trade between Europe and the Middle East."
+    }
+  ]
+}

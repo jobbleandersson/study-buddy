@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist-industriella",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "The Industrial Revolution",
+  "sourceSummary": "How the steam engine, factories and new inventions transformed Europe from an agricultural society into an industrial society in just a few generations — and the social consequences this had.",
+  "topics": [
+    "the Industrial Revolution",
+    "the steam engine and mechanisation",
+    "urbanisation",
+    "working conditions and trade unions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist-ind-1",
+      "kind": "mc",
+      "topic": "the Industrial Revolution",
+      "prompt": "Where did the Industrial Revolution begin?",
+      "opener": "Think about which country first had coal, iron and an established textile craft to build on.",
+      "choices": [
+        "Britain",
+        "France",
+        "Germany",
+        "USA"
+      ],
+      "answer": 0,
+      "explanation": "Britain had good supplies of coal and iron, an established textile craft, and capital to invest — that is why industrialisation began there in the second half of the 1700s. France and Germany industrialised later, and industrialisation in the USA did not take off until the 1800s."
+    },
+    {
+      "id": "q-hist-ind-2",
+      "kind": "mc",
+      "topic": "the steam engine and mechanisation",
+      "prompt": "What was the steam engine's most important significance for industrialisation?",
+      "opener": "Think about what factories previously had to be located near in order to get power.",
+      "choices": [
+        "It made it possible to build factories independent of water power",
+        "It replaced horses as a means of transport in the countryside",
+        "It made farming completely automatic",
+        "It was only used to heat homes"
+      ],
+      "answer": 0,
+      "explanation": "Before the steam engine, factories depended on being located by flowing water for power. The steam engine, powered by coal, made it possible to place factories anywhere, and it also powered locomotives and ships. The other options do not describe the steam engine's central role."
+    },
+    {
+      "id": "q-hist-ind-3",
+      "kind": "mc",
+      "topic": "urbanisation",
+      "prompt": "What is meant by urbanisation?",
+      "opener": "The word shares its root with \"urban\" — city.",
+      "choices": [
+        "That people move from the countryside to the cities",
+        "That farming becomes more efficient",
+        "That factories move abroad",
+        "That the population decreases overall"
+      ],
+      "answer": 0,
+      "explanation": "Urbanisation means that increasing numbers of people move from the countryside to the cities, often to seek work in the new factories. During industrialisation, cities such as Manchester and later Stockholm grew rapidly for exactly this reason."
+    },
+    {
+      "id": "q-hist-ind-4",
+      "kind": "mc",
+      "topic": "urbanisation",
+      "prompt": "Why did so many people move to the cities during industrialisation?",
+      "opener": "What happened in the countryside at the same time as factories were emerging in the cities?",
+      "choices": [
+        "New farming methods required fewer workers in the countryside, while factories needed labour",
+        "The government forced all farmers to move",
+        "There was no longer any food in the countryside",
+        "Compulsory schooling required everyone to live in cities"
+      ],
+      "answer": 0,
+      "explanation": "More efficient farming methods meant fewer people were needed to grow the same amount of food, while factories in the cities offered new jobs — a combination of \"push\" from the countryside and \"pull\" from the cities. The other options do not match the historical record."
+    },
+    {
+      "id": "q-hist-ind-5",
+      "kind": "mc",
+      "topic": "working conditions and trade unions",
+      "prompt": "What were working conditions like for many factory workers during early industrialisation?",
+      "opener": "Remember that there were not yet any laws protecting workers.",
+      "choices": [
+        "Long working days, low wages and dangerous working environments, often even for children",
+        "Shorter working days than in the countryside and high wages",
+        "A six-hour working day with paid holiday",
+        "Work was voluntary and well paid for all ages"
+      ],
+      "answer": 0,
+      "explanation": "Factory workers, including children, were often made to work 12–16 hours a day in dangerous conditions and for low wages, since there were no laws regulating working environments or hours. The other options describe conditions that did not exist until decades of struggle for better rights had passed."
+    },
+    {
+      "id": "q-hist-ind-6",
+      "kind": "mc",
+      "topic": "working conditions and trade unions",
+      "prompt": "Why were trade unions formed during industrialisation?",
+      "opener": "What could workers achieve together that they could not achieve alone?",
+      "choices": [
+        "So that workers together could demand better wages and working conditions",
+        "So that factory owners would earn more money",
+        "So that the state could control workers more effectively",
+        "To reduce the number of factories"
+      ],
+      "answer": 0,
+      "explanation": "By joining together in trade unions, workers gained a stronger bargaining position against factory owners and could jointly demand higher wages, shorter working days and better safety. Trade unions were formed by the workers themselves, not by factory owners or the state."
+    },
+    {
+      "id": "q-hist-ind-7",
+      "kind": "worked",
+      "topic": "working conditions and trade unions",
+      "prompt": "Explain how the Industrial Revolution led to new class divisions in society.",
+      "opener": "Think about who owned the factories and who worked in them.",
+      "answer": "Industrialisation created a clear divide between a growing working class, who owned their own labour but no means of production, and a bourgeoisie of factory owners and capitalists who profited from the workers' labour. Workers often lived cramped and poor lives in the cities, while factory owners could become very wealthy, which led to tensions and eventually to the organisation of the labour movement.",
+      "steps": [
+        "Factory owners (the bourgeoisie) invested capital in machines and factories and owned the means of production.",
+        "Workers had only their labour to sell and were dependent on wage work to survive.",
+        "Wage gaps were large: factory owners could become rich while workers often lived in poverty and overcrowding.",
+        "This divide led to growing discontent and to workers organising in trade unions and later political movements.",
+        "Over time, the class divisions contributed to demands for reforms, voting rights and better working conditions."
+      ]
+    },
+    {
+      "id": "q-hist-ind-8",
+      "kind": "flashcard",
+      "topic": "the Industrial Revolution",
+      "prompt": "Summarise the Industrial Revolution's key features and consequences.",
+      "opener": "Think starting country, driving force, social change and consequences.",
+      "answer": "The Industrial Revolution began in Britain in the late 1700s · driven by new inventions such as the steam engine (James Watt) and mechanical looms · involved a shift from craft and farming to factory production · led to urbanisation, as people moved from the countryside to growing cities for factory work · created new class divisions between the working class and the bourgeoisie (factory owners) · often involved harsh working conditions with long working days, low wages and child labour · led to trade unions being formed to fight for workers' rights · spread gradually to other countries in Europe and to the USA during the 1800s."
+    }
+  ]
+}

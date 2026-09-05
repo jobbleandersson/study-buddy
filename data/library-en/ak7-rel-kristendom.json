@@ -1,0 +1,130 @@
+{
+  "id": "lib-rel7-kristendom",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Christianity",
+  "sourceSummary": "The foundations of Christianity — what is believed about Jesus, how the Bible is structured, what happens in a church service, what Christmas and Easter mean, and the role Christianity has played in Sweden's history.",
+  "topics": [
+    "belief about Jesus",
+    "the Bible",
+    "the Church and the service",
+    "Christmas and Easter",
+    "Christianity in Sweden"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel7-kri-1",
+      "kind": "mc",
+      "topic": "belief about Jesus",
+      "prompt": "What is believed about Jesus within Christianity?",
+      "opener": "It is precisely the view of Jesus that makes Christianity a religion of its own.",
+      "choices": [
+        "That he was an emperor in the Roman empire",
+        "That he wrote the whole Bible himself",
+        "That he was an ordinary teacher without any particular role",
+        "That he is the son of God, who died on the cross and rose from the dead"
+      ],
+      "answer": 3,
+      "explanation": "Within Christianity it is believed that Jesus is the son of God who became human, was crucified and rose from the dead — the resurrection is the very core of the faith. The Bible, on the other hand, was written by many different people, several of whom lived long after Jesus."
+    },
+    {
+      "id": "q-rel7-kri-2",
+      "kind": "mc",
+      "topic": "the Bible",
+      "prompt": "Which two main parts does the Bible consist of?",
+      "opener": "The parts are named after whether they deal with the time before or after Jesus.",
+      "choices": [
+        "The Old Testament and the New Testament",
+        "The Torah and the Quran",
+        "The Gospels and the Talmud",
+        "The hymn book and the catechism"
+      ],
+      "answer": 0,
+      "explanation": "The Bible consists of the Old Testament, which deals with the time before Jesus and is largely shared with Judaism, and the New Testament, which deals with Jesus and the early Church. The Torah belongs to Judaism and the Quran to Islam — they are not parts of the Bible."
+    },
+    {
+      "id": "q-rel7-kri-3",
+      "kind": "mc",
+      "topic": "the Church and the service",
+      "prompt": "What is usually included in a Christian church service?",
+      "opener": "Think about what people do together in church: sing, listen and pray.",
+      "choices": [
+        "Fasting every day for a whole month",
+        "Walking around a holy stone five times",
+        "Prayer, hymn singing, Bible reading and a sermon",
+        "Animal sacrifice on an altar"
+      ],
+      "answer": 2,
+      "explanation": "A Christian church service usually contains prayers, hymn singing, readings from the Bible and a sermon in which the priest or pastor interprets the text, and in many churches also communion. Animal sacrifice occurred in the ancient temple in Jerusalem but is not part of Christian worship, and fasting for a month or walking around the Kaaba belong to Islam."
+    },
+    {
+      "id": "q-rel7-kri-4",
+      "kind": "mc",
+      "topic": "Christmas and Easter",
+      "prompt": "What is celebrated at Christmas within Christianity?",
+      "opener": "The festival is about a story from Bethlehem.",
+      "choices": [
+        "That Jesus rose from the dead",
+        "That Jesus was born",
+        "That the Bible was finished being written",
+        "That the Holy Spirit came to the disciples"
+      ],
+      "answer": 1,
+      "explanation": "Christmas celebrates the birth of Jesus according to the story of how he was born in Bethlehem. The resurrection is instead celebrated at Easter, and the coming of the Holy Spirit to the disciples is celebrated at Pentecost."
+    },
+    {
+      "id": "q-rel7-kri-5",
+      "kind": "mc",
+      "topic": "Christmas and Easter",
+      "prompt": "On which day during Easter do Christians celebrate Jesus rising from the dead?",
+      "opener": "It's the day after Holy Saturday, not the day when the crucifixion is remembered.",
+      "choices": [
+        "Palm Sunday",
+        "Maundy Thursday",
+        "Good Friday",
+        "Easter Sunday"
+      ],
+      "answer": 3,
+      "explanation": "Easter Sunday is the day on which Christians celebrate that, according to the faith, Jesus rose from the dead. Good Friday is instead the day the crucifixion is remembered, Maundy Thursday is about the Last Supper, and Palm Sunday is about Jesus's entry into Jerusalem."
+    },
+    {
+      "id": "q-rel7-kri-6",
+      "kind": "mc",
+      "topic": "Christianity in Sweden",
+      "prompt": "Which statement about Christianity's role in Sweden's history is correct?",
+      "opener": "Think about how long the Church and the state were linked in Sweden.",
+      "choices": [
+        "The Church of Sweden was the state church until the year 2000, and for a long time the Church handled both civil registration and school teaching",
+        "Christianity only came to Sweden in the 1900s",
+        "Sweden has always had freedom of religion with the Church and state completely separate",
+        "The Church of Sweden is still the state church and is run by the government"
+      ],
+      "answer": 0,
+      "explanation": "The Church of Sweden was the state church until the year 2000, when church and state were separated, and before that the Church was responsible for a long time for civil registration and for teaching in the elementary school system. Christianity came to Sweden as early as the Viking Age and became dominant during the Middle Ages, so the claim about the 1900s is not correct."
+    },
+    {
+      "id": "q-rel7-kri-7",
+      "kind": "worked",
+      "topic": "Christmas and Easter",
+      "prompt": "Explain the difference between Christmas and Easter within Christianity, and why Easter is usually considered the most important festival.",
+      "opener": "Find out what each festival is about before you compare their significance.",
+      "answer": "Christmas celebrates that Jesus was born in Bethlehem, and it begins after Advent with Christmas Eve and Christmas Day. Easter instead deals with the end of Jesus's life: Palm Sunday recalls the entry into Jerusalem, Maundy Thursday the Last Supper, Good Friday the crucifixion, and Easter Sunday the resurrection. Easter is usually considered Christianity's most important festival because the resurrection, according to Christian belief, is what shows that Jesus is the son of God and gives hope of eternal life. Without the resurrection the very foundation of the faith would collapse, while the birth is the beginning of the story rather than its core.",
+      "steps": [
+        "Christmas: celebrates the birth of Jesus in Bethlehem, after Advent.",
+        "Easter: a whole week that follows the end of Jesus's life — entry, Last Supper, crucifixion and resurrection.",
+        "Easter Sunday is the high point, since the resurrection is celebrated then.",
+        "According to Christian belief, the resurrection is the proof that Jesus is the son of God and the basis for the hope of eternal life.",
+        "Conclusion: that's why Easter is usually considered more important than Christmas, even though Christmas is the festival most noticeable in Sweden."
+      ]
+    },
+    {
+      "id": "q-rel7-kri-8",
+      "kind": "flashcard",
+      "topic": "belief about Jesus",
+      "prompt": "Summarise the foundations of Christianity: faith, scripture, church and festivals.",
+      "opener": "Go through faith, the Bible, branches, worship and festivals as five short points.",
+      "answer": "Faith: a single God who, according to Christian belief, is revealed as the Father, the Son and the Holy Spirit (the Trinity) · Jesus: according to Christian belief the son of God, born in Bethlehem, crucified and risen — the resurrection is the core of the faith · Holy scripture: the Bible, in two parts — the Old Testament (the time before Jesus, largely shared with Judaism) and the New Testament (Jesus, the four Gospels and the early Church) · Building: church · Leader: priest, pastor or deacon · Service: prayer, hymn singing, Bible reading, sermon and in many churches communion · Rites: baptism, confirmation, wedding, funeral · Branches: Catholic (the Pope in Rome), Orthodox (strongest in Eastern Europe, icons) and Protestant (e.g. the Church of Sweden) · Festivals: Advent · Christmas (the birth of Jesus) · Easter (crucifixion on Good Friday, resurrection on Easter Sunday) · Pentecost (the Holy Spirit) · Christianity in Sweden: arrived during the Viking Age, dominant during the Middle Ages, the Church of Sweden was the state church until the year 2000, the Church long handled civil registration and schooling · Symbol: the cross."
+    }
+  ]
+}

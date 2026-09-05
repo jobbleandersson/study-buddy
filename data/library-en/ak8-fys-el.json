@@ -1,0 +1,130 @@
+{
+  "id": "lib-fys8-el",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Electricity and circuits",
+  "sourceSummary": "Voltage, current and resistance with the correct units, Ohm's law at a basic level, and the difference between series and parallel circuits. This also covers circuit diagrams, fuses and electrical safety.",
+  "topics": [
+    "voltage, current and resistance",
+    "Ohm's law",
+    "series and parallel circuits",
+    "circuit diagrams",
+    "fuses and electrical safety"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys8-el-1",
+      "kind": "mc",
+      "topic": "voltage, current and resistance",
+      "prompt": "In which unit is voltage measured?",
+      "opener": "Each electrical quantity has its own unit — think about what's printed on a battery.",
+      "choices": [
+        "Ampere (A)",
+        "Volt (V)",
+        "Ohm (Ω)",
+        "Watt (W)"
+      ],
+      "answer": 1,
+      "explanation": "Voltage (U) is measured in volts (V) — that's why a battery is labelled, for example, 1.5 V. Ampere is the unit for current, ohm for resistance and watt for power."
+    },
+    {
+      "id": "q-fys8-el-2",
+      "kind": "mc",
+      "topic": "Ohm's law",
+      "prompt": "A current of 2 A flows through a resistor of 5 Ω. What is the voltage across the resistor according to Ohm's law (U = R · I)?",
+      "opener": "Here both the resistance and the current are known, so you can use the formula exactly as it stands.",
+      "choices": [
+        "2.5 V",
+        "7 V",
+        "0.4 V",
+        "10 V"
+      ],
+      "answer": 3,
+      "explanation": "U = R · I = 5 Ω · 2 A = 10 V. Dividing 5 by 2 instead gives 2.5, and adding the numbers gives 7 — both are common mistakes when you lose track of which quantity you're solving for."
+    },
+    {
+      "id": "q-fys8-el-3",
+      "kind": "mc",
+      "topic": "series and parallel circuits",
+      "prompt": "Two resistors of 3 Ω and 4 Ω are connected in series. What happens to the total resistance?",
+      "opener": "In a series circuit, the current must pass through both resistors one after the other.",
+      "choices": [
+        "It becomes the sum, 7 Ω — that is, greater than either of the resistors",
+        "It becomes 1 Ω, that is, the difference between the resistors",
+        "It becomes 12 Ω, that is, the product of the resistors",
+        "It becomes less than 3 Ω"
+      ],
+      "answer": 0,
+      "explanation": "In a series circuit, resistances are added: R = 3 Ω + 4 Ω = 7 Ω. The total resistance is always greater than the largest single resistor. The total resistance becoming less than the smallest resistor applies to a parallel circuit, not a series circuit."
+    },
+    {
+      "id": "q-fys8-el-4",
+      "kind": "mc",
+      "topic": "series and parallel circuits",
+      "prompt": "Three lamps are connected in parallel to a 6 V battery. What voltage is across each lamp?",
+      "opener": "In a parallel circuit, each lamp sits directly between the battery's two terminals.",
+      "choices": [
+        "2 V, the voltage is shared equally between the lamps",
+        "18 V, the voltage is added for each lamp",
+        "6 V, each lamp gets the full battery voltage",
+        "It's impossible to know without knowing the resistance"
+      ],
+      "answer": 2,
+      "explanation": "In a parallel circuit, the same voltage, 6 V, is across every branch. It is in a series circuit that the voltage is divided between the components — that's why lamps in parallel shine just as brightly as if they were connected alone."
+    },
+    {
+      "id": "q-fys8-el-5",
+      "kind": "mc",
+      "topic": "circuit diagrams",
+      "prompt": "What does it mean that the circuit is closed in a circuit diagram?",
+      "opener": "Look at whether the current has an unbroken path all the way around.",
+      "choices": [
+        "That the switch is open so nothing can happen",
+        "That there is an unbroken conducting path from one terminal of the battery through the components back to the other terminal",
+        "That the circuit only contains a single component",
+        "That all the components are drawn with the same symbol"
+      ],
+      "answer": 1,
+      "explanation": "A closed circuit is an unbroken current path from one terminal of the battery, through the components, and back to the other terminal — only then can current flow. An open switch instead breaks the circuit, and then the lamp goes out."
+    },
+    {
+      "id": "q-fys8-el-6",
+      "kind": "mc",
+      "topic": "fuses and electrical safety",
+      "prompt": "What is the job of a fuse in an electrical installation?",
+      "opener": "Think about what would happen to the wires if far too much current flowed through them.",
+      "choices": [
+        "It increases the voltage in the circuit so the appliances work better",
+        "It measures how much electricity you use",
+        "It makes sure the current always flows in the same direction",
+        "It cuts the current if the current strength becomes too high, so the wires don't overheat and catch fire"
+      ],
+      "answer": 3,
+      "explanation": "A fuse is a deliberate weak point that trips and breaks the circuit when the current becomes dangerously high, for example during a short circuit or an overload. It doesn't measure electricity consumption — the electricity meter does that — and it doesn't affect the voltage."
+    },
+    {
+      "id": "q-fys8-el-7",
+      "kind": "worked",
+      "topic": "Ohm's law",
+      "prompt": "A current of 0.5 A flows through a small motor when it is connected to a voltage of 6 V. Calculate the motor's resistance.",
+      "opener": "Ohm's law is U = R · I. Rearrange for R before you plug in the values.",
+      "answer": "12 Ω",
+      "steps": [
+        "Write down what you know: U = 6 V and I = 0.5 A.",
+        "Start from Ohm's law: U = R · I.",
+        "Rearrange for the resistance: R = U / I.",
+        "Plug in the values: R = 6 V / 0.5 A.",
+        "Dividing by 0.5 is the same as multiplying by 2, so R = 12 Ω."
+      ]
+    },
+    {
+      "id": "q-fys8-el-8",
+      "kind": "flashcard",
+      "topic": "voltage, current and resistance",
+      "prompt": "Summarise the electrical quantities with their units, Ohm's law, series and parallel circuits, and electrical safety.",
+      "opener": "Take one quantity at a time with the correct unit, link them together with Ohm's law, and finish with the types of connection.",
+      "answer": "Voltage (U), volt (V): the driving force that makes the charges move · Current (I), ampere (A): how much charge passes per second · Resistance (R), ohm (Ω): the opposition that slows the current · Ohm's law: U = R · I, so I = U/R and R = U/I · Closed circuit: an unbroken current path from one terminal of the battery back to the other — otherwise no current flows · Series circuit: a single current path, resistances are added, the same current everywhere, the voltage is divided up, one break switches everything off · Parallel circuit: several branches, the same voltage across each branch, the current is divided up, a break in one branch doesn't affect the others — used in houses · Circuit diagram: a circuit drawn with standard symbols for a battery, lamp, switch and resistor · Fuse: breaks the circuit at too high a current, protects against overheating and fire · Electrical safety: a short circuit gives a very high current, a residual-current device (RCD) trips quickly on a fault, only experiment with low voltages."
+    }
+  ]
+}

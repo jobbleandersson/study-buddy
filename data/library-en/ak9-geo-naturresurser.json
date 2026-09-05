@@ -1,0 +1,129 @@
+{
+  "id": "lib-geo-naturresurser",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Natural resources and energy sources",
+  "sourceSummary": "The difference between renewable and non-renewable resources, how natural resources such as oil and minerals are unevenly distributed around the world, and the environmental impact of different energy sources and their link to conflicts.",
+  "topics": [
+    "renewable and non-renewable resources",
+    "global distribution of natural resources",
+    "energy sources and environmental impact",
+    "conflicts linked to natural resources"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo-nat-1",
+      "kind": "mc",
+      "topic": "renewable and non-renewable resources",
+      "prompt": "What is the difference between a renewable and a non-renewable natural resource?",
+      "opener": "Ask yourself: can the resource be replenished within a human lifetime, or does it take millions of years?",
+      "choices": [
+        "Renewable resources are always cheaper to extract",
+        "Renewable resources are naturally replenished within a reasonable time; non-renewable ones are not",
+        "Non-renewable resources are only found in the sea",
+        "There is no real difference, just different names"
+      ],
+      "answer": 1,
+      "explanation": "Renewable resources, such as solar, wind and hydropower or forest (if managed sustainably), are naturally replenished or are effectively inexhaustible. Non-renewable resources, such as oil, coal and minerals, form over millions of years and therefore run out once used, since they cannot be replenished on a human timescale."
+    },
+    {
+      "id": "q-geo-nat-2",
+      "kind": "mc",
+      "topic": "renewable and non-renewable resources",
+      "prompt": "Which of the following is an example of a non-renewable natural resource?",
+      "opener": "Think about how long it takes for the resource to form in nature.",
+      "choices": [
+        "Wind power",
+        "Natural gas",
+        "Solar energy",
+        "Sustainably managed forest"
+      ],
+      "answer": 1,
+      "explanation": "Natural gas, like oil and coal, is a fossil fuel formed from organic material over millions of years beneath the Earth's surface. It is considered non-renewable because it runs out faster than it forms. Wind and solar energy are renewable because they rely on continuously occurring natural processes."
+    },
+    {
+      "id": "q-geo-nat-3",
+      "kind": "mc",
+      "topic": "global distribution of natural resources",
+      "prompt": "Why are regions such as the Middle East particularly significant in the global energy market?",
+      "opener": "Natural resources are not evenly spread across the Earth's surface — certain geological formations only occur in certain places.",
+      "choices": [
+        "It has the largest gold reserves in the world",
+        "Its geology means it has very large oil reserves",
+        "Most solar panels are manufactured there",
+        "It has the world's largest forests"
+      ],
+      "answer": 1,
+      "explanation": "Through geological history, the Middle East has come to hold very large deposits of oil and natural gas, making the region central to the world's energy supply and economy. Natural resources are unevenly distributed globally: for example, much of the world's copper is found in Chile, and rare minerals in DR Congo (Congo-Kinshasa)."
+    },
+    {
+      "id": "q-geo-nat-4",
+      "kind": "mc",
+      "topic": "global distribution of natural resources",
+      "prompt": "DR Congo (Congo-Kinshasa) is one of the world's leading producers of cobalt, a metal used in batteries for electric cars and mobile phones. What does this say about global resource distribution?",
+      "opener": "Think about how a country's geology determines which minerals are found there, regardless of the country's economic situation.",
+      "choices": [
+        "All countries have roughly equal access to important minerals",
+        "Some countries hold a large share of the world's supply of specific resources, giving them major global importance",
+        "Cobalt is only found in DR Congo and nowhere else",
+        "Resource distribution has no connection to geology"
+      ],
+      "answer": 1,
+      "explanation": "Natural resources such as minerals are strongly linked to a country's geology and can be highly concentrated in certain places. DR Congo accounts for a very large share of the world's cobalt production, making the country globally important despite being a low-income country — but how the profits from extraction are distributed is a completely different question."
+    },
+    {
+      "id": "q-geo-nat-5",
+      "kind": "mc",
+      "topic": "energy sources and environmental impact",
+      "prompt": "What is the main environmental drawback of burning fossil fuels such as coal and oil for energy?",
+      "opener": "Think about what happens to carbon that has been locked in the ground for millions of years when it is suddenly burned.",
+      "choices": [
+        "They release large amounts of carbon dioxide, which contributes to the greenhouse effect",
+        "They are too expensive to extract",
+        "They can only be used in cold countries",
+        "They provide too little energy per kilo"
+      ],
+      "answer": 0,
+      "explanation": "When fossil fuels are burned, carbon dioxide that has been locked in the ground for millions of years is released, increasing the amount of greenhouse gases in the atmosphere and strengthening the greenhouse effect. Renewable energy sources such as wind and hydropower do not emit carbon dioxide during the actual power generation, although building the facilities themselves also has some environmental impact."
+    },
+    {
+      "id": "q-geo-nat-6",
+      "kind": "mc",
+      "topic": "energy sources and environmental impact",
+      "prompt": "What is a clear environmental advantage of hydropower compared with coal power?",
+      "opener": "Compare what happens during the actual energy extraction for the two types of energy.",
+      "choices": [
+        "Hydropower does not emit carbon dioxide during power generation and is a renewable energy source",
+        "Hydropower requires no infrastructure at all",
+        "Hydropower never affects ecosystems in rivers",
+        "Hydropower is cheaper in every country"
+      ],
+      "answer": 0,
+      "explanation": "Hydropower harnesses the kinetic energy of water and does not emit carbon dioxide when the electricity is generated, unlike coal power, which burns fossil fuel. However, hydropower is not entirely without environmental impact — dams can affect fish migration and river ecosystems, so it is a matter of weighing different kinds of environmental impact against each other."
+    },
+    {
+      "id": "q-geo-nat-7",
+      "kind": "worked",
+      "topic": "conflicts linked to natural resources",
+      "prompt": "Explain how an uneven distribution of valuable natural resources, such as oil or minerals, can contribute to conflict in a country or region.",
+      "opener": "Think about who benefits from the resources and why different groups might want to control them.",
+      "answer": "Natural resources such as oil, diamonds or minerals can be highly valuable on the world market, which makes different groups — governments, armed groups or other countries — want to control where they are extracted and who receives the revenue. If the resources are concentrated in certain regions of a country, this can create conflict between that region and the central government over who should get the profits. A lack of democracy and weak institutions make it easier for individual groups to seize the resource revenues instead of them benefiting the whole population, which can escalate tensions into armed conflict.",
+      "steps": [
+        "Valuable resources (oil, minerals, diamonds) generate large economic revenues for whoever controls the extraction.",
+        "The resources are often concentrated in specific locations, not spread evenly across the whole country.",
+        "Different actors (government, local groups, foreign interests) want to secure control over these revenues.",
+        "Weak institutions and a lack of fair distribution mean the profits easily end up with a few, creating discontent.",
+        "Discontent and struggle for control can escalate into armed conflict, especially if resource revenues are used to fund weapons."
+      ]
+    },
+    {
+      "id": "q-geo-nat-8",
+      "kind": "flashcard",
+      "topic": "renewable and non-renewable resources",
+      "prompt": "Summarise natural resources and energy sources: renewable versus non-renewable, distribution and environmental impact.",
+      "opener": "Build a tight overview you can quickly revise before the test.",
+      "answer": "Renewable resources: replenished naturally within a reasonable time · examples: sun, wind, water, biomass, sustainably managed forest. Non-renewable resources: form over millions of years, run out · examples: oil, coal, natural gas, minerals and metals. Global distribution: natural resources are unevenly distributed depending on geology · examples: oil in the Middle East, copper in Chile, cobalt in DR Congo. Environmental impact: fossil fuels release carbon dioxide when burned → strengthens the greenhouse effect · renewable energy (sun, wind, water) does not emit carbon dioxide during power generation but can affect nature and landscapes in other ways. Conflicts: unevenly distributed, valuable resources can trigger power struggles over who controls the revenue, especially where institutions are weak."
+    }
+  ]
+}

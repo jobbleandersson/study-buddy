@@ -315,6 +315,7 @@ window.addEventListener("sb:langchange", () => {
   applyLang();
   render();
   store.syncDemoLanguage();
+  store.syncLibraryLanguage();
 });
 
 // Offline support + home-screen install. Only over http(s) — a service worker
@@ -333,8 +334,9 @@ store.init().then(() => {
   applyLang();
   render();
   maybeShowOnboarding();
-  // Bring any demo sets loaded in a different language up to date.
+  // Bring any demo or library sets loaded in a different language up to date.
   store.syncDemoLanguage();
+  store.syncLibraryLanguage();
   // After first paint, keep menu/progress fresh when the store changes.
   store.addEventListener("change", () => {
     const h = location.hash.replace(/^#/, "");

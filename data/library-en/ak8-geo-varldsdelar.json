@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo8-varldsdelar",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "The continents",
+  "sourceSummary": "An overview of the Earth's continents and oceans, important countries and their location, the great mountain ranges, rivers and deserts, how climate and nature shift between and within the continents, and how to read a thematic map.",
+  "topics": [
+    "continents and oceans",
+    "countries and borders",
+    "mountain ranges, rivers and deserts",
+    "climate and nature in the continents",
+    "thematic maps"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo8-var-1",
+      "kind": "mc",
+      "topic": "continents and oceans",
+      "prompt": "Which is the Earth's largest ocean?",
+      "opener": "It spreads out between Asia and America and covers almost a third of the Earth's surface.",
+      "choices": [
+        "The Atlantic",
+        "The Indian Ocean",
+        "The Pacific Ocean",
+        "The Arctic Ocean"
+      ],
+      "answer": 2,
+      "explanation": "The Pacific Ocean is the largest and deepest of the world's oceans and stretches from Asia and Australia in the west to North and South America in the east. The Atlantic is the second largest, while the Arctic Ocean is the smallest and largely covered by sea ice."
+    },
+    {
+      "id": "q-geo8-var-2",
+      "kind": "mc",
+      "topic": "continents and oceans",
+      "prompt": "Which continent is the largest both in area and in population?",
+      "opener": "Both China and India are there, and it borders Europe at the Ural Mountains.",
+      "choices": [
+        "Asia",
+        "Africa",
+        "North America",
+        "Europe"
+      ],
+      "answer": 0,
+      "explanation": "Asia is the world's largest continent, around 44 million square kilometres, and about 60 per cent of the Earth's population lives there. Africa is the second largest in area and has the fastest-growing population, but fewer inhabitants than Asia, while Europe is one of the smallest continents."
+    },
+    {
+      "id": "q-geo8-var-3",
+      "kind": "mc",
+      "topic": "countries and borders",
+      "prompt": "Which is the world's largest country by area?",
+      "opener": "The country stretches across eleven time zones and lies in both Europe and Asia.",
+      "choices": [
+        "Canada",
+        "China",
+        "The USA",
+        "Russia"
+      ],
+      "answer": 3,
+      "explanation": "Russia, at around 17 million square kilometres, is by far the world's largest country by area, spreading from the Baltic Sea to the Pacific Ocean, with the Ural Mountains as the border between its European and Asian parts. Canada, China and the USA follow next but are all less than half its size. Being largest by area has nothing to do with population size – India and China have far more inhabitants."
+    },
+    {
+      "id": "q-geo8-var-4",
+      "kind": "mc",
+      "topic": "mountain ranges, rivers and deserts",
+      "prompt": "Which mountain range stretches along the whole of South America's west coast?",
+      "opener": "It runs through countries such as Chile, Peru and Colombia.",
+      "choices": [
+        "The Alps",
+        "The Andes",
+        "The Himalayas",
+        "The Rocky Mountains"
+      ],
+      "answer": 1,
+      "explanation": "The Andes run about 7,000 kilometres along South America's west coast and are the world's longest mountain range on land, formed where two tectonic plates press against each other. The Himalayas are in Asia and have the world's highest peaks, the Alps are in Europe, and the Rocky Mountains are in North America."
+    },
+    {
+      "id": "q-geo8-var-5",
+      "kind": "mc",
+      "topic": "mountain ranges, rivers and deserts",
+      "prompt": "What is the world's largest hot desert and where is it located?",
+      "opener": "It covers a large part of an entire continent's northern half.",
+      "choices": [
+        "The Sahara in northern Africa",
+        "The Gobi Desert in Central Asia",
+        "The Atacama Desert in South America",
+        "The Kalahari in southern Africa"
+      ],
+      "answer": 0,
+      "explanation": "The Sahara covers most of northern Africa, roughly the same area as the whole of Europe, and is the world's largest hot desert. The Gobi, the Atacama and the Kalahari are also deserts but considerably smaller – the Atacama, however, is known as one of the very driest places on Earth."
+    },
+    {
+      "id": "q-geo8-var-6",
+      "kind": "mc",
+      "topic": "thematic maps",
+      "prompt": "What characterises a thematic map?",
+      "opener": "The name comes from the map being built around a single theme.",
+      "choices": [
+        "It only shows borders between countries and where the capitals are located",
+        "It shows the terrain's height above sea level using contour lines",
+        "It shows a specific subject, for example rainfall, population density or GDP, often using a colour scale",
+        "It shows roads and railways so that you can plan a journey"
+      ],
+      "answer": 2,
+      "explanation": "A thematic map highlights a theme – climate, population, agriculture, income and so on – and presents it with colours, symbols or dots explained in the legend. Maps with only borders and capitals are political maps, while contour lines belong on topographic maps."
+    },
+    {
+      "id": "q-geo8-var-7",
+      "kind": "worked",
+      "topic": "climate and nature in the continents",
+      "prompt": "Describe how the climate and nature change as you travel through Africa from the equator northward to the Mediterranean, and explain why.",
+      "opener": "Follow the rainfall: where on Earth does it rain the most, and where does dry air sink down?",
+      "answer": "At the equator, for example in the Congo Basin, it is warm and rains a lot all year round. Dense tropical rainforest grows there. Travelling north, you reach the savannah, where there is a clear rainy season and a dry season, and the landscape consists of tall grass with scattered trees. Further north still, rainfall decreases further in the Sahel region, a dry transition zone with thorn bushes and sparse grassland. After that comes the Sahara, a desert where it hardly rains at all and where the daily temperature swings are very large. Right at the far north, along the coast of Morocco, Algeria and Tunisia, you reach a Mediterranean climate with mild, rainy winters and warm, dry summers. The reason is the Earth's air circulation: at the equator, the air is heated strongly by the sun, rises, cools and produces heavy rain. High up, the air moves northward, and around 30 degrees latitude it sinks back down as dry high-pressure air, which creates desert belts. Further north still, the coast is affected during the winter half of the year by low pressure from the Atlantic, which brings rainfall in winter.",
+      "steps": [
+        "At the equator: warm and wet all year round, tropical rainforest in the Congo Basin.",
+        "North of the rainforest: savannah with a rainy season and a dry season, grass and scattered trees.",
+        "The Sahel belt and the Sahara: ever less rain, first dry steppe with thorn bushes and then desert with big differences between day and night.",
+        "North Africa's coast: Mediterranean climate with mild, rainy winters and warm, dry summers.",
+        "The explanation is the air circulation – rising moist air produces rain at the equator, sinking dry air around 30 degrees creates the desert belt."
+      ]
+    },
+    {
+      "id": "q-geo8-var-8",
+      "kind": "flashcard",
+      "topic": "continents and oceans",
+      "prompt": "Summarise the continents, the great landforms and how to read maps.",
+      "opener": "Gather continents, oceans, mountains, rivers, deserts, climate zones and map skills into one tight overview.",
+      "answer": "Continents: Europe · Asia · Africa · North America · South America · Oceania (Australia) · Antarctica · oceans: the Pacific Ocean (largest and deepest) · the Atlantic · the Indian Ocean · the Arctic Ocean · the Southern Ocean · Asia largest by area (around 44 million km²) and most populous, Africa second largest · Russia is the world's largest country, China and India the most populous · mountain ranges: the Himalayas in Asia with Mount Everest at around 8,849 m · the Andes along South America's west coast, the longest on land · the Rocky Mountains in North America · the Alps in Europe · the Atlas Mountains in northern Africa · the Ural Mountains as the border between Europe and Asia · rivers: the Nile and the Amazon are the world's longest, the Amazon has the greatest flow of water · the Yangtze in China · the Congo River in Africa · the Mississippi in the USA · the Volga is Europe's longest · deserts: the Sahara is the world's largest hot desert, the Gobi in Asia, the Kalahari and Namib in southern Africa, the Atacama in Chile is one of the driest places on Earth · Antarctica counts as the world's largest cold desert · climate zones from the equator towards the poles: tropical (rainforest and savannah) · subtropical and dry (desert, steppe, Mediterranean climate) · temperate (deciduous and coniferous forest) · cold and polar (tundra and ice sheets) · maps: scale shows how much reality has been reduced · the legend explains colours and symbols · latitude is measured from the equator, longitude from the prime meridian in Greenwich · a topographic map shows height and terrain, a political map shows borders and cities, a thematic map shows a theme such as climate, population density or income."
+    }
+  ]
+}

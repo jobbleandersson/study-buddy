@@ -1,0 +1,131 @@
+{
+  "id": "lib-rel8-islam",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Islam",
+  "sourceSummary": "Islam's fundamental beliefs, Muhammad's role and the Quran as sacred scripture, the five pillars, the mosque and the forms of prayer, the split into Sunni and Shia, and the festivals of Ramadan and Eid — plus what Islam looks like in Sweden today.",
+  "topics": [
+    "fundamental beliefs",
+    "Muhammad and the Quran",
+    "the five pillars",
+    "the mosque and prayer",
+    "Sunni and Shia",
+    "festivals and Islam in Sweden"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel8-isl-1",
+      "kind": "mc",
+      "topic": "fundamental beliefs",
+      "prompt": "What is most central to the Islamic belief system?",
+      "opener": "The declaration of faith opens with a statement about how many gods there are.",
+      "choices": [
+        "That God (Arabic: Allah) is one and indivisible, and that Muhammad is God's messenger",
+        "That God consists of three persons: the Father, the Son and the Holy Spirit",
+        "That a human being can become a god themselves through good deeds",
+        "That there are many gods with different areas of responsibility"
+      ],
+      "answer": 0,
+      "explanation": "The idea of God's absolute oneness, tawhid, is foundational in Islam and is expressed in the declaration of faith, the shahada: that there is no god but God and that Muhammad is his messenger. In Islam, Muhammad is counted as the last in a long line of prophets, including Abraham, Moses and Jesus. The option about three persons describes the Christian doctrine of the Trinity, that is, another religion's belief — not Islam's."
+    },
+    {
+      "id": "q-rel8-isl-2",
+      "kind": "mc",
+      "topic": "Muhammad and the Quran",
+      "prompt": "What is the Quran according to Islamic belief?",
+      "opener": "Think about who, according to tradition, conveyed the text, and in which language.",
+      "choices": [
+        "A biography of Muhammad's life written by his closest friends",
+        "God's word, which according to tradition was revealed in Arabic to Muhammad through the angel Gabriel (Jibril)",
+        "A code of law decided by the caliphs in the 11th century",
+        "Stories of what Muhammad said and did, collected by later scholars"
+      ],
+      "answer": 1,
+      "explanation": "According to Islamic belief, the Quran is God's own word, revealed in Arabic to Muhammad over more than twenty years from around the year 610 and later compiled in writing. That is precisely why the Quran is happily read and recited in Arabic, even by Muslims whose mother tongue is different. The last option instead describes hadith, that is, accounts of Muhammad's words and actions, which together form the sunna — an important but separate source of guidance alongside the Quran."
+    },
+    {
+      "id": "q-rel8-isl-3",
+      "kind": "mc",
+      "topic": "the five pillars",
+      "prompt": "What are the five pillars of Islam?",
+      "opener": "The five concern declaration, prayer, giving, fasting and a journey.",
+      "choices": [
+        "The declaration of faith, prayer, almsgiving, fasting during Ramadan, and the pilgrimage to Mecca",
+        "Baptism, confirmation, communion, confession and marriage",
+        "Prayer, fasting, silence, meditation and a vegetarian diet",
+        "The declaration of faith, the sign of the cross, hymn singing, the collection and the pilgrimage to Rome"
+      ],
+      "answer": 0,
+      "explanation": "The five pillars are shahada (the declaration of faith), salat (the five daily prayers), zakat (the obligatory gift to those in need, often around 2.5 per cent of savings), sawm (fasting during Ramadan) and hajj (the pilgrimage to Mecca, expected to be made at least once in a lifetime by anyone who is healthy and can afford it). The option with baptism, confirmation and communion lists sacraments within Christianity, that is, the rites of another religion."
+    },
+    {
+      "id": "q-rel8-isl-4",
+      "kind": "mc",
+      "topic": "the mosque and prayer",
+      "prompt": "What characterises prayer (salat) and the mosque in Islam?",
+      "opener": "Think about which direction people face, and who leads the prayer.",
+      "choices": [
+        "People pray once a week, always on Sunday, and the mosque is decorated with statues of the prophets",
+        "People pray whenever they feel like it, and the mosque has an altar where a priest offers sacrifices",
+        "People pray five times a day facing the Kaaba in Mecca and wash beforehand; in the mosque, the mihrab niche shows the direction of prayer and an imam leads it",
+        "People pray three times a day facing Jerusalem, and the mosque is only used for funerals"
+      ],
+      "answer": 2,
+      "explanation": "Prayer takes place at five set times of day, is preceded by a ritual washing (wudu), and is directed towards the Kaaba in Mecca — the direction is called qibla and is shown in the mosque by the mihrab niche. An imam leads the prayer, and the Friday prayer in particular draws large numbers. Mosques usually lack images and statues of people and animals; decoration instead often consists of calligraphy and geometric patterns. Women take part in mosque life, often in their own space, and customs vary between different countries and congregations."
+    },
+    {
+      "id": "q-rel8-isl-5",
+      "kind": "mc",
+      "topic": "Sunni and Shia",
+      "prompt": "Which question lay behind the original split between Sunni and Shia?",
+      "opener": "The question arose after Muhammad's death in 632 and concerned leadership.",
+      "choices": [
+        "Whether the Quran should be allowed to be translated into Persian",
+        "Whether to pray five or three times a day",
+        "Whether mosques should be allowed to be built outside the Arabian Peninsula",
+        "Who should succeed Muhammad as leader of the believers"
+      ],
+      "answer": 3,
+      "explanation": "When Muhammad died in 632, disagreement arose over leadership. Those who came to be called Sunni Muslims held that a suitable leader, a caliph, should be chosen from among the believers, while those who came to be called Shia Muslims held that leadership should follow Muhammad's family through his cousin and son-in-law Ali. Today, Sunni is by far the largest branch, around 85–90 per cent of the world's Muslims, while Shia is largest in, among other places, Iran and Iraq. The difference was thus about leadership, not the number of prayers — both branches share the five pillars, even though certain festivals and traditions differ."
+    },
+    {
+      "id": "q-rel8-isl-6",
+      "kind": "mc",
+      "topic": "festivals and Islam in Sweden",
+      "prompt": "What characterises Ramadan and Eid al-Fitr?",
+      "opener": "One is an entire month, the other is the feast that ends it.",
+      "choices": [
+        "Ramadan is a single festival day with presents, and Eid al-Fitr is a month of fasting",
+        "Ramadan is the month during which many Muslims fast from dawn to sunset, and Eid al-Fitr is the feast celebrated when the month of fasting ends",
+        "Ramadan is the pilgrimage to Mecca, and Eid al-Fitr is the name of the Friday prayer",
+        "Both Ramadan and Eid al-Fitr are names of mosques in Medina"
+      ],
+      "answer": 1,
+      "explanation": "Ramadan is the ninth month of the Islamic lunar calendar. Healthy adult Muslims then abstain from food, drink and smoking during daylight hours and instead eat before dawn and after sunset; children, the sick, pregnant women and travellers are exempt. The month ends with Eid al-Fitr, a joyful feast with worship, food and gifts, and the other major festival is Eid al-Adha, linked to the pilgrimage. Since the calendar follows the moon, Ramadan shifts by about eleven days each year relative to the Swedish calendar. The pilgrimage, hajj, is therefore not the same thing as Ramadan."
+    },
+    {
+      "id": "q-rel8-isl-7",
+      "kind": "worked",
+      "topic": "the five pillars",
+      "prompt": "Explain step by step what the five pillars of Islam involve, and give examples of how they might affect everyday life for a Muslim living in Sweden.",
+      "opener": "Take one pillar at a time and link each to something concrete in everyday life.",
+      "answer": "The first pillar is shahada, the declaration of faith, which states that there is no god but God and that Muhammad is his messenger. It is spoken in prayer and on solemn occasions and is what makes a person a Muslim. The second pillar is salat, the five daily prayers, which are preceded by washing and directed towards Mecca. In Sweden this means the prayer times shift greatly over the year because daylight hours vary, and many people pray at home, at work or at school rather than in a mosque. The third pillar is zakat, an obligatory gift often of around 2.5 per cent of savings to those in need; in Sweden it is often collected through mosque associations or aid organisations. The fourth pillar is sawm, fasting during Ramadan, when people abstain from food and drink during daylight — in Sweden, summer fasting days can become very long, and pupils may need to plan their school day and training around it, while children, the sick and pregnant women are exempt. The fifth pillar is hajj, the pilgrimage to Mecca, expected to be made at least once in a lifetime by anyone who is healthy and can afford it; for many in Sweden this means a planned and costly journey that might only be made once. How much each pillar shapes everyday life varies a great deal between individuals and families, just as within other religions.",
+      "steps": [
+        "Shahada: the declaration of faith in God's oneness and Muhammad as messenger — spoken in prayer and on solemn occasions.",
+        "Salat: five prayers a day after washing, directed towards Mecca; in Sweden the prayer times vary greatly between summer and winter.",
+        "Zakat: a set share of savings is given to those in need, often via mosque associations or aid organisations.",
+        "Sawm: fasting during Ramadan from dawn to sunset, with exemptions for children, the sick, pregnant women and travellers.",
+        "Hajj: the pilgrimage to Mecca at least once in a lifetime for anyone who is healthy and can afford it — and remember that practice varies between individuals."
+      ]
+    },
+    {
+      "id": "q-rel8-isl-8",
+      "kind": "flashcard",
+      "topic": "fundamental beliefs",
+      "prompt": "Summarise Islam: belief, Muhammad and the Quran, the five pillars, the mosque, Sunni and Shia, and festivals and Islam in Sweden.",
+      "opener": "From the declaration of faith to the festivals and the situation in Sweden.",
+      "answer": "Belief: tawhid — according to Islamic belief, God is one and indivisible · Muhammad is counted as the last prophet in the line after, among others, Abraham, Moses and Jesus · Muhammad: born around 570 in Mecca, the revelations begin around 610, the emigration to Medina in 622 (hijra) opens the Islamic calendar, died 632 · The Quran: according to belief, God's word in Arabic, conveyed through the angel Jibril; divided into 114 suras · Sunna and hadith: accounts of Muhammad's words and actions, a model for life · Sharia: the religious guidance, interpreted differently across various legal schools and countries · Five pillars: shahada (declaration of faith) · salat (five prayers a day facing Mecca, after washing) · zakat (gift to those in need) · sawm (fasting during Ramadan) · hajj (pilgrimage to Mecca) · The mosque: the mihrab shows the direction of prayer (qibla), a minaret, an imam leads the prayer, the Friday prayer draws large numbers, calligraphy and patterns instead of images of people · Sunni: the leader (the caliph) is chosen from among the believers — around 85–90% of the world's Muslims · Shia: leadership should follow Muhammad's family via Ali — largest in Iran and Iraq · Festivals: Ramadan (month of fasting) · Eid al-Fitr (the fast is broken) · Eid al-Adha (the sacrifice festival linked to the pilgrimage) · the lunar calendar means the festivals shift by about 11 days each year · Islam in Sweden: arrived above all with labour and refugee immigration from the 1960s onward · mosques and associations exist in most larger cities · Muslims in Sweden are a diverse group with different origins, branches and degrees of religious practice."
+    }
+  ]
+}

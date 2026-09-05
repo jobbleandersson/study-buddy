@@ -1,0 +1,128 @@
+{
+  "id": "lib-en7gy-debate",
+  "type": "assignment",
+  "subject": "Engelska 7",
+  "title": "Debate and persuasive language",
+  "sourceSummary": "Rhetorical devices in English-language debate (rhetorical questions, repetition, concession), the difference between persuading and manipulating, the structure of counter-arguments, and hedging language.",
+  "topics": [
+    "rhetorical devices",
+    "persuasive vs manipulative language",
+    "counter-argument structure",
+    "hedging language"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7gy-debate-1",
+      "kind": "mc",
+      "topic": "rhetorical devices",
+      "prompt": "Identify the rhetorical device in: 'Is this really the future we want for our children? Is this the legacy we wish to leave?'",
+      "opener": "Questions that don't expect an answer, but are meant to make the listener think.",
+      "choices": [
+        "Rhetorical question",
+        "Concession",
+        "Hedging",
+        "Statistic"
+      ],
+      "answer": 0,
+      "explanation": "The questions are not asked to get an answer but to engage the listener and drive home a point — that is a rhetorical question. There is no concession or statistic here."
+    },
+    {
+      "id": "q-en7gy-debate-2",
+      "kind": "mc",
+      "topic": "rhetorical devices",
+      "prompt": "Which sentence uses repetition as a rhetorical device?",
+      "opener": "Which sentence repeats the same structure several times to strengthen the effect?",
+      "choices": [
+        "We need change. We need it now. We need it for our future.",
+        "Some people believe that change is necessary.",
+        "It could be argued that change is overdue.",
+        "According to recent data, 60% support change."
+      ],
+      "answer": 0,
+      "explanation": "The repeated sentence structure \"We need...\" is a classic rhetorical device (anaphora) that gives power and rhythm to the argument. The other options contain no repetition."
+    },
+    {
+      "id": "q-en7gy-debate-3",
+      "kind": "mc",
+      "topic": "persuasive vs manipulative language",
+      "prompt": "Which technique makes an argument manipulative rather than simply persuasive?",
+      "opener": "The difference lies in whether the listener's reason or their fear/emotions are being exploited.",
+      "choices": [
+        "Providing evidence and citing sources.",
+        "Using fear and exaggeration to bypass the audience's reasoning.",
+        "Acknowledging the opposing view before responding to it.",
+        "Using a rhetorical question to introduce a topic."
+      ],
+      "answer": 1,
+      "explanation": "Manipulative language bypasses the listener's rational judgement through exaggeration and scaremongering instead of persuading with arguments. Evidence, concessions, and rhetorical questions are legitimate persuasive tools."
+    },
+    {
+      "id": "q-en7gy-debate-4",
+      "kind": "mc",
+      "topic": "persuasive vs manipulative language",
+      "prompt": "Which sentence is an example of a manipulative slippery-slope argument?",
+      "opener": "Which sentence claims, without evidence, that a small change inevitably leads to disaster?",
+      "choices": [
+        "Studies show that the policy reduced costs by 12%.",
+        "Opponents argue the policy is too expensive; however, long-term savings outweigh the initial cost.",
+        "If we allow this small change, soon everything will fall apart and society as we know it will collapse.",
+        "It could be argued that further research is needed before a final decision."
+      ],
+      "answer": 2,
+      "explanation": "This is a \"slippery slope\" argument: it claims, without evidence, that a small change will inevitably lead to disaster, which is a manipulative way of scaring the listener rather than arguing factually."
+    },
+    {
+      "id": "q-en7gy-debate-5",
+      "kind": "mc",
+      "topic": "counter-argument structure",
+      "prompt": "Which sentence best introduces a counter-argument before refuting it?",
+      "opener": "A good counter-argument acknowledges the other side BEFORE responding to it — which sentence does that?",
+      "choices": [
+        "This proves that my argument is correct.",
+        "In conclusion, the evidence supports my view.",
+        "Furthermore, the data confirms the trend.",
+        "Although some argue that costs would rise, the long-term savings suggest otherwise."
+      ],
+      "answer": 3,
+      "explanation": "\"Although some argue that...\" (a concession) followed by a response is the classic structure for countering an opposing view respectfully and effectively. The other options simply assert or summarise, without addressing an opposing viewpoint."
+    },
+    {
+      "id": "q-en7gy-debate-6",
+      "kind": "mc",
+      "topic": "hedging language",
+      "prompt": "Which sentence uses hedging language appropriately in an academic argument?",
+      "opener": "Hedging is used to express caution and avoid overly strong claims — which sentence does that?",
+      "choices": [
+        "This definitely proves that social media causes anxiety.",
+        "It could be argued that social media contributes to anxiety in some individuals.",
+        "Everybody knows social media causes anxiety.",
+        "Social media obviously ruins mental health."
+      ],
+      "answer": 1,
+      "explanation": "\"It could be argued that...\" and \"in some individuals\" soften the claim and signal academic caution. The other sentences use overly strong, unhedged phrasing (\"definitely\", \"obviously\", \"everybody knows\")."
+    },
+    {
+      "id": "q-en7gy-debate-7",
+      "kind": "worked",
+      "topic": "counter-argument structure",
+      "prompt": "Write a short counter-argument paragraph responding to this claim, using concession and hedging language: 'Homework should be abolished because it causes stress.'",
+      "opener": "Start by acknowledging the point, then use hedging, and then respond with a counter-argument.",
+      "answer": "It could be argued that homework causes stress; however, when used in moderation, it may also reinforce learning and build independent study habits that benefit students in the long run.",
+      "steps": [
+        "Start with a concession: acknowledge that the opposing point has some substance — \"It could be argued that homework causes stress\".",
+        "Use hedging (\"could be argued\", \"may also\") to avoid overly sharp claims and come across as balanced.",
+        "Introduce the counter-argument with a linking word like \"however\" to mark the turn.",
+        "End with a concrete benefit (\"reinforce learning\", \"independent study habits\") that outweighs the original objection."
+      ]
+    },
+    {
+      "id": "q-en7gy-debate-8",
+      "kind": "flashcard",
+      "topic": "rhetorical devices",
+      "prompt": "List the key rhetorical and persuasive devices used in English-language debate.",
+      "opener": "Common rhetorical tricks and how to recognise them.",
+      "answer": "Rhetorical question = a question with no expected answer, used to engage · Repetition/anaphora = repeating to reinforce a point · Rule of three = three examples/words in a row for rhythm and power · Concession = acknowledging the opposing point before responding to it · Hedging = \"it could be argued\", \"some suggest\" — softens claims · Scare rhetoric/slippery slope = manipulative, bypasses reason · Statistics/citing sources = strengthens credibility in a legitimate way"
+    }
+  ]
+}

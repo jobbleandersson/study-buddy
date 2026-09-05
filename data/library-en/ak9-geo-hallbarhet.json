@@ -1,0 +1,129 @@
+{
+  "id": "lib-geo-hallbarhet",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Sustainable development and climate change",
+  "sourceSummary": "What sustainable development means in terms of ecological, social and economic sustainability, how the greenhouse effect and climate change are connected, their global consequences, and the basic idea behind the UN's Global Goals.",
+  "topics": [
+    "sustainable development",
+    "the greenhouse effect and climate change",
+    "consequences of climate change",
+    "the UN's Global Goals"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo-hal-1",
+      "kind": "mc",
+      "topic": "sustainable development",
+      "prompt": "Which three dimensions is sustainable development usually divided into?",
+      "opener": "Think of sustainability as three puzzle pieces that all need to be in place at once for development to last.",
+      "choices": [
+        "Ecological, social and economic sustainability",
+        "Political, religious and cultural sustainability",
+        "Local, national and global sustainability",
+        "Historical, present-day and future sustainability"
+      ],
+      "answer": 0,
+      "explanation": "Sustainable development is usually divided into ecological sustainability (not harming nature and ecosystems), social sustainability (people having good living conditions, justice and security) and economic sustainability (the economy developing without using up resources that future generations will need). All three are needed at the same time for development to be sustainable in the long run."
+    },
+    {
+      "id": "q-geo-hal-2",
+      "kind": "mc",
+      "topic": "sustainable development",
+      "prompt": "A company builds a factory that creates many jobs and strengthens the economy, but it releases large amounts of toxins into a nearby lake that the local population fishes in. Which type of sustainability is failing here?",
+      "opener": "Think about which of the three dimensions is directly harmed by the pollution.",
+      "choices": [
+        "Economic sustainability",
+        "Ecological sustainability (and thereby also social sustainability, since people's health and livelihoods are affected)",
+        "No sustainability dimension is affected",
+        "Only political sustainability"
+      ],
+      "answer": 1,
+      "explanation": "The pollution damages the lake's ecosystem (ecological sustainability) and at the same time affects the people who depend on fishing for food and income (social sustainability). This shows that the three dimensions are connected — you cannot just look at the economic profit but must also weigh in the effects on the environment and on people."
+    },
+    {
+      "id": "q-geo-hal-3",
+      "kind": "mc",
+      "topic": "the greenhouse effect and climate change",
+      "prompt": "What is the natural greenhouse effect, and why is it fundamentally necessary for life on Earth?",
+      "opener": "Without any greenhouse effect at all, the Earth would be much colder than it is today.",
+      "choices": [
+        "It is a modern phenomenon caused solely by humans, and entirely harmful",
+        "Greenhouse gases in the atmosphere trap heat from the sun and keep the Earth warm enough for life",
+        "It describes how growing plants in greenhouses works",
+        "It is about the ozone layer breaking down"
+      ],
+      "answer": 1,
+      "explanation": "The natural greenhouse effect occurs when gases such as carbon dioxide and water vapour in the atmosphere trap some of the sun's heat instead of letting it radiate out into space. Without this natural effect, the Earth's average temperature would be far below freezing. The problem today is that human emissions AMPLIFY the effect beyond what is natural."
+    },
+    {
+      "id": "q-geo-hal-4",
+      "kind": "mc",
+      "topic": "the greenhouse effect and climate change",
+      "prompt": "Which human activity contributes MOST to the enhanced greenhouse effect globally?",
+      "opener": "Think about what releases large amounts of carbon dioxide that would otherwise have stayed locked in the ground.",
+      "choices": [
+        "Burning fossil fuels such as coal, oil and natural gas",
+        "People breathing",
+        "It raining more in some places",
+        "The Earth rotating on its own axis"
+      ],
+      "answer": 0,
+      "explanation": "Burning fossil fuels in industry, transport and electricity production releases large amounts of carbon dioxide that has been locked in the ground for millions of years, making it the single largest source of human greenhouse gas emissions. Deforestation also contributes significantly, since trees would otherwise capture carbon dioxide."
+    },
+    {
+      "id": "q-geo-hal-5",
+      "kind": "mc",
+      "topic": "consequences of climate change",
+      "prompt": "Which of the following is a direct consequence of the Earth's average temperature rising?",
+      "opener": "Think about what happens to ice and glaciers when it gets warmer.",
+      "choices": [
+        "Sea levels rise because glaciers and ice sheets melt and because seawater expands as it warms",
+        "The Earth's orbit around the sun changes",
+        "The number of continents increases",
+        "The ozone layer repairs itself automatically"
+      ],
+      "answer": 0,
+      "explanation": "As the average temperature rises, glaciers and ice sheets melt (for example in Greenland and Antarctica), and seawater also expands as it warms. Both effects cause sea levels to rise, which threatens low-lying coastal areas and island nations with flooding."
+    },
+    {
+      "id": "q-geo-hal-6",
+      "kind": "mc",
+      "topic": "consequences of climate change",
+      "prompt": "Why are low-income countries often hit hardest by the consequences of climate change, even though they have historically emitted the least greenhouse gases?",
+      "opener": "Think about the difference between being EXPOSED to a risk and having the RESOURCES to protect yourself against it.",
+      "choices": [
+        "They are always located closer to the equator and nothing else matters",
+        "They often have fewer economic resources to protect themselves against, for example, drought, flooding and crop failure",
+        "Climate change only affects rich countries",
+        "Low-income countries cause the most emissions today"
+      ],
+      "answer": 1,
+      "explanation": "Many low-income countries are heavily dependent on agriculture and have fewer economic resources to build protection against extreme weather, irrigation systems or disaster preparedness, which makes them especially vulnerable to drought, flooding and crop failure. This is a key injustice in the climate issue: the countries that have contributed least to emissions are often hit hardest by the consequences."
+    },
+    {
+      "id": "q-geo-hal-7",
+      "kind": "worked",
+      "topic": "the UN's Global Goals",
+      "prompt": "Explain the idea behind the UN's Global Goals (Agenda 2030) and why the Global Goals are considered to be interconnected.",
+      "opener": "Think about why you cannot solve, for example, poverty or the climate issue entirely separately from one another.",
+      "answer": "The UN's Global Goals, also known as Agenda 2030, are 17 goals that the world's countries have agreed on in order to achieve sustainable development by 2030 — they cover everything from eradicating poverty and hunger to gender equality, clean water, climate action and peaceful societies. The goals are considered to be interconnected because progress in one area often affects others: for example, climate change (goal 13) can worsen poverty (goal 1) and hunger (goal 2) through crop failure, while better education (goal 4) often leads to both reduced poverty and greater gender equality (goal 5). Sustainability challenges therefore cannot be solved one by one in isolation — the whole picture must be considered.",
+      "steps": [
+        "Agenda 2030 contains 17 Global Goals that the UN's member states have agreed on.",
+        "The goals cover ecological, social and economic sustainability together (e.g. climate, poverty, gender equality, education).",
+        "The goals are interlinked: a change in one goal often affects several others, positively or negatively.",
+        "Example: climate change (goal 13) can worsen hunger (goal 2) through crop failure, which in turn increases poverty (goal 1).",
+        "Conclusion: sustainable development requires working on the goals together, not separately."
+      ]
+    },
+    {
+      "id": "q-geo-hal-8",
+      "kind": "flashcard",
+      "topic": "sustainable development",
+      "prompt": "Summarise sustainable development and climate change: concepts, causes and consequences.",
+      "opener": "Gather the key concepts into a compact overview for quick revision.",
+      "answer": "Sustainable development: development that meets today's needs without compromising the ability of future generations to meet theirs · three dimensions: ecological (environment and ecosystems), social (justice, health, security) and economic (resources lasting in the long run) sustainability. The greenhouse effect: a natural process in which greenhouse gases (carbon dioxide, methane and others) trap heat in the atmosphere · human emissions from fossil fuels and deforestation AMPLIFY the effect. Consequences: rising average temperature · melting glaciers and ice → rising sea levels · more extreme weather (drought, flooding, storms) · crop failure and threats to food supply · low-income countries often hit hardest despite having the lowest emissions. The UN's Global Goals (Agenda 2030): 17 goals for sustainable development by 2030 · the goals are interconnected and must be tackled together."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-sv7-skrivregler",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Writing rules and spelling",
+  "sourceSummary": "Capital letters and full stops, commas in lists, common spelling mistakes, compound words versus incorrectly split words, and how to write dialogue with dashes and quotation marks.",
+  "topics": [
+    "sentence structure",
+    "punctuation",
+    "spelling",
+    "compound words",
+    "dialogue"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv7-skr-1",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Which line is written with correct capitalisation and full stops?",
+      "opener": "A new sentence always starts with a capital letter, and names are capitalised in the middle of a sentence too.",
+      "choices": [
+        "vi åkte till stockholm i lördags. det regnade hela dagen.",
+        "Vi åkte till Stockholm i lördags. Det regnade hela dagen.",
+        "Vi åkte till stockholm i lördags, det regnade hela dagen",
+        "vi åkte till Stockholm i Lördags. Det Regnade hela dagen."
+      ],
+      "answer": 1,
+      "explanation": "Both sentences start with a capital letter, the city Stockholm is a name and is capitalised, and each sentence ends with a full stop. Days of the week and ordinary words like \"lördags\" (Saturday) and \"regnade\" (rained), however, are written with a lowercase letter in Swedish."
+    },
+    {
+      "id": "q-sv7-skr-2",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "Where should the commas go in this list? \"Jag packade en tröja ett par strumpor en mössa och vantar.\" (\"I packed a jumper a pair of socks a hat and mittens.\")",
+      "opener": "In a list, commas go between the items — but not before the final \"and\".",
+      "choices": [
+        "Jag packade en tröja, ett par strumpor, en mössa och vantar.",
+        "Jag packade en tröja, ett par strumpor, en mössa, och vantar.",
+        "Jag packade, en tröja ett par strumpor, en mössa och vantar.",
+        "Jag packade en tröja ett par strumpor, en mössa och vantar."
+      ],
+      "answer": 0,
+      "explanation": "Commas separate the items in the list, and the last item is joined with \"och\" (and) without a comma before it. The option with a comma before \"och\" is an English habit that isn't used in Swedish lists."
+    },
+    {
+      "id": "q-sv7-skr-3",
+      "kind": "mc",
+      "topic": "spelling",
+      "prompt": "Which sentence is spelled correctly?",
+      "opener": "Look especially at double consonants and at words that sound alike but are spelled differently.",
+      "choices": [
+        "Han sa att han skulle komma sennare på kvällen.",
+        "Han sa att han skule komma senare på kvälen.",
+        "Han sa att han skulle komma senare på kvällen.",
+        "Han sa at han skulle komma senare på kvällen."
+      ],
+      "answer": 2,
+      "explanation": "\"Skulle\", \"senare\" and \"kvällen\" are spelled correctly here. Common mistakes are doubling a consonant too much (\"sennare\") or too little (\"skule\", \"kvälen\") — doubling is used after a short vowel, as in kväll (evening)."
+    },
+    {
+      "id": "q-sv7-skr-4",
+      "kind": "mc",
+      "topic": "compound words",
+      "prompt": "Which word is written correctly?",
+      "opener": "Compound words are written as one word in Swedish — try saying the word: does it sound like ONE word?",
+      "choices": [
+        "fotbolls plan",
+        "fotbollsplan",
+        "fot bollsplan",
+        "fotbolls-plan"
+      ],
+      "answer": 1,
+      "explanation": "\"Fotbollsplan\" (football pitch) is a compound word and is written as one word. If you split it into \"fotbolls plan\", it becomes two words that separately mean something else — compare \"en rök fri restaurang\" (a smoke, free restaurant) with \"en rökfri restaurang\" (a smoke-free restaurant)."
+    },
+    {
+      "id": "q-sv7-skr-5",
+      "kind": "mc",
+      "topic": "dialogue",
+      "prompt": "Which line shows the correct way to write dialogue with a dash?",
+      "opener": "The dash goes at the start of the line, and each new speaker gets a new line.",
+      "choices": [
+        "- Var har du varit? frågade pappa. - På träningen, svarade Ali.",
+        "\"Var har du varit? frågade pappa. På träningen, svarade Ali.\"",
+        "Var har du varit? frågade pappa. På träningen, svarade Ali.",
+        "- Var har du varit? frågade pappa. På träningen, svarade Ali."
+      ],
+      "answer": 0,
+      "explanation": "Each line of dialogue begins with a dash, and when the speaker changes, a new line of dialogue begins with a new dash. Without a dash before Ali's reply, it becomes unclear who is saying what."
+    },
+    {
+      "id": "q-sv7-skr-6",
+      "kind": "mc",
+      "topic": "dialogue",
+      "prompt": "Which sentence uses quotation marks correctly?",
+      "opener": "Quotation marks go around exactly the words that are spoken — not around the whole sentence including the speech tag.",
+      "choices": [
+        "\"Jag hinner inte nu, sa Maja.\"",
+        "Jag hinner inte nu, \"sa Maja\".",
+        "\"Jag hinner inte nu\", sa Maja.",
+        "Jag \"hinner inte nu, sa Maja\"."
+      ],
+      "answer": 2,
+      "explanation": "Only Maja's own words are inside the quotation marks, and \"sa Maja\" (said Maja) is outside them. In the first option, the speech tag also ends up inside the quotation marks, which makes it look as if Maja is saying \"sa Maja\"."
+    },
+    {
+      "id": "q-sv7-skr-7",
+      "kind": "worked",
+      "topic": "sentence structure",
+      "prompt": "Correct the sentence and explain each change: \"på fredag ska vi laga mat vi köper potatis morötter och kött i mat affären\" (\"on friday we're going to cook we buy potatoes carrots and meat at the grocery store\")",
+      "opener": "Look in turn for capital letters, full stops, commas in the list, and incorrectly split words.",
+      "answer": "\"På fredag ska vi laga mat. Vi köper potatis, morötter och kött i mataffären.\"",
+      "steps": [
+        "The sentence must start with a capital letter: \"på\" becomes \"På\".",
+        "There are two sentences here — put a full stop after \"mat\" and a capital letter on \"Vi\".",
+        "The list needs commas between the items: \"potatis, morötter och kött\" — no comma before \"och\".",
+        "\"Mat affären\" is a compound word and should be written as one word: \"mataffären\".",
+        "End the last sentence with a full stop."
+      ]
+    },
+    {
+      "id": "q-sv7-skr-8",
+      "kind": "flashcard",
+      "topic": "sentence structure",
+      "prompt": "Which writing rules should you always check before handing in a text?",
+      "opener": "A short checklist to go through when proofreading.",
+      "answer": "Capital letter at the start of every sentence and on names (people, cities, countries) · a full stop at the end of every sentence · commas between the items in a list, but not before the final \"och\" (and) · compound words are written as one word: fotbollsplan (football pitch), mataffär (grocery store), klassrum (classroom) · doubled consonants after a short vowel: kväll (evening), glass (ice cream), kommer (comes) · dialogue: a dash at the start of the line and a new line for each new speaker, or quotation marks around only the spoken words with the speech tag (sa Maja / said Maja) outside them · always read through the text one extra time, ideally out loud."
+    }
+  ]
+}

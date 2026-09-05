@@ -1,0 +1,129 @@
+{
+  "id": "lib-bio7-djur",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Classifying animals",
+  "sourceSummary": "How biologists divide the animal kingdom into vertebrates and invertebrates. You practise the characteristics of fish, amphibians, reptiles, birds and mammals, as well as the difference between cold-blooded and warm-blooded animals.",
+  "topics": [
+    "vertebrates",
+    "invertebrates",
+    "mammals and birds",
+    "cold-blooded and warm-blooded"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio7-dju-1",
+      "kind": "mc",
+      "topic": "vertebrates",
+      "prompt": "Which of the groups below does NOT belong to the vertebrates?",
+      "opener": "Four of the options have a spine made of vertebrae — one does not.",
+      "choices": [
+        "Amphibians",
+        "Insects",
+        "Birds",
+        "Reptiles"
+      ],
+      "answer": 1,
+      "explanation": "Insects are invertebrates; instead they have a hard external skeleton. Amphibians, birds and reptiles all have a spine made of vertebrae and are therefore counted as vertebrates."
+    },
+    {
+      "id": "q-bio7-dju-2",
+      "kind": "mc",
+      "topic": "mammals and birds",
+      "prompt": "What is typical of mammals?",
+      "opener": "Think about the name — what does a female mammal do for her young?",
+      "choices": [
+        "They always lay eggs with a hard shell",
+        "They breathe through gills their whole life",
+        "They have feathers and a beak",
+        "They give birth to live young and nurse them with milk"
+      ],
+      "answer": 3,
+      "explanation": "Mammals suckle their young with milk from mammary glands and have hair or fur. It is birds that have feathers and a beak, and fish that breathe through gills their whole life."
+    },
+    {
+      "id": "q-bio7-dju-3",
+      "kind": "mc",
+      "topic": "vertebrates",
+      "prompt": "Which animal is an amphibian?",
+      "opener": "Amphibians live the first part of their life in water and later on land.",
+      "choices": [
+        "The frog",
+        "The snake",
+        "The perch",
+        "The bat"
+      ],
+      "answer": 0,
+      "explanation": "The frog is an amphibian: it lays eggs in water, the tadpole breathes with gills, and the adult frog breathes with lungs and skin. The snake is a reptile with dry, scaly skin and it lives its whole life on land."
+    },
+    {
+      "id": "q-bio7-dju-4",
+      "kind": "mc",
+      "topic": "cold-blooded and warm-blooded",
+      "prompt": "What does it mean that a lizard is cold-blooded?",
+      "opener": "Think about why lizards like to lie basking on a warm stone.",
+      "choices": [
+        "It always keeps exactly 37 degrees inside its body",
+        "It changes body temperature once a year",
+        "Its body temperature follows the temperature of its surroundings",
+        "It gets warmer the more it eats"
+      ],
+      "answer": 2,
+      "explanation": "Cold-blooded animals are warmed by their surroundings, which is why the lizard basks in the sun to become active and grows sluggish when it is cold. Always keeping the same body temperature is instead what warm-blooded animals such as birds and mammals do."
+    },
+    {
+      "id": "q-bio7-dju-5",
+      "kind": "mc",
+      "topic": "invertebrates",
+      "prompt": "How many legs does an insect have as an adult?",
+      "opener": "Count on a bumblebee or a beetle — the legs sit in pairs on the thorax.",
+      "choices": [
+        "4",
+        "8",
+        "10",
+        "6"
+      ],
+      "answer": 3,
+      "explanation": "Insects have six legs and the body is divided into head, thorax and abdomen. Arachnids have eight legs, and it is precisely the number of legs that means a spider is not an insect."
+    },
+    {
+      "id": "q-bio7-dju-6",
+      "kind": "mc",
+      "topic": "invertebrates",
+      "prompt": "Which animal is a mollusc?",
+      "opener": "Many molluscs have a soft body and often a shell for protection.",
+      "choices": [
+        "The ant",
+        "The snail",
+        "The tick",
+        "The pike"
+      ],
+      "answer": 1,
+      "explanation": "The snail is a mollusc with a soft body and no skeleton; sea snails and mussels belong to the same group. The ant is an insect and the tick an arachnid — both have a hard external skeleton, not a soft body."
+    },
+    {
+      "id": "q-bio7-dju-7",
+      "kind": "worked",
+      "topic": "vertebrates",
+      "prompt": "You find an animal that has scales, breathes with lungs, lays eggs on land and becomes sluggish when it is cold. Which group of vertebrates does it belong to? Show how you reason.",
+      "opener": "Go through the clues one at a time and cross off the groups that do not fit.",
+      "answer": "It is a reptile, for example a snake or a lizard.",
+      "steps": [
+        "Scales and lungs: fish are ruled out, they have gills and live in water.",
+        "Eggs laid on land: amphibians are ruled out, they lay their eggs in water.",
+        "Scales instead of feathers or fur: birds and mammals are ruled out.",
+        "The animal becoming sluggish in the cold shows that it is cold-blooded, which fits reptiles.",
+        "Only the reptiles remain — so the answer is a reptile."
+      ]
+    },
+    {
+      "id": "q-bio7-dju-8",
+      "kind": "flashcard",
+      "topic": "vertebrates",
+      "prompt": "What are the five groups of vertebrates and what characterises them?",
+      "opener": "Take the groups in order and mention skin, breathing, eggs or young, and body temperature.",
+      "answer": "Fish: scales · gills · external fertilisation and eggs in water · cold-blooded · Amphibians: moist bare skin · larvae with gills, adults with lungs and skin · eggs in water · cold-blooded · Reptiles: dry scales · lungs · eggs with a leathery shell laid on land · cold-blooded · Birds: feathers and a beak · lungs · eggs with a hard shell, incubated · warm-blooded · Mammals: hair or fur · lungs · give birth to live young and produce milk · warm-blooded · Invertebrates: insects (6 legs, three-part body) · arachnids (8 legs, two-part body) · molluscs (soft body, often a shell) · all lack a spine and are cold-blooded."
+    }
+  ]
+}

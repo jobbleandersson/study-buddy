@@ -1,0 +1,129 @@
+{
+  "id": "lib-ma3-trigonometri",
+  "type": "assignment",
+  "subject": "Matematik 3",
+  "title": "Trigonometric functions and equations",
+  "sourceSummary": "Radians, the unit circle, trigonometric equations of the type $\\sin x = a$, and trigonometric identities that build on what was covered in Matematik 2.",
+  "topics": [
+    "radians",
+    "the unit circle",
+    "trigonometric equations",
+    "trigonometric identities"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma3-trig-1",
+      "kind": "mc",
+      "topic": "radians",
+      "prompt": "How many radians correspond to $90°$?",
+      "opener": "Remember that $180°$ corresponds to $\\pi$ radians, set up a proportion.",
+      "choices": [
+        "$\\dfrac{\\pi}{2}$",
+        "$\\pi$",
+        "$\\dfrac{\\pi}{4}$",
+        "$2\\pi$"
+      ],
+      "answer": 0,
+      "explanation": "Since $180° = \\pi$ rad, $90°$ corresponds to half of that: $\\dfrac{180°}{2}=90° \\Rightarrow \\dfrac{\\pi}{2}$ rad. Answering $\\pi$ would have meant $180°$, a full half-circle."
+    },
+    {
+      "id": "q-ma3-trig-2",
+      "kind": "mc",
+      "topic": "radians",
+      "prompt": "How many degrees correspond to $\\dfrac{3\\pi}{4}$ radians?",
+      "opener": "Use the fact that $\\pi$ radians corresponds to $180°$ and rescale.",
+      "choices": [
+        "$120°$",
+        "$150°$",
+        "$135°$",
+        "$270°$"
+      ],
+      "answer": 2,
+      "explanation": "$\\dfrac{3\\pi}{4}\\ \\text{rad} = \\dfrac{3}{4}\\cdot180° = 135°$. The answer $270°$ is obtained if you mistakenly multiply by $360°$ instead of $180°$."
+    },
+    {
+      "id": "q-ma3-trig-3",
+      "kind": "mc",
+      "topic": "the unit circle",
+      "prompt": "A point on the unit circle corresponds to the angle $\\dfrac{\\pi}{3}$. What are the coordinates of the point?",
+      "opener": "The coordinates on the unit circle are given by $(\\cos v, \\sin v)$ — what are the exact values for $\\frac{\\pi}{3}$ (60°)?",
+      "choices": [
+        "$\\left(\\dfrac{\\sqrt3}{2},\\ \\dfrac{1}{2}\\right)$",
+        "$\\left(\\dfrac{1}{2},\\ \\dfrac{\\sqrt3}{2}\\right)$",
+        "$\\left(\\dfrac{\\sqrt2}{2},\\ \\dfrac{\\sqrt2}{2}\\right)$",
+        "$(1,\\ 0)$"
+      ],
+      "answer": 1,
+      "explanation": "The point on the unit circle is given by $(\\cos v,\\ \\sin v)$. For $v=\\frac{\\pi}{3}$ (60°), $\\cos\\frac{\\pi}{3}=\\frac{1}{2}$ and $\\sin\\frac{\\pi}{3}=\\frac{\\sqrt3}{2}$, so $\\left(\\frac12,\\frac{\\sqrt3}{2}\\right)$. Swapping the coordinates to $\\left(\\frac{\\sqrt3}{2},\\frac12\\right)$ instead gives the values for $\\frac{\\pi}{6}$ (30°)."
+    },
+    {
+      "id": "q-ma3-trig-4",
+      "kind": "mc",
+      "topic": "trigonometric equations",
+      "prompt": "Solve the equation $\\sin x = \\dfrac{1}{2}$ for $0 \\le x < 2\\pi$.",
+      "opener": "Sine is positive in two quadrants on the unit circle — find both solutions.",
+      "choices": [
+        "$x=\\dfrac{\\pi}{6}$ or $x=\\dfrac{7\\pi}{6}$",
+        "$x=\\dfrac{\\pi}{3}$ or $x=\\dfrac{2\\pi}{3}$",
+        "$x=\\dfrac{\\pi}{6}$ (the only solution)",
+        "$x=\\dfrac{\\pi}{6}$ or $x=\\dfrac{5\\pi}{6}$"
+      ],
+      "answer": 3,
+      "explanation": "The reference angle is $\\frac{\\pi}{6}$ since $\\sin\\frac{\\pi}{6}=\\frac12$. Sine is positive in the first and second quadrants, giving $x=\\frac{\\pi}{6}$ and $x=\\pi-\\frac{\\pi}{6}=\\frac{5\\pi}{6}$. The solution $\\frac{7\\pi}{6}$ lies in the third quadrant where sine is negative, so it is wrong."
+    },
+    {
+      "id": "q-ma3-trig-5",
+      "kind": "mc",
+      "topic": "trigonometric identities",
+      "prompt": "Which of the following is the Pythagorean trigonometric identity?",
+      "opener": "The identity holds for all angles $x$ and comes from Pythagoras' theorem on the unit circle.",
+      "choices": [
+        "$\\sin x+\\cos x=1$",
+        "$\\sin^2x-\\cos^2x=1$",
+        "$\\sin^2x+\\cos^2x=1$",
+        "$\\sin(2x)=\\sin x+\\cos x$"
+      ],
+      "answer": 2,
+      "explanation": "The Pythagorean identity is $\\sin^2x+\\cos^2x=1$ for all angles $x$, which follows from Pythagoras' theorem applied to the unit circle's points $(\\cos x,\\sin x)$. The expression $\\sin x+\\cos x=1$ only holds for certain specific angles, not in general."
+    },
+    {
+      "id": "q-ma3-trig-6",
+      "kind": "mc",
+      "topic": "trigonometric identities",
+      "prompt": "Which of the following double-angle formulas is correct?",
+      "opener": "There are several equivalent forms of $\\cos(2x)$ — one is built directly from $\\cos^2x$ and $\\sin^2x$.",
+      "choices": [
+        "$\\cos(2x)=2\\cos x\\sin x$",
+        "$\\cos(2x)=\\cos^2x-\\sin^2x$",
+        "$\\cos(2x)=\\cos^2x+\\sin^2x$",
+        "$\\cos(2x)=\\sin^2x-\\cos^2x$"
+      ],
+      "answer": 1,
+      "explanation": "The double-angle formula is $\\cos(2x)=\\cos^2x-\\sin^2x$. The expression $2\\cos x\\sin x$ is instead the formula for $\\sin(2x)$, and $\\cos^2x+\\sin^2x$ is always equal to $1$ by the Pythagorean identity, not $\\cos(2x)$."
+    },
+    {
+      "id": "q-ma3-trig-7",
+      "kind": "worked",
+      "topic": "trigonometric equations",
+      "prompt": "Solve the equation $\\cos x = -\\dfrac{\\sqrt2}{2}$ for $0 \\le x < 2\\pi$.",
+      "opener": "Find the reference angle where cosine is positive and of the same magnitude, then determine in which quadrants cosine is negative.",
+      "answer": "$x=\\dfrac{3\\pi}{4}$ or $x=\\dfrac{5\\pi}{4}$",
+      "steps": [
+        "Reference angle: $\\cos\\frac{\\pi}{4}=\\frac{\\sqrt2}{2}$, so the reference angle is $\\frac{\\pi}{4}$.",
+        "Cosine is negative in the second and third quadrants of the unit circle.",
+        "Second quadrant: $x=\\pi-\\frac{\\pi}{4}=\\frac{3\\pi}{4}$.",
+        "Third quadrant: $x=\\pi+\\frac{\\pi}{4}=\\frac{5\\pi}{4}$.",
+        "The solutions in the interval are $x=\\frac{3\\pi}{4}$ or $x=\\frac{5\\pi}{4}$."
+      ]
+    },
+    {
+      "id": "q-ma3-trig-8",
+      "kind": "flashcard",
+      "topic": "trigonometric identities",
+      "prompt": "Summarise the concept of radians, the unit circle, solving $\\sin x=a$, and the trigonometric identities.",
+      "opener": "Think degree-to-radian, the signs in each quadrant, and the double-angle identities.",
+      "answer": "$180°=\\pi$ rad, so $1$ rad $=\\dfrac{180°}{\\pi}$ · Point on the unit circle at angle $v$: $(\\cos v,\\ \\sin v)$ · Pythagorean identity: $\\sin^2x+\\cos^2x=1$ · $\\sin(2x)=2\\sin x\\cos x$ · $\\cos(2x)=\\cos^2x-\\sin^2x=1-2\\sin^2x=2\\cos^2x-1$ · $\\sin x=a$ has solutions $x=v+2\\pi n$ or $x=\\pi-v+2\\pi n$, where $v$ is one solution · $\\cos x=a$ has solutions $x=\\pm v+2\\pi n$, where $v$ is one solution"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam7-media",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Media and information",
+  "sourceSummary": "The role of the media in a democracy, the difference between news and opinion, how to check sources online, what applies around social media and online hate, and what freedom of speech means.",
+  "topics": [
+    "the role of the media",
+    "news and opinion",
+    "source criticism",
+    "social media and online hate",
+    "freedom of speech"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam7-med-1",
+      "kind": "mc",
+      "topic": "the role of the media",
+      "prompt": "What important task do news media have in a democracy?",
+      "opener": "Think about what citizens need to know in order to vote wisely.",
+      "choices": [
+        "To decide which laws should apply",
+        "To scrutinise those in power and give citizens information so they can form their own opinion",
+        "To appoint the government after the election",
+        "To sentence those who have broken the law"
+      ],
+      "answer": 1,
+      "explanation": "News media inform, scrutinise those who hold power, and give room for debate — which is why they are sometimes called the fourth estate. Passing laws, appointing the government and sentencing people are instead tasks for parliament, the speaker, and the courts."
+    },
+    {
+      "id": "q-sam7-med-2",
+      "kind": "mc",
+      "topic": "news and opinion",
+      "prompt": "What distinguishes an opinion piece from a news article?",
+      "opener": "One wants to persuade you, the other wants to inform you.",
+      "choices": [
+        "An opinion piece is always longer than a news article",
+        "A news article is written by a reader and an opinion piece by a journalist",
+        "There's no difference, both are news",
+        "An opinion piece presents a view and wants to persuade, while a news article should describe what happened as factually as possible"
+      ],
+      "answer": 3,
+      "explanation": "An opinion piece or letter to the editor presents the writer's view, while a news article should report facts as neutrally as possible and cover several sides. Length says nothing about which type of text it is — and opinion pieces are in fact often written by readers or experts, not by the newsroom's journalists."
+    },
+    {
+      "id": "q-sam7-med-3",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "Which question is most useful when you assess a source online?",
+      "opener": "The most important question is about who sent it.",
+      "choices": [
+        "Who is behind the information, and why has it been published?",
+        "How many colours does the webpage have?",
+        "How many words is the text?",
+        "Does the page have a nice-looking logo?"
+      ],
+      "answer": 0,
+      "explanation": "Source criticism starts with the sender and the purpose: who wrote it, what do they want to achieve, and do they gain anything from you believing the information? How good-looking the page is says almost nothing about how reliable the content is — a well-made page can contain completely incorrect information."
+    },
+    {
+      "id": "q-sam7-med-4",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "You see a dramatic claim in a post in your feed. What is the best first step?",
+      "opener": "Before you share it further: see whether someone else, independent of the post, is saying the same thing.",
+      "choices": [
+        "Share the post right away so more people find out",
+        "Trust it if a lot of people have liked the post",
+        "Look for whether several independent sources are reporting the same thing",
+        "Assume it's false because it's on social media"
+      ],
+      "answer": 2,
+      "explanation": "Comparing with several independent sources, for example established news media or authorities, is the safest way to check a claim. The number of likes and shares says nothing about how true something is — and automatically dismissing everything on social media isn't source criticism, just another kind of prejudice."
+    },
+    {
+      "id": "q-sam7-med-5",
+      "kind": "mc",
+      "topic": "social media and online hate",
+      "prompt": "What applies if someone writes offensive things about another person online?",
+      "opener": "Think about whether the internet is a lawless zone or not.",
+      "choices": [
+        "It's always allowed since it's just words",
+        "It can be a crime, for example defamation, unlawful threats or harassment — the same laws apply online as in real life",
+        "It's allowed as long as you use an anonymous account",
+        "Only adults can be held responsible for anything online"
+      ],
+      "answer": 1,
+      "explanation": "The same laws apply on the internet as outside it: threats, defamation, harassment and incitement against an ethnic or national group are crimes even when committed in a chat or a comment. Using an anonymous account doesn't change that, since the police can often find out who wrote it."
+    },
+    {
+      "id": "q-sam7-med-6",
+      "kind": "mc",
+      "topic": "freedom of speech",
+      "prompt": "What does freedom of speech mean in Sweden?",
+      "opener": "The freedom is broad, but not entirely unlimited.",
+      "choices": [
+        "That you're allowed to say absolutely anything with no limits at all",
+        "That only journalists are allowed to express opinions publicly",
+        "That the state approves all texts before they are published",
+        "That you have the right to express your opinions, but the freedom has limits — for example unlawful threats and incitement against an ethnic or national group are forbidden"
+      ],
+      "answer": 3,
+      "explanation": "Freedom of speech is a constitutionally protected right that gives everyone the right to express opinions, but it is limited by laws against, among other things, threats, defamation and incitement against an ethnic or national group. The state pre-approving texts would be the opposite of freedom of speech — such censorship is forbidden in Sweden."
+    },
+    {
+      "id": "q-sam7-med-7",
+      "kind": "worked",
+      "topic": "source criticism",
+      "prompt": "You find an article in your feed with a headline saying the schools in your municipality will close next week. Describe step by step how you check the information critically.",
+      "opener": "Use the questions of source criticism in order: who, when, why, and can it be confirmed?",
+      "answer": "First you look at the sender: who is behind the page, is there an editorial team and a responsible publisher? Then you check the date — an old article can be shared as if it were new. After that you think about the purpose: does the page want to inform, persuade, sell something, or attract clicks? The next step is to look for the same information in several independent sources, for example the municipality's website or established news media. Finally you compare the headline with the text, since headlines often exaggerate, and check the images — they may have been taken in a different context. If no independent source confirms the information, you shouldn't share it further.",
+      "steps": [
+        "Check the sender: who published it, is there an editorial team and contact details?",
+        "Check the date — old articles are often shared as if they were current news.",
+        "Think about the purpose: to inform, persuade, sell, or get clicks?",
+        "Look for the same information in at least two independent sources, for example the municipality's website or established news media.",
+        "Compare the headline with the content and check the images — don't share further if no independent source confirms it."
+      ]
+    },
+    {
+      "id": "q-sam7-med-8",
+      "kind": "flashcard",
+      "topic": "source criticism",
+      "prompt": "Summarise the role of the media, the questions of source criticism, and the rules online.",
+      "opener": "Take the media's task first, then the types of text, source criticism, and finally rights and limits.",
+      "answer": "The role of the media: to inform, scrutinise those in power, and give room for debate — sometimes called the fourth estate · News: should report what happened factually and from several perspectives · Opinion text: opinion piece, letter to the editor, column, editorial — wants to persuade · Advertising: wants to sell, must be labelled as an ad, even when an influencer makes it · The questions of source criticism: Who is the sender? When was it published? Why was it published? Can the claim be confirmed by independent sources? · Dependent sources: pages that just repeat each other count as a single source · Disinformation: false information spread deliberately · Filter bubble: algorithms mostly show you things you already like, so you see fewer other perspectives · Freedom of speech: a constitutionally protected right to express opinions, prior censorship is forbidden · Limits: unlawful threats, defamation, harassment and incitement against an ethnic or national group are crimes — the same laws apply online as offline · If you experience online hate: save evidence (screenshots), block, tell an adult, and report it to the police."
+    }
+  ]
+}

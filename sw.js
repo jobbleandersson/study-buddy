@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studybuddy-v37";
+const CACHE = "studybuddy-v38";
 
 const APP_SHELL = [
   "./",
@@ -40,6 +40,7 @@ const APP_SHELL = [
   "./js/lib/rich.js",
   "./js/lib/confetti-helper.js",
   "./js/lib/library.js",
+  "./js/lib/library-content.js",
   "./js/lib/achievements.js",
   "./js/lib/recap.js",
   "./js/lib/typeface.js",
@@ -84,6 +85,7 @@ const APP_SHELL = [
   "./data/samples/sample-test.sv.json",
   "./data/samples/scripted-tutor.sv.json",
   "./data/library/index.json",
+  "./data/library/index.en.json",
 ];
 
 self.addEventListener("install", (event) => {

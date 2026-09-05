@@ -1,0 +1,129 @@
+{
+  "id": "lib-en6-passive",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Grammar: passive voice and reported speech",
+  "sourceSummary": "Active and passive forms in different tenses, plus how to change direct speech into indirect speech (reported speech) with correct tense backshifting.",
+  "topics": [
+    "active vs passive",
+    "passive tenses",
+    "reported statements",
+    "reported questions",
+    "reported commands"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-passive-1",
+      "kind": "mc",
+      "topic": "active vs passive",
+      "prompt": "Which sentence is in the passive voice?",
+      "opener": "Look for the form \"be\" + past participle — that's the tell-tale sign.",
+      "choices": [
+        "The committee announced the results yesterday.",
+        "The results were announced by the committee yesterday.",
+        "The committee will announce the results soon.",
+        "The committee is announcing the results now."
+      ],
+      "answer": 1,
+      "explanation": "In the passive voice, the one affected by the action (\"the results\") becomes the subject, and the verb is \"be\" + past participle: \"were announced\". The other options have the subject performing the action, i.e. the active form."
+    },
+    {
+      "id": "q-en6-passive-2",
+      "kind": "mc",
+      "topic": "active vs passive",
+      "prompt": "Rewrite in the passive: \"Millions of people watch this show every week.\"",
+      "opener": "Who or what is affected by the action? That should become the subject of the new sentence.",
+      "choices": [
+        "This show is watched by millions of people every week.",
+        "This show was watched by millions of people every week.",
+        "This show watches millions of people every week.",
+        "Millions of people are watched by this show every week."
+      ],
+      "answer": 0,
+      "explanation": "The object \"this show\" becomes the subject, and since the main clause is in the present tense, the passive form is \"is watched\". Option 4 swaps who performs and who is subjected to the action, which changes the meaning entirely."
+    },
+    {
+      "id": "q-en6-passive-3",
+      "kind": "mc",
+      "topic": "passive tenses",
+      "prompt": "Choose the correct passive form: \"The results ___ yet.\" (announce)",
+      "opener": "Present perfect passive is formed with have/has been + past participle.",
+      "choices": [
+        "haven't announced",
+        "haven't been announced",
+        "aren't announced",
+        "weren't been announced"
+      ],
+      "answer": 1,
+      "explanation": "Present perfect passive: have/has (not) been + participle — \"haven't been announced\". \"haven't announced\" is missing \"been\" and becomes an active form with the wrong meaning (it requires an object)."
+    },
+    {
+      "id": "q-en6-passive-4",
+      "kind": "mc",
+      "topic": "passive tenses",
+      "prompt": "Choose the correct passive form: \"A decision ___ by Friday.\" (make)",
+      "opener": "Future passive: will be + past participle.",
+      "choices": [
+        "will make",
+        "is made",
+        "will be made",
+        "will have make"
+      ],
+      "answer": 2,
+      "explanation": "Future passive is formed with \"will be\" + participle: \"will be made\". \"will make\" is an active form and requires an object (who makes the decision), which is missing here."
+    },
+    {
+      "id": "q-en6-passive-5",
+      "kind": "mc",
+      "topic": "reported statements",
+      "prompt": "Report this statement: \"I am tired,\" she said.",
+      "opener": "The tense is often shifted one step back (backshift) when the reporting verb is in the past tense.",
+      "choices": [
+        "She said she is tired.",
+        "She said she was tired.",
+        "She said I was tired.",
+        "She says she was tired."
+      ],
+      "answer": 1,
+      "explanation": "\"am\" is backshifted to \"was\", and \"I\" changes to \"she\" since she is talking about herself. Keeping the present tense (\"is\") or \"I\" are the most common mistakes in reported speech."
+    },
+    {
+      "id": "q-en6-passive-6",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "Report this question: \"Where do you live?\" he asked.",
+      "opener": "In indirect questions, the word order becomes like an ordinary statement — no auxiliary-verb inversion and no question mark.",
+      "choices": [
+        "He asked where do I live.",
+        "He asked where did I live.",
+        "He asked where I live.",
+        "He asked where I lived."
+      ],
+      "answer": 3,
+      "explanation": "Indirect questions drop the auxiliary verb \"do/did\" and take normal word order (subject before verb), and the tense is backshifted: \"where I lived\". \"where do/did I live\" incorrectly keeps the question word order."
+    },
+    {
+      "id": "q-en6-passive-7",
+      "kind": "worked",
+      "topic": "reported commands",
+      "prompt": "Find and correct the three errors: \"The teacher told to us turn off our phones, and she said that we not must talk during the test.\"",
+      "opener": "Look at three things: the preposition after \"told\", the verb form after the object, and where \"not\" should go together with \"must\".",
+      "answer": "The teacher told us to turn off our phones, and she said that we must not talk during the test.",
+      "steps": [
+        "\"told to us\" → \"told us\": the verb \"tell\" is followed directly by the object, without a preposition (\"tell someone to do something\").",
+        "\"us turn off\" → \"us to turn off\": a reported command requires the infinitive with \"to\" after the object.",
+        "\"we not must talk\" → \"we must not talk\": negative modal verbs are formed with \"must not\", never \"not must\".",
+        "Summary: reported commands are formed with tell/ask + object + infinitive with \"to\", e.g. \"told us to turn off\", \"asked us not to talk\"."
+      ]
+    },
+    {
+      "id": "q-en6-passive-8",
+      "kind": "flashcard",
+      "topic": "passive tenses",
+      "prompt": "Summarize how to form the passive in different tenses.",
+      "opener": "The same pattern in every tense — only the auxiliary verb \"be\" changes.",
+      "answer": "Present simple: am/is/are + participle — \"The letter is sent.\" · Past simple: was/were + participle — \"The letter was sent.\" · Present perfect: have/has been + participle — \"The letter has been sent.\" · Future: will be + participle — \"The letter will be sent.\" · Modal: modal + be + participle — \"The letter must be sent.\" · Rule: only transitive verbs (verbs that take an object) can become passive, and \"by + agent\" is only added when it matters who performed the action."
+    }
+  ]
+}

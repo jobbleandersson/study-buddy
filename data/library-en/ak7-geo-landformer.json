@@ -1,0 +1,131 @@
+{
+  "id": "lib-geo7-landformer",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "The Earth's landforms and natural forces",
+  "sourceSummary": "The Earth's internal structure and the movements of the tectonic plates, how volcanoes and earthquakes occur, how erosion and the ice sheet have shaped the landscape of Sweden, how mountains, valleys and rivers form, and how landforms affect where people choose to live.",
+  "topics": [
+    "the Earth's structure",
+    "tectonic plates",
+    "volcanoes and earthquakes",
+    "erosion and the ice age",
+    "mountains, valleys and rivers",
+    "landforms and settlement"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo7-lan-1",
+      "kind": "mc",
+      "topic": "the Earth's structure",
+      "prompt": "What is the Earth's outermost, thin and hard layer that we live on called?",
+      "opener": "Think of the Earth as an apple — which layer corresponds to the peel?",
+      "choices": [
+        "The mantle",
+        "The inner core",
+        "The crust",
+        "The outer core"
+      ],
+      "answer": 2,
+      "explanation": "The crust is the outermost layer and is only about 5-70 km thick, thinnest under the oceans and thickest under mountain ranges. The mantle lies beneath the crust and consists of hot, slow-flowing rock, while the core at the centre mostly consists of iron and nickel."
+    },
+    {
+      "id": "q-geo7-lan-2",
+      "kind": "mc",
+      "topic": "tectonic plates",
+      "prompt": "Why do the Earth's tectonic plates move?",
+      "opener": "The driving force lies in the layer beneath the plates, where it's very hot.",
+      "choices": [
+        "Heat from the Earth's interior creates slow currents in the mantle that drag and push the plates",
+        "The moon's pull shifts the plates every night",
+        "Winds at the Earth's surface push the plates along",
+        "The plates only move when it rains a lot"
+      ],
+      "answer": 0,
+      "explanation": "Heat from the Earth's interior makes the material in the mantle move in slow convection currents, rather like water in a saucepan, and the plates on top shift a few centimetres a year. The moon affects the tides in the oceans, but not the movement of the plates, and weather and wind only change the Earth's surface — not the plates themselves."
+    },
+    {
+      "id": "q-geo7-lan-3",
+      "kind": "mc",
+      "topic": "volcanoes and earthquakes",
+      "prompt": "Where on Earth do most earthquakes and volcanic eruptions occur?",
+      "opener": "Look at a map of the plates — the disasters follow lines, not chance.",
+      "choices": [
+        "Right in the middle of large continents",
+        "Evenly spread across the whole Earth",
+        "Only at the equator",
+        "Along the boundaries between the tectonic plates"
+      ],
+      "answer": 3,
+      "explanation": "Most earthquakes and volcanoes occur along plate boundaries, for example in the Ring of Fire around the Pacific Ocean and along the Mediterranean region, because that's where plates collide, slide apart or grind against each other. Well inside a plate, as in Sweden, things are much calmer, and being near the equator has nothing to do with it."
+    },
+    {
+      "id": "q-geo7-lan-4",
+      "kind": "mc",
+      "topic": "erosion and the ice age",
+      "prompt": "What is meant by erosion?",
+      "opener": "The word is about wearing down — what wears away rock and soil?",
+      "choices": [
+        "New rock being pushed up out of the ground",
+        "Water, ice, wind and temperature changes slowly wearing down and transporting away rock and soil",
+        "Earthquakes cracking the crust apart",
+        "People building roads through the mountains"
+      ],
+      "answer": 1,
+      "explanation": "Erosion is the slow breaking-down and carrying-away of rock and soil caused by flowing water, waves, ice, wind and frost weathering. Rock being pushed up is instead a result of plate movements, and earthquakes are sudden tremors — erosion happens over a very long time."
+    },
+    {
+      "id": "q-geo7-lan-5",
+      "kind": "mc",
+      "topic": "erosion and the ice age",
+      "prompt": "Which landform in Sweden is a clear trace left by the last ice sheet?",
+      "opener": "Gravel and sand that meltwater left behind in long ridges through the landscape.",
+      "choices": [
+        "Eskers",
+        "Volcanic craters",
+        "Coral reefs",
+        "Desert sand dunes"
+      ],
+      "answer": 0,
+      "explanation": "Eskers are long ridges of rounded gravel and sand deposited by rivers under and at the edge of the ice sheet — the Uppsala esker and the Badelunda esker are examples. Other traces of the ice age include till, glacial erratics, glacial striations on bare rock, and the land uplift that is still happening, while volcanic craters and coral reefs belong to entirely different climates and geological settings."
+    },
+    {
+      "id": "q-geo7-lan-6",
+      "kind": "mc",
+      "topic": "landforms and settlement",
+      "prompt": "Why do more people usually live on plains and in river valleys than high up in the mountains?",
+      "opener": "Think about farming, transport, and how hard it is to build on steep terrain.",
+      "choices": [
+        "The mountains have no water at all",
+        "The mountains are always too close to the equator",
+        "Plains are always warmer than mountains at the same latitude",
+        "Plains and river valleys have fertile soil, access to water, and are easier to farm, build on and travel through"
+      ],
+      "answer": 3,
+      "explanation": "Flat land with fertile soil and water nearby makes it easy to farm, build houses and lay roads and railways, which is why Skåne, the Mälaren valley and large river valleys such as the Nile's are densely populated. Mountains often have plenty of water, but steep terrain, a thin layer of soil, cold and difficult transport mean fewer people live there — so it's not about a lack of water or the distance to the equator."
+    },
+    {
+      "id": "q-geo7-lan-7",
+      "kind": "worked",
+      "topic": "volcanoes and earthquakes",
+      "prompt": "Explain why Iceland has many volcanoes and earthquakes while Sweden is almost never affected, even though the two countries lie fairly close to each other.",
+      "opener": "Start from where the plate boundaries run, not from how far north the countries lie.",
+      "answer": "The difference depends on where the countries lie relative to the boundaries of the tectonic plates. Iceland lies directly on top of the Mid-Atlantic Ridge, where the North American and Eurasian plates slide apart a few centimetres a year. Hot magma pushes up from the mantle through the gap between the plates, causing volcanic eruptions, hot springs and often small earthquakes. Sweden, on the other hand, lies well inside the Eurasian plate, far from the nearest plate boundary. Here there are no plate movements that can push magma upward, so we have no active volcanoes and only occasional weak tremors, often linked to the fact that the land is still rising after the ice sheet. So it is the position relative to the plate boundaries that matters — not the distance to the North Pole.",
+      "steps": [
+        "Volcanoes and earthquakes occur mainly where tectonic plates meet or slide apart.",
+        "Iceland lies on the Mid-Atlantic Ridge, where two plates are being pulled apart and magma pushes up from below.",
+        "That's why Iceland gets volcanic eruptions, hot springs, geysers and recurring tremors.",
+        "Sweden lies well inside the Eurasian plate, far from any plate boundary, so magma doesn't reach the surface.",
+        "Conclusion: it's the position relative to the plate boundary that decides this, not the distance between the countries."
+      ]
+    },
+    {
+      "id": "q-geo7-lan-8",
+      "kind": "flashcard",
+      "topic": "mountains, valleys and rivers",
+      "prompt": "Summarise how the Earth's landforms are created and changed.",
+      "opener": "Go from the inside out: the Earth's interior, the plates, the internal forces and finally the external ones.",
+      "answer": "The Earth's structure: crust (5-70 km, thinnest under the oceans) · mantle of hot, slow-flowing rock · outer and inner core of iron and nickel · Tectonic plates: the crust is cracked into large plates that move a few cm per year · driven by convection currents in the mantle · plates can collide, slide apart or grind against each other · Internal forces (build up): folding when plates collide creates mountain ranges like the Himalayas, the Alps and the Scandinavian Mountains · volcanoes when magma pushes up, becoming lava at the surface · earthquakes when stresses in the rock are suddenly released · most volcanoes and tremors occur along plate boundaries, e.g. the Ring of Fire around the Pacific and the Mid-Atlantic Ridge where Iceland lies · External forces (break down): erosion by flowing water, waves, wind, ice and frost weathering · weathering breaks up the rock, then the material is transported and deposited · rivers carve V-shaped valleys and form deltas and floodplains, glaciers carve broad U-shaped valleys and fjords · The ice age in Sweden: the ice sheet melted about 10,000 years ago · traces include roche moutonnée and glacial striations, till, glacial erratics, eskers such as the Uppsala esker, and U-shaped valleys in the mountains · land uplift is still happening, most notably at the High Coast · Landforms and settlement: plains and river valleys have fertile soil, water and easy transport, so they are densely populated (Skåne, the Mälaren valley, the Nile valley) · mountains, deserts and large cold areas are sparsely populated because of steep terrain, thin soil and difficult communications."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-geo-varlden",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Continents, countries and geographical patterns",
+  "sourceSummary": "The Earth's continents and oceans, basic differences between high-income and low-income countries, the idea behind globalisation and world trade, and important geographical landmarks such as mountain ranges and desert belts.",
+  "topics": [
+    "continents and oceans",
+    "high-income and low-income countries",
+    "globalisation and world trade",
+    "geographical landmarks and phenomena"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo-var-1",
+      "kind": "mc",
+      "topic": "continents and oceans",
+      "prompt": "How many continents are usually counted in school geography?",
+      "opener": "Count them: Africa, Asia, Europe, North America, South America, Oceania and Antarctica.",
+      "choices": [
+        "5",
+        "6",
+        "7",
+        "9"
+      ],
+      "answer": 2,
+      "explanation": "The most common division in Swedish school geography counts seven continents: Africa, Asia, Europe, North America, South America, Oceania and Antarctica. Sometimes Europe and Asia are combined into \"Eurasia\", which gives a different number, but the seven-continent model is the one most used."
+    },
+    {
+      "id": "q-geo-var-2",
+      "kind": "mc",
+      "topic": "continents and oceans",
+      "prompt": "Which is the world's largest ocean by area?",
+      "opener": "This ocean alone covers roughly a third of the Earth's surface and lies between Asia and the Americas.",
+      "choices": [
+        "The Atlantic",
+        "The Indian Ocean",
+        "The Arctic Ocean",
+        "The Pacific Ocean"
+      ],
+      "answer": 3,
+      "explanation": "The Pacific Ocean is the world's largest and deepest ocean and covers a greater area than all of the Earth's landmasses combined. The Atlantic is the second largest, followed by the Indian Ocean, while the Arctic Ocean in the north is the smallest of the major oceans."
+    },
+    {
+      "id": "q-geo-var-3",
+      "kind": "mc",
+      "topic": "high-income and low-income countries",
+      "prompt": "What is commonly used as a basic measure for comparing countries' economic income levels?",
+      "opener": "The measure usually divides the country's total economy by the number of inhabitants.",
+      "choices": [
+        "The country's area in square kilometres",
+        "GDP per capita (gross domestic product per inhabitant)",
+        "The number of World Heritage Sites in the country",
+        "The population of the country's capital"
+      ],
+      "answer": 1,
+      "explanation": "GDP per capita measures the value of everything produced in a country in a year, divided by the number of inhabitants, and is often used as a basic (if imperfect) measure for comparing economic living standards between countries. However, the measure says nothing about how income is distributed within the country."
+    },
+    {
+      "id": "q-geo-var-4",
+      "kind": "mc",
+      "topic": "high-income and low-income countries",
+      "prompt": "Which of the following is a typical difference between a high-income country and a low-income country?",
+      "opener": "Think about access to schooling, healthcare and infrastructure, which is often linked to a country's economy.",
+      "choices": [
+        "High-income countries always have a larger area",
+        "High-income countries usually have better access to education, healthcare and infrastructure",
+        "Low-income countries always have more inhabitants",
+        "There are no measurable differences between the groups"
+      ],
+      "answer": 1,
+      "explanation": "High-income countries generally have more resources to invest in education, healthcare, roads and other infrastructure, which contributes to higher life expectancy and living standards. The differences are not about the country's area or population, however, but about economic development and how resources are distributed and used."
+    },
+    {
+      "id": "q-geo-var-5",
+      "kind": "mc",
+      "topic": "globalisation and world trade",
+      "prompt": "What does globalisation mean, in brief?",
+      "opener": "Think about how countries, companies and people today are connected across borders in a way that was less common in the past.",
+      "choices": [
+        "That all countries become exactly alike culturally",
+        "That the world's countries, economies and people become increasingly interconnected through trade, communication and travel",
+        "That every country closes its borders to trade",
+        "That only rich countries trade with each other"
+      ],
+      "answer": 1,
+      "explanation": "Globalisation is about the world's countries, economies and people becoming ever more closely connected through trade, transport, the internet and migration, so that events and decisions in one place can quickly affect places far away. This is the opposite of countries isolating themselves from each other."
+    },
+    {
+      "id": "q-geo-var-6",
+      "kind": "mc",
+      "topic": "globalisation and world trade",
+      "prompt": "A jumper sold in a Swedish shop might have its cotton grown in one country, the fabric woven in another and the sewing done in a third. What is this an example of?",
+      "opener": "So the production of a single item does not happen in one country, but is spread across several.",
+      "choices": [
+        "An exception that almost never occurs in world trade",
+        "Global production chains, where different stages of manufacturing take place in different countries depending on, for example, cost and expertise",
+        "Proof that globalisation is decreasing",
+        "That all countries manufacture everything they need themselves"
+      ],
+      "answer": 1,
+      "explanation": "This is a clear example of global production chains (also called global value chains), where different parts of manufacturing are placed in different countries based on where it is cheapest or where the right expertise and resources are available. This is a central part of today's globalised world trade."
+    },
+    {
+      "id": "q-geo-var-7",
+      "kind": "worked",
+      "topic": "geographical landmarks and phenomena",
+      "prompt": "Explain why the Himalayas, the world's highest mountain range, formed where the Indian subcontinent meets the Asian continent.",
+      "opener": "Think about what happens when two large landmasses on the Earth's crustal plates move towards each other over a very long time.",
+      "answer": "The Earth's crust is divided into large continental plates that move very slowly. The Indian plate has drifted northwards over millions of years and eventually collided with the Eurasian plate. Since both plates carry continental (relatively light) bedrock, neither can easily be pushed down beneath the other, so instead the bedrock has folded and been pushed upwards at the collision zone. This has built up the Himalayas, and the plates continue to move towards each other today, which means the mountain range is still slowly growing and the area is prone to earthquakes.",
+      "steps": [
+        "The Earth's crust consists of several large plates that move slowly over millions of years.",
+        "The Indian plate has drifted northwards and collided with the Eurasian plate.",
+        "Both plates have light, continental bedrock that is not easily pushed down beneath one another.",
+        "The collision instead presses and folds up the bedrock, which builds high mountain ranges.",
+        "Result: the Himalayas form and are still slowly growing, with earthquakes as a lingering sign of the ongoing movement."
+      ]
+    },
+    {
+      "id": "q-geo-var-8",
+      "kind": "flashcard",
+      "topic": "continents and oceans",
+      "prompt": "Summarise continents, income differences between countries, globalisation and important geographical landmarks.",
+      "opener": "Build a tight overview to quickly revise before the test.",
+      "answer": "Continents: Africa, Asia, Europe, North America, South America, Oceania, Antarctica (7 in total) · largest ocean: the Pacific, followed by the Atlantic and the Indian Ocean. High-income and low-income countries: often measured using GDP per capita · high-income countries usually have better access to education, healthcare and infrastructure · the differences are due to economic development, not area or population. Globalisation: countries, economies and people become increasingly interconnected through trade, travel and communication · global production chains spread the manufacturing of a product across several countries. Geographical landmarks: mountain ranges form where continental plates collide (e.g. the Himalayas) · large desert belts (e.g. the Sahara, the Arabian Desert) are often found around certain latitudes with dry, descending air currents · geographical patterns are often linked to plate tectonics and climate."
+    }
+  ]
+}

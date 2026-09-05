@@ -1,0 +1,130 @@
+{
+  "id": "lib-sv7-berattande",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Narrative texts",
+  "sourceSummary": "How a story is structured from opening to resolution, how to describe settings and characters, which narrative perspective to choose, and how to show rather than just tell.",
+  "topics": [
+    "story structure",
+    "setting description",
+    "character description",
+    "narrative perspective",
+    "showing vs telling"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv7-ber-1",
+      "kind": "mc",
+      "topic": "story structure",
+      "prompt": "In what order is a typical story structured?",
+      "opener": "Think about how a film usually goes: calm at first, worst in the middle, resolved at the end.",
+      "choices": [
+        "Opening – problem – rising action – resolution",
+        "Problem – opening – resolution – rising action",
+        "Resolution – problem – opening – rising action",
+        "Opening – resolution – problem – rising action"
+      ],
+      "answer": 0,
+      "explanation": "First the characters and setting are introduced in the opening, then a problem arises and escalates, and finally the resolution comes. If the resolution comes before the problem, there is nothing left to feel tense about."
+    },
+    {
+      "id": "q-sv7-ber-2",
+      "kind": "mc",
+      "topic": "story structure",
+      "prompt": "Which sentence belongs in the story's RISING ACTION?",
+      "opener": "The rising action is where things get worse and worse — the tension should increase.",
+      "choices": [
+        "It was an ordinary Tuesday in March and Sara cycled to school as always.",
+        "First the key disappeared, then the lamp went out, and finally she heard footsteps on the stairs.",
+        "In the end they found the key under the rug and could go in.",
+        "Sara lived in a yellow house together with her dad and a cat."
+      ],
+      "answer": 1,
+      "explanation": "The sentence lists problems that get worse and worse — that is exactly what rising action means. The first and last sentences are typical openings that introduce setting and characters, and \"in the end they found the key\" is the resolution."
+    },
+    {
+      "id": "q-sv7-ber-3",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "Which sentence is written in first person?",
+      "opener": "First person means the narrator is themselves part of the story and says \"I\".",
+      "choices": [
+        "She opened the door carefully and listened.",
+        "They opened the door carefully and listened.",
+        "Emil opened the door carefully and listened.",
+        "I opened the door carefully and listened."
+      ],
+      "answer": 3,
+      "explanation": "Only in the sentence \"I opened the door\" does the person tell about themselves using the word \"I\" — that is first person. The others are third person, where an outside narrator describes what the characters do."
+    },
+    {
+      "id": "q-sv7-ber-4",
+      "kind": "mc",
+      "topic": "showing vs telling",
+      "prompt": "Which sentence SHOWS that someone is angry instead of just telling it?",
+      "opener": "Showing means revealing the feeling through what the person does, says, or feels in their body.",
+      "choices": [
+        "He was really angry.",
+        "He felt angry when he got home.",
+        "He slammed the door so hard the picture shook and didn't answer when mum called.",
+        "He was angry all evening and went to bed."
+      ],
+      "answer": 2,
+      "explanation": "The reader gets to see the actions — the slammed door and the silence — and understands for themselves that he is angry. The other options simply state the feeling using the word \"angry\", which is telling instead of showing."
+    },
+    {
+      "id": "q-sv7-ber-5",
+      "kind": "mc",
+      "topic": "setting description",
+      "prompt": "Which setting description gives the reader the clearest picture?",
+      "opener": "A good setting description uses the senses: what do you see, hear and smell?",
+      "choices": [
+        "It was a house.",
+        "The house was old and a bit scary.",
+        "Paint was peeling from the walls, the windows were covered in dust, and the hallway smelled of a damp cellar.",
+        "The house stood where it stood and was fairly large."
+      ],
+      "answer": 2,
+      "explanation": "Here the reader gets to see the peeling paint, the dusty windows, and smell the odour — concrete details create a picture. \"Old and a bit scary\" only states what you should think, without showing anything."
+    },
+    {
+      "id": "q-sv7-ber-6",
+      "kind": "mc",
+      "topic": "character description",
+      "prompt": "What belongs to an INNER character description?",
+      "opener": "Outer is what you can see on the outside, inner is what the person is like as a human being.",
+      "choices": [
+        "That she has long brown hair",
+        "That she has a red jacket",
+        "That she is tall and slim",
+        "That she is shy but brave when it matters"
+      ],
+      "answer": 3,
+      "explanation": "Shyness and courage are traits inside the person — that is, inner description. Hair, height and clothes are things you see on the outside and count as outer description."
+    },
+    {
+      "id": "q-sv7-ber-7",
+      "kind": "worked",
+      "topic": "showing vs telling",
+      "prompt": "Rewrite the sentence \"Lina was nervous before the test\" so that it shows the feeling instead of telling it.",
+      "opener": "Ask yourself: what does the body do, what do the hands do, and what does the person think or hear?",
+      "answer": "\"Lina read the same question three times without understanding a single word. The pen slid in her hand and she heard her own heart pounding all the way up in her ears.\"",
+      "steps": [
+        "Cross out the word that gives away the feeling outright: \"nervous\".",
+        "Think about what the body does when you are nervous: sweaty hands, a fast pulse, trembling.",
+        "Think about what the person does: rereading the same sentence, losing focus, fidgeting with the pen.",
+        "Combine two or three concrete details into one or two sentences.",
+        "Test it on a friend: do they understand that Lina is nervous without the word being there? Then the showing works."
+      ]
+    },
+    {
+      "id": "q-sv7-ber-8",
+      "kind": "flashcard",
+      "topic": "narrative texts",
+      "prompt": "What should you think about when writing a story?",
+      "opener": "A quick recap of the building blocks before you start writing.",
+      "answer": "Structure: opening (characters, setting, time) · problem (something goes wrong or changes) · rising action (things get worse, tension increases) · resolution (the problem is sorted out and the story ends). Narrative perspective: first person (\"I opened the door\") gives closeness but only one person's thoughts · third person gives an overview — choose one and stick to it throughout the text. Character description: outer (appearance, clothes) and inner (traits, feelings, thoughts). Setting description: use the senses — what do you see, hear, smell and feel? Showing vs telling: show instead of tell — not \"he was scared\" but \"he backed against the wall and didn't dare breathe\"."
+    }
+  ]
+}

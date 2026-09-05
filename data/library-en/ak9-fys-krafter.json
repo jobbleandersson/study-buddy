@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys-krafter",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Forces and motion",
+  "sourceSummary": "Newton's laws, friction, gravity and equilibrium — the foundation for understanding why things move, stand still, or change speed.",
+  "topics": [
+    "force and Newton's laws",
+    "friction",
+    "gravity",
+    "speed and acceleration",
+    "equilibrium of forces"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys-kra-1",
+      "kind": "mc",
+      "topic": "force and Newton's laws",
+      "prompt": "What does Newton's first law (the law of inertia) state?",
+      "opener": "Think about what is required to change a motion, not to keep it going.",
+      "choices": [
+        "An object continues at rest or moving at constant speed if no force acts on it",
+        "Force is mass times acceleration",
+        "Every force has an equal and opposite reaction force",
+        "Heavier objects always fall faster than lighter ones"
+      ],
+      "answer": 0,
+      "explanation": "The law of inertia states that an object keeps its state of motion (at rest, or moving in a straight line at constant speed) if no net force acts on it. Option 2 is Newton's second law and option 3 is Newton's third law — they describe other things."
+    },
+    {
+      "id": "q-fys-kra-2",
+      "kind": "mc",
+      "topic": "force and Newton's laws",
+      "prompt": "A sledge with a mass of 20 kg is given a force of 40 N straight ahead on ice (ignore friction). What acceleration does the sledge get?",
+      "opener": "Use the relationship F = m · a and solve for a.",
+      "choices": [
+        "0.5 m/s²",
+        "2 m/s²",
+        "800 m/s²",
+        "20 m/s²"
+      ],
+      "answer": 1,
+      "explanation": "a = F / m = 40 N / 20 kg = 2 m/s². A common mistake is to multiply instead of divide, which gives 800 — unreasonably large for such a small force."
+    },
+    {
+      "id": "q-fys-kra-3",
+      "kind": "mc",
+      "topic": "friction",
+      "prompt": "Why is it easier to pull a box across ice than across asphalt?",
+      "opener": "Friction depends on the nature of the surfaces rubbing against each other.",
+      "choices": [
+        "Ice has less mass than asphalt",
+        "The friction force between the box and the surface is smaller on ice",
+        "Gravity is weaker on ice",
+        "The box weighs less on ice"
+      ],
+      "answer": 1,
+      "explanation": "Ice is slippery, which gives a much lower friction force between the box and the surface than the rougher asphalt. Neither mass nor gravity is affected by which surface you're on."
+    },
+    {
+      "id": "q-fys-kra-4",
+      "kind": "mc",
+      "topic": "gravity",
+      "prompt": "What is the difference between mass and weight (gravitational force)?",
+      "opener": "One of the quantities is measured in kilograms, the other in newtons.",
+      "choices": [
+        "There is no difference, the words mean the same thing",
+        "Mass is measured in newtons and weight is measured in kilograms",
+        "Mass is the amount of matter in kilograms and is constant, weight is the force produced by gravity and is measured in newtons",
+        "Weight is always twice the mass"
+      ],
+      "answer": 2,
+      "explanation": "Mass (kg) describes how much matter an object consists of and does not change. Weight (N) depends on mass and gravity (F = m · g) and becomes, for example, smaller on the Moon even though the mass is unchanged."
+    },
+    {
+      "id": "q-fys-kra-5",
+      "kind": "mc",
+      "topic": "speed and acceleration",
+      "prompt": "A cyclist covers 150 metres in 30 seconds at a constant speed. What speed is the cyclist travelling at?",
+      "opener": "Speed is calculated as distance divided by time: v = s/t.",
+      "choices": [
+        "5 m/s",
+        "0.2 m/s",
+        "180 m/s",
+        "50 m/s"
+      ],
+      "answer": 0,
+      "explanation": "v = s / t = 150 m / 30 s = 5 m/s. Mistakenly dividing time by distance gives the incorrect answer of 0.2 m/s."
+    },
+    {
+      "id": "q-fys-kra-6",
+      "kind": "mc",
+      "topic": "equilibrium of forces",
+      "prompt": "A book lies still on a table. What can be said about the forces acting on the book?",
+      "opener": "The book moves neither upward nor downward — what does that say about the sum of the forces?",
+      "choices": [
+        "No force at all acts on the book",
+        "Gravity pulling down and the normal force from the table pushing up cancel each other out, so the resultant force is zero",
+        "Only gravity acts on the book",
+        "The normal force is greater than gravity"
+      ],
+      "answer": 1,
+      "explanation": "The book is in equilibrium: gravity pulls downward and the table's normal force pushes upward with equal strength, so they cancel out and the net force is zero — that's why the book stays still. Saying that no force acts is incorrect; both forces exist but balance each other."
+    },
+    {
+      "id": "q-fys-kra-7",
+      "kind": "worked",
+      "topic": "force and Newton's laws",
+      "prompt": "A shopping trolley with a mass of 15 kg is pushed with a force of 30 N. Friction against the floor gives an opposing force of 10 N. Calculate the trolley's acceleration.",
+      "opener": "Start by working out the resultant (net) force before using F = m · a.",
+      "answer": "1.33 m/s²",
+      "steps": [
+        "Identify the forces: 30 N forward (push) and 10 N backward (friction).",
+        "Calculate the resultant force: F_net = 30 N − 10 N = 20 N.",
+        "Use Newton's second law: F = m · a, so a = F / m.",
+        "Substitute the values: a = 20 N / 15 kg ≈ 1.33 m/s²."
+      ]
+    },
+    {
+      "id": "q-fys-kra-8",
+      "kind": "flashcard",
+      "topic": "force and Newton's laws",
+      "prompt": "Summarise Newton's three laws along with the concepts of friction and equilibrium.",
+      "opener": "Go through the laws one by one in order before turning the card over.",
+      "answer": "Newton's first law (the law of inertia): an object continues at rest or at constant speed if no resultant force acts on it · Newton's second law: F = m · a, the force required is mass times acceleration — a larger mass or acceleration requires a larger force · Newton's third law: for every force there is an equal and opposite reaction force (action and reaction) · Friction is a force that opposes motion between two surfaces rubbing against each other, and depends on the nature of the surfaces · Equilibrium exists when the sum of all forces on an object is zero, in which case the object stays still or moves at constant speed · Gravity: F = m · g, where g ≈ 10 N/kg on Earth."
+    }
+  ]
+}

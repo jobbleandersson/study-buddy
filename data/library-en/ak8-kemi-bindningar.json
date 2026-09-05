@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi8-bindningar",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Chemical bonds and ions",
+  "sourceSummary": "Why atoms bind together into compounds, the difference between ionic bonding and covalent bonding, how salts are built from ions in crystals, and common ions and their charges.",
+  "topics": [
+    "why atoms bind together",
+    "ionic bonding and ionic compounds",
+    "covalent bonding and molecules",
+    "salts",
+    "common ions and charges"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi8-bin-1",
+      "kind": "mc",
+      "topic": "why atoms bind together",
+      "prompt": "Why do atoms bind together into compounds?",
+      "opener": "Think about what the noble gases have that makes them so stable, and what other atoms lack.",
+      "choices": [
+        "Because they are drawn to each other by magnetism",
+        "Because they want to become heavier",
+        "Because they strive for a full outer electron shell, which gives a more stable state",
+        "Because all atoms must sit in pairs"
+      ],
+      "answer": 2,
+      "explanation": "Atoms bind together to achieve a full outer electron shell, in other words the same stable electron arrangement that the noble gases have. This is about the electrons in the outer shell, not magnetism — and the number of atoms in a compound can vary, it doesn't have to be two."
+    },
+    {
+      "id": "q-kemi8-bin-2",
+      "kind": "mc",
+      "topic": "ionic bonding and ionic compounds",
+      "prompt": "What is an ionic bond?",
+      "opener": "The name gives away that ions are involved — think about what ions have that draws them to each other.",
+      "choices": [
+        "Electrical attraction between positive and negative ions, formed when one atom has given up electrons to another",
+        "Two atoms sharing a pair of electrons",
+        "A bond in which two atomic nuclei fuse into one",
+        "A bond that can only exist between two metals"
+      ],
+      "answer": 0,
+      "explanation": "In ionic bonding, electrons have moved completely from one atom to another, so that positive and negative ions form and are drawn to each other by electrical attraction. Sharing a pair of electrons is instead a covalent bond, and ionic bonding typically arises between a metal and a non-metal — not between two metals."
+    },
+    {
+      "id": "q-kemi8-bin-3",
+      "kind": "mc",
+      "topic": "covalent bonding and molecules",
+      "prompt": "What characterises a covalent bond (molecular bond)?",
+      "opener": "Here no electrons move all the way across — instead they are used jointly.",
+      "choices": [
+        "That one atom takes over all the electrons from the other atom",
+        "That two atoms share one or more pairs of electrons",
+        "That ions swap places with each other in a crystal",
+        "That a metal gives up electrons to a non-metal"
+      ],
+      "answer": 1,
+      "explanation": "In a covalent bond, two atoms share one or more pairs of electrons, and in this way both get a full outer shell — this is how H2O and O2 are held together, for example. Electrons moving completely from a metal to a non-metal is instead ionic bonding."
+    },
+    {
+      "id": "q-kemi8-bin-4",
+      "kind": "mc",
+      "topic": "salts",
+      "prompt": "Which statement about table salt, NaCl, is correct?",
+      "opener": "Think about whether salt consists of separate molecules or of some other pattern.",
+      "choices": [
+        "It consists of separate NaCl molecules that sit together in pairs",
+        "It contains only sodium atoms",
+        "It never conducts electricity, not even when dissolved in water",
+        "It is an ionic compound of sodium ions (Na+) and chloride ions (Cl−) arranged in a crystal lattice"
+      ],
+      "answer": 3,
+      "explanation": "Table salt is an ionic compound in which Na+ and Cl− are packed regularly in a crystal lattice — the formula NaCl shows the ratio 1:1, not a single molecule. If the salt is dissolved in water, the ions are freed and can move, and then the solution conducts electricity."
+    },
+    {
+      "id": "q-kemi8-bin-5",
+      "kind": "mc",
+      "topic": "common ions and charges",
+      "prompt": "Magnesium is in group 2 of the periodic table. Which ion does a magnesium atom form?",
+      "opener": "The group number 2 tells you how many valence electrons the atom has to get rid of.",
+      "choices": [
+        "Mg−",
+        "Mg+",
+        "Mg2+",
+        "Mg2−"
+      ],
+      "answer": 2,
+      "explanation": "Magnesium has two valence electrons and gives up both to get a full outer shell, which gives the ion Mg2+ with a charge of 2+. Metals give up electrons and become positive ions, so a negative magnesium ion is not formed."
+    },
+    {
+      "id": "q-kemi8-bin-6",
+      "kind": "mc",
+      "topic": "common ions and charges",
+      "prompt": "An oxygen atom has six valence electrons. Which ion does it form?",
+      "opener": "Work out how many electrons are missing for the shell to become full with eight.",
+      "choices": [
+        "O+",
+        "O2−",
+        "O2+",
+        "O−"
+      ],
+      "answer": 1,
+      "explanation": "Oxygen is missing two electrons to reach eight in the outer shell, so the atom takes up two electrons and becomes the oxide ion O2− with a charge of 2−. Taking up electrons gives a negative charge, so a positive oxygen ion is not formed, and O− has only taken up one of the two electrons."
+    },
+    {
+      "id": "q-kemi8-bin-7",
+      "kind": "worked",
+      "topic": "ionic bonding and ionic compounds",
+      "prompt": "Magnesium (group 2) reacts with chlorine (group 17). Show which ions are formed and work out the formula of the ionic compound.",
+      "opener": "Determine the charge on each ion first, then work out how many of each are needed for the charges to cancel out.",
+      "answer": "Magnesium gives up two electrons and forms Mg2+, while each chlorine atom takes up one electron and forms Cl−. Two chloride ions are needed per magnesium ion for the charges to cancel out, so the formula is MgCl2 (magnesium chloride).",
+      "steps": [
+        "Magnesium is in group 2 and has two valence electrons that the metal readily gives up.",
+        "When both electrons are given up, the ion Mg2+ is formed.",
+        "Chlorine is in group 17 and has seven valence electrons — each chlorine atom takes up one electron and forms Cl−.",
+        "The ionic compound must be uncharged overall, so the charge 2+ must be balanced by two ions with a charge of 1−.",
+        "This gives the ratio one Mg2+ to two Cl−, in other words the formula MgCl2, magnesium chloride."
+      ]
+    },
+    {
+      "id": "q-kemi8-bin-8",
+      "kind": "flashcard",
+      "topic": "why atoms bind together",
+      "prompt": "Summarise chemical bonds, ions and ionic compounds.",
+      "opener": "Start with the driving force behind all bonds, then take the two bond types and finish with common ions.",
+      "answer": "Driving force: atoms bind together to get a full outer electron shell, like the noble gases · Ionic bonding: electrons move completely across, positive and negative ions are drawn to each other, occurs between a metal and a non-metal · Ionic compound (salt): ions packed in a crystal lattice, the formula shows the ratio between the ions, e.g. NaCl · Salt dissolved in water: the ions are freed and the solution conducts electricity · Covalent bonding (molecular bond): two non-metal atoms share pairs of electrons, forming molecules such as H2, O2, H2O and CO2 · Positive ions (metals give up electrons): Na+, K+, Mg2+, Ca2+, Al3+ · Negative ions (non-metals take up electrons): Cl−, O2−, S2− · Compound ions: OH− (hydroxide ion), NO3− (nitrate ion), SO42− (sulfate ion), CO32− (carbonate ion) · Rule for formulas: the charges must cancel out, e.g. Mg2+ + 2 Cl− → MgCl2 and Ca2+ + O2− → CaO · Ionic compounds have high melting points, molecular compounds usually low ones."
+    }
+  ]
+}

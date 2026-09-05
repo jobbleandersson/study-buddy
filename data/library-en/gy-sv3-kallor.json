@@ -1,0 +1,129 @@
+{
+  "id": "lib-sv3-kallor",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Source handling and referencing technique",
+  "sourceSummary": "In-text citation versus footnotes, the structure of a reference list, quotation versus paraphrase, and plagiarism and how to avoid it.",
+  "topics": [
+    "referencing systems",
+    "reference list",
+    "quotation and paraphrase",
+    "plagiarism"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-kallor-1",
+      "kind": "mc",
+      "topic": "referencing systems",
+      "prompt": "What characterises in-text citation (e.g. the Harvard system) compared with the footnote system?",
+      "opener": "Where in the text does the source information end up — directly in the sentence, or at the bottom of the page?",
+      "choices": [
+        "The source is given in brackets directly in the running text, e.g. (Andersson, 2020)",
+        "The source is never given in the text itself, only in the reference list",
+        "The source is indicated with a superscript number that refers to the bottom of the page",
+        "The source is only given in the introduction, once for the whole text"
+      ],
+      "answer": 0,
+      "explanation": "With in-text citation, the author and year (and sometimes page) are written in brackets directly in the body text. The footnote system, by contrast, is the one that uses superscript numbers referring to notes at the bottom of the page."
+    },
+    {
+      "id": "q-sv3-kallor-2",
+      "kind": "mc",
+      "topic": "referencing systems",
+      "prompt": "What is the most important advantage of the footnote system compared with in-text citation?",
+      "opener": "Consider what a bracket in the middle of a sentence does to reading flow, compared with a small number.",
+      "choices": [
+        "It requires no reference list at all",
+        "It disrupts the flow of the body text less, while also allowing longer comments in the note",
+        "It is the only system approved in academic texts",
+        "It means you never need to state the year"
+      ],
+      "answer": 1,
+      "explanation": "A small superscript number disrupts reading less than a bracket in the middle of a sentence, and the note can also include explanatory comments in addition to the source reference itself. Both systems require a reference list, and both are accepted conventions."
+    },
+    {
+      "id": "q-sv3-kallor-3",
+      "kind": "mc",
+      "topic": "reference list",
+      "prompt": "Which order is usually used to sort sources in a reference list?",
+      "opener": "Consider how a library catalogue or a dictionary is sorted.",
+      "choices": [
+        "By year of publication, oldest to newest",
+        "By the length of the text, shortest to longest",
+        "In the order the sources are first mentioned in the text",
+        "Alphabetically by the author's surname"
+      ],
+      "answer": 3,
+      "explanation": "The reference list is normally sorted alphabetically by the author's surname (or by title if there is no author), which makes it easy for the reader to look up a particular source. Sorting by year or length is not used as the main principle."
+    },
+    {
+      "id": "q-sv3-kallor-4",
+      "kind": "mc",
+      "topic": "quotation and paraphrase",
+      "prompt": "What is required for a quotation to be correctly reproduced?",
+      "opener": "How much are you allowed to change in the actual wording when quoting?",
+      "choices": [
+        "The quotation should be briefly summarised in your own words",
+        "The quotation should be reproduced word for word, marked with quotation marks (or indentation for longer quotations), and given a source reference",
+        "The quotation may be freely shortened without this being indicated",
+        "The quotation needs no source reference if it is short"
+      ],
+      "answer": 1,
+      "explanation": "A quotation should reproduce the source's exact wording, clearly marked and with a source reference. If parts of the quotation are removed, this should be indicated with [...]. Summarising in your own words is instead a paraphrase, not a quotation."
+    },
+    {
+      "id": "q-sv3-kallor-5",
+      "kind": "mc",
+      "topic": "quotation and paraphrase",
+      "prompt": "What is a paraphrase?",
+      "opener": "Compare with a summary: what is the similarity and what is the difference in scope?",
+      "choices": [
+        "A word-for-word copy of a short passage of text without a source",
+        "A list of all the sources used",
+        "A rendering of a specific thought or sentence in your own words and your own sentence structure, with the meaning preserved",
+        "A summary of an entire book in a few sentences"
+      ],
+      "answer": 2,
+      "explanation": "A paraphrase rephrases a delimited thought or passage in your own words and your own structure, but keeps the meaning — and, like a summary and a quotation, must be given a source reference. This differs from a full summary of an entire work, which is more a summary on a larger scale."
+    },
+    {
+      "id": "q-sv3-kallor-6",
+      "kind": "mc",
+      "topic": "plagiarism",
+      "prompt": "Which of the following counts as plagiarism, even though the writer has not copied the text word for word?",
+      "opener": "It is not enough for the wording to differ if the source is missing or if the idea is presented as the writer's own.",
+      "choices": [
+        "Quoting a sentence with quotation marks and a source reference",
+        "Reproducing an author's central idea in your own words but entirely without a source reference",
+        "Paraphrasing a passage and clearly stating where it comes from",
+        "Writing a summary with reporting markers and a reference list"
+      ],
+      "answer": 1,
+      "explanation": "Plagiarism is not only about word-for-word copying but about presenting someone else's ideas, reasoning or findings as your own — even in your own words, it becomes plagiarism if the source is missing. The other options are correctly source-handled."
+    },
+    {
+      "id": "q-sv3-kallor-7",
+      "kind": "worked",
+      "topic": "quotation and paraphrase",
+      "prompt": "Original quotation from an article by Berg (2021): \"The increased screen time among teenagers has led to shorter sleep and worse concentration at school.\" Write both a correct quotation and a correct paraphrase of the sentence, both with a source reference according to the in-text system.",
+      "opener": "The quotation should be word for word and marked, the paraphrase should have its own words and its own sentence structure.",
+      "answer": "Quotation: Berg (2021) writes: \"The increased screen time among teenagers has led to shorter sleep and worse concentration at school.\" Paraphrase: According to Berg (2021), teenagers' increased time in front of screens has contributed to them sleeping less and finding it harder to concentrate at school.",
+      "steps": [
+        "For the quotation: keep the exact wording of the original and put quotation marks around it.",
+        "Add a clear source reference next to the quotation, e.g. \"Berg (2021) writes:\".",
+        "For the paraphrase: reword the content in your own words and with a different sentence structure from the original.",
+        "Check that the paraphrase preserves the original meaning without adding or removing information.",
+        "State the source for the paraphrase too, e.g. with \"According to Berg (2021)\" — paraphrases require a source reference just like quotations."
+      ]
+    },
+    {
+      "id": "q-sv3-kallor-8",
+      "kind": "flashcard",
+      "topic": "referencing systems",
+      "prompt": "Summarise in-text citation, the footnote system, quotation, paraphrase and plagiarism.",
+      "opener": "Sort the concepts by where the source ends up and how much of the original's wording is kept.",
+      "answer": "In-text citation: source in brackets in the body text, e.g. (Berg, 2021) · Footnote system: superscript number referring to a note at the bottom of the page, disrupts reading flow less · Quotation: word-for-word reproduction, quotation marks/indentation, always with a source · Paraphrase: rewording of a delimited thought in your own words, with a source · Summary: condensing longer content in your own words, with a source · Plagiarism: presenting other people's words or ideas as your own, regardless of whether the wording has been changed, when the source is missing · Reference list: sorted alphabetically by the author's surname."
+    }
+  ]
+}

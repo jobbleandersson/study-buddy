@@ -1,0 +1,131 @@
+{
+  "id": "lib-bio8-halsa",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Health, illness and the immune system",
+  "sourceSummary": "The immune system's barriers and white blood cells, the difference between bacteria and viruses, how vaccines and antibiotics work and why antibiotic resistance arises, how infections spread, and how sleep, diet, exercise and drugs affect health.",
+  "topics": [
+    "the immune system",
+    "bacteria and viruses",
+    "vaccination and antibiotics",
+    "spread of infection",
+    "lifestyle habits and health",
+    "drugs"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio8-hal-1",
+      "kind": "mc",
+      "topic": "the immune system",
+      "prompt": "Which cells in the blood are the body's most important defence against bacteria and viruses?",
+      "opener": "Think about which type of blood cell increases in number when you're ill.",
+      "choices": [
+        "The red blood cells",
+        "The platelets",
+        "The cells in the blood plasma",
+        "The white blood cells"
+      ],
+      "answer": 3,
+      "explanation": "The white blood cells are the immune system's cells: some engulf invaders while others form antibodies that match that particular microorganism. The red blood cells have a completely different job — they transport oxygen — and the platelets handle clotting at wounds."
+    },
+    {
+      "id": "q-bio8-hal-2",
+      "kind": "mc",
+      "topic": "bacteria and viruses",
+      "prompt": "What is an important difference between bacteria and viruses?",
+      "opener": "Think about which of them is its own living cell.",
+      "choices": [
+        "Bacteria are always dangerous while viruses are always harmless",
+        "Bacteria are cells of their own that can reproduce by themselves, while viruses must get inside a host cell to reproduce",
+        "Bacteria are much smaller than viruses",
+        "Viruses are cells while bacteria are just genetic material in a shell"
+      ],
+      "answer": 1,
+      "explanation": "A bacterium is a single-celled organism with its own metabolism that can divide on its own, while a virus is just genetic material in a protein shell and must hijack a living cell in order to reproduce. Viruses are also clearly smaller than bacteria, not larger, and most bacteria are completely harmless or even beneficial."
+    },
+    {
+      "id": "q-bio8-hal-3",
+      "kind": "mc",
+      "topic": "vaccination and antibiotics",
+      "prompt": "How does a vaccine work?",
+      "opener": "Think about the immune system getting a harmless rehearsal ahead of the real infection.",
+      "choices": [
+        "It kills bacteria that are already in the body",
+        "It replaces the white blood cells with new ones",
+        "It makes the immune system form antibodies and memory cells in advance",
+        "It makes the skin tighter so the infection can't get in"
+      ],
+      "answer": 2,
+      "explanation": "A vaccine contains killed or harmless parts of a microorganism, which makes the immune system form antibodies and memory cells — if the real infection comes later, it is recognised and stopped before you become ill. Killing bacteria that are already in the body is instead the job of antibiotics; vaccines are given as prevention."
+    },
+    {
+      "id": "q-bio8-hal-4",
+      "kind": "mc",
+      "topic": "vaccination and antibiotics",
+      "prompt": "Why don't antibiotics help against a common cold?",
+      "opener": "Think about what causes a cold and what antibiotics act on.",
+      "choices": [
+        "Colds are caused by viruses, and antibiotics only act on bacteria",
+        "Antibiotics only work in the stomach and never reach the airways",
+        "Cold bacteria are too small for antibiotics",
+        "Antibiotics only work on children"
+      ],
+      "answer": 0,
+      "explanation": "Antibiotics attack structures that only bacteria have, such as the cell wall, and viruses lack these structures — so antibiotics are completely ineffective against colds and flu. Using antibiotics unnecessarily is also harmful, since it speeds up the development of resistant bacteria."
+    },
+    {
+      "id": "q-bio8-hal-5",
+      "kind": "mc",
+      "topic": "spread of infection",
+      "prompt": "Which measure most effectively reduces the spread of common respiratory infections in a school class?",
+      "opener": "Think about how the infection travels from one person's airways to another's.",
+      "choices": [
+        "Drinking more water during the day",
+        "Washing your hands often, coughing into your elbow, and staying home when ill",
+        "Taking an extra dose of vitamins every morning",
+        "Opening the window only in winter"
+      ],
+      "answer": 1,
+      "explanation": "Respiratory infections spread mainly through droplets and contact, so handwashing, coughing into your elbow and staying home break exactly those transmission routes. Water and vitamin supplements are good for your health but do nothing to stop an infection reaching the next person."
+    },
+    {
+      "id": "q-bio8-hal-6",
+      "kind": "mc",
+      "topic": "lifestyle habits and health",
+      "prompt": "Which statement about lifestyle habits and health is most accurate?",
+      "opener": "Think about how sleep, food and exercise work together over time.",
+      "choices": [
+        "Only exercise affects health; sleep and diet don't matter",
+        "Sufficient sleep, a varied diet and regular exercise strengthen both the body and the immune system",
+        "You can skip sleep if you eat enough",
+        "Exercise is only beneficial for someone who is already well-trained"
+      ],
+      "answer": 1,
+      "explanation": "Sleep lets the body repair itself and the immune system work, a varied diet gives the cells the nutrients they need, and exercise strengthens the heart, lungs, skeleton and muscles while also having a positive effect on mood — the three are connected and can't replace each other. More food therefore doesn't compensate for lack of sleep, and the effect of exercise is greatest for someone who moves very little to begin with."
+    },
+    {
+      "id": "q-bio8-hal-7",
+      "kind": "worked",
+      "topic": "the immune system",
+      "prompt": "Explain step by step what happens in the body from a bacterium entering through a wound until you are immune to that particular bacterium.",
+      "opener": "Follow the bacterium through the skin's barrier and on to the white blood cells' counter-attack.",
+      "answer": "The bacterium enters through a break in the skin's outer barrier and first meets the non-specific defence, where white blood cells engulf invaders and the area becomes red, warm and swollen from the inflammation; at the same time, other white blood cells recognise the bacterium's surface and begin forming antibodies that match it specifically, which takes a few days and can make you feel ill in the meantime. Once the bacteria are neutralised, some cells remain as memory cells, and the next time the same bacterium gets in, the body can form antibodies so quickly that you don't get ill — you are immune.",
+      "steps": [
+        "The skin is the body's first barrier, but with a wound there is an opening where the bacterium can get in.",
+        "The non-specific defence kicks in immediately: white blood cells seek out and engulf bacteria, and the area becomes red, warm and swollen — an inflammation.",
+        "Other white blood cells recognise the bacterium's surface and begin producing antibodies that match that exact bacterium, which takes a few days.",
+        "The antibodies mark the bacteria so they are more easily neutralised, and the infection heals.",
+        "Some cells are kept as memory cells. If the same bacterium comes back, antibodies are formed much faster and you don't get ill — that is immunity, and the same thing happens after a vaccination."
+      ]
+    },
+    {
+      "id": "q-bio8-hal-8",
+      "kind": "flashcard",
+      "topic": "lifestyle habits and health",
+      "prompt": "Summarise the immune system, transmission routes, and how lifestyle habits and drugs affect health.",
+      "opener": "Go through the levels of defence, how infection spreads, and then sleep, diet, exercise and drugs.",
+      "answer": "Barriers: skin, mucous membranes, tears, saliva and stomach acid stop most microorganisms · Non-specific defence: white blood cells that engulf invaders, fever and inflammation (redness, heat, swelling) · Specific defence: white blood cells form antibodies that match one particular microorganism, takes a few days · Memory cells: make you immune so you avoid getting ill next time · Bacteria: cells of their own, can reproduce by themselves, most are harmless or beneficial (gut flora); treated with antibiotics when needed · Viruses: genetic material in a protein shell, must get inside a host cell, much smaller than bacteria; antibiotics don't work on viruses · Vaccine: killed or harmless parts of the pathogen give antibodies and memory cells in advance · Antibiotic resistance: bacteria that tolerate antibiotics survive and multiply — use antibiotics only when needed and finish the whole course · Transmission routes: droplets (coughing, sneezing), contact (hands, surfaces), food and water, blood and sex, and via insects · Protection: handwashing, coughing into your elbow, staying home when ill, airing rooms, vaccination · Sleep: 8–10 hours for teenagers, the brain stores memories, the body repairs cells, the immune system is strengthened · Diet: varied food with the right amount of energy gives nutrients to all cells; too much sugar and too little fibre increases the risk of illness in the long run · Exercise: strengthens the heart, lungs, skeleton and muscles, gives better fitness, a lower resting heart rate and a better mood · Tobacco and nicotine: damage the lungs and blood vessels, increase the risk of cancer and cardiovascular disease, nicotine is strongly addictive · Alcohol: affects the brain and reaction time, damages the liver and brain especially during the teenage years when the brain is still developing · Illegal drugs: affect the brain's signal substances, cause rapid addiction and major risks to both body and mental health."
+    }
+  ]
+}

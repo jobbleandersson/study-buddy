@@ -1,0 +1,131 @@
+{
+  "id": "lib-fys7-astronomi",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "The solar system and the seasons",
+  "sourceSummary": "The structure of the solar system with the sun, rocky planets and gas giants, and how the Earth's rotation gives us day and night while the tilt of its axis gives us the seasons. You also practise the phases of the moon and the difference between a solar and a lunar eclipse.",
+  "topics": [
+    "the solar system",
+    "the planets",
+    "day and night",
+    "the seasons",
+    "phases of the moon",
+    "eclipses"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys7-ast-1",
+      "kind": "mc",
+      "topic": "the planets",
+      "prompt": "Which of these planets lies closest to the sun?",
+      "opener": "Go through the order of the planets from the inside out.",
+      "choices": [
+        "Venus",
+        "Mercury",
+        "Mars",
+        "Jupiter"
+      ],
+      "answer": 1,
+      "explanation": "Mercury is the innermost planet, followed by Venus, Earth and Mars. Venus is second closest — it's actually the hottest of all the planets, but that's because of its thick atmosphere, not because it's closest to the sun."
+    },
+    {
+      "id": "q-fys7-ast-2",
+      "kind": "mc",
+      "topic": "day and night",
+      "prompt": "Why do we have day and night on Earth?",
+      "opener": "Think about which movement takes roughly 24 hours.",
+      "choices": [
+        "The Earth travels once around the sun in a day",
+        "The sun goes out during the night and switches back on in the morning",
+        "The moon blocks the sun every night",
+        "The Earth rotates once around its own axis in about 24 hours"
+      ],
+      "answer": 3,
+      "explanation": "The Earth spins around its own axis in about 24 hours, and the half facing the sun has day while the half facing away has night. The Earth going round the sun instead takes a whole year, so that can't explain the daily cycle."
+    },
+    {
+      "id": "q-fys7-ast-3",
+      "kind": "mc",
+      "topic": "the seasons",
+      "prompt": "What is the main reason we have seasons?",
+      "opener": "Look at how the Earth's axis is tilted relative to its orbit around the sun.",
+      "choices": [
+        "The Earth's axis is tilted, so the hemispheres receive the sun's rays at different angles over the year",
+        "The Earth is much closer to the sun in summer than in winter",
+        "The sun shines more strongly during the summer half of the year",
+        "The moon blocks sunlight during winter"
+      ],
+      "answer": 0,
+      "explanation": "The Earth's axis is tilted about 23.5 degrees, so during summer our hemisphere tilts towards the sun, the sun sits high in the sky and its rays hit more directly from above and for more hours each day. The distance to the sun only changes by a few per cent over the year — plus it's summer in the southern hemisphere at the same time as we have winter, which distance to the sun cannot explain."
+    },
+    {
+      "id": "q-fys7-ast-4",
+      "kind": "mc",
+      "topic": "phases of the moon",
+      "prompt": "Why does the moon look different over the course of a month?",
+      "opener": "The sun always lights up exactly half the moon — but we see that half from different angles.",
+      "choices": [
+        "The moon changes shape as it spins",
+        "The Earth's shadow falls on the moon every night",
+        "We see different amounts of the moon's sunlit half depending on where the moon is in its orbit",
+        "The moon shines with its own light, which varies in strength"
+      ],
+      "answer": 2,
+      "explanation": "The moon doesn't shine on its own — it reflects sunlight, and the sun always lights up half of it. As the moon moves around the Earth, we see the lit half from different angles, which gives us the phases new moon, half moon and full moon. The Earth's shadow doesn't come into it — that only causes a lunar eclipse, which happens rarely."
+    },
+    {
+      "id": "q-fys7-ast-5",
+      "kind": "mc",
+      "topic": "eclipses",
+      "prompt": "What happens during a solar eclipse?",
+      "opener": "Something gets in the way between you and the sun.",
+      "choices": [
+        "The Earth ends up between the sun and the moon",
+        "The sun goes out for a short while",
+        "The Earth's shadow falls on the moon",
+        "The moon ends up between the sun and the Earth and shades part of the Earth"
+      ],
+      "answer": 3,
+      "explanation": "During a solar eclipse the moon lines up directly between the sun and the Earth, and the moon's shadow falls on a narrow area of the Earth's surface where the sun is blocked out. The Earth ending up between the sun and the moon is instead a lunar eclipse, when the Earth's shadow covers the moon."
+    },
+    {
+      "id": "q-fys7-ast-6",
+      "kind": "mc",
+      "topic": "the solar system",
+      "prompt": "Which four planets are the inner rocky planets?",
+      "opener": "The rocky planets are the four that lie closest to the sun.",
+      "choices": [
+        "Mercury, Venus, Earth and Mars",
+        "Jupiter, Saturn, Uranus and Neptune",
+        "Venus, Earth, Mars and Jupiter",
+        "Mercury, Earth, Saturn and Neptune"
+      ],
+      "answer": 0,
+      "explanation": "The four innermost planets — Mercury, Venus, Earth and Mars — are small and have a solid, rocky surface, which is why they're called rocky planets. Jupiter, Saturn, Uranus and Neptune lie beyond the asteroid belt and are instead large gas giants with no solid surface to land on."
+    },
+    {
+      "id": "q-fys7-ast-7",
+      "kind": "worked",
+      "topic": "phases of the moon",
+      "prompt": "The moon's phase cycle, meaning the time from one new moon to the next, is about 29.5 days. How many days does it take from new moon to full moon?",
+      "opener": "Full moon occurs halfway through the cycle, i.e. after half the time.",
+      "answer": "About 15 days (14.75 days).",
+      "steps": [
+        "The order in the cycle is new moon, waxing half moon, full moon, waning half moon, then new moon again.",
+        "So the full moon falls exactly halfway through the cycle.",
+        "Split the cycle in two: 29.5 / 2 = 14.75 days.",
+        "So the answer is about 15 days, just over two weeks.",
+        "Sanity check: the half moon falls halfway there, about a week after new moon — just as we see in the sky."
+      ]
+    },
+    {
+      "id": "q-fys7-ast-8",
+      "kind": "flashcard",
+      "topic": "the solar system",
+      "prompt": "Summarise the solar system, the day-night cycle, the seasons and the moon.",
+      "opener": "Take the planets in order first, then the Earth's two movements, and finally the moon.",
+      "answer": "Solar system: the sun at the centre, eight planets in orbit around it, plus moons, asteroids and comets · Planet order from the inside: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune · Rocky planets: the four inner ones, small with a solid surface · Gas giants: the four outer ones, large with no solid surface · The sun is a star that shines with its own light, the planets reflect sunlight · Rotation: the Earth spins once around its own axis in about 24 hours, giving us day and night · Orbit: the Earth goes once around the sun in about 365 days, giving us the year · Seasons: the Earth's axis is tilted about 23.5 degrees, summer when our hemisphere tilts towards the sun (high sun, long days), winter when it tilts away · The northern and southern hemispheres have opposite seasons · Phases of the moon: new moon, waxing half moon, full moon, waning half moon, the whole cycle about 29.5 days · Solar eclipse: the moon between the sun and the Earth · Lunar eclipse: the Earth between the sun and the moon, the Earth's shadow on the moon"
+    }
+  ]
+}

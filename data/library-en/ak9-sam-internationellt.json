@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam-internationellt",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "The EU and international cooperation",
+  "sourceSummary": "The basic idea behind EU cooperation, the UN's role in the world, why countries cooperate internationally on trade, peace and the environment, and Sweden's role in international contexts.",
+  "topics": [
+    "what the EU is and the basic idea behind the cooperation",
+    "the UN's role, the basic idea",
+    "why countries cooperate internationally",
+    "Sweden's role in international contexts"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam-int-1",
+      "kind": "mc",
+      "topic": "what the EU is and the basic idea behind the cooperation",
+      "prompt": "What is the EU (European Union) fundamentally?",
+      "opener": "Think about how it concerns independent countries that have chosen to cooperate in several areas.",
+      "choices": [
+        "A single state that has replaced all member countries' governments",
+        "A cooperation between independent European countries in areas including economics, trade and legislation",
+        "A military alliance with no connection to the economy",
+        "An organisation that only manages sporting events"
+      ],
+      "answer": 1,
+      "explanation": "The EU is a cooperation between independent European countries that jointly decide on rules in areas including trade, the economy, the environment and, to some extent, legislation, while each country retains its own government and much of its independence."
+    },
+    {
+      "id": "q-sam-int-2",
+      "kind": "mc",
+      "topic": "what the EU is and the basic idea behind the cooperation",
+      "prompt": "What is one of the main ideas behind the EU's internal market?",
+      "opener": "Think about what should be able to move freely between the member states.",
+      "choices": [
+        "That goods, services, people and capital should be able to move freely between the member states",
+        "That every country should have its own customs duties against all other member states",
+        "That only goods may cross borders, never people",
+        "That all countries must have the same currency"
+      ],
+      "answer": 0,
+      "explanation": "The EU's internal market is based on the free movement of goods, services, people and capital between member states, which among other things makes it easier to trade, work and travel within the union. However, not all member states share a common currency — Sweden, for example, has kept the krona."
+    },
+    {
+      "id": "q-sam-int-3",
+      "kind": "mc",
+      "topic": "the UN's role, the basic idea",
+      "prompt": "What is the main purpose of the UN (United Nations)?",
+      "opener": "The UN was formed after the Second World War — what did people above all want to avoid in the future?",
+      "choices": [
+        "To work for peace, security, human rights and cooperation between the world's countries",
+        "To directly control every country's domestic policy",
+        "Solely to hand out sporting prizes",
+        "To replace countries' own governments"
+      ],
+      "answer": 0,
+      "explanation": "The UN was formed in 1945 after the Second World War to promote peace and security between countries, human rights, social development and international cooperation. The UN does not control member states' domestic policy, but is built on voluntary cooperation between sovereign states."
+    },
+    {
+      "id": "q-sam-int-4",
+      "kind": "mc",
+      "topic": "the UN's role, the basic idea",
+      "prompt": "Which UN body has a particular responsibility for international peace and security, among other things by being able to decide on sanctions?",
+      "opener": "This body has five permanent members with veto power.",
+      "choices": [
+        "The General Assembly",
+        "The Security Council",
+        "The International Monetary Fund",
+        "The World Health Organization (WHO)"
+      ],
+      "answer": 1,
+      "explanation": "The UN Security Council has the main responsibility for international peace and security and can, among other things, decide on sanctions or approve peacekeeping operations. The General Assembly brings together all member states but has more of an advisory role in security matters."
+    },
+    {
+      "id": "q-sam-int-5",
+      "kind": "mc",
+      "topic": "why countries cooperate internationally",
+      "prompt": "Which of the following is a common reason why countries choose to cooperate internationally?",
+      "opener": "Think about problems that do not stop at a single national border, e.g. climate issues or trade.",
+      "choices": [
+        "Cross-border issues such as climate, trade and security are often solved better jointly than by one country alone",
+        "Countries only cooperate because it is a requirement from the UN",
+        "International cooperation never benefits individual countries",
+        "Cooperation only occurs between neighbouring countries"
+      ],
+      "answer": 0,
+      "explanation": "Many issues, such as climate change, international trade, the spread of disease and security, are cross-border and difficult for a single country to solve on its own. Cooperation can provide benefits such as shared rules, reduced risk of conflict, and shared resources."
+    },
+    {
+      "id": "q-sam-int-6",
+      "kind": "mc",
+      "topic": "Sweden's role in international contexts",
+      "prompt": "Which of the following is true about Sweden's membership of international organisations?",
+      "opener": "Think about which organisations Sweden is actually a member of.",
+      "choices": [
+        "Sweden is a member of both the UN and the EU, and since 2024 of NATO",
+        "Sweden is not a member of the UN",
+        "Sweden has never been a member of the EU",
+        "Sweden is not allowed to cooperate with other countries according to its constitution"
+      ],
+      "answer": 0,
+      "explanation": "Sweden has been a member of the UN since 1946, of the EU since 1995, and became a member of the military defence alliance NATO in 2024, after previously having stayed outside military alliances for a long time."
+    },
+    {
+      "id": "q-sam-int-7",
+      "kind": "worked",
+      "topic": "why countries cooperate internationally",
+      "prompt": "Explain why the climate issue is a good example of a matter that requires international cooperation, and describe how such cooperation can work.",
+      "opener": "Consider whether emissions in one country stay within that country's borders, and what is required for a global solution to work.",
+      "answer": "Climate change is caused by emissions of greenhouse gases that spread throughout the entire atmosphere, regardless of which country they are emitted in, and the effects (e.g. extreme weather, rising sea levels) affect all countries, not just those that emit the most. If only one country reduces its emissions, that does not solve the problem globally. Countries therefore come together in international agreements, such as the Paris Agreement within the UN system, where countries jointly set targets to reduce emissions, report their progress and hold each other accountable, which has a better effect than if each country acted entirely on its own.",
+      "steps": [
+        "Greenhouse gas emissions spread globally through the atmosphere — it makes no difference to the climate which country the emissions occur in.",
+        "The effects of climate change (extreme weather, rising sea levels) affect all countries, even those that have emitted little.",
+        "If individual countries act alone, that is not enough to solve a global problem — other countries' continued emissions counteract the effect.",
+        "Countries therefore come together in international agreements, e.g. the Paris Agreement within the UN, to jointly set targets and report their emissions.",
+        "Through shared targets and follow-up, it becomes clearer to each country what other countries are doing, which increases the chance that everyone contributes and keeps their promises."
+      ]
+    },
+    {
+      "id": "q-sam-int-8",
+      "kind": "flashcard",
+      "topic": "what the EU is and the basic idea behind the cooperation",
+      "prompt": "Summarise the basics around the EU, the UN, international cooperation and Sweden's international role.",
+      "opener": "From European cooperation to Sweden's place in the world.",
+      "answer": "EU: cooperation between independent European countries in areas including economics, trade and, to some extent, legislation, with an internal market that provides free movement of goods, services, people and capital · UN: global organisation formed in 1945 to work for peace, security, human rights and cooperation between countries · The Security Council: UN body with particular responsibility for international peace and security, can decide on sanctions · Reasons for international cooperation: cross-border problems such as climate, trade, security and the spread of disease are often solved better jointly · Sweden internationally: member of the UN since 1946, the EU since 1995 and NATO since 2024, and actively participates in international aid and diplomacy."
+    }
+  ]
+}

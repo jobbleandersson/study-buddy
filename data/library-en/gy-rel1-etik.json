@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel1-etik",
+  "type": "assignment",
+  "subject": "Religionskunskap 1",
+  "title": "Normative ethics: an in-depth study",
+  "sourceSummary": "An in-depth study of the normative ethical models deontological ethics, consequentialist ethics, ethics of conviction and virtue ethics, and of how to apply several models to the same dilemma and compare the conclusions.",
+  "topics": [
+    "deontological ethics",
+    "consequentialist ethics",
+    "ethics of conviction",
+    "virtue ethics"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel1-etik-1",
+      "kind": "mc",
+      "topic": "deontological ethics",
+      "prompt": "The philosopher Immanuel Kant is associated with a form of deontological ethics. What does Kant think characterises a morally right action?",
+      "opener": "Kant placed great weight on whether a rule for acting could hold as a universal law for everyone.",
+      "choices": [
+        "That the action gives the greatest happiness to the greatest number of people",
+        "That the action follows a maxim (a rule for acting) that one could will to become a universal law for all people, regardless of consequences",
+        "That the action feels right in the moment",
+        "That the action is approved by a religious leader"
+      ],
+      "answer": 1,
+      "explanation": "Kant's deontological ethics rests on the so-called categorical imperative: an action is morally right if the maxim it is based on could be raised to a universal law that everyone could act on, regardless of what consequences the action happens to have. Focusing on the greatest happiness for the greatest number is instead characteristic of consequentialist ethics (utilitarianism)."
+    },
+    {
+      "id": "q-rel1-etik-2",
+      "kind": "mc",
+      "topic": "consequentialist ethics",
+      "prompt": "Utilitarianism is an influential form of consequentialist ethics. What is the central criterion for a morally right action according to classical utilitarianism?",
+      "opener": "Think about what is to be maximised: the individual's feeling in the moment, or something that applies to everyone affected.",
+      "choices": [
+        "That the action follows a fixed rule, regardless of the result",
+        "That the action maximises the total benefit (e.g. happiness and reduced suffering) for everyone affected by it",
+        "That the person acting has good intentions, regardless of the result",
+        "That the action is in line with a sacred text"
+      ],
+      "answer": 1,
+      "explanation": "Classical utilitarianism, associated with, among others, Jeremy Bentham and John Stuart Mill, judges actions by whether they maximise the total benefit for everyone affected, not just for the person acting. That an action follows a fixed rule regardless of consequence is instead the core of deontological ethics."
+    },
+    {
+      "id": "q-rel1-etik-3",
+      "kind": "mc",
+      "topic": "ethics of conviction",
+      "prompt": "What distinguishes the ethics of conviction from consequentialist ethics when judging an action where the intention was good but the outcome was bad?",
+      "opener": "Consider which of the two perspectives puts the emphasis on the intention rather than the outcome.",
+      "choices": [
+        "The ethics of conviction judges the action as morally good because the intention was good, while consequentialist ethics primarily weighs in the actual, bad outcome",
+        "The ethics of conviction and consequentialist ethics always give exactly the same judgement",
+        "The ethics of conviction only cares about the result, never the intention",
+        "Consequentialist ethics only cares about the intention, never the result"
+      ],
+      "answer": 0,
+      "explanation": "The ethics of conviction places the moral weight on the person's intention and will, which means an action with a good intention can be judged morally good despite a bad outcome. Consequentialist ethics primarily judges the action by its actual consequences, regardless of how good the intentions were."
+    },
+    {
+      "id": "q-rel1-etik-4",
+      "kind": "mc",
+      "topic": "virtue ethics",
+      "prompt": "Virtue ethics is usually counted as a fourth normative model, alongside deontological ethics, consequentialist ethics and the ethics of conviction. What is the focus of virtue ethics?",
+      "opener": "Virtue ethics asks less \"what should I do?\" and more \"what kind of person do I want to be?\".",
+      "choices": [
+        "Which rules must be followed in every individual situation",
+        "What consequences an individual action gives rise to",
+        "Developing good character traits (virtues), such as courage, wisdom and justice, and acting as a person of such character would",
+        "Which sacred text should be interpreted literally"
+      ],
+      "answer": 2,
+      "explanation": "Virtue ethics, with roots in, among others, Aristotle, focuses on cultivating good character traits (virtues) such as wisdom, courage and justice, rather than on individual rules or calculations of consequences. The question then is not primarily \"which rule applies here\" but \"how would a virtuous person act in this situation\"."
+    },
+    {
+      "id": "q-rel1-etik-5",
+      "kind": "mc",
+      "topic": "deontological ethics",
+      "prompt": "A nurse is considering lying to a dying patient about their diagnosis in order to spare the patient emotionally. A strict Kantian deontologist would likely object to this by reasoning how?",
+      "opener": "Test the rule for acting \"one may lie when it benefits someone emotionally\" as a universal law for everyone.",
+      "choices": [
+        "That the lie is morally unproblematic as long as the patient becomes calmer",
+        "That one should ask what gives the most benefit overall before deciding",
+        "That a rule for acting which permits lying, if raised to a universal law, would undermine the very possibility of trust between people, and that the lie is therefore wrong regardless of how considerate the intention is",
+        "That the question is entirely without ethical relevance"
+      ],
+      "answer": 2,
+      "explanation": "A Kantian deontologist tests whether the rule for acting (\"it is permissible to lie when it spares someone\") could hold as a universal law for everyone; since a world in which lying is generally permitted would undermine trust between people, the conclusion is that the lie is wrong, regardless of the good intention or any good consequences it might have. Weighing the benefit is instead a consequentialist line of reasoning."
+    },
+    {
+      "id": "q-rel1-etik-6",
+      "kind": "mc",
+      "topic": "consequentialist ethics",
+      "prompt": "What is a common criticism of utilitarianism as an ethical model?",
+      "opener": "Consider what can happen to a minority's rights if only the majority's total benefit counts.",
+      "choices": [
+        "That it is too strictly bound to religious rules",
+        "That, in its pursuit of maximising the total benefit, it can in principle justify sacrificing an individual's or a minority's rights if this benefits the majority's total benefit",
+        "That it entirely disregards consequences",
+        "That it requires that a rule may never be broken"
+      ],
+      "answer": 1,
+      "explanation": "A recurring criticism of utilitarianism is that, if applied strictly, it risks justifying the violation of an individual's or a minority's rights, as long as the total benefit for the majority becomes great enough. Deontologists often object that certain rights should be protected regardless of what benefit a violation would produce."
+    },
+    {
+      "id": "q-rel1-etik-7",
+      "kind": "worked",
+      "topic": "virtue ethics",
+      "prompt": "A dilemma: a friend asks you to help them cheat on a test, otherwise they risk failing the course. Analyse the dilemma using all four models: deontological ethics, consequentialist ethics, the ethics of conviction and virtue ethics. Do they arrive at the same conclusion or different ones?",
+      "opener": "Go through the models one by one, note the conclusion from each, and compare at the end.",
+      "answer": "Deontological reasoning: a rule such as \"one should not cheat or help others cheat\" points towards refusing, regardless of what the consequences are for the friend — testing the rule for acting \"it is permissible to cheat in order to help a friend\" as a universal law shows that it would undermine the entire point of tests, which speaks against helping. Consequentialist reasoning: one weighs the friend's short-term gain (a passing grade) against broader harms, such as unfairness to other students who do not cheat and the risk of undermining trust in the grading system if the cheating is discovered — the total benefit is likely greater from refusing. Reasoning from the ethics of conviction: the intention to help a friend in need is fundamentally good, but the good intention does not automatically outweigh the harm the action causes others, so someone reasoning from conviction might still question whether cheating is really the best expression of care. Virtue-ethical reasoning: the question becomes what a person with good character traits, such as honesty and the courage to say no, would do — such a person would likely help the friend in an honest way, for example by studying together, rather than by cheating. In this case, all four models arrive at a similar practical conclusion (not to cheat), but they justify it differently: through a rule, through a calculation of benefit, through an examination of intention, and through the question of what character one wants to cultivate, respectively.",
+      "steps": [
+        "Identify the dilemma: loyalty to a friend and helpfulness stand against honesty and fairness towards other students.",
+        "Deontological ethics: test whether the rule for acting \"help someone cheat if it benefits a friend\" could hold as a universal law — no, it undermines the entire point of tests.",
+        "Consequentialist ethics: weigh the friend's short-term gain against the harm to other students and to trust in the grading system — refusing likely produces greater total benefit.",
+        "Ethics of conviction: judge the intention (care for the friend) but ask whether the good intention is enough to justify the harm to others.",
+        "Virtue ethics: ask what a person with virtues such as honesty and courage would do, and compare the conclusions from all four models."
+      ]
+    },
+    {
+      "id": "q-rel1-etik-8",
+      "kind": "flashcard",
+      "topic": "virtue ethics",
+      "prompt": "Summarise the four normative ethical models: deontological ethics, consequentialist ethics, the ethics of conviction and virtue ethics.",
+      "opener": "Go through the models one by one, focusing on what each of them emphasises.",
+      "answer": "Deontological ethics (e.g. Kant): an action is right if it follows a principle/maxim that could hold as a universal law for everyone, regardless of consequences. Consequentialist ethics/utilitarianism: an action is right if it maximises the total benefit for everyone affected; sometimes criticised for being able to justify sacrificing a minority's rights. Ethics of conviction: focus on the intention and will behind the action — a good intention counts morally, even with a bad outcome. Virtue ethics (e.g. Aristotle): focus on cultivating good character traits (virtues) such as courage, wisdom and justice, and asking how a virtuous person would act, rather than following an individual rule or calculating consequences. Applying several models to the same dilemma can produce the same practical conclusion but with different justifications, or sometimes entirely different conclusions."
+    }
+  ]
+}

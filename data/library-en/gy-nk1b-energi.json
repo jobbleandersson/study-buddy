@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-energi",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "Energy and climate",
+  "sourceSummary": "The principle of conservation of energy and energy conversions in depth, renewable and non-renewable energy sources, and the greenhouse effect and the causes and consequences of climate change.",
+  "topics": [
+    "energy conservation and energy conversions",
+    "energy sources",
+    "the greenhouse effect",
+    "climate change"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-energi-1",
+      "kind": "mc",
+      "topic": "energy conservation and energy conversions",
+      "prompt": "What does the principle of conservation of energy state?",
+      "opener": "Think about what actually happens to energy in a conversion — does it disappear?",
+      "choices": [
+        "Energy can neither be created nor destroyed, only converted between different forms",
+        "Energy can be created but never disappear",
+        "Energy always decreases somewhat with each conversion without becoming something else",
+        "The total amount of energy in the universe keeps increasing"
+      ],
+      "answer": 0,
+      "explanation": "The principle of conservation of energy means that the total amount of energy in a closed system is always constant — energy is converted between forms such as kinetic energy, potential energy, heat and chemical energy, but is never created or destroyed. That energy \"disappears\" is a common misconception; in practice it is often converted into heat that spreads out."
+    },
+    {
+      "id": "q-nk1b-energi-2",
+      "kind": "mc",
+      "topic": "energy conservation and energy conversions",
+      "prompt": "When a wind turbine produces electricity, which energy conversion mainly takes place?",
+      "opener": "Follow the energy from the wind, via the rotor blades and generator, to the power outlet.",
+      "choices": [
+        "Chemical energy is converted directly into electrical energy",
+        "Kinetic energy in the air is converted via the rotor's motion into electrical energy in the generator",
+        "Radiant energy is converted directly into electrical energy",
+        "Potential energy in the air is converted into heat energy"
+      ],
+      "answer": 1,
+      "explanation": "The wind's kinetic energy makes the rotor blades spin, and this mechanical kinetic energy is converted in the generator into electrical energy. It is therefore not about chemical energy or radiant energy, which are typical of combustion and solar cells, respectively."
+    },
+    {
+      "id": "q-nk1b-energi-3",
+      "kind": "mc",
+      "topic": "energy sources",
+      "prompt": "What is the main difference between renewable and non-renewable energy sources?",
+      "opener": "Think about the time perspective — how quickly the source is replenished compared with how quickly we use it.",
+      "choices": [
+        "Renewable energy sources always give more energy per kilogram of fuel",
+        "Non-renewable energy sources are always cleaner for the environment",
+        "Renewable energy sources are regenerated at roughly the same rate as they are consumed, while non-renewable ones (e.g. oil, coal and natural gas) take millions of years to form",
+        "Renewable energy sources can only be used in warm countries"
+      ],
+      "answer": 2,
+      "explanation": "Renewable energy sources, such as solar, wind and hydropower, rely on processes that are constantly renewed. Fossil fuels count as non-renewable because they form over geological timescales and therefore run out on a human timescale if consumed faster than they are regenerated."
+    },
+    {
+      "id": "q-nk1b-energi-4",
+      "kind": "mc",
+      "topic": "energy sources",
+      "prompt": "What is a common drawback often raised about hydropower and wind power, despite them being renewable and having low greenhouse gas emissions during operation?",
+      "opener": "Think about factors other than climate impact — e.g. how evenly the energy is produced, or what the facility affects locally.",
+      "choices": [
+        "They generate large amounts of radioactive waste",
+        "They emit as much carbon dioxide as coal power during operation",
+        "They cannot be combined at all with other electricity production in the same grid",
+        "Wind power gives uneven production depending on the weather, and hydropower can affect local ecosystems and migrating fish"
+      ],
+      "answer": 3,
+      "explanation": "Wind power's output varies with wind strength, requiring backup or storage, and hydropower dams can affect water flows, habitats and fish migration routes. Radioactive waste is instead an issue linked to nuclear power, not hydropower or wind power."
+    },
+    {
+      "id": "q-nk1b-energi-5",
+      "kind": "mc",
+      "topic": "the greenhouse effect",
+      "prompt": "What is the natural greenhouse effect, and why is it necessary for life on Earth?",
+      "opener": "Think about how cold the Earth would be without the atmosphere's ability to retain heat.",
+      "choices": [
+        "A phenomenon where the ozone layer leaks harmful UV radiation",
+        "The atmosphere's gases (including carbon dioxide and water vapour) capture heat radiation from the Earth and keep the planet warmer than it would otherwise be",
+        "The Earth's rotation, which creates the seasons",
+        "The oceans' ability to store carbon dioxide in deep water"
+      ],
+      "answer": 1,
+      "explanation": "Greenhouse gases in the atmosphere let sunlight through but capture some of the heat radiation the Earth sends back out into space, which keeps the Earth's average temperature at a level that makes life possible. Without this natural effect, the Earth would be considerably colder."
+    },
+    {
+      "id": "q-nk1b-energi-6",
+      "kind": "mc",
+      "topic": "climate change",
+      "prompt": "What is meant by the enhanced greenhouse effect, which is linked to today's climate change?",
+      "opener": "The difference lies in what humans have added on top of the natural system.",
+      "choices": [
+        "That the sun now shines considerably more strongly than before",
+        "That human emissions of greenhouse gases, above all from burning fossil fuels, increase the concentration of greenhouse gases and thereby enhance warming beyond the natural level",
+        "That the Earth's atmosphere is disappearing into space",
+        "That the hole in the ozone layer causes all global warming"
+      ],
+      "answer": 1,
+      "explanation": "The enhanced greenhouse effect is caused by human activity, especially burning fossil fuels, deforestation and certain agricultural production, increasing the amount of greenhouse gases in the atmosphere beyond natural levels, which enhances warming. The hole in the ozone layer is a separate problem mainly concerning UV radiation, not climate warming."
+    },
+    {
+      "id": "q-nk1b-energi-7",
+      "kind": "worked",
+      "topic": "climate change",
+      "prompt": "Explain the connection between burning fossil fuels, the concentration of carbon dioxide in the atmosphere, and some of the consequences that climate change brings.",
+      "opener": "Follow the carbon from the ground, through combustion, up into the atmosphere and onward to the effects on the climate.",
+      "answer": "Burning fossil fuels releases carbon that has been locked away for millions of years, which raises the concentration of carbon dioxide in the atmosphere, enhances the greenhouse effect and raises the Earth's average temperature, which in turn leads to, among other things, melting ice, rising sea levels and more extreme weather.",
+      "steps": [
+        "Fossil fuels (coal, oil, natural gas) consist of carbon that was bound by plants and organisms over millions of years and has since been stored in the ground.",
+        "When burned, this carbon is quickly released as carbon dioxide into the atmosphere, much faster than it was originally bound.",
+        "An increased concentration of carbon dioxide enhances the greenhouse effect because more heat radiation is captured in the atmosphere.",
+        "This leads to a rise in the Earth's average temperature, which causes ice and glaciers to melt and seawater to expand, raising sea levels.",
+        "A warmer climate also produces more extreme weather events, such as heatwaves, heavy rainfall and increased drought in certain regions, and affects ecosystems and growing conditions."
+      ]
+    },
+    {
+      "id": "q-nk1b-energi-8",
+      "kind": "flashcard",
+      "topic": "energy sources",
+      "prompt": "Summarise the principle of conservation of energy, the difference between renewable and non-renewable energy sources, and the greenhouse effect (natural and enhanced).",
+      "opener": "Go through what happens to the energy, where it comes from, and why the Earth is getting warmer.",
+      "answer": "Principle of conservation of energy: energy can neither be created nor destroyed, only converted between forms (e.g. kinetic, potential, chemical and heat energy) · Renewable energy sources: sun, wind, water and biofuel — renewed at roughly the same rate as they are used · Non-renewable energy sources: coal, oil and natural gas (fossil fuels) and uranium — take a very long time to form · Natural greenhouse effect: the atmosphere's gases retain heat and make the Earth habitable · Enhanced greenhouse effect: human emissions of greenhouse gases, mainly carbon dioxide from fossil fuels, increase the concentration and enhance warming · Consequences: raised average temperature, melting ice, rising sea levels and more extreme weather."
+    }
+  ]
+}

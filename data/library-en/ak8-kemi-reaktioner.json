@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi8-reaktioner",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Chemical reactions and energy",
+  "sourceSummary": "Balancing simple reaction equations, the difference between exothermic and endothermic reactions, combustion and oxidation, what affects reaction rate, and the law of conservation of mass.",
+  "topics": [
+    "reaction equations and balancing",
+    "exothermic and endothermic reactions",
+    "combustion and oxidation",
+    "reaction rate",
+    "conservation of mass"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi8-rea-1",
+      "kind": "mc",
+      "topic": "reaction equations and balancing",
+      "prompt": "Which coefficient should go in front of H2O for the equation to be balanced? 2 H2 + O2 → ___ H2O",
+      "opener": "Count the number of hydrogen and oxygen atoms on the left-hand side first.",
+      "choices": [
+        "2",
+        "1",
+        "3",
+        "4"
+      ],
+      "answer": 0,
+      "explanation": "The left-hand side has 4 hydrogen atoms (2 · H2) and 2 oxygen atoms (O2). With 2 H2O on the right-hand side you get 4 hydrogen atoms and 2 oxygen atoms — that matches. With just 1 H2O, atoms would disappear, which cannot happen in a chemical reaction."
+    },
+    {
+      "id": "q-kemi8-rea-2",
+      "kind": "mc",
+      "topic": "conservation of mass",
+      "prompt": "What does the law of conservation of mass state?",
+      "opener": "Think about what happens to the atoms in a reaction — they just move around.",
+      "choices": [
+        "Mass always increases in a chemical reaction",
+        "Mass decreases when a substance burns up",
+        "The total mass is the same before and after the reaction, since no atoms disappear or are newly created",
+        "Mass is only conserved when the reaction happens in liquid form"
+      ],
+      "answer": 2,
+      "explanation": "The atoms are rearranged into new compounds, but the number of atoms of each kind is the same before and after, so the total mass is unchanged. When wood burns it looks as though the mass decreases, but that's only because carbon dioxide and water vapour escape into the air — if you weigh the gases too, the mass matches up."
+    },
+    {
+      "id": "q-kemi8-rea-3",
+      "kind": "mc",
+      "topic": "combustion and oxidation",
+      "prompt": "What is formed in COMPLETE combustion of methane (CH4) in oxygen?",
+      "opener": "The carbon and hydrogen in the fuel each get an oxygen-containing product when there's enough oxygen.",
+      "choices": [
+        "Carbon monoxide and hydrogen gas",
+        "Carbon dioxide and water",
+        "Soot and oxygen gas",
+        "Only carbon dioxide"
+      ],
+      "answer": 1,
+      "explanation": "In complete combustion, CH4 + 2 O2 → CO2 + 2 H2O applies, in other words carbon dioxide and water. Carbon monoxide (CO) and soot are instead formed in incomplete combustion, when the oxygen supply is insufficient — and the hydrogen has to go somewhere, so it can't end up as only carbon dioxide."
+    },
+    {
+      "id": "q-kemi8-rea-4",
+      "kind": "mc",
+      "topic": "exothermic and endothermic reactions",
+      "prompt": "What characterises an EXOTHERMIC reaction?",
+      "opener": "The prefix \"exo-\" means out — think about which way the energy travels.",
+      "choices": [
+        "It takes up energy from the surroundings so the temperature falls",
+        "It can only happen in the dark",
+        "It requires a constant supply of electricity",
+        "It releases energy to the surroundings, often as heat, so the temperature rises"
+      ],
+      "answer": 3,
+      "explanation": "An exothermic reaction releases energy to the surroundings, just as combustion does when things get hot. A reaction that instead takes up energy and cools the surroundings is endothermic — for example a cold pack or photosynthesis."
+    },
+    {
+      "id": "q-kemi8-rea-5",
+      "kind": "mc",
+      "topic": "combustion and oxidation",
+      "prompt": "What is meant by an iron object oxidising when it rusts?",
+      "opener": "The word oxidation is connected to one of the air's most common substances.",
+      "choices": [
+        "The iron reacts with oxygen and water and forms a new compound, iron oxide",
+        "The iron slowly melts without changing chemically",
+        "The iron releases oxygen into the surrounding air",
+        "The iron atoms break down into smaller atoms"
+      ],
+      "answer": 0,
+      "explanation": "Oxidation means that a substance reacts with oxygen — iron plus oxygen and water gives rust, in other words iron oxide, and the object therefore becomes heavier. Atoms cannot break down into smaller atoms in a chemical reaction, they are only rearranged into new compounds."
+    },
+    {
+      "id": "q-kemi8-rea-6",
+      "kind": "mc",
+      "topic": "reaction rate",
+      "prompt": "Which of the following makes a chemical reaction go FASTER?",
+      "opener": "The reaction goes faster if the particles collide with each other more often.",
+      "choices": [
+        "Lowering the temperature",
+        "Using a single large piece of the solid instead of powder",
+        "Raising the temperature, since the particles then move faster and collide more often",
+        "Diluting the solution so the concentration becomes lower"
+      ],
+      "answer": 2,
+      "explanation": "Higher temperature gives faster particles and more collisions with enough energy, so the reaction goes faster — that's why a fridge slows down food spoiling. Powder has much more surface area than a large piece and therefore reacts faster, and lower concentration gives fewer collisions, in other words a slower reaction."
+    },
+    {
+      "id": "q-kemi8-rea-7",
+      "kind": "worked",
+      "topic": "reaction equations and balancing",
+      "prompt": "Magnesium burns in oxygen with a strong white light and forms magnesium oxide. Balance the reaction equation: Mg + O2 → MgO",
+      "opener": "Count the atoms of each kind on both sides and adjust the coefficients, never the subscript numbers.",
+      "answer": "2 Mg + O2 → 2 MgO. The reaction is exothermic and releases a lot of heat and light, and the total mass is the same before and after.",
+      "steps": [
+        "Count the atoms in the unbalanced equation Mg + O2 → MgO: the left side has 1 Mg and 2 O, the right side has 1 Mg and 1 O.",
+        "The oxygen doesn't match, so put the coefficient 2 in front of MgO: Mg + O2 → 2 MgO. Now there are 2 oxygen atoms on both sides.",
+        "But now there are 2 Mg on the right-hand side and only 1 on the left, so put 2 in front of Mg: 2 Mg + O2 → 2 MgO.",
+        "Check: 2 Mg and 2 O on the left-hand side, 2 Mg and 2 O on the right-hand side — the equation is balanced.",
+        "Since the number of atoms of each kind is equal on both sides, mass is conserved: the magnesium oxide weighs more than the magnesium, because oxygen from the air has been built in."
+      ]
+    },
+    {
+      "id": "q-kemi8-rea-8",
+      "kind": "flashcard",
+      "topic": "reaction equations and balancing",
+      "prompt": "Summarise reaction equations, energy in reactions, combustion and reaction rate.",
+      "opener": "Balancing first, then the direction of energy flow, then combustion and finally the rate factors.",
+      "answer": "Chemical reaction: atoms are rearranged into new substances, no atoms disappear or are newly created · Conservation of mass: total mass equal before and after, gases can trick the eye · Reaction equation: reactants → products, balanced with coefficients in front of the formulas, never by changing subscript numbers · Examples: 2 H2 + O2 → 2 H2O · 2 Mg + O2 → 2 MgO · CH4 + 2 O2 → CO2 + 2 H2O · Exothermic: releases energy, the surroundings get warmer (combustion, neutralisation, cellular respiration) · Endothermic: takes up energy, the surroundings get colder (a cold pack, photosynthesis, dissolving certain salts) · Combustion: substance + oxygen, requires fuel, oxygen and enough heat (the fire triangle) · Complete combustion of hydrocarbons gives CO2 + H2O; incomplete combustion gives soot and poisonous carbon monoxide CO · Oxidation: a substance reacts with oxygen, e.g. rust forming (iron oxide) — the object becomes heavier · Reaction rate is increased by: higher temperature · higher concentration · larger surface area (powder instead of a lump) · a catalyst, which speeds things up without being used up · Reaction rate is decreased by cold, dilution and less contact area."
+    }
+  ]
+}

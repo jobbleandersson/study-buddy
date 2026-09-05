@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi7-labb",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Laboratory safety and method",
+  "sourceSummary": "Safety rules and protective equipment in the lab, what the most common hazard pictograms mean, the names and uses of common lab equipment, and how to plan, carry out and document an experiment with a hypothesis and a conclusion.",
+  "topics": [
+    "safety rules",
+    "protective equipment",
+    "hazard pictograms",
+    "lab equipment",
+    "experimental method"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi7-lab-1",
+      "kind": "mc",
+      "topic": "safety rules",
+      "prompt": "What should you always do BEFORE starting an experiment?",
+      "opener": "It is about knowing what is supposed to happen and what could go wrong.",
+      "choices": [
+        "Taste a little of the substances to find out what they are",
+        "Read through the whole instruction and find out what the risks are",
+        "Take off your safety goggles so you can see more clearly",
+        "Light the burner so it is hot by the time you need it"
+      ],
+      "answer": 1,
+      "explanation": "By reading the instruction first you know which steps are coming, what protective equipment you need, and what risks the substances carry. Tasting substances in the lab is forbidden - you never know whether a substance is toxic or corrosive."
+    },
+    {
+      "id": "q-kemi7-lab-2",
+      "kind": "mc",
+      "topic": "protective equipment",
+      "prompt": "What protective equipment do you use when working with chemicals or heating substances?",
+      "opener": "The eyes are the most sensitive part and the hardest to repair.",
+      "choices": [
+        "Safety goggles and a lab coat or protective apron, and long hair tied back",
+        "Just a pair of thin disposable gloves",
+        "Ear defenders and a high-visibility vest",
+        "No equipment is needed as long as the teacher is in the room"
+      ],
+      "answer": 0,
+      "explanation": "Safety goggles protect the eyes from splashes, the coat or apron protects clothes and skin, and hair tied back cannot catch fire over the burner. Gloves may sometimes be needed, but they do not protect the eyes - which carry the most serious risk of injury."
+    },
+    {
+      "id": "q-kemi7-lab-3",
+      "kind": "mc",
+      "topic": "hazard pictograms",
+      "prompt": "A bottle carries a hazard pictogram showing liquid dripping onto a hand and a surface, corroding them. What does it mean?",
+      "opener": "Look at what the liquid is doing to the hand in the picture.",
+      "choices": [
+        "Flammable",
+        "Hazardous to the environment",
+        "Corrosive - can cause serious damage to skin and eyes",
+        "Explosive"
+      ],
+      "answer": 2,
+      "explanation": "The symbol with liquid corroding a hand and a surface means corrosive, and such substances must be handled with safety goggles and great care. Flammable is instead shown with a flame, and hazardous to the environment with a dead tree and a dead fish."
+    },
+    {
+      "id": "q-kemi7-lab-4",
+      "kind": "mc",
+      "topic": "lab equipment",
+      "prompt": "You need to measure out exactly 50 ml of water. Which piece of equipment gives the most accurate result?",
+      "opener": "Some vessels are made for mixing in, others for measuring with.",
+      "choices": [
+        "A beaker",
+        "A test tube",
+        "A petri dish",
+        "A measuring cylinder"
+      ],
+      "answer": 3,
+      "explanation": "The measuring cylinder is narrow and has a clear scale, so you can read off the volume accurately at the bottom of the liquid surface. The markings on a beaker are only approximate - it is made for mixing and pouring, not for measuring precisely."
+    },
+    {
+      "id": "q-kemi7-lab-5",
+      "kind": "mc",
+      "topic": "safety rules",
+      "prompt": "The teacher says you may smell the contents of a test tube. How do you do this?",
+      "opener": "You want a small amount of air to reach your nose, not a large amount.",
+      "choices": [
+        "Put your nose right at the opening and breathe in deeply",
+        "Hold the test tube a little way from your face and gently waft the air towards you",
+        "Heat the substance first so the smell becomes stronger",
+        "Blow into the test tube and smell the air that comes out"
+      ],
+      "answer": 1,
+      "explanation": "By wafting the air towards you from a distance, you get only a small amount of vapour to your nose, which is safe even if the substance is irritating. Breathing in deeply directly over the opening can damage your airways if the vapour is corrosive or toxic."
+    },
+    {
+      "id": "q-kemi7-lab-6",
+      "kind": "mc",
+      "topic": "experimental method",
+      "prompt": "What is a hypothesis?",
+      "opener": "It is written before the experiment, not after.",
+      "choices": [
+        "A prediction of what will happen, which can be tested in an experiment",
+        "The result you actually measured during the experiment",
+        "The conclusion you draw once the experiment is finished",
+        "The list of equipment you need"
+      ],
+      "answer": 0,
+      "explanation": "A hypothesis is a testable guess formulated before the experiment, for example \"sugar dissolves faster in warm water\". The conclusion comes only afterwards, when you compare the result with the hypothesis and judge whether it was correct."
+    },
+    {
+      "id": "q-kemi7-lab-7",
+      "kind": "worked",
+      "topic": "experimental method",
+      "prompt": "You want to investigate whether sugar dissolves faster in warm water than in cold. Describe how you plan, carry out and document the experiment so that the result is reliable.",
+      "opener": "Think about what you change and what you must keep exactly the same in both trials.",
+      "answer": "Formulate a hypothesis, change only the temperature and keep everything else the same, time how long it takes to dissolve in both glasses with a stopwatch, write the results in a table, and then compare with the hypothesis in a conclusion.",
+      "steps": [
+        "Write a hypothesis before the trial, for example: \"The sugar dissolves faster in the warm water, because the molecules move faster when the temperature is higher.\"",
+        "Decide the variables: what you CHANGE is the temperature of the water (e.g. 10°C and 50°C). Everything else is kept the same - the same volume of water (measured with a measuring cylinder), the same amount of sugar (weighed on a scale), the same stirring.",
+        "Carry out the trial: pour the water into two glasses, add the sugar at the same time and start the stopwatch. Stir the same amount in both and stop the clock when the sugar can no longer be seen.",
+        "Document: write down the temperature, amounts and measured time in a table. Repeat the trial a couple of times to see whether the result is the same.",
+        "Draw a conclusion: compare the times with the hypothesis and state whether it was correct. Also mention anything that could have caused error, for example stirring different amounts in the glasses."
+      ]
+    },
+    {
+      "id": "q-kemi7-lab-8",
+      "kind": "flashcard",
+      "topic": "safety rules",
+      "prompt": "Summarise the safety rules, the equipment, and the steps in a lab report.",
+      "opener": "Take safety first, then the equipment, and finally the parts of the report.",
+      "answer": "Safety rules: read the instruction before you start · never eat, drink or taste anything in the lab · do not run, keep your workspace tidy · keep long hair tied back near an open flame · smell substances by wafting the air towards you from a distance · never pour chemicals back into the original bottle · report spills and accidents to the teacher immediately · wash your hands afterwards · know where the eyewash station, emergency shower, fire extinguisher and fire blanket are · Protective equipment: safety goggles, lab coat or apron, gloves when needed · Hazard pictograms (red frame, white background): flame = flammable · corrosive liquid on a hand = corrosive · skull = acutely toxic · exclamation mark = irritant or harmful to health · dead tree and dead fish = hazardous to the environment · exploding bomb = explosive · Lab equipment: beaker (mixing and pouring, rough volume) · measuring cylinder (measuring volume accurately) · test tube and test tube rack (small amounts, heating) · conical (Erlenmeyer) flask (mixing without spilling) · funnel and filter paper (filtration) · gas burner with tripod and wire gauze (heating) · crucible tongs, scale, thermometer, watch glass · Parts of a lab report: aim · hypothesis (testable prediction made before the trial) · materials and equipment · procedure (clear enough for someone else to repeat it) · results (measurements, table, diagram) · conclusion (was the hypothesis correct, and what sources of error were there?)."
+    }
+  ]
+}

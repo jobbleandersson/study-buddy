@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma2-statistik",
+  "type": "assignment",
+  "subject": "Matematik 2",
+  "title": "Probability and statistics",
+  "sourceSummary": "Conditional probability, the condition for independent events, and deeper coverage of measures of central tendency and spread, including quartiles and standard deviation.",
+  "topics": [
+    "conditional probability",
+    "independent events",
+    "measures of central tendency",
+    "measures of spread"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma2-statistik-1",
+      "kind": "mc",
+      "topic": "conditional probability",
+      "prompt": "What does the notation $P(A \\mid B)$ mean?",
+      "opener": "Read the symbol as \"the probability of ... given ...\".",
+      "choices": [
+        "The probability that both A and B occur",
+        "The probability that A occurs, given that B has already occurred",
+        "The probability that B occurs, given that A has already occurred",
+        "The probability that A or B occurs"
+      ],
+      "answer": 1,
+      "explanation": "$P(A\\mid B)$ is read \"the probability of A given B\" and is calculated as $P(A\\mid B) = \\dfrac{P(A \\text{ and } B)}{P(B)}$. Reversing the order (option C) instead gives $P(B\\mid A)$, which is generally a different number."
+    },
+    {
+      "id": "q-ma2-statistik-2",
+      "kind": "mc",
+      "topic": "conditional probability",
+      "prompt": "In a class, 70% like maths and 40% like both maths and physics. What is the probability that a student who likes maths also likes physics, i.e. $P(\\text{physics} \\mid \\text{maths})$?",
+      "opener": "Divide the probability of both subjects by the probability of the condition (maths).",
+      "choices": [
+        "57%",
+        "28%",
+        "40%",
+        "70%"
+      ],
+      "answer": 0,
+      "explanation": "$P(\\text{physics}\\mid\\text{maths}) = \\dfrac{P(\\text{maths and physics})}{P(\\text{maths})} = \\dfrac{0.4}{0.7} \\approx 0.571 = 57\\%$. Option B ($28\\%$) is obtained if you mistakenly multiply the probabilities instead of dividing."
+    },
+    {
+      "id": "q-ma2-statistik-3",
+      "kind": "mc",
+      "topic": "independent events",
+      "prompt": "Two events A and B are independent if and only if which condition holds?",
+      "opener": "Independence means that one event does not affect the probability of the other.",
+      "choices": [
+        "$P(A\\mid B) = P(A)$",
+        "$P(A \\text{ and } B) = 0$",
+        "$P(A) + P(B) = 1$",
+        "$P(A\\mid B) = P(B)$"
+      ],
+      "answer": 0,
+      "explanation": "Independence means that B occurring does not change the probability of A, i.e. $P(A\\mid B) = P(A)$. $P(A \\text{ and } B) = 0$ (option B) instead describes mutually exclusive events, which is something different."
+    },
+    {
+      "id": "q-ma2-statistik-4",
+      "kind": "mc",
+      "topic": "independent events",
+      "prompt": "In an experiment, $P(A) = 0.3$, $P(B) = 0.5$ and $P(A \\text{ and } B) = 0.15$. Are A and B independent events?",
+      "opener": "Test whether the product of the individual probabilities matches the probability that both occur.",
+      "choices": [
+        "No, because $P(A) + P(B) \\neq 1$",
+        "No, because $P(A\\mid B)$ is unknown",
+        "Yes, because $P(A) \\cdot P(B) = P(A \\text{ and } B)$",
+        "Yes, because both probabilities are less than 1"
+      ],
+      "answer": 2,
+      "explanation": "Test the independence condition: $P(A)\\cdot P(B) = 0.3 \\cdot 0.5 = 0.15$, which matches the given $P(A \\text{ and } B) = 0.15$. So the events are independent. The sum $P(A)+P(B)=1$ (option A) is not a relevant condition for independence."
+    },
+    {
+      "id": "q-ma2-statistik-5",
+      "kind": "mc",
+      "topic": "measures of central tendency",
+      "prompt": "The numbers 2, 5, 6, 8, 9, 12, 15, 20 are sorted in order of size. What is the lower quartile $Q_1$?",
+      "opener": "$Q_1$ is the median of the lower half of the values.",
+      "choices": [
+        "5",
+        "6",
+        "8",
+        "5.5"
+      ],
+      "answer": 3,
+      "explanation": "The lower half (the four smallest values) is 2, 5, 6, 8. The median of these four is $\\frac{5+6}{2} = 5.5$, which is $Q_1$. Simply choosing the middle number in the group (option B) misses that you should take the average of the two middle values."
+    },
+    {
+      "id": "q-ma2-statistik-6",
+      "kind": "mc",
+      "topic": "measures of spread",
+      "prompt": "Which measure of spread takes into account all values in the data set, not just the two extreme values?",
+      "opener": "The range uses only the max and min — which measure accounts for every individual value?",
+      "choices": [
+        "The range",
+        "The standard deviation",
+        "The median",
+        "The mode"
+      ],
+      "answer": 1,
+      "explanation": "The standard deviation is calculated from the distance between each individual value and the mean, so every observation affects the measure. The range (option A) uses only the largest and smallest values. The median and mode are measures of central tendency, not spread."
+    },
+    {
+      "id": "q-ma2-statistik-7",
+      "kind": "worked",
+      "topic": "conditional probability",
+      "prompt": "In a survey of 200 people, respondents were asked whether they exercise regularly and whether they sleep well: Exercises and sleeps well: 80 people. Exercises and sleeps poorly: 20 people. Does not exercise and sleeps well: 30 people. Does not exercise and sleeps poorly: 70 people. What is the probability that a person sleeps well, given that the person exercises?",
+      "opener": "First restrict yourself to the group that exercises — how many are there in total?",
+      "answer": "80% (0.8)",
+      "steps": [
+        "Total number who exercise: $80 + 20 = 100$ people.",
+        "Of these 100, 80 people sleep well.",
+        "$P(\\text{sleeps well} \\mid \\text{exercises}) = \\dfrac{80}{100} = 0.8$.",
+        "So there's an 80% probability that a person who exercises also sleeps well."
+      ]
+    },
+    {
+      "id": "q-ma2-statistik-8",
+      "kind": "flashcard",
+      "topic": "conditional probability",
+      "prompt": "Summarise the formula for conditional probability, the condition for independent events, and the deeper measures of central tendency and spread.",
+      "opener": "Connect the formula for conditional probability with the test for independence.",
+      "answer": "$P(A\\mid B) = \\dfrac{P(A \\text{ and } B)}{P(B)}$ · A and B are independent if $P(A\\mid B) = P(A)$, which is the same as $P(A \\text{ and } B) = P(A)\\cdot P(B)$ · Quartiles: $Q_1$ = median of the lower half, $Q_2$ = median of all values, $Q_3$ = median of the upper half · Interquartile range $= Q_3 - Q_1$ · Standard deviation measures the average distance to the mean and, unlike the range, takes all values into account."
+    }
+  ]
+}

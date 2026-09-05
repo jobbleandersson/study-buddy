@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma7-procent",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Percentages and proportions",
+  "sourceSummary": "What percentage really means and how you work out a proportion of a number. You also practise finding what percentage something is, and simple increases and decreases.",
+  "topics": [
+    "percentage",
+    "proportions",
+    "percentage change"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma7-pro-1",
+      "kind": "mc",
+      "topic": "percentage",
+      "prompt": "What does 1% mean?",
+      "opener": "The word percent comes from Latin and means \"per hundred\".",
+      "choices": [
+        "A tenth",
+        "A hundredth",
+        "A thousandth",
+        "A half"
+      ],
+      "answer": 1,
+      "explanation": "1% is a hundredth, i.e. $\\frac{1}{100} = 0{,}01$. A tenth is $\\frac{1}{10}$, which is 10% - ten times as much."
+    },
+    {
+      "id": "q-ma7-pro-2",
+      "kind": "mc",
+      "topic": "proportions",
+      "prompt": "How much is 25% of 80?",
+      "opener": "25% is the same as a quarter.",
+      "choices": [
+        "16",
+        "25",
+        "20",
+        "40"
+      ],
+      "answer": 2,
+      "explanation": "25% is $\\frac{1}{4}$, and $80 / 4 = 20$. The answer 40 is a half, i.e. 50% - twice as much as the question asks for."
+    },
+    {
+      "id": "q-ma7-pro-3",
+      "kind": "mc",
+      "topic": "proportions",
+      "prompt": "How much is 10% of 250 kr?",
+      "opener": "10% is a tenth - what happens if you divide by 10?",
+      "choices": [
+        "$2{,}5$ kr",
+        "25 kr",
+        "250 kr",
+        "50 kr"
+      ],
+      "answer": 1,
+      "explanation": "You find 10% of a number by dividing by 10: $250 / 10 = 25$ kr. The answer $2{,}5$ kr is 1% of 250, i.e. ten times too little."
+    },
+    {
+      "id": "q-ma7-pro-4",
+      "kind": "mc",
+      "topic": "proportions",
+      "prompt": "In a class of 60 pupils, 15 are members of the school choir. What percentage is that?",
+      "opener": "First write the proportion as a fraction: the part over the whole.",
+      "choices": [
+        "15%",
+        "20%",
+        "25%",
+        "45%"
+      ],
+      "answer": 2,
+      "explanation": "The proportion is $\\frac{15}{60} = \\frac{1}{4} = 25$%. The answer 15% is just the number of pupils, but a count and a percentage are not the same thing when the whole is not 100."
+    },
+    {
+      "id": "q-ma7-pro-5",
+      "kind": "mc",
+      "topic": "percentage change",
+      "prompt": "A jumper costs 200 kr. The price is raised by 10%. What does the jumper cost now?",
+      "opener": "First work out how many kronor the increase is, then add it on.",
+      "choices": [
+        "210 kr",
+        "220 kr",
+        "300 kr",
+        "190 kr"
+      ],
+      "answer": 1,
+      "explanation": "10% of 200 kr is 20 kr, and $200 + 20 = 220$ kr. The answer 210 kr comes from adding 10 kr instead of 10% - the percentage is always calculated on the price, not as a fixed amount."
+    },
+    {
+      "id": "q-ma7-pro-6",
+      "kind": "mc",
+      "topic": "percentage change",
+      "prompt": "A bike costs 500 kr and is reduced by 20%. What does the bike cost after the reduction?",
+      "opener": "Work out the discount in kronor first, then subtract it from the price.",
+      "choices": [
+        "480 kr",
+        "400 kr",
+        "300 kr",
+        "450 kr"
+      ],
+      "answer": 1,
+      "explanation": "20% of 500 kr is 100 kr, and $500 - 100 = 400$ kr. The answer 480 kr comes from subtracting 20 kr instead of 20%."
+    },
+    {
+      "id": "q-ma7-pro-7",
+      "kind": "worked",
+      "topic": "percentage change",
+      "prompt": "A jacket costs 600 kr. In the sale the price is reduced by 25%. What does the jacket cost in the sale?",
+      "opener": "25% is a quarter - that makes the calculation easy without a calculator.",
+      "answer": "450 kr",
+      "steps": [
+        "25% is the same as $\\frac{1}{4}$ of the price.",
+        "The discount in kronor: $600 / 4 = 150$ kr.",
+        "New price: $600 - 150 = 450$ kr.",
+        "Check: 450 kr is 75% of 600 kr, which checks out since $100\\% - 25\\% = 75\\%$."
+      ]
+    },
+    {
+      "id": "q-ma7-pro-8",
+      "kind": "flashcard",
+      "topic": "percentage",
+      "prompt": "How do you calculate with percentages? List the most important rules.",
+      "opener": "Three things: what percentage means, the proportion of a number, and what percentage something is.",
+      "answer": "Percentage = hundredths, 1% = $\\frac{1}{100}$ = $0{,}01$ · Proportion of a number: convert the percentage to a decimal number and multiply, 30% of 200 = $0{,}3 \\cdot 200 = 60$ · What percentage something is: the part divided by the whole, then times 100 · Quick tricks: 10% = divide by 10 · 25% = divide by 4 · 50% = divide by 2 · Increase: add the change in kronor · decrease: subtract it · always calculate the percentage on the original value."
+    }
+  ]
+}

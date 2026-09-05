@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi8-vatten",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Water, solutions and the environment",
+  "sourceSummary": "The structure of the water molecule and why water is such a good solvent, solutions and solubility, concentration at a basic level, and water treatment, eutrophication and environmental toxins.",
+  "topics": [
+    "the water molecule",
+    "solutions and solubility",
+    "concentration",
+    "water treatment",
+    "eutrophication and environmental toxins"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi8-vat-1",
+      "kind": "mc",
+      "topic": "the water molecule",
+      "prompt": "How is a water molecule built up?",
+      "opener": "The formula H2O tells you how many atoms of each kind are in the molecule.",
+      "choices": [
+        "One hydrogen atom bonded to one oxygen atom",
+        "Two hydrogen atoms bonded to one oxygen atom",
+        "Two oxygen atoms bonded to one hydrogen atom",
+        "Two hydrogen atoms and two oxygen atoms"
+      ],
+      "answer": 1,
+      "explanation": "Water has the formula H2O: two hydrogen atoms are covalently bonded to one oxygen atom, and the molecule is bent in shape. Two hydrogen atoms and two oxygen atoms instead give H2O2, hydrogen peroxide, which is a completely different substance."
+    },
+    {
+      "id": "q-kemi8-vat-2",
+      "kind": "mc",
+      "topic": "the water molecule",
+      "prompt": "The water molecule is a dipole (a polar molecule). What does that mean?",
+      "opener": "The oxygen atom pulls the electrons towards itself more strongly than the hydrogen atoms do.",
+      "choices": [
+        "That the molecule as a whole has a charge of 1−",
+        "That it can only dissolve fats and oils",
+        "That it has no bonds between the atoms",
+        "That the molecule has a slightly negative side at the oxygen atom and a slightly positive side at the hydrogen atoms"
+      ],
+      "answer": 3,
+      "explanation": "The oxygen pulls the electrons closer to itself, so the oxygen side becomes slightly negative and the hydrogen side slightly positive — the molecule becomes a dipole. The molecule as a whole is nevertheless uncharged, so it is not an ion, and it is exactly this polarity that makes water good at dissolving salts but poor at dissolving fats."
+    },
+    {
+      "id": "q-kemi8-vat-3",
+      "kind": "mc",
+      "topic": "solutions and solubility",
+      "prompt": "What is a solution called when it cannot dissolve any more of a substance at a certain temperature?",
+      "opener": "The name means the solution has taken on exactly as much as it can carry.",
+      "choices": [
+        "A saturated solution",
+        "A dilute solution",
+        "A neutral solution",
+        "An emulsion"
+      ],
+      "answer": 0,
+      "explanation": "A saturated solution contains the largest amount of the substance that can be dissolved at that temperature — any extra settles as a residue at the bottom. A dilute solution, on the contrary, contains little dissolved substance compared with the solvent, and \"neutral\" is about pH, not solubility. Heating the solution can usually let more sugar or salt dissolve."
+    },
+    {
+      "id": "q-kemi8-vat-4",
+      "kind": "mc",
+      "topic": "solutions and solubility",
+      "prompt": "Why do sugar and salt dissolve well in water, but not cooking oil?",
+      "opener": "Remember the rule of thumb \"like dissolves like\" and that water is polar.",
+      "choices": [
+        "Oil is heavier than water and therefore sinks instead",
+        "Oil is an ionic compound and cannot be dissolved",
+        "Water is polar and dissolves polar substances and salts, while oil is non-polar",
+        "Oil contains no atoms at all"
+      ],
+      "answer": 2,
+      "explanation": "Water is polar and pulls apart the salts' ions and bonds to polar substances such as sugar — \"like dissolves like\". Oil is non-polar and therefore does not dissolve, but instead settles as a layer on top since oil has a lower density than water, in other words it is lighter, not heavier."
+    },
+    {
+      "id": "q-kemi8-vat-5",
+      "kind": "mc",
+      "topic": "concentration",
+      "prompt": "40 g of table salt is dissolved in 2 litres of water. What is the concentration of the solution in grams per litre?",
+      "opener": "Concentration means amount of dissolved substance per volume — divide the amount by the number of litres.",
+      "choices": [
+        "80 g/l",
+        "20 g/l",
+        "40 g/l",
+        "2 g/l"
+      ],
+      "answer": 1,
+      "explanation": "The concentration is 40 g / 2 l = 20 g/l. Multiplying 40 by 2 instead gives 80 g/l, and answering 40 g/l would be forgetting that the salt is spread across two litres."
+    },
+    {
+      "id": "q-kemi8-vat-6",
+      "kind": "mc",
+      "topic": "eutrophication and environmental toxins",
+      "prompt": "What causes eutrophication in lakes and seas?",
+      "opener": "Think about what leaks out from farmland and sewage that plants love.",
+      "choices": [
+        "That there is too little nutrition in the water",
+        "That the water becomes too acidic from sulfur oxides",
+        "That the water is treated too thoroughly at treatment plants",
+        "That too many nutrients such as phosphorus and nitrogen leak out, for example from fertiliser and sewage"
+      ],
+      "answer": 3,
+      "explanation": "Eutrophication is caused by an excess of the nutrients phosphorus and nitrogen, which make algae and plants grow heavily; when they die, decomposition uses up the oxygen at the bottom and this can lead to dead zones. The water becoming acidic from sulfur oxides is instead acidification, a different environmental problem."
+    },
+    {
+      "id": "q-kemi8-vat-7",
+      "kind": "worked",
+      "topic": "water treatment",
+      "prompt": "Describe the three treatment stages at a municipal sewage treatment plant and explain why the chemical stage is important for reducing eutrophication.",
+      "opener": "Follow the water's path through the plant: first the coarsest material, then the bacteria's work, and finally the chemicals.",
+      "answer": "Wastewater is treated in three stages: mechanical treatment, which strains out rubbish, sand and particles; biological treatment, in which bacteria break down organic material; and chemical treatment, in which precipitation chemicals bind phosphorus so it can be removed as sludge. The chemical stage is important because phosphorus is a nutrient that would otherwise fertilise algae in the lake or sea and cause eutrophication.",
+      "steps": [
+        "Mechanical treatment: screens and grit chambers strain out rubbish, sand and particles that sink to the bottom.",
+        "Biological treatment: in aerated basins, bacteria break down organic material, and nitrogen compounds are converted so that some nitrogen can escape as nitrogen gas.",
+        "Chemical treatment: precipitation chemicals are added, for example iron or aluminium salts, which bind phosphorus into flocs that settle as sludge.",
+        "The treated water is released into a lake or sea, while the sludge is dealt with separately.",
+        "Without the chemical stage, the phosphorus would fertilise the water: algae grow heavily, die and sink, and decomposition uses up the oxygen at the bottom — in other words, eutrophication."
+      ]
+    },
+    {
+      "id": "q-kemi8-vat-8",
+      "kind": "flashcard",
+      "topic": "the water molecule",
+      "prompt": "Summarise the water molecule, solutions, concentration and water's environmental issues.",
+      "opener": "The molecule and the dipole first, then the solution concepts, and finally treatment and environmental problems.",
+      "answer": "Water molecule: H2O, two hydrogen atoms covalently bonded to one oxygen atom, bent shape · Dipole: the oxygen side slightly negative, the hydrogen side slightly positive, the molecule as a whole uncharged · Hydrogen bonds between the molecules give a high melting and boiling point (0 °C and 100 °C), surface tension and capillary action · Ice is lighter than water and floats, since water has its greatest density at +4 °C · Solution: dissolved substance + solvent, e.g. salt in water · Like dissolves like: polar water dissolves salts and sugar, but not non-polar oil (which settles on top, lower density) · Saturated solution: no more can be dissolved at that temperature, the rest becomes a residue at the bottom · Solubility usually increases with higher temperature (gases are the opposite: less soluble in warm water) · Concentration = amount of dissolved substance / volume, e.g. 40 g in 2 l gives 20 g/l · Water treatment in three stages: mechanical (screens, grit chambers) · biological (bacteria break down organic material) · chemical (precipitation of phosphorus) · Drinking water plants: sedimentation, filtration through sand and carbon, disinfection · Eutrophication: excess phosphorus and nitrogen from fertiliser and sewage → algal bloom → decomposition uses up the oxygen → dead zones at the bottom · Acidification: a different problem, caused by sulfur and nitrogen oxides · Environmental toxins: e.g. heavy metals such as mercury and lead, and persistent substances — they break down slowly, are stored in fat and become concentrated further up the food chain."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma7-tal",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Numbers and operations",
+  "sourceSummary": "Negative numbers, order of operations and estimation - the basics of the four operations that you need to have secure at the start of secondary school.",
+  "topics": [
+    "negative numbers",
+    "order of operations",
+    "rounding",
+    "estimation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma7-tal-1",
+      "kind": "mc",
+      "topic": "negative numbers",
+      "prompt": "What is $-5 + 8$?",
+      "opener": "Think of a number line: you're standing at $-5$ and take 8 steps to the right.",
+      "choices": [
+        "3",
+        "-3",
+        "13",
+        "-13"
+      ],
+      "answer": 0,
+      "explanation": "You go 8 steps up from $-5$ and pass zero: $-5 + 8 = 3$. The answer $-3$ comes from forgetting that you pass zero."
+    },
+    {
+      "id": "q-ma7-tal-2",
+      "kind": "mc",
+      "topic": "negative numbers",
+      "prompt": "What is $4 - 9$?",
+      "opener": "You are subtracting more than you have - so you end up on the other side of zero.",
+      "choices": [
+        "5",
+        "13",
+        "-5",
+        "-13"
+      ],
+      "answer": 2,
+      "explanation": "From 4 you go 9 steps to the left and land on $-5$. The answer 5 is the difference but with the wrong sign - it is 9 that is bigger here."
+    },
+    {
+      "id": "q-ma7-tal-3",
+      "kind": "mc",
+      "topic": "order of operations",
+      "prompt": "Calculate $2 + 3 \\cdot 4$.",
+      "opener": "Which operation should be done first, addition or multiplication?",
+      "choices": [
+        "20",
+        "14",
+        "24",
+        "9"
+      ],
+      "answer": 1,
+      "explanation": "Multiplication comes before addition: $3 \\cdot 4 = 12$ and then $2 + 12 = 14$. The answer 20 comes from calculating $2 + 3 = 5$ first, which is the wrong order."
+    },
+    {
+      "id": "q-ma7-tal-4",
+      "kind": "mc",
+      "topic": "order of operations",
+      "prompt": "Calculate $(6 + 2) \\cdot 3$.",
+      "opener": "There is a bracket here - it decides what should happen first.",
+      "choices": [
+        "11",
+        "20",
+        "24",
+        "12"
+      ],
+      "answer": 2,
+      "explanation": "The bracket first: $6 + 2 = 8$, then $8 \\cdot 3 = 24$. Without the bracket it would have been $6 + 2 \\cdot 3 = 12$, so the bracket really does change the answer."
+    },
+    {
+      "id": "q-ma7-tal-5",
+      "kind": "mc",
+      "topic": "rounding",
+      "prompt": "Round 347 to the nearest ten.",
+      "opener": "Look at the units digit - if it is 5 or more you round up.",
+      "choices": [
+        "340",
+        "350",
+        "300",
+        "400"
+      ],
+      "answer": 1,
+      "explanation": "The units digit is 7, so 5 or more, so you round up to 350. The answer 300 is rounding to the nearest hundred, not ten."
+    },
+    {
+      "id": "q-ma7-tal-6",
+      "kind": "mc",
+      "topic": "estimation",
+      "prompt": "You buy three things costing 98 kr, 51 kr and 149 kr. Roughly how much is that?",
+      "opener": "Turn each price into a simple number before you add them up.",
+      "choices": [
+        "approx. 300 kr",
+        "approx. 200 kr",
+        "approx. 400 kr",
+        "approx. 250 kr"
+      ],
+      "answer": 0,
+      "explanation": "Round to 100, 50 and 150: $100 + 50 + 150 = 300$ kr. The exact sum is 298 kr, so the estimate is very close."
+    },
+    {
+      "id": "q-ma7-tal-7",
+      "kind": "worked",
+      "topic": "order of operations",
+      "prompt": "Calculate $36 / 4 + 2 \\cdot 5$. Show your reasoning step by step.",
+      "opener": "Division and multiplication both come before addition - do them first, from left to right.",
+      "answer": "19",
+      "steps": [
+        "There is no bracket, so start with division and multiplication.",
+        "The division: $36 / 4 = 9$.",
+        "The multiplication: $2 \\cdot 5 = 10$.",
+        "Finally the addition: $9 + 10 = 19$."
+      ]
+    },
+    {
+      "id": "q-ma7-tal-8",
+      "kind": "flashcard",
+      "topic": "order of operations",
+      "prompt": "In what order do you calculate, and what are the sign rules for negative numbers?",
+      "opener": "Three steps in order plus two sign rules - say them before you flip the card.",
+      "answer": "Order of operations: 1) brackets · 2) multiplication and division, left to right · 3) addition and subtraction, left to right · Sign rules: subtracting a negative number is the same as adding, $5 - (-3) = 5 + 3 = 8$ · minus times minus becomes plus, plus times minus becomes minus · Estimation: round to simple numbers first and check that your exact answer is close to the estimate."
+    }
+  ]
+}

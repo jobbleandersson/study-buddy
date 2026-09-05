@@ -1,0 +1,130 @@
+{
+  "id": "lib-fys7-krafter",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Forces and motion",
+  "sourceSummary": "What a force is, that it is measured in newtons, and how gravity gives an object its weight — which is not the same thing as its mass. You also practise friction, how forces can cancel each other out, and calculating speed as distance divided by time.",
+  "topics": [
+    "force and newtons",
+    "gravity",
+    "mass and weight",
+    "friction",
+    "speed"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys7-kra-1",
+      "kind": "mc",
+      "topic": "force and newtons",
+      "prompt": "What unit is force measured in?",
+      "opener": "The unit is named after a famous physicist and abbreviated with a capital letter.",
+      "choices": [
+        "Kilogram (kg)",
+        "Newton (N)",
+        "Joule (J)",
+        "Metres per second (m/s)"
+      ],
+      "answer": 1,
+      "explanation": "Force is measured in newtons (N), and you can measure it with a dynamometer, a force meter with a spring. Kilogram is the unit for mass and tells you how much matter an object is made of, not how large a force is acting on it."
+    },
+    {
+      "id": "q-fys7-kra-2",
+      "kind": "mc",
+      "topic": "mass and weight",
+      "prompt": "You travel to the moon. What happens to your mass and your weight?",
+      "opener": "Mass is about how much matter you're made of, weight is about how hard you're pulled downward.",
+      "choices": [
+        "Both your mass and your weight become smaller",
+        "Your mass stays the same but your weight becomes smaller",
+        "Your mass becomes smaller but your weight stays the same",
+        "Both your mass and your weight stay the same"
+      ],
+      "answer": 1,
+      "explanation": "Mass is the amount of matter in your body, and it stays the same wherever you travel. Weight, on the other hand, is the force of gravity acting on you, and since the moon is much smaller than the Earth it pulls more weakly — on the moon you weigh only about a sixth of what you do on Earth."
+    },
+    {
+      "id": "q-fys7-kra-3",
+      "kind": "mc",
+      "topic": "gravity",
+      "prompt": "On Earth, gravity is about 10 N per kilogram. What is the weight of a bag with a mass of 3 kg?",
+      "opener": "Multiply the mass in kilograms by 10 N/kg.",
+      "choices": [
+        "3 N",
+        "0.3 N",
+        "30 N",
+        "300 N"
+      ],
+      "answer": 2,
+      "explanation": "Weight = mass · gravity per kilo = 3 kg · 10 N/kg = 30 N. Answering 3 N mixes up mass with weight — the number 3 is the mass in kilograms, not the force in newtons."
+    },
+    {
+      "id": "q-fys7-kra-4",
+      "kind": "mc",
+      "topic": "friction",
+      "prompt": "Why is it harder to brake a bicycle on an icy road than on dry tarmac?",
+      "opener": "Braking relies on the force between the wheels and the road.",
+      "choices": [
+        "The friction between the wheels and the ice is much smaller",
+        "Gravity disappears when it's cold",
+        "The bicycle gains more mass on the ice",
+        "Friction becomes greater on ice and pushes the bicycle forwards"
+      ],
+      "answer": 0,
+      "explanation": "Friction is the braking force between two surfaces moving against each other, and it is small between rubber and smooth ice. On dry tarmac the surfaces are much rougher, so friction becomes greater and the bicycle can therefore stop over a shorter distance."
+    },
+    {
+      "id": "q-fys7-kra-5",
+      "kind": "mc",
+      "topic": "force and newtons",
+      "prompt": "A box stands completely still on a table. What is true of the forces acting on the box?",
+      "opener": "Something must balance gravity, otherwise the box would fall.",
+      "choices": [
+        "No forces at all act on the box",
+        "Only gravity acts, but it is too weak",
+        "Gravity pulling down and the table's force pushing up are equally large and cancel out",
+        "The table's upward force is greater than gravity"
+      ],
+      "answer": 2,
+      "explanation": "Gravity pulls the box downward while the tabletop pushes back just as hard upward. The forces are equal in size and opposite in direction, so they cancel out and the box stays still. If the table's force were greater, the box would instead lift off the table."
+    },
+    {
+      "id": "q-fys7-kra-6",
+      "kind": "mc",
+      "topic": "speed",
+      "prompt": "A cyclist rides 30 km in 2 hours. What is the average speed?",
+      "opener": "Speed is distance divided by time.",
+      "choices": [
+        "60 km/h",
+        "30 km/h",
+        "20 km/h",
+        "15 km/h"
+      ],
+      "answer": 3,
+      "explanation": "Speed = distance / time = 30 km / 2 h = 15 km/h. Answering 60 km/h means multiplying instead of dividing, which gives an unreasonably high speed for a bicycle."
+    },
+    {
+      "id": "q-fys7-kra-7",
+      "kind": "worked",
+      "topic": "speed",
+      "prompt": "Emma runs 100 metres in 20 seconds. Calculate her average speed in metres per second.",
+      "opener": "The distance is already in metres and the time in seconds, so you can plug the values straight in.",
+      "answer": "5 m/s",
+      "steps": [
+        "Write out the relationship: speed = distance / time.",
+        "Plug in the values: 100 m / 20 s.",
+        "Work it out: 100 / 20 = 5.",
+        "The answer is 5 m/s, meaning 5 metres every second.",
+        "Sanity check: a walking person manages about 1.5 m/s, so 5 m/s is a good running speed."
+      ]
+    },
+    {
+      "id": "q-fys7-kra-8",
+      "kind": "flashcard",
+      "topic": "force and newtons",
+      "prompt": "Summarise forces, weight and speed.",
+      "opener": "Start with what a force is and finish with the speed formula.",
+      "answer": "Force: something that pulls or pushes and can change an object's speed, direction or shape · Unit: newton (N), measured with a dynamometer · Forces have both size and direction and are drawn as arrows · Gravity: the force that pulls everything towards the Earth's centre, about 10 N per kilogram · Weight = mass · 10 N/kg, for example 2 kg gives 20 N · Mass: the amount of matter, measured in kg, the same everywhere · Weight: a force, measured in N, smaller on the moon than on Earth · Friction: braking force between surfaces moving against each other, large against tarmac and sandpaper, small against ice and oil · Forces that are equal in size and opposite in direction cancel out, then the object stands still or moves at a steady speed · Speed = distance / time, unit m/s or km/h · 100 m in 20 s gives 5 m/s"
+    }
+  ]
+}

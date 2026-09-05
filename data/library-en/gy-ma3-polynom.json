@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma3-polynom",
+  "type": "assignment",
+  "subject": "Matematik 3",
+  "title": "Polynomial equations and the factor theorem",
+  "sourceSummary": "Higher-degree polynomials, the factor theorem, finding rational roots, and polynomial division at a basic level.",
+  "topics": [
+    "the factor theorem",
+    "rational roots",
+    "polynomial division"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma3-polynom-1",
+      "kind": "mc",
+      "topic": "the factor theorem",
+      "prompt": "The factor theorem states that if $p(a) = 0$ for a polynomial $p(x)$, what conclusion can be drawn?",
+      "opener": "The connection between a root and a factor is the core of the factor theorem.",
+      "choices": [
+        "$(x-a)$ is a factor of $p(x)$",
+        "$(x+a)$ is a factor of $p(x)$",
+        "$a$ is the coefficient of the highest degree term",
+        "$p(x)$ has no real roots"
+      ],
+      "answer": 0,
+      "explanation": "The factor theorem states that if $p(a)=0$ then $(x-a)$ is a factor of the polynomial $p(x)$. Believing instead that $(x+a)$ is the factor is a common sign error — the factor is always built as $x$ minus the root."
+    },
+    {
+      "id": "q-ma3-polynom-2",
+      "kind": "mc",
+      "topic": "the factor theorem",
+      "prompt": "The polynomial is $p(x) = x^3-2x^2-5x+6$. What is $p(1)$?",
+      "opener": "Substitute $x=1$ into the expression and calculate each term separately.",
+      "choices": [
+        "$6$",
+        "$-2$",
+        "$0$",
+        "$10$"
+      ],
+      "answer": 2,
+      "explanation": "$p(1) = 1^3-2\\cdot1^2-5\\cdot1+6 = 1-2-5+6 = 0$. Since $p(1)=0$, $x=1$ is a root and, by the factor theorem, $(x-1)$ is a factor of $p(x)$."
+    },
+    {
+      "id": "q-ma3-polynom-3",
+      "kind": "mc",
+      "topic": "rational roots",
+      "prompt": "According to the rational root theorem, which numbers could be rational roots of $p(x)=x^3-2x^2-5x+6$?",
+      "opener": "Since the leading coefficient is 1, this is about divisors of a particular term in the polynomial.",
+      "choices": [
+        "Divisors of the leading coefficient: $\\pm 1$",
+        "Divisors of the constant term: $\\pm1,\\pm2,\\pm3,\\pm6$",
+        "All integers between $-6$ and $6$",
+        "Only positive divisors of 6: $1,\\ 2,\\ 3,\\ 6$"
+      ],
+      "answer": 1,
+      "explanation": "If the leading coefficient is 1, any rational (integer) roots must be divisors of the constant term. The constant term is $6$, so the possible roots are $\\pm1,\\pm2,\\pm3,\\pm6$. Taking only positive divisors misses the negative roots, e.g. $x=-2$."
+    },
+    {
+      "id": "q-ma3-polynom-4",
+      "kind": "mc",
+      "topic": "polynomial division",
+      "prompt": "Perform the polynomial division $\\dfrac{x^3-2x^2-5x+6}{x-1}$.",
+      "opener": "Divide term by term, similar to ordinary long division, starting from the fact that $x=1$ is a root.",
+      "choices": [
+        "$x^2+x-6$",
+        "$x^2-3x-6$",
+        "$x^2-x+6$",
+        "$x^2-x-6$"
+      ],
+      "answer": 3,
+      "explanation": "The division gives $x^2-x-6$. Check: $(x-1)(x^2-x-6) = x^3-x^2-6x-x^2+x+6 = x^3-2x^2-5x+6$, which matches the numerator. A sign or coefficient error in the middle step easily gives a wrong answer such as $x^2+x-6$."
+    },
+    {
+      "id": "q-ma3-polynom-5",
+      "kind": "mc",
+      "topic": "the factor theorem",
+      "prompt": "What are all the roots of $p(x)=x^3-2x^2-5x+6$, given that $\\dfrac{p(x)}{x-1}=x^2-x-6$?",
+      "opener": "Factorise the quadratic expression $x^2-x-6$ to find the remaining roots.",
+      "choices": [
+        "$x=1,\\ x=3,\\ x=-2$",
+        "$x=1,\\ x=-3,\\ x=2$",
+        "$x=-1,\\ x=3,\\ x=2$",
+        "$x=1,\\ x=2,\\ x=3$"
+      ],
+      "answer": 0,
+      "explanation": "$x^2-x-6=(x-3)(x+2)$ since $-3\\cdot2=-6$ and $-3+2=-1$. Together with the known root $x=1$, $p(x)=(x-1)(x-3)(x+2)$, with roots $x=1,\\ x=3,\\ x=-2$."
+    },
+    {
+      "id": "q-ma3-polynom-6",
+      "kind": "mc",
+      "topic": "the factor theorem",
+      "prompt": "A polynomial of degree $n$ has at most how many real roots?",
+      "opener": "Think about how many factors of the form $(x-a)$ fit into a polynomial of degree $n$.",
+      "choices": [
+        "$n-1$",
+        "$n+1$",
+        "$n$",
+        "Infinitely many"
+      ],
+      "answer": 2,
+      "explanation": "A polynomial of degree $n$ can be written as a product of at most $n$ linear factors, and therefore has at most $n$ real roots. A cubic polynomial can thus have up to three roots, not four or infinitely many."
+    },
+    {
+      "id": "q-ma3-polynom-7",
+      "kind": "worked",
+      "topic": "polynomial division",
+      "prompt": "Determine all the roots of $p(x) = x^3+x^2-4x-4$.",
+      "opener": "Test a few divisors of the constant term to find a first root, then divide the polynomial by the corresponding factor.",
+      "answer": "$x=-1,\\ x=2,\\ x=-2$",
+      "steps": [
+        "Test divisors of the constant term $-4$: $\\pm1,\\pm2,\\pm4$. Try $x=-1$: $p(-1)=(-1)^3+(-1)^2-4(-1)-4=-1+1+4-4=0$.",
+        "Since $p(-1)=0$, $(x+1)$ is a factor by the factor theorem.",
+        "Polynomial division: $\\dfrac{x^3+x^2-4x-4}{x+1}=x^2-4$.",
+        "Factorise the remainder using the difference of squares: $x^2-4=(x-2)(x+2)$.",
+        "So $p(x)=(x+1)(x-2)(x+2)$, with roots $x=-1,\\ x=2,\\ x=-2$."
+      ]
+    },
+    {
+      "id": "q-ma3-polynom-8",
+      "kind": "flashcard",
+      "topic": "rational roots",
+      "prompt": "Summarise the strategy for solving higher-degree polynomial equations using the factor theorem and polynomial division.",
+      "opener": "From guessing a root to breaking down the polynomial step by step.",
+      "answer": "Factor theorem: $p(a)=0 \\Leftrightarrow (x-a)$ is a factor of $p(x)$ · Possible rational roots (if the leading coefficient is 1) are divisors of the constant term · Test these divisors by substitution until $p(a)=0$ is found · Perform polynomial division $\\dfrac{p(x)}{x-a}$ to lower the degree by one · Repeat until the quotient is at most degree 2, then factorise it (e.g. using the quadratic formula or difference of squares) · A polynomial of degree $n$ has at most $n$ real roots"
+    }
+  ]
+}

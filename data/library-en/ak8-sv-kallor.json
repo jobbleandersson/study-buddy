@@ -1,0 +1,129 @@
+{
+  "id": "lib-sv8-kallor",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Source criticism and summarising",
+  "sourceSummary": "How to judge whether a source can be trusted, tell fact from opinion, and write a summary in your own words. This also covers reporting markers, source citation and what plagiarism means.",
+  "topics": [
+    "source criticism",
+    "fact and opinion",
+    "summarising technique",
+    "source citation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv8-kal-1",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "Which question belongs to the authenticity criterion of source criticism?",
+      "opener": "Authenticity is about who is really behind the text.",
+      "choices": [
+        "Is the source what it claims to be?",
+        "How old is the information?",
+        "Does the sender want to sell something?",
+        "Does the same information appear elsewhere?"
+      ],
+      "answer": 0,
+      "explanation": "Authenticity answers whether the source really is what it claims to be, for example whether a government website is genuine or a copy. The question about age belongs to the time criterion, selling to bias, and comparisons to dependency."
+    },
+    {
+      "id": "q-sv8-kal-2",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "Which source is most credible if you want to find out how much sleep Swedes get on average?",
+      "opener": "Ask who collected the information and what the sender gains from you believing it.",
+      "choices": [
+        "A blog post where someone describes their own sleeping habits",
+        "A report from the Public Health Agency with a documented survey",
+        "An advertising page for mattresses that quotes \"research\"",
+        "A comment under a social media post"
+      ],
+      "answer": 1,
+      "explanation": "The government agency report is based on a documented survey and has nothing to gain from you believing the answer — it is both factual and verifiable. The mattress site has a clear bias since it wants to sell something, and the blog and the comment describe individual people's experiences."
+    },
+    {
+      "id": "q-sv8-kal-3",
+      "kind": "mc",
+      "topic": "fact and opinion",
+      "prompt": "Which of the statements is a factual claim?",
+      "opener": "A factual claim can be checked and could turn out to be false — an opinion can only be shared or not.",
+      "choices": [
+        "Sweden is the nicest country in the Nordics.",
+        "Everyone should visit Sweden at least once.",
+        "Swedish summers are far too short.",
+        "Sweden has around 10.5 million inhabitants."
+      ],
+      "answer": 3,
+      "explanation": "The population figure can be checked against statistics and is therefore a factual claim, regardless of whether the number is exactly right. \"Nicest\", \"should\" and \"too short\" are value judgements that cannot be measured."
+    },
+    {
+      "id": "q-sv8-kal-4",
+      "kind": "mc",
+      "topic": "summarising technique",
+      "prompt": "What characterises a good summary?",
+      "opener": "A summary should give the reader the content — not your reaction to it.",
+      "choices": [
+        "You render the content in your own words, factually and without your own opinions",
+        "You copy out the most important sentences word for word",
+        "You write what you yourself think of the text",
+        "You reproduce everything in the original text, as long as the original"
+      ],
+      "answer": 0,
+      "explanation": "The summary renders the source's main content in your own words and in condensed form, without adding your own value judgements. Copying sentences word for word is quoting or, without a source citation, plagiarism."
+    },
+    {
+      "id": "q-sv8-kal-5",
+      "kind": "mc",
+      "topic": "summarising technique",
+      "prompt": "Which sentence uses a reporting marker correctly?",
+      "opener": "The reporting marker shows where the information comes from and that the opinion isn't yours.",
+      "choices": [
+        "Screen time before bedtime worsens sleep.",
+        "I think screen time before bedtime worsens sleep.",
+        "According to the Public Health Agency, screen time before bedtime worsens sleep.",
+        "It is well known that screen time before bedtime worsens sleep."
+      ],
+      "answer": 2,
+      "explanation": "\"According to the Public Health Agency\" is a reporting marker that places the information with a named source. Without a marker the claim sounds like your own, and \"it is well known that\" doesn't point to any source at all."
+    },
+    {
+      "id": "q-sv8-kal-6",
+      "kind": "mc",
+      "topic": "source citation",
+      "prompt": "What counts as plagiarism in a school assignment?",
+      "opener": "Plagiarism is about whose work the reader thinks they are reading.",
+      "choices": [
+        "Quoting a text with quotation marks and a source citation",
+        "Copying text from a website without stating where it comes from",
+        "Summarising an article in your own words and stating the source",
+        "Using several sources in the same assignment"
+      ],
+      "answer": 1,
+      "explanation": "Plagiarism is submitting someone else's wording or ideas as if they were your own, that is, without stating the source. Quoting with quotation marks and a correct citation is, however, completely permitted, as is summarising in your own words with a source given."
+    },
+    {
+      "id": "q-sv8-kal-7",
+      "kind": "worked",
+      "topic": "summarising technique",
+      "prompt": "Write a summary of the following passage from an article by Sara Lind in Dagens Nyheter (2024): \"We see that students who move about during the school day have more energy in the afternoon. Schools should therefore build in a movement break every morning.\"",
+      "opener": "First separate what is a factual claim from what is the writer's opinion. Then rephrase it in your own words and add a reporting marker.",
+      "answer": "According to Sara Lind (DN, 2024), students who move about during the school day have more energy in the afternoon. She therefore argues that schools should introduce a daily movement break in the morning.",
+      "steps": [
+        "Read the passage and sort it: that students have more energy is a factual claim, that schools should introduce breaks is the writer's opinion.",
+        "Rephrase in your own words — replace \"have more energy in the afternoon\" with your own construction instead of copying the sentence.",
+        "Insert reporting markers: \"according to Sara Lind\" for the factual part and \"she argues that\" for the opinion part, so the reader sees these are not your opinions.",
+        "State the source with name, publication and year — here Sara Lind, Dagens Nyheter, 2024.",
+        "Finally check that no opinion of your own has crept in and that the summary is clearly shorter than the original."
+      ]
+    },
+    {
+      "id": "q-sv8-kal-8",
+      "kind": "flashcard",
+      "topic": "source criticism",
+      "prompt": "What source-criticism criteria exist, and how do you write a summary without plagiarising?",
+      "opener": "Four criteria and three rules for the summary.",
+      "answer": "Source-criticism criteria · authenticity: is the source what it claims to be? · time: how old is the information, could it have changed? · dependency: is the source a first-hand account or does it rely on someone else? · bias: who is the sender and what do they gain from you believing it? Fact and opinion · facts can be checked and could be false · opinions contain value words such as best, should, too much. Summary · render the main content in your own words, shorter than the original · factual tone, no opinions of your own · use reporting markers: according to X, X argues that, X claims, the writer points out. Plagiarism · submitting other people's words or ideas as your own · avoided through your own wording, quotation marks for word-for-word quotes, and a source citation with author, title, publication and year."
+    }
+  ]
+}

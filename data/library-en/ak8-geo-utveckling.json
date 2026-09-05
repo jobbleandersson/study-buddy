@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo8-utveckling",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Wealth, poverty and development",
+  "sourceSummary": "What separates high-income and low-income countries, how development is measured with GDP per capita, HDI and other measures, which historical and economic causes lie behind the gaps between countries, how trade and globalisation affect poor countries, and what aid and sustainable development mean.",
+  "topics": [
+    "high-income and low-income countries",
+    "GDP and development measures",
+    "causes of inequality",
+    "trade and globalisation",
+    "aid and sustainable development"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo8-utv-1",
+      "kind": "mc",
+      "topic": "GDP and development measures",
+      "prompt": "What is meant by GDP per capita?",
+      "opener": "Per capita means per person – what is it that should be divided by the number of inhabitants?",
+      "choices": [
+        "The combined value of all goods and services produced in a country during one year",
+        "The value of the country's production during one year divided by the number of inhabitants",
+        "How much the state collects in tax each year divided by the number of inhabitants",
+        "How much the country sells to other countries each year"
+      ],
+      "answer": 1,
+      "explanation": "GDP, gross domestic product, is the value of everything produced in a country during one year, and GDP per capita is obtained when that sum is divided by the population. The option with just the value of production describes GDP without per capita, which makes large countries always look rich even if each inhabitant has little – that is why per capita is used when comparing countries."
+    },
+    {
+      "id": "q-geo8-utv-2",
+      "kind": "mc",
+      "topic": "GDP and development measures",
+      "prompt": "Which measure combines life expectancy, education and income?",
+      "opener": "The UN's measure tries to capture more of people's lives than just money.",
+      "choices": [
+        "GDP per capita",
+        "The Gini coefficient",
+        "The inflation rate",
+        "HDI, the Human Development Index"
+      ],
+      "answer": 3,
+      "explanation": "HDI is the UN's index for human development and combines life expectancy, level of education and income (GNI per capita) into a value between 0 and 1. GDP per capita measures only income, the Gini coefficient measures how evenly income is distributed within a country, and inflation is about how fast prices rise."
+    },
+    {
+      "id": "q-geo8-utv-3",
+      "kind": "mc",
+      "topic": "high-income and low-income countries",
+      "prompt": "What is typical of a low-income country compared with a high-income country?",
+      "opener": "Think about how many people work in agriculture, and about the health of the very youngest.",
+      "choices": [
+        "Higher child mortality, shorter life expectancy, and a larger share of the population working in agriculture",
+        "Low birth rates and an ageing population with many pensioners",
+        "That most of the workforce works in the service sector",
+        "High GDP per capita but very low HDI"
+      ],
+      "answer": 0,
+      "explanation": "In low-income countries, healthcare is less developed and access to clean water is poorer, which gives higher child mortality and shorter life expectancy, while many people make a living from agriculture. Low birth rates, an ageing population and a large service sector are instead characteristic of high-income countries such as Sweden and Japan."
+    },
+    {
+      "id": "q-geo8-utv-4",
+      "kind": "mc",
+      "topic": "causes of inequality",
+      "prompt": "Which historical factor is often mentioned as an important cause of today's gaps between countries?",
+      "opener": "For several hundred years, large parts of Africa, Asia and America were ruled by European states.",
+      "choices": [
+        "That low-income countries are located further from the poles than rich countries",
+        "That people in low-income countries work fewer hours per week",
+        "Colonialism, when European states ruled large areas and shipped raw materials out of them",
+        "That high-income countries have significantly more natural resources in the ground"
+      ],
+      "answer": 2,
+      "explanation": "During the colonial era, colonies were built up to supply cheap raw materials to Europe, borders were drawn without regard for ethnic groups, and local industry barely developed – patterns that live on in trade and economics long after independence. It is not true that rich countries have more natural resources: many low-income countries, such as the Democratic Republic of Congo, are very rich in minerals but poor nonetheless."
+    },
+    {
+      "id": "q-geo8-utv-5",
+      "kind": "mc",
+      "topic": "trade and globalisation",
+      "prompt": "What is meant by globalisation?",
+      "opener": "Think about where your phone is manufactured and where the cotton in your jumper was grown.",
+      "choices": [
+        "That all countries in the world introduce the same currency and the same laws",
+        "That countries and people are increasingly linked together through trade, transport, communication and culture",
+        "That more people move from the cities out to the countryside",
+        "That countries close their borders to foreign goods to protect their own industry"
+      ],
+      "answer": 1,
+      "explanation": "Globalisation means that goods, money, information, ideas and people move ever more easily across borders, so that a product can have parts from many countries and be assembled in a third. Closing borders to foreign goods is the opposite and is called protectionism, while a shared currency only exists within certain partnerships such as the eurozone."
+    },
+    {
+      "id": "q-geo8-utv-6",
+      "kind": "mc",
+      "topic": "trade and globalisation",
+      "prompt": "Many low-income countries mainly export unprocessed raw materials. Why is that a problem?",
+      "opener": "Compare what a tonne of cocoa beans is worth with what the chocolate in the shop costs.",
+      "choices": [
+        "Raw materials are not allowed to be sold on to other continents",
+        "Raw materials are always more expensive than finished industrial goods",
+        "There is almost no demand for raw materials in the world today",
+        "Raw material prices swing sharply, and processed goods give far greater income than unprocessed raw materials"
+      ],
+      "answer": 3,
+      "explanation": "The big profit arises when the raw material is processed into a finished product, and that part of the chain is usually located in high-income countries – so the producing country only gets a small share of the final price. In addition, the world market price of, for example, cocoa, coffee or copper can fall sharply in a short time, which hits hard a country that depends on a single export good. It is simply not true that demand is lacking – on the contrary, demand for raw materials is high."
+    },
+    {
+      "id": "q-geo8-utv-7",
+      "kind": "worked",
+      "topic": "causes of inequality",
+      "prompt": "A country in sub-Saharan Africa gets almost all its export income from cocoa. Explain why the country finds it hard to grow richer and what could improve the situation.",
+      "opener": "Follow the cocoa bean all the way from the plantation to the chocolate bar in the shop – where is the money earned?",
+      "answer": "The problem is that the country sells an unprocessed raw material and therefore gets stuck at the bottom of the value chain. The farmer only receives a small share of what the chocolate bar costs in the shop, while the processing into chocolate, the marketing and the sales take place in high-income countries and yield the big profit. Since almost all of the export consists of a single good, the economy also becomes very vulnerable: if the world market price of cocoa falls, or the harvest fails because of drought or plant disease, the state's income drops sharply at the same time as schools and healthcare need to be paid for. Many growers are poor, have small plots and lack money to invest, and tariffs on processed goods in the importing countries make it harder to sell finished chocolate rather than beans. The situation can be improved by the country building up its own processing industry, investing in education and infrastructure, broadening the economy with more industries so it does not depend on a single good, and through fairer trade rules and certifications that give growers a higher and more predictable price.",
+      "steps": [
+        "The country exports an unprocessed raw material and only gets a small share of the final price – the processing happens elsewhere.",
+        "Dependence on a single good makes the economy vulnerable to price falls, drought and damaged harvests.",
+        "Low income leaves little money for schools, roads, electricity and investment, which slows development.",
+        "Tariffs on processed goods in rich countries make it harder to sell finished chocolate than raw beans.",
+        "Ways forward: building a domestic processing industry, education and infrastructure, a broader economy, and fairer trade terms and certification."
+      ]
+    },
+    {
+      "id": "q-geo8-utv-8",
+      "kind": "flashcard",
+      "topic": "aid and sustainable development",
+      "prompt": "Summarise the concepts of development, inequality, trade and aid.",
+      "opener": "Gather the measures, the causes, trade and the global goals into one tight overview.",
+      "answer": "GDP: the value of all goods and services a country produces during one year · GDP per capita: GDP divided by the population, used to compare countries · HDI: the UN's index combining life expectancy, education and income, a value between 0 and 1 · the Gini coefficient: measures how unevenly income is distributed within a country · other measures: child mortality, life expectancy, literacy, share with clean water and electricity · high-income countries: high GDP per capita, low birth rates, an ageing population, a large service sector, developed schooling and healthcare · low-income countries: low GDP per capita, high birth rates, a young population, many people in agriculture, high child mortality · middle-income countries are growing fast, for example China, India, Brazil and Vietnam · causes of inequality: the legacy of colonialism, a one-sided economy with few export goods, corruption, war and conflict, weak education and infrastructure, debt, drought and natural disasters · trade: low-income countries often export raw materials while the processing and the profit end up in rich countries · tariffs and trade barriers make it harder to export finished goods · free trade means trade without tariffs, protectionism means protecting one's own industry · globalisation: goods, money, information and people move more easily across borders, multinational companies produce in many countries · aid: emergency aid during acute crises and long-term aid for schools, healthcare, water and agriculture · the UN's target is for rich countries to give 0.7 per cent of GNI in aid, and Sweden is among the countries that give the most · criticism of aid: it can create dependency or disappear into corruption, which is why ownership and long-term thinking are emphasised · sustainable development: meeting today's needs without destroying future generations' opportunities, with an ecological, economic and social dimension · Agenda 2030: the UN's 17 global goals, including no poverty, quality education, gender equality, clean water, and combating climate change."
+    }
+  ]
+}

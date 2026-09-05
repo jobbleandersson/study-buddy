@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv3-litteratur",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Literary-scholarly analysis",
+  "sourceSummary": "Analysing a work from scholarly perspectives such as gender, historical context and psychoanalysis, in-depth narratological concepts, and connecting a work to its own time.",
+  "topics": [
+    "analytical perspectives",
+    "narratology",
+    "the work and its time"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-litteratur-1",
+      "kind": "mc",
+      "topic": "analytical perspectives",
+      "prompt": "What does it mean to make a gender analysis of a work of fiction?",
+      "opener": "What structures does this perspective focus on?",
+      "choices": [
+        "Examining how gender roles, power and norms around gender are portrayed and possibly challenged in the text",
+        "Counting how many male and female characters appear",
+        "Only studying the author's own gender and biography",
+        "Determining whether the text is written for a male or a female audience"
+      ],
+      "answer": 0,
+      "explanation": "A gender analysis examines how gender, power and norms are depicted, upheld or questioned in the text — it is about structures and power relations, not about counting characters or only looking at the author's gender."
+    },
+    {
+      "id": "q-sv3-litteratur-2",
+      "kind": "mc",
+      "topic": "analytical perspectives",
+      "prompt": "What characterises a historical (history-of-ideas) reading of a literary work?",
+      "opener": "Which context outside the text itself is brought into focus?",
+      "choices": [
+        "You disregard entirely when the work was written and read it as if it were written today",
+        "You interpret the work in light of the era, the ideas and the social conditions that prevailed when it was written",
+        "You analyse only sentence structure and word choice",
+        "You only compare two different film adaptations of the work"
+      ],
+      "answer": 1,
+      "explanation": "A historical reading places the work in relation to the ideas, values and social conditions of its own time in order to understand why it was written the way it was. Disregarding the time it was written is the opposite of this perspective."
+    },
+    {
+      "id": "q-sv3-litteratur-3",
+      "kind": "mc",
+      "topic": "analytical perspectives",
+      "prompt": "What does a psychoanalytic interpretation of a literary text often focus on?",
+      "opener": "Consider which level of a character's consciousness this perspective likes to examine.",
+      "choices": [
+        "The text's metre and rhyme scheme",
+        "The graphic design of the cover",
+        "Unconscious drives, desires, conflicts and symbols in the characters or in the author's life",
+        "The book's sales figures at the time of publication"
+      ],
+      "answer": 2,
+      "explanation": "A psychoanalytic reading looks for unconscious drives, conflicts and symbolism — often using concepts drawn from, for example, Freud — in characters or in relation to the author. Formal or commercial aspects are not part of this perspective."
+    },
+    {
+      "id": "q-sv3-litteratur-4",
+      "kind": "mc",
+      "topic": "narratology",
+      "prompt": "What is the difference between the narrator's and a character's perspective in the concept of \"focalisation\"?",
+      "opener": "Focalisation is about WHOSE perception the reader shares, not who is putting the words together.",
+      "choices": [
+        "Focalisation is the same thing as narrative voice — the two concepts mean exactly the same thing",
+        "Focalisation is only about which time period the story takes place in",
+        "Focalisation only exists in first-person narratives",
+        "Focalisation refers to through whose consciousness and perception the events are conveyed, which can differ from who is narrating"
+      ],
+      "answer": 3,
+      "explanation": "Focalisation concerns whose perspective and consciousness the reader sees the events through, while the narrative voice is the instance conveying the words — a third-person narrator can, for example, focalise through a single character. Focalisation occurs in both first-person and third-person narratives."
+    },
+    {
+      "id": "q-sv3-litteratur-5",
+      "kind": "mc",
+      "topic": "narratology",
+      "prompt": "What does an unreliable narrator mean?",
+      "opener": "What does the reader have to do extra when the narrator cannot be trusted at face value?",
+      "choices": [
+        "A narrator who writes in an old-fashioned style",
+        "A narrator whose account of events cannot, for various reasons, be fully trusted, which forces the reader to read critically between the lines",
+        "A narrator who only appears in detective novels",
+        "A narrator who is swapped out in the middle of the book"
+      ],
+      "answer": 1,
+      "explanation": "An unreliable narrator gives, consciously or unconsciously, a skewed or incomplete picture of events — due to, for example, limited knowledge, self-interest, or psychological instability — which requires the reader to evaluate what is being told for themselves. It is not about language style or genre."
+    },
+    {
+      "id": "q-sv3-litteratur-6",
+      "kind": "mc",
+      "topic": "the work and its time",
+      "prompt": "Why is it relevant to connect a literary work to its own time in an in-depth analysis?",
+      "opener": "What can the connection to its time explain that a pure formal analysis cannot?",
+      "choices": [
+        "It is irrelevant — a work's quality should only be judged by its language",
+        "It allows one to understand why certain themes, conflicts or values are highlighted, and how the work relates to or questions the norms of its time",
+        "It means replacing the work's plot with a modern version",
+        "It is only used when analysing poetry, never prose"
+      ],
+      "answer": 1,
+      "explanation": "By connecting the work to its own time, one can understand which questions and norms it relates to, and whether it confirms or challenges them — this deepens the interpretation beyond mere form and language. The perspective applies to all literary genres, not only poetry."
+    },
+    {
+      "id": "q-sv3-litteratur-7",
+      "kind": "worked",
+      "topic": "analytical perspectives",
+      "prompt": "Briefly describe how you would structure a gender analysis of a novel in which the protagonist is a woman who is expected to marry but instead chooses a professional career.",
+      "opener": "Start from which norms the text first establishes, and then examine whether and how they are broken.",
+      "answer": "The analysis should identify which gender norms are established in the novel's society (e.g. the expectation of marriage), show how the protagonist's choice breaks with these norms, examine how those around her (other characters, the narrative voice) react to and judge the choice, and finally discuss whether the text as a whole reinforces or challenges the prevailing gender roles, relating this to when the work was written.",
+      "steps": [
+        "Identify which expectations and norms around gender the text establishes, for example through other characters' lines or the narrator's descriptions.",
+        "Point out concrete scenes where the protagonist acts in line with, or against, these norms.",
+        "Examine how those around her in the text react to the breaking of the norm — is it punished or rewarded?",
+        "Connect the observations into an interpretation: does the text ultimately challenge or confirm the gender roles?",
+        "Relate the interpretation to when the work was written, in order to understand how explosive the breaking of the norm was at the time."
+      ]
+    },
+    {
+      "id": "q-sv3-litteratur-8",
+      "kind": "flashcard",
+      "topic": "narratology",
+      "prompt": "Summarise the three analytical perspectives and the two narratological concepts in this section.",
+      "opener": "Keep track of what each perspective directs its gaze towards.",
+      "answer": "Gender perspective: gender, power and norms in the text · Historical perspective: the work in relation to the ideas and society of its time · Psychoanalytic perspective: unconscious drives, desires and symbols · Focalisation: through whose consciousness the events are conveyed, distinct from the narrative voice · Unreliable narrator: a narrator whose account cannot be trusted at face value, requiring critical reading · Connection to its time: deepens the interpretation by showing how the work relates to the norms of its era."
+    }
+  ]
+}

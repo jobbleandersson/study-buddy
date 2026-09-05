@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma9-tal",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Numbers and calculation",
+  "sourceSummary": "Negative numbers, powers and order of operations — the basics you need to have down before Year 9.",
+  "topics": [
+    "negative numbers",
+    "powers",
+    "order of operations"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma9-tal-1",
+      "kind": "mc",
+      "topic": "negative numbers",
+      "prompt": "What is $-7 - (-2)$?",
+      "opener": "Two minus signs in a row — what usually happens then?",
+      "choices": [
+        "-5",
+        "5",
+        "9",
+        "-9"
+      ],
+      "answer": 0,
+      "explanation": "Subtracting a negative number is the same as adding: $-7 - (-2) = -7 + 2 = -5$."
+    },
+    {
+      "id": "q-ma9-tal-2",
+      "kind": "mc",
+      "topic": "negative numbers",
+      "prompt": "What is $(-4) \\cdot (-6)$?",
+      "opener": "Think about the sign rule when you multiply two negative numbers.",
+      "choices": [
+        "10",
+        "24",
+        "-24",
+        "-10"
+      ],
+      "answer": 1,
+      "explanation": "Minus times minus becomes plus, so $(-4) \\cdot (-6) = 24$."
+    },
+    {
+      "id": "q-ma9-tal-3",
+      "kind": "mc",
+      "topic": "order of operations",
+      "prompt": "Calculate $3 + 4 \\cdot 5$.",
+      "opener": "Which operation should be done first here?",
+      "choices": [
+        "27",
+        "20",
+        "23",
+        "35"
+      ],
+      "answer": 2,
+      "explanation": "Multiplication comes before addition: $4 \\cdot 5 = 20$, and $3 + 20 = 23$."
+    },
+    {
+      "id": "q-ma9-tal-4",
+      "kind": "mc",
+      "topic": "order of operations",
+      "prompt": "Calculate $(2 + 3)^2$.",
+      "opener": "The brackets first — then you do something with the result.",
+      "choices": [
+        "36",
+        "10",
+        "13",
+        "25"
+      ],
+      "answer": 3,
+      "explanation": "Brackets first: $2 + 3 = 5$. Then $5^2 = 25$. (Note: $2^2 + 3^2 = 13$ is a common mistake.)"
+    },
+    {
+      "id": "q-ma9-tal-5",
+      "kind": "mc",
+      "topic": "powers",
+      "prompt": "What is $2^5$?",
+      "opener": "How many times should 2 be multiplied by itself?",
+      "choices": [
+        "32",
+        "10",
+        "16",
+        "25"
+      ],
+      "answer": 0,
+      "explanation": "$2^5 = 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 2 = 32$. The exponent tells you how many factors, not what you should multiply by."
+    },
+    {
+      "id": "q-ma9-tal-6",
+      "kind": "mc",
+      "topic": "powers",
+      "prompt": "The number 45 000 written in standard form is:",
+      "opener": "Standard form means a number between 1 and 10 multiplied by a power of ten.",
+      "choices": [
+        "$45 \\cdot 10^3$",
+        "$4{,}5 \\cdot 10^4$",
+        "$4{,}5 \\cdot 10^3$",
+        "$0{,}45 \\cdot 10^5$"
+      ],
+      "answer": 1,
+      "explanation": "The first factor should be between 1 and 10. $4{,}5 \\cdot 10^4 = 4{,}5 \\cdot 10\\,000 = 45\\,000$."
+    },
+    {
+      "id": "q-ma9-tal-7",
+      "kind": "worked",
+      "topic": "order of operations",
+      "prompt": "Calculate $12 - 2 \\cdot (3 + 1)^2$. Show your reasoning step by step.",
+      "opener": "Follow the order: brackets, powers, multiplication, then subtraction.",
+      "answer": "-20",
+      "steps": [
+        "Brackets first: $3 + 1 = 4$.",
+        "Then the power: $4^2 = 16$.",
+        "Then the multiplication: $2 \\cdot 16 = 32$.",
+        "Finally the subtraction: $12 - 32 = -20$."
+      ]
+    },
+    {
+      "id": "q-ma9-tal-8",
+      "kind": "flashcard",
+      "topic": "order of operations",
+      "prompt": "In what order should you calculate? List the order of operations rules.",
+      "opener": "Four steps — try to say them in the right order before you flip the card.",
+      "answer": "1) Brackets. 2) Powers (and roots). 3) Multiplication and division, from left to right. 4) Addition and subtraction, from left to right."
+    }
+  ]
+}

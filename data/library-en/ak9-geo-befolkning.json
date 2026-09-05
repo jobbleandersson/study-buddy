@@ -1,0 +1,129 @@
+{
+  "id": "lib-geo-befolkning",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Population and urbanisation",
+  "sourceSummary": "How the world's population is distributed and how densely different places are populated, why people move to cities (urbanisation) and across borders (migration), and basic demographic concepts.",
+  "topics": [
+    "population density and distribution",
+    "urbanisation",
+    "migration and push/pull factors",
+    "demographic concepts"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo-bef-1",
+      "kind": "mc",
+      "topic": "population density and distribution",
+      "prompt": "What is meant by population density?",
+      "opener": "Density says something about how \"crowded\" a place is, not how many people live in the whole country.",
+      "choices": [
+        "The total number of inhabitants in a country",
+        "The number of inhabitants per square kilometre",
+        "How fast the population grows per year",
+        "The proportion of inhabitants who live in cities"
+      ],
+      "answer": 1,
+      "explanation": "Population density is measured as the number of inhabitants per square kilometre and shows how densely populated an area is. A country can have a large total population (like Canada) but still have low density if its area is enormous, while a small country like Bangladesh can have very high density."
+    },
+    {
+      "id": "q-geo-bef-2",
+      "kind": "mc",
+      "topic": "population density and distribution",
+      "prompt": "Why are large parts of the Sahara and northern Canada very sparsely populated?",
+      "opener": "Think about what people need in order to be able to live and grow food in a place.",
+      "choices": [
+        "There are no natural resources there at all",
+        "The climate is too extreme (dry or cold) for farming and settlement",
+        "Governments forbid people from living there",
+        "There are no roads built there"
+      ],
+      "answer": 1,
+      "explanation": "Extreme climates, such as the dryness of the Sahara's desert climate or the bitterly cold climate of northern Canada, make it difficult to grow food and live there permanently. Populations instead gather where climate, water and arable land make life easier, for example along river valleys and coasts."
+    },
+    {
+      "id": "q-geo-bef-3",
+      "kind": "mc",
+      "topic": "urbanisation",
+      "prompt": "What does urbanisation mean?",
+      "opener": "The word comes from \"urban\", meaning relating to a city.",
+      "choices": [
+        "That industries move to the countryside",
+        "That an increasing proportion of the population lives and works in cities",
+        "That cities become cleaner and more environmentally friendly",
+        "That a country's total population decreases"
+      ],
+      "answer": 1,
+      "explanation": "Urbanisation means that the proportion of the population living in cities increases, often because people move from the countryside into cities. It's a global trend, especially fast right now in many low- and middle-income countries in Africa and Asia."
+    },
+    {
+      "id": "q-geo-bef-4",
+      "kind": "mc",
+      "topic": "urbanisation",
+      "prompt": "What is the MOST common reason people move from the countryside to cities in rapidly urbanising countries?",
+      "opener": "Think about what a person prioritises when a household's livelihood isn't enough in the countryside.",
+      "choices": [
+        "Hope for better jobs, education and services in cities",
+        "Cities always have a cooler climate",
+        "The law forces people to move to cities",
+        "The countryside has too many natural resources"
+      ],
+      "answer": 0,
+      "explanation": "People are drawn to cities by more and better-paid jobs, access to schools and healthcare, and other services — this is often called \"pull factors\". At the same time, a lack of jobs and land in the countryside can push people away (\"push factors\")."
+    },
+    {
+      "id": "q-geo-bef-5",
+      "kind": "mc",
+      "topic": "migration and push/pull factors",
+      "prompt": "A farmer leaves their village because of prolonged drought and crop failure. What type of factor is this an example of?",
+      "opener": "Think about whether the cause PUSHES the person away from the place or PULLS the person toward a new place.",
+      "choices": [
+        "A pull factor, since the drought attracts the person away",
+        "A push factor, since difficult conditions drive the person away",
+        "Neither a push nor a pull factor",
+        "A demographic factor"
+      ],
+      "answer": 1,
+      "explanation": "Push factors are things that push people away from a place, for example drought, war, poverty or lack of jobs. Pull factors, on the other hand, are things that pull people TOWARD a new place, for example better job opportunities or safety."
+    },
+    {
+      "id": "q-geo-bef-6",
+      "kind": "mc",
+      "topic": "demographic concepts",
+      "prompt": "What does a high birth rate in a country mean?",
+      "opener": "The birth rate measures how many children are born relative to the population.",
+      "choices": [
+        "That life expectancy is high",
+        "That many children are born per capita (per person) over a given period",
+        "That the population is moving to cities",
+        "That the country has high population density"
+      ],
+      "answer": 1,
+      "explanation": "Birth rate measures how many children are born relative to the population, often expressed as the number of births per 1000 inhabitants per year. High birth rates are common in countries with lower income levels and less access to contraception and education, while high-income countries often have low birth rates."
+    },
+    {
+      "id": "q-geo-bef-7",
+      "kind": "worked",
+      "topic": "demographic concepts",
+      "prompt": "Explain why many high-income countries, such as Japan and Sweden, have an ageing population while many low-income countries have a very young population.",
+      "opener": "Link birth rate and life expectancy to how a country develops economically over time.",
+      "answer": "In high-income countries, life expectancy is high thanks to good healthcare and living standards, while birth rates are low because more women study and work, families have children later, and child mortality is low (there's no \"need\" to have many children). This means the proportion of elderly people grows and the population ages. In many low-income countries, birth rates are still high, often because children contribute to the family's livelihood and child mortality has historically been higher, giving a population pyramid with a broad base of young people.",
+      "steps": [
+        "High-income countries: high life expectancy (good healthcare, food, housing) → more elderly people living long lives.",
+        "High-income countries: lower birth rates (education, careers, contraception, expensive to have children) → fewer newborns.",
+        "High life expectancy + low birth rate together → the population ages, the proportion of elderly increases.",
+        "Low-income countries: higher birth rates (need for labour, less access to education/contraception) → many young people.",
+        "Result: a young, rapidly growing population in low-income countries compared with an older, more slowly growing population in high-income countries."
+      ]
+    },
+    {
+      "id": "q-geo-bef-8",
+      "kind": "flashcard",
+      "topic": "urbanisation",
+      "prompt": "Summarise the key concepts around population, urbanisation and migration.",
+      "opener": "Gather the most important concepts into a compact overview you can review quickly.",
+      "answer": "Population density: number of inhabitants per square kilometre · high density in river valleys, coasts and large cities, low density in deserts, rainforest and polar regions. Urbanisation: an increasing proportion of the population lives in cities · driven by jobs, education and services. Migration: when people move, within or between countries · push factors push people away (war, drought, poverty, unemployment) · pull factors pull people toward (jobs, safety, family, a better life). Demography: the study of a population's composition · birth rate (number of births per 1000 inhabitants) · life expectancy (how long people are expected to live) · high birth rates + low life expectancy often found in low-income countries, the opposite often found in high-income countries."
+    }
+  ]
+}

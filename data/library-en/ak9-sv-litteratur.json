@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv9-litteratur",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Literary concepts",
+  "sourceSummary": "Genres, narrative perspective, setting and theme, and figurative language — the core concepts you need to analyse a work of fiction.",
+  "topics": [
+    "genre",
+    "narrative perspective",
+    "setting and theme",
+    "figurative language"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv9-lit-1",
+      "kind": "mc",
+      "topic": "genre",
+      "prompt": "A book about spaceships, time travel and advanced technology in the future belongs to which genre?",
+      "opener": "Which genre is built on science and technology that don't (yet) exist?",
+      "choices": [
+        "Fantasy",
+        "Science fiction",
+        "Crime fiction",
+        "Realistic novel"
+      ],
+      "answer": 1,
+      "explanation": "Science fiction is built on science and technology, often set in the future. Fantasy, by contrast, is about magic and invented worlds without a scientific basis."
+    },
+    {
+      "id": "q-sv9-lit-2",
+      "kind": "mc",
+      "topic": "genre",
+      "prompt": "What characterises crime fiction?",
+      "opener": "What kind of puzzle drives the plot forward?",
+      "choices": [
+        "The plot revolves around solving a crime or mystery",
+        "The plot always takes place in a fantasy world",
+        "The book has no clear plot",
+        "The book is always about love"
+      ],
+      "answer": 0,
+      "explanation": "Crime fiction (detective novels) revolves around a crime that needs to be solved, often with a detective or police officer as the main character and clues that the reader follows."
+    },
+    {
+      "id": "q-sv9-lit-3",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "\"I didn't know what to say. My hands were shaking as I opened the door.\" What narrative perspective is this?",
+      "opener": "Which pronoun tells the story — and whose thoughts do we get access to?",
+      "choices": [
+        "First-person perspective",
+        "Omniscient narrator",
+        "Third-person perspective",
+        "Objective narrator"
+      ],
+      "answer": 0,
+      "explanation": "\"I\" tells the story and we only get access to that person's own thoughts and feelings — this is a first-person perspective."
+    },
+    {
+      "id": "q-sv9-lit-4",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "A narrator who knows what ALL the characters in the book are thinking and feeling, even simultaneously in different places, is called:",
+      "opener": "Which type of narrator has access to everyone's thoughts, not just one person's?",
+      "choices": [
+        "First-person narrator",
+        "Unreliable narrator",
+        "Omniscient narrator",
+        "Diary narrator"
+      ],
+      "answer": 2,
+      "explanation": "An omniscient narrator (a third-person perspective with insight into several characters' thoughts) can jump between different characters' inner thoughts and locations."
+    },
+    {
+      "id": "q-sv9-lit-5",
+      "kind": "mc",
+      "topic": "setting and theme",
+      "prompt": "What is the difference between a story's setting and its theme?",
+      "opener": "One is WHERE/WHEN the plot happens, the other is what the book is really ABOUT on a deeper level.",
+      "choices": [
+        "There is no difference, the words mean the same thing",
+        "Setting is the place and time the plot takes place in, theme is the deeper idea or question the book deals with",
+        "Setting is the main character's personality, theme is the plot",
+        "The theme is always the title of the book"
+      ],
+      "answer": 1,
+      "explanation": "Setting = where and when (e.g. a small town in the 1950s). Theme = the overarching idea or question the text explores (e.g. friendship, loneliness, power)."
+    },
+    {
+      "id": "q-sv9-lit-6",
+      "kind": "mc",
+      "topic": "figurative language",
+      "prompt": "\"Her eyes were like stars.\" What figure of speech is used here?",
+      "opener": "Are two things compared using the word \"like\", or are they equated directly with no comparison word?",
+      "choices": [
+        "Metaphor",
+        "Simile",
+        "Personification",
+        "Alliteration"
+      ],
+      "answer": 1,
+      "explanation": "A simile compares two things using words like \"like\" or \"as\". A metaphor would have said \"her eyes were stars\" — without the comparison word, as a direct equation."
+    },
+    {
+      "id": "q-sv9-lit-7",
+      "kind": "worked",
+      "topic": "figurative language",
+      "prompt": "Identify the figure of speech in each sentence and explain which type it is: (1) \"The wind whispered through the trees.\" (2) \"He is a lion on the pitch.\" (3) \"Life is a rollercoaster.\"",
+      "opener": "Ask of each sentence: is something given human qualities (personification), or are two different things equated completely (metaphor)?",
+      "answer": "(1) Personification — the wind is given a human ability (to whisper). (2) Metaphor — he is directly equated with a lion (without \"like\"). (3) Metaphor — life is directly equated with a rollercoaster.",
+      "steps": [
+        "Sentence 1: \"the wind whispered\" gives the wind a human action (whispering) — this is personification, giving non-human things human qualities.",
+        "Sentence 2: \"he IS a lion\", not \"he is LIKE a lion\" — the direct equation without a comparison word makes it a metaphor.",
+        "Sentence 3: the same pattern as sentence 2 — \"life IS a rollercoaster\" is a metaphor, not a simile.",
+        "Memory tip: a simile contains \"like\"/\"as\", a metaphor equates things directly with no comparison word, personification gives things/animals human qualities."
+      ]
+    },
+    {
+      "id": "q-sv9-lit-8",
+      "kind": "flashcard",
+      "topic": "figurative language",
+      "prompt": "What are the most common types of figurative language and how do you recognise them?",
+      "opener": "Four common types to be able to tell apart.",
+      "answer": "Simile: compares two things using \"like\" or \"as\" (\"strong as a bear\"). Metaphor: equates two things directly with no comparison word (\"he is a bear\"). Personification: gives non-human things human qualities (\"the sun smiled\"). Alliteration: several words in a row start with the same letter/sound (\"wild winds whisper\"). Symbol: a concrete object that stands for something abstract (a dove as a symbol of peace)."
+    }
+  ]
+}

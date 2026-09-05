@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma2-trigonometri",
+  "type": "assignment",
+  "subject": "Matematik 2",
+  "title": "Trigonometry: sine, cosine and tangent",
+  "sourceSummary": "Trigonometric ratios in right-angled triangles, calculating unknown sides and angles, and simple applications in everyday situations.",
+  "topics": [
+    "trigonometric ratios",
+    "calculating sides",
+    "calculating angles",
+    "applications"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma2-trig-1",
+      "kind": "mc",
+      "topic": "trigonometric ratios",
+      "prompt": "In a right-angled triangle, what is the definition of $\\sin(v)$ for the angle $v$?",
+      "opener": "Think SOH-CAH-TOA — which side belongs to sine?",
+      "choices": [
+        "$\\dfrac{\\text{opposite side}}{\\text{hypotenuse}}$",
+        "$\\dfrac{\\text{adjacent side}}{\\text{hypotenuse}}$",
+        "$\\dfrac{\\text{opposite side}}{\\text{adjacent side}}$",
+        "$\\dfrac{\\text{hypotenuse}}{\\text{opposite side}}$"
+      ],
+      "answer": 0,
+      "explanation": "Sine is defined as the ratio of the opposite side to the hypotenuse: $\\sin(v) = \\dfrac{\\text{opposite}}{\\text{hypotenuse}}$. The option with the adjacent side over the hypotenuse (option B) is instead the definition of cosine."
+    },
+    {
+      "id": "q-ma2-trig-2",
+      "kind": "mc",
+      "topic": "calculating sides",
+      "prompt": "A right-angled triangle has a hypotenuse of 10 cm and an angle of 30°. How long is the side opposite the 30° angle?",
+      "opener": "Set up $\\sin(30°) = \\dfrac{\\text{opposite}}{10}$ and solve for the opposite side.",
+      "choices": [
+        "$8.66$ cm",
+        "$5$ cm",
+        "$5.77$ cm",
+        "$10$ cm"
+      ],
+      "answer": 1,
+      "explanation": "Opposite side $= 10 \\cdot \\sin(30°) = 10 \\cdot 0.5 = 5$ cm. Option A ($8.66$ cm) is obtained if you mistakenly use cosine instead of sine."
+    },
+    {
+      "id": "q-ma2-trig-3",
+      "kind": "mc",
+      "topic": "applications",
+      "prompt": "A ladder that is 6 m long leans against a wall so that the angle between the ladder and the ground is 60°. How high up the wall does the ladder reach?",
+      "opener": "The height on the wall is the side opposite the 60° angle, and the ladder is the hypotenuse.",
+      "choices": [
+        "$3$ m",
+        "$6.9$ m",
+        "$5.2$ m",
+        "$6$ m"
+      ],
+      "answer": 2,
+      "explanation": "Height $= 6 \\cdot \\sin(60°) = 6 \\cdot 0.866 \\approx 5.2$ m. Option A ($3$ m) is obtained if you use cosine instead of sine, and option B is obtained if you incorrectly divide by $\\sin(60°)$ instead of multiplying."
+    },
+    {
+      "id": "q-ma2-trig-4",
+      "kind": "mc",
+      "topic": "trigonometric ratios",
+      "prompt": "A right-angled triangle has sides of 6 cm and 8 cm and a hypotenuse of 10 cm. What is $\\tan(v)$ for the angle $v$ opposite the 6 cm side?",
+      "opener": "Tangent compares the two legs with each other, not the hypotenuse.",
+      "choices": [
+        "$0.6$",
+        "$0.8$",
+        "$1.33$",
+        "$0.75$"
+      ],
+      "answer": 3,
+      "explanation": "$\\tan(v) = \\dfrac{\\text{opposite}}{\\text{adjacent}} = \\dfrac{6}{8} = 0.75$. Option A ($0.6$) is instead $\\sin(v) = \\frac{6}{10}$, and option B ($0.8$) is $\\cos(v) = \\frac{8}{10}$ — common mix-ups."
+    },
+    {
+      "id": "q-ma2-trig-5",
+      "kind": "mc",
+      "topic": "calculating angles",
+      "prompt": "A right-angled triangle has sides of 5 cm and 12 cm (the hypotenuse is 13 cm). What is the angle between the hypotenuse and the longer side (12 cm), rounded to the nearest degree?",
+      "opener": "Use the inverse tangent function with the two legs.",
+      "choices": [
+        "$23°$",
+        "$67°$",
+        "$45°$",
+        "$35°$"
+      ],
+      "answer": 0,
+      "explanation": "$\\tan(v) = \\dfrac{5}{12} \\approx 0.417$, so $v = \\tan^{-1}(0.417) \\approx 23°$. Option B ($67°$) is the other acute angle in the triangle (the complementary angle), not the one asked for."
+    },
+    {
+      "id": "q-ma2-trig-6",
+      "kind": "mc",
+      "topic": "trigonometric ratios",
+      "prompt": "Which statement about exact trigonometric values is correct?",
+      "opener": "Check each statement against the unit circle or a standard triangle.",
+      "choices": [
+        "$\\cos(60°) = 0.866$",
+        "$\\sin(30°) = 0.5$",
+        "$\\tan(45°) = 0$",
+        "$\\sin(90°) = 0$"
+      ],
+      "answer": 1,
+      "explanation": "$\\sin(30°) = 0.5$ is correct. The others are wrong: $\\cos(60°) = 0.5$ (not $0.866$, which is instead $\\sin(60°)$), $\\tan(45°) = 1$ (not 0), and $\\sin(90°) = 1$ (not 0)."
+    },
+    {
+      "id": "q-ma2-trig-7",
+      "kind": "worked",
+      "topic": "calculating sides",
+      "prompt": "A right-angled triangle has an angle of 40°, and the side opposite the angle is 7 cm. Calculate the length of the hypotenuse.",
+      "opener": "Determine which trigonometric relationship connects the opposite side and the hypotenuse.",
+      "answer": "$\\approx 10.9$ cm",
+      "steps": [
+        "Known values: angle $v = 40°$, opposite side $= 7$ cm. Sought: the hypotenuse $c$.",
+        "The relationship is $\\sin(v) = \\dfrac{\\text{opposite}}{c}$.",
+        "Solve for $c$: $c = \\dfrac{\\text{opposite}}{\\sin(v)} = \\dfrac{7}{\\sin(40°)}$.",
+        "With $\\sin(40°) \\approx 0.643$, $c \\approx \\dfrac{7}{0.643} \\approx 10.9$ cm."
+      ]
+    },
+    {
+      "id": "q-ma2-trig-8",
+      "kind": "flashcard",
+      "topic": "trigonometric ratios",
+      "prompt": "Summarise the trigonometric ratios in a right-angled triangle and how to calculate an unknown angle.",
+      "opener": "SOH-CAH-TOA is the mnemonic — what does each letter stand for?",
+      "answer": "$\\sin(v) = \\dfrac{\\text{opposite}}{\\text{hypotenuse}}$ (SOH) · $\\cos(v) = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}}$ (CAH) · $\\tan(v) = \\dfrac{\\text{opposite}}{\\text{adjacent}}$ (TOA) · Pythagoras' theorem for the sides: $a^2+b^2=c^2$ (c = the hypotenuse) · To find an angle, use the inverse functions: $v=\\sin^{-1}(\\ldots)$, $v=\\cos^{-1}(\\ldots)$ or $v=\\tan^{-1}(\\ldots)$."
+    }
+  ]
+}

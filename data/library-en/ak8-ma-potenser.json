@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma8-potenser",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Powers and standard form",
+  "sourceSummary": "What a power means, the power laws for multiplication and division with the same base, and how very large and very small numbers are written in standard form with the correct prefix.",
+  "topics": [
+    "powers",
+    "power laws",
+    "standard form",
+    "prefixes"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma8-pot-1",
+      "kind": "mc",
+      "topic": "powers",
+      "prompt": "What is $2^5$?",
+      "opener": "The exponent tells you how many times the base should be multiplied by itself.",
+      "choices": [
+        "10",
+        "25",
+        "32",
+        "16"
+      ],
+      "answer": 2,
+      "explanation": "$2^5 = 2 \\cdot 2 \\cdot 2 \\cdot 2 \\cdot 2 = 32$. The answer 10 comes from multiplying the base and the exponent ($2 \\cdot 5$) — that's not what a power means."
+    },
+    {
+      "id": "q-ma8-pot-2",
+      "kind": "mc",
+      "topic": "power laws",
+      "prompt": "Simplify $3^4 \\cdot 3^2$ to a single power.",
+      "opener": "Write out a few factors if you're unsure — how many 3s are there in total?",
+      "choices": [
+        "$3^8$",
+        "$3^6$",
+        "$9^6$",
+        "$3^2$"
+      ],
+      "answer": 1,
+      "explanation": "When multiplying with the same base, the exponents are added: $3^4 \\cdot 3^2 = 3^{4+2} = 3^6$. The answer $3^8$ comes from multiplying the exponents, and $9^6$ from also changing the base — the base should stay unchanged."
+    },
+    {
+      "id": "q-ma8-pot-3",
+      "kind": "mc",
+      "topic": "power laws",
+      "prompt": "Simplify $\\frac{5^7}{5^3}$ to a single power.",
+      "opener": "Division is the opposite of multiplication — so what happens to the exponents?",
+      "choices": [
+        "$5^4$",
+        "$5^{10}$",
+        "$5^{21}$",
+        "$1^4$"
+      ],
+      "answer": 0,
+      "explanation": "When dividing with the same base, the exponents are subtracted: $5^{7-3} = 5^4$. The answer $5^{10}$ is what you get if you add them (which applies to multiplication), and $5^{21}$ if you multiply them."
+    },
+    {
+      "id": "q-ma8-pot-4",
+      "kind": "mc",
+      "topic": "power laws",
+      "prompt": "What is $7^0$?",
+      "opener": "Try the division law: what does $7^3 / 7^3$ become?",
+      "choices": [
+        "0",
+        "1",
+        "7",
+        "Undefined"
+      ],
+      "answer": 1,
+      "explanation": "$\\frac{7^3}{7^3} = 7^{3-3} = 7^0$, but any number divided by itself is always 1. So $7^0 = 1$ — and this holds for every base except 0. The answer 0 is the usual guess, but an exponent of 0 does not mean the power is zero."
+    },
+    {
+      "id": "q-ma8-pot-5",
+      "kind": "mc",
+      "topic": "standard form",
+      "prompt": "Which option shows 4,500,000 written in standard form?",
+      "opener": "In standard form, the first number must lie between 1 and 10.",
+      "choices": [
+        "$45 \\cdot 10^5$",
+        "$4.5 \\cdot 10^6$",
+        "$4.5 \\cdot 10^7$",
+        "$0.45 \\cdot 10^7$"
+      ],
+      "answer": 1,
+      "explanation": "Move the decimal point to after the first digit: $4.5$, and count the steps — six steps to the left gives $4.5 \\cdot 10^6$. Both $45 \\cdot 10^5$ and $0.45 \\cdot 10^7$ do equal 4,500,000, but they are not standard form since the number in front of the ten must be at least 1 and less than 10."
+    },
+    {
+      "id": "q-ma8-pot-6",
+      "kind": "mc",
+      "topic": "prefixes",
+      "prompt": "A sheet of paper is 0.004 m thick. Which option shows the thickness correctly in standard form and with the correct prefix?",
+      "opener": "A negative exponent means small numbers — and the prefix milli goes with thousandths.",
+      "choices": [
+        "$4 \\cdot 10^{3}$ m $= 4$ km",
+        "$4 \\cdot 10^{-3}$ m $= 4$ mm",
+        "$4 \\cdot 10^{-2}$ m $= 4$ cm",
+        "$4 \\cdot 10^{-4}$ m $= 4$ mm"
+      ],
+      "answer": 1,
+      "explanation": "$0.004 = 4 \\cdot 0.001 = 4 \\cdot 10^{-3}$, and milli means precisely a thousandth, so $4 \\cdot 10^{-3}$ m $= 4$ mm. The option $4 \\cdot 10^{-2}$ m is 0.04 m, ten times too much."
+    },
+    {
+      "id": "q-ma8-pot-7",
+      "kind": "worked",
+      "topic": "standard form",
+      "prompt": "The speed of light is about 300,000 km/s. Write the speed in metres per second, in standard form. Show the steps.",
+      "opener": "Convert to standard form first and change the unit afterwards — that way you avoid keeping track of all the zeros.",
+      "answer": "$3 \\cdot 10^8$ m/s",
+      "steps": [
+        "Write 300,000 in standard form: $3 \\cdot 10^5$ km/s.",
+        "The prefix kilo means thousand, so $1$ km $= 1000$ m $= 10^3$ m.",
+        "Multiply: $3 \\cdot 10^5 \\cdot 10^3 = 3 \\cdot 10^{5+3}$ m/s.",
+        "Add the exponents: $3 \\cdot 10^8$ m/s, that is, 300,000,000 m/s."
+      ]
+    },
+    {
+      "id": "q-ma8-pot-8",
+      "kind": "flashcard",
+      "topic": "power laws",
+      "prompt": "Which power laws, rules for standard form and prefixes do you need to know?",
+      "opener": "Three blocks to remember: the laws, the form and the prefixes.",
+      "answer": "$a^n$ means the base $a$ is multiplied by itself $n$ times · $a^m \\cdot a^n = a^{m+n}$ (same base: add the exponents) · $\\frac{a^m}{a^n} = a^{m-n}$ (same base: subtract the exponents) · $a^0 = 1$ for all $a \\neq 0$ · $a^{-n} = \\frac{1}{a^n}$, so a negative exponent gives a number less than 1 · Standard form: $a \\cdot 10^n$ where $1 \\leq a < 10$ and $n$ is an integer · Large numbers give a positive exponent, small numbers give a negative one · The exponent $=$ the number of steps the decimal point moves · Prefixes: kilo $= 10^3$ · mega $= 10^6$ · milli $= 10^{-3}$."
+    }
+  ]
+}

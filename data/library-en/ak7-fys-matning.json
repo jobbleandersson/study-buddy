@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys7-matning",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Measurement and units",
+  "sourceSummary": "The SI units for length, mass, time and volume, along with the prefixes milli, centi and kilo. You practise converting between units, measuring accurately and estimating orders of magnitude.",
+  "topics": [
+    "SI units",
+    "prefixes",
+    "unit conversion",
+    "measurement accuracy",
+    "order of magnitude"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys7-mat-1",
+      "kind": "mc",
+      "topic": "SI units",
+      "prompt": "What is the base unit for length in the SI system?",
+      "opener": "The base unit is the unit with no prefix in front of it.",
+      "choices": [
+        "Kilometre",
+        "Metre",
+        "Centimetre",
+        "Mile"
+      ],
+      "answer": 1,
+      "explanation": "The metre (m) is the SI system's base unit for length. Kilometre and centimetre are also units of length, but they're metres with a prefix in front — and a mile isn't even an SI unit."
+    },
+    {
+      "id": "q-fys7-mat-2",
+      "kind": "mc",
+      "topic": "prefixes",
+      "prompt": "What does the prefix milli- mean?",
+      "opener": "Think about how many millimetres make up a metre.",
+      "choices": [
+        "A thousand times as much",
+        "A tenth",
+        "A hundredth",
+        "A thousandth"
+      ],
+      "answer": 3,
+      "explanation": "Milli means a thousandth, so 1 mm = 0.001 m and 1 ml = 0.001 l. Answering \"a thousand times as much\" confuses milli with kilo, which is the thousand-fold prefix."
+    },
+    {
+      "id": "q-fys7-mat-3",
+      "kind": "mc",
+      "topic": "unit conversion",
+      "prompt": "How many centimetres is 2.5 metres?",
+      "opener": "There are 100 centimetres in a metre.",
+      "choices": [
+        "250 cm",
+        "25 cm",
+        "2500 cm",
+        "0.025 cm"
+      ],
+      "answer": 0,
+      "explanation": "2.5 m · 100 = 250 cm, since 1 m = 100 cm. You get 25 cm if you only multiply by 10, which is the conversion to decimetres."
+    },
+    {
+      "id": "q-fys7-mat-4",
+      "kind": "mc",
+      "topic": "SI units",
+      "prompt": "Which unit best fits stating the mass of an apple?",
+      "opener": "Mass is measured in kilograms — but an apple is small, so which prefix fits?",
+      "choices": [
+        "Litre",
+        "Newton",
+        "Gram",
+        "Seconds"
+      ],
+      "answer": 2,
+      "explanation": "An apple weighs roughly 150 grams, so grams is a suitably sized mass unit here. Litre is a unit of volume, and newton measures force (weight), not mass."
+    },
+    {
+      "id": "q-fys7-mat-5",
+      "kind": "mc",
+      "topic": "unit conversion",
+      "prompt": "What volume corresponds to 1 litre?",
+      "opener": "A cubic decimetre is a cube with sides of 1 dm.",
+      "choices": [
+        "1 cm³",
+        "1 m³",
+        "1 ml",
+        "1 dm³"
+      ],
+      "answer": 3,
+      "explanation": "1 litre = 1 dm³, in other words a cube with 10 cm sides. 1 cm³ is instead equal to 1 millilitre, and 1 m³ is a full 1000 litres."
+    },
+    {
+      "id": "q-fys7-mat-6",
+      "kind": "mc",
+      "topic": "measurement accuracy",
+      "prompt": "You measure a pencil with a ruler that has millimetre markings. Which reading is reasonable to write down?",
+      "opener": "You can't read more precisely than the smallest markings on the ruler.",
+      "choices": [
+        "14.3 cm",
+        "14.3172 cm",
+        "14 m",
+        "0.143 mm"
+      ],
+      "answer": 0,
+      "explanation": "Millimetre markings mean you can read to a tenth of a centimetre, i.e. 14.3 cm. Writing 14.3172 cm pretends to a precision the ruler can't deliver, and 14 m would be longer than a classroom."
+    },
+    {
+      "id": "q-fys7-mat-7",
+      "kind": "worked",
+      "topic": "unit conversion",
+      "prompt": "A running track is 400 metres long. You run 5 laps. How far have you run, expressed in kilometres?",
+      "opener": "First work out the distance in metres, then convert to kilometres.",
+      "answer": "2 km",
+      "steps": [
+        "Distance in metres: 5 laps · 400 m = 2000 m.",
+        "Remember the conversion: 1 km = 1000 m.",
+        "So divide the number of metres by 1000: 2000 / 1000 = 2.",
+        "The answer is 2 km — reasonable, since five laps on a running track is about a short walk's worth of distance."
+      ]
+    },
+    {
+      "id": "q-fys7-mat-8",
+      "kind": "flashcard",
+      "topic": "SI units",
+      "prompt": "Summarise the base units and prefixes you need to know.",
+      "opener": "Go through length, mass, time and volume first, then the prefixes.",
+      "answer": "Length: metre (m) · Mass: kilogram (kg), often gram (g) at school · Time: second (s) · Volume: cubic metre (m³), in practice litre (l) · Prefixes: kilo = 1000 times, centi = a hundredth, milli = a thousandth · 1 m = 10 dm = 100 cm = 1000 mm · 1 km = 1000 m · 1 kg = 1000 g · 1 l = 1 dm³ = 1000 ml · 1 ml = 1 cm³ · Measurement accuracy: never write more decimal places than the measuring instrument can actually show · Order of magnitude: always check that the answer is reasonable, a pencil is measured in centimetres, not metres."
+    }
+  ]
+}

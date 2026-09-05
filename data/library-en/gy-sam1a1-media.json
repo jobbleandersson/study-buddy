@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam1a1-media",
+  "type": "assignment",
+  "subject": "Samhällskunskap 1a1",
+  "title": "Mass media and public opinion",
+  "sourceSummary": "The media's scrutinising role and media logic, opinion formation and channels of influence, how algorithms and filter bubbles affect what we see, and media ethics and press-ethics rules in brief.",
+  "topics": [
+    "the media's role and media logic",
+    "opinion formation and channels of influence",
+    "algorithms and filter bubbles",
+    "media ethics"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam1a1-media-1",
+      "kind": "mc",
+      "topic": "the media's role and media logic",
+      "prompt": "The media are sometimes called \"the third estate\" (den tredje statsmakten). What does that refer to?",
+      "opener": "Think about what function the media serve in relation to those who hold political power.",
+      "choices": [
+        "That the media are formally part of parliament",
+        "That the media have an important scrutinising function towards those in power, alongside the legislative, executive and judicial branches",
+        "That the media decide which laws are enacted",
+        "That journalists are appointed through general elections"
+      ],
+      "answer": 1,
+      "explanation": "The phrase \"the third estate\" refers to the media's important role in scrutinising and reporting on those in power, as a complement to the legislative, executive and judicial branches - not that the media are formally part of the state apparatus or enact laws."
+    },
+    {
+      "id": "q-sam1a1-media-2",
+      "kind": "mc",
+      "topic": "the media's role and media logic",
+      "prompt": "What is meant by \"media logic\" regarding which news stories get major coverage?",
+      "opener": "What kind of events tend to become big news - the undramatic ones, or the ones that grab attention?",
+      "choices": [
+        "That all news is treated exactly equally regardless of content",
+        "That only state-approved news is published",
+        "That media tend to prioritise what is dramatic, personalised, full of conflict or topical, since that captures the audience's attention",
+        "That news judgement never changes over time"
+      ],
+      "answer": 2,
+      "explanation": "Media logic describes how news media tend to prioritise content that is dramatic, conflict-filled, personalised or topical, since such content better captures the audience's attention - which can affect the picture of society that is conveyed."
+    },
+    {
+      "id": "q-sam1a1-media-3",
+      "kind": "mc",
+      "topic": "opinion formation and channels of influence",
+      "prompt": "What does opinion formation mean?",
+      "opener": "Think about how people's views on societal issues are shaped over time.",
+      "choices": [
+        "The process by which people's opinions on societal issues are shaped and influenced, for example via media, debates, social movements and political campaigns",
+        "That a single authority officially decides everyone's opinions",
+        "That only members of parliament are allowed to have opinions on policy issues",
+        "Another word for a general election"
+      ],
+      "answer": 0,
+      "explanation": "Opinion formation is the ongoing process by which people's views on societal issues are shaped and changed through, for example, media coverage, public debate, social movements and political campaigns - not a single event or an authority's decision."
+    },
+    {
+      "id": "q-sam1a1-media-4",
+      "kind": "mc",
+      "topic": "opinion formation and channels of influence",
+      "prompt": "Which of the following is an example of channels used to influence public opinion on societal issues?",
+      "opener": "Think broadly - opinion formation happens through several different channels, not just one.",
+      "choices": [
+        "Only state press conferences",
+        "Only teaching in schools",
+        "Only court rulings",
+        "Letters to the editor, opinion pieces, demonstrations, social media and lobbying are all examples of channels for influencing public opinion"
+      ],
+      "answer": 3,
+      "explanation": "Opinion formation happens through a range of different channels - letters to the editor, opinion pieces, demonstrations, social media, lobbying by interest groups and much more. Pointing to only a single channel, like press conferences or court rulings, gives too narrow a picture."
+    },
+    {
+      "id": "q-sam1a1-media-5",
+      "kind": "mc",
+      "topic": "algorithms and filter bubbles",
+      "prompt": "What is meant by a \"filter bubble\" on social media?",
+      "opener": "Think about how a feed is tailored to what you have already clicked on and liked before.",
+      "choices": [
+        "A technical fault that causes the app to crash",
+        "That algorithms show content tailored to what a person has already liked or clicked on, which can mean they mainly encounter opinions they already share",
+        "A filter that removes all adverts from the feed",
+        "A system where a state authority chooses what each citizen may see online"
+      ],
+      "answer": 1,
+      "explanation": "A filter bubble arises when algorithms, based on past behaviour, mainly show content that confirms what a person already thinks or is interested in, which can mean they encounter fewer differing perspectives - not a technical fault or state control."
+    },
+    {
+      "id": "q-sam1a1-media-6",
+      "kind": "mc",
+      "topic": "algorithms and filter bubbles",
+      "prompt": "Which risk is usually linked to filter bubbles and algorithmic news distribution?",
+      "opener": "Think about what happens to the shared picture of society if people, in practice, see different realities.",
+      "choices": [
+        "That all users are guaranteed a more balanced view of the world",
+        "That internet use stops entirely",
+        "That people encounter other perspectives to a lesser extent, which can reinforce polarisation and make it harder to judge what is widely accepted",
+        "That algorithms never affect what individual users get to see"
+      ],
+      "answer": 2,
+      "explanation": "A common risk with filter bubbles is that people encounter perspectives differing from their own to a lesser extent, which can contribute to increased polarisation and make it harder to have a shared picture of what counts as widely accepted facts and norms."
+    },
+    {
+      "id": "q-sam1a1-media-7",
+      "kind": "worked",
+      "topic": "media ethics",
+      "prompt": "A newspaper is considering publishing an unnamed person's accusations against a local politician, without first contacting the politician for a comment. Analyse step by step which press-ethics principles are relevant to the decision.",
+      "opener": "Think about accuracy, source criticism, and the accused person's right to respond to the claims before publication.",
+      "answer": "The decision brings several press-ethics principles into play: the requirement of accuracy (that the information is correct and well substantiated), source criticism (assessing the anonymous source's credibility and motives) and the right of reply (that the person accused should normally be given the chance to respond to the claims before publication). Publishing without giving the politician a chance to comment risks breaching good publishing practice, even if the claims themselves later turn out to be true, because the process then becomes unfair to the person named."
+      ,
+      "steps": [
+        "Assess the source's credibility: why is the person anonymous, and what evidence exists for the accusations?",
+        "Check the accuracy by verifying the information against further independent sources where possible.",
+        "Give the accused politician the chance to respond to the accusations before publication (right of reply), as press-ethics rules normally require.",
+        "Weigh the public interest in publishing against the risk of harm to the individual's reputation if the claims later turn out to be false.",
+        "Conclude that responsible publication should wait for the politician's comment, unless strong reasons argue against it."
+      ]
+    },
+    {
+      "id": "q-sam1a1-media-8",
+      "kind": "flashcard",
+      "topic": "the media's role and media logic",
+      "prompt": "Summarise key concepts about mass media, opinion formation and algorithms.",
+      "opener": "The media's role, how opinion is shaped, and what technology does to what we see.",
+      "answer": "The third estate: the media's scrutinising role towards political and economic power · Media logic: the tendency to prioritise dramatic, conflict-filled and personalised content · Opinion formation: the process by which people's views on societal issues are shaped, e.g. via media, debate and campaigns · Channels of influence: letters to the editor, opinion pieces, demonstrations, social media, lobbying · Filter bubble: algorithms mostly show content one already agrees with, which reduces exposure to other perspectives · Media ethics/press ethics: principles such as accuracy, source criticism and the right of reply - that the accused should get to respond to claims before publication."
+    }
+  ]
+}

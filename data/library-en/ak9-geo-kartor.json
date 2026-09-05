@@ -1,0 +1,128 @@
+{
+  "id": "lib-geo-kartor",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Map skills and climate zones",
+  "sourceSummary": "How maps work (projections, scale, compass directions and coordinates) and how the Earth's climate zones relate to latitude and altitude.",
+  "topics": [
+    "map projections and scale",
+    "compass directions and coordinates",
+    "climate zones",
+    "climate, latitude and altitude"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo-kar-1",
+      "kind": "mc",
+      "topic": "map projections and scale",
+      "prompt": "A map has a scale of 1:100,000. How far apart are two points in reality if they are 4 cm apart on the map?",
+      "opener": "The scale tells you how many times larger reality is than the map — multiply.",
+      "choices": [
+        "400 metres",
+        "4 kilometres",
+        "40 kilometres",
+        "4,000 kilometres"
+      ],
+      "answer": 1,
+      "explanation": "4 cm × 100,000 = 400,000 cm = 4,000 m = 4 km. A common mistake is forgetting to convert from cm to km at the end, which gives 400 metres instead."
+    },
+    {
+      "id": "q-geo-kar-2",
+      "kind": "mc",
+      "topic": "map projections and scale",
+      "prompt": "Why does Greenland appear so unreasonably large on many world maps, almost as big as Africa, even though Africa is actually 14 times larger?",
+      "opener": "Remember that the Earth is round but the map is flat — something has to be distorted when you \"unwrap\" the globe.",
+      "choices": [
+        "Greenland has the wrong colour on the map",
+        "The map projection distorts areas, especially near the poles",
+        "Greenland really does have a huge area",
+        "It's down to the scale being used"
+      ],
+      "answer": 1,
+      "explanation": "When the Earth's curved surface is projected onto a flat map (e.g. the Mercator projection), areas near the poles are enlarged so that angles and shapes stay correct. This makes Greenland look like a giant continent even though it is actually small. So it's not about the scale (which only indicates the reduction) but about the projection itself."
+    },
+    {
+      "id": "q-geo-kar-3",
+      "kind": "mc",
+      "topic": "compass directions and coordinates",
+      "prompt": "What does latitude indicate for a location?",
+      "opener": "Lines of latitude run horizontally around the Earth, parallel to the equator.",
+      "choices": [
+        "How far east or west of Greenwich the location is",
+        "How far north or south of the equator the location is",
+        "How high above sea level the location is",
+        "Which time zone the location belongs to"
+      ],
+      "answer": 1,
+      "explanation": "Latitude measures the distance north or south of the equator (0°) up to the poles (90°). Distance east/west of Greenwich is longitude instead, and height above sea level is a completely different measurement."
+    },
+    {
+      "id": "q-geo-kar-4",
+      "kind": "mc",
+      "topic": "compass directions and coordinates",
+      "prompt": "You are standing and facing north. Which compass direction is then on your right-hand side?",
+      "opener": "Picture a compass in front of you with N at the top.",
+      "choices": [
+        "West",
+        "South",
+        "East",
+        "North-east"
+      ],
+      "answer": 2,
+      "explanation": "If you turn to face north, east ends up on your right-hand side and west on your left — just like on a map where north points up and east is to the right."
+    },
+    {
+      "id": "q-geo-kar-5",
+      "kind": "mc",
+      "topic": "climate zones",
+      "prompt": "Which climate zone is characterised by consistently high temperatures year-round and abundant rainfall, for example around the Amazon?",
+      "opener": "Think about which climate zone lies closest to the equator, where the sun is high all year round.",
+      "choices": [
+        "Polar climate",
+        "Temperate climate",
+        "Tropical climate",
+        "Arctic climate"
+      ],
+      "answer": 2,
+      "explanation": "Tropical climate is found near the equator, where sunlight is strong and consistent all year, giving high temperatures and often heavy rainfall (e.g. rainforest). Temperate climate has distinct seasons and is found further from the equator, while polar climate is cold all year round."
+    },
+    {
+      "id": "q-geo-kar-6",
+      "kind": "mc",
+      "topic": "climate, latitude and altitude",
+      "prompt": "Two cities lie at roughly the same latitude, but one is by the sea at low altitude and the other is high up in a mountain range. What is most likely true about the mountain city?",
+      "opener": "Temperature drops with altitude — the higher up, the colder, regardless of latitude.",
+      "choices": [
+        "The mountain city is warmer because it is closer to the sun",
+        "The mountain city is colder because temperature drops with altitude",
+        "The climate is exactly the same because the latitude is the same",
+        "The mountain city has a more tropical climate"
+      ],
+      "answer": 1,
+      "explanation": "Temperature drops by about 0.6 °C for every 100 metres of altitude gained, so a city high in the mountains is colder than a city at the same latitude at sea level — which is why there can be snow-capped mountains near the equator. The distance to the sun changes negligibly over a few thousand metres of altitude difference, so that doesn't explain the difference."
+    },
+    {
+      "id": "q-geo-kar-7",
+      "kind": "worked",
+      "topic": "climate, latitude and altitude",
+      "prompt": "Explain why Kilimanjaro, which lies near the equator in Tanzania, has a snow-capped summit even though the area around the mountain has a tropical climate.",
+      "opener": "Combine what you know about latitude AND altitude — they affect temperature in different ways at the same time.",
+      "answer": "The latitude means the area fundamentally has a tropical, warm climate because it lies near the equator. But Kilimanjaro's summit reaches almost 5,900 metres above sea level, and temperature drops with altitude. At that height it is so cold that precipitation falls and stays as snow and ice, even though the ground around the mountain's base is warm and green.",
+      "steps": [
+        "Location near the equator → strong, consistent sunlight → warm climate at sea level.",
+        "As altitude increases, the air becomes thinner and colder — roughly 0.6 °C colder per 100 metres.",
+        "Kilimanjaro is so tall (around 5,900 m) that the temperature at the summit is below freezing year-round.",
+        "Result: tropical climate at the base, but polar-like cold and snow at the summit — altitude \"wins\" over latitude locally."
+      ]
+    },
+    {
+      "id": "q-geo-kar-8",
+      "kind": "flashcard",
+      "topic": "climate zones",
+      "prompt": "Summarise the Earth's three main climate zones and what governs the climate of a location.",
+      "opener": "Picture a band around the Earth from the equator to the poles — the climate changes step by step.",
+      "answer": "Tropical climate: around the equator, consistently high heat year-round, often abundant rainfall (rainforest) or distinct wet/dry seasons (savannah). Temperate climate: between the tropics and the polar regions (including Sweden), distinct seasons with warm summers and cold winters. Polar climate: at and around the poles, cold for most of the year, short or no real summer. The climate of a location is governed mainly by · latitude (distance to the equator, determines the angle and strength of sunlight) · altitude above sea level (temperature drops with altitude) · proximity to the sea (water evens out temperature and gives a more humid climate) · ocean currents and winds (can carry heat or cold over long distances)."
+    }
+  ]
+}

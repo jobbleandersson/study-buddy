@@ -1,0 +1,128 @@
+{
+  "id": "lib-en8-vocabulary",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Vocabulary: phrasal verbs and collocations",
+  "sourceSummary": "Common phrasal verbs such as find out and look forward to, collocations with do and make, the difference between say, tell, speak and talk, and simple word formation with prefixes and suffixes.",
+  "topics": [
+    "phrasal verbs",
+    "collocations",
+    "say and tell",
+    "word formation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en8-voc-1",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the best option: \"I need to ___ what time the train leaves.\"",
+      "opener": "A phrasal verb means something other than the verb's basic meaning — which one means \"to find information out\"?",
+      "choices": [
+        "find out",
+        "look after",
+        "give up",
+        "put off"
+      ],
+      "answer": 0,
+      "explanation": "\"Find out\" means to discover information. \"Look after\" means to take care of someone and doesn't fit with a departure time."
+    },
+    {
+      "id": "q-en8-voc-2",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the correct form: \"I'm really looking forward ___ the summer holidays.\"",
+      "opener": "The expression has a fixed preposition, and after it comes a noun or an -ing form.",
+      "choices": [
+        "for",
+        "to",
+        "at",
+        "on"
+      ],
+      "answer": 1,
+      "explanation": "The expression is \"look forward to\" + a noun or -ing form: looking forward to the holidays, looking forward to seeing you. \"Look forward for\" is a common mistake that doesn't exist in English."
+    },
+    {
+      "id": "q-en8-voc-3",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the best option: \"We had to stop baking because we ___ eggs.\"",
+      "opener": "What happened to the eggs — they ran out.",
+      "choices": [
+        "ran out of",
+        "got on with",
+        "took off",
+        "looked up"
+      ],
+      "answer": 0,
+      "explanation": "\"Run out of something\" means something has been used up: we ran out of eggs. \"Get on with someone\" means to get along with someone and is about people, not goods."
+    },
+    {
+      "id": "q-en8-voc-4",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Do\" goes with tasks and work, \"make\" with creating something new.",
+      "choices": [
+        "I have to make my homework before I do dinner.",
+        "I have to do my homework before I make dinner.",
+        "I have to make my homework before I make dinner.",
+        "I have to do my homework before I do dinner."
+      ],
+      "answer": 1,
+      "explanation": "In English you \"do homework\" (a task you carry out) but \"make dinner\" (something you produce). \"Make homework\" is a direct translation from the Swedish \"göra läxor\" and isn't used."
+    },
+    {
+      "id": "q-en8-voc-5",
+      "kind": "mc",
+      "topic": "say and tell",
+      "prompt": "Choose the correct word: \"Can you ___ me what happened yesterday?\"",
+      "opener": "One of the verbs always takes a person directly after it, without a preposition.",
+      "choices": [
+        "say",
+        "tell",
+        "speak",
+        "talk"
+      ],
+      "answer": 1,
+      "explanation": "\"Tell\" is followed directly by the person: tell me, tell him a story. \"Say\" requires \"to\" before the person (say something to me), and speak/talk are used about the act of conversing itself: speak English, talk to a friend."
+    },
+    {
+      "id": "q-en8-voc-6",
+      "kind": "mc",
+      "topic": "word formation",
+      "prompt": "Which word means \"not possible\"?",
+      "opener": "The prefix im- works like the Swedish o- in front of certain adjectives.",
+      "choices": [
+        "unpossible",
+        "impossible",
+        "dispossible",
+        "possibleless"
+      ],
+      "answer": 1,
+      "explanation": "In front of words that start with p, the prefix im- is used: impossible, impolite. The prefix un- is more common otherwise (unhappy, unfair), but \"unpossible\" doesn't exist."
+    },
+    {
+      "id": "q-en8-voc-7",
+      "kind": "worked",
+      "topic": "collocations",
+      "prompt": "Correct the four errors: \"Yesterday my teacher said me to make my homework. I am looking forward for the weekend, but first I must find the answer out.\"",
+      "opener": "Four common mistakes: wrong verb for a person, wrong collocation, wrong preposition, and wrong word order in a phrasal verb.",
+      "answer": "Yesterday my teacher told me to do my homework. I am looking forward to the weekend, but first I must find out the answer.",
+      "steps": [
+        "\"said me\" → \"told me\". \"Tell\" is followed directly by the person, while \"say\" requires \"to\": said to me.",
+        "\"make my homework\" → \"do my homework\". Homework and tasks always take \"do\" in English.",
+        "\"looking forward for\" → \"looking forward to\". The expression has the fixed preposition \"to\".",
+        "\"find the answer out\" → \"find out the answer\". When the object is a full noun, it usually comes after the particle; only short pronouns can be split into the middle (find it out)."
+      ]
+    },
+    {
+      "id": "q-en8-voc-8",
+      "kind": "flashcard",
+      "topic": "phrasal verbs",
+      "prompt": "Which phrasal verbs, collocations and word formation rules do you need to know at this level?",
+      "opener": "Phrasal verbs · do/make · say/tell/speak/talk · prefixes and suffixes.",
+      "answer": "Phrasal verbs: find out = to discover · look forward to + noun/-ing = to anticipate · get on with someone = to get along with · run out of = to have none left · give up = to stop trying · look after = to take care of · turn up = to arrive · Do: do homework, do the dishes, do your best, do an exercise · Make: make dinner, make a mistake, make friends, make a decision · Say something (to someone) · tell someone something · speak a language · talk to/with someone about something · Prefix: un- (unhappy), im- before p (impossible), in- (incorrect), dis- (dislike), re- = again (rewrite) · Suffix: -ful = full of (helpful), -less = without (careless), -ness turns adjectives into nouns (kindness), -ly turns adjectives into adverbs (quickly)."
+    }
+  ]
+}

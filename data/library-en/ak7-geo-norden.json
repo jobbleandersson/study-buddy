@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo7-norden",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "The Nordic countries and Europe",
+  "sourceSummary": "The Nordic countries and their capital cities, the nature and climate of the Nordic region, how Europe is divided up, and the continent's great mountain ranges and rivers — and what unites and separates the countries.",
+  "topics": [
+    "the Nordic countries",
+    "Nordic nature and climate",
+    "how Europe is divided",
+    "Europe's mountains and rivers",
+    "similarities and differences"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo7-nor-1",
+      "kind": "mc",
+      "topic": "the Nordic countries",
+      "prompt": "What is the capital of Norway?",
+      "opener": "The city lies at the head of a long fjord in south-eastern Norway.",
+      "choices": [
+        "Bergen",
+        "Oslo",
+        "Copenhagen",
+        "Helsinki"
+      ],
+      "answer": 1,
+      "explanation": "Oslo is Norway's capital and largest city, located at the head of the Oslofjord. Bergen is Norway's second-largest city but not the capital, while Copenhagen is Denmark's capital and Helsinki is Finland's."
+    },
+    {
+      "id": "q-geo7-nor-2",
+      "kind": "mc",
+      "topic": "the Nordic countries",
+      "prompt": "Which five countries are counted as the Nordic countries?",
+      "opener": "Four of them are joined around the Baltic Sea and the North Sea, the fifth lies out in the Atlantic.",
+      "choices": [
+        "Sweden, Norway, Denmark, Finland and Estonia",
+        "Sweden, Norway, Denmark, Germany and Iceland",
+        "Sweden, Norway, Finland, Russia and Iceland",
+        "Sweden, Norway, Denmark, Finland and Iceland"
+      ],
+      "answer": 3,
+      "explanation": "The Nordic region consists of Sweden, Norway, Denmark, Finland and Iceland, along with the self-governing territories of the Faroe Islands, Greenland and Åland. Estonia belongs to the Baltic states, and Germany and Russia are not counted as Nordic even though they border the Baltic Sea."
+    },
+    {
+      "id": "q-geo7-nor-3",
+      "kind": "mc",
+      "topic": "Nordic nature and climate",
+      "prompt": "What is typical of Iceland's nature?",
+      "opener": "The island lies where two tectonic plates are sliding apart.",
+      "choices": [
+        "Active volcanoes, hot springs, geysers and glaciers",
+        "Large desert areas with sand dunes",
+        "Tropical rainforest",
+        "Vast fertile plains without mountains"
+      ],
+      "answer": 0,
+      "explanation": "Iceland lies on the Mid-Atlantic Ridge, where the Earth's crust splits open, and that's why it has volcanoes, geysers and hot springs, which are also used for heating and electricity production. At the same time, parts of the island are covered by glaciers. Deserts and rainforest require entirely different climates from Iceland's cool, moist maritime climate."
+    },
+    {
+      "id": "q-geo7-nor-4",
+      "kind": "mc",
+      "topic": "Europe's mountains and rivers",
+      "prompt": "Which is Europe's most famous and highest mountain range?",
+      "opener": "It stretches through, among other places, Switzerland, Austria and northern Italy.",
+      "choices": [
+        "The Ural Mountains",
+        "The Carpathians",
+        "The Alps",
+        "The Pyrenees"
+      ],
+      "answer": 2,
+      "explanation": "The Alps are Europe's highest mountain range, with Mont Blanc at about 4,800 metres, stretching in an arc through France, Switzerland, Italy and Austria. The Pyrenees separate Spain from France, the Carpathians lie in eastern Central Europe, and the Ural Mountains form the border between Europe and Asia — all lower than the Alps."
+    },
+    {
+      "id": "q-geo7-nor-5",
+      "kind": "mc",
+      "topic": "Europe's mountains and rivers",
+      "prompt": "Which river flows through several countries in Central and South-Eastern Europe and empties into the Black Sea?",
+      "opener": "It passes through, among other cities, Vienna, Bratislava, Budapest and Belgrade.",
+      "choices": [
+        "The Rhine",
+        "The Volga",
+        "The Thames",
+        "The Danube"
+      ],
+      "answer": 3,
+      "explanation": "The Danube flows from southern Germany through ten countries and empties into the Black Sea, making it Europe's most international river. The Rhine instead empties into the North Sea, the Thames flows through London, and the Volga is Europe's longest river but empties into the Caspian Sea in Russia."
+    },
+    {
+      "id": "q-geo7-nor-6",
+      "kind": "mc",
+      "topic": "similarities and differences",
+      "prompt": "Which of the Nordic languages differs most from the others?",
+      "opener": "Four of the languages are related to each other — one comes from an entirely different language family.",
+      "choices": [
+        "Finnish",
+        "Norwegian",
+        "Danish",
+        "Swedish"
+      ],
+      "answer": 0,
+      "explanation": "Swedish, Norwegian, Danish and Icelandic are all North Germanic languages with a common origin, which is why Swedes, Norwegians and Danes can often understand each other. Finnish instead belongs to the Finno-Ugric language family and is not related to the others, even though Finland shares much of the Nordic region's history and culture."
+    },
+    {
+      "id": "q-geo7-nor-7",
+      "kind": "worked",
+      "topic": "Nordic nature and climate",
+      "prompt": "Explain why Norway's coast is milder and gets less snow in winter than the interior of northern Sweden, even though they lie at similar latitudes.",
+      "opener": "Think about the sea: both the ocean current and the properties of water play a role.",
+      "answer": "Norway's coast lies directly against the Atlantic and is affected by the Gulf Stream, a warm ocean current that carries water from the tropics up along the coast of Northern Europe. Water warms up and cools down slowly, so the sea acts as a heat buffer that makes winters mild and summers cooler — a coastal (maritime) climate. The interior of Norrland lies far from the open, warm sea and therefore has an inland climate with large differences between the seasons: very cold winters and relatively warm summers. The mountain range also slows down the mild westerly winds, so much of the rainfall falls on the Norwegian side.",
+      "steps": [
+        "The Gulf Stream carries warm water from the Gulf of Mexico north-east towards Northern Europe.",
+        "Water warms and cools slowly, so the sea evens out the temperature at the coast all year round.",
+        "Westerly winds carry the mild, moist sea air in over Norway's coast.",
+        "The mountain range forces the air upward, and it releases rainfall on the western side before it reaches the Swedish interior.",
+        "The interior of Norrland lies far from the sea and gets an inland climate with cold winters and warm summers."
+      ]
+    },
+    {
+      "id": "q-geo7-nor-8",
+      "kind": "flashcard",
+      "topic": "how Europe is divided",
+      "prompt": "Summarise the Nordic region and Europe.",
+      "opener": "First the Nordic countries, then how Europe is divided, its mountains and its rivers.",
+      "answer": "Nordic countries and capitals: Sweden-Stockholm · Norway-Oslo · Denmark-Copenhagen · Finland-Helsinki · Iceland-Reykjavik · self-governing territories: the Faroe Islands, Greenland (Denmark) and Åland (Finland) · Nordic nature: the mountain range in Sweden and Norway, Norwegian fjords, Finland's thousand lakes and forests, the Danish lowlands, and Iceland's volcanoes and glaciers · Climate: coastal climate in the west with mild winters thanks to the Gulf Stream, inland climate in northern Sweden and Finland with large seasonal differences, polar climate in Greenland · How Europe is divided: Northern Europe, Western Europe, Southern Europe, Central Europe and Eastern Europe · Europe's border with Asia: the Ural Mountains, the Caucasus and the Black Sea · Mountain ranges: the Alps (highest, Mont Blanc about 4,800 m), the Pyrenees, the Carpathians, the Apennines, the Scandinavian Mountains and the Ural Mountains · Rivers: the Volga (longest, to the Caspian Sea), the Danube (through ten countries to the Black Sea), the Rhine (to the North Sea), the Thames, the Seine, the Po · Similarities in the Nordic region: similar societies, welfare systems, democracy, Nordic cooperation and three closely related languages · Differences: Finnish belongs to a different language family, Norway and Iceland are not EU members, and the landscape differs sharply between flat Denmark and volcanic Iceland."
+    }
+  ]
+}

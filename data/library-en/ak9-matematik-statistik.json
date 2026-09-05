@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma9-statistik",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Probability and statistics",
+  "sourceSummary": "Measures of central tendency (mean, median, mode), single- and two-step probability, and combinatorics.",
+  "topics": [
+    "measures of central tendency",
+    "probability",
+    "combinatorics"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma9-stat-1",
+      "kind": "mc",
+      "topic": "measures of central tendency",
+      "prompt": "What is the mean of the numbers 4, 7, 9 and 12?",
+      "opener": "Add everything together first — then divide by something.",
+      "choices": [
+        "32",
+        "7",
+        "8",
+        "9"
+      ],
+      "answer": 2,
+      "explanation": "$4 + 7 + 9 + 12 = 32$, och $32 / 4 = 8$."
+    },
+    {
+      "id": "q-ma9-stat-2",
+      "kind": "mc",
+      "topic": "measures of central tendency",
+      "prompt": "What is the median of the number sequence 3, 5, 8, 9, 12?",
+      "opener": "The median is about the middle position, not about calculating something.",
+      "choices": [
+        "9",
+        "7,4",
+        "5",
+        "8"
+      ],
+      "answer": 3,
+      "explanation": "The numbers are already in order and there are five of them, so the median is the third one: 8."
+    },
+    {
+      "id": "q-ma9-stat-3",
+      "kind": "mc",
+      "topic": "measures of central tendency",
+      "prompt": "What is the median of the number sequence 2, 4, 6, 10?",
+      "opener": "An even number of values — so there's no single middle point.",
+      "choices": [
+        "5",
+        "6",
+        "5,5",
+        "4"
+      ],
+      "answer": 0,
+      "explanation": "With an even number of values, you take the mean of the two middle ones: $(4 + 6)/2 = 5$."
+    },
+    {
+      "id": "q-ma9-stat-4",
+      "kind": "mc",
+      "topic": "probability",
+      "prompt": "You roll a standard six-sided die. What is the probability of getting a four?",
+      "opener": "How many outcomes are favourable, and how many are possible in total?",
+      "choices": [
+        "$\\frac{4}{6}$",
+        "$\\frac{1}{6}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{4}$"
+      ],
+      "answer": 1,
+      "explanation": "One favourable outcome (the four) out of six possible: $\\frac{1}{6} \\approx 17\\ \\%$."
+    },
+    {
+      "id": "q-ma9-stat-5",
+      "kind": "mc",
+      "topic": "probability",
+      "prompt": "A bag contains 3 red and 7 blue marbles. You draw one marble without looking. What is the probability that it is red?",
+      "opener": "How many marbles are there in total in the bag?",
+      "choices": [
+        "43 %",
+        "70 %",
+        "30 %",
+        "3 %"
+      ],
+      "answer": 2,
+      "explanation": "10 marbles in total, of which 3 are red: $\\frac{3}{10} = 0{,}3 = 30\\ \\%$."
+    },
+    {
+      "id": "q-ma9-stat-6",
+      "kind": "mc",
+      "topic": "combinatorics",
+      "prompt": "You have 3 tops and 4 pairs of trousers. How many different combinations can you put together?",
+      "opener": "For each top — how many trousers can you choose to go with it?",
+      "choices": [
+        "16",
+        "7",
+        "34",
+        "12"
+      ],
+      "answer": 3,
+      "explanation": "Each top can be combined with all four pairs of trousers: $3 \\cdot 4 = 12$ combinations."
+    },
+    {
+      "id": "q-ma9-stat-7",
+      "kind": "worked",
+      "topic": "probability",
+      "prompt": "You flip a coin twice. What is the probability of getting heads both times? Show your reasoning.",
+      "opener": "What is the probability of heads in one flip — and how do you combine two independent events?",
+      "answer": "1/4 (25 %)",
+      "steps": [
+        "The probability of heads in one flip is $\\frac{1}{2}$.",
+        "The flips don't affect each other, so the probabilities are multiplied.",
+        "$\\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}$, i.e. 25 %.",
+        "Check: the four equally likely outcomes are HH, HT, TH, TT — one out of four gives two heads."
+      ]
+    },
+    {
+      "id": "q-ma9-stat-8",
+      "kind": "flashcard",
+      "topic": "measures of central tendency",
+      "prompt": "Explain the difference between mean, median and mode.",
+      "opener": "Three different ways of answering the question \"what is typical?\".",
+      "answer": "Mean: the sum of all the values divided by how many there are. Median: the middle value once they've been sorted in order (the mean of the two middle values when there's an even number). Mode: the value that occurs most often. The median is the least affected by extreme values."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma3-optimering",
+  "type": "assignment",
+  "subject": "Matematik 3",
+  "title": "Optimisation using derivatives",
+  "sourceSummary": "Setting up a formula for the quantity to be optimised (e.g. area or volume), differentiating and solving for the extreme value, and interpreting the answer in context.",
+  "topics": [
+    "optimisation method",
+    "area optimisation",
+    "volume optimisation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma3-optimering-1",
+      "kind": "mc",
+      "topic": "optimisation method",
+      "prompt": "When optimising using derivatives (e.g. to maximise an area or volume), which is the correct approach?",
+      "opener": "Think about what the derivative tells you about a function's critical points.",
+      "choices": [
+        "Set up a formula for the quantity to be optimised, differentiate, set the derivative to zero and solve for the variable",
+        "Set the quantity to be optimised directly to zero and solve the equation",
+        "Differentiate the formula twice and set the second derivative to the value to be optimised",
+        "Guess a value and check by substitution"
+      ],
+      "answer": 0,
+      "explanation": "The method is to write the quantity to be optimised as a function of one variable, differentiate the function, set the derivative to zero and solve for the variable — this gives the critical points where a max or min might occur. Setting the quantity itself (not the derivative) to zero instead gives roots, which rarely have anything to do with extreme values."
+    },
+    {
+      "id": "q-ma3-optimering-2",
+      "kind": "mc",
+      "topic": "area optimisation",
+      "prompt": "A rectangular paddock is to be fenced in along a straight wall, which forms one of the sides. The fencing, which is 100 m long, must be enough for the two short sides (length $x$ each) and the long side opposite the wall. Which expression gives the paddock's area as a function of $x$?",
+      "opener": "First express the length of the fourth side in terms of $x$, based on the total fencing length being 100 m.",
+      "choices": [
+        "$A(x)=100x-x^2$",
+        "$A(x)=100x-2x^2$",
+        "$A(x)=50x-2x^2$",
+        "$A(x)=x(100-x)$"
+      ],
+      "answer": 1,
+      "explanation": "The fencing is used for two short sides and one long side: $2x + y = 100 \\Rightarrow y = 100-2x$. The area is $A(x) = x \\cdot y = x(100-2x) = 100x - 2x^2$. The expression $100x-x^2$ would apply if only one short side needed fencing."
+    },
+    {
+      "id": "q-ma3-optimering-3",
+      "kind": "mc",
+      "topic": "area optimisation",
+      "prompt": "Which value of $x$ maximises the area $A(x) = 100x - 2x^2$ from the previous question?",
+      "opener": "Differentiate the area and set the derivative to zero.",
+      "choices": [
+        "$x=50$ m",
+        "$x=20$ m",
+        "$x=25$ m",
+        "$x=12.5$ m"
+      ],
+      "answer": 2,
+      "explanation": "$A'(x) = 100 - 4x$. Set $A'(x)=0$: $100-4x=0 \\Rightarrow x=25$. Then $y=100-2\\cdot25=50$ and the area $A=25\\cdot50=1250\\text{ m}^2$, which is a maximum since $A''(x)=-4<0$."
+    },
+    {
+      "id": "q-ma3-optimering-4",
+      "kind": "mc",
+      "topic": "volume optimisation",
+      "prompt": "A box without a lid is to be made from a square sheet with a side of 12 cm, by cutting away squares of side $x$ from each corner and folding up the edges. The volume is given by $V(x) = x(12-2x)^2$. What is $V'(x)$?",
+      "opener": "Expand the square $(12-2x)^2$ and write $V(x)$ as a polynomial before differentiating.",
+      "choices": [
+        "$4x^2-48x+144$",
+        "$12x^2-96x$",
+        "$-96x+144$",
+        "$12x^2-96x+144$"
+      ],
+      "answer": 3,
+      "explanation": "Expand: $V(x) = x(144-48x+4x^2) = 144x-48x^2+4x^3$. Differentiate term by term: $V'(x) = 144-96x+12x^2 = 12x^2-96x+144$. The answer $4x^2-48x+144$ is only the expanded brackets, not the derivative of $V(x)$."
+    },
+    {
+      "id": "q-ma3-optimering-5",
+      "kind": "mc",
+      "topic": "volume optimisation",
+      "prompt": "Which value of $x$ (in the interval $0 < x < 6$) gives the box in the previous question maximum volume?",
+      "opener": "Solve the equation $V'(x)=0$ and choose the solution that lies within the allowed interval.",
+      "choices": [
+        "$x=2$ cm",
+        "$x=6$ cm",
+        "$x=4$ cm",
+        "$x=8$ cm"
+      ],
+      "answer": 0,
+      "explanation": "$12x^2-96x+144=0$ gives, after dividing by 12, $x^2-8x+12=0$. The solutions are $x=\\frac{8\\pm\\sqrt{64-48}}{2}=\\frac{8\\pm4}{2}=2$ or $6$. Since $x=6$ gives a side length of $12-2\\cdot6=0$ (no box at all), only $x=2$ lies within the allowed interval and gives maximum volume."
+    },
+    {
+      "id": "q-ma3-optimering-6",
+      "kind": "mc",
+      "topic": "optimisation method",
+      "prompt": "How do you check that a critical point (where the derivative is zero) really gives a maximum value and not a minimum value?",
+      "opener": "What do the signs of the derivative and second derivative say about the curve's shape around the point?",
+      "choices": [
+        "By always assuming it's a maximum if the question is about area or volume",
+        "By analysing the sign of the derivative around the point, or by checking that the second derivative is negative there",
+        "By setting $x=0$ and comparing with the starting value",
+        "By only looking at the endpoints of the domain"
+      ],
+      "answer": 1,
+      "explanation": "You either perform a sign analysis of $f'(x)$ around the point (a change from positive to negative gives a max) or check the second derivative: if $f''(x_0)<0$ the point is a local maximum. Simply assuming it's a maximum without checking can give the wrong answer, especially with several critical points."
+    },
+    {
+      "id": "q-ma3-optimering-7",
+      "kind": "worked",
+      "topic": "area optimisation",
+      "prompt": "A rectangle has a perimeter of 40 cm. Determine the side lengths that give maximum area, and calculate the maximum area.",
+      "opener": "Express one side in terms of the other using the perimeter condition, then write the area as a function of one variable.",
+      "answer": "The sides are 10 cm and 10 cm (a square), maximum area $100\\text{ cm}^2$",
+      "steps": [
+        "Let the sides be $x$ and $y$. The perimeter gives $2x+2y=40 \\Rightarrow y=20-x$.",
+        "The area as a function of $x$: $A(x)=x\\cdot y=x(20-x)=20x-x^2$.",
+        "Differentiate: $A'(x)=20-2x$. Set $A'(x)=0$: $20-2x=0 \\Rightarrow x=10$.",
+        "Since $A''(x)=-2<0$, $x=10$ is a maximum point. Then $y=20-10=10$, so the rectangle becomes a square.",
+        "Maximum area: $A=10\\cdot10=100\\text{ cm}^2$."
+      ]
+    },
+    {
+      "id": "q-ma3-optimering-8",
+      "kind": "flashcard",
+      "topic": "optimisation method",
+      "prompt": "Summarise the method for solving an optimisation problem using derivatives, step by step.",
+      "opener": "Five steps, from formula to interpreting the answer in context.",
+      "answer": "1) Write a formula for the quantity to be optimised as a function of one variable · 2) Use any constraints to express the formula using only one variable · 3) Differentiate the function · 4) Set the derivative to zero and solve for the variable (critical points) · 5) Check using sign analysis or the second derivative that the point gives a max/min, and remember the boundaries of the domain · 6) Interpret and state the answer in the context of the problem, with the correct unit"
+    }
+  ]
+}

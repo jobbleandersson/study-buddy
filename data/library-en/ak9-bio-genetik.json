@@ -1,0 +1,130 @@
+{
+  "id": "lib-bio-genetik",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Genetics and heredity",
+  "sourceSummary": "DNA, genes and chromosomes, dominant and recessive inheritance, and how to read a Punnett square to calculate probabilities.",
+  "topics": [
+    "DNA and genes",
+    "chromosomes",
+    "dominant and recessive inheritance",
+    "mutations",
+    "Punnett square"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio-gen-1",
+      "kind": "mc",
+      "topic": "DNA and genes",
+      "prompt": "What is DNA?",
+      "opener": "Think about what is found in the cell nucleus and carries the information for how you are built.",
+      "choices": [
+        "A protein that builds muscles",
+        "A substance that stores and carries genetic information",
+        "A type of cell membrane",
+        "A type of sugar that gives the cell energy"
+      ],
+      "answer": 1,
+      "explanation": "DNA is the genetic material — a long molecule that contains the instructions (genes) for how an organism is built and functions. It is not a protein, a membrane, or an energy source in itself."
+    },
+    {
+      "id": "q-bio-gen-2",
+      "kind": "mc",
+      "topic": "DNA and genes",
+      "prompt": "What is a gene?",
+      "opener": "Think of DNA as a recipe book — what then corresponds to a single recipe?",
+      "choices": [
+        "An entire chromosome",
+        "A section of DNA that carries information about a particular trait",
+        "A cell that is dividing",
+        "A protein that breaks down food"
+      ],
+      "answer": 1,
+      "explanation": "A gene is a piece of the DNA molecule that contains information about a specific trait, such as eye colour. A chromosome consists of many genes packed together."
+    },
+    {
+      "id": "q-bio-gen-3",
+      "kind": "mc",
+      "topic": "chromosomes",
+      "prompt": "Where in the cell are the chromosomes found?",
+      "opener": "Where is DNA stored in the cell?",
+      "choices": [
+        "In the cell wall",
+        "In the mitochondrion",
+        "In the cell nucleus",
+        "In the cell membrane"
+      ],
+      "answer": 2,
+      "explanation": "The chromosomes, which are tightly packed DNA, are found in the cell nucleus. Humans have 46 chromosomes (23 pairs) in almost all of their cells."
+    },
+    {
+      "id": "q-bio-gen-4",
+      "kind": "mc",
+      "topic": "dominant and recessive inheritance",
+      "prompt": "If the allele for brown eyes (B) is dominant over the allele for blue eyes (b), what eye colour does a person with the allele pair Bb have?",
+      "opener": "With dominant/recessive inheritance, one dominant allele is enough for the trait to show.",
+      "choices": [
+        "Blue eyes",
+        "Brown eyes",
+        "Green eyes",
+        "Both blue and brown at the same time"
+      ],
+      "answer": 1,
+      "explanation": "Because B (brown eyes) is dominant, one B allele is enough for the trait to show, even if the person also carries b. Only someone with bb (two recessive alleles) has blue eyes."
+    },
+    {
+      "id": "q-bio-gen-5",
+      "kind": "mc",
+      "topic": "mutations",
+      "prompt": "What is a mutation?",
+      "opener": "Think about what can happen when DNA is copied or damaged.",
+      "choices": [
+        "A normal cell division without any change",
+        "A sudden change in the DNA",
+        "Another word for chromosome",
+        "A process where two cells merge together"
+      ],
+      "answer": 1,
+      "explanation": "A mutation is a change in the DNA sequence, which can arise by mistake during copying or due to external influences such as radiation. Mutations can be harmful, neutral, or sometimes beneficial."
+    },
+    {
+      "id": "q-bio-gen-6",
+      "kind": "mc",
+      "topic": "Punnett square",
+      "prompt": "Two people who are both Bb (B = brown eyes, dominant; b = blue eyes, recessive) have a child. What is the probability that the child has blue eyes (bb)?",
+      "opener": "Draw a Punnett square with Bb x Bb and count how many of the four boxes are bb.",
+      "choices": [
+        "0%",
+        "25%",
+        "50%",
+        "100%"
+      ],
+      "answer": 1,
+      "explanation": "The Punnett square for Bb x Bb gives the combinations BB, Bb, Bb, bb — so 1 of 4 (25%) is bb and has blue eyes. The other 3 of 4 have brown eyes because B is dominant."
+    },
+    {
+      "id": "q-bio-gen-7",
+      "kind": "worked",
+      "topic": "Punnett square",
+      "prompt": "Two pea plants, both with the allele pair Tt (T = tall, dominant; t = short, recessive), are crossed. Draw a Punnett square and calculate what proportion of the offspring will be short plants.",
+      "opener": "Set up a 2x2 grid with the parents' gametes (T and t) along the sides and fill in the combinations.",
+      "answer": "25% (1 of 4) will be short plants (tt). 75% will be tall (TT or Tt).",
+      "steps": [
+        "Each parent is Tt and produces gametes with either T or t.",
+        "Set up a grid with T and t from one parent across the top, and T and t from the other parent down the side.",
+        "Fill in the four boxes: TT, Tt, Tt, tt.",
+        "TT and Tt (3 of 4) become tall plants because T is dominant, tt (1 of 4) becomes short because both alleles are recessive.",
+        "The probability of a short plant is therefore 25%."
+      ]
+    },
+    {
+      "id": "q-bio-gen-8",
+      "kind": "flashcard",
+      "topic": "DNA and genes",
+      "prompt": "Summarise the basic concepts in genetics: DNA, gene, chromosome, dominant and recessive.",
+      "opener": "Go through the concepts in order of size, from smallest to largest.",
+      "answer": "DNA: the molecule that carries all genetic information, found in the cell nucleus · Gene: a section of DNA with information about a particular trait · Chromosome: tightly packed DNA, humans have 46 of them (23 pairs) · Dominant allele: shows even if the person has only one copy of it (written with a capital letter, e.g. B) · Recessive allele: only shows if the person has two copies of it (written with a lowercase letter, e.g. b) · Mutation: a change in DNA that can produce new traits and is a basis for variation and evolution."
+    }
+  ]
+}

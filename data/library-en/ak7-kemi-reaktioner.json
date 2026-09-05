@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi7-reaktioner",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Chemical reactions",
+  "sourceSummary": "The difference between physical changes and chemical reactions, signs that a reaction has taken place, combustion and the role of oxygen, the conservation of mass, and how a simple reaction equation is read.",
+  "topics": [
+    "physical change or chemical reaction",
+    "signs of a reaction",
+    "combustion",
+    "conservation of mass",
+    "reaction equations"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi7-rea-1",
+      "kind": "mc",
+      "topic": "physical change or chemical reaction",
+      "prompt": "Which of the following is a chemical reaction?",
+      "opener": "Ask yourself whether a completely new substance is formed, or whether the substance is just changing form.",
+      "choices": [
+        "An iron nail rusts",
+        "Water freezes into ice",
+        "Sugar dissolves in tea",
+        "A pane of glass breaks"
+      ],
+      "answer": 0,
+      "explanation": "When iron rusts, the iron reacts with oxygen and water, and a completely new substance is formed - rust - with different properties from the iron. Water freezing is only a physical change: the substance is still water and can melt back again."
+    },
+    {
+      "id": "q-kemi7-rea-2",
+      "kind": "mc",
+      "topic": "signs of a reaction",
+      "prompt": "Which of the following is a clear sign that a chemical reaction has taken place?",
+      "opener": "The signs are all about something NEW having appeared.",
+      "choices": [
+        "The substance has been moved to a different container",
+        "The substance got warmer because you heated it on a hotplate",
+        "A gas bubbles up or a precipitate forms, the colour changes permanently, or heat is given off by itself",
+        "The substance got wet because you poured water on it"
+      ],
+      "answer": 2,
+      "explanation": "Gas being given off, a precipitate forming, a permanent colour change, or heat being released on its own all show that new substances have formed - that is chemistry. A substance getting warmer because you are heating it is not a reaction, just energy being supplied from outside."
+    },
+    {
+      "id": "q-kemi7-rea-3",
+      "kind": "mc",
+      "topic": "combustion",
+      "prompt": "Which substance must always be present for something to be able to burn?",
+      "opener": "Think about why a flame goes out if you put a glass over it.",
+      "choices": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Water vapour"
+      ],
+      "answer": 1,
+      "explanation": "Combustion is a reaction with oxygen (O₂), which is why the flame goes out when the oxygen in the glass runs out. Carbon dioxide is instead often FORMED during combustion - and it is used in fire extinguishers precisely because it displaces the oxygen."
+    },
+    {
+      "id": "q-kemi7-rea-4",
+      "kind": "mc",
+      "topic": "combustion",
+      "prompt": "What is formed when carbon (C) burns completely in oxygen?",
+      "opener": "Combine the carbon with the oxygen and think about which gas plants need.",
+      "choices": [
+        "Water",
+        "Carbon monoxide",
+        "Nitrogen oxide",
+        "Carbon dioxide"
+      ],
+      "answer": 3,
+      "explanation": "Complete combustion of carbon forms carbon dioxide: C + O₂ → CO₂. Carbon monoxide (CO) is formed only during INCOMPLETE combustion, when there is not enough oxygen, and that gas is highly toxic."
+    },
+    {
+      "id": "q-kemi7-rea-5",
+      "kind": "mc",
+      "topic": "conservation of mass",
+      "prompt": "A magnesium ribbon with a mass of 2 g burns in air and a white powder forms that weighs more than 2 g. Which explanation is correct?",
+      "opener": "Something has been added from the air - what?",
+      "choices": [
+        "The magnesium has reacted with oxygen from the air, and the mass of the oxygen has been added to the mass of the powder",
+        "Mass can be created out of nothing in chemical reactions",
+        "The powder became heavier because it absorbed heat",
+        "The flame that burned has a mass of its own that was left behind"
+      ],
+      "answer": 0,
+      "explanation": "Magnesium reacts with oxygen to form magnesium oxide, so the mass of the oxygen atoms is counted into the powder: 2 Mg + O₂ → 2 MgO. Mass is always conserved - it is not created out of nothing, and heat has no mass that could make the powder heavier."
+    },
+    {
+      "id": "q-kemi7-rea-6",
+      "kind": "mc",
+      "topic": "reaction equations",
+      "prompt": "In the reaction equation 2 H₂ + O₂ → 2 H₂O, what are the substances on the left of the arrow called?",
+      "opener": "The arrow means \"becomes\" - what comes before and after it?",
+      "choices": [
+        "Products",
+        "Mixtures",
+        "Reactants, meaning the starting substances",
+        "Solvents"
+      ],
+      "answer": 2,
+      "explanation": "To the left of the arrow are the reactants (starting substances) that react, here hydrogen gas and oxygen gas. The product is what is formed and is written to the right of the arrow - in this case water."
+    },
+    {
+      "id": "q-kemi7-rea-7",
+      "kind": "worked",
+      "topic": "combustion",
+      "prompt": "You light a wax candle. Explain what happens chemically: which substances react, what is formed, and why does the flame go out if you put a glass over the candle?",
+      "opener": "Start with what is burning and what it is burning together with.",
+      "answer": "The wax (a fuel containing carbon and hydrogen) reacts with oxygen from the air. Carbon dioxide and water vapour are formed, while heat and light are released at the same time. Under a glass the oxygen runs out and the flame then goes out, since combustion requires oxygen.",
+      "steps": [
+        "Identify the fuel: the wax melts, is drawn up the wick, is vaporised and is the substance that burns. It contains carbon and hydrogen.",
+        "Identify the other starting substance: oxygen (O₂) from the air. Without oxygen there is no combustion.",
+        "Determine the products: the carbon becomes carbon dioxide (CO₂) and the hydrogen becomes water vapour (H₂O). The reaction releases energy as heat and light.",
+        "Explain the glass: the air under the glass contains a limited amount of oxygen. Once the oxygen is used up the reaction cannot continue and the flame goes out.",
+        "Check that this really is a chemical reaction: new substances have been formed and energy has been released - not just a change of form."
+      ]
+    },
+    {
+      "id": "q-kemi7-rea-8",
+      "kind": "flashcard",
+      "topic": "physical change or chemical reaction",
+      "prompt": "Summarise the difference between a physical change and a chemical reaction, and what you need to know about combustion.",
+      "opener": "New substances or not - that is the main question. Then take combustion and mass.",
+      "answer": "Physical change: same substance, new form - melting, freezing, boiling, dissolving, crushing, can usually be reversed · Chemical reaction: new substances are formed with new properties - rusting, combustion, baking, digestion, hard or impossible to reverse · Signs of a reaction: gas bubbles, a precipitate, a permanent colour change, heat or light being released, a new smell · Reaction equation: reactants (starting substances) to the left of the arrow, products to the right, the arrow is read as \"becomes\" · Combustion: fuel + oxygen → new substances + heat and light · The fire triangle: fuel, oxygen and heat must all be present - remove one and the fire goes out · C + O₂ → CO₂ (carbon burns to carbon dioxide) · 2 H₂ + O₂ → 2 H₂O (hydrogen gas burns to water) · Incomplete combustion gives soot and toxic carbon monoxide (CO) · Conservation of mass: atoms never disappear and are never created, they only change places, so the total mass is the same before and after the reaction."
+    }
+  ]
+}

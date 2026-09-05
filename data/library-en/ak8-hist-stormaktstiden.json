@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist8-stormaktstiden",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Sweden's Age of Greatness",
+  "sourceSummary": "How a small and poor Sweden became one of Europe's military great powers during the 1600s, how the country was governed and what the wars cost farmers and soldiers – plus why the Age of Greatness came to an end in the early 1700s.",
+  "topics": [
+    "Gustav II Adolf and the Thirty Years' War",
+    "Sweden's expansion around the Baltic Sea",
+    "Charles XII and the end of the Age of Greatness",
+    "life for farmers and soldiers"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist8-sto-1",
+      "kind": "mc",
+      "topic": "Gustav II Adolf and the Thirty Years' War",
+      "prompt": "Which Swedish king led Sweden into the Thirty Years' War in 1630?",
+      "opener": "This king is often called the \"Lion of the North\" and died as early as 1632.",
+      "choices": [
+        "Gustav II Adolf",
+        "Charles XII",
+        "Gustav Vasa",
+        "Charles XI"
+      ],
+      "answer": 0,
+      "explanation": "Gustav II Adolf landed with his army in northern Germany in 1630 and made Sweden one of the main parties in the Thirty Years' War. Gustav Vasa lived a hundred years earlier (the 1500s) and Charles XII did not reign until around 1700, so neither of them can be the answer."
+    },
+    {
+      "id": "q-hist8-sto-2",
+      "kind": "mc",
+      "topic": "Gustav II Adolf and the Thirty Years' War",
+      "prompt": "In which battle did Gustav II Adolf fall in 1632?",
+      "opener": "The battle was fought in Germany, two years after the king went to war there.",
+      "choices": [
+        "The Battle of Breitenfeld",
+        "The Battle of Poltava",
+        "The Battle of Lützen",
+        "The Battle of Narva"
+      ],
+      "answer": 2,
+      "explanation": "Gustav II Adolf died at the Battle of Lützen in Saxony in 1632. At Breitenfeld (1631) he instead won a great victory, while Narva (1700) and Poltava (1709) belonged to Charles XII's war almost seventy years later."
+    },
+    {
+      "id": "q-hist8-sto-3",
+      "kind": "mc",
+      "topic": "Sweden's expansion around the Baltic Sea",
+      "prompt": "Why is the Baltic Sea during the Age of Greatness often said to have become almost a \"Swedish inland sea\"?",
+      "opener": "Look at a map of Sweden's territory around 1660 – not just present-day Sweden.",
+      "choices": [
+        "Sweden had the world's largest trading fleet on the Baltic Sea",
+        "Sweden controlled land around most of the Baltic Sea's coasts",
+        "No one but Swedes was allowed to sail on the Baltic Sea",
+        "The Baltic Sea formally belonged to the Swedish king under peace treaties"
+      ],
+      "answer": 1,
+      "explanation": "After peace treaties such as Brömsebro (1645) and Roskilde (1658), Finland, Estonia, Livonia, parts of northern Germany, and Skåne, Blekinge and Halland all belonged to the Swedish realm – Sweden thus controlled land around almost the entire Baltic Sea. This was about territory and military control, not about any ban on others sailing there."
+    },
+    {
+      "id": "q-hist8-sto-4",
+      "kind": "mc",
+      "topic": "Charles XII and the end of the Age of Greatness",
+      "prompt": "Which war brought about the end of Sweden's Age of Greatness?",
+      "opener": "This war lasted 1700–1721 and Sweden fought against Russia, Denmark and Poland–Saxony.",
+      "choices": [
+        "The Thirty Years' War",
+        "The Kalmar War",
+        "The Scanian War",
+        "The Great Northern War"
+      ],
+      "answer": 3,
+      "explanation": "The Great Northern War (1700–1721) ended with the Peace of Nystad, where Sweden was forced to give up its Baltic provinces and Russia took over as the strongest power on the Baltic Sea. The Thirty Years' War belonged to the rise of the Age of Greatness, not its fall, and the Kalmar War had already taken place in 1611–1613."
+    },
+    {
+      "id": "q-hist8-sto-5",
+      "kind": "mc",
+      "topic": "life for farmers and soldiers",
+      "prompt": "What was the \"indelningsverk\" (allotment system) built up under Charles XI?",
+      "opener": "Think about how a poor state could maintain a large army without money for wages.",
+      "choices": [
+        "A division of the realm into counties with governors",
+        "A system where a number of farms together maintained a soldier with a cottage, food and equipment",
+        "A tax that only the nobility paid to the king's army",
+        "A system for handing out land to returning soldiers"
+      ],
+      "answer": 1,
+      "explanation": "In the allotment system, a number of farms joined together in a \"rote\" that had to provide and maintain a soldier – he received a soldier's cottage and payment in kind instead of wages. The system gave Sweden a standing army without ready cash, while the division into counties and the taxes were entirely separate parts of the state's organisation."
+    },
+    {
+      "id": "q-hist8-sto-6",
+      "kind": "mc",
+      "topic": "Charles XII and the end of the Age of Greatness",
+      "prompt": "Which explanation best fits why Sweden could not keep its status as a great power?",
+      "opener": "Compare Sweden's population and economy with the vast territories the country had to defend.",
+      "choices": [
+        "Sweden no longer had any army left after 1660",
+        "The Swedish kings stopped taking an interest in foreign policy",
+        "Sweden was a country with a small population and a poor economy, which made it hard to defend large territories against several enemies at once",
+        "All Swedish farmers refused to pay tax"
+      ],
+      "answer": 2,
+      "explanation": "Sweden had only just over a million inhabitants and a weak economy, yet had to defend vast possessions against Russia, Denmark, Poland and Prussia – when the neighbouring countries joined forces, the burden became too great. The army still existed and the kings were very active in foreign policy; the problem was resources, not a lack of will."
+    },
+    {
+      "id": "q-hist8-sto-7",
+      "kind": "worked",
+      "topic": "Sweden's expansion around the Baltic Sea",
+      "prompt": "Explain how a country with a small population, such as Sweden, could become a European great power in the 1600s.",
+      "opener": "Think about money, weapons, organisation and which enemies Sweden faced at that particular time.",
+      "answer": "Sweden built its status as a great power on a combination of natural resources, effective state administration and military organisation. Iron and copper from Bergslagen and Falun could be sold in Europe and provided income that financed weapons and soldiers. The state was organised with a chancery, tax collection and, later, the allotment system, so that the king could maintain a large and well-trained army. At the same time, several of the possible opponents were weak or caught up in their own conflicts, which gave Sweden the opportunity to expand around the Baltic Sea. The foundation was, however, fragile throughout, since the population was small and the wealth limited.",
+      "steps": [
+        "Iron and copper were exported to Europe and gave the state income and credit.",
+        "State administration was expanded with a chancery and tax collection, so that resources really reached the king.",
+        "The army was modernised with the conscription of farmers, mobile artillery and, later, the allotment system.",
+        "The neighbouring countries Denmark, Poland and Russia were at times weak or occupied with other wars.",
+        "Victories in war brought new provinces and customs income from Baltic trade, and thus money for the next war."
+      ]
+    },
+    {
+      "id": "q-hist8-sto-8",
+      "kind": "flashcard",
+      "topic": "life for farmers and soldiers",
+      "prompt": "Summarise Sweden's Age of Greatness: period, kings, wars and everyday life.",
+      "opener": "Think period, key kings, how the realm grew and shrank, and what it cost the population.",
+      "answer": "The Age of Greatness lasted roughly 1611–1721 · Gustav II Adolf entered the Thirty Years' War in 1630 and fell at Lützen in 1632 · victories and peace treaties (Brömsebro 1645, the Peace of Westphalia 1648, Roskilde 1658) turned the Baltic Sea into almost a Swedish inland sea, with Finland, the Baltic states, northern German territories and Skåne, Blekinge and Halland · Charles XI put the state's finances in order and built the allotment system, where groups of farms maintained soldiers with cottages and payment in kind · Charles XII fought the Great Northern War of 1700–1721, won at Narva in 1700 but lost at Poltava in 1709 and died in 1718 at Fredriksten in Norway · the Peace of Nystad in 1721 ended the Age of Greatness and Russia became the strongest power on the Baltic Sea · for ordinary people, the era meant high taxes, young men conscripted into the army, many dead soldiers, and hard work for the women and children left behind on the farms · the foundation was weak: a small population, a poor country and too much territory to defend."
+    }
+  ]
+}

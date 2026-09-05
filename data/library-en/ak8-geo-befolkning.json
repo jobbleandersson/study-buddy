@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo8-befolkning",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Population and migration",
+  "sourceSummary": "Where on Earth people live and why, how to read a population pyramid, what birth and death rates say about a country, and why people move within and between countries, and how the world's major cities are growing.",
+  "topics": [
+    "population density and settlement patterns",
+    "population pyramids",
+    "birth and death rates",
+    "migration and push and pull factors",
+    "urbanisation and major cities"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo8-bef-1",
+      "kind": "mc",
+      "topic": "population density and settlement patterns",
+      "prompt": "How do you calculate the population density of an area?",
+      "opener": "Density is given in inhabitants per square kilometre — so what should be divided by what?",
+      "choices": [
+        "You divide the area in square kilometres by the number of inhabitants",
+        "You divide the number of inhabitants by the area in square kilometres",
+        "You count the number of children born per year",
+        "You divide the number of inhabitants by the number of cities"
+      ],
+      "answer": 1,
+      "explanation": "Population density = the number of inhabitants divided by the area in square kilometres, that is, how many people on average live in every square kilometre. If you divide the area by the inhabitants instead, you get square kilometres per person, which is a different measure and not the one usually used on maps and in statistics."
+    },
+    {
+      "id": "q-geo8-bef-2",
+      "kind": "mc",
+      "topic": "population density and settlement patterns",
+      "prompt": "Where do most of the world's people live?",
+      "opener": "Think about what's needed to be able to grow food, get water and transport goods.",
+      "choices": [
+        "Near coasts and rivers, in areas with a temperate or tropical climate and arable land",
+        "Evenly spread across all continents",
+        "Mainly high up in the mountains",
+        "Mainly in desert and polar regions"
+      ],
+      "answer": 0,
+      "explanation": "Throughout history, people have settled where there is water, fertile soil, a manageable climate and the possibility of transport — that's why coastal strips and river valleys such as the Ganges, the Nile and the Chinese river valleys are very densely populated. Deserts, high mountain regions and polar regions are sparsely populated because it's difficult to farm and live there."
+    },
+    {
+      "id": "q-geo8-bef-3",
+      "kind": "mc",
+      "topic": "population pyramids",
+      "prompt": "What does a population pyramid show?",
+      "opener": "The diagram has ages on one axis and two sides that mirror each other.",
+      "choices": [
+        "How population density varies between different parts of a country",
+        "How many people move into and out of a country each year",
+        "How the population is distributed across different age groups and sexes",
+        "What proportion of the population lives in cities"
+      ],
+      "answer": 2,
+      "explanation": "A population pyramid is a bar chart where each bar shows how many (or what proportion) belong to an age group, with men on one side and women on the other. Population density, migration and the degree of urbanisation are instead shown with maps or other diagrams."
+    },
+    {
+      "id": "q-geo8-bef-4",
+      "kind": "mc",
+      "topic": "population pyramids",
+      "prompt": "A country's population pyramid has a very wide base and a narrow top. What does that suggest?",
+      "opener": "The base shows the youngest age groups.",
+      "choices": [
+        "Low birth rates and many elderly people",
+        "That many people are emigrating from the country",
+        "That the country has a high population density",
+        "High birth rates and a young population"
+      ],
+      "answer": 3,
+      "explanation": "A wide base means that many children are born, and a narrow top that relatively few people grow old — a pattern that's common in low-income countries with high birth rates. Low birth rates and an ageing population, on the other hand, give a pyramid that's narrow at the bottom and wide in the middle and at the top, as in Japan and Sweden."
+    },
+    {
+      "id": "q-geo8-bef-5",
+      "kind": "mc",
+      "topic": "birth and death rates",
+      "prompt": "What is meant by natural population growth?",
+      "opener": "The word \"natural\" signals that migration isn't included.",
+      "choices": [
+        "How many people move into the country minus how many move out",
+        "The difference between the number of births and the number of deaths over a period",
+        "How fast cities grow in relation to the countryside",
+        "How many children a woman gives birth to on average"
+      ],
+      "answer": 1,
+      "explanation": "Natural population growth is the birth rate minus the death rate: if more people are born than die, the population grows under its own steam, regardless of immigration and emigration. The difference between immigration and emigration is instead called net migration, and the average number of children per woman is called the fertility rate."
+    },
+    {
+      "id": "q-geo8-bef-6",
+      "kind": "mc",
+      "topic": "urbanisation and major cities",
+      "prompt": "What is a megacity?",
+      "opener": "The threshold is a round number in millions of inhabitants.",
+      "choices": [
+        "A city with more than 10 million inhabitants",
+        "A city that is the capital of its country",
+        "A city with more than 1 million inhabitants",
+        "A metropolitan area that stretches across a national border"
+      ],
+      "answer": 0,
+      "explanation": "A megacity is defined as an urban area with over 10 million inhabitants — examples are Tokyo, Delhi, Shanghai, São Paulo, Cairo and Lagos. Cities with over a million inhabitants are called million-cities, and being a capital has nothing to do with size."
+    },
+    {
+      "id": "q-geo8-bef-7",
+      "kind": "worked",
+      "topic": "migration and push and pull factors",
+      "prompt": "A family in a low-income country moves from their village to the capital. Explain why they move and what challenges the rapid urban growth creates.",
+      "opener": "Split the reasons into push and pull, then think about what the city has to manage to build out.",
+      "answer": "The family is pushed away from the village by push factors: the land isn't enough to go around as the population grows, harvests can fail during droughts, and there are few jobs, worse schools and limited healthcare. At the same time, they are drawn to the capital by pull factors: more jobs in industry, construction and trade, better schools and hospitals, electricity and water, and relatives who already live there. When very many people move in at the same time, the city can't build out housing, water, sewage, public transport and schools at the same pace. The result is often informal settlements with simple housing, overcrowding, a lack of clean water, air pollution and competition for the jobs that exist. At the same time, the city can give the family a higher income and the children a better education than the village could.",
+      "steps": [
+        "Push factors in the village: land shortage, crop failure and drought, low incomes, few jobs, weak schools and healthcare.",
+        "Pull factors in the city: jobs, education, healthcare, electricity and water, plus contacts who are already there.",
+        "Many people move in at the same time, so the population grows faster than housing and infrastructure can be built.",
+        "Consequences: informal settlements, overcrowding, a lack of clean water and sewage, air pollution and fierce competition for jobs.",
+        "At the same time there are opportunities: a higher income, schooling for the children and access to services — which is why the inflow continues."
+      ]
+    },
+    {
+      "id": "q-geo8-bef-8",
+      "kind": "flashcard",
+      "topic": "birth and death rates",
+      "prompt": "Summarise the key concepts about population and migration.",
+      "opener": "Gather density, pyramids, rates and migration into one tight overview.",
+      "answer": "Population density: inhabitants per square kilometre · densely populated near coasts, river valleys and major cities, sparse in deserts, rainforest, high mountains and polar regions · population pyramid: a bar chart of age groups and sex · a wide base = high birth rates and a young population (many low-income countries) · a narrow base and wide top = low birth rates and an ageing population (Japan, Sweden) · birth rate and death rate are counted per 1000 inhabitants per year · natural population growth = births minus deaths · net migration = immigration minus emigration · fertility rate = the average number of children per woman · migration: moving within (internal) or between (international) countries · push factors push people away: war, oppression, poverty, unemployment, drought and natural disasters · pull factors draw people in: jobs, safety, education, healthcare, family · refugee: someone who has been forced to flee and has a right to protection · urbanisation: an increasing proportion of the population lives in cities, fastest in Africa and Asia today · megacity: an urban area with over 10 million inhabitants, for example Tokyo, Delhi and Lagos."
+    }
+  ]
+}

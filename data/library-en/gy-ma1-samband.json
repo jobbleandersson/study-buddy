@@ -1,0 +1,129 @@
+{
+  "id": "lib-ma1-samband",
+  "type": "assignment",
+  "subject": "Matematik 1",
+  "title": "Relationships and change",
+  "sourceSummary": "The equation of a straight line, the slope and intercept in real-world contexts, and the difference between linear and exponential change.",
+  "topics": [
+    "the equation of a straight line",
+    "linear models",
+    "exponential change"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma1-sam-1",
+      "kind": "mc",
+      "topic": "the equation of a straight line",
+      "prompt": "A straight line passes through the points $(1, 3)$ and $(3, 11)$. What is the slope $k$?",
+      "opener": "The slope is the change in $y$ divided by the change in $x$.",
+      "choices": [
+        "4",
+        "0.25",
+        "2",
+        "8"
+      ],
+      "answer": 0,
+      "explanation": "$k = \\frac{\\Delta y}{\\Delta x} = \\frac{11 - 3}{3 - 1} = \\frac{8}{2} = 4$."
+    },
+    {
+      "id": "q-ma1-sam-2",
+      "kind": "mc",
+      "topic": "the equation of a straight line",
+      "prompt": "A line has slope $-2$ and crosses the y-axis at $(0, 5)$. What is the equation of the line?",
+      "opener": "Substitute $k$ and $m$ into the general form.",
+      "choices": [
+        "$y = 5x - 2$",
+        "$y = -2x + 5$",
+        "$y = -2x - 5$",
+        "$y = 2x + 5$"
+      ],
+      "answer": 1,
+      "explanation": "The equation of a straight line is $y = kx + m$ with $k = -2$ and $m = 5$, so $y = -2x + 5$."
+    },
+    {
+      "id": "q-ma1-sam-3",
+      "kind": "mc",
+      "topic": "the equation of a straight line",
+      "prompt": "Where does the line $y = 2x - 6$ cross the x-axis?",
+      "opener": "What is $y$ at every point on the x-axis?",
+      "choices": [
+        "$(-3, 0)$",
+        "$(6, 0)$",
+        "$(3, 0)$",
+        "$(0, -6)$"
+      ],
+      "answer": 2,
+      "explanation": "On the x-axis, $y = 0$: $0 = 2x - 6$ gives $2x = 6$ and $x = 3$, so the point $(3, 0)$. The point $(0, -6)$ is where the line crosses the y-axis."
+    },
+    {
+      "id": "q-ma1-sam-4",
+      "kind": "mc",
+      "topic": "linear models",
+      "prompt": "A tradesperson charges a 300 kr call-out fee plus 450 kr per hour: $y = 450x + 300$. What does the number 450 represent?",
+      "opener": "Which of the numbers changes with the number of hours?",
+      "choices": [
+        "The total cost",
+        "The fixed fee",
+        "The cost of a full day",
+        "The cost per hour"
+      ],
+      "answer": 3,
+      "explanation": "The slope, 450, is the change per unit — in other words, the cost per hour. The intercept, 300, is the fixed call-out fee charged regardless of time."
+    },
+    {
+      "id": "q-ma1-sam-5",
+      "kind": "mc",
+      "topic": "exponential change",
+      "prompt": "Which of these describes an exponential change?",
+      "opener": "The difference lies in whether you add the same amount, or multiply by the same amount.",
+      "choices": [
+        "The value decreases by 3% per year",
+        "The temperature drops 2 degrees per hour",
+        "The distance increases by 60 km per hour",
+        "The salary increases by 500 kr per month"
+      ],
+      "answer": 0,
+      "explanation": "Exponential change means the value is multiplied by the same factor every period (here $0.97$). The other options add or subtract a fixed amount, which is linear."
+    },
+    {
+      "id": "q-ma1-sam-6",
+      "kind": "mc",
+      "topic": "exponential change",
+      "prompt": "A deposit of 5,000 kr grows by 4% per year. Which expression gives the amount after $n$ years?",
+      "opener": "What is the amount multiplied by each year?",
+      "choices": [
+        "$5000 \\cdot 4^n$",
+        "$5000 \\cdot 1.04^n$",
+        "$5000 + 0.04n$",
+        "$5000 \\cdot 0.04^n$"
+      ],
+      "answer": 1,
+      "explanation": "Each year the amount is multiplied by the change factor $1.04$, so after $n$ years: $5000 \\cdot 1.04^n$."
+    },
+    {
+      "id": "q-ma1-sam-7",
+      "kind": "worked",
+      "topic": "linear models",
+      "prompt": "A gym has two options: A costs a 500 kr joining fee plus 200 kr/month. B costs a 900 kr joining fee plus 150 kr/month. After how many months do they cost the same?",
+      "opener": "Write an equation for each option and set them equal.",
+      "answer": "After 8 months (2,100 kr)",
+      "steps": [
+        "Option A: $y = 200x + 500$.",
+        "Option B: $y = 150x + 900$.",
+        "Set them equal: $200x + 500 = 150x + 900$.",
+        "Subtract $150x$: $50x + 500 = 900$. Subtract 500: $50x = 400$.",
+        "Divide by 50: $x = 8$ months. Both then cost $200 \\cdot 8 + 500 = 2{,}100$ kr (check: $150 \\cdot 8 + 900 = 2{,}100$ kr).",
+        "After 8 months, B is cheaper, since B has a lower monthly cost."
+      ]
+    },
+    {
+      "id": "q-ma1-sam-8",
+      "kind": "flashcard",
+      "topic": "exponential change",
+      "prompt": "What is the difference between linear and exponential change?",
+      "opener": "One of them is about addition, the other about multiplication.",
+      "answer": "Linear change: the same amount is added (or subtracted) every period — the graph is a straight line, of the form $y = kx + m$. Exponential change: the value is multiplied by the same factor every period — the graph curves increasingly steeply (or flattens out), of the form $y = C \\cdot a^x$. Percentage change is always exponential."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-bio-ekologi",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Ecology and cycles",
+  "sourceSummary": "Food chains and food webs, the carbon and water cycles, and how producers, consumers and decomposers are connected in an ecosystem.",
+  "topics": [
+    "food chains and food webs",
+    "cycles",
+    "ecosystems and populations",
+    "producers, consumers and decomposers"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio-eko-1",
+      "kind": "mc",
+      "topic": "producers, consumers and decomposers",
+      "prompt": "What are organisms called that, just like plants, can make their own food through photosynthesis?",
+      "opener": "Think about where in the food chain energy enters the system.",
+      "choices": [
+        "Consumers",
+        "Producers",
+        "Decomposers",
+        "Predators"
+      ],
+      "answer": 1,
+      "explanation": "Producers, e.g. green plants and algae, make their own food through photosynthesis using sunlight. Consumers eat other organisms, and decomposers break down dead material."
+    },
+    {
+      "id": "q-bio-eko-2",
+      "kind": "mc",
+      "topic": "producers, consumers and decomposers",
+      "prompt": "What do decomposers, e.g. fungi and bacteria, do in an ecosystem?",
+      "opener": "Think about what happens to dead plants and animals in nature.",
+      "choices": [
+        "They make food through photosynthesis",
+        "They break down dead organic material and release nutrients back into the soil",
+        "They only eat living plants",
+        "They convert carbon dioxide into oxygen"
+      ],
+      "answer": 1,
+      "explanation": "Decomposers break down dead plants, animals and waste into simpler substances, which makes nutrients available to producers again — absolutely central to the cycle. They do not make their own food through photosynthesis."
+    },
+    {
+      "id": "q-bio-eko-3",
+      "kind": "mc",
+      "topic": "food chains and food webs",
+      "prompt": "In the food chain grass → rabbit → fox, what is the rabbit?",
+      "opener": "The rabbit eats grass but is in turn eaten — what is such an organism called?",
+      "choices": [
+        "A producer",
+        "A primary consumer",
+        "A decomposer",
+        "A secondary consumer"
+      ],
+      "answer": 1,
+      "explanation": "The rabbit eats plants (grass) and is therefore a primary consumer. The fox, which eats the rabbit, is a secondary consumer. The grass is the producer."
+    },
+    {
+      "id": "q-bio-eko-4",
+      "kind": "mc",
+      "topic": "cycles",
+      "prompt": "What is the cycle called in which carbon moves between the atmosphere, plants, animals and the burning of, for example, fossil fuels?",
+      "opener": "Which element is captured during photosynthesis and released during respiration and combustion?",
+      "choices": [
+        "The nitrogen cycle",
+        "The water cycle",
+        "The carbon cycle",
+        "The oxygen cycle"
+      ],
+      "answer": 2,
+      "explanation": "The carbon cycle describes how carbon (partly as carbon dioxide) is taken up by plants during photosynthesis, passed on through the food chain, and released again during respiration, decomposition and the burning of, for example, oil and coal."
+    },
+    {
+      "id": "q-bio-eko-5",
+      "kind": "mc",
+      "topic": "ecosystems and populations",
+      "prompt": "What are all the individuals of the same species living within a certain area called?",
+      "opener": "The difference between this concept and a whole ecosystem.",
+      "choices": [
+        "An ecosystem",
+        "A population",
+        "A food web",
+        "A habitat"
+      ],
+      "answer": 1,
+      "explanation": "A population is all the individuals of the same species within a certain area, e.g. all the hares in a forest. An ecosystem comprises all the populations (of different species) together with the non-living environment."
+    },
+    {
+      "id": "q-bio-eko-6",
+      "kind": "mc",
+      "topic": "ecosystems and populations",
+      "prompt": "What often happens to a predator population if the number of prey animals decreases sharply, for example due to disease?",
+      "opener": "Think about what predators depend on in order to survive and reproduce.",
+      "choices": [
+        "The predator population always increases regardless of food availability",
+        "The predator population often decreases because less food becomes available",
+        "The predators automatically switch to becoming producers",
+        "Nothing changes in the ecosystem"
+      ],
+      "answer": 1,
+      "explanation": "Since predators depend on prey animals for food, fewer prey animals often lead to starvation and reduced reproduction among the predators, so their population decreases. Populations in an ecosystem are thus dependent on each other."
+    },
+    {
+      "id": "q-bio-eko-7",
+      "kind": "worked",
+      "topic": "cycles",
+      "prompt": "Explain the water cycle using the concepts of evaporation, condensation and precipitation.",
+      "opener": "Follow a drop of water from the sea, up into the air and back down again.",
+      "answer": "Water evaporates from seas and lakes into water vapour, the water vapour rises, cools and condenses into clouds, and then falls as precipitation (rain or snow) which eventually flows back to the seas via rivers and groundwater.",
+      "steps": [
+        "The sun heats water in seas, lakes and the ground so that it evaporates and becomes water vapour.",
+        "The water vapour rises up into the atmosphere where it is colder.",
+        "When the water vapour cools, it condenses into small droplets that form clouds.",
+        "The droplets grow and eventually fall as precipitation — rain or snow.",
+        "The water flows via rivers and groundwater back to the seas, and the cycle starts over."
+      ]
+    },
+    {
+      "id": "q-bio-eko-8",
+      "kind": "flashcard",
+      "topic": "producers, consumers and decomposers",
+      "prompt": "Summarise the basic concepts in ecology: producer, consumer, decomposer, food chain, food web and ecosystem.",
+      "opener": "Go through who eats whom and how everything is connected.",
+      "answer": "Producer: makes its own food through photosynthesis, e.g. plants · Consumer: eats other organisms — a primary consumer eats plants, a secondary consumer eats other animals · Decomposer: breaks down dead material and returns nutrients to the cycle, e.g. fungi and bacteria · Food chain: shows who eats whom in a straight sequence, e.g. grass → rabbit → fox · Food web: several interconnected food chains showing the real, more complex pattern · Population: all the individuals of the same species in an area · Ecosystem: all the living organisms in an area together with the non-living environment (water, soil, climate) · Cycles: substances such as carbon, nitrogen and water are constantly reused in nature."
+    }
+  ]
+}

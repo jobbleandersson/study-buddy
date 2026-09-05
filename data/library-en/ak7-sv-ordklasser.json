@@ -1,0 +1,130 @@
+{
+  "id": "lib-sv7-ordklasser",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Word classes",
+  "sourceSummary": "Nouns, verbs, adjectives, pronouns and numerals — recognising the word classes in a sentence and knowing how the words are inflected.",
+  "topics": [
+    "noun",
+    "verb",
+    "adjective",
+    "pronoun",
+    "numeral"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv7-ord-1",
+      "kind": "mc",
+      "topic": "noun",
+      "prompt": "Which word is a noun? \"Min lillasyster ritade en fin bild igår.\" (\"My little sister drew a nice picture yesterday.\")",
+      "opener": "Nouns are names of things, people and places — try putting \"en\" or \"ett\" (\"a\") in front of the word.",
+      "choices": [
+        "ritade",
+        "fin",
+        "bild",
+        "igår"
+      ],
+      "answer": 2,
+      "explanation": "\"Bild\" (picture) is a thing — you can say \"en bild\" (a picture), so it's a noun. \"Ritade\" (drew) is a verb (something you do) and \"fin\" (nice) is an adjective (what something is like)."
+    },
+    {
+      "id": "q-sv7-ord-2",
+      "kind": "mc",
+      "topic": "noun",
+      "prompt": "Which row shows the noun \"stol\" (\"chair\") inflected in the correct order: en stol – flera stolar (a chair – several chairs)?",
+      "opener": "Think about how you say the word when it's ONE and when it's MANY, and when it's definite (\"that one there\").",
+      "choices": [
+        "en stol – stolen – stolar – stolarna",
+        "en stol – stolet – stolar – stolerna",
+        "ett stol – stolet – stoler – stolerna",
+        "en stol – stolen – stoler – stolarna"
+      ],
+      "answer": 0,
+      "explanation": "The correct inflection is en stol – stolen – stolar – stolarna. \"Stol\" is an en-word, so the definite form is \"stolen\", not \"stolet\" — the -et ending belongs to ett-words like \"ett bord – bordet\" (a table – the table)."
+    },
+    {
+      "id": "q-sv7-ord-3",
+      "kind": "mc",
+      "topic": "verb",
+      "prompt": "Which verb is in the preterite (past tense)? \"Jag springer varje dag, men igår vilade jag och ska träna imorgon.\" (\"I run every day, but yesterday I rested and I'm going to train tomorrow.\")",
+      "opener": "The preterite tells about something that has already happened — look for the time word \"igår\" (yesterday).",
+      "choices": [
+        "springer",
+        "vilade",
+        "ska",
+        "träna"
+      ],
+      "answer": 1,
+      "explanation": "\"Vilade\" (rested) is in the preterite — the action happened yesterday. \"Springer\" (runs) is present tense (now) and \"träna\" (to train) is the infinitive, the base form that often follows \"att\" (to) or \"ska\" (going to/shall)."
+    },
+    {
+      "id": "q-sv7-ord-4",
+      "kind": "mc",
+      "topic": "adjective",
+      "prompt": "How do you compare the adjective \"snabb\" (\"fast\")?",
+      "opener": "Comparison is when the adjective compares: what something is like, more, and most.",
+      "choices": [
+        "snabb – snabbare – snabbast",
+        "snabb – mer snabb – mest snabb",
+        "snabb – snabbaste – snabbare",
+        "snabb – snabbt – snabba"
+      ],
+      "answer": 0,
+      "explanation": "Short Swedish adjectives are compared with the endings -are and -ast: snabb – snabbare – snabbast (fast – faster – fastest). \"Snabbt\" and \"snabba\" are not comparisons but just other forms of the same base level (a fast train, fast trains)."
+    },
+    {
+      "id": "q-sv7-ord-5",
+      "kind": "mc",
+      "topic": "pronoun",
+      "prompt": "Which word is a pronoun? \"Anna glömde sin jacka, så vi lämnade den i receptionen.\" (\"Anna forgot her jacket, so we left it at reception.\")",
+      "opener": "Pronouns are small words that replace a name or a noun so you don't have to repeat it.",
+      "choices": [
+        "Anna",
+        "glömde",
+        "jacka",
+        "vi"
+      ],
+      "answer": 3,
+      "explanation": "\"Vi\" (we) stands in for the names of the people — it's a pronoun (as are \"sin\" and \"den\"). \"Anna\" is a noun (a name), not a pronoun: a pronoun REPLACES the name."
+    },
+    {
+      "id": "q-sv7-ord-6",
+      "kind": "mc",
+      "topic": "numeral",
+      "prompt": "Which word is a numeral? \"De tre vännerna åt varsin pizza på fredagen.\" (\"The three friends each ate a pizza on Friday.\")",
+      "opener": "Numerals answer the question \"how many?\" or \"which in order?\".",
+      "choices": [
+        "De",
+        "tre",
+        "vännerna",
+        "fredagen"
+      ],
+      "answer": 1,
+      "explanation": "\"Tre\" (three) tells how many friends there are — a numeral. \"De\" (the/they) is a pronoun and \"vännerna\" (the friends) is a noun, even though they stand right next to the numeral."
+    },
+    {
+      "id": "q-sv7-ord-7",
+      "kind": "worked",
+      "topic": "word classes",
+      "prompt": "Determine the word class of each word in the sentence: \"Två glada elever läste en bok.\" (\"Two happy students read a book.\")",
+      "opener": "Go word by word from left to right and ask: how many, what kind, what, or what does it do?",
+      "answer": "Två (two) = numeral, glada (happy) = adjective, elever (students) = noun, läste (read) = verb (preterite), en (a) = article/numeral, bok (book) = noun.",
+      "steps": [
+        "\"Två\" (two) answers the question how many — a numeral.",
+        "\"Glada\" (happy) describes what the students are like — an adjective.",
+        "\"Elever\" (students) are people and can be inflected en elev – eleven – elever (a student – the student – students) — a noun.",
+        "\"Läste\" (read) is what they do, and it has already happened — a verb in the preterite.",
+        "\"En bok\" (a book): \"en\" is the article that goes with the noun \"bok\"."
+      ]
+    },
+    {
+      "id": "q-sv7-ord-8",
+      "kind": "flashcard",
+      "topic": "word classes",
+      "prompt": "How do you recognise the five most common word classes?",
+      "opener": "One trick per word class goes a long way when sorting the words in a sentence.",
+      "answer": "Noun = things, people, places · try \"en/ett\" (\"a\") in front · inflects en bok – boken – böcker – böckerna (a book – the book – books – the books). Verb = what someone does or is · try \"jag ...\" (\"I ...\") in front · tenses: infinitive (att läsa, to read), present (läser, reads), preterite (läste, read). Adjective = what something is like · comparison: glad – gladare – gladast (happy – happier – happiest). Pronoun = replaces a noun · jag, du, han, hon, den, det, vi, ni, de, min, sin (I, you, he, she, it, it, we, you, they, my, his/her/its own). Numeral = how many or which in order · en, två, tre (cardinal numbers) · första, andra, tredje (ordinal numbers: first, second, third)."
+    }
+  ]
+}

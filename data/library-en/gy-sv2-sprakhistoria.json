@@ -1,0 +1,131 @@
+{
+  "id": "lib-sv2-sprakhistoria",
+  "type": "assignment",
+  "subject": "Svenska 2",
+  "title": "The history of the Swedish language",
+  "sourceSummary": "From Runic Swedish and Old Swedish, via Early Modern Swedish, to Modern Swedish — important language changes, loanwords from different periods, and why languages change.",
+  "topics": [
+    "Runic Swedish",
+    "Old Swedish",
+    "Early Modern Swedish",
+    "Modern Swedish",
+    "loanwords",
+    "language change",
+    "periodisation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv2-sprakhistoria-1",
+      "kind": "mc",
+      "topic": "Runic Swedish",
+      "prompt": "Which writing system was used during the Runic Swedish period (c. 800–1225)?",
+      "opener": "What was carved into stone during the Viking Age?",
+      "choices": [
+        "The Latin alphabet",
+        "Greek letters",
+        "Runes",
+        "Pictographic script without an alphabet"
+      ],
+      "answer": 2,
+      "explanation": "Runic Swedish is the name for the oldest stage of the Swedish language, when runes (chiefly the younger futhark) were used for writing, for example on runestones. The Latin alphabet was only introduced with the coming of Christianity."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-2",
+      "kind": "mc",
+      "topic": "Old Swedish",
+      "prompt": "Which event usually marks the transition from Runic Swedish to Old Swedish?",
+      "opener": "Which change of alphabet is linked to a new religion?",
+      "choices": [
+        "The Reformation and Gustav Vasa's Bible",
+        "Sweden becoming a unified nation",
+        "The Industrial Revolution",
+        "The introduction of Christianity and the Latin alphabet"
+      ],
+      "answer": 3,
+      "explanation": "Old Swedish (c. 1225–1526) begins when the Latin alphabet starts being used in connection with the Christianisation of Sweden. Gustav Vasa's Bible (1541) instead marks the beginning of Early Modern Swedish."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-3",
+      "kind": "mc",
+      "topic": "Old Swedish",
+      "prompt": "Which work is regarded as an important Old Swedish document that shows what the legal and written language looked like in the 14th century?",
+      "opener": "Think legal text, not fiction.",
+      "choices": [
+        "Magnus Eriksson's Code of the Realm (Magnus Erikssons landslag)",
+        "The New Testament in Swedish",
+        "The Freethinker by Thorild",
+        "The Red Room"
+      ],
+      "answer": 0,
+      "explanation": "Magnus Eriksson's Code of the Realm (c. 1350) is a central Old Swedish document that gives insight into medieval Swedish legal and written language. The other options belong to later periods."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-4",
+      "kind": "mc",
+      "topic": "Early Modern Swedish",
+      "prompt": "What did Gustav Vasa's Bible (1541) mean for the history of the Swedish language?",
+      "opener": "A Bible translation that became a linguistic guide for the whole country.",
+      "choices": [
+        "It is the first example of Runic Swedish",
+        "It contributed to more uniform Swedish spelling and marks the transition to Early Modern Swedish",
+        "It was written entirely in Latin",
+        "It was the first Swedish novel"
+      ],
+      "answer": 1,
+      "explanation": "Gustav Vasa's Bible (1541) was used in churches across the whole country and helped spread more uniform Swedish spelling and grammar — which is why it is often counted as the starting point of Early Modern Swedish."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-5",
+      "kind": "mc",
+      "topic": "loanwords",
+      "prompt": "During the 18th century, Swedish borrowed many words from French, for example \"balkong\" and \"affär\". Why was French so influential at that time?",
+      "opener": "Consider which country dominated Europe's culture and courts in the 18th century.",
+      "choices": [
+        "French was the trading language of the Hanseatic League",
+        "Sweden was occupied by France",
+        "French was the leading language of culture and courts in Europe during that period",
+        "French was the official language of the church"
+      ],
+      "answer": 2,
+      "explanation": "French was the international prestige language of the 18th century in culture, fashion and diplomacy, which led to a wave of French loanwords in Swedish. Low German loanwords instead dominated during the Middle Ages via the Hanseatic League."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-6",
+      "kind": "mc",
+      "topic": "Modern Swedish",
+      "prompt": "Which type of loanword has most strongly dominated Swedish during the 20th and 21st centuries?",
+      "opener": "Which language do you encounter in technology, film and the internet today?",
+      "choices": [
+        "English loanwords",
+        "Low German loanwords",
+        "French loanwords",
+        "Latin loanwords"
+      ],
+      "answer": 0,
+      "explanation": "English has been the clearly dominant source of new loanwords in Swedish during the Modern Swedish period, particularly in technology, popular culture and science."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-7",
+      "kind": "worked",
+      "topic": "language change",
+      "prompt": "Verb forms such as \"de sjöngo\" (\"they sang\", plural form) and \"vi sprungo\" (\"we ran\", plural form) have disappeared from spoken Swedish, and polite forms of address such as niandet (using \"ni\" for \"you\") are rarely used today. Explain why languages change over time and give at least two reasons.",
+      "opener": "Language is not static — what will affect how we speak in a hundred years?",
+      "answer": "Language is constantly changing due to, among other things, social and cultural development, contact with other languages, and a natural drift towards simpler, more regular forms — for example, the plural conjugation of verbs (vi sjöngo) has disappeared as the language has been simplified.",
+      "steps": [
+        "Language contact: encounters with other languages through trade, war, immigration and media bring in new words and expressions (loanwords).",
+        "Social and technological development: new phenomena and inventions require new words, while old words can disappear when what they described disappears.",
+        "Linguistic simplification: complicated inflection patterns, such as the plural forms of verbs (vi sjöngo, de sprungo), tend to disappear in favour of simpler, more regular forms.",
+        "Attitudes and norms also change — what was once polite or correct can, over time, come to be seen as old-fashioned, such as niandet (the formal use of \"ni\")."
+      ]
+    },
+    {
+      "id": "q-sv2-sprakhistoria-8",
+      "kind": "flashcard",
+      "topic": "periodisation",
+      "prompt": "Summarise the historical periods of the Swedish language and their approximate time spans.",
+      "opener": "Four names, four ages.",
+      "answer": "Runic Swedish (c. 800–1225): written with runes, the oldest attested Swedish · Old Swedish (1225–1526): the Latin alphabet is introduced with Christianity, e.g. Magnus Eriksson's Code of the Realm · Early Modern Swedish (1526–c. 1900): Gustav Vasa's Bible (1541) gives more uniform spelling, French loanwords during the 18th century · Modern Swedish (from c. 1900): today's Swedish, strongly influenced by English loanwords. The language keeps changing through language contact, social change and a drift towards simpler forms."
+    }
+  ]
+}

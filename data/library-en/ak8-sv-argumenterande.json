@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv8-argumenterande",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Argumentative writing",
+  "sourceSummary": "Thesis, arguments and counter-arguments — and how a letter to the editor or opinion piece is built up. You also practise the difference between factual reasons and emotional arguments.",
+  "topics": [
+    "thesis and arguments",
+    "counter-arguments",
+    "how the text is structured"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv8-arg-1",
+      "kind": "mc",
+      "topic": "thesis and arguments",
+      "prompt": "What is a thesis in an argumentative text?",
+      "opener": "The thesis is what you want the reader to agree with by the end of the text.",
+      "choices": [
+        "A question the text explores without answering",
+        "A summary of what other people think",
+        "The writer's opinion, formulated as a clear statement",
+        "The strongest factual argument in the text"
+      ],
+      "answer": 2,
+      "explanation": "The thesis is the actual position, for example \"School should start later in the morning\" — a statement you can agree with or argue against. An argument is not the same as the thesis: the arguments are the reasons that support it."
+    },
+    {
+      "id": "q-sv8-arg-2",
+      "kind": "mc",
+      "topic": "thesis and arguments",
+      "prompt": "The thesis is \"All secondary school students should get a free bus pass.\" Which option is an argument FOR the thesis?",
+      "opener": "An argument answers the question \"why?\" — it should support the thesis, not repeat it.",
+      "choices": [
+        "A free bus pass is a good idea.",
+        "Students who live far away arrive on time more often if the journey is free.",
+        "Many municipalities have bus passes.",
+        "I really think it should be introduced."
+      ],
+      "answer": 1,
+      "explanation": "This option gives a reason with a consequence: a free journey leads to more students arriving on time. \"A free bus pass is a good idea\" is just the thesis rephrased, and \"I really think\" is an opinion without a reason."
+    },
+    {
+      "id": "q-sv8-arg-3",
+      "kind": "mc",
+      "topic": "thesis and arguments",
+      "prompt": "Which of the statements is a factual reason rather than an emotional argument?",
+      "opener": "Factual reasons can be checked or reasoned about; emotional arguments appeal to how the reader feels.",
+      "choices": [
+        "Think of all the sad students sitting alone!",
+        "It's heartless not to care about young people.",
+        "Schools with playground supervisors report fewer conflicts in the schoolyard.",
+        "Who wants to live in a cold society?"
+      ],
+      "answer": 2,
+      "explanation": "The statement about playground supervisors is based on an observation that can be investigated and checked — it is a factual reason. The others appeal to compassion and shame, which can strengthen a text but prove nothing."
+    },
+    {
+      "id": "q-sv8-arg-4",
+      "kind": "mc",
+      "topic": "counter-arguments",
+      "prompt": "Why does a writer include counter-arguments in their own text?",
+      "opener": "Think about how you yourself react to someone who only sees one side of an issue.",
+      "choices": [
+        "To pad out the text so it becomes longer",
+        "To let the reader choose which side is right",
+        "To change opinion at the end of the text",
+        "To show that you are aware of the objections and can respond to them — it makes the text more credible"
+      ],
+      "answer": 3,
+      "explanation": "By raising and responding to counter-arguments, the writer shows that they have thought the issue through, which strengthens credibility. The point is not to leave the question open — after the response, the thesis should stand stronger than before."
+    },
+    {
+      "id": "q-sv8-arg-5",
+      "kind": "mc",
+      "topic": "counter-arguments",
+      "prompt": "The counter-argument reads: \"A later school start means students finish later in the afternoon.\" Which response best answers the counter-argument?",
+      "opener": "A good response first acknowledges the objection and then shows why it carries less weight.",
+      "choices": [
+        "That's a bad argument not worth discussing.",
+        "It's true that the day ends later, but students are more rested and therefore need fewer hours of homework at home.",
+        "Everyone knows a later school start is better.",
+        "Many other countries already have a later school start."
+      ],
+      "answer": 1,
+      "explanation": "The answer acknowledges that the objection is partly true and then presents a reason that outweighs it — that is how a counter-argument is answered. Dismissing the objection as bad or claiming \"everyone knows\" answers nothing and reduces credibility."
+    },
+    {
+      "id": "q-sv8-arg-6",
+      "kind": "mc",
+      "topic": "how the text is structured",
+      "prompt": "In what order is a letter to the editor usually structured?",
+      "opener": "Think about how the reader needs to know what you think before they can follow why.",
+      "choices": [
+        "Headline – introduction with thesis – arguments – answered counter-argument – conclusion with a call to action",
+        "Arguments – thesis – headline – conclusion",
+        "Introduction – counter-argument – conclusion – thesis",
+        "Headline – conclusion – headline again – arguments"
+      ],
+      "answer": 0,
+      "explanation": "A letter to the editor opens with a headline that sparks interest and a thesis that makes the position clear, followed by arguments, an answered counter-argument, and a conclusion that often includes a call to action. Saving the thesis for the end makes it hard for the reader to follow the arguments along the way."
+    },
+    {
+      "id": "q-sv8-arg-7",
+      "kind": "worked",
+      "topic": "counter-arguments",
+      "prompt": "Plan a letter to the editor with the thesis \"Phone-free lesson time should apply across the whole school.\" Formulate two arguments, one counter-argument and a response, plus a concluding call to action.",
+      "opener": "Start from the thesis, then find reasons that can be tested. Finally, work out what someone who thinks the opposite would say.",
+      "answer": "Thesis: Phone-free lesson time should apply across the whole school. Argument 1: Concentration improves when notifications don't interrupt work. Argument 2: Classes with a phone ban report fewer conflicts over photos and videos. Counter-argument: The phone is needed as a tool and to reach home. Response: It's true that contact may be needed, but the school's phone and the teacher's computer solve that without everyone having their phone out. Conclusion: Let's try phone-free lessons for one term and then evaluate.",
+      "steps": [
+        "Formulate the thesis as a statement, not a question — the reader should immediately know what you want.",
+        "Choose arguments that are factual reasons and can be tested: concentration and fewer conflicts, not just \"phones are distracting\".",
+        "Put yourself in the opponent's shoes for a moment: the strongest counter-argument is that the phone is needed as a tool and for contact.",
+        "Respond by first acknowledging what is true and then showing that the problem can be solved another way.",
+        "End with a concrete call to action — a suggestion to try something and then evaluate it is easier to agree to than a demand."
+      ]
+    },
+    {
+      "id": "q-sv8-arg-8",
+      "kind": "flashcard",
+      "topic": "thesis and arguments",
+      "prompt": "What needs to be included in an argumentative text, and how does a letter to the editor differ from an opinion article?",
+      "opener": "The parts first, then the two text types.",
+      "answer": "Parts · thesis: your opinion as a clear statement · arguments: reasons that answer \"why?\", ideally 2-3, one per paragraph · counter-argument: the objection someone else would raise · response: acknowledge what is true, then show why your reason weighs more · conclusion: summary plus a call to action. Factual reasons · can be checked or reasoned about · strongest. Emotional arguments · appeal to compassion or fear · can strengthen but prove nothing · work best as seasoning. Letter to the editor · short, personal, written by anyone · published on the newspaper's letters page · often signed with just initials or a pseudonym. Opinion article · longer, more factual, usually signed with a full name and title · aimed at a specific decision-maker or opposing party."
+    }
+  ]
+}

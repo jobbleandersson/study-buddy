@@ -1,0 +1,128 @@
+{
+  "id": "lib-en8-adjectives",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Grammar: comparison and adverbs",
+  "sourceSummary": "Comparing adjectives with -er/-est or more/most, the irregular forms good/better/best and bad/worse/worst, and the difference between adjectives and adverbs. Here you also practise comparisons with as ... as and than.",
+  "topics": [
+    "comparison",
+    "irregular adjectives",
+    "adjectives and adverbs",
+    "comparisons"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en8-adj-1",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Choose the correct form: \"My bike is ___ than yours.\"",
+      "opener": "Short adjectives (one syllable) are compared with -er, not with \"more\".",
+      "choices": [
+        "more fast",
+        "faster",
+        "fastest",
+        "more faster"
+      ],
+      "answer": 1,
+      "explanation": "\"Fast\" has only one syllable and is compared with -er: faster. \"More fast\" is wrong because \"more\" is used for longer adjectives, and \"more faster\" is double comparison."
+    },
+    {
+      "id": "q-en8-adj-2",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Choose the correct form: \"This is the ___ film I have ever seen.\"",
+      "opener": "Long adjectives (three syllables or more) take most in the superlative.",
+      "choices": [
+        "interestingest",
+        "most interesting",
+        "more interesting",
+        "most interestingest"
+      ],
+      "answer": 1,
+      "explanation": "\"Interesting\" is long and is compared with more/most: the most interesting. \"More interesting\" is comparative and means \"more interesting\" in a comparison of two, but here the superlative is required after \"the\"."
+    },
+    {
+      "id": "q-en8-adj-3",
+      "kind": "mc",
+      "topic": "irregular adjectives",
+      "prompt": "Choose the correct form: \"The weather today is ___ than yesterday — it's raining and freezing.\"",
+      "opener": "\"Bad\" doesn't follow the -er pattern but has its own completely different form.",
+      "choices": [
+        "badder",
+        "more bad",
+        "worse",
+        "worst"
+      ],
+      "answer": 2,
+      "explanation": "\"Bad\" is compared irregularly: bad – worse – worst. \"Worst\" is superlative and can't be used together with \"than\", which always goes with the comparative."
+    },
+    {
+      "id": "q-en8-adj-4",
+      "kind": "mc",
+      "topic": "adjectives and adverbs",
+      "prompt": "Choose the correct word: \"He speaks English very ___.\"",
+      "opener": "Does the word describe the noun \"English\", or how he speaks?",
+      "choices": [
+        "good",
+        "well",
+        "best",
+        "goodly"
+      ],
+      "answer": 1,
+      "explanation": "The word describes how he speaks, that is, the verb — so the adverb \"well\" is used. \"Good\" is an adjective and describes nouns: \"His English is good.\""
+    },
+    {
+      "id": "q-en8-adj-5",
+      "kind": "mc",
+      "topic": "adjectives and adverbs",
+      "prompt": "Which sentence is correct?",
+      "opener": "Adverbs are usually formed from the adjective + -ly and describe how something is done.",
+      "choices": [
+        "She answered the question quick and correct.",
+        "She answered the question quickly and correctly.",
+        "She answered quickly the question correct.",
+        "She quick answered the question correctly."
+      ],
+      "answer": 1,
+      "explanation": "The words describe how she answered, so the adverb forms quickly and correctly are used. \"Quick\" and \"correct\" are adjectives and would describe a noun, for example \"a quick answer\"."
+    },
+    {
+      "id": "q-en8-adj-6",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Choose the correct form: \"My sister is ___ me — we are both 165 cm.\"",
+      "opener": "When the degree is equal, a fixed construction with two small words around the adjective is used.",
+      "choices": [
+        "as tall as",
+        "as taller as",
+        "so tall than",
+        "as tall than"
+      ],
+      "answer": 0,
+      "explanation": "Equal degree is expressed with as + the base form of the adjective + as: \"as tall as me\". \"Than\" is only used after a comparative, for example \"taller than me\"."
+    },
+    {
+      "id": "q-en8-adj-7",
+      "kind": "worked",
+      "topic": "comparison",
+      "prompt": "Correct the four errors: \"My new phone is more better than my old one. It is the expensivest phone in the shop, but the camera works very good and it starts more quick.\"",
+      "opener": "Look for double comparison, an incorrect superlative form, and an adjective that should be an adverb.",
+      "answer": "My new phone is better than my old one. It is the most expensive phone in the shop, but the camera works very well and it starts more quickly.",
+      "steps": [
+        "\"more better\" → \"better\". \"Good\" is compared irregularly to better, and you never combine \"more\" with an -er form.",
+        "\"the expensivest\" → \"the most expensive\". Adjectives with three syllables take most in the superlative, not -est.",
+        "\"works very good\" → \"works very well\". The word describes how the camera works, so the adverb well is needed.",
+        "\"starts more quick\" → \"starts more quickly\". The adverb of quick is quickly, and it's the adverb form that is compared here."
+      ]
+    },
+    {
+      "id": "q-en8-adj-8",
+      "kind": "flashcard",
+      "topic": "comparison",
+      "prompt": "How are adjectives compared in English, and when are adverbs used instead of adjectives?",
+      "opener": "Regular · irregular · adjective versus adverb.",
+      "answer": "Short adjectives (1 syllable, often also 2 ending in -y): -er/-est — old/older/oldest · easy/easier/easiest (y becomes i) · big/bigger/biggest (double consonant) · Long adjectives (2–3+ syllables): more/most — more careful/most careful · Irregular: good/better/best · bad/worse/worst · much–many/more/most · little/less/least · far/further/furthest · Never double comparison: \"more better\" and \"most easiest\" are wrong · Comparative + than (taller than me) · equal degree: as + base form + as (as tall as me) · Adjectives describe nouns (a quick car, her English is good) · Adverbs describe verbs and are usually formed with -ly (drives quickly, speaks well) · Remember: good → the adverb well."
+    }
+  ]
+}

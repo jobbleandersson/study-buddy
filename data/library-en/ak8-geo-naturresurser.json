@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo8-naturresurser",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Natural resources and energy",
+  "sourceSummary": "What separates renewable from non-renewable resources, where in the world the most important resources are found, the pros and cons of different energy sources, how fresh water is distributed, and why resource use is so uneven between rich and poor countries.",
+  "topics": [
+    "renewable and non-renewable resources",
+    "where resources are found in the world",
+    "pros and cons of energy sources",
+    "water resources",
+    "resource use in rich and poor countries"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo8-nat-1",
+      "kind": "mc",
+      "topic": "renewable and non-renewable resources",
+      "prompt": "Which of the following is a non-renewable natural resource?",
+      "opener": "A non-renewable resource is not replenished within human timescales – once it has been extracted, it is gone.",
+      "choices": [
+        "Wind power",
+        "Solar energy",
+        "Oil",
+        "Forest"
+      ],
+      "answer": 2,
+      "explanation": "Oil has formed over millions of years from the remains of plants and animals, so once it is pumped up and burned it cannot be replaced – it is non-renewable. Wind and sun are constantly renewed, and forest counts as renewable as long as planting and felling are kept in balance."
+    },
+    {
+      "id": "q-geo8-nat-2",
+      "kind": "mc",
+      "topic": "where resources are found in the world",
+      "prompt": "In which part of the world are some of the largest known oil reserves found?",
+      "opener": "Countries such as Saudi Arabia, Iraq and Kuwait are located there.",
+      "choices": [
+        "Northern Europe",
+        "The area around the Persian Gulf in the Middle East",
+        "Central Africa",
+        "Southeast Asia"
+      ],
+      "answer": 1,
+      "explanation": "The countries around the Persian Gulf – including Saudi Arabia, Iran, Iraq, Kuwait and the United Arab Emirates – hold a very large share of the world's known oil reserves, which has given them great economic and political importance. The North Sea has oil but in significantly smaller quantities, and Central Africa and Southeast Asia have other important resources, such as minerals and tropical timber."
+    },
+    {
+      "id": "q-geo8-nat-3",
+      "kind": "mc",
+      "topic": "pros and cons of energy sources",
+      "prompt": "What is a disadvantage of hydropower?",
+      "opener": "Think about what happens to the river and the landscape when a dam is built.",
+      "choices": [
+        "It releases a lot of carbon dioxide when the electricity is produced",
+        "It provides very little electricity relative to the cost",
+        "The fuel runs out quickly",
+        "Dams change the river's ecosystem and can force people to move"
+      ],
+      "answer": 3,
+      "explanation": "Hydropower produces large amounts of electricity with almost no emissions, but building dams holds back rivers, blocks fish migration, changes the ecosystem, and can put villages and farmland under water. Carbon dioxide emissions from power production and fuel running out are instead problems associated with fossil fuels."
+    },
+    {
+      "id": "q-geo8-nat-4",
+      "kind": "mc",
+      "topic": "pros and cons of energy sources",
+      "prompt": "Which energy sources account for the largest share of Sweden's electricity production?",
+      "opener": "Think about the rivers in Norrland and the large power stations on the coast.",
+      "choices": [
+        "Hydropower and nuclear power, together with rapidly growing wind power",
+        "Coal power and oil-fired power stations",
+        "Solar power and biogas",
+        "Natural gas and peat"
+      ],
+      "answer": 0,
+      "explanation": "Sweden's electricity comes mainly from hydropower and nuclear power, while wind power has grown strongly in recent years – together they give an electricity production with low carbon dioxide emissions. Coal, oil and natural gas are used very sparingly in Swedish electricity production, unlike in many other countries."
+    },
+    {
+      "id": "q-geo8-nat-5",
+      "kind": "mc",
+      "topic": "water resources",
+      "prompt": "How large a share of the Earth's water is fresh water that people can easily use?",
+      "opener": "Most of the water on Earth is in the oceans, and a large part of the fresh water is frozen.",
+      "choices": [
+        "About half",
+        "About a quarter",
+        "A very small share – most is salt water or locked up in glaciers and deep ground",
+        "Almost all of it, but it is unevenly distributed"
+      ],
+      "answer": 2,
+      "explanation": "Around 97 per cent of the Earth's water is salt water, and of the small amount of fresh water that exists, most is locked up in glaciers, ice sheets and deep groundwater – only a fraction of a per cent is easily accessible in lakes and rivers. That is why water scarcity is a growing problem in many regions despite the Earth looking water-rich."
+    },
+    {
+      "id": "q-geo8-nat-6",
+      "kind": "mc",
+      "topic": "resource use in rich and poor countries",
+      "prompt": "What does an ecological footprint measure?",
+      "opener": "The measure converts our consumption into how much nature it requires.",
+      "choices": [
+        "How much waste a household throws away per week",
+        "How much nature and natural resources a person or a country consumes",
+        "How large an area a country covers on the map",
+        "How many degrees the temperature rises in a country"
+      ],
+      "answer": 1,
+      "explanation": "The ecological footprint converts food, transport, housing and goods into the area of nature required to produce them and absorb the emissions – often expressed as a \"number of Earths\" if everyone lived the same way. The amount of waste is only a small part of this, and a country's area on the map has nothing to do with the measure."
+    },
+    {
+      "id": "q-geo8-nat-7",
+      "kind": "worked",
+      "topic": "resource use in rich and poor countries",
+      "prompt": "Explain why a person in a high-income country consumes significantly more natural resources than a person in a low-income country.",
+      "opener": "Go through an ordinary day: how you travel, what you eat, how you live and what you buy.",
+      "answer": "The difference is down to consumption level and lifestyle. In a high-income country, people travel further and more often by car and plane, live in larger, heated homes with many appliances, eat more meat and dairy products that require a lot of land, water and feed, and often buy new clothes and electronics that are replaced at a fast pace. Each such item requires metals, energy and transport, and much of the production also takes place in other countries – the emissions and resource extraction happen there, but the item is used here. In a low-income country, income is much lower, food is more often plant-based and locally produced, travel is shorter and possessions are fewer and used for longer. That is why the ecological footprint per person can differ many times over between countries.",
+      "steps": [
+        "Higher income means people can buy more goods, energy and travel.",
+        "Transport: cars and planes require large amounts of fossil energy compared with walking, cycling and buses.",
+        "Housing: larger homes that are heated or cooled, plus many electrical appliances.",
+        "Food: a lot of meat and dairy requires more land, feed and water than a plant-based diet.",
+        "Goods: clothes, electronics and furniture are often replaced, and the resources are also often extracted in other countries than where the item is used."
+      ]
+    },
+    {
+      "id": "q-geo8-nat-8",
+      "kind": "flashcard",
+      "topic": "renewable and non-renewable resources",
+      "prompt": "Summarise natural resources, energy sources and water.",
+      "opener": "Think resource types, where they are found, the pros and cons of energy sources, and how water is distributed.",
+      "answer": "Natural resource: something in nature that humans use · renewable: sun, wind, water, waves, geothermal energy, forest and fish (if used at the rate they are replenished) · non-renewable: oil, coal, natural gas, uranium and metals formed over millions of years · fossil fuels cause carbon dioxide emissions and climate impact but are easy to store and transport · nuclear power: low carbon dioxide emissions and a lot of electricity, but radioactive waste and high construction costs · hydropower: a lot of electricity and controllable, but dams damage ecosystems and can force people to move · wind power and solar power: no emissions during operation but vary with the weather and require materials for the installations · bioenergy: renewable if the forest regrows, but competes for land · Sweden's electricity comes mainly from hydropower, nuclear power and wind power · resources are unevenly distributed: oil around the Persian Gulf, iron in Australia, Brazil and Sweden, copper in Chile, rare earth metals in China · water: about 97 per cent is salt water and much of the fresh water is locked up in ice, so only a fraction is easy to use · water scarcity and falling groundwater levels are big problems in dry areas · ecological footprint: a measure of how much nature a person or a country consumes – many times greater in high-income countries than in low-income countries."
+    }
+  ]
+}

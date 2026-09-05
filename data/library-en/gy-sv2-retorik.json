@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv2-retorik",
+  "type": "assignment",
+  "subject": "Svenska 2",
+  "title": "Rhetorical analysis",
+  "sourceSummary": "Analysing real speeches using rhetorical concepts — modes of appeal, figures of speech and the six parts of classical disposition — as well as the difference between giving a speech and analysing one.",
+  "topics": [
+    "modes of appeal",
+    "figures of speech",
+    "disposition",
+    "speech analysis"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv2-retorik-1",
+      "kind": "mc",
+      "topic": "disposition",
+      "prompt": "Which part of the classical speech disposition has the task of addressing and dismissing counterarguments?",
+      "opener": "The name roughly means \"refutation\".",
+      "choices": [
+        "Narratio",
+        "Propositio",
+        "Peroratio",
+        "Confutatio (refutatio)"
+      ],
+      "answer": 3,
+      "explanation": "Confutatio (also called refutatio) is the part of the speech where the speaker addresses and refutes the opponent's arguments. Propositio presents the speaker's main thesis, and peroratio is the conclusion."
+    },
+    {
+      "id": "q-sv2-retorik-2",
+      "kind": "mc",
+      "topic": "disposition",
+      "prompt": "What is the difference between narratio and argumentatio in the classical disposition?",
+      "opener": "One part narrates what happened, another part persuades.",
+      "choices": [
+        "They are synonymous terms for the introduction of the speech",
+        "Narratio recounts the background and the facts of the matter, argumentatio presents evidence for the speaker's thesis",
+        "Narratio is the conclusion, argumentatio is the introduction",
+        "Argumentatio always comes before exordium"
+      ],
+      "answer": 1,
+      "explanation": "Narratio provides background information and recounts the state of affairs, while argumentatio is the part in which the speaker presents their arguments and evidence for their position."
+    },
+    {
+      "id": "q-sv2-retorik-3",
+      "kind": "mc",
+      "topic": "figures of speech",
+      "prompt": "\"We came, we saw, we conquered.\" Which figure of speech is this phrasing built on?",
+      "opener": "Count the parts — how many are there, and what happens to the rhythm?",
+      "choices": [
+        "Metonymy",
+        "Euphemism",
+        "Tricolon",
+        "Litotes"
+      ],
+      "answer": 2,
+      "explanation": "A tricolon is a list of three parts that creates rhythm and emphasis — a classic example is Caesar's \"veni, vidi, vici\". Metonymy, by contrast, involves replacing a word with a closely related concept."
+    },
+    {
+      "id": "q-sv2-retorik-4",
+      "kind": "mc",
+      "topic": "figures of speech",
+      "prompt": "\"That's one small step for a man, one giant leap for mankind.\" The sentence is built on which figure of speech by setting \"small\" against \"giant\" and \"a man\" against \"mankind\"?",
+      "opener": "Two opposites are set against each other for effect.",
+      "choices": [
+        "Antithesis",
+        "Alliteration",
+        "Irony",
+        "Personification"
+      ],
+      "answer": 0,
+      "explanation": "Antithesis involves setting opposites against each other to create contrast and emphasis. The phrasing is built precisely on the contrast between the small and the great."
+    },
+    {
+      "id": "q-sv2-retorik-5",
+      "kind": "mc",
+      "topic": "speech analysis",
+      "prompt": "What is the most important difference between giving a speech and analysing a speech?",
+      "opener": "One role persuades, the other examines.",
+      "choices": [
+        "There is no difference",
+        "Analysis is only about summarising the content of the speech",
+        "Giving a speech is about persuading an audience, analysing a speech is about examining HOW the speaker tries to persuade",
+        "Giving a speech requires no rhetorical concepts, but analysis does"
+      ],
+      "answer": 2,
+      "explanation": "When giving a speech, one uses rhetorical means to persuade an audience. When analysing a speech, one instead steps back and examines which means (modes of appeal, figures of speech, disposition) the speaker uses and why they work — or do not work."
+    },
+    {
+      "id": "q-sv2-retorik-6",
+      "kind": "mc",
+      "topic": "modes of appeal",
+      "prompt": "A speaker chooses to give a speech about equality on International Women's Day. Which rhetorical concept describes the importance of choosing the right occasion for a speech?",
+      "opener": "A concept for \"the right moment\".",
+      "choices": [
+        "Logos",
+        "Kairos",
+        "Ethos",
+        "Dispositio"
+      ],
+      "answer": 1,
+      "explanation": "Kairos is about choosing the most fitting moment or context for a message — speaking about equality precisely on Women's Day strengthens the speech's impact."
+    },
+    {
+      "id": "q-sv2-retorik-7",
+      "kind": "worked",
+      "topic": "speech analysis",
+      "prompt": "Greta Thunberg's speech at the UN Climate Action Summit in 2019 had a huge impact even though the speaker was young and previously unknown to most listeners. Analyse which rhetorical means nonetheless give the speech strong impact.",
+      "opener": "Consider what can compensate for a lack of formal authority.",
+      "answer": "The speech gains power through an unusual combination of strong pathos (an angry, emotionally charged tone), repetitions that build up an escalating crescendo, and an ethos built up through the speaker's personal credibility as a representative of an entire generation rather than through formal expertise.",
+      "steps": [
+        "The speaker's ethos is not built on traditional authority (age, title or expert knowledge), but on moral credibility as a representative of young people affected by climate change.",
+        "Pathos is prominent through the angry, emotionally charged tone that conveys seriousness and urgency to the listeners.",
+        "Repeated, accusatory phrasings gradually build up the intensity towards the end of the speech, which is an example of anaphora.",
+        "The combination of personal pathos and a clearly structured escalation makes the speech memorable despite the absence of traditional formal authority."
+      ]
+    },
+    {
+      "id": "q-sv2-retorik-8",
+      "kind": "flashcard",
+      "topic": "disposition",
+      "prompt": "Summarise the six parts of the classical speech disposition.",
+      "opener": "From greeting to closing appeal — six steps.",
+      "answer": "Exordium: the introduction that captures attention and builds goodwill · Narratio: background and an account of the state of affairs · Propositio: the speaker's thesis or main message · Argumentatio: arguments and evidence for the thesis · Confutatio (refutatio): addressing counterarguments · Peroratio: a summarising and emotionally charged conclusion meant to stay with the audience."
+    }
+  ]
+}

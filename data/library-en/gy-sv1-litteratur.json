@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv1-litteratur",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Literary concepts and analysis",
+  "sourceSummary": "Genres, narrative perspective, figurative language, and the difference between theme and motif - the concepts you need to write an analysis that holds up.",
+  "topics": [
+    "genres",
+    "narrative perspective",
+    "figurative language",
+    "theme and motif"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-lit-1",
+      "kind": "mc",
+      "topic": "genres",
+      "prompt": "Which main genre does a short story belong to?",
+      "opener": "Is it about storytelling, poetry, or something meant to be performed?",
+      "choices": [
+        "Narrative fiction (epic)",
+        "Drama",
+        "Non-fiction",
+        "Poetry"
+      ],
+      "answer": 0,
+      "explanation": "Narrative fiction (epic) is storytelling literature - novels, short stories and epics. Poetry (lyric) is verse, and drama is text written to be performed on stage."
+    },
+    {
+      "id": "q-sv1-lit-2",
+      "kind": "mc",
+      "topic": "figurative language",
+      "prompt": "\"Her eyes were like two dark wells.\" What figure of speech is this?",
+      "opener": "Look for a small word that reveals it's a comparison.",
+      "choices": [
+        "Personification",
+        "Simile",
+        "Symbol",
+        "Metaphor"
+      ],
+      "answer": 1,
+      "explanation": "A simile compares two things using a word such as \"like\" or \"as\". Without the comparison word - \"her eyes were two dark wells\" - it would have been a metaphor."
+    },
+    {
+      "id": "q-sv1-lit-3",
+      "kind": "mc",
+      "topic": "figurative language",
+      "prompt": "\"The wind whispered through the treetops.\" What figure of speech is this?",
+      "opener": "What is it that the wind is doing, which really only humans can do?",
+      "choices": [
+        "Hyperbole",
+        "Metonymy",
+        "Personification",
+        "Simile"
+      ],
+      "answer": 2,
+      "explanation": "Personification means giving something non-human human qualities. The wind cannot whisper - only people can."
+    },
+    {
+      "id": "q-sv1-lit-4",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "The narrator relays what several different characters think and feel, even things none of them know about each other. Which narrative perspective is this?",
+      "opener": "How much does the narrator know compared with the characters?",
+      "choices": [
+        "Limited third-person narrator",
+        "Unreliable narrator",
+        "First-person narrator",
+        "Omniscient narrator"
+      ],
+      "answer": 3,
+      "explanation": "An omniscient narrator stands outside the action and has access to every character's inner life. A limited third-person narrator only follows one character's perspective."
+    },
+    {
+      "id": "q-sv1-lit-5",
+      "kind": "mc",
+      "topic": "theme and motif",
+      "prompt": "A novel is about a boy who moves to a new city, changes school and eventually finds a friend. What is the work's THEME most likely to be?",
+      "opener": "The motif is what happens. The theme is what the book is really about.",
+      "choices": [
+        "Exclusion and belonging",
+        "A boy who makes a friend",
+        "A move to a new city",
+        "Changing schools as a teenager"
+      ],
+      "answer": 0,
+      "explanation": "The theme is the overarching, abstract idea - here, exclusion and belonging. The other options describe motif and plot, i.e. the concrete things that happen."
+    },
+    {
+      "id": "q-sv1-lit-6",
+      "kind": "mc",
+      "topic": "figurative language",
+      "prompt": "In a short story a broken clock keeps recurring, and it seems to stand for the main character's stalled life. What is such a concrete object with a transferred meaning called?",
+      "opener": "An object that means more than itself.",
+      "choices": [
+        "Alliteration",
+        "Symbol",
+        "Simile",
+        "Irony"
+      ],
+      "answer": 1,
+      "explanation": "A symbol is something concrete that represents something abstract - here the clock as an image for a life that has stopped."
+    },
+    {
+      "id": "q-sv1-lit-7",
+      "kind": "worked",
+      "topic": "theme and motif",
+      "prompt": "Distinguish between motif and theme in the following: a short story portrays an old man who feeds pigeons in the park every day and talks to his deceased wife. What is the motif and what is the theme?",
+      "opener": "Ask yourself: what do we SEE happening, and what is it really ABOUT?",
+      "answer": "Motif: the daily pigeon-feeding and the conversations with the dead wife. Theme: grief, loneliness and coping with loss.",
+      "steps": [
+        "Motif is the concrete, recurring elements in the text - what you can point to: the park, the pigeons, the daily conversations with the wife.",
+        "Theme is the abstract idea that the motifs carry: grief and loneliness, and how one holds on to someone who is gone.",
+        "A good test: the motif can be summarised as an action (\"a man feeds pigeons\"), the theme has to be phrased as a concept or a statement about life (\"grief expresses itself through everyday rituals\").",
+        "In an analysis you should always link the theme to concrete examples from the text - otherwise the claim is unsupported."
+      ]
+    },
+    {
+      "id": "q-sv1-lit-8",
+      "kind": "flashcard",
+      "topic": "figurative language",
+      "prompt": "Explain the difference between simile, metaphor, personification and symbol.",
+      "opener": "Four ways of saying something figuratively - what sets them apart?",
+      "answer": "Simile: a comparison with \"like\" or \"as\" (\"strong as a bear\"). Metaphor: a comparison without a comparison word - something IS something else (\"he is a bear\"). Personification: something non-human is given human traits (\"the sun smiled\"). Symbol: a concrete object that consistently stands for something abstract (the dove for peace)."
+    }
+  ]
+}

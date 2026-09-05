@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma8-procent",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Percentages and the change factor",
+  "sourceSummary": "Working with the change factor for increases and discounts, working backwards to the original price, and keeping percent and percentage points apart.",
+  "topics": [
+    "percentages",
+    "change factor",
+    "interest"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma8-pro-1",
+      "kind": "mc",
+      "topic": "change factor",
+      "prompt": "A price is raised by 25%. Which change factor should you multiply by?",
+      "opener": "Start from the whole price, 100%, and add the increase.",
+      "choices": [
+        "0.25",
+        "1.25",
+        "12.5",
+        "0.75"
+      ],
+      "answer": 1,
+      "explanation": "The new price is $100\\,\\% + 25\\,\\% = 125\\,\\%$ of the old one, that is, the factor $1.25$. The factor $0.25$ only gives the increase itself, not the new price."
+    },
+    {
+      "id": "q-ma8-pro-2",
+      "kind": "mc",
+      "topic": "change factor",
+      "prompt": "A jacket costs 400 kr and is sold with a 20% discount. What is the new price?",
+      "opener": "What percentage of the price is left when 20% has been taken off?",
+      "choices": [
+        "380 kr",
+        "320 kr",
+        "80 kr",
+        "480 kr"
+      ],
+      "answer": 1,
+      "explanation": "What's left is $100\\,\\% - 20\\,\\% = 80\\,\\%$, that is, the factor $0.8$: $400 \\cdot 0.8 = 320$ kr. The answer 80 kr is the discount in kronor, not the price you pay."
+    },
+    {
+      "id": "q-ma8-pro-3",
+      "kind": "mc",
+      "topic": "percentages",
+      "prompt": "After a 20% discount, a jacket costs 480 kr. What did it cost before the discount?",
+      "opener": "Working backwards: you know the result and the factor — what do you do instead of multiplying?",
+      "choices": [
+        "576 kr",
+        "600 kr",
+        "500 kr",
+        "960 kr"
+      ],
+      "answer": 1,
+      "explanation": "480 kr corresponds to $80\\,\\%$ of the original price, so $480 / 0.8 = 600$ kr. The answer 576 kr comes from instead adding 20% to 480 — but 20% of the lower price is a smaller amount than the discount was."
+    },
+    {
+      "id": "q-ma8-pro-4",
+      "kind": "mc",
+      "topic": "percentages",
+      "prompt": "The share of pupils who cycle to school increased from 15% to 21%. How big is the increase?",
+      "opener": "There are two different ways to answer here — and the wording decides which is which.",
+      "choices": [
+        "6%",
+        "6 percentage points",
+        "40 percentage points",
+        "36 percentage points"
+      ],
+      "answer": 1,
+      "explanation": "The difference between two percentage figures is measured in percentage points: $21 - 15 = 6$ percentage points. Expressed as a percentage, the increase is $6/15 = 0.40 = 40\\,\\%$. Writing \"6%\" is wrong because a percentage increase is always calculated relative to the starting value."
+    },
+    {
+      "id": "q-ma8-pro-5",
+      "kind": "mc",
+      "topic": "interest",
+      "prompt": "You deposit 4,000 kr into a savings account with 3% interest per year. How much interest do you get after one year?",
+      "opener": "Interest is just a percentage of the deposited amount.",
+      "choices": [
+        "12 kr",
+        "120 kr",
+        "1,200 kr",
+        "400 kr"
+      ],
+      "answer": 1,
+      "explanation": "$4000 \\cdot 0.03 = 120$ kr. A common mistake is to calculate $4000 \\cdot 0.3$ and get 1,200 kr — remember that 3% is $3/100 = 0.03$."
+    },
+    {
+      "id": "q-ma8-pro-6",
+      "kind": "mc",
+      "topic": "change factor",
+      "prompt": "A price is first raised by 10% and then lowered by 10%. How does the final price compare with the starting price?",
+      "opener": "Multiply the two change factors together and see what the product becomes.",
+      "choices": [
+        "Exactly the same as at the start",
+        "1% lower than at the start",
+        "1% higher than at the start",
+        "20% lower than at the start"
+      ],
+      "answer": 1,
+      "explanation": "The factors are multiplied together: $1.1 \\cdot 0.9 = 0.99$, that is, 99% of the starting price — 1% lower. It feels like it should cancel out, but the reduction is calculated on the already-raised price and so is bigger in kronor than the increase was."
+    },
+    {
+      "id": "q-ma8-pro-7",
+      "kind": "worked",
+      "topic": "change factor",
+      "prompt": "A bike costs 3,200 kr. During the sale, the price is lowered by 25%. After the sale, the sale price is raised by 20%. What does the bike cost after the increase?",
+      "opener": "Take one change at a time, and always calculate on the most recent price.",
+      "answer": "2,880 kr",
+      "steps": [
+        "A 25% reduction gives the change factor $1 - 0.25 = 0.75$.",
+        "Sale price: $3200 \\cdot 0.75 = 2400$ kr.",
+        "A 20% increase gives the change factor $1 + 0.20 = 1.20$.",
+        "New price: $2400 \\cdot 1.20 = 2880$ kr.",
+        "Check with a single combined factor: $0.75 \\cdot 1.20 = 0.90$, and $3200 \\cdot 0.90 = 2880$ kr — so the bike is 10% cheaper than at the start. ✓"
+      ]
+    },
+    {
+      "id": "q-ma8-pro-8",
+      "kind": "flashcard",
+      "topic": "change factor",
+      "prompt": "How do you use a change factor, and what is the difference between percent and percentage points?",
+      "opener": "Three things: how the factor is formed, how you work backwards, and the difference in wording.",
+      "answer": "Increase by $p$%: factor $= 1 + p/100$ (e.g. $+15\\,\\% \\to 1.15$) · Decrease by $p$%: factor $= 1 - p/100$ (e.g. $-15\\,\\% \\to 0.85$) · New value $=$ old value $\\cdot$ the factor · Working backwards: old value $=$ new value $/$ the factor · Several changes one after another: multiply the factors together · A factor $> 1$ means an increase, a factor $< 1$ means a decrease · Percentage points $=$ the difference between two percentage figures (15% → 21% is $+6$ percentage points) · Percent $=$ the change relative to the starting value (the same change is $+40\\,\\%$) · Simple interest for one year $=$ the capital $\\cdot$ the interest rate."
+    }
+  ]
+}

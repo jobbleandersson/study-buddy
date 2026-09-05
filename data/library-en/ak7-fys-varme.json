@@ -1,0 +1,130 @@
+{
+  "id": "lib-fys7-varme",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Heat and temperature",
+  "sourceSummary": "The difference between heat as energy and temperature as a measurement, the fixed points of the Celsius scale, and the three ways heat spreads: conduction, convection and radiation. You also practise thermal expansion and why insulation keeps heat in.",
+  "topics": [
+    "heat and temperature",
+    "the Celsius scale",
+    "heat transfer",
+    "thermal expansion",
+    "insulation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys7-var-1",
+      "kind": "mc",
+      "topic": "heat and temperature",
+      "prompt": "What is the difference between heat and temperature?",
+      "opener": "One is a form of energy, the other is a measured value.",
+      "choices": [
+        "They're just two words for exactly the same thing",
+        "Heat is energy being transferred, temperature is a measure of how fast the particles are moving",
+        "Heat is measured in degrees, temperature is measured in joules",
+        "Temperature only exists in warm objects, heat only in cold ones"
+      ],
+      "answer": 1,
+      "explanation": "Heat is energy that moves from something warmer to something colder and is measured in joules (J), while temperature is a measure of how the particles are moving and is measured in degrees Celsius. Calling them the same thing doesn't work: a cup and a bathtub can have the same temperature, but the tub contains far more heat energy since it holds more water."
+    },
+    {
+      "id": "q-fys7-var-2",
+      "kind": "mc",
+      "topic": "the Celsius scale",
+      "prompt": "Which two fixed points is the Celsius scale built on?",
+      "opener": "Both points are about water at normal air pressure.",
+      "choices": [
+        "Water's freezing point and body temperature",
+        "Room temperature and water's boiling point",
+        "Water's freezing point at 0 °C and boiling point at 100 °C",
+        "Absolute zero and water's boiling point"
+      ],
+      "answer": 2,
+      "explanation": "The Celsius scale is built on water: 0 °C where water freezes and 100 °C where it boils at normal air pressure, with the gap divided into 100 equal degrees. Body temperature (about 37 °C) isn't a fixed point at all — it varies between people and over the course of a day."
+    },
+    {
+      "id": "q-fys7-var-3",
+      "kind": "mc",
+      "topic": "heat transfer",
+      "prompt": "Why does a metal handle feel colder than a wooden handle, even though they're in the same room?",
+      "opener": "Think about which material draws heat away from your hand fastest.",
+      "choices": [
+        "Metal conducts heat well and quickly draws heat away from the hand",
+        "The metal genuinely has a lower temperature than the wood",
+        "The wood sends out heat radiation towards the hand",
+        "The metal contains cold air inside it"
+      ],
+      "answer": 0,
+      "explanation": "Both objects are at room temperature, but metal is a good heat conductor and carries heat away from the skin quickly, which we experience as coldness. Wood is an insulator and carries heat away slowly, so it feels warmer despite being exactly the same temperature."
+    },
+    {
+      "id": "q-fys7-var-4",
+      "kind": "mc",
+      "topic": "heat transfer",
+      "prompt": "How does the sun's heat reach the Earth through space?",
+      "opener": "Space is almost empty — there are hardly any particles there.",
+      "choices": [
+        "Through heat conduction in the air between the sun and the Earth",
+        "Through convection of hot gases the whole way",
+        "Through the solar wind blowing the heat here",
+        "Through heat radiation"
+      ],
+      "answer": 3,
+      "explanation": "Heat radiation needs no material to travel through and can therefore cross empty space. Conduction and convection both require particles to carry the heat along, and space contains almost no particles at all."
+    },
+    {
+      "id": "q-fys7-var-5",
+      "kind": "mc",
+      "topic": "thermal expansion",
+      "prompt": "What happens to most substances when they are heated?",
+      "opener": "The particles move more as temperature rises and then need more room.",
+      "choices": [
+        "They lose mass",
+        "They become smaller, i.e. they shrink",
+        "They expand, i.e. they increase in volume",
+        "Nothing at all changes except the temperature"
+      ],
+      "answer": 2,
+      "explanation": "As temperature rises, the particles move more vigorously and end up on average further apart, so the volume increases — this is called thermal expansion, and it's why bridges are built with expansion joints. Mass is not affected: it's the same particles, they just take up more room."
+    },
+    {
+      "id": "q-fys7-var-6",
+      "kind": "mc",
+      "topic": "insulation",
+      "prompt": "Why does a window with two panes of glass and air between them insulate better than a single pane?",
+      "opener": "Think about how good still air is at conducting heat.",
+      "choices": [
+        "Double glazing warms the room up all by itself",
+        "Still air conducts heat poorly and slows the flow of heat out",
+        "The air between the panes soaks up all the cold from outside",
+        "Two panes let no sunlight in at all"
+      ],
+      "answer": 1,
+      "explanation": "Air is a poor heat conductor as long as it stays still, so the air gap between the panes means much less heat leaks out. Incidentally, cold isn't something that can be soaked up — it's always heat that moves, from the warmer place to the colder one."
+    },
+    {
+      "id": "q-fys7-var-7",
+      "kind": "worked",
+      "topic": "the Celsius scale",
+      "prompt": "On a winter's day it is -7 °C outside and 21 °C inside the classroom. How large is the temperature difference between outside and inside?",
+      "opener": "Use zero as a stepping stone and work out the distance on the thermometer in two steps.",
+      "answer": "The temperature difference is 28 degrees.",
+      "steps": [
+        "Step 1: from -7 °C up to 0 °C is 7 degrees.",
+        "Step 2: from 0 °C up to 21 °C is 21 degrees.",
+        "Add the steps together: 7 + 21 = 28.",
+        "The answer is 28 degrees, i.e. 21 - (-7) = 28 if you calculate directly.",
+        "Sanity check: it's below zero outside and above zero inside, so the difference must be greater than 21 degrees."
+      ]
+    },
+    {
+      "id": "q-fys7-var-8",
+      "kind": "flashcard",
+      "topic": "heat transfer",
+      "prompt": "Summarise heat, temperature and the three ways heat spreads.",
+      "opener": "First separate heat from temperature, then go through conduction, convection and radiation.",
+      "answer": "Heat: energy transferred from warmer to colder, measured in joules (J) · Temperature: a measure of how the particles are moving, measured in degrees Celsius (°C) · Celsius: 0 °C = water's freezing point, 100 °C = water's boiling point at normal air pressure · Conduction: heat passed on between particles touching each other, best in metals, poor in air, wood and plastic · Convection: warm liquid or gas has lower density, rises, and cold flows in from below, for example the air above a radiator · Radiation: heat that travels as radiation and needs no material, for example the sun's heat through space · Thermal expansion: almost all substances increase in volume when heated and shrink when cooled, mass stays the same · Insulation: materials with still air trapped inside (down, wool, foam, the air gap in windows) slow down heat conduction · Cold can never move — it is always heat that moves"
+    }
+  ]
+}

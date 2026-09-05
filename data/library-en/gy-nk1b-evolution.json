@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-evolution",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "Evolution and genetics",
+  "sourceSummary": "Natural selection and speciation in depth, DNA and the function of the gene, heredity and variation, and the possibilities and ethical questions of genetic engineering in brief.",
+  "topics": [
+    "natural selection and speciation",
+    "DNA and the function of the gene",
+    "heredity and variation",
+    "genetic engineering"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-evolution-1",
+      "kind": "mc",
+      "topic": "natural selection and speciation",
+      "prompt": "What is required for natural selection to be able to lead to evolution in a population?",
+      "opener": "Think about three things: variation, heritability, and what determines who has the most offspring.",
+      "choices": [
+        "That there is heritable variation between individuals, and that certain traits give better survival or reproduction in the current environment",
+        "That all individuals are exactly alike from the start",
+        "That individuals consciously choose to change their traits",
+        "That the environment never changes"
+      ],
+      "answer": 0,
+      "explanation": "Natural selection requires heritable variation between individuals, and that this variation affects the chance of surviving and reproducing in a given environment — individuals with favourable traits statistically have more offspring, who inherit the traits. Without variation or heritability, no selection occurs, and individuals do not consciously choose their traits."
+    },
+    {
+      "id": "q-nk1b-evolution-2",
+      "kind": "mc",
+      "topic": "natural selection and speciation",
+      "prompt": "How can a geographical barrier, for example a mountain range that splits a population in two, lead to speciation over time?",
+      "opener": "Think about what happens to the gene pools in the two groups when they can no longer mate with each other.",
+      "choices": [
+        "The barrier has no significance for speciation as long as the climate is the same",
+        "The two populations develop identically because mutations always occur at the same rate",
+        "The isolated populations are exposed to different selection pressures and accumulate different mutations, and over time may become so different that they can no longer produce fertile offspring together",
+        "The barrier causes all individuals in both groups to die out within one generation"
+      ],
+      "answer": 2,
+      "explanation": "When gene flow between two populations is cut off by a barrier, they develop independently of each other — different mutations arise and different traits are favoured by natural selection in each environment. Given enough time, the differences can become so large that they count as separate species, since they can no longer produce fertile offspring together."
+    },
+    {
+      "id": "q-nk1b-evolution-3",
+      "kind": "mc",
+      "topic": "DNA and the function of the gene",
+      "prompt": "What is a gene?",
+      "opener": "Think about where in the DNA molecule the information for a particular trait is stored.",
+      "choices": [
+        "An entire chromosome",
+        "A type of cell found only in the reproductive organs",
+        "Another word for the entire genome",
+        "A segment of DNA that contains information (a \"blueprint\") for building a protein or regulating a trait"
+      ],
+      "answer": 3,
+      "explanation": "A gene is a sequence of DNA that carries information for building a protein or for regulating other genes. Many genes together form a chromosome, and the entire genome consists of all the genes and other DNA in an organism."
+    },
+    {
+      "id": "q-nk1b-evolution-4",
+      "kind": "mc",
+      "topic": "DNA and the function of the gene",
+      "prompt": "What is a mutation?",
+      "opener": "Think about what can go wrong, or change, when DNA is copied or damaged.",
+      "choices": [
+        "A deliberate change an organism makes to its own genome",
+        "A change in the DNA sequence, which can arise for example during cell division or from radiation, and which can be harmful, neutral or sometimes beneficial",
+        "Another word for natural selection",
+        "A process that only occurs in bacteria"
+      ],
+      "answer": 1,
+      "explanation": "A mutation is a change in the sequence of DNA base pairs. Mutations can arise spontaneously during DNA copying or be caused by external factors such as UV radiation, and they are the fundamental source of new genetic variation on which natural selection can then act."
+    },
+    {
+      "id": "q-nk1b-evolution-5",
+      "kind": "mc",
+      "topic": "heredity and variation",
+      "prompt": "Two parents who are both carriers of the same recessive allele for a trait, but do not show the trait themselves, have children. What is the probability that a child gets the trait (is homozygous recessive), according to simple Mendelian inheritance?",
+      "opener": "Try drawing a Punnett square: Aa x Aa. Which combination is required for the trait to show?",
+      "choices": [
+        "0%",
+        "25%",
+        "50%",
+        "100%"
+      ],
+      "answer": 1,
+      "explanation": "In a cross Aa x Aa, the offspring's genotypes on average are 1 AA : 2 Aa : 1 aa, in other words a 25% chance of the genotype aa, which is the only combination in which the recessive trait shows. The two carriers (Aa) do not show the trait themselves because the dominant allele A masks the recessive one."
+    },
+    {
+      "id": "q-nk1b-evolution-6",
+      "kind": "mc",
+      "topic": "genetic engineering",
+      "prompt": "From an ethical perspective, what does it mean that gene-editing techniques such as CRISPR make it possible to change the genome of future generations if germ cells or embryos are edited?",
+      "opener": "Think about the difference between editing genes in an individual patient's body cells, and editing genes that are passed on to children and grandchildren.",
+      "choices": [
+        "It makes no difference compared with treating a disease in an adult patient",
+        "Changes in germ cells or embryos can be passed on to future generations, which raises particularly difficult ethical questions about consent and long-term consequences",
+        "The technique can only be used on plants, never on humans",
+        "It is purely a technical question with no ethical significance"
+      ],
+      "answer": 1,
+      "explanation": "Unlike editing genes in ordinary body cells of a patient, which only affects that individual, changes in germ cells or early embryos are passed on to all future generations. This raises particular ethical questions, for example that future individuals cannot give their consent and that long-term effects are difficult to predict."
+    },
+    {
+      "id": "q-nk1b-evolution-7",
+      "kind": "worked",
+      "topic": "natural selection and speciation",
+      "prompt": "Using your own reasoning, for example about antibiotic-resistant bacteria, explain how natural selection works step by step.",
+      "opener": "Start from a population of bacteria exposed to antibiotics, and follow what happens to the variation in the population over time.",
+      "answer": "A bacterial population already contains random variation from the start, including in sensitivity to antibiotics; when antibiotics are used, the already resistant bacteria in particular survive and reproduce, so that the proportion of resistant bacteria increases in the population over several generations.",
+      "steps": [
+        "In a large population of bacteria there is natural, random variation between individuals, including in how sensitive they are to a particular antibiotic, caused by already existing mutations.",
+        "When an antibiotic is introduced, most sensitive bacteria die, but a few individuals with a mutation that gives resistance survive.",
+        "The surviving resistant bacteria continue to reproduce and pass on their genes, including the resistance, to the next generation.",
+        "Because the resistant bacteria have relatively more offspring, their share of the population increases with each generation.",
+        "Over time, all or most of the population may become resistant to the antibiotic — a clear, fast example of natural selection in practice, since bacteria have short generation times."
+      ]
+    },
+    {
+      "id": "q-nk1b-evolution-8",
+      "kind": "flashcard",
+      "topic": "DNA and the function of the gene",
+      "prompt": "Summarise the basic concepts in evolution and genetics: natural selection, speciation, DNA, gene, mutation and genetic engineering.",
+      "opener": "Go through how variation arises, how it is inherited, and how it can lead to change over time.",
+      "answer": "Natural selection: individuals with favourable, heritable traits have on average more offspring, so the traits become more common in the population over generations · Speciation: when populations become isolated (e.g. geographically) and develop differently until they can no longer produce fertile offspring together · DNA: the molecule that carries hereditary information, built from base pairs in a double helix · Gene: a segment of DNA with information for a protein or a regulatory function · Mutation: a change in the DNA sequence, the fundamental source of new genetic variation · Dominant/recessive allele: a dominant allele shows even in a single copy, a recessive one requires a double copy to show · Genetic engineering: methods such as CRISPR for reading and changing the genome, with great medical potential but also ethical questions, particularly when editing germ cells and embryos."
+    }
+  ]
+}

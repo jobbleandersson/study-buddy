@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv9-ordklasser",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Word classes and sentence elements",
+  "sourceSummary": "Nouns, verbs, adjectives and pronouns — and the difference between word class (what a word IS) and sentence element (what ROLE the word plays in a particular sentence).",
+  "topics": [
+    "word classes",
+    "sentence elements"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv9-ord-1",
+      "kind": "mc",
+      "topic": "word classes",
+      "prompt": "Which word in the sentence is a verb? \"Den trötta hunden sprang snabbt hem.\"",
+      "opener": "A verb is the word that tells us what someone DOES or WHERE someone is.",
+      "choices": [
+        "trötta",
+        "hunden",
+        "sprang",
+        "snabbt"
+      ],
+      "answer": 2,
+      "explanation": "\"Sprang\" is the verb — it tells us what the dog does. \"Trötta\" is an adjective, \"hunden\" is a noun, and \"snabbt\" is an adverb."
+    },
+    {
+      "id": "q-sv9-ord-2",
+      "kind": "mc",
+      "topic": "word classes",
+      "prompt": "Which word is an adjective? \"Hon köpte en dyr, blå cykel igår.\"",
+      "opener": "Adjectives describe how something IS or LOOKS — they are often inflected with -t or -a.",
+      "choices": [
+        "köpte",
+        "dyr",
+        "igår",
+        "cykel"
+      ],
+      "answer": 1,
+      "explanation": "\"Dyr\" describes the bike — it's an adjective (as is \"blå\"). \"Köpte\" is a verb, \"igår\" is an adverb, and \"cykel\" is a noun."
+    },
+    {
+      "id": "q-sv9-ord-3",
+      "kind": "mc",
+      "topic": "word classes",
+      "prompt": "Which word is a pronoun in the sentence? \"Han gav henne boken innan han gick.\"",
+      "opener": "A pronoun replaces a noun instead of repeating the name.",
+      "choices": [
+        "boken",
+        "henne",
+        "gick",
+        "innan"
+      ],
+      "answer": 1,
+      "explanation": "\"Henne\" stands in for a name (e.g. \"Anna\") — it's a pronoun. \"Han\" is also a pronoun, but \"henne\" was the answer being asked for here."
+    },
+    {
+      "id": "q-sv9-ord-4",
+      "kind": "mc",
+      "topic": "sentence elements",
+      "prompt": "Which word is the subject in the sentence? \"Läraren rättade proven på kvällen.\"",
+      "opener": "The subject is the one PERFORMING the action — ask \"who or what is doing this?\"",
+      "choices": [
+        "Läraren",
+        "rättade",
+        "proven",
+        "kvällen"
+      ],
+      "answer": 0,
+      "explanation": "\"Läraren\" is the one performing the action (marking) — so it's the subject. Note that subject is a sentence element (a role), while \"noun\" is the word class the word belongs to."
+    },
+    {
+      "id": "q-sv9-ord-5",
+      "kind": "mc",
+      "topic": "sentence elements",
+      "prompt": "Which word is the predicate in the sentence? \"Vi åt middag klockan sju.\"",
+      "opener": "The predicate is the verb in the sentence — the word that tells us what's happening.",
+      "choices": [
+        "Vi",
+        "åt",
+        "middag",
+        "klockan"
+      ],
+      "answer": 1,
+      "explanation": "The predicate is always the verb (or verb chain) in the sentence — here \"åt\". \"Vi\" is the subject and \"middag\" is the object."
+    },
+    {
+      "id": "q-sv9-ord-6",
+      "kind": "mc",
+      "topic": "sentence elements",
+      "prompt": "Which word is the object in the sentence? \"Pelle målade staketet i helgen.\"",
+      "opener": "The object is what the action is DIRECTED at — ask \"what/who did he do it TO or WITH?\"",
+      "choices": [
+        "Pelle",
+        "målade",
+        "staketet",
+        "helgen"
+      ],
+      "answer": 2,
+      "explanation": "\"Staketet\" is what Pelle painted — the object receives the action. \"Pelle\" is the subject, \"målade\" is the predicate."
+    },
+    {
+      "id": "q-sv9-ord-7",
+      "kind": "worked",
+      "topic": "sentence elements",
+      "prompt": "Analyse the sentence: \"Den nya eleven hälsade glatt på alla.\" State the word class of each word and the sentence element for the subject, predicate and object.",
+      "opener": "Go word by word. Then ask: who does it (subject), what do they do (predicate), and is there an object?",
+      "answer": "Den (definite article/pronoun), nya (adjective), eleven (noun, = subject), hälsade (verb, = predicate), glatt (adverb), på alla (preposition + pronoun, = object/complement).",
+      "steps": [
+        "\"Den\" points to a definite noun — it's often counted as a determiner/pronoun.",
+        "\"Nya\" describes the student — an adjective.",
+        "\"Eleven\" is the one performing the action (greeting) — a noun as word class, subject as sentence element.",
+        "\"Hälsade\" is the verb — the predicate.",
+        "\"Glatt\" describes HOW the greeting happens — an adverb, not an adjective (adjectives describe nouns, adverbs describe verbs).",
+        "\"På alla\" tells us who the greeting is directed at — it functions as an object/complement to the predicate."
+      ]
+    },
+    {
+      "id": "q-sv9-ord-8",
+      "kind": "flashcard",
+      "topic": "word classes",
+      "prompt": "What is the difference between word class and sentence element?",
+      "opener": "A word can have the same word class in every sentence, but a different sentence element depending on where it stands.",
+      "answer": "Word class is WHAT a word is in itself — noun, verb, adjective, adverb, pronoun, preposition, conjunction, numeral. It never changes, no matter where in the sentence the word stands. Sentence element is what ROLE the word plays in that particular sentence — subject (the one doing something), predicate (the verb/action), object (the one receiving the action), or complement. Example: \"hund\" is always a noun (word class), but can be the subject in \"Hunden skäller\" and the object in \"Jag ser hunden\"."
+    }
+  ]
+}

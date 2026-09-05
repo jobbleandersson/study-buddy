@@ -1,0 +1,126 @@
+{
+  "id": "lib-ma9-procent",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Fractions, decimals and percentages",
+  "sourceSummary": "Work with fractions, convert between fractions/decimals/percentages, and handle percentage change and interest.",
+  "topics": [
+    "fractions",
+    "percentages",
+    "percentage change"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma9-proc-1",
+      "kind": "mc",
+      "topic": "percentages",
+      "prompt": "How much is 25 % of 80 kr?",
+      "opener": "25 % is a quarter — can you use that?",
+      "choices": [
+        "16 kr",
+        "25 kr",
+        "20 kr",
+        "32 kr"
+      ],
+      "answer": 2,
+      "explanation": "25 % is the same as $\\frac{1}{4}$, and $\\frac{80}{4} = 20$ kr."
+    },
+    {
+      "id": "q-ma9-proc-2",
+      "kind": "mc",
+      "topic": "fractions",
+      "prompt": "Calculate $\\frac{3}{4} + \\frac{1}{8}$.",
+      "opener": "The denominators are different — what do you need to do first?",
+      "choices": [
+        "$\\frac{4}{8}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{4}{12}$",
+        "$\\frac{7}{8}$"
+      ],
+      "answer": 3,
+      "explanation": "Find a common denominator: $\\frac{3}{4} = \\frac{6}{8}$. Then $\\frac{6}{8} + \\frac{1}{8} = \\frac{7}{8}$."
+    },
+    {
+      "id": "q-ma9-proc-3",
+      "kind": "mc",
+      "topic": "fractions",
+      "prompt": "Which of these is $\\frac{2}{5}$ expressed as a percentage?",
+      "opener": "How many hundredths correspond to two fifths?",
+      "choices": [
+        "40 %",
+        "25 %",
+        "45 %",
+        "52 %"
+      ],
+      "answer": 0,
+      "explanation": "$\\frac{2}{5} = \\frac{4}{10} = \\frac{40}{100} = 40\\ \\%$."
+    },
+    {
+      "id": "q-ma9-proc-4",
+      "kind": "mc",
+      "topic": "percentage change",
+      "prompt": "A price is increased from 200 kr to 250 kr. What percentage is the increase?",
+      "opener": "Compare the change with the original price, not the new one.",
+      "choices": [
+        "20 %",
+        "25 %",
+        "50 %",
+        "80 %"
+      ],
+      "answer": 1,
+      "explanation": "The change is 50 kr. $\\frac{50}{200} = 0{,}25 = 25\\ \\%$. You always compare with the starting value."
+    },
+    {
+      "id": "q-ma9-proc-5",
+      "kind": "mc",
+      "topic": "percentage change",
+      "prompt": "A jumper costs 600 kr and is reduced by 20 %. What does it cost after the discount?",
+      "opener": "What proportion of the price is left once 20 % has been taken off?",
+      "choices": [
+        "520 kr",
+        "580 kr",
+        "480 kr",
+        "420 kr"
+      ],
+      "answer": 2,
+      "explanation": "After a 20 % discount, 80 % remains: $600 \\cdot 0{,}80 = 480$ kr."
+    },
+    {
+      "id": "q-ma9-proc-6",
+      "kind": "mc",
+      "topic": "percentage change",
+      "prompt": "A price is increased by 10 % and then reduced by 10 %. What is true about the final price?",
+      "opener": "The increase and the decrease are calculated on different starting values.",
+      "choices": [
+        "It is higher than at the start",
+        "It depends on whether the price was a round number",
+        "It is the same as at the start",
+        "It is lower than at the start"
+      ],
+      "answer": 3,
+      "explanation": "Say 100 kr: after the increase it's 110 kr, then $110 \\cdot 0{,}9 = 99$ kr. The decrease is calculated on the higher price, so you end up below the start."
+    },
+    {
+      "id": "q-ma9-proc-7",
+      "kind": "worked",
+      "topic": "percentages",
+      "prompt": "You deposit 5 000 kr into an account with 2 % interest per year. How much is in the account after one year? Show your working.",
+      "opener": "The interest is a percentage of the amount deposited.",
+      "answer": "5 100 kr",
+      "steps": [
+        "The interest in kronor: $5\\,000 \\cdot 0{,}02 = 100$ kr.",
+        "Add the interest to the amount: $5\\,000 + 100 = 5\\,100$ kr.",
+        "Alternatively in one step: $5\\,000 \\cdot 1{,}02 = 5\\,100$ kr."
+      ]
+    },
+    {
+      "id": "q-ma9-proc-8",
+      "kind": "flashcard",
+      "topic": "percentage change",
+      "prompt": "What is a change factor, and which change factor corresponds to an increase of 15 %?",
+      "opener": "Think about the number you multiply by to make the change in one step.",
+      "answer": "The change factor is the number you multiply by to make the whole change in one step. An increase of 15 % gives the factor 1,15 (and a decrease of 15 % gives 0,85)."
+    }
+  ]
+}

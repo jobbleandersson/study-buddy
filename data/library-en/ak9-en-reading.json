@@ -1,0 +1,127 @@
+{
+  "id": "lib-en9-reading",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Reading comprehension",
+  "sourceSummary": "Short texts where you practise finding the main idea, making inferences, and understanding words in context — basic reading strategies in English.",
+  "topics": [
+    "main idea",
+    "inference",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en9-read-1",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Many schools now let students choose their own seats instead of assigning them. Teachers say it can help students focus if they choose wisely, but some students end up sitting with friends and talking too much.\"\n\nWhat is the main idea of the text?",
+      "opener": "The text shows advantages and disadvantages — what's the overall picture?",
+      "choices": [
+        "Free seating has both benefits and drawbacks depending on students' choices",
+        "All schools should stop letting students choose seats",
+        "Students always talk too much when seated freely",
+        "Teachers dislike free seating"
+      ],
+      "answer": 0,
+      "explanation": "The text shows both sides: it can help focus IF you choose wisely, but can also lead to too much talking — the overall picture is that it depends on students' choices, not a clearly good or bad system."
+    },
+    {
+      "id": "q-en9-read-2",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Jake kept checking his phone during dinner. When it finally buzzed, he smiled and quickly typed a reply before anyone noticed.\"\n\nWhat can we infer about Jake?",
+      "opener": "What does it reveal that he checks his phone repeatedly and then smiles?",
+      "choices": [
+        "He is bored with the food",
+        "He is waiting for an important or exciting message",
+        "He has lost his phone before",
+        "He does not like his family"
+      ],
+      "answer": 1,
+      "explanation": "That he checks his phone often and then smiles when it buzzes suggests he is waiting for a message that means something to him — the text never states this directly."
+    },
+    {
+      "id": "q-en9-read-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"The new student seemed shy at first, but after a few days she became more talkative and made several friends.\"\n\nIn this context, \"talkative\" means:",
+      "opener": "The opposite of \"shy\" — what does she become instead?",
+      "choices": [
+        "quiet",
+        "likes to talk a lot",
+        "confused",
+        "tired"
+      ],
+      "answer": 1,
+      "explanation": "\"Talkative\" describes someone who likes to talk a lot — the opposite of shy and quiet, which fits with her going from shy to making several friends."
+    },
+    {
+      "id": "q-en9-read-4",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Recycling one aluminium can saves enough energy to power a TV for three hours. Yet millions of cans are thrown away every day instead of recycled.\"\n\nWhat is the writer's point?",
+      "opener": "The text combines a fact with a problem — what's the conclusion?",
+      "choices": [
+        "TVs use too much energy",
+        "Recycling cans could save a lot of energy, but too few people do it",
+        "Aluminium cans are dangerous",
+        "People should stop watching TV"
+      ],
+      "answer": 1,
+      "explanation": "The text shows how much energy recycling saves and contrasts it with the fact that many cans are still thrown away — the point is that the potential exists but isn't being used."
+    },
+    {
+      "id": "q-en9-read-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Sara packed her bag the night before, set two alarms, and laid out her clothes. The next morning she was ready an hour early.\"\n\nWhat can we infer about Sara?",
+      "opener": "What do her preparations the night before say about her personality?",
+      "choices": [
+        "She is very disorganized",
+        "She is careful and well-prepared",
+        "She forgot something important",
+        "She does not care about being on time"
+      ],
+      "answer": 1,
+      "explanation": "Packing in advance, setting two alarms, and laying out clothes shows that she is careful and well-prepared — the details build the picture without the text stating it directly."
+    },
+    {
+      "id": "q-en9-read-6",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"The hikers were exhausted after climbing for six hours, but the view from the top made it worth the effort.\"\n\nIn this context, \"exhausted\" means:",
+      "opener": "How do you feel after climbing for six hours?",
+      "choices": [
+        "very tired",
+        "excited",
+        "confused",
+        "happy"
+      ],
+      "answer": 0,
+      "explanation": "\"Exhausted\" means very tired — which fits after a six-hour climb."
+    },
+    {
+      "id": "q-en9-read-7",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Read the text and explain what has happened, and how you know: \"The trophy that had stood on the shelf for years was gone. Boxes filled the living room, and Anna's name was already written on the door of her new room.\"",
+      "opener": "Three details are mentioned — what do they mean together?",
+      "answer": "The family is moving house, and Anna has got a new room in the new house.",
+      "steps": [
+        "Detail 1: the shelf is empty where the trophy used to stand — things are being packed away or are already gone.",
+        "Detail 2: boxes fill the living room — a clear sign of packing for a move.",
+        "Detail 3: Anna's name is already on a door to a NEW room — this suggests the family is moving to a new house where Anna gets her own room.",
+        "Overall: the text never uses the word \"moving\", but the details point clearly to that conclusion."
+      ]
+    },
+    {
+      "id": "q-en9-read-8",
+      "kind": "flashcard",
+      "topic": "main idea",
+      "prompt": "What strategies help you answer reading comprehension questions in English?",
+      "opener": "A couple of habits that make a difference on tests.",
+      "answer": "Read the question first so you know what to look for. Separate the main idea (what the whole text is really about) from details (single facts). For unknown words: use context — the surrounding sentence often explains the word. For inference: base your answer only on what the text actually suggests, not on guesses. Watch out for answer choices that are true in general but don't actually answer the question asked."
+    }
+  ]
+}

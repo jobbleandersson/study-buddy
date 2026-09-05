@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam1a1-ideologier",
+  "type": "assignment",
+  "subject": "Samhällskunskap 1a1",
+  "title": "Political ideologies",
+  "sourceSummary": "Liberalism, conservatism and socialism described in terms of their core ideas, along with the left-right scale and GAL-TAN as tools for analysing how ideologies show up in concrete policy issues.",
+  "topics": [
+    "liberalism",
+    "conservatism",
+    "socialism",
+    "left-right and GAL-TAN"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam1a1-ideologier-1",
+      "kind": "mc",
+      "topic": "liberalism",
+      "prompt": "Which core idea is central to liberalism as an ideology?",
+      "opener": "What is placed at the centre - the individual, the group, or tradition?",
+      "choices": [
+        "The individual's freedom and rights, with a market economy and limited state involvement",
+        "That the state should own all the means of production",
+        "That preserving traditional institutions is more important than individual freedom",
+        "That class struggle is history's foremost driving force"
+      ],
+      "answer": 0,
+      "explanation": "Liberalism starts from the individual's freedom, rights and personal responsibility, and often advocates a market economy with limited state control. The idea that the state should own the means of production belongs instead to the socialist tradition, and the emphasis on preserving traditions belongs to conservatism."
+    },
+    {
+      "id": "q-sam1a1-ideologier-2",
+      "kind": "mc",
+      "topic": "conservatism",
+      "prompt": "What does conservatism, as an ideological tradition, emphasise?",
+      "opener": "Think about how conservatism views rapid, radical change compared with gradual development.",
+      "choices": [
+        "Revolution as the best means of changing society",
+        "That change should happen gradually and that proven institutions, traditions and communities, such as family and nation, have a value in themselves",
+        "That the market should completely replace all state functions",
+        "That all economic differences should be abolished immediately"
+      ],
+      "answer": 1,
+      "explanation": "Conservatism emphasises that societies change best step by step, with respect for what has historically worked - institutions, traditions and communities. Revolutionary, rapid change is associated instead with radical movements, not with the basic outlook of conservatism."
+    },
+    {
+      "id": "q-sam1a1-ideologier-3",
+      "kind": "mc",
+      "topic": "socialism",
+      "prompt": "What is one core idea within socialism as an ideology?",
+      "opener": "Think about what socialism wants to do about economic gaps and the ownership of the means of production.",
+      "choices": [
+        "That property ownership is the most important right and should be essentially unlimited",
+        "That traditions should be preserved above all else",
+        "That economic gaps and ownership of the means of production should be levelled out or held in common to create greater equality",
+        "That the state should have no role at all in the economy"
+      ],
+      "answer": 2,
+      "explanation": "Socialism starts from the idea that economic inequality and private ownership of the means of production create injustice, and therefore advocates various degrees of levelling out or collective ownership. Unlimited property rights and a wholly absent state instead sit closer to liberal traditions of thought."
+    },
+    {
+      "id": "q-sam1a1-ideologier-4",
+      "kind": "mc",
+      "topic": "left-right and GAL-TAN",
+      "prompt": "What is the traditional left-right scale primarily about?",
+      "opener": "The scale mainly measures views on one thing above all - which?",
+      "choices": [
+        "Views on economic distribution - how much the state should redistribute resources and regulate the market",
+        "Views on climate issues exclusively",
+        "Which country a person lives in",
+        "Religious affiliation"
+      ],
+      "answer": 0,
+      "explanation": "The left-right scale mainly measures views on economic distribution: the left is more often associated with more redistribution and state regulation, the right with less redistribution and a freer market. Issues such as climate and identity are better captured by other analytical tools, such as GAL-TAN."
+    },
+    {
+      "id": "q-sam1a1-ideologier-5",
+      "kind": "mc",
+      "topic": "left-right and GAL-TAN",
+      "prompt": "What does the GAL-TAN scale add that the traditional left-right scale doesn't capture as well?",
+      "opener": "GAL stands for green/alternative/libertarian, TAN for traditional/authoritarian/nationalist - what kind of issues does that concern?",
+      "choices": [
+        "It completely replaces the left-right scale and makes it redundant",
+        "It measures only economic policy, just like left-right",
+        "It measures exclusively which party is largest in opinion polls",
+        "A values dimension covering, for example, views on immigration, the environment, gender equality and authority versus individual freedom - green/alternative/libertarian (GAL) versus traditional/authoritarian/nationalist (TAN)"
+      ],
+      "answer": 3,
+      "explanation": "GAL-TAN complements the left-right scale with a values dimension concerning cultural and social issues rather than economic distribution, for example views on immigration, the environment and individual freedom versus authority and tradition."
+    },
+    {
+      "id": "q-sam1a1-ideologier-6",
+      "kind": "mc",
+      "topic": "liberalism",
+      "prompt": "A politician argues for lower taxes and less detailed state regulation of businesses, reasoning that individuals and companies themselves know best how resources should be used. Which ideological tradition is this reasoning closest to?",
+      "choices": [
+        "Socialism",
+        "Liberalism",
+        "Communism",
+        "Fascism"
+      ],
+      "opener": "Which ideology places individual freedom and a free market above all else?",
+      "answer": 1,
+      "explanation": "The emphasis on individual freedom, reduced state involvement and a free market is a core argument within liberalism. Socialism and communism instead advocate more collective control of the economy, while fascism is built on entirely different ideas about an authoritarian, collectivist state."
+    },
+    {
+      "id": "q-sam1a1-ideologier-7",
+      "kind": "worked",
+      "topic": "left-right and GAL-TAN",
+      "prompt": "A debate concerns whether fuel tax should be raised sharply to reduce climate impact, or lowered to ease the burden on rural drivers. Analyse the policy issue step by step using the left-right scale and GAL-TAN as analytical tools.",
+      "opener": "Ask yourself: is this mainly about economic distribution, about values, or about both at once?",
+      "answer": "The fuel tax issue can be analysed along several dimensions: the economic one (who bears the cost, and how much the state should steer behaviour through tax) and the values dimension (environmental concern versus traditional ways of life in rural areas). An argument for a higher tax can be justified both by a left-leaning wish to steer the market and by a GAL-oriented environmental priority. An argument for a lower tax can be justified both by a right-leaning scepticism towards tax rises and by a TAN-oriented priority on everyday life for car-dependent groups. The conclusion is that one and the same policy issue often touches several ideological dimensions at once, which is exactly what GAL-TAN, as a complement to left-right, is meant to reveal.",
+      "steps": [
+        "Identify the economic dimension: how much should the state steer consumption and distribute costs through tax? That is a left-right question.",
+        "Identify the values dimension: does environmental concern (GAL) weigh more heavily, or traditional living conditions and independence for car-dependent groups (TAN)?",
+        "Link the arguments for a higher tax to both a left-leaning market regulation and a GAL-oriented environmental priority.",
+        "Link the arguments for a lower tax to both a right-leaning criticism of taxation and a TAN-oriented priority on everyday rural life.",
+        "Conclude that the policy issue touches several dimensions at once, which shows why GAL-TAN is used to complement the left-right scale."
+      ]
+    },
+    {
+      "id": "q-sam1a1-ideologier-8",
+      "kind": "flashcard",
+      "topic": "conservatism",
+      "prompt": "Summarise the core ideas of liberalism, conservatism and socialism, and what left-right and GAL-TAN measure.",
+      "opener": "Three classic ideologies, two analytical scales.",
+      "answer": "Liberalism: individual freedom and rights, market economy, limited state involvement · Conservatism: gradual change, upholding traditions, institutions and communities such as family and nation · Socialism: reduced economic inequality, collective or state ownership/control of the means of production for greater equality · The left-right scale: mainly measures views on economic distribution and the state's role in the market · The GAL-TAN scale: measures a values dimension - green/alternative/libertarian (GAL) versus traditional/authoritarian/nationalist (TAN), e.g. views on immigration, the environment and individual freedom versus authority · A policy issue can often be understood better by combining both scales."
+    }
+  ]
+}

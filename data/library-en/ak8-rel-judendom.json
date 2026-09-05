@@ -1,0 +1,130 @@
+{
+  "id": "lib-rel8-judendom",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Judaism",
+  "sourceSummary": "Judaism's fundamental beliefs and the idea of the covenant, the sacred texts the Torah and the Talmud, the synagogue and the Sabbath, the festivals of Passover, Yom Kippur and Hanukkah, and a brief history of Judaism along with Jews' status as a national minority in Sweden.",
+  "topics": [
+    "belief and the covenant",
+    "the Torah and the Talmud",
+    "the synagogue and the Sabbath",
+    "Jewish festivals",
+    "the history of Judaism and Jews in Sweden"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel8-jud-1",
+      "kind": "mc",
+      "topic": "belief and the covenant",
+      "prompt": "What is meant by the \"covenant\" in Judaism?",
+      "opener": "The word is about a mutual promise between God and a people — think of Abraham and Moses.",
+      "choices": [
+        "A peace agreement signed between Israel and its neighbouring countries in the 20th century",
+        "The agreement between God and the Jewish people, which according to Jewish belief was made with Abraham and renewed when Moses received the law at Mount Sinai",
+        "An agreement among a synagogue's members about how much they should pay in membership fees",
+        "The rule that you must live in Israel to count as Jewish"
+      ],
+      "answer": 1,
+      "explanation": "The covenant (Hebrew brit) is a foundational idea in Judaism: according to Jewish belief, God made a covenant with Abraham and renewed it when Moses received the law at Sinai. The people promise to follow the commandments, and God promises protection. The circumcision of boys is seen as a sign of the covenant. It is not true that you must live in Israel — Jews have lived scattered across the world for millennia, and under traditional Jewish law, belonging passes through the mother or through conversion."
+    },
+    {
+      "id": "q-rel8-jud-2",
+      "kind": "mc",
+      "topic": "the Torah and the Talmud",
+      "prompt": "What is the Torah?",
+      "opener": "Think of the very first books of the Jewish Bible, and how they are kept in the synagogue.",
+      "choices": [
+        "The five Books of Moses, Judaism's most important text, handwritten on a scroll and read aloud in the synagogue",
+        "A collection of prayers that may only be read during the Sabbath",
+        "The rabbis' written discussions of how the law should be interpreted",
+        "A story about the life of the prophet Muhammad"
+      ],
+      "answer": 0,
+      "explanation": "The Torah is the five Books of Moses and the most central part of the Jewish Bible, the Tanakh (which also contains the Prophets and the Writings). The Torah is handwritten in Hebrew on a scroll, the sefer Torah, which is kept in the ark in the synagogue and read aloud during worship. The option about the rabbis' discussions instead describes the Talmud, which consists of the Mishnah and the Gemara and contains interpretations of the Torah — the Talmud is thus a tradition of interpretation, not the Torah itself."
+    },
+    {
+      "id": "q-rel8-jud-3",
+      "kind": "mc",
+      "topic": "the synagogue and the Sabbath",
+      "prompt": "When does the Sabbath (Shabbat) fall and what characterises it in Judaism?",
+      "opener": "The day is counted from the evening, and it is linked to the seventh day in the creation story.",
+      "choices": [
+        "From Friday morning to Saturday morning, and it is expected that you work extra hard",
+        "From Saturday evening to Sunday evening, and you go to church",
+        "From sunset on Friday to nightfall on Saturday, and it is a day of rest when work is set aside",
+        "The whole week after Passover, when you fast around the clock"
+      ],
+      "answer": 2,
+      "explanation": "The Sabbath begins at sunset on Friday and ends when it gets dark on Saturday. It is grounded in Jewish tradition in the commandment about a day of rest and in the fact that, according to the creation story, God rested on the seventh day. At home, candles are lit, the blessing kiddush is said over wine, and the family eats a festive meal, while in the synagogue there is a service with a Torah reading. The option about Sunday describes the Christian day of rest, not the Jewish one."
+    },
+    {
+      "id": "q-rel8-jud-4",
+      "kind": "mc",
+      "topic": "Jewish festivals",
+      "prompt": "What is celebrated during the Jewish festival of Passover (Pesach)?",
+      "opener": "The festival connects to one of the most famous stories in the Book of Exodus.",
+      "choices": [
+        "That the Torah was, according to tradition, given to Moses on Mount Sinai",
+        "The rededication of the Temple in Jerusalem, celebrated with a nine-branched candelabra",
+        "The Jewish New Year, when a ram's horn is blown",
+        "The exodus from Egypt, when the Israelites, according to the story, were freed from slavery"
+      ],
+      "answer": 3,
+      "explanation": "Passover (Pesach) is the festival that commemorates the exodus from Egypt. It is celebrated with a seder meal at which the story is read from the Haggadah, and unleavened bread (matza) is eaten because, according to the story, the bread did not have time to rise when the people fled. The option about the rededication of the Temple describes Hanukkah, where the candelabra, the hanukkiah, has nine branches, and the option about the ram's horn describes the New Year festival, Rosh Hashanah."
+    },
+    {
+      "id": "q-rel8-jud-5",
+      "kind": "mc",
+      "topic": "Jewish festivals",
+      "prompt": "What characterises Yom Kippur, the Day of Atonement?",
+      "opener": "The day comes shortly after the Jewish New Year and is about settling accounts with the past year.",
+      "choices": [
+        "A day of fasting with long services, when people ask for forgiveness and seek reconciliation with God and with other people",
+        "A joyful feast with presents for the children and large meals every evening",
+        "A day when people walk to the Temple in Jerusalem to sacrifice animals",
+        "A day on which, according to Jewish custom, the Torah may not be read"
+      ],
+      "answer": 0,
+      "explanation": "Yom Kippur falls ten days after the New Year festival, Rosh Hashanah, and is Judaism's most solemn day. Many adults fast for a full day, spend much of the day in the synagogue and ask for forgiveness — but tradition emphasises that you must also ask forgiveness from the people you have wronged. The option about animal sacrifice is not true today: the Second Temple was destroyed in 70 CE and the sacrificial cult ended, after which prayer and Torah reading in the synagogue took its place."
+    },
+    {
+      "id": "q-rel8-jud-6",
+      "kind": "mc",
+      "topic": "the history of Judaism and Jews in Sweden",
+      "prompt": "Which statement about the history of Judaism and about Jews in Sweden is correct?",
+      "opener": "Think about the concept of diaspora, and about when Jews were first allowed to settle in Sweden.",
+      "choices": [
+        "Judaism arose in the 16th century in connection with the Reformation",
+        "Jews have always lived gathered in a single country and only spread across the world in the 20th century",
+        "After the destruction of the Temple in 70 CE, Jews came to live scattered across large parts of the world (the diaspora); in Sweden, Jewish settlement was permitted from the end of the 18th century, and Jews are today one of the country's five national minorities",
+        "Jews were only allowed to settle in Sweden in the 1970s and are not counted as a national minority"
+      ],
+      "answer": 2,
+      "explanation": "Judaism has roots long before the Common Era and is one of the world's oldest still-living religions. When the Romans destroyed the Second Temple in 70 CE, the diaspora, that is, life outside the historical land, was reinforced. In Sweden, Aaron Isaac in 1774–1775 was the first Jew granted permission to settle without converting, and since the year 2000 Jews have been one of Sweden's five national minorities together with the Roma, the Sámi, Sweden Finns and Tornedalers, with Yiddish as a national minority language. The option about the Reformation confuses Judaism with an event in the history of Christianity."
+    },
+    {
+      "id": "q-rel8-jud-7",
+      "kind": "worked",
+      "topic": "the synagogue and the Sabbath",
+      "prompt": "Describe step by step how a Sabbath can be observed in a Jewish home and in the synagogue, from Friday evening to Saturday evening.",
+      "opener": "Follow the day in order: preparations, the evening at home, the day in the synagogue and the conclusion.",
+      "answer": "The Sabbath is prepared for during Friday: food is cooked in advance and the home is cleaned, since work is to be avoided once the Sabbath has begun. Shortly before sunset, the Sabbath candles are lit, often two of them, and the Sabbath begins. At the evening meal, the blessing kiddush is said over a glass of wine or grape juice, and two braided loaves (challot) are blessed before the family eats together; many people greet each other with the words shabbat shalom. During Saturday, a service is held in the synagogue, where a rabbi or cantor leads prayer and song and where the week's portion is read from the Torah scroll, which is taken out of the ark. The rest of the day is devoted to rest, socialising, meals and study of texts, and the degree of rest from work varies between Orthodox, Conservative and Reform Jewish streams — some abstain entirely from driving, cooking or using electronics, while others interpret the rules more freely. Once it has become dark on Saturday evening, the Sabbath ends with the short ceremony of Havdalah, in which a braided candle is lit, spices are smelled and a blessing is read marking the difference between the Sabbath and the ordinary week.",
+      "steps": [
+        "Friday before sunset: the home is prepared and the food finished cooking, since the Sabbath is a day of rest.",
+        "The Sabbath begins when the candles are lit shortly before sunset on Friday.",
+        "Evening meal at home: kiddush is said over the wine, the two braided loaves are blessed and the family eats together.",
+        "Saturday's service in the synagogue: prayer, song and reading from the Torah scroll, followed by rest, socialising and study of texts.",
+        "The Sabbath ends at nightfall on Saturday with the ceremony of Havdalah, with a braided candle, spices and a blessing."
+      ]
+    },
+    {
+      "id": "q-rel8-jud-8",
+      "kind": "flashcard",
+      "topic": "belief and the covenant",
+      "prompt": "Summarise Judaism: belief and the covenant, scriptures, the synagogue and the Sabbath, festivals, and history and Jews in Sweden.",
+      "opener": "Go through belief, scriptures, practice and history in turn.",
+      "answer": "Belief: monotheism — according to Jewish belief there is a single God, whose name is out of reverence not pronounced · The covenant (brit): according to tradition made with Abraham and renewed with Moses at Sinai; the people follow the commandments, God promises protection; circumcision is the sign of the covenant · Scriptures: the Tanakh (the Torah = the five Books of Moses, the Prophets, the Writings) · the Torah is handwritten on a scroll and kept in the ark · the Talmud (Mishnah + Gemara) = the rabbis' interpretations of the law · Halacha = the religious rules for living, e.g. the kosher rules about food · The synagogue: a gathering place for prayer, reading and study; the rabbi is a teacher and interpreter, not a priest · The Sabbath: Friday sunset to Saturday darkness, candle-lighting, kiddush, challot, a service, Havdalah at the close · Festivals: Rosh Hashanah (New Year, the shofar) · Yom Kippur (the Day of Atonement, fasting and forgiveness) · Passover/Pesach (the exodus from Egypt, the seder, matza) · Shavuot (the Torah given at Sinai) · Sukkot (the Feast of Tabernacles) · Hanukkah (the rededication of the Temple, the nine-branched hanukkiah) · History: the Temple was destroyed in 70 CE → the diaspora · centuries of persecution in Europe, culminating in the Holocaust during the Second World War · the State of Israel was founded in 1948 · Streams: Orthodox, Conservative and Reform Judaism, with different views on how the rules should be interpreted · Sweden: Jewish settlement permitted from 1774–1775 (Aaron Isaac) · Jews have since the year 2000 been one of five national minorities, Yiddish is a national minority language · congregations exist in, among other places, Stockholm, Gothenburg and Malmö."
+    }
+  ]
+}

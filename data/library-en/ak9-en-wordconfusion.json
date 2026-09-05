@@ -1,0 +1,129 @@
+{
+  "id": "lib-en9-wordconfusion",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Commonly confused words",
+  "sourceSummary": "Its/it's, your/you're, there/their/they're and a lot/alot — words that sound alike but are written and mean different things.",
+  "topics": [
+    "its and it's",
+    "your and you're",
+    "there their and they're",
+    "a lot"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en9-wc-1",
+      "kind": "mc",
+      "topic": "its and it's",
+      "prompt": "Choose the correct word: \"The dog wagged ___ tail.\"",
+      "opener": "Ownership (whose tail?) or \"it is\"/\"it has\"?",
+      "choices": [
+        "it's",
+        "its",
+        "its'",
+        "it is"
+      ],
+      "answer": 1,
+      "explanation": "\"Its\" (without an apostrophe) means ownership. \"It's\" (with an apostrophe) is always short for \"it is\" or \"it has\", which doesn't fit here."
+    },
+    {
+      "id": "q-en9-wc-2",
+      "kind": "mc",
+      "topic": "its and it's",
+      "prompt": "Choose the correct word: \"___ raining outside, take an umbrella.\"",
+      "opener": "Can you spell out \"it is\" instead? If yes, it needs an apostrophe.",
+      "choices": [
+        "Its",
+        "It's",
+        "Its'",
+        "Is it"
+      ],
+      "answer": 1,
+      "explanation": "\"It's\" = \"it is\" here (\"It is raining outside\"). Always test by spelling out \"it is\"/\"it has\" — if that works, you should use the apostrophe form."
+    },
+    {
+      "id": "q-en9-wc-3",
+      "kind": "mc",
+      "topic": "your and you're",
+      "prompt": "Choose the correct word: \"Is this ___ jacket?\"",
+      "opener": "Ownership (whose jacket?) or \"you are\"?",
+      "choices": [
+        "you're",
+        "your",
+        "yours'",
+        "your's"
+      ],
+      "answer": 1,
+      "explanation": "\"Your\" (without an apostrophe) shows ownership. \"You're\" is always short for \"you are\"."
+    },
+    {
+      "id": "q-en9-wc-4",
+      "kind": "mc",
+      "topic": "your and you're",
+      "prompt": "Choose the correct word: \"___ going to love this movie.\"",
+      "opener": "Can you spell out \"you are\" instead?",
+      "choices": [
+        "Your",
+        "You're",
+        "Yore",
+        "Yours"
+      ],
+      "answer": 1,
+      "explanation": "\"You're\" = \"you are\" (\"You are going to love this movie\"). The test works just like with it's/its: spell out the full phrase and see if it sounds right."
+    },
+    {
+      "id": "q-en9-wc-5",
+      "kind": "mc",
+      "topic": "there their and they're",
+      "prompt": "Choose the correct word: \"___ house is the blue one on the corner.\"",
+      "opener": "Whose house? That's ownership — which of the three words means that?",
+      "choices": [
+        "There",
+        "Their",
+        "They're",
+        "Theyre"
+      ],
+      "answer": 1,
+      "explanation": "\"Their\" shows ownership. \"There\" points to a place (\"over there\") and \"they're\" is short for \"they are\"."
+    },
+    {
+      "id": "q-en9-wc-6",
+      "kind": "mc",
+      "topic": "there their and they're",
+      "prompt": "Choose the correct word: \"___ coming to the party tonight.\"",
+      "opener": "Can you spell out \"they are\" instead?",
+      "choices": [
+        "There",
+        "Their",
+        "They're",
+        "Theyr"
+      ],
+      "answer": 2,
+      "explanation": "\"They're\" = \"they are\" (\"They are coming to the party tonight\"). Spell out the phrase to check — if \"they are\" works, it should be \"they're\"."
+    },
+    {
+      "id": "q-en9-wc-7",
+      "kind": "worked",
+      "topic": "there their and they're",
+      "prompt": "Correct the five errors: \"There going to visit they're grandparents. Its a long drive, but there house has a big garden. Your always welcome their.\"",
+      "opener": "Five words from the same families are mixed up — test each word by spelling out the full phrase.",
+      "answer": "They're going to visit their grandparents. It's a long drive, but their house has a big garden. You're always welcome there.",
+      "steps": [
+        "\"There going\" → \"They're going\". Test: \"they are going\" works — so \"they're\".",
+        "\"they're grandparents\" → \"their grandparents\". This is ownership (whose grandparents) — \"their\".",
+        "\"Its a long drive\" → \"It's a long drive\". Test: \"it is a long drive\" works — so \"it's\".",
+        "\"there house\" → \"their house\". Ownership again — whose house, so \"their\".",
+        "\"Your always welcome their\" → \"You're always welcome there\". \"You are always welcome\" works (you're), and the last word points to a place, not ownership — \"there\"."
+      ]
+    },
+    {
+      "id": "q-en9-wc-8",
+      "kind": "flashcard",
+      "topic": "its and it's",
+      "prompt": "How do you tell apart its/it's, your/you're, and there/their/they're?",
+      "opener": "A simple test that works for all three pairs.",
+      "answer": "Test by spelling out the full phrase: if \"it is\"/\"it has\", \"you are\" or \"they are\" works in the sentence, use the apostrophe form (it's, you're, they're). If it does NOT work, it's the ownership or place word without an apostrophe (its, your) — except \"there\", which points to a place (\"over there\"), and \"their\", which shows ownership (\"belonging to them\")."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-fys8-ljud",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Sound and waves",
+  "sourceSummary": "Sound as a longitudinal wave, how frequency produces pitch and amplitude produces loudness, and the speed of sound in air, water and solid materials. This also covers echoes, resonance, the range of hearing, and the risks of noise.",
+  "topics": [
+    "sound as a longitudinal wave",
+    "frequency and pitch",
+    "amplitude and loudness",
+    "the speed of sound in different materials",
+    "echo and resonance",
+    "hearing and noise"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys8-lju-1",
+      "kind": "mc",
+      "topic": "sound as a longitudinal wave",
+      "prompt": "What characterises sound as a longitudinal wave?",
+      "opener": "Compare the direction the particles vibrate in with the direction the wave travels in.",
+      "choices": [
+        "The air's particles vibrate back and forth in the same direction as the wave travels, so that compressions and rarefactions form",
+        "The air's particles vibrate up and down across the wave's direction",
+        "The particles travel all the way from the sound source to the ears",
+        "Sound moves without any material needing to be present"
+      ],
+      "answer": 0,
+      "explanation": "In a longitudinal wave, the particles vibrate along the same direction the wave travels, which creates alternating compressions and rarefactions in the air. Vibrating across the wave's direction applies to transverse waves, for example a wave motion on a rope. The particles also only vibrate around their position — they don't travel along with the sound."
+    },
+    {
+      "id": "q-fys8-lju-2",
+      "kind": "mc",
+      "topic": "sound as a longitudinal wave",
+      "prompt": "Why can't sound be heard in a vacuum, for example in space?",
+      "opener": "Think about what the sound wave needs in order to be carried onward.",
+      "choices": [
+        "The sound freezes into ice in the cold",
+        "The sound travels too fast for the ears to be able to perceive it",
+        "There are no particles that can vibrate and carry the sound wave onward",
+        "The light in space takes over and muffles the sound"
+      ],
+      "answer": 2,
+      "explanation": "Sound needs a medium — gas, liquid or solid material — whose particles can vibrate and pass on the compressions. In a vacuum there are no particles, so the wave can't spread. Light, on the other hand, is an electromagnetic wave and needs no medium, which is why we can see stars but not hear them."
+    },
+    {
+      "id": "q-fys8-lju-3",
+      "kind": "mc",
+      "topic": "frequency and pitch",
+      "prompt": "A guitar string vibrates 440 times per second. What happens to the tone if the string instead vibrates 880 times per second?",
+      "opener": "Frequency is measured in hertz and controls one particular property of the tone.",
+      "choices": [
+        "The tone becomes louder but stays the same pitch",
+        "The tone becomes higher, because a higher frequency gives a higher pitch",
+        "The tone becomes lower",
+        "The tone becomes quieter"
+      ],
+      "answer": 1,
+      "explanation": "The frequency (number of vibrations per second, unit hertz) determines the pitch: double the frequency gives a tone one octave higher. How loud the tone sounds instead depends on the amplitude, not the frequency."
+    },
+    {
+      "id": "q-fys8-lju-4",
+      "kind": "mc",
+      "topic": "amplitude and loudness",
+      "prompt": "You turn up the volume on a speaker. What changes in the sound wave?",
+      "opener": "Volume is connected to how big the vibrations are, not how many there are.",
+      "choices": [
+        "The frequency increases",
+        "The speed of sound in the air increases",
+        "The wavelength becomes shorter",
+        "The amplitude increases, that is, the size of the vibrations, and the loudness measured in decibels becomes higher"
+      ],
+      "answer": 3,
+      "explanation": "Loudness depends on the amplitude — bigger vibrations give more energy and a higher sound level in decibels (dB). The frequency and hence the pitch are unchanged, and the speed of sound isn't affected at all by the volume, only by the material the sound travels through."
+    },
+    {
+      "id": "q-fys8-lju-5",
+      "kind": "mc",
+      "topic": "the speed of sound in different materials",
+      "prompt": "In which of these materials does sound travel fastest?",
+      "opener": "The more tightly packed the particles are and the stiffer the material, the faster the vibration is passed on.",
+      "choices": [
+        "Air",
+        "Water",
+        "Steel",
+        "Sound travels equally fast in all materials"
+      ],
+      "answer": 2,
+      "explanation": "Sound travels fastest in solid materials because the particles are packed tightly and rigidly together: about 5000 m/s in steel, about 1500 m/s in water and only about 340 m/s in air. So the speed isn't the same in all materials — that's why you can hear a train through the rails before you hear it through the air."
+    },
+    {
+      "id": "q-fys8-lju-6",
+      "kind": "mc",
+      "topic": "echo and resonance",
+      "prompt": "What is meant by resonance?",
+      "opener": "Think about when an object starts vibrating on its own at a particular tone.",
+      "choices": [
+        "That an object starts vibrating strongly when exposed to sound with the same frequency as its own natural frequency",
+        "That sound bounces off a wall and comes back as an echo",
+        "That sound becomes weaker as it spreads out into the room",
+        "That two tones together form a higher tone"
+      ],
+      "answer": 0,
+      "explanation": "Resonance means that an object absorbs energy and vibrates strongly when it is hit by sound at exactly its natural frequency — like when a glass starts to vibrate at a certain tone. Sound bouncing back off a surface is instead reflection, which is what produces an echo."
+    },
+    {
+      "id": "q-fys8-lju-7",
+      "kind": "worked",
+      "topic": "echo and resonance",
+      "prompt": "You shout towards a rock face and hear the echo 2.0 seconds later. The speed of sound in air is 340 m/s. How far away is the rock face?",
+      "opener": "Remember that the sound has time to travel both there and back during the 2 seconds.",
+      "answer": "340 metres",
+      "steps": [
+        "Calculate the total distance the sound travels: s = v · t = 340 m/s · 2.0 s = 680 m.",
+        "That distance is to the rock face and back again, that is, twice the distance.",
+        "Divide by 2: 680 m / 2 = 340 m.",
+        "So the rock face is 340 metres away."
+      ]
+    },
+    {
+      "id": "q-fys8-lju-8",
+      "kind": "flashcard",
+      "topic": "hearing and noise",
+      "prompt": "Summarise sound as a wave, frequency and amplitude, the speed of sound, echo and resonance, and hearing and noise.",
+      "opener": "Start with what sound is, move on to the wave's two properties, and finish with the ears and noise protection.",
+      "answer": "Sound: vibrations that spread as longitudinal waves through a medium — the particles vibrate in the wave's direction and form compressions and rarefactions · Vacuum: no sound, since there are no particles that can vibrate · Frequency: vibrations per second, unit hertz (Hz), controls the pitch — high frequency = high tone, double the frequency = one octave higher · Amplitude: the size of the vibration, controls the loudness measured in decibels (dB) · Speed of sound: about 340 m/s in air, about 1500 m/s in water, about 5000 m/s in steel — fastest where the particles are packed tightly and rigidly · Formula: s = v · t · Echo: sound that is reflected off a hard surface and comes back — in an echo calculation, the sound travels double the distance · Resonance: an object vibrates strongly when it is hit by sound at its own frequency · Range of hearing: about 20 Hz to 20,000 Hz, the upper limit drops with age · Infrasound: below 20 Hz · Ultrasound: above 20,000 Hz, used in medical scans and by bats · Noise: unwanted sound that causes tiredness, stress and difficulty concentrating · Hearing damage: high sound levels can permanently destroy the hair cells in the inner ear and cause tinnitus — use hearing protection and lower the volume in headphones."
+    }
+  ]
+}

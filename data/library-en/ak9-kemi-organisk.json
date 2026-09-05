@@ -1,0 +1,129 @@
+{
+  "id": "lib-kemi-organisk",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Organic chemistry and carbon compounds",
+  "sourceSummary": "What organic chemistry is, why the carbon atom is so special, the basic idea behind hydrocarbons, and how carbon connects to everyday materials such as plastic and fossil fuels.",
+  "topics": [
+    "properties of the carbon atom",
+    "hydrocarbons",
+    "organic chemistry",
+    "carbon in everyday life"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi-org-1",
+      "kind": "mc",
+      "topic": "organic chemistry",
+      "prompt": "What is organic chemistry?",
+      "opener": "The name 'organic' historically comes from the belief that these substances could only be formed in living organisms.",
+      "choices": [
+        "The study of all substances that contain oxygen",
+        "The study of carbon compounds, with a few exceptions such as carbon dioxide",
+        "The study of metals and their properties",
+        "The study of radioactive substances"
+      ],
+      "answer": 1,
+      "explanation": "Organic chemistry is the study of carbon compounds. A few simple carbon compounds, such as carbon dioxide and carbonates, are still classed as inorganic for historical reasons."
+    },
+    {
+      "id": "q-kemi-org-2",
+      "kind": "mc",
+      "topic": "properties of the carbon atom",
+      "prompt": "Why can the carbon atom form so incredibly many different compounds?",
+      "opener": "Think about how many bonds a carbon atom can have, and whether it can bond to itself.",
+      "choices": [
+        "Carbon has only one electron in total",
+        "Carbon can form four strong bonds and bond to other carbon atoms in long chains and rings",
+        "Carbon never reacts with hydrogen",
+        "Carbon only exists in liquid form"
+      ],
+      "answer": 1,
+      "explanation": "Carbon has four valence electrons and can therefore form four covalent bonds, often to other carbon atoms. This means carbon atoms can be linked together into long chains, branches and rings — the basis of the enormous variety of organic compounds."
+    },
+    {
+      "id": "q-kemi-org-3",
+      "kind": "mc",
+      "topic": "hydrocarbons",
+      "prompt": "What is a hydrocarbon?",
+      "opener": "The name tells you exactly which two elements are involved.",
+      "choices": [
+        "A compound that contains only carbon and hydrogen",
+        "A compound that contains only carbon and oxygen",
+        "Another name for a metal",
+        "A positively charged ion"
+      ],
+      "answer": 0,
+      "explanation": "A hydrocarbon is a compound made up of only carbon and hydrogen atoms, for example methane (CH4), petrol and natural gas."
+    },
+    {
+      "id": "q-kemi-org-4",
+      "kind": "mc",
+      "topic": "hydrocarbons",
+      "prompt": "Methane (CH4) is the simplest hydrocarbon. What is formed when methane is completely combusted with oxygen?",
+      "opener": "Think about what is formed during complete combustion of a hydrocarbon in air.",
+      "choices": [
+        "Carbon dioxide and water",
+        "Only carbon and hydrogen again",
+        "Gold and salt",
+        "Nitrogen and oxygen"
+      ],
+      "answer": 0,
+      "explanation": "During complete combustion, a hydrocarbon reacts with oxygen to form carbon dioxide and water, while energy is released (an exothermic reaction)."
+    },
+    {
+      "id": "q-kemi-org-5",
+      "kind": "mc",
+      "topic": "carbon in everyday life",
+      "prompt": "Which of these materials is built up of long chains of carbon compounds (polymers)?",
+      "opener": "Think about which of the materials is often made from crude oil.",
+      "choices": [
+        "Glass",
+        "Plastic",
+        "Steel",
+        "Salt"
+      ],
+      "answer": 1,
+      "explanation": "Plastic consists of polymers — long chains of carbon compounds — and is often made from crude oil. Glass, steel and salt are built up in entirely different ways."
+    },
+    {
+      "id": "q-kemi-org-6",
+      "kind": "mc",
+      "topic": "carbon in everyday life",
+      "prompt": "Why are oil, coal and natural gas classed as FOSSIL fuels?",
+      "opener": "Think about how long they take to form in nature and what they formed from.",
+      "choices": [
+        "They were formed from plant and animal remains over millions of years and contain stored energy in carbon compounds",
+        "They are manufactured industrially from plastic",
+        "They contain no carbon atoms at all",
+        "They form within a few weeks in nature"
+      ],
+      "answer": 0,
+      "explanation": "Fossil fuels were formed from dead plant and animal remains compressed over an extremely long time, often millions of years. They are rich in hydrocarbons and contain energy that is released on combustion, while carbon dioxide is emitted."
+    },
+    {
+      "id": "q-kemi-org-7",
+      "kind": "worked",
+      "topic": "properties of the carbon atom",
+      "prompt": "Explain why the carbon atom's ability to bond to four other atoms, including other carbon atoms, means there are millions of different organic compounds, even though they are built from only a few elements (carbon, hydrogen, oxygen, nitrogen and others).",
+      "opener": "Think about how many different ways carbon atoms can be linked together in chains, branches and rings.",
+      "answer": "Because each carbon atom can form four bonds and readily bonds to other carbon atoms, countless different chains, branched structures and rings can be built — giving enormously many possible molecules even though only a handful of elements are involved.",
+      "steps": [
+        "Carbon has 4 valence electrons and can therefore form 4 covalent bonds at the same time.",
+        "Carbon atoms can bond to each other in straight chains, branched chains or rings — not just to hydrogen or oxygen.",
+        "The length of the chain and how it branches or forms rings gives different molecules with different properties (e.g. methane, ethane and propane have different chain lengths).",
+        "Even small differences in structure, such as where a branch sits, give different substances with different properties despite the same elements.",
+        "The combination of chain length, branching, rings and other elements (such as oxygen or nitrogen) makes the number of possible organic compounds enormously large."
+      ]
+    },
+    {
+      "id": "q-kemi-org-8",
+      "kind": "flashcard",
+      "topic": "organic chemistry",
+      "prompt": "Summarise organic chemistry and carbon compounds.",
+      "opener": "Think of the carbon atom's bonding ability, hydrocarbons, combustion and everyday examples.",
+      "answer": "Organic chemistry: the study of carbon compounds, with a few exceptions (e.g. carbon dioxide and carbonates are classed as inorganic) · The carbon atom: has 4 valence electrons, forms 4 covalent bonds, can bond to itself in chains, branches and rings, giving enormously many possible compounds · Hydrocarbon: a compound containing only carbon and hydrogen, e.g. methane (CH4), petrol, natural gas · Combustion of hydrocarbons: hydrocarbon + oxygen → carbon dioxide + water + energy (exothermic reaction) · Fossil fuels: oil, coal and natural gas, formed from dead plant and animal remains over millions of years, contain stored energy in carbon compounds · Plastic: man-made polymers, long chains of carbon compounds, often made from crude oil."
+    }
+  ]
+}

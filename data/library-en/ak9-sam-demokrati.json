@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam-demokrati",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Democracy and political systems",
+  "sourceSummary": "How democracy works in practice in Sweden — the Riksdag, the government and municipalities, how general elections are held, and what distinguishes democracy from dictatorship.",
+  "topics": [
+    "what democracy means",
+    "the Riksdag, the government and municipalities",
+    "general elections in Sweden",
+    "democracy and dictatorship"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam-dem-1",
+      "kind": "mc",
+      "topic": "what democracy means",
+      "prompt": "What does the word \"democracy\" literally mean?",
+      "opener": "The word comes from Greek and consists of two parts: \"people\" and a form of rule.",
+      "choices": [
+        "Autocracy",
+        "Rule by the people",
+        "Royal power",
+        "Rule by the courts"
+      ],
+      "answer": 1,
+      "explanation": "Democracy comes from the Greek \"demos\" (people) and \"kratos\" (power/rule) — that is, rule by the people, where power originates from the people. Autocracy and royal power are the opposite, where a single person decides."
+    },
+    {
+      "id": "q-sam-dem-2",
+      "kind": "mc",
+      "topic": "the Riksdag, the government and municipalities",
+      "prompt": "Which of the following is true about the Riksdag?",
+      "opener": "Think about who makes the laws in Sweden, as distinct from who carries them out.",
+      "choices": [
+        "The Riksdag is Sweden's legislative assembly and decides on laws and the state budget",
+        "The Riksdag rules on criminal cases",
+        "The Riksdag runs municipal schools directly",
+        "The Riksdag is elected by the government"
+      ],
+      "answer": 0,
+      "explanation": "The Riksdag is Sweden's highest decision-making body and enacts laws and decides on the state budget. Ruling on criminal cases is the courts' task, and municipal schools are run by the municipalities, not the Riksdag directly."
+    },
+    {
+      "id": "q-sam-dem-3",
+      "kind": "mc",
+      "topic": "the Riksdag, the government and municipalities",
+      "prompt": "What is the government's main task in the Swedish system of governance?",
+      "opener": "The government carries out what the Riksdag has decided — which word in political science means precisely \"to put into effect\"?",
+      "choices": [
+        "To enact constitutional laws entirely on its own",
+        "To implement the Riksdag's decisions and direct the government agencies",
+        "To rule on civil disputes",
+        "To elect the Prime Minister through a referendum every year"
+      ],
+      "answer": 1,
+      "explanation": "The government is the executive power — it implements the Riksdag's decisions and leads the state administration through its agencies. Constitutional laws are enacted by the Riksdag, and the courts handle the administration of justice."
+    },
+    {
+      "id": "q-sam-dem-4",
+      "kind": "mc",
+      "topic": "the Riksdag, the government and municipalities",
+      "prompt": "A municipality in Sweden is responsible for, among other things, which of the following?",
+      "opener": "The municipality handles what is close to residents' everyday lives, unlike the state, which handles larger, national matters.",
+      "choices": [
+        "The armed forces and foreign policy",
+        "Primary schools, elderly care and social services",
+        "The Riksbank's interest rate",
+        "Sweden's relations with the EU"
+      ],
+      "answer": 1,
+      "explanation": "Municipalities are responsible for services close to residents, such as primary schools, preschools, elderly care and social services. Defence, foreign policy, the Riksbank's interest rate and EU matters are handled at the national/state level."
+    },
+    {
+      "id": "q-sam-dem-5",
+      "kind": "mc",
+      "topic": "general elections in Sweden",
+      "prompt": "How often are general elections (to the Riksdag, regions and municipalities) held in Sweden?",
+      "opener": "Think about how long a term of office is in Sweden.",
+      "choices": [
+        "Every other year",
+        "Every fourth year",
+        "Every sixth year",
+        "Only when the government requests it"
+      ],
+      "answer": 1,
+      "explanation": "General elections are held in Sweden every fourth year, simultaneously to the Riksdag, regions and municipalities. An extraordinary election can in exceptional cases be called between ordinary elections, but the ordinary term of office is four years."
+    },
+    {
+      "id": "q-sam-dem-6",
+      "kind": "mc",
+      "topic": "democracy and dictatorship",
+      "prompt": "What is an important difference between a democracy and a dictatorship?",
+      "opener": "Think about whether citizens can replace those in power or not, and whether there is a free press.",
+      "choices": [
+        "In a dictatorship there are free and regular elections and independent courts, in a democracy there are not",
+        "In a democracy, citizens can replace those in power through free elections, and there is freedom of speech and independent courts — in a dictatorship this is often lacking",
+        "There is no real difference between democracy and dictatorship",
+        "In a dictatorship, a referendum always decides"
+      ],
+      "answer": 1,
+      "explanation": "In a democracy, the people can remove those in power through free, regular elections, and fundamental rights such as freedom of speech and an independent judiciary are protected. In a dictatorship, free elections are often lacking, the opposition is restricted, and power is not controlled by the people."
+    },
+    {
+      "id": "q-sam-dem-7",
+      "kind": "worked",
+      "topic": "general elections in Sweden",
+      "prompt": "Explain step by step what happens, from a voter casting a ballot in a Riksdag election to a new government being formed.",
+      "opener": "Follow the chain: vote counting → seat allocation → negotiations → government formation.",
+      "answer": "Voters vote for a party (or a person within the party). The votes are counted and allocated to the Riksdag's 349 seats in proportion to how many votes each party received, provided the party has cleared the four percent threshold. The parties that want to form a government negotiate cooperation, often in blocs or coalitions. The Speaker proposes a candidate for Prime Minister, whom the Riksdag votes on — the candidate becomes Prime Minister unless a majority votes against. The Prime Minister then appoints the other cabinet ministers, and the government takes office.",
+      "steps": [
+        "The votes are counted and allocated between the parties in proportion to the number of votes, but only parties with at least 4% of the votes receive seats in the Riksdag (the four percent threshold).",
+        "The Riksdag's 349 seats are allocated between the parties based on the election result.",
+        "The parties negotiate over who will cooperate in order to form a government that the Riksdag will accept.",
+        "The Speaker proposes a candidate for Prime Minister, and the Riksdag votes — the candidate is approved unless more than half of the members vote against (negative parliamentarism).",
+        "The new Prime Minister appoints their cabinet ministers, and the government takes office and begins governing based on the Riksdag's decisions."
+      ]
+    },
+    {
+      "id": "q-sam-dem-8",
+      "kind": "flashcard",
+      "topic": "the Riksdag, the government and municipalities",
+      "prompt": "Summarise the roles of the Riksdag, the government and municipalities in Sweden.",
+      "opener": "Three levels with different tasks: the one that enacts laws, the one that implements them, and the one that handles local matters.",
+      "answer": "The Riksdag: Sweden's highest decision-making body, 349 members, enacts laws and decides on the state budget (legislative power) · The government: implements the Riksdag's decisions, leads the government agencies and Sweden's administration, appointed after the Prime Minister is approved by the Riksdag (executive power) · The courts: rule on criminal and civil cases, independent of the Riksdag and government (judicial power) · The municipality: responsible for local matters close to residents, e.g. primary schools, preschools, elderly care and social services, governed by a municipal council elected every fourth year · The region: responsible for, among other things, healthcare and public transport · The separation of power between these levels and functions is central to making democracy work and ensuring that no one gains too much power."
+    }
+  ]
+}

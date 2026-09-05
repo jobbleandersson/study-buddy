@@ -1,0 +1,130 @@
+{
+  "id": "lib-hist8-kallor",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Historical sources and the uses of history",
+  "sourceSummary": "How historians work: the difference between remnants and narrative sources, primary and secondary sources, the source-critical questions of authenticity, time, dependence and tendency – plus how history is used today and why the writing of history keeps changing.",
+  "topics": [
+    "remnants and narrative sources",
+    "primary and secondary sources",
+    "source-critical questions",
+    "the uses of history",
+    "a changing view of history"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist8-kal-1",
+      "kind": "mc",
+      "topic": "remnants and narrative sources",
+      "prompt": "Which of the following is an example of a remnant?",
+      "opener": "A remnant is a trace left behind by something that happened – it doesn't tell a story itself, it simply still exists.",
+      "choices": [
+        "A medieval axe found in a field",
+        "A diary describing a battle",
+        "A newspaper article about a king",
+        "A chronicle written down by a monk"
+      ],
+      "answer": 0,
+      "explanation": "A remnant is a physical trace of an activity, for example a tool, a coin, a foundation wall or an account book – it was not created in order to tell the future something. The diary, the newspaper article and the chronicle are narrative sources, since someone is deliberately describing an event in words."
+    },
+    {
+      "id": "q-hist8-kal-2",
+      "kind": "mc",
+      "topic": "primary and secondary sources",
+      "prompt": "What characterises a primary source?",
+      "opener": "Think about how close in time the source stands to the event it concerns.",
+      "choices": [
+        "That it was written by a professional historian",
+        "That it is kept in a museum",
+        "That it comes from the time or event it concerns",
+        "That it is always completely truthful"
+      ],
+      "answer": 2,
+      "explanation": "A primary source arose in connection with the event, for example a letter, a minute or a photograph from the time, while a secondary source builds on other people's information – such as a textbook's text. Being a primary source does not, however, mean the information is true; even someone who was present may misremember or take a slant."
+    },
+    {
+      "id": "q-hist8-kal-3",
+      "kind": "mc",
+      "topic": "source-critical questions",
+      "prompt": "What are you examining when you test a source's tendency?",
+      "opener": "Ask yourself what the sender would gain from describing the matter in a particular way.",
+      "choices": [
+        "Whether the source really is from the time it claims to be from",
+        "Whether the source is slanted to favour someone's interests or opinions",
+        "Whether the source has copied another source",
+        "How much time passed between the event and it being written down"
+      ],
+      "answer": 1,
+      "explanation": "The tendency criterion is about bias: does the sender have an interest in presenting the event in a particular way, for example a king describing his own victory? The other options describe the authenticity criterion, the dependence criterion and the time criterion, which are separate source-critical questions."
+    },
+    {
+      "id": "q-hist8-kal-4",
+      "kind": "mc",
+      "topic": "source-critical questions",
+      "prompt": "Two newspapers describe an event in exactly the same way, but it turns out one has simply copied the other. Which source-critical problem is this?",
+      "opener": "Two sources saying the same thing only strengthens the claim if they are independent of each other.",
+      "choices": [
+        "An authenticity problem",
+        "A time problem",
+        "A tendency problem",
+        "A dependence problem"
+      ],
+      "answer": 3,
+      "explanation": "This is a dependence problem: the two newspapers count in practice as a single source, since one has taken everything from the other. Authenticity concerns whether the source is fake, time concerns the distance to the event, and tendency concerns slant – none of these is the core problem here."
+    },
+    {
+      "id": "q-hist8-kal-5",
+      "kind": "mc",
+      "topic": "the uses of history",
+      "prompt": "What is meant by \"the uses of history\" (historiebruk)?",
+      "opener": "This concept is about how history is used today, not about what actually happened.",
+      "choices": [
+        "How history is used today, for example in museums, films, politics, advertising and commemoration days",
+        "The method of dating finds using carbon-14",
+        "Rules for how archives should preserve old documents",
+        "The study of how languages change over time"
+      ],
+      "answer": 0,
+      "explanation": "The uses of history describe how people, groups and states use the past for different purposes: to entertain, to teach, to strengthen an identity, to sell a product or to justify political decisions. Carbon-14 dating and archive rules are technical research methods, not uses of history."
+    },
+    {
+      "id": "q-hist8-kal-6",
+      "kind": "mc",
+      "topic": "a changing view of history",
+      "prompt": "Why does the writing of history change over time, even though the past itself stays the same?",
+      "opener": "Think about both what researchers find and which questions each new generation asks.",
+      "choices": [
+        "Because historians never agree on anything",
+        "Because old sources stop being valid after a hundred years",
+        "Because new sources and methods emerge and each era asks new questions of the past",
+        "Because the school curriculum decides what happened"
+      ],
+      "answer": 2,
+      "explanation": "Archaeological finds, newly opened archives and new methods provide new knowledge, and at the same time each era directs its interest towards new questions – for example the history of women, children and minorities, which long received little attention. Sources do not become invalid with age, and the curriculum describes what is to be taught, not what happened."
+    },
+    {
+      "id": "q-hist8-kal-7",
+      "kind": "worked",
+      "topic": "source-critical questions",
+      "prompt": "A student finds a short film about the Viking Age online. Explain, step by step, how the student can examine the film critically as a source.",
+      "opener": "Start with who made the film, not with what it claims.",
+      "answer": "The student should first find out who the sender is: a museum, a university researcher, a video game company or a private individual? Then the purpose is examined – does the film aim to teach, entertain or sell something? After that, the content is examined: are sources given, and does the film distinguish between what researchers know and what is guesswork or dramatisation? The information should also be compared with at least one independent source, for example a textbook or a museum's website, so as not simply to get the same claim retold. Finally, the student assesses how useful the film is: it may be a good secondary source about the Viking Age, but it may equally be a good primary source for how we choose to portray Vikings today.",
+      "steps": [
+        "Who is the sender, and what knowledge or mandate does that person or organisation have?",
+        "What is the purpose – to teach, entertain, sell or persuade? This determines the risk of tendency.",
+        "What sources does the film build on, and does it distinguish between proven knowledge and dramatised guesswork?",
+        "Compare the information with at least one independent source and check whether it holds up.",
+        "Draw a conclusion: what can the film be used for – as knowledge about the Viking Age or as an example of how history is used today?"
+      ]
+    },
+    {
+      "id": "q-hist8-kal-8",
+      "kind": "flashcard",
+      "topic": "primary and secondary sources",
+      "prompt": "Summarise the concepts of historical sources, source criticism and the uses of history.",
+      "opener": "Gather together the types of sources, the four criteria and how history is used.",
+      "answer": "Remnant: a physical trace of an activity, for example a tool, a coin, a house foundation or an account book – not created in order to tell anyone anything · narrative source: someone deliberately describes an event, for example a letter, diary, chronicle, newspaper article or photograph · primary source: from the actual time or event · secondary source: builds on other people's information, for example a textbook or a documentary film · four source-critical questions: authenticity (is the source really what it claims to be?), time (how much time passed between the event and it being written down?), dependence (are the sources independent of each other, or are they copies?), tendency (is the source slanted to favour someone?) · one and the same source can be both a remnant and a narrative source depending on which question you ask · the uses of history: how history is used today in museums, films, games, advertising, commemoration days and politics – to teach, entertain, strengthen identity or justify decisions · the view of history keeps changing because new sources and methods emerge and each era asks new questions, for example about the history of women, children and minorities."
+    }
+  ]
+}

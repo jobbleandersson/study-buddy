@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma1-algebra",
+  "type": "assignment",
+  "subject": "Matematik 1",
+  "title": "Algebra, equations and inequalities",
+  "sourceSummary": "Simplifying expressions with brackets, solving equations and inequalities, and rearranging a formula to isolate a variable.",
+  "topics": [
+    "algebraic expressions",
+    "equations",
+    "inequalities",
+    "formula rearrangement"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma1-alg-1",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Simplify $3(x + 4) - 2(x - 1)$.",
+      "opener": "Pay close attention to the signs when you multiply $-2$ into the second bracket.",
+      "choices": [
+        "$x + 10$",
+        "$5x + 14$",
+        "$x + 14$",
+        "$x + 11$"
+      ],
+      "answer": 2,
+      "explanation": "$3(x+4) = 3x + 12$ and $-2(x-1) = -2x + 2$. Together: $3x - 2x + 12 + 2 = x + 14$. The minus sign applies to both terms in the bracket."
+    },
+    {
+      "id": "q-ma1-alg-2",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Expand $(x + 3)(x - 2)$.",
+      "opener": "Each term in the first bracket must be multiplied by each term in the second.",
+      "choices": [
+        "$x^2 + 5x - 6$",
+        "$x^2 - x - 6$",
+        "$x^2 - 6$",
+        "$x^2 + x - 6$"
+      ],
+      "answer": 3,
+      "explanation": "$x \\cdot x = x^2$, $x \\cdot (-2) = -2x$, $3 \\cdot x = 3x$, $3 \\cdot (-2) = -6$. The sum is $x^2 + x - 6$."
+    },
+    {
+      "id": "q-ma1-alg-3",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $4x - 7 = 2x + 9$.",
+      "opener": "Gather the unknowns on one side and the constants on the other.",
+      "choices": [
+        "$x = 8$",
+        "$x = 1$",
+        "$x = 4$",
+        "$x = 16$"
+      ],
+      "answer": 0,
+      "explanation": "Subtract $2x$: $2x - 7 = 9$. Add 7: $2x = 16$. Divide by 2: $x = 8$."
+    },
+    {
+      "id": "q-ma1-alg-4",
+      "kind": "mc",
+      "topic": "inequalities",
+      "prompt": "Solve the inequality $3x - 5 > 7$.",
+      "opener": "Treat it like an equation — but keep track of whether the inequality sign needs to be flipped.",
+      "choices": [
+        "$x > \\frac{2}{3}$",
+        "$x > 4$",
+        "$x < 4$",
+        "$x > 12$"
+      ],
+      "answer": 1,
+      "explanation": "Add 5: $3x > 12$. Divide by 3 (a positive number, the sign stays the same): $x > 4$."
+    },
+    {
+      "id": "q-ma1-alg-5",
+      "kind": "mc",
+      "topic": "inequalities",
+      "prompt": "Solve the inequality $-2x > 6$.",
+      "opener": "Here you're dividing by a negative number — that has a consequence.",
+      "choices": [
+        "$x < 3$",
+        "$x > -3$",
+        "$x < -3$",
+        "$x > 3$"
+      ],
+      "answer": 2,
+      "explanation": "Divide both sides by $-2$. When dividing by a negative number, the inequality sign is flipped: $x < -3$."
+    },
+    {
+      "id": "q-ma1-alg-6",
+      "kind": "mc",
+      "topic": "formula rearrangement",
+      "prompt": "Rearrange the formula $s = v \\cdot t$ to isolate $t$.",
+      "opener": "What do you need to divide out to get $t$ on its own?",
+      "choices": [
+        "$t = s \\cdot v$",
+        "$t = \\frac{v}{s}$",
+        "$t = s - v$",
+        "$t = \\frac{s}{v}$"
+      ],
+      "answer": 3,
+      "explanation": "Divide both sides by $v$: $t = \\frac{s}{v}$. (Distance divided by speed gives time, which also checks out with the units.)"
+    },
+    {
+      "id": "q-ma1-alg-7",
+      "kind": "worked",
+      "topic": "formula rearrangement",
+      "prompt": "The area of a circle is given by $A = \\pi r^2$. Rearrange to isolate the radius $r$, and calculate the radius of a circle with an area of 50 cm² (one decimal place).",
+      "opener": "First do the algebra: isolate $r$. Then plug in the numbers.",
+      "answer": "$r = \\sqrt{A/\\pi} \\approx 4.0$ cm",
+      "steps": [
+        "Divide both sides by $\\pi$: $\\frac{A}{\\pi} = r^2$.",
+        "Take the square root of both sides: $r = \\sqrt{\\frac{A}{\\pi}}$ (the radius is positive, so we take the positive root).",
+        "Substitute $A = 50$: $r = \\sqrt{\\frac{50}{\\pi}} = \\sqrt{15.9...}$.",
+        "Work it out: $r \\approx 4.0$ cm."
+      ]
+    },
+    {
+      "id": "q-ma1-alg-8",
+      "kind": "flashcard",
+      "topic": "inequalities",
+      "prompt": "When do you need to flip the inequality sign, and why?",
+      "opener": "It concerns one specific kind of operation.",
+      "answer": "When you multiply or divide both sides by a negative number. The reason is that negative numbers reverse the order of magnitude: $2 < 3$, but $-2 > -3$. Adding or subtracting, on the other hand, never affects the sign."
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "lib-ma1-tal",
+  "type": "assignment",
+  "subject": "Matematik 1",
+  "title": "Number sense and powers",
+  "sourceSummary": "Laws of exponents, standard form, prefixes and rounding — topics that recur in almost every later part of the course.",
+  "topics": [
+    "laws of exponents",
+    "standard form",
+    "prefixes and units"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma1-tal-1",
+      "kind": "mc",
+      "topic": "laws of exponents",
+      "prompt": "Simplify $2^3 \\cdot 2^4$.",
+      "opener": "Same base — so there's a rule for what happens to the exponents.",
+      "choices": [
+        "$2^7$",
+        "$4^7$",
+        "$2^{34}$",
+        "$2^{12}$"
+      ],
+      "answer": 0,
+      "explanation": "When multiplying with the same base, the exponents are added: $2^3 \\cdot 2^4 = 2^{3+4} = 2^7 = 128$."
+    },
+    {
+      "id": "q-ma1-tal-2",
+      "kind": "mc",
+      "topic": "laws of exponents",
+      "prompt": "Simplify $(3^2)^3$.",
+      "opener": "A power raised to a power — what happens to the exponents then?",
+      "choices": [
+        "$9^3$",
+        "$3^6$",
+        "$3^5$",
+        "$3^8$"
+      ],
+      "answer": 1,
+      "explanation": "For a power of a power, the exponents are multiplied: $(3^2)^3 = 3^{2 \\cdot 3} = 3^6 = 729$."
+    },
+    {
+      "id": "q-ma1-tal-3",
+      "kind": "mc",
+      "topic": "laws of exponents",
+      "prompt": "What is $2^{-3}$?",
+      "opener": "A negative exponent doesn't mean a negative answer.",
+      "choices": [
+        "$-8$",
+        "$-6$",
+        "$\\frac{1}{8}$",
+        "$0$"
+      ],
+      "answer": 2,
+      "explanation": "$a^{-n} = \\frac{1}{a^n}$, so $2^{-3} = \\frac{1}{2^3} = \\frac{1}{8} = 0.125$. A negative exponent gives the reciprocal, not a negative number."
+    },
+    {
+      "id": "q-ma1-tal-4",
+      "kind": "mc",
+      "topic": "laws of exponents",
+      "prompt": "What is $5^0$?",
+      "opener": "This is a definition worth knowing by heart.",
+      "choices": [
+        "5",
+        "Undefined",
+        "0",
+        "1"
+      ],
+      "answer": 3,
+      "explanation": "Any number (except 0) raised to the power of 0 is 1. This follows from the law of exponents: $\\frac{5^n}{5^n} = 5^{n-n} = 5^0 = 1$."
+    },
+    {
+      "id": "q-ma1-tal-5",
+      "kind": "mc",
+      "topic": "standard form",
+      "prompt": "Write $0.00042$ in standard form.",
+      "opener": "The first factor should be between 1 and 10 — which way does the decimal point move?",
+      "choices": [
+        "$4.2 \\cdot 10^{-4}$",
+        "$42 \\cdot 10^{-5}$",
+        "$4.2 \\cdot 10^{4}$",
+        "$0.42 \\cdot 10^{-3}$"
+      ],
+      "answer": 0,
+      "explanation": "Move the decimal point four places to the right to get 4.2. Since the number is small, the exponent becomes negative: $4.2 \\cdot 10^{-4}$."
+    },
+    {
+      "id": "q-ma1-tal-6",
+      "kind": "mc",
+      "topic": "prefixes and units",
+      "prompt": "How many metres is 2.5 micrometres ($\\mu$m)?",
+      "opener": "Which power of ten does the prefix micro correspond to?",
+      "choices": [
+        "$2.5 \\cdot 10^{-9}$ m",
+        "$2.5 \\cdot 10^{-6}$ m",
+        "$2.5 \\cdot 10^{6}$ m",
+        "$2.5 \\cdot 10^{-3}$ m"
+      ],
+      "answer": 1,
+      "explanation": "The prefix micro means $10^{-6}$, so $2.5\\ \\mu\\text{m} = 2.5 \\cdot 10^{-6}$ m. (Milli is $10^{-3}$ and nano is $10^{-9}$.)"
+    },
+    {
+      "id": "q-ma1-tal-7",
+      "kind": "worked",
+      "topic": "laws of exponents",
+      "prompt": "Simplify $\\dfrac{6^5 \\cdot 6^{-2}}{6^{2}}$ and write the answer both as a power and as a number.",
+      "opener": "Take the numerator first using the multiplication rule, then the division.",
+      "answer": "$6^1 = 6$",
+      "steps": [
+        "Numerator: the same base under multiplication means adding the exponents, $6^5 \\cdot 6^{-2} = 6^{5 + (-2)} = 6^3$.",
+        "The division: the same base means subtracting the exponents, $\\frac{6^3}{6^2} = 6^{3-2} = 6^1$.",
+        "So $6^1 = 6$."
+      ]
+    },
+    {
+      "id": "q-ma1-tal-8",
+      "kind": "flashcard",
+      "topic": "laws of exponents",
+      "prompt": "List the laws of exponents for multiplication, division, power of a power, exponent 0, and negative exponents.",
+      "opener": "Five rules — try to state them in general using $a$, $m$ and $n$.",
+      "answer": "$a^m \\cdot a^n = a^{m+n}$ · $\\dfrac{a^m}{a^n} = a^{m-n}$ · $(a^m)^n = a^{m \\cdot n}$ · $a^0 = 1$ (for $a \\neq 0$) · $a^{-n} = \\dfrac{1}{a^n}$"
+    }
+  ]
+}

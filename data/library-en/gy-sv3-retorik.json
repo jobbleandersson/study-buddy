@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv3-retorik",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Rhetorical analysis and argumentation",
+  "sourceSummary": "In-depth analysis of argumentation with logical fallacies, assessing a text's credibility rhetorically, and how a sender adapts language to the recipient in complex texts.",
+  "topics": [
+    "logical fallacies",
+    "credibility",
+    "sender and recipient"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-retorik-1",
+      "kind": "mc",
+      "topic": "logical fallacies",
+      "prompt": "\"You can't be right about climate policy, you're not even a scientist.\" What logical fallacy is this an example of?",
+      "opener": "Is the issue itself being attacked, or the person raising it?",
+      "choices": [
+        "Straw man (distorting the opponent's position)",
+        "Ad hominem (a personal attack instead of addressing the issue)",
+        "Circular reasoning",
+        "False dichotomy"
+      ],
+      "answer": 1,
+      "explanation": "Ad hominem means attacking the person putting forward an argument instead of addressing the argument itself — here the position is dismissed simply because the person lacks a certain title, which says nothing about whether the position is correct."
+    },
+    {
+      "id": "q-sv3-retorik-2",
+      "kind": "mc",
+      "topic": "logical fallacies",
+      "prompt": "\"Either we commit fully to nuclear power, or the country will be left without electricity.\" Which logical fallacy is this claim built on?",
+      "opener": "Are there really only two possible outcomes here?",
+      "choices": [
+        "Straw man",
+        "Argument from authority",
+        "False dichotomy (presenting only two extremes as the only alternatives)",
+        "Ad hominem"
+      ],
+      "answer": 2,
+      "explanation": "A false dichotomy presents only two opposing alternatives as if they were the only possible ones, even though more nuanced alternatives exist (e.g. a combination of energy sources). It is neither a personal attack nor an argument from authority."
+    },
+    {
+      "id": "q-sv3-retorik-3",
+      "kind": "mc",
+      "topic": "logical fallacies",
+      "prompt": "A debater says: \"My opponents apparently want us to close all schools entirely\" — even though the opponents actually only proposed fewer administrative meetings. What is this logical fallacy called?",
+      "opener": "The position being addressed is heavily distorted compared with what was actually said.",
+      "choices": [
+        "Straw man (distorting and exaggerating the opponent's position to make it easier to dismiss)",
+        "Circular reasoning",
+        "False dichotomy",
+        "Argument from authority"
+      ],
+      "answer": 0,
+      "explanation": "A straw man is created by distorting or exaggerating the opponent's actual position into something easier to dismiss, and then addressing the distorted version rather than the real argument."
+    },
+    {
+      "id": "q-sv3-retorik-4",
+      "kind": "mc",
+      "topic": "credibility",
+      "prompt": "Which of the following most strengthens a speaker's ETHOS in a debate about education policy?",
+      "opener": "Ethos is about the sender's credibility — what builds it?",
+      "choices": [
+        "Speaking loudly and interrupting the opponent often",
+        "Avoiding mentioning any sources at all to appear more confident",
+        "Joking away difficult questions",
+        "Presenting relevant experience, referring to reliable sources, and addressing counterarguments objectively"
+      ],
+      "answer": 3,
+      "explanation": "Ethos is built by demonstrating competence, honesty and good judgement — for example through relevant experience, reliable sources, and objectively addressing counterarguments. Interrupting or joking away difficult questions instead undermines credibility."
+    },
+    {
+      "id": "q-sv3-retorik-5",
+      "kind": "mc",
+      "topic": "credibility",
+      "prompt": "A letter to the editor builds its entire argument on a single anecdote (\"my neighbour lost his job, so immigration is bad for the economy\"). What is the rhetorical weakness here?",
+      "opener": "Is a single example enough to substantiate a general claim?",
+      "choices": [
+        "The anecdote is too emotional to count as an argument at all",
+        "A single example is generalised into a broad conclusion, without support from wider statistics or research",
+        "The anecdote contains too many numbers",
+        "The letter has the wrong kind of sender for the topic"
+      ],
+      "answer": 1,
+      "explanation": "Drawing a general conclusion from a single example (hasty generalisation) makes the argument weak, since an anecdote does not show how representative it is. Emotion in itself does not disqualify an argument, but the lack of broader evidence does."
+    },
+    {
+      "id": "q-sv3-retorik-6",
+      "kind": "mc",
+      "topic": "sender and recipient",
+      "prompt": "A science journalist writes about the same research findings both in a specialist journal for experts and in an evening tabloid for the general public. What is typically adapted the most between the two texts?",
+      "opener": "What does one audience already know that the other does not?",
+      "choices": [
+        "The research findings themselves, which must be changed depending on the target audience",
+        "Word choice, technical terminology, examples and the degree of background explanation are adapted to the audience's prior knowledge",
+        "Nothing needs to be adapted since facts should always be presented identically",
+        "Only the typeface in the printed text"
+      ],
+      "answer": 1,
+      "explanation": "Good adaptation to the recipient means word choice, technical terms, examples and level of explanation are adjusted to the audience's prior knowledge — experts need less background and can handle more terminology than the general public. The factual content itself, however, should be the same in both texts."
+    },
+    {
+      "id": "q-sv3-retorik-7",
+      "kind": "worked",
+      "topic": "logical fallacies",
+      "prompt": "Analyse the following argument and identify the logical fallacy: \"We know climate change is real because almost all scientists say so, and almost all scientists say so because climate change is real.\"",
+      "opener": "Look at what is used as evidence for the conclusion, and what is used as evidence for that evidence.",
+      "answer": "The argument is built on circular reasoning: the conclusion (climate change is real) is justified by a premise (scientists say so), and that premise is in turn justified by the very same conclusion it was meant to prove. The argument therefore provides no independent support for the claim, even though the conclusion itself may be true for other, independent reasons (e.g. actual measurement data and consensus studies).",
+      "steps": [
+        "Identify what the conclusion of the argument is: that climate change is real.",
+        "Identify what is given as support (the premise): that almost all scientists say so.",
+        "Examine how the premise is in turn justified — here it turns out to be justified by the same conclusion.",
+        "Note that the reasoning goes in a circle and therefore provides no independent evidence.",
+        "Distinguish between the argument being flawed and whether the conclusion might still be true for other reasons."
+      ]
+    },
+    {
+      "id": "q-sv3-retorik-8",
+      "kind": "flashcard",
+      "topic": "logical fallacies",
+      "prompt": "Summarise the most common logical fallacies, as well as what builds credibility and audience adaptation respectively.",
+      "opener": "Group them by what kind of \"shortcut\" the fallacy takes.",
+      "answer": "Ad hominem: attacks the person, not the argument · Straw man: distorts the opponent's position · False dichotomy: presents only two alternatives as the only possibilities · Circular reasoning: the conclusion is used as support for itself · Hasty generalisation: draws a broad conclusion from a single example · Ethos: built from competence, honesty and objectively addressing counterarguments · Audience adaptation: word choice, technical language and level of explanation are adjusted to the audience's prior knowledge, while the factual content remains the same."
+    }
+  ]
+}

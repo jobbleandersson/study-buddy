@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma2-funktioner",
+  "type": "assignment",
+  "subject": "Matematik 2",
+  "title": "Quadratic functions and parabolas",
+  "sourceSummary": "Vertex form, axis of symmetry, maximum and minimum values, and how the coefficients control a parabola's direction of opening and width.",
+  "topics": [
+    "vertex form",
+    "axis of symmetry",
+    "extreme value",
+    "significance of coefficients"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma2-funktioner-1",
+      "kind": "mc",
+      "topic": "vertex form",
+      "prompt": "The function $f(x) = (x-2)^2 + 3$ is written in vertex form. What is the vertex (the parabola's highest or lowest point)?",
+      "opener": "In the form $f(x) = (x-a)^2 + b$ you can read off the vertex directly.",
+      "choices": [
+        "$(2, 3)$",
+        "$(-2, 3)$",
+        "$(2, -3)$",
+        "$(3, 2)$"
+      ],
+      "answer": 0,
+      "explanation": "In $f(x) = (x-a)^2+b$ the vertex is $(a, b)$. Here $a=2$ and $b=3$, so the vertex is $(2, 3)$. Choosing $(-2,3)$ is a common sign error — it is $x-a$ in the formula, so $a$ is positive when there is a minus sign inside the brackets."
+    },
+    {
+      "id": "q-ma2-funktioner-2",
+      "kind": "mc",
+      "topic": "significance of coefficients",
+      "prompt": "Which conclusion about $f(x) = -2x^2 + 3$ is correct?",
+      "opener": "Look at the sign in front of the $x^2$ term — what does it determine?",
+      "choices": [
+        "The parabola opens upwards and has a minimum value",
+        "The parabola opens downwards and has a maximum value",
+        "The parabola is a straight line because the coefficient is negative",
+        "The parabola opens upwards and has a maximum value"
+      ],
+      "answer": 1,
+      "explanation": "Since the coefficient in front of $x^2$ is negative ($-2$), the parabola opens downwards, and its peak is a maximum value. A positive coefficient would have given an upward-opening parabola with a minimum value."
+    },
+    {
+      "id": "q-ma2-funktioner-3",
+      "kind": "mc",
+      "topic": "axis of symmetry",
+      "prompt": "What is the axis of symmetry for $f(x) = x^2 - 6x + 5$?",
+      "opener": "The axis of symmetry lies midway between the roots, or it can be found using $x = -\\dfrac{p}{2}$.",
+      "choices": [
+        "$x = 6$",
+        "$x = -3$",
+        "$x = 3$",
+        "$x = 5$"
+      ],
+      "answer": 2,
+      "explanation": "With $p=-6$, $q=5$ the axis of symmetry becomes $x = -\\frac{p}{2} = -\\frac{-6}{2} = 3$. The roots ($x=1$ and $x=5$) lie symmetrically around $x=3$, which confirms the answer."
+    },
+    {
+      "id": "q-ma2-funktioner-4",
+      "kind": "mc",
+      "topic": "extreme value",
+      "prompt": "What is the minimum value of the function $f(x) = x^2 - 4x + 7$?",
+      "opener": "Complete the square to find the vertex form, or calculate $f$ at the $x$-value of the axis of symmetry.",
+      "choices": [
+        "$7$",
+        "$-4$",
+        "$3$",
+        "$4$"
+      ],
+      "answer": 2,
+      "explanation": "The axis of symmetry is $x = -\\frac{-4}{2} = 2$. Substituting into the function: $f(2) = 4 - 8 + 7 = 3$. The minimum value is therefore $3$, not the constant term $7$ (which is the answer you'd get if you mistakenly thought $f(0)$ gives the extreme value)."
+    },
+    {
+      "id": "q-ma2-funktioner-5",
+      "kind": "mc",
+      "topic": "significance of coefficients",
+      "prompt": "The graph of $f(x) = 5x^2$ is compared with the graph of $g(x) = 0{.}5x^2$. Which statement is correct?",
+      "opener": "Does a coefficient with a larger magnitude make the parabola narrower or wider?",
+      "choices": [
+        "$f$ is narrower than $g$",
+        "$f$ is wider than $g$",
+        "$f$ and $g$ are exactly the same width",
+        "$f$ opens downwards and $g$ opens upwards"
+      ],
+      "answer": 0,
+      "explanation": "A larger magnitude of the coefficient in front of $x^2$ makes the parabola steeper, i.e. narrower. Since $5 > 0{.}5$, $f$ is narrower than $g$. Both open upwards because the coefficients are positive."
+    },
+    {
+      "id": "q-ma2-funktioner-6",
+      "kind": "mc",
+      "topic": "vertex form",
+      "prompt": "Which function has its vertex at the point $(-1, -4)$ and opens upwards?",
+      "opener": "Think about the sign inside the brackets compared with the $x$-coordinate of the vertex.",
+      "choices": [
+        "$f(x) = (x-1)^2 - 4$",
+        "$f(x) = (x+1)^2 - 4$",
+        "$f(x) = -(x+1)^2 - 4$",
+        "$f(x) = (x+1)^2 + 4$"
+      ],
+      "answer": 1,
+      "explanation": "A vertex of $(-1,-4)$ in the form $(x-a)^2+b$ requires $a=-1$, i.e. $(x-(-1))^2 = (x+1)^2$, and $b=-4$. This gives $f(x)=(x+1)^2-4$. The option with a minus sign in front of the brackets (C) opens downwards, which does not match the requirement."
+    },
+    {
+      "id": "q-ma2-funktioner-7",
+      "kind": "worked",
+      "topic": "vertex form",
+      "prompt": "Write $f(x) = x^2 + 8x + 10$ in vertex form and state the vertex.",
+      "opener": "Complete the square in the same way as for quadratic equations, but keep it as a function.",
+      "answer": "$f(x) = (x+4)^2 - 6$, vertex $(-4, -6)$",
+      "steps": [
+        "Halve the coefficient in front of $x$: $\\frac{8}{2} = 4$, giving the initial guess $(x+4)^2$.",
+        "Expand: $(x+4)^2 = x^2 + 8x + 16$. This is 16 more than the constant term 10 in the original.",
+        "Adjust away the excess: $f(x) = (x+4)^2 - 16 + 10 = (x+4)^2 - 6$.",
+        "The vertex form gives the vertex directly: $(-4, -6)$."
+      ]
+    },
+    {
+      "id": "q-ma2-funktioner-8",
+      "kind": "flashcard",
+      "topic": "significance of coefficients",
+      "prompt": "Summarise how $a$, the axis of symmetry and the vertex relate to each other for a quadratic function $f(x) = ax^2 + bx + c$.",
+      "opener": "Connect the coefficient $a$ with the shape, and $b$, $c$ with the position.",
+      "answer": "$a>0$ gives an upward-opening parabola (minimum value) · $a<0$ gives a downward-opening parabola (maximum value) · A larger $|a|$ gives a narrower parabola, a smaller $|a|$ gives a wider one · Axis of symmetry: $x = -\\dfrac{b}{2a}$ · Vertex: $\\left(-\\dfrac{b}{2a},\\ f\\!\\left(-\\dfrac{b}{2a}\\right)\\right)$ · Vertex form: $f(x) = a(x-h)^2+k$ with vertex $(h,k)$."
+    }
+  ]
+}

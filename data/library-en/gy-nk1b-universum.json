@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-universum",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "The universe and astronomy",
+  "sourceSummary": "The Big Bang theory in brief, the life cycle of stars, the structure of the solar system, and how astronomers work out distance and composition using spectroscopy.",
+  "topics": [
+    "the Big Bang and the evolution of the universe",
+    "the life cycle of stars",
+    "the solar system",
+    "astronomical methods"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-universum-1",
+      "kind": "mc",
+      "topic": "the Big Bang and the evolution of the universe",
+      "prompt": "What does the Big Bang theory say, in brief?",
+      "opener": "Think about what the theory says about the size and temperature of the universe right at the beginning of time, not about an explosion in the ordinary sense.",
+      "choices": [
+        "That a star exploded in an already existing, infinitely large universe",
+        "That around 13.8 billion years ago the universe expanded from an extremely hot and dense state, and that it has continued to expand ever since",
+        "That the Earth was formed by a single large collision between planets",
+        "That the universe has always had exactly the same size and temperature"
+      ],
+      "answer": 1,
+      "explanation": "The Big Bang theory describes how the entire universe has expanded from an extremely hot, dense state around 13.8 billion years ago, and that this expansion continues to this day. It is not about an explosion within already existing space, but about space itself expanding."
+    },
+    {
+      "id": "q-nk1b-universum-2",
+      "kind": "mc",
+      "topic": "the Big Bang and the evolution of the universe",
+      "prompt": "Which observational evidence is often highlighted as one of the strongest pieces of support for the Big Bang theory?",
+      "opener": "Think about what would be seen if distant galaxies are moving away from us, and about the faint radiation that fills all of space.",
+      "choices": [
+        "That all stars are exactly the same age",
+        "Among other things, that galaxies generally move away from one another (redshift) and that there is a background radiation, the cosmic microwave background, that fills the entire universe",
+        "That the Moon always shows the same side to the Earth",
+        "That the Sun rotates around the Earth once a year"
+      ],
+      "answer": 1,
+      "explanation": "Two of the strongest pieces of evidence are that distant galaxies show redshift, which shows that the universe is expanding, and the discovery of the cosmic microwave background — a faint \"echo\" of the early hot universe found in every direction in space. The movements of the Moon and Earth have nothing to do with the Big Bang as such."
+    },
+    {
+      "id": "q-nk1b-universum-3",
+      "kind": "mc",
+      "topic": "the life cycle of stars",
+      "prompt": "What mainly counteracts a star's own gravity during most of its life and stops it from collapsing?",
+      "opener": "Think about what is going on in the star's core that releases enormous amounts of energy.",
+      "choices": [
+        "The star's rotation on its own axis",
+        "The pressure and radiation from fusion reactions in the core, e.g. when hydrogen is converted into helium",
+        "Magnetic fields from other stars in the same galaxy",
+        "The star's distance from the nearest planet"
+      ],
+      "answer": 1,
+      "explanation": "For most of a star's life, there is a balance between gravity's inward pull and the outward pressure from the energy released by nuclear fusion, above all when hydrogen fuses into helium. When the fuel runs out, the balance is upset and the star changes drastically."
+    },
+    {
+      "id": "q-nk1b-universum-4",
+      "kind": "mc",
+      "topic": "the life cycle of stars",
+      "prompt": "What mainly determines how a star ends its life — for example, as a white dwarf, a neutron star, or a black hole?",
+      "opener": "Think about which property of the star is usually mentioned as most decisive for its final stage.",
+      "choices": [
+        "The star's colour at birth",
+        "The star's original mass",
+        "How many planets orbit the star",
+        "The distance to Earth"
+      ],
+      "answer": 1,
+      "explanation": "The star's mass is the main factor that determines its fate: stars with a mass close to the Sun's usually end up as white dwarfs, more massive stars can explode as supernovae and leave behind a neutron star, and the very most massive stars can collapse into a black hole. Colour, number of planets and distance to Earth do not determine the final stage."
+    },
+    {
+      "id": "q-nk1b-universum-5",
+      "kind": "mc",
+      "topic": "the solar system",
+      "prompt": "What is the main difference between the inner rocky planets (e.g. Earth and Mars) and the outer gas giants (e.g. Jupiter and Saturn) in the solar system?",
+      "opener": "Think about what the planets are mainly made of, and their approximate size.",
+      "choices": [
+        "The rocky planets are always larger than the gas giants",
+        "The rocky planets are relatively small and have a solid surface of rock and metal, while the gas giants are much larger and consist mainly of gases such as hydrogen and helium",
+        "The gas giants have no gravity at all",
+        "There is no real difference between the planet types"
+      ],
+      "answer": 1,
+      "explanation": "The inner planets are relatively small with a solid surface made mainly of rock and metal, while the outer gas giants are considerably larger and consist mostly of gases, above all hydrogen and helium, around a smaller, dense core. Every planet has gravity proportional to its mass."
+    },
+    {
+      "id": "q-nk1b-universum-6",
+      "kind": "mc",
+      "topic": "astronomical methods",
+      "prompt": "How can astronomers use spectroscopy to find out which elements are present in a distant star?",
+      "opener": "Think about how every element absorbs and emits light at very specific wavelengths, like a unique \"fingerprint\".",
+      "choices": [
+        "By measuring the star's temperature with a thermometer on site",
+        "By splitting the star's light into a spectrum and comparing the dark (or bright) lines with known lines for different elements, since each element has a unique pattern",
+        "By counting the number of stars in the same constellation",
+        "By measuring how fast the star rotates on its own axis"
+      ],
+      "answer": 1,
+      "explanation": "Every element absorbs and emits light at specific, unique wavelengths. By splitting starlight into a spectrum with a prism or grating and comparing the pattern of lines with known spectral lines from laboratories on Earth, astronomers can determine which elements are present in the star, without ever travelling there."
+    },
+    {
+      "id": "q-nk1b-universum-7",
+      "kind": "worked",
+      "topic": "astronomical methods",
+      "prompt": "Explain how the redshift of light from distant galaxies is used as evidence that the universe is expanding.",
+      "opener": "Think about how the sound of an ambulance driving away from you changes (the Doppler effect) — the same principle applies to light.",
+      "answer": "Light from most distant galaxies is redshifted, meaning that the wavelengths of the spectral lines are shifted towards red compared with the same elements' lines measured in a laboratory, which according to the Doppler effect shows that the galaxies are moving away from us — and that the further away a galaxy is, the faster it moves away, exactly as expected if space itself is expanding.",
+      "steps": [
+        "When a light source moves away from an observer, the wavelength of the light is shifted towards the red (longer wavelength) part of the spectrum — this is called redshift and is a form of the Doppler effect.",
+        "Astronomers take the spectrum of light from distant galaxies and compare the characteristic spectral lines of known elements with the same lines measured in a laboratory on Earth.",
+        "In virtually all distant galaxies, these lines are shifted towards red, which shows that the galaxies are moving away from us.",
+        "The further away a galaxy is, the greater the redshift, in other words the faster it is moving away — a relationship known as Hubble's law.",
+        "The fact that distance and speed are related in this way, in every direction in space, is consistent with space itself expanding, which is one of the most important pieces of evidence for the Big Bang theory."
+      ]
+    },
+    {
+      "id": "q-nk1b-universum-8",
+      "kind": "flashcard",
+      "topic": "the Big Bang and the evolution of the universe",
+      "prompt": "Summarise the key points about the Big Bang, the life cycle of stars, the structure of the solar system, and astronomical methods.",
+      "opener": "Go through the history of the universe, the life of a star, the planet types, and how we know anything about what we cannot visit.",
+      "answer": "Big Bang: the universe expanded from a hot, dense state around 13.8 billion years ago and continues to expand, supported by redshift and the cosmic microwave background · Life of a star: a balance between gravity and the radiation pressure of fusion keeps the star stable; mass determines the final stage — white dwarf, neutron star or black hole · Solar system: inner rocky planets (small, solid surface of rock/metal) and outer gas giants (large, mostly hydrogen and helium) orbit the Sun · Spectroscopy: every element has unique spectral lines, allowing astronomers to determine composition at a distance by analysing the spectrum of light · Redshift: a shift of spectral lines towards red shows that a galaxy is moving away from us, and is used to measure speed and support the expansion of the universe."
+    }
+  ]
+}

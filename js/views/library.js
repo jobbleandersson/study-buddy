@@ -3,14 +3,15 @@
 // set is a static file that's copied into the student's own library on "Add".
 
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
-import { t, plural } from "../lib/i18n.js";
+import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
-import { loadLibraryIndex, isImported, importSet } from "../data/library.js";
+import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
 
 export async function renderLibrary() {
-  let index;
+  let index, tr;
   try {
     index = await loadLibraryIndex();
+    tr = getLang() === "en" ? await loadLibraryTranslations() : { levels: {}, subjects: {}, sets: {} };
   } catch {
     return {
       title: t("lib.title"),
@@ -21,6 +22,15 @@ export async function renderLibrary() {
       ]),
     };
   }
+
+  // The library ships Swedish-curriculum content; in English mode these read
+  // the index.en.json overlay and fall back to the Swedish original for any id
+  // it doesn't cover. Used everywhere a level/subject/set name is shown.
+  const lvlLabel = (lvl) => tr.levels[lvl?.id] || lvl?.label;
+  const subjName = (s) => tr.subjects[s?.id]?.name || s?.name;
+  const subjDesc = (s) => tr.subjects[s?.id]?.description || s?.description;
+  const setTitle = (s) => tr.sets[s?.id]?.title || s?.title;
+  const setSummary = (s) => tr.sets[s?.id]?.summary || s?.summary;
 
   const root = el("div");
   const state = { level: null, subject: null, query: "", examMin: 0 };
@@ -69,7 +79,7 @@ export async function renderLibrary() {
     const matches = index.sets.filter((s) => {
       const subject = index.subjects.find((sub) => sub.id === s.subject);
       const level = index.levels.find((l) => l.id === subject?.level);
-      return [s.title, s.summary, subject?.name, level?.label].filter(Boolean).join(" ").toLowerCase().includes(q);
+      return [setTitle(s), setSummary(s), subjName(subject), lvlLabel(level)].filter(Boolean).join(" ").toLowerCase().includes(q);
     });
 
     if (!matches.length) {
@@ -86,7 +96,7 @@ export async function renderLibrary() {
       const subject = index.subjects.find((s) => s.id === subjId);
       const level = index.levels.find((l) => l.id === subject?.level);
       return el("section.panel", { style: { marginBottom: "20px" } }, [
-        el("p.note", { style: { marginBottom: "8px" } }, [level?.label, subject?.name].filter(Boolean).join(" · ")),
+        el("p.note", { style: { marginBottom: "8px" } }, [lvlLabel(level), subjName(subject)].filter(Boolean).join(" · ")),
         el("div.libgrid", {}, sets.map(setCard)),
       ]);
     });
@@ -104,7 +114,7 @@ export async function renderLibrary() {
       el("p", { style: { marginBottom: "16px" } }, t("lib.intro")),
       el("div.source-grid", {}, levels.map((lvl) =>
         el("button.source-opt", { type: "button", onclick: () => { state.level = lvl.id; paint(); } }, [
-          icon(ICONS.graduation, 26), lvl.label,
+          icon(ICONS.graduation, 26), lvlLabel(lvl),
         ]))),
     ]);
   }
@@ -114,11 +124,11 @@ export async function renderLibrary() {
     const level = index.levels.find((l) => l.id === state.level);
     const subjects = index.subjects.filter((s) => s.level === state.level);
     return el("div.panel", {}, [
-      el("p", { style: { marginBottom: "16px" } }, t("lib.pickSubject", { level: level?.label || "" })),
+      el("p", { style: { marginBottom: "16px" } }, t("lib.pickSubject", { level: lvlLabel(level) || "" })),
       el("div.source-grid", {}, subjects.map((subject) =>
         el("button.source-opt", { type: "button", onclick: () => { state.subject = subject.id; paint(); } }, [
-          icon(ICONS.book, 26), subject.name,
-          el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, subject.description),
+          icon(ICONS.book, 26), subjName(subject),
+          el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, subjDesc(subject)),
         ]))),
     ]);
   }
@@ -154,8 +164,8 @@ export async function renderLibrary() {
       el("section.panel", {}, [
         el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "start", gap: "12px", flexWrap: "wrap", marginBottom: "6px" } }, [
           el("div", {}, [
-            el("h3", {}, subject.name),
-            el("p.note", { style: { marginTop: "4px" } }, subject.description),
+            el("h3", {}, subjName(subject)),
+            el("p.note", { style: { marginTop: "4px" } }, subjDesc(subject)),
           ]),
           missing.length ? addAllBtn : el("span.note", {}, t("lib.allAdded")),
         ]),
@@ -178,7 +188,7 @@ export async function renderLibrary() {
             e.currentTarget.disabled = true;
             try {
               await importSet(entry);
-              toast(t("lib.added", { title: entry.title }));
+              toast(t("lib.added", { title: setTitle(entry) }));
               paint();
             } catch {
               toast(t("lib.addFail"));
@@ -198,8 +208,8 @@ export async function renderLibrary() {
 
     return el("div.libcard", {}, [
       el("div", {}, [
-        el("div.libcard__title", {}, entry.title),
-        el("p.note", { style: { margin: "4px 0 0" } }, entry.summary),
+        el("div.libcard__title", {}, setTitle(entry)),
+        el("p.note", { style: { margin: "4px 0 0" } }, setSummary(entry)),
       ]),
       el("div.libcard__foot", {}, [
         el("span.note", {}, plural(entry.count, "common.questionOne", "common.questionMany")),

@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo7-klimat",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Weather, climate and climate zones",
+  "sourceSummary": "The difference between weather and climate, the Earth's climate zones, what affects the climate of a place, the importance of the Gulf Stream for Northern Europe, and how vegetation zones follow climate.",
+  "topics": [
+    "weather and climate",
+    "climate zones",
+    "what affects climate",
+    "the Gulf Stream",
+    "vegetation zones"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo7-kli-1",
+      "kind": "mc",
+      "topic": "weather and climate",
+      "prompt": "What is the difference between weather and climate?",
+      "opener": "Think about how much time each of the two words is talking about.",
+      "choices": [
+        "Weather applies to the whole world, climate only to one city",
+        "They're two words for exactly the same thing",
+        "Weather is what it's like right now or over a few days, climate is the average weather over many years",
+        "Climate is only about temperature, weather only about rainfall"
+      ],
+      "answer": 2,
+      "explanation": "Weather is temporary — rain today, sun tomorrow — while climate is the pattern of temperature, rainfall and wind measured as an average over a long time, usually 30 years. So it snowing one day in April tells you nothing about the climate, and both terms cover temperature as well as rainfall."
+    },
+    {
+      "id": "q-geo7-kli-2",
+      "kind": "mc",
+      "topic": "climate zones",
+      "prompt": "What are the Earth's three major climate zones, counting from the equator towards the poles?",
+      "opener": "The zones lie as broad bands around the globe.",
+      "choices": [
+        "Tropical, temperate and polar climate",
+        "Warm, wet and windy climate",
+        "Summer climate, winter climate and autumn climate",
+        "Coastal climate, inland climate and mountain climate"
+      ],
+      "answer": 0,
+      "explanation": "Closest to the equator lies the tropical zone with high heat all year round, then the temperate zone with distinct seasons (where Sweden lies), and furthest north and south the polar zone, which is cold for most of the year. Coastal, inland and mountain climates are instead local climate types that can occur within several of these zones."
+    },
+    {
+      "id": "q-geo7-kli-3",
+      "kind": "mc",
+      "topic": "what affects climate",
+      "prompt": "Which factor matters most for how warm it is at a given place?",
+      "opener": "Think about the angle at which the sun's rays hit the ground.",
+      "choices": [
+        "How many people live there",
+        "Latitude, i.e. the distance to the equator",
+        "Which time zone the place is in",
+        "How large the country is"
+      ],
+      "answer": 1,
+      "explanation": "Near the equator, the sun's rays hit the ground almost straight from above and warm it strongly, while near the poles they arrive at an angle and spread over a larger area, giving less heat per square metre. Time zones are just about the clock, and a country's size or population doesn't control how much sunlight it receives."
+    },
+    {
+      "id": "q-geo7-kli-4",
+      "kind": "mc",
+      "topic": "the Gulf Stream",
+      "prompt": "What does the Gulf Stream mean for Northern Europe?",
+      "opener": "Compare Sweden's winters with the winters in Canada at the same latitude.",
+      "choices": [
+        "It makes the winters colder than they would otherwise be",
+        "It only affects Southern Europe",
+        "It causes earthquakes in Norway",
+        "It carries warm water northward and makes the climate considerably milder than at the same latitude elsewhere in the world"
+      ],
+      "answer": 3,
+      "explanation": "The Gulf Stream is a warm ocean current that carries water from the Gulf of Mexico north-east across the Atlantic, and the mild, moist air above it is carried in over Northern Europe by the westerly winds. That's why Stockholm and Oslo are considerably milder than places at the same latitude in Canada and Siberia. Ocean currents have nothing to do with earthquakes, which are caused by movements in the Earth's crust."
+    },
+    {
+      "id": "q-geo7-kli-5",
+      "kind": "mc",
+      "topic": "vegetation zones",
+      "prompt": "Which vegetation zone covers most of northern and central Sweden?",
+      "opener": "Think about which trees cope best with short summers and cold winters.",
+      "choices": [
+        "Coniferous forest (taiga)",
+        "Tropical rainforest",
+        "Savannah",
+        "Desert"
+      ],
+      "answer": 0,
+      "explanation": "The coniferous forest belt, the taiga, stretches as a broad band through northern and central Sweden and onward through Finland, Russia and Canada, because spruce and pine cope with a short growing season and cold. Rainforest, savannah and desert require entirely different, warmer climates and don't occur naturally in Sweden — furthest south the coniferous forest instead gives way to deciduous and mixed forest."
+    },
+    {
+      "id": "q-geo7-kli-6",
+      "kind": "mc",
+      "topic": "what affects climate",
+      "prompt": "How does being close to a large sea affect the climate of a place?",
+      "opener": "Water warms up and cools down much more slowly than land.",
+      "choices": [
+        "It gives extremely large differences between summer and winter",
+        "It makes the climate completely dry",
+        "It evens out the temperature: cooler summers, milder winters and often more rainfall",
+        "It doesn't affect the climate at all"
+      ],
+      "answer": 2,
+      "explanation": "Because water stores heat for a long time, coastal places are cooler in summer and milder in winter than inland places at the same latitude, and air coming in from the sea is moist and brings rainfall. It's actually the inland climate that has the large seasonal differences, for example in the interior of northern Sweden or in Siberia."
+    },
+    {
+      "id": "q-geo7-kli-7",
+      "kind": "worked",
+      "topic": "the Gulf Stream",
+      "prompt": "Gothenburg and the town of Goose Bay in Canada lie at almost the same latitude, but Gothenburg has much milder winters. Explain why.",
+      "opener": "The latitude is the same — so the explanation must lie in something else, for example the sea and the winds.",
+      "answer": "The latitude gives roughly the same amount of sunlight at both places, so the difference must be down to other factors. Gothenburg lies on the eastern side of the Atlantic, where the Gulf Stream and its extension, the North Atlantic Drift, carry warm water northward. The prevailing westerly winds carry the warmed, moist sea air in over Western Europe, which makes the winters mild and rainfall plentiful. Goose Bay lies on the western side of the Atlantic, where the winds instead come in from the huge, cold North American interior, and there's also a cold ocean current off the coast. That's why winter there is much colder despite the same latitude.",
+      "steps": [
+        "Same latitude → broadly the same amount of sunlight, so the sun doesn't explain the difference.",
+        "The Gulf Stream carries warm water from the tropics north-east across the Atlantic towards Europe.",
+        "Westerly winds carry the mild, moist air from the sea in over Gothenburg and Western Europe.",
+        "Goose Bay instead gets winds from the cold North American interior, plus cold ocean currents off the coast.",
+        "Conclusion: ocean currents and wind direction can affect climate very strongly, even at the same latitude."
+      ]
+    },
+    {
+      "id": "q-geo7-kli-8",
+      "kind": "flashcard",
+      "topic": "climate zones",
+      "prompt": "Summarise weather, climate, climate zones and vegetation zones.",
+      "opener": "Start with the concepts, then the zones, then the factors that control climate.",
+      "answer": "Weather: what it's like right now or over a few days — temperature, rainfall, wind, cloud cover · Climate: the average weather at a place over a long time, usually measured as an average over 30 years · Climate zones: tropical climate around the equator with high, steady heat and heavy rainfall or a wet and dry season · temperate climate between the tropics and the polar regions with four distinct seasons, this is where Sweden lies · polar climate at the poles with cold for most of the year and a short summer or none at all · What affects climate: latitude (the angle of the sun's rays, most important) · height above sea level (about 0.6 °C colder per 100 m) · closeness to the sea (evens out temperature, brings rainfall) · ocean currents and winds (can move heat long distances) · mountains that block air masses · The Gulf Stream: a warm ocean current from the Gulf of Mexico which, together with the North Atlantic Drift and the westerly winds, makes Northern Europe several degrees milder than other places at the same latitude · Vegetation zones follow climate: rainforest at the equator · savannah · desert around the tropics · Mediterranean vegetation · deciduous forest · coniferous forest (taiga) · tundra · polar climate with ice and snow · In Sweden: mountain vegetation and bare mountain in the north-west, coniferous forest in the north and centre, deciduous and mixed forest in the south."
+    }
+  ]
+}

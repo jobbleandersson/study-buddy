@@ -1,0 +1,129 @@
+{
+  "id": "lib-kemi7-atomer",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Atoms and elements",
+  "sourceSummary": "The atom as the building block of everything, the difference between an element and a chemical compound, chemical symbols for common elements, what a molecule is and how the periodic table is arranged.",
+  "topics": [
+    "the atom as a building block",
+    "elements and compounds",
+    "chemical symbols",
+    "molecules",
+    "the periodic table"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi7-ato-1",
+      "kind": "mc",
+      "topic": "the atom as a building block",
+      "prompt": "What is an atom?",
+      "opener": "Think about the smallest piece you can divide an element into while still having the same substance left.",
+      "choices": [
+        "The smallest drop you can divide a liquid into",
+        "The smallest building block that an element is made of",
+        "A mixture of several different substances",
+        "Another name for a water molecule"
+      ],
+      "answer": 1,
+      "explanation": "The atom is the smallest building block in an element - everything around you is built from atoms. A drop of water is not remotely the smallest possible amount; it contains an unimaginable number of billions of atoms."
+    },
+    {
+      "id": "q-kemi7-ato-2",
+      "kind": "mc",
+      "topic": "chemical symbols",
+      "prompt": "What is the chemical symbol for the element oxygen?",
+      "opener": "The symbol comes from the Latin name oxygenium, not from the English word.",
+      "choices": [
+        "S",
+        "Sy",
+        "C",
+        "O"
+      ],
+      "answer": 3,
+      "explanation": "Oxygen has the chemical symbol O, from the Latin oxygenium. S is the symbol for sulphur and C for carbon - so you cannot guess the symbol from the first letter of the English name."
+    },
+    {
+      "id": "q-kemi7-ato-3",
+      "kind": "mc",
+      "topic": "elements and compounds",
+      "prompt": "Which of the following is an element?",
+      "opener": "An element consists of only a single kind of atom.",
+      "choices": [
+        "Iron (Fe)",
+        "Water (H₂O)",
+        "Carbon dioxide (CO₂)",
+        "Table salt (NaCl)"
+      ],
+      "answer": 0,
+      "explanation": "Iron contains only iron atoms and is therefore an element. Water, carbon dioxide and table salt are chemical compounds - you can see this in the formulas, which contain more than one chemical symbol."
+    },
+    {
+      "id": "q-kemi7-ato-4",
+      "kind": "mc",
+      "topic": "the periodic table",
+      "prompt": "How are the elements arranged in the periodic table?",
+      "opener": "The number shown next to each element is called the atomic number.",
+      "choices": [
+        "By how large the atoms are",
+        "By atomic number, meaning the number of protons in the nucleus",
+        "In alphabetical order of their English names",
+        "By how much the substances cost to buy"
+      ],
+      "answer": 1,
+      "explanation": "The elements are arranged in order of atomic number, which is the number of protons in the nucleus: hydrogen is number 1, helium 2, lithium 3 and so on. They are not in alphabetical order - you can see that straight away, since hydrogen (H) comes first and not some element beginning with A."
+    },
+    {
+      "id": "q-kemi7-ato-5",
+      "kind": "mc",
+      "topic": "molecules",
+      "prompt": "In the formula H₂O there is a small 2 after the H. What does it mean?",
+      "opener": "The number tells you how many atoms of that particular kind are in the molecule.",
+      "choices": [
+        "That there are two water molecules",
+        "That the hydrogen has a charge of 2",
+        "That the molecule contains two hydrogen atoms",
+        "That the oxygen weighs twice as much as the hydrogen"
+      ],
+      "answer": 2,
+      "explanation": "The 2 shows the number of hydrogen atoms in the molecule: a water molecule consists of two hydrogen atoms and one oxygen atom. If you want to show two whole molecules, you instead write the number in front of the formula, i.e. 2 H₂O."
+    },
+    {
+      "id": "q-kemi7-ato-6",
+      "kind": "mc",
+      "topic": "chemical symbols",
+      "prompt": "Which element has the chemical symbol Cu?",
+      "opener": "The symbol comes from the Latin name cuprum - think of a reddish-brown colour.",
+      "choices": [
+        "Carbon",
+        "Calcium",
+        "Chlorine",
+        "Copper"
+      ],
+      "answer": 3,
+      "explanation": "Cu is the symbol for copper, from the Latin cuprum. Carbon has the symbol C, calcium Ca and chlorine Cl - all of these begin with C in English, which is exactly why you have to learn the symbols rather than guess them."
+    },
+    {
+      "id": "q-kemi7-ato-7",
+      "kind": "worked",
+      "topic": "elements and compounds",
+      "prompt": "Carbon dioxide has the formula CO₂. Use the formula to explain why carbon dioxide is a chemical compound and not an element, and work out how many atoms a carbon dioxide molecule consists of.",
+      "opener": "Read the formula symbol by symbol: which kinds of atoms are present, and how many of each?",
+      "answer": "Carbon dioxide is a chemical compound because the molecule contains two different kinds of atoms (carbon and oxygen), and each molecule consists of 3 atoms in total: 1 carbon atom and 2 oxygen atoms.",
+      "steps": [
+        "Break the formula down into its chemical symbols: C stands for carbon and O stands for oxygen.",
+        "Read off the numbers: there is no number after C, which means 1 carbon atom. After O there is a 2, so there are 2 oxygen atoms.",
+        "Count the total number of atoms: 1 + 2 = 3 atoms in each carbon dioxide molecule.",
+        "Draw the conclusion: since the molecule contains two DIFFERENT kinds of atoms joined together, carbon dioxide is a chemical compound. An element, such as oxygen gas O₂, contains only one kind of atom."
+      ]
+    },
+    {
+      "id": "q-kemi7-ato-8",
+      "kind": "flashcard",
+      "topic": "chemical symbols",
+      "prompt": "Summarise the key atomic concepts and the chemical symbols you need to know by heart.",
+      "opener": "Take the concepts atom, element, molecule and compound first, then the symbols.",
+      "answer": "Atom: the smallest building block in an element, everything is built from atoms · Element: only one kind of atom, e.g. iron (Fe), oxygen gas (O₂) · Chemical compound: at least two different kinds of atoms bonded together, e.g. water (H₂O), carbon dioxide (CO₂), table salt (NaCl) · Molecule: two or more atoms joined together, can be of the same kind (O₂) or different kinds (H₂O) · Chemical formula: the symbols show which atoms are present, the small number after a symbol shows how many of that atom there are · Chemical symbols: H = hydrogen, O = oxygen, C = carbon, N = nitrogen, Fe = iron (ferrum), Cu = copper (cuprum), Na = sodium, Cl = chlorine, S = sulphur · Capital letter first, lower-case letter second: Co is cobalt but CO is carbon monoxide · Periodic table: all known elements arranged by atomic number (the number of protons), metals to the left and lower down, non-metals to the upper right, the noble gases furthest to the right."
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import { localDayKey, currentStreak, addDays, studiedToday } from "./lib/activit
 import { getLang } from "./lib/i18n.js";
 import { ACHIEVEMENTS } from "./lib/achievements.js";
 import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } from "./lib/library.js";
+import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
 import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, STATE_URL } from "./config.js";
 
 const KEY = "studybuddy.v1";
@@ -436,6 +437,88 @@ class Store extends EventTarget {
     return changed;
   }
 
+  /** Practice-library sets follow the UI language the same way demo sets do.
+   *  The library ships Swedish content with an English overlay (see
+   *  lib/library-content.js); a set imported from it is tagged _libLang, and
+   *  on a language switch this re-fetches it in the new language and swaps the
+   *  wording in place — keyed by question id, so attempts, SRS records and
+   *  per-topic mastery all carry over. A set the student has restructured
+   *  (question ids no longer match the bundle) is left alone. Like demo
+   *  content it's reconstructible from the bundle, so no sync push of its own. */
+  async syncLibraryLanguage() {
+    const lang = getLang();
+    const targets = this.state.assignments.filter((a) => a._libLang && a._libLang !== lang);
+    if (!targets.length) return 0;
+
+    let index, tr;
+    try {
+      index = await loadLibraryIndex();
+      tr = await loadLibraryTranslations();
+    } catch { return 0; } // index not reachable/cached — try again next time
+    const entryById = new Map(index.sets.map((s) => [s.id, s]));
+
+    let changed = 0;
+    for (const a of targets) {
+      const entry = entryById.get(a.id);
+      if (!entry) { a._libLang = lang; continue; } // no longer a known library set
+
+      let doc = null;
+      try {
+        const primary = lang === "en" ? englishFile(entry.file) : entry.file;
+        let res = await fetch(primary);
+        if (!res.ok && primary !== entry.file) res = await fetch(entry.file);
+        if (res.ok) doc = await res.json();
+      } catch { /* offline — try again next time */ }
+      if (!doc) continue;
+
+      const have = a.questions.map((q) => q.id).sort().join("|");
+      const want = (doc.questions || []).map((q) => q.id).sort().join("|");
+      if (have !== want) { a._libLang = lang; continue; } // restructured — leave it
+
+      const byId = new Map((doc.questions || []).map((q) => [q.id, q]));
+      a.title = doc.title || a.title;
+      a.sourceSummary = doc.sourceSummary || "";
+      a.topics = doc.topics || a.topics;
+      a.questions = a.questions.map((q) => {
+        const d = byId.get(q.id) || {};
+        return {
+          ...q,
+          prompt: d.prompt ?? q.prompt,
+          choices: d.choices,
+          answer: d.answer,
+          rubric: d.rubric,
+          explanation: d.explanation,
+          steps: d.steps,
+          opener: d.opener,
+          topic: d.topic || q.topic,
+        };
+      });
+      // Keep attempt history keyed on the new topic strings so mastery stays continuous.
+      const topicById = new Map(a.questions.map((q) => [q.id, q.topic]));
+      for (const att of this.state.attempts) {
+        for (const it of att.items || []) {
+          if (topicById.has(it.questionId)) it.topic = topicById.get(it.questionId);
+        }
+      }
+      // The set files keep "subject" in Swedish (so import-matching lands in
+      // the same bucket regardless of language) — the English name comes from
+      // the index overlay. Rename the student's subject in place, same id, so
+      // mastery-by-subject stays intact — only when nothing but library sets
+      // use it.
+      const targetName = lang === "en" ? tr.subjects[entry.subject]?.name : (doc.subject || null);
+      const subj = this.state.subjects.find((x) => x.id === a.subjectId);
+      if (targetName && subj && subj.name !== targetName &&
+          this.state.assignments.every((x) => x.subjectId !== subj.id || x._libLang)) {
+        subj.name = targetName;
+      }
+      a._libLang = lang;
+      changed++;
+    }
+
+    if (changed) { this.save({ skipPush: true }); this.emit(); }
+    return changed;
+  }
+
   removeDemoContent() {
     const ids = new Set(SAMPLE_FILES.map((x) => x.id));
     this.update((s) => {
@@ -581,10 +664,12 @@ class Store extends EventTarget {
       if (patch.questions) {
         a.topics = [...new Set(patch.questions.map((q) => q.topic).filter(Boolean))];
       }
-      // Editing a demo set's wording or title makes it the student's own — stop
-      // auto-translating it (see syncDemoLanguage()).
-      if (("questions" in patch || "title" in patch) && "_sampleLang" in a) {
+      // Editing a demo or library set's wording or title makes it the
+      // student's own — stop auto-translating it (see syncDemoLanguage /
+      // syncLibraryLanguage).
+      if ("questions" in patch || "title" in patch) {
         delete a._sampleLang;
+        delete a._libLang;
       }
     });
   }
@@ -602,6 +687,7 @@ class Store extends EventTarget {
       questions: a.questions.map((q) => ({ ...structuredClone(q), id: uid() })),
     };
     delete copy._sampleLang;   // a copy is the student's own, in its current language
+    delete copy._libLang;
     this.update((s) => { s.assignments.unshift(copy); });
     return copy;
   }

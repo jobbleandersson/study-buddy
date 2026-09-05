@@ -1,0 +1,128 @@
+{
+  "id": "lib-en6-vocabulary",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Vocabulary: idioms and abstract language",
+  "sourceSummary": "Common English idioms, abstract nouns, collocations, and formal synonyms for essay writing.",
+  "topics": [
+    "idioms",
+    "abstract nouns",
+    "collocations",
+    "formal synonyms"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-vocabulary-1",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does the idiom \"to hit the nail on the head\" mean?",
+      "opener": "Think figuratively — what does it mean to hit the nail right on the head?",
+      "choices": [
+        "To say exactly the right thing",
+        "To make a big mistake",
+        "To work very hard",
+        "To fix something quickly"
+      ],
+      "answer": 0,
+      "explanation": "The idiom means to get something exactly right, for example by expressing something perfectly. It has nothing to do with hard work or mistakes — the meaning cannot be guessed word for word."
+    },
+    {
+      "id": "q-en6-vocabulary-2",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does it mean if someone is \"on the fence\" about a decision?",
+      "opener": "The image is of someone sitting on a fence — neither on one side nor the other.",
+      "choices": [
+        "They have already decided",
+        "They are very confident",
+        "They regret their choice",
+        "They are undecided"
+      ],
+      "answer": 3,
+      "explanation": "\"On the fence\" means undecided — you lean neither one way nor the other. The expression does not describe regret or confidence in a decision."
+    },
+    {
+      "id": "q-en6-vocabulary-3",
+      "kind": "mc",
+      "topic": "abstract nouns",
+      "prompt": "Which word best completes the sentence? \"The government's ___ to reduce emissions was praised by environmental groups.\"",
+      "opener": "Which word class is needed after the possessive form \"government's\"? A noun.",
+      "choices": [
+        "commit",
+        "committee",
+        "commitment",
+        "committed"
+      ],
+      "answer": 2,
+      "explanation": "After a possessive (\"government's\") a noun is required, and \"commitment\" is the abstract noun that fits the meaning. \"Committee\" is a completely different word."
+    },
+    {
+      "id": "q-en6-vocabulary-4",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct collocation: \"In her essay, she ___ a strong argument for stricter laws.\"",
+      "opener": "Think of the common expression \"make a point/an argument\" used in essays.",
+      "choices": [
+        "did",
+        "made",
+        "took",
+        "had"
+      ],
+      "answer": 1,
+      "explanation": "The collocation is \"make an argument\". \"Have an argument\" instead means to quarrel, and \"do/take an argument\" are not fixed expressions."
+    },
+    {
+      "id": "q-en6-vocabulary-5",
+      "kind": "mc",
+      "topic": "formal synonyms",
+      "prompt": "Which is the most formal synonym for \"get better\"?",
+      "opener": "In a formal essay, you avoid phrasal verbs like \"pick up\" or \"look up\".",
+      "choices": [
+        "improve",
+        "get well",
+        "pick up",
+        "look up"
+      ],
+      "answer": 0,
+      "explanation": "\"Improve\" is the formal, straightforward equivalent of \"get better\". Phrasal verbs like \"pick up\" and \"look up\" are more informal and less suited to formal written English."
+    },
+    {
+      "id": "q-en6-vocabulary-6",
+      "kind": "mc",
+      "topic": "formal synonyms",
+      "prompt": "Which word means roughly the same as \"widespread\" in the sentence: \"There is widespread concern about climate change.\"",
+      "opener": "Which word expresses that something occurs in many places?",
+      "choices": [
+        "limited",
+        "common",
+        "occasional",
+        "hidden"
+      ],
+      "answer": 1,
+      "explanation": "\"Widespread\" means occurring extensively, which is close to \"common\". \"Limited\" and \"occasional\" are almost the opposite, and \"hidden\" is about something else entirely."
+    },
+    {
+      "id": "q-en6-vocabulary-7",
+      "kind": "worked",
+      "topic": "collocations",
+      "prompt": "Find and correct the three errors: \"She has a big interest for renewable energy. After many discussions, the committee made finally a decision, and they decided to do research about the subject.\"",
+      "opener": "Look for a preposition, an adverb placement, and another preposition that all break common collocations.",
+      "answer": "She has a big interest in renewable energy. After many discussions, the committee finally made a decision, and they decided to do research into the subject.",
+      "steps": [
+        "\"interest for\" → \"interest in\": a fixed collocation, \"an interest in something\".",
+        "\"made finally a decision\" → \"finally made a decision\": adverbs like \"finally\" are usually placed before the main verb, not between the verb and the object.",
+        "\"research about\" → \"research into\": the collocation is \"research into/on a subject\", not \"about\".",
+        "Summary: collocations must be learned as fixed phrases — direct translation from Swedish (\"intresse för\", \"forskning om\") often leads you astray."
+      ]
+    },
+    {
+      "id": "q-en6-vocabulary-8",
+      "kind": "flashcard",
+      "topic": "idioms",
+      "prompt": "List five common English idioms and their meanings.",
+      "opener": "Idioms don't always mean what the words literally say — learn them as whole phrases.",
+      "answer": "\"Hit the nail on the head\" = say exactly the right thing · \"On the fence\" = undecided · \"Break the ice\" = get a conversation going, ease tension · \"Once in a blue moon\" = very rarely · \"Bite the bullet\" = force yourself to do something unpleasant · \"Under the weather\" = feeling slightly unwell. Remember: idioms should never be translated word for word."
+    }
+  ]
+}

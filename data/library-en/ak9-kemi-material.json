@@ -1,0 +1,129 @@
+{
+  "id": "lib-kemi-material",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Materials, metals and cycles",
+  "sourceSummary": "The properties of metals and where they come from, how recycling and material cycles work, common everyday materials such as plastic, glass and metal, and the basic idea behind corrosion and rust.",
+  "topics": [
+    "metals",
+    "recycling and cycles",
+    "everyday materials",
+    "corrosion"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi-mat-1",
+      "kind": "mc",
+      "topic": "metals",
+      "prompt": "Which property is typical of metals but NOT of most other materials?",
+      "opener": "Think about why you can conduct electricity and heat through a metal cable or a saucepan.",
+      "choices": [
+        "They dissolve easily in water",
+        "They conduct electricity and heat well",
+        "They are transparent",
+        "They are always soft and flexible"
+      ],
+      "answer": 1,
+      "explanation": "Metals conduct electricity and heat well thanks to free electrons that can move through the material. They are usually not transparent, do not dissolve in water, and vary greatly in hardness — iron is hard while lead is soft."
+    },
+    {
+      "id": "q-kemi-mat-2",
+      "kind": "mc",
+      "topic": "metals",
+      "prompt": "Where in nature are most metals found before they are mined and extracted?",
+      "opener": "Pure metals are rare in nature — they are usually bound to other substances.",
+      "choices": [
+        "Free in the air as a gas",
+        "Bound in ore together with other elements, for example oxygen",
+        "Dissolved in seawater in large quantities",
+        "They are only formed in factories"
+      ],
+      "answer": 1,
+      "explanation": "Most metals are found in nature bound in ore, often together with oxygen as metal oxides. To obtain pure metal, the ore must be mined and then processed, for example by smelting."
+    },
+    {
+      "id": "q-kemi-mat-3",
+      "kind": "mc",
+      "topic": "recycling and cycles",
+      "prompt": "Why is it particularly good for the environment to recycle metals such as aluminium?",
+      "opener": "Compare the energy it takes to mine new ore and smelt new metal with melting down scrap.",
+      "choices": [
+        "Metals can only be recycled once",
+        "It takes much less energy to melt down scrap than to extract new metal from ore",
+        "Recycled metal is always stronger than new metal",
+        "Metals break down naturally if you throw them out in nature"
+      ],
+      "answer": 1,
+      "explanation": "Melting down scrap metal requires considerably less energy than mining ore and extracting new metal from scratch, which saves both energy and natural resources. Metals can also be recycled again and again without losing their properties."
+    },
+    {
+      "id": "q-kemi-mat-4",
+      "kind": "mc",
+      "topic": "recycling and cycles",
+      "prompt": "What is meant by a material cycle?",
+      "opener": "Think about the difference between a material being used once and thrown away, and it being used again and again.",
+      "choices": [
+        "That material is manufactured once and then always thrown away in nature",
+        "That material is collected, processed and used to make new products again and again, instead of becoming waste",
+        "That material can only ever be used to make exactly the same product as before",
+        "Another word for the rubbish dump"
+      ],
+      "answer": 1,
+      "explanation": "A material cycle means that material is collected after use, processed and turned into raw material for new products, instead of becoming waste that is thrown away. This saves raw materials and energy compared with always manufacturing new material from scratch."
+    },
+    {
+      "id": "q-kemi-mat-5",
+      "kind": "mc",
+      "topic": "everyday materials",
+      "prompt": "What is the most important chemical difference between plastic and glass?",
+      "opener": "Think about what the substances are built from at the molecular level — long chains compared with a network of silicon dioxide.",
+      "choices": [
+        "Plastic is always transparent and glass never is",
+        "Plastic consists of long chains of carbon atoms (polymers), while glass mainly consists of silicon dioxide in a hard network",
+        "Glass always contains metal and plastic never does",
+        "There is no chemical difference, only a difference in appearance"
+      ],
+      "answer": 1,
+      "explanation": "Plastic is built up of polymers — long chains of carbon atoms that make the material mouldable. Glass, on the other hand, mainly consists of silicon dioxide (the same substance found in sand), which forms a hard, rigid network as it solidifies from its molten form."
+    },
+    {
+      "id": "q-kemi-mat-6",
+      "kind": "mc",
+      "topic": "corrosion",
+      "prompt": "What is rust, chemically speaking?",
+      "opener": "Think about which substances in the air react with iron over time.",
+      "choices": [
+        "Pure iron metal that has simply changed colour",
+        "An iron oxide compound that forms when iron reacts with oxygen and moisture",
+        "Dirt that has stuck to the surface of the iron from outside",
+        "Another name for aluminium oxide"
+      ],
+      "answer": 1,
+      "explanation": "Rust is iron oxide (actually a mixture of iron oxides and iron hydroxides) that forms when iron slowly reacts with oxygen and water in the air. Rust is therefore not the same substance as the iron itself, but an entirely new chemical compound — corrosion is a chemical reaction, not just dirt."
+    },
+    {
+      "id": "q-kemi-mat-7",
+      "kind": "worked",
+      "topic": "corrosion",
+      "prompt": "Explain why an iron nail rusts when left out in the rain, but a stainless steel nail does not do so as easily.",
+      "opener": "Think about what iron needs in order to rust, and what chemically distinguishes stainless steel from ordinary iron.",
+      "answer": "The iron nail rusts because pure iron reacts directly with oxygen and moisture and forms iron oxide. Stainless steel contains chromium, which forms a thin, invisible protective oxide layer on the surface that prevents oxygen and moisture from reaching the iron underneath.",
+      "steps": [
+        "Rust forms through a chemical reaction between iron, oxygen (from the air) and water (from the rain).",
+        "A bare iron surface has no protection, so the reaction can continue for as long as the surface is exposed, and the rust builds up layer by layer.",
+        "Stainless steel is an alloy of iron with, among other things, chromium added.",
+        "The chromium reacts quickly with oxygen and forms a very thin, tight chromium oxide layer that 'covers' the surface.",
+        "That layer prevents oxygen and moisture from reaching the iron underneath, so the usual rust attack is avoided or proceeds much more slowly."
+      ]
+    },
+    {
+      "id": "q-kemi-mat-8",
+      "kind": "flashcard",
+      "topic": "everyday materials",
+      "prompt": "Summarise the key points about metals, common everyday materials and recycling.",
+      "opener": "Think through where metals come from, what distinguishes plastic/glass/metal, and why recycling pays off.",
+      "answer": "Metals: conduct electricity and heat well, are usually shiny and mouldable, are found in nature bound in ore and must be extracted · Alloy = a mixture of a metal with other substances for new properties, e.g. stainless steel (iron + chromium) · Plastic: built from long carbon chains (polymers), light and mouldable, breaks down very slowly in nature · Glass: mainly silicon dioxide, hard and transparent but brittle · Corrosion/rust: iron reacts with oxygen and moisture and forms iron oxide — a chemical reaction, not just dirt · Material cycle = material is collected, processed and turned into raw material for new products instead of becoming waste · Recycling metal (e.g. aluminium) requires much less energy than extracting new metal from ore."
+    }
+  ]
+}

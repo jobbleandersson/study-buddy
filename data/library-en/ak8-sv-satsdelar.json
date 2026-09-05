@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv8-satsdelar",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Sentence parts and sentence structure",
+  "sourceSummary": "Subject, predicate and object — and how a sentence is built from main clauses and subordinate clauses. You also practise the foundation (fundament) and word order, i.e. what is allowed to come first in a sentence.",
+  "topics": [
+    "sentence parts",
+    "main clause and subordinate clause",
+    "word order"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv8-sat-1",
+      "kind": "mc",
+      "topic": "sentence parts",
+      "prompt": "Which word is the subject in the sentence: \"På morgonen bakade Amir en sockerkaka.\" (In the morning Amir baked a sponge cake.)?",
+      "opener": "Ask \"who or what does what the verb says?\" — that's the subject, even if it doesn't come first.",
+      "choices": [
+        "morgonen",
+        "bakade",
+        "Amir",
+        "sockerkaka"
+      ],
+      "answer": 2,
+      "explanation": "It is Amir who bakes, so \"Amir\" is the subject. Many people pick \"morgonen\" (the morning) because it comes first in the sentence, but the first word isn't automatically the subject — here \"På morgonen\" is just a time adverbial."
+    },
+    {
+      "id": "q-sv8-sat-2",
+      "kind": "mc",
+      "topic": "sentence parts",
+      "prompt": "Which group of words is the predicate in the sentence: \"Klassen har diskuterat boken i en hel vecka.\" (The class has discussed the book for a whole week.)?",
+      "opener": "The predicate is the verb — and if there are several verbs in a row, they form a verb chain.",
+      "choices": [
+        "Klassen",
+        "har diskuterat",
+        "boken",
+        "i en hel vecka"
+      ],
+      "answer": 1,
+      "explanation": "The predicate is the whole verb chain \"har diskuterat\" (has discussed), not just the main verb. \"Boken\" (the book) is the object and \"i en hel vecka\" (for a whole week) is a time adverbial."
+    },
+    {
+      "id": "q-sv8-sat-3",
+      "kind": "mc",
+      "topic": "sentence parts",
+      "prompt": "Which word is the object in the sentence: \"Tränaren lånade ut bollarna till nybörjarna.\" (The coach lent out the balls to the beginners.)?",
+      "opener": "The object is what the action is directed at — ask \"what did the coach lend out?\"",
+      "choices": [
+        "Tränaren",
+        "lånade",
+        "bollarna",
+        "nybörjarna"
+      ],
+      "answer": 2,
+      "explanation": "What the coach lends out is the balls, so \"bollarna\" is the object. \"Nybörjarna\" (the beginners) comes after the preposition \"till\" (to) and is a complement saying who received them, not the direct object."
+    },
+    {
+      "id": "q-sv8-sat-4",
+      "kind": "mc",
+      "topic": "main clause and subordinate clause",
+      "prompt": "Which part of the sentence is a subordinate clause? \"Vi stannade inne eftersom det regnade.\" (We stayed inside because it was raining.)",
+      "opener": "A subordinate clause can't stand alone as a sentence — it's often introduced by words like eftersom (because), att (that), när (when), om (if) or som (that/which).",
+      "choices": [
+        "Vi stannade inne",
+        "eftersom det regnade",
+        "stannade inne eftersom",
+        "The whole sentence is a subordinate clause"
+      ],
+      "answer": 1,
+      "explanation": "\"Eftersom det regnade\" is introduced by the subordinating conjunction \"eftersom\" and doesn't work as a sentence on its own — that is the subordinate clause. \"Vi stannade inne\" stands on its own and is therefore the main clause."
+    },
+    {
+      "id": "q-sv8-sat-5",
+      "kind": "mc",
+      "topic": "main clause and subordinate clause",
+      "prompt": "Which trick most reliably tells you whether a clause is a subordinate clause?",
+      "opener": "Think about where the word \"inte\" (not) ends up in the clause.",
+      "choices": [
+        "You can insert \"inte\" before the verb: \"eftersom han inte kom\" (because he didn't come)",
+        "The clause is shorter than five words",
+        "The clause always starts with a verb",
+        "The clause always contains a comma"
+      ],
+      "answer": 0,
+      "explanation": "In a subordinate clause, \"inte\" comes before the verb (\"eftersom han inte kom\"), while in a main clause it comes after (\"han kom inte\" — he didn't come). Length says nothing — a subordinate clause can be long or short, and a comma is no guarantee either."
+    },
+    {
+      "id": "q-sv8-sat-6",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has correct Swedish word order when the sentence begins with a time adverbial?",
+      "opener": "In Swedish main clauses the verb always comes in second position — this is called inverted word order when something other than the subject comes first.",
+      "choices": [
+        "Igår vi såg en film på biografen.",
+        "Igår vi såg på biografen en film.",
+        "Såg igår vi en film på biografen.",
+        "Igår såg vi en film på biografen."
+      ],
+      "answer": 3,
+      "explanation": "When the first position (the \"foundation\") is taken by \"Igår\" (yesterday), the verb \"såg\" (saw) must come directly after it, and the subject \"vi\" (we) moves behind the verb. The option \"Igår vi såg...\" keeps straight word order and breaks the rule that the verb sits in second position."
+    },
+    {
+      "id": "q-sv8-sat-7",
+      "kind": "worked",
+      "topic": "sentence parts",
+      "prompt": "Analyse the sentence: \"När lektionen slutade lämnade eleverna in sina prov.\" (When the lesson ended the students handed in their tests.) State which part is the subordinate clause and which is the main clause, and identify the subject, predicate and object in the main clause.",
+      "opener": "Start by splitting the sentence into two clauses. Then look for the verb in each clause and ask who is doing it.",
+      "answer": "Subordinate clause: \"När lektionen slutade\" (this is the foundation of the sentence). Main clause: \"lämnade eleverna in sina prov\", with predicate \"lämnade in\" (handed in), subject \"eleverna\" (the students) and object \"sina prov\" (their tests).",
+      "steps": [
+        "\"När lektionen slutade\" is introduced by the subordinating conjunction \"när\" (when) and can't stand alone — that's the subordinate clause.",
+        "The subordinate clause comes first and acts as the foundation, so the verb \"lämnade\" comes directly after it: inverted word order.",
+        "The predicate in the main clause is \"lämnade in\" (handed in) — the particle \"in\" belongs with the verb and changes its meaning.",
+        "Ask \"who handed in?\" → \"eleverna\" (the students) is the subject.",
+        "Ask \"what did they hand in?\" → \"sina prov\" (their tests) is the object. A comma after \"slutade\" is allowed but not required."
+      ]
+    },
+    {
+      "id": "q-sv8-sat-8",
+      "kind": "flashcard",
+      "topic": "main clause and subordinate clause",
+      "prompt": "How do you tell a main clause from a subordinate clause, and what is meant by the foundation (fundament)?",
+      "opener": "Three things to remember: independence, the \"not\" test, and the first position.",
+      "answer": "Main clause · can stand alone as a complete sentence · the verb sits in second position · \"inte\" (not) comes after the verb (\"han sov inte\" — he didn't sleep). Subordinate clause · cannot stand alone · is introduced by subordinators such as att, när, eftersom, om, som, medan (that, when, because, if, that/which, while) · \"inte\" comes before the verb (\"eftersom han inte sov\" — because he didn't sleep) · functions as part of the main clause. Foundation (fundament) · whatever comes first in a main clause, i.e. before the verb · can be the subject (\"Vi åt sent\" — we ate late), a time adverbial (\"Igår åt vi sent\" — yesterday we ate late) or a whole subordinate clause (\"När vi kom hem åt vi sent\" — when we got home we ate late) · when the foundation isn't the subject, the sentence gets inverted word order: verb before subject."
+    }
+  ]
+}

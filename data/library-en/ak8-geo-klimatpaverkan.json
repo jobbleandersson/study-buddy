@@ -1,0 +1,130 @@
+{
+  "id": "lib-geo8-klimatpaverkan",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Climate and environmental impact",
+  "sourceSummary": "The difference between the natural and the enhanced greenhouse effect, what is causing today's climate change, how the consequences hit different parts of the world differently, why poor countries are the most vulnerable to natural disasters, and what can be done for the climate both locally and globally.",
+  "topics": [
+    "the greenhouse effect",
+    "causes of climate change",
+    "consequences in different parts of the world",
+    "natural disasters and vulnerability",
+    "measures locally and globally"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo8-kli-1",
+      "kind": "mc",
+      "topic": "the greenhouse effect",
+      "prompt": "What is meant by the natural greenhouse effect?",
+      "opener": "Without it, Earth would be an ice planet – think about what the atmosphere does to heat radiation.",
+      "choices": [
+        "That the ozone layer stops dangerous UV radiation from the sun reaching the ground",
+        "That human emissions of carbon dioxide make the Earth warmer than before",
+        "That air pollution in big cities makes the air unhealthy to breathe",
+        "That gases in the atmosphere retain some of the Earth's heat radiation, so the average temperature is about +15 °C instead of roughly -18 °C"
+      ],
+      "answer": 3,
+      "explanation": "Solar radiation warms the Earth's surface, which radiates heat back out, and greenhouse gases such as water vapour and carbon dioxide absorb some of that heat so it stays in the atmosphere – without this natural effect, the Earth's average temperature would be around minus 18 degrees. Humans making it warmer is instead called the enhanced greenhouse effect, and the ozone layer's protection against UV radiation is a completely different matter."
+    },
+    {
+      "id": "q-geo8-kli-2",
+      "kind": "mc",
+      "topic": "the greenhouse effect",
+      "prompt": "Which of the options contains only greenhouse gases?",
+      "opener": "The gases that make up most of the air are actually not greenhouse gases.",
+      "choices": [
+        "Oxygen and nitrogen",
+        "Carbon dioxide, methane and nitrous oxide",
+        "Argon and helium",
+        "Hydrogen and nitrogen"
+      ],
+      "answer": 1,
+      "explanation": "Carbon dioxide, methane, nitrous oxide and water vapour are greenhouse gases because their molecules can absorb heat radiation from the Earth's surface. Nitrogen and oxygen together make up about 99 per cent of the air but do not act as greenhouse gases, and noble gases such as argon and helium do not either."
+    },
+    {
+      "id": "q-geo8-kli-3",
+      "kind": "mc",
+      "topic": "causes of climate change",
+      "prompt": "Which human activity contributes most to the enhanced greenhouse effect?",
+      "opener": "Think about what happens when carbon that has been stored for millions of years is suddenly burned.",
+      "choices": [
+        "Burning fossil fuels such as coal, oil and natural gas",
+        "People and animals breathing out carbon dioxide",
+        "Agriculture using large amounts of water for irrigation",
+        "New forest being planted on old farmland"
+      ],
+      "answer": 0,
+      "explanation": "When fossil fuels are burned in power plants, factories, cars and aeroplanes, carbon that has been locked away for millions of years is released, and the level of carbon dioxide in the atmosphere rises. Breathing out is part of carbon's natural cycle and adds no new carbon, while planting forest instead absorbs carbon dioxide rather than releasing it."
+    },
+    {
+      "id": "q-geo8-kli-4",
+      "kind": "mc",
+      "topic": "consequences in different parts of the world",
+      "prompt": "What is an expected consequence of a warmer climate?",
+      "opener": "Think about what happens both to ice on land and to water in the oceans when it gets warmer.",
+      "choices": [
+        "All parts of the world get more rainfall than today",
+        "The world's winds die down and storms become impossible",
+        "Sea levels rise as glaciers and ice sheets melt and sea water expands as it warms",
+        "Sea levels fall because more water evaporates from the oceans"
+      ],
+      "answer": 2,
+      "explanation": "Sea levels rise for two reasons: meltwater from glaciers, Greenland and Antarctica flows into the oceans, and water takes up more space when it is warmed. Rainfall is not increasing everywhere – some areas such as the Sahel and the Mediterranean region are instead expected to become drier – and evaporated water falls back as rain, so it does not make sea levels fall."
+    },
+    {
+      "id": "q-geo8-kli-5",
+      "kind": "mc",
+      "topic": "natural disasters and vulnerability",
+      "prompt": "Why does a natural disaster often have much worse consequences in a low-income country than in a high-income country?",
+      "opener": "Same earthquake, different houses – what decides how many people survive?",
+      "choices": [
+        "Low-income countries are always in areas with earthquakes and volcanoes",
+        "They have weaker buildings, worse warning systems, worse healthcare, and lack the money and insurance to rebuild",
+        "Low-income countries always have more inhabitants than high-income countries",
+        "Natural disasters are naturally more powerful in poor countries"
+      ],
+      "answer": 1,
+      "explanation": "Vulnerability is decided by society, not by the natural event itself: sturdy houses, working warning systems, emergency services, healthcare and insurance mean that fewer people die and rebuilding happens faster. An earthquake of the same strength can therefore cost a few dozen lives in Japan and tens of thousands of lives in a poor country – the event is not stronger, but the protection is worse."
+    },
+    {
+      "id": "q-geo8-kli-6",
+      "kind": "mc",
+      "topic": "measures locally and globally",
+      "prompt": "What did the world's countries agree on in the Paris Agreement in 2015?",
+      "opener": "The agreement is about a ceiling on how much the temperature is allowed to rise.",
+      "choices": [
+        "That all use of coal and oil would be banned immediately",
+        "That only EU countries would reduce their emissions",
+        "To protect the ozone layer by stopping the use of CFCs",
+        "To hold global warming well below 2 degrees and preferably below 1.5 degrees compared with pre-industrial times"
+      ],
+      "answer": 3,
+      "explanation": "In the Paris Agreement, almost all the world's countries agreed on the goal of limiting warming to well below 2 degrees, with 1.5 degrees as an aspirational target, and each country submits its own climate plans for how emissions will be cut. There is no immediate ban on fossil fuels, and the agreement on the ozone layer and CFCs is the Montreal Protocol from 1987."
+    },
+    {
+      "id": "q-geo8-kli-7",
+      "kind": "worked",
+      "topic": "natural disasters and vulnerability",
+      "prompt": "Explain why Bangladesh is one of the world's most vulnerable countries to climate change, and give examples of what can be done.",
+      "opener": "First look at the map: how high above sea level is the country, and which rivers and seas meet there?",
+      "answer": "Bangladesh lies in a huge river delta where the Ganges and Brahmaputra flow out into the Bay of Bengal, and large parts of the country lie only a few metres above sea level. Already today, significant areas flood every monsoon season, and the country is regularly hit by tropical cyclones that push seawater over the low-lying coast. As sea levels rise, the floods become deeper and reach further inland, while saltwater also seeps into farmland and wells, ruining rice paddies and making drinking water undrinkable. Heavier downpours and faster melting of glaciers in the Himalayas also increase river flow. The vulnerability is made worse by the country being extremely densely populated with around 170 million inhabitants, many of them poor and living in simple houses, and by the state having limited resources for protection and rebuilding. The country has nevertheless made great progress with adaptation: warning systems via mobile phone and radio, thousands of concrete cyclone shelters people can reach, embankments and raised roads, salt-tolerant rice varieties, floating farms, and protection of the mangrove forest in the Sundarbans that dampens storm surges. At the same time, no adaptation alone can solve the problem – the world's greenhouse gas emissions also need to fall sharply.",
+      "steps": [
+        "The setting: a densely populated, low-lying delta country where the Ganges and Brahmaputra meet the Bay of Bengal.",
+        "The threats: monsoon flooding, tropical cyclones, rising sea levels, and saltwater ruining fields and wells.",
+        "Vulnerability is worsened by poverty, simple housing, high population density and limited state resources.",
+        "Adaptation: warning systems, cyclone shelters, embankments and raised roads, salt-tolerant crops and protected mangrove forest.",
+        "But adaptation is not enough – global emissions must fall, and Bangladesh itself has contributed very little to them."
+      ]
+    },
+    {
+      "id": "q-geo8-kli-8",
+      "kind": "flashcard",
+      "topic": "the greenhouse effect",
+      "prompt": "Summarise the greenhouse effect, climate change and the measures being taken.",
+      "opener": "Gather causes, gases, consequences, vulnerability and measures into one tight overview.",
+      "answer": "Natural greenhouse effect: greenhouse gases retain heat radiation so the Earth's average temperature is about +15 °C instead of roughly -18 °C · greenhouse gases: water vapour, carbon dioxide, methane, nitrous oxide and ozone – but not nitrogen and oxygen · enhanced greenhouse effect: human emissions increase the level of greenhouse gases and the temperature rises · main causes: burning fossil fuels (coal, oil, natural gas) for electricity, industry and transport · deforestation, especially of rainforest · agriculture and livestock producing methane and nitrous oxide · cement and steel production · the Earth's average temperature has risen just over one degree since pre-industrial times · consequences: melting glaciers and sea ice · rising sea levels · heatwaves and drought · heavier downpours and storms · acidified oceans and bleached coral reefs · shifting growing zones and species that move or die out · climate refugees · regionally: the Arctic is warming roughly twice as fast as the world as a whole · the Sahel and the Mediterranean region are getting increased drought · low-lying island nations such as the Maldives, Tuvalu and Kiribati are threatened by the sea · Sweden is getting a warmer and wetter climate, shorter winters and a greater risk of downpours and forest fires · vulnerability: the same natural event becomes a disaster in poor countries with weak housing, poor warning systems, weak healthcare and no insurance · natural disasters: earthquakes, volcanic eruptions, tropical cyclones, floods, drought and forest fires · two strategies: cutting emissions and climate adaptation · globally: the UN's climate panel IPCC compiles the research · the Kyoto Protocol 1997 · the Paris Agreement 2015 with the target of well below 2 degrees, preferably 1.5 · emissions trading and carbon taxes · locally and personally: renewable energy, energy efficiency, public transport and cycling, fewer flights, less meat, recycling, less new production and consumption · Sweden's goal is net-zero emissions by 2045 at the latest."
+    }
+  ]
+}

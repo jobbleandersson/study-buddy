@@ -1,0 +1,131 @@
+{
+  "id": "lib-bio8-nervsystem",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "The nervous system and the senses",
+  "sourceSummary": "The structure of the nervous system with the parts of the brain and nerve cells that send signals, how reflexes work, the five senses and their sense organs, and why the body needs sleep.",
+  "topics": [
+    "the structure of the nervous system",
+    "the parts of the brain",
+    "nerve cells and signals",
+    "reflexes",
+    "the senses",
+    "sleep"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio8-ner-1",
+      "kind": "mc",
+      "topic": "the structure of the nervous system",
+      "prompt": "Which parts belong to the central nervous system?",
+      "opener": "Think about which nerve parts sit protected inside the skeleton.",
+      "choices": [
+        "All the nerves out in the arms and legs",
+        "The brain and the sense organs",
+        "The brain and the spinal cord",
+        "The spinal cord and the heart"
+      ],
+      "answer": 2,
+      "explanation": "The central nervous system consists of the brain, protected by the skull, and the spinal cord, protected by the vertebrae — that's where signals are processed. The nerves out in the body instead belong to the peripheral nervous system; they carry signals but don't make decisions."
+    },
+    {
+      "id": "q-bio8-ner-2",
+      "kind": "mc",
+      "topic": "the parts of the brain",
+      "prompt": "Which part of the brain mainly controls balance and coordinated movement?",
+      "opener": "Think about which part is needed when you cycle without falling over.",
+      "choices": [
+        "The cerebellum",
+        "The cerebral cortex",
+        "The brainstem",
+        "The spinal cord"
+      ],
+      "answer": 0,
+      "explanation": "The cerebellum sits at the back and bottom of the brain and fine-tunes movements so they become smooth and balanced, often completely without you thinking about it. The cerebrum instead handles thoughts, memory, language and conscious decisions, so it is not the right answer here."
+    },
+    {
+      "id": "q-bio8-ner-3",
+      "kind": "mc",
+      "topic": "nerve cells and signals",
+      "prompt": "How is a signal passed on from one nerve cell to the next?",
+      "opener": "Nerve cells aren't completely joined together — there's a small gap between them.",
+      "choices": [
+        "The nerve cells grow together so the signal can jump directly",
+        "The signal is carried onward by the blood to the next nerve cell",
+        "The signal is carried onward as sound through the tissue",
+        "Neurotransmitters are released into the synapse and taken up by the next nerve cell"
+      ],
+      "answer": 3,
+      "explanation": "Inside the nerve cell, the signal travels as an electrical impulse along the nerve fibre, but at the junction (the synapse) there is a gap where the cell releases neurotransmitters that the next cell recognises. Blood transports nutrients, oxygen and hormones — that's far too slow for nerve signals."
+    },
+    {
+      "id": "q-bio8-ner-4",
+      "kind": "mc",
+      "topic": "reflexes",
+      "prompt": "Why do you pull your hand away from a hot pan even before you feel that it hurts?",
+      "opener": "Think about how short the route is if the signal doesn't have to go all the way up to the brain.",
+      "choices": [
+        "The skin contracts from the heat without the nerves being involved",
+        "The signal is switched over in the spinal cord, which directly sends orders to the muscle",
+        "The brain manages to think faster than the signal manages to arrive",
+        "The muscle itself senses the heat and reacts"
+      ],
+      "answer": 1,
+      "explanation": "In a reflex, the signal goes from the sensory cells into the spinal cord, which directly switches it onward to the muscle — the pain signal simultaneously continues up to the brain, but it arrives a little later. The brain isn't faster, then; the whole point is precisely that it's bypassed from the fast route."
+    },
+    {
+      "id": "q-bio8-ner-5",
+      "kind": "mc",
+      "topic": "the senses",
+      "prompt": "Where in the eye are the sensory cells that react to light?",
+      "opener": "Think about where the image ends up once the light has passed through the lens.",
+      "choices": [
+        "In the retina at the very back of the eye",
+        "In the lens",
+        "In the cornea at the very front",
+        "In the pupil"
+      ],
+      "answer": 0,
+      "explanation": "Light is refracted by the cornea and the lens and forms an image on the retina, where the cones see colours in good light and the rods see faint light in black and white; from there the signal travels via the optic nerve to the brain. The pupil is just an opening that lets in light and contains no sensory cells."
+    },
+    {
+      "id": "q-bio8-ner-6",
+      "kind": "mc",
+      "topic": "sleep",
+      "prompt": "What is one important reason the body and brain need sleep?",
+      "opener": "Think about what happens to memories and the body's cells during the night.",
+      "choices": [
+        "The brain shuts down completely and all activity stops",
+        "The body stops needing oxygen and therefore saves energy",
+        "The brain turns the day's impressions into memories and the body repairs cells and grows",
+        "Muscles only grow while you're awake but you sleep to rest"
+      ],
+      "answer": 2,
+      "explanation": "During sleep, the brain processes the day's impressions and transfers the important parts to long-term memory, while growth hormone is released and the body repairs cells — that's why too little sleep makes you both forgetful and irritable. The brain isn't switched off during sleep; on the contrary, it's very active, especially during dream sleep."
+    },
+    {
+      "id": "q-bio8-ner-7",
+      "kind": "worked",
+      "topic": "reflexes",
+      "prompt": "Explain step by step what happens in the nervous system from stepping on a sharp stone to lifting your foot and feeling the pain.",
+      "opener": "Follow the signal from the sensory cells in the skin into the spinal cord and then onward upward.",
+      "answer": "Sensory cells in the skin of the foot react to the pressure and damage and send an electrical nerve signal through the sensory nerve into the spinal cord, where the signal is switched directly to a motor nerve that makes the leg's muscles contract so the foot is lifted — all this happens before the signal, which at the same time continues upward through the spinal cord to the brain, is interpreted there as pain and you get to think about what happened.",
+      "steps": [
+        "The sensory cells in the skin of the sole of the foot register the hard pressure and the damage and start a nerve signal.",
+        "The signal travels as an electrical impulse along the sensory nerve into the spinal cord.",
+        "In the spinal cord, the signal is switched across synapses directly onward to a motor nerve, without going up to the brain first — that's the reflex itself.",
+        "The motor nerve makes the muscles in the leg and foot contract, and the foot is lifted within a fraction of a second.",
+        "At the same time, a signal continues upward to the brain, which interprets it as pain; only then do you become aware of what you stepped on and can decide what to do next."
+      ]
+    },
+    {
+      "id": "q-bio8-ner-8",
+      "kind": "flashcard",
+      "topic": "the senses",
+      "prompt": "Summarise the parts of the nervous system, the senses and their sense organs.",
+      "opener": "Go through the central and peripheral nervous systems, the parts of the brain, and then the five senses.",
+      "answer": "Central nervous system: the brain (protected by the skull) and the spinal cord (protected by the vertebrae) — processes and decides · Peripheral nervous system: all the nerves out into the body, sensory nerves in and motor nerves out · Cerebrum: thoughts, memory, language, emotions and voluntary movements; the cortex is the wrinkled surface · Cerebellum: balance and coordinated, smooth movements · Brainstem: automatic functions such as breathing, heartbeat and body temperature · Nerve cell (neuron): a cell body with short extensions that receive signals and a long nerve fibre that sends the signal onward · Synapse: the gap between two nerve cells where neurotransmitters carry the signal · Reflex: a fast switch in the spinal cord without the brain needing to make a decision, protects the body · Sight: the eye — light is refracted in the cornea and lens, the image lands on the retina with cones (colour) and rods (faint light), the signal travels via the optic nerve · Hearing: the ear — sound waves make the eardrum vibrate, the ear bones amplify it, hair cells in the cochlea convert it into nerve signals; the balance organ also sits in the inner ear · Touch: the skin — different cells for pressure, heat, cold and pain, densest in fingertips and lips · Taste: taste buds on the tongue sense sweet, salty, sour, bitter and umami · Smell: smell receptors high up in the nose; smell and taste work together, which is why food tastes bland when you have a cold · Sleep: the brain processes impressions and stores memories, growth hormone is released, cells are repaired; teenagers need roughly 8–10 hours."
+    }
+  ]
+}

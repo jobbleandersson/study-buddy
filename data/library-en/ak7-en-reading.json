@@ -1,0 +1,128 @@
+{
+  "id": "lib-en7-reading",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Reading comprehension",
+  "sourceSummary": "Short English texts where you practise finding information, understanding the main idea, drawing simple conclusions and guessing words from context.",
+  "topics": [
+    "find information",
+    "main idea",
+    "inference",
+    "words in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7-rea-1",
+      "kind": "mc",
+      "topic": "find information",
+      "prompt": "Read the text:\n\nTom is twelve years old and lives in Manchester. He goes to school by bus every morning. His favourite subject is history, but he thinks maths is difficult. After school he plays basketball with his friends.\n\nHow does Tom travel to school?",
+      "opener": "The answer is stated directly in the text. Look for the sentence about the journey to school.",
+      "choices": [
+        "By bus",
+        "By bike",
+        "By car",
+        "He walks"
+      ],
+      "answer": 0,
+      "explanation": "The second sentence says \"He goes to school by bus every morning\". Bike and car are not mentioned in the text at all — they are just distractors."
+    },
+    {
+      "id": "q-en7-rea-2",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text:\n\nTom is twelve years old and lives in Manchester. He goes to school by bus every morning. His favourite subject is history, but he thinks maths is difficult. After school he plays basketball with his friends.\n\nWhich subject does Tom probably need the most help with?",
+      "opener": "The text does not say outright what he needs help with — but one word about a subject gives a clue.",
+      "choices": [
+        "History",
+        "Maths",
+        "English",
+        "Sport"
+      ],
+      "answer": 1,
+      "explanation": "The text says he thinks maths is \"difficult\", so it is reasonable that he needs the most help there. History, on the contrary, is his favourite subject, so that answer does not fit."
+    },
+    {
+      "id": "q-en7-rea-3",
+      "kind": "mc",
+      "topic": "find information",
+      "prompt": "Read the text:\n\nThe school library is open from Monday to Friday. On weekdays it opens at 8 a.m. and closes at 4 p.m. It is closed on Saturdays and Sundays. Students can borrow up to five books at a time.\n\nHow many books can a student borrow at the same time?",
+      "opener": "Look for the number in the last sentence.",
+      "choices": [
+        "Two",
+        "Four",
+        "Five",
+        "Ten"
+      ],
+      "answer": 2,
+      "explanation": "The last sentence says \"up to five books at a time\", so at most five books. The number four comes from the opening time (4 p.m.) and has nothing to do with the number of books."
+    },
+    {
+      "id": "q-en7-rea-4",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text:\n\nThe school library is open from Monday to Friday. On weekdays it opens at 8 a.m. and closes at 4 p.m. It is closed on Saturdays and Sundays. Students can borrow up to five books at a time.\n\nSara wants to visit the library on Sunday afternoon. What will happen?",
+      "opener": "Compare Sara's day with the days the text says the library is closed.",
+      "choices": [
+        "The library will be open until 4 p.m.",
+        "She can borrow ten books.",
+        "The library opens at 8 a.m.",
+        "The library will be closed."
+      ],
+      "answer": 3,
+      "explanation": "The text says the library is closed on Saturdays and Sundays, so Sara will arrive at a closed library. The times 8 a.m. and 4 p.m. only apply on weekdays."
+    },
+    {
+      "id": "q-en7-rea-5",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text:\n\nMany young people in Britain have a part-time job. Some of them deliver newspapers in the morning, and others work in a shop at the weekend. The money is useful, but it can be hard to do homework after a long day. Most students say it is important to find a good balance.\n\nWhat is the main idea of the text?",
+      "opener": "The main idea concerns the whole text, not just a single sentence.",
+      "choices": [
+        "Delivering newspapers is the best job for young people.",
+        "Young people in Britain should not work.",
+        "Part-time jobs give young people money but can make schoolwork harder.",
+        "Homework is more important than money."
+      ],
+      "answer": 2,
+      "explanation": "The text brings up both the advantage (the money is useful) and the disadvantage (it can be hard to do homework), which is the main idea. The claim that delivering newspapers would be the best job appears nowhere — it is only mentioned as an example."
+    },
+    {
+      "id": "q-en7-rea-6",
+      "kind": "mc",
+      "topic": "words in context",
+      "prompt": "Read the text:\n\nMany young people in Britain have a part-time job. Some of them deliver newspapers in the morning, and others work in a shop at the weekend. The money is useful, but it can be hard to do homework after a long day. Most students say it is important to find a good balance.\n\nWhat does \"deliver\" mean in this text?",
+      "opener": "Think about what you do with newspapers in the morning — the context reveals the word.",
+      "choices": [
+        "Read something",
+        "Take something to people's homes",
+        "Buy something in a shop",
+        "Throw something away"
+      ],
+      "answer": 1,
+      "explanation": "\"Deliver newspapers\" means to hand out newspapers to people's homes. The fact that it is about a morning job shows that it cannot mean \"read\" or \"buy\"."
+    },
+    {
+      "id": "q-en7-rea-7",
+      "kind": "worked",
+      "topic": "find information",
+      "prompt": "Read the text and answer the two questions in full sentences.\n\nEmma lives in a small town in Wales. She has two dogs and she walks them every afternoon. On Saturdays she helps her father in the garden, and in the evening she watches films with her mother.\n\n1) How often does Emma walk her dogs?\n2) What does Emma do on Saturday evenings?",
+      "opener": "Find the sentence that contains the key word in each question, and then answer with a full sentence.",
+      "answer": "1) Emma walks her dogs every afternoon. 2) On Saturday evenings she watches films with her mother.",
+      "steps": [
+        "Question 1 contains the key word \"walk\". Find the sentence with \"walks them every afternoon\" in the text.",
+        "Answer with a full sentence and replace \"them\" with what it refers to: \"Emma walks her dogs every afternoon.\"",
+        "Question 2 contains the key word \"evening\". The text says \"in the evening she watches films with her mother\".",
+        "Check that the verb gets -s since \"she\" is third person singular: \"she watches\", not \"she watch\"."
+      ]
+    },
+    {
+      "id": "q-en7-rea-8",
+      "kind": "flashcard",
+      "topic": "main idea",
+      "prompt": "How do you read an English text and answer the questions?",
+      "opener": "A four-step process — plus tricks for difficult words.",
+      "answer": "Step 1: read the whole text quickly to see what it is about · Step 2: read the question and look for the key word in the text — the answer to a fact question is almost always in the same sentence · Step 3: answer and check that you can point to the answer in the text. Main idea = what applies to the whole text, not a single example · an answer option that is only true for one sentence is usually wrong. Inference = combine what the text says with common sense · never make up facts that are missing. Difficult words: don't stop — read the sentence before and after and guess from the context. Common traps: options with words that appear in the text but answer the wrong question · numbers that belong to something else in the text. Answer in full sentences when the question asks for it, and replace pronouns like it and them with what they refer to."
+    }
+  ]
+}

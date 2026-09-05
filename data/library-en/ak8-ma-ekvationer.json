@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma8-ekvationer",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Equations and algebraic expressions",
+  "sourceSummary": "Simplify expressions with brackets, solve equations where the unknown appears on both sides, and set up your own equation from a text.",
+  "topics": [
+    "algebraic expressions",
+    "equations",
+    "problem solving"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma8-ekv-1",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Multiply into the brackets: $4(x + 3)$.",
+      "opener": "The number outside the brackets must meet every term inside — not just the first one.",
+      "choices": [
+        "$4x + 3$",
+        "$4x + 12$",
+        "$4x + 7$",
+        "$x + 12$"
+      ],
+      "answer": 1,
+      "explanation": "Both $x$ and $3$ must be multiplied by 4: $4 \\cdot x = 4x$ and $4 \\cdot 3 = 12$, giving $4x + 12$. The answer $4x + 3$ is a common slip where the 3 gets forgotten."
+    },
+    {
+      "id": "q-ma8-ekv-2",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Simplify $3(2x - 1) + 4x$.",
+      "opener": "Deal with the brackets first, then collect like terms.",
+      "choices": [
+        "$6x - 3$",
+        "$10x - 3$",
+        "$10x + 3$",
+        "$2x - 1$"
+      ],
+      "answer": 1,
+      "explanation": "$3(2x - 1) = 6x - 3$. Add $4x$: $6x + 4x = 10x$, so the expression becomes $10x - 3$. The answer $6x - 3$ means the $4x$ has been completely forgotten."
+    },
+    {
+      "id": "q-ma8-ekv-3",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Simplify $8x - (3x + 2)$.",
+      "opener": "A minus sign in front of a bracket flips the sign of everything inside.",
+      "choices": [
+        "$5x + 2$",
+        "$11x - 2$",
+        "$5x - 2$",
+        "$5x + 6$"
+      ],
+      "answer": 2,
+      "explanation": "The minus sign applies to the whole bracket: $8x - 3x - 2 = 5x - 2$. The answer $5x + 2$ is the trap — there, only $3x$ has had its sign changed, not the 2."
+    },
+    {
+      "id": "q-ma8-ekv-4",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $7x - 4 = 3x + 12$.",
+      "opener": "$x$ appears on both sides — collect them on the same side first.",
+      "choices": [
+        "$x = 2$",
+        "$x = 4$",
+        "$x = 8$",
+        "$x = 16$"
+      ],
+      "answer": 1,
+      "explanation": "Subtract $3x$ from both sides: $4x - 4 = 12$. Add 4: $4x = 16$. Divide by 4: $x = 4$. The answer $x = 16$ is what you get stuck on if you forget the final division."
+    },
+    {
+      "id": "q-ma8-ekv-5",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $4(x - 3) = 2x + 6$.",
+      "opener": "Multiply out the brackets before you start moving terms around.",
+      "choices": [
+        "$x = 3$",
+        "$x = 6$",
+        "$x = 9$",
+        "$x = 12$"
+      ],
+      "answer": 2,
+      "explanation": "$4(x - 3) = 4x - 12$, so the equation becomes $4x - 12 = 2x + 6$. Subtract $2x$: $2x - 12 = 6$. Add 12: $2x = 18$, so $x = 9$. Check: $4(9 - 3) = 24$ and $2 \\cdot 9 + 6 = 24$. ✓"
+    },
+    {
+      "id": "q-ma8-ekv-6",
+      "kind": "mc",
+      "topic": "problem solving",
+      "prompt": "A gym membership costs a 250 kr joining fee plus $x$ kr per month. After 6 months Sam has paid 1,150 kr in total. Which equation describes the situation?",
+      "opener": "The joining fee is paid once — the monthly fee six times.",
+      "choices": [
+        "$6x + 250 = 1150$",
+        "$250x + 6 = 1150$",
+        "$6(x + 250) = 1150$",
+        "$6x - 250 = 1150$"
+      ],
+      "answer": 0,
+      "explanation": "Six monthly fees is $6x$, and the joining fee is added just once: $6x + 250 = 1150$. The option $6(x + 250)$ would mean the joining fee is paid every month."
+    },
+    {
+      "id": "q-ma8-ekv-7",
+      "kind": "worked",
+      "topic": "problem solving",
+      "prompt": "A rectangular room is twice as long as it is wide. The perimeter is 36 m. Set up an equation and work out the room's width and length.",
+      "opener": "Call the thing you know least about $x$ — here, the width — and express the length using it.",
+      "answer": "The width is 6 m and the length is 12 m",
+      "steps": [
+        "Let $x$ be the width in metres. Then the length is $2x$.",
+        "The perimeter is two widths plus two lengths: $2(x + 2x) = 36$.",
+        "Simplify inside the brackets: $2 \\cdot 3x = 36$, so $6x = 36$.",
+        "Divide by 6: $x = 6$. The width is 6 m and the length is $2 \\cdot 6 = 12$ m.",
+        "Check: $6 + 6 + 12 + 12 = 36$ m. ✓"
+      ]
+    },
+    {
+      "id": "q-ma8-ekv-8",
+      "kind": "flashcard",
+      "topic": "algebraic expressions",
+      "prompt": "What rules apply for brackets and for solving equations?",
+      "opener": "Two things to remember: how brackets are opened up, and the balance rule.",
+      "answer": "Multiplying out: $a(b + c) = ab + ac$ — the number outside meets every term inside · A minus sign in front of a bracket flips the sign of everything inside: $-(3x + 2) = -3x - 2$ · Only like terms can be combined: $x$-terms with $x$-terms, numbers with numbers · The balance rule: whatever you do to one side, you do to the other · Order of work for an equation: simplify both sides → collect $x$ on one side and numbers on the other → divide by the coefficient in front of $x$ · Always check by substituting the answer back into the original equation."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma7-brak",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Fractions and decimal numbers",
+  "sourceSummary": "Simplify and scale up fractions, compare them and calculate with them. You also practise converting between fraction form, decimal form and percentage.",
+  "topics": [
+    "fractions",
+    "decimal numbers",
+    "simplifying and scaling up",
+    "percentage form"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma7-bra-1",
+      "kind": "mc",
+      "topic": "decimal numbers",
+      "prompt": "Which decimal number is equal to $\\frac{3}{4}$?",
+      "opener": "The fraction bar means division - what is 3 divided by 4?",
+      "choices": [
+        "$0{,}34$",
+        "$0{,}75$",
+        "$0{,}25$",
+        "$3{,}4$"
+      ],
+      "answer": 1,
+      "explanation": "$\\frac{3}{4}$ means $3 / 4 = 0{,}75$. You get $0{,}34$ if you just put the digits 3 and 4 next to each other, but the fraction bar is a division."
+    },
+    {
+      "id": "q-ma7-bra-2",
+      "kind": "mc",
+      "topic": "simplifying and scaling up",
+      "prompt": "Simplify $\\frac{6}{8}$ as far as possible.",
+      "opener": "Is there a number that both 6 and 8 are divisible by?",
+      "choices": [
+        "$\\frac{3}{4}$",
+        "$\\frac{2}{4}$",
+        "$\\frac{6}{4}$",
+        "$\\frac{1}{2}$"
+      ],
+      "answer": 0,
+      "explanation": "Divide both the numerator and the denominator by 2: $\\frac{6}{8} = \\frac{3}{4}$. You must divide both by the same number - if you only divide the denominator, as in $\\frac{6}{4}$, the value of the fraction changes."
+    },
+    {
+      "id": "q-ma7-bra-3",
+      "kind": "mc",
+      "topic": "fractions",
+      "prompt": "Which of the fractions is the largest?",
+      "opener": "Convert each fraction to decimal form, then they become easy to compare.",
+      "choices": [
+        "$\\frac{2}{5}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{3}$",
+        "$\\frac{1}{4}$"
+      ],
+      "answer": 1,
+      "explanation": "$\\frac{1}{2} = 0{,}5$, $\\frac{2}{5} = 0{,}4$, $\\frac{1}{3} \\approx 0{,}33$ and $\\frac{1}{4} = 0{,}25$. A larger denominator does not mean a larger fraction - the more pieces a cake is cut into, the smaller each piece becomes."
+    },
+    {
+      "id": "q-ma7-bra-4",
+      "kind": "mc",
+      "topic": "fractions",
+      "prompt": "Calculate $\\frac{2}{7} + \\frac{3}{7}$.",
+      "opener": "The denominators are already the same - so what is the only thing you need to add?",
+      "choices": [
+        "$\\frac{5}{14}$",
+        "$\\frac{5}{7}$",
+        "$\\frac{6}{7}$",
+        "$\\frac{6}{14}$"
+      ],
+      "answer": 1,
+      "explanation": "With the same denominator you just add the numerators: $2 + 3 = 5$, giving $\\frac{5}{7}$. The denominator states how big the parts are and should not be added - which is why $\\frac{5}{14}$ is wrong."
+    },
+    {
+      "id": "q-ma7-bra-5",
+      "kind": "mc",
+      "topic": "fractions",
+      "prompt": "Calculate $\\frac{1}{2} + \\frac{1}{4}$.",
+      "opener": "Different denominators - rewrite the half so that both fractions are in quarters.",
+      "choices": [
+        "$\\frac{2}{6}$",
+        "$\\frac{1}{6}$",
+        "$\\frac{3}{4}$",
+        "$\\frac{2}{4}$"
+      ],
+      "answer": 2,
+      "explanation": "Scale up $\\frac{1}{2}$ by 2 so it becomes $\\frac{2}{4}$. Then $\\frac{2}{4} + \\frac{1}{4} = \\frac{3}{4}$. The answer $\\frac{2}{6}$ comes from adding the numerators and denominators separately, which does not work."
+    },
+    {
+      "id": "q-ma7-bra-6",
+      "kind": "mc",
+      "topic": "percentage form",
+      "prompt": "What percentage is $\\frac{1}{5}$?",
+      "opener": "Percentage means hundredths - scale up the fraction so the denominator becomes 100.",
+      "choices": [
+        "15%",
+        "20%",
+        "25%",
+        "50%"
+      ],
+      "answer": 1,
+      "explanation": "Scale up by 20: $\\frac{1}{5} = \\frac{20}{100} = 20$%. The answer 15% often comes from mixing up the digits 1 and 5 in the fraction instead of converting to hundredths."
+    },
+    {
+      "id": "q-ma7-bra-7",
+      "kind": "worked",
+      "topic": "fractions",
+      "prompt": "Calculate $\\frac{2}{3} - \\frac{1}{6}$ and simplify the answer as far as possible.",
+      "opener": "Find a common denominator first - 6 works well here.",
+      "answer": "$\\frac{1}{2}$",
+      "steps": [
+        "Common denominator: 6, since $3 \\cdot 2 = 6$.",
+        "Scale up $\\frac{2}{3}$ by 2: $\\frac{2}{3} = \\frac{4}{6}$.",
+        "Subtract the numerators: $\\frac{4}{6} - \\frac{1}{6} = \\frac{3}{6}$.",
+        "Simplify by 3: $\\frac{3}{6} = \\frac{1}{2}$."
+      ]
+    },
+    {
+      "id": "q-ma7-bra-8",
+      "kind": "flashcard",
+      "topic": "fractions",
+      "prompt": "How do you calculate with fractions, and how do you convert between fractions, decimal numbers and percentages?",
+      "opener": "Think of three things: simplifying/scaling up, adding, and converting.",
+      "answer": "Simplify = divide the numerator and denominator by the same number · scale up = multiply both by the same number · the value of the fraction does not change in either case · Addition and subtraction require the same denominator: scale up first, then just add the numerators · Fraction to decimal number: divide the numerator by the denominator, $\\frac{3}{4} = 0{,}75$ · Decimal number to percentage: multiply by 100, $0{,}75 = 75$% · Good to know by heart: $\\frac{1}{2} = 0{,}5 = 50$%, $\\frac{1}{4} = 0{,}25 = 25$%, $\\frac{1}{5} = 0{,}2 = 20$%, $\\frac{1}{10} = 0{,}1 = 10$%."
+    }
+  ]
+}

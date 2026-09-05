@@ -1,0 +1,130 @@
+{
+  "id": "lib-fys7-materia",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "States of matter and density",
+  "sourceSummary": "How particles are arranged in solids, liquids and gases, and what happens during melting, boiling, evaporation and condensation. You also practise the difference between mass and volume, and calculating density to work out whether something floats or sinks.",
+  "topics": [
+    "the particle model",
+    "states of matter",
+    "phase changes",
+    "mass and volume",
+    "density"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys7-mte-1",
+      "kind": "mc",
+      "topic": "the particle model",
+      "prompt": "In which state are the particles packed tightly together and vibrating around fixed positions?",
+      "opener": "Think about which state a substance has its own fixed shape in.",
+      "choices": [
+        "Gas",
+        "Liquid",
+        "Solid",
+        "All states equally"
+      ],
+      "answer": 2,
+      "explanation": "In a solid, the particles are held in place by strong forces and can only vibrate a little — that's why a solid has its own shape. In a liquid the particles are also packed closely, but they can slide past each other, which is why a liquid pours out and takes the shape of its container."
+    },
+    {
+      "id": "q-fys7-mte-2",
+      "kind": "mc",
+      "topic": "phase changes",
+      "prompt": "What is it called when a solid turns into a liquid?",
+      "opener": "Think about what happens to an ice cube held in your hand.",
+      "choices": [
+        "Melting",
+        "Boiling",
+        "Condensation",
+        "Freezing"
+      ],
+      "answer": 0,
+      "explanation": "Melting is the change from solid to liquid, and it happens at the substance's melting point (0 °C for water). Freezing is the same change but in the opposite direction, i.e. from liquid to solid."
+    },
+    {
+      "id": "q-fys7-mte-3",
+      "kind": "mc",
+      "topic": "phase changes",
+      "prompt": "Why do small water droplets form on the outside of a glass with an ice-cold drink?",
+      "opener": "The air around us contains water vapour that you can't see.",
+      "choices": [
+        "The water slowly leaks out through the glass",
+        "Water vapour in the air condenses on the cold surface",
+        "The glass starts to melt slightly",
+        "The air boils when it touches the glass"
+      ],
+      "answer": 1,
+      "explanation": "The air contains invisible water vapour. When the vapour cools down against the cold glass, the particles lose kinetic energy and turn into liquid — that's called condensation. So the water comes from the air, not from inside the glass, which is completely sealed."
+    },
+    {
+      "id": "q-fys7-mte-4",
+      "kind": "mc",
+      "topic": "density",
+      "prompt": "What is meant by a substance's density?",
+      "opener": "Density is about how much mass is packed into a certain volume.",
+      "choices": [
+        "How heavy an object feels when you lift it",
+        "How large a volume the object has",
+        "The object's mass measured in kilograms",
+        "The substance's mass divided by its volume"
+      ],
+      "answer": 3,
+      "explanation": "Density = mass / volume, for example in g/cm³ or kg/m³, and it tells you how much mass fits into each unit of volume. Mass alone isn't enough: a kilogram of cotton wool and a kilogram of lead have the same mass but completely different densities, since the lead takes up much less space."
+    },
+    {
+      "id": "q-fys7-mte-5",
+      "kind": "mc",
+      "topic": "density",
+      "prompt": "A block of wood has a density of 0.6 g/cm³. What happens when you put it in water?",
+      "opener": "Compare it with water's density, which is 1 g/cm³.",
+      "choices": [
+        "It sinks to the bottom",
+        "It floats with part of it above the water's surface",
+        "It dissolves in the water",
+        "It hovers still in the middle of the water"
+      ],
+      "answer": 1,
+      "explanation": "The block of wood has a lower density than water (0.6 < 1), so it floats with part of its volume above the surface. If the density had instead been higher than 1 g/cm³ — as for a stone — the block would sink."
+    },
+    {
+      "id": "q-fys7-mte-6",
+      "kind": "mc",
+      "topic": "mass and volume",
+      "prompt": "You let 100 g of ice melt in a glass. What is true of the mass once all the ice has become water?",
+      "opener": "The particles change position and packing, but they don't disappear.",
+      "choices": [
+        "The mass is still 100 g",
+        "The mass becomes greater than 100 g",
+        "The mass becomes less than 100 g",
+        "The mass disappears completely"
+      ],
+      "answer": 0,
+      "explanation": "In a phase change it's the same particles the whole time, so mass is conserved: 100 g of ice gives 100 g of water. What changes is the volume — ice has a lower density than water, so the water actually takes up slightly less space than the ice did."
+    },
+    {
+      "id": "q-fys7-mte-7",
+      "kind": "worked",
+      "topic": "density",
+      "prompt": "A stone has a mass of 300 g and a volume of 100 cm³. Calculate the stone's density and work out whether it floats in water, which has a density of 1 g/cm³.",
+      "opener": "Use the relationship density = mass / volume and then compare it with water.",
+      "answer": "The density is 3 g/cm³, which is more than water's 1 g/cm³, so the stone sinks.",
+      "steps": [
+        "Write out the formula: density = mass / volume.",
+        "Plug in the values: 300 g / 100 cm³.",
+        "Work it out: 300 / 100 = 3, giving a density of 3 g/cm³.",
+        "Compare with water: 3 g/cm³ > 1 g/cm³, so the stone is heavier than the same volume of water.",
+        "Conclusion: the stone sinks — just as we'd expect when throwing a stone into a lake."
+      ]
+    },
+    {
+      "id": "q-fys7-mte-8",
+      "kind": "flashcard",
+      "topic": "states of matter",
+      "prompt": "Summarise the states of matter, phase changes and density.",
+      "opener": "Start with the particles in the three states and finish with the density formula.",
+      "answer": "Solid: particles packed tightly in fixed positions, has its own shape · Liquid: particles packed tightly but mobile, takes the shape of its container · Gas: particles far apart and moving fast, fills the whole space · Melting: solid → liquid · Freezing: liquid → solid · Boiling: liquid → gas throughout the liquid at the boiling point · Evaporation: liquid → gas at the surface, even below the boiling point · Condensation: gas → liquid · Mass is always conserved in phase changes, volume can change · Mass is measured in grams or kilograms, volume in cm³, dm³ or litres · Density = mass / volume, unit g/cm³ or kg/m³ · Water: 1 g/cm³ = 1000 kg/m³ · Lower density than the liquid → the object floats, higher density → it sinks"
+    }
+  ]
+}

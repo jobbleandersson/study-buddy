@@ -1,0 +1,130 @@
+{
+  "id": "lib-bio7-kroppen",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "The body's organ systems",
+  "sourceSummary": "The body's organ systems at a basic level: the skeleton and muscles, the respiratory organs, the circulatory system with the heart, and digestion. You also practise why the body's cells need both oxygen and nutrients.",
+  "topics": [
+    "skeleton and muscles",
+    "respiratory organs",
+    "circulatory system and the heart",
+    "digestion",
+    "oxygen and nutrients"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio7-kro-1",
+      "kind": "mc",
+      "topic": "skeleton and muscles",
+      "prompt": "What are the skeleton's most important tasks in the body?",
+      "opener": "Think about what keeps you upright and what protects the brain.",
+      "choices": [
+        "Pumping the blood around the body",
+        "Breaking down food into nutrients",
+        "Giving the body structure, protecting internal organs, and anchoring the muscles",
+        "Cleaning the blood of carbon dioxide"
+      ],
+      "answer": 2,
+      "explanation": "The skeleton supports the body, the skull protects the brain, and the ribs protect the heart and lungs, while the muscles attach to the bones with tendons. Breaking down food is the job of the digestive organs, not the skeleton — the skeleton instead contributes because bone marrow produces blood cells."
+    },
+    {
+      "id": "q-bio7-kro-2",
+      "kind": "mc",
+      "topic": "skeleton and muscles",
+      "prompt": "Why do we say the muscles in the upper arm work in pairs?",
+      "opener": "Bend and straighten your arm and feel which muscle tenses each time.",
+      "choices": [
+        "Because a muscle can only contract, so another muscle is needed to move the joint back",
+        "Because the muscles take turns as soon as one gets tired",
+        "Because every muscle must have two tendons",
+        "Because one muscle handles breathing and the other movement"
+      ],
+      "answer": 0,
+      "explanation": "A muscle can only contract, meaning pull together and shorten — it cannot push. That is why the biceps at the front bends the elbow while the triceps at the back straightens it again. The idea that they would take turns when tired is not correct, since they pull the joint in opposite directions."
+    },
+    {
+      "id": "q-bio7-kro-3",
+      "kind": "mc",
+      "topic": "respiratory organs",
+      "prompt": "Where in the respiratory organs is oxygen taken up into the blood?",
+      "opener": "Right at the end of the lungs, the airways branch into thousands of tiny sacs.",
+      "choices": [
+        "In the windpipe",
+        "In the nose and throat",
+        "In the diaphragm",
+        "In the alveoli (air sacs)"
+      ],
+      "answer": 3,
+      "explanation": "The alveoli have very thin walls and are surrounded by hair-thin blood vessels, so oxygen can pass into the blood while carbon dioxide passes out into the air. The windpipe only transports the air onward, and the diaphragm is a muscle that pulls the lungs down during inhalation — no gas exchange happens there."
+    },
+    {
+      "id": "q-bio7-kro-4",
+      "kind": "mc",
+      "topic": "circulatory system and the heart",
+      "prompt": "Which blood vessels carry blood FROM the heart out into the body?",
+      "opener": "Direction is what tells the vessel types apart — think about where you can feel a pulse.",
+      "choices": [
+        "The veins",
+        "The arteries",
+        "The capillaries",
+        "The lymph vessels"
+      ],
+      "answer": 1,
+      "explanation": "Arteries carry blood from the heart and have thick, elastic walls that can withstand the high pressure, which is why you can feel a pulse in them. Veins are easy to confuse with arteries, but they do the opposite: they carry blood back to the heart."
+    },
+    {
+      "id": "q-bio7-kro-5",
+      "kind": "mc",
+      "topic": "digestion",
+      "prompt": "In what order does food pass through the digestive tract?",
+      "opener": "Follow the food all the way from the first bite.",
+      "choices": [
+        "Mouth → stomach → oesophagus → large intestine → small intestine",
+        "Mouth → oesophagus → small intestine → stomach → large intestine",
+        "Mouth → oesophagus → stomach → small intestine → large intestine",
+        "Mouth → windpipe → stomach → intestines"
+      ],
+      "answer": 2,
+      "explanation": "Food is chewed in the mouth, carried through the oesophagus to the stomach, continues to the small intestine where nutrients are taken up into the blood, and finally to the large intestine where water is absorbed. The windpipe is not involved at all — it leads to the lungs, which is why you choke if food goes down the wrong way."
+    },
+    {
+      "id": "q-bio7-kro-6",
+      "kind": "mc",
+      "topic": "oxygen and nutrients",
+      "prompt": "Why do the body's cells need both oxygen and nutrients?",
+      "opener": "Think about what happens inside the cell when it needs to get energy.",
+      "choices": [
+        "Oxygen builds new cells while nutrients warm the body",
+        "Nutrients are only needed in the muscles and oxygen only in the brain",
+        "Oxygen makes the blood red and nutrients make the blood thicker",
+        "Cells use oxygen to release energy from nutrients during cellular respiration"
+      ],
+      "answer": 3,
+      "explanation": "During cellular respiration, sugar reacts with oxygen so that energy is released, leaving behind carbon dioxide and water: nutrients are the fuel and oxygen is needed to break the fuel down. The idea that oxygen would only be needed in the brain is wrong — all cells throughout the body respire and need energy all the time."
+    },
+    {
+      "id": "q-bio7-kro-7",
+      "kind": "worked",
+      "topic": "circulatory system and the heart",
+      "prompt": "Explain how the oxygen in the air you breathe in makes its way all the way to a muscle cell in your leg.",
+      "opener": "Follow the oxygen step by step: the airways, the alveoli, the blood, the heart and the vessels.",
+      "answer": "Oxygen travels via the nose, windpipe and airways to the alveoli, is taken up by the red blood cells in the blood, is carried to the left side of the heart, and is pumped out through arteries and capillaries to the muscle cell, which uses the oxygen to release energy from nutrients.",
+      "steps": [
+        "During inhalation the diaphragm is pulled down and air is drawn in through the nose, throat, windpipe and airways out into the alveoli.",
+        "The walls of the alveoli are very thin, so oxygen passes into the blood in the capillaries around them while carbon dioxide passes the opposite way.",
+        "Oxygen binds to the red blood cells and is carried with the blood to the left side of the heart.",
+        "The heart pumps the oxygen-rich blood out into the main body artery (aorta) and onward through arteries and capillaries to the muscle in the leg.",
+        "In the muscle cell, oxygen is used during cellular respiration to release energy from nutrients, and the carbon dioxide that forms follows the veins back to the heart and out via the lungs."
+      ]
+    },
+    {
+      "id": "q-bio7-kro-8",
+      "kind": "flashcard",
+      "topic": "skeleton and muscles",
+      "prompt": "What organ systems does the body have and what do the most important organs do?",
+      "opener": "Take one organ system at a time: movement, breathing, blood and food — and finish with why it is all needed.",
+      "answer": "Skeleton and muscles: the skeleton gives structure and shape · protects organs (the skull protects the brain, the ribs protect the heart and lungs) · bone marrow produces blood cells · joints make movement possible · muscles attach to bones with tendons and can only contract, so they work in pairs (the biceps bends the arm, the triceps straightens it) · Respiratory organs: nose → throat → windpipe → airways → alveoli · the diaphragm pulls down and expands the lungs during inhalation · gas exchange in the alveoli: oxygen into the blood, carbon dioxide out into the air · Circulatory system: the heart is a muscle with two atria and two ventricles · the pulmonary circulation runs heart → lungs → heart · the systemic circulation runs heart → body → heart · arteries carry blood from the heart · veins carry blood to the heart · capillaries are hair-thin vessels where exchange with the cells happens · red blood cells carry oxygen · white blood cells defend against bacteria and viruses · platelets make the blood clot · Digestion: mouth (teeth and saliva) → oesophagus → stomach (gastric juice and muscular movements) → small intestine (nutrients are absorbed into the blood via the intestinal villi) → large intestine (water is absorbed) → rectum · the liver and pancreas contribute digestive juices · Why: cellular respiration uses oxygen to release energy from nutrients — sugar + oxygen → carbon dioxide + water + energy."
+    }
+  ]
+}

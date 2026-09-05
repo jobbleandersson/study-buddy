@@ -1,0 +1,130 @@
+{
+  "id": "lib-sv7-muntligt",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Oral presentation and conversation",
+  "sourceSummary": "Preparing and giving a short talk with a clear structure, using voice and body language, listening actively and asking follow-up questions — and the difference between spoken and written Swedish.",
+  "topics": [
+    "giving a talk",
+    "structure",
+    "body language and voice",
+    "active listening",
+    "spoken versus written language"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv7-mun-1",
+      "kind": "mc",
+      "topic": "structure",
+      "prompt": "How should a short talk be structured?",
+      "opener": "A speech has the same three parts as a text — think beginning, middle and end.",
+      "choices": [
+        "Conclusion – introduction – content",
+        "Introduction – content – conclusion",
+        "Content – introduction – conclusion",
+        "Introduction – conclusion – content"
+      ],
+      "answer": 1,
+      "explanation": "The introduction captures interest and states what the talk is about, the content provides facts and examples, and the conclusion summarises. If the conclusion comes first, the audience doesn't yet know what is being summarised."
+    },
+    {
+      "id": "q-sv7-mun-2",
+      "kind": "mc",
+      "topic": "giving a talk",
+      "prompt": "What is best to do when preparing a short talk?",
+      "opener": "Think about what helps you speak FREELY, not read aloud.",
+      "choices": [
+        "Write out the entire speech word for word and read it aloud",
+        "Memorise the entire speech word for word",
+        "Trust that the words will come once you're standing there",
+        "Write key words on a card and practise out loud a few times"
+      ],
+      "answer": 3,
+      "explanation": "Key words help you remember the order while still speaking in your own words and being able to look up at the audience. Reading aloud sounds monotonous and makes you lose eye contact — and memorising everything word for word makes it easy to get stuck if you forget a word."
+    },
+    {
+      "id": "q-sv7-mun-3",
+      "kind": "mc",
+      "topic": "body language and voice",
+      "prompt": "Which piece of advice about body language and voice helps you most when speaking in front of the class?",
+      "opener": "Think about what makes the audience both hear you and feel seen.",
+      "choices": [
+        "Look down at the paper and speak quickly so it's over fast",
+        "Stand still with your hands in your pockets and speak quietly",
+        "Look out over the class, speak a little slower than usual, and take short pauses",
+        "Speak as loudly as you can and move constantly back and forth"
+      ],
+      "answer": 2,
+      "explanation": "Eye contact, a calm pace and pauses let the audience keep up and make you feel more confident yourself. Speaking quickly with your eyes on the paper is common when you're nervous, but then the message doesn't get through."
+    },
+    {
+      "id": "q-sv7-mun-4",
+      "kind": "mc",
+      "topic": "active listening",
+      "prompt": "Which of the questions is a good follow-up question if a friend has just told you they've started playing floorball?",
+      "opener": "A follow-up question builds on what has just been said and can't be answered with just yes or no.",
+      "choices": [
+        "Do you like floorball?",
+        "What was it that made you choose floorball in particular?",
+        "Shall we talk about something else?",
+        "I used to play floorball too."
+      ],
+      "answer": 1,
+      "explanation": "The question builds on the topic and requires a developed answer — that's a genuine follow-up question. \"Do you like floorball?\" can be answered with a single word, and the last option isn't even a question, but shifts the focus to yourself."
+    },
+    {
+      "id": "q-sv7-mun-5",
+      "kind": "mc",
+      "topic": "active listening",
+      "prompt": "What does it mean to listen actively in a conversation?",
+      "opener": "Active listening shows on the outside — the person speaking should notice that you're listening.",
+      "choices": [
+        "Looking at the person speaking, nodding, and asking about what you're curious about",
+        "Being completely silent and thinking about what you're going to say next",
+        "Interrupting with your own examples so the conversation becomes lively",
+        "Agreeing with everything that's said"
+      ],
+      "answer": 0,
+      "explanation": "Eye contact, short signals and questions show that you're following along and help the other person keep telling their story. Being silent while you plan your own contribution isn't listening — then you miss what's actually being said."
+    },
+    {
+      "id": "q-sv7-mun-6",
+      "kind": "mc",
+      "topic": "spoken versus written language",
+      "prompt": "Which sentence is written in standard written Swedish?",
+      "opener": "Written language follows the spelling rules; spoken language is how we say the words in everyday speech.",
+      "choices": [
+        "Vi ska dit imorron å så käkar vi nåt sen.",
+        "Ja vet inte va han menar liksom.",
+        "Vi ska dit imorgon och sedan äter vi något.",
+        "Dom kom sent för att bussen strula."
+      ],
+      "answer": 2,
+      "explanation": "The sentence \"Vi ska dit imorgon och sedan äter vi något\" has complete words and standard spelling: imorgon, och, sedan, äter, något. The others contain spoken-language forms such as \"imorron\", \"å\", \"nåt\", \"ja\", \"va\", \"dom\" and the filler word \"liksom\" — these work fine when speaking but don't belong in a school assignment."
+    },
+    {
+      "id": "q-sv7-mun-7",
+      "kind": "worked",
+      "topic": "giving a talk",
+      "prompt": "Plan a two-minute talk about your favourite book. What should be included, and in what order?",
+      "opener": "Split the time into three parts and decide what each part should contain.",
+      "answer": "Introduction: capture interest with a question or a scene from the book and say which book and author it is. Content: briefly tell what the book is about without giving away the ending, mention a character you like and one example of why the book is good. Conclusion: sum up with one sentence about who the book suits and thank the audience for listening.",
+      "steps": [
+        "Decide your message in one sentence: what do you want the class to remember about the book?",
+        "Introduction (about 20 seconds): a question, a scene or a quote that sparks curiosity, plus the title and author.",
+        "Content (about 80 seconds): the plot in brief, a character or event you were drawn to, and one concrete example — but never give away the ending.",
+        "Conclusion (about 20 seconds): sum up why you recommend the book and to whom.",
+        "Write the key words on a small card and practise out loud with timing at least twice."
+      ]
+    },
+    {
+      "id": "q-sv7-mun-8",
+      "kind": "flashcard",
+      "topic": "oral presentation",
+      "prompt": "What do you need to remember before an oral presentation and a conversation?",
+      "opener": "A checklist for both when you speak and when you listen.",
+      "answer": "Structure: an introduction that sparks interest and states what it's about · content with facts and examples · a conclusion that sums up. Preparation: key words on a card, never the whole text · practise out loud and time yourself. Voice and body language: speak a little slower than usual · hold your pauses · make eye contact with the audience · stand steady and avoid swaying. Active listening: look at the person speaking · nod and murmur · don't interrupt · ask follow-up questions starting with how, why or what — not questions answered with yes or no. Spoken forms (dom, nåt, ba, liksom) work when you're talking; written forms (de, något, bara) belong in what you write."
+    }
+  ]
+}

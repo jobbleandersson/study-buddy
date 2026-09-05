@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist1a1-revolutioner",
+  "type": "assignment",
+  "subject": "Historia 1a1",
+  "title": "The age of revolutions",
+  "sourceSummary": "The American and French Revolutions, the social transformation of the Industrial Revolution, and the rise of nationalism in the 19th century.",
+  "topics": [
+    "the American Revolution",
+    "the French Revolution",
+    "the Industrial Revolution",
+    "the rise of nationalism"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist1a1-revolutioner-1",
+      "kind": "mc",
+      "topic": "the American Revolution",
+      "prompt": "What was a key cause of the American Revolution?",
+      "opener": "Think about the colonists' relationship to the British Parliament.",
+      "choices": [
+        "The colonists protested against taxes decided by the British Parliament, in which they themselves had no representation ('no taxation without representation')",
+        "The colonists wanted to reinstate the monarchy in France",
+        "Britain refused to trade with its own colonies",
+        "The colonists demanded to become part of Spain instead of Britain"
+      ],
+      "answer": 0,
+      "explanation": "The British North American colonists had no representation in Parliament in London but were nevertheless forced to pay taxes decided there. The slogan 'no taxation without representation' became central to the protests that led to the War of Independence."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-2",
+      "kind": "mc",
+      "topic": "the American Revolution",
+      "prompt": "What became an important consequence of the American Revolution for political ideas in the world?",
+      "opener": "Think about which form of government was tried out, and who later drew inspiration from it.",
+      "choices": [
+        "It led to Britain abolishing its Parliament",
+        "It had no impact outside North America",
+        "It showed that it was possible to found a republic built on a written constitution and popular sovereignty, which inspired later revolutions, including the French",
+        "It led to the colonies voluntarily returning under the British crown"
+      ],
+      "answer": 2,
+      "explanation": "The US Constitution of 1787, built on popular sovereignty and the separation of powers, became a concrete example of how the Enlightenment's ideas could be put into practice. This inspired later revolutionaries in Europe, not least in France."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-3",
+      "kind": "mc",
+      "topic": "the French Revolution",
+      "prompt": "What were the main causes of the French Revolution of 1789?",
+      "opener": "Think about the state's finances and who was exempt from paying tax.",
+      "choices": [
+        "An invasion by Britain that triggered an uprising among the population",
+        "The state's debt crisis, an unjust tax system in which the nobility and the Church were exempt, and discontent with absolute monarchy and the estate-based society",
+        "The king voluntarily abolished the monarchy",
+        "A general famine caused solely by bad weather, with no connection to politics"
+      ],
+      "answer": 1,
+      "explanation": "France's state finances were in deep crisis, while the nobility and the Church (the first and second estates) were exempt from tax and the third estate had to bear the burden. This, together with discontent with absolute monarchy and poor harvests, triggered the revolution."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-4",
+      "kind": "mc",
+      "topic": "the French Revolution",
+      "prompt": "What happened during the Reign of Terror (1793–1794) during the French Revolution?",
+      "opener": "Think about which group was in power and which tool they used against their opponents.",
+      "choices": [
+        "The nobility retook power and abolished the National Assembly",
+        "Napoleon was crowned emperor",
+        "France became a peaceful constitutional monarchy without conflicts",
+        "The Jacobins under Robespierre had thousands of alleged opponents of the revolution executed by guillotine"
+      ],
+      "answer": 3,
+      "explanation": "During the Reign of Terror, the Jacobins ruled with Robespierre at the helm through terror: thousands of people suspected of being opponents of the revolution were executed by guillotine, often after very summary trials."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-5",
+      "kind": "mc",
+      "topic": "the Industrial Revolution",
+      "prompt": "What was distinctive about the social transformation brought about by the Industrial Revolution?",
+      "opener": "Think about where production moved to, and which new social groups emerged in the cities.",
+      "choices": [
+        "New technology such as the steam engine moved production from craft work in homes to factories, which led to urbanisation and a new working class",
+        "Agriculture disappeared entirely and was replaced directly by the service sector",
+        "Production decreased sharply due to hostility towards technology",
+        "All countries industrialised simultaneously and at exactly the same pace"
+      ],
+      "answer": 0,
+      "explanation": "New technology, with the steam engine as a key invention, made it possible to move production to factories. This drove strong urbanisation as people moved from the countryside to growing industrial towns, and created a new social class of factory workers."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-6",
+      "kind": "mc",
+      "topic": "the rise of nationalism",
+      "prompt": "How did nationalism help change Europe's political map during the 19th century?",
+      "opener": "Think about the idea of one people, one language, one nation — and which large countries were formed from it.",
+      "choices": [
+        "Nationalism led to Europe's borders remaining completely unchanged",
+        "Nationalism was merely a cultural movement with no political consequences",
+        "The idea that peoples with a shared language and culture should form their own nation-states drove, among other things, the unification of Italy and Germany",
+        "Nationalism led to several countries merging into a single world empire"
+      ],
+      "answer": 2,
+      "explanation": "Nationalism was built on the idea that peoples with a shared language, culture and history should constitute their own nation-state. This idea was a driving force behind both the unification of Italy (1861) and Germany (1871) in the 19th century, and later also contributed to tensions ahead of the First World War."
+    },
+    {
+      "id": "q-hist1a1-revolutioner-7",
+      "kind": "worked",
+      "topic": "the French Revolution",
+      "prompt": "Compare the American and French Revolutions. What similarities and differences are there in their causes and course of events?",
+      "opener": "Think about who the revolution was directed against, and how violent it became.",
+      "answer": "Both revolutions were built on Enlightenment ideas about the rights of the people and criticism of arbitrary power, but they differed in their aims and course: the American Revolution was primarily a liberation from a foreign colonial power and led to a relatively orderly constitution, while the French Revolution was a domestic uprising against the country's own estate-based society and absolute monarchy, which degenerated into internal violence and a reign of terror before Napoleon finally took power.",
+      "steps": [
+        "The American Revolution (1775–1783) was directed against a foreign colonial power, Britain, and demanded self-government and representation.",
+        "It ended with a new constitution in 1787 built on the separation of powers and individual rights, relatively orderly after the War of Independence.",
+        "The French Revolution (from 1789) was instead directed against the country's own royal power, nobility and estate-based society.",
+        "It became considerably more turbulent and violent, with the execution of the king in 1793 and the Reign of Terror under Robespierre.",
+        "Both were inspired by Enlightenment ideas about rights and popular rule, but while the USA gained a relatively stable constitution, France's revolution ended with Napoleon taking power as emperor in 1804."
+      ]
+    },
+    {
+      "id": "q-hist1a1-revolutioner-8",
+      "kind": "flashcard",
+      "topic": "the rise of nationalism",
+      "prompt": "Summarise the age of revolutions: the American and French Revolutions, the Industrial Revolution and nationalism.",
+      "opener": "Four great upheavals that shaped modern society.",
+      "answer": "American Revolution (1775–1783): the colonists rebelled against British taxation without representation and founded a republic with a written constitution · French Revolution (from 1789): discontent with absolute monarchy, the estate-based society and the state's debt crisis led to the king's execution, the Reign of Terror and eventually Napoleon's empire · Industrial Revolution (from around 1760): new technology such as the steam engine moved production to factories, creating urbanisation and a new working class · nationalism emerged during the 19th century and drove the unification of Italy and Germany as well as demands for self-government among many peoples in Europe."
+    }
+  ]
+}

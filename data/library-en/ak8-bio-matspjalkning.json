@@ -1,0 +1,129 @@
+{
+  "id": "lib-bio8-matspjalkning",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Digestion and nutrition",
+  "sourceSummary": "The parts of the digestive tract and how enzymes break down food, plus which nutrients the body needs and why energy and diet are connected.",
+  "topics": [
+    "the digestive tract",
+    "enzymes and breakdown",
+    "nutrients",
+    "energy and diet"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio8-mat-1",
+      "kind": "mc",
+      "topic": "the digestive tract",
+      "prompt": "In what order does food pass through the main parts of the digestive tract?",
+      "opener": "Follow the food from the first bite until the remains leave the body.",
+      "choices": [
+        "Mouth → oesophagus → stomach → small intestine → large intestine",
+        "Mouth → stomach → oesophagus → large intestine → small intestine",
+        "Mouth → oesophagus → small intestine → stomach → large intestine",
+        "Mouth → stomach → small intestine → oesophagus → large intestine"
+      ],
+      "answer": 0,
+      "explanation": "Food is chewed in the mouth, carried through the oesophagus down to the stomach, continues to the small intestine where most of the nutrients are absorbed, and finally to the large intestine where water is absorbed. The oesophagus always comes before the stomach — it is just a transport tube and can't come after the stomach."
+    },
+    {
+      "id": "q-bio8-mat-2",
+      "kind": "mc",
+      "topic": "enzymes and breakdown",
+      "prompt": "What is an enzyme and what does it do in digestion?",
+      "opener": "Think about the difference between chewing food apart and breaking it down chemically.",
+      "choices": [
+        "A nutrient that gives the body energy",
+        "An acid that kills bacteria in the stomach",
+        "A protein that speeds up the chemical breakdown of food",
+        "A hormone that controls how hungry you get"
+      ],
+      "answer": 2,
+      "explanation": "Enzymes are proteins that act as tools and speed up chemical reactions, for example when large nutrient molecules are cut into small pieces that can be absorbed into the blood. Enzymes are not used up and don't provide energy themselves — that's what the nutrients in food do."
+    },
+    {
+      "id": "q-bio8-mat-3",
+      "kind": "mc",
+      "topic": "the digestive tract",
+      "prompt": "Where in the digestive tract is most of the nutrition absorbed into the blood?",
+      "opener": "Think about where the intestinal villi sit and why they make the surface area so large.",
+      "choices": [
+        "In the stomach",
+        "In the large intestine",
+        "In the oesophagus",
+        "In the small intestine"
+      ],
+      "answer": 3,
+      "explanation": "The inside of the small intestine is covered with millions of villi that give an enormous surface area, and that's where the nutrients pass over into the blood. The large intestine mainly absorbs water and salts, not the bulk of the nutrition."
+    },
+    {
+      "id": "q-bio8-mat-4",
+      "kind": "mc",
+      "topic": "nutrients",
+      "prompt": "Which nutrient is used above all as the body's building material, for example in muscles?",
+      "opener": "Think about what you need a lot of when the body grows and builds new cells.",
+      "choices": [
+        "Carbohydrates",
+        "Protein",
+        "Water",
+        "Fat"
+      ],
+      "answer": 1,
+      "explanation": "Protein is broken down into amino acids, which the body assembles into its own proteins in muscles, skin, enzymes and antibodies. Carbohydrates are primarily a fast fuel and are rarely used as building material."
+    },
+    {
+      "id": "q-bio8-mat-5",
+      "kind": "mc",
+      "topic": "nutrients",
+      "prompt": "What is typical of vitamins and minerals compared with carbohydrates, fat and protein?",
+      "opener": "Compare how large the amounts the body needs are, and whether the substances provide energy.",
+      "choices": [
+        "They provide the most energy of all nutrients",
+        "They are only needed by children under ten",
+        "They are needed in small amounts and provide no energy, but are required for the body to function",
+        "They can all be made by the body itself and don't need to be eaten"
+      ],
+      "answer": 2,
+      "explanation": "Vitamins and minerals are called protective substances: they are needed in very small amounts and contain no energy, but without them processes such as blood formation, skeletal growth and the immune system don't work. Energy instead comes from carbohydrates, fat and protein."
+    },
+    {
+      "id": "q-bio8-mat-6",
+      "kind": "mc",
+      "topic": "energy and diet",
+      "prompt": "What happens in the body if you consume more energy through food than you use over a long period of time?",
+      "opener": "Think about what the body does with energy that is left over.",
+      "choices": [
+        "The surplus disappears immediately through the urine",
+        "The body stops absorbing nutrients from the intestine",
+        "The body converts the surplus into vitamins",
+        "The surplus is stored, partly as fat, and weight increases"
+      ],
+      "answer": 3,
+      "explanation": "Energy that isn't used is stored — some as glycogen in the liver and muscles, the rest as fat in fatty tissue — which causes weight to increase over time. The body can't make vitamins from surplus energy; vitamins must come from food."
+    },
+    {
+      "id": "q-bio8-mat-7",
+      "kind": "worked",
+      "topic": "enzymes and breakdown",
+      "prompt": "Explain step by step what happens to a sandwich from the moment you chew it until the nutrients are in the blood.",
+      "opener": "Think about both the mechanical breakdown and the chemical breakdown by enzymes.",
+      "answer": "The sandwich is mechanically chewed apart in the mouth while saliva and enzymes start to break down the starch, is swallowed down through the oesophagus to the stomach where hydrochloric acid and enzymes break down proteins, continues to the small intestine where enzymes from the pancreas and bile from the liver finish the breakdown, and the small nutrient molecules are then absorbed through the villi into the blood while the remains move on to the large intestine.",
+      "steps": [
+        "In the mouth, the teeth chew the food apart (mechanical breakdown) and enzymes in the saliva start breaking down starch into sugar (chemical breakdown).",
+        "The bite is swallowed and pushed down through the oesophagus to the stomach by muscle movements.",
+        "In the stomach the food is mixed with hydrochloric acid that kills bacteria, and enzymes start breaking down proteins into smaller parts.",
+        "In the small intestine, bile from the liver is added which breaks up the fat into small droplets, and enzymes from the pancreas break down carbohydrates, fat and protein into small molecules.",
+        "The nutrient molecules are absorbed through the villi into the blood and carried to the body's cells, while unused remains go to the large intestine where water is absorbed before the faeces leave the body."
+      ]
+    },
+    {
+      "id": "q-bio8-mat-8",
+      "kind": "flashcard",
+      "topic": "nutrients",
+      "prompt": "Summarise the nutrients and the most important parts of the digestive tract.",
+      "opener": "Go through the energy-giving substances, the protective substances and the organs in turn.",
+      "answer": "Carbohydrates: the body's fastest fuel, found in bread, pasta, potatoes and fruit; broken down into sugar (glucose) · Fat: the most energy-dense, needed for cell membranes, hormones and absorbing certain vitamins · Protein: building material for muscles, enzymes and antibodies; broken down into amino acids · Vitamins: needed in small amounts, provide no energy, e.g. vitamin C and vitamin D · Minerals: e.g. iron (blood) and calcium (skeleton and teeth) · Water and fibre: water is needed in all the body's processes, fibre keeps the intestine working · Mouth: chewing + enzymes in the saliva that break down starch · Oesophagus: transport by muscle movements · Stomach: hydrochloric acid and enzymes, breakdown of protein · Small intestine: most breakdown and almost all nutrient absorption via the villi · Liver and pancreas: contribute bile and enzymes respectively · Large intestine: absorbs water and salts, the rest becomes faeces."
+    }
+  ]
+}

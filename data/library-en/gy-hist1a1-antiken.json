@@ -1,0 +1,130 @@
+{
+  "id": "lib-hist1a1-antiken",
+  "type": "assignment",
+  "subject": "Historia 1a1",
+  "title": "Antiquity and the Middle Ages",
+  "sourceSummary": "Greek and Roman civilisation, the spread of Christianity, the fall of the Roman Empire, and feudal society in the Middle Ages.",
+  "topics": [
+    "Ancient Greece and Rome",
+    "the spread of Christianity",
+    "the fall of the Roman Empire",
+    "feudal society",
+    "the role of the Church and royal power"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist1a1-antiken-1",
+      "kind": "mc",
+      "topic": "Ancient Greece and Rome",
+      "prompt": "What was distinctive about democracy in ancient Athens?",
+      "opener": "Think about who actually counted as a citizen with the right to vote.",
+      "choices": [
+        "All adult residents, including women and slaves, could vote",
+        "Decisions were made solely by a hereditary king",
+        "Only free adult men with citizenship could take part in decision-making",
+        "Athens was governed according to Roman law"
+      ],
+      "answer": 2,
+      "explanation": "Athenian democracy was direct, but very limited: only free adult men with citizenship took part in the assembly. Women, slaves and foreigners were excluded, unlike today's representative democracies with universal suffrage."
+    },
+    {
+      "id": "q-hist1a1-antiken-2",
+      "kind": "mc",
+      "topic": "Ancient Greece and Rome",
+      "prompt": "What contributed most to the Roman Empire's ability to expand and hold together such a vast territory?",
+      "opener": "Think about infrastructure, military organisation and shared laws.",
+      "choices": [
+        "A well-organised road network, a professional army and a shared legal system",
+        "All conquered peoples automatically received the right to vote in the Senate",
+        "The empire had no standing army and relied solely on trade agreements",
+        "Greek was the only permitted language throughout the empire"
+      ],
+      "answer": 0,
+      "explanation": "Rome's vast road network made it possible to move troops and goods quickly, the professional army could conquer and defend territory, and a shared legal system bound different peoples together under the same rule. The empire was, on the contrary, multilingual, and the right to vote in the Senate was far from automatic."
+    },
+    {
+      "id": "q-hist1a1-antiken-3",
+      "kind": "mc",
+      "topic": "the spread of Christianity",
+      "prompt": "Which event was decisive in Christianity becoming permitted, and later the state religion, in the Roman Empire?",
+      "opener": "Think of an imperial decision on religious freedom, and a later decision that went even further.",
+      "choices": [
+        "Julius Caesar's conquest of Gaul",
+        "The Persian Wars between Greece and Persia",
+        "The Black Death in the 14th century",
+        "The Edict of Milan in 313 and Emperor Theodosius's decision in 380 to make Christianity the state religion"
+      ],
+      "answer": 3,
+      "explanation": "Through the Edict of Milan in 313, Christianity was permitted in the Roman Empire, and in 380 Emperor Theodosius made it the empire's official state religion. The other options belong to entirely different periods and contexts, in antiquity and the Middle Ages respectively."
+    },
+    {
+      "id": "q-hist1a1-antiken-4",
+      "kind": "mc",
+      "topic": "the fall of the Roman Empire",
+      "prompt": "Which factors do historians tend to highlight as causes of the fall of the Western Roman Empire in 476 CE?",
+      "opener": "Think about both external threats and internal weaknesses in the empire.",
+      "choices": [
+        "The Romans voluntarily handed over power to Egypt",
+        "A combination of Germanic migrations, economic crisis, political instability and the division of the empire into a western and eastern part",
+        "Christianity was banned throughout the empire",
+        "A single major natural disaster in Rome"
+      ],
+      "answer": 1,
+      "explanation": "The fall of the Western Roman Empire was not due to a single cause but to several interacting factors: incursions by Germanic peoples, a prolonged economic crisis, an increasingly ineffective administration, and the division of the empire into a western and eastern part, which weakened the joint defence."
+    },
+    {
+      "id": "q-hist1a1-antiken-5",
+      "kind": "mc",
+      "topic": "feudal society",
+      "prompt": "How were power and land distributed in the feudal system of the Middle Ages?",
+      "opener": "Think of a chain of promises of land in exchange for military service.",
+      "choices": [
+        "The king granted land to the nobility (lords) in exchange for a promise of military service, who in turn had vassals and serfs beneath them",
+        "The king owned all the land and ruled directly over every individual peasant with no intermediaries",
+        "All land was owned jointly by the Church and the peasants in equal shares",
+        "Merchants in the towns ruled over both the king and the nobility"
+      ],
+      "answer": 0,
+      "explanation": "Feudal society was built on a pyramid of mutual obligations: the king granted land (a fief) to the nobility in exchange for a pledge of military loyalty, the nobility in turn had their own vassals, and at the bottom stood the serfs who worked the land. Power was thus decentralised, not ruled directly by the king."
+    },
+    {
+      "id": "q-hist1a1-antiken-6",
+      "kind": "mc",
+      "topic": "the role of the Church and royal power",
+      "prompt": "What was the so-called Investiture Controversy about in the Middle Ages?",
+      "opener": "Think of a power struggle over who got to appoint the Church's leaders.",
+      "choices": [
+        "A dispute over the right to trade in the Mediterranean",
+        "A dispute between France and England over Scotland",
+        "A dispute over who had the right to appoint bishops — the emperor/king or the pope",
+        "A dispute over who should lead the crusades to Jerusalem"
+      ],
+      "answer": 2,
+      "explanation": "The Investiture Controversy was about who should have the right to appoint bishops and other church offices: the secular power (the emperor) or the spiritual power (the pope). The conflict shows how the interests of the Church and royal power often clashed during the Middle Ages."
+    },
+    {
+      "id": "q-hist1a1-antiken-7",
+      "kind": "worked",
+      "topic": "the fall of the Roman Empire",
+      "prompt": "Historians have long debated why the Western Roman Empire fell in 476 CE. Explain at least three causes and how they are connected.",
+      "opener": "Think about both external threats and internal weaknesses — they reinforced each other.",
+      "answer": "The fall of the Western Roman Empire was not due to a single cause but to several interacting factors: military pressure from outside by Germanic peoples, a prolonged economic and administrative crisis, and a political split in which the empire was divided into a western and eastern part, which weakened the joint defensive capacity.",
+      "steps": [
+        "During the 4th and 5th centuries, pressure increased from Germanic peoples such as the Goths and Vandals, who pushed across the empire's borders.",
+        "At the same time, the empire had long suffered from economic crisis, with inflation, heavy taxes and declining trade.",
+        "The administration became increasingly ineffective, and the army consisted to an ever greater extent of hired Germanic mercenaries with weak loyalty to Rome.",
+        "In 395 the empire was permanently divided into a western and an eastern part, meaning the western part had to manage without the eastern part's resources.",
+        "The factors reinforced one another: a weaker economy led to weaker defence, which made the empire more vulnerable to attack, until the last Western Roman emperor was deposed in 476."
+      ]
+    },
+    {
+      "id": "q-hist1a1-antiken-8",
+      "kind": "flashcard",
+      "topic": "the role of the Church and royal power",
+      "prompt": "Summarise antiquity and the Middle Ages: key features of Greece and Rome, the spread of Christianity, the fall of Rome, and feudal society.",
+      "opener": "Think of the chain: the legacy of antiquity → the spread of Christianity → the fall of the empire → a new social system.",
+      "answer": "Ancient Greece gave rise to ideas of democracy (in Athens) and philosophy · ancient Rome built a vast empire with roads, armies and a legal system that spread Roman culture and law · Christianity spread within the empire and was permitted through the Edict of Milan in 313, becoming the state religion in 380 · the Western Roman Empire fell in 476 CE through a combination of migrations, economic crisis and political fragmentation · after Rome's fall, feudal society emerged in Europe, in which the king granted land to the nobility in exchange for military service, who in turn had vassals and serfs · the Church became a central power factor during the Middle Ages, at times in conflict with royal power, as in the Investiture Controversy over the right to appoint bishops."
+    }
+  ]
+}

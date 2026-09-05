@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam1a1-demokrati",
+  "type": "assignment",
+  "subject": "Samhällskunskap 1a1",
+  "title": "Democracy and forms of government",
+  "sourceSummary": "Different models of democracy, Sweden's form of government with monarchy, parliamentarism and the separation of powers, and a comparison with other states' forms of government and the preconditions for democracy.",
+  "topics": [
+    "models of democracy",
+    "Sweden's form of government",
+    "forms of government compared",
+    "preconditions for democracy"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam1a1-demokrati-1",
+      "kind": "mc",
+      "topic": "models of democracy",
+      "prompt": "What characterises direct democracy compared with representative democracy?",
+      "opener": "Consider who makes the decision on the actual issue - the citizens themselves or representatives they have elected.",
+      "choices": [
+        "In direct democracy, citizens themselves vote on every individual issue; in representative democracy they elect representatives who decide on their behalf",
+        "In representative democracy, citizens have no way to influence politics",
+        "Direct democracy means a monarch makes all decisions",
+        "There is no real difference between the two forms"
+      ],
+      "answer": 0,
+      "explanation": "Direct democracy, e.g. referendums, lets citizens vote directly on an issue. Representative democracy, such as Sweden's parliamentary system, is built on citizens electing representatives who then make the decisions. Sweden is fundamentally representative but has elements of direct democracy through referendums."
+    },
+    {
+      "id": "q-sam1a1-demokrati-2",
+      "kind": "mc",
+      "topic": "Sweden's form of government",
+      "prompt": "Sweden is a monarchy. What does this mean in practice for the King's power today?",
+      "opener": "Compare with how things looked before the 1974 Instrument of Government - what happened to the King's political powers?",
+      "choices": [
+        "The King is head of state but has no formal political power - a mainly symbolic and ceremonial role",
+        "The King leads the government and appoints ministers on his own",
+        "The King can dissolve the Riksdag whenever he wishes",
+        "The King has the power of veto over laws decided by the Riksdag"
+      ],
+      "answer": 0,
+      "explanation": "Since the 1974 Instrument of Government, the Swedish monarch has had only a representative and ceremonial role, without political power. Appointing the government, dissolving the Riksdag or blocking laws is handled by other actors - the Speaker, the Riksdag and the government itself."
+    },
+    {
+      "id": "q-sam1a1-demokrati-3",
+      "kind": "mc",
+      "topic": "Sweden's form of government",
+      "prompt": "What does parliamentarism, the principle governing the relationship between the Riksdag and the government in Sweden, mean?",
+      "opener": "Consider whose support the government must have, or at least not be voted down by, in order to remain in office.",
+      "choices": [
+        "That the government must have the Riksdag's support or tolerance in order to remain in power",
+        "That the King appoints the government entirely as he sees fit",
+        "That the courts can remove the government through a ruling",
+        "That only one party is allowed to be represented in the Riksdag"
+      ],
+      "answer": 0,
+      "explanation": "Parliamentarism means the government's power rests on the confidence of the Riksdag. Sweden practises negative parliamentarism: the government remains in office as long as a majority in the Riksdag does not actively vote against it. Neither the King nor the courts decide who forms the government."
+    },
+    {
+      "id": "q-sam1a1-demokrati-4",
+      "kind": "mc",
+      "topic": "forms of government compared",
+      "prompt": "What is a central difference between Sweden's parliamentary form of government and a presidential system such as that of the USA?",
+      "opener": "Consider how the executive power is appointed and whether it depends on the confidence of the legislative assembly.",
+      "choices": [
+        "In Sweden the head of state is elected in a separate election, in the USA it is not",
+        "The USA entirely lacks a separation between legislative and executive power",
+        "In the USA the president (executive power) is elected separately from Congress (legislative power) and remains in office for a fixed term regardless of Congress's confidence, while the Swedish government depends on the Riksdag's support",
+        "Sweden lacks a popularly elected legislative assembly"
+      ],
+      "answer": 2,
+      "explanation": "The US system is built on a clear separation of powers in which the president is elected for a fixed term independent of Congress's support. Sweden's parliamentary system, by contrast, ties the government's survival to the confidence of the Riksdag, which is the decisive difference between the systems."
+    },
+    {
+      "id": "q-sam1a1-demokrati-5",
+      "kind": "mc",
+      "topic": "models of democracy",
+      "prompt": "What characterises deliberative democracy as a model?",
+      "opener": "The word \"deliberation\" means discussion - what is the focus, beyond the vote itself?",
+      "choices": [
+        "Decisions are made solely through quick votes without any discussion",
+        "Only experts and civil servants are allowed to take part in the decisions",
+        "Power is concentrated in a single leader who decides everything",
+        "The emphasis is on conversation and argument, where citizens get to reconsider their views by listening to others' reasons before decisions are made"
+      ],
+      "answer": 3,
+      "explanation": "Deliberative democracy emphasises that legitimate decisions should be preceded by open discussion and an exchange of arguments, not merely a tallying of votes. The idea is that proposals become better and more firmly grounded if citizens get to reason together before taking a position."
+    },
+    {
+      "id": "q-sam1a1-demokrati-6",
+      "kind": "mc",
+      "topic": "preconditions for democracy",
+      "prompt": "Which of the following is usually counted as an important precondition for a democracy to function well over time?",
+      "opener": "Consider what happens if those in power can freely control the courts and the media.",
+      "choices": [
+        "That one and the same party always wins elections by a wide margin",
+        "A free and independent press together with a rule of law where the laws apply equally to everyone, including those in power",
+        "That elections are held as rarely as possible to create stability",
+        "That the courts follow the government's instructions in individual cases"
+      ],
+      "answer": 1,
+      "explanation": "A functioning democracy presupposes, among other things, a rule of law, independent courts and a free press that can scrutinise those in power. If the courts are controlled by the government or the press is not free, the checking mechanisms that hold those in power accountable are eroded."
+    },
+    {
+      "id": "q-sam1a1-demokrati-7",
+      "kind": "worked",
+      "topic": "forms of government compared",
+      "prompt": "Compare, step by step, how a government is formed in Sweden's parliamentary system with how a president takes office in a presidential system such as that of the USA.",
+      "opener": "Follow two parallel chains: election → distribution of seats/election result → how the executive power is appointed → what makes it remain in office or resign.",
+      "answer": "In Sweden, the Riksdag's 349 members are elected proportionally according to the election result. The Speaker proposes a candidate for Prime Minister, on whom the Riksdag votes, and the candidate becomes Prime Minister unless a majority votes against them. The Prime Minister then appoints the government, which remains in office for as long as it is tolerated by the Riksdag. In the USA, the president is elected in a separate election from the congressional election (via the electoral college system) for a fixed four-year term. The president appoints their cabinet without needing Congress's ongoing confidence, and can only be removed early through impeachment, not through an ordinary vote of no confidence.",
+      "steps": [
+        "Sweden: the Riksdag election gives a distribution of seats between the parties based on vote shares (with a four per cent threshold).",
+        "Sweden: the Speaker proposes a candidate for Prime Minister, on whom the Riksdag votes according to the principle of negative parliamentarism.",
+        "Sweden: the Prime Minister appoints the government, which depends on the Riksdag's continued tolerance to remain in office.",
+        "USA: the president is elected in a separate, national election for a fixed four-year term, distinct from the election to Congress.",
+        "USA: the president appoints their cabinet and remains in office regardless of Congress's support, with impeachment as the only regular way to remove the president early."
+      ]
+    },
+    {
+      "id": "q-sam1a1-demokrati-8",
+      "kind": "flashcard",
+      "topic": "Sweden's form of government",
+      "prompt": "Summarise central concepts about models of democracy and Sweden's form of government.",
+      "opener": "Three models of democracy, three Swedish principles of power.",
+      "answer": "Direct democracy: citizens vote themselves on specific issues (e.g. a referendum) · Representative democracy: citizens elect representatives who decide on their behalf, Sweden's main form · Deliberative democracy: focus on conversation and argument before decisions are made · Monarchy: Sweden has a king as head of state without political power, a ceremonial role since the 1974 Instrument of Government · Parliamentarism: the government must be tolerated by the Riksdag to remain in office (negative parliamentarism in Sweden) · Separation of powers: legislative power (the Riksdag), executive power (the government) and judicial power (the courts) are kept apart · Comparison: in presidential systems such as that of the USA, the executive power is elected separately and independently of the parliament's confidence, unlike in parliamentary systems."
+    }
+  ]
+}

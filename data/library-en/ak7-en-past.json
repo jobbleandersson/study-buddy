@@ -1,0 +1,127 @@
+{
+  "id": "lib-en7-past",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Grammar: past simple",
+  "sourceSummary": "Past tense in English: regular verbs with -ed, the most common irregular verbs, and did/didn't in questions and negative sentences.",
+  "topics": [
+    "past simple",
+    "irregular verbs",
+    "did/didn't"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7-pas-1",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"Yesterday we ___ football in the park.\"",
+      "opener": "\"Yesterday\" means it has already happened. Regular verbs get a familiar ending in the past tense.",
+      "choices": [
+        "played",
+        "play",
+        "plays",
+        "playing"
+      ],
+      "answer": 0,
+      "explanation": "\"Yesterday\" requires past simple. \"Play\" is a regular verb, so the past tense is formed with -ed: \"played\". \"Plays\" is present tense and does not fit with yesterday."
+    },
+    {
+      "id": "q-en7-pas-2",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Choose the correct form: \"Last summer I ___ to Spain with my family.\"",
+      "opener": "\"Go\" is an irregular verb — it does not take an -ed ending.",
+      "choices": [
+        "goed",
+        "go",
+        "went",
+        "gone"
+      ],
+      "answer": 2,
+      "explanation": "\"Go\" is irregular and becomes \"went\" in past simple. \"Goed\" does not exist in English — irregular verbs must be learned by heart."
+    },
+    {
+      "id": "q-en7-pas-3",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Which past simple form is correct?",
+      "opener": "Four common irregular verbs. Which line is correct?",
+      "choices": [
+        "have → haved",
+        "see → seed",
+        "buy → buyed",
+        "take → took"
+      ],
+      "answer": 3,
+      "explanation": "\"Take\" becomes \"took\" in the past tense. The others are irregular but are conjugated differently: have → had, see → saw, buy → bought. None of them take -ed."
+    },
+    {
+      "id": "q-en7-pas-4",
+      "kind": "mc",
+      "topic": "did/didn't",
+      "prompt": "Choose the correct negative sentence: \"I ___ my homework last night.\"",
+      "opener": "\"Didn't\" is used in the negative past tense. What happens to the main verb then?",
+      "choices": [
+        "didn't did",
+        "didn't do",
+        "don't do",
+        "didn't done"
+      ],
+      "answer": 1,
+      "explanation": "The negative past simple is formed with \"didn't\" + the verb in its base form: \"I didn't do my homework\". The past tense is already contained in \"didn't\", so the verb should not be conjugated a second time."
+    },
+    {
+      "id": "q-en7-pas-5",
+      "kind": "mc",
+      "topic": "did/didn't",
+      "prompt": "Choose the correct question: \"___ you see the film last week?\"",
+      "opener": "Questions in the past tense begin with an auxiliary verb — which one?",
+      "choices": [
+        "Do",
+        "Did",
+        "Does",
+        "Are"
+      ],
+      "answer": 1,
+      "explanation": "\"Last week\" shows that it is the past tense, and then \"Did\" is used in the question: \"Did you see...\". After \"did\", the verb stands in its base form, so \"see\" and not \"saw\"."
+    },
+    {
+      "id": "q-en7-pas-6",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Which time expression fits: \"She watched a movie ___.\"",
+      "opener": "The verb is in the past tense — so the time expression must also point back in time.",
+      "choices": [
+        "tomorrow",
+        "next week",
+        "last night",
+        "every day"
+      ],
+      "answer": 2,
+      "explanation": "\"Watched\" is past simple, so the time expression must be about the past: \"last night\". \"Every day\" describes a habit and requires present simple: \"She watches a movie every day\"."
+    },
+    {
+      "id": "q-en7-pas-7",
+      "kind": "worked",
+      "topic": "past simple",
+      "prompt": "Correct the three errors: \"Last weekend I go to my grandmother. We eat pizza and I didn't watched TV.\"",
+      "opener": "All the verbs should be in the past tense — but think about what happens after \"didn't\".",
+      "answer": "Last weekend I went to my grandmother. We ate pizza and I didn't watch TV.",
+      "steps": [
+        "\"Last weekend\" is a past-time expression, so all the verbs in the text should be in past simple.",
+        "\"I go\" → \"I went\". \"Go\" is irregular: go → went.",
+        "\"We eat\" → \"We ate\". \"Eat\" is also irregular: eat → ate.",
+        "\"I didn't watched\" → \"I didn't watch\". After \"didn't\", the verb always stands in its base form."
+      ]
+    },
+    {
+      "id": "q-en7-pas-8",
+      "kind": "flashcard",
+      "topic": "past simple",
+      "prompt": "How do you form the past simple, and which common irregular verbs should you know?",
+      "opener": "One rule for regular verbs, a list for the irregular ones.",
+      "answer": "Regular verbs: verb + -ed (play → played, watch → watched, want → wanted) · if the verb ends in -e, -d is enough (like → liked) · consonant + y becomes -ied (study → studied). Common irregular verbs: go → went · have → had · see → saw · take → took · eat → ate · get → got · make → made · come → came · say → said · buy → bought. Questions: Did you play? · Negative: I didn't play · after did/didn't the verb always stands in its base form. Signal words: yesterday, last week, last summer, two days ago, in 2019."
+    }
+  ]
+}

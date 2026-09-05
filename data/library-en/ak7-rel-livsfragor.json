@@ -1,0 +1,130 @@
+{
+  "id": "lib-rel7-livsfragor",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Existential questions and ethics",
+  "sourceSummary": "What an existential question is and why people answer it differently, the difference between ethics and morality and how to reason about right and wrong, the golden rule in different religions, what freedom of religion means, and atheism and humanism as non-religious worldviews.",
+  "topics": [
+    "existential questions",
+    "ethics and morality",
+    "the golden rule",
+    "freedom of religion",
+    "atheism and humanism"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel7-liv-1",
+      "kind": "mc",
+      "topic": "existential questions",
+      "prompt": "What characterises an existential question?",
+      "opener": "Think about whether the question has an answer key you could look up.",
+      "choices": [
+        "It's a question that always has a single scientifically proven answer",
+        "It's a big question about life, death and meaning that people answer differently",
+        "It's a question only religious people can ask",
+        "It's a question about what the law says in a particular country"
+      ],
+      "answer": 1,
+      "explanation": "Existential questions are about things like the meaning of life, what happens after death, what a good life is, and why suffering exists — questions that people answer differently based on their worldview, their experiences and their culture. So there is no single correct answer, and both religious and non-religious people ask them."
+    },
+    {
+      "id": "q-rel7-liv-2",
+      "kind": "mc",
+      "topic": "ethics and morality",
+      "prompt": "What is the difference between ethics and morality?",
+      "opener": "One is the thinking behind it, the other is what you actually do.",
+      "choices": [
+        "Ethics applies to religious people and morality to non-religious people",
+        "They're two words for exactly the same thing",
+        "Ethics is laws and morality is rules at school",
+        "Ethics is thinking and reasoning about what is right and wrong, morality is how you actually act"
+      ],
+      "answer": 3,
+      "explanation": "Ethics is the reflection — the actual thinking and reasoning about what is right and wrong — while morality is how a person or a society actually behaves in practice. The words are related but don't mean the same thing, and both are used about all people, regardless of worldview; laws, moreover, are something different from morality, even though they often influence each other."
+    },
+    {
+      "id": "q-rel7-liv-3",
+      "kind": "mc",
+      "topic": "ethics and morality",
+      "prompt": "A student reasons: \"Cheating on the test is wrong because it leads to unfair grades and it affects other students.\" Which kind of ethical reasoning is this closest to?",
+      "opener": "Notice whether the student is looking at the consequences or at the rule itself.",
+      "choices": [
+        "Consequentialist ethics, since the student judges the action based on its consequences",
+        "Duty ethics, since the student follows a rule regardless of what happens",
+        "Ethics of intention, since the student judges the intention behind the action",
+        "No ethical reasoning at all, since it's about school"
+      ],
+      "answer": 0,
+      "explanation": "The student points to what the cheating leads to — unfair grades and affected classmates — and that is typical consequentialist ethics, where the consequences decide whether something is right. A duty-based line of reasoning would instead have gone \"you should never cheat, because that's a rule\", and an ethics-of-intention argument would have started from the intention behind the action."
+    },
+    {
+      "id": "q-rel7-liv-4",
+      "kind": "mc",
+      "topic": "the golden rule",
+      "prompt": "What does the golden rule mean?",
+      "opener": "Swap places with the other person and think it through.",
+      "choices": [
+        "Always following the laws of the country",
+        "That the strongest decides",
+        "Treating others as you yourself would want to be treated",
+        "That you should take revenge for what has been done to you"
+      ],
+      "answer": 2,
+      "explanation": "The golden rule means you should treat others as you yourself would want to be treated, sometimes phrased negatively: don't do to others what you don't want them to do to you. It's about putting yourself in others' situations, and so it is neither a rule about obeying the law nor a principle of revenge."
+    },
+    {
+      "id": "q-rel7-liv-5",
+      "kind": "mc",
+      "topic": "the golden rule",
+      "prompt": "In which religions does the golden rule exist in some form?",
+      "opener": "Look for the idea, not for the exact same wording.",
+      "choices": [
+        "Only within Christianity",
+        "Only within Judaism and Islam",
+        "Only in non-religious worldviews",
+        "It exists in similar wordings within several religions, including Judaism, Christianity, Islam, Hinduism and Buddhism"
+      ],
+      "answer": 3,
+      "explanation": "Similar wordings are found in several traditions: within Judaism the words about not doing to others what you yourself hate are attributed to the rabbi Hillel, within Christianity the rule appears in the Sermon on the Mount, within Islam in the hadiths, and within Hinduism and Buddhism the same idea is expressed in scriptures such as the Mahabharata and the Dhammapada. Similar principles are also found in non-religious worldviews, so the rule doesn't belong to a single religion."
+    },
+    {
+      "id": "q-rel7-liv-6",
+      "kind": "mc",
+      "topic": "freedom of religion",
+      "prompt": "What does freedom of religion mean according to the UN Declaration of Human Rights and Swedish law?",
+      "opener": "Think about the fact that the freedom works both ways.",
+      "choices": [
+        "That everyone must belong to a faith community",
+        "That everyone has the right to hold, change and leave a religion, to practise it — and to not believe",
+        "That the state decides which religions are allowed to exist",
+        "That religious rules always take precedence over the country's laws"
+      ],
+      "answer": 1,
+      "explanation": "Freedom of religion protects both the right to believe, to change belief and to practise your religion alone or together with others, and the right not to believe at all — in Sweden it is protected by the constitution and came in its full form with the Freedom of Religion Act of 1951. The freedom does not, however, mean that religious rules stand above the country's laws, and it can be limited if the practice harms other people."
+    },
+    {
+      "id": "q-rel7-liv-7",
+      "kind": "worked",
+      "topic": "atheism and humanism",
+      "prompt": "Explain the difference between atheism, agnosticism and secular humanism, and why all three are counted as worldviews or positions on existential questions.",
+      "opener": "Start with what the terms mean individually, then compare them with how religious worldviews work.",
+      "answer": "Atheism means not believing that any god exists. Agnosticism is the position that you cannot know whether any god exists — an agnostic therefore takes no stance on the question. Secular humanism is a broader worldview without belief in god, in which it is held that human beings must seek the answers themselves and that reason, science, compassion and human rights should guide how we live. An atheist doesn't need to call themselves a humanist, but most humanists are atheists or agnostics. The concept of worldview is broader than the concept of religion: it covers both religious and non-religious ways of viewing existence. All three therefore answer the same kinds of existential questions that religions do — what the meaning of life is, what happens after death, and how one ought to live — but they do so without starting from a god. In Sweden, freedom of religion protects both the right to believe and the right not to believe, and none of the positions can be said to be more correct than another.",
+      "steps": [
+        "Atheism: not believing that any god exists.",
+        "Agnosticism: the view that you cannot know whether any god exists, i.e. no position for or against.",
+        "Secular humanism: a worldview without belief in god that emphasises reason, compassion, responsibility and human rights.",
+        "Worldview is a broader concept than religion and covers both religious and non-religious answers to existential questions.",
+        "All three answer the same existential questions as the religions, but without a god — and freedom of religion protects both belief and non-belief."
+      ]
+    },
+    {
+      "id": "q-rel7-liv-8",
+      "kind": "flashcard",
+      "topic": "existential questions",
+      "prompt": "Summarise existential questions, ethics and different worldviews.",
+      "opener": "Take the concepts in turn: existential question, ethics, the golden rule, freedom of religion, worldviews.",
+      "answer": "Existential question: a big question about existence with no single correct answer, e.g. the meaning of life, what happens after death, why suffering exists, what a good life is · people answer differently based on worldview, culture and their own experiences · Worldview: a person's overall view of existence, can be religious (Judaism, Christianity, Islam, Hinduism, Buddhism) or non-religious (secular humanism) · Ethics: thinking and reasoning about right and wrong · Morality: how you actually act · Ethical models: consequentialist ethics looks at the consequences of the action · duty ethics looks at rules and duties that apply regardless of the outcome · ethics of intention looks at the intention behind the action · virtue ethics asks what kind of person you want to be · The golden rule: treat others as you yourself would want to be treated · exists in similar form within Judaism (Hillel), Christianity (the Sermon on the Mount), Islam (the hadiths), Hinduism (the Mahabharata) and Buddhism (the Dhammapada), as well as in non-religious worldviews · Freedom of religion: the right to hold, change, leave and practise a religion — and the right not to believe · found in Article 18 of the UN Declaration of Human Rights and in the Swedish constitution · full freedom of religion in Sweden through the Freedom of Religion Act of 1951 · does not override the country's laws and can be limited if others are harmed · Atheism: not believing that any god exists · Agnosticism: holding that you cannot know · Secular humanism: a worldview without belief in god that emphasises reason, science, compassion and human rights · Studying existential questions comparatively means describing how different people think, not deciding who is right."
+    }
+  ]
+}

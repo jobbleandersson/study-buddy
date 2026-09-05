@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam7-demokrati",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Democracy and influence",
+  "sourceSummary": "What democracy means in practice — majority decisions and protection for minorities, how you can have influence at school and in society, what distinguishes democracy from dictatorship, and what universal suffrage means.",
+  "topics": [
+    "what democracy means",
+    "majority and minority",
+    "having influence at school and in society",
+    "democracy and dictatorship",
+    "universal suffrage"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam7-dem-1",
+      "kind": "mc",
+      "topic": "what democracy means",
+      "prompt": "The word democracy comes from Greek. What does it literally mean?",
+      "opener": "The word has two parts: one meaning people and one meaning power.",
+      "choices": [
+        "Rule by a king",
+        "Rule by the military",
+        "Rule by the people",
+        "Rule by judges"
+      ],
+      "answer": 2,
+      "explanation": "Democracy comes from demos (people) and kratos (power or rule) and thus means rule by the people — power comes from the people. Rule by a king and rule by the military are instead examples of a single person or a small group holding power."
+    },
+    {
+      "id": "q-sam7-dem-2",
+      "kind": "mc",
+      "topic": "majority and minority",
+      "prompt": "What is meant by a majority decision?",
+      "opener": "Think about what you do in class when you vote on something.",
+      "choices": [
+        "The proposal that gets the most votes wins",
+        "Everyone must be in complete agreement before the decision is valid",
+        "Whoever speaks loudest gets to decide",
+        "The teacher chooses among the proposals after the vote"
+      ],
+      "answer": 0,
+      "explanation": "A majority decision means that the proposal that gets the most votes is the one that stands. Everyone having to agree is instead called consensus, and that is a different way of deciding that often takes much longer."
+    },
+    {
+      "id": "q-sam7-dem-3",
+      "kind": "mc",
+      "topic": "majority and minority",
+      "prompt": "Why is protection for minorities needed in a democracy?",
+      "opener": "Think about what happens to the person who voted for the proposal that lost.",
+      "choices": [
+        "So that the minority always gets to decide instead",
+        "So that voting goes faster",
+        "So that the minority doesn't have to follow the laws",
+        "So that basic rights apply even to those who voted in the minority — the majority is not allowed to vote away others' human rights"
+      ],
+      "answer": 3,
+      "explanation": "Democracy is more than counting votes: rights such as freedom of speech, freedom of religion and the right not to be discriminated against apply to everyone, even the person who lost the vote. Minority protection does not, however, mean that the minority gets to decide instead or is exempt from following the laws."
+    },
+    {
+      "id": "q-sam7-dem-4",
+      "kind": "mc",
+      "topic": "having influence at school and in society",
+      "prompt": "What is a student council?",
+      "opener": "The name reveals who sits on it — but who chose them?",
+      "choices": [
+        "A group of teachers who decide the students' timetables",
+        "Students chosen by their classes to bring the students' views to the school",
+        "The head teacher's own leadership team",
+        "A group of parents who review the school"
+      ],
+      "answer": 1,
+      "explanation": "The student council consists of students whom the classes themselves have chosen, and it is one of the most common ways for students to influence their school. The head teacher's leadership team and parent cooperation also exist, but they are not the student council."
+    },
+    {
+      "id": "q-sam7-dem-5",
+      "kind": "mc",
+      "topic": "democracy and dictatorship",
+      "prompt": "Which of the following is typical of a dictatorship but not of a democracy?",
+      "opener": "Think about whether citizens can replace those in power, and whether the media are allowed to scrutinise them.",
+      "choices": [
+        "Regular free elections where several parties are allowed to stand",
+        "Courts that are independent of those in power",
+        "The right to demonstrate against the government",
+        "That the media are controlled by those in power and that criticism of the leadership can be punished"
+      ],
+      "answer": 3,
+      "explanation": "In a dictatorship, those in power often control the media and criticism can lead to punishment, while free elections and independent courts are absent. Free elections, independent courts and the right to demonstrate are precisely what characterises a democracy."
+    },
+    {
+      "id": "q-sam7-dem-6",
+      "kind": "mc",
+      "topic": "universal suffrage",
+      "prompt": "What does universal suffrage mean?",
+      "opener": "The word universal means the right is not limited to a particular group.",
+      "choices": [
+        "That only those who pay a lot of tax are allowed to vote",
+        "That all adult citizens have the right to vote, regardless of gender, income or background",
+        "That you must vote or you get fined",
+        "That you can vote as many times as you like"
+      ],
+      "answer": 1,
+      "explanation": "Universal suffrage means that the right to vote applies to all adult citizens and is not linked to gender, income or social class. In Sweden, universal and equal suffrage for women and men was decided in 1919 and 1921, and it was used for the first time in the parliamentary election of 1921. Voting is a right, not a duty, so it is voluntary."
+    },
+    {
+      "id": "q-sam7-dem-7",
+      "kind": "worked",
+      "topic": "having influence at school and in society",
+      "prompt": "You and your classmates think the schoolyard needs more seating. Describe step by step how you can go about influencing this in a democratic way.",
+      "opener": "Start in your own classroom and work your way up through the school's decision-making channels.",
+      "answer": "You start by formulating the proposal clearly: more seating in the schoolyard, and why it's needed. Then you raise it at the class council so the whole class can discuss and vote on the proposal. The class representative brings the proposal to the student council, where all classes take part and can support it. The student council passes the proposal on to the head teacher or the school's leadership, who make the decision and may need to take money and safety into account. If you're turned down, you can ask why, come back with a cheaper proposal, or turn to the municipality, which owns many schools.",
+      "steps": [
+        "Formulate the proposal briefly and concretely, and write down the reasons why it's needed.",
+        "Raise the proposal at the class council and vote — that shows that more than one person supports it.",
+        "The class representative takes the proposal further to the student council, where all classes are represented.",
+        "The student council passes the proposal to the head teacher or school leadership, who decide and take budget and safety into account.",
+        "If you're turned down: ask for the reasons, adjust the proposal, or turn to the municipality, which is responsible for the school's premises."
+      ]
+    },
+    {
+      "id": "q-sam7-dem-8",
+      "kind": "flashcard",
+      "topic": "what democracy means",
+      "prompt": "Summarise the most important points about democracy, influence and the right to vote.",
+      "opener": "Take the meaning of democracy first, then ways of deciding, ways to have influence, and the opposite, dictatorship.",
+      "answer": "Democracy: from the Greek demos (people) and kratos (power) — rule by the people, power comes from the people · Direct democracy: everyone votes themselves on every issue, e.g. a class council or a referendum · Representative democracy: the people elect representatives who decide, e.g. parliament and the municipal council · Majority decision: the proposal with the most votes wins · Minority protection: rights such as freedom of speech and freedom of religion apply to everyone, even those who voted in the minority · Having influence at school: class council, student council, talking with the head teacher · Having influence in society: voting, joining a party or association, writing a letter to the editor, demonstrating, starting a petition · Democracy is characterised by free elections, several parties, freedom of speech, free media and independent courts · Dictatorship: power cannot be replaced in free elections, the media are controlled and criticism can be punished · Universal suffrage: all adult citizens can vote regardless of gender, income or background — in Sweden from the 1921 election · Voting age in Sweden today: 18."
+    }
+  ]
+}

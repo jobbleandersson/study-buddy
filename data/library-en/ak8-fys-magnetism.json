@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys8-magnetism",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Magnetism and electromagnetism",
+  "sourceSummary": "Magnetic poles and magnetic fields, the Earth's magnetic field and the compass, and how an electromagnet is built and strengthened. This also covers induction and the basics of how a generator and an electric motor work.",
+  "topics": [
+    "magnetic poles and magnetic fields",
+    "the Earth's magnetic field and the compass",
+    "electromagnets",
+    "induction",
+    "generator and electric motor"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys8-mag-1",
+      "kind": "mc",
+      "topic": "magnetic poles and magnetic fields",
+      "prompt": "What happens if you hold the north pole of one bar magnet against the north pole of another bar magnet?",
+      "opener": "Think about the basic rule for how magnetic poles behave towards each other.",
+      "choices": [
+        "They are strongly attracted to each other",
+        "Nothing happens, poles only affect iron",
+        "They repel each other",
+        "One of the magnets loses its magnetism"
+      ],
+      "answer": 2,
+      "explanation": "Like poles repel each other, unlike poles attract. So two north poles repel each other. Them being attracted to each other only applies if you turn one of the magnets around so that north pole meets south pole."
+    },
+    {
+      "id": "q-fys8-mag-2",
+      "kind": "mc",
+      "topic": "magnetic poles and magnetic fields",
+      "prompt": "How are the field lines of the magnetic field drawn outside a bar magnet?",
+      "opener": "Field lines have a definite direction, and it's determined by the magnet's poles.",
+      "choices": [
+        "As arcs from the north pole around the magnet to the south pole, densest closest to the poles",
+        "As straight lines going straight out from the magnet's centre in all directions",
+        "As circles around the magnet's centre, with no direction",
+        "Just as a single line between the two poles"
+      ],
+      "answer": 0,
+      "explanation": "Outside the magnet, the field lines go from the north pole to the south pole, and they are densest at the poles, where the field is strongest. The lines going straight out from the centre isn't correct — it's at the poles that the magnetism is strongest, not at the magnet's centre."
+    },
+    {
+      "id": "q-fys8-mag-3",
+      "kind": "mc",
+      "topic": "the Earth's magnetic field and the compass",
+      "prompt": "Why does the north end of a compass needle point towards north?",
+      "opener": "The compass needle is a small magnet, and it's affected by a much larger magnet.",
+      "choices": [
+        "The needle is attracted to the pole star",
+        "The needle is made of a material that always points north",
+        "The Earth's rotation turns the needle northward",
+        "The Earth has a magnetic field with a magnetic south pole near the geographic north pole, and unlike poles attract each other"
+      ],
+      "answer": 3,
+      "explanation": "The Earth acts like a gigantic magnet. Near the geographic north pole lies a magnetic south pole, and since unlike poles attract each other, the needle's north end is drawn there. The Earth's rotation has nothing to do with it — it's the magnetic field that controls the needle."
+    },
+    {
+      "id": "q-fys8-mag-4",
+      "kind": "mc",
+      "topic": "electromagnets",
+      "prompt": "You have an electromagnet made of copper wire wound around a nail. Which action makes the magnet stronger?",
+      "opener": "Think about what you can change in the coil without replacing the iron core itself.",
+      "choices": [
+        "Straighten out the wire so it lies as a straight conductor",
+        "Increase the number of coil turns and increase the current through the wire",
+        "Replace the nail with a wooden stick",
+        "Turn the battery around so the current goes the other way"
+      ],
+      "answer": 1,
+      "explanation": "The magnetic field in a coil becomes stronger when the number of turns increases, when the current increases, and when the coil has an iron core. Turning the battery around just swaps the positions of the north and south poles — the strength stays exactly the same."
+    },
+    {
+      "id": "q-fys8-mag-5",
+      "kind": "mc",
+      "topic": "induction",
+      "prompt": "What is meant by induction?",
+      "opener": "Think about what happens in a coil when a magnetic field around it changes.",
+      "choices": [
+        "That a voltage arises in a conductor when the magnetic field through it changes, for example when a magnet moves into a coil",
+        "That a magnet becomes warm when it lies near a wire",
+        "That a wire loses all its resistance in a magnetic field",
+        "That a magnet attracts copper and aluminium"
+      ],
+      "answer": 0,
+      "explanation": "Induction means that a changing magnetic field creates a voltage in a conductor — if the magnet doesn't move, nothing happens; it's precisely the change that's required. Copper and aluminium also aren't magnetic, so the last option doesn't hold either."
+    },
+    {
+      "id": "q-fys8-mag-6",
+      "kind": "mc",
+      "topic": "generator and electric motor",
+      "prompt": "Which energy conversion happens in a generator?",
+      "opener": "Compare it with an electric motor — the generator does exactly the opposite.",
+      "choices": [
+        "Electrical energy is converted into kinetic energy",
+        "Heat is converted directly into light",
+        "Kinetic energy is converted into electrical energy",
+        "Chemical energy is converted into electrical energy"
+      ],
+      "answer": 2,
+      "explanation": "In a generator, a coil spins in a magnetic field, the magnetic field through the coil changes, and a voltage is induced — kinetic energy becomes electrical energy. The opposite, electrical energy to motion, is instead what an electric motor does, and chemical energy to electrical energy happens in a battery."
+    },
+    {
+      "id": "q-fys8-mag-7",
+      "kind": "worked",
+      "topic": "electromagnets",
+      "prompt": "An electromagnet has 50 coil turns and a current of 0.5 A. You rewind it to 100 turns and increase the current to 1.5 A. How many times stronger does the magnetic field become, if the strength depends on the number of turns times the current?",
+      "opener": "Calculate turns times current before and after, then compare the two numbers.",
+      "answer": "The magnetic field becomes 6 times stronger",
+      "steps": [
+        "Before: 50 turns · 0.5 A = 25.",
+        "After: 100 turns · 1.5 A = 150.",
+        "Compare by dividing: 150 / 25 = 6.",
+        "So the magnetic field becomes 6 times stronger — double the number of turns times three times the current."
+      ]
+    },
+    {
+      "id": "q-fys8-mag-8",
+      "kind": "flashcard",
+      "topic": "magnetic poles and magnetic fields",
+      "prompt": "Summarise magnetism, electromagnets, induction, and how a generator and an electric motor work.",
+      "opener": "Start with the poles and the field, move on to the electromagnet, and finish with induction and the machines.",
+      "answer": "Magnet: always has a north pole and a south pole, you can never get just one pole · Pole rule: like poles repel, unlike poles attract · Magnetic field: the area around the magnet where the force is noticeable, drawn with field lines from north pole to south pole, densest and strongest at the poles · Magnetic materials: iron, cobalt and nickel — not copper, aluminium or plastic · The Earth's magnetic field: the Earth is like a giant magnet with a magnetic south pole near the geographic north pole, protects against charged particles from the sun · Compass: a small rotatable magnetic needle whose north end is drawn towards north · Electromagnet: current through a coil produces a magnetic field, strengthened by more turns, higher current and an iron core, can be switched off — used in relays, speakers and scrapyard magnets · Induction: a changing magnetic field through a coil produces an induced voltage, requires motion or alternating current · Generator: a coil spins in a magnetic field, kinetic energy to electrical energy, used in power stations · Electric motor: a current-carrying coil in a magnetic field is turned by magnetic forces, electrical energy to kinetic energy · Transformer: two coils around an iron core, changes an alternating voltage using induction."
+    }
+  ]
+}

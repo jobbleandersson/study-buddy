@@ -1,0 +1,131 @@
+{
+  "id": "lib-bio8-fortplantning",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Reproduction and development",
+  "sourceSummary": "The structure and function of the reproductive organs, the menstrual cycle and the hormones behind puberty, as well as fertilisation, foetal development and how different types of contraception work at a basic level.",
+  "topics": [
+    "the reproductive organs",
+    "the menstrual cycle",
+    "fertilisation",
+    "foetal development",
+    "puberty and hormones",
+    "contraception"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio8-for-1",
+      "kind": "mc",
+      "topic": "the reproductive organs",
+      "prompt": "What is the job of the fallopian tubes?",
+      "opener": "Think about the route between the ovary and the uterus.",
+      "choices": [
+        "They form an egg every month",
+        "They carry the egg from the ovary to the uterus",
+        "They produce the sex hormone testosterone",
+        "They carry urine out of the body"
+      ],
+      "answer": 1,
+      "explanation": "The fallopian tubes are two tubes that catch the egg after ovulation and carry it onward towards the uterus — this is also usually where fertilisation happens. The eggs themselves are formed in the ovaries, not in the fallopian tubes, and urine has its own separate tube (the urethra)."
+    },
+    {
+      "id": "q-bio8-for-2",
+      "kind": "mc",
+      "topic": "the reproductive organs",
+      "prompt": "Where are sperm cells formed?",
+      "opener": "Think about why the testicles sit outside the body in the scrotum.",
+      "choices": [
+        "In the prostate",
+        "In the vas deferens",
+        "In the bladder",
+        "In the testicles"
+      ],
+      "answer": 3,
+      "explanation": "Sperm cells are formed in the testicles, which sit in the scrotum outside the body because their formation requires a temperature a few degrees lower than body temperature. The vas deferens only transports the cells onward, and the prostate contributes fluid to the semen."
+    },
+    {
+      "id": "q-bio8-for-3",
+      "kind": "mc",
+      "topic": "the menstrual cycle",
+      "prompt": "What happens at ovulation?",
+      "opener": "Think about what leaves the ovary in the middle of the cycle.",
+      "choices": [
+        "A mature egg is released from the ovary and caught by the fallopian tube",
+        "The lining of the uterus is shed and menstruation begins",
+        "A fertilised egg attaches to the wall of the uterus",
+        "The uterus starts building up a new lining"
+      ],
+      "answer": 0,
+      "explanation": "At ovulation, which often happens around day 14 of a roughly 28-day cycle, a mature egg is released from an ovary and caught by the fallopian tube, where it can be fertilised for about a day. The lining being shed is instead menstruation, which starts the cycle — not ovulation."
+    },
+    {
+      "id": "q-bio8-for-4",
+      "kind": "mc",
+      "topic": "puberty and hormones",
+      "prompt": "What is it that causes the body to change during puberty?",
+      "opener": "Think about which substances are carried in the blood and control the body's development.",
+      "choices": [
+        "Nerve signals from the spinal cord to the skin",
+        "Enzymes formed in the stomach",
+        "Sex hormones formed in the reproductive organs and controlled from the brain",
+        "Vitamins stored in the liver"
+      ],
+      "answer": 2,
+      "explanation": "The pituitary gland in the brain starts sending out hormones that make the ovaries or testicles produce sex hormones (including oestrogen and testosterone), and these hormones are carried in the blood and control growth in height, body hair, voice change, breast development and the maturing of the reproductive organs. Enzymes break down food and have nothing to do with the changes of puberty."
+    },
+    {
+      "id": "q-bio8-for-5",
+      "kind": "mc",
+      "topic": "foetal development",
+      "prompt": "What is the job of the placenta and the umbilical cord during pregnancy?",
+      "opener": "Think about how the foetus gets oxygen and nutrients when it can't breathe or eat by itself.",
+      "choices": [
+        "They give the foetus its own circulatory system that is completely separate from the rest of the body",
+        "They protect the foetus from bumps using fluid",
+        "They let the foetus's lungs breathe air already inside the uterus",
+        "They carry oxygen and nutrients from the pregnant person's blood to the foetus and remove waste"
+      ],
+      "answer": 3,
+      "explanation": "In the placenta, the blood vessels of the pregnant person and the foetus lie very close together so that oxygen and nutrients can pass over to the foetus, while carbon dioxide and other waste products go the other way; the umbilical cord is the connection between the placenta and the foetus. Protecting against bumps is the job of the amniotic fluid, and the foetus's lungs are only used after birth."
+    },
+    {
+      "id": "q-bio8-for-6",
+      "kind": "mc",
+      "topic": "contraception",
+      "prompt": "Which form of contraception protects against both pregnancy and sexually transmitted infections?",
+      "opener": "Think about which form of protection is a physical barrier.",
+      "choices": [
+        "The contraceptive pill",
+        "The condom",
+        "The IUD (coil)",
+        "The contraceptive implant"
+      ],
+      "answer": 1,
+      "explanation": "The condom is a barrier that prevents semen from entering the vagina, and since it also prevents contact with bodily fluids, it protects against sexually transmitted infections such as chlamydia and HIV. The pill, the implant and the IUD affect hormones or the uterus and can prevent pregnancy, but they don't stop infection."
+    },
+    {
+      "id": "q-bio8-for-7",
+      "kind": "worked",
+      "topic": "fertilisation",
+      "prompt": "Explain step by step what happens from fertilisation to a foetus beginning to develop in the uterus.",
+      "opener": "Follow the egg from ovulation, via the fallopian tube, to the lining of the uterus.",
+      "answer": "At ovulation, a mature egg is released from the ovary and caught by the fallopian tube, where a sperm cell can penetrate the egg so that the genetic material of the egg and sperm cell merge into a single cell with 46 chromosomes; the fertilised egg then divides again and again as it is carried onward towards the uterus, attaches after a few days to the lining of the uterus, and there the placenta forms, which via the umbilical cord supplies the growing foetus with oxygen and nutrients during the roughly 40 weeks the pregnancy lasts.",
+      "steps": [
+        "At ovulation, a mature egg is released from an ovary and caught by the fallopian tube, where it can be fertilised for about a day.",
+        "A sperm cell penetrates the egg and the genetic material of the egg and sperm cell unite — now there are 46 chromosomes, half from each parent, in a single cell.",
+        "The fertilised egg divides again and again into a small cluster of cells while being carried through the fallopian tube to the uterus, which takes about a week.",
+        "The cell cluster attaches to the thick lining of the uterus, and there the placenta forms with the umbilical cord as the connection.",
+        "Over the following weeks the cells specialise into different organs, the foetus grows protected by the amniotic fluid and gets oxygen and nutrients via the placenta until birth after around 40 weeks."
+      ]
+    },
+    {
+      "id": "q-bio8-for-8",
+      "kind": "flashcard",
+      "topic": "the reproductive organs",
+      "prompt": "Summarise the parts of the reproductive organs, the menstrual cycle and the most common types of contraception.",
+      "opener": "Go through the internal organs, the phases of the cycle and then how contraception works.",
+      "answer": "Ovaries: produce eggs and the sex hormone oestrogen; the eggs are present from birth · Fallopian tubes: carry the egg to the uterus, usually the site of fertilisation · Uterus: a muscular organ with a lining where the foetus grows · Vagina: the connection between the uterus and the outside of the body · Testicles: produce sperm cells and testosterone, sit in the scrotum where it is a few degrees cooler · Vas deferens and prostate: transport the sperm cells and add fluid so that semen is formed · Penis: carries out both urine and semen, but never at the same time · Menstrual cycle: about 28 days (varies a lot) — period on days 1–5 when the lining is shed, then a new lining is built up, ovulation around day 14, and if the egg is not fertilised the lining is shed again · Fertilisation: sperm cell + egg gives a cell with 46 chromosomes, half from each parent · Pregnancy: the cell cluster attaches to the uterine lining, the placenta and umbilical cord provide oxygen and nutrients, the amniotic fluid protects, birth after around 40 weeks · Puberty: the pituitary gland sets the sex hormones in motion — growth in height, body hair, sweat odour, acne, voice change, breast development, first period and first ejaculation respectively · Contraception: the condom is a barrier and also protects against sexually transmitted infections · The pill, implant, ring and injection are hormonal and usually prevent ovulation · Hormonal and copper IUDs sit in the uterus and prevent pregnancy but not infection · Sexually transmitted infections such as chlamydia and HIV are transmitted through unprotected sex — the condom is the only contraceptive that protects against them."
+    }
+  ]
+}

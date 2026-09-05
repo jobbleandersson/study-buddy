@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam1a1-ekonomi",
+  "type": "assignment",
+  "subject": "Samhällskunskap 1a1",
+  "title": "The national economy and personal finance",
+  "sourceSummary": "Market economy and mixed economy, the business cycle with unemployment and inflation, and the basics of personal finance such as budgeting, loans, interest and consumer rights.",
+  "topics": [
+    "market economy and mixed economy",
+    "business cycle and unemployment",
+    "inflation and monetary policy",
+    "personal finance"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam1a1-ekonomi-1",
+      "kind": "mc",
+      "topic": "market economy and mixed economy",
+      "prompt": "What characterises a market economy?",
+      "opener": "What decides prices and production - a central plan, or buyers and sellers?",
+      "choices": [
+        "The state decides all prices and production targets centrally",
+        "There is no private property ownership at all",
+        "Supply and demand govern prices and production, and private property ownership is central",
+        "All production takes place exclusively in state-owned companies"
+      ],
+      "answer": 2,
+      "explanation": "In a market economy, prices and production are mainly determined by supply and demand between private actors, based on private property ownership. Central price planning and production solely by the state belong instead to a planned economy."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-2",
+      "kind": "mc",
+      "topic": "market economy and mixed economy",
+      "prompt": "Sweden is usually described as a mixed economy. What does that mean?",
+      "opener": "Think about what is being mixed together - the market and something else.",
+      "choices": [
+        "A combination of a market economy and state involvement, for example through taxes, regulation and publicly funded welfare",
+        "An economy entirely without a functioning market",
+        "An economy in which only agriculture and industry exist",
+        "An economy run exclusively by EU institutions"
+      ],
+      "answer": 0,
+      "explanation": "A mixed economy combines market mechanisms with state governance, for example through taxes, legislation and publicly funded welfare such as schools, healthcare and social insurance. Sweden is a common example of this."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-3",
+      "kind": "mc",
+      "topic": "business cycle and unemployment",
+      "prompt": "What characterises a downturn (recession) in the business cycle?",
+      "opener": "Think about what happens to demand, production and unemployment when the economy slows down.",
+      "choices": [
+        "High demand, rising production and falling unemployment",
+        "Reduced demand, lower production and often rising unemployment",
+        "GDP always becomes exactly zero",
+        "Inflation disappears completely for good"
+      ],
+      "answer": 1,
+      "explanation": "A downturn is characterised by falling demand in the economy, which leads to lower production and often rising unemployment. The opposite, a boom, instead means high demand and rising employment."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-4",
+      "kind": "mc",
+      "topic": "business cycle and unemployment",
+      "prompt": "What is it called when unemployment arises because workers' skills no longer match the jobs in demand, for example during major shifts in technology?",
+      "opener": "This is about a lasting mismatch between the skills that exist and those in demand - not about swings in the business cycle.",
+      "choices": [
+        "Cyclical unemployment",
+        "Seasonal unemployment",
+        "Frictional unemployment",
+        "Structural unemployment"
+      ],
+      "answer": 3,
+      "explanation": "Structural unemployment arises when there is a lasting mismatch between the skills jobseekers have and those employers demand, for example when an industry is transformed by new technology. Cyclical unemployment, by contrast, is due to swings in the economy as a whole."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-5",
+      "kind": "mc",
+      "topic": "inflation and monetary policy",
+      "prompt": "What does inflation mean?",
+      "opener": "Think about what happens to prices in general, and therefore to the purchasing power of money.",
+      "choices": [
+        "The general price level in the economy rises, which makes money fall in value",
+        "Prices fall generally throughout the economy",
+        "The policy rate always becomes zero per cent",
+        "Unemployment automatically and always increases"
+      ],
+      "answer": 0,
+      "explanation": "Inflation means that the general price level rises over time, so that the same amount of money buys less than before - the purchasing power of money falls. The opposite, prices falling generally, is called deflation."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-6",
+      "kind": "mc",
+      "topic": "inflation and monetary policy",
+      "prompt": "Which tool does the Riksbank mainly use to try to influence inflation in Sweden?",
+      "opener": "What becomes more or less expensive to borrow depending on the Riksbank's decisions?",
+      "choices": [
+        "Setting the price of food directly",
+        "Deciding the level of corporation tax",
+        "The policy rate, which affects how expensive or cheap it is to borrow and save money",
+        "Printing unlimited new banknotes every month"
+      ],
+      "answer": 2,
+      "explanation": "The Riksbank conducts monetary policy mainly by adjusting the policy rate, which affects the interest banks charge households and companies and thereby how much is borrowed, saved and consumed - a way of steering towards the inflation target."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-7",
+      "kind": "worked",
+      "topic": "personal finance",
+      "prompt": "Maja is going to borrow SEK 100,000 for a car, at 5 per cent interest per year with a repayment period of 5 years. Explain step by step what affects how much she will pay back in total.",
+      "opener": "Distinguish between interest cost, amortisation and other fees - and remember that the effective interest rate shows the full real cost.",
+      "answer": "Maja's total cost consists of the loan amount itself (SEK 100,000), the interest cost calculated on the remaining loan each year, and any fees such as an arrangement fee or invoice fee. The interest means she pays back more than SEK 100,000 in total, and the shorter the repayment period, the smaller the total interest cost becomes, since the debt shrinks faster. The effective interest rate, which includes fees, gives the most accurate picture of what the loan actually costs and makes it possible to compare different loans.",
+      "steps": [
+        "The loan amount of SEK 100,000 is the base on which interest is calculated.",
+        "The interest cost (5% per year) is calculated continuously on the amount still owed, so it decreases as the loan is amortised.",
+        "Amortisation is the part of the payment that reduces the debt itself, as distinct from the interest, which is the cost of borrowing.",
+        "Any fees, for example an arrangement fee or invoice fee, are added to the total cost.",
+        "The effective interest rate combines interest and fees into one comparable annual cost, making it easier to compare different loan options before signing."
+      ]
+    },
+    {
+      "id": "q-sam1a1-ekonomi-8",
+      "kind": "flashcard",
+      "topic": "personal finance",
+      "prompt": "Summarise key concepts in personal finance: budget, interest, amortisation and consumer rights.",
+      "opener": "The basics of keeping track of your own finances.",
+      "answer": "Budget: a plan of income and expenses, the basis for keeping track of your finances · Interest: the cost of borrowing money, or the return on saving · Amortisation: the part of a payment that reduces the debt itself, distinct from the interest · Effective interest rate: the real annual cost of a loan including fees, useful for comparing loans · Credit check: a check of a person's financial history that lenders carry out before a loan is approved · Consumer rights: rules that protect consumers, e.g. the right of withdrawal on distance contracts and the right to complain about faulty goods or services."
+    }
+  ]
+}

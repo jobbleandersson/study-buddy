@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi8-periodiska",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "The periodic table and the atomic model",
+  "sourceSummary": "The structure of the atom with protons, neutrons and electrons, how atomic number and mass number relate to each other, the structure of the electron shells, and how groups and periods in the periodic table explain why noble gases and alkali metals behave so differently.",
+  "topics": [
+    "the structure of the atom",
+    "atomic number and mass number",
+    "electron shells",
+    "groups and periods",
+    "noble gases and alkali metals"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi8-per-1",
+      "kind": "mc",
+      "topic": "the structure of the atom",
+      "prompt": "Which particles are found in the atomic nucleus?",
+      "opener": "The atom has a heavy nucleus in the middle and something much lighter moving around outside it.",
+      "choices": [
+        "Only electrons",
+        "Protons and neutrons",
+        "Protons and electrons",
+        "Neutrons and electrons"
+      ],
+      "answer": 1,
+      "explanation": "The atomic nucleus contains protons (positively charged) and neutrons (uncharged), and almost all of the atom's mass is there. The electrons are not in the nucleus — they are negatively charged and move in electron shells outside the nucleus."
+    },
+    {
+      "id": "q-kemi8-per-2",
+      "kind": "mc",
+      "topic": "atomic number and mass number",
+      "prompt": "An atom has atomic number 6. What does that mean?",
+      "opener": "The atomic number is the atom's ID number in the periodic table and counts a single kind of particle.",
+      "choices": [
+        "That the atom has 6 neutrons in the nucleus",
+        "That the atom weighs 6 grams",
+        "That the atom has 6 electron shells",
+        "That the atom has 6 protons in the nucleus"
+      ],
+      "answer": 3,
+      "explanation": "Atomic number 6 means 6 protons in the nucleus, and the element is carbon. In an uncharged atom there are as many electrons as protons, so 6 electrons. The number of neutrons, on the other hand, is worked out from the mass number, not from the atomic number."
+    },
+    {
+      "id": "q-kemi8-per-3",
+      "kind": "mc",
+      "topic": "atomic number and mass number",
+      "prompt": "A sodium atom has mass number 23 and atomic number 11. How many neutrons does it have?",
+      "opener": "The mass number counts all the nucleus's particles together, while the atomic number only counts the protons.",
+      "choices": [
+        "12",
+        "11",
+        "23",
+        "34"
+      ],
+      "answer": 0,
+      "explanation": "The mass number is protons + neutrons, so the number of neutrons is 23 − 11 = 12. The number 11 is the number of protons, and 34 arises if you mistakenly add the mass number and atomic number instead of subtracting."
+    },
+    {
+      "id": "q-kemi8-per-4",
+      "kind": "mc",
+      "topic": "electron shells",
+      "prompt": "What is the maximum number of electrons that fit in the innermost electron shell (the K-shell)?",
+      "opener": "The innermost shell is the smallest of all and becomes full very quickly.",
+      "choices": [
+        "1",
+        "8",
+        "2",
+        "18"
+      ],
+      "answer": 2,
+      "explanation": "The K-shell holds a maximum of 2 electrons, which is why neon, for example, has the distribution 2, 8. The number 8 applies to the next shell (the L-shell), and it's a common mix-up to place 8 electrons in the innermost shell instead."
+    },
+    {
+      "id": "q-kemi8-per-5",
+      "kind": "mc",
+      "topic": "groups and periods",
+      "prompt": "What do all elements in the same GROUP (vertical column) of the periodic table have in common?",
+      "opener": "It's the outermost electron shell that governs how an element reacts.",
+      "choices": [
+        "They have the same number of electron shells",
+        "They have the same mass number",
+        "They are all metals",
+        "They have the same number of electrons in their outermost shell and therefore similar chemical properties"
+      ],
+      "answer": 3,
+      "explanation": "Elements in the same group have the same number of valence electrons in the outermost shell, and therefore react in similar ways — sodium and potassium in group 1 are both highly reactive metals. Having the same number of electron shells, on the other hand, applies to elements in the same period, in other words the same horizontal row."
+    },
+    {
+      "id": "q-kemi8-per-6",
+      "kind": "mc",
+      "topic": "noble gases and alkali metals",
+      "prompt": "Why are noble gases such as helium and neon so unreactive?",
+      "opener": "Think about what their outermost electron shell looks like compared with other elements.",
+      "choices": [
+        "They already have a full outermost electron shell and therefore don't need to give up or take up electrons",
+        "They have no electrons at all",
+        "They have a single valence electron that they very readily give up",
+        "They are metals with such high density that they cannot react"
+      ],
+      "answer": 0,
+      "explanation": "The noble gases in group 18 have a full outermost shell (helium 2 electrons, neon 8) and are therefore already stable — they don't need to exchange electrons with other atoms. Having a single valence electron that is readily given up applies to the alkali metals in group 1, which are, on the contrary, extremely reactive."
+    },
+    {
+      "id": "q-kemi8-per-7",
+      "kind": "worked",
+      "topic": "atomic number and mass number",
+      "prompt": "Potassium (K) has atomic number 19 and mass number 39. Determine the number of protons, neutrons and electrons in the atom, and use the electron shells to explain why potassium readily forms the ion K+.",
+      "opener": "Start by picking out the protons and neutrons from the numbers, then distribute the electrons into shells.",
+      "answer": "Potassium has 19 protons, 20 neutrons and 19 electrons. The electrons are distributed 2, 8, 8, 1, so potassium has a single valence electron in the outermost shell. By giving up that electron, potassium gets a full outermost shell and becomes the ion K+.",
+      "steps": [
+        "The number of protons is the same as the atomic number: 19 protons.",
+        "The number of neutrons is mass number − atomic number: 39 − 19 = 20 neutrons.",
+        "The atom is uncharged, so the number of electrons equals the number of protons: 19 electrons.",
+        "Distribute the electrons into shells: 2 in the K-shell, 8 in the L-shell, 8 in the M-shell and 1 left over furthest out, in other words 2, 8, 8, 1.",
+        "It's easier to get rid of a single lone valence electron than to fill up with seven new ones, so potassium gives it up and forms the positive ion K+ with a full outermost shell."
+      ]
+    },
+    {
+      "id": "q-kemi8-per-8",
+      "kind": "flashcard",
+      "topic": "the structure of the atom",
+      "prompt": "Summarise the structure of the atom, atomic number and mass number, and how the periodic table is arranged.",
+      "opener": "Take the particles first, then the numbers that describe the nucleus, and finish with groups and periods.",
+      "answer": "Proton: positive (+), in the nucleus · Neutron: uncharged, in the nucleus · Electron: negative (−), moves in electron shells outside the nucleus, very light · Atomic number = number of protons (and number of electrons in an uncharged atom) · Mass number = protons + neutrons · Number of neutrons = mass number − atomic number · Electron shells: K holds max 2, L max 8, M max 8 (at basic level) · Valence electrons = the electrons in the outermost shell, they govern how the element reacts · Group = vertical column, same number of valence electrons, similar properties · Period = horizontal row, same number of electron shells · Group 1 alkali metals: 1 valence electron, give it up and form ions such as Na+ and K+, highly reactive · Group 17 halogens: 7 valence electrons, take up one and form ions such as Cl− · Group 18 noble gases: full outermost shell, stable and unreactive (helium, neon, argon) · Metals give up electrons and become positive ions, non-metals take up electrons and become negative ions."
+    }
+  ]
+}

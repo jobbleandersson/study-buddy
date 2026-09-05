@@ -1,0 +1,128 @@
+{
+  "id": "lib-en6-writing",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Writing: essay structure and cohesion",
+  "sourceSummary": "How to build a clear thesis statement, use cohesive devices for coherence, structure paragraphs, and write formal essay conclusions.",
+  "topics": [
+    "thesis statements",
+    "cohesive devices",
+    "paragraph structure",
+    "essay conclusions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-writing-1",
+      "kind": "mc",
+      "topic": "thesis statements",
+      "prompt": "Which sentence works best as a thesis statement for an argumentative essay about school uniforms?",
+      "opener": "A thesis statement should take a stance and hint at the arguments to come — not just mention the topic.",
+      "choices": [
+        "Some schools have uniforms and some don't.",
+        "This essay will discuss uniforms.",
+        "Uniforms are a topic that many people have opinions about.",
+        "School uniforms should be mandatory because they reduce bullying and promote equality among students."
+      ],
+      "answer": 3,
+      "explanation": "A strong thesis statement clearly takes a stance (\"should be mandatory\") and hints at the arguments that will be developed in the essay. The other options simply state that the topic exists, without taking a stance."
+    },
+    {
+      "id": "q-en6-writing-2",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "What is the main function of a topic sentence in a paragraph?",
+      "opener": "It almost always comes first in the paragraph.",
+      "choices": [
+        "To conclude the essay",
+        "To introduce the paragraph's main idea",
+        "To quote another author",
+        "To list every source used"
+      ],
+      "answer": 1,
+      "explanation": "A \"topic sentence\" opens the paragraph and presents its main idea, which the rest of the paragraph then develops and supports. It does not conclude either the paragraph or the whole essay."
+    },
+    {
+      "id": "q-en6-writing-3",
+      "kind": "mc",
+      "topic": "cohesive devices",
+      "prompt": "Which linking word best fits: \"The experiment was expensive. ___, the results justified the cost.\"",
+      "opener": "Which word marks a contrast between the two sentences?",
+      "choices": [
+        "Similarly",
+        "However",
+        "For example",
+        "In addition"
+      ],
+      "answer": 1,
+      "explanation": "\"However\" marks a contrast — even though the experiment was expensive, the results were worth it. \"Similarly\" and \"in addition\" signal similarity/addition, and \"for example\" introduces an example, none of which fits here."
+    },
+    {
+      "id": "q-en6-writing-4",
+      "kind": "mc",
+      "topic": "cohesive devices",
+      "prompt": "Identify the cohesion problem: \"Sarah told Emma that she had won the prize.\"",
+      "opener": "Pronoun reference: who does \"she\" refer back to?",
+      "choices": [
+        "There is no problem; the sentence is perfectly clear.",
+        "\"Told\" should be \"tells\".",
+        "It is unclear whether \"she\" refers to Sarah or Emma.",
+        "\"Prize\" should be plural."
+      ],
+      "answer": 2,
+      "explanation": "The pronoun \"she\" could refer to either Sarah or Emma, which makes the sentence ambiguous — a common cohesion problem. Tense and plural form are not what causes the ambiguity here."
+    },
+    {
+      "id": "q-en6-writing-5",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "What should a well-structured body paragraph typically contain?",
+      "opener": "Three parts that belong together: an idea, supporting evidence, and a link back.",
+      "choices": [
+        "A topic sentence, supporting evidence, and a link to the essay's overall argument",
+        "Only examples, no main idea",
+        "A list of unrelated facts",
+        "The thesis statement repeated word for word"
+      ],
+      "answer": 0,
+      "explanation": "A well-structured paragraph opens with a \"topic sentence\", develops with supporting evidence (examples, facts, quotations), and links back to the essay's main argument. Simply listing facts or repeating the thesis statement word for word creates no coherence."
+    },
+    {
+      "id": "q-en6-writing-6",
+      "kind": "mc",
+      "topic": "essay conclusions",
+      "prompt": "Which sentence is most appropriate for a formal essay conclusion?",
+      "opener": "A formal conclusion summarises the argument without using everyday language.",
+      "choices": [
+        "So yeah, that's basically it.",
+        "In conclusion, the evidence strongly suggests that stricter regulations are necessary.",
+        "Anyway, moving on to my next point...",
+        "I guess uniforms could be good or bad, who knows."
+      ],
+      "answer": 1,
+      "explanation": "A formal conclusion clearly summarises the argument, often with a phrase like \"in conclusion\", and avoids casual or uncertain language such as \"so yeah\" or \"who knows\"."
+    },
+    {
+      "id": "q-en6-writing-7",
+      "kind": "worked",
+      "topic": "cohesive devices",
+      "prompt": "Improve the cohesion of this paragraph by adding a linking word and fixing the unclear pronoun reference: \"Many students work part-time jobs. It is difficult to focus on homework in the evening. Lisa told her friend Anna that her grades had improved.\"",
+      "opener": "Two things are missing: a clear link between the first two sentences, and a pronoun that is ambiguous.",
+      "answer": "Many students work part-time jobs. As a result, it is difficult for them to focus on homework in the evening. Lisa told her friend Anna that Anna's grades had improved.",
+      "steps": [
+        "Added \"As a result\" between sentence 1 and 2 to show cause and effect — without a linking word the connection is unclear.",
+        "Added \"for them\" to clarify who is struggling to focus, otherwise it is unclear whether it refers to the students or someone else.",
+        "Changed \"her grades\" to \"Anna's grades\" since the pronoun \"her\" would otherwise be ambiguous — it could refer to either Lisa or Anna.",
+        "Summary: cohesive devices (e.g. \"as a result\", \"however\", \"in addition\") and clear pronoun reference are what bind a text into a coherent whole (cohesion)."
+      ]
+    },
+    {
+      "id": "q-en6-writing-8",
+      "kind": "flashcard",
+      "topic": "essay conclusions",
+      "prompt": "What are the key components of a well-structured formal essay?",
+      "opener": "Five building blocks that hold an argumentative essay together.",
+      "answer": "Thesis statement = clearly takes a stance in the introduction and hints at the arguments · Topic sentences = open each paragraph with its main idea · Supporting evidence = examples, facts, or quotations that support each argument · Cohesive devices = linking words (however, therefore, in addition) and clear pronoun reference that tie sentences and paragraphs together · Conclusion = formally summarises the arguments without introducing new information, often with phrases like \"in conclusion\" or \"to sum up\"."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma8-geometri",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Geometry: area, volume and scale",
+  "sourceSummary": "Area and perimeter for parallelograms, triangles and circles, volume for cuboids and cylinders, and scale and conversion between area and volume units.",
+  "topics": [
+    "area and perimeter",
+    "volume",
+    "scale",
+    "units"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma8-geo-1",
+      "kind": "mc",
+      "topic": "area and perimeter",
+      "prompt": "A parallelogram has base 7 cm and height 4 cm. What is the area?",
+      "opener": "A parallelogram can be cut and rearranged into a rectangle with the same base and height.",
+      "choices": [
+        "11 cm²",
+        "14 cm²",
+        "22 cm²",
+        "28 cm²"
+      ],
+      "answer": 3,
+      "explanation": "$A = b \\cdot h = 7 \\cdot 4 = 28$ cm². The answer 14 cm² comes from dividing by 2 — you do that for a triangle, not for a parallelogram."
+    },
+    {
+      "id": "q-ma8-geo-2",
+      "kind": "mc",
+      "topic": "area and perimeter",
+      "prompt": "A triangle has base 9 cm and height 6 cm. What is the area?",
+      "opener": "The triangle is exactly half the parallelogram with the same base and height.",
+      "choices": [
+        "27 cm²",
+        "54 cm²",
+        "15 cm²",
+        "30 cm²"
+      ],
+      "answer": 0,
+      "explanation": "$A = \\frac{b \\cdot h}{2} = \\frac{9 \\cdot 6}{2} = \\frac{54}{2} = 27$ cm². The answer 54 cm² is the area without dividing by 2."
+    },
+    {
+      "id": "q-ma8-geo-3",
+      "kind": "mc",
+      "topic": "area and perimeter",
+      "prompt": "A circle has diameter 10 cm. What is the circumference, rounded to one decimal place?",
+      "opener": "The circumference formula comes in two versions — one with the radius and one with the diameter.",
+      "choices": [
+        "31.4 cm",
+        "15.7 cm",
+        "78.5 cm",
+        "62.8 cm"
+      ],
+      "answer": 0,
+      "explanation": "$O = \\pi \\cdot d = \\pi \\cdot 10 \\approx 31.4$ cm. The answer 78.5 is the area ($\\pi r^2 = 25\\pi$), and 62.8 is what you get if you use the diameter in the formula $2\\pi r$."
+    },
+    {
+      "id": "q-ma8-geo-4",
+      "kind": "mc",
+      "topic": "area and perimeter",
+      "prompt": "A circle has radius 4 cm. What is the area, rounded to one decimal place?",
+      "opener": "Area is always about two lengths multiplied together — look for the formula with $r^2$.",
+      "choices": [
+        "25.1 cm²",
+        "50.3 cm²",
+        "12.6 cm²",
+        "201.1 cm²"
+      ],
+      "answer": 1,
+      "explanation": "$A = \\pi r^2 = \\pi \\cdot 4^2 = 16\\pi \\approx 50.3$ cm². The answer 25.1 is the circumference $2\\pi r$, and 201.1 is what you get if you use the diameter instead of the radius."
+    },
+    {
+      "id": "q-ma8-geo-5",
+      "kind": "mc",
+      "topic": "volume",
+      "prompt": "A box is 20 cm long, 10 cm wide and 5 cm high. How many litres does it hold?",
+      "opener": "First work out the volume in cubic centimetres — how many cm³ are there in a litre?",
+      "choices": [
+        "0.1 litres",
+        "1 litre",
+        "10 litres",
+        "100 litres"
+      ],
+      "answer": 1,
+      "explanation": "$V = 20 \\cdot 10 \\cdot 5 = 1000$ cm³. Since 1 litre $= 1$ dm³ $= 1000$ cm³, the box holds 1 litre. The answer 10 litres comes from converting between cm³ and dm³ using a factor of 100 instead of 1000."
+    },
+    {
+      "id": "q-ma8-geo-6",
+      "kind": "mc",
+      "topic": "scale",
+      "prompt": "An ant is 5 mm long. In a photo at scale 20:1 — how long is the ant in the picture?",
+      "opener": "Scale 20:1 means the picture is bigger than reality, not smaller.",
+      "choices": [
+        "0.25 mm",
+        "25 mm",
+        "100 mm",
+        "4 mm"
+      ],
+      "answer": 2,
+      "explanation": "Scale 20:1 is an enlargement: the picture is 20 times as big. $5 \\text{ mm} \\cdot 20 = 100$ mm $= 10$ cm. The answer 0.25 mm comes from dividing instead — that would apply at scale 1:20."
+    },
+    {
+      "id": "q-ma8-geo-7",
+      "kind": "worked",
+      "topic": "volume",
+      "prompt": "A cylindrical can has radius 3 cm and height 10 cm. Calculate the volume, rounded to one decimal place. Show the steps.",
+      "opener": "A cylinder is a circle that has been given height — start with the base area.",
+      "answer": "≈ 282.7 cm³",
+      "steps": [
+        "The base area is a circle: $A = \\pi r^2 = \\pi \\cdot 3^2 = 9\\pi$ cm².",
+        "The volume is the base area times the height: $V = 9\\pi \\cdot 10 = 90\\pi$ cm³.",
+        "Work it out: $90\\pi \\approx 282.7$ cm³.",
+        "Sanity check: the can holds just under 0.3 litres, about a small glass. ✓"
+      ]
+    },
+    {
+      "id": "q-ma8-geo-8",
+      "kind": "flashcard",
+      "topic": "units",
+      "prompt": "Which formulas and unit relationships do you need to know by heart?",
+      "opener": "Split the memory list into three: area, volume and units.",
+      "answer": "Rectangle: $A = b \\cdot h$ · Parallelogram: $A = b \\cdot h$ · Triangle: $A = \\frac{b \\cdot h}{2}$ · Circle: $A = \\pi r^2$ and $O = 2\\pi r = \\pi d$ · Cuboid: $V = l \\cdot b \\cdot h$ · Cylinder: $V = \\pi r^2 \\cdot h$ (base area times height) · Area units convert with a factor of 100: 1 m² = 100 dm² = 10,000 cm² · Volume units convert with a factor of 1000: 1 m³ = 1000 dm³ = 1,000,000 cm³ · 1 litre = 1 dm³ = 1000 cm³ · Scale 1:$n$ is a reduction (reality = picture $\\cdot\\, n$), scale $n$:1 is an enlargement."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-bio8-andning",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Breathing and circulation",
+  "sourceSummary": "The structure of the respiratory organs and gas exchange in the alveoli, as well as the parts of the heart, the two circuits of the blood circulation, the components of blood, and how fitness affects heart rate.",
+  "topics": [
+    "the respiratory organs",
+    "gas exchange",
+    "the heart and blood circulation",
+    "blood",
+    "fitness and heart rate"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio8-and-1",
+      "kind": "mc",
+      "topic": "the respiratory organs",
+      "prompt": "Which route does the air take when you breathe in?",
+      "opener": "Follow the air from the nose all the way down to the smallest sacs in the lung.",
+      "choices": [
+        "Nose → oesophagus → stomach → lungs",
+        "Nose and mouth → trachea → bronchi → alveoli",
+        "Mouth → trachea → stomach → alveoli",
+        "Nose → alveoli → trachea → bronchi"
+      ],
+      "answer": 1,
+      "explanation": "The air is warmed and cleaned in the nose, travels down through the trachea which splits into two bronchi and then into ever finer branches ending in the alveoli. The oesophagus and stomach belong to digestion and have nothing to do with breathing — the epiglottis makes sure air and food end up in the right place."
+    },
+    {
+      "id": "q-bio8-and-2",
+      "kind": "mc",
+      "topic": "gas exchange",
+      "prompt": "What happens in the alveoli?",
+      "opener": "Two gases swap places between the air and the blood.",
+      "choices": [
+        "The blood is cleaned of waste products and urine is formed",
+        "Nutrients from food are absorbed into the blood",
+        "The air is warmed before it reaches the trachea",
+        "Oxygen passes from the air into the blood and carbon dioxide passes from the blood out into the air"
+      ],
+      "answer": 3,
+      "explanation": "The alveoli's very thin walls and surrounding capillaries allow oxygen to diffuse into the blood while carbon dioxide leaves the blood and is breathed out. Nutrient absorption happens in the small intestine, not in the lungs."
+    },
+    {
+      "id": "q-bio8-and-3",
+      "kind": "mc",
+      "topic": "the heart and blood circulation",
+      "prompt": "How many chambers does the human heart have?",
+      "opener": "Think about atria and ventricles, one set on each side.",
+      "choices": [
+        "Four: two atria and two ventricles",
+        "Two: one atrium and one ventricle",
+        "Three: one atrium and two ventricles",
+        "Six: four atria and two ventricles"
+      ],
+      "answer": 0,
+      "explanation": "The heart has two atria that receive blood and two ventricles that pump it out, with valves in between so blood can only flow in one direction. A heart with only two chambers is found in, for example, fish, not in humans."
+    },
+    {
+      "id": "q-bio8-and-4",
+      "kind": "mc",
+      "topic": "the heart and blood circulation",
+      "prompt": "What is the difference between the pulmonary and systemic circuits?",
+      "opener": "Think about where the blood is sent when it leaves each ventricle.",
+      "choices": [
+        "The pulmonary circuit goes to the legs and the systemic circuit to the arms",
+        "The pulmonary circuit transports nutrients and the systemic circuit transports oxygen",
+        "The pulmonary circuit runs between the heart and the lungs, the systemic circuit between the heart and the rest of the body",
+        "The pulmonary circuit exists only in children and the systemic circuit only in adults"
+      ],
+      "answer": 2,
+      "explanation": "In the pulmonary circuit, oxygen-poor blood is pumped from the right ventricle to the lungs and returns oxygen-rich, while the systemic circuit carries the oxygen-rich blood from the left ventricle out to all the body's cells. Both circuits transport both oxygen and nutrients — the difference is where the blood goes."
+    },
+    {
+      "id": "q-bio8-and-5",
+      "kind": "mc",
+      "topic": "blood",
+      "prompt": "What is the job of the red blood cells?",
+      "opener": "Think about the substance haemoglobin and why blood is red.",
+      "choices": [
+        "They defend the body against bacteria and viruses",
+        "They transport oxygen from the lungs out to the body's cells",
+        "They make the blood clot at a wound",
+        "They break down nutrients in the blood"
+      ],
+      "answer": 1,
+      "explanation": "Red blood cells contain the iron-based substance haemoglobin, which binds oxygen in the lungs and releases it in the tissues. Defending the body against infection is the job of the white blood cells, and platelets handle clotting at wounds."
+    },
+    {
+      "id": "q-bio8-and-6",
+      "kind": "mc",
+      "topic": "fitness and heart rate",
+      "prompt": "Why does a person with good fitness often have a lower resting heart rate than an untrained person?",
+      "opener": "Think about what happens to the heart muscle when you train your fitness regularly.",
+      "choices": [
+        "The heart becomes stronger and pumps more blood per beat, so it needs to beat fewer times",
+        "The body needs less oxygen when you are well-trained",
+        "The blood becomes thinner and flows faster on its own",
+        "The lungs stop absorbing carbon dioxide"
+      ],
+      "answer": 0,
+      "explanation": "Fitness training makes the heart muscle stronger, so each beat pumps out more blood (a larger stroke volume) and fewer beats per minute are enough at rest. The body's need for oxygen doesn't disappear — it's just met more efficiently."
+    },
+    {
+      "id": "q-bio8-and-7",
+      "kind": "worked",
+      "topic": "gas exchange",
+      "prompt": "Explain how an oxygen molecule from the air you breathe in makes its way all the way to a muscle cell in the leg.",
+      "opener": "Follow the oxygen through the lung, into the blood, through the heart and out into the body.",
+      "answer": "The oxygen follows the air through the nose, trachea and bronchi down to an alveolus, diffuses through the thin wall into the blood and binds to haemoglobin in a red blood cell, is carried by the pulmonary vein to the left side of the heart, is pumped out into the systemic circuit via arteries to the capillaries in the leg muscle, and there leaves the blood to be used in the muscle cell's cellular respiration.",
+      "steps": [
+        "You breathe in and the air travels via the nose or mouth down through the trachea and bronchi to the alveoli.",
+        "In the alveolus, the oxygen passes through the very thin wall and the wall of the surrounding capillaries, and binds to haemoglobin in a red blood cell.",
+        "The oxygen-rich blood is carried from the lungs to the heart's left atrium and on to the left ventricle.",
+        "The left ventricle pumps the blood out into the aorta, and the arteries carry it out into the leg, where they branch into capillaries.",
+        "In the capillaries, the oxygen leaves the blood and is taken up by the muscle cell, which uses it in cellular respiration to release energy; the carbon dioxide that forms is carried by the blood back to the lungs."
+      ]
+    },
+    {
+      "id": "q-bio8-and-8",
+      "kind": "flashcard",
+      "topic": "blood",
+      "prompt": "Summarise the components of blood and the structure of the circulatory system.",
+      "opener": "Go through the four components of blood, the three vessel types and the chambers of the heart.",
+      "answer": "Red blood cells: contain haemoglobin and transport oxygen from the lungs to the cells · White blood cells: part of the immune system, neutralise bacteria and viruses · Platelets: make the blood clot so wounds stop bleeding · Blood plasma: a yellowish fluid mostly made of water that transports nutrients, hormones and waste · Arteries: carry blood away from the heart, thick and elastic walls · Veins: carry blood to the heart, have valves that prevent backflow · Capillaries: very thin vessels where exchange with the cells takes place · Heart: four chambers — right and left atria plus right and left ventricles, with valves that make sure blood only flows in one direction · Pulmonary circuit: right ventricle → lungs → left atrium · Systemic circuit: left ventricle → the body's organs → right atrium · Heart rate: the number of heartbeats per minute; good fitness gives a stronger heart, a larger stroke volume and a lower resting heart rate."
+    }
+  ]
+}

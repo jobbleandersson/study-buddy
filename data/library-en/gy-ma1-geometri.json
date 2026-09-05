@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma1-geometri",
+  "type": "assignment",
+  "subject": "Matematik 1",
+  "title": "Geometry, similarity and scale",
+  "sourceSummary": "Pythagoras' theorem, similar figures, and length, area and volume scale factors — including the classic trap that area and volume do not scale linearly.",
+  "topics": [
+    "Pythagoras' theorem",
+    "similarity",
+    "scale",
+    "area and volume"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma1-geo-1",
+      "kind": "mc",
+      "topic": "Pythagoras' theorem",
+      "prompt": "A right-angled triangle has legs of 5 cm and 12 cm. How long is the hypotenuse?",
+      "opener": "Square the legs, add them together, and don't forget the last step.",
+      "choices": [
+        "8.5 cm",
+        "17 cm",
+        "13 cm",
+        "169 cm"
+      ],
+      "answer": 2,
+      "explanation": "$5^2 + 12^2 = 25 + 144 = 169$ and $\\sqrt{169} = 13$ cm. A common mistake is forgetting to take the square root and answering 169."
+    },
+    {
+      "id": "q-ma1-geo-2",
+      "kind": "mc",
+      "topic": "Pythagoras' theorem",
+      "prompt": "A right-angled triangle has a hypotenuse of 10 cm and one leg of 6 cm. How long is the other leg?",
+      "opener": "Here the largest number is known — what does that mean for how you set it up?",
+      "choices": [
+        "4 cm",
+        "16 cm",
+        "11.7 cm",
+        "8 cm"
+      ],
+      "answer": 3,
+      "explanation": "$a^2 + 6^2 = 10^2$ gives $a^2 = 100 - 36 = 64$, so $a = 8$ cm. When the hypotenuse is known you subtract instead of adding."
+    },
+    {
+      "id": "q-ma1-geo-3",
+      "kind": "mc",
+      "topic": "similarity",
+      "prompt": "Two triangles are similar. The smaller has a side of 4 cm, the larger has the corresponding side at 12 cm. What is the length scale factor from the smaller to the larger?",
+      "opener": "How many times bigger is the large figure?",
+      "choices": [
+        "3:1",
+        "1:8",
+        "4:12 cannot be simplified",
+        "1:3"
+      ],
+      "answer": 0,
+      "explanation": "$\\frac{12}{4} = 3$, so the scale factor is 3:1 (enlargement). All corresponding sides are 3 times as long, and all angles are unchanged."
+    },
+    {
+      "id": "q-ma1-geo-4",
+      "kind": "mc",
+      "topic": "scale",
+      "prompt": "A figure is enlarged so that all lengths become 3 times as long. How many times bigger does the area become?",
+      "opener": "Area is two dimensions — what does that do to the scale factor?",
+      "choices": [
+        "6 times",
+        "9 times",
+        "27 times",
+        "3 times"
+      ],
+      "answer": 1,
+      "explanation": "The area scale factor is the length scale factor squared: $3^2 = 9$ times bigger area. (The volume scale factor would have been $3^3 = 27$.)"
+    },
+    {
+      "id": "q-ma1-geo-5",
+      "kind": "mc",
+      "topic": "scale",
+      "prompt": "A model car has all lengths half as large as a bigger model. How do the volumes compare?",
+      "opener": "Volume is three dimensions.",
+      "choices": [
+        "The small one has half the volume",
+        "The small one has a quarter of the volume",
+        "The small one has an eighth of the volume",
+        "The volumes are equal"
+      ],
+      "answer": 2,
+      "explanation": "The volume scale factor is the length scale factor cubed: $\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$. A halved length therefore gives only an eighth of the volume."
+    },
+    {
+      "id": "q-ma1-geo-6",
+      "kind": "mc",
+      "topic": "area and volume",
+      "prompt": "What is the circumference of a circle with radius 5 cm? (One decimal place.)",
+      "opener": "Which formula applies to circumference — the one with $r$ or the one with $r^2$?",
+      "choices": [
+        "25.0 cm",
+        "78.5 cm",
+        "15.7 cm",
+        "31.4 cm"
+      ],
+      "answer": 3,
+      "explanation": "$O = 2\\pi r = 2\\pi \\cdot 5 = 10\\pi \\approx 31.4$ cm. ($78.5$ cm² is the area, $\\pi r^2$.)"
+    },
+    {
+      "id": "q-ma1-geo-7",
+      "kind": "worked",
+      "topic": "area and volume",
+      "prompt": "A cylindrical water tank has radius 3 m and height 10 m. How many cubic metres does it hold? Round to one decimal place.",
+      "opener": "The base area first, then the height.",
+      "answer": "≈ 282.7 m³",
+      "steps": [
+        "The base is a circle: $A = \\pi r^2 = \\pi \\cdot 3^2 = 9\\pi$ m².",
+        "The volume is the base area times the height: $V = 9\\pi \\cdot 10 = 90\\pi$ m³.",
+        "Work it out: $90\\pi \\approx 282.7$ m³.",
+        "(That's roughly 282,700 litres, since 1 m³ = 1,000 litres.)"
+      ]
+    },
+    {
+      "id": "q-ma1-geo-8",
+      "kind": "flashcard",
+      "topic": "scale",
+      "prompt": "If the length scale factor is $k$, what are the area scale factor and the volume scale factor?",
+      "opener": "Think about how many dimensions area and volume each have.",
+      "answer": "The area scale factor is $k^2$ and the volume scale factor is $k^3$. Example: if all lengths are doubled ($k = 2$), the area becomes 4 times bigger and the volume becomes 8 times bigger. That's why a pizza twice as wide contains four times as much pizza."
+    }
+  ]
+}

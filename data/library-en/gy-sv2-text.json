@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv2-text",
+  "type": "assignment",
+  "subject": "Svenska 2",
+  "title": "Expository and argumentative text",
+  "sourceSummary": "Structure for expository text, source handling in running text, the difference between examining and arguing, and paragraphing and coherence.",
+  "topics": [
+    "expository text",
+    "argumentative text",
+    "source handling",
+    "paragraphing"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv2-text-1",
+      "kind": "mc",
+      "topic": "expository text",
+      "prompt": "What is the most important difference between an expository text and an argumentative text?",
+      "opener": "One wants to show several sides, the other wants to win you over.",
+      "choices": [
+        "They are the same text type with different names",
+        "An expository text sheds light on a question objectively and from all sides, an argumentative text argues for a thesis and wants to persuade",
+        "An expository text must never contain facts",
+        "An argumentative text always lacks a clear structure"
+      ],
+      "answer": 1,
+      "explanation": "An expository text sheds light on a question objectively and from all sides without necessarily taking a position, while an argumentative text has a clear thesis that the author wants to persuade the reader of."
+    },
+    {
+      "id": "q-sv2-text-2",
+      "kind": "mc",
+      "topic": "expository text",
+      "prompt": "Which structure does an expository text most often follow?",
+      "opener": "Consider how an examination should be followable by a reader who has not already made up their mind.",
+      "choices": [
+        "Just one long, continuous argument without any division",
+        "Only a summary of other people's opinions without any structure of its own",
+        "Verse, chorus, verse",
+        "An introduction with the question at issue, an expository section shedding light on different perspectives, and a concluding conclusion"
+      ],
+      "answer": 3,
+      "explanation": "An expository text often opens with a question or purpose, is followed by an expository section in which different perspectives and facts are weighed against each other, and ends with a conclusion or summarising reflection."
+    },
+    {
+      "id": "q-sv2-text-3",
+      "kind": "mc",
+      "topic": "source handling",
+      "prompt": "What characterises good source handling in running text?",
+      "opener": "The source should support your reasoning, not take it over.",
+      "choices": [
+        "Sources are woven naturally into the text and clearly indicated, rather than just stacked up as a list",
+        "You rewrite other people's texts without stating where the information comes from",
+        "You quote as much as possible word for word to avoid writing yourself",
+        "Sources only need to be stated in an appendix, never in the text"
+      ],
+      "answer": 0,
+      "explanation": "Good source handling means sources are integrated naturally into the running text — through rewording, summary or short quotations — while it is clearly stated where the information comes from. Just stacking up quotations or omitting source references weakens credibility."
+    },
+    {
+      "id": "q-sv2-text-4",
+      "kind": "mc",
+      "topic": "source handling",
+      "prompt": "A student rewrites a sentence from an article with almost exactly the same word choices, without quotation marks or a source reference. What is the problem?",
+      "opener": "Ask yourself whether a reader can tell what is yours and what is someone else's.",
+      "choices": [
+        "No problem, it's enough to have read the article",
+        "The only problem is that the sentence is too short",
+        "It counts as plagiarism since the source is neither quoted correctly nor cited",
+        "It's only a problem if the article is written in another language"
+      ],
+      "answer": 2,
+      "explanation": "Reproducing someone else's phrasing almost word for word without quotation marks and a source reference counts as plagiarism, regardless of how carefully you have read the source. Text should either be clearly reworded in your own words with a source reference, or quoted correctly."
+    },
+    {
+      "id": "q-sv2-text-5",
+      "kind": "mc",
+      "topic": "paragraphing",
+      "prompt": "What is the purpose of clear paragraphing in an expository text?",
+      "opener": "What happens to readability if everything is one single long block of text?",
+      "choices": [
+        "To make the text longer",
+        "So that each paragraph conveys one main idea and creates a logical, readable structure",
+        "To avoid having to write a coherent conclusion",
+        "Paragraphing has no bearing on readability"
+      ],
+      "answer": 1,
+      "explanation": "Clear paragraphing makes a text easier to follow — each paragraph should be built around one main idea, and the paragraphs should connect logically with the help of linking words and a common thread running through the text."
+    },
+    {
+      "id": "q-sv2-text-6",
+      "kind": "mc",
+      "topic": "argumentative text",
+      "prompt": "An argumentative text actively addresses the strongest counterarguments before restating its thesis. What purpose does this serve?",
+      "opener": "What does it say about a writer who dares to raise counterarguments?",
+      "choices": [
+        "It weakens the text's credibility since counterarguments should never be mentioned",
+        "It is just a way of making the text longer with no real purpose",
+        "Counterarguments should always be placed right at the very start of the text",
+        "It strengthens the text's credibility by showing that the author is aware of, and can address, objections"
+      ],
+      "answer": 3,
+      "explanation": "Addressing counterarguments shows that the writer is well informed and has considered different perspectives, which strengthens the text's credibility and the force of the argument — rather than simply ignoring objections."
+    },
+    {
+      "id": "q-sv2-text-7",
+      "kind": "worked",
+      "topic": "argumentative text",
+      "prompt": "A text is headed \"Should schools ban mobile phones in the classroom?\" and weighs advantages and disadvantages against each other without taking a clear position at the end. Another text with the same heading arrives at a clear position: schools should ban phones. Analyse which text type each text belongs to and why.",
+      "opener": "Look at whether the text arrives at a thesis or stops at a weighing-up.",
+      "answer": "The first text is expository because it sheds light on the pros and cons from all sides without taking a position. The second is argumentative because it has a clear thesis (a phone ban) that it tries to persuade the reader of.",
+      "steps": [
+        "Expository text: the purpose is to shed light on a question objectively from several angles, often without a final position — the text stops at a weighing-up.",
+        "Argumentative text: the purpose is to persuade — the text has a clear thesis backed up with arguments directed towards a specific position.",
+        "The same topic (mobile phones in the classroom) can therefore be treated in both text types — it is the purpose and structure, not the topic, that determines the text type.",
+        "A common misconception is that an expository text has no opinions at all — it may well have a concluding reflection, but it still weighs in several perspectives rather than arguing for a thesis."
+      ]
+    },
+    {
+      "id": "q-sv2-text-8",
+      "kind": "flashcard",
+      "topic": "source handling",
+      "prompt": "Summarise the basics of good source handling and structure in expository and argumentative text.",
+      "opener": "Structure and sources — the two things that determine whether a text holds up.",
+      "answer": "Expository text: shedding light on a question from all sides, structure of introduction–examination–conclusion · Argumentative text: clear thesis, arguments, addressing counterarguments, a closing restatement of the thesis · Source handling: weave sources naturally into running text, always state where information comes from, avoid near-word-for-word rewording without quotation marks (plagiarism) · Paragraphing: each paragraph one main idea, linking words create a common thread running through the whole text."
+    }
+  ]
+}

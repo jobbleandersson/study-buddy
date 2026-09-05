@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam-ekonomi",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Personal and national economics",
+  "sourceSummary": "The basics of managing your own finances — budget, income and saving — and how taxes, supply/demand and inflation are connected at a societal level.",
+  "topics": [
+    "budget and personal finance basics",
+    "taxes and what they fund",
+    "supply and demand, the basic idea",
+    "inflation, the basic idea"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam-eko-1",
+      "kind": "mc",
+      "topic": "budget and personal finance basics",
+      "prompt": "What is a plan called where you set your income against your expenses over a certain period?",
+      "opener": "It is a basic tool for keeping track of money coming in and going out.",
+      "choices": [
+        "A receipt",
+        "A budget",
+        "An invoice",
+        "A bank statement"
+      ],
+      "answer": 1,
+      "explanation": "A budget is a plan where income (e.g. wages, pocket money) is set against expenses (e.g. rent, food, entertainment) to see whether the money is enough and how much can be saved. A receipt and a bank statement show purchases/transactions already made, and an invoice is a request for payment."
+    },
+    {
+      "id": "q-sam-eko-2",
+      "kind": "mc",
+      "topic": "budget and personal finance basics",
+      "prompt": "Which of the following is an example of a fixed expense?",
+      "opener": "Fixed expenses are roughly the same size every month, unlike expenses that vary.",
+      "choices": [
+        "Rent for the flat",
+        "Ice cream on a hot summer's day",
+        "A present for a friend's birthday",
+        "A cinema ticket on Friday"
+      ],
+      "answer": 0,
+      "explanation": "Rent is a fixed expense that recurs at roughly the same amount every month. Ice cream, presents and cinema tickets are examples of variable or occasional expenses that differ from month to month."
+    },
+    {
+      "id": "q-sam-eko-3",
+      "kind": "mc",
+      "topic": "budget and personal finance basics",
+      "prompt": "Why is it wise to save part of your income regularly, even small amounts?",
+      "opener": "Think about unexpected expenses and long-term goals, e.g. a removal van or a computer.",
+      "choices": [
+        "It is not wise, money should always be spent immediately",
+        "Saving provides a buffer for unexpected expenses and makes it possible to reach bigger goals over time",
+        "Saving causes the money to decrease in value",
+        "You are only allowed to save if you earn a great deal"
+      ],
+      "answer": 1,
+      "explanation": "Regular saving builds up a buffer for unexpected costs (e.g. a broken bicycle) and makes it possible, over time, to afford bigger things, such as a trip or a computer, without needing to borrow."
+    },
+    {
+      "id": "q-sam-eko-4",
+      "kind": "mc",
+      "topic": "taxes and what they fund",
+      "prompt": "What are tax revenues in Sweden primarily used for?",
+      "opener": "Think about things that everyone in society uses together, regardless of what each individual pays.",
+      "choices": [
+        "Solely for the Prime Minister's private expenses",
+        "For shared welfare such as schools, healthcare, elderly care, police and infrastructure",
+        "They are just kept in a bank account and never used",
+        "To pay money back to the richest residents"
+      ],
+      "answer": 1,
+      "explanation": "Taxes fund shared societal functions such as schools, healthcare, elderly care, police, defence and roads — things that are difficult or unsuitable for each individual to pay for on their own."
+    },
+    {
+      "id": "q-sam-eko-5",
+      "kind": "mc",
+      "topic": "taxes and what they fund",
+      "prompt": "What is the tax called that is added to most goods and services when you shop in a store?",
+      "opener": "It is often visible as a percentage included in the price you pay at the till.",
+      "choices": [
+        "Income tax",
+        "Property tax",
+        "VAT (value-added tax)",
+        "Corporate tax"
+      ],
+      "answer": 2,
+      "explanation": "VAT (value-added tax) is added to most goods and services and is paid by the consumer at purchase. Income tax is levied on wages, property tax on housing, and corporate tax on companies' profits."
+    },
+    {
+      "id": "q-sam-eko-6",
+      "kind": "mc",
+      "topic": "supply and demand, the basic idea",
+      "prompt": "What happens to the price of a good if demand increases sharply while supply remains unchanged?",
+      "opener": "More people wanting to buy the same amount of goods usually affects the price in a certain direction.",
+      "choices": [
+        "The price usually falls",
+        "The price tends to rise because more people want the same amount",
+        "The price is never affected by demand",
+        "The good automatically becomes free"
+      ],
+      "answer": 1,
+      "explanation": "When demand increases but supply remains the same, more buyers want the same amount of goods, which usually pushes the price up. If instead supply increases more than demand, the price tends to fall."
+    },
+    {
+      "id": "q-sam-eko-7",
+      "kind": "worked",
+      "topic": "inflation, the basic idea",
+      "prompt": "Explain what inflation means and why a 2% pay rise does not necessarily improve your purchasing power if inflation is simultaneously 4%.",
+      "opener": "Compare how much the money is worth in relation to prices, not just how large the amount is in kronor.",
+      "answer": "Inflation means that the general price level in society rises over time, which means that each krona buys fewer goods and services than before — the purchasing power of money decreases. If your wage increases by 2% but prices on average rise by 4% over the same period, your real wage (purchasing power) has in practice decreased by about 2%, because prices have risen more than your income. You therefore have more kronor, but they buy less than before.",
+      "steps": [
+        "Inflation = the general price level in the economy increases over time, measured for example by the consumer price index.",
+        "Purchasing power is about how much goods and services a given sum of money can buy, not just how many kronor you have.",
+        "Your wage (counted in kronor) increases by 2%, but prices increase by 4% — prices have therefore increased more than your income.",
+        "Because prices have risen more than your wage, your money buys fewer goods and services than before — your real purchasing power decreases, even though you nominally earn more.",
+        "Conclusion: it is the difference between the pay rise and inflation (the real wage development) that determines whether you can actually afford more or less than before."
+      ]
+    },
+    {
+      "id": "q-sam-eko-8",
+      "kind": "flashcard",
+      "topic": "budget and personal finance basics",
+      "prompt": "Summarise the key concepts in personal and national economics.",
+      "opener": "From your own wallet to the economy of the whole of society, in a few key concepts.",
+      "answer": "Budget: a plan where income is set against expenses to see what is left to save · Fixed expenses: recur at roughly the same amount (e.g. rent), variable expenses vary (e.g. food, entertainment) · Saving: builds a buffer for unexpected expenses and enables bigger future purchases · Tax: money citizens and companies pay to the state, region and municipality, which funds shared welfare (schools, healthcare, care, infrastructure) · VAT: tax on most goods/services, paid by the consumer at purchase · Supply and demand: high demand + unchanged supply usually gives a higher price, increased supply without increased demand usually gives a lower price · Inflation: the general price level rises over time, which reduces the purchasing power of money unless income rises by at least as much."
+    }
+  ]
+}

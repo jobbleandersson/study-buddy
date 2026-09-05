@@ -1,0 +1,130 @@
+{
+  "id": "lib-bio-evolution",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Evolution and natural selection",
+  "sourceSummary": "Natural selection, adaptation and speciation — the basics of Darwin's theory of evolution and how fossils serve as evidence.",
+  "topics": [
+    "natural selection",
+    "adaptation",
+    "speciation",
+    "fossils as evidence",
+    "Darwin"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio-evo-1",
+      "kind": "mc",
+      "topic": "natural selection",
+      "prompt": "What is meant by natural selection?",
+      "opener": "Think about which individuals most often survive and have the most offspring.",
+      "choices": [
+        "That all individuals in a species are exactly alike",
+        "That individuals with traits best suited to the environment more often survive and pass on their traits",
+        "That animals consciously choose to change their traits",
+        "That humans breed new pet or livestock breeds"
+      ],
+      "answer": 1,
+      "explanation": "Natural selection means that individuals with traits that give an advantage in a particular environment have a greater chance of surviving and reproducing, so their traits become more common in the population over time. Deliberately selecting for traits is instead breeding (artificial selection)."
+    },
+    {
+      "id": "q-bio-evo-2",
+      "kind": "mc",
+      "topic": "Darwin",
+      "prompt": "Who is known for describing the theory of evolution through natural selection?",
+      "opener": "A British naturalist who travelled on the ship HMS Beagle in the 1800s.",
+      "choices": [
+        "Gregor Mendel",
+        "Charles Darwin",
+        "Carl von Linné",
+        "Louis Pasteur"
+      ],
+      "answer": 1,
+      "explanation": "Charles Darwin formulated the theory of evolution through natural selection, partly following his voyage on HMS Beagle. Mendel studied heredity, Linnaeus classified species, and Pasteur studied microorganisms."
+    },
+    {
+      "id": "q-bio-evo-3",
+      "kind": "mc",
+      "topic": "adaptation",
+      "prompt": "What is an adaptation?",
+      "opener": "Think of a trait that helps a species cope better in its environment.",
+      "choices": [
+        "A temporary injury in an individual",
+        "A trait that makes an organism better suited to its habitat",
+        "A disease that spreads in a population",
+        "A name for an animal species"
+      ],
+      "answer": 1,
+      "explanation": "An adaptation is a trait, such as camouflage colouring or a particular beak shape, that has evolved through natural selection and makes the organism better suited to survive and reproduce in its environment."
+    },
+    {
+      "id": "q-bio-evo-4",
+      "kind": "mc",
+      "topic": "speciation",
+      "prompt": "What is usually required for a new species to form (speciation)?",
+      "opener": "Think about what happens if two groups of the same species are isolated from each other for a long time.",
+      "choices": [
+        "That all individuals die at the same time",
+        "That groups become isolated from each other and evolve differently over a long time until they can no longer produce fertile offspring together",
+        "That a single individual mutates once",
+        "That animals move to another country"
+      ],
+      "answer": 1,
+      "explanation": "Speciation usually happens when populations become isolated from each other, for example by a sea or a mountain range, and over a long time evolve so differently (through mutations and natural selection) that they can no longer produce fertile offspring together."
+    },
+    {
+      "id": "q-bio-evo-5",
+      "kind": "mc",
+      "topic": "fossils as evidence",
+      "prompt": "What can fossils show us?",
+      "opener": "Think about what is left behind by animals and plants that lived a very long time ago.",
+      "choices": [
+        "Exactly what colour the animals were",
+        "How species have changed over a very long time",
+        "That all species have always looked the same",
+        "What language prehistoric humans spoke"
+      ],
+      "answer": 1,
+      "explanation": "Fossils are preserved remains or imprints of organisms that lived in the past, and by comparing fossils from different time periods, researchers can see how species gradually changed over millions of years — an important piece of evidence for evolution."
+    },
+    {
+      "id": "q-bio-evo-6",
+      "kind": "mc",
+      "topic": "natural selection",
+      "prompt": "According to the theory of evolution, why do giraffes today have long necks?",
+      "opener": "It isn't about individual giraffes stretching their necks — what is it about instead?",
+      "choices": [
+        "Giraffes deliberately stretched their necks and this was inherited",
+        "Giraffes with longer necks, due to natural variation, reached more food and had more surviving offspring, so the trait for a long neck became more common",
+        "All giraffes were suddenly born with long necks at the same time",
+        "The neck became long because giraffes trained their neck muscles"
+      ],
+      "answer": 1,
+      "explanation": "According to natural selection, variation in neck length already existed among giraffes. Those with longer necks could reach more food high up in the trees, survived more often, and had more offspring who inherited the trait. An individual \"training\" or stretching does not produce anything that can be inherited — this is a common misconception."
+    },
+    {
+      "id": "q-bio-evo-7",
+      "kind": "worked",
+      "topic": "natural selection",
+      "prompt": "Using the example of insects becoming resistant to pesticides, explain how natural selection causes a population to change over time.",
+      "opener": "Start from the assumption that natural variation already exists in the population before the environment changes.",
+      "answer": "Because natural variation in resistance already exists in the insect population, the susceptible insects die when pesticide is used, while the more resistant ones survive and reproduce. Over several generations, the proportion of resistant insects grows larger and larger, until almost the whole population is resistant.",
+      "steps": [
+        "Before the pesticide is used, natural variation already exists — a few insects happen to have traits that make them slightly more resistant.",
+        "When the pesticide is applied, most of the susceptible insects die.",
+        "The resistant insects survive and reproduce, passing on their traits to the next generation.",
+        "The proportion of resistant insects increases with each generation.",
+        "After many generations, the population consists mostly of resistant insects — a clear real-world example of natural selection."
+      ]
+    },
+    {
+      "id": "q-bio-evo-8",
+      "kind": "flashcard",
+      "topic": "natural selection",
+      "prompt": "Summarise the basic ideas of the theory of evolution.",
+      "opener": "Go through variation, selection and outcome.",
+      "answer": "Variation: individuals within a species differ somewhat, partly due to mutations · Competition: more offspring are born than the environment can support, so there is competition for resources · Natural selection: individuals with traits best suited to the environment survive and reproduce more often · Heredity: favourable traits are passed on to the next generation and become more common over time · Speciation: if populations are isolated for a long time, they can develop into separate species · Evidence: fossils, DNA similarities between species, and real-world observations of natural selection (e.g. antibiotic resistance) support the theory."
+    }
+  ]
+}

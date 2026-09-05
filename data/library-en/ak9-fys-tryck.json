@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys-tryck",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Pressure and weather",
+  "sourceSummary": "What pressure is and how it's calculated, how air pressure creates high and low pressure systems, and the link between the water cycle and the weather we experience.",
+  "topics": [
+    "pressure and area",
+    "air pressure",
+    "high and low pressure",
+    "the water cycle and weather"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys-try-1",
+      "kind": "mc",
+      "topic": "pressure and area",
+      "prompt": "How is pressure calculated?",
+      "opener": "Pressure is about how a force is spread out over a surface.",
+      "choices": [
+        "Pressure = force times area",
+        "Pressure = force divided by area",
+        "Pressure = mass times area",
+        "Pressure = area divided by force"
+      ],
+      "answer": 1,
+      "explanation": "Pressure (p) is calculated as p = F / A, force divided by the area the force is distributed over. The smaller the area the same force acts on, the greater the pressure. Multiplying force and area gives the wrong quantity."
+    },
+    {
+      "id": "q-fys-try-2",
+      "kind": "mc",
+      "topic": "pressure and area",
+      "prompt": "Why does a person sink more easily into snow wearing ordinary shoes than wearing skis, even though the person weighs the same?",
+      "opener": "Think about how the same force (weight) is spread over surfaces of different sizes.",
+      "choices": [
+        "Skis weigh less than shoes",
+        "Skis have a larger area, so the force of gravity is spread over a larger surface and the pressure on the snow becomes smaller",
+        "Skis have a smaller area, which gives lower pressure",
+        "The snow is always harder under skis"
+      ],
+      "answer": 1,
+      "explanation": "The same gravitational force spread over the larger area of the skis gives lower pressure (p = F/A) on the snow, so the person doesn't sink as deep. With shoes the area is small, which gives higher pressure and the person sinks in."
+    },
+    {
+      "id": "q-fys-try-3",
+      "kind": "mc",
+      "topic": "air pressure",
+      "prompt": "What causes air pressure?",
+      "opener": "The air around the Earth has mass and is affected by gravity.",
+      "choices": [
+        "The Earth rotating on its axis",
+        "The air's own weight pressing against everything it surrounds, for example the Earth's surface",
+        "The Sun heating the ocean",
+        "The Moon's pull on the atmosphere"
+      ],
+      "answer": 1,
+      "explanation": "The air in the atmosphere has mass and is pulled downward by gravity, which creates a pressure against everything it surrounds — the Earth's surface, houses and bodies. The Earth's rotation and the Sun's heating affect weather and winds, but it's the weight of the air that creates the actual air pressure."
+    },
+    {
+      "id": "q-fys-try-4",
+      "kind": "mc",
+      "topic": "air pressure",
+      "prompt": "Why is air pressure lower high up on a mountain than at sea level?",
+      "opener": "Think about how much air there is above you at different heights.",
+      "choices": [
+        "There is less air above you high up, so the total weight of air pressing down is smaller",
+        "The air is colder high up, and cold air has no pressure",
+        "The mountain itself pushes the air away",
+        "The Sun heats mountaintops less"
+      ],
+      "answer": 0,
+      "explanation": "Air pressure depends on how much air there is above a given point. High up on a mountain there is less air above, so the total weight of the air column is smaller and the air pressure becomes lower. Temperature affects the air's density but is not the main cause of the pressure difference."
+    },
+    {
+      "id": "q-fys-try-5",
+      "kind": "mc",
+      "topic": "high and low pressure",
+      "prompt": "What weather is most often associated with a high-pressure system?",
+      "opener": "In high pressure, the air sinks and is compressed on the way down.",
+      "choices": [
+        "Rain and wind",
+        "Calm weather with clear skies and little cloud",
+        "Thunderstorms and heavy downpours",
+        "A snowstorm"
+      ],
+      "answer": 1,
+      "explanation": "In a high-pressure system, the air sinks, warms up and dries out, giving calm weather with clear skies and few clouds. Rain, wind and thunderstorms are typical of low pressure, where air rises and forms clouds."
+    },
+    {
+      "id": "q-fys-try-6",
+      "kind": "mc",
+      "topic": "high and low pressure",
+      "prompt": "What happens to the air in a low-pressure system?",
+      "opener": "Think about the opposite of what happens in a high-pressure system.",
+      "choices": [
+        "The air sinks and is compressed",
+        "The air rises, which cools it down and forms clouds and often precipitation",
+        "The air stands completely still",
+        "The air gets warmer the higher up it goes"
+      ],
+      "answer": 1,
+      "explanation": "In a low-pressure system, the air rises upward. As the rising air cools, clouds form, and this often leads to rain or snow as well as windier weather. This is the opposite of what happens in a high-pressure system, where the air sinks."
+    },
+    {
+      "id": "q-fys-try-7",
+      "kind": "worked",
+      "topic": "the water cycle and weather",
+      "prompt": "Explain how the water cycle relates to the formation of rain, and link this to what happens in a low-pressure system.",
+      "opener": "Follow the water from oceans and lakes all the way up into the air and back down again.",
+      "answer": "The Sun heats water in oceans and lakes so that it evaporates and becomes water vapour in the air. The water vapour rises, cools, and condenses into small water droplets that form clouds. In a low-pressure system, the air rises especially strongly, which enhances this cooling and cloud formation, and when the droplets become large and heavy enough they fall as precipitation (rain or snow) — the water then flows back to oceans and lakes via land and waterways, and the cycle starts again.",
+      "steps": [
+        "The Sun heats water surfaces so that water evaporates and becomes invisible water vapour in the air.",
+        "The water vapour rises with warm air upward in the atmosphere.",
+        "Up in the colder air, the vapour condenses into small water droplets that form clouds.",
+        "In a low-pressure system, the air rises strongly, giving more cooling and more and larger clouds.",
+        "When droplets in the clouds become too heavy to stay aloft, they fall as rain or snow, and the water flows back to oceans and lakes."
+      ]
+    },
+    {
+      "id": "q-fys-try-8",
+      "kind": "flashcard",
+      "topic": "pressure and area",
+      "prompt": "Summarise the concepts of pressure, air pressure, high/low pressure and the water cycle.",
+      "opener": "Go through each concept separately before turning the card over.",
+      "answer": "Pressure: p = F / A, force divided by the area the force acts over — a smaller area gives higher pressure for the same force · Air pressure: arises because the air in the atmosphere has mass and gravity pulls it downward, creating a pressure against the Earth's surface · Air pressure is lower higher up because there is less air above a given point there · High pressure: the air sinks, warms up and dries out → calm, clear weather · Low pressure: the air rises, cools, forms clouds → rain, wind and unsettled weather · The water cycle: evaporation (the sun heats water into vapour) → condensation (vapour cools into clouds) → precipitation (rain/snow falls) → runoff back to oceans and lakes, and the cycle repeats."
+    }
+  ]
+}

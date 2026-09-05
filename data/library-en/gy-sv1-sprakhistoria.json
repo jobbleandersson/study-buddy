@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv1-sprakhistoria",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Sociolinguistics and the Nordic languages",
+  "sourceSummary": "Dialect, sociolect and chronolect, Swedish's linguistic relatives, the national minority languages, and the neighbouring languages of the Nordic region.",
+  "topics": [
+    "linguistic variation",
+    "minority languages",
+    "Nordic languages",
+    "loanwords"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-hist-1",
+      "kind": "mc",
+      "topic": "minority languages",
+      "prompt": "What are Sweden's five national minority languages?",
+      "opener": "Five languages that were given official status in Sweden in the year 2000.",
+      "choices": [
+        "English, Arabic, Finnish, Sami and Yiddish",
+        "Sami, Meänkieli, Yiddish, German and Finnish",
+        "Finnish, Meänkieli, Sami, Romani Chib and Yiddish",
+        "Finnish, Norwegian, Danish, Sami and Romani Chib"
+      ],
+      "answer": 2,
+      "explanation": "The five recognised national minority languages are Finnish, Meänkieli (Tornedalen Finnish), Sami, Romani Chib and Yiddish. They hold this status thanks to historical presence in Sweden - not number of speakers."
+    },
+    {
+      "id": "q-sv1-hist-2",
+      "kind": "mc",
+      "topic": "Nordic languages",
+      "prompt": "Which of these languages is NOT related to Swedish?",
+      "opener": "One of them belongs to an entirely different language family, despite geographical closeness.",
+      "choices": [
+        "Norwegian",
+        "Icelandic",
+        "Danish",
+        "Finnish"
+      ],
+      "answer": 3,
+      "explanation": "Finnish belongs to the Finno-Ugric (Uralic) language family and is not related to Swedish. Icelandic, Danish and Norwegian, like Swedish, are North Germanic languages."
+    },
+    {
+      "id": "q-sv1-hist-3",
+      "kind": "mc",
+      "topic": "linguistic variation",
+      "prompt": "Young people in a big city use words and expressions their parents don't know. What type of linguistic variation is this mainly?",
+      "opener": "What is it that separates the groups here - place, age or occupation?",
+      "choices": [
+        "Chronolect",
+        "National language",
+        "Dialect",
+        "Idiolect"
+      ],
+      "answer": 0,
+      "explanation": "Chronolect is linguistic variation linked to age. Dialect is tied to geography, sociolect to social group, and idiolect to an individual's own way of speaking."
+    },
+    {
+      "id": "q-sv1-hist-4",
+      "kind": "mc",
+      "topic": "linguistic variation",
+      "prompt": "What is a sociolect?",
+      "opener": "What do the speakers have in common, if it isn't where they live?",
+      "choices": [
+        "Language variation linked to geographic area",
+        "Language variation linked to social group or class",
+        "One individual's unique use of language",
+        "An official minority language"
+      ],
+      "answer": 1,
+      "explanation": "Sociolect is variation linked to social affiliation - occupational group, class or educational background. Geographic variation is called dialect."
+    },
+    {
+      "id": "q-sv1-hist-5",
+      "kind": "mc",
+      "topic": "loanwords",
+      "prompt": "During the Middle Ages, Swedish took in large numbers of words such as \"betala\" (pay), \"arbete\" (work) and \"språk\" (language). Where did they come from?",
+      "opener": "Think about who dominated trade in the Baltic Sea at that time.",
+      "choices": [
+        "Latin",
+        "English",
+        "Low German",
+        "French"
+      ],
+      "answer": 2,
+      "explanation": "The Hanseatic League made Low German the language of trade in the Nordic region, and Low German loanwords poured into Swedish during the Middle Ages. French loanwords mainly arrived in the 18th century, and English dominates in modern times."
+    },
+    {
+      "id": "q-sv1-hist-6",
+      "kind": "mc",
+      "topic": "linguistic variation",
+      "prompt": "A pupil writes \"like, totally awesome\" (in casual slang) in a piece of written coursework. What is the main problem from a language-correctness perspective?",
+      "opener": "Are the words wrong in themselves - or wrong just here?",
+      "choices": [
+        "The words are grammatically incorrect",
+        "The words are misspelled",
+        "The words don't exist in the Swedish language",
+        "The register doesn't suit the context"
+      ],
+      "answer": 3,
+      "explanation": "The words aren't wrong in themselves - they work fine in spoken language among friends. The problem is the register: a piece of schoolwork requires formal written language. Language correctness is often about adapting language to the audience and situation."
+    },
+    {
+      "id": "q-sv1-hist-7",
+      "kind": "worked",
+      "topic": "linguistic variation",
+      "prompt": "Explain why the same person might say \"Give me that thing\" at home, \"Might I have the tool?\" at work, and \"Can you pass the hammer?\" to a colleague. Which concepts describe this?",
+      "opener": "Same person, same thing - but different language. What governs the choice?",
+      "answer": "Adapting to the situation through register and level of formality - the person switches between different linguistic varieties depending on the audience and context.",
+      "steps": [
+        "All three utterances mean roughly the same thing, but they differ in degree of formality.",
+        "The choice is governed by the situation and the relationship to the listener - at home the tone is relaxed, in a formal work situation it's more polite.",
+        "This is called adapting register or level of formality. Commanding several registers is a linguistic strength, not a sign of insecurity.",
+        "The concept of idiolect describes a person's overall individual use of language - including the ability to switch between varieties."
+      ]
+    },
+    {
+      "id": "q-sv1-hist-8",
+      "kind": "flashcard",
+      "topic": "linguistic variation",
+      "prompt": "Explain dialect, sociolect, chronolect and idiolect.",
+      "opener": "Four kinds of variation - what determines which one it is?",
+      "answer": "Dialect: variation by geographic area (Scanian, Norrland dialects). Sociolect: variation by social group, class or occupation. Chronolect: variation by age (youth slang). Idiolect: one individual's unique use of language - the sum of all the varieties a person carries with them."
+    }
+  ]
+}

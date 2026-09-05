@@ -1,0 +1,129 @@
+{
+  "id": "lib-sv7-lasforstaelse",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Reading comprehension",
+  "sourceSummary": "Finding information in a text, understanding what it is broadly about, drawing simple conclusions, and working out what an unknown word means using context.",
+  "topics": [
+    "finding information",
+    "main message",
+    "conclusions",
+    "word comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv7-las-1",
+      "kind": "mc",
+      "topic": "finding information",
+      "prompt": "Read the text and answer.\n\n\"The school library opens at eight every morning. On Mondays and Wednesdays it is open until five o'clock, on other days it closes at three. During the holidays the library is completely closed.\"\n\nWhich day can you borrow books latest in the afternoon?",
+      "opener": "The answer is stated directly in the text — look for the day mentioned together with the latest time.",
+      "choices": [
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "answer": 1,
+      "explanation": "The text says the library is open until five o'clock on Mondays and Wednesdays — of the options, Wednesday is the only one of these. Tuesday, Thursday and Friday belong to \"other days\", when it already closes at three."
+    },
+    {
+      "id": "q-sv7-las-2",
+      "kind": "mc",
+      "topic": "main message",
+      "prompt": "Read the text and answer.\n\n\"Getting too little sleep makes it harder to concentrate at school. Many teenagers sit with their phones late in the evening and therefore fall asleep later than they intended. Researchers recommend putting the screen away an hour before bedtime. That makes it easier to fall asleep.\"\n\nWhat is the text mainly about?",
+      "opener": "Ask yourself what ALL the sentences together are about, not just one of them.",
+      "choices": [
+        "That phones should be banned in schools",
+        "That all teenagers fall asleep late",
+        "That researchers think teenagers are lazy",
+        "That too little sleep affects school, and that evening screen use is one cause"
+      ],
+      "answer": 3,
+      "explanation": "The text links sleep, concentration and evening phone use, and gives a piece of advice. Banning phones in schools is never mentioned — the text is about evenings, not lesson time."
+    },
+    {
+      "id": "q-sv7-las-3",
+      "kind": "mc",
+      "topic": "conclusions",
+      "prompt": "Read the text and answer.\n\n\"Noor glanced towards the door every time it opened. She had laid out the plates an hour ago, and the food still sat untouched on the table. The phone lay silent beside the glass.\"\n\nWhat can you understand about Noor?",
+      "opener": "The text doesn't state it directly — what do the details reveal about what she is doing?",
+      "choices": [
+        "She is waiting for someone who hasn't arrived",
+        "She is hungry and is just about to start eating",
+        "She is angry at her phone",
+        "She is in the middle of cooking"
+      ],
+      "answer": 0,
+      "explanation": "The glances at the door, the untouched food and the silent phone together show that she is waiting for someone who is late. That she is about to eat doesn't fit — the food has sat out for an hour without her touching it."
+    },
+    {
+      "id": "q-sv7-las-4",
+      "kind": "mc",
+      "topic": "word comprehension",
+      "prompt": "Read the text and answer.\n\n\"The hike turned out longer than they had thought. When they finally reached the cabin, everyone was exhausted. Elias threw off his backpack and sank down onto the bunk without having the energy to take off his shoes.\"\n\nWhat does the word \"exhausted\" mean in the text?",
+      "opener": "Read the sentences before and after the word — what are the people doing, and what does that say about how they feel?",
+      "choices": [
+        "Hungry",
+        "Disappointed",
+        "Very tired",
+        "Cold"
+      ],
+      "answer": 2,
+      "explanation": "The hike was long and Elias doesn't even have the energy to take off his shoes — the context shows that \"exhausted\" means very tired. Being hungry isn't mentioned at all in the text, even though it might sound plausible after a long hike."
+    },
+    {
+      "id": "q-sv7-las-5",
+      "kind": "mc",
+      "topic": "finding information",
+      "prompt": "Read the text and answer.\n\n\"The class is going to the nature reserve on Thursday. The bus leaves from the school at nine o'clock, so everyone should be there at quarter to nine. Bring a packed lunch, rain gear and sturdy shoes. Phones may be brought but should stay in the bag during the hike.\"\n\nWhat time should the students be at school?",
+      "opener": "Two times are mentioned — read carefully which one applies to the bus and which applies to the students.",
+      "choices": [
+        "Nine o'clock",
+        "Quarter past nine",
+        "Quarter to nine",
+        "Half past eight"
+      ],
+      "answer": 2,
+      "explanation": "The text says the bus leaves at nine o'clock and that everyone should therefore be there at quarter to nine. Nine o'clock is thus the bus's departure time, not the meeting time."
+    },
+    {
+      "id": "q-sv7-las-6",
+      "kind": "mc",
+      "topic": "conclusions",
+      "prompt": "Read the text and answer.\n\n\"It was the first time Milo was going to play a match with the new team. He retied his shoelaces three times. His hands were cold even though the sun was shining, and he only answered with a nod when the coach asked if he was ready.\"\n\nHow does Milo most likely feel?",
+      "opener": "Which small details in the body and behaviour usually reveal a feeling?",
+      "choices": [
+        "Bored",
+        "Ill and cold",
+        "Angry at the coach",
+        "Nervous"
+      ],
+      "answer": 3,
+      "explanation": "Retying his shoes over and over, having cold hands in sunshine, and barely managing to answer all point to nervousness before the first match. He is hardly cold — the text explicitly says the sun was shining."
+    },
+    {
+      "id": "q-sv7-las-7",
+      "kind": "worked",
+      "topic": "finding information",
+      "prompt": "Read the text and answer in one sentence: \"The school's after-school club is open every Tuesday and Thursday after the end of the school day. There you can play games, do crafts, or just hang out. The club is free, but you must sign up with Sofia in the office before coming the first time.\"\n\nWhat must you do before going to the after-school club for the first time, and why isn't it enough to just show up?",
+      "opener": "First find the sentence that contains the word \"must\" — that's where the requirement is.",
+      "answer": "You must sign up with Sofia in the office before your first visit, since the text says that signing up is required before you come the first time — so it isn't enough to just turn up.",
+      "steps": [
+        "Read the question first so you know what you're looking for: a requirement before the first visit.",
+        "Search the text for signal words like \"must\", \"should\" or \"before\".",
+        "The last sentence contains the requirement: signing up with Sofia in the office.",
+        "Check that nothing else in the text contradicts the answer — the club is free, but signing up is still required.",
+        "Write the answer in your own sentence and back it up with what the text actually says."
+      ]
+    },
+    {
+      "id": "q-sv7-las-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "How do you go about answering a reading comprehension question?",
+      "opener": "Four habits that help you find the right answer more often.",
+      "answer": "Read the question first — then you know what you're looking for in the text. Finding information: the answer is often stated directly · go back and point to the sentence instead of guessing from memory. Main message: ask what the WHOLE text is about, not just one detail · the point is often in the first or last sentence. Conclusions: build on clues in the text — what the people do, say and feel · never on your own guesses. Unknown words: read the surrounding sentences · test which option fits the context. Warning: answer options that sound plausible but are never mentioned in the text are wrong."
+    }
+  ]
+}

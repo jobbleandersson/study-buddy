@@ -1,0 +1,128 @@
+{
+  "id": "lib-bio7-vaxter",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Plants and photosynthesis",
+  "sourceSummary": "The parts of a plant and what they do, along with photosynthesis, in which carbon dioxide, water and sunlight become sugar and oxygen. You also practise cellular respiration, pollination and seed dispersal.",
+  "topics": [
+    "parts of a plant",
+    "photosynthesis",
+    "cellular respiration",
+    "pollination and seeds"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio7-vax-1",
+      "kind": "mc",
+      "topic": "parts of a plant",
+      "prompt": "What is the function of a plant's root?",
+      "opener": "Think about what is down in the soil that the plant needs.",
+      "choices": [
+        "To take up water and nutrients from the soil and anchor the plant",
+        "To make sugar using sunlight",
+        "To attract insects",
+        "To spread the seeds with the wind"
+      ],
+      "answer": 0,
+      "explanation": "The root draws up water and mineral nutrients from the soil and anchors the plant. Making sugar is the leaves' job during photosynthesis, and attracting insects is the flower's task."
+    },
+    {
+      "id": "q-bio7-vax-2",
+      "kind": "mc",
+      "topic": "photosynthesis",
+      "prompt": "What substances does a plant need in order to carry out photosynthesis?",
+      "opener": "Two substances plus an energy source — what does the leaf take in from the air and the root take up from the soil?",
+      "choices": [
+        "Oxygen and sugar",
+        "Nitrogen and salt",
+        "Carbon dioxide and water",
+        "Oxygen and water"
+      ],
+      "answer": 2,
+      "explanation": "The plant takes in carbon dioxide through the stomata in the leaves and water via the roots, and with the energy of sunlight, sugar and oxygen are formed. Oxygen and sugar are instead what is left afterwards — they are the result, not the raw materials."
+    },
+    {
+      "id": "q-bio7-vax-3",
+      "kind": "mc",
+      "topic": "photosynthesis",
+      "prompt": "What is formed during photosynthesis?",
+      "opener": "One substance becomes the plant's food, the other is what we breathe in.",
+      "choices": [
+        "Carbon dioxide and water",
+        "Sugar (glucose) and oxygen",
+        "Nitrogen and carbon dioxide",
+        "Water and salt"
+      ],
+      "answer": 1,
+      "explanation": "Photosynthesis forms glucose, which the plant uses as food and building material, as well as oxygen, which is released into the air. Carbon dioxide and water are the raw materials that go into the process, not what comes out."
+    },
+    {
+      "id": "q-bio7-vax-4",
+      "kind": "mc",
+      "topic": "cellular respiration",
+      "prompt": "What does a plant do during cellular respiration?",
+      "opener": "Cellular respiration is the opposite of photosynthesis — what happens to the sugar?",
+      "choices": [
+        "It forms new sugar using light",
+        "It takes up nitrogen from the air",
+        "It splits water into hydrogen and oxygen",
+        "It breaks down sugar using oxygen and releases energy"
+      ],
+      "answer": 3,
+      "explanation": "During cellular respiration, oxygen is used to break down sugar, and the energy released drives the plant's life processes; carbon dioxide and water are formed. Forming sugar using light is precisely photosynthesis — the opposite process."
+    },
+    {
+      "id": "q-bio7-vax-5",
+      "kind": "mc",
+      "topic": "pollination and seeds",
+      "prompt": "What is meant by pollination?",
+      "opener": "Something small and yellow has to move from one flower part to another.",
+      "choices": [
+        "That the seeds are spread by the wind to new places",
+        "That the leaves lose their green colour in autumn",
+        "That pollen is carried from the stamen to the pistil",
+        "That the root grows down into the soil"
+      ],
+      "answer": 2,
+      "explanation": "Pollination means that pollen grains from the stamens land on the pistil's stigma, often with the help of insects or wind — only then can fertilisation and seed formation take place. The seeds being spread happens later and is called seed dispersal, not pollination."
+    },
+    {
+      "id": "q-bio7-vax-6",
+      "kind": "mc",
+      "topic": "pollination and seeds",
+      "prompt": "Why do many plants have seeds sitting inside sweet, colourful berries?",
+      "opener": "Who eats the berry, and where do the seeds end up afterwards?",
+      "choices": [
+        "So that animals will eat the berries and spread the seeds in their droppings",
+        "So that the seeds can carry out photosynthesis inside the berry",
+        "So that the berries protect the plant from rain",
+        "So that the berries attract pollen from other plants"
+      ],
+      "answer": 0,
+      "explanation": "Animals eat the berries and the seeds pass through the gut and come out in a new place, which spreads the plant further than it could reach on its own. The seeds cannot carry out photosynthesis inside the berry — it is dark in there, and the seed lives on its own store of nutrients."
+    },
+    {
+      "id": "q-bio7-vax-7",
+      "kind": "worked",
+      "topic": "photosynthesis",
+      "prompt": "A potted green plant is placed in a dark cupboard for two weeks. Explain step by step why the plant starts to wilt and fade.",
+      "opener": "Start with what photosynthesis needs, then think about what happens when one of the parts is missing.",
+      "answer": "Without light, photosynthesis cannot happen, so the plant gets no new sugar. It lives for a while on its stored reserves, but once those run out it wilts and the chlorophyll breaks down so the leaves fade.",
+      "steps": [
+        "Photosynthesis needs carbon dioxide, water AND sunlight — in the cupboard, light is missing.",
+        "Without light the chloroplasts cannot make new sugar.",
+        "The plant still continues with cellular respiration and uses up the sugar it has stored.",
+        "When the reserves run out the cells get too little energy, the plant wilts and the chlorophyll breaks down so the leaves turn yellow or pale."
+      ]
+    },
+    {
+      "id": "q-bio7-vax-8",
+      "kind": "flashcard",
+      "topic": "photosynthesis",
+      "prompt": "What do the different parts of a plant do, and how do photosynthesis and cellular respiration work?",
+      "opener": "Take the four plant parts first, then the two processes that belong together.",
+      "answer": "Root: takes up water and mineral nutrients, anchors the plant · Stem: supports the plant and transports water upward and sugar downward · Leaf: carries out photosynthesis, has stomata for gas exchange · Flower: the plant's reproductive organ with stamens (pollen) and pistil (ovules) · Photosynthesis: carbon dioxide + water + sunlight → glucose + oxygen, happens in the chloroplasts with chlorophyll, only in light · Cellular respiration: glucose + oxygen → carbon dioxide + water + energy, happens in the mitochondria, around the clock in both plants and animals · Pollination: pollen from stamen to pistil via insects or wind · Seed dispersal: wind, water, animals that eat berries, or seeds that stick to fur."
+    }
+  ]
+}

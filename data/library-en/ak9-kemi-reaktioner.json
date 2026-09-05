@@ -1,0 +1,128 @@
+{
+  "id": "lib-kemi-reaktioner",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Chemical reactions and bonds",
+  "sourceSummary": "The difference between a chemical and a physical change, the basic idea behind covalent bonding and ionic bonding, how to balance simple reaction equations, and exothermic and endothermic reactions.",
+  "topics": [
+    "chemical and physical change",
+    "chemical bonds",
+    "reaction equations",
+    "exothermic and endothermic reactions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi-rea-1",
+      "kind": "mc",
+      "topic": "chemical and physical change",
+      "prompt": "Which of the following is an example of a CHEMICAL change?",
+      "opener": "Consider whether a new substance with new properties is formed, or whether it is just the same substance changing form.",
+      "choices": [
+        "Ice melts into water",
+        "Paper burns to ash",
+        "Sugar dissolves in water",
+        "Water boils and turns to steam"
+      ],
+      "answer": 1,
+      "explanation": "When paper burns, new substances are formed (including carbon dioxide, water and ash) with entirely different properties from the paper — this is a chemical change. The other examples are physical changes where the substance only changes form or state, without becoming something new."
+    },
+    {
+      "id": "q-kemi-rea-2",
+      "kind": "mc",
+      "topic": "chemical and physical change",
+      "prompt": "What characterises a CHEMICAL reaction, as opposed to a physical change?",
+      "opener": "Think about what happens to the identity of the substances, not just their form.",
+      "choices": [
+        "The substance's temperature changes",
+        "The substance's form or state changes",
+        "One or more new substances are formed with new properties",
+        "The substance's mass disappears entirely"
+      ],
+      "answer": 2,
+      "explanation": "The decisive factor for a chemical reaction is that new substances with new properties are formed. Temperature changes and changes of form can occur with both types of change, and mass is always conserved according to the law of conservation of mass."
+    },
+    {
+      "id": "q-kemi-rea-3",
+      "kind": "mc",
+      "topic": "chemical bonds",
+      "prompt": "What is the bond called where atoms SHARE an electron pair between them, for example in a water molecule (H2O)?",
+      "opener": "Think about the prefix 'co-', which means 'together' or 'shared'.",
+      "choices": [
+        "Ionic bond",
+        "Covalent bond",
+        "Metallic bond",
+        "Nuclear bond"
+      ],
+      "answer": 1,
+      "explanation": "A covalent bond means that atoms share one or more electron pairs between them, common between non-metals such as hydrogen and oxygen. An ionic bond instead relies on electrons being transferred completely between atoms."
+    },
+    {
+      "id": "q-kemi-rea-4",
+      "kind": "mc",
+      "topic": "chemical bonds",
+      "prompt": "What is the bond called that forms between a positive and a negative ion, for example in ordinary table salt (NaCl)?",
+      "opener": "Think about what happens when sodium gives up an electron to chlorine.",
+      "choices": [
+        "Covalent bond",
+        "Metallic bond",
+        "Ionic bond",
+        "Molecular bond"
+      ],
+      "answer": 2,
+      "explanation": "An ionic bond forms when one atom gives up electrons to another, so that a positive and a negative ion are formed which then attract each other electrically. In NaCl, sodium has given up an electron to chlorine, producing Na+ and Cl−."
+    },
+    {
+      "id": "q-kemi-rea-5",
+      "kind": "mc",
+      "topic": "reaction equations",
+      "prompt": "In a reaction equation such as 2H2 + O2 → 2H2O, the numbers in front of the formulas (the coefficients) tell you...",
+      "opener": "Think about why you need to 'adjust' the number of molecules for the equation to balance.",
+      "choices": [
+        "How many electrons each atom has",
+        "How many molecules of each substance react or are formed",
+        "The mass of the atom in grams",
+        "How toxic the substance is"
+      ],
+      "answer": 1,
+      "explanation": "The coefficients show the ratio between the number of molecules that react and are formed. They are balanced so that the number of atoms of each element is equal on both sides of the arrow, according to the law of conservation of mass."
+    },
+    {
+      "id": "q-kemi-rea-6",
+      "kind": "mc",
+      "topic": "exothermic and endothermic reactions",
+      "prompt": "A reaction in which energy is released to the surroundings, for example as heat, is called...",
+      "opener": "'Exo-' means 'out' — think about which direction the energy is moving.",
+      "choices": [
+        "An endothermic reaction",
+        "An exothermic reaction",
+        "A catalytic reaction",
+        "A neutral reaction"
+      ],
+      "answer": 1,
+      "explanation": "An exothermic reaction releases energy to the surroundings, for example combustion which feels warm. An endothermic reaction is the opposite — it absorbs energy from the surroundings, which often feels cold."
+    },
+    {
+      "id": "q-kemi-rea-7",
+      "kind": "worked",
+      "topic": "reaction equations",
+      "prompt": "Balance the reaction equation for the combustion of hydrogen gas: H2 + O2 → H2O. How many of each molecule are needed so that the same number of atoms of each element appears on both sides?",
+      "opener": "Count the number of hydrogen and oxygen atoms on each side and adjust the coefficients until they match.",
+      "answer": "The balanced equation is 2H2 + O2 → 2H2O.",
+      "steps": [
+        "Write out the equation: H2 + O2 → H2O. Count atoms: the left side has 2 hydrogen and 2 oxygen, the right side has 2 hydrogen but only 1 oxygen — unbalanced.",
+        "Put a 2 in front of H2O to get two oxygen atoms on the right side: H2 + O2 → 2H2O. Now oxygen is balanced (2 = 2), but the right side now has 4 hydrogen atoms against 2 on the left.",
+        "Put a 2 in front of H2 on the left side to also get 4 hydrogen atoms there: 2H2 + O2 → 2H2O.",
+        "Check: the left side has 4 hydrogen and 2 oxygen. The right side has 4 hydrogen (2×2) and 2 oxygen (2×1). The number of atoms of each element now matches on both sides — the equation is balanced according to the law of conservation of mass."
+      ]
+    },
+    {
+      "id": "q-kemi-rea-8",
+      "kind": "flashcard",
+      "topic": "chemical bonds",
+      "prompt": "Summarise chemical reactions and bonds: what distinguishes a chemical from a physical change, what types of bonds exist, and what is exothermic/endothermic?",
+      "opener": "Think new substance or not, shared or transferred electrons, and energy in or out.",
+      "answer": "Physical change: the substance's form or state changes, but it remains the same substance (e.g. ice melts) · Chemical change/reaction: one or more new substances are formed with new properties (e.g. combustion, rusting) · Covalent bond: atoms SHARE electron pairs, common between non-metals (e.g. water, H2O) · Ionic bond: electrons are transferred completely between atoms so that positive and negative ions attract each other (e.g. table salt, NaCl) · Reaction equation: shows which substances react (left of the arrow) and are formed (right of the arrow); the coefficients are balanced so the number of atoms of each element is equal on both sides (law of conservation of mass) · Exothermic reaction: releases energy to the surroundings, often as heat (e.g. combustion) · Endothermic reaction: absorbs energy from the surroundings (e.g. certain dissolution reactions)."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma7-geometri",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Geometry: angles, perimeter and area",
+  "sourceSummary": "Angle types and the angle sum of a triangle, plus perimeter and area for rectangles and triangles. You also practise converting between centimetres and metres.",
+  "topics": [
+    "angles",
+    "perimeter",
+    "area",
+    "unit conversion"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma7-geo-1",
+      "kind": "mc",
+      "topic": "angles",
+      "prompt": "An angle is 45°. What type of angle is this?",
+      "opener": "Compare it with a right angle, which is 90°.",
+      "choices": [
+        "Right",
+        "Acute",
+        "Obtuse",
+        "Straight"
+      ],
+      "answer": 1,
+      "explanation": "An angle smaller than 90° is called acute, and 45° is smaller than 90°. A right angle is exactly 90°, like the corner of a sheet of paper."
+    },
+    {
+      "id": "q-ma7-geo-2",
+      "kind": "mc",
+      "topic": "angles",
+      "prompt": "An angle is 120°. What type of angle is this?",
+      "opener": "Does the angle lie between 90° and 180°?",
+      "choices": [
+        "Acute",
+        "Right",
+        "Obtuse",
+        "Straight"
+      ],
+      "answer": 2,
+      "explanation": "An angle between 90° and 180° is called obtuse, and 120° falls there. A straight angle is exactly 180°, in other words a straight line."
+    },
+    {
+      "id": "q-ma7-geo-3",
+      "kind": "mc",
+      "topic": "angles",
+      "prompt": "In a triangle, two of the angles are 60° and 50°. How big is the third angle?",
+      "opener": "The angles in a triangle always add up to the same total - which one?",
+      "choices": [
+        "70°",
+        "80°",
+        "110°",
+        "60°"
+      ],
+      "answer": 0,
+      "explanation": "The angle sum in a triangle is 180°. So the third angle is $180 - 60 - 50 = 70$°. The answer 110° is the sum of the two known angles, not the third one."
+    },
+    {
+      "id": "q-ma7-geo-4",
+      "kind": "mc",
+      "topic": "perimeter",
+      "prompt": "A rectangle is 7 cm long and 3 cm wide. What is its perimeter?",
+      "opener": "The perimeter is the distance around the whole shape - how many sides does a rectangle have?",
+      "choices": [
+        "10 cm",
+        "21 cm",
+        "20 cm",
+        "14 cm"
+      ],
+      "answer": 2,
+      "explanation": "All four sides are counted: $7 + 3 + 7 + 3 = 20$ cm. The answer 21 is instead the area, $7 \\cdot 3 = 21$ cm², and 10 cm is only two of the sides."
+    },
+    {
+      "id": "q-ma7-geo-5",
+      "kind": "mc",
+      "topic": "area",
+      "prompt": "A triangle has a base of 8 cm and a height of 5 cm. What is its area?",
+      "opener": "A triangle is half the size of a rectangle with the same base and height.",
+      "choices": [
+        "40 cm²",
+        "20 cm²",
+        "13 cm²",
+        "26 cm²"
+      ],
+      "answer": 1,
+      "explanation": "The area is $\\frac{8 \\cdot 5}{2} = \\frac{40}{2} = 20$ cm². The answer 40 cm² is the rectangle's area - dividing by 2 has been forgotten."
+    },
+    {
+      "id": "q-ma7-geo-6",
+      "kind": "mc",
+      "topic": "unit conversion",
+      "prompt": "How many centimetres is $2{,}5$ metres?",
+      "opener": "A metre is 100 cm - should the number get bigger or smaller?",
+      "choices": [
+        "25 cm",
+        "250 cm",
+        "2,500 cm",
+        "$0{,}025$ cm"
+      ],
+      "answer": 1,
+      "explanation": "A metre is 100 cm, so $2{,}5 \\cdot 100 = 250$ cm. You get 25 cm if you only multiply by 10, i.e. move the decimal point one place instead of two."
+    },
+    {
+      "id": "q-ma7-geo-7",
+      "kind": "worked",
+      "topic": "area",
+      "prompt": "A rectangle is 12 cm long and 4 cm wide. Calculate both its perimeter and its area.",
+      "opener": "Perimeter is the distance around the edge, area is the surface inside - two different formulas.",
+      "answer": "The perimeter is 32 cm and the area is 48 cm²",
+      "steps": [
+        "Perimeter: add up all four sides, $12 + 4 + 12 + 4$.",
+        "This gives $O = 32$ cm.",
+        "Area: multiply length and width, $12 \\cdot 4$.",
+        "This gives $A = 48$ cm². Note the units: perimeter in cm, area in cm²."
+      ]
+    },
+    {
+      "id": "q-ma7-geo-8",
+      "kind": "flashcard",
+      "topic": "perimeter",
+      "prompt": "Which formulas and rules do you need for angles, perimeter and area?",
+      "opener": "Three groups: angle types, the formulas, and the units.",
+      "answer": "Angles: acute < 90° · right = 90° · obtuse between 90° and 180° · straight = 180° · the angle sum in a triangle is always 180° · Rectangle: perimeter $O = 2 \\cdot (l + b)$, area $A = l \\cdot b$ · Triangle: area $A = \\frac{b \\cdot h}{2}$, where $h$ is the height perpendicular to the base · Units: 1 m = 100 cm, 1 cm = 10 mm · perimeter is measured in cm or m, area in cm² or m²."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma2-exponential",
+  "type": "assignment",
+  "subject": "Matematik 2",
+  "title": "Exponential functions and logarithms",
+  "sourceSummary": "Exponential growth and decay, basic logarithm laws, and solving exponential equations using the common (base-10) logarithm.",
+  "topics": [
+    "exponential change",
+    "logarithm laws",
+    "exponential equations"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma2-exponential-1",
+      "kind": "mc",
+      "topic": "exponential change",
+      "prompt": "A bacteria population starts at 200 and triples every hour. Which function describes the number of bacteria $N$ after $t$ hours?",
+      "opener": "The starting value is the base value, and the change factor per time unit is the base of the exponent.",
+      "choices": [
+        "$N(t) = 200 \\cdot 3^t$",
+        "$N(t) = 3 \\cdot 200^t$",
+        "$N(t) = 200 + 3t$",
+        "$N(t) = 200 \\cdot t^3$"
+      ],
+      "answer": 0,
+      "explanation": "Exponential model: $N(t) = N_0 \\cdot a^t$ where $N_0$ is the starting value and $a$ is the change factor. Here $N_0=200$ and $a=3$, so $N(t) = 200 \\cdot 3^t$. The addition option describes linear, not exponential, growth."
+    },
+    {
+      "id": "q-ma2-exponential-2",
+      "kind": "mc",
+      "topic": "exponential change",
+      "prompt": "A car's value decreases by 15% per year. What is the change factor per year?",
+      "opener": "The change factor for a decrease is 1 minus the decimal percentage.",
+      "choices": [
+        "$1.15$",
+        "$0.15$",
+        "$0.85$",
+        "$-0.15$"
+      ],
+      "answer": 2,
+      "explanation": "A decrease of 15% gives the change factor $1 - 0.15 = 0.85$. Answering $0.15$ confuses the percentage with the change factor, and an increase would have given $1.15$."
+    },
+    {
+      "id": "q-ma2-exponential-3",
+      "kind": "mc",
+      "topic": "logarithm laws",
+      "prompt": "What is $\\lg(100)$ (the base-10 logarithm of 100)?",
+      "opener": "$\\lg(x)$ answers the question: 10 raised to what power gives $x$?",
+      "choices": [
+        "$2$",
+        "$10$",
+        "$100$",
+        "$1$"
+      ],
+      "answer": 0,
+      "explanation": "$\\lg(100) = \\lg(10^2) = 2$, since $10^2 = 100$. The base-10 logarithm gives the exponent that 10 must be raised to in order to get the number."
+    },
+    {
+      "id": "q-ma2-exponential-4",
+      "kind": "mc",
+      "topic": "logarithm laws",
+      "prompt": "Which expression is the same as $\\lg(a) + \\lg(b)$?",
+      "opener": "One of the logarithm laws concerns the sum of two logarithms.",
+      "choices": [
+        "$\\lg(a+b)$",
+        "$\\lg(a \\cdot b)$",
+        "$\\lg(a) \\cdot \\lg(b)$",
+        "$\\lg\\left(\\frac{a}{b}\\right)$"
+      ],
+      "answer": 1,
+      "explanation": "The product rule for logarithms: $\\lg(a) + \\lg(b) = \\lg(a \\cdot b)$. The common mistake is thinking that $\\lg(a)+\\lg(b) = \\lg(a+b)$, but logarithms turn multiplication into addition — not addition into addition."
+    },
+    {
+      "id": "q-ma2-exponential-5",
+      "kind": "mc",
+      "topic": "exponential equations",
+      "prompt": "Solve the equation $2^x = 16$.",
+      "opener": "Can 16 be written as a power with base 2?",
+      "choices": [
+        "$x = 8$",
+        "$x = 4$",
+        "$x = 2$",
+        "$x = 16$"
+      ],
+      "answer": 1,
+      "explanation": "$16 = 2^4$, so $2^x = 2^4$ gives $x = 4$ since the bases are equal. Dividing 16 by 2 (which gives 8) is the wrong method here — exponential equations with the same base are solved by comparing the exponents."
+    },
+    {
+      "id": "q-ma2-exponential-6",
+      "kind": "mc",
+      "topic": "exponential equations",
+      "prompt": "Solve the equation $5^x = 20$ using the base-10 logarithm. Which expression gives $x$?",
+      "opener": "Take $\\lg$ of both sides and use the fact that $\\lg(5^x) = x \\cdot \\lg(5)$.",
+      "choices": [
+        "$x = \\dfrac{\\lg(20)}{\\lg(5)}$",
+        "$x = \\lg(20) - \\lg(5)$",
+        "$x = \\dfrac{20}{5}$",
+        "$x = \\lg(20) \\cdot \\lg(5)$"
+      ],
+      "answer": 0,
+      "explanation": "Take $\\lg$ of both sides: $\\lg(5^x) = \\lg(20)$, which gives $x \\cdot \\lg(5) = \\lg(20)$. Solve for $x$: $x = \\dfrac{\\lg(20)}{\\lg(5)} \\approx 1.86$. Subtracting the logarithms (answer B) would correspond to a division inside the logarithm, not a solution for $x$ in the exponent."
+    },
+    {
+      "id": "q-ma2-exponential-7",
+      "kind": "worked",
+      "topic": "exponential change",
+      "prompt": "Savings of 5000 kr grow by 4% per year. How much is in the account after 3 years? Round to the nearest whole krona.",
+      "opener": "Determine the change factor per year and raise it to the power of the number of years.",
+      "answer": "Approximately 5624 kr",
+      "steps": [
+        "The change factor for an increase of 4% is $1 + 0.04 = 1.04$.",
+        "The model becomes $K(t) = 5000 \\cdot 1.04^t$.",
+        "After 3 years: $K(3) = 5000 \\cdot 1.04^3 = 5000 \\cdot 1.124864$.",
+        "$K(3) \\approx 5624.32$ kr, which rounds to 5624 kr."
+      ]
+    },
+    {
+      "id": "q-ma2-exponential-8",
+      "kind": "flashcard",
+      "topic": "logarithm laws",
+      "prompt": "Summarise the model for exponential change and the most important logarithm laws.",
+      "opener": "Connect the change factor to growth/decay, and remember how $\\lg$ handles products, quotients and powers.",
+      "answer": "Exponential model: $y = C \\cdot a^x$, where $C$ is the starting value and $a$ is the change factor ($a>1$ growth, $0<a<1$ decay) · Change factor for a $p\\,\\%$ increase: $a = 1+\\dfrac{p}{100}$, for a decrease: $a = 1-\\dfrac{p}{100}$ · $\\lg(a\\cdot b) = \\lg(a)+\\lg(b)$ · $\\lg\\!\\left(\\dfrac{a}{b}\\right) = \\lg(a)-\\lg(b)$ · $\\lg(a^n) = n\\lg(a)$ · Solve $a^x=b$ by taking the logarithm of both sides: $x = \\dfrac{\\lg(b)}{\\lg(a)}$."
+    }
+  ]
+}

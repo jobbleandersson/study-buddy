@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-metod",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "Scientific method and source criticism",
+  "sourceSummary": "Hypothesis, experiment and theory, control groups and variables, distinguishing science from pseudoscience, and the critical evaluation of scientific claims in the media.",
+  "topics": [
+    "hypothesis, experiment and theory",
+    "experimental method",
+    "science and pseudoscience",
+    "source criticism"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-metod-1",
+      "kind": "mc",
+      "topic": "hypothesis, experiment and theory",
+      "prompt": "What characterises a scientific hypothesis?",
+      "opener": "Think about what is required for a claim to be testable through observation or experiment.",
+      "choices": [
+        "A statement that has already been proven true",
+        "A testable assumption or proposed explanation, which can in principle be disproved through observation or experiment",
+        "A personal opinion that doesn't need to be testable",
+        "Another word for a scientific law"
+      ],
+      "answer": 1,
+      "explanation": "A hypothesis is a testable, provisional assumption about how something works or is connected — the crucial point is that it can be tested and, in principle, disproved (falsified) through observations or experiments. An already-proven truth or an untestable opinion does not count as a scientific hypothesis."
+    },
+    {
+      "id": "q-nk1b-metod-2",
+      "kind": "mc",
+      "topic": "hypothesis, experiment and theory",
+      "prompt": "What is the difference between a scientific theory and a hypothesis?",
+      "opener": "Think about how much support and how broad an explanatory value each term has.",
+      "choices": [
+        "A theory is just a guess, while a hypothesis is proven with certainty",
+        "There is no difference; the words mean exactly the same thing in science",
+        "A hypothesis is a specific, as-yet-untested assumption, while a theory is a well-established explanatory model supported by a large body of evidence gathered from many observations and experiments",
+        "A theory only applies in mathematics, never in natural science"
+      ],
+      "answer": 2,
+      "explanation": "In science, a hypothesis is a specific assumption that has not yet been fully tested, while a theory (e.g. the theory of evolution or cell theory) is a comprehensive, well-established explanatory model built up and confirmed through a large body of evidence over time. Everyday language's \"theory\" as a synonym for a guess therefore differs from its scientific meaning."
+    },
+    {
+      "id": "q-nk1b-metod-3",
+      "kind": "mc",
+      "topic": "experimental method",
+      "prompt": "Why do researchers often use a control group when testing the effect of, for example, a new medicine?",
+      "opener": "Think about how else you could know whether a change is due to the treatment or to something else.",
+      "choices": [
+        "The control group is only needed to make the study more expensive and complicated",
+        "The control group, which does not receive the tested treatment, makes it possible to compare and see whether an effect really is due to the treatment and not to other factors, e.g. the placebo effect or chance",
+        "The control group is used to guarantee that all participants recover",
+        "A control group is only needed for experiments that lack a hypothesis"
+      ],
+      "answer": 1,
+      "explanation": "By comparing a treatment group with a control group (which for example receives an inactive treatment, a placebo, or no treatment at all), researchers can determine whether an observed effect is actually due to the treatment, or whether it would have occurred anyway because of other factors such as the placebo effect or natural variation."
+    },
+    {
+      "id": "q-nk1b-metod-4",
+      "kind": "mc",
+      "topic": "experimental method",
+      "prompt": "In an experiment investigating whether the amount of fertiliser affects the growth of tomato plants, what is the amount of fertiliser called, which the researcher deliberately varies between the groups?",
+      "opener": "Think about what the researcher actively changes, as opposed to what is measured as the result.",
+      "choices": [
+        "The dependent variable",
+        "The control variable",
+        "The independent variable",
+        "The null hypothesis"
+      ],
+      "answer": 2,
+      "explanation": "The independent variable is what the researcher deliberately changes between the groups (here: the amount of fertiliser), while the dependent variable is what is measured as the result (here: the plants' growth). Other factors, e.g. light and amount of water, should be kept constant (controlled) between the groups for the experiment to give a fair result."
+    },
+    {
+      "id": "q-nk1b-metod-5",
+      "kind": "mc",
+      "topic": "science and pseudoscience",
+      "prompt": "What is an important feature that distinguishes scientific claims from pseudoscientific ones?",
+      "opener": "Think about how open each type of claim is to being tested and possibly shown to be wrong.",
+      "choices": [
+        "Scientific claims are always easier to understand than pseudoscientific ones",
+        "Scientific claims are, in principle, testable and falsifiable, are reviewed by other researchers (peer review) and are revised when new evidence emerges, while pseudoscience often avoids being tested or ignores contradictory results",
+        "Pseudoscience always uses more advanced words than science",
+        "The difference cannot be determined in any systematic way"
+      ],
+      "answer": 1,
+      "explanation": "A key feature of science is that claims are testable and falsifiable, that methods and results are reviewed by other researchers, and that conclusions are revised when new evidence emerges. Pseudoscience often presents itself as scientific but avoids genuine testing, ignores contradictory results, or lacks independent review."
+    },
+    {
+      "id": "q-nk1b-metod-6",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "Which question is particularly important to ask when critically evaluating a scientific claim in a news article or on social media?",
+      "opener": "Think about what distinguishes a single, unconfirmed study from established, collective scientific knowledge.",
+      "choices": [
+        "Whether the article has many shares on social media",
+        "Whether the claim is based on a single, unconfirmed study or on collective, peer-reviewed research, as well as who the source is and whether there are interests that could influence the presentation",
+        "Whether the text is short and easy to read",
+        "Whether the article was published the same week you're reading it"
+      ],
+      "answer": 1,
+      "explanation": "Important source-critical questions include who is behind the claim, whether there are financial or other interests that could colour the message, and whether the claim is supported by collective, peer-reviewed research or only by a single, perhaps unreplicated, study. The number of shares, text length or publication week say nothing in themselves about the reliability of the content."
+    },
+    {
+      "id": "q-nk1b-metod-7",
+      "kind": "worked",
+      "topic": "experimental method",
+      "prompt": "Using your own example of testing whether a new plant fertiliser increases the growth of tomato plants, describe the entire scientific process from hypothesis to conclusion.",
+      "opener": "Follow the process in order: question, hypothesis, experimental design with a control group, results, conclusion.",
+      "answer": "You formulate a testable hypothesis (e.g. that the fertiliser increases growth), plan an experiment with a test group that receives fertiliser and a control group that does not, keep other factors constant, measure the result, and draw a conclusion about whether the hypothesis is supported or should be rejected based on the collected data.",
+      "steps": [
+        "Based on an observation or question (\"do tomatoes grow better with the new fertiliser?\"), a testable hypothesis is formulated, e.g. \"fertiliser X increases tomato plant growth compared with no fertiliser\".",
+        "An experiment is planned with a test group that receives the fertiliser and a control group that does not, while other factors such as light, water and temperature are kept as similar as possible between the groups.",
+        "The experiment is carried out and the plants' growth is measured systematically over time in both groups, ideally with enough plants to reduce the influence of chance.",
+        "The results from the test and control groups are compared statistically to see whether the difference is large enough to likely be due to the fertiliser and not just random variation.",
+        "Based on the result, a conclusion is drawn: does the result support the hypothesis, or should it be rejected or reformulated? The result should ideally be replicable by others to increase reliability."
+      ]
+    },
+    {
+      "id": "q-nk1b-metod-8",
+      "kind": "flashcard",
+      "topic": "science and pseudoscience",
+      "prompt": "Summarise key concepts in scientific method and source criticism: hypothesis, theory, control group, variables, pseudoscience and source criticism.",
+      "opener": "Go through the steps of the scientific method and what distinguishes good science from unscientific claims.",
+      "answer": "Hypothesis: a testable, falsifiable assumption to be tested · Theory: a well-established explanatory model supported by a large body of evidence, not a guess · Control group: a comparison group that does not receive the tested treatment, making it possible to determine whether an effect really is due to the treatment · Independent variable: what the researcher deliberately changes · Dependent variable: what is measured as the result · Peer review: other researchers independently reviewing the study before publication · Pseudoscience: presents itself as science but avoids genuine testing, lacks independent review, or ignores contradictory results · Source criticism: examining the source, purpose, any interests involved, and whether the claim is supported by collective research or only by isolated, unconfirmed studies."
+    }
+  ]
+}

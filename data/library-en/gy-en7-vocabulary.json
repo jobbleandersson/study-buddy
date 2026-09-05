@@ -1,0 +1,127 @@
+{
+  "id": "lib-en7gy-vocabulary",
+  "type": "assignment",
+  "subject": "Engelska 7",
+  "title": "Vocabulary: academic and formal register",
+  "sourceSummary": "Formal versus informal word choice, academic vocabulary (e.g. significant, consequently, furthermore) and precise word choice in formal essays.",
+  "topics": [
+    "formal vs informal register",
+    "academic vocabulary",
+    "precise word choice"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7gy-vocabulary-1",
+      "kind": "mc",
+      "topic": "formal vs informal register",
+      "prompt": "Which word is most appropriate in a formal academic essay?",
+      "opener": "Which word signals academic style rather than spoken language?",
+      "choices": [
+        "a lot of",
+        "loads of",
+        "considerable",
+        "tons of"
+      ],
+      "answer": 2,
+      "explanation": "\"Considerable\" is a formal quantifier suited to academic text. The others are everyday/colloquial expressions that should be avoided in formal essays."
+    },
+    {
+      "id": "q-en7gy-vocabulary-2",
+      "kind": "mc",
+      "topic": "formal vs informal register",
+      "prompt": "Replace the informal phrase in bold with the most formal alternative: 'The results **kind of** support the hypothesis.'",
+      "opener": "Which word expresses the same uncertainty but in a formal register?",
+      "choices": [
+        "somewhat",
+        "sort of",
+        "pretty much",
+        "basically"
+      ],
+      "answer": 0,
+      "explanation": "\"Somewhat\" is the formal equivalent of \"kind of\" and keeps the nuance of partial support. \"Sort of\", \"pretty much\" and \"basically\" are all colloquial."
+    },
+    {
+      "id": "q-en7gy-vocabulary-3",
+      "kind": "mc",
+      "topic": "academic vocabulary",
+      "prompt": "Choose the word that best completes the sentence in an academic context: 'Fossil fuel use has declined; ___, emissions have fallen sharply.'",
+      "opener": "Which connective signals a cause-and-effect relationship at a formal level?",
+      "choices": [
+        "but",
+        "consequently",
+        "anyway",
+        "so"
+      ],
+      "answer": 1,
+      "explanation": "\"Consequently\" is a formal connective that shows cause and effect, suitable for academic text. \"So\" and \"anyway\" are too colloquial, and \"but\" signals contrast, not consequence."
+    },
+    {
+      "id": "q-en7gy-vocabulary-4",
+      "kind": "mc",
+      "topic": "academic vocabulary",
+      "prompt": "Which word best conveys 'important' in a formal report without being vague?",
+      "opener": "A word from academic vocabulary expresses \"significant\" more precisely than an everyday word.",
+      "choices": [
+        "big",
+        "significant",
+        "huge",
+        "major-ish"
+      ],
+      "answer": 1,
+      "explanation": "\"Significant\" is a precise academic word that often also signals statistical significance. \"Big\"/\"huge\" are vague and everyday, and \"major-ish\" is not standard English."
+    },
+    {
+      "id": "q-en7gy-vocabulary-5",
+      "kind": "mc",
+      "topic": "precise word choice",
+      "prompt": "Which sentence uses the most precise verb?",
+      "opener": "Which verb shows that the text doesn't just mention something, but makes an argument?",
+      "choices": [
+        "The report says that funding should increase.",
+        "The report argues that funding should increase.",
+        "The report goes on about funding increasing.",
+        "The report talks about funding increasing."
+      ],
+      "answer": 1,
+      "explanation": "\"Argues\" is precise and shows that the report actively advances a thesis. \"Says\" and \"talks about\" are vague, and \"goes on about\" is informal and somewhat dismissive."
+    },
+    {
+      "id": "q-en7gy-vocabulary-6",
+      "kind": "mc",
+      "topic": "precise word choice",
+      "prompt": "Choose the most precise alternative to the vague word 'stuff' in: 'The article discusses various stuff related to climate policy.'",
+      "opener": "Which word is specific enough for academic text but still sounds natural?",
+      "choices": [
+        "issues",
+        "things",
+        "junk",
+        "matters in general"
+      ],
+      "answer": 0,
+      "explanation": "\"Issues\" is precise and suits academic text about climate policy. \"Things\" is just as vague as \"stuff\", and \"junk\"/\"matters in general\" don't fit the context at all."
+    },
+    {
+      "id": "q-en7gy-vocabulary-7",
+      "kind": "worked",
+      "topic": "formal vs informal register",
+      "prompt": "Rewrite the following informal sentence in a formal, academic register: 'A lot of people think the plan is kind of a bad idea, but I guess it could work.'",
+      "opener": "Replace every vague/colloquial expression with a precise, formal equivalent.",
+      "answer": "Many people consider the plan to be flawed; however, it may nonetheless prove effective.",
+      "steps": [
+        "\"A lot of people\" → \"many people\": a more formal quantifying expression.",
+        "\"think... is kind of a bad idea\" → \"consider... to be flawed\": sharpens the attitude and avoids the vague \"kind of\".",
+        "\"but I guess\" → \"however\": a formal connective instead of the colloquial \"but I guess\".",
+        "\"it could work\" → \"it may nonetheless prove effective\": a more precise and academic word choice than the vague \"work\"."
+      ]
+    },
+    {
+      "id": "q-en7gy-vocabulary-8",
+      "kind": "flashcard",
+      "topic": "academic vocabulary",
+      "prompt": "List common informal-to-formal word swaps useful in academic writing.",
+      "opener": "Everyday words and their formal equivalents.",
+      "answer": "a lot of → numerous/considerable · kind of/sort of → somewhat/rather · get → obtain/receive · show → demonstrate/indicate · big → significant/substantial · but → however/nevertheless · so → therefore/consequently · think → consider/argue · stuff/things → issues/factors/aspects · a bit → slightly/somewhat"
+    }
+  ]
+}

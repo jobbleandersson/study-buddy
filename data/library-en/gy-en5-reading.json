@@ -1,0 +1,129 @@
+{
+  "id": "lib-en5-reading",
+  "type": "assignment",
+  "subject": "Engelska 5",
+  "title": "Reading comprehension",
+  "sourceSummary": "Short texts where you practise main idea, inference, vocabulary in context, tone and purpose — the reading strategies tested on the national exam.",
+  "topics": [
+    "main idea",
+    "inference",
+    "vocabulary in context",
+    "tone and purpose"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en5-read-1",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Cities around the world are replacing parking spaces with bike lanes. Supporters say this cuts traffic and pollution. Critics warn that local shops will lose customers who arrive by car. However, studies from Copenhagen and Amsterdam suggest that shops on streets with bike lanes see more customers, not fewer.\"\n\nWhat is the main idea of the text?",
+      "opener": "Look for the sentence that turns the argument around — it usually carries the main idea.",
+      "choices": [
+        "Evidence suggests bike lanes may not harm shops as critics fear.",
+        "Cities should remove all parking spaces.",
+        "Bike lanes are popular in Copenhagen and Amsterdam.",
+        "Local shops are struggling in most large cities."
+      ],
+      "answer": 0,
+      "explanation": "The text presents both sides and ends with research that contradicts the critics' fears — that is the point of the text. The other options are details or claims the text never makes."
+    },
+    {
+      "id": "q-en5-read-2",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Maria checked her phone for the fourth time in ten minutes. The train was already twenty minutes late, and her interview started at two. She glanced at the taxi rank across the road, then down at her wallet.\"\n\nWhat can we infer about Maria?",
+      "opener": "The text doesn't say it outright — what does the glance at the wallet reveal?",
+      "choices": [
+        "She has decided to cancel the interview.",
+        "She is considering a taxi but is worried about the cost.",
+        "She has lost her wallet.",
+        "She is waiting for someone to call her."
+      ],
+      "answer": 1,
+      "explanation": "The fact that she looks at the taxi rank and then at her wallet suggests she is considering a taxi but hesitating over the cost. Inference means drawing reasonable conclusions from what is implied, not from what is stated."
+    },
+    {
+      "id": "q-en5-read-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"The proposal was met with widespread scepticism. Even those who had campaigned for reform questioned whether the changes would make any real difference.\"\n\nIn this context, \"scepticism\" means:",
+      "opener": "The second sentence actually explains the word — read it carefully.",
+      "choices": [
+        "confusion",
+        "anger",
+        "doubt",
+        "enthusiasm"
+      ],
+      "answer": 2,
+      "explanation": "The next sentence explains the word: even supporters \"questioned whether the changes would make any real difference\" — in other words, doubt. Using the context is often more reliable than guessing from word similarity."
+    },
+    {
+      "id": "q-en5-read-4",
+      "kind": "mc",
+      "topic": "tone and purpose",
+      "prompt": "Read the text and answer.\n\n\"Another day, another announcement. The minister promised — once again — that waiting times would fall 'within months'. We heard the same thing in 2019, in 2021, and again last spring.\"\n\nWhat is the writer's tone?",
+      "opener": "What do \"once again\" and the list of years signal?",
+      "choices": [
+        "Neutral",
+        "Enthusiastic",
+        "Apologetic",
+        "Sceptical"
+      ],
+      "answer": 3,
+      "explanation": "Phrases like \"Another day, another announcement\" and \"once again\", plus the list of previous promises, signal that the writer doesn't believe the promise. The tone is sceptical, almost cynical."
+    },
+    {
+      "id": "q-en5-read-5",
+      "kind": "mc",
+      "topic": "tone and purpose",
+      "prompt": "Read the text and answer.\n\n\"Before first use, charge the battery fully. Do not expose the unit to water or direct sunlight. If the indicator light flashes red, stop using the device and contact customer support.\"\n\nWhat is the purpose of this text?",
+      "opener": "What kind of text uses imperative forms so consistently like this?",
+      "choices": [
+        "To instruct",
+        "To argue",
+        "To persuade",
+        "To entertain"
+      ],
+      "answer": 0,
+      "explanation": "The text gives instructions in the imperative (\"charge\", \"do not expose\", \"contact\") — this is an instructional text, typical of a user manual."
+    },
+    {
+      "id": "q-en5-read-6",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Remote work was supposed to free employees from the office. Yet many report working longer hours than before, checking messages late at night and struggling to switch off. The office walls that once contained work have simply disappeared.\"\n\nWhich statement best captures the writer's point?",
+      "opener": "The last sentence is an image — what does it say about what has gone wrong?",
+      "choices": [
+        "Companies should ban messages after working hours.",
+        "Remote work has blurred the boundary between work and private life.",
+        "Remote work has made employees more productive.",
+        "Most employees prefer working from an office."
+      ],
+      "answer": 1,
+      "explanation": "The image of walls that have disappeared sums up the point: the boundary between work and free time has been blurred. The text says nothing about productivity or what most people prefer."
+    },
+    {
+      "id": "q-en5-read-7",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Read the text and explain what has happened, and how you know.\n\n\"The lights were still on when Daniel got home. He stood in the hallway, listening. His sister's coat was gone from the hook, and the kitchen table was set for two — untouched.\"",
+      "opener": "Three details are mentioned. What do they mean together?",
+      "answer": "His sister left the house unexpectedly, before a meal planned for two was ever eaten.",
+      "steps": [
+        "Detail 1: the lights are on — someone was recently home and left without switching them off.",
+        "Detail 2: the sister's coat is gone — she has left the house.",
+        "Detail 3: the table is set for two but untouched — a meal was planned but never happened.",
+        "Taken together: the sister left suddenly, before the meal. The text never states this outright — the reader draws the conclusion from the details, which is what inference means.",
+        "Note that the text never reveals WHY she left. A reasonable inference sticks to what the details actually support."
+      ]
+    },
+    {
+      "id": "q-en5-read-8",
+      "kind": "flashcard",
+      "topic": "main idea",
+      "prompt": "What strategies help you answer reading comprehension questions?",
+      "opener": "A few habits that make a difference in the exam.",
+      "answer": "Read the question first so you know what you're looking for. Distinguish between the main idea (the overall point of the text) and details (individual facts). For words you don't know: use the context — the following sentence often explains the word. For inference: base your answer only on what the text actually implies, not on your own assumptions. Be suspicious of answer choices that are true but don't answer the question, or that claim more than the text does."
+    }
+  ]
+}

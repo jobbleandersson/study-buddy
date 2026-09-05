@@ -1,0 +1,126 @@
+{
+  "id": "lib-en9-writing",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Writing: sentence structure and common mistakes",
+  "sourceSummary": "Word order, verb endings and the most common Swedish-to-English mistakes — the basics for writing correct sentences.",
+  "topics": [
+    "word order",
+    "common mistakes"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en9-wri-1",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order?",
+      "opener": "English word order in questions: helping verb + subject + main verb.",
+      "choices": [
+        "Where you are going?",
+        "Where are you going?",
+        "Where going you are?",
+        "You are going where?"
+      ],
+      "answer": 1,
+      "explanation": "In English questions, the helping verb (are) comes before the subject (you): \"Where are you going?\" — the same pattern as \"Are you coming?\""
+    },
+    {
+      "id": "q-en9-wri-2",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order for adjectives?",
+      "opener": "In Swedish, adjectives are often placed after the noun — but English has a fixed order before it.",
+      "choices": [
+        "I bought a house big and old.",
+        "I bought a big, old house.",
+        "I bought a house old and big.",
+        "I bought big a old house."
+      ],
+      "answer": 1,
+      "explanation": "In English, adjectives come BEFORE the noun, in a certain order (size before age here): \"a big, old house\", not after the noun as is sometimes done in Swedish."
+    },
+    {
+      "id": "q-en9-wri-3",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"People\" is already plural — it never takes -s.",
+      "choices": [
+        "Many peoples came to the party.",
+        "Many people came to the party.",
+        "Many person came to the party.",
+        "Much people came to the party."
+      ],
+      "answer": 1,
+      "explanation": "\"People\" already means more than one person (it's plural) and never takes -s. \"Peoples\" is only used to mean several different NATIONS or ethnic groups, an unusual special case."
+    },
+    {
+      "id": "q-en9-wri-4",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "A direct, word-for-word translation from Swedish gets this wrong in English.",
+      "choices": [
+        "I am 15 years.",
+        "I have 15 years.",
+        "I am 15 years old.",
+        "I am 15 years age."
+      ],
+      "answer": 2,
+      "explanation": "In English you say \"I am ... years old\", not a direct translation of the Swedish phrase for stating your age. The phrase requires \"old\" at the end."
+    },
+    {
+      "id": "q-en9-wri-5",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Information\" counts as an uncountable noun in English.",
+      "choices": [
+        "I need some informations about the trip.",
+        "I need an information about the trip.",
+        "I need some information about the trip.",
+        "I need many informations about the trip."
+      ],
+      "answer": 2,
+      "explanation": "\"Information\" is uncountable in English (unlike its Swedish counterpart, which can take a plural form) — it never takes -s and never takes \"an\" before it."
+    },
+    {
+      "id": "q-en9-wri-6",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order for time expressions?",
+      "opener": "Time expressions like \"every day\" usually go last in an English sentence.",
+      "choices": [
+        "I every day play football.",
+        "Every day I play football after school.",
+        "I play every day football.",
+        "I play football every day."
+      ],
+      "answer": 3,
+      "explanation": "The standard order in English is subject + verb + object + time expression last: \"I play football every day.\" (Option 2 also works, but is less common.)"
+    },
+    {
+      "id": "q-en9-wri-7",
+      "kind": "worked",
+      "topic": "common mistakes",
+      "prompt": "Correct the four errors: \"I have 14 years and I have many informations about football. Every day after school I football play with my friends peoples.\"",
+      "opener": "Four typical Swedish-to-English mistakes in a short text.",
+      "answer": "I am 14 years old and I have a lot of information about football. Every day after school I play football with my friends.",
+      "steps": [
+        "\"I have 14 years\" → \"I am 14 years old\". Age is expressed with \"be\", not \"have\", and requires \"old\" at the end.",
+        "\"many informations\" → \"a lot of information\". \"Information\" is uncountable and never takes -s.",
+        "\"I football play\" → \"I play football\". English word order is subject-verb-object: the verb comes directly after the subject.",
+        "\"my friends peoples\" → \"my friends\". \"Friends\" is already plural; \"peoples\" should not be added here."
+      ]
+    },
+    {
+      "id": "q-en9-wri-8",
+      "kind": "flashcard",
+      "topic": "common mistakes",
+      "prompt": "List the most common Swedish-to-English writing mistakes.",
+      "opener": "Six common pitfalls to check for in your own writing.",
+      "answer": "Age: \"I am X years old\", not \"I have X years\". People/information are uncountable and never take -s. Word order in questions: helping verb before subject (\"Where are you going?\"). The verb comes directly after the subject (\"I play football\", not \"I football play\"). Adjectives go BEFORE the noun in English (\"a big house\"). Time expressions like \"every day\" usually go last in the sentence."
+    }
+  ]
+}

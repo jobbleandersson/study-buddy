@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma9-geometri",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Geometry",
+  "sourceSummary": "Area, perimeter and volume, Pythagoras' theorem and scale — the geometry formulas you need to be able to use, not just recognise.",
+  "topics": [
+    "area and perimeter",
+    "volume",
+    "pythagoras' theorem",
+    "scale"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma9-geo-1",
+      "kind": "mc",
+      "topic": "area and perimeter",
+      "prompt": "A triangle has a base of 10 cm and a height of 6 cm. What is the area?",
+      "opener": "A triangle's area is half that of a rectangle with the same base and height.",
+      "choices": [
+        "60 cm²",
+        "16 cm²",
+        "30 cm²",
+        "32 cm²"
+      ],
+      "answer": 2,
+      "explanation": "$A = \\frac{b \\cdot h}{2} = \\frac{10 \\cdot 6}{2} = 30$ cm². A common mistake is forgetting to divide by 2."
+    },
+    {
+      "id": "q-ma9-geo-2",
+      "kind": "mc",
+      "topic": "pythagoras' theorem",
+      "prompt": "A right-angled triangle has legs of 6 cm and 8 cm. How long is the hypotenuse?",
+      "opener": "The hypotenuse is the longest side, opposite the right angle.",
+      "choices": [
+        "14 cm",
+        "12 cm",
+        "48 cm",
+        "10 cm"
+      ],
+      "answer": 3,
+      "explanation": "$6^2 + 8^2 = 36 + 64 = 100$, and $\\sqrt{100} = 10$ cm."
+    },
+    {
+      "id": "q-ma9-geo-3",
+      "kind": "mc",
+      "topic": "area and perimeter",
+      "prompt": "What is the area of a circle with radius 3 cm? (Round to one decimal place.)",
+      "opener": "Which of the formulas applies to area — the one with $r$ or the one with $r^2$?",
+      "choices": [
+        "28,3 cm²",
+        "6,3 cm²",
+        "18,8 cm²",
+        "9,4 cm²"
+      ],
+      "answer": 0,
+      "explanation": "$A = \\pi r^2 = \\pi \\cdot 3^2 = 9\\pi \\approx 28{,}3$ cm². ($18{,}8$ cm is the circumference, $2\\pi r$.)"
+    },
+    {
+      "id": "q-ma9-geo-4",
+      "kind": "mc",
+      "topic": "volume",
+      "prompt": "A rectangular box is 2 cm × 3 cm × 4 cm. What is the volume?",
+      "opener": "The volume of a rectangular box is a simple multiplication.",
+      "choices": [
+        "9 cm³",
+        "24 cm³",
+        "12 cm³",
+        "48 cm³"
+      ],
+      "answer": 1,
+      "explanation": "$V = l \\cdot b \\cdot h = 2 \\cdot 3 \\cdot 4 = 24$ cm³."
+    },
+    {
+      "id": "q-ma9-geo-5",
+      "kind": "mc",
+      "topic": "scale",
+      "prompt": "On a drawing at scale 1:100, a wall is 3 cm long. How long is the wall in reality?",
+      "opener": "A scale of 1:100 means reality is 100 times larger than the drawing.",
+      "choices": [
+        "100 cm",
+        "30 cm",
+        "3 m",
+        "30 m"
+      ],
+      "answer": 2,
+      "explanation": "$3 \\text{ cm} \\cdot 100 = 300$ cm $= 3$ m."
+    },
+    {
+      "id": "q-ma9-geo-6",
+      "kind": "mc",
+      "topic": "area and perimeter",
+      "prompt": "The angle sum in a triangle is 180°. Two angles are 65° and 40°. How big is the third?",
+      "opener": "All three angles together must add up to 180°.",
+      "choices": [
+        "105°",
+        "85°",
+        "65°",
+        "75°"
+      ],
+      "answer": 3,
+      "explanation": "$180° - 65° - 40° = 75°$."
+    },
+    {
+      "id": "q-ma9-geo-7",
+      "kind": "worked",
+      "topic": "volume",
+      "prompt": "A cylinder has radius 2 cm and height 5 cm. Calculate the volume, rounded to one decimal place. Show the steps.",
+      "opener": "Think of the cylinder as a circle that has been given height — what is the base area?",
+      "answer": "≈ 62,8 cm³",
+      "steps": [
+        "The base is a circle: $A = \\pi r^2 = \\pi \\cdot 2^2 = 4\\pi$ cm².",
+        "The volume is the base area times the height: $V = 4\\pi \\cdot 5 = 20\\pi$ cm³.",
+        "Work it out: $20\\pi \\approx 62{,}8$ cm³."
+      ]
+    },
+    {
+      "id": "q-ma9-geo-8",
+      "kind": "flashcard",
+      "topic": "pythagoras' theorem",
+      "prompt": "What does Pythagoras' theorem say, and when can you use it?",
+      "opener": "Two things to include: the formula and the condition for when it applies.",
+      "answer": "In a right-angled triangle, $a^2 + b^2 = c^2$, where $a$ and $b$ are the legs and $c$ is the hypotenuse (the side opposite the right angle). The theorem only applies to right-angled triangles."
+    }
+  ]
+}

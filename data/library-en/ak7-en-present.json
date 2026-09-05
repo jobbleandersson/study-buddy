@@ -1,0 +1,127 @@
+{
+  "id": "lib-en7-present",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Grammar: present simple and present continuous",
+  "sourceSummary": "Present simple for habits and routines, present continuous for something happening right now, and do/does in questions and negative sentences.",
+  "topics": [
+    "present simple",
+    "present continuous",
+    "do/does"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7-pre-1",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Choose the correct form: \"My brother ___ football every Saturday.\"",
+      "opener": "Look at \"every Saturday\" — this is about a habit. Remember what happens to the verb after he/she/it.",
+      "choices": [
+        "plays",
+        "play",
+        "playing",
+        "is play"
+      ],
+      "answer": 0,
+      "explanation": "\"Every Saturday\" shows that it is a habit, so present simple. \"My brother\" is the same as \"he\", and then the verb gets -s: \"plays\". \"Play\" without -s is used with I/you/we/they."
+    },
+    {
+      "id": "q-en7-pre-2",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the correct form: \"Be quiet! The baby ___ right now.\"",
+      "opener": "\"Right now\" means something is happening at this very moment.",
+      "choices": [
+        "sleeps",
+        "sleep",
+        "is sleeping",
+        "slept"
+      ],
+      "answer": 2,
+      "explanation": "Something happening right now is expressed with present continuous: is/am/are + verb with -ing, so \"is sleeping\". \"Sleeps\" would mean it is a habit, but \"right now\" points to this very moment."
+    },
+    {
+      "id": "q-en7-pre-3",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Which sentence is correct?",
+      "opener": "Check who is doing the action: should the verb have -s or not?",
+      "choices": [
+        "She like pizza.",
+        "She is like pizza.",
+        "She liking pizza.",
+        "She likes pizza."
+      ],
+      "answer": 3,
+      "explanation": "With \"she\" (third person singular), -s is added to the verb in present simple: \"She likes pizza\". \"She like\" is one of the very most common mistakes — don't forget -s after he, she and it."
+    },
+    {
+      "id": "q-en7-pre-4",
+      "kind": "mc",
+      "topic": "do/does",
+      "prompt": "Choose the correct question: \"___ your sister play the guitar?\"",
+      "opener": "In present simple questions, do or does is used. Which fits with \"your sister\"?",
+      "choices": [
+        "Do",
+        "Does",
+        "Is",
+        "Are"
+      ],
+      "answer": 1,
+      "explanation": "\"Your sister\" is third person singular (she), so \"Does\" is used in the question: \"Does your sister play...\". Note that the main verb stands in its base form without -s once \"does\" is already in the sentence."
+    },
+    {
+      "id": "q-en7-pre-5",
+      "kind": "mc",
+      "topic": "do/does",
+      "prompt": "Choose the correct negative sentence: \"He ___ like fish.\"",
+      "opener": "In present simple negative sentences, don't or doesn't is used. Which one goes with \"he\"?",
+      "choices": [
+        "don't",
+        "isn't",
+        "doesn't",
+        "not"
+      ],
+      "answer": 2,
+      "explanation": "With he/she/it, \"doesn't\" + the verb in its base form is used: \"He doesn't like fish\". \"He don't like\" is often heard in songs and films, but counts as an error in written English."
+    },
+    {
+      "id": "q-en7-pre-6",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the sentence that describes a habit, not something happening now.",
+      "opener": "Habit = present simple. Right now = present continuous. Which sentence describes something that happens every time?",
+      "choices": [
+        "I am watching TV at the moment.",
+        "They are eating dinner right now.",
+        "We always take the bus to school.",
+        "She is doing her homework now."
+      ],
+      "answer": 2,
+      "explanation": "\"We always take the bus\" is present simple with the word \"always\" — it describes a habit. The other sentences have is/am/are + -ing together with \"now\" or \"at the moment\", which means something is happening right now."
+    },
+    {
+      "id": "q-en7-pre-7",
+      "kind": "worked",
+      "topic": "present simple",
+      "prompt": "Correct the three errors: \"My friend live in London. Right now he watch TV. He don't like sport.\"",
+      "opener": "Look for three things: -s in the third person, the tense with \"right now\", and the correct negative form.",
+      "answer": "My friend lives in London. Right now he is watching TV. He doesn't like sport.",
+      "steps": [
+        "\"My friend live\" → \"My friend lives\". \"My friend\" is the same as \"he\", so the verb gets -s in present simple.",
+        "\"Right now he watch TV\" → \"Right now he is watching TV\". \"Right now\" means it is ongoing, so we use present continuous: is + watching.",
+        "\"He don't like\" → \"He doesn't like\". With he/she/it, doesn't is used, not don't.",
+        "After \"doesn't\", the verb stands in its base form: \"like\", never \"likes\"."
+      ]
+    },
+    {
+      "id": "q-en7-pre-8",
+      "kind": "flashcard",
+      "topic": "present simple",
+      "prompt": "When do you use present simple and when do you use present continuous?",
+      "opener": "Two tenses, two situations — plus the rules for -s and do/does.",
+      "answer": "Present simple = habits and things that are always true (I play football every week) · he/she/it gets -s: he plays, she watches · questions: Do you play? / Does he play? · negative: I don't play / He doesn't play · after do/does the verb stands in its base form. Present continuous = something happening right now (I am playing right now) · formed with am/is/are + verb-ing · signal words: now, right now, at the moment, look!, listen! · signal words for present simple: always, usually, often, sometimes, never, every day."
+    }
+  ]
+}

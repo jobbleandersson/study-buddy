@@ -1,0 +1,126 @@
+{
+  "id": "lib-en5-falsefriends",
+  "type": "assignment",
+  "subject": "Engelska 5",
+  "title": "False friends and typical Swedish mistakes",
+  "sourceSummary": "Words that look Swedish but mean something completely different, plus word pairs that Swedish merges into one — lend/borrow, teach/learn, fun/funny.",
+  "topics": [
+    "false friends",
+    "confusing word pairs"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en5-ff-1",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does \"eventually\" mean?",
+      "opener": "The word looks like a Swedish word — but means something completely different.",
+      "choices": [
+        "unfortunately",
+        "possibly",
+        "in the end, finally",
+        "occasionally"
+      ],
+      "answer": 2,
+      "explanation": "\"Eventually\" means till slut, så småningom (in the end, eventually). The Swedish word \"eventuellt\" is \"possibly\" or \"perhaps\" in English. The mistake changes the meaning completely."
+    },
+    {
+      "id": "q-en5-ff-2",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Your friend asks if you're coming. You mean \"eventuellt\". What should you say?",
+      "opener": "If you say \"eventually\" you're actually promising something completely different.",
+      "choices": [
+        "I come eventually.",
+        "I will actually come.",
+        "I will eventually come.",
+        "I might come."
+      ],
+      "answer": 3,
+      "explanation": "\"I might come\" expresses uncertainty. \"I will eventually come\" means you will definitely come — but only later, which is a promise you might not want to make."
+    },
+    {
+      "id": "q-en5-ff-3",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does the word \"fabric\" mean?",
+      "opener": "Closely related to a Swedish word — but it isn't the building.",
+      "choices": [
+        "cloth or textile",
+        "a product",
+        "a machine",
+        "a factory"
+      ],
+      "answer": 0,
+      "explanation": "\"Fabric\" means tyg (cloth). The Swedish word \"fabrik\" is \"factory\" in English."
+    },
+    {
+      "id": "q-en5-ff-4",
+      "kind": "mc",
+      "topic": "confusing word pairs",
+      "prompt": "Choose the correct verb: \"Could you ___ me your charger until tomorrow?\"",
+      "opener": "The Swedish word \"låna\" covers both directions — English has two different words.",
+      "choices": [
+        "borrow",
+        "lend",
+        "loan out",
+        "rent"
+      ],
+      "answer": 1,
+      "explanation": "\"Lend\" is to give something out on loan, \"borrow\" is to receive something on loan. You're asking the person to lend to you, so \"lend\" is correct. Alternatively: \"Could I borrow your charger?\""
+    },
+    {
+      "id": "q-en5-ff-5",
+      "kind": "mc",
+      "topic": "confusing word pairs",
+      "prompt": "Choose the correct verb: \"My grandmother ___ me how to bake bread.\"",
+      "opener": "Who is passing the knowledge on to whom?",
+      "choices": [
+        "learned",
+        "learnt",
+        "taught",
+        "studied"
+      ],
+      "answer": 2,
+      "explanation": "\"Teach\" is to pass knowledge on, \"learn\" is to acquire it yourself. The Swedish word \"lära\" is used both ways, which leads to the mistake \"she learned me\"."
+    },
+    {
+      "id": "q-en5-ff-6",
+      "kind": "mc",
+      "topic": "confusing word pairs",
+      "prompt": "Complete the sentence: \"The party was really ___ — I enjoyed every minute.\"",
+      "opener": "Is it about having a good time, or about laughing?",
+      "choices": [
+        "amusing",
+        "laughable",
+        "funny",
+        "fun"
+      ],
+      "answer": 3,
+      "explanation": "\"Fun\" describes something enjoyable. \"Funny\" means comical or amusing in a laughter-inducing way — and can also mean strange: \"That's funny, the door was open.\""
+    },
+    {
+      "id": "q-en5-ff-7",
+      "kind": "worked",
+      "topic": "false friends",
+      "prompt": "Correct the four errors: \"I will eventually join you later. My brother learned me to drive, and he borrowed me his car. Actually, I work at a fabric.\"",
+      "opener": "Four words look right to a Swedish eye but mean something else.",
+      "answer": "I might join you later. My brother taught me to drive, and he lent me his car. Actually, I work at a factory.",
+      "steps": [
+        "\"eventually\" → \"might\". The writer means \"eventuellt\" (i.e. uncertainty), not \"till slut\" (in the end).",
+        "\"learned me\" → \"taught me\". The brother was the one passing on the skill, so it's \"teach\" in the past tense: \"taught\".",
+        "\"borrowed me his car\" → \"lent me his car\". He gave the car out on loan; \"borrow\" means to receive something on loan.",
+        "\"a fabric\" → \"a factory\". \"Fabric\" means cloth. Note that \"Actually\" is in fact used correctly here — it means \"faktiskt\" (indeed), which is what the sentence needs."
+      ]
+    },
+    {
+      "id": "q-en5-ff-8",
+      "kind": "flashcard",
+      "topic": "false friends",
+      "prompt": "List the most common false friends between Swedish and English.",
+      "opener": "Words that look familiar but mean something else.",
+      "answer": "eventually = till slut (eventuellt = possibly) · actually = faktiskt (aktuellt = current) · fabric = tyg (fabrik = factory) · gift = present (gift = married/poison) · sensible = förnuftig (sensibel = sensitive) · control = styra (kontrollera = check) · blank = tom (blank = shiny) · novel = roman (novell = short story) · recipe = recept på mat (recept från läkare = prescription)"
+    }
+  ]
+}

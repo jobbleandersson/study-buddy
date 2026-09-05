@@ -1,0 +1,130 @@
+{
+  "id": "lib-hist7-antiken",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "Ancient Greece and Rome",
+  "sourceSummary": "The Greek city-states and democracy in Athens, Greek culture and philosophy, the structure and expansion of the Roman empire, life in Roman society, and what we still have left from antiquity today.",
+  "topics": [
+    "city-states and Athenian democracy",
+    "Greek culture and philosophy",
+    "the Roman empire and its expansion",
+    "Roman daily life and social classes",
+    "the legacy of antiquity"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist7-ant-1",
+      "kind": "mc",
+      "topic": "city-states and Athenian democracy",
+      "prompt": "What was a Greek city-state (polis)?",
+      "opener": "Greece was not a single country at this time.",
+      "choices": [
+        "A large empire that ruled the whole Mediterranean",
+        "A city with its surrounding countryside that governed itself",
+        "A city where only soldiers were allowed to live",
+        "A trading post with no permanent population"
+      ],
+      "answer": 1,
+      "explanation": "A polis was a city together with the farmland around it, with its own laws, its own gods and its own armed forces — Athens and Sparta are the best-known examples. Greece was therefore not a unified empire, but hundreds of self-governing city-states that sometimes cooperated and sometimes fought each other."
+    },
+    {
+      "id": "q-hist7-ant-2",
+      "kind": "mc",
+      "topic": "city-states and Athenian democracy",
+      "prompt": "Who was allowed to vote in the assembly in Athens' democracy?",
+      "opener": "Democracy in Athens covered far fewer people than Swedish democracy does today.",
+      "choices": [
+        "Everyone who lived in Athens",
+        "All adults, both women and men",
+        "Only the king and his advisers",
+        "Free adult men who were citizens of Athens"
+      ],
+      "answer": 3,
+      "explanation": "The right to vote applied only to free adult men who were citizens, which was roughly a tenth of the population. Women, slaves and residents without citizenship were not allowed to vote, so it was not everyone who lived in Athens — and there was no king in democratic Athens."
+    },
+    {
+      "id": "q-hist7-ant-3",
+      "kind": "mc",
+      "topic": "Greek culture and philosophy",
+      "prompt": "What characterised the Greek philosophers, for example Socrates, Plato and Aristotle?",
+      "opener": "The word philosophy roughly means \"love of knowledge\".",
+      "choices": [
+        "They asked questions and sought explanations through thinking and reasoning",
+        "They only wrote down the commands of the gods",
+        "They were soldiers who led wars",
+        "They refused to teach anyone"
+      ],
+      "answer": 0,
+      "explanation": "The philosophers examined questions about how the world works, what is right, and how society should be governed, and they built their answers on reasoning and discussion rather than on myths alone. Plato and Aristotle also had their own schools where they taught — so they were not soldiers or purely religious scribes."
+    },
+    {
+      "id": "q-hist7-ant-4",
+      "kind": "mc",
+      "topic": "the Roman empire and its expansion",
+      "prompt": "How large did the Roman empire become at its greatest extent?",
+      "opener": "The Romans themselves called the Mediterranean \"our sea\".",
+      "choices": [
+        "Just the city of Rome and its immediate surroundings",
+        "The whole of Africa and Asia",
+        "The areas around the entire Mediterranean, with parts of Europe, North Africa and the Middle East",
+        "Only present-day Italy"
+      ],
+      "answer": 2,
+      "explanation": "During the imperial period the empire stretched from Britain in the north-west to Egypt and the Middle East in the south-east, and every country around the Mediterranean lay within its borders. The empire was thus much larger than Italy, but it did not cover the whole of Africa and Asia — large parts of those continents lay far outside it."
+    },
+    {
+      "id": "q-hist7-ant-5",
+      "kind": "mc",
+      "topic": "Roman daily life and social classes",
+      "prompt": "Which groups existed in Roman society?",
+      "opener": "Society was clearly divided, and far from everyone was free.",
+      "choices": [
+        "All Romans had exactly the same rights",
+        "Patricians (rich and powerful families), plebeians (common people) and slaves",
+        "Only soldiers and emperors",
+        "Only farmers and priests"
+      ],
+      "answer": 1,
+      "explanation": "The patricians were the distinguished, wealthy families who held power for a long time, the plebeians were the large majority of ordinary free Romans, and there was also a large number of slaves who lacked rights and belonged to an owner. Rights were therefore very unevenly distributed, which also led to recurring demands for reform from the plebeians."
+    },
+    {
+      "id": "q-hist7-ant-6",
+      "kind": "mc",
+      "topic": "the legacy of antiquity",
+      "prompt": "Which of the following is a clear legacy from antiquity in society today?",
+      "opener": "Think about forms of government, buildings, languages and words we use.",
+      "choices": [
+        "The petrol engine",
+        "The internet",
+        "The railway",
+        "The word and idea of democracy, Latin words in our languages, and buildings with columns as a style"
+      ],
+      "answer": 3,
+      "explanation": "The word democracy is Greek, huge numbers of words in Swedish and English come from Latin, and buildings with columns and domes still imitate Greek temples and Roman architecture today. The petrol engine, the railway and the internet, on the other hand, are inventions from the last two centuries and have nothing to do with antiquity."
+    },
+    {
+      "id": "q-hist7-ant-7",
+      "kind": "worked",
+      "topic": "city-states and Athenian democracy",
+      "prompt": "Compare Athenian democracy with Swedish democracy today. What are the biggest differences?",
+      "opener": "Think about two things: who is allowed to vote, and how decisions are made.",
+      "answer": "In Athens democracy was direct: the citizens who had the right to vote gathered themselves in the assembly and voted on decisions. In Sweden we instead have a representative democracy, where we vote in members of parliament who make decisions on our behalf. The biggest difference, however, is who counted: in Athens only free adult men with citizenship were allowed to vote, i.e. a minority of the population, while today all Swedish citizens from the age of 18 have the right to vote regardless of gender or background.",
+      "steps": [
+        "Athens had direct democracy: citizens voted themselves in the assembly on laws and war.",
+        "Sweden has representative democracy: we vote in elections for parties and people who decide on our behalf.",
+        "In Athens the right to vote covered only free adult male citizens — women, slaves and residents were excluded.",
+        "In Sweden all citizens from age 18 have equal voting rights, a right that was extended step by step up until 1921.",
+        "Conclusion: the idea of self-rule comes from Athens, but today's democracy includes everyone and works through elected representatives."
+      ]
+    },
+    {
+      "id": "q-hist7-ant-8",
+      "kind": "flashcard",
+      "topic": "the Roman empire and its expansion",
+      "prompt": "Summarise ancient Greece and Rome.",
+      "opener": "Take Greece first — city-states, democracy, culture — then Rome.",
+      "answer": "Greece: hundreds of self-governing city-states (polis), chiefly Athens and Sparta · Athenian democracy from the 5th century BC, direct democracy in the assembly, but the right to vote only for free adult male citizens · Greek culture: theatre, the Olympic Games, temples with columns, myths about the gods on Olympus · philosophers such as Socrates, Plato and Aristotle sought answers through reasoning · Rome: founded by the river Tiber, first a kingdom, then a republic, and from 27 BC an empire with Augustus as the first emperor · the Roman empire grew to cover the whole Mediterranean region, Britain and the Middle East · Roman society: patricians, plebeians and slaves, very unequal rights · Roman technology: roads, aqueducts, concrete, baths and large buildings such as the Colosseum · the Western Roman Empire fell in 476 AD, the Eastern Roman Empire (the Byzantine Empire) lived on until 1453 · The legacy of antiquity: the idea and word of democracy, Latin in our languages, architecture with columns, theatre, the Olympic Games, Roman law."
+    }
+  ]
+}

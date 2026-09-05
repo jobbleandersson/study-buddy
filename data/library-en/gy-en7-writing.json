@@ -1,0 +1,129 @@
+{
+  "id": "lib-en7gy-writing",
+  "type": "assignment",
+  "subject": "Engelska 7",
+  "title": "Writing: formal essays and reports",
+  "sourceSummary": "Report structure (executive summary, findings, recommendations), formal letters/emails, avoiding contractions and colloquialisms, and signposting language in a long argumentative essay.",
+  "topics": [
+    "report structure",
+    "formal correspondence conventions",
+    "avoiding contractions and colloquialisms",
+    "signposting language"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7gy-writing-1",
+      "kind": "mc",
+      "topic": "report structure",
+      "prompt": "In a formal report, which section should appear first, immediately after the title page?",
+      "opener": "Which section gives the reader a quick overview before they get into the details?",
+      "choices": [
+        "Recommendations",
+        "Findings",
+        "Executive summary",
+        "Appendices"
+      ],
+      "answer": 2,
+      "explanation": "The executive summary briefly sums up the purpose, method and main conclusions, immediately after the title page, so the reader quickly understands the whole picture. Findings and recommendations come later, and appendices come last."
+    },
+    {
+      "id": "q-en7gy-writing-2",
+      "kind": "mc",
+      "topic": "report structure",
+      "prompt": "Which section of a formal report should contain concrete, actionable suggestions based on the findings?",
+      "opener": "Which section answers the question \"what should be done now?\"",
+      "choices": [
+        "Introduction",
+        "Recommendations",
+        "Executive summary",
+        "Methodology"
+      ],
+      "answer": 1,
+      "explanation": "Recommendations contains concrete, actionable suggestions built on the findings. The introduction gives background, the methodology describes the approach, and the executive summary briefly sums up the whole report."
+    },
+    {
+      "id": "q-en7gy-writing-3",
+      "kind": "mc",
+      "topic": "formal correspondence conventions",
+      "prompt": "Which closing is most appropriate for a formal letter when you do not know the recipient's name?",
+      "opener": "There's a classic rule for \"Dear Sir/Madam\" versus \"Dear Mr Smith\".",
+      "choices": [
+        "Yours faithfully,",
+        "Yours sincerely,",
+        "Best,",
+        "Cheers,"
+      ],
+      "answer": 0,
+      "explanation": "\"Dear Sir/Madam\" (unknown recipient) is traditionally followed by \"Yours faithfully\". \"Yours sincerely\" is used when the recipient's name is known (\"Dear Mr Smith\"). \"Best\" and \"Cheers\" are too informal."
+    },
+    {
+      "id": "q-en7gy-writing-4",
+      "kind": "mc",
+      "topic": "formal correspondence conventions",
+      "prompt": "Which opening line is appropriate for a formal email to a company you have not contacted before?",
+      "opener": "Which opening keeps the right formal distance from an unknown recipient?",
+      "choices": [
+        "Hey there, quick question...",
+        "Hiya, hope you're well!",
+        "So basically I wanted to ask...",
+        "I am writing to enquire about..."
+      ],
+      "answer": 3,
+      "explanation": "\"I am writing to enquire about...\" is a standard formula for formal enquiries. The others are too informal for a first-contact email to a company."
+    },
+    {
+      "id": "q-en7gy-writing-5",
+      "kind": "mc",
+      "topic": "avoiding contractions and colloquialisms",
+      "prompt": "Which sentence is correctly written in formal register (no contractions or colloquialisms)?",
+      "opener": "Formal text avoids contractions (\"can't\") and everyday words (\"reckon\", \"kind of\").",
+      "choices": [
+        "We can't complete the project without extra funding.",
+        "We reckon the project won't be finished on time.",
+        "It is unlikely that the project will be completed without additional funding.",
+        "The project's kind of stuck without more cash."
+      ],
+      "answer": 2,
+      "explanation": "This sentence avoids contractions and colloquial expressions, using full forms and precise word choice instead. The others contain either \"can't\"/\"won't\" or informal words such as \"reckon\" and \"kind of\"."
+    },
+    {
+      "id": "q-en7gy-writing-6",
+      "kind": "mc",
+      "topic": "signposting language",
+      "prompt": "Which phrase best signals a shift to a counter-argument in a long argumentative essay?",
+      "opener": "Which phrase warns the reader that an opposing perspective is coming?",
+      "choices": [
+        "Firstly,",
+        "On the other hand,",
+        "In addition,",
+        "For example,"
+      ],
+      "answer": 1,
+      "explanation": "\"On the other hand\" clearly signals that an opposing perspective is being introduced. \"Firstly\" opens a new point, \"in addition\" builds on the same line of argument, and \"for example\" gives a concrete example — none of them signal a turn."
+    },
+    {
+      "id": "q-en7gy-writing-7",
+      "kind": "worked",
+      "topic": "report structure",
+      "prompt": "Outline the standard structure of a formal report on a school survey about students' study habits, listing each section in the correct order with a one-line description.",
+      "opener": "Think about the order: from overview, through method and results, to concrete suggestions.",
+      "answer": "Title page; Executive summary; Introduction; Methodology; Findings; Recommendations; Appendices.",
+      "steps": [
+        "Title page: title, author, date.",
+        "Executive summary: a brief summary of purpose, method and main conclusions (for readers who don't have time to read the whole report).",
+        "Introduction and Methodology: background/purpose, and how the survey was carried out (e.g. questionnaire, number of participants).",
+        "Findings: the results presented objectively, often with charts/tables.",
+        "Recommendations and Appendices: concrete suggestions based on the results, plus appendices (e.g. the survey questions) at the end."
+      ]
+    },
+    {
+      "id": "q-en7gy-writing-8",
+      "kind": "flashcard",
+      "topic": "avoiding contractions and colloquialisms",
+      "prompt": "List key conventions for formal essay and report writing in English.",
+      "opener": "Checklist for formal written English.",
+      "answer": "Avoid contractions: do not, cannot, it is (not don't, can't, it's) · Avoid colloquialisms: \"a lot of\" → \"considerable\"; \"kind of\" → \"somewhat\" · Use signposting language: firstly/moreover/however/on the other hand/in conclusion · Report structure: title page → executive summary → introduction → methodology → findings → recommendations → appendices · Letters: \"Dear Sir/Madam\" + \"Yours faithfully\"; \"Dear Mr/Ms X\" + \"Yours sincerely\" · Avoid first-person address and emotive language in reports — keep an objective, factual tone"
+    }
+  ]
+}

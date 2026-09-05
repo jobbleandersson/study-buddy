@@ -1,0 +1,129 @@
+{
+  "id": "lib-en6-clauses",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Grammar: relative clauses and conditionals",
+  "sourceSummary": "Defining and non-defining relative clauses, plus second, third and mixed conditionals.",
+  "topics": [
+    "defining relative clauses",
+    "non-defining relative clauses",
+    "second conditional",
+    "third conditional",
+    "mixed conditionals"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-clauses-1",
+      "kind": "mc",
+      "topic": "defining relative clauses",
+      "prompt": "Choose the correct relative pronoun: \"The book ___ I borrowed from the library was fascinating.\"",
+      "opener": "Is it about a thing or a person? And is the clause needed for the sentence to make sense (defining)?",
+      "choices": [
+        "who",
+        "which",
+        "whose",
+        "where"
+      ],
+      "answer": 1,
+      "explanation": "\"Which\" (or \"that\") is used for things in defining clauses. \"Who\" applies to people, \"whose\" expresses possession, and \"where\" applies to places."
+    },
+    {
+      "id": "q-en6-clauses-2",
+      "kind": "mc",
+      "topic": "non-defining relative clauses",
+      "prompt": "Which sentence correctly uses a non-defining relative clause?",
+      "opener": "Non-defining clauses give extra information and should be surrounded by commas — and \"that\" never works there.",
+      "choices": [
+        "My brother who lives in Berlin is a doctor.",
+        "My brother, who lives in Berlin, is a doctor.",
+        "My brother, that lives in Berlin, is a doctor.",
+        "My brother whose lives in Berlin is a doctor."
+      ],
+      "answer": 1,
+      "explanation": "\"My brother\" is already a specific person, so the clause only adds extra information and should have commas and \"who\". \"That\" is never used in non-defining clauses, and \"whose\" expresses possession, not place."
+    },
+    {
+      "id": "q-en6-clauses-3",
+      "kind": "mc",
+      "topic": "non-defining relative clauses",
+      "prompt": "When do you need commas around a relative clause?",
+      "opener": "Think about whether the clause can be removed without changing the basic meaning of the sentence.",
+      "choices": [
+        "Always",
+        "Never",
+        "Only when the clause refers to a place",
+        "Only when the clause adds extra, non-essential information"
+      ],
+      "answer": 3,
+      "explanation": "Commas are used around non-defining clauses, which add extra information but are not necessary to know who or what is meant. Defining clauses, which are necessary for the meaning, have no commas."
+    },
+    {
+      "id": "q-en6-clauses-4",
+      "kind": "mc",
+      "topic": "second conditional",
+      "prompt": "Choose the correct form: \"If I ___ the lottery, I would travel around the world.\"",
+      "opener": "A hypothetical scenario in the present/future — the same pattern as in English 5, but now you should recognise it quickly.",
+      "choices": [
+        "win",
+        "won",
+        "would win",
+        "had won"
+      ],
+      "answer": 1,
+      "explanation": "Second conditional: if + past simple, would + infinitive — \"If I won…, I would travel…\". \"Would\" in the if-clause (\"would win\") is always wrong."
+    },
+    {
+      "id": "q-en6-clauses-5",
+      "kind": "mc",
+      "topic": "third conditional",
+      "prompt": "Choose the correct form: \"If she ___ earlier, she wouldn't have missed the train.\"",
+      "opener": "This is about something that has already happened (or not happened) in the past.",
+      "choices": [
+        "left",
+        "would leave",
+        "had left",
+        "has left"
+      ],
+      "answer": 2,
+      "explanation": "Third conditional describes an unreal past: if + past perfect, would have + past participle — \"If she had left…, she wouldn't have missed…\". \"has left\" is the wrong tense and \"would leave\" does not belong in the if-clause."
+    },
+    {
+      "id": "q-en6-clauses-6",
+      "kind": "mc",
+      "topic": "mixed conditionals",
+      "prompt": "Choose the correct form (mixed conditional — a past cause with a present result): \"If I hadn't stayed up so late, I ___ so tired now.\"",
+      "opener": "The cause lies in the past (the if-clause), but the result applies now (the main clause) — that's why the tenses are mixed.",
+      "choices": [
+        "wouldn't be",
+        "wouldn't have been",
+        "hadn't been",
+        "won't be"
+      ],
+      "answer": 0,
+      "explanation": "Mixed conditional: if + past perfect (past cause), would + infinitive (present result) — \"wouldn't be\". \"wouldn't have been\" would instead describe a result in the past, not now."
+    },
+    {
+      "id": "q-en6-clauses-7",
+      "kind": "worked",
+      "topic": "defining relative clauses",
+      "prompt": "Find and correct the three errors: \"The scientist which won the Nobel Prize she comes from Sweden and my aunt that lives next door to her, works at the same university.\"",
+      "opener": "Three things to fix: the correct relative pronoun for a person, a duplicated subject, and a clause that really just gives extra information about an already-named person.",
+      "answer": "The scientist who won the Nobel Prize comes from Sweden, and my aunt, who lives next door to her, works at the same university.",
+      "steps": [
+        "\"which\" → \"who\": if what is being described is a person, use \"who\", not \"which\".",
+        "\"she comes\" → \"comes\": the relative pronoun replaces the subject, so it should not be repeated with \"she\".",
+        "\"that lives next door to her,\" → \", who lives next door to her,\": an already specific person (\"my aunt\") requires a non-defining clause with commas and \"who\", not \"that\".",
+        "Summary: \"that\" is only used in defining clauses and should never be surrounded by commas."
+      ]
+    },
+    {
+      "id": "q-en6-clauses-8",
+      "kind": "flashcard",
+      "topic": "mixed conditionals",
+      "prompt": "Explain second, third and mixed conditionals: form and use.",
+      "opener": "Building on the first conditional from English 5 — now it's about the unreal present, the unreal past, and combinations of the two.",
+      "answer": "Second conditional (unreal present/future): If + past simple, would + infinitive — \"If I had more money, I would buy a car.\" Third conditional (unreal past, regret): If + past perfect, would have + past participle — \"If I had studied, I would have passed.\" Mixed conditional (past cause → present result): If + past perfect, would + infinitive — \"If I hadn't broken my leg, I would be playing football now.\" Remember: \"would\" never appears in the if-clause itself in any of these."
+    }
+  ]
+}

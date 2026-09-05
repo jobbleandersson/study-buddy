@@ -1,0 +1,130 @@
+{
+  "id": "lib-bio7-ekosystem",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Ecosystems and food chains",
+  "sourceSummary": "How an ecosystem is connected through food chains and food webs, with producers, consumers and decomposers. You also practise adaptations to different environments and Swedish habitat types such as forest, lake and meadow.",
+  "topics": [
+    "ecosystem",
+    "producers, consumers and decomposers",
+    "food chain and food web",
+    "adaptations",
+    "Swedish habitat types"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio7-eko-1",
+      "kind": "mc",
+      "topic": "producers, consumers and decomposers",
+      "prompt": "What are organisms called that make their own food using sunlight?",
+      "opener": "Think about which organisms can carry out photosynthesis.",
+      "choices": [
+        "Consumers",
+        "Producers",
+        "Decomposers",
+        "Predators"
+      ],
+      "answer": 1,
+      "explanation": "Producers are plants and algae that use photosynthesis to build sugar from carbon dioxide, water and solar energy — they produce their own food. Consumers cannot do that and must instead eat other organisms to get energy."
+    },
+    {
+      "id": "q-bio7-eko-2",
+      "kind": "mc",
+      "topic": "producers, consumers and decomposers",
+      "prompt": "What role do fungi and bacteria play in an ecosystem?",
+      "opener": "Think about what happens to the leaves that fall to the ground in autumn.",
+      "choices": [
+        "They make sugar through photosynthesis",
+        "They hunt and eat living animals",
+        "They spread plants' seeds to new places",
+        "They break down dead plants and animals so the nutrients can be used again"
+      ],
+      "answer": 3,
+      "explanation": "Decomposers break down dead material and release nutrients into the soil, where plants can take them up again — without them, nutrients would stay locked inside dead bodies. They cannot carry out photosynthesis, since they lack chlorophyll and therefore cannot make their own food."
+    },
+    {
+      "id": "q-bio7-eko-3",
+      "kind": "mc",
+      "topic": "food chain and food web",
+      "prompt": "What always comes first in a food chain?",
+      "opener": "Think about where the energy enters the chain.",
+      "choices": [
+        "A producer, for example a plant",
+        "A predator at the very top of the chain",
+        "A decomposer",
+        "A plant-eating animal"
+      ],
+      "answer": 0,
+      "explanation": "The food chain begins with a producer, because it is the plant that captures the sun's energy and makes it available as food. Decomposers instead belong at the end of the chain — they deal with whatever dies at every link."
+    },
+    {
+      "id": "q-bio7-eko-4",
+      "kind": "mc",
+      "topic": "food chain and food web",
+      "prompt": "What is the difference between a food chain and a food web?",
+      "opener": "Think about how many different things a fox actually eats.",
+      "choices": [
+        "A food chain applies only on land and a food web only in water",
+        "A food web always contains fewer species than a food chain",
+        "A food web shows how several food chains are connected to each other",
+        "The two words mean exactly the same thing"
+      ],
+      "answer": 2,
+      "explanation": "A food chain is a simplified line of species, while a food web shows how many chains cross each other, since most animals eat several kinds of food and can themselves become food for several species. The idea that a food web would have fewer species is wrong — it is, on the contrary, more complete and more true to reality."
+    },
+    {
+      "id": "q-bio7-eko-5",
+      "kind": "mc",
+      "topic": "ecosystem",
+      "prompt": "What is meant by an ecosystem?",
+      "opener": "An ecosystem consists of more than just the species that live there.",
+      "choices": [
+        "All individuals of the same species living in one place",
+        "Only the plants found in an area",
+        "All species found in the whole of Sweden",
+        "All living things in an area together with the non-living environment and the interaction between them"
+      ],
+      "answer": 3,
+      "explanation": "An ecosystem, for example a lake or a spruce forest, includes both the organisms and the non-living factors such as water, soil, light and temperature — as well as how all of this affects each other. All individuals of the same species in one place are instead called a population, which is a smaller part of the ecosystem."
+    },
+    {
+      "id": "q-bio7-eko-6",
+      "kind": "mc",
+      "topic": "adaptations",
+      "prompt": "The water lily grows in Swedish lakes and has long stalks with leaves that float on the water's surface. What advantage does that adaptation give?",
+      "opener": "Think about what a plant needs most of in order to carry out photosynthesis.",
+      "choices": [
+        "The leaves protect the lake from rain and wind",
+        "The leaves reach up to the light at the water's surface, where photosynthesis works best",
+        "The leaves let the plant breathe with gills",
+        "The leaves help the plant catch and eat insects"
+      ],
+      "answer": 1,
+      "explanation": "Light fades quickly further down in the water, so by letting its leaves float at the very top, the water lily gets enough sunlight for photosynthesis while its roots stay anchored in the mud at the bottom. Gills are something animals can have, never plants — a plant takes up gases directly through its leaves."
+    },
+    {
+      "id": "q-bio7-eko-7",
+      "kind": "worked",
+      "topic": "food chain and food web",
+      "prompt": "Write a food chain from a Swedish spruce forest and explain the role of each link. Also include what happens when the animals die.",
+      "opener": "Start with the producer and work your way up — and don't forget the decomposers at the end.",
+      "answer": "Bilberry shrub → hare → fox. The bilberry shrub is the producer, the hare the primary consumer and the fox the secondary consumer. When they die, fungi and bacteria break down the bodies so the nutrients return to the soil and can be taken up by new plants.",
+      "steps": [
+        "Start with a producer: the bilberry shrub carries out photosynthesis and stores the sun's energy as sugar.",
+        "The next link is a primary consumer: the hare is a herbivore and eats the bilberry shrub to get energy.",
+        "Then comes a secondary consumer: the fox is a predator and eats the hare.",
+        "At every link, much of the energy is lost as heat, which is why there are always fewer foxes than hares, and fewer hares than bilberry plants.",
+        "Decomposers such as fungi and bacteria finally break down dead animals and plant parts, so the nutrients return to the soil and the cycle is closed."
+      ]
+    },
+    {
+      "id": "q-bio7-eko-8",
+      "kind": "flashcard",
+      "topic": "ecosystem",
+      "prompt": "What roles exist in an ecosystem, what does a food chain look like, and what characterises Swedish habitat types?",
+      "opener": "Take the roles first, then the path of energy through the chain, and finish with adaptations and habitat types.",
+      "answer": "Ecosystem: all living things in an area together with the non-living environment (light, water, soil, temperature) and the interaction between them · Population: all individuals of the same species in the area · Producers: plants and algae, make sugar and oxygen from carbon dioxide, water and sunlight through photosynthesis · Consumers: primary consumers = herbivores (hare, vole, elk) · secondary and tertiary consumers = predators (fox, pike, buzzard) · Decomposers: fungi, bacteria and earthworms, break down dead material and release nutrients into the soil · Food chain: producer → herbivore → predator, all energy ultimately comes from the sun and a large share is lost as heat at every link, which is why there are fewer individuals further up · Food web: many food chains connected together, since most species eat more than one kind of food · Cycle: nutrients are used over and over again, energy must constantly be replenished from the sun · Adaptations: the Arctic fox's thick fur and short ears against the cold · the water lily's floating leaves to reach the light · the spruce's narrow needles that withstand drought and heavy snow loads · Swedish habitat types: coniferous forest (spruce and pine, acidic and nutrient-poor soil, elk, squirrel, capercaillie) · lake (algae and water plants, roach and pike, most life near the surface where the light is) · meadow (many flowers and grasses, bumblebees and butterflies, kept open by mowing or grazing animals)."
+    }
+  ]
+}

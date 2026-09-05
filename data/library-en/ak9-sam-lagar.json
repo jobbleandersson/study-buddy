@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam-lagar",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Laws, rights and the justice system",
+  "sourceSummary": "The basics of human rights, how a trial proceeds in Sweden, the difference between criminal cases and civil cases, and children's special rights under the Convention on the Rights of the Child.",
+  "topics": [
+    "human rights, the basic idea",
+    "how a trial proceeds in Sweden",
+    "difference between criminal cases and civil cases",
+    "children's rights"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam-lag-1",
+      "kind": "mc",
+      "topic": "human rights, the basic idea",
+      "prompt": "What characterises human rights?",
+      "opener": "Think about who they apply to and whether they can be earned or lost.",
+      "choices": [
+        "They only apply to citizens of rich countries",
+        "They apply to all people, regardless of e.g. gender, origin or religion, and cannot be taken away",
+        "They must be earned through good behaviour",
+        "They only apply to adults"
+      ],
+      "answer": 1,
+      "explanation": "Human rights are universal — they apply equally to all people, regardless of background, and they are inalienable, meaning they cannot be taken away or need to be earned. They apply to both children and adults, in all countries."
+    },
+    {
+      "id": "q-sam-lag-2",
+      "kind": "mc",
+      "topic": "human rights, the basic idea",
+      "prompt": "Which UN document from 1948 is regarded as the foundation of today's human rights?",
+      "opener": "It was adopted shortly after the Second World War as a common standard for all countries.",
+      "choices": [
+        "The Convention on the Rights of the Child",
+        "The UN's Universal Declaration of Human Rights",
+        "The Paris Agreement",
+        "The EU's Charter of Fundamental Rights"
+      ],
+      "answer": 1,
+      "explanation": "The UN's Universal Declaration of Human Rights was adopted in 1948 and became the foundation for later conventions, including the Convention on the Rights of the Child. The Paris Agreement concerns climate, and the EU's Charter is a later, European equivalent."
+    },
+    {
+      "id": "q-sam-lag-3",
+      "kind": "mc",
+      "topic": "difference between criminal cases and civil cases",
+      "prompt": "What characterises a criminal case, as distinct from a civil case?",
+      "opener": "Think about who brings the matter to court — the state or a private party.",
+      "choices": [
+        "In a criminal case, the state (the prosecutor) charges a person with a crime; in a civil case, two private parties dispute, for example, money or a contract",
+        "Criminal cases are always about money between neighbours",
+        "Civil cases are always decided by a jury in Sweden",
+        "There is no difference between criminal cases and civil cases"
+      ],
+      "answer": 0,
+      "explanation": "In a criminal case, it is the prosecutor, on behalf of the state, who brings charges against a suspected person. In a civil case, two private parties (e.g. private individuals or companies) disagree about something, such as a contract or a debt, and the court settles the dispute."
+    },
+    {
+      "id": "q-sam-lag-4",
+      "kind": "mc",
+      "topic": "difference between criminal cases and civil cases",
+      "prompt": "Who brings the case against the suspect in a criminal case in a Swedish court?",
+      "opener": "It is not the person affected by the crime who personally brings the charges.",
+      "choices": [
+        "The affected person themselves, always alone",
+        "The prosecutor, on behalf of the state",
+        "The judge",
+        "The defence lawyer"
+      ],
+      "answer": 1,
+      "explanation": "The prosecutor brings the case against the suspect in a criminal case, on behalf of the state, after having investigated whether there is sufficient evidence. The affected person may be a plaintiff and sometimes claim damages in the same trial, but it is the prosecutor who pursues the charges."
+    },
+    {
+      "id": "q-sam-lag-5",
+      "kind": "mc",
+      "topic": "how a trial proceeds in Sweden",
+      "prompt": "What is the main task of a defence lawyer in a criminal case?",
+      "opener": "Think about the principle that everyone, even suspects, has the right to a fair defence.",
+      "choices": [
+        "To prove that the accused is guilty",
+        "To represent and defend the suspect's rights and interests during the trial",
+        "To rule on the case together with the judge",
+        "To charge the suspect with more crimes"
+      ],
+      "answer": 1,
+      "explanation": "The defence lawyer's task is to safeguard the suspect's rights and present their side, so that the trial is fair. It is the prosecutor who must prove guilt, and the judge (possibly with lay judges) who decides the case."
+    },
+    {
+      "id": "q-sam-lag-6",
+      "kind": "mc",
+      "topic": "how a trial proceeds in Sweden",
+      "prompt": "Which court first hears most criminal and civil cases in Sweden?",
+      "opener": "There are several levels of courts — which is the first instance?",
+      "choices": [
+        "The Supreme Court",
+        "The Court of Appeal",
+        "The District Court",
+        "The Riksdag"
+      ],
+      "answer": 2,
+      "explanation": "The District Court is the first instance for most criminal and civil cases. If the judgment is appealed, the case can proceed to the Court of Appeal and in some cases to the Supreme Court, which is the final instance. The Riksdag does not rule on individual cases."
+    },
+    {
+      "id": "q-sam-lag-7",
+      "kind": "worked",
+      "topic": "children's rights",
+      "prompt": "Explain what the Convention on the Rights of the Child is and give examples of two key rights it grants children under 18.",
+      "opener": "Think about how the Convention on the Rights of the Child has been Swedish law since 2020 and is built on a few core principles.",
+      "answer": "The Convention on the Rights of the Child is the UN's convention on children's rights, adopted in 1989, and since 2020 it has been Swedish law. It establishes that everyone under 18 has special rights, including the right to life and development, the right to express their opinion and have it taken into account in matters concerning the child (article 12), and the principle of the best interests of the child being a primary consideration in decisions concerning children (article 3). The convention also covers the right to education, protection against violence and exploitation, and the right to rest and play.",
+      "steps": [
+        "The Convention on the Rights of the Child was adopted by the UN in 1989 and is a special document on rights for everyone under 18.",
+        "Since 1 January 2020, the Convention on the Rights of the Child has applied as Swedish law, not merely as an international agreement Sweden has signed.",
+        "Core principle 1 — the best interests of the child: in decisions concerning children, the best interests of the child shall be a primary consideration (article 3).",
+        "Core principle 2 — the right to be heard: children have the right to express their opinion in matters concerning them, and the opinion shall be taken into account based on age and maturity (article 12).",
+        "Other examples: the right to education, protection against violence and exploitation, and the right to rest, leisure and play."
+      ]
+    },
+    {
+      "id": "q-sam-lag-8",
+      "kind": "flashcard",
+      "topic": "how a trial proceeds in Sweden",
+      "prompt": "Summarise the basics of the justice system: human rights, the course of a trial, criminal/civil cases and the Convention on the Rights of the Child.",
+      "opener": "From international rights to how a judgment is actually reached in Sweden.",
+      "answer": "Human rights: universal and inalienable rights that apply to all people, founded in the UN's Universal Declaration from 1948 · Criminal case: the prosecutor charges a suspected person on behalf of the state for a crime · Civil case: two private parties (individuals/companies) dispute, for example, a contract or a debt, no prosecutor involved · Course of a trial: police/prosecutor investigate → the prosecutor brings charges (in criminal cases) → hearing in the District Court with prosecutor, defence lawyer, possible plaintiff and witnesses → the court (judge and sometimes lay judges) delivers judgment → the judgment can be appealed to the Court of Appeal and in some cases the Supreme Court · Convention on the Rights of the Child: the UN's convention on children's rights (1989), Swedish law since 2020, built among other things on the best interests of the child and the child's right to be heard."
+    }
+  ]
+}

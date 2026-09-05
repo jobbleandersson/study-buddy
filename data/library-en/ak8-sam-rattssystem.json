@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam8-rattssystem",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "The justice system and crime",
+  "sourceSummary": "The actors in the justice system — police, prosecutor, court and the prison and probation service — how a trial proceeds, the difference between criminal and civil cases, common sanctions and the purposes of punishment, and what research says about the causes of crime.",
+  "topics": [
+    "actors in the justice system",
+    "how a trial proceeds",
+    "criminal cases and civil cases",
+    "sanctions and the purposes of punishment",
+    "causes of crime"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam8-rat-1",
+      "kind": "mc",
+      "topic": "actors in the justice system",
+      "prompt": "What is the prosecutor's task in a criminal case?",
+      "opener": "The prosecutor gets involved before the trial and makes an important decision.",
+      "choices": [
+        "Sentencing the suspect to a punishment",
+        "Leading the preliminary investigation in more serious crimes and deciding whether to bring charges",
+        "Defending the suspect in court",
+        "Carrying out the sentence after the verdict"
+      ],
+      "answer": 1,
+      "explanation": "The prosecutor leads the preliminary investigation in more serious crimes, assesses whether the evidence is sufficient, and decides whether to bring charges. During the trial it is the prosecutor who must prove that the accused is guilty. Passing judgement is the court's task, defending is the defence lawyer's, and carrying out the sentence is the Prison and Probation Service's — the roles are deliberately kept separate so the trial is fair."
+    },
+    {
+      "id": "q-sam8-rat-2",
+      "kind": "mc",
+      "topic": "actors in the justice system",
+      "prompt": "Which agency is responsible for prisons, remand centres and probation in Sweden?",
+      "opener": "This agency only takes over once the verdict is final.",
+      "choices": [
+        "The Police Authority",
+        "The Swedish Prosecution Authority",
+        "The Prison and Probation Service",
+        "The District Court"
+      ],
+      "answer": 2,
+      "explanation": "The Prison and Probation Service runs prisons and remand centres and manages probation, which supervises people with, for example, conditional supervision or an ankle monitor. Its mandate is both to carry out the sentence and to work to prevent the convicted person from reoffending. The police investigate crimes, the prosecutor brings charges and the district court passes judgement — none of them is responsible for carrying out the sentence."
+    },
+    {
+      "id": "q-sam8-rat-3",
+      "kind": "mc",
+      "topic": "how a trial proceeds",
+      "prompt": "In what order do the steps in a criminal case in Sweden occur?",
+      "opener": "Follow the case from the report to the punishment being carried out.",
+      "choices": [
+        "Trial → report → investigation → verdict → the punishment is carried out",
+        "Report → verdict → investigation → charges → trial",
+        "Charges → report → trial → investigation → verdict",
+        "The crime is reported → the police and prosecutor investigate in a preliminary investigation → the prosecutor brings charges → trial in the district court → verdict → the punishment is carried out"
+      ],
+      "answer": 3,
+      "explanation": "The chain begins with a report or the police discovering the crime, followed by a preliminary investigation carried out jointly by the police and the prosecutor, and only once the evidence is judged sufficient does the prosecutor bring charges. A main hearing is then held in the district court, the court delivers its verdict, and if the verdict stands the sanction is carried out. The verdict cannot come before the investigation — the whole point of the preliminary investigation is that the evidence must be tested before anyone is convicted."
+    },
+    {
+      "id": "q-sam8-rat-4",
+      "kind": "mc",
+      "topic": "criminal cases and civil cases",
+      "prompt": "What is the difference between a criminal case and a civil case?",
+      "opener": "Think about who brings the matter to court in each case.",
+      "choices": [
+        "In a criminal case the prosecutor charges someone with a crime on behalf of the state, while a civil case is about two private parties disagreeing over, for example, a contract or money",
+        "Criminal cases are always about money, civil cases always about violence",
+        "Civil cases are decided by a jury, criminal cases by a judge",
+        "There is no real difference — just different names for the same thing"
+      ],
+      "answer": 0,
+      "explanation": "In criminal cases the prosecutor represents the state and charges a person with something punishable under the Penal Code. In civil cases two private parties — individuals, companies or organisations — are opposed over, for example, a purchase, a contract or a debt, and there is no prosecutor. Sweden also has no jury system in ordinary cases; it is judges, in the district court often together with lay judges, who decide."
+    },
+    {
+      "id": "q-sam8-rat-5",
+      "kind": "mc",
+      "topic": "sanctions and the purposes of punishment",
+      "prompt": "What are the most common sanctions a Swedish court can impose on an adult?",
+      "opener": "Prison is only one of several options in the Swedish ladder of sanctions.",
+      "choices": [
+        "Prison only",
+        "Corporal punishment or banishment",
+        "Fines, a conditional sentence, probation and prison",
+        "Community service only"
+      ],
+      "answer": 2,
+      "explanation": "Common sanctions are fines, a conditional sentence (often combined with community service), probation and prison, and the court chooses based on the severity of the crime and the person's situation. For young people under 18, youth care or youth service is instead most often used. The idea that prison would be the only sanction is wrong, and corporal punishment is banned in Sweden. The purposes of punishment are usually described as marking society's boundary, deterring crime, protecting others, and giving the convicted person a chance to return to a life without crime."
+    },
+    {
+      "id": "q-sam8-rat-6",
+      "kind": "mc",
+      "topic": "causes of crime",
+      "prompt": "What does research show about the causes of crime?",
+      "opener": "Think about whether a single explanation is usually enough.",
+      "choices": [
+        "That there is always exactly one cause behind every crime",
+        "That crime usually has several contributing causes, such as social conditions, failure at school, substance abuse and peer group",
+        "That crime is solely down to how harsh the sentences are",
+        "That crime is entirely random and cannot be explained"
+      ],
+      "answer": 1,
+      "explanation": "Criminological research points to several factors interacting: upbringing, schooling, unemployment, substance abuse, mental ill health and who a person associates with, together with opportunity and the risk of being caught. Pointing only to sentence length is too simple an explanation — the level of punishment is one of many factors, and preventive work in schools and social services is usually considered at least as important. Explaining causes is not the same as excusing crime."
+    },
+    {
+      "id": "q-sam8-rat-7",
+      "kind": "worked",
+      "topic": "how a trial proceeds",
+      "prompt": "Describe which people take part in a district court trial in a criminal case, and what each of them does.",
+      "opener": "Go around the courtroom and give each participant their role.",
+      "answer": "In a main hearing in the district court there sits a legally qualified judge as chair, who leads the proceedings, and in criminal cases usually three lay judges, who are laypeople appointed by the municipal or regional council and who decide the case together with the judge. A court clerk keeps the record. The prosecutor sits on one side and presents the charge and the evidence, and must prove that the accused is guilty. On the other side sits the accused together with their defence lawyer, who must safeguard the accused's rights and present their side. If someone has been the victim of the crime, that person is called the injured party and may have a legal counsel for the injured party with them, and the injured party can claim damages. Witnesses are called in one at a time to describe what they saw or heard, and witnesses have a duty to testify and take a witness oath. After everyone has been heard, the prosecutor and the defence give their closing statements, after which the court deliberates in private and delivers its verdict, often later the same day or within a few weeks. The verdict can be appealed to the court of appeal.",
+      "steps": [
+        "Judge and lay judges: the legally qualified judge leads the proceedings, the lay judges are laypeople who decide the case together with the judge.",
+        "The prosecutor: presents the charge and the evidence and must prove that the accused is guilty.",
+        "The accused and the defence lawyer: the defence safeguards the accused's rights and presents their version.",
+        "The injured party and any legal counsel: the person who was the victim of the crime gives their account and can claim damages.",
+        "Witnesses and conclusion: witnesses are heard under oath, followed by closing statements, deliberation and verdict — which can be appealed to the court of appeal."
+      ]
+    },
+    {
+      "id": "q-sam8-rat-8",
+      "kind": "flashcard",
+      "topic": "actors in the justice system",
+      "prompt": "Summarise the justice system: the actors, how a trial proceeds, the types of case, the sanctions and the causes of crime.",
+      "opener": "From the report to the sanction being carried out — and why crimes are committed.",
+      "answer": "Actors: the police investigate and arrest · the prosecutor leads the preliminary investigation in more serious crimes and decides whether to bring charges · the court (district court, court of appeal, Supreme Court) passes judgement · the Prison and Probation Service runs prisons and remand centres and manages probation · The course of a trial in a criminal case: report → preliminary investigation → charges → main hearing in the district court → verdict → the sanction is carried out · an appeal goes to the court of appeal and in some cases the Supreme Court · In the courtroom: a legally qualified judge, usually three lay judges, a prosecutor, the accused with a defence lawyer, the injured party with legal counsel, witnesses under oath · Criminal cases: the prosecutor charges someone with a crime on behalf of the state · Civil cases: two private parties disagreeing over a contract, money or property, no prosecutor · Sanctions: fines, a conditional sentence (often with community service), probation, prison; for young people under 18, usually youth care or youth service · The purposes of punishment: marking society's boundaries, deterrence, protecting others and giving a chance for rehabilitation · Causes of crime: several contributing factors — upbringing, failure at school, unemployment, substance abuse, mental ill health, peer group, opportunity and risk of detection."
+    }
+  ]
+}

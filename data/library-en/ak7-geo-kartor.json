@@ -1,0 +1,131 @@
+{
+  "id": "lib-geo7-kartor",
+  "type": "assignment",
+  "subject": "Geografi",
+  "title": "Maps and map skills",
+  "sourceSummary": "Compass directions, scale and scale calculations, map symbols and the key, contour lines, latitude and longitude at a basic level, and the different types of map and what they are used for.",
+  "topics": [
+    "compass directions",
+    "scale",
+    "the key",
+    "contour lines",
+    "latitude and longitude",
+    "map types"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-geo7-kar-1",
+      "kind": "mc",
+      "topic": "compass directions",
+      "prompt": "Which compass direction lies between north and east?",
+      "opener": "The name is a combination of the two directions.",
+      "choices": [
+        "North-west",
+        "North-east",
+        "South-east",
+        "South-west"
+      ],
+      "answer": 1,
+      "explanation": "North-east lies between north and east, just as south-west lies between south and west. North-west instead lies between north and west, on the opposite side of the north arrow."
+    },
+    {
+      "id": "q-geo7-kar-2",
+      "kind": "mc",
+      "topic": "scale",
+      "prompt": "A map has the scale 1:50,000. How far is it in reality between two places that are 4 cm apart on the map?",
+      "opener": "Multiply the distance on the map by 50,000 and then convert to kilometres.",
+      "choices": [
+        "200 metres",
+        "20 kilometres",
+        "200 kilometres",
+        "2 kilometres"
+      ],
+      "answer": 3,
+      "explanation": "4 cm · 50,000 = 200,000 cm, and 200,000 cm = 2,000 m = 2 km. A common mistake is to stop at metres or miss a step in the conversion, which gives 200 metres instead of 2 kilometres."
+    },
+    {
+      "id": "q-geo7-kar-3",
+      "kind": "mc",
+      "topic": "the key",
+      "prompt": "What is the key (map legend) for?",
+      "opener": "The map uses symbols and colours — but who tells you what they mean?",
+      "choices": [
+        "It explains what the map's symbols, colours and lines mean",
+        "It shows who drew the map",
+        "It states how old the map is",
+        "It works out distances for you"
+      ],
+      "answer": 0,
+      "explanation": "In the key you can see that, for example, blue is water, green is forest, a thick red line is a major road, and a particular symbol stands for a church or a campsite. Scale is used to work out distances, and the map's age is stated separately — the key is only about what the symbols mean."
+    },
+    {
+      "id": "q-geo7-kar-4",
+      "kind": "mc",
+      "topic": "contour lines",
+      "prompt": "On a map, the contour lines lie very close together in one area. What does that mean?",
+      "opener": "Each line shows a certain height — think about how quickly the height changes if the lines are close together.",
+      "choices": [
+        "The ground is completely flat there",
+        "The area is a watercourse",
+        "The terrain is steep there",
+        "The map has been drawn at the wrong scale"
+      ],
+      "answer": 2,
+      "explanation": "Contour lines connect points that lie at the same height above sea level. If they're close together, the ground rises a lot over a short distance, meaning a steep slope; if they're far apart, the terrain is flat. Flat ground is therefore shown by widely spaced lines, not closely spaced ones."
+    },
+    {
+      "id": "q-geo7-kar-5",
+      "kind": "mc",
+      "topic": "latitude and longitude",
+      "prompt": "Which line on the globe has a latitude of 0 degrees?",
+      "opener": "It's the line that divides the Earth into a northern and a southern half.",
+      "choices": [
+        "The prime meridian through Greenwich",
+        "The equator",
+        "The Arctic Circle",
+        "The Tropic of Cancer"
+      ],
+      "answer": 1,
+      "explanation": "The equator is at 0 degrees latitude and divides the Earth into the northern and southern hemispheres, with latitude counted from there up to 90 degrees at the poles. The prime meridian through Greenwich instead has a longitude of 0 degrees and divides the Earth into east and west."
+    },
+    {
+      "id": "q-geo7-kar-6",
+      "kind": "mc",
+      "topic": "map types",
+      "prompt": "Which type of map is best to use if you want to see where the mountains, forests and lakes are in a country?",
+      "opener": "This map type shows nature, not the borders between countries.",
+      "choices": [
+        "Political map",
+        "Road map",
+        "Population map",
+        "Physical map"
+      ],
+      "answer": 3,
+      "explanation": "A physical map shows the shapes of nature: heights, mountains, plains, lakes and watercourses, often with colours for different heights above sea level. A political map instead shows countries and borders, a road map shows roads and towns, and a population map shows how densely people live."
+    },
+    {
+      "id": "q-geo7-kar-7",
+      "kind": "worked",
+      "topic": "scale",
+      "prompt": "On a map with a scale of 1:25,000 you measure 6 cm between the school and the swimming pool. How far is it in reality?",
+      "opener": "Multiply first, then convert from centimetres to metres and kilometres.",
+      "answer": "1.5 km (1,500 metres)",
+      "steps": [
+        "A scale of 1:25,000 means that 1 cm on the map is 25,000 cm in reality.",
+        "Multiply: 6 cm · 25,000 = 150,000 cm.",
+        "Convert to metres: 150,000 / 100 = 1,500 m.",
+        "Convert to kilometres: 1,500 / 1,000 = 1.5 km.",
+        "Sanity check: 1.5 km is roughly a fifteen-minute walk, which fits well within a town."
+      ]
+    },
+    {
+      "id": "q-geo7-kar-8",
+      "kind": "flashcard",
+      "topic": "the key",
+      "prompt": "Summarise what you need to know to read a map.",
+      "opener": "Compass directions, scale, symbols, contour lines and coordinates — in that order.",
+      "answer": "Compass directions: north, east, south, west, plus north-east, south-east, south-west and north-west · north is almost always upward on the map, and a north arrow shows the direction · Scale: 1:50,000 means reality is 50,000 times larger than the map · calculate: distance on the map (cm) · scale number = real distance in cm, divide by 100 for metres and by 100,000 for kilometres · a small scale (1:1,000,000) = large area but few details, a large scale (1:10,000) = small area with many details · The key: explains symbols, colours and lines, e.g. blue for water and green for forest · Contour lines: lines through points at the same height above sea level · close lines = steep, widely spaced lines = flat · Latitude: how far north or south of the equator (0°), up to 90° at the poles · Longitude: how far east or west of the prime meridian through Greenwich, up to 180° · Map types: physical (nature and heights), political (countries and borders), road map, thematic maps such as population maps or climate maps."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "lib-sv9-kallkritik",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Source criticism and non-fiction",
+  "sourceSummary": "Distinguishing fact from opinion, recognising biased texts, and judging whether a source can be trusted — the basics before upper-secondary school builds on them.",
+  "topics": [
+    "source criticism",
+    "fact and opinion",
+    "argumentative text"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv9-kk-1",
+      "kind": "mc",
+      "topic": "fact and opinion",
+      "prompt": "Which of these sentences is a FACT sentence (can be checked)?",
+      "opener": "A fact can be proven true or false. An opinion expresses someone's personal view.",
+      "choices": [
+        "Football is the most fun sport there is.",
+        "The capital of Sweden is Stockholm.",
+        "Everyone should exercise at least an hour a day.",
+        "Winter is the best season."
+      ],
+      "answer": 1,
+      "explanation": "That Stockholm is the capital of Sweden can be checked and is objectively true. The other statements express taste and personal preference — they cannot be proven true or false."
+    },
+    {
+      "id": "q-sv9-kk-2",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "What should you check FIRST when judging whether an article online can be trusted?",
+      "opener": "Before you even read the content — what does the SENDER tell you?",
+      "choices": [
+        "Whether the text has many pictures",
+        "Who wrote the text and which organisation is behind it",
+        "How long the text is",
+        "Whether the text is written in Swedish"
+      ],
+      "answer": 1,
+      "explanation": "The sender (who wrote it and which organisation is behind it) matters a great deal for credibility — an unknown, anonymous site is more uncertain than an established news agency or authority."
+    },
+    {
+      "id": "q-sv9-kk-3",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "An article about a new dietary supplement is written by the company that sells it. What should you keep in mind?",
+      "opener": "Who benefits from you believing the claims in the text?",
+      "choices": [
+        "The article is automatically false",
+        "The company has a financial interest in presenting the product positively, so the text should be scrutinised extra carefully",
+        "It doesn't matter who wrote it",
+        "Companies are never allowed to write about their own products"
+      ],
+      "answer": 1,
+      "explanation": "A financial interest (the company sells the product) makes the text biased, not automatically false. You should compare it with independent sources before drawing conclusions."
+    },
+    {
+      "id": "q-sv9-kk-4",
+      "kind": "mc",
+      "topic": "argumentative text",
+      "prompt": "What is the position an argumentative text wants to convince the reader of called?",
+      "opener": "It's the text's main claim — the thing the arguments are meant to support.",
+      "choices": [
+        "Source",
+        "Thesis",
+        "Summary",
+        "Anecdote"
+      ],
+      "answer": 1,
+      "explanation": "The thesis is the text's main claim — the opinion or position that the rest of the text argues for using arguments and evidence."
+    },
+    {
+      "id": "q-sv9-kk-5",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "You find a news story on a site you've never heard of. What is a good first step?",
+      "opener": "A simple way to check credibility without being an expert.",
+      "choices": [
+        "Share the news right away if it feels important",
+        "Search to see if other, well-known news sources report the same thing",
+        "Assume it's true because it's written down",
+        "Just check how many people have shared it"
+      ],
+      "answer": 1,
+      "explanation": "If several independent, established sources report the same thing, that increases credibility. The number of shares says nothing about whether something is true — false news often spreads quickly."
+    },
+    {
+      "id": "q-sv9-kk-6",
+      "kind": "mc",
+      "topic": "fact and opinion",
+      "prompt": "\"Studies show that 68% of students sleep less than eight hours a night, which is worrying.\" Which part of the sentence is an opinion?",
+      "opener": "One part of the sentence is measurable statistics, another part is a value-laden word.",
+      "choices": [
+        "\"68%\"",
+        "\"sleep less than eight hours\"",
+        "\"which is worrying\"",
+        "The whole sentence is fact"
+      ],
+      "answer": 2,
+      "explanation": "The figure and the amount of sleep are measurable facts. \"Worrying\" is a value-laden word that expresses the writer's judgement — it's the opinion in the sentence."
+    },
+    {
+      "id": "q-sv9-kk-7",
+      "kind": "worked",
+      "topic": "source criticism",
+      "prompt": "You are writing about climate change for a school assignment and find three sources: (A) a blog with no author given, (B) a report from a national weather agency, (C) a social media post with no source citation. Rank the sources by credibility and justify your ranking.",
+      "opener": "Ask of each source: who is the sender, and can the claims be checked?",
+      "answer": "1. The weather agency report (B) — an authority with expert knowledge and a responsibility for accuracy. 2. The blog (A) — an unknown sender makes it hard to judge, but it might contain links to better sources. 3. The social media post (C) — least credible, with no sender or source citation.",
+      "steps": [
+        "Source B (the weather agency): a government authority with expertise specifically in climate and weather — high credibility, often possible to verify against other authorities.",
+        "Source A (the blog): with no author given, you don't know who is behind it or what expertise they have — it must be scrutinised more, for example by checking whether it links to its own verifiable sources.",
+        "Source C (social media): with no source citation or sender, this is the weakest source — easiest for incorrect information to spread uncontrolled.",
+        "Conclusion: a good essay should primarily be based on B, possibly supplemented with A if it turns out to have good underlying sources, and should avoid building arguments solely on C."
+      ]
+    },
+    {
+      "id": "q-sv9-kk-8",
+      "kind": "flashcard",
+      "topic": "source criticism",
+      "prompt": "What four questions should you ask yourself when critically examining a text as a source?",
+      "opener": "Four basic questions before you trust a source.",
+      "answer": "Who is the sender, and what expertise/purpose do they have? Is the content fact or opinion — can it be checked? When was it published, and could the information be outdated? Are there independent sources saying the same thing? Be extra careful when the sender has a financial or political interest in you believing a particular message."
+    }
+  ]
+}

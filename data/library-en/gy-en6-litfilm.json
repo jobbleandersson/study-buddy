@@ -1,0 +1,128 @@
+{
+  "id": "lib-en6-litfilm",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Literature and film analysis",
+  "sourceSummary": "Concepts for analysing plot, characters, theme, setting, narrative perspective and basic film terms.",
+  "topics": [
+    "plot and character",
+    "theme and setting",
+    "narrative perspective",
+    "film terms"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-litfilm-1",
+      "kind": "mc",
+      "topic": "plot and character",
+      "prompt": "What is a \"protagonist\"?",
+      "opener": "Compare it with the opposite — \"antagonist\".",
+      "choices": [
+        "The main character, often the hero",
+        "The villain of a story",
+        "A minor character with few lines",
+        "The narrator of a story"
+      ],
+      "answer": 0,
+      "explanation": "The protagonist is the main character, often the one whose goal and conflict drive the plot. The villain is instead called the \"antagonist\"."
+    },
+    {
+      "id": "q-en6-litfilm-2",
+      "kind": "mc",
+      "topic": "plot and character",
+      "prompt": "What is a \"plot twist\"?",
+      "opener": "Something that makes the reader reconsider the whole story.",
+      "choices": [
+        "The final scene of a film",
+        "An unexpected turn in the story that changes the reader's understanding",
+        "A secondary storyline",
+        "The introduction of a new character"
+      ],
+      "answer": 1,
+      "explanation": "A \"plot twist\" is an unexpected turn that changes how the reader or viewer understands what has already happened. It is not just about the final scene or a new character appearing."
+    },
+    {
+      "id": "q-en6-litfilm-3",
+      "kind": "mc",
+      "topic": "theme and setting",
+      "prompt": "What does \"theme\" mean in literary analysis?",
+      "opener": "Distinguish it from \"setting\", which is something quite different.",
+      "choices": [
+        "The physical location where the story takes place",
+        "The order in which events happen",
+        "The underlying message or central idea of a work",
+        "A summary of the plot"
+      ],
+      "answer": 2,
+      "explanation": "The theme is the work's underlying message or central idea, for example love, power or identity. The setting, by contrast, is the time and place."
+    },
+    {
+      "id": "q-en6-litfilm-4",
+      "kind": "mc",
+      "topic": "theme and setting",
+      "prompt": "Which sentence best describes \"setting\"?",
+      "opener": "Where and when does the story take place?",
+      "choices": [
+        "The main conflict in the story",
+        "The author's opinion of the characters",
+        "The moral lesson of the story",
+        "The time and place in which a story occurs"
+      ],
+      "answer": 3,
+      "explanation": "\"Setting\" is the time and place of the action. The conflict, the moral lesson, and the author's attitude towards the characters are other analytical concepts."
+    },
+    {
+      "id": "q-en6-litfilm-5",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "A story told using \"I\" and \"we\", from inside a character's head, uses which narrative perspective?",
+      "opener": "Which pronoun is at the centre of the storytelling?",
+      "choices": [
+        "Third person omniscient",
+        "First person",
+        "Second person",
+        "Third person limited"
+      ],
+      "answer": 1,
+      "explanation": "First person perspective uses \"I\"/\"we\" and gives access to a single character's thoughts. Third person, whether omniscient or limited, instead uses \"he\"/\"she\"/\"they\"."
+    },
+    {
+      "id": "q-en6-litfilm-6",
+      "kind": "mc",
+      "topic": "film terms",
+      "prompt": "What does \"cinematography\" refer to?",
+      "opener": "Think about the root of the word: the same as \"photo-\" but for moving images.",
+      "choices": [
+        "The written script of a film",
+        "The visual style and camera work of a film",
+        "The music composed for a film",
+        "The actors' performances"
+      ],
+      "answer": 1,
+      "explanation": "\"Cinematography\" is about the film's visual language — camera angles, lighting and composition. The script, music and acting are other parts of film production."
+    },
+    {
+      "id": "q-en6-litfilm-7",
+      "kind": "worked",
+      "topic": "narrative perspective",
+      "prompt": "Read the short passage and identify the narrative perspective, then explain how you know.\n\n\"I stood at the edge of the platform, watching the train pull away. She never looked back, and I wondered if she ever would.\"",
+      "opener": "Which pronoun dominates the narrative, and whose thoughts do we get access to?",
+      "answer": "First person narrative perspective.",
+      "steps": [
+        "The narrator uses \"I\" and \"I wondered\" — a clear sign of first person perspective.",
+        "We only get access to the narrator's own thoughts and feelings, not to \"she\"'s inner life — this confirms that we are locked into a single person's perspective.",
+        "If the story had instead followed several characters' thoughts (e.g. also what \"she\" was thinking), it would have been third person omniscient instead.",
+        "Conclusion: first-person narration creates closeness to a character but at the same time limits what the reader can know."
+      ]
+    },
+    {
+      "id": "q-en6-litfilm-8",
+      "kind": "flashcard",
+      "topic": "film terms",
+      "prompt": "List key vocabulary for discussing literature and film.",
+      "opener": "The basic concepts you need to analyse text and film in English.",
+      "answer": "Plot = the sequence of events · Protagonist = main character · Antagonist = opponent/villain · Theme = underlying message · Setting = time and place · Narrative perspective = the perspective from which the story is told (first person, third person limited, third person omniscient) · Plot twist = unexpected turn · Cinematography = the film's visual style and camera work · Foreshadowing = a hint of what is to come."
+    }
+  ]
+}

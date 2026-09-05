@@ -1,0 +1,128 @@
+{
+  "id": "lib-en8-perfect",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Grammar: present perfect",
+  "sourceSummary": "Present perfect is formed with have/has + past participle and is used when the point in time is unimportant or when something is still ongoing. Here you practise the difference from past simple, as well as the time expressions ever, never, just, already, yet, for and since.",
+  "topics": [
+    "present perfect",
+    "past simple",
+    "time expressions",
+    "for and since"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en8-per-1",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"I ___ my homework, so I can watch TV now.\"",
+      "opener": "Present perfect is formed with have/has + past participle (the third verb form).",
+      "choices": [
+        "have finish",
+        "have finished",
+        "has finished",
+        "am finished"
+      ],
+      "answer": 1,
+      "explanation": "Present perfect is have/has + past participle: \"have finished\". With \"I\" you use \"have\", not \"has\" — \"has\" goes with he/she/it."
+    },
+    {
+      "id": "q-en8-per-2",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"She ___ lost her keys again.\"",
+      "opener": "Which auxiliary verb goes with \"she\"?",
+      "choices": [
+        "have",
+        "has",
+        "is",
+        "did"
+      ],
+      "answer": 1,
+      "explanation": "Third person singular (he/she/it) takes \"has\" in present perfect: \"She has lost her keys.\" \"Have\" is used with I/you/we/they."
+    },
+    {
+      "id": "q-en8-per-3",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"We ___ to London last summer.\"",
+      "opener": "A finished occasion with a clear point in time — present perfect doesn't work here.",
+      "choices": [
+        "have travelled",
+        "travelled",
+        "have travel",
+        "has travelled"
+      ],
+      "answer": 1,
+      "explanation": "\"Last summer\" states a specific point in the past, so past simple is used: \"travelled\". Present perfect, on the other hand, is used when the point in time is unimportant or unstated."
+    },
+    {
+      "id": "q-en8-per-4",
+      "kind": "mc",
+      "topic": "time expressions",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Yet\" belongs in questions and negative sentences — and goes at the end.",
+      "choices": [
+        "Have you finished your project yet?",
+        "Have you yet finished your project?",
+        "Did you have finished your project yet?",
+        "You have finished your project yet?"
+      ],
+      "answer": 0,
+      "explanation": "In questions, \"have\" comes before the subject and \"yet\" comes last: \"Have you finished your project yet?\" \"Yet\" can't go in the middle of the sentence — words like already and just go there instead."
+    },
+    {
+      "id": "q-en8-per-5",
+      "kind": "mc",
+      "topic": "for and since",
+      "prompt": "Choose the correct word: \"They have lived in Malmö ___ 2019.\"",
+      "opener": "Is \"2019\" about the length of a period, or about a starting point?",
+      "choices": [
+        "for",
+        "since",
+        "in",
+        "from"
+      ],
+      "answer": 1,
+      "explanation": "\"Since\" is used for a starting point: since 2019, since Monday, since I was six. \"For\" is used for the length of a period: for three years, for a week."
+    },
+    {
+      "id": "q-en8-per-6",
+      "kind": "mc",
+      "topic": "time expressions",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Never\" is placed between the auxiliary verb and the main verb — and doesn't put the word into the past tense.",
+      "choices": [
+        "I have never ate sushi.",
+        "I never have eaten sushi.",
+        "I have never eaten sushi.",
+        "I have not never eaten sushi."
+      ],
+      "answer": 2,
+      "explanation": "\"Never\" goes between have and the past participle: \"I have never eaten sushi.\" The form \"ate\" is past simple and can't be used after have — the past participle of eat is \"eaten\"."
+    },
+    {
+      "id": "q-en8-per-7",
+      "kind": "worked",
+      "topic": "present perfect",
+      "prompt": "Correct the four errors: \"I have saw that film last week. My brother have already watch it two times, and we live here since 2020.\"",
+      "opener": "Don't mix up present perfect and past simple — and check the auxiliary verb, the participle and the time words.",
+      "answer": "I saw that film last week. My brother has already watched it two times, and we have lived here since 2020.",
+      "steps": [
+        "\"I have saw ... last week\" → \"I saw ... last week\". \"Last week\" is a specific point in the past and requires past simple, not present perfect.",
+        "\"My brother have\" → \"My brother has\". Third person singular takes \"has\" as the auxiliary verb.",
+        "\"already watch\" → \"already watched\". After have/has comes the past participle, which for regular verbs ends in -ed.",
+        "\"we live here since 2020\" → \"we have lived here since 2020\". Something that started in the past and is still ongoing is expressed with present perfect + since."
+      ]
+    },
+    {
+      "id": "q-en8-per-8",
+      "kind": "flashcard",
+      "topic": "present perfect",
+      "prompt": "How is present perfect formed, when is it used instead of past simple, and how do for/since work?",
+      "opener": "Formation · use · time words.",
+      "answer": "Formation: have/has + past participle (I have played · she has gone) · Use present perfect when the point in time is unimportant or unstated (I have been to Spain), when something started in the past and is still ongoing (We have lived here for two years), and for recent events with just/already/yet · Use past simple when the time is specific: yesterday, last week, in 2019, when I was ten · Time words: ever/never for experiences, just = recently, already = already (in affirmative sentences), yet = yet/already (in questions and negatives, goes at the end) · for + length (for three days) · since + starting point (since Monday) · Common mistakes: \"have saw\" (should be have seen), \"he have\" (should be he has)."
+    }
+  ]
+}

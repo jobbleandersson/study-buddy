@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel-kristendom",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Christianity",
+  "sourceSummary": "The fundamental beliefs of Christianity, the three major branches, the Bible as holy scripture, and what Easter and Christmas mean — knowledge that helps you understand both history and society today.",
+  "topics": [
+    "fundamental beliefs",
+    "branches",
+    "festivals",
+    "the Bible"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel-kris-1",
+      "kind": "mc",
+      "topic": "fundamental beliefs",
+      "prompt": "What do Christians believe about Jesus, according to Christian faith?",
+      "opener": "Think about what makes Christianity its own religion, and not simply Judaism.",
+      "choices": [
+        "That he was an ordinary prophet among many others",
+        "That he was the Son of God, who died and rose from the dead",
+        "That he wrote the entire Bible himself",
+        "That he was an emperor of the Roman Empire"
+      ],
+      "answer": 1,
+      "explanation": "Within Christianity, it is believed that Jesus was the Son of God who became human, was crucified, and rose from the dead — this is the very foundation of the faith. Calling him \"a prophet among others\" is rather how, for example, Islam views him."
+    },
+    {
+      "id": "q-rel-kris-2",
+      "kind": "mc",
+      "topic": "fundamental beliefs",
+      "prompt": "What is meant by the Trinity within Christian faith?",
+      "opener": "The word \"tri-nity\" gives a clue — three parts that are nonetheless counted as one unity.",
+      "choices": [
+        "That there are three different gods competing with each other",
+        "That God is the Father, the Son and the Holy Spirit in a single Godhead",
+        "That there are three holy books",
+        "That Christianity has three founders"
+      ],
+      "answer": 1,
+      "explanation": "The Trinity is the doctrine that God is a single God who reveals himself in three forms: the Father, the Son (Jesus) and the Holy Spirit. It is therefore not about three separate gods, but one god in three forms."
+    },
+    {
+      "id": "q-rel-kris-3",
+      "kind": "mc",
+      "topic": "branches",
+      "prompt": "What is a key difference between Catholicism and Protestantism?",
+      "opener": "Think about who or what has the highest authority in matters of faith within the different branches.",
+      "choices": [
+        "Catholics believe in Jesus, Protestants do not",
+        "The Catholic Church has the Pope as its leader, while Protestant churches do not recognise the Pope's authority",
+        "Protestants do not celebrate Christmas",
+        "Catholics do not read the Bible"
+      ],
+      "answer": 1,
+      "explanation": "A key difference is that the Catholic Church has the Pope in Rome as its supreme leader, while Protestant churches (e.g. the Church of Sweden) do not recognise that authority and place greater emphasis on the Bible as individual guidance. Both branches believe in Jesus and celebrate Christmas."
+    },
+    {
+      "id": "q-rel-kris-4",
+      "kind": "mc",
+      "topic": "branches",
+      "prompt": "Where is the Orthodox Church strongest, and what characterises it?",
+      "opener": "Think about the old Roman Empire, which was once divided into a western and an eastern part.",
+      "choices": [
+        "In South America, with a strong focus on gospel music",
+        "In eastern Europe and Russia, with richly decorated churches, icons and old traditions",
+        "In North Africa, without any church buildings of its own",
+        "It only exists in Sweden"
+      ],
+      "answer": 1,
+      "explanation": "The Orthodox Church is strongest in countries such as Russia, Greece and other parts of eastern Europe. It is characterised by icons (holy images), richly decorated church interiors, and services that have followed similar forms for a very long time."
+    },
+    {
+      "id": "q-rel-kris-5",
+      "kind": "mc",
+      "topic": "festivals",
+      "prompt": "What do Christians primarily celebrate at Easter?",
+      "opener": "Link the festival to what is at the heart of Christian belief about Jesus.",
+      "choices": [
+        "That Jesus was born",
+        "That Jesus died and rose from the dead",
+        "That the church year starts over",
+        "That the Holy Spirit came to the disciples"
+      ],
+      "answer": 1,
+      "explanation": "Easter celebrates that Jesus, according to Christian belief, was crucified (Good Friday) and rose from the dead (Easter Sunday) — events that are entirely central to Christianity. Jesus's birth is instead celebrated at Christmas."
+    },
+    {
+      "id": "q-rel-kris-6",
+      "kind": "mc",
+      "topic": "festivals",
+      "prompt": "What does Christmas primarily symbolise within Christianity?",
+      "opener": "What happened, according to Christian belief, on that very night in Bethlehem?",
+      "choices": [
+        "That Jesus rose from the dead",
+        "That Jesus was born",
+        "That the Bible was completed",
+        "That the church was founded"
+      ],
+      "answer": 1,
+      "explanation": "Christmas celebrates the birth of Jesus, according to the account of how he was born in Bethlehem. Jesus's death and resurrection are instead celebrated at Easter."
+    },
+    {
+      "id": "q-rel-kris-7",
+      "kind": "worked",
+      "topic": "the Bible",
+      "prompt": "Explain what the Bible is and how it is structured, and why it has a central role for Christianity.",
+      "opener": "Think about how the Bible is not a single book, but a collection of texts divided into two main parts.",
+      "answer": "The Bible is Christianity's holy scripture and consists of two parts: the Old Testament, which deals with the time before Jesus and is largely shared with Judaism, and the New Testament, which deals with Jesus's life, death and resurrection, and the early Christian church. The Bible has a central role because it is used as the basis for Christian faith, ethics and worship, even though different branches interpret and use the texts in somewhat different ways.",
+      "steps": [
+        "The Bible is actually a collection of many different books and texts, written by different people over a long period of time.",
+        "The Old Testament portrays the time before Jesus and is largely shared with Judaism's holy scripture, the Tanakh/Torah.",
+        "The New Testament deals with Jesus's life, the disciples and the early church — this includes the four Gospels, among other things.",
+        "The Bible is used as guidance for faith and morality, but different Christian branches (Catholics, Protestants, Orthodox) may interpret and value the texts somewhat differently.",
+        "Conclusion: the Bible ties together Christianity's history, faith and ethics in one and the same collection of texts."
+      ]
+    },
+    {
+      "id": "q-rel-kris-8",
+      "kind": "flashcard",
+      "topic": "fundamental beliefs",
+      "prompt": "Summarise the foundations of Christianity: God, Jesus, the three branches, and the two major festivals.",
+      "opener": "Go through faith, branches and festivals as three separate parts.",
+      "answer": "God: Christians believe in one God who reveals himself as the Father, the Son and the Holy Spirit (the Trinity). Jesus: according to Christian belief, the Son of God, who was crucified and rose from the dead — the resurrection is central to the hope of eternal life. The three major branches: Catholicism (the Pope in Rome as leader), Protestantism (e.g. the Church of Sweden, no pope, strong focus on the Bible), and Orthodox Christianity (strongest in eastern Europe/Russia, icons and old traditions). The Bible: holy scripture in two parts, the Old and New Testaments. Festivals: Easter celebrates Jesus's death and resurrection · Christmas celebrates Jesus's birth."
+    }
+  ]
+}

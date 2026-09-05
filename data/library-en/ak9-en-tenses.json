@@ -1,0 +1,128 @@
+{
+  "id": "lib-en9-tenses",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Grammar: tenses",
+  "sourceSummary": "Present simple versus present continuous, past simple, and expressing the future with \"going to\" and \"will\" — the basics before upper-secondary school builds on them.",
+  "topics": [
+    "present simple",
+    "present continuous",
+    "past simple",
+    "future"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en9-tns-1",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Choose the correct form: \"She ___ to school every day.\"",
+      "opener": "Habits and routines are expressed with present simple — and third person singular (he/she/it) takes -s.",
+      "choices": [
+        "walk",
+        "walks",
+        "walking",
+        "is walk"
+      ],
+      "answer": 1,
+      "explanation": "Everyday routines are expressed in present simple. With \"she\" (third person singular), -s is added to the verb: \"walks\"."
+    },
+    {
+      "id": "q-en9-tns-2",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the correct form: \"Look! It ___ outside right now.\"",
+      "opener": "Something happening right at this moment — which tense is used then?",
+      "choices": [
+        "rains",
+        "rain",
+        "is raining",
+        "rained"
+      ],
+      "answer": 2,
+      "explanation": "\"Right now\" signals that something is happening at this moment — that requires present continuous: is/am/are + verb-ing."
+    },
+    {
+      "id": "q-en9-tns-3",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Which sentence is correct?",
+      "opener": "Routines don't take the -ing form, even if it \"feels\" ongoing.",
+      "choices": [
+        "I usually am eating breakfast at seven.",
+        "I usually eat breakfast at seven.",
+        "I usually eats breakfast at seven.",
+        "I am usually eat breakfast at seven."
+      ],
+      "answer": 1,
+      "explanation": "\"Usually\" signals a habit — that requires present simple without -ing. \"I\" does not take an -s (that is only added for he/she/it)."
+    },
+    {
+      "id": "q-en9-tns-4",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"We ___ to the cinema last Friday.\"",
+      "opener": "\"Last Friday\" points to a completed event in the past.",
+      "choices": [
+        "go",
+        "goes",
+        "went",
+        "have gone"
+      ],
+      "answer": 2,
+      "explanation": "\"Last Friday\" is a clear past-time expression that requires past simple. \"Go\" is irregular: go → went (not \"goed\")."
+    },
+    {
+      "id": "q-en9-tns-5",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct negative form: \"She ___ finish her homework yesterday.\"",
+      "opener": "In negative sentences in the past, the helping verb \"did\" is used — and then the main verb stays in its base form.",
+      "choices": [
+        "didn't finished",
+        "didn't finish",
+        "doesn't finish",
+        "not finished"
+      ],
+      "answer": 1,
+      "explanation": "Negative past tense is formed with \"didn't\" + verb in the base form: \"didn't finish\", not \"didn't finished\" (double inflection is a common mistake)."
+    },
+    {
+      "id": "q-en9-tns-6",
+      "kind": "mc",
+      "topic": "future",
+      "prompt": "Choose the best option: \"I've already decided — I ___ study medicine after school.\"",
+      "opener": "A decision that has already been made is usually expressed with \"going to\", not \"will\".",
+      "choices": [
+        "will",
+        "am going to",
+        "am",
+        "study"
+      ],
+      "answer": 1,
+      "explanation": "\"Going to\" is used for plans and decisions that have already been made. \"Will\" fits better for spontaneous decisions or promises made in the moment."
+    },
+    {
+      "id": "q-en9-tns-7",
+      "kind": "worked",
+      "topic": "present continuous",
+      "prompt": "Correct the three tense errors: \"Every day I am walking to school. Yesterday I go by bus because it rain a lot. Tomorrow I will going by bike.\"",
+      "opener": "Three tenses are mixed up here: a routine, a completed event, and a future plan.",
+      "answer": "Every day I walk to school. Yesterday I went by bus because it rained a lot. Tomorrow I will go by bike.",
+      "steps": [
+        "\"I am walking\" (routine, \"every day\") → \"I walk\". Habits take present simple, not continuous.",
+        "\"Yesterday I go\" → \"Yesterday I went\". \"Yesterday\" requires past simple; \"go\" is irregular: go → went.",
+        "\"it rain a lot\" → \"it rained a lot\". Regular verb in the past: rain → rained (-ed).",
+        "\"I will going\" → \"I will go\". After \"will\", the verb always stays in its base form, never with -ing."
+      ]
+    },
+    {
+      "id": "q-en9-tns-8",
+      "kind": "flashcard",
+      "topic": "present simple",
+      "prompt": "When do you use present simple, present continuous, past simple and \"going to\"/\"will\"?",
+      "opener": "Four tenses, four situations.",
+      "answer": "Present simple: habits and routines (I play football every week). Present continuous: something happening right now (I am playing football right now). Past simple: completed events in the past, often with time expressions like yesterday/last week (I played football yesterday). Going to: plans and decisions already made (I'm going to play tomorrow). Will: spontaneous decisions, promises and predictions made in the moment (I think it will rain)."
+    }
+  ]
+}

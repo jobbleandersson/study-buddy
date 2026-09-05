@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam7-lagar",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Laws, rules and rights",
+  "sourceSummary": "The difference between laws and rules, why society needs laws, what the police and the courts do, what the age of criminal responsibility means, and what rights children have under the Convention on the Rights of the Child.",
+  "topics": [
+    "laws and rules",
+    "why society has laws",
+    "the police and the courts",
+    "age of criminal responsibility",
+    "the Convention on the Rights of the Child"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam7-lag-1",
+      "kind": "mc",
+      "topic": "laws and rules",
+      "prompt": "What is the difference between a law and a rule?",
+      "opener": "Think about who decided it and how many people it applies to.",
+      "choices": [
+        "They're the same thing, the words mean exactly the same",
+        "A law is decided by parliament and applies to everyone in the country, while a rule can be decided by, for example, a school or an association and only applies there",
+        "A rule is decided by parliament and a law by the head teacher",
+        "Laws only apply to adults and rules only to children"
+      ],
+      "answer": 1,
+      "explanation": "Laws are decided by parliament and apply to everyone in Sweden, and anyone who breaks a law can be punished by a court. Rules can be decided by a school, an association or a family itself, and they only apply in that setting — so breaking a school rule is not the same thing as breaking the law."
+    },
+    {
+      "id": "q-sam7-lag-2",
+      "kind": "mc",
+      "topic": "why society has laws",
+      "prompt": "What is an important reason why society has laws?",
+      "opener": "Think about what it would be like to live somewhere where nothing was decided in advance.",
+      "choices": [
+        "So the state can make money from fines",
+        "To make it harder to know what the rules are",
+        "To create security and order, protect people's rights, and make clear what is allowed",
+        "So that everyone thinks exactly the same"
+      ],
+      "answer": 2,
+      "explanation": "Laws exist to protect people and their rights, make society predictable, and clarify what is allowed and not allowed. Fines are a consequence of someone breaking a law, not the purpose of the laws."
+    },
+    {
+      "id": "q-sam7-lag-3",
+      "kind": "mc",
+      "topic": "the police and the courts",
+      "prompt": "What is the police's task once a crime has been committed?",
+      "opener": "The police find out what happened — but who decides the question of guilt?",
+      "choices": [
+        "To investigate the crime and arrest suspects, but not to decide whether someone is guilty",
+        "To sentence the suspect to prison",
+        "To write new laws against the crime",
+        "To decide how long the punishment should be"
+      ],
+      "answer": 0,
+      "explanation": "The police investigate crimes, gather evidence and can arrest suspects, but it is the court that decides the question of guilt and rules on punishment. New laws, moreover, are passed by parliament, not by the police."
+    },
+    {
+      "id": "q-sam7-lag-4",
+      "kind": "mc",
+      "topic": "the police and the courts",
+      "prompt": "What does a court do in a criminal case?",
+      "opener": "The court comes last in the chain, after the police and the prosecutor.",
+      "choices": [
+        "Investigates the crime and questions witnesses at the crime scene",
+        "Decides whether new laws should be introduced",
+        "Chooses which police officers should work on the case",
+        "Examines the evidence, decides whether the accused is guilty, and if so rules on the punishment"
+      ],
+      "answer": 3,
+      "explanation": "The court holds a trial, examines the evidence and decides whether the accused is guilty — and if so, decides what punishment should follow. Investigating the crime is the police's task, and passing laws is parliament's."
+    },
+    {
+      "id": "q-sam7-lag-5",
+      "kind": "mc",
+      "topic": "age of criminal responsibility",
+      "prompt": "From what age can you be held criminally responsible in Sweden?",
+      "opener": "The age falls in the middle of the years of secondary school.",
+      "choices": [
+        "13 years",
+        "15 years",
+        "18 years",
+        "21 years"
+      ],
+      "answer": 1,
+      "explanation": "In Sweden you can be held criminally responsible from the age of 15, which means only from then on can you be sentenced to a punishment by a court. Younger children who commit crimes cannot be sentenced, but the police can still investigate the incident and social services get involved to help and put measures in place. 18 is the age limit for counting as an adult in other contexts, not for criminal responsibility."
+    },
+    {
+      "id": "q-sam7-lag-6",
+      "kind": "mc",
+      "topic": "the Convention on the Rights of the Child",
+      "prompt": "Which of the following are rights that children have under the Convention on the Rights of the Child?",
+      "opener": "The convention is about what every child is entitled to, not about what children must be able to achieve.",
+      "choices": [
+        "The right to drive a car and vote in elections",
+        "The right to skip school if you don't feel like going",
+        "The right to education, the right to have a say in matters that concern you, and the right to be protected from violence",
+        "The right to always decide everything yourself without adults interfering"
+      ],
+      "answer": 2,
+      "explanation": "The Convention on the Rights of the Child gives everyone under 18 rights such as education, health, protection from violence, and the right to be listened to in matters concerning the child. It does not, however, mean that children get to decide everything themselves — the best interests of the child must be central, but adults still have responsibility. The Convention on the Rights of the Child has applied as Swedish law since 2020."
+    },
+    {
+      "id": "q-sam7-lag-7",
+      "kind": "worked",
+      "topic": "the police and the courts",
+      "prompt": "Describe step by step what happens in Sweden from a crime being reported to a verdict being reached.",
+      "opener": "Follow the chain: report, investigation, decision on prosecution, trial, verdict.",
+      "answer": "First the crime is reported to the police, for example by the person affected. The police open a preliminary investigation, gather evidence and hold interviews. Then a prosecutor decides whether the evidence is sufficient: if it is, the prosecutor brings charges, otherwise the investigation is dropped. If charges are brought, a trial is held in the district court, where the prosecutor, the accused with their defence lawyer, and any witnesses get to have their say. Finally the court delivers its verdict — acquittal or conviction with a punishment — and the verdict can be appealed to the court of appeal.",
+      "steps": [
+        "The crime is reported to the police, often by the person affected or by a witness.",
+        "The police carry out a preliminary investigation: gathering evidence, holding interviews and looking for a suspect.",
+        "A prosecutor assesses the evidence and decides whether to bring charges or drop the investigation.",
+        "If charges are brought, a trial is held in the district court, where the prosecutor, the accused with their defence lawyer, and witnesses are heard.",
+        "The court delivers its verdict — acquittal or conviction with a punishment — and the verdict can be appealed to the court of appeal."
+      ]
+    },
+    {
+      "id": "q-sam7-lag-8",
+      "kind": "flashcard",
+      "topic": "laws and rules",
+      "prompt": "Summarise the most important points about laws, the justice system and children's rights.",
+      "opener": "Take law versus rule first, then the roles of the justice system, and finally the rights.",
+      "answer": "Law: a written rule decided by parliament, applies to everyone in Sweden, can carry a punishment · Rule: decided by, e.g., a school, an association or a family, and only applies there · Why laws are needed: security, order, protection of rights, and clarity about what is allowed · The police: investigate crimes, hold interviews, arrest suspects — do not decide the question of guilt · The prosecutor: leads the preliminary investigation and decides whether to bring charges · The court: examines the evidence, decides guilt and rules on punishment — the district court first, then the court of appeal and the Supreme Court on appeal · Common punishments: fines, a suspended sentence, probation, community service, prison · Age of criminal responsibility in Sweden: from 15 — younger children cannot be sentenced but social services get involved · Age of majority: 18 · The Convention on the Rights of the Child: the UN convention on children's rights, applies to everyone under 18, Swedish law since 2020 · Four core principles: all children have the same rights, the best interests of the child must come first, the right to life and development, the right to have a say."
+    }
+  ]
+}

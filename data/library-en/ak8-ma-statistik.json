@@ -1,0 +1,129 @@
+{
+  "id": "lib-ma8-statistik",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Statistics and diagrams",
+  "sourceSummary": "Calculating mean, median, mode and range, and reading bar charts, line graphs and pie charts — including spotting when a chart is misleading.",
+  "topics": [
+    "measures of location",
+    "spread",
+    "diagrams",
+    "critical evaluation of sources"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma8-sta-1",
+      "kind": "mc",
+      "topic": "measures of location",
+      "prompt": "What is the mean of the numbers 4, 7, 9 and 12?",
+      "opener": "Add everything together and share it out evenly across the number of values.",
+      "choices": [
+        "7",
+        "8",
+        "9",
+        "32"
+      ],
+      "answer": 1,
+      "explanation": "$4 + 7 + 9 + 12 = 32$ and $32 / 4 = 8$. The answer 32 is the sum — you also need to divide by the number of values."
+    },
+    {
+      "id": "q-ma8-sta-2",
+      "kind": "mc",
+      "topic": "measures of location",
+      "prompt": "What is the median of the number series 3, 5, 9, 2, 7?",
+      "opener": "The median requires the numbers to be in order first.",
+      "choices": [
+        "9",
+        "5",
+        "5.2",
+        "7"
+      ],
+      "answer": 1,
+      "explanation": "Sorted: 2, 3, 5, 7, 9. The middle one of five values is 5. The answer 5.2 is the mean ($26/5$), not the median — and 9 is the largest value."
+    },
+    {
+      "id": "q-ma8-sta-3",
+      "kind": "mc",
+      "topic": "measures of location",
+      "prompt": "What is the mode in the series 2, 3, 3, 5, 7, 3, 8?",
+      "opener": "The mode is about how often a value appears, not about how big it is.",
+      "choices": [
+        "3",
+        "5",
+        "4.4",
+        "8"
+      ],
+      "answer": 0,
+      "explanation": "The number 3 appears three times, all the others only once — the mode is 3. The answer 4.4 is the mean ($31/7 \\approx 4.4$), not the mode. (The median also turns out to be 3: sorted, the numbers are 2, 3, 3, 3, 5, 7, 8.)"
+    },
+    {
+      "id": "q-ma8-sta-4",
+      "kind": "mc",
+      "topic": "spread",
+      "prompt": "In a line graph of the week's temperatures you read off the values −3, −1, 2, 5, 7, 4 and 0 °C. What is the range?",
+      "opener": "The range is the distance between the extremes — and watch out for the minus signs.",
+      "choices": [
+        "4 °C",
+        "7 °C",
+        "10 °C",
+        "14 °C"
+      ],
+      "answer": 2,
+      "explanation": "The largest value is 7 and the smallest is −3: $7 - (-3) = 7 + 3 = 10$ °C. The answer 7 °C comes from forgetting that the minus sign makes the distance longer, not shorter."
+    },
+    {
+      "id": "q-ma8-sta-5",
+      "kind": "mc",
+      "topic": "diagrams",
+      "prompt": "Out of 40 pupils, 10 chose football. How big is football's sector in a pie chart?",
+      "opener": "Work out the proportion first, and remember that the whole circle is 360°.",
+      "choices": [
+        "25°",
+        "36°",
+        "90°",
+        "100°"
+      ],
+      "answer": 2,
+      "explanation": "The proportion is $10/40 = 0.25 = 25\\,\\%$, and $0.25 \\cdot 360° = 90°$. The answer 25° is the proportion as a percentage without being converted into degrees."
+    },
+    {
+      "id": "q-ma8-sta-6",
+      "kind": "mc",
+      "topic": "critical evaluation of sources",
+      "prompt": "A bar chart of three parties' support (30%, 32% and 34%) has a y-axis that starts at 29% instead of 0. What is the effect?",
+      "opener": "Think about how much of the bars is actually visible in the picture.",
+      "choices": [
+        "The differences between the parties look much bigger than they are",
+        "The differences between the parties look smaller than they are",
+        "The chart becomes completely incorrect because the numbers change",
+        "It doesn't matter where the y-axis starts"
+      ],
+      "answer": 0,
+      "explanation": "The figures are correct, but since only the top of the bars is shown, the tallest bar looks several times as high as the shortest — even though the difference is only 4 percentage points. An honest bar chart starts at 0."
+    },
+    {
+      "id": "q-ma8-sta-7",
+      "kind": "worked",
+      "topic": "measures of location",
+      "prompt": "Five pupils scored 12, 15, 15, 18 and 20 points on a test. Calculate the mean, median and mode.",
+      "opener": "Take one measure at a time — sort the numbers first, and two of them become easy to read off.",
+      "answer": "Mean 16 points, median 15 points, mode 15 points",
+      "steps": [
+        "Sort: 12, 15, 15, 18, 20 (already in order).",
+        "Mean: $12 + 15 + 15 + 18 + 20 = 80$, and $80 / 5 = 16$ points.",
+        "Median: the middle one of five values is the third, that is, 15 points.",
+        "Mode: 15 appears twice, the others once — the mode is 15 points.",
+        "The mean is higher than the median because the high value of 20 pulls the sum up. ✓"
+      ]
+    },
+    {
+      "id": "q-ma8-sta-8",
+      "kind": "flashcard",
+      "topic": "measures of location",
+      "prompt": "Which measures of location and chart types do you need to know, and when are they suitable?",
+      "opener": "Two lists: what the measures mean, and which chart suits which kind of data.",
+      "answer": "Mean $=$ the sum $/$ the number of values — heavily affected by extreme values · Median $=$ the middle value once the numbers are sorted; for an even number of values, the mean of the two middle ones — copes well with extreme values · Mode $=$ the value that occurs most often (there can be several, or none) · Range $=$ the largest value $-$ the smallest value, a measure of spread · A bar chart suits comparing categories · A line graph suits change over time · A pie chart suits parts of a whole; the whole circle $= 360° = 100\\,\\%$ · Critical evaluation of sources: check that the y-axis starts at 0, that the scale is even, and that it is clear how many people were included in the survey."
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "lib-sam-media",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Media and source criticism",
+  "sourceSummary": "The role of the media in a democracy, freedom of expression and of the press, and how to critically assess news, social media, propaganda and disinformation.",
+  "topics": [
+    "the role of media in a democratic society",
+    "the basic idea of freedom of expression and of the press",
+    "source criticism of news and social media",
+    "basic concepts of propaganda and disinformation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam-med-1",
+      "kind": "mc",
+      "topic": "the role of media in a democratic society",
+      "prompt": "What role are the media (e.g. news organisations) often said to have in a democracy, sometimes called \"the fourth estate\"?",
+      "opener": "Think about what the media do that citizens would otherwise find much harder to do themselves.",
+      "choices": [
+        "Handling the administration of justice in courts",
+        "Scrutinising those in power and spreading information so citizens can form their own opinions",
+        "Making laws together with parliament",
+        "Replacing general elections"
+      ],
+      "answer": 1,
+      "explanation": "The media scrutinise those in power (politicians, authorities, companies) and inform the public, which makes it possible for citizens to form their own opinions and hold those in power accountable. This is sometimes called the media's watchdog role or \"the fourth estate\", alongside the legislative and executive powers."
+    },
+    {
+      "id": "q-sam-med-2",
+      "kind": "mc",
+      "topic": "the basic idea of freedom of expression and of the press",
+      "prompt": "What does freedom of expression basically mean?",
+      "opener": "Think about the right to say what you think publicly, as opposed to being silenced by the state.",
+      "choices": [
+        "The right to say whatever you want with absolutely no restrictions",
+        "The right to freely express opinions and spread information, protected by the constitution but not entirely without limits (e.g. a ban on hate speech against ethnic groups)",
+        "A right that only journalists have",
+        "The obligation to always agree with the government"
+      ],
+      "answer": 1,
+      "explanation": "Freedom of expression is protected by the constitution and gives the right to freely express opinions and spread information. However, it is not unlimited — certain statements, such as hate speech against ethnic groups and incitement, are criminal offences even in a democracy like Sweden."
+    },
+    {
+      "id": "q-sam-med-3",
+      "kind": "mc",
+      "topic": "the basic idea of freedom of expression and of the press",
+      "prompt": "What does the Freedom of the Press Act, one of Sweden's fundamental laws, primarily protect?",
+      "opener": "The name gives a clue — it's about the printed word.",
+      "choices": [
+        "The right to publish printed material, e.g. books and newspapers, without prior review by the state",
+        "The right not to pay tax",
+        "The right to always have your texts published by anyone",
+        "The obligation for all newspapers to hold the same opinion"
+      ],
+      "answer": 0,
+      "explanation": "The Freedom of the Press Act is one of Sweden's fundamental laws and protects, among other things, the right to publish printed material without the state reviewing and approving the content in advance (a ban on censorship), as well as the principle of source protection for journalists."
+    },
+    {
+      "id": "q-sam-med-4",
+      "kind": "mc",
+      "topic": "source criticism of news and social media",
+      "prompt": "What is an important warning sign when assessing a social media post?",
+      "opener": "Think about whether you can verify who is behind it, and whether the content is designed to provoke strong emotions.",
+      "choices": [
+        "That the post has many comments",
+        "That the sender is unknown or anonymous and the post is designed to provoke strong emotions rather than inform factually",
+        "That the text contains numbers",
+        "That the post is short"
+      ],
+      "answer": 1,
+      "explanation": "An unknown or anonymous sender makes it hard to assess credibility, and content designed to provoke strong emotions (outrage, fear) often spreads faster regardless of whether it's true. The number of comments, text length or the presence of numbers say nothing about credibility on their own."
+    },
+    {
+      "id": "q-sam-med-5",
+      "kind": "mc",
+      "topic": "basic concepts of propaganda and disinformation",
+      "prompt": "What is the difference between disinformation and misinformation?",
+      "opener": "Both are incorrect information, but one of them is spread with the intent to mislead.",
+      "choices": [
+        "There is no difference, the words mean exactly the same thing",
+        "Disinformation is spread deliberately to mislead, while misinformation can be spread by mistake without intent to deceive",
+        "Misinformation is always true",
+        "Disinformation only occurs in printed newspapers"
+      ],
+      "answer": 1,
+      "explanation": "Disinformation is incorrect information spread deliberately in order to mislead, often to influence public opinion. Misinformation is also incorrect, but can be spread by mistake, for example when someone shares incorrect information without knowing it's wrong."
+    },
+    {
+      "id": "q-sam-med-6",
+      "kind": "mc",
+      "topic": "basic concepts of propaganda and disinformation",
+      "prompt": "What characterises propaganda?",
+      "opener": "Think about the purpose: to inform factually, or to steer what the recipient should think.",
+      "choices": [
+        "Information that one-sidedly aims to influence people's opinions and behaviour in a certain direction, often by withholding counterarguments",
+        "Only neutral news reports",
+        "Scientific studies reviewed by other researchers",
+        "Information that always comes from authorities"
+      ],
+      "answer": 0,
+      "explanation": "Propaganda is one-sided information that aims to influence people's opinions or behaviour in a certain direction, often by simplifying, slanting, or withholding counterarguments, unlike factual and balanced news reporting."
+    },
+    {
+      "id": "q-sam-med-7",
+      "kind": "worked",
+      "topic": "source criticism of news and social media",
+      "prompt": "You see a shocking news story spreading quickly on social media with no source given. Explain step by step how you should critically assess it before sharing it further.",
+      "opener": "Use the same basic questions as for any source: sender, purpose, timing, and independent confirmation.",
+      "answer": "Before sharing the news, you should first identify who the sender is and whether it can be verified. Next, you should ask yourself what purpose the post seems to serve — informing factually, or provoking strong emotions. Then you should look for whether established, independent news sources are reporting the same thing, and finally check when the information was published, since old information is sometimes reused as if it were new. If you cannot verify the news, you should refrain from sharing it.",
+      "steps": [
+        "Check the sender: is there a name, an organisation or an account you can identify and assess the credibility of?",
+        "Think about the purpose: is the post designed to inform factually, or to provoke strong emotions like anger or fear (a sign of possible disinformation or propaganda)?",
+        "Look for confirmation: are several independent, established media outlets reporting the same thing?",
+        "Check the timing: is the information new, or is it an old news story/image being reused in a new context?",
+        "If you cannot verify the news through independent sources, you should refrain from sharing it further, so as not to contribute to the spread of incorrect information."
+      ]
+    },
+    {
+      "id": "q-sam-med-8",
+      "kind": "flashcard",
+      "topic": "the role of media in a democratic society",
+      "prompt": "Summarise the role of the media, freedom of expression, and the basic concepts around source criticism, propaganda and disinformation.",
+      "opener": "From the media's role in society to how you yourself assess what you read.",
+      "answer": "The media's role: scrutinises those in power and informs citizens, sometimes called \"the fourth estate\" · Freedom of expression: a constitutionally protected right to express opinions and spread information, with certain legal limits (e.g. hate speech against ethnic groups) · The Freedom of the Press Act: a fundamental law that protects the right to publish printed material without state review in advance, as well as source protection for journalists · Source criticism: examine the sender, purpose, timing, and whether independent sources confirm the information · Disinformation: incorrect information spread deliberately to mislead · Misinformation: incorrect information spread by mistake, without intent to deceive · Propaganda: one-sided, emotionally driven information that aims to influence opinions in a certain direction."
+    }
+  ]
+}

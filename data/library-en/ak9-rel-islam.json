@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel-islam",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Islam",
+  "sourceSummary": "The fundamental beliefs of Islam, the five pillars, the difference between Sunni and Shia, and the Quran and important festivals such as Ramadan — the basis for understanding the world's second-largest religion.",
+  "topics": [
+    "fundamental beliefs",
+    "the five pillars",
+    "Sunni and Shia",
+    "the Quran and festivals"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel-isl-1",
+      "kind": "mc",
+      "topic": "fundamental beliefs",
+      "prompt": "What is at the heart of Islam's belief in God?",
+      "opener": "The word \"Islam\" roughly means \"submission\" — submission to what?",
+      "choices": [
+        "That there are several gods who rule different parts of the world",
+        "That there is only one God, Allah, who is the same as the God of Judaism and Christianity",
+        "That Muhammad himself is God",
+        "That nature itself is divine"
+      ],
+      "answer": 1,
+      "explanation": "Islam is a strictly monotheistic religion — believers hold that there is one single God, Allah, who within Islam is seen as the same God as in Judaism and Christianity, but with a different revelation. Muhammad is regarded as a prophet, not as God."
+    },
+    {
+      "id": "q-rel-isl-2",
+      "kind": "mc",
+      "topic": "fundamental beliefs",
+      "prompt": "What role does Muhammad have within Islam?",
+      "opener": "Think about what Muslims believe Muhammad received, and from whom.",
+      "choices": [
+        "He is regarded as God on Earth",
+        "He is seen as the last and most important prophet, who received the revelations of the Quran from Allah",
+        "He wrote the Quran as an ordinary literary work with no divine origin",
+        "He founded Christianity"
+      ],
+      "answer": 1,
+      "explanation": "Within Islam, Muhammad is seen as the last and most important prophet, through whom the Quran was revealed by Allah via the angel Gabriel. He is not regarded as divine, but as a human being and messenger."
+    },
+    {
+      "id": "q-rel-isl-3",
+      "kind": "mc",
+      "topic": "the five pillars",
+      "prompt": "Which of the five pillars involves fasting for an entire month?",
+      "opener": "The fast is linked to a specific month in the Islamic calendar.",
+      "choices": [
+        "Shahada",
+        "Zakat",
+        "Ramadan",
+        "Hajj"
+      ],
+      "answer": 2,
+      "explanation": "During Ramadan, Muslims fast from dawn until sunset as one of the five pillars. Shahada is the declaration of faith, zakat is almsgiving, and hajj is the pilgrimage to Mecca."
+    },
+    {
+      "id": "q-rel-isl-4",
+      "kind": "mc",
+      "topic": "the five pillars",
+      "prompt": "What does the pillar \"zakat\" involve?",
+      "opener": "Think of one of the pillars that is about sharing financially.",
+      "choices": [
+        "Praying five times a day",
+        "Giving a set proportion of one's wealth to the poor and needy",
+        "Making a pilgrimage to Mecca",
+        "Fasting during Ramadan"
+      ],
+      "answer": 1,
+      "explanation": "Zakat is almsgiving — a religious duty to give a fixed portion of one's wealth to the poor and needy. Prayer is called salat, the pilgrimage hajj, and the fast Ramadan."
+    },
+    {
+      "id": "q-rel-isl-5",
+      "kind": "mc",
+      "topic": "Sunni and Shia",
+      "prompt": "What was the original point of dispute that led to the split between Sunni and Shia Muslims?",
+      "opener": "Think about what happened right after Muhammad died — who was to take over the leadership.",
+      "choices": [
+        "Which prayer should be said first in the day",
+        "Who should succeed Muhammad as leader of the Muslims",
+        "Whether the Quran should exist in Arabic or not",
+        "Whether Ramadan should be celebrated or not"
+      ],
+      "answer": 1,
+      "explanation": "The split arose over the question of who should become Muhammad's successor (caliph). Shia Muslims believed leadership should stay within Muhammad's family, while Sunni Muslims accepted an elected successor. The issue was therefore about leadership, not about prayers or language."
+    },
+    {
+      "id": "q-rel-isl-6",
+      "kind": "mc",
+      "topic": "the Quran and festivals",
+      "prompt": "What is the Quran, according to Muslim belief?",
+      "opener": "Compare this with how the Bible is described within Christianity, but notice the difference in how it came about.",
+      "choices": [
+        "A historical novel written by several authors over a long period",
+        "God's own words, revealed to Muhammad through the angel Gabriel",
+        "A collection of myths with no religious significance for Muslims today",
+        "A book that is only about Muhammad's life"
+      ],
+      "answer": 1,
+      "explanation": "Within Islam, the Quran is seen as God's direct, unchanged words, revealed to Muhammad through the angel Gabriel over some twenty years. This differs from the Bible, which within Christianity is often seen as written by people inspired by God."
+    },
+    {
+      "id": "q-rel-isl-7",
+      "kind": "worked",
+      "topic": "the five pillars",
+      "prompt": "Describe all five pillars of Islam and briefly explain why they are together important for a Muslim's life of faith.",
+      "opener": "Go through the pillars one by one: faith, prayer, almsgiving, fasting, pilgrimage.",
+      "answer": "The five pillars are: 1) Shahada, the declaration of faith (\"there is no god but Allah and Muhammad is his prophet\"). 2) Salat, the daily prayer performed five times a day. 3) Zakat, almsgiving to the poor. 4) Sawm, fasting during Ramadan. 5) Hajj, the pilgrimage to Mecca at least once in a lifetime for those who have the health and means to do so. Together, the pillars form a practical foundation for how a Muslim lives out their faith every day, every week, every year, and at least once in a lifetime.",
+      "steps": [
+        "Shahada is the declaration of faith itself — the foundation all the other pillars build on.",
+        "Salat takes place daily, five times, keeping prayer present in everyday life.",
+        "Zakat links faith to social responsibility by sharing with those in need.",
+        "Sawm during Ramadan is about self-discipline and reminding oneself of those who are struggling.",
+        "Hajj is a pilgrimage carried out at least once in a lifetime, if one is able, and binds Muslims worldwide together around a shared place: Mecca."
+      ]
+    },
+    {
+      "id": "q-rel-isl-8",
+      "kind": "flashcard",
+      "topic": "fundamental beliefs",
+      "prompt": "Summarise the foundations of Islam: belief in God, Muhammad, the five pillars, Sunni/Shia, and the Quran.",
+      "opener": "Split the answer into faith, prophet, pillars, branches, and holy scripture.",
+      "answer": "Belief in God: Islam is monotheistic — one single God, Allah. Muhammad: seen as the last prophet, received the revelations of the Quran via the angel Gabriel. The five pillars: shahada (declaration of faith) · salat (prayer five times a day) · zakat (almsgiving) · sawm (fasting during Ramadan) · hajj (pilgrimage to Mecca). Sunni and Shia: the two largest branches, originally split over the question of who should succeed Muhammad as leader — Sunni is by far the largest branch globally. The Quran: Islam's holy scripture, seen as God's own words in Arabic. Ramadan: the month of fasting, one of the year's most important festivals, ending with the festival of Eid al-Fitr."
+    }
+  ]
+}

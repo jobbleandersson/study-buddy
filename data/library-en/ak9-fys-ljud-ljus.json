@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys-ljud-ljus",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Sound, light and the universe",
+  "sourceSummary": "Sound waves and how we perceive pitch and volume, the propagation of light, reflection and refraction, and basic facts about the solar system and the vast distances in the universe.",
+  "topics": [
+    "sound waves",
+    "light, reflection and refraction",
+    "the solar system",
+    "the universe"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys-lju-1",
+      "kind": "mc",
+      "topic": "sound waves",
+      "prompt": "What is sound, physically speaking?",
+      "opener": "Think about what happens in the air when something vibrates, for example a guitar string.",
+      "choices": [
+        "Light that moves in waves",
+        "Pressure waves that spread through a medium, for example air, when something vibrates",
+        "An electrical signal in the air",
+        "A vacuum moving forward"
+      ],
+      "answer": 1,
+      "explanation": "Sound arises when something vibrates and sets the particles in a medium (e.g. air) oscillating, which creates pressure waves that spread outward and reach the ear. Sound is not light and needs a medium in order to spread."
+    },
+    {
+      "id": "q-fys-lju-2",
+      "kind": "mc",
+      "topic": "sound waves",
+      "prompt": "What determines pitch (whether a tone sounds high or low)?",
+      "opener": "Think about how fast something vibrates.",
+      "choices": [
+        "The speed of sound",
+        "The frequency, that is, how many oscillations per second the sound source makes",
+        "How loud the volume is",
+        "The distance to the listener"
+      ],
+      "answer": 1,
+      "explanation": "Pitch is determined by frequency, measured in hertz (Hz) — more oscillations per second gives a higher tone, fewer oscillations gives a lower tone. Volume, on the other hand, is controlled by the amplitude of the sound wave (the size of the oscillation), not by frequency."
+    },
+    {
+      "id": "q-fys-lju-3",
+      "kind": "mc",
+      "topic": "sound waves",
+      "prompt": "Why do you hear thunder after you see lightning, even though they happen at the same time?",
+      "opener": "Compare how fast light and sound each travel through air.",
+      "choices": [
+        "The sound is created later than the lightning",
+        "Light travels much faster than sound, so light from the lightning reaches your eye almost instantly while the sound takes longer",
+        "The ear is slower than the eye at reacting",
+        "Lightning is quieter than thunder"
+      ],
+      "answer": 1,
+      "explanation": "Light travels at about 300,000 km/s while sound only travels at about 340 m/s in air. That's why light from the lightning reaches us almost instantly, while the sound (thunder) lags behind and is heard later, especially if the distance is large."
+    },
+    {
+      "id": "q-fys-lju-4",
+      "kind": "mc",
+      "topic": "light, reflection and refraction",
+      "prompt": "What is it called when light bounces off a surface, for example a mirror?",
+      "opener": "Think of the word for when something is \"bounced back\".",
+      "choices": [
+        "Refraction",
+        "Reflection",
+        "Absorption",
+        "Diffraction"
+      ],
+      "answer": 1,
+      "explanation": "Reflection means that light bounces back from a surface, for example a mirror. Refraction, on the other hand, is when light changes direction as it passes between different media (e.g. air and water)."
+    },
+    {
+      "id": "q-fys-lju-5",
+      "kind": "mc",
+      "topic": "light, reflection and refraction",
+      "prompt": "Why does a straw in a glass of water appear to \"bend\" at the water's surface?",
+      "opener": "The light changes medium (air to water) and this changes its speed and direction.",
+      "choices": [
+        "The straw is actually bent",
+        "The light refracts (changes direction) as it goes from air to water because it changes speed in the different media",
+        "The water magnifies the image evenly along the whole straw",
+        "The eye cannot perceive straight lines underwater"
+      ],
+      "answer": 1,
+      "explanation": "Light travels at different speeds in air and water, and when the light crosses the boundary between the media it changes direction — this is called refraction. This makes the straw look shifted or \"bent\" at the water's surface, even though it is actually straight."
+    },
+    {
+      "id": "q-fys-lju-6",
+      "kind": "mc",
+      "topic": "the solar system",
+      "prompt": "What is the difference between a star and a planet?",
+      "opener": "Think about whether the celestial body produces its own light or not.",
+      "choices": [
+        "Stars are always smaller than planets",
+        "A star produces its own light and heat through nuclear reactions, while a planet only reflects light from a star",
+        "Planets are always warmer than stars",
+        "There is no real difference"
+      ],
+      "answer": 1,
+      "explanation": "A star, like the Sun, generates energy through nuclear reactions in its core and therefore shines with its own light. A planet, like Earth, has no light source of its own but is visible because it reflects light from a star it orbits."
+    },
+    {
+      "id": "q-fys-lju-7",
+      "kind": "worked",
+      "topic": "the universe",
+      "prompt": "Light from the Sun takes about 8 minutes to reach Earth. Light from the next-nearest star takes about 4 years. Explain what this says about distances in the universe, and why astronomers use light-years as a unit of distance.",
+      "opener": "Compare how far light, the fastest thing we know of, travels in such different amounts of time.",
+      "answer": "The fact that starlight takes minutes in one case and years in the other shows that distances in space are enormously larger than distances on Earth — even at light's incredible speed (about 300,000 km/s), it takes years to reach us from other stars. A light-year is the distance light travels in one year, and it is used as a unit because ordinary measures like kilometres would give unreasonably huge and unwieldy numbers for distances between stars and galaxies.",
+      "steps": [
+        "The Sun is our nearest star, and its light takes only 8 minutes to reach Earth.",
+        "The next-nearest star is so much farther away that its light takes about 4 years to reach us.",
+        "Light is the fastest thing we know of (about 300,000 km/s), yet the journey takes years — this shows how enormous the distances in the universe are.",
+        "Measuring such distances in kilometres would give extremely large, unwieldy numbers.",
+        "That's why light-years (the distance light travels in one year) are used as a practical unit of distance in astronomy."
+      ]
+    },
+    {
+      "id": "q-fys-lju-8",
+      "kind": "flashcard",
+      "topic": "sound waves",
+      "prompt": "Summarise the basic concepts of sound, light and the universe.",
+      "opener": "Go through sound, then light, then space before turning the card over.",
+      "answer": "Sound: pressure waves that spread through a medium (e.g. air) when something vibrates, requires a medium in order to spread · Frequency (Hz) determines pitch — more oscillations per second gives a higher tone · Amplitude determines volume/loudness · The speed of sound in air is about 340 m/s, much slower than light's roughly 300,000 km/s · Reflection: light bounces back off a surface, e.g. a mirror · Refraction: light changes direction when it changes medium, e.g. from air to water · The solar system: the Sun is a star that shines with its own light via nuclear reactions, the planets (including Earth) orbit the Sun and only reflect light · The universe: contains countless stars and galaxies, and the distances are so enormous that they are measured in light-years (the distance light travels in one year)."
+    }
+  ]
+}

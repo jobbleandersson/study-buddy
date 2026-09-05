@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel-judendom-etc",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Judaism, Hinduism and Buddhism",
+  "sourceSummary": "The core beliefs of Judaism and the Torah, the central ideas of Hinduism and Buddhism, and similarities and differences between Eastern and Abrahamic religions.",
+  "topics": [
+    "Judaism",
+    "Hinduism",
+    "Buddhism",
+    "comparing religions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel-jud-1",
+      "kind": "mc",
+      "topic": "Judaism",
+      "prompt": "What is the Torah within Judaism?",
+      "opener": "The Torah is the most central part of Judaism's holy scriptures.",
+      "choices": [
+        "A prayer book only used during festivals",
+        "The five Books of Moses, Judaism's most central holy text",
+        "A collection of myths with no religious significance",
+        "A book written by Muhammad"
+      ],
+      "answer": 1,
+      "explanation": "The Torah consists of the five Books of Moses and is Judaism's most central holy scripture, containing among other things the accounts of creation and the Ten Commandments. It is also included, together with other texts, in the larger collection known as the Tanakh."
+    },
+    {
+      "id": "q-rel-jud-2",
+      "kind": "mc",
+      "topic": "Judaism",
+      "prompt": "What characterises Judaism's understanding of God?",
+      "opener": "Judaism is counted, together with Christianity and Islam, as one of the Abrahamic religions.",
+      "choices": [
+        "Belief in many different gods with different areas of responsibility",
+        "Belief in a single God, who made a special covenant with the Jewish people",
+        "No belief in any god at all",
+        "God is seen as an impersonal force without will"
+      ],
+      "answer": 1,
+      "explanation": "Judaism is monotheistic — believers hold that there is a single God. Also central is the idea of a covenant between God and the Jewish people, which among other things involves following God's commandments (mitzvot)."
+    },
+    {
+      "id": "q-rel-jud-3",
+      "kind": "mc",
+      "topic": "Hinduism",
+      "prompt": "What is meant by karma within Hinduism?",
+      "opener": "Think of the word as a principle of cause and effect that stretches across several lives.",
+      "choices": [
+        "A holy river in India",
+        "The principle that one's actions have consequences, which affect future rebirths",
+        "The name of one of the great gods",
+        "A daily prayer"
+      ],
+      "answer": 1,
+      "explanation": "Karma is the principle that actions (good and bad) have consequences, which within Hinduism are believed to affect how one is reborn in the next life (reincarnation). It is therefore not a river or a god, but a principle of cause and effect."
+    },
+    {
+      "id": "q-rel-jud-4",
+      "kind": "mc",
+      "topic": "Hinduism",
+      "prompt": "How is the concept of God within Hinduism most often described?",
+      "opener": "Hinduism has many gods and goddesses, but there is often an idea of something shared behind them.",
+      "choices": [
+        "Strictly monotheistic, just like Judaism — only a single god exists",
+        "Many gods and goddesses, who are often seen as different expressions of a shared, divine force (Brahman)",
+        "Entirely atheistic, with no belief in God at all",
+        "The gods are seen as completely separate and unrelated forces"
+      ],
+      "answer": 1,
+      "explanation": "Hinduism encompasses many gods and goddesses (e.g. Shiva, Vishnu, Brahma), but they are often seen as different expressions or faces of an underlying divine force, Brahman. This makes Hinduism more multifaceted than a strictly monotheistic religion."
+    },
+    {
+      "id": "q-rel-jud-5",
+      "kind": "mc",
+      "topic": "Buddhism",
+      "prompt": "What are the Four Noble Truths fundamentally about?",
+      "opener": "Think about what Buddha, according to tradition, realised about life, suffering and the path away from it.",
+      "choices": [
+        "That there are four gods who rule the world",
+        "That suffering exists, that it has a cause, that it can cease, and that there is a path to that end (the Noble Eightfold Path)",
+        "That one must sacrifice animals to attain happiness",
+        "That only monks can attain enlightenment"
+      ],
+      "answer": 1,
+      "explanation": "The Four Noble Truths concern the existence of suffering (dukkha), the fact that it is caused by craving, that it can cease, and that the Noble Eightfold Path leads there. They are therefore not about gods or sacrifices."
+    },
+    {
+      "id": "q-rel-jud-6",
+      "kind": "mc",
+      "topic": "Buddhism",
+      "prompt": "Who was Buddha, according to Buddhist tradition?",
+      "opener": "Buddha is not seen as a god, but as something else — think about what the word \"buddha\" means.",
+      "choices": [
+        "A god who created the world",
+        "A person, Siddhartha Gautama, who attained enlightenment (nirvana) through meditation",
+        "A book of holy texts",
+        "An emperor in ancient India who ruled with a firm hand"
+      ],
+      "answer": 1,
+      "explanation": "Buddha (\"the enlightened one\") refers to Siddhartha Gautama, a person who according to tradition attained enlightenment through meditation and reflection. He was not seen as a god, but as a human being who showed the way for others."
+    },
+    {
+      "id": "q-rel-jud-7",
+      "kind": "worked",
+      "topic": "comparing religions",
+      "prompt": "Explain a key difference between Eastern religions such as Hinduism/Buddhism and Abrahamic religions such as Judaism/Christianity/Islam, regarding views on life after death.",
+      "opener": "Compare the idea of a single life with the idea of many successive lives.",
+      "answer": "Within the Abrahamic religions (Judaism, Christianity, Islam), belief is usually in a single earthly life followed by a form of eternity, for example heaven/paradise or hell, depending on the tradition. Within Hinduism and Buddhism, there is instead often the idea of reincarnation — that the soul (or, within Buddhism, a form of stream of consciousness) is reborn into new lives, governed by karma, until one, for example, reaches moksha (Hinduism) or nirvana (Buddhism) and leaves the cycle of birth and death.",
+      "steps": [
+        "Abrahamic religions: one earthly life, then a transition to an eternal existence (e.g. paradise) according to the respective tradition.",
+        "Hinduism and Buddhism: the idea of a cycle of birth, death and rebirth (samsara), where karma affects the next life.",
+        "The goal within Hinduism is often moksha — to become free from the cycle and unite with the divine.",
+        "The goal within Buddhism is nirvana — to extinguish craving and leave the cycle of suffering.",
+        "Conclusion: the difference is about linear time (one life, one eternity) compared with cyclical time (many lives, an ultimate goal beyond the cycle)."
+      ]
+    },
+    {
+      "id": "q-rel-jud-8",
+      "kind": "flashcard",
+      "topic": "comparing religions",
+      "prompt": "Summarise the foundations of Judaism, Hinduism and Buddhism, and a key difference from the Abrahamic religions.",
+      "opener": "Go through one religion at a time, and finish with the comparison.",
+      "answer": "Judaism: monotheistic, believes in a covenant between God and the Jewish people, the Torah (the five Books of Moses) is the most central scripture, included in the Tanakh. Hinduism: many gods/goddesses often seen as expressions of a shared divine force (Brahman) · central concepts: karma, reincarnation (samsara), moksha as the ultimate goal. Buddhism: founded by Siddhartha Gautama (Buddha) · the Four Noble Truths about suffering and the path away from it · the Noble Eightfold Path · nirvana as the ultimate goal. Comparison: Hinduism and Buddhism (Eastern religions) often emphasise cycles of life and rebirth, while Judaism, Christianity and Islam (Abrahamic religions) emphasise a single earthly life, one God, and a covenant/revelation."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam8-manskliga",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Human rights and equality",
+  "sourceSummary": "The UN's Universal Declaration of Human Rights, the Convention on the Rights of the Child as Swedish law, the grounds of discrimination in the Discrimination Act, gender equality, and the freedoms and rights protected in the Swedish constitution.",
+  "topics": [
+    "the UN's Universal Declaration",
+    "the Convention on the Rights of the Child",
+    "the grounds of discrimination",
+    "gender equality",
+    "democratic freedoms and rights"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam8-man-1",
+      "kind": "mc",
+      "topic": "the UN's Universal Declaration",
+      "prompt": "What does it mean that human rights are universal?",
+      "opener": "Universal is about who the rights apply to, not about how well they are followed.",
+      "choices": [
+        "That they apply to every person in the whole world, regardless of background, sex, religion or citizenship",
+        "That every country actually follows them fully in practice",
+        "That they only apply in countries that are democracies",
+        "That they can be taken away from a person who breaks the law"
+      ],
+      "answer": 0,
+      "explanation": "Universality means the rights apply to every human being everywhere, simply because they are human. The rights applying is not the same as them always being respected — many states violate them, which is precisely why they need to be monitored. The rights are also inalienable: they cannot be forfeited, even though some rights can in practice be restricted, for example freedom of movement for someone serving a prison sentence."
+    },
+    {
+      "id": "q-sam8-man-2",
+      "kind": "mc",
+      "topic": "the UN's Universal Declaration",
+      "prompt": "When and by whom was the Universal Declaration of Human Rights adopted?",
+      "opener": "It came shortly after the Second World War, from a global organisation.",
+      "choices": [
+        "By the EU in 1995",
+        "By the Swedish Riksdag in 1974",
+        "By the UN General Assembly in 1948",
+        "By the League of Nations in 1919"
+      ],
+      "answer": 2,
+      "explanation": "The UN General Assembly adopted the Universal Declaration of Human Rights on 10 December 1948, in the shadow of the atrocities of the Second World War. It became the foundation for later binding conventions, for example the Convention on the Rights of the Child. 1974 is instead the year of Sweden's current Instrument of Government, and 1995 the year Sweden joined the EU."
+    },
+    {
+      "id": "q-sam8-man-3",
+      "kind": "mc",
+      "topic": "the Convention on the Rights of the Child",
+      "prompt": "What is the status of the Convention on the Rights of the Child in Sweden today?",
+      "opener": "Something changed in the convention's status on 1 January 2020.",
+      "choices": [
+        "It has applied as Swedish law since 2020 and covers everyone under 18",
+        "It only applies to children under 12",
+        "Sweden has not signed it",
+        "It is merely a recommendation with no significance for Swedish authorities"
+      ],
+      "answer": 0,
+      "explanation": "The Convention on the Rights of the Child was adopted by the UN in 1989, Sweden ratified it in 1990, and since 1 January 2020 it applies as Swedish law. It covers everyone under 18, not just young children, and authorities, municipalities and courts must apply it. Four core principles underpin the convention: non-discrimination, the best interests of the child, the right to life and development, and the child's right to be heard."
+    },
+    {
+      "id": "q-sam8-man-4",
+      "kind": "mc",
+      "topic": "the grounds of discrimination",
+      "prompt": "Which of the following is one of the seven grounds of discrimination in the Swedish Discrimination Act?",
+      "opener": "The grounds concern characteristics and identities that the law specifically protects.",
+      "choices": [
+        "What hairstyle a person has",
+        "Which football team a person supports",
+        "How big a home a person lives in",
+        "Sexual orientation"
+      ],
+      "answer": 3,
+      "explanation": "The seven grounds of discrimination are sex, transgender identity or expression, ethnicity, religion or other belief, disability, sexual orientation, and age. Sexual orientation is thus protected. Hairstyle or favourite team are not grounds of discrimination — being treated worse for such reasons can be unfair and might, for example, count as offensive treatment in school, but it does not fall under the Discrimination Act."
+    },
+    {
+      "id": "q-sam8-man-5",
+      "kind": "mc",
+      "topic": "gender equality",
+      "prompt": "What is meant by gender equality?",
+      "opener": "Distinguish the concept from the broader word equality in general.",
+      "choices": [
+        "That everyone should have exactly the same income",
+        "That women and men have the same rights, obligations and opportunities in all areas of life",
+        "That everyone is treated exactly the same in every situation, regardless of need",
+        "That women should have more rights than men"
+      ],
+      "answer": 1,
+      "explanation": "Gender equality is specifically about the relationship between the sexes: the same rights, obligations and opportunities in work, education, family life and society. It should not be confused with equality in the broader sense, the wider concept of everyone's equal worth and conditions regardless of background. Gender equality does not mean identical incomes for everyone, but that sex should not determine what opportunities a person gets."
+    },
+    {
+      "id": "q-sam8-man-6",
+      "kind": "mc",
+      "topic": "democratic freedoms and rights",
+      "prompt": "Which of the following is a freedom or right protected in the Swedish constitution?",
+      "opener": "Look for the freedom that makes it possible to openly criticise those in power.",
+      "choices": [
+        "The right to always get your own way in a vote",
+        "The right not to pay tax",
+        "Freedom of expression — the right to express thoughts, opinions and feelings",
+        "The right to drive a car without a licence"
+      ],
+      "answer": 2,
+      "explanation": "Freedom of expression is one of the fundamental freedoms and rights protected in the Instrument of Government, together with, among others, freedom of information, freedom of assembly, freedom of demonstration, freedom of association and freedom of religion. Sweden has four fundamental laws: the Instrument of Government, the Act of Succession, the Freedom of the Press Act, and the Fundamental Law on Freedom of Expression. Always getting your own way is not a right — in a democracy, majority decisions apply, while minorities' rights are protected at the same time. Freedom of expression also has limits, for example the ban on incitement against a population group and defamation."
+    },
+    {
+      "id": "q-sam8-man-7",
+      "kind": "worked",
+      "topic": "the grounds of discrimination",
+      "prompt": "A pupil who uses a wheelchair is not allowed to join the class's field trip, because the school thinks it would be too much hassle to arrange transport. Reason through what the Discrimination Act says about the situation and what the pupil can do.",
+      "opener": "Link the situation to a ground of discrimination and to the school's duty to make accommodations.",
+      "answer": "The situation concerns the ground of discrimination disability, one of the seven grounds in the Discrimination Act. The school is an activity covered by the law, and a school is not allowed to treat a pupil worse because of a disability. Excluding the pupil from a field trip that the rest of the class takes part in means the pupil is disadvantaged, and the school also has a duty to make reasonable accommodations so that pupils with disabilities can take part on equal terms — for example booking accessible transport or choosing a destination that works for everyone. That it feels like a hassle or costs a little more is normally not a valid reason to exclude the pupil. The pupil or the pupil's guardian can first raise it with the teacher, the head teacher and the school's principal organiser, who is obliged to investigate and take action. If that doesn't help, a complaint can be made to the Equality Ombudsman (DO) or to the Schools Inspectorate and the Children's and Student Ombudsman. The Convention on the Rights of the Child is also relevant here, since decisions concerning children must be based on the best interests of the child, and the child has the right to be heard in matters that concern them.",
+      "steps": [
+        "Identify the ground of discrimination: disability, one of the seven grounds in the Discrimination Act.",
+        "Establish that the school is covered by the law and may not disadvantage a pupil because of a disability.",
+        "Consider the school's duty to make reasonable accommodations, for example accessible transport or a different destination — extra effort is rarely a valid reason to exclude the pupil.",
+        "Describe the way forward: raise it with the teacher, head teacher and principal organiser, who must investigate and take action.",
+        "Mention where to turn next — the Equality Ombudsman, the Schools Inspectorate or the Children's and Student Ombudsman — and link it to the Convention on the Rights of the Child's principles of the best interests of the child and the right to be heard."
+      ]
+    },
+    {
+      "id": "q-sam8-man-8",
+      "kind": "flashcard",
+      "topic": "the UN's Universal Declaration",
+      "prompt": "Summarise human rights and equality: the UN's Declaration, the Convention on the Rights of the Child, the grounds of discrimination, gender equality, and constitutionally protected freedoms.",
+      "opener": "From a global declaration to concrete rights in Swedish law.",
+      "answer": "The UN's Universal Declaration of Human Rights: adopted by the UN General Assembly on 10 December 1948 · the rights are universal (apply to every human being) and inalienable (cannot be forfeited) · The Convention on the Rights of the Child: adopted by the UN in 1989, ratified by Sweden in 1990, Swedish law since 1 January 2020 · covers everyone under 18 · four core principles: non-discrimination, the best interests of the child, the right to life and development, the child's right to be heard · The grounds of discrimination in the Discrimination Act: sex · transgender identity or expression · ethnicity · religion or other belief · disability · sexual orientation · age · schools and employers are covered and must make reasonable accommodations · a complaint can be made to the Equality Ombudsman · Gender equality: the same rights, obligations and opportunities for women and men · equality (in general) is the broader concept of everyone's equal conditions · Constitutionally protected freedoms and rights: freedom of expression, freedom of information, freedom of assembly, demonstration, association and religion · Sweden's four fundamental laws: the Instrument of Government, the Act of Succession, the Freedom of the Press Act, and the Fundamental Law on Freedom of Expression · the freedoms have certain limits, e.g. the ban on incitement against a population group."
+    }
+  ]
+}

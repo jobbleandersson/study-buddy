@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi7-luft-vatten",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Air and water",
+  "sourceSummary": "The composition of air - nitrogen, oxygen and carbon dioxide - the water cycle and its phases, water as a solvent, why ice floats, and the most common air pollutants.",
+  "topics": [
+    "the composition of air",
+    "the water cycle",
+    "water as a solvent",
+    "the properties of water",
+    "air pollution"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi7-luv-1",
+      "kind": "mc",
+      "topic": "the composition of air",
+      "prompt": "Which gas is there most of in the air?",
+      "opener": "It is not the gas we breathe to live - that one comes second.",
+      "choices": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Water vapour",
+        "Nitrogen"
+      ],
+      "answer": 3,
+      "explanation": "Nitrogen (N₂) makes up around 78 per cent of the air, almost four-fifths. Oxygen is of course vital but accounts for only around 21 per cent, and carbon dioxide for less than half a per cent."
+    },
+    {
+      "id": "q-kemi7-luv-2",
+      "kind": "mc",
+      "topic": "the composition of air",
+      "prompt": "Roughly how much of the air is made up of oxygen?",
+      "opener": "Just over a fifth of the air is oxygen.",
+      "choices": [
+        "About 1 per cent",
+        "About 21 per cent",
+        "About 50 per cent",
+        "About 78 per cent"
+      ],
+      "answer": 1,
+      "explanation": "Oxygen makes up about 21 per cent of the air, just over a fifth. 78 per cent is instead nitrogen's share - easy to mix up if you think air is mostly made of what we breathe."
+    },
+    {
+      "id": "q-kemi7-luv-3",
+      "kind": "mc",
+      "topic": "the water cycle",
+      "prompt": "What is it called when water vapour in the air cools down and becomes liquid water, for example when clouds and fog form?",
+      "opener": "It is the opposite of evaporation.",
+      "choices": [
+        "Condensation",
+        "Evaporation",
+        "Melting",
+        "Sublimation"
+      ],
+      "answer": 0,
+      "explanation": "Condensation is the change from gas to liquid, and it happens when vapour cools down - which is why clouds form high up where it is cold. Evaporation is the opposite change, from liquid to gas, as when the sun warms the sea."
+    },
+    {
+      "id": "q-kemi7-luv-4",
+      "kind": "mc",
+      "topic": "the properties of water",
+      "prompt": "Why does ice float on water?",
+      "opener": "Compare how tightly packed the water molecules are in ice compared with in liquid water.",
+      "choices": [
+        "Because ice is colder than water",
+        "Because ice always contains air bubbles",
+        "Because water expands when it freezes, so the ice ends up with a lower density than the water",
+        "Because ice is a completely different substance from water"
+      ],
+      "answer": 2,
+      "explanation": "When water freezes the molecules arrange themselves in a more open pattern, so the same mass takes up more space - the ice ends up with a lower density and floats. Ice being cold is not enough of an explanation on its own: cold water, after all, does not rise to the surface."
+    },
+    {
+      "id": "q-kemi7-luv-5",
+      "kind": "mc",
+      "topic": "water as a solvent",
+      "prompt": "Why is water called \"the universal solvent\"?",
+      "opener": "Think about how many everyday substances actually dissolve in water.",
+      "choices": [
+        "Because water can dissolve absolutely every substance that exists",
+        "Because water boils at 100 degrees",
+        "Because water never reacts with any other substance",
+        "Because an unusually large number of substances, such as salt and sugar, dissolve easily in water"
+      ],
+      "answer": 3,
+      "explanation": "Water dissolves an unusually large number of substances, which is why blood, squash and seawater are all aqueous solutions. But it does not dissolve everything - fat and oil do not dissolve in water but instead sit as a film on top."
+    },
+    {
+      "id": "q-kemi7-luv-6",
+      "kind": "mc",
+      "topic": "air pollution",
+      "prompt": "Which gas in the air increases when we burn fossil fuels such as petrol, oil and coal, and strengthens the greenhouse effect?",
+      "opener": "It is the gas formed when the carbon in the fuel reacts with oxygen.",
+      "choices": [
+        "Nitrogen",
+        "Carbon dioxide",
+        "Oxygen",
+        "Argon"
+      ],
+      "answer": 1,
+      "explanation": "Carbon dioxide (CO₂) is formed when the carbon in the fuel burns, and the enhanced greenhouse effect is due to its level increasing. Nitrogen and argon barely take part in the combustion at all, and oxygen is used up rather than increasing."
+    },
+    {
+      "id": "q-kemi7-luv-7",
+      "kind": "worked",
+      "topic": "the water cycle",
+      "prompt": "The sun warms the surface of the sea. Follow a water molecule through the water cycle all the way back to the sea, naming the phases and phase changes that occur.",
+      "opener": "Start in the sea as a liquid, and think about what heat and cold each do to the water.",
+      "answer": "The water evaporates from the sea (liquid to gas), rises, condenses high up in cold air into clouds (gas to liquid), falls as precipitation in the form of rain or snow, and flows via the ground, lakes and rivers back to the sea.",
+      "steps": [
+        "The sun supplies energy to the seawater. The water evaporates, meaning it goes from liquid to gas - it becomes water vapour.",
+        "The moist air rises and meets colder air higher up in the atmosphere.",
+        "The vapour condenses into small water droplets (gas to liquid) and forms clouds. If it is cold enough, ice crystals form instead.",
+        "The droplets grow and fall as precipitation: rain, or snow and hail if it freezes.",
+        "The water flows as surface water and groundwater via streams, lakes and rivers back to the sea, and the cycle can begin again. No new water is created - the same water is used over and over again."
+      ]
+    },
+    {
+      "id": "q-kemi7-luv-8",
+      "kind": "flashcard",
+      "topic": "the composition of air",
+      "prompt": "Summarise the composition of air, the properties of water, and the steps of the water cycle.",
+      "opener": "Take the gases in air with their figures first, then the phases and properties of water.",
+      "answer": "Composition of air: nitrogen (N₂) about 78% · oxygen (O₂) about 21% · argon just under 1% · carbon dioxide (CO₂) about 0.04% · plus a varying amount of water vapour · Oxygen is needed for breathing and for all combustion · Carbon dioxide is used by plants in photosynthesis and is formed during combustion and respiration · Phases of water: ice (solid), water (liquid), water vapour (gas) · Melting point 0°C, boiling point 100°C at normal air pressure · Phase changes: melting, evaporation (vaporisation), condensation, freezing (solidification) · Ice floats because water expands when it freezes, so the ice has a lower density than the water - this is why lakes freeze from the surface downwards, letting fish survive the winter · Water as a solvent: dissolves an unusually large number of substances, e.g. salt and sugar, but not fat and oil · The water cycle: evaporation from seas and lakes → condensation into clouds → precipitation as rain or snow → the water flows via the ground, lakes and rivers back to the sea · Air pollution: carbon dioxide from fossil fuels strengthens the greenhouse effect, sulphur and nitrogen oxides cause acidification, soot and particles harm the lungs."
+    }
+  ]
+}

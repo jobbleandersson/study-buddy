@@ -1,0 +1,128 @@
+{
+  "id": "lib-bio-celler",
+  "type": "assignment",
+  "subject": "Biologi",
+  "title": "Cells and organ systems",
+  "sourceSummary": "The parts of the cell and their functions, the difference between plant and animal cells, and how cells build up tissues, organs and organ systems.",
+  "topics": [
+    "parts of the cell",
+    "plant cell and animal cell",
+    "organ systems",
+    "tissues and organs"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-bio-cel-1",
+      "kind": "mc",
+      "topic": "parts of the cell",
+      "prompt": "Which part of the cell contains the genetic material (DNA) and controls the cell's activity?",
+      "opener": "Think about which part acts as the cell's \"command centre\".",
+      "choices": [
+        "The cell membrane",
+        "The nucleus",
+        "The mitochondrion",
+        "The cell wall"
+      ],
+      "answer": 1,
+      "explanation": "The nucleus contains DNA and controls which proteins the cell will make. The cell membrane regulates transport in and out, the mitochondrion is responsible for energy production, and the cell wall is only found in plant cells."
+    },
+    {
+      "id": "q-bio-cel-2",
+      "kind": "mc",
+      "topic": "parts of the cell",
+      "prompt": "Which part of the cell is often called the cell's \"power plant\" because it breaks down nutrients and releases energy?",
+      "opener": "Think about cellular respiration — where in the cell does it happen?",
+      "choices": [
+        "The nucleus",
+        "The cell wall",
+        "The mitochondrion",
+        "The cell membrane"
+      ],
+      "answer": 2,
+      "explanation": "The mitochondrion carries out cellular respiration and converts the energy in sugar into energy the cell can use. The nucleus controls the cell, the cell wall gives plants structural support, and the cell membrane regulates transport."
+    },
+    {
+      "id": "q-bio-cel-3",
+      "kind": "mc",
+      "topic": "plant cell and animal cell",
+      "prompt": "Which of the following is found in plant cells but NOT in animal cells?",
+      "opener": "Think about what allows plants to stand upright and carry out photosynthesis.",
+      "choices": [
+        "Nucleus",
+        "Cell membrane",
+        "Cell wall and chloroplasts",
+        "Mitochondria"
+      ],
+      "answer": 2,
+      "explanation": "Plant cells have a cell wall made of cellulose that provides structural support, as well as chloroplasts for photosynthesis. The nucleus, cell membrane and mitochondria are found in both cell types."
+    },
+    {
+      "id": "q-bio-cel-4",
+      "kind": "mc",
+      "topic": "parts of the cell",
+      "prompt": "What is the main function of the cell membrane?",
+      "opener": "Think of the cell as a house — what does the outer wall do with the door?",
+      "choices": [
+        "To store the cell's genetic material",
+        "To regulate which substances enter and leave the cell",
+        "To produce energy for the cell",
+        "To give the cell its green colour"
+      ],
+      "answer": 1,
+      "explanation": "The cell membrane surrounds the cell and selectively lets through substances such as nutrients, oxygen and waste. Storing DNA is the nucleus's job, and energy production takes place in the mitochondria."
+    },
+    {
+      "id": "q-bio-cel-5",
+      "kind": "mc",
+      "topic": "tissues and organs",
+      "prompt": "What is a group of cells of the same type, with the same function, sitting together, called?",
+      "opener": "The next level up from the cell in the body's structure.",
+      "choices": [
+        "An organ",
+        "A tissue",
+        "An organ system",
+        "A molecule"
+      ],
+      "answer": 1,
+      "explanation": "Cells of the same type together form a tissue, e.g. muscle tissue. Several different tissues form an organ, and several organs working together form an organ system."
+    },
+    {
+      "id": "q-bio-cel-6",
+      "kind": "mc",
+      "topic": "organ systems",
+      "prompt": "Which organ is part of the respiratory system?",
+      "opener": "Think about where oxygen is taken up in the body.",
+      "choices": [
+        "The stomach",
+        "The lungs",
+        "The kidneys",
+        "The liver"
+      ],
+      "answer": 1,
+      "explanation": "The lungs are the central organ of the respiratory system, where oxygen is taken up into the blood and carbon dioxide leaves the body. The stomach belongs to the digestive system and the kidneys to the urinary system."
+    },
+    {
+      "id": "q-bio-cel-7",
+      "kind": "worked",
+      "topic": "tissues and organs",
+      "prompt": "Explain how cells build up a human body, from cell to organ system. Use the heart as an example.",
+      "opener": "There are four levels: cell, tissue, organ, organ system — go through them in order.",
+      "answer": "Cells of the same type form a tissue (e.g. cardiac muscle tissue), several tissues form an organ (the heart), and the heart works together with the blood vessels in the circulatory system (the organ system) to pump blood around the body.",
+      "steps": [
+        "The cell is the smallest living building block of the body, e.g. a cardiac muscle cell.",
+        "Many cardiac muscle cells with the same function sit together and form a tissue — cardiac muscle tissue.",
+        "Different tissues (muscle tissue, connective tissue, nerve tissue) together build up the organ that is the heart.",
+        "The heart works together with the blood vessels and forms the circulatory system, an organ system that transports oxygen and nutrients around the body."
+      ]
+    },
+    {
+      "id": "q-bio-cel-8",
+      "kind": "flashcard",
+      "topic": "parts of the cell",
+      "prompt": "What are the cell's most important parts called, and what do they do?",
+      "opener": "Go through the nucleus, the membrane, the mitochondrion and (for plants) the cell wall.",
+      "answer": "Nucleus: contains DNA/the genetic material and controls the cell's activity · Cell membrane: surrounds the cell and regulates what is transported in and out · Cytoplasm: the gel-like fluid where the cell's parts sit and reactions take place · Mitochondria: carry out cellular respiration, break down sugar and release energy · Cell wall: found only in plant cells, provides structural support and protection, built from cellulose · Chloroplasts: found only in plant cells, carry out photosynthesis · Vacuole: stores water and substances, often large in plant cells."
+    }
+  ]
+}

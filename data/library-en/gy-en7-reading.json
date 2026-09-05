@@ -1,0 +1,128 @@
+{
+  "id": "lib-en7gy-reading",
+  "type": "assignment",
+  "subject": "Engelska 7",
+  "title": "Reading comprehension: complex texts",
+  "sourceSummary": "Implicit arguments, correlation versus causation, ironic/nuanced tone, and accurately summarising a complex line of reasoning.",
+  "topics": [
+    "implicit argument",
+    "correlation vs causation",
+    "tone and irony",
+    "summarising complex arguments"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7gy-reading-1",
+      "kind": "mc",
+      "topic": "implicit argument",
+      "prompt": "Read the text and answer.\n\n\"Not everyone welcomed the new bypass. Local traders warned that reduced footpath traffic would hurt small shops, while environmental groups pointed to a modest drop in town-centre air pollution since it opened. The council's official statement praised improved 'traffic flow' without mentioning either concern. Meanwhile, three shops on the old high street have closed since construction began.\"\n\nWhat implicit argument does the text make, without stating it directly?",
+      "opener": "Read between the lines: what does it reveal that the council does NOT mention, compared with what has actually happened (shops closing)?",
+      "choices": [
+        "The bypass has been an unqualified success.",
+        "Traffic flow has improved dramatically.",
+        "The council may be avoiding uncomfortable questions about the bypass's local costs.",
+        "Environmental groups oppose the bypass."
+      ],
+      "answer": 2,
+      "explanation": "By setting the council's silence on the shop closures against the fact that three shops have closed, the text indirectly suggests that the council is avoiding uncomfortable questions. The text never states this outright, but the arrangement of facts carries the argument."
+    },
+    {
+      "id": "q-en7gy-reading-2",
+      "kind": "mc",
+      "topic": "correlation vs causation",
+      "prompt": "Read the text and answer.\n\n\"A recent study found that towns with more cafés per capita also have higher average incomes. Some commentators have concluded that opening cafés boosts local wealth. Researchers behind the study, however, note that wealthier towns simply attract more café businesses in the first place, and caution against drawing causal conclusions from the data.\"\n\nWhat is the main flaw in the commentators' conclusion?",
+      "opener": "The researchers themselves warn against a specific logical fallacy — which one?",
+      "choices": [
+        "They assumed causation from a correlation that may run in the opposite direction.",
+        "They ignored the sample size of the study.",
+        "They misunderstood what 'per capita' means.",
+        "They confused income with wealth."
+      ],
+      "answer": 0,
+      "explanation": "The commentators interpret an association (correlation) as a cause (causation), even though the researchers point out that the causal relationship might run the other way — wealthy towns attract cafés, not the other way around. It's not about sample size or the meaning of the terms."
+    },
+    {
+      "id": "q-en7gy-reading-3",
+      "kind": "mc",
+      "topic": "correlation vs causation",
+      "prompt": "Read the text and answer.\n\n\"Ice cream sales and drowning incidents both rise sharply in the summer months. A tabloid headline claimed that 'eating ice cream increases drowning risk'.\"\n\nWhat is missing from the tabloid's reasoning?",
+      "opener": "What probably causes both trends at the same time, without either one causing the other?",
+      "choices": [
+        "A larger sample of drownings.",
+        "Consideration of a third factor — hot weather — that likely explains both trends.",
+        "Data from winter months.",
+        "A definition of 'drowning'."
+      ],
+      "answer": 1,
+      "explanation": "This is the classic example of a confounding variable: hot weather increases both ice cream sales and swimming (and therefore drowning risk). Neither variable causes the other."
+    },
+    {
+      "id": "q-en7gy-reading-4",
+      "kind": "mc",
+      "topic": "tone and irony",
+      "prompt": "Read the text and answer.\n\n\"Oh wonderful, another 'mandatory optional' training session. I'm sure my afternoon was crying out to be filled with a two-hour webinar on a policy nobody asked for. Truly, my career has been waiting for this moment.\"\n\nWhat is the writer's tone?",
+      "opener": "The words say one thing, but the context (\"mandatory optional\", \"crying out\") signals the opposite.",
+      "choices": [
+        "Genuinely enthusiastic",
+        "Neutral and informative",
+        "Anxious and apologetic",
+        "Ironic and sarcastic"
+      ],
+      "answer": 3,
+      "explanation": "The phrase \"mandatory optional\" is a self-contradiction, and exaggeratedly positive words (\"wonderful\", \"truly... waiting for this moment\") about something the writer clearly dislikes is classic irony/sarcasm — the underlying meaning is the opposite of what's said."
+    },
+    {
+      "id": "q-en7gy-reading-5",
+      "kind": "mc",
+      "topic": "summarising complex arguments",
+      "prompt": "Read the text and answer.\n\n\"Universal basic income (UBI) has been trialled in several countries. Advocates argue it reduces poverty and gives people freedom to retrain or start businesses. Critics counter that it is prohibitively expensive at scale and may reduce the incentive to work. Early trial results are mixed: poverty indicators improve, but long-term employment effects remain unclear due to short trial periods.\"\n\nWhich summary most accurately reflects the text?",
+      "opener": "A good summary weighs BOTH sides and the uncertainties the text actually mentions.",
+      "choices": [
+        "UBI trials prove that basic income has no drawbacks.",
+        "UBI reduces poverty short-term, but its cost and long-term employment effects remain disputed.",
+        "UBI is too expensive and should be abandoned.",
+        "Critics have been proven wrong by trial data."
+      ],
+      "answer": 1,
+      "explanation": "The text presents a benefit (reduced poverty) and unresolved questions (cost, employment effects) without taking a side. Option 2 captures this balance; the others exaggerate or distort the text."
+    },
+    {
+      "id": "q-en7gy-reading-6",
+      "kind": "mc",
+      "topic": "implicit argument",
+      "prompt": "Read the text and answer.\n\n\"The company's annual report devotes four pages to its new recycling initiative and a single sentence to a 12% drop in full-time staff. Both changes occurred in the same fiscal year.\"\n\nWhat can the reader reasonably infer about the report's purpose?",
+      "opener": "Compare how much space each piece of news gets — what does that say about what the company wants you to notice?",
+      "choices": [
+        "The report proves the company only cares about the environment.",
+        "The staff reduction was unrelated to the recycling programme.",
+        "The report is purely factual with no persuasive intent.",
+        "The company wants to highlight the recycling initiative while downplaying the staff reduction."
+      ],
+      "answer": 3,
+      "explanation": "The uneven allocation of space (four pages versus one sentence) is a way of steering the reader's attention away from an uncomfortable piece of news — a common rhetorical device in annual reports. Option 1 claims too much; the text doesn't show that the company \"only\" cares about the environment."
+    },
+    {
+      "id": "q-en7gy-reading-7",
+      "kind": "worked",
+      "topic": "correlation vs causation",
+      "prompt": "Read the text and explain the logical flaw in the claim.\n\nA news article states: 'Countries with more registered doctors per capita also report higher rates of certain diagnosed illnesses. This proves that doctors are causing disease.'",
+      "opener": "Consider whether there is a more reasonable explanation for the connection, without either variable causing the other.",
+      "answer": "The claim confuses correlation with causation: more doctors likely means better access to diagnosis, not that doctors cause illness.",
+      "steps": [
+        "The text observes a correlation: more doctors per capita is associated with more diagnosed illnesses.",
+        "The conclusion \"doctors are causing disease\" is a causal claim that does not automatically follow from a correlation.",
+        "A more reasonable explanation: more doctors means better access to healthcare, which leads to MORE illnesses being detected and diagnosed — not more illnesses occurring.",
+        "This is an example of a confounding variable (access to healthcare) that explains both observations better than a direct causal relationship."
+      ]
+    },
+    {
+      "id": "q-en7gy-reading-8",
+      "kind": "flashcard",
+      "topic": "summarising complex arguments",
+      "prompt": "Summarise key strategies for analysing complex texts: implicit argument, correlation vs causation, tone/irony, and accurate summary.",
+      "opener": "Four common pitfalls and how to avoid them on an advanced reading comprehension task.",
+      "answer": "Implicit argument: look for what the text does NOT say, and what is set against what (juxtaposition) · Correlation ≠ causation: ask whether a third factor could explain both trends (a confounding variable) · Irony/sarcasm: the words say one thing, the context/exaggeration reveals the opposite · Summary: weigh in ALL the sides the text presents, not just the one you agree with, and don't add conclusions the text doesn't support."
+    }
+  ]
+}

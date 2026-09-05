@@ -1,0 +1,128 @@
+{
+  "id": "lib-en6-reading",
+  "type": "assignment",
+  "subject": "Engelska 6",
+  "title": "Reading comprehension: opinion and argument",
+  "sourceSummary": "Practise identifying the author's stance, distinguishing fact from opinion, and understanding counter-arguments as well as tone and bias in argumentative texts.",
+  "topics": [
+    "author's stance",
+    "fact vs opinion",
+    "counter-arguments",
+    "tone and bias"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en6-reading-1",
+      "kind": "mc",
+      "topic": "author's stance",
+      "prompt": "Read the text and answer.\n\n\"Social media has fundamentally reshaped how teenagers communicate, and not for the better. While it promises connection, study after study links heavy use to rising anxiety and shortened attention spans among young people. Parents and schools now have a responsibility to set clearer limits before another generation grows up struggling to concentrate or feel at ease offline.\"\n\nWhat is the author's stance on social media use among teenagers?",
+      "opener": "Look at word choices like \"not for the better\" and \"responsibility to set clearer limits\" — what do they reveal?",
+      "choices": [
+        "Neutral — the author simply reports research findings.",
+        "Critical — the author believes social media harms teenagers and limits are needed.",
+        "Supportive — the author believes social media improves communication.",
+        "Undecided — the author presents no clear opinion."
+      ],
+      "answer": 1,
+      "explanation": "Phrases like \"not for the better\" and the call to set \"clearer limits\" clearly show a critical stance towards social media use. The text is too judgemental to be neutral or undecided."
+    },
+    {
+      "id": "q-en6-reading-2",
+      "kind": "mc",
+      "topic": "fact vs opinion",
+      "prompt": "Read the text and answer.\n\n\"The city council voted to ban plastic bags in all supermarkets starting next January. This is clearly the right decision, since plastic waste has become one of the biggest environmental problems of our time.\"\n\nWhich sentence in the text is a fact rather than an opinion?",
+      "opener": "A fact can be verified objectively — an opinion expresses a judgement.",
+      "choices": [
+        "The city council voted to ban plastic bags in all supermarkets starting next January.",
+        "This is clearly the right decision.",
+        "Plastic waste has become one of the biggest environmental problems of our time.",
+        "Plastic bags should never have been allowed."
+      ],
+      "answer": 0,
+      "explanation": "That the council voted for a ban can be checked objectively — that is a fact. The other options contain judgemental words like \"clearly the right\" or \"should never\", which signal opinion."
+    },
+    {
+      "id": "q-en6-reading-3",
+      "kind": "mc",
+      "topic": "counter-arguments",
+      "prompt": "Read the text and answer.\n\n\"Some argue that homework should be abolished because it adds unnecessary stress to students' lives. However, without any practice outside the classroom, many students would struggle to retain what they have learned, and teachers would lose an important tool for tracking progress.\"\n\nWhat is the function of the word \"However\" in this text?",
+      "opener": "Words like \"however\" signal that the text changes direction — but towards what?",
+      "choices": [
+        "It introduces an example that supports the first argument.",
+        "It introduces a counter-argument to the claim that homework should be abolished.",
+        "It signals that the author agrees homework should be abolished.",
+        "It has no particular function; it is decorative."
+      ],
+      "answer": 1,
+      "explanation": "\"However\" marks a turn: after mentioning the argument for abolishing homework, the text presents a counter-argument. This is exactly how counter-arguments are often introduced in argumentative text."
+    },
+    {
+      "id": "q-en6-reading-4",
+      "kind": "mc",
+      "topic": "tone and bias",
+      "prompt": "Read the text and answer.\n\n\"The so-called 'experts' claim the new policy will save money, but anyone with common sense can see it will only burden ordinary families even more.\"\n\nWhat does the phrase \"so-called 'experts'\" suggest about the writer's attitude?",
+      "opener": "Quotation marks and \"so-called\" around a word often signal irony or distrust.",
+      "choices": [
+        "The writer fully trusts the experts' judgement.",
+        "The writer is being neutral and objective.",
+        "The writer is skeptical of and somewhat dismissive toward the experts.",
+        "The writer works as one of the experts."
+      ],
+      "answer": 2,
+      "explanation": "\"So-called\" and the quotation marks question the experts' authority — this signals distrust, not confidence. A neutral text would have written \"experts\" without these markers."
+    },
+    {
+      "id": "q-en6-reading-5",
+      "kind": "mc",
+      "topic": "fact vs opinion",
+      "prompt": "Read the text and answer.\n\n\"Electric cars produced 50% fewer emissions than petrol cars over their lifetime, according to a 2023 study. Even so, electric cars are obviously not a complete solution to climate change.\"\n\nWhich word in the second sentence signals that an opinion is being expressed?",
+      "opener": "Which word expresses a judgement rather than a neutral statement?",
+      "choices": [
+        "Even so",
+        "climate",
+        "solution",
+        "obviously"
+      ],
+      "answer": 3,
+      "explanation": "\"Obviously\" signals that the writer thinks something is self-evident — a judgemental word, not a neutral fact. The first sentence, which refers to a study, is instead a factual statement."
+    },
+    {
+      "id": "q-en6-reading-6",
+      "kind": "mc",
+      "topic": "author's stance",
+      "prompt": "Read the text and answer.\n\n\"Proponents of the four-day work week point to happier, more productive employees. Critics counter that some industries simply cannot function with reduced hours. The truth, as with most reforms, probably lies somewhere between the two extremes.\"\n\nHow would you best describe the author's overall stance?",
+      "opener": "The last sentence often summarises the text's overall stance.",
+      "choices": [
+        "Strongly in favour of the four-day work week",
+        "Strongly against the four-day work week",
+        "Balanced, acknowledging both sides without taking a strong side",
+        "Focused only on criticizing employers"
+      ],
+      "answer": 2,
+      "explanation": "The text presents both sides fairly equally and ends by saying the truth \"probably lies somewhere between the two extremes\" — this shows a balanced, not a one-sided, stance."
+    },
+    {
+      "id": "q-en6-reading-7",
+      "kind": "worked",
+      "topic": "counter-arguments",
+      "prompt": "Read the text and explain the author's stance on fast fashion, citing evidence from the text.\n\n\"Fast fashion retailers churn out new clothing lines every few weeks, encouraging shoppers to buy more than they need. Defenders of the industry point to the jobs it creates in manufacturing countries. Yet the environmental cost — from water pollution to textile waste in landfills — is difficult to ignore, and cheap prices often come at the expense of garment workers' wages and safety.\"",
+      "opener": "Weigh the arguments for and against each other — which side gets the most space and the strongest language?",
+      "answer": "The author is critical of the fast fashion industry, despite briefly acknowledging one argument in its favour.",
+      "steps": [
+        "The text mentions an opposing point: \"jobs it creates\" — an argument FOR the industry.",
+        "But after \"Yet\" the text turns: environmental costs and poor working conditions are highlighted as more serious problems.",
+        "Word choices like \"difficult to ignore\" and \"at the expense of\" signal criticism, not neutrality.",
+        "Conclusion: the author acknowledges the counter-argument but clearly lands on a critical stance towards fast fashion."
+      ]
+    },
+    {
+      "id": "q-en6-reading-8",
+      "kind": "flashcard",
+      "topic": "tone and bias",
+      "prompt": "What should you look for to identify an author's stance and bias in an opinion text?",
+      "opener": "Five things to always scan the text for.",
+      "answer": "Loaded words (e.g. \"so-called\", \"obviously\", \"sadly\") reveal judgements · Turn words like \"however\", \"yet\", \"but\" mark counter-arguments or a shift in opinion · Facts can be verified objectively, opinions express judgement or interpretation · Who is quoted and how (named experts vs. \"some say\") can reveal bias · The concluding final sentence often reveals the text's main message or stance."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-en8-reading",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Reading comprehension",
+  "sourceSummary": "Short English texts where you practise finding the main idea, drawing conclusions, understanding words from context, and working out the writer's purpose.",
+  "topics": [
+    "main idea",
+    "inference",
+    "vocabulary in context",
+    "author's purpose"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en8-rea-1",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Every Friday, our class spends the last hour cleaning the schoolyard. At first, most of us thought it was a waste of time. But after a few months, we noticed that people threw away less rubbish. Even the younger students started picking things up. Now the yard looks better than it has in years.\"\n\nWhat is the main idea of the text?",
+      "opener": "Look for how the situation changes from the start to the end of the text.",
+      "choices": [
+        "The class enjoys cleaning more than studying",
+        "The cleaning project changed both the schoolyard and the students' attitudes",
+        "Younger students make the most rubbish at the school",
+        "Friday afternoons are the worst time for schoolwork"
+      ],
+      "answer": 1,
+      "explanation": "The text starts with resistance (\"a waste of time\") and ends with both the yard and the students' behaviour having improved — that's the whole picture. That younger students litter the most isn't in the text at all; they're mentioned, on the contrary, as students who started picking up litter."
+    },
+    {
+      "id": "q-en8-rea-2",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Sara read the message twice. Then she put her phone face down on the table and stared out of the window. Her tea had gone cold, but she did not touch it. When her mum asked if everything was fine, Sara only nodded.\"\n\nWhat can we infer about Sara?",
+      "opener": "The text never says how she feels — read between the lines in what she does.",
+      "choices": [
+        "She has received news that upset her",
+        "She is angry with her mother",
+        "She dislikes drinking tea",
+        "She is waiting for a friend to arrive"
+      ],
+      "answer": 0,
+      "explanation": "That she rereads the message, puts the phone face down, forgets the tea, and only nods suggests that the news made her sad or worried. Nothing in the text is directed at her mum — she just nods instead of explaining."
+    },
+    {
+      "id": "q-en8-rea-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"The hike was harder than we expected. The path was steep and the sun was burning. After two hours, several people in the group were exhausted and had to sit down in the shade before we could continue.\"\n\nIn this context, \"exhausted\" means:",
+      "opener": "What explains why they have to sit down in the shade?",
+      "choices": [
+        "excited",
+        "very tired",
+        "confused",
+        "hungry"
+      ],
+      "answer": 1,
+      "explanation": "The context — a steep path, burning sun, two hours of hiking and the need to rest — shows that \"exhausted\" means very tired. \"Excited\" means eager and wouldn't explain why they have to stop."
+    },
+    {
+      "id": "q-en8-rea-4",
+      "kind": "mc",
+      "topic": "author's purpose",
+      "prompt": "Read the text and answer.\n\n\"Do you spend more than three hours a day on your phone? You are not alone. But small changes help: turn off notifications at night, keep the phone out of your bedroom, and use a timer for social media. Try one of these tips this week — you may sleep better than you think.\"\n\nWhat is the writer's main purpose?",
+      "opener": "What does the writer want the reader to do after reading the text?",
+      "choices": [
+        "To entertain the reader with a funny story",
+        "To advise the reader on how to use the phone less",
+        "To describe how mobile phones are made",
+        "To argue that phones should be banned in schools"
+      ],
+      "answer": 1,
+      "explanation": "The text gives concrete tips and urges the reader to try one of them — the purpose is to give advice. It doesn't argue for any ban; schools aren't mentioned at all."
+    },
+    {
+      "id": "q-en8-rea-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Tom arrived at the football pitch in his ordinary shoes. He had left his kit bag on the bus, and the match was starting in ten minutes. His teammates were already warming up. The coach looked at Tom, then at the clock, and said nothing.\"\n\nWhat will most likely happen next?",
+      "opener": "Combine what's missing with how little time is left.",
+      "choices": [
+        "Tom will play the whole match as usual",
+        "Tom will probably not be able to start the match",
+        "The coach will cancel the match",
+        "Tom's teammates will go home"
+      ],
+      "answer": 1,
+      "explanation": "Tom is missing his kit, has the wrong shoes, and has only ten minutes left, which makes it unlikely he can start the match. The match being cancelled isn't mentioned — the team is already warming up."
+    },
+    {
+      "id": "q-en8-rea-6",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Reading in a second language feels slow at first. Many students stop at every unknown word and look it up, which breaks the flow. Teachers often suggest a different method: read the whole paragraph first and guess the meaning from the context. Only look up a word if the sentence still does not make sense.\"\n\nWhich sentence best summarises the text?",
+      "opener": "Which of the sentences covers both the problem and the solution?",
+      "choices": [
+        "Students should never use a dictionary",
+        "Reading in a second language is impossible without a teacher",
+        "Guessing words from context is often better than looking up every word",
+        "Paragraphs are easier to read than single sentences"
+      ],
+      "answer": 2,
+      "explanation": "The text describes the problem (looking up every word breaks the flow) and the recommendation (guess from the context) — that's the summary. Never using a dictionary is too strong: the text says you should look up the word if the sentence still doesn't make sense."
+    },
+    {
+      "id": "q-en8-rea-7",
+      "kind": "worked",
+      "topic": "main idea",
+      "prompt": "Read the text and answer in one or two sentences.\n\n\"Our school started a bike week in May. Students who cycled to school got a stamp each morning, and the class with the most stamps won a picnic. During that week, the bike racks were full every day. When the competition ended, however, about half of the students went back to taking the bus.\"\n\nWhat is the main idea of the text, and what does the last sentence add?",
+      "opener": "First summarise what happened, then think about what the word \"however\" signals.",
+      "answer": "The main idea is that a competition made many students cycle to school, but the last sentence shows that the effect did not last, because about half of them started taking the bus again once the competition was over.",
+      "steps": [
+        "Find the topic: the text is about the school's bike week and the stamp competition.",
+        "Find the result: the bike racks were full every day, so the competition worked while it lasted.",
+        "Notice \"however\" in the last sentence — the signal word shows that something goes against what was just said.",
+        "Formulate the whole picture: the reward changed behaviour in the short term, but the change didn't last afterwards."
+      ]
+    },
+    {
+      "id": "q-en8-rea-8",
+      "kind": "flashcard",
+      "topic": "main idea",
+      "prompt": "Which reading strategies do you use for main idea, inference, vocabulary in context, and the writer's purpose?",
+      "opener": "Four question types, four strategies.",
+      "answer": "Main idea: ask \"what is the WHOLE text about?\" — the answer covers both the beginning and the end, not just one detail · Watch out for answers that are true but too narrow, or too general · Inference: combine what the characters do with what you know about the world; the answer is never stated word for word in the text but must be supported by it · Vocabulary in context: read the sentence before and after, look for explanations, examples or opposites (but, however), and test the word you guess in the sentence · Author's purpose: to inform (state facts), to advise (give advice), to persuade (convince), to entertain (amuse) — look at tips, calls to action and how the reader is addressed · Signal words that guide meaning: but, however, although = contrast · because, therefore, so = cause and effect · for example = example."
+    }
+  ]
+}

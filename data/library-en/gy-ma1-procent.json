@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma1-procent",
+  "type": "assignment",
+  "subject": "Matematik 1",
+  "title": "Percentages, change factors and index numbers",
+  "sourceSummary": "Change factors, repeated change, percentage points versus percent, interest and index numbers — the topic where students lose the most points on tests.",
+  "topics": [
+    "change factor",
+    "repeated change",
+    "percentage points",
+    "index numbers"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma1-proc-1",
+      "kind": "mc",
+      "topic": "change factor",
+      "prompt": "Which change factor corresponds to a decrease of 12%?",
+      "opener": "What proportion is left after the decrease?",
+      "choices": [
+        "0.88",
+        "-0.12",
+        "0.12",
+        "1.12"
+      ],
+      "answer": 0,
+      "explanation": "After a decrease of 12%, 88% remains, so the factor is $0.88$. A change factor is never negative."
+    },
+    {
+      "id": "q-ma1-proc-2",
+      "kind": "mc",
+      "topic": "change factor",
+      "prompt": "A price changes from 250 kr to 300 kr. What is the change factor?",
+      "opener": "Divide the new value by the old one.",
+      "choices": [
+        "1.05",
+        "1.2",
+        "0.83",
+        "1.5"
+      ],
+      "answer": 1,
+      "explanation": "$\\frac{300}{250} = 1.2$, so an increase of 20%. The change factor is always the new value divided by the old one."
+    },
+    {
+      "id": "q-ma1-proc-3",
+      "kind": "mc",
+      "topic": "change factor",
+      "prompt": "After a 15% discount, an item costs 850 kr. What was the original price?",
+      "opener": "850 kr doesn't correspond to 100% — what proportion does it correspond to?",
+      "choices": [
+        "950 kr",
+        "977.50 kr",
+        "1,000 kr",
+        "865 kr"
+      ],
+      "answer": 2,
+      "explanation": "850 kr is 85% of the original price. So $\\frac{850}{0.85} = 1{,}000$ kr. Adding 15% to 850 gives the wrong answer (977.50), because the percentage is calculated on different starting values."
+    },
+    {
+      "id": "q-ma1-proc-4",
+      "kind": "mc",
+      "topic": "repeated change",
+      "prompt": "An item decreases in value by 10% two years in a row. How much has it decreased in total?",
+      "opener": "The second year's decrease is calculated on an already-reduced value.",
+      "choices": [
+        "18%",
+        "20%",
+        "21%",
+        "19%"
+      ],
+      "answer": 3,
+      "explanation": "The factor becomes $0.9 \\cdot 0.9 = 0.81$, so 81% remains and the decrease is 19% — not 20%, because year two is calculated on the lower value."
+    },
+    {
+      "id": "q-ma1-proc-5",
+      "kind": "mc",
+      "topic": "percentage points",
+      "prompt": "The interest rate on a loan is raised from 2% to 3%. Which statement is correct?",
+      "opener": "Distinguish between how many units the interest rate has moved and how large the relative increase is.",
+      "choices": [
+        "The interest rate has increased by 1 percentage point, which is an increase of 50%",
+        "The interest rate has increased by 50 percentage points",
+        "The interest rate has increased by 1.5%",
+        "The interest rate has increased by 1%"
+      ],
+      "answer": 0,
+      "explanation": "The difference is 1 percentage point. Relatively speaking, that's a $\\frac{1}{2} = 50\\%$ increase. Percentage points describe the difference, percent describes the relative change."
+    },
+    {
+      "id": "q-ma1-proc-6",
+      "kind": "mc",
+      "topic": "index numbers",
+      "prompt": "A price index has 2015 as its base year (index 100). In 2024 the index is 118. What does that mean?",
+      "opener": "Index 100 is the starting point — what do the extra 18 represent?",
+      "choices": [
+        "Prices have increased by 18 kr",
+        "Prices have increased by 18% since 2015",
+        "Prices have increased by 118% since 2015",
+        "Prices are 18% of the 2015 level"
+      ],
+      "answer": 1,
+      "explanation": "Index 118 compared with the base year's 100 means prices are $\\frac{118}{100} = 1.18$ times as high, in other words 18% higher."
+    },
+    {
+      "id": "q-ma1-proc-7",
+      "kind": "worked",
+      "topic": "repeated change",
+      "prompt": "You deposit 2,000 kr into a savings account with 3% interest per year. How much is in the account after 5 years? Round to the nearest whole krona.",
+      "opener": "The interest is added to an ever-larger amount each year — what kind of change is that?",
+      "answer": "≈ 2,319 kr",
+      "steps": [
+        "Each year the amount is multiplied by the change factor $1.03$.",
+        "After 5 years: $2{,}000 \\cdot 1.03^5$.",
+        "$1.03^5 \\approx 1.1593$.",
+        "$2{,}000 \\cdot 1.1593 \\approx 2{,}319$ kr. (Simple interest would have given 2,300 kr — the difference is interest on the interest.)"
+      ]
+    },
+    {
+      "id": "q-ma1-proc-8",
+      "kind": "flashcard",
+      "topic": "change factor",
+      "prompt": "How do you calculate a change factor, and how do you use it for repeated change?",
+      "opener": "One formula for the factor, and one for several periods.",
+      "answer": "Change factor = new value / old value. An increase of $p$% gives the factor $1 + p/100$, a decrease gives $1 - p/100$. For repeated change, the factors are multiplied: after $n$ equal-sized changes, the final value becomes $\\text{starting value} \\cdot \\text{factor}^n$."
+    }
+  ]
+}

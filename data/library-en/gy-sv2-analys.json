@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv2-analys",
+  "type": "assignment",
+  "subject": "Svenska 2",
+  "title": "Literary analysis and narrative technique",
+  "sourceSummary": "An in-depth study of narrative perspective, symbolism and motif, composition, and how form relates to content.",
+  "topics": [
+    "narrative perspective",
+    "symbolism and motif",
+    "composition",
+    "form and content"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv2-analys-1",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "A narrator depicts the action from a single character's perspective, in the third person, but the reader senses that the character misunderstands their surroundings. What is this type of narrator called?",
+      "opener": "Consider whether we can trust what we are being told.",
+      "choices": [
+        "Omniscient narrator",
+        "First-person narrator",
+        "Authorial narrator",
+        "Unreliable narrator"
+      ],
+      "answer": 3,
+      "explanation": "An unreliable narrator gives the reader information that is slanted, incomplete or incorrect, which forces the reader to read between the lines. The perspective being third person but tied to one character does not automatically make it omniscient or authorial."
+    },
+    {
+      "id": "q-sv2-analys-2",
+      "kind": "mc",
+      "topic": "symbolism and motif",
+      "prompt": "What is the difference between a motif and a symbol in a literary text?",
+      "opener": "One is about what recurs, the other about what something means beyond itself.",
+      "choices": [
+        "Motifs are always concrete objects, symbols are always abstract feelings",
+        "A motif is a recurring theme or element, while a symbol stands for something more than itself",
+        "There is no difference — the words are synonyms",
+        "Symbol is about narrative perspective, motif about composition"
+      ],
+      "answer": 1,
+      "explanation": "A motif is a recurring element or theme in a text (e.g. death, love), while a symbol is a concrete object or phenomenon that represents something abstract (e.g. a bird symbolising freedom)."
+    },
+    {
+      "id": "q-sv2-analys-3",
+      "kind": "mc",
+      "topic": "composition",
+      "prompt": "A novel opens in the middle of a dramatic event, before the reader has learned anything about the backstory. What is this compositional device called?",
+      "opener": "Latin for \"in the midst of things\".",
+      "choices": [
+        "Frame narrative",
+        "Retrospective composition",
+        "In medias res",
+        "Circular composition"
+      ],
+      "answer": 2,
+      "explanation": "In medias res means the story begins in the middle of the action, often in a dramatic scene, and the background is filled in afterwards. A frame narrative is instead a story within a story."
+    },
+    {
+      "id": "q-sv2-analys-4",
+      "kind": "mc",
+      "topic": "composition",
+      "prompt": "What characterises a frame narrative?",
+      "opener": "Think of One Thousand and One Nights — one story gives birth to another.",
+      "choices": [
+        "A main plot surrounds one or more inner stories",
+        "The plot is told in strict chronological order",
+        "The story lacks a clear ending",
+        "The reader encounters several first-person narrators at once"
+      ],
+      "answer": 0,
+      "explanation": "In a frame narrative there is an outer plot (the frame) that encloses one or more inner stories, as in One Thousand and One Nights, where Scheherazade tells new stories every night."
+    },
+    {
+      "id": "q-sv2-analys-5",
+      "kind": "mc",
+      "topic": "symbolism and motif",
+      "prompt": "A short story depicts a cold, snow-covered winter in parallel with the protagonist's grief after a loss. What is this an example of?",
+      "opener": "Nature often mirrors something other than the weather.",
+      "choices": [
+        "Personification",
+        "In medias res",
+        "Unreliable narrator",
+        "Nature as a symbol for a state of feeling"
+      ],
+      "answer": 3,
+      "explanation": "Depictions of nature are often used symbolically to mirror a character's inner state — here the winter reinforces the sense of grief and emptiness. Personification would have required nature to be given human characteristics."
+    },
+    {
+      "id": "q-sv2-analys-6",
+      "kind": "mc",
+      "topic": "form and content",
+      "prompt": "A text about a chaotic war is written with short, clipped sentences and sudden shifts in perspective. What is the connection between form and content here?",
+      "opener": "Ask yourself why the author chose this particular style.",
+      "choices": [
+        "The form is random and has no connection to the content",
+        "The fragmented form reinforces the experience of chaos and unease that the content depicts",
+        "The form shows that the narrator is omniscient",
+        "Short sentences always mean the text is a poem"
+      ],
+      "answer": 1,
+      "explanation": "In good literature, form and content interact — here the fragmentary, choppy style reinforces the sense of chaos and disorientation that the war creates. Choices of form are rarely random in carefully crafted literature."
+    },
+    {
+      "id": "q-sv2-analys-7",
+      "kind": "worked",
+      "topic": "narrative perspective",
+      "prompt": "A novel is narrated in the first person by a person who repeatedly contradicts themselves and whose memories do not match what other characters say. Analyse what type of narrator this is and what effect it produces.",
+      "opener": "Focus on what does NOT add up in what the narrator says.",
+      "answer": "It is an unreliable first-person narrator — the effect is that the reader is forced to question the truthfulness of the story and to try to work out for themselves what actually happened.",
+      "steps": [
+        "The narration takes place in the first person, which gives closeness to a single person's thoughts and feelings.",
+        "The contradictions and discrepancies from other characters' versions signal that the narrator is unreliable.",
+        "The effect is that the reader must read actively and critically, filling in the gaps or questioning what is said.",
+        "The technique is often used to depict psychological instability or self-deception, or to create tension and mystery in the text."
+      ]
+    },
+    {
+      "id": "q-sv2-analys-8",
+      "kind": "flashcard",
+      "topic": "composition",
+      "prompt": "Summarise important compositional devices and narrative-technique concepts for literary analysis.",
+      "opener": "The toolbox for analysing how a text is constructed.",
+      "answer": "In medias res: starting in the middle of the action · Frame narrative: an outer story encloses inner stories · Chronological vs. non-chronological: straightforward time order or jumps in time (flashbacks, foreshadowing) · Circular composition: the ending returns to the beginning · Narrative perspective: omniscient, first-person, unreliable, or personal (tied to one character's point of view) · Symbol and motif: concrete images that carry abstract meaning, versus recurring themes · Form and content interact — how something is told reinforces what is being told."
+    }
+  ]
+}

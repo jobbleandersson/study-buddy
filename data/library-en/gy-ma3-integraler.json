@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma3-integraler",
+  "type": "assignment",
+  "subject": "Matematik 3",
+  "title": "Antiderivatives and integrals",
+  "sourceSummary": "Antiderivatives of power functions, the definite integral as area under a curve, and the fundamental theorem of calculus at a basic level.",
+  "topics": [
+    "antiderivative",
+    "definite integral",
+    "the fundamental theorem of calculus"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma3-integraler-1",
+      "kind": "mc",
+      "topic": "antiderivative",
+      "prompt": "What does it mean that $F$ is an antiderivative of $f$?",
+      "opener": "Think of it as the reverse of differentiation.",
+      "choices": [
+        "$F(x) = f'(x)$",
+        "$\\int F(x)\\,dx = f(x)$",
+        "$F'(x) = f(x)$",
+        "$F(x) = f(x)$"
+      ],
+      "answer": 2,
+      "explanation": "$F$ is an antiderivative of $f$ if differentiating $F$ gives back $f$, i.e. $F'(x)=f(x)$. Integrating is the reverse of differentiating. The expression $F(x)=f'(x)$ mixes up the direction."
+    },
+    {
+      "id": "q-ma3-integraler-2",
+      "kind": "mc",
+      "topic": "antiderivative",
+      "prompt": "What is $\\displaystyle\\int x^3\\,dx$?",
+      "opener": "Increase the exponent by 1 and divide by the new exponent.",
+      "choices": [
+        "$4x^3+C$",
+        "$\\dfrac{x^4}{4}+C$",
+        "$\\dfrac{x^4}{3}+C$",
+        "$x^4+C$"
+      ],
+      "answer": 1,
+      "explanation": "The rule for power functions is $\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1}+C$. With $n=3$ this gives $\\dfrac{x^4}{4}+C$. The answer $4x^3+C$ is the derivative of $x^4$, not an antiderivative of $x^3$ — that's the opposite direction."
+    },
+    {
+      "id": "q-ma3-integraler-3",
+      "kind": "mc",
+      "topic": "antiderivative",
+      "prompt": "Calculate $\\displaystyle\\int (3x^2 - 2x)\\,dx$.",
+      "opener": "Integrate term by term using the power rule, and don't forget the constant of integration.",
+      "choices": [
+        "$x^3-x^2+C$",
+        "$x^3+x^2+C$",
+        "$3x^3-2x^2+C$",
+        "$6x-2+C$"
+      ],
+      "answer": 0,
+      "explanation": "$\\int 3x^2\\,dx = 3\\cdot\\frac{x^3}{3}=x^3$ and $\\int(-2x)\\,dx = -2\\cdot\\frac{x^2}{2}=-x^2$. The sum is $x^3-x^2+C$. The answer $6x-2+C$ is the derivative of the expression, not the antiderivative."
+    },
+    {
+      "id": "q-ma3-integraler-4",
+      "kind": "mc",
+      "topic": "definite integral",
+      "prompt": "Calculate $\\displaystyle\\int_0^2 x^2\\,dx$.",
+      "opener": "Find an antiderivative, substitute the limits and subtract.",
+      "choices": [
+        "$4$",
+        "$\\dfrac{4}{3}$",
+        "$8$",
+        "$\\dfrac{8}{3}$"
+      ],
+      "answer": 3,
+      "explanation": "An antiderivative is $F(x)=\\frac{x^3}{3}$. Then $\\int_0^2 x^2\\,dx = F(2)-F(0) = \\frac{2^3}{3}-\\frac{0^3}{3} = \\frac{8}{3}$. The answer $8$ is obtained if you forget to divide by 3 in the antiderivative."
+    },
+    {
+      "id": "q-ma3-integraler-5",
+      "kind": "mc",
+      "topic": "definite integral",
+      "prompt": "What does $\\int_a^b f(x)\\,dx$ represent geometrically, if $f(x) \\geq 0$ on $[a,b]$?",
+      "opener": "Think of the integral as a sum of very narrow rectangles under the curve.",
+      "choices": [
+        "The slope of the curve between $x=a$ and $x=b$",
+        "The area between the curve $y=f(x)$ and the $x$-axis, from $x=a$ to $x=b$",
+        "The value of the derivative at $x=b$",
+        "The value of the curve at $x=a$"
+      ],
+      "answer": 1,
+      "explanation": "The definite integral of a non-negative function corresponds to the area between the curve and the $x$-axis over the interval $[a,b]$. The slope of the curve is instead described by the derivative, not the integral."
+    },
+    {
+      "id": "q-ma3-integraler-6",
+      "kind": "mc",
+      "topic": "the fundamental theorem of calculus",
+      "prompt": "According to the fundamental theorem of calculus, how is $\\int_a^b f(x)\\,dx$ calculated if $F$ is an antiderivative of $f$?",
+      "opener": "Substitute the upper and lower limits into the antiderivative and compare.",
+      "choices": [
+        "$F(a)-F(b)$",
+        "$F(b)+F(a)$",
+        "$F(b)-F(a)$",
+        "$f(b)-f(a)$"
+      ],
+      "answer": 2,
+      "explanation": "The fundamental theorem of calculus states that $\\int_a^b f(x)\\,dx = F(b)-F(a)$, where $F$ is an antiderivative of $f$. Reversing this to $F(a)-F(b)$ gives the wrong sign in the answer."
+    },
+    {
+      "id": "q-ma3-integraler-7",
+      "kind": "worked",
+      "topic": "definite integral",
+      "prompt": "Calculate $\\displaystyle\\int_1^3 (2x+1)\\,dx$.",
+      "opener": "Find an antiderivative of $2x+1$, then substitute the limits according to the fundamental theorem.",
+      "answer": "$10$",
+      "steps": [
+        "Find an antiderivative: $F(x) = x^2+x$ (check: $F'(x)=2x+1$, which is correct).",
+        "Calculate $F(3) = 3^2+3 = 9+3 = 12$.",
+        "Calculate $F(1) = 1^2+1 = 1+1 = 2$.",
+        "According to the fundamental theorem: $\\int_1^3(2x+1)\\,dx = F(3)-F(1) = 12-2 = 10$."
+      ]
+    },
+    {
+      "id": "q-ma3-integraler-8",
+      "kind": "flashcard",
+      "topic": "antiderivative",
+      "prompt": "Summarise the rules for antiderivatives and the fundamental theorem of calculus.",
+      "opener": "Think power rule in reverse, sum rule, and the connection to area.",
+      "answer": "$\\displaystyle\\int x^n\\,dx = \\dfrac{x^{n+1}}{n+1}+C$ (for $n \\neq -1$) · $\\displaystyle\\int k\\,dx = kx+C$ · $\\displaystyle\\int \\big(f(x)+g(x)\\big)\\,dx = \\int f(x)\\,dx + \\int g(x)\\,dx$ · Fundamental theorem of calculus: $\\displaystyle\\int_a^b f(x)\\,dx = F(b)-F(a)$, where $F'(x)=f(x)$ · If $f(x)\\geq 0$ on $[a,b]$, $\\int_a^b f(x)\\,dx$ gives the area between the curve and the $x$-axis"
+    }
+  ]
+}

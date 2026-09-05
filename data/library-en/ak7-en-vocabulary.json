@@ -1,0 +1,129 @@
+{
+  "id": "lib-en7-vocabulary",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Vocabulary: everyday words and phrases",
+  "sourceSummary": "Common words about school, family, free time and food, together with politeness phrases and the basics of there is/there are, some/any and a/an/the.",
+  "topics": [
+    "everyday vocabulary",
+    "phrases",
+    "there is/there are",
+    "some/any",
+    "articles"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7-voc-1",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Which word can mean both your father's brother and your mother's brother in English?",
+      "opener": "English does not distinguish between the two sides of the family the way some other languages do.",
+      "choices": [
+        "cousin",
+        "aunt",
+        "uncle",
+        "nephew"
+      ],
+      "answer": 2,
+      "explanation": "\"Uncle\" is used for both your father's brother and your mother's brother. \"Aunt\" is your father's or mother's sister, \"cousin\" is the child of your aunt or uncle, and \"nephew\" is your brother's or sister's son."
+    },
+    {
+      "id": "q-en7-voc-2",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Choose the word that fits: \"We have maths in the first ___ every Monday morning.\"",
+      "opener": "Which word is used for a single class at school?",
+      "choices": [
+        "lesson",
+        "lecture",
+        "break",
+        "subject"
+      ],
+      "answer": 0,
+      "explanation": "\"Lesson\" means a single class and fits in the school timetable. \"Subject\" refers to the subject itself (such as maths), and \"break\" means a pause between lessons."
+    },
+    {
+      "id": "q-en7-voc-3",
+      "kind": "mc",
+      "topic": "phrases",
+      "prompt": "Someone says: \"Thank you very much!\" What is a polite answer?",
+      "opener": "What do you say in English when someone thanks you?",
+      "choices": [
+        "Please.",
+        "Excuse me.",
+        "Never mind me.",
+        "You're welcome."
+      ],
+      "answer": 3,
+      "explanation": "\"You're welcome\" is the usual reply to a thank you. When you hand something to someone, you say \"here you are\" — not \"please\", which is used when you are asking for something."
+    },
+    {
+      "id": "q-en7-voc-4",
+      "kind": "mc",
+      "topic": "there is/there are",
+      "prompt": "Choose the correct form: \"___ three apples on the table.\"",
+      "opener": "One or several? That decides whether it is is or are.",
+      "choices": [
+        "There is",
+        "There are",
+        "It is",
+        "They is"
+      ],
+      "answer": 1,
+      "explanation": "\"Three apples\" is plural, so it should be \"There are\". \"There is\" is only used when what follows is singular: \"There is an apple on the table\"."
+    },
+    {
+      "id": "q-en7-voc-5",
+      "kind": "mc",
+      "topic": "some/any",
+      "prompt": "Choose the correct word: \"I don't have ___ money with me today.\"",
+      "opener": "Some and any depend on whether the sentence is affirmative, negative or a question.",
+      "choices": [
+        "some",
+        "the",
+        "any",
+        "a"
+      ],
+      "answer": 2,
+      "explanation": "In negative sentences and questions, \"any\" is used: \"I don't have any money\". \"Some\" is used in affirmative sentences: \"I have some money\"."
+    },
+    {
+      "id": "q-en7-voc-6",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"My sister wants to be ___ engineer.\"",
+      "opener": "Listen to how the next word begins — with a vowel sound or a consonant sound?",
+      "choices": [
+        "a",
+        "an",
+        "the",
+        "some"
+      ],
+      "answer": 1,
+      "explanation": "\"Engineer\" begins with the vowel sound /e/, so \"an\" is used: \"an engineer\". \"A\" is used before a consonant sound, as in \"a teacher\"."
+    },
+    {
+      "id": "q-en7-voc-7",
+      "kind": "worked",
+      "topic": "there is/there are",
+      "prompt": "Correct the three errors: \"There is two shops near my house. I want to buy a apple, but I don't have some money.\"",
+      "opener": "Three things to check: singular or plural, which article fits, and some or any.",
+      "answer": "There are two shops near my house. I want to buy an apple, but I don't have any money.",
+      "steps": [
+        "\"There is two shops\" → \"There are two shops\". \"Two shops\" is plural, so it should be \"there are\".",
+        "\"a apple\" → \"an apple\". \"Apple\" begins with a vowel sound, so \"an\" is used.",
+        "\"I don't have some money\" → \"I don't have any money\". In negative sentences, \"any\" is used, not \"some\".",
+        "Read through the sentence once more at the end and check that is/are matches what comes after it."
+      ]
+    },
+    {
+      "id": "q-en7-voc-8",
+      "kind": "flashcard",
+      "topic": "everyday vocabulary",
+      "prompt": "What everyday words, phrases and small words should you know at Year 7 level?",
+      "opener": "Words about school, family, free time and food — plus the most common politeness phrases.",
+      "answer": "School: lesson = a single class at school · break = a pause between lessons · subject = a school subject such as maths or English · homework = school work done at home · timetable = the schedule of lessons. Family: uncle = your mother's or father's brother · aunt = your mother's or father's sister · cousin = the child of your aunt or uncle · grandparents = your mother's or father's parents. Free time: hobby · spare time · practise = to train or rehearse · club = an organised group for an activity. Food: breakfast/lunch/dinner · vegetables · meal = the food eaten at one sitting. Phrases: You're welcome = a reply to thank you · Here you are = said when you hand something to someone · Excuse me = said to get someone's attention · I'm sorry = an apology · Could you help me, please? Small words: there is + singular / there are + plural · some in affirmative sentences, any in negative sentences and questions · a before a consonant sound, an before a vowel sound, the when the listener already knows which thing you mean."
+    }
+  ]
+}

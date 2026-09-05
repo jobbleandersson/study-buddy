@@ -1,0 +1,128 @@
+{
+  "id": "lib-en7-writing",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Writing: sentence structure and common mistakes",
+  "sourceSummary": "English word order in statements and questions, the most common Swedish-English mistakes, and how to link sentences together with and, but and because.",
+  "topics": [
+    "word order",
+    "questions",
+    "common mistakes",
+    "linking words"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en7-wri-1",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order?",
+      "opener": "English sticks firmly to the order subject - verb - object, even when the sentence starts with a time expression.",
+      "choices": [
+        "On Mondays play I football.",
+        "On Mondays I play football.",
+        "On Mondays football I play.",
+        "Play I football on Mondays."
+      ],
+      "answer": 1,
+      "explanation": "In English, the subject comes before the verb: \"I play football\". Unlike some other languages, you do not swap the order of subject and verb just because the sentence starts with a time expression — that is why \"On Mondays play I football\" is wrong."
+    },
+    {
+      "id": "q-en7-wri-2",
+      "kind": "mc",
+      "topic": "questions",
+      "prompt": "Which question is correct?",
+      "opener": "Questions in present simple need an auxiliary verb — and it comes first.",
+      "choices": [
+        "Where you live?",
+        "Where live you?",
+        "Where do you live?",
+        "Where you do live?"
+      ],
+      "answer": 2,
+      "explanation": "The question word comes first, then the auxiliary verb do/does, then the subject and the verb: \"Where do you live?\". \"Where live you?\" follows the wrong word order and does not work in English."
+    },
+    {
+      "id": "q-en7-wri-3",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence correctly states someone's age in English?",
+      "opener": "Some languages use a different verb than English does when talking about age.",
+      "choices": [
+        "I have 13 years.",
+        "I am 13 years.",
+        "I have 13 years old.",
+        "I am 13 years old."
+      ],
+      "answer": 3,
+      "explanation": "In English, the verb \"be\" is used for age: \"I am 13 years old\". \"I have 13 years\" is a literal translation from another language and sounds wrong in English."
+    },
+    {
+      "id": "q-en7-wri-4",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "Check who is doing the action — which negative form goes with \"he\"?",
+      "choices": [
+        "He don't like homework.",
+        "He doesn't likes homework.",
+        "He doesn't like homework.",
+        "He not like homework."
+      ],
+      "answer": 2,
+      "explanation": "With he/she/it, \"doesn't\" is used, and after doesn't the verb stands in its base form: \"He doesn't like homework\". \"He don't\" is one of the most common mistakes, and \"doesn't likes\" conjugates the verb twice."
+    },
+    {
+      "id": "q-en7-wri-5",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking word: \"I stayed at home ___ I was ill.\"",
+      "opener": "The second part explains why the first part happened.",
+      "choices": [
+        "because",
+        "and",
+        "but",
+        "or"
+      ],
+      "answer": 0,
+      "explanation": "\"Because\" gives a reason, and being ill is the reason for staying home. \"But\" would show a contrast, which does not fit here."
+    },
+    {
+      "id": "q-en7-wri-6",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Which sentence joins the two ideas best: \"I like football.\" + \"I don't like tennis.\"",
+      "opener": "The two sentences say different things — which linking word shows a contrast?",
+      "choices": [
+        "I like football and I don't like tennis.",
+        "I like football but I don't like tennis.",
+        "I like football because I don't like tennis.",
+        "I like football, I don't like tennis."
+      ],
+      "answer": 1,
+      "explanation": "\"But\" is used when two parts contrast with each other, like liking against not liking. \"Because\" would mean that one is the reason for the other, which is not the case here."
+    },
+    {
+      "id": "q-en7-wri-7",
+      "kind": "worked",
+      "topic": "common mistakes",
+      "prompt": "Correct the four errors: \"Hi! My name is Lisa and I have 13 years. My brother he don't like school. On Saturdays go I to my friend. Where you live?\"",
+      "opener": "Look for age, the negative form, word order in a statement, and word order in a question.",
+      "answer": "Hi! My name is Lisa and I am 13 years old. My brother doesn't like school. On Saturdays I go to my friend. Where do you live?",
+      "steps": [
+        "\"I have 13 years\" → \"I am 13 years old\". English uses the verb \"be\" for age and adds \"old\".",
+        "\"My brother he don't like\" → \"My brother doesn't like\". The subject should only appear once, and he/she/it takes doesn't + the verb in its base form.",
+        "\"On Saturdays go I\" → \"On Saturdays I go\". The subject comes before the verb in English even after a time expression.",
+        "\"Where you live?\" → \"Where do you live?\". Questions in present simple need the auxiliary verb do/does after the question word."
+      ]
+    },
+    {
+      "id": "q-en7-wri-8",
+      "kind": "flashcard",
+      "topic": "word order",
+      "prompt": "What rules and common mistakes should you check when you write in English?",
+      "opener": "A checklist to go through before you hand in your text.",
+      "answer": "Word order: subject - verb - object (I play football) · the subject comes before the verb even after a time expression (Every day I read, not Every day read I). Questions: question word + do/does + subject + verb in base form (Where do you live? Does she play?) · with \"be\" you swap the order instead (Are you tired?). Common mistakes: I am 13 years old (not I have 13 years) · he/she/it doesn't (not he don't) · after doesn't/didn't the verb stands in its base form · don't forget -s in he plays, she watches · don't repeat the subject (My brother he...). Linking words: and = adds information · but = shows a contrast · because = gives a reason · so = shows a result. Always read through your text one last time and check the verbs."
+    }
+  ]
+}

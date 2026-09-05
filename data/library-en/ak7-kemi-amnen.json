@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi7-amnen",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Substances and their properties",
+  "sourceSummary": "The difference between pure substances and mixtures, what solutions and alloys are, how to separate mixtures by filtration, evaporation and distillation, and physical properties such as melting point and solubility.",
+  "topics": [
+    "pure substances and mixtures",
+    "solutions",
+    "alloys",
+    "separation methods",
+    "physical properties"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi7-amn-1",
+      "kind": "mc",
+      "topic": "pure substances and mixtures",
+      "prompt": "Which of the following is a pure substance?",
+      "opener": "A pure substance contains only a single kind of substance - nothing else is mixed in.",
+      "choices": [
+        "Seawater",
+        "Air",
+        "Distilled water",
+        "Milk"
+      ],
+      "answer": 2,
+      "explanation": "Distilled water contains only water and is therefore a pure substance. Seawater is a mixture of water and salts, just as air is a mixture of several gases - they simply look uniform."
+    },
+    {
+      "id": "q-kemi7-amn-2",
+      "kind": "mc",
+      "topic": "separation methods",
+      "prompt": "You have a beaker with sand mixed into water. Which method best separates the sand from the water?",
+      "opener": "Think about whether the sand has dissolved in the water or is just lying in it as grains.",
+      "choices": [
+        "Filtration",
+        "Distillation",
+        "Evaporation",
+        "Letting the mixture freeze"
+      ],
+      "answer": 0,
+      "explanation": "The sand grains have not dissolved, so they get caught in the filter while the water runs through - filtration works. Evaporation would instead remove the water and leave the sand behind, which is needlessly complicated if it is the water you want."
+    },
+    {
+      "id": "q-kemi7-amn-3",
+      "kind": "mc",
+      "topic": "separation methods",
+      "prompt": "You have salt water and want to get the salt back in solid form. Which method do you use?",
+      "opener": "The salt is dissolved in the water, so no filter can catch it.",
+      "choices": [
+        "Filtration",
+        "Straining the mixture through a colander",
+        "Pulling out the salt with a magnet",
+        "Evaporation"
+      ],
+      "answer": 3,
+      "explanation": "With evaporation, the water is allowed to evaporate and the salt is left behind as crystals in the container. Filtration does not work, since salt dissolved in water passes straight through the filter together with the water."
+    },
+    {
+      "id": "q-kemi7-amn-4",
+      "kind": "mc",
+      "topic": "alloys",
+      "prompt": "What is an alloy?",
+      "opener": "Think of brass, which is made of copper and zinc.",
+      "choices": [
+        "A pure metallic element",
+        "A mixture in which metals have been melted together with each other or with another substance",
+        "A liquid that dissolves metals",
+        "A chemical compound between a metal and oxygen"
+      ],
+      "answer": 1,
+      "explanation": "An alloy is a mixture, for example brass (copper + zinc) or steel (iron + carbon), and it is made to give better properties such as hardness or resistance to rusting. A metal that has reacted with oxygen is instead a chemical compound, a metal oxide - not an alloy."
+    },
+    {
+      "id": "q-kemi7-amn-5",
+      "kind": "mc",
+      "topic": "solutions",
+      "prompt": "You stir a teaspoon of sugar into a glass of water. What is the solvent in that solution?",
+      "opener": "The solvent is the substance present in the largest amount and which dissolves the other one.",
+      "choices": [
+        "The water",
+        "The sugar",
+        "The air in the water",
+        "Both the sugar and the water are solvents"
+      ],
+      "answer": 0,
+      "explanation": "The water is the solvent because it is present in the largest amount and dissolves the sugar; the sugar is called the solute. The sugar does not disappear - it remains spread out in the water, which you notice from the taste."
+    },
+    {
+      "id": "q-kemi7-amn-6",
+      "kind": "mc",
+      "topic": "physical properties",
+      "prompt": "What does it mean for a substance to be readily soluble in water?",
+      "opener": "Think about how sugar behaves in water compared with how sand behaves.",
+      "choices": [
+        "That the substance melts as soon as it is put in water",
+        "That the substance reacts chemically with the water and forms a new substance",
+        "That the substance floats on top of the water",
+        "That large amounts of the substance can be mixed evenly into the water and form a solution"
+      ],
+      "answer": 3,
+      "explanation": "Readily soluble means that a lot of the substance can be spread evenly through the water, so that the mixture becomes a clear solution. This is not the same as melting - melting is about a substance turning from solid to liquid when heated, so it concerns temperature, not water."
+    },
+    {
+      "id": "q-kemi7-amn-7",
+      "kind": "worked",
+      "topic": "separation methods",
+      "prompt": "You have a beaker with a mixture of sand, salt and water. How do you end up with dry sand in one dish and dry salt in another?",
+      "opener": "Take one method at a time, starting with the substance that has not dissolved.",
+      "answer": "First filter out the sand and let it dry, then evaporate the filtrate so that the salt is left behind as crystals.",
+      "steps": [
+        "Think through the mixture: the sand lies as grains in the water, while the salt is dissolved in the water.",
+        "Pour the mixture through a filter in a funnel. The sand gets caught in the filter and the salty liquid (the filtrate) runs down into a container.",
+        "Leave the filter with the sand to dry - then you have dry sand.",
+        "Gently heat the filtrate in an evaporating dish so that the water evaporates. White salt crystals are left behind in the dish.",
+        "Check that this makes sense: neither method changes the substances chemically, you have simply separated the mixture back into its parts."
+      ]
+    },
+    {
+      "id": "q-kemi7-amn-8",
+      "kind": "flashcard",
+      "topic": "pure substances and mixtures",
+      "prompt": "Summarise pure substances, mixtures and the most common separation methods.",
+      "opener": "Go through the concepts first and the methods afterwards - which method suits which mixture?",
+      "answer": "Pure substance: only one kind of substance, has a fixed melting point and boiling point (pure water melts at 0°C and boils at 100°C) · Mixture: two or more substances mixed without reacting, the parts remain · Heterogeneous mixture: the parts are visible, e.g. sand in water, gravel, muesli · Homogeneous mixture (solution): the parts are not visible, e.g. salt water, sugar solution, air · Solution = solvent (largest amount, usually water) + solute · Alloy: a mixture of metals, e.g. brass (copper + zinc), steel (iron + carbon), bronze (copper + tin) · Filtration: separates undissolved particles from a liquid, e.g. sand from water · Evaporation: the liquid evaporates, the dissolved substance is left behind, e.g. salt from squash · Distillation: the liquid is boiled, the vapour is cooled and turns back into liquid in another container - gives pure water from salt water · Solubility: how much of a substance can be dissolved, usually increases with higher temperature · Physical properties that help you identify a substance: melting point, boiling point, density, colour, solubility."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-en8-writing",
+  "type": "assignment",
+  "subject": "Engelska",
+  "title": "Writing: text types and linking words",
+  "sourceSummary": "Linking words such as however, because, therefore and for example, paragraph structure with a topic sentence, the difference between formal and informal language, and how to write a short email or a story.",
+  "topics": [
+    "linking words",
+    "paragraph structure",
+    "formal and informal",
+    "text types"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en8-wri-1",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking word: \"I wanted to go to the concert. ___, all the tickets were sold out.\"",
+      "opener": "The two sentences contradict each other — which word signals a contrast?",
+      "choices": [
+        "Therefore",
+        "However",
+        "For example",
+        "Because"
+      ],
+      "answer": 1,
+      "explanation": "\"However\" marks a contrast between what he wanted and what stopped him. \"Therefore\" would mean the tickets sold out because he wanted to go, which doesn't add up."
+    },
+    {
+      "id": "q-en8-wri-2",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Because\" introduces a cause, \"therefore\" introduces a result — they can't swap places.",
+      "choices": [
+        "I stayed at home therefore I was ill.",
+        "I was ill, because I stayed at home.",
+        "I stayed at home because I was ill.",
+        "Because I stayed at home, so I was ill."
+      ],
+      "answer": 2,
+      "explanation": "The illness is the cause and staying at home is the result: \"I stayed at home because I was ill.\" Option 2 reverses cause and effect, and \"because ... so\" is a double connective that isn't used in English."
+    },
+    {
+      "id": "q-en8-wri-3",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking phrase: \"Many sports are popular at our school. ___, more than fifty students play floorball.\"",
+      "opener": "The second sentence gives a concrete case of what the first sentence says.",
+      "choices": [
+        "For example",
+        "However",
+        "In conclusion",
+        "On the other hand"
+      ],
+      "answer": 0,
+      "explanation": "Floorball is an example of the popular sports, so \"for example\" fits. \"In conclusion\" is used at the end of a text to summarise, not to introduce an example."
+    },
+    {
+      "id": "q-en8-wri-4",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "Which sentence works best as the topic sentence of a paragraph about school lunches?",
+      "opener": "The topic sentence should say what the whole paragraph is about — not give a small detail.",
+      "choices": [
+        "On Tuesday we had fish and potatoes.",
+        "School lunches are important for how students learn during the afternoon.",
+        "I sat next to my friend Ali in the canteen.",
+        "The queue was quite long yesterday."
+      ],
+      "answer": 1,
+      "explanation": "A topic sentence sums up the paragraph's subject and gives the other sentences something to build on. The other options are details or examples that belong further into the paragraph."
+    },
+    {
+      "id": "q-en8-wri-5",
+      "kind": "mc",
+      "topic": "formal and informal",
+      "prompt": "You are writing a formal email to a hotel. Which opening is most suitable?",
+      "opener": "Formal language avoids slang and contractions like gonna and wanna.",
+      "choices": [
+        "Hi guys! I wanna ask about a room.",
+        "Hey, got any rooms left?",
+        "Dear Sir or Madam, I would like to ask about a room.",
+        "Yo, we're gonna need a room."
+      ],
+      "answer": 2,
+      "explanation": "\"Dear Sir or Madam\" and \"I would like to\" are standard phrases in formal emails to someone you don't know. \"Hi guys\" and \"wanna\" belong to everyday spoken language and only suit friends."
+    },
+    {
+      "id": "q-en8-wri-6",
+      "kind": "mc",
+      "topic": "text types",
+      "prompt": "Which sentence is the best opening for a short story?",
+      "opener": "A story usually opens with something concrete happening, not with a summary.",
+      "choices": [
+        "In this text I am going to tell you about a scary night.",
+        "The door slammed shut behind me, and the lights went out.",
+        "My story is about a night that was very scary and strange.",
+        "First of all, I will describe the night and then the morning."
+      ],
+      "answer": 1,
+      "explanation": "A story hooks the reader by showing an event directly: the door slams shut and the lights go out. The other options explain what the text is going to be about, which belongs in a factual text or essay — not in a story."
+    },
+    {
+      "id": "q-en8-wri-7",
+      "kind": "worked",
+      "topic": "linking words",
+      "prompt": "Improve this short paragraph by adding linking words and fixing the informal language: \"I like our school library. It is small. It has a lot of good books. I go there every lunch break. It is quiet. Its awesome and I wanna stay there all day.\"",
+      "opener": "Join the short sentences with linking words and replace the informal language.",
+      "answer": "I like our school library. Although it is small, it has a lot of good books. I go there every lunch break because it is quiet. It is a very pleasant place, and I would like to stay there all day.",
+      "steps": [
+        "\"It is small. It has a lot of good books.\" → \"Although it is small, it has a lot of good books.\" The sentences contrast with each other, so although joins them.",
+        "\"I go there every lunch break. It is quiet.\" → \"... because it is quiet.\" The second sentence explains the reason, and because shows the connection.",
+        "\"Its awesome\" → \"It is a very pleasant place\". The apostrophe was missing (it's = it is), and awesome is informal slang.",
+        "\"I wanna stay\" → \"I would like to stay\". \"Wanna\" is spoken language and is never written in a school assignment."
+      ]
+    },
+    {
+      "id": "q-en8-wri-8",
+      "kind": "flashcard",
+      "topic": "linking words",
+      "prompt": "Which linking words, paragraph rules and levels of formality do you need to know when writing in English?",
+      "opener": "Linking words · paragraphs · level of formality · emails and stories.",
+      "answer": "Contrast: however, but, although, on the other hand · Cause: because, since, as · Result: therefore, so, as a result · Addition: also, in addition, moreover · Example: for example, such as · Conclusion: in conclusion, to sum up · Paragraph: one idea per paragraph, topic sentence first, then explanation and examples, a new paragraph for a new subject · Formal: Dear Sir or Madam, I would like to, I am writing to ask, Yours sincerely — no contractions (do not instead of don't), no slang · Informal: Hi Sam, Thanks a lot, See you soon, contractions are fine · Short email: greeting, purpose in the first sentence, details, polite ending, name · Story: start in the middle of the action, past simple as the basic tense, time words (then, after that, suddenly, finally), end with how it turned out."
+    }
+  ]
+}

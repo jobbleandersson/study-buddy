@@ -1,0 +1,129 @@
+{
+  "id": "lib-nk1b-halsa",
+  "type": "assignment",
+  "subject": "Naturkunskap 1b",
+  "title": "Body and health",
+  "sourceSummary": "What affects health (lifestyle, environment and heredity), sexual health and relationships at an adult level, drugs and addiction, and public health as a concept.",
+  "topics": [
+    "determinants of health",
+    "sexual health and relationships",
+    "drugs and addiction",
+    "public health"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-nk1b-halsa-1",
+      "kind": "mc",
+      "topic": "determinants of health",
+      "prompt": "What is meant by the determinants of health?",
+      "opener": "Think broadly — it's about more than just lifestyle choices like diet and exercise.",
+      "choices": [
+        "The factors, e.g. lifestyle habits, environment, heredity, and social and economic conditions, that together affect the health of an individual or a population",
+        "Only the genes one has inherited from one's parents",
+        "Another word for the healthcare resources in a region",
+        "Only how much one exercises each week"
+      ],
+      "answer": 0,
+      "explanation": "The determinants of health cover a broad spectrum: lifestyle habits (diet, exercise, sleep, drugs), heredity, environmental factors and social/economic conditions such as education and income. Looking only at genes or only at exercise misses how many factors interact."
+    },
+    {
+      "id": "q-nk1b-halsa-2",
+      "kind": "mc",
+      "topic": "determinants of health",
+      "prompt": "Why are socioeconomic factors, such as level of education and income, often linked to differences in health between different groups in society?",
+      "opener": "Think about what things like income and education can affect indirectly, such as housing, eating habits and access to healthcare.",
+      "choices": [
+        "Socioeconomic factors have no link to health according to research",
+        "They affect, among other things, access to good housing, healthy food, education about health and access to healthcare, which in turn can affect health outcomes",
+        "Only genetic differences explain all health differences between groups",
+        "The link only applies in low-income countries"
+      ],
+      "answer": 1,
+      "explanation": "Research consistently shows links between socioeconomic status and health: higher income and education are often associated with a better living environment, more knowledge of healthy choices and easier access to healthcare, which contributes to better health outcomes on average. This applies to varying degrees in many countries, not only low-income countries."
+    },
+    {
+      "id": "q-nk1b-halsa-3",
+      "kind": "mc",
+      "topic": "sexual health and relationships",
+      "prompt": "What does consent mean in a sexual relationship?",
+      "opener": "Think about how consent must be current, voluntary, and able to be withdrawn.",
+      "choices": [
+        "That a person saying yes once means consent applies forever",
+        "That both parties voluntarily and knowingly agree to what is happening, and that consent can be withdrawn at any time",
+        "That it is enough for one party to assume the other wants to",
+        "That consent is only needed in committed relationships, not in casual encounters"
+      ],
+      "answer": 1,
+      "explanation": "Consent must be voluntary, clear and apply to the specific situation at hand — it can always be withdrawn, and it applies regardless of relationship status. A previous yes does not automatically mean yes in a different situation, and merely assuming consent is not enough."
+    },
+    {
+      "id": "q-nk1b-halsa-4",
+      "kind": "mc",
+      "topic": "sexual health and relationships",
+      "prompt": "Which is the only common form of contraception that both reduces the risk of pregnancy and protects against most sexually transmitted infections (STIs)?",
+      "opener": "Think about which method of contraception acts as a physical barrier between bodily fluids.",
+      "choices": [
+        "The pill",
+        "Condom",
+        "IUD (coil)",
+        "Contraceptive implant"
+      ],
+      "answer": 1,
+      "explanation": "The condom acts as a barrier that prevents direct contact between bodily fluids and therefore protects against both pregnancy and most sexually transmitted infections. Hormonal methods such as the pill, the IUD and the contraceptive implant protect against pregnancy but not against STIs."
+    },
+    {
+      "id": "q-nk1b-halsa-5",
+      "kind": "mc",
+      "topic": "drugs and addiction",
+      "prompt": "What characterises a physical dependence on a drug, e.g. alcohol or nicotine?",
+      "opener": "Think about what happens in the body if the person suddenly stops using the drug.",
+      "choices": [
+        "That the person only feels a psychological craving for the drug, with no bodily reactions",
+        "That the body has adapted to the drug so that withdrawal symptoms, e.g. shaking or nausea, occur when use stops",
+        "That the dependence automatically disappears after a week without the drug",
+        "That only young people can develop physical dependence"
+      ],
+      "answer": 1,
+      "explanation": "Physical dependence means the body has adapted its functioning to the drug's presence, so that withdrawal symptoms (e.g. shaking, sweating, nausea) occur when use is reduced or stopped. This differs from purely psychological dependence, which involves a strong craving without the same bodily withdrawal, but both forms can occur at the same time."
+    },
+    {
+      "id": "q-nk1b-halsa-6",
+      "kind": "mc",
+      "topic": "public health",
+      "prompt": "What is meant by public health, as distinct from an individual's own health?",
+      "opener": "Think about which level the concept operates at — a person, or an entire population.",
+      "choices": [
+        "Another word for the organisation of healthcare services",
+        "The state of health and its distribution across an entire population, along with the efforts made to improve and even out health in society",
+        "Only how many people are on sick leave at a given time",
+        "A measure of one individual's fitness"
+      ],
+      "answer": 1,
+      "explanation": "Public health concerns the state of health of an entire population or group, including how health is distributed between different groups, as well as the preventive and health-promoting work (public health work) carried out to improve and even out health. It is therefore a broader, societal perspective than a single individual's state of health."
+    },
+    {
+      "id": "q-nk1b-halsa-7",
+      "kind": "worked",
+      "topic": "determinants of health",
+      "prompt": "Using an example, explain how lifestyle, environment and heredity can interact to affect the risk of developing a lifestyle-related disease, e.g. type 2 diabetes.",
+      "opener": "Imagine a person with a hereditary risk of the disease — what determines whether the risk is actually realised?",
+      "answer": "Genetic vulnerability increases the risk of type 2 diabetes but rarely determines alone whether the disease develops; environmental factors and lifestyle habits, such as access to healthy food, physical activity and stress levels, interact with heredity and together determine how great the actual risk becomes for a given individual.",
+      "steps": [
+        "Some people have a hereditary (genetic) vulnerability that makes the body's insulin sensitivity more easily disrupted — this gives an elevated baseline risk for type 2 diabetes.",
+        "The environment a person lives in, e.g. access to healthy and affordable food and opportunities for physical activity nearby, affects which choices are easy to make day to day.",
+        "Lifestyle habits such as diet, physical activity, sleep and stress management then directly affect the body's metabolism and weight.",
+        "Socioeconomic conditions, such as income, working hours and education, often indirectly govern both the environment and which lifestyle habits are realistic to maintain.",
+        "The end result is that disease risk rarely depends on a single factor, but arises from the interplay between heredity, environment and lifestyle together — which is why preventive work at several levels (individual and society) matters."
+      ]
+    },
+    {
+      "id": "q-nk1b-halsa-8",
+      "kind": "flashcard",
+      "topic": "sexual health and relationships",
+      "prompt": "Summarise the key points about the determinants of health, sexual health, drugs and addiction, and public health.",
+      "opener": "Go through what affects health, what is required for a safe relationship, and what distinguishes the individual and population levels.",
+      "answer": "Determinants of health: lifestyle habits, heredity, environment and socioeconomic conditions interact and affect health · Consent: must be voluntary, clear, apply to the current situation, and be able to be withdrawn at any time · Contraception: the condom is the only common method that protects against both pregnancy and most sexually transmitted infections; hormonal methods such as the pill only protect against pregnancy · Physical dependence: the body has adapted to the drug, withdrawal occurs when use stops · Psychological dependence: a strong craving for the drug without the same bodily withdrawal · Public health: the state of health and its distribution across an entire population, along with the preventive work done to improve and even out health in society."
+    }
+  ]
+}

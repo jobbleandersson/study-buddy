@@ -1,0 +1,129 @@
+{
+  "id": "lib-hist-varldskrigen",
+  "type": "assignment",
+  "subject": "Historia",
+  "title": "The world wars",
+  "sourceSummary": "What caused the First and Second World Wars, key turning points during the wars, and how the world tried to build a lasting peace afterwards through the UN.",
+  "topics": [
+    "causes of the First World War",
+    "causes of the Second World War",
+    "course of events and turning points",
+    "consequences"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-hist-vk-1",
+      "kind": "mc",
+      "topic": "causes of the First World War",
+      "prompt": "Which event became the spark that triggered the First World War in 1914?",
+      "opener": "Think of an assassination in Sarajevo that set off a chain reaction between allied states.",
+      "choices": [
+        "The assassination of the Austro-Hungarian heir to the throne, Franz Ferdinand",
+        "Germany's invasion of Poland",
+        "The Russian Revolution",
+        "The Japanese attack on Pearl Harbor"
+      ],
+      "answer": 0,
+      "explanation": "The assassination of Archduke Franz Ferdinand in Sarajevo in June 1914 led Austria-Hungary to declare war on Serbia, which, through the chain reaction of alliances, drew large parts of Europe into the war. The invasion of Poland and Pearl Harbor belong to the Second World War, and the Russian Revolution took place in 1917, in the middle of the war."
+    },
+    {
+      "id": "q-hist-vk-2",
+      "kind": "mc",
+      "topic": "causes of the First World War",
+      "prompt": "Why did the conflict between Austria-Hungary and Serbia spread to almost the whole of Europe?",
+      "opener": "The countries were divided into two large blocs that had promised to defend one another.",
+      "choices": [
+        "Europe's states were bound by alliances (e.g. the Triple Alliance and the Triple Entente) that dragged each other into the war",
+        "All countries in Europe were ruled by the same king",
+        "The UN required all member states to take part",
+        "Serbia had colonised the rest of Europe"
+      ],
+      "answer": 0,
+      "explanation": "Through the alliance system — the Triple Alliance (Germany, Austria-Hungary, Italy) and the Triple Entente (France, Russia, Britain) — a regional conflict quickly turned into a major war, since the countries were obliged to support their allies. The UN did not even exist during the First World War."
+    },
+    {
+      "id": "q-hist-vk-3",
+      "kind": "mc",
+      "topic": "causes of the Second World War",
+      "prompt": "How did the Treaty of Versailles after the First World War contribute to the outbreak of the Second World War?",
+      "opener": "Think about how Germany was treated in the 1919 peace treaty, and how that could be exploited politically later.",
+      "choices": [
+        "Germany was forced to pay enormous war reparations and cede territory, which created bitterness that the Nazis later exploited in their propaganda",
+        "The Treaty of Versailles gave Germany new colonies and strengthened the country's economy",
+        "The Treaty of Versailles was solely about trade between France and Britain",
+        "The Treaty of Versailles guaranteed eternal peace and had no connection to later events"
+      ],
+      "answer": 0,
+      "explanation": "The harsh terms of the Treaty of Versailles — large reparations, lost territory and a restricted military — humiliated Germany and contributed to economic crisis and national bitterness. The Nazis used this discontent to gain support during the 1920s and 30s."
+    },
+    {
+      "id": "q-hist-vk-4",
+      "kind": "mc",
+      "topic": "causes of the Second World War",
+      "prompt": "Which factors contributed to Nazism and Hitler gaining power in Germany in the 1930s?",
+      "opener": "Think about the economic situation in Germany and what promises the Nazis made to a discontented people.",
+      "choices": [
+        "Economic crisis, mass unemployment and discontent with the Treaty of Versailles meant that many Germans were drawn to the Nazis' promises of national restoration",
+        "Germany was at the time one of Europe's richest and most stable countries",
+        "The Nazis came to power through a decision by the League of Nations",
+        "Other European countries demanded that Germany choose Hitler as its leader"
+      ],
+      "answer": 0,
+      "explanation": "The global economic crisis of the 1930s hit Germany hard, with sky-high unemployment, while many Germans felt humiliated by the Treaty of Versailles. Hitler and the Nazis promised order, work and national pride, which gave them growing support before Hitler was appointed Chancellor in 1933."
+    },
+    {
+      "id": "q-hist-vk-5",
+      "kind": "mc",
+      "topic": "course of events and turning points",
+      "prompt": "Which event is regarded as one of the most important turning points in the Second World War, when Nazi Germany's fortunes in the war began to turn?",
+      "opener": "Think of a long and bloody battle on the Eastern Front where a German army was eventually defeated.",
+      "choices": [
+        "The Battle of Stalingrad, where the German army suffered a crushing defeat against the Soviet Union",
+        "The Peace of Versailles",
+        "The assassination of Franz Ferdinand in Sarajevo",
+        "The Battle of Trafalgar"
+      ],
+      "answer": 0,
+      "explanation": "The Battle of Stalingrad (1942–1943) ended in a decisive Soviet victory and became a turning point that began Nazi Germany's retreat on the Eastern Front. The other options belong either to the First World War or to an entirely different era."
+    },
+    {
+      "id": "q-hist-vk-6",
+      "kind": "mc",
+      "topic": "consequences",
+      "prompt": "Why was the UN (United Nations) formed after the Second World War?",
+      "opener": "Think about what the world's leaders wanted to prevent after two world wars had claimed enormous numbers of victims.",
+      "choices": [
+        "To create a forum for international cooperation and prevent new world wars from breaking out",
+        "To replace the governments of every individual country",
+        "Solely to divide Europe's colonies among the victorious powers",
+        "To control Sweden's policy of neutrality"
+      ],
+      "answer": 0,
+      "explanation": "The UN was founded in 1945 with the aim of promoting peace, security and cooperation among the world's states, as a lesson from the horrors of the two world wars. The League of Nations, formed after the First World War with a similar purpose, had failed to prevent a new major war."
+    },
+    {
+      "id": "q-hist-vk-7",
+      "kind": "worked",
+      "topic": "causes of the Second World War",
+      "prompt": "Compare the causes of the First and Second World Wars. What connection exists between the two wars?",
+      "opener": "Think about how the peace treaty after the first war laid the groundwork for the discontent that led to the second.",
+      "answer": "The First World War was caused mainly by the alliance system, nationalism and great-power rivalry, triggered by the assassination of Franz Ferdinand. The Second World War is directly linked to how the First World War ended: the harsh terms of the Treaty of Versailles against Germany created economic crisis and national humiliation, which provided fertile ground for Nazism and Hitler's rise to power. In this way, it can be said that the Second World War was largely a consequence of how the first war ended, not just a completely separate event.",
+      "steps": [
+        "The First World War was triggered by the assassination in Sarajevo in 1914 and spread through the alliance system among the European great powers.",
+        "The war ended in 1919 with the Treaty of Versailles, which imposed large reparations, loss of territory and military restrictions on Germany.",
+        "The harsh peace terms created economic crisis and bitterness in Germany during the 1920s and 30s.",
+        "The Nazis exploited the discontent and promised national restoration, which gave them growing political support.",
+        "Hitler's aggressive foreign policy, built on this discontent, eventually led to the outbreak of the Second World War in 1939."
+      ]
+    },
+    {
+      "id": "q-hist-vk-8",
+      "kind": "flashcard",
+      "topic": "course of events and turning points",
+      "prompt": "Summarise the main causes, events and consequences of the world wars.",
+      "opener": "Think causes, turning points and what happened afterwards for both wars.",
+      "answer": "The First World War (1914–1918) was triggered by the assassination of Franz Ferdinand in Sarajevo and spread through the alliance system (the Triple Alliance versus the Triple Entente) · the war ended with the Treaty of Versailles, which punished Germany harshly with reparations and loss of territory · the harsh peace terms created economic crisis and bitterness that contributed to the rise of Nazism in Germany in the 1930s · the Second World War (1939–1945) began when Germany invaded Poland · important turning points included the Battle of Stalingrad and the Allied landings in Normandy · the war ended with the defeat of Germany and Japan in 1945 · after the war, the UN was formed to promote peace and international cooperation and prevent new world wars · new borders were drawn and Europe was divided into east and west, laying the foundation for the Cold War."
+    }
+  ]
+}

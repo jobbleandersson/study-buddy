@@ -1,0 +1,128 @@
+{
+  "id": "lib-kemi-atomer",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Atoms, elements and the periodic table",
+  "sourceSummary": "The structure of the atom with protons, neutrons and electrons, how the periodic table is organised into groups and periods, and the basic idea behind ions.",
+  "topics": [
+    "the structure of the atom",
+    "elements",
+    "the periodic table",
+    "ions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi-ato-1",
+      "kind": "mc",
+      "topic": "the structure of the atom",
+      "prompt": "Which particle in the atom has a negative charge?",
+      "opener": "Think about which particles are found in the atom's electron shells compared with the nucleus.",
+      "choices": [
+        "The proton",
+        "The neutron",
+        "The electron",
+        "The atomic nucleus as a whole"
+      ],
+      "answer": 2,
+      "explanation": "The electron has a negative charge and moves in shells around the nucleus. The proton has a positive charge and the neutron is uncharged — both of these are found in the atomic nucleus."
+    },
+    {
+      "id": "q-kemi-ato-2",
+      "kind": "mc",
+      "topic": "the structure of the atom",
+      "prompt": "What determines which element an atom belongs to?",
+      "opener": "It's the same number as the atomic number in the periodic table.",
+      "choices": [
+        "The number of neutrons",
+        "The number of protons",
+        "The number of electrons in the outermost shell",
+        "The atom's total mass"
+      ],
+      "answer": 1,
+      "explanation": "The number of protons (the atomic number) determines which element the atom is — hydrogen always has 1 proton, oxygen always has 8. The number of neutrons can vary (isotopes) without the element changing."
+    },
+    {
+      "id": "q-kemi-ato-3",
+      "kind": "mc",
+      "topic": "elements",
+      "prompt": "Which chemical symbol stands for the element sodium?",
+      "opener": "Many chemical symbols come from the element's Latin name, not its English name.",
+      "choices": [
+        "N",
+        "Na",
+        "Ni",
+        "No"
+      ],
+      "answer": 1,
+      "explanation": "Sodium has the chemical symbol Na (from the Latin natrium). N stands for nitrogen and Ni for nickel — easy to mix up if you only think of the English names."
+    },
+    {
+      "id": "q-kemi-ato-4",
+      "kind": "mc",
+      "topic": "the periodic table",
+      "prompt": "What do elements in the same GROUP (the same vertical column) in the periodic table have in common?",
+      "opener": "Groups run from top to bottom in the table — periods run sideways.",
+      "choices": [
+        "The same number of electron shells",
+        "The same number of valence electrons, which gives similar chemical properties",
+        "The same atomic mass",
+        "The same number of neutrons"
+      ],
+      "answer": 1,
+      "explanation": "Elements in the same group have the same number of valence electrons (electrons in the outermost shell), which gives them similar chemical properties. Having the same number of electron shells is instead what applies to elements in the same PERIOD."
+    },
+    {
+      "id": "q-kemi-ato-5",
+      "kind": "mc",
+      "topic": "the periodic table",
+      "prompt": "The elements in group 18 (e.g. helium, neon and argon) are called noble gases. Why do they almost never react with other substances?",
+      "opener": "Think about how full their outermost electron shell is.",
+      "choices": [
+        "They have no electrons at all",
+        "They have a full outermost electron shell and are therefore very stable",
+        "They have very few protons",
+        "They are always in gas form at room temperature"
+      ],
+      "answer": 1,
+      "explanation": "Noble gases have a full outermost shell, which makes the atom very stable — it neither readily gains nor loses electrons. The fact that they happen to be gases at room temperature does not explain why they are unreactive."
+    },
+    {
+      "id": "q-kemi-ato-6",
+      "kind": "mc",
+      "topic": "ions",
+      "prompt": "What is an ion?",
+      "opener": "Think about what happens to the charge when an atom gains or loses electrons.",
+      "choices": [
+        "An atom with extra neutrons",
+        "An atom or molecule that has gained an electric charge by gaining or losing electrons",
+        "Another name for a molecule",
+        "An atom that has lost a proton"
+      ],
+      "answer": 1,
+      "explanation": "An ion forms when an atom (or molecule) gains or loses one or more electrons, giving it a positive or negative charge. The number of protons does not change when an ion forms, only the number of electrons."
+    },
+    {
+      "id": "q-kemi-ato-7",
+      "kind": "worked",
+      "topic": "ions",
+      "prompt": "A sodium atom (Na) has 11 protons and 11 electrons. It readily forms an ion by losing one electron. What charge does the ion get, and why does it form?",
+      "opener": "Count the charges after one electron has been lost, and remember that sodium 'wants' to resemble a noble gas.",
+      "answer": "The sodium ion gets a charge of +1 and is written Na+.",
+      "steps": [
+        "Na starts out with 11 positive protons and 11 negative electrons — the charges cancel out (total charge 0).",
+        "By losing 1 electron, there are still 11 protons but only 10 electrons left.",
+        "11 positive charges minus 10 negative charges gives a total charge of +1.",
+        "Sodium does this to get the same electron structure as the noble gas neon (a full outermost shell), which is energetically favourable and makes the ion stable."
+      ]
+    },
+    {
+      "id": "q-kemi-ato-8",
+      "kind": "flashcard",
+      "topic": "the structure of the atom",
+      "prompt": "Summarise the structure of the atom: which particles are there, where are they located, and what charge do they have?",
+      "opener": "Think nucleus versus shell, and charge positive, negative or neutral.",
+      "answer": "Proton: found in the atomic nucleus, positive charge (+) · Neutron: found in the atomic nucleus, no charge (neutral) · Electron: moves in shells around the nucleus, negative charge (−), much lighter than the proton and neutron · Atomic number = number of protons (determines which element it is) · Mass number = number of protons + number of neutrons · In an uncharged atom, the number of protons and electrons is always equal · Ion = an atom that has gained a charge by gaining or losing electrons."
+    }
+  ]
+}

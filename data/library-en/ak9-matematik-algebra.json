@@ -1,0 +1,127 @@
+{
+  "id": "lib-ma9-algebra",
+  "type": "assignment",
+  "subject": "Matematik",
+  "title": "Algebra and equations",
+  "sourceSummary": "Simplify expressions, solve equations with the unknown on both sides, and describe patterns with formulas.",
+  "topics": [
+    "algebraic expressions",
+    "equations",
+    "patterns"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma9-alg-1",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $3x + 5 = 20$.",
+      "opener": "What do you need to remove first to get $x$ on its own?",
+      "choices": [
+        "$x = 5$",
+        "$x = 15$",
+        "$x = 25$",
+        "$x = 3$"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 5 from both sides: $3x = 15$. Then divide both sides by 3: $x = 5$."
+    },
+    {
+      "id": "q-ma9-alg-2",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Simplify $4x + 3 - 2x + 5$.",
+      "opener": "Group what belongs together — $x$-terms on their own, numbers on their own.",
+      "choices": [
+        "$10x$",
+        "$2x + 8$",
+        "$6x + 8$",
+        "$2x + 2$"
+      ],
+      "answer": 1,
+      "explanation": "$4x - 2x = 2x$ and $3 + 5 = 8$, so $2x + 8$. Terms with $x$ cannot be combined with plain numbers."
+    },
+    {
+      "id": "q-ma9-alg-3",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $2(x + 3) = 14$.",
+      "opener": "You can either divide by 2 first, or multiply out the brackets.",
+      "choices": [
+        "$x = 2$",
+        "$x = 7$",
+        "$x = 4$",
+        "$x = 11$"
+      ],
+      "answer": 2,
+      "explanation": "Divide both sides by 2: $x + 3 = 7$. Subtract 3: $x = 4$."
+    },
+    {
+      "id": "q-ma9-alg-4",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $5x - 3 = 2x + 9$.",
+      "opener": "Unknowns on both sides — collect all the $x$'s on one side first.",
+      "choices": [
+        "$x = 2$",
+        "$x = 12$",
+        "$x = 6$",
+        "$x = 4$"
+      ],
+      "answer": 3,
+      "explanation": "Subtract $2x$ from both sides: $3x - 3 = 9$. Add 3: $3x = 12$. Divide by 3: $x = 4$."
+    },
+    {
+      "id": "q-ma9-alg-5",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "What is the value of $3x^2$ when $x = -2$?",
+      "opener": "Work out the power before multiplying by 3 — and think about the sign.",
+      "choices": [
+        "12",
+        "-12",
+        "36",
+        "-36"
+      ],
+      "answer": 0,
+      "explanation": "$(-2)^2 = 4$ because minus times minus is plus. Then $3 \\cdot 4 = 12$."
+    },
+    {
+      "id": "q-ma9-alg-6",
+      "kind": "mc",
+      "topic": "patterns",
+      "prompt": "The number sequence begins 3, 7, 11, 15, … Which expression gives the $n$th term?",
+      "opener": "How much does it increase by each step, and where does the sequence start?",
+      "choices": [
+        "$n + 4$",
+        "$4n - 1$",
+        "$4n + 3$",
+        "$3n$"
+      ],
+      "answer": 1,
+      "explanation": "The sequence increases by 4 each step, so the expression contains $4n$. For $n = 1$ it should give 3: $4 \\cdot 1 - 1 = 3$. ✓"
+    },
+    {
+      "id": "q-ma9-alg-7",
+      "kind": "worked",
+      "topic": "equations",
+      "prompt": "Anna and Ben have 45 kr between them. Ben has twice as much as Anna. Set up an equation and work out how much Anna has.",
+      "opener": "Give a name to what you don't know — call Anna's money $x$.",
+      "answer": "Anna has 15 kr",
+      "steps": [
+        "Let $x$ be Anna's money. Then Ben has $2x$.",
+        "Together: $x + 2x = 45$.",
+        "Simplify: $3x = 45$.",
+        "Divide by 3: $x = 15$. Anna has 15 kr (and Ben has 30 kr)."
+      ]
+    },
+    {
+      "id": "q-ma9-alg-8",
+      "kind": "flashcard",
+      "topic": "equations",
+      "prompt": "What is the basic rule when solving an equation?",
+      "opener": "Think of a scale that must be kept in balance.",
+      "answer": "Whatever you do to one side, you must do to the other. The equation is like a scale in balance — if you add, subtract, multiply or divide on one side, the same must happen on the other side."
+    }
+  ]
+}

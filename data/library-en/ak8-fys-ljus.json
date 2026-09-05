@@ -1,0 +1,129 @@
+{
+  "id": "lib-fys8-ljus",
+  "type": "assignment",
+  "subject": "Fysik",
+  "title": "Light and optics",
+  "sourceSummary": "The straight-line propagation of light with shadows and penumbras, the law of reflection, and refraction in water and glass. This also covers lenses, how the eye forms an image on the retina, and how colours and spectra arise.",
+  "topics": [
+    "the straight-line propagation of light and shadows",
+    "reflection and the law of reflection",
+    "refraction in water and glass",
+    "lenses and the eye",
+    "colours and spectra"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fys8-ljs-1",
+      "kind": "mc",
+      "topic": "the straight-line propagation of light and shadows",
+      "prompt": "Why does a shadow form behind an object standing in sunlight?",
+      "opener": "Think about how light moves from the light source and what it can't do.",
+      "choices": [
+        "The object soaks up all the light in the whole room",
+        "The light bends around the object and gathers behind it",
+        "The object sends out darkness on its back side",
+        "Light travels in straight lines and can't pass through the opaque object, so the area behind it gets no light"
+      ],
+      "answer": 3,
+      "explanation": "Light spreads out in straight lines, so an opaque object blocks the rays and leaves an unlit area behind it — that's the shadow. Light doesn't bend around the object, and darkness isn't something sent out but simply the absence of light."
+    },
+    {
+      "id": "q-fys8-ljs-2",
+      "kind": "mc",
+      "topic": "the straight-line propagation of light and shadows",
+      "prompt": "When does an object get both a full shadow (umbra) and a partial shadow (penumbra)?",
+      "opener": "Compare a small point-like lamp with a large glowing surface.",
+      "choices": [
+        "When the light source is very small and point-like",
+        "When the light source is large or when there are several light sources, so that part of the surface gets light from only part of the source",
+        "When the object is transparent",
+        "When the light comes straight from underneath"
+      ],
+      "answer": 1,
+      "explanation": "A large light source lights up parts of the area behind the object from some directions but not others, and that forms a penumbra around the completely dark umbra. A point-like light source, on the other hand, gives a single sharp shadow with no penumbra."
+    },
+    {
+      "id": "q-fys8-ljs-3",
+      "kind": "mc",
+      "topic": "reflection and the law of reflection",
+      "prompt": "What does the law of reflection state?",
+      "opener": "The law compares two angles, and both are measured against the same reference line.",
+      "choices": [
+        "The angle of incidence is equal to the angle of reflection, both measured from the normal to the surface",
+        "The angle of incidence is always twice the angle of reflection",
+        "The angle of reflection is always 90°",
+        "Light is always reflected straight back the way it came"
+      ],
+      "answer": 0,
+      "explanation": "The law of reflection states that the angle of incidence equals the angle of reflection, where both angles are measured from the normal, that is, the imaginary line perpendicular to the surface. Light going straight back only applies in the special case where the ray hits the surface along the normal, that is, with an angle of incidence of 0°."
+    },
+    {
+      "id": "q-fys8-ljs-4",
+      "kind": "mc",
+      "topic": "refraction in water and glass",
+      "prompt": "Why does a spoon look broken where it dips down into a glass of water?",
+      "opener": "Something happens to the direction of the light right at the water's surface.",
+      "choices": [
+        "The water only magnifies the lower part of the spoon",
+        "The spoon is actually bent by the water's pressure",
+        "The light changes speed as it passes between water and air and therefore changes direction, that is, it refracts, at the surface",
+        "The water reflects away part of the spoon"
+      ],
+      "answer": 2,
+      "explanation": "Light travels more slowly in water than in air, and when it passes at an angle through the surface it changes direction — it refracts. The brain assumes the light has travelled in a straight line the whole way, so the lower part of the spoon looks shifted. The spoon is, of course, physically whole the entire time."
+    },
+    {
+      "id": "q-fys8-ljs-5",
+      "kind": "mc",
+      "topic": "lenses and the eye",
+      "prompt": "How is an image formed in the eye?",
+      "opener": "Follow the light from the pupil to the place where the sensory cells sit.",
+      "choices": [
+        "The eye sends out rays that sense the objects",
+        "The image is formed in the pupil and sent as light to the brain",
+        "The lens scatters the light so the whole eye becomes evenly lit",
+        "The cornea and the lens refract the light so it gathers into a sharp, upside-down image on the retina, and the optic nerve sends signals to the brain"
+      ],
+      "answer": 3,
+      "explanation": "The cornea and the convex lens refract the light and focus it into an inverted image on the retina, after which the optic nerve sends nerve signals to the brain, which interprets the image the right way up. The eye doesn't send out any rays — we only see light that comes into the eye."
+    },
+    {
+      "id": "q-fys8-ljs-6",
+      "kind": "mc",
+      "topic": "colours and spectra",
+      "prompt": "What happens when white light passes through a prism?",
+      "opener": "Different colours are refracted by different amounts in the glass.",
+      "choices": [
+        "The light disappears completely inside the glass",
+        "The light is split into a spectrum of colours, from red to violet, because the colours are refracted by different amounts",
+        "The light becomes stronger but keeps its white colour",
+        "The light turns black because the glass absorbs all the colours"
+      ],
+      "answer": 1,
+      "explanation": "White light is a mixture of all the visible colours, and since violet is refracted the most and red the least, they spread out in different directions in the prism and form a spectrum. The same thing happens in water droplets when a rainbow forms. So the glass doesn't absorb the colours, it bends them by different amounts."
+    },
+    {
+      "id": "q-fys8-ljs-7",
+      "kind": "worked",
+      "topic": "reflection and the law of reflection",
+      "prompt": "A light ray hits a flat mirror so that the ray forms an angle of 30° with the mirror's surface itself. What is the angle of reflection measured from the normal?",
+      "opener": "Angles in optics are measured from the normal, not from the surface — start by converting.",
+      "answer": "60°",
+      "steps": [
+        "The normal stands perpendicular to the mirror's surface, that is, at 90° to it.",
+        "The angle of incidence measured from the normal is 90° − 30° = 60°.",
+        "The law of reflection gives that the angle of reflection = the angle of incidence.",
+        "So the angle of reflection is 60° from the normal, which corresponds to 30° from the mirror's surface."
+      ]
+    },
+    {
+      "id": "q-fys8-ljs-8",
+      "kind": "flashcard",
+      "topic": "colours and spectra",
+      "prompt": "Summarise the propagation of light, reflection, refraction, lenses and the eye, and colours.",
+      "opener": "Go from how light moves, via reflection and refraction, to lenses, the eye and colours.",
+      "answer": "Light: electromagnetic radiation that spreads out in straight lines and can travel through a vacuum · Speed: about 300,000 km/s in a vacuum, slower in water and glass · Shadow: an opaque object blocks the rays — a point-like light source gives a sharp umbra, a large light source also gives a penumbra · Reflection: light bounces off a surface · Law of reflection: angle of incidence = angle of reflection, both measured from the normal (the line perpendicular to the surface) · Flat mirror: gives a mirror-reversed image that appears to be the same distance behind the mirror as the object is in front of it · Diffuse reflection: light is scattered in all directions by uneven surfaces — that's why ordinary objects are visible · Refraction: light changes direction when it moves between materials because its speed changes — going from air to water or glass, the ray bends towards the normal, going back out it bends away from the normal · Effects of refraction: the spoon looks broken, the pool looks shallower, the prism splits up the light · Convex (converging) lens: curves outward, gathers the rays to a focal point — magnifying glass, camera, the eye's lens · Concave (diverging) lens: curves inward, spreads the rays out · The eye: the cornea and the lens refract the light into a sharp, upside-down image on the retina, the pupil regulates the amount of light, the optic nerve sends signals to the brain · Vision defects: short-sightedness gives poor distance vision and is helped by a concave lens, long-sightedness is helped by a convex lens · White light: a mixture of all the visible colours, split by a prism into a spectrum of red–orange–yellow–green–blue–violet · The colour of an object: the surface reflects its own colour and absorbs the others — a red jumper reflects red, black absorbs almost everything, white reflects everything."
+    }
+  ]
+}

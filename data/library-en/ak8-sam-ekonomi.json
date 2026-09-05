@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam8-ekonomi",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "The economy of society",
+  "sourceSummary": "The economic circular flow between households, businesses and the public sector, taxes and welfare, price formation through supply and demand, the labour market's parties, and boom and recession at a basic level.",
+  "topics": [
+    "the economic circular flow",
+    "taxes and welfare",
+    "supply and demand",
+    "the labour market and its parties",
+    "the business cycle"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam8-eko-1",
+      "kind": "mc",
+      "topic": "the economic circular flow",
+      "prompt": "What is meant by the economic circular flow?",
+      "opener": "Think about how money and labour move in a circle between different actors.",
+      "choices": [
+        "That money only moves between different banks",
+        "That money, goods, services and labour circulate between households, businesses, the public sector and banks",
+        "That the state decides all prices in the country",
+        "That the economy grows by exactly the same amount every year"
+      ],
+      "answer": 1,
+      "explanation": "The economic circular flow is a model showing how households sell their labour to businesses and receive wages, how households buy goods and services from businesses, and how both households and businesses pay tax to the state, municipality and region, which in turn pay for welfare, benefits and public-sector jobs. Banks lend out money and take in savings. The idea that money only moves between banks misses the whole point: the circular flow is about the interaction between several actors."
+    },
+    {
+      "id": "q-sam8-eko-2",
+      "kind": "mc",
+      "topic": "taxes and welfare",
+      "prompt": "What are tax revenues in Sweden mainly used for?",
+      "opener": "Think about which services are jointly funded.",
+      "choices": [
+        "To pay out profit to businesses' owners",
+        "To buy shares in foreign companies",
+        "Only for defence",
+        "To fund welfare such as schools, healthcare and social care, social insurance, and shared infrastructure"
+      ],
+      "answer": 3,
+      "explanation": "Taxes fund shared welfare: schools, healthcare, social care, social insurance such as sick pay and pensions, and things like roads, police, courts and defence. Defence is thus just one of many items, not the only one. Business profits go to the owners but are taxed — they are not paid out from tax funds."
+    },
+    {
+      "id": "q-sam8-eko-3",
+      "kind": "mc",
+      "topic": "supply and demand",
+      "prompt": "What usually happens to the price of a good if demand rises sharply while supply is unchanged?",
+      "opener": "Many people want to buy, but the amount of goods is the same — what usually happens then?",
+      "choices": [
+        "The price tends to rise",
+        "The price tends to fall",
+        "The price is not affected by demand at all",
+        "The good automatically stops being manufactured"
+      ],
+      "answer": 0,
+      "explanation": "When many people want to buy a good of which there is only a limited amount, sellers can charge a higher price — the price rises. The price instead falls in the opposite situation, when supply is large but few people want to buy. The idea that the price would not be affected at all is not true in a market where buyers and sellers meet freely; it is precisely the meeting of supply and demand that forms the price."
+    },
+    {
+      "id": "q-sam8-eko-4",
+      "kind": "mc",
+      "topic": "the labour market and its parties",
+      "prompt": "What is a trade union's main task?",
+      "opener": "Think about whose interests the union exists to represent.",
+      "choices": [
+        "To own the companies where its members work",
+        "To decide how much tax employees should pay",
+        "To represent employees' interests, for example in negotiations about wages and working conditions",
+        "To rule on disputes between different countries"
+      ],
+      "answer": 2,
+      "explanation": "A trade union organises employees and represents them in negotiations about wages, working hours and the working environment. The counterpart is the employer or an employer organisation, and together they are called the labour market's parties. The result of negotiations is often a collective agreement. Tax levels are decided by the Riksdag, municipalities and regions — not by the union."
+    },
+    {
+      "id": "q-sam8-eko-5",
+      "kind": "mc",
+      "topic": "the business cycle",
+      "prompt": "What characterises a recession (economic downturn)?",
+      "opener": "Think about what happens to demand, production and jobs when the economy slows down.",
+      "choices": [
+        "High demand, many new hires and a shortage of labour",
+        "Demand and production fall, businesses sell less and unemployment rises",
+        "That the state always raises taxes",
+        "That all prices are completely unchanged for several years"
+      ],
+      "answer": 1,
+      "explanation": "In a recession, demand falls, businesses sell and produce less, investments are delayed and unemployment rises. The first option instead describes a boom, when demand is high, businesses are hiring and there can be a shortage of labour. The business cycle swings over time in what are usually called economic fluctuations."
+    },
+    {
+      "id": "q-sam8-eko-6",
+      "kind": "mc",
+      "topic": "taxes and welfare",
+      "prompt": "Which of the following is an example of an indirect tax?",
+      "opener": "An indirect tax is not paid on your wage but when you shop.",
+      "choices": [
+        "Municipal income tax",
+        "National income tax",
+        "Tax on capital income",
+        "VAT (value-added tax), which is added to the price of goods and services"
+      ],
+      "answer": 3,
+      "explanation": "VAT is an indirect tax: it is included in the price you pay in the shop and is reported by the business to the state, so you pay it without sending in the money yourself. Income tax is a direct tax deducted directly from your wage or income and is linked to your own income specifically. Excise duties too, for example on petrol, alcohol and tobacco, count as indirect taxes."
+    },
+    {
+      "id": "q-sam8-eko-7",
+      "kind": "worked",
+      "topic": "the economic circular flow",
+      "prompt": "Explain the economic circular flow by following a thousand-kronor note in wages from a business all the way round the economy.",
+      "opener": "Follow the money: from wage to consumption, tax and welfare — and back to the businesses.",
+      "answer": "A business pays wages to an employee in a household as compensation for their work — the household contributes labour and receives income. Part of the wage is deducted directly as income tax to the municipality, region and state, and the employer also pays employer's social security contributions. What remains, the net wage, is used by the household to buy goods and services, and VAT, which also goes to the state, is included in those prices. The money thus ends up with the businesses again as revenue, and the businesses use it to pay wages, buy materials and invest — as well as pay corporate tax on their profit. The state, municipality and region use the tax money for welfare such as schools, healthcare and social care, for benefits and social insurance, and for the wages of public-sector employees, and that money in turn becomes income for new households. The part of the wage that the household saves is often deposited in the bank, which can lend it to businesses that want to invest or to households that want to buy a home. And so the circular flow keeps turning, and the more that is consumed and produced, the more money moves through the system.",
+      "steps": [
+        "The business pays wages to the household in exchange for labour.",
+        "Tax is deducted from the wage to the municipality, region and state, and the employer pays social security contributions.",
+        "The household consumes using the net wage, and VAT on goods and services goes to the state.",
+        "The businesses receive the money as revenue and use it for wages, purchases, investments and corporate tax.",
+        "The public sector uses the taxes for welfare, benefits and public-sector wages, while savings via banks are lent out for new investments — and the circular flow continues."
+      ]
+    },
+    {
+      "id": "q-sam8-eko-8",
+      "kind": "flashcard",
+      "topic": "the business cycle",
+      "prompt": "Summarise the basics of the economy of society: the circular flow, taxes and welfare, price formation, the labour market and the business cycle.",
+      "opener": "From the circular flow's actors to the swings in the economy.",
+      "answer": "The economic circular flow: households sell labour and receive wages · households consume from businesses · households and businesses pay tax · the public sector pays for welfare, benefits and public-sector wages · banks channel savings and loans · Taxes: direct (income tax, corporate tax) and indirect (VAT, excise duties) · fund schools, healthcare, social care, social insurance and infrastructure · Supply and demand: the price is formed where buyers and sellers meet · increased demand with unchanged supply → higher price · large supply and weak demand → lower price · The labour market: trade unions represent employees, employer organisations represent employers, together the labour market's parties · negotiations often lead to a collective agreement · Boom: high demand, increased production, more new hires, low unemployment · Recession: falling demand and production, fewer investments, rising unemployment · the economy swings between these states in business-cycle fluctuations."
+    }
+  ]
+}

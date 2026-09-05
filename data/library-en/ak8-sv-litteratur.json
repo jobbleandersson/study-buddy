@@ -1,0 +1,130 @@
+{
+  "id": "lib-sv8-litteratur",
+  "type": "assignment",
+  "subject": "Svenska",
+  "title": "Literary concepts and analysis",
+  "sourceSummary": "Genres, narrative perspective, setting, theme and motif, and imagery such as simile, metaphor and personification. The concepts you need to write a coherent book analysis.",
+  "topics": [
+    "genres",
+    "narrative perspective",
+    "theme and motif",
+    "imagery",
+    "characters"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv8-lit-1",
+      "kind": "mc",
+      "topic": "genres",
+      "prompt": "What mainly distinguishes a short story from a novel?",
+      "opener": "Don't just think about the number of pages, but about how many threads the story has room for.",
+      "choices": [
+        "The short story is always true, the novel is made up",
+        "The short story has no narrator",
+        "The short story is short and concentrated around few characters and one course of events",
+        "The short story is always written in the present tense"
+      ],
+      "answer": 2,
+      "explanation": "The short story is a brief piece of prose that concentrates on a small number of characters and often a single decisive event, while the novel has room for several plot threads and a longer development. Both short stories and novels are fiction and therefore not true stories."
+    },
+    {
+      "id": "q-sv8-lit-2",
+      "kind": "mc",
+      "topic": "genres",
+      "prompt": "Which feature is typical of the fantasy genre but not of the detective story?",
+      "opener": "Ask what kind of world the story takes place in.",
+      "choices": [
+        "There is a rising tension curve",
+        "The story takes place in a made-up world with its own laws, often involving magic",
+        "There is a main character who solves a problem",
+        "The story has a description of setting"
+      ],
+      "answer": 1,
+      "explanation": "Fantasy is built on a secondary world with its own rules, often magic or mythical creatures. A tension curve, a main character and a description of setting exist in both genres and therefore can't distinguish them — the hallmark of the detective story is instead the crime and the investigation."
+    },
+    {
+      "id": "q-sv8-lit-3",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "Which narrative perspective is used here? \"She didn't know that Elias had seen everything from the window, and Elias thought he would never tell her.\"",
+      "opener": "Check how many characters' thoughts the narrator has access to.",
+      "choices": [
+        "First-person narrator",
+        "Omniscient narrator (third person)",
+        "Second-person perspective",
+        "Limited first-person narrator"
+      ],
+      "answer": 1,
+      "explanation": "The narrator can see into both her thoughts and Elias's and stands outside the action — that's an omniscient third-person narrator. A first-person narrator would say \"I\" and could only report their own thoughts."
+    },
+    {
+      "id": "q-sv8-lit-4",
+      "kind": "mc",
+      "topic": "theme and motif",
+      "prompt": "A book is about a girl who changes schools and slowly finds new friends. What is the most reasonable THEME?",
+      "opener": "The motif is the concrete thing that happens, the theme is the bigger question the book is really about.",
+      "choices": [
+        "Changing schools",
+        "A girl in secondary school",
+        "Bus journeys to the new school",
+        "Not belonging and finding belonging"
+      ],
+      "answer": 3,
+      "explanation": "The theme is the overarching idea, here not belonging and finding belonging. \"Changing schools\" is a motif — a concrete, recurring situation in the plot — and works as an example of the theme, not as the theme itself."
+    },
+    {
+      "id": "q-sv8-lit-5",
+      "kind": "mc",
+      "topic": "imagery",
+      "prompt": "Which sentence contains a simile?",
+      "opener": "A simile uses a comparison word; a metaphor does not.",
+      "choices": [
+        "He ran like a lion across the pitch.",
+        "He was a lion on the football pitch.",
+        "The wind whispered in the treetops.",
+        "The pitch lay empty in the evening light."
+      ],
+      "answer": 0,
+      "explanation": "The simile compares using the word \"like\": he ran like a lion. \"He was a lion\" is instead a metaphor, since the comparison is implied, and \"the wind whispered\" is personification."
+    },
+    {
+      "id": "q-sv8-lit-6",
+      "kind": "mc",
+      "topic": "characters",
+      "prompt": "What is meant by a character undergoing development in a story?",
+      "opener": "Think about the difference between changing location and changing yourself.",
+      "choices": [
+        "That the character moves to a new setting",
+        "That the character changes in how they think, feel or act over the course of the story",
+        "That the character is described in detail at the start",
+        "That the character is mentioned in several chapters"
+      ],
+      "answer": 1,
+      "explanation": "Character development means an inner change — the person thinks or acts differently at the end than at the start, often because of what they've been through. A move or a long description gives external change but doesn't necessarily mean the character has developed."
+    },
+    {
+      "id": "q-sv8-lit-7",
+      "kind": "worked",
+      "topic": "imagery",
+      "prompt": "Analyse the imagery in the passage: \"The rain drummed against the window. Sara sat as silent as a stone on the sofa, and her thoughts were a swarm of ants that couldn't be stopped.\" Name each image and explain what it does to the text.",
+      "opener": "First look for the comparison word \"as\"/\"like\", then for images without a comparison word, and finally for something lifeless behaving like a person.",
+      "answer": "Three images: personification (\"the rain drummed\"), simile (\"as silent as a stone\") and metaphor (\"her thoughts were a swarm of ants\"). Together they paint Sara's inner unease through outward images.",
+      "steps": [
+        "\"The rain drummed\" gives the rain a human action — personification, which makes the setting feel alive and slightly threatening.",
+        "\"As silent as a stone\" contains the comparison word \"as\" — a simile, which reinforces that Sara is completely still and silent.",
+        "\"Her thoughts were a swarm of ants\" compares without a comparison word — a metaphor, showing that her thoughts are many, fast and impossible to control.",
+        "Note the contrast: the body is still (the stone) while the mind swarms (the ants). The imagery thus carries the text's theme of inner unease.",
+        "In an analysis it isn't enough to name the image — always write what it does for the mood or the character."
+      ]
+    },
+    {
+      "id": "q-sv8-lit-8",
+      "kind": "flashcard",
+      "topic": "theme and motif",
+      "prompt": "Which concepts do you need for a book analysis, and what do they mean?",
+      "opener": "Six concepts you should be able to use without mixing them up.",
+      "answer": "Genre · the type of story · novel (long, several threads), short story (short, one event), detective story (crime and investigation), fantasy (made-up world with magic). Narrative perspective · first-person narrator (\"I\", sees only their own thoughts), omniscient third person (sees everyone's thoughts), limited third person (follows one character). Setting · where and when the story takes place · physical setting (place, time) and social setting (class, family, society) · creates atmosphere. Motif · the concrete thing that recurs (changing schools, a journey, a betrayal). Theme · the big question beneath the surface (friendship, not belonging, justice). Imagery · simile with \"like\"/\"as\" · metaphor without a comparison word · personification when something lifeless does human things. Character development · inner change from start to finish."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv3-muntligt",
+  "type": "assignment",
+  "subject": "Svenska 3",
+  "title": "Oral presentation: the expository speech",
+  "sourceSummary": "Giving a longer, complex speech with a clear structure and evidence, addressing counterarguments orally, and adapting to a critical audience.",
+  "topics": [
+    "the speech's structure",
+    "evidence and counterarguments",
+    "audience adaptation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv3-muntligt-1",
+      "kind": "mc",
+      "topic": "the speech's structure",
+      "prompt": "What is the most important function of a clear structure in a longer expository speech?",
+      "opener": "What does the listener need, since they cannot flip back the way a reader can?",
+      "choices": [
+        "To make the speech as long as possible",
+        "To help the listener follow along and stay with the reasoning throughout, since one cannot flip back in a spoken speech",
+        "To impress the audience with advanced language",
+        "To avoid having to prepare in advance"
+      ],
+      "answer": 1,
+      "explanation": "A clear structure (e.g. an introduction with a clear question, clear main sections, a summarising conclusion) is especially important orally because the listener, unlike a reader, cannot go back and reread a passage. The length of the speech or advanced language is not in itself a goal."
+    },
+    {
+      "id": "q-sv3-muntligt-2",
+      "kind": "mc",
+      "topic": "the speech's structure",
+      "prompt": "What is an effective way to help the audience keep up during a longer, complex speech?",
+      "opener": "Consider what a good teacher or lecturer does between different parts of an argument.",
+      "choices": [
+        "Using clear verbal signal words such as \"firstly\", \"on the other hand\", and short summaries between sections",
+        "Avoiding telling the audience in advance what the speech will be about",
+        "Speaking as fast as possible to fit in all the content",
+        "Never repeating or summarising anything"
+      ],
+      "answer": 0,
+      "explanation": "Verbal signal words and short summaries act as signposts in the speech and help the audience orient themselves within the structure, especially in a longer and more complex speech. Fast speech and a lack of summaries instead make the speech harder to follow."
+    },
+    {
+      "id": "q-sv3-muntligt-3",
+      "kind": "mc",
+      "topic": "evidence and counterarguments",
+      "prompt": "Why should an expository speech contain concrete evidence, e.g. statistics or source references, rather than only personal opinions?",
+      "opener": "What distinguishes an expository speech from a purely emotional argument?",
+      "choices": [
+        "Evidence automatically makes the speech more entertaining to listen to",
+        "Evidence is only required in written texts, not orally",
+        "Evidence strengthens the speech's credibility and shows that the conclusions rest on more than the speaker's personal opinion",
+        "Evidence is optional and does not affect how credible the speech is perceived to be"
+      ],
+      "answer": 2,
+      "explanation": "Concrete evidence (sources, statistics, examples) shows that the reasoning is built on more than the speaker's personal opinion, which strengthens ethos and makes the conclusions more credible to the audience. Evidence is needed just as much orally as in writing."
+    },
+    {
+      "id": "q-sv3-muntligt-4",
+      "kind": "mc",
+      "topic": "evidence and counterarguments",
+      "prompt": "How should a speaker handle a plausible counterargument in an expository speech?",
+      "opener": "What happens to the speaker's credibility if an obvious counterargument is ignored entirely?",
+      "choices": [
+        "By avoiding mentioning it entirely, so as not to weaken one's own reasoning",
+        "By clearly raising the counterargument, addressing it objectively, and explaining why one's own conclusion still holds",
+        "By dismissing anyone who might have the counterargument as uninformed",
+        "By changing the subject as soon as the counterargument is mentioned"
+      ],
+      "answer": 1,
+      "explanation": "Deliberately raising and objectively addressing counterarguments shows that the speaker has examined the issue from several angles, which strengthens credibility. Ignoring or dismissing counterarguments instead risks making the speech one-sided and less credible."
+    },
+    {
+      "id": "q-sv3-muntligt-5",
+      "kind": "mc",
+      "topic": "audience adaptation",
+      "prompt": "You are going to give a speech on a technical subject to an audience that is critically minded and has strong prior knowledge. What should you particularly keep in mind?",
+      "opener": "A critical, knowledgeable audience is quick to spot gaps in an argument — what is needed to meet that?",
+      "choices": [
+        "Simplifying so much that important nuances disappear",
+        "Avoiding source references to appear more confident",
+        "Talking only about your own feelings about the topic",
+        "Preparing well-grounded evidence, being ready to address objections directly, and avoiding exaggerations that can easily be questioned"
+      ],
+      "answer": 3,
+      "explanation": "Facing a critical and knowledgeable audience, the speaker should have strongly substantiated evidence, be prepared to meet objections directly, and avoid exaggerations or unfounded claims that are easily seen through. Excessive simplification or a lack of sources undermines credibility with precisely this audience."
+    },
+    {
+      "id": "q-sv3-muntligt-6",
+      "kind": "mc",
+      "topic": "audience adaptation",
+      "prompt": "The same speech about tax policy is to be given both to classmates and to a panel of economics teachers. What above all should differ between the two deliveries?",
+      "opener": "The content in substance should be the same — so what is it that gets adapted?",
+      "choices": [
+        "The speech's conclusion, which should be reversed depending on the audience",
+        "The degree of technical terminology, the examples used, and how much background is explained, while the underlying conclusion stays the same",
+        "Nothing, since a good speech should always be identical regardless of audience",
+        "Only the volume of the voice, everything else should be identical"
+      ],
+      "answer": 1,
+      "explanation": "Adapting to the audience means adjusting technical language, examples and the level of explanation to the audience's prior knowledge, while the speech's factual content and conclusion should remain consistent. Changing the actual conclusion depending on the audience would undermine the speech's credibility."
+    },
+    {
+      "id": "q-sv3-muntligt-7",
+      "kind": "worked",
+      "topic": "the speech's structure",
+      "prompt": "Sketch the structure of a six-minute expository speech on whether social media negatively affects young people's mental health, including how you address a counterargument.",
+      "opener": "Start from a clear question, build the reasoning with evidence, and leave time for a clear counterargument towards the end.",
+      "answer": "Introduction (c. 30 sec): spark interest and present the question of social media's effect on young people's mental health. Background/evidence (c. 2 min): present research and statistics showing a link between screen time and poor mental health, with clear source references. Nuance and counterargument (c. 1.5 min): raise the point that the link is not necessarily causal and that social media can also provide social support, then address why the negative effects still outweigh this according to the evidence. Summary (c. 1 min): tie the reasoning together and repeat the main point. Conclusion (c. 30 sec): a clear, memorable conclusion that ties back to the question in the introduction.",
+      "steps": [
+        "Start with a clear question or thesis that the rest of the speech will answer, to give the listener a frame to hang the content on.",
+        "Build the middle section around concrete evidence, not just personal opinions, and state sources verbally.",
+        "Set aside time to actively raise and address at least one reasonable counterargument, to strengthen credibility.",
+        "Summarise the main points before concluding, since the listener cannot flip back.",
+        "End with a clear conclusion that ties back to the opening question."
+      ]
+    },
+    {
+      "id": "q-sv3-muntligt-8",
+      "kind": "flashcard",
+      "topic": "evidence and counterarguments",
+      "prompt": "Summarise what characterises a strong expository speech.",
+      "opener": "Think of structure, content and adaptation as three separate parts.",
+      "answer": "Clear structure: an introduction with a question, clear main sections, a summarising conclusion · Verbal signal words (\"firstly\", \"in summary\") guide the listener · Concrete evidence (sources, statistics) strengthens credibility more than pure opinion · Counterarguments are actively raised and addressed objectively, strengthening ethos · Audience adaptation: technical language, examples and level of explanation are adjusted to the audience's prior knowledge, while the conclusion stays the same · Especially important orally: the listener cannot flip back, so repetition and clarity matter more than in writing."
+    }
+  ]
+}

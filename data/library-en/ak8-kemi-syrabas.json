@@ -1,0 +1,130 @@
+{
+  "id": "lib-kemi8-syrabas",
+  "type": "assignment",
+  "subject": "Kemi",
+  "title": "Acids, bases and pH",
+  "sourceSummary": "The pH scale and how indicators are used, common acids and bases with their formulas, neutralisation and which salt is formed, plus acidification of soil and water and acids and bases in everyday life.",
+  "topics": [
+    "the pH scale and indicators",
+    "common acids and bases",
+    "neutralisation and salt formation",
+    "acidification",
+    "acids and bases in everyday life"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-kemi8-syr-1",
+      "kind": "mc",
+      "topic": "the pH scale and indicators",
+      "prompt": "What colour does the indicator BTB (bromothymol blue) turn in an acidic solution?",
+      "opener": "BTB has three colours: one for acidic, one for neutral and one for basic.",
+      "choices": [
+        "Blue",
+        "Red",
+        "Colourless",
+        "Yellow"
+      ],
+      "answer": 3,
+      "explanation": "BTB turns yellow in acidic solutions, green at neutral pH and blue in basic solutions. Blue is therefore, on the contrary, the sign of a base, and red instead belongs to litmus paper, which turns red in acid."
+    },
+    {
+      "id": "q-kemi8-syr-2",
+      "kind": "mc",
+      "topic": "the pH scale and indicators",
+      "prompt": "A solution has pH 3. What do you then know about the solution?",
+      "opener": "pH below 7 belongs to one of the two groups — link it to which ion dominates.",
+      "choices": [
+        "It is basic",
+        "It is acidic and contains plenty of hydrogen ions (H+)",
+        "It is neutral",
+        "It contains plenty of hydroxide ions (OH−)"
+      ],
+      "answer": 1,
+      "explanation": "pH 3 is below 7, so the solution is acidic and contains an excess of hydrogen ions (H+). An excess of hydroxide ions (OH−) belongs to basic solutions with pH above 7, and neutral is pH 7."
+    },
+    {
+      "id": "q-kemi8-syr-3",
+      "kind": "mc",
+      "topic": "common acids and bases",
+      "prompt": "Which acid is the main component of stomach acid?",
+      "opener": "Stomach acid is a strong acid, and its everyday name starts the same way as a common spice-cupboard substance.",
+      "choices": [
+        "Sulfuric acid (H2SO4)",
+        "Carbonic acid (H2CO3)",
+        "Hydrochloric acid (HCl)",
+        "Citric acid"
+      ],
+      "answer": 2,
+      "explanation": "Stomach acid consists mainly of hydrochloric acid, HCl, which gives the stomach a pH of around 1–2. Sulfuric acid, for example, is found in car batteries, carbonic acid in carbonated water and citric acid in citrus fruits — all acids, but not stomach acid."
+    },
+    {
+      "id": "q-kemi8-syr-4",
+      "kind": "mc",
+      "topic": "common acids and bases",
+      "prompt": "Which of the following substances is a BASE?",
+      "opener": "Look for the word hydroxide — it reveals which ion the substance releases in water.",
+      "choices": [
+        "Sodium hydroxide (NaOH), found in drain cleaner",
+        "Acetic acid, found in vinegar",
+        "Ascorbic acid, in other words vitamin C",
+        "Carbonic acid, found in fizzy drinks"
+      ],
+      "answer": 0,
+      "explanation": "Sodium hydroxide (NaOH) releases hydroxide ions (OH−) in water and is a strong base with a high pH. The other three are acids — the ending \"-ic acid\" is a good clue."
+    },
+    {
+      "id": "q-kemi8-syr-5",
+      "kind": "mc",
+      "topic": "neutralisation and salt formation",
+      "prompt": "Hydrochloric acid (HCl) is neutralised with sodium hydroxide (NaOH). Which substances are formed?",
+      "opener": "Neutralisation always forms two kinds of products — you'll recognise one of them from the dinner table.",
+      "choices": [
+        "Hydrogen gas and oxygen gas",
+        "Only water",
+        "Carbon dioxide and water",
+        "Sodium chloride (NaCl) and water (H2O)"
+      ],
+      "answer": 3,
+      "explanation": "The reaction is HCl + NaOH → NaCl + H2O, in other words salt (table salt) and water. Carbon dioxide is formed when an acid reacts with carbonates such as bicarbonate, not in neutralisation with a hydroxide — and the sodium ions and chloride ions don't disappear, they remain as salt in the solution."
+    },
+    {
+      "id": "q-kemi8-syr-6",
+      "kind": "mc",
+      "topic": "acidification",
+      "prompt": "What is the main cause of acidification of soil and lakes?",
+      "opener": "Think about which gases are released when coal and oil are burned, and what they do to rainwater.",
+      "choices": [
+        "Too much lime being spread on the land",
+        "Lakes becoming warmer in summer",
+        "Sulfur and nitrogen oxides from combustion, which form acids in rainwater",
+        "Plants taking up too much water from the soil"
+      ],
+      "answer": 2,
+      "explanation": "Sulfur dioxide and nitrogen oxides from combustion dissolve in rainwater and form sulfuric acid and nitric acid, which lowers the pH of soil and lakes. Lime, on the contrary, is the remedy: lime is basic and is used to raise the pH in acidified lakes."
+    },
+    {
+      "id": "q-kemi8-syr-7",
+      "kind": "worked",
+      "topic": "acidification",
+      "prompt": "A forest lake has become acidified and has pH 4.5. The local council decides to lime the lake by spreading lime (calcium carbonate, CaCO3) in the water. Use chemical concepts to explain why the liming helps.",
+      "opener": "Think about what there is too much of in an acidic lake, and what a basic substance does to it.",
+      "answer": "Lime is a basic substance that neutralises some of the acid in the lake. The hydrogen ions are bound up, the pH rises from 4.5 towards 7, and the water once again becomes a habitat where fish fry and other aquatic organisms can survive.",
+      "steps": [
+        "pH 4.5 is lower than 7, so the lake is acidic and contains an excess of hydrogen ions (H+).",
+        "The acid comes mainly from deposition of sulfur and nitrogen oxides that form acids in the rain.",
+        "Lime (CaCO3) is basic and reacts with the acid in a neutralisation reaction.",
+        "The hydrogen ions are bound up and, among other things, water and carbon dioxide are formed, so the pH rises towards 7.",
+        "With a higher pH, fish fry, snails and crustaceans can once again live in the lake — but the liming must be repeated for as long as the deposition continues."
+      ]
+    },
+    {
+      "id": "q-kemi8-syr-8",
+      "kind": "flashcard",
+      "topic": "the pH scale and indicators",
+      "prompt": "Summarise the pH scale, indicators, common acids and bases, neutralisation and acidification.",
+      "opener": "The scale first, then the indicator colours, then examples of acids and bases and finally neutralisation.",
+      "answer": "The pH scale: 0–14, shows how acidic or basic a solution is · pH below 7 = acidic, excess of hydrogen ions (H+) · pH 7 = neutral, e.g. pure water · pH above 7 = basic, excess of hydroxide ions (OH−) · Acid: releases H+ in water · Base: releases OH− in water · BTB: yellow in acidic, green at neutral, blue in basic · Litmus: red in acidic, blue in basic · Universal indicator/pH paper: gives a colour scale across the whole pH range · Common acids: hydrochloric acid HCl (stomach acid), sulfuric acid H2SO4 (car battery), nitric acid HNO3, carbonic acid H2CO3 (fizzy drinks), acetic acid (vinegar), citric acid (lemon) · Common bases: sodium hydroxide NaOH (drain cleaner), calcium hydroxide Ca(OH)2 (slaked lime), ammonia NH3, sodium bicarbonate · Neutralisation: acid + base → salt + water, pH moves towards 7, e.g. HCl + NaOH → NaCl + H2O · The salt's name comes from the base's metal ion + the acid's ion (e.g. sodium + chloride = sodium chloride) · Acidification: sulfur and nitrogen oxides from combustion form acids in the rain, lower the pH of soil and lakes, harm fish and dissolve out toxic metals · Remedies: cleaning up emissions and liming lakes and forest land · Always dilute acid by pouring the acid into the water, never the other way round."
+    }
+  ]
+}

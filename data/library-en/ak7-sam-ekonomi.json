@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam7-ekonomi",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Personal finance",
+  "sourceSummary": "Your own finances — income and expenses, how to make a budget, saving and loans, the difference between needs and wants, and how advertising influences you and what rights you have as a consumer.",
+  "topics": [
+    "income and expenses",
+    "budget",
+    "saving and loans",
+    "needs and wants",
+    "advertising and consumer rights"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam7-eko-1",
+      "kind": "mc",
+      "topic": "income and expenses",
+      "prompt": "What is an expense?",
+      "opener": "Think about which way the money moves — in or out?",
+      "choices": [
+        "Money that comes in to you, for example wages or an allowance",
+        "Money you have left in your account at the end of the month",
+        "Money you have put into a savings account",
+        "Money you pay out for something, for example a bus pass or a phone plan"
+      ],
+      "answer": 3,
+      "explanation": "An expense is money that goes out, for example on food, the bus or a phone. Money that comes in is instead called income — and what's left once the expenses are paid is a surplus that can be saved."
+    },
+    {
+      "id": "q-sam7-eko-2",
+      "kind": "mc",
+      "topic": "budget",
+      "prompt": "What is a budget?",
+      "opener": "A budget is made in advance, not afterwards.",
+      "choices": [
+        "A plan for the income and expenses you expect over a certain period",
+        "A list of everything you already bought last year",
+        "A loan you take out from the bank",
+        "Another word for your entire savings account"
+      ],
+      "answer": 0,
+      "explanation": "A budget is a plan looking forward: you list your expected income and expenses, for example for a month, and see whether the money will stretch far enough. A list of purchases already made is instead a follow-up on how things actually turned out."
+    },
+    {
+      "id": "q-sam7-eko-3",
+      "kind": "mc",
+      "topic": "budget",
+      "prompt": "You get 500 kr a month in allowance and have expenses of 380 kr during the month. How much can you save?",
+      "opener": "Calculate income minus expenses.",
+      "choices": [
+        "880 kr",
+        "180 kr",
+        "120 kr",
+        "0 kr"
+      ],
+      "answer": 2,
+      "explanation": "500 kr − 380 kr = 120 kr, which is the surplus you can save. You get 880 kr if you mistakenly add income and expenses together instead of subtracting."
+    },
+    {
+      "id": "q-sam7-eko-4",
+      "kind": "mc",
+      "topic": "saving and loans",
+      "prompt": "What is interest on a loan?",
+      "opener": "It's the price of a service — being allowed to borrow someone else's money.",
+      "choices": [
+        "A discount you get when you borrow money",
+        "The cost of borrowing money — extra money you pay on top of the loan amount itself",
+        "A fee the bank pays you when you take out a loan",
+        "Another word for how many months the loan lasts"
+      ],
+      "answer": 1,
+      "explanation": "Interest is what it costs to borrow: you pay back the loan amount plus an extra percentage. On a savings account it works the other way round — then it's the bank that pays you interest for saving."
+    },
+    {
+      "id": "q-sam7-eko-5",
+      "kind": "mc",
+      "topic": "needs and wants",
+      "prompt": "Which of the following is a need rather than a want?",
+      "opener": "A need is something you can't manage without.",
+      "choices": [
+        "A new game for the console",
+        "Branded clothes from a particular shop",
+        "A more expensive phone case",
+        "Food and somewhere to live"
+      ],
+      "answer": 3,
+      "explanation": "Needs are things you must have to get by, such as food, housing and clothes that keep you warm. A new game or branded clothes are wants — things that are nice to have but that you can manage without, and that's usually where you can save money."
+    },
+    {
+      "id": "q-sam7-eko-6",
+      "kind": "mc",
+      "topic": "advertising and consumer rights",
+      "prompt": "What does the right of withdrawal mean when you shop online?",
+      "opener": "The rule gives you a certain amount of time to change your mind after the item arrives home.",
+      "choices": [
+        "That you can never return anything you've ordered",
+        "That the shop can cancel your order whenever it likes",
+        "That you usually have 14 days to change your mind and return the item",
+        "That you can only exchange the item for another one at the same shop"
+      ],
+      "answer": 2,
+      "explanation": "For purchases online or by phone, you usually have a legal right of withdrawal of 14 days counted from when you received the item, and you don't need to give a reason. Certain goods are exempt, for example custom-made products and downloaded digital media — but the right of withdrawal is not the same thing as the voluntary exchange policy that shops can offer in a physical store."
+    },
+    {
+      "id": "q-sam7-eko-7",
+      "kind": "worked",
+      "topic": "budget",
+      "prompt": "You get 400 kr a month in allowance and earn 300 kr from a side job. Your expenses are 99 kr for your phone, 150 kr for a bus pass, and 200 kr for coffee and treats and entertainment. How much can you save per month, and how many months does it take to save up for headphones costing 1,500 kr?",
+      "opener": "Add up the income first, then the expenses, and compare.",
+      "answer": "You can save 251 kr per month, and it takes 6 months to save up for the headphones.",
+      "steps": [
+        "Add up the income: 400 kr + 300 kr = 700 kr.",
+        "Add up the expenses: 99 kr + 150 kr + 200 kr = 449 kr.",
+        "Work out the surplus: 700 kr − 449 kr = 251 kr that you can save each month.",
+        "Divide the goal by the savings amount: 1,500 / 251 ≈ 5.98 months.",
+        "Since you only save once a month, you have to round up: it takes 6 months."
+      ]
+    },
+    {
+      "id": "q-sam7-eko-8",
+      "kind": "flashcard",
+      "topic": "advertising and consumer rights",
+      "prompt": "Summarise the basics of personal finance and consumer rights.",
+      "opener": "Go through income and expenses, budget, saving and loans, needs and wants, and your rights.",
+      "answer": "Income: money in — wages, allowance, study grants · Expense: money out — food, bus, phone, subscriptions · Surplus: income minus expenses, what you can save · Deficit: expenses are greater than income, then something has to change · Budget: a plan for coming income and expenses, usually per month · Fixed expenses: the same every month, e.g. subscriptions and a bus pass · Variable expenses: they vary, e.g. entertainment and clothes · Saving: money you set aside, the bank pays you interest · Loans: money you're allowed to borrow and pay back, you pay the bank interest — expensive payday loans and instalment plans can quickly become a debt trap · Needs: what you can't manage without (food, housing, clothes) · Wants: what you can manage without but would like to have · Advertising: wants to get you to buy, often through emotions, influencers and time pressure — hidden advertising must be labelled as an ad · Consumer rights: 14 days' right of withdrawal for online purchases, a 3-year right to complain if an item is faulty, always keep the receipt · Help and advice: the Hallå konsument consumer advice service and the municipality's consumer advisers."
+    }
+  ]
+}

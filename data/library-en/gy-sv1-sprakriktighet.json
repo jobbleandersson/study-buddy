@@ -1,0 +1,128 @@
+{
+  "id": "lib-sv1-sprakriktighet",
+  "type": "assignment",
+  "subject": "Svenska 1",
+  "title": "Language accuracy and sentence structure",
+  "sourceSummary": "De and dem, incorrect word spacing (särskrivning), punctuation and run-on sentences — the mistakes that most often lower the grade on written assignments.",
+  "topics": [
+    "de and dem",
+    "incorrect word spacing (särskrivning)",
+    "punctuation",
+    "sentence structure"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sv1-spr-1",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Which sentence is correct?",
+      "opener": "Try replacing the word with the English \"they\" or \"them\".",
+      "choices": [
+        "Båda de och dem fungerar lika bra här.",
+        "Jag gav boken till de som satt längst bak.",
+        "Jag gav boken till dem som satt längst bak.",
+        "Jag gav boken till dom som satt längst bak i skriftspråk."
+      ],
+      "answer": 2,
+      "explanation": "After the preposition \"till\" (\"to\"), the object form is required: \"dem\". The test works: in English you say \"to them\", not \"to they\"."
+    },
+    {
+      "id": "q-sv1-spr-2",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Choose the correct word: \"___ som kom sist fick stå upp.\"",
+      "opener": "Who is it that performs the action in the sentence?",
+      "choices": [
+        "Dom",
+        "Det",
+        "Dem",
+        "De"
+      ],
+      "answer": 3,
+      "explanation": "The word is the subject — it refers to those who came last. The subject form is \"de\" (compare \"they came last\", not \"them came last\")."
+    },
+    {
+      "id": "q-sv1-spr-3",
+      "kind": "mc",
+      "topic": "incorrect word spacing (särskrivning)",
+      "prompt": "Which option is written correctly?",
+      "opener": "A compound word is ONE concept — not two words that happen to stand next to each other.",
+      "choices": [
+        "Sjukhuset är ett rökfritt område.",
+        "Sjukhuset är ett rök-fritt område.",
+        "Sjukhuset är ett Rökfritt område.",
+        "Sjukhuset är ett rök fritt område."
+      ],
+      "answer": 0,
+      "explanation": "\"Rökfritt\" (\"smoke-free\") is a compound word and is written as one word. Incorrect word spacing (särskrivning) often changes the meaning completely — compare \"en brun hårig man\" (\"a brown, hairy man\") with \"en brunhårig man\" (\"a brown-haired man\")."
+    },
+    {
+      "id": "q-sv1-spr-4",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "\"Jag läste boken, den var spännande.\" What is the problem with the sentence?",
+      "opener": "Count how many complete sentences have been squeezed together with just a comma.",
+      "choices": [
+        "It is missing a subject",
+        "A run-on sentence (satsradning) — two main clauses are joined together with only a comma",
+        "The word order is incorrect",
+        "Nothing, it is correct"
+      ],
+      "answer": 1,
+      "explanation": "Two main clauses cannot be joined together with only a comma. Fix it with a full stop, a semicolon, or a conjunction: \"Jag läste boken. Den var spännande.\" (\"I read the book. It was exciting.\") or \"…boken, och den var spännande.\" (\"...the book, and it was exciting.\")."
+    },
+    {
+      "id": "q-sv1-spr-5",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "When do you use a semicolon?",
+      "opener": "It lies midway in strength between two other punctuation marks.",
+      "choices": [
+        "Instead of a comma in long sentences",
+        "Before quotations",
+        "Between two main clauses that are closely related",
+        "To introduce a list"
+      ],
+      "answer": 2,
+      "explanation": "A semicolon joins together two complete main clauses that are closely related: \"Hon sa inget; hon behövde inte.\" (\"She said nothing; she didn't need to.\") A colon is used to introduce a list or a quotation."
+    },
+    {
+      "id": "q-sv1-spr-6",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "Which sentence uses a colon correctly?",
+      "opener": "A colon points forward to something that explains or lists.",
+      "choices": [
+        "Vi behöver: penna, papper och tid att arbeta.",
+        "Han sa: att han skulle komma senare.",
+        "Boken var: spännande och välskriven.",
+        "Vi behöver tre saker: penna, papper och tid."
+      ],
+      "answer": 3,
+      "explanation": "A colon is used before a list, an explanation, or a quoted statement — but only when what precedes the colon is a complete clause. In the other options, the colon breaks in the middle of a clause."
+    },
+    {
+      "id": "q-sv1-spr-7",
+      "kind": "worked",
+      "topic": "sentence structure",
+      "prompt": "Correct the sentence and explain each change: \"Läraren delade ut proven till de som var klara, många var nervösa dem hade inte hunnit plugga.\"",
+      "opener": "Look for three things: the wrong form of de/dem, a run-on sentence, and a sentence that needs to be split.",
+      "answer": "Läraren delade ut proven till dem som var klara. Många var nervösa; de hade inte hunnit plugga.",
+      "steps": [
+        "\"till de som var klara\" → \"till dem som var klara\". After the preposition \"till\" (\"to\"), the object form is required.",
+        "\"…var klara, många var nervösa\" is a run-on sentence: two main clauses joined by only a comma. Put a full stop after \"klara\".",
+        "\"många var nervösa dem hade inte hunnit plugga\" has no punctuation at all. Insert a semicolon (or a full stop) between the main clauses.",
+        "\"dem hade inte hunnit plugga\" → \"de hade inte hunnit plugga\". Here the word is the subject — it refers to those who had not had time to study."
+      ]
+    },
+    {
+      "id": "q-sv1-spr-8",
+      "kind": "flashcard",
+      "topic": "de and dem",
+      "prompt": "What trick do you use to decide whether it should be \"de\" or \"dem\"?",
+      "opener": "Two tests that both work.",
+      "answer": "Replace the word with the English they/them: if it becomes \"they\" you write \"de\", if it becomes \"them\" you write \"dem\". Alternatively, swap in vi/oss (\"we\"/\"us\"): \"vi\" → de, \"oss\" → dem. Short rule: \"de\" is the subject (the one doing something), \"dem\" is the object (the one something is done to) and always comes after a preposition."
+    }
+  ]
+}

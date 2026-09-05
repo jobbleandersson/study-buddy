@@ -1,0 +1,127 @@
+{
+  "id": "lib-en5-vocabulary",
+  "type": "assignment",
+  "subject": "Engelska 5",
+  "title": "Vocabulary: collocations, phrasal verbs and word formation",
+  "sourceSummary": "Do or make, common phrasal verbs, and how to build new words with prefixes and suffixes — what lifts your vocabulary from a pass to something nuanced.",
+  "topics": [
+    "collocations",
+    "phrasal verbs",
+    "word formation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-en5-voc-1",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct verb: \"You need to ___ a decision before Friday.\"",
+      "opener": "The Swedish phrase \"ta ett beslut\" won't help you here.",
+      "choices": [
+        "make",
+        "do",
+        "give",
+        "take"
+      ],
+      "answer": 0,
+      "explanation": "In English it's \"make a decision\". The Swedish \"ta ett beslut\" (literally \"take a decision\") often leads to the mistake \"take a decision\"."
+    },
+    {
+      "id": "q-en5-voc-2",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct verb: \"I have to ___ my homework before dinner.\"",
+      "opener": "Tasks and chores take one verb, results and creations take another.",
+      "choices": [
+        "take",
+        "do",
+        "have",
+        "make"
+      ],
+      "answer": 1,
+      "explanation": "\"Do homework\" — \"do\" is used for tasks, work and chores. \"Make\" is used when something is created or comes into being: make a cake, make a mistake."
+    },
+    {
+      "id": "q-en5-voc-3",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "What does \"put off\" mean in: \"They had to put off the meeting until next week\"?",
+      "opener": "What happens to the meeting — is it cancelled, or moved?",
+      "choices": [
+        "prepare for",
+        "cancel completely",
+        "postpone",
+        "shorten"
+      ],
+      "answer": 2,
+      "explanation": "\"Put off\" means to postpone to a later time. To cancel completely is \"call off\" or \"cancel\"."
+    },
+    {
+      "id": "q-en5-voc-4",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"Could you ___ my cat while I'm away?\"",
+      "opener": "Which expression means to take care of someone or something?",
+      "choices": [
+        "look into",
+        "look for",
+        "look up",
+        "look after"
+      ],
+      "answer": 3,
+      "explanation": "\"Look after\" = take care of. \"Look for\" = search for, \"look up\" = check a reference, \"look into\" = investigate."
+    },
+    {
+      "id": "q-en5-voc-5",
+      "kind": "mc",
+      "topic": "word formation",
+      "prompt": "What is the opposite of \"possible\"?",
+      "opener": "Not all negations use the same prefix.",
+      "choices": [
+        "impossible",
+        "dispossible",
+        "nonpossible",
+        "unpossible"
+      ],
+      "answer": 0,
+      "explanation": "The prefix \"im-\" is used before words starting with m and p: impossible, impatient, immature. \"Un-\" is the most common prefix generally (unhappy), but doesn't work here."
+    },
+    {
+      "id": "q-en5-voc-6",
+      "kind": "mc",
+      "topic": "word formation",
+      "prompt": "Which noun is formed from the verb \"develop\"?",
+      "opener": "Which suffix turns a verb into a noun here?",
+      "choices": [
+        "developation",
+        "development",
+        "developity",
+        "developness"
+      ],
+      "answer": 1,
+      "explanation": "The suffix \"-ment\" forms nouns from certain verbs: develop → development, agree → agreement, improve → improvement."
+    },
+    {
+      "id": "q-en5-voc-7",
+      "kind": "worked",
+      "topic": "collocations",
+      "prompt": "Correct the four collocation errors: \"I made my homework, then I took a decision to make a break and take a photo of the sunset. It made me a lot of good.\"",
+      "opener": "Three of the mistakes are about do/make/take — and one expression is completely wrongly formed.",
+      "answer": "I did my homework, then I made a decision to take a break and take a photo of the sunset. It did me a lot of good.",
+      "steps": [
+        "\"made my homework\" → \"did my homework\". Tasks and chores take \"do\".",
+        "\"took a decision\" → \"made a decision\". In English, decisions are \"made\".",
+        "\"make a break\" → \"take a break\". A break, a shower and a bus are \"taken\" in English.",
+        "\"It made me a lot of good\" → \"It did me a lot of good\". A fixed expression with \"do\". Note that \"take a photo\" in the original was already correct."
+      ]
+    },
+    {
+      "id": "q-en5-voc-8",
+      "kind": "flashcard",
+      "topic": "collocations",
+      "prompt": "When do you use \"do\" and when do you use \"make\"?",
+      "opener": "A rule of thumb plus the fixed expressions you need to know by heart.",
+      "answer": "Do: tasks, work, chores and unspecified activities — do homework, do the dishes, do research, do business, do someone a favour, do good. Make: when something is created or comes into being — make a decision, make a mistake, make progress, make an effort, make money, make friends, make noise. Rule of thumb: \"do\" for the activity, \"make\" for the result."
+    }
+  ]
+}

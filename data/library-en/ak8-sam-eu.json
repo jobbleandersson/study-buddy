@@ -1,0 +1,130 @@
+{
+  "id": "lib-sam8-eu",
+  "type": "assignment",
+  "subject": "Samhällskunskap",
+  "title": "Sweden, the EU and the world",
+  "sourceSummary": "What the EU is and how decisions are made in the union, how EU membership affects Sweden, the UN's tasks and bodies, international cooperation on peace, trade and the environment, and what globalisation means.",
+  "topics": [
+    "what the EU is",
+    "the EU and Sweden",
+    "the UN's tasks",
+    "international cooperation",
+    "globalisation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sam8-eu-1",
+      "kind": "mc",
+      "topic": "what the EU is",
+      "prompt": "What is the EU?",
+      "opener": "Think about what kind of organisation it is — military, judicial, or political and economic cooperation.",
+      "choices": [
+        "A military alliance led by the USA",
+        "A political and economic partnership between European countries, where the member states make some decisions jointly",
+        "A UN body that works on human rights",
+        "An international court for war crimes"
+      ],
+      "answer": 1,
+      "explanation": "The EU is a partnership between currently 27 European countries that have handed over some decision-making to shared institutions, above all regarding trade, the single market, the environment and agriculture. Sweden became a member in 1995 following a referendum in 1994. The military alliance that the USA belongs to is NATO, a different organisation, and the International Criminal Court (ICC) is likewise not part of the EU."
+    },
+    {
+      "id": "q-sam8-eu-2",
+      "kind": "mc",
+      "topic": "what the EU is",
+      "prompt": "Which of the EU's institutions is directly elected by citizens in the member states?",
+      "opener": "One of the institutions gets its mandate in a general election held every five years.",
+      "choices": [
+        "The European Commission",
+        "The Council of Ministers (the Council)",
+        "The European Parliament",
+        "The Court of Justice of the EU"
+      ],
+      "answer": 2,
+      "explanation": "Members of the European Parliament are elected directly by voters in the member states in EU elections held every five years; Sweden elects 21 members. The Commission proposes new EU laws and consists of one commissioner from each country, the Council of Ministers consists of ministers from the member states, and the Court of Justice interprets EU law — none of them is directly elected by voters. The Commission's proposals are decided jointly by the Parliament and the Council of Ministers."
+    },
+    {
+      "id": "q-sam8-eu-3",
+      "kind": "mc",
+      "topic": "the EU and Sweden",
+      "prompt": "What does the EU's single market mean for Sweden?",
+      "opener": "Four things should be able to move freely across borders.",
+      "choices": [
+        "Free movement of goods, services, capital and people between the member states",
+        "That Sweden must have the euro as its currency",
+        "That Swedish companies are not allowed to sell outside the EU",
+        "That all prices in EU countries are equally high"
+      ],
+      "answer": 0,
+      "explanation": "The single market is built on the four freedoms: goods, services, capital and people should be able to move freely between the member states, which makes it easier to trade, study and work in other EU countries. Sweden kept the krona after the referendum on the euro in 2003, so a shared currency is not part of membership for Sweden. Companies can of course also trade with countries outside the EU, and prices still differ between countries."
+    },
+    {
+      "id": "q-sam8-eu-4",
+      "kind": "mc",
+      "topic": "the UN's tasks",
+      "prompt": "What is one of the UN's most important tasks?",
+      "opener": "The UN was founded in 1945 with a clear main purpose after the world war.",
+      "choices": [
+        "To pass laws that apply directly in every country in the world",
+        "To manage the EU's shared budget",
+        "To try individuals for ordinary crimes in member states",
+        "To work for peace and security in the world, for human rights and for development"
+      ],
+      "answer": 3,
+      "explanation": "The UN was founded in 1945 and its main tasks are to maintain peace and security, promote human rights, provide disaster relief and work for sustainable development, among other things through the global goals in Agenda 2030. The General Assembly is the forum where every member state has one vote each, and the Security Council can decide on sanctions and peacekeeping operations. The UN does not, however, make laws that apply directly in countries — conventions must be ratified by each state — and the UN does not try ordinary criminal cases."
+    },
+    {
+      "id": "q-sam8-eu-5",
+      "kind": "mc",
+      "topic": "international cooperation",
+      "prompt": "What is the Paris Agreement from 2015 an example of?",
+      "opener": "The agreement is about a problem that no single country can solve on its own.",
+      "choices": [
+        "A trade agreement between the EU and the USA",
+        "International cooperation on the climate, where countries promise to reduce greenhouse gas emissions to limit global warming",
+        "A military defence pact in Europe",
+        "A UN convention on children's rights"
+      ],
+      "answer": 1,
+      "explanation": "The Paris Agreement is a global climate agreement in which countries commit to reducing their emissions so that warming is kept well below two degrees, aiming for 1.5 degrees. It is a classic example of a cross-border problem that requires cooperation, since emissions in one country affect the whole world. The convention on children's rights is the Convention on the Rights of the Child from 1989, an entirely different agreement."
+    },
+    {
+      "id": "q-sam8-eu-6",
+      "kind": "mc",
+      "topic": "globalisation",
+      "prompt": "What is meant by globalisation?",
+      "opener": "Think about trade, technology, travel and information that tie the world together.",
+      "choices": [
+        "That all countries get the same political system",
+        "That the world's countries close their borders to trade",
+        "That countries, economies and people are tied closer together through trade, technology, transport, travel and information flows",
+        "That everyone in the world speaks the same language"
+      ],
+      "answer": 2,
+      "explanation": "Globalisation means that distances effectively shrink: goods, capital, information, culture and people move across borders to an ever-greater extent. It is usually described in terms of both opportunities — cheaper goods, wider choice, exchange of knowledge, and reduced poverty in parts of the world — and problems, such as jobs relocating, economic crises spreading quickly, and emissions and working conditions in producing countries becoming hard to control. Globalisation is thus about interconnection, not about political systems or languages becoming the same."
+    },
+    {
+      "id": "q-sam8-eu-7",
+      "kind": "worked",
+      "topic": "the EU and Sweden",
+      "prompt": "Give examples of three different ways that EU membership affects everyday life in Sweden, and explain why.",
+      "opener": "Think about travelling, shopping and living in a country with shared environmental rules.",
+      "answer": "A first example is the free movement of people: as an EU citizen you can travel, study and work in other member states without a work permit, and exchange programmes such as Erasmus make it easier to study abroad. Passport-free travel within the Schengen area also belongs here. A second example is trade and consumer rights: the single market means goods can be sold between EU countries without tariffs, which affects the range and prices in shops, and shared rules provide consumer protection — for example, abolished roaming charges so a mobile phone can be used at the same price across the whole EU, as well as shared requirements for product safety and ingredient lists. A third example is environment and climate: many of the rules that apply in Sweden on emissions, chemicals, waste and air quality are decided at EU level, and the EU's emissions trading system affects the price of electricity and industrial production. Behind all three examples lies the same mechanism: as a member, Sweden has handed over some decision-making to the EU, EU law takes precedence over national law within the areas the cooperation covers, and Sweden influences the decisions through its 21 members of the European Parliament and through the government's ministers in the Council of Ministers.",
+      "steps": [
+        "Example 1 — free movement: the right to travel, study and work in other EU countries, plus passport-free travel within Schengen.",
+        "Example 2 — trade and consumer protection: no tariffs within the single market, shared product requirements and abolished roaming charges affect prices and rights.",
+        "Example 3 — environment and climate: many Swedish rules on emissions, chemicals and waste are decided at EU level, as is emissions trading.",
+        "Explain the mechanism: Sweden has handed over some decision-making to the EU, and EU law takes precedence within the areas the cooperation covers.",
+        "Point to Sweden's influence: 21 members of the European Parliament and Swedish ministers in the Council of Ministers take part in the decisions."
+      ]
+    },
+    {
+      "id": "q-sam8-eu-8",
+      "kind": "flashcard",
+      "topic": "what the EU is",
+      "prompt": "Summarise the EU, the UN, international cooperation and globalisation, and how Sweden is affected.",
+      "opener": "From Brussels to New York — and the interconnection of the whole world.",
+      "answer": "The EU: political and economic partnership between 27 European countries · Sweden a member since 1995 after a referendum in 1994 · kept the krona after the euro referendum in 2003 · Institutions: the Commission proposes laws (one commissioner per country) · the European Parliament is directly elected by voters every five years (Sweden has 21 members) · the Council of Ministers consists of ministers from the member states · the European Council brings together heads of state and government · the Court of Justice interprets EU law · The single market: the four freedoms — free movement of goods, services, capital and people · affects Sweden through trade, working and studying abroad, consumer protection and environmental rules · The UN: founded in 1945 · works for peace and security, human rights, disaster relief and sustainable development (Agenda 2030) · the General Assembly = one vote per member state, the Security Council can decide on sanctions and peacekeeping operations · International cooperation: the Paris Agreement of 2015 on the climate, the WTO on trade rules, peacekeeping operations · needed because problems such as climate, pandemics and conflicts cross borders · Globalisation: countries and people are tied closer together through trade, technology, transport and information · opportunities (choice, exchange of knowledge, reduced poverty in parts of the world) and problems (jobs relocating, crises spreading quickly, emissions and working conditions hard to control)."
+    }
+  ]
+}

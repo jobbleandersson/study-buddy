@@ -1,0 +1,129 @@
+{
+  "id": "lib-rel-etik",
+  "type": "assignment",
+  "subject": "Religionskunskap",
+  "title": "Ethics and moral dilemmas",
+  "sourceSummary": "Duty ethics, consequentialist ethics and ethics of intention as tools for reasoning about right and wrong, and how ethics can be connected to religion without depending on it.",
+  "topics": [
+    "duty ethics",
+    "consequentialist ethics",
+    "ethics of intention",
+    "ethical dilemmas"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-rel-etik-1",
+      "kind": "mc",
+      "topic": "duty ethics",
+      "prompt": "What characterises duty ethics?",
+      "opener": "Duty ethics is about rules and principles — think about what determines whether an action is right.",
+      "choices": [
+        "That an action is right if it produces the best consequences for the most people",
+        "That some actions are right or wrong in themselves, regardless of their consequences",
+        "That you should act on your heart's first impulse",
+        "That no rules should ever be followed"
+      ],
+      "answer": 1,
+      "explanation": "Duty ethics starts from the idea that certain actions (e.g. lying or keeping promises) are right or wrong in themselves, regardless of the consequences — you follow a principle or rule. Judging actions by their consequences is instead characteristic of consequentialist ethics."
+    },
+    {
+      "id": "q-rel-etik-2",
+      "kind": "mc",
+      "topic": "consequentialist ethics",
+      "prompt": "A consequentialist is reasoning about whether it is right to lie to a friend. What becomes decisive in the reasoning?",
+      "opener": "Consequentialist ethics looks forward, towards the result of the action.",
+      "choices": [
+        "Whether the lie breaks a fixed rule about always telling the truth",
+        "What consequences the lie has — whether it leads to more benefit or harm overall",
+        "What feels right in the moment, without further thought",
+        "What a religious authority says about the matter"
+      ],
+      "answer": 1,
+      "explanation": "Consequentialist ethics judges an action by its consequences — whether the outcome produces more benefit than harm. A duty ethicist would instead ask whether the lie breaks a rule, regardless of what the consequences turn out to be."
+    },
+    {
+      "id": "q-rel-etik-3",
+      "kind": "mc",
+      "topic": "ethics of intention",
+      "prompt": "What is the focus within ethics of intention?",
+      "opener": "The idea of \"intention\" points to something inside the person acting, rather than to the action or the result.",
+      "choices": [
+        "The action's consequences for society",
+        "Whether the action follows a written law or rule",
+        "The intention and will behind the action — what the person meant and felt",
+        "How many people are affected by the action"
+      ],
+      "answer": 2,
+      "explanation": "Ethics of intention focuses on the intention and will behind an action — whether the person meant well — rather than on rules (duty ethics) or consequences (consequentialist ethics). A good intention can therefore be considered morally important even if the outcome turns out badly."
+    },
+    {
+      "id": "q-rel-etik-4",
+      "kind": "mc",
+      "topic": "ethical dilemmas",
+      "prompt": "A friend asks if you like their new haircut, which you actually think looks bad. How would a duty ethicist who believes you should always tell the truth most likely reason?",
+      "opener": "Think about what duty ethics emphasises — the rule, not the other person's feelings.",
+      "choices": [
+        "You should lie if it makes your friend happy",
+        "You should tell the truth, because the rule \"always tell the truth\" applies regardless of how it feels for the person hearing it",
+        "It doesn't matter what you answer",
+        "You should ask a religious leader for permission before answering"
+      ],
+      "answer": 1,
+      "explanation": "A strict duty ethicist who follows the rule \"always tell the truth\" would reason that the truth should be told regardless of the consequences for the friend's feelings. A consequentialist would instead weigh in how the answer affects the friend's feelings and might arrive at a different answer."
+    },
+    {
+      "id": "q-rel-etik-5",
+      "kind": "mc",
+      "topic": "ethical dilemmas",
+      "prompt": "What is it called when a situation arises where two ethical principles or values clash with each other, so that you cannot follow both?",
+      "opener": "Think about the word that describes a choice between two difficult alternatives.",
+      "choices": [
+        "An ethical dilemma",
+        "A dogma",
+        "An axiom",
+        "Alms"
+      ],
+      "answer": 0,
+      "explanation": "An ethical dilemma is a situation where different values or principles clash, for example truth versus consideration for others, so that every choice means going against something you value. A dogma, on the other hand, is a fixed article of faith, not a situation involving a choice."
+    },
+    {
+      "id": "q-rel-etik-6",
+      "kind": "mc",
+      "topic": "the link between religion and ethics",
+      "prompt": "Which statement is most accurate when it comes to religion and morality?",
+      "opener": "Think about whether moral choices can only be made by religious people, or whether there are other foundations for ethics.",
+      "choices": [
+        "All religions have exactly the same ethical rules",
+        "Many religions provide guidance on ethical questions, but people can also reason ethically from other foundations, such as reason and empathy, without being religious",
+        "Ethics can only come from religion",
+        "Ethics and religion have nothing to do with each other"
+      ],
+      "answer": 1,
+      "explanation": "Many religions offer ethical guidance, for example through rules or stories about good conduct, but ethical reasoning can also be built on other foundations such as reason, empathy or philosophical theories (duty ethics, consequentialist ethics, ethics of intention) — so you don't need to be religious to reason morally."
+    },
+    {
+      "id": "q-rel-etik-7",
+      "kind": "worked",
+      "topic": "ethical dilemmas",
+      "prompt": "A dilemma: you find a wallet full of money on the street, with no ID, so you don't know who it belongs to. Reason using duty ethics, consequentialist ethics and ethics of intention about what you should do.",
+      "opener": "Go through the three ethical models one by one, and see whether they lead to the same conclusion or different ones.",
+      "answer": "Duty-ethics reasoning: a rule such as \"you should not steal, and you should try to return what isn't yours\" points towards handing in the wallet, for example to the police, regardless of the consequences. Consequentialist reasoning: you weigh the benefit to the owner, who probably wants their money and cards back, against your own short-term gain from keeping them — the overall benefit is probably greater from returning the wallet, especially if you consider how society would function if everyone kept found property. Reasoning from ethics of intention: the intention behind the action is what matters — returning the wallet out of consideration for the owner carries more moral weight than doing so only because you're afraid of getting caught. In this case, all three models arrive at the same practical conclusion (return the wallet), but for different reasons.",
+      "steps": [
+        "Identify the dilemma: your own short-term gain (keeping the money) is weighed against the owner's interest in getting their property back.",
+        "Duty ethics: is there a rule (e.g. \"don't steal\", \"don't lie about what you found\") that should be followed regardless of the consequences? Yes — the rule points towards returning it.",
+        "Consequentialist ethics: weigh the benefit for everyone involved — the owner's loss and society's trust outweigh your own gain from keeping the money.",
+        "Ethics of intention: ask what intention lies behind the action — a genuine wish to help the owner carries more moral weight than pure self-interest or fear of punishment.",
+        "Compare the conclusions: here all three models point in the same direction, which is often (but not always) the case in clear-cut dilemmas."
+      ]
+    },
+    {
+      "id": "q-rel-etik-8",
+      "kind": "flashcard",
+      "topic": "duty ethics",
+      "prompt": "Summarise the three ethical models — duty ethics, consequentialist ethics and ethics of intention — and how religion can be linked to ethics.",
+      "opener": "Go through the models one by one, and finish with the link to religion.",
+      "answer": "Duty ethics: an action is right or wrong based on whether it follows a rule or principle (e.g. \"don't lie\"), regardless of consequences. Consequentialist ethics: an action is judged by its consequences — right is whatever produces the most benefit / least harm overall. Ethics of intention: focus on the intention and will behind the action — a good intention counts as morally important, even if the outcome is bad. Ethical dilemma: a situation where different values or principles clash, so that every choice involves a trade-off. Religion and ethics: many religions provide ethical guidance (e.g. through commandments and stories), but ethical reasoning doesn't need to be based on religion — reason, empathy and philosophical theories are other foundations for morality."
+    }
+  ]
+}

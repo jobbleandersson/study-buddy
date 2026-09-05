@@ -1,0 +1,128 @@
+{
+  "id": "lib-ma3-extrem",
+  "type": "assignment",
+  "subject": "Matematik 3",
+  "title": "Applications of the derivative: extreme values",
+  "sourceSummary": "Sign analysis of the derivative, increasing and decreasing functions, local maximum and minimum points, and using the second derivative to determine the type of extreme point.",
+  "topics": [
+    "sign analysis",
+    "extreme points",
+    "the second derivative"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-ma3-extrem-1",
+      "kind": "mc",
+      "topic": "sign analysis",
+      "prompt": "A function $f$ has $f'(x) > 0$ for all $x$ in the interval $(2, 5)$. What holds for $f$ in this interval?",
+      "opener": "The connection between the sign of the derivative and the function's behaviour is central here.",
+      "choices": [
+        "$f$ is decreasing in the interval",
+        "$f$ is increasing in the interval",
+        "$f$ has a maximum in the interval",
+        "$f$ is constant in the interval"
+      ],
+      "answer": 1,
+      "explanation": "If $f'(x) > 0$ on an interval, it means the tangent's slope is positive everywhere there, so $f$ is increasing throughout the interval. A maximum requires the derivative to change sign from positive to negative, which does not happen here since the derivative is positive the whole way."
+    },
+    {
+      "id": "q-ma3-extrem-2",
+      "kind": "mc",
+      "topic": "extreme points",
+      "prompt": "The function $f(x) = x^2 - 4x + 1$ has an extreme point. Where is it located?",
+      "opener": "Extreme points occur where the derivative is zero. Differentiate and solve $f'(x)=0$.",
+      "choices": [
+        "$x = 4$",
+        "$x = -2$",
+        "$x = 2$",
+        "$x = 1$"
+      ],
+      "answer": 2,
+      "explanation": "$f'(x) = 2x - 4$. Set $f'(x)=0$: $2x-4=0 \\Rightarrow x=2$. Confusing this with the coefficient $-4$ in $f$ directly (without differentiating and solving the equation) gives the incorrect answer $x=4$."
+    },
+    {
+      "id": "q-ma3-extrem-3",
+      "kind": "mc",
+      "topic": "extreme points",
+      "prompt": "$f'(x)$ goes from positive to negative at $x = a$. What type of point is $x=a$?",
+      "opener": "Think about how the curve behaves just before and just after the point.",
+      "choices": [
+        "Local maximum point",
+        "Local minimum point",
+        "Terrace point (inflection with zero slope)",
+        "No extreme point"
+      ],
+      "answer": 0,
+      "explanation": "If the derivative changes sign from positive (increasing) to negative (decreasing) at $x=a$, the function has a local maximum there. A change from negative to positive instead gives a local minimum point."
+    },
+    {
+      "id": "q-ma3-extrem-4",
+      "kind": "mc",
+      "topic": "the second derivative",
+      "prompt": "At a point, $f'(x_0) = 0$ and $f''(x_0) < 0$. What conclusion can be drawn?",
+      "opener": "The sign of the second derivative describes whether the curve is concave up or down at the point.",
+      "choices": [
+        "$x_0$ is a local minimum point",
+        "$x_0$ is a terrace point",
+        "No conclusion can be drawn",
+        "$x_0$ is a local maximum point"
+      ],
+      "answer": 3,
+      "explanation": "If $f'(x_0)=0$ and $f''(x_0) < 0$, the curve is concave down at the point, which means a local maximum point. The opposite sign, $f''(x_0) > 0$, would instead have given a local minimum point."
+    },
+    {
+      "id": "q-ma3-extrem-5",
+      "kind": "mc",
+      "topic": "the second derivative",
+      "prompt": "What is the second derivative of $f(x) = x^3 - 6x^2 + 2$?",
+      "opener": "Differentiate $f$ once, then differentiate the result once more.",
+      "choices": [
+        "$f''(x) = 3x^2 - 12x$",
+        "$f''(x) = 6x - 12$",
+        "$f''(x) = 6x$",
+        "$f''(x) = x - 12$"
+      ],
+      "answer": 1,
+      "explanation": "$f'(x) = 3x^2 - 12x$. Differentiate again: $f''(x) = 6x - 12$. The answer $3x^2-12x$ is only the first derivative, not the second derivative."
+    },
+    {
+      "id": "q-ma3-extrem-6",
+      "kind": "mc",
+      "topic": "sign analysis",
+      "prompt": "$f'(x) = (x-1)(x-3)$. In which interval is $f$ decreasing?",
+      "opener": "Make a sign table for $f'(x)$ using the roots $x=1$ and $x=3$.",
+      "choices": [
+        "$x < 1$",
+        "$1 < x < 3$",
+        "$x > 3$",
+        "All $x$"
+      ],
+      "answer": 1,
+      "explanation": "The roots of $f'$ are $x=1$ and $x=3$. Between them, e.g. at $x=2$: $f'(2) = (2-1)(2-3) = 1 \\cdot (-1) = -1 < 0$, so $f$ is decreasing there. Outside the interval, e.g. at $x=0$ or $x=4$, $f'(x) > 0$ and $f$ is increasing."
+    },
+    {
+      "id": "q-ma3-extrem-7",
+      "kind": "worked",
+      "topic": "extreme points",
+      "prompt": "Determine and classify the extreme points of $f(x) = x^3 - 3x^2$.",
+      "opener": "Differentiate, find the roots of the derivative, and analyse the sign around them.",
+      "answer": "Local max at $(0,0)$ and local min at $(2,-4)$",
+      "steps": [
+        "Differentiate: $f'(x) = 3x^2 - 6x = 3x(x-2)$.",
+        "Set $f'(x)=0$: $3x(x-2)=0 \\Rightarrow x=0$ or $x=2$.",
+        "Sign analysis: for $x<0$, $f'(x)>0$ (increasing); for $0<x<2$, $f'(x)<0$ (decreasing); for $x>2$, $f'(x)>0$ (increasing).",
+        "At $x=0$ the derivative changes sign from positive to negative $\\Rightarrow$ local maximum point, $f(0)=0$.",
+        "At $x=2$ the derivative changes sign from negative to positive $\\Rightarrow$ local minimum point, $f(2) = 8-12=-4$."
+      ]
+    },
+    {
+      "id": "q-ma3-extrem-8",
+      "kind": "flashcard",
+      "topic": "the second derivative",
+      "prompt": "Summarise how to find and classify extreme points using the first and second derivatives.",
+      "opener": "Two methods: sign analysis of $f'$, or a sign test using $f''$.",
+      "answer": "Extreme points occur where $f'(x)=0$ (or where $f'$ is not defined) · Sign change in $f'$ from $+$ to $-$ $\\Rightarrow$ local maximum point · Sign change in $f'$ from $-$ to $+$ $\\Rightarrow$ local minimum point · No sign change $\\Rightarrow$ terrace point · Second derivative test: $f'(x_0)=0$ and $f''(x_0)<0 \\Rightarrow$ local max · $f'(x_0)=0$ and $f''(x_0)>0 \\Rightarrow$ local min · $f''(x_0)=0 \\Rightarrow$ the test gives no answer, use sign analysis instead"
+    }
+  ]
+}
