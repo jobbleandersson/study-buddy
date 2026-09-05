@@ -539,7 +539,7 @@ a.next-test:hover { border-color: var(--brand); }
   color: var(--ink-faint); display: grid; place-items: center;
 }
 a.next-test:hover .next-test__go { color: var(--brand); }
-.next-test--soon { border-color: var(--retry); background: var(--retry-tint); }
+a.next-test--soon { border-color: var(--retry); background: var(--retry-tint); }
 .next-test--soon .next-test__when,
 .next-test--soon .next-test__when svg { color: var(--retry-ink); }
 
