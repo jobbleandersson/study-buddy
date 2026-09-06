@@ -517,13 +517,21 @@ a.streakbadge:hover {
 /* Countdown + one-tap study shortcut to the soonest test, directly under
    the calendar. Built like an .upcoming__row, tinted red once it's within
    a day of the deadline. */
+.next-test-wrap { display: flex; flex-direction: column; gap: 4px; margin: 0 0 var(--s-3); }
 a.next-test {
   display: grid; grid-template-columns: 1fr auto; gap: 1px var(--s-2);
-  margin: 0 0 var(--s-3); padding: 8px var(--s-3);
+  padding: 8px var(--s-3);
   border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--line);
   text-decoration: none; color: inherit;
   transition: border-color var(--dur-fast), background var(--dur-fast);
 }
+.next-test__prep {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 5px;
+  padding: 2px 4px; font-size: 12px; font-weight: 600;
+  color: var(--brand-ink); text-decoration: none;
+}
+.next-test__prep:hover { text-decoration: underline; }
+.next-test__prep svg { flex: none; }
 a.next-test:hover { border-color: var(--brand); }
 .next-test__when {
   display: flex; align-items: center; gap: 6px;
@@ -1036,6 +1044,28 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .sparkline polyline { fill: none; stroke: var(--brand); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .sparkline circle { fill: var(--brand); }
 .sparkline circle.last { fill: var(--ok); }
+
+/* ---------- exam prep ---------- */
+.exam-prep { display: grid; gap: var(--s-4); max-width: 640px; }
+.exam-prep h1 { margin: 0; }
+.exam-prep .panel { margin: 0; }
+.exam-prep__head { border-left: 3px solid var(--brand); }
+.exam-prep__when { margin: 0; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+.exam-prep__when svg { flex: none; color: var(--brand-ink); }
+.exam-prep__sets { display: flex; flex-direction: column; gap: var(--s-2); }
+.exam-prep__set {
+  display: flex; align-items: center; gap: var(--s-3);
+  padding: 8px var(--s-3); border-radius: var(--r-md);
+  background: var(--surface); border: 1px solid var(--line);
+  text-decoration: none; color: inherit;
+  transition: border-color var(--dur-fast);
+}
+.exam-prep__set:hover { border-color: var(--brand); }
+.exam-prep__set-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.exam-prep__set-pct { flex: none; font-weight: 700; color: var(--ink-soft); }
+.exam-prep__set svg { flex: none; color: var(--ink-faint); }
+.exam-prep__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }
+.exam-prep__mock { display: flex; gap: var(--s-2); align-items: flex-end; flex-wrap: wrap; }
 
 /* ---------- create flow ---------- */
 .steps { display: flex; gap: var(--s-2); margin-bottom: var(--s-5); flex-wrap: wrap; }

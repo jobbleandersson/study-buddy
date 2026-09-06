@@ -22,6 +22,7 @@ import { renderGallery } from "./views/gallery.js";
 import { renderPrint } from "./views/print.js";
 import { renderTeachback } from "./views/teachback.js";
 import { renderLibrary } from "./views/library.js";
+import { renderExamPrep } from "./views/exam-prep.js";
 import { mountCommandPalette } from "./components/command-palette.js";
 import { maybeShowOnboarding } from "./components/onboarding.js";
 
@@ -34,8 +35,9 @@ const routes = [
   { rx: /^\/create$/, view: (m, qs) => renderCreate(qs) },
   { rx: /^\/edit\/(.+)$/, view: (m, qs) => renderEdit(m[1], qs) },
   { rx: /^\/review$/, view: () => renderReview() },
-  { rx: /^\/practice-weak$/, view: () => renderWeakPractice() },
+  { rx: /^\/practice-weak$/, view: (m, qs) => renderWeakPractice(qs) },
   { rx: /^\/practice\/(.+)$/, view: (m) => renderPractice(m[1]) },
+  { rx: /^\/exam-prep\/(.+)$/, view: (m, qs) => renderExamPrep(m[1], qs) },
   { rx: /^\/session\/(.+)$/, view: (m, qs) => renderSession(m[1], qs) },
   { rx: /^\/results\/(.+)$/, view: (m) => renderResults(m[1]) },
   { rx: /^\/progress$/, view: () => renderProgress() },

@@ -104,9 +104,16 @@ export async function renderPractice(attemptId) {
   });
 }
 
-/** Drill whatever topics you keep getting wrong, across every set. */
-export async function renderWeakPractice() {
-  const weak = weakSpotQuestions(store.assignments, store.attempts);
+/** Drill whatever topics you keep getting wrong. Across every set by
+ *  default; scoped to one subject when `?subject=<id>` is set (the
+ *  exam-prep page uses this — weakSpotQuestions already filters on the
+ *  assignments array it's handed, so a subset scopes it for free). */
+export async function renderWeakPractice(qs) {
+  const subjectId = qs?.get?.("subject") || null;
+  const pool = subjectId
+    ? store.assignments.filter((a) => a.subjectId === subjectId)
+    : store.assignments;
+  const weak = weakSpotQuestions(pool, store.attempts);
   if (!weak.length) {
     return emptyScreen(t("session.noWeakTitle"), t("session.noWeakBody"), t("session.badgeWeak"));
   }
@@ -116,7 +123,7 @@ export async function renderWeakPractice() {
     assignmentId: WEAK_ID,
     title: t("session.weakTitle"),
     type: "assignment",
-    retryHash: "#/practice-weak",
+    retryHash: subjectId ? `#/practice-weak?subject=${subjectId}` : "#/practice-weak",
     questionIds: weak.map((w) => w.question.id),
     forceTutor: true,
   });
@@ -131,15 +138,26 @@ export async function renderNationalMix(subjectId, qs) {
 
   if (!pool.length) return notFound(t("session.nationalMixEmpty"));
 
+  // `?exam=1[&min=N]` turns the mix into a timed mock under exam conditions
+  // (locked tutor, no reveal, a countdown). runSession already reads
+  // config.examMode / config.timeLimitMin — the timer machinery is generic.
+  const examMode = qs?.get?.("exam") === "1";
+  const rawMin = examMode ? Number(qs?.get?.("min")) : 0;
+  const timeLimitMin = rawMin > 0 ? Math.max(1, Math.min(240, Math.round(rawMin))) : null;
+
   const count = Math.max(1, Math.min(Number(qs?.get("count")) || 15, pool.length));
   const ids = shuffled(pool).slice(0, count);
 
   return runSession({
-    key: nationalMixId(subjectId),
+    // A mock keeps its own resumable slot so it can't collide with a plain
+    // mix left in progress.
+    key: examMode ? `${nationalMixId(subjectId)}::exam` : nationalMixId(subjectId),
     assignmentId: nationalMixId(subjectId),
     title: t("session.nationalMixTitle", { subject: subject?.name || t("session.nationalMixFallback") }),
     type: "assignment",
-    retryHash: `#/national/mix/${subjectId}?count=${count}`,
+    examMode,
+    timeLimitMin,
+    retryHash: `#/national/mix/${subjectId}?count=${count}${examMode ? `&exam=1${timeLimitMin ? `&min=${timeLimitMin}` : ""}` : ""}`,
     questionIds: ids,
     shuffle: true,
   });

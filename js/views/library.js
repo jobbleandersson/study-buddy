@@ -2,6 +2,7 @@
 // subject's sets — instead of one endless page. Works with no API key; every
 // set is a static file that's copied into the student's own library on "Add".
 
+import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
@@ -139,6 +140,15 @@ export async function renderLibrary() {
     const sets = index.sets.filter((s) => s.subject === subject.id);
     const missing = sets.filter((s) => !isImported(s.id));
 
+    // The exam-prep page keys off the student's own subject id, which only
+    // exists once at least one set from here has been imported.
+    const importedHere = sets.find((s) => isImported(s.id));
+    const storeSubjectId = importedHere ? store.getAssignment(importedHere.id)?.subjectId : null;
+    const examPrepBtn = storeSubjectId
+      ? el("a.btn.btn--ghost.btn--sm", { href: `#/exam-prep/${storeSubjectId}` },
+          [icon(ICONS.target, 16), t("exam.prepFor", { subject: subjName(subject) })])
+      : null;
+
     const addAllBtn = el("button.btn.btn--sm", {
       type: "button",
       onclick: async (e) => {
@@ -167,7 +177,10 @@ export async function renderLibrary() {
             el("h3", {}, subjName(subject)),
             el("p.note", { style: { marginTop: "4px" } }, subjDesc(subject)),
           ]),
-          missing.length ? addAllBtn : el("span.note", {}, t("lib.allAdded")),
+          el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [
+            examPrepBtn,
+            missing.length ? addAllBtn : el("span.note", { style: { alignSelf: "center" } }, t("lib.allAdded")),
+          ].filter(Boolean)),
         ]),
         el("label.field", { style: { maxWidth: "220px", margin: "8px 0 0" } }, [
           el("span", {}, t("lib.examLenLabel")), examSel,

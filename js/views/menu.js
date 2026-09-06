@@ -13,6 +13,7 @@ import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
 import { achievementRows, titleKey } from "../lib/achievements.js";
+import { countdownLabel } from "../lib/date-phrases.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
 let tab = "assignment";
@@ -263,6 +264,7 @@ export function renderMenu(mode) {
     const menu = el("div.cardmenu", { role: "menu" }, [
       item(ICONS.pencil, t("menu.itemRename"), () => rename(a)),
       item(ICONS.chart, t("menu.itemEdit"), () => { location.hash = `#/edit/${a.id}`; }),
+      item(ICONS.clock, t("menu.itemExam"), () => { location.hash = `#/session/${a.id}?exam=1`; }),
       item(ICONS.calendar, t("menu.itemDue"), () => openDueDialog(a)),
       item(ICONS.copy, t("menu.itemDuplicate"), () => {
         const copy = store.duplicateAssignment(a.id);
@@ -799,36 +801,30 @@ function deadlineRailContent({ collapsible = false } = {}) {
   }
 }
 
-/** Hours from now until the end of today. Deadlines carry no time of day,
- *  so on the due date itself this counts down to midnight — enough to say
- *  "today, and not much of it left". At least 1 so it never reads "0h". */
-function hoursLeftToday() {
-  const now = new Date();
-  const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-  return Math.max(1, Math.ceil((endOfDay - now) / 3600000));
-}
-
 /** Countdown + one-tap shortcut to the soonest test, sat under the
- *  calendar. Days elsewhere, but hours once it's due today (deadlines have
- *  no time of day — this counts to midnight). Null when no test has a due
- *  date — an assignment-only calendar shows nothing here. */
+ *  calendar, with a small "Prep" link through to its exam-prep page.
+ *  Days elsewhere, but hours once it's due today. Null when no test has a
+ *  due date — an assignment-only calendar shows nothing here. */
 function nextTestLine(a) {
   if (!a) return null;
   const d = daysUntil(a.dueAt);
   const soon = d <= 1;
-  const when = d < 0 ? t("menu.nextTestOverdue")
-    : d === 0 ? t("menu.nextTestHours", { n: hoursLeftToday() })
-    : d === 1 ? t("menu.nextTestTomorrow")
-    : t("menu.nextTestIn", { n: d });
-  return el("a.next-test" + (soon ? ".next-test--soon" : ""), {
+  const card = el("a.next-test" + (soon ? ".next-test--soon" : ""), {
     href: `#/session/${a.id}`,
     "aria-label": t("menu.upcomingStudyAria", { title: a.title }),
     onclick: () => closeCalendarDialog(),
   }, [
-    el("span.next-test__when", {}, [icon(ICONS.clock, 14), el("span", {}, when)]),
+    el("span.next-test__when", {}, [icon(ICONS.clock, 14), el("span", {}, countdownLabel(a.dueAt))]),
     el("span.next-test__title", {}, a.title),
     el("span.next-test__go", {}, icon(ICONS.play, 14)),
   ]);
+  return el("div.next-test-wrap", {}, [
+    card,
+    a.subjectId ? el("a.next-test__prep", {
+      href: `#/exam-prep/${a.subjectId}`,
+      onclick: () => closeCalendarDialog(),
+    }, [icon(ICONS.target, 13), t("exam.prepLink")]) : null,
+  ].filter(Boolean));
 }
 
 function ring(v, color) {
