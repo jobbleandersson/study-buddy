@@ -1066,6 +1066,23 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .exam-prep__set svg { flex: none; color: var(--ink-faint); }
 .exam-prep__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }
 .exam-prep__mock { display: flex; gap: var(--s-2); align-items: flex-end; flex-wrap: wrap; }
+.exam-prep__pick { display: flex; flex-direction: column; gap: var(--s-2); margin-top: var(--s-3); }
+.exam-prep__pick-card {
+  display: flex; align-items: center; gap: var(--s-3);
+  padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
+  background: var(--surface); border: 1px solid var(--line);
+  border-left: 3px solid var(--subject, var(--brand));
+  text-decoration: none; color: inherit;
+  transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+.exam-prep__pick-card:hover { background: var(--surface-sunk); }
+.exam-prep__pick-name { flex: 1; min-width: 0; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.exam-prep__pick-when {
+  flex: none; font-size: 12px; font-weight: 600; color: var(--ink-soft);
+  background: var(--surface-sunk); padding: 2px 8px; border-radius: var(--r-full);
+}
+.exam-prep__pick-pct { flex: none; font-weight: 700; color: var(--ink-soft); }
+.exam-prep__pick-card svg { flex: none; color: var(--ink-faint); }
 
 /* ---------- create flow ---------- */
 .steps { display: flex; gap: var(--s-2); margin-bottom: var(--s-5); flex-wrap: wrap; }

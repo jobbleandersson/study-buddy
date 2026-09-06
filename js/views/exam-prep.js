@@ -1,12 +1,12 @@
-// Exam prep: one subject-scoped page that pulls together the countdown to
-// your test, where you stand, your weak spots, and two actions — drill the
-// weak spots, or take a timed mock exam across every set in the subject.
+// Exam prep. `#/exam-prep` is a subject picker; `#/exam-prep/:id` is the
+// per-subject dashboard — the countdown to your test, where you stand, your
+// weak spots, and two actions (drill weak spots / timed mock exam).
 // Composed entirely from existing helpers; no new persisted state — it
 // recomputes from dueAt / mastery / attempts / the srs map on every visit.
 
 import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
-import { t, plural } from "../lib/i18n.js";
+import { t, plural, daysUntil } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import {
@@ -18,6 +18,8 @@ const MOCK_COUNT = 20;
 const MOCK_MIN_QUESTIONS = 5;
 
 export function renderExamPrep(subjectId) {
+  if (!subjectId) return renderLanding();
+
   const subject = store.subjects.find((s) => s.id === subjectId);
   if (!subject) return emptyScreen(t("exam.noSubject"));
 
@@ -144,6 +146,55 @@ export function renderExamPrep(subjectId) {
       duePanel,
       actions,
     ].filter(Boolean)),
+  };
+}
+
+/** `#/exam-prep` — pick a subject. Subjects with a test coming up sort
+ *  first (soonest), then weakest mastery, then name. */
+function renderLanding() {
+  const tm = masteryByTopic(store.attempts);
+  const withSets = store.subjects.filter((s) => store.assignments.some((a) => a.subjectId === s.id));
+
+  if (!withSets.length) {
+    return {
+      title: t("exam.pageTitle"),
+      node: el("div.exam-prep", {}, [
+        homeButton(),
+        el("h1", {}, t("exam.pageTitle")),
+        el("section.panel", {}, [
+          el("p", {}, t("exam.landingEmpty")),
+          el("a.btn", { href: "#/library", style: { marginTop: "12px" } },
+            [icon(ICONS.book, 16), t("exam.addFromLibrary")]),
+        ]),
+      ]),
+    };
+  }
+
+  const rows = withSets.map((s) => {
+    const test = store.upcomingDue().find((a) => a.subjectId === s.id && a.type === "test");
+    const m = masteryForSubject(s.id, store.assignments, tm);
+    return { s, test, m, days: test ? daysUntil(test.dueAt) : Infinity, mSort: m == null ? 1.01 : m };
+  }).sort((a, b) => a.days - b.days || a.mSort - b.mSort || a.s.name.localeCompare(b.s.name));
+
+  return {
+    title: t("exam.pageTitle"),
+    node: el("div.exam-prep", {}, [
+      homeButton(),
+      el("h1", {}, t("exam.pageTitle")),
+      el("p.note", { style: { marginTop: "-4px" } }, t("exam.landingSub")),
+      el("div.exam-prep__pick", {}, rows.map(({ s, test, m }) => {
+        const color = store.subjectColor(s.id);
+        return el("a.exam-prep__pick-card", {
+          href: `#/exam-prep/${s.id}`,
+          style: { "--subject": color.solid },
+        }, [
+          el("span.exam-prep__pick-name", {}, s.name),
+          test ? el("span.exam-prep__pick-when", {}, countdownLabel(test.dueAt)) : null,
+          el("span.exam-prep__pick-pct", {}, m == null ? "" : `${Math.round(m * 100)}%`),
+          icon(ICONS.arrow, 16),
+        ].filter(Boolean));
+      })),
+    ]),
   };
 }
 

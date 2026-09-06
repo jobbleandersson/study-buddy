@@ -37,7 +37,7 @@ const routes = [
   { rx: /^\/review$/, view: () => renderReview() },
   { rx: /^\/practice-weak$/, view: (m, qs) => renderWeakPractice(qs) },
   { rx: /^\/practice\/(.+)$/, view: (m) => renderPractice(m[1]) },
-  { rx: /^\/exam-prep\/(.+)$/, view: (m, qs) => renderExamPrep(m[1], qs) },
+  { rx: /^\/exam-prep(?:\/(.+))?$/, view: (m, qs) => renderExamPrep(m[1] || null, qs) },
   { rx: /^\/session\/(.+)$/, view: (m, qs) => renderSession(m[1], qs) },
   { rx: /^\/results\/(.+)$/, view: (m) => renderResults(m[1]) },
   { rx: /^\/progress$/, view: () => renderProgress() },
@@ -81,6 +81,7 @@ function navItems() {
     { href: "#/study",   match: "/study",    icon: ICONS.clipboard, label: t("nav.study") },
     { href: "#/calendar",match: "/calendar", icon: ICONS.calendar,  label: t("nav.calendar") },
     { href: "#/library", match: "/library",  icon: ICONS.book,      label: t("nav.library") },
+    { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
     { href: "#/create",  match: "/create",   icon: ICONS.plus,      label: t("nav.create") },
     { href: "#/progress",match: "/progress", icon: ICONS.chart,     label: t("common.progress") },
   ];

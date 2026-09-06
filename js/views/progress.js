@@ -131,9 +131,13 @@ export function renderProgress() {
     el("section.panel", {}, [
       el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap", marginBottom: "8px" } }, [
         el("h3", {}, t("prog.mastery")),
-        // Only offered once there's enough history to know what "weak" means.
-        weakCount ? el("a.btn.btn--sm", { href: "#/practice-weak" },
-          [icon(ICONS.target, 16), t("prog.practiseWeak")]) : null,
+        el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [
+          subjectMeters.length ? el("a.btn.btn--ghost.btn--sm", { href: "#/exam-prep" },
+            [icon(ICONS.graduation, 16), t("nav.examPrep")]) : null,
+          // Only offered once there's enough history to know what "weak" means.
+          weakCount ? el("a.btn.btn--sm", { href: "#/practice-weak" },
+            [icon(ICONS.target, 16), t("prog.practiseWeak")]) : null,
+        ].filter(Boolean)),
       ].filter(Boolean)),
       subjectMeters.length ? el("div", {}, subjectMeters)
         : el("p.note", {}, t("prog.masteryEmpty")),

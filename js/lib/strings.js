@@ -904,7 +904,10 @@ export const STRINGS = {
     "results.timedOut": "Time ran out — this was submitted automatically.",
 
     /* ---- exam prep ---- */
+    "nav.examPrep": "Exam prep",
     "exam.pageTitle": "Exam prep",
+    "exam.landingSub": "Pick a subject to get ready for a test.",
+    "exam.landingEmpty": "Add some sets from the library first, then come back to prep for a test.",
     "exam.noSubject": "That subject doesn't exist.",
     "exam.noSets": "No {subject} sets in your library yet.",
     "exam.addFromLibrary": "Add some from the library",
@@ -1829,7 +1832,10 @@ export const STRINGS = {
     "results.timedOut": "Tiden tog slut — detta skickades in automatiskt.",
 
     /* ---- exam prep ---- */
+    "nav.examPrep": "Inför provet",
     "exam.pageTitle": "Inför provet",
+    "exam.landingSub": "Välj ett ämne för att förbereda dig inför ett prov.",
+    "exam.landingEmpty": "Lägg till några set från biblioteket först, så kan du sedan förbereda dig inför ett prov.",
     "exam.noSubject": "Det ämnet finns inte.",
     "exam.noSets": "Inga set i {subject} i ditt bibliotek än.",
     "exam.addFromLibrary": "Lägg till från biblioteket",
