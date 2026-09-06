@@ -224,6 +224,13 @@ export async function renderLibrary() {
         }, [icon(ICONS.clock, 16), t("lib.exam")])
       : null;
 
+    // A printable worksheet — the classroom distribution wedge.
+    const printAction = imported
+      ? el("a.iconbtn.iconbtn--sm", {
+          href: `#/print/${entry.id}`, "aria-label": t("print.worksheet"), title: t("print.worksheet"),
+        }, [icon(ICONS.fileText, 16)])
+      : null;
+
     return el("div.libcard" + (imported ? ".libcard--added" : ""), {}, [
       el("div", {}, [
         el("div.libcard__title", {}, setTitle(entry)),
@@ -233,7 +240,7 @@ export async function renderLibrary() {
         imported
           ? el("span.libcard__added", {}, [icon(ICONS.check, 14), t("lib.addedTag"), el("span.libcard__count", {}, ` · ${count}`)])
           : el("span.note", {}, count),
-        el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap" } }, [action, examAction].filter(Boolean)),
+        el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" } }, [action, examAction, printAction].filter(Boolean)),
       ]),
     ]);
   }

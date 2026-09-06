@@ -9,7 +9,7 @@ import { parseCloze, clozeToUnderscores } from "../components/questions.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 
-export function renderPrint(id) {
+export function renderPrint(id, qs) {
   const a = store.getAssignment(id);
   if (!a) {
     return el("div.empty", {}, [
@@ -17,6 +17,9 @@ export function renderPrint(id) {
       el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "16px" } }, t("common.backToMenu")),
     ]);
   }
+
+  // ?key=0 → worksheet only, no answer key (a teacher handing it out).
+  let showKey = qs?.get?.("key") !== "0";
 
   const questionEl = (q, i) => {
     const head = el("div.psheet__q", {}, [el("b", {}, `${i + 1}.`), " ", promptText(q)]);
@@ -39,11 +42,25 @@ export function renderPrint(id) {
         : strip(q.answer || ""),
   ]);
 
+  const keyBlock = el("div.psheet__break", { hidden: !showKey }, [
+    el("h2", {}, t("print.answerKey")),
+    el("div", {}, a.questions.map((q, i) => answerEl(q, i))),
+  ]);
+  const keyToggle = el("button.btn.btn--ghost.btn--sm", {
+    type: "button",
+    onclick: () => {
+      showKey = !showKey;
+      keyBlock.hidden = !showKey;
+      keyToggle.textContent = showKey ? t("print.hideKey") : t("print.showKey");
+    },
+  }, showKey ? t("print.hideKey") : t("print.showKey"));
+
   const node = el("div.printsheet", {}, [
     el("div.psheet__bar", { "data-noprint": "" }, [
       homeButton(),
       el("a.btn.btn--ghost.btn--sm", { href: `#/edit/${id}` }, [icon(ICONS.back, 16), t("common.back")]),
-      el("button.btn.btn--sm", { type: "button", onclick: () => window.print() }, [icon(ICONS.play, 16), t("print.action")]),
+      keyToggle,
+      el("button.btn.btn--sm", { type: "button", onclick: () => window.print() }, [icon(ICONS.fileText, 16), t("print.action")]),
     ]),
     el("h1.psheet__title", {}, a.title),
     el("p.psheet__meta", {}, [
@@ -52,10 +69,7 @@ export function renderPrint(id) {
       t("print.date"), " __________",
     ]),
     el("div", {}, a.questions.map((q, i) => questionEl(q, i))),
-    el("div.psheet__break", {}, [
-      el("h2", {}, t("print.answerKey")),
-      el("div", {}, a.questions.map((q, i) => answerEl(q, i))),
-    ]),
+    keyBlock,
   ]);
 
   return { title: a.title, node };

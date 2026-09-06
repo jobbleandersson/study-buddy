@@ -179,10 +179,15 @@ export function renderExamPrep(subjectId) {
     el("h3", {}, t("exam.setsHeading", { subject: subject.name })),
     el("div.exam-prep__sets", {}, sets.map((a) => {
       const sm = masteryForAssignment(a, tm);
-      return el("a.exam-prep__set", { href: `#/session/${a.id}` }, [
-        el("span.exam-prep__set-title", {}, a.title),
-        el("span.exam-prep__set-pct", {}, sm == null ? "—" : `${Math.round(sm * 100)}%`),
-        icon(ICONS.play, 14),
+      return el("div.exam-prep__set", {}, [
+        el("a.exam-prep__set-link", { href: `#/session/${a.id}` }, [
+          el("span.exam-prep__set-title", {}, a.title),
+          el("span.exam-prep__set-pct", {}, sm == null ? "—" : `${Math.round(sm * 100)}%`),
+          icon(ICONS.play, 14),
+        ]),
+        el("a.iconbtn.iconbtn--sm", {
+          href: `#/print/${a.id}`, "aria-label": t("print.worksheet"), title: t("print.worksheet"),
+        }, [icon(ICONS.fileText, 15)]),
       ]);
     })),
   ]);

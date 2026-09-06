@@ -23,6 +23,8 @@ import { renderTeachback } from "./views/teachback.js";
 import { renderLibrary } from "./views/library.js";
 import { renderExamPrep } from "./views/exam-prep.js";
 import { renderSolve } from "./views/solve.js";
+import { renderReference } from "./views/reference.js";
+import { renderCalculator } from "./views/calculator.js";
 import { renderAchievements } from "./views/achievements.js";
 import { mountCommandPalette } from "./components/command-palette.js";
 import { maybeShowOnboarding } from "./components/onboarding.js";
@@ -46,8 +48,10 @@ const routes = [
   { rx: /^\/gallery$/, view: () => renderGallery() },
   { rx: /^\/library$/, view: () => renderLibrary() },
   { rx: /^\/solve$/, view: () => renderSolve() },
+  { rx: /^\/reference$/, view: () => renderReference() },
+  { rx: /^\/calculator$/, view: () => renderCalculator() },
   { rx: /^\/achievements$/, view: () => renderAchievements() },
-  { rx: /^\/print\/(.+)$/, view: (m) => renderPrint(m[1]) },
+  { rx: /^\/print\/(.+)$/, view: (m, qs) => renderPrint(m[1], qs) },
   { rx: /^\/teachback\/(.+)$/, view: (m) => renderTeachback(m[1]) },
   { rx: /^\/login$/, view: () => renderLogin() },
   { rx: /^\/parent$/, view: () => renderParentHub() },
@@ -94,6 +98,10 @@ function navGroups() {
     { href: "#/progress", match: "/progress",  icon: ICONS.chart,     label: t("common.progress") },
     { href: "#/achievements", match: "/achievements", icon: ICONS.award, label: t("nav.achievements") },
   ];
+  const tools = [
+    { href: "#/reference",  match: "/reference",  icon: ICONS.sigma,      label: t("nav.formulas") },
+    { href: "#/calculator", match: "/calculator", icon: ICONS.calculator, label: t("nav.calculator") },
+  ];
   const account = [];
   if (store.authed) account.push({ href: "#/parent", match: "/parent", icon: ICONS.users, label: t("common.parent") });
   account.push({ href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings") });
@@ -101,6 +109,7 @@ function navGroups() {
   return [
     { key: "learn",   label: t("nav.groupLearn"), items: learn },
     { key: "track",   label: t("nav.groupTrack"), items: track },
+    { key: "tools",   label: t("nav.groupTools"), items: tools },
     { key: "account", label: null,                items: account },
   ];
 }

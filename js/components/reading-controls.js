@@ -9,6 +9,10 @@ import { t } from "../lib/i18n.js";
 import { getTheme, setTheme } from "../lib/theme.js";
 import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
 import { openPopover } from "../lib/popover.js";
+import {
+  speechSupported, voicesForLang, getPreferredVoiceURI, setPreferredVoiceURI,
+  getAutoRead, setAutoRead,
+} from "../lib/speech.js";
 
 // "system" is a settings choice, not a reading choice — the popover offers the
 // three concrete looks.
@@ -61,10 +65,41 @@ export function openReadingControls(anchor) {
     );
   }
 
+  // Read-aloud (browser text-to-speech) — an auto-read toggle plus, when the
+  // device offers more than one matching voice, a picker.
+  const speechRows = [];
+  if (speechSupported()) {
+    const autoRow = el("div.reading__row");
+    const paintAuto = () => {
+      const on = getAutoRead();
+      autoRow.replaceChildren(
+        el("span.reading__k", {}, t("read.autoRead")),
+        el("button.reading__toggle" + (on ? ".is-on" : ""), {
+          type: "button", role: "switch", "aria-checked": String(on),
+          "aria-label": t("read.autoRead"),
+          onclick: () => { setAutoRead(!on); paintAuto(); },
+        }, el("span.reading__knob")),
+      );
+    };
+    paintAuto();
+    speechRows.push(autoRow);
+
+    const voices = voicesForLang();
+    if (voices.length > 1) {
+      const sel = el("select.reading__voice", { "aria-label": t("read.voice") },
+        voices.map((v) => el("option", { value: v.voiceURI }, v.name)));
+      sel.value = getPreferredVoiceURI() || voices.find((v) => v.localService)?.voiceURI || voices[0].voiceURI;
+      sel.addEventListener("change", () => setPreferredVoiceURI(sel.value));
+      speechRows.push(el("div.reading__row.reading__row--stack", {}, [
+        el("span.reading__k", {}, t("read.voice")), sel,
+      ]));
+    }
+  }
+
   paintThemes(); paintSize(); paintFont();
 
   return openPopover(anchor, [
     el("p.reading__t", {}, t("read.title")),
-    themeRow, sizeRow, fontRow,
-  ], { align: "right", width: 250, role: "dialog", label: t("read.title") });
+    themeRow, sizeRow, fontRow, ...speechRows,
+  ], { align: "right", width: 258, role: "dialog", label: t("read.title") });
 }

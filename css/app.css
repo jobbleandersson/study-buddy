@@ -839,7 +839,20 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .progress-label { font-size: var(--fs-sm); color: var(--ink-faint); }
 
 .question { margin-top: var(--s-4); }
+.question__topline { display: flex; align-items: flex-start; gap: var(--s-3); margin-bottom: var(--s-4); }
+.question__topline .question__prompt { margin-bottom: 0; flex: 1; min-width: 0; }
 .question__prompt { font-size: var(--fs-lg); font-family: var(--font-display); font-weight: 600; margin-bottom: var(--s-4); }
+/* Read-aloud button on the question card. */
+.q-speak {
+  flex: none; width: 32px; height: 32px; border-radius: var(--r-full);
+  border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-soft);
+  display: grid; place-items: center; cursor: pointer; margin-top: 2px;
+  transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+}
+.q-speak:hover { color: var(--brand); border-color: var(--brand); }
+.q-speak.is-on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.reading__row--stack { flex-direction: column; align-items: stretch; gap: 6px; }
+.reading__voice { width: 100%; font: inherit; font-size: var(--fs-sm); padding: 6px 8px; border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); }
 
 .choices { display: flex; flex-direction: column; gap: var(--s-3); }
 .choice {
@@ -1183,13 +1196,13 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .exam-prep__when svg { flex: none; color: var(--brand-ink); }
 .exam-prep__sets { display: flex; flex-direction: column; gap: var(--s-2); }
 .exam-prep__set {
-  display: flex; align-items: center; gap: var(--s-3);
-  padding: 8px var(--s-3); border-radius: var(--r-md);
+  display: flex; align-items: center; gap: var(--s-2);
+  padding: 4px 8px 4px var(--s-3); border-radius: var(--r-md);
   background: var(--surface); border: 1px solid var(--line);
-  text-decoration: none; color: inherit;
   transition: border-color var(--dur-fast);
 }
 .exam-prep__set:hover { border-color: var(--brand); }
+.exam-prep__set-link { display: flex; align-items: center; gap: var(--s-3); flex: 1; min-width: 0; text-decoration: none; color: inherit; padding: 6px 0; }
 .exam-prep__set-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
 .exam-prep__set-pct { flex: none; font-weight: 700; color: var(--ink-soft); }
 .exam-prep__set svg { flex: none; color: var(--ink-faint); }
@@ -1235,6 +1248,62 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .exam-prep__day.is-today .exam-prep__day-when { color: var(--brand-ink); }
 .exam-prep__day.is-test .exam-prep__day-task { color: var(--ink-faint); font-style: italic; }
 .exam-prep__day .btn--sm { padding: 4px 12px; white-space: nowrap; }
+
+/* ---------- formula sheet ---------- */
+.ref { max-width: 760px; }
+.ref__tabs { margin-bottom: var(--s-4); flex-wrap: wrap; }
+.ref__group { margin-bottom: var(--s-5); }
+.ref__group h3 { font-size: var(--fs-md); color: var(--ink-soft); margin-bottom: var(--s-3); }
+.ref__items { display: grid; gap: var(--s-2); }
+.ref__item {
+  border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface);
+  padding: var(--s-3) var(--s-4);
+}
+.ref__item-head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); flex-wrap: wrap; }
+.ref__name { font-weight: 600; font-size: var(--fs-sm); }
+.ref__formula { font-size: var(--fs-md); overflow-x: auto; max-width: 100%; }
+.ref__note { margin: 6px 0 0; font-size: 12px; color: var(--ink-faint); }
+
+/* ---------- calculator & graph plotter ---------- */
+.calc { max-width: 560px; }
+.calc__screen { background: var(--surface-sunk); border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--s-3); }
+.calc__screentop { display: flex; gap: var(--s-2); align-items: center; }
+.calc__input {
+  flex: 1; min-width: 0; font: inherit; font-size: var(--fs-md); font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  border: 1px solid var(--line-strong); border-radius: var(--r-sm); padding: 8px 10px;
+  background: var(--surface); color: var(--ink);
+}
+.calc__output {
+  margin-top: var(--s-2); text-align: right; font-size: var(--fs-xl); font-weight: 700;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace; color: var(--ink);
+  overflow-x: auto; min-height: 1.4em;
+}
+.calc__output.is-error { color: var(--retry-ink); font-size: var(--fs-md); font-weight: 500; }
+.calc__pad { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: var(--s-3); }
+.calc__key {
+  font: inherit; font-size: var(--fs-md); font-weight: 600; padding: 12px 0;
+  border: 1px solid var(--line-strong); border-radius: var(--r-sm);
+  background: var(--surface); color: var(--ink); cursor: pointer;
+  transition: background var(--dur-fast);
+}
+.calc__key:hover { background: var(--surface-sunk); }
+.calc__key--op { color: var(--brand-ink); }
+.calc__key--eq { background: var(--brand); color: #fff; border-color: var(--brand); }
+.calc__key--eq:hover { background: var(--brand-bright); }
+.calc__history { margin-top: var(--s-3); display: grid; gap: 4px; }
+.calc__hrow {
+  display: flex; justify-content: space-between; gap: var(--s-3); width: 100%;
+  border: none; background: none; cursor: pointer; padding: 4px 6px; border-radius: var(--r-sm);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; color: var(--ink-soft); text-align: left;
+}
+.calc__hrow:hover { background: var(--surface-sunk); }
+.calc__hval { color: var(--ink); font-weight: 700; flex: none; }
+.calc__grange { display: flex; gap: var(--s-3); align-items: end; flex-wrap: wrap; margin-bottom: var(--s-3); }
+.calc__grange label { font-size: var(--fs-sm); color: var(--ink-soft); display: flex; flex-direction: column; gap: 4px; }
+.calc__num { width: 90px; font: inherit; padding: 6px 8px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); background: var(--surface); color: var(--ink); }
+.calc__canvaswrap { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; background: var(--surface); }
+.calc__canvas { display: block; width: 100%; height: auto; }
+.calc__gmsg.is-error { color: var(--retry-ink); }
 
 /* ---------- create flow ---------- */
 .steps { display: flex; gap: var(--s-2); margin-bottom: var(--s-5); flex-wrap: wrap; }
@@ -1299,6 +1368,10 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .settings__fields .field { margin-bottom: 0; }
 .panel > .note + .settings__fields { margin-top: var(--s-3); }
 .field__note { margin-top: var(--s-2); }
+
+/* Offline-library download progress in Settings. */
+.offline-bar { height: 8px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; margin-bottom: var(--s-3); }
+.offline-bar i { display: block; height: 100%; width: 0; background: var(--brand); border-radius: inherit; transition: width var(--dur-mid) var(--ease-out); }
 
 /* Sub-heading inside a merged panel: a hairline rule carries the grouping so
    the panel does not need to become two panels again. */

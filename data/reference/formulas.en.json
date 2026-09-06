@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "sections": [
+    {
+      "id": "ma",
+      "name": "Maths",
+      "groups": [
+        {
+          "name": "Geometry",
+          "items": [
+            { "name": "Area of a rectangle", "formula": "A = b \\cdot h", "note": "b = base, h = height" },
+            { "name": "Area of a triangle", "formula": "A = \\dfrac{b \\cdot h}{2}", "note": "h perpendicular to the base" },
+            { "name": "Parallelogram", "formula": "A = b \\cdot h", "note": "" },
+            { "name": "Area of a circle", "formula": "A = \\pi r^2", "note": "r = radius" },
+            { "name": "Circumference of a circle", "formula": "O = 2 \\pi r = \\pi d", "note": "d = diameter" },
+            { "name": "Volume of a cylinder", "formula": "V = \\pi r^2 \\cdot h", "note": "" },
+            { "name": "Volume of a cuboid", "formula": "V = l \\cdot b \\cdot h", "note": "" },
+            { "name": "Volume of a cone", "formula": "V = \\dfrac{\\pi r^2 \\cdot h}{3}", "note": "" },
+            { "name": "Volume of a sphere", "formula": "V = \\dfrac{4 \\pi r^3}{3}", "note": "" },
+            { "name": "Pythagoras' theorem", "formula": "a^2 + b^2 = c^2", "note": "c = hypotenuse of a right-angled triangle" }
+          ]
+        },
+        {
+          "name": "Algebra",
+          "items": [
+            { "name": "Straight line", "formula": "y = kx + m", "note": "k = gradient, m = y-intercept" },
+            { "name": "Gradient", "formula": "k = \\dfrac{y_2 - y_1}{x_2 - x_1}", "note": "" },
+            { "name": "Quadratic equation", "formula": "x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}", "note": "for the equation x² + px + q = 0" },
+            { "name": "Difference of two squares", "formula": "(a+b)(a-b) = a^2 - b^2", "note": "" },
+            { "name": "Perfect square", "formula": "(a \\pm b)^2 = a^2 \\pm 2ab + b^2", "note": "" },
+            { "name": "Laws of exponents", "formula": "x^a \\cdot x^b = x^{a+b}, \\quad \\dfrac{x^a}{x^b} = x^{a-b}, \\quad (x^a)^b = x^{ab}", "note": "" },
+            { "name": "Negative exponent", "formula": "x^{-a} = \\dfrac{1}{x^a}", "note": "" }
+          ]
+        },
+        {
+          "name": "Percentages",
+          "items": [
+            { "name": "Proportion", "formula": "\\text{proportion} = \\dfrac{\\text{part}}{\\text{whole}}", "note": "" },
+            { "name": "Multiplier", "formula": "\\text{new value} = \\text{old value} \\cdot f", "note": "f = 1.25 for +25%, f = 0.80 for −20%" },
+            { "name": "Compound interest", "formula": "K = K_0 \\cdot f^{\\,n}", "note": "K₀ = starting amount, n = number of years" }
+          ]
+        },
+        {
+          "name": "Probability & statistics",
+          "items": [
+            { "name": "Probability", "formula": "P = \\dfrac{\\text{favourable outcomes}}{\\text{possible outcomes}}", "note": "" },
+            { "name": "Independent events", "formula": "P(A \\text{ and } B) = P(A) \\cdot P(B)", "note": "" },
+            { "name": "Mean", "formula": "\\bar{x} = \\dfrac{\\text{sum of values}}{\\text{number of values}}", "note": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fy",
+      "name": "Physics",
+      "groups": [
+        {
+          "name": "Motion",
+          "items": [
+            { "name": "Average speed", "formula": "v = \\dfrac{s}{t}", "note": "s = distance (m), t = time (s)" },
+            { "name": "Acceleration", "formula": "a = \\dfrac{\\Delta v}{t}", "note": "unit m/s²" },
+            { "name": "Distance under constant acceleration", "formula": "s = v_0 t + \\dfrac{a t^2}{2}", "note": "" },
+            { "name": "Velocity under constant acceleration", "formula": "v = v_0 + at", "note": "" }
+          ]
+        },
+        {
+          "name": "Forces",
+          "items": [
+            { "name": "Newton's second law", "formula": "F = m \\cdot a", "note": "F in newtons (N)" },
+            { "name": "Weight", "formula": "F_g = m \\cdot g", "note": "g ≈ 9.82 N/kg" },
+            { "name": "Pressure", "formula": "p = \\dfrac{F}{A}", "note": "unit pascal (Pa)" },
+            { "name": "Density", "formula": "\\rho = \\dfrac{m}{V}", "note": "" },
+            { "name": "Hydrostatic pressure", "formula": "p = \\rho \\cdot g \\cdot h", "note": "fluid pressure at depth h" }
+          ]
+        },
+        {
+          "name": "Energy & power",
+          "items": [
+            { "name": "Work", "formula": "W = F \\cdot s", "note": "unit joule (J)" },
+            { "name": "Potential energy", "formula": "E_p = m \\cdot g \\cdot h", "note": "" },
+            { "name": "Kinetic energy", "formula": "E_k = \\dfrac{m v^2}{2}", "note": "" },
+            { "name": "Power", "formula": "P = \\dfrac{W}{t}", "note": "unit watt (W)" },
+            { "name": "Efficiency", "formula": "\\eta = \\dfrac{\\text{useful energy}}{\\text{energy supplied}}", "note": "" }
+          ]
+        },
+        {
+          "name": "Electricity",
+          "items": [
+            { "name": "Ohm's law", "formula": "U = R \\cdot I", "note": "U in volts, I in amperes, R in ohms" },
+            { "name": "Electrical power", "formula": "P = U \\cdot I", "note": "" },
+            { "name": "Charge", "formula": "Q = I \\cdot t", "note": "unit coulomb (C)" },
+            { "name": "Electrical energy", "formula": "W = P \\cdot t", "note": "often in kWh: 1 kWh = 3.6 MJ" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ke",
+      "name": "Chemistry",
+      "groups": [
+        {
+          "name": "Amount of substance",
+          "items": [
+            { "name": "Amount of substance", "formula": "n = \\dfrac{m}{M}", "note": "n in mol, m in g, M = molar mass (g/mol)" },
+            { "name": "Number of particles", "formula": "N = n \\cdot N_A", "note": "N_A ≈ 6.022 · 10²³ mol⁻¹" },
+            { "name": "Density", "formula": "\\rho = \\dfrac{m}{V}", "note": "" }
+          ]
+        },
+        {
+          "name": "Solutions",
+          "items": [
+            { "name": "Concentration", "formula": "c = \\dfrac{n}{V}", "note": "c in mol/dm³, V in dm³ (litres)" },
+            { "name": "Dilution", "formula": "c_1 V_1 = c_2 V_2", "note": "the amount of substance is unchanged" },
+            { "name": "Mass fraction", "formula": "\\text{mass fraction} = \\dfrac{m_{\\text{substance}}}{m_{\\text{solution}}}", "note": "often given as a percentage" }
+          ]
+        },
+        {
+          "name": "Gases & reactions",
+          "items": [
+            { "name": "Ideal gas law", "formula": "pV = nRT", "note": "R = 8.314 J/(mol·K), T in kelvin" },
+            { "name": "Molar volume (1 atm, 25 °C)", "formula": "V_m \\approx 24{,}5 \\ \\text{dm}^3/\\text{mol}", "note": "for ideal gases" },
+            { "name": "Yield", "formula": "\\text{yield} = \\dfrac{\\text{actual}}{\\text{theoretical}}", "note": "given as a percentage" },
+            { "name": "pH", "formula": "\\mathrm{pH} = -\\log[\\mathrm{H_3O^+}]", "note": "the hydrogen-ion concentration in mol/dm³" }
+          ]
+        }
+      ]
+    }
+  ]
+}

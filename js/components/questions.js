@@ -11,17 +11,42 @@ import { fromCorrect } from "../lib/srs.js";
 import { t } from "../lib/i18n.js";
 import { mathKeypad } from "./math-keypad.js";
 import { heuristic, normalizeAnswer } from "../lib/answer-match.js";
+import { speechSupported, isSpeaking, speak, stopSpeaking, questionToSpeech, getAutoRead } from "../lib/speech.js";
 
 export function renderQuestion(opts) {
-  switch (opts.question.kind) {
-    case "mc": return mc(opts);
-    case "flashcard": return flashcard(opts);
-    case "worked": return worked(opts);
-    // A cloze with no {{blanks}} is just a short-answer question — fall through
-    // rather than render a sentence nobody can answer.
-    case "cloze": return parseCloze(opts.question.prompt).some((p) => p.blank) ? cloze(opts) : text(opts);
-    default: return text(opts);
+  const r = (() => {
+    switch (opts.question.kind) {
+      case "mc": return mc(opts);
+      case "flashcard": return flashcard(opts);
+      case "worked": return worked(opts);
+      // A cloze with no {{blanks}} is just a short-answer question — fall through
+      // rather than render a sentence nobody can answer.
+      case "cloze": return parseCloze(opts.question.prompt).some((p) => p.blank) ? cloze(opts) : text(opts);
+      default: return text(opts);
+    }
+  })();
+  // Read-aloud: if the student has turned on auto-read, speak the new question
+  // once it's on screen. The speaker button on the card does it on demand.
+  if (getAutoRead() && speechSupported()) {
+    setTimeout(() => speak(questionToSpeech(opts.question, t)), 350);
   }
+  return r;
+}
+
+/** A speaker button that reads a question aloud (prompt + options), toggling
+ *  to "stop" while it speaks. Null when the browser has no speech synthesis. */
+function speakButton(question) {
+  if (!speechSupported()) return null;
+  const btn = el("button.q-speak", {
+    type: "button", "aria-label": t("q.readAloud"), title: t("q.readAloud"),
+  }, [icon(ICONS.volume, 16)]);
+  btn.addEventListener("click", () => {
+    if (isSpeaking()) { stopSpeaking(); btn.classList.remove("is-on"); return; }
+    btn.classList.add("is-on");
+    const done = () => btn.classList.remove("is-on");
+    speak(questionToSpeech(question, t), { onend: done, onerror: done });
+  });
+  return btn;
 }
 
 /**
@@ -55,8 +80,12 @@ export function clozeToUnderscores(prompt, fill = "____") {
 }
 
 function shell(question, body, { showPrompt = true } = {}) {
+  const speak = speakButton(question);
   return el("div.question", {}, [
-    showPrompt && el("div.question__prompt", { html: renderRich(question.prompt) }),
+    (showPrompt || speak) && el("div.question__topline", {}, [
+      showPrompt ? el("div.question__prompt", { html: renderRich(question.prompt) }) : el("span"),
+      speak,
+    ].filter(Boolean)),
     body,
   ].filter(Boolean));
 }

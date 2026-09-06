@@ -10,6 +10,7 @@ import { t, plural } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { playFanfare } from "../lib/sound.js";
+import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
 
 export function renderSettings() {
   const s = store.settings;
@@ -393,6 +394,47 @@ export function renderSettings() {
         el("button.btn.btn--ghost.btn--sm", { type: "button", style: { color: "var(--retry-ink)" }, onclick: wipe }, t("set.wipe")),
       ]),
       importStatus,
+      offlineRow(),
+    ].filter(Boolean));
+  }
+
+  /* ---------------- offline library ---------------- */
+  function offlineRow() {
+    if (!offlineSupported()) return null;
+    const status = el("p.note", { style: { margin: "10px 0 8px" } }, t("set.offlineBody"));
+    const bar = el("div.offline-bar", { hidden: true }, [el("i")]);
+    const btn = el("button.btn.btn--ghost.btn--sm", { type: "button" });
+
+    function label(cached) {
+      clear(btn);
+      btn.append(icon(ICONS.download, 15), cached ? t("set.offlineRefresh") : t("set.offlineGet"));
+    }
+    async function paint() {
+      const cached = await isLibraryCached();
+      status.textContent = cached ? t("set.offlineDone") : t("set.offlineBody");
+      label(cached);
+    }
+    label(false);
+    paint();
+
+    btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      bar.hidden = false;
+      bar.firstChild.style.width = "0%";
+      const res = await cacheLibraryOffline((done, total) => {
+        bar.firstChild.style.width = `${Math.round((done / total) * 100)}%`;
+        status.textContent = t("set.offlineProgress", { done, total });
+      });
+      bar.hidden = true;
+      btn.disabled = false;
+      toast(res.ok ? t("set.offlineOk")
+        : res.reason === "no-sw" ? t("set.offlineNoSw") : t("set.offlineFail"));
+      paint();
+    });
+
+    return el("div", { style: { marginTop: "16px" } }, [
+      el("h4.settings__sub", {}, t("set.offlineTitle")),
+      status, bar, btn,
     ]);
   }
 

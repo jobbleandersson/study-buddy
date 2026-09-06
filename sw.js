@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studybuddy-v58";
+const CACHE = "studybuddy-v59";
 
 const APP_SHELL = [
   "./",
@@ -45,6 +45,9 @@ const APP_SHELL = [
   "./js/lib/library.js",
   "./js/lib/library-content.js",
   "./js/lib/date-phrases.js",
+  "./js/lib/speech.js",
+  "./js/lib/expr.js",
+  "./js/lib/offline.js",
   "./js/lib/achievements.js",
   "./js/lib/recap.js",
   "./js/lib/typeface.js",
@@ -65,6 +68,8 @@ const APP_SHELL = [
   "./js/views/library.js",
   "./js/views/exam-prep.js",
   "./js/views/solve.js",
+  "./js/views/reference.js",
+  "./js/views/calculator.js",
   "./js/views/achievements.js",
   "./js/views/print.js",
   "./js/views/teachback.js",
@@ -95,6 +100,8 @@ const APP_SHELL = [
   "./data/samples/scripted-tutor.sv.json",
   "./data/library/index.json",
   "./data/library/index.en.json",
+  "./data/reference/formulas.sv.json",
+  "./data/reference/formulas.en.json",
 ];
 
 self.addEventListener("install", (event) => {
@@ -114,6 +121,47 @@ self.addEventListener("activate", (event) => {
     await self.clients.claim();
   })());
 });
+
+// "Make the library available offline" — the page asks, the SW walks
+// data/library/index.json and caches every set file (Swedish + English) so
+// importing a set on the tunnelbana works. Progress is posted back to the
+// page. Idempotent: re-running just refreshes.
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "CACHE_LIBRARY") {
+    event.waitUntil(cacheLibrary(event.source));
+  }
+});
+
+async function cacheLibrary(client) {
+  const cache = await caches.open(CACHE);
+  let index;
+  try {
+    index = await fetch("./data/library/index.json").then((r) => r.json());
+  } catch {
+    client && client.postMessage({ type: "library-cache-done", ok: false });
+    return;
+  }
+  const urls = ["./data/library/index.json", "./data/library/index.en.json"];
+  for (const s of index.sets || []) {
+    if (!s.file) continue;
+    urls.push("./" + s.file.replace(/^\.?\//, ""));
+    urls.push("./" + s.file.replace(/^\.?\//, "").replace("data/library/", "data/library-en/"));
+  }
+  const total = urls.length;
+  let done = 0;
+  const BATCH = 12;
+  for (let i = 0; i < urls.length; i += BATCH) {
+    await Promise.all(urls.slice(i, i + BATCH).map(async (u) => {
+      try {
+        const r = await fetch(u);
+        if (r.ok) await cache.put(u, r.clone());
+      } catch { /* a missing English file just falls back to Swedish at import */ }
+      done++;
+    }));
+    client && client.postMessage({ type: "library-cache-progress", done, total });
+  }
+  client && client.postMessage({ type: "library-cache-done", ok: true, done, total });
+}
 
 self.addEventListener("fetch", (event) => {
   const { request } = event;

@@ -178,6 +178,8 @@ export const STRINGS = {
     "read.title": "Reading",
     "read.textSize": "Text size",
     "read.dyslexiaFont": "Easy-read font",
+    "read.autoRead": "Read questions aloud",
+    "read.voice": "Voice",
 
     /* ---- shortcuts sheet ---- */
     "keys.title": "Keyboard shortcuts",
@@ -191,6 +193,8 @@ export const STRINGS = {
 
     /* ---- questions ---- */
     "q.check": "Check answer",
+    "q.readAloud": "Read aloud",
+    "q.readBlankWord": "blank",
     "q.submit": "Submit answer",
     "q.checking": "Checking…",
     "q.submitting": "Submitting…",
@@ -477,6 +481,15 @@ export const STRINGS = {
     "set.wipeConfirm": "Delete all sets, attempts, and progress?\n\nThis can't be undone. Export a backup first if you want to keep it.",
     "set.wiped": "Data wiped",
     "set.backupDownloaded": "Backup downloaded",
+    "set.offlineTitle": "Offline library",
+    "set.offlineBody": "Download every practice-library set (~5 MB) so you can browse and add them with no signal — on the train, on a plane.",
+    "set.offlineDone": "The full library is saved on this device. Re-download to pick up new sets.",
+    "set.offlineGet": "Download for offline",
+    "set.offlineRefresh": "Re-download",
+    "set.offlineProgress": "Saving… {done} / {total}",
+    "set.offlineOk": "Library saved for offline use",
+    "set.offlineFail": "Download didn't finish — try again",
+    "set.offlineNoSw": "Offline storage isn't ready yet — reload the page and try again",
     "set.import": "Import",
     "set.importConfirm": "This replaces everything currently in the app with the file you picked.\n\nExport a backup first if you want to keep what's here now.",
     "set.imported": "Data imported.",
@@ -657,8 +670,11 @@ export const STRINGS = {
 
     "nav.solve": "Solve",
     "nav.achievements": "Achievements",
+    "nav.formulas": "Formula sheet",
+    "nav.calculator": "Calculator",
     "nav.groupLearn": "Learn",
     "nav.groupTrack": "Track",
+    "nav.groupTools": "Tools",
     "menu.solveLink": "Solve a problem",
     "topbar.notifications": "Notifications",
     "topbar.account": "Account",
@@ -830,6 +846,9 @@ export const STRINGS = {
     "print.name": "Name",
     "print.date": "Date",
     "print.answerKey": "Answer key",
+    "print.hideKey": "Hide answer key",
+    "print.showKey": "Include answer key",
+    "print.worksheet": "Worksheet",
 
     "gallery.title": "Sample sets",
     "gallery.intro": "Ready-made sets you can try before building your own. Adding one drops it into your library like any other.",
@@ -1049,6 +1068,28 @@ export const STRINGS = {
     "exam.planStart": "Start",
     "exam.planMin": "{n} min",
     "menu.itemExam": "Exam mode",
+
+    /* ---- formula sheet ---- */
+    "ref.title": "Formula sheet",
+    "ref.sub": "Maths, physics and chemistry formulas for åk 7–gymnasiet. Works offline.",
+    "ref.search": "Search formulas…",
+    "ref.noHits": "No formulas match “{q}”.",
+    "ref.loadFail": "Couldn't load the formula sheet.",
+
+    /* ---- calculator & graph plotter ---- */
+    "calc.title": "Calculator",
+    "calc.sub": "A scientific calculator and a function plotter — both run on your device.",
+    "calc.tabCalc": "Calculator",
+    "calc.tabGraph": "Graph",
+    "calc.exprAria": "Expression",
+    "calc.reuse": "Use this again",
+    "calc.badExpr": "Check the expression",
+    "calc.funcsNote": "Functions: sin cos tan asin… sqrt ln log exp abs. Constants: π, e. Use x for the graph.",
+    "calc.fnLabel": "f(x) =",
+    "calc.fnAria": "Function of x",
+    "calc.canvasAria": "Graph of the function",
+    "calc.plot": "Plot",
+    "calc.range": "y-axis: {min} to {max}",
   },
 
   /* ================================================================ */
@@ -1239,6 +1280,8 @@ export const STRINGS = {
     "read.title": "Läsläge",
     "read.textSize": "Textstorlek",
     "read.dyslexiaFont": "Läsvänligt typsnitt",
+    "read.autoRead": "Läs upp frågor",
+    "read.voice": "Röst",
 
     /* ---- shortcuts sheet ---- */
     "keys.title": "Kortkommandon",
@@ -1252,6 +1295,8 @@ export const STRINGS = {
 
     /* ---- questions ---- */
     "q.check": "Rätta svaret",
+    "q.readAloud": "Läs upp",
+    "q.readBlankWord": "lucka",
     "q.submit": "Skicka svar",
     "q.checking": "Rättar…",
     "q.submitting": "Skickar…",
@@ -1538,6 +1583,15 @@ export const STRINGS = {
     "set.wipeConfirm": "Radera alla set, försök och framsteg?\n\nDet går inte att ångra. Exportera en säkerhetskopia först om du vill behålla dem.",
     "set.wiped": "Data raderad",
     "set.backupDownloaded": "Säkerhetskopia nedladdad",
+    "set.offlineTitle": "Biblioteket offline",
+    "set.offlineBody": "Ladda ner alla set i övningsbiblioteket (~5 MB) så att du kan bläddra och lägga till dem utan uppkoppling — på tåget eller flyget.",
+    "set.offlineDone": "Hela biblioteket finns sparat på den här enheten. Ladda ner igen för att hämta nya set.",
+    "set.offlineGet": "Ladda ner för offline",
+    "set.offlineRefresh": "Ladda ner igen",
+    "set.offlineProgress": "Sparar… {done} / {total}",
+    "set.offlineOk": "Biblioteket sparat för offline",
+    "set.offlineFail": "Nedladdningen blev inte klar — försök igen",
+    "set.offlineNoSw": "Offline-lagringen är inte redo än — ladda om sidan och försök igen",
     "set.import": "Importera",
     "set.importConfirm": "Det här ersätter allt som finns i appen just nu med filen du valde.\n\nExportera en säkerhetskopia först om du vill behålla det som finns nu.",
     "set.imported": "Data importerad.",
@@ -1718,8 +1772,11 @@ export const STRINGS = {
 
     "nav.solve": "Lös",
     "nav.achievements": "Troféer",
+    "nav.formulas": "Formelsamling",
+    "nav.calculator": "Räknare",
     "nav.groupLearn": "Lära",
     "nav.groupTrack": "Uppföljning",
+    "nav.groupTools": "Verktyg",
     "menu.solveLink": "Lös en uppgift",
     "topbar.notifications": "Notiser",
     "topbar.account": "Konto",
@@ -1891,6 +1948,9 @@ export const STRINGS = {
     "print.name": "Namn",
     "print.date": "Datum",
     "print.answerKey": "Facit",
+    "print.hideKey": "Dölj facit",
+    "print.showKey": "Ta med facit",
+    "print.worksheet": "Övningsblad",
 
     "gallery.title": "Exempelset",
     "gallery.intro": "Färdiga set att prova innan du bygger egna. Lägger du till ett hamnar det i biblioteket som vilket set som helst.",
@@ -2096,5 +2156,27 @@ export const STRINGS = {
     "exam.planStart": "Starta",
     "exam.planMin": "{n} min",
     "menu.itemExam": "Provläge",
+
+    /* ---- formelsamling ---- */
+    "ref.title": "Formelsamling",
+    "ref.sub": "Formler i matematik, fysik och kemi för åk 7–gymnasiet. Fungerar offline.",
+    "ref.search": "Sök formel…",
+    "ref.noHits": "Inga formler matchar ”{q}”.",
+    "ref.loadFail": "Kunde inte ladda formelsamlingen.",
+
+    /* ---- räknare & grafritare ---- */
+    "calc.title": "Räknare",
+    "calc.sub": "En räknare för naturvetenskap och en grafritare — allt körs på din enhet.",
+    "calc.tabCalc": "Räknare",
+    "calc.tabGraph": "Graf",
+    "calc.exprAria": "Uttryck",
+    "calc.reuse": "Använd igen",
+    "calc.badExpr": "Kontrollera uttrycket",
+    "calc.funcsNote": "Funktioner: sin cos tan asin… sqrt ln log exp abs. Konstanter: π, e. Använd x för grafen.",
+    "calc.fnLabel": "f(x) =",
+    "calc.fnAria": "Funktion av x",
+    "calc.canvasAria": "Graf över funktionen",
+    "calc.plot": "Rita",
+    "calc.range": "y-axel: {min} till {max}",
   },
 };

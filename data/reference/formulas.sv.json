@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "sections": [
+    {
+      "id": "ma",
+      "name": "Matematik",
+      "groups": [
+        {
+          "name": "Geometri",
+          "items": [
+            { "name": "Rektangelns area", "formula": "A = b \\cdot h", "note": "b = bas, h = höjd" },
+            { "name": "Triangelns area", "formula": "A = \\dfrac{b \\cdot h}{2}", "note": "h vinkelrät mot basen" },
+            { "name": "Parallellogram", "formula": "A = b \\cdot h", "note": "" },
+            { "name": "Cirkelns area", "formula": "A = \\pi r^2", "note": "r = radie" },
+            { "name": "Cirkelns omkrets", "formula": "O = 2 \\pi r = \\pi d", "note": "d = diameter" },
+            { "name": "Cylinderns volym", "formula": "V = \\pi r^2 \\cdot h", "note": "" },
+            { "name": "Rätblockets volym", "formula": "V = l \\cdot b \\cdot h", "note": "" },
+            { "name": "Konens volym", "formula": "V = \\dfrac{\\pi r^2 \\cdot h}{3}", "note": "" },
+            { "name": "Klotets volym", "formula": "V = \\dfrac{4 \\pi r^3}{3}", "note": "" },
+            { "name": "Pythagoras sats", "formula": "a^2 + b^2 = c^2", "note": "c = hypotenusan i en rätvinklig triangel" }
+          ]
+        },
+        {
+          "name": "Algebra",
+          "items": [
+            { "name": "Räta linjen", "formula": "y = kx + m", "note": "k = lutning, m = skärning med y-axeln" },
+            { "name": "Lutning (k-värde)", "formula": "k = \\dfrac{y_2 - y_1}{x_2 - x_1}", "note": "" },
+            { "name": "Andragradsekvation (pq-formeln)", "formula": "x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}", "note": "för ekvationen x² + px + q = 0" },
+            { "name": "Konjugatregeln", "formula": "(a+b)(a-b) = a^2 - b^2", "note": "" },
+            { "name": "Kvadreringsreglerna", "formula": "(a \\pm b)^2 = a^2 \\pm 2ab + b^2", "note": "" },
+            { "name": "Potenslagar", "formula": "x^a \\cdot x^b = x^{a+b}, \\quad \\dfrac{x^a}{x^b} = x^{a-b}, \\quad (x^a)^b = x^{ab}", "note": "" },
+            { "name": "Negativ exponent", "formula": "x^{-a} = \\dfrac{1}{x^a}", "note": "" }
+          ]
+        },
+        {
+          "name": "Procent och andelar",
+          "items": [
+            { "name": "Andelen", "formula": "\\text{andel} = \\dfrac{\\text{delen}}{\\text{det hela}}", "note": "" },
+            { "name": "Förändringsfaktor", "formula": "\\text{nytt värde} = \\text{gammalt värde} \\cdot f", "note": "f = 1,25 vid +25 %, f = 0,80 vid −20 %" },
+            { "name": "Ränta på ränta", "formula": "K = K_0 \\cdot f^{\\,n}", "note": "K₀ = startkapital, n = antal år" }
+          ]
+        },
+        {
+          "name": "Sannolikhet och statistik",
+          "items": [
+            { "name": "Sannolikhet", "formula": "P = \\dfrac{\\text{gynnsamma utfall}}{\\text{möjliga utfall}}", "note": "" },
+            { "name": "Oberoende händelser", "formula": "P(A \\text{ och } B) = P(A) \\cdot P(B)", "note": "" },
+            { "name": "Medelvärde", "formula": "\\bar{x} = \\dfrac{\\text{summan av värdena}}{\\text{antal värden}}", "note": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fy",
+      "name": "Fysik",
+      "groups": [
+        {
+          "name": "Rörelse",
+          "items": [
+            { "name": "Medelhastighet", "formula": "v = \\dfrac{s}{t}", "note": "s = sträcka (m), t = tid (s)" },
+            { "name": "Acceleration", "formula": "a = \\dfrac{\\Delta v}{t}", "note": "enhet m/s²" },
+            { "name": "Sträcka vid konstant acceleration", "formula": "s = v_0 t + \\dfrac{a t^2}{2}", "note": "" },
+            { "name": "Hastighet vid konstant acceleration", "formula": "v = v_0 + at", "note": "" }
+          ]
+        },
+        {
+          "name": "Krafter",
+          "items": [
+            { "name": "Newtons andra lag", "formula": "F = m \\cdot a", "note": "F i newton (N)" },
+            { "name": "Tyngd", "formula": "F_g = m \\cdot g", "note": "g ≈ 9,82 N/kg" },
+            { "name": "Tryck", "formula": "p = \\dfrac{F}{A}", "note": "enhet pascal (Pa)" },
+            { "name": "Densitet", "formula": "\\rho = \\dfrac{m}{V}", "note": "" },
+            { "name": "Hydrostatiskt tryck", "formula": "p = \\rho \\cdot g \\cdot h", "note": "vätsketryck på djupet h" }
+          ]
+        },
+        {
+          "name": "Energi och effekt",
+          "items": [
+            { "name": "Arbete", "formula": "W = F \\cdot s", "note": "enhet joule (J)" },
+            { "name": "Lägesenergi", "formula": "E_p = m \\cdot g \\cdot h", "note": "" },
+            { "name": "Rörelseenergi", "formula": "E_k = \\dfrac{m v^2}{2}", "note": "" },
+            { "name": "Effekt", "formula": "P = \\dfrac{W}{t}", "note": "enhet watt (W)" },
+            { "name": "Verkningsgrad", "formula": "\\eta = \\dfrac{\\text{nyttig energi}}{\\text{tillförd energi}}", "note": "" }
+          ]
+        },
+        {
+          "name": "El",
+          "items": [
+            { "name": "Ohms lag", "formula": "U = R \\cdot I", "note": "U i volt, I i ampere, R i ohm" },
+            { "name": "Elektrisk effekt", "formula": "P = U \\cdot I", "note": "" },
+            { "name": "Laddning", "formula": "Q = I \\cdot t", "note": "enhet coulomb (C)" },
+            { "name": "Elektrisk energi", "formula": "W = P \\cdot t", "note": "ofta i kWh: 1 kWh = 3,6 MJ" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ke",
+      "name": "Kemi",
+      "groups": [
+        {
+          "name": "Substansmängd och massa",
+          "items": [
+            { "name": "Substansmängd", "formula": "n = \\dfrac{m}{M}", "note": "n i mol, m i g, M = molmassa (g/mol)" },
+            { "name": "Antal partiklar", "formula": "N = n \\cdot N_A", "note": "N_A ≈ 6,022 · 10²³ mol⁻¹" },
+            { "name": "Densitet", "formula": "\\rho = \\dfrac{m}{V}", "note": "" }
+          ]
+        },
+        {
+          "name": "Lösningar",
+          "items": [
+            { "name": "Koncentration", "formula": "c = \\dfrac{n}{V}", "note": "c i mol/dm³, V i dm³ (liter)" },
+            { "name": "Spädning", "formula": "c_1 V_1 = c_2 V_2", "note": "substansmängden är oförändrad" },
+            { "name": "Masshalt", "formula": "\\text{masshalt} = \\dfrac{m_{\\text{ämne}}}{m_{\\text{lösning}}}", "note": "anges ofta i procent" }
+          ]
+        },
+        {
+          "name": "Gaser och reaktioner",
+          "items": [
+            { "name": "Allmänna gaslagen", "formula": "pV = nRT", "note": "R = 8,314 J/(mol·K), T i kelvin" },
+            { "name": "Molvolym (1 atm, 25 °C)", "formula": "V_m \\approx 24{,}5 \\ \\text{dm}^3/\\text{mol}", "note": "gäller ideala gaser" },
+            { "name": "Utbyte", "formula": "\\text{utbyte} = \\dfrac{\\text{verkligt}}{\\text{teoretiskt}}", "note": "anges i procent" },
+            { "name": "pH", "formula": "\\mathrm{pH} = -\\log[\\mathrm{H_3O^+}]", "note": "vätejonkoncentrationen i mol/dm³" }
+          ]
+        }
+      ]
+    }
+  ]
+}
