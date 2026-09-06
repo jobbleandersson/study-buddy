@@ -160,7 +160,15 @@ a.streakbadge:hover {
     padding: var(--s-5) var(--s-3);
     background: var(--surface); border-right: 1px solid var(--line);
   }
-  .topbar { display: none; }
+  /* Topbar stays on desktop but collapses to just the bell + account pair,
+     floating top-right over the content — the sidebar carries brand/nav/
+     streak/language, so everything else in the topbar is hidden here. */
+  .topbar { background: transparent; backdrop-filter: none; border-bottom: none; }
+  .topbar__inner { justify-content: flex-end; padding-top: var(--s-4); padding-right: var(--s-6); }
+  .topbar .brand,
+  .topbar .streakbadge,
+  .topbar .langbtn,
+  .topbar .topmenu { display: none; }
 }
 
 .topbar {
@@ -1296,16 +1304,12 @@ kbd {
 .psheet__akey { margin: 3px 0; font-size: var(--fs-sm); }
 
 /* ---------- shell: bell + account actions ---------- */
-.sidebar__top { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); margin-bottom: var(--s-4); }
 .topbar__actions { display: flex; align-items: center; gap: var(--s-2); }
 .topbar__bell { position: relative; }
 .topbar__dot {
   position: absolute; top: 5px; right: 5px; width: 9px; height: 9px;
   border-radius: var(--r-full); background: var(--retry); border: 2px solid var(--surface);
 }
-/* The sidebar's action buttons sit next to the brand — a touch smaller than
-   the mobile topbar's so they don't crowd it. */
-.sidebar__top .iconbtn { width: 34px; height: 34px; }
 
 .popover {
   position: absolute; z-index: 60; max-width: calc(100vw - 16px);

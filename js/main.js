@@ -406,14 +406,12 @@ function shellActions() {
 function shell(contentNode) {
   const { displayStreak: streak, atRisk } = store.streakInfo;
 
-  // Desktop: a left sidebar carries the whole nav (topbar hidden by CSS).
-  // Mobile: the topbar shows, and its ⋮ mirrors the same nav.
+  // Desktop: a left sidebar carries the whole nav; the topbar stays but
+  // collapses (via CSS) to just the bell + account pair on the right.
+  // Mobile: the full topbar shows, and its ⋮ mirrors the sidebar nav.
   const sidebar = el("nav.sidebar", { "aria-label": t("common.menu") }, [
-    el("div.sidebar__top", {}, [
-      el("a.sidebar__brand", { href: "#/" }, [
-        el("img", { src: "assets/favicon.svg", alt: "" }), "StudyBuddy",
-      ]),
-      shellActions(),
+    el("a.sidebar__brand", { href: "#/" }, [
+      el("img", { src: "assets/favicon.svg", alt: "" }), "StudyBuddy",
     ]),
     el("div.sidebar__nav", {}, navItems().map((it) =>
       el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
