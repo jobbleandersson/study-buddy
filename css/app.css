@@ -123,29 +123,30 @@ a.streakbadge:hover {
   padding: var(--s-3); border-radius: var(--r-md);
   background: var(--surface-sunk); color: var(--ink);
   font-size: var(--fs-sm); font-weight: 700; text-decoration: none;
-  /* Same warm glow as the top-bar streak badge. */
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--retry) 32%, transparent),
-              0 2px 18px -5px color-mix(in srgb, var(--retry) 60%, transparent);
-  transition: background var(--dur-fast), box-shadow var(--dur-fast);
+  transition: background var(--dur-fast);
 }
-.sidebar__streak:hover {
-  background: var(--line);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--retry) 48%, transparent),
-              0 3px 24px -5px color-mix(in srgb, var(--retry) 80%, transparent);
-}
+.sidebar__streak:hover { background: var(--line); }
+/* The flame disc breathes a warm glow — an ember, not a whole-button halo. */
 .sidebar__streak-icon {
   width: 32px; height: 32px; flex: none; border-radius: var(--r-full);
   display: grid; place-items: center; color: var(--retry); background: var(--retry-tint);
+  --glow: var(--retry);
+  box-shadow: 0 0 8px 0 color-mix(in srgb, var(--glow) 40%, transparent);
+  animation: streak-ember 2.4s var(--ease-out) infinite;
 }
-.sidebar__streak--risk {
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--info) 32%, transparent),
-              0 2px 18px -5px color-mix(in srgb, var(--info) 60%, transparent);
+@keyframes streak-ember {
+  0%, 100% { box-shadow: 0 0 7px 0 color-mix(in srgb, var(--glow) 42%, transparent); }
+  50%      { box-shadow: 0 0 18px 3px color-mix(in srgb, var(--glow) 70%, transparent); }
 }
-.sidebar__streak--risk .sidebar__streak-icon { color: var(--info); background: var(--info-tint); }
+.sidebar__streak--risk .sidebar__streak-icon {
+  color: var(--info); background: var(--info-tint); --glow: var(--info);
+}
 /* Zero-streak: same fixed spot in the footer, just muted rather than the
-   vivid orange — no glow until there's a streak to celebrate. */
-.sidebar__streak--none { color: var(--ink-soft); box-shadow: none; }
-.sidebar__streak--none .sidebar__streak-icon { color: var(--ink-faint); background: var(--surface); }
+   vivid orange — no ember until there's a streak to celebrate. */
+.sidebar__streak--none { color: var(--ink-soft); }
+.sidebar__streak--none .sidebar__streak-icon {
+  color: var(--ink-faint); background: var(--surface); box-shadow: none; animation: none;
+}
 
 /* Segmented light/system/dark switcher, sidebar footer. */
 .sidebar__theme { display: flex; gap: 2px; padding: 3px; border-radius: var(--r-full); background: var(--surface-sunk); }
