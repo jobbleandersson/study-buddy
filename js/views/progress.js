@@ -106,7 +106,7 @@ export function renderProgress() {
         }),
         bestStreak > displayStreak ? " · " + t("prog.personalBest", { n: bestStreak }) : "",
         freezes === 0 && displayStreak > 0 && nextFreezeIn > 0
-          ? " · " + t("streak.freezeNext", { n: nextFreezeIn }) : "",
+          ? " · " + plural(nextFreezeIn, "streak.freezeNextOne", "streak.freezeNext") : "",
       ]),
     ]),
 

@@ -525,7 +525,13 @@ window.addEventListener("hashchange", () => render());
 // (so the switch doesn't interrupt the set); every other screen re-renders.
 window.addEventListener("sb:langchange", async () => {
   applyLang();
-  await Promise.all([store.syncDemoLanguage(), store.syncLibraryLanguage()]);
+  // Best-effort — a failed content sync must not leave the UI stranded in the
+  // old language, so the re-render below always runs.
+  try {
+    await Promise.all([store.syncDemoLanguage(), store.syncLibraryLanguage()]);
+  } catch (e) {
+    console.warn("language content sync failed:", e);
+  }
   if (isSessionActive()) {
     window.dispatchEvent(new Event("sb:langsession"));
     render({ chromeOnly: true });
@@ -575,6 +581,7 @@ store.init().then(() => {
   store.addEventListener("saveFailed", () => {
     showBanner(t("save.failedBanner"), {
       actionLabel: t("save.emergencyExport"),
+      closeLabel: t("common.close"),
       onAction: () => {
         downloadText(`studybuddy-backup-${localDayKey()}.json`, store.exportJSON());
         toast(t("set.backupDownloaded"));

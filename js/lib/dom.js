@@ -80,7 +80,7 @@ export function showBanner(message, opts = {}) {
   if (opts.actionLabel && typeof opts.onAction === "function") {
     banner.appendChild(el("button.savebar__action", { type: "button", onclick: opts.onAction }, opts.actionLabel));
   }
-  banner.appendChild(el("button.savebar__close", { type: "button", "aria-label": "Dismiss", onclick: hideBanner }, "×"));
+  banner.appendChild(el("button.savebar__close", { type: "button", "aria-label": opts.closeLabel || "Dismiss", onclick: hideBanner }, "×"));
   requestAnimationFrame(() => banner.classList.add("show"));
 }
 export function hideBanner() { banner?.classList.remove("show"); }

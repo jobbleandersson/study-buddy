@@ -439,7 +439,7 @@ function worked({ question, tutor, live, testMode, onDone }) {
     if (shown >= steps.length) return;
     revealed.appendChild(el("li", { html: renderRich(steps[shown]) }));
     shown++; result.hintsUsed = shown;
-    tutor?.note(`I've revealed step ${shown}. Can you nudge me toward the next bit?`, "thinking");
+    tutor?.note(t("q.tutorRevealedStep", { n: shown }), "thinking");
     if (shown >= steps.length) revealBtn.disabled = true;
   }
 
