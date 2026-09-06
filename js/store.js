@@ -79,7 +79,7 @@ export const PALETTE = [
   { name: "leaf", solid: "#4C9F55", ink: "#3B7A41", tint: "#E7F5E7" },
   { name: "tangerine", solid: "#F0913C", ink: "#9C5E27", tint: "#FDEEDD" },
   { name: "berry", solid: "#E4588A", ink: "#B0446A", tint: "#FCE7EF" },
-  { name: "sky", solid: "#4C7DF0", ink: "#3E67C5", tint: "#E6EDFD" },
+  { name: "sky", solid: "#3AA4E6", ink: "#2076A8", tint: "#E4F1FB" },
 ];
 
 const DEFAULT_SUBJECTS = ["Science", "History", "Math", "English", "Geography"];

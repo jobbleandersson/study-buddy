@@ -1198,7 +1198,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .toast:has(.toast__action).show { pointer-events: auto; }
 .toast__action {
   font: inherit; font-weight: 700; cursor: pointer;
-  background: none; border: none; color: #C9B8FF;
+  background: none; border: none; color: #9FBCFF;
   text-decoration: underline; text-underline-offset: 3px; padding: 0;
 }
 .toast__action:hover { color: #fff; }
@@ -1425,7 +1425,7 @@ kbd {
 .achbadge--unlocked.achbadge--platinum .achbadge__icon {
   background: linear-gradient(135deg, var(--brand), var(--c-ocean) 55%, var(--c-berry));
   color: #fff; border-color: transparent;
-  box-shadow: 0 0 0 3px var(--surface), 0 0 14px rgba(100, 86, 196, .35);
+  box-shadow: 0 0 0 3px var(--surface), 0 0 14px rgba(58, 106, 224, .38);
 }
 .achbadge--unlocked.achbadge--platinum .achbadge__tiername { color: var(--brand-ink); }
 
