@@ -6,12 +6,14 @@ const KEY = "studybuddy.theme";
 export const THEMES = [
   ["system", "Match my device"],
   ["light", "Light"],
+  ["paper", "Warm paper"],
   ["dark", "Dark"],
 ];
+const VALID = ["light", "paper", "dark", "system"];
 
 export function getTheme() {
   const t = localStorage.getItem(KEY);
-  return ["light", "dark", "system"].includes(t) ? t : "system";
+  return VALID.includes(t) ? t : "system";
 }
 
 export function applyTheme(theme = getTheme()) {
@@ -28,6 +30,6 @@ export function setTheme(theme) {
 export function isDark() {
   const t = getTheme();
   if (t === "dark") return true;
-  if (t === "light") return false;
+  if (t === "light" || t === "paper") return false;
   return window.matchMedia("(prefers-color-scheme: dark)").matches;
 }

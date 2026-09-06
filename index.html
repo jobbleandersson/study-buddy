@@ -24,7 +24,7 @@
       var root = document.documentElement;
       try {
         var t = localStorage.getItem("studybuddy.theme");
-        root.setAttribute("data-theme", ["light", "dark", "system"].indexOf(t) >= 0 ? t : "system");
+        root.setAttribute("data-theme", ["light", "paper", "dark", "system"].indexOf(t) >= 0 ? t : "system");
       } catch (e) {
         root.setAttribute("data-theme", "system");
       }

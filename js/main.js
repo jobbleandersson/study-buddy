@@ -212,10 +212,10 @@ function sidebarStreak(streak, atRisk) {
   ]);
 }
 
-const THEME_ICONS = { system: ICONS.monitor, light: ICONS.sun, dark: ICONS.moon };
-// Light / system / dark, left to right — independent of THEMES' own order
-// (which Settings' dropdown uses instead), just this widget's layout.
-const THEME_ORDER = ["light", "system", "dark"];
+const THEME_ICONS = { system: ICONS.monitor, light: ICONS.sun, paper: ICONS.fileText, dark: ICONS.moon };
+// Light / warm paper / system / dark, left to right — independent of THEMES'
+// own order, just this widget's layout.
+const THEME_ORDER = ["light", "paper", "system", "dark"];
 
 /** Segmented light/system/dark switcher for the sidebar footer. Self-painting
  *  so a click doesn't have to re-render the whole shell just to update itself.

@@ -794,10 +794,36 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--s-4); margin-bottom: var(--s-2); flex-wrap: wrap;
 }
-.session__headright { display: flex; align-items: center; gap: var(--s-3); }
+.session__headright { display: flex; align-items: center; gap: var(--s-2); }
 /* The shortcuts button is the only affordance for the keyboard layer, so it
    stays visible at every width rather than hiding on small screens. */
-.shortcutsbtn { width: 36px; height: 36px; flex: none; }
+.shortcutsbtn, .readingbtn { width: 36px; height: 36px; flex: none; }
+/* Keyboard shortcuts are desktop-only value; on a phone the reading control
+   is the one that earns its place. */
+@media (max-width: 560px) { .shortcutsbtn { display: none; } }
+
+/* Reading-comfort popover (anchored from the session header) */
+.reading__t { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-faint); padding: 4px 6px 6px; margin: 0; }
+.reading__themes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding: 0 4px 6px; }
+.reading__sw {
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  padding: 8px 4px 6px; border-radius: 10px; border: 1px solid var(--line-strong);
+  background: var(--surface); cursor: pointer; font: inherit; font-size: 11px; font-weight: 600; color: var(--ink-soft);
+}
+.reading__chip { width: 100%; height: 20px; border-radius: 6px; border: 1px solid var(--line); }
+.reading__sw--light .reading__chip { background: #F5F7FC; }
+.reading__sw--paper .reading__chip { background: #F1E7D0; }
+.reading__sw--dark  .reading__chip { background: #0A0C11; }
+.reading__sw.is-on { border-color: var(--brand); color: var(--brand-ink); box-shadow: 0 0 0 1px var(--brand); }
+.reading__row { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); padding: 8px 6px; border-top: 1px solid var(--line); }
+.reading__k { font-size: var(--fs-sm); color: var(--ink-soft); }
+.reading__seg { display: inline-flex; gap: 2px; padding: 2px; border-radius: var(--r-full); background: var(--surface-sunk); }
+.reading__seg button { min-width: 30px; padding: 3px 0; border: none; background: transparent; border-radius: var(--r-full); cursor: pointer; color: var(--ink-faint); font-family: var(--font-display); line-height: 1; }
+.reading__seg button.is-on { background: var(--surface); color: var(--brand-ink); font-weight: 700; box-shadow: var(--shadow-1); }
+.reading__toggle { width: 40px; height: 22px; border-radius: var(--r-full); border: none; background: var(--line-strong); cursor: pointer; position: relative; flex: none; transition: background var(--dur-fast); }
+.reading__toggle.is-on { background: var(--brand); }
+.reading__knob { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform var(--dur-fast); }
+.reading__toggle.is-on .reading__knob { transform: translateX(18px); }
 
 .session { display: grid; grid-template-columns: 1fr 380px; gap: var(--s-5); align-items: start; }
 /* The empty track was 1.05:1 against the page — invisible until it had fill.
@@ -1129,6 +1155,19 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .due-item__main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .due-item__why { font-size: var(--fs-sm); color: var(--ink-faint); }
 
+/* Results "what you'll still remember" — two forgetting curves. */
+.retention { width: 100%; max-width: 380px; height: auto; display: block; }
+.retention__grid { stroke: var(--line); stroke-width: 1; }
+.retention__lab { fill: var(--ink-faint); font-size: 9px; font-family: var(--font-body); }
+.retention__without { fill: none; stroke: var(--retry); stroke-width: 2; stroke-dasharray: 4 3; stroke-linecap: round; }
+.retention__with { fill: none; stroke: var(--brand); stroke-width: 2.5; stroke-linecap: round; }
+.retention__dot { fill: var(--brand); }
+.retention__legend { display: flex; gap: var(--s-4); flex-wrap: wrap; font-size: var(--fs-sm); color: var(--ink-soft); margin-top: 4px; }
+.retention__k { display: inline-block; width: 16px; border-top: 2px solid; vertical-align: middle; margin-right: 6px; }
+.retention__k--without { border-top-style: dashed; color: var(--retry); }
+.retention__k--with { color: var(--brand); }
+.retention__cap { font-size: 12px; color: var(--ink-faint); margin-top: 6px; }
+
 /* Review-recall sparkline — bare line chart, scales to the panel width. */
 .sparkline { width: 100%; height: auto; display: block; }
 .sparkline polyline { fill: none; stroke: var(--brand); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -1181,6 +1220,22 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .exam-prep__topics { display: flex; flex-direction: column; gap: 2px; margin-top: var(--s-2); }
 .exam-prep__topics .meter { grid-template-columns: minmax(88px, 42%) 1fr 44px; }
 
+/* The dated study plan — today → test day, one task per row. */
+.exam-prep__plan { border-left: 3px solid var(--brand); }
+.exam-prep__days { list-style: none; margin: var(--s-3) 0 0; padding: 0; display: grid; gap: 2px; }
+.exam-prep__day {
+  display: grid; grid-template-columns: 66px 1fr auto; align-items: center;
+  gap: var(--s-3); padding: 8px 10px; border-radius: var(--r-sm); font-size: var(--fs-sm);
+}
+.exam-prep__day-when { color: var(--ink-faint); font-weight: 700; font-size: 12px; text-transform: capitalize; }
+.exam-prep__day-task { min-width: 0; color: var(--ink-soft); }
+.exam-prep__day-min { color: var(--ink-faint); font-size: 12px; flex: none; }
+.exam-prep__day.is-today { background: var(--brand-tint); }
+.exam-prep__day.is-today .exam-prep__day-task { color: var(--ink); font-weight: 600; }
+.exam-prep__day.is-today .exam-prep__day-when { color: var(--brand-ink); }
+.exam-prep__day.is-test .exam-prep__day-task { color: var(--ink-faint); font-style: italic; }
+.exam-prep__day .btn--sm { padding: 4px 12px; white-space: nowrap; }
+
 /* ---------- create flow ---------- */
 .steps { display: flex; gap: var(--s-2); margin-bottom: var(--s-5); flex-wrap: wrap; }
 .step { font-size: var(--fs-sm); font-weight: 700; color: var(--ink-faint); display: flex; align-items: center; gap: 6px; }
@@ -1189,9 +1244,19 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .step.on .step__n { background: var(--brand); color: #fff; }
 
 .source-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s-3); }
-.source-opt { cursor: pointer; padding: var(--s-5) var(--s-4); border-radius: var(--r-md); border: 2px solid var(--line-strong); background: var(--surface); text-align: center; font-family: var(--font-display); font-weight: 600; transition: transform var(--dur-fast) var(--ease-spring), border-color var(--dur-fast); }
+.source-opt { position: relative; cursor: pointer; padding: var(--s-5) var(--s-4); border-radius: var(--r-md); border: 2px solid var(--line-strong); background: var(--surface); text-align: center; font-family: var(--font-display); font-weight: 600; transition: transform var(--dur-fast) var(--ease-spring), border-color var(--dur-fast); }
 .source-opt:hover { transform: translateY(-2px); border-color: var(--brand); }
 .source-opt svg { display: block; margin: 0 auto var(--s-2); }
+/* An AI-generated source with no server to run it — still openable (you can
+   prepare the material), just clearly marked as not ready to generate. */
+.source-opt--locked { border-style: dashed; border-color: var(--line); opacity: .82; }
+.source-opt--locked svg { opacity: .7; }
+.source-opt__tag {
+  display: inline-block; margin-top: var(--s-2); font-size: 11px; font-weight: 700;
+  color: var(--ink-faint); background: var(--surface-sunk);
+  padding: 2px 8px; border-radius: var(--r-full);
+}
+.source-opt__tag::before { content: "🔌 "; }
 
 /* Subject field: text input + one-tap chips for the subjects that exist. */
 .subjectfield { display: flex; flex-direction: column; gap: var(--s-2); }
@@ -1585,8 +1650,21 @@ kbd {
 .solve-answer { padding: var(--s-4) var(--s-5); border-radius: var(--r-lg); border: 1px solid var(--ok); background: var(--ok-tint); }
 .solve-answer__label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--ok-ink); margin-bottom: 4px; }
 .solve-answer__value { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-xl); color: var(--ink); }
-.solve-steps { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: var(--s-2); }
+.solve-steps { margin: 12px 0 0; padding-left: 22px; display: flex; flex-direction: column; gap: var(--s-2); }
 .solve-steps li { padding-left: 4px; }
+/* The method is collapsible — the answer is already shown, so seeing the
+   working is opt-in (hide it and try to reconstruct it). */
+.solve-method { margin-top: 20px; text-align: left; border-top: 1px solid var(--line); padding-top: var(--s-4); }
+.solve-method > summary {
+  cursor: pointer; list-style: none; font-family: var(--font-display); font-weight: 700;
+  font-size: var(--fs-md); color: var(--ink); display: inline-flex; align-items: center; gap: 8px;
+}
+.solve-method > summary::-webkit-details-marker { display: none; }
+.solve-method > summary::before { content: "▸"; font-size: 11px; color: var(--ink-faint); transition: transform var(--dur-fast); }
+.solve-method[open] > summary::before { transform: rotate(90deg); }
+/* Push toward practising, not just reading the answer. */
+.solve-next { margin-top: 20px; padding: var(--s-4); border-radius: var(--r-md); background: var(--brand-tint); border: 1px solid color-mix(in srgb, var(--brand) 24%, transparent); text-align: left; }
+.solve-next__lead { margin: 0 0 var(--s-3); font-weight: 600; color: var(--ink); }
 
 /* ---------- calendar quick-add dialog ---------- */
 .quickadd { max-width: 380px; }

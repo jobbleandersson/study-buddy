@@ -5,9 +5,9 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { deltaFromAttempt } from "../lib/mastery.js";
 import { estimatedGrade, gradeRank } from "../lib/grade.js";
-import { summarizeSchedule, dueLabel } from "../lib/srs.js";
+import { summarizeSchedule, dueLabel, retentionForecast } from "../lib/srs.js";
 import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
-import { t, plural } from "../lib/i18n.js";
+import { t, plural, daysUntil } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
 import { parseCloze, clozeToUnderscores } from "../components/questions.js";
@@ -44,6 +44,18 @@ export function renderResults(attemptId) {
   const sched = isLatest && attempt.items?.length
     ? summarizeSchedule(attempt.items, store.state.srs)
     : null;
+
+  // "What you'll still remember" — the recall you'd lose without review versus
+  // the recall your schedule holds. Horizon is the days to this set's test if
+  // it has one, otherwise a fortnight.
+  const daysToTest = assignment?.dueAt && assignment.type === "test" ? daysUntil(assignment.dueAt) : null;
+  const horizonDays = daysToTest != null && daysToTest > 1 ? Math.min(30, daysToTest) : 14;
+  const forecast = isLatest && attempt.items?.length
+    ? retentionForecast(attempt.items, store.state.srs, { horizonDays })
+    : null;
+  const horizonLabel = daysToTest != null && daysToTest > 1
+    ? t("results.retentionTestDay")
+    : t("results.retentionHorizon", { n: horizonDays });
 
   const R = 74, C = 2 * Math.PI * R;
   const ringWrap = el("div.scorering");
@@ -112,6 +124,8 @@ export function renderResults(attemptId) {
         ].filter(Boolean));
       })),
     ].filter(Boolean)) : null,
+
+    retentionSection(forecast, horizonLabel),
 
     sched && sched.scheduled ? el("div", { style: { marginTop: "8px", textAlign: "left" } }, [
       el("h3", { style: { marginBottom: "8px" } }, t("results.srsTitle")),
@@ -197,6 +211,67 @@ function correctAnswerLine(q) {
     default:
       return "";
   }
+}
+
+/** "What you'll still remember" — a two-curve forgetting-curve forecast plus a
+ *  one-line reading. Null when retentionForecast() had too little to work with.
+ *  Everything here is captioned as an estimate. */
+function retentionSection(f, horizonLabel) {
+  if (!f) return null;
+  const without = Math.round(f.decayed * 100);
+  const withPlan = Math.round(f.held * 100);
+  return el("div", { style: { marginTop: "8px", textAlign: "left" } }, [
+    el("h3", { style: { marginBottom: "8px" } }, t("results.retentionTitle")),
+    retentionChart(f, horizonLabel, without, withPlan),
+    el("div.retention__legend", {}, [
+      el("span", {}, [el("i.retention__k.retention__k--without"), t("results.retentionWithout")]),
+      el("span", {}, [el("i.retention__k.retention__k--with"), t("results.retentionWith")]),
+    ]),
+    el("p.note", { style: { marginTop: "8px" } },
+      t("results.retentionLine", { when: horizonLabel, without, with: withPlan })),
+    el("p.note", {}, f.reviewsInWindow
+      ? plural(f.reviewsInWindow, "results.retentionReviewsOne", "results.retentionReviewsMany")
+      : t("results.retentionNoReviews")),
+    el("p.note.retention__cap", {}, t("results.retentionCaption")),
+  ]);
+}
+
+function retentionChart(f, horizonLabel, without, withPlan) {
+  const w = 320, h = 132, padL = 30, padR = 12, padT = 12, padB = 22;
+  const x = (frac) => padL + frac * (w - padL - padR);
+  const y = (r) => padT + (1 - r) * (h - padT - padB);
+  const curve = (end) => {
+    const pts = [];
+    for (let i = 0; i <= 12; i++) {
+      const frac = i / 12;
+      pts.push(`${x(frac).toFixed(1)},${y(f.now * Math.pow(Math.max(0.05, end) / f.now, frac)).toFixed(1)}`);
+    }
+    return pts.join(" ");
+  };
+  const dots = f.reviewFracs.map((frac) =>
+    `<circle cx="${x(frac).toFixed(1)}" cy="${y(f.now * Math.pow(Math.max(0.05, f.held) / f.now, frac)).toFixed(1)}" r="3" class="retention__dot"/>`
+  ).join("");
+  const wrap = el("div", {
+    role: "img",
+    "aria-label": t("results.retentionAria", { when: horizonLabel, without, with: withPlan }),
+  });
+  wrap.innerHTML =
+    `<svg class="retention" viewBox="0 0 ${w} ${h}">` +
+    `<line x1="${padL}" y1="${y(0.9).toFixed(1)}" x2="${w - padR}" y2="${y(0.9).toFixed(1)}" class="retention__grid"/>` +
+    `<line x1="${padL}" y1="${y(0.5).toFixed(1)}" x2="${w - padR}" y2="${y(0.5).toFixed(1)}" class="retention__grid"/>` +
+    `<text x="${padL - 5}" y="${(y(0.9) + 3).toFixed(1)}" text-anchor="end" class="retention__lab">90%</text>` +
+    `<text x="${padL - 5}" y="${(y(0.5) + 3).toFixed(1)}" text-anchor="end" class="retention__lab">50%</text>` +
+    `<text x="${padL}" y="${h - 6}" class="retention__lab">${t("results.retentionNow")}</text>` +
+    `<text x="${w - padR}" y="${h - 6}" text-anchor="end" class="retention__lab">+${f.horizonDays} d</text>` +
+    `<polyline points="${curve(f.decayed)}" class="retention__without"/>` +
+    `<polyline points="${curve(f.held)}" class="retention__with"/>` +
+    dots +
+    `</svg>`;
+  return wrap;
+}
+
+function escHtml(s) {
+  return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
 /** "3 back in a day or two · 2 back again shortly" — the same `·`-joined

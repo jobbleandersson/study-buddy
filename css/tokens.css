@@ -96,6 +96,39 @@
 :root[data-textsize="s"] body { font-size: 13px; }
 :root[data-textsize="l"] body { font-size: 17px; }
 
+/* ---------------------------------------------------------------
+   Warm paper — a light-family reading theme (parchment ground,
+   warm near-black ink) for long revision sessions. An explicit
+   choice, so prefers-color-scheme never touches it. Subject and
+   achievement colours inherit from :root; only the grounds, ink,
+   lines, the warmer "retry" amber and the shadows change.
+   --------------------------------------------------------------- */
+:root[data-theme="paper"] {
+  --canvas:        #F1E7D0;
+  --surface:       #FBF4E2;
+  --surface-sunk:  #E9DCBE;
+  --ink:           #3A3020;
+  --ink-soft:      #5C4F38;
+  --ink-faint:     #6E6046;   /* ~4.7:1 on --canvas */
+  --line:          #E2D4B2;
+  --line-strong:   #C8B588;
+
+  --brand:         #2C5CD6;
+  --brand-bright:  #3D6FE6;
+  --brand-ink:     #234BB0;
+  --brand-tint:    #E5E7F1;
+
+  --ok:            #1B7A50;  --ok-bright: #2FA36B;  --ok-ink: #1C6B45;  --ok-tint: #E3EFD8;
+  --retry:         #C8721F;  --retry-ink: #8A4E14;  --retry-tint: #F5E6CD;
+  --info:          #2E86C1;  --info-tint: #E1EDF3;
+
+  --shadow-1: 0 1px 2px rgba(78,58,28,.10), 0 4px 12px rgba(78,58,28,.09);
+  --shadow-2: 0 2px 6px rgba(78,58,28,.13), 0 14px 32px rgba(78,58,28,.16);
+  --ring: 0 0 0 3px var(--canvas), 0 0 0 6px var(--brand);
+
+  color-scheme: light;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * , *::before, *::after {
     animation-duration: .001ms !important;

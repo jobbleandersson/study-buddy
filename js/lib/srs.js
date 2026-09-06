@@ -78,6 +78,51 @@ export function summarizeSchedule(items, srs, now = Date.now()) {
   return { scheduled, firstTime, relearn, soon, later, nextRec, relearnOnly: !nextRec && relearn > 0 };
 }
 
+/**
+ * A rough recall forecast for a just-finished attempt — for the results
+ * screen's "what you'll still remember" curve. Model: one item's recall at
+ * t days ≈ 0.9^(t / interval), since the SRS interval is roughly the point
+ * where recall dips by design. `held` assumes every item due inside the
+ * window gets its scheduled review (which lengthens its interval), and is
+ * never worse than `decayed`. Deliberately an estimate — always captioned
+ * as one. Returns null with fewer than 3 scheduled items (nothing to say).
+ */
+export function retentionForecast(items, srs, { horizonDays = 14, now = Date.now() } = {}) {
+  const recs = (items || []).map((it) => srs[it.questionId]).filter(Boolean);
+  if (recs.length < 3) return null;
+
+  const H = Math.max(2, Math.min(60, Math.round(horizonDays)));
+  let decaySum = 0, holdSum = 0, reviewsInWindow = 0;
+  const reviewFracs = [];
+
+  for (const r of recs) {
+    const iv = Math.max(1, r.intervalDays || 1);
+    const decayed = Math.pow(0.9, H / iv);
+    decaySum += decayed;
+
+    const dueInDays = (r.dueAt - now) / DAY;
+    if (dueInDays <= H) {
+      reviewsInWindow++;
+      reviewFracs.push(Math.max(0, Math.min(1, dueInDays / H)));
+      const after = Math.max(0, H - Math.max(0, dueInDays));
+      holdSum += Math.pow(0.9, after / (iv * 2.2));       // fresh, then slower decay
+    } else {
+      holdSum += decayed;
+    }
+  }
+
+  const n = recs.length;
+  return {
+    scheduled: n,
+    reviewsInWindow,
+    reviewFracs: reviewFracs.sort((a, b) => a - b),
+    horizonDays: H,
+    now: 0.95,                                  // just practised
+    decayed: decaySum / n,
+    held: Math.max(decaySum, holdSum) / n,      // never below "do nothing"
+  };
+}
+
 /** A one-glance reason a question is back, from its record. "" when there's
  *  nothing worth saying (a normal, on-track review) — callers skip empties.
  *  Priority: a lapse not yet recovered is the most useful thing to flag. */

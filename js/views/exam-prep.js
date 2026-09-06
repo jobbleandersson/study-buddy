@@ -6,7 +6,8 @@
 
 import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
-import { t, plural, daysUntil } from "../lib/i18n.js";
+import { t, plural, daysUntil, getLang } from "../lib/i18n.js";
+import { localDayKey, addDays } from "../lib/activity.js";
 import { homeButton } from "../components/nav.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import {
@@ -16,6 +17,55 @@ import {
 const MOCK_LENGTHS = [20, 40, 60];
 const MOCK_COUNT = 20;
 const MOCK_MIN_QUESTIONS = 5;
+
+const PLAN_MINUTES = { drill: 25, review: 15, practice: 20, mock: 40, reviewmiss: 15, testday: 0 };
+
+/**
+ * A day-by-day study plan from today to the test — laid out from the same
+ * weak-spots / review-schedule / mastery signals the rest of the page shows.
+ * Stateless: rebuilt on every visit, so doing a session today shifts
+ * tomorrow's plan on its own. null when the test is today/past or > ~6 weeks
+ * out, or there's genuinely nothing to practise.
+ */
+function buildExamPlan({ subjectId, subjectName, sets, weak, dueCount, testSet, tm }) {
+  if (!testSet?.dueAt) return null;
+  const D = daysUntil(testSet.dueAt);
+  if (D < 1 || D > 45) return null;
+
+  const weakTopics = [...new Set(weak.map((w) => w.question.topic))].slice(0, 4);
+  const softestSets = [...sets]
+    .sort((a, b) => (masteryForAssignment(a, tm) ?? 1) - (masteryForAssignment(b, tm) ?? 1))
+    .slice(0, 3);
+
+  const rotate = [];
+  for (const topic of weakTopics) rotate.push({ kind: "drill", topic, hash: `#/practice-weak?subject=${subjectId}` });
+  if (dueCount) rotate.push({ kind: "review", n: dueCount, hash: "#/review" });
+  for (const a of softestSets) rotate.push({ kind: "practice", title: a.title, hash: `#/session/${a.id}` });
+  if (!rotate.length && sets[0]) rotate.push({ kind: "practice", title: sets[0].title, hash: `#/session/${sets[0].id}` });
+  if (!rotate.length) return null;
+
+  const today = localDayKey();
+  const rows = [];
+  let rp = 0;
+  for (let d = 0; d <= D; d++) {
+    let task;
+    if (d === D) task = { kind: "testday" };
+    else if (d === D - 1 && D >= 2) task = { kind: "reviewmiss", hash: "#/review" };
+    else if (d === D - 2 && D >= 3) task = { kind: "mock", hash: `#/national/mix/${subjectId}?exam=1&min=40&count=${MOCK_COUNT}` };
+    else { task = rotate[rp % rotate.length]; rp++; }
+    rows.push({ dayOffset: d, dayKey: addDays(today, d), minutes: PLAN_MINUTES[task.kind], ...task });
+  }
+  return rows;
+}
+
+function planDayWhen(offset, dayKey) {
+  if (offset === 0) return t("exam.planToday");
+  if (offset === 1) return t("exam.planTomorrow");
+  try {
+    return new Date(dayKey + "T00:00:00").toLocaleDateString(
+      getLang() === "sv" ? "sv-SE" : "en-GB", { weekday: "short", day: "numeric" });
+  } catch { return dayKey.slice(5); }
+}
 
 export function renderExamPrep(subjectId) {
   if (!subjectId) return renderLanding();
@@ -87,7 +137,33 @@ export function renderExamPrep(subjectId) {
 
   /* ---- weak spots ---- */
   const weak = weakSpotQuestions(sets, store.attempts);
+  const dueN = store.dueQuestions().filter((d) => d.assignment.subjectId === subjectId).length;
   const weakTopics = [...new Set(weak.map((w) => w.question.topic))].slice(0, 4);
+
+  /* ---- the plan: today → test day ---- */
+  const plan = buildExamPlan({ subjectId, subjectName: subject.name, sets, weak, dueCount: dueN, testSet, tm });
+  const planPanel = plan ? el("section.panel.exam-prep__plan", {}, [
+    el("div.exam-prep__mastery-head", {}, [
+      el("span", {}, t("exam.planTitle")),
+      el("span.exam-prep__pct", {}, plural(daysUntil(testSet.dueAt), "exam.planDaysOne", "exam.planDaysMany")),
+    ]),
+    el("p.note", { style: { margin: "2px 0 4px" } }, t("exam.planSub")),
+    el("ol.exam-prep__days", {}, plan.map((r) => {
+      const label = r.kind === "drill" ? t("exam.planDrill", { topic: r.topic })
+        : r.kind === "review" ? plural(r.n, "exam.planReviewOne", "exam.planReviewMany")
+        : r.kind === "practice" ? t("exam.planPractice", { title: r.title })
+        : r.kind === "mock" ? t("exam.planMock")
+        : r.kind === "reviewmiss" ? t("exam.planReviewMiss")
+        : t("exam.planTestDay", { subject: subject.name });
+      return el("li.exam-prep__day" + (r.dayOffset === 0 ? ".is-today" : "") + (r.kind === "testday" ? ".is-test" : ""), {}, [
+        el("span.exam-prep__day-when", {}, planDayWhen(r.dayOffset, r.dayKey)),
+        el("span.exam-prep__day-task", {}, label),
+        r.dayOffset === 0 && r.hash
+          ? el("a.btn.btn--sm", { href: r.hash }, [t("exam.planStart"), icon(ICONS.arrow, 14)])
+          : r.minutes ? el("span.exam-prep__day-min", {}, t("exam.planMin", { n: r.minutes })) : null,
+      ].filter(Boolean));
+    })),
+  ]) : null;
   const weakPanel = el("section.panel", {}, [
     el("h3", {}, t("exam.weakHeading")),
     weak.length
@@ -112,7 +188,6 @@ export function renderExamPrep(subjectId) {
   ]);
 
   /* ---- due for review ---- */
-  const dueN = store.dueQuestions().filter((d) => d.assignment.subjectId === subjectId).length;
   const duePanel = dueN
     ? el("section.panel", {}, [
         el("p", { style: { marginBottom: "8px" } }, plural(dueN, "exam.dueSrsOne", "exam.dueSrsMany")),
@@ -154,6 +229,7 @@ export function renderExamPrep(subjectId) {
       homeButton(),
       el("h1", {}, heading),
       head,
+      planPanel,
       masteryPanel,
       weakPanel,
       setsPanel,

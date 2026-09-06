@@ -125,16 +125,25 @@ export function renderSolve() {
         ].filter(Boolean)),
       ].filter(Boolean)),
 
-      r.steps.length ? el("div", { style: { marginTop: "20px", textAlign: "left" } }, [
-        el("h3", { style: { marginBottom: "8px" } }, t("solve.stepsLabel")),
+      // The method, collapsible — the answer's already visible, so seeing *how*
+      // is a choice. A student can hide it and try to reconstruct the working.
+      r.steps.length ? el("details.solve-method", { open: true }, [
+        el("summary", {}, t("solve.stepsLabel")),
         el("ol.solve-steps", {}, r.steps.map((s) => el("li", { html: renderRich(s) }))),
       ]) : null,
 
-      el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" } }, [
-        el("button.btn.btn--ghost", { type: "button", onclick: reset }, [icon(ICONS.camera, 16), t("solve.another")]),
-        el("a.btn.btn--ghost", { href: `#/create?subject=${encodeURIComponent(r.subject)}` }, t("solve.practiceMore", { subject: r.subject })),
+      // Push toward doing one, not just reading one — the point of the tool.
+      el("div.solve-next", {}, [
+        el("p.solve-next__lead", {}, t("solve.tryYourself")),
+        el("a.btn", { href: `#/create?subject=${encodeURIComponent(r.subject)}` },
+          [icon(ICONS.plus, 16), t("solve.practiseTopic")]),
+        el("p.note", { style: { margin: "8px 0 0" } }, t("solve.similarDormant")),
       ]),
-    ]);
+
+      el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "20px", flexWrap: "wrap" } }, [
+        el("button.btn.btn--ghost", { type: "button", onclick: reset }, [icon(ICONS.camera, 16), t("solve.another")]),
+      ]),
+    ].filter(Boolean));
   }
 
   paint();

@@ -13,6 +13,8 @@ import { renderQuestion } from "../components/questions.js";
 import { TutorChat } from "../components/tutor-chat.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
+import { openReadingControls } from "../components/reading-controls.js";
+import { closePopover } from "../lib/popover.js";
 import { review } from "../lib/srs.js";
 import { weakSpotQuestions, masteryByTopic } from "../lib/mastery.js";
 import { playCorrect, playWrong, playChime } from "../lib/sound.js";
@@ -687,6 +689,14 @@ function runSession(config) {
     onclick: toggleShortcuts,
   }, [icon(ICONS.keyboard, 18)]);
 
+  // Reading comfort — theme (incl. warm paper), text size, easy-read font —
+  // right where a long revision session makes you want it.
+  const readingBtn = el("button.iconbtn.readingbtn", {
+    type: "button",
+    "aria-label": t("read.title"), title: t("read.title"),
+    onclick: (e) => { e.stopPropagation(); openReadingControls(e.currentTarget); },
+  }, [icon(ICONS.type, 18)]);
+
   /* ----- optional Pomodoro focus timer ----- */
   const pomoMin = Number(store.settings.pomodoro) || 0;
   const pomoEl = el("span.pomo", { hidden: !pomoMin, title: t("session.pomoTitle") });
@@ -765,6 +775,7 @@ function runSession(config) {
         examTimer,
         pomoEl,
         badgeEl,
+        readingBtn,
         shortcutsBtn,
       ]),
     ]),
@@ -797,6 +808,7 @@ function runSession(config) {
       clearInterval(pomoTimer);
       stopExam();
       closeShortcuts();
+      closePopover();
       tutor.destroy();
     },
   };
