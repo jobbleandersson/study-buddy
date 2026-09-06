@@ -627,11 +627,15 @@ function todayPanel() {
 function continueBanner(open) {
   const answered = Object.keys(open.items || {}).length;
   const href = open.retryHash || (open.isReview ? "#/review" : `#/session/${open.assignmentId}`);
+  // Prefer the set's current title over the snapshot's — a demo/library set
+  // renamed by a language switch (e.g. "Antikens Rom – prov" → "Ancient Rome
+  // Quiz") would otherwise show its stale title here until the run finishes.
+  const title = store.getAssignment(open.assignmentId)?.title || open.title;
   return el("a.continue-banner", { href }, [
     el("span.continue-banner__ic", {}, icon(ICONS.play, 20)),
     el("span.continue-banner__body", {}, [
       el("strong", {}, t("menu.tileContinue")),
-      el("span", {}, t("menu.tileContinueSub", { title: open.title, n: answered, total: open.order.length })),
+      el("span", {}, t("menu.tileContinueSub", { title, n: answered, total: open.order.length })),
     ]),
     el("span.continue-banner__go", {}, t("menu.resumeGo")),
   ]);
