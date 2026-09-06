@@ -36,7 +36,7 @@ function open() {
 
   function go(n) {
     if (n < 0) return;
-    if (n >= slides.length) { location.hash = "#/gallery"; finish(); return; }
+    if (n >= slides.length) { location.hash = "#/library"; finish(); return; }
     i = n;
     const s = slides[i];
     body.replaceChildren(

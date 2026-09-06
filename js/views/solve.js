@@ -94,7 +94,8 @@ export function renderSolve() {
       el("label.field", { style: { marginTop: "16px" } }, [el("span", {}, t("solve.noteLabel")), noteInput]),
       state.error ? el("p.note.note--warn", { style: { marginTop: "12px" } }, state.error) : null,
       !store.hasKey() ? el("p.note.note--warn", { style: { marginTop: "16px" } }, [
-        t("create.needKey"), el("a", { href: "#/settings" }, t("create.needKeyLink")), t("create.needKeyTail"),
+        t("solve.noServerHere"),
+        el("a", { href: "#/library" }, t("solve.noServerAlt")),
       ]) : null,
       el("div", { style: { marginTop: "20px", textAlign: "center" } }, [
         el("button.btn", { type: "button", disabled: !state.image || !store.hasKey(), onclick: solve },

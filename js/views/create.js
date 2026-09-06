@@ -464,11 +464,17 @@ export function renderCreate(prefill) {
         ]),
       ]),
       err,
+      // Spell out why the button is dead — right where it's dead, not just on step 1.
+      !store.hasKey() && el("p.note.note--warn", { style: { marginBottom: "12px" } }, [
+        t("create.noServerHere") + " ",
+        el("a", { href: "#/library" }, t("create.noServerAlt")),
+        t("create.noServerTail"),
+      ]),
       el("div.nav-row", {}, [
         el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "source"; paint(); } }, t("common.back")),
         genBtn,
       ]),
-    ]);
+    ].filter(Boolean));
   }
 
   /* ---- generating ---- */

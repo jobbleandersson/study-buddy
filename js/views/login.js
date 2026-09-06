@@ -8,10 +8,14 @@ import { t } from "../lib/i18n.js";
 export function renderLogin() {
   let mode = "login"; // | "signup"
 
-  const emailInput = el("input", { type: "email", autocomplete: "email", placeholder: "you@example.com" });
-  const passInput = el("input", { type: "password", placeholder: "••••••••" });
+  // No server reachable → the whole form is inert; disable it rather than let
+  // someone fill it in and hit a network error.
+  const serverDown = !store.proxyUp;
+
+  const emailInput = el("input", { type: "email", autocomplete: "email", placeholder: "you@example.com", disabled: serverDown });
+  const passInput = el("input", { type: "password", placeholder: "••••••••", disabled: serverDown });
   const errorNote = el("p.note.note--warn", { hidden: true });
-  const submitBtn = el("button.btn", { type: "submit" }, t("login.signIn"));
+  const submitBtn = el("button.btn", { type: "submit", disabled: serverDown }, t("login.signIn"));
   const toggleBtn = el("button.btn.btn--ghost.btn--sm", { type: "button" }, "");
 
   function paintMode() {
@@ -60,9 +64,9 @@ export function renderLogin() {
     el("h1", {}, t("login.title")),
     el("section.panel", {}, [
       el("p.note", { style: { margin: "0 0 16px" } }, t("login.intro")),
+      serverDown ? el("p.note.note--warn", { style: { margin: "0 0 16px" } }, t("login.serverDown")) : null,
       form,
-    ]),
-    !store.proxyUp && el("p.note", {}, t("login.serverDown")),
+    ].filter(Boolean)),
     el("a.btn.btn--ghost", { href: "#/settings" }, [icon(ICONS.back, 16), t("login.back")]),
   ]);
 
