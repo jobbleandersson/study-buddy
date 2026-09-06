@@ -1751,8 +1751,45 @@ kbd {
 .quickadd__type:hover { background: var(--surface-sunk); }
 .quickadd__type[aria-pressed="true"] { background: var(--brand-tint); border-color: var(--brand); color: var(--brand-ink); }
 
+/* ---------- friend leaderboard ---------- */
+.lbrows { display: flex; flex-direction: column; gap: var(--s-2); }
+.lbrow {
+  display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap;
+  padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
+  background: var(--surface); border: 1px solid var(--line);
+}
+.lbrow--me { border-color: var(--brand); background: var(--brand-tint); }
+/* Same gold/silver/bronze as the achievement badges — one ranked-tier
+   visual language for the whole app. */
+.lbrank {
+  flex: none; width: 28px; height: 28px; border-radius: var(--r-full);
+  display: grid; place-items: center; font-weight: 700; font-family: var(--font-display);
+  background: var(--surface-sunk); color: var(--ink-soft); font-size: var(--fs-sm);
+}
+.lbrank--gold { background: var(--ach-gold); color: #fff; }
+.lbrank--silver { background: var(--ach-silver); color: #fff; }
+.lbrank--bronze { background: var(--ach-bronze); color: #fff; }
+.lbrow__who { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.lbrow__handle { font-weight: 700; font-family: var(--font-display); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lbrow__stats { display: flex; align-items: center; gap: var(--s-4); flex: none; }
+.lbrow__streak { display: inline-flex; align-items: center; gap: 4px; color: var(--retry-ink); font-weight: 700; font-size: var(--fs-sm); }
+.lbrow__questions { font-weight: 700; font-size: var(--fs-sm); color: var(--ink-soft); white-space: nowrap; }
+.lbcode {
+  font-size: 22px; font-weight: 700; letter-spacing: .12em; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  background: var(--surface-sunk); border: 1px dashed var(--line-strong); border-radius: var(--r-md);
+  padding: var(--s-3); text-align: center; margin: var(--s-2) 0 var(--s-3);
+}
+
+/* ---------- share card ---------- */
+.sharecard { text-align: center; position: relative; max-width: 380px; }
+.sharecard__close { position: absolute; top: var(--s-2); right: var(--s-2); }
+.sharecard__preview { width: 100%; border-radius: var(--r-md); margin: var(--s-3) 0; display: block; }
+.sharecard__actions { display: flex; gap: var(--s-3); justify-content: center; flex-wrap: wrap; }
+.achbadge__share { margin-left: auto; width: 26px; height: 26px; color: var(--ink-faint); }
+.achbadge__share:hover { color: var(--brand); }
+
 @media print {
-  .topbar, .hintfab, [data-noprint], .toast, .savebar, .achtoast, .popover { display: none !important; }
+  .topbar, .hintfab, [data-noprint], .toast, .savebar, .achtoast, .popover, .sharecard-backdrop { display: none !important; }
   body { background: #fff; color: #000; }
   .content { max-width: none; padding: 0; }
   .psheet__lines { background: none; height: 60px; border-bottom: 1px solid #999; }

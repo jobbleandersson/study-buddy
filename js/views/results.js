@@ -11,6 +11,7 @@ import { t, plural, daysUntil } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
 import { parseCloze, clozeToUnderscores } from "../components/questions.js";
+import { shareCard } from "../lib/share-card.js";
 
 export function renderResults(attemptId) {
   const attempt = store.attempts.find((a) => a.id === attemptId);
@@ -138,6 +139,17 @@ export function renderResults(attemptId) {
     ].filter(Boolean)) : null,
 
     el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" } }, [
+      el("button.btn.btn--ghost", {
+        type: "button",
+        onclick: () => shareCard({
+          tone: great ? "ok" : "brand",
+          emoji: great ? "🎉" : "📚",
+          tag: attempt.wasTest ? t("share.gradeTag") : t("share.scoreTag"),
+          headline: `${score}%`,
+          caption: heading,
+          filename: "studybuddy-result.png",
+        }),
+      }, [icon(ICONS.share, 16), t("share.shareButton")]),
       retryHash(attempt, assignment) && el("a.btn.btn--ghost", { href: retryHash(attempt, assignment) },
         t(isReview ? "results.reviewAgain" : "results.tryAgain")),
       el("a.btn.btn--ghost", { href: "#/progress" }, t("results.seeProgress")),

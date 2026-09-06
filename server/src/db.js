@@ -63,4 +63,30 @@ db.exec(`
     due_at INTEGER,
     created_at INTEGER NOT NULL
   );
+
+  -- Friendship is mutual, unlike a parent/student link — so unlike "links"
+  -- above there's no fixed direction. One row per pair under a canonical
+  -- ordering (user_a_id always the lexically smaller id), so it can be
+  -- queried with a single OR clause instead of one row per direction.
+  CREATE TABLE IF NOT EXISTS friend_links (
+    id TEXT PRIMARY KEY,
+    user_a_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    user_b_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    status TEXT NOT NULL DEFAULT 'active',
+    created_at INTEGER NOT NULL,
+    UNIQUE(user_a_id, user_b_id)
+  );
+
+  -- Same shape as invite_codes, kept separate: a code means something
+  -- different in each flow (a directional parent/student link there, a
+  -- mutual friendship here), so mixing them risked a code from one flow
+  -- being redeemable in the other.
+  CREATE TABLE IF NOT EXISTS friend_codes (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    code TEXT UNIQUE NOT NULL,
+    expires_at INTEGER NOT NULL,
+    used_at INTEGER,
+    created_at INTEGER NOT NULL
+  );
 `);

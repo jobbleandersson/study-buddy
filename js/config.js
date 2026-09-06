@@ -32,3 +32,9 @@ export const ASSIGN_URL = `${API}/api/assigned`;
 export const studentStateUrl = (studentUserId) => `${API}/api/parent/students/${studentUserId}/state`;
 export const unlinkUrl = (linkId) => `${API}/api/links/${linkId}`;
 export const clearAssignedUrl = (id) => `${API}/api/assigned/${id}`;
+
+// Friend leaderboard (mutual links, separate from the parent/student ones).
+export const FRIEND_INVITE_CODE_URL = `${API}/api/friends/invite-code`;
+export const FRIEND_REDEEM_URL = `${API}/api/friends/redeem`;
+export const FRIEND_LEADERBOARD_URL = `${API}/api/friends/leaderboard`;
+export const unfriendUrl = (linkId) => `${API}/api/friends/${linkId}`;

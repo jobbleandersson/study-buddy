@@ -26,6 +26,7 @@ import { renderSolve } from "./views/solve.js";
 import { renderReference } from "./views/reference.js";
 import { renderCalculator } from "./views/calculator.js";
 import { renderAchievements } from "./views/achievements.js";
+import { renderLeaderboard } from "./views/leaderboard.js";
 import { mountCommandPalette } from "./components/command-palette.js";
 import { maybeShowOnboarding } from "./components/onboarding.js";
 
@@ -51,6 +52,7 @@ const routes = [
   { rx: /^\/reference$/, view: () => renderReference() },
   { rx: /^\/calculator$/, view: () => renderCalculator() },
   { rx: /^\/achievements$/, view: () => renderAchievements() },
+  { rx: /^\/leaderboard$/, view: () => renderLeaderboard() },
   { rx: /^\/print\/(.+)$/, view: (m, qs) => renderPrint(m[1], qs) },
   { rx: /^\/teachback\/(.+)$/, view: (m) => renderTeachback(m[1]) },
   { rx: /^\/login$/, view: () => renderLogin() },
@@ -98,6 +100,11 @@ function navGroups() {
     { href: "#/progress", match: "/progress",  icon: ICONS.chart,     label: t("common.progress") },
     { href: "#/achievements", match: "/achievements", icon: ICONS.award, label: t("nav.achievements") },
   ];
+  // The leaderboard needs an account + the backend — only surface it once
+  // you're signed in, same as the parent view.
+  if (store.authed) {
+    track.push({ href: "#/leaderboard", match: "/leaderboard", icon: ICONS.podium, label: t("nav.leaderboard") });
+  }
   const tools = [
     { href: "#/reference",  match: "/reference",  icon: ICONS.sigma,      label: t("nav.formulas") },
     { href: "#/calculator", match: "/calculator", icon: ICONS.calculator, label: t("nav.calculator") },

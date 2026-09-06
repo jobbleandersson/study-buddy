@@ -15,6 +15,7 @@ import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 import { playFanfare } from "../lib/sound.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
+import { shareSet } from "../lib/share-set.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
 let tab = "assignment";
@@ -272,6 +273,7 @@ export function renderMenu(mode) {
         if (copy) toast(t("menu.copiedAs", { title: copy.title }));
       }),
       item(ICONS.play, t("menu.itemPrint"), () => { location.hash = `#/print/${a.id}`; }),
+      item(ICONS.share, t("menu.itemShare"), () => shareSet(a)),
       store.hasKey() && item(ICONS.spark, t("menu.itemMore"), () => { location.hash = `#/edit/${a.id}?more=1`; }),
       item(ICONS.trash, t("menu.itemDelete"), () => remove(a), true),
     ].filter(Boolean));

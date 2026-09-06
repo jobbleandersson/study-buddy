@@ -6,6 +6,7 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { ACHIEVEMENTS, MILESTONES, achievementMetrics, achievementValue } from "../lib/achievements.js";
 import { t, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
+import { shareCard, tierEmoji } from "../lib/share-card.js";
 
 export function renderAchievements() {
   const metrics = achievementMetrics(store.state);
@@ -61,12 +62,28 @@ function badge(def, metrics, unlockedMap) {
   // their own name → show that instead of a generic "Milestone" four times.
   const tierLabel = def.track ? t(`ach.tier.${def.tier}`) : t(def.nameKey);
 
+  const shareBtn = isUnlocked ? el("button.iconbtn.iconbtn--sm.achbadge__share", {
+    type: "button", "aria-label": t("share.shareButton"), title: t("share.shareButton"),
+    onclick: (e) => {
+      e.stopPropagation();
+      shareCard({
+        tone: def.track ? def.tier : "brand",
+        emoji: def.track ? tierEmoji(def.tier) : "🎯",
+        tag: t("share.badgeTag"),
+        headline: t(def.nameKey),
+        caption: t(def.descKey, { n: def.target }),
+        filename: "studybuddy-badge.png",
+      });
+    },
+  }, [icon(ICONS.share, 13)]) : null;
+
   return el(`div.achbadge.achbadge--${def.tier}` + (isUnlocked ? ".achbadge--unlocked" : ""), {}, [
     el("div.achbadge__icon", {}, icon(ICONS[def.icon] || ICONS.award, 22)),
     el("div.achbadge__body", {}, [
       el("div.achbadge__top", {}, [
         el("span.achbadge__tiername", {}, tierLabel),
         isUnlocked ? el("span.achbadge__check", {}, icon(ICONS.check, 12)) : null,
+        shareBtn,
       ].filter(Boolean)),
       el("p.achbadge__desc", {}, t(def.descKey, { n: def.target })),
       isUnlocked

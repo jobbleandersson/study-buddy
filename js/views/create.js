@@ -5,6 +5,7 @@ import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { extractPdfText, extractZipText, readImageFile, fitText } from "../material.js";
 import { parseCards, cardsToDoc } from "../lib/import.js";
+import { parseSharedSet, importSharedSet } from "../lib/share-set.js";
 import { detectSections } from "../lib/split.js";
 import { homeButton } from "../components/nav.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
@@ -288,11 +289,23 @@ export function renderCreate(prefill) {
       });
       ta.value = state.material;
       const fileInput = el("input", {
-        type: "file", accept: ".csv,.tsv,.txt,text/csv,text/plain",
+        type: "file", accept: ".csv,.tsv,.txt,.json,text/csv,text/plain,application/json",
         onchange: async (e) => {
           const f = e.target.files[0];
           if (!f) return;
-          state.material = await f.text();
+          const text = await f.text();
+          // A friend's shared set (studybuddy .json) imports straight away —
+          // it's already questions, no parsing needed.
+          try {
+            const doc = parseSharedSet(text);
+            if (doc) {
+              const a = importSharedSet(doc);
+              toast(t("create.sharedSetAdded", { title: a.title }));
+              location.hash = `#/edit/${a.id}`;
+              return;
+            }
+          } catch (err) { toast(err.message); return; }
+          state.material = text;
           ta.value = state.material;
           refresh();
         },
