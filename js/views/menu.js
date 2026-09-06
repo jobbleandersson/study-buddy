@@ -447,33 +447,33 @@ export function renderMenu(mode) {
     ...libraryUI,
   ]);
 
+  // Greeting + the Solve / Library / New-set shortcuts. Sits *below* the
+  // "Idag" panel now — a returning user sees their status (continue, due,
+  // streak) first, then the ways to add material.
+  const homeHead = el("div.home__head", {}, [
+    el("div", {}, [
+      el("h1", {}, greeting()),
+      el("p.home__hi", {}, store.hasKey() ? t("menu.subHasKey") : t("menu.subNoKey")),
+    ]),
+    // Solve first, New-set last (the primary). In demo mode a Library
+    // shortcut slots in between rather than jumping the queue.
+    el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [
+      el("a.btn.btn--ghost", { href: "#/solve" }, [icon(ICONS.camera, 18), t("menu.solveLink")]),
+      !store.hasKey() && el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
+      el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
+    ].filter(Boolean)),
+  ]);
+
   // Right-hand rail: upcoming deadlines (calendar) + an achievements teaser.
   // Nothing to show yet (fresh library, everything unlocked with no next
   // badge) → no rail, and the layout falls back to one column.
   const rail = homeRail();
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
-    el("div.home-main", {}, [todayPanel(), setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [todayPanel(), homeHead, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 
-  const node = el("div", {}, [
-    el("div.home__head", {}, [
-      el("div", {}, [
-        el("h1", {}, greeting()),
-        el("p.home__hi", {}, store.hasKey() ? t("menu.subHasKey") : t("menu.subNoKey")),
-      ]),
-      // Solve first, New-set last (the primary) — unchanged. In demo mode a
-      // Library shortcut slots in between rather than jumping the queue.
-      el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [
-        el("a.btn.btn--ghost", { href: "#/solve" }, [icon(ICONS.camera, 18), t("menu.solveLink")]),
-        !store.hasKey() && el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
-        el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
-      ].filter(Boolean)),
-    ]),
-    layout,
-  ].filter(Boolean));
-
-  return { title: t("menu.title"), node, cleanup: menuCleanup };
+  return { title: t("menu.title"), node: layout, cleanup: menuCleanup };
 }
 
 /** The right-hand rail on the home page: a mini calendar + Upcoming list
