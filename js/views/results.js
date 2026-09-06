@@ -10,7 +10,7 @@ import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
 import { t, plural } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
-import { parseCloze } from "../components/questions.js";
+import { parseCloze, clozeToUnderscores } from "../components/questions.js";
 
 export function renderResults(attemptId) {
   const attempt = store.attempts.find((a) => a.id === attemptId);
@@ -104,8 +104,9 @@ export function renderResults(attemptId) {
         t("results.tutorSatOut")) : null,
       el("div.delta-list.delta-list--review", {}, wrongEntries.map(({ question: q }) => {
         const answerHtml = correctAnswerLine(q);
+        const promptText = q.kind === "cloze" ? clozeToUnderscores(q.prompt) : q.prompt;
         return el("div.delta.delta--review", {}, [
-          el("span.delta__prompt", { html: renderRich(q.prompt.length > 90 ? q.prompt.slice(0, 90) + "…" : q.prompt) }),
+          el("span.delta__prompt", { html: renderRich(promptText.length > 90 ? promptText.slice(0, 90) + "…" : promptText) }),
           answerHtml ? el("p.delta__answer", {}, [el("strong", {}, t("results.correctAnswerLabel")), " ", el("span", { html: answerHtml })]) : null,
           q.explanation ? el("p.delta__explain", { html: renderRich(q.explanation) }) : null,
         ].filter(Boolean));
@@ -186,7 +187,11 @@ function correctAnswerLine(q) {
     case "mc":
       return Array.isArray(q.choices) && q.choices[q.answer] != null ? renderRich(q.choices[q.answer]) : "";
     case "cloze":
-      return parseCloze(q.prompt).filter((p) => p.blank).map((b) => renderRich(b.blank[0])).join(", ");
+      // The whole sentence, with each blank filled in and emphasised — reads
+      // better than a bare list of the missing words.
+      return parseCloze(q.prompt)
+        .map((p) => (p.blank ? `<strong>${renderRich(p.blank[0])}</strong>` : renderRich(p.text)))
+        .join("");
     case "text": case "worked": case "flashcard":
       return q.answer ? renderRich(q.answer) : "";
     default:

@@ -608,7 +608,8 @@ function todayPanel() {
   const pills = [];
   if (showGoal) pills.push(goalPill(goal));
   if (due) pills.push(statPill("#/review", ICONS.spark, t("menu.tileDue", { n: due }), "pill--due"));
-  if (weak) pills.push(statPill("#/practice-weak", ICONS.target, t("menu.tileWeak"), "pill--weak"));
+  if (weak) pills.push(statPill("#/practice-weak", ICONS.target,
+    plural(weak, "menu.tileWeakOne", "menu.tileWeakMany"), "pill--weak"));
   if (streak > 0) pills.push(statPill("#/progress", ICONS.flame,
     plural(streak, "menu.tileStreakOne", "menu.tileStreak"), "pill--streak"));
 
@@ -618,11 +619,13 @@ function todayPanel() {
       }, [icon(ICONS.calendar, 15), t("menu.upcomingCount", { n: upcoming.length })])
     : null;
 
+  // Order by what a returning student acts on: resume first, then what's due /
+  // the streak, and the week's reflection last (it's read once, not clicked).
   return el("section.home-panel.home-panel--today", {}, [
     el("div.home-panel__label", {}, [el("span", {}, t("menu.panelToday")), kommandeBtn].filter(Boolean)),
-    recap,
     open ? continueBanner(open) : null,
     pills.length ? el("div.pillrow", {}, pills) : null,
+    recap,
   ].filter(Boolean));
 }
 
@@ -658,7 +661,7 @@ function goalPill(goal) {
   if (hit) store.markGoalReached() && playFanfare();
   return el("a.pill.pill--goal", { href: "#/progress" }, [
     goalRing(done, goal),
-    el("span", {}, hit ? t("menu.goalDone") : t("menu.goalToday", { done, goal })),
+    el("span", {}, hit ? t("menu.goalDone", { done }) : t("menu.goalToday", { done, goal })),
   ]);
 }
 

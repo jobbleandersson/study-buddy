@@ -132,11 +132,25 @@ export function achievementValue(def, state, metrics = achievementMetrics(state)
   return Math.min(raw, def.target);
 }
 
-/** The first locked badge in list order, with its live progress — for the
- *  Progress / home "next up" teasers. null once everything is unlocked. */
+/** The locked badge you're *closest* to earning — highest progress ratio, not
+ *  first in list order — for the Progress / home "next up" teasers. A nudge
+ *  toward a badge that's 3% done isn't a nudge. All-or-nothing milestones have
+ *  no partial progress to be "close" on, so they're only the answer when every
+ *  other badge is unlocked. null once everything is unlocked. */
 export function nextAchievement(state) {
   const metrics = achievementMetrics(state);
   const unlocked = state.achievements || {};
+
+  let best = null, bestRatio = -1;
+  for (const def of ACHIEVEMENTS) {
+    if (def.id in unlocked || def.binary) continue;
+    const have = achievementValue(def, state, metrics);
+    const ratio = def.target ? have / def.target : 0;
+    if (ratio > bestRatio) { bestRatio = ratio; best = { def, have, need: def.target }; }
+  }
+  if (best) return best;
+
+  // Only binary milestones left — fall back to the first still locked.
   for (const def of ACHIEVEMENTS) {
     if (def.id in unlocked) continue;
     return { def, have: achievementValue(def, state, metrics), need: def.target };

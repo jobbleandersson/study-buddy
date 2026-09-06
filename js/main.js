@@ -121,8 +121,8 @@ function navActive(match) {
 /** The narrow-screen ⋮ menu — the same nav as the desktop sidebar.
  *  Closes on outside click, Esc, or navigation. */
 function topOverflowMenu() {
-  const list = el("div.topmenu__list", { role: "menu", hidden: true },
-    navGroups().flatMap((g, gi) => [
+  const list = el("div.topmenu__list", { role: "menu", hidden: true }, [
+    ...navGroups().flatMap((g, gi) => [
       g.label
         ? el("p.topmenu__group", { role: "presentation" }, g.label)
         : gi > 0 ? el("div.topmenu__div", { role: "presentation" }) : null,
@@ -130,7 +130,17 @@ function topOverflowMenu() {
         href: it.href, role: "menuitem",
         "aria-current": navActive(it.match) ? "page" : null,
       }, [icon(it.icon, 16), it.label])),
-    ].filter(Boolean)));
+    ].filter(Boolean)),
+    // The sidebar's theme switcher has no home on mobile (no sidebar) — so it
+    // lives here, in the ⋮ menu, rather than only in Settings. Language keeps
+    // its own topbar button; the streak shows in the topbar badge and the
+    // "Idag" panel — so this footer is theme only.
+    el("div.topmenu__div", { role: "presentation" }),
+    el("div.topmenu__foot", { role: "presentation" }, [
+      el("p.topmenu__group", { role: "presentation" }, t("set.theme")),
+      themePicker(),
+    ]),
+  ]);
 
   const btn = el("button.iconbtn", {
     type: "button", "aria-haspopup": "menu", "aria-expanded": "false",

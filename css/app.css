@@ -233,6 +233,11 @@ a.streakbadge:hover {
 }
 .topmenu__list > .topmenu__group:first-child { margin-top: 2px; }
 .topmenu__div { height: 1px; margin: 6px 10px; background: var(--line); }
+/* Theme switcher tucked in the ⋮ menu's footer — the sidebar carries it on
+   desktop, but there's no sidebar on mobile. */
+.topmenu__foot { padding: 2px 10px 6px; }
+.topmenu__foot .topmenu__group { margin: 4px 0 6px; }
+.topmenu__foot .sidebar__theme { width: 100%; }
 
 @media (max-width: 560px) {
   .topbar__inner { gap: var(--s-2); padding-left: var(--s-3); padding-right: var(--s-3); }
@@ -606,6 +611,10 @@ a.next-test--soon { border-color: var(--retry); background: var(--retry-tint); }
 .ring--goal { width: 34px; height: 34px; }
 .ring--goal .ring__fg { stroke: var(--brand); }
 .ring--goal .ring__label { font-size: 13px; fill: var(--ink); }
+/* Goal met: full ring goes green and the count is replaced by a check (the
+   number moves to the label beside the ring). */
+.ring--goal-done .ring__fg { stroke: var(--ok); }
+.ring--goal .ring__check { stroke: var(--ok); }
 .tile--goal .ring { flex: none; }
 
 /* ---------- calendar (js/components/calendar.js) ---------- */
@@ -933,6 +942,23 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 }
 .libcard__title { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-md); }
 .libcard__foot { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); flex-wrap: wrap; }
+/* An already-added set: clear "in your library" state + Study as the primary. */
+.libcard--added { border-color: color-mix(in srgb, var(--ok-bright) 38%, var(--line)); }
+.libcard__added { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-sm); font-weight: 700; color: var(--ok-ink); }
+.libcard__added svg { flex: none; }
+.libcard__count { font-weight: 400; color: var(--ink-faint); }
+/* "Exam-mode options" disclosure above the set grid. */
+.libexam { margin-top: var(--s-3); }
+.libexam summary, .set-ai-how summary {
+  cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 600; font-size: var(--fs-sm); color: var(--ink-soft);
+}
+.libexam summary::-webkit-details-marker, .set-ai-how summary::-webkit-details-marker { display: none; }
+.libexam summary::before, .set-ai-how summary::before {
+  content: "▸"; font-size: 10px; color: var(--ink-faint); transition: transform var(--dur-fast);
+}
+.libexam[open] summary::before, .set-ai-how[open] summary::before { transform: rotate(90deg); }
+.libexam summary svg { flex: none; }
 
 /* first-run walkthrough */
 .onb .modal__card { max-width: 400px; text-align: center; position: relative; }
@@ -970,6 +996,9 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   font-size: 18px; line-height: 1; color: var(--ink-faint); padding: 2px 4px;
 }
 .recap__x:hover { color: var(--ink); }
+/* In the "Idag" panel the recap sits last now — after the resume banner and
+   the stat pills — so it needs a top gap, not a bottom one. */
+.home-panel--today > .recap { margin: var(--s-3) 0 0; }
 
 .nav-row { display: flex; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
 
@@ -1092,6 +1121,9 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .meter { display: grid; grid-template-columns: 120px 1fr 44px 26px; align-items: center; gap: var(--s-3); padding: var(--s-2) 0; }
 .meter__track { height: 10px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
 .meter__fill { height: 100%; border-radius: inherit; background: var(--subject, var(--brand)); transition: width var(--dur-slow) var(--ease-out); }
+/* "A long-term measure — your last result was X%" under a subject's meter, so
+   the mastery % doesn't read as contradicting a recent test score. */
+.meter__context { margin: 2px 0 6px; font-size: 12px; color: var(--ink-faint); }
 .due-list { display: flex; flex-direction: column; gap: var(--s-2); }
 .due-item { display: flex; justify-content: space-between; gap: var(--s-3); padding: var(--s-3) var(--s-4); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
 .due-item__main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
@@ -1142,6 +1174,13 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .exam-prep__pick-pct { flex: none; font-weight: 700; color: var(--ink-soft); }
 .exam-prep__pick-card svg { flex: none; color: var(--ink-faint); }
 
+/* Subject % sits in the heading; the body is a per-topic breakdown, weakest
+   first — one whole-subject bar isn't much to prep from. */
+.exam-prep__mastery-head { display: flex; align-items: baseline; gap: var(--s-2); flex-wrap: wrap; }
+.exam-prep__pct { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-md); color: var(--ink-soft); }
+.exam-prep__topics { display: flex; flex-direction: column; gap: 2px; margin-top: var(--s-2); }
+.exam-prep__topics .meter { grid-template-columns: minmax(88px, 42%) 1fr 44px; }
+
 /* ---------- create flow ---------- */
 .steps { display: flex; gap: var(--s-2); margin-bottom: var(--s-5); flex-wrap: wrap; }
 .step { font-size: var(--fs-sm); font-weight: 700; color: var(--ink-faint); display: flex; align-items: center; gap: 6px; }
@@ -1185,6 +1224,16 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .settings__row .field { margin-bottom: 0; }
 .settings__row + .note { margin-top: var(--s-3); }
 .settings__row + .note + .note { margin-top: var(--s-2); }
+
+/* Each control with its own help text directly beneath it — one field per
+   grid cell — instead of a row of controls and a clump of notes under them. */
+.settings__fields {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--s-4) var(--s-5); align-items: start; margin-top: var(--s-3);
+}
+.settings__fields .field { margin-bottom: 0; }
+.panel > .note + .settings__fields { margin-top: var(--s-3); }
+.field__note { margin-top: var(--s-2); }
 
 /* Sub-heading inside a merged panel: a hairline rule carries the grouping so
    the panel does not need to become two panels again. */

@@ -182,8 +182,11 @@ export async function renderLibrary() {
             missing.length ? addAllBtn : el("span.note", { style: { alignSelf: "center" } }, t("lib.allAdded")),
           ].filter(Boolean)),
         ]),
-        el("label.field", { style: { maxWidth: "220px", margin: "8px 0 0" } }, [
-          el("span", {}, t("lib.examLenLabel")), examSel,
+        el("details.libexam", {}, [
+          el("summary", {}, [icon(ICONS.clock, 14), t("lib.examOptions")]),
+          el("label.field", { style: { maxWidth: "220px", margin: "10px 0 0" } }, [
+            el("span", {}, t("lib.examLenLabel")), examSel,
+          ]),
         ]),
         el("div.libgrid", {}, sets.map(setCard)),
       ]),
@@ -192,9 +195,13 @@ export async function renderLibrary() {
 
   function setCard(entry) {
     const imported = isImported(entry.id);
+    const count = plural(entry.count, "common.questionOne", "common.questionMany");
 
+    // Added → "Study" is the primary action; "Exam mode" is the secondary.
+    // Not added → "Add" is primary, and exam mode isn't offered yet (it needs
+    // the set in the library).
     const action = imported
-      ? el("a.btn.btn--ghost.btn--sm", { href: `#/session/${entry.id}` }, [icon(ICONS.play, 16), t("lib.study")])
+      ? el("a.btn.btn--sm", { href: `#/session/${entry.id}` }, [icon(ICONS.play, 16), t("lib.study")])
       : el("button.btn.btn--sm", {
           type: "button",
           onclick: async (e) => {
@@ -210,8 +217,6 @@ export async function renderLibrary() {
           },
         }, [icon(ICONS.plus, 16), t("lib.add")]);
 
-    // Exam conditions: locked tutor, no answer key until the end, on a clock —
-    // only offered once the set is in the library.
     const examAction = imported
       ? el("button.btn.btn--ghost.btn--sm", {
           type: "button", title: t("lib.examTip"),
@@ -219,14 +224,16 @@ export async function renderLibrary() {
         }, [icon(ICONS.clock, 16), t("lib.exam")])
       : null;
 
-    return el("div.libcard", {}, [
+    return el("div.libcard" + (imported ? ".libcard--added" : ""), {}, [
       el("div", {}, [
         el("div.libcard__title", {}, setTitle(entry)),
         el("p.note", { style: { margin: "4px 0 0" } }, setSummary(entry)),
       ]),
       el("div.libcard__foot", {}, [
-        el("span.note", {}, plural(entry.count, "common.questionOne", "common.questionMany")),
-        el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap" } }, [examAction, action].filter(Boolean)),
+        imported
+          ? el("span.libcard__added", {}, [icon(ICONS.check, 14), t("lib.addedTag"), el("span.libcard__count", {}, ` · ${count}`)])
+          : el("span.note", {}, count),
+        el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap" } }, [action, examAction].filter(Boolean)),
       ]),
     ]);
   }

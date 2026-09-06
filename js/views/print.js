@@ -5,7 +5,7 @@
 import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
-import { parseCloze } from "../components/questions.js";
+import { parseCloze, clozeToUnderscores } from "../components/questions.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 
@@ -62,14 +62,11 @@ export function renderPrint(id) {
 
   function promptText(q) {
     const span = el("span");
-    span.innerHTML = renderRich(q.kind === "cloze" ? clozeToUnderscores(q.prompt) : q.prompt);
+    span.innerHTML = renderRich(q.kind === "cloze" ? clozeToUnderscores(q.prompt, "________") : q.prompt);
     return span;
   }
 }
 
-function clozeToUnderscores(prompt) {
-  return parseCloze(prompt).map((p) => (p.blank ? "________" : p.text)).join("");
-}
 function subjectName(a) {
   return store.subjects.find((s) => s.id === a.subjectId)?.name || "";
 }

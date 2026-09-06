@@ -55,20 +55,34 @@ export function renderExamPrep(subjectId) {
       : el("p.note", {}, `${t("exam.noDate")} ${t("exam.setDateHint")}`),
   ]);
 
-  /* ---- where you stand ---- */
+  /* ---- where you stand: subject % in the heading, a per-topic breakdown
+     below (weakest first — that's what prep should point at) ---- */
   const m = masteryForSubject(subjectId, store.assignments, tm);
   const pct = m == null ? null : Math.round(m * 100);
+  const topicRows = [...new Set(
+    sets.flatMap((a) => (a.questions || []).map((q) => q.topic).filter(Boolean))
+  )]
+    .map((topic) => ({ topic, mv: tm[topic] }))
+    .filter((r) => r.mv != null)
+    .sort((a, b) => a.mv - b.mv);
+
   const masteryPanel = el("section.panel", {}, [
-    el("h3", {}, t("exam.masteryHeading", { subject: subject.name })),
-    m == null
-      ? el("p.note", {}, t("exam.masteryUnknown"))
-      : el("div.meter", {}, [
-          el("span", {}, subject.name),
-          el("div.meter__track", {
-            role: "img", "aria-label": t("prog.masteryAria", { subject: subject.name, pct }),
-          }, [el("div.meter__fill", { style: { width: `${pct}%`, "--subject": color.solid } })]),
-          el("span.tabular", { style: { textAlign: "right", fontWeight: "700" } }, `${pct}%`),
-        ]),
+    el("h3.exam-prep__mastery-head", {}, [
+      el("span", {}, t("exam.masteryHeading", { subject: subject.name })),
+      pct != null ? el("span.exam-prep__pct", {}, `${pct}%`) : null,
+    ].filter(Boolean)),
+    topicRows.length
+      ? el("div.exam-prep__topics", {}, topicRows.map(({ topic, mv }) => {
+          const tp = Math.round(mv * 100);
+          return el("div.meter", {}, [
+            el("span", { style: { textTransform: "capitalize" } }, topic),
+            el("div.meter__track", {
+              role: "img", "aria-label": t("prog.masteryAria", { subject: topic, pct: tp }),
+            }, [el("div.meter__fill", { style: { width: `${tp}%`, "--subject": color.solid } })]),
+            el("span.tabular", { style: { textAlign: "right", fontWeight: "700" } }, `${tp}%`),
+          ]);
+        }))
+      : el("p.note", {}, t("exam.masteryUnknown")),
   ]);
 
   /* ---- weak spots ---- */

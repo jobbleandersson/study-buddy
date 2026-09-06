@@ -42,6 +42,18 @@ export function parseCloze(prompt) {
   return parts;
 }
 
+/**
+ * A cloze prompt rendered for a *preview* context — results, the review list,
+ * a printed worksheet — where the blanks aren't fillable and raw `{{ }}` must
+ * never leak out. Each blank becomes `fill` ("____" by default). Non-cloze
+ * text passes straight through.
+ */
+export function clozeToUnderscores(prompt, fill = "____") {
+  const src = String(prompt || "");
+  if (!src.includes("{{")) return src;
+  return parseCloze(src).map((p) => (p.blank ? fill : p.text)).join("");
+}
+
 function shell(question, body, { showPrompt = true } = {}) {
   return el("div.question", {}, [
     showPrompt && el("div.question__prompt", { html: renderRich(question.prompt) }),

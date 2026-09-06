@@ -3,6 +3,7 @@
 import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
+import { clozeToUnderscores } from "../components/questions.js";
 import { masteryByTopic, masteryForSubject } from "../lib/mastery.js";
 import { dueLabel, reviewReason } from "../lib/srs.js";
 import { localDayKey, recentDays, questionsAnsweredToday, reviewAccuracyTrend } from "../lib/activity.js";
@@ -44,6 +45,18 @@ export function renderProgress() {
   const answeredToday = questionsAnsweredToday(store.attempts);
 
   // ---- mastery meters ----
+  // The most recent real per-set attempt for each subject — shown as a
+  // one-off score next to the long-term mastery %, so "69%" doesn't read as a
+  // contradiction of the 88% the student just got on the test.
+  const lastScoreBySubject = {};
+  for (const at of store.attempts) {
+    if (!at.items?.length) continue;
+    const sid = store.getAssignment(at.assignmentId)?.subjectId;
+    if (!sid) continue;
+    const prev = lastScoreBySubject[sid];
+    if (!prev || (at.finishedAt || 0) > (prev.finishedAt || 0)) lastScoreBySubject[sid] = at;
+  }
+
   const subjectMeters = store.subjects
     .map((s) => ({ s, m: masteryForSubject(s.id, store.assignments, tm) }))
     .filter((x) => x.m != null)
@@ -62,15 +75,20 @@ export function renderProgress() {
           title: t("prog.gradeTooltip", { letter: grade.letter }),
         }, grade.letter),
       ]);
+      const extras = [];
+      const last = lastScoreBySubject[s.id];
+      if (last) {
+        extras.push(el("p.note.meter__context", {},
+          t("prog.masteryVsScore", { score: last.scorePct })));
+      }
       // A near-mastered subject earns a victory lap: explain it back.
       if (m >= 0.8) {
-        return el("div", { style: { padding: "2px 0" } }, [
-          meter,
-          el("a.linkbtn", { href: `#/teachback/${s.id}`, style: { fontSize: "var(--fs-sm)" } },
-            [icon(ICONS.spark, 13), " ", t("teach.tile")]),
-        ]);
+        extras.push(el("a.linkbtn", { href: `#/teachback/${s.id}`, style: { fontSize: "var(--fs-sm)" } },
+          [icon(ICONS.spark, 13), " ", t("teach.tile")]));
       }
-      return meter;
+      return extras.length
+        ? el("div", { style: { padding: "2px 0" } }, [meter, ...extras])
+        : meter;
     });
 
   // ---- due for review ----
@@ -94,7 +112,7 @@ export function renderProgress() {
         ].filter(Boolean)),
         goal > 0 && el("span", { style: { display: "flex", alignItems: "center", gap: "8px", color: "var(--ink-soft)", fontSize: "var(--fs-sm)", fontWeight: "700" } }, [
           goalRing(answeredToday, goal),
-          answeredToday >= goal ? t("menu.goalDone") : t("menu.goalToday", { done: answeredToday, goal }),
+          answeredToday >= goal ? t("menu.goalDone", { done: answeredToday }) : t("menu.goalToday", { done: answeredToday, goal }),
         ]),
       ].filter(Boolean)),
       atRisk && el("p.note.note--warn", { style: { marginBottom: "10px" } }, t("streak.atRisk", { n: displayStreak })),
@@ -169,7 +187,10 @@ export function renderProgress() {
               const why = reviewReason(rec);
               return el("div.due-item", {}, [
                 el("div.due-item__main", {}, [
-                  el("span", { html: renderRich(question.prompt.length > 80 ? question.prompt.slice(0, 80) + "…" : question.prompt) }),
+                  el("span", { html: renderRich((() => {
+                    const p = question.kind === "cloze" ? clozeToUnderscores(question.prompt) : question.prompt;
+                    return p.length > 80 ? p.slice(0, 80) + "…" : p;
+                  })()) }),
                   why ? el("span.due-item__why", {}, why) : null,
                 ].filter(Boolean)),
                 el("span", { style: { display: "flex", gap: "8px", flex: "none", alignItems: "center" } }, [

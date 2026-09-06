@@ -5,9 +5,8 @@ import { store } from "../store.js";
 import { el, clear, toast, icon, ICONS, downloadText } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
 import { PRESETS, DEFAULT_PRESET } from "../claude.js";
-import { THEMES, getTheme, setTheme } from "../lib/theme.js";
 import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
-import { LANGS, getLang, setLang, t, plural } from "../lib/i18n.js";
+import { t, plural } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { playFanfare } from "../lib/sound.js";
@@ -15,12 +14,10 @@ import { playFanfare } from "../lib/sound.js";
 export function renderSettings() {
   const s = store.settings;
 
-  /* ---------------- appearance ---------------- */
-  const themeSel = el("select", { "aria-label": t("set.theme") },
-    THEMES.map(([v]) => opt(v, t(`set.theme${v[0].toUpperCase()}${v.slice(1)}`))));
-  themeSel.value = getTheme();
-  themeSel.addEventListener("change", () => { setTheme(themeSel.value); toast(t("set.themeUpdated")); });
-
+  /* ---------------- appearance ----------------
+   * Theme + language live in the sidebar footer (and the ⋮ menu on mobile) —
+   * not duplicated here. This panel keeps font, text size, sound and the
+   * daily goal. */
   const fontSel = el("select", { "aria-label": t("set.font") }, [
     opt("system", t("set.fontSystem")),
     opt("hyperlegible", t("set.fontHyperlegible")),
@@ -35,17 +32,6 @@ export function renderSettings() {
   ]);
   sizeSel.value = getTextSize();
   sizeSel.addEventListener("change", () => { setTextSize(sizeSel.value); toast(t("set.saved")); });
-
-  const langSel = el("select", { "aria-label": t("set.language") },
-    LANGS.map(([v, label]) => opt(v, label)));
-  langSel.value = getLang();
-  // setLang fires sb:langchange, which re-renders the whole app — so the toast
-  // has to be queued after that render, not before it.
-  langSel.addEventListener("change", () => {
-    const chosen = langSel.value;
-    setLang(chosen);
-    setTimeout(() => toast(t("set.langUpdated")), 0);
-  });
 
   /* ---------------- model preset ---------------- */
   const presetHint = el("p.note", { style: { marginTop: "6px" } });
@@ -164,56 +150,40 @@ export function renderSettings() {
     : !store.proxyKeyConfigured ? t("set.serverNoKey")
     : t("set.serverLive");
 
+  // One field + its own help text directly beneath it, rather than a row of
+  // controls with all the notes clumped underneath.
+  const noted = (labelKey, control, noteKey) => el("label.field", {}, [
+    el("span", {}, t(labelKey)),
+    control,
+    noteKey ? el("p.note.field__note", {}, typeof noteKey === "function" ? noteKey() : t(noteKey)) : null,
+  ].filter(Boolean));
+
   const node = el("div.settings", {}, [
     homeButton({ grid: true }),
     el("h1", {}, t("set.title")),
 
     el("section.panel", {}, [
       el("h3", {}, t("set.lookFeel")),
-      el("div.settings__row", {}, [
-        el("label.field", {}, [el("span", {}, t("set.theme")), themeSel]),
-        el("label.field", {}, [el("span", {}, t("set.language")), langSel]),
-        el("label.field", {}, [el("span", {}, t("set.sound")), soundSel]),
-        el("label.field", {}, [el("span", {}, t("set.dailyGoal")), goalInput]),
-        el("label.field", {}, [el("span", {}, t("set.font")), fontSel]),
-        el("label.field", {}, [el("span", {}, t("set.textSize")), sizeSel]),
+      el("p.note", {}, t("set.appearanceElsewhere")),
+      el("div.settings__fields", {}, [
+        noted("set.sound", soundSel, "set.soundNote"),
+        noted("set.dailyGoal", goalInput, "set.dailyGoalNote"),
+        noted("set.font", fontSel),
+        noted("set.textSize", sizeSel),
       ]),
-      el("p.note", {}, t("set.languageNote")),
-      el("p.note", {}, t("set.soundNote")),
-      el("p.note", {}, t("set.dailyGoalNote")),
     ]),
 
     el("section.panel", {}, [
       el("h3", {}, t("set.studying")),
-      el("div.settings__row", {}, [
-        el("label.field", {}, [el("span", {}, t("set.testHints")), hintsSel]),
-        el("label.field", {}, [el("span", {}, t("set.adaptive")), adaptiveSel]),
-        el("label.field", {}, [el("span", {}, t("set.pomodoro")), pomoSel]),
-        el("label.field", {}, [el("span", {}, t("set.voice")), voiceSel]),
+      el("div.settings__fields", {}, [
+        noted("set.testHints", hintsSel, "set.testHintsNote"),
+        noted("set.adaptive", adaptiveSel, "set.adaptiveNote"),
+        noted("set.pomodoro", pomoSel, "set.pomodoroNote"),
+        noted("set.voice", voiceSel, voiceSupported ? "set.voiceNote" : "set.voiceUnsupported"),
       ]),
-      el("p.note", {}, t("set.testHintsNote")),
-      el("p.note", {}, t("set.adaptiveNote")),
-      el("p.note", {}, t("set.pomodoroNote")),
-      el("p.note", {}, voiceSupported ? t("set.voiceNote") : t("set.voiceUnsupported")),
     ]),
 
-    el("section.panel", {}, [
-      el("h3", {}, t("set.aiTitle")),
-
-      el("h4.settings__sub", {}, t("set.serverTitle")),
-      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.serverBody")),
-      el("p.note", { style: { display: "flex", alignItems: "center", gap: "8px" } }, [
-        el("span.dot", { style: { background: store.hasKey() ? "var(--ok)" : "var(--retry-ink)" } }),
-        serverStatus,
-      ]),
-
-      el("h4.settings__sub", {}, t("set.modelTitle")),
-      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.modelIntro")),
-      el("label.field", { style: { marginBottom: "6px" } }, [el("span", {}, t("set.qualityCost")), presetSel]),
-      el("div", { id: "preset-hint" }, [presetHint]),
-      presetDetail,
-      el("label.field", { style: { marginTop: "16px", marginBottom: "0" } }, [el("span", {}, t("set.replyLength")), verbSel]),
-    ]),
+    aiSection(),
 
     accountSection(),
 
@@ -230,6 +200,43 @@ export function renderSettings() {
 
     el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), t("common.backToMenu")]),
   ]);
+
+  /* ---------------- AI ----------------
+   * With no tutor server there's nothing to configure and no cost, so the
+   * whole model/price panel collapses to one status line plus a "how to
+   * connect" disclosure. The full picker only appears once a server + key
+   * are actually reachable. */
+  function aiSection() {
+    if (!store.hasKey()) {
+      return el("section.panel", {}, [
+        el("h3", {}, t("set.aiTitle")),
+        el("p.note", { style: { display: "flex", alignItems: "center", gap: "8px", margin: "6px 0 10px" } }, [
+          el("span.dot", { style: { background: "var(--ink-faint)" } }),
+          serverStatus,
+        ]),
+        el("p.note", {}, t("set.aiDormant")),
+        el("details.set-ai-how", { style: { marginTop: "12px" } }, [
+          el("summary", {}, t("set.aiHowConnect")),
+          el("p.note", { style: { margin: "8px 0 0" } }, t("set.serverBody")),
+        ]),
+      ]);
+    }
+    return el("section.panel", {}, [
+      el("h3", {}, t("set.aiTitle")),
+      el("h4.settings__sub", {}, t("set.serverTitle")),
+      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.serverBody")),
+      el("p.note", { style: { display: "flex", alignItems: "center", gap: "8px" } }, [
+        el("span.dot", { style: { background: "var(--ok)" } }),
+        serverStatus,
+      ]),
+      el("h4.settings__sub", {}, t("set.modelTitle")),
+      el("p.note", { style: { margin: "6px 0 12px" } }, t("set.modelIntro")),
+      el("label.field", { style: { marginBottom: "6px" } }, [el("span", {}, t("set.qualityCost")), presetSel]),
+      el("div", { id: "preset-hint" }, [presetHint]),
+      presetDetail,
+      el("label.field", { style: { marginTop: "16px", marginBottom: "0" } }, [el("span", {}, t("set.replyLength")), verbSel]),
+    ]);
+  }
 
   function demoSection() {
     const status = el("p.note", { style: { margin: "6px 0 12px" } });
