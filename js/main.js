@@ -76,23 +76,38 @@ function nextLang() {
   return codes[(codes.indexOf(getLang()) + 1) % codes.length];
 }
 
-/** The full app nav, in reading order. Used by the desktop sidebar and the
- *  mobile ⋮ menu alike, so the two never drift. */
-function navItems() {
-  const items = [
-    { href: "#/",        match: "/",         icon: ICONS.home,      label: t("nav.home") },
-    { href: "#/study",   match: "/study",    icon: ICONS.clipboard, label: t("nav.study") },
-    { href: "#/calendar",match: "/calendar", icon: ICONS.calendar,  label: t("nav.calendar") },
-    { href: "#/library", match: "/library",  icon: ICONS.book,      label: t("nav.library") },
+/** The full app nav, grouped so the sidebar reads as sections rather than one
+ *  long list — "Learn" (make + study material), "Track" (see how it's going),
+ *  and an unlabelled account group at the bottom. Used by the desktop sidebar
+ *  and the mobile ⋮ menu alike, so the two never drift. */
+function navGroups() {
+  const learn = [
+    { href: "#/",         match: "/",          icon: ICONS.home,      label: t("nav.home") },
+    { href: "#/study",    match: "/study",     icon: ICONS.clipboard, label: t("nav.study") },
+    { href: "#/library",  match: "/library",   icon: ICONS.book,      label: t("nav.library") },
+    { href: "#/create",   match: "/create",    icon: ICONS.plus,      label: t("nav.create") },
+    { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
     { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
-    { href: "#/solve",   match: "/solve",    icon: ICONS.spark,     label: t("nav.solve") },
-    { href: "#/create",  match: "/create",   icon: ICONS.plus,      label: t("nav.create") },
-    { href: "#/progress",match: "/progress", icon: ICONS.chart,     label: t("common.progress") },
+  ];
+  const track = [
+    { href: "#/calendar", match: "/calendar",  icon: ICONS.calendar,  label: t("nav.calendar") },
+    { href: "#/progress", match: "/progress",  icon: ICONS.chart,     label: t("common.progress") },
     { href: "#/achievements", match: "/achievements", icon: ICONS.award, label: t("nav.achievements") },
   ];
-  if (store.authed) items.push({ href: "#/parent", match: "/parent", icon: ICONS.users, label: t("common.parent") });
-  items.push({ href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings") });
-  return items;
+  const account = [];
+  if (store.authed) account.push({ href: "#/parent", match: "/parent", icon: ICONS.users, label: t("common.parent") });
+  account.push({ href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings") });
+
+  return [
+    { key: "learn",   label: t("nav.groupLearn"), items: learn },
+    { key: "track",   label: t("nav.groupTrack"), items: track },
+    { key: "account", label: null,                items: account },
+  ];
+}
+
+/** Flat list — still used where a single sequence is all that's needed. */
+function navItems() {
+  return navGroups().flatMap((g) => g.items);
 }
 
 function currentPath() {
@@ -107,10 +122,15 @@ function navActive(match) {
  *  Closes on outside click, Esc, or navigation. */
 function topOverflowMenu() {
   const list = el("div.topmenu__list", { role: "menu", hidden: true },
-    navItems().map((it) => el("a.topmenu__item" + (navActive(it.match) ? ".is-active" : ""), {
-      href: it.href, role: "menuitem",
-      "aria-current": navActive(it.match) ? "page" : null,
-    }, [icon(it.icon, 16), it.label])));
+    navGroups().flatMap((g, gi) => [
+      g.label
+        ? el("p.topmenu__group", { role: "presentation" }, g.label)
+        : gi > 0 ? el("div.topmenu__div", { role: "presentation" }) : null,
+      ...g.items.map((it) => el("a.topmenu__item" + (navActive(it.match) ? ".is-active" : ""), {
+        href: it.href, role: "menuitem",
+        "aria-current": navActive(it.match) ? "page" : null,
+      }, [icon(it.icon, 16), it.label])),
+    ].filter(Boolean)));
 
   const btn = el("button.iconbtn", {
     type: "button", "aria-haspopup": "menu", "aria-expanded": "false",
@@ -413,10 +433,15 @@ function shell(contentNode) {
     el("a.sidebar__brand", { href: "#/" }, [
       el("img", { src: "assets/favicon.svg", alt: "" }), "StudyBuddy",
     ]),
-    el("div.sidebar__nav", {}, navItems().map((it) =>
-      el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
-        href: it.href, "aria-current": navActive(it.match) ? "page" : null,
-      }, [icon(it.icon, 18), it.label]))),
+    el("div.sidebar__nav", {}, navGroups().flatMap((g, gi) => [
+      g.label
+        ? el("p.sidebar__group", {}, g.label)
+        : gi > 0 ? el("div.sidebar__div") : null,
+      ...g.items.map((it) =>
+        el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
+          href: it.href, "aria-current": navActive(it.match) ? "page" : null,
+        }, [icon(it.icon, 18), it.label])),
+    ].filter(Boolean))),
     el("div.sidebar__foot", {}, [
       sidebarStreak(streak, atRisk),
       themePicker(),

@@ -193,16 +193,17 @@ function migrate(state) {
   s.achievements = s.achievements || {};
   s.readNotifications = s.readNotifications || {};
 
-  // Achievements moved from ~15 one-off badges to 5 tiered tracks. Carry the
-  // milestone unlocks that have a direct equivalent so an earned badge isn't
-  // silently lost; everything else re-evaluates against the new tracks on the
-  // next _checkAchievements() pass (silently, so no retroactive toast storm).
+  // Achievements moved from ~15 one-off badges to 5 tiered tracks plus a few
+  // kept milestones. Carry the old unlocks that have a direct equivalent so an
+  // earned badge isn't silently lost; everything else re-evaluates on the next
+  // _checkAchievements() pass (silently, so no retroactive toast storm).
   // Idempotent — the new ids just no-op on a second run.
   {
     const remap = {
       "streak-3": "streak-bronze", "streak-7": "streak-silver",
       "streak-30": "streak-gold", "streak-100": "streak-platinum",
       "q-50": "questions-bronze", "q-250": "questions-silver", "q-1000": "questions-gold",
+      "subj-3": "subjects-3", "subj-5": "subjects-5", "all-60": "well-rounded",
     };
     for (const [oldId, newId] of Object.entries(remap)) {
       if (oldId in s.achievements) {
@@ -925,9 +926,9 @@ class Store extends EventTarget {
 
   get unlockedAchievements() { return this.state.achievements; }
 
-  /** Evaluate every tiered track against current state, permanently recording
-   *  (with a timestamp) any tier whose threshold is newly met. Returns the
-   *  newly-unlocked defs so a caller can celebrate them — empty during the
+  /** Evaluate every badge (tiered tracks + one-off milestones) against current
+   *  state, permanently recording (with a timestamp) any newly met. Returns
+   *  the newly-unlocked defs so a caller can celebrate them — empty during the
    *  silent init pass, which just backfills what's already true. */
   _checkAchievements({ silent = false, mutating } = {}) {
     const unlocked = [];
@@ -936,7 +937,9 @@ class Store extends EventTarget {
       try { metrics = achievementMetrics(s); } catch { return; }
       for (const def of ACHIEVEMENTS) {
         if (def.id in s.achievements) continue;
-        if ((metrics[def.track] ?? 0) < def.target) continue;
+        let value;
+        try { value = def.track ? (metrics[def.track] ?? 0) : def.value(s); } catch { value = 0; }
+        if (value < def.target) continue;
         s.achievements[def.id] = silent ? 0 : Date.now();
         if (!silent) unlocked.push(def);
       }

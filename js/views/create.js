@@ -19,7 +19,7 @@ import { NATIONAL_TEST_LEVELS, NATIONAL_TEST_SUBJECTS, nationalSubjectName } fro
 // Prompts are filled so the set saves and runs straight away; answers are
 // placeholders the student can edit (or leave blank while testing).
 const BLANK_KINDS = ["mc", "text", "cloze", "flashcard", "worked"];
-function blankQuestions(n) {
+export function blankQuestions(n) {
   return Array.from({ length: Math.max(1, n || 5) }, (_, i) => {
     const kind = BLANK_KINDS[i % BLANK_KINDS.length];
     const q = { id: uid(), topic: "demo", kind, prompt: t("create.blankQ", { n: i + 1 }) };

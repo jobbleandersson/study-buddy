@@ -2,14 +2,17 @@
 // (same reasoning as mastery.js / grade.js: keep it framework-free so store.js
 // can import it without a cycle).
 //
-// Five tracks, four tiers each. A track is a single metric with four
-// thresholds; unlocking a tier is permanent once the store records it (see
-// store._checkAchievements) even if the metric itself later dips — "subjects
-// mastered" is a live measurement, not a running total, so without that
-// permanence a bad week could take a badge back, which isn't how an
-// achievement is meant to work.
+// Two shapes:
+//   - Five tiered TRACKS (streak / questions / sessions / mastery / perfect),
+//     four thresholds each — a single metric crossed four times.
+//   - A handful of one-off MILESTONES kept from the older badge set — things
+//     that don't fit a tier ladder (breadth across subjects, a well-rounded
+//     spread, a week of hitting the daily goal).
+//
+// Unlocking is permanent once the store records it, even if the underlying
+// measurement later dips — a bad week shouldn't take a trophy back.
 
-import { currentStreak } from "./activity.js";
+import { currentStreak, localDayKey, addDays } from "./activity.js";
 import { masteryByTopic, masteryForSubject } from "./mastery.js";
 import { estimatedGrade, gradeRank } from "./grade.js";
 
@@ -23,7 +26,7 @@ const TRACKS = [
   { id: "perfect",   icon: "graduation", nameKey: "ach.track.perfect",   descKey: "ach.desc.perfect",   tiers: [1, 5, 15, 50] },
 ];
 
-export const ACHIEVEMENTS = TRACKS.flatMap((track) =>
+const TRACKED = TRACKS.flatMap((track) =>
   track.tiers.map((target, i) => ({
     id: `${track.id}-${TIER_NAMES[i]}`,
     track: track.id,
@@ -34,11 +37,73 @@ export const ACHIEVEMENTS = TRACKS.flatMap((track) =>
     target,
   })));
 
+/* ---------- milestone helpers (carried over from the old badge set) -------- */
+
+/** How many distinct subjects have at least one recorded attempt item. */
+function distinctSubjects(s) {
+  const bySet = new Map((s.assignments || []).map((a) => [a.id, a.subjectId]));
+  const byQuestion = new Map();
+  for (const a of s.assignments || []) {
+    for (const q of a.questions || []) byQuestion.set(q.id, a.subjectId);
+  }
+  const seen = new Set();
+  for (const a of s.attempts || []) {
+    if (bySet.get(a.assignmentId)) seen.add(bySet.get(a.assignmentId));
+    for (const it of a.items || []) {
+      const sid = byQuestion.get(it.questionId);
+      if (sid) seen.add(sid);
+    }
+  }
+  return seen.size;
+}
+
+/** Every subject with any studied topic → its mastery 0..1. */
+function subjectMasteryValues(s) {
+  const tm = masteryByTopic(s.attempts || []);
+  const out = [];
+  for (const sub of s.subjects || []) {
+    const m = masteryForSubject(sub.id, s.assignments || [], tm);
+    if (m != null) out.push(m);
+  }
+  return out;
+}
+
+/** Longest run of consecutive local days that hit the daily goal, ending
+ *  today or yesterday (so the run is still "live"). */
+function goalRun(s) {
+  const days = new Set(s.activity?.goalDays || []);
+  if (!days.size) return 0;
+  const today = localDayKey();
+  let cursor = days.has(today) ? today : addDays(today, -1);
+  if (!days.has(cursor)) return 0;
+  let n = 0;
+  while (days.has(cursor)) { n++; cursor = addDays(cursor, -1); }
+  return n;
+}
+
+/** One-off badges. `value(state)` gives current progress toward `target`;
+ *  `binary` badges are all-or-nothing (no progress bar). tier "milestone"
+ *  drives their neutral styling. */
+export const MILESTONES = [
+  { id: "subjects-3", tier: "milestone", icon: "flag", nameKey: "ach.ms.subjects3.name", descKey: "ach.ms.subjects3.desc",
+    target: 3, value: distinctSubjects },
+  { id: "subjects-5", tier: "milestone", icon: "flag", nameKey: "ach.ms.subjects5.name", descKey: "ach.ms.subjects5.desc",
+    target: 5, value: distinctSubjects },
+  { id: "well-rounded", tier: "milestone", icon: "target", nameKey: "ach.ms.wellRounded.name", descKey: "ach.ms.wellRounded.desc",
+    target: 1, binary: true,
+    value: (s) => { const ms = subjectMasteryValues(s); return ms.length >= 2 && ms.every((m) => m >= 0.6) ? 1 : 0; } },
+  { id: "goal-week", tier: "milestone", icon: "flame", nameKey: "ach.ms.goalWeek.name", descKey: "ach.ms.goalWeek.desc",
+    target: 7, value: goalRun },
+];
+
+/** Every badge, tiered tracks first then milestones. */
+export const ACHIEVEMENTS = [...TRACKED, ...MILESTONES];
+
 export const TRACK_META = Object.fromEntries(
   TRACKS.map((tr) => [tr.id, { icon: tr.icon, nameKey: tr.nameKey, descKey: tr.descKey }]));
 
-/** Current value of every track, from a raw store-state blob. Used both to
- *  detect newly-crossed thresholds and to draw progress bars for locked
+/** Current value of every tiered track, from a raw store-state blob. Used both
+ *  to detect newly-crossed thresholds and to draw progress bars for locked
  *  badges. Tolerant of a partial state (the store's silent init pass). */
 export function achievementMetrics(state) {
   const attempts = state.attempts || [];
@@ -61,15 +126,20 @@ export function achievementMetrics(state) {
   return { streak, questions, sessions: attempts.length, mastery, perfect };
 }
 
-/** The lowest-tier locked badge, with its live progress — for the Progress
- *  page's "next up" teaser. null once every badge is unlocked. */
+/** Progress toward one badge (tracked or milestone), 0..target. */
+export function achievementValue(def, state, metrics = achievementMetrics(state)) {
+  const raw = def.track ? (metrics[def.track] ?? 0) : def.value(state);
+  return Math.min(raw, def.target);
+}
+
+/** The first locked badge in list order, with its live progress — for the
+ *  Progress / home "next up" teasers. null once everything is unlocked. */
 export function nextAchievement(state) {
   const metrics = achievementMetrics(state);
   const unlocked = state.achievements || {};
   for (const def of ACHIEVEMENTS) {
     if (def.id in unlocked) continue;
-    const have = Math.min(metrics[def.track] ?? 0, def.target);
-    return { def, have, need: def.target };
+    return { def, have: achievementValue(def, state, metrics), need: def.target };
   }
   return null;
 }

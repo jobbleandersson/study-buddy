@@ -46,6 +46,11 @@ function monthLabel(year, month) {
     .format(new Date(year, month, 1));
 }
 
+function dayLabel(key) {
+  return new Intl.DateTimeFormat(locale(), { weekday: "long", day: "numeric", month: "long" })
+    .format(parseKey(key));
+}
+
 /** Offset in days from today to the coming Monday (always 1–7, never 0). */
 function daysToNextMonday() {
   const wd = mondayIndex(new Date());
@@ -187,7 +192,7 @@ export function datePicker({ value = "", min = "", max = "", onChange } = {}) {
  *  with the day-key range of the actual displayed month (not the grid's
  *  dimmed lead/trail days from neighbouring months), so a caller can filter
  *  its own list to match. */
-export function monthCalendar({ marks = new Map(), onPick, onView } = {}) {
+export function monthCalendar({ marks = new Map(), onPick, onView, onAdd } = {}) {
   const today = localDayKey();
   const now = new Date();
   let viewY = now.getFullYear();
@@ -210,16 +215,25 @@ export function monthCalendar({ marks = new Map(), onPick, onView } = {}) {
     clear(grid);
     for (const cell of buildMonthCells(viewY, viewM)) {
       const mark = marks.get(cell.key);
-      const node = el(mark ? "button.cal__cell" : "span.cal__cell", {
-        type: mark ? "button" : undefined,
-        title: mark ? mark.titles.join(", ") : undefined,
+      const canAdd = !mark && onAdd && cell.inMonth && cell.key >= today;
+      const interactive = mark || canAdd;
+      const node = el(interactive ? "button.cal__cell" : "span.cal__cell", {
+        type: interactive ? "button" : undefined,
+        title: mark ? mark.titles.join(", ") : canAdd ? t("cal.addOn", { date: dayLabel(cell.key) }) : undefined,
+        "aria-label": canAdd ? t("cal.addOn", { date: dayLabel(cell.key) }) : undefined,
         class: [
           !cell.inMonth && "is-outside",
           cell.key === today && "is-today",
           mark && "is-marked",
+          canAdd && "is-addable",
         ].filter(Boolean).join(" "),
-        onclick: mark && onPick ? (e) => onPick(cell.key, mark, e.currentTarget) : undefined,
-      }, [String(cell.date.getDate()), mark && el("span.cal__dot" + (mark.ids.length > 1 ? ".cal__dot--multi" : ""))]);
+        onclick: mark && onPick ? (e) => onPick(cell.key, mark, e.currentTarget)
+          : canAdd ? (e) => onAdd(cell.key, e.currentTarget) : undefined,
+      }, [
+        String(cell.date.getDate()),
+        mark && el("span.cal__dot" + (mark.ids.length > 1 ? ".cal__dot--multi" : "")),
+        canAdd && el("span.cal__add", { "aria-hidden": "true" }, "+"),
+      ]);
       grid.appendChild(node);
     }
     // The actual month, not the grid's dimmed lead/trail days from neighbours.
@@ -242,7 +256,7 @@ export function monthCalendar({ marks = new Map(), onPick, onView } = {}) {
  *  fires on every paint — initial and after paging — with the day keys of
  *  the visible week, so the caller can filter its own list/empty-state to
  *  match whichever week is currently in view. */
-export function weekStrip({ marks = new Map(), onPick, onView } = {}) {
+export function weekStrip({ marks = new Map(), onPick, onView, onAdd } = {}) {
   const today = localDayKey();
   let weekStart = addDays(keyOf(new Date()), -mondayIndex(new Date()));
 
@@ -269,15 +283,24 @@ export function weekStrip({ marks = new Map(), onPick, onView } = {}) {
       const key = addDays(weekStart, i);
       const date = parseKey(key);
       const mark = marks.get(key);
-      grid.appendChild(el(mark ? "button.cal__cell" : "span.cal__cell", {
-        type: mark ? "button" : undefined,
-        title: mark ? mark.titles.join(", ") : undefined,
+      const canAdd = !mark && onAdd && key >= today;
+      const interactive = mark || canAdd;
+      grid.appendChild(el(interactive ? "button.cal__cell" : "span.cal__cell", {
+        type: interactive ? "button" : undefined,
+        title: mark ? mark.titles.join(", ") : canAdd ? t("cal.addOn", { date: dayLabel(key) }) : undefined,
+        "aria-label": canAdd ? t("cal.addOn", { date: dayLabel(key) }) : undefined,
         class: [
           key === today && "is-today",
           mark && "is-marked",
+          canAdd && "is-addable",
         ].filter(Boolean).join(" "),
-        onclick: mark && onPick ? (e) => onPick(key, mark, e.currentTarget) : undefined,
-      }, [String(date.getDate()), mark && el("span.cal__dot" + (mark.ids.length > 1 ? ".cal__dot--multi" : ""))]));
+        onclick: mark && onPick ? (e) => onPick(key, mark, e.currentTarget)
+          : canAdd ? (e) => onAdd(key, e.currentTarget) : undefined,
+      }, [
+        String(date.getDate()),
+        mark && el("span.cal__dot" + (mark.ids.length > 1 ? ".cal__dot--multi" : "")),
+        canAdd && el("span.cal__add", { "aria-hidden": "true" }, "+"),
+      ]));
     }
     onView?.(weekStart, addDays(weekStart, 6));
   }

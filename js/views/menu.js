@@ -11,6 +11,7 @@ import { datePicker, monthCalendar, weekStrip } from "../components/calendar.js"
 import { goalRing } from "../components/goal-ring.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
+import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 import { playFanfare } from "../lib/sound.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
@@ -400,7 +401,7 @@ export function renderMenu(mode) {
     countLabel,
     grid,
   ];
-  const menuCleanup = () => { closeCardMenu(); closeDueDialog(); closeDayChooser(); closeCalendarDialog(); };
+  const menuCleanup = () => { closeCardMenu(); closeDueDialog(); closeDayChooser(); closeCalendarDialog(); closeQuickAdd(); };
 
   // "Study" = just the set library on its own page (reached from the nav).
   if (mode === "study") {
@@ -420,14 +421,20 @@ export function renderMenu(mode) {
   // from the nav) — unlike the home rail's collapsed copy, this one always
   // shows everything (same non-collapsible content as the "Kommande" dialog).
   if (mode === "calendar") {
-    const content = deadlineRailContent();
+    const content = deadlineRailContent({ forceCalendar: true });
     return {
       title: t("menu.calendarTitle"),
       node: el("div", {}, [
         homeButton(),
-        el("h1", { style: { marginBottom: "4px" } }, t("menu.calendarTitle")),
+        el("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "12px", flexWrap: "wrap" } }, [
+          el("h1", { style: { marginBottom: "4px" } }, t("menu.calendarTitle")),
+          el("button.btn.btn--sm", {
+            type: "button",
+            onclick: () => openQuickAdd(localDayKey()),
+          }, [icon(ICONS.plus, 16), t("quickadd.newDeadline")]),
+        ]),
         el("p.note", { style: { marginBottom: "18px" } }, t("menu.calendarSub")),
-        el("div.calendarpage", {}, [content ? content.el : el("p.note", {}, t("menu.calendarNone"))]),
+        el("div.calendarpage", {}, [content.el]),
       ]),
       cleanup: menuCleanup,
     };
@@ -456,7 +463,7 @@ export function renderMenu(mode) {
         el("p.home__hi", {}, store.hasKey() ? t("menu.subHasKey") : t("menu.subNoKey")),
       ]),
       el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [
-        el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("menu.libraryLink")]),
+        el("a.btn.btn--ghost", { href: "#/solve" }, [icon(ICONS.camera, 18), t("menu.solveLink")]),
         el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
       ]),
     ]),
@@ -687,9 +694,9 @@ function openCalendarDialog() {
   calDialogEl.querySelector(".cal__cell, .upcoming__row, button")?.focus();
 }
 
-function deadlineRailContent({ collapsible = false } = {}) {
+function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}) {
   const items = store.upcomingDue();
-  if (!items.length) return null;
+  if (!items.length && !forceCalendar) return null;
 
   // items is soonest-first, so the first test in it is the next one due.
   // Shown as a countdown + study shortcut under the calendar — independent
@@ -708,6 +715,9 @@ function deadlineRailContent({ collapsible = false } = {}) {
     if (mark.items.length === 1) { closeCalendarDialog(); location.hash = `#/session/${mark.items[0].id}`; return; }
     openDayChooser(cellEl, mark);
   };
+
+  // Tap an empty future day → name a set for that deadline.
+  const onAdd = (day) => { closeCalendarDialog(); openQuickAdd(day); };
 
   // Only the home-rail copy collapses to a single, navigable week — the
   // "Kommande" dialog is an explicit "show me everything" action, so it
@@ -729,13 +739,17 @@ function deadlineRailContent({ collapsible = false } = {}) {
   paintCal();
   if (!collapsible) paintList(visibleItems);
 
+  // Nothing scheduled but the calendar is still shown (the #/calendar page):
+  // just the month + a hint, no "next test" line or list.
+  const emptyForced = forceCalendar && !items.length;
+
   return {
     el: el("section.upcoming", {}, [
       calEmpty,
       calWrap,
-      nextTestLine(nextTest),
-      list,
-      more,
+      emptyForced ? null : nextTestLine(nextTest),
+      emptyForced ? null : list,
+      emptyForced ? null : more,
     ].filter(Boolean)),
     calToggle,
   };
@@ -744,10 +758,10 @@ function deadlineRailContent({ collapsible = false } = {}) {
     const expanded = !collapsible || calendarExpanded;
     clear(calWrap);
     if (expanded) {
-      calWrap.appendChild(monthCalendar({ marks, onPick, onView: collapsible ? onMonthView : undefined }).el);
+      calWrap.appendChild(monthCalendar({ marks, onPick, onAdd, onView: collapsible ? onMonthView : undefined }).el);
       if (calEmpty) calEmpty.hidden = true;
     } else {
-      calWrap.appendChild(weekStrip({ marks, onPick, onView: onWeekView }).el);
+      calWrap.appendChild(weekStrip({ marks, onPick, onAdd, onView: onWeekView }).el);
     }
     if (calToggle) {
       calToggle.textContent = expanded ? t("menu.calendarShowWeek") : t("menu.calendarShowMonth");

@@ -108,6 +108,12 @@ a.streakbadge:hover {
 .sidebar__link:hover { background: var(--surface-sunk); color: var(--ink); }
 .sidebar__link.is-active { background: var(--brand-tint); color: var(--brand-ink); }
 .sidebar__link.is-active svg { color: var(--brand-ink); }
+.sidebar__group {
+  margin: var(--s-4) var(--s-3) 4px; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint);
+}
+.sidebar__nav > .sidebar__group:first-child { margin-top: 0; }
+.sidebar__div { height: 1px; margin: var(--s-3) var(--s-3) var(--s-2); background: var(--line); }
 .sidebar__foot { display: flex; flex-direction: column; gap: var(--s-2); margin-top: var(--s-4); }
 
 /* Fuller streak row (icon + the day count in words) — sidebar only, the
@@ -209,11 +215,20 @@ a.streakbadge:hover {
 .topmenu__item svg { flex: none; color: var(--ink-soft); }
 .topmenu__item.is-active { background: var(--brand-tint); color: var(--brand-ink); }
 .topmenu__item.is-active svg { color: var(--brand-ink); }
+.topmenu__group {
+  margin: 8px 10px 2px; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint);
+}
+.topmenu__list > .topmenu__group:first-child { margin-top: 2px; }
+.topmenu__div { height: 1px; margin: 6px 10px; background: var(--line); }
 
 @media (max-width: 560px) {
-  .topbar__inner { gap: var(--s-2); }
+  .topbar__inner { gap: var(--s-2); padding-left: var(--s-3); padding-right: var(--s-3); }
   .topbar__inner .brand { font-size: var(--fs-md); }
   .topbar__inner .brand img { width: 26px; height: 26px; }
+  /* Bell + account + ⋮ need the room; the streak already shows in the
+     "Idag" panel and the language toggle stays. */
+  .topbar__inner > .streakbadge { display: none; }
 }
 
 /* "← Home" control at the top of every sub-screen. */
@@ -613,6 +628,16 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .cal__dot--multi { width: 12px; }
 .cal__cell.is-marked { color: var(--brand-ink); font-weight: 700; }
 .cal--mini .cal__cell.is-marked:hover { background: var(--brand-tint); }
+
+/* Empty future day — a faint "+" on hover/focus says "tap to add a set here". */
+.cal__cell.is-addable .cal__add {
+  position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%);
+  font-size: 12px; line-height: 1; color: var(--ink-faint); opacity: 0;
+  transition: opacity var(--dur-fast);
+}
+.cal__cell.is-addable:hover .cal__add,
+.cal__cell.is-addable:focus-visible .cal__add { opacity: 1; }
+.cal__cell.is-addable:hover { background: var(--brand-tint); color: var(--brand-ink); }
 
 .datepick { display: block; }
 .datepick__chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--s-3); }
@@ -1404,6 +1429,13 @@ kbd {
 }
 .achbadge--unlocked.achbadge--platinum .achbadge__tiername { color: var(--brand-ink); }
 
+/* Milestones — the one-off badges carried over from the old set. Neutral
+   brand colour when earned, no tier ladder. */
+.achbadge--unlocked.achbadge--milestone { background: var(--brand-tint); }
+.achbadge--unlocked.achbadge--milestone .achbadge__icon { background: var(--brand); color: #fff; border-color: transparent; }
+.achbadge--unlocked.achbadge--milestone .achbadge__tiername { color: var(--brand-ink); }
+.achtoast--milestone .achtoast__icon { background: var(--brand); color: #fff; }
+
 /* Progress-page teaser card linking to the full page. */
 .achteaser { display: block; text-decoration: none; color: inherit; transition: transform var(--dur-fast) var(--ease-spring), box-shadow var(--dur-fast); }
 .achteaser:hover { transform: translateY(-2px); box-shadow: var(--shadow-2); }
@@ -1481,6 +1513,18 @@ kbd {
 .solve-answer__value { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-xl); color: var(--ink); }
 .solve-steps { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: var(--s-2); }
 .solve-steps li { padding-left: 4px; }
+
+/* ---------- calendar quick-add dialog ---------- */
+.quickadd { max-width: 380px; }
+.quickadd__types { display: flex; gap: var(--s-2); }
+.quickadd__type {
+  flex: 1; font: inherit; font-weight: 600; font-size: var(--fs-sm);
+  padding: var(--s-3); border-radius: var(--r-md);
+  border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-soft);
+  cursor: pointer; transition: background var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast);
+}
+.quickadd__type:hover { background: var(--surface-sunk); }
+.quickadd__type[aria-pressed="true"] { background: var(--brand-tint); border-color: var(--brand); color: var(--brand-ink); }
 
 @media print {
   .topbar, .hintfab, [data-noprint], .toast, .savebar, .achtoast, .popover { display: none !important; }
