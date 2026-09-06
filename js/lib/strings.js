@@ -224,7 +224,6 @@ export const STRINGS = {
     "q.tutorGotIt": "I think I got that one.",
     "q.tutorWhatMissing": "Here's what I wrote: \"{answer}\". What am I missing?",
     "q.tutorForgot": "I couldn't remember this one. Can you help it stick?",
-    "q.tutorRevealedStep": "I've revealed step {n}. Can you nudge me toward the next bit?",
     "q.tutorRemembered": "Remembered it!",
     "q.tutorRevealedStep": "I've revealed step {n}. Can you nudge me toward the next bit?",
 
@@ -635,7 +634,6 @@ export const STRINGS = {
     "menu.solveLink": "Solve a problem",
     "topbar.notifications": "Notifications",
     "topbar.account": "Account",
-    "common.close": "Close",
 
     "notif.dueReviewOne": "1 question waiting for review",
     "notif.dueReviewMany": "{n} questions waiting for review",
@@ -1234,7 +1232,6 @@ export const STRINGS = {
     "q.tutorGotIt": "Jag tror jag fick den rätt.",
     "q.tutorWhatMissing": "Så här skrev jag: ”{answer}”. Vad missar jag?",
     "q.tutorForgot": "Jag kom inte ihåg den här. Kan du hjälpa mig komma ihåg den?",
-    "q.tutorRevealedStep": "Jag har visat steg {n}. Kan du putta mig mot nästa del?",
     "q.tutorRemembered": "Jag kom ihåg den!",
     "q.tutorRevealedStep": "Jag har visat steg {n}. Kan du knuffa mig mot nästa del?",
 
@@ -1645,7 +1642,6 @@ export const STRINGS = {
     "menu.solveLink": "Lös en uppgift",
     "topbar.notifications": "Notiser",
     "topbar.account": "Konto",
-    "common.close": "Stäng",
 
     "notif.dueReviewOne": "1 fråga väntar på repetition",
     "notif.dueReviewMany": "{n} frågor väntar på repetition",
