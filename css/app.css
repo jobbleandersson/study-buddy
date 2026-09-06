@@ -123,17 +123,28 @@ a.streakbadge:hover {
   padding: var(--s-3); border-radius: var(--r-md);
   background: var(--surface-sunk); color: var(--ink);
   font-size: var(--fs-sm); font-weight: 700; text-decoration: none;
-  transition: background var(--dur-fast);
+  /* Same warm glow as the top-bar streak badge. */
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--retry) 32%, transparent),
+              0 2px 18px -5px color-mix(in srgb, var(--retry) 60%, transparent);
+  transition: background var(--dur-fast), box-shadow var(--dur-fast);
 }
-.sidebar__streak:hover { background: var(--line); }
+.sidebar__streak:hover {
+  background: var(--line);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--retry) 48%, transparent),
+              0 3px 24px -5px color-mix(in srgb, var(--retry) 80%, transparent);
+}
 .sidebar__streak-icon {
   width: 32px; height: 32px; flex: none; border-radius: var(--r-full);
   display: grid; place-items: center; color: var(--retry); background: var(--retry-tint);
 }
+.sidebar__streak--risk {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--info) 32%, transparent),
+              0 2px 18px -5px color-mix(in srgb, var(--info) 60%, transparent);
+}
 .sidebar__streak--risk .sidebar__streak-icon { color: var(--info); background: var(--info-tint); }
 /* Zero-streak: same fixed spot in the footer, just muted rather than the
-   vivid orange — that's reserved for an actually-running streak. */
-.sidebar__streak--none { color: var(--ink-soft); }
+   vivid orange — no glow until there's a streak to celebrate. */
+.sidebar__streak--none { color: var(--ink-soft); box-shadow: none; }
 .sidebar__streak--none .sidebar__streak-icon { color: var(--ink-faint); background: var(--surface); }
 
 /* Segmented light/system/dark switcher, sidebar footer. */
@@ -462,7 +473,17 @@ a.streakbadge:hover {
 .pill--due .pill__ic { background: var(--brand); color: #fff; }
 .pill--weak { border-color: color-mix(in srgb, var(--c-berry) 45%, var(--line-strong)); }
 .pill--weak .pill__ic { background: var(--c-berry); color: #fff; }
-.pill--streak { border-color: color-mix(in srgb, var(--retry) 45%, var(--line-strong)); }
+/* The streak pill glows in the same warm amber as the top-bar badge — a
+   running streak should read as "lit", not just another stat. */
+.pill--streak {
+  border-color: color-mix(in srgb, var(--retry) 55%, var(--line-strong));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--retry) 30%, transparent),
+              0 2px 16px -4px color-mix(in srgb, var(--retry) 60%, transparent);
+}
+.pill--streak:hover {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--retry) 45%, transparent),
+              0 4px 22px -4px color-mix(in srgb, var(--retry) 78%, transparent);
+}
 .pill--streak .pill__ic { background: var(--retry); color: #2B2B3A; }
 .pill--goal { border-color: color-mix(in srgb, var(--ok-bright) 45%, var(--line-strong)); }
 :root[data-theme="dark"] .pill--streak .pill__ic { color: #21170C; }
