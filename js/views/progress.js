@@ -10,7 +10,8 @@ import { t, plural } from "../lib/i18n.js";
 import { weakSpotQuestions } from "../lib/mastery.js";
 import { goalRing } from "../components/goal-ring.js";
 import { homeButton } from "../components/nav.js";
-import { achievementRows, titleKey, descKey } from "../lib/achievements.js";
+import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
+import { estimatedGrade } from "../lib/grade.js";
 
 export function renderProgress() {
   const tm = masteryByTopic(store.attempts);
@@ -50,12 +51,16 @@ export function renderProgress() {
     .map(({ s, m }) => {
       const color = store.subjectColor(s.id);
       const pct = Math.round(m * 100);
+      const grade = estimatedGrade(m);
       const meter = el("div.meter", {}, [
         el("span", {}, s.name),
         el("div.meter__track", {
           role: "img", "aria-label": t("prog.masteryAria", { subject: s.name, pct }),
         }, [el("div.meter__fill", { style: { width: "0%", "--subject": color.solid }, dataset: { w: pct } })]),
         el("span.tabular", { style: { textAlign: "right", fontWeight: 700 } }, `${pct}%`),
+        el("span.gradepill" + `.gradepill--${grade.tier}`, {
+          title: t("prog.gradeTooltip", { letter: grade.letter }),
+        }, grade.letter),
       ]);
       // A near-mastered subject earns a victory lap: explain it back.
       if (m >= 0.8) {
@@ -112,19 +117,17 @@ export function renderProgress() {
     ]),
 
     (() => {
-      const rows = achievementRows(store.state);
-      const got = rows.filter((r) => r.unlocked).length;
-      return el("section.panel", {}, [
-        el("h3", { style: { marginBottom: "4px" } }, t("prog.achievements")),
-        el("p.note", { style: { marginBottom: "12px" } }, t("prog.achCount", { have: got, need: rows.length })),
-        el("div.badges", {}, rows.map(({ def, unlocked, have, need }) =>
-          el("div.badge-card" + (unlocked ? "" : ".is-locked"), {}, [
-            el("span.badge-card__emoji", {}, def.emoji),
-            el("span.badge-card__text", {}, [
-              el("strong", {}, t(titleKey(def))),
-              el("span.note", {}, unlocked ? t(descKey(def)) : t("prog.achProgress", { have, need })),
-            ]),
-          ]))),
+      const unlockedMap = store.unlockedAchievements;
+      const got = ACHIEVEMENTS.filter((a) => a.id in unlockedMap).length;
+      const next = nextAchievement(store.state);
+      return el("a.panel.achteaser", { href: "#/achievements" }, [
+        el("div.achteaser__top", {}, [
+          el("h3", {}, t("ach.teaserTitle")),
+          el("span.badge", {}, t("ach.subtitle", { unlocked: got, total: ACHIEVEMENTS.length })),
+        ]),
+        el("p.note", {}, next
+          ? t("ach.teaserNext", { desc: `${t(next.def.nameKey)} · ${t(next.def.descKey, { n: next.def.target })} (${next.have}/${next.need})` })
+          : t("ach.teaserAllDone")),
       ]);
     })(),
 
@@ -139,8 +142,10 @@ export function renderProgress() {
             [icon(ICONS.target, 16), t("prog.practiseWeak")]) : null,
         ].filter(Boolean)),
       ].filter(Boolean)),
-      subjectMeters.length ? el("div", {}, subjectMeters)
-        : el("p.note", {}, t("prog.masteryEmpty")),
+      subjectMeters.length ? el("div", {}, [
+        el("p.note", { style: { marginBottom: "10px" } }, t("prog.gradeExplain")),
+        ...subjectMeters,
+      ]) : el("p.note", {}, t("prog.masteryEmpty")),
     ]),
 
     // "Is my recall actually improving?" — score on the last few cross-set

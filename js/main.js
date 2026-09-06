@@ -1,14 +1,13 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
-import { el, clear, mount, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
+import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
-import { t, getLang, setLang, applyLang, LANGS } from "./lib/i18n.js";
+import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
 import { localDayKey } from "./lib/activity.js";
 import { THEMES, getTheme, setTheme } from "./lib/theme.js";
-import { titleKey } from "./lib/achievements.js";
-import { celebrate } from "./lib/confetti-helper.js";
-import { playFanfare } from "./lib/sound.js";
+import { openPopover, closePopover } from "./lib/popover.js";
+import { showAchievementUnlocks } from "./lib/achievement-toast.js";
 import { renderMenu } from "./views/menu.js";
 import { renderCreate } from "./views/create.js";
 import { renderEdit } from "./views/edit.js";
@@ -23,6 +22,8 @@ import { renderPrint } from "./views/print.js";
 import { renderTeachback } from "./views/teachback.js";
 import { renderLibrary } from "./views/library.js";
 import { renderExamPrep } from "./views/exam-prep.js";
+import { renderSolve } from "./views/solve.js";
+import { renderAchievements } from "./views/achievements.js";
 import { mountCommandPalette } from "./components/command-palette.js";
 import { maybeShowOnboarding } from "./components/onboarding.js";
 
@@ -44,6 +45,8 @@ const routes = [
   { rx: /^\/settings$/, view: () => renderSettings() },
   { rx: /^\/gallery$/, view: () => renderGallery() },
   { rx: /^\/library$/, view: () => renderLibrary() },
+  { rx: /^\/solve$/, view: () => renderSolve() },
+  { rx: /^\/achievements$/, view: () => renderAchievements() },
   { rx: /^\/print\/(.+)$/, view: (m) => renderPrint(m[1]) },
   { rx: /^\/teachback\/(.+)$/, view: (m) => renderTeachback(m[1]) },
   { rx: /^\/login$/, view: () => renderLogin() },
@@ -82,8 +85,10 @@ function navItems() {
     { href: "#/calendar",match: "/calendar", icon: ICONS.calendar,  label: t("nav.calendar") },
     { href: "#/library", match: "/library",  icon: ICONS.book,      label: t("nav.library") },
     { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
+    { href: "#/solve",   match: "/solve",    icon: ICONS.spark,     label: t("nav.solve") },
     { href: "#/create",  match: "/create",   icon: ICONS.plus,      label: t("nav.create") },
     { href: "#/progress",match: "/progress", icon: ICONS.chart,     label: t("common.progress") },
+    { href: "#/achievements", match: "/achievements", icon: ICONS.award, label: t("nav.achievements") },
   ];
   if (store.authed) items.push({ href: "#/parent", match: "/parent", icon: ICONS.users, label: t("common.parent") });
   items.push({ href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings") });
@@ -236,14 +241,179 @@ function sidebarLangPicker() {
     }, [el("span", { "aria-hidden": "true", html: flagSvg })])));
 }
 
+const DAY_MS = 86400000;
+
+/** The two live notification types, each with a stable id and a "signature"
+ *  snapshotting the fact that fired it (a due count, or a test id + date +
+ *  day-count). store.isNotificationRead() compares against that signature,
+ *  not just the id — so a notification you dismissed reads as unread again
+ *  once the underlying fact changes (more questions pile up, the test gets a
+ *  day closer) instead of staying silently dismissed forever. */
+function buildNotifications() {
+  const now = Date.now();
+  const list = [];
+
+  const due = store.dueQuestions();
+  if (due.length) {
+    const oldestDueAt = Math.min(...due.map((d) => d.rec?.dueAt ?? now));
+    const daysSince = Math.max(0, Math.floor((now - oldestDueAt) / DAY_MS));
+    const signature = String(due.length);
+    list.push({
+      id: "due-review",
+      icon: ICONS.spark,
+      title: plural(due.length, "notif.dueReviewOne", "notif.dueReviewMany"),
+      body: t("notif.dueReviewBody"),
+      meta: daysSince <= 0 ? t("notif.dueSinceToday")
+        : plural(daysSince, "notif.dueSinceDayOne", "notif.dueSinceDayMany"),
+      href: "#/review",
+      linkLabel: t("notif.reviewNow"),
+      signature,
+      read: store.isNotificationRead("due-review", signature),
+    });
+  }
+
+  const test = store.upcomingDue().find((a) => a.type === "test" && a.dueAt);
+  if (test) {
+    const d = daysUntil(test.dueAt);
+    if (d >= 0 && d <= 7) {
+      const signature = `${test.id}|${test.dueAt}|${d}`;
+      list.push({
+        id: "exam-reminder",
+        icon: ICONS.graduation,
+        title: d === 0 ? t("notif.examToday") : d === 1 ? t("notif.examTomorrow") : t("notif.examInDays", { n: d }),
+        body: t("notif.examBody"),
+        meta: test.title,
+        href: test.subjectId ? `#/exam-prep/${test.subjectId}` : `#/session/${test.id}`,
+        linkLabel: t("notif.viewExam"),
+        signature,
+        read: store.isNotificationRead("exam-reminder", signature),
+      });
+    }
+  }
+
+  return list;
+}
+
+function popoverLink(href, path, label) {
+  return el("a.cardmenu__item", { href, onclick: closePopover }, [icon(path, 15), label]);
+}
+
+// Kept module-level so the last tab picked survives closing and reopening the
+// panel within a visit.
+let notifTab = "unread";
+
+function openNotificationPanel(anchor) {
+  const tabUnreadBtn = el("button.notiftab", { type: "button", role: "tab", onclick: (e) => { e.stopPropagation(); notifTab = "unread"; paint(); } });
+  const tabReadBtn = el("button.notiftab", { type: "button", role: "tab", onclick: (e) => { e.stopPropagation(); notifTab = "read"; paint(); } });
+  const bodyEl = el("div.notifpanel__body");
+
+  function refreshBellDot() {
+    const stillUnread = buildNotifications().some((n) => !n.read);
+    const dot = anchor.querySelector(".topbar__dot");
+    if (stillUnread && !dot) anchor.appendChild(el("span.topbar__dot"));
+    else if (!stillUnread && dot) dot.remove();
+  }
+
+  function card(n) {
+    return el("div.notifcard" + (n.read ? "" : ".notifcard--unread"), {}, [
+      el("div.notifcard__icon", {}, [icon(n.icon, 18)]),
+      el("div.notifcard__main", {}, [
+        el("p.notifcard__title", {}, n.title),
+        el("p.notifcard__text", {}, n.body),
+        el("div.notifcard__footer", {}, [
+          el("a.notifcard__link", { href: n.href, onclick: closePopover }, n.linkLabel),
+          el("span.notifcard__meta", {}, n.meta),
+        ]),
+      ]),
+      !n.read ? el("button.notifcard__mark", {
+        type: "button", "aria-label": t("notif.markRead"), title: t("notif.markRead"),
+        onclick: (e) => { e.stopPropagation(); store.markNotificationRead(n.id, n.signature); paint(); },
+      }, [icon(ICONS.check, 14)]) : null,
+    ].filter(Boolean));
+  }
+
+  function paint() {
+    const all = buildNotifications();
+    const unread = all.filter((n) => !n.read);
+    const read = all.filter((n) => n.read);
+
+    clear(tabUnreadBtn);
+    append(tabUnreadBtn, unread.length
+      ? [t("notif.tabUnread"), el("span.notiftab__count", {}, String(unread.length))]
+      : t("notif.tabUnread"));
+    tabUnreadBtn.setAttribute("aria-selected", String(notifTab === "unread"));
+
+    clear(tabReadBtn);
+    append(tabReadBtn, t("notif.tabRead"));
+    tabReadBtn.setAttribute("aria-selected", String(notifTab === "read"));
+
+    const listNodes = notifTab === "unread" ? unread : read;
+    clear(bodyEl);
+    if (!listNodes.length) {
+      bodyEl.appendChild(el("p.note", { style: { padding: "var(--s-5) var(--s-3)", textAlign: "center" } },
+        notifTab === "unread" ? t("notif.none") : t("notif.noneRead")));
+    } else {
+      for (const n of listNodes) bodyEl.appendChild(card(n));
+    }
+    refreshBellDot();
+  }
+
+  openPopover(anchor, [
+    el("div.notifpanel__head", {}, [
+      el("h3", {}, t("notif.panelTitle")),
+      el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.close"), onclick: closePopover }, [icon(ICONS.close, 16)]),
+    ]),
+    el("div.notiftabs", { role: "tablist" }, [tabUnreadBtn, tabReadBtn]),
+    bodyEl,
+  ], { align: "right", width: 360, role: "dialog", label: t("notif.panelTitle") });
+
+  paint();
+}
+
+/** Notification bell + account button — top-right on mobile's topbar, and in
+ *  the desktop sidebar's header row. Notifications are real signals already in
+ *  the store; no fake badge count. */
+function shellActions() {
+  const hasUnread = buildNotifications().some((n) => !n.read);
+
+  const bellBtn = el("button.iconbtn.topbar__bell", {
+    type: "button", "aria-label": t("topbar.notifications"), "aria-haspopup": "dialog", title: t("topbar.notifications"),
+    onclick: (e) => { e.stopPropagation(); openNotificationPanel(e.currentTarget); },
+  }, [icon(ICONS.bell, 18), hasUnread ? el("span.topbar__dot") : null].filter(Boolean));
+
+  const profileBtn = el("button.iconbtn.topbar__profile", {
+    type: "button", "aria-label": t("topbar.account"), "aria-haspopup": "menu", title: t("topbar.account"),
+    onclick: (e) => {
+      e.stopPropagation();
+      const items = store.authed ? [
+        el("p.note", { style: { padding: "var(--s-2) var(--s-3)" } }, t("account.signedInAs", { email: store.authEmail || "" })),
+        popoverLink("#/settings", ICONS.gear, t("account.settings")),
+        el("button.cardmenu__item.cardmenu__item--danger", {
+          type: "button",
+          onclick: async () => { closePopover(); try { await store.logout(); } catch {} toast(t("account.signOutDone")); },
+        }, [icon(ICONS.logout, 15), t("account.signOut")]),
+      ] : [
+        popoverLink("#/login", ICONS.user, t("account.signIn")),
+        popoverLink("#/settings", ICONS.gear, t("account.settings")),
+      ];
+      openPopover(e.currentTarget, items, { align: "right" });
+    },
+  }, [icon(ICONS.user, 18)]);
+
+  return el("div.topbar__actions", {}, [bellBtn, profileBtn]);
+}
+
 function shell(contentNode) {
   const { displayStreak: streak, atRisk } = store.streakInfo;
 
   // Desktop: a left sidebar carries the whole nav (topbar hidden by CSS).
   // Mobile: the topbar shows, and its ⋮ mirrors the same nav.
   const sidebar = el("nav.sidebar", { "aria-label": t("common.menu") }, [
-    el("a.sidebar__brand", { href: "#/" }, [
-      el("img", { src: "assets/favicon.svg", alt: "" }), "StudyBuddy",
+    el("div.sidebar__top", {}, [
+      el("a.sidebar__brand", { href: "#/" }, [
+        el("img", { src: "assets/favicon.svg", alt: "" }), "StudyBuddy",
+      ]),
+      shellActions(),
     ]),
     el("div.sidebar__nav", {}, navItems().map((it) =>
       el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
@@ -267,6 +437,7 @@ function shell(contentNode) {
           el("span.topbar__spacer"),
           streakBadge(streak, atRisk),
           langButton(),
+          shellActions(),
           topOverflowMenu(),
         ]),
       ]),
@@ -286,6 +457,7 @@ async function render({ chromeOnly = false } = {}) {
     return;
   }
 
+  closePopover();
   if (typeof currentCleanup === "function") { try { currentCleanup(); } catch {} }
   currentCleanup = null;
 
@@ -366,7 +538,7 @@ store.init().then(() => {
   // After first paint, keep menu/progress fresh when the store changes.
   store.addEventListener("change", () => {
     const h = location.hash.replace(/^#/, "");
-    if (h === "" || h === "/" || h === "/study" || h === "/calendar" || h === "/progress") render();
+    if (h === "" || h === "/" || h === "/study" || h === "/calendar" || h === "/progress" || h === "/achievements") render();
   });
   store.addEventListener("syncConflict", () => {
     toast(t("sync.conflict"));
@@ -375,12 +547,7 @@ store.init().then(() => {
     toast(t("streak.freezeUsedToast", { n: e.detail.streak }));
   });
   store.addEventListener("achievements", (e) => {
-    const defs = e.detail;
-    const msg = defs.length === 1
-      ? `${defs[0].emoji} ${t(titleKey(defs[0]))}`
-      : t("ach.multiToast", { n: defs.length });
-    toast(msg, { actionLabel: t("common.view"), onAction: () => { location.hash = "#/progress"; } });
-    if (defs.some((d) => d.big)) { celebrate(); playFanfare(); }
+    showAchievementUnlocks(e.detail);
   });
   store.addEventListener("saveFailed", () => {
     showBanner(t("save.failedBanner"), {

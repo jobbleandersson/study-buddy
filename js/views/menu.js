@@ -12,7 +12,7 @@ import { goalRing } from "../components/goal-ring.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
-import { achievementRows, titleKey } from "../lib/achievements.js";
+import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
@@ -488,26 +488,24 @@ function calendarPanel() {
 }
 
 function achievementsPanel() {
-  const rows = achievementRows(store.state);
-  if (!rows.length) return null;
-  const unlocked = rows.filter((r) => r.unlocked).length;
-  const next = rows.filter((r) => !r.unlocked && r.need > 0)
-    .sort((a, b) => (b.have / b.need) - (a.have / a.need))[0];
+  const unlockedMap = store.unlockedAchievements;
+  const unlocked = ACHIEVEMENTS.filter((a) => a.id in unlockedMap).length;
+  const next = nextAchievement(store.state);
 
   return el("section.home-panel.home-panel--ach", {}, [
     el("div.home-panel__label", {}, [
       el("span", {}, t("prog.achievements")),
-      el("a.linkbtn", { href: "#/progress" }, t("prog.achCount", { have: unlocked, need: rows.length })),
+      el("a.linkbtn", { href: "#/achievements" }, t("ach.subtitle", { unlocked, total: ACHIEVEMENTS.length })),
     ]),
     next
       ? el("div.ach-next", {}, [
-          el("span.ach-next__emoji", { "aria-hidden": "true" }, next.def.emoji),
+          el("span.ach-next__emoji", { "aria-hidden": "true" }, icon(ICONS[next.def.icon] || ICONS.award, 24)),
           el("div", { style: { flex: "1", minWidth: "0" } }, [
-            el("strong", {}, t(titleKey(next.def))),
+            el("strong", {}, `${t(`ach.tier.${next.def.tier}`)} · ${t(next.def.nameKey)}`),
             el("div.ach-next__bar", {}, [
               el("div.ach-next__fill", { style: { width: `${Math.min(100, Math.round((next.have / next.need) * 100))}%` } }),
             ]),
-            el("span.note", {}, t("prog.achProgress", { have: next.have, need: next.need })),
+            el("span.note", {}, `${next.have} / ${next.need}`),
           ]),
         ])
       : el("p.note", {}, t("menu.achAllDone")),

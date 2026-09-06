@@ -4,6 +4,7 @@ import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { deltaFromAttempt } from "../lib/mastery.js";
+import { estimatedGrade, gradeRank } from "../lib/grade.js";
 import { summarizeSchedule, dueLabel } from "../lib/srs.js";
 import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
 import { t, plural } from "../lib/i18n.js";
@@ -76,6 +77,8 @@ export function renderResults(attemptId) {
     ]),
     attempt.timedOut ? el("p.note.note--warn", {}, t("results.timedOut")) : null,
 
+    gradeReveal(attempt),
+
     deltaEntries.length ? el("div", {}, [
       el("h3", { style: { marginBottom: "8px" } }, t("results.topicMastery")),
       el("div.delta-list", {}, deltaEntries.map(([topic, d]) => {
@@ -135,6 +138,41 @@ function countLabel(attempt) {
   const n = (attempt.items || []).length;
   const c = (attempt.items || []).filter((i) => i.correct).length;
   return t("results.correctOf", { c, n });
+}
+
+/** For a real exam-conditions run (a "test"-type set, or any exam-mode
+ *  session — never a review, which isn't "taking an exam" on one set), a
+ *  prominent estimated-grade reveal: the letter this result maps to, plus
+ *  how it stacks up against your own best on this same set so far. Nothing
+ *  to reveal for an ordinary practice run — the per-topic deltas cover that.
+ *  Always captioned as an estimate, never a real grade. */
+function gradeReveal(attempt) {
+  if (!attempt.wasTest || attempt.isReview) return null;
+
+  const grade = estimatedGrade(attempt.scorePct / 100);
+  const rank = gradeRank(grade.letter);
+
+  const priorBestPct = store.attempts
+    .filter((a) => a.id !== attempt.id && a.assignmentId === attempt.assignmentId && a.wasTest && a.finishedAt < attempt.finishedAt)
+    .reduce((best, a) => Math.max(best, a.scorePct), -1);
+
+  let compare, compareClass = "";
+  if (priorBestPct < 0) {
+    compare = t("results.gradeFirstTime");
+  } else {
+    const priorRank = gradeRank(estimatedGrade(priorBestPct / 100).letter);
+    const priorLetter = estimatedGrade(priorBestPct / 100).letter;
+    if (rank > priorRank) { compare = t("results.gradeUpFrom", { letter: priorLetter }); compareClass = "up"; }
+    else if (rank === priorRank) compare = t("results.gradeMatchesBest");
+    else { compare = t("results.gradeBestSoFar", { letter: priorLetter }); compareClass = "down"; }
+  }
+
+  return el("div.gradereveal" + `.gradereveal--${grade.tier}`, {}, [
+    el("span.gradereveal__eyebrow", {}, t("results.gradeEyebrow")),
+    el("div.gradereveal__letter", {}, grade.letter),
+    el("p.gradereveal__compare" + (compareClass ? `.${compareClass}` : ""), {}, compare),
+    el("p.gradereveal__caption", {}, t("prog.gradeTooltip", { letter: grade.letter })),
+  ]);
 }
 
 /** The correct answer, in whatever shape fits the question's kind — reuses

@@ -4,7 +4,7 @@
 import { uid } from "./lib/dom.js";
 import { localDayKey, currentStreak, addDays, studiedToday } from "./lib/activity.js";
 import { getLang } from "./lib/i18n.js";
-import { ACHIEVEMENTS } from "./lib/achievements.js";
+import { ACHIEVEMENTS, achievementMetrics } from "./lib/achievements.js";
 import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } from "./lib/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
 import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, STATE_URL } from "./config.js";
@@ -113,6 +113,7 @@ function seedState() {
     sessions: {},                    // in-progress sessions, keyed by session key
     onboarded: false,                // has the first-run walkthrough been seen?
     achievements: {},                // { id: unlockedAt } — 0 = "already true when shipped"
+    readNotifications: {},           // { [notificationId]: signature } — see buildNotifications() in main.js
     activity: {
       daysStudied: [],               // the real record; the streak is derived from it
       frozenDays: [],                // days a freeze covered — count as studied
@@ -190,6 +191,31 @@ function migrate(state) {
   s.settings = { ...seedState().settings, ...(s.settings || {}) };
   s.activity = { ...seedState().activity, ...(s.activity || {}) };
   s.achievements = s.achievements || {};
+  s.readNotifications = s.readNotifications || {};
+
+  // Achievements moved from ~15 one-off badges to 5 tiered tracks. Carry the
+  // milestone unlocks that have a direct equivalent so an earned badge isn't
+  // silently lost; everything else re-evaluates against the new tracks on the
+  // next _checkAchievements() pass (silently, so no retroactive toast storm).
+  // Idempotent — the new ids just no-op on a second run.
+  {
+    const remap = {
+      "streak-3": "streak-bronze", "streak-7": "streak-silver",
+      "streak-30": "streak-gold", "streak-100": "streak-platinum",
+      "q-50": "questions-bronze", "q-250": "questions-silver", "q-1000": "questions-gold",
+    };
+    for (const [oldId, newId] of Object.entries(remap)) {
+      if (oldId in s.achievements) {
+        if (!(newId in s.achievements)) s.achievements[newId] = s.achievements[oldId] || 0;
+        delete s.achievements[oldId];
+      }
+    }
+    // Drop any remaining legacy ids that have no home in the new model.
+    const known = new Set(ACHIEVEMENTS.map((d) => d.id));
+    for (const id of Object.keys(s.achievements)) {
+      if (!known.has(id)) delete s.achievements[id];
+    }
+  }
   // Existing users have already "onboarded" by virtue of having data — only a
   // genuinely fresh seedState() starts with onboarded: false.
   s.onboarded = s.onboarded ?? ((s.assignments || []).length > 0 || (s.attempts || []).length > 0);
@@ -897,16 +923,20 @@ class Store extends EventTarget {
     return spent && !silent;
   }
 
-  /** Record any streak-milestone badges now satisfied. Returns the newly
-   *  unlocked defs (empty during the silent init pass). */
+  get unlockedAchievements() { return this.state.achievements; }
+
+  /** Evaluate every tiered track against current state, permanently recording
+   *  (with a timestamp) any tier whose threshold is newly met. Returns the
+   *  newly-unlocked defs so a caller can celebrate them — empty during the
+   *  silent init pass, which just backfills what's already true. */
   _checkAchievements({ silent = false, mutating } = {}) {
     const unlocked = [];
     const run = (s) => {
+      let metrics;
+      try { metrics = achievementMetrics(s); } catch { return; }
       for (const def of ACHIEVEMENTS) {
         if (def.id in s.achievements) continue;
-        let earned = false;
-        try { earned = def.check(s); } catch { earned = false; }
-        if (!earned) continue;
+        if ((metrics[def.track] ?? 0) < def.target) continue;
         s.achievements[def.id] = silent ? 0 : Date.now();
         if (!silent) unlocked.push(def);
       }
@@ -914,6 +944,25 @@ class Store extends EventTarget {
     if (mutating) run(mutating);
     else this.update(run);
     return unlocked;
+  }
+
+  // ---------- topbar notifications ----------
+  // The two live notification types (due-for-review, upcoming test) are
+  // computed on the fly from other state rather than stored as events, so
+  // "read" is tracked against a snapshot of the fact that fired them (the due
+  // count, or the test id + date + day-count). If that fact changes — more
+  // questions pile up, the test gets a day closer — it reads as unread again;
+  // unchanged, it stays read across reloads.
+  isNotificationRead(id, signature) {
+    return this.state.readNotifications[id] === signature;
+  }
+
+  // save(), not update(): this must persist without emitting "change", which
+  // triggers a full re-render on the home/progress routes — and that closes
+  // every open popover, yanking the notification panel shut mid-interaction.
+  markNotificationRead(id, signature) {
+    this.state.readNotifications[id] = signature;
+    this.save();
   }
 
   setSrs(questionId, record) {

@@ -44,6 +44,11 @@
   --c-berry:       #E4588A;  --c-berry-ink:     #B0446A;  --c-berry-tint:     #FCE7EF;
   --c-sky:         #4C7DF0;  --c-sky-ink:       #3E67C5;  --c-sky-tint:       #E6EDFD;
 
+  /* --- achievement tiers --- */
+  --ach-bronze:    #B5793B;  --ach-bronze-ink:  #8A5A28;  --ach-bronze-tint:  #F6ECE0;
+  --ach-silver:    #8B93A1;  --ach-silver-ink:  #5F6774;  --ach-silver-tint:  #EEF0F3;
+  --ach-gold:      #C79A2E;  --ach-gold-ink:    #8F6D14;  --ach-gold-tint:    #F8EFD6;
+
   /* --- typography --- */
   --font-display: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-body:    "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -139,6 +144,10 @@
   --c-berry:       #F07BA6;  --c-berry-ink:     #C55074;  --c-berry-tint:     #3B1E2B;
   --c-sky:         #7BA0F7;  --c-sky-ink:       #4E76D6;  --c-sky-tint:       #1E2740;
 
+  --ach-bronze:    #C08A4E;  --ach-bronze-ink:  #E0B486;  --ach-bronze-tint:  #33261A;
+  --ach-silver:    #A7AEBC;  --ach-silver-ink:  #C7CDD8;  --ach-silver-tint:  #2A2E36;
+  --ach-gold:      #D8B458;  --ach-gold-ink:    #EED493;  --ach-gold-tint:    #352C15;
+
   --shadow-1: 0 1px 2px rgba(0,0,0,.35), 0 4px 12px rgba(0,0,0,.30);
   --shadow-2: 0 2px 6px rgba(0,0,0,.40), 0 14px 32px rgba(0,0,0,.45);
   --ring: 0 0 0 3px var(--canvas), 0 0 0 6px var(--brand-bright);
@@ -184,6 +193,10 @@
     --c-tangerine:   #F5A65C;  --c-tangerine-ink: #C77A2F;  --c-tangerine-tint: #3B2A16;
     --c-berry:       #F07BA6;  --c-berry-ink:     #C55074;  --c-berry-tint:     #3B1E2B;
     --c-sky:         #7BA0F7;  --c-sky-ink:       #4E76D6;  --c-sky-tint:       #1E2740;
+
+    --ach-bronze:    #C08A4E;  --ach-bronze-ink:  #E0B486;  --ach-bronze-tint:  #33261A;
+    --ach-silver:    #A7AEBC;  --ach-silver-ink:  #C7CDD8;  --ach-silver-tint:  #2A2E36;
+    --ach-gold:      #D8B458;  --ach-gold-ink:    #EED493;  --ach-gold-tint:    #352C15;
 
     --shadow-1: 0 1px 2px rgba(0,0,0,.35), 0 4px 12px rgba(0,0,0,.30);
     --shadow-2: 0 2px 6px rgba(0,0,0,.40), 0 14px 32px rgba(0,0,0,.45);
