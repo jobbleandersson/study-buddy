@@ -462,17 +462,13 @@ export function renderMenu(mode) {
         el("h1", {}, greeting()),
         el("p.home__hi", {}, store.hasKey() ? t("menu.subHasKey") : t("menu.subNoKey")),
       ]),
-      // With a tutor server: create + solve are the headline actions. Without
-      // one, both are dead ends — lead with the library instead.
-      el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } },
-        store.hasKey()
-          ? [
-              el("a.btn.btn--ghost", { href: "#/solve" }, [icon(ICONS.camera, 18), t("menu.solveLink")]),
-              el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
-            ]
-          : [
-              el("a.btn", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
-            ]),
+      el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [
+        // Library sits first in demo mode (it's the thing that works), but the
+        // Solve and New-set shortcuts stay put either way.
+        !store.hasKey() && el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
+        el("a.btn.btn--ghost", { href: "#/solve" }, [icon(ICONS.camera, 18), t("menu.solveLink")]),
+        el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
+      ].filter(Boolean)),
     ]),
     layout,
   ].filter(Boolean));
