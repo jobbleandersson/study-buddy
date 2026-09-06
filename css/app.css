@@ -313,8 +313,11 @@ a.streakbadge:hover {
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--s-5); }
 
 /* ---------- menu / home ---------- */
-.home__head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-4); flex-wrap: wrap; margin-bottom: var(--s-5); }
-.home__hi { color: var(--ink-soft); }
+.home__head { margin-bottom: var(--s-5); }
+.home__hi { color: var(--ink-soft); margin-top: 2px; }
+/* Solve / Library / New-set — a row on its own, between the "Idag" panel
+   and "Dina set". */
+.home__actions { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-bottom: var(--s-5); }
 
 .tabs { display: inline-flex; background: var(--surface-sunk); border-radius: var(--r-full); padding: 4px; gap: 4px; }
 .tab {
