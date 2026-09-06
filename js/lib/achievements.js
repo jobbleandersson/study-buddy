@@ -19,11 +19,11 @@ import { estimatedGrade, gradeRank } from "./grade.js";
 export const TIER_NAMES = ["bronze", "silver", "gold", "platinum"];
 
 const TRACKS = [
-  { id: "streak",    icon: "flame",      nameKey: "ach.track.streak",    descKey: "ach.desc.streak",    tiers: [3, 7, 30, 100] },
-  { id: "questions", icon: "book",       nameKey: "ach.track.questions", descKey: "ach.desc.questions", tiers: [25, 100, 500, 2000] },
-  { id: "sessions",  icon: "check",      nameKey: "ach.track.sessions",  descKey: "ach.desc.sessions",  tiers: [5, 20, 75, 250] },
-  { id: "mastery",   icon: "chart",      nameKey: "ach.track.mastery",   descKey: "ach.desc.mastery",   tiers: [1, 2, 4, 6] },
-  { id: "perfect",   icon: "graduation", nameKey: "ach.track.perfect",   descKey: "ach.desc.perfect",   tiers: [1, 5, 15, 50] },
+  { id: "streak",    icon: "flame",   nameKey: "ach.track.streak",    descKey: "ach.desc.streak",    tiers: [3, 7, 30, 100] },
+  { id: "questions", icon: "layers",  nameKey: "ach.track.questions", descKey: "ach.desc.questions", tiers: [25, 100, 500, 2000] },
+  { id: "sessions",  icon: "medal",   nameKey: "ach.track.sessions",  descKey: "ach.desc.sessions",  tiers: [5, 20, 75, 250] },
+  { id: "mastery",   icon: "summit",  nameKey: "ach.track.mastery",   descKey: "ach.desc.mastery",   tiers: [1, 2, 4, 6] },
+  { id: "perfect",   icon: "gem",     nameKey: "ach.track.perfect",   descKey: "ach.desc.perfect",   tiers: [1, 5, 15, 50] },
 ];
 
 const TRACKED = TRACKS.flatMap((track) =>
@@ -85,14 +85,14 @@ function goalRun(s) {
  *  `binary` badges are all-or-nothing (no progress bar). tier "milestone"
  *  drives their neutral styling. */
 export const MILESTONES = [
-  { id: "subjects-3", tier: "milestone", icon: "flag", nameKey: "ach.ms.subjects3.name", descKey: "ach.ms.subjects3.desc",
+  { id: "subjects-3", tier: "milestone", icon: "compass", nameKey: "ach.ms.subjects3.name", descKey: "ach.ms.subjects3.desc",
     target: 3, value: distinctSubjects },
-  { id: "subjects-5", tier: "milestone", icon: "flag", nameKey: "ach.ms.subjects5.name", descKey: "ach.ms.subjects5.desc",
+  { id: "subjects-5", tier: "milestone", icon: "compass", nameKey: "ach.ms.subjects5.name", descKey: "ach.ms.subjects5.desc",
     target: 5, value: distinctSubjects },
-  { id: "well-rounded", tier: "milestone", icon: "target", nameKey: "ach.ms.wellRounded.name", descKey: "ach.ms.wellRounded.desc",
+  { id: "well-rounded", tier: "milestone", icon: "wheel", nameKey: "ach.ms.wellRounded.name", descKey: "ach.ms.wellRounded.desc",
     target: 1, binary: true,
     value: (s) => { const ms = subjectMasteryValues(s); return ms.length >= 2 && ms.every((m) => m >= 0.6) ? 1 : 0; } },
-  { id: "goal-week", tier: "milestone", icon: "flame", nameKey: "ach.ms.goalWeek.name", descKey: "ach.ms.goalWeek.desc",
+  { id: "goal-week", tier: "milestone", icon: "calendarCheck", nameKey: "ach.ms.goalWeek.name", descKey: "ach.ms.goalWeek.desc",
     target: 7, value: goalRun },
 ];
 

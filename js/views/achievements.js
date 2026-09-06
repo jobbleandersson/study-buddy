@@ -27,7 +27,7 @@ export function renderAchievements() {
     ]));
 
   const milestoneGroup = MILESTONES.length ? el("section.panel.achgroup", {}, [
-    el("h3.achgroup__title", {}, [icon(ICONS.spark, 18), t("ach.milestonesTitle")]),
+    el("h3.achgroup__title", {}, [icon(ICONS.trophy, 18), t("ach.milestonesTitle")]),
     el("div.achrow", {}, MILESTONES.map((def) => badge(def, metrics, unlocked))),
   ]) : null;
 
