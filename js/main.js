@@ -96,14 +96,12 @@ function navGroups() {
     { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
     { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
   ];
-  // "Leaderboard" needs an account — signed out it's just a sign-in wall — so
-  // it joins the nav only once it would work (same pattern as the parent view).
   const track = [
     { href: "#/calendar", match: "/calendar",  icon: ICONS.calendar,  label: t("nav.calendar") },
     { href: "#/progress", match: "/progress",  icon: ICONS.chart,     label: t("common.progress") },
     { href: "#/achievements", match: "/achievements", icon: ICONS.award, label: t("nav.achievements") },
-    store.authed && { href: "#/leaderboard", match: "/leaderboard", icon: ICONS.podium, label: t("nav.leaderboard") },
-  ].filter(Boolean);
+    { href: "#/leaderboard", match: "/leaderboard", icon: ICONS.podium, label: t("nav.leaderboard") },
+  ];
   const tools = [
     { href: "#/reference",  match: "/reference",  icon: ICONS.sigma,      label: t("nav.formulas") },
     { href: "#/calculator", match: "/calculator", icon: ICONS.calculator, label: t("nav.calculator") },
@@ -445,16 +443,14 @@ function shellActions() {
     },
   }, [icon(ICONS.user, 18)]);
 
-  // Leaderboard — a round icon beside the bell, but only once there's an
-  // account for it to mean anything (signed out it's just a sign-in wall).
-  // Hidden on the narrowest screens (see CSS), where it lives in the ⋮ nav.
-  const leaderboardBtn = store.authed
-    ? el("a.iconbtn.topbar__leaderboard" + (navActive("/leaderboard") ? ".is-active" : ""), {
-        href: "#/leaderboard", "aria-label": t("nav.leaderboard"), title: t("nav.leaderboard"),
-      }, [icon(ICONS.podium, 18)])
-    : null;
+  // Leaderboard — a round icon beside the bell, on every screen. Signed out it
+  // opens a sign-in prompt. Hidden on the narrowest screens (see CSS), where it
+  // lives in the ⋮ nav instead.
+  const leaderboardBtn = el("a.iconbtn.topbar__leaderboard" + (navActive("/leaderboard") ? ".is-active" : ""), {
+    href: "#/leaderboard", "aria-label": t("nav.leaderboard"), title: t("nav.leaderboard"),
+  }, [icon(ICONS.podium, 18)]);
 
-  return el("div.topbar__actions", {}, [leaderboardBtn, bellBtn, profileBtn].filter(Boolean));
+  return el("div.topbar__actions", {}, [leaderboardBtn, bellBtn, profileBtn]);
 }
 
 function shell(contentNode) {
