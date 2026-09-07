@@ -1,0 +1,118 @@
+{
+  "id": "lib-de8-verbs",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Grammar: modal verbs and strong verbs",
+  "sourceSummary": "The modal verbs können, müssen, and wollen, plus strong verbs that change their stem vowel (fahren, sehen).",
+  "topics": [
+    "modal verbs",
+    "strong verbs"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de8-verb-1",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Choose the right form: \"Ich ___ gut schwimmen.\" (können = to be able to)",
+      "opener": "Modal verbs are irregular in the singular forms.",
+      "choices": [
+        "kann",
+        "kannst",
+        "könnt",
+        "können"
+      ],
+      "answer": 0,
+      "explanation": "\"Können\" is conjugated: ich kann, du kannst, er/sie/es kann, wir können, ihr könnt, sie können. \"Ich\" takes \"kann\"."
+    },
+    {
+      "id": "q-de8-verb-2",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Where does the infinitive verb go in a sentence with a modal verb, e.g. \"Ich kann gut schwimmen\"?",
+      "opener": "German \"frames\" the sentence between the modal verb and the infinitive.",
+      "choices": [
+        "Right after the modal verb",
+        "At the end of the sentence",
+        "Before the modal verb",
+        "It doesn't matter"
+      ],
+      "answer": 1,
+      "explanation": "The infinitive form (e.g. \"schwimmen\") goes at the end of the sentence: \"Ich kann gut schwimmen.\" The modal verb is conjugated and sits in position two, and the infinitive comes last."
+    },
+    {
+      "id": "q-de8-verb-3",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Choose the right form: \"Du ___ deine Hausaufgaben machen.\" (müssen = to have to)",
+      "opener": "Müssen has -ü- in the plural forms but -u→ss in the singular.",
+      "choices": [
+        "muss",
+        "musst",
+        "müsst",
+        "müssen"
+      ],
+      "answer": 1,
+      "explanation": "\"Müssen\" is conjugated: ich muss, du musst, er/sie/es muss, wir müssen, ihr müsst, sie müssen. \"Du\" takes \"musst\"."
+    },
+    {
+      "id": "q-de8-verb-4",
+      "kind": "mc",
+      "topic": "strong verbs",
+      "prompt": "Choose the right form: \"Er ___ jeden Tag mit dem Bus.\" (fahren = to go/travel)",
+      "opener": "Fahren changes its stem vowel a→ä in the du and er/sie/es forms.",
+      "choices": [
+        "fahre",
+        "fährst",
+        "fährt",
+        "fahren"
+      ],
+      "answer": 2,
+      "explanation": "\"Fahren\" is conjugated: ich fahre, du fährst, er/sie/es fährt, wir fahren, ihr fahrt, sie fahren. \"Er\" takes \"fährt\", with the vowel change a→ä."
+    },
+    {
+      "id": "q-de8-verb-5",
+      "kind": "mc",
+      "topic": "strong verbs",
+      "prompt": "Choose the right form: \"___ du gern Filme?\" (sehen = to watch/see)",
+      "opener": "Sehen changes its stem vowel e→ie in the du and er/sie/es forms.",
+      "choices": [
+        "Sehst",
+        "Siehst",
+        "Seht",
+        "Sehen"
+      ],
+      "answer": 1,
+      "explanation": "\"Sehen\" is conjugated: ich sehe, du siehst, er/sie/es sieht, wir sehen, ihr seht, sie sehen. \"Du\" takes \"siehst\", with the vowel change e→ie."
+    },
+    {
+      "id": "q-de8-verb-6",
+      "kind": "text",
+      "topic": "modal verbs",
+      "prompt": "Write the German form of \"wollen\" (to want) for \"I\": \"Ich ___ ein Eis.\"",
+      "opener": "Wollen follows the same pattern as können/müssen in the singular.",
+      "answer": "will"
+    },
+    {
+      "id": "q-de8-verb-7",
+      "kind": "worked",
+      "topic": "modal verbs",
+      "prompt": "Correct the two errors: \"Ich können morgen nicht kommen, weil ich muss lernen.\"",
+      "opener": "Check the conjugation of \"können\" and where the infinitive should go.",
+      "answer": "Ich kann morgen nicht kommen, weil ich lernen muss.",
+      "steps": [
+        "\"Ich können\" → \"Ich kann\". The modal verb has to be conjugated for \"I\" (ich): \"kann\", not the base form \"können\".",
+        "\"Weil ich muss lernen\" → \"weil ich lernen muss\". In subordinate clauses (after weil), the conjugated verb goes to the END of the clause.",
+        "Full sentence: \"Ich kann morgen nicht kommen, weil ich lernen muss.\" (I can't come tomorrow because I have to study.)"
+      ]
+    },
+    {
+      "id": "q-de8-verb-8",
+      "kind": "flashcard",
+      "topic": "modal verbs",
+      "prompt": "How are können, müssen, and wollen conjugated, and what are strong verbs with a vowel change?",
+      "opener": "Three important modal verbs plus the pattern for strong verbs.",
+      "answer": "Können (to be able to): kann, kannst, kann, können, könnt, können. Müssen (to have to): muss, musst, muss, müssen, müsst, müssen. Wollen (to want): will, willst, will, wollen, wollt, wollen. Modal verb + infinitive last in the clause: Ich kann gut schwimmen. Strong verbs change their stem vowel in the du/er form: fahren → fährst/fährt (a→ä), sehen → siehst/sieht (e→ie), nehmen → nimmst/nimmt (e→i), sprechen → sprichst/spricht (e→i)."
+    }
+  ]
+}

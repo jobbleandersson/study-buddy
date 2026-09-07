@@ -1,0 +1,119 @@
+{
+  "id": "lib-de7-family",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Family and numbers",
+  "sourceSummary": "Family words, possessive pronouns, and the numbers 0–100.",
+  "topics": [
+    "family",
+    "numbers",
+    "possessives"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de7-fam-1",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"die Schwester\" mean?",
+      "opener": "Compare with \"der Bruder\", which you may already know.",
+      "choices": [
+        "Brother",
+        "Sister",
+        "Mom",
+        "Cousin"
+      ],
+      "answer": 1,
+      "explanation": "\"Die Schwester\" means sister. \"Der Bruder\" means brother."
+    },
+    {
+      "id": "q-de7-fam-2",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"die Großeltern\" mean?",
+      "opener": "\"Groß\" means big/old, and the word is plural.",
+      "choices": [
+        "Parents",
+        "Siblings",
+        "Grandparents",
+        "Cousins"
+      ],
+      "answer": 2,
+      "explanation": "\"Der Großvater\" is grandfather and \"die Großmutter\" is grandmother. \"Die Großeltern\" in the plural means grandparents together."
+    },
+    {
+      "id": "q-de7-fam-3",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Choose the right word: \"___ Mutter heißt Rosa.\" (My mom's name is Rosa.)",
+      "opener": "\"Die Mutter\" is feminine, and the possessive is conjugated to match.",
+      "choices": [
+        "Mein",
+        "Meine",
+        "Dein",
+        "Sein"
+      ],
+      "answer": 1,
+      "explanation": "\"Meine\" is the feminine form of \"my\" and matches \"Mutter\" (feminine). \"Mein\" is used for masculine/neuter, \"dein\" is \"your\", and \"sein\" is \"his\"."
+    },
+    {
+      "id": "q-de7-fam-4",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "How do you write the number 15 in letters?",
+      "opener": "15 follows the pattern \"number + zehn\".",
+      "choices": [
+        "vierzehn",
+        "fünfzehn",
+        "sechzehn",
+        "zwölf"
+      ],
+      "answer": 1,
+      "explanation": "\"Fünfzehn\" is 15 (fünf + zehn). \"Vierzehn\" is 14, \"sechzehn\" is 16, and \"zwölf\" is 12."
+    },
+    {
+      "id": "q-de7-fam-5",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "What number is \"siebenunddreißig\"?",
+      "opener": "In German, the ones digit is said BEFORE the tens digit: \"seven-and-thirty\".",
+      "choices": [
+        "27",
+        "37",
+        "47",
+        "73"
+      ],
+      "answer": 1,
+      "explanation": "\"Sieben\" (7) + \"und\" (and) + \"dreißig\" (30) = \"siebenunddreißig\" = 37. Unlike Swedish or English, German says the ones digit before the tens digit."
+    },
+    {
+      "id": "q-de7-fam-6",
+      "kind": "text",
+      "topic": "numbers",
+      "prompt": "Write the number \"hundert\" in digits.",
+      "opener": "The round number after neunundneunzig (99).",
+      "answer": "100"
+    },
+    {
+      "id": "q-de7-fam-7",
+      "kind": "worked",
+      "topic": "family",
+      "prompt": "Correct the error: \"Mein Bruder heißt Sofia und ist vierzehn Jahre alt.\" (The name refers to a girl.)",
+      "opener": "The word for brother versus sister changes with gender — and so does the possessive.",
+      "answer": "Meine Schwester heißt Sofia und ist vierzehn Jahre alt.",
+      "steps": [
+        "Sofia is a girl's name, so it should be \"Schwester\" (sister), not \"Bruder\" (brother).",
+        "Since \"Schwester\" is feminine, the possessive must also be feminine: \"meine\", not \"mein\".",
+        "The rest is correct: \"heißt Sofia und ist vierzehn Jahre alt\" (is named Sofia and is fourteen years old)."
+      ]
+    },
+    {
+      "id": "q-de7-fam-8",
+      "kind": "flashcard",
+      "topic": "family",
+      "prompt": "Which family words, possessive pronouns, and numbers should you know at grade 7 level in German?",
+      "opener": "The family, who it belongs to, and counting to a hundred.",
+      "answer": "Family: die Mutter/der Vater = mom/dad · der Bruder/die Schwester = brother/sister · der Großvater/die Großmutter = grandfather/grandmother · der Sohn/die Tochter = son/daughter · der Cousin/die Cousine = cousin. Possessives (nominative): mein/meine = my · dein/deine = your · sein/seine = his · ihr/ihre = her. Numbers: 0 null, 1 eins, 5 fünf, 10 zehn, 11 elf, 12 zwölf, 15 fünfzehn, 20 zwanzig, 21 einundzwanzig, 37 siebenunddreißig, 50 fünfzig, 100 hundert."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp7-family",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Familj och siffror",
+  "sourceSummary": "Familjeord, ägande med possessiva pronomen och siffrorna 0–100.",
+  "topics": [
+    "family",
+    "numbers",
+    "possessives"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp7-fam-1",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"hermana\"?",
+      "opener": "Jämför med \"hermano\", som du kanske redan känner till.",
+      "choices": [
+        "Bror",
+        "Syster",
+        "Mamma",
+        "Kusin"
+      ],
+      "answer": 1,
+      "explanation": "\"Hermana\" betyder syster. \"Hermano\" (med -o) betyder bror — spanskan ändrar ofta ändelsen -o/-a för att visa kön."
+    },
+    {
+      "id": "q-sp7-fam-2",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"abuelos\"?",
+      "opener": "Ordet i plural täcker båda mor- och farsidan.",
+      "choices": [
+        "Föräldrar",
+        "Syskon",
+        "Mor- och farföräldrar",
+        "Kusiner"
+      ],
+      "answer": 2,
+      "explanation": "\"Abuelo\" är morfar/farfar och \"abuela\" är mormor/farmor. \"Abuelos\" i plural betyder mor- och farföräldrar tillsammans."
+    },
+    {
+      "id": "q-sp7-fam-3",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Välj rätt ord: \"___ madre se llama Rosa.\" (Min mamma heter Rosa.)",
+      "opener": "Possessiva pronomen på spanska följer också genus och numerus.",
+      "choices": [
+        "Mi",
+        "Mis",
+        "Tu",
+        "Su"
+      ],
+      "answer": 0,
+      "explanation": "\"Mi\" betyder \"min/mitt\" i singular och passar med \"madre\" (mamma). \"Mis\" är plural (\"mina\"), \"tu\" är \"din\", och \"su\" är \"hans/hennes\"."
+    },
+    {
+      "id": "q-sp7-fam-4",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Hur skriver man talet 15 med bokstäver?",
+      "opener": "15 är ett av de oregelbundna talen mellan 11 och 15.",
+      "choices": [
+        "catorce",
+        "quince",
+        "dieciséis",
+        "doce"
+      ],
+      "answer": 1,
+      "explanation": "\"Quince\" är 15. \"Catorce\" är 14, \"dieciséis\" är 16, och \"doce\" är 12."
+    },
+    {
+      "id": "q-sp7-fam-5",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Vilket tal är \"treinta y siete\"?",
+      "opener": "Tal från 30 och uppåt byggs som \"tiotal + y + ental\".",
+      "choices": [
+        "27",
+        "37",
+        "47",
+        "73"
+      ],
+      "answer": 1,
+      "explanation": "\"Treinta\" är 30 och \"siete\" är 7, ihopsatt med \"y\" (och): \"treinta y siete\" = 37."
+    },
+    {
+      "id": "q-sp7-fam-6",
+      "kind": "text",
+      "topic": "numbers",
+      "prompt": "Skriv talet \"cien\" med siffror.",
+      "opener": "Det är det runda talet efter noventa y nueve (99).",
+      "answer": "100"
+    },
+    {
+      "id": "q-sp7-fam-7",
+      "kind": "worked",
+      "topic": "family",
+      "prompt": "Rätta felet: \"Mi hermano se llama Sofía y tiene catorce años.\" (Namnet syftar på en flicka.)",
+      "opener": "Ordet för bror respektive syster ändras med kön.",
+      "answer": "Mi hermana se llama Sofía y tiene catorce años.",
+      "steps": [
+        "Sofía är ett flicknamn, så det ska vara \"hermana\" (syster), inte \"hermano\" (bror).",
+        "Resten av meningen stämmer: \"se llama Sofía\" (heter Sofía) och \"tiene catorce años\" (är fjorton år) är rätt böjt.",
+        "Kom ihåg: spanska substantiv för familjemedlemmar följer nästan alltid personens kön genom ändelsen -o/-a."
+      ]
+    },
+    {
+      "id": "q-sp7-fam-8",
+      "kind": "flashcard",
+      "topic": "family",
+      "prompt": "Vilka familjeord, possessiva pronomen och siffror bör du kunna på åk7-nivå i spanska?",
+      "opener": "Familjen, vem den tillhör, och att kunna räkna till hundra.",
+      "answer": "Familj: madre/padre = mamma/pappa · hermano/hermana = bror/syster · abuelo/abuela = morfar-farfar/mormor-farmor · hijo/hija = son/dotter · primo/prima = kusin. Possessiva: mi/mis = min/mina · tu/tus = din/dina · su/sus = hans/hennes/deras. Siffror: 0 cero, 1 uno, 5 cinco, 10 diez, 11 once, 15 quince, 20 veinte, 21 veintiuno, 30 treinta, 37 treinta y siete, 50 cincuenta, 100 cien."
+    }
+  ]
+}

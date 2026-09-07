@@ -1,0 +1,118 @@
+{
+  "id": "lib-fr9-questions",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Questions and negation",
+  "sourceSummary": "Question words, how questions are formed, and how to make a sentence negative with ne...pas.",
+  "topics": [
+    "question words",
+    "negation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr9-q-1",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Which question word fits: \"___ habites-tu ?\" — \"J'habite à Lyon.\"",
+      "opener": "The answer refers to a place.",
+      "choices": [
+        "Quand",
+        "Où",
+        "Comment",
+        "Pourquoi"
+      ],
+      "answer": 1,
+      "explanation": "\"Où habites-tu ?\" means \"where do you live?\", and the answer \"j'habite à Lyon\" (I live in Lyon) fits perfectly with that."
+    },
+    {
+      "id": "q-fr9-q-2",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Which question word fits: \"___ ans as-tu ?\" — \"J'ai quinze ans.\"",
+      "opener": "The answer is a number followed by \"ans\".",
+      "choices": [
+        "Quel",
+        "Combien d'",
+        "Quelle",
+        "Qui"
+      ],
+      "answer": 1,
+      "explanation": "\"Combien d'ans as-tu ?\" means \"how old are you?\" (literally \"how many years do you have?\")."
+    },
+    {
+      "id": "q-fr9-q-3",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "What does \"Pourquoi tu ne viens pas à la fête ?\" ask?",
+      "opener": "\"Pourquoi\" means \"why\".",
+      "choices": [
+        "What's the party called?",
+        "Why aren't you coming to the party?",
+        "Who's coming to the party?",
+        "When is the party?"
+      ],
+      "answer": 1,
+      "explanation": "\"Pourquoi...?\" means \"why...?\". The sentence asks \"why aren't you coming to the party?\"."
+    },
+    {
+      "id": "q-fr9-q-4",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "How do you make the sentence \"Je mange de la viande\" (I eat meat) negative?",
+      "opener": "Negation in French frames the verb with ne...pas.",
+      "choices": [
+        "Je mange ne pas de la viande.",
+        "Je ne mange pas de viande.",
+        "Je mange pas de la viande no.",
+        "Ne je mange pas de viande."
+      ],
+      "answer": 1,
+      "explanation": "\"Ne\" is placed before the verb and \"pas\" after: \"Je ne mange pas de viande\" (I don't eat meat). Note that \"de la\" often becomes just \"de\" in a negative sentence."
+    },
+    {
+      "id": "q-fr9-q-5",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "What does \"Je ne vais jamais à la salle de sport\" mean?",
+      "opener": "\"Jamais\" is a negative word meaning \"never\", and works just like \"pas\".",
+      "choices": [
+        "I always go to the gym",
+        "I never go to the gym",
+        "I sometimes go to the gym",
+        "I want to go to the gym"
+      ],
+      "answer": 1,
+      "explanation": "\"Ne...jamais\" means \"never\", and works just like \"ne...pas\" but with a different meaning."
+    },
+    {
+      "id": "q-fr9-q-6",
+      "kind": "text",
+      "topic": "question words",
+      "prompt": "Write the question word that means \"who\" in French.",
+      "opener": "Asks about a person.",
+      "answer": "qui"
+    },
+    {
+      "id": "q-fr9-q-7",
+      "kind": "worked",
+      "topic": "negation",
+      "prompt": "Correct the error: \"Je mange ne pas de légumes parce que je ne les aime pas.\"",
+      "opener": "\"Ne\" should go directly before the verb, \"pas\" directly after.",
+      "answer": "Je ne mange pas de légumes parce que je ne les aime pas.",
+      "steps": [
+        "\"Je mange ne pas\" has the wrong word order — \"ne\" should come BEFORE the verb, not after.",
+        "Correct word order: \"Je ne mange pas de légumes\" (I don't eat vegetables).",
+        "\"Parce que je ne les aime pas\" (because I don't like them) is already correct and doesn't need to change."
+      ]
+    },
+    {
+      "id": "q-fr9-q-8",
+      "kind": "flashcard",
+      "topic": "question words",
+      "prompt": "Which question words and negation expressions should you know at grade 9 level in French?",
+      "opener": "Asking questions and making sentences negative.",
+      "answer": "Question words: qu'est-ce que/quoi = what · qui = who · où = where · quand = when · comment = how · pourquoi = why · combien de = how much/many · quel/quelle = which. Negation: ne...pas = not (Je ne mange pas) · ne...jamais = never · ne...personne = no one · ne...rien = nothing · ne...plus = no longer. Remember: \"ne\" goes BEFORE the verb, the second word (pas/jamais/rien) AFTER."
+    }
+  ]
+}

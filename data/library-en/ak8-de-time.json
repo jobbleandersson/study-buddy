@@ -1,0 +1,119 @@
+{
+  "id": "lib-de8-time",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Telling time and days of the week",
+  "sourceSummary": "Telling the time, days of the week, and months, plus how to talk about a schedule.",
+  "topics": [
+    "telling time",
+    "days of the week",
+    "months"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de8-time-1",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "How do you ask \"what time is it?\" in German?",
+      "opener": "A fixed phrase you just need to memorize.",
+      "choices": [
+        "Wie viel Uhr ist es?",
+        "Wann ist es?",
+        "Welcher Tag ist heute?",
+        "Wo ist die Uhr?"
+      ],
+      "answer": 0,
+      "explanation": "\"Wie viel Uhr ist es?\" (or \"Wie spät ist es?\") is the fixed phrase for \"what time is it?\"."
+    },
+    {
+      "id": "q-de8-time-2",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"Es ist halb drei\" mean?",
+      "opener": "Important: \"halb\" in German points FORWARD to the next hour, not backward!",
+      "choices": [
+        "It's a quarter past two",
+        "It's half past two (2:30)",
+        "It's three o'clock",
+        "It's half past three (3:30)"
+      ],
+      "answer": 1,
+      "explanation": "In German, \"halb drei\" means \"halfway to three\", i.e. 2:30 — just like the Swedish \"halv tre\". The difference from English/Spanish is that German counts toward the next hour the same way Swedish does, so this is actually easy to recognize for a Swedish speaker."
+    },
+    {
+      "id": "q-de8-time-3",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"Viertel nach neun\" mean?",
+      "opener": "\"Nach\" means \"after\".",
+      "choices": [
+        "Quarter to nine",
+        "Quarter past nine",
+        "Half past nine",
+        "Nine thirty"
+      ],
+      "answer": 1,
+      "explanation": "\"Viertel nach neun\" means \"a quarter past nine\" (09:15). \"Viertel vor\" would have meant \"a quarter to\"."
+    },
+    {
+      "id": "q-de8-time-4",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Which day of the week is \"Mittwoch\"?",
+      "opener": "The word literally means \"middle of the week\".",
+      "choices": [
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "answer": 1,
+      "explanation": "\"Mittwoch\" is Wednesday (middle of the week). Days of the week: Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag."
+    },
+    {
+      "id": "q-de8-time-5",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Which month is \"Dezember\"?",
+      "opener": "The name resembles the Swedish/English one.",
+      "choices": [
+        "October",
+        "November",
+        "December",
+        "January"
+      ],
+      "answer": 2,
+      "explanation": "\"Dezember\" is December. The German month names are quite similar to the Swedish ones."
+    },
+    {
+      "id": "q-de8-time-6",
+      "kind": "text",
+      "topic": "days of the week",
+      "prompt": "Write the German word for \"Saturday\".",
+      "opener": "Comes right before \"Sonntag\" in the week.",
+      "answer": "samstag"
+    },
+    {
+      "id": "q-de8-time-7",
+      "kind": "worked",
+      "topic": "telling time",
+      "prompt": "Correct the error: \"Der Unterricht beginnt um halb neun Uhr morgens\" should mean 08:30 — but the student accidentally wrote \"halb zehn\". Write the correct time for 08:30.",
+      "opener": "\"Halb\" points toward the NEXT full hour.",
+      "answer": "halb neun",
+      "steps": [
+        "08:30 is halfway between eight and nine.",
+        "\"Halb\" points toward the next hour (nine), not the previous one (eight).",
+        "The correct phrase is therefore \"halb neun\", not \"halb zehn\" (which would mean 09:30)."
+      ]
+    },
+    {
+      "id": "q-de8-time-8",
+      "kind": "flashcard",
+      "topic": "telling time",
+      "prompt": "How do you ask and answer about the time, days of the week, and months in German?",
+      "opener": "Fixed phrases for time, days, and months — and remember how \"halb\" works.",
+      "answer": "Time: Wie viel Uhr ist es?/Wie spät ist es? = What time is it? · Es ist ... Uhr = It's ... o'clock · Viertel nach/vor = quarter past/to · halb + NEXT hour = half past (halb drei = 2:30, just like in Swedish). Days of the week: Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag. Months: Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember."
+    }
+  ]
+}

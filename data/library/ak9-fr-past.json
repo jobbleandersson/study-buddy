@@ -1,0 +1,118 @@
+{
+  "id": "lib-fr9-past",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Grammatik: passé composé",
+  "sourceSummary": "Hur passé composé bildas med avoir eller être, och de vanligaste particip-formerna.",
+  "topics": [
+    "passé composé",
+    "avoir or être"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr9-past-1",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Hur bildas passé composé på franska?",
+      "opener": "Två delar: ett hjälpverb och participet.",
+      "choices": [
+        "Bara med participet",
+        "Avoir eller être böjt + particip",
+        "Bara med avoir, i slutet",
+        "Particip böjt + avoir i slutet"
+      ],
+      "answer": 1,
+      "explanation": "Passé composé bildas med avoir eller être böjt i presens, följt av participet: \"J'ai mangé.\""
+    },
+    {
+      "id": "q-fr9-past-2",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Vilket particip hör till \"parler\" (prata)?",
+      "opener": "-er-verb bildar particip med -é.",
+      "choices": [
+        "parlé",
+        "parlée",
+        "parlait",
+        "parler"
+      ],
+      "answer": 0,
+      "explanation": "-er-verb bildar particip med -é: \"parler\" → \"parlé\"."
+    },
+    {
+      "id": "q-fr9-past-3",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Välj rätt hjälpverb: \"Je ___ allé à Paris.\" (aller = förflyttning)",
+      "opener": "Verb som beskriver en förflyttning från ett ställe till ett annat använder être.",
+      "choices": [
+        "ai",
+        "suis",
+        "as",
+        "est"
+      ],
+      "answer": 1,
+      "explanation": "Verb som beskriver rörelse/förflyttning (aller, partir, venir) använder \"être\" som hjälpverb: \"je suis allé\"."
+    },
+    {
+      "id": "q-fr9-past-4",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Välj rätt hjälpverb: \"Nous ___ mangé une pizza.\" (manger = äta)",
+      "opener": "De flesta verb som INTE beskriver förflyttning använder avoir.",
+      "choices": [
+        "avons",
+        "sommes",
+        "avez",
+        "êtes"
+      ],
+      "answer": 0,
+      "explanation": "\"Manger\" beskriver ingen förflyttning, så det använder \"avoir\": \"nous avons mangé\"."
+    },
+    {
+      "id": "q-fr9-past-5",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Vilket particip hör till \"faire\" (göra)? Ett oregelbundet verb.",
+      "opener": "Ett av de vanligaste oregelbundna participen.",
+      "choices": [
+        "fait",
+        "faisé",
+        "faisait",
+        "fasu"
+      ],
+      "answer": 0,
+      "explanation": "\"Faire\" har det oregelbundna participet \"fait\": \"j'ai fait mes devoirs\" (jag har gjort mina läxor)."
+    },
+    {
+      "id": "q-fr9-past-6",
+      "kind": "text",
+      "topic": "passé composé",
+      "prompt": "Skriv participet av \"finir\" (avsluta) — ett regelbundet -ir-verb.",
+      "opener": "-ir-verb bildar particip med -i.",
+      "answer": "fini"
+    },
+    {
+      "id": "q-fr9-past-7",
+      "kind": "worked",
+      "topic": "avoir or être",
+      "prompt": "Rätta felet: \"Hier j'ai allé en ville.\" (Igår gick jag till stan.)",
+      "opener": "\"Aller\" beskriver en förflyttning.",
+      "answer": "Hier je suis allé(e) en ville.",
+      "steps": [
+        "\"Aller\" (gå/åka) beskriver en förflyttning, så hjälpverbet ska vara \"être\", inte \"avoir\".",
+        "\"J'ai\" → \"je suis\".",
+        "Med être ska participet dessutom kongruensböjas efter subjektets kön: \"allé\" (pojke) eller \"allée\" (flicka). Hela meningen: \"Hier je suis allé(e) en ville.\""
+      ]
+    },
+    {
+      "id": "q-fr9-past-8",
+      "kind": "flashcard",
+      "topic": "passé composé",
+      "prompt": "Hur bildas passé composé på franska, och när använder man avoir respektive être?",
+      "opener": "Två hjälpverb och två sorters particip.",
+      "answer": "Struktur: avoir/être (presens) + particip. Être används för förflyttning: aller → suis allé(e), partir → suis parti(e), venir → suis venu(e) — participet kongruensböjs då efter subjektets kön/numerus. Avoir används för de flesta andra verb: manger → ai mangé, parler → ai parlé, finir → ai fini. Oregelbundna particip: fait (faire), eu (avoir), été (être), vu (voir), pris (prendre)."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr7-family",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Family and numbers",
+  "sourceSummary": "Family words, possessive pronouns, and the numbers 0–60.",
+  "topics": [
+    "family",
+    "numbers",
+    "possessives"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr7-fam-1",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"la sœur\" mean?",
+      "opener": "Compare with \"le frère\", which you might already know.",
+      "choices": [
+        "Brother",
+        "Sister",
+        "Mom",
+        "Cousin"
+      ],
+      "answer": 1,
+      "explanation": "\"La sœur\" means sister. \"Le frère\" means brother."
+    },
+    {
+      "id": "q-fr7-fam-2",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"les grands-parents\" mean?",
+      "opener": "The word is plural and covers both sides of the family.",
+      "choices": [
+        "Parents",
+        "Siblings",
+        "Grandparents",
+        "Cousins"
+      ],
+      "answer": 2,
+      "explanation": "\"Le grand-père\" is grandfather and \"la grand-mère\" is grandmother. \"Les grands-parents\" in the plural means grandparents together."
+    },
+    {
+      "id": "q-fr7-fam-3",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Choose the right word: \"___ mère s'appelle Rosa.\" (My mom's name is Rosa.)",
+      "opener": "\"Mère\" is feminine — but \"my\" has a special form before a vowel sound.",
+      "choices": [
+        "Mon",
+        "Ma",
+        "Mes",
+        "Ton"
+      ],
+      "answer": 0,
+      "explanation": "In front of a word starting with a vowel sound (like \"mère\"), \"mon\" is used instead of \"ma\", even though the word is feminine — it's easier to pronounce. \"Mes\" is plural, \"ton\" is \"your\"."
+    },
+    {
+      "id": "q-fr7-fam-4",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "How do you write the number 15 in letters?",
+      "opener": "15 is one of the compound numbers between 11 and 16.",
+      "choices": [
+        "quatorze",
+        "quinze",
+        "seize",
+        "douze"
+      ],
+      "answer": 1,
+      "explanation": "\"Quinze\" is 15. \"Quatorze\" is 14, \"seize\" is 16, and \"douze\" is 12."
+    },
+    {
+      "id": "q-fr7-fam-5",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Which number is \"trente et un\"?",
+      "opener": "\"Et\" (and) is only used with one in compound numbers.",
+      "choices": [
+        "21",
+        "31",
+        "41",
+        "13"
+      ],
+      "answer": 1,
+      "explanation": "\"Trente\" is 30 and \"un\" is 1, joined with \"et\" (and): \"trente et un\" = 31. The same pattern applies to 21 (vingt et un) and 41 (quarante et un)."
+    },
+    {
+      "id": "q-fr7-fam-6",
+      "kind": "text",
+      "topic": "numbers",
+      "prompt": "Write the number \"cinquante\" in digits.",
+      "opener": "A round multiple of ten.",
+      "answer": "50"
+    },
+    {
+      "id": "q-fr7-fam-7",
+      "kind": "worked",
+      "topic": "family",
+      "prompt": "Correct the error: \"Mon frère s'appelle Sofia et elle a quatorze ans.\" (The name refers to a girl.)",
+      "opener": "The word for brother and sister changes with gender.",
+      "answer": "Ma sœur s'appelle Sofia et elle a quatorze ans.",
+      "steps": [
+        "Sofia is a girl's name, so it should be \"sœur\" (sister), not \"frère\" (brother).",
+        "Since \"sœur\" is feminine and starts with a consonant sound, the possessive becomes \"ma\", not \"mon\".",
+        "The rest is correct: \"s'appelle Sofia et elle a quatorze ans\" (is named Sofia and is fourteen years old)."
+      ]
+    },
+    {
+      "id": "q-fr7-fam-8",
+      "kind": "flashcard",
+      "topic": "family",
+      "prompt": "Which family words, possessive pronouns, and numbers should you know at grade 7 level in French?",
+      "opener": "Family, who it belongs to, and being able to count to sixty.",
+      "answer": "Family: la mère/le père = mom/dad · le frère/la sœur = brother/sister · le grand-père/la grand-mère = grandfather/grandmother · le fils/la fille = son/daughter · le cousin/la cousine = cousin. Possessives: mon/ma/mes = my · ton/ta/tes = your · son/sa/ses = his/her. (Mon/ton/son are also used for feminine words starting with a vowel sound.) Numbers: 0 zéro, 1 un, 5 cinq, 10 dix, 11 onze, 15 quinze, 20 vingt, 21 vingt et un, 30 trente, 31 trente et un, 50 cinquante, 60 soixante."
+    }
+  ]
+}

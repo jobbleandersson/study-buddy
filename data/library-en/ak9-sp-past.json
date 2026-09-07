@@ -1,0 +1,118 @@
+{
+  "id": "lib-sp9-past",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Grammar: past tense (pretérito)",
+  "sourceSummary": "The basics of the pretérito (past tense) for regular -ar, -er, and -ir verbs, plus the common irregular verbs ser/ir and hacer.",
+  "topics": [
+    "preterite tense",
+    "irregular preterite"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp9-past-1",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Choose the correct form: \"Ayer yo ___ con mis amigos.\" (hablar = to talk)",
+      "opener": "-ar verbs in the preterite end in -é for \"yo\".",
+      "choices": [
+        "hablé",
+        "hablo",
+        "hablaste",
+        "habló"
+      ],
+      "answer": 0,
+      "explanation": "Preterite of -ar verbs: hablé, hablaste, habló, hablamos, hablasteis, hablaron. \"Yo\" gives the ending -é: \"hablé\" (I talked)."
+    },
+    {
+      "id": "q-sp9-past-2",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Choose the correct form: \"Ella ___ una carta la semana pasada.\" (escribir = to write)",
+      "opener": "-ir verbs in the preterite end in -ió for \"él/ella\".",
+      "choices": [
+        "escribo",
+        "escribió",
+        "escribiste",
+        "escribieron"
+      ],
+      "answer": 1,
+      "explanation": "Preterite of -ir verbs: escribí, escribiste, escribió, escribimos, escribisteis, escribieron. \"Ella\" gives \"escribió\" (she wrote)."
+    },
+    {
+      "id": "q-sp9-past-3",
+      "kind": "mc",
+      "topic": "irregular preterite",
+      "prompt": "Choose the correct form: \"El año pasado nosotros ___ a España.\" (ir = to go)",
+      "opener": "Ir is completely irregular in the preterite — and actually shares its form with ser!",
+      "choices": [
+        "vamos",
+        "fuimos",
+        "íbamos",
+        "iremos"
+      ],
+      "answer": 1,
+      "explanation": "Preterite of \"ir\": fui, fuiste, fue, fuimos, fuisteis, fueron. \"Nosotros\" gives \"fuimos\" (we went). The same form is actually used for \"ser\" in the preterite."
+    },
+    {
+      "id": "q-sp9-past-4",
+      "kind": "mc",
+      "topic": "irregular preterite",
+      "prompt": "Choose the correct form: \"¿Qué ___ tú anoche?\" (hacer = to do)",
+      "opener": "Hacer is irregular in the preterite: hice, hiciste...",
+      "choices": [
+        "haces",
+        "hiciste",
+        "hizo",
+        "hacías"
+      ],
+      "answer": 1,
+      "explanation": "Preterite of \"hacer\": hice, hiciste, hizo, hicimos, hicisteis, hicieron. \"Tú\" gives \"hiciste\" (you did)."
+    },
+    {
+      "id": "q-sp9-past-5",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Which time expression best fits with the preterite?",
+      "opener": "The preterite describes completed events at a specific point in time.",
+      "choices": [
+        "siempre (always)",
+        "ayer (yesterday)",
+        "normalmente (usually)",
+        "todos los días (every day)"
+      ],
+      "answer": 1,
+      "explanation": "\"Ayer\" (yesterday) points to a completed event at a specific point in time, which is exactly what the preterite is used for. The other expressions describe recurring habits and fit better with the present tense."
+    },
+    {
+      "id": "q-sp9-past-6",
+      "kind": "text",
+      "topic": "preterite tense",
+      "prompt": "Write the preterite form of \"comer\" (to eat) for \"tú\": \"Tú ___ mucho en la fiesta.\"",
+      "opener": "-er verbs follow the same preterite pattern as -ir verbs.",
+      "answer": "comiste"
+    },
+    {
+      "id": "q-sp9-past-7",
+      "kind": "worked",
+      "topic": "preterite tense",
+      "prompt": "Correct the two errors: \"Ayer yo comi pizza y despues yo hablo con mi amiga por teléfono.\"",
+      "opener": "Two verbs that should both be in the preterite, not the present.",
+      "answer": "Ayer yo comí pizza y después yo hablé con mi amiga por teléfono.",
+      "steps": [
+        "\"Comi\" is missing the accent and is the wrong form: \"comí\" (with an accent on the i) is the correct preterite form for \"I ate\".",
+        "\"Hablo\" is present tense (\"I talk\"), but since it's about yesterday it should be preterite: \"hablé\" (I talked).",
+        "The full sentence: \"Ayer yo comí pizza y después yo hablé con mi amiga por teléfono.\""
+      ]
+    },
+    {
+      "id": "q-sp9-past-8",
+      "kind": "flashcard",
+      "topic": "preterite tense",
+      "prompt": "How are regular verbs and the most common irregular verbs conjugated in the preterite?",
+      "opener": "Past tense forms for completed events, plus three important irregular verbs.",
+      "answer": "-ar (hablar): hablé, hablaste, habló, hablamos, hablasteis, hablaron. -er/-ir (comer/escribir): comí/escribí, comiste/escribiste, comió/escribió, comimos/escribimos, comisteis/escribisteis, comieron/escribieron. Ir/ser (same form!): fui, fuiste, fue, fuimos, fuisteis, fueron. Hacer: hice, hiciste, hizo, hicimos, hicisteis, hicieron. Time expressions that fit: ayer (yesterday), la semana pasada (last week), el año pasado (last year), anoche (last night)."
+    }
+  ]
+}

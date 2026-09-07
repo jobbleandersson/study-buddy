@@ -1,0 +1,117 @@
+{
+  "id": "lib-sp7-reading",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Reading comprehension: an introduction",
+  "sourceSummary": "A short text where a person introduces themselves and their family, with questions about details and context.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp7-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"¡Hola! Me llamo Carlos y tengo trece años. Vivo en Barcelona con mi familia. Tengo una hermana; se llama Laura y tiene diez años.\"\n\nHow old is Carlos?",
+      "opener": "Look for the number right after \"tengo ... años\".",
+      "choices": [
+        "Ten years old",
+        "Twelve years old",
+        "Thirteen years old",
+        "Fourteen years old"
+      ],
+      "answer": 2,
+      "explanation": "\"Tengo trece años\" means \"I am thirteen years old\". \"Trece\" is 13."
+    },
+    {
+      "id": "q-sp7-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Where does Carlos live?",
+      "opener": "Look for \"Vivo en...\".",
+      "choices": [
+        "Madrid",
+        "Barcelona",
+        "Sevilla",
+        "Valencia"
+      ],
+      "answer": 1,
+      "explanation": "\"Vivo en Barcelona\" means \"I live in Barcelona\"."
+    },
+    {
+      "id": "q-sp7-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Who is Laura?",
+      "opener": "Look for the sentence about \"una hermana\".",
+      "choices": [
+        "Carlos's mom",
+        "Carlos's sister",
+        "Carlos's cousin",
+        "Carlos's teacher"
+      ],
+      "answer": 1,
+      "explanation": "\"Tengo una hermana; se llama Laura\" means \"I have a sister; her name is Laura\"."
+    },
+    {
+      "id": "q-sp7-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "New text: \"Los sábados, Carlos juega al fútbol con sus amigos. Después, come pizza en casa de su abuela. Los domingos descansa.\"\n\nWhat does Carlos do on Saturdays?",
+      "opener": "\"Juega al fútbol\" — the verb jugar means to play.",
+      "choices": [
+        "He plays soccer with his friends",
+        "He cooks for his grandmother",
+        "He rests all day",
+        "He does homework"
+      ],
+      "answer": 0,
+      "explanation": "\"Juega al fútbol con sus amigos\" means \"he plays soccer with his friends\"."
+    },
+    {
+      "id": "q-sp7-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Where does he eat pizza?",
+      "opener": "\"En casa de su abuela\" — who lives there?",
+      "choices": [
+        "At his own home",
+        "At a restaurant",
+        "At his grandmother's home",
+        "At school"
+      ],
+      "answer": 2,
+      "explanation": "\"En casa de su abuela\" means \"at his grandmother's home\"."
+    },
+    {
+      "id": "q-sp7-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What does Carlos do on Sundays, according to the last sentence? Answer in English with one word.",
+      "opener": "The verb descansar means to rest.",
+      "answer": "rests"
+    },
+    {
+      "id": "q-sp7-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Read the text again and write a Spanish sentence (3–5 words) that answers: \"¿Con quién juega Carlos al fútbol?\" (Who does Carlos play soccer with?)",
+      "opener": "The answer is in the first sentence about Saturdays.",
+      "answer": "Juega con sus amigos.",
+      "steps": [
+        "Find the right part of the text: \"Carlos juega al fútbol con sus amigos.\"",
+        "Pick out the answer to \"with whom\": \"con sus amigos\" (with his friends).",
+        "Build a short sentence: \"Juega con sus amigos.\" (He plays with his friends.)"
+      ]
+    },
+    {
+      "id": "q-sp7-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Which strategies help you understand a simple Spanish text at the grade 7 level?",
+      "opener": "You don't need to understand every word to understand the big picture.",
+      "answer": "Look for familiar patterns: \"me llamo\" (introduction), \"tengo ... años\" (age), \"vivo en\" (where you live), \"los sábados/domingos\" (weekdays + activities). Guess unknown words from context instead of looking up every word. Read the text once for the overall gist and once more for the details. Look for present-tense verbs (juega, come, vive, descansa) to understand what's happening, and possessive words (su, sus, mi) to understand who is doing what."
+    }
+  ]
+}

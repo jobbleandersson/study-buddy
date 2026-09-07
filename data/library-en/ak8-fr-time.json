@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr8-time",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Telling time and days of the week",
+  "sourceSummary": "How to tell the time, days of the week and months, plus how to talk about a schedule.",
+  "topics": [
+    "telling time",
+    "days of the week",
+    "months"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr8-time-1",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "How do you ask \"what time is it?\" in French?",
+      "opener": "A fixed phrase you just need to memorize.",
+      "choices": [
+        "Quelle heure est-il ?",
+        "Quand est-ce ?",
+        "Quel jour est-ce ?",
+        "Où est l'horloge ?"
+      ],
+      "answer": 0,
+      "explanation": "\"Quelle heure est-il ?\" is the fixed phrase for \"what time is it?\"."
+    },
+    {
+      "id": "q-fr8-time-2",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "How do you say \"it's three o'clock\"?",
+      "opener": "Time is expressed with \"il est ...heure(s)\".",
+      "choices": [
+        "Il est trois heure.",
+        "Il est trois heures.",
+        "Il a trois heures.",
+        "Elle est trois heures."
+      ],
+      "answer": 1,
+      "explanation": "\"Il est trois heures\" is used for three o'clock. \"Heures\" is plural from two o'clock onward (\"il est une heure\" is the exception, in the singular)."
+    },
+    {
+      "id": "q-fr8-time-3",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"neuf heures et demie\" mean?",
+      "opener": "\"Et demie\" means \"and half\".",
+      "choices": [
+        "Quarter past nine",
+        "Half past nine",
+        "Quarter to nine",
+        "Nine fifteen"
+      ],
+      "answer": 1,
+      "explanation": "\"Et demie\" means \"and half\", i.e. 30 minutes past: \"neuf heures et demie\" = 09:30 (half past nine)."
+    },
+    {
+      "id": "q-fr8-time-4",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Which day of the week is \"mercredi\"?",
+      "opener": "The French week starts with Monday.",
+      "choices": [
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "answer": 1,
+      "explanation": "\"Mercredi\" is Wednesday. Days of the week: lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche."
+    },
+    {
+      "id": "q-fr8-time-5",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Which month is \"décembre\"?",
+      "opener": "The name looks similar to the English one.",
+      "choices": [
+        "October",
+        "November",
+        "December",
+        "January"
+      ],
+      "answer": 2,
+      "explanation": "\"Décembre\" is December. French month names are quite similar to the English ones."
+    },
+    {
+      "id": "q-fr8-time-6",
+      "kind": "text",
+      "topic": "days of the week",
+      "prompt": "Write the French word for \"Saturday\".",
+      "opener": "Comes right before \"dimanche\" in the week.",
+      "answer": "samedi"
+    },
+    {
+      "id": "q-fr8-time-7",
+      "kind": "worked",
+      "topic": "telling time",
+      "prompt": "Correct the error: \"Il a cinq heures de l'après-midi.\" (It's five in the afternoon.)",
+      "opener": "Time is always expressed with \"être\" (il est), not \"avoir\".",
+      "answer": "Il est cinq heures de l'après-midi.",
+      "steps": [
+        "\"Il a\" is wrong — time must always be expressed with \"il est\" (être), never \"il a\" (avoir).",
+        "\"A\" → \"est\".",
+        "Full sentence: \"Il est cinq heures de l'après-midi.\""
+      ]
+    },
+    {
+      "id": "q-fr8-time-8",
+      "kind": "flashcard",
+      "topic": "telling time",
+      "prompt": "How do you ask about and answer questions about time, days of the week, and months in French?",
+      "opener": "Fixed phrases for time, days, and months.",
+      "answer": "Time: Quelle heure est-il ? = What time is it? · Il est une heure = It's one o'clock · Il est deux/trois heures... = It's two/three o'clock... · et demie = and half · et quart = and a quarter · moins le quart = quarter to. Days of the week: lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche. Months: janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre."
+    }
+  ]
+}

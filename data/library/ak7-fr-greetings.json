@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr7-greetings",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Hälsningsfraser och skolan",
+  "sourceSummary": "Grundläggande hälsningsfraser, artighetsfraser och ord för klassrummet och skolvardagen.",
+  "topics": [
+    "greetings",
+    "classroom phrases",
+    "politeness"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr7-greet-1",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Hur säger man \"Hej, jag heter Léa\" på franska?",
+      "opener": "Uttrycket \"je m'appelle\" används för att säga vad man heter.",
+      "choices": [
+        "Bonjour, je m'appelle Léa.",
+        "Bonjour, tu t'appelles Léa.",
+        "Au revoir, je m'appelle Léa.",
+        "Bonjour, mon nom Léa."
+      ],
+      "answer": 0,
+      "explanation": "\"Je m'appelle\" betyder \"jag heter\" (bokstavligen \"jag kallar mig\"). \"Tu t'appelles\" är \"du heter\", och \"au revoir\" betyder \"hej då\", inte \"hej\"."
+    },
+    {
+      "id": "q-fr7-greet-2",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Vad betyder \"Ça va?\"?",
+      "opener": "En vanlig, avslappnad hälsningsfras mellan kompisar.",
+      "choices": [
+        "Vad heter du?",
+        "Hur mår du?",
+        "Var bor du?",
+        "Hej då!"
+      ],
+      "answer": 1,
+      "explanation": "\"Ça va?\" är ett avslappnat sätt att fråga \"hur mår du?\"/\"hur är läget?\"."
+    },
+    {
+      "id": "q-fr7-greet-3",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "Någon säger \"Merci\". Vad svarar du artigt?",
+      "opener": "Vad säger man på franska när man tar emot ett tack?",
+      "choices": [
+        "S'il te plaît.",
+        "De rien.",
+        "Pardon.",
+        "Bonne nuit."
+      ],
+      "answer": 1,
+      "explanation": "\"De rien\" betyder \"ingen orsak\"/\"varsågod\" och är det vanliga svaret på ett tack. \"S'il te plaît\" betyder \"snälla\"."
+    },
+    {
+      "id": "q-fr7-greet-4",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "Vad betyder \"Je peux aller aux toilettes?\"?",
+      "opener": "En fråga man ofta behöver ställa under en lektion.",
+      "choices": [
+        "Får jag öppna fönstret?",
+        "Får jag gå på toaletten?",
+        "Vad betyder det ordet?",
+        "Har vi läxa?"
+      ],
+      "answer": 1,
+      "explanation": "\"Je peux...?\" betyder \"får jag...?\" och \"les toilettes\" är toaletten."
+    },
+    {
+      "id": "q-fr7-greet-5",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "Läraren säger \"Ouvrez le livre, s'il vous plaît.\" Vad ska ni göra?",
+      "opener": "\"Ouvrez\" kommer från verbet ouvrir.",
+      "choices": [
+        "Stänga boken",
+        "Öppna boken",
+        "Lämna in boken",
+        "Läsa högt ur boken"
+      ],
+      "answer": 1,
+      "explanation": "\"Ouvrir\" betyder \"att öppna\", så \"ouvrez le livre\" betyder \"öppna boken\"."
+    },
+    {
+      "id": "q-fr7-greet-6",
+      "kind": "text",
+      "topic": "greetings",
+      "prompt": "Skriv ett franskt ord som betyder \"god natt\".",
+      "opener": "Man säger det när man går och lägger sig.",
+      "answer": "bonne nuit"
+    },
+    {
+      "id": "q-fr7-greet-7",
+      "kind": "worked",
+      "topic": "politeness",
+      "prompt": "Rätta felet: \"Bonjour! Comment tu t'appelle? Je m'appelles Marc.\"",
+      "opener": "Kolla verbformen för \"du\" och för \"jag\" separat.",
+      "answer": "Bonjour ! Comment tu t'appelles ? Je m'appelle Marc.",
+      "steps": [
+        "\"Tu t'appelle\" → \"tu t'appelles\". Verbet s'appeler böjs efter \"du\" (tu) till \"t'appelles\", med -s.",
+        "\"Je m'appelles\" → \"je m'appelle\". För \"jag\" (je) heter det \"m'appelle\", utan -s.",
+        "Hela meningen: \"Bonjour ! Comment tu t'appelles ? Je m'appelle Marc.\""
+      ]
+    },
+    {
+      "id": "q-fr7-greet-8",
+      "kind": "flashcard",
+      "topic": "greetings",
+      "prompt": "Vilka hälsnings- och artighetsfraser bör du kunna på åk7-nivå i franska?",
+      "opener": "De vanligaste fraserna för att hälsa, tacka och be om hjälp.",
+      "answer": "Hälsningar: Bonjour = hej/god dag · Bonsoir = god kväll · Salut = hej (informellt) · Au revoir = hej då · Bonne nuit = god natt. Må bra: Ça va?/Comment ça va? = hur mår du? · Ça va bien, merci = det går bra, tack. Artighet: S'il te/vous plaît = snälla (till en/flera) · Merci (beaucoup) = tack (så mycket) · De rien = ingen orsak · Pardon/Excusez-moi = ursäkta. Skolan: Je peux...? = får jag...? · les toilettes = toaletten · ouvrir/fermer le livre = öppna/stänga boken."
+    }
+  ]
+}

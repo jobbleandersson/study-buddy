@@ -1,0 +1,117 @@
+{
+  "id": "lib-de8-reading",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Läsförståelse: ett meddelande till en vän",
+  "sourceSummary": "Ett textmeddelande om helgplaner, med frågor om detaljer, tider och känslor.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de8-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs meddelandet: \"Hallo, Marta! Am Samstag gehe ich mit meinem Bruder ins Kino. Der Film beginnt um sieben Uhr. Willst du mitkommen?\"\n\nVad ska personen göra på lördag?",
+      "opener": "Leta efter \"gehe ich ... ins Kino\".",
+      "choices": [
+        "Gå på bio",
+        "Åka till stranden",
+        "Träna fotboll",
+        "Läsa läxor"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich gehe ins Kino\" betyder \"jag går på bio\"."
+    },
+    {
+      "id": "q-de8-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma meddelande. Hur dags börjar filmen?",
+      "opener": "\"Um sieben Uhr\" — leta efter klockslaget.",
+      "choices": [
+        "Klockan sex",
+        "Klockan sju",
+        "Klockan åtta",
+        "Klockan nio"
+      ],
+      "answer": 1,
+      "explanation": "\"Der Film beginnt um sieben Uhr\" betyder \"filmen börjar klockan sju\"."
+    },
+    {
+      "id": "q-de8-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma meddelande. Vad frågar personen Marta om?",
+      "opener": "Sista meningen är en fråga.",
+      "choices": [
+        "Om hon vill se en annan film",
+        "Om hon vill följa med",
+        "Om hon känner hans bror",
+        "Om hon har sett filmen förut"
+      ],
+      "answer": 1,
+      "explanation": "\"Willst du mitkommen?\" betyder \"vill du följa med?\"."
+    },
+    {
+      "id": "q-de8-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Martas svar: \"Klar, gerne! Ich liebe Abenteuerfilme. Um wie viel Uhr treffen wir uns?\"\n\nVad tycker Marta om äventyrsfilmer?",
+      "opener": "\"Ich liebe\" är starkare än \"ich mag\".",
+      "choices": [
+        "Hon tycker inte om dem",
+        "Hon är likgiltig",
+        "Hon älskar dem",
+        "Hon har aldrig sett någon"
+      ],
+      "answer": 2,
+      "explanation": "\"Ich liebe Abenteuerfilme\" betyder \"jag älskar äventyrsfilmer\"."
+    },
+    {
+      "id": "q-de8-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma svar. Vad frågar Marta till slut?",
+      "opener": "\"Um wie viel Uhr...?\" frågar om tid, \"treffen wir uns\" betyder \"vi ses/träffas\".",
+      "choices": [
+        "Vilken film de ska se",
+        "Vad filmen kostar",
+        "Vilken tid de ska ses",
+        "Var bion ligger"
+      ],
+      "answer": 2,
+      "explanation": "\"Um wie viel Uhr treffen wir uns?\" betyder \"vilken tid ska vi träffas?\"."
+    },
+    {
+      "id": "q-de8-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Vem föreslår att gå på bio — personen som skriver först, eller Marta? Svara med \"personen som skriver först\".",
+      "opener": "Läs det första meddelandet igen.",
+      "answer": "personen som skriver först"
+    },
+    {
+      "id": "q-de8-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Skriv en kort tysk mening (3–5 ord) som svarar på: \"Welche Filme mag Marta?\" (Vilka filmer gillar Marta?)",
+      "opener": "Svaret finns i Martas eget svar.",
+      "answer": "Sie liebt Abenteuerfilme.",
+      "steps": [
+        "Hitta meningen i texten: \"Ich liebe Abenteuerfilme.\"",
+        "Byt \"ich\" mot \"sie\" eftersom frågan handlar om Marta (hon), inte \"jag\".",
+        "\"Sie liebt Abenteuerfilme.\" (Hon älskar äventyrsfilmer.)"
+      ]
+    },
+    {
+      "id": "q-de8-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Vilka fraser är bra att känna igen i ett tyskt textmeddelande om planer?",
+      "opener": "Vardagsfraser för att föreslå, tacka ja och bestämma tid.",
+      "answer": "Föreslå: Willst du mitkommen? = Vill du följa med? · ich gehe... = jag går... Tacka ja: Klar, gerne! = Absolut/gärna! · Ich liebe... = Jag älskar... Bestämma tid: Um wie viel Uhr treffen wir uns? = Vilken tid ska vi träffas? · beginnt um... = börjar klockan... Känslor: ich mag = jag gillar · ich liebe = jag älskar (starkare) · ich mag ... nicht = jag gillar inte."
+    }
+  ]
+}

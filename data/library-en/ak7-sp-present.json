@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp7-present",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Grammar: present tense of regular verbs",
+  "sourceSummary": "Present tense conjugation of -ar, -er, and -ir verbs, plus the irregular verbs ser and estar.",
+  "topics": [
+    "present tense",
+    "ser and estar",
+    "personal pronouns"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp7-pres-1",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Yo ___ español.\" (hablar = to speak)",
+      "opener": "-ar verbs in the present tense end in -o for \"yo\".",
+      "choices": [
+        "hablo",
+        "hablas",
+        "habla",
+        "hablan"
+      ],
+      "answer": 0,
+      "explanation": "\"Hablar\" is an -ar verb: yo hablo, tú hablas, él/ella habla, ellos hablan. \"Yo\" gives the ending -o: \"hablo\"."
+    },
+    {
+      "id": "q-sp7-pres-2",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Ella ___ en Madrid.\" (vivir = to live)",
+      "opener": "-ir verbs in the present tense end in -e for \"él/ella\".",
+      "choices": [
+        "vivo",
+        "vives",
+        "vive",
+        "viven"
+      ],
+      "answer": 2,
+      "explanation": "\"Vivir\" is an -ir verb: yo vivo, tú vives, él/ella vive, ellos viven. \"Ella\" gives the ending -e: \"vive\"."
+    },
+    {
+      "id": "q-sp7-pres-3",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Nosotros ___ mucho en clase.\" (aprender = to learn)",
+      "opener": "-er verbs in the present tense end in -emos for \"nosotros\".",
+      "choices": [
+        "aprendo",
+        "aprendemos",
+        "aprenden",
+        "aprende"
+      ],
+      "answer": 1,
+      "explanation": "\"Aprender\" is an -er verb: nosotros aprendemos. The ending -emos is used for \"we\"."
+    },
+    {
+      "id": "q-sp7-pres-4",
+      "kind": "mc",
+      "topic": "ser and estar",
+      "prompt": "Choose the right verb: \"Mi hermana ___ alta.\" (My sister is tall.)",
+      "opener": "Ser is used for traits that don't change, like height.",
+      "choices": [
+        "es",
+        "está",
+        "eres",
+        "estoy"
+      ],
+      "answer": 0,
+      "explanation": "\"Ser\" is used for permanent traits (appearance, personality, profession): \"es alta\" = \"is tall\". \"Estar\" is instead used for temporary states or location, e.g. \"está cansada\" (is tired right now)."
+    },
+    {
+      "id": "q-sp7-pres-5",
+      "kind": "mc",
+      "topic": "ser and estar",
+      "prompt": "Choose the right verb: \"¿Dónde ___ el baño?\" (Where is the bathroom?)",
+      "opener": "Estar is used to say where something is located.",
+      "choices": [
+        "es",
+        "está",
+        "son",
+        "somos"
+      ],
+      "answer": 1,
+      "explanation": "\"Estar\" is used for location: \"¿Dónde está...?\" = \"Where is...?\". \"Ser\" would instead be used for e.g. time or identity, not location."
+    },
+    {
+      "id": "q-sp7-pres-6",
+      "kind": "text",
+      "topic": "personal pronouns",
+      "prompt": "Write the Spanish word for \"you all\" (several people you're speaking to).",
+      "opener": "The equivalent of the English \"you (plural)\" in the informal form.",
+      "answer": "vosotros"
+    },
+    {
+      "id": "q-sp7-pres-7",
+      "kind": "worked",
+      "topic": "present tense",
+      "prompt": "Correct the two errors: \"Yo vive en Suecia y tú hablo inglés muy bien.\"",
+      "opener": "Check which person each verb actually belongs to.",
+      "answer": "Yo vivo en Suecia y tú hablas inglés muy bien.",
+      "steps": [
+        "\"Yo vive\" → \"Yo vivo\". The verb vivir conjugates for \"I\" (yo) as \"vivo\", not \"vive\" (which is for he/she).",
+        "\"Tú hablo\" → \"Tú hablas\". The verb hablar conjugates for \"you\" (tú) as \"hablas\", not \"hablo\" (which is for I).",
+        "Read the sentence again: \"Yo vivo en Suecia y tú hablas inglés muy bien\" means \"I live in Sweden and you speak English very well.\""
+      ]
+    },
+    {
+      "id": "q-sp7-pres-8",
+      "kind": "flashcard",
+      "topic": "present tense",
+      "prompt": "How are -ar, -er, and -ir verbs conjugated in the present tense, and when do you use ser versus estar?",
+      "opener": "The three verb groups follow different but regular patterns.",
+      "answer": "-ar (hablar): hablo, hablas, habla, hablamos, habláis, hablan. -er (aprender): aprendo, aprendes, aprende, aprendemos, aprendéis, aprenden. -ir (vivir): vivo, vives, vive, vivimos, vivís, viven. Ser is used for permanent things: yo soy, tú eres, él/ella es, nosotros somos, ellos son — e.g. appearance, profession, nationality. Estar is used for location and temporary states: yo estoy, tú estás, él/ella está, nosotros estamos, ellos están — e.g. where something is, or how someone feels right now."
+    }
+  ]
+}

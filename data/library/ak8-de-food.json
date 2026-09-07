@@ -1,0 +1,119 @@
+{
+  "id": "lib-de8-food",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Ordförråd: mat och dryck",
+  "sourceSummary": "Ord för mat, dryck och måltider, samt hur man beställer och pratar om vad man tycker om.",
+  "topics": [
+    "food and drink",
+    "meals",
+    "mögen"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de8-food-1",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"der Fisch\"?",
+      "opener": "Ett ord som liknar engelskans \"fish\".",
+      "choices": [
+        "Kött",
+        "Fisk",
+        "Bröd",
+        "Ris"
+      ],
+      "answer": 1,
+      "explanation": "\"Der Fisch\" betyder fisk."
+    },
+    {
+      "id": "q-de8-food-2",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Vilken måltid är \"das Abendessen\"?",
+      "opener": "\"Abend\" betyder kväll.",
+      "choices": [
+        "Frukost",
+        "Lunch",
+        "Middag",
+        "Mellanmål"
+      ],
+      "answer": 2,
+      "explanation": "\"Das Abendessen\" är middag/kvällsmat (bokstavligen \"kvällsätande\"). \"Das Frühstück\" är frukost, och \"das Mittagessen\" är lunch."
+    },
+    {
+      "id": "q-de8-food-3",
+      "kind": "mc",
+      "topic": "mögen",
+      "prompt": "Välj rätt form: \"Ich ___ Äpfel.\" (mögen = att gilla)",
+      "opener": "Mögen är oregelbundet i singularformerna.",
+      "choices": [
+        "mag",
+        "magst",
+        "möge",
+        "mögt"
+      ],
+      "answer": 0,
+      "explanation": "\"Mögen\" böjs: ich mag, du magst, er/sie/es mag, wir mögen, ihr mögt, sie mögen. \"Ich\" ger \"mag\"."
+    },
+    {
+      "id": "q-de8-food-4",
+      "kind": "mc",
+      "topic": "mögen",
+      "prompt": "Hur frågar du en vän \"gillar du grönsaker?\"",
+      "opener": "Byt ut \"ich\" mot rätt form för \"du\".",
+      "choices": [
+        "Magst du Gemüse?",
+        "Mag du Gemüse?",
+        "Möge du Gemüse?",
+        "Mögt du Gemüse?"
+      ],
+      "answer": 0,
+      "explanation": "\"Du\" ger formen \"magst\": \"Magst du Gemüse?\"."
+    },
+    {
+      "id": "q-de8-food-5",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Du är på restaurang. Hur beställer du artigt ett glas vatten?",
+      "opener": "\"Ich hätte gern...\" är en artig beställningsfras.",
+      "choices": [
+        "Ich will Wasser jetzt.",
+        "Ich hätte gern ein Glas Wasser, bitte.",
+        "Gib mir Wasser.",
+        "Hast du Wasser?"
+      ],
+      "answer": 1,
+      "explanation": "\"Ich hätte gern...\" (jag skulle vilja ha...) är en artig beställningsfras. \"Ich will\" (jag vill) låter mer krävande på tyska än på svenska."
+    },
+    {
+      "id": "q-de8-food-6",
+      "kind": "text",
+      "topic": "food and drink",
+      "prompt": "Skriv det tyska ordet för \"bröd\".",
+      "opener": "Ett vanligt ord i alla tre måltiderna.",
+      "answer": "das brot"
+    },
+    {
+      "id": "q-de8-food-7",
+      "kind": "worked",
+      "topic": "mögen",
+      "prompt": "Rätta felet: \"Meine Schwester magst Reis.\" (Min syster gillar ris.)",
+      "opener": "Kolla vilken person meningen egentligen handlar om.",
+      "answer": "Meine Schwester mag Reis.",
+      "steps": [
+        "\"Meine Schwester\" är tredje person (hon), inte \"du\".",
+        "\"Magst\" är du-formen. Rätt form för \"hon\" är \"mag\".",
+        "Hela meningen: \"Meine Schwester mag Reis.\" (Min syster gillar ris.)"
+      ]
+    },
+    {
+      "id": "q-de8-food-8",
+      "kind": "flashcard",
+      "topic": "food and drink",
+      "prompt": "Vilka mat-, dryck- och måltidsord samt mögen-böjningar bör du kunna på åk8-nivå?",
+      "opener": "Mat, måltider och hur man uttrycker vad man tycker om.",
+      "answer": "Mat: das Brot = bröd · der Reis = ris · das Fleisch = kött · der Fisch = fisk · das Gemüse = grönsaker · das Obst = frukt · das Wasser = vatten · die Milch = mjölk. Måltider: das Frühstück = frukost · das Mittagessen = lunch · das Abendessen = middag. Mögen: ich mag, du magst, er/sie/es mag, wir mögen, ihr mögt, sie mögen. Beställa artigt: Ich hätte gern... = jag skulle vilja ha... · ..., bitte = ..., tack."
+    }
+  ]
+}

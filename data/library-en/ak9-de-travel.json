@@ -1,0 +1,118 @@
+{
+  "id": "lib-de9-travel",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Vocabulary: travel and weather",
+  "sourceSummary": "Words for travel, modes of transport, and talking about the weather.",
+  "topics": [
+    "travel",
+    "weather"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de9-trav-1",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"die Hin- und Rückfahrkarte\" mean?",
+      "opener": "\"Hin\" means there, \"rück\" means back.",
+      "choices": [
+        "One-way ticket",
+        "Round-trip ticket",
+        "Annual pass",
+        "Seat reservation ticket"
+      ],
+      "answer": 1,
+      "explanation": "\"Hin- und Rückfahrkarte\" is a round-trip ticket. A one-way ticket is \"eine Einzelfahrkarte\"."
+    },
+    {
+      "id": "q-de9-trav-2",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "You're at the airport looking for \"den Koffer\". What are you looking for?",
+      "opener": "Something you pack before a trip.",
+      "choices": [
+        "The passport",
+        "The suitcase",
+        "The exit",
+        "The boarding pass"
+      ],
+      "answer": 1,
+      "explanation": "\"Der Koffer\" is the suitcase. \"Der Reisepass\" is the passport, and \"der Ausgang\" is the exit."
+    },
+    {
+      "id": "q-de9-trav-3",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "What does \"Es ist heute sehr warm\" mean?",
+      "opener": "A simple weather expression with \"es ist\".",
+      "choices": [
+        "It's very cold today",
+        "It's very warm today",
+        "It's raining a lot today",
+        "It's very windy today"
+      ],
+      "answer": 1,
+      "explanation": "\"Es ist warm\" means \"it's warm\". \"Sehr\" intensifies it to \"very warm\"."
+    },
+    {
+      "id": "q-de9-trav-4",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Choose the right weather word: \"Es ___ viel im Herbst.\" (It rains a lot in the fall.)",
+      "opener": "Rain has its own verb in German.",
+      "choices": [
+        "schneit",
+        "regnet",
+        "windet",
+        "friert"
+      ],
+      "answer": 1,
+      "explanation": "\"Regnen\" (to rain) is conjugated \"es regnet\" in the third person. \"Schneien\" (to snow) follows a similar pattern: \"es schneit\"."
+    },
+    {
+      "id": "q-de9-trav-5",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What do you ask if you want to know where the train departs from?",
+      "opener": "\"Von wo...?\" asks where from.",
+      "choices": [
+        "Wann kommt der Zug an?",
+        "Von wo fährt der Zug ab?",
+        "Wie viel kostet die Karte?",
+        "Welche Farbe hat der Zug?"
+      ],
+      "answer": 1,
+      "explanation": "\"Von wo fährt der Zug ab?\" means \"where does the train depart from?\". \"Wann kommt ... an?\" instead asks when it ARRIVES."
+    },
+    {
+      "id": "q-de9-trav-6",
+      "kind": "text",
+      "topic": "weather",
+      "prompt": "Write the German phrase for \"it's sunny\" (three words: \"es ist ...\").",
+      "opener": "\"Sonnig\" comes from \"die Sonne\" (the sun).",
+      "answer": "es ist sonnig"
+    },
+    {
+      "id": "q-de9-trav-7",
+      "kind": "worked",
+      "topic": "travel",
+      "prompt": "Correct the error: \"Der Zug fährt um acht Uhr ab und kommt zehn Uhr an.\" (The train departs at eight o'clock and arrives at ten o'clock.)",
+      "opener": "\"Ankommen\" needs the preposition \"um\" before the time.",
+      "answer": "Der Zug fährt um acht Uhr ab und kommt um zehn Uhr an.",
+      "steps": [
+        "\"Kommt zehn Uhr an\" is missing the preposition \"um\" before the time.",
+        "Correct form: \"kommt um zehn Uhr an\" — just like \"fährt um acht Uhr ab\" uses \"um\" before the time.",
+        "Full sentence: \"Der Zug fährt um acht Uhr ab und kommt um zehn Uhr an.\""
+      ]
+    },
+    {
+      "id": "q-de9-trav-8",
+      "kind": "flashcard",
+      "topic": "travel",
+      "prompt": "Which travel and weather expressions should you know at grade 9 level in German?",
+      "opener": "Booking, traveling, and talking about the weather.",
+      "answer": "Travel: die Fahrkarte (Einzel-/Hin- und Rückfahrkarte) = ticket (one-way/round-trip) · der Koffer = suitcase · der Reisepass = passport · der Zug/das Flugzeug/der Bus = train/plane/bus · abfahren = to depart · ankommen = to arrive · Von wo fährt...ab? = Where does... depart from? Weather: es ist warm/kalt/sonnig/windig = it's warm/cold/sunny/windy · es regnet = it's raining · es schneit = it's snowing · es ist bewölkt = it's cloudy."
+    }
+  ]
+}

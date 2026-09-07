@@ -1,0 +1,118 @@
+{
+  "id": "lib-sp9-questions",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Questions and negation",
+  "sourceSummary": "Question words, how questions are formed, and how to make a sentence negative.",
+  "topics": [
+    "question words",
+    "negation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp9-q-1",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Which question word fits: \"¿___ vives?\" — \"Vivo en Madrid.\"",
+      "opener": "The answer refers to a place.",
+      "choices": [
+        "Cuándo",
+        "Dónde",
+        "Cómo",
+        "Por qué"
+      ],
+      "answer": 1,
+      "explanation": "\"¿Dónde vives?\" means \"where do you live?\", and the answer \"vivo en Madrid\" (I live in Madrid) fits it exactly."
+    },
+    {
+      "id": "q-sp9-q-2",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Which question word fits: \"¿___ años tienes?\" — \"Tengo quince años.\"",
+      "opener": "The answer is a number followed by \"años\".",
+      "choices": [
+        "Qué",
+        "Cuántos",
+        "Cuál",
+        "Quién"
+      ],
+      "answer": 1,
+      "explanation": "\"¿Cuántos años tienes?\" means \"how old are you?\" (literally \"how many years do you have?\"). \"Cuántos\" asks for a quantity."
+    },
+    {
+      "id": "q-sp9-q-3",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "What does \"¿Por qué no vienes a la fiesta?\" ask?",
+      "opener": "\"Por qué\" (two words, with an accent) means \"why\".",
+      "choices": [
+        "What is the party called?",
+        "Why aren't you coming to the party?",
+        "Who is coming to the party?",
+        "When is the party?"
+      ],
+      "answer": 1,
+      "explanation": "\"¿Por qué...?\" means \"why...?\". The sentence asks \"why aren't you coming to the party?\"."
+    },
+    {
+      "id": "q-sp9-q-4",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "How do you make the sentence \"Como carne\" (I eat meat) negative?",
+      "opener": "Negation in Spanish is placed directly before the verb.",
+      "choices": [
+        "Como no carne.",
+        "No como carne.",
+        "Como carne no.",
+        "Nunca como carne no."
+      ],
+      "answer": 1,
+      "explanation": "\"No\" is placed directly before the verb: \"No como carne\" (I don't eat meat)."
+    },
+    {
+      "id": "q-sp9-q-5",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "What does \"Nunca voy al gimnasio\" mean?",
+      "opener": "\"Nunca\" is a negative word meaning \"never\".",
+      "choices": [
+        "I always go to the gym",
+        "I never go to the gym",
+        "I sometimes go to the gym",
+        "I want to go to the gym"
+      ],
+      "answer": 1,
+      "explanation": "\"Nunca\" means \"never\". Unlike \"no\", \"nunca\" can stand directly before the verb without also needing \"no\"."
+    },
+    {
+      "id": "q-sp9-q-6",
+      "kind": "text",
+      "topic": "question words",
+      "prompt": "Write the question word that means \"who\" in Spanish.",
+      "opener": "Asks about a person.",
+      "answer": "quién"
+    },
+    {
+      "id": "q-sp9-q-7",
+      "kind": "worked",
+      "topic": "negation",
+      "prompt": "Correct the error: \"Yo como no verduras porque no me gustan.\"",
+      "opener": "\"No\" should be placed directly before the verb, not after.",
+      "answer": "Yo no como verduras porque no me gustan.",
+      "steps": [
+        "\"Como no verduras\" has \"no\" in the wrong place — it should be BEFORE the verb, not after.",
+        "Correct word order: \"No como verduras\" (I don't eat vegetables).",
+        "\"Porque no me gustan\" (because I don't like them) is already correct and doesn't need to change."
+      ]
+    },
+    {
+      "id": "q-sp9-q-8",
+      "kind": "flashcard",
+      "topic": "question words",
+      "prompt": "Which question words and negation words should you know at the grade 9 level in Spanish?",
+      "opener": "Asking questions and making sentences negative.",
+      "answer": "Question words: qué = what · quién = who · dónde = where · cuándo = when · cómo = how · por qué = why · cuántos/cuántas = how many · cuál = which. (All question words carry an accent in questions.) Negation: no + verb = not (No como carne) · nunca = never · nadie = nobody · nada = nothing · tampoco = not either. Remember: \"no\" is always placed directly before the verb."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp8-food",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Ordförråd: mat och dryck",
+  "sourceSummary": "Ord för mat, dryck och måltider, samt hur man beställer och pratar om vad man tycker om.",
+  "topics": [
+    "food and drink",
+    "meals",
+    "gustar"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp8-food-1",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"el pescado\"?",
+      "opener": "Inte att förväxla med \"el pez\", som är den levande fisken.",
+      "choices": [
+        "Kött",
+        "Fisk (som mat)",
+        "Bröd",
+        "Ris"
+      ],
+      "answer": 1,
+      "explanation": "\"El pescado\" är fisk som mat. \"El pez\" (plural: los peces) används om den levande fisken."
+    },
+    {
+      "id": "q-sp8-food-2",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Vilken måltid är \"la cena\"?",
+      "opener": "Jämför med \"el desayuno\" och \"el almuerzo\".",
+      "choices": [
+        "Frukost",
+        "Lunch",
+        "Middag",
+        "Mellanmål"
+      ],
+      "answer": 2,
+      "explanation": "\"La cena\" är middag/kvällsmat. \"El desayuno\" är frukost, och \"el almuerzo\" eller \"la comida\" är lunch."
+    },
+    {
+      "id": "q-sp8-food-3",
+      "kind": "mc",
+      "topic": "gustar",
+      "prompt": "Välj rätt form: \"A mí me ___ las manzanas.\" (Jag gillar äpplen.)",
+      "opener": "Gustar böjs efter det man gillar, inte efter personen som gillar.",
+      "choices": [
+        "gusta",
+        "gustan",
+        "gusto",
+        "gustas"
+      ],
+      "answer": 1,
+      "explanation": "\"Gustar\" böjs efter det som gillas: \"las manzanas\" är plural, så det heter \"me gustan\". Om det gillade är singular används \"gusta\", t.ex. \"me gusta el chocolate\"."
+    },
+    {
+      "id": "q-sp8-food-4",
+      "kind": "mc",
+      "topic": "gustar",
+      "prompt": "Hur frågar du en vän \"gillar du grönsaker?\"",
+      "opener": "Byt ut \"me\" mot rätt pronomen för \"du\".",
+      "choices": [
+        "¿Te gustan las verduras?",
+        "¿Me gustan las verduras?",
+        "¿Le gusta las verduras?",
+        "¿Gustas las verduras?"
+      ],
+      "answer": 0,
+      "explanation": "För \"du\" används \"te\": \"¿Te gustan las verduras?\". \"Me\" är för \"jag\", och \"le\" är för \"han/hon\"."
+    },
+    {
+      "id": "q-sp8-food-5",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Du är på restaurang. Hur beställer du artigt ett glas vatten?",
+      "opener": "\"Quisiera\" är en artig form av \"jag skulle vilja\".",
+      "choices": [
+        "Quiero agua ahora.",
+        "Quisiera un vaso de agua, por favor.",
+        "Dame agua.",
+        "¿Tienes agua?"
+      ],
+      "answer": 1,
+      "explanation": "\"Quisiera un vaso de agua, por favor\" (jag skulle vilja ha ett glas vatten, tack) är den artigaste formen. \"Dame agua\" (ge mig vatten) är mer direkt/oartigt."
+    },
+    {
+      "id": "q-sp8-food-6",
+      "kind": "text",
+      "topic": "food and drink",
+      "prompt": "Skriv det spanska ordet för \"bröd\".",
+      "opener": "Ett vanligt ord i alla tre måltiderna.",
+      "answer": "pan"
+    },
+    {
+      "id": "q-sp8-food-7",
+      "kind": "worked",
+      "topic": "gustar",
+      "prompt": "Rätta felet: \"A mi hermano le gustan el arroz.\" (Min bror gillar riset.)",
+      "opener": "Kolla om \"el arroz\" är singular eller plural.",
+      "answer": "A mi hermano le gusta el arroz.",
+      "steps": [
+        "\"El arroz\" (riset) är singular, så verbet ska vara \"gusta\", inte \"gustan\".",
+        "\"Le\" stämmer redan — det syftar på \"mi hermano\" (han).",
+        "Hela meningen: \"A mi hermano le gusta el arroz.\" (Min bror gillar riset.)"
+      ]
+    },
+    {
+      "id": "q-sp8-food-8",
+      "kind": "flashcard",
+      "topic": "food and drink",
+      "prompt": "Vilka mat-, dryck- och måltidsord samt gustar-konstruktioner bör du kunna på åk8-nivå?",
+      "opener": "Mat, måltider och hur man uttrycker vad man tycker om.",
+      "answer": "Mat: el pan = bröd · el arroz = ris · la carne = kött · el pescado = fisk · las verduras = grönsaker · la fruta = frukt · el agua = vatten · la leche = mjölk. Måltider: el desayuno = frukost · el almuerzo/la comida = lunch · la cena = middag. Gustar: me/te/le/nos/os/les gusta (singular) / gustan (plural) — verbet böjs efter det man gillar, inte efter den som gillar. Beställa artigt: Quisiera... = jag skulle vilja ha... · ..., por favor = ..., tack."
+    }
+  ]
+}

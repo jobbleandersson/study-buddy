@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr7-family",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Familj och siffror",
+  "sourceSummary": "Familjeord, possessiva pronomen och siffrorna 0–60.",
+  "topics": [
+    "family",
+    "numbers",
+    "possessives"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr7-fam-1",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"la sœur\"?",
+      "opener": "Jämför med \"le frère\", som du kanske redan känner till.",
+      "choices": [
+        "Bror",
+        "Syster",
+        "Mamma",
+        "Kusin"
+      ],
+      "answer": 1,
+      "explanation": "\"La sœur\" betyder syster. \"Le frère\" betyder bror."
+    },
+    {
+      "id": "q-fr7-fam-2",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"les grands-parents\"?",
+      "opener": "Ordet är plural och täcker båda mor- och farsidan.",
+      "choices": [
+        "Föräldrar",
+        "Syskon",
+        "Mor- och farföräldrar",
+        "Kusiner"
+      ],
+      "answer": 2,
+      "explanation": "\"Le grand-père\" är morfar/farfar och \"la grand-mère\" är mormor/farmor. \"Les grands-parents\" i plural betyder mor- och farföräldrar tillsammans."
+    },
+    {
+      "id": "q-fr7-fam-3",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Välj rätt ord: \"___ mère s'appelle Rosa.\" (Min mamma heter Rosa.)",
+      "opener": "\"Mère\" är femininum — men \"min\" har en särskild form före vokalljud.",
+      "choices": [
+        "Mon",
+        "Ma",
+        "Mes",
+        "Ton"
+      ],
+      "answer": 0,
+      "explanation": "Framför ett ord som börjar med vokalljud (som \"mère\") används \"mon\" i stället för \"ma\", även om ordet är feminint — det är lättare att uttala. \"Mes\" är plural, \"ton\" är \"din\"."
+    },
+    {
+      "id": "q-fr7-fam-4",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Hur skriver man talet 15 med bokstäver?",
+      "opener": "15 är ett av de sammansatta talen mellan 11 och 16.",
+      "choices": [
+        "quatorze",
+        "quinze",
+        "seize",
+        "douze"
+      ],
+      "answer": 1,
+      "explanation": "\"Quinze\" är 15. \"Quatorze\" är 14, \"seize\" är 16, och \"douze\" är 12."
+    },
+    {
+      "id": "q-fr7-fam-5",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Vilket tal är \"trente et un\"?",
+      "opener": "\"Et\" (och) används bara med ett i sammansatta tal.",
+      "choices": [
+        "21",
+        "31",
+        "41",
+        "13"
+      ],
+      "answer": 1,
+      "explanation": "\"Trente\" är 30 och \"un\" är 1, ihopsatt med \"et\" (och): \"trente et un\" = 31. Samma mönster gäller för 21 (vingt et un) och 41 (quarante et un)."
+    },
+    {
+      "id": "q-fr7-fam-6",
+      "kind": "text",
+      "topic": "numbers",
+      "prompt": "Skriv talet \"cinquante\" med siffror.",
+      "opener": "Ett runt tiotal.",
+      "answer": "50"
+    },
+    {
+      "id": "q-fr7-fam-7",
+      "kind": "worked",
+      "topic": "family",
+      "prompt": "Rätta felet: \"Mon frère s'appelle Sofia et elle a quatorze ans.\" (Namnet syftar på en flicka.)",
+      "opener": "Ordet för bror respektive syster ändras med kön.",
+      "answer": "Ma sœur s'appelle Sofia et elle a quatorze ans.",
+      "steps": [
+        "Sofia är ett flicknamn, så det ska vara \"sœur\" (syster), inte \"frère\" (bror).",
+        "Eftersom \"sœur\" är femininum och börjar med konsonantljud blir possessivet \"ma\", inte \"mon\".",
+        "Resten stämmer: \"s'appelle Sofia et elle a quatorze ans\" (heter Sofia och är fjorton år)."
+      ]
+    },
+    {
+      "id": "q-fr7-fam-8",
+      "kind": "flashcard",
+      "topic": "family",
+      "prompt": "Vilka familjeord, possessiva pronomen och siffror bör du kunna på åk7-nivå i franska?",
+      "opener": "Familjen, vem den tillhör, och att kunna räkna till sextio.",
+      "answer": "Familj: la mère/le père = mamma/pappa · le frère/la sœur = bror/syster · le grand-père/la grand-mère = morfar-farfar/mormor-farmor · le fils/la fille = son/dotter · le cousin/la cousine = kusin. Possessiva: mon/ma/mes = min/mina · ton/ta/tes = din/dina · son/sa/ses = hans/hennes. (Mon/ton/son används även för feminina ord som börjar med vokalljud.) Siffror: 0 zéro, 1 un, 5 cinq, 10 dix, 11 onze, 15 quinze, 20 vingt, 21 vingt et un, 30 trente, 31 trente et un, 50 cinquante, 60 soixante."
+    }
+  ]
+}

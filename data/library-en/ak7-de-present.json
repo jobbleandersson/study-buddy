@@ -1,0 +1,119 @@
+{
+  "id": "lib-de7-present",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Grammar: present tense of regular verbs",
+  "sourceSummary": "Present tense conjugation of regular verbs, plus the irregular verbs sein and haben.",
+  "topics": [
+    "present tense",
+    "sein and haben",
+    "personal pronouns"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de7-pres-1",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Ich ___ Deutsch.\" (lernen = to learn)",
+      "opener": "Regular verbs in the present tense for \"ich\" end in -e.",
+      "choices": [
+        "lerne",
+        "lernst",
+        "lernt",
+        "lernen"
+      ],
+      "answer": 0,
+      "explanation": "\"Lernen\" is conjugated: ich lerne, du lernst, er/sie/es lernt, wir lernen, ihr lernt, sie lernen. \"Ich\" takes the -e ending: \"lerne\"."
+    },
+    {
+      "id": "q-de7-pres-2",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Er ___ in Berlin.\" (wohnen = to live)",
+      "opener": "The present tense for \"er/sie/es\" ends in -t.",
+      "choices": [
+        "wohne",
+        "wohnst",
+        "wohnt",
+        "wohnen"
+      ],
+      "answer": 2,
+      "explanation": "\"Wohnen\" is conjugated: ich wohne, du wohnst, er/sie/es wohnt, wir wohnen, ihr wohnt, sie wohnen. \"Er\" takes the -t ending: \"wohnt\"."
+    },
+    {
+      "id": "q-de7-pres-3",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Wir ___ viel in der Schule.\" (lernen = to learn)",
+      "opener": "The present tense for \"wir\" ends in -en, just like the base form.",
+      "choices": [
+        "lerne",
+        "lernt",
+        "lernen",
+        "lernst"
+      ],
+      "answer": 2,
+      "explanation": "\"Wir\" takes the -en ending: \"lernen\" — the same form as the infinitive/base form."
+    },
+    {
+      "id": "q-de7-pres-4",
+      "kind": "mc",
+      "topic": "sein and haben",
+      "prompt": "Choose the right verb: \"Meine Schwester ___ groß.\" (My sister is tall.)",
+      "opener": "Sein corresponds to \"to be\".",
+      "choices": [
+        "ist",
+        "hat",
+        "bin",
+        "sind"
+      ],
+      "answer": 0,
+      "explanation": "\"Sein\" is conjugated: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie sind. \"Meine Schwester\" (she) takes \"ist\"."
+    },
+    {
+      "id": "q-de7-pres-5",
+      "kind": "mc",
+      "topic": "sein and haben",
+      "prompt": "Choose the right verb: \"Ich ___ einen Hund.\" (I have a dog.)",
+      "opener": "Haben corresponds to \"to have\".",
+      "choices": [
+        "bin",
+        "habe",
+        "ist",
+        "hast"
+      ],
+      "answer": 1,
+      "explanation": "\"Haben\" is conjugated: ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie haben. \"Ich\" takes \"habe\"."
+    },
+    {
+      "id": "q-de7-pres-6",
+      "kind": "text",
+      "topic": "personal pronouns",
+      "prompt": "Write the German word for \"you\" (plural, informal, several people you're talking to).",
+      "opener": "Corresponds to English \"you (plural)\".",
+      "answer": "ihr"
+    },
+    {
+      "id": "q-de7-pres-7",
+      "kind": "worked",
+      "topic": "present tense",
+      "prompt": "Correct the two errors: \"Ich wohnt in Schweden und du spielen Fußball.\"",
+      "opener": "Check which person each verb actually belongs to.",
+      "answer": "Ich wohne in Schweden und du spielst Fußball.",
+      "steps": [
+        "\"Ich wohnt\" → \"Ich wohne\". The verb wohnen is conjugated for \"I\" (ich) as \"wohne\", not \"wohnt\" (which is for he/she).",
+        "\"Du spielen\" → \"du spielst\". The verb spielen is conjugated for \"you\" (du) as \"spielst\", not \"spielen\" (which is the base form/wir form).",
+        "Full sentence: \"Ich wohne in Schweden und du spielst Fußball.\" (I live in Sweden and you play football.)"
+      ]
+    },
+    {
+      "id": "q-de7-pres-8",
+      "kind": "flashcard",
+      "topic": "present tense",
+      "prompt": "How are regular verbs conjugated in the present tense, and how are sein and haben conjugated?",
+      "opener": "The basic pattern plus two of the most important irregular verbs.",
+      "answer": "Regular verbs (lernen): ich lerne, du lernst, er/sie/es lernt, wir lernen, ihr lernt, sie/Sie lernen. Sein (to be): ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind. Haben (to have): ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie/Sie haben. Personal pronouns: ich, du, er/sie/es, wir, ihr, sie/Sie (Sie with a capital S is the polite \"you\")."
+    }
+  ]
+}

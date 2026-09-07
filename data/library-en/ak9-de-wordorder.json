@@ -1,0 +1,118 @@
+{
+  "id": "lib-de9-wordorder",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Word order and subordinate clauses",
+  "sourceSummary": "The verb's position in main and subordinate clauses, and the conjunctions weil and dass.",
+  "topics": [
+    "word order",
+    "subordinate clauses"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de9-word-1",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Where does the conjugated verb go in a German main clause?",
+      "opener": "This is almost always true, regardless of what comes first in the sentence.",
+      "choices": [
+        "Always first",
+        "Always last",
+        "In position two",
+        "Anywhere"
+      ],
+      "answer": 2,
+      "explanation": "The conjugated verb goes in position two in a main clause: \"Ich spiele Fußball\" or \"Heute spiele ich Fußball\" — the verb is always the second element, regardless of what comes first."
+    },
+    {
+      "id": "q-de9-word-2",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Choose the right word order: \"Today I play football.\"",
+      "opener": "If the sentence starts with \"heute\", where does the verb go?",
+      "choices": [
+        "Heute ich spiele Fußball.",
+        "Heute spiele ich Fußball.",
+        "Ich heute spiele Fußball.",
+        "Spiele ich heute Fußball."
+      ],
+      "answer": 1,
+      "explanation": "\"Heute\" takes position one, but the verb still has to go in position two: \"Heute spiele ich Fußball.\" The subject \"ich\" moves after the verb."
+    },
+    {
+      "id": "q-de9-word-3",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Where does the conjugated verb go in a subordinate clause introduced by \"weil\" (because)?",
+      "opener": "Subordinate clauses break the position-two rule.",
+      "choices": [
+        "Still in position two",
+        "At the end of the clause",
+        "Right after weil",
+        "First in the clause"
+      ],
+      "answer": 1,
+      "explanation": "In subordinate clauses introduced by weil, dass, wenn, and others, the conjugated verb is sent to the end of the clause."
+    },
+    {
+      "id": "q-de9-word-4",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Choose the right sentence: \"I'm staying home because I'm sick.\"",
+      "opener": "The verb \"bin\" should go at the end of the clause after \"weil\".",
+      "choices": [
+        "Ich bleibe zu Hause, weil ich bin krank.",
+        "Ich bleibe zu Hause, weil ich krank bin.",
+        "Ich bleibe zu Hause, weil bin ich krank.",
+        "Ich bleibe, weil zu Hause ich krank bin."
+      ],
+      "answer": 1,
+      "explanation": "\"Weil ich krank bin\" — the verb \"bin\" goes at the end of the clause."
+    },
+    {
+      "id": "q-de9-word-5",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "What does the conjunction \"dass\" mean?",
+      "opener": "A very common conjunction for introducing a subordinate clause.",
+      "choices": [
+        "because",
+        "that",
+        "if",
+        "but"
+      ],
+      "answer": 1,
+      "explanation": "\"Dass\" means \"that\", as in \"Ich weiß, dass du recht hast\" (I know that you're right). Just like \"weil\", \"dass\" sends the conjugated verb to the end of the clause."
+    },
+    {
+      "id": "q-de9-word-6",
+      "kind": "text",
+      "topic": "subordinate clauses",
+      "prompt": "Write the German conjunction that means \"because\"/\"since\" and sends the verb to the end of the clause.",
+      "opener": "The most common causal conjunction.",
+      "answer": "weil"
+    },
+    {
+      "id": "q-de9-word-7",
+      "kind": "worked",
+      "topic": "subordinate clauses",
+      "prompt": "Correct the error: \"Ich lerne Deutsch, weil ich möchte nach Berlin reisen.\"",
+      "opener": "The verb \"möchte\" should move to the end of the clause.",
+      "answer": "Ich lerne Deutsch, weil ich nach Berlin reisen möchte.",
+      "steps": [
+        "After \"weil\", the conjugated verb (\"möchte\") should stand at the end of the clause, not directly after the subject.",
+        "\"Weil ich möchte nach Berlin reisen\" → \"weil ich nach Berlin reisen möchte\".",
+        "Full sentence: \"Ich lerne Deutsch, weil ich nach Berlin reisen möchte.\" (I'm learning German because I want to travel to Berlin.)"
+      ]
+    },
+    {
+      "id": "q-de9-word-8",
+      "kind": "flashcard",
+      "topic": "word order",
+      "prompt": "How does word order work in main clauses compared to subordinate clauses in German?",
+      "opener": "One of the clearest differences between German and Swedish.",
+      "answer": "Main clause: the conjugated verb always stands in position two, regardless of what comes first (Ich spiele heute. / Heute spiele ich.). Subordinate clause (after weil, dass, wenn, ob, and others): the conjugated verb moves to the LAST position in the clause (..., weil ich krank bin. / Ich weiß, dass du recht hast.). Common subordinate-clause conjunctions: weil = because, dass = that, wenn = if/when, ob = whether."
+    }
+  ]
+}

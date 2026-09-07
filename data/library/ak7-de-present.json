@@ -1,0 +1,119 @@
+{
+  "id": "lib-de7-present",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Grammatik: presens av regelbundna verb",
+  "sourceSummary": "Presensböjning av regelbundna verb samt de oregelbundna verben sein och haben.",
+  "topics": [
+    "present tense",
+    "sein and haben",
+    "personal pronouns"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de7-pres-1",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Ich ___ Deutsch.\" (lernen = att lära sig)",
+      "opener": "Regelbundna verb i presens för \"ich\" slutar på -e.",
+      "choices": [
+        "lerne",
+        "lernst",
+        "lernt",
+        "lernen"
+      ],
+      "answer": 0,
+      "explanation": "\"Lernen\" böjs: ich lerne, du lernst, er/sie/es lernt, wir lernen, ihr lernt, sie lernen. \"Ich\" ger ändelsen -e: \"lerne\"."
+    },
+    {
+      "id": "q-de7-pres-2",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Er ___ in Berlin.\" (wohnen = att bo)",
+      "opener": "Presens för \"er/sie/es\" slutar på -t.",
+      "choices": [
+        "wohne",
+        "wohnst",
+        "wohnt",
+        "wohnen"
+      ],
+      "answer": 2,
+      "explanation": "\"Wohnen\" böjs: ich wohne, du wohnst, er/sie/es wohnt, wir wohnen, ihr wohnt, sie wohnen. \"Er\" ger ändelsen -t: \"wohnt\"."
+    },
+    {
+      "id": "q-de7-pres-3",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Wir ___ viel in der Schule.\" (lernen = att lära sig)",
+      "opener": "Presens för \"wir\" slutar på -en, precis som grundformen.",
+      "choices": [
+        "lerne",
+        "lernt",
+        "lernen",
+        "lernst"
+      ],
+      "answer": 2,
+      "explanation": "\"Wir\" ger ändelsen -en: \"lernen\" — samma form som infinitiv/grundformen."
+    },
+    {
+      "id": "q-de7-pres-4",
+      "kind": "mc",
+      "topic": "sein and haben",
+      "prompt": "Välj rätt verb: \"Meine Schwester ___ groß.\" (Min syster är stor/lång.)",
+      "opener": "Sein motsvarar svenskans \"vara\".",
+      "choices": [
+        "ist",
+        "hat",
+        "bin",
+        "sind"
+      ],
+      "answer": 0,
+      "explanation": "\"Sein\" böjs: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie sind. \"Meine Schwester\" (hon) ger \"ist\"."
+    },
+    {
+      "id": "q-de7-pres-5",
+      "kind": "mc",
+      "topic": "sein and haben",
+      "prompt": "Välj rätt verb: \"Ich ___ einen Hund.\" (Jag har en hund.)",
+      "opener": "Haben motsvarar svenskans \"ha\".",
+      "choices": [
+        "bin",
+        "habe",
+        "ist",
+        "hast"
+      ],
+      "answer": 1,
+      "explanation": "\"Haben\" böjs: ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie haben. \"Ich\" ger \"habe\"."
+    },
+    {
+      "id": "q-de7-pres-6",
+      "kind": "text",
+      "topic": "personal pronouns",
+      "prompt": "Skriv det tyska ordet för \"ni\" (flera personer du pratar med, informellt).",
+      "opener": "Motsvarar engelskans \"you (plural)\".",
+      "answer": "ihr"
+    },
+    {
+      "id": "q-de7-pres-7",
+      "kind": "worked",
+      "topic": "present tense",
+      "prompt": "Rätta de två felen: \"Ich wohnt in Schweden und du spielen Fußball.\"",
+      "opener": "Kolla vilken person varje verb faktiskt hör till.",
+      "answer": "Ich wohne in Schweden und du spielst Fußball.",
+      "steps": [
+        "\"Ich wohnt\" → \"Ich wohne\". Verbet wohnen böjs efter \"jag\" (ich) till \"wohne\", inte \"wohnt\" (som är för han/hon).",
+        "\"Du spielen\" → \"du spielst\". Verbet spielen böjs efter \"du\" (du) till \"spielst\", inte \"spielen\" (som är grundformen/wir-formen).",
+        "Hela meningen: \"Ich wohne in Schweden und du spielst Fußball.\" (Jag bor i Sverige och du spelar fotboll.)"
+      ]
+    },
+    {
+      "id": "q-de7-pres-8",
+      "kind": "flashcard",
+      "topic": "present tense",
+      "prompt": "Hur böjs regelbundna verb i presens, och hur böjs sein och haben?",
+      "opener": "Grundmönstret plus två av de allra viktigaste oregelbundna verben.",
+      "answer": "Regelbundna verb (lernen): ich lerne, du lernst, er/sie/es lernt, wir lernen, ihr lernt, sie/Sie lernen. Sein (vara): ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind. Haben (ha): ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie/Sie haben. Personliga pronomen: ich, du, er/sie/es, wir, ihr, sie/Sie (Sie med stort S är den artiga \"du/ni\")."
+    }
+  ]
+}

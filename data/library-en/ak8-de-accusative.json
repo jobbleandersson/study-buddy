@@ -1,0 +1,118 @@
+{
+  "id": "lib-de8-accusative",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Grammar: accusative case",
+  "sourceSummary": "The accusative form of the definite and indefinite article, plus personal pronouns in the accusative.",
+  "topics": [
+    "accusative case",
+    "accusative pronouns"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de8-akk-1",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Which article changes in the accusative compared to the nominative?",
+      "opener": "Only one of the three genders changes.",
+      "choices": [
+        "Only masculine (der → den)",
+        "Only feminine (die → der)",
+        "Only neuter (das → dem)",
+        "All three genders change"
+      ],
+      "answer": 0,
+      "explanation": "Only masculine changes in the accusative: \"der\" becomes \"den\". Feminine (die) and neuter (das) look the same in the nominative and accusative."
+    },
+    {
+      "id": "q-de8-akk-2",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Choose the right form: \"Ich sehe ___ Hund.\" (der Hund = the dog, direct object)",
+      "opener": "\"Hund\" is masculine and is the object here — what changes then?",
+      "choices": [
+        "der",
+        "den",
+        "dem",
+        "des"
+      ],
+      "answer": 1,
+      "explanation": "\"Hund\" is masculine and is the object of the sentence (what you see), so the article becomes accusative: \"den Hund\"."
+    },
+    {
+      "id": "q-de8-akk-3",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Choose the right form: \"Ich kaufe ___ Buch.\" (das Buch = the book, direct object)",
+      "opener": "\"Buch\" is neuter — does the article change in the accusative?",
+      "choices": [
+        "der",
+        "den",
+        "das",
+        "dem"
+      ],
+      "answer": 2,
+      "explanation": "Neuter doesn't change in the accusative: \"das Buch\" is the same in the nominative and accusative."
+    },
+    {
+      "id": "q-de8-akk-4",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Choose the right indefinite article: \"Ich habe ___ Bruder.\" (der Bruder, direct object)",
+      "opener": "\"Ein\" changes to \"einen\" for masculine in the accusative.",
+      "choices": [
+        "ein",
+        "eine",
+        "einen",
+        "einem"
+      ],
+      "answer": 2,
+      "explanation": "\"Ein\" becomes \"einen\" for masculine in the accusative. \"Eine\" (feminine) doesn't change in the accusative."
+    },
+    {
+      "id": "q-de8-akk-5",
+      "kind": "mc",
+      "topic": "accusative pronouns",
+      "prompt": "Choose the right pronoun: \"Ich sehe ___.\" (I see him.)",
+      "opener": "\"Er\" (he) becomes a different word in the accusative.",
+      "choices": [
+        "er",
+        "ihn",
+        "ihm",
+        "ihr"
+      ],
+      "answer": 1,
+      "explanation": "\"Er\" (he, nominative) becomes \"ihn\" in the accusative: \"Ich sehe ihn\" (I see him)."
+    },
+    {
+      "id": "q-de8-akk-6",
+      "kind": "text",
+      "topic": "accusative pronouns",
+      "prompt": "Write the accusative form of \"ich\" (I) — the same word as \"me\".",
+      "opener": "One of the pronouns that actually changes the least.",
+      "answer": "mich"
+    },
+    {
+      "id": "q-de8-akk-7",
+      "kind": "worked",
+      "topic": "accusative case",
+      "prompt": "Correct the error: \"Ich brauche der Stift.\" (I need the pen.)",
+      "opener": "\"Der Stift\" is masculine and is the object of the sentence.",
+      "answer": "Ich brauche den Stift.",
+      "steps": [
+        "\"Der Stift\" (the pen) is the object of \"brauchen\" (to need), so it should be in the accusative.",
+        "Masculine \"der\" becomes \"den\" in the accusative.",
+        "Correct sentence: \"Ich brauche den Stift.\""
+      ]
+    },
+    {
+      "id": "q-de8-akk-8",
+      "kind": "flashcard",
+      "topic": "accusative case",
+      "prompt": "How does the accusative work in German, and which articles/pronouns change?",
+      "opener": "Only masculine changes — everything else is like the nominative.",
+      "answer": "The accusative is used for the direct object (the one \"receiving\" the action). Definite article: der → den (masculine, the ONLY one that changes), die/das/die unchanged. Indefinite article: ein → einen (masculine), eine/ein unchanged. Personal pronouns: ich→mich, du→dich, er→ihn, sie→sie, es→es, wir→uns, ihr→euch, sie→sie. Examples: \"Ich sehe den Hund\" (I see the dog), \"Ich liebe dich\" (I love you)."
+    }
+  ]
+}

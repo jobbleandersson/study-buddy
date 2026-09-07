@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr8-verbs",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Grammatik: oregelbundna verb i presens",
+  "sourceSummary": "De vanliga oregelbundna verben aller, faire, vouloir och pouvoir i presens, samt aller + infinitiv för framtid.",
+  "topics": [
+    "irregular verbs",
+    "aller",
+    "futur proche"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr8-verb-1",
+      "kind": "mc",
+      "topic": "aller",
+      "prompt": "Välj rätt form: \"Je ___ à l'école en bus.\" (aller = att gå/åka)",
+      "opener": "Aller är helt oregelbundet: vais, vas, va...",
+      "choices": [
+        "vais",
+        "vas",
+        "va",
+        "vont"
+      ],
+      "answer": 0,
+      "explanation": "\"Aller\" böjs: je vais, tu vas, il/elle va, nous allons, vous allez, ils/elles vont. \"Je\" ger \"vais\"."
+    },
+    {
+      "id": "q-fr8-verb-2",
+      "kind": "mc",
+      "topic": "futur proche",
+      "prompt": "\"Aller + infinitiv\" används för att prata om framtid, ungefär som \"ska göra\". Vad betyder \"Nous allons manger\"?",
+      "opener": "Samma konstruktion som engelskans \"going to\".",
+      "choices": [
+        "Vi äter",
+        "Vi ska äta",
+        "Vi åt",
+        "Vi vill äta"
+      ],
+      "answer": 1,
+      "explanation": "\"Aller + infinitiv\" beskriver något man tänker göra: \"nous allons manger\" = \"vi ska äta\" (strax)."
+    },
+    {
+      "id": "q-fr8-verb-3",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Välj rätt form: \"Qu'est-ce que tu ___ ce soir ?\" (faire = att göra)",
+      "opener": "Faire är oregelbundet i flera former.",
+      "choices": [
+        "fais",
+        "fait",
+        "faisons",
+        "faites"
+      ],
+      "answer": 0,
+      "explanation": "\"Faire\" böjs: je fais, tu fais, il/elle fait, nous faisons, vous faites, ils/elles font. \"Tu\" ger \"fais\"."
+    },
+    {
+      "id": "q-fr8-verb-4",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Välj rätt form: \"Elle ___ un gâteau.\" (faire = att göra/laga)",
+      "opener": "Kolla er/elle-formen av faire.",
+      "choices": [
+        "fais",
+        "fait",
+        "font",
+        "faites"
+      ],
+      "answer": 1,
+      "explanation": "\"Elle\" ger \"fait\" (hon gör/lagar)."
+    },
+    {
+      "id": "q-fr8-verb-5",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Välj rätt form: \"Nous ___ aller au cinéma.\" (vouloir = att vilja)",
+      "opener": "Vouloir har -eu- i stammen för nous/vous.",
+      "choices": [
+        "veux",
+        "veut",
+        "voulons",
+        "veulent"
+      ],
+      "answer": 2,
+      "explanation": "\"Vouloir\" böjs: je veux, tu veux, il/elle veut, nous voulons, vous voulez, ils/elles veulent. \"Nous\" ger \"voulons\"."
+    },
+    {
+      "id": "q-fr8-verb-6",
+      "kind": "text",
+      "topic": "irregular verbs",
+      "prompt": "Skriv den franska formen av \"pouvoir\" (kunna) för \"jag\": \"Je ___ venir demain.\"",
+      "opener": "Pouvoir har samma -eu-/-ou-mönster som vouloir.",
+      "answer": "peux"
+    },
+    {
+      "id": "q-fr8-verb-7",
+      "kind": "worked",
+      "topic": "irregular verbs",
+      "prompt": "Rätta de två felen: \"Je veut faire mes devoirs, mais je ne peut pas parce que je suis fatigué.\"",
+      "opener": "Kolla \"jag\"-formen av både vouloir och pouvoir.",
+      "answer": "Je veux faire mes devoirs, mais je ne peux pas parce que je suis fatigué.",
+      "steps": [
+        "\"Je veut\" → \"je veux\". Vouloir böjs för \"jag\" till \"veux\", inte \"veut\" (som är för han/hon).",
+        "\"Je ne peut pas\" → \"je ne peux pas\". Pouvoir böjs för \"jag\" till \"peux\", inte \"peut\".",
+        "Hela meningen: \"Je veux faire mes devoirs, mais je ne peux pas parce que je suis fatigué.\""
+      ]
+    },
+    {
+      "id": "q-fr8-verb-8",
+      "kind": "flashcard",
+      "topic": "irregular verbs",
+      "prompt": "Hur böjs aller, faire, vouloir och pouvoir i presens?",
+      "opener": "Fyra av de allra vanligaste oregelbundna verben.",
+      "answer": "Aller (gå/åka): vais, vas, va, allons, allez, vont. Aller + infinitiv = ska göra något (framtid, futur proche). Faire (göra): fais, fais, fait, faisons, faites, font. Vouloir (vilja): veux, veux, veut, voulons, voulez, veulent. Pouvoir (kunna): peux, peux, peut, pouvons, pouvez, peuvent."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp8-time",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Klockan och veckodagar",
+  "sourceSummary": "Att klockan är, veckodagar och månader, samt hur man pratar om ett schema.",
+  "topics": [
+    "telling time",
+    "days of the week",
+    "months"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp8-time-1",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Hur frågar man \"vad är klockan?\" på spanska?",
+      "opener": "En fast fras du bara behöver lära dig utantill.",
+      "choices": [
+        "¿Qué hora es?",
+        "¿Cuándo es?",
+        "¿Qué día es?",
+        "¿Dónde está el reloj?"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Qué hora es?\" är den fasta frasen för \"vad är klockan?\". \"¿Qué día es?\" frågar i stället vilken veckodag det är."
+    },
+    {
+      "id": "q-sp8-time-2",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Hur säger man \"klockan är tre\"?",
+      "opener": "Från och med två används \"son las...\" i plural.",
+      "choices": [
+        "Es la tres.",
+        "Son las tres.",
+        "Es las tres.",
+        "Son la tres."
+      ],
+      "answer": 1,
+      "explanation": "\"Son las tres\" används för alla klockslag utom ett: \"es la una\" (klockan är ett) är undantaget som står i singular."
+    },
+    {
+      "id": "q-sp8-time-3",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"las nueve y media\"?",
+      "opener": "\"Y media\" betyder halv efter.",
+      "choices": [
+        "Kvart över nio",
+        "Halv tio",
+        "Kvart i nio",
+        "Nio och en kvart"
+      ],
+      "answer": 1,
+      "explanation": "\"Y media\" betyder \"och halv\", alltså 30 minuter efter: \"las nueve y media\" = 09:30 (halv tio)."
+    },
+    {
+      "id": "q-sp8-time-4",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Vilken veckodag är \"miércoles\"?",
+      "opener": "Den spanska veckan börjar med måndag.",
+      "choices": [
+        "Tisdag",
+        "Onsdag",
+        "Torsdag",
+        "Fredag"
+      ],
+      "answer": 1,
+      "explanation": "\"Miércoles\" är onsdag. Veckans dagar: lunes, martes, miércoles, jueves, viernes, sábado, domingo."
+    },
+    {
+      "id": "q-sp8-time-5",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Vilken månad är \"diciembre\"?",
+      "opener": "Namnet liknar det svenska.",
+      "choices": [
+        "Oktober",
+        "November",
+        "December",
+        "Januari"
+      ],
+      "answer": 2,
+      "explanation": "\"Diciembre\" är december. De spanska månadsnamnen liknar de svenska/engelska ganska mycket."
+    },
+    {
+      "id": "q-sp8-time-6",
+      "kind": "text",
+      "topic": "days of the week",
+      "prompt": "Skriv det spanska ordet för \"lördag\".",
+      "opener": "Kommer direkt före \"domingo\" i veckan.",
+      "answer": "sábado"
+    },
+    {
+      "id": "q-sp8-time-7",
+      "kind": "worked",
+      "topic": "telling time",
+      "prompt": "Rätta felet: \"Es las cinco de la tarde.\" (Klockan är fem på eftermiddagen.)",
+      "opener": "Kolla om det ska vara \"es\" eller \"son\" för klockan fem.",
+      "answer": "Son las cinco de la tarde.",
+      "steps": [
+        "\"Es\" används bara för klockan ett (\"es la una\"). Alla andra klockslag använder \"son las...\".",
+        "\"Cinco\" (fem) är fler än ett, så det ska vara \"son las cinco\", inte \"es las cinco\".",
+        "\"De la tarde\" (på eftermiddagen) stämmer redan och behöver inte ändras."
+      ]
+    },
+    {
+      "id": "q-sp8-time-8",
+      "kind": "flashcard",
+      "topic": "telling time",
+      "prompt": "Hur frågar och svarar man om klockan, veckodagar och månader på spanska?",
+      "opener": "Fasta fraser för tid, dagar och månader.",
+      "answer": "Klockan: ¿Qué hora es? = Vad är klockan? · Es la una = Klockan är ett · Son las dos/tres... = Klockan är två/tre... · y media = och halv · y cuarto = och kvart · menos cuarto = kvart i. Veckodagar: lunes, martes, miércoles, jueves, viernes, sábado, domingo. Månader: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre."
+    }
+  ]
+}

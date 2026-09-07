@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr7-present",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Grammatik: presens av -er-verb",
+  "sourceSummary": "Presensböjning av regelbundna -er-verb samt de oregelbundna verben être och avoir.",
+  "topics": [
+    "present tense",
+    "être and avoir",
+    "personal pronouns"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr7-pres-1",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Je ___ français.\" (parler = att prata)",
+      "opener": "-er-verb i presens för \"je\" slutar på -e.",
+      "choices": [
+        "parle",
+        "parles",
+        "parlons",
+        "parlent"
+      ],
+      "answer": 0,
+      "explanation": "\"Parler\" böjs: je parle, tu parles, il/elle parle, nous parlons, vous parlez, ils/elles parlent. \"Je\" ger \"parle\"."
+    },
+    {
+      "id": "q-fr7-pres-2",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Nous ___ à Paris.\" (habiter = att bo)",
+      "opener": "Presens för \"nous\" slutar på -ons.",
+      "choices": [
+        "habite",
+        "habites",
+        "habitons",
+        "habitent"
+      ],
+      "answer": 2,
+      "explanation": "\"Habiter\" böjs: j'habite, tu habites, il/elle habite, nous habitons, vous habitez, ils/elles habitent. \"Nous\" ger \"habitons\"."
+    },
+    {
+      "id": "q-fr7-pres-3",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Ils ___ beaucoup à l'école.\" (apprendre-liknande -er-verb: étudier = att studera)",
+      "opener": "Presens för \"ils/elles\" slutar på -ent.",
+      "choices": [
+        "étudie",
+        "étudions",
+        "étudiez",
+        "étudient"
+      ],
+      "answer": 3,
+      "explanation": "\"Étudier\" böjs: j'étudie, tu étudies, il/elle étudie, nous étudions, vous étudiez, ils/elles étudient. \"Ils\" ger \"étudient\" — uttalas likadant som singularformerna, men stavas med -ent."
+    },
+    {
+      "id": "q-fr7-pres-4",
+      "kind": "mc",
+      "topic": "être and avoir",
+      "prompt": "Välj rätt verb: \"Ma sœur ___ grande.\" (Min syster är lång.)",
+      "opener": "Être motsvarar svenskans \"vara\".",
+      "choices": [
+        "est",
+        "a",
+        "suis",
+        "sommes"
+      ],
+      "answer": 0,
+      "explanation": "\"Être\" böjs: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. \"Ma sœur\" (hon) ger \"est\"."
+    },
+    {
+      "id": "q-fr7-pres-5",
+      "kind": "mc",
+      "topic": "être and avoir",
+      "prompt": "Välj rätt verb: \"J'___ un chien.\" (Jag har en hund.)",
+      "opener": "Avoir motsvarar svenskans \"ha\". Framför vokalljud kortas \"je\" till \"j'\".",
+      "choices": [
+        "suis",
+        "ai",
+        "es",
+        "as"
+      ],
+      "answer": 1,
+      "explanation": "\"Avoir\" böjs: j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont. \"Je\" (förkortat till \"j'\" här) ger \"ai\"."
+    },
+    {
+      "id": "q-fr7-pres-6",
+      "kind": "text",
+      "topic": "personal pronouns",
+      "prompt": "Skriv det franska ordet för \"ni\" (flera personer du pratar med).",
+      "opener": "Samma ord används både för artigt \"du\" och för \"ni\".",
+      "answer": "vous"
+    },
+    {
+      "id": "q-fr7-pres-7",
+      "kind": "worked",
+      "topic": "present tense",
+      "prompt": "Rätta de två felen: \"J'habites en Suède et tu parle anglais très bien.\"",
+      "opener": "Kolla vilken person varje verb faktiskt hör till.",
+      "answer": "J'habite en Suède et tu parles anglais très bien.",
+      "steps": [
+        "\"J'habites\" → \"j'habite\". Verbet habiter böjs efter \"jag\" (je) till \"habite\", utan -s.",
+        "\"Tu parle\" → \"tu parles\". Verbet parler böjs efter \"du\" (tu) till \"parles\", med -s.",
+        "Hela meningen: \"J'habite en Suède et tu parles anglais très bien.\" (Jag bor i Sverige och du pratar engelska mycket bra.)"
+      ]
+    },
+    {
+      "id": "q-fr7-pres-8",
+      "kind": "flashcard",
+      "topic": "present tense",
+      "prompt": "Hur böjs -er-verb i presens, och hur böjs être och avoir?",
+      "opener": "Den vanligaste verbgruppen plus två av de allra viktigaste oregelbundna verben.",
+      "answer": "-er (parler): je parle, tu parles, il/elle parle, nous parlons, vous parlez, ils/elles parlent. Être (vara): je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. Avoir (ha): j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont. Personliga pronomen: je (j' framför vokal), tu, il/elle, nous, vous, ils/elles."
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "id": "lib-de9-travel",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Ordförråd: resor och väder",
+  "sourceSummary": "Ord för resor, transportmedel och att prata om vädret.",
+  "topics": [
+    "travel",
+    "weather"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de9-trav-1",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad betyder \"die Hin- und Rückfahrkarte\"?",
+      "opener": "\"Hin\" betyder dit, \"rück\" betyder tillbaka.",
+      "choices": [
+        "Enkel biljett",
+        "Tur- och returbiljett",
+        "Årskort",
+        "Sittplatsbiljett"
+      ],
+      "answer": 1,
+      "explanation": "\"Hin- und Rückfahrkarte\" är en tur- och returbiljett. En enkel biljett heter \"eine Einzelfahrkarte\"."
+    },
+    {
+      "id": "q-de9-trav-2",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Du är på flygplatsen och letar efter \"den Koffer\". Vad letar du efter?",
+      "opener": "Något du packar inför en resa.",
+      "choices": [
+        "Passet",
+        "Resväskan",
+        "Utgången",
+        "Boardingkortet"
+      ],
+      "answer": 1,
+      "explanation": "\"Der Koffer\" är resväskan. \"Der Reisepass\" är passet, och \"der Ausgang\" är utgången."
+    },
+    {
+      "id": "q-de9-trav-3",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Vad betyder \"Es ist heute sehr warm\"?",
+      "opener": "Ett enkelt väderuttryck med \"es ist\".",
+      "choices": [
+        "Det är mycket kallt idag",
+        "Det är mycket varmt idag",
+        "Det regnar mycket idag",
+        "Det blåser mycket idag"
+      ],
+      "answer": 1,
+      "explanation": "\"Es ist warm\" betyder \"det är varmt\". \"Sehr\" förstärker till \"mycket varmt\"."
+    },
+    {
+      "id": "q-de9-trav-4",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Välj rätt väderord: \"Es ___ viel im Herbst.\" (Det regnar mycket på hösten.)",
+      "opener": "Regn har ett eget verb på tyska.",
+      "choices": [
+        "schneit",
+        "regnet",
+        "windet",
+        "friert"
+      ],
+      "answer": 1,
+      "explanation": "\"Regnen\" (regna) böjs \"es regnet\" i tredje person. \"Schneien\" (snöa) böjs på liknande sätt: \"es schneit\"."
+    },
+    {
+      "id": "q-de9-trav-5",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad frågar du om du vill veta varifrån tåget avgår?",
+      "opener": "\"Von wo...?\" frågar varifrån.",
+      "choices": [
+        "Wann kommt der Zug an?",
+        "Von wo fährt der Zug ab?",
+        "Wie viel kostet die Karte?",
+        "Welche Farbe hat der Zug?"
+      ],
+      "answer": 1,
+      "explanation": "\"Von wo fährt der Zug ab?\" betyder \"varifrån avgår tåget?\". \"Wann kommt ... an?\" frågar i stället när det ANLÄNDER."
+    },
+    {
+      "id": "q-de9-trav-6",
+      "kind": "text",
+      "topic": "weather",
+      "prompt": "Skriv den tyska frasen för \"det är soligt\" (tre ord: \"es ist ...\").",
+      "opener": "Sonnig kommer från \"die Sonne\" (solen).",
+      "answer": "es ist sonnig"
+    },
+    {
+      "id": "q-de9-trav-7",
+      "kind": "worked",
+      "topic": "travel",
+      "prompt": "Rätta felet: \"Der Zug fährt um acht Uhr ab und kommt zehn Uhr an.\" (Tåget avgår klockan åtta och anländer klockan tio.)",
+      "opener": "\"Ankommen\" behöver prepositionen \"um\" före klockslaget.",
+      "answer": "Der Zug fährt um acht Uhr ab und kommt um zehn Uhr an.",
+      "steps": [
+        "\"Kommt zehn Uhr an\" saknar prepositionen \"um\" före klockslaget.",
+        "Rätt form: \"kommt um zehn Uhr an\" — precis som \"fährt um acht Uhr ab\" använder \"um\" före tiden.",
+        "Hela meningen: \"Der Zug fährt um acht Uhr ab und kommt um zehn Uhr an.\""
+      ]
+    },
+    {
+      "id": "q-de9-trav-8",
+      "kind": "flashcard",
+      "topic": "travel",
+      "prompt": "Vilka rese- och väderuttryck bör du kunna på åk9-nivå i tyska?",
+      "opener": "Att boka, resa och prata om vädret.",
+      "answer": "Resor: die Fahrkarte (Einzel-/Hin- und Rückfahrkarte) = biljett (enkel/retur) · der Koffer = resväska · der Reisepass = pass · der Zug/das Flugzeug/der Bus = tåg/flyg/buss · abfahren = avgå · ankommen = anlända · Von wo fährt...ab? = Varifrån avgår...? Väder: es ist warm/kalt/sonnig/windig = det är varmt/kallt/soligt/blåsigt · es regnet = det regnar · es schneit = det snöar · es ist bewölkt = det är molnigt."
+    }
+  ]
+}

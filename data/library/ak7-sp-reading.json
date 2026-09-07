@@ -1,0 +1,117 @@
+{
+  "id": "lib-sp7-reading",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Läsförståelse: en presentation",
+  "sourceSummary": "En kort text där en person presenterar sig själv och sin familj, med frågor om detaljer och sammanhang.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp7-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"¡Hola! Me llamo Carlos y tengo trece años. Vivo en Barcelona con mi familia. Tengo una hermana; se llama Laura y tiene diez años.\"\n\nHur gammal är Carlos?",
+      "opener": "Leta efter talet direkt efter \"tengo ... años\".",
+      "choices": [
+        "Tio år",
+        "Tolv år",
+        "Tretton år",
+        "Fjorton år"
+      ],
+      "answer": 2,
+      "explanation": "\"Tengo trece años\" betyder \"jag är tretton år\". \"Trece\" är 13."
+    },
+    {
+      "id": "q-sp7-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Var bor Carlos?",
+      "opener": "Leta efter \"Vivo en...\".",
+      "choices": [
+        "Madrid",
+        "Barcelona",
+        "Sevilla",
+        "Valencia"
+      ],
+      "answer": 1,
+      "explanation": "\"Vivo en Barcelona\" betyder \"jag bor i Barcelona\"."
+    },
+    {
+      "id": "q-sp7-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vem är Laura?",
+      "opener": "Leta efter meningen om \"una hermana\".",
+      "choices": [
+        "Carlos mamma",
+        "Carlos syster",
+        "Carlos kusin",
+        "Carlos lärare"
+      ],
+      "answer": 1,
+      "explanation": "\"Tengo una hermana; se llama Laura\" betyder \"jag har en syster; hon heter Laura\"."
+    },
+    {
+      "id": "q-sp7-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Ny text: \"Los sábados, Carlos juega al fútbol con sus amigos. Después, come pizza en casa de su abuela. Los domingos descansa.\"\n\nVad gör Carlos på lördagar?",
+      "opener": "\"Juega al fútbol\" — verbet jugar betyder att spela/leka.",
+      "choices": [
+        "Han spelar fotboll med sina vänner",
+        "Han lagar mat till sin farmor",
+        "Han vilar hela dagen",
+        "Han läser läxor"
+      ],
+      "answer": 0,
+      "explanation": "\"Juega al fútbol con sus amigos\" betyder \"han spelar fotboll med sina vänner\"."
+    },
+    {
+      "id": "q-sp7-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Var äter han pizza?",
+      "opener": "\"En casa de su abuela\" — vem bor där?",
+      "choices": [
+        "Hemma hos sig själv",
+        "På en restaurang",
+        "Hemma hos sin farmor/mormor",
+        "I skolan"
+      ],
+      "answer": 2,
+      "explanation": "\"En casa de su abuela\" betyder \"hemma hos hans mor-/farmor\"."
+    },
+    {
+      "id": "q-sp7-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad gör Carlos på söndagar, enligt sista meningen? Svara på svenska med ett ord.",
+      "opener": "Verbet descansar betyder att koppla av.",
+      "answer": "vilar"
+    },
+    {
+      "id": "q-sp7-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten igen och skriv en spansk mening (3–5 ord) som svarar på: \"¿Con quién juega Carlos al fútbol?\" (Med vem spelar Carlos fotboll?)",
+      "opener": "Svaret finns i första meningen om lördagar.",
+      "answer": "Juega con sus amigos.",
+      "steps": [
+        "Hitta rätt del av texten: \"Carlos juega al fútbol con sus amigos.\"",
+        "Plocka ut svaret på frågan \"med vem\": \"con sus amigos\" (med sina vänner).",
+        "Bygg en kort mening: \"Juega con sus amigos.\" (Han spelar med sina vänner.)"
+      ]
+    },
+    {
+      "id": "q-sp7-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Vilka strategier hjälper dig att förstå en enkel spansk text på åk7-nivå?",
+      "opener": "Du behöver inte förstå varje ord för att förstå helheten.",
+      "answer": "Leta efter kända mönster: \"me llamo\" (presentation), \"tengo ... años\" (ålder), \"vivo en\" (bostadsort), \"los sábados/domingos\" (veckodagar + aktiviteter). Gissa okända ord från sammanhanget i stället för att slå upp varje ord. Läs texten en gång för helheten och en gång till för detaljer. Leta efter verb i presens (juega, come, vive, descansa) för att förstå vad som händer, och possessiva ord (su, sus, mi) för att förstå vem som gör vad."
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "id": "lib-fr7-reading",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Reading comprehension: an introduction",
+  "sourceSummary": "A short text where a person introduces themselves and their family, with questions about details and context.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr7-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Salut ! Je m'appelle Lucas et j'ai treize ans. J'habite à Lyon avec ma famille. J'ai une sœur ; elle s'appelle Léa et elle a dix ans.\"\n\nHow old is Lucas?",
+      "opener": "Look for the number right after \"j'ai ... ans\".",
+      "choices": [
+        "Ten years old",
+        "Twelve years old",
+        "Thirteen years old",
+        "Fourteen years old"
+      ],
+      "answer": 2,
+      "explanation": "\"J'ai treize ans\" means \"I am thirteen years old\". \"Treize\" is 13."
+    },
+    {
+      "id": "q-fr7-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Where does Lucas live?",
+      "opener": "Look for \"J'habite à...\".",
+      "choices": [
+        "Paris",
+        "Lyon",
+        "Marseille",
+        "Nice"
+      ],
+      "answer": 1,
+      "explanation": "\"J'habite à Lyon\" means \"I live in Lyon\"."
+    },
+    {
+      "id": "q-fr7-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Who is Léa?",
+      "opener": "Look for the sentence about \"une sœur\".",
+      "choices": [
+        "Lucas's mom",
+        "Lucas's sister",
+        "Lucas's cousin",
+        "Lucas's teacher"
+      ],
+      "answer": 1,
+      "explanation": "\"J'ai une sœur ; elle s'appelle Léa\" means \"I have a sister; her name is Léa\"."
+    },
+    {
+      "id": "q-fr7-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "New text: \"Le samedi, Lucas joue au foot avec ses amis. Ensuite, il mange une pizza chez sa grand-mère. Le dimanche, il se repose.\"\n\nWhat does Lucas do on Saturdays?",
+      "opener": "\"Joue au foot\" — the verb jouer means to play.",
+      "choices": [
+        "He plays soccer with his friends",
+        "He cooks for his grandmother",
+        "He rests all day",
+        "He does homework"
+      ],
+      "answer": 0,
+      "explanation": "\"Joue au foot avec ses amis\" means \"plays soccer with his friends\"."
+    },
+    {
+      "id": "q-fr7-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Where does he eat pizza?",
+      "opener": "\"Chez sa grand-mère\" — who lives there?",
+      "choices": [
+        "At his own home",
+        "At a restaurant",
+        "At his grandmother's home",
+        "At school"
+      ],
+      "answer": 2,
+      "explanation": "\"Chez sa grand-mère\" means \"at his grandmother's home\"."
+    },
+    {
+      "id": "q-fr7-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What does Lucas do on Sundays, according to the last sentence? Answer in English with one word.",
+      "opener": "The expression \"se reposer\" means to rest/relax.",
+      "answer": "rests"
+    },
+    {
+      "id": "q-fr7-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Read the text again and write a French sentence (3–5 words) answering: \"Avec qui Lucas joue-t-il au foot ?\" (Who does Lucas play soccer with?)",
+      "opener": "The answer is in the first sentence about Saturdays.",
+      "answer": "Il joue avec ses amis.",
+      "steps": [
+        "Find the relevant part of the text: \"Lucas joue au foot avec ses amis.\"",
+        "Pick out the answer to \"with whom\": \"avec ses amis\" (with his friends).",
+        "Build a short sentence: \"Il joue avec ses amis.\" (He plays with his friends.)"
+      ]
+    },
+    {
+      "id": "q-fr7-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Which strategies help you understand a simple French text at grade 7 level?",
+      "opener": "You don't need to understand every word to understand the whole.",
+      "answer": "Look for familiar patterns: \"je m'appelle\" (introduction), \"j'ai ... ans\" (age), \"j'habite à\" (place of residence), \"le samedi/dimanche\" (days of the week with a definite article). Guess unknown words from context instead of looking up every word. Read the text once for the overall gist and again for details. Look for verbs in the present tense (joue, mange, se repose) to understand what's happening, and possessive words (sa, ses, elle) to understand who's doing what."
+    }
+  ]
+}

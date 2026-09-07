@@ -1,0 +1,118 @@
+{
+  "id": "lib-sp9-travel",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Vocabulary: travel and weather",
+  "sourceSummary": "Words for travel, means of transport, and talking about the weather.",
+  "topics": [
+    "travel",
+    "weather"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp9-trav-1",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"el billete de ida y vuelta\" mean?",
+      "opener": "\"Ida y vuelta\" means \"there and back\".",
+      "choices": [
+        "One-way ticket",
+        "Round-trip ticket",
+        "Annual pass",
+        "Seat reservation"
+      ],
+      "answer": 1,
+      "explanation": "\"Ida y vuelta\" means \"there and back\", so \"un billete de ida y vuelta\" is a round-trip ticket. A one-way ticket is \"un billete de ida\"."
+    },
+    {
+      "id": "q-sp9-trav-2",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "You're at the airport looking for \"la maleta\". What are you looking for?",
+      "opener": "Something you pack for a trip.",
+      "choices": [
+        "The passport",
+        "The suitcase",
+        "The exit",
+        "The boarding pass"
+      ],
+      "answer": 1,
+      "explanation": "\"La maleta\" is the suitcase. \"El pasaporte\" is the passport, and \"la puerta\" is the exit/gate."
+    },
+    {
+      "id": "q-sp9-trav-3",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "What does \"Hace mucho calor hoy\" mean?",
+      "opener": "Spanish weather expressions often use the verb hacer.",
+      "choices": [
+        "It's very cold today",
+        "It's very hot today",
+        "It's raining a lot today",
+        "It's very windy today"
+      ],
+      "answer": 1,
+      "explanation": "\"Hace calor\" means \"it's hot\" (literally \"it makes heat\"). \"Mucho\" intensifies it to \"very hot\"."
+    },
+    {
+      "id": "q-sp9-trav-4",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Choose the correct weather phrase: \"___ mucho en Galicia en otoño.\" (It rains a lot in Galicia in the fall.)",
+      "opener": "Rain uses its own verb, not hacer.",
+      "choices": [
+        "Hace",
+        "Llueve",
+        "Nieva",
+        "Está"
+      ],
+      "answer": 1,
+      "explanation": "\"Llover\" (to rain) conjugates as \"llueve\" in the third person. \"Nevar\" (to snow) conjugates similarly: \"nieva\"."
+    },
+    {
+      "id": "q-sp9-trav-5",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What do you ask if you want to know where the train departs from?",
+      "opener": "\"¿De dónde...?\" asks from where.",
+      "choices": [
+        "¿A qué hora llega el tren?",
+        "¿De dónde sale el tren?",
+        "¿Cuánto cuesta el billete?",
+        "¿De qué color es el tren?"
+      ],
+      "answer": 1,
+      "explanation": "\"¿De dónde sale el tren?\" means \"where does the train depart from?\". \"¿A qué hora llega?\" instead asks when it ARRIVES."
+    },
+    {
+      "id": "q-sp9-trav-6",
+      "kind": "text",
+      "topic": "weather",
+      "prompt": "Write the Spanish phrase for \"it's sunny\" (two words).",
+      "opener": "Follows the same pattern as \"hace calor\".",
+      "answer": "hace sol"
+    },
+    {
+      "id": "q-sp9-trav-7",
+      "kind": "worked",
+      "topic": "travel",
+      "prompt": "Correct the error: \"El avión sale a las ocho y llega las diez.\" (The plane departs at eight and arrives at ten.)",
+      "opener": "\"Llegar\" needs a preposition before the time.",
+      "answer": "El avión sale a las ocho y llega a las diez.",
+      "steps": [
+        "\"Llega las diez\" is missing the preposition \"a\" before the time.",
+        "Correct form: \"llega a las diez\" — just like \"sale a las ocho\" uses \"a\" before the time.",
+        "The full sentence: \"El avión sale a las ocho y llega a las diez.\""
+      ]
+    },
+    {
+      "id": "q-sp9-trav-8",
+      "kind": "flashcard",
+      "topic": "travel",
+      "prompt": "Which travel and weather expressions should you know at the grade 9 level in Spanish?",
+      "opener": "Booking, traveling, and talking about the weather.",
+      "answer": "Travel: el billete (de ida / de ida y vuelta) = ticket (one-way/round-trip) · la maleta = suitcase · el pasaporte = passport · el tren/avión/autobús = train/plane/bus · salir = to depart · llegar = to arrive · ¿De dónde sale...? = Where does ... depart from? Weather: hace calor/frío/sol/viento = it's hot/cold/sunny/windy · llueve = it's raining · nieva = it's snowing · está nublado = it's cloudy."
+    }
+  ]
+}

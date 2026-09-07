@@ -1,0 +1,118 @@
+{
+  "id": "lib-de9-perfect",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Grammar: perfect tense",
+  "sourceSummary": "How the perfect tense is formed with haben or sein, and the most common participle forms.",
+  "topics": [
+    "perfect tense",
+    "haben or sein"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de9-perf-1",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "How is the perfect tense formed in German?",
+      "opener": "Two parts: an auxiliary verb and the participle.",
+      "choices": [
+        "Only with the participle",
+        "Haben or sein conjugated + participle at the end",
+        "Only with haben, conjugated at the end",
+        "Participle conjugated + haben at the end"
+      ],
+      "answer": 1,
+      "explanation": "The perfect tense is formed with haben or sein conjugated in position two, and the participle (e.g. gemacht, gefahren) at the end of the sentence: \"Ich habe das gemacht.\""
+    },
+    {
+      "id": "q-de9-perf-2",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "Which participle belongs to \"machen\" (to do/make)?",
+      "opener": "Regular verbs form the participle with ge- + stem + -t.",
+      "choices": [
+        "gemacht",
+        "machte",
+        "gemachen",
+        "macht"
+      ],
+      "answer": 0,
+      "explanation": "Regular verbs: ge- + stem + -t. \"Machen\" → \"gemacht\"."
+    },
+    {
+      "id": "q-de9-perf-3",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Choose the right auxiliary verb: \"Ich ___ nach Berlin gefahren.\" (fahren = movement)",
+      "opener": "Verbs that describe movement from one place to another use sein.",
+      "choices": [
+        "habe",
+        "bin",
+        "hat",
+        "ist"
+      ],
+      "answer": 1,
+      "explanation": "Verbs that describe motion/movement (fahren, gehen, kommen) use \"sein\" as the auxiliary verb: \"ich bin gefahren\"."
+    },
+    {
+      "id": "q-de9-perf-4",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Choose the right auxiliary verb: \"Wir ___ Pizza gegessen.\" (essen = to eat)",
+      "opener": "Most verbs that do NOT describe movement use haben.",
+      "choices": [
+        "haben",
+        "sind",
+        "hat",
+        "ist"
+      ],
+      "answer": 0,
+      "explanation": "\"Essen\" doesn't describe movement, so it uses \"haben\": \"wir haben ... gegessen\"."
+    },
+    {
+      "id": "q-de9-perf-5",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "Which participle belongs to \"sehen\" (to see)? An irregular (strong) verb.",
+      "opener": "Strong verbs form the participle with ge- + (often changed) stem + -en.",
+      "choices": [
+        "gesehen",
+        "geseht",
+        "gesieht",
+        "sehte"
+      ],
+      "answer": 0,
+      "explanation": "\"Sehen\" is strong (irregular): participle \"gesehen\", ending in -en instead of -t."
+    },
+    {
+      "id": "q-de9-perf-6",
+      "kind": "text",
+      "topic": "perfect tense",
+      "prompt": "Write the participle of \"spielen\" (to play) — a regular verb.",
+      "opener": "ge- + stem + -t.",
+      "answer": "gespielt"
+    },
+    {
+      "id": "q-de9-perf-7",
+      "kind": "worked",
+      "topic": "haben or sein",
+      "prompt": "Correct the error: \"Gestern habe ich in die Stadt gegangen.\" (Yesterday I went to town.)",
+      "opener": "\"Gehen\" describes movement.",
+      "answer": "Gestern bin ich in die Stadt gegangen.",
+      "steps": [
+        "\"Gehen\" (to go) describes movement, so the auxiliary verb should be \"sein\", not \"haben\".",
+        "\"Habe\" → \"bin\".",
+        "Full sentence: \"Gestern bin ich in die Stadt gegangen.\" (Yesterday I went to town.)"
+      ]
+    },
+    {
+      "id": "q-de9-perf-8",
+      "kind": "flashcard",
+      "topic": "perfect tense",
+      "prompt": "How is the perfect tense formed in German, and when do you use haben versus sein?",
+      "opener": "Two auxiliary verbs and two kinds of participles.",
+      "answer": "Structure: haben/sein conjugated (position 2) + participle (at the end of the sentence). Sein is used for movement/change of state: gehen → ist gegangen, fahren → ist gefahren, kommen → ist gekommen, sein → ist gewesen. Haben is used for most other verbs: machen → hat gemacht, essen → hat gegessen, spielen → hat gespielt, sehen → hat gesehen. Regular participles: ge+stem+t. Strong (irregular) participles: ge+stem+en, often with a changed stem vowel."
+    }
+  ]
+}

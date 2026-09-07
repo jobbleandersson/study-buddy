@@ -1,0 +1,118 @@
+{
+  "id": "lib-de8-verbs",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Grammatik: modalverb och starka verb",
+  "sourceSummary": "Modalverben können, müssen och wollen, samt starka verb som ändrar stamvokal (fahren, sehen).",
+  "topics": [
+    "modal verbs",
+    "strong verbs"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de8-verb-1",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Välj rätt form: \"Ich ___ gut schwimmen.\" (können = att kunna)",
+      "opener": "Modalverb är oregelbundna i singularformerna.",
+      "choices": [
+        "kann",
+        "kannst",
+        "könnt",
+        "können"
+      ],
+      "answer": 0,
+      "explanation": "\"Können\" böjs: ich kann, du kannst, er/sie/es kann, wir können, ihr könnt, sie können. \"Ich\" ger \"kann\"."
+    },
+    {
+      "id": "q-de8-verb-2",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Var placeras infinitivverbet i en mening med ett modalverb, t.ex. \"Ich kann gut schwimmen\"?",
+      "opener": "Tyskan \"ramar in\" satsen mellan modalverbet och infinitiven.",
+      "choices": [
+        "Direkt efter modalverbet",
+        "I slutet av meningen",
+        "Före modalverbet",
+        "Det spelar ingen roll"
+      ],
+      "answer": 1,
+      "explanation": "Infinitivformen (t.ex. \"schwimmen\") hamnar sist i meningen: \"Ich kann gut schwimmen.\" Modalverbet böjs och står på plats två, infinitiven kommer sist."
+    },
+    {
+      "id": "q-de8-verb-3",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Välj rätt form: \"Du ___ deine Hausaufgaben machen.\" (müssen = att måsta)",
+      "opener": "Müssen har -u- i pluralformerna men -u→ss i singular.",
+      "choices": [
+        "muss",
+        "musst",
+        "müsst",
+        "müssen"
+      ],
+      "answer": 1,
+      "explanation": "\"Müssen\" böjs: ich muss, du musst, er/sie/es muss, wir müssen, ihr müsst, sie müssen. \"Du\" ger \"musst\"."
+    },
+    {
+      "id": "q-de8-verb-4",
+      "kind": "mc",
+      "topic": "strong verbs",
+      "prompt": "Välj rätt form: \"Er ___ jeden Tag mit dem Bus.\" (fahren = att åka)",
+      "opener": "Fahren byter stamvokal a→ä i du- och er/sie/es-formen.",
+      "choices": [
+        "fahre",
+        "fährst",
+        "fährt",
+        "fahren"
+      ],
+      "answer": 2,
+      "explanation": "\"Fahren\" böjs: ich fahre, du fährst, er/sie/es fährt, wir fahren, ihr fahrt, sie fahren. \"Er\" ger \"fährt\", med vokalbyte a→ä."
+    },
+    {
+      "id": "q-de8-verb-5",
+      "kind": "mc",
+      "topic": "strong verbs",
+      "prompt": "Välj rätt form: \"___ du gern Filme?\" (sehen = att se)",
+      "opener": "Sehen byter stamvokal e→ie i du- och er/sie/es-formen.",
+      "choices": [
+        "Sehst",
+        "Siehst",
+        "Seht",
+        "Sehen"
+      ],
+      "answer": 1,
+      "explanation": "\"Sehen\" böjs: ich sehe, du siehst, er/sie/es sieht, wir sehen, ihr seht, sie sehen. \"Du\" ger \"siehst\", med vokalbyte e→ie."
+    },
+    {
+      "id": "q-de8-verb-6",
+      "kind": "text",
+      "topic": "modal verbs",
+      "prompt": "Skriv den tyska formen av \"wollen\" (vilja) för \"jag\": \"Ich ___ ein Eis.\"",
+      "opener": "Wollen har samma mönster som können/müssen i singular.",
+      "answer": "will"
+    },
+    {
+      "id": "q-de8-verb-7",
+      "kind": "worked",
+      "topic": "modal verbs",
+      "prompt": "Rätta de två felen: \"Ich können morgen nicht kommen, weil ich muss lernen.\"",
+      "opener": "Kolla böjningen av \"können\" och var infinitiven ska stå.",
+      "answer": "Ich kann morgen nicht kommen, weil ich lernen muss.",
+      "steps": [
+        "\"Ich können\" → \"Ich kann\". Modalverbet ska böjas efter \"jag\" (ich): \"kann\", inte grundformen \"können\".",
+        "\"Weil ich muss lernen\" → \"weil ich lernen muss\". I bisatser (efter weil) går det böjda verbet till SLUTET av satsen.",
+        "Hela meningen: \"Ich kann morgen nicht kommen, weil ich lernen muss.\" (Jag kan inte komma imorgon, för jag måste plugga.)"
+      ]
+    },
+    {
+      "id": "q-de8-verb-8",
+      "kind": "flashcard",
+      "topic": "modal verbs",
+      "prompt": "Hur böjs können, müssen och wollen, och vad är starka verb med vokalbyte?",
+      "opener": "Tre viktiga modalverb plus mönstret för starka verb.",
+      "answer": "Können (kunna): kann, kannst, kann, können, könnt, können. Müssen (måsta): muss, musst, muss, müssen, müsst, müssen. Wollen (vilja): will, willst, will, wollen, wollt, wollen. Modalverb + infinitiv sist i satsen: Ich kann gut schwimmen. Starka verb byter stamvokal i du/er-formen: fahren → fährst/fährt (a→ä), sehen → siehst/sieht (e→ie), nehmen → nimmst/nimmt (e→i), sprechen → sprichst/spricht (e→i)."
+    }
+  ]
+}

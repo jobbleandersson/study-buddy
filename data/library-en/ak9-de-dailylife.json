@@ -1,0 +1,118 @@
+{
+  "id": "lib-de9-dailylife",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Comparisons and daily life",
+  "sourceSummary": "Comparative and superlative adjectives, and reflexive verbs for daily routines.",
+  "topics": [
+    "comparisons",
+    "daily routine"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de9-daily-1",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "What is the comparative of \"schnell\" (fast)?",
+      "opener": "Most adjectives form the comparative with -er.",
+      "choices": [
+        "schneller",
+        "schnellst",
+        "am schnellsten",
+        "mehr schnell"
+      ],
+      "answer": 0,
+      "explanation": "The regular comparative is formed with -er: \"schnell\" → \"schneller\" (faster)."
+    },
+    {
+      "id": "q-de9-daily-2",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "What is the superlative of \"schön\" (nice/beautiful)?",
+      "opener": "The superlative is formed with \"am ... -sten\".",
+      "choices": [
+        "schöner",
+        "am schönsten",
+        "schönsten",
+        "mehr schön"
+      ],
+      "answer": 1,
+      "explanation": "The superlative is formed with \"am\" + adjective + \"-sten\": \"am schönsten\" (nicest/most beautiful)."
+    },
+    {
+      "id": "q-de9-daily-3",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Which word is irregular in the comparative (\"better\")?",
+      "opener": "Just like Swedish \"bra – bättre\" (good – better) is irregular.",
+      "choices": [
+        "guter",
+        "besser",
+        "gutser",
+        "am gutesten"
+      ],
+      "answer": 1,
+      "explanation": "\"Gut\" (good) has the irregular comparative form \"besser\" (better). The superlative is \"am besten\" (best)."
+    },
+    {
+      "id": "q-de9-daily-4",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "What does \"Ich stehe um sieben Uhr auf\" mean?",
+      "opener": "\"Aufstehen\" is a participle-like verb where \"auf\" ends up at the end of the sentence.",
+      "choices": [
+        "I go to bed at seven o'clock",
+        "I get up at seven o'clock",
+        "I eat breakfast at seven o'clock",
+        "I come home at seven o'clock"
+      ],
+      "answer": 1,
+      "explanation": "\"Aufstehen\" means \"to get up/rise\". In the present tense the verb splits: \"ich stehe ... auf\" (I get up)."
+    },
+    {
+      "id": "q-de9-daily-5",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "What does \"Ich dusche mich jeden Morgen\" mean?",
+      "opener": "A reflexive verb for daily routines.",
+      "choices": [
+        "I go to bed every evening",
+        "I shower every morning",
+        "I eat breakfast every morning",
+        "I brush my teeth every morning"
+      ],
+      "answer": 1,
+      "explanation": "\"Sich duschen\" means \"to shower\", and \"ich dusche mich\" is \"I shower (myself)\": \"I shower every morning\"."
+    },
+    {
+      "id": "q-de9-daily-6",
+      "kind": "text",
+      "topic": "daily routine",
+      "prompt": "Write the German verb for \"to go to bed\" in its basic form (infinitive) — a reflexive verb.",
+      "opener": "Starts with \"sich...\".",
+      "answer": "sich hinlegen"
+    },
+    {
+      "id": "q-de9-daily-7",
+      "kind": "worked",
+      "topic": "comparisons",
+      "prompt": "Correct the error: \"Mein Haus ist kleiner als deins, aber mein Garten ist guter.\"",
+      "opener": "\"Gut\" has its own irregular comparative form.",
+      "answer": "Mein Haus ist kleiner als deins, aber mein Garten ist besser.",
+      "steps": [
+        "\"Guter\" is wrong — \"gut\" is conjugated irregularly in the comparative.",
+        "The correct form is \"besser\" (better).",
+        "Full sentence: \"Mein Haus ist kleiner als deins, aber mein Garten ist besser.\" (My house is smaller than yours, but my garden is better.)"
+      ]
+    },
+    {
+      "id": "q-de9-daily-8",
+      "kind": "flashcard",
+      "topic": "comparisons",
+      "prompt": "How do you form comparisons and describe a daily routine in German?",
+      "opener": "Comparative/superlative and reflexive verbs for everyday life.",
+      "answer": "Comparisons: adjective + -er = comparative (schnell → schneller) · am + adjective + -(e)sten = superlative (am schnellsten) · ... als = ... than · gut → besser → am besten (irregular) · groß → größer → am größten (irregular). Daily routine (reflexive verbs): sich aufwecken/aufstehen = to wake up/get up · sich duschen = to shower · sich anziehen = to get dressed · frühstücken = to eat breakfast · sich hinlegen = to go to bed. Reflexive pronouns: mich, dich, sich, uns, euch, sich."
+    }
+  ]
+}

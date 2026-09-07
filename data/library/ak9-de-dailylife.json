@@ -1,0 +1,118 @@
+{
+  "id": "lib-de9-dailylife",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Jämförelser och vardagsliv",
+  "sourceSummary": "Komparativ och superlativ av adjektiv, samt reflexiva verb för vardagsrutiner.",
+  "topics": [
+    "comparisons",
+    "daily routine"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de9-daily-1",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad är komparativ av \"schnell\" (snabb)?",
+      "opener": "De flesta adjektiv bildar komparativ med -er.",
+      "choices": [
+        "schneller",
+        "schnellst",
+        "am schnellsten",
+        "mehr schnell"
+      ],
+      "answer": 0,
+      "explanation": "Regelbunden komparativ bildas med -er: \"schnell\" → \"schneller\" (snabbare)."
+    },
+    {
+      "id": "q-de9-daily-2",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad är superlativ av \"schön\" (fin)?",
+      "opener": "Superlativ bildas med \"am ... -sten\".",
+      "choices": [
+        "schöner",
+        "am schönsten",
+        "schönsten",
+        "mehr schön"
+      ],
+      "answer": 1,
+      "explanation": "Superlativ bildas med \"am\" + adjektiv + \"-sten\": \"am schönsten\" (finast)."
+    },
+    {
+      "id": "q-de9-daily-3",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vilket ord är oregelbundet i komparativ (\"bättre\")?",
+      "opener": "Precis som svenskans \"bra – bättre\" är oregelbunden.",
+      "choices": [
+        "guter",
+        "besser",
+        "gutser",
+        "am gutesten"
+      ],
+      "answer": 1,
+      "explanation": "\"Gut\" (bra) har den oregelbundna komparativformen \"besser\" (bättre). Superlativ är \"am besten\"."
+    },
+    {
+      "id": "q-de9-daily-4",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Ich stehe um sieben Uhr auf\"?",
+      "opener": "\"Aufstehen\" är ett particip-liknande verb där \"auf\" hamnar sist i satsen.",
+      "choices": [
+        "Jag går och lägger mig klockan sju",
+        "Jag går upp klockan sju",
+        "Jag äter frukost klockan sju",
+        "Jag kommer hem klockan sju"
+      ],
+      "answer": 1,
+      "explanation": "\"Aufstehen\" betyder \"att gå upp/resa sig\". I presens delas verbet: \"ich stehe ... auf\" (jag går upp)."
+    },
+    {
+      "id": "q-de9-daily-5",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Ich dusche mich jeden Morgen\"?",
+      "opener": "Ett reflexivt verb för vardagsrutiner.",
+      "choices": [
+        "Jag går och lägger mig varje kväll",
+        "Jag duschar varje morgon",
+        "Jag äter frukost varje morgon",
+        "Jag borstar tänderna varje morgon"
+      ],
+      "answer": 1,
+      "explanation": "\"Sich duschen\" betyder \"att duscha\", och \"ich dusche mich\" är \"jag duschar (mig)\": \"jag duschar varje morgon\"."
+    },
+    {
+      "id": "q-de9-daily-6",
+      "kind": "text",
+      "topic": "daily routine",
+      "prompt": "Skriv det tyska verbet för \"att lägga sig\" i grundform (infinitiv) — ett reflexivt verb.",
+      "opener": "Börjar med \"sich...\".",
+      "answer": "sich hinlegen"
+    },
+    {
+      "id": "q-de9-daily-7",
+      "kind": "worked",
+      "topic": "comparisons",
+      "prompt": "Rätta felet: \"Mein Haus ist kleiner als deins, aber mein Garten ist guter.\"",
+      "opener": "\"Gut\" har en egen oregelbunden komparativform.",
+      "answer": "Mein Haus ist kleiner als deins, aber mein Garten ist besser.",
+      "steps": [
+        "\"Guter\" är fel — \"gut\" böjs oregelbundet i komparativ.",
+        "Rätt form är \"besser\" (bättre).",
+        "Hela meningen: \"Mein Haus ist kleiner als deins, aber mein Garten ist besser.\" (Mitt hus är mindre än ditt, men min trädgård är bättre.)"
+      ]
+    },
+    {
+      "id": "q-de9-daily-8",
+      "kind": "flashcard",
+      "topic": "comparisons",
+      "prompt": "Hur bildar man jämförelser och beskriver en vardagsrutin på tyska?",
+      "opener": "Komparativ/superlativ och reflexiva verb för det dagliga livet.",
+      "answer": "Jämförelser: adjektiv + -er = komparativ (schnell → schneller) · am + adjektiv + -(e)sten = superlativ (am schnellsten) · ... als = ... än · gut → besser → am besten (oregelbunden) · groß → größer → am größten (oregelbunden). Vardagsrutin (reflexiva verb): sich aufwecken/aufstehen = vakna/gå upp · sich duschen = duscha · sich anziehen = klä på sig · frühstücken = äta frukost · sich hinlegen = lägga sig. Reflexiva pronomen: mich, dich, sich, uns, euch, sich."
+    }
+  ]
+}

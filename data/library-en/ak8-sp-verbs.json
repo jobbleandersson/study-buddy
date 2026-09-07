@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp8-verbs",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Grammar: irregular verbs in the present tense",
+  "sourceSummary": "The common irregular verbs ir, tener, querer and hacer in the present tense.",
+  "topics": [
+    "irregular verbs",
+    "ir",
+    "tener"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp8-verb-1",
+      "kind": "mc",
+      "topic": "ir",
+      "prompt": "Choose the correct form: \"Yo ___ al colegio en autobús.\" (ir = to go)",
+      "opener": "Ir is completely irregular: voy, vas, va...",
+      "choices": [
+        "voy",
+        "vas",
+        "va",
+        "van"
+      ],
+      "answer": 0,
+      "explanation": "\"Ir\" conjugates: yo voy, tú vas, él/ella va, nosotros vamos, ellos van. \"Yo\" gives \"voy\"."
+    },
+    {
+      "id": "q-sp8-verb-2",
+      "kind": "mc",
+      "topic": "ir",
+      "prompt": "\"Ir a + infinitive\" is used to talk about the future, roughly like \"going to\". What does \"Vamos a comer\" mean?",
+      "opener": "The same construction as English's \"going to\".",
+      "choices": [
+        "We eat",
+        "We are going to eat",
+        "We ate",
+        "We want to eat"
+      ],
+      "answer": 1,
+      "explanation": "\"Ir a + infinitive\" describes something one is about to do: \"vamos a comer\" = \"we are going to eat\" (soon)."
+    },
+    {
+      "id": "q-sp8-verb-3",
+      "kind": "mc",
+      "topic": "tener",
+      "prompt": "Choose the correct form: \"¿Cuántos años ___ tú?\" (tener = to have/to be ... years old)",
+      "opener": "Tener has an irregular stem with -ie- in some forms.",
+      "choices": [
+        "tengo",
+        "tienes",
+        "tiene",
+        "tenéis"
+      ],
+      "answer": 1,
+      "explanation": "\"Tener\" conjugates: yo tengo, tú tienes, él/ella tiene, nosotros tenemos, ellos tienen. \"Tú\" gives \"tienes\"."
+    },
+    {
+      "id": "q-sp8-verb-4",
+      "kind": "mc",
+      "topic": "tener",
+      "prompt": "What does \"Tengo hambre\" mean?",
+      "opener": "Spanish often uses \"to have\" where English/Swedish uses \"to be\".",
+      "choices": [
+        "I am tired",
+        "I am hungry",
+        "I am thirsty",
+        "I am in a hurry"
+      ],
+      "answer": 1,
+      "explanation": "\"Tener hambre\" literally means \"to have hunger\", that is, \"to be hungry\". Likewise: \"tener sed\" (to be thirsty), \"tener sueño\" (to be sleepy), \"tener prisa\" (to be in a hurry)."
+    },
+    {
+      "id": "q-sp8-verb-5",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Choose the correct form: \"Nosotros ___ los deberes por la tarde.\" (hacer = to do)",
+      "opener": "Hacer is regular in the \"nosotros\" form.",
+      "choices": [
+        "hago",
+        "haces",
+        "hacemos",
+        "hacen"
+      ],
+      "answer": 2,
+      "explanation": "\"Hacer\" conjugates: yo hago (irregular!), tú haces, él/ella hace, nosotros hacemos, ellos hacen. \"Nosotros\" gives \"hacemos\", which follows the regular -er pattern."
+    },
+    {
+      "id": "q-sp8-verb-6",
+      "kind": "text",
+      "topic": "tener",
+      "prompt": "Write the Spanish form of \"querer\" (to want) for \"I\": \"Yo ___ un helado.\"",
+      "opener": "Querer has the same -ie- pattern as tener.",
+      "answer": "quiero"
+    },
+    {
+      "id": "q-sp8-verb-7",
+      "kind": "worked",
+      "topic": "irregular verbs",
+      "prompt": "Correct the two errors: \"Yo tiene mucha hambre y quero comer algo.\"",
+      "opener": "Check the \"I\" form of both tener and querer.",
+      "answer": "Yo tengo mucha hambre y quiero comer algo.",
+      "steps": [
+        "\"Yo tiene\" → \"Yo tengo\". Tener conjugates irregularly for \"I\" to \"tengo\", not \"tiene\" (which is for he/she).",
+        "\"Quero\" → \"quiero\". Querer has -ie- in the stem for \"I\": \"quiero\", not \"quero\".",
+        "The full sentence: \"Yo tengo mucha hambre y quiero comer algo.\" (I am very hungry and want to eat something.)"
+      ]
+    },
+    {
+      "id": "q-sp8-verb-8",
+      "kind": "flashcard",
+      "topic": "irregular verbs",
+      "prompt": "How are ir, tener, querer and hacer conjugated in the present tense?",
+      "opener": "Four of the most common irregular verbs.",
+      "answer": "Ir (to go): voy, vas, va, vamos, vais, van. Ir a + infinitive = going to do something (future). Tener (to have): tengo, tienes, tiene, tenemos, tenéis, tienen. Used in expressions like tener hambre/sed/sueño/prisa (to be hungry/thirsty/sleepy/in a hurry). Querer (to want): quiero, quieres, quiere, queremos, queréis, quieren. Hacer (to do/make): hago, haces, hace, hacemos, hacéis, hacen — only the \"yo\" form is irregular."
+    }
+  ]
+}

@@ -1327,6 +1327,14 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 }
 .source-opt__tag::before { content: "🔌 "; }
 
+/* Library's subject picker only — every subject otherwise looked identical
+   (same brand-blue book icon), which read as flat. Same colour-accent idiom
+   .acard already uses (a solid stripe, not a full-saturation border all
+   round), so it matches how subjects look everywhere else in the app. */
+.source-opt--subject { border-left: 6px solid var(--subject, var(--line-strong)); }
+.source-opt--subject svg { color: var(--subject, var(--brand)); }
+.source-opt--subject:hover { border-color: var(--subject, var(--brand)); }
+
 /* Subject field: text input + one-tap chips for the subjects that exist. */
 .subjectfield { display: flex; flex-direction: column; gap: var(--s-2); }
 .subjchips { display: flex; flex-wrap: wrap; gap: 6px; }

@@ -1,0 +1,117 @@
+{
+  "id": "lib-fr9-reading",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Reading comprehension: a longer text",
+  "sourceSummary": "A connected text about a trip, with questions that require linking several parts of the text together.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr9-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"L'été dernier, ma famille et moi sommes allés au Maroc pendant deux semaines. Nous avons visité les marchés de Marrakech et goûté à la cuisine locale, comme le couscous et les tajines. Il a fait très chaud tous les jours, mais il n'a pas plu une seule fois.\"\n\nWhen did the family take the trip?",
+      "opener": "Look for the time expression in the first sentence.",
+      "choices": [
+        "Last winter",
+        "Last summer",
+        "This summer",
+        "Last year, in the fall"
+      ],
+      "answer": 1,
+      "explanation": "\"L'été dernier\" means \"last summer\"."
+    },
+    {
+      "id": "q-fr9-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. How long were they in Morocco?",
+      "opener": "\"Pendant deux semaines\" — look for the length of time.",
+      "choices": [
+        "One week",
+        "Two weeks",
+        "One month",
+        "Three days"
+      ],
+      "answer": 1,
+      "explanation": "\"Pendant deux semaines\" means \"for two weeks\"."
+    },
+    {
+      "id": "q-fr9-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What did they visit?",
+      "opener": "\"Nous avons visité les marchés de...\"",
+      "choices": [
+        "A museum",
+        "The markets in Marrakech",
+        "A beach",
+        "A mountain"
+      ],
+      "answer": 1,
+      "explanation": "\"Nous avons visité les marchés de Marrakech\" means \"we visited the markets in Marrakech\"."
+    },
+    {
+      "id": "q-fr9-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What was the weather like during the trip?",
+      "opener": "Look for the last sentence about the weather.",
+      "choices": [
+        "Hot and rainy",
+        "Cold but sunny",
+        "Hot without rain",
+        "Cloudy the whole time"
+      ],
+      "answer": 2,
+      "explanation": "\"Il a fait très chaud tous les jours, mais il n'a pas plu une seule fois\" means \"it was very hot every day, but it didn't rain a single time\"."
+    },
+    {
+      "id": "q-fr9-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Continuation: \"Ce que j'ai préféré, c'était la nourriture. Le tajine est un plat cuit lentement avec de la viande et des légumes — ça semble simple, mais c'est délicieux !\"\n\nWhat did the writer like best about the trip?",
+      "opener": "\"Ce que j'ai préféré\" — what is the sentence about?",
+      "choices": [
+        "The markets",
+        "The weather",
+        "The food",
+        "The hotel"
+      ],
+      "answer": 2,
+      "explanation": "\"Ce que j'ai préféré, c'était la nourriture\" means \"what I liked best was the food\"."
+    },
+    {
+      "id": "q-fr9-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Which two main ingredients are mentioned in \"tajine\"? Answer in English.",
+      "opener": "Look for \"avec de la viande et des...\".",
+      "answer": "meat and vegetables"
+    },
+    {
+      "id": "q-fr9-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Write a short French sentence (4–6 words) that answers: \"Quel temps a-t-il fait pendant le voyage ?\" (What was the weather like during the trip?)",
+      "opener": "Combine the information about heat and the lack of rain.",
+      "answer": "Il a fait chaud et il n'a pas plu.",
+      "steps": [
+        "Find the weather information in the text: \"Il a fait très chaud tous les jours\" and \"il n'a pas plu une seule fois\".",
+        "Shorten it to the essentials: \"il a fait chaud\" (it was hot) and \"il n'a pas plu\" (it didn't rain).",
+        "Put it together: \"Il a fait chaud et il n'a pas plu.\" (It was hot and it didn't rain.)"
+      ]
+    },
+    {
+      "id": "q-fr9-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Which strategies help you understand a longer French text with several connected sentences?",
+      "opener": "Linking information from different parts of the text.",
+      "answer": "Read the whole text once without stopping at unknown words, to get the big picture. Look for time markers (l'été dernier, pendant deux semaines) to understand WHEN something happened. Look for passé composé forms (sommes allés, avons visité, a fait, a plu) to understand WHAT happened. Connect pronouns and references: \"ce que j'ai préféré\" refers back to the whole experience. Guess new words from context — \"délicieux\" can be guessed (a positive judgment about food) even without having seen the word before."
+    }
+  ]
+}

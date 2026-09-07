@@ -1,0 +1,118 @@
+{
+  "id": "lib-fr9-past",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Grammar: passé composé",
+  "sourceSummary": "How the passé composé is formed with avoir or être, and the most common past participle forms.",
+  "topics": [
+    "passé composé",
+    "avoir or être"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr9-past-1",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "How is the passé composé formed in French?",
+      "opener": "Two parts: an auxiliary verb and the participle.",
+      "choices": [
+        "Just with the participle",
+        "Avoir or être conjugated + participle",
+        "Just with avoir, at the end",
+        "Participle conjugated + avoir at the end"
+      ],
+      "answer": 1,
+      "explanation": "The passé composé is formed with avoir or être conjugated in the present tense, followed by the participle: \"J'ai mangé.\""
+    },
+    {
+      "id": "q-fr9-past-2",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Which participle belongs to \"parler\" (to speak)?",
+      "opener": "-er verbs form the participle with -é.",
+      "choices": [
+        "parlé",
+        "parlée",
+        "parlait",
+        "parler"
+      ],
+      "answer": 0,
+      "explanation": "-er verbs form the participle with -é: \"parler\" → \"parlé\"."
+    },
+    {
+      "id": "q-fr9-past-3",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Choose the right auxiliary verb: \"Je ___ allé à Paris.\" (aller = movement)",
+      "opener": "Verbs describing movement from one place to another use être.",
+      "choices": [
+        "ai",
+        "suis",
+        "as",
+        "est"
+      ],
+      "answer": 1,
+      "explanation": "Verbs describing motion/movement (aller, partir, venir) use \"être\" as the auxiliary: \"je suis allé\"."
+    },
+    {
+      "id": "q-fr9-past-4",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Choose the right auxiliary verb: \"Nous ___ mangé une pizza.\" (manger = to eat)",
+      "opener": "Most verbs that do NOT describe movement use avoir.",
+      "choices": [
+        "avons",
+        "sommes",
+        "avez",
+        "êtes"
+      ],
+      "answer": 0,
+      "explanation": "\"Manger\" doesn't describe movement, so it uses \"avoir\": \"nous avons mangé\"."
+    },
+    {
+      "id": "q-fr9-past-5",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Which participle belongs to \"faire\" (to do/make)? An irregular verb.",
+      "opener": "One of the most common irregular participles.",
+      "choices": [
+        "fait",
+        "faisé",
+        "faisait",
+        "fasu"
+      ],
+      "answer": 0,
+      "explanation": "\"Faire\" has the irregular participle \"fait\": \"j'ai fait mes devoirs\" (I have done my homework)."
+    },
+    {
+      "id": "q-fr9-past-6",
+      "kind": "text",
+      "topic": "passé composé",
+      "prompt": "Write the participle of \"finir\" (to finish) — a regular -ir verb.",
+      "opener": "-ir verbs form the participle with -i.",
+      "answer": "fini"
+    },
+    {
+      "id": "q-fr9-past-7",
+      "kind": "worked",
+      "topic": "avoir or être",
+      "prompt": "Correct the error: \"Hier j'ai allé en ville.\" (Yesterday I went downtown.)",
+      "opener": "\"Aller\" describes movement.",
+      "answer": "Hier je suis allé(e) en ville.",
+      "steps": [
+        "\"Aller\" (to go) describes movement, so the auxiliary should be \"être\", not \"avoir\".",
+        "\"J'ai\" → \"je suis\".",
+        "With être, the participle must also agree with the subject's gender: \"allé\" (boy) or \"allée\" (girl). Full sentence: \"Hier je suis allé(e) en ville.\""
+      ]
+    },
+    {
+      "id": "q-fr9-past-8",
+      "kind": "flashcard",
+      "topic": "passé composé",
+      "prompt": "How is the passé composé formed in French, and when do you use avoir versus être?",
+      "opener": "Two auxiliary verbs and two kinds of participles.",
+      "answer": "Structure: avoir/être (present tense) + participle. Être is used for movement: aller → suis allé(e), partir → suis parti(e), venir → suis venu(e) — the participle then agrees with the subject's gender/number. Avoir is used for most other verbs: manger → ai mangé, parler → ai parlé, finir → ai fini. Irregular participles: fait (faire), eu (avoir), été (être), vu (voir), pris (prendre)."
+    }
+  ]
+}

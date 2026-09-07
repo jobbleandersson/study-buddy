@@ -1,0 +1,120 @@
+{
+  "id": "lib-fr7-articles",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Artiklar och genus",
+  "sourceSummary": "Bestämda och obestämda artiklar, genus (maskulinum/femininum) och plural av substantiv.",
+  "topics": [
+    "gender",
+    "definite articles",
+    "indefinite articles",
+    "plural"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr7-art-1",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "Hur många genus har franska substantiv?",
+      "opener": "Precis som spanskan — inget neutrum.",
+      "choices": [
+        "Ett",
+        "Två",
+        "Tre",
+        "Fyra"
+      ],
+      "answer": 1,
+      "explanation": "Franska har två genus: maskulinum (le) och femininum (la). Det finns inget neutrum."
+    },
+    {
+      "id": "q-fr7-art-2",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ maison est grande.\" (Huset är stort.)",
+      "opener": "\"Maison\" är feminint — och börjar dessutom med en konsonant.",
+      "choices": [
+        "le",
+        "la",
+        "les",
+        "l'"
+      ],
+      "answer": 1,
+      "explanation": "\"Maison\" (hus) är feminint singular, så artikeln är \"la\". \"Le\" används för maskulina ord, \"les\" är plural."
+    },
+    {
+      "id": "q-fr7-art-3",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ école est loin.\" (Skolan är långt bort.)",
+      "opener": "\"École\" börjar med en vokal.",
+      "choices": [
+        "le",
+        "la",
+        "l'",
+        "les"
+      ],
+      "answer": 2,
+      "explanation": "Framför ord som börjar med vokalljud kortas \"le\" och \"la\" båda till \"l'\": \"l'école\". Genus (femininum) syns inte längre på artikeln, men det påverkar t.ex. adjektiv senare."
+    },
+    {
+      "id": "q-fr7-art-4",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Välj rätt artikel: \"Je veux acheter ___ pomme.\" (Jag vill köpa ett äpple.)",
+      "opener": "\"Pomme\" är feminint singular.",
+      "choices": [
+        "un",
+        "une",
+        "des",
+        "de"
+      ],
+      "answer": 1,
+      "explanation": "\"Une\" är den obestämda artikeln för femininum (\"ett/en\"). \"Un\" är maskulint, och \"des\" betyder \"några\"."
+    },
+    {
+      "id": "q-fr7-art-5",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "Vad är plural av \"le livre\" (boken)?",
+      "opener": "De flesta franska substantiv bildar plural med -s, som ofta INTE uttalas.",
+      "choices": [
+        "le livres",
+        "les livre",
+        "les livres",
+        "le livre"
+      ],
+      "answer": 2,
+      "explanation": "Plural bildas med -s: \"livre\" → \"livres\", och artikeln blir \"les\" (plural-artikel för båda genus). Notera att -s vanligtvis inte hörs när man talar."
+    },
+    {
+      "id": "q-fr7-art-6",
+      "kind": "text",
+      "topic": "plural",
+      "prompt": "Skriv plural av \"la table\" (bordet) — bara ordet för \"bord\", inte artikeln.",
+      "opener": "Vanligt mönster: lägg bara till -s.",
+      "answer": "tables"
+    },
+    {
+      "id": "q-fr7-art-7",
+      "kind": "worked",
+      "topic": "gender",
+      "prompt": "Rätta de två felen: \"Le table est nouvelle et j'ai un pomme rouge.\"",
+      "opener": "Kolla genus på \"table\" och \"pomme\" — båda är feminina.",
+      "answer": "La table est nouvelle et j'ai une pomme rouge.",
+      "steps": [
+        "\"Le table\" → \"La table\". \"Table\" (bord) är feminint, så artikeln ska vara \"la\", inte \"le\".",
+        "\"Un pomme\" → \"une pomme\". \"Pomme\" (äpple) är också feminint, så det ska vara \"une\", inte \"un\".",
+        "Genus måste läras in med varje ord — det går sällan att gissa från betydelsen."
+      ]
+    },
+    {
+      "id": "q-fr7-art-8",
+      "kind": "flashcard",
+      "topic": "gender",
+      "prompt": "Hur fungerar genus, bestämda/obestämda artiklar och plural på franska?",
+      "opener": "Två genus, och hur artiklarna följer med.",
+      "answer": "Genus: le (maskulinum, t.ex. le livre), la (femininum, t.ex. la table) — måste läras in med varje ord. Framför vokalljud: både le och la blir l' (l'école, l'ami). Bestämd artikel plural: les (samma för båda genus). Obestämd artikel: un (mask.), une (fem.), des (plural, 'några'). Plural: nästan alltid substantiv + -s (som oftast inte uttalas), med artikeln les."
+    }
+  ]
+}

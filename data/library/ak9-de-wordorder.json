@@ -1,0 +1,118 @@
+{
+  "id": "lib-de9-wordorder",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Ordföljd och bisatser",
+  "sourceSummary": "Verbets plats i huvudsatser och bisatser, samt konjunktionerna weil och dass.",
+  "topics": [
+    "word order",
+    "subordinate clauses"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de9-word-1",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Var står det böjda verbet i en tysk huvudsats?",
+      "opener": "Detta gäller nästan alltid, oavsett vad som kommer först i meningen.",
+      "choices": [
+        "Alltid först",
+        "Alltid sist",
+        "På plats två",
+        "Var som helst"
+      ],
+      "answer": 2,
+      "explanation": "Det böjda verbet står på plats två i en huvudsats: \"Ich spiele Fußball\" eller \"Heute spiele ich Fußball\" — verbet är alltid det andra ledet, oavsett vad som kommer först."
+    },
+    {
+      "id": "q-de9-word-2",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Välj rätt ordföljd: \"Idag spelar jag fotboll.\"",
+      "opener": "Om meningen börjar med \"heute\", var hamnar då verbet?",
+      "choices": [
+        "Heute ich spiele Fußball.",
+        "Heute spiele ich Fußball.",
+        "Ich heute spiele Fußball.",
+        "Spiele ich heute Fußball."
+      ],
+      "answer": 1,
+      "explanation": "\"Heute\" tar plats ett, verbet måste ändå stå på plats två: \"Heute spiele ich Fußball.\" Subjektet \"ich\" flyttas efter verbet."
+    },
+    {
+      "id": "q-de9-word-3",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Var hamnar det böjda verbet i en bisats som inleds med \"weil\" (för att)?",
+      "opener": "Bisatser bryter mot plats-två-regeln.",
+      "choices": [
+        "Fortfarande på plats två",
+        "I slutet av bisatsen",
+        "Direkt efter weil",
+        "Först i bisatsen"
+      ],
+      "answer": 1,
+      "explanation": "I bisatser som inleds med weil, dass, wenn med flera skickas det böjda verbet till slutet av bisatsen."
+    },
+    {
+      "id": "q-de9-word-4",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Välj rätt mening: \"Jag stannar hemma för att jag är sjuk.\"",
+      "opener": "Verbet \"bin\" ska hamna sist i bisatsen efter \"weil\".",
+      "choices": [
+        "Ich bleibe zu Hause, weil ich bin krank.",
+        "Ich bleibe zu Hause, weil ich krank bin.",
+        "Ich bleibe zu Hause, weil bin ich krank.",
+        "Ich bleibe, weil zu Hause ich krank bin."
+      ],
+      "answer": 1,
+      "explanation": "\"Weil ich krank bin\" — verbet \"bin\" hamnar sist i bisatsen."
+    },
+    {
+      "id": "q-de9-word-5",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Vad betyder konjunktionen \"dass\"?",
+      "opener": "En mycket vanlig konjunktion för att inleda en bisats.",
+      "choices": [
+        "eftersom",
+        "att",
+        "om",
+        "men"
+      ],
+      "answer": 1,
+      "explanation": "\"Dass\" betyder \"att\", som i \"Ich weiß, dass du recht hast\" (jag vet att du har rätt). Precis som \"weil\" skickar \"dass\" det böjda verbet till slutet av bisatsen."
+    },
+    {
+      "id": "q-de9-word-6",
+      "kind": "text",
+      "topic": "subordinate clauses",
+      "prompt": "Skriv den tyska konjunktionen som betyder \"eftersom\"/\"för att\" och skickar verbet till slutet av bisatsen.",
+      "opener": "Den vanligaste orsakskonjunktionen.",
+      "answer": "weil"
+    },
+    {
+      "id": "q-de9-word-7",
+      "kind": "worked",
+      "topic": "subordinate clauses",
+      "prompt": "Rätta felet: \"Ich lerne Deutsch, weil ich möchte nach Berlin reisen.\"",
+      "opener": "Verbet \"möchte\" ska flyttas till slutet av bisatsen.",
+      "answer": "Ich lerne Deutsch, weil ich nach Berlin reisen möchte.",
+      "steps": [
+        "Efter \"weil\" ska det böjda verbet (\"möchte\") stå sist i bisatsen, inte direkt efter subjektet.",
+        "\"Weil ich möchte nach Berlin reisen\" → \"weil ich nach Berlin reisen möchte\".",
+        "Hela meningen: \"Ich lerne Deutsch, weil ich nach Berlin reisen möchte.\" (Jag lär mig tyska för att jag vill resa till Berlin.)"
+      ]
+    },
+    {
+      "id": "q-de9-word-8",
+      "kind": "flashcard",
+      "topic": "word order",
+      "prompt": "Hur fungerar ordföljden i huvudsatser jämfört med bisatser på tyska?",
+      "opener": "En av de tydligaste skillnaderna mellan tyska och svenska.",
+      "answer": "Huvudsats: det böjda verbet står alltid på plats två, oavsett vad som kommer först (Ich spiele heute. / Heute spiele ich.). Bisats (efter weil, dass, wenn, ob m.fl.): det böjda verbet flyttas till SISTA platsen i bisatsen (..., weil ich krank bin. / Ich weiß, dass du recht hast.). Vanliga bisats-konjunktioner: weil = eftersom, dass = att, wenn = om/när, ob = om (huruvida)."
+    }
+  ]
+}

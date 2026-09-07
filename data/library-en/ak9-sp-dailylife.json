@@ -1,0 +1,118 @@
+{
+  "id": "lib-sp9-dailylife",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Comparisons and daily life",
+  "sourceSummary": "Comparing things (más/menos que, tan... como) and vocabulary for a typical day.",
+  "topics": [
+    "comparisons",
+    "daily routine"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp9-daily-1",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Choose the correct comparison: \"Mi hermano es ___ alto ___ yo.\" (My brother is taller than me.)",
+      "opener": "\"More ... than\" is formed with más ... que.",
+      "choices": [
+        "más ... que",
+        "tan ... como",
+        "menos ... como",
+        "más ... como"
+      ],
+      "answer": 0,
+      "explanation": "\"Más ... que\" means \"more ... than\": \"más alto que yo\" = \"taller than me\". \"Tan ... como\" is used instead for \"as ... as\"."
+    },
+    {
+      "id": "q-sp9-daily-2",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "What does \"Este libro es tan interesante como el otro\" mean?",
+      "opener": "\"Tan ... como\" expresses similarity, not difference.",
+      "choices": [
+        "This book is more interesting than the other one",
+        "This book is less interesting than the other one",
+        "This book is just as interesting as the other one",
+        "This book is the most interesting"
+      ],
+      "answer": 2,
+      "explanation": "\"Tan ... como\" means \"as ... as\": the books are equally interesting."
+    },
+    {
+      "id": "q-sp9-daily-3",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Which word is irregular in the comparative (\"better\")?",
+      "opener": "Just like Swedish's \"good – better\" is irregular.",
+      "choices": [
+        "más bueno",
+        "mejor",
+        "más mejor",
+        "buenísimo"
+      ],
+      "answer": 1,
+      "explanation": "\"Bueno\" (good) has the irregular comparative form \"mejor\" (better), not \"más bueno\". Likewise, \"malo\" (bad) → \"peor\" (worse)."
+    },
+    {
+      "id": "q-sp9-daily-4",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "What does \"Me levanto a las siete\" mean?",
+      "opener": "Reflexive verbs are often used for daily routines.",
+      "choices": [
+        "I go to bed at seven",
+        "I get up at seven",
+        "I eat breakfast at seven",
+        "I get home at seven"
+      ],
+      "answer": 1,
+      "explanation": "\"Levantarse\" means \"to get up/rise\", and \"me levanto\" is the present-tense form for \"I\": \"I get up at seven\"."
+    },
+    {
+      "id": "q-sp9-daily-5",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "What does \"Me acuesto a las diez y media\" mean?",
+      "opener": "Another common reflexive verb for daily routines.",
+      "choices": [
+        "I shower at half past ten",
+        "I go to bed at half past ten",
+        "I eat dinner at half past ten",
+        "I leave home at half past ten"
+      ],
+      "answer": 1,
+      "explanation": "\"Acostarse\" means \"to go to bed\", and \"me acuesto\" is \"I go to bed\": \"I go to bed at half past ten\"."
+    },
+    {
+      "id": "q-sp9-daily-6",
+      "kind": "text",
+      "topic": "daily routine",
+      "prompt": "Write the Spanish word for \"to shower\" in its base form (infinitive).",
+      "opener": "A reflexive verb ending in -arse.",
+      "answer": "ducharse"
+    },
+    {
+      "id": "q-sp9-daily-7",
+      "kind": "worked",
+      "topic": "comparisons",
+      "prompt": "Correct the error: \"Mi casa es más pequeña que la tuya, pero mi jardín es más bueno.\"",
+      "opener": "\"Bueno\" has its own irregular comparative form.",
+      "answer": "Mi casa es más pequeña que la tuya, pero mi jardín es mejor.",
+      "steps": [
+        "\"Más bueno\" is incorrect — bueno conjugates irregularly in the comparative.",
+        "The correct form is \"mejor\" (better), without \"más\" in front.",
+        "The full sentence: \"Mi casa es más pequeña que la tuya, pero mi jardín es mejor.\" (My house is smaller than yours, but my garden is better.)"
+      ]
+    },
+    {
+      "id": "q-sp9-daily-8",
+      "kind": "flashcard",
+      "topic": "comparisons",
+      "prompt": "How do you form comparisons and describe a daily routine in Spanish?",
+      "opener": "Comparison words and reflexive verbs for everyday life.",
+      "answer": "Comparisons: más ... que = more ... than · menos ... que = less ... than · tan ... como = as ... as · mejor/peor = better/worse (irregular). Daily routine (reflexive verbs): despertarse = to wake up · levantarse = to get up · ducharse = to shower · vestirse = to get dressed · desayunar = to eat breakfast · acostarse = to go to bed. Reflexive pronouns: me, te, se, nos, os, se — placed before the verb: me levanto, te levantas, se levanta."
+    }
+  ]
+}

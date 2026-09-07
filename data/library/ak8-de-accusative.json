@@ -1,0 +1,118 @@
+{
+  "id": "lib-de8-accusative",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Grammatik: ackusativ",
+  "sourceSummary": "Ackusativformen av bestämd och obestämd artikel, samt personliga pronomen i ackusativ.",
+  "topics": [
+    "accusative case",
+    "accusative pronouns"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de8-akk-1",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Vilken artikel ändras i ackusativ jämfört med nominativ?",
+      "opener": "Bara ett av de tre genusen förändras.",
+      "choices": [
+        "Bara maskulinum (der → den)",
+        "Bara femininum (die → der)",
+        "Bara neutrum (das → dem)",
+        "Alla tre genus ändras"
+      ],
+      "answer": 0,
+      "explanation": "Bara maskulinum ändras i ackusativ: \"der\" blir \"den\". Femininum (die) och neutrum (das) ser likadana ut i nominativ och ackusativ."
+    },
+    {
+      "id": "q-de8-akk-2",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Välj rätt form: \"Ich sehe ___ Hund.\" (der Hund = hunden, direkt objekt)",
+      "opener": "\"Hund\" är maskulinum och är här objektet — vad ändras då?",
+      "choices": [
+        "der",
+        "den",
+        "dem",
+        "des"
+      ],
+      "answer": 1,
+      "explanation": "\"Hund\" är maskulinum och är objektet i meningen (vad man ser), så artikeln blir ackusativ: \"den Hund\"."
+    },
+    {
+      "id": "q-de8-akk-3",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Välj rätt form: \"Ich kaufe ___ Buch.\" (das Buch = boken, direkt objekt)",
+      "opener": "\"Buch\" är neutrum — ändras artikeln i ackusativ?",
+      "choices": [
+        "der",
+        "den",
+        "das",
+        "dem"
+      ],
+      "answer": 2,
+      "explanation": "Neutrum ändras inte i ackusativ: \"das Buch\" är samma i nominativ och ackusativ."
+    },
+    {
+      "id": "q-de8-akk-4",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Välj rätt obestämd artikel: \"Ich habe ___ Bruder.\" (der Bruder, direkt objekt)",
+      "opener": "\"Ein\" ändras till \"einen\" i maskulinum ackusativ.",
+      "choices": [
+        "ein",
+        "eine",
+        "einen",
+        "einem"
+      ],
+      "answer": 2,
+      "explanation": "\"Ein\" blir \"einen\" för maskulinum i ackusativ. \"Eine\" (femininum) ändras inte i ackusativ."
+    },
+    {
+      "id": "q-de8-akk-5",
+      "kind": "mc",
+      "topic": "accusative pronouns",
+      "prompt": "Välj rätt pronomen: \"Ich sehe ___.\" (Jag ser honom.)",
+      "opener": "\"Er\" (han) blir ett annat ord i ackusativ.",
+      "choices": [
+        "er",
+        "ihn",
+        "ihm",
+        "ihr"
+      ],
+      "answer": 1,
+      "explanation": "\"Er\" (han, nominativ) blir \"ihn\" i ackusativ: \"Ich sehe ihn\" (jag ser honom)."
+    },
+    {
+      "id": "q-de8-akk-6",
+      "kind": "text",
+      "topic": "accusative pronouns",
+      "prompt": "Skriv ackusativformen av \"ich\" (jag) — samma ord som svenskans \"mig\".",
+      "opener": "Ett av de pronomen som faktiskt ändras minst.",
+      "answer": "mich"
+    },
+    {
+      "id": "q-de8-akk-7",
+      "kind": "worked",
+      "topic": "accusative case",
+      "prompt": "Rätta felet: \"Ich brauche der Stift.\" (Jag behöver pennan.)",
+      "opener": "\"Der Stift\" är maskulinum och är objektet i meningen.",
+      "answer": "Ich brauche den Stift.",
+      "steps": [
+        "\"Der Stift\" (pennan) är objektet för \"brauchen\" (behöva), så det ska stå i ackusativ.",
+        "Maskulinum \"der\" blir \"den\" i ackusativ.",
+        "Rätt mening: \"Ich brauche den Stift.\""
+      ]
+    },
+    {
+      "id": "q-de8-akk-8",
+      "kind": "flashcard",
+      "topic": "accusative case",
+      "prompt": "Hur fungerar ackusativ på tyska, och vilka artiklar/pronomen ändras?",
+      "opener": "Bara maskulinum ändras — allt annat är som i nominativ.",
+      "answer": "Ackusativ används för det direkta objektet (den som \"tar emot\" handlingen). Bestämd artikel: der → den (maskulinum, ENDA som ändras), die/das/die oförändrade. Obestämd artikel: ein → einen (maskulinum), eine/ein oförändrade. Personliga pronomen: ich→mich, du→dich, er→ihn, sie→sie, es→es, wir→uns, ihr→euch, sie→sie. Exempel: \"Ich sehe den Hund\" (jag ser hunden), \"Ich liebe dich\" (jag älskar dig)."
+    }
+  ]
+}

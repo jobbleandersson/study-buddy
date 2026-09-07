@@ -1,0 +1,117 @@
+{
+  "id": "lib-de9-reading",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Reading comprehension: a longer text",
+  "sourceSummary": "A continuous text about a trip, with questions that require connecting multiple parts of the text.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de9-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Letzten Sommer sind meine Familie und ich für zwei Wochen nach Österreich gefahren. Wir haben die Berge besucht und typisches Essen probiert, wie Schnitzel und Kaiserschmarrn. Es war jeden Tag sehr warm, aber es hat nie geregnet.\"\n\nWhen did the family take the trip?",
+      "opener": "Look for the time expression in the first sentence.",
+      "choices": [
+        "Last winter",
+        "Last summer",
+        "This summer",
+        "Last year, in the fall"
+      ],
+      "answer": 1,
+      "explanation": "\"Letzten Sommer\" means \"last summer\"."
+    },
+    {
+      "id": "q-de9-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. How long were they in Austria?",
+      "opener": "\"Für zwei Wochen\" — look for the length of time.",
+      "choices": [
+        "One week",
+        "Two weeks",
+        "One month",
+        "Three days"
+      ],
+      "answer": 1,
+      "explanation": "\"Für zwei Wochen\" means \"for two weeks\"."
+    },
+    {
+      "id": "q-de9-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What did they visit?",
+      "opener": "\"Wir haben die Berge besucht.\"",
+      "choices": [
+        "A museum",
+        "The mountains",
+        "A beach",
+        "A lake"
+      ],
+      "answer": 1,
+      "explanation": "\"Wir haben die Berge besucht\" means \"we visited the mountains\"."
+    },
+    {
+      "id": "q-de9-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. How was the weather during the trip?",
+      "opener": "Look for the last sentence about the weather.",
+      "choices": [
+        "Warm and rainy",
+        "Cold but sunny",
+        "Warm without rain",
+        "Cloudy the whole time"
+      ],
+      "answer": 2,
+      "explanation": "\"Es war jeden Tag sehr warm, aber es hat nie geregnet\" means \"it was very warm every day, but it never rained\"."
+    },
+    {
+      "id": "q-de9-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Continuing: \"Was mir am besten gefallen hat, war das Essen. Kaiserschmarrn ist ein süßer Pfannkuchen mit Rosinen — er klingt komisch, aber er schmeckt fantastisch!\"\n\nWhat did the writer like best about the trip?",
+      "opener": "\"Was mir am besten gefallen hat\" — what is the sentence about?",
+      "choices": [
+        "The mountains",
+        "The weather",
+        "The food",
+        "The hotel"
+      ],
+      "answer": 2,
+      "explanation": "\"Was mir am besten gefallen hat, war das Essen\" means \"what I liked best was the food\"."
+    },
+    {
+      "id": "q-de9-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What is \"Kaiserschmarrn\" according to the text? Answer in English.",
+      "opener": "Look for the description \"ein süßer Pfannkuchen mit...\".",
+      "answer": "a sweet pancake with raisins"
+    },
+    {
+      "id": "q-de9-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Write a short German sentence (4–6 words) that answers: \"Wie war das Wetter während der Reise?\" (How was the weather during the trip?)",
+      "opener": "Combine the information about the warmth and lack of rain.",
+      "answer": "Es war warm und es hat nicht geregnet.",
+      "steps": [
+        "Find the weather information in the text: \"Es war jeden Tag sehr warm\" and \"es hat nie geregnet\".",
+        "Shorten it to the core: \"es war warm\" (it was warm) and \"es hat nicht geregnet\" (it didn't rain).",
+        "Put it together: \"Es war warm und es hat nicht geregnet.\" (It was warm and it didn't rain.)"
+      ]
+    },
+    {
+      "id": "q-de9-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Which strategies help you understand a longer German text with several connected sentences?",
+      "opener": "Connecting information from different parts of the text.",
+      "answer": "Read the whole text once without stopping at unknown words, to get the overall picture. Look for time markers (letzten Sommer, für zwei Wochen) to understand WHEN something happened. Look for perfect-tense forms (sind gefahren, haben besucht, hat geregnet) to understand WHAT happened. Connect pronouns and references: \"was mir am besten gefallen hat\" refers back to the whole experience. Guess new words from context — \"komisch\" can be guessed (something unexpected/strange) even without having seen the word before."
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "id": "lib-fr9-dailylife",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Comparisons and daily life",
+  "sourceSummary": "Comparing things (plus/moins que, aussi... que) and reflexive verbs for a typical day.",
+  "topics": [
+    "comparisons",
+    "daily routine"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr9-daily-1",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Choose the right comparison: \"Mon frère est ___ grand ___ moi.\" (My brother is taller than me.)",
+      "opener": "\"More ... than\" is formed with plus ... que.",
+      "choices": [
+        "plus ... que",
+        "aussi ... que",
+        "moins ... comme",
+        "plus ... comme"
+      ],
+      "answer": 0,
+      "explanation": "\"Plus ... que\" means \"more/-er ... than\": \"plus grand que moi\" = \"taller than me\". \"Aussi ... que\" is used instead for \"as ... as\"."
+    },
+    {
+      "id": "q-fr9-daily-2",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "What does \"Ce livre est aussi intéressant que l'autre\" mean?",
+      "opener": "\"Aussi ... que\" expresses similarity, not difference.",
+      "choices": [
+        "This book is more interesting than the other one",
+        "This book is less interesting than the other one",
+        "This book is just as interesting as the other one",
+        "This book is the most interesting"
+      ],
+      "answer": 2,
+      "explanation": "\"Aussi ... que\" means \"as ... as\": the books are equally interesting."
+    },
+    {
+      "id": "q-fr9-daily-3",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Which word is irregular in the comparative (\"better\")?",
+      "opener": "Just like Swedish \"bra – bättre\" (good – better) is irregular.",
+      "choices": [
+        "plus bon",
+        "meilleur",
+        "plus meilleur",
+        "bonnement"
+      ],
+      "answer": 1,
+      "explanation": "\"Bon\" (good) has the irregular comparative form \"meilleur\" (better), not \"plus bon\"."
+    },
+    {
+      "id": "q-fr9-daily-4",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "What does \"Je me lève à sept heures\" mean?",
+      "opener": "Reflexive verbs are often used for daily routines.",
+      "choices": [
+        "I go to bed at seven o'clock",
+        "I get up at seven o'clock",
+        "I eat breakfast at seven o'clock",
+        "I get home at seven o'clock"
+      ],
+      "answer": 1,
+      "explanation": "\"Se lever\" means \"to get up/rise\", and \"je me lève\" is the present-tense form for \"I\": \"I get up at seven o'clock\"."
+    },
+    {
+      "id": "q-fr9-daily-5",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "What does \"Je me couche à dix heures et demie\" mean?",
+      "opener": "Another common reflexive verb for daily routines.",
+      "choices": [
+        "I shower at half past ten",
+        "I go to bed at half past ten",
+        "I eat dinner at half past ten",
+        "I leave home at half past ten"
+      ],
+      "answer": 1,
+      "explanation": "\"Se coucher\" means \"to go to bed\", and \"je me couche\" is \"I go to bed\": \"I go to bed at half past ten\"."
+    },
+    {
+      "id": "q-fr9-daily-6",
+      "kind": "text",
+      "topic": "daily routine",
+      "prompt": "Write the French verb for \"to shower\" in its base form (infinitive).",
+      "opener": "A reflexive verb ending in -er.",
+      "answer": "se doucher"
+    },
+    {
+      "id": "q-fr9-daily-7",
+      "kind": "worked",
+      "topic": "comparisons",
+      "prompt": "Correct the error: \"Ma maison est plus petite que la tienne, mais mon jardin est plus bon.\"",
+      "opener": "\"Bon\" has its own irregular comparative form.",
+      "answer": "Ma maison est plus petite que la tienne, mais mon jardin est meilleur.",
+      "steps": [
+        "\"Plus bon\" is wrong — \"bon\" is irregular in the comparative.",
+        "The correct form is \"meilleur\" (better), without \"plus\" in front of it.",
+        "Full sentence: \"Ma maison est plus petite que la tienne, mais mon jardin est meilleur.\" (My house is smaller than yours, but my garden is better.)"
+      ]
+    },
+    {
+      "id": "q-fr9-daily-8",
+      "kind": "flashcard",
+      "topic": "comparisons",
+      "prompt": "How do you form comparisons and describe a daily routine in French?",
+      "opener": "Comparison words and reflexive verbs for everyday life.",
+      "answer": "Comparisons: plus ... que = more ... than · moins ... que = less ... than · aussi ... que = as ... as · meilleur/pire = better/worse (irregular). Daily routine (reflexive verbs): se réveiller = wake up · se lever = get up · se doucher = shower · s'habiller = get dressed · prendre le petit-déjeuner = eat breakfast · se coucher = go to bed. Reflexive pronouns: me, te, se, nous, vous, se — placed before the verb: je me lève, tu te lèves, il se lève."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "id": "lib-de7-greetings",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Hälsningsfraser och skolan",
+  "sourceSummary": "Grundläggande hälsningsfraser, artighetsfraser och ord för klassrummet och skolvardagen.",
+  "topics": [
+    "greetings",
+    "classroom phrases",
+    "politeness"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de7-greet-1",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Hur säger man \"Hej, jag heter Lena\" på tyska?",
+      "opener": "Verbet heißen används för att säga vad man heter.",
+      "choices": [
+        "Hallo, ich heiße Lena.",
+        "Hallo, du heißt Lena.",
+        "Tschüss, ich heiße Lena.",
+        "Hallo, mein Name Lena."
+      ],
+      "answer": 0,
+      "explanation": "\"Ich heiße\" betyder \"jag heter\". \"Du heißt\" är \"du heter\", och \"tschüss\" betyder \"hej då\", inte \"hej\"."
+    },
+    {
+      "id": "q-de7-greet-2",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Vad betyder \"Wie geht's?\"?",
+      "opener": "En vanlig, avslappnad hälsningsfras.",
+      "choices": [
+        "Vad heter du?",
+        "Hur mår du?",
+        "Var bor du?",
+        "Hej då!"
+      ],
+      "answer": 1,
+      "explanation": "\"Wie geht's?\" (kort för \"wie geht es dir?\") betyder \"hur mår du?\"/\"hur är läget?\"."
+    },
+    {
+      "id": "q-de7-greet-3",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "Någon säger \"Danke schön\". Vad svarar du artigt?",
+      "opener": "Vad säger man på tyska när man tar emot ett tack?",
+      "choices": [
+        "Bitte schön.",
+        "Es tut mir leid.",
+        "Guten Abend.",
+        "Entschuldigung."
+      ],
+      "answer": 0,
+      "explanation": "\"Bitte schön\" betyder \"varsågod\"/\"ingen orsak\" och är det vanliga svaret på ett tack. \"Es tut mir leid\" betyder \"förlåt\"."
+    },
+    {
+      "id": "q-de7-greet-4",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "Vad betyder \"Darf ich auf die Toilette gehen?\"?",
+      "opener": "En fråga man ofta behöver ställa under en lektion.",
+      "choices": [
+        "Får jag öppna fönstret?",
+        "Får jag gå på toaletten?",
+        "Vad betyder det ordet?",
+        "Har vi läxa?"
+      ],
+      "answer": 1,
+      "explanation": "\"Darf ich...?\" betyder \"får jag...?\" och \"die Toilette\" är toaletten. Hela frasen betyder \"Får jag gå på toaletten?\"."
+    },
+    {
+      "id": "q-de7-greet-5",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "Läraren säger \"Öffnet das Buch, bitte.\" Vad ska ni göra?",
+      "opener": "\"Öffnet\" kommer från verbet öffnen.",
+      "choices": [
+        "Stänga boken",
+        "Öppna boken",
+        "Lämna in boken",
+        "Läsa högt ur boken"
+      ],
+      "answer": 1,
+      "explanation": "\"Öffnen\" betyder \"att öppna\", så \"öffnet das Buch\" betyder \"öppna boken\". \"Bitte\" betyder \"snälla\"."
+    },
+    {
+      "id": "q-de7-greet-6",
+      "kind": "text",
+      "topic": "greetings",
+      "prompt": "Skriv ett tyskt ord som betyder \"god natt\".",
+      "opener": "Man säger det när man går och lägger sig.",
+      "answer": "gute nacht"
+    },
+    {
+      "id": "q-de7-greet-7",
+      "kind": "worked",
+      "topic": "politeness",
+      "prompt": "Rätta de två felen: \"Hallo! Wie du heißt? Ich heißt Marc.\"",
+      "opener": "Kolla ordföljden i frågan och verbformen för \"jag\".",
+      "answer": "Hallo! Wie heißt du? Ich heiße Marc.",
+      "steps": [
+        "\"Wie du heißt?\" → \"Wie heißt du?\". I frågor kommer verbet direkt efter frågeordet, före subjektet.",
+        "\"Ich heißt\" → \"Ich heiße\". Verbet heißen böjs efter \"jag\" (ich) till \"heiße\", inte \"heißt\" (som är för du).",
+        "Hela meningen: \"Hallo! Wie heißt du? Ich heiße Marc.\""
+      ]
+    },
+    {
+      "id": "q-de7-greet-8",
+      "kind": "flashcard",
+      "topic": "greetings",
+      "prompt": "Vilka hälsnings- och artighetsfraser bör du kunna på åk7-nivå i tyska?",
+      "opener": "De vanligaste fraserna för att hälsa, tacka och be om hjälp.",
+      "answer": "Hälsningar: Hallo = hej · Guten Morgen = god morgon · Guten Tag = god dag · Guten Abend = god kväll · Gute Nacht = god natt · Tschüss = hej då · Auf Wiedersehen = adjö (mer formellt). Må bra: Wie geht's?/Wie geht es dir? = hur mår du? · Gut, danke = bra, tack. Artighet: Bitte = snälla/varsågod · Danke (schön) = tack (så mycket) · Bitte schön = ingen orsak · Es tut mir leid = förlåt · Entschuldigung = ursäkta. Skolan: Darf ich...? = får jag...? · die Toilette = toaletten · das Buch öffnen/schließen = öppna/stänga boken."
+    }
+  ]
+}

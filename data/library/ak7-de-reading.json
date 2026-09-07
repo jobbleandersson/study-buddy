@@ -1,0 +1,117 @@
+{
+  "id": "lib-de7-reading",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Läsförståelse: en presentation",
+  "sourceSummary": "En kort text där en person presenterar sig själv och sin familj, med frågor om detaljer och sammanhang.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de7-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"Hallo! Ich heiße Jonas und ich bin dreizehn Jahre alt. Ich wohne in München mit meiner Familie. Ich habe eine Schwester; sie heißt Lea und ist zehn Jahre alt.\"\n\nHur gammal är Jonas?",
+      "opener": "Leta efter talet direkt efter \"ich bin ... Jahre alt\".",
+      "choices": [
+        "Tio år",
+        "Tolv år",
+        "Tretton år",
+        "Fjorton år"
+      ],
+      "answer": 2,
+      "explanation": "\"Ich bin dreizehn Jahre alt\" betyder \"jag är tretton år\". \"Dreizehn\" är 13."
+    },
+    {
+      "id": "q-de7-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Var bor Jonas?",
+      "opener": "Leta efter \"Ich wohne in...\".",
+      "choices": [
+        "Berlin",
+        "München",
+        "Hamburg",
+        "Köln"
+      ],
+      "answer": 1,
+      "explanation": "\"Ich wohne in München\" betyder \"jag bor i München\"."
+    },
+    {
+      "id": "q-de7-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vem är Lea?",
+      "opener": "Leta efter meningen om \"eine Schwester\".",
+      "choices": [
+        "Jonas mamma",
+        "Jonas syster",
+        "Jonas kusin",
+        "Jonas lärare"
+      ],
+      "answer": 1,
+      "explanation": "\"Ich habe eine Schwester; sie heißt Lea\" betyder \"jag har en syster; hon heter Lea\"."
+    },
+    {
+      "id": "q-de7-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Ny text: \"Samstags spielt Jonas Fußball mit seinen Freunden. Danach isst er Pizza bei seiner Oma. Sonntags ruht er sich aus.\"\n\nVad gör Jonas på lördagar?",
+      "opener": "\"Spielt Fußball\" — verbet spielen betyder att spela/leka.",
+      "choices": [
+        "Han spelar fotboll med sina vänner",
+        "Han lagar mat till sin farmor",
+        "Han vilar hela dagen",
+        "Han läser läxor"
+      ],
+      "answer": 0,
+      "explanation": "\"Spielt Fußball mit seinen Freunden\" betyder \"spelar fotboll med sina vänner\"."
+    },
+    {
+      "id": "q-de7-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Var äter han pizza?",
+      "opener": "\"Bei seiner Oma\" — vem bor där?",
+      "choices": [
+        "Hemma hos sig själv",
+        "På en restaurang",
+        "Hemma hos sin farmor/mormor",
+        "I skolan"
+      ],
+      "answer": 2,
+      "explanation": "\"Bei seiner Oma\" betyder \"hemma hos hans mor-/farmor\". \"Oma\" är ett vardagligt ord för mor-/farmor."
+    },
+    {
+      "id": "q-de7-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad gör Jonas på söndagar, enligt sista meningen? Svara på svenska med ett ord.",
+      "opener": "Uttrycket \"sich ausruhen\" betyder att koppla av.",
+      "answer": "vilar"
+    },
+    {
+      "id": "q-de7-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten igen och skriv en tysk mening (3–5 ord) som svarar på: \"Mit wem spielt Jonas Fußball?\" (Med vem spelar Jonas fotboll?)",
+      "opener": "Svaret finns i första meningen om lördagar.",
+      "answer": "Er spielt mit seinen Freunden.",
+      "steps": [
+        "Hitta rätt del av texten: \"Jonas spielt Fußball mit seinen Freunden.\"",
+        "Plocka ut svaret på frågan \"med vem\": \"mit seinen Freunden\" (med sina vänner).",
+        "Bygg en kort mening: \"Er spielt mit seinen Freunden.\" (Han spelar med sina vänner.)"
+      ]
+    },
+    {
+      "id": "q-de7-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Vilka strategier hjälper dig att förstå en enkel tysk text på åk7-nivå?",
+      "opener": "Du behöver inte förstå varje ord för att förstå helheten.",
+      "answer": "Leta efter kända mönster: \"ich heiße\" (presentation), \"ich bin ... Jahre alt\" (ålder), \"ich wohne in\" (bostadsort), \"samstags/sonntags\" (veckodagar som adverb, med litet s). Gissa okända ord från sammanhanget i stället för att slå upp varje ord. Läs texten en gång för helheten och en gång till för detaljer. Leta efter verb i presens (spielt, isst, ruht sich aus) för att förstå vad som händer, och possessiva ord (sein, seine, ihr) för att förstå vem som gör vad."
+    }
+  ]
+}

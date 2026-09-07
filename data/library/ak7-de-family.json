@@ -1,0 +1,119 @@
+{
+  "id": "lib-de7-family",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Familj och siffror",
+  "sourceSummary": "Familjeord, possessiva pronomen och siffrorna 0–100.",
+  "topics": [
+    "family",
+    "numbers",
+    "possessives"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de7-fam-1",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"die Schwester\"?",
+      "opener": "Jämför med \"der Bruder\", som du kanske redan känner till.",
+      "choices": [
+        "Bror",
+        "Syster",
+        "Mamma",
+        "Kusin"
+      ],
+      "answer": 1,
+      "explanation": "\"Die Schwester\" betyder syster. \"Der Bruder\" betyder bror."
+    },
+    {
+      "id": "q-de7-fam-2",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"die Großeltern\"?",
+      "opener": "\"Groß\" betyder stor/gammal, och ordet är plural.",
+      "choices": [
+        "Föräldrar",
+        "Syskon",
+        "Mor- och farföräldrar",
+        "Kusiner"
+      ],
+      "answer": 2,
+      "explanation": "\"Der Großvater\" är morfar/farfar och \"die Großmutter\" är mormor/farmor. \"Die Großeltern\" i plural betyder mor- och farföräldrar tillsammans."
+    },
+    {
+      "id": "q-de7-fam-3",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Välj rätt ord: \"___ Mutter heißt Rosa.\" (Min mamma heter Rosa.)",
+      "opener": "\"Die Mutter\" är femininum, och possessivet böjs efter det.",
+      "choices": [
+        "Mein",
+        "Meine",
+        "Dein",
+        "Sein"
+      ],
+      "answer": 1,
+      "explanation": "\"Meine\" är den feminina formen av \"min\" och passar med \"Mutter\" (femininum). \"Mein\" används för maskulinum/neutrum, \"dein\" är \"din\", och \"sein\" är \"hans\"."
+    },
+    {
+      "id": "q-de7-fam-4",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Hur skriver man talet 15 med bokstäver?",
+      "opener": "15 följer mönstret \"tal + zehn\".",
+      "choices": [
+        "vierzehn",
+        "fünfzehn",
+        "sechzehn",
+        "zwölf"
+      ],
+      "answer": 1,
+      "explanation": "\"Fünfzehn\" är 15 (fünf + zehn). \"Vierzehn\" är 14, \"sechzehn\" är 16, och \"zwölf\" är 12."
+    },
+    {
+      "id": "q-de7-fam-5",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Vilket tal är \"siebenunddreißig\"?",
+      "opener": "På tyska sägs entalet FÖRE tiotalet: \"sju-och-trettio\".",
+      "choices": [
+        "27",
+        "37",
+        "47",
+        "73"
+      ],
+      "answer": 1,
+      "explanation": "\"Sieben\" (7) + \"und\" (och) + \"dreißig\" (30) = \"siebenunddreißig\" = 37. Till skillnad från svenskan sägs entalet före tiotalet på tyska."
+    },
+    {
+      "id": "q-de7-fam-6",
+      "kind": "text",
+      "topic": "numbers",
+      "prompt": "Skriv talet \"hundert\" med siffror.",
+      "opener": "Det runda talet efter neunundneunzig (99).",
+      "answer": "100"
+    },
+    {
+      "id": "q-de7-fam-7",
+      "kind": "worked",
+      "topic": "family",
+      "prompt": "Rätta felet: \"Mein Bruder heißt Sofia und ist vierzehn Jahre alt.\" (Namnet syftar på en flicka.)",
+      "opener": "Ordet för bror respektive syster ändras med kön — och då också possessivet.",
+      "answer": "Meine Schwester heißt Sofia und ist vierzehn Jahre alt.",
+      "steps": [
+        "Sofia är ett flicknamn, så det ska vara \"Schwester\" (syster), inte \"Bruder\" (bror).",
+        "Eftersom \"Schwester\" är femininum måste possessivet också bli feminint: \"meine\", inte \"mein\".",
+        "Resten stämmer: \"heißt Sofia und ist vierzehn Jahre alt\" (heter Sofia och är fjorton år)."
+      ]
+    },
+    {
+      "id": "q-de7-fam-8",
+      "kind": "flashcard",
+      "topic": "family",
+      "prompt": "Vilka familjeord, possessiva pronomen och siffror bör du kunna på åk7-nivå i tyska?",
+      "opener": "Familjen, vem den tillhör, och att kunna räkna till hundra.",
+      "answer": "Familj: die Mutter/der Vater = mamma/pappa · der Bruder/die Schwester = bror/syster · der Großvater/die Großmutter = morfar-farfar/mormor-farmor · der Sohn/die Tochter = son/dotter · der Cousin/die Cousine = kusin. Possessiva (nominativ): mein/meine = min/mitt · dein/deine = din/ditt · sein/seine = hans · ihr/ihre = hennes. Siffror: 0 null, 1 eins, 5 fünf, 10 zehn, 11 elf, 12 zwölf, 15 fünfzehn, 20 zwanzig, 21 einundzwanzig, 37 siebenunddreißig, 50 fünfzig, 100 hundert."
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "id": "lib-fr9-travel",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Ordförråd: resor och väder",
+  "sourceSummary": "Ord för resor, transportmedel och att prata om vädret.",
+  "topics": [
+    "travel",
+    "weather"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr9-trav-1",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad betyder \"un billet aller-retour\"?",
+      "opener": "\"Aller-retour\" betyder \"dit och tillbaka\".",
+      "choices": [
+        "Enkel biljett",
+        "Tur- och returbiljett",
+        "Årskort",
+        "Sittplatsbiljett"
+      ],
+      "answer": 1,
+      "explanation": "\"Un billet aller-retour\" är en tur- och returbiljett. En enkel biljett heter \"un billet aller simple\"."
+    },
+    {
+      "id": "q-fr9-trav-2",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Du är på flygplatsen och letar efter \"la valise\". Vad letar du efter?",
+      "opener": "Något du packar inför en resa.",
+      "choices": [
+        "Passet",
+        "Resväskan",
+        "Utgången",
+        "Boardingkortet"
+      ],
+      "answer": 1,
+      "explanation": "\"La valise\" är resväskan. \"Le passeport\" är passet, och \"la sortie\" är utgången."
+    },
+    {
+      "id": "q-fr9-trav-3",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Vad betyder \"Il fait très chaud aujourd'hui\"?",
+      "opener": "Väderuttryck på franska använder ofta verbet faire.",
+      "choices": [
+        "Det är mycket kallt idag",
+        "Det är mycket varmt idag",
+        "Det regnar mycket idag",
+        "Det blåser mycket idag"
+      ],
+      "answer": 1,
+      "explanation": "\"Il fait chaud\" betyder \"det är varmt\" (bokstavligen \"det gör varmt\"). \"Très\" förstärker till \"mycket varmt\"."
+    },
+    {
+      "id": "q-fr9-trav-4",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Välj rätt väderfras: \"Il ___ beaucoup en Bretagne en automne.\" (Det regnar mycket i Bretagne på hösten.)",
+      "opener": "Regn har ett eget uttryck, inte faire.",
+      "choices": [
+        "fait",
+        "pleut",
+        "neige",
+        "est"
+      ],
+      "answer": 1,
+      "explanation": "\"Pleuvoir\" (regna) böjs \"il pleut\" i tredje person. \"Neiger\" (snöa) böjs på liknande sätt: \"il neige\"."
+    },
+    {
+      "id": "q-fr9-trav-5",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad frågar du om du vill veta varifrån tåget avgår?",
+      "opener": "\"D'où...?\" frågar varifrån.",
+      "choices": [
+        "À quelle heure arrive le train ?",
+        "D'où part le train ?",
+        "Combien coûte le billet ?",
+        "De quelle couleur est le train ?"
+      ],
+      "answer": 1,
+      "explanation": "\"D'où part le train ?\" betyder \"varifrån avgår tåget?\". \"À quelle heure arrive...?\" frågar i stället när det ANLÄNDER."
+    },
+    {
+      "id": "q-fr9-trav-6",
+      "kind": "text",
+      "topic": "weather",
+      "prompt": "Skriv den franska frasen för \"det är soligt\" (tre ord: \"il fait ...\").",
+      "opener": "Kommer från \"le soleil\" (solen).",
+      "answer": "il fait soleil"
+    },
+    {
+      "id": "q-fr9-trav-7",
+      "kind": "worked",
+      "topic": "travel",
+      "prompt": "Rätta felet: \"L'avion part à huit heures et arrive dix heures.\" (Flyget avgår klockan åtta och anländer klockan tio.)",
+      "opener": "\"Arriver\" behöver prepositionen \"à\" före klockslaget.",
+      "answer": "L'avion part à huit heures et arrive à dix heures.",
+      "steps": [
+        "\"Arrive dix heures\" saknar prepositionen \"à\" före klockslaget.",
+        "Rätt form: \"arrive à dix heures\" — precis som \"part à huit heures\" använder \"à\" före tiden.",
+        "Hela meningen: \"L'avion part à huit heures et arrive à dix heures.\""
+      ]
+    },
+    {
+      "id": "q-fr9-trav-8",
+      "kind": "flashcard",
+      "topic": "travel",
+      "prompt": "Vilka rese- och väderuttryck bör du kunna på åk9-nivå i franska?",
+      "opener": "Att boka, resa och prata om vädret.",
+      "answer": "Resor: le billet (aller simple / aller-retour) = biljett (enkel/retur) · la valise = resväska · le passeport = pass · le train/avion/bus = tåg/flyg/buss · partir = avgå · arriver = anlända · D'où part...? = Varifrån avgår...? Väder: il fait chaud/froid/soleil/du vent = det är varmt/kallt/soligt/blåsigt · il pleut = det regnar · il neige = det snöar · c'est nuageux = det är molnigt."
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "id": "lib-de7-reading",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Reading comprehension: an introduction",
+  "sourceSummary": "A short text where a person introduces themselves and their family, with questions about details and context.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de7-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Hallo! Ich heiße Jonas und ich bin dreizehn Jahre alt. Ich wohne in München mit meiner Familie. Ich habe eine Schwester; sie heißt Lea und ist zehn Jahre alt.\"\n\nHow old is Jonas?",
+      "opener": "Look for the number right after \"ich bin ... Jahre alt\".",
+      "choices": [
+        "Ten years old",
+        "Twelve years old",
+        "Thirteen years old",
+        "Fourteen years old"
+      ],
+      "answer": 2,
+      "explanation": "\"Ich bin dreizehn Jahre alt\" means \"I am thirteen years old\". \"Dreizehn\" is 13."
+    },
+    {
+      "id": "q-de7-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Where does Jonas live?",
+      "opener": "Look for \"Ich wohne in...\".",
+      "choices": [
+        "Berlin",
+        "München",
+        "Hamburg",
+        "Köln"
+      ],
+      "answer": 1,
+      "explanation": "\"Ich wohne in München\" means \"I live in Munich\"."
+    },
+    {
+      "id": "q-de7-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Who is Lea?",
+      "opener": "Look for the sentence about \"eine Schwester\".",
+      "choices": [
+        "Jonas's mom",
+        "Jonas's sister",
+        "Jonas's cousin",
+        "Jonas's teacher"
+      ],
+      "answer": 1,
+      "explanation": "\"Ich habe eine Schwester; sie heißt Lea\" means \"I have a sister; her name is Lea\"."
+    },
+    {
+      "id": "q-de7-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "New text: \"Samstags spielt Jonas Fußball mit seinen Freunden. Danach isst er Pizza bei seiner Oma. Sonntags ruht er sich aus.\"\n\nWhat does Jonas do on Saturdays?",
+      "opener": "\"Spielt Fußball\" — the verb spielen means to play.",
+      "choices": [
+        "He plays football with his friends",
+        "He cooks for his grandmother",
+        "He rests all day",
+        "He does homework"
+      ],
+      "answer": 0,
+      "explanation": "\"Spielt Fußball mit seinen Freunden\" means \"plays football with his friends\"."
+    },
+    {
+      "id": "q-de7-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Where does he eat pizza?",
+      "opener": "\"Bei seiner Oma\" — who lives there?",
+      "choices": [
+        "At his own home",
+        "At a restaurant",
+        "At his grandmother's home",
+        "At school"
+      ],
+      "answer": 2,
+      "explanation": "\"Bei seiner Oma\" means \"at his grandmother's home\". \"Oma\" is an everyday word for grandmother."
+    },
+    {
+      "id": "q-de7-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What does Jonas do on Sundays, according to the last sentence? Answer in English with one word.",
+      "opener": "The expression \"sich ausruhen\" means to relax.",
+      "answer": "rests"
+    },
+    {
+      "id": "q-de7-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Read the text again and write a German sentence (3–5 words) that answers: \"Mit wem spielt Jonas Fußball?\" (With whom does Jonas play football?)",
+      "opener": "The answer is in the first sentence about Saturdays.",
+      "answer": "Er spielt mit seinen Freunden.",
+      "steps": [
+        "Find the relevant part of the text: \"Jonas spielt Fußball mit seinen Freunden.\"",
+        "Pull out the answer to \"with whom\": \"mit seinen Freunden\" (with his friends).",
+        "Build a short sentence: \"Er spielt mit seinen Freunden.\" (He plays with his friends.)"
+      ]
+    },
+    {
+      "id": "q-de7-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "What strategies help you understand a simple German text at grade 7 level?",
+      "opener": "You don't need to understand every word to understand the whole.",
+      "answer": "Look for familiar patterns: \"ich heiße\" (introduction), \"ich bin ... Jahre alt\" (age), \"ich wohne in\" (where you live), \"samstags/sonntags\" (days of the week used as adverbs, with a lowercase s). Guess unknown words from context instead of looking up every word. Read the text once for the overall gist and again for details. Look for present-tense verbs (spielt, isst, ruht sich aus) to understand what's happening, and possessive words (sein, seine, ihr) to understand who does what."
+    }
+  ]
+}

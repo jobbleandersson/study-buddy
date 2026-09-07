@@ -1,0 +1,118 @@
+{
+  "id": "lib-sp9-dailylife",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Jämförelser och vardagsliv",
+  "sourceSummary": "Att jämföra saker (más/menos que, tan... como) och ordförråd för en typisk vardag.",
+  "topics": [
+    "comparisons",
+    "daily routine"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp9-daily-1",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Välj rätt jämförelse: \"Mi hermano es ___ alto ___ yo.\" (Min bror är längre än jag.)",
+      "opener": "\"Mer ... än\" bildas med más ... que.",
+      "choices": [
+        "más ... que",
+        "tan ... como",
+        "menos ... como",
+        "más ... como"
+      ],
+      "answer": 0,
+      "explanation": "\"Más ... que\" betyder \"mer/-are ... än\": \"más alto que yo\" = \"längre än jag\". \"Tan ... como\" används i stället för \"lika ... som\"."
+    },
+    {
+      "id": "q-sp9-daily-2",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad betyder \"Este libro es tan interesante como el otro\"?",
+      "opener": "\"Tan ... como\" uttrycker likhet, inte skillnad.",
+      "choices": [
+        "Den här boken är mer intressant än den andra",
+        "Den här boken är mindre intressant än den andra",
+        "Den här boken är lika intressant som den andra",
+        "Den här boken är den mest intressanta"
+      ],
+      "answer": 2,
+      "explanation": "\"Tan ... como\" betyder \"lika ... som\": böckerna är lika intressanta."
+    },
+    {
+      "id": "q-sp9-daily-3",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vilket ord är oregelbundet i komparativ (\"bättre\")?",
+      "opener": "Precis som svenskans \"bra – bättre\" är oregelbunden.",
+      "choices": [
+        "más bueno",
+        "mejor",
+        "más mejor",
+        "buenísimo"
+      ],
+      "answer": 1,
+      "explanation": "\"Bueno\" (bra) har den oregelbundna komparativformen \"mejor\" (bättre), inte \"más bueno\". På samma sätt är \"malo\" (dålig) → \"peor\" (sämre)."
+    },
+    {
+      "id": "q-sp9-daily-4",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Me levanto a las siete\"?",
+      "opener": "Reflexiva verb används ofta för dagliga rutiner.",
+      "choices": [
+        "Jag går och lägger mig klockan sju",
+        "Jag går upp klockan sju",
+        "Jag äter frukost klockan sju",
+        "Jag kommer hem klockan sju"
+      ],
+      "answer": 1,
+      "explanation": "\"Levantarse\" betyder \"att gå upp/resa sig\", och \"me levanto\" är presensformen för \"jag\": \"jag går upp klockan sju\"."
+    },
+    {
+      "id": "q-sp9-daily-5",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Me acuesto a las diez y media\"?",
+      "opener": "Ett annat vanligt reflexivt verb för vardagsrutiner.",
+      "choices": [
+        "Jag duschar klockan halv elva",
+        "Jag går och lägger mig klockan halv elva",
+        "Jag äter middag klockan halv elva",
+        "Jag lämnar hemmet klockan halv elva"
+      ],
+      "answer": 1,
+      "explanation": "\"Acostarse\" betyder \"att lägga sig\", och \"me acuesto\" är \"jag lägger mig\": \"jag går och lägger mig klockan halv elva\"."
+    },
+    {
+      "id": "q-sp9-daily-6",
+      "kind": "text",
+      "topic": "daily routine",
+      "prompt": "Skriv det spanska ordet för \"att duscha\" i grundform (infinitiv).",
+      "opener": "Ett reflexivt verb som slutar på -arse.",
+      "answer": "ducharse"
+    },
+    {
+      "id": "q-sp9-daily-7",
+      "kind": "worked",
+      "topic": "comparisons",
+      "prompt": "Rätta felet: \"Mi casa es más pequeña que la tuya, pero mi jardín es más bueno.\"",
+      "opener": "\"Bueno\" har en egen oregelbunden komparativform.",
+      "answer": "Mi casa es más pequeña que la tuya, pero mi jardín es mejor.",
+      "steps": [
+        "\"Más bueno\" är fel — bueno böjs oregelbundet i komparativ.",
+        "Rätt form är \"mejor\" (bättre), utan \"más\" framför.",
+        "Hela meningen: \"Mi casa es más pequeña que la tuya, pero mi jardín es mejor.\" (Mitt hus är mindre än ditt, men min trädgård är bättre.)"
+      ]
+    },
+    {
+      "id": "q-sp9-daily-8",
+      "kind": "flashcard",
+      "topic": "comparisons",
+      "prompt": "Hur bildar man jämförelser och beskriver en vardagsrutin på spanska?",
+      "opener": "Jämförelseord och reflexiva verb för det dagliga livet.",
+      "answer": "Jämförelser: más ... que = mer ... än · menos ... que = mindre ... än · tan ... como = lika ... som · mejor/peor = bättre/sämre (oregelbundna). Vardagsrutin (reflexiva verb): despertarse = vakna · levantarse = gå upp · ducharse = duscha · vestirse = klä på sig · desayunar = äta frukost · acostarse = lägga sig. Reflexiva pronomen: me, te, se, nos, os, se — placeras före verbet: me levanto, te levantas, se levanta."
+    }
+  ]
+}

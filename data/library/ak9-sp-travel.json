@@ -1,0 +1,118 @@
+{
+  "id": "lib-sp9-travel",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Ordförråd: resor och väder",
+  "sourceSummary": "Ord för resor, transportmedel och att prata om vädret.",
+  "topics": [
+    "travel",
+    "weather"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp9-trav-1",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad betyder \"el billete de ida y vuelta\"?",
+      "opener": "\"Ida y vuelta\" betyder \"dit och tillbaka\".",
+      "choices": [
+        "Enkel biljett",
+        "Tur- och returbiljett",
+        "Årskort",
+        "Sittplatsbiljett"
+      ],
+      "answer": 1,
+      "explanation": "\"Ida y vuelta\" betyder \"dit och tillbaka\", så \"un billete de ida y vuelta\" är en tur- och returbiljett. En enkel biljett heter \"un billete de ida\"."
+    },
+    {
+      "id": "q-sp9-trav-2",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Du är på flygplatsen och letar efter \"la maleta\". Vad letar du efter?",
+      "opener": "Något du packar inför en resa.",
+      "choices": [
+        "Passet",
+        "Resväskan",
+        "Utgången",
+        "Boardingkortet"
+      ],
+      "answer": 1,
+      "explanation": "\"La maleta\" är resväskan. \"El pasaporte\" är passet, och \"la puerta\" är utgången/gaten."
+    },
+    {
+      "id": "q-sp9-trav-3",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Vad betyder \"Hace mucho calor hoy\"?",
+      "opener": "Väderuttryck på spanska använder ofta verbet hacer.",
+      "choices": [
+        "Det är mycket kallt idag",
+        "Det är mycket varmt idag",
+        "Det regnar mycket idag",
+        "Det blåser mycket idag"
+      ],
+      "answer": 1,
+      "explanation": "\"Hace calor\" betyder \"det är varmt\" (bokstavligen \"det gör värme\"). \"Mucho\" förstärker till \"mycket varmt\"."
+    },
+    {
+      "id": "q-sp9-trav-4",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Välj rätt väderfras: \"___ mucho en Galicia en otoño.\" (Det regnar mycket i Galicien på hösten.)",
+      "opener": "Regn använder ett eget verb, inte hacer.",
+      "choices": [
+        "Hace",
+        "Llueve",
+        "Nieva",
+        "Está"
+      ],
+      "answer": 1,
+      "explanation": "\"Llover\" (regna) böjs \"llueve\" i tredje person. \"Nevar\" (snöa) böjs på liknande sätt: \"nieva\"."
+    },
+    {
+      "id": "q-sp9-trav-5",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad frågar du om du vill veta var tåget avgår ifrån?",
+      "opener": "\"¿De dónde...?\" frågar varifrån.",
+      "choices": [
+        "¿A qué hora llega el tren?",
+        "¿De dónde sale el tren?",
+        "¿Cuánto cuesta el billete?",
+        "¿De qué color es el tren?"
+      ],
+      "answer": 1,
+      "explanation": "\"¿De dónde sale el tren?\" betyder \"varifrån avgår tåget?\". \"¿A qué hora llega?\" frågar i stället när det ANLÄNDER."
+    },
+    {
+      "id": "q-sp9-trav-6",
+      "kind": "text",
+      "topic": "weather",
+      "prompt": "Skriv den spanska frasen för \"det är soligt\" (två ord).",
+      "opener": "Använder samma mönster som \"hace calor\".",
+      "answer": "hace sol"
+    },
+    {
+      "id": "q-sp9-trav-7",
+      "kind": "worked",
+      "topic": "travel",
+      "prompt": "Rätta felet: \"El avión sale a las ocho y llega las diez.\" (Flyget avgår klockan åtta och anländer klockan tio.)",
+      "opener": "\"Llegar\" behöver en preposition före klockslaget.",
+      "answer": "El avión sale a las ocho y llega a las diez.",
+      "steps": [
+        "\"Llega las diez\" saknar prepositionen \"a\" före klockslaget.",
+        "Rätt form: \"llega a las diez\" — precis som \"sale a las ocho\" använder \"a\" före tiden.",
+        "Hela meningen: \"El avión sale a las ocho y llega a las diez.\""
+      ]
+    },
+    {
+      "id": "q-sp9-trav-8",
+      "kind": "flashcard",
+      "topic": "travel",
+      "prompt": "Vilka rese- och väderuttryck bör du kunna på åk9-nivå i spanska?",
+      "opener": "Att boka, resa och prata om vädret.",
+      "answer": "Resor: el billete (de ida / de ida y vuelta) = biljett (enkel/retur) · la maleta = resväska · el pasaporte = pass · el tren/avión/autobús = tåg/flyg/buss · salir = avgå · llegar = anlända · ¿De dónde sale...? = Varifrån avgår...? Väder: hace calor/frío/sol/viento = det är varmt/kallt/soligt/blåsigt · llueve = det regnar · nieva = det snöar · está nublado = det är molnigt."
+    }
+  ]
+}

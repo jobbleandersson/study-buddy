@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr8-food",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Vocabulary: food and drink",
+  "sourceSummary": "Words for food, drink, and meals, plus how to order and talk about what you like.",
+  "topics": [
+    "food and drink",
+    "meals",
+    "aimer"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr8-food-1",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"le poisson\" mean?",
+      "opener": "Not to be confused with the animal itself, which has the same name in French.",
+      "choices": [
+        "Meat",
+        "Fish",
+        "Bread",
+        "Rice"
+      ],
+      "answer": 1,
+      "explanation": "\"Le poisson\" means fish (both the animal and the food)."
+    },
+    {
+      "id": "q-fr8-food-2",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Which meal is \"le dîner\"?",
+      "opener": "Compare with \"le petit-déjeuner\" and \"le déjeuner\".",
+      "choices": [
+        "Breakfast",
+        "Lunch",
+        "Dinner",
+        "Snack"
+      ],
+      "answer": 2,
+      "explanation": "\"Le dîner\" is dinner/the evening meal. \"Le petit-déjeuner\" is breakfast, and \"le déjeuner\" is lunch."
+    },
+    {
+      "id": "q-fr8-food-3",
+      "kind": "mc",
+      "topic": "aimer",
+      "prompt": "Choose the right form: \"J'___ les pommes.\" (aimer = to like)",
+      "opener": "Aimer is a regular -er verb.",
+      "choices": [
+        "aime",
+        "aimes",
+        "aimons",
+        "aiment"
+      ],
+      "answer": 0,
+      "explanation": "\"Aimer\" conjugates like a normal -er verb: j'aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. \"Je\" gives \"aime\"."
+    },
+    {
+      "id": "q-fr8-food-4",
+      "kind": "mc",
+      "topic": "aimer",
+      "prompt": "How do you ask a friend \"do you like vegetables?\"",
+      "opener": "Swap \"j'\" for the right form for \"you\".",
+      "choices": [
+        "Tu aimes les légumes ?",
+        "J'aime les légumes ?",
+        "Il aime les légumes ?",
+        "Aimez les légumes ?"
+      ],
+      "answer": 0,
+      "explanation": "\"Tu\" gives the form \"aimes\": \"Tu aimes les légumes ?\"."
+    },
+    {
+      "id": "q-fr8-food-5",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "You're at a restaurant. How do you politely order a glass of water?",
+      "opener": "\"Je voudrais\" is a polite form of \"I would like\".",
+      "choices": [
+        "Je veux de l'eau maintenant.",
+        "Je voudrais un verre d'eau, s'il vous plaît.",
+        "Donne-moi de l'eau.",
+        "Tu as de l'eau ?"
+      ],
+      "answer": 1,
+      "explanation": "\"Je voudrais un verre d'eau, s'il vous plaît\" (I would like a glass of water, please) is the most polite form."
+    },
+    {
+      "id": "q-fr8-food-6",
+      "kind": "text",
+      "topic": "food and drink",
+      "prompt": "Write the French word for \"bread\".",
+      "opener": "A common word across all three meals.",
+      "answer": "le pain"
+    },
+    {
+      "id": "q-fr8-food-7",
+      "kind": "worked",
+      "topic": "aimer",
+      "prompt": "Correct the error: \"Mon frère aimes le riz.\" (My brother likes the rice.)",
+      "opener": "Check which person the sentence is actually about.",
+      "answer": "Mon frère aime le riz.",
+      "steps": [
+        "\"Mon frère\" is third person (he), not \"you\".",
+        "\"Aimes\" is the you-form. The correct form for \"he\" is \"aime\".",
+        "Full sentence: \"Mon frère aime le riz.\" (My brother likes the rice.)"
+      ]
+    },
+    {
+      "id": "q-fr8-food-8",
+      "kind": "flashcard",
+      "topic": "food and drink",
+      "prompt": "Which food, drink, and meal words, plus aimer conjugations, should you know at grade 8 level?",
+      "opener": "Food, meals, and how to express what you like.",
+      "answer": "Food: le pain = bread · le riz = rice · la viande = meat · le poisson = fish · les légumes = vegetables · les fruits = fruit · l'eau = water · le lait = milk. Meals: le petit-déjeuner = breakfast · le déjeuner = lunch · le dîner = dinner. Aimer: j'aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. Ordering politely: Je voudrais... = I would like... · ..., s'il vous plaît = ..., please."
+    }
+  ]
+}

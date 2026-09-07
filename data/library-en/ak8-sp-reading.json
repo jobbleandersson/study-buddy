@@ -1,0 +1,117 @@
+{
+  "id": "lib-sp8-reading",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Reading comprehension: a message to a friend",
+  "sourceSummary": "A text message about weekend plans, with questions about details, times, and feelings.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp8-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the message: \"¡Hola, Marta! El sábado voy a ir al cine con mi hermano. La película empieza a las siete. ¿Quieres venir con nosotros?\"\n\nWhat is the person going to do on Saturday?",
+      "opener": "Look for \"voy a ir al...\".",
+      "choices": [
+        "Go to the movies",
+        "Go to the beach",
+        "Play soccer",
+        "Do homework"
+      ],
+      "answer": 0,
+      "explanation": "\"Voy a ir al cine\" means \"I'm going to go to the movies\"."
+    },
+    {
+      "id": "q-sp8-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same message. What time does the movie start?",
+      "opener": "\"A las siete\" — look for the time.",
+      "choices": [
+        "Six o'clock",
+        "Seven o'clock",
+        "Eight o'clock",
+        "Nine o'clock"
+      ],
+      "answer": 1,
+      "explanation": "\"La película empieza a las siete\" means \"the movie starts at seven o'clock\"."
+    },
+    {
+      "id": "q-sp8-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same message. What does the person ask Marta?",
+      "opener": "The last sentence is a question.",
+      "choices": [
+        "Whether she wants to see a different movie",
+        "Whether she wants to come along",
+        "Whether she knows his brother",
+        "Whether she has seen the movie before"
+      ],
+      "answer": 1,
+      "explanation": "\"¿Quieres venir con nosotros?\" means \"do you want to come with us?\"."
+    },
+    {
+      "id": "q-sp8-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Marta's reply: \"¡Claro que sí! Me encantan las películas de aventura. ¿A qué hora quedamos?\"\n\nWhat does Marta think of adventure movies?",
+      "opener": "\"Me encantan\" is stronger than \"me gustan\".",
+      "choices": [
+        "She doesn't like them",
+        "She's indifferent",
+        "She loves them",
+        "She has never seen one"
+      ],
+      "answer": 2,
+      "explanation": "\"Me encantan\" means \"I love (them)\" — a stronger expression than \"me gustan\" (I like)."
+    },
+    {
+      "id": "q-sp8-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same reply. What does Marta ask at the end?",
+      "opener": "\"¿A qué hora...?\" asks about time, \"quedamos\" means \"we meet up/arrange to meet\".",
+      "choices": [
+        "Which movie they should see",
+        "How much the movie costs",
+        "What time they should meet",
+        "Where the cinema is"
+      ],
+      "answer": 2,
+      "explanation": "\"¿A qué hora quedamos?\" means \"what time shall we meet?\"."
+    },
+    {
+      "id": "q-sp8-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Who suggests going to the movies — the person who writes first, or Marta? Answer with a name or \"the person who writes first\".",
+      "opener": "Read the first message again.",
+      "answer": "the person who writes first"
+    },
+    {
+      "id": "q-sp8-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Write a short Spanish sentence (3–5 words) answering: \"¿Qué tipo de películas le gustan a Marta?\" (What kind of movies does Marta like?)",
+      "opener": "The answer is in Marta's own reply.",
+      "answer": "Le gustan las películas de aventura.",
+      "steps": [
+        "Find the sentence in the text: \"Me encantan las películas de aventura.\"",
+        "Swap \"me\" for \"le\" since the question is about Marta (she), not \"I\".",
+        "\"Le gustan las películas de aventura.\" (She likes adventure movies.)"
+      ]
+    },
+    {
+      "id": "q-sp8-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Which phrases are good to recognize in a Spanish text message about plans?",
+      "opener": "Everyday phrases for suggesting, agreeing, and arranging a time.",
+      "answer": "Suggesting: ¿Quieres venir? = Do you want to come? · voy a ir a... = I'm going to go to... Agreeing: ¡Claro que sí! = Absolutely!/Sure! · Me encanta(n)... = I love... Arranging a time: ¿A qué hora quedamos? = What time shall we meet? · empieza a las... = starts at... Feelings: me gusta(n) = I like · me encanta(n) = I love (stronger) · no me gusta(n) = I don't like."
+    }
+  ]
+}

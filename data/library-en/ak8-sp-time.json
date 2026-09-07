@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp8-time",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Telling time and days of the week",
+  "sourceSummary": "Telling time, days of the week and months, and how to talk about a schedule.",
+  "topics": [
+    "telling time",
+    "days of the week",
+    "months"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp8-time-1",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "How do you ask \"what time is it?\" in Spanish?",
+      "opener": "A fixed phrase you just need to memorize.",
+      "choices": [
+        "¿Qué hora es?",
+        "¿Cuándo es?",
+        "¿Qué día es?",
+        "¿Dónde está el reloj?"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Qué hora es?\" is the fixed phrase for \"what time is it?\". \"¿Qué día es?\" instead asks what day of the week it is."
+    },
+    {
+      "id": "q-sp8-time-2",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "How do you say \"it's three o'clock\"?",
+      "opener": "From two o'clock onward, \"son las...\" is used in the plural.",
+      "choices": [
+        "Es la tres.",
+        "Son las tres.",
+        "Es las tres.",
+        "Son la tres."
+      ],
+      "answer": 1,
+      "explanation": "\"Son las tres\" is used for every hour except one: \"es la una\" (it's one o'clock) is the exception that stays singular."
+    },
+    {
+      "id": "q-sp8-time-3",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"las nueve y media\" mean?",
+      "opener": "\"Y media\" means half past.",
+      "choices": [
+        "Quarter past nine",
+        "Half past nine",
+        "Quarter to nine",
+        "Nine fifteen"
+      ],
+      "answer": 1,
+      "explanation": "\"Y media\" means \"and a half\", i.e. 30 minutes past: \"las nueve y media\" = 09:30 (half past nine)."
+    },
+    {
+      "id": "q-sp8-time-4",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Which day of the week is \"miércoles\"?",
+      "opener": "The Spanish week starts on Monday.",
+      "choices": [
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "answer": 1,
+      "explanation": "\"Miércoles\" is Wednesday. Days of the week: lunes, martes, miércoles, jueves, viernes, sábado, domingo."
+    },
+    {
+      "id": "q-sp8-time-5",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Which month is \"diciembre\"?",
+      "opener": "The name resembles the English one.",
+      "choices": [
+        "October",
+        "November",
+        "December",
+        "January"
+      ],
+      "answer": 2,
+      "explanation": "\"Diciembre\" is December. The Spanish month names closely resemble the Swedish/English ones."
+    },
+    {
+      "id": "q-sp8-time-6",
+      "kind": "text",
+      "topic": "days of the week",
+      "prompt": "Write the Spanish word for \"Saturday\".",
+      "opener": "Comes right before \"domingo\" in the week.",
+      "answer": "sábado"
+    },
+    {
+      "id": "q-sp8-time-7",
+      "kind": "worked",
+      "topic": "telling time",
+      "prompt": "Correct the error: \"Es las cinco de la tarde.\" (It's five in the afternoon.)",
+      "opener": "Check whether it should be \"es\" or \"son\" for five o'clock.",
+      "answer": "Son las cinco de la tarde.",
+      "steps": [
+        "\"Es\" is only used for one o'clock (\"es la una\"). Every other hour uses \"son las...\".",
+        "\"Cinco\" (five) is more than one, so it should be \"son las cinco\", not \"es las cinco\".",
+        "\"De la tarde\" (in the afternoon) is already correct and doesn't need to change."
+      ]
+    },
+    {
+      "id": "q-sp8-time-8",
+      "kind": "flashcard",
+      "topic": "telling time",
+      "prompt": "How do you ask about and answer questions about time, days of the week, and months in Spanish?",
+      "opener": "Fixed phrases for time, days, and months.",
+      "answer": "Time: ¿Qué hora es? = What time is it? · Es la una = It's one o'clock · Son las dos/tres... = It's two/three o'clock... · y media = and a half · y cuarto = and a quarter · menos cuarto = quarter to. Days of the week: lunes, martes, miércoles, jueves, viernes, sábado, domingo. Months: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre."
+    }
+  ]
+}

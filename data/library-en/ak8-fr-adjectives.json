@@ -1,0 +1,118 @@
+{
+  "id": "lib-fr8-adjectives",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Adjectives and descriptions",
+  "sourceSummary": "How adjectives agree in gender and number, and where adjectives are placed in a sentence.",
+  "topics": [
+    "adjective agreement",
+    "descriptions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr8-adj-1",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the right form: \"Mon frère est ___.\" (grand = tall/big)",
+      "opener": "\"Frère\" is masculine singular — the base form of the adjective.",
+      "choices": [
+        "grand",
+        "grande",
+        "grands",
+        "grandes"
+      ],
+      "answer": 0,
+      "explanation": "Masculine singular uses the base form: \"grand\"."
+    },
+    {
+      "id": "q-fr8-adj-2",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the right form: \"Mes sœurs sont ___.\" (sympathique = nice)",
+      "opener": "\"Sœurs\" is feminine plural.",
+      "choices": [
+        "sympathique",
+        "sympathiques",
+        "sympathiqu",
+        "sympathiquent"
+      ],
+      "answer": 1,
+      "explanation": "Adjectives ending in -e (like \"sympathique\") don't change between masculine and feminine — only the plural is added: \"sympathiques\"."
+    },
+    {
+      "id": "q-fr8-adj-3",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the right form: \"La maison est ___.\" (petit = small)",
+      "opener": "Feminine singular is usually formed with -e.",
+      "choices": [
+        "petit",
+        "petite",
+        "petits",
+        "petites"
+      ],
+      "answer": 1,
+      "explanation": "Feminine singular is formed with -e: \"petit\" → \"petite\"."
+    },
+    {
+      "id": "q-fr8-adj-4",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Where are most descriptive adjectives placed in French?",
+      "opener": "Different from English, where the adjective usually comes before the noun.",
+      "choices": [
+        "Always before the noun",
+        "Always after the noun",
+        "Usually after the noun",
+        "Never in the same sentence"
+      ],
+      "answer": 2,
+      "explanation": "Most descriptive adjectives come after the noun: \"une maison grande\" (a big house). However, some common, short adjectives (like petit, grand, beau, joli) come BEFORE the noun."
+    },
+    {
+      "id": "q-fr8-adj-5",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the right sentence for \"the black cats\":",
+      "opener": "\"Chats\" (cats) is masculine plural, and \"black\" = noir.",
+      "choices": [
+        "les chats noir",
+        "les chats noire",
+        "les chats noirs",
+        "les chat noirs"
+      ],
+      "answer": 2,
+      "explanation": "\"Chats\" is masculine plural, so the adjective must be too: \"noirs\"."
+    },
+    {
+      "id": "q-fr8-adj-6",
+      "kind": "text",
+      "topic": "adjective agreement",
+      "prompt": "Write the feminine singular form of \"petit\" (small).",
+      "opener": "Add -e.",
+      "answer": "petite"
+    },
+    {
+      "id": "q-fr8-adj-7",
+      "kind": "worked",
+      "topic": "adjective agreement",
+      "prompt": "Correct the error: \"Mes amies sont très amusant.\" (My friends [female] are very funny.)",
+      "opener": "Check the gender and number of \"amies\".",
+      "answer": "Mes amies sont très amusantes.",
+      "steps": [
+        "\"Amies\" is feminine plural, so the adjective \"amusant\" (which is masculine singular) needs to change.",
+        "\"Amusant\" → \"amusantes\" to match feminine plural.",
+        "Full sentence: \"Mes amies sont très amusantes.\" (My friends are very funny.)"
+      ]
+    },
+    {
+      "id": "q-fr8-adj-8",
+      "kind": "flashcard",
+      "topic": "adjective agreement",
+      "prompt": "How do French adjectives agree in gender and number, and where are they placed?",
+      "opener": "Adjectives \"agree\" with the noun they describe.",
+      "answer": "Basic pattern: grand/grande/grands/grandes (masculine, feminine, plural masc., plural fem.). Adjectives ending in -e (like sympathique): same form for both genders, only the plural is added. Placement: most descriptive adjectives come AFTER the noun (une maison grise), but common short adjectives like petit, grand, beau, joli, jeune, vieux, bon come BEFORE (une petite maison). Examples: chat noir (black cat), petite maison (small house), filles sympathiques (nice girls)."
+    }
+  ]
+}

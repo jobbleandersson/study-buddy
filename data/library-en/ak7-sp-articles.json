@@ -1,0 +1,120 @@
+{
+  "id": "lib-sp7-articles",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Articles and gender",
+  "sourceSummary": "Definite and indefinite articles, gender (masculine/feminine), and the plural of nouns.",
+  "topics": [
+    "gender",
+    "definite articles",
+    "indefinite articles",
+    "plural"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp7-art-1",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "Which gender do most words ending in -o have, like \"libro\" (book)?",
+      "opener": "-o and -a are the most common gender endings in Spanish.",
+      "choices": [
+        "Masculine",
+        "Feminine",
+        "It never depends on the ending",
+        "Neuter"
+      ],
+      "answer": 0,
+      "explanation": "Words ending in -o are usually masculine, like \"el libro\" (the book). Words ending in -a are usually feminine, like \"la mesa\" (the table). Spanish has no neuter gender for nouns."
+    },
+    {
+      "id": "q-sp7-art-2",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ casa es grande.\" (The house is big.)",
+      "opener": "\"Casa\" ends in -a, a common feminine pattern.",
+      "choices": [
+        "El",
+        "La",
+        "Los",
+        "Las"
+      ],
+      "answer": 1,
+      "explanation": "\"Casa\" is feminine and singular, so the article is \"la\". \"El\" is used for masculine words, \"los\"/\"las\" are plural."
+    },
+    {
+      "id": "q-sp7-art-3",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ chicos juegan en el parque.\" (The boys are playing in the park.)",
+      "opener": "\"Chicos\" is plural and masculine.",
+      "choices": [
+        "El",
+        "La",
+        "Los",
+        "Las"
+      ],
+      "answer": 2,
+      "explanation": "\"Chicos\" (boys) is masculine plural, so \"los\" is used. \"Las\" would be used for feminine plural, e.g. \"las chicas\"."
+    },
+    {
+      "id": "q-sp7-art-4",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Choose the right article: \"Quiero comprar ___ manzana.\" (I want to buy an apple.)",
+      "opener": "\"Manzana\" is feminine singular — compare with \"la manzana\".",
+      "choices": [
+        "un",
+        "una",
+        "unos",
+        "unas"
+      ],
+      "answer": 1,
+      "explanation": "\"Una\" is the indefinite article for feminine singular (\"a/an\"). \"Un\" is masculine, and \"unos\"/\"unas\" mean \"some\"."
+    },
+    {
+      "id": "q-sp7-art-5",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "What is the plural of \"el profesor\" (the teacher, male)?",
+      "opener": "Words ending in a consonant get the plural ending -es.",
+      "choices": [
+        "los profesor",
+        "los profesors",
+        "los profesores",
+        "las profesoras"
+      ],
+      "answer": 2,
+      "explanation": "Words ending in a consonant form the plural with -es: \"profesor\" → \"profesores\". The article also becomes \"los\" (masculine plural)."
+    },
+    {
+      "id": "q-sp7-art-6",
+      "kind": "text",
+      "topic": "plural",
+      "prompt": "Write the plural of \"la mesa\" (the table) — just the word for \"table\", not the article.",
+      "opener": "Words ending in a vowel only get an -s in the plural.",
+      "answer": "mesas"
+    },
+    {
+      "id": "q-sp7-art-7",
+      "kind": "worked",
+      "topic": "gender",
+      "prompt": "Correct the two errors: \"El mesa es nueva y tengo un manzana roja.\"",
+      "opener": "Check the gender of \"mesa\" and \"manzana\" — both end in -a.",
+      "answer": "La mesa es nueva y tengo una manzana roja.",
+      "steps": [
+        "\"El mesa\" → \"La mesa\". \"Mesa\" (table) is feminine, so the article should be \"la\", not \"el\".",
+        "\"Un manzana\" → \"una manzana\". \"Manzana\" (apple) is also feminine, so it should be \"una\", not \"un\".",
+        "Remember the rule of thumb: words ending in -a are usually feminine and take la/una, words ending in -o are usually masculine and take el/un."
+      ]
+    },
+    {
+      "id": "q-sp7-art-8",
+      "kind": "flashcard",
+      "topic": "gender",
+      "prompt": "How do gender, definite/indefinite articles, and the plural work in Spanish?",
+      "opener": "The basic rules for -o/-a and how the articles follow along.",
+      "answer": "Gender: words in -o are usually masculine (el libro), words in -a are usually feminine (la mesa) — but there are exceptions to learn separately, like \"el día\" (the day) and \"la mano\" (the hand). Definite article: el (masc. sg.), la (fem. sg.), los (masc. pl.), las (fem. pl.). Indefinite article: un (masc. sg.), una (fem. sg.), unos (masc. pl., 'some'), unas (fem. pl., 'some'). Plural: vowel + -s (mesa → mesas), consonant + -es (profesor → profesores)."
+    }
+  ]
+}

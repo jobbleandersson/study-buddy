@@ -1,0 +1,117 @@
+{
+  "id": "lib-fr7-reading",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Läsförståelse: en presentation",
+  "sourceSummary": "En kort text där en person presenterar sig själv och sin familj, med frågor om detaljer och sammanhang.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr7-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"Salut ! Je m'appelle Lucas et j'ai treize ans. J'habite à Lyon avec ma famille. J'ai une sœur ; elle s'appelle Léa et elle a dix ans.\"\n\nHur gammal är Lucas?",
+      "opener": "Leta efter talet direkt efter \"j'ai ... ans\".",
+      "choices": [
+        "Tio år",
+        "Tolv år",
+        "Tretton år",
+        "Fjorton år"
+      ],
+      "answer": 2,
+      "explanation": "\"J'ai treize ans\" betyder \"jag är tretton år\". \"Treize\" är 13."
+    },
+    {
+      "id": "q-fr7-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Var bor Lucas?",
+      "opener": "Leta efter \"J'habite à...\".",
+      "choices": [
+        "Paris",
+        "Lyon",
+        "Marseille",
+        "Nice"
+      ],
+      "answer": 1,
+      "explanation": "\"J'habite à Lyon\" betyder \"jag bor i Lyon\"."
+    },
+    {
+      "id": "q-fr7-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vem är Léa?",
+      "opener": "Leta efter meningen om \"une sœur\".",
+      "choices": [
+        "Lucas mamma",
+        "Lucas syster",
+        "Lucas kusin",
+        "Lucas lärare"
+      ],
+      "answer": 1,
+      "explanation": "\"J'ai une sœur ; elle s'appelle Léa\" betyder \"jag har en syster; hon heter Léa\"."
+    },
+    {
+      "id": "q-fr7-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Ny text: \"Le samedi, Lucas joue au foot avec ses amis. Ensuite, il mange une pizza chez sa grand-mère. Le dimanche, il se repose.\"\n\nVad gör Lucas på lördagar?",
+      "opener": "\"Joue au foot\" — verbet jouer betyder att spela/leka.",
+      "choices": [
+        "Han spelar fotboll med sina vänner",
+        "Han lagar mat till sin farmor",
+        "Han vilar hela dagen",
+        "Han läser läxor"
+      ],
+      "answer": 0,
+      "explanation": "\"Joue au foot avec ses amis\" betyder \"spelar fotboll med sina vänner\"."
+    },
+    {
+      "id": "q-fr7-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Var äter han pizza?",
+      "opener": "\"Chez sa grand-mère\" — vem bor där?",
+      "choices": [
+        "Hemma hos sig själv",
+        "På en restaurang",
+        "Hemma hos sin farmor/mormor",
+        "I skolan"
+      ],
+      "answer": 2,
+      "explanation": "\"Chez sa grand-mère\" betyder \"hemma hos hans mor-/farmor\"."
+    },
+    {
+      "id": "q-fr7-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad gör Lucas på söndagar, enligt sista meningen? Svara på svenska med ett ord.",
+      "opener": "Uttrycket \"se reposer\" betyder att koppla av.",
+      "answer": "vilar"
+    },
+    {
+      "id": "q-fr7-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten igen och skriv en fransk mening (3–5 ord) som svarar på: \"Avec qui Lucas joue-t-il au foot ?\" (Med vem spelar Lucas fotboll?)",
+      "opener": "Svaret finns i första meningen om lördagar.",
+      "answer": "Il joue avec ses amis.",
+      "steps": [
+        "Hitta rätt del av texten: \"Lucas joue au foot avec ses amis.\"",
+        "Plocka ut svaret på frågan \"med vem\": \"avec ses amis\" (med sina vänner).",
+        "Bygg en kort mening: \"Il joue avec ses amis.\" (Han spelar med sina vänner.)"
+      ]
+    },
+    {
+      "id": "q-fr7-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Vilka strategier hjälper dig att förstå en enkel fransk text på åk7-nivå?",
+      "opener": "Du behöver inte förstå varje ord för att förstå helheten.",
+      "answer": "Leta efter kända mönster: \"je m'appelle\" (presentation), \"j'ai ... ans\" (ålder), \"j'habite à\" (bostadsort), \"le samedi/dimanche\" (veckodagar med bestämd artikel). Gissa okända ord från sammanhanget i stället för att slå upp varje ord. Läs texten en gång för helheten och en gång till för detaljer. Leta efter verb i presens (joue, mange, se repose) för att förstå vad som händer, och possessiva ord (sa, ses, elle) för att förstå vem som gör vad."
+    }
+  ]
+}

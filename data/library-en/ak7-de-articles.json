@@ -1,0 +1,120 @@
+{
+  "id": "lib-de7-articles",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Articles and gender",
+  "sourceSummary": "The three definite articles der/die/das, the indefinite article, and the plural of nouns.",
+  "topics": [
+    "gender",
+    "definite articles",
+    "indefinite articles",
+    "plural"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de7-art-1",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "How many genders (grammatical genders) do German nouns have?",
+      "opener": "Unlike Swedish's two (en/ett), German has one more.",
+      "choices": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      "answer": 2,
+      "explanation": "German has three genders: masculine (der), feminine (die), and neuter (das). Gender usually has to be learned together with each word."
+    },
+    {
+      "id": "q-de7-art-2",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ Haus ist groß.\" (The house is big.)",
+      "opener": "\"Haus\" is a neuter word.",
+      "choices": [
+        "Der",
+        "Die",
+        "Das",
+        "Den"
+      ],
+      "answer": 2,
+      "explanation": "\"Haus\" (house) is neuter, so the article is \"das\". \"Der\" is used for masculine words, \"die\" for feminine words and plural."
+    },
+    {
+      "id": "q-de7-art-3",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ Kinder spielen im Garten.\" (The children are playing in the garden.)",
+      "opener": "\"Kinder\" (children) is plural.",
+      "choices": [
+        "Der",
+        "Die",
+        "Das",
+        "Den"
+      ],
+      "answer": 1,
+      "explanation": "All plural nouns in German take the article \"die\", regardless of the word's gender in the singular."
+    },
+    {
+      "id": "q-de7-art-4",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Choose the right article: \"Ich habe ___ Katze.\" (I have a cat.)",
+      "opener": "\"Die Katze\" is feminine.",
+      "choices": [
+        "ein",
+        "eine",
+        "einen",
+        "einem"
+      ],
+      "answer": 1,
+      "explanation": "\"Eine\" is the indefinite article for feminine (\"a/an\"). \"Ein\" is used for masculine/neuter in the nominative."
+    },
+    {
+      "id": "q-de7-art-5",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "What is the plural of \"der Tisch\" (the table)?",
+      "opener": "Many masculine words form the plural with -e.",
+      "choices": [
+        "die Tisch",
+        "die Tische",
+        "die Tischs",
+        "der Tische"
+      ],
+      "answer": 1,
+      "explanation": "\"Tisch\" → \"Tische\" in the plural, with the article \"die\" (the plural article for all genders)."
+    },
+    {
+      "id": "q-de7-art-6",
+      "kind": "text",
+      "topic": "gender",
+      "prompt": "Which definite article (der/die/das) goes with \"Mädchen\" (girl)? Write just the article.",
+      "opener": "A classic exception — the word ends in -chen, a diminutive ending that always makes a word neuter.",
+      "answer": "das"
+    },
+    {
+      "id": "q-de7-art-7",
+      "kind": "worked",
+      "topic": "gender",
+      "prompt": "Correct the two errors: \"Der Katze ist klein und das Hund ist groß.\"",
+      "opener": "Check the gender of \"Katze\" and \"Hund\" separately.",
+      "answer": "Die Katze ist klein und der Hund ist groß.",
+      "steps": [
+        "\"Der Katze\" → \"Die Katze\". \"Katze\" (cat) is feminine, so the article should be \"die\", not \"der\".",
+        "\"Das Hund\" → \"Der Hund\". \"Hund\" (dog) is masculine, so the article should be \"der\", not \"das\".",
+        "Gender has to be learned word by word — it's rarely possible to guess just from the meaning."
+      ]
+    },
+    {
+      "id": "q-de7-art-8",
+      "kind": "flashcard",
+      "topic": "gender",
+      "prompt": "How does gender, the definite/indefinite articles, and the plural work in German?",
+      "opener": "The three genders and how the articles follow along.",
+      "answer": "Gender: der (masculine, e.g. der Mann), die (feminine, e.g. die Frau), das (neuter, e.g. das Kind) — has to be learned with each word, rarely possible to guess. Exception to remember: words ending in -chen or -lein are always \"das\" (das Mädchen). Indefinite article: ein (masc./neut.), eine (fem.). Plural: always takes the article \"die\", regardless of the original gender — the word itself is inflected in different ways (-e, -er, -(e)n, or no ending at all)."
+    }
+  ]
+}

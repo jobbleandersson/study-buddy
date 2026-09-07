@@ -1,0 +1,118 @@
+{
+  "id": "lib-sp9-past",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Grammatik: dåtid (pretérito)",
+  "sourceSummary": "Grunderna i pretérito (dåtid) för regelbundna -ar-, -er- och -ir-verb samt de vanliga oregelbundna verben ser/ir och hacer.",
+  "topics": [
+    "preterite tense",
+    "irregular preterite"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp9-past-1",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Välj rätt form: \"Ayer yo ___ con mis amigos.\" (hablar = att prata)",
+      "opener": "-ar-verb i pretérito för \"yo\" slutar på -é.",
+      "choices": [
+        "hablé",
+        "hablo",
+        "hablaste",
+        "habló"
+      ],
+      "answer": 0,
+      "explanation": "Pretérito av -ar-verb: hablé, hablaste, habló, hablamos, hablasteis, hablaron. \"Yo\" ger ändelsen -é: \"hablé\" (jag pratade)."
+    },
+    {
+      "id": "q-sp9-past-2",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Välj rätt form: \"Ella ___ una carta la semana pasada.\" (escribir = att skriva)",
+      "opener": "-ir-verb i pretérito för \"él/ella\" slutar på -ió.",
+      "choices": [
+        "escribo",
+        "escribió",
+        "escribiste",
+        "escribieron"
+      ],
+      "answer": 1,
+      "explanation": "Pretérito av -ir-verb: escribí, escribiste, escribió, escribimos, escribisteis, escribieron. \"Ella\" ger \"escribió\" (hon skrev)."
+    },
+    {
+      "id": "q-sp9-past-3",
+      "kind": "mc",
+      "topic": "irregular preterite",
+      "prompt": "Välj rätt form: \"El año pasado nosotros ___ a España.\" (ir = att åka/gå)",
+      "opener": "Ir är helt oregelbundet i pretérito — och delar faktiskt form med ser!",
+      "choices": [
+        "vamos",
+        "fuimos",
+        "íbamos",
+        "iremos"
+      ],
+      "answer": 1,
+      "explanation": "Pretérito av \"ir\": fui, fuiste, fue, fuimos, fuisteis, fueron. \"Nosotros\" ger \"fuimos\" (vi åkte/gick). Samma form används faktiskt för \"ser\" i pretérito."
+    },
+    {
+      "id": "q-sp9-past-4",
+      "kind": "mc",
+      "topic": "irregular preterite",
+      "prompt": "Välj rätt form: \"¿Qué ___ tú anoche?\" (hacer = att göra)",
+      "opener": "Hacer är oregelbundet i pretérito: hice, hiciste...",
+      "choices": [
+        "haces",
+        "hiciste",
+        "hizo",
+        "hacías"
+      ],
+      "answer": 1,
+      "explanation": "Pretérito av \"hacer\": hice, hiciste, hizo, hicimos, hicisteis, hicieron. \"Tú\" ger \"hiciste\" (du gjorde)."
+    },
+    {
+      "id": "q-sp9-past-5",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Vilket tidsuttryck passar bäst med pretérito?",
+      "opener": "Pretérito beskriver avslutade händelser vid en bestämd tidpunkt.",
+      "choices": [
+        "siempre (alltid)",
+        "ayer (igår)",
+        "normalmente (vanligtvis)",
+        "todos los días (varje dag)"
+      ],
+      "answer": 1,
+      "explanation": "\"Ayer\" (igår) pekar på en avslutad händelse vid en bestämd tidpunkt, precis vad pretérito används för. De andra uttrycken beskriver återkommande vanor och passar bättre med presens."
+    },
+    {
+      "id": "q-sp9-past-6",
+      "kind": "text",
+      "topic": "preterite tense",
+      "prompt": "Skriv pretérito-formen av \"comer\" (äta) för \"tú\": \"Tú ___ mucho en la fiesta.\"",
+      "opener": "-er-verb följer samma pretérito-mönster som -ir-verb.",
+      "answer": "comiste"
+    },
+    {
+      "id": "q-sp9-past-7",
+      "kind": "worked",
+      "topic": "preterite tense",
+      "prompt": "Rätta de två felen: \"Ayer yo comi pizza y despues yo hablo con mi amiga por teléfono.\"",
+      "opener": "Två verb som båda ska stå i pretérito, inte presens.",
+      "answer": "Ayer yo comí pizza y después yo hablé con mi amiga por teléfono.",
+      "steps": [
+        "\"Comi\" saknar accent och är fel form: \"comí\" (med accent på i) är rätt pretérito-form för \"jag åt\".",
+        "\"Hablo\" är presens (\"jag pratar\"), men eftersom det handlar om igår ska det vara pretérito: \"hablé\" (jag pratade).",
+        "Hela meningen: \"Ayer yo comí pizza y después yo hablé con mi amiga por teléfono.\""
+      ]
+    },
+    {
+      "id": "q-sp9-past-8",
+      "kind": "flashcard",
+      "topic": "preterite tense",
+      "prompt": "Hur böjs regelbundna och de vanligaste oregelbundna verben i pretérito?",
+      "opener": "Dåtidsformer för avslutade händelser, plus tre viktiga oregelbundna verb.",
+      "answer": "-ar (hablar): hablé, hablaste, habló, hablamos, hablasteis, hablaron. -er/-ir (comer/escribir): comí/escribí, comiste/escribiste, comió/escribió, comimos/escribimos, comisteis/escribisteis, comieron/escribieron. Ir/ser (samma form!): fui, fuiste, fue, fuimos, fuisteis, fueron. Hacer: hice, hiciste, hizo, hicimos, hicisteis, hicieron. Tidsuttryck som passar: ayer (igår), la semana pasada (förra veckan), el año pasado (förra året), anoche (igår kväll)."
+    }
+  ]
+}

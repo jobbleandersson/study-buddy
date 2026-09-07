@@ -2,7 +2,7 @@
 // subject's sets — instead of one endless page. Works with no API key; every
 // set is a static file that's copied into the student's own library on "Add".
 
-import { store } from "../store.js";
+import { store, PALETTE } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
@@ -32,6 +32,20 @@ export async function renderLibrary() {
   const subjDesc = (s) => tr.subjects[s?.id]?.description || s?.description;
   const setTitle = (s) => tr.sets[s?.id]?.title || s?.title;
   const setSummary = (s) => tr.sets[s?.id]?.summary || s?.summary;
+
+  // Colour-code library subjects the same way the rest of the app does — if
+  // this subject's already in the student's own library (by name), reuse its
+  // real colour so it matches the home menu / progress page; otherwise assign
+  // one by position in its level, so subjects are still visually distinct
+  // while browsing, before anything's been added.
+  function libSubjectColor(subject, siblings) {
+    const name = (subjName(subject) || "").toLowerCase();
+    const own = store.subjects.find((s) => s.name.toLowerCase() === name);
+    if (own) return store.subjectColor(own.id);
+    const idx = Math.max(0, siblings.indexOf(subject));
+    const p = PALETTE[idx % PALETTE.length];
+    return { solid: `var(--c-${p.name})`, ink: `var(--c-${p.name}-ink)`, tint: `var(--c-${p.name}-tint)` };
+  }
 
   const root = el("div");
   const state = { level: null, subject: null, query: "", examMin: 0 };
@@ -96,8 +110,13 @@ export async function renderLibrary() {
     const sections = [...bySubject.entries()].map(([subjId, sets]) => {
       const subject = index.subjects.find((s) => s.id === subjId);
       const level = index.levels.find((l) => l.id === subject?.level);
+      const siblings = index.subjects.filter((s) => s.level === subject?.level);
+      const color = libSubjectColor(subject, siblings);
       return el("section.panel", { style: { marginBottom: "20px" } }, [
-        el("p.note", { style: { marginBottom: "8px" } }, [lvlLabel(level), subjName(subject)].filter(Boolean).join(" · ")),
+        el("p.note", { style: { marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" } }, [
+          el("span", { style: { width: "8px", height: "8px", borderRadius: "var(--r-full)", background: color.solid, flex: "none" } }),
+          [lvlLabel(level), subjName(subject)].filter(Boolean).join(" · "),
+        ]),
         el("div.libgrid", {}, sets.map(setCard)),
       ]);
     });
@@ -126,11 +145,16 @@ export async function renderLibrary() {
     const subjects = index.subjects.filter((s) => s.level === state.level);
     return el("div.panel", {}, [
       el("p", { style: { marginBottom: "16px" } }, t("lib.pickSubject", { level: lvlLabel(level) || "" })),
-      el("div.source-grid", {}, subjects.map((subject) =>
-        el("button.source-opt", { type: "button", onclick: () => { state.subject = subject.id; paint(); } }, [
+      el("div.source-grid", {}, subjects.map((subject) => {
+        const color = libSubjectColor(subject, subjects);
+        return el("button.source-opt.source-opt--subject", {
+          type: "button", onclick: () => { state.subject = subject.id; paint(); },
+          style: { "--subject": color.solid },
+        }, [
           icon(ICONS.book, 26), subjName(subject),
           el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, subjDesc(subject)),
-        ]))),
+        ]);
+      })),
     ]);
   }
 
@@ -139,6 +163,8 @@ export async function renderLibrary() {
     const subject = index.subjects.find((s) => s.id === state.subject);
     const sets = index.sets.filter((s) => s.subject === subject.id);
     const missing = sets.filter((s) => !isImported(s.id));
+    const siblings = index.subjects.filter((s) => s.level === subject.level);
+    const color = libSubjectColor(subject, siblings);
 
     // The exam-prep page keys off the student's own subject id, which only
     // exists once at least one set from here has been imported.
@@ -174,7 +200,10 @@ export async function renderLibrary() {
       el("section.panel", {}, [
         el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "start", gap: "12px", flexWrap: "wrap", marginBottom: "6px" } }, [
           el("div", {}, [
-            el("h3", {}, subjName(subject)),
+            el("h3", { style: { display: "flex", alignItems: "center", gap: "8px" } }, [
+              el("span", { style: { width: "10px", height: "10px", borderRadius: "var(--r-full)", background: color.solid, flex: "none" } }),
+              subjName(subject),
+            ]),
             el("p.note", { style: { marginTop: "4px" } }, subjDesc(subject)),
           ]),
           el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [

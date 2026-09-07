@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp8-food",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Vocabulary: food and drink",
+  "sourceSummary": "Words for food, drink, and meals, plus how to order and talk about what you like.",
+  "topics": [
+    "food and drink",
+    "meals",
+    "gustar"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp8-food-1",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"el pescado\" mean?",
+      "opener": "Not to be confused with \"el pez\", which is the live fish.",
+      "choices": [
+        "Meat",
+        "Fish (as food)",
+        "Bread",
+        "Rice"
+      ],
+      "answer": 1,
+      "explanation": "\"El pescado\" is fish as food. \"El pez\" (plural: los peces) is used for the live fish."
+    },
+    {
+      "id": "q-sp8-food-2",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Which meal is \"la cena\"?",
+      "opener": "Compare with \"el desayuno\" and \"el almuerzo\".",
+      "choices": [
+        "Breakfast",
+        "Lunch",
+        "Dinner",
+        "Snack"
+      ],
+      "answer": 2,
+      "explanation": "\"La cena\" is dinner/the evening meal. \"El desayuno\" is breakfast, and \"el almuerzo\" or \"la comida\" is lunch."
+    },
+    {
+      "id": "q-sp8-food-3",
+      "kind": "mc",
+      "topic": "gustar",
+      "prompt": "Choose the right form: \"A mí me ___ las manzanas.\" (I like apples.)",
+      "opener": "Gustar conjugates based on the thing being liked, not the person doing the liking.",
+      "choices": [
+        "gusta",
+        "gustan",
+        "gusto",
+        "gustas"
+      ],
+      "answer": 1,
+      "explanation": "\"Gustar\" conjugates based on the thing being liked: \"las manzanas\" is plural, so it's \"me gustan\". If the thing liked is singular, \"gusta\" is used instead, e.g. \"me gusta el chocolate\"."
+    },
+    {
+      "id": "q-sp8-food-4",
+      "kind": "mc",
+      "topic": "gustar",
+      "prompt": "How do you ask a friend \"do you like vegetables?\"",
+      "opener": "Swap \"me\" for the right pronoun for \"you\".",
+      "choices": [
+        "¿Te gustan las verduras?",
+        "¿Me gustan las verduras?",
+        "¿Le gusta las verduras?",
+        "¿Gustas las verduras?"
+      ],
+      "answer": 0,
+      "explanation": "For \"you\", \"te\" is used: \"¿Te gustan las verduras?\". \"Me\" is for \"I\", and \"le\" is for \"he/she\"."
+    },
+    {
+      "id": "q-sp8-food-5",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "You're at a restaurant. How do you politely order a glass of water?",
+      "opener": "\"Quisiera\" is a polite form of \"I would like\".",
+      "choices": [
+        "Quiero agua ahora.",
+        "Quisiera un vaso de agua, por favor.",
+        "Dame agua.",
+        "¿Tienes agua?"
+      ],
+      "answer": 1,
+      "explanation": "\"Quisiera un vaso de agua, por favor\" (I would like a glass of water, please) is the most polite form. \"Dame agua\" (give me water) is more direct/impolite."
+    },
+    {
+      "id": "q-sp8-food-6",
+      "kind": "text",
+      "topic": "food and drink",
+      "prompt": "Write the Spanish word for \"bread\".",
+      "opener": "A common word across all three meals.",
+      "answer": "pan"
+    },
+    {
+      "id": "q-sp8-food-7",
+      "kind": "worked",
+      "topic": "gustar",
+      "prompt": "Correct the error: \"A mi hermano le gustan el arroz.\" (My brother likes rice.)",
+      "opener": "Check whether \"el arroz\" is singular or plural.",
+      "answer": "A mi hermano le gusta el arroz.",
+      "steps": [
+        "\"El arroz\" (rice) is singular, so the verb should be \"gusta\", not \"gustan\".",
+        "\"Le\" is already correct — it refers to \"mi hermano\" (him).",
+        "The full sentence: \"A mi hermano le gusta el arroz.\" (My brother likes rice.)"
+      ]
+    },
+    {
+      "id": "q-sp8-food-8",
+      "kind": "flashcard",
+      "topic": "food and drink",
+      "prompt": "Which food, drink, meal words, and gustar constructions should you know at the grade 8 level?",
+      "opener": "Food, meals, and how to express what you like.",
+      "answer": "Food: el pan = bread · el arroz = rice · la carne = meat · el pescado = fish · las verduras = vegetables · la fruta = fruit · el agua = water · la leche = milk. Meals: el desayuno = breakfast · el almuerzo/la comida = lunch · la cena = dinner. Gustar: me/te/le/nos/os/les gusta (singular) / gustan (plural) — the verb conjugates based on the thing being liked, not the person doing the liking. Ordering politely: Quisiera... = I would like... · ..., por favor = ..., please."
+    }
+  ]
+}

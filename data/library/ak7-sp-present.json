@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp7-present",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Grammatik: presens av regelbundna verb",
+  "sourceSummary": "Presensböjning av -ar-, -er- och -ir-verb samt de oregelbundna verben ser och estar.",
+  "topics": [
+    "present tense",
+    "ser and estar",
+    "personal pronouns"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp7-pres-1",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Yo ___ español.\" (hablar = att prata)",
+      "opener": "-ar-verb i presens för \"yo\" slutar på -o.",
+      "choices": [
+        "hablo",
+        "hablas",
+        "habla",
+        "hablan"
+      ],
+      "answer": 0,
+      "explanation": "\"Hablar\" är ett -ar-verb: yo hablo, tú hablas, él/ella habla, ellos hablan. \"Yo\" ger ändelsen -o: \"hablo\"."
+    },
+    {
+      "id": "q-sp7-pres-2",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Ella ___ en Madrid.\" (vivir = att bo)",
+      "opener": "-ir-verb i presens för \"él/ella\" slutar på -e.",
+      "choices": [
+        "vivo",
+        "vives",
+        "vive",
+        "viven"
+      ],
+      "answer": 2,
+      "explanation": "\"Vivir\" är ett -ir-verb: yo vivo, tú vives, él/ella vive, ellos viven. \"Ella\" ger ändelsen -e: \"vive\"."
+    },
+    {
+      "id": "q-sp7-pres-3",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Nosotros ___ mucho en clase.\" (aprender = att lära sig)",
+      "opener": "-er-verb i presens för \"nosotros\" slutar på -emos.",
+      "choices": [
+        "aprendo",
+        "aprendemos",
+        "aprenden",
+        "aprende"
+      ],
+      "answer": 1,
+      "explanation": "\"Aprender\" är ett -er-verb: nosotros aprendemos. Ändelsen -emos används för \"vi\"."
+    },
+    {
+      "id": "q-sp7-pres-4",
+      "kind": "mc",
+      "topic": "ser and estar",
+      "prompt": "Välj rätt verb: \"Mi hermana ___ alta.\" (Min syster är lång.)",
+      "opener": "Ser används för egenskaper som inte ändras, som längd.",
+      "choices": [
+        "es",
+        "está",
+        "eres",
+        "estoy"
+      ],
+      "answer": 0,
+      "explanation": "\"Ser\" används för permanenta egenskaper (utseende, personlighet, yrke): \"es alta\" = \"är lång\". \"Estar\" används i stället för tillfälliga tillstånd eller plats, t.ex. \"está cansada\" (är trött just nu)."
+    },
+    {
+      "id": "q-sp7-pres-5",
+      "kind": "mc",
+      "topic": "ser and estar",
+      "prompt": "Välj rätt verb: \"¿Dónde ___ el baño?\" (Var är toaletten?)",
+      "opener": "Estar används för att säga var något befinner sig.",
+      "choices": [
+        "es",
+        "está",
+        "son",
+        "somos"
+      ],
+      "answer": 1,
+      "explanation": "\"Estar\" används för plats: \"¿Dónde está...?\" = \"Var är...?\". \"Ser\" hade använts för t.ex. tid eller identitet, inte plats."
+    },
+    {
+      "id": "q-sp7-pres-6",
+      "kind": "text",
+      "topic": "personal pronouns",
+      "prompt": "Skriv det spanska ordet för \"ni\" (flera personer du pratar med).",
+      "opener": "Det motsvarande engelska \"you (plural)\" i informell form.",
+      "answer": "vosotros"
+    },
+    {
+      "id": "q-sp7-pres-7",
+      "kind": "worked",
+      "topic": "present tense",
+      "prompt": "Rätta de två felen: \"Yo vive en Suecia y tú hablo inglés muy bien.\"",
+      "opener": "Kolla vilken person varje verb faktiskt hör till.",
+      "answer": "Yo vivo en Suecia y tú hablas inglés muy bien.",
+      "steps": [
+        "\"Yo vive\" → \"Yo vivo\". Verbet vivir böjs efter \"jag\" (yo) till \"vivo\", inte \"vive\" (som är för han/hon).",
+        "\"Tú hablo\" → \"Tú hablas\". Verbet hablar böjs efter \"du\" (tú) till \"hablas\", inte \"hablo\" (som är för jag).",
+        "Läs meningen igen: \"Yo vivo en Suecia y tú hablas inglés muy bien\" betyder \"Jag bor i Sverige och du pratar engelska mycket bra.\""
+      ]
+    },
+    {
+      "id": "q-sp7-pres-8",
+      "kind": "flashcard",
+      "topic": "present tense",
+      "prompt": "Hur böjs -ar-, -er- och -ir-verb i presens, och när använder man ser respektive estar?",
+      "opener": "De tre verbgrupperna följer olika men regelbundna mönster.",
+      "answer": "-ar (hablar): hablo, hablas, habla, hablamos, habláis, hablan. -er (aprender): aprendo, aprendes, aprende, aprendemos, aprendéis, aprenden. -ir (vivir): vivo, vives, vive, vivimos, vivís, viven. Ser används för permanenta saker: yo soy, tú eres, él/ella es, nosotros somos, ellos son — t.ex. utseende, yrke, nationalitet. Estar används för plats och tillfälliga tillstånd: yo estoy, tú estás, él/ella está, nosotros estamos, ellos están — t.ex. var något är, eller hur man mår just nu."
+    }
+  ]
+}

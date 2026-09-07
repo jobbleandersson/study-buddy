@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr8-food",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Ordförråd: mat och dryck",
+  "sourceSummary": "Ord för mat, dryck och måltider, samt hur man beställer och pratar om vad man tycker om.",
+  "topics": [
+    "food and drink",
+    "meals",
+    "aimer"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr8-food-1",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"le poisson\"?",
+      "opener": "Inte att förväxla med djuret i sig, som heter samma sak på franska.",
+      "choices": [
+        "Kött",
+        "Fisk",
+        "Bröd",
+        "Ris"
+      ],
+      "answer": 1,
+      "explanation": "\"Le poisson\" betyder fisk (både djuret och maten)."
+    },
+    {
+      "id": "q-fr8-food-2",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Vilken måltid är \"le dîner\"?",
+      "opener": "Jämför med \"le petit-déjeuner\" och \"le déjeuner\".",
+      "choices": [
+        "Frukost",
+        "Lunch",
+        "Middag",
+        "Mellanmål"
+      ],
+      "answer": 2,
+      "explanation": "\"Le dîner\" är middag/kvällsmat. \"Le petit-déjeuner\" är frukost, och \"le déjeuner\" är lunch."
+    },
+    {
+      "id": "q-fr8-food-3",
+      "kind": "mc",
+      "topic": "aimer",
+      "prompt": "Välj rätt form: \"J'___ les pommes.\" (aimer = att gilla/tycka om)",
+      "opener": "Aimer är ett regelbundet -er-verb.",
+      "choices": [
+        "aime",
+        "aimes",
+        "aimons",
+        "aiment"
+      ],
+      "answer": 0,
+      "explanation": "\"Aimer\" böjs som ett vanligt -er-verb: j'aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. \"Je\" ger \"aime\"."
+    },
+    {
+      "id": "q-fr8-food-4",
+      "kind": "mc",
+      "topic": "aimer",
+      "prompt": "Hur frågar du en vän \"gillar du grönsaker?\"",
+      "opener": "Byt ut \"j'\" mot rätt form för \"du\".",
+      "choices": [
+        "Tu aimes les légumes ?",
+        "J'aime les légumes ?",
+        "Il aime les légumes ?",
+        "Aimez les légumes ?"
+      ],
+      "answer": 0,
+      "explanation": "\"Tu\" ger formen \"aimes\": \"Tu aimes les légumes ?\"."
+    },
+    {
+      "id": "q-fr8-food-5",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Du är på restaurang. Hur beställer du artigt ett glas vatten?",
+      "opener": "\"Je voudrais\" är en artig form av \"jag skulle vilja\".",
+      "choices": [
+        "Je veux de l'eau maintenant.",
+        "Je voudrais un verre d'eau, s'il vous plaît.",
+        "Donne-moi de l'eau.",
+        "Tu as de l'eau ?"
+      ],
+      "answer": 1,
+      "explanation": "\"Je voudrais un verre d'eau, s'il vous plaît\" (jag skulle vilja ha ett glas vatten, tack) är den artigaste formen."
+    },
+    {
+      "id": "q-fr8-food-6",
+      "kind": "text",
+      "topic": "food and drink",
+      "prompt": "Skriv det franska ordet för \"bröd\".",
+      "opener": "Ett vanligt ord i alla tre måltiderna.",
+      "answer": "le pain"
+    },
+    {
+      "id": "q-fr8-food-7",
+      "kind": "worked",
+      "topic": "aimer",
+      "prompt": "Rätta felet: \"Mon frère aimes le riz.\" (Min bror gillar riset.)",
+      "opener": "Kolla vilken person meningen egentligen handlar om.",
+      "answer": "Mon frère aime le riz.",
+      "steps": [
+        "\"Mon frère\" är tredje person (han), inte \"du\".",
+        "\"Aimes\" är du-formen. Rätt form för \"han\" är \"aime\".",
+        "Hela meningen: \"Mon frère aime le riz.\" (Min bror gillar riset.)"
+      ]
+    },
+    {
+      "id": "q-fr8-food-8",
+      "kind": "flashcard",
+      "topic": "food and drink",
+      "prompt": "Vilka mat-, dryck- och måltidsord samt aimer-böjningar bör du kunna på åk8-nivå?",
+      "opener": "Mat, måltider och hur man uttrycker vad man tycker om.",
+      "answer": "Mat: le pain = bröd · le riz = ris · la viande = kött · le poisson = fisk · les légumes = grönsaker · les fruits = frukt · l'eau = vatten · le lait = mjölk. Måltider: le petit-déjeuner = frukost · le déjeuner = lunch · le dîner = middag. Aimer: j'aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. Beställa artigt: Je voudrais... = jag skulle vilja ha... · ..., s'il vous plaît = ..., tack."
+    }
+  ]
+}

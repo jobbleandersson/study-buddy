@@ -1,0 +1,119 @@
+{
+  "id": "lib-de8-food",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Vocabulary: food and drink",
+  "sourceSummary": "Words for food, drink, and meals, plus how to order and talk about what you like.",
+  "topics": [
+    "food and drink",
+    "meals",
+    "mögen"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de8-food-1",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"der Fisch\" mean?",
+      "opener": "A word that resembles English \"fish\".",
+      "choices": [
+        "Meat",
+        "Fish",
+        "Bread",
+        "Rice"
+      ],
+      "answer": 1,
+      "explanation": "\"Der Fisch\" means fish."
+    },
+    {
+      "id": "q-de8-food-2",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Which meal is \"das Abendessen\"?",
+      "opener": "\"Abend\" means evening.",
+      "choices": [
+        "Breakfast",
+        "Lunch",
+        "Dinner",
+        "Snack"
+      ],
+      "answer": 2,
+      "explanation": "\"Das Abendessen\" is dinner/evening meal (literally \"evening-eating\"). \"Das Frühstück\" is breakfast, and \"das Mittagessen\" is lunch."
+    },
+    {
+      "id": "q-de8-food-3",
+      "kind": "mc",
+      "topic": "mögen",
+      "prompt": "Choose the right form: \"Ich ___ Äpfel.\" (mögen = to like)",
+      "opener": "Mögen is irregular in the singular forms.",
+      "choices": [
+        "mag",
+        "magst",
+        "möge",
+        "mögt"
+      ],
+      "answer": 0,
+      "explanation": "\"Mögen\" is conjugated: ich mag, du magst, er/sie/es mag, wir mögen, ihr mögt, sie mögen. \"Ich\" takes \"mag\"."
+    },
+    {
+      "id": "q-de8-food-4",
+      "kind": "mc",
+      "topic": "mögen",
+      "prompt": "How do you ask a friend \"do you like vegetables?\"",
+      "opener": "Swap \"ich\" for the right form for \"du\".",
+      "choices": [
+        "Magst du Gemüse?",
+        "Mag du Gemüse?",
+        "Möge du Gemüse?",
+        "Mögt du Gemüse?"
+      ],
+      "answer": 0,
+      "explanation": "\"Du\" takes the form \"magst\": \"Magst du Gemüse?\"."
+    },
+    {
+      "id": "q-de8-food-5",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "You're at a restaurant. How do you politely order a glass of water?",
+      "opener": "\"Ich hätte gern...\" is a polite ordering phrase.",
+      "choices": [
+        "Ich will Wasser jetzt.",
+        "Ich hätte gern ein Glas Wasser, bitte.",
+        "Gib mir Wasser.",
+        "Hast du Wasser?"
+      ],
+      "answer": 1,
+      "explanation": "\"Ich hätte gern...\" (I would like...) is a polite ordering phrase. \"Ich will\" (I want) sounds more demanding in German than in Swedish."
+    },
+    {
+      "id": "q-de8-food-6",
+      "kind": "text",
+      "topic": "food and drink",
+      "prompt": "Write the German word for \"bread\".",
+      "opener": "A common word at all three meals.",
+      "answer": "das brot"
+    },
+    {
+      "id": "q-de8-food-7",
+      "kind": "worked",
+      "topic": "mögen",
+      "prompt": "Correct the error: \"Meine Schwester magst Reis.\" (My sister likes rice.)",
+      "opener": "Check which person the sentence is actually about.",
+      "answer": "Meine Schwester mag Reis.",
+      "steps": [
+        "\"Meine Schwester\" is third person (she), not \"you\".",
+        "\"Magst\" is the you-form. The right form for \"she\" is \"mag\".",
+        "Full sentence: \"Meine Schwester mag Reis.\" (My sister likes rice.)"
+      ]
+    },
+    {
+      "id": "q-de8-food-8",
+      "kind": "flashcard",
+      "topic": "food and drink",
+      "prompt": "Which food, drink, and meal words, and mögen conjugations, should you know at grade 8 level?",
+      "opener": "Food, meals, and how to express what you like.",
+      "answer": "Food: das Brot = bread · der Reis = rice · das Fleisch = meat · der Fisch = fish · das Gemüse = vegetables · das Obst = fruit · das Wasser = water · die Milch = milk. Meals: das Frühstück = breakfast · das Mittagessen = lunch · das Abendessen = dinner. Mögen: ich mag, du magst, er/sie/es mag, wir mögen, ihr mögt, sie mögen. Ordering politely: Ich hätte gern... = I would like... · ..., bitte = ..., please."
+    }
+  ]
+}

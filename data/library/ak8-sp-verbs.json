@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp8-verbs",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Grammatik: oregelbundna verb i presens",
+  "sourceSummary": "De vanliga oregelbundna verben ir, tener, querer och hacer i presens.",
+  "topics": [
+    "irregular verbs",
+    "ir",
+    "tener"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp8-verb-1",
+      "kind": "mc",
+      "topic": "ir",
+      "prompt": "Välj rätt form: \"Yo ___ al colegio en autobús.\" (ir = att gå/åka)",
+      "opener": "Ir är helt oregelbundet: voy, vas, va...",
+      "choices": [
+        "voy",
+        "vas",
+        "va",
+        "van"
+      ],
+      "answer": 0,
+      "explanation": "\"Ir\" böjs: yo voy, tú vas, él/ella va, nosotros vamos, ellos van. \"Yo\" ger \"voy\"."
+    },
+    {
+      "id": "q-sp8-verb-2",
+      "kind": "mc",
+      "topic": "ir",
+      "prompt": "\"Ir a + infinitiv\" används för att prata om framtid, ungefär som \"ska göra\". Vad betyder \"Vamos a comer\"?",
+      "opener": "Samma konstruktion som engelskans \"going to\".",
+      "choices": [
+        "Vi äter",
+        "Vi ska äta",
+        "Vi åt",
+        "Vi vill äta"
+      ],
+      "answer": 1,
+      "explanation": "\"Ir a + infinitiv\" beskriver något man tänker göra: \"vamos a comer\" = \"vi ska äta\" (strax)."
+    },
+    {
+      "id": "q-sp8-verb-3",
+      "kind": "mc",
+      "topic": "tener",
+      "prompt": "Välj rätt form: \"¿Cuántos años ___ tú?\" (tener = att ha/vara ... år)",
+      "opener": "Tener har en oregelbunden stam med -ie- i vissa former.",
+      "choices": [
+        "tengo",
+        "tienes",
+        "tiene",
+        "tenéis"
+      ],
+      "answer": 1,
+      "explanation": "\"Tener\" böjs: yo tengo, tú tienes, él/ella tiene, nosotros tenemos, ellos tienen. \"Tú\" ger \"tienes\"."
+    },
+    {
+      "id": "q-sp8-verb-4",
+      "kind": "mc",
+      "topic": "tener",
+      "prompt": "Vad betyder \"Tengo hambre\"?",
+      "opener": "Spanskan använder ofta \"ha\" där svenskan använder \"vara\".",
+      "choices": [
+        "Jag är trött",
+        "Jag är hungrig",
+        "Jag är törstig",
+        "Jag har bråttom"
+      ],
+      "answer": 1,
+      "explanation": "\"Tener hambre\" betyder bokstavligen \"ha hunger\", det vill säga \"vara hungrig\". På samma sätt: \"tener sed\" (vara törstig), \"tener sueño\" (vara sömnig), \"tener prisa\" (ha bråttom)."
+    },
+    {
+      "id": "q-sp8-verb-5",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Välj rätt form: \"Nosotros ___ los deberes por la tarde.\" (hacer = att göra)",
+      "opener": "Hacer är regelbundet i \"nosotros\"-formen.",
+      "choices": [
+        "hago",
+        "haces",
+        "hacemos",
+        "hacen"
+      ],
+      "answer": 2,
+      "explanation": "\"Hacer\" böjs: yo hago (oregelbunden!), tú haces, él/ella hace, nosotros hacemos, ellos hacen. \"Nosotros\" ger \"hacemos\", som följer det vanliga -er-mönstret."
+    },
+    {
+      "id": "q-sp8-verb-6",
+      "kind": "text",
+      "topic": "tener",
+      "prompt": "Skriv den spanska formen av \"querer\" (vilja) för \"jag\": \"Yo ___ un helado.\"",
+      "opener": "Querer har samma -ie-mönster som tener.",
+      "answer": "quiero"
+    },
+    {
+      "id": "q-sp8-verb-7",
+      "kind": "worked",
+      "topic": "irregular verbs",
+      "prompt": "Rätta de två felen: \"Yo tiene mucha hambre y quero comer algo.\"",
+      "opener": "Kolla \"jag\"-formen av både tener och querer.",
+      "answer": "Yo tengo mucha hambre y quiero comer algo.",
+      "steps": [
+        "\"Yo tiene\" → \"Yo tengo\". Tener böjs oregelbundet för \"jag\" till \"tengo\", inte \"tiene\" (som är för han/hon).",
+        "\"Quero\" → \"quiero\". Querer har -ie- i stammen för \"jag\": \"quiero\", inte \"quero\".",
+        "Hela meningen: \"Yo tengo mucha hambre y quiero comer algo.\" (Jag är väldigt hungrig och vill äta något.)"
+      ]
+    },
+    {
+      "id": "q-sp8-verb-8",
+      "kind": "flashcard",
+      "topic": "irregular verbs",
+      "prompt": "Hur böjs ir, tener, querer och hacer i presens?",
+      "opener": "Fyra av de allra vanligaste oregelbundna verben.",
+      "answer": "Ir (gå/åka): voy, vas, va, vamos, vais, van. Ir a + infinitiv = ska göra något (framtid). Tener (ha): tengo, tienes, tiene, tenemos, tenéis, tienen. Används i uttryck som tener hambre/sed/sueño/prisa (vara hungrig/törstig/sömnig/ha bråttom). Querer (vilja): quiero, quieres, quiere, queremos, queréis, quieren. Hacer (göra): hago, haces, hace, hacemos, hacéis, hacen — bara \"yo\"-formen är oregelbunden."
+    }
+  ]
+}

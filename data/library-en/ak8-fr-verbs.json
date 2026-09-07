@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr8-verbs",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Grammar: irregular verbs in the present tense",
+  "sourceSummary": "The common irregular verbs aller, faire, vouloir and pouvoir in the present tense, plus aller + infinitive for the future.",
+  "topics": [
+    "irregular verbs",
+    "aller",
+    "futur proche"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr8-verb-1",
+      "kind": "mc",
+      "topic": "aller",
+      "prompt": "Choose the right form: \"Je ___ à l'école en bus.\" (aller = to go)",
+      "opener": "Aller is completely irregular: vais, vas, va...",
+      "choices": [
+        "vais",
+        "vas",
+        "va",
+        "vont"
+      ],
+      "answer": 0,
+      "explanation": "\"Aller\" conjugates as: je vais, tu vas, il/elle va, nous allons, vous allez, ils/elles vont. \"Je\" gives \"vais\"."
+    },
+    {
+      "id": "q-fr8-verb-2",
+      "kind": "mc",
+      "topic": "futur proche",
+      "prompt": "\"Aller + infinitive\" is used to talk about the future, roughly like \"going to do\". What does \"Nous allons manger\" mean?",
+      "opener": "The same construction as English \"going to\".",
+      "choices": [
+        "We eat",
+        "We are going to eat",
+        "We ate",
+        "We want to eat"
+      ],
+      "answer": 1,
+      "explanation": "\"Aller + infinitive\" describes something you intend to do: \"nous allons manger\" = \"we are going to eat\" (soon)."
+    },
+    {
+      "id": "q-fr8-verb-3",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Choose the right form: \"Qu'est-ce que tu ___ ce soir ?\" (faire = to do)",
+      "opener": "Faire is irregular in several forms.",
+      "choices": [
+        "fais",
+        "fait",
+        "faisons",
+        "faites"
+      ],
+      "answer": 0,
+      "explanation": "\"Faire\" conjugates as: je fais, tu fais, il/elle fait, nous faisons, vous faites, ils/elles font. \"Tu\" gives \"fais\"."
+    },
+    {
+      "id": "q-fr8-verb-4",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Choose the right form: \"Elle ___ un gâteau.\" (faire = to make)",
+      "opener": "Check the il/elle form of faire.",
+      "choices": [
+        "fais",
+        "fait",
+        "font",
+        "faites"
+      ],
+      "answer": 1,
+      "explanation": "\"Elle\" gives \"fait\" (she makes)."
+    },
+    {
+      "id": "q-fr8-verb-5",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Choose the right form: \"Nous ___ aller au cinéma.\" (vouloir = to want)",
+      "opener": "Vouloir has -eu- in the stem for nous/vous.",
+      "choices": [
+        "veux",
+        "veut",
+        "voulons",
+        "veulent"
+      ],
+      "answer": 2,
+      "explanation": "\"Vouloir\" conjugates as: je veux, tu veux, il/elle veut, nous voulons, vous voulez, ils/elles veulent. \"Nous\" gives \"voulons\"."
+    },
+    {
+      "id": "q-fr8-verb-6",
+      "kind": "text",
+      "topic": "irregular verbs",
+      "prompt": "Write the French form of \"pouvoir\" (can/to be able to) for \"I\": \"Je ___ venir demain.\"",
+      "opener": "Pouvoir has the same -eu-/-ou- pattern as vouloir.",
+      "answer": "peux"
+    },
+    {
+      "id": "q-fr8-verb-7",
+      "kind": "worked",
+      "topic": "irregular verbs",
+      "prompt": "Correct the two errors: \"Je veut faire mes devoirs, mais je ne peut pas parce que je suis fatigué.\"",
+      "opener": "Check the \"I\"-form of both vouloir and pouvoir.",
+      "answer": "Je veux faire mes devoirs, mais je ne peux pas parce que je suis fatigué.",
+      "steps": [
+        "\"Je veut\" → \"je veux\". Vouloir is conjugated for \"I\" as \"veux\", not \"veut\" (which is for he/she).",
+        "\"Je ne peut pas\" → \"je ne peux pas\". Pouvoir is conjugated for \"I\" as \"peux\", not \"peut\".",
+        "Full sentence: \"Je veux faire mes devoirs, mais je ne peux pas parce que je suis fatigué.\""
+      ]
+    },
+    {
+      "id": "q-fr8-verb-8",
+      "kind": "flashcard",
+      "topic": "irregular verbs",
+      "prompt": "How are aller, faire, vouloir and pouvoir conjugated in the present tense?",
+      "opener": "Four of the most common irregular verbs.",
+      "answer": "Aller (to go): vais, vas, va, allons, allez, vont. Aller + infinitive = going to do something (future, futur proche). Faire (to do/make): fais, fais, fait, faisons, faites, font. Vouloir (to want): veux, veux, veut, voulons, voulez, veulent. Pouvoir (can/to be able to): peux, peux, peut, pouvons, pouvez, peuvent."
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "id": "lib-sp9-reading",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Läsförståelse: en längre text",
+  "sourceSummary": "En sammanhängande text om en resa, med frågor som kräver att man knyter ihop flera delar av texten.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp9-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"El verano pasado, mi familia y yo fuimos a México durante dos semanas. Visitamos las pirámides de Teotihuacán y probamos comida típica, como los tacos y el mole. Hizo mucho calor todos los días, pero no llovió ni una vez.\"\n\nNär gjorde familjen resan?",
+      "opener": "Leta efter tidsuttrycket i första meningen.",
+      "choices": [
+        "Förra vintern",
+        "Förra sommaren",
+        "Den här sommaren",
+        "Förra året, på hösten"
+      ],
+      "answer": 1,
+      "explanation": "\"El verano pasado\" betyder \"förra sommaren\"."
+    },
+    {
+      "id": "q-sp9-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Hur länge var de i Mexiko?",
+      "opener": "\"Durante dos semanas\" — leta efter tidslängden.",
+      "choices": [
+        "En vecka",
+        "Två veckor",
+        "En månad",
+        "Tre dagar"
+      ],
+      "answer": 1,
+      "explanation": "\"Durante dos semanas\" betyder \"i två veckor\"."
+    },
+    {
+      "id": "q-sp9-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad besökte de?",
+      "opener": "\"Visitamos las pirámides de...\"",
+      "choices": [
+        "Ett museum",
+        "Pyramiderna i Teotihuacán",
+        "En strand",
+        "Ett berg"
+      ],
+      "answer": 1,
+      "explanation": "\"Visitamos las pirámides de Teotihuacán\" betyder \"vi besökte pyramiderna i Teotihuacán\"."
+    },
+    {
+      "id": "q-sp9-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Hur var vädret under resan?",
+      "opener": "Leta efter sista meningen om vädret.",
+      "choices": [
+        "Varmt och regnigt",
+        "Kallt men soligt",
+        "Varmt utan regn",
+        "Molnigt hela tiden"
+      ],
+      "answer": 2,
+      "explanation": "\"Hizo mucho calor todos los días, pero no llovió ni una vez\" betyder \"det var mycket varmt varje dag, men det regnade inte en enda gång\"."
+    },
+    {
+      "id": "q-sp9-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Fortsättning: \"Lo que más me gustó fue la comida. El mole es una salsa hecha con chile y chocolate — suena raro, ¡pero está riquísimo!\"\n\nVad tyckte skribenten bäst om under resan?",
+      "opener": "\"Lo que más me gustó\" — vad handlar meningen om?",
+      "choices": [
+        "Pyramiderna",
+        "Vädret",
+        "Maten",
+        "Hotellet"
+      ],
+      "answer": 2,
+      "explanation": "\"Lo que más me gustó fue la comida\" betyder \"det jag gillade mest var maten\"."
+    },
+    {
+      "id": "q-sp9-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vilka två ingredienser nämns i \"mole\"? Svara på svenska.",
+      "opener": "Leta efter \"hecha con...\".",
+      "answer": "chili och choklad"
+    },
+    {
+      "id": "q-sp9-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Skriv en kort spansk mening (4–6 ord) som svarar på: \"¿Qué tiempo hizo durante el viaje?\" (Hur var vädret under resan?)",
+      "opener": "Kombinera informationen om värme och avsaknad av regn.",
+      "answer": "Hizo mucho calor y no llovió.",
+      "steps": [
+        "Hitta väderinformationen i texten: \"Hizo mucho calor todos los días\" och \"no llovió ni una vez\".",
+        "Korta ner till kärnan: \"hizo mucho calor\" (det var mycket varmt) och \"no llovió\" (det regnade inte).",
+        "Sätt ihop: \"Hizo mucho calor y no llovió.\" (Det var mycket varmt och det regnade inte.)"
+      ]
+    },
+    {
+      "id": "q-sp9-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Vilka strategier hjälper dig att förstå en längre spansk text med flera meningar som hör ihop?",
+      "opener": "Att knyta ihop information från olika delar av texten.",
+      "answer": "Läs hela texten en gång utan att stanna vid okända ord, för att få helheten. Leta efter tidsmarkörer (el verano pasado, durante dos semanas) för att förstå NÄR något hände. Leta efter pretérito-verb (fuimos, visitamos, probamos, hizo, llovió) för att förstå VAD som hände. Koppla ihop pronomen och syftningar: \"lo que más me gustó\" syftar tillbaka på hela upplevelsen. Gissa nya ord från sammanhanget — \"riquísimo\" går att gissa från sammanhanget (mat man gillar) även utan att känna till superlativändelsen -ísimo sedan tidigare."
+    }
+  ]
+}

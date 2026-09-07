@@ -1,0 +1,118 @@
+{
+  "id": "lib-fr9-questions",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Frågor och negation",
+  "sourceSummary": "Frågeord, hur frågor byggs upp och hur man gör en mening nekande med ne...pas.",
+  "topics": [
+    "question words",
+    "negation"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr9-q-1",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Vilket frågeord passar: \"___ habites-tu ?\" — \"J'habite à Lyon.\"",
+      "opener": "Svaret talar om en plats.",
+      "choices": [
+        "Quand",
+        "Où",
+        "Comment",
+        "Pourquoi"
+      ],
+      "answer": 1,
+      "explanation": "\"Où habites-tu ?\" betyder \"var bor du?\", och svaret \"j'habite à Lyon\" (jag bor i Lyon) passar precis med det."
+    },
+    {
+      "id": "q-fr9-q-2",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Vilket frågeord passar: \"___ ans as-tu ?\" — \"J'ai quinze ans.\"",
+      "opener": "Svaret är ett tal följt av \"ans\".",
+      "choices": [
+        "Quel",
+        "Combien d'",
+        "Quelle",
+        "Qui"
+      ],
+      "answer": 1,
+      "explanation": "\"Combien d'ans as-tu ?\" betyder \"hur gammal är du?\" (bokstavligen \"hur många år har du?\")."
+    },
+    {
+      "id": "q-fr9-q-3",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Vad frågar \"Pourquoi tu ne viens pas à la fête ?\"?",
+      "opener": "\"Pourquoi\" betyder \"varför\".",
+      "choices": [
+        "Vad heter festen?",
+        "Varför kommer du inte på festen?",
+        "Vem kommer på festen?",
+        "När är festen?"
+      ],
+      "answer": 1,
+      "explanation": "\"Pourquoi...?\" betyder \"varför...?\". Meningen frågar \"varför kommer du inte på festen?\"."
+    },
+    {
+      "id": "q-fr9-q-4",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "Hur gör man meningen \"Je mange de la viande\" (jag äter kött) nekande?",
+      "opener": "Negation på franska ramar in verbet med ne...pas.",
+      "choices": [
+        "Je mange ne pas de la viande.",
+        "Je ne mange pas de viande.",
+        "Je mange pas de la viande no.",
+        "Ne je mange pas de viande."
+      ],
+      "answer": 1,
+      "explanation": "\"Ne\" placeras före verbet och \"pas\" efter: \"Je ne mange pas de viande\" (jag äter inte kött). Notera att \"de la\" ofta blir bara \"de\" i en nekande sats."
+    },
+    {
+      "id": "q-fr9-q-5",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "Vad betyder \"Je ne vais jamais à la salle de sport\"?",
+      "opener": "\"Jamais\" är ett negativt ord som betyder \"aldrig\", och fungerar precis som \"pas\".",
+      "choices": [
+        "Jag går alltid till gymmet",
+        "Jag går aldrig till gymmet",
+        "Jag går ibland till gymmet",
+        "Jag vill gå till gymmet"
+      ],
+      "answer": 1,
+      "explanation": "\"Ne...jamais\" betyder \"aldrig\", och fungerar precis som \"ne...pas\" fast med en annan betydelse."
+    },
+    {
+      "id": "q-fr9-q-6",
+      "kind": "text",
+      "topic": "question words",
+      "prompt": "Skriv frågeordet som betyder \"vem\" på franska.",
+      "opener": "Frågar efter en person.",
+      "answer": "qui"
+    },
+    {
+      "id": "q-fr9-q-7",
+      "kind": "worked",
+      "topic": "negation",
+      "prompt": "Rätta felet: \"Je mange ne pas de légumes parce que je ne les aime pas.\"",
+      "opener": "\"Ne\" ska stå direkt före verbet, \"pas\" direkt efter.",
+      "answer": "Je ne mange pas de légumes parce que je ne les aime pas.",
+      "steps": [
+        "\"Je mange ne pas\" har fel ordföljd — \"ne\" ska stå FÖRE verbet, inte efter.",
+        "Rätt ordföljd: \"Je ne mange pas de légumes\" (jag äter inte grönsaker).",
+        "\"Parce que je ne les aime pas\" (för jag gillar dem inte) stämmer redan och behöver inte ändras."
+      ]
+    },
+    {
+      "id": "q-fr9-q-8",
+      "kind": "flashcard",
+      "topic": "question words",
+      "prompt": "Vilka frågeord och negationsuttryck bör du kunna på åk9-nivå i franska?",
+      "opener": "Att ställa frågor och göra meningar nekande.",
+      "answer": "Frågeord: qu'est-ce que/quoi = vad · qui = vem · où = var · quand = när · comment = hur · pourquoi = varför · combien de = hur mycket/många · quel/quelle = vilken. Negation: ne...pas = inte (Je ne mange pas) · ne...jamais = aldrig · ne...personne = ingen · ne...rien = inget · ne...plus = inte längre. Kom ihåg: \"ne\" står FÖRE verbet, det andra ordet (pas/jamais/rien) EFTER."
+    }
+  ]
+}

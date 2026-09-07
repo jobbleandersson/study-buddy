@@ -1,0 +1,120 @@
+{
+  "id": "lib-de7-articles",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Artiklar och genus",
+  "sourceSummary": "De tre bestämda artiklarna der/die/das, obestämd artikel och plural av substantiv.",
+  "topics": [
+    "gender",
+    "definite articles",
+    "indefinite articles",
+    "plural"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de7-art-1",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "Hur många genus (grammatiska kön) har tyska substantiv?",
+      "opener": "Till skillnad från svenskans två (en/ett) har tyskan ett till.",
+      "choices": [
+        "Ett",
+        "Två",
+        "Tre",
+        "Fyra"
+      ],
+      "answer": 2,
+      "explanation": "Tyska har tre genus: maskulinum (der), femininum (die) och neutrum (das). Genus måste oftast läras in tillsammans med varje ord."
+    },
+    {
+      "id": "q-de7-art-2",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ Haus ist groß.\" (Huset är stort.)",
+      "opener": "\"Haus\" är ett neutrumord.",
+      "choices": [
+        "Der",
+        "Die",
+        "Das",
+        "Den"
+      ],
+      "answer": 2,
+      "explanation": "\"Haus\" (hus) är neutrum, så artikeln är \"das\". \"Der\" används för maskulina ord, \"die\" för feminina ord och plural."
+    },
+    {
+      "id": "q-de7-art-3",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ Kinder spielen im Garten.\" (Barnen leker i trädgården.)",
+      "opener": "\"Kinder\" (barn) är plural.",
+      "choices": [
+        "Der",
+        "Die",
+        "Das",
+        "Den"
+      ],
+      "answer": 1,
+      "explanation": "Alla plural-substantiv på tyska tar artikeln \"die\", oavsett vilket genus ordet har i singular."
+    },
+    {
+      "id": "q-de7-art-4",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Välj rätt artikel: \"Ich habe ___ Katze.\" (Jag har en katt.)",
+      "opener": "\"Die Katze\" är femininum.",
+      "choices": [
+        "ein",
+        "eine",
+        "einen",
+        "einem"
+      ],
+      "answer": 1,
+      "explanation": "\"Eine\" är den obestämda artikeln för femininum (\"en/ett\"). \"Ein\" används för maskulinum/neutrum i nominativ."
+    },
+    {
+      "id": "q-de7-art-5",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "Vad är plural av \"der Tisch\" (bordet)?",
+      "opener": "Många maskulina ord bildar plural med -e.",
+      "choices": [
+        "die Tisch",
+        "die Tische",
+        "die Tischs",
+        "der Tische"
+      ],
+      "answer": 1,
+      "explanation": "\"Tisch\" → \"Tische\" i plural, med artikeln \"die\" (plural-artikel för alla genus)."
+    },
+    {
+      "id": "q-de7-art-6",
+      "kind": "text",
+      "topic": "gender",
+      "prompt": "Vilken bestämd artikel (der/die/das) hör till \"Mädchen\" (flicka)? Skriv bara artikeln.",
+      "opener": "Ett klassiskt undantag — ordet slutar på -chen, en förminskningsändelse som alltid ger neutrum.",
+      "answer": "das"
+    },
+    {
+      "id": "q-de7-art-7",
+      "kind": "worked",
+      "topic": "gender",
+      "prompt": "Rätta de två felen: \"Der Katze ist klein und das Hund ist groß.\"",
+      "opener": "Kolla genus på \"Katze\" och \"Hund\" var för sig.",
+      "answer": "Die Katze ist klein und der Hund ist groß.",
+      "steps": [
+        "\"Der Katze\" → \"Die Katze\". \"Katze\" (katt) är femininum, så artikeln ska vara \"die\", inte \"der\".",
+        "\"Das Hund\" → \"Der Hund\". \"Hund\" (hund) är maskulinum, så artikeln ska vara \"der\", inte \"das\".",
+        "Genus måste läras in ord för ord — det går sällan att gissa bara utifrån betydelsen."
+      ]
+    },
+    {
+      "id": "q-de7-art-8",
+      "kind": "flashcard",
+      "topic": "gender",
+      "prompt": "Hur fungerar genus, bestämda/obestämda artiklar och plural på tyska?",
+      "opener": "De tre genusen och hur artiklarna följer med.",
+      "answer": "Genus: der (maskulinum, t.ex. der Mann), die (femininum, t.ex. die Frau), das (neutrum, t.ex. das Kind) — måste läras in med varje ord, går sällan att gissa. Undantag att komma ihåg: ord som slutar på -chen eller -lein är alltid \"das\" (das Mädchen). Obestämd artikel: ein (mask./neutr.), eine (fem.). Plural: tar alltid artikeln \"die\", oavsett ursprungligt genus — själva ordet böjs på olika sätt (-e, -er, -(e)n, eller ingen ändelse alls)."
+    }
+  ]
+}

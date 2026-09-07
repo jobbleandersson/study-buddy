@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp7-greetings",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Greetings and school phrases",
+  "sourceSummary": "Basic greetings, polite phrases, and words for the classroom and school life.",
+  "topics": [
+    "greetings",
+    "classroom phrases",
+    "politeness"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp7-greet-1",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "How do you say \"Hi, my name is Elena\" in Spanish?",
+      "opener": "The verb llamarse is used to say what your name is.",
+      "choices": [
+        "Hola, me llamo Elena.",
+        "Hola, tú te llamas Elena.",
+        "Adiós, me llamo Elena.",
+        "Hola, mi nombre Elena."
+      ],
+      "answer": 0,
+      "explanation": "\"Me llamo\" means \"my name is\" (literally \"I call myself\"). \"Tú te llamas\" is \"your name is\", and \"adiós\" means \"goodbye\", not \"hi\"."
+    },
+    {
+      "id": "q-sp7-greet-2",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "What does \"¿Qué tal?\" mean?",
+      "opener": "A common, casual greeting between friends.",
+      "choices": [
+        "What's your name?",
+        "How are you?",
+        "Where do you live?",
+        "Goodbye!"
+      ],
+      "answer": 1,
+      "explanation": "\"¿Qué tal?\" is a casual way of asking \"how are you?\" or \"what's up?\", similar to \"¿Cómo estás?\"."
+    },
+    {
+      "id": "q-sp7-greet-3",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "Someone says \"Gracias\". What do you politely reply?",
+      "opener": "What do you say in Spanish when you receive a thank you?",
+      "choices": [
+        "Por favor.",
+        "De nada.",
+        "Lo siento.",
+        "Buenas noches."
+      ],
+      "answer": 1,
+      "explanation": "\"De nada\" means \"you're welcome\"/\"no problem\" and is the usual reply to a thank you. \"Por favor\" means \"please\", and \"lo siento\" means \"I'm sorry\"."
+    },
+    {
+      "id": "q-sp7-greet-4",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "What does \"¿Puedo ir al baño?\" mean?",
+      "opener": "A question you often need to ask during a lesson.",
+      "choices": [
+        "May I open the window?",
+        "May I go to the bathroom?",
+        "What does that word mean?",
+        "Do we have homework?"
+      ],
+      "answer": 1,
+      "explanation": "\"¿Puedo...?\" means \"may I...?\" and \"el baño\" is the bathroom. The whole phrase means \"May I go to the bathroom?\"."
+    },
+    {
+      "id": "q-sp7-greet-5",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "The teacher says \"Abrid el libro, por favor\". What should you do?",
+      "opener": "\"Abrid\" comes from the verb abrir.",
+      "choices": [
+        "Close the book",
+        "Open the book",
+        "Hand in the book",
+        "Read aloud from the book"
+      ],
+      "answer": 1,
+      "explanation": "\"Abrir\" means \"to open\", so \"abrid el libro\" means \"open the book\". \"Por favor\" means \"please\"."
+    },
+    {
+      "id": "q-sp7-greet-6",
+      "kind": "text",
+      "topic": "greetings",
+      "prompt": "Write a Spanish word that means \"good night\".",
+      "opener": "You say it when you're going to bed.",
+      "answer": "buenas noches"
+    },
+    {
+      "id": "q-sp7-greet-7",
+      "kind": "worked",
+      "topic": "politeness",
+      "prompt": "Correct the two errors: \"Hola! Como te llamas? Yo me llama Marc.\"",
+      "opener": "Check the question word and the verb form for \"I\".",
+      "answer": "¡Hola! ¿Cómo te llamas? Yo me llamo Marc.",
+      "steps": [
+        "Questions in Spanish open with an upside-down question mark: \"¿Cómo te llamas?\", not just \"Como te llamas?\".",
+        "\"Yo me llama\" → \"Yo me llamo\". The verb llamarse conjugates for \"I\" (yo) as \"llamo\", not \"llama\" (which is for he/she).",
+        "The same applies to exclamation marks: \"¡Hola!\" should have an upside-down exclamation mark before it."
+      ]
+    },
+    {
+      "id": "q-sp7-greet-8",
+      "kind": "flashcard",
+      "topic": "greetings",
+      "prompt": "Which greetings and polite phrases should you know at the grade 7 level in Spanish?",
+      "opener": "The most common phrases for greeting, thanking, and asking for help.",
+      "answer": "Greetings: Hola = hi · Buenos días = good morning · Buenas tardes = good afternoon · Buenas noches = good night/good evening · Adiós = goodbye · Hasta luego = see you later. How are you: ¿Qué tal? / ¿Cómo estás? = how are you? · Bien, gracias = good, thanks. Politeness: Por favor = please · Gracias = thank you · De nada = you're welcome · Lo siento = I'm sorry · Perdón = excuse me. School: ¿Puedo...? = may I...? · el baño = the bathroom · abrir/cerrar el libro = open/close the book."
+    }
+  ]
+}

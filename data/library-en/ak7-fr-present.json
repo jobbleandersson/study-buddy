@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr7-present",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Grammar: present tense of -er verbs",
+  "sourceSummary": "Present-tense conjugation of regular -er verbs, plus the irregular verbs être and avoir.",
+  "topics": [
+    "present tense",
+    "être and avoir",
+    "personal pronouns"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr7-pres-1",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Je ___ français.\" (parler = to speak)",
+      "opener": "-er verbs in the present tense for \"je\" end in -e.",
+      "choices": [
+        "parle",
+        "parles",
+        "parlons",
+        "parlent"
+      ],
+      "answer": 0,
+      "explanation": "\"Parler\" conjugates as: je parle, tu parles, il/elle parle, nous parlons, vous parlez, ils/elles parlent. \"Je\" gives \"parle\"."
+    },
+    {
+      "id": "q-fr7-pres-2",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Nous ___ à Paris.\" (habiter = to live)",
+      "opener": "The present tense for \"nous\" ends in -ons.",
+      "choices": [
+        "habite",
+        "habites",
+        "habitons",
+        "habitent"
+      ],
+      "answer": 2,
+      "explanation": "\"Habiter\" conjugates as: j'habite, tu habites, il/elle habite, nous habitons, vous habitez, ils/elles habitent. \"Nous\" gives \"habitons\"."
+    },
+    {
+      "id": "q-fr7-pres-3",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Ils ___ beaucoup à l'école.\" (an -er verb similar to apprendre: étudier = to study)",
+      "opener": "The present tense for \"ils/elles\" ends in -ent.",
+      "choices": [
+        "étudie",
+        "étudions",
+        "étudiez",
+        "étudient"
+      ],
+      "answer": 3,
+      "explanation": "\"Étudier\" conjugates as: j'étudie, tu étudies, il/elle étudie, nous étudions, vous étudiez, ils/elles étudient. \"Ils\" gives \"étudient\" — pronounced the same as the singular forms, but spelled with -ent."
+    },
+    {
+      "id": "q-fr7-pres-4",
+      "kind": "mc",
+      "topic": "être and avoir",
+      "prompt": "Choose the right verb: \"Ma sœur ___ grande.\" (My sister is tall.)",
+      "opener": "Être corresponds to English \"to be\".",
+      "choices": [
+        "est",
+        "a",
+        "suis",
+        "sommes"
+      ],
+      "answer": 0,
+      "explanation": "\"Être\" conjugates as: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. \"Ma sœur\" (she) gives \"est\"."
+    },
+    {
+      "id": "q-fr7-pres-5",
+      "kind": "mc",
+      "topic": "être and avoir",
+      "prompt": "Choose the right verb: \"J'___ un chien.\" (I have a dog.)",
+      "opener": "Avoir corresponds to English \"to have\". Before a vowel sound, \"je\" is shortened to \"j'\".",
+      "choices": [
+        "suis",
+        "ai",
+        "es",
+        "as"
+      ],
+      "answer": 1,
+      "explanation": "\"Avoir\" conjugates as: j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont. \"Je\" (shortened to \"j'\" here) gives \"ai\"."
+    },
+    {
+      "id": "q-fr7-pres-6",
+      "kind": "text",
+      "topic": "personal pronouns",
+      "prompt": "Write the French word for \"you\" (plural, several people you're talking to).",
+      "opener": "The same word is used both for polite \"you\" and for plural \"you\".",
+      "answer": "vous"
+    },
+    {
+      "id": "q-fr7-pres-7",
+      "kind": "worked",
+      "topic": "present tense",
+      "prompt": "Correct the two errors: \"J'habites en Suède et tu parle anglais très bien.\"",
+      "opener": "Check which person each verb actually belongs to.",
+      "answer": "J'habite en Suède et tu parles anglais très bien.",
+      "steps": [
+        "\"J'habites\" → \"j'habite\". The verb habiter is conjugated for \"I\" (je) as \"habite\", without an -s.",
+        "\"Tu parle\" → \"tu parles\". The verb parler is conjugated for \"you\" (tu) as \"parles\", with an -s.",
+        "Full sentence: \"J'habite en Suède et tu parles anglais très bien.\" (I live in Sweden and you speak English very well.)"
+      ]
+    },
+    {
+      "id": "q-fr7-pres-8",
+      "kind": "flashcard",
+      "topic": "present tense",
+      "prompt": "How are -er verbs conjugated in the present tense, and how are être and avoir conjugated?",
+      "opener": "The most common verb group plus two of the most important irregular verbs.",
+      "answer": "-er (parler): je parle, tu parles, il/elle parle, nous parlons, vous parlez, ils/elles parlent. Être (to be): je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. Avoir (to have): j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont. Personal pronouns: je (j' before a vowel), tu, il/elle, nous, vous, ils/elles."
+    }
+  ]
+}

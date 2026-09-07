@@ -1,0 +1,118 @@
+{
+  "id": "lib-sp8-adjectives",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Adjectives and descriptions",
+  "sourceSummary": "How adjectives agree in gender and number, and where adjectives are placed in a sentence.",
+  "topics": [
+    "adjective agreement",
+    "descriptions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp8-adj-1",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the correct form: \"Mi hermano es ___.\" (alto = tall)",
+      "opener": "\"Hermano\" is masculine singular.",
+      "choices": [
+        "alto",
+        "alta",
+        "altos",
+        "altas"
+      ],
+      "answer": 0,
+      "explanation": "Adjectives ending in -o agree with the noun: masculine singular \"hermano\" → \"alto\"."
+    },
+    {
+      "id": "q-sp8-adj-2",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the correct form: \"Mis hermanas son ___.\" (simpático = nice)",
+      "opener": "\"Hermanas\" is feminine plural.",
+      "choices": [
+        "simpático",
+        "simpática",
+        "simpáticos",
+        "simpáticas"
+      ],
+      "answer": 3,
+      "explanation": "Feminine plural is formed with -as: \"simpáticas\". The adjective must agree with \"hermanas\" in both gender and number."
+    },
+    {
+      "id": "q-sp8-adj-3",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the correct form: \"El libro es ___.\" (interesante = interesting)",
+      "opener": "Adjectives ending in -e don't change with gender.",
+      "choices": [
+        "interesante",
+        "interesanto",
+        "interesantes",
+        "interesanta"
+      ],
+      "answer": 0,
+      "explanation": "Adjectives ending in -e, like \"interesante\", have the same form for masculine and feminine — only the plural changes (\"interesantes\")."
+    },
+    {
+      "id": "q-sp8-adj-4",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Where are most descriptive adjectives placed in Spanish?",
+      "opener": "This differs from Swedish, where the adjective usually comes before the noun.",
+      "choices": [
+        "Always before the noun",
+        "Always after the noun",
+        "Usually after the noun",
+        "Never in the same sentence"
+      ],
+      "answer": 2,
+      "explanation": "Most descriptive adjectives come after the noun: \"una casa grande\" (a big house), not \"una grande casa\". However, some common adjectives (like bueno/malo) can go before the noun."
+    },
+    {
+      "id": "q-sp8-adj-5",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the correct sentence for \"the black cats\":",
+      "opener": "\"Gatos\" (cats) is masculine plural, and \"black\" = negro.",
+      "choices": [
+        "los gatos negro",
+        "los gatos negra",
+        "los gatos negros",
+        "las gatos negros"
+      ],
+      "answer": 2,
+      "explanation": "\"Gatos\" is masculine plural, so the adjective must be too: \"negros\". The article \"los\" (masculine plural) already agrees."
+    },
+    {
+      "id": "q-sp8-adj-6",
+      "kind": "text",
+      "topic": "adjective agreement",
+      "prompt": "Write the feminine singular form of \"pequeño\" (small).",
+      "opener": "Swap -o for -a.",
+      "answer": "pequeña"
+    },
+    {
+      "id": "q-sp8-adj-7",
+      "kind": "worked",
+      "topic": "adjective agreement",
+      "prompt": "Correct the error: \"Mis amigas son muy divertido.\" (My friends (girls) are very fun.)",
+      "opener": "Check the gender and number of \"amigas\".",
+      "answer": "Mis amigas son muy divertidas.",
+      "steps": [
+        "\"Amigas\" is feminine plural, so the adjective \"divertido\" (which is masculine singular) must change.",
+        "\"Divertido\" → \"divertidas\" to match feminine plural.",
+        "The full sentence: \"Mis amigas son muy divertidas.\" (My friends are very fun.)"
+      ]
+    },
+    {
+      "id": "q-sp8-adj-8",
+      "kind": "flashcard",
+      "topic": "adjective agreement",
+      "prompt": "How do Spanish adjectives agree in gender and number, and where are they placed?",
+      "opener": "Adjectives \"agree\" with the noun they describe.",
+      "answer": "Adjectives ending in -o: alto/alta/altos/altas (agree in gender and number). Adjectives ending in -e: interesante/interesantes (same form for both genders, only the plural changes). Adjectives ending in a consonant: joven/jóvenes (plural with -es). Placement: most descriptive adjectives come AFTER the noun (una casa grande), unlike in Swedish. Examples: gato negro (black cat), casa pequeña (small house), chicas simpáticas (nice girls)."
+    }
+  ]
+}

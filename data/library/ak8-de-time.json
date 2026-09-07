@@ -1,0 +1,119 @@
+{
+  "id": "lib-de8-time",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Klockan och veckodagar",
+  "sourceSummary": "Att klockan är, veckodagar och månader, samt hur man pratar om ett schema.",
+  "topics": [
+    "telling time",
+    "days of the week",
+    "months"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de8-time-1",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Hur frågar man \"vad är klockan?\" på tyska?",
+      "opener": "En fast fras du bara behöver lära dig utantill.",
+      "choices": [
+        "Wie viel Uhr ist es?",
+        "Wann ist es?",
+        "Welcher Tag ist heute?",
+        "Wo ist die Uhr?"
+      ],
+      "answer": 0,
+      "explanation": "\"Wie viel Uhr ist es?\" (eller \"Wie spät ist es?\") är den fasta frasen för \"vad är klockan?\"."
+    },
+    {
+      "id": "q-de8-time-2",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"Es ist halb drei\"?",
+      "opener": "Viktigt: \"halb\" på tyska syftar FRAMÅT mot nästa timme, inte bakåt!",
+      "choices": [
+        "Klockan är kvart över två",
+        "Klockan är halv tre (14:30)",
+        "Klockan är tre",
+        "Klockan är halv fyra (15:30)"
+      ],
+      "answer": 1,
+      "explanation": "På tyska betyder \"halb drei\" \"halvvägs till tre\", alltså 14:30 — precis som svenskans \"halv tre\". Skillnaden mot engelska/spanska är att tyskan räknar mot nästa timme på samma sätt som svenskan gör, så detta är faktiskt lätt att känna igen för en svensktalande."
+    },
+    {
+      "id": "q-de8-time-3",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"Viertel nach neun\"?",
+      "opener": "\"Nach\" betyder \"efter\".",
+      "choices": [
+        "Kvart i nio",
+        "Kvart över nio",
+        "Halv tio",
+        "Nio och en halv"
+      ],
+      "answer": 1,
+      "explanation": "\"Viertel nach neun\" betyder \"kvart över nio\" (09:15). \"Viertel vor\" hade betytt \"kvart i\"."
+    },
+    {
+      "id": "q-de8-time-4",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Vilken veckodag är \"Mittwoch\"?",
+      "opener": "Ordet betyder bokstavligen \"mitten av veckan\".",
+      "choices": [
+        "Tisdag",
+        "Onsdag",
+        "Torsdag",
+        "Fredag"
+      ],
+      "answer": 1,
+      "explanation": "\"Mittwoch\" är onsdag (mitten av veckan). Veckans dagar: Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag."
+    },
+    {
+      "id": "q-de8-time-5",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Vilken månad är \"Dezember\"?",
+      "opener": "Namnet liknar det svenska.",
+      "choices": [
+        "Oktober",
+        "November",
+        "December",
+        "Januari"
+      ],
+      "answer": 2,
+      "explanation": "\"Dezember\" är december. De tyska månadsnamnen liknar de svenska ganska mycket."
+    },
+    {
+      "id": "q-de8-time-6",
+      "kind": "text",
+      "topic": "days of the week",
+      "prompt": "Skriv det tyska ordet för \"lördag\".",
+      "opener": "Kommer direkt före \"Sonntag\" i veckan.",
+      "answer": "samstag"
+    },
+    {
+      "id": "q-de8-time-7",
+      "kind": "worked",
+      "topic": "telling time",
+      "prompt": "Rätta felet: \"Der Unterricht beginnt um halb neun Uhr morgens\" ska betyda 08:30 — men eleven har skrivit \"halb zehn\" av misstag. Skriv rätt tid för 08:30.",
+      "opener": "\"Halb\" pekar mot NÄSTA hela timme.",
+      "answer": "halb neun",
+      "steps": [
+        "08:30 ligger halvvägs mellan åtta och nio.",
+        "\"Halb\" syftar mot nästa timme (nio), inte den föregående (åtta).",
+        "Rätt uttryck är därför \"halb neun\", inte \"halb zehn\" (som skulle betyda 09:30)."
+      ]
+    },
+    {
+      "id": "q-de8-time-8",
+      "kind": "flashcard",
+      "topic": "telling time",
+      "prompt": "Hur frågar och svarar man om klockan, veckodagar och månader på tyska?",
+      "opener": "Fasta fraser för tid, dagar och månader — och kom ihåg hur \"halb\" fungerar.",
+      "answer": "Klockan: Wie viel Uhr ist es?/Wie spät ist es? = Vad är klockan? · Es ist ... Uhr = Klockan är ... · Viertel nach/vor = kvart över/i · halb + NÄSTA timme = halv (halb drei = 14:30, precis som på svenska). Veckodagar: Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag. Månader: Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember."
+    }
+  ]
+}

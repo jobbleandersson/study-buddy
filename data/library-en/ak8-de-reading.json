@@ -1,0 +1,117 @@
+{
+  "id": "lib-de8-reading",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Reading comprehension: a message to a friend",
+  "sourceSummary": "A text message about weekend plans, with questions about details, times, and feelings.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de8-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the message: \"Hallo, Marta! Am Samstag gehe ich mit meinem Bruder ins Kino. Der Film beginnt um sieben Uhr. Willst du mitkommen?\"\n\nWhat is the person going to do on Saturday?",
+      "opener": "Look for \"gehe ich ... ins Kino\".",
+      "choices": [
+        "Go to the movies",
+        "Go to the beach",
+        "Practice football",
+        "Do homework"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich gehe ins Kino\" means \"I'm going to the movies\"."
+    },
+    {
+      "id": "q-de8-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same message. What time does the movie start?",
+      "opener": "\"Um sieben Uhr\" — look for the time.",
+      "choices": [
+        "Six o'clock",
+        "Seven o'clock",
+        "Eight o'clock",
+        "Nine o'clock"
+      ],
+      "answer": 1,
+      "explanation": "\"Der Film beginnt um sieben Uhr\" means \"the movie starts at seven o'clock\"."
+    },
+    {
+      "id": "q-de8-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same message. What does the person ask Marta?",
+      "opener": "The last sentence is a question.",
+      "choices": [
+        "If she wants to see a different movie",
+        "If she wants to come along",
+        "If she knows his brother",
+        "If she's seen the movie before"
+      ],
+      "answer": 1,
+      "explanation": "\"Willst du mitkommen?\" means \"do you want to come along?\"."
+    },
+    {
+      "id": "q-de8-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Marta's reply: \"Klar, gerne! Ich liebe Abenteuerfilme. Um wie viel Uhr treffen wir uns?\"\n\nWhat does Marta think of adventure movies?",
+      "opener": "\"Ich liebe\" is stronger than \"ich mag\".",
+      "choices": [
+        "She doesn't like them",
+        "She's indifferent",
+        "She loves them",
+        "She's never seen any"
+      ],
+      "answer": 2,
+      "explanation": "\"Ich liebe Abenteuerfilme\" means \"I love adventure movies\"."
+    },
+    {
+      "id": "q-de8-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same reply. What does Marta ask at the end?",
+      "opener": "\"Um wie viel Uhr...?\" asks about time, \"treffen wir uns\" means \"we meet\".",
+      "choices": [
+        "Which movie they should see",
+        "What the movie costs",
+        "What time they should meet",
+        "Where the movie theater is"
+      ],
+      "answer": 2,
+      "explanation": "\"Um wie viel Uhr treffen wir uns?\" means \"what time should we meet?\"."
+    },
+    {
+      "id": "q-de8-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Who suggests going to the movies — the person who writes first, or Marta? Answer with \"the person who writes first\".",
+      "opener": "Read the first message again.",
+      "answer": "the person who writes first"
+    },
+    {
+      "id": "q-de8-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Write a short German sentence (3–5 words) that answers: \"Welche Filme mag Marta?\" (Which movies does Marta like?)",
+      "opener": "The answer is in Marta's own reply.",
+      "answer": "Sie liebt Abenteuerfilme.",
+      "steps": [
+        "Find the sentence in the text: \"Ich liebe Abenteuerfilme.\"",
+        "Swap \"ich\" for \"sie\" since the question is about Marta (she), not \"I\".",
+        "\"Sie liebt Abenteuerfilme.\" (She loves adventure movies.)"
+      ]
+    },
+    {
+      "id": "q-de8-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Which phrases are good to recognize in a German text message about plans?",
+      "opener": "Everyday phrases for suggesting, agreeing, and setting a time.",
+      "answer": "Suggesting: Willst du mitkommen? = Do you want to come along? · ich gehe... = I'm going... Agreeing: Klar, gerne! = Sure, gladly! · Ich liebe... = I love... Setting a time: Um wie viel Uhr treffen wir uns? = What time should we meet? · beginnt um... = starts at... Feelings: ich mag = I like · ich liebe = I love (stronger) · ich mag ... nicht = I don't like."
+    }
+  ]
+}

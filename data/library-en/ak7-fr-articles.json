@@ -1,0 +1,120 @@
+{
+  "id": "lib-fr7-articles",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Articles and gender",
+  "sourceSummary": "Definite and indefinite articles, gender (masculine/feminine), and the plural of nouns.",
+  "topics": [
+    "gender",
+    "definite articles",
+    "indefinite articles",
+    "plural"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr7-art-1",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "How many genders do French nouns have?",
+      "opener": "Just like Spanish — no neuter.",
+      "choices": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      "answer": 1,
+      "explanation": "French has two genders: masculine (le) and feminine (la). There is no neuter."
+    },
+    {
+      "id": "q-fr7-art-2",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ maison est grande.\" (The house is big.)",
+      "opener": "\"Maison\" is feminine — and also starts with a consonant.",
+      "choices": [
+        "le",
+        "la",
+        "les",
+        "l'"
+      ],
+      "answer": 1,
+      "explanation": "\"Maison\" (house) is feminine singular, so the article is \"la\". \"Le\" is used for masculine words, \"les\" is plural."
+    },
+    {
+      "id": "q-fr7-art-3",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ école est loin.\" (The school is far away.)",
+      "opener": "\"École\" starts with a vowel.",
+      "choices": [
+        "le",
+        "la",
+        "l'",
+        "les"
+      ],
+      "answer": 2,
+      "explanation": "In front of words starting with a vowel sound, both \"le\" and \"la\" shorten to \"l'\": \"l'école\". The gender (feminine) is no longer visible on the article, but it still affects things like adjectives later on."
+    },
+    {
+      "id": "q-fr7-art-4",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Choose the right article: \"Je veux acheter ___ pomme.\" (I want to buy an apple.)",
+      "opener": "\"Pomme\" is feminine singular.",
+      "choices": [
+        "un",
+        "une",
+        "des",
+        "de"
+      ],
+      "answer": 1,
+      "explanation": "\"Une\" is the indefinite article for feminine (\"a/an\"). \"Un\" is masculine, and \"des\" means \"some\"."
+    },
+    {
+      "id": "q-fr7-art-5",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "What is the plural of \"le livre\" (the book)?",
+      "opener": "Most French nouns form the plural with -s, which is often NOT pronounced.",
+      "choices": [
+        "le livres",
+        "les livre",
+        "les livres",
+        "le livre"
+      ],
+      "answer": 2,
+      "explanation": "The plural is formed with -s: \"livre\" → \"livres\", and the article becomes \"les\" (the plural article for both genders). Note that -s is usually not heard when speaking."
+    },
+    {
+      "id": "q-fr7-art-6",
+      "kind": "text",
+      "topic": "plural",
+      "prompt": "Write the plural of \"la table\" (the table) — just the word for \"table\", not the article.",
+      "opener": "Common pattern: just add -s.",
+      "answer": "tables"
+    },
+    {
+      "id": "q-fr7-art-7",
+      "kind": "worked",
+      "topic": "gender",
+      "prompt": "Correct the two errors: \"Le table est nouvelle et j'ai un pomme rouge.\"",
+      "opener": "Check the gender of \"table\" and \"pomme\" — both are feminine.",
+      "answer": "La table est nouvelle et j'ai une pomme rouge.",
+      "steps": [
+        "\"Le table\" → \"La table\". \"Table\" is feminine, so the article should be \"la\", not \"le\".",
+        "\"Un pomme\" → \"une pomme\". \"Pomme\" (apple) is also feminine, so it should be \"une\", not \"un\".",
+        "Gender has to be learned with each word — it's rarely possible to guess it from the meaning."
+      ]
+    },
+    {
+      "id": "q-fr7-art-8",
+      "kind": "flashcard",
+      "topic": "gender",
+      "prompt": "How do gender, definite/indefinite articles, and plural work in French?",
+      "opener": "Two genders, and how the articles follow along.",
+      "answer": "Gender: le (masculine, e.g. le livre), la (feminine, e.g. la table) — must be learned with each word. Before a vowel sound: both le and la become l' (l'école, l'ami). Definite article plural: les (same for both genders). Indefinite article: un (masc.), une (fem.), des (plural, 'some'). Plural: almost always noun + -s (usually not pronounced), with the article les."
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "id": "lib-sp9-reading",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Reading comprehension: a longer text",
+  "sourceSummary": "A connected text about a trip, with questions that require linking together several parts of the text.",
+  "topics": [
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp9-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"El verano pasado, mi familia y yo fuimos a México durante dos semanas. Visitamos las pirámides de Teotihuacán y probamos comida típica, como los tacos y el mole. Hizo mucho calor todos los días, pero no llovió ni una vez.\"\n\nWhen did the family take the trip?",
+      "opener": "Look for the time expression in the first sentence.",
+      "choices": [
+        "Last winter",
+        "Last summer",
+        "This summer",
+        "Last year, in the fall"
+      ],
+      "answer": 1,
+      "explanation": "\"El verano pasado\" means \"last summer\"."
+    },
+    {
+      "id": "q-sp9-read-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. How long were they in Mexico?",
+      "opener": "\"Durante dos semanas\" — look for the length of time.",
+      "choices": [
+        "One week",
+        "Two weeks",
+        "One month",
+        "Three days"
+      ],
+      "answer": 1,
+      "explanation": "\"Durante dos semanas\" means \"for two weeks\"."
+    },
+    {
+      "id": "q-sp9-read-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What did they visit?",
+      "opener": "\"Visitamos las pirámides de...\"",
+      "choices": [
+        "A museum",
+        "The pyramids of Teotihuacán",
+        "A beach",
+        "A mountain"
+      ],
+      "answer": 1,
+      "explanation": "\"Visitamos las pirámides de Teotihuacán\" means \"we visited the pyramids of Teotihuacán\"."
+    },
+    {
+      "id": "q-sp9-read-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What was the weather like during the trip?",
+      "opener": "Look for the last sentence about the weather.",
+      "choices": [
+        "Hot and rainy",
+        "Cold but sunny",
+        "Hot without rain",
+        "Cloudy the whole time"
+      ],
+      "answer": 2,
+      "explanation": "\"Hizo mucho calor todos los días, pero no llovió ni una vez\" means \"it was very hot every day, but it didn't rain even once\"."
+    },
+    {
+      "id": "q-sp9-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Continuation: \"Lo que más me gustó fue la comida. El mole es una salsa hecha con chile y chocolate — suena raro, ¡pero está riquísimo!\"\n\nWhat did the writer like best about the trip?",
+      "opener": "\"Lo que más me gustó\" — what is the sentence about?",
+      "choices": [
+        "The pyramids",
+        "The weather",
+        "The food",
+        "The hotel"
+      ],
+      "answer": 2,
+      "explanation": "\"Lo que más me gustó fue la comida\" means \"what I liked most was the food\"."
+    },
+    {
+      "id": "q-sp9-read-6",
+      "kind": "text",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Which two ingredients are mentioned in \"mole\"? Answer in English.",
+      "opener": "Look for \"hecha con...\".",
+      "answer": "chili and chocolate"
+    },
+    {
+      "id": "q-sp9-read-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Write a short Spanish sentence (4–6 words) answering: \"¿Qué tiempo hizo durante el viaje?\" (What was the weather like during the trip?)",
+      "opener": "Combine the information about heat and the lack of rain.",
+      "answer": "Hizo mucho calor y no llovió.",
+      "steps": [
+        "Find the weather information in the text: \"Hizo mucho calor todos los días\" and \"no llovió ni una vez\".",
+        "Trim it down to the essentials: \"hizo mucho calor\" (it was very hot) and \"no llovió\" (it didn't rain).",
+        "Put it together: \"Hizo mucho calor y no llovió.\" (It was very hot and it didn't rain.)"
+      ]
+    },
+    {
+      "id": "q-sp9-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Which strategies help you understand a longer Spanish text with several connected sentences?",
+      "opener": "Linking information from different parts of the text.",
+      "answer": "Read the whole text once without stopping at unknown words, to get the overall picture. Look for time markers (el verano pasado, durante dos semanas) to understand WHEN something happened. Look for preterite verbs (fuimos, visitamos, probamos, hizo, llovió) to understand WHAT happened. Connect pronouns and references: \"lo que más me gustó\" refers back to the whole experience. Guess new words from context — \"riquísimo\" can be guessed from context (food you like) even without knowing the superlative ending -ísimo beforehand."
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "id": "lib-de9-perfect",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Grammatik: perfekt",
+  "sourceSummary": "Hur perfekt bildas med haben eller sein, och de vanligaste particip-formerna.",
+  "topics": [
+    "perfect tense",
+    "haben or sein"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de9-perf-1",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "Hur bildas perfekt på tyska?",
+      "opener": "Två delar: ett hjälpverb och participet.",
+      "choices": [
+        "Bara med participet",
+        "Haben eller sein böjt + particip i slutet",
+        "Bara med haben, böjt i slutet",
+        "Particip böjt + haben i slutet"
+      ],
+      "answer": 1,
+      "explanation": "Perfekt bildas med haben eller sein böjt på plats två, och participet (t.ex. gemacht, gefahren) sist i satsen: \"Ich habe das gemacht.\""
+    },
+    {
+      "id": "q-de9-perf-2",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "Vilket particip hör till \"machen\" (göra)?",
+      "opener": "Regelbundna verb bildar particip med ge- + stam + -t.",
+      "choices": [
+        "gemacht",
+        "machte",
+        "gemachen",
+        "macht"
+      ],
+      "answer": 0,
+      "explanation": "Regelbundna verb: ge- + stam + -t. \"Machen\" → \"gemacht\"."
+    },
+    {
+      "id": "q-de9-perf-3",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Välj rätt hjälpverb: \"Ich ___ nach Berlin gefahren.\" (fahren = förflyttning)",
+      "opener": "Verb som beskriver en förflyttning från ett ställe till ett annat använder sein.",
+      "choices": [
+        "habe",
+        "bin",
+        "hat",
+        "ist"
+      ],
+      "answer": 1,
+      "explanation": "Verb som beskriver rörelse/förflyttning (fahren, gehen, kommen) använder \"sein\" som hjälpverb: \"ich bin gefahren\"."
+    },
+    {
+      "id": "q-de9-perf-4",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Välj rätt hjälpverb: \"Wir ___ Pizza gegessen.\" (essen = äta)",
+      "opener": "De flesta verb som INTE beskriver förflyttning använder haben.",
+      "choices": [
+        "haben",
+        "sind",
+        "hat",
+        "ist"
+      ],
+      "answer": 0,
+      "explanation": "\"Essen\" beskriver ingen förflyttning, så det använder \"haben\": \"wir haben ... gegessen\"."
+    },
+    {
+      "id": "q-de9-perf-5",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "Vilket particip hör till \"sehen\" (se)? Ett oregelbundet (starkt) verb.",
+      "opener": "Starka verb bildar particip med ge- + (ofta ändrad) stam + -en.",
+      "choices": [
+        "gesehen",
+        "geseht",
+        "gesieht",
+        "sehte"
+      ],
+      "answer": 0,
+      "explanation": "\"Sehen\" är starkt (oregelbundet): particip \"gesehen\", med -en i slutet i stället för -t."
+    },
+    {
+      "id": "q-de9-perf-6",
+      "kind": "text",
+      "topic": "perfect tense",
+      "prompt": "Skriv participet av \"spielen\" (spela) — ett regelbundet verb.",
+      "opener": "ge- + stam + -t.",
+      "answer": "gespielt"
+    },
+    {
+      "id": "q-de9-perf-7",
+      "kind": "worked",
+      "topic": "haben or sein",
+      "prompt": "Rätta felet: \"Gestern habe ich in die Stadt gegangen.\" (Igår gick jag till stan.)",
+      "opener": "\"Gehen\" beskriver en förflyttning.",
+      "answer": "Gestern bin ich in die Stadt gegangen.",
+      "steps": [
+        "\"Gehen\" (gå) beskriver en förflyttning, så hjälpverbet ska vara \"sein\", inte \"haben\".",
+        "\"Habe\" → \"bin\".",
+        "Hela meningen: \"Gestern bin ich in die Stadt gegangen.\" (Igår gick jag till stan.)"
+      ]
+    },
+    {
+      "id": "q-de9-perf-8",
+      "kind": "flashcard",
+      "topic": "perfect tense",
+      "prompt": "Hur bildas perfekt på tyska, och när använder man haben respektive sein?",
+      "opener": "Två hjälpverb och två sorters particip.",
+      "answer": "Struktur: haben/sein böjt (plats 2) + particip (sist i satsen). Sein används för förflyttning/tillståndsförändring: gehen → ist gegangen, fahren → ist gefahren, kommen → ist gekommen, sein → ist gewesen. Haben används för de flesta andra verb: machen → hat gemacht, essen → hat gegessen, spielen → hat gespielt, sehen → hat gesehen. Regelbundna particip: ge+stam+t. Starka (oregelbundna) particip: ge+stam+en, ofta med ändrad stamvokal."
+    }
+  ]
+}

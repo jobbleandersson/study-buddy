@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp7-greetings",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Hälsningsfraser och skolan",
+  "sourceSummary": "Grundläggande hälsningsfraser, artighetsfraser och ord för klassrummet och skolvardagen.",
+  "topics": [
+    "greetings",
+    "classroom phrases",
+    "politeness"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp7-greet-1",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Hur säger man \"Hej, jag heter Elena\" på spanska?",
+      "opener": "Verbet llamarse används för att säga vad man heter.",
+      "choices": [
+        "Hola, me llamo Elena.",
+        "Hola, tú te llamas Elena.",
+        "Adiós, me llamo Elena.",
+        "Hola, mi nombre Elena."
+      ],
+      "answer": 0,
+      "explanation": "\"Me llamo\" betyder \"jag heter\" (bokstavligen \"jag kallar mig\"). \"Tú te llamas\" är \"du heter\", och \"adiós\" betyder \"hej då\", inte \"hej\"."
+    },
+    {
+      "id": "q-sp7-greet-2",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Vad betyder \"¿Qué tal?\"?",
+      "opener": "En vanlig, avslappnad hälsningsfras mellan kompisar.",
+      "choices": [
+        "Vad heter du?",
+        "Hur mår du?",
+        "Var bor du?",
+        "Hej då!"
+      ],
+      "answer": 1,
+      "explanation": "\"¿Qué tal?\" är ett avslappnat sätt att fråga \"hur mår du?\" eller \"hur är läget?\", ungefär som \"¿Cómo estás?\"."
+    },
+    {
+      "id": "q-sp7-greet-3",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "Någon säger \"Gracias\". Vad svarar du artigt?",
+      "opener": "Vad säger man på spanska när man tar emot ett tack?",
+      "choices": [
+        "Por favor.",
+        "De nada.",
+        "Lo siento.",
+        "Buenas noches."
+      ],
+      "answer": 1,
+      "explanation": "\"De nada\" betyder \"ingen orsak\"/\"varsågod\" och är det vanliga svaret på ett tack. \"Por favor\" betyder \"snälla\", och \"lo siento\" betyder \"förlåt\"."
+    },
+    {
+      "id": "q-sp7-greet-4",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "Vad betyder \"¿Puedo ir al baño?\"?",
+      "opener": "En fråga man ofta behöver ställa under en lektion.",
+      "choices": [
+        "Får jag öppna fönstret?",
+        "Får jag gå på toaletten?",
+        "Vad betyder det ordet?",
+        "Har vi läxa?"
+      ],
+      "answer": 1,
+      "explanation": "\"¿Puedo...?\" betyder \"får jag...?\" och \"el baño\" är toaletten. Hela frasen betyder \"Får jag gå på toaletten?\"."
+    },
+    {
+      "id": "q-sp7-greet-5",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "Läraren säger \"Abrid el libro, por favor\". Vad ska ni göra?",
+      "opener": "\"Abrid\" kommer från verbet abrir.",
+      "choices": [
+        "Stänga boken",
+        "Öppna boken",
+        "Lämna in boken",
+        "Läsa högt ur boken"
+      ],
+      "answer": 1,
+      "explanation": "\"Abrir\" betyder \"att öppna\", så \"abrid el libro\" betyder \"öppna boken\". \"Por favor\" betyder \"snälla\"."
+    },
+    {
+      "id": "q-sp7-greet-6",
+      "kind": "text",
+      "topic": "greetings",
+      "prompt": "Skriv ett spanskt ord som betyder \"god natt\".",
+      "opener": "Man säger det när man går och lägger sig.",
+      "answer": "buenas noches"
+    },
+    {
+      "id": "q-sp7-greet-7",
+      "kind": "worked",
+      "topic": "politeness",
+      "prompt": "Rätta de två felen: \"Hola! Como te llamas? Yo me llama Marc.\"",
+      "opener": "Kolla frågeordet och verbformen för \"jag\".",
+      "answer": "¡Hola! ¿Cómo te llamas? Yo me llamo Marc.",
+      "steps": [
+        "Frågor på spanska inleds med ett upp-och-ner-vänt frågetecken: \"¿Cómo te llamas?\", inte bara \"Como te llamas?\".",
+        "\"Yo me llama\" → \"Yo me llamo\". Verbet llamarse böjs efter \"jag\" (yo) till \"llamo\", inte \"llama\" (som är för han/hon).",
+        "Samma sak gäller utropstecken: \"¡Hola!\" ska ha ett upp-och-ner-vänt utropstecken före."
+      ]
+    },
+    {
+      "id": "q-sp7-greet-8",
+      "kind": "flashcard",
+      "topic": "greetings",
+      "prompt": "Vilka hälsnings- och artighetsfraser bör du kunna på åk7-nivå i spanska?",
+      "opener": "De vanligaste fraserna för att hälsa, tacka och be om hjälp.",
+      "answer": "Hälsningar: Hola = hej · Buenos días = god morgon · Buenas tardes = god eftermiddag · Buenas noches = god natt/god kväll · Adiós = hej då · Hasta luego = vi ses. Må bra: ¿Qué tal? / ¿Cómo estás? = hur mår du? · Bien, gracias = bra, tack. Artighet: Por favor = snälla · Gracias = tack · De nada = ingen orsak · Lo siento = förlåt · Perdón = ursäkta. Skolan: ¿Puedo...? = får jag...? · el baño = toaletten · abrir/cerrar el libro = öppna/stänga boken."
+    }
+  ]
+}

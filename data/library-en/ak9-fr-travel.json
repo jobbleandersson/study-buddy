@@ -1,0 +1,118 @@
+{
+  "id": "lib-fr9-travel",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Vocabulary: travel and weather",
+  "sourceSummary": "Words for travel, means of transport, and talking about the weather.",
+  "topics": [
+    "travel",
+    "weather"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr9-trav-1",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"un billet aller-retour\" mean?",
+      "opener": "\"Aller-retour\" means \"there and back\".",
+      "choices": [
+        "One-way ticket",
+        "Round-trip ticket",
+        "Annual pass",
+        "Seat reservation"
+      ],
+      "answer": 1,
+      "explanation": "\"Un billet aller-retour\" is a round-trip ticket. A one-way ticket is \"un billet aller simple\"."
+    },
+    {
+      "id": "q-fr9-trav-2",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "You're at the airport looking for \"la valise\". What are you looking for?",
+      "opener": "Something you pack for a trip.",
+      "choices": [
+        "The passport",
+        "The suitcase",
+        "The exit",
+        "The boarding pass"
+      ],
+      "answer": 1,
+      "explanation": "\"La valise\" is the suitcase. \"Le passeport\" is the passport, and \"la sortie\" is the exit."
+    },
+    {
+      "id": "q-fr9-trav-3",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "What does \"Il fait très chaud aujourd'hui\" mean?",
+      "opener": "Weather expressions in French often use the verb faire.",
+      "choices": [
+        "It's very cold today",
+        "It's very hot today",
+        "It's raining a lot today",
+        "It's very windy today"
+      ],
+      "answer": 1,
+      "explanation": "\"Il fait chaud\" means \"it's hot\" (literally \"it makes hot\"). \"Très\" intensifies it to \"very hot\"."
+    },
+    {
+      "id": "q-fr9-trav-4",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Choose the right weather phrase: \"Il ___ beaucoup en Bretagne en automne.\" (It rains a lot in Brittany in the fall.)",
+      "opener": "Rain has its own expression, not faire.",
+      "choices": [
+        "fait",
+        "pleut",
+        "neige",
+        "est"
+      ],
+      "answer": 1,
+      "explanation": "\"Pleuvoir\" (to rain) conjugates as \"il pleut\" in the third person. \"Neiger\" (to snow) works the same way: \"il neige\"."
+    },
+    {
+      "id": "q-fr9-trav-5",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What do you ask if you want to know where the train departs from?",
+      "opener": "\"D'où...?\" asks where from.",
+      "choices": [
+        "À quelle heure arrive le train ?",
+        "D'où part le train ?",
+        "Combien coûte le billet ?",
+        "De quelle couleur est le train ?"
+      ],
+      "answer": 1,
+      "explanation": "\"D'où part le train ?\" means \"where does the train depart from?\". \"À quelle heure arrive...?\" instead asks when it ARRIVES."
+    },
+    {
+      "id": "q-fr9-trav-6",
+      "kind": "text",
+      "topic": "weather",
+      "prompt": "Write the French phrase for \"it's sunny\" (three words: \"il fait ...\").",
+      "opener": "Comes from \"le soleil\" (the sun).",
+      "answer": "il fait soleil"
+    },
+    {
+      "id": "q-fr9-trav-7",
+      "kind": "worked",
+      "topic": "travel",
+      "prompt": "Correct the error: \"L'avion part à huit heures et arrive dix heures.\" (The plane departs at eight and arrives at ten.)",
+      "opener": "\"Arriver\" needs the preposition \"à\" before the time.",
+      "answer": "L'avion part à huit heures et arrive à dix heures.",
+      "steps": [
+        "\"Arrive dix heures\" is missing the preposition \"à\" before the time.",
+        "Correct form: \"arrive à dix heures\" — just like \"part à huit heures\" uses \"à\" before the time.",
+        "Full sentence: \"L'avion part à huit heures et arrive à dix heures.\""
+      ]
+    },
+    {
+      "id": "q-fr9-trav-8",
+      "kind": "flashcard",
+      "topic": "travel",
+      "prompt": "Which travel and weather expressions should you know at grade 9 level in French?",
+      "opener": "Booking, traveling, and talking about the weather.",
+      "answer": "Travel: le billet (aller simple / aller-retour) = ticket (one-way/round-trip) · la valise = suitcase · le passeport = passport · le train/avion/bus = train/plane/bus · partir = to depart · arriver = to arrive · D'où part...? = Where does ... depart from? Weather: il fait chaud/froid/soleil/du vent = it's hot/cold/sunny/windy · il pleut = it's raining · il neige = it's snowing · c'est nuageux = it's cloudy."
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "id": "lib-sp7-articles",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Artiklar och genus",
+  "sourceSummary": "Bestämda och obestämda artiklar, genus (maskulinum/femininum) och plural av substantiv.",
+  "topics": [
+    "gender",
+    "definite articles",
+    "indefinite articles",
+    "plural"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp7-art-1",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "Vilket genus har de flesta ord som slutar på -o, som \"libro\" (bok)?",
+      "opener": "-o och -a är de vanligaste genusändelserna på spanska.",
+      "choices": [
+        "Maskulinum",
+        "Femininum",
+        "Det beror aldrig på ändelsen",
+        "Neutrum"
+      ],
+      "answer": 0,
+      "explanation": "Ord som slutar på -o är oftast maskulina, som \"el libro\" (boken). Ord som slutar på -a är oftast feminina, som \"la mesa\" (bordet). Spanska har inget neutrum för substantiv."
+    },
+    {
+      "id": "q-sp7-art-2",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ casa es grande.\" (Huset är stort.)",
+      "opener": "\"Casa\" slutar på -a, ett vanligt feminint mönster.",
+      "choices": [
+        "El",
+        "La",
+        "Los",
+        "Las"
+      ],
+      "answer": 1,
+      "explanation": "\"Casa\" är feminint och singular, så artikeln är \"la\". \"El\" används för maskulina ord, \"los\"/\"las\" är plural."
+    },
+    {
+      "id": "q-sp7-art-3",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ chicos juegan en el parque.\" (Pojkarna leker i parken.)",
+      "opener": "\"Chicos\" är plural och maskulint.",
+      "choices": [
+        "El",
+        "La",
+        "Los",
+        "Las"
+      ],
+      "answer": 2,
+      "explanation": "\"Chicos\" (pojkar/killar) är maskulint plural, och då används \"los\". \"Las\" hade använts för feminint plural, t.ex. \"las chicas\"."
+    },
+    {
+      "id": "q-sp7-art-4",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Välj rätt artikel: \"Quiero comprar ___ manzana.\" (Jag vill köpa ett äpple.)",
+      "opener": "\"Manzana\" är feminint singular — jämför med \"la manzana\".",
+      "choices": [
+        "un",
+        "una",
+        "unos",
+        "unas"
+      ],
+      "answer": 1,
+      "explanation": "\"Una\" är den obestämda artikeln för femininum singular (\"ett/en\"). \"Un\" är maskulint, och \"unos\"/\"unas\" betyder \"några\"."
+    },
+    {
+      "id": "q-sp7-art-5",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "Vad är plural av \"el profesor\" (läraren, man)?",
+      "opener": "Ord som slutar på konsonant får plural-ändelsen -es.",
+      "choices": [
+        "los profesor",
+        "los profesors",
+        "los profesores",
+        "las profesoras"
+      ],
+      "answer": 2,
+      "explanation": "Ord som slutar på konsonant bildar plural med -es: \"profesor\" → \"profesores\". Artikeln blir samtidigt \"los\" (maskulint plural)."
+    },
+    {
+      "id": "q-sp7-art-6",
+      "kind": "text",
+      "topic": "plural",
+      "prompt": "Skriv plural av \"la mesa\" (bordet) — bara ordet för \"bord\", inte artikeln.",
+      "opener": "Ord som slutar på vokal får bara ett -s i plural.",
+      "answer": "mesas"
+    },
+    {
+      "id": "q-sp7-art-7",
+      "kind": "worked",
+      "topic": "gender",
+      "prompt": "Rätta de två felen: \"El mesa es nueva y tengo un manzana roja.\"",
+      "opener": "Kolla genus på \"mesa\" och \"manzana\" — båda slutar på -a.",
+      "answer": "La mesa es nueva y tengo una manzana roja.",
+      "steps": [
+        "\"El mesa\" → \"La mesa\". \"Mesa\" (bord) är feminint, så artikeln ska vara \"la\", inte \"el\".",
+        "\"Un manzana\" → \"una manzana\". \"Manzana\" (äpple) är också feminint, så det ska vara \"una\", inte \"un\".",
+        "Kom ihåg tumregeln: ord som slutar på -a är oftast feminina och tar la/una, ord som slutar på -o är oftast maskulina och tar el/un."
+      ]
+    },
+    {
+      "id": "q-sp7-art-8",
+      "kind": "flashcard",
+      "topic": "gender",
+      "prompt": "Hur fungerar genus, bestämda/obestämda artiklar och plural på spanska?",
+      "opener": "Grundreglerna för -o/-a och hur artiklarna följer med.",
+      "answer": "Genus: ord på -o är oftast maskulina (el libro), ord på -a är oftast feminina (la mesa) — men det finns undantag att lära sig separat, som \"el día\" (dagen) och \"la mano\" (handen). Bestämd artikel: el (mask. sg.), la (fem. sg.), los (mask. pl.), las (fem. pl.). Obestämd artikel: un (mask. sg.), una (fem. sg.), unos (mask. pl., 'några'), unas (fem. pl., 'några'). Plural: vokal + -s (mesa → mesas), konsonant + -es (profesor → profesores)."
+    }
+  ]
+}

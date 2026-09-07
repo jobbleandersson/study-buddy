@@ -276,6 +276,60 @@
       "level": "gymnasiet",
       "name": "Religionskunskap 1",
       "description": "Den obligatoriska religionskursen på de flesta gymnasieprogram — religionsvetenskapliga begrepp, jämförande fördjupning i världsreligionerna, normativ etik, sekulära livsåskådningar samt religion i relation till kön och globala konflikter, allt behandlat icke-konfessionellt."
+    },
+    {
+      "id": "ak7-spanska",
+      "level": "ak7",
+      "name": "Spanska",
+      "description": "Grunderna i spanska för åk 7: hälsningsfraser, familj och siffror, presens av regelbundna verb samt artiklar och genus."
+    },
+    {
+      "id": "ak8-spanska",
+      "level": "ak8",
+      "name": "Spanska",
+      "description": "Spanska för åk 8: mat och dryck, klockan och veckodagar, oregelbundna verb i presens samt adjektivböjning."
+    },
+    {
+      "id": "ak9-spanska",
+      "level": "ak9",
+      "name": "Spanska",
+      "description": "Spanska för åk 9: resor och väder, pretérito (dåtid), frågor och negation samt jämförelser och vardagsliv."
+    },
+    {
+      "id": "ak7-tyska",
+      "level": "ak7",
+      "name": "Tyska",
+      "description": "Grunderna i tyska för åk 7: hälsningsfraser, familj och siffror, presens av regelbundna verb samt der/die/das och genus."
+    },
+    {
+      "id": "ak8-tyska",
+      "level": "ak8",
+      "name": "Tyska",
+      "description": "Tyska för åk 8: mat och dryck, klockan och veckodagar, modalverb och starka verb samt ackusativ."
+    },
+    {
+      "id": "ak9-tyska",
+      "level": "ak9",
+      "name": "Tyska",
+      "description": "Tyska för åk 9: resor och väder, perfekt, ordföljd i huvud- och bisatser samt jämförelser och vardagsliv."
+    },
+    {
+      "id": "ak7-franska",
+      "level": "ak7",
+      "name": "Franska",
+      "description": "Grunderna i franska för åk 7: hälsningsfraser, familj och siffror, presens av -er-verb samt artiklar och genus."
+    },
+    {
+      "id": "ak8-franska",
+      "level": "ak8",
+      "name": "Franska",
+      "description": "Franska för åk 8: mat och dryck, klockan och veckodagar, oregelbundna verb (aller, faire, vouloir, pouvoir) samt adjektivböjning."
+    },
+    {
+      "id": "ak9-franska",
+      "level": "ak9",
+      "name": "Franska",
+      "description": "Franska för åk 9: resor och väder, passé composé, frågor och negation samt jämförelser och vardagsliv."
     }
   ],
   "sets": [
@@ -2110,6 +2164,366 @@
       "summary": "Religion som identitetsmarkör i konflikter, religiöst fredsarbete, religionsfrihet som mänsklig rättighet samt religion och migration.",
       "count": 8,
       "file": "data/library/gy-rel1-konflikter.json"
+    },
+    {
+      "id": "lib-sp7-greetings",
+      "subject": "ak7-spanska",
+      "title": "Hälsningsfraser och skolan",
+      "summary": "Grundläggande hälsningsfraser, artighetsfraser och ord för klassrummet och skolvardagen.",
+      "count": 8,
+      "file": "data/library/ak7-sp-greetings.json"
+    },
+    {
+      "id": "lib-sp7-family",
+      "subject": "ak7-spanska",
+      "title": "Familj och siffror",
+      "summary": "Familjeord, ägande med possessiva pronomen och siffrorna 0–100.",
+      "count": 8,
+      "file": "data/library/ak7-sp-family.json"
+    },
+    {
+      "id": "lib-sp7-present",
+      "subject": "ak7-spanska",
+      "title": "Grammatik: presens av regelbundna verb",
+      "summary": "Presensböjning av -ar-, -er- och -ir-verb samt de oregelbundna verben ser och estar.",
+      "count": 8,
+      "file": "data/library/ak7-sp-present.json"
+    },
+    {
+      "id": "lib-sp7-articles",
+      "subject": "ak7-spanska",
+      "title": "Artiklar och genus",
+      "summary": "Bestämda och obestämda artiklar, genus (maskulinum/femininum) och plural av substantiv.",
+      "count": 8,
+      "file": "data/library/ak7-sp-articles.json"
+    },
+    {
+      "id": "lib-sp7-reading",
+      "subject": "ak7-spanska",
+      "title": "Läsförståelse: en presentation",
+      "summary": "En kort text där en person presenterar sig själv och sin familj, med frågor om detaljer och sammanhang.",
+      "count": 8,
+      "file": "data/library/ak7-sp-reading.json"
+    },
+    {
+      "id": "lib-sp8-food",
+      "subject": "ak8-spanska",
+      "title": "Ordförråd: mat och dryck",
+      "summary": "Ord för mat, dryck och måltider, samt hur man beställer och pratar om vad man tycker om.",
+      "count": 8,
+      "file": "data/library/ak8-sp-food.json"
+    },
+    {
+      "id": "lib-sp8-time",
+      "subject": "ak8-spanska",
+      "title": "Klockan och veckodagar",
+      "summary": "Att klockan är, veckodagar och månader, samt hur man pratar om ett schema.",
+      "count": 8,
+      "file": "data/library/ak8-sp-time.json"
+    },
+    {
+      "id": "lib-sp8-verbs",
+      "subject": "ak8-spanska",
+      "title": "Grammatik: oregelbundna verb i presens",
+      "summary": "De vanliga oregelbundna verben ir, tener, querer och hacer i presens.",
+      "count": 8,
+      "file": "data/library/ak8-sp-verbs.json"
+    },
+    {
+      "id": "lib-sp8-adjectives",
+      "subject": "ak8-spanska",
+      "title": "Adjektiv och beskrivningar",
+      "summary": "Hur adjektiv böjs efter genus och numerus, samt placering av adjektiv i en mening.",
+      "count": 8,
+      "file": "data/library/ak8-sp-adjectives.json"
+    },
+    {
+      "id": "lib-sp8-reading",
+      "subject": "ak8-spanska",
+      "title": "Läsförståelse: ett meddelande till en vän",
+      "summary": "Ett textmeddelande om helgplaner, med frågor om detaljer, tider och känslor.",
+      "count": 8,
+      "file": "data/library/ak8-sp-reading.json"
+    },
+    {
+      "id": "lib-sp9-travel",
+      "subject": "ak9-spanska",
+      "title": "Ordförråd: resor och väder",
+      "summary": "Ord för resor, transportmedel och att prata om vädret.",
+      "count": 8,
+      "file": "data/library/ak9-sp-travel.json"
+    },
+    {
+      "id": "lib-sp9-past",
+      "subject": "ak9-spanska",
+      "title": "Grammatik: dåtid (pretérito)",
+      "summary": "Grunderna i pretérito (dåtid) för regelbundna -ar-, -er- och -ir-verb samt de vanliga oregelbundna verben ser/ir och hacer.",
+      "count": 8,
+      "file": "data/library/ak9-sp-past.json"
+    },
+    {
+      "id": "lib-sp9-questions",
+      "subject": "ak9-spanska",
+      "title": "Frågor och negation",
+      "summary": "Frågeord, hur frågor byggs upp och hur man gör en mening nekande.",
+      "count": 8,
+      "file": "data/library/ak9-sp-questions.json"
+    },
+    {
+      "id": "lib-sp9-dailylife",
+      "subject": "ak9-spanska",
+      "title": "Jämförelser och vardagsliv",
+      "summary": "Att jämföra saker (más/menos que, tan... como) och ordförråd för en typisk vardag.",
+      "count": 8,
+      "file": "data/library/ak9-sp-dailylife.json"
+    },
+    {
+      "id": "lib-sp9-reading",
+      "subject": "ak9-spanska",
+      "title": "Läsförståelse: en längre text",
+      "summary": "En sammanhängande text om en resa, med frågor som kräver att man knyter ihop flera delar av texten.",
+      "count": 8,
+      "file": "data/library/ak9-sp-reading.json"
+    },
+    {
+      "id": "lib-de7-greetings",
+      "subject": "ak7-tyska",
+      "title": "Hälsningsfraser och skolan",
+      "summary": "Grundläggande hälsningsfraser, artighetsfraser och ord för klassrummet och skolvardagen.",
+      "count": 8,
+      "file": "data/library/ak7-de-greetings.json"
+    },
+    {
+      "id": "lib-de7-family",
+      "subject": "ak7-tyska",
+      "title": "Familj och siffror",
+      "summary": "Familjeord, possessiva pronomen och siffrorna 0–100.",
+      "count": 8,
+      "file": "data/library/ak7-de-family.json"
+    },
+    {
+      "id": "lib-de7-present",
+      "subject": "ak7-tyska",
+      "title": "Grammatik: presens av regelbundna verb",
+      "summary": "Presensböjning av regelbundna verb samt de oregelbundna verben sein och haben.",
+      "count": 8,
+      "file": "data/library/ak7-de-present.json"
+    },
+    {
+      "id": "lib-de7-articles",
+      "subject": "ak7-tyska",
+      "title": "Artiklar och genus",
+      "summary": "De tre bestämda artiklarna der/die/das, obestämd artikel och plural av substantiv.",
+      "count": 8,
+      "file": "data/library/ak7-de-articles.json"
+    },
+    {
+      "id": "lib-de7-reading",
+      "subject": "ak7-tyska",
+      "title": "Läsförståelse: en presentation",
+      "summary": "En kort text där en person presenterar sig själv och sin familj, med frågor om detaljer och sammanhang.",
+      "count": 8,
+      "file": "data/library/ak7-de-reading.json"
+    },
+    {
+      "id": "lib-de8-food",
+      "subject": "ak8-tyska",
+      "title": "Ordförråd: mat och dryck",
+      "summary": "Ord för mat, dryck och måltider, samt hur man beställer och pratar om vad man tycker om.",
+      "count": 8,
+      "file": "data/library/ak8-de-food.json"
+    },
+    {
+      "id": "lib-de8-time",
+      "subject": "ak8-tyska",
+      "title": "Klockan och veckodagar",
+      "summary": "Att klockan är, veckodagar och månader, samt hur man pratar om ett schema.",
+      "count": 8,
+      "file": "data/library/ak8-de-time.json"
+    },
+    {
+      "id": "lib-de8-verbs",
+      "subject": "ak8-tyska",
+      "title": "Grammatik: modalverb och starka verb",
+      "summary": "Modalverben können, müssen och wollen, samt starka verb som ändrar stamvokal (fahren, sehen).",
+      "count": 8,
+      "file": "data/library/ak8-de-verbs.json"
+    },
+    {
+      "id": "lib-de8-accusative",
+      "subject": "ak8-tyska",
+      "title": "Grammatik: ackusativ",
+      "summary": "Ackusativformen av bestämd och obestämd artikel, samt personliga pronomen i ackusativ.",
+      "count": 8,
+      "file": "data/library/ak8-de-accusative.json"
+    },
+    {
+      "id": "lib-de8-reading",
+      "subject": "ak8-tyska",
+      "title": "Läsförståelse: ett meddelande till en vän",
+      "summary": "Ett textmeddelande om helgplaner, med frågor om detaljer, tider och känslor.",
+      "count": 8,
+      "file": "data/library/ak8-de-reading.json"
+    },
+    {
+      "id": "lib-de9-travel",
+      "subject": "ak9-tyska",
+      "title": "Ordförråd: resor och väder",
+      "summary": "Ord för resor, transportmedel och att prata om vädret.",
+      "count": 8,
+      "file": "data/library/ak9-de-travel.json"
+    },
+    {
+      "id": "lib-de9-perfect",
+      "subject": "ak9-tyska",
+      "title": "Grammatik: perfekt",
+      "summary": "Hur perfekt bildas med haben eller sein, och de vanligaste particip-formerna.",
+      "count": 8,
+      "file": "data/library/ak9-de-perfect.json"
+    },
+    {
+      "id": "lib-de9-wordorder",
+      "subject": "ak9-tyska",
+      "title": "Ordföljd och bisatser",
+      "summary": "Verbets plats i huvudsatser och bisatser, samt konjunktionerna weil och dass.",
+      "count": 8,
+      "file": "data/library/ak9-de-wordorder.json"
+    },
+    {
+      "id": "lib-de9-dailylife",
+      "subject": "ak9-tyska",
+      "title": "Jämförelser och vardagsliv",
+      "summary": "Komparativ och superlativ av adjektiv, samt reflexiva verb för vardagsrutiner.",
+      "count": 8,
+      "file": "data/library/ak9-de-dailylife.json"
+    },
+    {
+      "id": "lib-de9-reading",
+      "subject": "ak9-tyska",
+      "title": "Läsförståelse: en längre text",
+      "summary": "En sammanhängande text om en resa, med frågor som kräver att man knyter ihop flera delar av texten.",
+      "count": 8,
+      "file": "data/library/ak9-de-reading.json"
+    },
+    {
+      "id": "lib-fr7-greetings",
+      "subject": "ak7-franska",
+      "title": "Hälsningsfraser och skolan",
+      "summary": "Grundläggande hälsningsfraser, artighetsfraser och ord för klassrummet och skolvardagen.",
+      "count": 8,
+      "file": "data/library/ak7-fr-greetings.json"
+    },
+    {
+      "id": "lib-fr7-family",
+      "subject": "ak7-franska",
+      "title": "Familj och siffror",
+      "summary": "Familjeord, possessiva pronomen och siffrorna 0–60.",
+      "count": 8,
+      "file": "data/library/ak7-fr-family.json"
+    },
+    {
+      "id": "lib-fr7-present",
+      "subject": "ak7-franska",
+      "title": "Grammatik: presens av -er-verb",
+      "summary": "Presensböjning av regelbundna -er-verb samt de oregelbundna verben être och avoir.",
+      "count": 8,
+      "file": "data/library/ak7-fr-present.json"
+    },
+    {
+      "id": "lib-fr7-articles",
+      "subject": "ak7-franska",
+      "title": "Artiklar och genus",
+      "summary": "Bestämda och obestämda artiklar, genus (maskulinum/femininum) och plural av substantiv.",
+      "count": 8,
+      "file": "data/library/ak7-fr-articles.json"
+    },
+    {
+      "id": "lib-fr7-reading",
+      "subject": "ak7-franska",
+      "title": "Läsförståelse: en presentation",
+      "summary": "En kort text där en person presenterar sig själv och sin familj, med frågor om detaljer och sammanhang.",
+      "count": 8,
+      "file": "data/library/ak7-fr-reading.json"
+    },
+    {
+      "id": "lib-fr8-food",
+      "subject": "ak8-franska",
+      "title": "Ordförråd: mat och dryck",
+      "summary": "Ord för mat, dryck och måltider, samt hur man beställer och pratar om vad man tycker om.",
+      "count": 8,
+      "file": "data/library/ak8-fr-food.json"
+    },
+    {
+      "id": "lib-fr8-time",
+      "subject": "ak8-franska",
+      "title": "Klockan och veckodagar",
+      "summary": "Att klockan är, veckodagar och månader, samt hur man pratar om ett schema.",
+      "count": 8,
+      "file": "data/library/ak8-fr-time.json"
+    },
+    {
+      "id": "lib-fr8-verbs",
+      "subject": "ak8-franska",
+      "title": "Grammatik: oregelbundna verb i presens",
+      "summary": "De vanliga oregelbundna verben aller, faire, vouloir och pouvoir i presens, samt aller + infinitiv för framtid.",
+      "count": 8,
+      "file": "data/library/ak8-fr-verbs.json"
+    },
+    {
+      "id": "lib-fr8-adjectives",
+      "subject": "ak8-franska",
+      "title": "Adjektiv och beskrivningar",
+      "summary": "Hur adjektiv böjs efter genus och numerus, samt placering av adjektiv i en mening.",
+      "count": 8,
+      "file": "data/library/ak8-fr-adjectives.json"
+    },
+    {
+      "id": "lib-fr8-reading",
+      "subject": "ak8-franska",
+      "title": "Läsförståelse: ett meddelande till en vän",
+      "summary": "Ett textmeddelande om helgplaner, med frågor om detaljer, tider och känslor.",
+      "count": 8,
+      "file": "data/library/ak8-fr-reading.json"
+    },
+    {
+      "id": "lib-fr9-travel",
+      "subject": "ak9-franska",
+      "title": "Ordförråd: resor och väder",
+      "summary": "Ord för resor, transportmedel och att prata om vädret.",
+      "count": 8,
+      "file": "data/library/ak9-fr-travel.json"
+    },
+    {
+      "id": "lib-fr9-past",
+      "subject": "ak9-franska",
+      "title": "Grammatik: passé composé",
+      "summary": "Hur passé composé bildas med avoir eller être, och de vanligaste particip-formerna.",
+      "count": 8,
+      "file": "data/library/ak9-fr-past.json"
+    },
+    {
+      "id": "lib-fr9-questions",
+      "subject": "ak9-franska",
+      "title": "Frågor och negation",
+      "summary": "Frågeord, hur frågor byggs upp och hur man gör en mening nekande med ne...pas.",
+      "count": 8,
+      "file": "data/library/ak9-fr-questions.json"
+    },
+    {
+      "id": "lib-fr9-dailylife",
+      "subject": "ak9-franska",
+      "title": "Jämförelser och vardagsliv",
+      "summary": "Att jämföra saker (plus/moins que, aussi... que) och reflexiva verb för en typisk vardag.",
+      "count": 8,
+      "file": "data/library/ak9-fr-dailylife.json"
+    },
+    {
+      "id": "lib-fr9-reading",
+      "subject": "ak9-franska",
+      "title": "Läsförståelse: en längre text",
+      "summary": "En sammanhängande text om en resa, med frågor som kräver att man knyter ihop flera delar av texten.",
+      "count": 8,
+      "file": "data/library/ak9-fr-reading.json"
     }
   ]
 }

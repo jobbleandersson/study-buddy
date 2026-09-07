@@ -1,0 +1,118 @@
+{
+  "id": "lib-fr9-dailylife",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Jämförelser och vardagsliv",
+  "sourceSummary": "Att jämföra saker (plus/moins que, aussi... que) och reflexiva verb för en typisk vardag.",
+  "topics": [
+    "comparisons",
+    "daily routine"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr9-daily-1",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Välj rätt jämförelse: \"Mon frère est ___ grand ___ moi.\" (Min bror är längre än jag.)",
+      "opener": "\"Mer ... än\" bildas med plus ... que.",
+      "choices": [
+        "plus ... que",
+        "aussi ... que",
+        "moins ... comme",
+        "plus ... comme"
+      ],
+      "answer": 0,
+      "explanation": "\"Plus ... que\" betyder \"mer/-are ... än\": \"plus grand que moi\" = \"längre än jag\". \"Aussi ... que\" används i stället för \"lika ... som\"."
+    },
+    {
+      "id": "q-fr9-daily-2",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad betyder \"Ce livre est aussi intéressant que l'autre\"?",
+      "opener": "\"Aussi ... que\" uttrycker likhet, inte skillnad.",
+      "choices": [
+        "Den här boken är mer intressant än den andra",
+        "Den här boken är mindre intressant än den andra",
+        "Den här boken är lika intressant som den andra",
+        "Den här boken är den mest intressanta"
+      ],
+      "answer": 2,
+      "explanation": "\"Aussi ... que\" betyder \"lika ... som\": böckerna är lika intressanta."
+    },
+    {
+      "id": "q-fr9-daily-3",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vilket ord är oregelbundet i komparativ (\"bättre\")?",
+      "opener": "Precis som svenskans \"bra – bättre\" är oregelbunden.",
+      "choices": [
+        "plus bon",
+        "meilleur",
+        "plus meilleur",
+        "bonnement"
+      ],
+      "answer": 1,
+      "explanation": "\"Bon\" (bra) har den oregelbundna komparativformen \"meilleur\" (bättre), inte \"plus bon\"."
+    },
+    {
+      "id": "q-fr9-daily-4",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Je me lève à sept heures\"?",
+      "opener": "Reflexiva verb används ofta för dagliga rutiner.",
+      "choices": [
+        "Jag går och lägger mig klockan sju",
+        "Jag går upp klockan sju",
+        "Jag äter frukost klockan sju",
+        "Jag kommer hem klockan sju"
+      ],
+      "answer": 1,
+      "explanation": "\"Se lever\" betyder \"att gå upp/resa sig\", och \"je me lève\" är presensformen för \"jag\": \"jag går upp klockan sju\"."
+    },
+    {
+      "id": "q-fr9-daily-5",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Je me couche à dix heures et demie\"?",
+      "opener": "Ett annat vanligt reflexivt verb för vardagsrutiner.",
+      "choices": [
+        "Jag duschar klockan halv elva",
+        "Jag går och lägger mig klockan halv elva",
+        "Jag äter middag klockan halv elva",
+        "Jag lämnar hemmet klockan halv elva"
+      ],
+      "answer": 1,
+      "explanation": "\"Se coucher\" betyder \"att lägga sig\", och \"je me couche\" är \"jag lägger mig\": \"jag går och lägger mig klockan halv elva\"."
+    },
+    {
+      "id": "q-fr9-daily-6",
+      "kind": "text",
+      "topic": "daily routine",
+      "prompt": "Skriv det franska verbet för \"att duscha\" i grundform (infinitiv).",
+      "opener": "Ett reflexivt verb som slutar på -er.",
+      "answer": "se doucher"
+    },
+    {
+      "id": "q-fr9-daily-7",
+      "kind": "worked",
+      "topic": "comparisons",
+      "prompt": "Rätta felet: \"Ma maison est plus petite que la tienne, mais mon jardin est plus bon.\"",
+      "opener": "\"Bon\" har en egen oregelbunden komparativform.",
+      "answer": "Ma maison est plus petite que la tienne, mais mon jardin est meilleur.",
+      "steps": [
+        "\"Plus bon\" är fel — bon böjs oregelbundet i komparativ.",
+        "Rätt form är \"meilleur\" (bättre), utan \"plus\" framför.",
+        "Hela meningen: \"Ma maison est plus petite que la tienne, mais mon jardin est meilleur.\" (Mitt hus är mindre än ditt, men min trädgård är bättre.)"
+      ]
+    },
+    {
+      "id": "q-fr9-daily-8",
+      "kind": "flashcard",
+      "topic": "comparisons",
+      "prompt": "Hur bildar man jämförelser och beskriver en vardagsrutin på franska?",
+      "opener": "Jämförelseord och reflexiva verb för det dagliga livet.",
+      "answer": "Jämförelser: plus ... que = mer ... än · moins ... que = mindre ... än · aussi ... que = lika ... som · meilleur/pire = bättre/sämre (oregelbundna). Vardagsrutin (reflexiva verb): se réveiller = vakna · se lever = gå upp · se doucher = duscha · s'habiller = klä på sig · prendre le petit-déjeuner = äta frukost · se coucher = lägga sig. Reflexiva pronomen: me, te, se, nous, vous, se — placeras före verbet: je me lève, tu te lèves, il se lève."
+    }
+  ]
+}

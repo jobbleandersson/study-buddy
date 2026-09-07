@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studybuddy-v62";
+const CACHE = "studybuddy-v63";
 
 const APP_SHELL = [
   "./",
@@ -175,7 +175,10 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith((async () => {
     try {
-      const fresh = await fetch(request);
+      // no-store: go past the browser's HTTP cache to the network, so an
+      // updated file lands the first time you're online rather than after a
+      // second reload. The CacheStorage copy below is the offline fallback.
+      const fresh = await fetch(request, { cache: "no-store" });
       if (fresh && fresh.ok) {
         const cache = await caches.open(CACHE);
         cache.put(request, fresh.clone());

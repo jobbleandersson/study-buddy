@@ -1,0 +1,118 @@
+{
+  "id": "lib-fr8-adjectives",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Adjektiv och beskrivningar",
+  "sourceSummary": "Hur adjektiv böjs efter genus och numerus, samt placering av adjektiv i en mening.",
+  "topics": [
+    "adjective agreement",
+    "descriptions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr8-adj-1",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"Mon frère est ___.\" (grand = stor/lång)",
+      "opener": "\"Frère\" är maskulint singular — grundformen av adjektivet.",
+      "choices": [
+        "grand",
+        "grande",
+        "grands",
+        "grandes"
+      ],
+      "answer": 0,
+      "explanation": "Maskulint singular använder grundformen: \"grand\"."
+    },
+    {
+      "id": "q-fr8-adj-2",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"Mes sœurs sont ___.\" (sympathique = trevlig)",
+      "opener": "\"Sœurs\" är feminint plural.",
+      "choices": [
+        "sympathique",
+        "sympathiques",
+        "sympathiqu",
+        "sympathiquent"
+      ],
+      "answer": 1,
+      "explanation": "Adjektiv som slutar på -e (som \"sympathique\") ändras inte mellan maskulinum och femininum — bara plural läggs till: \"sympathiques\"."
+    },
+    {
+      "id": "q-fr8-adj-3",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"La maison est ___.\" (petit = liten)",
+      "opener": "Feminint singular bildas oftast med -e.",
+      "choices": [
+        "petit",
+        "petite",
+        "petits",
+        "petites"
+      ],
+      "answer": 1,
+      "explanation": "Feminint singular bildas med -e: \"petit\" → \"petite\"."
+    },
+    {
+      "id": "q-fr8-adj-4",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Var placeras de flesta beskrivande adjektiv på franska?",
+      "opener": "Skiljer sig från svenskan, där adjektivet oftast kommer före substantivet.",
+      "choices": [
+        "Alltid före substantivet",
+        "Alltid efter substantivet",
+        "Oftast efter substantivet",
+        "Aldrig i samma mening"
+      ],
+      "answer": 2,
+      "explanation": "De flesta beskrivande adjektiv kommer efter substantivet: \"une maison grande\" (ett stort hus). Vissa vanliga, korta adjektiv (som petit, grand, beau, joli) står dock FÖRE substantivet."
+    },
+    {
+      "id": "q-fr8-adj-5",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt mening för \"de svarta katterna\":",
+      "opener": "\"Chats\" (katter) är maskulint plural, och \"svart\" = noir.",
+      "choices": [
+        "les chats noir",
+        "les chats noire",
+        "les chats noirs",
+        "les chat noirs"
+      ],
+      "answer": 2,
+      "explanation": "\"Chats\" är maskulint plural, så adjektivet ska också vara det: \"noirs\"."
+    },
+    {
+      "id": "q-fr8-adj-6",
+      "kind": "text",
+      "topic": "adjective agreement",
+      "prompt": "Skriv den feminina singularformen av \"petit\" (liten).",
+      "opener": "Lägg till -e.",
+      "answer": "petite"
+    },
+    {
+      "id": "q-fr8-adj-7",
+      "kind": "worked",
+      "topic": "adjective agreement",
+      "prompt": "Rätta felet: \"Mes amies sont très amusant.\" (Mina väninnor är väldigt roliga.)",
+      "opener": "Kolla genus och numerus på \"amies\".",
+      "answer": "Mes amies sont très amusantes.",
+      "steps": [
+        "\"Amies\" är feminint plural, så adjektivet \"amusant\" (som är maskulint singular) måste ändras.",
+        "\"Amusant\" → \"amusantes\" för att matcha feminint plural.",
+        "Hela meningen: \"Mes amies sont très amusantes.\" (Mina väninnor är väldigt roliga.)"
+      ]
+    },
+    {
+      "id": "q-fr8-adj-8",
+      "kind": "flashcard",
+      "topic": "adjective agreement",
+      "prompt": "Hur böjs franska adjektiv efter genus och numerus, och var placeras de?",
+      "opener": "Adjektiv \"håller med\" substantivet de beskriver.",
+      "answer": "Grundmönster: grand/grande/grands/grandes (maskulinum, femininum, plural mask., plural fem.). Adjektiv på -e (som sympathique): samma form för båda genus, bara plural läggs till. Placering: de flesta beskrivande adjektiv kommer EFTER substantivet (une maison grise), men vanliga korta adjektiv som petit, grand, beau, joli, jeune, vieux, bon kommer FÖRE (une petite maison). Exempel: chat noir (svart katt), petite maison (litet hus), filles sympathiques (trevliga tjejer)."
+    }
+  ]
+}

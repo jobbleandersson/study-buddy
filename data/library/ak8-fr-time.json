@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr8-time",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Klockan och veckodagar",
+  "sourceSummary": "Att klockan är, veckodagar och månader, samt hur man pratar om ett schema.",
+  "topics": [
+    "telling time",
+    "days of the week",
+    "months"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr8-time-1",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Hur frågar man \"vad är klockan?\" på franska?",
+      "opener": "En fast fras du bara behöver lära dig utantill.",
+      "choices": [
+        "Quelle heure est-il ?",
+        "Quand est-ce ?",
+        "Quel jour est-ce ?",
+        "Où est l'horloge ?"
+      ],
+      "answer": 0,
+      "explanation": "\"Quelle heure est-il ?\" är den fasta frasen för \"vad är klockan?\"."
+    },
+    {
+      "id": "q-fr8-time-2",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Hur säger man \"klockan är tre\"?",
+      "opener": "Klockan uttrycks med \"il est ...heure(s)\".",
+      "choices": [
+        "Il est trois heure.",
+        "Il est trois heures.",
+        "Il a trois heures.",
+        "Elle est trois heures."
+      ],
+      "answer": 1,
+      "explanation": "\"Il est trois heures\" används för klockan tre. \"Heures\" står i plural från och med klockan två (\"il est une heure\" är undantaget, i singular)."
+    },
+    {
+      "id": "q-fr8-time-3",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"neuf heures et demie\"?",
+      "opener": "\"Et demie\" betyder \"och halv\".",
+      "choices": [
+        "Kvart över nio",
+        "Halv tio",
+        "Kvart i nio",
+        "Nio och en kvart"
+      ],
+      "answer": 1,
+      "explanation": "\"Et demie\" betyder \"och halv\", alltså 30 minuter efter: \"neuf heures et demie\" = 09:30 (halv tio)."
+    },
+    {
+      "id": "q-fr8-time-4",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Vilken veckodag är \"mercredi\"?",
+      "opener": "Den franska veckan börjar med måndag.",
+      "choices": [
+        "Tisdag",
+        "Onsdag",
+        "Torsdag",
+        "Fredag"
+      ],
+      "answer": 1,
+      "explanation": "\"Mercredi\" är onsdag. Veckans dagar: lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche."
+    },
+    {
+      "id": "q-fr8-time-5",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Vilken månad är \"décembre\"?",
+      "opener": "Namnet liknar det svenska.",
+      "choices": [
+        "Oktober",
+        "November",
+        "December",
+        "Januari"
+      ],
+      "answer": 2,
+      "explanation": "\"Décembre\" är december. De franska månadsnamnen liknar de svenska ganska mycket."
+    },
+    {
+      "id": "q-fr8-time-6",
+      "kind": "text",
+      "topic": "days of the week",
+      "prompt": "Skriv det franska ordet för \"lördag\".",
+      "opener": "Kommer direkt före \"dimanche\" i veckan.",
+      "answer": "samedi"
+    },
+    {
+      "id": "q-fr8-time-7",
+      "kind": "worked",
+      "topic": "telling time",
+      "prompt": "Rätta felet: \"Il a cinq heures de l'après-midi.\" (Klockan är fem på eftermiddagen.)",
+      "opener": "Klockan uttrycks alltid med \"être\" (il est), inte \"avoir\".",
+      "answer": "Il est cinq heures de l'après-midi.",
+      "steps": [
+        "\"Il a\" är fel — klockan ska alltid uttryckas med \"il est\" (être), aldrig \"il a\" (avoir).",
+        "\"A\" → \"est\".",
+        "Hela meningen: \"Il est cinq heures de l'après-midi.\""
+      ]
+    },
+    {
+      "id": "q-fr8-time-8",
+      "kind": "flashcard",
+      "topic": "telling time",
+      "prompt": "Hur frågar och svarar man om klockan, veckodagar och månader på franska?",
+      "opener": "Fasta fraser för tid, dagar och månader.",
+      "answer": "Klockan: Quelle heure est-il ? = Vad är klockan? · Il est une heure = Klockan är ett · Il est deux/trois heures... = Klockan är två/tre... · et demie = och halv · et quart = och kvart · moins le quart = kvart i. Veckodagar: lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche. Månader: janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre."
+    }
+  ]
+}

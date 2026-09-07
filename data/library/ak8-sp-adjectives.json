@@ -1,0 +1,118 @@
+{
+  "id": "lib-sp8-adjectives",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Adjektiv och beskrivningar",
+  "sourceSummary": "Hur adjektiv böjs efter genus och numerus, samt placering av adjektiv i en mening.",
+  "topics": [
+    "adjective agreement",
+    "descriptions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp8-adj-1",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"Mi hermano es ___.\" (alto = lång)",
+      "opener": "\"Hermano\" är maskulint singular.",
+      "choices": [
+        "alto",
+        "alta",
+        "altos",
+        "altas"
+      ],
+      "answer": 0,
+      "explanation": "Adjektiv som slutar på -o böjs efter substantivet: maskulint singular \"hermano\" → \"alto\"."
+    },
+    {
+      "id": "q-sp8-adj-2",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"Mis hermanas son ___.\" (simpático = trevlig)",
+      "opener": "\"Hermanas\" är feminint plural.",
+      "choices": [
+        "simpático",
+        "simpática",
+        "simpáticos",
+        "simpáticas"
+      ],
+      "answer": 3,
+      "explanation": "Feminint plural bildas med -as: \"simpáticas\". Adjektivet ska stämma överens med \"hermanas\" i både genus och numerus."
+    },
+    {
+      "id": "q-sp8-adj-3",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"El libro es ___.\" (interesante = intressant)",
+      "opener": "Adjektiv som slutar på -e ändras inte efter genus.",
+      "choices": [
+        "interesante",
+        "interesanto",
+        "interesantes",
+        "interesanta"
+      ],
+      "answer": 0,
+      "explanation": "Adjektiv som slutar på -e, som \"interesante\", har samma form för maskulinum och femininum — bara plural ändras (\"interesantes\")."
+    },
+    {
+      "id": "q-sp8-adj-4",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Var placeras de flesta beskrivande adjektiv på spanska?",
+      "opener": "Skiljer sig från svenskan, där adjektivet oftast kommer före substantivet.",
+      "choices": [
+        "Alltid före substantivet",
+        "Alltid efter substantivet",
+        "Oftast efter substantivet",
+        "Aldrig i samma mening"
+      ],
+      "answer": 2,
+      "explanation": "De flesta beskrivande adjektiv kommer efter substantivet: \"una casa grande\" (ett stort hus), inte \"una grande casa\". Vissa vanliga adjektiv (som bueno/malo) kan dock stå före."
+    },
+    {
+      "id": "q-sp8-adj-5",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt mening för \"de svarta katterna\":",
+      "opener": "\"Gatos\" (katter) är maskulint plural, och \"svart\" = negro.",
+      "choices": [
+        "los gatos negro",
+        "los gatos negra",
+        "los gatos negros",
+        "las gatos negros"
+      ],
+      "answer": 2,
+      "explanation": "\"Gatos\" är maskulint plural, så adjektivet ska också vara det: \"negros\". Artikeln \"los\" (maskulint plural) stämmer redan."
+    },
+    {
+      "id": "q-sp8-adj-6",
+      "kind": "text",
+      "topic": "adjective agreement",
+      "prompt": "Skriv den feminina singularformen av \"pequeño\" (liten).",
+      "opener": "Byt -o mot -a.",
+      "answer": "pequeña"
+    },
+    {
+      "id": "q-sp8-adj-7",
+      "kind": "worked",
+      "topic": "adjective agreement",
+      "prompt": "Rätta felet: \"Mis amigas son muy divertido.\" (Mina vänner (tjejer) är väldigt roliga.)",
+      "opener": "Kolla genus och numerus på \"amigas\".",
+      "answer": "Mis amigas son muy divertidas.",
+      "steps": [
+        "\"Amigas\" är feminint plural, så adjektivet \"divertido\" (som är maskulint singular) måste ändras.",
+        "\"Divertido\" → \"divertidas\" för att matcha feminint plural.",
+        "Hela meningen: \"Mis amigas son muy divertidas.\" (Mina väninnor är väldigt roliga.)"
+      ]
+    },
+    {
+      "id": "q-sp8-adj-8",
+      "kind": "flashcard",
+      "topic": "adjective agreement",
+      "prompt": "Hur böjs spanska adjektiv efter genus och numerus, och var placeras de?",
+      "opener": "Adjektiv \"håller med\" substantivet de beskriver.",
+      "answer": "Adjektiv på -o: alto/alta/altos/altas (böjs efter genus och numerus). Adjektiv på -e: interesante/interesantes (samma form för båda genus, bara plural ändras). Adjektiv på konsonant: joven/jóvenes (plural med -es). Placering: de flesta beskrivande adjektiv kommer EFTER substantivet (una casa grande), till skillnad från svenskan. Exempel: gato negro (svart katt), casa pequeña (litet hus), chicas simpáticas (trevliga tjejer)."
+    }
+  ]
+}

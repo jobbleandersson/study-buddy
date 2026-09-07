@@ -1,0 +1,119 @@
+{
+  "id": "lib-fr7-greetings",
+  "type": "assignment",
+  "subject": "Franska",
+  "title": "Greetings and school phrases",
+  "sourceSummary": "Basic greetings, polite phrases, and words for the classroom and everyday school life.",
+  "topics": [
+    "greetings",
+    "classroom phrases",
+    "politeness"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr7-greet-1",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "How do you say \"Hi, my name is Léa\" in French?",
+      "opener": "The phrase \"je m'appelle\" is used to say what your name is.",
+      "choices": [
+        "Bonjour, je m'appelle Léa.",
+        "Bonjour, tu t'appelles Léa.",
+        "Au revoir, je m'appelle Léa.",
+        "Bonjour, mon nom Léa."
+      ],
+      "answer": 0,
+      "explanation": "\"Je m'appelle\" means \"my name is\" (literally \"I call myself\"). \"Tu t'appelles\" is \"your name is\", and \"au revoir\" means \"goodbye\", not \"hi\"."
+    },
+    {
+      "id": "q-fr7-greet-2",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "What does \"Ça va?\" mean?",
+      "opener": "A common, casual greeting between friends.",
+      "choices": [
+        "What's your name?",
+        "How are you?",
+        "Where do you live?",
+        "Goodbye!"
+      ],
+      "answer": 1,
+      "explanation": "\"Ça va?\" is a casual way of asking \"how are you?\"/\"how's it going?\"."
+    },
+    {
+      "id": "q-fr7-greet-3",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "Someone says \"Merci\". What's the polite reply?",
+      "opener": "What do you say in French when someone thanks you?",
+      "choices": [
+        "S'il te plaît.",
+        "De rien.",
+        "Pardon.",
+        "Bonne nuit."
+      ],
+      "answer": 1,
+      "explanation": "\"De rien\" means \"you're welcome\"/\"no problem\" and is the usual reply to a thank-you. \"S'il te plaît\" means \"please\"."
+    },
+    {
+      "id": "q-fr7-greet-4",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "What does \"Je peux aller aux toilettes?\" mean?",
+      "opener": "A question you often need to ask during a lesson.",
+      "choices": [
+        "May I open the window?",
+        "May I go to the bathroom?",
+        "What does that word mean?",
+        "Do we have homework?"
+      ],
+      "answer": 1,
+      "explanation": "\"Je peux...?\" means \"may I...?\" and \"les toilettes\" is the bathroom."
+    },
+    {
+      "id": "q-fr7-greet-5",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "The teacher says \"Ouvrez le livre, s'il vous plaît.\" What should you do?",
+      "opener": "\"Ouvrez\" comes from the verb ouvrir.",
+      "choices": [
+        "Close the book",
+        "Open the book",
+        "Hand in the book",
+        "Read aloud from the book"
+      ],
+      "answer": 1,
+      "explanation": "\"Ouvrir\" means \"to open\", so \"ouvrez le livre\" means \"open the book\"."
+    },
+    {
+      "id": "q-fr7-greet-6",
+      "kind": "text",
+      "topic": "greetings",
+      "prompt": "Write a French word that means \"good night\".",
+      "opener": "You say it when you go to bed.",
+      "answer": "bonne nuit"
+    },
+    {
+      "id": "q-fr7-greet-7",
+      "kind": "worked",
+      "topic": "politeness",
+      "prompt": "Correct the error: \"Bonjour! Comment tu t'appelle? Je m'appelles Marc.\"",
+      "opener": "Check the verb form for \"you\" and for \"I\" separately.",
+      "answer": "Bonjour ! Comment tu t'appelles ? Je m'appelle Marc.",
+      "steps": [
+        "\"Tu t'appelle\" → \"tu t'appelles\". The verb s'appeler is conjugated for \"you\" (tu) as \"t'appelles\", with an -s.",
+        "\"Je m'appelles\" → \"je m'appelle\". For \"I\" (je) it's \"m'appelle\", without an -s.",
+        "Full sentence: \"Bonjour ! Comment tu t'appelles ? Je m'appelle Marc.\""
+      ]
+    },
+    {
+      "id": "q-fr7-greet-8",
+      "kind": "flashcard",
+      "topic": "greetings",
+      "prompt": "Which greeting and politeness phrases should you know at grade 7 level in French?",
+      "opener": "The most common phrases for greeting, thanking, and asking for help.",
+      "answer": "Greetings: Bonjour = hello/good day · Bonsoir = good evening · Salut = hi (informal) · Au revoir = goodbye · Bonne nuit = good night. Wellbeing: Ça va?/Comment ça va? = how are you? · Ça va bien, merci = I'm doing well, thanks. Politeness: S'il te/vous plaît = please (to one/several) · Merci (beaucoup) = thank you (very much) · De rien = you're welcome · Pardon/Excusez-moi = excuse me. School: Je peux...? = may I...? · les toilettes = the bathroom · ouvrir/fermer le livre = open/close the book."
+    }
+  ]
+}

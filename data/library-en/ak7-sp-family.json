@@ -1,0 +1,119 @@
+{
+  "id": "lib-sp7-family",
+  "type": "assignment",
+  "subject": "Spanska",
+  "title": "Family and numbers",
+  "sourceSummary": "Family words, possession with possessive pronouns, and the numbers 0–100.",
+  "topics": [
+    "family",
+    "numbers",
+    "possessives"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp7-fam-1",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"hermana\" mean?",
+      "opener": "Compare it with \"hermano\", which you may already know.",
+      "choices": [
+        "Brother",
+        "Sister",
+        "Mom",
+        "Cousin"
+      ],
+      "answer": 1,
+      "explanation": "\"Hermana\" means sister. \"Hermano\" (with -o) means brother — Spanish often changes the ending -o/-a to show gender."
+    },
+    {
+      "id": "q-sp7-fam-2",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"abuelos\" mean?",
+      "opener": "The plural word covers both sides of the family.",
+      "choices": [
+        "Parents",
+        "Siblings",
+        "Grandparents",
+        "Cousins"
+      ],
+      "answer": 2,
+      "explanation": "\"Abuelo\" is grandfather and \"abuela\" is grandmother. \"Abuelos\" in the plural means grandparents together."
+    },
+    {
+      "id": "q-sp7-fam-3",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Choose the right word: \"___ madre se llama Rosa.\" (My mom is named Rosa.)",
+      "opener": "Possessive pronouns in Spanish also follow gender and number.",
+      "choices": [
+        "Mi",
+        "Mis",
+        "Tu",
+        "Su"
+      ],
+      "answer": 0,
+      "explanation": "\"Mi\" means \"my\" in the singular and fits with \"madre\" (mom). \"Mis\" is plural (\"my\", for several things), \"tu\" is \"your\", and \"su\" is \"his/her\"."
+    },
+    {
+      "id": "q-sp7-fam-4",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "How do you write the number 15 in letters?",
+      "opener": "15 is one of the irregular numbers between 11 and 15.",
+      "choices": [
+        "catorce",
+        "quince",
+        "dieciséis",
+        "doce"
+      ],
+      "answer": 1,
+      "explanation": "\"Quince\" is 15. \"Catorce\" is 14, \"dieciséis\" is 16, and \"doce\" is 12."
+    },
+    {
+      "id": "q-sp7-fam-5",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Which number is \"treinta y siete\"?",
+      "opener": "Numbers from 30 up are built as \"tens + y + ones\".",
+      "choices": [
+        "27",
+        "37",
+        "47",
+        "73"
+      ],
+      "answer": 1,
+      "explanation": "\"Treinta\" is 30 and \"siete\" is 7, joined with \"y\" (and): \"treinta y siete\" = 37."
+    },
+    {
+      "id": "q-sp7-fam-6",
+      "kind": "text",
+      "topic": "numbers",
+      "prompt": "Write the number \"cien\" in digits.",
+      "opener": "It's the round number after noventa y nueve (99).",
+      "answer": "100"
+    },
+    {
+      "id": "q-sp7-fam-7",
+      "kind": "worked",
+      "topic": "family",
+      "prompt": "Correct the error: \"Mi hermano se llama Sofía y tiene catorce años.\" (The name refers to a girl.)",
+      "opener": "The word for brother versus sister changes with gender.",
+      "answer": "Mi hermana se llama Sofía y tiene catorce años.",
+      "steps": [
+        "Sofía is a girl's name, so it should be \"hermana\" (sister), not \"hermano\" (brother).",
+        "The rest of the sentence is correct: \"se llama Sofía\" (is named Sofía) and \"tiene catorce años\" (is fourteen years old) are conjugated correctly.",
+        "Remember: Spanish nouns for family members almost always follow the person's gender through the ending -o/-a."
+      ]
+    },
+    {
+      "id": "q-sp7-fam-8",
+      "kind": "flashcard",
+      "topic": "family",
+      "prompt": "Which family words, possessive pronouns, and numbers should you know at the grade 7 level in Spanish?",
+      "opener": "The family, who it belongs to, and counting to a hundred.",
+      "answer": "Family: madre/padre = mom/dad · hermano/hermana = brother/sister · abuelo/abuela = grandfather/grandmother · hijo/hija = son/daughter · primo/prima = cousin. Possessives: mi/mis = my (sg/pl) · tu/tus = your (sg/pl) · su/sus = his/her/their. Numbers: 0 cero, 1 uno, 5 cinco, 10 diez, 11 once, 15 quince, 20 veinte, 21 veintiuno, 30 treinta, 37 treinta y siete, 50 cincuenta, 100 cien."
+    }
+  ]
+}

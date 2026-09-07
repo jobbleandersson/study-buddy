@@ -1,0 +1,119 @@
+{
+  "id": "lib-de7-greetings",
+  "type": "assignment",
+  "subject": "Tyska",
+  "title": "Greetings and school phrases",
+  "sourceSummary": "Basic greetings, polite phrases, and words for the classroom and everyday school life.",
+  "topics": [
+    "greetings",
+    "classroom phrases",
+    "politeness"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de7-greet-1",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "How do you say \"Hi, my name is Lena\" in German?",
+      "opener": "The verb heißen is used to say what your name is.",
+      "choices": [
+        "Hallo, ich heiße Lena.",
+        "Hallo, du heißt Lena.",
+        "Tschüss, ich heiße Lena.",
+        "Hallo, mein Name Lena."
+      ],
+      "answer": 0,
+      "explanation": "\"Ich heiße\" means \"my name is\". \"Du heißt\" is \"your name is\", and \"tschüss\" means \"bye\", not \"hi\"."
+    },
+    {
+      "id": "q-de7-greet-2",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "What does \"Wie geht's?\" mean?",
+      "opener": "A common, casual greeting.",
+      "choices": [
+        "What's your name?",
+        "How are you?",
+        "Where do you live?",
+        "Goodbye!"
+      ],
+      "answer": 1,
+      "explanation": "\"Wie geht's?\" (short for \"wie geht es dir?\") means \"how are you?\"/\"how's it going?\"."
+    },
+    {
+      "id": "q-de7-greet-3",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "Someone says \"Danke schön\". What's the polite reply?",
+      "opener": "What do you say in German when someone thanks you?",
+      "choices": [
+        "Bitte schön.",
+        "Es tut mir leid.",
+        "Guten Abend.",
+        "Entschuldigung."
+      ],
+      "answer": 0,
+      "explanation": "\"Bitte schön\" means \"you're welcome\"/\"no problem\" and is the usual reply to a thank-you. \"Es tut mir leid\" means \"I'm sorry\"."
+    },
+    {
+      "id": "q-de7-greet-4",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "What does \"Darf ich auf die Toilette gehen?\" mean?",
+      "opener": "A question you often need to ask during a lesson.",
+      "choices": [
+        "May I open the window?",
+        "May I go to the bathroom?",
+        "What does that word mean?",
+        "Do we have homework?"
+      ],
+      "answer": 1,
+      "explanation": "\"Darf ich...?\" means \"may I...?\" and \"die Toilette\" is the bathroom. The whole phrase means \"May I go to the bathroom?\"."
+    },
+    {
+      "id": "q-de7-greet-5",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "The teacher says \"Öffnet das Buch, bitte.\" What should you do?",
+      "opener": "\"Öffnet\" comes from the verb öffnen.",
+      "choices": [
+        "Close the book",
+        "Open the book",
+        "Hand in the book",
+        "Read aloud from the book"
+      ],
+      "answer": 1,
+      "explanation": "\"Öffnen\" means \"to open\", so \"öffnet das Buch\" means \"open the book\". \"Bitte\" means \"please\"."
+    },
+    {
+      "id": "q-de7-greet-6",
+      "kind": "text",
+      "topic": "greetings",
+      "prompt": "Write a German word that means \"good night\".",
+      "opener": "You say it when you go to bed.",
+      "answer": "gute nacht"
+    },
+    {
+      "id": "q-de7-greet-7",
+      "kind": "worked",
+      "topic": "politeness",
+      "prompt": "Correct the two errors: \"Hallo! Wie du heißt? Ich heißt Marc.\"",
+      "opener": "Check the word order in the question and the verb form for \"I\".",
+      "answer": "Hallo! Wie heißt du? Ich heiße Marc.",
+      "steps": [
+        "\"Wie du heißt?\" → \"Wie heißt du?\". In questions, the verb comes directly after the question word, before the subject.",
+        "\"Ich heißt\" → \"Ich heiße\". The verb heißen is conjugated for \"I\" (ich) as \"heiße\", not \"heißt\" (which is for you).",
+        "Full sentence: \"Hallo! Wie heißt du? Ich heiße Marc.\""
+      ]
+    },
+    {
+      "id": "q-de7-greet-8",
+      "kind": "flashcard",
+      "topic": "greetings",
+      "prompt": "Which greeting and politeness phrases should you know at grade 7 level in German?",
+      "opener": "The most common phrases for greeting, thanking, and asking for help.",
+      "answer": "Greetings: Hallo = hi · Guten Morgen = good morning · Guten Tag = good day · Guten Abend = good evening · Gute Nacht = good night · Tschüss = bye · Auf Wiedersehen = goodbye (more formal). Wellbeing: Wie geht's?/Wie geht es dir? = how are you? · Gut, danke = good, thanks. Politeness: Bitte = please/you're welcome · Danke (schön) = thank you (very much) · Bitte schön = you're welcome/no problem · Es tut mir leid = I'm sorry · Entschuldigung = excuse me. School: Darf ich...? = may I...? · die Toilette = the bathroom · das Buch öffnen/schließen = open/close the book."
+    }
+  ]
+}
