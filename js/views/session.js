@@ -689,13 +689,14 @@ function runSession(config) {
     onclick: toggleShortcuts,
   }, [icon(ICONS.keyboard, 18)]);
 
-  // Reading comfort — theme (incl. warm paper), text size, easy-read font —
-  // right where a long revision session makes you want it.
+  // Light / dark / warm paper, text size, easy-read font, read-aloud — right
+  // where a long revision session makes you want it. The contrast glyph reads
+  // as an appearance control; "Aa" alone looked like a text-size button.
   const readingBtn = el("button.iconbtn.readingbtn", {
     type: "button",
     "aria-label": t("read.title"), title: t("read.title"),
     onclick: (e) => { e.stopPropagation(); openReadingControls(e.currentTarget); },
-  }, [icon(ICONS.type, 18)]);
+  }, [icon(ICONS.contrast, 18)]);
 
   /* ----- optional Pomodoro focus timer ----- */
   const pomoMin = Number(store.settings.pomodoro) || 0;

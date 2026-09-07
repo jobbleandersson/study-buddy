@@ -1540,8 +1540,11 @@ kbd {
 .psheet__break { break-before: page; margin-top: var(--s-8); }
 .psheet__akey { margin: 3px 0; font-size: var(--fs-sm); }
 
-/* ---------- shell: bell + account actions ---------- */
+/* ---------- shell: leaderboard + bell + account actions ---------- */
 .topbar__actions { display: flex; align-items: center; gap: var(--s-2); }
+.topbar__actions .iconbtn.is-active { color: var(--brand); border-color: var(--brand); }
+/* On the narrowest screens the leaderboard lives in the ⋮ nav, not here. */
+@media (max-width: 560px) { .topbar__leaderboard { display: none; } }
 .topbar__bell { position: relative; }
 .topbar__dot {
   position: absolute; top: 5px; right: 5px; width: 9px; height: 9px;

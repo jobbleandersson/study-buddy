@@ -99,12 +99,8 @@ function navGroups() {
     { href: "#/calendar", match: "/calendar",  icon: ICONS.calendar,  label: t("nav.calendar") },
     { href: "#/progress", match: "/progress",  icon: ICONS.chart,     label: t("common.progress") },
     { href: "#/achievements", match: "/achievements", icon: ICONS.award, label: t("nav.achievements") },
+    { href: "#/leaderboard", match: "/leaderboard", icon: ICONS.podium, label: t("nav.leaderboard") },
   ];
-  // The leaderboard needs an account + the backend — only surface it once
-  // you're signed in, same as the parent view.
-  if (store.authed) {
-    track.push({ href: "#/leaderboard", match: "/leaderboard", icon: ICONS.podium, label: t("nav.leaderboard") });
-  }
   const tools = [
     { href: "#/reference",  match: "/reference",  icon: ICONS.sigma,      label: t("nav.formulas") },
     { href: "#/calculator", match: "/calculator", icon: ICONS.calculator, label: t("nav.calculator") },
@@ -446,7 +442,13 @@ function shellActions() {
     },
   }, [icon(ICONS.user, 18)]);
 
-  return el("div.topbar__actions", {}, [bellBtn, profileBtn]);
+  // Leaderboard — a round icon beside the bell. Hidden on the narrowest
+  // screens (see CSS), where it lives in the ⋮ nav instead.
+  const leaderboardBtn = el("a.iconbtn.topbar__leaderboard" + (navActive("/leaderboard") ? ".is-active" : ""), {
+    href: "#/leaderboard", "aria-label": t("nav.leaderboard"), title: t("nav.leaderboard"),
+  }, [icon(ICONS.podium, 18)]);
+
+  return el("div.topbar__actions", {}, [leaderboardBtn, bellBtn, profileBtn]);
 }
 
 function shell(contentNode) {
