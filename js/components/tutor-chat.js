@@ -29,6 +29,24 @@ async function loadScripted() {
   return scriptedByLang[lang];
 }
 
+/** A hint ladder built from the question's own authored content, for offline
+ *  mode on any set without a hand-scripted entry (i.e. the whole library).
+ *  Worked problems walk their `steps`; everything else gets a soft nudge, then
+ *  the `explanation` framed as the deep hint. null when there's nothing to use
+ *  — the caller then falls back to the generic ladder. */
+function contentLadder(question) {
+  if (!question) return null;
+  if (Array.isArray(question.steps) && question.steps.length) {
+    const rungs = question.steps.slice(0, 4).map((s) => t("tutor.stepHint", { step: String(s).trim() }));
+    rungs.push(t("tutor.stepsFinish"));
+    return rungs;
+  }
+  if (question.explanation) {
+    return [t("tutor.contentNudge"), t("tutor.contentReveal", { explanation: String(question.explanation).trim() })];
+  }
+  return null;
+}
+
 export class TutorChat {
   constructor({ locked = false, hintBudget = Infinity } = {}) {
     this.locked = locked;
@@ -243,7 +261,10 @@ export class TutorChat {
       const s = await loadScripted();
       const q = s.byQuestion?.[question?.id] || {};
       const g = s.generic || {};
-      await this._typeOut(q.correct || g.correct || t("tutor.explainWhyScripted"));
+      // The question's own explanation is exactly what "explain why" wants.
+      const authored = question?.explanation
+        || (Array.isArray(question?.steps) && question.steps.length ? question.steps.join(" ") : "");
+      await this._typeOut(q.correct || authored || g.correct || t("tutor.explainWhyScripted"));
     }
     this.busy = false;
   }
@@ -281,7 +302,10 @@ export class TutorChat {
     const s = await loadScripted();
     const q = s.byQuestion?.[this.question?.id] || {};
     const g = s.generic || {};
-    const ladder = q.ladder || g.ladder || [];
+    // Hand-scripted rungs for the demo sets first; then the question's own
+    // authored content (every library set ships an explanation / steps);
+    // only then the fully generic ladder.
+    const ladder = q.ladder || contentLadder(this.question) || g.ladder || [];
 
     let reply;
     if (opts.correct) {

@@ -44,10 +44,16 @@ export function heuristic(ans, model) {
   if (!mTokens.length) {
     return { correct: tokenize(ans).length > 0, feedback: t("q.heuristicMiss"), missedPoints: [] };
   }
+  // Keyword overlap alone is a weak signal — a vaguely on-topic sentence can
+  // clear a low bar. Ask for at least half the model's key words, and never
+  // pass an answer much shorter than the model. The model answer is shown
+  // either way, so a near-miss the student actually got is theirs to appeal.
   const hit = mTokens.filter((w) => aTokens.has(w)).length / mTokens.length;
+  const longEnough = aTokens.size >= Math.max(2, Math.ceil(mTokens.length * 0.4));
+  const correct = hit >= 0.5 && longEnough;
   return {
-    correct: hit >= 0.34,
-    feedback: hit >= 0.34 ? t("q.heuristicOk") : t("q.heuristicMiss"),
+    correct,
+    feedback: correct ? t("q.heuristicOk") : t("q.heuristicMiss"),
     missedPoints: [],
   };
 }

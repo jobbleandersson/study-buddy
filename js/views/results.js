@@ -92,6 +92,10 @@ export function renderResults(attemptId) {
         : "",
     ]),
     attempt.timedOut ? el("p.note.note--warn", {}, t("results.timedOut")) : null,
+    (() => {
+      const n = (attempt.items || []).filter((i) => i.appealed).length;
+      return n ? el("p.note", { style: { marginTop: "-4px" } }, plural(n, "results.appealedOne", "results.appealedMany")) : null;
+    })(),
 
     gradeReveal(attempt),
 

@@ -282,7 +282,14 @@ export async function renderParentStudent(studentUserId) {
         days: (blob.activity?.daysStudied || []).length,
         sessions: (blob.attempts || []).length,
       })),
-    ]),
+      (() => {
+        // Answers the student marked correct on appeal, last ~20 sessions —
+        // so an appeal-heavy score reads honestly here.
+        const recent = (blob.attempts || []).slice(-20);
+        const appealed = recent.reduce((n, a) => n + (a.items || []).filter((i) => i.appealed).length, 0);
+        return appealed ? el("p.note", { style: { marginTop: "6px" } }, t("parent.appealed", { n: appealed })) : null;
+      })(),
+    ].filter(Boolean)),
 
     el("section.panel", {}, [
       el("h3", { style: { marginBottom: "8px" } }, t("parent.masteryHeading")),

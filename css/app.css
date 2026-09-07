@@ -425,6 +425,13 @@ a.streakbadge:hover {
    Settings, the Kommande dialog), just not underlined here. */
 .home-panel .linkbtn, .home-panel .upcoming__more { text-decoration: none; }
 
+/* Backup nudge — a warm-tinted card so it reads as "attention" without alarm. */
+.home-panel--backup { border-color: color-mix(in srgb, var(--retry) 40%, var(--line)); background: var(--retry-tint); }
+.home-panel--backup .home-panel__label { align-items: flex-start; }
+.home-panel--backup .home-panel__label span { color: var(--retry-ink); }
+.home-panel--backup .home-panel__label .linkbtn { flex: none; white-space: nowrap; font-size: var(--fs-sm); }
+.home-panel--backup .note { color: var(--ink-soft); }
+
 /* Two-column home page: the panels on the left, a sticky rail (upcoming
    deadlines + achievements teaser) on the right. Falls back to one column
    below 1100px, or whenever homeRail() has nothing to show. */
@@ -1624,6 +1631,23 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   border-radius: var(--r-lg); box-shadow: var(--shadow-2);
   padding: var(--s-5); max-width: 420px; width: 100%;
 }
+
+/* "Review answered" panel — practice / review look-back at what's been done. */
+.review-so-far { max-width: 560px; max-height: 82vh; display: flex; flex-direction: column; }
+.review-so-far__list { overflow-y: auto; display: flex; flex-direction: column; gap: var(--s-3); }
+.review-so-far__item {
+  border: 1px solid var(--line); border-left: 3px solid var(--line-strong);
+  border-radius: var(--r-md); padding: var(--s-3) var(--s-4); background: var(--surface);
+}
+.review-so-far__item.is-ok { border-left-color: var(--ok); }
+.review-so-far__item.is-miss { border-left-color: var(--retry); }
+.review-so-far__q { display: flex; gap: var(--s-2); font-weight: 600; font-size: var(--fs-sm); }
+.review-so-far__n { flex: none; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+.review-so-far__verdict { display: flex; align-items: center; gap: 5px; margin-top: 6px; font-size: 12px; font-weight: 700; color: var(--ink-soft); }
+.review-so-far__item.is-ok .review-so-far__verdict { color: var(--ok-ink); }
+.review-so-far__item.is-miss .review-so-far__verdict { color: var(--retry-ink); }
+.review-so-far__ans { margin: 6px 0 0; font-size: var(--fs-sm); color: var(--ink); }
+.review-so-far__exp { margin: 4px 0 0; font-size: 12px; color: var(--ink-soft); line-height: 1.5; }
 
 /* "This is a test" toggle in the Deadline dialog. */
 .due-dialog__test { display: flex; align-items: flex-start; gap: var(--s-2); margin-top: var(--s-3); font-size: var(--fs-sm); color: var(--ink-soft); cursor: pointer; }

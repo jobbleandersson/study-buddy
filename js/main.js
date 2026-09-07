@@ -499,7 +499,7 @@ function shell(contentNode) {
   ]);
 }
 
-async function render({ chromeOnly = false } = {}) {
+async function render({ chromeOnly = false, softRefresh = false } = {}) {
   // chromeOnly: re-run the shell (nav labels, sidebar) around the view that's
   // already mounted, without rebuilding the view itself. Used on a language
   // switch while a session is running — the session refreshes its own
@@ -510,14 +510,23 @@ async function render({ chromeOnly = false } = {}) {
     return;
   }
 
+  // softRefresh: a re-render triggered by a store change on the *same* screen
+  // (a background sync, a goal reached) — not a navigation. Keep the scroll
+  // position and don't steal focus or announce.
+  const keepY = softRefresh ? window.scrollY : 0;
+
   closePopover();
   if (typeof currentCleanup === "function") { try { currentCleanup(); } catch {} }
   currentCleanup = null;
 
   const viewFn = parseHash();
-  mount(app, shell(el("div", {
-    style: { padding: "40px", textAlign: "center", color: "var(--ink-faint)" },
-  }, t("common.loading"))));
+  // On a soft refresh the current screen stays put until the rebuilt one is
+  // ready — no loading flash for what's usually an instant rebuild.
+  if (!softRefresh) {
+    mount(app, shell(el("div", {
+      style: { padding: "40px", textAlign: "center", color: "var(--ink-faint)" },
+    }, t("common.loading"))));
+  }
 
   try {
     const result = await viewFn();
@@ -528,11 +537,12 @@ async function render({ chromeOnly = false } = {}) {
 
     const title = result?.title || "StudyBuddy";
     document.title = result?.title ? `${result.title} · StudyBuddy` : "StudyBuddy";
-    window.scrollTo(0, 0);
+    window.scrollTo(0, keepY);
 
     // Deliberate focus + a single short announcement, rather than a live
-    // region that re-reads the entire page on every navigation.
-    if (firstPaintDone) {
+    // region that re-reads the entire page on every navigation. A soft refresh
+    // isn't a navigation — leave focus and the screen reader alone.
+    if (firstPaintDone && !softRefresh) {
       focusHeading(app.querySelector(".content"));
       announce(title);
     }
@@ -598,10 +608,25 @@ store.init().then(() => {
   store.addEventListener("change", () => {
     const h = location.hash.replace(/^#/, "").split("?")[0];
     if (h === "" || h === "/" || h === "/study" || h === "/calendar" || h === "/progress"
-        || h === "/achievements" || h === "/exam-prep" || h.startsWith("/exam-prep/")) render();
+        || h === "/achievements" || h === "/exam-prep" || h.startsWith("/exam-prep/")) render({ softRefresh: true });
   });
-  store.addEventListener("syncConflict", () => {
-    toast(t("sync.conflict"));
+  store.addEventListener("syncMerged", () => toast(t("sync.merged")));
+  store.addEventListener("syncConflict", (e) => {
+    if (e.detail?.recoverable && store.syncDiscard) {
+      showBanner(t("sync.conflictBanner"), {
+        actionLabel: t("sync.downloadReplaced"),
+        closeLabel: t("common.close"),
+        onAction: () => {
+          const d = store.syncDiscard;
+          if (d) {
+            downloadText(`studybuddy-replaced-${localDayKey()}.json`, JSON.stringify(d.blob, null, 2));
+            toast(t("set.backupDownloaded"));
+          }
+        },
+      });
+    } else {
+      toast(t("sync.conflict"));
+    }
   });
   store.addEventListener("streakFreezeUsed", (e) => {
     toast(t("streak.freezeUsedToast", { n: e.detail.streak }));
@@ -615,6 +640,7 @@ store.init().then(() => {
       closeLabel: t("common.close"),
       onAction: () => {
         downloadText(`studybuddy-backup-${localDayKey()}.json`, store.exportJSON());
+        store.markBackedUp();
         toast(t("set.backupDownloaded"));
       },
     });

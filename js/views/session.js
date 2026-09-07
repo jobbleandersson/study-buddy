@@ -9,7 +9,8 @@ import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, NATIONAL_MIX_PREFIX, nationalMi
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { announce } from "../lib/a11y.js";
 import { t } from "../lib/i18n.js";
-import { renderQuestion } from "../components/questions.js";
+import { renderQuestion, parseCloze, clozeToUnderscores } from "../components/questions.js";
+import { renderRich } from "../lib/rich.js";
 import { TutorChat } from "../components/tutor-chat.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
@@ -211,6 +212,12 @@ function runSession(config) {
   const nextBtn = el("button.btn", { type: "button", disabled: true, onclick: next }, t("session.next"));
   const skipBtn = el("button.btn.btn--ghost", { type: "button", onclick: skip }, t("session.skip"));
   const exitBtn = el("button.btn.btn--ghost", { type: "button", onclick: exit }, t("session.exit"));
+  // Practice / review only — a test doesn't get to look back. Shown once
+  // there's something answered to look at (paintReviewBtn keeps it in sync).
+  const reviewBtn = el("button.btn.btn--ghost.btn--sm", {
+    type: "button", hidden: true, onclick: openReviewSoFar,
+  }, [icon(ICONS.back, 15), t("session.reviewSoFar")]);
+  function paintReviewBtn() { reviewBtn.hidden = isTest || answeredCount() === 0; }
 
   let currentRenderer = null;
   let lastPrompt = null;   // wording of the question currently on stage — lets
@@ -266,10 +273,64 @@ function runSession(config) {
     const done = answeredCount();
     fill.style.width = `${(done / state.order.length) * 100}%`;
     const skippedLeft = state.skipped.filter((id) => !state.items[id]).length;
+    // "Question N" is which one you're working on — answered + the current one
+    // — not the raw cursor, which drifts from that after a skip reorders the
+    // list. `done` in the same line keeps the two consistent.
+    const onNow = state.items[currentId()] ? done : Math.min(done + 1, state.order.length);
     label.textContent =
-      t("session.questionOf", { n: state.cursor + 1, total: state.order.length, done })
+      t("session.questionOf", { n: onNow, total: state.order.length, done })
       + (skippedLeft ? t("session.skippedSuffix", { n: skippedLeft }) : "");
+    paintReviewBtn();
   }
+
+  /* ----- "review what I've done" — practice / review only ----- */
+  let reviewModal = null;
+  function closeReviewSoFar() { reviewModal?.remove(); reviewModal = null; }
+  function correctText(q) {
+    if (q.kind === "mc") return Array.isArray(q.choices) && q.choices[q.answer] != null ? renderRich(String(q.choices[q.answer])) : "";
+    if (q.kind === "cloze") {
+      return parseCloze(q.prompt).map((p) => p.blank ? `<strong>${renderRich(p.blank[0])}</strong>` : renderRich(p.text)).join("");
+    }
+    return q.answer ? renderRich(String(q.answer)) : "";
+  }
+  function openReviewSoFar() {
+    closeReviewSoFar();
+    // In answered order, following state.order.
+    const rows = state.order
+      .filter((id) => state.items[id])
+      .map((id) => ({ item: state.items[id], q: store.findQuestion(id)?.question }))
+      .filter((r) => r.q);
+    reviewModal = el("div.modal", {
+      role: "dialog", "aria-modal": "true", "aria-label": t("session.reviewSoFar"),
+      onclick: (e) => { if (e.target === reviewModal) closeReviewSoFar(); },
+    }, [
+      el("div.modal__card.review-so-far", {}, [
+        el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" } }, [
+          el("h3", {}, t("session.reviewSoFar")),
+          el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.close"), onclick: closeReviewSoFar }, [icon(ICONS.close, 16)]),
+        ]),
+        el("div.review-so-far__list", {}, rows.map(({ item, q }, i) => {
+          const promptText = q.kind === "cloze" ? clozeToUnderscores(q.prompt) : q.prompt;
+          return el("div.review-so-far__item" + (item.correct ? ".is-ok" : ".is-miss"), {}, [
+            el("div.review-so-far__q", {}, [
+              el("span.review-so-far__n", {}, String(i + 1)),
+              el("span", { html: renderRich(promptText.length > 140 ? promptText.slice(0, 140) + "…" : promptText) }),
+            ]),
+            el("div.review-so-far__verdict", {}, [
+              icon(item.correct ? ICONS.check : ICONS.close, 13),
+              item.correct ? (item.appealed ? t("session.reviewAppealed") : t("session.reviewGotIt")) : t("session.reviewMissed"),
+            ]),
+            el("p.review-so-far__ans", {}, [el("strong", {}, t("results.correctAnswerLabel")), " ", el("span", { html: correctText(q) })]),
+            q.explanation ? el("p.review-so-far__exp", { html: renderRich(String(q.explanation)) }) : null,
+          ].filter(Boolean));
+        })),
+      ]),
+    ]);
+    document.body.appendChild(reviewModal);
+    reviewModal.querySelector(".iconbtn")?.focus();
+    document.addEventListener("keydown", reviewEsc);
+  }
+  function reviewEsc(e) { if (e.key === "Escape") { closeReviewSoFar(); document.removeEventListener("keydown", reviewEsc); } }
 
   /** Apply this session's shuffled choice order without touching stored data. */
   function viewQuestion(q) {
@@ -540,8 +601,16 @@ function runSession(config) {
     state.committedSrs = [...committed];
   }
 
+  /** Something worth a "leave?" prompt: an answer recorded, an exam clock
+   *  running, or an answer half-typed on the current question. */
+  function hasProgress() {
+    if (answeredCount() > 0 || isExam) return true;
+    return [...stage.querySelectorAll(".answerbox, .cloze__blank")].some((el) => el.value.trim());
+  }
+
   async function exit() {
     persist();
+    if (!hasProgress()) { location.hash = "#/"; return; }
     if (await confirmDialog({
       message: t("session.exitConfirm"),
       confirmLabel: t("nav.leave"),
@@ -769,7 +838,7 @@ function runSession(config) {
   window.addEventListener("sb:langsession", onLangSession);
 
   const node = el("div", {}, [
-    homeButton({ confirm: true }),
+    homeButton({ confirm: () => hasProgress() }),
     el("div.session__head", {}, [
       headH2,
       el("span.session__headright", {}, [
@@ -789,7 +858,7 @@ function runSession(config) {
       el("div", {}, [
         stage,
         el("div.nav-row", {}, [
-          exitBtn,
+          el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [exitBtn, reviewBtn]),
           el("div", { style: { display: "flex", gap: "10px" } }, [skipBtn, nextBtn]),
         ]),
       ]),
@@ -809,6 +878,8 @@ function runSession(config) {
       clearInterval(pomoTimer);
       stopExam();
       closeShortcuts();
+      closeReviewSoFar();
+      document.removeEventListener("keydown", reviewEsc);
       closePopover();
       tutor.destroy();
     },

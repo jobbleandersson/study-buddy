@@ -45,12 +45,15 @@ export function isDue(rec, now = Date.now()) {
   return !rec || rec.dueAt <= now;
 }
 
-/** Reuses the same phrasing as due dates, so both lists read alike.
- *  Note: a record due in ~10 minutes (a just-missed question) still formats as
- *  "Tomorrow" here — that's deliberate, so the due list and the review list
- *  read alike. summarizeSchedule() sidesteps it by bucketing those separately. */
+/** Reuses the same phrasing as due dates, so both lists read alike. A record
+ *  due within a day (a just-missed same-session retry) reads "later today"
+ *  rather than rounding up to "Tomorrow". */
 export function dueLabel(rec, now = Date.now()) {
   if (isDue(rec, now)) return t("date.dueNow");
+  // A same-session retry (intervalDays 0) is due in ~10 minutes — that read as
+  // "Tomorrow" once it rounded up to a whole day. Anything under a day away is
+  // "later today" instead.
+  if (rec.dueAt - now < DAY) return t("date.laterToday");
   const days = Math.ceil((rec.dueAt - now) / DAY);
   const target = new Date(now + days * DAY);
   return relativeDay(localDayKey(target), new Date(now));

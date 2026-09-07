@@ -375,6 +375,7 @@ export function renderSettings() {
 
     function exportData() {
       downloadText(`studybuddy-backup-${localDayKey()}.json`, store.exportJSON());
+      store.markBackedUp();
       toast(t("set.backupDownloaded"));
     }
 

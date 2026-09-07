@@ -69,6 +69,7 @@ is no longer spendable anonymously. Still open before a paid launch (see the "Tu
 on live mode" plan): there's no **entitlement** check yet — any signed-in account can
 spend up to the flat budget, paid or not; login has no throttle; there's no password
 reset; the rate limiter and budget counter are per-process, so a multi-process deploy
-needs shared state. `COOKIE_SECURE` should be `true` once this runs over https (left
-`false` for local http dev). `ALLOWED_ORIGIN` only matters if the frontend is served
+needs shared state (Redis) and a single owner for the hourly row sweep (`src/sweep.js`).
+`COOKIE_SECURE` should be `true` once this runs over https (left `false` for local http
+dev). `ALLOWED_ORIGIN` only matters if the frontend is served
 from somewhere other than this same process — normally leave it unset.

@@ -5,6 +5,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import "./db.js"; // creates tables on first run
+import { startSweeper } from "./sweep.js";
 import { health } from "./routes/health.js";
 import { messages } from "./routes/messages.js";
 import { auth } from "./routes/auth.js";
@@ -48,6 +49,8 @@ app.use("/api", friends);
 // the sqlite db, and node_modules, none of which are meant to be fetchable.
 app.use((req, res, next) => (req.path === "/server" || req.path.startsWith("/server/")) ? res.status(404).end() : next());
 app.use(express.static(FRONTEND_ROOT, { dotfiles: "ignore" }));
+
+startSweeper(); // prune expired sessions + used/old codes, hourly
 
 app.listen(PORT, () => {
   console.log(`[study-buddy-server] listening on http://localhost:${PORT}`);

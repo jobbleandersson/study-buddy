@@ -2,9 +2,9 @@
 // tabs, filters, and the card grid.
 
 import { store } from "../store.js";
-import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
+import { el, clear, icon, ICONS, toast, downloadText } from "../lib/dom.js";
 import { t, plural, fmtDate, relativeDay, daysUntil } from "../lib/i18n.js";
-import { questionsAnsweredToday } from "../lib/activity.js";
+import { localDayKey, questionsAnsweredToday } from "../lib/activity.js";
 import { weeklyRecap, isoWeek } from "../lib/recap.js";
 import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
 import { monthCalendar, weekStrip } from "../components/calendar.js";
@@ -417,8 +417,39 @@ export function renderMenu(mode) {
  *  closest to unlocking, or a "you got them all" note). Null when both are
  *  empty, so the layout collapses to one column. */
 function homeRail() {
-  const panels = [calendarPanel(), achievementsPanel()].filter(Boolean);
+  const panels = [backupPanel(), calendarPanel(), achievementsPanel()].filter(Boolean);
   return panels.length ? el("aside.home-rail", {}, panels) : null;
+}
+
+/** "Your work is only on this device." — for a signed-out student with real
+ *  history and no recent backup. One tap to export, or a nudge to sign in.
+ *  Dismissible; re-armed after a few weeks. */
+function backupPanel() {
+  if (!store.shouldNudgeBackup()) return null;
+  const last = store.state.activity.lastBackupAt;
+  const when = last
+    ? t("backup.last", { date: fmtDate(localDayKey(new Date(last))) })
+    : t("backup.never");
+  const panel = el("section.home-panel.home-panel--backup", {}, [
+    el("div.home-panel__label", {}, [
+      el("span", {}, t("backup.title")),
+      el("button.linkbtn", { type: "button", onclick: () => { store.dismissBackupNudge(); panel.remove(); } }, t("backup.dismiss")),
+    ]),
+    el("p.note", { style: { margin: "2px 0 10px" } }, `${t("backup.body")} ${when}`),
+    el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [
+      el("button.btn.btn--sm", {
+        type: "button",
+        onclick: () => {
+          downloadText(`studybuddy-backup-${localDayKey()}.json`, store.exportJSON());
+          store.markBackedUp();
+          toast(t("backup.done"));
+          panel.remove();
+        },
+      }, [icon(ICONS.download, 15), t("backup.now")]),
+      el("a.btn.btn--ghost.btn--sm", { href: "#/login" }, t("backup.signIn")),
+    ]),
+  ]);
+  return panel;
 }
 
 function calendarPanel() {
@@ -595,7 +626,10 @@ function statPill(href, iconPath, label, cls) {
 function goalPill(goal) {
   const done = questionsAnsweredToday(store.attempts);
   const hit = done >= goal;
-  if (hit) store.markGoalReached() && playFanfare();
+  // markGoalReached() writes to the store (and can fire an achievement) — keep
+  // that out of the render call stack so its "change" event doesn't re-enter
+  // render() mid-paint.
+  if (hit) queueMicrotask(() => { if (store.markGoalReached()) playFanfare(); });
   return el("a.pill.pill--goal", { href: "#/progress" }, [
     goalRing(done, goal),
     el("span", {}, hit ? t("menu.goalDone", { done }) : t("menu.goalToday", { done, goal })),

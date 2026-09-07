@@ -33,6 +33,11 @@ const SYNC_VERSION_KEY = "studybuddy.syncVersion";
 // doesn't destroy the only copy of whatever was actually there.
 const RECOVERY_KEY = "studybuddy.v1.recovery";
 
+// Copy of this device's state kept just before a sync conflict overwrote it —
+// so a merge that had to fall back to "adopt the server's blob" is still
+// recoverable (the banner offers it as a download).
+const SYNC_DISCARD_KEY = "studybuddy.v1.syncdiscard";
+
 /** The bundled demo sets. They are no longer seeded automatically — they live
  *  in Settings under "Demo content" so a real library starts clean.
  *  `files` is per language; an unsupported language falls back to English. */
@@ -122,6 +127,8 @@ function seedState() {
       bestStreak: 0,                 // longest streak ever, for a "personal best" line
       goalDays: [],                  // day keys where the daily goal was reached
       recapWeek: null,               // ISO "YYYY-Www" of the last recap card dismissed
+      lastBackupAt: null,            // ms of the last Export JSON — drives the backup nudge
+      backupNudgeAt: null,           // ms the backup nudge was last dismissed
     },
   };
 }
@@ -189,6 +196,86 @@ function migrate(state) {
 
   s.version = SCHEMA_VERSION;
   s.settings = { ...seedState().settings, ...(s.settings || {}) };
+  return finishMigrate(s);
+}
+
+/**
+ * Merge the *additive* parts of a local blob into the server's canonical one,
+ * for the 409 sync-conflict path — so a device that did work while another was
+ * ahead keeps that work instead of having its whole blob replaced. Both args
+ * are raw (pre-migrate); the caller migrates the result. Every field falls
+ * back to the server's value if the local one is missing or malformed.
+ */
+function mergeStates(server, local) {
+  const s = server && typeof server === "object" ? { ...server } : {};
+  const l = local && typeof local === "object" ? local : {};
+  const arr = (x) => (Array.isArray(x) ? x : []);
+  const o = (x) => (x && typeof x === "object" ? x : {});
+  const unionSorted = (a, b) => [...new Set([...arr(a), ...arr(b)])].sort();
+
+  // attempts — union by id, chronological
+  const aSeen = new Set(arr(s.attempts).map((a) => a && a.id));
+  s.attempts = [...arr(s.attempts), ...arr(l.attempts).filter((a) => a && a.id && !aSeen.has(a.id))]
+    .sort((a, b) => (a.finishedAt || 0) - (b.finishedAt || 0));
+
+  // assignments / subjects — add the ones only the local side has (edits to a
+  // shared id stay the server's; migrate() dedupes + prunes subjects after)
+  const asSeen = new Set(arr(s.assignments).map((a) => a && a.id));
+  s.assignments = [...arr(s.assignments), ...arr(l.assignments).filter((a) => a && a.id && !asSeen.has(a.id))];
+  const suSeen = new Set(arr(s.subjects).map((x) => x && x.id));
+  s.subjects = [...arr(s.subjects), ...arr(l.subjects).filter((x) => x && x.id && !suSeen.has(x.id))];
+
+  // srs — per question, keep the record with more review history
+  const srs = { ...o(s.srs) };
+  for (const [qid, rec] of Object.entries(o(l.srs))) {
+    const cur = srs[qid];
+    const better = !cur
+      || (rec?.reps || 0) > (cur.reps || 0)
+      || ((rec?.reps || 0) === (cur.reps || 0) && (rec?.dueAt || 0) > (cur.dueAt || 0));
+    if (better) srs[qid] = rec;
+  }
+  s.srs = srs;
+
+  // in-progress sessions — keep a local one the server lacks; on a shared key
+  // keep whichever got further
+  const sess = { ...o(s.sessions) };
+  for (const [k, ss] of Object.entries(o(l.sessions))) {
+    const cur = sess[k];
+    const li = Object.keys(o(ss?.items)).length;
+    const ci = Object.keys(o(cur?.items)).length;
+    if (!cur || li > ci || (li === ci && (ss?.savedAt || 0) > (cur?.savedAt || 0))) sess[k] = ss;
+  }
+  s.sessions = sess;
+
+  // activity — union the day lists, take the higher counters
+  const sa = o(s.activity), la = o(l.activity);
+  s.activity = {
+    ...sa,
+    daysStudied: unionSorted(sa.daysStudied, la.daysStudied),
+    frozenDays: unionSorted(sa.frozenDays, la.frozenDays),
+    goalDays: unionSorted(sa.goalDays, la.goalDays),
+    freezes: Math.max(sa.freezes || 0, la.freezes || 0),
+    freezeMark: Math.max(sa.freezeMark || 0, la.freezeMark || 0),
+    bestStreak: Math.max(sa.bestStreak || 0, la.bestStreak || 0),
+    lastBackupAt: Math.max(sa.lastBackupAt || 0, la.lastBackupAt || 0) || null,
+  };
+
+  // achievements — union, keeping the earlier unlock stamp
+  const ach = { ...o(s.achievements) };
+  for (const [id, ts] of Object.entries(o(l.achievements))) {
+    if (!(id in ach)) ach[id] = ts;
+    else if (ts && ach[id] && ts < ach[id]) ach[id] = ts;
+  }
+  s.achievements = ach;
+
+  s.onboarded = !!(s.onboarded || l.onboarded);
+  // settings + readNotifications: the server's win (last-synced config, transient state)
+  return s;
+}
+
+/** The tail of migrate() — the version-independent normalisation — split out so
+ *  a merged blob (which is already at SCHEMA_VERSION) gets the same treatment. */
+function finishMigrate(s) {
   s.activity = { ...seedState().activity, ...(s.activity || {}) };
   s.achievements = s.achievements || {};
   s.readNotifications = s.readNotifications || {};
@@ -1112,7 +1199,7 @@ class Store extends EventTarget {
     this._pushTimer = setTimeout(() => this._pushNow(), 800);
   }
 
-  async _pushNow() {
+  async _pushNow(_retry = 0) {
     let res;
     try {
       res = await fetch(STATE_URL, {
@@ -1123,24 +1210,78 @@ class Store extends EventTarget {
     } catch { return; } // offline/unreachable — the next save() will try again
 
     if (res.status === 409) {
-      const { version, blob } = await res.json();
-      if (blob) {
-        this.state = migrate(blob);
-        this._setSyncVersion(version);
-        this.save({ skipPush: true });
-        this.emit();
+      let payload = null;
+      try { payload = await res.json(); } catch {}
+      const { version, blob } = payload || {};
+      if (!blob) { this.dispatchEvent(new CustomEvent("syncConflict")); return; }
+
+      // Keep a recoverable copy of what this device had, before anything
+      // overwrites it — the fallback if the merge below can't be pushed.
+      const localBefore = this.state;
+      try {
+        localStorage.setItem(SYNC_DISCARD_KEY, JSON.stringify({ at: Date.now(), blob: localBefore }));
+      } catch {}
+
+      if (_retry < 2) {
+        try {
+          this.state = migrate(mergeStates(blob, localBefore));
+          this._setSyncVersion(version);
+          this.save({ skipPush: true });
+          this.emit();
+          this.dispatchEvent(new CustomEvent("syncMerged"));
+          return this._pushNow(_retry + 1);   // push the merged result up
+        } catch (e) {
+          console.warn("sync merge failed — adopting the server's blob:", e);
+        }
       }
-      this.dispatchEvent(new CustomEvent("syncConflict"));
+
+      // Merge failed, or kept colliding — adopt the server's; the discard copy
+      // above is offered for download by the banner.
+      this.state = migrate(blob);
+      this._setSyncVersion(version);
+      this.save({ skipPush: true });
+      this.emit();
+      this.dispatchEvent(new CustomEvent("syncConflict", { detail: { recoverable: true } }));
       return;
     }
     if (res.ok) {
       const data = await res.json();
       this._setSyncVersion(data.version);
+      // Our state is the server's now — no stale discard copy to keep.
+      try { localStorage.removeItem(SYNC_DISCARD_KEY); } catch {}
     }
   }
 
+  /** The pre-conflict local blob kept for recovery, or null. */
+  get syncDiscard() {
+    try {
+      const raw = localStorage.getItem(SYNC_DISCARD_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch { return null; }
+  }
+  clearSyncDiscard() { try { localStorage.removeItem(SYNC_DISCARD_KEY); } catch {} }
+
   // ---------- data management ----------
   exportJSON() { return JSON.stringify(this.state, null, 2); }
+
+  /** Record that the user just took a backup (Export JSON, or the emergency
+   *  export). Resets the nudge. */
+  markBackedUp() {
+    this.update((s) => { s.activity.lastBackupAt = Date.now(); s.activity.backupNudgeAt = Date.now(); });
+  }
+  dismissBackupNudge() {
+    this.update((s) => { s.activity.backupNudgeAt = Date.now(); });
+  }
+  /** Show the "your work is only on this device" card: signed out, real history
+   *  built up, and no backup (or dismissal) in the last few weeks. */
+  shouldNudgeBackup() {
+    if (this.authed) return false;
+    if ((this.state.attempts || []).length < 12) return false;
+    const a = this.state.activity || {};
+    const AGE = 21 * 86400000;
+    const stale = (ts) => !ts || (Date.now() - ts) > AGE;
+    return stale(a.lastBackupAt) && stale(a.backupNudgeAt);
+  }
 
   /** Reuses the exact migrate() the normal boot path already trusts — no new
    *  validation logic. Throws on bad JSON so the caller can show an inline

@@ -6,7 +6,10 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { confirmDialog } from "./confirm-dialog.js";
 
+/** `confirm` may be a boolean or a `() => boolean` predicate checked at click
+ *  time — a session passes one so leaving with nothing answered doesn't nag. */
 export function homeButton({ confirm: needConfirm = false, grid = false } = {}) {
+  const wantConfirm = typeof needConfirm === "function" ? needConfirm : () => needConfirm;
   return el("a.homebtn", {
     href: "#/",
     "aria-label": t("nav.home"),
@@ -14,6 +17,7 @@ export function homeButton({ confirm: needConfirm = false, grid = false } = {}) 
     style: grid ? { justifySelf: "start" } : null,
     onclick: needConfirm
       ? async (e) => {
+          if (!wantConfirm()) return;   // no progress to lose — let the link through
           e.preventDefault();
           if (await confirmDialog({
             message: t("nav.leaveConfirm"),
