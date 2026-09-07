@@ -795,6 +795,17 @@ class Store extends EventTarget {
     return true;
   }
 
+  /** Flip a set between "assignment" and "test". Marking a set with a deadline
+   *  as a test is what turns on its home-screen countdown, dated exam plan and
+   *  reminder — the library ships everything as "assignment". */
+  setAssignmentType(id, type) {
+    const next = type === "test" ? "test" : "assignment";
+    this.update((s) => {
+      const a = s.assignments.find((x) => x.id === id);
+      if (a) a.type = next;
+    });
+  }
+
   /** Sets with a deadline, soonest first. Stale ones were swept at init. */
   upcomingDue() {
     return this.state.assignments

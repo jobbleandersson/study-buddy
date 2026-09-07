@@ -6,9 +6,10 @@
 
 import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
-import { t, plural, daysUntil, getLang } from "../lib/i18n.js";
+import { t, plural, daysUntil, getLang, sentenceCase } from "../lib/i18n.js";
 import { localDayKey, addDays } from "../lib/activity.js";
 import { homeButton } from "../components/nav.js";
+import { openDueDialog } from "../components/due-dialog.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import {
   masteryByTopic, masteryForSubject, masteryForAssignment, weakSpotQuestions,
@@ -95,14 +96,25 @@ export function renderExamPrep(subjectId) {
   const color = store.subjectColor(subjectId);
 
   /* ---- countdown ---- */
-  const testSet = store.upcomingDue().find((a) => a.subjectId === subjectId && a.type === "test");
+  // Prefer a set the student has marked as a test, but fall back to any set in
+  // the subject with a deadline — a library-first student's sets are all
+  // "assignment", and the plan/countdown are the whole reason to open this page.
+  const dued = store.upcomingDue().filter((a) => a.subjectId === subjectId);
+  const testSet = dued.find((a) => a.type === "test") || dued[0] || null;
   const head = el("section.panel.exam-prep__head", {}, [
     testSet
       ? el("p.exam-prep__when", {}, [
           icon(ICONS.clock, 16), " ",
-          t("exam.testIn", { subject: subject.name, when: countdownLabel(testSet.dueAt) }),
+          t(testSet.type === "test" ? "exam.testIn" : "exam.deadlineIn",
+            { subject: subject.name, when: countdownLabel(testSet.dueAt) }),
         ])
-      : el("p.note", {}, `${t("exam.noDate")} ${t("exam.setDateHint")}`),
+      : el("div", {}, [
+          el("p.note", { style: { marginBottom: "9px" } }, t("exam.noDatePrompt")),
+          el("button.btn.btn--sm", {
+            type: "button",
+            onclick: () => openDueDialog(sets[0], { defaultTest: true }),
+          }, [icon(ICONS.calendar, 16), t("exam.setDate")]),
+        ]),
   ]);
 
   /* ---- where you stand: subject % in the heading, a per-topic breakdown
@@ -125,7 +137,7 @@ export function renderExamPrep(subjectId) {
       ? el("div.exam-prep__topics", {}, topicRows.map(({ topic, mv }) => {
           const tp = Math.round(mv * 100);
           return el("div.meter", {}, [
-            el("span", { style: { textTransform: "capitalize" } }, topic),
+            el("span", {}, sentenceCase(topic)),
             el("div.meter__track", {
               role: "img", "aria-label": t("prog.masteryAria", { subject: topic, pct: tp }),
             }, [el("div.meter__fill", { style: { width: `${tp}%`, "--subject": color.solid } })]),
@@ -149,7 +161,7 @@ export function renderExamPrep(subjectId) {
     ]),
     el("p.note", { style: { margin: "2px 0 4px" } }, t("exam.planSub")),
     el("ol.exam-prep__days", {}, plan.map((r) => {
-      const label = r.kind === "drill" ? t("exam.planDrill", { topic: r.topic })
+      const label = r.kind === "drill" ? t("exam.planDrill", { topic: sentenceCase(r.topic) })
         : r.kind === "review" ? plural(r.n, "exam.planReviewOne", "exam.planReviewMany")
         : r.kind === "practice" ? t("exam.planPractice", { title: r.title })
         : r.kind === "mock" ? t("exam.planMock")
@@ -169,7 +181,7 @@ export function renderExamPrep(subjectId) {
     weak.length
       ? el("div", {}, [
           el("p", {}, plural(weak.length, "exam.weakCountOne", "exam.weakCountMany")),
-          weakTopics.length ? el("p.note", {}, weakTopics.join(" · ")) : null,
+          weakTopics.length ? el("p.note", {}, weakTopics.map(sentenceCase).join(" · ")) : null,
         ].filter(Boolean))
       : el("p.note", {}, t("exam.weakNone")),
   ]);
@@ -266,7 +278,8 @@ function renderLanding() {
   }
 
   const rows = withSets.map((s) => {
-    const test = store.upcomingDue().find((a) => a.subjectId === s.id && a.type === "test");
+    const dued = store.upcomingDue().filter((a) => a.subjectId === s.id);
+    const test = dued.find((a) => a.type === "test") || dued[0] || null;
     const m = masteryForSubject(s.id, store.assignments, tm);
     return { s, test, m, days: test ? daysUntil(test.dueAt) : Infinity, mSort: m == null ? 1.01 : m };
   }).sort((a, b) => a.days - b.days || a.mSort - b.mSort || a.s.name.localeCompare(b.s.name));

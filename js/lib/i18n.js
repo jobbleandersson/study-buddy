@@ -87,6 +87,15 @@ export function plural(n, oneKey, otherKey, vars = {}) {
   return t(n === 1 ? oneKey : otherKey, { n, ...vars });
 }
 
+/** Uppercase the first letter only, leaving the rest as written. For library /
+ *  user data (topic names) that may be stored lowercase: `text-transform:
+ *  capitalize` was wrong here — it title-cases every word, turning
+ *  "ångmaskinen och mekanisering" into "Ångmaskinen Och Mekanisering". */
+export function sentenceCase(str) {
+  const s = String(str ?? "");
+  return s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+}
+
 /* ---------------- dates ---------------- */
 
 function locale() { return getLang() === "sv" ? "sv-SE" : "en-GB"; }

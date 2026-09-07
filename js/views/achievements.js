@@ -3,8 +3,8 @@
 
 import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
-import { ACHIEVEMENTS, MILESTONES, achievementMetrics, achievementValue } from "../lib/achievements.js";
-import { t, getLang } from "../lib/i18n.js";
+import { ACHIEVEMENTS, MILESTONES, achievementMetrics, achievementValue, nextAchievement } from "../lib/achievements.js";
+import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { shareCard, tierEmoji } from "../lib/share-card.js";
 
@@ -21,11 +21,38 @@ export function renderAchievements() {
     byTrack.get(a.track).push(a);
   }
 
-  const trackGroups = [...byTrack.values()].map((defs) =>
-    el("section.panel.achgroup", {}, [
+  // Show every earned tier plus the next one you're working toward; fold the
+  // rest of the ladder behind a per-track toggle. Day one that's one card per
+  // track instead of four, and the "1/30 … 1/100" cards you can't act on yet
+  // don't bury the one that's close.
+  const trackGroups = [...byTrack.values()].map((defs) => {
+    const firstLocked = defs.findIndex((d) => !(d.id in unlocked));
+    const cutoff = firstLocked === -1 ? defs.length : firstLocked + 1;
+    const shown = defs.slice(0, cutoff);
+    const rest = defs.slice(cutoff);
+    return el("section.panel.achgroup", {}, [
       el("h3.achgroup__title", {}, [icon(ICONS[defs[0].icon] || ICONS.award, 18), t(defs[0].nameKey)]),
-      el("div.achrow", {}, defs.map((def) => badge(def, metrics, unlocked))),
-    ]));
+      el("div.achrow", {}, shown.map((def) => badge(def, metrics, unlocked))),
+      rest.length ? el("details.achgroup__more", {}, [
+        el("summary", {}, plural(rest.length, "ach.showTiersOne", "ach.showTiersMany")),
+        el("div.achrow", { style: { marginTop: "var(--s-3)" } }, rest.map((def) => badge(def, metrics, unlocked))),
+      ]) : null,
+    ].filter(Boolean));
+  });
+
+  const next = nextAchievement(store.state);
+  const heroPct = next ? Math.min(100, Math.round((next.have / next.need) * 100)) : 0;
+  const hero = next ? el("section.ach-hero", {}, [
+    el("div.ach-hero__icon", {}, icon(ICONS[next.def.icon] || ICONS.award, 24)),
+    el("div.ach-hero__body", {}, [
+      el("p.ach-hero__eyebrow", {}, t("ach.nextUp")),
+      el("strong.ach-hero__name", {},
+        `${next.def.track ? t(`ach.tier.${next.def.tier}`) + " · " : ""}${t(next.def.nameKey)}`),
+      el("p.ach-hero__desc", {}, t(next.def.descKey, { n: next.need })),
+      el("div.ach-hero__bar", {}, [el("i", { style: { width: "0%" }, dataset: { w: heroPct } })]),
+      el("span.note", {}, `${next.have} / ${next.need}`),
+    ]),
+  ]) : null;
 
   const milestoneGroup = MILESTONES.length ? el("section.panel.achgroup", {}, [
     el("h3.achgroup__title", {}, [icon(ICONS.trophy, 18), t("ach.milestonesTitle")]),
@@ -41,6 +68,7 @@ export function renderAchievements() {
       el("p.note", {}, t("ach.subtitle", { unlocked: unlockedCount, total: ACHIEVEMENTS.length })),
       el("div.ach-summary__bar", {}, [el("i", { style: { width: "0%" }, dataset: { w: pct } })]),
     ]),
+    hero,
     ...trackGroups,
     milestoneGroup,
     el("a.btn.btn--ghost", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),

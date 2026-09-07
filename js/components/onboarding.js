@@ -16,9 +16,9 @@ export function maybeShowOnboarding() {
 
 function open() {
   const slides = [
-    { emoji: "📚", title: t("onb.s1title"), body: t("onb.s1body") },
-    { emoji: "✍️", title: t("onb.s2title"), body: t("onb.s2body") },
-    { emoji: "🔁", title: t("onb.s3title"), body: t("onb.s3body") },
+    { icon: ICONS.book, title: t("onb.s1title"), body: t("onb.s1body") },
+    { icon: ICONS.pencil, title: t("onb.s2title"), body: t("onb.s2body") },
+    { icon: ICONS.spark, title: t("onb.s3title"), body: t("onb.s3body") },
   ];
   let i = 0;
 
@@ -26,6 +26,13 @@ function open() {
   const dots = el("div.onb__dots", {}, slides.map(() => el("span.onb__dot")));
   const backBtn = el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => go(i - 1) }, t("common.back"));
   const nextBtn = el("button.btn.btn--sm", { type: "button", onclick: () => go(i + 1) }, t("onb.next"));
+  // "Make my first set" jumps to Create — which contradicts slide 1 ("start
+  // with a ready-made set") and, with no server, is mostly a dead end. Hide it
+  // on slide 1; from slide 2 on it's a fair shortcut for anyone who wants it.
+  const makeFirstLink = el("button.linkbtn", {
+    type: "button",
+    onclick: () => { store.markOnboarded(); location.hash = "#/create"; finish(); },
+  }, t("onb.makeFirst"));
 
   function finish() {
     store.markOnboarded();
@@ -40,12 +47,13 @@ function open() {
     i = n;
     const s = slides[i];
     body.replaceChildren(
-      el("div.onb__emoji", {}, s.emoji),
+      el("div.onb__emoji", {}, icon(s.icon, 40)),
       el("h2", {}, s.title),
       el("p", {}, s.body),
     );
     dots.querySelectorAll(".onb__dot").forEach((d, k) => d.classList.toggle("is-on", k === i));
     backBtn.hidden = i === 0;
+    makeFirstLink.hidden = i === 0;
     nextBtn.textContent = i === slides.length - 1 ? t("onb.browse") : t("onb.next");
   }
 
@@ -56,7 +64,7 @@ function open() {
       body,
       dots,
       el("div.onb__nav", {}, [
-        el("button.linkbtn", { type: "button", onclick: () => { store.markOnboarded(); location.hash = "#/create"; finish(); } }, t("onb.makeFirst")),
+        makeFirstLink,
         el("span", { style: { flex: "1" } }),
         backBtn, nextBtn,
       ]),

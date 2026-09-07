@@ -123,8 +123,12 @@ export function renderProgress() {
           sessions: plural(attemptsCount, "prog.sessionsOne", "prog.sessionsMany"),
         }),
         bestStreak > displayStreak ? " · " + t("prog.personalBest", { n: bestStreak }) : "",
+        // "next freeze in N days" means nothing without knowing what a freeze
+        // is — hover explains it (same copy as the ×N freeze chip's tooltip).
         freezes === 0 && displayStreak > 0 && nextFreezeIn > 0
-          ? " · " + plural(nextFreezeIn, "streak.freezeNextOne", "streak.freezeNext") : "",
+          ? el("span", { title: t("streak.freezeHelp"), style: { cursor: "help", textDecoration: "underline dotted", textUnderlineOffset: "2px" } },
+              " · " + plural(nextFreezeIn, "streak.freezeNextOne", "streak.freezeNext"))
+          : "",
       ]),
     ]),
 

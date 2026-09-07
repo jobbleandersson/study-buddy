@@ -28,6 +28,12 @@ export function weeklyRecap(state) {
   if (!recent.length) return null;
 
   const days = new Set((state.activity?.daysStudied || []).filter((d) => d > since && d <= today)).size;
+  // A "last 7 days" summary needs at least two distinct study days to be a
+  // summary rather than a restatement of the one session you just finished —
+  // day one, five minutes in, it read as a weekly report of a week that
+  // hadn't happened.
+  if (days < 2) return null;
+
   let questions = 0, ms = 0;
   for (const a of recent) {
     questions += (a.items || []).length;
@@ -43,12 +49,17 @@ export function weeklyRecap(state) {
     if ((tmNow[topic] ?? 0) - (tmBefore[topic] ?? 0) > 0.03) topicsUp++;
   }
 
-  // Strongest subject right now.
-  let topSubject = null, best = -1;
+  // Strongest subject right now — but only claim one when there are at least
+  // two subjects with data to compare. "Historia is your strongest" reads
+  // oddly when Historia is your only subject.
+  let topSubject = null, best = -1, scored = 0;
   for (const sub of state.subjects || []) {
     const m = masteryForSubject(sub.id, state.assignments || [], tmNow);
-    if (m != null && m > best) { best = m; topSubject = sub.name; }
+    if (m == null) continue;
+    scored++;
+    if (m > best) { best = m; topSubject = sub.name; }
   }
+  if (scored < 2) topSubject = null;
 
   return { days, questions, minutes: Math.round(ms / 60000), topSubject, topicsUp };
 }

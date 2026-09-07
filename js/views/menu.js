@@ -7,10 +7,11 @@ import { t, plural, fmtDate, relativeDay, daysUntil } from "../lib/i18n.js";
 import { localDayKey, questionsAnsweredToday } from "../lib/activity.js";
 import { weeklyRecap, isoWeek } from "../lib/recap.js";
 import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
-import { datePicker, monthCalendar, weekStrip } from "../components/calendar.js";
+import { monthCalendar, weekStrip } from "../components/calendar.js";
 import { goalRing } from "../components/goal-ring.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
+import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
 import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 import { playFanfare } from "../lib/sound.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
@@ -303,54 +304,6 @@ export function renderMenu(mode) {
   function closeCardMenu() {
     document.querySelectorAll(".cardmenu").forEach((m) => m.remove());
     document.removeEventListener("keydown", escClose);
-  }
-
-  /* ---------------- due date dialog ---------------- */
-
-  let dueDialog = null;
-  function closeDueDialog() { dueDialog?.remove(); dueDialog = null; }
-
-  function openDueDialog(a) {
-    closeDueDialog();
-    const picker = datePicker({ value: a.dueAt || "", min: localDayKey() });
-
-    function save() {
-      const v = picker.getValue();
-      if (v && !store.setDueDate(a.id, v)) { toast(t("due.invalid")); return; }
-      if (!v) store.setDueDate(a.id, null);
-      toast(t(v ? "due.saved" : "due.cleared"));
-      closeDueDialog();
-    }
-    function clearDate() {
-      const prev = a.dueAt;
-      store.setDueDate(a.id, null);
-      toast(t("due.cleared"), prev ? {
-        actionLabel: t("common.undo"),
-        onAction: () => store.setDueDate(a.id, prev),
-      } : undefined);
-      closeDueDialog();
-    }
-
-    dueDialog = el("div.modal", {
-      role: "dialog", "aria-modal": "true", "aria-label": t("due.title"),
-      onclick: (e) => { if (e.target === dueDialog) closeDueDialog(); },
-    }, [
-      el("div.modal__card", {}, [
-        el("h3", { style: { marginBottom: "6px" } }, t("due.title")),
-        el("p.note", { style: { marginBottom: "14px" } }, t("due.body", { title: a.title })),
-        picker.el,
-        el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "14px" } }, [
-          el("button.btn.btn--sm", { type: "button", onclick: save }, t("due.save")),
-          a.dueAt && el("button.btn.btn--ghost.btn--sm", {
-            type: "button", style: { color: "var(--retry-ink)" }, onclick: clearDate,
-          }, t("due.clear")),
-          el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: closeDueDialog }, t("common.cancel")),
-        ].filter(Boolean)),
-      ]),
-    ]);
-    document.body.appendChild(dueDialog);
-    document.addEventListener("keydown", escClose);
-    picker.el.querySelector('.cal__cell[tabindex="0"]')?.focus();
   }
 
   function rename(a) {
@@ -709,10 +662,12 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
   const items = store.upcomingDue();
   if (!items.length && !forceCalendar) return null;
 
-  // items is soonest-first, so the first test in it is the next one due.
-  // Shown as a countdown + study shortcut under the calendar — independent
-  // of which week/month the calendar is currently paged to.
-  const nextTest = items.find((a) => a.type === "test");
+  // items is soonest-first, so items[0] is the next deadline due — a test or a
+  // plain assignment. Shown as a countdown + study shortcut under the calendar,
+  // independent of which week/month the calendar is currently paged to. (It
+  // used to require a "test"-type set, so a library-first student — whose sets
+  // are all "assignment" — got no countdown at all.)
+  const nextDeadline = items[0];
 
   // day key -> { ids, titles, items } for the calendar dots + the day chooser.
   const marks = new Map();
@@ -735,7 +690,14 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
   // always gets the full month with no toggle, and its list is never
   // filtered down to whatever's currently paged in.
   const calWrap = el("div.cal-collapse");
-  const calEmpty = collapsible ? el("p.note.cal-empty", {}, t("menu.calendarEmptyWeek")) : null;
+  // When the viewed week is empty, point at what *is* coming rather than just
+  // saying "nothing" — the deadline the student cares about is often a week or
+  // two out, exactly when this used to read as a flat dead end.
+  const calEmpty = collapsible
+    ? el("p.note.cal-empty", {}, items.length
+        ? t("menu.calendarEmptyWeekNext", { when: countdownLabel(items[0].dueAt) })
+        : t("menu.calendarEmptyWeek"))
+    : null;
   const calToggle = collapsible ? el("button.linkbtn.cal-collapse__toggle", { type: "button" }) : null;
   if (calToggle) calToggle.addEventListener("click", () => { calendarExpanded = !calendarExpanded; paintCal(); });
 
@@ -751,14 +713,14 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
   if (!collapsible) paintList(visibleItems);
 
   // Nothing scheduled but the calendar is still shown (the #/calendar page):
-  // just the month + a hint, no "next test" line or list.
+  // just the month + a hint, no "next deadline" line or list.
   const emptyForced = forceCalendar && !items.length;
 
   return {
     el: el("section.upcoming", {}, [
       calEmpty,
       calWrap,
-      emptyForced ? null : nextTestLine(nextTest),
+      emptyForced ? null : nextDeadlineLine(nextDeadline),
       emptyForced ? null : list,
       emptyForced ? null : more,
     ].filter(Boolean)),
@@ -824,11 +786,11 @@ function deadlineRailContent({ collapsible = false, forceCalendar = false } = {}
   }
 }
 
-/** Countdown + one-tap shortcut to the soonest test, sat under the
+/** Countdown + one-tap shortcut to the soonest deadline, sat under the
  *  calendar, with a small "Prep" link through to its exam-prep page.
- *  Days elsewhere, but hours once it's due today. Null when no test has a
- *  due date — an assignment-only calendar shows nothing here. */
-function nextTestLine(a) {
+ *  Days elsewhere, but hours once it's due today. Null when nothing has a
+ *  due date. */
+function nextDeadlineLine(a) {
   if (!a) return null;
   const d = daysUntil(a.dueAt);
   const soon = d <= 1;

@@ -120,7 +120,7 @@ export const STRINGS = {
     "menu.panelSets": "Your sets",
     "menu.filter": "Filter",
     "menu.resumeGo": "Continue",
-    "menu.achAllDone": "Every achievement unlocked — nicely done. 🎉",
+    "menu.achAllDone": "Every achievement unlocked — nicely done.",
 
     /* ---- due date dialog ---- */
     "due.title": "Due date",
@@ -260,7 +260,7 @@ export const STRINGS = {
 
     /* ---- results ---- */
     "results.title": "Results",
-    "results.great": "Great work! 🎉",
+    "results.great": "Great work!",
     "results.nice": "Nice effort 💪",
     "results.none": "No results to show",
     "results.correctOf": "{c} / {n} correct",
@@ -1000,7 +1000,7 @@ export const STRINGS = {
     "lib.title": "Practice library",
     "lib.loadFail": "Couldn't load the library",
     "lib.loadFailBody": "Try again in a moment.",
-    "lib.search": "Search the library — subject, course or set…",
+    "lib.search": "Search the library…",
     "lib.searchAria": "Search the practice library",
     "lib.intro": "Ready-made exercises you can start on right away — no upload needed. Pick a level to see subjects.",
     "lib.pickSubject": "{level} — which subject?",
@@ -1130,6 +1130,16 @@ export const STRINGS = {
     "leaderboard.inviteCodePlaceholder": "e.g. AB12CD",
     "leaderboard.addFriend": "Add friend",
     "leaderboard.addedFriend": "You and {email} are now on each other's leaderboard.",
+
+    /* ---- new-user walkthrough fixes ---- */
+    "exam.deadlineIn": "Your {subject} deadline is {when}",
+    "exam.noDatePrompt": "When's the test? Set a date and we'll build you a plan.",
+    "exam.setDate": "Set a test date",
+    "menu.calendarEmptyWeekNext": "Nothing this week — next is {when}.",
+    "due.markTest": "This is a test — show a countdown and build an exam plan",
+    "ach.nextUp": "Next up",
+    "ach.showTiersOne": "Show 1 more tier",
+    "ach.showTiersMany": "Show {n} more tiers",
   },
 
   /* ================================================================ */
@@ -1262,7 +1272,7 @@ export const STRINGS = {
     "menu.panelSets": "Dina set",
     "menu.filter": "Filter",
     "menu.resumeGo": "Fortsätt",
-    "menu.achAllDone": "Alla utmärkelser upplåsta — snyggt jobbat. 🎉",
+    "menu.achAllDone": "Alla utmärkelser upplåsta — snyggt jobbat.",
 
     /* ---- due date dialog ---- */
     "due.title": "Deadline",
@@ -1402,7 +1412,7 @@ export const STRINGS = {
 
     /* ---- results ---- */
     "results.title": "Resultat",
-    "results.great": "Snyggt jobbat! 🎉",
+    "results.great": "Snyggt jobbat!",
     "results.nice": "Bra kämpat 💪",
     "results.none": "Inga resultat att visa",
     "results.correctOf": "{c} / {n} rätt",
@@ -2128,7 +2138,7 @@ export const STRINGS = {
     "lib.title": "Övningsbibliotek",
     "lib.loadFail": "Kunde inte ladda biblioteket",
     "lib.loadFailBody": "Försök igen om en stund.",
-    "lib.search": "Sök i biblioteket — ämne, kurs eller set…",
+    "lib.search": "Sök i biblioteket…",
     "lib.searchAria": "Sök i övningsbiblioteket",
     "lib.intro": "Färdiga övningar du kan börja plugga på direkt — ingen egen uppladdning behövs. Välj nivå för att se ämnen.",
     "lib.pickSubject": "{level} — vilket ämne vill du plugga?",
@@ -2258,5 +2268,15 @@ export const STRINGS = {
     "leaderboard.inviteCodePlaceholder": "t.ex. AB12CD",
     "leaderboard.addFriend": "Lägg till vän",
     "leaderboard.addedFriend": "Du och {email} finns nu på varandras topplista.",
+
+    /* ---- new-user walkthrough fixes ---- */
+    "exam.deadlineIn": "Din deadline i {subject} är {when}",
+    "exam.noDatePrompt": "När är provet? Sätt ett datum så bygger vi en plan åt dig.",
+    "exam.setDate": "Sätt provdatum",
+    "menu.calendarEmptyWeekNext": "Inget denna vecka — nästa {when}.",
+    "due.markTest": "Det här är ett prov — visa nedräkning och bygg en provplan",
+    "ach.nextUp": "Näst på tur",
+    "ach.showTiersOne": "Visa 1 nivå till",
+    "ach.showTiersMany": "Visa {n} nivåer till",
   },
 };

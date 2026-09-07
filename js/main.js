@@ -34,14 +34,17 @@ const app = document.getElementById("app");
 
 const routes = [
   { rx: /^\/?$/, view: () => renderMenu() },
-  { rx: /^\/study$/, view: () => renderMenu("study") },
+  // "Study" was a second page showing the exact same set grid as the home
+  // "Dina set" panel — folded back into Home; the route stays as a redirect
+  // for anything that linked to it.
+  { rx: /^\/study$/, view: () => renderMenu() },
   { rx: /^\/calendar$/, view: () => renderMenu("calendar") },
   { rx: /^\/create$/, view: (m, qs) => renderCreate(qs) },
   { rx: /^\/edit\/(.+)$/, view: (m, qs) => renderEdit(m[1], qs) },
   { rx: /^\/review$/, view: () => renderReview() },
   { rx: /^\/practice-weak$/, view: (m, qs) => renderWeakPractice(qs) },
   { rx: /^\/practice\/(.+)$/, view: (m) => renderPractice(m[1]) },
-  { rx: /^\/exam-prep(?:\/(.+))?$/, view: (m, qs) => renderExamPrep(m[1] || null, qs) },
+  { rx: /^\/exam-prep(?:\/(.*))?$/, view: (m, qs) => renderExamPrep(m[1] || null, qs) },
   { rx: /^\/session\/(.+)$/, view: (m, qs) => renderSession(m[1], qs) },
   { rx: /^\/results\/(.+)$/, view: (m) => renderResults(m[1]) },
   { rx: /^\/progress$/, view: () => renderProgress() },
@@ -87,20 +90,22 @@ function nextLang() {
  *  and an unlabelled account group at the bottom. Used by the desktop sidebar
  *  and the mobile ⋮ menu alike, so the two never drift. */
 function navGroups() {
+  // "Solve" needs a tutor server and "Leaderboard" needs an account — until
+  // then both land on a "you can't do this yet" screen, so they only join the
+  // nav once they'd actually work (same pattern as the parent view below).
   const learn = [
     { href: "#/",         match: "/",          icon: ICONS.home,      label: t("nav.home") },
-    { href: "#/study",    match: "/study",     icon: ICONS.clipboard, label: t("nav.study") },
     { href: "#/library",  match: "/library",   icon: ICONS.book,      label: t("nav.library") },
     { href: "#/create",   match: "/create",    icon: ICONS.plus,      label: t("nav.create") },
-    { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
+    store.hasKey() && { href: "#/solve", match: "/solve", icon: ICONS.spark, label: t("nav.solve") },
     { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
-  ];
+  ].filter(Boolean);
   const track = [
     { href: "#/calendar", match: "/calendar",  icon: ICONS.calendar,  label: t("nav.calendar") },
     { href: "#/progress", match: "/progress",  icon: ICONS.chart,     label: t("common.progress") },
     { href: "#/achievements", match: "/achievements", icon: ICONS.award, label: t("nav.achievements") },
-    { href: "#/leaderboard", match: "/leaderboard", icon: ICONS.podium, label: t("nav.leaderboard") },
-  ];
+    store.authed && { href: "#/leaderboard", match: "/leaderboard", icon: ICONS.podium, label: t("nav.leaderboard") },
+  ].filter(Boolean);
   const tools = [
     { href: "#/reference",  match: "/reference",  icon: ICONS.sigma,      label: t("nav.formulas") },
     { href: "#/calculator", match: "/calculator", icon: ICONS.calculator, label: t("nav.calculator") },
@@ -442,13 +447,16 @@ function shellActions() {
     },
   }, [icon(ICONS.user, 18)]);
 
-  // Leaderboard — a round icon beside the bell. Hidden on the narrowest
-  // screens (see CSS), where it lives in the ⋮ nav instead.
-  const leaderboardBtn = el("a.iconbtn.topbar__leaderboard" + (navActive("/leaderboard") ? ".is-active" : ""), {
-    href: "#/leaderboard", "aria-label": t("nav.leaderboard"), title: t("nav.leaderboard"),
-  }, [icon(ICONS.podium, 18)]);
+  // Leaderboard — a round icon beside the bell, but only once there's an
+  // account for it to mean anything (signed out it's just a sign-in wall).
+  // Hidden on the narrowest screens (see CSS), where it lives in the ⋮ nav.
+  const leaderboardBtn = store.authed
+    ? el("a.iconbtn.topbar__leaderboard" + (navActive("/leaderboard") ? ".is-active" : ""), {
+        href: "#/leaderboard", "aria-label": t("nav.leaderboard"), title: t("nav.leaderboard"),
+      }, [icon(ICONS.podium, 18)])
+    : null;
 
-  return el("div.topbar__actions", {}, [leaderboardBtn, bellBtn, profileBtn]);
+  return el("div.topbar__actions", {}, [leaderboardBtn, bellBtn, profileBtn].filter(Boolean));
 }
 
 function shell(contentNode) {
@@ -594,8 +602,9 @@ store.init().then(() => {
   });
   // After first paint, keep menu/progress fresh when the store changes.
   store.addEventListener("change", () => {
-    const h = location.hash.replace(/^#/, "");
-    if (h === "" || h === "/" || h === "/study" || h === "/calendar" || h === "/progress" || h === "/achievements") render();
+    const h = location.hash.replace(/^#/, "").split("?")[0];
+    if (h === "" || h === "/" || h === "/study" || h === "/calendar" || h === "/progress"
+        || h === "/achievements" || h === "/exam-prep" || h.startsWith("/exam-prep/")) render();
   });
   store.addEventListener("syncConflict", () => {
     toast(t("sync.conflict"));

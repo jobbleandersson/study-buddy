@@ -73,7 +73,9 @@ export async function renderLibrary() {
         ? () => { state.level = null; paint(); }
         : null;
 
-    headerEl.appendChild(homeButton());
+    // Only one back control at a time: the round step-back arrow when you're a
+    // level deep, the "← Home" pill at the top level — not both stacked.
+    if (!back) headerEl.appendChild(homeButton());
     headerEl.appendChild(el("div", { style: { display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" } }, [
       back && el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.back"), onclick: back }, [icon(ICONS.back, 16)]),
       el("h1", {}, t("lib.title")),
@@ -145,13 +147,15 @@ export async function renderLibrary() {
     const subjects = index.subjects.filter((s) => s.level === state.level);
     return el("div.panel", {}, [
       el("p", { style: { marginBottom: "16px" } }, t("lib.pickSubject", { level: lvlLabel(level) || "" })),
-      el("div.source-grid", {}, subjects.map((subject) => {
+      el("div.source-grid.source-grid--subjects", {}, subjects.map((subject) => {
         const color = libSubjectColor(subject, subjects);
         return el("button.source-opt.source-opt--subject", {
           type: "button", onclick: () => { state.subject = subject.id; paint(); },
           style: { "--subject": color.solid },
         }, [
           icon(ICONS.book, 26), subjName(subject),
+          // Hidden on narrow screens (see .source-grid--subjects in app.css) —
+          // the same blurb shows on the set-list header you land on.
           el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, subjDesc(subject)),
         ]);
       })),

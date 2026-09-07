@@ -7,7 +7,7 @@ import { deltaFromAttempt } from "../lib/mastery.js";
 import { estimatedGrade, gradeRank } from "../lib/grade.js";
 import { summarizeSchedule, dueLabel, retentionForecast } from "../lib/srs.js";
 import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
-import { t, plural, daysUntil } from "../lib/i18n.js";
+import { t, plural, daysUntil, sentenceCase } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
 import { parseCloze, clozeToUnderscores } from "../components/questions.js";
@@ -100,7 +100,7 @@ export function renderResults(attemptId) {
       el("div.delta-list", {}, deltaEntries.map(([topic, d]) => {
         const change = Math.round((d.after - d.before) * 100);
         return el("div.delta", {}, [
-          el("span", { style: { textTransform: "capitalize", minWidth: "110px" } }, topic),
+          el("span", { style: { minWidth: "110px" } }, sentenceCase(topic)),
           el("span.delta__bar", {}, [el("i", { style: { width: "0%" }, dataset: { w: Math.round(d.after * 100) } })]),
           el("span", { class: "delta__n " + (change > 0 ? "up" : change < 0 ? "down" : ""), }, change > 0 ? `+${change}` : `${change}`),
         ]);
@@ -241,9 +241,9 @@ function retentionSection(f, horizonLabel) {
     ]),
     el("p.note", { style: { marginTop: "8px" } },
       t("results.retentionLine", { when: horizonLabel, without, with: withPlan })),
-    el("p.note", {}, f.reviewsInWindow
-      ? plural(f.reviewsInWindow, "results.retentionReviewsOne", "results.retentionReviewsMany")
-      : t("results.retentionNoReviews")),
+    // The count of scheduled reviews used to sit here too — it's stated right
+    // below in "Scheduled for review", with the next date and the breakdown,
+    // so the same fact no longer lands twice.
     el("p.note.retention__cap", {}, t("results.retentionCaption")),
   ]);
 }
