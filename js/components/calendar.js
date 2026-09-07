@@ -34,14 +34,14 @@ export function buildMonthCells(year, month) {
   return cells;
 }
 
-function weekdayHeaders() {
+export function weekdayHeaders() {
   // 2024-01-01 is a Monday.
   const fmt = new Intl.DateTimeFormat(locale(), { weekday: "short" });
   return Array.from({ length: 7 }, (_, i) =>
     fmt.format(new Date(2024, 0, 1 + i)).replace(/\.$/, ""));
 }
 
-function monthLabel(year, month) {
+export function monthLabel(year, month) {
   return new Intl.DateTimeFormat(locale(), { month: "long", year: "numeric" })
     .format(new Date(year, month, 1));
 }

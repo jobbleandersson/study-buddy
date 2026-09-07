@@ -509,14 +509,161 @@ a.streakbadge:hover {
 .caldialog__head h3 { display: flex; align-items: center; gap: var(--s-2); }
 .caldialog .upcoming { margin-bottom: 0; }
 
-/* Dedicated #/calendar page — same content as the dialog, capped to the
-   same width so the month grid doesn't stretch across a wide screen. */
-.calendarpage { max-width: 460px; }
-
 @media (max-width: 480px) {
   /* In the calendar dialog on a phone the month grid is more bulk than help —
      the Upcoming list already says when everything is due. */
   .caldialog .cal { display: none; }
+}
+
+/* ---------- calendar page: the month planner (js/views/calendar.js) ---------- */
+.planner-page { display: flex; flex-direction: column; gap: var(--s-3); }
+.planner-page > .homebtn { align-self: flex-start; }   /* don't let the column stretch it */
+.planner-page__head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--s-3); flex-wrap: wrap;
+}
+.planner-page__head h1 { margin: 0; }
+.planner-page__sub { margin: 0 0 var(--s-2); max-width: 60ch; }
+
+.planner { display: grid; gap: var(--s-4); align-items: start; }
+@media (min-width: 1180px) { .planner { grid-template-columns: minmax(0, 1fr) 300px; } }
+
+/* --- month grid --- */
+.plan-cal {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-md); padding: var(--s-4);
+}
+.plan-cal__head { display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-3); }
+.plan-nav { display: flex; gap: var(--s-1); flex: none; }
+.plan-nav__btn {
+  width: 30px; height: 30px; border-radius: var(--r-sm);
+  border: 1px solid var(--line-strong); background: var(--surface);
+  color: var(--ink-soft); cursor: pointer; font-size: 17px; line-height: 1;
+  display: grid; place-items: center; transition: background var(--dur-fast), color var(--dur-fast);
+}
+.plan-nav__btn:hover { background: var(--surface-sunk); color: var(--ink); }
+.plan-cal__month {
+  flex: 1; min-width: 0;
+  font-family: var(--font-display); font-weight: 700; font-size: var(--fs-lg);
+  text-transform: capitalize; letter-spacing: -.01em;
+}
+.plan-cal__today { flex: none; }
+
+.plan-cal__wd, .plan-cal__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--s-1); }
+.plan-cal__wd { margin-bottom: var(--s-1); }
+.plan-cal__wd span {
+  padding-left: 4px; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; color: var(--ink-faint);
+}
+.plan-cal__cell {
+  position: relative; display: flex; flex-direction: column; gap: 2px;
+  min-height: 86px; padding: 4px; text-align: left;
+  border: 1px solid var(--line); border-radius: var(--r-sm);
+  background: var(--surface); overflow: hidden; font: inherit; color: inherit;
+}
+button.plan-cal__cell { cursor: pointer; transition: background var(--dur-fast), border-color var(--dur-fast); }
+button.plan-cal__cell:hover { background: var(--brand-tint); border-color: var(--brand-bright); }
+.plan-cal__cell.is-outside { background: var(--surface-sunk); }
+.plan-cal__cell.is-outside .plan-cal__date { opacity: .55; }
+.plan-cal__cell.is-past:not(.is-today) { background: var(--canvas); }
+.plan-cal__cell.is-past .plan-cal__chip { opacity: .5; }
+.plan-cal__date {
+  align-self: flex-end; padding: 1px 3px;
+  font-size: 12px; font-weight: 700; color: var(--ink-soft); font-variant-numeric: tabular-nums;
+}
+.plan-cal__cell.is-today .plan-cal__date {
+  background: var(--brand); color: #fff; border-radius: var(--r-full);
+  min-width: 20px; height: 20px; display: grid; place-items: center; padding: 0 5px;
+}
+
+.plan-cal__chip {
+  display: flex; align-items: center; gap: 5px;
+  padding: 2px 5px; border-radius: 5px;
+  background: var(--subject-tint); color: var(--subject-ink);
+  font-size: 11px; font-weight: 600; line-height: 1.35; text-decoration: none;
+  overflow: hidden;
+}
+.plan-cal__chip:hover { outline: 1px solid var(--subject); }
+.plan-cal__chip-dot { width: 5px; height: 5px; border-radius: 2px; background: var(--subject); flex: none; }
+.plan-cal__chip.is-test .plan-cal__chip-dot { border-radius: var(--r-full); }
+.plan-cal__chip-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.plan-cal__more {
+  align-self: flex-start; padding: 1px 3px; font: inherit; font-size: 10.5px; font-weight: 700;
+  color: var(--ink-faint); background: none; border: none; cursor: pointer;
+}
+.plan-cal__more:hover { color: var(--brand-ink); }
+
+/* The "+" grows to fill whatever height the chips leave, so any empty part of
+   a today/future cell is a click target. Hidden until the cell is hovered. */
+.plan-cal__add {
+  flex: 1 1 auto; align-self: stretch; min-height: 14px;
+  border: none; background: none; cursor: pointer; border-radius: 4px;
+  display: grid; place-items: center; color: var(--ink-faint);
+  opacity: 0; transition: opacity var(--dur-fast), background var(--dur-fast);
+}
+.plan-cal__cell:hover .plan-cal__add, .plan-cal__add:focus-visible { opacity: .75; }
+.plan-cal__add:hover { background: var(--brand-tint); color: var(--brand-ink); opacity: 1; }
+/* Touch, wide enough for it not to be clutter (tablet): a faint standing "+". */
+@media (hover: none) and (min-width: 561px) { .plan-cal__add { opacity: .4; } }
+
+/* --- agenda rail --- */
+.plan-agenda { display: flex; flex-direction: column; gap: var(--s-4); }
+.plan-agenda__head { margin: 0; font-size: var(--fs-md); color: var(--ink-soft); }
+.plan-agenda__group { display: flex; flex-direction: column; gap: var(--s-2); }
+.plan-agenda__gtitle {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); margin: 0;
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-faint);
+}
+.plan-agenda__group.is-overdue .plan-agenda__gtitle { color: var(--retry-ink); }
+.plan-agenda__count {
+  font-size: 10.5px; font-weight: 700; color: var(--ink-faint);
+  background: var(--surface-sunk); border-radius: var(--r-full); padding: 0 6px;
+}
+.plan-agenda__rows { display: flex; flex-direction: column; gap: var(--s-2); }
+.plan-row {
+  display: flex; align-items: center; gap: var(--s-3);
+  padding: var(--s-2) var(--s-3); border-radius: var(--r-sm);
+  background: var(--surface); border: 1px solid var(--line);
+  border-left: 3px solid var(--subject, var(--brand));
+  text-decoration: none; color: inherit;
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+}
+.plan-row:hover { background: var(--surface-sunk); }
+.plan-row.is-soon { border-color: var(--retry); border-left-color: var(--retry); }
+.plan-row.is-overdue { border-color: var(--retry); border-left-color: var(--retry); background: var(--retry-tint); }
+.plan-row__body { flex: 1; min-width: 0; }
+.plan-row__title {
+  display: block; font-family: var(--font-display); font-weight: 600; font-size: var(--fs-sm);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.plan-row__meta { display: flex; align-items: center; gap: var(--s-2); font-size: 12px; color: var(--ink-soft); }
+.plan-row.is-soon .plan-row__meta, .plan-row.is-overdue .plan-row__meta { color: var(--retry-ink); }
+.plan-row__type {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em;
+  color: var(--brand-ink); background: var(--brand-tint); border-radius: var(--r-full); padding: 0 5px;
+}
+.plan-row.is-soon .plan-row__type, .plan-row.is-overdue .plan-row__type {
+  color: var(--retry-ink); background: color-mix(in srgb, var(--retry) 22%, transparent);
+}
+.plan-row__go { flex: none; color: var(--ink-faint); display: grid; place-items: center; }
+.plan-row:hover .plan-row__go { color: var(--brand); }
+
+.plan-agenda__empty {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--s-2);
+  padding: var(--s-6) var(--s-4); color: var(--ink-faint);
+  border: 1px dashed var(--line-strong); border-radius: var(--r-md);
+}
+.plan-agenda__empty-t { margin: 0; font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+.plan-agenda__empty .note { margin: 0; max-width: 34ch; }
+
+@media (max-width: 560px) {
+  .plan-cal { padding: var(--s-3); }
+  .plan-cal__cell { min-height: 54px; }
+  /* No room for titles on a phone — each deadline is a thin colour bar; the
+     agenda below carries the detail. */
+  .plan-cal__chip { padding: 0; height: 5px; border-radius: 3px; background: var(--subject); }
+  .plan-cal__chip-t, .plan-cal__chip-dot { display: none; }
+  .plan-cal__more { font-size: 9px; }
 }
 
 /* ---------- upcoming deadlines ---------- */

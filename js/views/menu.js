@@ -4,7 +4,7 @@
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, fmtDate, relativeDay, daysUntil } from "../lib/i18n.js";
-import { localDayKey, questionsAnsweredToday } from "../lib/activity.js";
+import { questionsAnsweredToday } from "../lib/activity.js";
 import { weeklyRecap, isoWeek } from "../lib/recap.js";
 import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
 import { monthCalendar, weekStrip } from "../components/calendar.js";
@@ -372,28 +372,10 @@ export function renderMenu(mode) {
     };
   }
 
-  // "Calendar" = the full month + every upcoming item, its own page (reached
-  // from the nav) — unlike the home rail's collapsed copy, this one always
-  // shows everything (same non-collapsible content as the "Kommande" dialog).
-  if (mode === "calendar") {
-    const content = deadlineRailContent({ forceCalendar: true });
-    return {
-      title: t("menu.calendarTitle"),
-      node: el("div", {}, [
-        homeButton(),
-        el("div", { style: { display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "12px", flexWrap: "wrap" } }, [
-          el("h1", { style: { marginBottom: "4px" } }, t("menu.calendarTitle")),
-          el("button.btn.btn--sm", {
-            type: "button",
-            onclick: () => openQuickAdd(localDayKey()),
-          }, [icon(ICONS.plus, 16), t("quickadd.newDeadline")]),
-        ]),
-        el("p.note", { style: { marginBottom: "18px" } }, t("menu.calendarSub")),
-        el("div.calendarpage", {}, [content.el]),
-      ]),
-      cleanup: menuCleanup,
-    };
-  }
+  // The dedicated #/calendar page lives in js/views/calendar.js now — a full
+  // month planner with the deadlines drawn in and an agenda rail — so it's no
+  // longer a mode of renderMenu(). deadlineRailContent() below still powers
+  // the home rail's collapsed week and the "Kommande" dialog.
 
   // "Dina set" — one panel holding everything about browsing the library:
   // tabs, search, the Filter drawer, and the card grid.

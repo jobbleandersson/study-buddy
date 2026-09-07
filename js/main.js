@@ -21,6 +21,7 @@ import { renderGallery } from "./views/gallery.js";
 import { renderPrint } from "./views/print.js";
 import { renderTeachback } from "./views/teachback.js";
 import { renderLibrary } from "./views/library.js";
+import { renderCalendarPage } from "./views/calendar.js";
 import { renderExamPrep } from "./views/exam-prep.js";
 import { renderSolve } from "./views/solve.js";
 import { renderReference } from "./views/reference.js";
@@ -38,7 +39,7 @@ const routes = [
   // "Dina set" panel — folded back into Home; the route stays as a redirect
   // for anything that linked to it.
   { rx: /^\/study$/, view: () => renderMenu() },
-  { rx: /^\/calendar$/, view: () => renderMenu("calendar") },
+  { rx: /^\/calendar$/, view: () => renderCalendarPage() },
   { rx: /^\/create$/, view: (m, qs) => renderCreate(qs) },
   { rx: /^\/edit\/(.+)$/, view: (m, qs) => renderEdit(m[1], qs) },
   { rx: /^\/review$/, view: () => renderReview() },
