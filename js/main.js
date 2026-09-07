@@ -35,10 +35,7 @@ const app = document.getElementById("app");
 
 const routes = [
   { rx: /^\/?$/, view: () => renderMenu() },
-  // "Study" was a second page showing the exact same set grid as the home
-  // "Dina set" panel — folded back into Home; the route stays as a redirect
-  // for anything that linked to it.
-  { rx: /^\/study$/, view: () => renderMenu() },
+  { rx: /^\/study$/, view: () => renderMenu("study") },
   { rx: /^\/calendar$/, view: () => renderCalendarPage() },
   { rx: /^\/create$/, view: (m, qs) => renderCreate(qs) },
   { rx: /^\/edit\/(.+)$/, view: (m, qs) => renderEdit(m[1], qs) },
@@ -91,16 +88,16 @@ function nextLang() {
  *  and an unlabelled account group at the bottom. Used by the desktop sidebar
  *  and the mobile ⋮ menu alike, so the two never drift. */
 function navGroups() {
-  // "Solve" needs a tutor server and "Leaderboard" needs an account — until
-  // then both land on a "you can't do this yet" screen, so they only join the
-  // nav once they'd actually work (same pattern as the parent view below).
   const learn = [
     { href: "#/",         match: "/",          icon: ICONS.home,      label: t("nav.home") },
+    { href: "#/study",    match: "/study",     icon: ICONS.clipboard, label: t("nav.study") },
     { href: "#/library",  match: "/library",   icon: ICONS.book,      label: t("nav.library") },
     { href: "#/create",   match: "/create",    icon: ICONS.plus,      label: t("nav.create") },
-    store.hasKey() && { href: "#/solve", match: "/solve", icon: ICONS.spark, label: t("nav.solve") },
+    { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
     { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
-  ].filter(Boolean);
+  ];
+  // "Leaderboard" needs an account — signed out it's just a sign-in wall — so
+  // it joins the nav only once it would work (same pattern as the parent view).
   const track = [
     { href: "#/calendar", match: "/calendar",  icon: ICONS.calendar,  label: t("nav.calendar") },
     { href: "#/progress", match: "/progress",  icon: ICONS.chart,     label: t("common.progress") },
