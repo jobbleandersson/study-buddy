@@ -6,7 +6,7 @@ import { el, clear, toast, icon, ICONS, downloadText } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
 import { PRESETS, DEFAULT_PRESET } from "../claude.js";
 import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
-import { t, plural } from "../lib/i18n.js";
+import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { playFanfare } from "../lib/sound.js";
@@ -14,6 +14,10 @@ import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/o
 
 export function renderSettings() {
   const s = store.settings;
+
+  // Refresh this month's AI usage in the background — the line below shows the
+  // last known figure now and the fresh one on the next visit.
+  store.refreshUsage?.();
 
   /* ---------------- appearance ----------------
    * Theme + language live in the sidebar footer (and the ⋮ menu on mobile) —
@@ -203,25 +207,43 @@ export function renderSettings() {
   ]);
 
   /* ---------------- AI ----------------
-   * With no tutor server there's nothing to configure and no cost, so the
-   * whole model/price panel collapses to one status line plus a "how to
-   * connect" disclosure. The full picker only appears once a server + key
-   * are actually reachable. */
+   * The full model/price panel only shows once the proxy is reachable + keyed,
+   * the user is signed in (the proxy requires it), and this month's allowance
+   * isn't spent. Otherwise it collapses to a status line and whatever the one
+   * missing thing is. */
+  const fmtResetDate = (ts) => ts
+    ? new Date(ts).toLocaleDateString(getLang() === "sv" ? "sv-SE" : "en-GB", { day: "numeric", month: "long" })
+    : "";
+
   function aiSection() {
-    if (!store.hasKey()) {
+    if (!store.canUseAI()) {
+      const serverReady = store.proxyUp && store.proxyKeyConfigured;
+      let reason;
+      if (serverReady && store.aiOverBudget) {
+        reason = el("p.note.note--warn", {}, t("set.aiQuotaReached", { date: fmtResetDate(store.aiUsage?.resetsAt) }));
+      } else if (serverReady && !store.authed) {
+        reason = el("p.note", {}, [
+          t("set.aiNeedsAccount"), " ",
+          el("a", { href: "#/login" }, t("account.signIn")),
+        ]);
+      } else {
+        reason = el("p.note", {}, t("set.aiDormant"));
+      }
       return el("section.panel", {}, [
         el("h3", {}, t("set.aiTitle")),
         el("p.note", { style: { display: "flex", alignItems: "center", gap: "8px", margin: "6px 0 10px" } }, [
-          el("span.dot", { style: { background: "var(--ink-faint)" } }),
+          el("span.dot", { style: { background: serverReady ? "var(--ok)" : "var(--ink-faint)" } }),
           serverStatus,
         ]),
-        el("p.note", {}, t("set.aiDormant")),
+        reason,
         el("details.set-ai-how", { style: { marginTop: "12px" } }, [
           el("summary", {}, t("set.aiHowConnect")),
           el("p.note", { style: { margin: "8px 0 0" } }, t("set.serverBody")),
         ]),
       ]);
     }
+
+    const usage = store.aiUsage;
     return el("section.panel", {}, [
       el("h3", {}, t("set.aiTitle")),
       el("h4.settings__sub", {}, t("set.serverTitle")),
@@ -230,13 +252,17 @@ export function renderSettings() {
         el("span.dot", { style: { background: "var(--ok)" } }),
         serverStatus,
       ]),
+      usage ? el("p.note", { style: { marginTop: "8px" } }, [
+        t("set.aiUsageLine", { used: usage.used.toLocaleString(), limit: usage.limit.toLocaleString() }),
+        usage.resetsAt ? " · " + t("set.aiUsageResets", { date: fmtResetDate(usage.resetsAt) }) : "",
+      ]) : null,
       el("h4.settings__sub", {}, t("set.modelTitle")),
       el("p.note", { style: { margin: "6px 0 12px" } }, t("set.modelIntro")),
       el("label.field", { style: { marginBottom: "6px" } }, [el("span", {}, t("set.qualityCost")), presetSel]),
       el("div", { id: "preset-hint" }, [presetHint]),
       presetDetail,
       el("label.field", { style: { marginTop: "16px", marginBottom: "0" } }, [el("span", {}, t("set.replyLength")), verbSel]),
-    ]);
+    ].filter(Boolean));
   }
 
   function demoSection() {

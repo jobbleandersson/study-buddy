@@ -89,4 +89,18 @@ db.exec(`
     used_at INTEGER,
     created_at INTEGER NOT NULL
   );
+
+  -- One row per user per calendar month: Claude token spend through the
+  -- /api/messages proxy. "period" is "YYYY-MM" (UTC). Drives the per-user
+  -- monthly budget check and the usage line in Settings. Not tied to a
+  -- subscription yet — that arrives with entitlements (Phase 2).
+  CREATE TABLE IF NOT EXISTS ai_usage (
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    period TEXT NOT NULL,
+    input_tokens INTEGER NOT NULL DEFAULT 0,
+    output_tokens INTEGER NOT NULL DEFAULT 0,
+    request_count INTEGER NOT NULL DEFAULT 0,
+    updated_at INTEGER NOT NULL,
+    PRIMARY KEY (user_id, period)
+  );
 `);

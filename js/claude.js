@@ -42,6 +42,29 @@ export function modelFor(task) {
 
 class ClaudeError extends Error {}
 
+/** Maps a non-OK proxy/Anthropic response to a friendly ClaudeError. The proxy
+ *  tags its own failures with a machine `code` (see server/src/routes/messages.js)
+ *  so a 401 from "not signed in" reads differently from a 401 from a bad key,
+ *  and a 402 quota rejection latches the client-side gates shut. */
+async function errorFrom(res) {
+  let body = null;
+  try { body = await res.json(); } catch {}
+  const code = body?.error?.code || "";
+  const detail = body?.error?.message || "";
+
+  if (code === "maintenance" || res.status === 503) return new ClaudeError(t("err.maintenance"));
+  if (code === "quota_exceeded" || res.status === 402) {
+    store.markAiQuotaExhausted({ used: body?.used, limit: body?.limit, resetsAt: body?.resetsAt });
+    return new ClaudeError(t("err.quotaExceeded"));
+  }
+  if (code === "not_authenticated") return new ClaudeError(t("err.notSignedIn"));
+  if (code === "rate_limited" || res.status === 429) return new ClaudeError(t("err.rateLimited"));
+  if (code === "server_no_key" || (res.status === 500 && /ANTHROPIC_API_KEY/.test(detail))) return new ClaudeError(t("err.serverNoKey"));
+  if (code === "model_not_allowed" || code === "bad_request") return new ClaudeError(detail || t("err.api", { status: res.status }));
+  if (res.status === 401) return new ClaudeError(t("err.badKey"));   // Anthropic passthrough (server key rejected)
+  return new ClaudeError(detail ? t("err.apiDetail", { status: res.status, detail }) : t("err.api", { status: res.status }));
+}
+
 async function callJSON(body) {
   let res;
   try {
@@ -49,14 +72,7 @@ async function callJSON(body) {
   } catch (e) {
     throw new ClaudeError(t("err.network"));
   }
-  if (!res.ok) {
-    let detail = "";
-    try { detail = (await res.json())?.error?.message || ""; } catch {}
-    if (res.status === 500 && /ANTHROPIC_API_KEY/.test(detail)) throw new ClaudeError(t("err.serverNoKey"));
-    if (res.status === 401) throw new ClaudeError(t("err.badKey"));
-    if (res.status === 429) throw new ClaudeError(t("err.rateLimited"));
-    throw new ClaudeError(detail ? t("err.apiDetail", { status: res.status, detail }) : t("err.api", { status: res.status }));
-  }
+  if (!res.ok) throw await errorFrom(res);
   const data = await res.json();
   return data.content?.map((b) => b.text || "").join("") || "";
 }
@@ -235,15 +251,7 @@ export async function* tutorStream({ system, messages, signal }) {
       messages,
     }),
   });
-  if (!res.ok || !res.body) {
-    let detail = "";
-    try { detail = (await res.json())?.error?.message || ""; } catch {}
-    throw new ClaudeError(res.status === 500 && /ANTHROPIC_API_KEY/.test(detail)
-      ? t("err.serverNoKey")
-      : res.status === 401
-      ? t("err.badKey")
-      : t("err.tutorUnavailable", { status: res.status }));
-  }
+  if (!res.ok || !res.body) throw await errorFrom(res);
 
   const reader = res.body.getReader();
   const decoder = new TextDecoder();

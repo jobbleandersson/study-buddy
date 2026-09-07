@@ -19,6 +19,7 @@ const API = SERVER_ORIGIN || ".";
 
 export const PROXY_URL = `${API}/api/messages`;
 export const PROXY_HEALTH_URL = `${API}/api/health`;
+export const USAGE_URL = `${API}/api/usage`;
 export const AUTH_SIGNUP_URL = `${API}/api/auth/signup`;
 export const AUTH_LOGIN_URL = `${API}/api/auth/login`;
 export const AUTH_LOGOUT_URL = `${API}/api/auth/logout`;

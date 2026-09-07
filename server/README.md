@@ -32,7 +32,14 @@ and set `ALLOWED_ORIGIN` below so CORS allows it.
 ## Routes
 
 - `GET /api/health` — `{ok, keyConfigured}`
-- `POST /api/messages` — proxies to Anthropic (streaming passthrough for the tutor)
+- `POST /api/messages` — proxies to Anthropic (streaming passthrough for the tutor).
+  Requires a signed-in session by default (`MESSAGES_REQUIRE_AUTH`); enforces a
+  per-user request rate limit and a per-user monthly token budget; clamps
+  `max_tokens` and rejects unknown models; obeys the `PROXY_DISABLED` kill switch.
+  Its own failures carry a machine `code` in `error.code` (`not_authenticated`,
+  `rate_limited`, `quota_exceeded`, `maintenance`, `model_not_allowed`).
+- `GET /api/usage` — the signed-in user's Claude token spend this month:
+  `{period, used, limit, requests, resetsAt, metered}`
 - `POST /api/auth/signup`, `/login`, `/logout`, `GET /api/auth/me` — email/password,
   httpOnly session cookie
 - `GET/PUT /api/state` — the signed-in user's synced state blob (requires auth);
@@ -56,10 +63,12 @@ and set `ALLOWED_ORIGIN` below so CORS allows it.
 
 ## Before hosting this somewhere public
 
-Every route except `/api/health` and `/api/messages` requires a valid session (plus an
-active link, for the parent/teacher routes) — but `/api/messages` itself still has no
-per-request auth of its own, so anyone who can reach this server can spend the
-configured API key regardless of whether they've signed in. `COOKIE_SECURE` should be
-set to `true` once this runs over https; it's left `false` for local http dev.
-`ALLOWED_ORIGIN` only matters if the frontend is ever served from somewhere other than
-this same process — normally leave it unset.
+`/api/messages` now requires a signed-in session (`MESSAGES_REQUIRE_AUTH=true`, the
+default) and meters every request against a per-user monthly token budget, so the key
+is no longer spendable anonymously. Still open before a paid launch (see the "Turning
+on live mode" plan): there's no **entitlement** check yet — any signed-in account can
+spend up to the flat budget, paid or not; login has no throttle; there's no password
+reset; the rate limiter and budget counter are per-process, so a multi-process deploy
+needs shared state. `COOKIE_SECURE` should be `true` once this runs over https (left
+`false` for local http dev). `ALLOWED_ORIGIN` only matters if the frontend is served
+from somewhere other than this same process — normally leave it unset.

@@ -7,7 +7,7 @@ import { getLang, t } from "./lib/i18n.js";
 import { ACHIEVEMENTS, achievementMetrics } from "./lib/achievements.js";
 import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } from "./lib/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
-import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, STATE_URL } from "./config.js";
+import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, STATE_URL, USAGE_URL } from "./config.js";
 
 const KEY = "studybuddy.v1";
 const SCHEMA_VERSION = 7;
@@ -267,11 +267,21 @@ class Store extends EventTarget {
     // "keyConfigured" so Settings can tell the two failure modes apart.
     this.proxyUp = false;
     this.proxyKeyConfigured = false;
+    // Does the proxy demand a signed-in session? True unless a trusted
+    // single-user server sets MESSAGES_REQUIRE_AUTH=false. When false, the AI
+    // features work signed out (and spend isn't metered — no user to bill).
+    this.proxyRequiresAuth = true;
 
     // Auth/sync status — also instance-only, not synced app data. Sign-in is
     // opt-in: local-only mode (authed === false) works exactly as before.
     this.authed = false;
     this.authEmail = null;
+
+    // Claude usage this month, once signed in: { used, limit, resetsAt } or
+    // null when unknown / not metered. `_aiQuotaOut` latches true when a call
+    // comes back 402 so the gates close without another round trip.
+    this.aiUsage = null;
+    this._aiQuotaOut = false;
     // The state_blobs version this device last synced against. Read from
     // localStorage (not just defaulted to 0) so it survives a page reload —
     // see SYNC_VERSION_KEY above.
@@ -324,6 +334,8 @@ class Store extends EventTarget {
       const data = res.ok ? await res.json() : null;
       this.proxyUp = !!data?.ok;
       this.proxyKeyConfigured = !!data?.keyConfigured;
+      // Absent (older server) → assume it does require auth, the safe default.
+      this.proxyRequiresAuth = data?.messagesRequireAuth !== false;
     } catch {
       this.proxyUp = false;
       this.proxyKeyConfigured = false;
@@ -340,6 +352,33 @@ class Store extends EventTarget {
       } catch { /* not signed in / server unreachable — stay local-only */ }
     }
 
+    if (this.authed) await this.refreshUsage();
+
+    this.emit();
+  }
+
+  /** Pull this month's Claude spend. Best-effort — an older server without the
+   *  route, or an unmetered one, just leaves aiUsage null and the gates open. */
+  async refreshUsage() {
+    if (!this.authed) { this.aiUsage = null; this._aiQuotaOut = false; return; }
+    try {
+      const res = await fetch(USAGE_URL, { credentials: "include" });
+      if (!res.ok) return;
+      const d = await res.json();
+      if (!d || d.metered === false || typeof d.limit !== "number") { this.aiUsage = null; this._aiQuotaOut = false; return; }
+      this.aiUsage = { used: d.used || 0, limit: d.limit, resetsAt: d.resetsAt || null };
+      this._aiQuotaOut = this.aiUsage.used >= this.aiUsage.limit;
+    } catch { /* offline — keep what we had */ }
+  }
+
+  /** Called by claude.js when a request comes back 402: the monthly budget is
+   *  spent. Latches the gates shut until refreshUsage() clears it (next month,
+   *  or a raised limit). */
+  markAiQuotaExhausted(detail = {}) {
+    this._aiQuotaOut = true;
+    if (typeof detail.limit === "number") {
+      this.aiUsage = { used: detail.used ?? detail.limit, limit: detail.limit, resetsAt: detail.resetsAt ?? this.aiUsage?.resetsAt ?? null };
+    }
     this.emit();
   }
 
@@ -986,10 +1025,22 @@ class Store extends EventTarget {
   // ---------- settings ----------
   get settings() { return this.state.settings; }
   setSettings(patch) { this.update((s) => Object.assign(s.settings, patch)); }
-  /** Whether live mode is available — i.e. the backend proxy is reachable
-   *  and has a Claude key configured. Was "did the user paste a key" before
-   *  the key moved server-side; callers didn't need to change. */
-  hasKey() { return this.proxyUp && this.proxyKeyConfigured; }
+  /** Can this user make a Claude request right now: the proxy is reachable and
+   *  keyed, this month's budget isn't spent, and — unless this is a trusted
+   *  no-auth server — the user is signed in (the key is not spendable
+   *  anonymously). Entitlement (a paid plan) folds in here in Phase 2. */
+  canUseAI() {
+    if (!this.proxyUp || !this.proxyKeyConfigured || this._aiQuotaOut) return false;
+    return this.authed || !this.proxyRequiresAuth;
+  }
+
+  /** Legacy name — every existing caller means canUseAI(). Kept so views don't
+   *  all have to change at once; new code should call canUseAI(). */
+  hasKey() { return this.canUseAI(); }
+
+  /** True when the monthly Claude allowance is spent (a 402 latched it, or the
+   *  last usage fetch was at/over the limit). Read by Settings. */
+  get aiOverBudget() { return this._aiQuotaOut; }
 
   // ---------- account + sync ----------
   // Sign-in is opt-in: local-only mode keeps working unchanged when signed
@@ -1011,6 +1062,7 @@ class Store extends EventTarget {
     this.authEmail = data.email;
     this._setSyncVersion(0);
     await this._pushNow(); // this device's local data becomes the account's data
+    await this.refreshUsage();
     this.emit();
   }
 
@@ -1025,6 +1077,7 @@ class Store extends EventTarget {
     this.authed = true;
     this.authEmail = data.email;
     await this._pullOnLogin();
+    await this.refreshUsage();
     this.emit();
   }
 
@@ -1032,6 +1085,8 @@ class Store extends EventTarget {
     try { await fetch(AUTH_LOGOUT_URL, { method: "POST", credentials: "include" }); } catch {}
     this.authed = false;
     this.authEmail = null;
+    this.aiUsage = null;
+    this._aiQuotaOut = false;
     clearTimeout(this._pushTimer);
     this.emit();
   }

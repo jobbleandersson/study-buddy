@@ -91,11 +91,11 @@ to mark a one-line answer:
 ### ⚠️ Security note
 
 The Claude API key lives only on the machine running `server/` — the browser never sees
-it. `/api/state`, `/api/links`, and `/api/assigned` all require a signed-in session.
-`/api/messages` (the Claude proxy) itself still has no per-request auth of its own,
-though — anyone who can reach the deployment can spend the configured key regardless of
-whether they've signed in. Understand that before hosting this somewhere public — see
-`server/README.md`.
+it. Every API route, `/api/messages` (the Claude proxy) included, requires a signed-in
+session by default, and the proxy meters each user against a monthly token budget and a
+request rate limit. What's still missing before charging for it: an *entitlement* check
+(any account can spend up to the flat budget, paid or not), login throttling, and
+password reset — see `server/README.md` and the "Turning on live mode" plan.
 
 ## Project layout
 
