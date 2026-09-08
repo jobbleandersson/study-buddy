@@ -96,11 +96,12 @@ function navGroups() {
     { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
     { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
   ];
+  // Leaderboard isn't in the nav — it has its own round icon in the topbar,
+  // on every screen (see shellActions).
   const track = [
     { href: "#/calendar", match: "/calendar",  icon: ICONS.calendar,  label: t("nav.calendar") },
     { href: "#/progress", match: "/progress",  icon: ICONS.chart,     label: t("common.progress") },
     { href: "#/achievements", match: "/achievements", icon: ICONS.award, label: t("nav.achievements") },
-    { href: "#/leaderboard", match: "/leaderboard", icon: ICONS.podium, label: t("nav.leaderboard") },
   ];
   const tools = [
     { href: "#/reference",  match: "/reference",  icon: ICONS.sigma,      label: t("nav.formulas") },
@@ -443,9 +444,8 @@ function shellActions() {
     },
   }, [icon(ICONS.user, 18)]);
 
-  // Leaderboard — a round icon beside the bell, on every screen. Signed out it
-  // opens a sign-in prompt. Hidden on the narrowest screens (see CSS), where it
-  // lives in the ⋮ nav instead.
+  // Leaderboard — a round icon beside the bell, on every screen (it's not in
+  // the nav). Signed out it opens a sign-in prompt.
   const leaderboardBtn = el("a.iconbtn.topbar__leaderboard" + (navActive("/leaderboard") ? ".is-active" : ""), {
     href: "#/leaderboard", "aria-label": t("nav.leaderboard"), title: t("nav.leaderboard"),
   }, [icon(ICONS.podium, 18)]);
@@ -484,8 +484,9 @@ function shell(contentNode) {
     el("div.shell__main", {}, [
       el("header.topbar", {}, [
         el("div.topbar__inner", {}, [
-          el("a.brand", { href: "#/" }, [
-            el("img", { src: "assets/favicon.svg", alt: "" }), "StudyBuddy",
+          el("a.brand", { href: "#/", "aria-label": t("nav.home") }, [
+            el("img", { src: "assets/favicon.svg", alt: "" }),
+            el("span.brand__name", {}, "StudyBuddy"),
           ]),
           el("span.topbar__spacer"),
           streakBadge(streak, atRisk),
