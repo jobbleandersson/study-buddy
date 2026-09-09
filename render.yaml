@@ -1,37 +1,28 @@
 # Render Blueprint — one web service that serves the frontend + the /api/* server.
-# In Render: New > Blueprint > pick this repo. It reads this file and creates the
-# service. Secrets (marked `sync: false`) are left blank for you to fill in the
-# dashboard — they never live in git.
+# In Render: Blueprints > New Blueprint Instance > pick this repo.
+# Secrets (marked `sync: false`) are set in the dashboard, never in git.
+# Every push to `main` redeploys automatically.
 #
-# Every push to the default branch redeploys automatically (autoDeploy).
-#
-# Currently on the FREE tier — no card needed. Trade-offs:
-#   - the service sleeps after 15 min idle; the next request takes ~50s to wake
-#   - the SQLite database is NOT persistent: accounts + synced data reset on
-#     every deploy and every wake-from-sleep. Fine for testing the plumbing.
-# To make it permanent later: add back a `disk:` block (mountPath /data),
-# set `plan: starter`, and add `DB_PATH=/data/studybuddy.sqlite3` — Render will
-# then ask for a payment method.
+# FREE tier — no card. Trade-offs: the service sleeps after 15 min idle (~50s to
+# wake), and the SQLite database resets on every deploy/wake. Fine for testing
+# the plumbing. To make it permanent later, add a `disk:` block (mountPath
+# /data), set `plan: starter`, and add `DB_PATH=/data/studybuddy.sqlite3`.
 
 services:
   - type: web
     name: study-buddy
     runtime: node
-    rootDir: server          # build + start run from server/; the whole repo is still checked out
+    rootDir: server
     plan: free
     buildCommand: npm install
     startCommand: npm start
-    healthCheckPath: /api/health
     autoDeploy: true
     envVars:
       - key: COOKIE_SECURE
         value: "true"
       - key: MESSAGES_REQUIRE_AUTH
         value: "true"
-      - key: NODE_VERSION
-        value: "20"
-      # --- fill these in the Render dashboard ---
-      - key: ANTHROPIC_API_KEY   # the site's AI-tutor key (server-side only, never sent to the browser)
+      - key: ANTHROPIC_API_KEY
         sync: false
-      - key: SITE_PASSWORD       # optional: set a shared password to gate the whole site while testing
+      - key: SITE_PASSWORD
         sync: false
