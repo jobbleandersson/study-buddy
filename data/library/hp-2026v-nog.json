@@ -1,0 +1,131 @@
+{
+  "id": "lib-hp-2026v-nog",
+  "type": "test",
+  "subject": "NOG – Kvantitativa resonemang",
+  "title": "NOG – övningsprov 1",
+  "sourceSummary": "Egenskrivna övningsuppgifter i Högskoleprovets NOG-format. Detta är inte ett officiellt utgivet prov.",
+  "topics": ["kvantitativt resonemang"],
+  "tutorStyle": "adaptive",
+  "questions": [
+    { "id": "q-hp-2026v-nog-01", "kind": "mc", "variant": "nog", "topic": "kvantitativt resonemang",
+      "prompt": "Hur gammal är Anna?",
+      "stimulus": { "statements": ["Anna är 3 år äldre än Bo.", "Bo fyller 15 år om 2 år."] },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 2,
+      "explanation": "(2) ger Bos ålder (13). (1) ger skillnaden. Först tillsammans får man Anna = 16. Ingen räcker ensam." },
+    { "id": "q-hp-2026v-nog-02", "kind": "mc", "variant": "nog", "topic": "kvantitativt resonemang",
+      "prompt": "Vad är arean av rektangeln?",
+      "stimulus": { "statements": ["Omkretsen är 20 cm.", "Ena sidan är dubbelt så lång som den andra."] },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 2,
+      "explanation": "(1) ensam ger många rektanglar. (2) ensam ger form men inte storlek. Tillsammans: $2(x + 2x) = 20 \\Rightarrow x = \\tfrac{10}{3}$, area bestämd." },
+    { "id": "q-hp-2026v-nog-03", "kind": "mc", "variant": "nog", "topic": "kvantitativt resonemang",
+      "prompt": "Är heltalet $n$ jämnt?",
+      "stimulus": { "statements": ["$n^2$ är jämnt.", "$3n$ är udda."] },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 3,
+      "explanation": "(1): $n^2$ jämnt $\\Rightarrow n$ jämnt. (2): $3n$ udda $\\Rightarrow n$ udda, så $n$ är inte jämnt — också ett bestämt svar. Vardera ensam räcker." },
+    { "id": "q-hp-2026v-nog-04", "kind": "mc", "variant": "nog", "topic": "kvantitativt resonemang",
+      "prompt": "Vad kostar ett äpple?",
+      "stimulus": { "statements": ["3 äpplen och 2 päron kostar 45 kr.", "6 äpplen och 4 päron kostar 90 kr."] },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 4,
+      "explanation": "(2) är bara (1) multiplicerad med 2 — ingen ny information. Ett ekvationssystem med två obekanta men bara en oberoende ekvation. Inte tillräckligt ens tillsammans." },
+    { "id": "q-hp-2026v-nog-05", "kind": "mc", "variant": "nog", "topic": "kvantitativt resonemang",
+      "prompt": "Hur många elever i klassen spelar ett instrument?",
+      "stimulus": { "statements": ["40 % av klassens 25 elever spelar ett instrument.", "10 elever spelar inget instrument, resten gör det."] },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 0,
+      "explanation": "(1): $0{,}40 \\cdot 25 = 10$ — bestämt. (2): säger 10 spelar inget, men vi vet inte klassens storlek utan (1), så \"resten\" är obestämt. (1) ensam räcker." },
+    { "id": "q-hp-2026v-nog-06", "kind": "mc", "variant": "nog", "topic": "kvantitativt resonemang",
+      "prompt": "Är $x > 5$?",
+      "stimulus": { "statements": ["$x^2 > 25$.", "$x > 0$."] },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 2,
+      "explanation": "(1): $x > 5$ eller $x < -5$. (2) ensam säger inget om storleken. Tillsammans: $x > 0$ och $x^2 > 25$ ger $x > 5$." },
+    { "id": "q-hp-2026v-nog-07", "kind": "mc", "variant": "nog", "topic": "kvantitativt resonemang",
+      "prompt": "Vilket år föddes Karin?",
+      "stimulus": { "statements": ["År 2020 var Karin dubbelt så gammal som år 2000.", "Karin fyllde 30 år under 2010."] },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 3,
+      "explanation": "(1): om ålder år 2000 är $a$ så är $a + 20 = 2a$, alltså $a = 20$, född 1980. (2): 30 år under 2010 ger också 1980. Vardera ensam räcker." },
+    { "id": "q-hp-2026v-nog-08", "kind": "mc", "variant": "nog", "topic": "kvantitativt resonemang",
+      "prompt": "Är triangeln rätvinklig?",
+      "stimulus": { "statements": ["Sidorna förhåller sig som $3 : 4 : 5$.", "Den längsta sidan är 10 cm."] },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 0,
+      "explanation": "(1): $3^2 + 4^2 = 5^2$, så varje triangel med detta sidförhållande är rätvinklig — bestämt. (2) ensam säger inget om vinklarna." },
+    { "id": "q-hp-2026v-nog-09", "kind": "mc", "variant": "nog", "topic": "kvantitativt resonemang",
+      "prompt": "Hur lång tid tar hela resan?",
+      "stimulus": { "statements": ["Första halvan av sträckan körs i 60 km/h.", "Andra halvan av sträckan körs i 90 km/h."] },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 4,
+      "explanation": "Tillsammans ger de medelhastigheten (72 km/h), men utan sträckans längd går restiden inte att bestämma. Inte tillräckligt." },
+    { "id": "q-hp-2026v-nog-10", "kind": "mc", "variant": "nog", "topic": "kvantitativt resonemang",
+      "prompt": "Vad är produkten $xy$?",
+      "stimulus": { "statements": ["$x + y = 7$.", "$x$ och $y$ är positiva heltal och $x > y$."] },
+      "choices": [
+        "(1) ensam är tillräcklig men inte (2) ensam",
+        "(2) ensam är tillräcklig men inte (1) ensam",
+        "(1) och (2) tillsammans är tillräckliga men inte var för sig",
+        "(1) respektive (2) ensam är tillräcklig",
+        "(1) och (2) tillsammans är inte tillräckliga"
+      ],
+      "answer": 4,
+      "explanation": "Tillsammans: $(x, y)$ kan vara $(6,1), (5,2)$ eller $(4,3)$ — produkten blir 6, 10 eller 12. Inte entydigt bestämd." }
+  ]
+}

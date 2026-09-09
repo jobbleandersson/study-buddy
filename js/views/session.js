@@ -5,8 +5,9 @@
 // a targeted practice run and a weak-spots drill identically — and it's what
 // gets saved so you can resume.
 
-import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, NATIONAL_MIX_PREFIX, nationalMixId } from "../store.js";
+import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
+import { parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER } from "../lib/hp.js";
 import { announce } from "../lib/a11y.js";
 import { t } from "../lib/i18n.js";
 import { renderQuestion, parseCloze, clozeToUnderscores } from "../components/questions.js";
@@ -45,6 +46,10 @@ export async function renderSession(assignmentId, qs) {
   // Repeat runs are shuffled so a retry tests the material, not the order.
   const isRetry = store.attempts.some((a) => a.assignmentId === assignment.id);
 
+  // A Högskoleprov delprov set: tag the attempt so results shows a normed
+  // estimate instead of the F–A grade reveal.
+  const hp = isHpSetId(assignment.id);
+
   return runSession({
     key: examMode ? `${assignment.id}::exam` : assignment.id,
     assignmentId: assignment.id,
@@ -52,6 +57,8 @@ export async function renderSession(assignmentId, qs) {
     type: assignment.type,
     examMode,
     timeLimitMin,
+    hp,
+    hpTestId: hp ? parseHpSetId(assignment.id).test : null,
     retryHash: `#/session/${assignment.id}${examQuery}`,
     questionIds: assignment.questions.map((q) => q.id),
     shuffle: isRetry || examMode,
@@ -166,6 +173,61 @@ export async function renderNationalMix(subjectId, qs) {
   });
 }
 
+/** The Högskoleprov mini-mock: ~40 questions sampled across every imported HP
+ *  delprov set with a compressed-provpass quota, verbal block then kvant block,
+ *  under one 55-minute clock. Reuses runSession's exam machinery; the attempt
+ *  is tagged `hp` so results shows a normed estimate. */
+export async function renderHpMock(qs) {
+  const hpSets = store.assignments.filter((a) => isHpSetId(a.id));
+  if (!hpSets.length) {
+    return emptyScreen(t("hp.mockEmptyTitle"), t("hp.mockEmptyBody"), t("hp.mockBadge"));
+  }
+
+  const byDelprov = {};
+  for (const a of hpSets) {
+    const setDp = parseHpSetId(a.id).delprov;
+    for (const q of a.questions) {
+      const dp = q.variant || setDp;
+      if (!dp) continue;
+      (byDelprov[dp] = byDelprov[dp] || []).push(q.id);
+    }
+  }
+
+  const QUOTA = { ord: 6, las: 6, mek: 4, elf: 4, xyz: 6, kva: 5, nog: 3, dtk: 6 };
+  const want = Math.max(4, Math.min(Number(qs?.get?.("count")) || 40, 40));
+  const order = new Map(DELPROV_ORDER.map((dp, i) => [dp, i]));
+
+  let ids = [];
+  for (const dp of DELPROV_ORDER) {
+    ids.push(...shuffled(byDelprov[dp] || []).slice(0, QUOTA[dp] || 0));
+  }
+  if (ids.length < want) {
+    const chosen = new Set(ids);
+    const rest = DELPROV_ORDER.flatMap((dp) => (byDelprov[dp] || []).filter((id) => !chosen.has(id)));
+    ids.push(...shuffled(rest).slice(0, want - ids.length));
+  }
+  ids = ids.slice(0, want).sort((x, y) => {
+    const dx = order.get(store.findQuestion(x)?.question.variant) ?? 99;
+    const dy = order.get(store.findQuestion(y)?.question.variant) ?? 99;
+    return dx - dy;
+  });
+  if (!ids.length) return notFound(t("hp.mockEmptyBody"));
+
+  return runSession({
+    key: HP_MOCK_ID,
+    assignmentId: HP_MOCK_ID,
+    title: t("hp.mockTitle"),
+    type: "assignment",
+    examMode: true,
+    timeLimitMin: 55,
+    hp: true,
+    hpTestId: null,
+    retryHash: "#/hp/mock",
+    questionIds: ids,
+    shuffle: false,
+  });
+}
+
 /* ------------------------------------------------------------------ */
 
 function runSession(config) {
@@ -239,6 +301,7 @@ function runSession(config) {
     if (config.assignmentId === REVIEW_ID) return t("session.reviewTitle");
     if (config.assignmentId === PRACTICE_ID) return t("session.practiceTitle");
     if (config.assignmentId === WEAK_ID) return t("session.weakTitle");
+    if (config.assignmentId === HP_MOCK_ID) return t("hp.mockTitle");
     return store.getAssignment(config.assignmentId)?.title || config.title;
   }
 
@@ -645,6 +708,13 @@ function runSession(config) {
       scorePct: answered.length ? Math.round((correct / answered.length) * 100) : 0,
       tutorHints: Number.isFinite(hintBudget) ? hintBudget - tutor.hintsLeft : 0,
       items: answered,
+      // Högskoleprovet: mark the attempt and record raw verbal/kvant scores so
+      // results.js can show a normed estimate instead of the F–A reveal.
+      ...(config.hp ? {
+        hp: true,
+        hpTestId: config.hpTestId || null,
+        hpParts: rawByPart(answered, (qid) => store.findQuestion(qid)?.question.variant),
+      } : {}),
     };
     store.recordAttempt(attempt);
     commitSrs(answered);
@@ -886,13 +956,22 @@ function runSession(config) {
   };
 }
 
+/** Högskoleprov options are never reshuffled: KVA/NOG answers carry a fixed
+ *  meaning, and every delprov's explanation refers to the options by letter or
+ *  number ("alternativ C"). Any question with an HP `variant` — or a figure —
+ *  keeps its authored option order. Everything else shuffles on a retry / exam
+ *  run as before. */
+function keepsChoiceOrder(q) {
+  return !!q?.variant || !!q?.figure;
+}
+
 function freshState(config) {
   const order = config.shuffle ? shuffled(config.questionIds) : [...config.questionIds];
   const choiceOrder = {};
   if (config.shuffle) {
     for (const id of order) {
       const q = store.findQuestion(id)?.question;
-      if (q?.kind === "mc" && Array.isArray(q.choices)) {
+      if (q?.kind === "mc" && Array.isArray(q.choices) && !keepsChoiceOrder(q)) {
         choiceOrder[id] = shuffled(q.choices.map((_, i) => i));
       }
     }
@@ -912,6 +991,7 @@ function shuffled(arr) {
 }
 
 function badgeLabel(config) {
+  if (config.assignmentId === HP_MOCK_ID) return t("hp.mockBadge");
   if (config.examMode) return t("session.examBadge");
   if (config.assignmentId === REVIEW_ID) return t("session.badgeReview");
   if (config.assignmentId === PRACTICE_ID) return t("session.badgePractice");

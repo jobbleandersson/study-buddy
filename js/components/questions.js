@@ -6,6 +6,7 @@
 
 import { el, clear, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
+import { figureURL } from "../lib/figures.js";
 import { gradeAnswer } from "../claude.js";
 import { fromCorrect } from "../lib/srs.js";
 import { t } from "../lib/i18n.js";
@@ -79,9 +80,76 @@ export function clozeToUnderscores(prompt, fill = "____") {
   return parseCloze(src).map((p) => (p.blank ? fill : p.text)).join("");
 }
 
+/**
+ * A Högskoleprov figure (DTK diagram, XYZ sketch). `question.figure` is
+ * { src, alt, caption? }; `src` is a repo-root-relative path resolved by
+ * figureURL(). If the image 404s the whole <figure> is swapped for the alt
+ * text — which by contract carries the data needed to answer — so the
+ * question stays answerable offline or on a bad path.
+ */
+function figurePanel(figure) {
+  if (!figure || !figure.src) return null;
+  const wrap = el("figure.question__figure", {});
+  const img = el("img", { src: figureURL(figure.src), alt: figure.alt || "", loading: "lazy" });
+  img.addEventListener("error", () => {
+    wrap.replaceWith(el("div.question__figure.question__figure--missing", {}, [
+      el("b", {}, t("hp.figureMissing")),
+      el("span", {}, figure.alt || ""),
+    ]));
+  });
+  wrap.appendChild(img);
+  if (figure.caption) wrap.appendChild(el("figcaption", {}, figure.caption));
+  return wrap;
+}
+
+/**
+ * The framing material shown once above the prompt. Shape varies by delprov:
+ *   LÄS / ELF   { id?, title?, body, figure? }   — a reading passage
+ *   KVA         { quantities: [I, II], given? }  — the two columns to compare
+ *   NOG         { statements: [ "(1) …", "(2) …" ] }
+ * Questions stay fully independent — this is render-only, no grouping.
+ */
+function framePanel(question) {
+  const s = question.stimulus;
+  if (question.variant === "kva" && s && Array.isArray(s.quantities)) {
+    return el("div.hp-kva", {}, [
+      el("div.hp-kva__col", {}, [
+        el("h4", {}, t("hp.kvaColI")),
+        el("div.hp-kva__q", { html: renderRich(s.quantities[0] ?? "") }),
+      ]),
+      el("div.hp-kva__div"),
+      el("div.hp-kva__col", {}, [
+        el("h4", {}, t("hp.kvaColII")),
+        el("div.hp-kva__q", { html: renderRich(s.quantities[1] ?? "") }),
+      ]),
+      s.given ? el("div.hp-kva__given", {}, [
+        el("b", {}, t("hp.kvaGivenLabel")), " ",
+        el("span", { html: renderRich(s.given) }),
+      ]) : null,
+    ].filter(Boolean));
+  }
+  if (question.variant === "nog" && s && Array.isArray(s.statements)) {
+    return el("div.hp-nog__stmts", {}, s.statements.map((line, i) =>
+      el("div.hp-nog__stmt", {}, [
+        el("b", {}, `(${i + 1})`),
+        el("span", { html: renderRich(String(line).replace(/^\(\d+\)\s*/, "")) }),
+      ])));
+  }
+  if (s && s.body) {
+    return el("div.question__stimulus", {}, [
+      s.title ? el("h4.question__stimulus-label", {}, s.title) : null,
+      s.figure ? figurePanel(s.figure) : null,
+      el("div.question__stimulus-body", { html: renderRich(s.body) }),
+    ].filter(Boolean));
+  }
+  return null;
+}
+
 function shell(question, body, { showPrompt = true } = {}) {
   const speak = speakButton(question);
   return el("div.question", {}, [
+    framePanel(question),
+    figurePanel(question.figure),
     (showPrompt || speak) && el("div.question__topline", {}, [
       showPrompt ? el("div.question__prompt", { html: renderRich(question.prompt) }) : el("span"),
       speak,

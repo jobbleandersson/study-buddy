@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 210" role="img" aria-label="Linjediagram, dygnsmedeltemperatur i grader Celsius april till september. Nordby (heldragen): 4, 7, 13, 19, 24, 23. Soderhamn (streckad): 8, 11, 15, 17, 18, 16.">
+  <style>
+    .ax{stroke:#6b7280;stroke-width:1;fill:none}
+    .grid{stroke:#c9ced8;stroke-width:1;stroke-dasharray:2 3}
+    .l1{stroke:#8aa0c8;stroke-width:2;fill:none}
+    .l2{stroke:#d29a5b;stroke-width:2;fill:none;stroke-dasharray:4 3}
+    .dot1{fill:#8aa0c8}.dot2{fill:#d29a5b}
+    .lab{fill:#6b7280;font:9px system-ui,sans-serif}
+    .title{fill:#3f4756;font:bold 10px system-ui,sans-serif}
+    @media (prefers-color-scheme:dark){
+      .ax{stroke:#9aa3b4}.grid{stroke:#3a4150}
+      .l1,.dot1{stroke:#6e93f6;fill:#6e93f6}.l2,.dot2{stroke:#e0b17a;fill:#e0b17a}
+      .lab,.title{fill:#c3c9d6}
+    }
+  </style>
+  <text class="title" x="12" y="16">Dygnsmedeltemperatur (°C)</text>
+  <line class="ax" x1="34" y1="26" x2="34" y2="170"/>
+  <line class="ax" x1="34" y1="170" x2="326" y2="170"/>
+  <line class="grid" x1="34" y1="122" x2="326" y2="122"/>
+  <line class="grid" x1="34" y1="74" x2="326" y2="74"/>
+  <text class="lab" x="30" y="173" text-anchor="end">0</text>
+  <text class="lab" x="30" y="125" text-anchor="end">10</text>
+  <text class="lab" x="30" y="77" text-anchor="end">20</text>
+  <text class="lab" x="30" y="30" text-anchor="end">30</text>
+  <polyline class="l1" points="52,151 100,136 148,108 196,79 244,55 292,59"/>
+  <polyline class="l2" points="52,132 100,117 148,98 196,88 244,84 292,93"/>
+  <g class="dot1"><circle cx="52" cy="151" r="2.5"/><circle cx="100" cy="136" r="2.5"/><circle cx="148" cy="108" r="2.5"/><circle cx="196" cy="79" r="2.5"/><circle cx="244" cy="55" r="2.5"/><circle cx="292" cy="59" r="2.5"/></g>
+  <g class="dot2"><circle cx="52" cy="132" r="2.5"/><circle cx="100" cy="117" r="2.5"/><circle cx="148" cy="98" r="2.5"/><circle cx="196" cy="88" r="2.5"/><circle cx="244" cy="84" r="2.5"/><circle cx="292" cy="93" r="2.5"/></g>
+  <text class="lab" x="52" y="184" text-anchor="middle">apr</text>
+  <text class="lab" x="100" y="184" text-anchor="middle">maj</text>
+  <text class="lab" x="148" y="184" text-anchor="middle">jun</text>
+  <text class="lab" x="196" y="184" text-anchor="middle">jul</text>
+  <text class="lab" x="244" y="184" text-anchor="middle">aug</text>
+  <text class="lab" x="292" y="184" text-anchor="middle">sep</text>
+  <text class="lab" x="120" y="202">Heldragen: Nordby &#160;&#160; Streckad: Söderhamn</text>
+</svg>

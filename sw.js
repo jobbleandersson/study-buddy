@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studybuddy-v70";
+const CACHE = "studybuddy-v71";
 
 const APP_SHELL = [
   "./",
@@ -45,6 +45,9 @@ const APP_SHELL = [
   "./js/lib/library.js",
   "./js/lib/library-content.js",
   "./js/lib/date-phrases.js",
+  "./js/lib/hp.js",
+  "./js/lib/figures.js",
+  "./js/lib/spark.js",
   "./js/lib/speech.js",
   "./js/lib/expr.js",
   "./js/lib/offline.js",
@@ -70,6 +73,7 @@ const APP_SHELL = [
   "./js/views/library.js",
   "./js/views/calendar.js",
   "./js/views/exam-prep.js",
+  "./js/views/hp.js",
   "./js/views/solve.js",
   "./js/views/reference.js",
   "./js/views/calculator.js",
@@ -147,23 +151,43 @@ async function cacheLibrary(client) {
     return;
   }
   const urls = ["./data/library/index.json", "./data/library/index.en.json"];
+  const setFiles = [];
   for (const s of index.sets || []) {
     if (!s.file) continue;
-    urls.push("./" + s.file.replace(/^\.?\//, ""));
-    urls.push("./" + s.file.replace(/^\.?\//, "").replace("data/library/", "data/library-en/"));
+    const rel = s.file.replace(/^\.?\//, "");
+    urls.push("./" + rel);
+    urls.push("./" + rel.replace("data/library/", "data/library-en/"));
+    setFiles.push("./" + rel);
   }
   const total = urls.length;
   let done = 0;
   const BATCH = 12;
+  const figures = new Set();
   for (let i = 0; i < urls.length; i += BATCH) {
     await Promise.all(urls.slice(i, i + BATCH).map(async (u) => {
       try {
         const r = await fetch(u);
-        if (r.ok) await cache.put(u, r.clone());
+        if (r.ok) {
+          await cache.put(u, r.clone());
+          // Högskoleprovet DTK/XYZ figures are referenced from the set JSON —
+          // collect them so a "make offline" pass grabs the images too.
+          if (setFiles.includes(u)) {
+            try {
+              const doc = await r.clone().json();
+              for (const q of doc.questions || []) {
+                if (q.figure && q.figure.src) figures.add("./data/library/figures/" + String(q.figure.src).replace(/^\.?\/*/, ""));
+                if (q.stimulus && q.stimulus.figure && q.stimulus.figure.src) figures.add("./data/library/figures/" + String(q.stimulus.figure.src).replace(/^\.?\/*/, ""));
+              }
+            } catch { /* not JSON / malformed — skip */ }
+          }
+        }
       } catch { /* a missing English file just falls back to Swedish at import */ }
       done++;
     }));
     client && client.postMessage({ type: "library-cache-progress", done, total });
+  }
+  for (const f of figures) {
+    try { const r = await fetch(f); if (r.ok) await cache.put(f, r.clone()); } catch { /* skip */ }
   }
   client && client.postMessage({ type: "library-cache-done", ok: true, done, total });
 }

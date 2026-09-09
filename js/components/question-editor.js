@@ -170,6 +170,10 @@ export function questionEditor(doc, { onChange } = {}) {
         onclick: () => { doc.questions.splice(idx, 1); paint(); },
       }, [icon(ICONS.trash, 15)]),
     ]));
+    if (q.variant || q.figure || q.stimulus) {
+      wrap.appendChild(el("p.note", { style: { margin: "0 0 8px", color: "var(--ink-faint)" } },
+        t("ed.hpNote", { delprov: String(q.variant || "hp").toUpperCase() })));
+    }
     wrap.appendChild(el("label.field", { style: { marginBottom: "8px" } }, [
       el("span", {}, t("ed.question")), promptTa,
     ]));

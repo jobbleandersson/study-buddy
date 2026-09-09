@@ -110,10 +110,28 @@ export function isSpeaking() {
  *  multiple choice, or the sentence with "blank" spoken for each gap. */
 export function questionToSpeech(q, t) {
   if (!q) return "";
-  if (q.kind === "cloze") {
-    return toSpeakable(String(q.prompt || "").replace(/\{\{[^}]*\}\}/g, ` ${t ? t("q.readBlankWord") : "blank"} `));
+  const tr = (k, v) => (t ? t(k, v) : k);
+
+  // Högskoleprov framing material — read before the prompt.
+  let prefix = "";
+  const s = q.stimulus;
+  if (s && s.body) {
+    prefix += (s.title ? s.title + ". " : "") + toSpeakable(s.body) + ". ";
+  } else if (s && Array.isArray(s.quantities)) {
+    prefix += `${tr("hp.kvaColI")}: ${toSpeakable(s.quantities[0] || "")}. `
+      + `${tr("hp.kvaColII")}: ${toSpeakable(s.quantities[1] || "")}. `
+      + (s.given ? `${tr("hp.kvaGivenLabel")} ${toSpeakable(s.given)}. ` : "");
+  } else if (s && Array.isArray(s.statements)) {
+    prefix += s.statements
+      .map((l, i) => `(${i + 1}) ${toSpeakable(String(l).replace(/^\(\d+\)\s*/, ""))}`)
+      .join(". ") + ". ";
   }
-  let out = toSpeakable(q.prompt);
+  if (q.figure && q.figure.alt) prefix += `${tr("hp.speakFigure")}: ${toSpeakable(q.figure.alt)}. `;
+
+  if (q.kind === "cloze") {
+    return prefix + toSpeakable(String(q.prompt || "").replace(/\{\{[^}]*\}\}/g, ` ${tr("q.readBlankWord")} `));
+  }
+  let out = prefix + toSpeakable(q.prompt);
   if (q.kind === "mc" && Array.isArray(q.choices)) {
     const letters = ["A", "B", "C", "D", "E", "F"];
     out += ". " + q.choices.map((c, i) => `${letters[i] || i + 1}. ${toSpeakable(c)}`).join(". ");

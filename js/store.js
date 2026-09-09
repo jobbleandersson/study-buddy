@@ -92,6 +92,8 @@ const DEFAULT_SUBJECTS = ["Science", "History", "Math", "English", "Geography"];
 export const REVIEW_ID = "__review__";
 export const PRACTICE_ID = "__practice__";
 export const WEAK_ID = "__weak__";
+// The Högskoleprov mini-mock — its own resumable slot, like the three above.
+export const HP_MOCK_ID = "__hpmock__";
 // Per-subject, unlike the three above — several subjects can each have their
 // own in-progress "mix all years" session at once.
 export const NATIONAL_MIX_PREFIX = "__npmix__";
@@ -108,6 +110,7 @@ function seedState() {
       font: "system",      // "system" | "hyperlegible"
       textSize: "m",       // "s" | "m" | "l"
       voice: false,        // read tutor replies aloud (speechSynthesis)
+      hpDate: null,        // "YYYY-MM-DD" of the user's Högskoleprov sitting, or null
     },
     subjects: DEFAULT_SUBJECTS.map((name, i) => ({
       id: uid(), name, color: PALETTE[i % PALETTE.length].name,
@@ -573,6 +576,9 @@ class Store extends EventTarget {
           steps: d.steps,
           opener: d.opener,
           topic: d.topic || q.topic,
+          variant: d.variant ?? q.variant,
+          figure: d.figure ?? q.figure,
+          stimulus: d.stimulus ?? q.stimulus,
         };
       });
       // Keep history keyed on the new topic strings so mastery stays continuous.
@@ -680,6 +686,9 @@ class Store extends EventTarget {
           steps: d.steps,
           opener: d.opener,
           topic: d.topic || q.topic,
+          variant: d.variant ?? q.variant,
+          figure: d.figure ?? q.figure,
+          stimulus: d.stimulus ?? q.stimulus,
         };
       });
       // Keep attempt history keyed on the new topic strings so mastery stays continuous.
@@ -838,6 +847,13 @@ class Store extends EventTarget {
         explanation: q.explanation || undefined,
         steps: q.steps || undefined,
         opener: q.opener || undefined,
+        // Högskoleprovet extras — a delprov tag (drives the KVA/NOG panels and
+        // shuffle suppression), an optional figure, and framing material (a
+        // reading passage, or the two KVA quantities). Additive: a set without
+        // them behaves exactly as before.
+        variant: q.variant || undefined,
+        figure: q.figure || undefined,
+        stimulus: q.stimulus || undefined,
       })),
     };
     this.state.assignments.unshift(a);
@@ -1112,6 +1128,16 @@ class Store extends EventTarget {
   // ---------- settings ----------
   get settings() { return this.state.settings; }
   setSettings(patch) { this.update((s) => Object.assign(s.settings, patch)); }
+
+  /** The user's Högskoleprov date ("YYYY-MM-DD", or null to clear). Drives the
+   *  #/hp countdown, the dated plan and the ≤7-day reminder. Rejects anything
+   *  that isn't a day key — same validation as setDueDate. */
+  setHpDate(dayKey) {
+    const value = dayKey && DAY_RE.test(dayKey) ? dayKey : null;
+    if (dayKey && !value) return false;
+    this.setSettings({ hpDate: value });
+    return true;
+  }
   /** Can this user make a Claude request right now: the proxy is reachable and
    *  keyed, this month's budget isn't spent, and — unless this is a trusted
    *  no-auth server — the user is signed in (the key is not spendable

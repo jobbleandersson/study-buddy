@@ -5,6 +5,7 @@
 import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
+import { figureURL } from "../lib/figures.js";
 import { parseCloze, clozeToUnderscores } from "../components/questions.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
@@ -21,7 +22,31 @@ export function renderPrint(id, qs) {
   // ?key=0 → worksheet only, no answer key (a teacher handing it out).
   let showKey = qs?.get?.("key") !== "0";
 
+  const printedStimuli = new Set();
   const questionEl = (q, i) => {
+    const pre = [];
+    // A shared reading passage / KVA quantities / NOG statements — printed once.
+    const s = q.stimulus;
+    if (s && s.body && !(s.id && printedStimuli.has(s.id))) {
+      if (s.id) printedStimuli.add(s.id);
+      pre.push(el("div.psheet__stimulus", {}, [
+        s.title ? el("b", {}, s.title) : null,
+        el("div", { html: renderRich(s.body) }),
+      ].filter(Boolean)));
+    }
+    if (q.variant === "kva" && s && Array.isArray(s.quantities)) {
+      pre.push(el("div.psheet__stimulus", {}, [
+        el("div", { html: `I: ${renderRich(s.quantities[0] ?? "")} &nbsp;&nbsp; II: ${renderRich(s.quantities[1] ?? "")}` }),
+        s.given ? el("div", { html: `${t("hp.kvaGivenLabel")} ${renderRich(s.given)}` }) : null,
+      ].filter(Boolean)));
+    }
+    if (q.variant === "nog" && s && Array.isArray(s.statements)) {
+      pre.push(el("ol.psheet__stimulus", {}, s.statements.map((line) =>
+        el("li", { html: renderRich(String(line).replace(/^\(\d+\)\s*/, "")) }))));
+    }
+    if (q.figure && q.figure.src) {
+      pre.push(el("img.psheet__fig", { src: figureURL(q.figure.src), alt: q.figure.alt || "" }));
+    }
     const head = el("div.psheet__q", {}, [el("b", {}, `${i + 1}.`), " ", promptText(q)]);
     const body = [];
     if (q.kind === "mc" && Array.isArray(q.choices)) {
@@ -30,7 +55,7 @@ export function renderPrint(id, qs) {
     } else if (q.kind !== "cloze") {
       body.push(el("div.psheet__lines"));
     }
-    return el("div.psheet__item", {}, [head, ...body]);
+    return el("div.psheet__item", {}, [...pre, head, ...body]);
   };
 
   const answerEl = (q, i) => el("div.psheet__akey", {}, [
