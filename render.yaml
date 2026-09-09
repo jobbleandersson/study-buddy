@@ -4,26 +4,26 @@
 # dashboard — they never live in git.
 #
 # Every push to the default branch redeploys automatically (autoDeploy).
+#
+# Currently on the FREE tier — no card needed. Trade-offs:
+#   - the service sleeps after 15 min idle; the next request takes ~50s to wake
+#   - the SQLite database is NOT persistent: accounts + synced data reset on
+#     every deploy and every wake-from-sleep. Fine for testing the plumbing.
+# To make it permanent later: add back a `disk:` block (mountPath /data),
+# set `plan: starter`, and add `DB_PATH=/data/studybuddy.sqlite3` — Render will
+# then ask for a payment method.
 
 services:
   - type: web
     name: study-buddy
     runtime: node
     rootDir: server          # build + start run from server/; the whole repo is still checked out
-    plan: starter            # a paid instance is required for the persistent disk below.
-                             # To try the free tier first, delete the `disk:` block and
-                             # set `plan: free` — but the database then resets on every deploy.
+    plan: free
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /api/health
     autoDeploy: true
-    disk:
-      name: data
-      mountPath: /data       # the SQLite database lives here so it survives deploys
-      sizeGB: 1
     envVars:
-      - key: DB_PATH
-        value: /data/studybuddy.sqlite3
       - key: COOKIE_SECURE
         value: "true"
       - key: MESSAGES_REQUIRE_AUTH
