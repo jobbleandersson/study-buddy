@@ -14,7 +14,9 @@ services:
     runtime: node
     rootDir: server
     plan: free
-    buildCommand: npm ci && npm rebuild better-sqlite3
+    # Compile better-sqlite3 from source against Render's own toolchain — its
+    # prebuilt binaries segfault on this platform.
+    buildCommand: npm_config_build_from_source=true npm ci
     startCommand: npm start
     autoDeploy: true
     envVars:
