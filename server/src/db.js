@@ -3,7 +3,11 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DB_PATH = path.join(__dirname, "..", "studybuddy.sqlite3");
+// On a hosting platform the normal filesystem is wiped on every deploy, so the
+// database must live on a mounted persistent disk. Set DB_PATH to a file on
+// that disk (e.g. /data/studybuddy.sqlite3); left unset it falls back to the
+// old location beside server/, which is right for local development.
+const DB_PATH = process.env.DB_PATH || path.join(__dirname, "..", "studybuddy.sqlite3");
 
 export const db = new Database(DB_PATH);
 db.pragma("journal_mode = WAL");
