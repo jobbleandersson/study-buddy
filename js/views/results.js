@@ -5,6 +5,7 @@ import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { deltaFromAttempt } from "../lib/mastery.js";
 import { estimatedGrade, gradeRank } from "../lib/grade.js";
+import { normedScore, delprovEstimate, scoreBand, parseHpSetId, attemptNormedTotal } from "../lib/hp.js";
 import { summarizeSchedule, dueLabel, retentionForecast } from "../lib/srs.js";
 import { celebrate, clearConfetti } from "../lib/confetti-helper.js";
 import { t, plural, daysUntil, sentenceCase } from "../lib/i18n.js";
@@ -98,6 +99,7 @@ export function renderResults(attemptId) {
     })(),
 
     gradeReveal(attempt),
+    hpReveal(attempt),
 
     deltaEntries.length ? el("div", {}, [
       el("h3", { style: { marginBottom: "8px" } }, t("results.topicMastery")),
@@ -182,6 +184,7 @@ function countLabel(attempt) {
  *  Always captioned as an estimate, never a real grade. */
 function gradeReveal(attempt) {
   if (!attempt.wasTest || attempt.isReview) return null;
+  if (attempt.hp) return null;   // HP runs get hpReveal() instead — F–A is meaningless there
 
   const grade = estimatedGrade(attempt.scorePct / 100);
   const rank = gradeRank(grade.letter);
@@ -207,6 +210,72 @@ function gradeReveal(attempt) {
     el("p.gradereveal__compare" + (compareClass ? `.${compareClass}` : ""), {}, compare),
     el("p.gradereveal__caption", {}, t("prog.gradeTooltip", { letter: grade.letter })),
   ]);
+}
+
+const fmtNormed = (n) => (n == null ? "–" : Number(n).toFixed(2).replace(".", ","));
+
+/** For a Högskoleprov run — a delprov drill under test conditions, or the
+ *  mini-mock — a normed-score (0.00–2.00) estimate in place of the F–A reveal.
+ *  A run that spans both halves gets a verbal/kvant split; a short single-
+ *  delprov drill gets a rougher whole-test estimate. Always captioned as an
+ *  estimate. */
+function hpReveal(attempt) {
+  if (!attempt.hp || attempt.isReview) return null;
+
+  const parts = attempt.hpParts || {};
+  const totalAnswered = (parts.verbalTotal || 0) + (parts.kvantTotal || 0);
+  if (!totalAnswered) return null;
+  const hasBoth = parts.verbalTotal > 0 && parts.kvantTotal > 0;
+
+  // A run that spans both halves (the mini-mock) gets the real normed lookup;
+  // a single-delprov drill only ever gets the rough, shrunk estimate.
+  let res, caption;
+  if (hasBoth) {
+    res = normedScore({ ...parts, testId: attempt.hpTestId });
+    caption = res.testLabel
+      ? t("hp.reveal.captionTest", { test: res.testLabel })
+      : t("hp.reveal.caption");
+  } else {
+    const dp = parseHpSetId(attempt.assignmentId).delprov || firstItemVariant(attempt);
+    const correct = (attempt.items || []).filter((i) => i.correct).length;
+    const de = delprovEstimate({ delprov: dp, correct, total: totalAnswered });
+    res = { total: de.normed, verbal: null, kvant: null, band: scoreBand(de.normed) };
+    caption = t("hp.reveal.delprovCaption");
+  }
+
+  // Best previous HP total, across every HP attempt (mock + drills all speak to
+  // "your HP level").
+  const priorBest = store.attempts
+    .filter((a) => a.hp && a.id !== attempt.id && (a.finishedAt || 0) < (attempt.finishedAt || 0))
+    .reduce((best, a) => {
+      const n = attemptNormedTotal(a);
+      return n != null && n > best ? n : best;
+    }, -1);
+
+  let compare, compareClass = "";
+  if (priorBest < 0) compare = t("hp.reveal.firstTime");
+  else if (res.total > priorBest + 0.001) { compare = t("hp.reveal.upFrom", { n: fmtNormed(priorBest) }); compareClass = "up"; }
+  else if (Math.abs(res.total - priorBest) <= 0.001) compare = t("hp.reveal.matchesBest");
+  else { compare = t("hp.reveal.bestSoFar", { n: fmtNormed(priorBest) }); compareClass = "down"; }
+
+  const tierClass = res.band.tier === "mid" ? "" : `.gradereveal--${res.band.tier}`;
+  return el("div.gradereveal.gradereveal--hp" + tierClass, {}, [
+    el("span.gradereveal__eyebrow", {}, t("hp.reveal.eyebrow")),
+    el("div.gradereveal__letter", {}, fmtNormed(res.total)),
+    hasBoth
+      ? el("p.gradereveal__compare", {}, t("hp.reveal.split", { v: fmtNormed(res.verbal), k: fmtNormed(res.kvant) }))
+      : null,
+    el("p.gradereveal__compare" + (compareClass ? `.${compareClass}` : ""), {}, compare),
+    el("p.gradereveal__caption", {}, caption),
+  ].filter(Boolean));
+}
+
+function firstItemVariant(attempt) {
+  for (const it of attempt.items || []) {
+    const q = store.findQuestion(it.questionId)?.question;
+    if (q?.variant) return q.variant;
+  }
+  return null;
 }
 
 /** The correct answer, in whatever shape fits the question's kind — reuses

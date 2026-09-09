@@ -13,6 +13,9 @@ import { goalRing } from "../components/goal-ring.js";
 import { homeButton } from "../components/nav.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { estimatedGrade } from "../lib/grade.js";
+import { sparkline } from "../lib/spark.js";
+import { hpPrognosis } from "./hp.js";
+import { isHpSetId } from "../lib/hp.js";
 
 export function renderProgress() {
   const tm = masteryByTopic(store.attempts);
@@ -57,7 +60,12 @@ export function renderProgress() {
     if (!prev || (at.finishedAt || 0) > (prev.finishedAt || 0)) lastScoreBySubject[sid] = at;
   }
 
+  // Högskoleprovet subjects have their own 0–2.0 scoring on #/hp — the F–A
+  // mastery meter is meaningless for them, so leave them out here.
+  const hpSubjectIds = new Set(
+    store.assignments.filter((a) => isHpSetId(a.id)).map((a) => a.subjectId));
   const subjectMeters = store.subjects
+    .filter((s) => !hpSubjectIds.has(s.id))
     .map((s) => ({ s, m: masteryForSubject(s.id, store.assignments, tm) }))
     .filter((x) => x.m != null)
     .sort((a, b) => a.m - b.m)
@@ -175,8 +183,13 @@ export function renderProgress() {
     recall.length >= 3 ? el("section.panel", {}, [
       el("h3", { style: { marginBottom: "6px" } }, t("prog.recallTitle")),
       el("p.note", { style: { marginBottom: "12px" } }, t("prog.recallSub", { n: recall.length })),
-      sparkline(recall),
+      sparkline(recall.map((d) => d.pct), {
+        ariaLabel: t("prog.recallAria", { list: recall.map((d) => `${d.pct}%`).join(", ") }),
+      }),
     ]) : null,
+
+    // Högskoleprovet prognosis — only once there are HP attempts to read.
+    hpPrognosisPanel(),
 
     el("section.panel", {}, [
       el("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap", marginBottom: "10px" } }, [
@@ -218,25 +231,24 @@ export function renderProgress() {
   return { title: t("common.progress"), node };
 }
 
-/** A bare line chart of review-session scores, built like the results-screen
- *  ring — SVG via innerHTML, no library. viewBox is wide so it scales up
- *  uniformly to the panel width; y maps 0%→bottom, 100%→top. */
-function sparkline(pts) {
-  const w = 600, h = 60, pad = 6;
-  const x = (i) => pad + (i * (w - 2 * pad)) / Math.max(1, pts.length - 1);
-  const y = (p) => h - pad - (p / 100) * (h - 2 * pad);
-  const poly = pts.map((d, i) => `${x(i).toFixed(1)},${y(d.pct).toFixed(1)}`).join(" ");
-  const wrap = el("div", {
-    role: "img",
-    "aria-label": t("prog.recallAria", { list: pts.map((d) => `${d.pct}%`).join(", ") }),
-  });
-  wrap.innerHTML =
-    `<svg class="sparkline" viewBox="0 0 ${w} ${h}">` +
-    `<polyline points="${poly}"/>` +
-    pts.map((d, i) => {
-      const last = i === pts.length - 1;
-      return `<circle cx="${x(i).toFixed(1)}" cy="${y(d.pct).toFixed(1)}" r="${last ? 5 : 3.5}"${last ? ' class="last"' : ""}/>`;
-    }).join("") +
-    `</svg>`;
-  return wrap;
+/** "Högskoleprovet-prognos" panel — current verbal/kvant/total estimate plus a
+ *  trend line of past HP attempts. hpPrognosis() returns null when there are no
+ *  HP attempts, so the whole panel is absent for non-HP students. */
+function hpPrognosisPanel() {
+  const p = hpPrognosis();
+  if (!p) return null;
+  return el("a.panel.achteaser", { href: "#/hp", style: { textDecoration: "none" } }, [
+    el("div.achteaser__top", {}, [
+      el("h3", {}, t("hp.prognosisTitle")),
+      el("span.badge", {}, t("hp.reveal.total", { n: fmtNormed(p.total) })),
+    ]),
+    el("p.note", {}, t("hp.reveal.split", { v: fmtNormed(p.verbal), k: fmtNormed(p.kvant) })),
+    p.history.length >= 2
+      ? sparkline(p.history, { max: 2, ariaLabel: t("hp.trendAria", { list: p.history.map(fmtNormed).join(", ") }) })
+      : null,
+  ].filter(Boolean));
+}
+
+function fmtNormed(n) {
+  return n == null ? "–" : Number(n).toFixed(2).replace(".", ",");
 }

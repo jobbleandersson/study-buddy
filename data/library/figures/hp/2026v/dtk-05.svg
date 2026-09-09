@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 210" role="img" aria-label="Karta, schematisk: fyra orter P, Q, R och S med vägavstånd i kilometer mellan dem.">
+  <style>
+    .road{stroke:#8a93a5;stroke-width:2}
+    .node{fill:#8aa0c8;stroke:#3f4756;stroke-width:1}
+    .name{fill:#2c3340;font:bold 10px system-ui,sans-serif;text-anchor:middle}
+    .dist{fill:#6b7280;font:9px system-ui,sans-serif;text-anchor:middle}
+    .title{fill:#3f4756;font:bold 10px system-ui,sans-serif}
+    @media (prefers-color-scheme:dark){
+      .road{stroke:#6b7486}.node{fill:#6e93f6;stroke:#c3c9d6}
+      .name{fill:#e8ebf2}.dist,.title{fill:#c3c9d6}
+    }
+  </style>
+  <text class="title" x="12" y="16">Vägavstånd (km)</text>
+  <line class="road" x1="70" y1="60" x2="250" y2="60"/>
+  <line class="road" x1="70" y1="60" x2="90" y2="165"/>
+  <line class="road" x1="250" y1="60" x2="90" y2="165"/>
+  <line class="road" x1="250" y1="60" x2="255" y2="165"/>
+  <line class="road" x1="90" y1="165" x2="255" y2="165"/>
+  <circle class="node" cx="70" cy="60" r="7"/>
+  <circle class="node" cx="250" cy="60" r="7"/>
+  <circle class="node" cx="90" cy="165" r="7"/>
+  <circle class="node" cx="255" cy="165" r="7"/>
+  <text class="name" x="70" y="46">P</text>
+  <text class="name" x="250" y="46">Q</text>
+  <text class="name" x="86" y="184">R</text>
+  <text class="name" x="259" y="184">S</text>
+  <text class="dist" x="160" y="52">40</text>
+  <text class="dist" x="66" y="115">28</text>
+  <text class="dist" x="185" y="110">35</text>
+  <text class="dist" x="266" y="115">30</text>
+  <text class="dist" x="172" y="178">45</text>
+</svg>

@@ -24,6 +24,7 @@ const TRACKS = [
   { id: "sessions",  icon: "medal",   nameKey: "ach.track.sessions",  descKey: "ach.desc.sessions",  tiers: [5, 20, 75, 250] },
   { id: "mastery",   icon: "summit",  nameKey: "ach.track.mastery",   descKey: "ach.desc.mastery",   tiers: [1, 2, 4, 6] },
   { id: "perfect",   icon: "gem",     nameKey: "ach.track.perfect",   descKey: "ach.desc.perfect",   tiers: [1, 5, 15, 50] },
+  { id: "hp",        icon: "podium",  nameKey: "ach.track.hp",        descKey: "ach.desc.hp",        tiers: [1, 3, 10, 25] },
 ];
 
 const TRACKED = TRACKS.flatMap((track) =>
@@ -115,6 +116,7 @@ export function achievementMetrics(state) {
   const streak = Math.max(currentStreak(days, frozen), state.activity?.bestStreak || 0);
   const questions = attempts.reduce((n, a) => n + (Array.isArray(a.items) ? a.items.length : 0), 0);
   const perfect = attempts.filter((a) => a.wasTest && a.scorePct === 100).length;
+  const hp = attempts.filter((a) => a.assignmentId === "__hpmock__").length;
 
   const tm = masteryByTopic(attempts);
   const cOrBetter = gradeRank("C");
@@ -123,7 +125,7 @@ export function achievementMetrics(state) {
     return m != null && gradeRank(estimatedGrade(m).letter) >= cOrBetter;
   }).length;
 
-  return { streak, questions, sessions: attempts.length, mastery, perfect };
+  return { streak, questions, sessions: attempts.length, mastery, perfect, hp };
 }
 
 /** Progress toward one badge (tracked or milestone), 0..target. */

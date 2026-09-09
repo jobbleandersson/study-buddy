@@ -11,7 +11,7 @@ import { showAchievementUnlocks } from "./lib/achievement-toast.js";
 import { renderMenu } from "./views/menu.js";
 import { renderCreate } from "./views/create.js";
 import { renderEdit } from "./views/edit.js";
-import { renderSession, renderReview, renderPractice, renderWeakPractice, renderNationalMix, isSessionActive } from "./views/session.js";
+import { renderSession, renderReview, renderPractice, renderWeakPractice, renderNationalMix, renderHpMock, isSessionActive } from "./views/session.js";
 import { renderResults } from "./views/results.js";
 import { renderProgress } from "./views/progress.js";
 import { renderSettings } from "./views/settings.js";
@@ -23,6 +23,7 @@ import { renderTeachback } from "./views/teachback.js";
 import { renderLibrary } from "./views/library.js";
 import { renderCalendarPage } from "./views/calendar.js";
 import { renderExamPrep } from "./views/exam-prep.js";
+import { renderHp } from "./views/hp.js";
 import { renderSolve } from "./views/solve.js";
 import { renderReference } from "./views/reference.js";
 import { renderCalculator } from "./views/calculator.js";
@@ -43,6 +44,8 @@ const routes = [
   { rx: /^\/practice-weak$/, view: (m, qs) => renderWeakPractice(qs) },
   { rx: /^\/practice\/(.+)$/, view: (m) => renderPractice(m[1]) },
   { rx: /^\/exam-prep(?:\/(.*))?$/, view: (m, qs) => renderExamPrep(m[1] || null, qs) },
+  { rx: /^\/hp$/, view: () => renderHp() },
+  { rx: /^\/hp\/mock$/, view: (m, qs) => renderHpMock(qs) },
   { rx: /^\/session\/(.+)$/, view: (m, qs) => renderSession(m[1], qs) },
   { rx: /^\/results\/(.+)$/, view: (m) => renderResults(m[1]) },
   { rx: /^\/progress$/, view: () => renderProgress() },
@@ -95,6 +98,7 @@ function navGroups() {
     { href: "#/create",   match: "/create",    icon: ICONS.plus,      label: t("nav.create") },
     { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
     { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
+    { href: "#/hp",       match: "/hp",        icon: ICONS.award,     label: t("nav.hp") },
   ];
   // Leaderboard isn't in the nav — it has its own round icon in the topbar,
   // on every screen (see shellActions).
@@ -314,6 +318,26 @@ function buildNotifications() {
       signature,
       read: store.isNotificationRead("due-review", signature),
     });
+  }
+
+  // Högskoleprovet — the date is a setting, not a set, so it needs its own line.
+  const hpDate = store.settings.hpDate;
+  if (hpDate) {
+    const d = daysUntil(hpDate);
+    if (d >= 0 && d <= 7) {
+      const signature = `hp|${hpDate}|${d}`;
+      list.push({
+        id: "hp-reminder",
+        icon: ICONS.award,
+        title: d === 0 ? t("hp.notifToday") : d === 1 ? t("hp.notifTomorrow") : t("hp.notifInDays", { n: d }),
+        body: t("hp.notifBody"),
+        meta: t("hp.pageTitle"),
+        href: "#/hp",
+        linkLabel: t("hp.notifLink"),
+        signature,
+        read: store.isNotificationRead("hp-reminder", signature),
+      });
+    }
   }
 
   const test = store.upcomingDue().find((a) => a.type === "test" && a.dueAt);
@@ -609,7 +633,7 @@ store.init().then(() => {
   store.addEventListener("change", () => {
     const h = location.hash.replace(/^#/, "").split("?")[0];
     if (h === "" || h === "/" || h === "/study" || h === "/calendar" || h === "/progress"
-        || h === "/achievements" || h === "/exam-prep" || h.startsWith("/exam-prep/")) render({ softRefresh: true });
+        || h === "/achievements" || h === "/hp" || h === "/exam-prep" || h.startsWith("/exam-prep/")) render({ softRefresh: true });
   });
   store.addEventListener("syncMerged", () => toast(t("sync.merged")));
   store.addEventListener("syncConflict", (e) => {

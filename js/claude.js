@@ -144,6 +144,11 @@ function normalizeDoc(doc) {
       explanation: q.explanation,
       rubric: q.rubric,
       steps: q.steps,
+      // Carried through for parity with store.addAssignmentDoc — the generator
+      // doesn't emit these, but an imported/edited Högskoleprov doc round-trips.
+      variant: q.variant,
+      figure: q.figure,
+      stimulus: q.stimulus,
       // Generated once, here — so the tutor can open with something specific
       // to this question without an API call every time it's shown.
       opener: typeof q.opener === "string" ? q.opener.trim() : undefined,
