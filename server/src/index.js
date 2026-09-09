@@ -32,6 +32,29 @@ if (process.env.COOKIE_SECURE !== "true") {
 }
 
 const app = express();
+
+// Behind a hosting platform's load balancer (Render, Railway, Fly, …) the real
+// client protocol and IP arrive in X-Forwarded-* headers. Trusting one proxy
+// hop lets `secure` session cookies and the per-IP rate limiter work correctly.
+// Harmless locally (there is no proxy, so nothing is forwarded).
+app.set("trust proxy", 1);
+
+// Optional shared-password gate for private testing. Set SITE_PASSWORD in the
+// host's env to switch it on; unset (the default) leaves the site open. The
+// /api/* paths are exempt so Stripe webhooks and the app's own API — which have
+// their own auth — keep working; the browser handles the popup and caching.
+if (process.env.SITE_PASSWORD) {
+  app.use((req, res, next) => {
+    if (req.path.startsWith("/api/")) return next();
+    const header = req.headers.authorization || "";
+    const [, encoded] = header.split(" ");
+    const [, pass] = Buffer.from(encoded || "", "base64").toString().split(":");
+    if (pass === process.env.SITE_PASSWORD) return next();
+    res.set("WWW-Authenticate", 'Basic realm="StudyBuddy — private testing"');
+    return res.status(401).send("Authentication required.");
+  });
+}
+
 if (ALLOWED_ORIGIN) app.use(cors({ origin: ALLOWED_ORIGIN, credentials: true })); // only needed if the frontend is ever hosted separately from this server
 app.use(cookieParser());
 app.use(express.json({ limit: "10mb" })); // material.js caps uploaded images at 5MB, base64 inflates that ~33%

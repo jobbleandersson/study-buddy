@@ -1,0 +1,37 @@
+# Render Blueprint — one web service that serves the frontend + the /api/* server.
+# In Render: New > Blueprint > pick this repo. It reads this file and creates the
+# service. Secrets (marked `sync: false`) are left blank for you to fill in the
+# dashboard — they never live in git.
+#
+# Every push to the default branch redeploys automatically (autoDeploy).
+
+services:
+  - type: web
+    name: study-buddy
+    runtime: node
+    rootDir: server          # build + start run from server/; the whole repo is still checked out
+    plan: starter            # a paid instance is required for the persistent disk below.
+                             # To try the free tier first, delete the `disk:` block and
+                             # set `plan: free` — but the database then resets on every deploy.
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    disk:
+      name: data
+      mountPath: /data       # the SQLite database lives here so it survives deploys
+      sizeGB: 1
+    envVars:
+      - key: DB_PATH
+        value: /data/studybuddy.sqlite3
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: MESSAGES_REQUIRE_AUTH
+        value: "true"
+      - key: NODE_VERSION
+        value: "20"
+      # --- fill these in the Render dashboard ---
+      - key: ANTHROPIC_API_KEY   # the site's AI-tutor key (server-side only, never sent to the browser)
+        sync: false
+      - key: SITE_PASSWORD       # optional: set a shared password to gate the whole site while testing
+        sync: false
