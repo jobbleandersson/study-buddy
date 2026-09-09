@@ -14,7 +14,7 @@ services:
     runtime: node
     rootDir: server
     plan: free
-    buildCommand: npm install
+    buildCommand: npm ci && npm rebuild better-sqlite3
     startCommand: npm start
     autoDeploy: true
     envVars:
