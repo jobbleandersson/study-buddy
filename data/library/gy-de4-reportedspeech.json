@@ -1,0 +1,128 @@
+{
+  "id": "lib-de4-reportedspeech",
+  "type": "assignment",
+  "subject": "Tyska 4",
+  "title": "Indirekte Rede: att återge vad någon sagt",
+  "sourceSummary": "Hur direkta citat omvandlas till indirekt tal på tyska — med Konjunktiv I (och Konjunktiv II som ersättning), samt de förändringar av pronomen, tempus och tidsuttryck som krävs.",
+  "topics": [
+    "Konjunktiv I",
+    "pronoun shift",
+    "tense shift",
+    "reporting verbs"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de4-rep-1",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Lisa sagt: \"Ich bin müde.\" Vilken är den korrekta indirekta återgivningen med Konjunktiv I?",
+      "opener": "Konjunktiv I av \"sein\" i tredje person singular är en av de mest karakteristiska formerna i indirekt tal.",
+      "choices": [
+        "Lisa sagt, sie sei müde.",
+        "Lisa sagt, sie ist müde.",
+        "Lisa sagt, sie wäre müde.",
+        "Lisa sagt, dass sie müde war."
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv I av \"sein\" i tredje person är \"sei\", och pronomenet byts från \"ich\" till \"sie\" eftersom det är Lisa som talar om sig själv: \"Lisa sagt, sie sei müde.\" Konjunktiv I signalerar att detta är återgivet, inte talarens egen bekräftade uppfattning."
+    },
+    {
+      "id": "q-de4-rep-2",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Markus sagt: \"Ich habe keine Zeit.\" Vilken indirekt återgivning använder korrekt Konjunktiv I?",
+      "opener": "När Konjunktiv I sammanfaller med indikativ (t.ex. \"ich habe\" → \"er habe\" är faktiskt distinkt) väljer man den formen ändå — men jämför noga.",
+      "choices": [
+        "Markus sagt, er habe keine Zeit.",
+        "Markus sagt, er hat keine Zeit.",
+        "Markus sagt, er hätte keine Zeit.",
+        "Markus sagt, er haben keine Zeit."
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv I av \"haben\" i tredje person singular är \"habe\" (till skillnad från indikativens \"hat\"): \"Markus sagt, er habe keine Zeit.\" Denna form är tydligt skild från indikativ, vilket gör den till ett bra exempel på äkta Konjunktiv I."
+    },
+    {
+      "id": "q-de4-rep-3",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Die Kinder sagen: \"Wir sind hungrig.\" Varför används här ofta Konjunktiv II (\"wären\") i stället för Konjunktiv I (\"seien\") i talspråk?",
+      "opener": "En regel i indirekt tal: när Konjunktiv I sammanfaller med indikativ (särskilt i pluralformer), tar man ofta Konjunktiv II som tydlig ersättare.",
+      "choices": [
+        "Konjunktiv I i pluralis (\"wir seien\") sammanfaller ofta ljudmässigt med indikativ i vissa verb, så Konjunktiv II används för att göra det indirekta tydligt",
+        "Konjunktiv II är alltid korrekt och Konjunktiv I används bara i skriftspråk för singularverb",
+        "Konjunktiv I finns bara för starka verb",
+        "Det finns ingen regel — båda formerna är alltid felaktiga i pluralis"
+      ],
+      "answer": 0,
+      "explanation": "En vanlig regel: när Konjunktiv I-formen är identisk med indikativformen (vanligast i pluralis: wir/sie-formerna), byter man till Konjunktiv II (\"wir wären\", \"sie hätten\") för att markera att det verkligen är indirekt tal. \"Wir seien\" är i och för sig korrekt Konjunktiv I, men \"wären\" är den vanligare, tydligare varianten i pluralis."
+    },
+    {
+      "id": "q-de4-rep-4",
+      "kind": "mc",
+      "topic": "pronoun shift",
+      "prompt": "Anna sagt zu mir: \"Du hast recht.\" Hur återges detta indirekt om JAG (talaren) berättar vidare för någon annan?",
+      "opener": "Pronomenet måste bytas beroende på vem som talar och vem som blir omtalad.",
+      "choices": [
+        "Anna sagt, ich hätte recht.",
+        "Anna sagt, du habest recht.",
+        "Anna sagt, sie habe recht.",
+        "Anna sagt, er habe recht."
+      ],
+      "answer": 0,
+      "explanation": "\"Du\" i det direkta citatet syftade på mig (talaren som nu återger citatet), så pronomenet byts till \"ich\": \"Anna sagt, ich hätte recht.\" (\"Hätte\" används här som vanlig ersättning för Konjunktiv-I-formen \"habe\", som annars skulle kunna missförstås.) Pronomenbytet följer alltid vem som faktiskt talar respektive omtalas i den nya kontexten, inte det ursprungliga citatets perspektiv."
+    },
+    {
+      "id": "q-de4-rep-5",
+      "kind": "mc",
+      "topic": "tense shift",
+      "prompt": "Der Lehrer sagte: \"Ich habe die Prüfung korrigiert.\" Vilken indirekt återgivning har korrekt tempus?",
+      "opener": "En handling som redan var avslutad vid citattillfället uttrycks i indirekt tal med Konjunktiv-I-perfekt: habe/sei + particip.",
+      "choices": [
+        "Der Lehrer sagte, er habe die Prüfung korrigiert.",
+        "Der Lehrer sagte, er korrigiere die Prüfung.",
+        "Der Lehrer sagte, er korrigierte die Prüfung.",
+        "Der Lehrer sagte, er werde die Prüfung korrigieren."
+      ],
+      "answer": 0,
+      "explanation": "Till skillnad från engelska och svenska \"backar\" tyskan inte tempus ett steg i indirekt tal — perfekt i det direkta citatet blir Konjunktiv-I-perfekt (habe/sei + particip): \"er habe die Prüfung korrigiert.\" Presensformen (alternativ 2) skulle betyda att rättningen fortfarande pågår, vilket inte stämmer med citatet."
+    },
+    {
+      "id": "q-de4-rep-6",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "Vilket verb passar INTE typiskt som \"reporting verb\" (inledande verb) för indirekt tal?",
+      "opener": "Tre av verben introducerar vanligen ett återgivet påstående; ett av dem gör det inte.",
+      "choices": [
+        "behaupten",
+        "berichten",
+        "bedeuten",
+        "erklären"
+      ],
+      "answer": 2,
+      "explanation": "\"Bedeuten\" betyder \"betyda\" och används inte för att introducera återgivet tal. \"Behaupten\" (hävda), \"berichten\" (rapportera/berätta) och \"erklären\" (förklara) är alla typiska verb som inleder indirekt tal, t.ex. \"Sie behauptet, er sei schuldig.\""
+    },
+    {
+      "id": "q-de4-rep-7",
+      "kind": "worked",
+      "topic": "tense shift",
+      "prompt": "Omvandla till indirekt tal och rätta felet i detta försök: Direkt: Der Politiker sagte: \"Wir werden das Problem morgen lösen.\" Felaktigt försök: \"Der Politiker sagte, dass sie das Problem morgen lösen.\"",
+      "opener": "Två saker att kontrollera: står verbet i rätt läge (Konjunktiv), och har tidsuttrycket \"morgen\" flyttats korrekt om det behövs?",
+      "answer": "Der Politiker sagte, dass sie das Problem am nächsten Tag lösen würden. / Der Politiker sagte, sie würden das Problem am nächsten Tag lösen.",
+      "steps": [
+        "Verbet \"lösen\" står i indikativ presens i det felaktiga försöket, men indirekt tal av futurum (\"werden\" + infinitiv) kräver Konjunktiv (här Konjunktiv II \"würden\", eftersom Konjunktiv I \"werden\" i pluralis sammanfaller med indikativ): \"sie würden ... lösen\".",
+        "Tidsuttrycket \"morgen\" (imorgon) syftade på dagen efter talartillfället. Om meningen återges senare, vid en annan tidpunkt, bör \"morgen\" bytas till \"am nächsten Tag\" (dagen därpå) för att fortfarande peka på rätt dag.",
+        "Pronomenet \"wir\" i citatet blir \"sie\" (politikern och hans/hennes grupp, sedda utifrån) — det är redan korrekt i försöket.",
+        "Korrekt: \"Der Politiker sagte, dass sie das Problem am nächsten Tag lösen würden.\" eller utan \"dass\": \"Der Politiker sagte, sie würden das Problem am nächsten Tag lösen.\""
+      ]
+    },
+    {
+      "id": "q-de4-rep-8",
+      "kind": "flashcard",
+      "topic": "Konjunktiv I",
+      "prompt": "Vilka steg krävs för att omvandla ett direkt citat till indirekt tal på tyska?",
+      "opener": "Fyra saker att kontrollera varje gång: verbform, pronomen, tempus, tidsuttryck.",
+      "answer": "1) Verbform: använd Konjunktiv I (t.ex. er/sie/es sei, habe, könne, wisse). Om Konjunktiv I sammanfaller med indikativ (vanligt i pluralis), använd Konjunktiv II i stället (wären, hätten, würden). 2) Pronomen: byt utifrån vem som nu talar/omtalas — du → ich/er/sie beroende på sammanhang. 3) Tempus: tyskan backar INTE tempus som svenska/engelska gör — presens i citatet blir Konjunktiv-I-presens, perfekt/preteritum i citatet blir Konjunktiv-I-perfekt (habe/sei + particip), futurum blir würde + infinitiv. 4) Tidsuttryck: heute → an diesem Tag, morgen → am nächsten Tag, gestern → am Tag davor, jetzt → in diesem Moment/da. Reporting verbs: sagen, behaupten, berichten, erklären, meinen, betonen."
+    }
+  ]
+}

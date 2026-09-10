@@ -30,6 +30,7 @@ import { renderCalculator } from "./views/calculator.js";
 import { renderAchievements } from "./views/achievements.js";
 import { renderLeaderboard } from "./views/leaderboard.js";
 import { mountCommandPalette } from "./components/command-palette.js";
+import { mountSiteChat } from "./components/site-chat.js";
 import { maybeShowOnboarding } from "./components/onboarding.js";
 
 const app = document.getElementById("app");
@@ -136,9 +137,13 @@ function navActive(match) {
   return match === "/" ? p === "/" : p.startsWith(match);
 }
 
-/** The narrow-screen ⋮ menu — the same nav as the desktop sidebar.
- *  Closes on outside click, Esc, or navigation. */
-function topOverflowMenu() {
+/** The narrow-screen "Meny" tab — the same nav as the desktop sidebar, opened
+ *  from the bottom tab bar (see tabBar()) rather than a topbar icon, so the
+ *  app's full navigation isn't the least distinguishable of several look-alike
+ *  circular buttons. Closes on outside click, Esc, or navigation. `active`
+ *  marks the tab itself current — the current page lives inside this menu
+ *  rather than one of the bar's own three direct tabs. */
+function moreMenu(active) {
   const list = el("div.topmenu__list", { role: "menu", hidden: true }, [
     ...navGroups().flatMap((g, gi) => [
       g.label
@@ -150,7 +155,7 @@ function topOverflowMenu() {
       }, [icon(it.icon, 16), it.label])),
     ].filter(Boolean)),
     // The sidebar's theme switcher has no home on mobile (no sidebar) — so it
-    // lives here, in the ⋮ menu, rather than only in Settings. Language keeps
+    // lives here, in the menu, rather than only in Settings. Language keeps
     // its own topbar button; the streak shows in the topbar badge and the
     // "Idag" panel — so this footer is theme only.
     el("div.topmenu__div", { role: "presentation" }),
@@ -160,10 +165,10 @@ function topOverflowMenu() {
     ]),
   ]);
 
-  const btn = el("button.iconbtn", {
+  const btn = el("button.tabbar__item" + (active ? ".is-active" : ""), {
     type: "button", "aria-haspopup": "menu", "aria-expanded": "false",
-    "aria-label": t("common.menu"), title: t("common.menu"),
-  }, [icon(ICONS.dots, 18)]);
+    "aria-label": t("common.menu"),
+  }, [icon(ICONS.dots, 20), el("span", {}, t("common.menu"))]);
 
   function close() {
     list.hidden = true;
@@ -186,8 +191,27 @@ function topOverflowMenu() {
   });
   list.addEventListener("click", (e) => { if (e.target.closest("a")) close(); });
 
-  const wrap = el("div.topmenu", {}, [btn, list]);
+  const wrap = el("div.tabbar__more", {}, [btn, list]);
   return wrap;
+}
+
+/** Fixed bottom tab bar — mobile's primary nav, hidden on desktop (the sidebar
+ *  covers this there). Three direct destinations plus "Meny" for everything
+ *  else, instead of every screen living behind one unlabeled icon among
+ *  several look-alikes in the topbar. */
+function tabBar() {
+  const tabs = [
+    { href: "#/", match: "/", icon: ICONS.home, label: t("nav.home") },
+    { href: "#/study", match: "/study", icon: ICONS.clipboard, label: t("nav.study") },
+    { href: "#/create", match: "/create", icon: ICONS.plus, label: t("nav.create") },
+  ];
+  const anyTabActive = tabs.some((tb) => navActive(tb.match));
+  return el("nav.tabbar", { "aria-label": t("common.menu") }, [
+    ...tabs.map((tb) => el("a.tabbar__item" + (navActive(tb.match) ? ".is-active" : ""), {
+      href: tb.href, "aria-current": navActive(tb.match) ? "page" : null,
+    }, [icon(tb.icon, 20), el("span", {}, tb.label)])),
+    moreMenu(!anyTabActive),
+  ]);
 }
 
 function langButton() {
@@ -516,10 +540,10 @@ function shell(contentNode) {
           streakBadge(streak, atRisk),
           langButton(),
           shellActions(),
-          topOverflowMenu(),
         ]),
       ]),
       el("main.content", { id: "main" }, [contentNode]),
+      tabBar(),
     ]),
   ]);
 }
@@ -616,6 +640,7 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
 }
 
 mountCommandPalette();
+mountSiteChat();
 
 store.init().then(() => {
   applyLang();

@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp4-idioms",
+  "type": "assignment",
+  "subject": "Spanska 4",
+  "title": "Idiomatiska uttryck och falska vänner",
+  "sourceSummary": "Vanliga spanska idiom samt klassiska falska vänner mellan svenska och spanska, som \"embarazada\" och \"actualmente\".",
+  "topics": [
+    "idiomatic expressions",
+    "false friends",
+    "vocabulary nuance"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp4-idioms-1",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder \"embarazada\" på spanska?",
+      "opener": "Ett klassiskt fall av falska vänner — ordet ser ut som ett engelskt ord men betyder något helt annat.",
+      "choices": [
+        "Generad",
+        "Gravid",
+        "Förlägen",
+        "Besvärad"
+      ],
+      "answer": 1,
+      "explanation": "\"Embarazada\" betyder \"gravid\", inte \"generad\" (även om det liknar engelskans \"embarrassed\"). \"Generad/förlägen\" heter istället \"avergonzado/a\" på spanska."
+    },
+    {
+      "id": "q-sp4-idioms-2",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder \"actualmente\" på spanska?",
+      "opener": "Ett annat klassiskt fall — ordet liknar svenskans \"aktuellt\" men betyder något annat.",
+      "choices": [
+        "Faktiskt",
+        "För närvarande",
+        "Verkligen",
+        "Nu och då"
+      ],
+      "answer": 1,
+      "explanation": "\"Actualmente\" betyder \"för närvarande/just nu\", inte \"faktiskt\" eller \"aktuellt\" i betydelsen \"tidsenligt\". \"Faktiskt/verkligen\" heter \"en realidad\" eller \"de hecho\" på spanska."
+    },
+    {
+      "id": "q-sp4-idioms-3",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder \"sensible\" på spanska?",
+      "opener": "Ännu en falsk vän — motsatsen till vad man kanske tror.",
+      "choices": [
+        "Förnuftig",
+        "Känslig",
+        "Sansad",
+        "Realistisk"
+      ],
+      "answer": 1,
+      "explanation": "\"Sensible\" på spanska betyder \"känslig\" (lättrörd, ömtålig), inte \"förnuftig/sansad\" som engelskans \"sensible\". \"Förnuftig\" heter \"sensato/a\" på spanska."
+    },
+    {
+      "id": "q-sp4-idioms-4",
+      "kind": "mc",
+      "topic": "idiomatic expressions",
+      "prompt": "Vad betyder uttrycket \"costar un ojo de la cara\"?",
+      "opener": "En bokstavlig översättning ger en ledtråd: \"kosta ett öga ur ansiktet\".",
+      "choices": [
+        "Att vara mycket smärtsamt",
+        "Att vara mycket dyrt",
+        "Att vara helt värdelöst",
+        "Att göra ont i ögonen"
+      ],
+      "answer": 1,
+      "explanation": "\"Costar un ojo de la cara\" är ett idiom som betyder \"att vara skitdyrt\", jämförbart med svenskans \"kosta skjortan\"."
+    },
+    {
+      "id": "q-sp4-idioms-5",
+      "kind": "mc",
+      "topic": "idiomatic expressions",
+      "prompt": "Vad betyder uttrycket \"estar en las nubes\"?",
+      "opener": "Bokstavligt: \"att vara i molnen\" — vad motsvarar det på svenska?",
+      "choices": [
+        "Att vara på gott humör",
+        "Att vara disträ/tankspridd",
+        "Att vara mycket lycklig",
+        "Att drömma om resor"
+      ],
+      "answer": 1,
+      "explanation": "\"Estar en las nubes\" betyder att vara disträ eller tankspridd, ungefär som svenskans \"vara ute och cykla\" eller \"ha huvudet i molnen\"."
+    },
+    {
+      "id": "q-sp4-idioms-6",
+      "kind": "mc",
+      "topic": "vocabulary nuance",
+      "prompt": "Vad betyder \"estoy constipado\" på spanska?",
+      "opener": "Ett medicinskt falskt-vän-exempel som ofta orsakar pinsamma missförstånd.",
+      "choices": [
+        "Jag är förstoppad",
+        "Jag är förkyld",
+        "Jag mår illa",
+        "Jag är trött"
+      ],
+      "answer": 1,
+      "explanation": "\"Estar constipado\" betyder \"vara förkyld/nästäppt\" på spanska, INTE \"förstoppad\" som man kan tro. \"Förstoppad\" heter \"estreñido/a\" på spanska — en viktig skillnad att komma ihåg!"
+    },
+    {
+      "id": "q-sp4-idioms-7",
+      "kind": "worked",
+      "topic": "idiomatic expressions",
+      "prompt": "Rätta felet: en elev skriver \"Estoy muy embarazada porque dije algo estúpido delante de mi jefe.\" — vad borde stå istället?",
+      "opener": "Eleven har blandat ihop en falsk vän med det ord som faktiskt betyder \"generad\".",
+      "answer": "Estoy muy avergonzado/a porque dije algo estúpido delante de mi jefe.",
+      "steps": [
+        "\"Embarazada\" betyder \"gravid\" på spanska, inte \"generad\" — ett klassiskt exempel på falska vänner med engelskans \"embarrassed\".",
+        "Rätt ord för \"generad/förlägen\" är \"avergonzado\" (för en man) eller \"avergonzada\" (för en kvinna).",
+        "Resten av meningen är korrekt: \"porque dije algo estúpido delante de mi jefe\" (för jag sa något dumt inför min chef).",
+        "Rätt mening: \"Estoy muy avergonzado/a porque dije algo estúpido delante de mi jefe.\""
+      ]
+    },
+    {
+      "id": "q-sp4-idioms-8",
+      "kind": "flashcard",
+      "topic": "false friends",
+      "prompt": "Vilka är de vanligaste falska vännerna mellan svenska/engelska och spanska som du bör kunna på den här nivån?",
+      "opener": "En lista att ha i bakhuvudet inför nationella provet och muntliga övningar.",
+      "answer": "embarazada = gravid (INTE generad → avergonzado/a) · actualmente = för närvarande (INTE aktuellt/faktiskt → de hecho/en realidad) · sensible = känslig (INTE förnuftig → sensato/a) · constipado = förkyld (INTE förstoppad → estreñido/a) · éxito = framgång (INTE utgång → salida) · largo = lång (INTE stor → grande) · red = nät/nätverk (INTE röd → rojo) · pariente = släkting (INTE förälder → padre/madre) · ropa = kläder (INTE rep → cuerda) · fábrica = fabrik (INTE tyg → tela). Idiom att kunna: costar un ojo de la cara (vara skitdyrt), estar en las nubes (vara tankspridd), no tener pelos en la lengua (säga rakt ut vad man tycker), tomar el pelo (skoja med/lura någon)."
+    }
+  ]
+}

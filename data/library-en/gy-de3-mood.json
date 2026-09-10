@@ -1,0 +1,126 @@
+{
+  "id": "lib-de3-mood",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Konjunktiv II: politeness and hypotheticals",
+  "sourceSummary": "The basics of Konjunktiv II — polite wishes and requests, plus simple hypothetical sentences with \"hätte gern\" and \"würde + infinitive\".",
+  "topics": [
+    "Konjunktiv II",
+    "polite requests",
+    "hypotheticals"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-mood-1",
+      "kind": "mc",
+      "topic": "polite requests",
+      "prompt": "Choose the most polite phrasing: \"I would like a coffee.\"",
+      "opener": "A common polite phrase using the Konjunktiv II of haben.",
+      "choices": [
+        "Ich habe einen Kaffee.",
+        "Ich hätte gern einen Kaffee.",
+        "Ich will einen Kaffee.",
+        "Ich habe gern einen Kaffee."
+      ],
+      "answer": 1,
+      "explanation": "\"Ich hätte gern...\" (Konjunktiv II of haben + gern) is the standard polite phrase for ordering or wishing for something, corresponding to \"I would like\" in English. \"Ich will\" sounds too blunt/childish in this situation."
+    },
+    {
+      "id": "q-de3-mood-2",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Which Konjunktiv II form belongs to \"können\"?",
+      "opener": "The form is usually built from the simple-past stem plus an umlaut.",
+      "choices": [
+        "konnte",
+        "könnte",
+        "kann",
+        "gekonnt"
+      ],
+      "answer": 1,
+      "explanation": "The Konjunktiv II of irregular verbs is often formed by adding an umlaut to the simple-past stem: \"können\" → simple past \"konnte\" → Konjunktiv II \"könnte\"."
+    },
+    {
+      "id": "q-de3-mood-3",
+      "kind": "mc",
+      "topic": "polite requests",
+      "prompt": "Choose the most polite question: \"Could you help me?\"",
+      "opener": "Compare it with the plain present-tense question \"Können Sie...?\".",
+      "choices": [
+        "Können Sie mir helfen?",
+        "Könnten Sie mir helfen?",
+        "Konnten Sie mir helfen?",
+        "Sie könnten mir helfen?"
+      ],
+      "answer": 1,
+      "explanation": "\"Könnten Sie...?\" (Konjunktiv II) is more polite and softer than the plain present-tense question \"Können Sie...?\", roughly like the difference between \"can you\" and \"could you\" in English. \"Konnten\" (without the umlaut) is the simple past, not the subjunctive."
+    },
+    {
+      "id": "q-de3-mood-4",
+      "kind": "mc",
+      "topic": "hypotheticals",
+      "prompt": "Which construction is used for most verbs to express something hypothetical (\"would do\")?",
+      "opener": "Only a handful of common verbs have their own short Konjunktiv II forms.",
+      "choices": [
+        "würde + infinitive",
+        "hätte + participle",
+        "wäre + infinitive",
+        "simple past + gern"
+      ],
+      "answer": 0,
+      "explanation": "For most verbs, the hypothetical \"would\" form is built with conjugated \"würde\" + infinitive at the end of the clause: \"ich würde gehen\" (I would go). Only a few common verbs (sein, haben, the modal verbs) have their own short Konjunktiv II forms (wäre, hätte, könnte), which are preferred over the würde construction."
+    },
+    {
+      "id": "q-de3-mood-5",
+      "kind": "mc",
+      "topic": "hypotheticals",
+      "prompt": "Choose the correct sentence: \"If I had time, I would read more.\"",
+      "opener": "Both halves of a hypothetical conditional sentence use Konjunktiv II.",
+      "choices": [
+        "Wenn ich Zeit hätte, würde ich mehr lesen.",
+        "Wenn ich Zeit habe, würde ich mehr lesen.",
+        "Wenn ich Zeit hätte, ich würde mehr lesen.",
+        "Wenn ich hätte Zeit, würde ich mehr lesen."
+      ],
+      "answer": 0,
+      "explanation": "Both halves of a hypothetical conditional sentence use Konjunktiv II: the \"wenn\" clause (\"hätte\", verb at the end) and the main clause (\"würde ich mehr lesen\", with inverted word order since the wenn-clause occupies position one)."
+    },
+    {
+      "id": "q-de3-mood-6",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "What does \"ich möchte\" (Konjunktiv II of mögen) mean?",
+      "opener": "It differs from the present-tense form \"ich mag\".",
+      "choices": [
+        "I like",
+        "I would like",
+        "I must",
+        "I can"
+      ],
+      "answer": 1,
+      "explanation": "\"Ich möchte\" is the polite equivalent of \"I would like\", while the present-tense form \"ich mag\" means \"I like/enjoy\"."
+    },
+    {
+      "id": "q-de3-mood-7",
+      "kind": "worked",
+      "topic": "hypotheticals",
+      "prompt": "Rewrite the sentence more politely using Konjunktiv II: \"Ich will noch eine Frage stellen.\" (I want to ask one more question.)",
+      "opener": "Which Konjunktiv II form belongs to the \"wollen\" family and is used as its polite equivalent?",
+      "answer": "Ich möchte noch eine Frage stellen.",
+      "steps": [
+        "\"Will\" (present tense of wollen) sounds blunt and a bit brusque in a polite context, e.g. in a lesson or when addressing someone you don't know.",
+        "The Konjunktiv II of \"mögen\" is \"möchte\", the standard polite equivalent of \"will\".",
+        "\"Will\" → \"möchte\": \"Ich möchte noch eine Frage stellen.\" — softer and more polite, roughly \"I would like to ask one more question\"."
+      ]
+    },
+    {
+      "id": "q-de3-mood-8",
+      "kind": "flashcard",
+      "topic": "Konjunktiv II",
+      "prompt": "What is Konjunktiv II, when is it used, and what forms does it take?",
+      "opener": "Politeness and hypotheticals — two main uses.",
+      "answer": "Konjunktiv II expresses polite wishes/requests and hypothetical/unreal situations (corresponds to \"would\" in English). Common short forms (preferred over würde): sein → wäre, haben → hätte, werden → würde, können → könnte, müssen → müsste, dürfen → dürfte, mögen → möchte. For most other verbs: conjugated würde + infinitive at the end, e.g. \"ich würde fahren\". Polite phrases: \"Ich hätte gern...\" (I would like), \"Könnten Sie...?\" (could you...?), \"Ich möchte...\" (I would like). Hypothetical sentences: wenn-clause in Konjunktiv II + main clause in Konjunktiv II, e.g. \"Wenn ich Geld hätte, würde ich reisen.\" (If I had money, I would travel.)"
+    }
+  ]
+}

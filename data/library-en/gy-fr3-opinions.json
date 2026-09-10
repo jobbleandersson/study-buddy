@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr3-opinions",
+  "type": "assignment",
+  "subject": "Franska 3",
+  "title": "Expressing and justifying an opinion",
+  "sourceSummary": "Vocabulary and phrases for giving your opinion, agreeing or disagreeing, and justifying what you think.",
+  "topics": [
+    "opinion phrases",
+    "agreeing and disagreeing",
+    "justifying an opinion"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr3-opinions-1",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Which phrase expresses an opinion in French?",
+      "opener": "A common way to open with what you think.",
+      "choices": [
+        "À mon avis, ...",
+        "Il y a, ...",
+        "Depuis quand, ...",
+        "Malgré cela, ..."
+      ],
+      "answer": 0,
+      "explanation": "\"À mon avis\" means \"in my opinion\" and is used to introduce an opinion: \"À mon avis, ce film est excellent.\""
+    },
+    {
+      "id": "q-fr3-opinions-2",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "What does \"Je pense que le recyclage devrait être obligatoire\" mean?",
+      "opener": "\"Je pense que\" followed by a statement.",
+      "choices": [
+        "I hope recycling becomes optional",
+        "I think recycling should be mandatory",
+        "I know recycling is mandatory",
+        "I'm asking whether recycling is mandatory"
+      ],
+      "answer": 1,
+      "explanation": "\"Je pense que\" means \"I think that\", and \"devrait être obligatoire\" means \"should be mandatory\"."
+    },
+    {
+      "id": "q-fr3-opinions-3",
+      "kind": "mc",
+      "topic": "agreeing and disagreeing",
+      "prompt": "Choose the correct phrase to AGREE with someone: \"Nous devrions manger moins de viande.\" — \"Oui, ___ !\"",
+      "opener": "Agreeing with someone.",
+      "choices": [
+        "je suis d'accord",
+        "je ne suis pas d'accord",
+        "je m'en fiche",
+        "ça m'est égal"
+      ],
+      "answer": 0,
+      "explanation": "\"Je suis d'accord\" means \"I agree\". \"Je ne suis pas d'accord\" would mean the opposite."
+    },
+    {
+      "id": "q-fr3-opinions-4",
+      "kind": "mc",
+      "topic": "agreeing and disagreeing",
+      "prompt": "What does \"Je ne suis pas du tout d'accord avec cette idée\" mean?",
+      "opener": "\"Pas du tout\" strengthens a negation.",
+      "choices": [
+        "I partly agree with the idea",
+        "I completely disagree with the idea",
+        "I'm unsure about the idea",
+        "I love this idea"
+      ],
+      "answer": 1,
+      "explanation": "\"Pas du tout\" means \"not at all\", so \"je ne suis pas du tout d'accord\" means \"I completely disagree\"."
+    },
+    {
+      "id": "q-fr3-opinions-5",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "Choose the correct connector to justify an opinion: \"Je pense qu'on devrait interdire les sacs plastique, ___ ils polluent les océans.\"",
+      "opener": "Which word links an opinion to its reason?",
+      "choices": [
+        "parce que",
+        "cependant",
+        "d'ailleurs",
+        "pourtant"
+      ],
+      "answer": 0,
+      "explanation": "\"Parce que\" (because) introduces the reason for the opinion. \"Cependant\" and \"pourtant\" both mean \"however/yet\", and \"d'ailleurs\" means \"besides/by the way\" — the wrong kind of connector here."
+    },
+    {
+      "id": "q-fr3-opinions-6",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "What does \"En revanche, certains pensent que c'est aux gouvernements d'agir, pas aux individus\" express?",
+      "opener": "\"En revanche\" marks a contrast between opinions.",
+      "choices": [
+        "A reinforcement of the previous opinion",
+        "An opposing opinion / counterargument",
+        "A summary of everything said so far",
+        "A question to the reader"
+      ],
+      "answer": 1,
+      "explanation": "\"En revanche\" means \"on the other hand\" and introduces a counterargument or a contrasting opinion — common in argumentative texts."
+    },
+    {
+      "id": "q-fr3-opinions-7",
+      "kind": "worked",
+      "topic": "justifying an opinion",
+      "prompt": "Write a short argumentative sentence (opinion + reason) about school meals, using the building blocks: \"à mon avis\", \"parce que\", \"les repas scolaires\", \"sain(e)\" (healthy).",
+      "opener": "Structure: opinion (à mon avis + statement) + reason (parce que + justification).",
+      "answer": "À mon avis, les repas scolaires devraient être plus sains, parce que les élèves ont besoin d'énergie pour bien apprendre.",
+      "steps": [
+        "Start with the opinion phrase \"à mon avis\" followed by the statement: \"les repas scolaires devraient être plus sains\" (school meals should be healthier).",
+        "Add the reason with \"parce que\": \"parce que les élèves ont besoin d'énergie pour bien apprendre\" (because students need energy to learn well).",
+        "The full sentence combines opinion + justification, which is the basic structure of all argumentative writing: statement, then \"parce que\" + reason.",
+        "Other valid answers with the same structure (for example, a different reason) are also acceptable — what matters is that both the opinion and the reason are present and logically connected."
+      ]
+    },
+    {
+      "id": "q-fr3-opinions-8",
+      "kind": "flashcard",
+      "topic": "opinion phrases",
+      "prompt": "What phrases do you need to express and justify an opinion in French?",
+      "opener": "Saying what you think, agreeing/disagreeing, and justifying why.",
+      "answer": "Expressing an opinion: à mon avis = in my opinion · je pense que / je trouve que / je crois que = I think that · selon moi = according to me. Agreeing: je suis d'accord (avec) = I agree (with) · tu as raison = you're right · exactement = exactly. Disagreeing: je ne suis pas d'accord = I disagree · je ne pense pas que... = I don't think that... · pas du tout = not at all. Justifying: parce que = because · car = for/because (written) · c'est pourquoi = that's why · en revanche / cependant / pourtant = on the other hand/however (for counterarguments)."
+    }
+  ]
+}

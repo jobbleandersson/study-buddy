@@ -1,0 +1,126 @@
+{
+  "id": "lib-de3-mood",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Konjunktiv II: artighet och hypoteser",
+  "sourceSummary": "Grunderna i Konjunktiv II – artiga önskningar och förfrågningar samt enkla hypotetiska satser med \"hätte gern\" och \"würde + infinitiv\".",
+  "topics": [
+    "Konjunktiv II",
+    "polite requests",
+    "hypotheticals"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-mood-1",
+      "kind": "mc",
+      "topic": "polite requests",
+      "prompt": "Välj den artigaste formuleringen: \"Jag skulle gärna vilja ha en kaffe.\"",
+      "opener": "En vanlig artig fras med Konjunktiv II av haben.",
+      "choices": [
+        "Ich habe einen Kaffee.",
+        "Ich hätte gern einen Kaffee.",
+        "Ich will einen Kaffee.",
+        "Ich habe gern einen Kaffee."
+      ],
+      "answer": 1,
+      "explanation": "\"Ich hätte gern...\" (Konjunktiv II av haben + gern) är den vanliga artiga frasen för att beställa eller önska något, motsvarande svenskans \"jag skulle vilja ha\". \"Ich will\" låter för direkt/barnsligt i den här situationen."
+    },
+    {
+      "id": "q-de3-mood-2",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Vilken Konjunktiv II-form hör till \"können\"?",
+      "opener": "Formen bildas oftast av preteritumstammen plus omljud.",
+      "choices": [
+        "konnte",
+        "könnte",
+        "kann",
+        "gekonnt"
+      ],
+      "answer": 1,
+      "explanation": "Konjunktiv II av oregelbundna verb bildas ofta genom att lägga omljud till preteritumstammen: \"können\" → preteritum \"konnte\" → Konjunktiv II \"könnte\"."
+    },
+    {
+      "id": "q-de3-mood-3",
+      "kind": "mc",
+      "topic": "polite requests",
+      "prompt": "Välj den artigaste frågan: \"Skulle ni kunna hjälpa mig?\"",
+      "opener": "Jämför med den vanliga presensfrågan \"Können Sie...?\".",
+      "choices": [
+        "Können Sie mir helfen?",
+        "Könnten Sie mir helfen?",
+        "Konnten Sie mir helfen?",
+        "Sie könnten mir helfen?"
+      ],
+      "answer": 1,
+      "explanation": "\"Könnten Sie...?\" (Konjunktiv II) är artigare och mjukare än den vanliga presensfrågan \"Können Sie...?\", ungefär som skillnaden mellan \"kan du\" och \"skulle du kunna\" på svenska. \"Konnten\" (utan omljud) är preteritum, inte konjunktiv."
+    },
+    {
+      "id": "q-de3-mood-4",
+      "kind": "mc",
+      "topic": "hypotheticals",
+      "prompt": "Vilken konstruktion används för de flesta verb när man uttrycker något hypotetiskt (\"skulle göra\")?",
+      "opener": "Bara ett fåtal vanliga verb har egna korta Konjunktiv II-former.",
+      "choices": [
+        "würde + infinitiv",
+        "hätte + particip",
+        "wäre + infinitiv",
+        "preteritum + gern"
+      ],
+      "answer": 0,
+      "explanation": "För de flesta verb bildas den hypotetiska \"skulle\"-formen med \"würde\" böjt + infinitiv sist i satsen: \"ich würde gehen\" (jag skulle gå). Bara ett fåtal vanliga verb (sein, haben, modalverben) har egna korta Konjunktiv II-former (wäre, hätte, könnte) som föredras framför würde-konstruktionen."
+    },
+    {
+      "id": "q-de3-mood-5",
+      "kind": "mc",
+      "topic": "hypotheticals",
+      "prompt": "Välj rätt mening: \"Om jag hade tid skulle jag läsa mer.\"",
+      "opener": "Båda leden i en hypotetisk villkorssats står i Konjunktiv II.",
+      "choices": [
+        "Wenn ich Zeit hätte, würde ich mehr lesen.",
+        "Wenn ich Zeit habe, würde ich mehr lesen.",
+        "Wenn ich Zeit hätte, ich würde mehr lesen.",
+        "Wenn ich hätte Zeit, würde ich mehr lesen."
+      ],
+      "answer": 0,
+      "explanation": "Båda leden i en hypotetisk villkorssats står i Konjunktiv II: \"wenn\"-satsen (\"hätte\", verbet sist) och huvudsatsen (\"würde ich mehr lesen\", med inverterad ordföljd eftersom wenn-satsen upptar plats ett)."
+    },
+    {
+      "id": "q-de3-mood-6",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Vad betyder \"ich möchte\" (Konjunktiv II av mögen)?",
+      "opener": "Skiljer sig från presensformen \"ich mag\".",
+      "choices": [
+        "jag gillar",
+        "jag skulle vilja",
+        "jag måste",
+        "jag kan"
+      ],
+      "answer": 1,
+      "explanation": "\"Ich möchte\" är den artiga motsvarigheten till \"jag skulle vilja\", medan presensformen \"ich mag\" betyder \"jag gillar/tycker om\"."
+    },
+    {
+      "id": "q-de3-mood-7",
+      "kind": "worked",
+      "topic": "hypotheticals",
+      "prompt": "Skriv om meningen artigare med Konjunktiv II: \"Ich will noch eine Frage stellen.\" (Jag vill ställa en till fråga.)",
+      "opener": "Vilken Konjunktiv II-form hör till \"wollen\"-familjen och används som artig motsvarighet?",
+      "answer": "Ich möchte noch eine Frage stellen.",
+      "steps": [
+        "\"Will\" (presens av wollen) låter rakt och lite burdust i en artig kontext, t.ex. i en lektion eller mot en okänd person.",
+        "Konjunktiv II av \"mögen\" är \"möchte\", den vanliga artiga motsvarigheten till \"will\".",
+        "\"Will\" → \"möchte\": \"Ich möchte noch eine Frage stellen.\" — mjukare och artigare, ungefär \"jag skulle vilja ställa en till fråga\"."
+      ]
+    },
+    {
+      "id": "q-de3-mood-8",
+      "kind": "flashcard",
+      "topic": "Konjunktiv II",
+      "prompt": "Vad är Konjunktiv II och när används det, med vilka former?",
+      "opener": "Artighet och hypoteser – två huvudanvändningar.",
+      "answer": "Konjunktiv II uttrycker artiga önskningar/förfrågningar och hypotetiska/overkliga situationer (motsvarar svenskans \"skulle\"). Vanliga korta former (föredras framför würde): sein → wäre, haben → hätte, werden → würde, können → könnte, müssen → müsste, dürfen → dürfte, mögen → möchte. För de flesta andra verb: würde böjt + infinitiv sist, t.ex. \"ich würde fahren\". Artiga fraser: \"Ich hätte gern...\" (jag skulle vilja ha), \"Könnten Sie...?\" (skulle ni kunna...?), \"Ich möchte...\" (jag skulle vilja). Hypotetiska satser: wenn-sats i Konjunktiv II + huvudsats i Konjunktiv II, t.ex. \"Wenn ich Geld hätte, würde ich reisen.\" (Om jag hade pengar skulle jag resa.)"
+    }
+  ]
+}

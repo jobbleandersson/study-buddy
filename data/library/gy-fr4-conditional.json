@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr4-conditional",
+  "type": "assignment",
+  "subject": "Franska 4",
+  "title": "Conditionnel och si-satser",
+  "sourceSummary": "Conditionnel présent och passé, samt de tre typerna av si-satser för verkliga, hypotetiska och kontrafaktiska villkor.",
+  "topics": [
+    "conditionnel présent",
+    "si-clauses",
+    "conditionnel passé"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr4-cond-1",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Välj rätt form: \"Si j'avais le temps, j'___ au cinéma.\" (aller = gå)",
+      "opener": "\"Si + imparfait\" i bisatsen matchas alltid av samma tempus i huvudsatsen.",
+      "choices": [
+        "vais",
+        "irai",
+        "irais",
+        "allais"
+      ],
+      "answer": 2,
+      "explanation": "Vid hypotetiska villkor i nutid gäller mönstret \"si + imparfait, ... conditionnel présent\". \"Aller\" i conditionnel présent för \"je\" är \"irais\": \"Si j'avais le temps, j'irais au cinéma\" (om jag hade tid skulle jag gå på bio)."
+    },
+    {
+      "id": "q-fr4-cond-2",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Välj rätt form: \"Si tu ___ tes devoirs plus tôt, tu ne serais pas stressé maintenant.\" (faire = göra)",
+      "opener": "Huvudsatsen står i conditionnel présent — vilket tempus står då i si-satsen?",
+      "choices": [
+        "fais",
+        "ferais",
+        "avais fait",
+        "as fait"
+      ],
+      "answer": 2,
+      "explanation": "Det här är en blandad villkorssats: en förfluten orsak (\"om du hade gjort\") ger en konsekvens i nutid (\"skulle du inte vara stressad nu\"). Si-satsen tar plus-que-parfait: \"Si tu avais fait tes devoirs plus tôt, tu ne serais pas stressé maintenant.\""
+    },
+    {
+      "id": "q-fr4-cond-3",
+      "kind": "mc",
+      "topic": "conditionnel passé",
+      "prompt": "Välj rätt form: \"Si j'avais su, je ne ___ pas venu(e).\" (venir = komma)",
+      "opener": "Ett kontrafaktiskt villkor i det förflutna — vad hade hänt om det hade varit annorlunda.",
+      "choices": [
+        "serais",
+        "sois",
+        "suis",
+        "étais"
+      ],
+      "answer": 0,
+      "explanation": "Mönstret för ett förflutet, kontrafaktiskt villkor är \"si + plus-que-parfait, ... conditionnel passé\". Conditionnel passé av \"venir\" bildas med \"être\" i conditionnel présent + particip: \"je ne serais pas venu(e)\" (jag hade inte kommit)."
+    },
+    {
+      "id": "q-fr4-cond-4",
+      "kind": "mc",
+      "topic": "conditionnel présent",
+      "prompt": "Vilken form av \"pouvoir\" fyller luckan? \"___ -vous m'aider, s'il vous plaît ?\"",
+      "opener": "En artig förfrågan uttrycks ofta med conditionnel snarare än presens.",
+      "choices": [
+        "Pouvez",
+        "Pourriez",
+        "Pouviez",
+        "Pourrez"
+      ],
+      "answer": 1,
+      "explanation": "Conditionnel présent används för artiga förfrågningar, precis som \"skulle ni kunna\" på svenska. \"Pouvoir\" har en oregelbunden stam i conditionnel/futur: \"pourr-\". \"Pourriez-vous m'aider ?\" (skulle ni kunna hjälpa mig?) låter artigare än \"Pouvez-vous...\"."
+    },
+    {
+      "id": "q-fr4-cond-5",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Vilken sats beskriver ett verkligt/troligt villkor i framtiden?",
+      "opener": "Ett av alternativen använder \"si + présent\", vilket signalerar att villkoret är realistiskt, inte hypotetiskt.",
+      "choices": [
+        "Si tu étudiais davantage, tu réussirais.",
+        "Si tu avais étudié, tu aurais réussi.",
+        "Si tu étudies ce week-end, tu réussiras l'examen.",
+        "Si tu avais étudié davantage, tu réussirais."
+      ],
+      "answer": 2,
+      "explanation": "\"Si + présent, ... futur simple\" beskriver ett realistiskt villkor: \"Si tu étudies ce week-end, tu réussiras l'examen\" (om du pluggar i helgen kommer du att klara provet). De andra exemplen är hypotetiska (imparfait/conditionnel) eller kontrafaktiska (plus-que-parfait)."
+    },
+    {
+      "id": "q-fr4-cond-6",
+      "kind": "mc",
+      "topic": "conditionnel présent",
+      "prompt": "Hur bildas conditionnel présent för regelbundna verb?",
+      "opener": "Tänk på det som en blandning av två andra tempus du redan kan.",
+      "choices": [
+        "Infinitiv-stammen + imparfait-ändelser (-ais, -ais, -ait, -ions, -iez, -aient)",
+        "Presens-stammen + futur-ändelser",
+        "Particip + être böjt i presens",
+        "Infinitiv + conditionnel-ändelser (-rai, -ras, -ra)"
+      ],
+      "answer": 0,
+      "explanation": "Conditionnel présent bildas med samma stam som futur simple (oftast infinitivet) plus imparfaits ändelser: parler → je parlerais, tu parlerais, il parlerait. Oregelbundna futur/conditionnel-stammar (être → ser-, avoir → aur-, faire → fer-) gäller även här."
+    },
+    {
+      "id": "q-fr4-cond-7",
+      "kind": "worked",
+      "topic": "conditionnel passé",
+      "prompt": "Rätta felet: \"Si j'aurais gagné à la loterie, j'aurais acheté une maison.\"",
+      "opener": "\"Si\" kan aldrig direkt följas av conditionnel — vilket tempus ska stå där istället?",
+      "answer": "Si j'avais gagné à la loterie, j'aurais acheté une maison.",
+      "steps": [
+        "Ett vanligt fel bland svensktalande är att sätta conditionnel direkt efter \"si\", eftersom svenskan använder \"skulle\" i båda satserna (\"om jag skulle ha vunnit...\").",
+        "På franska får \"si\" ALDRIG följas av conditionnel eller futur. Vid ett kontrafaktiskt villkor i det förflutna ska si-satsen stå i plus-que-parfait: \"j'aurais gagné\" → \"j'avais gagné\".",
+        "Huvudsatsen behåller conditionnel passé eftersom den beskriver den hypotetiska konsekvensen: \"j'aurais acheté une maison\" (jag hade köpt ett hus).",
+        "Hela den korrekta meningen: \"Si j'avais gagné à la loterie, j'aurais acheté une maison\" (om jag hade vunnit på lotteriet hade jag köpt ett hus)."
+      ]
+    },
+    {
+      "id": "q-fr4-cond-8",
+      "kind": "flashcard",
+      "topic": "si-clauses",
+      "prompt": "Vilka är de tre typerna av si-satser, och vilka tempus hör ihop i var och en?",
+      "opener": "Tre mönster, tre grader av verklighet.",
+      "answer": "1) Verkligt/troligt villkor: si + présent, ... futur simple (Si tu viens, je serai content). 2) Hypotetiskt villkor i nutid/framtid: si + imparfait, ... conditionnel présent (Si j'avais le temps, j'irais). 3) Kontrafaktiskt villkor i det förflutna: si + plus-que-parfait, ... conditionnel passé (Si j'avais su, je ne serais pas venu). Kom ihåg: \"si\" följs ALDRIG av futur eller conditionnel, bara av présent, imparfait eller plus-que-parfait. Blandade satser förekommer också: en förfluten orsak (plus-que-parfait) kan ge en konsekvens i nutid (conditionnel présent)."
+    }
+  ]
+}

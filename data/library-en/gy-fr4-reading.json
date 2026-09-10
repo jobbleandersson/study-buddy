@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr4-reading",
+  "type": "assignment",
+  "subject": "Franska 4",
+  "title": "Reading comprehension: an opinion piece",
+  "sourceSummary": "A longer, opinion-driven text about social media's impact on young people, with questions that train main idea, inference, vocabulary in context, and argument analysis at a more advanced level.",
+  "topics": [
+    "reading comprehension",
+    "argument analysis",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr4-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text:\n\n\"Faut-il interdire les réseaux sociaux aux moins de seize ans ? La question divise. D'un côté, plusieurs études pointent un lien entre l'usage intensif des écrans et une hausse de l'anxiété chez les adolescents. De l'autre, les principaux concernés rappellent que ces plateformes sont devenues un espace essentiel de socialisation, surtout pour les jeunes isolés géographiquement ou marginalisés. Interdire, disent-ils, ne ferait que déplacer le problème vers des applications moins régulées, échappant à tout contrôle parental.\"\n\nWhat is the text mainly about?",
+      "opener": "Look for the question posed in the first sentence — the rest of the text answers it.",
+      "choices": [
+        "Whether social media should be banned for under-sixteens",
+        "How to regulate internet use in schools",
+        "Why teenagers are geographically isolated",
+        "Which apps are most popular among young people"
+      ],
+      "answer": 0,
+      "explanation": "The text opens with the question \"Faut-il interdire les réseaux sociaux aux moins de seize ans ?\" (Should social media be banned for under-sixteens?) and the whole text weighs arguments for and against that question."
+    },
+    {
+      "id": "q-fr4-read-2",
+      "kind": "mc",
+      "topic": "argument analysis",
+      "prompt": "Read the text again (see the previous question).\n\nWhat argument do opponents of a ban use?",
+      "opener": "Read the sentence that starts with \"De l'autre\" (on the other hand).",
+      "choices": [
+        "That studies on screen time are unreliable",
+        "That social media is an important social platform, especially for isolated or marginalized young people",
+        "That parents already have full control over their children's screen time",
+        "That a ban would be too expensive to enforce"
+      ],
+      "answer": 1,
+      "explanation": "The text says that \"les principaux concernés rappellent que ces plateformes sont devenues un espace essentiel de socialisation, surtout pour les jeunes isolés géographiquement ou marginalisés\" — social media serves an important social function for precisely these groups."
+    },
+    {
+      "id": "q-fr4-read-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text again.\n\nIn the sentence \"Interdire, disent-ils, ne ferait que déplacer le problème vers des applications moins régulées, échappant à tout contrôle parental\", what does \"échappant à\" mean?",
+      "opener": "The context describes unregulated apps — what do they do in relation to parental control?",
+      "choices": [
+        "which require",
+        "which support",
+        "which escape/evade",
+        "which improve"
+      ],
+      "answer": 2,
+      "explanation": "\"Échapper à\" means to escape or evade something. Apps that are \"moins régulées\" (less regulated) and \"échappant à tout contrôle parental\" are apps that evade all parental control — essentially impossible to monitor."
+    },
+    {
+      "id": "q-fr4-read-4",
+      "kind": "mc",
+      "topic": "argument analysis",
+      "prompt": "Read the text again.\n\nWhy does the text specifically mention \"les jeunes isolés géographiquement ou marginalisés\"?",
+      "opener": "Think about what kind of argument this strengthens.",
+      "choices": [
+        "To show that the ban would be illegal",
+        "To give a concrete example of who would lose the most from a ban",
+        "To prove that social media causes anxiety",
+        "To explain why apps are poorly regulated"
+      ],
+      "answer": 1,
+      "explanation": "By pointing to a specific, vulnerable group, the text makes the counterargument more concrete and emotionally convincing — it's not just \"young people in general\" who would be affected, but especially those who are already isolated or marginalized."
+    },
+    {
+      "id": "q-fr4-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text again.\n\nHow would you describe the structure of the text?",
+      "opener": "Look at how \"D'un côté\" and \"De l'autre\" are used.",
+      "choices": [
+        "It presents only one perspective and argues strongly for it",
+        "It tells a personal story without taking a position",
+        "It weighs two opposing perspectives against each other without clearly taking a side",
+        "It lists statistics without any argumentation at all"
+      ],
+      "answer": 2,
+      "explanation": "The phrase pair \"d'un côté... de l'autre\" (on one hand... on the other hand) signals a balanced structure where the text presents arguments from both sides without explicitly taking a position."
+    },
+    {
+      "id": "q-fr4-read-6",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text again.\n\nWhat does \"un lien\" mean in \"plusieurs études pointent un lien entre l'usage intensif des écrans et une hausse de l'anxiété\"?",
+      "opener": "The word describes the relationship between two things the studies examined.",
+      "choices": [
+        "a solution",
+        "a connection",
+        "a difference",
+        "a threat"
+      ],
+      "answer": 1,
+      "explanation": "\"Un lien\" means a connection or link. The studies \"pointent un lien entre l'usage intensif des écrans et une hausse de l'anxiété\" — they point to a connection between intensive screen use and increased anxiety (without necessarily proving cause and effect)."
+    },
+    {
+      "id": "q-fr4-read-7",
+      "kind": "worked",
+      "topic": "argument analysis",
+      "prompt": "Summarize the text's two main arguments (for and against a ban) in your own words, and explain why the text avoids taking a clear stance.",
+      "opener": "First identify which two sentences carry each argument, then phrase them briefly.",
+      "answer": "For a ban: screen time may increase anxiety in young people. Against a ban: social media is an important social space, especially for vulnerable youth, and a ban would just shift the problem to unregulated apps. The text balances both without taking a side.",
+      "steps": [
+        "The argument for a ban is in the first half: \"plusieurs études pointent un lien entre l'usage intensif des écrans et une hausse de l'anxiété chez les adolescents\" — a concern about mental health, grounded in research.",
+        "The argument against a ban is in the second half: social media serves a social function, especially for \"les jeunes isolés géographiquement ou marginalisés\", and a ban risks pushing young people toward apps that are \"échappant à tout contrôle parental\" — worse, not better.",
+        "The text's structure (\"d'un côté... de l'autre\") and word choices (\"la question divise\", \"disent-ils\") show that the writer deliberately stays neutral and lets both sides' voices be heard, rather than arguing for a conclusion.",
+        "This is typical of an opinion piece that aims to inform and add nuance rather than persuade — a technique worth recognizing in upper-secondary-level reading comprehension."
+      ]
+    },
+    {
+      "id": "q-fr4-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Which strategies help you analyze a longer, opinion-driven French text at upper-secondary level?",
+      "opener": "Going beyond just understanding the words, to understanding the text's structure.",
+      "answer": "Identify the question/thesis the text revolves around, often in the first paragraph. Look for structural markers like \"d'un côté / de l'autre\", \"cependant\", \"toutefois\", \"en revanche\" — they show where the argument turns. Distinguish between facts (études, statistiques) and opinions (disent-ils, selon certains). Ask yourself whether the text takes a clear stance or deliberately balances perspectives — word choices like \"la question divise\" signal the latter. For difficult words: use the context, especially the word or phrase right before/after. Summarize each paragraph's main point in one sentence before answering detail questions."
+    }
+  ]
+}

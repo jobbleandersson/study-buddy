@@ -1,0 +1,128 @@
+{
+  "id": "lib-de4-reading",
+  "type": "assignment",
+  "subject": "Tyska 4",
+  "title": "Reading comprehension: an opinion text on the four-day work week",
+  "sourceSummary": "A longer, argumentative German text about the debate over the shortened work week, with questions that require following the argument and drawing conclusions.",
+  "topics": [
+    "main idea",
+    "argument structure",
+    "inference",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de4-read-1",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text: \"Die Vier-Tage-Woche wird seit einigen Jahren in vielen Ländern diskutiert, doch die Meinungen gehen weit auseinander. Befürworter argumentieren, dass kürzere Arbeitszeiten nicht nur die psychische Gesundheit der Angestellten verbessern, sondern auch die Produktivität steigern können – wer ausgeruht ist, arbeitet konzentrierter. Pilotprojekte in Island und Großbritannien scheinen diese These zu bestätigen: Die Umsätze der teilnehmenden Unternehmen blieben stabil, während die Mitarbeiterzufriedenheit deutlich zunahm. Kritiker hingegen warnen vor voreiligen Schlüssen. Sie weisen darauf hin, dass sich die Ergebnisse nicht ohne Weiteres auf alle Branchen übertragen lassen, besonders nicht auf das Gesundheitswesen oder die Industrie, wo schon jetzt Personalmangel herrscht. Außerdem befürchten manche Ökonomen, dass Unternehmen die eingesparte Zeit lediglich durch höheren Druck an den verbleibenden vier Tagen kompensieren würden – ein Ergebnis, das den ursprünglichen Zweck der Reform ins Gegenteil verkehren würde. Ob sich die Vier-Tage-Woche langfristig durchsetzt, bleibt daher, trotz vielversprechender erster Ergebnisse, eine offene Frage.\"\n\nWhat is the text mainly about?",
+      "opener": "Look for the sentence that weighs both sides of the debate together.",
+      "choices": [
+        "The history of how the four-day work week was invented",
+        "Whether the four-day work week is a good solution, with arguments both for and against",
+        "How an individual employee applies for shorter working hours",
+        "A description of one employee's daily life on a four-day schedule"
+      ],
+      "answer": 1,
+      "explanation": "The text presents both the supporters' (Befürworter) and the critics' (Kritiker) arguments and ends by concluding that the question remains open. It's about the debate as a whole, not about history or one person's experience."
+    },
+    {
+      "id": "q-de4-read-2",
+      "kind": "mc",
+      "topic": "argument structure",
+      "prompt": "Same text. Which argument do the supporters (Befürworter) use for the four-day work week?",
+      "opener": "The first half of the text presents their main argument in a single sentence.",
+      "choices": [
+        "That it lowers companies' costs for office space",
+        "That it can improve mental health while also increasing productivity",
+        "That it is easy to introduce in every industry immediately",
+        "That it reduces the staff shortage in healthcare"
+      ],
+      "answer": 1,
+      "explanation": "The text says the supporters believe shorter working hours \"die psychische Gesundheit der Angestellten verbessern\" and \"die Produktivität steigern können\" — that is, both better mental health and a possible productivity increase."
+    },
+    {
+      "id": "q-de4-read-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Same text. What did the pilot projects in Iceland and the UK show, according to the text?",
+      "opener": "Look for the sentence with the words \"Umsätze\" and \"Mitarbeiterzufriedenheit\".",
+      "choices": [
+        "Revenue dropped sharply while employee satisfaction decreased",
+        "Revenue stayed stable while employee satisfaction increased significantly",
+        "The companies were forced into bankruptcy within a year",
+        "The results were too uncertain to draw any conclusions at all"
+      ],
+      "answer": 1,
+      "explanation": "\"Die Umsätze der teilnehmenden Unternehmen blieben stabil, während die Mitarbeiterzufriedenheit deutlich zunahm\" means that revenue was unchanged while employee satisfaction increased markedly."
+    },
+    {
+      "id": "q-de4-read-4",
+      "kind": "mc",
+      "topic": "argument structure",
+      "prompt": "Same text. What is the critics' (Kritiker) main objection to generalizing the results?",
+      "opener": "The word \"hingegen\" marks where the text switches to the counter-arguments.",
+      "choices": [
+        "That the results can't necessarily be transferred to every industry, especially not healthcare and manufacturing",
+        "That the pilot projects were never actually carried out",
+        "That the employees themselves didn't want to take part in the projects",
+        "That the four-day work week is already standard in most European countries"
+      ],
+      "answer": 0,
+      "explanation": "The critics warn against \"voreilige Schlüsse\" (hasty conclusions) and argue that the results \"sich nicht ohne Weiteres auf alle Branchen übertragen lassen\", especially not to healthcare and manufacturing, where a staff shortage already exists."
+    },
+    {
+      "id": "q-de4-read-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Same text. What are some economists worried about, according to the text?",
+      "opener": "The last argument in the text is about what companies might do with the \"saved\" time.",
+      "choices": [
+        "That companies would compensate for the shorter week by raising everyone's pay",
+        "That companies would compensate for the saved time with increased pressure over the remaining four days, undermining the reform's purpose",
+        "That the government would ban the four-day work week entirely",
+        "That productivity would stay exactly the same as before"
+      ],
+      "answer": 1,
+      "explanation": "The text says the economists fear companies would compensate for the time savings \"durch höheren Druck an den verbleibenden vier Tagen\" — a result that would turn the reform's original purpose into its opposite."
+    },
+    {
+      "id": "q-de4-read-6",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Same text. What conclusion does the text ultimately draw about the future of the four-day work week?",
+      "opener": "Read the very last sentence carefully — what does it say, despite the positive results?",
+      "choices": [
+        "That it will definitely be introduced everywhere within a few years",
+        "That it has already failed completely and been abandoned",
+        "That the question of long-term success remains open, despite promising early results",
+        "That only Iceland will continue using the model"
+      ],
+      "answer": 2,
+      "explanation": "The last sentence says it \"trotz vielversprechender erster Ergebnisse, eine offene Frage\" (bleibt) — that is, the question remains unanswered despite promising initial results. The text does not take a definitive stance either way."
+    },
+    {
+      "id": "q-de4-read-7",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Same text. Explain step by step the logic behind the economists' concern: why could more pressure over four days \"den ursprünglichen Zweck der Reform ins Gegenteil verkehren\" (turn the reform's original purpose into its opposite)?",
+      "opener": "Start with what the reform is actually supposed to achieve, then follow what happens if companies respond in a certain way.",
+      "answer": "If companies push staff harder over the remaining four days to make up for the lost working time, exactly the health benefit the reform was meant to provide disappears — the stress doesn't decrease, it just gets concentrated into fewer days.",
+      "steps": [
+        "The reform's purpose, according to its supporters, is to improve employees' mental health and wellbeing through a shorter work week.",
+        "The economists' concern is that companies, in order to maintain the same output, increase the pace and pressure over the remaining four days.",
+        "If that happens, the health benefit disappears: total stress doesn't decrease, it just gets concentrated into fewer days instead of actually decreasing.",
+        "The result is the opposite of what the reform was meant to achieve — hence the phrase \"ins Gegenteil verkehren\" (to turn into its opposite)."
+      ]
+    },
+    {
+      "id": "q-de4-read-8",
+      "kind": "flashcard",
+      "topic": "argument structure",
+      "prompt": "What strategies help you understand an argumentative, opinion-based German text like the one about the four-day work week?",
+      "opener": "Look for who is saying what, and which words mark a turn in the argument.",
+      "answer": "Identify the two sides early: who are the Befürworter (supporters) and who are the Kritiker (critics)? Look for signal words that mark a turn in the argument: hingegen/jedoch/allerdings (however/though), außerdem (in addition), daher (therefore). Pay attention to Konjunktiv II (würde kompensieren, würde verkehren) — it often marks an assumption or a feared consequence, not an established fact. Distinguish between facts the text reports (the pilot projects' results) and opinions/concerns different groups express. A text that ends with \"bleibt eine offene Frage\" rarely takes a definitive stance — summarize both sides rather than picking one."
+    }
+  ]
+}

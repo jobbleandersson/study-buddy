@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp4-culture",
+  "type": "assignment",
+  "subject": "Spanska 4",
+  "title": "Environment and sustainability",
+  "sourceSummary": "Vocabulary and reasoning around environmental issues and sustainability, a common discussion theme in upper-secondary modern languages.",
+  "topics": [
+    "environment vocabulary",
+    "sustainability",
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp4-culture-1",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "What does \"el calentamiento global\" mean?",
+      "opener": "A central concept in every environmental debate.",
+      "choices": [
+        "Global warming",
+        "Global cooperation",
+        "The global economy",
+        "The global population"
+      ],
+      "answer": 0,
+      "explanation": "\"El calentamiento global\" means \"global warming\" — a fundamental concept in environmental vocabulary."
+    },
+    {
+      "id": "q-sp4-culture-2",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "What does \"las energías renovables\" mean?",
+      "opener": "A concept often contrasted with \"los combustibles fósiles\" (fossil fuels).",
+      "choices": [
+        "Renewable energy sources",
+        "Limited energy sources",
+        "Expensive energy sources",
+        "Dangerous energy sources"
+      ],
+      "answer": 0,
+      "explanation": "\"Las energías renovables\" means \"renewable energy sources\" (e.g. solar and wind power), the opposite of \"los combustibles fósiles\" (fossil fuels)."
+    },
+    {
+      "id": "q-sp4-culture-3",
+      "kind": "mc",
+      "topic": "sustainability",
+      "prompt": "Which word best fits the sentence: \"Debemos reducir nuestra huella de ___ para proteger el planeta.\"",
+      "opener": "A common expression for how much of a resource a person consumes: \"huella de...\".",
+      "choices": [
+        "carbono",
+        "papel",
+        "agua caliente",
+        "dinero"
+      ],
+      "answer": 0,
+      "explanation": "\"La huella de carbono\" (the carbon footprint) is a central concept in sustainability discussions and refers to the amount of greenhouse gases caused by a person or activity."
+    },
+    {
+      "id": "q-sp4-culture-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the sentence: \"Aunque muchos jóvenes se declaran preocupados por el cambio climático, pocos están dispuestos a cambiar sus hábitos de consumo.\"\n\nWhat is the point of the sentence?",
+      "opener": "The word \"aunque\" (although) marks a contrast between two things.",
+      "choices": [
+        "There is a gap between young people's concern about the climate and their actual behavior",
+        "Young people don't care at all about climate change",
+        "All young people have already changed their consumption habits",
+        "Climate change only affects older generations"
+      ],
+      "answer": 0,
+      "explanation": "\"Aunque\" (although) marks the contrast between being worried and actually changing one's behavior — the sentence's point is precisely this gap between attitude and action."
+    },
+    {
+      "id": "q-sp4-culture-5",
+      "kind": "mc",
+      "topic": "sustainability",
+      "prompt": "What does \"el desarrollo sostenible\" mean?",
+      "opener": "A concept that combines economic, social and environmental considerations.",
+      "choices": [
+        "Sustainable development",
+        "Rapid development",
+        "Global trade",
+        "Technological development"
+      ],
+      "answer": 0,
+      "explanation": "\"El desarrollo sostenible\" means \"sustainable development\" — a concept that balances economic, social and environmental needs."
+    },
+    {
+      "id": "q-sp4-culture-6",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Which word means \"shortage\" (e.g. of water), as in \"la escasez de agua\"?",
+      "opener": "A word that often appears in the context of drought and resource shortages.",
+      "choices": [
+        "Escasez",
+        "Abundancia",
+        "Riqueza",
+        "Exceso"
+      ],
+      "answer": 0,
+      "explanation": "\"Escasez\" means \"shortage\", as in \"la escasez de agua\" (water shortage). The opposite, \"abundancia\", means \"abundance\"."
+    },
+    {
+      "id": "q-sp4-culture-7",
+      "kind": "worked",
+      "topic": "sustainability",
+      "prompt": "Correct the errors in the sentence: \"Si nosotros no hacemos nada ahora, las futuras generaciones sufrirán las consecuencia de nuestro inacción.\"",
+      "opener": "Two grammatical errors are hiding here: one noun in the wrong number, and one word with the wrong gender/article.",
+      "answer": "Si nosotros no hacemos nada ahora, las futuras generaciones sufrirán las consecuencias de nuestra inacción.",
+      "steps": [
+        "\"Las consecuencia\" has the wrong number — the plural definite article (\"las\") requires a plural noun: \"las consecuencias\".",
+        "\"Nuestro inacción\" has the wrong gender — \"inacción\" is a feminine noun (la inacción), so the possessive must be \"nuestra\", not \"nuestro\".",
+        "The rest of the sentence is correctly built as a real si-clause (type 1): si + present indicative (hacemos), main clause in the future (sufrirán).",
+        "Full sentence: \"Si nosotros no hacemos nada ahora, las futuras generaciones sufrirán las consecuencias de nuestra inacción.\""
+      ]
+    },
+    {
+      "id": "q-sp4-culture-8",
+      "kind": "flashcard",
+      "topic": "environment vocabulary",
+      "prompt": "What environment and sustainability vocabulary should you know at this level?",
+      "opener": "Key concepts for discussing environmental issues at a more advanced level.",
+      "answer": "el calentamiento global = global warming · el cambio climático = climate change · las energías renovables = renewable energy sources · los combustibles fósiles = fossil fuels · la huella de carbono = the carbon footprint · el desarrollo sostenible = sustainable development · la escasez (de agua) = the shortage (of water) · contaminar = to pollute · reciclar/el reciclaje = to recycle/recycling · reducir el consumo = to reduce consumption · concienciar = to raise awareness. A useful phrase for discussion: \"Aunque muchos... pocos están dispuestos a...\" (Although many... few are willing to...) for expressing a gap between attitude and action."
+    }
+  ]
+}

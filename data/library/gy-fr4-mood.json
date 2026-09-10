@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr4-mood",
+  "type": "assignment",
+  "subject": "Franska 4",
+  "title": "Subjonctif: tvivel och känsla",
+  "sourceSummary": "Fördjupning i subjonctif efter uttryck för tvivel, känsla, vilja och nödvändighet — med de vanligaste undantagen där indikativ används trots att man kunde tro motsatsen.",
+  "topics": [
+    "subjunctive triggers",
+    "doubt and emotion",
+    "irregular subjunctive"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr4-mood-1",
+      "kind": "mc",
+      "topic": "subjunctive triggers",
+      "prompt": "Välj rätt form: \"Je doute qu'il ___ raison.\" (avoir = ha)",
+      "opener": "\"Douter que\" uttrycker tvivel — vilket modus kräver det i bisatsen?",
+      "choices": [
+        "a",
+        "ait",
+        "aura",
+        "avait"
+      ],
+      "answer": 1,
+      "explanation": "\"Douter que\" följs av subjonctif eftersom det uttrycker osäkerhet om huruvida något är sant. \"Avoir\" i subjonctif presens för \"il\" är \"ait\": \"Je doute qu'il ait raison\" (jag tvivlar på att han har rätt)."
+    },
+    {
+      "id": "q-fr4-mood-2",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Välj rätt form: \"Nous sommes ravis que vous ___ pu venir.\" (pouvoir = kunna)",
+      "opener": "Ett känslouttryck (\"vi är glada att...\") styr bisatsens modus, oavsett om innehållet är sant eller inte.",
+      "choices": [
+        "avez",
+        "ayez",
+        "aviez",
+        "auriez"
+      ],
+      "answer": 1,
+      "explanation": "Känslouttryck som \"être ravi que\", \"être content que\" och \"regretter que\" kräver subjonctif i bisatsen, även när det som beskrivs är ett faktum. Subjonctif passé av \"pouvoir\" är \"ayez pu\": \"que vous ayez pu venir\"."
+    },
+    {
+      "id": "q-fr4-mood-3",
+      "kind": "mc",
+      "topic": "subjunctive triggers",
+      "prompt": "Vilken sats kräver INTE subjonctif?",
+      "opener": "Ett av uttrycken uttrycker säkerhet snarare än tvivel, vilja eller känsla.",
+      "choices": [
+        "Il faut que tu partes.",
+        "Je suis sûr qu'il ___ raison.",
+        "Il est possible qu'elle ___ en retard.",
+        "Je veux que tu ___ ici demain."
+      ],
+      "answer": 1,
+      "explanation": "\"Être sûr que\" uttrycker säkerhet, inte tvivel, och följs därför av indikativ: \"Je suis sûr qu'il a raison.\" De övriga (il faut que, il est possible que, vouloir que) uttrycker nödvändighet, möjlighet respektive vilja och kräver subjonctif."
+    },
+    {
+      "id": "q-fr4-mood-4",
+      "kind": "mc",
+      "topic": "irregular subjunctive",
+      "prompt": "Välj rätt form: \"Il faut que nous ___ à l'heure.\" (être = vara)",
+      "opener": "\"Être\" har en helt oregelbunden subjonctif-stam.",
+      "choices": [
+        "sommes",
+        "soyons",
+        "serions",
+        "étions"
+      ],
+      "answer": 1,
+      "explanation": "\"Être\" i subjonctif presens böjs oregelbundet: que je sois, que tu sois, qu'il soit, que nous soyons, que vous soyez, qu'ils soient. \"Il faut que nous soyons à l'heure\" (vi måste vara i tid)."
+    },
+    {
+      "id": "q-fr4-mood-5",
+      "kind": "mc",
+      "topic": "irregular subjunctive",
+      "prompt": "Välj rätt form: \"Je ne pense pas qu'elle ___ la vérité.\" (savoir = veta)",
+      "opener": "\"Ne pas penser que\" uttrycker tvivel om ett påstående — precis som \"douter que\".",
+      "choices": [
+        "sait",
+        "saura",
+        "sache",
+        "savait"
+      ],
+      "answer": 2,
+      "explanation": "Nekad åsikt (\"je ne pense pas que\", \"je ne crois pas que\") uttrycker tvivel och kräver subjonctif. \"Savoir\" i subjonctif för \"elle\" är \"sache\": \"qu'elle sache la vérité\". Jämför med \"je pense qu'elle sait\" (utan negation) som tar indikativ."
+    },
+    {
+      "id": "q-fr4-mood-6",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Vilken mening uttrycker korrekt \"Det är synd att han inte kan komma\"?",
+      "opener": "\"Il est dommage que\" är ett känslouttryck och styr modus i bisatsen.",
+      "choices": [
+        "Il est dommage qu'il ne peut pas venir.",
+        "Il est dommage qu'il ne puisse pas venir.",
+        "Il est dommage qu'il ne pouvait pas venir.",
+        "Il est dommage qu'il ne pourra pas venir."
+      ],
+      "answer": 1,
+      "explanation": "\"Il est dommage que\" uttrycker beklagande och kräver subjonctif. \"Pouvoir\" i subjonctif presens är \"puisse\" (oregelbunden stam): \"qu'il ne puisse pas venir\"."
+    },
+    {
+      "id": "q-fr4-mood-7",
+      "kind": "worked",
+      "topic": "subjunctive triggers",
+      "prompt": "Rätta felet och förklara varför: \"Je suis content que tu es venu à ma fête, même si je doute que tout le monde s'est bien amusé.\"",
+      "opener": "Båda bisatserna inleds av uttryck som styr subjonctif — men bara den ena verbformen är fel.",
+      "answer": "Je suis content que tu sois venu à ma fête, même si je doute que tout le monde se soit bien amusé.",
+      "steps": [
+        "Första bisatsen: \"je suis content que\" är ett känslouttryck och kräver subjonctif, inte indikativ. \"tu es venu\" ska bli \"tu sois venu\" (subjonctif passé av venir, sammansatt med être eftersom aller-verb-gruppen kräver être).",
+        "Andra bisatsen: \"je doute que\" uttrycker tvivel och kräver också subjonctif. \"tout le monde s'est bien amusé\" ska bli \"tout le monde se soit bien amusé\" — reflexiva verb bildar subjonctif passé med \"que + subjonctif av être + particip\".",
+        "Hela den korrekta meningen: \"Je suis content que tu sois venu à ma fête, même si je doute que tout le monde se soit bien amusé.\"",
+        "Mönster att komma ihåg: känsla, tvivel, vilja och nödvändighet i huvudsatsen → subjonctif i que-bisatsen. Säkerhet och fakta (savoir que, être sûr que, il est certain que) → indikativ."
+      ]
+    },
+    {
+      "id": "q-fr4-mood-8",
+      "kind": "flashcard",
+      "topic": "subjunctive triggers",
+      "prompt": "Vilka uttryck utlöser subjonctif, och vilka gör det inte?",
+      "opener": "En lista att ha i bakhuvudet inför prov.",
+      "answer": "Utlöser subjonctif: tvivel (douter que, ne pas penser/croire que), känsla (être content/ravi/désolé/surpris que, regretter que, il est dommage que), vilja (vouloir que, souhaiter que, préférer que), nödvändighet/möjlighet (il faut que, il est possible/important/nécessaire que). Utlöser INTE subjonctif (indikativ används): säkerhet och fakta (je pense/crois que utan negation, je suis sûr/certain que, il est vrai/évident que, savoir que). Oregelbundna subjonctif-stammar att kunna: être → sois/soit/soyons/soyez/soient, avoir → aie/ait/ayons/ayez/aient, faire → fasse, pouvoir → puisse, savoir → sache, aller → aille, vouloir → veuille."
+    }
+  ]
+}

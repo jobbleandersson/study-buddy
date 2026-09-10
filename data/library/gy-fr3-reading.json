@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr3-reading",
+  "type": "assignment",
+  "subject": "Franska 3",
+  "title": "Läsförståelse: Franskan i världen",
+  "sourceSummary": "En längre text om franskans roll i världen, med frågor om huvudbudskap, detaljer, ord i sammanhang och slutledning.",
+  "topics": [
+    "reading comprehension",
+    "inference",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr3-reading-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"Le français n'est pas seulement la langue de la France : il est parlé sur les cinq continents par plus de 300 millions de personnes. En Afrique de l'Ouest, par exemple, le français est souvent la langue de l'école et de l'administration, alors que de nombreuses langues locales sont parlées à la maison. Cette diversité a donné naissance à des expressions et à un vocabulaire propres à chaque région : au Québec, on dit « magasiner » pour « faire du shopping », tandis qu'en Belgique, le repas de midi s'appelle parfois « le dîner ».\n\nPourtant, cette richesse linguistique pose aussi des questions. Certains craignent que le français perde de son influence face à l'anglais, notamment dans les domaines scientifiques et économiques. D'autres estiment au contraire que le nombre de locuteurs continuera d'augmenter, en particulier grâce à la croissance démographique en Afrique. Selon certaines projections, l'Afrique pourrait compter la majorité des francophones du monde d'ici 2050.\"\n\nHur många människor talar franska enligt texten?",
+      "opener": "Leta efter siffran i den första meningen.",
+      "choices": [
+        "Ungefär 300 miljoner",
+        "Ungefär 30 miljoner",
+        "Ungefär 3 miljoner",
+        "Texten anger inget antal"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger \"plus de 300 millions de personnes\" — mer än 300 miljoner människor."
+    },
+    {
+      "id": "q-fr3-reading-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad är franska ofta i Västafrika, enligt texten?",
+      "opener": "Leta efter meningen om \"l'école et l'administration\".",
+      "choices": [
+        "Ett hemspråk för de flesta",
+        "Skolans och myndigheternas språk",
+        "Ett språk som håller på att försvinna",
+        "Ett språk som bara turister använder"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger att franskan \"est souvent la langue de l'école et de l'administration\" (ofta är skolans och myndigheternas språk) i Västafrika, medan lokala språk talas hemma."
+    },
+    {
+      "id": "q-fr3-reading-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Samma text. Vad betyder \"magasiner\" i det här sammanhanget (québekisk franska)?",
+      "opener": "Texten förklarar ordet direkt i samma mening.",
+      "choices": [
+        "Att handla/shoppa",
+        "Att laga mat",
+        "Att resa",
+        "Att studera"
+      ],
+      "answer": 0,
+      "explanation": "Texten förklarar det direkt: \"on dit magasiner pour faire du shopping\" — alltså att handla/shoppa."
+    },
+    {
+      "id": "q-fr3-reading-4",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Samma text. Vad kan man dra för slutsats av att skribenten nämner BÅDE oron för engelskans inflytande OCH prognosen om Afrikas befolkningstillväxt?",
+      "opener": "Texten presenterar två sidor — vad är poängen med att ha med båda?",
+      "choices": [
+        "Texten vill visa att franskans framtid är osäker och diskuteras på olika sätt",
+        "Texten vill bevisa att franskan snart försvinner helt",
+        "Texten vill visa att engelskan inte alls påverkar franskan",
+        "Texten vill bevisa att Afrika redan har flest fransktalande"
+      ],
+      "answer": 0,
+      "explanation": "Genom att presentera både oron (engelskans inflytande) och motargumentet (befolkningstillväxt i Afrika) visar texten att framtiden för franska språket är omdiskuterad och osäker, inte ett givet facit åt något håll."
+    },
+    {
+      "id": "q-fr3-reading-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vilket år nämns i samband med prognosen om Afrikas fransktalande?",
+      "opener": "Leta efter årtalet i sista meningen.",
+      "choices": [
+        "2030",
+        "2050",
+        "2100",
+        "2025"
+      ],
+      "answer": 1,
+      "explanation": "Texten nämner \"d'ici 2050\" (fram till 2050) i samband med prognosen att Afrika kan ha majoriteten av världens fransktalande."
+    },
+    {
+      "id": "q-fr3-reading-6",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Samma text. I meningen \"le repas de midi s'appelle parfois « le dîner »\", vad betyder \"le repas\"?",
+      "opener": "Sammanhanget handlar om måltider under dagen.",
+      "choices": [
+        "Måltiden",
+        "Receptet",
+        "Restaurangen",
+        "Regionen"
+      ],
+      "answer": 0,
+      "explanation": "\"Le repas\" betyder \"måltiden\". Meningen förklarar att middagsmålet mitt på dagen ibland kallas \"le dîner\" i Belgien, till skillnad från i Frankrike där \"le dîner\" är kvällsmaten."
+    },
+    {
+      "id": "q-fr3-reading-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Sammanfatta med en kort fransk mening (5–8 ord) varför franskans framtid diskuteras enligt texten.",
+      "opener": "Kombinera de två ståndpunkterna: oro och motargument.",
+      "answer": "Certains ont peur, d'autres restent optimistes à cause de l'Afrique.",
+      "steps": [
+        "Identifiera de två ståndpunkterna i texten: oron för engelskans inflytande, och optimismen kring Afrikas befolkningstillväxt.",
+        "Korta ner var och en: \"certains craignent l'influence de l'anglais\" → \"certains ont peur\"; \"la croissance en Afrique\" → \"optimistes à cause de l'Afrique\".",
+        "Sätt ihop till en kort mening som visar kontrasten mellan de två synsätten, till exempel med \"d'autres\" (andra) som markör för motsatsen.",
+        "Andra kortfattade formuleringar med samma innebörd (två ståndpunkter, en kontrast) godtas också."
+      ]
+    },
+    {
+      "id": "q-fr3-reading-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Vilka lässtrategier hjälper dig att förstå en längre fransk text om ett samhälls- eller kulturämne?",
+      "opener": "Att hitta fakta, sluta dig till underförstådd information och gissa ord från sammanhanget.",
+      "answer": "Läs texten en gång för helheten innan du fokuserar på detaljer. Leta efter siffror och namn (300 millions, 2050, Québec, Belgique) — de bär ofta konkreta svar. Uppmärksamma kontrasterande ord som \"pourtant\", \"au contraire\" och \"en revanche\" — de signalerar att en motsatt åsikt eller ett motargument följer. Använd sammanhanget för att gissa nya ord (till exempel \"locuteurs\" = talare, kopplat till \"parlée\" i texten). Vid inference-frågor: fråga dig varför skribenten valt att ha med viss information, inte bara vad som bokstavligen står."
+    }
+  ]
+}

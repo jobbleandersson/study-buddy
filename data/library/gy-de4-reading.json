@@ -1,0 +1,128 @@
+{
+  "id": "lib-de4-reading",
+  "type": "assignment",
+  "subject": "Tyska 4",
+  "title": "Läsförståelse: en åsiktstext om fyradagarsveckan",
+  "sourceSummary": "En längre, argumenterande tysk text om debatten kring den förkortade arbetsveckan, med frågor som kräver att man följer argumentationen och drar slutsatser.",
+  "topics": [
+    "main idea",
+    "argument structure",
+    "inference",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de4-read-1",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Läs texten: \"Die Vier-Tage-Woche wird seit einigen Jahren in vielen Ländern diskutiert, doch die Meinungen gehen weit auseinander. Befürworter argumentieren, dass kürzere Arbeitszeiten nicht nur die psychische Gesundheit der Angestellten verbessern, sondern auch die Produktivität steigern können – wer ausgeruht ist, arbeitet konzentrierter. Pilotprojekte in Island und Großbritannien scheinen diese These zu bestätigen: Die Umsätze der teilnehmenden Unternehmen blieben stabil, während die Mitarbeiterzufriedenheit deutlich zunahm. Kritiker hingegen warnen vor voreiligen Schlüssen. Sie weisen darauf hin, dass sich die Ergebnisse nicht ohne Weiteres auf alle Branchen übertragen lassen, besonders nicht auf das Gesundheitswesen oder die Industrie, wo schon jetzt Personalmangel herrscht. Außerdem befürchten manche Ökonomen, dass Unternehmen die eingesparte Zeit lediglich durch höheren Druck an den verbleibenden vier Tagen kompensieren würden – ein Ergebnis, das den ursprünglichen Zweck der Reform ins Gegenteil verkehren würde. Ob sich die Vier-Tage-Woche langfristig durchsetzt, bleibt daher, trotz vielversprechender erster Ergebnisse, eine offene Frage.\"\n\nVad handlar texten huvudsakligen om?",
+      "opener": "Leta efter meningen som väger samman båda sidorna av debatten.",
+      "choices": [
+        "Historien bakom hur fyradagarsveckan uppfanns",
+        "Huruvida fyradagarsveckan är en bra lösning, med argument både för och emot",
+        "Hur en enskild anställd ansöker om kortare arbetstid",
+        "En beskrivning av en anställds vardag på fyra arbetsdagar"
+      ],
+      "answer": 1,
+      "explanation": "Texten presenterar både förespråkarnas (Befürworter) och kritikernas (Kritiker) argument och landar i att frågan fortfarande är öppen. Den handlar alltså om debatten i sin helhet, inte om historik eller en enskild persons upplevelse."
+    },
+    {
+      "id": "q-de4-read-2",
+      "kind": "mc",
+      "topic": "argument structure",
+      "prompt": "Samma text. Vilket argument använder förespråkarna (Befürworter) för fyradagarsveckan?",
+      "opener": "Första halvan av texten presenterar deras huvudargument i en enda mening.",
+      "choices": [
+        "Att den sänker företagens kostnader för lokaler",
+        "Att den kan förbättra psykisk hälsa och samtidigt öka produktiviteten",
+        "Att den är enkel att införa i alla branscher direkt",
+        "Att den minskar personalbristen inom vården"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger att förespråkarna menar att kortare arbetstid \"die psychische Gesundheit der Angestellten verbessern\" och \"die Produktivität steigern können\" — alltså både bättre psykisk hälsa och möjlig produktivitetsökning."
+    },
+    {
+      "id": "q-de4-read-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Samma text. Vad visade pilotprojekten i Island och Storbritannien enligt texten?",
+      "opener": "Leta efter meningen med orden \"Umsätze\" och \"Mitarbeiterzufriedenheit\".",
+      "choices": [
+        "Omsättningen sjönk kraftigt medan personalens nöjdhet minskade",
+        "Omsättningen förblev stabil samtidigt som personalens nöjdhet ökade tydligt",
+        "Företagen tvingades gå i konkurs inom ett år",
+        "Resultaten var för osäkra för att dra några slutsatser alls"
+      ],
+      "answer": 1,
+      "explanation": "\"Die Umsätze der teilnehmenden Unternehmen blieben stabil, während die Mitarbeiterzufriedenheit deutlich zunahm\" betyder att omsättningen var oförändrad medan personalens nöjdhet ökade markant."
+    },
+    {
+      "id": "q-de4-read-4",
+      "kind": "mc",
+      "topic": "argument structure",
+      "prompt": "Samma text. Vad är kritikernas (Kritiker) huvudsakliga invändning mot att generalisera resultaten?",
+      "opener": "Ordet \"hingegen\" markerar att texten byter till motargumenten här.",
+      "choices": [
+        "Att resultaten inte nödvändigtvis går att överföra till alla branscher, särskilt inte vård och industri",
+        "Att pilotprojekten aldrig genomfördes i verkligheten",
+        "Att de anställda själva inte ville delta i projekten",
+        "Att fyradagarsveckan redan är standard i de flesta europeiska länder"
+      ],
+      "answer": 0,
+      "explanation": "Kritikerna varnar för \"voreilige Schlüsse\" och menar att resultaten \"sich nicht ohne Weiteres auf alle Branchen übertragen lassen\", särskilt inte på vård och industri där personalbrist redan råder."
+    },
+    {
+      "id": "q-de4-read-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Samma text. Vad oroar sig vissa ekonomer för, enligt texten?",
+      "opener": "Sista argumentet i texten handlar om vad företag skulle kunna göra med den \"sparade\" tiden.",
+      "choices": [
+        "Att företagen skulle kompensera den kortare veckan med högre lön till alla",
+        "Att företagen skulle kompensera den sparade tiden med ökat tryck under de fyra kvarvarande dagarna, vilket motverkar reformens syfte",
+        "Att staten helt skulle förbjuda fyradagarsveckan",
+        "Att produktiviteten skulle förbli exakt densamma som innan"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger att ekonomerna befarar att företag skulle kompensera tidsvinsten \"durch höheren Druck an den verbleibenden vier Tagen\" — ett resultat som skulle vända reformens ursprungliga syfte till sin motsats."
+    },
+    {
+      "id": "q-de4-read-6",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Samma text. Vilken slutsats drar texten till sist om fyradagarsveckans framtid?",
+      "opener": "Läs den allra sista meningen noga — vad säger den, trots de positiva resultaten?",
+      "choices": [
+        "Att den definitivt kommer att införas överallt inom några år",
+        "Att den redan har misslyckats totalt och överges",
+        "Att frågan om ett långsiktigt genomslag fortfarande är öppen, trots lovande första resultat",
+        "Att endast Island kommer att fortsätta använda modellen"
+      ],
+      "answer": 2,
+      "explanation": "Sista meningen säger att det \"trotz vielversprechender erster Ergebnisse, eine offene Frage\" (bleibt) — alltså att frågan fortfarande är obesvarad trots lovande inledande resultat. Texten tar alltså inte definitiv ställning åt något håll."
+    },
+    {
+      "id": "q-de4-read-7",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Samma text. Förklara steg för steg logiken bakom ekonomernas farhåga: varför skulle högre tryck under fyra dagar kunna \"den ursprünglichen Zweck der Reform ins Gegenteil verkehren\" (vända reformens ursprungliga syfte till dess motsats)?",
+      "opener": "Börja med vad reformen egentligen ska uppnå, och följ sedan vad som händer om företagen svarar på ett visst sätt.",
+      "answer": "Om företagen pressar personalen hårdare under de fyra kvarvarande dagarna för att kompensera den förlorade arbetstiden, försvinner just den hälsovinst som reformen skulle ge — stressen minskar inte, den flyttas bara till färre dagar.",
+      "steps": [
+        "Reformens syfte, enligt förespråkarna, är att förbättra personalens psykiska hälsa och välmående genom kortare arbetsvecka.",
+        "Ekonomernas farhåga är att företagen, för att hålla samma produktion, ökar tempot och trycket under de fyra kvarvarande dagarna.",
+        "Om det sker försvinner hälsovinsten: den totala stressen minskar inte, den koncentreras bara till färre dagar i stället för att faktiskt minska.",
+        "Resultatet blir alltså motsatsen till det reformen var tänkt att uppnå — därav uttrycket \"ins Gegenteil verkehren\" (vända till sin motsats)."
+      ]
+    },
+    {
+      "id": "q-de4-read-8",
+      "kind": "flashcard",
+      "topic": "argument structure",
+      "prompt": "Vilka strategier hjälper dig att förstå en argumenterande, åsiktsbaserad tysk text som den om fyradagarsveckan?",
+      "opener": "Leta efter vem som säger vad, och vilka ord som markerar en vändning i argumentationen.",
+      "answer": "Identifiera de två sidorna tidigt: vem är Befürworter (förespråkare) och vem är Kritiker (kritiker)? Leta efter signalord som markerar en vändning i argumentationen: hingegen/jedoch/allerdings (däremot/dock), außerdem (dessutom), daher (därför). Var uppmärksam på Konjunktiv II (würde kompensieren, würde verkehren) — det markerar ofta ett antagande eller en befarad konsekvens, inte ett fastställt faktum. Skilj på fakta som texten redovisar (pilotprojektens resultat) och åsikter/farhågor som olika grupper uttrycker. En text som avslutar med \"bleibt eine offene Frage\" tar sällan definitiv ställning — sammanfatta då båda sidor snarare än att välja den ena."
+    }
+  ]
+}

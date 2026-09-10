@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr3-opinions",
+  "type": "assignment",
+  "subject": "Franska 3",
+  "title": "Att uttrycka och motivera en åsikt",
+  "sourceSummary": "Ordförråd och fraser för att ge sin åsikt, hålla med eller inte hålla med, och motivera vad man tycker.",
+  "topics": [
+    "opinion phrases",
+    "agreeing and disagreeing",
+    "justifying an opinion"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr3-opinions-1",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Vilken fras uttrycker en åsikt på franska?",
+      "opener": "En vanlig inledning till att säga vad man tycker.",
+      "choices": [
+        "À mon avis, ...",
+        "Il y a, ...",
+        "Depuis quand, ...",
+        "Malgré cela, ..."
+      ],
+      "answer": 0,
+      "explanation": "\"À mon avis\" betyder \"enligt min mening\" och används för att inleda en åsikt: \"À mon avis, ce film est excellent.\""
+    },
+    {
+      "id": "q-fr3-opinions-2",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Vad betyder \"Je pense que le recyclage devrait être obligatoire\"?",
+      "opener": "\"Je pense que\" följt av ett påstående.",
+      "choices": [
+        "Jag hoppas att återvinning blir frivillig",
+        "Jag tycker att återvinning borde vara obligatoriskt",
+        "Jag vet att återvinning är obligatoriskt",
+        "Jag frågar om återvinning är obligatoriskt"
+      ],
+      "answer": 1,
+      "explanation": "\"Je pense que\" betyder \"jag tycker/tror att\", och \"devrait être obligatoire\" betyder \"borde vara obligatoriskt\"."
+    },
+    {
+      "id": "q-fr3-opinions-3",
+      "kind": "mc",
+      "topic": "agreeing and disagreeing",
+      "prompt": "Välj rätt fras för att INSTÄMMA med någon: \"Nous devrions manger moins de viande.\" — \"Oui, ___ !\"",
+      "opener": "Att hålla med.",
+      "choices": [
+        "je suis d'accord",
+        "je ne suis pas d'accord",
+        "je m'en fiche",
+        "ça m'est égal"
+      ],
+      "answer": 0,
+      "explanation": "\"Je suis d'accord\" betyder \"jag håller med\". \"Je ne suis pas d'accord\" hade betytt motsatsen."
+    },
+    {
+      "id": "q-fr3-opinions-4",
+      "kind": "mc",
+      "topic": "agreeing and disagreeing",
+      "prompt": "Vad betyder \"Je ne suis pas du tout d'accord avec cette idée\"?",
+      "opener": "\"Pas du tout\" förstärker en negation.",
+      "choices": [
+        "Jag håller delvis med om idén",
+        "Jag håller absolut inte med om idén",
+        "Jag är osäker på idén",
+        "Jag älskar den här idén"
+      ],
+      "answer": 1,
+      "explanation": "\"Pas du tout\" betyder \"inte alls\", så \"je ne suis pas du tout d'accord\" betyder \"jag håller absolut inte med\"."
+    },
+    {
+      "id": "q-fr3-opinions-5",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "Välj rätt konnektiv för att motivera en åsikt: \"Je pense qu'on devrait interdire les sacs plastique, ___ ils polluent les océans.\"",
+      "opener": "Vilket ord binder ihop en åsikt med dess skäl?",
+      "choices": [
+        "parce que",
+        "cependant",
+        "d'ailleurs",
+        "pourtant"
+      ],
+      "answer": 0,
+      "explanation": "\"Parce que\" (eftersom/för att) introducerar skälet till åsikten. \"Cependant\" och \"pourtant\" betyder båda \"dock/ändå\", och \"d'ailleurs\" betyder \"för övrigt\" — fel typ av konnektiv här."
+    },
+    {
+      "id": "q-fr3-opinions-6",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "Vad uttrycker \"En revanche, certains pensent que c'est aux gouvernements d'agir, pas aux individus\"?",
+      "opener": "\"En revanche\" markerar en kontrast mellan åsikter.",
+      "choices": [
+        "En förstärkning av föregående åsikt",
+        "En motsatt åsikt / ett motargument",
+        "En sammanfattning av allt som sagts",
+        "En fråga till läsaren"
+      ],
+      "answer": 1,
+      "explanation": "\"En revanche\" betyder \"å andra sidan/däremot\" och introducerar ett motargument eller en kontrasterande åsikt — vanligt i argumenterande texter."
+    },
+    {
+      "id": "q-fr3-opinions-7",
+      "kind": "worked",
+      "topic": "justifying an opinion",
+      "prompt": "Skriv en kort argumenterande mening (åsikt + skäl) om skolmaträtter, med hjälp av byggstenarna: \"à mon avis\", \"parce que\", \"les repas scolaires\", \"sain(e)\" (nyttig).",
+      "opener": "Struktur: åsikt (à mon avis + påstående) + skäl (parce que + motivering).",
+      "answer": "À mon avis, les repas scolaires devraient être plus sains, parce que les élèves ont besoin d'énergie pour bien apprendre.",
+      "steps": [
+        "Börja med åsiktsfrasen \"à mon avis\" följt av påståendet: \"les repas scolaires devraient être plus sains\" (skolmaten borde vara nyttigare).",
+        "Lägg till skälet med \"parce que\": \"parce que les élèves ont besoin d'énergie pour bien apprendre\" (för att eleverna behöver energi för att kunna lära sig bra).",
+        "Hela meningen kombinerar åsikt + motivering, vilket är grundstrukturen i all argumenterande text: påstående, sedan \"parce que\" + skäl.",
+        "Andra giltiga svar med samma struktur (till exempel ett annat skäl) godtas också — det viktiga är att åsikt och skäl båda finns med och hänger ihop logiskt."
+      ]
+    },
+    {
+      "id": "q-fr3-opinions-8",
+      "kind": "flashcard",
+      "topic": "opinion phrases",
+      "prompt": "Vilka fraser behöver du för att uttrycka och motivera en åsikt på franska?",
+      "opener": "Att säga vad man tycker, hålla med/inte hålla med, och motivera varför.",
+      "answer": "Uttrycka åsikt: à mon avis = enligt min mening · je pense que / je trouve que / je crois que = jag tycker/tror att · selon moi = enligt mig. Hålla med: je suis d'accord (avec) = jag håller med · tu as raison = du har rätt · exactement = precis. Inte hålla med: je ne suis pas d'accord = jag håller inte med · je ne pense pas que... = jag tycker inte att... · pas du tout = inte alls. Motivera: parce que = eftersom/för att · car = för (skriftligt) · c'est pourquoi = det är därför · en revanche / cependant / pourtant = å andra sidan/dock (för motargument)."
+    }
+  ]
+}

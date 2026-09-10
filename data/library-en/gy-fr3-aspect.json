@@ -1,0 +1,128 @@
+{
+  "id": "lib-fr3-aspect",
+  "type": "assignment",
+  "subject": "Franska 3",
+  "title": "Passé composé and imparfait: a closer look",
+  "sourceSummary": "A deeper look at the distinction between passé composé and imparfait in longer narrative contexts — background, habits, and completed events.",
+  "topics": [
+    "passé composé",
+    "imparfait",
+    "narrative aspect"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr3-aspect-1",
+      "kind": "mc",
+      "topic": "imparfait",
+      "prompt": "Choose the correct form: \"Quand j'étais enfant, je ___ (jouer) au foot tous les samedis.\"",
+      "opener": "Is this about a habit that repeated, or a single completed event?",
+      "choices": [
+        "jouais",
+        "ai joué",
+        "joue",
+        "avais joué"
+      ],
+      "answer": 0,
+      "explanation": "\"Tous les samedis\" signals a habit in the past — that calls for imparfait: \"je jouais\". Passé composé (\"ai joué\") would fit if it were about ONE occasion, for example \"samedi dernier\"."
+    },
+    {
+      "id": "q-fr3-aspect-2",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Choose the correct form: \"Samedi dernier, je ___ (jouer) au foot avec mes amis.\"",
+      "opener": "\"Samedi dernier\" points to one specific, finished occasion.",
+      "choices": [
+        "ai joué",
+        "jouais",
+        "joue",
+        "avais joué"
+      ],
+      "answer": 0,
+      "explanation": "A specific, bounded point in time (\"samedi dernier\") calls for passé composé: \"j'ai joué\". Compare with the previous task, where \"tous les samedis\" called for imparfait instead."
+    },
+    {
+      "id": "q-fr3-aspect-3",
+      "kind": "mc",
+      "topic": "narrative aspect",
+      "prompt": "Choose the correct combination: \"Je ___ (lire) un livre quand le téléphone ___ (sonner).\"",
+      "opener": "An ongoing background action gets interrupted by a sudden event — two different tenses are needed.",
+      "choices": [
+        "lisais / a sonné",
+        "ai lu / sonnait",
+        "lisais / sonnait",
+        "ai lu / a sonné"
+      ],
+      "answer": 0,
+      "explanation": "The ongoing background action (reading) is in imparfait: \"je lisais\". The sudden, completed event that interrupts it (the phone rang) is in passé composé: \"a sonné\". This is one of the most common patterns in French narrative writing."
+    },
+    {
+      "id": "q-fr3-aspect-4",
+      "kind": "mc",
+      "topic": "imparfait",
+      "prompt": "Choose the correct form: \"La maison ___ (être) vieille et il y ___ (avoir) un grand jardin derrière.\"",
+      "opener": "A description of what something looked like, with no clear start or end.",
+      "choices": [
+        "était / avait",
+        "a été / a eu",
+        "était / a eu",
+        "a été / avait"
+      ],
+      "answer": 0,
+      "explanation": "Descriptions of what something was like (appearance, state) in the past use imparfait, not passé composé: \"était\" and \"avait\"."
+    },
+    {
+      "id": "q-fr3-aspect-5",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Choose the correct form: \"Ce matin-là, elle ___ (se lever) tôt, ___ (prendre) son petit-déjeuner et ___ (partir) sans dire un mot.\"",
+      "opener": "A chain of bounded events happening one after another.",
+      "choices": [
+        "s'est levée / a pris / est partie",
+        "se levait / prenait / partait",
+        "s'est levée / prenait / est partie",
+        "se levait / a pris / partait"
+      ],
+      "answer": 0,
+      "explanation": "A sequence of events that follow one another and are each completed is written throughout in passé composé: s'est levée → a pris → est partie."
+    },
+    {
+      "id": "q-fr3-aspect-6",
+      "kind": "mc",
+      "topic": "narrative aspect",
+      "prompt": "Choose the correct combination: \"Comme il ___ (faire) très froid, nous ___ (décider) de rentrer plus tôt.\"",
+      "opener": "The cause is described as a background state; the decision is a single, completed action.",
+      "choices": [
+        "faisait / avons décidé",
+        "a fait / décidions",
+        "faisait / décidions",
+        "a fait / avons décidé"
+      ],
+      "answer": 0,
+      "explanation": "\"Comme il faisait froid\" gives the background/cause (a state, imparfait), while \"nous avons décidé\" is the concrete action that followed from it (passé composé). This cause-and-effect pattern is typical in French storytelling."
+    },
+    {
+      "id": "q-fr3-aspect-7",
+      "kind": "worked",
+      "topic": "narrative aspect",
+      "prompt": "Explain which tense fits each gap and why: \"Quand j'___ (être) petit, nous ___ (habiter) à la campagne. Un jour, un orage terrible ___ (éclater) et nous ___ (devoir) courir jusqu'à la maison.\"",
+      "opener": "Ask yourself for each gap: does it describe a state/habit, or a single bounded event?",
+      "answer": "étais / habitions / a éclaté / avons dû",
+      "steps": [
+        "Gap 1: \"quand j'étais petit\" describes a long-lasting state (childhood) with no clear start or end → imparfait: \"étais\".",
+        "Gap 2: \"nous habitions à la campagne\" describes a habit/background during that period → imparfait: \"habitions\".",
+        "Gap 3: \"un orage terrible a éclaté\" is a sudden, bounded event that breaks into the background → passé composé: \"a éclaté\".",
+        "Gap 4: the reaction to the event (having to run) is also a bounded action → passé composé: \"avons dû\".",
+        "The pattern: imparfait paints the scene (background, habits, states), and passé composé tells what HAPPENED in that scene."
+      ]
+    },
+    {
+      "id": "q-fr3-aspect-8",
+      "kind": "flashcard",
+      "topic": "narrative aspect",
+      "prompt": "How do you choose between passé composé and imparfait in a narrative text?",
+      "opener": "Three typical signals almost always settle it.",
+      "answer": "Imparfait is used for background and context: descriptions (where something was, what it looked like), habits/repeated events in the past (tous les jours, chaque été, quand j'étais petit) and ongoing actions that get interrupted. Passé composé is used for bounded, completed events: a single occasion (samedi dernier, un jour, soudain), a chain of events in a story, or the thing that INTERRUPTS an ongoing background action. Rule of thumb: ask whether the action has a clear beginning and end (passé composé) or whether it just paints the scene/was habitual (imparfait). Typical pattern: \"Je faisais X quand Y s'est passé.\""
+    }
+  ]
+}

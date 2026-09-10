@@ -1,0 +1,127 @@
+{
+  "id": "lib-de3-clauses",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Relativsatser och avancerad bisatsordföljd",
+  "sourceSummary": "Relativsatser med der/die/das i alla kasus, samt en fördjupning av bisatsordföljd med weil, dass, obwohl och modalverb.",
+  "topics": [
+    "relative clauses",
+    "subordinate clauses",
+    "conjunctions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-clauses-1",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Välj rätt relativpronomen: \"Der Mann, ___ dort steht, ist mein Lehrer.\" (mannen som står där är min lärare)",
+      "opener": "\"Der Mann\" är subjekt i bisatsen, alltså nominativ maskulinum.",
+      "choices": [
+        "der",
+        "den",
+        "dem",
+        "dessen"
+      ],
+      "answer": 0,
+      "explanation": "Relativpronomenets genus (maskulinum) kommer från \"der Mann\", och kasus (nominativ) kommer från att pronomenet är subjekt i bisatsen: \"der dort steht\"."
+    },
+    {
+      "id": "q-de3-clauses-2",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Välj rätt relativpronomen: \"Der Mann, ___ ich das Buch gegeben habe, ist mein Onkel.\" (mannen som jag gav boken till är min farbror)",
+      "opener": "\"Geben\" tar ett indirekt objekt i dativ — vem fick boken?",
+      "choices": [
+        "der",
+        "den",
+        "dem",
+        "dessen"
+      ],
+      "answer": 2,
+      "explanation": "Mannen är den som fick boken, dvs. indirekt objekt till \"geben\", vilket kräver dativ. Maskulinum dativ singular = \"dem\": \"..., dem ich das Buch gegeben habe, ...\"."
+    },
+    {
+      "id": "q-de3-clauses-3",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Välj rätt relativpronomen: \"Die Frau, ___ Sohn Arzt ist, wohnt nebenan.\" (kvinnan vars son är läkare bor granne)",
+      "opener": "Detta uttrycker ägande — vilket kasus är det?",
+      "choices": [
+        "der",
+        "dessen",
+        "deren",
+        "die"
+      ],
+      "answer": 2,
+      "explanation": "\"Vars\" motsvaras av genitiv. \"Die Frau\" är femininum, och femininum genitiv (singular) = \"deren\": \"..., deren Sohn Arzt ist, ...\". \"Dessen\" används i stället för maskulinum/neutrum."
+    },
+    {
+      "id": "q-de3-clauses-4",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Välj rätt mening: \"Även om det regnade gick vi en promenad.\"",
+      "opener": "Bisatsen upptar plats ett i hela meningen — vad händer då med huvudsatsens ordföljd?",
+      "choices": [
+        "Obwohl es regnete, gingen wir spazieren.",
+        "Obwohl es regnete, wir gingen spazieren.",
+        "Obwohl regnete es, gingen wir spazieren.",
+        "Obwohl es gingen regnete, wir spazieren."
+      ],
+      "answer": 0,
+      "explanation": "\"Obwohl\" inleder en bisats där verbet (\"regnete\") hamnar sist. Eftersom hela bisatsen upptar plats ett i meningen, måste huvudsatsens verb (\"gingen\") stå direkt efter kommat, före subjektet \"wir\" — precis som efter \"heute\" eller andra satsdelar på plats ett."
+    },
+    {
+      "id": "q-de3-clauses-5",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Välj rätt ordföljd: \"Jag vet att han måste gå hem.\" (dass, müssen, gehen)",
+      "opener": "I en bisats med modalverb + infinitiv hamnar båda verben sist.",
+      "choices": [
+        "Ich weiß, dass er nach Hause gehen muss.",
+        "Ich weiß, dass er muss nach Hause gehen.",
+        "Ich weiß, dass er nach Hause muss gehen.",
+        "Ich weiß, dass er gehen muss nach Hause."
+      ],
+      "answer": 0,
+      "explanation": "I en bisats med modalverb + infinitiv hamnar båda verben sist, med infinitivet (\"gehen\") före det böjda modalverbet (\"muss\"): \"..., dass er nach Hause gehen muss.\""
+    },
+    {
+      "id": "q-de3-clauses-6",
+      "kind": "mc",
+      "topic": "conjunctions",
+      "prompt": "Vilken bisatskonjunktion uttrycker en motsättning, ungefär \"även om\"?",
+      "opener": "En av dessa fyra vänder på förväntningen i meningen.",
+      "choices": [
+        "weil",
+        "dass",
+        "obwohl",
+        "ob"
+      ],
+      "answer": 2,
+      "explanation": "\"Obwohl\" betyder \"även om/trots att\" och uttrycker en motsättning eller ett oväntat samband, t.ex. \"Obwohl es regnete, gingen wir spazieren.\" \"Weil\" = eftersom, \"dass\" = att, \"ob\" = om/huruvida."
+    },
+    {
+      "id": "q-de3-clauses-7",
+      "kind": "worked",
+      "topic": "relative clauses",
+      "prompt": "Rätta felet: \"Der Roman, das ich letzte Woche gelesen habe, war sehr spannend.\" (Romanen som jag läste förra veckan var mycket spännande.)",
+      "opener": "Kontrollera både genus och kasus på relativpronomenet.",
+      "answer": "Der Roman, den ich letzte Woche gelesen habe, war sehr spannend.",
+      "steps": [
+        "Relativpronomenets genus och numerus styrs av substantivet det syftar på: \"der Roman\" är maskulinum singular, så pronomenet måste vara maskulint, inte neutrum (\"das\").",
+        "Kasus styrs istället av pronomenets funktion i bisatsen: här är romanen objekt till \"gelesen\" (läsa), alltså ackusativ.",
+        "Maskulinum + ackusativ = \"den\". \"Das\" är korrekt för neutrum, inte maskulinum.",
+        "Hela meningen: \"Der Roman, den ich letzte Woche gelesen habe, war sehr spannend.\""
+      ]
+    },
+    {
+      "id": "q-de3-clauses-8",
+      "kind": "flashcard",
+      "topic": "relative clauses",
+      "prompt": "Hur böjs relativpronomen (der/die/das) efter genus, numerus och kasus, och var står verbet i en relativsats?",
+      "opener": "En tabell och en ordföljdsregel du kan använda för alla bisatser.",
+      "answer": "Relativpronomenets genus/numerus kommer från substantivet det syftar på (antecedenten); kasus kommer från pronomenets funktion i bisatsen. Nominativ: der/die/das/die (plural). Ackusativ: den/die/das/die. Dativ: dem/der/dem/denen. Genitiv: dessen/deren/dessen/deren. Exempel: \"Der Mann, der dort steht\" (nom.), \"..., den ich sehe\" (ack.), \"..., dem ich helfe\" (dativ), \"..., dessen Auto rot ist\" (genitiv). Precis som i alla bisatser (weil, dass, obwohl, während m.fl.) hamnar det böjda verbet sist i relativsatsen. Med modalverb hamnar infinitivet före det böjda modalverbet: \"..., der das Auto reparieren kann.\""
+    }
+  ]
+}

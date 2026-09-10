@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp3-opinions",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Att uttrycka åsikter: argumentation på spanska",
+  "sourceSummary": "Ord och fraser för att ge, hålla med om och motivera en åsikt: creo que, en mi opinión, estoy de acuerdo/en desacuerdo.",
+  "topics": [
+    "opinion vocabulary",
+    "agreement and disagreement",
+    "justifying an opinion"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-opinions-1",
+      "kind": "mc",
+      "topic": "opinion vocabulary",
+      "prompt": "Vilken fras betyder \"jag tror att...\"?",
+      "opener": "En av de vanligaste öppningsfraserna för att uttrycka en åsikt.",
+      "choices": [
+        "Creo que",
+        "Estoy de acuerdo",
+        "Por eso",
+        "Sin embargo"
+      ],
+      "answer": 0,
+      "explanation": "\"Creo que\" betyder \"jag tror att\" och är en av de vanligaste inledningarna till en åsikt, tillsammans med \"pienso que\"."
+    },
+    {
+      "id": "q-sp3-opinions-2",
+      "kind": "mc",
+      "topic": "opinion vocabulary",
+      "prompt": "Vad betyder \"en mi opinión\"?",
+      "opener": "En direkt motsvarighet till en svensk fras du redan känner igen.",
+      "choices": [
+        "enligt min mening",
+        "jag håller inte med",
+        "å ena sidan",
+        "jag är säker på"
+      ],
+      "answer": 0,
+      "explanation": "\"En mi opinión\" betyder bokstavligen \"i min åsikt\", det vill säga \"enligt min mening\" — en vanlig fras för att inleda ett personligt ställningstagande."
+    },
+    {
+      "id": "q-sp3-opinions-3",
+      "kind": "mc",
+      "topic": "agreement and disagreement",
+      "prompt": "Vilken fras uttrycker att man HÅLLER MED?",
+      "opener": "Skillnaden ligger i ett litet prefix: en- eller inget alls.",
+      "choices": [
+        "Estoy en desacuerdo",
+        "Estoy de acuerdo",
+        "No creo que",
+        "Dudo que"
+      ],
+      "answer": 1,
+      "explanation": "\"Estoy de acuerdo\" betyder \"jag håller med\". Motsatsen är \"estoy en desacuerdo\" eller \"no estoy de acuerdo\" (jag håller inte med)."
+    },
+    {
+      "id": "q-sp3-opinions-4",
+      "kind": "mc",
+      "topic": "agreement and disagreement",
+      "prompt": "Välj rätt form: \"No creo que esto ___ (ser) una buena idea.\"",
+      "opener": "När man nekar en åsikt (no creo que...) krävs subjuntivo i bisatsen — till skillnad från det bekräftande \"creo que\", som tar indikativ.",
+      "choices": [
+        "es",
+        "sea",
+        "era",
+        "será"
+      ],
+      "answer": 1,
+      "explanation": "\"No creo que\" nekar säkerheten i påståendet och utlöser därför subjuntivo: \"sea\". Jämför med den bekräftande formen \"creo que esto ES una buena idea\", som tar indikativ eftersom den uttrycker övertygelse, inte tvivel."
+    },
+    {
+      "id": "q-sp3-opinions-5",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "Vilket ord används för att MOTIVERA en åsikt?",
+      "opener": "Ett ord som ungefär betyder \"eftersom/då\".",
+      "choices": [
+        "sin embargo",
+        "ya que",
+        "por otro lado",
+        "aunque"
+      ],
+      "answer": 1,
+      "explanation": "\"Ya que\" betyder \"eftersom/då\" och används för att motivera ett påstående: \"Creo que deberíamos reciclar más, ya que es bueno para el planeta.\" \"Sin embargo\" (dock), \"por otro lado\" (å andra sidan) och \"aunque\" (även om) markerar istället kontrast."
+    },
+    {
+      "id": "q-sp3-opinions-6",
+      "kind": "mc",
+      "topic": "opinion vocabulary",
+      "prompt": "Vilken mening är korrekt uppbyggd?",
+      "opener": "Kolla ordföljden noga — \"que\" ska stå direkt efter åsiktsuttrycket, och \"estar de acuerdo\" behöver en preposition för att koppla till ett påstående.",
+      "choices": [
+        "En mi opinión, que el examen fue difícil.",
+        "Creo que el examen fue difícil.",
+        "Creo el examen que fue difícil.",
+        "Estoy de acuerdo el examen fue difícil."
+      ],
+      "answer": 1,
+      "explanation": "\"Creo que el examen fue difícil\" har korrekt struktur: åsiktsuttryck + que + påstående. \"En mi opinión\" tar inte \"que\" (det är inget verb), och \"estoy de acuerdo\" behöver \"con\" eller \"en que\" för att koppla till en hel sats: \"estoy de acuerdo en que...\"."
+    },
+    {
+      "id": "q-sp3-opinions-7",
+      "kind": "worked",
+      "topic": "justifying an opinion",
+      "prompt": "Rätta de två felen: \"En mi opinión, el uso de los móviles en la escuela son un problema serio, porque los estudiantes no presta atención en la clase.\"",
+      "opener": "Båda felen handlar om att verbet kongruerar med fel ord i meningen.",
+      "answer": "En mi opinión, el uso de los móviles en la escuela es un problema serio, porque los estudiantes no prestan atención en la clase.",
+      "steps": [
+        "\"El uso ... son\" har fel kongruens — subjektet är \"el uso\" (användningen, singular), inte \"los móviles\", så verbet ska vara singular: \"es\".",
+        "\"Los estudiantes no presta\" har också fel kongruens — subjektet \"los estudiantes\" är plural, så verbet ska vara \"prestan\".",
+        "Hela meningen rättad: \"En mi opinión, el uso de los móviles en la escuela es un problema serio, porque los estudiantes no prestan atención en la clase.\"",
+        "Tips: i långa meningar med bisatser är det lätt att låta verbet kongruera med fel substantiv — kolla alltid vilket ord som faktiskt ÄR subjektet."
+      ]
+    },
+    {
+      "id": "q-sp3-opinions-8",
+      "kind": "flashcard",
+      "topic": "opinion vocabulary",
+      "prompt": "Vilka fraser behöver man för att ge, hålla med om och motivera en åsikt?",
+      "opener": "En ordlista för argumentation, uppdelad efter funktion.",
+      "answer": "Ge en åsikt: creo que, pienso que, en mi opinión, a mi parecer, me parece que. Hålla med/inte hålla med: estoy de acuerdo (con)/estoy en desacuerdo (con), no estoy de acuerdo. Motivera: porque, ya que, puesto que (eftersom), por eso (därför). Kontrastera: sin embargo (dock), por otro lado (å andra sidan), aunque (även om). Kom ihåg: \"no creo que\" och \"dudo que\" (jag tvivlar på att) tar subjuntivo i bisatsen eftersom de uttrycker tvivel, medan \"creo que\" och \"pienso que\" i bekräftande form tar indikativ."
+    }
+  ]
+}

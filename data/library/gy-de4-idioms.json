@@ -1,0 +1,126 @@
+{
+  "id": "lib-de4-idioms",
+  "type": "assignment",
+  "subject": "Tyska 4",
+  "title": "Redewendungen och falska vänner",
+  "sourceSummary": "Vanliga tyska idiomatiska uttryck och de klassiska svensk-tyska falska vännerna — ord som liknar svenska men betyder något helt annat.",
+  "topics": [
+    "idioms",
+    "false friends"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de4-idi-1",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder tyskans \"das Gift\"?",
+      "opener": "Ett av de mest kända exemplen på en falsk vän mellan svenska och tyska — och farligt att blanda ihop.",
+      "choices": [
+        "gift (present)",
+        "gift (äktenskap)",
+        "gift (giftigt ämne)",
+        "gåva"
+      ],
+      "answer": 2,
+      "explanation": "\"Das Gift\" betyder gift/giftigt ämne (poison), INTE en gåva. \"Gåva/present\" heter \"das Geschenk\" på tyska, och \"gift\" (äktenskap) motsvaras av adjektivet \"verheiratet\". Detta är ett klassiskt exempel på en falsk vän som är viktig att komma ihåg."
+    },
+    {
+      "id": "q-de4-idi-2",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder tyskans \"der Rat\"?",
+      "opener": "Låter som ett svenskt djur, men betyder något helt annat.",
+      "choices": [
+        "råtta",
+        "råd (rekommendation)",
+        "ratt (bil)",
+        "rät vinkel"
+      ],
+      "answer": 1,
+      "explanation": "\"Der Rat\" betyder råd/rekommendation (advice), inte råtta. Råtta heter \"die Ratte\" på tyska — bara en bokstav skiljer stavningen, men betydelsen är helt annorlunda. \"Ratt\" (bilens) heter \"das Lenkrad\"."
+    },
+    {
+      "id": "q-de4-idi-3",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder tyskans \"aktuell\"?",
+      "opener": "Ett vanligt fällfel för svensktalande som skriver tyska uppsatser.",
+      "choices": [
+        "faktisk, verklig",
+        "nuvarande, dagsaktuell",
+        "praktisk",
+        "framtida"
+      ],
+      "answer": 1,
+      "explanation": "\"Aktuell\" på tyska betyder \"nuvarande/dagsaktuell\" (current, topical) — precis som på svenska, faktiskt! Den vanliga fällan går åt andra hållet: svenskans \"faktisk/verklig\" motsvaras INTE av tyskans \"aktuell\", utan av \"tatsächlich\" eller \"eigentlich\". Många svensktalande blandar ändå ihop tyskans \"aktuell\" med engelskans \"actual\" (som betyder faktisk) och skriver fel på engelska istället — men på tyska stämmer faktiskt betydelsen med svenskan."
+    },
+    {
+      "id": "q-de4-idi-4",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder tyskans \"der Chef\"?",
+      "opener": "Kan förväxlas med ett yrke inom matlagning.",
+      "choices": [
+        "kock",
+        "chef, arbetsledare",
+        "kemist",
+        "kollega"
+      ],
+      "answer": 1,
+      "explanation": "\"Der Chef\" betyder chef/arbetsledare (boss), precis som på svenska — INTE kock. Kock heter \"der Koch\" på tyska, vilket lätt förväxlas med \"Chef\" via engelskans \"chef\" (som faktiskt betyder kock på engelska). Var extra uppmärksam på denna trippelfälla mellan svenska, tyska och engelska."
+    },
+    {
+      "id": "q-de4-idi-5",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "Vad betyder uttrycket \"die Daumen drücken\"?",
+      "opener": "Bokstavligen \"trycka tummarna\" — vad gör man med tummarna när man hoppas på tur?",
+      "choices": [
+        "att vara arg på någon",
+        "att hålla tummarna för någon, önska lycka till",
+        "att ge upp",
+        "att skynda sig"
+      ],
+      "answer": 1,
+      "explanation": "\"Die Daumen drücken\" (bokstavligen: trycka tummarna) motsvarar svenskans \"hålla tummarna\" — man önskar någon lycka till: \"Ich drücke dir die Daumen für die Prüfung!\" (Jag håller tummarna för dig inför provet!)"
+    },
+    {
+      "id": "q-de4-idi-6",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "Vad betyder uttrycket \"ins Wasser fallen\"?",
+      "opener": "Bokstavligen \"falla i vattnet\" — men tänk bildligt på planer som inte blir av.",
+      "choices": [
+        "att simma bra",
+        "att bli inställd, inte bli av",
+        "att bli blöt av misstag",
+        "att fira något"
+      ],
+      "answer": 1,
+      "explanation": "\"Ins Wasser fallen\" används bildligt om planer som ställs in eller inte blir av: \"Die Party ist ins Wasser gefallen.\" (Festen blev inställd.) Uttrycket motsvarar ungefär svenskans \"gå i stöpet\" eller \"bli inställd\"."
+    },
+    {
+      "id": "q-de4-idi-7",
+      "kind": "worked",
+      "topic": "false friends",
+      "prompt": "Rätta felen i denna mening, som en svensktalande elev skrivit och som innehåller TVÅ falska vänner: \"Mein Chef hat mir ein Gift zum Geburtstag geschenkt.\" (Tänkt betydelse: Min chef gav mig en present till födelsedagen.)",
+      "opener": "Eleven har blandat ihop svenska \"gift\" (present) med ett tyskt ord som ser likadant ut men betyder något farligt. Kolla också om \"Chef\" verkligen stämmer här.",
+      "answer": "Mein Chef hat mir ein Geschenk zum Geburtstag geschenkt.",
+      "steps": [
+        "\"Chef\" är faktiskt korrekt här om personen menar sin arbetsledare/chef — det är INTE en falsk vän i det här fallet, till skillnad från om man menat \"kock\" (som hade varit fel).",
+        "\"Ein Gift\" är däremot fel — det betyder ett giftigt ämne, inte en present. Ordet som ska stå där är \"ein Geschenk\" (en gåva/present).",
+        "Meningen blandar alltså ihop den svenska betydelsen av \"gift\" (skänk, present) med det tyska ordet som råkar se likadant ut men betyder \"poison\".",
+        "Korrekt mening: \"Mein Chef hat mir ein Geschenk zum Geburtstag geschenkt.\" (Min chef gav mig en present till födelsedagen.) Lägg märke till att verbet \"schenken\" (ge i present) också liknar \"Geschenk\" och \"Gift\" — tre ord som lätt blandas ihop men har helt olika innebörd."
+      ]
+    },
+    {
+      "id": "q-de4-idi-8",
+      "kind": "flashcard",
+      "topic": "false friends",
+      "prompt": "Vilka är de vanligaste svensk-tyska falska vännerna, och vilka idiom bör man kunna på den här nivån?",
+      "opener": "En snabb genomgång av fällor och användbara uttryck.",
+      "answer": "Falska vänner: das Gift = gift/poison (INTE gåva → das Geschenk), der Rat = råd/advice (INTE råtta → die Ratte), der Chef = chef/boss (INTE kock → der Koch), aktuell = nuvarande/dagsaktuell (stämmer med svenskan, men blandas ofta ihop med engelskans \"actual\" = faktisk/tatsächlich), das Bekannte = den bekante/known person (inte bekant/kändis i betydelsen berömd → berühmt), die Kost = kost/föda (inte kost i betydelsen kostnad → die Kosten). Idiom: die Daumen drücken = hålla tummarna, ins Wasser fallen = bli inställt, den Nagel auf den Kopf treffen = träffa mitt i prick, unter vier Augen = mellan fyra ögon/privat, Schwein haben = ha tur, die Katze im Sack kaufen = köpa grisen i säcken."
+    }
+  ]
+}

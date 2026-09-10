@@ -1,0 +1,74 @@
+{
+  "subjects": {
+    "hp-ord": {
+      "name": "ORD – Word comprehension",
+      "description": "Pick the word closest in meaning. Five options, 10 tasks per section."
+    },
+    "hp-las": {
+      "name": "LÄS – Swedish reading",
+      "description": "Swedish texts with questions on main idea, detail and inference. Four options. Text stays in Swedish."
+    },
+    "hp-mek": {
+      "name": "MEK – Sentence completion",
+      "description": "A sentence with gaps — pick the option whose words fill every gap. Four options. In Swedish."
+    },
+    "hp-elf": {
+      "name": "ELF – English reading",
+      "description": "English texts with comprehension questions. Four options."
+    },
+    "hp-xyz": {
+      "name": "XYZ – Mathematical problem solving",
+      "description": "Maths problems with five options, 12 per section. In Swedish."
+    },
+    "hp-kva": {
+      "name": "KVA – Quantitative comparisons",
+      "description": "Compare two quantities I and II. Four fixed options, 12 per section. In Swedish."
+    },
+    "hp-nog": {
+      "name": "NOG – Quantitative reasoning",
+      "description": "Is the information in statements (1) and (2) sufficient? Five fixed options. In Swedish."
+    },
+    "hp-dtk": {
+      "name": "DTK – Diagrams, tables and maps",
+      "description": "Interpret a diagram, table or map. Five options, 10 per section. In Swedish."
+    }
+  },
+  "sets": {
+    "lib-hp-2026v-ord": {
+      "title": "ORD – practice set 1",
+      "summary": "10 word-comprehension tasks in the test format. Original practice items, not a released test."
+    },
+    "lib-hp-2026v-las": {
+      "title": "LÄS – practice set 1",
+      "summary": "Two Swedish texts with 8 questions, in the delprov format. Original practice items."
+    },
+    "lib-hp-2026v-mek": {
+      "title": "MEK – practice set 1",
+      "summary": "10 sentence completions in the test format. Original practice items."
+    },
+    "lib-hp-2026v-elf": {
+      "title": "ELF – practice set 1",
+      "summary": "Two English texts with 8 questions, in the delprov format. Original practice items."
+    },
+    "lib-hp-2026v-xyz": {
+      "title": "XYZ – practice set 1",
+      "summary": "12 mathematical problems in the test format. Original practice items."
+    },
+    "lib-hp-2026v-kva": {
+      "title": "KVA – practice set 1",
+      "summary": "12 quantitative comparisons in the test format. Original practice items."
+    },
+    "lib-hp-2026v-nog": {
+      "title": "NOG – practice set 1",
+      "summary": "10 quantitative-reasoning tasks in the test format. Original practice items."
+    },
+    "lib-hp-2026v-dtk": {
+      "title": "DTK – practice set 1",
+      "summary": "10 diagram, table and map tasks in the test format, with redrawn figures. Original practice items."
+    },
+    "lib-hp-ord-bank-01": {
+      "title": "Word bank 1 – common test words",
+      "summary": "40 words to review with synonym practice and spaced repetition."
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp4-conditional",
+  "type": "assignment",
+  "subject": "Spanska 4",
+  "title": "Conditional tense and si-clauses",
+  "sourceSummary": "The conditional tense and hypothetical si-clauses with the imperfect subjunctive, as in \"si tuviera tiempo, iría...\".",
+  "topics": [
+    "conditional tense",
+    "si-clauses",
+    "hypothetical situations"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp4-conditional-1",
+      "kind": "mc",
+      "topic": "conditional tense",
+      "prompt": "Choose the correct form: \"Yo ___ (viajar) por el mundo si tuviera dinero.\"",
+      "opener": "The conditional is formed with the infinitive + the endings -ía, -ías, -ía...",
+      "choices": [
+        "viajaría",
+        "viajaré",
+        "viajaba",
+        "viajara"
+      ],
+      "answer": 0,
+      "explanation": "The conditional is formed with infinitive + -ía: \"viajaría\" (I would travel). This is the main clause's tense in a hypothetical si-clause about an unlikely/impossible present."
+    },
+    {
+      "id": "q-sp4-conditional-2",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Which structure is correct for a hypothetical si-clause about the present?",
+      "opener": "The si-clause (subordinate clause) takes the imperfect subjunctive, the main clause takes the conditional.",
+      "choices": [
+        "Si tuviera tiempo, iría al gimnasio.",
+        "Si tengo tiempo, iría al gimnasio.",
+        "Si tuviera tiempo, voy al gimnasio.",
+        "Si tendría tiempo, iría al gimnasio."
+      ],
+      "answer": 0,
+      "explanation": "A hypothetical si-clause about the present: si + imperfect subjunctive (tuviera) in the subordinate clause, conditional (iría) in the main clause. The conditional may never follow \"si\" directly — that's a common mistake (compare option 4: \"si tendría\")."
+    },
+    {
+      "id": "q-sp4-conditional-3",
+      "kind": "mc",
+      "topic": "hypothetical situations",
+      "prompt": "Choose the correct form: \"Ellos ___ (poder) ayudarnos si supieran la verdad.\"",
+      "opener": "\"Poder\" has an irregular stem in the conditional: podr-.",
+      "choices": [
+        "poderían",
+        "podrían",
+        "pudieron",
+        "puedan"
+      ],
+      "answer": 1,
+      "explanation": "\"Poder\" has an irregular stem in the conditional: podr- + endings → \"podrían\" (they would be able to). The same irregular stem is used in the future tense."
+    },
+    {
+      "id": "q-sp4-conditional-4",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Choose the correct form: \"Si yo ___ (ser) tú, no lo haría.\"",
+      "opener": "The imperfect subjunctive of \"ser\" has the stem fue- + the endings -ra/-ras/-ra...",
+      "choices": [
+        "era",
+        "fuera",
+        "sería",
+        "sea"
+      ],
+      "answer": 1,
+      "explanation": "Imperfect subjunctive of \"ser\": fuera, fueras, fuera, fuéramos, fuerais, fueran. This form is used in si-clauses about a hypothetical present: \"Si yo fuera tú...\" (If I were you...)."
+    },
+    {
+      "id": "q-sp4-conditional-5",
+      "kind": "mc",
+      "topic": "hypothetical situations",
+      "prompt": "Which sentence correctly describes something that did NOT happen in the past?",
+      "opener": "An impossible/contrary-to-fact past situation requires the pluperfect subjunctive + the conditional perfect.",
+      "choices": [
+        "Si hubiera estudiado más, habría aprobado el examen.",
+        "Si estudiaba más, aprobaría el examen.",
+        "Si estudiara más, habría aprobado el examen.",
+        "Si hubiera estudiado más, aprobaría el examen."
+      ],
+      "answer": 0,
+      "explanation": "For contrary-to-fact past events: si + pluperfect subjunctive (hubiera estudiado) in the subordinate clause, conditional perfect (habría aprobado) in the main clause. The sentence means \"If I had studied more, I would have passed the exam\" — but didn't study, and didn't pass."
+    },
+    {
+      "id": "q-sp4-conditional-6",
+      "kind": "mc",
+      "topic": "conditional tense",
+      "prompt": "Choose the most polite phrase: \"¿___ decirme la hora, por favor?\"",
+      "opener": "The conditional softens a request, similar to Swedish \"skulle du kunna...\" or English \"could you...\".",
+      "choices": [
+        "Podría",
+        "Puedo",
+        "Pudo",
+        "Puede"
+      ],
+      "answer": 0,
+      "explanation": "The conditional (\"podría\", would be able to) makes a request more polite and softened. \"Puede\" (indicative, can) also works but sounds more direct. \"Puedo\" means \"I can\" and \"pudo\" is preterite — both wrong in this context."
+    },
+    {
+      "id": "q-sp4-conditional-7",
+      "kind": "worked",
+      "topic": "si-clauses",
+      "prompt": "Correct the errors: \"Si yo tendría más tiempo libre, aprendería tocar la guitarra.\"",
+      "opener": "A common mistake: the conditional cannot follow \"si\" directly in a hypothetical clause.",
+      "answer": "Si yo tuviera más tiempo libre, aprendería a tocar la guitarra.",
+      "steps": [
+        "\"Si tendría\" is wrong — the clause after \"si\" in a hypothetical statement about the present must be in the imperfect subjunctive, not the conditional: \"tuviera\".",
+        "The main clause \"aprendería\" (conditional) is correct as it stands.",
+        "The preposition \"a\" is also missing between \"aprender\" and the infinitive: \"aprender a tocar\" is the correct construction in Spanish.",
+        "Full sentence: \"Si yo tuviera más tiempo libre, aprendería a tocar la guitarra.\""
+      ]
+    },
+    {
+      "id": "q-sp4-conditional-8",
+      "kind": "flashcard",
+      "topic": "hypothetical situations",
+      "prompt": "How are the three types of si-clauses formed (real, hypothetical present, contrary-to-fact past)?",
+      "opener": "Three patterns to keep apart, plus the conditional's irregular stems.",
+      "answer": "1) Real/likely (type 1): si + present indicative, main clause in present or future — \"Si tengo tiempo, voy/iré\". 2) Hypothetical/unlikely present (type 2): si + imperfect subjunctive, main clause in the conditional — \"Si tuviera tiempo, iría\". 3) Contrary-to-fact past (type 3): si + pluperfect subjunctive, main clause in the conditional perfect — \"Si hubiera tenido tiempo, habría ido\". Irregular conditional stems (same as the future tense): tener→tendr-, poder→podr-, hacer→har-, decir→dir-, salir→saldr-, querer→querr-, saber→sabr-, poner→pondr-, venir→vendr-."
+    }
+  ]
+}

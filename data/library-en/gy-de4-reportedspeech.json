@@ -1,0 +1,128 @@
+{
+  "id": "lib-de4-reportedspeech",
+  "type": "assignment",
+  "subject": "Tyska 4",
+  "title": "Indirekte Rede: reporting what someone said",
+  "sourceSummary": "How direct quotes are turned into reported speech in German — using Konjunktiv I (and Konjunktiv II as a substitute), along with the shifts in pronouns, tense, and time expressions this requires.",
+  "topics": [
+    "Konjunktiv I",
+    "pronoun shift",
+    "tense shift",
+    "reporting verbs"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de4-rep-1",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Lisa sagt: \"Ich bin müde.\" Which is the correct reported version using Konjunktiv I?",
+      "opener": "The Konjunktiv I of \"sein\" in the third person singular is one of the most distinctive forms in reported speech.",
+      "choices": [
+        "Lisa sagt, sie sei müde.",
+        "Lisa sagt, sie ist müde.",
+        "Lisa sagt, sie wäre müde.",
+        "Lisa sagt, dass sie müde war."
+      ],
+      "answer": 0,
+      "explanation": "The Konjunktiv I of \"sein\" in the third person is \"sei\", and the pronoun changes from \"ich\" to \"sie\" since it's Lisa talking about herself: \"Lisa sagt, sie sei müde.\" Konjunktiv I signals that this is reported, not the speaker's own confirmed view."
+    },
+    {
+      "id": "q-de4-rep-2",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Markus sagt: \"Ich habe keine Zeit.\" Which reported version correctly uses Konjunktiv I?",
+      "opener": "When Konjunktiv I coincides with the indicative (e.g. \"ich habe\" → \"er habe\" is actually distinct) you still pick that form — but compare carefully.",
+      "choices": [
+        "Markus sagt, er habe keine Zeit.",
+        "Markus sagt, er hat keine Zeit.",
+        "Markus sagt, er hätte keine Zeit.",
+        "Markus sagt, er haben keine Zeit."
+      ],
+      "answer": 0,
+      "explanation": "The Konjunktiv I of \"haben\" in the third person singular is \"habe\" (unlike the indicative's \"hat\"): \"Markus sagt, er habe keine Zeit.\" This form is clearly distinct from the indicative, which makes it a good example of genuine Konjunktiv I."
+    },
+    {
+      "id": "q-de4-rep-3",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Die Kinder sagen: \"Wir sind hungrig.\" Why is Konjunktiv II (\"wären\") often used here in spoken language instead of Konjunktiv I (\"seien\")?",
+      "opener": "A rule in reported speech: when Konjunktiv I coincides with the indicative (especially in the plural forms), Konjunktiv II is often used as a clear substitute.",
+      "choices": [
+        "Konjunktiv I in the plural (\"wir seien\") often sounds identical to the indicative for certain verbs, so Konjunktiv II is used to make the reported nature clear",
+        "Konjunktiv II is always correct and Konjunktiv I is only used in writing for singular verbs",
+        "Konjunktiv I only exists for strong verbs",
+        "There is no rule — both forms are always incorrect in the plural"
+      ],
+      "answer": 0,
+      "explanation": "A common rule: when the Konjunktiv I form is identical to the indicative form (most common in the plural: the wir/sie forms), speakers switch to Konjunktiv II (\"wir wären\", \"sie hätten\") to mark that it really is reported speech. \"Wir seien\" is technically correct Konjunktiv I, but \"wären\" is the more common, clearer variant in the plural."
+    },
+    {
+      "id": "q-de4-rep-4",
+      "kind": "mc",
+      "topic": "pronoun shift",
+      "prompt": "Anna sagt zu mir: \"Du hast recht.\" How is this reported if I (the speaker) pass it on to someone else?",
+      "opener": "The pronoun must change depending on who is speaking and who is being talked about.",
+      "choices": [
+        "Anna sagt, ich hätte recht.",
+        "Anna sagt, du habest recht.",
+        "Anna sagt, sie habe recht.",
+        "Anna sagt, er habe recht."
+      ],
+      "answer": 0,
+      "explanation": "\"Du\" in the direct quote referred to me (the speaker who is now reporting the quote), so the pronoun changes to \"ich\": \"Anna sagt, ich hätte recht.\" (\"Hätte\" is used here as the common substitute for the Konjunktiv I form \"habe\", which could otherwise be misread.) The pronoun shift always follows who is actually speaking and being talked about in the new context, not the original quote's perspective."
+    },
+    {
+      "id": "q-de4-rep-5",
+      "kind": "mc",
+      "topic": "tense shift",
+      "prompt": "Der Lehrer sagte: \"Ich habe die Prüfung korrigiert.\" Which reported version has the correct tense?",
+      "opener": "An action that was already complete at the time of the quote is expressed in reported speech with Konjunktiv I perfect: habe/sei + participle.",
+      "choices": [
+        "Der Lehrer sagte, er habe die Prüfung korrigiert.",
+        "Der Lehrer sagte, er korrigiere die Prüfung.",
+        "Der Lehrer sagte, er korrigierte die Prüfung.",
+        "Der Lehrer sagte, er werde die Prüfung korrigieren."
+      ],
+      "answer": 0,
+      "explanation": "Unlike English and Swedish, German does not \"back-shift\" the tense by one step in reported speech — a perfect tense in the direct quote becomes Konjunktiv I perfect (habe/sei + participle): \"er habe die Prüfung korrigiert.\" The present-tense option (option 2) would mean the grading is still ongoing, which doesn't match the quote."
+    },
+    {
+      "id": "q-de4-rep-6",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "Which verb does NOT typically work as a \"reporting verb\" (introductory verb) for reported speech?",
+      "opener": "Three of the verbs typically introduce a reported statement; one of them doesn't.",
+      "choices": [
+        "behaupten",
+        "berichten",
+        "bedeuten",
+        "erklären"
+      ],
+      "answer": 2,
+      "explanation": "\"Bedeuten\" means \"to mean\" and is not used to introduce reported speech. \"Behaupten\" (to claim), \"berichten\" (to report/tell) and \"erklären\" (to explain) are all typical verbs that introduce reported speech, e.g. \"Sie behauptet, er sei schuldig.\""
+    },
+    {
+      "id": "q-de4-rep-7",
+      "kind": "worked",
+      "topic": "tense shift",
+      "prompt": "Convert to reported speech and correct the error in this attempt: Direct: Der Politiker sagte: \"Wir werden das Problem morgen lösen.\" Flawed attempt: \"Der Politiker sagte, dass sie das Problem morgen lösen.\"",
+      "opener": "Two things to check: is the verb in the correct mood (Konjunktiv), and has the time expression \"morgen\" been shifted correctly if needed?",
+      "answer": "Der Politiker sagte, dass sie das Problem am nächsten Tag lösen würden. / Der Politiker sagte, sie würden das Problem am nächsten Tag lösen.",
+      "steps": [
+        "The verb \"lösen\" is in the present indicative in the flawed attempt, but reported speech of the future tense (\"werden\" + infinitive) requires the subjunctive (here Konjunktiv II \"würden\", since Konjunktiv I \"werden\" coincides with the indicative in the plural): \"sie würden ... lösen\".",
+        "The time expression \"morgen\" (tomorrow) referred to the day after the moment of speaking. If the sentence is reported later, at a different point in time, \"morgen\" should be changed to \"am nächsten Tag\" (the following day) so it still points to the correct day.",
+        "The pronoun \"wir\" in the quote becomes \"sie\" (the politician and his/her group, seen from outside) — this is already correct in the attempt.",
+        "Correct: \"Der Politiker sagte, dass sie das Problem am nächsten Tag lösen würden.\" or without \"dass\": \"Der Politiker sagte, sie würden das Problem am nächsten Tag lösen.\""
+      ]
+    },
+    {
+      "id": "q-de4-rep-8",
+      "kind": "flashcard",
+      "topic": "Konjunktiv I",
+      "prompt": "What steps are needed to turn a direct quote into reported speech in German?",
+      "opener": "Four things to check every time: verb form, pronoun, tense, time expression.",
+      "answer": "1) Verb form: use Konjunktiv I (e.g. er/sie/es sei, habe, könne, wisse). If Konjunktiv I coincides with the indicative (common in the plural), use Konjunktiv II instead (wären, hätten, würden). 2) Pronoun: shift based on who is now speaking/being talked about — du → ich/er/sie depending on context. 3) Tense: German does NOT back-shift tense the way Swedish/English do — present tense in the quote becomes Konjunktiv I present, perfect/simple past in the quote becomes Konjunktiv I perfect (habe/sei + participle), future becomes würde + infinitive. 4) Time expressions: heute → an diesem Tag, morgen → am nächsten Tag, gestern → am Tag davor, jetzt → in diesem Moment/da. Reporting verbs: sagen, behaupten, berichten, erklären, meinen, betonen."
+    }
+  ]
+}

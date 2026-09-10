@@ -1,0 +1,129 @@
+{
+  "id": "lib-fr4-reportedspeech",
+  "type": "assignment",
+  "subject": "Franska 4",
+  "title": "Discours indirect: reported speech",
+  "sourceSummary": "How to turn direct quotes into reported speech in French, including the tense shifts and changes to time and place expressions that come with it.",
+  "topics": [
+    "reported speech",
+    "tense shifts",
+    "reported questions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr4-rs-1",
+      "kind": "mc",
+      "topic": "reported speech",
+      "prompt": "He said: \"Je suis fatigué.\" How does this become reported speech, introduced by \"Il a dit que...\"?",
+      "opener": "The present tense in the direct quote usually becomes the imparfait in reported speech when the main verb is in the past.",
+      "choices": [
+        "Il a dit qu'il est fatigué.",
+        "Il a dit qu'il était fatigué.",
+        "Il a dit qu'il serait fatigué.",
+        "Il a dit qu'il a été fatigué."
+      ],
+      "answer": 1,
+      "explanation": "When the introducing verb (\"il a dit\") is in the passé composé/past, the tense in the quote shifts back one step: présent → imparfait. \"Je suis fatigué\" becomes \"qu'il était fatigué\"."
+    },
+    {
+      "id": "q-fr4-rs-2",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "She said: \"J'ai fini mes devoirs.\" How does this become reported speech? \"Elle a dit que...\"",
+      "opener": "The passé composé in the quote also shifts back one step when the main verb is in the past.",
+      "choices": [
+        "elle a fini ses devoirs.",
+        "elle finissait ses devoirs.",
+        "elle avait fini ses devoirs.",
+        "elle aurait fini ses devoirs."
+      ],
+      "answer": 2,
+      "explanation": "The passé composé in the direct quote becomes the plus-que-parfait in reported speech after a main verb in the past: \"j'ai fini\" → \"qu'elle avait fini ses devoirs\"."
+    },
+    {
+      "id": "q-fr4-rs-3",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "He said: \"Je viendrai demain.\" How does this become reported speech? \"Il a dit que...\"",
+      "opener": "The futur simple follows the same pattern as the present and the passé composé — one step back.",
+      "choices": [
+        "il viendra demain.",
+        "il viendrait le lendemain.",
+        "il vient demain.",
+        "il était venu le lendemain."
+      ],
+      "answer": 1,
+      "explanation": "The futur simple in the quote becomes the conditionnel présent in reported speech after a past tense: \"je viendrai\" → \"qu'il viendrait\". Note also that the time expression \"demain\" (tomorrow) must change to \"le lendemain\" (the next day), since the reference point has shifted."
+    },
+    {
+      "id": "q-fr4-rs-4",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "She asked: \"Est-ce que tu viens ?\" How does the question become reported speech? \"Elle a demandé...\"",
+      "opener": "Yes/no questions with \"est-ce que\" are rebuilt with a special connector in reported speech.",
+      "choices": [
+        "qu'est-ce que tu viens.",
+        "si tu venais.",
+        "que tu venais.",
+        "quand tu venais."
+      ],
+      "answer": 1,
+      "explanation": "A yes/no question in reported speech is introduced by \"si\" (if/whether), not \"que\": \"est-ce que tu viens ?\" → \"elle a demandé si tu venais\". The present tense in the original question shifts back to the imparfait because \"a demandé\" is in the past."
+    },
+    {
+      "id": "q-fr4-rs-5",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "Il a demandé : \"Qu'est-ce que tu fais ce week-end ?\" How does the question become reported speech?",
+      "opener": "\"Qu'est-ce que\" (what) has its own shortened form in reported speech.",
+      "choices": [
+        "Il a demandé ce que je faisais ce week-end-là.",
+        "Il a demandé qu'est-ce que je faisais ce week-end.",
+        "Il a demandé quoi je faisais ce week-end-là.",
+        "Il a demandé si je faisais ce week-end-là."
+      ],
+      "answer": 0,
+      "explanation": "\"Qu'est-ce que\" becomes \"ce que\" in reported speech: \"il a demandé ce que je faisais\". Notice that \"ce week-end\" (this weekend) also changes to \"ce week-end-là\" (that weekend), since the perspective has moved away from the moment of speaking."
+    },
+    {
+      "id": "q-fr4-rs-6",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Which time expression corresponds to \"hier\" (yesterday) when reporting a quote long after it was said?",
+      "opener": "Just like \"demain\" → \"le lendemain\", every time marker that points from the moment of speaking has a reported-speech equivalent.",
+      "choices": [
+        "avant-hier",
+        "la veille",
+        "ce jour-là",
+        "hier"
+      ],
+      "answer": 1,
+      "explanation": "\"Hier\" (yesterday) becomes \"la veille\" (the day before) in reported speech. Common shifts: aujourd'hui → ce jour-là, demain → le lendemain, hier → la veille, maintenant → à ce moment-là, ici → là."
+    },
+    {
+      "id": "q-fr4-rs-7",
+      "kind": "worked",
+      "topic": "reported speech",
+      "prompt": "Turn this into reported speech, starting with \"Le professeur a expliqué que...\": \"Je corrigerai vos copies ce soir et je vous rendrai vos notes demain.\"",
+      "opener": "The sentence contains two verbs in the futur simple as well as two time expressions that both need to change.",
+      "answer": "Le professeur a expliqué qu'il corrigerait leurs copies ce soir-là et qu'il leur rendrait leurs notes le lendemain.",
+      "steps": [
+        "The main verb \"a expliqué\" is in the past, so everything in the quote shifts back one tense step.",
+        "\"Je corrigerai\" (futur simple) → \"il corrigerait\" (conditionnel présent). The person also changes from \"je\" to \"il\", since the teacher is now being talked about in the third person.",
+        "\"Vos copies\" and \"vous\" (addressed to the students, in the direct quote) become \"leurs copies\" and \"leur\" when the sentence is reported to someone else.",
+        "\"Ce soir\" (this evening) refers to the moment of speaking and becomes \"ce soir-là\" (that evening) in reported speech; \"demain\" becomes \"le lendemain\".",
+        "\"Je vous rendrai\" (futur simple) → \"il leur rendrait\" (conditionnel présent), for the same reason as above.",
+        "Full sentence: \"Le professeur a expliqué qu'il corrigerait leurs copies ce soir-là et qu'il leur rendrait leurs notes le lendemain.\""
+      ]
+    },
+    {
+      "id": "q-fr4-rs-8",
+      "kind": "flashcard",
+      "topic": "tense shifts",
+      "prompt": "Which tense and time-expression shifts apply when turning direct speech into reported speech after a main verb in the past?",
+      "opener": "One step back on the tense ladder, plus swapped time and place words.",
+      "answer": "Tense shifts (one step back): présent → imparfait · passé composé → plus-que-parfait · futur simple → conditionnel présent · futur proche (aller + infinitive) → imparfait of aller + infinitive. Imparfait and plus-que-parfait don't change, since they're already \"as far back as they go\". Time/place expressions: aujourd'hui → ce jour-là · demain → le lendemain · hier → la veille · maintenant → à ce moment-là · ici → là · ce week-end → ce week-end-là. Questions: est-ce que/inversion → si · qu'est-ce que → ce que · qu'est-ce qui → ce qui. Personal pronouns (je/tu/vous) always adjust to reflect who is now talking about whom."
+    }
+  ]
+}

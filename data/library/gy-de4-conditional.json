@@ -1,0 +1,127 @@
+{
+  "id": "lib-de4-conditional",
+  "type": "assignment",
+  "subject": "Tyska 4",
+  "title": "Konditionalsätze: verkliga och overkliga villkor",
+  "sourceSummary": "Ett systematiskt grepp om wenn-satser i tre typer — verkligt villkor, overkligt villkor i nutid och overkligt villkor i dåtid — samt ordföljden när wenn utelämnas.",
+  "topics": [
+    "real conditions",
+    "unreal conditions",
+    "conditional word order"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de4-cond-1",
+      "kind": "mc",
+      "topic": "real conditions",
+      "prompt": "Vilken mening uttrycker ett verkligt, möjligt villkor i nutid?",
+      "opener": "Ett verkligt villkor (typ I) använder indikativ i båda satsleden, ofta presens.",
+      "choices": [
+        "Wenn es regnet, bleibe ich zu Hause.",
+        "Wenn es regnen würde, bliebe ich zu Hause.",
+        "Wenn es geregnet hätte, wäre ich zu Hause geblieben.",
+        "Wenn es regnete, würde ich zu Hause bleiben."
+      ],
+      "answer": 0,
+      "explanation": "Ett verkligt, allmängiltigt eller möjligt villkor bildas med indikativ presens i båda leden: \"Wenn es regnet, bleibe ich zu Hause.\" Konjunktiv II (alternativ 2 och 4) hade signalerat att regnet var mindre troligt eller rent hypotetiskt, och alternativ 3 beskriver ett villkor som redan är förbi."
+    },
+    {
+      "id": "q-de4-cond-2",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "Vilken mening uttrycker ett overkligt villkor i nutid?",
+      "opener": "Overkligt villkor i nutid: Konjunktiv II i båda satsleden, oftast med würde i huvudsatsen.",
+      "choices": [
+        "Wenn ich Millionär bin, kaufe ich eine Insel.",
+        "Wenn ich Millionär wäre, würde ich eine Insel kaufen.",
+        "Wenn ich Millionär war, kaufte ich eine Insel.",
+        "Wenn ich Millionär gewesen wäre, hätte ich eine Insel gekauft."
+      ],
+      "answer": 1,
+      "explanation": "\"Wenn ich Millionär wäre, würde ich eine Insel kaufen\" beskriver ett rent hypotetiskt villkor i nutid — talaren är inte miljonär. Alternativ 4 beskriver samma tanke men felaktigt förlagd till dåtid (hade jag varit miljonär då)."
+    },
+    {
+      "id": "q-de4-cond-3",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "Vilken mening uttrycker korrekt ett overkligt villkor i DÅTID?",
+      "opener": "Overkligt villkor i dåtid: hätte/wäre + particip i båda satsleden.",
+      "choices": [
+        "Wenn ich das gewusst hätte, hätte ich anders gehandelt.",
+        "Wenn ich das wüsste, würde ich anders handeln.",
+        "Wenn ich das weiß, handle ich anders.",
+        "Wenn ich das gewusst habe, habe ich anders gehandelt."
+      ],
+      "answer": 0,
+      "explanation": "En overklig situation som redan är avslutad (jag visste faktiskt inte det då) kräver Konjunktiv II i dåtid: hätte/wäre + particip i BÅDA leden: \"Wenn ich das gewusst hätte, hätte ich anders gehandelt.\" Alternativ 2 beskriver samma tanke men felaktigt förlagd till nutid."
+    },
+    {
+      "id": "q-de4-cond-4",
+      "kind": "mc",
+      "topic": "conditional word order",
+      "prompt": "Vilken mening har korrekt ordföljd när \"wenn\" utelämnas?",
+      "opener": "Utan \"wenn\" flyttas det böjda verbet till första plats i villkorssatsen — precis som i en ja/nej-fråga.",
+      "choices": [
+        "Hätte ich mehr Geld, würde ich eine Weltreise machen.",
+        "Ich hätte mehr Geld, würde ich eine Weltreise machen.",
+        "Hätte mehr Geld ich, würde ich eine Weltreise machen.",
+        "Wenn hätte ich mehr Geld, würde ich eine Weltreise machen."
+      ],
+      "answer": 0,
+      "explanation": "När \"wenn\" utelämnas i en formell eller litterär konditionalsats flyttas det böjda verbet till satsens första plats: \"Hätte ich mehr Geld, würde ich eine Weltreise machen.\" (jämför \"Wenn ich mehr Geld hätte, ...\"). Konstruktionen liknar en ja/nej-fråga men fungerar här som villkorssats."
+    },
+    {
+      "id": "q-de4-cond-5",
+      "kind": "mc",
+      "topic": "real conditions",
+      "prompt": "Vilket konjunktion/uttryck används INTE för att inleda en konditionalsats på tyska?",
+      "opener": "Tre av alternativen är etablerade sätt att uttrycka \"om\" på tyska.",
+      "choices": [
+        "wenn",
+        "falls",
+        "sofern",
+        "obwohl"
+      ],
+      "answer": 3,
+      "explanation": "\"Obwohl\" betyder \"fastän/trots att\" och inleder en medgivandesats, inte en villkorssats. \"Wenn\", \"falls\" och \"sofern\" betyder alla ungefär \"om\" och används i konditionalsatser, där \"falls\" och \"sofern\" ofta ger en mer formell, juridisk ton (\"om så skulle vara fallet\")."
+    },
+    {
+      "id": "q-de4-cond-6",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "Välj rätt kombination för att uttrycka: \"Om jag vore du, skulle jag inte köpa den bilen.\"",
+      "opener": "\"An deiner Stelle\" och \"wenn ich du wäre\" är två vanliga sätt att ge råd på tyska — här testas den fullständiga wenn-satsen.",
+      "choices": [
+        "Wenn ich du wäre, würde ich das Auto nicht kaufen.",
+        "Wenn ich du bin, kaufe ich das Auto nicht.",
+        "Wenn ich du war, kaufte ich das Auto nicht.",
+        "Wenn ich du gewesen wäre, hätte ich das Auto nicht gekauft."
+      ],
+      "answer": 0,
+      "explanation": "Rådet gäller en pågående, hypotetisk nutidssituation, så Konjunktiv II i nutid krävs i båda leden: \"Wenn ich du wäre, würde ich das Auto nicht kaufen.\" Alternativ 4 flyttar felaktigt villkoret till dåtid."
+    },
+    {
+      "id": "q-de4-cond-7",
+      "kind": "worked",
+      "topic": "unreal conditions",
+      "prompt": "Rätta felet och förklara: \"Wenn ich früher aufgestanden bin, hätte ich den Bus nicht verpasst.\" (Tänkt: en overklig situation i dåtid — jag steg faktiskt inte upp tidigt och missade bussen.)",
+      "opener": "Jämför tempus i de båda satsleden — matchar de varandra?",
+      "answer": "Wenn ich früher aufgestanden wäre, hätte ich den Bus nicht verpasst.",
+      "steps": [
+        "Meningen beskriver ett overkligt villkor i dåtid: talaren steg faktiskt inte upp tidigt och missade därför bussen.",
+        "Villkorssatsen står i perfekt indikativ (\"bin ... aufgestanden\"), men för ett overkligt dåtidsvillkor krävs Konjunktiv II: hätte/wäre + particip.",
+        "\"Aufstehen\" beskriver en tillståndsförändring och tar \"sein\" i perfekt, alltså blir Konjunktiv II-formen \"wäre aufgestanden\", inte \"hätte aufgestanden\".",
+        "Korrekt mening: \"Wenn ich früher aufgestanden wäre, hätte ich den Bus nicht verpasst.\" Båda satsleden måste stå i Konjunktiv II i dåtid för att villkoret ska läsas som overkligt."
+      ]
+    },
+    {
+      "id": "q-de4-cond-8",
+      "kind": "flashcard",
+      "topic": "real conditions",
+      "prompt": "Vilka tre typer av konditionalsatser finns på tyska, och hur bildas de?",
+      "opener": "Verkligt villkor, overkligt villkor i nutid, overkligt villkor i dåtid.",
+      "answer": "Typ 1 – Verkligt/möjligt villkor: indikativ i båda leden, ofta presens. Wenn es regnet, bleibe ich zu Hause. Typ 2 – Overkligt villkor i nutid: Konjunktiv II i båda leden (hätte/wäre/käme eller würde + infinitiv). Wenn ich Zeit hätte, würde ich kommen. Typ 3 – Overkligt villkor i dåtid: hätte/wäre + particip i båda leden. Wenn ich das gewusst hätte, hätte ich anders gehandelt. Konjunktioner: wenn = om/när, falls/sofern = om (mer formellt). Utan wenn: det böjda verbet flyttas till första plats (Hätte ich mehr Zeit, würde ich kommen)."
+    }
+  ]
+}

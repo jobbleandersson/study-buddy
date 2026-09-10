@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr4-culture",
+  "type": "assignment",
+  "subject": "Franska 4",
+  "title": "Samhällsfråga: l'environnement",
+  "sourceSummary": "Ordförråd och förståelseövningar kring miljödebatten i Frankrike och frankofona länder — klimatpolitik, vardagliga miljöval och hur man diskuterar frågan med nyanserat språk.",
+  "topics": [
+    "environment",
+    "society vocabulary",
+    "opinion expressions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr4-cult-1",
+      "kind": "mc",
+      "topic": "environment",
+      "prompt": "Vad betyder \"le réchauffement climatique\"?",
+      "opener": "Ett centralt begrepp i alla miljödebatter.",
+      "choices": [
+        "Klimatförändringen i allmänhet",
+        "Den globala uppvärmningen",
+        "Havsnivåhöjningen",
+        "Koldioxidutsläppen"
+      ],
+      "answer": 1,
+      "explanation": "\"Le réchauffement climatique\" betyder den globala uppvärmningen — den gradvisa temperaturökningen på jorden. \"Réchauffer\" betyder att värma upp igen."
+    },
+    {
+      "id": "q-fr4-cult-2",
+      "kind": "mc",
+      "topic": "society vocabulary",
+      "prompt": "Vilken mening uttrycker \"Vi borde minska vår konsumtion\" korrekt på franska?",
+      "opener": "\"Devoir\" i conditionnel uttrycker en rekommendation, som svenskans \"borde\".",
+      "choices": [
+        "Nous devons réduire notre consommation.",
+        "Nous devrions réduire notre consommation.",
+        "Nous avons réduit notre consommation.",
+        "Nous réduirons notre consommation."
+      ],
+      "answer": 1,
+      "explanation": "\"Devrions\" (conditionnel av \"devoir\") motsvarar svenskans \"borde\" — en rekommendation snarare än en absolut skyldighet. \"Nous devons\" (presens) betyder istället \"vi måste\", ett starkare påstående."
+    },
+    {
+      "id": "q-fr4-cult-3",
+      "kind": "mc",
+      "topic": "environment",
+      "prompt": "Vad betyder \"les énergies renouvelables\"?",
+      "opener": "Tänk på vad \"renouveler\" betyder — att förnya.",
+      "choices": [
+        "Fossila bränslen",
+        "Förnybar energi",
+        "Kärnkraft",
+        "Energibesparing"
+      ],
+      "answer": 1,
+      "explanation": "\"Les énergies renouvelables\" betyder förnybar energi (sol, vind, vatten), i motsats till \"les énergies fossiles\" (fossila bränslen som olja och kol)."
+    },
+    {
+      "id": "q-fr4-cult-4",
+      "kind": "mc",
+      "topic": "opinion expressions",
+      "prompt": "Vilket uttryck används för att INLEDA en åsikt om en samhällsfråga på ett nyanserat, formellt sätt?",
+      "opener": "Ett av alternativen är för vardagligt för en debattext eller muntlig presentation på gymnasienivå.",
+      "choices": [
+        "À mon avis, il conviendrait de...",
+        "Genre, je pense que...",
+        "Ouais, en fait...",
+        "Bref, whatever, je crois que..."
+      ],
+      "answer": 0,
+      "explanation": "\"À mon avis, il conviendrait de...\" (enligt min mening vore det lämpligt att...) är ett formellt, nyanserat sätt att inleda en åsikt — passande för debattartiklar och muntliga presentationer. De andra alternativen är alltför vardagliga/slang för det sammanhanget."
+    },
+    {
+      "id": "q-fr4-cult-5",
+      "kind": "mc",
+      "topic": "environment",
+      "prompt": "Läs texten: \"En France, le tri des déchets est devenu une habitude quotidienne dans la plupart des foyers, mais certains estiment que les efforts individuels ne suffisent pas face à l'ampleur du défi climatique.\"\n\nVad är textens huvudpoäng?",
+      "opener": "Meningen har två delar kopplade med \"mais\" (men) — vilken del väger tyngst?",
+      "choices": [
+        "Källsortering är obligatoriskt i Frankrike",
+        "De flesta fransmän sorterar inte sitt avfall",
+        "Källsortering är vanligt, men vissa menar att individuella insatser inte räcker mot klimatutmaningens omfattning",
+        "Klimatfrågan är löst tack vare källsortering"
+      ],
+      "answer": 2,
+      "explanation": "Texten säger att källsortering (\"le tri des déchets\") är en vanlig vana, men lyfter samtidigt fram en kritisk röst: individuella insatser räcker inte mot en utmaning av klimatfrågans storlek (\"l'ampleur du défi climatique\")."
+    },
+    {
+      "id": "q-fr4-cult-6",
+      "kind": "mc",
+      "topic": "society vocabulary",
+      "prompt": "Vad betyder \"l'empreinte carbone\"?",
+      "opener": "\"Une empreinte\" betyder ett avtryck.",
+      "choices": [
+        "Koldioxidavtrycket",
+        "Kolgruvan",
+        "Klimatavtalet",
+        "Utsläppsrätten"
+      ],
+      "answer": 0,
+      "explanation": "\"L'empreinte carbone\" betyder koldioxidavtrycket — ett mått på hur mycket växthusgaser en person, ett företag eller en produkt orsakar."
+    },
+    {
+      "id": "q-fr4-cult-7",
+      "kind": "worked",
+      "topic": "opinion expressions",
+      "prompt": "Skriv en kort, nyanserad åsikt (2-3 meningar) på franska om huruvida individens val (t.ex. att flyga mindre) spelar roll för klimatet, jämfört med politiska beslut. Använd minst ett uttryck för att nyansera åsikten (t.ex. \"certes... mais\", \"il est vrai que... cependant\").",
+      "opener": "En nyanserad åsikt erkänner motargumentet innan den för fram sin egen ståndpunkt.",
+      "answer": "Certes, les choix individuels comme prendre moins l'avion ont un impact réel. Cependant, à mon avis, ce sont surtout les décisions politiques et industrielles qui détermineront l'avenir du climat, car elles agissent à une échelle bien plus large.",
+      "steps": [
+        "Börja med att erkänna motargumentet med \"certes\" (visserligen/förvisso) — det signalerar att du tar in båda perspektiven innan du argumenterar för ditt eget: \"Certes, les choix individuels comme prendre moins l'avion ont un impact réel\" (visserligen har individuella val som att flyga mindre en verklig påverkan).",
+        "Väx sedan om till din egen ståndpunkt med ett kontrasterande uttryck som \"cependant\" (dock/emellertid): \"Cependant, à mon avis, ce sont surtout les décisions politiques et industrielles qui détermineront l'avenir du climat.\"",
+        "Avsluta med ett argument som stödjer din ståndpunkt: \"car elles agissent à une échelle bien plus large\" (för de verkar på en mycket större skala) — \"car\" (för/eftersom) knyter ihop orsak och slutsats.",
+        "Den här strukturen (erkänn motargument → kontrastera → egen ståndpunkt → motivering) är ett effektivt sätt att bygga nyanserade resonemang på franska, både muntligt och skriftligt."
+      ]
+    },
+    {
+      "id": "q-fr4-cult-8",
+      "kind": "flashcard",
+      "topic": "environment",
+      "prompt": "Vilket ordförråd och vilka uttryck behöver du för att diskutera miljöfrågor på franska på en nyanserad, gymnasial nivå?",
+      "opener": "Substantiv, verb och nyanserande uttryck att ha redo.",
+      "answer": "Substantiv: le réchauffement climatique (global uppvärmning), les énergies renouvelables (förnybar energi), l'empreinte carbone (koldioxidavtryck), le tri des déchets (källsortering), le développement durable (hållbar utveckling), la biodiversité (biologisk mångfald). Verb: réduire (minska), polluer (förorena), préserver (bevara), agir (agera). Nyanserande uttryck: certes... mais/cependant (visserligen... men), il est vrai que... néanmoins (det är sant att... ändå), à mon avis / selon moi (enligt min mening), il conviendrait de (det vore lämpligt att), d'un côté... de l'autre (å ena sidan... å andra sidan)."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr4-mood",
+  "type": "assignment",
+  "subject": "Franska 4",
+  "title": "Subjunctive: doubt and emotion",
+  "sourceSummary": "A deeper look at the subjunctive after expressions of doubt, emotion, will, and necessity — including the key exceptions where the indicative is used even though you might expect otherwise.",
+  "topics": [
+    "subjunctive triggers",
+    "doubt and emotion",
+    "irregular subjunctive"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr4-mood-1",
+      "kind": "mc",
+      "topic": "subjunctive triggers",
+      "prompt": "Choose the correct form: \"Je doute qu'il ___ raison.\" (avoir = to have)",
+      "opener": "\"Douter que\" expresses doubt — which mood does that require in the subordinate clause?",
+      "choices": [
+        "a",
+        "ait",
+        "aura",
+        "avait"
+      ],
+      "answer": 1,
+      "explanation": "\"Douter que\" is followed by the subjunctive because it expresses uncertainty about whether something is true. The subjunctive present of \"avoir\" for \"il\" is \"ait\": \"Je doute qu'il ait raison\" (I doubt that he's right)."
+    },
+    {
+      "id": "q-fr4-mood-2",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Choose the correct form: \"Nous sommes ravis que vous ___ pu venir.\" (pouvoir = to be able to)",
+      "opener": "An expression of emotion (\"we're delighted that...\") governs the mood of the clause, regardless of whether the content is true.",
+      "choices": [
+        "avez",
+        "ayez",
+        "aviez",
+        "auriez"
+      ],
+      "answer": 1,
+      "explanation": "Expressions of emotion such as \"être ravi que\", \"être content que\", and \"regretter que\" require the subjunctive in the subordinate clause, even when what's described is a fact. The subjunctive past of \"pouvoir\" is \"ayez pu\": \"que vous ayez pu venir\"."
+    },
+    {
+      "id": "q-fr4-mood-3",
+      "kind": "mc",
+      "topic": "subjunctive triggers",
+      "prompt": "Which clause does NOT require the subjunctive?",
+      "opener": "One of these expressions conveys certainty rather than doubt, will, or emotion.",
+      "choices": [
+        "Il faut que tu partes.",
+        "Je suis sûr qu'il ___ raison.",
+        "Il est possible qu'elle ___ en retard.",
+        "Je veux que tu ___ ici demain."
+      ],
+      "answer": 1,
+      "explanation": "\"Être sûr que\" expresses certainty, not doubt, and is therefore followed by the indicative: \"Je suis sûr qu'il a raison.\" The others (il faut que, il est possible que, vouloir que) express necessity, possibility, and will respectively, and require the subjunctive."
+    },
+    {
+      "id": "q-fr4-mood-4",
+      "kind": "mc",
+      "topic": "irregular subjunctive",
+      "prompt": "Choose the correct form: \"Il faut que nous ___ à l'heure.\" (être = to be)",
+      "opener": "\"Être\" has a completely irregular subjunctive stem.",
+      "choices": [
+        "sommes",
+        "soyons",
+        "serions",
+        "étions"
+      ],
+      "answer": 1,
+      "explanation": "\"Être\" is irregular in the subjunctive present: que je sois, que tu sois, qu'il soit, que nous soyons, que vous soyez, qu'ils soient. \"Il faut que nous soyons à l'heure\" (we need to be on time)."
+    },
+    {
+      "id": "q-fr4-mood-5",
+      "kind": "mc",
+      "topic": "irregular subjunctive",
+      "prompt": "Choose the correct form: \"Je ne pense pas qu'elle ___ la vérité.\" (savoir = to know)",
+      "opener": "\"Ne pas penser que\" expresses doubt about a statement — just like \"douter que\".",
+      "choices": [
+        "sait",
+        "saura",
+        "sache",
+        "savait"
+      ],
+      "answer": 2,
+      "explanation": "A negated opinion (\"je ne pense pas que\", \"je ne crois pas que\") expresses doubt and requires the subjunctive. \"Savoir\" in the subjunctive for \"elle\" is \"sache\": \"qu'elle sache la vérité\". Compare with \"je pense qu'elle sait\" (without the negation), which takes the indicative."
+    },
+    {
+      "id": "q-fr4-mood-6",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Which sentence correctly expresses \"It's a shame he can't come\"?",
+      "opener": "\"Il est dommage que\" is an expression of emotion and governs the mood of the subordinate clause.",
+      "choices": [
+        "Il est dommage qu'il ne peut pas venir.",
+        "Il est dommage qu'il ne puisse pas venir.",
+        "Il est dommage qu'il ne pouvait pas venir.",
+        "Il est dommage qu'il ne pourra pas venir."
+      ],
+      "answer": 1,
+      "explanation": "\"Il est dommage que\" expresses regret and requires the subjunctive. \"Pouvoir\" in the subjunctive present is \"puisse\" (irregular stem): \"qu'il ne puisse pas venir\"."
+    },
+    {
+      "id": "q-fr4-mood-7",
+      "kind": "worked",
+      "topic": "subjunctive triggers",
+      "prompt": "Correct the error and explain why: \"Je suis content que tu es venu à ma fête, même si je doute que tout le monde s'est bien amusé.\"",
+      "opener": "Both subordinate clauses are introduced by expressions that govern the subjunctive — but only one verb form is wrong.",
+      "answer": "Je suis content que tu sois venu à ma fête, même si je doute que tout le monde se soit bien amusé.",
+      "steps": [
+        "First clause: \"je suis content que\" is an expression of emotion and requires the subjunctive, not the indicative. \"tu es venu\" should become \"tu sois venu\" (subjunctive past of venir, formed with être since venir is a movement verb).",
+        "Second clause: \"je doute que\" expresses doubt and also requires the subjunctive. \"tout le monde s'est bien amusé\" should become \"tout le monde se soit bien amusé\" — reflexive verbs form the subjunctive past with \"que + subjunctive of être + past participle\".",
+        "The full correct sentence: \"Je suis content que tu sois venu à ma fête, même si je doute que tout le monde se soit bien amusé.\"",
+        "Pattern to remember: emotion, doubt, will, and necessity in the main clause → subjunctive in the que-clause. Certainty and facts (savoir que, être sûr que, il est certain que) → indicative."
+      ]
+    },
+    {
+      "id": "q-fr4-mood-8",
+      "kind": "flashcard",
+      "topic": "subjunctive triggers",
+      "prompt": "Which expressions trigger the subjunctive, and which don't?",
+      "opener": "A list worth keeping in mind before a test.",
+      "answer": "Triggers the subjunctive: doubt (douter que, ne pas penser/croire que), emotion (être content/ravi/désolé/surpris que, regretter que, il est dommage que), will (vouloir que, souhaiter que, préférer que), necessity/possibility (il faut que, il est possible/important/nécessaire que). Does NOT trigger the subjunctive (indicative used instead): certainty and facts (je pense/crois que without negation, je suis sûr/certain que, il est vrai/évident que, savoir que). Irregular subjunctive stems worth knowing: être → sois/soit/soyons/soyez/soient, avoir → aie/ait/ayons/ayez/aient, faire → fasse, pouvoir → puisse, savoir → sache, aller → aille, vouloir → veuille."
+    }
+  ]
+}

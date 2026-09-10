@@ -1,0 +1,128 @@
+{
+  "id": "lib-sp4-reading",
+  "type": "assignment",
+  "subject": "Spanska 4",
+  "title": "Läsförståelse: en debattartikel",
+  "sourceSummary": "En längre, åsiktsdriven text om skärmtid och uppmärksamhet, med frågor om huvudbudskap, ton, slutledning och ordförståelse.",
+  "topics": [
+    "main idea",
+    "inference",
+    "vocabulary in context",
+    "argument structuring"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp4-reading-1",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Läs texten:\n\n\"Cada vez que cojo el móvil para consultar la hora, acabo veinte minutos después deslizando por vídeos que no recuerdo haber elegido ver. No estoy sola: según varios estudios recientes, el usuario medio revisa su teléfono más de cien veces al día. Las empresas tecnológicas lo saben perfectamente y diseñan sus aplicaciones para que resulte casi imposible dejar de mirarlas. Se habla mucho de 'fuerza de voluntad', como si el problema residiera únicamente en la falta de disciplina del usuario. Sin embargo, pocos mencionan que del otro lado hay equipos enteros de ingenieros y psicólogos cuyo único objetivo es capturar nuestra atención el mayor tiempo posible. Culpar solo al individuo es, cuando menos, una simplificación cómoda. Antes de pedirle a la gente que apague las notificaciones, quizá deberíamos preguntarnos por qué un simple teléfono resulta más persuasivo que nuestra propia voluntad.\"\n\nVad är textens huvudbudskap?",
+      "opener": "Leta efter meningen som vänder ansvaret bort från bara användaren.",
+      "choices": [
+        "Man bör helt sluta använda mobiltelefoner.",
+        "Ansvaret för skärmberoende ligger inte bara hos den enskilda användaren, utan även hos teknikföretagen.",
+        "Ingenjörer och psykologer bär hela skulden för skärmberoende.",
+        "Notifikationer bör stängas av helt för att lösa problemet."
+      ],
+      "answer": 1,
+      "explanation": "Texten argumenterar mot tanken att skärmberoende enbart handlar om bristande viljestyrka och pekar istället på att appar medvetet designas för att fånga uppmärksamhet — poängen är att ansvaret bör delas, inte att det ligger enbart hos individen eller enbart hos företagen."
+    },
+    {
+      "id": "q-sp4-reading-2",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Läs texten igen. I sammanhanget \"Culpar solo al individuo es, cuando menos, una simplificación cómoda\", vad betyder ungefär \"una simplificación cómoda\"?",
+      "opener": "Läs meningen före: den beskriver ett helt system av ingenjörer och psykologer som texten menar att man bortser från.",
+      "choices": [
+        "Ett bekvämt sätt att slippa se hela problemets komplexitet",
+        "En vetenskapligt korrekt slutsats",
+        "Ett skämt som författaren inte tar på allvar",
+        "Ett förslag på hur man löser problemet enkelt"
+      ],
+      "answer": 0,
+      "explanation": "\"Simplificación cómoda\" (en bekväm förenkling) syftar på att det är lättare att skylla på individen än att erkänna hela systemet bakom — det är kritik, inte ett korrekt eller vetenskapligt påstående."
+    },
+    {
+      "id": "q-sp4-reading-3",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Läs texten igen. Vad kan man dra för slutsats om författarens inställning till uttrycket \"fuerza de voluntad\" (viljestyrka) i sammanhanget?",
+      "opener": "Notera ordet \"como si\" (som om) — vad signalerar det om författarens hållning?",
+      "choices": [
+        "Författaren håller fullständigt med om att det handlar om viljestyrka.",
+        "Författaren är skeptisk till att problemet bara handlar om individens viljestyrka.",
+        "Författaren har aldrig hört talas om uttrycket förut.",
+        "Författaren tycker att viljestyrka är oviktigt för alla sorters problem."
+      ],
+      "answer": 1,
+      "explanation": "Frasen \"como si el problema residiera únicamente en...\" (som om problemet enbart låg i...) signalerar distans och skepsis — författaren ifrågasätter att förklaringen räcker."
+    },
+    {
+      "id": "q-sp4-reading-4",
+      "kind": "mc",
+      "topic": "argument structuring",
+      "prompt": "Läs texten igen. Vilket retoriskt grepp använder författaren i den sista meningen (\"Antes de pedirle a la gente que apague las notificaciones, quizá deberíamos preguntarnos...\")?",
+      "opener": "Meningen är formulerad som en uppmaning kombinerad med en fråga — vad är syftet med det?",
+      "choices": [
+        "Att avsluta med en retorisk fråga som utmanar läsaren att tänka om",
+        "Att ge ett konkret, tekniskt råd om hur man stänger av notiser",
+        "Att sammanfatta statistiken som nämndes tidigare i texten",
+        "Att be om ursäkt för sina tidigare påståenden"
+      ],
+      "answer": 0,
+      "explanation": "Meningen avslutar texten med en retorisk fråga (\"quizá deberíamos preguntarnos por qué...\") som inte kräver ett direkt svar utan får läsaren att själv reflektera — ett vanligt sätt att avsluta en debattartikel."
+    },
+    {
+      "id": "q-sp4-reading-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Läs texten igen. Vad säger inledningen (\"Cada vez que cojo el móvil... acabo veinte minutos después deslizando por vídeos que no recuerdo haber elegido ver\") om författarens egen upplevelse?",
+      "opener": "Notera att författaren skriver i jag-form och beskriver ett mönster hen själv känner igen.",
+      "choices": [
+        "Författaren upplever att tiden på mobilen glider iväg utan medvetet val",
+        "Författaren väljer alltid noga vilka videor hen tittar på",
+        "Författaren använder aldrig mobilen för att kolla klockan",
+        "Författaren är helt oberörd av problemet hen beskriver"
+      ],
+      "answer": 0,
+      "explanation": "Frasen \"no recuerdo haber elegido ver\" (jag minns inte att jag valde att titta) visar att författaren själv upplever att tiden glider iväg omedvetet — vilket ger texten trovärdighet genom personlig erfarenhet innan argumentationen breddas till att gälla alla användare."
+    },
+    {
+      "id": "q-sp4-reading-6",
+      "kind": "mc",
+      "topic": "argument structuring",
+      "prompt": "Läs texten igen. Vilken typ av text är detta, och vad är dess huvudsakliga syfte?",
+      "opener": "Tänk på personligt tilltal (\"no estoy sola\"), argumentation och den avslutande frågan.",
+      "choices": [
+        "En krönika/debattartikel vars syfte är att ifrågasätta en vanlig uppfattning",
+        "En instruktionstext vars syfte är att lära ut hur man stänger av notifikationer",
+        "En nyhetsartikel som bara refererar fakta utan värdering",
+        "En annons för en teknikapplikation"
+      ],
+      "answer": 0,
+      "explanation": "Den personliga inledningen, argumentationen mot en vanlig uppfattning och den retoriska avslutande frågan är typiska drag för en krönika/debattartikel (columna de opinión), vars syfte är att utmana läsarens tankesätt."
+    },
+    {
+      "id": "q-sp4-reading-7",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Läs texten igen och förklara: Vilka TVÅ grupper ställer författaren mot varandra i sin argumentation, och vad är poängen med den jämförelsen?",
+      "opener": "En grupp nämns i uttrycket \"la falta de disciplina del usuario\", en annan i \"equipos enteros de ingenieros y psicólogos\".",
+      "answer": "Den enskilda användaren (som förväntas ha viljestyrka) ställs mot hela team av ingenjörer och psykologer (som professionellt designar appar för att fånga uppmärksamhet) — poängen är att det är orättvist att lägga hela ansvaret på individen när motparten är ett helt yrkesmässigt system.",
+      "steps": [
+        "Grupp 1: den enskilda användaren, som i den vanliga uppfattningen förväntas klara av skärmtid genom egen \"fuerza de voluntad\" (viljestyrka).",
+        "Grupp 2: \"equipos enteros de ingenieros y psicólogos\" (hela team av ingenjörer och psykologer) vars jobb är att göra apparna så svåra att sluta använda som möjligt.",
+        "Genom att ställa en enskild person mot ett helt yrkesmässigt system tydliggör författaren obalansen — det är inte en rättvis kamp.",
+        "Detta leder fram till textens huvudpoäng: att skylla enbart på individen (\"culpar solo al individuo\") är en förenkling som döljer var det verkliga ansvaret ligger."
+      ]
+    },
+    {
+      "id": "q-sp4-reading-8",
+      "kind": "flashcard",
+      "topic": "main idea",
+      "prompt": "Vilka lässtrategier hjälper dig att analysera en åsiktsdriven text (columna de opinión) på spanska?",
+      "opener": "Debattartiklar bygger ofta upp ett resonemang stegvis fram till en poäng — så här läser du dem effektivt.",
+      "answer": "Identifiera avsändarens hållning tidigt — ofta signaleras den genom ordval som \"como si\", \"sin embargo\", \"cuando menos\". Skilj på fakta/statistik (t.ex. \"más de cien veces al día\") och värderande påståenden (\"una simplificación cómoda\"). Leta efter vändpunkter markerade med \"sin embargo\" (dock/emellertid) eller \"pero\" (men) — där brukar textens verkliga poäng finnas. En avslutande retorisk fråga är ofta textens sammanfattande poäng, formulerad så att läsaren själv ska dra slutsatsen. Ordförråd att känna igen: deslizar (att svepa/scrolla), capturar la atención (att fånga uppmärksamheten), culpar (att skylla på), residir en (att ligga i/bero på)."
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "lib-de3-writing",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Written German: comparisons and coherent sentence structure",
+  "sourceSummary": "Writing more maturely in German — comparisons with als/wie, relative clauses that link sentences together, correct register, and Konjunktiv II in argumentative writing.",
+  "topics": [
+    "word choice",
+    "sentence structure",
+    "register"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-writing-1",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Choose the correct comparison word: \"Berlin ist größer ___ München.\" (Berlin is bigger than Munich)",
+      "opener": "With a comparative (e.g. \"größer\"), a specific word is used for \"than\".",
+      "choices": [
+        "wie",
+        "als",
+        "so",
+        "dann"
+      ],
+      "answer": 1,
+      "explanation": "With a comparative (\"größer\"), \"als\" is used for \"than\". \"Wie\" is used to express equality with \"so...wie\" (\"so groß wie\", as big as), not after a comparative form."
+    },
+    {
+      "id": "q-de3-writing-2",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Choose the correct construction: \"Diese Stadt ist nicht ___ interessant ___ die Hauptstadt.\" (this city is not as interesting as the capital)",
+      "opener": "Equality is expressed with a different construction than inequality.",
+      "choices": [
+        "so ... wie",
+        "als ... als",
+        "wie ... als",
+        "so ... als"
+      ],
+      "answer": 0,
+      "explanation": "Equality is expressed with \"so + adjective + wie\": \"so interessant wie\". \"Als\" is only used for comparative inequality (\"größer als\"), not for equality."
+    },
+    {
+      "id": "q-de3-writing-3",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Which sentence is the most coherent, written-register version of: \"Ich besuchte die Stadt. Die Stadt ist für ihre Architektur bekannt.\"?",
+      "opener": "A relative clause can link two short sentences without repeating the noun.",
+      "choices": [
+        "Ich besuchte die Stadt, die für ihre Architektur bekannt ist.",
+        "Ich besuchte die Stadt. Die für ihre Architektur bekannt ist.",
+        "Ich besuchte die Stadt, das für ihre Architektur bekannt ist.",
+        "Ich besuchte die Stadt, die ist für ihre Architektur bekannt."
+      ],
+      "answer": 0,
+      "explanation": "In coherent written text, two short sentences are often linked with a relative clause: \"..., die für ihre Architektur bekannt ist.\" This gives a more mature writing style than two short main clauses in a row. \"Das\" would be the wrong gender (die Stadt is feminine)."
+    },
+    {
+      "id": "q-de3-writing-4",
+      "kind": "mc",
+      "topic": "register",
+      "prompt": "In a written travel account, which sentence fits best stylistically?",
+      "opener": "Think about which tense is the standard one in coherent written narrative.",
+      "choices": [
+        "Wir kamen in Hamburg an und besuchten sofort den Hafen.",
+        "Wir sind in Hamburg angekommen und haben sofort den Hafen besucht.",
+        "Wir kommen in Hamburg an und besuchen sofort den Hafen.",
+        "Wir sind angekommen in Hamburg und besuchten den Hafen."
+      ],
+      "answer": 0,
+      "explanation": "In written narrative texts (like a travel account), the simple past is used consistently as the standard past tense: \"kamen\", \"besuchten\". The perfect (option 2) would fit spoken language, but is stylistically unusual in coherent written narrative."
+    },
+    {
+      "id": "q-de3-writing-5",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Choose the grammatically correct sentence if \"weil\" is replaced with \"denn\" in: \"Viele Familien ziehen aufs Land, weil sie dort mehr Platz für weniger Geld finden.\"",
+      "opener": "\"Denn\" does not change the word order, unlike \"weil\".",
+      "choices": [
+        "Viele Familien ziehen aufs Land, denn sie finden dort mehr Platz für weniger Geld.",
+        "Viele Familien ziehen aufs Land, denn sie dort mehr Platz für weniger Geld finden.",
+        "Viele Familien ziehen aufs Land, denn finden sie dort mehr Platz für weniger Geld.",
+        "Viele Familien ziehen aufs Land, denn dort sie finden mehr Platz für weniger Geld."
+      ],
+      "answer": 0,
+      "explanation": "\"Denn\" does not change the word order — the verb (\"finden\") stays in position two, just like in a regular main clause: \"denn sie finden dort ...\". This differs from \"weil\", which requires the verb at the end."
+    },
+    {
+      "id": "q-de3-writing-6",
+      "kind": "mc",
+      "topic": "register",
+      "prompt": "Which phrasing is typical of nuanced, written argumentation in an essay?",
+      "opener": "Konjunktiv II gives a more cautious, academic tone.",
+      "choices": [
+        "Man könnte sagen, dass die Digitalisierung sowohl Vor- als auch Nachteile hat.",
+        "Ich sage die Digitalisierung hat Vorteile und Nachteile.",
+        "Digitalisierung ist gut, Punkt.",
+        "Vielleicht Digitalisierung gut oder schlecht ist."
+      ],
+      "answer": 0,
+      "explanation": "\"Man könnte sagen, dass...\" (Konjunktiv II) gives a cautious, nuanced tone suited to academic/argumentative writing, compared to the blunt and grammatically simpler phrasing in option 2."
+    },
+    {
+      "id": "q-de3-writing-7",
+      "kind": "worked",
+      "topic": "sentence structure",
+      "prompt": "Rewrite into a more coherent, written-register sentence: \"Die Stadt hat viele Parks. Die Parks sind sehr grün. Ich finde die Stadt schöner. Ich vergleiche sie mit meiner Heimatstadt.\"",
+      "opener": "Use a relative clause for the first two sentences, and a comparative with \"als\" for the rest.",
+      "answer": "Die Stadt, die viele sehr grüne Parks hat, finde ich schöner als meine Heimatstadt.",
+      "steps": [
+        "The first two sentences about the parks are combined with a relative clause: \"die Stadt, die viele sehr grüne Parks hat\" — avoiding repetition of \"die Parks\".",
+        "The last two sentences about the comparison are combined into a comparative construction: \"schöner als meine Heimatstadt\" instead of a separate \"ich vergleiche\" statement.",
+        "The result links four short sentences into a single, more mature written sentence: \"Die Stadt, die viele sehr grüne Parks hat, finde ich schöner als meine Heimatstadt.\""
+      ]
+    },
+    {
+      "id": "q-de3-writing-8",
+      "kind": "flashcard",
+      "topic": "word choice",
+      "prompt": "Which grammatical choices make a German text more coherent and written in style?",
+      "opener": "Four tools that lift written German from a basic level to a more mature style.",
+      "answer": "Comparisons: comparative + als (\"größer als\", bigger than), equality with so + adjective + wie (\"so groß wie\", as big as). Relative clauses link short sentences and avoid repetition: \"die Stadt, die ... ist\". Register: the simple past as the standard past tense in coherent written narrative (unlike the perfect in speech). Konjunktiv II gives a nuanced, cautious tone in argumentative writing: \"man könnte sagen, dass...\". Conjunctions: \"denn\" keeps normal word order (verb in position two), while \"weil\"/\"dass\"/\"obwohl\" send the verb to the end of the clause — varying between them creates more varied sentence structure."
+    }
+  ]
+}

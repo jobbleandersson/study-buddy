@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr3-mood",
+  "type": "assignment",
+  "subject": "Franska 3",
+  "title": "Subjunctive mood: an introduction to the subjonctif",
+  "sourceSummary": "A first introduction to the present subjunctive (subjonctif) after expressions like il faut que, je veux que and je souhaite que.",
+  "topics": [
+    "subjonctif",
+    "il faut que",
+    "je veux que / je souhaite que"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr3-mood-1",
+      "kind": "mc",
+      "topic": "il faut que",
+      "prompt": "Choose the correct form: \"Il faut que tu ___ (parler) plus lentement.\"",
+      "opener": "The present subjunctive of -er verbs is usually formed from the present-tense ils form minus -ent, plus the subjunctive ending.",
+      "choices": [
+        "parles",
+        "parle",
+        "parlais",
+        "as parlé"
+      ],
+      "answer": 0,
+      "explanation": "After \"il faut que\", the subjunctive is used. For \"tu\", the ending is -es: \"que tu parles\". The stem comes from \"ils parlent\" → parl-."
+    },
+    {
+      "id": "q-fr3-mood-2",
+      "kind": "mc",
+      "topic": "il faut que",
+      "prompt": "Choose the correct form: \"Il faut que nous ___ (finir) ce travail avant midi.\"",
+      "opener": "The nous and vous forms in the subjunctive often look the same as in the imperfect.",
+      "choices": [
+        "finissions",
+        "finissons",
+        "finirons",
+        "finissiez"
+      ],
+      "answer": 0,
+      "explanation": "The subjunctive for \"nous\" has the ending -ions: \"que nous finissions\". Compare with the present indicative \"nous finissons\" — only one letter differs, but the difference matters."
+    },
+    {
+      "id": "q-fr3-mood-3",
+      "kind": "mc",
+      "topic": "je veux que / je souhaite que",
+      "prompt": "Choose the correct form: \"Je veux que tu ___ (venir) avec moi ce soir.\"",
+      "opener": "\"Venir\" is irregular in the subjunctive — the stem changes for je/tu/il/ils.",
+      "choices": [
+        "viennes",
+        "viens",
+        "venais",
+        "viendras"
+      ],
+      "answer": 0,
+      "explanation": "\"Venir\" has the irregular subjunctive stem \"vienn-\" for je/tu/il/elle/ils: \"que tu viennes\". The ending -es, though, is the regular one for the tu form."
+    },
+    {
+      "id": "q-fr3-mood-4",
+      "kind": "mc",
+      "topic": "je veux que / je souhaite que",
+      "prompt": "Which sentence is correct when the subject is THE SAME in both clauses: \"I want to leave tomorrow\"?",
+      "opener": "When both clauses share the same subject, French uses the infinitive, not the subjunctive.",
+      "choices": [
+        "Je veux partir demain.",
+        "Je veux que je parte demain.",
+        "Je veux que tu partes demain.",
+        "Je veux partir que demain."
+      ],
+      "answer": 0,
+      "explanation": "When the subject of the main clause and the subordinate clause is the same, the infinitive is used: \"je veux partir\" (I want to leave). The subjunctive (\"que je parte\") is only used when the subjects differ, for example \"je veux que TU partes\"."
+    },
+    {
+      "id": "q-fr3-mood-5",
+      "kind": "mc",
+      "topic": "subjonctif",
+      "prompt": "Choose the correct form: \"Je souhaite que vous ___ (être) heureux.\"",
+      "opener": "\"Être\" has its own, entirely irregular subjunctive stem.",
+      "choices": [
+        "soyez",
+        "êtes",
+        "seriez",
+        "soyons"
+      ],
+      "answer": 0,
+      "explanation": "\"Être\" in the subjunctive: que je sois, que tu sois, qu'il soit, que nous soyons, que vous soyez, qu'ils soient. For \"vous\" it becomes \"soyez\"."
+    },
+    {
+      "id": "q-fr3-mood-6",
+      "kind": "mc",
+      "topic": "subjonctif",
+      "prompt": "Choose the correct form: \"Il faut que tu ___ (avoir) de la patience.\"",
+      "opener": "\"Avoir\" also has an irregular subjunctive stem.",
+      "choices": [
+        "aies",
+        "as",
+        "avais",
+        "auras"
+      ],
+      "answer": 0,
+      "explanation": "\"Avoir\" in the subjunctive: que j'aie, que tu aies, qu'il ait, que nous ayons, que vous ayez, qu'ils aient. So \"tu aies\" is the correct form here."
+    },
+    {
+      "id": "q-fr3-mood-7",
+      "kind": "worked",
+      "topic": "subjonctif",
+      "prompt": "Explain which form fits each gap and why: \"Mes parents veulent que je ___ (faire) mes devoirs avant de sortir, mais moi, je préfère ___ (sortir) d'abord et ___ (faire) mes devoirs après.\"",
+      "opener": "Compare the subjects in each clause: is it the same person who wants and who does, or different people?",
+      "answer": "fasse / sortir / faire",
+      "steps": [
+        "Gap 1: \"mes parents veulent que JE fasse\" — different subjects (the parents want, I do) → the subjunctive is required: \"fasse\" (irregular stem from faire).",
+        "Gap 2: \"je préfère sortir\" — same subject (I prefer, I go out) → infinitive: \"sortir\", not \"que je sorte\".",
+        "Gap 3: for the same reason, same subject again → infinitive: \"faire\", not the subjunctive.",
+        "The rule holds throughout: same subject in both parts → infinitive. Different subjects → subjunctive after expressions like vouloir que, falloir que, souhaiter que."
+      ]
+    },
+    {
+      "id": "q-fr3-mood-8",
+      "kind": "flashcard",
+      "topic": "subjonctif",
+      "prompt": "How is the present subjunctive (subjonctif) formed and used after expressions like il faut que, je veux que and je souhaite que?",
+      "opener": "Formation, exceptions, and the important infinitive rule.",
+      "answer": "Formation (regular verbs): take the stem from the present-tense ils form (ils parlent → parl-) and add -e, -es, -e, -ions, -iez, -ent: que je parle, que tu parles, qu'il parle, que nous parlions, que vous parliez, qu'ils parlent. Common irregular stems: être → sois/soyons/soyez, avoir → aie/ayons/ayez, faire → fasse, aller → aille/allions, pouvoir → puisse, savoir → sache. Used after expressions of will, necessity, or wish when the subjects DIFFER: il faut que, je veux que, je souhaite que, je voudrais que. Important rule: if the subject is the same in both clauses, the infinitive is used instead: \"je veux partir\" (not \"que je parte\")."
+    }
+  ]
+}

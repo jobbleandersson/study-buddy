@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr4-reading",
+  "type": "assignment",
+  "subject": "Franska 4",
+  "title": "Läsförståelse: en debattartikel",
+  "sourceSummary": "En längre, åsiktsdriven text om sociala mediers påverkan på unga, med frågor som tränar huvudbudskap, slutledning, ordförståelse och argumentationsanalys på en mer avancerad nivå.",
+  "topics": [
+    "reading comprehension",
+    "argument analysis",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr4-read-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten:\n\n\"Faut-il interdire les réseaux sociaux aux moins de seize ans ? La question divise. D'un côté, plusieurs études pointent un lien entre l'usage intensif des écrans et une hausse de l'anxiété chez les adolescents. De l'autre, les principaux concernés rappellent que ces plateformes sont devenues un espace essentiel de socialisation, surtout pour les jeunes isolés géographiquement ou marginalisés. Interdire, disent-ils, ne ferait que déplacer le problème vers des applications moins régulées, échappant à tout contrôle parental.\"\n\nVad handlar texten framförallt om?",
+      "opener": "Leta efter den fråga som ställs i första meningen — resten av texten svarar på den.",
+      "choices": [
+        "Om sociala medier borde förbjudas för unga under sexton år",
+        "Hur man reglerar internetanvändning i skolan",
+        "Varför tonåringar är isolerade geografiskt",
+        "Vilka appar som är populärast bland unga"
+      ],
+      "answer": 0,
+      "explanation": "Texten inleds med frågan \"Faut-il interdire les réseaux sociaux aux moins de seize ans ?\" (Bör sociala medier förbjudas för under sexton år?) och hela texten väger argument för och emot den frågan."
+    },
+    {
+      "id": "q-fr4-read-2",
+      "kind": "mc",
+      "topic": "argument analysis",
+      "prompt": "Läs texten igen (se föregående fråga).\n\nVilket argument använder motståndarna till ett förbud?",
+      "opener": "Läs meningen som börjar med \"De l'autre\" (å andra sidan).",
+      "choices": [
+        "Att studier om skärmtid är opålitliga",
+        "Att sociala medier är en viktig social plattform, särskilt för isolerade eller marginaliserade unga",
+        "Att föräldrar redan har full kontroll över sina barns skärmtid",
+        "Att ett förbud skulle vara för dyrt att genomföra"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger att \"les principaux concernés rappellent que ces plateformes sont devenues un espace essentiel de socialisation, surtout pour les jeunes isolés géographiquement ou marginalisés\" — sociala medier fyller en viktig social funktion för just dessa grupper."
+    },
+    {
+      "id": "q-fr4-read-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Läs texten igen.\n\nI meningen \"Interdire, disent-ils, ne ferait que déplacer le problème vers des applications moins régulées, échappant à tout contrôle parental\", vad betyder \"échappant à\"?",
+      "opener": "Sammanhanget beskriver appar utan reglering — vad gör de i förhållande till föräldrakontroll?",
+      "choices": [
+        "som kräver",
+        "som stödjer",
+        "som undgår/undkommer",
+        "som förbättrar"
+      ],
+      "answer": 2,
+      "explanation": "\"Échapper à\" betyder att undgå eller undkomma något. Appar som är \"moins régulées\" (mindre reglerade) och \"échappant à tout contrôle parental\" är appar som undkommer all föräldrakontroll — helt orimliga att övervaka."
+    },
+    {
+      "id": "q-fr4-read-4",
+      "kind": "mc",
+      "topic": "argument analysis",
+      "prompt": "Läs texten igen.\n\nVarför nämner texten specifikt \"les jeunes isolés géographiquement ou marginalisés\"?",
+      "opener": "Fundera på vilken typ av argument det stärker.",
+      "choices": [
+        "För att visa att förbudet skulle vara olagligt",
+        "För att ge ett konkret exempel på vilka som skulle förlora mest på ett förbud",
+        "För att bevisa att sociala medier orsakar ångest",
+        "För att förklara varför appar är dåligt reglerade"
+      ],
+      "answer": 1,
+      "explanation": "Genom att peka ut en specifik, sårbar grupp gör texten motargumentet mer konkret och känslomässigt övertygande — det är inte bara \"unga i allmänhet\" som skulle drabbas, utan särskilt de som redan är isolerade eller marginaliserade."
+    },
+    {
+      "id": "q-fr4-read-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten igen.\n\nHur skulle du beskriva textens struktur?",
+      "opener": "Titta på hur \"D'un côté\" och \"De l'autre\" används.",
+      "choices": [
+        "Den presenterar bara ett perspektiv och argumenterar starkt för det",
+        "Den berättar en personlig historia utan att ta ställning",
+        "Den väger två motstående perspektiv mot varandra utan att tydligt ta ställning",
+        "Den listar statistik utan någon argumentation alls"
+      ],
+      "answer": 2,
+      "explanation": "Frasparet \"d'un côté... de l'autre\" (å ena sidan... å andra sidan) signalerar en balanserad struktur där texten presenterar båda sidors argument utan att uttryckligen ta ställning för någotdera."
+    },
+    {
+      "id": "q-fr4-read-6",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Läs texten igen.\n\nVad betyder \"un lien\" i \"plusieurs études pointent un lien entre l'usage intensif des écrans et une hausse de l'anxiété\"?",
+      "opener": "Ordet beskriver relationen mellan två saker som studierna undersökt.",
+      "choices": [
+        "en lösning",
+        "ett samband",
+        "en skillnad",
+        "ett hot"
+      ],
+      "answer": 1,
+      "explanation": "\"Un lien\" betyder ett samband eller en koppling. Studierna \"pointent un lien entre l'usage intensif des écrans et une hausse de l'anxiété\" — de pekar på ett samband mellan intensiv skärmanvändning och ökad ångest (utan att nödvändigtvis bevisa orsak och verkan)."
+    },
+    {
+      "id": "q-fr4-read-7",
+      "kind": "worked",
+      "topic": "argument analysis",
+      "prompt": "Sammanfatta textens två huvudargument (för respektive emot ett förbud) med egna ord, och förklara varför texten undviker att ta tydlig ställning.",
+      "opener": "Identifiera först vilka två meningar som bär vardera argumentet, formulera dem sedan kort.",
+      "answer": "För förbud: skärmtid kan öka ångest hos unga. Emot förbud: sociala medier är viktiga sociala rum, särskilt för utsatta unga, och ett förbud skulle bara flytta problemet till oreglerade appar. Texten balanserar båda utan att ta ställning.",
+      "steps": [
+        "Argument för ett förbud finns i första halvan: \"plusieurs études pointent un lien entre l'usage intensif des écrans et une hausse de l'anxiété chez les adolescents\" — alltså en oro för mental hälsa, byggd på forskning.",
+        "Argument emot ett förbud finns i andra halvan: sociala medier fyller en social funktion, särskilt för \"les jeunes isolés géographiquement ou marginalisés\", och ett förbud riskerar att driva unga mot appar som är \"échappant à tout contrôle parental\" — värre, inte bättre.",
+        "Textens struktur (\"d'un côté... de l'autre\") och ordval (\"la question divise\", \"disent-ils\") visar att skribenten medvetet håller sig neutral och låter båda sidors röster komma till tals, snarare än att argumentera för en slutsats.",
+        "Detta är typiskt för en debattartikel som vill informera och nyansera snarare än övertyga — en teknik värd att känna igen i läsförståelse på gymnasienivå."
+      ]
+    },
+    {
+      "id": "q-fr4-read-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Vilka strategier hjälper dig att analysera en längre, åsiktsdriven fransk text på gymnasienivå?",
+      "opener": "Att gå bortom att bara förstå orden, till att förstå textens uppbyggnad.",
+      "answer": "Identifiera frågan/tesen texten kretsar kring, ofta i första stycket. Leta efter strukturmarkörer som \"d'un côté / de l'autre\", \"cependant\", \"toutefois\", \"en revanche\" — de visar var argumentationen vänder. Skilj på fakta (études, statistiques) och åsikter (disent-ils, selon certains). Fråga dig om texten tar tydlig ställning eller medvetet balanserar perspektiv — ordval som \"la question divise\" signalerar det senare. Vid svåra ord: använd sammanhanget, särskilt ordet eller frasen direkt före/efter. Sammanfatta varje styckes huvudpoäng i en mening innan du svarar på detaljfrågor."
+    }
+  ]
+}

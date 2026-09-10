@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp4-idioms",
+  "type": "assignment",
+  "subject": "Spanska 4",
+  "title": "Idiomatic expressions and false friends",
+  "sourceSummary": "Common Spanish idioms, plus classic false friends between Swedish and Spanish, such as \"embarazada\" and \"actualmente\".",
+  "topics": [
+    "idiomatic expressions",
+    "false friends",
+    "vocabulary nuance"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp4-idioms-1",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does \"embarazada\" mean in Spanish?",
+      "opener": "A classic false friend — the word looks like an English word but means something completely different.",
+      "choices": [
+        "Embarrassed",
+        "Pregnant",
+        "Ashamed",
+        "Flustered"
+      ],
+      "answer": 1,
+      "explanation": "\"Embarazada\" means \"pregnant\", not \"embarrassed\" (even though it looks like the English word). \"Embarrassed\" is instead \"avergonzado/a\" in Spanish."
+    },
+    {
+      "id": "q-sp4-idioms-2",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does \"actualmente\" mean in Spanish?",
+      "opener": "Another classic case — the word looks like \"actually\" but means something else.",
+      "choices": [
+        "Actually",
+        "Currently",
+        "Really",
+        "Now and then"
+      ],
+      "answer": 1,
+      "explanation": "\"Actualmente\" means \"currently/at present\", not \"actually\" in the sense of \"in fact\". \"Actually/really\" is \"en realidad\" or \"de hecho\" in Spanish."
+    },
+    {
+      "id": "q-sp4-idioms-3",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does \"sensible\" mean in Spanish?",
+      "opener": "Yet another false friend — the opposite of what you might expect.",
+      "choices": [
+        "Sensible (reasonable)",
+        "Sensitive",
+        "Level-headed",
+        "Realistic"
+      ],
+      "answer": 1,
+      "explanation": "\"Sensible\" in Spanish means \"sensitive\" (easily moved, delicate), not \"sensible/reasonable\" as in English. \"Sensible\" (reasonable) is \"sensato/a\" in Spanish."
+    },
+    {
+      "id": "q-sp4-idioms-4",
+      "kind": "mc",
+      "topic": "idiomatic expressions",
+      "prompt": "What does the expression \"costar un ojo de la cara\" mean?",
+      "opener": "A literal translation gives a clue: \"to cost an eye from the face\".",
+      "choices": [
+        "To be very painful",
+        "To be very expensive",
+        "To be completely worthless",
+        "To hurt your eyes"
+      ],
+      "answer": 1,
+      "explanation": "\"Costar un ojo de la cara\" is an idiom meaning \"to cost an arm and a leg\", comparable to the Swedish expression \"kosta skjortan\"."
+    },
+    {
+      "id": "q-sp4-idioms-5",
+      "kind": "mc",
+      "topic": "idiomatic expressions",
+      "prompt": "What does the expression \"estar en las nubes\" mean?",
+      "opener": "Literally: \"to be in the clouds\" — what does that correspond to in English?",
+      "choices": [
+        "To be in a good mood",
+        "To be absent-minded/daydreaming",
+        "To be very happy",
+        "To be dreaming about travel"
+      ],
+      "answer": 1,
+      "explanation": "\"Estar en las nubes\" means to be absent-minded or daydreaming, similar to the English expression \"to have your head in the clouds\"."
+    },
+    {
+      "id": "q-sp4-idioms-6",
+      "kind": "mc",
+      "topic": "vocabulary nuance",
+      "prompt": "What does \"estoy constipado\" mean in Spanish?",
+      "opener": "A medical false-friend example that often causes embarrassing misunderstandings.",
+      "choices": [
+        "I am constipated",
+        "I have a cold",
+        "I feel sick",
+        "I am tired"
+      ],
+      "answer": 1,
+      "explanation": "\"Estar constipado\" means \"to have a cold/stuffy nose\" in Spanish, NOT \"constipated\" as you might think. \"Constipated\" is \"estreñido/a\" in Spanish — an important distinction to remember!"
+    },
+    {
+      "id": "q-sp4-idioms-7",
+      "kind": "worked",
+      "topic": "idiomatic expressions",
+      "prompt": "Correct the error: a student writes \"Estoy muy embarazada porque dije algo estúpido delante de mi jefe.\" — what should it say instead?",
+      "opener": "The student has mixed up a false friend with the word that actually means \"embarrassed\".",
+      "answer": "Estoy muy avergonzado/a porque dije algo estúpido delante de mi jefe.",
+      "steps": [
+        "\"Embarazada\" means \"pregnant\" in Spanish, not \"embarrassed\" — a classic example of a false friend with the English word \"embarrassed\".",
+        "The correct word for \"embarrassed/ashamed\" is \"avergonzado\" (for a man) or \"avergonzada\" (for a woman).",
+        "The rest of the sentence is correct: \"porque dije algo estúpido delante de mi jefe\" (because I said something stupid in front of my boss).",
+        "Correct sentence: \"Estoy muy avergonzado/a porque dije algo estúpido delante de mi jefe.\""
+      ]
+    },
+    {
+      "id": "q-sp4-idioms-8",
+      "kind": "flashcard",
+      "topic": "false friends",
+      "prompt": "What are the most common false friends between Swedish/English and Spanish that you should know at this level?",
+      "opener": "A list to keep in the back of your mind for the national exam and oral practice.",
+      "answer": "embarazada = pregnant (NOT embarrassed → avergonzado/a) · actualmente = currently (NOT actually/topical → de hecho/en realidad) · sensible = sensitive (NOT sensible/reasonable → sensato/a) · constipado = has a cold (NOT constipated → estreñido/a) · éxito = success (NOT exit → salida) · largo = long (NOT large → grande) · red = net/network (NOT red → rojo) · pariente = relative (NOT parent → padre/madre) · ropa = clothes (NOT rope → cuerda) · fábrica = factory (NOT fabric → tela). Idioms worth knowing: costar un ojo de la cara (to cost an arm and a leg), estar en las nubes (to be daydreaming), no tener pelos en la lengua (to speak your mind bluntly), tomar el pelo (to tease/pull someone's leg)."
+    }
+  ]
+}

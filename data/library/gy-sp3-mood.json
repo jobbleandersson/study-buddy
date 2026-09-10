@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp3-mood",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Introduktion till subjuntivo: önskan, nödvändighet och uppmaning",
+  "sourceSummary": "Presens subjuntivo efter uttryck för önskan, nödvändighet och uppmaning: quiero que, es importante que, espero que.",
+  "topics": [
+    "present subjunctive",
+    "wish and necessity",
+    "verbs of influence"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-mood-1",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Välj rätt form: \"Quiero que tú ___ (hablar) con ella.\"",
+      "opener": "Efter \"quiero que\" med ett annat subjekt krävs subjuntivo, inte presens indikativ.",
+      "choices": [
+        "hablas",
+        "hables",
+        "hablaste",
+        "hablarás"
+      ],
+      "answer": 1,
+      "explanation": "\"Quiero que\" + ett annat subjekt utlöser subjuntivo. -ar-verb i subjuntivo byter ändelse till -e: hable, hables, hable, hablemos, habléis, hablen. \"Tú\" ger \"hables\"."
+    },
+    {
+      "id": "q-sp3-mood-2",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Välj rätt form: \"Es importante que nosotros ___ (comer) verduras.\"",
+      "opener": "\"Es importante que\" är ett klassiskt subjuntivo-uttryck för nödvändighet. -er-verb byter ändelse till -a.",
+      "choices": [
+        "comemos",
+        "comamos",
+        "comimos",
+        "comeríamos"
+      ],
+      "answer": 1,
+      "explanation": "-er/-ir-verb i subjuntivo får ändelser med -a: coma, comas, coma, comamos, comáis, coman. \"Nosotros\" ger \"comamos\"."
+    },
+    {
+      "id": "q-sp3-mood-3",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Välj rätt form: \"Espero que tú ___ (tener) suerte.\"",
+      "opener": "\"Tener\" har en oregelbunden subjuntivo-stam: teng-.",
+      "choices": [
+        "tienes",
+        "tengas",
+        "tuviste",
+        "tendrás"
+      ],
+      "answer": 1,
+      "explanation": "\"Tener\" bildar subjuntivo på stammen \"teng-\": tenga, tengas, tenga, tengamos, tengáis, tengan. \"Tú\" ger \"tengas\". \"Espero que\" utlöser subjuntivo eftersom det uttrycker en önskan om något osäkert."
+    },
+    {
+      "id": "q-sp3-mood-4",
+      "kind": "mc",
+      "topic": "wish and necessity",
+      "prompt": "Välj rätt form: \"Quiero ___ al cine esta noche.\"",
+      "opener": "Om SAMMA person både önskar och utför handlingen används infinitiv, inte que + subjuntivo.",
+      "choices": [
+        "que vaya",
+        "ir",
+        "que voy",
+        "vayas"
+      ],
+      "answer": 1,
+      "explanation": "När subjektet är detsamma i båda leden (\"jag vill [att jag] gå\") används infinitiv utan \"que\": \"quiero ir\". \"Que\" + subjuntivo används bara när subjekten skiljer sig åt, t.ex. \"quiero que tú vayas\"."
+    },
+    {
+      "id": "q-sp3-mood-5",
+      "kind": "mc",
+      "topic": "verbs of influence",
+      "prompt": "Vilket uttryck fyller luckan och kräver subjuntivo: \"___ que estudies más.\"",
+      "opener": "Vilket av alternativen signalerar nödvändighet/uppmaning, till skillnad från säkerhet?",
+      "choices": [
+        "Creo",
+        "Es necesario",
+        "Sé",
+        "Estoy seguro de"
+      ],
+      "answer": 1,
+      "explanation": "\"Es necesario que\" uttrycker nödvändighet och kräver subjuntivo i bisatsen: \"estudies\". \"Creo\", \"sé\" och \"estoy seguro de\" uttrycker istället säkerhet/övertygelse och tar normalt indikativ, inte subjuntivo."
+    },
+    {
+      "id": "q-sp3-mood-6",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Välj rätt form: \"Espero que tú ___ (dormir) bien esta noche.\"",
+      "opener": "\"Dormir\" har samma stamväxling (o→ue) i subjuntivo som i presens indikativ, i de flesta personerna.",
+      "choices": [
+        "duermes",
+        "duermas",
+        "dormiste",
+        "dormirás"
+      ],
+      "answer": 1,
+      "explanation": "\"Dormir\" i subjuntivo: duerma, duermas, duerma, durmamos, durmáis, duerman (observera o→u i \"nosotros\"/\"vosotros\", inte o→ue). \"Tú\" ger \"duermas\"."
+    },
+    {
+      "id": "q-sp3-mood-7",
+      "kind": "worked",
+      "topic": "wish and necessity",
+      "prompt": "Konjugera verben i subjuntivo och förklara varför: \"Mis padres quieren que yo ___ (estudiar) medicina, pero mi hermana espera que yo ___ (seguir) mi propio camino. Es importante que nosotros ___ (ser) sinceros sobre lo que queremos.\"",
+      "opener": "Kolla för varje lucka: uttrycker huvudsatsen önskan/nödvändighet, och skiljer sig subjekten åt?",
+      "answer": "estudie / siga / seamos",
+      "steps": [
+        "\"Quieren que yo...\" uttrycker föräldrarnas önskan om NÅGON ANNAN (jag) — subjekten skiljer sig åt, alltså subjuntivo: \"estudie\" (-ar-verb, stam estudi- + e).",
+        "\"Espera que yo siga\" — \"seguir\" är stamväxlande (e→i) och oregelbunden redan i \"yo\"-formen (sigo), vilket ärvs i subjuntivo: siga, sigas, siga... \"Yo\" ger \"siga\".",
+        "\"Es importante que nosotros seamos\" — \"ser\" är helt oregelbundet i subjuntivo: sea, seas, sea, seamos, seáis, sean. \"Nosotros\" ger \"seamos\".",
+        "Gemensamt för alla tre luckor: verbet i bisatsen efter \"que\" står i subjuntivo eftersom huvudsatsen uttrycker önskan/nödvändighet OCH subjektet i bisatsen skiljer sig från huvudsatsens subjekt."
+      ]
+    },
+    {
+      "id": "q-sp3-mood-8",
+      "kind": "flashcard",
+      "topic": "verbs of influence",
+      "prompt": "Vilka uttryck utlöser subjuntivo, och hur böjs det?",
+      "opener": "En lista över triggerfraser plus de vanligaste oregelbundna formerna.",
+      "answer": "Uttryck som utlöser subjuntivo: querer que, esperar que, es importante que, es necesario que, pedir que, recomendar que — alla uttrycker önskan, nödvändighet eller uppmaning riktad mot NÅGON ANNAN. Regel: samma subjekt → infinitiv (quiero ir), olika subjekt → que + subjuntivo (quiero que vayas). Regelbundna ändelser: -ar → -e/-es/-e/-emos/-éis/-en, -er/-ir → -a/-as/-a/-amos/-áis/-an. Viktiga oregelbundna former: ser → sea, estar → esté, ir → vaya, saber → sepa, dar → dé, haber → haya, tener → tenga."
+    }
+  ]
+}

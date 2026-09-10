@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr3-clauses",
+  "type": "assignment",
+  "subject": "Franska 3",
+  "title": "Relative pronouns: qui, que, où and dont",
+  "sourceSummary": "Building more advanced, complex sentences with the relative pronouns qui, que, où and dont.",
+  "topics": [
+    "relative pronouns",
+    "qui / que",
+    "où / dont"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr3-clauses-1",
+      "kind": "mc",
+      "topic": "qui / que",
+      "prompt": "Choose the correct pronoun: \"C'est le professeur ___ nous a donné ce livre.\"",
+      "opener": "Is the pronoun a subject or an object in the clause? Test it: who gave the book?",
+      "choices": [
+        "qui",
+        "que",
+        "où",
+        "dont"
+      ],
+      "answer": 0,
+      "explanation": "\"Qui\" is the subject of the clause (it's the teacher WHO gave the book) — the verb \"a donné\" follows it directly."
+    },
+    {
+      "id": "q-fr3-clauses-2",
+      "kind": "mc",
+      "topic": "qui / que",
+      "prompt": "Choose the correct pronoun: \"Le livre ___ tu m'as prêté est vraiment intéressant.\"",
+      "opener": "Here the pronoun is an object — who is doing the action? \"Tu\" is, and the book is what's received.",
+      "choices": [
+        "que",
+        "qui",
+        "où",
+        "dont"
+      ],
+      "answer": 0,
+      "explanation": "\"Que\" is the object of the clause (\"tu m'as prêté LE LIVRE\") — it's followed by subject + verb (\"tu m'as prêté\"), unlike \"qui\", which is followed directly by a verb."
+    },
+    {
+      "id": "q-fr3-clauses-3",
+      "kind": "mc",
+      "topic": "où / dont",
+      "prompt": "Choose the correct pronoun: \"C'est la ville ___ j'ai passé mon enfance.\"",
+      "opener": "Is this about a place?",
+      "choices": [
+        "où",
+        "que",
+        "qui",
+        "dont"
+      ],
+      "answer": 0,
+      "explanation": "\"Où\" is used for place (and time): \"la ville où j'ai passé mon enfance\" means \"the city where I spent my childhood\"."
+    },
+    {
+      "id": "q-fr3-clauses-4",
+      "kind": "mc",
+      "topic": "où / dont",
+      "prompt": "Choose the correct pronoun: \"Voici le livre ___ je t'ai parlé.\" (I talked ABOUT the book — parler DE quelque chose)",
+      "opener": "Which preposition belongs to the verb \"parler de\"?",
+      "choices": [
+        "dont",
+        "que",
+        "où",
+        "qui"
+      ],
+      "answer": 0,
+      "explanation": "\"Dont\" replaces \"de + something\": \"parler de quelque chose\" → \"le livre dont je t'ai parlé\" (the book I've talked about)."
+    },
+    {
+      "id": "q-fr3-clauses-5",
+      "kind": "mc",
+      "topic": "qui / que",
+      "prompt": "Choose the correct pronoun: \"Les élèves ___ ont réussi l'examen étaient très contents.\"",
+      "opener": "The subject of the clause again — who passed the exam?",
+      "choices": [
+        "qui",
+        "que",
+        "dont",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Qui\" is the subject: it's the students WHO passed the exam. Note that \"qui\" is never shortened to \"qu'\" before a vowel, unlike \"que\"."
+    },
+    {
+      "id": "q-fr3-clauses-6",
+      "kind": "mc",
+      "topic": "où / dont",
+      "prompt": "Choose the correct pronoun: \"C'est la femme ___ la fille est médecin.\" (the woman WHOSE daughter is a doctor)",
+      "opener": "\"Dont\" can also express ownership/belonging, like English \"whose\".",
+      "choices": [
+        "dont",
+        "que",
+        "qui",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Dont\" can correspond to English \"whose\": \"la femme dont la fille est médecin\" means \"the woman whose daughter is a doctor\". Word order after \"dont\" doesn't change: dont + subject + verb."
+    },
+    {
+      "id": "q-fr3-clauses-7",
+      "kind": "worked",
+      "topic": "relative pronouns",
+      "prompt": "Combine the two sentences into one, using the correct relative pronoun: \"J'ai un ami. Cet ami habite à Lyon et je lui rends visite chaque été.\"",
+      "opener": "Think about what role \"cet ami\" plays in the second clause — subject, or something else?",
+      "answer": "J'ai un ami qui habite à Lyon et à qui je rends visite chaque été.",
+      "steps": [
+        "First part: \"cet ami habite à Lyon\" — here \"ami\" is the subject of the clause → \"qui habite à Lyon\".",
+        "Second part: \"je lui rends visite\" — \"lui\" is an indirect object (rendre visite À quelqu'un), not a plain \"que\" object.",
+        "An indirect object with à + a person requires \"à qui\", not \"que\": \"à qui je rends visite\".",
+        "Full sentence: \"J'ai un ami qui habite à Lyon et à qui je rends visite chaque été.\" Note that you may need two different relative constructions in the same sentence depending on each word's role."
+      ]
+    },
+    {
+      "id": "q-fr3-clauses-8",
+      "kind": "flashcard",
+      "topic": "relative pronouns",
+      "prompt": "How do you choose between qui, que, où and dont?",
+      "opener": "Four pronouns, four roles in the clause.",
+      "answer": "qui = subject of the clause, followed directly by a verb (l'homme qui parle). que = object of the clause, followed by subject + verb (l'homme que je vois) — shortens to qu' before a vowel. où = place or time (la ville où j'habite, le jour où c'est arrivé). dont = replaces de + something: a verb with the preposition de (parler de, avoir besoin de, être content de) or ownership/belonging (whose) — dont is always followed by subject + verb, with no inversion. Memory rule: qui does something, que receives something, où is a place, dont goes with de."
+    }
+  ]
+}

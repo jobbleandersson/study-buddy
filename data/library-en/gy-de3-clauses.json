@@ -1,0 +1,127 @@
+{
+  "id": "lib-de3-clauses",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Relative clauses and advanced subordinate-clause word order",
+  "sourceSummary": "Relative clauses with der/die/das in every case, plus a deeper look at subordinate-clause word order with weil, dass, obwohl, and modal verbs.",
+  "topics": [
+    "relative clauses",
+    "subordinate clauses",
+    "conjunctions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-clauses-1",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Choose the correct relative pronoun: \"Der Mann, ___ dort steht, ist mein Lehrer.\" (the man who is standing there is my teacher)",
+      "opener": "\"Der Mann\" is the subject of the relative clause, so nominative masculine.",
+      "choices": [
+        "der",
+        "den",
+        "dem",
+        "dessen"
+      ],
+      "answer": 0,
+      "explanation": "The relative pronoun's gender (masculine) comes from \"der Mann\", and its case (nominative) comes from the pronoun being the subject of the clause: \"der dort steht\"."
+    },
+    {
+      "id": "q-de3-clauses-2",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Choose the correct relative pronoun: \"Der Mann, ___ ich das Buch gegeben habe, ist mein Onkel.\" (the man I gave the book to is my uncle)",
+      "opener": "\"Geben\" takes an indirect object in the dative — who received the book?",
+      "choices": [
+        "der",
+        "den",
+        "dem",
+        "dessen"
+      ],
+      "answer": 2,
+      "explanation": "The man is the one who received the book, i.e. the indirect object of \"geben\", which requires the dative. Masculine dative singular = \"dem\": \"..., dem ich das Buch gegeben habe, ...\"."
+    },
+    {
+      "id": "q-de3-clauses-3",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Choose the correct relative pronoun: \"Die Frau, ___ Sohn Arzt ist, wohnt nebenan.\" (the woman whose son is a doctor lives next door)",
+      "opener": "This expresses possession — which case is that?",
+      "choices": [
+        "der",
+        "dessen",
+        "deren",
+        "die"
+      ],
+      "answer": 2,
+      "explanation": "\"Whose\" corresponds to the genitive. \"Die Frau\" is feminine, and the feminine genitive (singular) is \"deren\": \"..., deren Sohn Arzt ist, ...\". \"Dessen\" is used instead for masculine/neuter."
+    },
+    {
+      "id": "q-de3-clauses-4",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Choose the correct sentence: \"Even though it was raining, we went for a walk.\"",
+      "opener": "The subordinate clause occupies position one in the whole sentence — what happens to the main clause's word order then?",
+      "choices": [
+        "Obwohl es regnete, gingen wir spazieren.",
+        "Obwohl es regnete, wir gingen spazieren.",
+        "Obwohl regnete es, gingen wir spazieren.",
+        "Obwohl es gingen regnete, wir spazieren."
+      ],
+      "answer": 0,
+      "explanation": "\"Obwohl\" introduces a subordinate clause where the verb (\"regnete\") goes to the end. Since the whole subordinate clause occupies position one of the sentence, the main clause's verb (\"gingen\") must come right after the comma, before the subject \"wir\" — just as it would after \"heute\" or any other element in position one."
+    },
+    {
+      "id": "q-de3-clauses-5",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Choose the correct word order: \"I know that he has to go home.\" (dass, müssen, gehen)",
+      "opener": "In a subordinate clause with a modal verb plus infinitive, both verbs go to the end.",
+      "choices": [
+        "Ich weiß, dass er nach Hause gehen muss.",
+        "Ich weiß, dass er muss nach Hause gehen.",
+        "Ich weiß, dass er nach Hause muss gehen.",
+        "Ich weiß, dass er gehen muss nach Hause."
+      ],
+      "answer": 0,
+      "explanation": "In a subordinate clause with a modal verb plus infinitive, both verbs go to the end, with the infinitive (\"gehen\") before the conjugated modal verb (\"muss\"): \"..., dass er nach Hause gehen muss.\""
+    },
+    {
+      "id": "q-de3-clauses-6",
+      "kind": "mc",
+      "topic": "conjunctions",
+      "prompt": "Which subordinating conjunction expresses a contrast, roughly \"even though\"?",
+      "opener": "One of these four reverses the expectation set up by the sentence.",
+      "choices": [
+        "weil",
+        "dass",
+        "obwohl",
+        "ob"
+      ],
+      "answer": 2,
+      "explanation": "\"Obwohl\" means \"even though/although\" and expresses a contrast or an unexpected connection, e.g. \"Obwohl es regnete, gingen wir spazieren.\" \"Weil\" = because, \"dass\" = that, \"ob\" = whether."
+    },
+    {
+      "id": "q-de3-clauses-7",
+      "kind": "worked",
+      "topic": "relative clauses",
+      "prompt": "Correct the mistake: \"Der Roman, das ich letzte Woche gelesen habe, war sehr spannend.\" (The novel I read last week was very exciting.)",
+      "opener": "Check both the gender and the case of the relative pronoun.",
+      "answer": "Der Roman, den ich letzte Woche gelesen habe, war sehr spannend.",
+      "steps": [
+        "The relative pronoun's gender and number come from the noun it refers to: \"der Roman\" is masculine singular, so the pronoun must be masculine, not neuter (\"das\").",
+        "The case, on the other hand, comes from the pronoun's function in the clause: here the novel is the object of \"gelesen\" (to read), so accusative.",
+        "Masculine + accusative = \"den\". \"Das\" would be correct for neuter, not masculine.",
+        "Full sentence: \"Der Roman, den ich letzte Woche gelesen habe, war sehr spannend.\""
+      ]
+    },
+    {
+      "id": "q-de3-clauses-8",
+      "kind": "flashcard",
+      "topic": "relative clauses",
+      "prompt": "How is the relative pronoun (der/die/das) declined for gender, number, and case, and where does the verb go in a relative clause?",
+      "opener": "One table and one word-order rule you can use for every subordinate clause.",
+      "answer": "The relative pronoun's gender/number come from the noun it refers to (the antecedent); its case comes from its function within the relative clause. Nominative: der/die/das/die (plural). Accusative: den/die/das/die. Dative: dem/der/dem/denen. Genitive: dessen/deren/dessen/deren. Examples: \"Der Mann, der dort steht\" (nom.), \"..., den ich sehe\" (acc.), \"..., dem ich helfe\" (dative), \"..., dessen Auto rot ist\" (genitive). Just as in every subordinate clause (weil, dass, obwohl, während, etc.), the conjugated verb goes to the end of the relative clause. With a modal verb, the infinitive comes before the conjugated modal: \"..., der das Auto reparieren kann.\""
+    }
+  ]
+}

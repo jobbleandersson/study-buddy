@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp4-mood",
+  "type": "assignment",
+  "subject": "Spanska 4",
+  "title": "Subjunctive for doubt and emotion",
+  "sourceSummary": "Subjunctive after expressions of doubt, emotion, wish and evaluation — a wider range of triggers than a step-3 introduction covers.",
+  "topics": [
+    "subjunctive mood",
+    "doubt and emotion",
+    "impersonal expressions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp4-mood-1",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Choose the correct form: \"Dudo que ella ___ la verdad.\" (decir = to say)",
+      "opener": "\"Dudar que\" expresses doubt — which mood does that require?",
+      "choices": [
+        "dice",
+        "diga",
+        "dijo",
+        "decía"
+      ],
+      "answer": 1,
+      "explanation": "\"Dudar que\" is followed by the subjunctive because the speaker doubts the truth of the statement. \"Diga\" is the present subjunctive of \"decir\". \"Dice\" (indicative) would mean the speaker takes the information as given."
+    },
+    {
+      "id": "q-sp4-mood-2",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Choose the correct form: \"Me alegro de que ___ (vosotros) aquí.\" (estar)",
+      "opener": "Expressions of emotion like \"alegrarse de que\" always govern the subjunctive.",
+      "choices": [
+        "estáis",
+        "estéis",
+        "estuvisteis",
+        "estaréis"
+      ],
+      "answer": 1,
+      "explanation": "\"Alegrarse de que\" expresses an emotion (joy) and requires the subjunctive: \"estéis\". The indicative forms (estáis, estuvisteis, estaréis) are all wrong here because the main clause doesn't just state a fact — it evaluates it emotionally."
+    },
+    {
+      "id": "q-sp4-mood-3",
+      "kind": "mc",
+      "topic": "impersonal expressions",
+      "prompt": "Choose the correct form: \"Es una lástima que no ___ (nosotros) más tiempo.\" (tener)",
+      "opener": "Impersonal expressions of evaluation (\"es una lástima que\", \"es importante que\") take the subjunctive.",
+      "choices": [
+        "tenemos",
+        "tengamos",
+        "tuvimos",
+        "tendremos"
+      ],
+      "answer": 1,
+      "explanation": "\"Es una lástima que\" evaluates the situation (it's a shame that...) and requires the subjunctive: \"tengamos\". Compare with \"es verdad que\", which takes the indicative because it merely states a fact."
+    },
+    {
+      "id": "q-sp4-mood-4",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Creer que\" in the negative form expresses doubt — that requires the subjunctive. In the affirmative it's the indicative.",
+      "choices": [
+        "No creo que él tenga razón.",
+        "No creo que él tiene razón.",
+        "Creo que él tenga razón.",
+        "Creo que él tuviera razón."
+      ],
+      "answer": 0,
+      "explanation": "\"No creer que\" (to not believe that) expresses doubt/uncertainty and takes the subjunctive: \"tenga\". But \"creer que\" in the affirmative (\"I believe that...\") expresses certainty instead and takes the indicative: \"Creo que él tiene razón.\""
+    },
+    {
+      "id": "q-sp4-mood-5",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Choose the correct form: \"Es posible que ya ___ (haber) llegado el tren.\"",
+      "opener": "\"Es posible que\" + present perfect subjunctive (haya + past participle) expresses a possible, already-finished event.",
+      "choices": [
+        "ha",
+        "haya",
+        "había",
+        "habrá"
+      ],
+      "answer": 1,
+      "explanation": "\"Es posible que\" governs the subjunctive, and for an action that may already be finished the present perfect subjunctive is used: \"haya llegado\" (may have arrived). \"Haya\" is the present subjunctive of \"haber\"."
+    },
+    {
+      "id": "q-sp4-mood-6",
+      "kind": "mc",
+      "topic": "impersonal expressions",
+      "prompt": "Which sentence is correct when the subject changes between the clauses?",
+      "opener": "The subjunctive is only required when the subordinate clause's subject differs from the main clause's. If the subjects are the same, the infinitive is used instead.",
+      "choices": [
+        "Quiero que tú vengas a la fiesta.",
+        "Quiero que yo venga a la fiesta.",
+        "Quiero venir a la fiesta yo mismo que vengas.",
+        "Quiero que tú vienes a la fiesta."
+      ],
+      "answer": 0,
+      "explanation": "Since the subject changes (I want, YOU come), the subordinate clause requires the subjunctive: \"que tú vengas\". If the subject had been the same (I want to come myself), the infinitive would be used instead: \"Quiero venir\", without \"que\"."
+    },
+    {
+      "id": "q-sp4-mood-7",
+      "kind": "worked",
+      "topic": "subjunctive mood",
+      "prompt": "Correct the errors and explain why: \"Espero que tú tienes razón, pero temo que no es verdad.\"",
+      "opener": "Both subordinate clauses are governed by verbs that express wish/emotion — which mood do they require?",
+      "answer": "Espero que tú tengas razón, pero temo que no sea verdad.",
+      "steps": [
+        "\"Esperar que\" expresses a hope/wish and requires the subjunctive: \"tengas\", not the indicative \"tienes\".",
+        "\"Temer que\" expresses fear/worry, an emotion, and also requires the subjunctive: \"sea\", not \"es\".",
+        "Note that both clauses concern uncertain, hoped-for, or feared outcomes — not established facts — which is exactly what triggers the subjunctive.",
+        "Full sentence: \"Espero que tú tengas razón, pero temo que no sea verdad.\""
+      ]
+    },
+    {
+      "id": "q-sp4-mood-8",
+      "kind": "flashcard",
+      "topic": "doubt and emotion",
+      "prompt": "What types of expressions trigger the subjunctive for doubt and emotion?",
+      "opener": "Three broad categories of triggers, plus one exception to remember.",
+      "answer": "Doubt: dudar que, no creer que, no estar seguro de que, es posible/probable que. Emotion: alegrarse de que, sentir que, temer que, sorprender que, es una lástima que. Wish/will: querer que, esperar que, desear que, es importante/necesario que. Exception: when the main and subordinate clause share the same subject, the infinitive is used instead of \"que\" + subjunctive (Quiero venir, not Quiero que yo venga). Remember: certain facts (creo que, es verdad que, sé que) take the indicative, uncertain/evaluated/wished-for ones take the subjunctive."
+    }
+  ]
+}

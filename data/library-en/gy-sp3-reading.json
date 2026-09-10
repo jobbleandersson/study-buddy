@@ -1,0 +1,128 @@
+{
+  "id": "lib-sp3-reading",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Reading comprehension: culture and society",
+  "sourceSummary": "A longer text on a culture and society theme in Spanish, with reading comprehension questions on main idea, details, inference, and vocabulary in context.",
+  "topics": [
+    "reading comprehension",
+    "inference",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-reading-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nWhat is actually being celebrated on Día de los Muertos, according to the text?",
+      "opener": "Read the second sentence carefully — the text directly contradicts a common misconception.",
+      "choices": [
+        "A solemn ceremony honoring the dead in silence",
+        "A joyful holiday celebrating life and memory",
+        "A religious fast before winter",
+        "A tourist attraction with no deeper meaning"
+      ],
+      "answer": 1,
+      "explanation": "The text explicitly states that it is NOT a sad holiday, \"sino una celebración alegre de la vida y la memoria\" (but a joyful celebration of life and memory). The first option is exactly the misconception the text dismisses."
+    },
+    {
+      "id": "q-sp3-reading-2",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nWhat does the word \"antepasados\" mean in the text?",
+      "opener": "The word resembles \"pasado\" (the past) plus the prefix \"ante-\" (before).",
+      "choices": [
+        "neighbors",
+        "ancestors",
+        "friends",
+        "tourists"
+      ],
+      "answer": 1,
+      "explanation": "\"Antepasados\" means \"ancestors\" — relatives who lived before you. The context (\"limpian las tumbas de sus antepasados\", they clean their ancestors' graves) confirms this."
+    },
+    {
+      "id": "q-sp3-reading-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nWhy do families decorate the altars with food and drink that the deceased used to like?",
+      "opener": "Read the sentence about \"las almas de los muertos\".",
+      "choices": [
+        "Because it is believed that the souls of the dead return to visit their loved ones",
+        "Because it is traditional to eat the food themselves afterwards",
+        "Because the priests require it as part of the mass",
+        "Because it is a symbol of next year's harvest"
+      ],
+      "answer": 0,
+      "explanation": "The text says that during these days, the souls of the dead are believed to return to visit their loved ones (\"regresan para visitar a sus seres queridos\") — the food and drink the deceased used to like are there to welcome them."
+    },
+    {
+      "id": "q-sp3-reading-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nIn which year did UNESCO designate the tradition as intangible cultural heritage?",
+      "opener": "A specific year is mentioned toward the end of the text.",
+      "choices": [
+        "1998",
+        "2008",
+        "2018",
+        "2000"
+      ],
+      "answer": 1,
+      "explanation": "The text states \"En 2008, la UNESCO declaró...\" — so 2008."
+    },
+    {
+      "id": "q-sp3-reading-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nWhat can you infer about the view of death from the text, without it being stated outright?",
+      "opener": "Look at the whole picture: celebration, food, joy, memory — what does that suggest together about the attitude toward death?",
+      "choices": [
+        "That death is seen as something frightening that should not be discussed",
+        "That death is seen as a natural part of life, worth celebrating rather than mourning in silence",
+        "That death only matters to older generations",
+        "That the tradition is completely dying out"
+      ],
+      "answer": 1,
+      "explanation": "The text never explicitly states \"the view of death\", but the details — a joyful holiday, favorite food, visiting souls, remembering loved ones — together suggest that death is treated here as a natural part of life rather than something to fear or avoid discussing."
+    },
+    {
+      "id": "q-sp3-reading-6",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nWhere do the Catholic elements mixed into the originally pre-Hispanic tradition come from?",
+      "opener": "The words \"colonización española\" are mentioned directly in the text.",
+      "choices": [
+        "From trade with Asia",
+        "From the Spanish colonization",
+        "From modern tourists",
+        "From neighboring countries in South America"
+      ],
+      "answer": 1,
+      "explanation": "The text says the tradition has pre-Hispanic roots but today mixes with Catholic elements \"ya que llegaron con la colonización española\" (since they arrived with the Spanish colonization)."
+    },
+    {
+      "id": "q-sp3-reading-7",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Using the text, explain why Día de los Muertos is NOT a sad holiday, and give at least two concrete examples from the text that support this: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos.\"",
+      "opener": "Look for concrete details in the text, not just what is stated outright in the first sentence.",
+      "answer": "The text describes the holiday as a joyful celebration of life and memory, and supports this with several concrete, positive details: families decorate with flowers, prepare favorite foods, and believe the souls of the dead come to visit.",
+      "steps": [
+        "The text states directly: \"no es una fiesta triste, sino una celebración alegre de la vida y la memoria\" (it is not a sad holiday, but a joyful celebration of life and memory).",
+        "Concrete example 1: families decorate the altars with flores de cempasúchil (flowers) — a festive, colorful act, not an act of mourning.",
+        "Concrete example 2: they prepare food and drink the deceased used to like — a way of celebrating and remembering the person with joy, rather than grieving.",
+        "Concrete example 3: the belief that souls return to visit their loved ones gives the whole holiday the character of a reunion, not a farewell.",
+        "Together, these details build the picture of a celebratory, rather than mournful, tradition."
+      ]
+    },
+    {
+      "id": "q-sp3-reading-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "What strategies and vocabulary are useful for reading Spanish texts about culture and society?",
+      "opener": "Cognates, the impersonal \"se\", and some vocabulary from the text.",
+      "answer": "Reading strategies: read the question before reading the text in detail, so you know what you're looking for. Many Spanish words resemble Swedish/English (cognates) — e.g. \"tradición\", \"celebración\", \"declaró\" — use them as shortcuts. The impersonal \"se\" (se celebra, se cree, se mezcla) often corresponds to a passive form or \"one\"/\"people\" in English. Vocabulary from the text: antepasados = ancestors · difunto = deceased · seres queridos = loved ones · patrimonio = heritage · raíces = roots."
+    }
+  ]
+}

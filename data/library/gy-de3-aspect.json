@@ -1,0 +1,127 @@
+{
+  "id": "lib-de3-aspect",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Perfekt vs. Präteritum: talspråk och skriftspråk",
+  "sourceSummary": "Skillnaden mellan perfekt och preteritum – när man använder vilken form i tal respektive skrift – samt undantagen haben, sein och modalverben.",
+  "topics": [
+    "spoken register",
+    "written register",
+    "haben/sein/modals"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-aspect-1",
+      "kind": "mc",
+      "topic": "spoken register",
+      "prompt": "Vilken tempusform används oftast i vardagligt talspråk, oavsett hur meningen skulle låta i skrift: \"Ich ___ das Buch schon gelesen.\" (jag har redan läst boken)",
+      "opener": "Tänk på hur man pratar med vänner, inte hur man skriver en tidningsartikel.",
+      "choices": [
+        "habe ... gelesen",
+        "las",
+        "hatte ... gelesen",
+        "lese"
+      ],
+      "answer": 0,
+      "explanation": "I talad tyska används nästan alltid perfekt, oavsett om handlingen skedde nyss eller för länge sedan. Preteritum (\"las\") låter bokligt och formellt i vardagligt tal."
+    },
+    {
+      "id": "q-de3-aspect-2",
+      "kind": "mc",
+      "topic": "written register",
+      "prompt": "I en berättande text eller tidningsartikel skriver man oftast i preteritum. Välj rätt form: \"Die Familie ___ im Sommer nach Berlin.\" (familjen reste till Berlin på sommaren; reisen)",
+      "opener": "Svaga verb bildar preteritum med stam + -te.",
+      "choices": [
+        "reiste",
+        "ist gereist",
+        "reist",
+        "gereist"
+      ],
+      "answer": 0,
+      "explanation": "\"Reiste\" är preteritumformen av det svaga verbet \"reisen\" (stam + -te). I skriftlig berättande text, t.ex. tidningsartiklar och romaner, används preteritum som standard-dåtid, medan perfekt dominerar i talspråk."
+    },
+    {
+      "id": "q-de3-aspect-3",
+      "kind": "mc",
+      "topic": "haben/sein/modals",
+      "prompt": "Vilket påstående om \"haben\", \"sein\" och modalverben (können, müssen, wollen osv.) stämmer?",
+      "opener": "Dessa verb bryter mot regeln att perfekt dominerar i talspråk.",
+      "choices": [
+        "De använder alltid perfekt, även i talspråk",
+        "De använder oftast preteritum även i talspråk: \"ich war\", \"ich hatte\", \"ich konnte\"",
+        "De har ingen preteritumform",
+        "De böjs bara i presens"
+      ],
+      "answer": 1,
+      "explanation": "Haben, sein och modalverben är undantag: även i vardagligt talspråk säger man oftast \"ich war\", \"ich hatte\", \"ich konnte\", \"ich musste\" i preteritum, inte de klumpiga perfektformerna \"ich bin gewesen\", \"ich habe gehabt\", \"ich habe gekonnt\"."
+    },
+    {
+      "id": "q-de3-aspect-4",
+      "kind": "mc",
+      "topic": "haben/sein/modals",
+      "prompt": "Välj rätt form: \"Als Kind ___ ich keine Angst vor Hunden.\" (som barn var jag inte rädd för hundar; haben)",
+      "opener": "Ett av undantagsverben som nästan alltid böjs i preteritum.",
+      "choices": [
+        "habe gehabt",
+        "hatte",
+        "hätte",
+        "habend"
+      ],
+      "answer": 1,
+      "explanation": "\"Hatte\" är preteritumformen av \"haben\". Precis som \"sein\" och modalverben används \"haben\" nästan alltid i preteritum, även muntligt: \"ich hatte\", inte \"ich habe gehabt\"."
+    },
+    {
+      "id": "q-de3-aspect-5",
+      "kind": "mc",
+      "topic": "spoken register",
+      "prompt": "Vilken mening låter mest naturlig i ett vardagligt samtal om gårdagen?",
+      "opener": "Standardformen för dåtid i talat språk.",
+      "choices": [
+        "Ich habe gestern meine Hausaufgaben gemacht.",
+        "Ich machte gestern meine Hausaufgaben.",
+        "Ich mache gestern meine Hausaufgaben.",
+        "Ich hatte gestern meine Hausaufgaben gemacht."
+      ],
+      "answer": 0,
+      "explanation": "I talspråk används perfekt (\"habe ... gemacht\") som standardform för det förflutna, oavsett tidsuttryck som \"gestern\". Preteritum (\"machte\") är grammatiskt korrekt men låter onaturligt formellt i ett vardagssamtal."
+    },
+    {
+      "id": "q-de3-aspect-6",
+      "kind": "mc",
+      "topic": "written register",
+      "prompt": "Vilken preteritumform hör till det starka verbet \"gehen\" (gå)?",
+      "opener": "Starka verb ändrar stamvokal i stället för att lägga till -te.",
+      "choices": [
+        "gehte",
+        "ging",
+        "gegangen",
+        "geht"
+      ],
+      "answer": 1,
+      "explanation": "Starka verb ändrar stamvokal i preteritum i stället för att lägga till -te: \"gehen\" → \"ging\" (jfr particip \"gegangen\" i perfekt). \"Gehte\" finns inte."
+    },
+    {
+      "id": "q-de3-aspect-7",
+      "kind": "worked",
+      "topic": "spoken register",
+      "prompt": "Rätta felet och förklara varför: I ett vardagligt telefonsamtal säger Lena: \"Gestern ich bin ins Kino gegangen und ich sah einen tollen Film.\" Något är stilistiskt märkligt, även om båda satserna är grammatiskt möjliga.",
+      "opener": "Fundera på vilken tempusform som dominerar i talspråk – och om ordföljden också stämmer.",
+      "answer": "Gestern bin ich ins Kino gegangen und ich habe einen tollen Film gesehen.",
+      "steps": [
+        "Ordföljd: efter tidsangivelsen \"gestern\" på plats ett måste verbet stå på plats två: \"bin ich\", inte \"ich bin\".",
+        "Andra satsen växlar till preteritum (\"sah\") mitt i ett talspråkigt sammanhang, vilket är stilistiskt inkonsekvent — talspråk håller sig till perfekt.",
+        "\"Sah\" → \"habe ... gesehen\" för att matcha registret i resten av meningen.",
+        "Hela meningen: \"Gestern bin ich ins Kino gegangen und ich habe einen tollen Film gesehen.\" Båda verben står nu i perfekt, vilket passar ett vardagligt talat sammanhang."
+      ]
+    },
+    {
+      "id": "q-de3-aspect-8",
+      "kind": "flashcard",
+      "topic": "spoken register",
+      "prompt": "Hur väljer man mellan perfekt och preteritum på tyska – i tal och i skrift?",
+      "opener": "En enkel tumregel plus tre undantag att komma ihåg.",
+      "answer": "Talspråk (samtal, vardagliga meddelanden): använd perfekt som standard, t.ex. \"ich habe gemacht\", \"wir sind gefahren\", oavsett hur länge sedan det var. Skriftspråk (berättelser, tidningsartiklar, rapporter): preteritum är standardformen för dåtid, t.ex. \"er machte\", \"sie fuhren\". Tre undantag gäller i BÅDA registren: haben (\"ich hatte\"), sein (\"ich war\") och modalverben (können, müssen, wollen, sollen, dürfen, mögen — t.ex. \"ich konnte\", \"ich musste\") används nästan alltid i preteritum, även muntligt, eftersom deras perfektformer känns klumpiga. Svaga verb bildar preteritum med stam + -te (machen → machte), starka verb ändrar ofta stamvokalen (gehen → ging, fahren → fuhr, sehen → sah)."
+    }
+  ]
+}

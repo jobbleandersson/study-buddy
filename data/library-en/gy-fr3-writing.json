@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr3-writing",
+  "type": "assignment",
+  "subject": "Franska 3",
+  "title": "Writing practice: word choice and sentence structure",
+  "sourceSummary": "Choosing the right words and structure in written French — relative pronouns, tense, subjunctive, and comparisons in descriptive texts.",
+  "topics": [
+    "sentence structure",
+    "word choice",
+    "comparison"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr3-writing-1",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Complétez pour décrire une ville : \"Paris est une ville ___ attire des millions de touristes chaque année.\"",
+      "opener": "Which pronoun is the subject of the clause?",
+      "choices": [
+        "qui",
+        "que",
+        "dont",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Qui\" is the subject (the city THAT attracts tourists) and is followed directly by the verb \"attire\"."
+    },
+    {
+      "id": "q-fr3-writing-2",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Complétez la description : \"Autrefois, ce village ___ (être) très calme, mais l'année dernière, beaucoup de touristes ___ (arriver).\"",
+      "opener": "A background description (\"autrefois\") versus a bounded change (\"l'année dernière\").",
+      "choices": [
+        "était / sont arrivés",
+        "a été / arrivaient",
+        "était / arrivaient",
+        "a été / sont arrivés"
+      ],
+      "answer": 0,
+      "explanation": "\"Autrefois\" (in the past) signals a long-lasting state → imparfait: \"était\". \"L'année dernière\" points to a bounded period with a concrete event → passé composé: \"sont arrivés\"."
+    },
+    {
+      "id": "q-fr3-writing-3",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Complétez pour comparer deux villes : \"Lyon est ___ grande ___ Marseille, mais plus petite que Paris.\" (Lyon is AS big AS Marseille)",
+      "opener": "The expression for equality in comparisons.",
+      "choices": [
+        "aussi ... que",
+        "plus ... que",
+        "moins ... que",
+        "aussi ... comme"
+      ],
+      "answer": 0,
+      "explanation": "\"Aussi ... que\" expresses equality: \"aussi grande que Marseille\" (as big as Marseille)."
+    },
+    {
+      "id": "q-fr3-writing-4",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Complétez ce conseil dans un texte : \"Pour bien profiter de la ville, il faut que vous ___ (prendre) le temps de vous perdre dans les petites rues.\"",
+      "opener": "\"Il faut que\" always requires the subjunctive.",
+      "choices": [
+        "preniez",
+        "prenez",
+        "prendrez",
+        "preniez pas"
+      ],
+      "answer": 0,
+      "explanation": "\"Il faut que\" is followed by the subjunctive. \"Prendre\" in the subjunctive for \"vous\" is \"preniez\" (stem \"pren-\" + ending -iez)."
+    },
+    {
+      "id": "q-fr3-writing-5",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Complétez : \"C'est ___ musée ___ intéressant de la ville.\" (it's the MOST interesting museum)",
+      "opener": "The superlative is formed with the definite article + plus.",
+      "choices": [
+        "le / le plus",
+        "le / plus",
+        "un / le plus",
+        "le / aussi"
+      ],
+      "answer": 0,
+      "explanation": "The superlative is formed with the definite article + plus + adjective: \"le musée le plus intéressant\" (the most interesting museum). The article is repeated: le ... le plus."
+    },
+    {
+      "id": "q-fr3-writing-6",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Which sentence has correct structure and word order?",
+      "opener": "Check especially the placement of the relative clause and the opinion phrase.",
+      "choices": [
+        "À mon avis, le quartier dont je t'ai parlé mérite vraiment une visite.",
+        "À mon avis, le quartier je t'ai parlé dont mérite vraiment une visite.",
+        "Le quartier à mon avis dont je t'ai parlé mérite une visite vraiment.",
+        "À mon avis dont, le quartier je t'ai parlé mérite une visite vraiment."
+      ],
+      "answer": 0,
+      "explanation": "Correct structure: the opinion phrase \"à mon avis\" opens the sentence, then the main clause's subject \"le quartier\", followed by the relative clause \"dont je t'ai parlé\" (that I've told you about) directly after the subject, and finally the predicate. \"Dont\" should never be separated from its clause as in the other options."
+    },
+    {
+      "id": "q-fr3-writing-7",
+      "kind": "worked",
+      "topic": "word choice",
+      "prompt": "Correct the errors in this draft of a descriptive text: \"Le village dont j'ai visité l'été dernier était plus petit que je pensais. Il y a une église qui a été construite au douzième siècle, et il faut que vous voyez ça si vous passez dans la région.\"",
+      "opener": "Three things to check: the relative pronoun's role, the verb form after \"il faut que\", and whether the rest is already correct.",
+      "answer": "Le village que j'ai visité l'été dernier était plus petit que je pensais. Il y a une église qui a été construite au douzième siècle, et il faut que vous voyiez ça si vous passez dans la région.",
+      "steps": [
+        "\"Le village dont j'ai visité\" is wrong — the verb \"visiter\" takes a direct object (you visit SOMETHING, not SOMETHING ABOUT), so the pronoun should be \"que\", not \"dont\": \"le village que j'ai visité\".",
+        "\"était plus petit que je pensais\" is already correct — a past description (imparfait) that needs no change.",
+        "\"il faut que vous voyez\" is wrong — \"il faut que\" requires the subjunctive. \"Voir\" in the subjunctive for \"vous\" is \"voyiez\", not the present-tense form \"voyez\".",
+        "\"qui a été construite\" is correct: \"qui\" is the subject (the church THAT was built) and passé composé fits a bounded historical event. Conclusion: always check a verb's construction (visiter + object vs. parler DE) before choosing que/dont, and remember that il faut que always requires the subjunctive."
+      ]
+    },
+    {
+      "id": "q-fr3-writing-8",
+      "kind": "flashcard",
+      "topic": "word choice",
+      "prompt": "What checklist questions should you ask yourself about word choice and structure when writing a longer text in French?",
+      "opener": "A checklist that ties together aspect, relative pronouns, the subjunctive, and comparisons.",
+      "answer": "Aspect: does the sentence describe a state/habit (imparfait) or a bounded, completed event (passé composé)? Relative pronoun: is the word the subject of the clause (qui), the object (que), a place (où), or linked to a verb + de or ownership (dont)? Subjunctive: is the verb governed by an expression like il faut que/je veux que/je souhaite que AND does the clause have a different subject from the main clause — then the subjunctive is required, otherwise the infinitive. Comparisons: plus/moins/aussi + adjective + que to compare two things, le/la plus + adjective for the superlative (the most ...). Running through this checklist before handing in a text catches the most common mistakes at this level."
+    }
+  ]
+}

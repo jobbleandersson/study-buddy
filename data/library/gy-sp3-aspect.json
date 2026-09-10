@@ -1,0 +1,128 @@
+{
+  "id": "lib-sp3-aspect",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Dåtidsaspekt: pretérito och imperfecto i berättelser",
+  "sourceSummary": "Fördjupning i skillnaden mellan pretérito indefinido och imperfecto — avslutade händelser mot bakgrund och vana — i sammanhängande berättelser.",
+  "topics": [
+    "preterite vs imperfect",
+    "narrative past",
+    "aspect"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-aspect-1",
+      "kind": "mc",
+      "topic": "preterite vs imperfect",
+      "prompt": "Välj rätt par: \"Cuando yo ___ (llegar) a casa, mi madre ___ (cocinar).\"",
+      "opener": "En avslutad händelse avbryter en pågående bakgrundshandling — vilket tempus passar var och en?",
+      "choices": [
+        "llegué / cocinaba",
+        "llegaba / cocinó",
+        "llegué / cocinó",
+        "llegaba / cocinaba"
+      ],
+      "answer": 0,
+      "explanation": "\"Llegué\" är en avgränsad, avslutad händelse (pretérito), medan \"cocinaba\" beskriver en pågående bakgrundshandling som redan var igång (imperfecto) — det klassiska mönstret \"en sak avbryter en annan\"."
+    },
+    {
+      "id": "q-sp3-aspect-2",
+      "kind": "mc",
+      "topic": "narrative past",
+      "prompt": "Välj rätt form: \"Mientras los niños ___ (jugar) en el parque, empezó a llover.\"",
+      "opener": "\"Mientras\" (medan) signalerar ofta en pågående handling i bakgrunden.",
+      "choices": [
+        "jugaron",
+        "jugaban",
+        "juegan",
+        "han jugado"
+      ],
+      "answer": 1,
+      "explanation": "\"Mientras\" + imperfecto beskriver något som pågick när en annan, avslutad händelse (\"empezó a llover\", pretérito) inträffade: \"jugaban\" (de lekte)."
+    },
+    {
+      "id": "q-sp3-aspect-3",
+      "kind": "mc",
+      "topic": "aspect",
+      "prompt": "Vad betyder \"conocí\" i pretérito i meningen: \"Conocí a mi mejor amiga en la escuela primaria\"?",
+      "opener": "Vissa verb byter faktiskt betydelse beroende på om de står i pretérito eller imperfecto — \"conocer\" är ett av dem.",
+      "choices": [
+        "Jag kände henne väl",
+        "Jag träffade henne för första gången",
+        "Jag tänkte på henne",
+        "Jag saknade henne"
+      ],
+      "answer": 1,
+      "explanation": "I pretérito betyder \"conocer\" \"att träffa/lära känna för första gången\" — en avgränsad händelse. I imperfecto (\"conocía\") hade det istället betytt \"jag kände (redan)\", ett pågående tillstånd."
+    },
+    {
+      "id": "q-sp3-aspect-4",
+      "kind": "mc",
+      "topic": "aspect",
+      "prompt": "Vilken mening betyder \"hon vägrade hjälpa mig\" (ett bestämt, avslutat beslut)?",
+      "opener": "Samma logik som \"conocer\": \"querer\" ändrar nyans mellan pretérito och imperfecto.",
+      "choices": [
+        "No quería ayudarme.",
+        "No quiso ayudarme.",
+        "No quiere ayudarme.",
+        "No ha querido ayudarme."
+      ],
+      "answer": 1,
+      "explanation": "\"No quiso\" (pretérito) uttrycker ett konkret, avslutat beslut att vägra — \"hon vägrade\". \"No quería\" (imperfecto) hade istället beskrivit ett allmänt ointresse, utan att säga om hon till slut hjälpte till eller inte."
+    },
+    {
+      "id": "q-sp3-aspect-5",
+      "kind": "mc",
+      "topic": "narrative past",
+      "prompt": "Välj rätt par för en bakgrundsbeskrivning: \"El cielo ___ (estar) gris y ___ (hacer) mucho frío cuando salimos de casa.\"",
+      "opener": "Beskrivningar av väder, känslor och omständigheter i en berättelse står nästan alltid i imperfecto.",
+      "choices": [
+        "estuvo / hizo",
+        "estaba / hacía",
+        "está / hace",
+        "estaba / hizo"
+      ],
+      "answer": 1,
+      "explanation": "Väderbeskrivningen är bakgrund till berättelsen, inte själva händelsen — därför imperfecto för båda: \"estaba\" och \"hacía\". \"Salimos\" (pretérito) är själva händelsen som sker mot den bakgrunden."
+    },
+    {
+      "id": "q-sp3-aspect-6",
+      "kind": "mc",
+      "topic": "preterite vs imperfect",
+      "prompt": "Vilken mening beskriver en vana i det förflutna?",
+      "opener": "Vana och upprepning i dåtid = imperfecto, inte pretérito.",
+      "choices": [
+        "Todos los veranos, mi familia fue a la playa.",
+        "Todos los veranos, mi familia iba a la playa.",
+        "El verano pasado, mi familia iba a la playa.",
+        "Ayer mi familia iba a la playa."
+      ],
+      "answer": 1,
+      "explanation": "\"Todos los veranos\" (varje sommar) signalerar en upprepad vana, vilket kräver imperfecto: \"iba\". Pretérito (\"fue\") hade passat med en enda, avgränsad sommar, t.ex. \"el verano pasado\"."
+    },
+    {
+      "id": "q-sp3-aspect-7",
+      "kind": "worked",
+      "topic": "narrative past",
+      "prompt": "Förklara vilket tempus som passar i varje lucka, och varför: \"Eran las diez de la noche cuando el teléfono ___ (sonar). Yo ___ (leer) un libro y no ___ (querer) contestar, pero al final lo ___ (hacer).\"",
+      "opener": "Fråga dig för varje lucka: är det bakgrund som redan pågick, eller en enskild avgränsad händelse?",
+      "answer": "sonó / leía / quería / hice",
+      "steps": [
+        "\"Eran las diez\" sätter scenen i imperfecto — det är alltid så klockslag i en berättelse uttrycks.",
+        "Lucka 1: telefonen ringer — en enskild, avgränsad händelse som bryter in i bakgrunden → pretérito: \"sonó\".",
+        "Lucka 2: \"jag läste\" är den pågående bakgrundshandlingen när telefonen ringde → imperfecto: \"leía\".",
+        "Lucka 3: en allmän känsla/ovilja i stunden, inget avgränsat beslut ännu → imperfecto: \"quería\" (jag ville inte svara).",
+        "Lucka 4: \"till slut gjorde jag det\" är en konkret, avslutad handling → pretérito: \"hice\"."
+      ]
+    },
+    {
+      "id": "q-sp3-aspect-8",
+      "kind": "flashcard",
+      "topic": "aspect",
+      "prompt": "Hur väljer man mellan pretérito indefinido och imperfecto i en berättelse?",
+      "opener": "Två frågor och en lista över verb som byter betydelse.",
+      "answer": "Pretérito: avgränsade, avslutade händelser med tydlig start/slut, huvudhändelserna i en berättelse (sonó, llegué, hice). Imperfecto: bakgrund, beskrivningar (väder, känslor, klockslag, ålder), pågående handlingar och vanor/upprepning förr (estaba, era, jugaban, iba). Mönster: imperfecto sätter scenen, pretérito för handlingen som bryter in. Verb som byter nyans: conocer (conocí = träffade för första gången / conocía = kände redan), saber (supe = fick reda på / sabía = visste), poder (pude = lyckades / podía = hade förmågan), querer (quise = försökte, no quise = vägrade / quería = ville, allmänt)."
+    }
+  ]
+}

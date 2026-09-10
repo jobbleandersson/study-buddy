@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr4-idioms",
+  "type": "assignment",
+  "subject": "Franska 4",
+  "title": "Idiomatiska uttryck och falska vänner",
+  "sourceSummary": "Vanliga franska idiom som inte går att översätta ord för ord, samt klassiska falska vänner mellan franska och svenska som lätt leder till missförstånd.",
+  "topics": [
+    "idioms",
+    "false friends",
+    "colloquial expressions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr4-idiom-1",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "Vad betyder uttrycket \"poser un lapin à quelqu'un\"?",
+      "opener": "Bokstavligen \"lägga en kanin på någon\" — men det handlar inte om djur.",
+      "choices": [
+        "Att lura någon på pengar",
+        "Att utebli från ett avtalat möte",
+        "Att ge någon en present i sista minuten",
+        "Att skvallra om någon"
+      ],
+      "answer": 1,
+      "explanation": "\"Poser un lapin à quelqu'un\" betyder att ställa upp någon, alltså att inte dyka upp till ett avtalat möte utan förvarning: \"Il m'a posé un lapin hier soir\" (han ställde upp mig igår kväll)."
+    },
+    {
+      "id": "q-fr4-idiom-2",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder franskans \"actuellement\"?",
+      "opener": "Ett klassiskt fällexempel — ordet liknar svenskans \"aktuellt\" men betyder något annat.",
+      "choices": [
+        "Aktuellt, relevant just nu",
+        "Faktiskt, i själva verket",
+        "För närvarande, just nu",
+        "Verkligen, på riktigt"
+      ],
+      "answer": 2,
+      "explanation": "\"Actuellement\" är en falsk vän — det betyder \"för närvarande/just nu\", inte \"aktuellt\". \"Aktuell/relevant\" heter istället \"actuel\" i betydelsen \"nuvarande\", men för \"det som är på tapeten\" använder man snarare \"d'actualité\". \"I själva verket\" heter \"en fait\" på franska."
+    },
+    {
+      "id": "q-fr4-idiom-3",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Om en fransman säger \"Je vais à la librairie\", vart är hen på väg?",
+      "opener": "\"Librairie\" ser ut som svenskans \"bibliotek\" men betyder något annat.",
+      "choices": [
+        "Till biblioteket",
+        "Till bokhandeln",
+        "Till skolan",
+        "Till en läsecirkel"
+      ],
+      "answer": 1,
+      "explanation": "\"Librairie\" betyder bokhandel, inte bibliotek — det är en klassisk falsk vän. Bibliotek heter \"bibliothèque\" på franska."
+    },
+    {
+      "id": "q-fr4-idiom-4",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder \"sensible\" på franska?",
+      "opener": "Ordet ser ut precis som engelskans \"sensible\", men franskan lurar dig här.",
+      "choices": [
+        "Förnuftig, sansad",
+        "Praktisk",
+        "Rimlig",
+        "Känslig, lättrörd"
+      ],
+      "answer": 3,
+      "explanation": "\"Sensible\" på franska betyder känslig/lättrörd, inte förnuftig som engelskans \"sensible\". \"Förnuftig\" heter istället \"raisonnable\" eller \"sensé\" på franska — ett förrädiskt par för den som också kan engelska."
+    },
+    {
+      "id": "q-fr4-idiom-5",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "Vad betyder \"avoir le cafard\"?",
+      "opener": "Bokstavligen \"ha kackerlackan\" — ett vardagligt uttryck för ett humör.",
+      "choices": [
+        "Att vara på dåligt humör, nere",
+        "Att vara äcklad",
+        "Att vara stressad över ett prov",
+        "Att sakna någon"
+      ],
+      "answer": 0,
+      "explanation": "\"Avoir le cafard\" är ett vardagligt uttryck som betyder att känna sig nere eller deppig: \"J'ai un peu le cafard aujourd'hui\" (jag känner mig lite nere idag)."
+    },
+    {
+      "id": "q-fr4-idiom-6",
+      "kind": "mc",
+      "topic": "colloquial expressions",
+      "prompt": "I vilket sammanhang säger man \"Ça marche !\" på vardagsfranska?",
+      "opener": "Tänk dig att någon föreslår en plan och du håller med.",
+      "choices": [
+        "När man beskriver att en maskin fungerar",
+        "När man menar \"okej, det funkar!\" som svar på ett förslag",
+        "När man pratar om att promenera",
+        "När man frågar om vägen"
+      ],
+      "answer": 1,
+      "explanation": "\"Ça marche !\" används vardagligt som instämmande svar på ett förslag, ungefär \"det funkar!\" eller \"okej, deal!\" — utöver sin bokstavliga betydelse om att något fungerar eller går."
+    },
+    {
+      "id": "q-fr4-idiom-7",
+      "kind": "worked",
+      "topic": "false friends",
+      "prompt": "Rätta felen i denna text, skriven av en elev som blandat ihop falska vänner: \"Actuellement, je lis un roman très intéressant, mais mon frère est très sensible aux critiques quand je lui en parle.\"",
+      "opener": "Läs meningen och fråga dig om varje understruket-liknande ord verkligen betyder det eleven trodde.",
+      "answer": "Meningen är redan korrekt — \"actuellement\" och \"sensible\" används här med sina rätta franska betydelser.",
+      "steps": [
+        "\"Actuellement\" betyder här korrekt \"för närvarande\" — eleven har alltså använt ordet rätt, trots att det ser ut som \"aktuellt\" på svenska. Meningen \"actuellement, je lis un roman\" betyder \"just nu läser jag en roman\", vilket stämmer.",
+        "\"Sensible\" används också korrekt här i betydelsen \"känslig, lättrörd\": \"mon frère est très sensible aux critiques\" betyder \"min bror är väldigt känslig för kritik\" — precis vad som beskrivs.",
+        "Poängen med övningen: dessa två ord LIKNAR svenska/engelska ord med annan betydelse, men här används de med sin korrekta franska innebörd. Fällan är att TRO att de betyder samma sak som på svenska/engelska och därför använda dem fel i en annan mening.",
+        "Om eleven istället velat säga \"min bror är förnuftig\" hade \"sensible\" varit fel val — då krävs \"raisonnable\". Och om eleven velat säga \"det är aktuellt/relevant just nu\" hade \"actuellement\" inte fungerat — då krävs \"d'actualité\"."
+      ]
+    },
+    {
+      "id": "q-fr4-idiom-8",
+      "kind": "flashcard",
+      "topic": "false friends",
+      "prompt": "Vilka är de vanligaste franska-svenska falska vännerna att se upp med, och vad betyder de egentligen?",
+      "opener": "En lista att repetera inför läsförståelse och skrivuppgifter.",
+      "answer": "actuellement = för närvarande (INTE aktuellt → d'actualité) · librairie = bokhandel (INTE bibliotek → bibliothèque) · sensible = känslig (INTE förnuftig → raisonnable/sensé) · demander = fråga/be om (INTE kräva → exiger) · attendre = vänta (INTE vänta på uppmärksamhet/delta → assister à) · assister à = närvara vid (INTE assistera → aider) · une chance = en tur/möjlighet (kan betyda tur, inte bara chans i betydelsen risk) · rester = stanna kvar (INTE resa → voyager) · un préservatif = kondom (INTE konserveringsmedel → un conservateur). Idiom att kunna: poser un lapin (ställa upp någon), avoir le cafard (vara nere), Ça marche ! (det funkar/okej!)."
+    }
+  ]
+}

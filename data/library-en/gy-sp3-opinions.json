@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp3-opinions",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Expressing opinions: argumentation in Spanish",
+  "sourceSummary": "Words and phrases for giving, agreeing with, and justifying an opinion: creo que, en mi opinión, estoy de acuerdo/en desacuerdo.",
+  "topics": [
+    "opinion vocabulary",
+    "agreement and disagreement",
+    "justifying an opinion"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-opinions-1",
+      "kind": "mc",
+      "topic": "opinion vocabulary",
+      "prompt": "Which phrase means \"I think that...\"?",
+      "opener": "One of the most common ways to open an opinion.",
+      "choices": [
+        "Creo que",
+        "Estoy de acuerdo",
+        "Por eso",
+        "Sin embargo"
+      ],
+      "answer": 0,
+      "explanation": "\"Creo que\" means \"I think that\" and is one of the most common ways to introduce an opinion, along with \"pienso que\"."
+    },
+    {
+      "id": "q-sp3-opinions-2",
+      "kind": "mc",
+      "topic": "opinion vocabulary",
+      "prompt": "What does \"en mi opinión\" mean?",
+      "opener": "A direct match for a phrase you already recognize.",
+      "choices": [
+        "in my opinion",
+        "I disagree",
+        "on the one hand",
+        "I'm sure that"
+      ],
+      "answer": 0,
+      "explanation": "\"En mi opinión\" literally means \"in my opinion\" — a common phrase for introducing a personal stance."
+    },
+    {
+      "id": "q-sp3-opinions-3",
+      "kind": "mc",
+      "topic": "agreement and disagreement",
+      "prompt": "Which phrase expresses AGREEMENT?",
+      "opener": "The difference is a small prefix: en- or none at all.",
+      "choices": [
+        "Estoy en desacuerdo",
+        "Estoy de acuerdo",
+        "No creo que",
+        "Dudo que"
+      ],
+      "answer": 1,
+      "explanation": "\"Estoy de acuerdo\" means \"I agree\". The opposite is \"estoy en desacuerdo\" or \"no estoy de acuerdo\" (I disagree)."
+    },
+    {
+      "id": "q-sp3-opinions-4",
+      "kind": "mc",
+      "topic": "agreement and disagreement",
+      "prompt": "Choose the correct form: \"No creo que esto ___ (ser) una buena idea.\"",
+      "opener": "When you negate an opinion (no creo que...), the subjunctive is required in the clause — unlike the affirmative \"creo que\", which takes the indicative.",
+      "choices": [
+        "es",
+        "sea",
+        "era",
+        "será"
+      ],
+      "answer": 1,
+      "explanation": "\"No creo que\" negates the certainty of the statement and therefore triggers the subjunctive: \"sea\". Compare this with the affirmative form \"creo que esto ES una buena idea\", which takes the indicative because it expresses conviction, not doubt."
+    },
+    {
+      "id": "q-sp3-opinions-5",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "Which word is used to JUSTIFY an opinion?",
+      "opener": "A word that roughly means \"since/because\".",
+      "choices": [
+        "sin embargo",
+        "ya que",
+        "por otro lado",
+        "aunque"
+      ],
+      "answer": 1,
+      "explanation": "\"Ya que\" means \"since/because\" and is used to justify a statement: \"Creo que deberíamos reciclar más, ya que es bueno para el planeta.\" \"Sin embargo\" (however), \"por otro lado\" (on the other hand) and \"aunque\" (although) instead signal contrast."
+    },
+    {
+      "id": "q-sp3-opinions-6",
+      "kind": "mc",
+      "topic": "opinion vocabulary",
+      "prompt": "Which sentence is correctly structured?",
+      "opener": "Check the word order carefully — \"que\" should come right after the opinion expression, and \"estar de acuerdo\" needs a preposition to link to a statement.",
+      "choices": [
+        "En mi opinión, que el examen fue difícil.",
+        "Creo que el examen fue difícil.",
+        "Creo el examen que fue difícil.",
+        "Estoy de acuerdo el examen fue difícil."
+      ],
+      "answer": 1,
+      "explanation": "\"Creo que el examen fue difícil\" has the correct structure: opinion expression + que + statement. \"En mi opinión\" doesn't take \"que\" (it isn't a verb), and \"estoy de acuerdo\" needs \"con\" or \"en que\" to link to a full clause: \"estoy de acuerdo en que...\"."
+    },
+    {
+      "id": "q-sp3-opinions-7",
+      "kind": "worked",
+      "topic": "justifying an opinion",
+      "prompt": "Find and correct the two errors: \"En mi opinión, el uso de los móviles en la escuela son un problema serio, porque los estudiantes no presta atención en la clase.\"",
+      "opener": "Both errors involve the verb agreeing with the wrong word in the sentence.",
+      "answer": "En mi opinión, el uso de los móviles en la escuela es un problema serio, porque los estudiantes no prestan atención en la clase.",
+      "steps": [
+        "\"El uso ... son\" has the wrong agreement — the subject is \"el uso\" (the use, singular), not \"los móviles\", so the verb should be singular: \"es\".",
+        "\"Los estudiantes no presta\" also has the wrong agreement — the subject \"los estudiantes\" is plural, so the verb should be \"prestan\".",
+        "The full corrected sentence: \"En mi opinión, el uso de los móviles en la escuela es un problema serio, porque los estudiantes no prestan atención en la clase.\"",
+        "Tip: in long sentences with subordinate clauses, it's easy to let the verb agree with the wrong noun — always check which word is actually the subject."
+      ]
+    },
+    {
+      "id": "q-sp3-opinions-8",
+      "kind": "flashcard",
+      "topic": "opinion vocabulary",
+      "prompt": "What phrases do you need to give, agree with, and justify an opinion?",
+      "opener": "A vocabulary list for argumentation, organized by function.",
+      "answer": "Give an opinion: creo que, pienso que, en mi opinión, a mi parecer, me parece que. Agree/disagree: estoy de acuerdo (con)/estoy en desacuerdo (con), no estoy de acuerdo. Justify: porque, ya que, puesto que (since/because), por eso (therefore). Contrast: sin embargo (however), por otro lado (on the other hand), aunque (although). Remember: \"no creo que\" and \"dudo que\" (I doubt that) take the subjunctive in the clause because they express doubt, while \"creo que\" and \"pienso que\" in affirmative form take the indicative."
+    }
+  ]
+}
