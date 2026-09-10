@@ -28,9 +28,10 @@ const NOG_CHOICES = [
   "(1) och (2) tillsammans är inte tillräckliga",
 ];
 
-const index = JSON.parse(readFileSync(join(ROOT, "data/library/index.json"), "utf8"));
+// Högskoleprovet keeps its own index, separate from the curriculum library.
+const index = JSON.parse(readFileSync(join(ROOT, "data/library/hp-index.json"), "utf8"));
 const hpSets = index.sets.filter((s) => /^lib-hp-/.test(s.id));
-if (!hpSets.length) fail("no lib-hp-* sets in index.json");
+if (!hpSets.length) fail("no lib-hp-* sets in data/library/hp-index.json");
 
 for (const entry of hpSets) {
   const path = join(ROOT, entry.file);

@@ -10,8 +10,11 @@ How to add Högskoleprovet content. Two kinds of set:
 - **ORD word banks** — `"type": "assignment"`, ids `lib-hp-ord-bank-NN`. These
   feed spaced repetition, not a timed test.
 
-Every set also needs an entry in `data/library/index.json` (`sets[]`) and, for
-browse text, in `data/library/index.en.json` (`sets`).
+Every set also needs an entry in `data/library/hp-index.json` (`sets[]`) — the
+Högskoleprovet track keeps its own index, separate from the curriculum library
+(`data/library/index.json`), and its sets are added from the `#/hp` hub, not
+`#/library` (see `js/data/hp-content.js`). English browse text goes in
+`data/library/hp-index.en.json`.
 
 ## Question shape
 
