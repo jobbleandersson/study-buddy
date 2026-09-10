@@ -1,4 +1,5 @@
 import "dotenv/config";
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import express from "express";
@@ -18,8 +19,11 @@ import { friends } from "./routes/friends.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // The frontend (index.html, css/, js/, etc.) lives two levels up from
 // server/src/ — this is the repo root, served alongside the API so the
-// whole app is one origin and one process.
-const FRONTEND_ROOT = path.join(__dirname, "..", "..");
+// whole app is one origin and one process. Overridable via FRONTEND_ROOT in
+// case a host lays the checkout out differently.
+const FRONTEND_ROOT = process.env.FRONTEND_ROOT || path.join(__dirname, "..", "..");
+const INDEX_HTML = path.join(FRONTEND_ROOT, "index.html");
+console.log(`[study-buddy-server] frontend root: ${FRONTEND_ROOT} (index.html ${fs.existsSync(INDEX_HTML) ? "found" : "MISSING"})`);
 
 const PORT = process.env.PORT || 8787;
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN; // unset = same-origin only, which is now the default deployment shape
@@ -73,8 +77,27 @@ app.use("/api", friends);
 app.use((req, res, next) => (req.path === "/server" || req.path.startsWith("/server/")) ? res.status(404).end() : next());
 app.use(express.static(FRONTEND_ROOT, { dotfiles: "ignore" }));
 
-startSweeper(); // prune expired sessions + used/old codes, hourly
+// Single-page app: any unmatched GET falls back to index.html so deep links
+// (the client uses hash routing, but a bare "/" and any stray path) resolve.
+app.get("*", (req, res, next) => {
+  if (req.path.startsWith("/api/")) return next();
+  res.sendFile(INDEX_HTML, (err) => { if (err) next(err); });
+});
+
+// Turn a swallowed 500 into a logged stack trace — otherwise Render just shows
+// "Internal Server Error" with nothing to go on.
+app.use((err, req, res, next) => {
+  console.error(`[study-buddy-server] error on ${req.method} ${req.originalUrl}:`, err);
+  if (res.headersSent) return next(err);
+  res.status(500).send("Internal Server Error");
+});
+
+try {
+  startSweeper(); // prune expired sessions + used/old codes, hourly
+} catch (e) {
+  console.error("[study-buddy-server] sweeper failed to start:", e);
+}
 
 app.listen(PORT, () => {
-  console.log(`[study-buddy-server] listening on http://localhost:${PORT}`);
+  console.log(`[study-buddy-server] listening on http://localhost:${PORT} (NODE_ENV=${process.env.NODE_ENV || "unset"})`);
 });
