@@ -233,6 +233,7 @@ a.streakbadge:hover {
 .topmenu__list {
   position: absolute; right: 8px; bottom: calc(100% + 10px); z-index: 30;
   min-width: 190px; padding: 6px;
+  max-height: calc(100vh - 90px); overflow-y: auto; overscroll-behavior: contain;
   background: var(--surface); border: 1px solid var(--line-strong);
   border-radius: var(--r-md); box-shadow: var(--shadow-2);
   display: flex; flex-direction: column; gap: 2px;
@@ -307,8 +308,10 @@ a.streakbadge:hover {
 }
 @media (max-width: 899.98px) {
   /* Room for the fixed bottom tab bar so page content — and anything that
-     floats at the bottom, like the solve-screen hint — never sits under it. */
-  .content { padding-bottom: calc(70px + env(safe-area-inset-bottom, 0)); }
+     floats at the bottom, like the solve-screen hint — never sits under it.
+     Immersive routes (a running session, print) drop the tab bar, so no
+     clearance is needed and the session's own hint button owns the bottom. */
+  .shell:not(.shell--immersive) .content { padding-bottom: calc(70px + env(safe-area-inset-bottom, 0)); }
 }
 
 /* ---------- buttons ---------- */
@@ -1367,6 +1370,9 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .sitechat__input:focus-visible { border-color: var(--brand); box-shadow: none; }
 .sitechat__dormant { padding: var(--s-4); text-align: center; color: var(--ink-soft); }
 .sitechat__dormant p:first-child { font-family: var(--font-display); font-weight: 600; margin-bottom: var(--s-2); color: var(--ink); }
+/* Out of the way during a running session / worksheet. */
+body.route-immersive .sitechat__fab,
+body.route-immersive .sitechat__panel { display: none; }
 /* Clear of the fixed bottom tab bar on mobile. */
 @media (max-width: 899.98px) {
   .sitechat__fab { bottom: calc(70px + var(--s-3) + env(safe-area-inset-bottom, 0)); }

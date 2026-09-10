@@ -501,8 +501,18 @@ function shellActions() {
   return el("div.topbar__actions", {}, [leaderboardBtn, bellBtn, profileBtn]);
 }
 
+/** Full-screen focus routes — a running session, a printable worksheet — where
+ *  the persistent bottom nav is a distraction and would sit under the
+ *  session's own floating hint button. The homeButton() at the top of each of
+ *  those views is the way out. */
+function immersiveRoute() {
+  return /^\/(session|review|practice|practice-weak|print|teachback)(\/|$)/.test(currentPath())
+    || currentPath() === "/hp/mock";
+}
+
 function shell(contentNode) {
   const { displayStreak: streak, atRisk } = store.streakInfo;
+  const immersive = immersiveRoute();
 
   // Desktop: a left sidebar carries the whole nav; the topbar stays but
   // collapses (via CSS) to just the bell + account pair on the right.
@@ -527,7 +537,7 @@ function shell(contentNode) {
     ].filter(Boolean)),
   ]);
 
-  return el("div.shell", {}, [
+  return el("div.shell" + (immersive ? ".shell--immersive" : ""), {}, [
     sidebar,
     el("div.shell__main", {}, [
       el("header.topbar", {}, [
@@ -543,7 +553,7 @@ function shell(contentNode) {
         ]),
       ]),
       el("main.content", { id: "main" }, [contentNode]),
-      tabBar(),
+      immersive ? null : tabBar(),
     ]),
   ]);
 }
@@ -583,6 +593,9 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     currentCleanup = result?.cleanup || null;
     currentViewNode = node;
     mount(app, shell(node));
+    // A running session / worksheet is a focus context — hide the floating
+    // app-help chat there too (it lives on <body>, outside the shell).
+    document.body.classList.toggle("route-immersive", immersiveRoute());
 
     const title = result?.title || "StudyBuddy";
     document.title = result?.title ? `${result.title} · StudyBuddy` : "StudyBuddy";

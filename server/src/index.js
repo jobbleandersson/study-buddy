@@ -17,11 +17,24 @@ import { parent } from "./routes/parent.js";
 import { friends } from "./routes/friends.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-// The frontend (index.html, css/, js/, etc.) lives two levels up from
-// server/src/ — this is the repo root, served alongside the API so the
-// whole app is one origin and one process. Overridable via FRONTEND_ROOT in
-// case a host lays the checkout out differently.
-const FRONTEND_ROOT = process.env.FRONTEND_ROOT || path.join(__dirname, "..", "..");
+// The frontend (index.html, css/, js/, etc.) is the repo root — normally two
+// levels up from server/src/. Hosts lay the checkout out in different ways, so
+// probe a few candidates for the one that actually has index.html rather than
+// trusting a single relative path. FRONTEND_ROOT overrides the search.
+function findFrontendRoot() {
+  const candidates = [
+    process.env.FRONTEND_ROOT,
+    path.join(__dirname, "..", ".."),
+    path.join(process.cwd(), ".."),
+    process.cwd(),
+    path.join(__dirname, ".."),
+  ].filter(Boolean);
+  for (const dir of candidates) {
+    if (fs.existsSync(path.join(dir, "index.html"))) return dir;
+  }
+  return candidates[1]; // fall back to the conventional location
+}
+const FRONTEND_ROOT = findFrontendRoot();
 const INDEX_HTML = path.join(FRONTEND_ROOT, "index.html");
 console.log(`[study-buddy-server] frontend root: ${FRONTEND_ROOT} (index.html ${fs.existsSync(INDEX_HTML) ? "found" : "MISSING"})`);
 
