@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp3-writing",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Writing practice: descriptive and comparative Spanish",
+  "sourceSummary": "Practise correct word choice and sentence structure in written Spanish — descriptive and comparative texts built on the grammar from the earlier topics.",
+  "topics": [
+    "sentence correction",
+    "descriptive writing",
+    "comparatives"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-writing-1",
+      "kind": "mc",
+      "topic": "comparatives",
+      "prompt": "Choose the correct pair: \"Mi hermano es ___ alto ___ yo.\"",
+      "opener": "Comparisons of inequality in Spanish: más + adjective + que.",
+      "choices": [
+        "más / que",
+        "más / como",
+        "tan / que",
+        "menos / de"
+      ],
+      "answer": 0,
+      "explanation": "Comparisons of inequality are built with \"más + adjective + que\": \"más alto que\" (taller than). \"Tan...como\" would instead express equality (as tall as)."
+    },
+    {
+      "id": "q-sp3-writing-2",
+      "kind": "mc",
+      "topic": "comparatives",
+      "prompt": "Choose the correct word: \"Este es el libro ___ interesante de todos.\"",
+      "opener": "The superlative in Spanish: definite article + noun + más/menos + adjective + de.",
+      "choices": [
+        "más",
+        "tan",
+        "menos",
+        "que"
+      ],
+      "answer": 0,
+      "explanation": "The superlative is formed with the definite article (already given: \"el libro\") + más/menos + adjective + de: \"el libro más interesante de todos\" (the most interesting book of all)."
+    },
+    {
+      "id": "q-sp3-writing-3",
+      "kind": "mc",
+      "topic": "descriptive writing",
+      "prompt": "Choose the correct form: \"La ciudad donde yo ___ (vivir) cuando era niño era muy tranquila.\"",
+      "opener": "\"Era niño\" is surrounded by background description in the imperfect — so which tense should \"vivir\" be in?",
+      "choices": [
+        "viví",
+        "vivía",
+        "vivo",
+        "he vivido"
+      ],
+      "answer": 1,
+      "explanation": "The whole sentence describes a situation that continued throughout childhood, background rather than a single event — hence the imperfect: \"vivía\" (I lived), matching \"era niño\"."
+    },
+    {
+      "id": "q-sp3-writing-4",
+      "kind": "mc",
+      "topic": "sentence correction",
+      "prompt": "Which verb fits: \"Mi abuela ___ una persona muy generosa.\"",
+      "opener": "A permanent trait of a person is expressed with ser, not estar.",
+      "choices": [
+        "es",
+        "está",
+        "son",
+        "están"
+      ],
+      "answer": 0,
+      "explanation": "Being a generous PERSON is a (relatively) lasting trait, not a temporary state — hence \"ser\": \"es\". \"Estar\" is used for temporary states and locations, e.g. \"está cansada\" (she is tired right now)."
+    },
+    {
+      "id": "q-sp3-writing-5",
+      "kind": "mc",
+      "topic": "descriptive writing",
+      "prompt": "Which word is used to CONTRAST two ideas in a comparative text?",
+      "opener": "A phrase that roughly means \"while, unlike\".",
+      "choices": [
+        "mientras que",
+        "porque",
+        "también",
+        "además"
+      ],
+      "answer": 0,
+      "explanation": "\"Mientras que\" means \"while/unlike\" and is used to set two contrasting ideas against each other in a comparative text: \"Madrid es muy grande, mientras que mi pueblo es pequeño.\" \"Porque\" justifies, while \"también\" and \"además\" add on."
+    },
+    {
+      "id": "q-sp3-writing-6",
+      "kind": "mc",
+      "topic": "sentence correction",
+      "prompt": "Which sentence is correct?",
+      "opener": "Check agreement in both number and gender between the noun and the adjective.",
+      "choices": [
+        "Tengo dos bicicleta nuevas.",
+        "Tengo dos bicicletas nueva.",
+        "Tengo dos bicicletas nuevas.",
+        "Tengo dos bicicleta nueva."
+      ],
+      "answer": 2,
+      "explanation": "Nouns and adjectives must agree in both gender and number: \"bicicletas\" (feminine, plural) requires \"nuevas\" (feminine, plural). \"Tengo dos bicicletas nuevas\" is the only sentence where everything agrees."
+    },
+    {
+      "id": "q-sp3-writing-7",
+      "kind": "worked",
+      "topic": "sentence correction",
+      "prompt": "Find and correct the three errors: \"Mi ciudad es más grande que mi pueblo, pero mi pueblo, cuyo la gente es muy amable, tiene más tranquilo. Cuando yo era niño, jugué allí todos los días.\"",
+      "opener": "One error concerns cuyo agreement, one concerns ser/estar/tener, and one concerns preterite/imperfect.",
+      "answer": "Mi ciudad es más grande que mi pueblo, pero mi pueblo, cuya gente es muy amable, es más tranquilo. Cuando yo era niño, jugaba allí todos los días.",
+      "steps": [
+        "\"cuyo la gente\" → \"cuya gente\": cuyo agrees with the word it precedes, and \"gente\" is feminine singular, so \"cuya\".",
+        "\"tiene más tranquilo\" → \"es más tranquilo\": a trait (calmness) of a place is described with \"ser\", not \"tener\", in a comparison like this.",
+        "\"jugué allí todos los días\" → \"jugaba allí todos los días\": \"todos los días\" (every day) signals a habit in the past, which requires the imperfect, not the preterite.",
+        "The full corrected sentence: \"Mi ciudad es más grande que mi pueblo, pero mi pueblo, cuya gente es muy amable, es más tranquilo. Cuando yo era niño, jugaba allí todos los días.\""
+      ]
+    },
+    {
+      "id": "q-sp3-writing-8",
+      "kind": "flashcard",
+      "topic": "comparatives",
+      "prompt": "How do you build comparisons and descriptive, contrasting sentences in Spanish?",
+      "opener": "Comparison structures plus a few key connectors.",
+      "answer": "Comparisons: más/menos + adjective + que (inequality: más alto que), tan + adjective + como (equality: tan alto como), definite article + más/menos + adjective + de (superlative: el más alto de la clase). Descriptive connectors: mientras que (while/unlike, contrast), sin embargo (however), además (furthermore), ya que/porque (since/because, justification). Remember: adjectives must always agree in gender and number with the noun they describe, and ser/estar is chosen based on whether the trait is lasting (ser) or temporary/a location (estar)."
+    }
+  ]
+}

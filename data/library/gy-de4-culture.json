@@ -1,0 +1,127 @@
+{
+  "id": "lib-de4-culture",
+  "type": "assignment",
+  "subject": "Tyska 4",
+  "title": "Umwelt: ordförråd och samhällsdebatt",
+  "sourceSummary": "Ordförråd kring klimat och miljö samt en kort text om Tysklands klimatmål, för att kunna delta i en samhällsdebatt på tyska.",
+  "topics": [
+    "environment vocabulary",
+    "climate debate",
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de4-cul-1",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Vad betyder \"der Klimawandel\"?",
+      "opener": "Ett grundläggande ord i all miljödebatt.",
+      "choices": [
+        "klimatförändringen",
+        "väderleken",
+        "klimatmötet",
+        "klimatpolitiken"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Klimawandel\" betyder klimatförändringen — det centrala begreppet i all miljödebatt på tyska."
+    },
+    {
+      "id": "q-de4-cul-2",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Vad betyder adjektivet \"nachhaltig\"?",
+      "opener": "Ett nyckelord som skiljer sig från, men lätt blandas ihop med, \"erneuerbar\".",
+      "choices": [
+        "hållbar",
+        "förnybar",
+        "skadlig",
+        "tillfällig"
+      ],
+      "answer": 0,
+      "explanation": "\"Nachhaltig\" betyder hållbar (t.ex. nachhaltige Entwicklung = hållbar utveckling). Ordet förväxlas ofta med \"erneuerbar\" (förnybar), som syftar specifikt på energikällor som förnyas naturligt, t.ex. sol och vind."
+    },
+    {
+      "id": "q-de4-cul-3",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Vilket uttryck betyder \"förnybara energikällor\"?",
+      "opener": "Leta efter ordet som specifikt handlar om energikällor som sol, vind och vatten.",
+      "choices": [
+        "erneuerbare Energien",
+        "fossile Brennstoffe",
+        "nachhaltige Entwicklung",
+        "der CO2-Ausstoß"
+      ],
+      "answer": 0,
+      "explanation": "\"Erneuerbare Energien\" betyder förnybara energikällor (sol, vind, vatten). \"Fossile Brennstoffe\" är motsatsen (fossila bränslen som kol och olja), och \"der CO2-Ausstoß\" betyder koldioxidutsläppen."
+    },
+    {
+      "id": "q-de4-cul-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs: \"Deutschland hat sich zum Ziel gesetzt, bis 2045 klimaneutral zu werden. Kritiker bezweifeln jedoch, dass dieses Ziel ohne einen deutlich schnelleren Ausbau der erneuerbaren Energien erreichbar ist.\"\n\nVad är Tysklands mål enligt texten?",
+      "opener": "Leta efter årtalet och ordet \"klimaneutral\".",
+      "choices": [
+        "Att bli klimatneutralt till 2045",
+        "Att fasa ut kärnkraften till 2030",
+        "Att halvera CO2-utsläppen till 2030",
+        "Att bli världsledande inom solenergi"
+      ],
+      "answer": 0,
+      "explanation": "\"Deutschland hat sich zum Ziel gesetzt, bis 2045 klimaneutral zu werden\" betyder att Tyskland satt som mål att bli klimatneutralt senast 2045."
+    },
+    {
+      "id": "q-de4-cul-5",
+      "kind": "mc",
+      "topic": "climate debate",
+      "prompt": "Samma text. Vad tvivlar kritikerna (Kritiker) på?",
+      "opener": "\"Bezweifeln\" betyder tvivla på — vad följer efter det ordet i meningen?",
+      "choices": [
+        "Att målet går att nå utan en betydligt snabbare utbyggnad av förnybar energi",
+        "Att klimatförändringen överhuvudtaget existerar",
+        "Att Tyskland har tillräckligt med pengar för klimatarbetet",
+        "Att andra länder kommer att följa Tysklands exempel"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att kritikerna \"bezweifeln, dass dieses Ziel ohne einen deutlich schnelleren Ausbau der erneuerbaren Energien erreichbar ist\" — alltså att målet inte går att nå utan en betydligt snabbare utbyggnad av förnybar energi."
+    },
+    {
+      "id": "q-de4-cul-6",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Vad betyder verbet \"reduzieren\" i uttrycket \"den CO2-Ausstoß reduzieren\"?",
+      "opener": "Ett vanligt verb i klimatdebatten som liknar ett svenskt ord.",
+      "choices": [
+        "minska",
+        "mäta",
+        "öka",
+        "ignorera"
+      ],
+      "answer": 0,
+      "explanation": "\"Reduzieren\" betyder minska — \"den CO2-Ausstoß reduzieren\" betyder att minska koldioxidutsläppen. Ordet liknar det svenska \"reducera\", vilket gör det lätt att känna igen."
+    },
+    {
+      "id": "q-de4-cul-7",
+      "kind": "worked",
+      "topic": "climate debate",
+      "prompt": "Rätta felet: \"Um den Klimawandel zu bekämpfen, die Länder müssen erneuerbare Energien fördern.\" (Tänkt: För att bekämpa klimatförändringen måste länderna främja förnybar energi.)",
+      "opener": "En \"um...zu\"-fras räknas som en enda satsdel på plats ett — vad ska hända med verbet direkt efter den?",
+      "answer": "Um den Klimawandel zu bekämpfen, müssen die Länder erneuerbare Energien fördern.",
+      "steps": [
+        "\"Um den Klimawandel zu bekämpfen\" är en infinitivfras som fungerar som en enda satsdel och upptar plats ett i meningen.",
+        "Eftersom huvudsatsens böjda verb alltid ska stå på plats två, måste \"müssen\" komma direkt efter kommat — inte subjektet \"die Länder\".",
+        "Felaktig ordning: \"..., die Länder müssen ...\" (subjekt före verb) → korrekt: \"..., müssen die Länder ...\" (verb före subjekt).",
+        "Korrekt mening: \"Um den Klimawandel zu bekämpfen, müssen die Länder erneuerbare Energien fördern.\" Samma regel gäller varje gång något annat än subjektet inleder meningen."
+      ]
+    },
+    {
+      "id": "q-de4-cul-8",
+      "kind": "flashcard",
+      "topic": "environment vocabulary",
+      "prompt": "Vilka ord och uttryck behöver du för att diskutera klimat och miljö på tyska?",
+      "opener": "En ordlista för samhällsdebatt om Umwelt.",
+      "answer": "der Klimawandel = klimatförändringen. die Erderwärmung = den globala uppvärmningen. nachhaltig = hållbar. erneuerbare Energien = förnybar energi. fossile Brennstoffe = fossila bränslen. der CO2-Ausstoß = koldioxidutsläppen. reduzieren = minska. der Ausbau = utbyggnaden. bekämpfen = bekämpa, kämpa mot. klimaneutral = klimatneutral. die Umweltschutzorganisation = miljöskyddsorganisationen. sich zum Ziel setzen = sätta som mål. bezweifeln = tvivla på. Nyttiga fraser: \"Meiner Meinung nach müsste man ...\" (Enligt min mening borde man ...), \"Es ist wichtig, dass ...\" (Det är viktigt att ...), \"Einerseits ..., andererseits ...\" (Å ena sidan ..., å andra sidan ...)."
+    }
+  ]
+}

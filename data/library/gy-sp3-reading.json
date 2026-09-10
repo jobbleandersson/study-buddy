@@ -1,0 +1,128 @@
+{
+  "id": "lib-sp3-reading",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Läsförståelse: kultur och samhälle",
+  "sourceSummary": "En längre text om ett kultur- och samhällstema på spanska, med läsförståelsefrågor om huvudbudskap, detaljer, slutledning och ord i sammanhang.",
+  "topics": [
+    "reading comprehension",
+    "inference",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-reading-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nVad firas egentligen på Día de los Muertos, enligt texten?",
+      "opener": "Läs andra meningen noga — texten motsäger direkt en vanlig missuppfattning.",
+      "choices": [
+        "En sorglig ceremoni för att hedra de döda i tystnad",
+        "En glad högtid som firar livet och minnet av de döda",
+        "En religiös fasta inför vintern",
+        "En turistattraktion utan djupare betydelse"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger uttryckligen att det INTE är en sorglig högtid, \"sino una celebración alegre de la vida y la memoria\" (utan en glad firande av livet och minnet). Det första alternativet är precis den missuppfattning texten avfärdar."
+    },
+    {
+      "id": "q-sp3-reading-2",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Läs texten: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nVad betyder ordet \"antepasados\" i texten?",
+      "opener": "Ordet påminner om \"pasado\" (det förflutna) plus förleden \"ante-\" (före).",
+      "choices": [
+        "grannar",
+        "förfäder",
+        "vänner",
+        "turister"
+      ],
+      "answer": 1,
+      "explanation": "\"Antepasados\" betyder \"förfäder\" — släktingar som levt före en. Sammanhanget (\"limpian las tumbas de sus antepasados\", städar sina förfäders gravar) bekräftar detta."
+    },
+    {
+      "id": "q-sp3-reading-3",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nVarför dekorerar familjerna altarna med mat och dryck som den avlidne tyckte om?",
+      "opener": "Läs meningen om \"las almas de los muertos\".",
+      "choices": [
+        "Eftersom man tror att de dödas själar återvänder för att besöka sina nära och kära",
+        "Eftersom det är tradition att äta upp maten själva efteråt",
+        "Eftersom prästerna kräver det som en del av mässan",
+        "Eftersom det är en symbol för nästa års skörd"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att man tror att de dödas själar återvänder under dessa dagar för att besöka sina nära och kära (\"regresan para visitar a sus seres queridos\") — maten och dryckerna som den avlidne tyckte om finns där för att välkomna dem."
+    },
+    {
+      "id": "q-sp3-reading-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nVilket årtal utsåg UNESCO traditionen till immateriellt kulturarv?",
+      "opener": "Ett konkret årtal nämns mot slutet av texten.",
+      "choices": [
+        "1998",
+        "2008",
+        "2018",
+        "2000"
+      ],
+      "answer": 1,
+      "explanation": "Texten anger \"En 2008, la UNESCO declaró...\" — alltså 2008."
+    },
+    {
+      "id": "q-sp3-reading-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Läs texten: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nVad kan man dra slutsatsen om synen på döden utifrån texten, utan att det sägs rakt ut?",
+      "opener": "Titta på helheten: firande, mat, glädje, minne — vad säger det tillsammans om attityden till döden?",
+      "choices": [
+        "Att döden ses som något skrämmande som bör undvikas att tala om",
+        "Att döden ses som en naturlig del av livet, värd att fira snarare än sörja i tystnad",
+        "Att döden bara har betydelse för äldre generationer",
+        "Att traditionen håller på att försvinna helt"
+      ],
+      "answer": 1,
+      "explanation": "Texten nämner aldrig explicit \"synen på döden\", men detaljerna — en glad högtid, mat man tyckte om, besök av själar, minne av de nära — pekar tillsammans på att döden här behandlas som en naturlig del av livet snarare än något att frukta eller tiga om."
+    },
+    {
+      "id": "q-sp3-reading-6",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos. Aunque la tradición tiene raíces prehispánicas, hoy en día se mezcla con elementos católicos, ya que llegaron con la colonización española. En 2008, la UNESCO declaró el Día de los Muertos Patrimonio Cultural Inmaterial de la Humanidad, lo cual ayudó a que la tradición se conociera fuera de México.\"\n\nVarifrån kommer de katolska inslagen som blandats in i den ursprungligen förhispaniska traditionen?",
+      "opener": "Ordet \"colonización española\" nämns direkt i texten.",
+      "choices": [
+        "Från handeln med Asien",
+        "Från den spanska kolonisationen",
+        "Från moderna turister",
+        "Från grannländerna i Sydamerika"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger att traditionen har förhispaniska rötter men i dag blandas med katolska inslag \"ya que llegaron con la colonización española\" (eftersom de kom med den spanska kolonisationen)."
+    },
+    {
+      "id": "q-sp3-reading-7",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Förklara med hjälp av texten varför Día de los Muertos INTE är en sorglig högtid, och nämn minst två konkreta exempel ur texten som stödjer detta: \"El Día de los Muertos es una de las tradiciones más importantes de México y se celebra cada año el primero y el segundo de noviembre. A diferencia de lo que muchos turistas creen, no es una fiesta triste, sino una celebración alegre de la vida y la memoria. Las familias limpian las tumbas de sus antepasados, decoran los altares con flores de cempasúchil y colocan la comida y las bebidas que le gustaban al difunto cuando estaba vivo. Se cree que, durante estos días, las almas de los muertos regresan para visitar a sus seres queridos.\"",
+      "opener": "Leta efter konkreta detaljer i texten, inte bara det som sägs rakt ut i första meningen.",
+      "answer": "Texten beskriver högtiden som en glad firande av livet och minnet, och stödjer det med flera konkreta, positiva detaljer: familjerna dekorerar med blommor, lagar favoritmat och tror att de dödas själar kommer på besök.",
+      "steps": [
+        "Texten säger rakt ut: \"no es una fiesta triste, sino una celebración alegre de la vida y la memoria\" (det är inte en sorglig högtid, utan en glad firande av livet och minnet).",
+        "Konkret exempel 1: familjerna dekorerar altarna med flores de cempasúchil (blommor) — en festlig, färgglad handling, inte en sorgehandling.",
+        "Konkret exempel 2: man lagar till mat och dryck som den avlidne tyckte om — ett sätt att fira och minnas personen med glädje, snarare än att sörja.",
+        "Konkret exempel 3: tron att själarna återvänder för att besöka sina nära och kära ger hela högtiden karaktären av ett återseende, inte ett avsked.",
+        "Tillsammans bygger dessa detaljer upp bilden av en firande, snarare än sörjande, tradition."
+      ]
+    },
+    {
+      "id": "q-sp3-reading-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "Vilka strategier och ord är bra att kunna för att läsa spanska texter om kultur och samhälle?",
+      "opener": "Kognater, det opersonliga \"se\" och lite ordförråd från texten.",
+      "answer": "Lässtrategier: läs frågan innan du läser texten i detalj, så vet du vad du letar efter. Många spanska ord liknar svenska/engelska (kognater) — t.ex. \"tradición\", \"celebración\", \"declaró\" — använd dem som genvägar. Det opersonliga \"se\" (se celebra, se cree, se mezcla) motsvarar ofta passiv form eller \"man\" på svenska. Ordlista från texten: antepasados = förfäder · difunto = avliden · seres queridos = nära och kära · patrimonio = arv · raíces = rötter."
+    }
+  ]
+}

@@ -185,8 +185,10 @@ a.streakbadge:hover {
   .topbar__inner { justify-content: flex-end; padding-top: var(--s-4); padding-right: var(--s-6); }
   .topbar .brand,
   .topbar .streakbadge,
-  .topbar .langbtn,
-  .topbar .topmenu { display: none; }
+  .topbar .langbtn { display: none; }
+  /* The sidebar carries the full nav on desktop — the mobile bottom bar is
+     hidden here. Placed in this block so it wins over .tabbar's base rule. */
+  .tabbar { display: none; }
 }
 
 .topbar {
@@ -208,11 +210,28 @@ a.streakbadge:hover {
 .brand img { width: 30px; height: 30px; }
 .topbar__spacer { flex: 1; }
 
-/* Top-bar ⋮ menu — the full nav on mobile (the topbar itself is hidden by the
-   sidebar's media query on desktop). */
-.topmenu { display: inline-flex; position: relative; }
+/* Bottom tab bar — mobile's primary nav (see js/main.js tabBar()). Fixed and
+   thumb-reachable; hidden on desktop by the min-width:900px block above. */
+.tabbar {
+  display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 25;
+  background: color-mix(in srgb, var(--surface) 97%, transparent);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+.tabbar__item {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; padding: 8px 0 7px; border: none; background: none; font: inherit; cursor: pointer;
+  color: var(--ink-faint); text-decoration: none;
+}
+.tabbar__item svg { flex: none; }
+.tabbar__item span { font-size: 10.5px; font-weight: 600; }
+.tabbar__item.is-active { color: var(--brand-ink); }
+.tabbar__more { position: relative; flex: 1; display: flex; }
+
+/* The "Meny" tab's popover — the full nav, opened upward from the bottom bar. */
 .topmenu__list {
-  position: absolute; right: 0; top: calc(100% + 6px); z-index: 30;
+  position: absolute; right: 8px; bottom: calc(100% + 10px); z-index: 30;
   min-width: 190px; padding: 6px;
   background: var(--surface); border: 1px solid var(--line-strong);
   border-radius: var(--r-md); box-shadow: var(--shadow-2);
@@ -285,6 +304,11 @@ a.streakbadge:hover {
   flex: 1;
   max-width: var(--maxw); width: 100%; margin: 0 auto;
   padding: var(--s-6) var(--s-4) var(--s-8);
+}
+@media (max-width: 899.98px) {
+  /* Room for the fixed bottom tab bar so page content — and anything that
+     floats at the bottom, like the solve-screen hint — never sits under it. */
+  .content { padding-bottom: calc(70px + env(safe-area-inset-bottom, 0)); }
 }
 
 /* ---------- buttons ---------- */
@@ -1310,6 +1334,47 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .msg.ai { background: var(--surface-sunk); align-self: flex-start; border-bottom-left-radius: 4px; }
 .msg.me { background: var(--brand); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
 .msg.ai code, .msg.me code { background: rgba(0,0,0,.08); padding: 1px 4px; border-radius: 4px; }
+
+/* typing indicator — the tutor thread and the site help chat both use it */
+.typing span { display: inline-block; width: 6px; height: 6px; margin: 0 1px; border-radius: 50%; background: var(--ink-faint); animation: blink 1.2s infinite both; }
+.typing span:nth-child(2) { animation-delay: .2s; }
+.typing span:nth-child(3) { animation-delay: .4s; }
+@keyframes blink { 0%,80%,100% { opacity: .2; } 40% { opacity: 1; } }
+
+/* ---------- site help chat (floating widget, any page) ---------- */
+.sitechat__fab {
+  position: fixed; right: var(--s-4); bottom: var(--s-4); z-index: 40;
+  width: 56px; height: 56px; border-radius: var(--r-full);
+  display: grid; place-items: center; border: none; cursor: pointer;
+  background: var(--brand); color: #fff; box-shadow: var(--shadow-2);
+  transition: transform var(--dur-fast) var(--ease-spring);
+}
+.sitechat__fab:hover { transform: translateY(-2px) scale(1.05); }
+.sitechat__panel {
+  position: fixed; right: var(--s-4); bottom: calc(var(--s-4) + 56px + var(--s-3)); z-index: 40;
+  width: min(360px, calc(100vw - var(--s-4) * 2));
+  height: min(520px, calc(100vh - 160px));
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+  box-shadow: var(--shadow-2); overflow: hidden;
+}
+.sitechat__head { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-4); border-bottom: 1px solid var(--line); }
+.sitechat__title { font-family: var(--font-display); font-weight: 700; }
+.sitechat__sub { font-size: var(--fs-sm); color: var(--ink-faint); }
+.sitechat__log { flex: 1; overflow-y: auto; padding: var(--s-4); display: flex; flex-direction: column; gap: var(--s-3); }
+.sitechat__form { display: flex; gap: var(--s-2); padding: var(--s-3); border-top: 1px solid var(--line); }
+.sitechat__input { flex: 1; font: inherit; padding: var(--s-2) var(--s-3); border-radius: var(--r-full); border: 1px solid var(--line-strong); background: var(--surface); }
+.sitechat__input:focus-visible { border-color: var(--brand); box-shadow: none; }
+.sitechat__dormant { padding: var(--s-4); text-align: center; color: var(--ink-soft); }
+.sitechat__dormant p:first-child { font-family: var(--font-display); font-weight: 600; margin-bottom: var(--s-2); color: var(--ink); }
+/* Clear of the fixed bottom tab bar on mobile. */
+@media (max-width: 899.98px) {
+  .sitechat__fab { bottom: calc(70px + var(--s-3) + env(safe-area-inset-bottom, 0)); }
+  .sitechat__panel { bottom: calc(70px + 56px + var(--s-4) + env(safe-area-inset-bottom, 0)); }
+}
+@media (max-width: 480px) {
+  .sitechat__panel { right: var(--s-3); left: var(--s-3); width: auto; }
+}
 .tutor__form { display: flex; gap: var(--s-2); padding: var(--s-3); border-top: 1px solid var(--line); }
 .tutor__input { flex: 1; font: inherit; padding: var(--s-2) var(--s-3); border-radius: var(--r-full); border: 1px solid var(--line-strong); background: var(--surface); }
 .tutor__input:focus-visible { border-color: var(--brand); box-shadow: none; }

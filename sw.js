@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studybuddy-v71";
+const CACHE = "studybuddy-v72";
 
 const APP_SHELL = [
   "./",
@@ -60,6 +60,7 @@ const APP_SHELL = [
   "./js/lib/split.js",
   "./js/data/national-tests.js",
   "./js/data/library.js",
+  "./js/data/hp-content.js",
   "./js/views/menu.js",
   "./js/views/create.js",
   "./js/views/edit.js",
@@ -87,6 +88,7 @@ const APP_SHELL = [
   "./js/components/math-keypad.js",
   "./js/components/onboarding.js",
   "./js/components/command-palette.js",
+  "./js/components/site-chat.js",
   "./js/components/nav.js",
   "./js/components/confirm-dialog.js",
   "./js/components/due-dialog.js",
@@ -109,6 +111,8 @@ const APP_SHELL = [
   "./data/samples/scripted-tutor.sv.json",
   "./data/library/index.json",
   "./data/library/index.en.json",
+  "./data/library/hp-index.json",
+  "./data/library/hp-index.en.json",
   "./data/reference/formulas.sv.json",
   "./data/reference/formulas.en.json",
 ];
@@ -143,16 +147,26 @@ self.addEventListener("message", (event) => {
 
 async function cacheLibrary(client) {
   const cache = await caches.open(CACHE);
-  let index;
-  try {
-    index = await fetch("./data/library/index.json").then((r) => r.json());
-  } catch {
+  // The main practice library plus the Högskoleprovet track, which keeps its
+  // own small index (data/library/hp-index.json) separate from the curriculum
+  // library — see js/data/hp-content.js.
+  let sets = [];
+  for (const idxUrl of ["./data/library/index.json", "./data/library/hp-index.json"]) {
+    try {
+      const idx = await fetch(idxUrl).then((r) => r.json());
+      sets = sets.concat(idx.sets || []);
+    } catch { /* one index unreachable — cache what we can */ }
+  }
+  if (!sets.length) {
     client && client.postMessage({ type: "library-cache-done", ok: false });
     return;
   }
-  const urls = ["./data/library/index.json", "./data/library/index.en.json"];
+  const urls = [
+    "./data/library/index.json", "./data/library/index.en.json",
+    "./data/library/hp-index.json", "./data/library/hp-index.en.json",
+  ];
   const setFiles = [];
-  for (const s of index.sets || []) {
+  for (const s of sets) {
     if (!s.file) continue;
     const rel = s.file.replace(/^\.?\//, "");
     urls.push("./" + rel);

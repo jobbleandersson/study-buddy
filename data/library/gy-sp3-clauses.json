@@ -1,0 +1,126 @@
+{
+  "id": "lib-sp3-clauses",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Relativsatser: que, quien, donde och cuyo",
+  "sourceSummary": "Hur man bygger mer avancerade beskrivande meningar med relativpronomen: que, quien, donde och cuyo.",
+  "topics": [
+    "relative clauses",
+    "que and quien",
+    "donde and cuyo"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-clauses-1",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Välj rätt relativpronomen: \"El hombre ___ vive al lado es profesor.\"",
+      "opener": "\"Que\" är det mest allmänna relativpronomenet och funkar för både saker och personer som subjekt.",
+      "choices": [
+        "que",
+        "quien",
+        "donde",
+        "cuyo"
+      ],
+      "answer": 0,
+      "explanation": "\"Que\" används som subjekt i restriktiva relativsatser för både personer och saker: \"el hombre que vive...\" (mannen som bor...). \"Quien\" hade krävt ett komma eller en preposition framför sig i det här sammanhanget."
+    },
+    {
+      "id": "q-sp3-clauses-2",
+      "kind": "mc",
+      "topic": "que and quien",
+      "prompt": "Välj rätt relativpronomen: \"La mujer con ___ hablé ayer es mi tía.\"",
+      "opener": "Efter en preposition (con, de, a, para) om en person används oftast \"quien\", inte \"que\".",
+      "choices": [
+        "que",
+        "quien",
+        "donde",
+        "cual"
+      ],
+      "answer": 1,
+      "explanation": "Efter preposition + person används \"quien\" (eller \"quienes\" i plural): \"con quien hablé\" (som jag pratade med). \"Que\" används sällan direkt efter en preposition när det syftar på en person."
+    },
+    {
+      "id": "q-sp3-clauses-3",
+      "kind": "mc",
+      "topic": "donde and cuyo",
+      "prompt": "Välj rätt relativpronomen: \"Esta es la casa ___ nací.\"",
+      "opener": "Handlar det om en plats kan \"donde\" ersätta \"en la que\".",
+      "choices": [
+        "que",
+        "quien",
+        "donde",
+        "cuyo"
+      ],
+      "answer": 2,
+      "explanation": "\"Donde\" används för platser och motsvarar \"en la que/en el que\": \"la casa donde nací\" = \"la casa en la que nací\" (huset där jag föddes)."
+    },
+    {
+      "id": "q-sp3-clauses-4",
+      "kind": "mc",
+      "topic": "donde and cuyo",
+      "prompt": "Välj rätt form: \"El escritor ___ libros son famosos ganó un premio.\"",
+      "opener": "\"Cuyo\" böjs efter ordet som kommer EFTER det (den ägda saken), inte efter ägaren.",
+      "choices": [
+        "cuyo",
+        "cuya",
+        "cuyos",
+        "cuyas"
+      ],
+      "answer": 2,
+      "explanation": "\"Cuyo\" fungerar som ett possessivt adjektiv och böjs i genus/numerus efter det som ägs — här \"libros\" (maskulinum, plural) → \"cuyos\". Ägaren (\"el escritor\") påverkar inte formen."
+    },
+    {
+      "id": "q-sp3-clauses-5",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Vilken mening kombinerar de två meningarna korrekt: \"Tengo un amigo. Mi amigo vive en Perú.\"?",
+      "opener": "Vilket relativpronomen ersätter \"mi amigo\" som subjekt i den andra satsen?",
+      "choices": [
+        "Tengo un amigo que vive en Perú.",
+        "Tengo un amigo quien vive en Perú.",
+        "Tengo un amigo donde vive en Perú.",
+        "Tengo un amigo cuyo vive en Perú."
+      ],
+      "answer": 0,
+      "explanation": "\"Que\" är standardvalet som subjekt i en restriktiv relativsats, oavsett om det gäller personer eller saker: \"un amigo que vive en Perú\". \"Quien\" som subjekt i en restriktiv sats utan komma är inte korrekt här."
+    },
+    {
+      "id": "q-sp3-clauses-6",
+      "kind": "mc",
+      "topic": "que and quien",
+      "prompt": "När MÅSTE man använda \"quien\" istället för \"que\"?",
+      "opener": "Tänk på prepositioner: con, a, de, para...",
+      "choices": [
+        "Alltid när det gäller personer",
+        "Efter en preposition, om det syftar på en person",
+        "Alltid i icke-restriktiva satser",
+        "Aldrig — \"que\" fungerar överallt"
+      ],
+      "answer": 1,
+      "explanation": "\"Quien(es)\" krävs efter en preposition när det syftar på en person: \"la persona a quien escribí\", \"el amigo con quien viajé\". I övriga fall, särskilt som subjekt, är \"que\" oftast det naturliga valet även för personer."
+    },
+    {
+      "id": "q-sp3-clauses-7",
+      "kind": "worked",
+      "topic": "donde and cuyo",
+      "prompt": "Rätta de två felen: \"El pueblo cual visité el verano pasado es precioso, y la señora cuyo casa está en la plaza me invitó a tomar café.\"",
+      "opener": "Ett fel gäller vilket relativpronomen som ska användas som objekt, det andra gäller böjningen av \"cuyo\".",
+      "answer": "El pueblo que visité el verano pasado es precioso, y la señora cuya casa está en la plaza me invitó a tomar café.",
+      "steps": [
+        "\"cual\" utan artikel (el/la cual) fungerar inte som fristående relativpronomen här — som objekt i en restriktiv sats används \"que\": \"el pueblo que visité\".",
+        "\"cuyo casa\" är fel eftersom \"cuyo\" ska böjas efter ordet det står framför — \"casa\" är femininum, alltså ska det vara \"cuya casa\".",
+        "Hela meningen rättad: \"El pueblo que visité el verano pasado es precioso, y la señora cuya casa está en la plaza me invitó a tomar café.\""
+      ]
+    },
+    {
+      "id": "q-sp3-clauses-8",
+      "kind": "flashcard",
+      "topic": "relative clauses",
+      "prompt": "Hur används que, quien, donde och cuyo?",
+      "opener": "Fyra relativpronomen, fyra olika funktioner.",
+      "answer": "que = det allmänna relativpronomenet, funkar för personer och saker, både som subjekt och objekt (el libro que leí, el hombre que vive aquí). quien/quienes = endast personer, obligatoriskt efter preposition (con quien, a quien) och vanligt efter komma. donde = plats, motsvarar en la que/en el que (la ciudad donde vivo). cuyo/cuya/cuyos/cuyas = possessivt \"vars\", böjs efter det ägda ordet, inte efter ägaren (el autor cuyos libros...). Kom ihåg: cuyo är INTE samma sak som frågeordet ¿cuál?."
+    }
+  ]
+}

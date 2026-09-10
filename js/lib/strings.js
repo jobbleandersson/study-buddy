@@ -1248,6 +1248,27 @@ export const STRINGS = {
     "ed.hpNote": "Högskoleprovet question ({delprov}) — image and layout are edited in the file.",
     "ach.track.hp": "Högskoleprovet",
     "ach.desc.hp": "Finish {n} mini-mocks",
+
+    /* ---- högskoleprovet: add delprov panel ---- */
+    "hp.addTitle": "Add delprov",
+    "hp.moreTitle": "More delprov",
+    "hp.addIntro": "Pick which delprov you want to practise — add more any time.",
+    "hp.addedTag": "Added",
+    "hp.allAdded": "All delprov added ✓",
+
+    /* ---- site help chat ---- */
+    "sitechat.fabLabel": "Ask StudyBuddy",
+    "sitechat.title": "StudyBuddy help",
+    "sitechat.sub": "ask about the app",
+    "sitechat.intro": "Hi! Ask me anything about using StudyBuddy — where to find something, how a feature works, that sort of thing.",
+    "sitechat.ask": "Ask a question…",
+    "sitechat.askAria": "Ask StudyBuddy a question about the app",
+    "sitechat.send": "Send",
+    "sitechat.convAria": "Help conversation",
+    "sitechat.prefix": "StudyBuddy: {text}",
+    "sitechat.snag": "Couldn't get an answer just now. Try again in a moment.",
+    "sitechat.dormantTitle": "Not connected yet",
+    "sitechat.dormantBody": "This chat needs a live tutor server to answer — {status}",
   },
 
   /* ================================================================ */
@@ -2494,5 +2515,26 @@ export const STRINGS = {
     "ed.hpNote": "Högskoleprovsfråga ({delprov}) — bild och layout redigeras i filen.",
     "ach.track.hp": "Högskoleprovet",
     "ach.desc.hp": "Slutför {n} minimock-prov",
+
+    /* ---- högskoleprovet: lägg till delprov ---- */
+    "hp.addTitle": "Lägg till delprov",
+    "hp.moreTitle": "Fler delprov",
+    "hp.addIntro": "Välj vilka delprov du vill öva på — du kan lägga till fler när som helst.",
+    "hp.addedTag": "Tillagt",
+    "hp.allAdded": "Alla delprov tillagda ✓",
+
+    /* ---- hjälpchatt ---- */
+    "sitechat.fabLabel": "Fråga StudyBuddy",
+    "sitechat.title": "StudyBuddy-hjälp",
+    "sitechat.sub": "fråga om appen",
+    "sitechat.intro": "Hej! Fråga mig vad som helst om hur StudyBuddy fungerar — var du hittar något, hur en funktion funkar, sånt.",
+    "sitechat.ask": "Ställ en fråga…",
+    "sitechat.askAria": "Ställ en fråga till StudyBuddy om appen",
+    "sitechat.send": "Skicka",
+    "sitechat.convAria": "Hjälpsamtal",
+    "sitechat.prefix": "StudyBuddy: {text}",
+    "sitechat.snag": "Kunde inte få ett svar just nu. Försök igen om en stund.",
+    "sitechat.dormantTitle": "Inte ansluten än",
+    "sitechat.dormantBody": "Den här chatten behöver en live handledarserver för att svara — {status}",
   },
 };

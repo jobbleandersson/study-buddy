@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr3-reading",
+  "type": "assignment",
+  "subject": "Franska 3",
+  "title": "Reading comprehension: French in the world",
+  "sourceSummary": "A longer text about the role of French in the world, with questions on main ideas, details, vocabulary in context, and inference.",
+  "topics": [
+    "reading comprehension",
+    "inference",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr3-reading-1",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Le français n'est pas seulement la langue de la France : il est parlé sur les cinq continents par plus de 300 millions de personnes. En Afrique de l'Ouest, par exemple, le français est souvent la langue de l'école et de l'administration, alors que de nombreuses langues locales sont parlées à la maison. Cette diversité a donné naissance à des expressions et à un vocabulaire propres à chaque région : au Québec, on dit « magasiner » pour « faire du shopping », tandis qu'en Belgique, le repas de midi s'appelle parfois « le dîner ».\n\nPourtant, cette richesse linguistique pose aussi des questions. Certains craignent que le français perde de son influence face à l'anglais, notamment dans les domaines scientifiques et économiques. D'autres estiment au contraire que le nombre de locuteurs continuera d'augmenter, en particulier grâce à la croissance démographique en Afrique. Selon certaines projections, l'Afrique pourrait compter la majorité des francophones du monde d'ici 2050.\"\n\nHow many people speak French according to the text?",
+      "opener": "Look for the number in the first sentence.",
+      "choices": [
+        "About 300 million",
+        "About 30 million",
+        "About 3 million",
+        "The text doesn't give a number"
+      ],
+      "answer": 0,
+      "explanation": "The text says \"plus de 300 millions de personnes\" — more than 300 million people."
+    },
+    {
+      "id": "q-fr3-reading-2",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What is French often used for in West Africa, according to the text?",
+      "opener": "Look for the sentence about \"l'école et l'administration\".",
+      "choices": [
+        "A home language for most people",
+        "The language of school and administration",
+        "A language that is disappearing",
+        "A language only tourists use"
+      ],
+      "answer": 1,
+      "explanation": "The text says French \"est souvent la langue de l'école et de l'administration\" (is often the language of school and administration) in West Africa, while local languages are spoken at home."
+    },
+    {
+      "id": "q-fr3-reading-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Same text. What does \"magasiner\" mean in this context (Québécois French)?",
+      "opener": "The text explains the word directly in the same sentence.",
+      "choices": [
+        "To go shopping",
+        "To cook",
+        "To travel",
+        "To study"
+      ],
+      "answer": 0,
+      "explanation": "The text explains it directly: \"on dit magasiner pour faire du shopping\" — that is, to go shopping."
+    },
+    {
+      "id": "q-fr3-reading-4",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Same text. What can you infer from the fact that the writer mentions BOTH the worry about English's influence AND the projection about Africa's population growth?",
+      "opener": "The text presents two sides — what's the point of including both?",
+      "choices": [
+        "The text wants to show that French's future is uncertain and discussed in different ways",
+        "The text wants to prove that French will soon disappear completely",
+        "The text wants to show that English has no influence on French at all",
+        "The text wants to prove that Africa already has the most French speakers"
+      ],
+      "answer": 0,
+      "explanation": "By presenting both the worry (English's influence) and the counterargument (population growth in Africa), the text shows that the future of the French language is debated and uncertain, not a foregone conclusion either way."
+    },
+    {
+      "id": "q-fr3-reading-5",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What year is mentioned in connection with the projection about Africa's French speakers?",
+      "opener": "Look for the year in the last sentence.",
+      "choices": [
+        "2030",
+        "2050",
+        "2100",
+        "2025"
+      ],
+      "answer": 1,
+      "explanation": "The text mentions \"d'ici 2050\" (by 2050) in connection with the projection that Africa could hold the majority of the world's French speakers."
+    },
+    {
+      "id": "q-fr3-reading-6",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Same text. In the sentence \"le repas de midi s'appelle parfois « le dîner »\", what does \"le repas\" mean?",
+      "opener": "The context is about meals during the day.",
+      "choices": [
+        "The meal",
+        "The recipe",
+        "The restaurant",
+        "The region"
+      ],
+      "answer": 0,
+      "explanation": "\"Le repas\" means \"the meal\". The sentence explains that the midday meal is sometimes called \"le dîner\" in Belgium, unlike in France, where \"le dîner\" is the evening meal."
+    },
+    {
+      "id": "q-fr3-reading-7",
+      "kind": "worked",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Summarize in a short French sentence (5–8 words) why the future of French is debated according to the text.",
+      "opener": "Combine the two viewpoints: worry and counterargument.",
+      "answer": "Certains ont peur, d'autres restent optimistes à cause de l'Afrique.",
+      "steps": [
+        "Identify the two viewpoints in the text: the worry about English's influence, and the optimism around Africa's population growth.",
+        "Shorten each one: \"certains craignent l'influence de l'anglais\" → \"certains ont peur\"; \"la croissance en Afrique\" → \"optimistes à cause de l'Afrique\".",
+        "Combine them into a short sentence that shows the contrast between the two viewpoints, for example using \"d'autres\" (others) as a marker of the opposite view.",
+        "Other concise formulations with the same meaning (two viewpoints, a contrast) are also acceptable."
+      ]
+    },
+    {
+      "id": "q-fr3-reading-8",
+      "kind": "flashcard",
+      "topic": "reading comprehension",
+      "prompt": "What reading strategies help you understand a longer French text on a society or culture topic?",
+      "opener": "Finding facts, inferring implied information, and guessing words from context.",
+      "answer": "Read the text once for the overall picture before focusing on details. Look for numbers and names (300 millions, 2050, Québec, Belgique) — they often carry concrete answers. Pay attention to contrasting words like \"pourtant\", \"au contraire\" and \"en revanche\" — they signal that an opposing opinion or counterargument follows. Use context to guess new words (for example, \"locuteurs\" = speakers, linked to \"parlée\" in the text). For inference questions: ask yourself why the writer chose to include certain information, not just what is literally stated."
+    }
+  ]
+}

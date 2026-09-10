@@ -1,0 +1,118 @@
+{
+  "subjects": [
+    {
+      "id": "hp-ord",
+      "name": "ORD – Ordförståelse",
+      "description": "Hitta ordet som ligger närmast i betydelse. Fem svarsalternativ, 10 uppgifter per provpass."
+    },
+    {
+      "id": "hp-las",
+      "name": "LÄS – Svensk läsförståelse",
+      "description": "Svenska texter med frågor om huvudtanke, detaljer och slutsatser. Fyra svarsalternativ."
+    },
+    {
+      "id": "hp-mek",
+      "name": "MEK – Meningskomplettering",
+      "description": "En mening med luckor — välj det alternativ vars ord fyller alla luckor bäst. Fyra svarsalternativ."
+    },
+    {
+      "id": "hp-elf",
+      "name": "ELF – Engelsk läsförståelse",
+      "description": "English texts with comprehension questions. Four options. Instructions are in English."
+    },
+    {
+      "id": "hp-xyz",
+      "name": "XYZ – Matematisk problemlösning",
+      "description": "Matematiska problem med fem svarsalternativ. 12 uppgifter per provpass."
+    },
+    {
+      "id": "hp-kva",
+      "name": "KVA – Kvantitativa jämförelser",
+      "description": "Jämför två kvantiteter I och II. Fyra fasta svarsalternativ, 12 uppgifter per provpass."
+    },
+    {
+      "id": "hp-nog",
+      "name": "NOG – Kvantitativa resonemang",
+      "description": "Är informationen i påstående (1) och (2) tillräcklig? Fem fasta svarsalternativ."
+    },
+    {
+      "id": "hp-dtk",
+      "name": "DTK – Diagram, tabeller och kartor",
+      "description": "Tolka ett diagram, en tabell eller en karta. Fem svarsalternativ, 10 uppgifter per provpass."
+    }
+  ],
+  "sets": [
+    {
+      "id": "lib-hp-2026v-ord",
+      "subject": "hp-ord",
+      "title": "ORD – övningsprov 1",
+      "summary": "10 ordförståelseuppgifter i provformat. Egenskrivna övningsuppgifter, inte ett utgivet prov.",
+      "count": 10,
+      "file": "data/library/hp-2026v-ord.json"
+    },
+    {
+      "id": "lib-hp-2026v-las",
+      "subject": "hp-las",
+      "title": "LÄS – övningsprov 1",
+      "summary": "Två svenska texter med sammanlagt 8 frågor, i provformat. Egenskrivna övningsuppgifter.",
+      "count": 8,
+      "file": "data/library/hp-2026v-las.json"
+    },
+    {
+      "id": "lib-hp-2026v-mek",
+      "subject": "hp-mek",
+      "title": "MEK – övningsprov 1",
+      "summary": "10 meningskompletteringar i provformat. Egenskrivna övningsuppgifter.",
+      "count": 10,
+      "file": "data/library/hp-2026v-mek.json"
+    },
+    {
+      "id": "lib-hp-2026v-elf",
+      "subject": "hp-elf",
+      "title": "ELF – övningsprov 1",
+      "summary": "Two English texts with 8 questions, in the delprov format. Original practice items.",
+      "count": 8,
+      "file": "data/library/hp-2026v-elf.json"
+    },
+    {
+      "id": "lib-hp-2026v-xyz",
+      "subject": "hp-xyz",
+      "title": "XYZ – övningsprov 1",
+      "summary": "12 matematiska problem i provformat. Egenskrivna övningsuppgifter.",
+      "count": 12,
+      "file": "data/library/hp-2026v-xyz.json"
+    },
+    {
+      "id": "lib-hp-2026v-kva",
+      "subject": "hp-kva",
+      "title": "KVA – övningsprov 1",
+      "summary": "12 kvantitativa jämförelser i provformat. Egenskrivna övningsuppgifter.",
+      "count": 12,
+      "file": "data/library/hp-2026v-kva.json"
+    },
+    {
+      "id": "lib-hp-2026v-nog",
+      "subject": "hp-nog",
+      "title": "NOG – övningsprov 1",
+      "summary": "10 uppgifter i kvantitativt resonemang, i provformat. Egenskrivna övningsuppgifter.",
+      "count": 10,
+      "file": "data/library/hp-2026v-nog.json"
+    },
+    {
+      "id": "lib-hp-2026v-dtk",
+      "subject": "hp-dtk",
+      "title": "DTK – övningsprov 1",
+      "summary": "10 uppgifter om diagram, tabeller och kartor, i provformat. Egenskrivna övningsuppgifter.",
+      "count": 10,
+      "file": "data/library/hp-2026v-dtk.json"
+    },
+    {
+      "id": "lib-hp-ord-bank-01",
+      "subject": "hp-ord",
+      "title": "Ordbank 1 – vanliga provord",
+      "summary": "40 ord att repetera med synonymövning och spaced repetition.",
+      "count": 40,
+      "file": "data/library/hp-ord-bank-01.json"
+    }
+  ]
+}

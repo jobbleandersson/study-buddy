@@ -1,0 +1,128 @@
+{
+  "id": "lib-de4-mood",
+  "type": "assignment",
+  "subject": "Tyska 4",
+  "title": "Konjunktiv II: wishes and hypotheticals",
+  "sourceSummary": "A deeper look at Konjunktiv II for expressing wishes, polite requests, and hypothetical situations in the present and past, including the würde construction and irregular forms.",
+  "topics": [
+    "Konjunktiv II",
+    "unreal wishes",
+    "past hypotheticals",
+    "polite requests"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de4-mood-1",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Choose the correct form: \"Wenn ich mehr Zeit ___, würde ich öfter reisen.\"",
+      "opener": "\"Haben\" has its own Konjunktiv II form that isn't built with würde.",
+      "choices": [
+        "habe",
+        "hätte",
+        "hatte",
+        "würde haben"
+      ],
+      "answer": 1,
+      "explanation": "\"Haben\" is conjugated directly in Konjunktiv II: ich hätte, du hättest, er/sie/es hätte. Verbs like haben, sein, werden and the modal verbs normally avoid the würde construction in favor of their own conjugated form."
+    },
+    {
+      "id": "q-de4-mood-2",
+      "kind": "mc",
+      "topic": "unreal wishes",
+      "prompt": "Which sentence correctly expresses an unreal wish?",
+      "opener": "A wish introduced with \"wenn nur\" or just \"wenn\" requires Konjunktiv II, not the present tense.",
+      "choices": [
+        "Wenn ich nur reicher bin!",
+        "Wenn ich nur reicher wäre!",
+        "Wenn ich nur reicher werde!",
+        "Wenn ich nur reicher war!"
+      ],
+      "answer": 1,
+      "explanation": "\"Wäre\" is the Konjunktiv II of \"sein\" and signals that the wish is unreal or at least uncertain: \"Wenn ich nur reicher wäre!\" (If only I were richer!). The present and simple past do not convey that hypothetical nuance."
+    },
+    {
+      "id": "q-de4-mood-3",
+      "kind": "mc",
+      "topic": "past hypotheticals",
+      "prompt": "Choose the correct form: \"Wenn ich das gewusst ___, hätte ich anders reagiert.\"",
+      "opener": "Konjunktiv II in the past is built with hätte/wäre + participle — which auxiliary is missing here?",
+      "choices": [
+        "habe",
+        "hatte",
+        "hätte",
+        "würde"
+      ],
+      "answer": 2,
+      "explanation": "Konjunktiv II in the past (\"if I had known that\") is built with hätte/wäre + participle: \"Wenn ich das gewusst hätte, hätte ich anders reagiert.\" There is no separate simple-past form of Konjunktiv II for the past — you always go via hätte/wäre + participle."
+    },
+    {
+      "id": "q-de4-mood-4",
+      "kind": "mc",
+      "topic": "polite requests",
+      "prompt": "Which sentence is the politest way to phrase a request?",
+      "opener": "Konjunktiv II softens direct commands and requests.",
+      "choices": [
+        "Können Sie mir bitte helfen?",
+        "Könnten Sie mir bitte helfen?",
+        "Sie können mir bitte helfen.",
+        "Sie helfen mir bitte."
+      ],
+      "answer": 1,
+      "explanation": "\"Könnten Sie\" (Konjunktiv II of können) is politer and more indirect than \"Können Sie\" in the present tense. This nuance — softening a request through Konjunktiv II — is central to formal and polite German usage."
+    },
+    {
+      "id": "q-de4-mood-5",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Which sentence uses the würde construction correctly?",
+      "opener": "Würde + infinitive at the end replaces the conjugated Konjunktiv II form for most common verbs.",
+      "choices": [
+        "Ich würde das nie machen.",
+        "Ich würde das nie gemacht.",
+        "Ich würde das nie zu machen.",
+        "Ich das nie würde machen."
+      ],
+      "answer": 0,
+      "explanation": "The würde construction: würde conjugated in second position + infinitive at the end: \"Ich würde das nie machen.\" This construction is used for most verbs except haben, sein, werden and the modal verbs, which prefer their own Konjunktiv II form."
+    },
+    {
+      "id": "q-de4-mood-6",
+      "kind": "mc",
+      "topic": "past hypotheticals",
+      "prompt": "Translate correctly into German: \"If he had hurried, he would have caught the train.\" (sich beeilen = to hurry; den ist gefahren = the train left)",
+      "opener": "Both clauses describe an unreal past event — Konjunktiv II with sein or haben + participle.",
+      "choices": [
+        "Wenn er sich beeilt hätte, hätte er den Zug noch erreicht.",
+        "Wenn er sich beeilt, erreicht er den Zug noch.",
+        "Wenn er sich beeilte, würde er den Zug noch erreichen.",
+        "Wenn er sich beeilt hat, hat er den Zug noch erreicht."
+      ],
+      "answer": 0,
+      "explanation": "An unreal past event requires Konjunktiv II in both clauses, built with hätte + participle: \"Wenn er sich beeilt hätte, hätte er den Zug noch erreicht.\" Option three uses Konjunktiv II in the if-clause but mixes in würde in the main clause in a way that only works for the present tense, not the past."
+    },
+    {
+      "id": "q-de4-mood-7",
+      "kind": "worked",
+      "topic": "Konjunktiv II",
+      "prompt": "Correct the error and explain: \"Wenn ich Zeit habe, würde ich dich besuchen.\" (Intended as a hypothetical, unreal wish about having time.)",
+      "opener": "If the main clause is in the würde construction, the if-clause should normally also be in Konjunktiv II — otherwise a real and an unreal condition get mixed together.",
+      "answer": "Wenn ich Zeit hätte, würde ich dich besuchen.",
+      "steps": [
+        "The sentence is meant to express a hypothetical situation (I probably don't have time), but \"habe\" is in the present indicative, which signals a real/possible condition.",
+        "For both clauses to match the hypothetical meaning, the if-clause's verb must also be in Konjunktiv II: \"habe\" → \"hätte\".",
+        "Correct sentence: \"Wenn ich Zeit hätte, würde ich dich besuchen.\" (If I had time, I would visit you.)",
+        "Rule to remember: don't mix the indicative and Konjunktiv II in the same conditional sentence — if the condition is unreal, both clauses should mark it."
+      ]
+    },
+    {
+      "id": "q-de4-mood-8",
+      "kind": "flashcard",
+      "topic": "Konjunktiv II",
+      "prompt": "How is Konjunktiv II formed and used in the present and past?",
+      "opener": "Two time frames, two ways of building it.",
+      "answer": "Present: own conjugated forms for haben (hätte), sein (wäre), werden (würde) and the modal verbs (könnte, müsste, sollte, dürfte, wollte, möchte). For other verbs, würde + infinitive is used (ich würde machen). Past: there is no separate form — it is always built with hätte/wäre (depending on the haben/sein rule from the perfect tense) + participle: hätte gemacht, wäre gegangen. Uses: unreal wishes (Wenn ich nur ... wäre!), hypothetical conditions (Wenn ich Zeit hätte, würde ich ...), polite requests (Könnten Sie ...? Ich hätte gern ...) and assumptions about things that didn't happen (Wenn er sich beeilt hätte, hätte er den Zug erreicht)."
+    }
+  ]
+}

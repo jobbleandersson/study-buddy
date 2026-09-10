@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr4-conditional",
+  "type": "assignment",
+  "subject": "Franska 4",
+  "title": "The conditional and si-clauses",
+  "sourceSummary": "The conditionnel présent and passé, plus the three types of si-clauses for real, hypothetical, and counterfactual conditions.",
+  "topics": [
+    "conditionnel présent",
+    "si-clauses",
+    "conditionnel passé"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr4-cond-1",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Choose the correct form: \"Si j'avais le temps, j'___ au cinéma.\" (aller = to go)",
+      "opener": "\"Si + imperfect\" in the subordinate clause is always matched by the same tense in the main clause.",
+      "choices": [
+        "vais",
+        "irai",
+        "irais",
+        "allais"
+      ],
+      "answer": 2,
+      "explanation": "For hypothetical conditions in the present, the pattern is \"si + imparfait, ... conditionnel présent\". \"Aller\" in the conditionnel présent for \"je\" is \"irais\": \"Si j'avais le temps, j'irais au cinéma\" (if I had time, I would go to the cinema)."
+    },
+    {
+      "id": "q-fr4-cond-2",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Choose the correct form: \"Si tu ___ tes devoirs plus tôt, tu ne serais pas stressé maintenant.\" (faire = to do)",
+      "opener": "The main clause is in the conditionnel présent — which tense does the si-clause take then?",
+      "choices": [
+        "fais",
+        "ferais",
+        "avais fait",
+        "as fait"
+      ],
+      "answer": 2,
+      "explanation": "This is a mixed conditional sentence: a past cause (\"if you had done\") produces a present-day consequence (\"you wouldn't be stressed now\"). The si-clause takes the plus-que-parfait: \"Si tu avais fait tes devoirs plus tôt, tu ne serais pas stressé maintenant.\""
+    },
+    {
+      "id": "q-fr4-cond-3",
+      "kind": "mc",
+      "topic": "conditionnel passé",
+      "prompt": "Choose the correct form: \"Si j'avais su, je ne ___ pas venu(e).\" (venir = to come)",
+      "opener": "A counterfactual condition in the past — what would have happened if things had been different.",
+      "choices": [
+        "serais",
+        "sois",
+        "suis",
+        "étais"
+      ],
+      "answer": 0,
+      "explanation": "The pattern for a past, counterfactual condition is \"si + plus-que-parfait, ... conditionnel passé\". The conditionnel passé of \"venir\" is formed with \"être\" in the conditionnel présent + past participle: \"je ne serais pas venu(e)\" (I would not have come)."
+    },
+    {
+      "id": "q-fr4-cond-4",
+      "kind": "mc",
+      "topic": "conditionnel présent",
+      "prompt": "Which form of \"pouvoir\" fills the gap? \"___ -vous m'aider, s'il vous plaît ?\"",
+      "opener": "A polite request is often expressed with the conditional rather than the present tense.",
+      "choices": [
+        "Pouvez",
+        "Pourriez",
+        "Pouviez",
+        "Pourrez"
+      ],
+      "answer": 1,
+      "explanation": "The conditionnel présent is used for polite requests, just like \"would you be able to\" in English. \"Pouvoir\" has an irregular stem in the conditional/future: \"pourr-\". \"Pourriez-vous m'aider ?\" (would you be able to help me?) sounds more polite than \"Pouvez-vous...\"."
+    },
+    {
+      "id": "q-fr4-cond-5",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Which sentence describes a real/likely condition in the future?",
+      "opener": "One of these options uses \"si + present\", which signals a realistic condition rather than a hypothetical one.",
+      "choices": [
+        "Si tu étudiais davantage, tu réussirais.",
+        "Si tu avais étudié, tu aurais réussi.",
+        "Si tu étudies ce week-end, tu réussiras l'examen.",
+        "Si tu avais étudié davantage, tu réussirais."
+      ],
+      "answer": 2,
+      "explanation": "\"Si + présent, ... futur simple\" describes a realistic condition: \"Si tu étudies ce week-end, tu réussiras l'examen\" (if you study this weekend, you'll pass the exam). The other examples are hypothetical (imparfait/conditionnel) or counterfactual (plus-que-parfait)."
+    },
+    {
+      "id": "q-fr4-cond-6",
+      "kind": "mc",
+      "topic": "conditionnel présent",
+      "prompt": "How is the conditionnel présent formed for regular verbs?",
+      "opener": "Think of it as a blend of two other tenses you already know.",
+      "choices": [
+        "The infinitive stem + imperfect endings (-ais, -ais, -ait, -ions, -iez, -aient)",
+        "The present stem + future endings",
+        "The past participle + être conjugated in the present",
+        "The infinitive + conditional endings (-rai, -ras, -ra)"
+      ],
+      "answer": 0,
+      "explanation": "The conditionnel présent is formed with the same stem as the futur simple (usually the infinitive) plus the imperfect endings: parler → je parlerais, tu parlerais, il parlerait. The irregular future/conditional stems (être → ser-, avoir → aur-, faire → fer-) apply here too."
+    },
+    {
+      "id": "q-fr4-cond-7",
+      "kind": "worked",
+      "topic": "conditionnel passé",
+      "prompt": "Correct the error: \"Si j'aurais gagné à la loterie, j'aurais acheté une maison.\"",
+      "opener": "\"Si\" can never be directly followed by the conditional — which tense should stand there instead?",
+      "answer": "Si j'avais gagné à la loterie, j'aurais acheté une maison.",
+      "steps": [
+        "A common mistake among Swedish speakers is to put the conditional right after \"si\", since Swedish uses \"skulle\" (would) in both clauses (\"om jag skulle ha vunnit...\").",
+        "In French, \"si\" can NEVER be followed by the conditional or the future. For a counterfactual condition in the past, the si-clause must be in the plus-que-parfait: \"j'aurais gagné\" → \"j'avais gagné\".",
+        "The main clause keeps the conditionnel passé because it describes the hypothetical consequence: \"j'aurais acheté une maison\" (I would have bought a house).",
+        "The full correct sentence: \"Si j'avais gagné à la loterie, j'aurais acheté une maison\" (if I had won the lottery, I would have bought a house)."
+      ]
+    },
+    {
+      "id": "q-fr4-cond-8",
+      "kind": "flashcard",
+      "topic": "si-clauses",
+      "prompt": "What are the three types of si-clauses, and which tenses pair up in each?",
+      "opener": "Three patterns, three degrees of reality.",
+      "answer": "1) Real/likely condition: si + présent, ... futur simple (Si tu viens, je serai content). 2) Hypothetical condition in the present/future: si + imparfait, ... conditionnel présent (Si j'avais le temps, j'irais). 3) Counterfactual condition in the past: si + plus-que-parfait, ... conditionnel passé (Si j'avais su, je ne serais pas venu). Remember: \"si\" is NEVER followed by the future or the conditional, only by the présent, imparfait, or plus-que-parfait. Mixed sentences also occur: a past cause (plus-que-parfait) can produce a present-day consequence (conditionnel présent)."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr3-writing",
+  "type": "assignment",
+  "subject": "Franska 3",
+  "title": "Skrivträning: ordval och meningsbyggnad",
+  "sourceSummary": "Att välja rätt ord och struktur i skriven franska — relativpronomen, tempus, subjonctif och jämförelser i beskrivande texter.",
+  "topics": [
+    "sentence structure",
+    "word choice",
+    "comparison"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr3-writing-1",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Complétez pour décrire une ville : \"Paris est une ville ___ attire des millions de touristes chaque année.\"",
+      "opener": "Vilket pronomen är subjekt i bisatsen?",
+      "choices": [
+        "qui",
+        "que",
+        "dont",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Qui\" är subjekt (staden SOM lockar turister) och följs direkt av verbet \"attire\"."
+    },
+    {
+      "id": "q-fr3-writing-2",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Complétez la description : \"Autrefois, ce village ___ (être) très calme, mais l'année dernière, beaucoup de touristes ___ (arriver).\"",
+      "opener": "En bakgrundsbeskrivning (\"autrefois\") kontra en avgränsad förändring (\"l'année dernière\").",
+      "choices": [
+        "était / sont arrivés",
+        "a été / arrivaient",
+        "était / arrivaient",
+        "a été / sont arrivés"
+      ],
+      "answer": 0,
+      "explanation": "\"Autrefois\" (förr i tiden) signalerar ett långvarigt tillstånd → imparfait: \"était\". \"L'année dernière\" pekar ut en avgränsad period med en konkret händelse → passé composé: \"sont arrivés\"."
+    },
+    {
+      "id": "q-fr3-writing-3",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Complétez pour comparer deux villes : \"Lyon est ___ grande ___ Marseille, mais plus petite que Paris.\" (Lyon är LIKA stor SOM Marseille)",
+      "opener": "Uttrycket för likhet i jämförelser.",
+      "choices": [
+        "aussi ... que",
+        "plus ... que",
+        "moins ... que",
+        "aussi ... comme"
+      ],
+      "answer": 0,
+      "explanation": "\"Aussi ... que\" uttrycker likhet: \"aussi grande que Marseille\" (lika stor som Marseille)."
+    },
+    {
+      "id": "q-fr3-writing-4",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Complétez ce conseil dans un texte : \"Pour bien profiter de la ville, il faut que vous ___ (prendre) le temps de vous perdre dans les petites rues.\"",
+      "opener": "Efter \"il faut que\" krävs alltid subjonctif.",
+      "choices": [
+        "preniez",
+        "prenez",
+        "prendrez",
+        "preniez pas"
+      ],
+      "answer": 0,
+      "explanation": "\"Il faut que\" följs av subjonctif. \"Prendre\" i subjonctif för \"vous\" är \"preniez\" (stammen \"pren-\" + ändelsen -iez)."
+    },
+    {
+      "id": "q-fr3-writing-5",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Complétez : \"C'est ___ musée ___ intéressant de la ville.\" (det MEST intressanta museet)",
+      "opener": "Superlativ bildas med bestämd artikel + plus.",
+      "choices": [
+        "le / le plus",
+        "le / plus",
+        "un / le plus",
+        "le / aussi"
+      ],
+      "answer": 0,
+      "explanation": "Superlativ bildas med bestämd artikel + plus + adjektiv: \"le musée le plus intéressant\" (det mest intressanta museet). Artikeln upprepas: le ... le plus."
+    },
+    {
+      "id": "q-fr3-writing-6",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Vilken mening har korrekt struktur och ordföljd?",
+      "opener": "Kolla särskilt placeringen av relativsatsen och åsiktsfrasen.",
+      "choices": [
+        "À mon avis, le quartier dont je t'ai parlé mérite vraiment une visite.",
+        "À mon avis, le quartier je t'ai parlé dont mérite vraiment une visite.",
+        "Le quartier à mon avis dont je t'ai parlé mérite une visite vraiment.",
+        "À mon avis dont, le quartier je t'ai parlé mérite une visite vraiment."
+      ],
+      "answer": 0,
+      "explanation": "Rätt struktur: åsiktsfrasen \"à mon avis\" inleder meningen, sedan huvudsatsens subjekt \"le quartier\", följt av relativsatsen \"dont je t'ai parlé\" (som jag har berättat om) direkt efter subjektet, och till sist predikatet. \"Dont\" ska aldrig separeras från sin bisats som i de andra alternativen."
+    },
+    {
+      "id": "q-fr3-writing-7",
+      "kind": "worked",
+      "topic": "word choice",
+      "prompt": "Rätta felen i det här utkastet till en beskrivande text: \"Le village dont j'ai visité l'été dernier était plus petit que je pensais. Il y a une église qui a été construite au douzième siècle, et il faut que vous voyez ça si vous passez dans la région.\"",
+      "opener": "Tre saker att kolla: relativpronomenets roll, verbformen efter \"il faut que\", och om resten redan stämmer.",
+      "answer": "Le village que j'ai visité l'été dernier était plus petit que je pensais. Il y a une église qui a été construite au douzième siècle, et il faut que vous voyiez ça si vous passez dans la région.",
+      "steps": [
+        "\"Le village dont j'ai visité\" är fel — verbet \"visiter\" tar ett direkt objekt (man besöker NÅGOT, inte NÅGOT OM), så pronomenet ska vara \"que\", inte \"dont\": \"le village que j'ai visité\".",
+        "\"était plus petit que je pensais\" är redan korrekt — en beskrivning i det förflutna (imparfait) som inte behöver ändras.",
+        "\"il faut que vous voyez\" är fel — efter \"il faut que\" krävs subjonctif. \"Voir\" i subjonctif för \"vous\" är \"voyiez\", inte presensformen \"voyez\".",
+        "\"qui a été construite\" är korrekt: \"qui\" är subjekt (kyrkan SOM byggdes) och passé composé passar för en avgränsad historisk händelse. Slutsats: kolla alltid verbets koppling (visiter + objekt vs. parler DE) innan du väljer que/dont, och kom ihåg att il faut que alltid kräver subjonctif."
+      ]
+    },
+    {
+      "id": "q-fr3-writing-8",
+      "kind": "flashcard",
+      "topic": "word choice",
+      "prompt": "Vilka kontrollfrågor bör du ställa dig för ordval och struktur när du skriver en längre text på franska?",
+      "opener": "En checklista som binder ihop aspekt, relativpronomen, subjonctif och jämförelser.",
+      "answer": "Aspekt: beskriver meningen ett tillstånd/en vana (imparfait) eller en avgränsad, avslutad händelse (passé composé)? Relativpronomen: är ordet subjekt i bisatsen (qui), objekt (que), en plats (où) eller kopplat till verb + de eller ägande (dont)? Subjonctif: styrs verbet av ett uttryck som il faut que/je veux que/je souhaite que OCH har bisatsen ett annat subjekt än huvudsatsen — då krävs subjonctif, annars infinitiv. Jämförelser: plus/moins/aussi + adjektiv + que för att jämföra två saker, le/la plus + adjektiv för superlativ (den mest ...). Att gå igenom denna checklista innan du lämnar in en text fångar de vanligaste felen på den här nivån."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "lib-de4-mood",
+  "type": "assignment",
+  "subject": "Tyska 4",
+  "title": "Konjunktiv II: önskningar och hypoteser",
+  "sourceSummary": "Fördjupning i Konjunktiv II för att uttrycka önskningar, artiga förfrågningar och hypotetiska situationer i nutid och dåtid, inklusive würde-konstruktionen och oregelbundna former.",
+  "topics": [
+    "Konjunktiv II",
+    "unreal wishes",
+    "past hypotheticals",
+    "polite requests"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de4-mood-1",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Välj rätt form: \"Wenn ich mehr Zeit ___, würde ich öfter reisen.\"",
+      "opener": "\"Haben\" har en egen Konjunktiv-II-form som inte bildas med würde.",
+      "choices": [
+        "habe",
+        "hätte",
+        "hatte",
+        "würde haben"
+      ],
+      "answer": 1,
+      "explanation": "\"Haben\" böjs direkt i Konjunktiv II: ich hätte, du hättest, er/sie/es hätte. Verb som haben, sein, werden och modalverben undviker normalt würde-konstruktionen till förmån för sin egen böjda form."
+    },
+    {
+      "id": "q-de4-mood-2",
+      "kind": "mc",
+      "topic": "unreal wishes",
+      "prompt": "Vilken mening uttrycker en orealistisk önskan korrekt?",
+      "opener": "En önskan som inleds med \"wenn nur\" eller bara \"wenn\" kräver Konjunktiv II, inte presens.",
+      "choices": [
+        "Wenn ich nur reicher bin!",
+        "Wenn ich nur reicher wäre!",
+        "Wenn ich nur reicher werde!",
+        "Wenn ich nur reicher war!"
+      ],
+      "answer": 1,
+      "explanation": "\"Wäre\" är Konjunktiv II av \"sein\" och signalerar att önskan är orealistisk eller åtminstone osäker: \"Wenn ich nur reicher wäre!\" (Om jag ändå vore rikare!). Presens och preteritum uttrycker inte den hypotetiska nyansen."
+    },
+    {
+      "id": "q-de4-mood-3",
+      "kind": "mc",
+      "topic": "past hypotheticals",
+      "prompt": "Välj rätt form: \"Wenn ich das gewusst ___, hätte ich anders reagiert.\"",
+      "opener": "Konjunktiv II i dåtid bildas med hätte/wäre + particip — vilket hjälpverb saknas här?",
+      "choices": [
+        "habe",
+        "hatte",
+        "hätte",
+        "würde"
+      ],
+      "answer": 2,
+      "explanation": "Konjunktiv II i förfluten tid (\"om jag hade vetat det\") bildas med hätte/wäre + particip: \"Wenn ich das gewusst hätte, hätte ich anders reagiert.\" Det finns ingen egen preteritumform av Konjunktiv II för dåtid — man går alltid via hätte/wäre + particip."
+    },
+    {
+      "id": "q-de4-mood-4",
+      "kind": "mc",
+      "topic": "polite requests",
+      "prompt": "Vilken mening är den artigaste formuleringen av en förfrågan?",
+      "opener": "Konjunktiv II mjukar upp direkta uppmaningar och önskemål.",
+      "choices": [
+        "Können Sie mir bitte helfen?",
+        "Könnten Sie mir bitte helfen?",
+        "Sie können mir bitte helfen.",
+        "Sie helfen mir bitte."
+      ],
+      "answer": 1,
+      "explanation": "\"Könnten Sie\" (Konjunktiv II av können) är artigare och mer indirekt än \"Können Sie\" i presens. Denna nyans — att göra en begäran mindre påstridig genom Konjunktiv II — är central i formellt och artigt tyskt språkbruk."
+    },
+    {
+      "id": "q-de4-mood-5",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Vilken mening använder würde-konstruktionen korrekt?",
+      "opener": "Würde + infinitiv i slutet ersätter den böjda Konjunktiv-II-formen hos de flesta vanliga verb.",
+      "choices": [
+        "Ich würde das nie machen.",
+        "Ich würde das nie gemacht.",
+        "Ich würde das nie zu machen.",
+        "Ich das nie würde machen."
+      ],
+      "answer": 0,
+      "explanation": "Würde-konstruktionen: würde böjt på plats två + infinitiv sist: \"Ich würde das nie machen.\" Denna konstruktion används för de flesta verb utom haben, sein, werden och modalverben, som föredrar sin egen Konjunktiv-II-form."
+    },
+    {
+      "id": "q-de4-mood-6",
+      "kind": "mc",
+      "topic": "past hypotheticals",
+      "prompt": "Översätt korrekt till tyska: \"Om han hade skyndat sig, hade han hunnit med tåget.\" (sich beeilen = skynda sig; den ist gefahren = tåget avgick)",
+      "opener": "Both bisatser handlar om en icke-verklig händelse i dåtid — Konjunktiv II med sein eller haben + particip.",
+      "choices": [
+        "Wenn er sich beeilt hätte, hätte er den Zug noch erreicht.",
+        "Wenn er sich beeilt, erreicht er den Zug noch.",
+        "Wenn er sich beeilte, würde er den Zug noch erreichen.",
+        "Wenn er sich beeilt hat, hat er den Zug noch erreicht."
+      ],
+      "answer": 0,
+      "explanation": "En icke-verklig händelse i dåtid kräver Konjunktiv II i båda satsleden, bildat med hätte + particip: \"Wenn er sich beeilt hätte, hätte er den Zug noch erreicht.\" Alternativ tre använder Konjunktiv II i villkorssatsen men blandar in würde i följdsatsen på ett sätt som här bara fungerar i nutid, inte dåtid."
+    },
+    {
+      "id": "q-de4-mood-7",
+      "kind": "worked",
+      "topic": "Konjunktiv II",
+      "prompt": "Rätta felet och förklara: \"Wenn ich Zeit habe, würde ich dich besuchen.\" (Tänkt som en hypotetisk, orealistisk önskan om att ha tid.)",
+      "opener": "Om huvudsatsen står i würde-konstruktion, ska bisatsen normalt också stå i Konjunktiv II — annars blandas ett verkligt och ett overkligt villkor.",
+      "answer": "Wenn ich Zeit hätte, würde ich dich besuchen.",
+      "steps": [
+        "Meningen ska uttrycka en hypotetisk situation (jag har förmodligen inte tid), men \"habe\" står i presens indikativ, vilket signalerar ett verkligt/möjligt villkor.",
+        "För att båda satsleden ska matcha den hypotetiska betydelsen måste bisatsens verb också stå i Konjunktiv II: \"habe\" → \"hätte\".",
+        "Korrekt mening: \"Wenn ich Zeit hätte, würde ich dich besuchen.\" (Om jag hade tid, skulle jag hälsa på dig.)",
+        "Regel att minnas: blanda inte indikativ och Konjunktiv II i samma villkorsmening — är villkoret overkligt ska båda leden markera det."
+      ]
+    },
+    {
+      "id": "q-de4-mood-8",
+      "kind": "flashcard",
+      "topic": "Konjunktiv II",
+      "prompt": "Hur bildas och används Konjunktiv II i nutid och dåtid?",
+      "opener": "Två tidsplan, två byggsätt.",
+      "answer": "Nutid: egna böjda former för haben (hätte), sein (wäre), werden (würde) och modalverben (könnte, müsste, sollte, dürfte, wollte, möchte). För övriga verb används würde + infinitiv (ich würde machen). Dåtid: finns ingen separat form — bildas alltid med hätte/wäre (beroende på haben/sein-regeln från perfekt) + particip: hätte gemacht, wäre gegangen. Användning: orealistiska önskningar (Wenn ich nur ... wäre!), hypotetiska villkor (Wenn ich Zeit hätte, würde ich ...), artiga förfrågningar (Könnten Sie ...? Ich hätte gern ...) och antaganden om det som inte hände (Wenn er sich beeilt hätte, hätte er den Zug erreicht)."
+    }
+  ]
+}

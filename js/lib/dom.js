@@ -164,4 +164,5 @@ export const ICONS = {
   podium: "M4 21V12h5v9H4 M9.5 21V7h5v14h-5 M15 21v-6h5v6h-5",
   share: "M12 3v13 M8 7l4-4 4 4 M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7",
   contrast: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z M12 18a6 6 0 0 0 0-12Z",
+  message: "M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-5 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z",
 };

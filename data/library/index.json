@@ -16,10 +16,6 @@
     {
       "id": "gymnasiet",
       "label": "Gymnasiet"
-    },
-    {
-      "id": "hogskoleprov",
-      "label": "Högskoleprovet"
     }
   ],
   "subjects": [
@@ -336,52 +332,40 @@
       "description": "Franska för åk 9: resor och väder, passé composé, frågor och negation samt jämförelser och vardagsliv."
     },
     {
-      "id": "hp-ord",
-      "level": "hogskoleprov",
-      "name": "ORD – Ordförståelse",
-      "description": "Hitta ordet som ligger närmast i betydelse. Fem svarsalternativ, 10 uppgifter per provpass."
+      "id": "gy-spanska-3",
+      "level": "gymnasiet",
+      "name": "Spanska 3",
+      "description": "Spanska 3 för gymnasiet: pretérito och imperfecto på djupet, relativsatser, en första introduktion till subjuntivo, samt läsförståelse och skriftlig framställning."
     },
     {
-      "id": "hp-las",
-      "level": "hogskoleprov",
-      "name": "LÄS – Svensk läsförståelse",
-      "description": "Svenska texter med frågor om huvudtanke, detaljer och slutsatser. Fyra svarsalternativ."
+      "id": "gy-spanska-4",
+      "level": "gymnasiet",
+      "name": "Spanska 4",
+      "description": "Spanska 4 för gymnasiet: subjuntivo, konditionalis och indirekt tal, idiomatiska uttryck, samt läsförståelse och samhällsfrågor på avancerad nivå."
     },
     {
-      "id": "hp-mek",
-      "level": "hogskoleprov",
-      "name": "MEK – Meningskomplettering",
-      "description": "En mening med luckor — välj det alternativ vars ord fyller alla luckor bäst. Fyra svarsalternativ."
+      "id": "gy-tyska-3",
+      "level": "gymnasiet",
+      "name": "Tyska 3",
+      "description": "Tyska 3 för gymnasiet: perfekt kontra preteritum, relativsatser, en introduktion till konjunktiv II, samt läsförståelse och skriftlig framställning."
     },
     {
-      "id": "hp-elf",
-      "level": "hogskoleprov",
-      "name": "ELF – Engelsk läsförståelse",
-      "description": "English texts with comprehension questions. Four options. Instructions are in English."
+      "id": "gy-tyska-4",
+      "level": "gymnasiet",
+      "name": "Tyska 4",
+      "description": "Tyska 4 för gymnasiet: konjunktiv II, konditionalsatser och indirekt tal, idiomatiska uttryck, samt läsförståelse och samhällsfrågor på avancerad nivå."
     },
     {
-      "id": "hp-xyz",
-      "level": "hogskoleprov",
-      "name": "XYZ – Matematisk problemlösning",
-      "description": "Matematiska problem med fem svarsalternativ. 12 uppgifter per provpass."
+      "id": "gy-franska-3",
+      "level": "gymnasiet",
+      "name": "Franska 3",
+      "description": "Franska 3 för gymnasiet: passé composé kontra imparfait, relativpronomen, en introduktion till subjonctif, samt läsförståelse och skriftlig framställning."
     },
     {
-      "id": "hp-kva",
-      "level": "hogskoleprov",
-      "name": "KVA – Kvantitativa jämförelser",
-      "description": "Jämför två kvantiteter I och II. Fyra fasta svarsalternativ, 12 uppgifter per provpass."
-    },
-    {
-      "id": "hp-nog",
-      "level": "hogskoleprov",
-      "name": "NOG – Kvantitativa resonemang",
-      "description": "Är informationen i påstående (1) och (2) tillräcklig? Fem fasta svarsalternativ."
-    },
-    {
-      "id": "hp-dtk",
-      "level": "hogskoleprov",
-      "name": "DTK – Diagram, tabeller och kartor",
-      "description": "Tolka ett diagram, en tabell eller en karta. Fem svarsalternativ, 10 uppgifter per provpass."
+      "id": "gy-franska-4",
+      "level": "gymnasiet",
+      "name": "Franska 4",
+      "description": "Franska 4 för gymnasiet: subjonctif, konditionalis och indirekt tal, idiomatiska uttryck, samt läsförståelse och samhällsfrågor på avancerad nivå."
     }
   ],
   "sets": [
@@ -2577,16 +2561,293 @@
       "count": 8,
       "file": "data/library/ak9-fr-reading.json"
     },
-
-    { "id": "lib-hp-2026v-ord", "subject": "hp-ord", "title": "ORD – övningsprov 1", "summary": "10 ordförståelseuppgifter i provformat. Egenskrivna övningsuppgifter, inte ett utgivet prov.", "count": 10, "file": "data/library/hp-2026v-ord.json" },
-    { "id": "lib-hp-2026v-las", "subject": "hp-las", "title": "LÄS – övningsprov 1", "summary": "Två svenska texter med sammanlagt 8 frågor, i provformat. Egenskrivna övningsuppgifter.", "count": 8, "file": "data/library/hp-2026v-las.json" },
-    { "id": "lib-hp-2026v-mek", "subject": "hp-mek", "title": "MEK – övningsprov 1", "summary": "10 meningskompletteringar i provformat. Egenskrivna övningsuppgifter.", "count": 10, "file": "data/library/hp-2026v-mek.json" },
-    { "id": "lib-hp-2026v-elf", "subject": "hp-elf", "title": "ELF – övningsprov 1", "summary": "Two English texts with 8 questions, in the delprov format. Original practice items.", "count": 8, "file": "data/library/hp-2026v-elf.json" },
-    { "id": "lib-hp-2026v-xyz", "subject": "hp-xyz", "title": "XYZ – övningsprov 1", "summary": "12 matematiska problem i provformat. Egenskrivna övningsuppgifter.", "count": 12, "file": "data/library/hp-2026v-xyz.json" },
-    { "id": "lib-hp-2026v-kva", "subject": "hp-kva", "title": "KVA – övningsprov 1", "summary": "12 kvantitativa jämförelser i provformat. Egenskrivna övningsuppgifter.", "count": 12, "file": "data/library/hp-2026v-kva.json" },
-    { "id": "lib-hp-2026v-nog", "subject": "hp-nog", "title": "NOG – övningsprov 1", "summary": "10 uppgifter i kvantitativt resonemang, i provformat. Egenskrivna övningsuppgifter.", "count": 10, "file": "data/library/hp-2026v-nog.json" },
-    { "id": "lib-hp-2026v-dtk", "subject": "hp-dtk", "title": "DTK – övningsprov 1", "summary": "10 uppgifter om diagram, tabeller och kartor, i provformat. Egenskrivna övningsuppgifter.", "count": 10, "file": "data/library/hp-2026v-dtk.json" },
-
-    { "id": "lib-hp-ord-bank-01", "subject": "hp-ord", "title": "Ordbank 1 – vanliga provord", "summary": "40 ord att repetera med synonymövning och spaced repetition.", "count": 40, "file": "data/library/hp-ord-bank-01.json" }
+    {
+      "id": "lib-sp3-aspect",
+      "subject": "gy-spanska-3",
+      "title": "Dåtidsaspekt: pretérito och imperfecto i berättelser",
+      "summary": "Fördjupning i skillnaden mellan pretérito indefinido och imperfecto — avslutade händelser mot bakgrund och vana — i sammanhängande berättelser.",
+      "count": 8,
+      "file": "data/library/gy-sp3-aspect.json"
+    },
+    {
+      "id": "lib-sp3-clauses",
+      "subject": "gy-spanska-3",
+      "title": "Relativsatser: que, quien, donde och cuyo",
+      "summary": "Hur man bygger mer avancerade beskrivande meningar med relativpronomen: que, quien, donde och cuyo.",
+      "count": 8,
+      "file": "data/library/gy-sp3-clauses.json"
+    },
+    {
+      "id": "lib-sp3-mood",
+      "subject": "gy-spanska-3",
+      "title": "Introduktion till subjuntivo: önskan, nödvändighet och uppmaning",
+      "summary": "Presens subjuntivo efter uttryck för önskan, nödvändighet och uppmaning: quiero que, es importante que, espero que.",
+      "count": 8,
+      "file": "data/library/gy-sp3-mood.json"
+    },
+    {
+      "id": "lib-sp3-opinions",
+      "subject": "gy-spanska-3",
+      "title": "Att uttrycka åsikter: argumentation på spanska",
+      "summary": "Ord och fraser för att ge, hålla med om och motivera en åsikt: creo que, en mi opinión, estoy de acuerdo/en desacuerdo.",
+      "count": 8,
+      "file": "data/library/gy-sp3-opinions.json"
+    },
+    {
+      "id": "lib-sp3-reading",
+      "subject": "gy-spanska-3",
+      "title": "Läsförståelse: kultur och samhälle",
+      "summary": "En längre text om ett kultur- och samhällstema på spanska, med läsförståelsefrågor om huvudbudskap, detaljer, slutledning och ord i sammanhang.",
+      "count": 8,
+      "file": "data/library/gy-sp3-reading.json"
+    },
+    {
+      "id": "lib-sp3-writing",
+      "subject": "gy-spanska-3",
+      "title": "Skrivträning: beskrivande och jämförande spanska",
+      "summary": "Träna rätt ordval och satsbyggnad i skriven spanska — beskrivande och jämförande texter som bygger på grammatiken från de tidigare stegen.",
+      "count": 8,
+      "file": "data/library/gy-sp3-writing.json"
+    },
+    {
+      "id": "lib-sp4-mood",
+      "subject": "gy-spanska-4",
+      "title": "Konjunktiv vid tvivel och känslor",
+      "summary": "Subjuntivo efter uttryck för tvivel, känsla, önskan och värdering — mer varierade utlösare än vad en introduktion på steg 3 täcker.",
+      "count": 8,
+      "file": "data/library/gy-sp4-mood.json"
+    },
+    {
+      "id": "lib-sp4-conditional",
+      "subject": "gy-spanska-4",
+      "title": "Konditional och hypotetiska si-satser",
+      "summary": "Konditionalis och hypotetiska si-satser med imperfekt subjuntivo, som i \"si tuviera tiempo, iría...\".",
+      "count": 8,
+      "file": "data/library/gy-sp4-conditional.json"
+    },
+    {
+      "id": "lib-sp4-reportedspeech",
+      "subject": "gy-spanska-4",
+      "title": "Indirekt tal (estilo indirecto)",
+      "summary": "Att omvandla direkta citat till indirekt tal, och de tempusväxlingar och perspektivbyten det kräver.",
+      "count": 8,
+      "file": "data/library/gy-sp4-reportedspeech.json"
+    },
+    {
+      "id": "lib-sp4-idioms",
+      "subject": "gy-spanska-4",
+      "title": "Idiomatiska uttryck och falska vänner",
+      "summary": "Vanliga spanska idiom samt klassiska falska vänner mellan svenska och spanska, som \"embarazada\" och \"actualmente\".",
+      "count": 8,
+      "file": "data/library/gy-sp4-idioms.json"
+    },
+    {
+      "id": "lib-sp4-reading",
+      "subject": "gy-spanska-4",
+      "title": "Läsförståelse: en debattartikel",
+      "summary": "En längre, åsiktsdriven text om skärmtid och uppmärksamhet, med frågor om huvudbudskap, ton, slutledning och ordförståelse.",
+      "count": 8,
+      "file": "data/library/gy-sp4-reading.json"
+    },
+    {
+      "id": "lib-sp4-culture",
+      "subject": "gy-spanska-4",
+      "title": "Miljö och hållbarhet",
+      "summary": "Ordförråd och resonemang kring miljöfrågor och hållbarhet, ett vanligt samtalsämne i moderna språk på gymnasiet.",
+      "count": 8,
+      "file": "data/library/gy-sp4-culture.json"
+    },
+    {
+      "id": "lib-de3-aspect",
+      "subject": "gy-tyska-3",
+      "title": "Perfekt vs. Präteritum: talspråk och skriftspråk",
+      "summary": "Skillnaden mellan perfekt och preteritum – när man använder vilken form i tal respektive skrift – samt undantagen haben, sein och modalverben.",
+      "count": 8,
+      "file": "data/library/gy-de3-aspect.json"
+    },
+    {
+      "id": "lib-de3-clauses",
+      "subject": "gy-tyska-3",
+      "title": "Relativsatser och avancerad bisatsordföljd",
+      "summary": "Relativsatser med der/die/das i alla kasus, samt en fördjupning av bisatsordföljd med weil, dass, obwohl och modalverb.",
+      "count": 8,
+      "file": "data/library/gy-de3-clauses.json"
+    },
+    {
+      "id": "lib-de3-mood",
+      "subject": "gy-tyska-3",
+      "title": "Konjunktiv II: artighet och hypoteser",
+      "summary": "Grunderna i Konjunktiv II – artiga önskningar och förfrågningar samt enkla hypotetiska satser med \"hätte gern\" och \"würde + infinitiv\".",
+      "count": 8,
+      "file": "data/library/gy-de3-mood.json"
+    },
+    {
+      "id": "lib-de3-opinions",
+      "subject": "gy-tyska-3",
+      "title": "Att uttrycka och motivera åsikter",
+      "summary": "Fraser för att inleda en åsikt, hålla med eller inte hålla med, samt hur man motiverar sin åsikt korrekt med denn respektive weil.",
+      "count": 8,
+      "file": "data/library/gy-de3-opinions.json"
+    },
+    {
+      "id": "lib-de3-reading",
+      "subject": "gy-tyska-3",
+      "title": "Läsförståelse: föreningslivet i Tyskland",
+      "summary": "En längre text om den tyska föreningskulturen (Vereine) och dess roll i samhället, med frågor om huvudbudskap, detaljer, slutledning och ord i sammanhang.",
+      "count": 8,
+      "file": "data/library/gy-de3-reading.json"
+    },
+    {
+      "id": "lib-de3-writing",
+      "subject": "gy-tyska-3",
+      "title": "Skriftlig tyska: jämförelser och sammanhängande meningsbyggnad",
+      "summary": "Att skriva mer moget på tyska – jämförelser med als/wie, relativsatser som binder ihop meningar, rätt register och Konjunktiv II i resonerande text.",
+      "count": 8,
+      "file": "data/library/gy-de3-writing.json"
+    },
+    {
+      "id": "lib-de4-mood",
+      "subject": "gy-tyska-4",
+      "title": "Konjunktiv II: önskningar och hypoteser",
+      "summary": "Fördjupning i Konjunktiv II för att uttrycka önskningar, artiga förfrågningar och hypotetiska situationer i nutid och dåtid, inklusive würde-konstruktionen och oregelbundna former.",
+      "count": 8,
+      "file": "data/library/gy-de4-mood.json"
+    },
+    {
+      "id": "lib-de4-conditional",
+      "subject": "gy-tyska-4",
+      "title": "Konditionalsätze: verkliga och overkliga villkor",
+      "summary": "Ett systematiskt grepp om wenn-satser i tre typer — verkligt villkor, overkligt villkor i nutid och overkligt villkor i dåtid — samt ordföljden när wenn utelämnas.",
+      "count": 8,
+      "file": "data/library/gy-de4-conditional.json"
+    },
+    {
+      "id": "lib-de4-reportedspeech",
+      "subject": "gy-tyska-4",
+      "title": "Indirekte Rede: att återge vad någon sagt",
+      "summary": "Hur direkta citat omvandlas till indirekt tal på tyska — med Konjunktiv I (och Konjunktiv II som ersättning), samt de förändringar av pronomen, tempus och tidsuttryck som krävs.",
+      "count": 8,
+      "file": "data/library/gy-de4-reportedspeech.json"
+    },
+    {
+      "id": "lib-de4-idioms",
+      "subject": "gy-tyska-4",
+      "title": "Redewendungen och falska vänner",
+      "summary": "Vanliga tyska idiomatiska uttryck och de klassiska svensk-tyska falska vännerna — ord som liknar svenska men betyder något helt annat.",
+      "count": 8,
+      "file": "data/library/gy-de4-idioms.json"
+    },
+    {
+      "id": "lib-de4-reading",
+      "subject": "gy-tyska-4",
+      "title": "Läsförståelse: en åsiktstext om fyradagarsveckan",
+      "summary": "En längre, argumenterande tysk text om debatten kring den förkortade arbetsveckan, med frågor som kräver att man följer argumentationen och drar slutsatser.",
+      "count": 8,
+      "file": "data/library/gy-de4-reading.json"
+    },
+    {
+      "id": "lib-de4-culture",
+      "subject": "gy-tyska-4",
+      "title": "Umwelt: ordförråd och samhällsdebatt",
+      "summary": "Ordförråd kring klimat och miljö samt en kort text om Tysklands klimatmål, för att kunna delta i en samhällsdebatt på tyska.",
+      "count": 8,
+      "file": "data/library/gy-de4-culture.json"
+    },
+    {
+      "id": "lib-fr3-aspect",
+      "subject": "gy-franska-3",
+      "title": "Passé composé och imparfait: en djupare blick",
+      "summary": "Fördjupning i skillnaden mellan passé composé och imparfait i längre berättande sammanhang — bakgrund, vanor och avgränsade händelser.",
+      "count": 8,
+      "file": "data/library/gy-fr3-aspect.json"
+    },
+    {
+      "id": "lib-fr3-clauses",
+      "subject": "gy-franska-3",
+      "title": "Relativpronomen: qui, que, où och dont",
+      "summary": "Att bygga mer avancerade, sammansatta meningar med relativpronomenen qui, que, où och dont.",
+      "count": 8,
+      "file": "data/library/gy-fr3-clauses.json"
+    },
+    {
+      "id": "lib-fr3-mood",
+      "subject": "gy-franska-3",
+      "title": "Konjunktiv: en introduktion till subjonctif",
+      "summary": "En första introduktion till presens konjunktiv (subjonctif) efter uttryck som il faut que, je veux que och je souhaite que.",
+      "count": 8,
+      "file": "data/library/gy-fr3-mood.json"
+    },
+    {
+      "id": "lib-fr3-opinions",
+      "subject": "gy-franska-3",
+      "title": "Att uttrycka och motivera en åsikt",
+      "summary": "Ordförråd och fraser för att ge sin åsikt, hålla med eller inte hålla med, och motivera vad man tycker.",
+      "count": 8,
+      "file": "data/library/gy-fr3-opinions.json"
+    },
+    {
+      "id": "lib-fr3-reading",
+      "subject": "gy-franska-3",
+      "title": "Läsförståelse: Franskan i världen",
+      "summary": "En längre text om franskans roll i världen, med frågor om huvudbudskap, detaljer, ord i sammanhang och slutledning.",
+      "count": 8,
+      "file": "data/library/gy-fr3-reading.json"
+    },
+    {
+      "id": "lib-fr3-writing",
+      "subject": "gy-franska-3",
+      "title": "Skrivträning: ordval och meningsbyggnad",
+      "summary": "Att välja rätt ord och struktur i skriven franska — relativpronomen, tempus, subjonctif och jämförelser i beskrivande texter.",
+      "count": 8,
+      "file": "data/library/gy-fr3-writing.json"
+    },
+    {
+      "id": "lib-fr4-mood",
+      "subject": "gy-franska-4",
+      "title": "Subjonctif: tvivel och känsla",
+      "summary": "Fördjupning i subjonctif efter uttryck för tvivel, känsla, vilja och nödvändighet — med de vanligaste undantagen där indikativ används trots att man kunde tro motsatsen.",
+      "count": 8,
+      "file": "data/library/gy-fr4-mood.json"
+    },
+    {
+      "id": "lib-fr4-conditional",
+      "subject": "gy-franska-4",
+      "title": "Conditionnel och si-satser",
+      "summary": "Conditionnel présent och passé, samt de tre typerna av si-satser för verkliga, hypotetiska och kontrafaktiska villkor.",
+      "count": 8,
+      "file": "data/library/gy-fr4-conditional.json"
+    },
+    {
+      "id": "lib-fr4-reportedspeech",
+      "subject": "gy-franska-4",
+      "title": "Discours indirect: indirekt tal",
+      "summary": "Hur man gör om direkta citat till indirekt tal på franska, inklusive de tempusväxlingar och förändringar av tids- och platsuttryck som det innebär.",
+      "count": 8,
+      "file": "data/library/gy-fr4-reportedspeech.json"
+    },
+    {
+      "id": "lib-fr4-idioms",
+      "subject": "gy-franska-4",
+      "title": "Idiomatiska uttryck och falska vänner",
+      "summary": "Vanliga franska idiom som inte går att översätta ord för ord, samt klassiska falska vänner mellan franska och svenska som lätt leder till missförstånd.",
+      "count": 8,
+      "file": "data/library/gy-fr4-idioms.json"
+    },
+    {
+      "id": "lib-fr4-reading",
+      "subject": "gy-franska-4",
+      "title": "Läsförståelse: en debattartikel",
+      "summary": "En längre, åsiktsdriven text om sociala mediers påverkan på unga, med frågor som tränar huvudbudskap, slutledning, ordförståelse och argumentationsanalys på en mer avancerad nivå.",
+      "count": 8,
+      "file": "data/library/gy-fr4-reading.json"
+    },
+    {
+      "id": "lib-fr4-culture",
+      "subject": "gy-franska-4",
+      "title": "Samhällsfråga: l'environnement",
+      "summary": "Ordförråd och förståelseövningar kring miljödebatten i Frankrike och frankofona länder — klimatpolitik, vardagliga miljöval och hur man diskuterar frågan med nyanserat språk.",
+      "count": 8,
+      "file": "data/library/gy-fr4-culture.json"
+    }
   ]
 }

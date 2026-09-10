@@ -1,0 +1,128 @@
+{
+  "id": "lib-sp4-reading",
+  "type": "assignment",
+  "subject": "Spanska 4",
+  "title": "Reading comprehension: an opinion piece",
+  "sourceSummary": "A longer, opinion-driven text about screen time and attention, with questions on main idea, tone, inference and vocabulary.",
+  "topics": [
+    "main idea",
+    "inference",
+    "vocabulary in context",
+    "argument structuring"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp4-reading-1",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text:\n\n\"Cada vez que cojo el móvil para consultar la hora, acabo veinte minutos después deslizando por vídeos que no recuerdo haber elegido ver. No estoy sola: según varios estudios recientes, el usuario medio revisa su teléfono más de cien veces al día. Las empresas tecnológicas lo saben perfectamente y diseñan sus aplicaciones para que resulte casi imposible dejar de mirarlas. Se habla mucho de 'fuerza de voluntad', como si el problema residiera únicamente en la falta de disciplina del usuario. Sin embargo, pocos mencionan que del otro lado hay equipos enteros de ingenieros y psicólogos cuyo único objetivo es capturar nuestra atención el mayor tiempo posible. Culpar solo al individuo es, cuando menos, una simplificación cómoda. Antes de pedirle a la gente que apague las notificaciones, quizá deberíamos preguntarnos por qué un simple teléfono resulta más persuasivo que nuestra propia voluntad.\"\n\nWhat is the main idea of the text?",
+      "opener": "Look for the sentence that shifts responsibility away from the user alone.",
+      "choices": [
+        "You should stop using smartphones altogether.",
+        "The responsibility for screen dependency doesn't lie with the individual user alone, but also with tech companies.",
+        "Engineers and psychologists bear the entire blame for screen dependency.",
+        "Notifications should be switched off entirely to solve the problem."
+      ],
+      "answer": 1,
+      "explanation": "The text argues against the idea that screen dependency is purely a matter of willpower, pointing out that apps are deliberately designed to capture attention — the point is that responsibility should be shared, not that it lies entirely with the individual or entirely with the companies."
+    },
+    {
+      "id": "q-sp4-reading-2",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text again. In the context \"Culpar solo al individuo es, cuando menos, una simplificación cómoda\", what does \"una simplificación cómoda\" roughly mean?",
+      "opener": "Read the previous sentence: it describes a whole system of engineers and psychologists that the text says gets overlooked.",
+      "choices": [
+        "A convenient way to avoid seeing the full complexity of the problem",
+        "A scientifically correct conclusion",
+        "A joke the author doesn't take seriously",
+        "A suggestion for how to solve the problem easily"
+      ],
+      "answer": 0,
+      "explanation": "\"Simplificación cómoda\" (a convenient simplification) refers to how it's easier to blame the individual than to acknowledge the whole system behind it — it's criticism, not a correct or scientific claim."
+    },
+    {
+      "id": "q-sp4-reading-3",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text again. What can be inferred about the author's attitude toward the phrase \"fuerza de voluntad\" (willpower) in context?",
+      "opener": "Notice the word \"como si\" (as if) — what does it signal about the author's stance?",
+      "choices": [
+        "The author fully agrees that it's about willpower.",
+        "The author is skeptical that the problem is only about the individual's willpower.",
+        "The author has never heard the expression before.",
+        "The author thinks willpower is unimportant for any kind of problem."
+      ],
+      "answer": 1,
+      "explanation": "The phrase \"como si el problema residiera únicamente en...\" (as if the problem lay only in...) signals distance and skepticism — the author questions whether that explanation is sufficient."
+    },
+    {
+      "id": "q-sp4-reading-4",
+      "kind": "mc",
+      "topic": "argument structuring",
+      "prompt": "Read the text again. What rhetorical device does the author use in the final sentence (\"Antes de pedirle a la gente que apague las notificaciones, quizá deberíamos preguntarnos...\")?",
+      "opener": "The sentence is phrased as a suggestion combined with a question — what's the purpose of that?",
+      "choices": [
+        "Ending with a rhetorical question that challenges the reader to reconsider",
+        "Giving concrete, technical advice on how to turn off notifications",
+        "Summarizing the statistics mentioned earlier in the text",
+        "Apologizing for its earlier claims"
+      ],
+      "answer": 0,
+      "explanation": "The sentence closes the text with a rhetorical question (\"quizá deberíamos preguntarnos por qué...\") that doesn't require a direct answer but instead prompts the reader to reflect — a common way to end an opinion piece."
+    },
+    {
+      "id": "q-sp4-reading-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text again. What does the opening (\"Cada vez que cojo el móvil... acabo veinte minutos después deslizando por vídeos que no recuerdo haber elegido ver\") reveal about the author's own experience?",
+      "opener": "Notice that the author writes in the first person and describes a pattern she recognizes in herself.",
+      "choices": [
+        "The author experiences time on the phone slipping away without a conscious choice",
+        "The author always carefully chooses which videos to watch",
+        "The author never uses the phone to check the time",
+        "The author is completely unaffected by the problem she describes"
+      ],
+      "answer": 0,
+      "explanation": "The phrase \"no recuerdo haber elegido ver\" (I don't remember choosing to watch) shows that the author herself experiences time slipping away unconsciously — which gives the text credibility through personal experience before the argument broadens to all users."
+    },
+    {
+      "id": "q-sp4-reading-6",
+      "kind": "mc",
+      "topic": "argument structuring",
+      "prompt": "Read the text again. What kind of text is this, and what is its main purpose?",
+      "opener": "Consider the personal address (\"no estoy sola\"), the argumentation, and the closing question.",
+      "choices": [
+        "An opinion column whose purpose is to challenge a common assumption",
+        "An instructional text whose purpose is to teach how to turn off notifications",
+        "A news article that only reports facts without evaluation",
+        "An advertisement for a technology application"
+      ],
+      "answer": 0,
+      "explanation": "The personal opening, the argument against a common assumption, and the rhetorical closing question are typical features of an opinion column (columna de opinión), whose purpose is to challenge the reader's thinking."
+    },
+    {
+      "id": "q-sp4-reading-7",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Read the text again and explain: What TWO groups does the author set against each other in her argument, and what is the point of that comparison?",
+      "opener": "One group is named in the phrase \"la falta de disciplina del usuario\", another in \"equipos enteros de ingenieros y psicólogos\".",
+      "answer": "The individual user (who is expected to have willpower) is set against entire teams of engineers and psychologists (who professionally design apps to capture attention) — the point is that it's unfair to place the whole responsibility on the individual when the opposing side is an entire professional system.",
+      "steps": [
+        "Group 1: the individual user, who, according to the common view, is expected to manage screen time through their own \"fuerza de voluntad\" (willpower).",
+        "Group 2: \"equipos enteros de ingenieros y psicólogos\" (entire teams of engineers and psychologists) whose job is to make apps as hard to stop using as possible.",
+        "By pitting a single person against an entire professional system, the author highlights the imbalance — it's not a fair fight.",
+        "This leads to the text's main point: blaming the individual alone (\"culpar solo al individuo\") is a simplification that hides where the real responsibility lies."
+      ]
+    },
+    {
+      "id": "q-sp4-reading-8",
+      "kind": "flashcard",
+      "topic": "main idea",
+      "prompt": "What reading strategies help you analyze an opinion-driven text (columna de opinión) in Spanish?",
+      "opener": "Opinion pieces often build an argument step by step toward a point — here's how to read them effectively.",
+      "answer": "Identify the writer's stance early — it's often signaled by word choices like \"como si\", \"sin embargo\", \"cuando menos\". Distinguish between facts/statistics (e.g. \"más de cien veces al día\") and evaluative claims (\"una simplificación cómoda\"). Look for turning points marked by \"sin embargo\" (however) or \"pero\" (but) — that's usually where the text's real point lies. A closing rhetorical question is often the text's summarizing point, phrased so the reader draws the conclusion themselves. Vocabulary worth recognizing: deslizar (to swipe/scroll), capturar la atención (to capture attention), culpar (to blame), residir en (to lie in/be due to)."
+    }
+  ]
+}

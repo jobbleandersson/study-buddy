@@ -1,0 +1,129 @@
+{
+  "id": "lib-fr4-reportedspeech",
+  "type": "assignment",
+  "subject": "Franska 4",
+  "title": "Discours indirect: indirekt tal",
+  "sourceSummary": "Hur man gör om direkta citat till indirekt tal på franska, inklusive de tempusväxlingar och förändringar av tids- och platsuttryck som det innebär.",
+  "topics": [
+    "reported speech",
+    "tense shifts",
+    "reported questions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr4-rs-1",
+      "kind": "mc",
+      "topic": "reported speech",
+      "prompt": "Han sa: \"Je suis fatigué.\" Hur blir det i indirekt tal, inlett av \"Il a dit que...\"?",
+      "opener": "Presens i det direkta citatet blir vanligen imparfait i indirekt tal när huvudverbet står i dåtid.",
+      "choices": [
+        "Il a dit qu'il est fatigué.",
+        "Il a dit qu'il était fatigué.",
+        "Il a dit qu'il serait fatigué.",
+        "Il a dit qu'il a été fatigué."
+      ],
+      "answer": 1,
+      "explanation": "När det inledande verbet (\"il a dit\") står i passé composé/dåtid, backas citatets tempus ett steg: présent → imparfait. \"Je suis fatigué\" blir \"qu'il était fatigué\"."
+    },
+    {
+      "id": "q-fr4-rs-2",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Hon sa: \"J'ai fini mes devoirs.\" Hur blir det i indirekt tal? \"Elle a dit que...\"",
+      "opener": "Passé composé i citatet backas också ett steg när huvudverbet står i dåtid.",
+      "choices": [
+        "elle a fini ses devoirs.",
+        "elle finissait ses devoirs.",
+        "elle avait fini ses devoirs.",
+        "elle aurait fini ses devoirs."
+      ],
+      "answer": 2,
+      "explanation": "Passé composé i det direkta citatet blir plus-que-parfait i indirekt tal efter ett huvudverb i dåtid: \"j'ai fini\" → \"qu'elle avait fini ses devoirs\"."
+    },
+    {
+      "id": "q-fr4-rs-3",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Han sa: \"Je viendrai demain.\" Hur blir det i indirekt tal? \"Il a dit que...\"",
+      "opener": "Futur simple följer samma mönster som presens och passé composé — ett steg bakåt.",
+      "choices": [
+        "il viendra demain.",
+        "il viendrait le lendemain.",
+        "il vient demain.",
+        "il était venu le lendemain."
+      ],
+      "answer": 1,
+      "explanation": "Futur simple i citatet blir conditionnel présent i indirekt tal efter dåtid: \"je viendrai\" → \"qu'il viendrait\". Notera även att tidsuttrycket \"demain\" (imorgon) måste bytas mot \"le lendemain\" (dagen därpå), eftersom referenspunkten har flyttats."
+    },
+    {
+      "id": "q-fr4-rs-4",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "Hon frågade: \"Est-ce que tu viens ?\" Hur blir frågan i indirekt tal? \"Elle a demandé...\"",
+      "opener": "Ja/nej-frågor med \"est-ce que\" byggs om med ett särskilt bindeord i indirekt tal.",
+      "choices": [
+        "qu'est-ce que tu viens.",
+        "si tu venais.",
+        "que tu venais.",
+        "quand tu venais."
+      ],
+      "answer": 1,
+      "explanation": "En ja/nej-fråga i indirekt tal inleds av \"si\" (om), inte \"que\": \"est-ce que tu viens ?\" → \"elle a demandé si tu venais\". Presens i den ursprungliga frågan backas till imparfait eftersom \"a demandé\" står i dåtid."
+    },
+    {
+      "id": "q-fr4-rs-5",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "Il a demandé : \"Qu'est-ce que tu fais ce week-end ?\" Hur blir frågan i indirekt tal?",
+      "opener": "\"Qu'est-ce que\" (vad) har en egen förkortad form i indirekt tal.",
+      "choices": [
+        "Il a demandé ce que je faisais ce week-end-là.",
+        "Il a demandé qu'est-ce que je faisais ce week-end.",
+        "Il a demandé quoi je faisais ce week-end-là.",
+        "Il a demandé si je faisais ce week-end-là."
+      ],
+      "answer": 0,
+      "explanation": "\"Qu'est-ce que\" blir \"ce que\" i indirekt tal: \"il a demandé ce que je faisais\". Lägg märke till att \"ce week-end\" (den här helgen) också ändras till \"ce week-end-là\" (den helgen) eftersom perspektivet flyttas bort från talögonblicket."
+    },
+    {
+      "id": "q-fr4-rs-6",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Vilket tidsuttryck motsvarar \"hier\" (igår) när man återger ett citat i indirekt tal, långt efter att det sades?",
+      "opener": "Precis som \"demain\" → \"le lendemain\", har varje tidsmarkör som pekar från talögonblicket en indirekt motsvarighet.",
+      "choices": [
+        "avant-hier",
+        "la veille",
+        "ce jour-là",
+        "hier"
+      ],
+      "answer": 1,
+      "explanation": "\"Hier\" (igår) blir \"la veille\" (dagen innan) i indirekt tal. Vanliga byten: aujourd'hui → ce jour-là, demain → le lendemain, hier → la veille, maintenant → à ce moment-là, ici → là."
+    },
+    {
+      "id": "q-fr4-rs-7",
+      "kind": "worked",
+      "topic": "reported speech",
+      "prompt": "Gör om till indirekt tal, med \"Le professeur a expliqué que...\" som inledning: \"Je corrigerai vos copies ce soir et je vous rendrai vos notes demain.\"",
+      "opener": "Meningen innehåller två verb i futur simple samt två tidsuttryck som båda måste bytas ut.",
+      "answer": "Le professeur a expliqué qu'il corrigerait leurs copies ce soir-là et qu'il leur rendrait leurs notes le lendemain.",
+      "steps": [
+        "Huvudverbet \"a expliqué\" står i dåtid, så allt i citatet backas ett tempussteg.",
+        "\"Je corrigerai\" (futur simple) → \"il corrigerait\" (conditionnel présent). Personen byts också från \"je\" till \"il\", eftersom det nu är läraren som omtalas i tredje person.",
+        "\"Vos copies\" och \"vous\" (till eleverna, i direkt tal) blir \"leurs copies\" och \"leur\" när meningen återges för någon annan.",
+        "\"Ce soir\" (i kväll) syftar på talögonblicket och blir \"ce soir-là\" (den kvällen) i indirekt tal; \"demain\" blir \"le lendemain\".",
+        "\"Je vous rendrai\" (futur simple) → \"il leur rendrait\" (conditionnel présent), av samma anledning som ovan.",
+        "Hela meningen: \"Le professeur a expliqué qu'il corrigerait leurs copies ce soir-là et qu'il leur rendrait leurs notes le lendemain.\""
+      ]
+    },
+    {
+      "id": "q-fr4-rs-8",
+      "kind": "flashcard",
+      "topic": "tense shifts",
+      "prompt": "Vilka tempus- och tidsuttrycksbyten gäller när man gör om direkt tal till indirekt tal efter ett huvudverb i dåtid?",
+      "opener": "Ett steg bakåt i tempustrappan, plus bytta tids- och platsord.",
+      "answer": "Tempusbyten (ett steg bakåt): présent → imparfait · passé composé → plus-que-parfait · futur simple → conditionnel présent · futur proche (aller + infinitiv) → imparfait av aller + infinitiv. Imparfait och plus-que-parfait ändras inte, de är redan \"längst bak\". Tids-/platsuttryck: aujourd'hui → ce jour-là · demain → le lendemain · hier → la veille · maintenant → à ce moment-là · ici → là · ce week-end → ce week-end-là. Frågor: est-ce que/inversion → si · qu'est-ce que → ce que · qu'est-ce qui → ce qui. Personliga pronomen (je/tu/vous) anpassas alltid efter vem som nu talar om vem."
+    }
+  ]
+}

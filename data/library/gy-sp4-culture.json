@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp4-culture",
+  "type": "assignment",
+  "subject": "Spanska 4",
+  "title": "Miljö och hållbarhet",
+  "sourceSummary": "Ordförråd och resonemang kring miljöfrågor och hållbarhet, ett vanligt samtalsämne i moderna språk på gymnasiet.",
+  "topics": [
+    "environment vocabulary",
+    "sustainability",
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp4-culture-1",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Vad betyder \"el calentamiento global\"?",
+      "opener": "Ett centralt begrepp i alla miljödebatter.",
+      "choices": [
+        "Den globala uppvärmningen",
+        "Det globala samarbetet",
+        "Den globala ekonomin",
+        "Den globala befolkningen"
+      ],
+      "answer": 0,
+      "explanation": "\"El calentamiento global\" betyder \"den globala uppvärmningen\" — ett grundläggande begrepp inom miljöordförrådet."
+    },
+    {
+      "id": "q-sp4-culture-2",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Vad betyder \"las energías renovables\"?",
+      "opener": "Ett begrepp som ofta ställs mot \"los combustibles fósiles\" (fossila bränslen).",
+      "choices": [
+        "De förnybara energikällorna",
+        "De begränsade energikällorna",
+        "De dyra energikällorna",
+        "De farliga energikällorna"
+      ],
+      "answer": 0,
+      "explanation": "\"Las energías renovables\" betyder \"de förnybara energikällorna\" (t.ex. sol- och vindkraft), motsatsen till \"los combustibles fósiles\" (fossila bränslen)."
+    },
+    {
+      "id": "q-sp4-culture-3",
+      "kind": "mc",
+      "topic": "sustainability",
+      "prompt": "Vilket ord passar bäst i meningen: \"Debemos reducir nuestra huella de ___ para proteger el planeta.\"",
+      "opener": "Ett vanligt uttryck för hur mycket resurser en person förbrukar: \"huella de...\".",
+      "choices": [
+        "carbono",
+        "papel",
+        "agua caliente",
+        "dinero"
+      ],
+      "answer": 0,
+      "explanation": "\"La huella de carbono\" (koldioxidavtrycket) är ett centralt begrepp inom hållbarhetsdebatten och betyder mängden växthusgaser en person eller verksamhet orsakar."
+    },
+    {
+      "id": "q-sp4-culture-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs meningen: \"Aunque muchos jóvenes se declaran preocupados por el cambio climático, pocos están dispuestos a cambiar sus hábitos de consumo.\"\n\nVad är poängen i meningen?",
+      "opener": "Ordet \"aunque\" (även om) markerar en motsättning mellan två saker.",
+      "choices": [
+        "Det finns en klyfta mellan ungas oro för klimatet och deras faktiska beteende",
+        "Unga människor bryr sig inte alls om klimatförändringar",
+        "Alla unga har redan ändrat sina konsumtionsvanor",
+        "Klimatförändringar påverkar bara äldre generationer"
+      ],
+      "answer": 0,
+      "explanation": "\"Aunque\" (även om) markerar motsättningen mellan att vara orolig och att faktiskt ändra sitt beteende — meningens poäng är just denna klyfta mellan attityd och handling."
+    },
+    {
+      "id": "q-sp4-culture-5",
+      "kind": "mc",
+      "topic": "sustainability",
+      "prompt": "Vad betyder \"el desarrollo sostenible\"?",
+      "opener": "Ett begrepp som förenar ekonomisk, social och miljömässig hänsyn.",
+      "choices": [
+        "Den hållbara utvecklingen",
+        "Den snabba utvecklingen",
+        "Den globala handeln",
+        "Den tekniska utvecklingen"
+      ],
+      "answer": 0,
+      "explanation": "\"El desarrollo sostenible\" betyder \"hållbar utveckling\" — ett begrepp som balanserar ekonomiska, sociala och miljömässiga behov."
+    },
+    {
+      "id": "q-sp4-culture-6",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Vilket ord betyder \"brist\" (t.ex. på vatten), som i \"la escasez de agua\"?",
+      "opener": "Ett ord som ofta förekommer i samband med torka och resursbrist.",
+      "choices": [
+        "Escasez",
+        "Abundancia",
+        "Riqueza",
+        "Exceso"
+      ],
+      "answer": 0,
+      "explanation": "\"Escasez\" betyder \"brist\", som i \"la escasez de agua\" (vattenbrist). Motsatsen \"abundancia\" betyder \"överflöd\"."
+    },
+    {
+      "id": "q-sp4-culture-7",
+      "kind": "worked",
+      "topic": "sustainability",
+      "prompt": "Rätta felen i meningen: \"Si nosotros no hacemos nada ahora, las futuras generaciones sufrirán las consecuencia de nuestro inacción.\"",
+      "opener": "Två grammatiska fel gömmer sig här: ett substantiv i fel numerus och ett ord med fel genus/artikel.",
+      "answer": "Si nosotros no hacemos nada ahora, las futuras generaciones sufrirán las consecuencias de nuestra inacción.",
+      "steps": [
+        "\"Las consecuencia\" är fel numerus — bestämd artikel i plural (\"las\") kräver substantiv i plural: \"las consecuencias\".",
+        "\"Nuestro inacción\" är fel genus — \"inacción\" är ett feminint substantiv (la inacción), så possessivpronomenet ska vara \"nuestra\", inte \"nuestro\".",
+        "Resten av meningen är korrekt uppbyggd med en verklig si-sats (typ 1): si + presens indikativ (hacemos), huvudsats i futurum (sufrirán).",
+        "Hela meningen: \"Si nosotros no hacemos nada ahora, las futuras generaciones sufrirán las consecuencias de nuestra inacción.\""
+      ]
+    },
+    {
+      "id": "q-sp4-culture-8",
+      "kind": "flashcard",
+      "topic": "environment vocabulary",
+      "prompt": "Vilket ordförråd om miljö och hållbarhet bör du kunna på den här nivån?",
+      "opener": "Centrala begrepp för att kunna diskutera miljöfrågor på en mer avancerad nivå.",
+      "answer": "el calentamiento global = den globala uppvärmningen · el cambio climático = klimatförändringen · las energías renovables = de förnybara energikällorna · los combustibles fósiles = de fossila bränslena · la huella de carbono = koldioxidavtrycket · el desarrollo sostenible = den hållbara utvecklingen · la escasez (de agua) = bristen (på vatten) · contaminar = att förorena · reciclar/el reciclaje = att återvinna/återvinningen · reducir el consumo = att minska konsumtionen · concienciar = att medvetandegöra. Bra fras att kunna använda i diskussion: \"Aunque muchos... pocos están dispuestos a...\" (Även om många... är få villiga att...) för att uttrycka en klyfta mellan attityd och handling."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr3-clauses",
+  "type": "assignment",
+  "subject": "Franska 3",
+  "title": "Relativpronomen: qui, que, où och dont",
+  "sourceSummary": "Att bygga mer avancerade, sammansatta meningar med relativpronomenen qui, que, où och dont.",
+  "topics": [
+    "relative pronouns",
+    "qui / que",
+    "où / dont"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr3-clauses-1",
+      "kind": "mc",
+      "topic": "qui / que",
+      "prompt": "Välj rätt pronomen: \"C'est le professeur ___ nous a donné ce livre.\"",
+      "opener": "Är pronomenet subjekt eller objekt i bisatsen? Testa: vem gav boken?",
+      "choices": [
+        "qui",
+        "que",
+        "où",
+        "dont"
+      ],
+      "answer": 0,
+      "explanation": "\"Qui\" är subjekt i bisatsen (det är läraren SOM gav boken) — verbet \"a donné\" följer direkt efter."
+    },
+    {
+      "id": "q-fr3-clauses-2",
+      "kind": "mc",
+      "topic": "qui / que",
+      "prompt": "Välj rätt pronomen: \"Le livre ___ tu m'as prêté est vraiment intéressant.\"",
+      "opener": "Här är pronomenet objekt — vem gör handlingen? \"Tu\" gör det, boken tas emot.",
+      "choices": [
+        "que",
+        "qui",
+        "où",
+        "dont"
+      ],
+      "answer": 0,
+      "explanation": "\"Que\" är objekt i bisatsen (\"tu m'as prêté LE LIVRE\") — det följs av subjekt + verb (\"tu m'as prêté\"), till skillnad från \"qui\" som följs direkt av ett verb."
+    },
+    {
+      "id": "q-fr3-clauses-3",
+      "kind": "mc",
+      "topic": "où / dont",
+      "prompt": "Välj rätt pronomen: \"C'est la ville ___ j'ai passé mon enfance.\"",
+      "opener": "Handlar det om en plats?",
+      "choices": [
+        "où",
+        "que",
+        "qui",
+        "dont"
+      ],
+      "answer": 0,
+      "explanation": "\"Où\" används för plats (och tid): \"la ville où j'ai passé mon enfance\" betyder \"staden där jag tillbringade min barndom\"."
+    },
+    {
+      "id": "q-fr3-clauses-4",
+      "kind": "mc",
+      "topic": "où / dont",
+      "prompt": "Välj rätt pronomen: \"Voici le livre ___ je t'ai parlé.\" (jag har pratat OM boken — parler DE quelque chose)",
+      "opener": "Vilken preposition hör till verbet \"parler de\"?",
+      "choices": [
+        "dont",
+        "que",
+        "où",
+        "qui"
+      ],
+      "answer": 0,
+      "explanation": "\"Dont\" ersätter \"de + något\": \"parler de quelque chose\" → \"le livre dont je t'ai parlé\" (boken som jag har pratat om)."
+    },
+    {
+      "id": "q-fr3-clauses-5",
+      "kind": "mc",
+      "topic": "qui / que",
+      "prompt": "Välj rätt pronomen: \"Les élèves ___ ont réussi l'examen étaient très contents.\"",
+      "opener": "Subjekt i bisatsen igen — vilka klarade provet?",
+      "choices": [
+        "qui",
+        "que",
+        "dont",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Qui\" är subjekt: det är eleverna SOM klarade provet. Notera att \"qui\" aldrig förkortas till \"qu'\" framför vokal, till skillnad från \"que\"."
+    },
+    {
+      "id": "q-fr3-clauses-6",
+      "kind": "mc",
+      "topic": "où / dont",
+      "prompt": "Välj rätt pronomen: \"C'est la femme ___ la fille est médecin.\" (kvinnan VARS dotter är läkare)",
+      "opener": "\"Dont\" kan även uttrycka ägande/tillhörighet, som svenskans \"vars\".",
+      "choices": [
+        "dont",
+        "que",
+        "qui",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Dont\" kan motsvara svenskans \"vars\": \"la femme dont la fille est médecin\" betyder \"kvinnan vars dotter är läkare\". Ordföljden efter \"dont\" ändras inte: dont + subjekt + verb."
+    },
+    {
+      "id": "q-fr3-clauses-7",
+      "kind": "worked",
+      "topic": "relative pronouns",
+      "prompt": "Slå ihop de två meningarna till en, med rätt relativpronomen: \"J'ai un ami. Cet ami habite à Lyon et je lui rends visite chaque été.\"",
+      "opener": "Fundera på vilken roll \"cet ami\" spelar i den andra satsen — subjekt eller något annat?",
+      "answer": "J'ai un ami qui habite à Lyon et à qui je rends visite chaque été.",
+      "steps": [
+        "Första delen: \"cet ami habite à Lyon\" — här är \"ami\" subjekt i bisatsen → \"qui habite à Lyon\".",
+        "Andra delen: \"je lui rends visite\" — \"lui\" är ett indirekt objekt (rendre visite À quelqu'un), inte ett vanligt \"que\"-objekt.",
+        "Ett indirekt objekt med à + person kräver \"à qui\", inte \"que\": \"à qui je rends visite\".",
+        "Hela meningen: \"J'ai un ami qui habite à Lyon et à qui je rends visite chaque été.\" Notera att man kan behöva två olika relativkonstruktioner i samma mening beroende på ordens roll."
+      ]
+    },
+    {
+      "id": "q-fr3-clauses-8",
+      "kind": "flashcard",
+      "topic": "relative pronouns",
+      "prompt": "Hur väljer man mellan qui, que, où och dont?",
+      "opener": "Fyra pronomen, fyra roller i bisatsen.",
+      "answer": "qui = subjekt i bisatsen, följs direkt av verb (l'homme qui parle). que = objekt i bisatsen, följs av subjekt + verb (l'homme que je vois) — förkortas till qu' framför vokal. où = plats eller tid (la ville où j'habite, le jour où c'est arrivé). dont = ersätter de + något: verb med prepositionen de (parler de, avoir besoin de, être content de) eller ägande/tillhörighet (vars) — dont följs alltid av subjekt + verb utan omkastad ordföljd. Minnesregel: qui gör något, que tar emot något, où är en plats, dont hör ihop med de."
+    }
+  ]
+}

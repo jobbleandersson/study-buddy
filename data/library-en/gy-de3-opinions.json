@@ -1,0 +1,127 @@
+{
+  "id": "lib-de3-opinions",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Expressing and justifying opinions",
+  "sourceSummary": "Phrases for introducing an opinion, agreeing or disagreeing, and correctly justifying your opinion with denn versus weil.",
+  "topics": [
+    "opinion phrases",
+    "agreement/disagreement",
+    "justification"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-opinions-1",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Which phrase introduces an opinion in German?",
+      "opener": "One of these is about presenting your own stance.",
+      "choices": [
+        "Meiner Meinung nach...",
+        "Zum Beispiel...",
+        "Das heißt...",
+        "Trotzdem..."
+      ],
+      "answer": 0,
+      "explanation": "\"Meiner Meinung nach...\" means \"in my opinion...\" and is one of the most common ways to introduce an opinion. \"Zum Beispiel\" gives an example, \"das heißt\" clarifies, and \"trotzdem\" means \"nevertheless\"."
+    },
+    {
+      "id": "q-de3-opinions-2",
+      "kind": "mc",
+      "topic": "agreement/disagreement",
+      "prompt": "What does \"Ich stimme dir nicht zu.\" mean?",
+      "opener": "Think about what \"nicht\" does to the meaning of \"zustimmen\" (to agree).",
+      "choices": [
+        "I agree with you",
+        "I disagree with you",
+        "I don't understand you",
+        "I don't trust you"
+      ],
+      "answer": 1,
+      "explanation": "\"Zustimmen\" means \"to agree\", so \"ich stimme dir nicht zu\" means \"I disagree with you\". The opposite, \"I agree\", is \"ich stimme dir zu\"."
+    },
+    {
+      "id": "q-de3-opinions-3",
+      "kind": "mc",
+      "topic": "justification",
+      "prompt": "Choose the correct sentence: \"I think the film was good, because the actors were convincing.\"",
+      "opener": "\"Denn\" (because/for) is a coordinating conjunction — what does that mean for the word order?",
+      "choices": [
+        "Ich finde den Film gut, denn die Schauspieler waren überzeugend.",
+        "Ich finde den Film gut, denn die Schauspieler überzeugend waren.",
+        "Ich finde den Film gut, weil die Schauspieler waren überzeugend.",
+        "Ich finde den Film gut, denn waren die Schauspieler überzeugend."
+      ],
+      "answer": 0,
+      "explanation": "\"Denn\" (because/for) is a coordinating conjunction and does NOT affect the word order — the verb stays in position two: \"denn die Schauspieler waren überzeugend\". This differs from \"weil\", which sends the verb to the end of the clause (\"weil die Schauspieler überzeugend waren\")."
+    },
+    {
+      "id": "q-de3-opinions-4",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "What does the construction \"einerseits ... andererseits\" mean?",
+      "opener": "Used to weigh two sides of an issue against each other.",
+      "choices": [
+        "firstly...secondly",
+        "on one hand...on the other hand",
+        "either...or",
+        "not only...but also"
+      ],
+      "answer": 1,
+      "explanation": "\"Einerseits ... andererseits\" means \"on one hand ... on the other hand\" and is used to present two opposing aspects of the same issue."
+    },
+    {
+      "id": "q-de3-opinions-5",
+      "kind": "mc",
+      "topic": "justification",
+      "prompt": "Complete: \"Ich bin gegen das Handyverbot in der Schule, ___ Schüler auch für Notfälle erreichbar sein sollten.\" (because)",
+      "opener": "Look at the word order of the clause — the verb \"sollten\" is already at the end.",
+      "choices": [
+        "weil",
+        "denn",
+        "aber",
+        "obwohl"
+      ],
+      "answer": 0,
+      "explanation": "Since the clause already has the verb at the end (\"...erreichbar sein sollten\"), a subordinating conjunction like \"weil\" is required — not \"denn\", which would require normal word order with the verb in position two (\"denn Schüler sollten auch...\")."
+    },
+    {
+      "id": "q-de3-opinions-6",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Which phrase means \"I am convinced that...\"?",
+      "opener": "Expresses a strong, confident opinion.",
+      "choices": [
+        "Ich bin davon überzeugt, dass...",
+        "Ich bezweifle, dass...",
+        "Ich hoffe, dass...",
+        "Ich befürchte, dass..."
+      ],
+      "answer": 0,
+      "explanation": "\"Ich bin davon überzeugt, dass...\" means \"I am convinced that...\". \"Ich bezweifle\" = I doubt, \"ich hoffe\" = I hope, \"ich befürchte\" = I fear."
+    },
+    {
+      "id": "q-de3-opinions-7",
+      "kind": "worked",
+      "topic": "justification",
+      "prompt": "Combine the two sentences into one, choosing the correct conjunction: \"Ich finde Fernunterricht nicht gut.\" + \"Man hat weniger Kontakt zu den Mitschülern.\" (use weil)",
+      "opener": "\"Weil\" introduces a subordinate clause — where does the conjugated verb move to?",
+      "answer": "Ich finde Fernunterricht nicht gut, weil man weniger Kontakt zu den Mitschülern hat.",
+      "steps": [
+        "\"Weil\" introduces a subordinate clause where the conjugated verb moves to the end.",
+        "The second sentence's verb \"hat\" must therefore move from position two to the very end of the clause.",
+        "\"Man hat weniger Kontakt\" → \"..., weil man weniger Kontakt zu den Mitschülern hat.\"",
+        "Full sentence: \"Ich finde Fernunterricht nicht gut, weil man weniger Kontakt zu den Mitschülern hat.\""
+      ]
+    },
+    {
+      "id": "q-de3-opinions-8",
+      "kind": "flashcard",
+      "topic": "opinion phrases",
+      "prompt": "What phrases are used to express and justify an opinion in German?",
+      "opener": "A small phrase bank for discussion and argumentation.",
+      "answer": "Introducing an opinion: Meiner Meinung nach... / Ich finde, dass... / Ich bin der Meinung, dass... / Aus meiner Sicht... Agreeing/disagreeing: Ich stimme zu / Ich stimme dir zu (I agree) — Ich stimme nicht zu / Ich bin nicht einverstanden (I disagree). Weighing pros and cons: Einerseits ... andererseits ... (on one hand ... on the other hand). Justifying: denn (coordinating, normal word order: \"..., denn er hat recht.\") and weil (subordinating, verb at the end: \"..., weil er recht hat.\") both roughly mean \"because\", but have different word order."
+    }
+  ]
+}

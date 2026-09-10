@@ -1,0 +1,128 @@
+{
+  "id": "lib-de3-reading",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Reading comprehension: club culture in Germany",
+  "sourceSummary": "A longer text about German club culture (Vereine) and its role in society, with questions on main idea, detail, inference, and vocabulary in context.",
+  "topics": [
+    "main idea",
+    "detail",
+    "inference",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-reading-1",
+      "kind": "mc",
+      "topic": "detail",
+      "prompt": "Read the text: \"In Deutschland gibt es über 600.000 eingetragene Vereine – vom kleinen Schachclub im Dorf bis zum großen Sportverein mit tausenden Mitgliedern. Für viele Deutsche gehört die Mitgliedschaft in einem Verein einfach zum Leben dazu, sei es im Fußballverein, im Gesangverein oder im Kleingartenverein. Vereine werden oft als das Rückgrat des gesellschaftlichen Lebens bezeichnet, besonders in kleineren Städten und auf dem Land, wo sie manchmal die einzige Möglichkeit bieten, andere Menschen außerhalb der Familie und der Arbeit zu treffen. Die Arbeit in einem Verein ist meist ehrenamtlich: Millionen Deutsche investieren jede Woche unbezahlte Stunden in Training, Organisation oder Vereinsfeste. In den letzten Jahren klagen jedoch viele Vereine über sinkende Mitgliederzahlen, besonders bei jüngeren Menschen, die lieber spontan und ohne feste Verpflichtungen aktiv sein wollen. Manche Vereine reagieren darauf, indem sie flexiblere Mitgliedschaften anbieten oder verstärkt in sozialen Medien um neue, junge Mitglieder werben.\"\n\nRoughly how many registered clubs (Vereine) are there in Germany according to the text?",
+      "opener": "Read the first sentences again and look for the number.",
+      "choices": [
+        "About 60,000",
+        "About 600,000",
+        "About 6 million",
+        "About 6,000"
+      ],
+      "answer": 1,
+      "explanation": "The text states \"über 600.000 eingetragene Vereine\" (over 600,000 registered clubs)."
+    },
+    {
+      "id": "q-de3-reading-2",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text (above).\n\nWhat is the main idea of the text?",
+      "opener": "Weigh what the text says about the importance of club life against the problem mentioned at the end.",
+      "choices": [
+        "Club life plays an important social role in Germany but struggles with declining membership, especially among young people.",
+        "All Germans are members of at least one club.",
+        "Clubs in Germany exist only for sports.",
+        "The number of clubs in Germany is growing sharply every year."
+      ],
+      "answer": 0,
+      "explanation": "The text describes both the importance of club life (\"Rückgrat des gesellschaftlichen Lebens\") and the current problem of declining membership among younger people — that is the core of the text. The other options exaggerate or claim things the text never says."
+    },
+    {
+      "id": "q-de3-reading-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "In the sentence \"Vereine werden oft als das Rückgrat des gesellschaftlichen Lebens bezeichnet\", \"Rückgrat\" roughly means:",
+      "opener": "The word is used figuratively here, not literally.",
+      "choices": [
+        "backbone/foundation",
+        "threat",
+        "hobby",
+        "exception"
+      ],
+      "answer": 0,
+      "explanation": "\"Rückgrat\" literally means \"spine/backbone\" and is used figuratively for something that is a foundation or supporting part of something — here, of social life."
+    },
+    {
+      "id": "q-de3-reading-4",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "What does \"ehrenamtlich\" mean in the context \"Die Arbeit in einem Verein ist meist ehrenamtlich\"?",
+      "opener": "The following sentence explains the word: \"unbezahlte Stunden\".",
+      "choices": [
+        "voluntary/unpaid",
+        "illegal",
+        "very well paid",
+        "mandatory"
+      ],
+      "answer": 0,
+      "explanation": "\"Ehrenamtlich\" means voluntary/unpaid work done willingly, which is also confirmed by the text mentioning \"unbezahlte Stunden\" (unpaid hours) right after."
+    },
+    {
+      "id": "q-de3-reading-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "What can you infer about why some clubs offer more flexible memberships?",
+      "opener": "Connect what is said about young people's preferences with the clubs' response.",
+      "choices": [
+        "To attract younger members who dislike fixed, long-term commitments",
+        "Because they already have too many members",
+        "Because the authorities require it by law",
+        "Because older members are asking for it"
+      ],
+      "answer": 0,
+      "explanation": "The text says that younger people \"lieber spontan und ohne feste Verpflichtungen aktiv sein wollen\" (prefer to be active spontaneously and without fixed commitments), and that clubs are responding with more flexible memberships — the context shows this is an attempt to meet that group's preferences."
+    },
+    {
+      "id": "q-de3-reading-6",
+      "kind": "mc",
+      "topic": "detail",
+      "prompt": "In what two ways are some clubs trying to attract new, young members, according to the text?",
+      "opener": "The last sentence of the text mentions two concrete strategies.",
+      "choices": [
+        "Through more flexible memberships and marketing on social media",
+        "Through lower fees and free trips",
+        "By abolishing all rules and participation requirements",
+        "By merging several clubs into one"
+      ],
+      "answer": 0,
+      "explanation": "The text explicitly mentions two strategies: \"flexiblere Mitgliedschaften\" (more flexible memberships) and that clubs \"verstärkt in sozialen Medien um neue, junge Mitglieder werben\" (advertise more on social media)."
+    },
+    {
+      "id": "q-de3-reading-7",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Read the text (above).\n\nExplain why the text describes clubs as especially important \"in kleineren Städten und auf dem Land\" (in smaller towns and in the countryside) — what does that suggest about big cities compared to the countryside?",
+      "opener": "Read the sentence about why clubs matter there, and think about what that implies about the alternatives elsewhere.",
+      "answer": "In the countryside and smaller towns there are fewer other ways to meet people outside family and work, so clubs fill a social gap that big cities presumably fill in other ways (e.g. more meeting places, cafés, cultural offerings).",
+      "steps": [
+        "The text says that clubs there \"manchmal die einzige Möglichkeit bieten, andere Menschen ... zu treffen\" (sometimes offer the only opportunity to meet other people).",
+        "The words \"manchmal\" (sometimes) and \"einzige\" (only) suggest that alternatives are scarce specifically in these places.",
+        "If the text singles out the countryside and smaller towns as places where this applies, it implies conversely that bigger cities have more other social meeting places (cafés, cultural life, more people in general) where the club is not as crucial.",
+        "This is an inference — the text does not say it outright, but the context supports the interpretation."
+      ]
+    },
+    {
+      "id": "q-de3-reading-8",
+      "kind": "flashcard",
+      "topic": "main idea",
+      "prompt": "What strategies help you understand and answer questions about a German text?",
+      "opener": "Habits that work even for more difficult texts in German.",
+      "answer": "Read through the text once for the overall impression before reading the questions carefully. Look for keywords that repeat — they often point to the main idea. For words you don't understand (like \"Rückgrat\" or \"ehrenamtlich\"): use the context — nearby sentences often explain or exemplify the word. For inference questions: base your answer only on what the text actually implies, don't bring in prior knowledge the text doesn't support. Pay attention to numbers, names, and time expressions — they are common in detail questions."
+    }
+  ]
+}

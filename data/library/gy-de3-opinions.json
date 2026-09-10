@@ -1,0 +1,127 @@
+{
+  "id": "lib-de3-opinions",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Att uttrycka och motivera åsikter",
+  "sourceSummary": "Fraser för att inleda en åsikt, hålla med eller inte hålla med, samt hur man motiverar sin åsikt korrekt med denn respektive weil.",
+  "topics": [
+    "opinion phrases",
+    "agreement/disagreement",
+    "justification"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-opinions-1",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Vilken fras inleder en åsikt på tyska?",
+      "opener": "En av dessa handlar om att presentera ett eget ställningstagande.",
+      "choices": [
+        "Meiner Meinung nach...",
+        "Zum Beispiel...",
+        "Das heißt...",
+        "Trotzdem..."
+      ],
+      "answer": 0,
+      "explanation": "\"Meiner Meinung nach...\" betyder \"enligt min mening/min åsikt är...\" och är en av de vanligaste inledningarna till en åsikt. \"Zum Beispiel\" ger ett exempel, \"das heißt\" förtydligar, och \"trotzdem\" betyder \"trots det\"."
+    },
+    {
+      "id": "q-de3-opinions-2",
+      "kind": "mc",
+      "topic": "agreement/disagreement",
+      "prompt": "Vad betyder \"Ich stimme dir nicht zu.\"?",
+      "opener": "Fundera på vad \"nicht\" gör med betydelsen av \"zustimmen\" (hålla med).",
+      "choices": [
+        "Jag håller med dig",
+        "Jag håller inte med dig",
+        "Jag förstår dig inte",
+        "Jag litar inte på dig"
+      ],
+      "answer": 1,
+      "explanation": "\"Zustimmen\" betyder \"hålla med\", så \"ich stimme dir nicht zu\" betyder \"jag håller inte med dig\". Det motsatta, \"jag håller med\", heter \"ich stimme dir zu\"."
+    },
+    {
+      "id": "q-de3-opinions-3",
+      "kind": "mc",
+      "topic": "justification",
+      "prompt": "Välj rätt mening: \"Jag tycker filmen var bra, för skådespelarna var övertygande.\"",
+      "opener": "\"Denn\" (för/eftersom) är en samordnande konjunktion — vad innebär det för ordföljden?",
+      "choices": [
+        "Ich finde den Film gut, denn die Schauspieler waren überzeugend.",
+        "Ich finde den Film gut, denn die Schauspieler überzeugend waren.",
+        "Ich finde den Film gut, weil die Schauspieler waren überzeugend.",
+        "Ich finde den Film gut, denn waren die Schauspieler überzeugend."
+      ],
+      "answer": 0,
+      "explanation": "\"Denn\" (för/eftersom) är en samordnande konjunktion och påverkar INTE ordföljden — verbet står kvar på plats två: \"denn die Schauspieler waren überzeugend\". Detta skiljer sig från \"weil\", som skickar verbet till slutet av bisatsen (\"weil die Schauspieler überzeugend waren\")."
+    },
+    {
+      "id": "q-de3-opinions-4",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Vad betyder konstruktionen \"einerseits ... andererseits\"?",
+      "opener": "Används för att väga två sidor av en fråga mot varandra.",
+      "choices": [
+        "för det första...för det andra",
+        "å ena sidan...å andra sidan",
+        "antingen...eller",
+        "inte bara...utan också"
+      ],
+      "answer": 1,
+      "explanation": "\"Einerseits ... andererseits\" betyder \"å ena sidan ... å andra sidan\" och används för att presentera två motstående aspekter av samma fråga."
+    },
+    {
+      "id": "q-de3-opinions-5",
+      "kind": "mc",
+      "topic": "justification",
+      "prompt": "Komplettera: \"Ich bin gegen das Handyverbot in der Schule, ___ Schüler auch für Notfälle erreichbar sein sollten.\" (eftersom)",
+      "opener": "Titta på bisatsens ordföljd — verbet \"sollten\" står redan sist.",
+      "choices": [
+        "weil",
+        "denn",
+        "aber",
+        "obwohl"
+      ],
+      "answer": 0,
+      "explanation": "Eftersom bisatsen redan har verbet sist (\"...erreichbar sein sollten\"), krävs en underordnande konjunktion som \"weil\" — inte \"denn\", som skulle kräva normal ordföljd med verbet på plats två (\"denn Schüler sollten auch...\")."
+    },
+    {
+      "id": "q-de3-opinions-6",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Vilken fras betyder \"jag är övertygad om att...\"?",
+      "opener": "Uttrycker en stark, säker åsikt.",
+      "choices": [
+        "Ich bin davon überzeugt, dass...",
+        "Ich bezweifle, dass...",
+        "Ich hoffe, dass...",
+        "Ich befürchte, dass..."
+      ],
+      "answer": 0,
+      "explanation": "\"Ich bin davon überzeugt, dass...\" betyder \"jag är övertygad om att...\". \"Ich bezweifle\" = jag tvivlar på, \"ich hoffe\" = jag hoppas, \"ich befürchte\" = jag befarar."
+    },
+    {
+      "id": "q-de3-opinions-7",
+      "kind": "worked",
+      "topic": "justification",
+      "prompt": "Skriv ihop två meningar till en, och välj rätt konjunktion: \"Ich finde Fernunterricht nicht gut.\" + \"Man hat weniger Kontakt zu den Mitschülern.\" (använd weil)",
+      "opener": "\"Weil\" inleder en bisats — vart flyttas det böjda verbet?",
+      "answer": "Ich finde Fernunterricht nicht gut, weil man weniger Kontakt zu den Mitschülern hat.",
+      "steps": [
+        "\"Weil\" inleder en bisats där det böjda verbet flyttas till slutet.",
+        "Andra satsens verb \"hat\" måste alltså flyttas från plats två till sista platsen i bisatsen.",
+        "\"Man hat weniger Kontakt\" → \"..., weil man weniger Kontakt zu den Mitschülern hat.\"",
+        "Hela meningen: \"Ich finde Fernunterricht nicht gut, weil man weniger Kontakt zu den Mitschülern hat.\""
+      ]
+    },
+    {
+      "id": "q-de3-opinions-8",
+      "kind": "flashcard",
+      "topic": "opinion phrases",
+      "prompt": "Vilka fraser använder man för att uttrycka och motivera en åsikt på tyska?",
+      "opener": "En liten frasbank för diskussion och argumentation.",
+      "answer": "Inleda en åsikt: Meiner Meinung nach... / Ich finde, dass... / Ich bin der Meinung, dass... / Aus meiner Sicht... Hålla med/inte hålla med: Ich stimme zu / Ich stimme dir zu (jag håller med) — Ich stimme nicht zu / Ich bin nicht einverstanden (jag håller inte med). Väga för- och nackdelar: Einerseits ... andererseits ... (å ena sidan ... å andra sidan). Motivera: denn (samordnande, normal ordföljd: \"..., denn er hat recht.\") och weil (underordnande, verbet sist: \"..., weil er recht hat.\") betyder båda ungefär \"eftersom/för\", men har olika ordföljd."
+    }
+  ]
+}

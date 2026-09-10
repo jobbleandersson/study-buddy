@@ -1,0 +1,127 @@
+{
+  "id": "lib-de4-conditional",
+  "type": "assignment",
+  "subject": "Tyska 4",
+  "title": "Conditional clauses: real and unreal conditions",
+  "sourceSummary": "A systematic look at wenn-clauses in three types — real conditions, unreal present conditions, and unreal past conditions — plus the word order used when wenn is omitted.",
+  "topics": [
+    "real conditions",
+    "unreal conditions",
+    "conditional word order"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de4-cond-1",
+      "kind": "mc",
+      "topic": "real conditions",
+      "prompt": "Which sentence expresses a real, possible condition in the present?",
+      "opener": "A real condition (type I) uses the indicative in both clauses, often the present tense.",
+      "choices": [
+        "Wenn es regnet, bleibe ich zu Hause.",
+        "Wenn es regnen würde, bliebe ich zu Hause.",
+        "Wenn es geregnet hätte, wäre ich zu Hause geblieben.",
+        "Wenn es regnete, würde ich zu Hause bleiben."
+      ],
+      "answer": 0,
+      "explanation": "A real, general or possible condition is formed with the present indicative in both clauses: \"Wenn es regnet, bleibe ich zu Hause.\" Konjunktiv II (options 2 and 4) would signal that the rain was less likely or purely hypothetical, and option 3 describes a condition that is already in the past."
+    },
+    {
+      "id": "q-de4-cond-2",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "Which sentence expresses an unreal condition in the present?",
+      "opener": "Unreal present condition: Konjunktiv II in both clauses, usually with würde in the main clause.",
+      "choices": [
+        "Wenn ich Millionär bin, kaufe ich eine Insel.",
+        "Wenn ich Millionär wäre, würde ich eine Insel kaufen.",
+        "Wenn ich Millionär war, kaufte ich eine Insel.",
+        "Wenn ich Millionär gewesen wäre, hätte ich eine Insel gekauft."
+      ],
+      "answer": 1,
+      "explanation": "\"Wenn ich Millionär wäre, würde ich eine Insel kaufen\" describes a purely hypothetical condition in the present — the speaker is not a millionaire. Option 4 expresses the same idea but incorrectly places it in the past (had I been a millionaire back then)."
+    },
+    {
+      "id": "q-de4-cond-3",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "Which sentence correctly expresses an unreal condition in the PAST?",
+      "opener": "Unreal past condition: hätte/wäre + participle in both clauses.",
+      "choices": [
+        "Wenn ich das gewusst hätte, hätte ich anders gehandelt.",
+        "Wenn ich das wüsste, würde ich anders handeln.",
+        "Wenn ich das weiß, handle ich anders.",
+        "Wenn ich das gewusst habe, habe ich anders gehandelt."
+      ],
+      "answer": 0,
+      "explanation": "An unreal situation that is already over (I actually didn't know that at the time) requires Konjunktiv II in the past: hätte/wäre + participle in BOTH clauses: \"Wenn ich das gewusst hätte, hätte ich anders gehandelt.\" Option 2 expresses the same idea but incorrectly places it in the present."
+    },
+    {
+      "id": "q-de4-cond-4",
+      "kind": "mc",
+      "topic": "conditional word order",
+      "prompt": "Which sentence has the correct word order when \"wenn\" is omitted?",
+      "opener": "Without \"wenn\", the conjugated verb moves to the first position of the conditional clause — just like in a yes/no question.",
+      "choices": [
+        "Hätte ich mehr Geld, würde ich eine Weltreise machen.",
+        "Ich hätte mehr Geld, würde ich eine Weltreise machen.",
+        "Hätte mehr Geld ich, würde ich eine Weltreise machen.",
+        "Wenn hätte ich mehr Geld, würde ich eine Weltreise machen."
+      ],
+      "answer": 0,
+      "explanation": "When \"wenn\" is omitted in a formal or literary conditional clause, the conjugated verb moves to the first position of the clause: \"Hätte ich mehr Geld, würde ich eine Weltreise machen.\" (compare \"Wenn ich mehr Geld hätte, ...\"). The construction resembles a yes/no question but here functions as a conditional clause."
+    },
+    {
+      "id": "q-de4-cond-5",
+      "kind": "mc",
+      "topic": "real conditions",
+      "prompt": "Which conjunction/expression is NOT used to introduce a conditional clause in German?",
+      "opener": "Three of the options are established ways of saying \"if\" in German.",
+      "choices": [
+        "wenn",
+        "falls",
+        "sofern",
+        "obwohl"
+      ],
+      "answer": 3,
+      "explanation": "\"Obwohl\" means \"although/even though\" and introduces a concessive clause, not a conditional clause. \"Wenn\", \"falls\" and \"sofern\" all mean roughly \"if\" and are used in conditional clauses, where \"falls\" and \"sofern\" often carry a more formal, legalistic tone (\"should that be the case\")."
+    },
+    {
+      "id": "q-de4-cond-6",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "Choose the correct combination to express: \"If I were you, I wouldn't buy that car.\"",
+      "opener": "\"An deiner Stelle\" and \"wenn ich du wäre\" are two common ways to give advice in German — here the full wenn-clause is being tested.",
+      "choices": [
+        "Wenn ich du wäre, würde ich das Auto nicht kaufen.",
+        "Wenn ich du bin, kaufe ich das Auto nicht.",
+        "Wenn ich du war, kaufte ich das Auto nicht.",
+        "Wenn ich du gewesen wäre, hätte ich das Auto nicht gekauft."
+      ],
+      "answer": 0,
+      "explanation": "The advice concerns an ongoing, hypothetical present situation, so Konjunktiv II in the present is required in both clauses: \"Wenn ich du wäre, würde ich das Auto nicht kaufen.\" Option 4 incorrectly shifts the condition into the past."
+    },
+    {
+      "id": "q-de4-cond-7",
+      "kind": "worked",
+      "topic": "unreal conditions",
+      "prompt": "Correct the error and explain: \"Wenn ich früher aufgestanden bin, hätte ich den Bus nicht verpasst.\" (Intended: an unreal past situation — I did not actually get up early and missed the bus.)",
+      "opener": "Compare the tense in the two clauses — do they match?",
+      "answer": "Wenn ich früher aufgestanden wäre, hätte ich den Bus nicht verpasst.",
+      "steps": [
+        "The sentence describes an unreal condition in the past: the speaker didn't actually get up early and therefore missed the bus.",
+        "The if-clause is in the perfect indicative (\"bin ... aufgestanden\"), but an unreal past condition requires Konjunktiv II: hätte/wäre + participle.",
+        "\"Aufstehen\" describes a change of state and takes \"sein\" in the perfect tense, so the Konjunktiv II form is \"wäre aufgestanden\", not \"hätte aufgestanden\".",
+        "Correct sentence: \"Wenn ich früher aufgestanden wäre, hätte ich den Bus nicht verpasst.\" Both clauses must be in Konjunktiv II in the past for the condition to read as unreal."
+      ]
+    },
+    {
+      "id": "q-de4-cond-8",
+      "kind": "flashcard",
+      "topic": "real conditions",
+      "prompt": "What three types of conditional clauses exist in German, and how are they formed?",
+      "opener": "Real condition, unreal present condition, unreal past condition.",
+      "answer": "Type 1 – Real/possible condition: indicative in both clauses, often present tense. Wenn es regnet, bleibe ich zu Hause. Type 2 – Unreal present condition: Konjunktiv II in both clauses (hätte/wäre/käme or würde + infinitive). Wenn ich Zeit hätte, würde ich kommen. Type 3 – Unreal past condition: hätte/wäre + participle in both clauses. Wenn ich das gewusst hätte, hätte ich anders gehandelt. Conjunctions: wenn = if/when, falls/sofern = if (more formal). Without wenn: the conjugated verb moves to the first position (Hätte ich mehr Zeit, würde ich kommen)."
+    }
+  ]
+}

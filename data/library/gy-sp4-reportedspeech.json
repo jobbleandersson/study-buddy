@@ -1,0 +1,128 @@
+{
+  "id": "lib-sp4-reportedspeech",
+  "type": "assignment",
+  "subject": "Spanska 4",
+  "title": "Indirekt tal (estilo indirecto)",
+  "sourceSummary": "Att omvandla direkta citat till indirekt tal, och de tempusväxlingar och perspektivbyten det kräver.",
+  "topics": [
+    "reported speech",
+    "tense shifts",
+    "reporting verbs"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp4-reportedspeech-1",
+      "kind": "mc",
+      "topic": "reported speech",
+      "prompt": "Omvandla till indirekt tal: María dijo: \"Estoy cansada.\" → María dijo que ___.",
+      "opener": "När det inledande verbet står i dåtid (dijo) flyttas presens ett steg bakåt: till imperfekt.",
+      "choices": [
+        "está cansada",
+        "estaba cansada",
+        "estuvo cansada",
+        "esté cansada"
+      ],
+      "answer": 1,
+      "explanation": "Eftersom \"dijo\" (sa) står i dåtid, flyttas presens (\"estoy\") ett steg bakåt till imperfekt: \"estaba cansada\". Detta är grundmönstret i estilo indirecto."
+    },
+    {
+      "id": "q-sp4-reportedspeech-2",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Omvandla till indirekt tal: Carlos dijo: \"Llegué tarde.\" → Carlos dijo que ___.",
+      "opener": "Pretérito flyttas bakåt till pluskvamperfekt i indirekt tal.",
+      "choices": [
+        "llegaba tarde",
+        "llegó tarde",
+        "había llegado tarde",
+        "llegara tarde"
+      ],
+      "answer": 2,
+      "explanation": "Pretérito (\"llegué\") flyttas ett steg bakåt till pluskvamperfekt: \"había llegado tarde\". Mönstret: presens→imperfekt, pretérito→pluskvamperfekt."
+    },
+    {
+      "id": "q-sp4-reportedspeech-3",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Omvandla till indirekt tal: Ana dijo: \"Iré a la fiesta.\" → Ana dijo que ___.",
+      "opener": "Futurum flyttas bakåt till konditionalis i indirekt tal.",
+      "choices": [
+        "iba a la fiesta",
+        "irá a la fiesta",
+        "fue a la fiesta",
+        "iría a la fiesta"
+      ],
+      "answer": 3,
+      "explanation": "Futurum (\"iré\") flyttas bakåt till konditionalis: \"iría a la fiesta\". Mönstret gäller alla futurumformer när det inledande verbet står i dåtid."
+    },
+    {
+      "id": "q-sp4-reportedspeech-4",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "Omvandla till indirekt tal: El profesor dijo: \"Estudiad más.\" → El profesor nos dijo que ___.",
+      "opener": "Imperativ i direkt tal blir subjuntivo i indirekt tal (ofta imperfekt subjuntivo efter dijo).",
+      "choices": [
+        "estudiamos más",
+        "estudiáramos más",
+        "estudiaríamos más",
+        "estudiemos más"
+      ],
+      "answer": 1,
+      "explanation": "En imperativ (\"estudiad\") i direkt tal blir imperfekt subjuntivo i indirekt tal efter ett verb i dåtid: \"que estudiáramos más\". Notera också att böjningen ändras (estudiad → estudiáramos), eftersom perspektivet nu är \"vi\" som blev tillsagda, inte den ursprungliga direkta tilltalsformen."
+    },
+    {
+      "id": "q-sp4-reportedspeech-5",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Omvandla till indirekt tal: Pedro dijo: \"Vendré aquí mañana.\" → Pedro dijo que ___.",
+      "opener": "Både tempus OCH tids-/platsuttryck ändras i indirekt tal: \"mañana\" → \"al día siguiente\", \"aquí\" → \"allí\".",
+      "choices": [
+        "vendría aquí mañana",
+        "vendría allí al día siguiente",
+        "vino aquí mañana",
+        "viene allí al día siguiente"
+      ],
+      "answer": 1,
+      "explanation": "Futurum (vendré) → konditionalis (vendría). Dessutom flyttas deiktiska uttryck: \"aquí\" (här, ur talarens perspektiv) → \"allí\" (där), och \"mañana\" (imorgon) → \"al día siguiente\" (dagen därpå), eftersom perspektivet nu är berättarens, inte den ursprungliga talarens."
+    },
+    {
+      "id": "q-sp4-reportedspeech-6",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "Omvandla till indirekt tal: Laura preguntó: \"¿Vienes a la fiesta?\" → Laura preguntó que ___.",
+      "opener": "Ja/nej-frågor i indirekt tal inleds med \"si\" (om), och ordföljden blir som i ett påstående, inte en fråga.",
+      "choices": [
+        "si venía a la fiesta",
+        "que vienes a la fiesta",
+        "si vienes a la fiesta",
+        "cuándo venía a la fiesta"
+      ],
+      "answer": 0,
+      "explanation": "En ja/nej-fråga i indirekt tal inleds med konjunktionen \"si\" (om), inte \"que\", och verbet flyttas bakåt i tempus som vanligt: \"preguntó si venía a la fiesta\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-7",
+      "kind": "worked",
+      "topic": "tense shifts",
+      "prompt": "Omvandla till indirekt tal: Marta dijo: \"Estoy muy ocupada hoy, pero mañana tendré tiempo libre y podré ayudarte.\" → Marta dijo que...",
+      "opener": "Tre verb ska flyttas bakåt i tempus, och tidsuttrycket \"mañana\" ska ändras.",
+      "answer": "Marta dijo que estaba muy ocupada aquel día, pero que al día siguiente tendría tiempo libre y podría ayudarle.",
+      "steps": [
+        "\"Estoy\" (presens) → \"estaba\" (imperfekt), eftersom det inledande verbet \"dijo\" står i dåtid.",
+        "\"Hoy\" (idag) ändras till \"aquel día\" (den dagen), eftersom vi nu berättar om det i efterhand.",
+        "\"Tendré\" och \"podré\" (futurum) → \"tendría\" och \"podría\" (konditionalis).",
+        "\"Mañana\" (imorgon) ändras till \"al día siguiente\" (dagen därpå).",
+        "\"Ayudarte\" (dig) ändras till \"ayudarle\" (henne/honom), eftersom perspektivet nu är tredje person, inte direkt tilltal."
+      ]
+    },
+    {
+      "id": "q-sp4-reportedspeech-8",
+      "kind": "flashcard",
+      "topic": "reported speech",
+      "prompt": "Vilka tempusväxlingar och andra förändringar sker i estilo indirecto?",
+      "opener": "Ett schema att memorera för att smidigt växla mellan direkt och indirekt tal.",
+      "answer": "Tempusväxlingar (när det inledande verbet står i dåtid, t.ex. dijo que): presente→imperfecto (estoy→estaba), pretérito→pluscuamperfecto (llegué→había llegado), futuro→condicional (iré→iría), imperativo→imperfecto de subjuntivo (estudiad→estudiáramos). Tids-/platsuttryck: hoy→aquel día, mañana→al día siguiente, ayer→el día anterior, aquí→allí, este→aquel. Frågor: ja/nej-frågor får \"si\" (preguntó si venía), frågeordsfrågor behåller frågeordet (preguntó cuándo venía) — utan frågetecken och utan inverterad ordföljd. Pronomen anpassas alltid efter det nya perspektivet."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "lib-de3-aspect",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Perfekt vs. Präteritum: spoken and written register",
+  "sourceSummary": "The difference between the perfect and simple past tenses — when to use which in speech versus writing — plus the exceptions haben, sein, and the modal verbs.",
+  "topics": [
+    "spoken register",
+    "written register",
+    "haben/sein/modals"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-aspect-1",
+      "kind": "mc",
+      "topic": "spoken register",
+      "prompt": "Which tense is most often used in everyday spoken German, regardless of how the sentence would look in writing: \"Ich ___ das Buch schon gelesen.\" (I have already read the book)",
+      "opener": "Think about how you talk to friends, not how you'd write a newspaper article.",
+      "choices": [
+        "habe ... gelesen",
+        "las",
+        "hatte ... gelesen",
+        "lese"
+      ],
+      "answer": 0,
+      "explanation": "In spoken German, the perfect tense is used almost exclusively, regardless of whether the action happened moments ago or long ago. The simple past (\"las\") sounds bookish and formal in everyday speech."
+    },
+    {
+      "id": "q-de3-aspect-2",
+      "kind": "mc",
+      "topic": "written register",
+      "prompt": "In a narrative text or newspaper article, the simple past is usually used. Choose the correct form: \"Die Familie ___ im Sommer nach Berlin.\" (the family traveled to Berlin in the summer; reisen)",
+      "opener": "Weak verbs form the simple past with stem + -te.",
+      "choices": [
+        "reiste",
+        "ist gereist",
+        "reist",
+        "gereist"
+      ],
+      "answer": 0,
+      "explanation": "\"Reiste\" is the simple-past form of the weak verb \"reisen\" (stem + -te). In written narrative text — newspaper articles, novels — the simple past is the standard past tense, while the perfect dominates in speech."
+    },
+    {
+      "id": "q-de3-aspect-3",
+      "kind": "mc",
+      "topic": "haben/sein/modals",
+      "prompt": "Which statement about \"haben\", \"sein\", and the modal verbs (können, müssen, wollen, etc.) is correct?",
+      "opener": "These verbs break the rule that the perfect dominates in speech.",
+      "choices": [
+        "They always use the perfect, even in speech",
+        "They mostly use the simple past even in speech: \"ich war\", \"ich hatte\", \"ich konnte\"",
+        "They have no simple-past form",
+        "They only conjugate in the present tense"
+      ],
+      "answer": 1,
+      "explanation": "Haben, sein, and the modal verbs are exceptions: even in everyday speech, people usually say \"ich war\", \"ich hatte\", \"ich konnte\", \"ich musste\" in the simple past, rather than the clunky perfect forms \"ich bin gewesen\", \"ich habe gehabt\", \"ich habe gekonnt\"."
+    },
+    {
+      "id": "q-de3-aspect-4",
+      "kind": "mc",
+      "topic": "haben/sein/modals",
+      "prompt": "Choose the correct form: \"Als Kind ___ ich keine Angst vor Hunden.\" (as a child I wasn't afraid of dogs; haben)",
+      "opener": "One of the exception verbs that is almost always conjugated in the simple past.",
+      "choices": [
+        "habe gehabt",
+        "hatte",
+        "hätte",
+        "habend"
+      ],
+      "answer": 1,
+      "explanation": "\"Hatte\" is the simple-past form of \"haben\". Just like \"sein\" and the modal verbs, \"haben\" is almost always used in the simple past, even when speaking: \"ich hatte\", not \"ich habe gehabt\"."
+    },
+    {
+      "id": "q-de3-aspect-5",
+      "kind": "mc",
+      "topic": "spoken register",
+      "prompt": "Which sentence sounds most natural in an everyday conversation about yesterday?",
+      "opener": "The default past tense in spoken language.",
+      "choices": [
+        "Ich habe gestern meine Hausaufgaben gemacht.",
+        "Ich machte gestern meine Hausaufgaben.",
+        "Ich mache gestern meine Hausaufgaben.",
+        "Ich hatte gestern meine Hausaufgaben gemacht."
+      ],
+      "answer": 0,
+      "explanation": "In spoken language, the perfect (\"habe ... gemacht\") is the default for the past, regardless of time expressions like \"gestern\". The simple past (\"machte\") is grammatically correct but sounds unnaturally formal in an everyday conversation."
+    },
+    {
+      "id": "q-de3-aspect-6",
+      "kind": "mc",
+      "topic": "written register",
+      "prompt": "Which simple-past form belongs to the strong verb \"gehen\" (to go)?",
+      "opener": "Strong verbs change their stem vowel instead of adding -te.",
+      "choices": [
+        "gehte",
+        "ging",
+        "gegangen",
+        "geht"
+      ],
+      "answer": 1,
+      "explanation": "Strong verbs change their stem vowel in the simple past instead of adding -te: \"gehen\" → \"ging\" (compare the participle \"gegangen\" in the perfect). \"Gehte\" does not exist."
+    },
+    {
+      "id": "q-de3-aspect-7",
+      "kind": "worked",
+      "topic": "spoken register",
+      "prompt": "Correct the mistake and explain why: In a casual phone call, Lena says: \"Gestern ich bin ins Kino gegangen und ich sah einen tollen Film.\" Something is stylistically odd, even though both clauses are grammatically possible.",
+      "opener": "Think about which tense dominates in speech — and whether the word order is right too.",
+      "answer": "Gestern bin ich ins Kino gegangen und ich habe einen tollen Film gesehen.",
+      "steps": [
+        "Word order: after the time expression \"gestern\" in position one, the verb must be in position two: \"bin ich\", not \"ich bin\".",
+        "The second clause switches to the simple past (\"sah\") in the middle of a spoken-register context, which is stylistically inconsistent — spoken language sticks to the perfect.",
+        "\"Sah\" → \"habe ... gesehen\" to match the register of the rest of the sentence.",
+        "Full sentence: \"Gestern bin ich ins Kino gegangen und ich habe einen tollen Film gesehen.\" Both verbs are now in the perfect, which fits an everyday spoken context."
+      ]
+    },
+    {
+      "id": "q-de3-aspect-8",
+      "kind": "flashcard",
+      "topic": "spoken register",
+      "prompt": "How do you choose between the perfect and the simple past in German — in speech and in writing?",
+      "opener": "One simple rule of thumb plus three exceptions to remember.",
+      "answer": "Spoken language (conversation, everyday messages): use the perfect by default, e.g. \"ich habe gemacht\", \"wir sind gefahren\", regardless of how long ago it was. Written language (stories, newspaper articles, reports): the simple past is the standard past tense, e.g. \"er machte\", \"sie fuhren\". Three exceptions apply in BOTH registers: haben (\"ich hatte\"), sein (\"ich war\"), and the modal verbs (können, müssen, wollen, sollen, dürfen, mögen — e.g. \"ich konnte\", \"ich musste\") are almost always used in the simple past, even when speaking, because their perfect forms feel clunky. Weak verbs form the simple past with stem + -te (machen → machte); strong verbs often change the stem vowel (gehen → ging, fahren → fuhr, sehen → sah)."
+    }
+  ]
+}

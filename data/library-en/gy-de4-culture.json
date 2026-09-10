@@ -1,0 +1,127 @@
+{
+  "id": "lib-de4-culture",
+  "type": "assignment",
+  "subject": "Tyska 4",
+  "title": "Umwelt: vocabulary and the climate debate",
+  "sourceSummary": "Vocabulary on climate and the environment along with a short text on Germany's climate target, for taking part in a social debate in German.",
+  "topics": [
+    "environment vocabulary",
+    "climate debate",
+    "reading comprehension"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de4-cul-1",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "What does \"der Klimawandel\" mean?",
+      "opener": "A fundamental word in any environmental debate.",
+      "choices": [
+        "climate change",
+        "the weather",
+        "the climate summit",
+        "climate policy"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Klimawandel\" means climate change — the central concept in any environmental debate in German."
+    },
+    {
+      "id": "q-de4-cul-2",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "What does the adjective \"nachhaltig\" mean?",
+      "opener": "A key word that differs from, but is easily confused with, \"erneuerbar\".",
+      "choices": [
+        "sustainable",
+        "renewable",
+        "harmful",
+        "temporary"
+      ],
+      "answer": 0,
+      "explanation": "\"Nachhaltig\" means sustainable (e.g. nachhaltige Entwicklung = sustainable development). The word is often confused with \"erneuerbar\" (renewable), which refers specifically to energy sources that renew naturally, such as sun and wind."
+    },
+    {
+      "id": "q-de4-cul-3",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Which expression means \"renewable energy sources\"?",
+      "opener": "Look for the word that specifically refers to energy sources like sun, wind, and water.",
+      "choices": [
+        "erneuerbare Energien",
+        "fossile Brennstoffe",
+        "nachhaltige Entwicklung",
+        "der CO2-Ausstoß"
+      ],
+      "answer": 0,
+      "explanation": "\"Erneuerbare Energien\" means renewable energy sources (sun, wind, water). \"Fossile Brennstoffe\" is the opposite (fossil fuels like coal and oil), and \"der CO2-Ausstoß\" means CO2 emissions."
+    },
+    {
+      "id": "q-de4-cul-4",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read: \"Deutschland hat sich zum Ziel gesetzt, bis 2045 klimaneutral zu werden. Kritiker bezweifeln jedoch, dass dieses Ziel ohne einen deutlich schnelleren Ausbau der erneuerbaren Energien erreichbar ist.\"\n\nWhat is Germany's goal, according to the text?",
+      "opener": "Look for the year and the word \"klimaneutral\".",
+      "choices": [
+        "To become climate-neutral by 2045",
+        "To phase out nuclear power by 2030",
+        "To halve CO2 emissions by 2030",
+        "To become the world leader in solar power"
+      ],
+      "answer": 0,
+      "explanation": "\"Deutschland hat sich zum Ziel gesetzt, bis 2045 klimaneutral zu werden\" means that Germany has set the goal of becoming climate-neutral by 2045."
+    },
+    {
+      "id": "q-de4-cul-5",
+      "kind": "mc",
+      "topic": "climate debate",
+      "prompt": "Same text. What do the critics (Kritiker) doubt?",
+      "opener": "\"Bezweifeln\" means to doubt — what follows that word in the sentence?",
+      "choices": [
+        "That the goal is achievable without a significantly faster expansion of renewable energy",
+        "That climate change exists at all",
+        "That Germany has enough money for climate action",
+        "That other countries will follow Germany's example"
+      ],
+      "answer": 0,
+      "explanation": "The text says the critics \"bezweifeln, dass dieses Ziel ohne einen deutlich schnelleren Ausbau der erneuerbaren Energien erreichbar ist\" — that is, that the goal cannot be reached without a significantly faster expansion of renewable energy."
+    },
+    {
+      "id": "q-de4-cul-6",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "What does the verb \"reduzieren\" mean in the phrase \"den CO2-Ausstoß reduzieren\"?",
+      "opener": "A common verb in the climate debate that resembles an English word.",
+      "choices": [
+        "to reduce",
+        "to measure",
+        "to increase",
+        "to ignore"
+      ],
+      "answer": 0,
+      "explanation": "\"Reduzieren\" means to reduce — \"den CO2-Ausstoß reduzieren\" means to reduce CO2 emissions. The word resembles the English \"reduce\", which makes it easy to recognize."
+    },
+    {
+      "id": "q-de4-cul-7",
+      "kind": "worked",
+      "topic": "climate debate",
+      "prompt": "Correct the error: \"Um den Klimawandel zu bekämpfen, die Länder müssen erneuerbare Energien fördern.\" (Intended: In order to fight climate change, countries must promote renewable energy.)",
+      "opener": "An \"um...zu\" phrase counts as a single sentence element in the first position — what should happen to the verb right after it?",
+      "answer": "Um den Klimawandel zu bekämpfen, müssen die Länder erneuerbare Energien fördern.",
+      "steps": [
+        "\"Um den Klimawandel zu bekämpfen\" is an infinitive phrase that functions as a single sentence element and occupies the first position of the sentence.",
+        "Since the main clause's conjugated verb must always stand in the second position, \"müssen\" needs to come directly after the comma — not the subject \"die Länder\".",
+        "Incorrect order: \"..., die Länder müssen ...\" (subject before verb) → correct: \"..., müssen die Länder ...\" (verb before subject).",
+        "Correct sentence: \"Um den Klimawandel zu bekämpfen, müssen die Länder erneuerbare Energien fördern.\" The same rule applies whenever something other than the subject opens the sentence."
+      ]
+    },
+    {
+      "id": "q-de4-cul-8",
+      "kind": "flashcard",
+      "topic": "environment vocabulary",
+      "prompt": "What words and phrases do you need to discuss climate and the environment in German?",
+      "opener": "A vocabulary list for a social debate about Umwelt.",
+      "answer": "der Klimawandel = climate change. die Erderwärmung = global warming. nachhaltig = sustainable. erneuerbare Energien = renewable energy. fossile Brennstoffe = fossil fuels. der CO2-Ausstoß = CO2 emissions. reduzieren = to reduce. der Ausbau = the expansion. bekämpfen = to fight, combat. klimaneutral = climate-neutral. die Umweltschutzorganisation = the environmental protection organization. sich zum Ziel setzen = to set as a goal. bezweifeln = to doubt. Useful phrases: \"Meiner Meinung nach müsste man ...\" (In my opinion, one should ...), \"Es ist wichtig, dass ...\" (It is important that ...), \"Einerseits ..., andererseits ...\" (On the one hand ..., on the other hand ...)."
+    }
+  ]
+}

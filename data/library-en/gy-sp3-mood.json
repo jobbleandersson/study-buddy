@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp3-mood",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Introduction to the subjunctive: wishes, necessity and requests",
+  "sourceSummary": "The present subjunctive after expressions of wish, necessity and request: quiero que, es importante que, espero que.",
+  "topics": [
+    "present subjunctive",
+    "wish and necessity",
+    "verbs of influence"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-mood-1",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Choose the correct form: \"Quiero que tú ___ (hablar) con ella.\"",
+      "opener": "After \"quiero que\" with a different subject, the subjunctive is required, not the present indicative.",
+      "choices": [
+        "hablas",
+        "hables",
+        "hablaste",
+        "hablarás"
+      ],
+      "answer": 1,
+      "explanation": "\"Quiero que\" + a different subject triggers the subjunctive. -ar verbs in the subjunctive switch their ending to -e: hable, hables, hable, hablemos, habléis, hablen. \"Tú\" gives \"hables\"."
+    },
+    {
+      "id": "q-sp3-mood-2",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Choose the correct form: \"Es importante que nosotros ___ (comer) verduras.\"",
+      "opener": "\"Es importante que\" is a classic subjunctive expression of necessity. -er verbs switch their ending to -a.",
+      "choices": [
+        "comemos",
+        "comamos",
+        "comimos",
+        "comeríamos"
+      ],
+      "answer": 1,
+      "explanation": "-er/-ir verbs in the subjunctive take -a endings: coma, comas, coma, comamos, comáis, coman. \"Nosotros\" gives \"comamos\"."
+    },
+    {
+      "id": "q-sp3-mood-3",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Choose the correct form: \"Espero que tú ___ (tener) suerte.\"",
+      "opener": "\"Tener\" has an irregular subjunctive stem: teng-.",
+      "choices": [
+        "tienes",
+        "tengas",
+        "tuviste",
+        "tendrás"
+      ],
+      "answer": 1,
+      "explanation": "\"Tener\" forms the subjunctive on the stem \"teng-\": tenga, tengas, tenga, tengamos, tengáis, tengan. \"Tú\" gives \"tengas\". \"Espero que\" triggers the subjunctive because it expresses a wish about something uncertain."
+    },
+    {
+      "id": "q-sp3-mood-4",
+      "kind": "mc",
+      "topic": "wish and necessity",
+      "prompt": "Choose the correct form: \"Quiero ___ al cine esta noche.\"",
+      "opener": "If the SAME person both wishes and carries out the action, the infinitive is used, not que + subjunctive.",
+      "choices": [
+        "que vaya",
+        "ir",
+        "que voy",
+        "vayas"
+      ],
+      "answer": 1,
+      "explanation": "When the subject is the same in both parts (\"I want [myself] to go\"), the infinitive is used without \"que\": \"quiero ir\". \"Que\" + the subjunctive is only used when the subjects differ, e.g. \"quiero que tú vayas\"."
+    },
+    {
+      "id": "q-sp3-mood-5",
+      "kind": "mc",
+      "topic": "verbs of influence",
+      "prompt": "Which expression fills the gap and requires the subjunctive: \"___ que estudies más.\"",
+      "opener": "Which option signals necessity/urging, as opposed to certainty?",
+      "choices": [
+        "Creo",
+        "Es necesario",
+        "Sé",
+        "Estoy seguro de"
+      ],
+      "answer": 1,
+      "explanation": "\"Es necesario que\" expresses necessity and requires the subjunctive in the subordinate clause: \"estudies\". \"Creo\", \"sé\" and \"estoy seguro de\" instead express certainty/conviction and normally take the indicative, not the subjunctive."
+    },
+    {
+      "id": "q-sp3-mood-6",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Choose the correct form: \"Espero que tú ___ (dormir) bien esta noche.\"",
+      "opener": "\"Dormir\" has the same stem change (o→ue) in the subjunctive as in the present indicative, in most persons.",
+      "choices": [
+        "duermes",
+        "duermas",
+        "dormiste",
+        "dormirás"
+      ],
+      "answer": 1,
+      "explanation": "\"Dormir\" in the subjunctive: duerma, duermas, duerma, durmamos, durmáis, duerman (note o→u in \"nosotros\"/\"vosotros\", not o→ue). \"Tú\" gives \"duermas\"."
+    },
+    {
+      "id": "q-sp3-mood-7",
+      "kind": "worked",
+      "topic": "wish and necessity",
+      "prompt": "Conjugate the verbs in the subjunctive and explain why: \"Mis padres quieren que yo ___ (estudiar) medicina, pero mi hermana espera que yo ___ (seguir) mi propio camino. Es importante que nosotros ___ (ser) sinceros sobre lo que queremos.\"",
+      "opener": "For each gap, check: does the main clause express wish/necessity, and do the subjects differ?",
+      "answer": "estudie / siga / seamos",
+      "steps": [
+        "\"Quieren que yo...\" expresses the parents' wish about SOMEONE ELSE (me) — the subjects differ, so the subjunctive is used: \"estudie\" (-ar verb, stem estudi- + e).",
+        "\"Espera que yo siga\" — \"seguir\" has a stem change (e→i) and is already irregular in the \"yo\" form (sigo), which carries over into the subjunctive: siga, sigas, siga... \"Yo\" gives \"siga\".",
+        "\"Es importante que nosotros seamos\" — \"ser\" is completely irregular in the subjunctive: sea, seas, sea, seamos, seáis, sean. \"Nosotros\" gives \"seamos\".",
+        "What all three gaps share: the verb in the clause after \"que\" is in the subjunctive because the main clause expresses wish/necessity AND the subject of the subordinate clause differs from the subject of the main clause."
+      ]
+    },
+    {
+      "id": "q-sp3-mood-8",
+      "kind": "flashcard",
+      "topic": "verbs of influence",
+      "prompt": "Which expressions trigger the subjunctive, and how is it conjugated?",
+      "opener": "A list of trigger phrases plus the most common irregular forms.",
+      "answer": "Expressions that trigger the subjunctive: querer que, esperar que, es importante que, es necesario que, pedir que, recomendar que — all express a wish, necessity, or request directed at SOMEONE ELSE. Rule: same subject → infinitive (quiero ir), different subjects → que + subjunctive (quiero que vayas). Regular endings: -ar → -e/-es/-e/-emos/-éis/-en, -er/-ir → -a/-as/-a/-amos/-áis/-an. Key irregular forms: ser → sea, estar → esté, ir → vaya, saber → sepa, dar → dé, haber → haya, tener → tenga."
+    }
+  ]
+}

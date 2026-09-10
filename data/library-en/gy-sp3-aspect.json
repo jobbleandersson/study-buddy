@@ -1,0 +1,128 @@
+{
+  "id": "lib-sp3-aspect",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Past aspect: preterite and imperfect in narratives",
+  "sourceSummary": "A deeper look at the difference between the preterite and the imperfect — completed events versus background and habit — in connected narratives.",
+  "topics": [
+    "preterite vs imperfect",
+    "narrative past",
+    "aspect"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-aspect-1",
+      "kind": "mc",
+      "topic": "preterite vs imperfect",
+      "prompt": "Choose the correct pair: \"Cuando yo ___ (llegar) a casa, mi madre ___ (cocinar).\"",
+      "opener": "A completed event interrupts an ongoing background action — which tense fits each one?",
+      "choices": [
+        "llegué / cocinaba",
+        "llegaba / cocinó",
+        "llegué / cocinó",
+        "llegaba / cocinaba"
+      ],
+      "answer": 0,
+      "explanation": "\"Llegué\" is a bounded, completed event (preterite), while \"cocinaba\" describes an ongoing background action that was already underway (imperfect) — the classic pattern of \"one thing interrupts another\"."
+    },
+    {
+      "id": "q-sp3-aspect-2",
+      "kind": "mc",
+      "topic": "narrative past",
+      "prompt": "Choose the correct form: \"Mientras los niños ___ (jugar) en el parque, empezó a llover.\"",
+      "opener": "\"Mientras\" (while) often signals an ongoing action in the background.",
+      "choices": [
+        "jugaron",
+        "jugaban",
+        "juegan",
+        "han jugado"
+      ],
+      "answer": 1,
+      "explanation": "\"Mientras\" + the imperfect describes something that was ongoing when another, completed event (\"empezó a llover\", preterite) occurred: \"jugaban\" (they were playing)."
+    },
+    {
+      "id": "q-sp3-aspect-3",
+      "kind": "mc",
+      "topic": "aspect",
+      "prompt": "What does \"conocí\" mean in the preterite in the sentence: \"Conocí a mi mejor amiga en la escuela primaria\"?",
+      "opener": "Some verbs actually change meaning depending on whether they're in the preterite or the imperfect — \"conocer\" is one of them.",
+      "choices": [
+        "I knew her well",
+        "I met her for the first time",
+        "I was thinking of her",
+        "I missed her"
+      ],
+      "answer": 1,
+      "explanation": "In the preterite, \"conocer\" means \"to meet/get to know for the first time\" — a bounded event. In the imperfect (\"conocía\") it would instead mean \"I already knew\", an ongoing state."
+    },
+    {
+      "id": "q-sp3-aspect-4",
+      "kind": "mc",
+      "topic": "aspect",
+      "prompt": "Which sentence means \"she refused to help me\" (a specific, completed decision)?",
+      "opener": "Same logic as \"conocer\": \"querer\" shifts nuance between the preterite and the imperfect.",
+      "choices": [
+        "No quería ayudarme.",
+        "No quiso ayudarme.",
+        "No quiere ayudarme.",
+        "No ha querido ayudarme."
+      ],
+      "answer": 1,
+      "explanation": "\"No quiso\" (preterite) expresses a concrete, completed decision to refuse — \"she refused\". \"No quería\" (imperfect) would instead describe general reluctance, without saying whether she ended up helping or not."
+    },
+    {
+      "id": "q-sp3-aspect-5",
+      "kind": "mc",
+      "topic": "narrative past",
+      "prompt": "Choose the correct pair for a background description: \"El cielo ___ (estar) gris y ___ (hacer) mucho frío cuando salimos de casa.\"",
+      "opener": "Descriptions of weather, feelings, and circumstances in a story are almost always in the imperfect.",
+      "choices": [
+        "estuvo / hizo",
+        "estaba / hacía",
+        "está / hace",
+        "estaba / hizo"
+      ],
+      "answer": 1,
+      "explanation": "The weather description is background to the story, not the event itself — hence the imperfect for both: \"estaba\" and \"hacía\". \"Salimos\" (preterite) is the actual event that happens against that background."
+    },
+    {
+      "id": "q-sp3-aspect-6",
+      "kind": "mc",
+      "topic": "preterite vs imperfect",
+      "prompt": "Which sentence describes a habit in the past?",
+      "opener": "Habits and repetition in the past = the imperfect, not the preterite.",
+      "choices": [
+        "Todos los veranos, mi familia fue a la playa.",
+        "Todos los veranos, mi familia iba a la playa.",
+        "El verano pasado, mi familia iba a la playa.",
+        "Ayer mi familia iba a la playa."
+      ],
+      "answer": 1,
+      "explanation": "\"Todos los veranos\" (every summer) signals a repeated habit, which requires the imperfect: \"iba\". The preterite (\"fue\") would fit a single, bounded summer instead, e.g. \"el verano pasado\"."
+    },
+    {
+      "id": "q-sp3-aspect-7",
+      "kind": "worked",
+      "topic": "narrative past",
+      "prompt": "Explain which tense fits each gap, and why: \"Eran las diez de la noche cuando el teléfono ___ (sonar). Yo ___ (leer) un libro y no ___ (querer) contestar, pero al final lo ___ (hacer).\"",
+      "opener": "Ask yourself for each gap: is this background that was already ongoing, or a single bounded event?",
+      "answer": "sonó / leía / quería / hice",
+      "steps": [
+        "\"Eran las diez\" sets the scene in the imperfect — that's always how clock time is expressed in a story.",
+        "Gap 1: the phone rings — a single, bounded event breaking into the background → preterite: \"sonó\".",
+        "Gap 2: \"I was reading\" is the ongoing background action when the phone rang → imperfect: \"leía\".",
+        "Gap 3: a general feeling/reluctance in the moment, not yet a bounded decision → imperfect: \"quería\" (I didn't want to answer).",
+        "Gap 4: \"in the end I did it\" is a concrete, completed action → preterite: \"hice\"."
+      ]
+    },
+    {
+      "id": "q-sp3-aspect-8",
+      "kind": "flashcard",
+      "topic": "aspect",
+      "prompt": "How do you choose between the preterite and the imperfect in a narrative?",
+      "opener": "Two questions, plus a list of verbs that change meaning.",
+      "answer": "Preterite: bounded, completed events with a clear start/end, the main events of a story (sonó, llegué, hice). Imperfect: background, descriptions (weather, feelings, clock time, age), ongoing actions, and habits/repetition in the past (estaba, era, jugaban, iba). Pattern: the imperfect sets the scene, the preterite is the action that breaks in. Verbs that shift nuance: conocer (conocí = met for the first time / conocía = already knew), saber (supe = found out / sabía = knew), poder (pude = managed to / podía = had the ability to), querer (quise = tried, no quise = refused / quería = wanted, in general)."
+    }
+  ]
+}

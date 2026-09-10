@@ -1,0 +1,128 @@
+{
+  "id": "lib-de3-reading",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Läsförståelse: föreningslivet i Tyskland",
+  "sourceSummary": "En längre text om den tyska föreningskulturen (Vereine) och dess roll i samhället, med frågor om huvudbudskap, detaljer, slutledning och ord i sammanhang.",
+  "topics": [
+    "main idea",
+    "detail",
+    "inference",
+    "vocabulary in context"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-reading-1",
+      "kind": "mc",
+      "topic": "detail",
+      "prompt": "Läs texten: \"In Deutschland gibt es über 600.000 eingetragene Vereine – vom kleinen Schachclub im Dorf bis zum großen Sportverein mit tausenden Mitgliedern. Für viele Deutsche gehört die Mitgliedschaft in einem Verein einfach zum Leben dazu, sei es im Fußballverein, im Gesangverein oder im Kleingartenverein. Vereine werden oft als das Rückgrat des gesellschaftlichen Lebens bezeichnet, besonders in kleineren Städten und auf dem Land, wo sie manchmal die einzige Möglichkeit bieten, andere Menschen außerhalb der Familie und der Arbeit zu treffen. Die Arbeit in einem Verein ist meist ehrenamtlich: Millionen Deutsche investieren jede Woche unbezahlte Stunden in Training, Organisation oder Vereinsfeste. In den letzten Jahren klagen jedoch viele Vereine über sinkende Mitgliederzahlen, besonders bei jüngeren Menschen, die lieber spontan und ohne feste Verpflichtungen aktiv sein wollen. Manche Vereine reagieren darauf, indem sie flexiblere Mitgliedschaften anbieten oder verstärkt in sozialen Medien um neue, junge Mitglieder werben.\"\n\nUngefär hur många registrerade föreningar (Vereine) finns det i Tyskland enligt texten?",
+      "opener": "Läs de första meningarna igen och leta efter siffran.",
+      "choices": [
+        "Cirka 60 000",
+        "Cirka 600 000",
+        "Cirka 6 miljoner",
+        "Cirka 6 000"
+      ],
+      "answer": 1,
+      "explanation": "Texten anger \"über 600.000 eingetragene Vereine\" (över 600 000 registrerade föreningar)."
+    },
+    {
+      "id": "q-de3-reading-2",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Läs texten (se ovan).\n\nVad är textens huvudbudskap?",
+      "opener": "Väg samman det texten säger om föreningslivets betydelse och om det problem som nämns i slutet.",
+      "choices": [
+        "Föreningslivet spelar en viktig social roll i Tyskland men brottas med minskat medlemsantal, särskilt bland unga.",
+        "Alla tyskar är medlemmar i minst en förening.",
+        "Föreningar i Tyskland är enbart till för idrott.",
+        "Antalet föreningar i Tyskland ökar kraftigt varje år."
+      ],
+      "answer": 0,
+      "explanation": "Texten beskriver både föreningslivets betydelse (\"Rückgrat des gesellschaftlichen Lebens\") och det aktuella problemet med sjunkande medlemsantal bland yngre — det är textens kärna. De andra alternativen överdriver eller påstår sådant texten inte säger."
+    },
+    {
+      "id": "q-de3-reading-3",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "I meningen \"Vereine werden oft als das Rückgrat des gesellschaftlichen Lebens bezeichnet\" betyder \"Rückgrat\" ungefär:",
+      "opener": "Ordet används bildligt här, inte bokstavligt.",
+      "choices": [
+        "ryggrad/grundpelare",
+        "hot",
+        "hobby",
+        "undantag"
+      ],
+      "answer": 0,
+      "explanation": "\"Rückgrat\" betyder bokstavligen \"ryggrad\" och används bildligt för något som är en grundpelare eller bärande del av något — här av det sociala livet."
+    },
+    {
+      "id": "q-de3-reading-4",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Vad betyder \"ehrenamtlich\" i sammanhanget \"Die Arbeit in einem Verein ist meist ehrenamtlich\"?",
+      "opener": "Meningen efter förklarar ordet: \"unbezahlte Stunden\".",
+      "choices": [
+        "ideellt/oavlönat",
+        "olagligt",
+        "betalt mycket bra",
+        "obligatoriskt"
+      ],
+      "answer": 0,
+      "explanation": "\"Ehrenamtlich\" betyder ideellt/oavlönat arbete som görs frivilligt, vilket också bekräftas av att texten nämner \"unbezahlte Stunden\" (obetalda timmar) direkt efter."
+    },
+    {
+      "id": "q-de3-reading-5",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Vad kan man dra slutsatsen om varför vissa föreningar erbjuder mer flexibla medlemskap?",
+      "opener": "Koppla ihop det som sägs om unga människors preferenser med föreningarnas reaktion.",
+      "choices": [
+        "För att locka yngre medlemmar som ogillar fasta, långsiktiga åtaganden",
+        "För att de har för många medlemmar redan",
+        "För att myndigheterna kräver det enligt lag",
+        "För att äldre medlemmar efterfrågar det"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att yngre människor \"lieber spontan und ohne feste Verpflichtungen aktiv sein wollen\" (hellre vill vara aktiva spontant och utan fasta åtaganden), och att föreningar reagerar med flexiblare medlemskap — sammanhanget visar att detta är ett försök att möta just den gruppens preferenser."
+    },
+    {
+      "id": "q-de3-reading-6",
+      "kind": "mc",
+      "topic": "detail",
+      "prompt": "På vilka två sätt försöker vissa föreningar locka nya, unga medlemmar, enligt texten?",
+      "opener": "Sista meningen i texten nämner två konkreta strategier.",
+      "choices": [
+        "Genom flexiblare medlemskap och marknadsföring i sociala medier",
+        "Genom lägre avgifter och gratis resor",
+        "Genom att avskaffa alla regler och krav på deltagande",
+        "Genom att slå samman flera föreningar till en enda"
+      ],
+      "answer": 0,
+      "explanation": "Texten nämner explicit två strategier: \"flexiblere Mitgliedschaften\" (flexiblare medlemskap) och att man \"verstärkt in sozialen Medien um neue, junge Mitglieder werben\" (marknadsför sig mer i sociala medier)."
+    },
+    {
+      "id": "q-de3-reading-7",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Läs texten (se ovan).\n\nFörklara varför texten beskriver föreningar som särskilt viktiga \"in kleineren Städten und auf dem Land\" (i mindre städer och på landsbygden) — vad säger det om storstäder jämfört med landsbygd?",
+      "opener": "Läs meningen om varför föreningar är viktiga där, och fundera på vad det innebär om alternativen på andra platser.",
+      "answer": "På landsbygden och i mindre städer finns färre andra sätt att träffa människor utanför familj och arbete, så föreningarna fyller ett socialt tomrum som storstäder troligen fyller på andra sätt (t.ex. fler mötesplatser, caféer, kulturutbud).",
+      "steps": [
+        "Texten säger att föreningar där \"manchmal die einzige Möglichkeit bieten, andere Menschen ... zu treffen\" (ibland är den enda möjligheten att träffa andra människor).",
+        "Ordet \"manchmal\" (ibland) och \"einzige\" (enda) antyder att alternativen är få just på dessa platser.",
+        "Om texten pekar ut landsbygd och mindre städer som platser där detta gäller, antyder det motsatsvis att större städer har fler andra sociala mötesplatser (kaféer, kulturliv, fler människor generellt) där föreningen inte är lika avgörande.",
+        "Detta är en slutledning (inference) — texten säger det inte rakt ut, men sammanhanget stödjer tolkningen."
+      ]
+    },
+    {
+      "id": "q-de3-reading-8",
+      "kind": "flashcard",
+      "topic": "main idea",
+      "prompt": "Vilka strategier hjälper dig att förstå och besvara frågor om en tysk text?",
+      "opener": "Vanor som fungerar även för svårare texter på tyska.",
+      "answer": "Läs igenom texten en gång för helhetsintrycket innan du läser frågorna noga. Leta efter nyckelord som upprepas — de pekar ofta ut huvudbudskapet. Vid ord du inte förstår (som \"Rückgrat\" eller \"ehrenamtlich\"): använd sammanhanget — närliggande meningar förklarar eller exemplifierar ofta ordet. Vid slutledningsfrågor: utgå bara från vad texten faktiskt antyder, dra inte in egna förkunskaper som texten inte stödjer. Var uppmärksam på siffror, namn och tidsuttryck — de är vanliga i detaljfrågor."
+    }
+  ]
+}

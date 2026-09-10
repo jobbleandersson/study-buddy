@@ -1,0 +1,126 @@
+{
+  "id": "lib-sp3-clauses",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Relative clauses: que, quien, donde and cuyo",
+  "sourceSummary": "How to build more advanced descriptive sentences using relative pronouns: que, quien, donde and cuyo.",
+  "topics": [
+    "relative clauses",
+    "que and quien",
+    "donde and cuyo"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-clauses-1",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Choose the correct relative pronoun: \"El hombre ___ vive al lado es profesor.\"",
+      "opener": "\"Que\" is the most general relative pronoun and works for both things and people as a subject.",
+      "choices": [
+        "que",
+        "quien",
+        "donde",
+        "cuyo"
+      ],
+      "answer": 0,
+      "explanation": "\"Que\" is used as the subject in restrictive relative clauses for both people and things: \"el hombre que vive...\" (the man who lives...). \"Quien\" would have required a comma or a preposition before it in this context."
+    },
+    {
+      "id": "q-sp3-clauses-2",
+      "kind": "mc",
+      "topic": "que and quien",
+      "prompt": "Choose the correct relative pronoun: \"La mujer con ___ hablé ayer es mi tía.\"",
+      "opener": "After a preposition (con, de, a, para) referring to a person, \"quien\" is usually used, not \"que\".",
+      "choices": [
+        "que",
+        "quien",
+        "donde",
+        "cual"
+      ],
+      "answer": 1,
+      "explanation": "After preposition + a person, \"quien\" (or \"quienes\" in the plural) is used: \"con quien hablé\" (who I talked to). \"Que\" is rarely used directly after a preposition when it refers to a person."
+    },
+    {
+      "id": "q-sp3-clauses-3",
+      "kind": "mc",
+      "topic": "donde and cuyo",
+      "prompt": "Choose the correct relative pronoun: \"Esta es la casa ___ nací.\"",
+      "opener": "When it's about a place, \"donde\" can replace \"en la que\".",
+      "choices": [
+        "que",
+        "quien",
+        "donde",
+        "cuyo"
+      ],
+      "answer": 2,
+      "explanation": "\"Donde\" is used for places and corresponds to \"en la que/en el que\": \"la casa donde nací\" = \"la casa en la que nací\" (the house where I was born)."
+    },
+    {
+      "id": "q-sp3-clauses-4",
+      "kind": "mc",
+      "topic": "donde and cuyo",
+      "prompt": "Choose the correct form: \"El escritor ___ libros son famosos ganó un premio.\"",
+      "opener": "\"Cuyo\" agrees with the word that comes AFTER it (the thing owned), not with the owner.",
+      "choices": [
+        "cuyo",
+        "cuya",
+        "cuyos",
+        "cuyas"
+      ],
+      "answer": 2,
+      "explanation": "\"Cuyo\" functions as a possessive adjective and agrees in gender/number with the thing owned — here \"libros\" (masculine, plural) → \"cuyos\". The owner (\"el escritor\") doesn't affect the form."
+    },
+    {
+      "id": "q-sp3-clauses-5",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Which sentence correctly combines the two sentences: \"Tengo un amigo. Mi amigo vive en Perú.\"?",
+      "opener": "Which relative pronoun replaces \"mi amigo\" as the subject of the second clause?",
+      "choices": [
+        "Tengo un amigo que vive en Perú.",
+        "Tengo un amigo quien vive en Perú.",
+        "Tengo un amigo donde vive en Perú.",
+        "Tengo un amigo cuyo vive en Perú."
+      ],
+      "answer": 0,
+      "explanation": "\"Que\" is the default choice as the subject of a restrictive relative clause, whether it refers to people or things: \"un amigo que vive en Perú\". \"Quien\" as the subject of a restrictive clause without a comma isn't correct here."
+    },
+    {
+      "id": "q-sp3-clauses-6",
+      "kind": "mc",
+      "topic": "que and quien",
+      "prompt": "When MUST you use \"quien\" instead of \"que\"?",
+      "opener": "Think about prepositions: con, a, de, para...",
+      "choices": [
+        "Always when it refers to people",
+        "After a preposition, when it refers to a person",
+        "Always in non-restrictive clauses",
+        "Never — \"que\" works everywhere"
+      ],
+      "answer": 1,
+      "explanation": "\"Quien(es)\" is required after a preposition when it refers to a person: \"la persona a quien escribí\", \"el amigo con quien viajé\". Elsewhere, especially as a subject, \"que\" is usually the natural choice even for people."
+    },
+    {
+      "id": "q-sp3-clauses-7",
+      "kind": "worked",
+      "topic": "donde and cuyo",
+      "prompt": "Find and correct the two errors: \"El pueblo cual visité el verano pasado es precioso, y la señora cuyo casa está en la plaza me invitó a tomar café.\"",
+      "opener": "One error concerns which relative pronoun to use as an object, the other concerns the agreement of \"cuyo\".",
+      "answer": "El pueblo que visité el verano pasado es precioso, y la señora cuya casa está en la plaza me invitó a tomar café.",
+      "steps": [
+        "\"cual\" without an article (el/la cual) doesn't work as a standalone relative pronoun here — as the object of a restrictive clause, \"que\" is used: \"el pueblo que visité\".",
+        "\"cuyo casa\" is wrong because \"cuyo\" must agree with the word it precedes — \"casa\" is feminine, so it should be \"cuya casa\".",
+        "The full corrected sentence: \"El pueblo que visité el verano pasado es precioso, y la señora cuya casa está en la plaza me invitó a tomar café.\""
+      ]
+    },
+    {
+      "id": "q-sp3-clauses-8",
+      "kind": "flashcard",
+      "topic": "relative clauses",
+      "prompt": "How are que, quien, donde and cuyo used?",
+      "opener": "Four relative pronouns, four different jobs.",
+      "answer": "que = the general relative pronoun, works for people and things, both as subject and object (el libro que leí, el hombre que vive aquí). quien/quienes = people only, required after a preposition (con quien, a quien) and common after a comma. donde = place, corresponds to en la que/en el que (la ciudad donde vivo). cuyo/cuya/cuyos/cuyas = possessive \"whose\", agrees with the thing owned, not with the owner (el autor cuyos libros...). Remember: cuyo is NOT the same as the question word ¿cuál?."
+    }
+  ]
+}

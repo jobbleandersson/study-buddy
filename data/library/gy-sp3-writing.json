@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp3-writing",
+  "type": "assignment",
+  "subject": "Spanska 3",
+  "title": "Skrivträning: beskrivande och jämförande spanska",
+  "sourceSummary": "Träna rätt ordval och satsbyggnad i skriven spanska — beskrivande och jämförande texter som bygger på grammatiken från de tidigare stegen.",
+  "topics": [
+    "sentence correction",
+    "descriptive writing",
+    "comparatives"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp3-writing-1",
+      "kind": "mc",
+      "topic": "comparatives",
+      "prompt": "Välj rätt par: \"Mi hermano es ___ alto ___ yo.\"",
+      "opener": "Jämförelser av ojämlikhet på spanska: más + adjektiv + que.",
+      "choices": [
+        "más / que",
+        "más / como",
+        "tan / que",
+        "menos / de"
+      ],
+      "answer": 0,
+      "explanation": "Jämförelser av ojämlikhet byggs med \"más + adjektiv + que\": \"más alto que\" (längre än). \"Tan...como\" hade istället uttryckt jämlikhet (lika lång som)."
+    },
+    {
+      "id": "q-sp3-writing-2",
+      "kind": "mc",
+      "topic": "comparatives",
+      "prompt": "Välj rätt ord: \"Este es el libro ___ interesante de todos.\"",
+      "opener": "Superlativ på spanska: bestämd artikel + substantiv + más/menos + adjektiv + de.",
+      "choices": [
+        "más",
+        "tan",
+        "menos",
+        "que"
+      ],
+      "answer": 0,
+      "explanation": "Superlativ bildas med bestämd artikel (redan given: \"el libro\") + más/menos + adjektiv + de: \"el libro más interesante de todos\" (den mest intressanta boken av alla)."
+    },
+    {
+      "id": "q-sp3-writing-3",
+      "kind": "mc",
+      "topic": "descriptive writing",
+      "prompt": "Välj rätt form: \"La ciudad donde yo ___ (vivir) cuando era niño era muy tranquila.\"",
+      "opener": "\"Era niño\" är omgivet av bakgrundsbeskrivning i imperfecto — vilket tempus bör då \"vivir\" stå i?",
+      "choices": [
+        "viví",
+        "vivía",
+        "vivo",
+        "he vivido"
+      ],
+      "answer": 1,
+      "explanation": "Hela meningen beskriver ett förhållande som pågick under barndomen, en bakgrund snarare än en enskild händelse — därför imperfecto: \"vivía\" (jag bodde), i linje med \"era niño\"."
+    },
+    {
+      "id": "q-sp3-writing-4",
+      "kind": "mc",
+      "topic": "sentence correction",
+      "prompt": "Vilket verb passar: \"Mi abuela ___ una persona muy generosa.\"",
+      "opener": "En permanent egenskap hos en person uttrycks med ser, inte estar.",
+      "choices": [
+        "es",
+        "está",
+        "son",
+        "están"
+      ],
+      "answer": 0,
+      "explanation": "Att vara en generös PERSON är en (relativt) bestående egenskap, inte ett tillfälligt tillstånd — därför \"ser\": \"es\". \"Estar\" används för tillfälliga tillstånd och platser, t.ex. \"está cansada\" (hon är trött just nu)."
+    },
+    {
+      "id": "q-sp3-writing-5",
+      "kind": "mc",
+      "topic": "descriptive writing",
+      "prompt": "Vilket ord används för att KONTRASTERA två idéer i en jämförande text?",
+      "opener": "En fras som ungefär betyder \"medan, till skillnad från\".",
+      "choices": [
+        "mientras que",
+        "porque",
+        "también",
+        "además"
+      ],
+      "answer": 0,
+      "explanation": "\"Mientras que\" betyder \"medan/till skillnad från\" och används för att ställa två kontrasterande idéer mot varandra i en jämförande text: \"Madrid es muy grande, mientras que mi pueblo es pequeño.\" \"Porque\" motiverar, \"también\" och \"además\" lägger till."
+    },
+    {
+      "id": "q-sp3-writing-6",
+      "kind": "mc",
+      "topic": "sentence correction",
+      "prompt": "Vilken mening är korrekt?",
+      "opener": "Kolla kongruens i både numerus och genus mellan substantiv och adjektiv.",
+      "choices": [
+        "Tengo dos bicicleta nuevas.",
+        "Tengo dos bicicletas nueva.",
+        "Tengo dos bicicletas nuevas.",
+        "Tengo dos bicicleta nueva."
+      ],
+      "answer": 2,
+      "explanation": "Substantiv och adjektiv måste kongruera i både genus och numerus: \"bicicletas\" (femininum, plural) kräver \"nuevas\" (femininum, plural). \"Tengo dos bicicletas nuevas\" är den enda meningen där allt stämmer överens."
+    },
+    {
+      "id": "q-sp3-writing-7",
+      "kind": "worked",
+      "topic": "sentence correction",
+      "prompt": "Rätta de tre felen: \"Mi ciudad es más grande que mi pueblo, pero mi pueblo, cuyo la gente es muy amable, tiene más tranquilo. Cuando yo era niño, jugué allí todos los días.\"",
+      "opener": "Ett fel gäller cuyo-kongruens, ett gäller ser/estar/tener, och ett gäller pretérito/imperfecto.",
+      "answer": "Mi ciudad es más grande que mi pueblo, pero mi pueblo, cuya gente es muy amable, es más tranquilo. Cuando yo era niño, jugaba allí todos los días.",
+      "steps": [
+        "\"cuyo la gente\" → \"cuya gente\": cuyo böjs efter ordet det står framför, och \"gente\" är femininum singular, alltså \"cuya\".",
+        "\"tiene más tranquilo\" → \"es más tranquilo\": en egenskap (lugn) hos en plats beskrivs med \"ser\", inte \"tener\", i en jämförelse av det här slaget.",
+        "\"jugué allí todos los días\" → \"jugaba allí todos los días\": \"todos los días\" (varje dag) signalerar en vana i det förflutna, vilket kräver imperfecto, inte pretérito.",
+        "Hela meningen rättad: \"Mi ciudad es más grande que mi pueblo, pero mi pueblo, cuya gente es muy amable, es más tranquilo. Cuando yo era niño, jugaba allí todos los días.\""
+      ]
+    },
+    {
+      "id": "q-sp3-writing-8",
+      "kind": "flashcard",
+      "topic": "comparatives",
+      "prompt": "Hur bygger man jämförelser och beskrivande, kontrasterande meningar på spanska?",
+      "opener": "Strukturer för jämförelse plus några viktiga kopplingsord.",
+      "answer": "Jämförelser: más/menos + adjektiv + que (ojämlikhet: más alto que), tan + adjektiv + como (jämlikhet: tan alto como), bestämd artikel + más/menos + adjektiv + de (superlativ: el más alto de la clase). Beskrivande kopplingsord: mientras que (medan/till skillnad från, kontrast), sin embargo (dock), además (dessutom), ya que/porque (eftersom, motivering). Kom ihåg: adjektiv ska alltid kongruera i genus och numerus med substantivet de beskriver, och ser/estar väljs utifrån om egenskapen är bestående (ser) eller tillfällig/en plats (estar)."
+    }
+  ]
+}

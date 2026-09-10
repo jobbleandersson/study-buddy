@@ -1,0 +1,127 @@
+{
+  "id": "lib-sp4-mood",
+  "type": "assignment",
+  "subject": "Spanska 4",
+  "title": "Konjunktiv vid tvivel och känslor",
+  "sourceSummary": "Subjuntivo efter uttryck för tvivel, känsla, önskan och värdering — mer varierade utlösare än vad en introduktion på steg 3 täcker.",
+  "topics": [
+    "subjunctive mood",
+    "doubt and emotion",
+    "impersonal expressions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp4-mood-1",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Välj rätt form: \"Dudo que ella ___ la verdad.\" (decir = att säga)",
+      "opener": "\"Dudar que\" uttrycker tvivel — vilket sätt kräver det?",
+      "choices": [
+        "dice",
+        "diga",
+        "dijo",
+        "decía"
+      ],
+      "answer": 1,
+      "explanation": "\"Dudar que\" följs av subjuntivo eftersom talaren tvivlar på sanningshalten. \"Diga\" är presens subjuntivo av \"decir\". \"Dice\" (indikativ) skulle innebära att talaren tar informationen för given."
+    },
+    {
+      "id": "q-sp4-mood-2",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Välj rätt form: \"Me alegro de que ___ (vosotros) aquí.\" (estar)",
+      "opener": "Känslouttryck som \"alegrarse de que\" styr alltid subjuntivo.",
+      "choices": [
+        "estáis",
+        "estéis",
+        "estuvisteis",
+        "estaréis"
+      ],
+      "answer": 1,
+      "explanation": "\"Alegrarse de que\" uttrycker en känsla (glädje) och kräver subjuntivo: \"estéis\". Indikativformerna (estáis, estuvisteis, estaréis) är alla fel här eftersom huvudsatsen inte bara konstaterar ett faktum utan värderar det känslomässigt."
+    },
+    {
+      "id": "q-sp4-mood-3",
+      "kind": "mc",
+      "topic": "impersonal expressions",
+      "prompt": "Välj rätt form: \"Es una lástima que no ___ (nosotros) más tiempo.\" (tener)",
+      "opener": "Opersonliga uttryck med värdering (\"es una lástima que\", \"es importante que\") tar subjuntivo.",
+      "choices": [
+        "tenemos",
+        "tengamos",
+        "tuvimos",
+        "tendremos"
+      ],
+      "answer": 1,
+      "explanation": "\"Es una lástima que\" värderar situationen (synd att...) och kräver subjuntivo: \"tengamos\". Jämför med \"es verdad que\", som tar indikativ eftersom det bara konstaterar ett faktum."
+    },
+    {
+      "id": "q-sp4-mood-4",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Vilken mening är korrekt?",
+      "opener": "\"Creer que\" i nekande form uttrycker tvivel — då krävs subjuntivo. I jakande form är det indikativ.",
+      "choices": [
+        "No creo que él tenga razón.",
+        "No creo que él tiene razón.",
+        "Creo que él tenga razón.",
+        "Creo que él tuviera razón."
+      ],
+      "answer": 0,
+      "explanation": "\"No creer que\" (att inte tro) uttrycker tvivel/osäkerhet och tar subjuntivo: \"tenga\". Men \"creer que\" i jakande form (\"jag tror att...\") uttrycker snarare säkerhet och tar indikativ: \"Creo que él tiene razón.\""
+    },
+    {
+      "id": "q-sp4-mood-5",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Välj rätt form: \"Es posible que ya ___ (haber) llegado el tren.\"",
+      "opener": "\"Es posible que\" + perfekt subjuntivo (haya + perfektparticip) uttrycker en möjlig, redan avslutad händelse.",
+      "choices": [
+        "ha",
+        "haya",
+        "había",
+        "habrá"
+      ],
+      "answer": 1,
+      "explanation": "\"Es posible que\" styr subjuntivo, och för en handling som (kanske) redan är avslutad används perfekt subjuntivo: \"haya llegado\" (må ha kommit). \"Haya\" är presens subjuntivo av \"haber\"."
+    },
+    {
+      "id": "q-sp4-mood-6",
+      "kind": "mc",
+      "topic": "impersonal expressions",
+      "prompt": "Vilken mening är korrekt när subjektet byts mellan satserna?",
+      "opener": "Subjuntivo krävs bara när bisatsens subjekt skiljer sig från huvudsatsens. Är subjekten desamma används infinitiv istället.",
+      "choices": [
+        "Quiero que tú vengas a la fiesta.",
+        "Quiero que yo venga a la fiesta.",
+        "Quiero venir a la fiesta yo mismo que vengas.",
+        "Quiero que tú vienes a la fiesta."
+      ],
+      "answer": 0,
+      "explanation": "Eftersom subjektet byts (jag vill, DU kommer) krävs subjuntivo i bisatsen: \"que tú vengas\". Om subjektet hade varit detsamma (jag vill komma själv) hade man använt infinitiv: \"Quiero venir\", utan \"que\"."
+    },
+    {
+      "id": "q-sp4-mood-7",
+      "kind": "worked",
+      "topic": "subjunctive mood",
+      "prompt": "Rätta felen och förklara varför: \"Espero que tú tienes razón, pero temo que no es verdad.\"",
+      "opener": "Båda bisatserna styrs av verb som uttrycker önskan/känsla — vilket sätt krävs?",
+      "answer": "Espero que tú tengas razón, pero temo que no sea verdad.",
+      "steps": [
+        "\"Esperar que\" uttrycker en förhoppning/önskan och kräver subjuntivo: \"tengas\", inte indikativens \"tienes\".",
+        "\"Temer que\" uttrycker rädsla/oro, en känsla, och kräver också subjuntivo: \"sea\", inte \"es\".",
+        "Notera att båda satserna handlar om osäkra, önskade eller fruktade utfall — inte konstaterade fakta — vilket är precis vad som utlöser subjuntivo.",
+        "Hela meningen: \"Espero que tú tengas razón, pero temo que no sea verdad.\""
+      ]
+    },
+    {
+      "id": "q-sp4-mood-8",
+      "kind": "flashcard",
+      "topic": "doubt and emotion",
+      "prompt": "Vilka typer av uttryck utlöser subjuntivo vid tvivel och känsla?",
+      "opener": "Tre stora kategorier av utlösare, plus ett undantag att komma ihåg.",
+      "answer": "Tvivel: dudar que, no creer que, no estar seguro de que, es posible/probable que. Känsla: alegrarse de que, sentir que, temer que, sorprender que, es una lástima que. Önskan/vilja: querer que, esperar que, desear que, es importante/necesario que. Undantag: när huvud- och bisatsens subjekt är samma person används infinitiv istället för \"que\" + subjuntivo (Quiero venir, inte Quiero que yo venga). Kom ihåg: säkra fakta (creo que, es verdad que, sé que) tar indikativ, osäkra/värderade/önskade tar subjuntivo."
+    }
+  ]
+}

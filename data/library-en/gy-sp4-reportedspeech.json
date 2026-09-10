@@ -1,0 +1,128 @@
+{
+  "id": "lib-sp4-reportedspeech",
+  "type": "assignment",
+  "subject": "Spanska 4",
+  "title": "Reported speech (estilo indirecto)",
+  "sourceSummary": "Converting direct quotes into reported speech, and the tense shifts and perspective changes that requires.",
+  "topics": [
+    "reported speech",
+    "tense shifts",
+    "reporting verbs"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-sp4-reportedspeech-1",
+      "kind": "mc",
+      "topic": "reported speech",
+      "prompt": "Convert to reported speech: María dijo: \"Estoy cansada.\" → María dijo que ___.",
+      "opener": "When the reporting verb is in the past (dijo), the present shifts one step back: to the imperfect.",
+      "choices": [
+        "está cansada",
+        "estaba cansada",
+        "estuvo cansada",
+        "esté cansada"
+      ],
+      "answer": 1,
+      "explanation": "Since \"dijo\" (said) is in the past, the present (\"estoy\") shifts one step back to the imperfect: \"estaba cansada\". This is the basic pattern of estilo indirecto."
+    },
+    {
+      "id": "q-sp4-reportedspeech-2",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Convert to reported speech: Carlos dijo: \"Llegué tarde.\" → Carlos dijo que ___.",
+      "opener": "The preterite shifts back to the pluperfect in reported speech.",
+      "choices": [
+        "llegaba tarde",
+        "llegó tarde",
+        "había llegado tarde",
+        "llegara tarde"
+      ],
+      "answer": 2,
+      "explanation": "The preterite (\"llegué\") shifts one step back to the pluperfect: \"había llegado tarde\". The pattern: present→imperfect, preterite→pluperfect."
+    },
+    {
+      "id": "q-sp4-reportedspeech-3",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Convert to reported speech: Ana dijo: \"Iré a la fiesta.\" → Ana dijo que ___.",
+      "opener": "The future shifts back to the conditional in reported speech.",
+      "choices": [
+        "iba a la fiesta",
+        "irá a la fiesta",
+        "fue a la fiesta",
+        "iría a la fiesta"
+      ],
+      "answer": 3,
+      "explanation": "The future (\"iré\") shifts back to the conditional: \"iría a la fiesta\". This pattern applies to all future forms when the reporting verb is in the past."
+    },
+    {
+      "id": "q-sp4-reportedspeech-4",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "Convert to reported speech: El profesor dijo: \"Estudiad más.\" → El profesor nos dijo que ___.",
+      "opener": "An imperative in direct speech becomes the subjunctive in reported speech (often the imperfect subjunctive after dijo).",
+      "choices": [
+        "estudiamos más",
+        "estudiáramos más",
+        "estudiaríamos más",
+        "estudiemos más"
+      ],
+      "answer": 1,
+      "explanation": "An imperative (\"estudiad\") in direct speech becomes the imperfect subjunctive in reported speech after a past-tense verb: \"que estudiáramos más\". Note also that the form changes (estudiad → estudiáramos), since the perspective is now \"we\" who were told, not the original direct address."
+    },
+    {
+      "id": "q-sp4-reportedspeech-5",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Convert to reported speech: Pedro dijo: \"Vendré aquí mañana.\" → Pedro dijo que ___.",
+      "opener": "Both the tense AND time/place expressions change in reported speech: \"mañana\" → \"al día siguiente\", \"aquí\" → \"allí\".",
+      "choices": [
+        "vendría aquí mañana",
+        "vendría allí al día siguiente",
+        "vino aquí mañana",
+        "viene allí al día siguiente"
+      ],
+      "answer": 1,
+      "explanation": "Future (vendré) → conditional (vendría). In addition, deictic expressions shift: \"aquí\" (here, from the original speaker's perspective) → \"allí\" (there), and \"mañana\" (tomorrow) → \"al día siguiente\" (the next day), since the perspective is now the narrator's, not the original speaker's."
+    },
+    {
+      "id": "q-sp4-reportedspeech-6",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "Convert to reported speech: Laura preguntó: \"¿Vienes a la fiesta?\" → Laura preguntó que ___.",
+      "opener": "Yes/no questions in reported speech are introduced with \"si\" (whether), and the word order becomes that of a statement, not a question.",
+      "choices": [
+        "si venía a la fiesta",
+        "que vienes a la fiesta",
+        "si vienes a la fiesta",
+        "cuándo venía a la fiesta"
+      ],
+      "answer": 0,
+      "explanation": "A yes/no question in reported speech is introduced with the conjunction \"si\" (whether), not \"que\", and the verb shifts back in tense as usual: \"preguntó si venía a la fiesta\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-7",
+      "kind": "worked",
+      "topic": "tense shifts",
+      "prompt": "Convert to reported speech: Marta dijo: \"Estoy muy ocupada hoy, pero mañana tendré tiempo libre y podré ayudarte.\" → Marta dijo que...",
+      "opener": "Three verbs need to shift back in tense, and the time expression \"mañana\" needs to change.",
+      "answer": "Marta dijo que estaba muy ocupada aquel día, pero que al día siguiente tendría tiempo libre y podría ayudarle.",
+      "steps": [
+        "\"Estoy\" (present) → \"estaba\" (imperfect), because the reporting verb \"dijo\" is in the past.",
+        "\"Hoy\" (today) changes to \"aquel día\" (that day), since we're now narrating it afterwards.",
+        "\"Tendré\" and \"podré\" (future) → \"tendría\" and \"podría\" (conditional).",
+        "\"Mañana\" (tomorrow) changes to \"al día siguiente\" (the next day).",
+        "\"Ayudarte\" (you) changes to \"ayudarle\" (him/her), since the perspective is now third person, not direct address."
+      ]
+    },
+    {
+      "id": "q-sp4-reportedspeech-8",
+      "kind": "flashcard",
+      "topic": "reported speech",
+      "prompt": "What tense shifts and other changes happen in estilo indirecto?",
+      "opener": "A pattern to memorize so you can move smoothly between direct and reported speech.",
+      "answer": "Tense shifts (when the reporting verb is in the past, e.g. dijo que): presente→imperfecto (estoy→estaba), pretérito→pluscuamperfecto (llegué→había llegado), futuro→condicional (iré→iría), imperativo→imperfecto de subjuntivo (estudiad→estudiáramos). Time/place expressions: hoy→aquel día, mañana→al día siguiente, ayer→el día anterior, aquí→allí, este→aquel. Questions: yes/no questions get \"si\" (preguntó si venía), wh-questions keep the question word (preguntó cuándo venía) — with no question mark and no inverted word order. Pronouns always adjust to the new perspective."
+    }
+  ]
+}

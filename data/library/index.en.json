@@ -3,18 +3,9 @@
     "ak7": "Grade 7",
     "ak8": "Grade 8",
     "ak9": "Grade 9",
-    "gymnasiet": "Upper secondary school",
-    "hogskoleprov": "Högskoleprovet (SweSAT)"
+    "gymnasiet": "Upper secondary school"
   },
   "subjects": {
-    "hp-ord": { "name": "ORD – Word comprehension", "description": "Pick the word closest in meaning. Five options, 10 tasks per section." },
-    "hp-las": { "name": "LÄS – Swedish reading", "description": "Swedish texts with questions on main idea, detail and inference. Four options. Text stays in Swedish." },
-    "hp-mek": { "name": "MEK – Sentence completion", "description": "A sentence with gaps — pick the option whose words fill every gap. Four options. In Swedish." },
-    "hp-elf": { "name": "ELF – English reading", "description": "English texts with comprehension questions. Four options." },
-    "hp-xyz": { "name": "XYZ – Mathematical problem solving", "description": "Maths problems with five options, 12 per section. In Swedish." },
-    "hp-kva": { "name": "KVA – Quantitative comparisons", "description": "Compare two quantities I and II. Four fixed options, 12 per section. In Swedish." },
-    "hp-nog": { "name": "NOG – Quantitative reasoning", "description": "Is the information in statements (1) and (2) sufficient? Five fixed options. In Swedish." },
-    "hp-dtk": { "name": "DTK – Diagrams, tables and maps", "description": "Interpret a diagram, table or map. Five options, 10 per section. In Swedish." },
     "ak9-matematik": {
       "name": "Mathematics",
       "description": "Core content for grade 9 — the material that tends to come up on tests and the national test."
@@ -222,18 +213,33 @@
     "ak9-franska": {
       "name": "French",
       "description": "French for grade 9: travel and weather, the passé composé, questions and negation, and comparisons and daily life."
+    },
+    "gy-spanska-3": {
+      "name": "Spanish 3",
+      "description": "Spanish 3 for upper secondary school: preterite and imperfect in depth, relative clauses, a first introduction to the subjunctive, plus reading comprehension and writing."
+    },
+    "gy-spanska-4": {
+      "name": "Spanish 4",
+      "description": "Spanish 4 for upper secondary school: the subjunctive, conditional and reported speech, idiomatic expressions, plus advanced reading comprehension and social topics."
+    },
+    "gy-tyska-3": {
+      "name": "German 3",
+      "description": "German 3 for upper secondary school: perfect versus simple past, relative clauses, an introduction to Konjunktiv II, plus reading comprehension and writing."
+    },
+    "gy-tyska-4": {
+      "name": "German 4",
+      "description": "German 4 for upper secondary school: Konjunktiv II, conditional clauses and reported speech, idiomatic expressions, plus advanced reading comprehension and social topics."
+    },
+    "gy-franska-3": {
+      "name": "French 3",
+      "description": "French 3 for upper secondary school: passé composé versus imparfait, relative pronouns, an introduction to the subjunctive, plus reading comprehension and writing."
+    },
+    "gy-franska-4": {
+      "name": "French 4",
+      "description": "French 4 for upper secondary school: the subjunctive, conditional and reported speech, idiomatic expressions, plus advanced reading comprehension and social topics."
     }
   },
   "sets": {
-    "lib-hp-2026v-ord": { "title": "ORD – practice set 1", "summary": "10 word-comprehension tasks in the test format. Original practice items, not a released test." },
-    "lib-hp-2026v-las": { "title": "LÄS – practice set 1", "summary": "Two Swedish texts with 8 questions, in the delprov format. Original practice items." },
-    "lib-hp-2026v-mek": { "title": "MEK – practice set 1", "summary": "10 sentence completions in the test format. Original practice items." },
-    "lib-hp-2026v-elf": { "title": "ELF – practice set 1", "summary": "Two English texts with 8 questions, in the delprov format. Original practice items." },
-    "lib-hp-2026v-xyz": { "title": "XYZ – practice set 1", "summary": "12 mathematical problems in the test format. Original practice items." },
-    "lib-hp-2026v-kva": { "title": "KVA – practice set 1", "summary": "12 quantitative comparisons in the test format. Original practice items." },
-    "lib-hp-2026v-nog": { "title": "NOG – practice set 1", "summary": "10 quantitative-reasoning tasks in the test format. Original practice items." },
-    "lib-hp-2026v-dtk": { "title": "DTK – practice set 1", "summary": "10 diagram, table and map tasks in the test format, with redrawn figures. Original practice items." },
-    "lib-hp-ord-bank-01": { "title": "Word bank 1 – common test words", "summary": "40 words to review with synonym practice and spaced repetition." },
     "lib-ma9-tal": {
       "title": "Numbers and calculation",
       "summary": "Negative numbers, powers, and order of operations."
@@ -1329,6 +1335,150 @@
     "lib-sp9-reading": {
       "title": "Reading comprehension: a longer text",
       "summary": "A connected text about a trip, with questions that require linking together several parts of the text."
+    },
+    "lib-sp3-aspect": {
+      "title": "Past aspect: preterite and imperfect in narratives",
+      "summary": "A deeper look at the difference between the preterite and the imperfect — completed events versus background and habit — in connected narratives."
+    },
+    "lib-sp3-clauses": {
+      "title": "Relative clauses: que, quien, donde and cuyo",
+      "summary": "How to build more advanced descriptive sentences using relative pronouns: que, quien, donde and cuyo."
+    },
+    "lib-sp3-mood": {
+      "title": "Introduction to the subjunctive: wishes, necessity and requests",
+      "summary": "The present subjunctive after expressions of wish, necessity and request: quiero que, es importante que, espero que."
+    },
+    "lib-sp3-opinions": {
+      "title": "Expressing opinions: argumentation in Spanish",
+      "summary": "Words and phrases for giving, agreeing with, and justifying an opinion: creo que, en mi opinión, estoy de acuerdo/en desacuerdo."
+    },
+    "lib-sp3-reading": {
+      "title": "Reading comprehension: culture and society",
+      "summary": "A longer text on a culture and society theme in Spanish, with reading comprehension questions on main idea, details, inference, and vocabulary in context."
+    },
+    "lib-sp3-writing": {
+      "title": "Writing practice: descriptive and comparative Spanish",
+      "summary": "Practise correct word choice and sentence structure in written Spanish — descriptive and comparative texts built on the grammar from the earlier topics."
+    },
+    "lib-sp4-mood": {
+      "title": "Subjunctive for doubt and emotion",
+      "summary": "Subjunctive after expressions of doubt, emotion, wish and evaluation — a wider range of triggers than a step-3 introduction covers."
+    },
+    "lib-sp4-conditional": {
+      "title": "Conditional tense and si-clauses",
+      "summary": "The conditional tense and hypothetical si-clauses with the imperfect subjunctive, as in \"si tuviera tiempo, iría...\"."
+    },
+    "lib-sp4-reportedspeech": {
+      "title": "Reported speech (estilo indirecto)",
+      "summary": "Converting direct quotes into reported speech, and the tense shifts and perspective changes that requires."
+    },
+    "lib-sp4-idioms": {
+      "title": "Idiomatic expressions and false friends",
+      "summary": "Common Spanish idioms, plus classic false friends between Swedish and Spanish, such as \"embarazada\" and \"actualmente\"."
+    },
+    "lib-sp4-reading": {
+      "title": "Reading comprehension: an opinion piece",
+      "summary": "A longer, opinion-driven text about screen time and attention, with questions on main idea, tone, inference and vocabulary."
+    },
+    "lib-sp4-culture": {
+      "title": "Environment and sustainability",
+      "summary": "Vocabulary and reasoning around environmental issues and sustainability, a common discussion theme in upper-secondary modern languages."
+    },
+    "lib-de3-aspect": {
+      "title": "Perfekt vs. Präteritum: spoken and written register",
+      "summary": "The difference between the perfect and simple past tenses — when to use which in speech versus writing — plus the exceptions haben, sein, and the modal verbs."
+    },
+    "lib-de3-clauses": {
+      "title": "Relative clauses and advanced subordinate-clause word order",
+      "summary": "Relative clauses with der/die/das in every case, plus a deeper look at subordinate-clause word order with weil, dass, obwohl, and modal verbs."
+    },
+    "lib-de3-mood": {
+      "title": "Konjunktiv II: politeness and hypotheticals",
+      "summary": "The basics of Konjunktiv II — polite wishes and requests, plus simple hypothetical sentences with \"hätte gern\" and \"würde + infinitive\"."
+    },
+    "lib-de3-opinions": {
+      "title": "Expressing and justifying opinions",
+      "summary": "Phrases for introducing an opinion, agreeing or disagreeing, and correctly justifying your opinion with denn versus weil."
+    },
+    "lib-de3-reading": {
+      "title": "Reading comprehension: club culture in Germany",
+      "summary": "A longer text about German club culture (Vereine) and its role in society, with questions on main idea, detail, inference, and vocabulary in context."
+    },
+    "lib-de3-writing": {
+      "title": "Written German: comparisons and coherent sentence structure",
+      "summary": "Writing more maturely in German — comparisons with als/wie, relative clauses that link sentences together, correct register, and Konjunktiv II in argumentative writing."
+    },
+    "lib-de4-mood": {
+      "title": "Konjunktiv II: wishes and hypotheticals",
+      "summary": "A deeper look at Konjunktiv II for expressing wishes, polite requests, and hypothetical situations in the present and past, including the würde construction and irregular forms."
+    },
+    "lib-de4-conditional": {
+      "title": "Conditional clauses: real and unreal conditions",
+      "summary": "A systematic look at wenn-clauses in three types — real conditions, unreal present conditions, and unreal past conditions — plus the word order used when wenn is omitted."
+    },
+    "lib-de4-reportedspeech": {
+      "title": "Indirekte Rede: reporting what someone said",
+      "summary": "How direct quotes are turned into reported speech in German — using Konjunktiv I (and Konjunktiv II as a substitute), along with the shifts in pronouns, tense, and time expressions this requires."
+    },
+    "lib-de4-idioms": {
+      "title": "Redewendungen and false friends",
+      "summary": "Common German idiomatic expressions and the classic Swedish-German false friends — words that look Swedish but mean something completely different."
+    },
+    "lib-de4-reading": {
+      "title": "Reading comprehension: an opinion text on the four-day work week",
+      "summary": "A longer, argumentative German text about the debate over the shortened work week, with questions that require following the argument and drawing conclusions."
+    },
+    "lib-de4-culture": {
+      "title": "Umwelt: vocabulary and the climate debate",
+      "summary": "Vocabulary on climate and the environment along with a short text on Germany's climate target, for taking part in a social debate in German."
+    },
+    "lib-fr3-aspect": {
+      "title": "Passé composé and imparfait: a closer look",
+      "summary": "A deeper look at the distinction between passé composé and imparfait in longer narrative contexts — background, habits, and completed events."
+    },
+    "lib-fr3-clauses": {
+      "title": "Relative pronouns: qui, que, où and dont",
+      "summary": "Building more advanced, complex sentences with the relative pronouns qui, que, où and dont."
+    },
+    "lib-fr3-mood": {
+      "title": "Subjunctive mood: an introduction to the subjonctif",
+      "summary": "A first introduction to the present subjunctive (subjonctif) after expressions like il faut que, je veux que and je souhaite que."
+    },
+    "lib-fr3-opinions": {
+      "title": "Expressing and justifying an opinion",
+      "summary": "Vocabulary and phrases for giving your opinion, agreeing or disagreeing, and justifying what you think."
+    },
+    "lib-fr3-reading": {
+      "title": "Reading comprehension: French in the world",
+      "summary": "A longer text about the role of French in the world, with questions on main ideas, details, vocabulary in context, and inference."
+    },
+    "lib-fr3-writing": {
+      "title": "Writing practice: word choice and sentence structure",
+      "summary": "Choosing the right words and structure in written French — relative pronouns, tense, subjunctive, and comparisons in descriptive texts."
+    },
+    "lib-fr4-mood": {
+      "title": "Subjunctive: doubt and emotion",
+      "summary": "A deeper look at the subjunctive after expressions of doubt, emotion, will, and necessity — including the key exceptions where the indicative is used even though you might expect otherwise."
+    },
+    "lib-fr4-conditional": {
+      "title": "The conditional and si-clauses",
+      "summary": "The conditionnel présent and passé, plus the three types of si-clauses for real, hypothetical, and counterfactual conditions."
+    },
+    "lib-fr4-reportedspeech": {
+      "title": "Discours indirect: reported speech",
+      "summary": "How to turn direct quotes into reported speech in French, including the tense shifts and changes to time and place expressions that come with it."
+    },
+    "lib-fr4-idioms": {
+      "title": "Idiomatic expressions and false friends",
+      "summary": "Common French idioms that can't be translated word for word, plus classic false friends between French and Swedish that easily cause misunderstandings."
+    },
+    "lib-fr4-reading": {
+      "title": "Reading comprehension: an opinion piece",
+      "summary": "A longer, opinion-driven text about social media's impact on young people, with questions that train main idea, inference, vocabulary in context, and argument analysis at a more advanced level."
+    },
+    "lib-fr4-culture": {
+      "title": "Society topic: l'environnement",
+      "summary": "Vocabulary and comprehension exercises around the environmental debate in France and Francophone countries — climate policy, everyday environmental choices, and how to discuss the topic with nuanced language."
     }
   }
 }

@@ -1,0 +1,127 @@
+{
+  "id": "lib-fr4-idioms",
+  "type": "assignment",
+  "subject": "Franska 4",
+  "title": "Idiomatic expressions and false friends",
+  "sourceSummary": "Common French idioms that can't be translated word for word, plus classic false friends between French and Swedish that easily cause misunderstandings.",
+  "topics": [
+    "idioms",
+    "false friends",
+    "colloquial expressions"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-fr4-idiom-1",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does the expression \"poser un lapin à quelqu'un\" mean?",
+      "opener": "Literally \"to put a rabbit on someone\" — but it's not about animals.",
+      "choices": [
+        "To cheat someone out of money",
+        "To stand someone up for an arranged meeting",
+        "To give someone a last-minute gift",
+        "To gossip about someone"
+      ],
+      "answer": 1,
+      "explanation": "\"Poser un lapin à quelqu'un\" means to stand someone up, i.e. not show up to an arranged meeting without warning: \"Il m'a posé un lapin hier soir\" (he stood me up last night)."
+    },
+    {
+      "id": "q-fr4-idiom-2",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does the French word \"actuellement\" mean?",
+      "opener": "A classic trap — the word looks like the Swedish \"aktuellt\", but it means something else.",
+      "choices": [
+        "Topical, currently relevant",
+        "Actually, in fact",
+        "Currently, at present",
+        "Really, truly"
+      ],
+      "answer": 2,
+      "explanation": "\"Actuellement\" is a false friend — it means \"currently/at present\", not \"aktuellt\" (topical). \"Current/relevant\" in the sense of \"present-day\" is \"actuel\", but for \"what's in the news right now\" you'd rather use \"d'actualité\". \"In fact/actually\" is \"en fait\" in French."
+    },
+    {
+      "id": "q-fr4-idiom-3",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "If a French speaker says \"Je vais à la librairie\", where are they headed?",
+      "opener": "\"Librairie\" looks like the Swedish word for \"library\", but it means something else.",
+      "choices": [
+        "To the library",
+        "To the bookshop",
+        "To school",
+        "To a book club"
+      ],
+      "answer": 1,
+      "explanation": "\"Librairie\" means bookshop, not library — it's a classic false friend. \"Library\" is \"bibliothèque\" in French."
+    },
+    {
+      "id": "q-fr4-idiom-4",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does \"sensible\" mean in French?",
+      "opener": "The word looks exactly like the English \"sensible\", but French tricks you here.",
+      "choices": [
+        "Reasonable, level-headed",
+        "Practical",
+        "Fair, reasonable",
+        "Sensitive, easily moved"
+      ],
+      "answer": 3,
+      "explanation": "\"Sensible\" in French means sensitive/easily moved, not \"reasonable\" as in English. \"Reasonable\" is instead \"raisonnable\" or \"sensé\" in French — a treacherous pair for anyone who also speaks English."
+    },
+    {
+      "id": "q-fr4-idiom-5",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does \"avoir le cafard\" mean?",
+      "opener": "Literally \"to have the cockroach\" — a casual expression for a mood.",
+      "choices": [
+        "To be in a bad mood, down",
+        "To be disgusted",
+        "To be stressed about a test",
+        "To miss someone"
+      ],
+      "answer": 0,
+      "explanation": "\"Avoir le cafard\" is a casual expression meaning to feel down or blue: \"J'ai un peu le cafard aujourd'hui\" (I'm feeling a bit down today)."
+    },
+    {
+      "id": "q-fr4-idiom-6",
+      "kind": "mc",
+      "topic": "colloquial expressions",
+      "prompt": "In what context would you say \"Ça marche !\" in everyday French?",
+      "opener": "Picture someone proposing a plan and you agreeing to it.",
+      "choices": [
+        "When describing that a machine is working",
+        "As an agreeing reply to a suggestion, meaning \"okay, that works!\"",
+        "When talking about going for a walk",
+        "When asking for directions"
+      ],
+      "answer": 1,
+      "explanation": "\"Ça marche !\" is used colloquially as an agreeing reply to a suggestion, roughly \"that works!\" or \"okay, deal!\" — in addition to its literal meaning that something is working or functioning."
+    },
+    {
+      "id": "q-fr4-idiom-7",
+      "kind": "worked",
+      "topic": "false friends",
+      "prompt": "Correct the errors in this text, written by a student who mixed up false friends: \"Actuellement, je lis un roman très intéressant, mais mon frère est très sensible aux critiques quand je lui en parle.\"",
+      "opener": "Read the sentence and ask yourself whether each suspicious-looking word really means what the student thought.",
+      "answer": "The sentence is actually already correct — but explain why the words don't mean what you might assume.",
+      "steps": [
+        "\"Actuellement\" here correctly means \"currently\" — so the student has used the word correctly, even though it looks like the Swedish word for \"topical\". The sentence \"actuellement, je lis un roman\" means \"right now I'm reading a novel\", which is accurate.",
+        "\"Sensible\" is also used correctly here in the sense of \"sensitive, easily moved\": \"mon frère est très sensible aux critiques\" means \"my brother is very sensitive to criticism\" — exactly what is being described.",
+        "The point of the exercise: these two words LOOK like Swedish/English words with a different meaning, but here they are used with their correct French meaning. The trap is BELIEVING they mean the same as in Swedish/English and therefore misusing them in a different sentence.",
+        "If the student had instead wanted to say \"my brother is reasonable\", \"sensible\" would have been the wrong choice — \"raisonnable\" is needed there. And if the student had wanted to say \"it's topical/relevant right now\", \"actuellement\" wouldn't work — \"d'actualité\" is needed there."
+      ]
+    },
+    {
+      "id": "q-fr4-idiom-8",
+      "kind": "flashcard",
+      "topic": "false friends",
+      "prompt": "What are the most common French-Swedish false friends to watch out for, and what do they actually mean?",
+      "opener": "A list worth reviewing before reading comprehension and writing tasks.",
+      "answer": "actuellement = currently (NOT topical → d'actualité) · librairie = bookshop (NOT library → bibliothèque) · sensible = sensitive (NOT reasonable → raisonnable/sensé) · demander = to ask/ask for (NOT to demand → exiger) · attendre = to wait (NOT to attend → assister à) · assister à = to attend/be present at (NOT to assist → aider) · une chance = a stroke of luck/opportunity (can mean luck, not just \"chance\" in the sense of risk) · rester = to stay/remain (NOT to travel → voyager) · un préservatif = a condom (NOT a preservative → un conservateur). Idioms worth knowing: poser un lapin (to stand someone up), avoir le cafard (to feel down), Ça marche ! (that works/okay!)."
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "lib-de3-writing",
+  "type": "assignment",
+  "subject": "Tyska 3",
+  "title": "Skriftlig tyska: jämförelser och sammanhängande meningsbyggnad",
+  "sourceSummary": "Att skriva mer moget på tyska – jämförelser med als/wie, relativsatser som binder ihop meningar, rätt register och Konjunktiv II i resonerande text.",
+  "topics": [
+    "word choice",
+    "sentence structure",
+    "register"
+  ],
+  "tutorStyle": "adaptive",
+  "questions": [
+    {
+      "id": "q-de3-writing-1",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Välj rätt jämförelseord: \"Berlin ist größer ___ München.\" (Berlin är större än München)",
+      "opener": "Vid komparativ (t.ex. \"größer\") används ett visst jämförelseord för \"än\".",
+      "choices": [
+        "wie",
+        "als",
+        "so",
+        "dann"
+      ],
+      "answer": 1,
+      "explanation": "Vid komparativ (\"größer\") används \"als\" för \"än\". \"Wie\" används vid likhet med \"so...wie\" (\"so groß wie\", lika stor som), inte efter komparativform."
+    },
+    {
+      "id": "q-de3-writing-2",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Välj rätt konstruktion: \"Diese Stadt ist nicht ___ interessant ___ die Hauptstadt.\" (den här staden är inte lika intressant som huvudstaden)",
+      "opener": "Likhet uttrycks med en annan konstruktion än ojämlikhet.",
+      "choices": [
+        "so ... wie",
+        "als ... als",
+        "wie ... als",
+        "so ... als"
+      ],
+      "answer": 0,
+      "explanation": "Likhet uttrycks med \"so + adjektiv + wie\": \"so interessant wie\". \"Als\" används bara vid komparativ ojämlikhet (\"größer als\"), inte vid likhet."
+    },
+    {
+      "id": "q-de3-writing-3",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Vilken mening är den mest sammanhängande, skriftspråkliga varianten av: \"Ich besuchte die Stadt. Die Stadt ist für ihre Architektur bekannt.\"?",
+      "opener": "En relativsats kan binda ihop två korta meningar utan att upprepa substantivet.",
+      "choices": [
+        "Ich besuchte die Stadt, die für ihre Architektur bekannt ist.",
+        "Ich besuchte die Stadt. Die für ihre Architektur bekannt ist.",
+        "Ich besuchte die Stadt, das für ihre Architektur bekannt ist.",
+        "Ich besuchte die Stadt, die ist für ihre Architektur bekannt."
+      ],
+      "answer": 0,
+      "explanation": "I skriftlig, sammanhängande text binder man ofta ihop två korta meningar med en relativsats: \"..., die für ihre Architektur bekannt ist.\" Detta ger en mer mogen textstil än två korta huvudsatser efter varandra. \"Das\" vore fel genus (die Stadt är femininum)."
+    },
+    {
+      "id": "q-de3-writing-4",
+      "kind": "mc",
+      "topic": "register",
+      "prompt": "I en skriftlig reseberättelse, vilken mening passar bäst stilistiskt?",
+      "opener": "Tänk på vilken tempusform som är standard i sammanhängande skriftlig berättelse.",
+      "choices": [
+        "Wir kamen in Hamburg an und besuchten sofort den Hafen.",
+        "Wir sind in Hamburg angekommen und haben sofort den Hafen besucht.",
+        "Wir kommen in Hamburg an und besuchen sofort den Hafen.",
+        "Wir sind angekommen in Hamburg und besuchten den Hafen."
+      ],
+      "answer": 0,
+      "explanation": "I skriftliga berättande texter (som en reseberättelse) används preteritum genomgående som standard-dåtid: \"kamen\", \"besuchten\". Perfekt (alternativ 2) hade passat i talspråk, men är stilistiskt ovanligt i sammanhängande skriftlig berättelse."
+    },
+    {
+      "id": "q-de3-writing-5",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Välj den grammatiskt korrekta meningen om man byter ut \"weil\" mot \"denn\" i: \"Viele Familien ziehen aufs Land, weil sie dort mehr Platz für weniger Geld finden.\"",
+      "opener": "\"Denn\" ändrar inte ordföljden, till skillnad från \"weil\".",
+      "choices": [
+        "Viele Familien ziehen aufs Land, denn sie finden dort mehr Platz für weniger Geld.",
+        "Viele Familien ziehen aufs Land, denn sie dort mehr Platz für weniger Geld finden.",
+        "Viele Familien ziehen aufs Land, denn finden sie dort mehr Platz für weniger Geld.",
+        "Viele Familien ziehen aufs Land, denn dort sie finden mehr Platz für weniger Geld."
+      ],
+      "answer": 0,
+      "explanation": "\"Denn\" ändrar inte ordföljden — verbet (\"finden\") ska stå kvar på plats två, precis som i en vanlig huvudsats: \"denn sie finden dort ...\". Detta skiljer sig från \"weil\", som kräver verbet sist."
+    },
+    {
+      "id": "q-de3-writing-6",
+      "kind": "mc",
+      "topic": "register",
+      "prompt": "Vilken formulering är typisk för ett nyanserat, skriftligt resonemang i en uppsats?",
+      "opener": "Konjunktiv II ger ett försiktigare, mer akademiskt tonfall.",
+      "choices": [
+        "Man könnte sagen, dass die Digitalisierung sowohl Vor- als auch Nachteile hat.",
+        "Ich sage die Digitalisierung hat Vorteile und Nachteile.",
+        "Digitalisierung ist gut, Punkt.",
+        "Vielleicht Digitalisierung gut oder schlecht ist."
+      ],
+      "answer": 0,
+      "explanation": "\"Man könnte sagen, dass...\" (Konjunktiv II) ger ett försiktigt, nyanserat tonfall som passar akademiskt/argumenterande skrivande, jämfört med den direkta och grammatiskt enklare formuleringen i alternativ 2."
+    },
+    {
+      "id": "q-de3-writing-7",
+      "kind": "worked",
+      "topic": "sentence structure",
+      "prompt": "Skriv om till en mer sammanhängande, skriftspråklig mening: \"Die Stadt hat viele Parks. Die Parks sind sehr grün. Ich finde die Stadt schöner. Ich vergleiche sie mit meiner Heimatstadt.\"",
+      "opener": "Använd en relativsats för de två första meningarna, och en komparativ jämförelse med \"als\" för resten.",
+      "answer": "Die Stadt, die viele sehr grüne Parks hat, finde ich schöner als meine Heimatstadt.",
+      "steps": [
+        "De två första meningarna om parkerna slås ihop med en relativsats: \"die Stadt, die viele sehr grüne Parks hat\" — undviker upprepning av \"die Parks\".",
+        "De två sista meningarna om jämförelsen kombineras till en komparativ konstruktion: \"schöner als meine Heimatstadt\" i stället för ett separat \"ich vergleiche\"-påstående.",
+        "Resultatet binder ihop fyra korta meningar till en enda, mer mogen skriftlig mening: \"Die Stadt, die viele sehr grüne Parks hat, finde ich schöner als meine Heimatstadt.\""
+      ]
+    },
+    {
+      "id": "q-de3-writing-8",
+      "kind": "flashcard",
+      "topic": "word choice",
+      "prompt": "Vilka grammatiska val gör en tysk text mer sammanhängande och skriftspråklig?",
+      "opener": "Fyra verktyg som lyfter skriftlig tyska från grundnivå till en mer mogen stil.",
+      "answer": "Jämförelser: komparativ + als (\"größer als\", större än), likhet med so + adjektiv + wie (\"so groß wie\", lika stor som). Relativsatser binder ihop korta meningar och undviker upprepning: \"die Stadt, die ... ist\". Register: preteritum som standard-dåtid i sammanhängande skriftlig berättelse (till skillnad från perfekt i talspråk). Konjunktiv II ger ett nyanserat, försiktigt tonfall i resonerande text: \"man könnte sagen, dass...\". Konjunktioner: \"denn\" behåller normal ordföljd (verb på plats två), medan \"weil\"/\"dass\"/\"obwohl\" skickar verbet sist i bisatsen — att variera mellan dem ger en mer varierad meningsbyggnad."
+    }
+  ]
+}
