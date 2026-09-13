@@ -67,7 +67,10 @@ if (process.env.SITE_PASSWORD) {
     const [, encoded] = header.split(" ");
     const [, pass] = Buffer.from(encoded || "", "base64").toString().split(":");
     if (pass === process.env.SITE_PASSWORD) return next();
-    res.set("WWW-Authenticate", 'Basic realm="StudyBuddy — private testing"');
+    // Header VALUES must be Latin-1/ASCII — an em dash here throws
+    // ERR_INVALID_CHAR at the http layer and 500s every unauthenticated
+    // request, which is worse than the gate being slightly plainer-worded.
+    res.set("WWW-Authenticate", 'Basic realm="StudyBuddy - private testing"');
     return res.status(401).send("Authentication required.");
   });
 }

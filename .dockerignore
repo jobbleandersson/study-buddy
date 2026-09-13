@@ -1,0 +1,19 @@
+# `fly deploy` builds from this local directory, not from git — so unlike a
+# GitHub-connected host, anything sitting in your working copy that isn't
+# excluded here gets uploaded as build context. The two lines that matter
+# most: server/.env (your real API key, if you've ever run the server
+# locally) and the sqlite database file must never end up in the image.
+
+.git
+.github
+deploy
+node_modules
+server/node_modules
+server/.env
+server/.env.*
+server/*.sqlite3
+server/*.sqlite3-*
+*.log
+.vscode
+.idea
+*.local

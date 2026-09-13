@@ -26,6 +26,9 @@ npm start
 
 Then open <http://localhost:8787>. See `server/README.md` for details.
 
+**Hosting it for real (both of you editing, live mode, private while testing):**
+see [`HOSTING-FLYIO.md`](HOSTING-FLYIO.md).
+
 **Frontend only, no Node:** double-click `serve.ps1` → "Run with PowerShell" (or
 `powershell -ExecutionPolicy Bypass -File serve.ps1 -Port 8000`), or use any other
 static file server. This runs the UI in demo mode only — with `server/` not serving
