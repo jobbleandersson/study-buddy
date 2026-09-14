@@ -62,12 +62,15 @@ function notifyBgDone() {
 /** Resolve/reject handlers for whichever job (fresh or already-running) is
  *  current. Safe to attach more than once — e.g. a generation that outlives
  *  one mount and is picked back up by a later one — since ordinary promises
- *  support any number of independent `.then()` listeners. */
+ *  support any number of independent `.then()` listeners.
+ *
+ *  Deliberately does NOT clear `bg` itself: whether the finished doc is still
+ *  needed depends on whether anyone actually saw it (that first attempt at
+ *  this got it backwards — clearing on settlement here discarded the doc the
+ *  moment it finished if nobody was looking, so "Show me" on the toast had
+ *  nothing left to show). Each caller below clears it once truly consumed. */
 function watchGeneration(job, { onDone, onFail }) {
-  job.promise.then(
-    (doc) => { if (bg === job) bg = null; onDone(doc); },
-    (e) => { if (bg === job) bg = null; onFail(e); },
-  );
+  job.promise.then(onDone, onFail);
 }
 
 export function renderCreate(prefill) {
@@ -104,10 +107,17 @@ export function renderCreate(prefill) {
     else if (bg.error) { bg = null; } // already toasted when it failed; just land on source
     else {
       state.step = "generating";
-      watchGeneration(bg, {
-        onDone: (doc) => { if (!mounted) { notifyBgDone(); return; } state.doc = doc; state.step = "review"; paint(); },
+      const job = bg;
+      watchGeneration(job, {
+        onDone: (doc) => {
+          if (!mounted) { notifyBgDone(); return; }   // still nobody looking — leave it for next time
+          if (bg === job) bg = null;                   // consumed now
+          state.doc = doc;
+          state.step = "review"; paint();
+        },
         onFail: (e) => {
           const msg = e instanceof ClaudeError ? e.message : t("create.genFailed");
+          if (bg === job) bg = null;   // nothing to resume into either way — the toast is the whole story
           toast(msg);
           if (mounted) { state.step = "source"; paint(); }
         },
@@ -517,12 +527,14 @@ export function renderCreate(prefill) {
       });
       watchGeneration(job, {
         onDone: (doc) => {
-          if (!mounted) { notifyBgDone(); return; }
+          if (!mounted) { notifyBgDone(); return; }   // still nobody looking — leave it for next time
+          if (bg === job) bg = null;                   // consumed now
           state.doc = doc;
           state.step = "review"; paint();
         },
         onFail: (e) => {
           const msg = e instanceof ClaudeError ? e.message : t("create.genFailed");
+          if (bg === job) bg = null;   // nothing to resume into either way — the toast is the whole story
           if (!mounted) { toast(msg); return; }
           state.step = "input"; paint();
           const m = root.querySelector(".note--warn");
