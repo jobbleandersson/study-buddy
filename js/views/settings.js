@@ -19,6 +19,16 @@ export function renderSettings() {
   // last known figure now and the fresh one on the next visit.
   store.refreshUsage?.();
 
+  // Declared here, ahead of aiSection() being called below — aiSection() is a
+  // hoisted function declaration so the call itself is fine wherever it sits,
+  // but a `const` it closes over is not: defining this after the call site
+  // threw "Cannot access before initialization" the moment a signed-in
+  // account with real usage data hit the branch that reads it, which made
+  // the whole Settings page fail to render.
+  const fmtResetDate = (ts) => ts
+    ? new Date(ts).toLocaleDateString(getLang() === "sv" ? "sv-SE" : "en-GB", { day: "numeric", month: "long" })
+    : "";
+
   /* ---------------- appearance ----------------
    * Theme + language live in the sidebar footer (and the ⋮ menu on mobile) —
    * not duplicated here. This panel keeps font, text size, sound and the
@@ -211,10 +221,6 @@ export function renderSettings() {
    * the user is signed in (the proxy requires it), and this month's allowance
    * isn't spent. Otherwise it collapses to a status line and whatever the one
    * missing thing is. */
-  const fmtResetDate = (ts) => ts
-    ? new Date(ts).toLocaleDateString(getLang() === "sv" ? "sv-SE" : "en-GB", { day: "numeric", month: "long" })
-    : "";
-
   function aiSection() {
     if (!store.canUseAI()) {
       const serverReady = store.proxyUp && store.proxyKeyConfigured;
