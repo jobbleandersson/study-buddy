@@ -158,23 +158,11 @@ a.streakbadge:hover {
 .sidebar__theme-btn:hover { color: var(--ink); }
 .sidebar__theme-btn[aria-pressed="true"] { background: var(--surface); color: var(--brand-ink); box-shadow: var(--shadow-1); }
 
-/* A quiet scrollbar for the sidebar: thin, no track, no arrow buttons, a
-   faint thumb that firms up only while the pointer is over the nav. The
-   standard properties cover Firefox and Chromium 121+; the ::-webkit-
-   rules cover Safari and older Chromium. */
-.sidebar {
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--ink-faint) 28%, transparent) transparent;
-}
-.sidebar:hover { scrollbar-color: color-mix(in srgb, var(--ink-faint) 55%, transparent) transparent; }
-.sidebar::-webkit-scrollbar { width: 6px; }
-.sidebar::-webkit-scrollbar-track { background: transparent; }
-.sidebar::-webkit-scrollbar-button { display: none; }
-.sidebar::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--ink-faint) 28%, transparent);
-  border-radius: var(--r-full);
-}
-.sidebar:hover::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--ink-faint) 55%, transparent); }
+/* No visible scrollbar on the sidebar. It still scrolls (wheel, trackpad,
+   keyboard) when the nav outgrows a short screen — only the bar is hidden,
+   so nothing at the bottom ever becomes unreachable. */
+.sidebar { scrollbar-width: none; }
+.sidebar::-webkit-scrollbar { display: none; }
 
 @media (min-width: 900px) {
   .sidebar {
