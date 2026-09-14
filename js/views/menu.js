@@ -412,10 +412,9 @@ export function renderMenu(mode) {
   return { title: t("menu.title"), node: el("div", {}, [greetingBlock, layout]), cleanup: menuCleanup };
 }
 
-/** The right-hand rail on the home page: a mini calendar + Upcoming list
- *  (only while there are deadlines) and an achievements teaser (the badge
- *  closest to unlocking, or a "you got them all" note). Null when both are
- *  empty, so the layout collapses to one column. */
+/** The right-hand rail on the home page: an always-present mini calendar +
+ *  Upcoming list, and an achievements teaser (the badge closest to
+ *  unlocking, or a "you got them all" note). */
 function homeRail() {
   const panels = [backupPanel(), calendarPanel(), achievementsPanel()].filter(Boolean);
   return panels.length ? el("aside.home-rail", {}, panels) : null;
@@ -453,7 +452,10 @@ function backupPanel() {
 }
 
 function calendarPanel() {
-  const content = deadlineRailContent({ collapsible: true });
+  // forceCalendar: the week strip stays put even with nothing due, so the
+  // rail doesn't jump in and out of existence as deadlines come and go —
+  // and an empty day is still a tap target for adding one.
+  const content = deadlineRailContent({ collapsible: true, forceCalendar: true });
   if (!content) return null;
   return el("section.home-panel.home-panel--cal", {}, [
     el("div.home-panel__label", {}, [
