@@ -158,6 +158,11 @@ a.streakbadge:hover {
 .sidebar__theme-btn:hover { color: var(--ink); }
 .sidebar__theme-btn[aria-pressed="true"] { background: var(--surface); color: var(--brand-ink); box-shadow: var(--shadow-1); }
 
+/* No visible scrollbar on the sidebar. It still scrolls (wheel, trackpad,
+   keyboard) when the nav outgrows a short screen — only the bar is hidden,
+   so nothing at the bottom ever becomes unreachable. */
+.sidebar { scrollbar-width: none; }
+.sidebar::-webkit-scrollbar { display: none; }
 
 @media (min-width: 900px) {
   .sidebar {
