@@ -161,7 +161,7 @@ a.streakbadge:hover {
 /* No visible scrollbar on the sidebar. It still scrolls (wheel, trackpad,
    keyboard) when the nav outgrows a short screen — only the bar is hidden,
    so nothing at the bottom ever becomes unreachable. */
-.sidebar { scrollbar-width: none; }
+.sidebar { scrollbar-width: none; -ms-overflow-style: none; }
 .sidebar::-webkit-scrollbar { display: none; }
 
 @media (min-width: 900px) {
