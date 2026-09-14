@@ -1,4 +1,4 @@
-# StudyBuddy
+# Studify
 
 An AI study buddy that tutors a student through their own assignments and tests —
 the way a real tutor would: it explains, asks questions, gives hints, checks answers,
@@ -72,7 +72,7 @@ Everything (assignments, attempts, progress) is stored in your browser's
 
 ## Demo mode vs. live mode
 
-Without the backend proxy (see `server/`) running and reachable, StudyBuddy runs in
+Without the backend proxy (see `server/`) running and reachable, Studify runs in
 **demo mode**: the two sample sets (Photosynthesis Basics, Ancient Rome Quiz) are fully
 playable and the tutor follows a scripted hint ladder. Your library starts empty — load
 the demo sets from the home screen or from Settings → Demo content.
@@ -134,7 +134,7 @@ server/              serves the frontend + API: key proxy, accounts/sync, parent
 
 ## Accounts & sync
 
-Optional. StudyBuddy works fully signed out — everything stays in this browser's
+Optional. Studify works fully signed out — everything stays in this browser's
 `localStorage`, same as always. Sign in (Settings → Account) to also sync your
 library and progress to an account, so it's there on another device too. Auth is
 email/password; there's no email-sending step, so nothing to confirm — an account

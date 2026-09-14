@@ -44,7 +44,7 @@ function slug(s) {
 export async function shareSet(a) {
   const doc = setToDoc(a);
   const payload = JSON.stringify({ [MARKER]: FORMAT, set: doc }, null, 2);
-  const filename = `studybuddy-${slug(a.title)}.json`;
+  const filename = `studify-${slug(a.title)}.json`;
 
   const file = new File([payload], filename, { type: "application/json" });
   if (navigator.canShare && navigator.canShare({ files: [file] })) {

@@ -1,4 +1,4 @@
-// Sign in / create an account. Optional — StudyBuddy works fully signed out;
+// Sign in / create an account. Optional — Studify works fully signed out;
 // this only turns on syncing the same library across devices.
 
 import { store } from "../store.js";

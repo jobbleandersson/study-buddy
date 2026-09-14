@@ -1,4 +1,4 @@
-// StudyBuddy service worker.
+// Studify service worker.
 //
 // Strategy: network-first for same-origin GETs, falling back to the cache.
 // Cache-first would be faster, but this app is under active development and
@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studybuddy-v72";
+const CACHE = "studify-v73";
 
 const APP_SHELL = [
   "./",

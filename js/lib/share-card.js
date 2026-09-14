@@ -66,7 +66,7 @@ function draw(ctx, { emoji, headline, caption, tag, tone = "brand" }) {
 
   ctx.font = "700 42px Inter, Arial, sans-serif";
   ctx.globalAlpha = 0.85;
-  ctx.fillText("StudyBuddy", cx, wordmarkY);
+  ctx.fillText("Studify", cx, wordmarkY);
   ctx.globalAlpha = 1;
 
   // Measure every block first, then centre the whole group in the space
@@ -110,7 +110,7 @@ function clamp(s, max) {
 
 /** Builds the card and opens the share/download modal. `filename` should be a
  *  plain .png name — nothing user-supplied goes into it. */
-export function shareCard({ emoji, headline, caption, tag, tone, filename = "studybuddy.png" }) {
+export function shareCard({ emoji, headline, caption, tag, tone, filename = "studify.png" }) {
   const canvas = document.createElement("canvas");
   canvas.width = SIZE;
   canvas.height = SIZE;
@@ -134,7 +134,7 @@ function openModal(blob, filename) {
 
   const shareBtn = canShareFile ? el("button.btn", {
     type: "button",
-    onclick: async () => { try { await navigator.share({ files: [file], title: "StudyBuddy" }); } catch {} },
+    onclick: async () => { try { await navigator.share({ files: [file], title: "Studify" }); } catch {} },
   }, [icon(ICONS.share, 16), t("share.shareButton")]) : null;
 
   const downloadLink = el("a.btn.btn--ghost", { href: url, download: filename, onclick: closeAll }, t("share.download"));

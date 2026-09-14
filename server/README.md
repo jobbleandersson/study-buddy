@@ -1,6 +1,6 @@
 # study-buddy-server
 
-Serves the whole StudyBuddy app — the static frontend (everything one level up:
+Serves the whole Studify app — the static frontend (everything one level up:
 `index.html`, `css/`, `js/`, etc.) and the API — from one Express process. Holds
 the Claude API key and proxies `/api/messages` to Anthropic (the key never
 reaches the browser); optional accounts and sync (email/password auth, one JSON

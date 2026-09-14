@@ -354,7 +354,7 @@ export function renderSettings() {
       recovery.appendChild(el("span", {}, t("set.recoveryFound") + " "));
       recovery.appendChild(el("button.linkbtn", {
         type: "button",
-        onclick: () => downloadText(`studybuddy-recovered-${localDayKey()}.txt`, blob, "text/plain"),
+        onclick: () => downloadText(`studify-recovered-${localDayKey()}.txt`, blob, "text/plain"),
       }, t("set.recoveryDownload")));
       recovery.appendChild(el("span", {}, " · "));
       recovery.appendChild(el("button.linkbtn", {
@@ -365,7 +365,7 @@ export function renderSettings() {
     paintRecovery();
 
     function exportData() {
-      downloadText(`studybuddy-backup-${localDayKey()}.json`, store.exportJSON());
+      downloadText(`studify-backup-${localDayKey()}.json`, store.exportJSON());
       store.markBackedUp();
       toast(t("set.backupDownloaded"));
     }

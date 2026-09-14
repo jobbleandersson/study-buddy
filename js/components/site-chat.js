@@ -1,5 +1,5 @@
 // The floating "ask about the app" widget — a bubble in the bottom-right
-// corner, on every page, for questions about using StudyBuddy itself (not
+// corner, on every page, for questions about using Studify itself (not
 // schoolwork — that's the in-session tutor). Mounted once from main.js and
 // appended straight to <body>, like js/lib/dom.js's toast/banner, so it
 // survives the router's full re-renders on every navigation.

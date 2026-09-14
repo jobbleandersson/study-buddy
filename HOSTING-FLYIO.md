@@ -1,4 +1,4 @@
-# Hosting StudyBuddy on Fly.io — no GitHub in the deploy path
+# Hosting Studify on Fly.io — no GitHub in the deploy path
 
 Replaces the Render setup. GitHub still holds the code and is still how the
 two of you share it — that part doesn't go away — but **deploying is a

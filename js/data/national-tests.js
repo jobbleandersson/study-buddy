@@ -1,5 +1,5 @@
 // Curated pointers to where genuinely public, reuse-permitted past national
-// exams actually live. StudyBuddy never hosts, scrapes, or redistributes the
+// exams actually live. Studify never hosts, scrapes, or redistributes the
 // exam content itself — this list only gets the student to the official
 // source; they bring the material back through the normal Create flow.
 //

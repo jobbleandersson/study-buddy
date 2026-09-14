@@ -500,7 +500,7 @@ function shell(contentNode) {
   // Mobile: the full topbar shows, and its ⋮ mirrors the sidebar nav.
   const sidebar = el("nav.sidebar", { "aria-label": t("common.menu") }, [
     el("a.sidebar__brand", { href: "#/" }, [
-      el("img", { src: "assets/favicon.svg", alt: "" }), "StudyBuddy",
+      el("img", { src: "assets/favicon.svg", alt: "" }), "Studify",
     ]),
     el("div.sidebar__nav", {}, navGroups().flatMap((g, gi) => [
       g.label
@@ -524,7 +524,7 @@ function shell(contentNode) {
         el("div.topbar__inner", {}, [
           el("a.brand", { href: "#/", "aria-label": t("nav.home") }, [
             el("img", { src: "assets/favicon.svg", alt: "" }),
-            el("span.brand__name", {}, "StudyBuddy"),
+            el("span.brand__name", {}, "Studify"),
           ]),
           el("span.topbar__spacer"),
           streakBadge(streak, atRisk),
@@ -577,8 +577,8 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     // app-help chat there too (it lives on <body>, outside the shell).
     document.body.classList.toggle("route-immersive", immersiveRoute());
 
-    const title = result?.title || "StudyBuddy";
-    document.title = result?.title ? `${result.title} · StudyBuddy` : "StudyBuddy";
+    const title = result?.title || "Studify";
+    document.title = result?.title ? `${result.title} · Studify` : "Studify";
     window.scrollTo(0, keepY);
 
     // Deliberate focus + a single short announcement, rather than a live
@@ -662,7 +662,7 @@ store.init().then(() => {
         onAction: () => {
           const d = store.syncDiscard;
           if (d) {
-            downloadText(`studybuddy-replaced-${localDayKey()}.json`, JSON.stringify(d.blob, null, 2));
+            downloadText(`studify-replaced-${localDayKey()}.json`, JSON.stringify(d.blob, null, 2));
             toast(t("set.backupDownloaded"));
           }
         },
@@ -682,7 +682,7 @@ store.init().then(() => {
       actionLabel: t("save.emergencyExport"),
       closeLabel: t("common.close"),
       onAction: () => {
-        downloadText(`studybuddy-backup-${localDayKey()}.json`, store.exportJSON());
+        downloadText(`studify-backup-${localDayKey()}.json`, store.exportJSON());
         store.markBackedUp();
         toast(t("set.backupDownloaded"));
       },
@@ -710,7 +710,7 @@ function bootFailure(err) {
       el("button.btn", { type: "button", onclick: () => location.reload() }, t("boot.reload")),
       raw ? el("button.btn.btn--ghost", {
         type: "button",
-        onclick: () => downloadText(`studybuddy-emergency-${new Date().toISOString().slice(0, 10)}.json`, raw),
+        onclick: () => downloadText(`studify-emergency-${new Date().toISOString().slice(0, 10)}.json`, raw),
       }, t("boot.downloadData")) : null,
     ].filter(Boolean)),
   ]));

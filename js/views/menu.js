@@ -439,7 +439,7 @@ function backupPanel() {
       el("button.btn.btn--sm", {
         type: "button",
         onclick: () => {
-          downloadText(`studybuddy-backup-${localDayKey()}.json`, store.exportJSON());
+          downloadText(`studify-backup-${localDayKey()}.json`, store.exportJSON());
           store.markBackedUp();
           toast(t("backup.done"));
           panel.remove();

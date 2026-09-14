@@ -14,7 +14,7 @@ export function mascot(mood = "idle", size = 40) {
   wrap.className = "mascot";
   wrap.style.width = wrap.style.height = `${size}px`;
   wrap.innerHTML = `
-    <svg width="${size}" height="${size}" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="StudyBuddy">
+    <svg width="${size}" height="${size}" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Studify">
       <rect x="1" y="1" width="38" height="38" rx="10" fill="var(--brand-tint)" stroke="var(--line)"/>
       <path d="M20 11l2.1 5.9L28 19l-5.9 2.1L20 27l-2.1-5.9L12 19l5.9-2.1L20 11Z" fill="var(--brand)"/>
     </svg>
