@@ -411,8 +411,11 @@ function cloze({ question, tutor, testMode, onDone, askConfidence }) {
 
     if (allRight) tutor?.celebrate(t("q.tutorRight"));
     else {
-      tutor?.note(t("q.tutorClozeWrong"));
-      explainWhyRow(tutor, question, blanks.map((b) => b.inp.value).filter(Boolean).join(", "), feedback);
+      // Include what was actually typed — without it the tutor has to ask
+      // the student to repeat information the app already has right here.
+      const typed = blanks.map((b) => b.inp.value).filter(Boolean).join(", ");
+      tutor?.note(typed ? t("q.tutorClozeWrong", { answer: typed }) : t("q.tutorClozeWrongBlank"));
+      explainWhyRow(tutor, question, typed, feedback);
     }
     maybeConfidence(finalize(result), feedback, onDone, askConfidence);
   }

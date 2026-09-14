@@ -32,9 +32,50 @@ export function blankQuestions(n) {
   });
 }
 
+// A generation survives navigating away from #/create — module-level, not
+// tied to any one call's local `state`/`paint`, so leaving mid-generation
+// (e.g. into Settings) doesn't discard it. Whichever renderCreate() instance
+// is mounted when it settles updates itself; if none is, a toast tells the
+// student where to find it. At most one generation is tracked at a time —
+// starting a new one simply replaces this.
+let bg = null; // { promise, doc, error }
+
+function startGeneration(params) {
+  bg = { promise: null, doc: null, error: null };
+  bg.promise = generateAssignment(params).then((doc) => {
+    doc.subject = params.subject.trim() || doc.subject || t("common.general");
+    doc.type = params.type;
+    doc.questions = doc.questions.map((q) => ({ ...q, id: uid() }));
+    bg.doc = doc;
+    return doc;
+  }).catch((e) => {
+    bg.error = e;
+    throw e;
+  });
+  return bg;
+}
+
+function notifyBgDone() {
+  toast(t("create.bgDone"), { actionLabel: t("create.bgDoneAction"), onAction: () => { location.hash = "#/create"; } });
+}
+
+/** Resolve/reject handlers for whichever job (fresh or already-running) is
+ *  current. Safe to attach more than once — e.g. a generation that outlives
+ *  one mount and is picked back up by a later one — since ordinary promises
+ *  support any number of independent `.then()` listeners. */
+function watchGeneration(job, { onDone, onFail }) {
+  job.promise.then(
+    (doc) => { if (bg === job) bg = null; onDone(doc); },
+    (e) => { if (bg === job) bg = null; onFail(e); },
+  );
+}
+
 export function renderCreate(prefill) {
   const root = el("div");
   const prefillSubject = prefill?.get?.("subject");
+  // Flips false once this view is navigated away from — guards the async
+  // generation callback against updating a screen that's no longer showing.
+  let mounted = true;
   const state = {
     step: "source",           // source | input | generating | review
     source: null,             // paste | pdf | photo | import | blank | nationalprov
@@ -54,6 +95,25 @@ export function renderCreate(prefill) {
     count: 6,
     doc: null,                // generated + editable
   };
+
+  // Coming back to #/create (or landing here fresh) while a generation is
+  // still running, or finished while nobody was looking: pick it straight
+  // back up instead of starting over at "source".
+  if (bg) {
+    if (bg.doc) { state.doc = bg.doc; state.step = "review"; bg = null; }
+    else if (bg.error) { bg = null; } // already toasted when it failed; just land on source
+    else {
+      state.step = "generating";
+      watchGeneration(bg, {
+        onDone: (doc) => { if (!mounted) { notifyBgDone(); return; } state.doc = doc; state.step = "review"; paint(); },
+        onFail: (e) => {
+          const msg = e instanceof ClaudeError ? e.message : t("create.genFailed");
+          toast(msg);
+          if (mounted) { state.step = "source"; paint(); }
+        },
+      });
+    }
+  }
 
   function steps() {
     const map = [["source", t("create.stepSource")], ["input", t("create.stepMaterial")], ["review", t("create.stepReview")]];
@@ -441,31 +501,35 @@ export function renderCreate(prefill) {
       ]);
     }
 
-    async function generate() {
+    function generate() {
       const hasInput = state.material.trim() || state.topic.trim() || state.image;
       if (!hasInput) { err.hidden = false; err.textContent = t("create.needMaterial"); return; }
       state.step = "generating"; paint();
-      try {
-        const doc = await generateAssignment({
-          material: state.material ? fitText(state.material) : "",
-          topic: state.topic.trim(),
-          image: state.image ? { mediaType: state.image.mediaType, data: state.image.data } : null,
-          count: state.count,
-          gradeHint: state.gradeHint.trim(),
-          preferFlashcards: state.preferFlashcards,
-        });
-        doc.subject = state.subject.trim() || doc.subject || t("common.general");
-        doc.type = state.type;
-        doc.questions = doc.questions.map((q) => ({ ...q, id: uid() }));
-        state.doc = doc;
-        state.step = "review"; paint();
-      } catch (e) {
-        state.step = "input"; paint();
-        const m = root.querySelector(".note--warn");
-        const msg = e instanceof ClaudeError ? e.message : t("create.genFailed");
-        toast(msg);
-        if (m) { m.hidden = false; m.textContent = msg; }
-      }
+      const job = startGeneration({
+        material: state.material ? fitText(state.material) : "",
+        topic: state.topic.trim(),
+        image: state.image ? { mediaType: state.image.mediaType, data: state.image.data } : null,
+        count: state.count,
+        gradeHint: state.gradeHint.trim(),
+        preferFlashcards: state.preferFlashcards,
+        subject: state.subject,
+        type: state.type,
+      });
+      watchGeneration(job, {
+        onDone: (doc) => {
+          if (!mounted) { notifyBgDone(); return; }
+          state.doc = doc;
+          state.step = "review"; paint();
+        },
+        onFail: (e) => {
+          const msg = e instanceof ClaudeError ? e.message : t("create.genFailed");
+          if (!mounted) { toast(msg); return; }
+          state.step = "input"; paint();
+          const m = root.querySelector(".note--warn");
+          toast(msg);
+          if (m) { m.hidden = false; m.textContent = msg; }
+        },
+      });
     }
 
     return el("div.panel", {}, [
@@ -556,5 +620,5 @@ export function renderCreate(prefill) {
   }
 
   paint();
-  return { title: t("create.title"), node: root };
+  return { title: t("create.title"), node: root, cleanup: () => { mounted = false; } };
 }
