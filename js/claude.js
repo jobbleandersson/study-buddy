@@ -9,35 +9,26 @@ import { PROXY_URL } from "./config.js";
 const API_URL = PROXY_URL;
 
 /**
- * Model choice is a preset, not a single model: the three jobs have very
- * different requirements. Writing a question set is worth the best model
- * (once per set); grading a one-line answer is not (many times per session).
+ * One fixed model per job — not a user choice. The jobs have very different
+ * requirements: writing a question set is worth a stronger model, because
+ * the result is saved and reused by every student who studies that set
+ * afterward, not just once. Tutoring, grading, and solving are one-off —
+ * forgotten the moment they're done — so they run on the fast, cheap model.
  */
-export const PRESETS = {
-  balanced: {
-    labelKey: "preset.balanced", hintKey: "preset.balancedHint",
-    generate: "claude-opus-5", tutor: "claude-sonnet-5", grade: "claude-haiku-4-5", solve: "claude-opus-5",
-  },
-  best: {
-    labelKey: "preset.best", hintKey: "preset.bestHint",
-    generate: "claude-opus-5", tutor: "claude-opus-5", grade: "claude-opus-5", solve: "claude-opus-5",
-  },
-  cheapest: {
-    labelKey: "preset.cheapest", hintKey: "preset.cheapestHint",
-    generate: "claude-sonnet-5", tutor: "claude-haiku-4-5", grade: "claude-haiku-4-5", solve: "claude-sonnet-5",
-  },
+export const MODELS = {
+  generate: "claude-sonnet-5",
+  tutor: "claude-haiku-4-5",
+  grade: "claude-haiku-4-5",
+  solve: "claude-haiku-4-5",
 };
-
-export const DEFAULT_PRESET = "balanced";
 
 function headers() {
   return { "content-type": "application/json" };
 }
 
-/** task: "generate" | "tutor" | "grade" */
+/** task: "generate" | "tutor" | "grade" | "solve" */
 export function modelFor(task) {
-  const preset = PRESETS[store.settings.preset] || PRESETS[DEFAULT_PRESET];
-  return preset[task] || PRESETS[DEFAULT_PRESET][task];
+  return MODELS[task] || MODELS.generate;
 }
 
 class ClaudeError extends Error {}

@@ -23,9 +23,10 @@ export const MAX_OUTPUT_TOKENS =
     : 16_000;
 
 /** The models the proxy will forward. Anything else is a 400 — the client
- *  only ever asks for these three (see js/claude.js PRESETS). */
+ *  only ever asks for these two (see js/claude.js MODELS); enforced here too,
+ *  not just by what the UI offers, so a tampered request can't spend at a
+ *  pricier model's rate either. */
 export const ALLOWED_MODELS = new Set([
-  "claude-opus-5",
   "claude-sonnet-5",
   "claude-haiku-4-5",
   "claude-haiku-4-5-20251001",

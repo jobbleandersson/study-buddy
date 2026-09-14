@@ -4,7 +4,7 @@
 import { store } from "../store.js";
 import { el, clear, toast, icon, ICONS, downloadText } from "../lib/dom.js";
 import { localDayKey } from "../lib/activity.js";
-import { PRESETS, DEFAULT_PRESET } from "../claude.js";
+import { MODELS } from "../claude.js";
 import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
@@ -48,34 +48,21 @@ export function renderSettings() {
   sizeSel.value = getTextSize();
   sizeSel.addEventListener("change", () => { setTextSize(sizeSel.value); toast(t("set.saved")); });
 
-  /* ---------------- model preset ---------------- */
-  const presetHint = el("p.note", { style: { marginTop: "6px" } });
-  const presetSel = el("select", { "aria-describedby": "preset-hint", "aria-label": t("set.qualityCost") },
-    Object.entries(PRESETS).map(([k, p]) => opt(k, t(p.labelKey))));
-  presetSel.value = PRESETS[s.preset] ? s.preset : DEFAULT_PRESET;
-
-  const presetDetail = el("div.preset-detail");
-  function paintPreset() {
-    const p = PRESETS[presetSel.value];
-    presetHint.textContent = t(p.hintKey);
-    clear(presetDetail);
-    presetDetail.appendChild(el("table.preset-table", {}, [
-      el("tbody", {}, [
-        presetRow(t("set.jobWriting"), p.generate, t("set.whenPerSet")),
-        presetRow(t("set.jobTutoring"), p.tutor, t("set.whenEveryMsg")),
-        presetRow(t("set.jobMarking"), p.grade, t("set.whenEveryAnswer")),
-      ]),
-    ]));
-  }
-  function presetRow(job, model, when) {
+  /* ---------------- model, per job ----------------
+   * Fixed, not a choice: writing a set is saved and reused by everyone who
+   * studies it afterward, so it gets a stronger model; tutoring and marking
+   * are one-off and forgotten the moment they're done, so they run on the
+   * fast, cheap one. See js/claude.js MODELS. */
+  const modelTable = el("table.preset-table", {}, [
+    el("tbody", {}, [
+      modelRow(t("set.jobWriting"), MODELS.generate, t("set.whenPerSet")),
+      modelRow(t("set.jobTutoring"), MODELS.tutor, t("set.whenEveryMsg")),
+      modelRow(t("set.jobMarking"), MODELS.grade, t("set.whenEveryAnswer")),
+    ]),
+  ]);
+  function modelRow(job, model, when) {
     return el("tr", {}, [el("th", {}, job), el("td", {}, prettyModel(model)), el("td.note", {}, when)]);
   }
-  presetSel.addEventListener("change", () => {
-    store.setSettings({ preset: presetSel.value });
-    paintPreset();
-    toast(t("set.presetUpdated"));
-  });
-  paintPreset();
 
   const verbSel = el("select", { "aria-label": t("set.replyLength") }, [
     opt("concise", t("set.verbConcise")),
@@ -264,9 +251,7 @@ export function renderSettings() {
       ]) : null,
       el("h4.settings__sub", {}, t("set.modelTitle")),
       el("p.note", { style: { margin: "6px 0 12px" } }, t("set.modelIntro")),
-      el("label.field", { style: { marginBottom: "6px" } }, [el("span", {}, t("set.qualityCost")), presetSel]),
-      el("div", { id: "preset-hint" }, [presetHint]),
-      presetDetail,
+      modelTable,
       el("label.field", { style: { marginTop: "16px", marginBottom: "0" } }, [el("span", {}, t("set.replyLength")), verbSel]),
     ].filter(Boolean));
   }

@@ -82,14 +82,17 @@ mode**: real question generation from your material, a real streaming tutor, and
 grading of written answers. Settings shows whether the tutor server is connected. In
 Swedish mode the tutor, generated questions and grading all come back in Swedish.
 
-**Model presets.** Different jobs use different models, so you're not paying top rates
-to mark a one-line answer:
+**Model, per job.** Fixed, not a user choice — different jobs use different
+models, so you're not paying top rates to mark a one-line answer:
 
-| Preset | Writes a set | Tutors you | Marks answers |
-|---|---|---|---|
-| **Balanced** (default) | Opus 5 | Sonnet 5 | Haiku 4.5 |
-| Best quality | Opus 5 | Opus 5 | Opus 5 |
-| Lowest cost | Sonnet 5 | Haiku 4.5 | Haiku 4.5 |
+| Job | Model | Why |
+|---|---|---|
+| Writes a set | Sonnet 5 | Saved and reused by every student who studies it afterward |
+| Tutors you | Haiku 4.5 | One-off, forgotten the moment the conversation moves on |
+| Marks answers | Haiku 4.5 | One-off, many times a session |
+| Solves a photo | Haiku 4.5 | One-off, shown once |
+
+See `js/claude.js` (`MODELS`).
 
 ### ⚠️ Security note
 
