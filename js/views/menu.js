@@ -10,6 +10,7 @@ import { localDayKey, questionsAnsweredToday } from "../lib/activity.js";
 import { weeklyRecap, isoWeek } from "../lib/recap.js";
 import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
 import { monthCalendar, weekStrip } from "../components/calendar.js";
+import { goalRing } from "../components/goal-ring.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
 import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
@@ -567,13 +568,15 @@ function todayPanel() {
   const openKey = Object.keys(store.state.sessions)[0];
   const open = openKey ? store.state.sessions[openKey] : null;
   const weak = weakSpotQuestions(store.assignments, store.attempts).length;
+  const goal = Number(store.settings.dailyGoal) || 0;
+  const showGoal = goal > 0 && store.assignments.length;
   const upcoming = store.upcomingDue();
   const recap = recapCard();
 
-  if (!open && !due && !weak && streak <= 0 && !recap && !upcoming.length) return null;
+  if (!open && !showGoal && !due && !weak && streak <= 0 && !recap && !upcoming.length) return null;
 
-  // The daily goal lives in the page head now (homeHead), not as a pill here.
   const pills = [];
+  if (showGoal) pills.push(goalPill(goal));
   if (due) pills.push(statPill("#/review", ICONS.spark, t("menu.tileDue", { n: due }), "pill--due"));
   if (weak) pills.push(statPill("#/practice-weak", ICONS.target,
     plural(weak, "menu.tileWeakOne", "menu.tileWeakMany"), "pill--weak"));
@@ -617,6 +620,21 @@ function statPill(href, iconPath, label, cls) {
   return el(`a.pill.${cls}`, { href }, [
     el("span.pill__ic", {}, icon(iconPath, 14)),
     el("span", {}, label),
+  ]);
+}
+
+/** Daily-goal pill: a small ring + count. Plays a fanfare the first time the
+ *  goal is reached each day (same side effect the old tile carried). */
+function goalPill(goal) {
+  const done = questionsAnsweredToday(store.attempts);
+  const hit = done >= goal;
+  // markGoalReached() writes to the store (and can fire an achievement) — keep
+  // that out of the render call stack so its "change" event doesn't re-enter
+  // render() mid-paint.
+  if (hit) queueMicrotask(() => { if (store.markGoalReached()) playFanfare(); });
+  return el("a.pill.pill--goal", { href: "#/progress" }, [
+    goalRing(done, goal),
+    el("span", {}, hit ? t("menu.goalDone", { done }) : t("menu.goalToday", { done, goal })),
   ]);
 }
 
@@ -834,46 +852,19 @@ function greeting() {
 }
 
 /**
- * The top of the home page. Answers "what should I do right now?": today's
- * date, the daily goal as the headline, one line picked from the student's
- * actual state (no sets yet → due reviews → next deadline), and — for a
- * brand-new student — one clear action plus a real starter set to open.
+ * The top of the home page: the greeting and one line, and — for a brand-new
+ * student — one clear action plus a real starter set to open.
  */
 function homeHead() {
-  const goal = Number(store.settings.dailyGoal) || 0;
-  const done = questionsAnsweredToday(store.attempts);
   const hasSets = store.assignments.length > 0;
-  const due = store.dueQuestions().length;
-  const next = store.upcomingDue()[0] || null;
   const needsSignIn = store.aiNeedsSignIn();
-
-  // markGoalReached() writes to the store (and can fire an achievement) — keep
-  // that out of the render call stack so its "change" event doesn't re-enter
-  // render() mid-paint.
-  if (goal > 0 && done >= goal) queueMicrotask(() => { if (store.markGoalReached()) playFanfare(); });
-
-  const dateText = new Date().toLocaleDateString(getLang() === "sv" ? "sv-SE" : "en-GB",
-    { weekday: "long", day: "numeric", month: "long" });
-
-  const title = goal <= 0 ? greeting()
-    : done >= goal ? t("menu.headGoalDone", { done })
-    : t("menu.headGoal", { done, goal });
-
-  const sub = !hasSets
-    ? (needsSignIn
-        ? [t("menu.headStartSignIn"), el("a", { href: "#/login" }, t("menu.headStartSignInLink")), t("menu.headStartSignInTail")]
-        : t(store.hasKey() ? "menu.headStartAi" : "menu.headStart"))
-    : due ? plural(due, "menu.headDueOne", "menu.headDueMany")
-    : next ? t("menu.headNext", { title: next.title, when: countdownLabel(next.dueAt) })
-    : t("menu.subHasKey");
 
   const suggestSlot = el("div", { hidden: true });
   if (!hasSets) fillStarterSuggestion(suggestSlot);
 
   return el("div.home__head", {}, [
-    el("p.home__date", {}, dateText.charAt(0).toUpperCase() + dateText.slice(1)),
-    el("h1", {}, title),
-    el("p.home__hi", {}, sub),
+    el("h1", {}, greeting()),
+    el("p.home__hi", {}, t("menu.subHasKey")),
     !hasSets && el("div.home__cta", {}, [
       el("a.btn", { href: "#/library" }, [icon(ICONS.book, 18), t("menu.headPickSet")]),
       needsSignIn && el("a.btn.btn--ghost", { href: "#/login" }, t("login.signIn")),
