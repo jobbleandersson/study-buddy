@@ -1,0 +1,76 @@
+// Static informational pages: About, Terms of Service, Privacy Policy.
+// Reached from the site footer, not the main nav — read-once material,
+// not something a student needs a shortcut to mid-study.
+
+import { el } from "../lib/dom.js";
+import { t } from "../lib/i18n.js";
+import { homeButton } from "../components/nav.js";
+
+const FEEDBACK_MAIL = "mailto:liamohrn0911@gmail.com";
+
+function page(titleKey, body) {
+  return {
+    title: t(titleKey),
+    node: el("div.settings", {}, [
+      homeButton({ grid: true }),
+      el("h1", {}, t(titleKey)),
+      ...body,
+      el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "8px", justifySelf: "start" } }, t("common.backToMenu")),
+    ]),
+  };
+}
+
+function section(headingKey, ...paragraphKeys) {
+  return el("section.panel", {}, [
+    el("h3", { style: { marginBottom: "8px" } }, t(headingKey)),
+    ...paragraphKeys.map((k) => el("p", { style: { marginTop: "8px" } }, t(k))),
+  ]);
+}
+
+function draftBanner(bodyKey) {
+  return el("p.note.note--warn", { style: { marginBottom: "4px" } }, t(bodyKey));
+}
+
+export function renderAbout() {
+  return page("about.pageTitle", [
+    el("p.note", { style: { marginBottom: "4px" } }, t("about.heroLead")),
+    section("about.missionTitle", "about.missionBody"),
+    section("about.backgroundTitle", "about.backgroundBody"),
+    el("section.panel", {}, [
+      el("h3", { style: { marginBottom: "8px" } }, t("about.contactTitle")),
+      el("p", { style: { marginTop: "8px" } }, t("about.contactBody")),
+      el("a.btn.btn--ghost", { href: FEEDBACK_MAIL, style: { marginTop: "12px" } }, t("about.contactLink")),
+    ]),
+  ]);
+}
+
+export function renderTerms() {
+  return page("terms.pageTitle", [
+    draftBanner("terms.draftBody"),
+    section("terms.acceptTitle", "terms.acceptBody"),
+    section("terms.serviceTitle", "terms.serviceBody"),
+    section("terms.accountTitle", "terms.accountBody"),
+    section("terms.contentTitle", "terms.contentBody"),
+    section("terms.aiTitle", "terms.aiBody"),
+    section("terms.warrantyTitle", "terms.warrantyBody"),
+    section("terms.liabilityTitle", "terms.liabilityBody"),
+    section("terms.changesTitle", "terms.changesBody"),
+    section("terms.contactTitle", "terms.contactBody"),
+  ]);
+}
+
+export function renderPrivacy() {
+  return page("privacy.pageTitle", [
+    draftBanner("privacy.draftBody"),
+    section("privacy.dataTitle", "privacy.dataBody"),
+    section("privacy.useTitle", "privacy.useBody"),
+    section("privacy.cookiesTitle", "privacy.cookiesBody"),
+    section("privacy.minorsTitle", "privacy.minorsBody"),
+    el("section.panel", {}, [
+      el("h3", { style: { marginBottom: "8px" } }, t("privacy.rightsTitle")),
+      el("p", { style: { marginTop: "8px" } }, t("privacy.rightsBody")),
+      el("a.btn.btn--ghost", { href: "#/settings", style: { marginTop: "12px" } }, t("privacy.rightsLink")),
+    ]),
+    section("privacy.contactTitle", "privacy.contactBody"),
+  ]);
+}
