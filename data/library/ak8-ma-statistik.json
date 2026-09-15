@@ -124,6 +124,108 @@
       "prompt": "Vilka lägesmått och diagramtyper behöver du kunna, och när passar de?",
       "opener": "Två listor: vad måtten betyder, och vilket diagram som passar vilken sorts data.",
       "answer": "Medelvärde $=$ summan $/$ antalet — påverkas mycket av extremvärden · Median $=$ det mittersta värdet när talen sorterats; vid jämnt antal medelvärdet av de två mittersta — tål extremvärden bra · Typvärde $=$ det värde som förekommer oftast (kan vara flera eller inget) · Variationsbredd $=$ största värdet $-$ minsta värdet, ett mått på spridning · Stapeldiagram passar för att jämföra kategorier · Linjediagram passar för förändring över tid · Cirkeldiagram passar för delar av en helhet; hela cirkeln $= 360° = 100\\,\\%$ · Källkritik: kontrollera att y-axeln börjar på 0, att skalan är jämn och att det framgår hur många som ingår i undersökningen."
+    },
+    {
+      "id": "q-ma8-sta-9",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Medelvärdet av sex tal är 15. Fem av talen är 10, 12, 16, 18 och 20. Vad är det sjätte talet?",
+      "opener": "Räkna ut vad summan av alla sex måste vara, dra sedan bort de fem du känner till.",
+      "choices": [
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "answer": 1,
+      "explanation": "Summan av alla sex: $15 \\cdot 6 = 90$. De fem kända: $10+12+16+18+20 = 76$. Det sjätte talet: $90 - 76 = 14$."
+    },
+    {
+      "id": "q-ma8-sta-10",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Vad är medianen i talserien 4, 8, 15, 16, 23, 42 (redan sorterad)?",
+      "opener": "Jämnt antal tal — medianen blir medelvärdet av de två mittersta.",
+      "choices": [
+        "15",
+        "16",
+        "15,5",
+        "23"
+      ],
+      "answer": 2,
+      "explanation": "Med sex tal är medianen medelvärdet av det tredje och fjärde talet: $(15 + 16) / 2 = 15{,}5$."
+    },
+    {
+      "id": "q-ma8-sta-11",
+      "kind": "mc",
+      "topic": "spridning",
+      "prompt": "Temperaturer under en vecka: $-5$, $-2$, $0$, $3$, $6$, $1$ och $-1$ °C. Vad är variationsbredden?",
+      "opener": "Hitta det största och det minsta värdet, och håll koll på tecknen.",
+      "choices": [
+        "1 °C",
+        "5 °C",
+        "6 °C",
+        "11 °C"
+      ],
+      "answer": 3,
+      "explanation": "Största värdet är 6 och minsta är $-5$: $6 - (-5) = 6 + 5 = 11$ °C."
+    },
+    {
+      "id": "q-ma8-sta-12",
+      "kind": "mc",
+      "topic": "diagram",
+      "prompt": "Av 90 elever valde 27 simning. Hur stor blir simningens sektor i ett cirkeldiagram?",
+      "opener": "Räkna ut andelen först, och kom ihåg att hela cirkeln är 360°.",
+      "choices": [
+        "30°",
+        "81°",
+        "108°",
+        "120°"
+      ],
+      "answer": 2,
+      "explanation": "Andelen är $27/90 = 0{,}30 = 30\\,\\%$, och $0{,}30 \\cdot 360° = 108°$."
+    },
+    {
+      "id": "q-ma8-sta-13",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "En tidningsartikel visar ett stapeldiagram över \"andel nöjda kunder\" hos tre företag, men antalet tillfrågade (50, 500 respektive 5 personer) anges inte i diagrammet. Vad är problemet?",
+      "opener": "Fundera på hur säkert ett resultat blir beroende på hur många som svarat.",
+      "choices": [
+        "Inget problem — andelar går alltid att jämföra direkt oavsett urvalsstorlek",
+        "Ett resultat baserat på bara 5 tillfrågade är mycket osäkrare än ett baserat på 500, trots att andelarna kan se lika stora ut i diagrammet",
+        "Diagrammet borde vara ett cirkeldiagram istället för ett stapeldiagram",
+        "Andelarna borde anges i procentenheter istället för procent"
+      ],
+      "answer": 1,
+      "explanation": "Ju färre som tillfrågas, desto större blir slumpens påverkan på resultatet. En andel baserad på 5 personer kan ändras drastiskt av en enda person, medan en andel baserad på 500 är mycket stabilare — även om båda visas som lika höga staplar."
+    },
+    {
+      "id": "q-ma8-sta-14",
+      "kind": "worked",
+      "topic": "lägesmått",
+      "prompt": "Sex mätningar av en temperaturavvikelse gav $-2$, $3$, $-1$, $5$, $0$ och $-3$ grader. Beräkna medelvärdet.",
+      "opener": "Lägg ihop alla sex tal, håll koll på tecknen, dela sedan med antalet.",
+      "answer": "≈ 0,3 grader",
+      "steps": [
+        "Summan: $-2 + 3 - 1 + 5 + 0 - 3 = 2$.",
+        "Medelvärdet: $2 / 6 \\approx 0{,}3$ grader."
+      ]
+    },
+    {
+      "id": "q-ma8-sta-15",
+      "kind": "mc",
+      "topic": "diagram",
+      "prompt": "I ett linjediagram över en akties värde stiger kurvan brant mellan år 2 och år 3, och är sedan nästan platt mellan år 3 och år 4. Vad betyder det?",
+      "opener": "En brant kurva och en platt kurva säger något om hur snabbt värdet förändras.",
+      "choices": [
+        "Aktien steg snabbt mellan år 2 och 3, och var ungefär oförändrad mellan år 3 och 4",
+        "Aktien föll mellan år 2 och 3",
+        "Aktien var värdelös år 4",
+        "Diagrammet visar ingenting om hur snabbt värdet förändrades, bara start- och slutvärdet"
+      ],
+      "answer": 0,
+      "explanation": "Kurvans lutning i ett linjediagram visar hur snabbt värdet förändras — en brant del betyder snabb förändring, en flack del betyder liten eller ingen förändring."
     }
   ]
 }

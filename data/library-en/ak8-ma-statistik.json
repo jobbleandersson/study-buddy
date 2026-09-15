@@ -124,6 +124,108 @@
       "prompt": "Which measures of location and chart types do you need to know, and when are they suitable?",
       "opener": "Two lists: what the measures mean, and which chart suits which kind of data.",
       "answer": "Mean $=$ the sum $/$ the number of values — heavily affected by extreme values · Median $=$ the middle value once the numbers are sorted; for an even number of values, the mean of the two middle ones — copes well with extreme values · Mode $=$ the value that occurs most often (there can be several, or none) · Range $=$ the largest value $-$ the smallest value, a measure of spread · A bar chart suits comparing categories · A line graph suits change over time · A pie chart suits parts of a whole; the whole circle $= 360° = 100\\,\\%$ · Critical evaluation of sources: check that the y-axis starts at 0, that the scale is even, and that it is clear how many people were included in the survey."
+    },
+    {
+      "id": "q-ma8-sta-9",
+      "kind": "mc",
+      "topic": "measures of location",
+      "prompt": "The mean of six numbers is 15. Five of the numbers are 10, 12, 16, 18 and 20. What is the sixth number?",
+      "opener": "Work out what the sum of all six must be, then subtract the five you know.",
+      "choices": [
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "answer": 1,
+      "explanation": "The sum of all six: $15 \\cdot 6 = 90$. The five known: $10+12+16+18+20 = 76$. The sixth number: $90 - 76 = 14$."
+    },
+    {
+      "id": "q-ma8-sta-10",
+      "kind": "mc",
+      "topic": "measures of location",
+      "prompt": "What is the median of the number series 4, 8, 15, 16, 23, 42 (already sorted)?",
+      "opener": "An even count of numbers — the median becomes the mean of the two middle ones.",
+      "choices": [
+        "15",
+        "16",
+        "15.5",
+        "23"
+      ],
+      "answer": 2,
+      "explanation": "With six numbers, the median is the mean of the third and fourth: $(15 + 16) / 2 = 15.5$."
+    },
+    {
+      "id": "q-ma8-sta-11",
+      "kind": "mc",
+      "topic": "spread",
+      "prompt": "Temperatures over a week: $-5$, $-2$, $0$, $3$, $6$, $1$ and $-1$ °C. What is the range?",
+      "opener": "Find the largest and the smallest value, and keep track of the signs.",
+      "choices": [
+        "1 °C",
+        "5 °C",
+        "6 °C",
+        "11 °C"
+      ],
+      "answer": 3,
+      "explanation": "The largest value is 6 and the smallest is $-5$: $6 - (-5) = 6 + 5 = 11$ °C."
+    },
+    {
+      "id": "q-ma8-sta-12",
+      "kind": "mc",
+      "topic": "diagrams",
+      "prompt": "Out of 90 pupils, 27 chose swimming. How big is swimming's sector in a pie chart?",
+      "opener": "Work out the proportion first, and remember that the whole circle is 360°.",
+      "choices": [
+        "30°",
+        "81°",
+        "108°",
+        "120°"
+      ],
+      "answer": 2,
+      "explanation": "The proportion is $27/90 = 0.30 = 30\\,\\%$, and $0.30 \\cdot 360° = 108°$."
+    },
+    {
+      "id": "q-ma8-sta-13",
+      "kind": "mc",
+      "topic": "critical evaluation of sources",
+      "prompt": "A newspaper article shows a bar chart of \"proportion of satisfied customers\" for three companies, but the number of people asked (50, 500 and 5 respectively) isn't shown in the chart. What is the problem?",
+      "opener": "Think about how reliable a result is depending on how many people answered.",
+      "choices": [
+        "No problem - proportions can always be compared directly regardless of sample size",
+        "A result based on just 5 people is much less certain than one based on 500, even though the proportions might look the same size in the chart",
+        "The chart should be a pie chart instead of a bar chart",
+        "The proportions should be given in percentage points instead of percent"
+      ],
+      "answer": 1,
+      "explanation": "The fewer people asked, the more chance affects the result. A proportion based on 5 people can change drastically because of a single person, while a proportion based on 500 is much more stable - even if both are shown as equally tall bars."
+    },
+    {
+      "id": "q-ma8-sta-14",
+      "kind": "worked",
+      "topic": "measures of location",
+      "prompt": "Six measurements of a temperature deviation gave $-2$, $3$, $-1$, $5$, $0$ and $-3$ degrees. Calculate the mean.",
+      "opener": "Add up all six numbers, keeping track of the signs, then divide by the count.",
+      "answer": "≈ 0.3 degrees",
+      "steps": [
+        "The sum: $-2 + 3 - 1 + 5 + 0 - 3 = 2$.",
+        "The mean: $2 / 6 \\approx 0.3$ degrees."
+      ]
+    },
+    {
+      "id": "q-ma8-sta-15",
+      "kind": "mc",
+      "topic": "diagrams",
+      "prompt": "In a line graph of a share's value, the curve rises steeply between year 2 and year 3, and is then almost flat between year 3 and year 4. What does that mean?",
+      "opener": "A steep curve and a flat curve say something about how fast the value is changing.",
+      "choices": [
+        "The share rose quickly between years 2 and 3, and was roughly unchanged between years 3 and 4",
+        "The share fell between years 2 and 3",
+        "The share was worthless in year 4",
+        "The chart shows nothing about how fast the value changed, only the start and end values"
+      ],
+      "answer": 0,
+      "explanation": "The slope of the curve in a line graph shows how fast the value is changing - a steep section means rapid change, a flat section means little or no change."
     }
   ]
 }

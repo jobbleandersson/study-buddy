@@ -123,6 +123,111 @@
       "prompt": "What rules apply for brackets and for solving equations?",
       "opener": "Two things to remember: how brackets are opened up, and the balance rule.",
       "answer": "Multiplying out: $a(b + c) = ab + ac$ — the number outside meets every term inside · A minus sign in front of a bracket flips the sign of everything inside: $-(3x + 2) = -3x - 2$ · Only like terms can be combined: $x$-terms with $x$-terms, numbers with numbers · The balance rule: whatever you do to one side, you do to the other · Order of work for an equation: simplify both sides → collect $x$ on one side and numbers on the other → divide by the coefficient in front of $x$ · Always check by substituting the answer back into the original equation."
+    },
+    {
+      "id": "q-ma8-ekv-9",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Multiply into the brackets: $-2(x - 5)$.",
+      "opener": "A negative number outside the brackets flips the sign of both terms inside.",
+      "choices": [
+        "$-2x + 10$",
+        "$-2x - 10$",
+        "$-2x - 5$",
+        "$2x - 10$"
+      ],
+      "answer": 0,
+      "explanation": "$-2 \\cdot x = -2x$ and $-2 \\cdot (-5) = 10$, giving $-2x + 10$. Minus times minus is plus — a common mistake is missing that and getting $-2x - 10$."
+    },
+    {
+      "id": "q-ma8-ekv-10",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Simplify $5x - (2x - 7)$.",
+      "opener": "The minus sign in front of the brackets applies to both terms inside.",
+      "choices": [
+        "$3x + 7$",
+        "$3x - 7$",
+        "$7x - 7$",
+        "$7x + 7$"
+      ],
+      "answer": 0,
+      "explanation": "$-(2x - 7) = -2x + 7$. That gives $5x - 2x + 7 = 3x + 7$."
+    },
+    {
+      "id": "q-ma8-ekv-11",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $5x + 8 = 2x + 23$.",
+      "opener": "Collect the $x$-terms on one side, the numbers on the other.",
+      "choices": [
+        "$x = 5$",
+        "$x = -5$",
+        "$x = 15$",
+        "$x = 3$"
+      ],
+      "answer": 0,
+      "explanation": "Subtract $2x$ from both sides: $3x + 8 = 23$. Subtract 8: $3x = 15$. Divide by 3: $x = 5$."
+    },
+    {
+      "id": "q-ma8-ekv-12",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $\\frac{x}{5} - 2 = 3$.",
+      "opener": "Remove what isn't divided by 5 first.",
+      "choices": [
+        "$x = 25$",
+        "$x = 5$",
+        "$x = 15$",
+        "$x = 1$"
+      ],
+      "answer": 0,
+      "explanation": "Add 2 to both sides: $\\frac{x}{5} = 5$. Multiply both sides by 5: $x = 25$."
+    },
+    {
+      "id": "q-ma8-ekv-13",
+      "kind": "mc",
+      "topic": "problem solving",
+      "prompt": "A cinema ticket costs $y$ kr. A family buys 4 tickets and a bucket of popcorn for 60 kr, paying 340 kr in total. Which equation describes the situation?",
+      "opener": "Four tickets at the same price, plus one fixed cost for the popcorn.",
+      "choices": [
+        "$4y + 60 = 340$",
+        "$4(y + 60) = 340$",
+        "$y + 4 \\cdot 60 = 340$",
+        "$4y - 60 = 340$"
+      ],
+      "answer": 0,
+      "explanation": "Four tickets cost $4y$, and the popcorn is added just once: $4y + 60 = 340$. The option $4(y+60)$ would mean the popcorn is bought four times."
+    },
+    {
+      "id": "q-ma8-ekv-14",
+      "kind": "worked",
+      "topic": "problem solving",
+      "prompt": "The sum of two consecutive integers is 47. What are the numbers? Set up an equation and solve it.",
+      "opener": "If the first number is $x$, how do you express \"the next integer\" using $x$?",
+      "answer": "23 and 24",
+      "steps": [
+        "Let $x$ be the first number. The next integer is then $x + 1$.",
+        "The equation becomes $x + (x + 1) = 47$, i.e. $2x + 1 = 47$.",
+        "Subtract 1: $2x = 46$.",
+        "Divide by 2: $x = 23$. The numbers are 23 and 24.",
+        "Check: $23 + 24 = 47$. ✓"
+      ]
+    },
+    {
+      "id": "q-ma8-ekv-15",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Simplify $-3(2x - 4) + 5x$.",
+      "opener": "Multiply $-3$ into the brackets before you collect the terms.",
+      "choices": [
+        "$-x + 12$",
+        "$-11x + 12$",
+        "$x + 12$",
+        "$-x - 12$"
+      ],
+      "answer": 0,
+      "explanation": "$-3(2x-4) = -6x + 12$. Add $5x$: $-6x + 5x = -x$. The answer is $-x + 12$."
     }
   ]
 }

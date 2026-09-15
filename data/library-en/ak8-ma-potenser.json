@@ -123,6 +123,109 @@
       "prompt": "Which power laws, rules for standard form and prefixes do you need to know?",
       "opener": "Three blocks to remember: the laws, the form and the prefixes.",
       "answer": "$a^n$ means the base $a$ is multiplied by itself $n$ times · $a^m \\cdot a^n = a^{m+n}$ (same base: add the exponents) · $\\frac{a^m}{a^n} = a^{m-n}$ (same base: subtract the exponents) · $a^0 = 1$ for all $a \\neq 0$ · $a^{-n} = \\frac{1}{a^n}$, so a negative exponent gives a number less than 1 · Standard form: $a \\cdot 10^n$ where $1 \\leq a < 10$ and $n$ is an integer · Large numbers give a positive exponent, small numbers give a negative one · The exponent $=$ the number of steps the decimal point moves · Prefixes: kilo $= 10^3$ · mega $= 10^6$ · milli $= 10^{-3}$."
+    },
+    {
+      "id": "q-ma8-pot-9",
+      "kind": "mc",
+      "topic": "powers",
+      "prompt": "What is $3^4$?",
+      "opener": "Multiply 3 by itself four times.",
+      "choices": [
+        "12",
+        "34",
+        "64",
+        "81"
+      ],
+      "answer": 3,
+      "explanation": "$3^4 = 3 \\cdot 3 \\cdot 3 \\cdot 3 = 81$. The answer 12 comes from multiplying the base and the exponent ($3 \\cdot 4$) instead of repeating the multiplication."
+    },
+    {
+      "id": "q-ma8-pot-10",
+      "kind": "mc",
+      "topic": "power laws",
+      "prompt": "Calculate $(2^3)^2$.",
+      "opener": "A power raised to another power - multiply the exponents.",
+      "choices": [
+        "36",
+        "16",
+        "48",
+        "64"
+      ],
+      "answer": 3,
+      "explanation": "$(2^3)^2 = 2^{3 \\cdot 2} = 2^6 = 64$. (You can also calculate directly: $2^3 = 8$, and $8^2 = 64$.) The answer 36 comes from wrongly multiplying the base and the outer exponent, $(2 \\cdot 3)^2$."
+    },
+    {
+      "id": "q-ma8-pot-11",
+      "kind": "mc",
+      "topic": "power laws",
+      "prompt": "What is $4^{-2}$?",
+      "opener": "A negative exponent means \"one divided by\" - work out $4^2$ first.",
+      "choices": [
+        "$\\frac{1}{16}$",
+        "-8",
+        "$\\frac{1}{8}$",
+        "16"
+      ],
+      "answer": 0,
+      "explanation": "$4^{-2} = \\frac{1}{4^2} = \\frac{1}{16}$. The answer 16 comes from forgetting that the negative exponent means the reciprocal, and $-8$ from multiplying the base and the exponent instead."
+    },
+    {
+      "id": "q-ma8-pot-12",
+      "kind": "mc",
+      "topic": "standard form",
+      "prompt": "Write $0.00052$ in standard form.",
+      "opener": "Move the decimal point until the first digit is between 1 and 10, and count the steps.",
+      "choices": [
+        "$5.2 \\cdot 10^{-4}$",
+        "$5.2 \\cdot 10^{4}$",
+        "$52 \\cdot 10^{-5}$",
+        "$0.52 \\cdot 10^{-3}$"
+      ],
+      "answer": 0,
+      "explanation": "The decimal point moves four places to the right to land after the 5: $5.2 \\cdot 10^{-4} = 0.00052$. The options $52 \\cdot 10^{-5}$ and $0.52 \\cdot 10^{-3}$ do equal the same value, but they are not standard form since the first factor is not between 1 and 10."
+    },
+    {
+      "id": "q-ma8-pot-13",
+      "kind": "mc",
+      "topic": "prefixes",
+      "prompt": "A bacterium is about 2 micrometres in size. How many metres is that, in standard form? (The prefix micro means one millionth, $10^{-6}$.)",
+      "opener": "Micro is smaller than milli - a millionth, not a thousandth.",
+      "choices": [
+        "$2 \\cdot 10^{-6}$ m",
+        "$2 \\cdot 10^{6}$ m",
+        "$2 \\cdot 10^{-3}$ m",
+        "$2 \\cdot 10^{-9}$ m"
+      ],
+      "answer": 0,
+      "explanation": "Micro $= 10^{-6}$, so $2$ micrometres $= 2 \\cdot 10^{-6}$ m. The option $2 \\cdot 10^{-3}$ m is instead millimetres, and $2 \\cdot 10^{-9}$ m is nanometres."
+    },
+    {
+      "id": "q-ma8-pot-14",
+      "kind": "worked",
+      "topic": "power laws",
+      "prompt": "Simplify $\\frac{2^5 \\cdot 2^3}{2^4}$ to a single power, and work out the value.",
+      "opener": "First the multiplication law in the numerator, then the division law.",
+      "answer": "$2^4 = 16$",
+      "steps": [
+        "The numerator: $2^5 \\cdot 2^3 = 2^{5+3} = 2^8$.",
+        "The division: $\\frac{2^8}{2^4} = 2^{8-4} = 2^4$.",
+        "Work out the value: $2^4 = 16$."
+      ]
+    },
+    {
+      "id": "q-ma8-pot-15",
+      "kind": "mc",
+      "topic": "standard form",
+      "prompt": "Which of these numbers is the largest: $3 \\cdot 10^4$, $2.9 \\cdot 10^5$, $8 \\cdot 10^3$ or $4 \\cdot 10^4$?",
+      "opener": "Write the numbers out in full so they're easy to compare.",
+      "choices": [
+        "$3 \\cdot 10^4$",
+        "$2.9 \\cdot 10^5$",
+        "$8 \\cdot 10^3$",
+        "$4 \\cdot 10^4$"
+      ],
+      "answer": 1,
+      "explanation": "In full: $3 \\cdot 10^4 = 30,000$, $2.9 \\cdot 10^5 = 290,000$, $8 \\cdot 10^3 = 8,000$ and $4 \\cdot 10^4 = 40,000$. The largest is $2.9 \\cdot 10^5$ - a higher exponent outweighs a bigger first factor."
     }
   ]
 }
