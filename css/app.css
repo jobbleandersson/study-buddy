@@ -380,7 +380,6 @@ a.streakbadge:hover {
 /* ---------- menu / home ---------- */
 .home__head { margin-bottom: var(--s-5); }
 .home__hi { color: var(--ink-soft); margin-top: 2px; }
-.home__date { font-size: var(--fs-sm); color: var(--ink-faint); margin-bottom: 2px; }
 .home__cta { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-4); }
 /* The starter-set suggestion under a new student's head. */
 .home-suggest {
@@ -568,6 +567,7 @@ a.streakbadge:hover {
 .pill__ic { width: 18px; height: 18px; flex: none; border-radius: var(--r-full); display: grid; place-items: center; background: var(--surface-sunk); color: var(--ink-soft); }
 .pill .ring { width: 26px; height: 26px; flex: none; }
 .pill--due .pill__ic { background: var(--brand); color: #fff; }
+.pill--goal { border-color: color-mix(in srgb, var(--ok-bright) 45%, var(--line-strong)); }
 .pill--weak { border-color: color-mix(in srgb, var(--c-berry) 45%, var(--line-strong)); }
 .pill--weak .pill__ic { background: var(--c-berry); color: #fff; }
 /* The streak pill glows in the same warm amber as the top-bar badge — a
