@@ -123,6 +123,108 @@
       "prompt": "How do you calculate a change factor, and how do you use it for repeated change?",
       "opener": "One formula for the factor, and one for several periods.",
       "answer": "Change factor = new value / old value. An increase of $p$% gives the factor $1 + p/100$, a decrease gives $1 - p/100$. For repeated change, the factors are multiplied: after $n$ equal-sized changes, the final value becomes $\\text{starting value} \\cdot \\text{factor}^n$."
+    },
+    {
+      "id": "q-ma1-proc-9",
+      "kind": "mc",
+      "topic": "change factor",
+      "prompt": "Which change factor corresponds to an increase of 4.5%?",
+      "opener": "Add the increase to 100%, written as a decimal number.",
+      "choices": [
+        "1.045",
+        "0.955",
+        "1.45",
+        "4.5"
+      ],
+      "answer": 0,
+      "explanation": "$100\\,\\% + 4.5\\,\\% = 104.5\\,\\%$, that is, the factor $1.045$."
+    },
+    {
+      "id": "q-ma1-proc-10",
+      "kind": "mc",
+      "topic": "change factor",
+      "prompt": "After an 8% increase, a product costs 594 kr. What did it cost before the increase?",
+      "opener": "594 kr corresponds to 108% of the original price — not 100% plus 8 kronor.",
+      "choices": [
+        "550 kr",
+        "546.48 kr",
+        "642.72 kr",
+        "500 kr"
+      ],
+      "answer": 0,
+      "explanation": "The change factor is $1.08$, so $594 / 1.08 = 550$ kr. Check: $550 \\cdot 1.08 = 594$ kr."
+    },
+    {
+      "id": "q-ma1-proc-11",
+      "kind": "mc",
+      "topic": "repeated change",
+      "prompt": "A share's value increases by 20% one year and decreases by 20% the next. How has the total value changed?",
+      "opener": "Multiply the two change factors together — the answer isn't 0%.",
+      "choices": [
+        "Unchanged",
+        "Decreased by 4%",
+        "Increased by 4%",
+        "Decreased by 40%"
+      ],
+      "answer": 1,
+      "explanation": "The factors are multiplied: $1.2 \\cdot 0.8 = 0.96$, so 96% remains — a decrease of 4%. The decrease is calculated on the already-increased value, so it's larger in kronor than the increase was."
+    },
+    {
+      "id": "q-ma1-proc-12",
+      "kind": "mc",
+      "topic": "percentage points",
+      "prompt": "The share of eligible voters who voted increased from 55% to 63%. How big is the relative (percentage) increase, rounded to one decimal place?",
+      "opener": "The difference in percentage points isn't the same as the relative increase — divide the difference by the starting value.",
+      "choices": [
+        "8.0%",
+        "14.5%",
+        "8 percentage points",
+        "12.7%"
+      ],
+      "answer": 1,
+      "explanation": "The difference is $63 - 55 = 8$ percentage points. The relative increase is calculated against the starting value: $\\frac{8}{55} \\approx 0.145 = 14.5\\,\\%$. The answer 12.7% comes from incorrectly dividing by the NEW value (63) instead of the old one."
+    },
+    {
+      "id": "q-ma1-proc-13",
+      "kind": "mc",
+      "topic": "index numbers",
+      "prompt": "An index has base year 2010 (index 100). In 2020 the index is 92. What does that mean?",
+      "opener": "An index under 100 means the value is LOWER than in the base year.",
+      "choices": [
+        "The value has increased by 92% since 2010",
+        "The value is 92% of the 2010 level, that is, a decrease of 8%",
+        "The value has decreased by 92%",
+        "The value is unchanged"
+      ],
+      "answer": 1,
+      "explanation": "Index 92 compared with the base year's 100 means the value is $\\frac{92}{100} = 0.92$ times as high, that is, 92% of the 2010 level — a decrease of 8%."
+    },
+    {
+      "id": "q-ma1-proc-14",
+      "kind": "worked",
+      "topic": "repeated change",
+      "prompt": "A company's revenue increases by 10% in the first year and then decreases by 5% in the second year. If revenue was 800,000 kr to begin with, what is the revenue after the two years?",
+      "opener": "Calculate one year at a time, always using the most recent amount as the starting point.",
+      "answer": "836,000 kr",
+      "steps": [
+        "After year 1 (10% increase, factor $1.10$): $800{,}000 \\cdot 1.10 = 880{,}000$ kr.",
+        "After year 2 (5% decrease, factor $0.95$): $880{,}000 \\cdot 0.95 = 836{,}000$ kr."
+      ]
+    },
+    {
+      "id": "q-ma1-proc-15",
+      "kind": "mc",
+      "topic": "index numbers",
+      "prompt": "An index shows 85 for a certain year, with base year = 100. What does that mean?",
+      "opener": "Compare 85 with the base year's 100 — is it an increase or a decrease?",
+      "choices": [
+        "The value is 15% higher than the base year",
+        "The value is 15% lower than the base year",
+        "The value is 85% higher than the base year",
+        "The value is unchanged since the base year"
+      ],
+      "answer": 1,
+      "explanation": "Index 85 means $\\frac{85}{100} = 0.85$ of the base year's value, that is, 15% lower."
     }
   ]
 }

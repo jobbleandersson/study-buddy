@@ -123,6 +123,110 @@
       "prompt": "If the length scale factor is $k$, what are the area scale factor and the volume scale factor?",
       "opener": "Think about how many dimensions area and volume each have.",
       "answer": "The area scale factor is $k^2$ and the volume scale factor is $k^3$. Example: if all lengths are doubled ($k = 2$), the area becomes 4 times bigger and the volume becomes 8 times bigger. That's why a pizza twice as wide contains four times as much pizza."
+    },
+    {
+      "id": "q-ma1-geo-9",
+      "kind": "mc",
+      "topic": "Pythagoras' theorem",
+      "prompt": "A right triangle has legs of 9 cm and 12 cm. How long is the hypotenuse?",
+      "opener": "Square the legs, add them, then take the square root.",
+      "choices": [
+        "15 cm",
+        "21 cm",
+        "10.5 cm",
+        "225 cm"
+      ],
+      "answer": 0,
+      "explanation": "$9^2 + 12^2 = 81 + 144 = 225$ and $\\sqrt{225} = 15$ cm."
+    },
+    {
+      "id": "q-ma1-geo-10",
+      "kind": "mc",
+      "topic": "Pythagoras' theorem",
+      "prompt": "A right triangle has a hypotenuse of 25 cm and one leg of 7 cm. How long is the other leg?",
+      "opener": "When the hypotenuse is known, you subtract instead of add.",
+      "choices": [
+        "24 cm",
+        "18 cm",
+        "32 cm",
+        "20.5 cm"
+      ],
+      "answer": 0,
+      "explanation": "$a^2 + 7^2 = 25^2$ gives $a^2 = 625 - 49 = 576$, so $a = \\sqrt{576} = 24$ cm."
+    },
+    {
+      "id": "q-ma1-geo-11",
+      "kind": "mc",
+      "topic": "similarity",
+      "prompt": "Two triangles are similar with a length scale factor of 2:5. The smaller triangle's perimeter is 14 cm. What is the larger triangle's perimeter?",
+      "opener": "Perimeter is a length — it scales just like the sides, not like the area.",
+      "choices": [
+        "35 cm",
+        "17.5 cm",
+        "70 cm",
+        "28 cm"
+      ],
+      "answer": 0,
+      "explanation": "Perimeter scales linearly, just like side lengths: $14 \\cdot \\frac{5}{2} = 35$ cm."
+    },
+    {
+      "id": "q-ma1-geo-12",
+      "kind": "mc",
+      "topic": "scale",
+      "prompt": "A square is enlarged with a length scale factor of 4. How many times bigger does the area become?",
+      "opener": "The area scale factor is the length scale factor squared.",
+      "choices": [
+        "16 times",
+        "8 times",
+        "4 times",
+        "64 times"
+      ],
+      "answer": 0,
+      "explanation": "The area scale factor is $k^2 = 4^2 = 16$ times bigger. (The volume scale factor would have been $4^3 = 64$.)"
+    },
+    {
+      "id": "q-ma1-geo-13",
+      "kind": "mc",
+      "topic": "scale",
+      "prompt": "A model has a length scale factor of 1:10 compared with the original. If the model's volume is 5 cm³, what is the original's volume?",
+      "opener": "The volume scale factor is the length scale factor cubed — and here the original is bigger, not smaller.",
+      "choices": [
+        "5000 cm³",
+        "500 cm³",
+        "50 cm³",
+        "15 cm³"
+      ],
+      "answer": 0,
+      "explanation": "The volume scale factor is $10^3 = 1000$. Since the original is bigger: $5 \\cdot 1000 = 5000$ cm³ (5 litres)."
+    },
+    {
+      "id": "q-ma1-geo-14",
+      "kind": "worked",
+      "topic": "Pythagoras' theorem",
+      "prompt": "A ladder leans against a wall. The foot of the ladder stands 1.5 m from the wall, and the ladder is 4 m long. How high up the wall does the ladder reach? Round to one decimal place.",
+      "opener": "The ladder is the hypotenuse of a right triangle — the distance from the wall is one leg.",
+      "answer": "≈ 3.7 m",
+      "steps": [
+        "The height $h$ is the unknown leg: $h^2 + 1.5^2 = 4^2$.",
+        "$h^2 = 16 - 2.25 = 13.75$.",
+        "$h = \\sqrt{13.75} \\approx 3.708$ m.",
+        "Rounded: $h \\approx 3.7$ m."
+      ]
+    },
+    {
+      "id": "q-ma1-geo-15",
+      "kind": "mc",
+      "topic": "area and volume",
+      "prompt": "A circle has an area of 200 cm². What is the radius, rounded to one decimal place?",
+      "opener": "Rearrange $A = \\pi r^2$ to isolate $r$ before you substitute the numbers.",
+      "choices": [
+        "8.0 cm",
+        "63.7 cm",
+        "14.2 cm",
+        "4.0 cm"
+      ],
+      "answer": 0,
+      "explanation": "$r = \\sqrt{\\dfrac{A}{\\pi}} = \\sqrt{\\dfrac{200}{\\pi}} \\approx \\sqrt{63.66} \\approx 8.0$ cm."
     }
   ]
 }

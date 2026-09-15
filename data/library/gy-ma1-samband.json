@@ -124,6 +124,109 @@
       "prompt": "Vad är skillnaden mellan linjär och exponentiell förändring?",
       "opener": "Ett av dem handlar om addition, det andra om multiplikation.",
       "answer": "Linjär förändring: samma belopp läggs till (eller dras bort) varje period — grafen är en rät linje, formen $y = kx + m$. Exponentiell förändring: värdet multipliceras med samma faktor varje period — grafen böjer av allt brantare (eller planar ut), formen $y = C \\cdot a^x$. Procentuell förändring är alltid exponentiell."
+    },
+    {
+      "id": "q-ma1-sam-9",
+      "kind": "mc",
+      "topic": "räta linjens ekvation",
+      "prompt": "En rät linje går genom punkterna $(2, 5)$ och $(6, 17)$. Vad är $k$-värdet?",
+      "opener": "Lutningen är förändringen i $y$ delat med förändringen i $x$.",
+      "choices": [
+        "3",
+        "4",
+        "12",
+        "2,5"
+      ],
+      "answer": 0,
+      "explanation": "$k = \\frac{\\Delta y}{\\Delta x} = \\frac{17 - 5}{6 - 2} = \\frac{12}{4} = 3$."
+    },
+    {
+      "id": "q-ma1-sam-10",
+      "kind": "mc",
+      "topic": "räta linjens ekvation",
+      "prompt": "En linje har lutningen 3 och går genom punkten $(0, -4)$. Vilken är linjens ekvation?",
+      "opener": "Punkten ligger på y-axeln — vad säger det dig om $m$-värdet direkt?",
+      "choices": [
+        "$y = 3x - 4$",
+        "$y = -4x + 3$",
+        "$y = 3x + 4$",
+        "$y = -3x - 4$"
+      ],
+      "answer": 0,
+      "explanation": "Eftersom punkten $(0, -4)$ ligger på y-axeln är $m = -4$ direkt. Med $k = 3$ blir ekvationen $y = 3x - 4$."
+    },
+    {
+      "id": "q-ma1-sam-11",
+      "kind": "mc",
+      "topic": "räta linjens ekvation",
+      "prompt": "Var skär linjen $y = -4x + 8$ x-axeln?",
+      "opener": "Vad är $y$ i alla punkter som ligger på x-axeln?",
+      "choices": [
+        "$(2, 0)$",
+        "$(0, 8)$",
+        "$(-2, 0)$",
+        "$(8, 0)$"
+      ],
+      "answer": 0,
+      "explanation": "På x-axeln är $y = 0$: $0 = -4x + 8$ ger $4x = 8$ och $x = 2$, alltså punkten $(2, 0)$."
+    },
+    {
+      "id": "q-ma1-sam-12",
+      "kind": "mc",
+      "topic": "linjära modeller",
+      "prompt": "En taxiresa kostar enligt $y = 15x + 40$, där $x$ är antal kilometer. Vad betyder talet 40?",
+      "opener": "Vilket tal gäller oavsett hur långt man åker?",
+      "choices": [
+        "Kostnad per km",
+        "Fast avgift oavsett sträcka",
+        "Total kostnad",
+        "Antal kilometer"
+      ],
+      "answer": 1,
+      "explanation": "$m$-värdet 40 är den fasta avgiften (startavgiften) som tas ut oavsett resans längd. $k$-värdet 15 är kostnaden per kilometer."
+    },
+    {
+      "id": "q-ma1-sam-13",
+      "kind": "mc",
+      "topic": "exponentiell förändring",
+      "prompt": "Vilket av dessa beskriver EXPONENTIELL förändring?",
+      "opener": "Läggs samma belopp till varje gång, eller multipliceras värdet med samma faktor?",
+      "choices": [
+        "Befolkningen ökar med 2 % per år",
+        "Bensinpriset stiger med 0,50 kr per vecka",
+        "Höjden på ett växande barn ökar med 5 cm per år",
+        "Lönen höjs med 1000 kr per år"
+      ],
+      "answer": 0,
+      "explanation": "En procentuell förändring innebär att värdet multipliceras med samma faktor varje period — det är alltid exponentiellt. De andra alternativen lägger till ett fast belopp varje gång, vilket är linjärt."
+    },
+    {
+      "id": "q-ma1-sam-14",
+      "kind": "worked",
+      "topic": "exponentiell förändring",
+      "prompt": "En bakteriekultur har 500 bakterier och fördubblas var tredje timme. Hur många bakterier finns det efter 9 timmar?",
+      "opener": "Räkna ut hur många \"fördubblingsperioder\" som ryms i 9 timmar.",
+      "answer": "4000 bakterier",
+      "steps": [
+        "9 timmar rymmer $9 / 3 = 3$ fördubblingsperioder.",
+        "Efter 3 fördubblingar är faktorn $2^3 = 8$.",
+        "$500 \\cdot 8 = 4000$ bakterier."
+      ]
+    },
+    {
+      "id": "q-ma1-sam-15",
+      "kind": "mc",
+      "topic": "linjära modeller",
+      "prompt": "En vattentank töms enligt $y = -25x + 800$, där $x$ är tid i minuter och $y$ är antal liter kvar. Vad betyder talet $-25$?",
+      "opener": "Vilket tal ändras med tiden — och vad säger minustecknet?",
+      "choices": [
+        "Tanken rymmer 25 liter",
+        "Tanken töms med 25 liter per minut",
+        "Efter 25 minuter är tanken tom",
+        "Tanken fylls med 25 liter per minut"
+      ],
+      "answer": 1,
+      "explanation": "$k$-värdet $-25$ är förändringen per minut. Att det är negativt betyder att mängden minskar — tanken töms med 25 liter per minut."
     }
   ]
 }

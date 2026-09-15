@@ -123,6 +123,111 @@
       "prompt": "När måste du vända på olikhetstecknet, och varför?",
       "opener": "Det handlar om en specifik sorts operation.",
       "answer": "När du multiplicerar eller dividerar båda leden med ett negativt tal. Skälet är att negativa tal kastar om storleksordningen: $2 < 3$, men $-2 > -3$. Att addera eller subtrahera påverkar däremot aldrig tecknet."
+    },
+    {
+      "id": "q-ma1-alg-9",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $2(3x - 5) + 4(x + 2)$.",
+      "opener": "Multiplicera in i båda parenteserna, samla sedan lika termer.",
+      "choices": [
+        "$10x - 2$",
+        "$6x - 2$",
+        "$10x + 2$",
+        "$7x - 2$"
+      ],
+      "answer": 0,
+      "explanation": "$2(3x-5) = 6x - 10$ och $4(x+2) = 4x + 8$. Tillsammans: $6x + 4x - 10 + 8 = 10x - 2$."
+    },
+    {
+      "id": "q-ma1-alg-10",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Utveckla $(2x - 3)(x + 5)$.",
+      "opener": "Varje term i första parentesen multipliceras med varje term i den andra.",
+      "choices": [
+        "$2x^2 + 7x - 15$",
+        "$2x^2 - 7x - 15$",
+        "$2x^2 + 13x - 15$",
+        "$2x^2 + 7x + 15$"
+      ],
+      "answer": 0,
+      "explanation": "$2x \\cdot x = 2x^2$, $2x \\cdot 5 = 10x$, $-3 \\cdot x = -3x$, $-3 \\cdot 5 = -15$. Summan blir $2x^2 + (10x - 3x) - 15 = 2x^2 + 7x - 15$."
+    },
+    {
+      "id": "q-ma1-alg-11",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $\\dfrac{2x+3}{5} = 3$.",
+      "opener": "Gör dig av med nämnaren genom att multiplicera båda leden med 5.",
+      "choices": [
+        "$x = 6$",
+        "$x = 9$",
+        "$x = 12$",
+        "$x = 1{,}5$"
+      ],
+      "answer": 0,
+      "explanation": "Multiplicera båda leden med 5: $2x + 3 = 15$. Dra bort 3: $2x = 12$. Dela med 2: $x = 6$."
+    },
+    {
+      "id": "q-ma1-alg-12",
+      "kind": "mc",
+      "topic": "olikheter",
+      "prompt": "Lös olikheten $5 - 2x \\leq 11$.",
+      "opener": "Isolera termen med $x$ först, dela sedan — och tänk på tecknet.",
+      "choices": [
+        "$x \\geq -3$",
+        "$x \\leq -3$",
+        "$x \\geq 3$",
+        "$x \\leq 8$"
+      ],
+      "answer": 0,
+      "explanation": "Dra bort 5: $-2x \\leq 6$. Dela med $-2$ (negativt tal, tecknet vänds): $x \\geq -3$."
+    },
+    {
+      "id": "q-ma1-alg-13",
+      "kind": "mc",
+      "topic": "formelhantering",
+      "prompt": "Lös ut $h$ ur formeln för en cylinders volym, $V = \\pi r^2 h$.",
+      "opener": "Vad behöver du dividera bort för att få $h$ ensamt?",
+      "choices": [
+        "$h = \\dfrac{V}{\\pi r^2}$",
+        "$h = V \\pi r^2$",
+        "$h = \\dfrac{\\pi r^2}{V}$",
+        "$h = V - \\pi r^2$"
+      ],
+      "answer": 0,
+      "explanation": "Dela båda leden med $\\pi r^2$: $h = \\dfrac{V}{\\pi r^2}$."
+    },
+    {
+      "id": "q-ma1-alg-14",
+      "kind": "worked",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $3(x - 2) = 2(x + 5) - 4$.",
+      "opener": "Utveckla båda leden helt innan du börjar samla termer.",
+      "answer": "$x = 12$",
+      "steps": [
+        "Vänsterledet: $3(x-2) = 3x - 6$.",
+        "Högerledet: $2(x+5) - 4 = 2x + 10 - 4 = 2x + 6$.",
+        "Ekvationen blir $3x - 6 = 2x + 6$. Dra bort $2x$: $x - 6 = 6$.",
+        "Lägg till 6: $x = 12$.",
+        "Kontroll: $3(12-2) = 30$ och $2(12+5) - 4 = 34 - 4 = 30$. ✓"
+      ]
+    },
+    {
+      "id": "q-ma1-alg-15",
+      "kind": "mc",
+      "topic": "olikheter",
+      "prompt": "Lös olikheten $-3(x - 1) < 12$.",
+      "opener": "Multiplicera in i parentesen först, isolera sedan $x$-termen.",
+      "choices": [
+        "$x > -3$",
+        "$x < -3$",
+        "$x > 3$",
+        "$x < -5$"
+      ],
+      "answer": 0,
+      "explanation": "$-3(x-1) = -3x + 3$, så olikheten blir $-3x + 3 < 12$. Dra bort 3: $-3x < 9$. Dela med $-3$ (tecknet vänds): $x > -3$."
     }
   ]
 }

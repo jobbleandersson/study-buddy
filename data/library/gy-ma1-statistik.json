@@ -123,6 +123,110 @@
       "prompt": "När multiplicerar du sannolikheter, och när adderar du dem?",
       "opener": "Nyckelorden är \"och\" respektive \"eller\".",
       "answer": "Multiplicera när båda händelserna ska inträffa (\"A OCH B\") — t.ex. två kast i rad. Addera när antingen den ena eller den andra ska inträffa och de inte kan ske samtidigt (\"A ELLER B\") — t.ex. att en tärning visar 1 eller 6. Vid beroende händelser måste du justera den andra sannolikheten efter vad som hänt först."
+    },
+    {
+      "id": "q-ma1-stat-9",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Vilket lägesmått är mest robust mot extremvärden — alltså minst påverkat av ett enda mycket avvikande värde?",
+      "opener": "Vilket mått bryr sig bara om vilket värde som ligger i mitten, inte om hur stora eller små ytterligheterna är?",
+      "choices": [
+        "Medelvärdet",
+        "Medianen",
+        "Summan",
+        "Variationsbredden"
+      ],
+      "answer": 1,
+      "explanation": "Medianen påverkas inte av hur extremt ett enskilt värde är, bara av dess plats i storleksordningen. Medelvärdet och variationsbredden kan däremot förändras kraftigt av ett enda extremvärde."
+    },
+    {
+      "id": "q-ma1-stat-10",
+      "kind": "mc",
+      "topic": "spridningsmått",
+      "prompt": "Vad är variationsbredden för talen 12, 18, 7, 25, 14?",
+      "opener": "Hitta det största och det minsta talet.",
+      "choices": [
+        "18",
+        "25",
+        "7",
+        "15,2"
+      ],
+      "answer": 0,
+      "explanation": "Variationsbredd = största värdet minus minsta: $25 - 7 = 18$."
+    },
+    {
+      "id": "q-ma1-stat-11",
+      "kind": "mc",
+      "topic": "sannolikhet",
+      "prompt": "Du singlar slant två gånger. Vad är sannolikheten att båda blir krona?",
+      "opener": "Kasten är oberoende av varandra — vad gör man då med sannolikheterna?",
+      "choices": [
+        "$\\frac{1}{4}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{8}$",
+        "$\\frac{2}{2}$"
+      ],
+      "answer": 0,
+      "explanation": "Oberoende händelser: sannolikheterna multipliceras. $\\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}$."
+    },
+    {
+      "id": "q-ma1-stat-12",
+      "kind": "mc",
+      "topic": "sannolikhet",
+      "prompt": "I en låda finns 4 blå och 6 gröna pennor. Du drar två pennor utan återläggning. Vad är sannolikheten att båda är blå?",
+      "opener": "Hur många pennor, och hur många blå, finns kvar inför det andra draget?",
+      "choices": [
+        "$\\frac{2}{15}$",
+        "$\\frac{4}{25}$",
+        "$\\frac{3}{10}$",
+        "$\\frac{1}{15}$"
+      ],
+      "answer": 0,
+      "explanation": "Första draget: $\\frac{4}{10}$. Inför andra draget finns 3 blå kvar av 9 pennor: $\\frac{3}{9}$. Tillsammans: $\\frac{4}{10} \\cdot \\frac{3}{9} = \\frac{12}{90} = \\frac{2}{15}$. Svaret $\\frac{4}{25}$ får man om man felaktigt räknar som om pennan lades tillbaka."
+    },
+    {
+      "id": "q-ma1-stat-13",
+      "kind": "mc",
+      "topic": "sannolikhet",
+      "prompt": "Sannolikheten att ett tåg är försenat en viss dag är 0,15. Vad är sannolikheten att tåget INTE är försenat?",
+      "opener": "Alla möjliga utfall måste tillsammans bli 1.",
+      "choices": [
+        "0,85",
+        "0,15",
+        "1,15",
+        "0,5"
+      ],
+      "answer": 0,
+      "explanation": "Komplementhändelsen: $P(\\text{ej försenat}) = 1 - 0{,}15 = 0{,}85$."
+    },
+    {
+      "id": "q-ma1-stat-14",
+      "kind": "worked",
+      "topic": "sannolikhet",
+      "prompt": "Du kastar en tärning tre gånger. Vad är sannolikheten att du får minst en sexa? Visa hur du tänker.",
+      "opener": "\"Minst en\" är oftast enklare att räkna ut baklänges, via komplementhändelsen.",
+      "answer": "91/216 ≈ 42,1 %",
+      "steps": [
+        "Komplementhändelsen till \"minst en sexa\" är \"ingen sexa alls\".",
+        "Sannolikheten för ingen sexa i ett kast är $\\frac{5}{6}$. Vid tre oberoende kast: $\\left(\\frac{5}{6}\\right)^3 = \\frac{125}{216}$.",
+        "Minst en sexa är komplementet: $1 - \\frac{125}{216} = \\frac{91}{216}$.",
+        "Som decimaltal: $\\frac{91}{216} \\approx 0{,}421 = 42{,}1\\,\\%$."
+      ]
+    },
+    {
+      "id": "q-ma1-stat-15",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "En rubrik säger \"Ny studie visar att kaffe botar cancer!\" baserat på en studie med 12 deltagare utan kontrollgrupp. Vad är problemet?",
+      "opener": "Fundera på hur säkra slutsatser man kan dra från ett så litet urval utan jämförelsegrupp.",
+      "choices": [
+        "Inget problem, resultatet gäller ändå för alla",
+        "Ett så litet urval utan kontrollgrupp ger mycket osäkra slutsatser, och rubriken överdriver vad studien visar",
+        "Kaffe kan aldrig undersökas vetenskapligt",
+        "Studien är automatiskt felaktig eftersom den handlar om kaffe"
+      ],
+      "answer": 1,
+      "explanation": "Med bara 12 deltagare och ingen kontrollgrupp att jämföra med går det inte att dra säkra slutsatser om orsakssamband — slumpen kan lätt förklara resultatet. Rubriken \"botar cancer\" är en kraftig överdrift av vad en så liten studie kan visa."
     }
   ]
 }

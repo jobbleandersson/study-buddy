@@ -124,6 +124,109 @@
       "prompt": "What is the difference between linear and exponential change?",
       "opener": "One of them is about addition, the other about multiplication.",
       "answer": "Linear change: the same amount is added (or subtracted) every period — the graph is a straight line, of the form $y = kx + m$. Exponential change: the value is multiplied by the same factor every period — the graph curves increasingly steeply (or flattens out), of the form $y = C \\cdot a^x$. Percentage change is always exponential."
+    },
+    {
+      "id": "q-ma1-sam-9",
+      "kind": "mc",
+      "topic": "the equation of a straight line",
+      "prompt": "A straight line passes through the points $(2, 5)$ and $(6, 17)$. What is the $k$-value (slope)?",
+      "opener": "The slope is the change in $y$ divided by the change in $x$.",
+      "choices": [
+        "3",
+        "4",
+        "12",
+        "2.5"
+      ],
+      "answer": 0,
+      "explanation": "$k = \\frac{\\Delta y}{\\Delta x} = \\frac{17 - 5}{6 - 2} = \\frac{12}{4} = 3$."
+    },
+    {
+      "id": "q-ma1-sam-10",
+      "kind": "mc",
+      "topic": "the equation of a straight line",
+      "prompt": "A line has a slope of 3 and passes through the point $(0, -4)$. What is the equation of the line?",
+      "opener": "The point lies on the y-axis — what does that tell you about the $m$-value right away?",
+      "choices": [
+        "$y = 3x - 4$",
+        "$y = -4x + 3$",
+        "$y = 3x + 4$",
+        "$y = -3x - 4$"
+      ],
+      "answer": 0,
+      "explanation": "Since the point $(0, -4)$ lies on the y-axis, $m = -4$ directly. With $k = 3$, the equation becomes $y = 3x - 4$."
+    },
+    {
+      "id": "q-ma1-sam-11",
+      "kind": "mc",
+      "topic": "the equation of a straight line",
+      "prompt": "Where does the line $y = -4x + 8$ cross the x-axis?",
+      "opener": "What is $y$ at every point that lies on the x-axis?",
+      "choices": [
+        "$(2, 0)$",
+        "$(0, 8)$",
+        "$(-2, 0)$",
+        "$(8, 0)$"
+      ],
+      "answer": 0,
+      "explanation": "On the x-axis, $y = 0$: $0 = -4x + 8$ gives $4x = 8$ and $x = 2$, so the point is $(2, 0)$."
+    },
+    {
+      "id": "q-ma1-sam-12",
+      "kind": "mc",
+      "topic": "linear models",
+      "prompt": "A taxi ride costs according to $y = 15x + 40$, where $x$ is the number of kilometres. What does the number 40 represent?",
+      "opener": "Which number applies no matter how far you travel?",
+      "choices": [
+        "Cost per km",
+        "A fixed fee regardless of distance",
+        "Total cost",
+        "Number of kilometres"
+      ],
+      "answer": 1,
+      "explanation": "The $m$-value 40 is the fixed fee (starting charge) applied no matter how far the ride is. The $k$-value 15 is the cost per kilometre."
+    },
+    {
+      "id": "q-ma1-sam-13",
+      "kind": "mc",
+      "topic": "exponential change",
+      "prompt": "Which of these describes EXPONENTIAL change?",
+      "opener": "Is the same amount added each time, or is the value multiplied by the same factor?",
+      "choices": [
+        "The population increases by 2% per year",
+        "The price of petrol rises by 0.50 kr per week",
+        "The height of a growing child increases by 5 cm per year",
+        "The salary increases by 1000 kr per year"
+      ],
+      "answer": 0,
+      "explanation": "A percentage change means the value is multiplied by the same factor every period — that's always exponential. The other options add a fixed amount each time, which is linear."
+    },
+    {
+      "id": "q-ma1-sam-14",
+      "kind": "worked",
+      "topic": "exponential change",
+      "prompt": "A bacteria culture has 500 bacteria and doubles every three hours. How many bacteria are there after 9 hours?",
+      "opener": "Work out how many \"doubling periods\" fit into 9 hours.",
+      "answer": "4000 bacteria",
+      "steps": [
+        "9 hours contains $9 / 3 = 3$ doubling periods.",
+        "After 3 doublings the factor is $2^3 = 8$.",
+        "$500 \\cdot 8 = 4000$ bacteria."
+      ]
+    },
+    {
+      "id": "q-ma1-sam-15",
+      "kind": "mc",
+      "topic": "linear models",
+      "prompt": "A water tank empties according to $y = -25x + 800$, where $x$ is time in minutes and $y$ is the number of litres left. What does the number $-25$ represent?",
+      "opener": "Which number changes with time — and what does the minus sign tell you?",
+      "choices": [
+        "The tank holds 25 litres",
+        "The tank empties at a rate of 25 litres per minute",
+        "The tank is empty after 25 minutes",
+        "The tank fills at a rate of 25 litres per minute"
+      ],
+      "answer": 1,
+      "explanation": "The $k$-value $-25$ is the change per minute. Being negative means the amount is decreasing — the tank empties at 25 litres per minute."
     }
   ]
 }

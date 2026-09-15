@@ -121,6 +121,109 @@
       "prompt": "List the laws of exponents for multiplication, division, power of a power, exponent 0, and negative exponents.",
       "opener": "Five rules — try to state them in general using $a$, $m$ and $n$.",
       "answer": "$a^m \\cdot a^n = a^{m+n}$ · $\\dfrac{a^m}{a^n} = a^{m-n}$ · $(a^m)^n = a^{m \\cdot n}$ · $a^0 = 1$ (for $a \\neq 0$) · $a^{-n} = \\dfrac{1}{a^n}$"
+    },
+    {
+      "id": "q-ma1-tal-9",
+      "kind": "mc",
+      "topic": "laws of exponents",
+      "prompt": "Simplify $\\dfrac{5^6}{5^2}$.",
+      "opener": "Same base under division — subtract the exponents.",
+      "choices": [
+        "$5^4$",
+        "$5^3$",
+        "$5^8$",
+        "$5^{12}$"
+      ],
+      "answer": 0,
+      "explanation": "When dividing with the same base, the exponents are subtracted: $\\frac{5^6}{5^2} = 5^{6-2} = 5^4 = 625$."
+    },
+    {
+      "id": "q-ma1-tal-10",
+      "kind": "mc",
+      "topic": "laws of exponents",
+      "prompt": "Calculate $(2 \\cdot 3)^2$.",
+      "opener": "Both $2$ and $3$ get raised to the exponent — or work out the brackets first.",
+      "choices": [
+        "12",
+        "36",
+        "25",
+        "30"
+      ],
+      "answer": 1,
+      "explanation": "$(2 \\cdot 3)^2 = 6^2 = 36$. This also matches calculating $2^2 \\cdot 3^2 = 4 \\cdot 9 = 36$."
+    },
+    {
+      "id": "q-ma1-tal-11",
+      "kind": "mc",
+      "topic": "laws of exponents",
+      "prompt": "What is $10^{-2}$ written as a decimal number?",
+      "opener": "A negative exponent gives the reciprocal — not a negative number.",
+      "choices": [
+        "0.01",
+        "-100",
+        "0.1",
+        "-0.01"
+      ],
+      "answer": 0,
+      "explanation": "$10^{-2} = \\frac{1}{10^2} = \\frac{1}{100} = 0.01$."
+    },
+    {
+      "id": "q-ma1-tal-12",
+      "kind": "mc",
+      "topic": "standard form",
+      "prompt": "Which number corresponds to $3.5 \\cdot 10^3$?",
+      "opener": "A positive exponent of 3 means the decimal point moves three places to the right.",
+      "choices": [
+        "350",
+        "3500",
+        "35000",
+        "0.0035"
+      ],
+      "answer": 1,
+      "explanation": "$3.5 \\cdot 10^3 = 3.5 \\cdot 1000 = 3500$."
+    },
+    {
+      "id": "q-ma1-tal-13",
+      "kind": "mc",
+      "topic": "prefixes and units",
+      "prompt": "How many grams is 1.2 kilograms, written in standard form with the unit grams?",
+      "opener": "The prefix kilo corresponds to $10^3$.",
+      "choices": [
+        "$1.2 \\cdot 10^3$ g",
+        "$1.2 \\cdot 10^{-3}$ g",
+        "$1.2 \\cdot 10^6$ g",
+        "$12 \\cdot 10^2$ g"
+      ],
+      "answer": 0,
+      "explanation": "$1.2$ kg $= 1200$ g $= 1.2 \\cdot 10^3$ g. The option $12 \\cdot 10^2$ g equals the same number (1200), but the first factor isn't between 1 and 10, so it isn't standard form."
+    },
+    {
+      "id": "q-ma1-tal-14",
+      "kind": "worked",
+      "topic": "laws of exponents",
+      "prompt": "Simplify $\\dfrac{4^3 \\cdot 4^{-5}}{4^{-4}}$ and write the answer as a whole number.",
+      "opener": "The numerator first using the multiplication rule, then the division rule — remember that subtracting a negative number means adding.",
+      "answer": "$4^2 = 16$",
+      "steps": [
+        "Numerator: $4^3 \\cdot 4^{-5} = 4^{3 + (-5)} = 4^{-2}$.",
+        "The division: $\\dfrac{4^{-2}}{4^{-4}} = 4^{-2 - (-4)} = 4^{-2+4} = 4^{2}$.",
+        "Work out the value: $4^2 = 16$."
+      ]
+    },
+    {
+      "id": "q-ma1-tal-15",
+      "kind": "mc",
+      "topic": "standard form",
+      "prompt": "Write $56{,}000{,}000$ in standard form.",
+      "opener": "Move the decimal point until the first digit is between 1 and 10, and count the steps.",
+      "choices": [
+        "$5.6 \\cdot 10^7$",
+        "$56 \\cdot 10^6$",
+        "$5.6 \\cdot 10^6$",
+        "$5.6 \\cdot 10^8$"
+      ],
+      "answer": 0,
+      "explanation": "The decimal point moves seven places to the left to land after the 5: $5.6 \\cdot 10^7 = 56{,}000{,}000$. The option $56 \\cdot 10^6$ gives the same number but isn't standard form, since the first factor isn't between 1 and 10."
     }
   ]
 }

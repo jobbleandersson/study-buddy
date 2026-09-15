@@ -123,6 +123,111 @@
       "prompt": "When do you need to flip the inequality sign, and why?",
       "opener": "It concerns one specific kind of operation.",
       "answer": "When you multiply or divide both sides by a negative number. The reason is that negative numbers reverse the order of magnitude: $2 < 3$, but $-2 > -3$. Adding or subtracting, on the other hand, never affects the sign."
+    },
+    {
+      "id": "q-ma1-alg-9",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Simplify $2(3x - 5) + 4(x + 2)$.",
+      "opener": "Multiply into both brackets, then collect like terms.",
+      "choices": [
+        "$10x - 2$",
+        "$6x - 2$",
+        "$10x + 2$",
+        "$7x - 2$"
+      ],
+      "answer": 0,
+      "explanation": "$2(3x-5) = 6x - 10$ and $4(x+2) = 4x + 8$. Together: $6x + 4x - 10 + 8 = 10x - 2$."
+    },
+    {
+      "id": "q-ma1-alg-10",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Expand $(2x - 3)(x + 5)$.",
+      "opener": "Every term in the first bracket is multiplied by every term in the second.",
+      "choices": [
+        "$2x^2 + 7x - 15$",
+        "$2x^2 - 7x - 15$",
+        "$2x^2 + 13x - 15$",
+        "$2x^2 + 7x + 15$"
+      ],
+      "answer": 0,
+      "explanation": "$2x \\cdot x = 2x^2$, $2x \\cdot 5 = 10x$, $-3 \\cdot x = -3x$, $-3 \\cdot 5 = -15$. The total is $2x^2 + (10x - 3x) - 15 = 2x^2 + 7x - 15$."
+    },
+    {
+      "id": "q-ma1-alg-11",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $\\dfrac{2x+3}{5} = 3$.",
+      "opener": "Get rid of the denominator by multiplying both sides by 5.",
+      "choices": [
+        "$x = 6$",
+        "$x = 9$",
+        "$x = 12$",
+        "$x = 1.5$"
+      ],
+      "answer": 0,
+      "explanation": "Multiply both sides by 5: $2x + 3 = 15$. Subtract 3: $2x = 12$. Divide by 2: $x = 6$."
+    },
+    {
+      "id": "q-ma1-alg-12",
+      "kind": "mc",
+      "topic": "inequalities",
+      "prompt": "Solve the inequality $5 - 2x \\leq 11$.",
+      "opener": "Isolate the term with $x$ first, then divide — and watch the sign.",
+      "choices": [
+        "$x \\geq -3$",
+        "$x \\leq -3$",
+        "$x \\geq 3$",
+        "$x \\leq 8$"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 5: $-2x \\leq 6$. Divide by $-2$ (a negative number, so the sign flips): $x \\geq -3$."
+    },
+    {
+      "id": "q-ma1-alg-13",
+      "kind": "mc",
+      "topic": "formula rearrangement",
+      "prompt": "Rearrange the formula for a cylinder's volume, $V = \\pi r^2 h$, to isolate $h$.",
+      "opener": "What do you need to divide away to get $h$ alone?",
+      "choices": [
+        "$h = \\dfrac{V}{\\pi r^2}$",
+        "$h = V \\pi r^2$",
+        "$h = \\dfrac{\\pi r^2}{V}$",
+        "$h = V - \\pi r^2$"
+      ],
+      "answer": 0,
+      "explanation": "Divide both sides by $\\pi r^2$: $h = \\dfrac{V}{\\pi r^2}$."
+    },
+    {
+      "id": "q-ma1-alg-14",
+      "kind": "worked",
+      "topic": "equations",
+      "prompt": "Solve the equation $3(x - 2) = 2(x + 5) - 4$.",
+      "opener": "Expand both sides completely before you start collecting terms.",
+      "answer": "$x = 12$",
+      "steps": [
+        "Left side: $3(x-2) = 3x - 6$.",
+        "Right side: $2(x+5) - 4 = 2x + 10 - 4 = 2x + 6$.",
+        "The equation becomes $3x - 6 = 2x + 6$. Subtract $2x$: $x - 6 = 6$.",
+        "Add 6: $x = 12$.",
+        "Check: $3(12-2) = 30$ and $2(12+5) - 4 = 34 - 4 = 30$. ✓"
+      ]
+    },
+    {
+      "id": "q-ma1-alg-15",
+      "kind": "mc",
+      "topic": "inequalities",
+      "prompt": "Solve the inequality $-3(x - 1) < 12$.",
+      "opener": "Multiply into the brackets first, then isolate the $x$-term.",
+      "choices": [
+        "$x > -3$",
+        "$x < -3$",
+        "$x > 3$",
+        "$x < -5$"
+      ],
+      "answer": 0,
+      "explanation": "$-3(x-1) = -3x + 3$, so the inequality becomes $-3x + 3 < 12$. Subtract 3: $-3x < 9$. Divide by $-3$ (the sign flips): $x > -3$."
     }
   ]
 }

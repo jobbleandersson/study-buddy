@@ -123,6 +123,108 @@
       "prompt": "Hur räknar du ut en förändringsfaktor, och hur använder du den vid upprepad förändring?",
       "opener": "En formel för faktorn, och en för flera perioder.",
       "answer": "Förändringsfaktor = nytt värde / gammalt värde. En ökning med $p$ % ger faktorn $1 + p/100$, en minskning ger $1 - p/100$. Vid upprepad förändring multipliceras faktorerna: efter $n$ lika stora förändringar blir slutvärdet $\\text{startvärde} \\cdot \\text{faktor}^n$."
+    },
+    {
+      "id": "q-ma1-proc-9",
+      "kind": "mc",
+      "topic": "förändringsfaktor",
+      "prompt": "Vilken förändringsfaktor motsvarar en ökning med 4,5 %?",
+      "opener": "Lägg ökningen till 100 %, skrivet som decimaltal.",
+      "choices": [
+        "1,045",
+        "0,955",
+        "1,45",
+        "4,5"
+      ],
+      "answer": 0,
+      "explanation": "$100\\,\\% + 4{,}5\\,\\% = 104{,}5\\,\\%$, alltså faktorn $1{,}045$."
+    },
+    {
+      "id": "q-ma1-proc-10",
+      "kind": "mc",
+      "topic": "förändringsfaktor",
+      "prompt": "Efter en höjning med 8 % kostar en produkt 594 kr. Vad kostade den innan höjningen?",
+      "opener": "594 kr motsvarar 108 % av ursprungspriset — inte 100 % plus 8 kronor.",
+      "choices": [
+        "550 kr",
+        "546,48 kr",
+        "642,72 kr",
+        "500 kr"
+      ],
+      "answer": 0,
+      "explanation": "Förändringsfaktorn är $1{,}08$, så $594 / 1{,}08 = 550$ kr. Kontroll: $550 \\cdot 1{,}08 = 594$ kr."
+    },
+    {
+      "id": "q-ma1-proc-11",
+      "kind": "mc",
+      "topic": "upprepad förändring",
+      "prompt": "En akties värde ökar med 20 % ena året och minskar med 20 % året efter. Hur har totalvärdet förändrats?",
+      "opener": "Multiplicera de två förändringsfaktorerna — svaret är inte 0 %.",
+      "choices": [
+        "Oförändrat",
+        "Minskat med 4 %",
+        "Ökat med 4 %",
+        "Minskat med 40 %"
+      ],
+      "answer": 1,
+      "explanation": "Faktorerna multipliceras: $1{,}2 \\cdot 0{,}8 = 0{,}96$, alltså är 96 % kvar — en minskning med 4 %. Minskningen räknas på det redan höjda värdet, så den blir större i kronor än ökningen var."
+    },
+    {
+      "id": "q-ma1-proc-12",
+      "kind": "mc",
+      "topic": "procentenheter",
+      "prompt": "Andelen röstberättigade som röstade ökade från 55 % till 63 %. Hur stor är den relativa (procentuella) ökningen, avrundat till en decimal?",
+      "opener": "Skillnaden i procentenheter är inte samma sak som den relativa ökningen — dela skillnaden med utgångsvärdet.",
+      "choices": [
+        "8,0 %",
+        "14,5 %",
+        "8 procentenheter",
+        "12,7 %"
+      ],
+      "answer": 1,
+      "explanation": "Skillnaden är $63 - 55 = 8$ procentenheter. Den relativa ökningen räknas mot utgångsvärdet: $\\frac{8}{55} \\approx 0{,}145 = 14{,}5\\,\\%$. Svaret 12,7 % får man om man felaktigt delar med det NYA värdet (63) i stället för det gamla."
+    },
+    {
+      "id": "q-ma1-proc-13",
+      "kind": "mc",
+      "topic": "index",
+      "prompt": "Ett index har basår 2010 (index 100). År 2020 är index 92. Vad betyder det?",
+      "opener": "Index under 100 betyder att värdet är LÄGRE än under basåret.",
+      "choices": [
+        "Värdet har ökat med 92 % sedan 2010",
+        "Värdet är 92 % av 2010 års nivå, det vill säga en minskning med 8 %",
+        "Värdet har minskat med 92 %",
+        "Värdet är oförändrat"
+      ],
+      "answer": 1,
+      "explanation": "Index 92 jämfört med basåret 100 betyder att värdet är $\\frac{92}{100} = 0{,}92$ gånger så högt, alltså 92 % av 2010 års nivå — en minskning med 8 %."
+    },
+    {
+      "id": "q-ma1-proc-14",
+      "kind": "worked",
+      "topic": "upprepad förändring",
+      "prompt": "Ett företags omsättning ökar med 10 % första året och minskar sedan med 5 % andra året. Om omsättningen var 800 000 kr från början, vad är omsättningen efter de två åren?",
+      "opener": "Räkna ett år i taget, och använd alltid det senaste beloppet som utgångspunkt.",
+      "answer": "836 000 kr",
+      "steps": [
+        "Efter år 1 (ökning med 10 %, faktor $1{,}10$): $800\\,000 \\cdot 1{,}10 = 880\\,000$ kr.",
+        "Efter år 2 (minskning med 5 %, faktor $0{,}95$): $880\\,000 \\cdot 0{,}95 = 836\\,000$ kr."
+      ]
+    },
+    {
+      "id": "q-ma1-proc-15",
+      "kind": "mc",
+      "topic": "index",
+      "prompt": "Ett index visar 85 för ett visst år, med basår = 100. Vad betyder det?",
+      "opener": "Jämför 85 med basårets 100 — är det en ökning eller minskning?",
+      "choices": [
+        "Värdet är 15 % högre än basåret",
+        "Värdet är 15 % lägre än basåret",
+        "Värdet är 85 % högre än basåret",
+        "Värdet är oförändrat sedan basåret"
+      ],
+      "answer": 1,
+      "explanation": "Index 85 betyder $\\frac{85}{100} = 0{,}85$ av basårets värde, alltså 15 % lägre."
     }
   ]
 }
