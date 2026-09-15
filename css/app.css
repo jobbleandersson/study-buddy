@@ -362,6 +362,27 @@ a.streakbadge:hover {
 /* ---------- menu / home ---------- */
 .home__head { margin-bottom: var(--s-5); }
 .home__hi { color: var(--ink-soft); margin-top: 2px; }
+.home__date { font-size: var(--fs-sm); color: var(--ink-faint); margin-bottom: 2px; }
+.home__cta { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-4); }
+/* The starter-set suggestion under a new student's head. */
+.home-suggest {
+  display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: var(--s-3); align-items: center;
+  width: 100%; max-width: 520px; margin-top: var(--s-4); padding: var(--s-3) var(--s-4);
+  font: inherit; color: inherit; text-align: left; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+  transition: border-color var(--dur-fast);
+}
+.home-suggest:hover { border-color: var(--brand); }
+.home-suggest:disabled { opacity: .6; cursor: progress; }
+.home-suggest > svg { color: var(--ink-faint); }
+.home-suggest__ic {
+  width: 40px; height: 40px; border-radius: var(--r-sm); display: grid; place-items: center;
+  background: color-mix(in srgb, var(--brand) 14%, transparent); color: var(--brand-ink);
+}
+.home-suggest__body { display: flex; flex-direction: column; min-width: 0; }
+.home-suggest__eyebrow { font-size: 12px; color: var(--ink-faint); }
+.home-suggest__title { font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.home-suggest__meta { font-size: var(--fs-sm); color: var(--ink-soft); }
 /* Solve / Library / New-set — a row on its own, between the "Idag" panel
    and "Dina set". */
 .home__actions { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-bottom: var(--s-5); }
@@ -543,7 +564,6 @@ a.streakbadge:hover {
               0 4px 22px -4px color-mix(in srgb, var(--retry) 78%, transparent);
 }
 .pill--streak .pill__ic { background: var(--retry); color: #2B2B3A; }
-.pill--goal { border-color: color-mix(in srgb, var(--ok-bright) 45%, var(--line-strong)); }
 :root[data-theme="dark"] .pill--streak .pill__ic { color: #21170C; }
 
 /* "Filter" toggle + the collapsible drawer holding sort + subject chips */
