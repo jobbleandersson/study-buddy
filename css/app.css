@@ -1271,6 +1271,49 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .libcard__added { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-sm); font-weight: 700; color: var(--ok-ink); }
 .libcard__added svg { flex: none; }
 .libcard__count { font-weight: 400; color: var(--ink-faint); }
+
+/* Högskoleprovet delprov list — a table, since the point is comparing the
+   same few numbers (questions, time, last result) down the rows. */
+.hp-table-wrap { margin-top: var(--s-3); overflow-x: auto; }
+.hp-table { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+.hp-table th {
+  text-align: left; font-weight: 600; font-size: 12px; color: var(--ink-faint);
+  padding: var(--s-2) var(--s-3); border-bottom: 1px solid var(--line); white-space: nowrap;
+}
+.hp-table td { padding: var(--s-3); border-bottom: 1px solid var(--line); vertical-align: middle; }
+.hp-table__group th {
+  font-family: var(--font-display); font-size: var(--fs-sm); font-weight: 700; color: var(--ink-soft);
+  padding-top: var(--s-5);
+}
+.hp-table__row:hover td { background: var(--surface-sunk); }
+.hp-table__code {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Consolas, monospace);
+  font-weight: 700; letter-spacing: 0.02em; color: var(--ink); width: 64px; white-space: nowrap;
+}
+.hp-table__name { font-weight: 600; color: var(--ink); }
+.hp-table__sub { font-size: 12px; color: var(--ink-faint); margin-top: 1px; }
+.hp-table__meta { display: none; }
+.hp-table__num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; width: 1%; }
+.hp-table__muted { color: var(--ink-faint); }
+.hp-table__actions { width: 1%; white-space: nowrap; }
+.hp-table__actions > div { display: flex; gap: 6px; align-items: center; justify-content: flex-end; }
+/* Phone: each delprov becomes a two-line entry; the number columns fold into
+   the meta line under the name. */
+@media (max-width: 700px) {
+  .hp-table thead, .hp-table td.hp-table__num { display: none; }
+  .hp-table, .hp-table tbody { display: block; }
+  .hp-table__group { display: block; }
+  .hp-table__group th { display: block; padding-inline: 0; }
+  .hp-table__row {
+    display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: var(--s-2);
+    padding: var(--s-3) 0; border-bottom: 1px solid var(--line);
+  }
+  .hp-table__row td { display: block; padding: 0; border: 0; background: none !important; }
+  .hp-table__code { width: auto; padding-top: 1px !important; }
+  .hp-table__meta { display: block; font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+  .hp-table__actions { grid-column: 2; width: auto; margin-top: var(--s-2); }
+  .hp-table__actions > div { justify-content: flex-start; flex-wrap: wrap; }
+}
 /* "Exam-mode options" disclosure above the set grid. */
 .libexam { margin-top: var(--s-3); }
 .libexam summary, .set-ai-how summary {
