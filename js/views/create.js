@@ -86,7 +86,12 @@ export function renderCreate(prefill) {
     topic: "",
     image: null,
     gradeHint: "",
-    subject: prefillSubject || store.subjects[0]?.name || t("common.general"),
+    // No fallback to t("common.general") here — that's a real value the
+    // subject field would show pre-filled (not placeholder text), inviting a
+    // student to type their own subject straight after it and end up with
+    // "AllmäntBiologi". The generic-subject fallback only applies at save
+    // time (see the .trim() || t("common.general") sites below).
+    subject: prefillSubject || store.subjects[0]?.name || "",
     // Locked when the subject came from the Nationellt prov source below (or a
     // ?subject=&lock=1 prefill) — every set for the same exam has to land under
     // one exact subject name so it can be found again by subjectId later.
@@ -187,7 +192,7 @@ export function renderCreate(prefill) {
         // Leaving the Nationellt prov source: drop any stale subject lock.
         if (key !== "nationalprov" && state.subjectLocked) {
           state.subjectLocked = false;
-          state.subject = store.subjects[0]?.name || t("common.general");
+          state.subject = store.subjects[0]?.name || "";
           state.npLevel = null; state.npEntry = null;
         }
         state.source = key; state.step = "input"; paint();

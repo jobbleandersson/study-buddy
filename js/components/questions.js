@@ -313,7 +313,7 @@ function text({ question, tutor, live, testMode, onDone, askConfidence }) {
       (verdict.missedPoints?.length ? `<ul>${verdict.missedPoints.map((m) => `<li>${escapeHtml(m)}</li>`).join("")}</ul>` : "") +
       `<p style="margin-top:10px"><strong>${escapeHtml(t("q.modelAnswer"))}</strong> ${renderRich(question.answer)}</p>`;
 
-    if (verdict.correct) tutor?.celebrate(t("q.tutorGotIt"));
+    if (verdict.correct) tutor?.celebrate(t("q.tutorGotIt", { answer: ans }));
     else tutor?.note(t("q.tutorWhatMissing", { answer: ans }));
 
     // The grade stands on its own — the student no longer marks their own
