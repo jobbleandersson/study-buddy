@@ -3,12 +3,13 @@
 
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast, downloadText } from "../lib/dom.js";
-import { t, plural, fmtDate, relativeDay, daysUntil } from "../lib/i18n.js";
+import { t, plural, fmtDate, relativeDay, daysUntil, getLang } from "../lib/i18n.js";
+import { importSet } from "../data/library.js";
+import { loadLibraryIndex, loadLibraryTranslations } from "../lib/library-content.js";
 import { localDayKey, questionsAnsweredToday } from "../lib/activity.js";
 import { weeklyRecap, isoWeek } from "../lib/recap.js";
 import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
 import { monthCalendar, weekStrip } from "../components/calendar.js";
-import { goalRing } from "../components/goal-ring.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
 import { openDueDialog, closeDueDialog } from "../components/due-dialog.js";
@@ -239,7 +240,7 @@ export function renderMenu(mode) {
   function emptyState() {
     const isFirstRun = !store.assignments.length;
     return el("div.empty", { style: { gridColumn: "1 / -1" } }, [
-      icon(ICONS.spark, 26),
+      icon(ICONS.book, 26),
       el("h3", { style: { marginBottom: "6px" } },
         isFirstRun ? t("menu.emptyFirstTitle")
           : t(tab === "assignment" ? "menu.emptyAssignTitle" : "menu.emptyTestTitle")),
@@ -384,11 +385,8 @@ export function renderMenu(mode) {
     ...libraryUI,
   ]);
 
-  // The greeting stays at the very top, full width.
-  const greetingBlock = el("div.home__head", {}, [
-    el("h1", {}, greeting()),
-    el("p.home__hi", {}, store.hasKey() ? t("menu.subHasKey") : t("menu.subNoKey")),
-  ]);
+  // The head stays at the very top, full width: what to do right now.
+  const greetingBlock = homeHead();
 
   // The Solve / Library / New-set shortcuts sit *below* the "Idag" panel — a
   // returning user sees their status (continue, due, streak) first, then the
@@ -396,7 +394,8 @@ export function renderMenu(mode) {
   // mode a Library shortcut slots in between rather than jumping the queue.
   const headActions = el("div.home__actions", {}, [
     el("a.btn.btn--ghost", { href: "#/solve" }, [icon(ICONS.camera, 18), t("menu.solveLink")]),
-    !store.hasKey() && el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
+    // With no sets yet the head's "Pick a set" already leads to the library.
+    store.assignments.length && !store.hasKey() && el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
     el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
   ].filter(Boolean));
 
@@ -568,15 +567,13 @@ function todayPanel() {
   const openKey = Object.keys(store.state.sessions)[0];
   const open = openKey ? store.state.sessions[openKey] : null;
   const weak = weakSpotQuestions(store.assignments, store.attempts).length;
-  const goal = Number(store.settings.dailyGoal) || 0;
-  const showGoal = goal > 0 && store.assignments.length;
   const upcoming = store.upcomingDue();
   const recap = recapCard();
 
-  if (!open && !showGoal && !due && !weak && streak <= 0 && !recap && !upcoming.length) return null;
+  if (!open && !due && !weak && streak <= 0 && !recap && !upcoming.length) return null;
 
+  // The daily goal lives in the page head now (homeHead), not as a pill here.
   const pills = [];
-  if (showGoal) pills.push(goalPill(goal));
   if (due) pills.push(statPill("#/review", ICONS.spark, t("menu.tileDue", { n: due }), "pill--due"));
   if (weak) pills.push(statPill("#/practice-weak", ICONS.target,
     plural(weak, "menu.tileWeakOne", "menu.tileWeakMany"), "pill--weak"));
@@ -623,20 +620,6 @@ function statPill(href, iconPath, label, cls) {
   ]);
 }
 
-/** Daily-goal pill: a small ring + count. Plays a fanfare the first time the
- *  goal is reached each day (same side effect the old tile carried). */
-function goalPill(goal) {
-  const done = questionsAnsweredToday(store.attempts);
-  const hit = done >= goal;
-  // markGoalReached() writes to the store (and can fire an achievement) — keep
-  // that out of the render call stack so its "change" event doesn't re-enter
-  // render() mid-paint.
-  if (hit) queueMicrotask(() => { if (store.markGoalReached()) playFanfare(); });
-  return el("a.pill.pill--goal", { href: "#/progress" }, [
-    goalRing(done, goal),
-    el("span", {}, hit ? t("menu.goalDone", { done }) : t("menu.goalToday", { done, goal })),
-  ]);
-}
 
 /**
  * A calendar (a dot on every day with a deadline) above the "Upcoming" list,
@@ -848,4 +831,100 @@ function ring(v, color) {
 function greeting() {
   const h = new Date().getHours();
   return t(h < 12 ? "menu.morning" : h < 18 ? "menu.afternoon" : "menu.evening");
+}
+
+/**
+ * The top of the home page. Answers "what should I do right now?": today's
+ * date, the daily goal as the headline, one line picked from the student's
+ * actual state (no sets yet → due reviews → next deadline), and — for a
+ * brand-new student — one clear action plus a real starter set to open.
+ */
+function homeHead() {
+  const goal = Number(store.settings.dailyGoal) || 0;
+  const done = questionsAnsweredToday(store.attempts);
+  const hasSets = store.assignments.length > 0;
+  const due = store.dueQuestions().length;
+  const next = store.upcomingDue()[0] || null;
+  const needsSignIn = store.aiNeedsSignIn();
+
+  // markGoalReached() writes to the store (and can fire an achievement) — keep
+  // that out of the render call stack so its "change" event doesn't re-enter
+  // render() mid-paint.
+  if (goal > 0 && done >= goal) queueMicrotask(() => { if (store.markGoalReached()) playFanfare(); });
+
+  const dateText = new Date().toLocaleDateString(getLang() === "sv" ? "sv-SE" : "en-GB",
+    { weekday: "long", day: "numeric", month: "long" });
+
+  const title = goal <= 0 ? greeting()
+    : done >= goal ? t("menu.headGoalDone", { done })
+    : t("menu.headGoal", { done, goal });
+
+  const sub = !hasSets
+    ? (needsSignIn
+        ? [t("menu.headStartSignIn"), el("a", { href: "#/login" }, t("menu.headStartSignInLink")), t("menu.headStartSignInTail")]
+        : t(store.hasKey() ? "menu.headStartAi" : "menu.headStart"))
+    : due ? plural(due, "menu.headDueOne", "menu.headDueMany")
+    : next ? t("menu.headNext", { title: next.title, when: countdownLabel(next.dueAt) })
+    : t("menu.subHasKey");
+
+  const suggestSlot = el("div", { hidden: true });
+  if (!hasSets) fillStarterSuggestion(suggestSlot);
+
+  return el("div.home__head", {}, [
+    el("p.home__date", {}, dateText.charAt(0).toUpperCase() + dateText.slice(1)),
+    el("h1", {}, title),
+    el("p.home__hi", {}, sub),
+    !hasSets && el("div.home__cta", {}, [
+      el("a.btn", { href: "#/library" }, [icon(ICONS.book, 18), t("menu.headPickSet")]),
+      needsSignIn && el("a.btn.btn--ghost", { href: "#/login" }, t("login.signIn")),
+    ].filter(Boolean)),
+    suggestSlot,
+  ].filter(Boolean));
+}
+
+/** One real set from the practice library for a student with nothing added
+ *  yet: the first set of the first subject at åk 9 (or the first level if
+ *  that's missing). One tap adds it and starts it. Stays hidden if the
+ *  library index can't load. */
+async function fillStarterSuggestion(slot) {
+  let index, tr;
+  try {
+    index = await loadLibraryIndex();
+    tr = getLang() === "en" ? await loadLibraryTranslations() : { levels: {}, subjects: {}, sets: {} };
+  } catch { return; }
+
+  const level = index.levels?.find((l) => l.id === "ak9") || index.levels?.[0];
+  const subject = level && index.subjects?.find((s) => s.level === level.id);
+  const entry = subject && index.sets?.find((s) => s.subject === subject.id);
+  if (!entry) return;
+
+  const levelLabel = tr.levels?.[level.id] || level.label;
+  const subjectName = tr.subjects?.[subject.id]?.name || subject.name;
+  const setTitle = tr.sets?.[entry.id]?.title || entry.title;
+
+  const card = el("button.home-suggest", {
+    type: "button",
+    onclick: async () => {
+      card.disabled = true;
+      try {
+        await importSet(entry);
+        location.hash = `#/session/${entry.id}`;
+      } catch {
+        toast(t("lib.addFail"));
+        card.disabled = false;
+      }
+    },
+  }, [
+    el("span.home-suggest__ic", {}, icon(ICONS.book, 20)),
+    el("span.home-suggest__body", {}, [
+      el("span.home-suggest__eyebrow", {}, t("menu.suggestLabel")),
+      el("span.home-suggest__title", {}, setTitle),
+      el("span.home-suggest__meta", {}, [
+        levelLabel, subjectName, plural(entry.count, "common.questionOne", "common.questionMany"),
+      ].join(" · ")),
+    ]),
+    icon(ICONS.arrow, 16),
+  ]);
+  slot.appendChild(card);
+  slot.hidden = false;
 }

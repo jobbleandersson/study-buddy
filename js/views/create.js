@@ -180,6 +180,7 @@ export function renderCreate(prefill) {
    * the AI-generated ones follow, marked when there's no server to run them. */
   function sourceStep() {
     const noServer = !store.hasKey();
+    const needsSignIn = store.aiNeedsSignIn();
     const opt = (key, iconPath, label, desc, needsAi) => el("button.source-opt" + (needsAi && noServer ? ".source-opt--locked" : ""), {
       type: "button",
       onclick: () => {
@@ -194,7 +195,7 @@ export function renderCreate(prefill) {
     }, [
       icon(iconPath, 26), label,
       el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, desc),
-      needsAi && noServer ? el("span.source-opt__tag", {}, t("create.optNeedsServer")) : null,
+      needsAi && noServer ? el("span.source-opt__tag", {}, t(needsSignIn ? "create.optNeedsSignIn" : "create.optNeedsServer")) : null,
     ].filter(Boolean));
 
     return el("div.panel", {}, [
@@ -207,7 +208,11 @@ export function renderCreate(prefill) {
         opt("pdf", ICONS.fileText, t("create.optPdf"), t("create.optPdfSub"), true),
         opt("nationalprov", ICONS.graduation, t("create.optNational"), t("create.optNationalSub"), true),
       ]),
-      noServer && el("p.note.note--warn", { style: { marginTop: "16px" } }, [
+      noServer && needsSignIn && el("p.note", { style: { marginTop: "16px" } }, [
+        t("create.needSignIn"), el("a", { href: "#/login" }, t("create.needSignInLink")),
+        t("create.needSignInTail"),
+      ]),
+      noServer && !needsSignIn && el("p.note.note--warn", { style: { marginTop: "16px" } }, [
         t("create.needKey"), el("a", { href: "#/settings" }, t("create.needKeyLink")),
         t("create.needKeyTail"),
       ]),

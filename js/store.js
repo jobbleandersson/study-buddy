@@ -434,8 +434,9 @@ class Store extends EventTarget {
     if (this.proxyUp) {
       try {
         const res = await fetch(AUTH_ME_URL, { credentials: "include" });
-        if (res.ok) {
-          const data = await res.json();
+        // 200 {authed:false} when signed out (older servers answer 401).
+        const data = res.ok ? await res.json() : null;
+        if (data?.email && data.authed !== false) {
           this.authed = true;
           this.authEmail = data.email;
         }
@@ -1145,6 +1146,14 @@ class Store extends EventTarget {
   canUseAI() {
     if (!this.proxyUp || !this.proxyKeyConfigured || this._aiQuotaOut) return false;
     return this.authed || !this.proxyRequiresAuth;
+  }
+
+  /** The server is up and keyed, and signing in is the only thing standing
+   *  between this visitor and the AI features — so the UI should say "sign in",
+   *  not "connect a server". */
+  aiNeedsSignIn() {
+    return this.proxyUp && this.proxyKeyConfigured && !this._aiQuotaOut
+      && this.proxyRequiresAuth && !this.authed;
   }
 
   /** Legacy name — every existing caller means canUseAI(). Kept so views don't

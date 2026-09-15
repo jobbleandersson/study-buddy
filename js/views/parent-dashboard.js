@@ -174,8 +174,11 @@ export function renderParentHub() {
       const btn = el("button.btn.btn--sm", { type: "button" }, t("parent.addToLibrary"));
       btn.addEventListener("click", async () => {
         btn.disabled = true;
+        // Clear it on the server first: if that fails, the item would reappear
+        // on the next load and a second click would add a duplicate.
+        try { await api(clearAssignedUrl(item.id), { method: "DELETE" }); }
+        catch { btn.disabled = false; toast(t("parent.addToLibraryFail")); return; }
         store.addAssignmentDoc(item.doc);
-        try { await api(clearAssignedUrl(item.id), { method: "DELETE" }); } catch {}
         toast(t("parent.addedToLibrary", { title: item.doc.title }));
         paintAssigned();
       });

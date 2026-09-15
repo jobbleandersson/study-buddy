@@ -4,6 +4,9 @@
 [hidden] { display: none !important; }
 
 html, body { height: 100%; }
+/* Reserve the scrollbar's space on every page, so content doesn't shift
+   sideways between short (no scrollbar) and long pages. */
+html { scrollbar-gutter: stable; }
 
 body {
   font-family: var(--font-body);
@@ -90,11 +93,19 @@ a.streakbadge:hover {
 /* Left sidebar — the whole nav on desktop. Hidden below 900px, where the
    topbar (and its ⋮ menu) covers the same ground. */
 .sidebar { display: none; }
+/* Pinned to the top of the sidebar's own scroll, so the logo never scrolls
+   out of view. The negative margins pull its solid band over the sidebar's
+   padding (top and sides) and the padding puts the logo back exactly where it
+   was — links slide underneath instead of past it, and nothing moves at rest.
+   `top` is negative because sticky offsets count from inside the scroll
+   container's padding: -padding pins it flush to the sidebar's top edge. */
 .sidebar__brand {
   display: flex; align-items: center; gap: var(--s-2);
   font-family: var(--font-display); font-weight: 700; font-size: var(--fs-lg);
   color: var(--ink); text-decoration: none;
-  padding: 0 var(--s-2); margin-bottom: var(--s-5);
+  position: sticky; top: calc(-1 * var(--s-5)); z-index: 1; background: var(--surface);
+  margin: calc(-1 * var(--s-5)) calc(-1 * var(--s-3)) var(--s-3);
+  padding: var(--s-5) calc(var(--s-3) + var(--s-2)) var(--s-3);
 }
 .sidebar__brand img { width: 28px; height: 28px; }
 .sidebar__nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
@@ -294,6 +305,8 @@ a.streakbadge:hover {
   padding: 5px 12px 5px 8px; border-radius: var(--r-full);
   border: 1px solid var(--line-strong); background: var(--surface);
   margin-bottom: var(--s-4);
+  /* Stay pill-sized inside grid/flex-column page wrappers instead of stretching. */
+  justify-self: start; align-self: flex-start;
 }
 .homebtn:hover { color: var(--brand); border-color: var(--brand); }
 .homebtn svg { flex: none; }
@@ -325,7 +338,8 @@ a.streakbadge:hover {
      floats at the bottom, like the solve-screen hint — never sits under it.
      Immersive routes (a running session, print) drop the tab bar, so no
      clearance is needed and the session's own hint button owns the bottom. */
-  .shell:not(.shell--immersive) .content { padding-bottom: calc(70px + env(safe-area-inset-bottom, 0)); }
+  /* Tab bar + the chat bubble above it, so the last row can scroll clear of both. */
+  .shell:not(.shell--immersive) .content { padding-bottom: calc(70px + 56px + var(--s-5) + env(safe-area-inset-bottom, 0)); }
 }
 
 /* ---------- buttons ---------- */
@@ -366,6 +380,27 @@ a.streakbadge:hover {
 /* ---------- menu / home ---------- */
 .home__head { margin-bottom: var(--s-5); }
 .home__hi { color: var(--ink-soft); margin-top: 2px; }
+.home__date { font-size: var(--fs-sm); color: var(--ink-faint); margin-bottom: 2px; }
+.home__cta { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-4); }
+/* The starter-set suggestion under a new student's head. */
+.home-suggest {
+  display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: var(--s-3); align-items: center;
+  width: 100%; max-width: 520px; margin-top: var(--s-4); padding: var(--s-3) var(--s-4);
+  font: inherit; color: inherit; text-align: left; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md);
+  transition: border-color var(--dur-fast);
+}
+.home-suggest:hover { border-color: var(--brand); }
+.home-suggest:disabled { opacity: .6; cursor: progress; }
+.home-suggest > svg { color: var(--ink-faint); }
+.home-suggest__ic {
+  width: 40px; height: 40px; border-radius: var(--r-sm); display: grid; place-items: center;
+  background: color-mix(in srgb, var(--brand) 14%, transparent); color: var(--brand-ink);
+}
+.home-suggest__body { display: flex; flex-direction: column; min-width: 0; }
+.home-suggest__eyebrow { font-size: 12px; color: var(--ink-faint); }
+.home-suggest__title { font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.home-suggest__meta { font-size: var(--fs-sm); color: var(--ink-soft); }
 /* Solve / Library / New-set — a row on its own, between the "Idag" panel
    and "Dina set". */
 .home__actions { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-bottom: var(--s-5); }
@@ -547,7 +582,6 @@ a.streakbadge:hover {
               0 4px 22px -4px color-mix(in srgb, var(--retry) 78%, transparent);
 }
 .pill--streak .pill__ic { background: var(--retry); color: #2B2B3A; }
-.pill--goal { border-color: color-mix(in srgb, var(--ok-bright) 45%, var(--line-strong)); }
 :root[data-theme="dark"] .pill--streak .pill__ic { color: #21170C; }
 
 /* "Filter" toggle + the collapsible drawer holding sort + subject chips */
@@ -570,7 +604,6 @@ a.streakbadge:hover {
 
 /* ---------- calendar page: the month planner (js/views/calendar.js) ---------- */
 .planner-page { display: flex; flex-direction: column; gap: var(--s-3); }
-.planner-page > .homebtn { align-self: flex-start; }   /* don't let the column stretch it */
 .planner-page__head {
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--s-3); flex-wrap: wrap;
@@ -1523,7 +1556,12 @@ body.route-immersive .sitechat__panel { display: none; }
 .sparkline circle.last { fill: var(--ok); }
 
 /* ---------- exam prep ---------- */
-.exam-prep { display: grid; gap: var(--s-4); max-width: 640px; }
+.exam-prep { display: grid; gap: var(--s-4); }
+.exam-prep__cols { display: grid; gap: var(--s-4); align-items: start; }
+.exam-prep__col { display: grid; gap: var(--s-4); min-width: 0; }
+@media (min-width: 1100px) {
+  .exam-prep__cols { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+}
 .exam-prep h1 { margin: 0; }
 .exam-prep .panel { margin: 0; }
 .exam-prep__head { border-left: 3px solid var(--brand); }
@@ -1718,7 +1756,7 @@ body.route-immersive .sitechat__panel { display: none; }
 /* Each control with its own help text directly beneath it — one field per
    grid cell — instead of a row of controls and a clump of notes under them. */
 .settings__fields {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--s-4) var(--s-5); align-items: start; margin-top: var(--s-3);
 }
 .settings__fields .field { margin-bottom: 0; }
@@ -1739,7 +1777,25 @@ body.route-immersive .sitechat__panel { display: none; }
 
 /* Not a panel — the roadmap is information, not something you can change. */
 .roadmapbox > h3 { font-size: var(--fs-md); color: var(--ink-soft); margin-bottom: var(--s-3); }
-.settings { display: grid; gap: var(--s-5); max-width: 620px; }
+.settings { display: grid; gap: var(--s-5); }
+.settings > h1 { margin: 0; }
+.settings__layout { display: grid; gap: var(--s-5); align-items: start; }
+.settings__sections { display: grid; gap: var(--s-5); min-width: 0; }
+.settings__sections > .panel { scroll-margin-top: 90px; }
+.settings__nav { display: none; }
+@media (min-width: 1100px) {
+  .settings__layout { grid-template-columns: 200px minmax(0, 1fr); }
+  .settings__nav {
+    display: flex; flex-direction: column; gap: 2px;
+    position: sticky; top: 90px;
+  }
+}
+.settings__navlink {
+  padding: 8px 12px; border-radius: var(--r-sm);
+  font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); text-decoration: none;
+}
+.settings__navlink:hover { color: var(--ink); background: var(--surface-sunk); }
+.settings__navlink.is-active { color: var(--ink); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
 .keyrow { display: flex; gap: var(--s-2); }
 .note { font-size: var(--fs-sm); color: var(--ink-soft); }
 .note--warn { background: var(--retry-tint); color: var(--retry-ink); padding: var(--s-3) var(--s-4); border-radius: var(--r-md); }

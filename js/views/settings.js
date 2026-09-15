@@ -160,11 +160,7 @@ export function renderSettings() {
     noteKey ? el("p.note.field__note", {}, typeof noteKey === "function" ? noteKey() : t(noteKey)) : null,
   ].filter(Boolean));
 
-  const node = el("div.settings", {}, [
-    homeButton({ grid: true }),
-    el("h1", {}, t("set.title")),
-
-    el("section.panel", {}, [
+  const lookPanel = el("section.panel", {}, [
       el("h3", {}, t("set.lookFeel")),
       el("p.note", {}, t("set.appearanceElsewhere")),
       el("div.settings__fields", {}, [
@@ -173,9 +169,9 @@ export function renderSettings() {
         noted("set.font", fontSel),
         noted("set.textSize", sizeSel),
       ]),
-    ]),
+    ]);
 
-    el("section.panel", {}, [
+  const studyPanel = el("section.panel", {}, [
       el("h3", {}, t("set.studying")),
       el("div.settings__fields", {}, [
         noted("set.testHints", hintsSel, "set.testHintsNote"),
@@ -183,25 +179,58 @@ export function renderSettings() {
         noted("set.pomodoro", pomoSel, "set.pomodoroNote"),
         noted("set.voice", voiceSel, voiceSupported ? "set.voiceNote" : "set.voiceUnsupported"),
       ]),
-    ]),
+    ]);
 
-    aiSection(),
+  // Each section gets an anchor so the side menu can jump straight to it.
+  const sections = [
+    ["appearance", "set.lookFeel", lookPanel],
+    ["studying", "set.studying", studyPanel],
+    ["ai", "set.aiTitle", aiSection()],
+    ["account", "set.acctTitle", accountSection()],
+    ["demo", "set.demoTitle", demoSection()],
+    ["data", "set.dataTitle", dataSection()],
+  ].filter(([, , panel]) => panel);
+  for (const [id, , panel] of sections) panel.id = `settings-${id}`;
 
-    accountSection(),
+  const navLinks = sections.map(([id, labelKey], i) => el("a.settings__navlink" + (i === 0 ? ".is-active" : ""), {
+    href: `#/settings`,
+    onclick: (e) => {
+      e.preventDefault();
+      document.getElementById(`settings-${id}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    },
+  }, t(labelKey)));
 
-    demoSection(),
-
-    dataSection(),
-
-    el("section.roadmapbox", {}, [
-      el("h3", {}, t("set.roadmap")),
-      el("ul.roadmap", {}, [
-        el("li", {}, t("set.roadShare")),
+  const node = el("div.settings", {}, [
+    homeButton({ grid: true }),
+    el("h1", {}, t("set.title")),
+    el("div.settings__layout", {}, [
+      el("nav.settings__nav", { "aria-label": t("set.title") }, navLinks),
+      el("div.settings__sections", {}, [
+        ...sections.map(([, , panel]) => panel),
+        el("section.roadmapbox", {}, [
+          el("h3", {}, t("set.roadmap")),
+          el("ul.roadmap", {}, [
+            el("li", {}, t("set.roadShare")),
+          ]),
+        ]),
+        el("a.btn.btn--ghost", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
       ]),
     ]),
-
-    el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), t("common.backToMenu")]),
   ]);
+
+  // Highlight the section in view. Disconnects itself once the page is gone.
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (!node.isConnected && node.dataset.mounted) { io.disconnect(); return; }
+      if (node.isConnected) node.dataset.mounted = "1";
+      const hit = entries.filter((en) => en.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+      if (!hit) return;
+      const idx = sections.findIndex(([, , panel]) => panel === hit.target);
+      navLinks.forEach((a, i) => a.classList.toggle("is-active", i === idx));
+    }, { rootMargin: "-90px 0px -60% 0px" });
+    sections.forEach(([, , panel]) => io.observe(panel));
+  }
 
   /* ---------------- AI ----------------
    * The full model/price panel only shows once the proxy is reachable + keyed,

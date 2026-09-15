@@ -246,14 +246,13 @@ export function renderExamPrep(subjectId) {
     node: el("div.exam-prep", {}, [
       homeButton(),
       el("h1", {}, heading),
-      head,
-      planPanel,
-      masteryPanel,
-      weakPanel,
-      setsPanel,
-      duePanel,
-      actions,
-    ].filter(Boolean)),
+      // What to do (countdown, plan, sets, actions) on the left; where you
+      // stand (mastery, weak spots, reviews) beside it on wide screens.
+      el("div.exam-prep__cols", {}, [
+        el("div.exam-prep__col", {}, [head, planPanel, setsPanel, actions].filter(Boolean)),
+        el("div.exam-prep__col", {}, [masteryPanel, weakPanel, duePanel].filter(Boolean)),
+      ]),
+    ]),
   };
 }
 

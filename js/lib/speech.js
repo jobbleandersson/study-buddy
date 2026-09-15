@@ -23,7 +23,7 @@ function refreshVoices() {
 if (speechSupported()) {
   refreshVoices();
   // Chrome loads voices asynchronously — repopulate when they arrive.
-  try { window.speechSynthesis.addEventListener("voiceschange", refreshVoices); } catch {}
+  try { window.speechSynthesis.addEventListener("voiceschanged", refreshVoices); } catch {}
 }
 
 const bcp = () => (getLang() === "sv" ? "sv-SE" : "en-GB");
