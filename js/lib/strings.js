@@ -220,6 +220,8 @@ export const STRINGS = {
     "q.appealDone": "Marked as correct — with an “appealed” note, so it's easy to spot later. Have a look at the model answer anyway; it's easy to miss a bit.",
     "results.appealedOne": "1 answer here was marked correct on appeal.",
     "results.appealedMany": "{n} answers here were marked correct on appeal.",
+    "results.retriedOne": "1 more right after another try — not counted in the score.",
+    "results.retriedMany": "{n} more right after another try — not counted in the score.",
     "q.heuristicOk": "That covers the key ideas — check the details below.",
     "q.heuristicMiss": "This looks like it's missing some of the key ideas. Compare it with the model answer below.",
     "q.flipAria": "Flip card",
@@ -806,6 +808,9 @@ export const STRINGS = {
     "solve.unreadable": "I couldn't quite make out a problem in that photo — try a clearer shot, closer up and well lit.",
     "solve.noServerHere": "Working a problem out needs a tutor server, and none is connected in this build. ",
     "solve.noServerAlt": "Practise with a ready-made set instead.",
+    "solve.needSignIn": "Answers come from AI, so you need an account — ",
+    "solve.needSignInLink": "sign in",
+    "solve.needSignInTail": " to solve a problem.",
 
     "set.saved": "Saved",
 
@@ -899,7 +904,7 @@ export const STRINGS = {
     "gallery.questions": "{n} questions",
 
     "onb.s1title": "Start with a ready-made set",
-    "onb.s1body": "Hundreds of sets built on the Swedish curriculum, ready to practise right away. (Connect a tutor server later to also build sets from your own notes.)",
+    "onb.s1body": "Hundreds of sets built on the Swedish curriculum, ready to practise right away. (Sign in to also build sets from your own notes.)",
     "onb.s2title": "A tutor that asks, not tells",
     "onb.s2body": "Work through questions one at a time. Stuck? The tutor gives hints, never the answer — until you've had a real go.",
     "onb.s3title": "Review brings it back",
@@ -1504,6 +1509,8 @@ export const STRINGS = {
     "q.appealDone": "Markerat som rätt — med en ”överklagad”-notering, så det syns tydligt sen. Titta ändå på exempelsvaret; det är lätt att missa en bit.",
     "results.appealedOne": "1 svar här markerades som rätt efter överklagan.",
     "results.appealedMany": "{n} svar här markerades som rätt efter överklagan.",
+    "results.retriedOne": "1 till rätt efter nytt försök — räknas inte in i resultatet.",
+    "results.retriedMany": "{n} till rätt efter nytt försök — räknas inte in i resultatet.",
     "q.heuristicOk": "Det täcker huvudpoängerna — kolla detaljerna nedan.",
     "q.heuristicMiss": "Det här verkar sakna några av huvudpoängerna. Jämför med exempelsvaret nedan.",
     "q.flipAria": "Vänd kortet",
@@ -2090,6 +2097,9 @@ export const STRINGS = {
     "solve.unreadable": "Jag kunde inte riktigt läsa av någon uppgift i den bilden — prova en tydligare bild, tagen lite närmre och i bättre ljus.",
     "solve.noServerHere": "Att lösa en uppgift kräver en handledarserver, och ingen är ansluten i den här versionen. ",
     "solve.noServerAlt": "Öva med ett färdigt set i stället.",
+    "solve.needSignIn": "Svaren kommer från AI, så du behöver ett konto — ",
+    "solve.needSignInLink": "logga in",
+    "solve.needSignInTail": " för att lösa en uppgift.",
 
     "set.saved": "Sparat",
 
@@ -2183,7 +2193,7 @@ export const STRINGS = {
     "gallery.questions": "{n} frågor",
 
     "onb.s1title": "Börja med ett färdigt set",
-    "onb.s1body": "Hundratals set byggda på den svenska läroplanen, redo att plugga på direkt. (Anslut en handledarserver senare för att också bygga set av dina egna anteckningar.)",
+    "onb.s1body": "Hundratals set byggda på den svenska läroplanen, redo att plugga på direkt. (Logga in för att också bygga set av dina egna anteckningar.)",
     "onb.s2title": "En handledare som frågar, inte säger",
     "onb.s2body": "Jobba dig igenom frågorna en i taget. Fastnar du? Handledaren ger tips, aldrig svaret — förrän du verkligen försökt.",
     "onb.s3title": "Repetition får det att fastna",

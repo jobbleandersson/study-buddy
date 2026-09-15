@@ -199,8 +199,10 @@ export function rawByPart(items, variantOf) {
     const v = variantOf(it.questionId);
     if (!v) continue;
     const part = partOf(v);
-    if (part === "verbal") { out.verbalTotal++; if (it.correct) out.verbalRaw++; }
-    else { out.kvantTotal++; if (it.correct) out.kvantRaw++; }
+    // First-try answers only — a practice drill's retried choice isn't a raw point.
+    const ok = it.firstTry ?? !!it.correct;
+    if (part === "verbal") { out.verbalTotal++; if (ok) out.verbalRaw++; }
+    else { out.kvantTotal++; if (ok) out.kvantRaw++; }
   }
   return out;
 }

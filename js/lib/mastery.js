@@ -1,6 +1,14 @@
 // Per-topic mastery, derived from attempt history.
 // Recency-weighted average correctness in [0,1]; newer attempts count more.
 
+/** Did the student get this item right on the first try? Scores, grades and
+ *  mastery count this. A multiple-choice answer found after wrong picks is
+ *  `correct` (the session celebrates it) but not `firstTry`. Items saved
+ *  before `firstTry` existed fall back to `correct`. */
+export function firstTryCorrect(item) {
+  return item.firstTry ?? !!item.correct;
+}
+
 export function masteryByTopic(attempts, { half = 5 } = {}) {
   // gather per-topic list of {correct, age} where age = attempts-ago
   const byTopic = new Map();
@@ -10,7 +18,7 @@ export function masteryByTopic(attempts, { half = 5 } = {}) {
     for (const it of att.items || []) {
       if (!it.topic) continue;
       if (!byTopic.has(it.topic)) byTopic.set(it.topic, []);
-      byTopic.get(it.topic).push({ correct: it.correct ? 1 : 0, age });
+      byTopic.get(it.topic).push({ correct: firstTryCorrect(it) ? 1 : 0, age });
     }
   });
 

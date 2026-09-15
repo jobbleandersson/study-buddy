@@ -18,7 +18,7 @@ import { confirmDialog } from "../components/confirm-dialog.js";
 import { openReadingControls } from "../components/reading-controls.js";
 import { closePopover } from "../lib/popover.js";
 import { review } from "../lib/srs.js";
-import { weakSpotQuestions, masteryByTopic } from "../lib/mastery.js";
+import { weakSpotQuestions, masteryByTopic, firstTryCorrect } from "../lib/mastery.js";
 import { playCorrect, playWrong, playChime } from "../lib/sound.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
@@ -94,7 +94,7 @@ export async function renderPractice(attemptId) {
   if (!attempt) return notFound(t("session.goneResult"));
 
   const ids = (attempt.items || [])
-    .filter((i) => !i.correct)
+    .filter((i) => !firstTryCorrect(i))
     .map((i) => i.questionId)
     .filter((id) => store.findQuestion(id));
 
@@ -537,6 +537,7 @@ function runSession(config) {
           questionId: question.id,
           topic: question.topic,
           correct: !!result.correct,
+          firstTry: result.firstTry ?? !!result.correct,
           selfRating: result.selfRating || null,
           confidence: result.confidence || null,
           srsGrade: result.srsGrade,
@@ -572,7 +573,7 @@ function runSession(config) {
   function recentAccuracy(n = 4) {
     const items = Object.values(state.items).slice(-n);
     if (!items.length) return null;
-    return items.filter((i) => i.correct).length / items.length;
+    return items.filter(firstTryCorrect).length / items.length;
   }
 
   function easeUpcoming() {
@@ -580,7 +581,7 @@ function runSession(config) {
     const tm = masteryByTopic(store.attempts);
     for (const it of Object.values(state.items)) {
       if (!it.topic) continue;
-      const now = it.correct ? 1 : 0;
+      const now = firstTryCorrect(it) ? 1 : 0;
       tm[it.topic] = tm[it.topic] == null ? now : (tm[it.topic] + now) / 2;
     }
     const rest = state.order.filter((id) => !state.items[id]);
@@ -691,7 +692,8 @@ function runSession(config) {
   function finish(opts = {}) {
     stopExam();
     const answered = Object.values(state.items);
-    const correct = answered.filter((i) => i.correct).length;
+    // The score is first-try answers; a choice found after wrong picks isn't counted.
+    const correct = answered.filter(firstTryCorrect).length;
     const attempt = {
       id: uid(),
       assignmentId: config.assignmentId,

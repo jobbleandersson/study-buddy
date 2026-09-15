@@ -93,7 +93,14 @@ export function renderSolve() {
         : null,
       el("label.field", { style: { marginTop: "16px" } }, [el("span", {}, t("solve.noteLabel")), noteInput]),
       state.error ? el("p.note.note--warn", { style: { marginTop: "12px" } }, state.error) : null,
-      !store.hasKey() ? el("p.note.note--warn", { style: { marginTop: "16px" } }, [
+      // Server is up and keyed but the visitor isn't signed in: say that, not
+      // "no server" — same split as Create's source step.
+      !store.hasKey() && store.aiNeedsSignIn() ? el("p.note", { style: { marginTop: "16px" } }, [
+        t("solve.needSignIn"),
+        el("a", { href: "#/login" }, t("solve.needSignInLink")),
+        t("solve.needSignInTail"),
+      ])
+      : !store.hasKey() ? el("p.note.note--warn", { style: { marginTop: "16px" } }, [
         t("solve.noServerHere"),
         el("a", { href: "#/library" }, t("solve.noServerAlt")),
       ]) : null,

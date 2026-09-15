@@ -209,6 +209,8 @@ function mc({ question, tutor, testMode, onDone, askConfidence }) {
       btns[question.answer].classList.add("is-correct");
       done = true;
       result.correct = true;
+      // Found after wrong picks: celebrated here, but not scored as known.
+      result.firstTry = attempts === 1;
       result.hintsUsed = attempts - 1;
       feedback.className = "feedback ok";
       feedback.innerHTML = renderRich(question.explanation || t("q.correct"));

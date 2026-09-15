@@ -3,7 +3,7 @@
 import { store } from "../store.js";
 import { el, icon, ICONS } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
-import { deltaFromAttempt } from "../lib/mastery.js";
+import { deltaFromAttempt, firstTryCorrect } from "../lib/mastery.js";
 import { estimatedGrade, gradeRank } from "../lib/grade.js";
 import { normedScore, delprovEstimate, scoreBand, parseHpSetId, attemptNormedTotal } from "../lib/hp.js";
 import { summarizeSchedule, dueLabel, retentionForecast } from "../lib/srs.js";
@@ -34,7 +34,7 @@ export function renderResults(attemptId) {
   // Look questions up across the whole library — a review session mixes sets.
   // Paired (not two parallel arrays) so a since-deleted question can't
   // silently misalign the item and its question.
-  const wrong = (attempt.items || []).filter((i) => !i.correct);
+  const wrong = (attempt.items || []).filter((i) => !firstTryCorrect(i));
   const wrongEntries = wrong
     .map((item) => ({ item, question: store.findQuestion(item.questionId)?.question }))
     .filter((e) => e.question);
@@ -96,6 +96,11 @@ export function renderResults(attemptId) {
     (() => {
       const n = (attempt.items || []).filter((i) => i.appealed).length;
       return n ? el("p.note", { style: { marginTop: "-4px" } }, plural(n, "results.appealedOne", "results.appealedMany")) : null;
+    })(),
+    (() => {
+      // Right in the end, but not on the first try — so not in the score above.
+      const n = (attempt.items || []).filter((i) => i.correct && !firstTryCorrect(i)).length;
+      return n ? el("p.note", { style: { marginTop: "-4px" } }, plural(n, "results.retriedOne", "results.retriedMany")) : null;
     })(),
 
     gradeReveal(attempt),
@@ -172,7 +177,7 @@ export function renderResults(attemptId) {
 
 function countLabel(attempt) {
   const n = (attempt.items || []).length;
-  const c = (attempt.items || []).filter((i) => i.correct).length;
+  const c = (attempt.items || []).filter(firstTryCorrect).length;
   return t("results.correctOf", { c, n });
 }
 
