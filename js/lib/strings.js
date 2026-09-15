@@ -135,8 +135,12 @@ export const STRINGS = {
     "due.invalid": "Pick a valid date",
 
     /* ---- session ---- */
-    "session.questionOf": "Question {n} of {total} · {done} answered",
-    "session.skippedSuffix": " · {n} skipped",
+    "session.progDoneOne": "{n} done",
+    "session.progDoneMany": "{n} done",
+    "session.progSavedOne": "{n} saved for later",
+    "session.progSavedMany": "{n} saved for later",
+    "session.progLeftOne": "{n} left",
+    "session.progLeftMany": "{n} left",
     "session.next": "Next",
     "session.finish": "Finish",
     "session.skip": "Skip for now",
@@ -271,6 +275,8 @@ export const STRINGS = {
     "tutor.stepsFinish": "That's the working laid out — take it from here and give me your answer.",
     "tutor.contentNudge": "Have a think about what the question really hinges on — what's the one idea you'd need to get this right?",
     "tutor.contentReveal": "Here's the key bit: {explanation} Now have another go.",
+    "tutor.contentRule": "Hint: {rule}. How could you use that here? (Type “show the solution” if you want the whole working.)",
+    "tutor.contentBreakDown": "Break it down: what do you already know, and what exactly is the question asking for? (Type “show the solution” if you want the whole working.)",
 
     /* ---- results ---- */
     "results.title": "Results",
@@ -1424,8 +1430,12 @@ export const STRINGS = {
     "due.invalid": "Välj ett giltigt datum",
 
     /* ---- session ---- */
-    "session.questionOf": "Fråga {n} av {total} · {done} besvarade",
-    "session.skippedSuffix": " · {n} överhoppade",
+    "session.progDoneOne": "{n} klar",
+    "session.progDoneMany": "{n} klara",
+    "session.progSavedOne": "{n} sparad till senare",
+    "session.progSavedMany": "{n} sparade till senare",
+    "session.progLeftOne": "{n} kvar",
+    "session.progLeftMany": "{n} kvar",
     "session.next": "Nästa",
     "session.finish": "Slutför",
     "session.skip": "Hoppa över",
@@ -1560,6 +1570,8 @@ export const STRINGS = {
     "tutor.stepsFinish": "Där har du hela uträkningen — ta det härifrån och ge mig ditt svar.",
     "tutor.contentNudge": "Fundera på vad frågan egentligen hänger på — vilken enda sak behöver du kunna för att få den rätt?",
     "tutor.contentReveal": "Här är det viktiga: {explanation} Försök igen nu.",
+    "tutor.contentRule": "Ledtråd: {rule}. Hur kan du använda det här? (Skriv ”visa lösningen” om du vill se hela uträkningen.)",
+    "tutor.contentBreakDown": "Bryt ner frågan: vad vet du redan, och vad är det egentligen som efterfrågas? (Skriv ”visa lösningen” om du vill se hela uträkningen.)",
 
     /* ---- results ---- */
     "results.title": "Resultat",

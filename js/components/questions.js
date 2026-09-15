@@ -159,7 +159,7 @@ function shell(question, body, { showPrompt = true } = {}) {
 }
 
 /* ---------------- multiple choice ---------------- */
-function mc({ question, tutor, testMode, onDone, askConfidence }) {
+function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2 }) {
   const result = { correct: false, hintsUsed: 0 };
   let picked = -1, attempts = 0, done = false;
 
@@ -231,7 +231,9 @@ function mc({ question, tutor, testMode, onDone, askConfidence }) {
         b.disabled = triedWrong.has(i);          // eliminate options already ruled out
       });
       picked = -1; checkBtn.disabled = true;
-      if (attempts >= 2 && !document.getElementById("mc-reveal")) {
+      // Normally after two misses; after one when the session can't skip this
+      // question any more (see revealAfter in session.js).
+      if (attempts >= revealAfter && !document.getElementById("mc-reveal")) {
         const reveal = el("button.btn.btn--ghost.btn--sm", { id: "mc-reveal", type: "button", onclick: revealAnswer }, t("q.reveal"));
         feedback.appendChild(el("div", { style: { marginTop: "10px" } }, [reveal]));
       }

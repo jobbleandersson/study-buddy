@@ -9,7 +9,7 @@ import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER } from "../lib/hp.js";
 import { announce } from "../lib/a11y.js";
-import { t } from "../lib/i18n.js";
+import { t, plural } from "../lib/i18n.js";
 import { renderQuestion, parseCloze, clozeToUnderscores } from "../components/questions.js";
 import { renderRich } from "../lib/rich.js";
 import { TutorChat } from "../components/tutor-chat.js";
@@ -267,7 +267,11 @@ function runSession(config) {
   const tutor = new TutorChat({ locked: tutorSilent, hintBudget });
 
   const fill = el("div.progressbar__fill");
+  const bar = el("div.progressbar", {}, [fill]);
   const label = el("div.progress-label");
+  // One dot per question: done, saved for later (skipped), the current one.
+  // Replaces the bar for normal-length sets; a long review keeps the bar.
+  const dots = el("div.progress-dots", { "aria-hidden": "true" });
   const adaptiveEl = el("div.adaptive");
   const testBar = el("div.testbar");
   const stage = el("div");
@@ -335,14 +339,32 @@ function runSession(config) {
   function paintProgress() {
     const done = answeredCount();
     fill.style.width = `${(done / state.order.length) * 100}%`;
-    const skippedLeft = state.skipped.filter((id) => !state.items[id]).length;
-    // "Question N" is which one you're working on — answered + the current one
-    // — not the raw cursor, which drifts from that after a skip reorders the
-    // list. `done` in the same line keeps the two consistent.
-    const onNow = state.items[currentId()] ? done : Math.min(done + 1, state.order.length);
-    label.textContent =
-      t("session.questionOf", { n: onNow, total: state.order.length, done })
-      + (skippedLeft ? t("session.skippedSuffix", { n: skippedLeft }) : "");
+    // The question on screen is never "saved for later", even when it's a
+    // skipped one that has come back round — it counts as left.
+    const current = currentId();
+    const skippedLeft = state.skipped.filter((id) => !state.items[id] && id !== current).length;
+    // Counts, not "Question N of M": after a skip reorders the list there's no
+    // position number that means anything to the student, but "done · saved
+    // for later · left" always adds up to the set.
+    const left = Math.max(0, state.order.length - done - skippedLeft);
+    label.textContent = [
+      plural(done, "session.progDoneOne", "session.progDoneMany"),
+      skippedLeft ? plural(skippedLeft, "session.progSavedOne", "session.progSavedMany") : null,
+      plural(left, "session.progLeftOne", "session.progLeftMany"),
+    ].filter(Boolean).join(" · ");
+
+    const showDots = state.order.length <= 30;
+    dots.hidden = !showDots;
+    bar.hidden = showDots;
+    if (showDots) {
+      clear(dots);
+      for (const id of state.order) {
+        const cls = state.items[id] ? ".is-done"
+          : id === current ? ".is-now"
+          : state.skipped.includes(id) ? ".is-saved" : "";
+        dots.appendChild(el("span" + cls));
+      }
+    }
     paintReviewBtn();
   }
 
@@ -531,6 +553,10 @@ function runSession(config) {
       live: store.hasKey(),
       testMode,
       askConfidence,
+      // Can't be skipped any more (last one left, or already skipped once): offer
+      // the answer after one wrong try instead of two, so the student isn't
+      // left with only "Lämna" as a way out.
+      revealAfter: skipBtn.hidden ? 1 : 2,
       onDone: (result) => {
         const isNew = !state.items[question.id];
         state.items[question.id] = {
@@ -923,7 +949,8 @@ function runSession(config) {
     ]),
     testBar,
     reviewMoreEl,
-    el("div.progressbar", {}, [fill]),
+    bar,
+    dots,
     label,
     adaptiveEl,
     el("div.session", {}, [

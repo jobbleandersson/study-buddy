@@ -1070,6 +1070,17 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   background: linear-gradient(90deg, var(--c-sky), var(--c-grape));
   width: 0%; transition: width var(--dur-slow) var(--ease-spring); }
 .progress-label { font-size: var(--fs-sm); color: var(--ink-faint); }
+/* One dot per question: done, saved for later (a skip), the current one.
+   Empty dots use the same track contrast as .progressbar so they're visible. */
+.progress-dots { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: var(--s-2); }
+.progress-dots span {
+  flex: 1 1 0; min-width: 10px; max-width: 56px; height: 8px; border-radius: var(--r-full);
+  background: color-mix(in srgb, var(--ink) 28%, var(--surface));
+  transition: background var(--dur-fast);
+}
+.progress-dots .is-done { background: var(--ok); }
+.progress-dots .is-now { background: var(--brand); }
+.progress-dots .is-saved { background: transparent; box-shadow: inset 0 0 0 1.5px var(--retry); }
 
 .question { margin-top: var(--s-4); }
 

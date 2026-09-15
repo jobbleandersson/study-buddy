@@ -29,11 +29,36 @@ async function loadScripted() {
   return scriptedByLang[lang];
 }
 
+/** The rule behind an explanation, without its worked numbers: the first
+ *  sentence, cut before the first ":", "=" or maths, with a dangling "så"/"so"
+ *  dropped. "Att subtrahera ett negativt tal är samma sak som att addera:
+ *  $-7-(-2)=-5$." gives the idea, not the result. null when what's left is too
+ *  short to help or would still give the answer away. */
+function ruleHint(question) {
+  const text = String(question.explanation || "").trim();
+  if (!text) return null;
+  let rule = text.split(/(?<=[.!?])\s+/)[0] || "";
+  const cut = rule.search(/[:=$]|\\\(/);
+  if (cut >= 0) rule = rule.slice(0, cut);
+  rule = rule
+    .replace(/[\s,;—–-]+$/, "")
+    .replace(/\s+(så|och|alltså|eftersom|att|so|and|because|which|that)$/i, "")
+    .replace(/[.!?]+$/, "")
+    .trim();
+  if (rule.length < 20) return null;
+  const answer = question.kind === "mc" && Array.isArray(question.choices)
+    ? question.choices[question.answer] : question.answer;
+  const a = String(answer ?? "").trim().toLowerCase();
+  if (a.length > 1 && rule.toLowerCase().includes(a)) return null;
+  return rule;
+}
+
 /** A hint ladder built from the question's own authored content, for offline
  *  mode on any set without a hand-scripted entry (i.e. the whole library).
  *  Worked problems walk their `steps`; everything else gets a soft nudge, then
- *  the `explanation` framed as the deep hint. null when there's nothing to use
- *  — the caller then falls back to the generic ladder. */
+ *  the rule without the numbers, and only then the full `explanation` — so the
+ *  answer isn't handed over on the second message. null when there's nothing
+ *  to use — the caller then falls back to the generic ladder. */
 function contentLadder(question) {
   if (!question) return null;
   if (Array.isArray(question.steps) && question.steps.length) {
@@ -42,7 +67,12 @@ function contentLadder(question) {
     return rungs;
   }
   if (question.explanation) {
-    return [t("tutor.contentNudge"), t("tutor.contentReveal", { explanation: String(question.explanation).trim() })];
+    const rule = ruleHint(question);
+    return [
+      t("tutor.contentNudge"),
+      rule ? t("tutor.contentRule", { rule }) : t("tutor.contentBreakDown"),
+      t("tutor.contentReveal", { explanation: String(question.explanation).trim() }),
+    ];
   }
   return null;
 }
@@ -312,9 +342,11 @@ export class TutorChat {
       reply = q.correct || g.correct || t("tutor.scriptedCorrect");
       setMood(this.mascotEl, "cheer");
     } else {
-      // "I give up" in either language jumps straight to the fullest hint.
-      const stuck = /\b(i don'?t know|no idea|tell me|give up|just the answer|idk|vet inte|ingen aning|säg svaret|ger upp|berätta)\b/i.test(userText);
-      if (stuck) this.ladderIndex = ladder.length - 1;
+      // Only an explicit ask for the answer jumps to the last rung. "I don't
+      // know" / "I give up" moves one step like any other message, so the
+      // student sees the rule before the worked answer.
+      const wantsAnswer = /\b(tell me the answer|just the answer|show (me )?the (answer|solution)|give me the answer|säg svaret|visa (svaret|lösningen)|ge mig svaret|berätta svaret)\b/i.test(userText);
+      if (wantsAnswer) this.ladderIndex = ladder.length - 1;
       else this.ladderIndex = Math.min(this.ladderIndex + 1, ladder.length - 1);
       reply = ladder[this.ladderIndex] || g.encourage || t("tutor.scriptedEncourage");
       setMood(this.mascotEl, this.ladderIndex >= ladder.length - 1 ? "thinking" : "encourage");
