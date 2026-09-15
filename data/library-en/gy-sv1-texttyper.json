@@ -123,6 +123,110 @@
       "prompt": "When do you use a quotation and when do you use a summary?",
       "opener": "One conveys the words, the other the content.",
       "answer": "Quotation: when the exact wording matters — word for word, within quotation marks, with a source. Use sparingly. Summary: when the content is what matters — summarise in your own words with a reporting marker. In school assignments, most of the text should be summary; too many quotations show that you have not processed the material yourself."
+    },
+    {
+      "id": "q-sv1-txt-9",
+      "kind": "mc",
+      "topic": "argumentative text",
+      "prompt": "Which of the following is an ARGUMENT supporting the thesis \"Schools should ban mobile phones\"?",
+      "opener": "An argument must give a REASON why the thesis is true.",
+      "choices": [
+        "Many students dislike bans.",
+        "Research shows that phone use during lessons lowers students' concentration and results.",
+        "Phones are expensive to buy.",
+        "The school is located in the city centre."
+      ],
+      "answer": 1,
+      "explanation": "Research linking phone use to worse concentration and results is a factual reason that directly supports the thesis about a phone ban. The other options are either irrelevant or actually argue against the thesis."
+    },
+    {
+      "id": "q-sv1-txt-10",
+      "kind": "mc",
+      "topic": "expository text",
+      "prompt": "A student writes an expository text about the quality of school meals. What should the text NOT do?",
+      "opener": "What distinguishes an expository text from a purely argumentative one?",
+      "choices": [
+        "Present several perspectives on the question",
+        "Draw a clear, well-supported conclusion at the end, based on what was examined",
+        "Argue solely for a predetermined opinion throughout the entire text",
+        "Use sources from different places"
+      ],
+      "answer": 2,
+      "explanation": "An expository text should examine the question from several angles before possibly arriving at a conclusion — arguing for a predetermined opinion throughout instead belongs to the argumentative text type."
+    },
+    {
+      "id": "q-sv1-txt-11",
+      "kind": "mc",
+      "topic": "summary and quotation",
+      "prompt": "When is it appropriate to use a direct QUOTATION instead of a summary?",
+      "opener": "What makes the quotation worth preserving word for word?",
+      "choices": [
+        "When the exact wording matters, for example a unique or sensitive phrase",
+        "Always, quotations are more objective than summaries",
+        "Never, quotations count as plagiarism",
+        "Only when you don't understand the source's content"
+      ],
+      "answer": 0,
+      "explanation": "Quotations are used sparingly, when the wording itself matters — e.g. a striking or controversial statement. A properly marked quotation with a source is not plagiarism."
+    },
+    {
+      "id": "q-sv1-txt-12",
+      "kind": "mc",
+      "topic": "source handling",
+      "prompt": "What does it mean for a source to have high credibility but low relevance to your research question?",
+      "opener": "Credibility and relevance are two different things — what's the difference?",
+      "choices": [
+        "The source is unusable for the task, even though it is reliable in itself",
+        "The source should always be used anyway",
+        "Credibility and relevance are the same thing",
+        "The source is automatically unreliable"
+      ],
+      "answer": 0,
+      "explanation": "A source can be completely reliable but still not answer your specific research question — then it's irrelevant for the task, no matter how reliable it is in itself."
+    },
+    {
+      "id": "q-sv1-txt-13",
+      "kind": "mc",
+      "topic": "argumentative text",
+      "prompt": "Which sentence functions as the THESIS in the following excerpt? \"Many argue that homework is necessary for learning. But research shows mixed results. Schools should therefore reduce the amount of homework in favour of more teacher-led time.\"",
+      "opener": "The thesis is the position the rest of the reasoning builds towards.",
+      "choices": [
+        "Many argue that homework is necessary for learning.",
+        "But research shows mixed results.",
+        "Schools should therefore reduce the amount of homework in favour of more teacher-led time.",
+        "None of the sentences is a thesis."
+      ],
+      "answer": 2,
+      "explanation": "The closing sentence is the debatable claim the text argues for. The first two sentences are background and a counter-argument (the state of research) leading up to the thesis."
+    },
+    {
+      "id": "q-sv1-txt-14",
+      "kind": "worked",
+      "topic": "summary and quotation",
+      "prompt": "Original text: \"The share of young people who read books in their free time has dropped by nearly 30 percent over the 2010s, which researchers link to increased screen time.\" (Berg, 2021). Write a correct summary of the sentence.",
+      "opener": "Three things must be included: your own words, a reporting marker, and the source.",
+      "answer": "According to Berg (2021), the proportion of young people reading books in their free time has fallen by close to 30 percent over the 2010s, something researchers link to rising screen time.",
+      "steps": [
+        "Start with a reporting marker naming the source: \"According to Berg (2021)...\".",
+        "Rephrase the content in your own words: \"dropped by nearly 30 percent\" → \"fallen by close to 30 percent\", \"which researchers link to\" → \"something researchers link to\".",
+        "Change the sentence structure, not just individual words, so the summary doesn't sit too close to the original.",
+        "Check that the content is unchanged: the size of the decrease and the link to screen time should remain intact."
+      ]
+    },
+    {
+      "id": "q-sv1-txt-15",
+      "kind": "mc",
+      "topic": "source handling",
+      "prompt": "You quote a sentence word for word from an article, put it in quotation marks, and clearly cite the source. Is this plagiarism?",
+      "opener": "What makes a word-for-word reproduction plagiarism — the word-for-word part itself, or something else?",
+      "choices": [
+        "Yes, anything reproduced word for word is plagiarism",
+        "No, a properly marked and cited quotation is allowed",
+        "Only if the text is longer than one sentence",
+        "Only if the source is a book, not an article"
+      ],
+      "answer": 1,
+      "explanation": "Plagiarism is about passing off someone else's words or ideas as your own. A quotation that's clearly marked with quotation marks and a source does the exact opposite — it's fully permitted."
     }
   ]
 }

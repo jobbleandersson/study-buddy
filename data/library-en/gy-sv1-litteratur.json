@@ -123,6 +123,110 @@
       "prompt": "Explain the difference between simile, metaphor, personification and symbol.",
       "opener": "Four ways of saying something figuratively - what sets them apart?",
       "answer": "Simile: a comparison with \"like\" or \"as\" (\"strong as a bear\"). Metaphor: a comparison without a comparison word - something IS something else (\"he is a bear\"). Personification: something non-human is given human traits (\"the sun smiled\"). Symbol: a concrete object that consistently stands for something abstract (the dove for peace)."
+    },
+    {
+      "id": "q-sv1-lit-9",
+      "kind": "mc",
+      "topic": "genres",
+      "prompt": "Which main genre does a poem belong to?",
+      "opener": "Is it narrative, text written for the stage, or metered or free verse?",
+      "choices": [
+        "Poetry",
+        "Epic/narrative",
+        "Drama",
+        "Non-fiction"
+      ],
+      "answer": 0,
+      "explanation": "Poetry is verse — poems, often with rhythm, rhyme or condensed language. Epic/narrative literature is storytelling and drama is text written for the stage."
+    },
+    {
+      "id": "q-sv1-lit-10",
+      "kind": "mc",
+      "topic": "genres",
+      "prompt": "What characterises drama as a genre?",
+      "opener": "How is the text meant to reach its audience — through reading, or some other way?",
+      "choices": [
+        "Text written to be performed on stage, made up of dialogue and stage directions",
+        "Narrative text in prose form",
+        "Verse text with rhythm and rhyme",
+        "Fact-based, non-fiction text"
+      ],
+      "answer": 0,
+      "explanation": "Drama is text written to be performed, built from dialogue and stage directions. Epic/narrative literature is prose storytelling and non-fiction is fact-based text."
+    },
+    {
+      "id": "q-sv1-lit-11",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "A narrator says \"I\", and we only get access to that person's own thoughts and observations. What narrative perspective is this?",
+      "opener": "How much does the narrator know compared with the other characters in the book?",
+      "choices": [
+        "First-person narrator",
+        "Omniscient narrator",
+        "Unreliable narrator",
+        "Objective narrator"
+      ],
+      "answer": 0,
+      "explanation": "A first-person narrator tells the story from their own \"I\" and only has access to their own thoughts — not other characters'."
+    },
+    {
+      "id": "q-sv1-lit-12",
+      "kind": "mc",
+      "topic": "figurative language",
+      "prompt": "\"The White House had no comment on the incident.\" What figure of speech is used here, where a place stands in for the people associated with it?",
+      "opener": "The White House is a building — who is actually meant?",
+      "choices": [
+        "Metonymy",
+        "Metaphor",
+        "Symbol",
+        "Personification"
+      ],
+      "answer": 0,
+      "explanation": "Metonymy replaces a word with something closely associated with it — here the building \"The White House\" stands for the administration that works there."
+    },
+    {
+      "id": "q-sv1-lit-13",
+      "kind": "mc",
+      "topic": "theme and motif",
+      "prompt": "A novel portrays a refugee family's journey across the Mediterranean and their first year in a new country. What is likely a MOTIF in the story (not the theme)?",
+      "opener": "A motif is the concrete thing that happens — what can you point to in the plot?",
+      "choices": [
+        "The concrete boat journey across the sea",
+        "Rootlessness and searching for a new sense of belonging",
+        "What it means to lose and rebuild an identity",
+        "The human cost of migration"
+      ],
+      "answer": 0,
+      "explanation": "The boat journey is a concrete, plot-bound motif. The other options are abstract ideas that instead describe the book's theme."
+    },
+    {
+      "id": "q-sv1-lit-14",
+      "kind": "worked",
+      "topic": "narrative perspective",
+      "prompt": "Analyse the excerpt: \"I didn't know what awaited me. The clouds gathered like black bears over the horizon, and I felt the fear crawl along my spine.\" What narrative perspective is used, and what figures of speech appear in the excerpt?",
+      "opener": "First look at which pronoun is telling the story, then at whether a comparison word is used or not.",
+      "answer": "First-person narrator. Figures of speech: simile (\"like black bears\") and personification (\"the fear crawl\").",
+      "steps": [
+        "\"I didn't know...\" — the story is told in the first person, so a first-person narrator.",
+        "\"The clouds gathered LIKE black bears\" — the comparison word \"like\" makes this a simile.",
+        "\"The fear crawl along my spine\" — fear, an emotion, is given a human/animal movement (crawling). That's personification.",
+        "Together, the narrative perspective creates closeness to the protagonist's feelings, while the figurative language reinforces the ominous mood."
+      ]
+    },
+    {
+      "id": "q-sv1-lit-15",
+      "kind": "mc",
+      "topic": "theme and motif",
+      "prompt": "A short story is about a young woman who leaves her home village to study in a big city and feels lost among all the new people. What is likely the work's THEME?",
+      "opener": "The theme is the abstract, overarching idea — not the concrete plot.",
+      "choices": [
+        "Identity and finding your place in a new environment",
+        "A woman who moves to a big city",
+        "Studying at a university",
+        "A home village the woman leaves"
+      ],
+      "answer": 0,
+      "explanation": "The theme is the overarching idea — here identity and belonging. The other options describe concrete events, that is, motif and plot."
     }
   ]
 }

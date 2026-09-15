@@ -123,6 +123,111 @@
       "prompt": "What questions do you ask of a source you found online?",
       "opener": "Four criteria, plus a couple of practical questions.",
       "answer": "Authenticity: who is the sender, can it be verified? Time: when was it published, is it still current? Dependence: is it built on its own observations, or does it relay someone else's? Bias: does the sender stand to gain from a particular picture? Also ask: what is the purpose - to inform, to persuade or to sell? And is the information confirmed by an independent source?"
+    },
+    {
+      "id": "q-sv1-kall-9",
+      "kind": "mc",
+      "topic": "source-criticism criteria",
+      "prompt": "What does the AUTHENTICITY criterion mean?",
+      "opener": "Is the source really what it claims to be?",
+      "choices": [
+        "Whether the source is what it claims to be",
+        "Whether the source is up to date",
+        "Whether the source has a financial interest",
+        "Whether the source is based on another source"
+      ],
+      "answer": 0,
+      "explanation": "Authenticity concerns whether the source really is what it claims to be — the right sender, not forged or wrongly attributed."
+    },
+    {
+      "id": "q-sv1-kall-10",
+      "kind": "mc",
+      "topic": "types of sources",
+      "prompt": "An author's original manuscript is an example of which type of source?",
+      "opener": "Does the material come directly from the source itself, or has it passed through someone else?",
+      "choices": [
+        "Primary source",
+        "Secondary source",
+        "Biased source",
+        "Dependent source"
+      ],
+      "answer": 0,
+      "explanation": "An original manuscript is first-hand material straight from the creator — a primary source."
+    },
+    {
+      "id": "q-sv1-kall-11",
+      "kind": "mc",
+      "topic": "bias",
+      "prompt": "A political organisation publishes a report supporting its own policy. Which criterion should be scrutinised extra carefully?",
+      "opener": "Who benefits from the report showing what it shows?",
+      "choices": [
+        "Authenticity",
+        "Time",
+        "Bias",
+        "Neither"
+      ],
+      "answer": 2,
+      "explanation": "The organisation has a clear stake in the outcome — that's a bias problem. The report could still be accurate, but should be compared against independent sources."
+    },
+    {
+      "id": "q-sv1-kall-12",
+      "kind": "mc",
+      "topic": "source-criticism criteria",
+      "prompt": "You find an article about a historical battle, written 300 years after the event by a historian with no access to eyewitness accounts. Which criterion is most important to question?",
+      "opener": "What is the text based on, if no first-hand sources remain?",
+      "choices": [
+        "Dependence — without eyewitnesses, the text is likely built on other, already-existing sources",
+        "Bias — the historian is guaranteed to have a financial interest",
+        "Authenticity — the text is surely forged",
+        "No criterion needs to be questioned"
+      ],
+      "answer": 0,
+      "explanation": "Without access to eyewitnesses, the historian must rely on second-hand information — the dependence criterion becomes especially relevant to scrutinise."
+    },
+    {
+      "id": "q-sv1-kall-13",
+      "kind": "mc",
+      "topic": "types of sources",
+      "prompt": "What is a source called when it is itself based on and relays another, earlier source?",
+      "opener": "Is this first-hand material, or a retelling of something else?",
+      "choices": [
+        "Secondary source",
+        "Primary source",
+        "Biased source",
+        "Anonymous source"
+      ],
+      "answer": 0,
+      "explanation": "A secondary source is built on and relays a primary source — it is one step further removed from the original."
+    },
+    {
+      "id": "q-sv1-kall-14",
+      "kind": "worked",
+      "topic": "bias",
+      "prompt": "An anonymous social media account claims a famous person said something controversial, with no video, audio, or other documentation shown. The post was published three years ago but is now being shared again as if it were new. Examine the claim using the four source-criticism criteria.",
+      "opener": "Go through one criterion at a time, just like in the example about the supplement website.",
+      "answer": "The source fails all four criteria and shouldn't be accepted without further scrutiny.",
+      "steps": [
+        "Authenticity: the account is anonymous, so it's impossible to verify who is behind it or whether they have any real insight.",
+        "Time: the post is three years old but is being shared as if new — the context may have changed since then.",
+        "Dependence: no documentation (video, audio, source citation) exists — the claim can't be traced to a primary source.",
+        "Bias: an account spreading controversial claims about famous people may have an interest in attention or damaging the person's reputation.",
+        "Conclusion: look for primary sources, e.g. the person themselves or established news outlets, before accepting or sharing the claim further."
+      ]
+    },
+    {
+      "id": "q-sv1-kall-15",
+      "kind": "mc",
+      "topic": "bias",
+      "prompt": "Which of these headlines is least biased?",
+      "opener": "Look for the headline that lacks loaded words and conclusions.",
+      "choices": [
+        "Scandal! Company covered up the truth for years",
+        "Company didn't raise prices despite pressure — a role model for the industry",
+        "Company announced on Tuesday that prices will remain unchanged",
+        "Company leadership finally refuses to do the right thing"
+      ],
+      "answer": 2,
+      "explanation": "The third headline describes the event factually and neutrally, without loaded words like \"scandal\", \"role model\", or \"finally refuses\"."
     }
   ]
 }

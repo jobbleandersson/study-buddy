@@ -123,6 +123,110 @@
       "prompt": "Förklara skillnaden mellan liknelse, metafor, personifikation och symbol.",
       "opener": "Fyra sätt att säga något bildligt — vad skiljer dem åt?",
       "answer": "Liknelse: jämförelse med \"som\" (\"stark som en björn\"). Metafor: jämförelse utan jämförelseord — något ÄR något annat (\"han är en björn\"). Personifikation: icke-mänskligt ges mänskliga drag (\"solen log\"). Symbol: ett konkret föremål som genomgående står för något abstrakt (duvan för fred)."
+    },
+    {
+      "id": "q-sv1-lit-9",
+      "kind": "mc",
+      "topic": "genrer",
+      "prompt": "Till vilken huvudgenre hör en dikt?",
+      "opener": "Handlar det om berättande, om text skriven för scen, eller om bunden eller obunden vers?",
+      "choices": [
+        "Lyrik",
+        "Epik",
+        "Dramatik",
+        "Sakprosa"
+      ],
+      "answer": 0,
+      "explanation": "Lyrik är poesi — dikter, ofta med rytm, rim eller förtätat språk. Epik är berättande litteratur och dramatik är text skriven för scenen."
+    },
+    {
+      "id": "q-sv1-lit-10",
+      "kind": "mc",
+      "topic": "genrer",
+      "prompt": "Vad kännetecknar dramatik som genre?",
+      "opener": "Hur är texten tänkt att nå sin publik — genom läsning, eller på ett annat sätt?",
+      "choices": [
+        "Text skriven för att framföras på scen, med repliker och regianvisningar",
+        "Berättande text i prosaform",
+        "Diktad text med rytm och rim",
+        "Faktabaserad, icke-fiktiv text"
+      ],
+      "answer": 0,
+      "explanation": "Dramatik är text skriven för att spelas upp, uppbyggd av repliker och regianvisningar. Epik är prosaberättande och sakprosa är faktabaserad text."
+    },
+    {
+      "id": "q-sv1-lit-11",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "En berättare säger \"jag\", och vi får bara ta del av den personens egna tankar och iakttagelser. Vilket berättarperspektiv?",
+      "opener": "Hur mycket vet berättaren jämfört med de andra karaktärerna i boken?",
+      "choices": [
+        "Jagberättare",
+        "Allvetande berättare",
+        "Opålitlig berättare",
+        "Objektiv berättare"
+      ],
+      "answer": 0,
+      "explanation": "En jagberättare (förstapersonsberättare) berättar utifrån sitt eget \"jag\" och har bara tillgång till sina egna tankar — inte andra karaktärers."
+    },
+    {
+      "id": "q-sv1-lit-12",
+      "kind": "mc",
+      "topic": "bildspråk",
+      "prompt": "\"Vita huset kommenterade inte händelsen.\" Vilket bildspråk används, där en plats får stå för de personer som är knutna till den?",
+      "opener": "Vita huset är en byggnad — vem menas egentligen?",
+      "choices": [
+        "Metonymi",
+        "Metafor",
+        "Symbol",
+        "Personifikation"
+      ],
+      "answer": 0,
+      "explanation": "Metonymi innebär att man byter ut ett ord mot något närbesläktat — här får byggnaden \"Vita huset\" stå för den amerikanska administrationen som håller till där."
+    },
+    {
+      "id": "q-sv1-lit-13",
+      "kind": "mc",
+      "topic": "tema och motiv",
+      "prompt": "En roman skildrar en flyktingfamiljs resa över Medelhavet och deras första år i ett nytt land. Vad är rimligen ett MOTIV i berättelsen (inte temat)?",
+      "opener": "Motiv är det konkreta som sker — vad kan du peka på i handlingen?",
+      "choices": [
+        "Den konkreta båtresan över havet",
+        "Rotlöshet och att söka en ny hemhörighet",
+        "Vad det innebär att förlora och återskapa en identitet",
+        "Migrationens mänskliga pris"
+      ],
+      "answer": 0,
+      "explanation": "Båtresan är ett konkret, handlingsbundet motiv. De andra alternativen är abstrakta idéer som snarare beskriver bokens tema."
+    },
+    {
+      "id": "q-sv1-lit-14",
+      "kind": "worked",
+      "topic": "berättarperspektiv",
+      "prompt": "Analysera utdraget: \"Jag visste inte vad som väntade mig. Molnen hopade sig som svarta björnar över horisonten, och jag kände rädslan krypa längs ryggraden.\" Vilket berättarperspektiv används, och vilka bildspråk finns i utdraget?",
+      "opener": "Titta först på vilket pronomen som berättar, sedan på om jämförelseord används eller inte.",
+      "answer": "Jagberättare (förstapersonsperspektiv). Bildspråk: liknelse (\"som svarta björnar\") och personifikation (\"rädslan krypa\").",
+      "steps": [
+        "\"Jag visste inte...\" — berättelsen berättas i jag-form, alltså en jagberättare.",
+        "\"Molnen hopade sig SOM svarta björnar\" — jämförelseordet \"som\" gör detta till en liknelse.",
+        "\"Rädslan krypa längs ryggraden\" — rädslan, en känsla, ges en mänsklig/djurisk rörelse (att krypa). Det är personifikation.",
+        "Sammantaget skapar berättarperspektivet närhet till huvudpersonens känslor, medan bildspråket förstärker den hotfulla stämningen."
+      ]
+    },
+    {
+      "id": "q-sv1-lit-15",
+      "kind": "mc",
+      "topic": "tema och motiv",
+      "prompt": "En novell handlar om en ung kvinna som lämnar sin hemby för att plugga i en storstad och känner sig vilse bland alla nya människor. Vad är rimligen verkets TEMA?",
+      "opener": "Temat är den abstrakta, övergripande idén — inte den konkreta handlingen.",
+      "choices": [
+        "Identitet och att hitta sin plats i en ny miljö",
+        "En kvinna som flyttar till en storstad",
+        "Att plugga vid ett universitet",
+        "En hemby som kvinnan lämnar"
+      ],
+      "answer": 0,
+      "explanation": "Temat är den övergripande idén — här identitet och tillhörighet. De andra alternativen beskriver konkreta händelser, alltså motiv och handling."
     }
   ]
 }

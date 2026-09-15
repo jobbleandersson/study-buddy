@@ -122,6 +122,110 @@
       "prompt": "Explain ethos, pathos and logos - and give a short example of each.",
       "opener": "Three ways to persuade: who you are, what the audience feels, and what is true.",
       "answer": "Ethos = the speaker's credibility and character (\"as a doctor, I know that...\"). Pathos = the audience's emotions (\"think of the children affected\"). Logos = factual grounds and logic (\"the study shows an increase of 34%\"). Strong argumentation usually weaves all three together."
+    },
+    {
+      "id": "q-sv1-ret-9",
+      "kind": "mc",
+      "topic": "modes of persuasion",
+      "prompt": "A politician says: \"You can trust me — I've served in parliament for fifteen years and never broken a promise.\" Which mode of persuasion is this?",
+      "opener": "What is the speaker leaning on — their own background, the audience's emotions, or facts?",
+      "choices": [
+        "Ethos",
+        "Pathos",
+        "Logos",
+        "Kairos"
+      ],
+      "answer": 0,
+      "explanation": "The speaker invokes their own experience and reliability — that's ethos."
+    },
+    {
+      "id": "q-sv1-ret-10",
+      "kind": "mc",
+      "topic": "modes of persuasion",
+      "prompt": "\"According to official statistics, youth unemployment has fallen by 3 percentage points over the past year.\" Which mode of persuasion is this?",
+      "opener": "Statistics and a named source — what does that rest on?",
+      "choices": [
+        "Pathos",
+        "Logos",
+        "Ethos",
+        "Anaphora"
+      ],
+      "answer": 1,
+      "explanation": "Logos is built on factual grounds: facts and statistics. Citing the official source strengthens the credibility of the claim."
+    },
+    {
+      "id": "q-sv1-ret-11",
+      "kind": "mc",
+      "topic": "figures of speech",
+      "prompt": "\"I've said it a thousand times now!\" What figure of speech is this an example of?",
+      "opener": "Has the person literally said it a thousand times?",
+      "choices": [
+        "Hyperbole",
+        "Metaphor",
+        "Irony",
+        "Anaphora"
+      ],
+      "answer": 0,
+      "explanation": "A hyperbole is a deliberate exaggeration used to emphasise a point — the person has hardly said it exactly a thousand times."
+    },
+    {
+      "id": "q-sv1-ret-12",
+      "kind": "mc",
+      "topic": "figures of speech",
+      "prompt": "\"We came, we saw, we conquered.\" What figure of speech is this, where three parts are lined up in a cohesive rhythm?",
+      "opener": "Count how many short, parallel parts are stacked one after another.",
+      "choices": [
+        "Tricolon",
+        "Epistrophe",
+        "Alliteration",
+        "Rhetorical question"
+      ],
+      "answer": 0,
+      "explanation": "A tricolon is three parallel parts in a row, often with rising force. It creates rhythm and makes the message easier to remember."
+    },
+    {
+      "id": "q-sv1-ret-13",
+      "kind": "mc",
+      "topic": "structure",
+      "prompt": "Which part of a classical speech is called \"argumentatio\"?",
+      "opener": "Where in the speech is the actual case laid out?",
+      "choices": [
+        "The part where the speaker presents and develops their arguments",
+        "The conclusion that summarises the speech",
+        "The introduction that grabs attention",
+        "The part where counter-arguments are addressed"
+      ],
+      "answer": 0,
+      "explanation": "Argumentatio is the part of the speech where the main arguments are presented and developed. Addressing counter-arguments instead belongs to confutatio, and the introduction is called exordium."
+    },
+    {
+      "id": "q-sv1-ret-14",
+      "kind": "worked",
+      "topic": "modes of persuasion",
+      "prompt": "Analyse the excerpt: \"I've worked as a firefighter for fifteen years and seen what faulty smoke alarms cost. National statistics show that homes without working smoke alarms have three times the risk of a fatal fire. Is it really worth gambling with your children's lives over a battery you forgot to change?\" Which modes of persuasion are used, and where?",
+      "opener": "Go sentence by sentence, just like in the earlier example about phones in the classroom.",
+      "answer": "Ethos (the firefighting experience), logos (the national statistics) and pathos (the closing question about the children's lives).",
+      "steps": [
+        "Sentence 1: \"I've worked as a firefighter for fifteen years...\" — the speaker invokes their professional experience. That's ethos.",
+        "Sentence 2: \"National statistics show... three times the risk\" — factual grounds with a named source. That's logos.",
+        "Sentence 3: \"Is it really worth gambling with your children's lives...\" — a rhetorical question that stirs worry. That's pathos.",
+        "Conclusion: the excerpt combines all three modes of persuasion to convince on several levels at once."
+      ]
+    },
+    {
+      "id": "q-sv1-ret-15",
+      "kind": "mc",
+      "topic": "figures of speech",
+      "prompt": "\"When all else is gone, hope remains. When friends are gone, hope remains. When courage fails, hope remains.\" What figure of speech is this?",
+      "opener": "Is the repetition at the START or at the END of each part?",
+      "choices": [
+        "Epistrophe",
+        "Anaphora",
+        "Alliteration",
+        "Simile"
+      ],
+      "answer": 0,
+      "explanation": "Epistrophe is repetition at the END of several consecutive clauses (\"hope remains\" repeats last in each part). Anaphora is the opposite — repetition at the beginning."
     }
   ]
 }

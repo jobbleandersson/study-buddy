@@ -122,6 +122,110 @@
       "prompt": "Förklara ethos, pathos och logos — och ge ett kort exempel på varje.",
       "opener": "Tre sätt att övertyga: vem du är, vad publiken känner, och vad som är sant.",
       "answer": "Ethos = talarens trovärdighet och karaktär (\"som läkare vet jag att…\"). Pathos = publikens känslor (\"tänk på barnen som drabbas\"). Logos = sakskäl och logik (\"studien visar en ökning med 34 %\"). Stark argumentation väver oftast samman alla tre."
+    },
+    {
+      "id": "q-sv1-ret-9",
+      "kind": "mc",
+      "topic": "appellformer",
+      "prompt": "En politiker säger: \"Ni kan lita på mig — jag har suttit i riksdagen i femton år och aldrig brutit ett löfte.\" Vilken appellform?",
+      "opener": "Vad lutar sig talaren mot — sin egen bakgrund, publikens känslor, eller fakta?",
+      "choices": [
+        "Ethos",
+        "Pathos",
+        "Logos",
+        "Kairos"
+      ],
+      "answer": 0,
+      "explanation": "Talaren åberopar sin egen erfarenhet och pålitlighet — det är ethos."
+    },
+    {
+      "id": "q-sv1-ret-10",
+      "kind": "mc",
+      "topic": "appellformer",
+      "prompt": "\"Enligt SCB har arbetslösheten bland unga sjunkit med 3 procentenheter det senaste året.\" Vilken appellform?",
+      "opener": "Statistik och en namngiven källa — vad bygger det på?",
+      "choices": [
+        "Pathos",
+        "Logos",
+        "Ethos",
+        "Anafor"
+      ],
+      "answer": 1,
+      "explanation": "Logos bygger på sakskäl: fakta och statistik. Källhänvisningen till SCB stärker trovärdigheten i påståendet."
+    },
+    {
+      "id": "q-sv1-ret-11",
+      "kind": "mc",
+      "topic": "stilfigurer",
+      "prompt": "\"Jag har sagt det tusen gånger nu!\" Vilken stilfigur är detta ett exempel på?",
+      "opener": "Har personen bokstavligen sagt det tusen gånger?",
+      "choices": [
+        "Hyperbol",
+        "Metafor",
+        "Ironi",
+        "Anafor"
+      ],
+      "answer": 0,
+      "explanation": "En hyperbol är en medveten överdrift för att förstärka ett budskap — personen har knappast sagt det exakt tusen gånger."
+    },
+    {
+      "id": "q-sv1-ret-12",
+      "kind": "mc",
+      "topic": "stilfigurer",
+      "prompt": "\"Vi kom, vi såg, vi segrade.\" Vilken stilfigur, där tre led radas upp i en sammanhållen rytm?",
+      "opener": "Räkna hur många korta, parallella led som staplas efter varandra.",
+      "choices": [
+        "Trikolon",
+        "Epifor",
+        "Allitteration",
+        "Retorisk fråga"
+      ],
+      "answer": 0,
+      "explanation": "Ett trikolon är tre parallella led i rad, ofta med stigande kraft. Det skapar rytm och gör budskapet lättare att minnas."
+    },
+    {
+      "id": "q-sv1-ret-13",
+      "kind": "mc",
+      "topic": "disposition",
+      "prompt": "Vilken del av ett klassiskt tal kallas \"argumentatio\"?",
+      "opener": "Var i talet läggs själva bevisföringen fram?",
+      "choices": [
+        "Den del där talaren lägger fram och utvecklar sina argument",
+        "Avslutningen som sammanfattar talet",
+        "Inledningen som väcker uppmärksamhet",
+        "Den del där motargument bemöts"
+      ],
+      "answer": 0,
+      "explanation": "Argumentatio är den del av talet där huvudargumenten läggs fram och utvecklas. Att bemöta motargument hör i stället till confutatio, och inledningen kallas exordium."
+    },
+    {
+      "id": "q-sv1-ret-14",
+      "kind": "worked",
+      "topic": "appellformer",
+      "prompt": "Analysera utdraget: \"Jag har jobbat som brandman i femton år och sett vad bristande brandvarnare kostar. Statistik från MSB visar att bostäder utan fungerande brandvarnare har tre gånger högre risk att drabbas av dödsbränder. Är det verkligen värt att chansa med era barns liv för en batteribytpåminnelse man glömt?\" Vilka appellformer används, och var?",
+      "opener": "Gå mening för mening, precis som i det tidigare exemplet om mobiler i klassrummet.",
+      "answer": "Ethos (brandmans-erfarenheten), logos (MSB-statistiken) och pathos (den avslutande frågan om barnens liv).",
+      "steps": [
+        "Mening 1: \"Jag har jobbat som brandman i femton år…\" — talaren åberopar sin yrkeserfarenhet. Det är ethos.",
+        "Mening 2: \"Statistik från MSB visar… tre gånger högre risk\" — sakskäl med en namngiven källa. Det är logos.",
+        "Mening 3: \"Är det verkligen värt att chansa med era barns liv…\" — en retorisk fråga som väcker oro. Det är pathos.",
+        "Slutsats: utdraget kombinerar alla tre appellformerna för att övertyga på flera plan samtidigt."
+      ]
+    },
+    {
+      "id": "q-sv1-ret-15",
+      "kind": "mc",
+      "topic": "stilfigurer",
+      "prompt": "\"När allt annat är borta, finns hoppet kvar. När vännerna är borta, finns hoppet kvar. När modet tryter, finns hoppet kvar.\" Vilken stilfigur?",
+      "opener": "Sitter upprepningen i BÖRJAN eller i SLUTET av varje led?",
+      "choices": [
+        "Epifor",
+        "Anafor",
+        "Allitteration",
+        "Liknelse"
+      ],
+      "answer": 0,
+      "explanation": "Epifor är upprepning i SLUTET av flera efterföljande satser (\"finns hoppet kvar\" upprepas sist i varje led). Anafor är motsatsen — upprepning i början."
     }
   ]
 }

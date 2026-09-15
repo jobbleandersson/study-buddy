@@ -123,6 +123,110 @@
       "prompt": "Explain dialect, sociolect, chronolect and idiolect.",
       "opener": "Four kinds of variation - what determines which one it is?",
       "answer": "Dialect: variation by geographic area (Scanian, Norrland dialects). Sociolect: variation by social group, class or occupation. Chronolect: variation by age (youth slang). Idiolect: one individual's unique use of language - the sum of all the varieties a person carries with them."
+    },
+    {
+      "id": "q-sv1-hist-9",
+      "kind": "mc",
+      "topic": "Nordic languages",
+      "prompt": "Which languages are considered Swedish's neighbouring languages - the ones Swedish speakers can often understand without having studied them?",
+      "opener": "Think about which Nordic languages are linguistically closest to Swedish today.",
+      "choices": [
+        "Danish and Norwegian",
+        "Finnish and Sami",
+        "Icelandic and Faroese",
+        "German and Dutch"
+      ],
+      "answer": 0,
+      "explanation": "Danish and Norwegian are Swedish's classic neighbouring languages - they are mutually intelligible without formal study. Icelandic and Faroese are also North Germanic, but have changed less over time and are therefore harder to understand without study."
+    },
+    {
+      "id": "q-sv1-hist-10",
+      "kind": "mc",
+      "topic": "loanwords",
+      "prompt": "Since the 20th century, Swedish has borrowed many words from English, such as \"dejt\" (date), \"jobb\" (job) and \"chatta\" (chat). What are these kinds of words called?",
+      "opener": "Which language do the words originally come from?",
+      "choices": [
+        "Anglicisms (English loanwords)",
+        "Purism",
+        "Chronolect",
+        "Sociolect"
+      ],
+      "answer": 0,
+      "explanation": "Anglicisms are words or expressions borrowed from English. Purism, by contrast, is an effort to PURGE such loanwords from a language."
+    },
+    {
+      "id": "q-sv1-hist-11",
+      "kind": "mc",
+      "topic": "minority languages",
+      "prompt": "What is required for a language to count as one of Sweden's national minority languages?",
+      "opener": "It's not about how many people speak the language today.",
+      "choices": [
+        "That the language has been spoken in Sweden for a long, unbroken period of time (historical continuity)",
+        "That the language has the most speakers in Sweden after Swedish",
+        "That the language is spoken by at least one million people in Sweden",
+        "That the language is an official language in a neighbouring country"
+      ],
+      "answer": 0,
+      "explanation": "The criterion is historical continuity - that the language has existed in Sweden for a long, unbroken period. The number of speakers doesn't determine the status, which is why, for example, Arabic (with more speakers in Sweden) is not a national minority language."
+    },
+    {
+      "id": "q-sv1-hist-12",
+      "kind": "mc",
+      "topic": "Nordic languages",
+      "prompt": "Which language does NOT belong to the North Germanic language branch?",
+      "opener": "One of these four belongs to a completely different language family.",
+      "choices": [
+        "Icelandic",
+        "Faroese",
+        "Finnish",
+        "Norwegian"
+      ],
+      "answer": 2,
+      "explanation": "Finnish belongs to the Finno-Ugric language family, not the North Germanic one. Icelandic, Faroese and Norwegian all descend from Old Norse."
+    },
+    {
+      "id": "q-sv1-hist-13",
+      "kind": "mc",
+      "topic": "linguistic variation",
+      "prompt": "A doctor uses technical terms like \"anamnesis\" and \"palpation\" with colleagues, but explains the same things more simply to patients. What type of linguistic variation, tied to occupation rather than geography or age, is this?",
+      "opener": "What do the doctor and the colleagues have in common that sets them apart from the patients?",
+      "choices": [
+        "Sociolect",
+        "Dialect",
+        "Chronolect",
+        "Idiolect"
+      ],
+      "answer": 0,
+      "explanation": "Sociolect is variation tied to occupational group or social affiliation - here the difference between technical language among colleagues and everyday language with patients."
+    },
+    {
+      "id": "q-sv1-hist-14",
+      "kind": "worked",
+      "topic": "Nordic languages",
+      "prompt": "Explain why a Swedish speaker can often understand a Danish speaker without having learned Danish, but has more trouble understanding an Icelandic speaker. What concepts explain the difference?",
+      "opener": "All four languages descend from the same root - what has happened since then that sets them apart?",
+      "answer": "Danish and Swedish are neighbouring languages with a shared origin and similar development, while Icelandic has changed less and retained older features due to geographic isolation.",
+      "steps": [
+        "Swedish, Danish and Norwegian all descend from Old Norse and, through close contact, have changed in similar ways - that makes them neighbouring languages, mutually intelligible without formal study.",
+        "Icelandic also descends from Old Norse, but Iceland's geographic isolation meant the language changed much less over time and retained more archaic features, such as inflectional forms.",
+        "That retained archaism makes Icelandic more different from modern Swedish than Danish and Norwegian are, despite the shared origin.",
+        "Conclusion: linguistic kinship alone isn't enough for mutual intelligibility - how much the languages have changed relative to each other matters more."
+      ]
+    },
+    {
+      "id": "q-sv1-hist-15",
+      "kind": "mc",
+      "topic": "loanwords",
+      "prompt": "Which pair of words best illustrates Low German loanwords in Swedish from the medieval period?",
+      "opener": "Think about which words entered Swedish through the Hanseatic League's trade in the Baltic Sea.",
+      "choices": [
+        "borgare and tack",
+        "dejt and chatta",
+        "pizza and sushi",
+        "ombudsman and slalom"
+      ],
+      "answer": 0,
+      "explanation": "\"Borgare\" (citizen) and \"tack\" (thanks) are examples of Low German loanwords that entered Swedish during the medieval period through Hanseatic trade contacts. \"Dejt\" and \"chatta\" are modern English loanwords, \"pizza\"/\"sushi\" come from Italian/Japanese, and \"ombudsman\"/\"slalom\" are instead examples of Swedish words borrowed BY other languages."
     }
   ]
 }
