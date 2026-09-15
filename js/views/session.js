@@ -50,8 +50,18 @@ export async function renderSession(assignmentId, qs) {
   // estimate instead of the F–A grade reveal.
   const hp = isHpSetId(assignment.id);
 
+  // ?count=N studies N questions from this set only — never from another set.
+  // Fewer than the set has: a fresh random pick each run, so repeats see others.
+  const allIds = assignment.questions.map((q) => q.id);
+  const rawCount = Math.round(Number(qs?.get?.("count")));
+  const count = rawCount > 0 && rawCount < allIds.length ? rawCount : null;
+  const questionIds = count ? shuffled(allIds).slice(0, count) : allIds;
+  const retryQuery = count ? (examQuery ? `${examQuery}&count=${count}` : `?count=${count}`) : examQuery;
+
   return runSession({
-    key: examMode ? `${assignment.id}::exam` : assignment.id,
+    // A shorter run keeps its own resumable slot, so it can't resume into a
+    // full run of the same set (or the other way round).
+    key: `${assignment.id}${examMode ? "::exam" : ""}${count ? `::n${count}` : ""}`,
     assignmentId: assignment.id,
     title: assignment.title,
     type: assignment.type,
@@ -59,9 +69,9 @@ export async function renderSession(assignmentId, qs) {
     timeLimitMin,
     hp,
     hpTestId: hp ? parseHpSetId(assignment.id).test : null,
-    retryHash: `#/session/${assignment.id}${examQuery}`,
-    questionIds: assignment.questions.map((q) => q.id),
-    shuffle: isRetry || examMode,
+    retryHash: `#/session/${assignment.id}${retryQuery}`,
+    questionIds,
+    shuffle: isRetry || examMode || !!count,
   });
 }
 

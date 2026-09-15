@@ -122,6 +122,110 @@
       "prompt": "I vilken ordning ska du räkna? Räkna upp prioriteringsreglerna.",
       "opener": "Fyra steg — försök säga dem i rätt ordning innan du vänder på kortet.",
       "answer": "1) Parenteser. 2) Potenser (och rötter). 3) Multiplikation och division, från vänster till höger. 4) Addition och subtraktion, från vänster till höger."
+    },
+    {
+      "id": "q-ma9-tal-9",
+      "kind": "mc",
+      "topic": "negativa tal",
+      "prompt": "Temperaturen är $-8$ °C på morgonen. Under dagen stiger den med 11 grader. Vilken temperatur blir det?",
+      "opener": "Att temperaturen stiger betyder att du ska addera.",
+      "choices": [
+        "$-19$ °C",
+        "$3$ °C",
+        "$19$ °C",
+        "$-3$ °C"
+      ],
+      "answer": 1,
+      "explanation": "Att stiga betyder att addera: $-8 + 11 = 3$, alltså 3 °C. Svaret $-19$ °C får man om man subtraherar i stället för att addera."
+    },
+    {
+      "id": "q-ma9-tal-10",
+      "kind": "mc",
+      "topic": "negativa tal",
+      "prompt": "Vad är $-24 : (-6)$?",
+      "opener": "Samma teckenregel gäller för division som för multiplikation.",
+      "choices": [
+        "$-4$",
+        "$-18$",
+        "$18$",
+        "$4$"
+      ],
+      "answer": 3,
+      "explanation": "Minus delat med minus blir plus: $-24 : (-6) = 4$. Svaret $-18$ får man om man räknar $-24 - (-6)$ i stället för att dela."
+    },
+    {
+      "id": "q-ma9-tal-11",
+      "kind": "mc",
+      "topic": "potenser",
+      "prompt": "Skriv $3^2 \\cdot 3^3$ som en enda potens.",
+      "opener": "Vad händer med exponenterna när du multiplicerar potenser med samma bas?",
+      "choices": [
+        "$3^6$",
+        "$9^5$",
+        "$3^5$",
+        "$9^6$"
+      ],
+      "answer": 2,
+      "explanation": "När potenser med samma bas multipliceras adderas exponenterna: $3^2 \\cdot 3^3 = 3^{2+3} = 3^5$. Kontroll: $9 \\cdot 27 = 243$ och $3^5 = 243$."
+    },
+    {
+      "id": "q-ma9-tal-12",
+      "kind": "mc",
+      "topic": "potenser",
+      "prompt": "Talet $0{,}0032$ skrivet i grundpotensform är:",
+      "opener": "I grundpotensform ska första faktorn ligga mellan 1 och 10. Åt vilket håll flyttas decimaltecknet?",
+      "choices": [
+        "$32 \\cdot 10^{-4}$",
+        "$3{,}2 \\cdot 10^{3}$",
+        "$0{,}32 \\cdot 10^{-2}$",
+        "$3{,}2 \\cdot 10^{-3}$"
+      ],
+      "answer": 3,
+      "explanation": "Första faktorn ska ligga mellan 1 och 10, alltså $3{,}2$. Decimaltecknet flyttas tre steg åt höger, så exponenten blir $-3$: $3{,}2 \\cdot 10^{-3} = 0{,}0032$. Både $32 \\cdot 10^{-4}$ och $0{,}32 \\cdot 10^{-2}$ har samma värde, men är inte grundpotensform eftersom första faktorn inte ligger mellan 1 och 10."
+    },
+    {
+      "id": "q-ma9-tal-13",
+      "kind": "mc",
+      "topic": "prioriteringsregler",
+      "prompt": "Beräkna $20 - 12 : 4 + 2$.",
+      "opener": "Vilken räkneoperation ska göras först — och i vilken ordning tar du resten?",
+      "choices": [
+        "$4$",
+        "$19$",
+        "$18$",
+        "$15$"
+      ],
+      "answer": 1,
+      "explanation": "Division först: $12 : 4 = 3$. Sedan addition och subtraktion från vänster till höger: $20 - 3 = 17$ och $17 + 2 = 19$. Svaret 15 får man om man felaktigt räknar $3 + 2$ före subtraktionen."
+    },
+    {
+      "id": "q-ma9-tal-14",
+      "kind": "mc",
+      "topic": "potenser",
+      "prompt": "Beräkna $-2^2$.",
+      "opener": "Hör minustecknet till basen här, eller räknas potensen först?",
+      "choices": [
+        "$-4$",
+        "$4$",
+        "$0$",
+        "$-2$"
+      ],
+      "answer": 0,
+      "explanation": "Potensen räknas före minustecknet: $-2^2 = -(2 \\cdot 2) = -4$. Om minustecknet ska ingå i basen skriver man en parentes: $(-2)^2 = 4$."
+    },
+    {
+      "id": "q-ma9-tal-15",
+      "kind": "worked",
+      "topic": "prioriteringsregler",
+      "prompt": "Beräkna $(-3)^3 + 4 \\cdot (5 - 7)$. Visa hur du tänker steg för steg.",
+      "opener": "Parentes, potens, multiplikation, addition — och håll koll på tecknen.",
+      "answer": "-35",
+      "steps": [
+        "Parentesen först: $5 - 7 = -2$.",
+        "Sedan potensen: $(-3)^3 = (-3) \\cdot (-3) \\cdot (-3) = -27$.",
+        "Sedan multiplikationen: $4 \\cdot (-2) = -8$.",
+        "Till sist additionen: $-27 + (-8) = -35$."
+      ]
     }
   ]
 }

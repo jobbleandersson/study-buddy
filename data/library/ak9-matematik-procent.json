@@ -121,6 +121,109 @@
       "prompt": "Vad är en förändringsfaktor, och vilken förändringsfaktor motsvarar en ökning med 15 %?",
       "opener": "Tänk på talet du multiplicerar med för att göra förändringen i ett steg.",
       "answer": "Förändringsfaktorn är talet du multiplicerar med för att göra hela förändringen i ett steg. En ökning med 15 % ger faktorn 1,15 (och en minskning med 15 % ger 0,85)."
+    },
+    {
+      "id": "q-ma9-proc-9",
+      "kind": "mc",
+      "topic": "bråk",
+      "prompt": "Beräkna $\\frac{2}{3} - \\frac{1}{6}$.",
+      "opener": "Gör om båda bråken till samma nämnare innan du subtraherar.",
+      "choices": [
+        "$\\frac{1}{3}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{9}$",
+        "$\\frac{5}{6}$"
+      ],
+      "answer": 1,
+      "explanation": "$\\frac{2}{3} = \\frac{4}{6}$. Då blir $\\frac{4}{6} - \\frac{1}{6} = \\frac{3}{6} = \\frac{1}{2}$."
+    },
+    {
+      "id": "q-ma9-proc-10",
+      "kind": "mc",
+      "topic": "procent",
+      "prompt": "Vad är 15 % av 240 kr?",
+      "opener": "10 % är lätt att räkna ut — kan du komma vidare därifrån?",
+      "choices": [
+        "36 kr",
+        "24 kr",
+        "15 kr",
+        "3,6 kr"
+      ],
+      "answer": 0,
+      "explanation": "$240 \\cdot 0{,}15 = 36$ kr. (10 % är 24 kr, halva 10 % är 12 kr — tillsammans $24 + 12 = 36$ kr.)"
+    },
+    {
+      "id": "q-ma9-proc-11",
+      "kind": "mc",
+      "topic": "procentuell förändring",
+      "prompt": "Ett pris sänks från 150 kr till 120 kr. Hur många procent är sänkningen?",
+      "opener": "Jämför förändringen med det ursprungliga priset, inte det nya.",
+      "choices": [
+        "30 %",
+        "25 %",
+        "80 %",
+        "20 %"
+      ],
+      "answer": 3,
+      "explanation": "Förändringen är 30 kr. $\\frac{30}{150} = 0{,}20 = 20\\ \\%$. Att jämföra med det nya priset (120 kr) ger felaktigt 25 %."
+    },
+    {
+      "id": "q-ma9-proc-12",
+      "kind": "mc",
+      "topic": "bråk",
+      "prompt": "Vilket bråk i enklaste form är lika med $0{,}375$?",
+      "opener": "Skriv talet som tusendelar först, förkorta sedan så långt det går.",
+      "choices": [
+        "$\\frac{3}{7}$",
+        "$\\frac{3}{8}$",
+        "$\\frac{1}{3}$",
+        "$\\frac{5}{8}$"
+      ],
+      "answer": 1,
+      "explanation": "$0{,}375 = \\frac{375}{1000}$. Förkortat med 125 blir det $\\frac{3}{8}$. Kontroll: $3 \\div 8 = 0{,}375$."
+    },
+    {
+      "id": "q-ma9-proc-13",
+      "kind": "mc",
+      "topic": "procentuell förändring",
+      "prompt": "Ett pris är 450 kr efter att ha höjts med 20 %. Vad var priset innan höjningen?",
+      "opener": "450 kr är 120 % av det ursprungliga priset — inte det ursprungliga priset plus 20 %.",
+      "choices": [
+        "360 kr",
+        "540 kr",
+        "375 kr",
+        "430 kr"
+      ],
+      "answer": 2,
+      "explanation": "Det nya priset är $1{,}20$ gånger det gamla: $450 = 1{,}20 \\cdot x$, så $x = 450 / 1{,}20 = 375$ kr. Att bara dra bort 20 % av 450 (360 kr) räknar på fel bas."
+    },
+    {
+      "id": "q-ma9-proc-14",
+      "kind": "worked",
+      "topic": "procent",
+      "prompt": "En vara kostar 800 kr exklusive moms. Momsen är 25 %. Vad blir priset inklusive moms? Visa uträkningen.",
+      "opener": "Momsen läggs på det ursprungliga priset som en procentandel.",
+      "answer": "1 000 kr",
+      "steps": [
+        "Momsen i kronor: $800 \\cdot 0{,}25 = 200$ kr.",
+        "Lägg till momsen: $800 + 200 = 1\\,000$ kr.",
+        "Alternativt i ett steg: $800 \\cdot 1{,}25 = 1\\,000$ kr."
+      ]
+    },
+    {
+      "id": "q-ma9-proc-15",
+      "kind": "mc",
+      "topic": "bråk",
+      "prompt": "Vilket av dessa bråk är störst: $\\frac{3}{5}$, $\\frac{7}{10}$, $\\frac{2}{3}$ eller $\\frac{13}{20}$?",
+      "opener": "Gör om alla till decimaltal så blir de lätta att jämföra.",
+      "choices": [
+        "$\\frac{3}{5}$",
+        "$\\frac{7}{10}$",
+        "$\\frac{2}{3}$",
+        "$\\frac{13}{20}$"
+      ],
+      "answer": 1,
+      "explanation": "Som decimaltal: $\\frac{3}{5} = 0{,}60$, $\\frac{7}{10} = 0{,}70$, $\\frac{2}{3} \\approx 0{,}667$, $\\frac{13}{20} = 0{,}65$. Störst är $\\frac{7}{10}$."
     }
   ]
 }

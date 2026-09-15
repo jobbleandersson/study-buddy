@@ -122,6 +122,110 @@
       "prompt": "In what order should you calculate? List the order of operations rules.",
       "opener": "Four steps — try to say them in the right order before you flip the card.",
       "answer": "1) Brackets. 2) Powers (and roots). 3) Multiplication and division, from left to right. 4) Addition and subtraction, from left to right."
+    },
+    {
+      "id": "q-ma9-tal-9",
+      "kind": "mc",
+      "topic": "negative numbers",
+      "prompt": "The temperature is $-8$ °C in the morning. During the day it rises by 11 degrees. What is the temperature then?",
+      "opener": "When the temperature rises, you add.",
+      "choices": [
+        "$-19$ °C",
+        "$3$ °C",
+        "$19$ °C",
+        "$-3$ °C"
+      ],
+      "answer": 1,
+      "explanation": "Rising means adding: $-8 + 11 = 3$, so 3 °C. You get $-19$ °C if you subtract instead of add."
+    },
+    {
+      "id": "q-ma9-tal-10",
+      "kind": "mc",
+      "topic": "negative numbers",
+      "prompt": "What is $-24 \\div (-6)$?",
+      "opener": "The same sign rule applies to division as to multiplication.",
+      "choices": [
+        "$-4$",
+        "$-18$",
+        "$18$",
+        "$4$"
+      ],
+      "answer": 3,
+      "explanation": "Minus divided by minus gives plus: $-24 \\div (-6) = 4$. You get $-18$ if you calculate $-24 - (-6)$ instead of dividing."
+    },
+    {
+      "id": "q-ma9-tal-11",
+      "kind": "mc",
+      "topic": "powers",
+      "prompt": "Write $3^2 \\cdot 3^3$ as a single power.",
+      "opener": "What happens to the exponents when you multiply powers with the same base?",
+      "choices": [
+        "$3^6$",
+        "$9^5$",
+        "$3^5$",
+        "$9^6$"
+      ],
+      "answer": 2,
+      "explanation": "When powers with the same base are multiplied, the exponents are added: $3^2 \\cdot 3^3 = 3^{2+3} = 3^5$. Check: $9 \\cdot 27 = 243$ and $3^5 = 243$."
+    },
+    {
+      "id": "q-ma9-tal-12",
+      "kind": "mc",
+      "topic": "powers",
+      "prompt": "The number $0{,}0032$ written in standard form is:",
+      "opener": "In standard form the first factor must be between 1 and 10. Which way does the decimal point move?",
+      "choices": [
+        "$32 \\cdot 10^{-4}$",
+        "$3{,}2 \\cdot 10^{3}$",
+        "$0{,}32 \\cdot 10^{-2}$",
+        "$3{,}2 \\cdot 10^{-3}$"
+      ],
+      "answer": 3,
+      "explanation": "The first factor must be between 1 and 10, so $3{,}2$. The decimal point moves three places to the right, so the exponent is $-3$: $3{,}2 \\cdot 10^{-3} = 0{,}0032$. Both $32 \\cdot 10^{-4}$ and $0{,}32 \\cdot 10^{-2}$ have the same value, but they are not standard form because the first factor is not between 1 and 10."
+    },
+    {
+      "id": "q-ma9-tal-13",
+      "kind": "mc",
+      "topic": "order of operations",
+      "prompt": "Calculate $20 - 12 \\div 4 + 2$.",
+      "opener": "Which operation comes first — and in what order do you do the rest?",
+      "choices": [
+        "$4$",
+        "$19$",
+        "$18$",
+        "$15$"
+      ],
+      "answer": 1,
+      "explanation": "Division first: $12 \\div 4 = 3$. Then addition and subtraction from left to right: $20 - 3 = 17$ and $17 + 2 = 19$. You get 15 if you wrongly calculate $3 + 2$ before the subtraction."
+    },
+    {
+      "id": "q-ma9-tal-14",
+      "kind": "mc",
+      "topic": "powers",
+      "prompt": "Calculate $-2^2$.",
+      "opener": "Does the minus sign belong to the base here, or is the power calculated first?",
+      "choices": [
+        "$-4$",
+        "$4$",
+        "$0$",
+        "$-2$"
+      ],
+      "answer": 0,
+      "explanation": "The power is calculated before the minus sign: $-2^2 = -(2 \\cdot 2) = -4$. If the minus sign is meant to be part of the base, you write brackets: $(-2)^2 = 4$."
+    },
+    {
+      "id": "q-ma9-tal-15",
+      "kind": "worked",
+      "topic": "order of operations",
+      "prompt": "Calculate $(-3)^3 + 4 \\cdot (5 - 7)$. Show your reasoning step by step.",
+      "opener": "Brackets, power, multiplication, addition — and keep track of the signs.",
+      "answer": "-35",
+      "steps": [
+        "Brackets first: $5 - 7 = -2$.",
+        "Then the power: $(-3)^3 = (-3) \\cdot (-3) \\cdot (-3) = -27$.",
+        "Then the multiplication: $4 \\cdot (-2) = -8$.",
+        "Finally the addition: $-27 + (-8) = -35$."
+      ]
     }
   ]
 }

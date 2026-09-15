@@ -67,11 +67,24 @@ const SAMPLE_IDS = new Set(SAMPLE_FILES.map((x) => x.id));
 /** Does a stored set's wording still match a bundle doc verbatim (same ids,
  *  same prompts)? Tells an untouched library import apart from one the
  *  student has reworded — the latter shouldn't be auto-re-translated. */
+/** Does a student's copy of a library set still match the bundle? A bundle
+ *  that has since gained questions still matches: every question the student
+ *  has must be there with the same wording, and the new ones get appended. */
 function bundleMatches(a, doc) {
   const d = doc.questions || [];
-  if (a.questions.length !== d.length) return false;
+  if (a.questions.length > d.length) return false;
   const byId = new Map(d.map((x) => [x.id, x]));
   return a.questions.every((x) => byId.get(x.id)?.prompt === x.prompt);
+}
+
+/** A library question as stored in a student's set — the same fields the
+ *  language sync copies, so appended questions look exactly like imported ones. */
+function libraryQuestion(d) {
+  return {
+    id: d.id, kind: d.kind, topic: d.topic || "general", prompt: d.prompt || "",
+    choices: d.choices, answer: d.answer, rubric: d.rubric, explanation: d.explanation,
+    steps: d.steps, opener: d.opener, variant: d.variant, figure: d.figure, stimulus: d.stimulus,
+  };
 }
 
 const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
@@ -667,11 +680,11 @@ class Store extends EventTarget {
       } catch { /* offline — try again next time */ }
       if (!doc) continue;
 
-      const have = a.questions.map((q) => q.id).sort().join("|");
-      const want = (doc.questions || []).map((q) => q.id).sort().join("|");
-      if (have !== want) { a._libLang = "custom"; continue; } // restructured — theirs now
-
       const byId = new Map((doc.questions || []).map((q) => [q.id, q]));
+      // Every question the student has must still be in the bundle. A bundle
+      // that has only gained questions is fine — the new ones are appended below.
+      if (!a.questions.every((q) => byId.has(q.id))) { a._libLang = "custom"; continue; } // restructured — theirs now
+
       a.title = doc.title || a.title;
       a.sourceSummary = doc.sourceSummary || "";
       a.topics = doc.topics || a.topics;
@@ -692,6 +705,8 @@ class Store extends EventTarget {
           stimulus: d.stimulus ?? q.stimulus,
         };
       });
+      const haveIds = new Set(a.questions.map((q) => q.id));
+      for (const d of doc.questions || []) if (!haveIds.has(d.id)) a.questions.push(libraryQuestion(d));
       // Keep attempt history keyed on the new topic strings so mastery stays continuous.
       const topicById = new Map(a.questions.map((q) => [q.id, q.topic]));
       for (const att of this.state.attempts) {
@@ -711,6 +726,45 @@ class Store extends EventTarget {
         subj.name = targetName;
       }
       a._libLang = lang;
+      changed++;
+    }
+
+    if (changed) { this.save({ skipPush: true }); this.emit(); }
+    return changed;
+  }
+
+  /** A library set the student already added gets the questions its bundle
+   *  has gained since (a moment that grew from 8 to 15 questions, say), in the
+   *  language the copy is in. Only when every question the student has is
+   *  still in the bundle with the same wording — a set they've edited is left
+   *  alone. Reconstructible from the bundle like the language sync, so no push. */
+  async syncLibraryUpdates() {
+    const libSets = this.state.assignments.filter((a) =>
+      !a._sampleLang && a._libLang !== "custom" && (a._libLang || /^lib-/.test(a.id)));
+    if (!libSets.length) return 0;
+
+    let index;
+    try { index = await loadLibraryIndex(); } catch { return 0; }
+    const entryById = new Map(index.sets.map((s) => [s.id, s]));
+
+    let changed = 0;
+    for (const a of libSets) {
+      const entry = entryById.get(a.id);
+      if (!entry || (entry.count || 0) <= a.questions.length) continue;   // nothing new
+      const lang = a._libLang || "sv";
+      let doc = null;
+      try {
+        const primary = lang === "en" ? englishFile(entry.file) : entry.file;
+        let res = await fetch(primary);
+        if (!res.ok && primary !== entry.file) res = await fetch(entry.file);
+        if (res.ok) doc = await res.json();
+      } catch { /* offline — try again next time */ }
+      if (!doc || !bundleMatches(a, doc)) continue;
+
+      const have = new Set(a.questions.map((q) => q.id));
+      const added = (doc.questions || []).filter((d) => !have.has(d.id)).map(libraryQuestion);
+      if (!added.length) continue;
+      a.questions.push(...added);
       changed++;
     }
 

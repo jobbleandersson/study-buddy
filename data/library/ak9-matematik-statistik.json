@@ -122,6 +122,108 @@
       "prompt": "Förklara skillnaden mellan medelvärde, median och typvärde.",
       "opener": "Tre olika sätt att svara på frågan \"vad är typiskt?\".",
       "answer": "Medelvärde: summan av alla värden delat med antalet. Median: det mittersta värdet när de sorterats i storleksordning (medelvärdet av de två mittersta vid jämnt antal). Typvärde: det värde som förekommer flest gånger. Medianen påverkas minst av extremvärden."
+    },
+    {
+      "id": "q-ma9-stat-9",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Vad är typvärdet i datamängden 2, 3, 3, 5, 7, 7, 7, 9?",
+      "opener": "Typvärdet är det värde som förekommer flest gånger — räkna hur ofta varje tal dyker upp.",
+      "choices": [
+        "3",
+        "5",
+        "7",
+        "9"
+      ],
+      "answer": 2,
+      "explanation": "Talet 7 förekommer tre gånger, fler än något annat tal i datamängden (3 förekommer två gånger, 5 och 9 en gång var)."
+    },
+    {
+      "id": "q-ma9-stat-10",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Medelvärdet av fem provresultat är 74. Fyra av resultaten är 68, 70, 75 och 80. Vad är det femte resultatet?",
+      "opener": "Räkna ut vad summan av alla fem måste vara, dra sedan bort de fyra du känner till.",
+      "choices": [
+        "76",
+        "78",
+        "72",
+        "77"
+      ],
+      "answer": 3,
+      "explanation": "Summan av alla fem: $74 \\cdot 5 = 370$. De fyra kända: $68 + 70 + 75 + 80 = 293$. Det femte: $370 - 293 = 77$."
+    },
+    {
+      "id": "q-ma9-stat-11",
+      "kind": "mc",
+      "topic": "sannolikhet",
+      "prompt": "Du drar ett kort ur en vanlig kortlek med 52 kort. Vad är sannolikheten att det är en hjärter (13 kort av fyra färger)?",
+      "opener": "Hur många av de 52 korten är hjärter?",
+      "choices": [
+        "13 %",
+        "50 %",
+        "4 %",
+        "25 %"
+      ],
+      "answer": 3,
+      "explanation": "$\\frac{13}{52} = \\frac{1}{4} = 25\\ \\%$."
+    },
+    {
+      "id": "q-ma9-stat-12",
+      "kind": "mc",
+      "topic": "sannolikhet",
+      "prompt": "Sannolikheten att det regnar imorgon är 35 %. Vad är sannolikheten att det INTE regnar?",
+      "opener": "De två utfallen (regn eller inte regn) ska tillsammans bli 100 %.",
+      "choices": [
+        "35 %",
+        "135 %",
+        "70 %",
+        "65 %"
+      ],
+      "answer": 3,
+      "explanation": "$100\\ \\% - 35\\ \\% = 65\\ \\%$."
+    },
+    {
+      "id": "q-ma9-stat-13",
+      "kind": "mc",
+      "topic": "kombinatorik",
+      "prompt": "En meny har 4 förrätter, 5 huvudrätter och 3 efterrätter. Hur många olika tre-rätters måltider (en av varje sort) kan du sätta ihop?",
+      "opener": "Multiplicera antalet val i varje steg.",
+      "choices": [
+        "12",
+        "15",
+        "20",
+        "60"
+      ],
+      "answer": 3,
+      "explanation": "$4 \\cdot 5 \\cdot 3 = 60$. Alla tre stegen ska multipliceras ihop, inte bara två av dem."
+    },
+    {
+      "id": "q-ma9-stat-14",
+      "kind": "worked",
+      "topic": "sannolikhet",
+      "prompt": "I en klass med 30 elever har 18 syskon. Om du slumpmässigt väljer en elev, vad är sannolikheten att eleven INTE har syskon? Visa hur du tänker.",
+      "opener": "Räkna först ut hur många elever som saknar syskon.",
+      "answer": "40 %",
+      "steps": [
+        "Elever utan syskon: $30 - 18 = 12$.",
+        "Sannolikheten: $\\frac{12}{30} = \\frac{2}{5} = 0{,}4 = 40\\ \\%$."
+      ]
+    },
+    {
+      "id": "q-ma9-stat-15",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "En grupp har månadslönerna (i tkr) 25, 27, 28, 26 och 95. Vilket påstående stämmer?",
+      "opener": "Räkna ut både medelvärdet och medianen, och jämför hur extremvärdet 95 påverkar dem.",
+      "choices": [
+        "Medelvärdet är en bättre bild av en typisk lön eftersom det tar hänsyn till alla värden.",
+        "Medianen (27 tkr) ger en bättre bild av en typisk lön än medelvärdet (40,2 tkr), eftersom 95 drar upp medelvärdet.",
+        "Medelvärdet och medianen är lika stora i den här gruppen.",
+        "Typvärdet är det mest rättvisande måttet här."
+      ],
+      "answer": 1,
+      "explanation": "Medelvärdet är $(25+27+28+26+95)/5 = 40{,}2$ tkr, men medianen (det mittersta värdet i 25, 26, 27, 28, 95) är bara 27 tkr. Extremvärdet 95 drar upp medelvärdet men påverkar inte medianen lika mycket. Det finns inget typvärde här eftersom inget tal upprepas."
     }
   ]
 }

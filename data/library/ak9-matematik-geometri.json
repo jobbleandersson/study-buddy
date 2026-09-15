@@ -122,6 +122,109 @@
       "prompt": "Vad säger Pythagoras sats, och när får du använda den?",
       "opener": "Två saker att få med: formeln och villkoret för när den gäller.",
       "answer": "I en rätvinklig triangel gäller $a^2 + b^2 = c^2$, där $a$ och $b$ är kateterna och $c$ är hypotenusan (sidan mitt emot den räta vinkeln). Satsen gäller endast för rätvinkliga trianglar."
+    },
+    {
+      "id": "q-ma9-geo-9",
+      "kind": "mc",
+      "topic": "area och omkrets",
+      "prompt": "En rektangel har omkretsen 28 cm och bredden 5 cm. Hur lång är rektangeln?",
+      "opener": "Omkretsen är summan av alla fyra sidorna: $O = 2(l + b)$.",
+      "choices": [
+        "23 cm",
+        "14 cm",
+        "9 cm",
+        "4 cm"
+      ],
+      "answer": 2,
+      "explanation": "$28 = 2(l + 5)$, så $l + 5 = 14$. Då är $l = 9$ cm."
+    },
+    {
+      "id": "q-ma9-geo-10",
+      "kind": "mc",
+      "topic": "volym",
+      "prompt": "En kub har sidan 4 cm. Vad är volymen?",
+      "opener": "En kubs volym är sidan multiplicerad med sig själv tre gånger.",
+      "choices": [
+        "16 cm³",
+        "64 cm³",
+        "12 cm³",
+        "48 cm³"
+      ],
+      "answer": 1,
+      "explanation": "$V = a^3 = 4^3 = 4 \\cdot 4 \\cdot 4 = 64$ cm³."
+    },
+    {
+      "id": "q-ma9-geo-11",
+      "kind": "mc",
+      "topic": "pythagoras sats",
+      "prompt": "En stege lutar mot en vägg. Stegens fot står 3 m från väggen, och stegen är 5 m lång. Hur högt upp på väggen når stegen?",
+      "opener": "Stegen är hypotenusan i en rätvinklig triangel.",
+      "choices": [
+        "8 m",
+        "2 m",
+        "4 m",
+        "34 m"
+      ],
+      "answer": 2,
+      "explanation": "$3^2 + h^2 = 5^2$, alltså $9 + h^2 = 25$. Då är $h^2 = 16$ och $h = 4$ m."
+    },
+    {
+      "id": "q-ma9-geo-12",
+      "kind": "mc",
+      "topic": "skala",
+      "prompt": "En karta har skalan 1:50 000. Två städer ligger 8 cm från varandra på kartan. Hur långt är det mellan städerna i verkligheten?",
+      "opener": "Räkna ut avståndet i cm först, gör sedan om till en lämpligare enhet.",
+      "choices": [
+        "0,4 km",
+        "4 km",
+        "40 km",
+        "400 km"
+      ],
+      "answer": 1,
+      "explanation": "$8 \\cdot 50\\,000 = 400\\,000$ cm. Eftersom $1$ km $= 100\\,000$ cm blir det $400\\,000 / 100\\,000 = 4$ km."
+    },
+    {
+      "id": "q-ma9-geo-13",
+      "kind": "mc",
+      "topic": "area och omkrets",
+      "prompt": "En parallellogram har basen 9 cm och höjden 4 cm. Vad är arean?",
+      "opener": "Parallellogrammens area räknas annorlunda än triangelns — ingen division med 2.",
+      "choices": [
+        "18 cm²",
+        "36 cm²",
+        "26 cm²",
+        "13 cm²"
+      ],
+      "answer": 1,
+      "explanation": "$A = b \\cdot h = 9 \\cdot 4 = 36$ cm². (18 cm² får man om man av misstag använder triangelformeln och delar med 2.)"
+    },
+    {
+      "id": "q-ma9-geo-14",
+      "kind": "worked",
+      "topic": "pythagoras sats",
+      "prompt": "Ett fartyg seglar 8 km österut och sedan 6 km norrut. Hur långt är det raka avståndet tillbaka till startpunkten? Visa uträkningen.",
+      "opener": "De två sträckorna bildar kateterna i en rätvinklig triangel.",
+      "answer": "10 km",
+      "steps": [
+        "De två sträckorna är rätvinkliga mot varandra (öster och norr), så de är kateter i en rätvinklig triangel.",
+        "$8^2 + 6^2 = 64 + 36 = 100$.",
+        "Avståndet är $\\sqrt{100} = 10$ km."
+      ]
+    },
+    {
+      "id": "q-ma9-geo-15",
+      "kind": "mc",
+      "topic": "volym",
+      "prompt": "En balk är 1,5 m lång, 40 cm bred och 25 cm hög. Vad är volymen i cm³?",
+      "opener": "Gör om alla mått till samma enhet innan du multiplicerar.",
+      "choices": [
+        "600 cm³",
+        "15 000 cm³",
+        "150 000 cm³",
+        "1 500 000 cm³"
+      ],
+      "answer": 2,
+      "explanation": "$1{,}5$ m $= 150$ cm. $V = 150 \\cdot 40 \\cdot 25 = 150\\,000$ cm³. Att glömma göra om metern till centimeter (och räkna med 15 cm) ger felaktigt $15\\,000$ cm³."
     }
   ]
 }

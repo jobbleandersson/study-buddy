@@ -200,6 +200,19 @@ export async function renderLibrary() {
     ]);
     examSel.value = String(state.examMin);
 
+    // Questions per session. Every run draws only from the moment you pick, so
+    // the choices stop below the largest set here; "All" is always the full set.
+    const maxCount = Math.max(0, ...sets.map((s) => s.count || 0));
+    const countOpts = [5, 10, 15, 20, 25, 30].filter((n) => n < maxCount);
+    const countSel = el("select", {
+      id: "lib-qcount", "aria-label": t("lib.countLabel"),
+      onchange: (e) => { state.qCount = Number(e.target.value) || 0; paint(); },
+    }, [
+      el("option", { value: "0" }, t("lib.countAll")),
+      ...countOpts.map((n) => el("option", { value: String(n) }, String(n))),
+    ]);
+    countSel.value = String(state.qCount || 0);
+
     return el("div", {}, [
       el("section.panel", {}, [
         el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "start", gap: "12px", flexWrap: "wrap", marginBottom: "6px" } }, [
@@ -215,6 +228,9 @@ export async function renderLibrary() {
             missing.length ? addAllBtn : el("span.note", { style: { alignSelf: "center" } }, t("lib.allAdded")),
           ].filter(Boolean)),
         ]),
+        countOpts.length ? el("label.field", { style: { maxWidth: "220px", margin: "10px 0 0" } }, [
+          el("span", {}, t("lib.countLabel")), countSel,
+        ]) : null,
         el("details.libexam", {}, [
           el("summary", {}, [icon(ICONS.clock, 14), t("lib.examOptions")]),
           el("label.field", { style: { maxWidth: "220px", margin: "10px 0 0" } }, [
@@ -233,8 +249,10 @@ export async function renderLibrary() {
     // Added → "Study" is the primary action; "Exam mode" is the secondary.
     // Not added → "Add" is primary, and exam mode isn't offered yet (it needs
     // the set in the library).
+    // A chosen question count only applies when this moment has more than that.
+    const countQ = state.qCount && state.qCount < (entry.count || 0) ? state.qCount : 0;
     const action = imported
-      ? el("a.btn.btn--sm", { href: `#/session/${entry.id}` }, [icon(ICONS.play, 16), t("lib.study")])
+      ? el("a.btn.btn--sm", { href: `#/session/${entry.id}${countQ ? `?count=${countQ}` : ""}` }, [icon(ICONS.play, 16), t("lib.study")])
       : el("button.btn.btn--sm", {
           type: "button",
           onclick: async (e) => {
@@ -253,7 +271,7 @@ export async function renderLibrary() {
     const examAction = imported
       ? el("button.btn.btn--ghost.btn--sm", {
           type: "button", title: t("lib.examTip"),
-          onclick: () => { location.hash = `#/session/${entry.id}?exam=1${state.examMin ? `&min=${state.examMin}` : ""}`; },
+          onclick: () => { location.hash = `#/session/${entry.id}?exam=1${state.examMin ? `&min=${state.examMin}` : ""}${countQ ? `&count=${countQ}` : ""}`; },
         }, [icon(ICONS.clock, 16), t("lib.exam")])
       : null;
 
