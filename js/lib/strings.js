@@ -1257,13 +1257,6 @@ export const STRINGS = {
     "hp.moreTitle": "More delprov",
     "hp.addIntro": "Pick which delprov you want to practise — add more any time.",
     "hp.addedTag": "Added",
-    "hp.colDelprov": "Delprov",
-    "hp.colArea": "Section",
-    "hp.colQuestions": "Questions",
-    "hp.colTime": "Time",
-    "hp.colLast": "Last result",
-    "hp.colActions": "Actions",
-    "hp.lastResult": "last {score}",
     "hp.allAdded": "All delprov added ✓",
 
     /* ---- site help chat ---- */
@@ -2536,13 +2529,6 @@ export const STRINGS = {
     "hp.moreTitle": "Fler delprov",
     "hp.addIntro": "Välj vilka delprov du vill öva på — du kan lägga till fler när som helst.",
     "hp.addedTag": "Tillagt",
-    "hp.colDelprov": "Delprov",
-    "hp.colArea": "Område",
-    "hp.colQuestions": "Frågor",
-    "hp.colTime": "Tid",
-    "hp.colLast": "Senast",
-    "hp.colActions": "Åtgärder",
-    "hp.lastResult": "senast {score}",
     "hp.allAdded": "Alla delprov tillagda ✓",
 
     /* ---- hjälpchatt ---- */

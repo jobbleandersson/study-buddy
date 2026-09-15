@@ -8,7 +8,7 @@
 // among Swedish/Biology/etc., it's a separate track with its own hub, so its
 // own "add a delprov" panel lives on this page (see js/data/hp-content.js).
 
-import { store } from "../store.js";
+import { store, PALETTE } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, daysUntil, getLang, sentenceCase } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
@@ -35,87 +35,76 @@ function hpSetOrder(index) {
   );
 }
 
-/** "ORD – Ordförståelse" -> "Ordförståelse": the code already has its own column. */
-const afterDash = (s) => (s || "").split(/\s[–-]\s/).slice(1).join(" – ") || s || "";
-
-/** Full delprov name for a subject id, in the UI language. */
-function delprovName(index, tr, subjectId) {
-  const en = tr.subjects?.[subjectId]?.name;
-  const sv = (index.subjects || []).find((s) => s.id === subjectId)?.name;
-  return afterDash(en || sv || "");
+/** One colour per delprov, cycling the app's shared palette by position —
+ *  same trick library.js uses for subjects with no colour of their own yet,
+ *  so the picker reads as scannable groups instead of one flat grey list. */
+function hpDelprovColor(delprov) {
+  const idx = Math.max(0, DELPROV_ORDER.indexOf(delprov));
+  const p = PALETTE[idx % PALETTE.length];
+  return { solid: `var(--c-${p.name})`, ink: `var(--c-${p.name}-ink)`, tint: `var(--c-${p.name}-tint)` };
 }
 
-/** The student's most recent finished run of one set -> "8/10", or null. */
-function lastResult(setId) {
-  const run = store.attempts
-    .filter((a) => a.assignmentId === setId && a.items?.length)
-    .sort((a, b) => (b.finishedAt || 0) - (a.finishedAt || 0))[0];
-  if (!run) return null;
-  return `${run.items.filter((i) => i.correct).length}/${run.items.length}`;
-}
-
-/** One delprov set as a table row: code, name, the numbers that matter for
- *  planning (questions, time, last result), then add — or study/exam/print
- *  once it's added. On a phone the number columns fold into a meta line. */
-function hpSetRow(entry, index, tr, refresh) {
+function hpSetCard(entry, tr, refresh) {
   const added = isHpImported(entry.id);
   const dp = delprovCodeOf(entry.subject);
+  const color = hpDelprovColor(dp);
   const title = tr.sets[entry.id]?.title || entry.title;
   const summary = tr.sets[entry.id]?.summary || entry.summary;
-  const minutes = DELPROV_PACE[dp] || 12;
-  const last = added ? lastResult(entry.id) : null;
+  const count = plural(entry.count, "common.questionOne", "common.questionMany");
 
-  const actions = added
-    ? [
-        el("a.btn.btn--sm", { href: `#/session/${entry.id}` }, [icon(ICONS.play, 14), t("lib.study")]),
-        el("button.btn.btn--ghost.btn--sm", {
-          type: "button", title: t("lib.examTip"),
-          onclick: () => { location.hash = `#/session/${entry.id}?exam=1`; },
-        }, [icon(ICONS.clock, 14), t("lib.exam")]),
-        el("a.iconbtn.iconbtn--sm", {
-          href: `#/print/${entry.id}`, "aria-label": t("print.worksheet"), title: t("print.worksheet"),
-        }, [icon(ICONS.fileText, 16)]),
-      ]
-    : [
-        el("button.btn.btn--ghost.btn--sm", {
-          type: "button",
-          onclick: async (e) => {
-            const btn = e.currentTarget;
-            btn.disabled = true;
-            try {
-              await importHpSet(entry);
-              refresh();
-            } catch {
-              toast(t("lib.addFail"));
-              btn.disabled = false;
-            }
-          },
-        }, [icon(ICONS.plus, 14), t("lib.add")]),
-      ];
+  const addBtn = added ? null : el("button.btn.btn--sm", {
+    type: "button",
+    onclick: async (e) => {
+      e.currentTarget.disabled = true;
+      try {
+        await importHpSet(entry);
+        refresh();
+      } catch {
+        toast(t("lib.addFail"));
+        e.currentTarget.disabled = false;
+      }
+    },
+  }, [icon(ICONS.plus, 16), t("lib.add")]);
 
-  return el("tr.hp-table__row" + (added ? ".is-added" : ""), {}, [
-    el("td.hp-table__code", {}, t(`hp.delprov.${dp}`)),
-    el("td.hp-table__area", {}, [
-      el("div.hp-table__name", {}, delprovName(index, tr, entry.subject)),
-      // "ORD – övningsprov 1" -> "Övningsprov 1"; titles that don't lead with
-      // the code ("Ordbank 1 – vanliga provord") are kept whole.
-      el("div.hp-table__sub", { title: summary },
-        sentenceCase(title.replace(new RegExp(`^${t(`hp.delprov.${dp}`)}\\s[–-]\\s`), ""))),
-      el("div.hp-table__meta", {}, [
-        plural(entry.count, "common.questionOne", "common.questionMany"),
-        t("exam.planMin", { n: minutes }),
-        last ? t("hp.lastResult", { score: last }) : null,
-      ].filter(Boolean).join(" · ")),
+  const studyBtn = added
+    ? el("a.btn.btn--sm", { href: `#/session/${entry.id}` }, [icon(ICONS.play, 16), t("lib.study")])
+    : null;
+
+  const examBtn = added
+    ? el("button.btn.btn--ghost.btn--sm", {
+        type: "button", title: t("lib.examTip"),
+        onclick: () => { location.hash = `#/session/${entry.id}?exam=1`; },
+      }, [icon(ICONS.clock, 16), t("lib.exam")])
+    : null;
+
+  const printBtn = added
+    ? el("a.iconbtn.iconbtn--sm", {
+        href: `#/print/${entry.id}`, "aria-label": t("print.worksheet"), title: t("print.worksheet"),
+      }, [icon(ICONS.fileText, 16)])
+    : null;
+
+  return el("div.libcard" + (added ? ".libcard--added" : ""), {
+    style: { "--subject": color.solid, "--subject-tint": color.tint, "--subject-ink": color.ink, borderLeftColor: color.solid },
+  }, [
+    el("div", {}, [
+      el("span.acard__tag", { style: { marginBottom: "6px" } }, t(`hp.delprov.${dp}`)),
+      el("div.libcard__title", {}, title),
+      el("p.note", { style: { margin: "4px 0 0" } }, summary),
     ]),
-    el("td.hp-table__num", {}, String(entry.count)),
-    el("td.hp-table__num.hp-table__muted", {}, t("exam.planMin", { n: minutes })),
-    el("td.hp-table__num" + (last ? "" : ".hp-table__muted"), {}, last || "–"),
-    el("td.hp-table__actions", {}, [el("div", {}, actions)]),
+    el("div.libcard__foot", {}, [
+      added
+        ? el("span.libcard__added", {}, [icon(ICONS.check, 14), t("hp.addedTag"), el("span.libcard__count", {}, ` · ${count}`)])
+        : el("span.note", {}, count),
+      added
+        ? el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" } }, [studyBtn, examBtn, printBtn].filter(Boolean))
+        : addBtn,
+    ].filter(Boolean)),
   ]);
 }
 
-/** The delprov picker/manager. Always lists every delprov set — added ones
- *  with their study/exam/print actions, missing ones with an add button.
+/** The delprov picker/manager. Always shows every delprov set — added ones
+ *  with their study/exam/print actions, missing ones with an add button —
+ *  the same "everything in one grid" pattern as the library's own setList().
  *  `hasAny` just switches the intro copy: the full "get started" framing
  *  before anything's added, or a compact heading once the hub has content. */
 function hpAddPanel(index, tr, refresh, { hasAny = false } = {}) {
@@ -138,29 +127,18 @@ function hpAddPanel(index, tr, refresh, { hasAny = false } = {}) {
     : el("span.note", {}, t("hp.allAdded"));
 
   const group = (labelKey, sets) => sets.length ? [
-    el("tr.hp-table__group", {}, [el("th", { colSpan: 6, scope: "rowgroup" }, t(labelKey))]),
-    ...sets.map((s) => hpSetRow(s, index, tr, refresh)),
+    el("h4.settings__sub", {}, t(labelKey)),
+    el("div.libgrid", {}, sets.map((s) => hpSetCard(s, tr, refresh))),
   ] : [];
 
   return el("section.panel", {}, [
-    el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "start", gap: "12px", flexWrap: "wrap", marginBottom: hasAny ? "4px" : "6px" } }, [
+    el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "start", gap: "12px", flexWrap: "wrap", marginBottom: hasAny ? "10px" : "6px" } }, [
       el("h3", {}, t(hasAny ? "hp.moreTitle" : "hp.addTitle")),
       addAllBtn,
     ]),
-    hasAny ? null : el("p.note", {}, t("hp.addIntro")),
-    el("div.hp-table-wrap", {}, [
-      el("table.hp-table", {}, [
-        el("thead", {}, [el("tr", {}, [
-          el("th", { scope: "col" }, t("hp.colDelprov")),
-          el("th", { scope: "col" }, t("hp.colArea")),
-          el("th.hp-table__num", { scope: "col" }, t("hp.colQuestions")),
-          el("th.hp-table__num", { scope: "col" }, t("hp.colTime")),
-          el("th.hp-table__num", { scope: "col" }, t("hp.colLast")),
-          el("th", { scope: "col" }, el("span.sr-only", {}, t("hp.colActions"))),
-        ])]),
-        el("tbody", {}, [...group("hp.verbal", verbal), ...group("hp.kvant", kvant)]),
-      ]),
-    ]),
+    hasAny ? null : el("p.note", { style: { marginBottom: "14px" } }, t("hp.addIntro")),
+    ...group("hp.verbal", verbal),
+    ...group("hp.kvant", kvant),
   ].filter(Boolean));
 }
 
