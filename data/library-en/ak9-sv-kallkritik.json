@@ -122,6 +122,110 @@
       "prompt": "What four questions should you ask yourself when critically examining a text as a source?",
       "opener": "Four basic questions before you trust a source.",
       "answer": "Who is the sender, and what expertise/purpose do they have? Is the content fact or opinion — can it be checked? When was it published, and could the information be outdated? Are there independent sources saying the same thing? Be extra careful when the sender has a financial or political interest in you believing a particular message."
+    },
+    {
+      "id": "q-sv9-kk-9",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "What does it mean for a source to be a \"primary source\"?",
+      "opener": "Does the information come directly from the event or the person, or has it passed through someone else first?",
+      "choices": [
+        "The source comes directly from the event or the person themselves, e.g. an eyewitness or an original document",
+        "The source is always more trustworthy than an authority",
+        "The source repeats what someone else has already written about the event",
+        "The source must be written by a journalist"
+      ],
+      "answer": 0,
+      "explanation": "A primary source comes directly from the event or the person (e.g. an eyewitness, an original document, or an interview), unlike a secondary source, which repeats what someone else has already reported."
+    },
+    {
+      "id": "q-sv9-kk-10",
+      "kind": "mc",
+      "topic": "fact and opinion",
+      "prompt": "Which statement is an OPINION?",
+      "opener": "One of the statements can be measured and checked, the other three cannot be proven.",
+      "choices": [
+        "Water boils at 100 degrees Celsius at sea level.",
+        "The new school is three kilometres from the town centre.",
+        "The new school is the finest building in town.",
+        "The school has a total of 450 students."
+      ],
+      "answer": 2,
+      "explanation": "\"Finest\" is a value-laden word that expresses taste — it can't be measured or proven objectively. The other three statements are measurable facts."
+    },
+    {
+      "id": "q-sv9-kk-11",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "A website has no date showing when the article was published. Why could that be a problem?",
+      "opener": "Think of subjects where information quickly becomes outdated, like technology or disease outbreaks.",
+      "choices": [
+        "It's never a problem",
+        "The information could be outdated without you knowing it, for example in fast-changing subjects",
+        "It means the site has been hacked",
+        "It just means the site is a blog"
+      ],
+      "answer": 1,
+      "explanation": "Without a date you don't know whether the information is current — especially important in subjects that change quickly, where old information can be directly misleading today."
+    },
+    {
+      "id": "q-sv9-kk-12",
+      "kind": "mc",
+      "topic": "argumentative text",
+      "prompt": "What is a reason that supports a thesis in an argumentative text called?",
+      "opener": "It's what's meant to convince the reader that the thesis is correct.",
+      "choices": [
+        "Argument",
+        "Anecdote",
+        "Counter-argument",
+        "Thesis"
+      ],
+      "answer": 0,
+      "explanation": "An argument is a reason that supports the thesis. An anecdote is a short story that can be used AS an argument, but the reason itself is called an argument."
+    },
+    {
+      "id": "q-sv9-kk-13",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "\"The terrible new law that politicians rammed through without listening to the people will damage the country.\" What does the choice of words in this sentence show?",
+      "opener": "Are the words \"terrible\" and \"rammed through\" neutral, or strongly loaded?",
+      "choices": [
+        "The sentence is completely objective and factual",
+        "Word choices like \"terrible\" and \"rammed through\" show that the text is biased and expresses a strong opinion",
+        "The sentence contains only verifiable facts",
+        "It's impossible to tell if the sentence is biased"
+      ],
+      "answer": 1,
+      "explanation": "Strongly loaded words (\"terrible\", \"rammed through\" instead of e.g. \"voted through\") signal that the text is biased and is pushing an opinion rather than simply reporting facts."
+    },
+    {
+      "id": "q-sv9-kk-14",
+      "kind": "worked",
+      "topic": "source criticism",
+      "prompt": "You read a blog post claiming that \"all experts agree that X is dangerous\", but no sources or expert names are given. Explain why the claim should be scrutinised critically, and what you would want to see to trust it.",
+      "opener": "Words like \"all\" and \"none\" are often a warning sign in source criticism — think about why.",
+      "answer": "The claim lacks verifiable evidence — no named experts or sources are given, which makes it impossible to check. To trust the claim, you would want to see named experts, their actual statements or studies, and preferably independent confirmation from multiple places.",
+      "steps": [
+        "Notice that \"all experts\" is a very strong claim — absolute wording like this (all, none, always) is often a warning sign in source criticism.",
+        "Without named experts or sources, the claim can't be checked or traced back to an original study.",
+        "A credible claim would instead state WHICH experts, WHICH study or organisation, and preferably link to the original source.",
+        "Search to see whether independent, established sources confirm the same thing before trusting or sharing the claim."
+      ]
+    },
+    {
+      "id": "q-sv9-kk-15",
+      "kind": "mc",
+      "topic": "argumentative text",
+      "prompt": "What is a reason that speaks AGAINST the thesis in an argumentative text, but is still raised and addressed, called?",
+      "opener": "The writer shows they're aware of the opposing side — and addresses it to strengthen their own thesis.",
+      "choices": [
+        "Counter-argument",
+        "Thesis",
+        "Anecdote",
+        "Source citation"
+      ],
+      "answer": 0,
+      "explanation": "A counter-argument speaks against the thesis. Raising and addressing counter-arguments in a text shows the writer is aware of the opposing side, which often strengthens the credibility of their own reasoning."
     }
   ]
 }

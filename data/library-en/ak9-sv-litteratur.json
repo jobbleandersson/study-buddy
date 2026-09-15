@@ -123,6 +123,110 @@
       "prompt": "What are the most common types of figurative language and how do you recognise them?",
       "opener": "Four common types to be able to tell apart.",
       "answer": "Simile: compares two things using \"like\" or \"as\" (\"strong as a bear\"). Metaphor: equates two things directly with no comparison word (\"he is a bear\"). Personification: gives non-human things human qualities (\"the sun smiled\"). Alliteration: several words in a row start with the same letter/sound (\"wild winds whisper\"). Symbol: a concrete object that stands for something abstract (a dove as a symbol of peace)."
+    },
+    {
+      "id": "q-sv9-lit-9",
+      "kind": "mc",
+      "topic": "genre",
+      "prompt": "A story about knights, dragons and magic swords in a made-up world belongs to which genre?",
+      "opener": "Which genre is built on magic and invented worlds with no scientific basis?",
+      "choices": [
+        "Fantasy",
+        "Science fiction",
+        "Crime fiction",
+        "Biography"
+      ],
+      "answer": 0,
+      "explanation": "Fantasy is built on magic and invented worlds (knights, dragons, wizards) with no scientific explanation. Science fiction, by contrast, is built on technology and science."
+    },
+    {
+      "id": "q-sv9-lit-10",
+      "kind": "mc",
+      "topic": "genre",
+      "prompt": "What characterises a biography?",
+      "opener": "Is the book about a made-up person, or about someone who actually lived?",
+      "choices": [
+        "It portrays the life of a real person",
+        "It is always about supernatural beings",
+        "It is always written in the first person by a fictional character",
+        "It has no real author"
+      ],
+      "answer": 0,
+      "explanation": "A biography portrays the life of a real person, unlike fiction, which can be wholly or partly invented."
+    },
+    {
+      "id": "q-sv9-lit-11",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "\"Maria didn't know that Johan, on the other side of town, was just then deciding to call her.\" What narrative perspective is this?",
+      "opener": "The narrator knows what's happening in two different places at the same time — which type of narrator can do that?",
+      "choices": [
+        "First-person perspective",
+        "Omniscient narrator",
+        "Objective narrator",
+        "Diary narrator"
+      ],
+      "answer": 1,
+      "explanation": "The narrator knows what's happening with Maria AND with Johan on the other side of town at the same time — only an omniscient narrator has access to several characters' thoughts and locations at once."
+    },
+    {
+      "id": "q-sv9-lit-12",
+      "kind": "mc",
+      "topic": "setting and theme",
+      "prompt": "A book takes place aboard a spaceship travelling to a new planet, and on a deeper level is about what it means to leave everything familiar behind to build something new. What is the setting and what is the theme?",
+      "opener": "The setting is WHERE the plot takes place, the theme is what the book is really about.",
+      "choices": [
+        "The setting is the spaceship, the theme is departure and daring to start over",
+        "The setting and the theme are the same thing: the spaceship",
+        "The setting is departure, the theme is the spaceship",
+        "The book has neither a setting nor a theme"
+      ],
+      "answer": 0,
+      "explanation": "The setting is the concrete place (the spaceship), while the theme is the deeper idea the book explores (departure, leaving the familiar behind to build something new)."
+    },
+    {
+      "id": "q-sv9-lit-13",
+      "kind": "mc",
+      "topic": "figurative language",
+      "prompt": "\"The silence was heavy as lead.\" What figure of speech is used here?",
+      "opener": "Are two things compared using the word \"as\"?",
+      "choices": [
+        "Metaphor",
+        "Simile",
+        "Personification",
+        "Alliteration"
+      ],
+      "answer": 1,
+      "explanation": "\"As\" makes this a simile — the silence is compared to lead, not directly equated with it (that would have been a metaphor: \"the silence was lead\")."
+    },
+    {
+      "id": "q-sv9-lit-14",
+      "kind": "worked",
+      "topic": "figurative language",
+      "prompt": "Identify the figure of speech in each sentence and explain which type it is: (1) \"The leaves danced in the wind.\" (2) \"Her smile was sunshine.\" (3) \"Time is a thief.\"",
+      "opener": "Ask of each sentence: is something given human qualities (personification), or are two different things equated completely (metaphor)?",
+      "answer": "(1) Personification — the leaves are given a human action (dancing). (2) Metaphor — the smile is directly equated with sunshine. (3) Metaphor — time is directly equated with a thief.",
+      "steps": [
+        "Sentence 1: \"the leaves danced\" gives the leaves a human action (dancing) — this is personification.",
+        "Sentence 2: \"her smile WAS sunshine\", not \"was LIKE sunshine\" — the direct equation without a comparison word makes it a metaphor.",
+        "Sentence 3: the same pattern — \"time IS a thief\" is a metaphor, not a simile.",
+        "Memory tip: a simile contains \"like\"/\"as\", a metaphor equates things directly with no comparison word, personification gives things/animals human qualities."
+      ]
+    },
+    {
+      "id": "q-sv9-lit-15",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "\"Through the window you could see a man pacing back and forth. He stopped, checked his watch and kept walking.\" Which narrative perspective describes only what can be seen or heard from outside, with no inner thoughts?",
+      "opener": "We only learn what's VISIBLE from outside — no thoughts or feelings are described.",
+      "choices": [
+        "First-person perspective",
+        "Omniscient narrator",
+        "Objective narrator",
+        "Unreliable narrator"
+      ],
+      "answer": 2,
+      "explanation": "An objective narrator describes only what can be seen or heard from outside, like a camera, without giving us access to the characters' thoughts or feelings."
     }
   ]
 }

@@ -122,6 +122,110 @@
       "prompt": "Vilka fyra frågor bör du ställa dig när du källkritiskt granskar en text?",
       "opener": "Fyra grundfrågor innan du litar på en källa.",
       "answer": "Vem är avsändaren, och vilken kompetens/vilket syfte har de? Är innehållet fakta eller åsikt — går det att kontrollera? När publicerades det, och kan informationen vara föråldrad? Finns oberoende källor som säger samma sak? Ha extra koll när avsändaren har ett ekonomiskt eller politiskt intresse av att du tror på ett visst budskap."
+    },
+    {
+      "id": "q-sv9-kk-9",
+      "kind": "mc",
+      "topic": "källgranskning",
+      "prompt": "Vad innebär det att en källa är en \"förstahandskälla\"?",
+      "opener": "Kommer informationen direkt från händelsen eller personen, eller har den passerat genom någon annan först?",
+      "choices": [
+        "Källan kommer direkt från händelsen eller personen själv, t.ex. ett ögonvittne eller ett originaldokument",
+        "Källan är alltid mer pålitlig än en myndighet",
+        "Källan återger vad någon annan redan skrivit om händelsen",
+        "Källan måste vara skriven av en journalist"
+      ],
+      "answer": 0,
+      "explanation": "En förstahandskälla kommer direkt från händelsen eller personen (t.ex. ett ögonvittne, ett originaldokument eller en intervju), till skillnad från en andrahandskälla som återger vad någon annan redan rapporterat."
+    },
+    {
+      "id": "q-sv9-kk-10",
+      "kind": "mc",
+      "topic": "fakta och åsikt",
+      "prompt": "Vilket påstående är en ÅSIKT?",
+      "opener": "Ett av påståendena går att mäta och kontrollera, de andra tre går inte att bevisa.",
+      "choices": [
+        "Vattnet kokar vid 100 grader Celsius vid havsnivå.",
+        "Den nya skolan ligger tre kilometer från centrum.",
+        "Den nya skolan är den finaste byggnaden i stan.",
+        "Skolan har totalt 450 elever."
+      ],
+      "answer": 2,
+      "explanation": "\"Finaste\" är ett värdeord som uttrycker tycke — det går inte att mäta eller bevisa objektivt. De andra tre påståendena är mätbara fakta."
+    },
+    {
+      "id": "q-sv9-kk-11",
+      "kind": "mc",
+      "topic": "källgranskning",
+      "prompt": "En sida saknar datum för när artikeln publicerades. Varför kan det vara ett problem?",
+      "opener": "Tänk på ämnen där informationen snabbt blir inaktuell, som teknik eller sjukdomsutbrott.",
+      "choices": [
+        "Det är aldrig ett problem",
+        "Informationen kan vara föråldrad utan att du vet om det, till exempel inom snabbt föränderliga ämnen",
+        "Det betyder att sidan är hackad",
+        "Det bara innebär att sidan är en blogg"
+      ],
+      "answer": 1,
+      "explanation": "Utan datum vet du inte om informationen är aktuell — särskilt viktigt inom ämnen som förändras snabbt, där gammal information kan vara direkt missvisande idag."
+    },
+    {
+      "id": "q-sv9-kk-12",
+      "kind": "mc",
+      "topic": "argumenterande text",
+      "prompt": "Vad kallas ett skäl som ska stödja en tes i en argumenterande text?",
+      "opener": "Det är det som ska övertyga läsaren om att tesen stämmer.",
+      "choices": [
+        "Argument",
+        "Anekdot",
+        "Motargument",
+        "Tes"
+      ],
+      "answer": 0,
+      "explanation": "Ett argument är ett skäl som stödjer tesen. En anekdot är en kort berättelse som kan användas SOM ett argument, men själva skälet kallas argument."
+    },
+    {
+      "id": "q-sv9-kk-13",
+      "kind": "mc",
+      "topic": "källgranskning",
+      "prompt": "\"Den usla nya lagen som politikerna körde igenom utan att lyssna på folket kommer att skada landet.\" Vad visar ordvalet i meningen?",
+      "opener": "Är orden \"usla\" och \"körde igenom\" neutrala eller starkt värdeladdade?",
+      "choices": [
+        "Meningen är helt objektiv och saklig",
+        "Ordval som \"usla\" och \"körde igenom\" visar att texten är vinklad och uttrycker en stark åsikt",
+        "Meningen innehåller bara verifierbara fakta",
+        "Det går inte att avgöra om meningen är vinklad"
+      ],
+      "answer": 1,
+      "explanation": "Starkt värdeladdade ord (\"usla\", \"körde igenom\" i stället för t.ex. \"röstade igenom\") signalerar att texten är vinklad och driver en åsikt snarare än att bara redovisa fakta."
+    },
+    {
+      "id": "q-sv9-kk-14",
+      "kind": "worked",
+      "topic": "källgranskning",
+      "prompt": "Du läser ett blogginlägg som påstår att \"alla experter är överens om att X är farligt\", men inga källor eller namn på experter anges. Förklara varför påståendet bör granskas kritiskt, och vad du skulle vilja se för att lita på det.",
+      "opener": "Ord som \"alla\" och \"ingen\" är ofta en varningssignal i källkritik — fundera på varför.",
+      "answer": "Påståendet saknar verifierbara belägg — inga namngivna experter eller källor anges, vilket gör det omöjligt att kontrollera. För att lita på påståendet vill man se namngivna experter, deras faktiska uttalanden eller studier, och helst oberoende bekräftelse från flera håll.",
+      "steps": [
+        "Notera att \"alla experter\" är ett mycket starkt påstående — sådana absoluta formuleringar (alla, ingen, alltid) är ofta en varningssignal i källkritik.",
+        "Utan namngivna experter eller källor går påståendet inte att kontrollera eller spåra till en ursprunglig undersökning.",
+        "Ett trovärdigt påstående skulle i stället ange VILKA experter, VILKEN studie eller organisation, och gärna länkar till originalkällan.",
+        "Sök om oberoende, etablerade källor bekräftar samma sak innan du litar på eller sprider påståendet."
+      ]
+    },
+    {
+      "id": "q-sv9-kk-15",
+      "kind": "mc",
+      "topic": "argumenterande text",
+      "prompt": "Vad kallas ett skäl som talar EMOT tesen i en argumenterande text, men som ändå tas upp och bemöts?",
+      "opener": "Skribenten visar att den känner till motsidan — och bemöter den för att stärka sin egen tes.",
+      "choices": [
+        "Motargument",
+        "Tes",
+        "Anekdot",
+        "Källhänvisning"
+      ],
+      "answer": 0,
+      "explanation": "Ett motargument talar emot tesen. Att ta upp och bemöta motargument i en text visar att skribenten känner till motsidan, vilket ofta stärker trovärdigheten i det egna resonemanget."
     }
   ]
 }

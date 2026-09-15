@@ -124,6 +124,109 @@
       "prompt": "What tricks can you use to write correctly: de/dem, särskrivning and capital letters?",
       "opener": "Three quick memory rules.",
       "answer": "De/dem: substitute with they/them (or we/us) — if it becomes \"they\"/\"we\" you write \"de\", if it becomes \"them\"/\"us\" you write \"dem\". After a preposition (med, till, för, av) it's always \"dem\". Särskrivning: ask whether the words form ONE connected meaning — if so, they're written as one word (jordgubbstårta, glasögonfodral). Capital letters: only for proper nouns (people, places, companies, the first word of a sentence) — not for occupations, family words or seasons."
+    },
+    {
+      "id": "q-sv9-spr-9",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Choose the correct word: \"___ har redan ätit lunch.\"",
+      "opener": "The word is the subject — who is it that has already eaten?",
+      "choices": [
+        "De",
+        "Dem",
+        "Dom",
+        "Den"
+      ],
+      "answer": 0,
+      "explanation": "The word is the subject (it's them who have eaten) — the subject form is \"de\". Test: \"they have eaten\", not \"them have eaten\"."
+    },
+    {
+      "id": "q-sv9-spr-10",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Choose the correct word: \"Vi gav boken till ___.\"",
+      "opener": "The word comes after the preposition \"till\" — which form does that require?",
+      "choices": [
+        "de",
+        "dem",
+        "dom",
+        "den"
+      ],
+      "answer": 1,
+      "explanation": "After the preposition \"till\" the object form is used: \"dem\". Test: \"to them\", not \"to they\"."
+    },
+    {
+      "id": "q-sv9-spr-11",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "Which option is written correctly?",
+      "opener": "A compound word is ONE thing — not several separate words side by side.",
+      "choices": [
+        "Han letade efter sitt glas ögonfodral.",
+        "Han letade efter sitt glasögonfodral.",
+        "Han letade efter sitt glasögon fodral.",
+        "Han letade efter sitt Glasögonfodral."
+      ],
+      "answer": 1,
+      "explanation": "\"Glasögonfodral\" (glasses case) is a compound word and should be written as a single word — not split into \"glas ögonfodral\" or \"glasögon fodral\", and it shouldn't start with a capital letter mid-sentence."
+    },
+    {
+      "id": "q-sv9-spr-12",
+      "kind": "mc",
+      "topic": "capital letters",
+      "prompt": "Which sentence uses capital letters correctly?",
+      "opener": "Remember: holidays and language names are written with a lowercase letter in Swedish, unlike in English.",
+      "choices": [
+        "Vi firade Jul med hela familjen.",
+        "Vi pratade Engelska på lektionen.",
+        "Min Bror gillar Fotboll.",
+        "Hon bor i västra Sverige, nära Göteborg."
+      ],
+      "answer": 3,
+      "explanation": "\"Sverige\" and \"Göteborg\" are proper nouns and should be capitalised, while \"västra\" is correctly lowercase. \"Jul\" (Christmas) and language names like \"engelska\" are written lowercase in Swedish, and family words/sports like \"bror\" and \"fotboll\" shouldn't be capitalised mid-sentence."
+    },
+    {
+      "id": "q-sv9-spr-13",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "Where should the comma be placed? \"Jag ville stanna hemma ___ mina vänner ville gå ut.\"",
+      "opener": "When \"men\" (but) links two main clauses, a comma is usually placed before \"men\".",
+      "choices": [
+        "After \"Jag\"",
+        "After \"hemma\"",
+        "After \"men\"",
+        "No comma needed"
+      ],
+      "answer": 1,
+      "explanation": "When \"men\" links two complete main clauses (\"jag ville stanna hemma\" and \"mina vänner ville gå ut\"), a comma is placed before \"men\": \"...hemma, men mina vänner...\""
+    },
+    {
+      "id": "q-sv9-spr-14",
+      "kind": "worked",
+      "topic": "capital letters",
+      "prompt": "Correct the sentence and explain each change: \"Vi Åkte till frankrike i somras och bodde nära eiffeltornet, det var fantastiskt kul.\"",
+      "opener": "Look for three capitalisation errors — one word has a capital it shouldn't have, and two words are missing one they should have.",
+      "answer": "Vi åkte till Frankrike i somras och bodde nära Eiffeltornet, det var fantastiskt kul.",
+      "steps": [
+        "\"Vi Åkte\" → \"Vi åkte\": only the first word of a sentence should be capitalised, not a verb in the middle of the sentence.",
+        "\"frankrike\" → \"Frankrike\": country names are proper nouns and should always be capitalised, no matter where they appear in a sentence.",
+        "\"eiffeltornet\" → \"Eiffeltornet\": names of famous buildings and landmarks are proper nouns and are written with a capital letter."
+      ]
+    },
+    {
+      "id": "q-sv9-spr-15",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "Which option has correct comma placement in a list?",
+      "opener": "In Swedish, no comma is usually placed before the final \"och\" (and) in a list, unlike the English \"Oxford comma\".",
+      "choices": [
+        "Vi köpte äpplen apelsiner och bananer.",
+        "Vi köpte äpplen, apelsiner, och bananer.",
+        "Vi köpte äpplen, apelsiner och bananer.",
+        "Vi köpte, äpplen apelsiner och bananer."
+      ],
+      "answer": 2,
+      "explanation": "In a list, commas are placed between the earlier items, but no comma is placed before the final \"och\": \"äpplen, apelsiner och bananer\"."
     }
   ]
 }

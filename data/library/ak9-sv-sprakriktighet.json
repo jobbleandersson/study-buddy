@@ -124,6 +124,109 @@
       "prompt": "Vilka knep använder du för att skriva rätt: de/dem, särskrivning och stor bokstav?",
       "opener": "Tre snabba minnesregler.",
       "answer": "De/dem: byt ut mot they/them (eller vi/oss) — blir det \"they\"/\"vi\" skriver du \"de\", blir det \"them\"/\"oss\" skriver du \"dem\". Efter preposition (med, till, för, av) är det alltid \"dem\". Särskrivning: fråga om orden bildar EN sammanhängande betydelse — då skrivs de ihop (jordgubbstårta, glasögonfodral). Stor bokstav: bara för egennamn (personer, platser, företag, dagens första ord) — inte för yrken, släktord eller årstider."
+    },
+    {
+      "id": "q-sv9-spr-9",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Välj rätt ord: \"___ har redan ätit lunch.\"",
+      "opener": "Ordet är subjekt — vem är det som redan har ätit?",
+      "choices": [
+        "De",
+        "Dem",
+        "Dom",
+        "Den"
+      ],
+      "answer": 0,
+      "explanation": "Ordet är subjekt (det är de som ätit) — subjektsform är \"de\". Testa: \"they have eaten\", inte \"them have eaten\"."
+    },
+    {
+      "id": "q-sv9-spr-10",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Välj rätt ord: \"Vi gav boken till ___.\"",
+      "opener": "Ordet står efter prepositionen \"till\" — vilken form kräver det?",
+      "choices": [
+        "de",
+        "dem",
+        "dom",
+        "den"
+      ],
+      "answer": 1,
+      "explanation": "Efter prepositionen \"till\" används objektsform: \"dem\". Testa: \"to them\", inte \"to they\"."
+    },
+    {
+      "id": "q-sv9-spr-11",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "Vilket alternativ är korrekt skrivet?",
+      "opener": "Ett sammansatt ord är EN sak — inte flera lösa ord bredvid varandra.",
+      "choices": [
+        "Han letade efter sitt glas ögonfodral.",
+        "Han letade efter sitt glasögonfodral.",
+        "Han letade efter sitt glasögon fodral.",
+        "Han letade efter sitt Glasögonfodral."
+      ],
+      "answer": 1,
+      "explanation": "\"Glasögonfodral\" är ett sammansatt ord och ska skrivas ihop som ett enda ord — inte delas upp i \"glas ögonfodral\" eller \"glasögon fodral\", och det ska inte inledas med stor bokstav mitt i meningen."
+    },
+    {
+      "id": "q-sv9-spr-12",
+      "kind": "mc",
+      "topic": "stor bokstav",
+      "prompt": "Vilken mening har korrekt användning av stor bokstav?",
+      "opener": "Kom ihåg: högtider och språknamn skrivs med liten bokstav på svenska, till skillnad från engelska.",
+      "choices": [
+        "Vi firade Jul med hela familjen.",
+        "Vi pratade Engelska på lektionen.",
+        "Min Bror gillar Fotboll.",
+        "Hon bor i västra Sverige, nära Göteborg."
+      ],
+      "answer": 3,
+      "explanation": "\"Sverige\" och \"Göteborg\" är egennamn och ska ha stor bokstav, medan \"västra\" korrekt har liten bokstav. \"Jul\" och språknamn som \"engelska\" skrivs med liten bokstav på svenska, och släktord/sporter som \"bror\" och \"fotboll\" ska inte ha stor bokstav mitt i en mening."
+    },
+    {
+      "id": "q-sv9-spr-13",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Var bör kommatecken sättas ut? \"Jag ville stanna hemma ___ mina vänner ville gå ut.\"",
+      "opener": "När \"men\" binder ihop två huvudsatser sätts vanligtvis ett komma innan \"men\".",
+      "choices": [
+        "Efter \"Jag\"",
+        "Efter \"hemma\"",
+        "Efter \"men\"",
+        "Inget komma behövs"
+      ],
+      "answer": 1,
+      "explanation": "När \"men\" binder ihop två fullständiga huvudsatser (\"jag ville stanna hemma\" och \"mina vänner ville gå ut\") sätts komma framför \"men\": \"...hemma, men mina vänner...\""
+    },
+    {
+      "id": "q-sv9-spr-14",
+      "kind": "worked",
+      "topic": "stor bokstav",
+      "prompt": "Rätta meningen och förklara varje ändring: \"Vi Åkte till frankrike i somras och bodde nära eiffeltornet, det var fantastiskt kul.\"",
+      "opener": "Leta efter tre fel med stor och liten bokstav — ett ord har fått en bokstav det inte ska ha, och två ord saknar en de borde ha.",
+      "answer": "Vi åkte till Frankrike i somras och bodde nära Eiffeltornet, det var fantastiskt kul.",
+      "steps": [
+        "\"Vi Åkte\" → \"Vi åkte\": bara det första ordet i en mening ska ha stor bokstav, inte ett verb mitt i meningen.",
+        "\"frankrike\" → \"Frankrike\": landnamn är egennamn och ska alltid ha stor bokstav, oavsett var i meningen de står.",
+        "\"eiffeltornet\" → \"Eiffeltornet\": namn på kända byggnader och sevärdheter är egennamn och skrivs med stor bokstav."
+      ]
+    },
+    {
+      "id": "q-sv9-spr-15",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Vilket alternativ har korrekt kommatering vid en uppräkning?",
+      "opener": "På svenska sätts vanligtvis inget komma framför \"och\" i slutet av en uppräkning, till skillnad från engelskans \"Oxford-komma\".",
+      "choices": [
+        "Vi köpte äpplen apelsiner och bananer.",
+        "Vi köpte äpplen, apelsiner, och bananer.",
+        "Vi köpte äpplen, apelsiner och bananer.",
+        "Vi köpte, äpplen apelsiner och bananer."
+      ],
+      "answer": 2,
+      "explanation": "Vid en uppräkning sätts komma mellan de första delarna, men inget komma framför det sista \"och\": \"äpplen, apelsiner och bananer\"."
     }
   ]
 }

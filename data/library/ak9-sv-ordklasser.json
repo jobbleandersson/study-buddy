@@ -123,6 +123,112 @@
       "prompt": "Vad är skillnaden mellan ordklass och satsdel?",
       "opener": "Ett ord kan ha samma ordklass i alla meningar, men olika satsdel beroende på var det står.",
       "answer": "Ordklass är VAD ett ord är i sig — substantiv, verb, adjektiv, adverb, pronomen, preposition, konjunktion, räkneord. Det ändras aldrig, oavsett var i meningen ordet står. Satsdel är vilken ROLL ordet spelar i just den meningen — subjekt (den som gör), predikat (verbet/handlingen), objekt (den som tar emot handlingen) eller bestämning. Exempel: \"hund\" är alltid ett substantiv (ordklass), men kan vara subjekt i \"Hunden skäller\" och objekt i \"Jag ser hunden\"."
+    },
+    {
+      "id": "q-sv9-ord-9",
+      "kind": "mc",
+      "topic": "ordklasser",
+      "prompt": "Vilket ord är ett adverb i meningen? \"Hon sjöng vackert i går.\"",
+      "opener": "Adverb beskriver ofta HUR något görs — de svarar på frågan \"hur?\" om verbet.",
+      "choices": [
+        "Hon",
+        "sjöng",
+        "vackert",
+        "i"
+      ],
+      "answer": 2,
+      "explanation": "\"Vackert\" beskriver HUR hon sjöng — det är ett adverb. \"Hon\" är pronomen, \"sjöng\" är verb och \"i\" är preposition."
+    },
+    {
+      "id": "q-sv9-ord-10",
+      "kind": "mc",
+      "topic": "ordklasser",
+      "prompt": "Vilket ord är en preposition i meningen? \"Katten satt under bordet.\"",
+      "opener": "Prepositioner talar ofta om VAR något befinner sig i förhållande till något annat.",
+      "choices": [
+        "Katten",
+        "satt",
+        "under",
+        "bordet"
+      ],
+      "answer": 2,
+      "explanation": "\"Under\" talar om var katten befinner sig i förhållande till bordet — det är en preposition."
+    },
+    {
+      "id": "q-sv9-ord-11",
+      "kind": "mc",
+      "topic": "ordklasser",
+      "prompt": "Vilket ord är en konjunktion i meningen? \"Jag ville gå ut, men det regnade.\"",
+      "opener": "Konjunktioner binder ihop två satser eller ord — t.ex. och, men, eller.",
+      "choices": [
+        "Jag",
+        "ville",
+        "men",
+        "regnade"
+      ],
+      "answer": 2,
+      "explanation": "\"Men\" binder ihop de två satserna \"jag ville gå ut\" och \"det regnade\" — det är en konjunktion."
+    },
+    {
+      "id": "q-sv9-ord-12",
+      "kind": "mc",
+      "topic": "satsdelar",
+      "prompt": "Vilket ord är objekt i meningen? \"Anna bakade en kaka till festen.\"",
+      "opener": "Objektet är det som handlingen riktas mot — vad var det Anna bakade?",
+      "choices": [
+        "Anna",
+        "bakade",
+        "en kaka",
+        "till festen"
+      ],
+      "answer": 2,
+      "explanation": "\"En kaka\" är det Anna bakade — objektet tar emot handlingen. \"Anna\" är subjekt, \"bakade\" är predikat och \"till festen\" är en bestämning som talar om syftet."
+    },
+    {
+      "id": "q-sv9-ord-13",
+      "kind": "mc",
+      "topic": "satsdelar",
+      "prompt": "Vilket ord är subjekt i meningen? \"Bilen stannade plötsligt vid vägkanten.\"",
+      "opener": "Fråga: vad är det som utför handlingen — vad är det som stannar?",
+      "choices": [
+        "Bilen",
+        "stannade",
+        "plötsligt",
+        "vägkanten"
+      ],
+      "answer": 0,
+      "explanation": "\"Bilen\" är det som utför handlingen (stannar) — alltså subjekt. \"Stannade\" är predikat och \"plötsligt\" är ett adverb som beskriver hur det gick till."
+    },
+    {
+      "id": "q-sv9-ord-14",
+      "kind": "worked",
+      "topic": "satsdelar",
+      "prompt": "Analysera meningen: \"Den gamla katten sover lugnt på soffan.\" Ange ordklass för varje ord och satsdel för subjekt och predikat.",
+      "opener": "Gå ord för ord, precis som i exemplet med eleven som hälsade.",
+      "answer": "Den (bestämd artikel/pronomen), gamla (adjektiv), katten (substantiv, = subjekt), sover (verb, = predikat), lugnt (adverb), på soffan (preposition + substantiv, = bestämning).",
+      "steps": [
+        "\"Den\" pekar ut ett bestämt substantiv — räknas som en bestämande partikel/pronomen.",
+        "\"Gamla\" beskriver katten — adjektiv.",
+        "\"Katten\" är den som utför handlingen (sover) — substantiv i ordklass, subjekt som satsdel.",
+        "\"Sover\" är verbet — predikat.",
+        "\"Lugnt\" beskriver HUR katten sover — adverb, inte adjektiv.",
+        "\"På soffan\" talar om VAR katten sover — fungerar som en bestämning till predikatet."
+      ]
+    },
+    {
+      "id": "q-sv9-ord-15",
+      "kind": "mc",
+      "topic": "ordklasser",
+      "prompt": "Vilket ord är ett räkneord i meningen? \"Hon åt tre äpplen.\"",
+      "opener": "Räkneord anger antal eller ordning — ett, två, tre... eller första, andra, tredje...",
+      "choices": [
+        "Hon",
+        "åt",
+        "tre",
+        "äpplen"
+      ],
+      "answer": 2,
+      "explanation": "\"Tre\" anger antal — det är ett räkneord. \"Hon\" är pronomen, \"åt\" är verb och \"äpplen\" är substantiv."
     }
   ]
 }

@@ -122,6 +122,110 @@
       "prompt": "Vilka strategier hjälper dig att svara rätt på läsförståelsefrågor?",
       "opener": "Några vanor som gör skillnad på prov.",
       "answer": "Läs frågan innan du läser texten noga, så vet du vad du letar efter. Skilj på huvudbudskap (textens poäng som helhet) och detaljer (enskilda fakta som stödjer poängen). Vid slutsatser: bygg bara på det texten faktiskt antyder genom detaljer — gissa inte fritt. Var misstänksam mot svarsalternativ som är sanna i sig men inte svarar på frågan, eller som påstår mer än texten stödjer."
+    },
+    {
+      "id": "q-sv9-las-9",
+      "kind": "mc",
+      "topic": "huvudbudskap",
+      "prompt": "Läs texten och svara.\n\n\"Allt fler skolor inför mobilförbud under lektionstid. Elever rapporterar att de har lättare att koncentrera sig, och lärare ser färre konflikter om skärmtid. Samtidigt menar kritiker att eleverna missar chansen att lära sig hantera mobilen på ett sunt sätt.\"\n\nVad är textens huvudbudskap?",
+      "opener": "Texten visar både fördelar och en invändning — vilket svarsalternativ fångar båda sidorna?",
+      "choices": [
+        "Mobilförbud är helt oproblematiskt",
+        "Mobilförbud verkar ge fördelar med koncentration, men det finns också invändningar mot att förbjuda mobiler helt",
+        "Lärare vill helst inte ha mobilförbud",
+        "Elever klarar sig bättre utan mobiler i alla sammanhang"
+      ],
+      "answer": 1,
+      "explanation": "Texten redovisar både positiva effekter (koncentration, färre konflikter) och kritikernas invändning (att lära sig hantera mobilen) — en balanserad sammanfattning måste innehålla båda delarna."
+    },
+    {
+      "id": "q-sv9-las-10",
+      "kind": "mc",
+      "topic": "slutsatser",
+      "prompt": "Läs texten och svara.\n\n\"Simon knackade försiktigt på dörren och väntade. När ingen svarade knackade han igen, lite hårdare denna gång. Till slut lade han lappen han skrivit under dörren och gick därifrån med sänkt blick.\"\n\nVad kan man dra slutsatsen om Simon?",
+      "opener": "Vad säger den sänkta blicken om hur Simon känner sig när han går?",
+      "choices": [
+        "Simon är arg och otålig",
+        "Simon verkar besviken över att ingen öppnade dörren",
+        "Simon glömde varför han kom dit",
+        "Simon tyckte om att vänta"
+      ],
+      "answer": 1,
+      "explanation": "Att knacka två gånger, lämna en lapp och gå med sänkt blick antyder besvikelse — texten säger det aldrig rakt ut men detaljerna pekar åt det hållet."
+    },
+    {
+      "id": "q-sv9-las-11",
+      "kind": "mc",
+      "topic": "huvudbudskap",
+      "prompt": "Läs texten och svara.\n\n\"Insamlingen av returglas har ökat stadigt de senaste fem åren. Ändå hamnar fortfarande stora mängder glas i vanliga soporna, särskilt i områden utan tydlig återvinningsinformation. Forskare menar att bättre skyltning skulle kunna öka återvinningen ytterligare.\"\n\nVad är textens huvudbudskap?",
+      "opener": "Texten nämner både en förbättring och ett kvarstående problem — vilket alternativ fångar helheten?",
+      "choices": [
+        "Återvinning av glas fungerar redan perfekt",
+        "Trots framsteg finns det fortfarande utrymme att förbättra glasåtervinningen, till exempel genom bättre information",
+        "Ingen bryr sig om att återvinna glas",
+        "Glasåtervinning är olagligt att strunta i"
+      ],
+      "answer": 1,
+      "explanation": "Texten visar både att insamlingen ökat och att problem kvarstår, samt en konkret lösning (skyltning) — det är helheten texten förmedlar."
+    },
+    {
+      "id": "q-sv9-las-12",
+      "kind": "mc",
+      "topic": "sammanfattning",
+      "prompt": "Läs texten och svara.\n\n\"Simhallen stänger tillfälligt för renovering av bassängerna. Arbetet väntas ta sex veckor, och kommunen erbjuder gratis bussresor till grannkommunens simhall under tiden.\"\n\nVilken rubrik sammanfattar texten bäst?",
+      "opener": "En bra rubrik fångar VAD som händer, HUR LÄNGE och vad som erbjuds under tiden.",
+      "choices": [
+        "Simhallen stänger för gott",
+        "Simhallen renoveras i sex veckor, gratis bussresor erbjuds under tiden",
+        "Grannkommunen bygger ny simhall",
+        "Kommunen slutar erbjuda simundervisning"
+      ],
+      "answer": 1,
+      "explanation": "Texten handlar om en tillfällig stängning för renovering (inte permanent), med tidsangivelse och ersättningserbjudande — det fångar rubrik 2."
+    },
+    {
+      "id": "q-sv9-las-13",
+      "kind": "mc",
+      "topic": "slutsatser",
+      "prompt": "Läs texten och svara.\n\n\"Trots att receptet sa fyrtio minuter kontrollerade Leo ugnen var femte minut. Han hade redan bytt plåt två gånger och mätt upp mjölet på nytt, bara för säkerhets skull.\"\n\nVad kan man dra slutsatsen om Leo?",
+      "opener": "Vad säger de upprepade kontrollerna och ombyten om Leos sinnesstämning?",
+      "choices": [
+        "Leo är väldigt noggrann, kanske till och med lite nervös inför bakningen",
+        "Leo struntar i om bakningen misslyckas",
+        "Leo har bakat samma recept hundratals gånger utan problem",
+        "Leo ogillar att baka"
+      ],
+      "answer": 0,
+      "explanation": "Att kontrollera ugnen ofta, byta plåt i onödan och mäta om ingredienser \"för säkerhets skull\" tyder på noggrannhet och en viss nervositet — inte likgiltighet eller rutin."
+    },
+    {
+      "id": "q-sv9-las-14",
+      "kind": "worked",
+      "topic": "sammanfattning",
+      "prompt": "Sammanfatta texten i högst två meningar: \"Ungdomsgården har fått nya öppettider efter att flera besökare önskat kvällsöppet på fredagar. Det nya schemat innebär öppet till klockan tio på fredagskvällar, medan övriga dagar är oförändrade.\"",
+      "opener": "Hitta det viktigaste: VAD har ändrats, VARFÖR, och vad som INTE har ändrats (om det får plats).",
+      "answer": "Ungdomsgården har fredagsöppet till klockan tio efter önskemål från besökarna. Övriga dagars öppettider är oförändrade.",
+      "steps": [
+        "Identifiera huvudhändelsen: ungdomsgården har fått nya öppettider på fredagar.",
+        "Identifiera orsaken: besökare önskade kvällsöppet på fredagar.",
+        "Identifiera en detalj som kan vara med om det får plats: övriga dagar är oförändrade.",
+        "Sortera bort onödiga detaljer och skriv ihop det viktigaste till max två meningar."
+      ]
+    },
+    {
+      "id": "q-sv9-las-15",
+      "kind": "mc",
+      "topic": "huvudbudskap",
+      "prompt": "Läs texten och svara.\n\n\"En studie visar att ungdomar som använder mobilen strax innan de somnar i genomsnitt sover 45 minuter mindre per natt än de som lägger undan mobilen en timme före sänggåendet. Forskarna betonar att skärmljuset inte är hela förklaringen — själva innehållet, som sociala medier, tycks hålla hjärnan vaken längre.\"\n\nVad är textens huvudbudskap?",
+      "opener": "Texten pekar på ett samband OCH nyanserar orsaken — vilket svar tar med båda delarna?",
+      "choices": [
+        "Mobilanvändning nära sänggåendet hänger ihop med kortare sömn, och det handlar om mer än bara skärmljuset",
+        "Skärmljus är den enda anledningen till sämre sömn",
+        "Ungdomar som använder mobilen sover exakt lika mycket som andra",
+        "Sociala medier bör förbjudas helt för unga"
+      ],
+      "answer": 0,
+      "explanation": "Texten visar sambandet mellan mobilanvändning och kortare sömn, och betonar samtidigt att förklaringen är mer komplex än bara skärmljuset — det fångar helheten, till skillnad från de andra alternativen som förenklar eller motsäger texten."
     }
   ]
 }
