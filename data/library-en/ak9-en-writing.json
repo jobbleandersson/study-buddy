@@ -121,6 +121,110 @@
       "prompt": "List the most common Swedish-to-English writing mistakes.",
       "opener": "Six common pitfalls to check for in your own writing.",
       "answer": "Age: \"I am X years old\", not \"I have X years\". People/information are uncountable and never take -s. Word order in questions: helping verb before subject (\"Where are you going?\"). The verb comes directly after the subject (\"I play football\", not \"I football play\"). Adjectives go BEFORE the noun in English (\"a big house\"). Time expressions like \"every day\" usually go last in the sentence."
+    },
+    {
+      "id": "q-en9-wri-9",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "Negative sentences with \"I\" are formed with \"don't\" + the verb in its base form.",
+      "choices": [
+        "I not like fish.",
+        "I don't like fish.",
+        "I no like fish.",
+        "I doesn't like fish."
+      ],
+      "answer": 1,
+      "explanation": "Negatives in the present are formed with \"don't\" (for I/you/we/they) + the verb in its base form: \"I don't like fish.\" \"Doesn't\" is only used for he/she/it."
+    },
+    {
+      "id": "q-en9-wri-10",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Students\" is countable — that requires \"many\", not \"much\".",
+      "choices": [
+        "There isn't much students in the class.",
+        "There isn't many students in the class.",
+        "There aren't many students in the class.",
+        "There aren't much students in the class."
+      ],
+      "answer": 2,
+      "explanation": "\"Students\" is a countable plural noun — it requires \"many\" (not \"much\") and \"aren't\" (not \"isn't\") since the subject is plural."
+    },
+    {
+      "id": "q-en9-wri-11",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order?",
+      "opener": "Frequency adverbs like \"always\" are usually placed AFTER the verb \"be\".",
+      "choices": [
+        "I always am tired in the morning.",
+        "I am always tired in the morning.",
+        "Always I am tired in the morning.",
+        "I am tired always in the morning."
+      ],
+      "answer": 1,
+      "explanation": "Frequency adverbs like \"always\", \"never\", \"usually\" are placed after the \"be\" verb but before other verbs: \"I am always tired.\""
+    },
+    {
+      "id": "q-en9-wri-12",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Good\" has an irregular comparative — it's not formed with \"more\".",
+      "choices": [
+        "This book is more good than the last one.",
+        "This book is more better than the last one.",
+        "This book is better than the last one.",
+        "This book is gooder than the last one."
+      ],
+      "answer": 2,
+      "explanation": "\"Good\" is irregular: good → better → best, not \"more good\" or \"gooder\". \"More better\" also incorrectly doubles up the comparative form."
+    },
+    {
+      "id": "q-en9-wri-13",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order?",
+      "opener": "A common word-for-word translation from Swedish (\"Vad betyder detta ord?\") goes wrong in English — questions need a helping verb.",
+      "choices": [
+        "What means this word?",
+        "What does this word mean?",
+        "What this word means?",
+        "What word means this?"
+      ],
+      "answer": 1,
+      "explanation": "English questions with an ordinary verb (not \"be\") require the helping verb \"does\"/\"do\"/\"did\": \"What does this word mean?\" — a direct translation of the Swedish phrase becomes grammatically wrong."
+    },
+    {
+      "id": "q-en9-wri-14",
+      "kind": "worked",
+      "topic": "common mistakes",
+      "prompt": "Correct the four errors: \"What means this word? I don't have much friends here, and this city is more good than I expected, but I no want to leave so soon.\"",
+      "opener": "Four different kinds of mistakes: question word order, much/many, the comparative, and negation.",
+      "answer": "What does this word mean? I don't have many friends here, and this city is better than I expected, but I don't want to leave so soon.",
+      "steps": [
+        "\"What means this word?\" → \"What does this word mean?\". Questions with ordinary verbs require the helping verb \"does\".",
+        "\"much friends\" → \"many friends\". \"Friends\" is a countable plural noun — it requires \"many\", not \"much\".",
+        "\"more good\" → \"better\". \"Good\" has an irregular comparative.",
+        "\"I no want\" → \"I don't want\". Negation is formed with \"don't\" + the verb in its base form, not \"no\" + verb."
+      ]
+    },
+    {
+      "id": "q-en9-wri-15",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Students\" is countable — that requires \"fewer\", not \"less\".",
+      "choices": [
+        "There are less students in my class this year.",
+        "There are fewer students in my class this year.",
+        "There are less student in my class this year.",
+        "There are fewer student in my class this year."
+      ],
+      "answer": 1,
+      "explanation": "\"Fewer\" is used for countable plural nouns (\"fewer students\"), while \"less\" is used for uncountable nouns (\"less water\")."
     }
   ]
 }

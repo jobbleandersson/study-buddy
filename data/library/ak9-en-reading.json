@@ -122,6 +122,110 @@
       "prompt": "What strategies help you answer reading comprehension questions in English?",
       "opener": "Ett par vanor som gör skillnad på prov.",
       "answer": "Read the question first so you know what to look for. Separate the main idea (what the whole text is really about) from details (single facts). For unknown words: use context — the surrounding sentence often explains the word. For inference: base your answer only on what the text actually suggests, not on guesses. Watch out for answer choices that are true in general but don't actually answer the question asked."
+    },
+    {
+      "id": "q-en9-read-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"The city built a new skate park after years of requests from local teenagers. Some nearby residents worried about noise, but a survey after opening showed most neighbours were happy once they saw how well it was used.\"\n\nWhat is the main idea of the text?",
+      "opener": "Texten nämner både en oro OCH ett positivt resultat — vad blir helheten?",
+      "choices": [
+        "The skate park should be closed due to noise complaints",
+        "Despite initial worries, the new skate park has turned out well for the neighbourhood",
+        "Teenagers never asked for a skate park",
+        "The survey showed everyone hated the skate park"
+      ],
+      "answer": 1,
+      "explanation": "Texten visar att det fanns oro innan öppningen, men att undersökningen efteråt visade att de flesta grannar blev nöjda — helheten är en positiv utveckling trots den ursprungliga oron."
+    },
+    {
+      "id": "q-en9-read-10",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Maya read the letter twice, then folded it carefully and placed it in the box with the others. She sat quietly for a moment before turning off the light.\"\n\nWhat can we infer about the letter?",
+      "opener": "Vad säger det att hon sparar brevet tillsammans med andra, och sitter tyst en stund efteråt?",
+      "choices": [
+        "It's a letter Maya just received and doesn't care about",
+        "It seems to be something meaningful that Maya wants to keep",
+        "It's a bill she needs to pay",
+        "It's addressed to someone else"
+      ],
+      "answer": 1,
+      "explanation": "Att läsa brevet två gånger, vika det försiktigt, spara det med andra brev och sitta tyst en stund tyder på att det betyder något särskilt för henne."
+    },
+    {
+      "id": "q-en9-read-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"The old bridge was so rickety that drivers were warned to cross at their own risk.\"\n\nIn this context, \"rickety\" means:",
+      "opener": "Varför skulle man varna bilister för att korsa bron \"på egen risk\"?",
+      "choices": [
+        "sturdy and safe",
+        "unstable and likely to collapse",
+        "brightly painted",
+        "very expensive"
+      ],
+      "answer": 1,
+      "explanation": "\"Rickety\" betyder skranglig/ostadig — det förklarar varför bilister varnades för att korsa bron på egen risk."
+    },
+    {
+      "id": "q-en9-read-12",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"More students are signing up to volunteer at the animal shelter this year. The shelter says it now has more help than it can use on some days, and is looking into starting a waiting list for volunteers.\"\n\nWhat is the main idea of the text?",
+      "opener": "Vad säger det att djurhemmet överväger en väntelista?",
+      "choices": [
+        "The animal shelter is closing due to lack of volunteers",
+        "Volunteer interest at the shelter has grown so much that they may need a waiting list",
+        "No students want to volunteer anymore",
+        "The shelter is getting rid of all its animals"
+      ],
+      "answer": 1,
+      "explanation": "Att djurhemmet har MER hjälp än det kan använda vissa dagar, och överväger en väntelista, visar att intresset för volontärarbete har ökat kraftigt."
+    },
+    {
+      "id": "q-en9-read-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Coach blew the whistle and the team groaned. They had already run six laps, and the sun was blazing overhead.\"\n\nWhat can we infer about how the team feels?",
+      "opener": "Vad betyder det att gruppen \"stönade\" när visselpipan lät igen?",
+      "choices": [
+        "Excited to keep running",
+        "Tired and unwilling to run more",
+        "Confused about the rules",
+        "Happy about the heat"
+      ],
+      "answer": 1,
+      "explanation": "Att stöna efter sex varv i stekande sol, när tränaren blåser i visselpipan igen, signalerar trötthet och ovilja att fortsätta — inte entusiasm."
+    },
+    {
+      "id": "q-en9-read-14",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Read the text and explain what has happened, and how you know: \"The classroom was decorated with balloons and a hand-painted banner. Someone had placed a stack of wrapped presents on the teacher's desk, and everyone kept glancing at the door.\"",
+      "opener": "Tre detaljer nämns — vad betyder de tillsammans?",
+      "answer": "Klassen förbereder en överraskningsfest, troligen för läraren, och väntar på att hen ska komma in genom dörren.",
+      "steps": [
+        "Detalj 1: ballonger och banderoll — ett vanligt tecken på firande.",
+        "Detalj 2: inslagna presenter på lärarens skrivbord — tyder på att firandet gäller läraren specifikt.",
+        "Detalj 3: alla tittar mot dörren — de väntar på att någon (troligen läraren) ska komma in, vilket passar en överraskningsfest.",
+        "Sammantaget: texten säger aldrig \"överraskningsfest\", men detaljerna pekar tydligt åt den slutsatsen."
+      ]
+    },
+    {
+      "id": "q-en9-read-15",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"After weeks of practice, the band's performance was flawless — not a single mistake from start to finish.\"\n\nIn this context, \"flawless\" means:",
+      "opener": "Vad säger \"inte ett enda misstag från början till slut\" om hur framträdandet var?",
+      "choices": [
+        "full of mistakes",
+        "perfect",
+        "very short",
+        "too loud"
+      ],
+      "answer": 1,
+      "explanation": "\"Flawless\" betyder felfri/perfekt — vilket bekräftas av att texten säger \"not a single mistake\"."
     }
   ]
 }

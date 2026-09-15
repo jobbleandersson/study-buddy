@@ -124,6 +124,110 @@
       "prompt": "How do you tell apart its/it's, your/you're, and there/their/they're?",
       "opener": "Ett enkelt test som fungerar på alla tre par.",
       "answer": "Testa genom att skriva ut den fulla frasen: fungerar \"it is\"/\"it has\", \"you are\" eller \"they are\" i meningen, ska du använda apostrof-formen (it's, you're, they're). Fungerar det INTE, är det ägande- eller platsordet utan apostrof (its, your) — utom \"there\" som pekar ut en plats (\"over there\") och \"their\" som betyder \"deras\" (ägande)."
+    },
+    {
+      "id": "q-en9-wc-9",
+      "kind": "mc",
+      "topic": "a lot",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"A lot\" skrivs alltid som två separata ord.",
+      "choices": [
+        "I have alot of homework tonight.",
+        "I have a lot of homework tonight.",
+        "I have allot of homework tonight.",
+        "I have a lot's of homework tonight."
+      ],
+      "answer": 1,
+      "explanation": "\"A lot\" skrivs alltid som två ord — \"alot\" är inte ett korrekt engelskt ord, även om det är ett vanligt stavfel."
+    },
+    {
+      "id": "q-en9-wc-10",
+      "kind": "mc",
+      "topic": "its and it's",
+      "prompt": "Choose the correct word: \"The company announced ___ new product yesterday.\"",
+      "opener": "Vems produkt? Det är ägande, inte \"it is\".",
+      "choices": [
+        "it's",
+        "its",
+        "its'",
+        "it is"
+      ],
+      "answer": 1,
+      "explanation": "\"Its\" (utan apostrof) betyder \"dess/företagets\" — ägande. Testa: \"it is new product\" fungerar inte grammatiskt, så det ska inte vara \"it's\"."
+    },
+    {
+      "id": "q-en9-wc-11",
+      "kind": "mc",
+      "topic": "your and you're",
+      "prompt": "Choose the correct word: \"I think ___ right about this.\"",
+      "opener": "Går det att skriva ut \"you are\" i stället?",
+      "choices": [
+        "your",
+        "you're",
+        "yours",
+        "your's"
+      ],
+      "answer": 1,
+      "explanation": "\"You're\" = \"you are\" (\"I think you are right about this\"). \"Your's\" är dessutom aldrig en korrekt stavning."
+    },
+    {
+      "id": "q-en9-wc-12",
+      "kind": "mc",
+      "topic": "there their and they're",
+      "prompt": "Choose the correct word: \"Put the books over ___.\"",
+      "opener": "Pekar ordet ut en PLATS?",
+      "choices": [
+        "there",
+        "their",
+        "they're",
+        "thier"
+      ],
+      "answer": 0,
+      "explanation": "\"There\" pekar ut en plats (\"over there\"). \"Their\" är ägande och \"they're\" är en förkortning av \"they are\" — inget av dem passar här."
+    },
+    {
+      "id": "q-en9-wc-13",
+      "kind": "mc",
+      "topic": "a lot",
+      "prompt": "Which sentence uses the correct word?",
+      "opener": "\"Allot\" är ett eget, riktigt ord som betyder att FÖRDELA något — inte samma sak som \"a lot\" (en stor mängd).",
+      "choices": [
+        "They will allot a lot of the money to schools.",
+        "They will alot a lot of the money to schools.",
+        "They will allot alot of the money to schools.",
+        "They will a lot allot of the money to schools."
+      ],
+      "answer": 0,
+      "explanation": "\"Allot\" (ett ord, med två l) är ett verb som betyder att tilldela/fördela något. \"A lot\" (två ord) betyder \"mycket/en stor mängd\". \"Alot\" är aldrig korrekt stavning av något av dem."
+    },
+    {
+      "id": "q-en9-wc-14",
+      "kind": "worked",
+      "topic": "there their and they're",
+      "prompt": "Correct the four errors: \"Their going to be late because its raining alot, so you're umbrella will be useful.\"",
+      "opener": "Testa varje ord genom att skriva ut den fulla frasen, precis som i exemplet med morföräldrarna.",
+      "answer": "They're going to be late because it's raining a lot, so your umbrella will be useful.",
+      "steps": [
+        "\"Their going to be late\" → \"They're going to be late\". Testa: \"they are going to be late\" fungerar — alltså \"they're\".",
+        "\"its raining\" → \"it's raining\". Testa: \"it is raining\" fungerar — alltså \"it's\".",
+        "\"alot\" → \"a lot\". \"A lot\" skrivs alltid som två separata ord, aldrig \"alot\".",
+        "\"you're umbrella\" → \"your umbrella\". Det här är ägande (vems paraply), inte \"you are\" — alltså \"your\"."
+      ]
+    },
+    {
+      "id": "q-en9-wc-15",
+      "kind": "mc",
+      "topic": "there their and they're",
+      "prompt": "Choose the correct word: \"___ not going to believe this!\"",
+      "opener": "Går det att skriva ut \"they are\" i stället?",
+      "choices": [
+        "There",
+        "Their",
+        "They're",
+        "Theyre"
+      ],
+      "answer": 2,
+      "explanation": "\"They're\" = \"they are\" (\"They are not going to believe this!\"). \"Theyre\" (utan apostrof) är dessutom aldrig en korrekt stavning."
     }
   ]
 }

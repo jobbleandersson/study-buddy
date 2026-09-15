@@ -122,6 +122,110 @@
       "prompt": "What strategies help you answer reading comprehension questions in English?",
       "opener": "A couple of habits that make a difference on tests.",
       "answer": "Read the question first so you know what to look for. Separate the main idea (what the whole text is really about) from details (single facts). For unknown words: use context — the surrounding sentence often explains the word. For inference: base your answer only on what the text actually suggests, not on guesses. Watch out for answer choices that are true in general but don't actually answer the question asked."
+    },
+    {
+      "id": "q-en9-read-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"The city built a new skate park after years of requests from local teenagers. Some nearby residents worried about noise, but a survey after opening showed most neighbours were happy once they saw how well it was used.\"\n\nWhat is the main idea of the text?",
+      "opener": "The text mentions both a worry AND a positive outcome — what's the overall picture?",
+      "choices": [
+        "The skate park should be closed due to noise complaints",
+        "Despite initial worries, the new skate park has turned out well for the neighbourhood",
+        "Teenagers never asked for a skate park",
+        "The survey showed everyone hated the skate park"
+      ],
+      "answer": 1,
+      "explanation": "The text shows there was worry before opening, but that the survey afterwards showed most neighbours became happy — the overall picture is a positive outcome despite the initial worry."
+    },
+    {
+      "id": "q-en9-read-10",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Maya read the letter twice, then folded it carefully and placed it in the box with the others. She sat quietly for a moment before turning off the light.\"\n\nWhat can we infer about the letter?",
+      "opener": "What does it say that she keeps the letter with others, and sits quietly for a moment afterwards?",
+      "choices": [
+        "It's a letter Maya just received and doesn't care about",
+        "It seems to be something meaningful that Maya wants to keep",
+        "It's a bill she needs to pay",
+        "It's addressed to someone else"
+      ],
+      "answer": 1,
+      "explanation": "Reading the letter twice, folding it carefully, keeping it with other letters, and sitting quietly for a moment suggests it means something special to her."
+    },
+    {
+      "id": "q-en9-read-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"The old bridge was so rickety that drivers were warned to cross at their own risk.\"\n\nIn this context, \"rickety\" means:",
+      "opener": "Why would drivers be warned to cross the bridge \"at their own risk\"?",
+      "choices": [
+        "sturdy and safe",
+        "unstable and likely to collapse",
+        "brightly painted",
+        "very expensive"
+      ],
+      "answer": 1,
+      "explanation": "\"Rickety\" means unstable/shaky — that explains why drivers were warned to cross the bridge at their own risk."
+    },
+    {
+      "id": "q-en9-read-12",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"More students are signing up to volunteer at the animal shelter this year. The shelter says it now has more help than it can use on some days, and is looking into starting a waiting list for volunteers.\"\n\nWhat is the main idea of the text?",
+      "opener": "What does it say that the shelter is considering a waiting list?",
+      "choices": [
+        "The animal shelter is closing due to lack of volunteers",
+        "Volunteer interest at the shelter has grown so much that they may need a waiting list",
+        "No students want to volunteer anymore",
+        "The shelter is getting rid of all its animals"
+      ],
+      "answer": 1,
+      "explanation": "The shelter having MORE help than it can use on some days, and considering a waiting list, shows that interest in volunteering has grown a lot."
+    },
+    {
+      "id": "q-en9-read-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Coach blew the whistle and the team groaned. They had already run six laps, and the sun was blazing overhead.\"\n\nWhat can we infer about how the team feels?",
+      "opener": "What does it mean that the team \"groaned\" when the whistle blew again?",
+      "choices": [
+        "Excited to keep running",
+        "Tired and unwilling to run more",
+        "Confused about the rules",
+        "Happy about the heat"
+      ],
+      "answer": 1,
+      "explanation": "Groaning after six laps in blazing sun, when the coach blows the whistle again, signals tiredness and reluctance — not enthusiasm."
+    },
+    {
+      "id": "q-en9-read-14",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Read the text and explain what has happened, and how you know: \"The classroom was decorated with balloons and a hand-painted banner. Someone had placed a stack of wrapped presents on the teacher's desk, and everyone kept glancing at the door.\"",
+      "opener": "Three details are mentioned — what do they mean together?",
+      "answer": "The class is preparing a surprise party, likely for the teacher, and is waiting for them to walk through the door.",
+      "steps": [
+        "Detail 1: balloons and a banner — a common sign of a celebration.",
+        "Detail 2: wrapped presents on the teacher's desk — suggests the celebration is for the teacher specifically.",
+        "Detail 3: everyone glancing at the door — they are waiting for someone (likely the teacher) to arrive, which fits a surprise party.",
+        "Overall: the text never says \"surprise party\", but the details together point clearly to that conclusion."
+      ]
+    },
+    {
+      "id": "q-en9-read-15",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"After weeks of practice, the band's performance was flawless — not a single mistake from start to finish.\"\n\nIn this context, \"flawless\" means:",
+      "opener": "What does \"not a single mistake from start to finish\" say about the performance?",
+      "choices": [
+        "full of mistakes",
+        "perfect",
+        "very short",
+        "too loud"
+      ],
+      "answer": 1,
+      "explanation": "\"Flawless\" means perfect/without fault — which is confirmed by the text saying \"not a single mistake\"."
     }
   ]
 }

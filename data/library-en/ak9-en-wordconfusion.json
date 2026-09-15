@@ -124,6 +124,110 @@
       "prompt": "How do you tell apart its/it's, your/you're, and there/their/they're?",
       "opener": "A simple test that works for all three pairs.",
       "answer": "Test by spelling out the full phrase: if \"it is\"/\"it has\", \"you are\" or \"they are\" works in the sentence, use the apostrophe form (it's, you're, they're). If it does NOT work, it's the ownership or place word without an apostrophe (its, your) — except \"there\", which points to a place (\"over there\"), and \"their\", which shows ownership (\"belonging to them\")."
+    },
+    {
+      "id": "q-en9-wc-9",
+      "kind": "mc",
+      "topic": "a lot",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"A lot\" is always written as two separate words.",
+      "choices": [
+        "I have alot of homework tonight.",
+        "I have a lot of homework tonight.",
+        "I have allot of homework tonight.",
+        "I have a lot's of homework tonight."
+      ],
+      "answer": 1,
+      "explanation": "\"A lot\" is always written as two words — \"alot\" is not a correct English word, even though it's a common spelling mistake."
+    },
+    {
+      "id": "q-en9-wc-10",
+      "kind": "mc",
+      "topic": "its and it's",
+      "prompt": "Choose the correct word: \"The company announced ___ new product yesterday.\"",
+      "opener": "Whose product? That's ownership, not \"it is\".",
+      "choices": [
+        "it's",
+        "its",
+        "its'",
+        "it is"
+      ],
+      "answer": 1,
+      "explanation": "\"Its\" (without an apostrophe) means \"its/the company's\" — ownership. Test: \"it is new product\" doesn't work grammatically, so it shouldn't be \"it's\"."
+    },
+    {
+      "id": "q-en9-wc-11",
+      "kind": "mc",
+      "topic": "your and you're",
+      "prompt": "Choose the correct word: \"I think ___ right about this.\"",
+      "opener": "Can you spell out \"you are\" instead?",
+      "choices": [
+        "your",
+        "you're",
+        "yours",
+        "your's"
+      ],
+      "answer": 1,
+      "explanation": "\"You're\" = \"you are\" (\"I think you are right about this\"). \"Your's\" is also never a correct spelling."
+    },
+    {
+      "id": "q-en9-wc-12",
+      "kind": "mc",
+      "topic": "there their and they're",
+      "prompt": "Choose the correct word: \"Put the books over ___.\"",
+      "opener": "Does the word point to a PLACE?",
+      "choices": [
+        "there",
+        "their",
+        "they're",
+        "thier"
+      ],
+      "answer": 0,
+      "explanation": "\"There\" points to a place (\"over there\"). \"Their\" shows ownership and \"they're\" is short for \"they are\" — neither fits here."
+    },
+    {
+      "id": "q-en9-wc-13",
+      "kind": "mc",
+      "topic": "a lot",
+      "prompt": "Which sentence uses the correct word?",
+      "opener": "\"Allot\" is its own real word meaning to ASSIGN something — not the same as \"a lot\" (a large amount).",
+      "choices": [
+        "They will allot a lot of the money to schools.",
+        "They will alot a lot of the money to schools.",
+        "They will allot alot of the money to schools.",
+        "They will a lot allot of the money to schools."
+      ],
+      "answer": 0,
+      "explanation": "\"Allot\" (one word, with two Ls) is a verb meaning to assign/distribute something. \"A lot\" (two words) means \"a large amount\". \"Alot\" is never the correct spelling of either."
+    },
+    {
+      "id": "q-en9-wc-14",
+      "kind": "worked",
+      "topic": "there their and they're",
+      "prompt": "Correct the four errors: \"Their going to be late because its raining alot, so you're umbrella will be useful.\"",
+      "opener": "Test each word by spelling out the full phrase, just like in the grandparents example.",
+      "answer": "They're going to be late because it's raining a lot, so your umbrella will be useful.",
+      "steps": [
+        "\"Their going to be late\" → \"They're going to be late\". Test: \"they are going to be late\" works — so \"they're\".",
+        "\"its raining\" → \"it's raining\". Test: \"it is raining\" works — so \"it's\".",
+        "\"alot\" → \"a lot\". \"A lot\" is always written as two separate words, never \"alot\".",
+        "\"you're umbrella\" → \"your umbrella\". This is ownership (whose umbrella), not \"you are\" — so \"your\"."
+      ]
+    },
+    {
+      "id": "q-en9-wc-15",
+      "kind": "mc",
+      "topic": "there their and they're",
+      "prompt": "Choose the correct word: \"___ not going to believe this!\"",
+      "opener": "Can you spell out \"they are\" instead?",
+      "choices": [
+        "There",
+        "Their",
+        "They're",
+        "Theyre"
+      ],
+      "answer": 2,
+      "explanation": "\"They're\" = \"they are\" (\"They are not going to believe this!\"). \"Theyre\" (without an apostrophe) is also never a correct spelling."
     }
   ]
 }
