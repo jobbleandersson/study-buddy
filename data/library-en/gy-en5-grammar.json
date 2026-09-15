@@ -123,6 +123,110 @@
       "prompt": "Explain the three main conditionals: form and when to use each.",
       "opener": "Three types — a real possibility, something hypothetical now, and a changed past.",
       "answer": "First conditional (likely future): If + present simple, will + infinitive — \"If it rains, I will stay home.\" Second conditional (hypothetical now): If + past simple, would + infinitive — \"If I had time, I would travel.\" Third conditional (undone past): If + past perfect, would have + past participle — \"If I had known, I would have come.\" Rule: \"would\" never appears in the if-clause itself."
+    },
+    {
+      "id": "q-en5-gra-9",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"She wants to become ___ engineer.\"",
+      "opener": "How is the first sound of \"engineer\" pronounced?",
+      "choices": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "answer": 1,
+      "explanation": "\"Engineer\" begins with a vowel sound, so it's \"an engineer\"."
+    },
+    {
+      "id": "q-en5-gra-10",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"Can you close ___ door? It's cold in here.\"",
+      "opener": "Is it just any door, or a specific door both people know?",
+      "choices": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "answer": 2,
+      "explanation": "The speaker refers to a specific, known door (the one in the room) — that requires the definite article: \"the door\"."
+    },
+    {
+      "id": "q-en5-gra-11",
+      "kind": "mc",
+      "topic": "prepositions",
+      "prompt": "Choose the correct preposition: \"She is good ___ maths.\"",
+      "opener": "A fixed expression - it can't be derived from Swedish.",
+      "choices": [
+        "in",
+        "at",
+        "on",
+        "for"
+      ],
+      "answer": 1,
+      "explanation": "\"Good at\" is the fixed expression for being skilled at something: \"good at maths\", \"good at sports\"."
+    },
+    {
+      "id": "q-en5-gra-12",
+      "kind": "mc",
+      "topic": "conditionals",
+      "prompt": "Choose the correct form: \"If I ___ earlier, I wouldn't have missed the train.\"",
+      "opener": "The main clause (\"wouldn't have missed\") reveals which type of conditional this is.",
+      "choices": [
+        "left",
+        "would leave",
+        "had left",
+        "have left"
+      ],
+      "answer": 2,
+      "explanation": "\"Wouldn't have missed\" is the third conditional form in the main clause — that requires the past perfect in the if-clause: \"If I had left...\". The third conditional describes an undone past: If + past perfect, would have + past participle."
+    },
+    {
+      "id": "q-en5-gra-13",
+      "kind": "mc",
+      "topic": "relative pronouns",
+      "prompt": "Choose the correct relative pronoun: \"This is the book ___ changed my life.\"",
+      "opener": "Is this about a person or a thing?",
+      "choices": [
+        "who",
+        "which",
+        "whose",
+        "what"
+      ],
+      "answer": 1,
+      "explanation": "\"Which\" is used for things, \"who\" for people. \"Whose\" expresses ownership and \"what\" doesn't work as a relative pronoun here."
+    },
+    {
+      "id": "q-en5-gra-14",
+      "kind": "worked",
+      "topic": "conditionals",
+      "prompt": "Find and correct the four errors: \"If I would have more money, I will buy a car. She's married with a doctor who works at hospital.\"",
+      "opener": "Look for two errors in the if-clause, one fixed preposition expression, and one missing article.",
+      "answer": "If I had more money, I would buy a car. She's married to a doctor who works at a hospital.",
+      "steps": [
+        "\"If I would have\" → \"If I had\". \"Would\" should never appear in the if-clause itself in a second conditional.",
+        "\"I will buy\" → \"I would buy\". The main clause of a second conditional is formed with \"would\", not \"will\".",
+        "\"married with a doctor\" → \"married to a doctor\". Fixed preposition expression: \"married to\", not \"married with\".",
+        "\"works at hospital\" → \"works at a hospital\". The noun \"hospital\" in this sense requires an article."
+      ]
+    },
+    {
+      "id": "q-en5-gra-15",
+      "kind": "mc",
+      "topic": "relative pronouns",
+      "prompt": "Choose the correct relative pronoun: \"That's the man ___ car was stolen last night.\"",
+      "opener": "Whose car was it that got stolen?",
+      "choices": [
+        "who",
+        "which",
+        "whose",
+        "that"
+      ],
+      "answer": 2,
+      "explanation": "\"Whose\" expresses ownership — the car belonged to the man. \"Who\" would have been needed if the man himself was the subject of the clause (\"the man who stole the car\")."
     }
   ]
 }

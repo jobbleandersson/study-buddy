@@ -122,6 +122,110 @@
       "prompt": "When do you use present perfect instead of past simple?",
       "opener": "Två frågor avgör nästan alltid saken.",
       "answer": "Present perfect när tidpunkten är oviktig eller ospecificerad, när handlingen har ett resultat som gäller nu, eller när något pågått från förr till nu (ofta med for/since/ever/never/just/already/yet). Past simple när tidpunkten är utsatt och avslutad (yesterday, last week, in 2020, when I was ten). Tumregel: står det ett avslutat tidsuttryck i meningen — använd past simple."
+    },
+    {
+      "id": "q-en5-ten-9",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"A: Have you ever been to Japan? B: Yes, I ___ there twice.\"",
+      "opener": "Ingen utsatt tidpunkt nämns — det är erfarenheten som räknas.",
+      "choices": [
+        "go",
+        "went",
+        "have been",
+        "has been"
+      ],
+      "answer": 2,
+      "explanation": "Frågan handlar om livserfarenhet utan angiven tidpunkt — det kräver present perfect: \"have been\". \"Has been\" hade krävt \"she/he/it\", inte \"I\"."
+    },
+    {
+      "id": "q-en5-ten-10",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"When ___ she call you?\"",
+      "opener": "Frågor i past simple om vanliga verb bildas med ett särskilt hjälpverb.",
+      "choices": [
+        "has",
+        "did",
+        "does",
+        "was"
+      ],
+      "answer": 1,
+      "explanation": "Frågor i past simple bildas med \"did\" + subjekt + verb i grundform: \"When did she call you?\""
+    },
+    {
+      "id": "q-en5-ten-11",
+      "kind": "mc",
+      "topic": "continuous tenses",
+      "prompt": "Choose the correct form: \"I usually take the bus, but this week I ___ my bike because the bus is on strike.\"",
+      "opener": "\"This week\" signalerar en tillfällig situation, inte den vanliga rutinen.",
+      "choices": [
+        "use",
+        "am using",
+        "used",
+        "have used"
+      ],
+      "answer": 1,
+      "explanation": "\"This week\" pekar på något tillfälligt just nu, i kontrast till den vanliga rutinen (\"usually take the bus\") — det kräver present continuous: \"am using\"."
+    },
+    {
+      "id": "q-en5-ten-12",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"She ___ six novels so far.\"",
+      "opener": "Det handlar om ett uppnått RESULTAT (antalet böcker), inte om själva pågåendet.",
+      "choices": [
+        "has been writing",
+        "has written",
+        "is writing",
+        "wrote"
+      ],
+      "answer": 1,
+      "explanation": "När det handlar om ett resultat eller ett uppnått antal används present perfect simple: \"has written\". Present perfect continuous (\"has been writing\") betonar i stället själva den pågående aktiviteten, inte hur många som blivit klara."
+    },
+    {
+      "id": "q-en5-ten-13",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"They ___ the news on TV last night.\"",
+      "opener": "\"Last night\" är en utsatt, avslutad tidpunkt.",
+      "choices": [
+        "seen",
+        "saw",
+        "have seen",
+        "was seeing"
+      ],
+      "answer": 1,
+      "explanation": "\"Last night\" kräver past simple: \"saw\". \"Seen\" kan aldrig stå ensamt som huvudverb — det behöver ett hjälpverb (have seen/was seen)."
+    },
+    {
+      "id": "q-en5-ten-14",
+      "kind": "worked",
+      "topic": "present perfect",
+      "prompt": "Explain which tense fits each gap and why: \"I ___ (never/try) sushi. Last Friday, my friend ___ (take) me to a Japanese restaurant, and I ___ (love) it immediately.\"",
+      "opener": "Samma mönster som i det tidigare exemplet om London: erfarenhet fram till nu, sedan ett bestämt tillfälle.",
+      "answer": "have never tried / took / loved",
+      "steps": [
+        "Lucka 1: \"never tried\" handlar om erfarenhet fram till nu, utan utsatt tidpunkt → present perfect: \"have never tried\".",
+        "Lucka 2: \"Last Friday\" pekar ut ett specifikt, avslutat tillfälle → past simple: \"took\".",
+        "Lucka 3: samma avslutade tillfälle som lucka 2 → past simple: \"loved\".",
+        "Precis som i London-exemplet: present perfect etablerar erfarenheten, sedan växlar man till past simple när man berättar om det specifika tillfället."
+      ]
+    },
+    {
+      "id": "q-en5-ten-15",
+      "kind": "mc",
+      "topic": "continuous tenses",
+      "prompt": "Choose the correct form: \"While I ___ dinner, the phone rang.\"",
+      "opener": "En pågående bakgrundshandling som avbryts av en kortare händelse.",
+      "choices": [
+        "cooked",
+        "was cooking",
+        "have cooked",
+        "cook"
+      ],
+      "answer": 1,
+      "explanation": "Past continuous (\"was cooking\") beskriver en pågående handling i bakgrunden, som avbryts av en kortare händelse i past simple (\"rang\") — ett klassiskt mönster för att beskriva avbrutna händelser."
     }
   ]
 }

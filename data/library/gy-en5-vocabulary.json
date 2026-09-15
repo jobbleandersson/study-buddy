@@ -122,6 +122,110 @@
       "prompt": "When do you use \"do\" and when do you use \"make\"?",
       "opener": "En tumregel plus de fasta uttryck du behöver kunna utantill.",
       "answer": "Do: uppgifter, arbete, sysslor och obestämda aktiviteter — do homework, do the dishes, do research, do business, do someone a favour, do good. Make: när något skapas eller uppstår — make a decision, make a mistake, make progress, make an effort, make money, make friends, make noise. Tumregel: \"do\" om aktiviteten, \"make\" om resultatet."
+    },
+    {
+      "id": "q-en5-voc-9",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct verb: \"Please ___ me a favour and close the window.\"",
+      "opener": "Ett av de fasta uttryck du behöver kunna utantill.",
+      "choices": [
+        "make",
+        "do",
+        "take",
+        "give"
+      ],
+      "answer": 1,
+      "explanation": "\"Do someone a favour\" är ett fast uttryck. \"Make\" fungerar inte här, trots att svenskan säger \"göra någon en tjänst\"."
+    },
+    {
+      "id": "q-en5-voc-10",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct verb: \"The company plans to ___ progress on the new project this quarter.\"",
+      "opener": "Något som uppstår eller skapas hör till \"make\"-gruppen.",
+      "choices": [
+        "do",
+        "take",
+        "make",
+        "have"
+      ],
+      "answer": 2,
+      "explanation": "\"Make progress\" är ett fast uttryck. Framsteg är något som skapas eller uppstår, precis som make a decision eller make an effort."
+    },
+    {
+      "id": "q-en5-voc-11",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "What does \"come across\" mean in: \"I came across an old photo while cleaning the attic\"?",
+      "opener": "Letade personen aktivt efter fotot, eller hittade den det av en slump?",
+      "choices": [
+        "to find by chance",
+        "to visit someone",
+        "to argue with someone",
+        "to understand something"
+      ],
+      "answer": 0,
+      "explanation": "\"Come across\" betyder att hitta något av en slump, utan att aktivt leta efter det."
+    },
+    {
+      "id": "q-en5-voc-12",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"The company had to ___ hundreds of workers during the recession.\"",
+      "opener": "Vad kallas det när ett företag tvingas säga upp personal?",
+      "choices": [
+        "lay off",
+        "lay down",
+        "lay out",
+        "lay into"
+      ],
+      "answer": 0,
+      "explanation": "\"Lay off\" betyder att säga upp anställda, oftast av ekonomiska skäl. \"Lay out\" betyder att lägga fram eller planera, \"lay into\" att attackera verbalt."
+    },
+    {
+      "id": "q-en5-voc-13",
+      "kind": "mc",
+      "topic": "word formation",
+      "prompt": "What is the noun form of the adjective \"happy\"?",
+      "opener": "Suffixet \"-ness\" bildar substantiv av adjektiv — men stavningen ändras lite.",
+      "choices": [
+        "happiness",
+        "happyness",
+        "happility",
+        "happyment"
+      ],
+      "answer": 0,
+      "explanation": "\"-ness\" bildar substantiv av adjektiv (kind → kindness, happy → happiness). När adjektivet slutar på konsonant + y byts y mot i: happy → happiness."
+    },
+    {
+      "id": "q-en5-voc-14",
+      "kind": "worked",
+      "topic": "collocations",
+      "prompt": "Correct the four errors: \"She always makes her best at work, and yesterday she finally took a decision to ask for a raise. Her boss was very impress and gave her more responsibility, which made her a lot of good.\"",
+      "opener": "Två fel handlar om do/make, ett är en ordbildningsfråga och ett är ett fast uttryck.",
+      "answer": "She always does her best at work, and yesterday she finally made a decision to ask for a raise. Her boss was very impressed and gave her more responsibility, which did her a lot of good.",
+      "steps": [
+        "\"makes her best\" → \"does her best\". \"Do one's best\" är ett fast uttryck.",
+        "\"took a decision\" → \"made a decision\". Beslut \"görs\" på engelska: \"make a decision\".",
+        "\"was very impress\" → \"was very impressed\". Adjektivformen av verbet \"impress\" (perfekt particip använt som adjektiv) är \"impressed\".",
+        "\"made her a lot of good\" → \"did her a lot of good\". Fast uttryck med \"do\", precis som i flashcard-exemplet \"do someone good\"."
+      ]
+    },
+    {
+      "id": "q-en5-voc-15",
+      "kind": "mc",
+      "topic": "word formation",
+      "prompt": "Which adjective is formed from the noun \"danger\"?",
+      "opener": "Suffixet \"-ous\" bildar många adjektiv av substantiv.",
+      "choices": [
+        "dangerous",
+        "dangerful",
+        "dangerious",
+        "dangerly"
+      ],
+      "answer": 0,
+      "explanation": "\"-ous\" bildar adjektiv av substantiv: danger → dangerous, fame → famous, ambition → ambitious."
     }
   ]
 }

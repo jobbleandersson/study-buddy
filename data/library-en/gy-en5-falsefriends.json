@@ -121,6 +121,110 @@
       "prompt": "List the most common false friends between Swedish and English.",
       "opener": "Words that look familiar but mean something else.",
       "answer": "eventually = till slut (eventuellt = possibly) · actually = faktiskt (aktuellt = current) · fabric = tyg (fabrik = factory) · gift = present (gift = married/poison) · sensible = förnuftig (sensibel = sensitive) · control = styra (kontrollera = check) · blank = tom (blank = shiny) · novel = roman (novell = short story) · recipe = recept på mat (recept från läkare = prescription)"
+    },
+    {
+      "id": "q-en5-ff-9",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does the English word \"sensible\" mean?",
+      "opener": "The word looks like the Swedish \"sensibel\" - but doesn't mean the same thing.",
+      "choices": [
+        "sensitive, easily hurt",
+        "practical and reasonable",
+        "artistic",
+        "emotional"
+      ],
+      "answer": 1,
+      "explanation": "\"Sensible\" means practical and reasonable. The Swedish \"sensibel\" (easily hurt) is \"sensitive\" in English."
+    },
+    {
+      "id": "q-en5-ff-10",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does the word \"novel\" mean, when used as a noun?",
+      "opener": "The word resembles the Swedish \"novell\" - but refers to something longer.",
+      "choices": [
+        "a short story",
+        "a full-length work of fiction (a book)",
+        "a newspaper",
+        "a poem"
+      ],
+      "answer": 1,
+      "explanation": "\"Novel\" means a full-length book. The Swedish \"novell\" (a short story) is \"short story\" in English."
+    },
+    {
+      "id": "q-en5-ff-11",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does \"control\" mean in the sentence: \"The pilot lost control of the plane\"?",
+      "opener": "Is this about checking (verifying) something, or steering it?",
+      "choices": [
+        "to check or verify",
+        "to steer or have power over",
+        "to plan",
+        "to count"
+      ],
+      "answer": 1,
+      "explanation": "\"Control\" means to steer or have power over something. The Swedish \"kontrollera\" (to verify) is \"check\" in English."
+    },
+    {
+      "id": "q-en5-ff-12",
+      "kind": "mc",
+      "topic": "confusing word pairs",
+      "prompt": "Choose the correct word: \"Can you ___ me $20 until payday?\"",
+      "opener": "Who is giving the money to whom?",
+      "choices": [
+        "borrow",
+        "lend",
+        "loan out",
+        "rent"
+      ],
+      "answer": 1,
+      "explanation": "The speaker is asking the other person to give (lend) money — that's \"lend\". \"Borrow\" would be used if the speaker were the one receiving: \"Could I borrow $20?\""
+    },
+    {
+      "id": "q-en5-ff-13",
+      "kind": "mc",
+      "topic": "confusing word pairs",
+      "prompt": "Choose the correct verb: \"She wants to ___ how to play the piano.\"",
+      "opener": "Is she acquiring the knowledge herself, or is someone else giving it to her?",
+      "choices": [
+        "teach",
+        "learn",
+        "study",
+        "know"
+      ],
+      "answer": 1,
+      "explanation": "She wants to acquire the knowledge herself — that's \"learn\". \"Teach\" would be used if someone else were teaching her."
+    },
+    {
+      "id": "q-en5-ff-14",
+      "kind": "worked",
+      "topic": "false friends",
+      "prompt": "Correct the four errors: \"I'm eventually free this weekend if you want to hang out. My cousin learned herself to skateboard, so I borrowed her my old board. She works at a big fabric that makes furniture.\"",
+      "opener": "Four words that look right to a Swedish eye but mean something else, or are used the wrong way round.",
+      "answer": "I might be free this weekend if you want to hang out. My cousin taught herself to skateboard, so I lent her my old board. She works at a big factory that makes furniture.",
+      "steps": [
+        "\"I'm eventually free\" → \"I might be free\". The writer means \"eventuellt\" (uncertainty), not \"eventually\" (in the end).",
+        "\"learned herself\" → \"taught herself\". Teaching yourself without a teacher is \"teach yourself\" in English, not \"learn yourself\".",
+        "\"I borrowed her my old board\" → \"I lent her my old board\". The writer gave the board away — that's \"lend\", not \"borrow\".",
+        "\"a big fabric\" → \"a big factory\". \"Fabric\" means cloth, not a factory."
+      ]
+    },
+    {
+      "id": "q-en5-ff-15",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does \"gift\" mean in English?",
+      "opener": "The word is spelled exactly like a Swedish word - but the Swedish word means something completely different in English.",
+      "choices": [
+        "poison",
+        "present",
+        "married",
+        "generous"
+      ],
+      "answer": 1,
+      "explanation": "\"Gift\" means a present in English. The Swedish \"gift\" (married or poison, depending on context) is a completely different meaning - a classic false friend."
     }
   ]
 }

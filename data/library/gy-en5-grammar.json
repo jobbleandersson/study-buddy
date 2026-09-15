@@ -123,6 +123,110 @@
       "prompt": "Explain the three main conditionals: form and when to use each.",
       "opener": "Tre typer — verklig möjlighet, hypotetiskt nu, och ändrat förflutet.",
       "answer": "First conditional (trolig framtid): If + presens, will + infinitiv — \"If it rains, I will stay home.\" Second conditional (hypotetiskt nu): If + past simple, would + infinitiv — \"If I had time, I would travel.\" Third conditional (ogjort förflutet): If + past perfect, would have + perfekt particip — \"If I had known, I would have come.\" Regel: \"would\" står aldrig i själva if-satsen."
+    },
+    {
+      "id": "q-en5-gra-9",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"She wants to become ___ engineer.\"",
+      "opener": "Hur uttalas första ljudet i \"engineer\"?",
+      "choices": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "answer": 1,
+      "explanation": "\"Engineer\" börjar med ett vokalljud, så det heter \"an engineer\"."
+    },
+    {
+      "id": "q-en5-gra-10",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"Can you close ___ door? It's cold in here.\"",
+      "opener": "Är det vilken dörr som helst, eller en specifik dörr båda vet vilken det är?",
+      "choices": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "answer": 2,
+      "explanation": "Talaren syftar på en specifik, känd dörr (den i rummet) — det kräver bestämd artikel: \"the door\"."
+    },
+    {
+      "id": "q-en5-gra-11",
+      "kind": "mc",
+      "topic": "prepositions",
+      "prompt": "Choose the correct preposition: \"She is good ___ maths.\"",
+      "opener": "Ett fast uttryck — går inte att härleda från svenskan.",
+      "choices": [
+        "in",
+        "at",
+        "on",
+        "for"
+      ],
+      "answer": 1,
+      "explanation": "\"Good at\" är det fasta uttrycket för att vara skicklig på något: \"good at maths\", \"good at sports\"."
+    },
+    {
+      "id": "q-en5-gra-12",
+      "kind": "mc",
+      "topic": "conditionals",
+      "prompt": "Choose the correct form: \"If I ___ earlier, I wouldn't have missed the train.\"",
+      "opener": "Huvudsatsen (\"wouldn't have missed\") avslöjar vilken sorts if-sats det är.",
+      "choices": [
+        "left",
+        "would leave",
+        "had left",
+        "have left"
+      ],
+      "answer": 2,
+      "explanation": "\"Wouldn't have missed\" är third conditional-formen i huvudsatsen — det kräver past perfect i if-satsen: \"If I had left…\". Third conditional beskriver ett ogjort förflutet: If + past perfect, would have + perfekt particip."
+    },
+    {
+      "id": "q-en5-gra-13",
+      "kind": "mc",
+      "topic": "relative pronouns",
+      "prompt": "Choose the correct relative pronoun: \"This is the book ___ changed my life.\"",
+      "opener": "Handlar det om en person eller en sak?",
+      "choices": [
+        "who",
+        "which",
+        "whose",
+        "what"
+      ],
+      "answer": 1,
+      "explanation": "\"Which\" används om saker och ting, \"who\" om personer. \"Whose\" uttrycker ägande och \"what\" fungerar inte som relativt pronomen här."
+    },
+    {
+      "id": "q-en5-gra-14",
+      "kind": "worked",
+      "topic": "conditionals",
+      "prompt": "Find and correct the four errors: \"If I would have more money, I will buy a car. She's married with a doctor who works at hospital.\"",
+      "opener": "Leta efter två fel i if-satsen, ett fast preposition-uttryck och en saknad artikel.",
+      "answer": "If I had more money, I would buy a car. She's married to a doctor who works at a hospital.",
+      "steps": [
+        "\"If I would have\" → \"If I had\". \"Would\" ska aldrig stå i själva if-satsen vid second conditional.",
+        "\"I will buy\" → \"I would buy\". Huvudsatsen i second conditional bildas med \"would\", inte \"will\".",
+        "\"married with a doctor\" → \"married to a doctor\". Fast prepositionsuttryck: \"married to\", inte \"married with\".",
+        "\"works at hospital\" → \"works at a hospital\". Substantivet \"hospital\" i den här betydelsen kräver en artikel."
+      ]
+    },
+    {
+      "id": "q-en5-gra-15",
+      "kind": "mc",
+      "topic": "relative pronouns",
+      "prompt": "Choose the correct relative pronoun: \"That's the man ___ car was stolen last night.\"",
+      "opener": "Vems bil var det som blev stulen?",
+      "choices": [
+        "who",
+        "which",
+        "whose",
+        "that"
+      ],
+      "answer": 2,
+      "explanation": "\"Whose\" uttrycker ägande — bilen tillhörde mannen. \"Who\" hade behövts om mannen själv var subjekt i satsen (\"the man who stole the car\")."
     }
   ]
 }
