@@ -2,7 +2,6 @@ import { Router } from "express";
 import bcrypt from "bcryptjs";
 import crypto from "node:crypto";
 import { db } from "../db.js";
-import { requireAuth } from "../middleware/requireAuth.js";
 import { COOKIE_NAME } from "../constants.js";
 
 export const auth = Router();
@@ -66,6 +65,15 @@ auth.post("/auth/logout", (req, res) => {
   res.json({ ok: true });
 });
 
-auth.get("/auth/me", requireAuth, (req, res) => {
-  res.json({ email: req.user.email });
+// "Who am I?" is asked on every page load, signed in or not, so a signed-out
+// visitor is a normal answer (200 {authed:false}), not an error — a 401 here
+// would put a failed request in the browser console on every visit.
+auth.get("/auth/me", (req, res) => {
+  const sid = req.cookies?.[COOKIE_NAME];
+  const row = sid && db.prepare(
+    `SELECT users.email AS email
+     FROM sessions JOIN users ON users.id = sessions.user_id
+     WHERE sessions.id = ? AND sessions.expires_at > ?`
+  ).get(sid, Date.now());
+  res.json(row ? { authed: true, email: row.email } : { authed: false });
 });

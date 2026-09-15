@@ -239,7 +239,7 @@ export function renderMenu(mode) {
   function emptyState() {
     const isFirstRun = !store.assignments.length;
     return el("div.empty", { style: { gridColumn: "1 / -1" } }, [
-      icon(ICONS.spark, 26),
+      icon(ICONS.book, 26),
       el("h3", { style: { marginBottom: "6px" } },
         isFirstRun ? t("menu.emptyFirstTitle")
           : t(tab === "assignment" ? "menu.emptyAssignTitle" : "menu.emptyTestTitle")),
@@ -387,7 +387,9 @@ export function renderMenu(mode) {
   // The greeting stays at the very top, full width.
   const greetingBlock = el("div.home__head", {}, [
     el("h1", {}, greeting()),
-    el("p.home__hi", {}, store.hasKey() ? t("menu.subHasKey") : t("menu.subNoKey")),
+    el("p.home__hi", {}, store.hasKey() ? t("menu.subHasKey")
+      : store.aiNeedsSignIn() ? [t("menu.subSignIn"), el("a", { href: "#/login" }, t("menu.subSignInLink")), t("menu.subSignInTail")]
+      : t("menu.subNoKey")),
   ]);
 
   // The Solve / Library / New-set shortcuts sit *below* the "Idag" panel — a

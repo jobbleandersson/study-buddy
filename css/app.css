@@ -4,6 +4,9 @@
 [hidden] { display: none !important; }
 
 html, body { height: 100%; }
+/* Reserve the scrollbar's space on every page, so content doesn't shift
+   sideways between short (no scrollbar) and long pages. */
+html { scrollbar-gutter: stable; }
 
 body {
   font-family: var(--font-body);
@@ -284,6 +287,8 @@ a.streakbadge:hover {
   padding: 5px 12px 5px 8px; border-radius: var(--r-full);
   border: 1px solid var(--line-strong); background: var(--surface);
   margin-bottom: var(--s-4);
+  /* Stay pill-sized inside grid/flex-column page wrappers instead of stretching. */
+  justify-self: start; align-self: flex-start;
 }
 .homebtn:hover { color: var(--brand); border-color: var(--brand); }
 .homebtn svg { flex: none; }
@@ -315,7 +320,8 @@ a.streakbadge:hover {
      floats at the bottom, like the solve-screen hint — never sits under it.
      Immersive routes (a running session, print) drop the tab bar, so no
      clearance is needed and the session's own hint button owns the bottom. */
-  .shell:not(.shell--immersive) .content { padding-bottom: calc(70px + env(safe-area-inset-bottom, 0)); }
+  /* Tab bar + the chat bubble above it, so the last row can scroll clear of both. */
+  .shell:not(.shell--immersive) .content { padding-bottom: calc(70px + 56px + var(--s-5) + env(safe-area-inset-bottom, 0)); }
 }
 
 /* ---------- buttons ---------- */
@@ -560,7 +566,6 @@ a.streakbadge:hover {
 
 /* ---------- calendar page: the month planner (js/views/calendar.js) ---------- */
 .planner-page { display: flex; flex-direction: column; gap: var(--s-3); }
-.planner-page > .homebtn { align-self: flex-start; }   /* don't let the column stretch it */
 .planner-page__head {
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--s-3); flex-wrap: wrap;

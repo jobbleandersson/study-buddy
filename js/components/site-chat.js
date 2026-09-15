@@ -57,6 +57,15 @@ export function mountSiteChat() {
 
   function paintDormant() {
     clear(logEl);
+    if (store.aiNeedsSignIn()) {
+      logEl.appendChild(el("div.sitechat__dormant", {}, [
+        el("p", {}, t("sitechat.signInTitle")),
+        el("p.note", {}, t("sitechat.signInBody")),
+        el("a.btn.btn--sm", { href: "#/login", style: { marginTop: "12px" } }, t("login.signIn")),
+      ]));
+      formEl.hidden = true;
+      return;
+    }
     const status = !store.proxyUp ? t("set.serverDown")
       : !store.proxyKeyConfigured ? t("set.serverNoKey")
       : t("set.serverLive");
