@@ -202,6 +202,24 @@ a.streakbadge:hover {
 .brand img { width: 30px; height: 30px; }
 .topbar__spacer { flex: 1; }
 
+/* Highlighter-swipe wordmark: two rough, overlapping tinted strokes behind
+   the brand text, like "Studify" got marked up with a highlighter twice. */
+.wordmark { position: relative; display: inline-block; }
+.wordmark__text { position: relative; z-index: 1; }
+.wordmark__bar { position: absolute; z-index: 0; display: block; pointer-events: none; }
+.wordmark__bar--1 {
+  left: -8%; right: 44%; top: 2%; bottom: 14%;
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+  clip-path: polygon(1% 25%, 98% 4%, 100% 70%, 2% 96%);
+  transform: rotate(2deg);
+}
+.wordmark__bar--2 {
+  left: 22%; right: -8%; top: 14%; bottom: 0%;
+  background: color-mix(in srgb, var(--brand) 30%, transparent);
+  clip-path: polygon(1% 15%, 99% 0%, 99% 88%, 1% 100%);
+  transform: rotate(-2.4deg);
+}
+
 /* Bottom tab bar — mobile's primary nav (see js/main.js tabBar()). Fixed and
    thumb-reachable; hidden on desktop by the min-width:900px block above. */
 .tabbar {

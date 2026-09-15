@@ -491,6 +491,16 @@ function immersiveRoute() {
     || currentPath() === "/hp/mock";
 }
 
+// Highlighter-swipe wordmark: two rough, overlapping tinted strokes behind
+// the brand text, like it's been marked up twice with a highlighter.
+function wordmark(text) {
+  return [
+    el("span.wordmark__bar.wordmark__bar--1", { "aria-hidden": "true" }),
+    el("span.wordmark__bar.wordmark__bar--2", { "aria-hidden": "true" }),
+    el("span.wordmark__text", {}, text),
+  ];
+}
+
 function shell(contentNode) {
   const { displayStreak: streak, atRisk } = store.streakInfo;
   const immersive = immersiveRoute();
@@ -500,7 +510,8 @@ function shell(contentNode) {
   // Mobile: the full topbar shows, and its ⋮ mirrors the sidebar nav.
   const sidebar = el("nav.sidebar", { "aria-label": t("common.menu") }, [
     el("a.sidebar__brand", { href: "#/" }, [
-      el("img", { src: "assets/favicon.svg", alt: "" }), "Studify",
+      el("img", { src: "assets/favicon.svg", alt: "" }),
+      el("span.wordmark", {}, wordmark("Studify")),
     ]),
     el("div.sidebar__nav", {}, navGroups().flatMap((g, gi) => [
       g.label
@@ -524,7 +535,7 @@ function shell(contentNode) {
         el("div.topbar__inner", {}, [
           el("a.brand", { href: "#/", "aria-label": t("nav.home") }, [
             el("img", { src: "assets/favicon.svg", alt: "" }),
-            el("span.brand__name", {}, "Studify"),
+            el("span.brand__name.wordmark", {}, wordmark("Studify")),
           ]),
           el("span.topbar__spacer"),
           streakBadge(streak, atRisk),
