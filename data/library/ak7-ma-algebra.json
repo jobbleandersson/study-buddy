@@ -123,6 +123,110 @@
       "prompt": "Vad är en variabel, och hur löser du en enkel ekvation?",
       "opener": "Tänk på en våg som ska hållas i balans.",
       "answer": "Variabel = en bokstav som står för ett okänt tal, t.ex. $x$ · $3x$ betyder $3 \\cdot x$ · Förenkla: slå bara ihop termer med samma variabel, $4a + 2a = 6a$, men $6a$ och $2$ kan inte slås ihop · Sätta in värde: byt ut bokstaven mot talet och följ räkneordningen · Lösa ekvation: gör motsatt räknesätt och gör alltid samma sak i båda leden · $x + 5 = 12$ ger $x = 7$ (subtrahera 5) · $3x = 15$ ger $x = 5$ (dividera med 3) · Kontrollera alltid genom att sätta in svaret."
+    },
+    {
+      "id": "q-ma7-alg-9",
+      "kind": "mc",
+      "topic": "variabler",
+      "prompt": "I uttrycket $5y - 3$, vilken del är variabeln?",
+      "opener": "Variabeln är bokstaven som står för ett okänt tal.",
+      "choices": [
+        "5",
+        "-3",
+        "y",
+        "5y"
+      ],
+      "answer": 2,
+      "explanation": "$y$ är variabeln — bokstaven som står för ett tal vi inte känner till. 5 är en koefficient (talet framför $y$), och $-3$ är en konstant."
+    },
+    {
+      "id": "q-ma7-alg-10",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $7b - 2b + 4$.",
+      "opener": "Slå bara ihop termerna som innehåller $b$.",
+      "choices": [
+        "$9b + 4$",
+        "$5b - 4$",
+        "$5b + 4$",
+        "$3b + 4$"
+      ],
+      "answer": 2,
+      "explanation": "$7b - 2b = 5b$, och talet 4 är oberört. Svaret blir $5b + 4$."
+    },
+    {
+      "id": "q-ma7-alg-11",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Vad är värdet av $3x - 2$ när $x = 5$?",
+      "opener": "Byt ut $x$ mot 5, och kom ihåg att multiplikation görs före subtraktion.",
+      "choices": [
+        "8",
+        "9",
+        "17",
+        "13"
+      ],
+      "answer": 3,
+      "explanation": "$3 \\cdot 5 - 2 = 15 - 2 = 13$."
+    },
+    {
+      "id": "q-ma7-alg-12",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $x - 6 = 9$.",
+      "opener": "Vad är motsatsen till att subtrahera 6?",
+      "choices": [
+        "$x = 3$",
+        "$x = 54$",
+        "$x = 15$",
+        "$x = -15$"
+      ],
+      "answer": 2,
+      "explanation": "Lägg till 6 på båda leden: $x = 9 + 6 = 15$."
+    },
+    {
+      "id": "q-ma7-alg-13",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $\\frac{x}{4} = 7$.",
+      "opener": "Vad är motsatsen till att dela med 4?",
+      "choices": [
+        "$x = 3$",
+        "$x = 11$",
+        "$x = 1{,}75$",
+        "$x = 28$"
+      ],
+      "answer": 3,
+      "explanation": "Multiplicera båda leden med 4: $x = 7 \\cdot 4 = 28$."
+    },
+    {
+      "id": "q-ma7-alg-14",
+      "kind": "worked",
+      "topic": "ekvationer",
+      "prompt": "Ett tal minskas med 8, och resultatet blir 15. Ställ upp en ekvation och räkna ut talet.",
+      "opener": "Kalla det okända talet för $x$ och skriv om meningen som en ekvation.",
+      "answer": "Talet är 23",
+      "steps": [
+        "Låt $x$ vara talet. Minskat med 8 blir det $x - 8$.",
+        "Ekvationen blir $x - 8 = 15$.",
+        "Lägg till 8 på båda leden: $x = 23$.",
+        "Kontroll: $23 - 8 = 15$. ✓"
+      ]
+    },
+    {
+      "id": "q-ma7-alg-15",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $2(x + 3)$.",
+      "opener": "Multiplicera in talet framför parentesen på båda termerna inuti.",
+      "choices": [
+        "$2x + 3$",
+        "$x + 6$",
+        "$2x + 6$",
+        "$2x + 5$"
+      ],
+      "answer": 2,
+      "explanation": "$2 \\cdot x = 2x$ och $2 \\cdot 3 = 6$, så $2(x+3) = 2x + 6$. Ett vanligt fel är att bara multiplicera in på den första termen och glömma den andra, vilket ger $2x + 3$."
     }
   ]
 }

@@ -123,6 +123,108 @@
       "prompt": "Vilka formler och regler behöver du för vinklar, omkrets och area?",
       "opener": "Tre grupper: vinkeltyper, formlerna, och enheterna.",
       "answer": "Vinklar: spetsig < 90° · rät = 90° · trubbig mellan 90° och 180° · rak = 180° · vinkelsumman i en triangel är alltid 180° · Rektangel: omkrets $O = 2 \\cdot (l + b)$, area $A = l \\cdot b$ · Triangel: area $A = \\frac{b \\cdot h}{2}$, där $h$ är höjden vinkelrätt mot basen · Enheter: 1 m = 100 cm, 1 cm = 10 mm · omkrets mäts i cm eller m, area i cm² eller m²."
+    },
+    {
+      "id": "q-ma7-geo-9",
+      "kind": "mc",
+      "topic": "vinklar",
+      "prompt": "En vinkel är 180°. Vad kallas den typen av vinkel?",
+      "opener": "En sådan vinkel är egentligen en rak linje.",
+      "choices": [
+        "Rät",
+        "Trubbig",
+        "Spetsig",
+        "Rak"
+      ],
+      "answer": 3,
+      "explanation": "En vinkel på exakt 180° kallas rak — de två benen bildar tillsammans en rak linje."
+    },
+    {
+      "id": "q-ma7-geo-10",
+      "kind": "mc",
+      "topic": "omkrets",
+      "prompt": "En kvadrat har sidan 6 cm. Vad är omkretsen?",
+      "opener": "En kvadrat har fyra lika långa sidor.",
+      "choices": [
+        "36 cm",
+        "12 cm",
+        "24 cm",
+        "10 cm"
+      ],
+      "answer": 2,
+      "explanation": "$O = 4 \\cdot 6 = 24$ cm. Svaret 36 cm är istället arean ($6 \\cdot 6$), inte omkretsen."
+    },
+    {
+      "id": "q-ma7-geo-11",
+      "kind": "mc",
+      "topic": "area",
+      "prompt": "En kvadrat har sidan 6 cm. Vad är arean?",
+      "opener": "Arean av en kvadrat är sidan multiplicerad med sig själv.",
+      "choices": [
+        "24 cm²",
+        "12 cm²",
+        "18 cm²",
+        "36 cm²"
+      ],
+      "answer": 3,
+      "explanation": "$A = 6 \\cdot 6 = 36$ cm². Svaret 24 cm² är istället omkretsen ($4 \\cdot 6$), inte arean."
+    },
+    {
+      "id": "q-ma7-geo-12",
+      "kind": "mc",
+      "topic": "enhetsomvandling",
+      "prompt": "Hur många meter är 350 cm?",
+      "opener": "En meter är 100 cm — flytta decimaltecknet rätt antal steg.",
+      "choices": [
+        "35 m",
+        "3,5 m",
+        "0,35 m",
+        "350 m"
+      ],
+      "answer": 1,
+      "explanation": "$350 / 100 = 3{,}5$ m."
+    },
+    {
+      "id": "q-ma7-geo-13",
+      "kind": "mc",
+      "topic": "vinklar",
+      "prompt": "Två vinklar tillsammans bildar en rak vinkel (180°). Den ena vinkeln är 65°. Hur stor är den andra?",
+      "opener": "De två vinklarna ska tillsammans bli 180°, inte 90°.",
+      "choices": [
+        "25°",
+        "65°",
+        "135°",
+        "115°"
+      ],
+      "answer": 3,
+      "explanation": "$180° - 65° = 115°$. Svaret 25° får man om man av misstag räknar mot 90° (rät vinkel) istället för 180° (rak vinkel)."
+    },
+    {
+      "id": "q-ma7-geo-14",
+      "kind": "worked",
+      "topic": "area",
+      "prompt": "En rektangel är 9 cm lång och 5 cm bred. Beräkna både arean och omkretsen.",
+      "opener": "Två olika formler — en för ytan, en för sträckan runt.",
+      "answer": "Arean är 45 cm² och omkretsen är 28 cm",
+      "steps": [
+        "Arean: $A = 9 \\cdot 5 = 45$ cm².",
+        "Omkretsen: $O = 2 \\cdot (9 + 5) = 2 \\cdot 14 = 28$ cm."
+      ]
+    },
+    {
+      "id": "q-ma7-geo-15",
+      "kind": "mc",
+      "topic": "enhetsomvandling",
+      "prompt": "Hur många millimeter är $4{,}2$ cm?",
+      "opener": "En centimeter är 10 mm.",
+      "choices": [
+        "4,2 mm",
+        "24 mm",
+        "42 mm",
+        "420 mm"
+      ],
+      "answer": 2,
+      "explanation": "$4{,}2 \\cdot 10 = 42$ mm."
     }
   ]
 }

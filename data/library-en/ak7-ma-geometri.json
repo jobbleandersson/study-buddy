@@ -123,6 +123,108 @@
       "prompt": "Which formulas and rules do you need for angles, perimeter and area?",
       "opener": "Three groups: angle types, the formulas, and the units.",
       "answer": "Angles: acute < 90° · right = 90° · obtuse between 90° and 180° · straight = 180° · the angle sum in a triangle is always 180° · Rectangle: perimeter $O = 2 \\cdot (l + b)$, area $A = l \\cdot b$ · Triangle: area $A = \\frac{b \\cdot h}{2}$, where $h$ is the height perpendicular to the base · Units: 1 m = 100 cm, 1 cm = 10 mm · perimeter is measured in cm or m, area in cm² or m²."
+    },
+    {
+      "id": "q-ma7-geo-9",
+      "kind": "mc",
+      "topic": "angles",
+      "prompt": "An angle is 180°. What type of angle is this called?",
+      "opener": "An angle like this is really a straight line.",
+      "choices": [
+        "Right",
+        "Obtuse",
+        "Acute",
+        "Straight"
+      ],
+      "answer": 3,
+      "explanation": "An angle of exactly 180° is called straight - the two arms together form a straight line."
+    },
+    {
+      "id": "q-ma7-geo-10",
+      "kind": "mc",
+      "topic": "perimeter",
+      "prompt": "A square has a side of 6 cm. What is its perimeter?",
+      "opener": "A square has four equally long sides.",
+      "choices": [
+        "36 cm",
+        "12 cm",
+        "24 cm",
+        "10 cm"
+      ],
+      "answer": 2,
+      "explanation": "$O = 4 \\cdot 6 = 24$ cm. The answer 36 cm is instead the area ($6 \\cdot 6$), not the perimeter."
+    },
+    {
+      "id": "q-ma7-geo-11",
+      "kind": "mc",
+      "topic": "area",
+      "prompt": "A square has a side of 6 cm. What is its area?",
+      "opener": "The area of a square is the side multiplied by itself.",
+      "choices": [
+        "24 cm²",
+        "12 cm²",
+        "18 cm²",
+        "36 cm²"
+      ],
+      "answer": 3,
+      "explanation": "$A = 6 \\cdot 6 = 36$ cm². The answer 24 cm² is instead the perimeter ($4 \\cdot 6$), not the area."
+    },
+    {
+      "id": "q-ma7-geo-12",
+      "kind": "mc",
+      "topic": "unit conversion",
+      "prompt": "How many metres is 350 cm?",
+      "opener": "A metre is 100 cm - move the decimal point the right number of places.",
+      "choices": [
+        "35 m",
+        "3,5 m",
+        "0,35 m",
+        "350 m"
+      ],
+      "answer": 1,
+      "explanation": "$350 / 100 = 3{,}5$ m."
+    },
+    {
+      "id": "q-ma7-geo-13",
+      "kind": "mc",
+      "topic": "angles",
+      "prompt": "Two angles together form a straight angle (180°). One of them is 65°. How big is the other one?",
+      "opener": "The two angles must together add up to 180°, not 90°.",
+      "choices": [
+        "25°",
+        "65°",
+        "135°",
+        "115°"
+      ],
+      "answer": 3,
+      "explanation": "$180° - 65° = 115°$. The answer 25° comes from mistakenly working towards 90° (a right angle) instead of 180° (a straight angle)."
+    },
+    {
+      "id": "q-ma7-geo-14",
+      "kind": "worked",
+      "topic": "area",
+      "prompt": "A rectangle is 9 cm long and 5 cm wide. Calculate both its area and its perimeter.",
+      "opener": "Two different formulas - one for the surface, one for the distance around.",
+      "answer": "The area is 45 cm² and the perimeter is 28 cm",
+      "steps": [
+        "Area: $A = 9 \\cdot 5 = 45$ cm².",
+        "Perimeter: $O = 2 \\cdot (9 + 5) = 2 \\cdot 14 = 28$ cm."
+      ]
+    },
+    {
+      "id": "q-ma7-geo-15",
+      "kind": "mc",
+      "topic": "unit conversion",
+      "prompt": "How many millimetres is $4{,}2$ cm?",
+      "opener": "A centimetre is 10 mm.",
+      "choices": [
+        "4,2 mm",
+        "24 mm",
+        "42 mm",
+        "420 mm"
+      ],
+      "answer": 2,
+      "explanation": "$4{,}2 \\cdot 10 = 42$ mm."
     }
   ]
 }

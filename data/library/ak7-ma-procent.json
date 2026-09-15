@@ -122,6 +122,108 @@
       "prompt": "Hur räknar du med procent? Räkna upp de viktigaste reglerna.",
       "opener": "Tre saker: vad procent betyder, andelen av ett tal, och hur många procent något är.",
       "answer": "Procent = hundradelar, 1 % = $\\frac{1}{100}$ = $0{,}01$ · Andelen av ett tal: gör om procenten till decimaltal och multiplicera, 30 % av 200 = $0{,}3 \\cdot 200 = 60$ · Hur många procent: delen delat med det hela, sedan gånger 100 · Snabbknep: 10 % = dela med 10 · 25 % = dela med 4 · 50 % = dela med 2 · Ökning: lägg till förändringen i kronor · minskning: dra bort den · räkna alltid procenten på ursprungsvärdet."
+    },
+    {
+      "id": "q-ma7-pro-9",
+      "kind": "mc",
+      "topic": "andelar",
+      "prompt": "Hur mycket är 50 % av 90 kr?",
+      "opener": "50 % är hälften.",
+      "choices": [
+        "40 kr",
+        "45 kr",
+        "50 kr",
+        "9 kr"
+      ],
+      "answer": 1,
+      "explanation": "50 % är $\\frac{1}{2}$, och $90 / 2 = 45$ kr."
+    },
+    {
+      "id": "q-ma7-pro-10",
+      "kind": "mc",
+      "topic": "procent",
+      "prompt": "Vad betyder 75 %, skrivet som bråk i enklaste form?",
+      "opener": "75 hundradelar — kan bråket förkortas?",
+      "choices": [
+        "$\\frac{75}{100}$",
+        "$\\frac{3}{4}$",
+        "$\\frac{7}{5}$",
+        "$\\frac{1}{75}$"
+      ],
+      "answer": 1,
+      "explanation": "$75\\ \\% = \\frac{75}{100}$, som förkortat blir $\\frac{3}{4}$. $\\frac{75}{100}$ är rätt värde men inte i enklaste form."
+    },
+    {
+      "id": "q-ma7-pro-11",
+      "kind": "mc",
+      "topic": "andelar",
+      "prompt": "I en klass på 25 elever är 4 elever borta idag. Hur många procent av klassen är borta?",
+      "opener": "Skriv andelen som ett bråk och gör om till hundradelar.",
+      "choices": [
+        "4 %",
+        "16 %",
+        "20 %",
+        "25 %"
+      ],
+      "answer": 1,
+      "explanation": "Andelen är $\\frac{4}{25}$. Förläng med 4 så nämnaren blir 100: $\\frac{16}{100} = 16$ %."
+    },
+    {
+      "id": "q-ma7-pro-12",
+      "kind": "mc",
+      "topic": "procentuell förändring",
+      "prompt": "En bok kostar 150 kr. Priset sänks med 10 %. Vad kostar boken nu?",
+      "opener": "Räkna ut 10 % av 150 kr, dra sedan bort det.",
+      "choices": [
+        "140 kr",
+        "135 kr",
+        "145 kr",
+        "120 kr"
+      ],
+      "answer": 1,
+      "explanation": "10 % av 150 kr är 15 kr, och $150 - 15 = 135$ kr. Svaret 140 kr får man om man drar bort 10 kr istället för 10 %."
+    },
+    {
+      "id": "q-ma7-pro-13",
+      "kind": "mc",
+      "topic": "andelar",
+      "prompt": "Hur mycket är 1 % av 4 000 kr?",
+      "opener": "1 % är en hundradel — dela med 100.",
+      "choices": [
+        "4 kr",
+        "40 kr",
+        "400 kr",
+        "0,4 kr"
+      ],
+      "answer": 1,
+      "explanation": "$4\\,000 / 100 = 40$ kr. Kontroll: $4\\,000 \\cdot 0{,}01 = 40$ kr."
+    },
+    {
+      "id": "q-ma7-pro-14",
+      "kind": "worked",
+      "topic": "procentuell förändring",
+      "prompt": "En skolresa kostade 800 kr förra året. I år höjs priset med 15 %. Vad kostar resan i år?",
+      "opener": "Räkna ut höjningen i kronor först, lägg sedan till den.",
+      "answer": "920 kr",
+      "steps": [
+        "Höjningen i kronor: $800 \\cdot 0{,}15 = 120$ kr.",
+        "Nytt pris: $800 + 120 = 920$ kr."
+      ]
+    },
+    {
+      "id": "q-ma7-pro-15",
+      "kind": "mc",
+      "topic": "andelar",
+      "prompt": "Vilket procenttal är störst: 8 % av 500, eller 40 % av 90?",
+      "opener": "Räkna ut båda i kronor (eller vad de nu gäller) och jämför.",
+      "choices": [
+        "8 % av 500",
+        "40 % av 90",
+        "De är lika stora",
+        "Det går inte att avgöra"
+      ],
+      "answer": 0,
+      "explanation": "8 % av 500 är $500 \\cdot 0{,}08 = 40$. 40 % av 90 är $90 \\cdot 0{,}4 = 36$. Eftersom $40 > 36$ är 8 % av 500 störst."
     }
   ]
 }

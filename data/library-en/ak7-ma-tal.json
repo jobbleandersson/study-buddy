@@ -123,6 +123,110 @@
       "prompt": "In what order do you calculate, and what are the sign rules for negative numbers?",
       "opener": "Three steps in order plus two sign rules - say them before you flip the card.",
       "answer": "Order of operations: 1) brackets · 2) multiplication and division, left to right · 3) addition and subtraction, left to right · Sign rules: subtracting a negative number is the same as adding, $5 - (-3) = 5 + 3 = 8$ · minus times minus becomes plus, plus times minus becomes minus · Estimation: round to simple numbers first and check that your exact answer is close to the estimate."
+    },
+    {
+      "id": "q-ma7-tal-9",
+      "kind": "mc",
+      "topic": "negative numbers",
+      "prompt": "What is $-3 - 5$?",
+      "opener": "You are subtracting from a number that is already negative - you keep going down.",
+      "choices": [
+        "-8",
+        "-2",
+        "8",
+        "2"
+      ],
+      "answer": 0,
+      "explanation": "From $-3$ you go 5 steps to the left: $-3 - 5 = -8$."
+    },
+    {
+      "id": "q-ma7-tal-10",
+      "kind": "mc",
+      "topic": "negative numbers",
+      "prompt": "What is $-12 + 7$?",
+      "opener": "You go 7 steps to the right from $-12$ - is that enough to pass zero?",
+      "choices": [
+        "-19",
+        "-5",
+        "5",
+        "19"
+      ],
+      "answer": 1,
+      "explanation": "From $-12$ you go 7 steps up: $-12 + 7 = -5$. You don't pass zero, since 7 is less than 12."
+    },
+    {
+      "id": "q-ma7-tal-11",
+      "kind": "mc",
+      "topic": "order of operations",
+      "prompt": "Calculate $5 \\cdot 3 - 2 \\cdot 4$.",
+      "opener": "Do both multiplications before you subtract.",
+      "choices": [
+        "7",
+        "52",
+        "13",
+        "20"
+      ],
+      "answer": 0,
+      "explanation": "$5 \\cdot 3 = 15$ and $2 \\cdot 4 = 8$. Then $15 - 8 = 7$. Working from left to right without the order of operations ($((5 \\cdot 3) - 2) \\cdot 4$) wrongly gives 52."
+    },
+    {
+      "id": "q-ma7-tal-12",
+      "kind": "mc",
+      "topic": "rounding",
+      "prompt": "Round 2,456 to the nearest hundred.",
+      "opener": "Look at the tens digit - if it is 5 or more you round up.",
+      "choices": [
+        "2,400",
+        "2,460",
+        "2,000",
+        "2,500"
+      ],
+      "answer": 3,
+      "explanation": "The tens digit is 5, so 5 or more, so you round up to 2,500. The answer 2,460 is rounding to the nearest ten, not hundred."
+    },
+    {
+      "id": "q-ma7-tal-13",
+      "kind": "mc",
+      "topic": "rounding",
+      "prompt": "Round $3{,}86$ to the nearest tenth.",
+      "opener": "Look at the hundredths digit to decide whether the tenth should round up or down.",
+      "choices": [
+        "$3{,}8$",
+        "$3{,}9$",
+        "$4{,}0$",
+        "$3{,}86$"
+      ],
+      "answer": 1,
+      "explanation": "The hundredths digit is 6, so 5 or more, so the tenths digit 8 rounds up to 9: $3{,}9$."
+    },
+    {
+      "id": "q-ma7-tal-14",
+      "kind": "worked",
+      "topic": "order of operations",
+      "prompt": "Calculate $3 \\cdot (4 + 2) - 18 / 3$. Show your reasoning step by step.",
+      "opener": "Brackets first, then multiplication and division, and finally subtraction.",
+      "answer": "12",
+      "steps": [
+        "Brackets first: $4 + 2 = 6$.",
+        "The multiplication: $3 \\cdot 6 = 18$.",
+        "The division: $18 / 3 = 6$.",
+        "Finally the subtraction: $18 - 6 = 12$."
+      ]
+    },
+    {
+      "id": "q-ma7-tal-15",
+      "kind": "mc",
+      "topic": "estimation",
+      "prompt": "You buy four things costing 47 kr, 89 kr, 32 kr and 121 kr. Roughly how much is that in total?",
+      "opener": "Round each price to a simple number before you add them up.",
+      "choices": [
+        "approx. 200 kr",
+        "approx. 250 kr",
+        "approx. 300 kr",
+        "approx. 350 kr"
+      ],
+      "answer": 2,
+      "explanation": "Round to 50, 90, 30 and 120: $50 + 90 + 30 + 120 = 290$ kr, so roughly 300 kr. The exact sum is 289 kr, so the estimate is very close."
     }
   ]
 }
