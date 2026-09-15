@@ -90,11 +90,19 @@ a.streakbadge:hover {
 /* Left sidebar — the whole nav on desktop. Hidden below 900px, where the
    topbar (and its ⋮ menu) covers the same ground. */
 .sidebar { display: none; }
+/* Pinned to the top of the sidebar's own scroll, so the logo never scrolls
+   out of view. The negative margins pull its solid band over the sidebar's
+   padding (top and sides) and the padding puts the logo back exactly where it
+   was — links slide underneath instead of past it, and nothing moves at rest.
+   `top` is negative because sticky offsets count from inside the scroll
+   container's padding: -padding pins it flush to the sidebar's top edge. */
 .sidebar__brand {
   display: flex; align-items: center; gap: var(--s-2);
   font-family: var(--font-display); font-weight: 700; font-size: var(--fs-lg);
   color: var(--ink); text-decoration: none;
-  padding: 0 var(--s-2); margin-bottom: var(--s-5);
+  position: sticky; top: calc(-1 * var(--s-5)); z-index: 1; background: var(--surface);
+  margin: calc(-1 * var(--s-5)) calc(-1 * var(--s-3)) var(--s-3);
+  padding: var(--s-5) calc(var(--s-3) + var(--s-2)) var(--s-3);
 }
 .sidebar__brand img { width: 28px; height: 28px; }
 .sidebar__nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
