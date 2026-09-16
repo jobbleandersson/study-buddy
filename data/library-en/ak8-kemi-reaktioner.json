@@ -125,6 +125,110 @@
       "prompt": "Summarise reaction equations, energy in reactions, combustion and reaction rate.",
       "opener": "Balancing first, then the direction of energy flow, then combustion and finally the rate factors.",
       "answer": "Chemical reaction: atoms are rearranged into new substances, no atoms disappear or are newly created · Conservation of mass: total mass equal before and after, gases can trick the eye · Reaction equation: reactants → products, balanced with coefficients in front of the formulas, never by changing subscript numbers · Examples: 2 H2 + O2 → 2 H2O · 2 Mg + O2 → 2 MgO · CH4 + 2 O2 → CO2 + 2 H2O · Exothermic: releases energy, the surroundings get warmer (combustion, neutralisation, cellular respiration) · Endothermic: takes up energy, the surroundings get colder (a cold pack, photosynthesis, dissolving certain salts) · Combustion: substance + oxygen, requires fuel, oxygen and enough heat (the fire triangle) · Complete combustion of hydrocarbons gives CO2 + H2O; incomplete combustion gives soot and poisonous carbon monoxide CO · Oxidation: a substance reacts with oxygen, e.g. rust forming (iron oxide) — the object becomes heavier · Reaction rate is increased by: higher temperature · higher concentration · larger surface area (powder instead of a lump) · a catalyst, which speeds things up without being used up · Reaction rate is decreased by cold, dilution and less contact area."
+    },
+    {
+      "id": "q-kemi8-rea-9",
+      "kind": "mc",
+      "topic": "reaction equations and balancing",
+      "prompt": "Which coefficient should go in front of O2 to balance the equation? CH4 + ___ O2 → CO2 + 2 H2O",
+      "opener": "Count the number of oxygen atoms on the right side and compare with the left side.",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 1,
+      "explanation": "The right side contains 2 oxygen atoms in CO2 and 2 oxygen atoms in 2 H2O, so 4 oxygen atoms in total. That requires 2 O2 on the left side, since each O2 molecule contributes 2 oxygen atoms: 2 · 2 = 4."
+    },
+    {
+      "id": "q-kemi8-rea-10",
+      "kind": "mc",
+      "topic": "conservation of mass",
+      "prompt": "The ash and smoke left after a candle has finished burning together weigh as much as the candle did before, plus the oxygen that was used up. What law describes this?",
+      "opener": "The law says atoms are neither created nor destroyed in a reaction.",
+      "choices": [
+        "The energy principle",
+        "The law of conservation of mass",
+        "Ohm's law",
+        "The law of gravity"
+      ],
+      "answer": 1,
+      "explanation": "The law of conservation of mass states that the total mass is unchanged in a chemical reaction, since the atoms are only rearranged. The energy principle is instead about energy not being created or destroyed, which is a different law."
+    },
+    {
+      "id": "q-kemi8-rea-11",
+      "kind": "mc",
+      "topic": "combustion and oxidation",
+      "prompt": "What forms during INCOMPLETE combustion of a hydrocarbon?",
+      "opener": "Think about what happens when there isn't enough oxygen to turn all the carbon into carbon dioxide.",
+      "choices": [
+        "Only carbon dioxide and water",
+        "Soot and poisonous carbon monoxide, because there isn't enough oxygen",
+        "Only oxygen gas",
+        "Nitrogen oxides"
+      ],
+      "answer": 1,
+      "explanation": "During incomplete combustion, there isn't enough oxygen to turn all the carbon into carbon dioxide, so soot and poisonous carbon monoxide (CO) form instead. Complete combustion, on the other hand, only produces carbon dioxide and water."
+    },
+    {
+      "id": "q-kemi8-rea-12",
+      "kind": "mc",
+      "topic": "exothermic and endothermic reactions",
+      "prompt": "What characterises an ENDOTHERMIC reaction?",
+      "opener": "The prefix \"endo-\" means in — think about which way the energy flows.",
+      "choices": [
+        "It releases energy and warms the surroundings",
+        "It takes up energy from the surroundings so the temperature drops",
+        "It can only happen in a complete vacuum",
+        "It can never happen spontaneously"
+      ],
+      "answer": 1,
+      "explanation": "An endothermic reaction takes up energy from the surroundings, causing the temperature to drop — as in a cold pack. A reaction that instead releases energy and warms the surroundings is exothermic, such as combustion."
+    },
+    {
+      "id": "q-kemi8-rea-13",
+      "kind": "mc",
+      "topic": "reaction rate",
+      "prompt": "What does a catalyst do in a chemical reaction?",
+      "opener": "Think about what happens to the catalyst's own amount during the reaction.",
+      "choices": [
+        "It is completely used up during the reaction",
+        "It speeds up the reaction without being used up itself",
+        "It slows down the reaction",
+        "It changes which products form"
+      ],
+      "answer": 1,
+      "explanation": "A catalyst speeds up a reaction without being used up itself, so the same amount of catalyst remains after the reaction. It doesn't change which products form, only how fast the reaction gets there."
+    },
+    {
+      "id": "q-kemi8-rea-14",
+      "kind": "worked",
+      "topic": "reaction equations and balancing",
+      "prompt": "Aluminium burns in oxygen and forms aluminium oxide. Balance the reaction equation: Al + O2 → Al2O3",
+      "opener": "Count the atoms of each kind on both sides and adjust the coefficients, never the subscript numbers.",
+      "answer": "4 Al + 3 O2 → 2 Al2O3",
+      "steps": [
+        "Count the atoms in the unbalanced equation Al + O2 → Al2O3: the left side has 1 Al and 2 O, the right side has 2 Al and 3 O.",
+        "The aluminium doesn't match, so put a coefficient of 2 in front of Al2O3: Al + O2 → 2 Al2O3. Now there are 4 Al and 6 O on the right side.",
+        "Adjust the left side: put 4 in front of Al to get 4 Al, and 3 in front of O2 to get 6 O (3 · 2 = 6): 4 Al + 3 O2 → 2 Al2O3.",
+        "Check: 4 Al and 6 O on the left side, 4 Al (2 · 2) and 6 O (2 · 3) on the right side — the equation is balanced."
+      ]
+    },
+    {
+      "id": "q-kemi8-rea-15",
+      "kind": "mc",
+      "topic": "conservation of mass",
+      "prompt": "If 10 g of hydrogen reacts completely with 80 g of oxygen and forms water, how much does the water formed weigh?",
+      "opener": "Use the law of conservation of mass — the atoms don't disappear, they just build a new substance.",
+      "choices": [
+        "70 g",
+        "80 g",
+        "90 g",
+        "10 g"
+      ],
+      "answer": 2,
+      "explanation": "According to the law of conservation of mass, the total mass is unchanged: 10 g + 80 g = 90 g of water forms. The hydrogen and oxygen don't disappear, they just become part of the water molecules."
     }
   ]
 }

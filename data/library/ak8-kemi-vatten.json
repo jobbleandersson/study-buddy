@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta vattenmolekylen, lösningar, koncentration och vattnets miljöfrågor.",
       "opener": "Molekylen och dipolen först, sedan lösningsbegreppen och till sist rening och miljöproblem.",
       "answer": "Vattenmolekyl: H2O, två väteatomer kovalent bundna till en syreatom, vinklad form · Dipol: syresidan svagt negativ, vätesidan svagt positiv, molekylen som helhet oladdad · Vätebindningar mellan molekylerna ger hög smält- och kokpunkt (0 °C och 100 °C), ytspänning och kapillärkraft · Is är lättare än vatten och flyter, eftersom vatten har störst densitet vid +4 °C · Lösning: löst ämne + lösningsmedel, t.ex. salt i vatten · Lika löser lika: polärt vatten löser salter och socker, men inte opolär olja (som lägger sig ovanpå, lägre densitet) · Mättad lösning: mer kan inte lösas vid den temperaturen, resten blir bottensats · Löslighet ökar oftast med högre temperatur (gaser tvärtom: mindre lösliga i varmt vatten) · Koncentration = mängd löst ämne / volym, t.ex. 40 g i 2 l ger 20 g/l · Vattenrening i tre steg: mekanisk (galler, sandfång) · biologisk (bakterier bryter ner organiskt material) · kemisk (fällning av fosfor) · Dricksvattenverk: sedimentering, filtrering genom sand och kol, desinficering · Övergödning: överskott av fosfor och kväve från gödsel och avlopp → algblomning → nedbrytning förbrukar syret → bottendöd · Försurning: annat problem, orsakas av svavel- och kväveoxider · Miljögifter: t.ex. tungmetaller som kvicksilver och bly samt svårnedbrytbara ämnen — de bryts ner långsamt, lagras i fett och anrikas uppåt i näringskedjan."
+    },
+    {
+      "id": "q-kemi8-vat-9",
+      "kind": "mc",
+      "topic": "vattenmolekylen",
+      "prompt": "Vilken typ av bindning håller ihop väte- och syreatomerna inom en vattenmolekyl?",
+      "opener": "Tänk på att väte och syre båda är icke-metaller som delar på elektroner.",
+      "choices": [
+        "Jonbindning",
+        "Kovalent bindning",
+        "Metallbindning",
+        "Ingen bindning alls"
+      ],
+      "answer": 1,
+      "explanation": "Väte och syre är båda icke-metaller och delar på elektronpar genom kovalent bindning inom molekylen. Jonbindning uppstår i stället mellan en metall och en icke-metall, som i koksalt."
+    },
+    {
+      "id": "q-kemi8-vat-10",
+      "kind": "mc",
+      "topic": "vattenmolekylen",
+      "prompt": "Varför har is lägre densitet än flytande vatten?",
+      "opener": "Tänk på hur vätebindningarna ordnar molekylerna när vattnet fryser.",
+      "choices": [
+        "Is innehåller luftbubblor",
+        "Vattenmolekylerna lägger sig i ett glesare mönster när de fryser",
+        "Is är varmare än vatten",
+        "Isen krymper när den fryser"
+      ],
+      "answer": 1,
+      "explanation": "När vatten fryser bildar vätebindningarna ett glesare, mer ordnat mönster som tar större plats än i flytande vatten, vilket ger isen lägre densitet. Is krymper alltså inte vid frysning — den utvidgas."
+    },
+    {
+      "id": "q-kemi8-vat-11",
+      "kind": "mc",
+      "topic": "lösningar och löslighet",
+      "prompt": "Vad kallas en lösning som innehåller lite löst ämne jämfört med lösningsmedlet?",
+      "opener": "Namnet är motsatsen till en koncentrerad lösning.",
+      "choices": [
+        "Mättad lösning",
+        "Utspädd lösning",
+        "Neutral lösning",
+        "Koncentrerad lösning"
+      ],
+      "answer": 1,
+      "explanation": "En utspädd lösning innehåller lite löst ämne i förhållande till mängden lösningsmedel. En mättad lösning innehåller i stället den maximala mängd som går att lösa vid den temperaturen."
+    },
+    {
+      "id": "q-kemi8-vat-12",
+      "kind": "mc",
+      "topic": "koncentration",
+      "prompt": "I 5 liter vatten löses 100 g socker. Vilken koncentration har lösningen i gram per liter?",
+      "opener": "Koncentration betyder mängd löst ämne per volym — dela upp mängden på antalet liter.",
+      "choices": [
+        "500 g/l",
+        "20 g/l",
+        "5 g/l",
+        "100 g/l"
+      ],
+      "answer": 1,
+      "explanation": "Koncentrationen är 100 g / 5 l = 20 g/l. Att i stället multiplicera 100 med 5 ger 500 g/l, vilket är ett vanligt räknefel."
+    },
+    {
+      "id": "q-kemi8-vat-13",
+      "kind": "mc",
+      "topic": "vattenrening",
+      "prompt": "Vilket reningssteg i ett avloppsreningsverk binder fosfor med fällningskemikalier?",
+      "opener": "Steget kommer sist av de tre och använder tillsatta kemikalier, inte bara silning eller bakterier.",
+      "choices": [
+        "Mekanisk rening",
+        "Biologisk rening",
+        "Kemisk rening",
+        "Ingen av stegen tar bort fosfor"
+      ],
+      "answer": 2,
+      "explanation": "I det kemiska reningssteget tillsätts fällningskemikalier som binder fosfor så att den kan tas bort som slam. Mekanisk rening silar bort skräp och partiklar, och biologisk rening låter bakterier bryta ner organiskt material."
+    },
+    {
+      "id": "q-kemi8-vat-14",
+      "kind": "worked",
+      "topic": "vattenrening",
+      "prompt": "Beskriv de viktigaste stegen i ett dricksvattenverk som renar vatten från en sjö, och förklara varför desinficering är det sista steget.",
+      "opener": "Följ vattnet från sjön genom sedimentering, filtrering och till sist desinficering.",
+      "answer": "Vattnet från sjön genomgår först sedimentering, där de tyngsta partiklarna sjunker till botten, sedan filtrering genom sand och kol som tar bort mindre partiklar och vissa ämnen, och sist desinficering som dödar kvarvarande bakterier och virus. Desinficeringen ligger sist eftersom vattnet ska vara fritt från mikroorganismer precis innan det skickas ut till kranarna, annars hinner nya bakterier växa till i ledningarna.",
+      "steps": [
+        "Sedimentering: vattnet får stå stilla eller flöda långsamt så att de tyngsta partiklarna sjunker till botten.",
+        "Filtrering: vattnet passerar genom lager av sand och kol som fångar upp mindre partiklar och vissa oönskade ämnen.",
+        "Desinficering: vattnet behandlas, ofta med klor eller UV-ljus, för att döda kvarvarande bakterier och virus.",
+        "Desinficeringen görs sist eftersom vattnet ska vara mikrobiologiskt säkert precis innan det lämnar verket och går ut i ledningsnätet till kranarna.",
+        "Om desinficeringen gjordes tidigare i kedjan skulle bakterier från senare steg eller ledningarna ändå kunna förorena vattnet igen."
+      ]
+    },
+    {
+      "id": "q-kemi8-vat-15",
+      "kind": "mc",
+      "topic": "övergödning och miljögifter",
+      "prompt": "Varför anrikas vissa miljögifter uppåt i näringskedjan?",
+      "opener": "Tänk på vad som händer när ett rovdjur äter många mindre djur som var och en bär på lite gift.",
+      "choices": [
+        "De bryts ner snabbt och försvinner",
+        "De är svårnedbrytbara och lagras i fettvävnad, så de ansamlas hos djur högre upp i kedjan",
+        "De löses lätt i vatten och sköljs bort",
+        "De påverkar bara växter, inte djur"
+      ],
+      "answer": 1,
+      "explanation": "Svårnedbrytbara miljögifter bryts ner mycket långsamt och lagras i fettvävnad i stället för att sköljas ut, så när ett rovdjur äter många förgiftade byten samlas gifterna och koncentrationen ökar högre upp i näringskedjan. De försvinner alltså inte snabbt, vilket är precis det som gör dem farliga."
     }
   ]
 }

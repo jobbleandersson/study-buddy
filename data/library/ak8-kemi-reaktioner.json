@@ -125,6 +125,110 @@
       "prompt": "Sammanfatta reaktionsformler, energi i reaktioner, förbränning och reaktionshastighet.",
       "opener": "Balansering först, sedan energiriktningen, därefter förbränning och till sist hastighetsfaktorerna.",
       "answer": "Kemisk reaktion: atomerna omgrupperas till nya ämnen, inga atomer försvinner eller nybildas · Massans bevarande: total massa lika före och efter, gaser kan lura ögat · Reaktionsformel: reaktanter → produkter, balanseras med koefficienter framför formlerna, aldrig genom att ändra indexsiffror · Exempel: 2 H2 + O2 → 2 H2O · 2 Mg + O2 → 2 MgO · CH4 + 2 O2 → CO2 + 2 H2O · Exoterm: avger energi, omgivningen blir varmare (förbränning, neutralisation, cellandning) · Endoterm: tar upp energi, omgivningen blir kallare (kylpåse, fotosyntes, upplösning av vissa salter) · Förbränning: ämne + syre, kräver bränsle, syre och tillräcklig värme (brandtriangeln) · Fullständig förbränning av kolväten ger CO2 + H2O; ofullständig ger sot och giftig kolmonoxid CO · Oxidation: ämne reagerar med syre, t.ex. rostbildning (järnoxid) — föremålet blir tyngre · Reaktionshastighet ökar av: högre temperatur · högre koncentration · större yta (pulver i stället för bit) · katalysator, som snabbar upp utan att förbrukas · Reaktionshastighet minskar av kyla, spädning och mindre kontaktyta."
+    },
+    {
+      "id": "q-kemi8-rea-9",
+      "kind": "mc",
+      "topic": "reaktionsformler och balansering",
+      "prompt": "Vilken koefficient ska stå framför O2 för att formeln ska bli balanserad? CH4 + ___ O2 → CO2 + 2 H2O",
+      "opener": "Räkna antalet syreatomer i högerledet och jämför med vänsterledet.",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 1,
+      "explanation": "Högerledet innehåller 2 syreatomer i CO2 och 2 syreatomer i 2 H2O, alltså 4 syreatomer totalt. Det kräver 2 O2 i vänsterledet, eftersom varje O2-molekyl bidrar med 2 syreatomer: 2 · 2 = 4."
+    },
+    {
+      "id": "q-kemi8-rea-10",
+      "kind": "mc",
+      "topic": "massans bevarande",
+      "prompt": "Askan och röken efter att ett stearinljus brunnit klart väger tillsammans lika mycket som ljuset gjorde innan, plus det syre som förbrukades. Vilken lag beskriver detta?",
+      "opener": "Lagen säger att atomerna varken skapas eller förstörs i en reaktion.",
+      "choices": [
+        "Energiprincipen",
+        "Lagen om massans bevarande",
+        "Ohms lag",
+        "Gravitationslagen"
+      ],
+      "answer": 1,
+      "explanation": "Lagen om massans bevarande säger att den totala massan är oförändrad i en kemisk reaktion, eftersom atomerna bara omgrupperas. Energiprincipen handlar i stället om att energi inte kan skapas eller förstöras, vilket är en annan lag."
+    },
+    {
+      "id": "q-kemi8-rea-11",
+      "kind": "mc",
+      "topic": "förbränning och oxidation",
+      "prompt": "Vad bildas vid OFULLSTÄNDIG förbränning av ett kolväte?",
+      "opener": "Tänk på vad som händer när syret inte räcker till för att bilda koldioxid av allt kol.",
+      "choices": [
+        "Bara koldioxid och vatten",
+        "Sot och giftig kolmonoxid, eftersom syret inte räcker till",
+        "Enbart syrgas",
+        "Kväveoxider"
+      ],
+      "answer": 1,
+      "explanation": "Vid ofullständig förbränning räcker inte syret till för att bilda koldioxid av allt kol, så det bildas i stället sot och giftig kolmonoxid (CO). Fullständig förbränning ger däremot bara koldioxid och vatten."
+    },
+    {
+      "id": "q-kemi8-rea-12",
+      "kind": "mc",
+      "topic": "exoterma och endoterma reaktioner",
+      "prompt": "Vad kännetecknar en ENDOTERM reaktion?",
+      "opener": "Förleden \"endo-\" betyder in — fundera på vilken väg energin går.",
+      "choices": [
+        "Den avger energi och värmer omgivningen",
+        "Den tar upp energi från omgivningen så att temperaturen sjunker",
+        "Den kan bara ske i totalt vakuum",
+        "Den kan aldrig ske spontant"
+      ],
+      "answer": 1,
+      "explanation": "En endoterm reaktion tar upp energi från omgivningen, vilket gör att temperaturen sjunker — som i en kylpåse. En reaktion som i stället avger energi och värmer omgivningen är exoterm, till exempel förbränning."
+    },
+    {
+      "id": "q-kemi8-rea-13",
+      "kind": "mc",
+      "topic": "reaktionshastighet",
+      "prompt": "Vad gör en katalysator i en kemisk reaktion?",
+      "opener": "Tänk på vad som händer med katalysatorns egen mängd under reaktionen.",
+      "choices": [
+        "Den förbrukas helt under reaktionen",
+        "Den snabbar på reaktionen utan att själv förbrukas",
+        "Den saktar ner reaktionen",
+        "Den ändrar vilka produkter som bildas"
+      ],
+      "answer": 1,
+      "explanation": "En katalysator snabbar på en reaktion utan att själv förbrukas, så samma mängd katalysator finns kvar efter reaktionen. Den ändrar inte vilka produkter som bildas, bara hur snabbt reaktionen når dit."
+    },
+    {
+      "id": "q-kemi8-rea-14",
+      "kind": "worked",
+      "topic": "reaktionsformler och balansering",
+      "prompt": "Aluminium brinner i syre och bildar aluminiumoxid. Balansera reaktionsformeln: Al + O2 → Al2O3",
+      "opener": "Räkna atomer av varje slag på båda sidor och justera koefficienterna, aldrig indexsiffrorna.",
+      "answer": "4 Al + 3 O2 → 2 Al2O3",
+      "steps": [
+        "Räkna atomerna i den obalanserade formeln Al + O2 → Al2O3: vänster har 1 Al och 2 O, höger har 2 Al och 3 O.",
+        "Aluminiumet stämmer inte, så sätt koefficienten 2 framför Al2O3: Al + O2 → 2 Al2O3. Nu finns 4 Al och 6 O i högerledet.",
+        "Justera vänsterledet: sätt 4 framför Al för att få 4 Al, och 3 framför O2 för att få 6 O (3 · 2 = 6): 4 Al + 3 O2 → 2 Al2O3.",
+        "Kontrollera: 4 Al och 6 O i vänsterledet, 4 Al (2 · 2) och 6 O (2 · 3) i högerledet — formeln är balanserad."
+      ]
+    },
+    {
+      "id": "q-kemi8-rea-15",
+      "kind": "mc",
+      "topic": "massans bevarande",
+      "prompt": "Om 10 g väte reagerar fullständigt med 80 g syre och bildar vatten, hur mycket väger vattnet som bildas?",
+      "opener": "Använd lagen om massans bevarande — atomerna försvinner inte, de bygger bara ihop ett nytt ämne.",
+      "choices": [
+        "70 g",
+        "80 g",
+        "90 g",
+        "10 g"
+      ],
+      "answer": 2,
+      "explanation": "Enligt lagen om massans bevarande är den totala massan oförändrad: 10 g + 80 g = 90 g vatten bildas. Vätet och syret försvinner inte, de blir bara en del av vattenmolekylerna."
     }
   ]
 }

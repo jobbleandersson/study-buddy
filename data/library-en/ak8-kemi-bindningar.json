@@ -125,6 +125,111 @@
       "prompt": "Summarise chemical bonds, ions and ionic compounds.",
       "opener": "Start with the driving force behind all bonds, then take the two bond types and finish with common ions.",
       "answer": "Driving force: atoms bind together to get a full outer electron shell, like the noble gases · Ionic bonding: electrons move completely across, positive and negative ions are drawn to each other, occurs between a metal and a non-metal · Ionic compound (salt): ions packed in a crystal lattice, the formula shows the ratio between the ions, e.g. NaCl · Salt dissolved in water: the ions are freed and the solution conducts electricity · Covalent bonding (molecular bond): two non-metal atoms share pairs of electrons, forming molecules such as H2, O2, H2O and CO2 · Positive ions (metals give up electrons): Na+, K+, Mg2+, Ca2+, Al3+ · Negative ions (non-metals take up electrons): Cl−, O2−, S2− · Compound ions: OH− (hydroxide ion), NO3− (nitrate ion), SO42− (sulfate ion), CO32− (carbonate ion) · Rule for formulas: the charges must cancel out, e.g. Mg2+ + 2 Cl− → MgCl2 and Ca2+ + O2− → CaO · Ionic compounds have high melting points, molecular compounds usually low ones."
+    },
+    {
+      "id": "q-kemi8-bin-9",
+      "kind": "mc",
+      "topic": "why atoms bind together",
+      "prompt": "What electron configuration do atoms aim for when they form bonds?",
+      "opener": "Think about which group of elements is already stable without needing to bond.",
+      "choices": [
+        "A completely empty outer shell",
+        "The same stable configuration as the noble gases (a full outer shell)",
+        "As many electrons as possible regardless of shell",
+        "No particular configuration"
+      ],
+      "answer": 1,
+      "explanation": "Atoms aim for a full outer electron shell, just like the noble gases already have naturally. A completely empty outer shell is not the goal — it's how full the shell is that determines stability."
+    },
+    {
+      "id": "q-kemi8-bin-10",
+      "kind": "mc",
+      "topic": "ionic bonding and ionic compounds",
+      "prompt": "Between which types of substances does ionic bonding usually occur?",
+      "opener": "Think about which kind of atom readily gives up electrons and which readily takes them up.",
+      "choices": [
+        "Between two non-metals",
+        "Between a metal and a non-metal",
+        "Between two noble gases",
+        "Only within the same element"
+      ],
+      "answer": 1,
+      "explanation": "Ionic bonding typically occurs between a metal, which readily gives up electrons, and a non-metal, which readily takes them up. Two non-metals instead usually share electrons through covalent bonding."
+    },
+    {
+      "id": "q-kemi8-bin-11",
+      "kind": "mc",
+      "topic": "covalent bonding and molecules",
+      "prompt": "Which of these substances is held together by covalent bonding?",
+      "opener": "Think about which substance is made up entirely of non-metal atoms.",
+      "choices": [
+        "NaCl (table salt)",
+        "MgO (magnesium oxide)",
+        "H2O (water)",
+        "CaCl2 (calcium chloride)"
+      ],
+      "answer": 2,
+      "explanation": "Water (H2O) consists of hydrogen and oxygen, two non-metals that share electron pairs through covalent bonding. NaCl, MgO and CaCl2 are instead ionic compounds between a metal and a non-metal."
+    },
+    {
+      "id": "q-kemi8-bin-12",
+      "kind": "mc",
+      "topic": "salts",
+      "prompt": "What happens to the ions in a salt when it dissolves in water?",
+      "opener": "Think about why salt water conducts electricity but plain water barely does.",
+      "choices": [
+        "They are destroyed completely",
+        "They are freed and can move around, which lets the solution conduct electricity",
+        "They fuse together into a single ion",
+        "Nothing changes"
+      ],
+      "answer": 1,
+      "explanation": "When the salt dissolves, the ions are freed from the crystal lattice and can move freely in the water, which lets the solution conduct electricity. In the solid salt, the ions are instead fixed in place and can't carry charge."
+    },
+    {
+      "id": "q-kemi8-bin-13",
+      "kind": "mc",
+      "topic": "common ions and charges",
+      "prompt": "Calcium is in group 2 of the periodic table. Which ion does a calcium atom form?",
+      "opener": "The group number tells you how many valence electrons the atom has to get rid of.",
+      "choices": [
+        "Ca−",
+        "Ca+",
+        "Ca2+",
+        "Ca2−"
+      ],
+      "answer": 2,
+      "explanation": "Calcium has two valence electrons and gives up both to get a full outer shell, forming the ion Ca2+ with a charge of 2+. Metals give up electrons and become positive ions, never negative ones."
+    },
+    {
+      "id": "q-kemi8-bin-14",
+      "kind": "worked",
+      "topic": "ionic bonding and ionic compounds",
+      "prompt": "Calcium (group 2) reacts with oxygen (which takes up two electrons to get a full shell). Show which ions form and work out the formula of the ionic compound.",
+      "opener": "Determine the charge of each ion first, then see how many of each are needed for the charges to cancel out.",
+      "answer": "Calcium gives up two electrons and forms Ca2+, while each oxygen atom takes up two electrons and forms O2−. The charges 2+ and 2− cancel out exactly one to one, so the formula is CaO (calcium oxide).",
+      "steps": [
+        "Calcium is in group 2 and has two valence electrons that the metal readily gives up.",
+        "When both electrons are given up, the ion Ca2+ forms.",
+        "Oxygen takes up two electrons to get a full outer shell and forms the ion O2−.",
+        "The ionic compound must be uncharged overall, and the charge 2+ is exactly balanced by the charge 2−.",
+        "This gives a ratio of one Ca2+ to one O2−, so the formula is CaO, calcium oxide."
+      ]
+    },
+    {
+      "id": "q-kemi8-bin-15",
+      "kind": "mc",
+      "topic": "covalent bonding and molecules",
+      "prompt": "What characterises molecular compounds compared with ionic compounds in terms of melting point?",
+      "opener": "Think about the difference between melting ice and melting table salt.",
+      "choices": [
+        "Molecular compounds usually have a higher melting point",
+        "Molecular compounds usually have a lower melting point",
+        "They always have exactly the same melting point",
+        "Melting point never depends on bond type"
+      ],
+      "answer": 1,
+      "explanation": "Molecular compounds usually have considerably lower melting points than ionic compounds, since the forces between molecules are weaker than the electrical attraction in an ionic lattice. Ice, for example, melts at 0°C, while table salt melts above 800°C."
     }
   ]
 }

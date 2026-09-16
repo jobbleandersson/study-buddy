@@ -125,6 +125,111 @@
       "prompt": "Summarise the structure of the atom, atomic number and mass number, and how the periodic table is arranged.",
       "opener": "Take the particles first, then the numbers that describe the nucleus, and finish with groups and periods.",
       "answer": "Proton: positive (+), in the nucleus · Neutron: uncharged, in the nucleus · Electron: negative (−), moves in electron shells outside the nucleus, very light · Atomic number = number of protons (and number of electrons in an uncharged atom) · Mass number = protons + neutrons · Number of neutrons = mass number − atomic number · Electron shells: K holds max 2, L max 8, M max 8 (at basic level) · Valence electrons = the electrons in the outermost shell, they govern how the element reacts · Group = vertical column, same number of valence electrons, similar properties · Period = horizontal row, same number of electron shells · Group 1 alkali metals: 1 valence electron, give it up and form ions such as Na+ and K+, highly reactive · Group 17 halogens: 7 valence electrons, take up one and form ions such as Cl− · Group 18 noble gases: full outermost shell, stable and unreactive (helium, neon, argon) · Metals give up electrons and become positive ions, non-metals take up electrons and become negative ions."
+    },
+    {
+      "id": "q-kemi8-per-9",
+      "kind": "mc",
+      "topic": "the structure of the atom",
+      "prompt": "What charge does an electron have?",
+      "opener": "The electron is the particle that moves in shells outside the nucleus.",
+      "choices": [
+        "Positive",
+        "Negative",
+        "Neutral (uncharged)",
+        "It varies depending on the element"
+      ],
+      "answer": 1,
+      "explanation": "The electron has a negative charge (−), while the proton in the nucleus has a positive charge (+). The neutron, also in the nucleus, is uncharged."
+    },
+    {
+      "id": "q-kemi8-per-10",
+      "kind": "mc",
+      "topic": "atomic number and mass number",
+      "prompt": "An atom has a mass number of 27 and 14 neutrons. What is its atomic number?",
+      "opener": "Mass number = protons + neutrons, so solve for the protons.",
+      "choices": [
+        "13",
+        "27",
+        "14",
+        "41"
+      ],
+      "answer": 0,
+      "explanation": "Atomic number = mass number − neutrons = 27 − 14 = 13. The number 41 results from mistakenly adding the two numbers instead of subtracting."
+    },
+    {
+      "id": "q-kemi8-per-11",
+      "kind": "mc",
+      "topic": "electron shells",
+      "prompt": "How many electrons fit at most in the second electron shell (the L shell)?",
+      "opener": "The L shell is larger than the innermost K shell.",
+      "choices": [
+        "2",
+        "8",
+        "18",
+        "6"
+      ],
+      "answer": 1,
+      "explanation": "The L shell holds at most 8 electrons. The K shell, closer to the nucleus, holds only 2, while 18 applies to a shell further out not covered at this level."
+    },
+    {
+      "id": "q-kemi8-per-12",
+      "kind": "mc",
+      "topic": "groups and periods",
+      "prompt": "What do all the elements in the same PERIOD (horizontal row) of the periodic table have in common?",
+      "opener": "The period is the opposite of the group — it counts a different property.",
+      "choices": [
+        "The same number of valence electrons",
+        "The same number of electron shells",
+        "The same mass number",
+        "They are all noble gases"
+      ],
+      "answer": 1,
+      "explanation": "Elements in the same period have the same number of electron shells. Having the same number of valence electrons instead applies to elements in the same group, i.e. the same vertical column."
+    },
+    {
+      "id": "q-kemi8-per-13",
+      "kind": "mc",
+      "topic": "noble gases and alkali metals",
+      "prompt": "Why are alkali metals like sodium and potassium so reactive?",
+      "opener": "Think about how easy it is to get rid of a single electron compared with filling up several.",
+      "choices": [
+        "They have a full outermost shell",
+        "They have a single valence electron that they readily give up",
+        "They lack electrons entirely",
+        "They are noble gases"
+      ],
+      "answer": 1,
+      "explanation": "Alkali metals in group 1 have only one valence electron, which is easy to give up to achieve a full outermost shell, making them highly reactive. Noble gases already have a full shell and are therefore unreactive."
+    },
+    {
+      "id": "q-kemi8-per-14",
+      "kind": "worked",
+      "topic": "atomic number and mass number",
+      "prompt": "Chlorine (Cl) has atomic number 17 and mass number 35. Determine the number of protons, neutrons and electrons in the atom, and use the electron shells to explain why chlorine readily forms the ion Cl−.",
+      "opener": "Start by extracting the protons and neutrons from the numbers, then distribute the electrons into shells.",
+      "answer": "Chlorine has 17 protons, 18 neutrons and 17 electrons. The electrons are distributed 2, 8, 7, so chlorine has seven valence electrons in its outermost shell. By taking up one electron, chlorine gets a full outermost shell and becomes the ion Cl−.",
+      "steps": [
+        "The number of protons equals the atomic number: 17 protons.",
+        "The number of neutrons is mass number − atomic number: 35 − 17 = 18 neutrons.",
+        "The atom is uncharged, so the number of electrons equals the number of protons: 17 electrons.",
+        "Distribute the electrons into shells: 2 in the K shell, 8 in the L shell, and 7 left in the M shell, i.e. 2, 8, 7.",
+        "It's easier to take up a single electron to fill the shell than to get rid of seven, so chlorine takes up one and forms the negative ion Cl− with a full outermost shell."
+      ]
+    },
+    {
+      "id": "q-kemi8-per-15",
+      "kind": "mc",
+      "topic": "groups and periods",
+      "prompt": "Which group of the periodic table contains the noble gases?",
+      "opener": "This group is located furthest to the right in the table.",
+      "choices": [
+        "Group 1",
+        "Group 17",
+        "Group 18",
+        "Group 2"
+      ],
+      "answer": 2,
+      "explanation": "The noble gases, such as helium, neon and argon, are in group 18, furthest to the right in the periodic table. Group 1 is instead the alkali metals, and group 17 is the halogens."
     }
   ]
 }
