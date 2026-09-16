@@ -1031,7 +1031,8 @@ export const STRINGS = {
     "session.testOnToast": "Test mode back on.",
     "session.testModeOff": "Test mode is off for this run.",
 
-    "session.examBanner": "Exam mode — a countdown, one attempt per question, no hints. The tutor goes through everything with you afterwards.",
+    "session.examBannerTimed": "Exam mode — a countdown, one attempt per question, no hints. The tutor goes through everything with you afterwards.",
+    "session.examBannerUntimed": "Exam mode — one attempt per question, no hints, no time limit set. The tutor goes through everything with you afterwards.",
     "session.examBadge": "Exam mode",
     "session.examTimeUp": "Time's up — your answers were submitted automatically.",
 
@@ -1050,6 +1051,7 @@ export const STRINGS = {
     "lib.study": "Study",
     "lib.exam": "Exam mode",
     "lib.examTip": "Exam mode: a countdown, no hints, and the answer key only after you finish.",
+    "lib.examTipUntimed": "Exam mode: no hints, and the answer key only after you finish. No time limit unless you set one below.",
     "lib.addedTag": "In your library",
     "lib.examOptions": "Exam-mode options",
     "lib.added": "“{title}” added",
@@ -2301,7 +2303,8 @@ export const STRINGS = {
     "session.testOnToast": "Provläge på igen.",
     "session.testModeOff": "Provläge är avstängt för den här omgången.",
 
-    "session.examBanner": "Provläge — nedräkning, ett försök per fråga och inga tips. Handledaren går igenom allt med dig efteråt.",
+    "session.examBannerTimed": "Provläge — nedräkning, ett försök per fråga och inga tips. Handledaren går igenom allt med dig efteråt.",
+    "session.examBannerUntimed": "Provläge — ett försök per fråga och inga tips, ingen tidsgräns vald. Handledaren går igenom allt med dig efteråt.",
     "session.examBadge": "Provläge",
     "session.examTimeUp": "Tiden är ute — dina svar skickades in automatiskt.",
 
@@ -2320,6 +2323,7 @@ export const STRINGS = {
     "lib.study": "Plugga",
     "lib.exam": "Provläge",
     "lib.examTip": "Provläge: nedräkning, inga ledtrådar och facit visas först när du är klar.",
+    "lib.examTipUntimed": "Provläge: inga ledtrådar, och facit visas först när du är klar. Ingen tidsgräns om du inte väljer en nedan.",
     "lib.addedTag": "I ditt bibliotek",
     "lib.examOptions": "Inställningar för provläge",
     "lib.added": "”{title}” tillagt",

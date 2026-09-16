@@ -192,7 +192,7 @@ export async function renderLibrary() {
       },
     }, [icon(ICONS.plus, 16), t("lib.addAll", { n: missing.length })]);
 
-    const examSel = el("select", { "aria-label": t("lib.examLenLabel"), onchange: (e) => { state.examMin = Number(e.target.value) || 0; } }, [
+    const examSel = el("select", { "aria-label": t("lib.examLenLabel"), onchange: (e) => { state.examMin = Number(e.target.value) || 0; paint(); } }, [
       el("option", { value: "0" }, t("lib.examLenNone")),
       el("option", { value: "20" }, "20 min"),
       el("option", { value: "40" }, "40 min"),
@@ -252,7 +252,7 @@ export async function renderLibrary() {
 
     const examAction = imported
       ? el("button.btn.btn--ghost.btn--sm", {
-          type: "button", title: t("lib.examTip"),
+          type: "button", title: t(state.examMin ? "lib.examTip" : "lib.examTipUntimed"),
           onclick: () => { location.hash = `#/session/${entry.id}?exam=1${state.examMin ? `&min=${state.examMin}` : ""}`; },
         }, [icon(ICONS.clock, 16), t("lib.exam")])
       : null;

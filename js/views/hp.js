@@ -72,7 +72,7 @@ function hpSetCard(entry, tr, refresh) {
 
   const examBtn = added
     ? el("button.btn.btn--ghost.btn--sm", {
-        type: "button", title: t("lib.examTip"),
+        type: "button", title: t("lib.examTipUntimed"),
         onclick: () => { location.hash = `#/session/${entry.id}?exam=1`; },
       }, [icon(ICONS.clock, 16), t("lib.exam")])
     : null;
