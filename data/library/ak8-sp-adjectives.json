@@ -113,6 +113,111 @@
       "prompt": "Hur böjs spanska adjektiv efter genus och numerus, och var placeras de?",
       "opener": "Adjektiv \"håller med\" substantivet de beskriver.",
       "answer": "Adjektiv på -o: alto/alta/altos/altas (böjs efter genus och numerus). Adjektiv på -e: interesante/interesantes (samma form för båda genus, bara plural ändras). Adjektiv på konsonant: joven/jóvenes (plural med -es). Placering: de flesta beskrivande adjektiv kommer EFTER substantivet (una casa grande), till skillnad från svenskan. Exempel: gato negro (svart katt), casa pequeña (litet hus), chicas simpáticas (trevliga tjejer)."
+    },
+    {
+      "id": "q-sp8-adj-9",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"Los coches son ___.\" (rápido = snabb)",
+      "opener": "\"Coches\" (bilar) är maskulint plural.",
+      "choices": [
+        "rápidos",
+        "rápido",
+        "rápida",
+        "rápidas"
+      ],
+      "answer": 0,
+      "explanation": "Adjektiv på -o böjs efter substantivet: maskulint plural \"coches\" → \"rápidos\"."
+    },
+    {
+      "id": "q-sp8-adj-10",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"La chica es ___.\" (inteligente = intelligent)",
+      "opener": "\"Inteligente\" slutar på -e, precis som \"interesante\".",
+      "choices": [
+        "inteligente",
+        "inteligenta",
+        "inteligento",
+        "inteligentes"
+      ],
+      "answer": 0,
+      "explanation": "Adjektiv som slutar på -e har samma form oavsett genus: \"la chica es inteligente\" och \"el chico es inteligente\" använder båda \"inteligente\"."
+    },
+    {
+      "id": "q-sp8-adj-11",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Vilket adjektiv brukar placeras FÖRE substantivet på spanska, till skillnad från de flesta andra?",
+      "opener": "Detta adjektiv kortas ofta till \"buen\" och kan placeras före substantivet, t.ex. \"un buen amigo\".",
+      "choices": [
+        "bueno (i formen \"buen\")",
+        "grande (alltid oförändrat)",
+        "rojo",
+        "alto"
+      ],
+      "answer": 0,
+      "explanation": "\"Bueno\" (i den förkortade formen \"buen\") är ett av de vanliga adjektiv som ofta placeras FÖRE substantivet på spanska, till skillnad från de flesta beskrivande adjektiv som kommer efter."
+    },
+    {
+      "id": "q-sp8-adj-12",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form av \"joven\" (ung) i plural: \"Mis primos son ___.\"",
+      "opener": "\"Joven\" slutar på konsonant, precis som \"profesor\".",
+      "choices": [
+        "jóvenes",
+        "jovenes",
+        "jóvenos",
+        "jovenas"
+      ],
+      "answer": 0,
+      "explanation": "Adjektiv som slutar på konsonant bildar plural med -es: \"joven\" → \"jóvenes\" (notera accenten som flyttas för att behålla uttalet)."
+    },
+    {
+      "id": "q-sp8-adj-13",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Vad betyder meningen \"Es un chico muy trabajador\"?",
+      "opener": "Ordet \"trabajador\" är släkt med verbet trabajar (att arbeta).",
+      "choices": [
+        "Han är en mycket arbetsam kille",
+        "Han är en mycket lat kille",
+        "Han är en mycket rolig kille",
+        "Han är en mycket ung kille"
+      ],
+      "answer": 0,
+      "explanation": "\"Es un chico muy trabajador\" betyder \"han är en mycket arbetsam/flitig kille\"."
+    },
+    {
+      "id": "q-sp8-adj-14",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"Estas manzanas están ___.\" (verde = grön, omogen)",
+      "opener": "\"Verde\" slutar på -e, precis som \"interesante\".",
+      "choices": [
+        "verdes",
+        "verde",
+        "verda",
+        "verdas"
+      ],
+      "answer": 0,
+      "explanation": "\"Verde\" har samma form oavsett genus, men blir plural \"verdes\" med \"manzanas\" (äpplen, plural)."
+    },
+    {
+      "id": "q-sp8-adj-15",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Vilket ordpar beskriver motsatser på spanska: \"grande\" och...?",
+      "opener": "\"Grande\" betyder \"stor\" — vad är motsatsen?",
+      "choices": [
+        "pequeño",
+        "alto",
+        "bueno",
+        "nuevo"
+      ],
+      "answer": 0,
+      "explanation": "\"Pequeño\" betyder \"liten\" och är motsatsen till \"grande\" (stor)."
     }
   ]
 }

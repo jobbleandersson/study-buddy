@@ -114,6 +114,111 @@
       "prompt": "Hur frågar och svarar man om klockan, veckodagar och månader på spanska?",
       "opener": "Fasta fraser för tid, dagar och månader.",
       "answer": "Klockan: ¿Qué hora es? = Vad är klockan? · Es la una = Klockan är ett · Son las dos/tres... = Klockan är två/tre... · y media = och halv · y cuarto = och kvart · menos cuarto = kvart i. Veckodagar: lunes, martes, miércoles, jueves, viernes, sábado, domingo. Månader: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre."
+    },
+    {
+      "id": "q-sp8-time-9",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"las diez menos cuarto\"?",
+      "opener": "\"Menos cuarto\" betyder \"minus en kvart\".",
+      "choices": [
+        "Kvart i tio",
+        "Kvart över tio",
+        "Halv tio",
+        "Tio och fem"
+      ],
+      "answer": 0,
+      "explanation": "\"Menos cuarto\" betyder \"kvart i\": \"las diez menos cuarto\" = kvart i tio (09:45)."
+    },
+    {
+      "id": "q-sp8-time-10",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Hur säger man \"klockan är midnatt\"?",
+      "opener": "Ett specifikt ord för klockan tolv på natten.",
+      "choices": [
+        "Es medianoche.",
+        "Es mediodía.",
+        "Son las doce de la tarde.",
+        "Es la una de la noche."
+      ],
+      "answer": 0,
+      "explanation": "\"Es medianoche\" betyder \"det är midnatt\". \"Es mediodía\" betyder i stället \"det är middagstid\" (klockan tolv på dagen)."
+    },
+    {
+      "id": "q-sp8-time-11",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Vad avser uttrycket \"el fin de semana\"?",
+      "opener": "Frasen syftar på TVÅ dagar tillsammans, inte en enda.",
+      "choices": [
+        "Ett samlingsnamn för lördag och söndag, inte en enskild dag",
+        "Måndag",
+        "Onsdag",
+        "Fredag"
+      ],
+      "answer": 0,
+      "explanation": "\"El fin de semana\" är ett samlingsnamn för helgen, det vill säga lördag och söndag tillsammans, inte en enskild veckodag."
+    },
+    {
+      "id": "q-sp8-time-12",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Vilken månad är \"abril\"?",
+      "opener": "Månaden mellan mars och maj.",
+      "choices": [
+        "April",
+        "Augusti",
+        "Mars",
+        "Maj"
+      ],
+      "answer": 0,
+      "explanation": "\"Abril\" är april, den fjärde månaden på året."
+    },
+    {
+      "id": "q-sp8-time-13",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"por la mañana\" i en tidsangivelse som \"a las ocho por la mañana\"?",
+      "opener": "\"Mañana\" kan betyda både \"imorgon\" och \"morgon\" beroende på sammanhang.",
+      "choices": [
+        "På morgonen",
+        "På eftermiddagen",
+        "På kvällen",
+        "På natten"
+      ],
+      "answer": 0,
+      "explanation": "I en tidsangivelse som \"a las ocho por la mañana\" betyder \"por la mañana\" \"på morgonen\", inte \"imorgon\"."
+    },
+    {
+      "id": "q-sp8-time-14",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Om något händer \"todos los lunes\", hur ofta händer det?",
+      "opener": "\"Todos los...\" betyder \"varje...\".",
+      "choices": [
+        "Varje måndag",
+        "Bara en gång, förra måndagen",
+        "Varje dag utom måndag",
+        "En gång i månaden"
+      ],
+      "answer": 0,
+      "explanation": "\"Todos los lunes\" betyder \"varje måndag\", alltså att något upprepas regelbundet varje vecka."
+    },
+    {
+      "id": "q-sp8-time-15",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Vilken är den första månaden på året enligt den spanska kalendern?",
+      "opener": "Den spanska kalendern följer samma ordning som den svenska.",
+      "choices": [
+        "enero",
+        "febrero",
+        "diciembre",
+        "marzo"
+      ],
+      "answer": 0,
+      "explanation": "\"Enero\" är januari, den första månaden på året."
     }
   ]
 }

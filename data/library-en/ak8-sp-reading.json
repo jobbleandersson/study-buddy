@@ -112,6 +112,111 @@
       "prompt": "Which phrases are good to recognize in a Spanish text message about plans?",
       "opener": "Everyday phrases for suggesting, agreeing, and arranging a time.",
       "answer": "Suggesting: ¿Quieres venir? = Do you want to come? · voy a ir a... = I'm going to go to... Agreeing: ¡Claro que sí! = Absolutely!/Sure! · Me encanta(n)... = I love... Arranging a time: ¿A qué hora quedamos? = What time shall we meet? · empieza a las... = starts at... Feelings: me gusta(n) = I like · me encanta(n) = I love (stronger) · no me gusta(n) = I don't like."
+    },
+    {
+      "id": "q-sp8-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Querido diario: Hoy ha sido un día difícil. Perdí el autobús y llegué tarde a clase. Pero por la tarde, mis amigos me invitaron a su casa y vimos una película juntos. Al final, fue un buen día.\"\n\n¿Por qué llegó tarde a clase la persona?",
+      "opener": "Read the diary entry about a difficult day.",
+      "choices": [
+        "Porque perdió el autobús",
+        "Porque se quedó dormida",
+        "Porque estaba enferma",
+        "Porque no tenía ganas de ir"
+      ],
+      "answer": 0,
+      "explanation": "\"Perdí el autobús\" means \"I missed the bus\", which explains why the person arrived late to class."
+    },
+    {
+      "id": "q-sp8-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Qué pasó por la tarde?",
+      "opener": "The second part of the text describes the afternoon.",
+      "choices": [
+        "Sus amigos la invitaron a su casa",
+        "Tuvo que trabajar",
+        "Se quedó en casa sola",
+        "Fue al médico"
+      ],
+      "answer": 0,
+      "explanation": "\"Mis amigos me invitaron a su casa\" means \"my friends invited me to their house\"."
+    },
+    {
+      "id": "q-sp8-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Según el texto, ¿cómo terminó el día?",
+      "opener": "The last sentence sums up the whole day.",
+      "choices": [
+        "Fue un buen día, a pesar de la mañana difícil",
+        "Fue un día terrible de principio a fin",
+        "No pasó nada especial",
+        "La persona se enfermó"
+      ],
+      "answer": 0,
+      "explanation": "\"Al final, fue un buen día\" means \"in the end, it was a good day\", despite the difficult morning."
+    },
+    {
+      "id": "q-sp8-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "New text: \"En mi familia, cada domingo cocinamos juntos. Mi padre prepara la paella, mi madre hace la ensalada y yo ayudo a poner la mesa. Después de comer, jugamos a las cartas.\"\n\n¿Quién prepara la paella?",
+      "opener": "Read the new text about the family's Sunday tradition.",
+      "choices": [
+        "El padre",
+        "La madre",
+        "La persona que escribe",
+        "Nadie, la compran"
+      ],
+      "answer": 0,
+      "explanation": "\"Mi padre prepara la paella\" means \"my dad makes the paella\"."
+    },
+    {
+      "id": "q-sp8-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Qué hace la persona que escribe?",
+      "opener": "The person writing the text describes their own role last.",
+      "choices": [
+        "Ayuda a poner la mesa",
+        "Prepara la ensalada",
+        "Cocina la paella",
+        "No ayuda con nada"
+      ],
+      "answer": 0,
+      "explanation": "\"Yo ayudo a poner la mesa\" means \"I help set the table\"."
+    },
+    {
+      "id": "q-sp8-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Qué hacen después de comer?",
+      "opener": "The last sentence describes what happens after the meal.",
+      "choices": [
+        "Juegan a las cartas",
+        "Ven la televisión",
+        "Van al cine",
+        "Duermen la siesta"
+      ],
+      "answer": 0,
+      "explanation": "\"Jugamos a las cartas\" means \"we play cards\"."
+    },
+    {
+      "id": "q-sp8-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Con qué frecuencia cocina junta la familia, según el texto?",
+      "opener": "The frequency is already mentioned in the first sentence.",
+      "choices": [
+        "Cada domingo",
+        "Cada día",
+        "Una vez al mes",
+        "Solo en Navidad"
+      ],
+      "answer": 0,
+      "explanation": "\"Cada domingo\" means \"every Sunday\"."
     }
   ]
 }

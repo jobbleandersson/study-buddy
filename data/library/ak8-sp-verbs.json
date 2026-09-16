@@ -114,6 +114,111 @@
       "prompt": "Hur böjs ir, tener, querer och hacer i presens?",
       "opener": "Fyra av de allra vanligaste oregelbundna verben.",
       "answer": "Ir (gå/åka): voy, vas, va, vamos, vais, van. Ir a + infinitiv = ska göra något (framtid). Tener (ha): tengo, tienes, tiene, tenemos, tenéis, tienen. Används i uttryck som tener hambre/sed/sueño/prisa (vara hungrig/törstig/sömnig/ha bråttom). Querer (vilja): quiero, quieres, quiere, queremos, queréis, quieren. Hacer (göra): hago, haces, hace, hacemos, hacéis, hacen — bara \"yo\"-formen är oregelbunden."
+    },
+    {
+      "id": "q-sp8-verb-9",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Välj rätt form: \"Ellos ___ mucha tarea hoy.\" (tener)",
+      "opener": "\"Ellos\" (de) med tener.",
+      "choices": [
+        "tienen",
+        "tiene",
+        "tenéis",
+        "tengo"
+      ],
+      "answer": 0,
+      "explanation": "\"Tener\" böjs: tengo, tienes, tiene, tenemos, tenéis, tienen. \"Ellos\" ger \"tienen\"."
+    },
+    {
+      "id": "q-sp8-verb-10",
+      "kind": "mc",
+      "topic": "ir",
+      "prompt": "Välj rätt form: \"¿Adónde ___ vosotros?\" (ir)",
+      "opener": "\"Vosotros\" (ni, informellt i Spanien) med det oregelbundna verbet ir.",
+      "choices": [
+        "vais",
+        "van",
+        "vamos",
+        "va"
+      ],
+      "answer": 0,
+      "explanation": "\"Ir\" böjs: voy, vas, va, vamos, vais, van. \"Vosotros\" ger \"vais\"."
+    },
+    {
+      "id": "q-sp8-verb-11",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Vad betyder \"tener que + infinitiv\"?",
+      "opener": "En mycket vanlig konstruktion för att uttrycka skyldighet.",
+      "choices": [
+        "Att vara tvungen att göra något",
+        "Att vilja göra något",
+        "Att gilla att göra något",
+        "Att just ha gjort något"
+      ],
+      "answer": 0,
+      "explanation": "\"Tener que + infinitiv\" betyder \"att vara tvungen att göra något\", t.ex. \"tengo que estudiar\" (jag måste plugga)."
+    },
+    {
+      "id": "q-sp8-verb-12",
+      "kind": "mc",
+      "topic": "tener",
+      "prompt": "Vad betyder \"tener razón\"?",
+      "opener": "Bokstavligen \"att ha förnuft/rätt\".",
+      "choices": [
+        "Att ha rätt",
+        "Att ha fel",
+        "Att ha bråttom",
+        "Att vara rädd"
+      ],
+      "answer": 0,
+      "explanation": "\"Tener razón\" betyder \"att ha rätt\". Motsatsen, \"att ha fel\", heter \"no tener razón\" eller \"estar equivocado\"."
+    },
+    {
+      "id": "q-sp8-verb-13",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Välj rätt form: \"Yo ___ de casa a las ocho.\" (salir = att gå ut/lämna)",
+      "opener": "\"Salir\" är oregelbundet i \"jag\"-formen, precis som \"hacer\" (hago) och \"tener\" (tengo).",
+      "choices": [
+        "salgo",
+        "sales",
+        "sale",
+        "salimos"
+      ],
+      "answer": 0,
+      "explanation": "\"Salir\" böjs: salgo, sales, sale, salimos, salís, salen. \"Yo\" ger den oregelbundna formen \"salgo\"."
+    },
+    {
+      "id": "q-sp8-verb-14",
+      "kind": "mc",
+      "topic": "ir",
+      "prompt": "Vad betyder \"Voy a estudiar esta noche\"?",
+      "opener": "\"Voy a\" + infinitiv beskriver en nära förestående plan.",
+      "choices": [
+        "Jag ska plugga i kväll",
+        "Jag pluggade i går kväll",
+        "Jag pluggar aldrig",
+        "Jag vill plugga"
+      ],
+      "answer": 0,
+      "explanation": "\"Voy a estudiar esta noche\" betyder \"jag ska plugga i kväll\" — en plan för framtiden, inte något som redan hänt."
+    },
+    {
+      "id": "q-sp8-verb-15",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Välj rätt form: \"¿Qué ___ tu madre?\" (decir = att säga)",
+      "opener": "\"Decir\" är oregelbundet, och \"tu madre\" motsvarar han/hon-formen.",
+      "choices": [
+        "dice",
+        "dices",
+        "digo",
+        "decimos"
+      ],
+      "answer": 0,
+      "explanation": "\"Decir\" böjs: digo, dices, dice, decimos, decís, dicen. \"Tu madre\" (din mamma) är en han/hon-form, som ger \"dice\"."
     }
   ]
 }
