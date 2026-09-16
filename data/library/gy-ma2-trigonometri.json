@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta de trigonometriska förhållandena i en rätvinklig triangel och hur man beräknar en okänd vinkel.",
       "opener": "SOH-CAH-TOA är minnesregeln — vad står varje bokstav för?",
       "answer": "$\\sin(v) = \\dfrac{\\text{motstående}}{\\text{hypotenusan}}$ (SOH) · $\\cos(v) = \\dfrac{\\text{närliggande}}{\\text{hypotenusan}}$ (CAH) · $\\tan(v) = \\dfrac{\\text{motstående}}{\\text{närliggande}}$ (TOA) · Pythagoras sats för sidorna: $a^2+b^2=c^2$ (c = hypotenusan) · För att hitta en vinkel används de inversa funktionerna: $v=\\sin^{-1}(\\ldots)$, $v=\\cos^{-1}(\\ldots)$ eller $v=\\tan^{-1}(\\ldots)$."
+    },
+    {
+      "id": "q-ma2-trig-9",
+      "kind": "mc",
+      "topic": "trigonometriska förhållanden",
+      "prompt": "I en rätvinklig triangel, vad är definitionen av $\\cos(v)$ för vinkeln $v$?",
+      "opener": "Tänk SOH-CAH-TOA — vilken sida hör till cosinus?",
+      "choices": [
+        "$\\dfrac{\\text{närliggande katet}}{\\text{hypotenusan}}$",
+        "$\\dfrac{\\text{motstående katet}}{\\text{hypotenusan}}$",
+        "$\\dfrac{\\text{motstående katet}}{\\text{närliggande katet}}$",
+        "$\\dfrac{\\text{hypotenusan}}{\\text{närliggande katet}}$"
+      ],
+      "answer": 0,
+      "explanation": "Cosinus definieras som förhållandet mellan närliggande katet och hypotenusan: $\\cos(v)=\\dfrac{\\text{närliggande}}{\\text{hypotenusan}}$. Alternativet med motstående katet över hypotenusan (svar B) är i stället definitionen av sinus."
+    },
+    {
+      "id": "q-ma2-trig-10",
+      "kind": "mc",
+      "topic": "beräkna sidor",
+      "prompt": "En rätvinklig triangel har hypotenusan 8 cm och en vinkel på 45°. Hur lång är den närliggande kateten?",
+      "opener": "Sätt upp $\\cos(45°) = \\dfrac{\\text{närliggande}}{8}$ och lös ut den närliggande kateten.",
+      "choices": [
+        "$\\approx 5{,}66$ cm",
+        "$4$ cm",
+        "$8$ cm",
+        "$\\approx 6{,}93$ cm"
+      ],
+      "answer": 0,
+      "explanation": "Närliggande katet $= 8\\cdot\\cos(45°) = 8\\cdot0{,}707 \\approx 5{,}66$ cm. Svar C ($8$ cm) skulle innebära att triangeln inte alls är vinklad, vilket inte stämmer med en 45°-vinkel."
+    },
+    {
+      "id": "q-ma2-trig-11",
+      "kind": "mc",
+      "topic": "tillämpningar",
+      "prompt": "En flaggstång kastar en skugga på 10 m när solens vinkel över horisonten är 35°. Hur hög är flaggstången?",
+      "opener": "Höjden och skuggan bildar de två kateterna, med vinkeln 35° mellan marken och solstrålen.",
+      "choices": [
+        "$\\approx 7{,}0$ m",
+        "$\\approx 8{,}2$ m",
+        "$\\approx 5{,}7$ m",
+        "$\\approx 10$ m"
+      ],
+      "answer": 0,
+      "explanation": "Höjden $= 10\\cdot\\tan(35°) \\approx 10\\cdot0{,}700 \\approx 7{,}0$ m, eftersom tangens jämför motstående katet (höjden) med närliggande katet (skuggan)."
+    },
+    {
+      "id": "q-ma2-trig-12",
+      "kind": "mc",
+      "topic": "trigonometriska förhållanden",
+      "prompt": "En rätvinklig triangel har kateterna 9 cm och 12 cm samt hypotenusan 15 cm. Vad är $\\sin(v)$ för vinkeln $v$ som ligger mitt emot kateten 9 cm?",
+      "opener": "Sinus jämför motstående katet med hypotenusan.",
+      "choices": [
+        "$0{,}6$",
+        "$0{,}8$",
+        "$0{,}75$",
+        "$1{,}33$"
+      ],
+      "answer": 0,
+      "explanation": "$\\sin(v) = \\dfrac{\\text{motstående}}{\\text{hypotenusan}} = \\dfrac{9}{15} = 0{,}6$. Svar B ($0{,}8$) är i stället $\\cos(v) = \\frac{12}{15}$."
+    },
+    {
+      "id": "q-ma2-trig-13",
+      "kind": "mc",
+      "topic": "beräkna vinklar",
+      "prompt": "En rätvinklig triangel har två lika kateter, båda 7 cm. Vad är vinkeln mellan hypotenusan och en av kateterna?",
+      "opener": "Lika kateter ger en likbent, rätvinklig triangel.",
+      "choices": [
+        "$45°$",
+        "$30°$",
+        "$60°$",
+        "$35°$"
+      ],
+      "answer": 0,
+      "explanation": "Eftersom kateterna är lika stora är $\\tan(v) = \\frac{7}{7} = 1$, vilket ger $v = \\tan^{-1}(1) = 45°$. Det stämmer med att en rätvinklig triangel med lika kateter alltid har två 45°-vinklar."
+    },
+    {
+      "id": "q-ma2-trig-14",
+      "kind": "mc",
+      "topic": "trigonometriska förhållanden",
+      "prompt": "Vilket påstående om exakta trigonometriska värden är korrekt?",
+      "opener": "Kontrollera varje påstående mot en standardtriangel eller enhetscirkeln.",
+      "choices": [
+        "$\\cos(45°) \\approx 0{,}707$",
+        "$\\sin(0°) = 1$",
+        "$\\tan(0°) = 1$",
+        "$\\cos(90°) = 1$"
+      ],
+      "answer": 0,
+      "explanation": "$\\cos(45°) = \\frac{\\sqrt2}{2} \\approx 0{,}707$ stämmer. De andra är fel: $\\sin(0°)=0$ (inte 1), $\\tan(0°)=0$ (inte 1), och $\\cos(90°)=0$ (inte 1)."
+    },
+    {
+      "id": "q-ma2-trig-15",
+      "kind": "mc",
+      "topic": "tillämpningar",
+      "prompt": "Från en båt mäts höjdvinkeln till toppen av en 40 m hög fyr till 20°. Hur långt är det från båten till fyrens fot?",
+      "opener": "Höjden är motstående katet och avståndet är närliggande katet till 20°-vinkeln.",
+      "choices": [
+        "$\\approx 109{,}9$ m",
+        "$\\approx 116{,}9$ m",
+        "$\\approx 14{,}6$ m",
+        "$\\approx 40$ m"
+      ],
+      "answer": 0,
+      "explanation": "Avståndet $= \\dfrac{40}{\\tan(20°)} \\approx \\dfrac{40}{0{,}364} \\approx 109{,}9$ m. Svar B fås om man av misstag använder sinus i stället för tangens och räknar $\\frac{40}{\\sin(20°)}$."
     }
   ]
 }
