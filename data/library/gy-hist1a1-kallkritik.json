@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta källkritik och historiebruk: de källkritiska kriterierna, primär- och sekundärkällor samt historiebruk och historiesynens föränderlighet.",
       "opener": "Tänk kedjan: granska källan → avgör dess status → förstå hur historia används och tolkas om.",
       "answer": "De fyra källkritiska kriterierna: äkthet (är källan vad den utger sig för att vara?) · tid (hur nära händelsen tillkom källan?) · beroende (är källan självständig eller bygger den på en annan källa?) · tendens (hade upphovspersonen ett intresse som kan ha vinklat framställningen?) · primärkälla = förstahandskälla nära händelsen, sekundärkälla = tolkning/bearbetning av redan existerande källor · historiebruk = hur historia används och görs relevant i nutiden, t.ex. politiskt (legitimera makt eller nation), kommersiellt (reklam, turism) och identitetsskapande (gemenskap kring ursprung eller tradition) · historiesynen förändras över tid genom nya källor, nya metoder, förändrade värderingar och nya frågor som ställs till det förflutna."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-9",
+      "kind": "mc",
+      "topic": "källkritiska kriterier",
+      "prompt": "Om två oberoende ögonvittnen ger samstämmiga skildringar av samma händelse, vad kan det stärka?",
+      "opener": "Tänk på vad det innebär att flera oberoende källor pekar åt samma håll.",
+      "choices": [
+        "Trovärdigheten hos skildringen, eftersom oberoende, samstämmiga källor är ett starkt källkritiskt stöd",
+        "Att källorna automatiskt är förfalskade",
+        "Att båda källorna måste vara sekundärkällor",
+        "Att händelsen inte alls ägde rum"
+      ],
+      "answer": 0,
+      "explanation": "När flera oberoende källor, som inte bygger på varandra, ger samstämmiga skildringar av samma händelse stärker det trovärdigheten avsevärt, eftersom det är osannolikt att flera oberoende personer skulle ha samma felaktiga uppfattning av en slump."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-10",
+      "kind": "mc",
+      "topic": "källkritiska kriterier",
+      "prompt": "Varför anses en dagbok som skrivits samma dag som en händelse ofta mer tillförlitlig i tidshänseende än ett memoarverk skrivet 40 år senare?",
+      "opener": "Tänk på vad som händer med minnet av en händelse ju längre tid som går.",
+      "choices": [
+        "Eftersom minnet försämras och förvanskas över tid, medan en samtida anteckning fångar intrycken innan de hunnit glömmas eller omtolkas",
+        "Eftersom dagböcker aldrig innehåller några fel",
+        "Eftersom memoarer alltid är medvetet förfalskade",
+        "Eftersom äldre källor generellt väger tyngre oavsett innehåll"
+      ],
+      "answer": 0,
+      "explanation": "Enligt tidskriteriet anses en källa som skapats nära i tid till händelsen generellt mer tillförlitlig, eftersom minnet försämras och kan omtolkas eller färgas av senare händelser ju längre tid som går. Detta betyder inte att dagböcker aldrig innehåller fel eller att memoarer är avsiktligt falska — bara att avståndet i tid är en riskfaktor att väga in."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-11",
+      "kind": "mc",
+      "topic": "primär- och sekundärkällor",
+      "prompt": "Vilket av följande är ett exempel på en primärkälla för att studera Digerdöden på 1300-talet?",
+      "opener": "Tänk på vilket av alternativen som kommer direkt från personer som själva levde under händelsen.",
+      "choices": [
+        "En samtida krönika skriven av någon som själv upplevde pestens framfart",
+        "En modern historikers sammanfattande bok om medeltiden, utgiven 2020",
+        "En dokumentärfilm om medeltida sjukdomar från 2015",
+        "En skolbok som sammanfattar forskningsläget"
+      ],
+      "answer": 0,
+      "explanation": "En samtida krönika skriven av ett ögonvittne till Digerdöden är en primärkälla, eftersom den kommer direkt från den tid och det sammanhang som skildras. De moderna alternativen (historikerbok, dokumentärfilm, skolbok) är alla sekundärkällor som tolkar och sammanställer redan existerande källmaterial."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-12",
+      "kind": "mc",
+      "topic": "primär- och sekundärkällor",
+      "prompt": "Kan en och samma källa fungera som både primärkälla och sekundärkälla, beroende på frågeställning?",
+      "opener": "Tänk på om en historikers bok kan vara en primärkälla till något annat än det den handlar om.",
+      "choices": [
+        "Ja — t.ex. är en historikers bok om 1800-talet en sekundärkälla till 1800-talet, men en primärkälla till hur just den historikerns samtid tolkade perioden",
+        "Nej, en källa har alltid en fast och oföränderlig status",
+        "Nej, sekundärkällor kan aldrig användas som primärkällor till någonting",
+        "Ja, men bara om källan är skriven på latin"
+      ],
+      "answer": 0,
+      "explanation": "En källas status som primär- eller sekundärkälla beror på frågeställningen. En historikers bok om 1800-talet är en sekundärkälla när man studerar 1800-talet, men blir en primärkälla om frågan i stället gäller hur just den historikerns egen samtid uppfattade och tolkade perioden."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-13",
+      "kind": "mc",
+      "topic": "historiebruk",
+      "prompt": "Vilket är ett exempel på kommersiellt historiebruk?",
+      "opener": "Tänk på vem som tjänar pengar på att använda historia i detta exempel.",
+      "choices": [
+        "Att en resebyrå marknadsför vikingatida platser för att locka turister",
+        "Att en historiker publicerar en vetenskaplig artikel i en akademisk tidskrift",
+        "Att en arkeolog gräver ut en bosättning för forskningsändamål",
+        "Att ett källkritiskt kriterium tillämpas på ett dokument"
+      ],
+      "answer": 0,
+      "explanation": "Kommersiellt historiebruk innebär att historia används för att skapa ekonomiskt värde, till exempel när en resebyrå marknadsför vikingatida platser för att locka turister. De andra alternativen handlar om vetenskaplig forskning och källkritisk metod, inte kommersiellt bruk."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-14",
+      "kind": "mc",
+      "topic": "historiebruk",
+      "prompt": "Vilket är ett exempel på existentiellt historiebruk — historia använd för att hantera trauma eller skapa mening kring svåra minnen?",
+      "opener": "Tänk på vilket av alternativen som handlar om att bearbeta egna, personliga upplevelser.",
+      "choices": [
+        "Överlevande från ett krig som delar sina minnen för att bearbeta och förstå sina upplevelser",
+        "En reklamkampanj som använder historiska bilder för att sälja en produkt",
+        "En lärobok som redogör för orsakerna till ett krig",
+        "Ett rent kronologiskt uppslagsverk över historiska händelser"
+      ],
+      "answer": 0,
+      "explanation": "Existentiellt historiebruk handlar om att använda historia för att hantera och skapa mening kring svåra personliga eller kollektiva upplevelser, till exempel när krigsöverlevande delar sina minnen för att bearbeta det de varit med om. Reklam är kommersiellt historiebruk, medan läroböcker och uppslagsverk snarare representerar en vetenskaplig/pedagogisk användning."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-15",
+      "kind": "mc",
+      "topic": "historiesynens föränderlighet",
+      "prompt": "Varför kan arkeologiska DNA-analyser förändra historiesynen på till exempel vikingatida migrationer?",
+      "opener": "Tänk på vilken typ av bevis som tidigare saknades och som nu blivit tillgänglig genom ny teknik.",
+      "choices": [
+        "De kan ge nya, konkreta belägg för rörelsemönster och släktskap som tidigare bara kunde antas utifrån indirekta källor som föremål och gravskick",
+        "DNA-analyser kan aldrig tillföra ny kunskap om det förflutna",
+        "De ersätter automatiskt alla skriftliga källor",
+        "De visar att vikingatiden aldrig ägde rum"
+      ],
+      "answer": 0,
+      "explanation": "Nya vetenskapliga metoder som DNA-analys av skelett ur gravar kan ge konkreta belägg för människors härkomst, släktskap och rörelsemönster, vilket tidigare bara kunde antas indirekt utifrån föremål och gravskick. Sådana nya belägg är ett exempel på hur ny forskning kan förändra och nyansera historiesynen, inte ersätta all annan kunskap."
     }
   ]
 }

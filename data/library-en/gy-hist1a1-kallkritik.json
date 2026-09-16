@@ -124,6 +124,111 @@
       "prompt": "Summarise source criticism and the uses of history: the source-critical criteria, primary and secondary sources, and the uses of history and the changeability of historical perspectives.",
       "opener": "Think of the chain: examine the source → determine its status → understand how history is used and reinterpreted.",
       "answer": "The four source-critical criteria: authenticity (is the source what it claims to be?) · time (how close to the event was the source created?) · dependence (is the source independent or is it based on another source?) · tendency (did the author have an interest that may have slanted the account?) · primary source = first-hand source close to the event, secondary source = interpretation/processing of already-existing sources · uses of history = how history is used and made relevant in the present, e.g. politically (legitimising power or a nation), commercially (advertising, tourism) and for building identity (community around an origin or tradition) · historical perspectives change over time through new sources, new methods, changing values and new questions asked of the past."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-9",
+      "kind": "mc",
+      "topic": "source-critical criteria",
+      "prompt": "If two independent eyewitnesses give matching accounts of the same event, what can that strengthen?",
+      "opener": "Think about what it means when several independent sources point the same way.",
+      "choices": [
+        "The credibility of the account, since independent, matching sources are strong source-critical support",
+        "That the sources are automatically forged",
+        "That both sources must be secondary sources",
+        "That the event did not take place at all"
+      ],
+      "answer": 0,
+      "explanation": "When several independent sources, which are not based on one another, give matching accounts of the same event, this considerably strengthens credibility, since it is unlikely that several independent people would coincidentally share the same incorrect account."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-10",
+      "kind": "mc",
+      "topic": "source-critical criteria",
+      "prompt": "Why is a diary written on the same day as an event often considered more reliable in terms of time than a memoir written 40 years later?",
+      "opener": "Think about what happens to the memory of an event the more time passes.",
+      "choices": [
+        "Because memory deteriorates and becomes distorted over time, while a contemporary note captures impressions before they can be forgotten or reinterpreted",
+        "Because diaries never contain any errors",
+        "Because memoirs are always deliberately falsified",
+        "Because older sources generally carry more weight regardless of content"
+      ],
+      "answer": 0,
+      "explanation": "According to the criterion of time, a source created close in time to the event is generally considered more reliable, since memory deteriorates and can be reinterpreted or coloured by later events the more time passes. This does not mean diaries never contain errors or that memoirs are deliberately false — only that the time gap is a risk factor to weigh in."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-11",
+      "kind": "mc",
+      "topic": "primary and secondary sources",
+      "prompt": "Which of the following is an example of a primary source for studying the Black Death in the 14th century?",
+      "opener": "Think about which option comes directly from people who lived through the event themselves.",
+      "choices": [
+        "A contemporary chronicle written by someone who witnessed the plague's spread themselves",
+        "A modern historian's summarising book about the Middle Ages, published in 2020",
+        "A documentary film about medieval diseases from 2015",
+        "A textbook that summarises the current state of research"
+      ],
+      "answer": 0,
+      "explanation": "A contemporary chronicle written by an eyewitness to the Black Death is a primary source, since it comes directly from the time and context it depicts. The modern options (historian's book, documentary, textbook) are all secondary sources that interpret and compile already-existing source material."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-12",
+      "kind": "mc",
+      "topic": "primary and secondary sources",
+      "prompt": "Can the same source function as both a primary and a secondary source, depending on the research question?",
+      "opener": "Think about whether a historian's book can be a primary source to something other than what it is about.",
+      "choices": [
+        "Yes — for example, a historian's book about the 19th century is a secondary source for the 19th century, but a primary source for how that historian's own era interpreted the period",
+        "No, a source always has a fixed and unchangeable status",
+        "No, secondary sources can never be used as primary sources for anything",
+        "Yes, but only if the source is written in Latin"
+      ],
+      "answer": 0,
+      "explanation": "A source's status as primary or secondary depends on the research question. A historian's book about the 19th century is a secondary source when studying the 19th century, but becomes a primary source if the question instead concerns how that historian's own era perceived and interpreted the period."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-13",
+      "kind": "mc",
+      "topic": "uses of history",
+      "prompt": "Which is an example of commercial uses of history?",
+      "opener": "Think about who makes money from using history in this example.",
+      "choices": [
+        "A travel agency marketing Viking Age sites to attract tourists",
+        "A historian publishing a scholarly article in an academic journal",
+        "An archaeologist excavating a settlement for research purposes",
+        "A source-critical criterion being applied to a document"
+      ],
+      "answer": 0,
+      "explanation": "Commercial uses of history means that history is used to create economic value, for example when a travel agency markets Viking Age sites to attract tourists. The other options concern scholarly research and source-critical method, not commercial use."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-14",
+      "kind": "mc",
+      "topic": "uses of history",
+      "prompt": "Which is an example of existential uses of history — history used to process trauma or create meaning around difficult memories?",
+      "opener": "Think about which option involves processing one's own, personal experiences.",
+      "choices": [
+        "War survivors sharing their memories in order to process and understand their experiences",
+        "An advertising campaign using historical images to sell a product",
+        "A textbook explaining the causes of a war",
+        "A purely chronological encyclopedia of historical events"
+      ],
+      "answer": 0,
+      "explanation": "Existential uses of history involve using history to process and create meaning around difficult personal or collective experiences, for example when war survivors share their memories to process what they went through. Advertising is a commercial use of history, while textbooks and encyclopedias instead represent a scholarly/pedagogical use."
+    },
+    {
+      "id": "q-hist1a1-kallkritik-15",
+      "kind": "mc",
+      "topic": "the changeability of historical perspectives",
+      "prompt": "Why can archaeological DNA analyses change the historical perspective on, for example, Viking Age migrations?",
+      "opener": "Think about what kind of evidence was previously missing and has now become available through new technology.",
+      "choices": [
+        "They can provide new, concrete evidence of movement patterns and kinship that previously could only be assumed from indirect sources such as artefacts and burial customs",
+        "DNA analyses can never add new knowledge about the past",
+        "They automatically replace all written sources",
+        "They show that the Viking Age never happened"
+      ],
+      "answer": 0,
+      "explanation": "New scientific methods such as DNA analysis of skeletons from graves can provide concrete evidence of people's origins, kinship and movement patterns, which previously could only be assumed indirectly from artefacts and burial customs. Such new evidence is an example of how new research can change and add nuance to historical perspectives, not replace all other knowledge."
     }
   ]
 }
