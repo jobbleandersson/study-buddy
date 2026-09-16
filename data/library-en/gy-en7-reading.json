@@ -123,6 +123,111 @@
       "prompt": "Summarise key strategies for analysing complex texts: implicit argument, correlation vs causation, tone/irony, and accurate summary.",
       "opener": "Four common pitfalls and how to avoid them on an advanced reading comprehension task.",
       "answer": "Implicit argument: look for what the text does NOT say, and what is set against what (juxtaposition) · Correlation ≠ causation: ask whether a third factor could explain both trends (a confounding variable) · Irony/sarcasm: the words say one thing, the context/exaggeration reveals the opposite · Summary: weigh in ALL the sides the text presents, not just the one you agree with, and don't add conclusions the text doesn't support."
+    },
+    {
+      "id": "q-en7gy-reading-9",
+      "kind": "mc",
+      "topic": "implicit argument",
+      "prompt": "Read the text and answer.\n\n\"The press release celebrates a 'restructuring for future growth.' It does not mention that 200 employees lost their jobs in the process.\"\n\nWhat does the omission suggest?",
+      "opener": "What does the press release's silence reveal, compared with what actually happened?",
+      "choices": [
+        "The company is likely trying to present the layoffs in a more positive light by omitting them.",
+        "The layoffs were not significant enough to mention.",
+        "The press release is entirely objective and complete.",
+        "Future growth is guaranteed as a result of the restructuring."
+      ],
+      "answer": 0,
+      "explanation": "By celebrating a \"restructuring for future growth\" without mentioning that 200 people lost their jobs, the company is likely trying to cast the layoffs in a more positive light by omitting them."
+    },
+    {
+      "id": "q-en7gy-reading-10",
+      "kind": "mc",
+      "topic": "correlation vs causation",
+      "prompt": "Read the text and answer.\n\n\"Regions with more streetlights report lower crime rates. A city councillor proposed that installing more streetlights in all neighborhoods would directly reduce crime.\"\n\nWhat should a careful reader question about this proposal?",
+      "opener": "Could a third factor explain both more streetlights and lower crime?",
+      "choices": [
+        "Whether wealthier, safer areas simply already have more streetlights and lower crime for other reasons",
+        "Whether streetlights are too expensive to install",
+        "Whether the councillor understands what 'crime rate' means",
+        "Whether the study included enough cities"
+      ],
+      "answer": 0,
+      "explanation": "A careful reader should question whether wealthier, already-safer areas simply already have more streetlights AND lower crime for other reasons, rather than the streetlights causing the lower crime."
+    },
+    {
+      "id": "q-en7gy-reading-11",
+      "kind": "mc",
+      "topic": "tone and irony",
+      "prompt": "Read the text and answer.\n\n\"Ah yes, because nothing says 'efficient meeting' like discussing the color of the new logo for forty-five minutes.\"\n\nWhat tone does this sentence convey?",
+      "opener": "The words are exaggeratedly positive about something clearly inefficient — a sign of sarcasm.",
+      "choices": [
+        "Sarcastic criticism of how the meeting's time was used",
+        "Genuine praise for the meeting's efficiency",
+        "A neutral description of the meeting's agenda",
+        "Confusion about what the meeting covered"
+      ],
+      "answer": 0,
+      "explanation": "Calling a 45-minute discussion about a logo's color an \"efficient meeting\" is sarcastic criticism of how the meeting's time was used."
+    },
+    {
+      "id": "q-en7gy-reading-12",
+      "kind": "mc",
+      "topic": "summarising complex arguments",
+      "prompt": "Read the text and answer.\n\n\"Proponents of a four-day school week cite improved teacher retention and student well-being. Opponents point to childcare difficulties for working parents and mixed academic results. Some districts report gains in math scores but declines in reading scores.\"\n\nWhich summary best reflects this text?",
+      "opener": "A good summary weighs in BOTH sides and the nuance in the results (math vs. reading).",
+      "choices": [
+        "The four-day school week has both benefits and drawbacks, with academic effects that vary by subject.",
+        "The four-day school week is an unqualified success for all students.",
+        "The four-day school week should be abandoned immediately due to poor results.",
+        "Only teachers benefit from the four-day school week."
+      ],
+      "answer": 0,
+      "explanation": "The text presents both benefits (teacher retention, student well-being) and drawbacks (childcare, mixed academic results) without taking a side — option 1 captures this balance."
+    },
+    {
+      "id": "q-en7gy-reading-13",
+      "kind": "mc",
+      "topic": "implicit argument",
+      "prompt": "Read the text and answer.\n\n\"The advertisement shows only young, visibly fit people using the fitness app, despite the company's claim that it is 'designed for everyone.'\"\n\nWhat does this juxtaposition imply?",
+      "opener": "Compare what the advertisement SHOWS with what the company CLAIMS.",
+      "choices": [
+        "There may be a gap between the company's stated inclusivity and how it actually markets the product.",
+        "The app is exclusively designed for elderly users.",
+        "The advertisement is factually inaccurate about the app's features.",
+        "Fitness apps are generally ineffective."
+      ],
+      "answer": 0,
+      "explanation": "Showing only young, fit people despite the claim \"designed for everyone\" suggests a gap between the company's stated inclusivity and how the product is actually marketed."
+    },
+    {
+      "id": "q-en7gy-reading-14",
+      "kind": "mc",
+      "topic": "correlation vs causation",
+      "prompt": "Read the text and answer.\n\n\"Students who eat breakfast tend to score higher on tests. A headline claims 'Eating breakfast makes you smarter.'\"\n\nWhat alternative explanation does the headline fail to consider?",
+      "opener": "Could a third factor (e.g. home circumstances) explain both breakfast habits and test scores?",
+      "choices": [
+        "Students from stable, well-resourced households may be both more likely to eat breakfast and to perform well academically for unrelated reasons",
+        "Breakfast cereal companies funded the study",
+        "Test scores are not a valid measure of intelligence",
+        "Some students skip breakfast on test days only"
+      ],
+      "answer": 0,
+      "explanation": "Students from stable, well-resourced households are likely both more likely to eat breakfast and to perform better in school for reasons unrelated to breakfast itself — a classic confounding variable the headline misses."
+    },
+    {
+      "id": "q-en7gy-reading-15",
+      "kind": "mc",
+      "topic": "tone and irony",
+      "prompt": "\"Of course, spending three hours in traffic on the way to a 'stress-free' vacation is exactly what everyone dreams of.\" Identify the rhetorical technique and its effect.",
+      "opener": "The word \"stress-free\" is set against the actual experience (three hours in traffic) — what does the contrast reveal?",
+      "choices": [
+        "Irony — the writer highlights a contradiction between the label 'stress-free' and the actual experience",
+        "A literal, sincere description of an ideal vacation",
+        "A statistical claim about traffic patterns",
+        "An objective summary with no persuasive intent"
+      ],
+      "answer": 0,
+      "explanation": "This is irony: the writer highlights the contradiction between the label \"stress-free\" and the actual, stressful experience in order to criticize the claim."
     }
   ]
 }

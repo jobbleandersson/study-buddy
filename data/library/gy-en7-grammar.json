@@ -122,6 +122,111 @@
       "prompt": "Summarise the key differences between must, have to, should, ought to, and the modal perfect forms (must have / might have / can't have).",
       "opener": "En snabb översikt över de mest nyanserade modala verben.",
       "answer": "must = stark skyldighet (talarens egen regel) eller stark slutsats · have to = skyldighet utifrån (lag, regel, omständighet) · should/ought to = rekommendation, inte krav; \"ought to\" är något mer formellt · must have + perfect particip = säker slutsats om det förflutna · might/could have = möjlig slutsats · can't have = utesluten slutsats (motsatsen till must have) · should have = förväntning som inte uppfylldes, ofta med ånger"
+    },
+    {
+      "id": "q-en7gy-grammar-9",
+      "kind": "mc",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Choose the modal that best fits: 'She ___ be at work now — I just saw her car in the driveway.'",
+      "opener": "Bevisen (bilen står hemma) utesluter en möjlighet — vilket modalt verb uttrycker det?",
+      "choices": [
+        "can't",
+        "must",
+        "should",
+        "has to"
+      ],
+      "answer": 0,
+      "explanation": "\"Can't\" uttrycker en utesluten slutsats baserad på bevis, motsatsen till \"must\". De andra alternativen uttrycker skyldighet eller en positiv slutsats, vilket inte passar bevisen."
+    },
+    {
+      "id": "q-en7gy-grammar-10",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Which sentence uses the subjunctive correctly after a suggestion verb?",
+      "opener": "\"Suggest that\" hör till samma familj av verb som kräver subjunktiv som \"recommend that\".",
+      "choices": [
+        "I suggest that she see a specialist as soon as possible.",
+        "I suggest that she sees a specialist as soon as possible.",
+        "I suggest that she will see a specialist as soon as possible.",
+        "I suggest that she saw a specialist as soon as possible."
+      ],
+      "answer": 0,
+      "explanation": "Verb som \"suggest\", \"recommend\", \"insist\" och \"demand\" följs av subjunktivformen (grundform) i that-satsen: \"that she see\", inte \"sees\"/\"will see\"/\"saw\"."
+    },
+    {
+      "id": "q-en7gy-grammar-11",
+      "kind": "mc",
+      "topic": "future perfect and future continuous",
+      "prompt": "Choose the correct form: 'Don't call at 8pm — I ___ dinner then.'",
+      "opener": "En pågående handling VID en specifik framtida tidpunkt.",
+      "choices": [
+        "will be having",
+        "will have had",
+        "have",
+        "will having"
+      ],
+      "answer": 0,
+      "explanation": "Future continuous (\"will be having\") beskriver en handling som pågår vid klockan 20 den kvällen. \"Will have had\" (future perfect) hade betytt att middagen redan var avslutad."
+    },
+    {
+      "id": "q-en7gy-grammar-12",
+      "kind": "mc",
+      "topic": "future perfect and future continuous",
+      "prompt": "Choose the correct form: 'By next June, she ___ at the company for exactly five years.'",
+      "opener": "En handling som är avslutad/uppnått en viss varaktighet VID en framtida tidpunkt.",
+      "choices": [
+        "will have worked",
+        "will work",
+        "will be working",
+        "works"
+      ],
+      "answer": 0,
+      "explanation": "Future perfect (\"will have worked\") används för att uttrycka att något kommer att vara uppnått eller avslutat vid en specifik framtida tidpunkt — här att femårsgränsen nås i juni."
+    },
+    {
+      "id": "q-en7gy-grammar-13",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Choose the correctly formed sentence using the mandative subjunctive.",
+      "opener": "Efter \"recommended that\" används samma subjunktivform (grundform) som efter \"essential that\".",
+      "choices": [
+        "The committee recommended that the policy be reviewed annually.",
+        "The committee recommended that the policy is reviewed annually.",
+        "The committee recommended that the policy was reviewed annually.",
+        "The committee recommended that the policy will be reviewed annually."
+      ],
+      "answer": 0,
+      "explanation": "Verbet efter \"recommended that\" tar bare-infinitiv-formen (subjunktiv): \"be reviewed\", oavsett subjekt eller tempus i huvudsatsen. De andra formerna (\"is\", \"was\", \"will be\") är alla felaktiga i denna konstruktion."
+    },
+    {
+      "id": "q-en7gy-grammar-14",
+      "kind": "mc",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Which sentence best expresses a strong prohibition rather than mere advice?",
+      "opener": "\"Must not\" är starkare och mer absolut än \"shouldn't\".",
+      "choices": [
+        "You must not disclose confidential information to third parties.",
+        "You shouldn't share confidential information carelessly.",
+        "You might not want to share that.",
+        "It's probably best not to mention it."
+      ],
+      "answer": 0,
+      "explanation": "\"Must not\" uttrycker ett strikt förbud, ofta med juridisk eller reglerad tyngd, medan de andra alternativen bara ger råd eller mjuka rekommendationer."
+    },
+    {
+      "id": "q-en7gy-grammar-15",
+      "kind": "mc",
+      "topic": "future perfect and future continuous",
+      "prompt": "'At 3pm tomorrow, the technicians ___ the server for two hours already.' Choose the correct form.",
+      "opener": "Betoningen ligger på HUR LÄNGE handlingen redan pågått vid den framtida tidpunkten.",
+      "choices": [
+        "will have been repairing",
+        "will be repairing",
+        "will repair",
+        "repair"
+      ],
+      "answer": 0,
+      "explanation": "Future perfect continuous (\"will have been repairing\") betonar varaktigheten av en handling som redan pågått fram till en specifik framtida tidpunkt (klockan 15, i två timmar). \"Will be repairing\" (future continuous) hade bara beskrivit en pågående handling utan att ange hur länge."
     }
   ]
 }

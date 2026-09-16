@@ -122,6 +122,111 @@
       "prompt": "List common informal-to-formal word swaps useful in academic writing.",
       "opener": "Everyday words and their formal equivalents.",
       "answer": "a lot of → numerous/considerable · kind of/sort of → somewhat/rather · get → obtain/receive · show → demonstrate/indicate · big → significant/substantial · but → however/nevertheless · so → therefore/consequently · think → consider/argue · stuff/things → issues/factors/aspects · a bit → slightly/somewhat"
+    },
+    {
+      "id": "q-en7gy-vocabulary-9",
+      "kind": "mc",
+      "topic": "formal vs informal register",
+      "prompt": "Which sentence uses the most formal register?",
+      "opener": "Which sentence entirely avoids casual filler words and vague expressions?",
+      "choices": [
+        "The findings indicate a clear correlation between the two variables.",
+        "The findings kinda show a link between the two things.",
+        "The findings sort of point to a connection.",
+        "The findings show stuff is connected, basically."
+      ],
+      "answer": 0,
+      "explanation": "The first sentence uses precise, formal word choice (\"indicate\", \"correlation\") without casual filler words like \"kinda\", \"sort of\", or \"basically\"."
+    },
+    {
+      "id": "q-en7gy-vocabulary-10",
+      "kind": "mc",
+      "topic": "academic vocabulary",
+      "prompt": "Which word best replaces \"a big problem\" in a formal report?",
+      "opener": "Which option sounds academic without becoming vague?",
+      "choices": [
+        "a substantial issue",
+        "a mega problem",
+        "a huge deal",
+        "a really big thing"
+      ],
+      "answer": 0,
+      "explanation": "\"A substantial issue\" is precise and formal. The other options are colloquial or overly informal expressions."
+    },
+    {
+      "id": "q-en7gy-vocabulary-11",
+      "kind": "mc",
+      "topic": "academic vocabulary",
+      "prompt": "Choose the word that best completes: 'The data ___ that the intervention had a measurable effect.'",
+      "opener": "Which verb is precise and formal without casual additions?",
+      "choices": [
+        "demonstrate",
+        "show kinda",
+        "sort of prove",
+        "basically prove"
+      ],
+      "answer": 0,
+      "explanation": "\"Demonstrate\" is a precise academic verb. The other options mix in casual words like \"kinda\", \"sort of\", and \"basically\", which breaks the formal register."
+    },
+    {
+      "id": "q-en7gy-vocabulary-12",
+      "kind": "mc",
+      "topic": "precise word choice",
+      "prompt": "Which sentence uses the most precise verb to describe a researcher's cautious claim?",
+      "opener": "Which verb precisely expresses a cautious, academic stance?",
+      "choices": [
+        "The researcher suggests that further studies are needed.",
+        "The researcher goes on about needing more studies.",
+        "The researcher is like, we need more studies.",
+        "The researcher basically wants more studies done."
+      ],
+      "answer": 0,
+      "explanation": "\"Suggests\" is precise and signals academic caution. The other options are far too casual for a formal text."
+    },
+    {
+      "id": "q-en7gy-vocabulary-13",
+      "kind": "mc",
+      "topic": "formal vs informal register",
+      "prompt": "Which sentence avoids vague intensifiers in favor of precise, formal language?",
+      "opener": "Which sentence avoids casual intensifiers like \"super\" and \"really really\"?",
+      "choices": [
+        "The policy change had a considerable impact on unemployment rates.",
+        "The policy change had a super big impact on unemployment.",
+        "The policy change majorly affected unemployment, like, a lot.",
+        "The policy change really really changed unemployment."
+      ],
+      "answer": 0,
+      "explanation": "\"Considerable\" is a precise, formal intensifier. The other options repeat or exaggerate with casual intensifiers."
+    },
+    {
+      "id": "q-en7gy-vocabulary-14",
+      "kind": "mc",
+      "topic": "precise word choice",
+      "prompt": "Which word most precisely replaces \"get\" in the sentence 'The study ___ data from over 500 participants'?",
+      "opener": "Which verb is standard in an academic methodology description?",
+      "choices": [
+        "collected",
+        "got",
+        "grabbed",
+        "picked up"
+      ],
+      "answer": 0,
+      "explanation": "\"Collected\" is the precise, standard verb in scientific methodology descriptions. The others are casual synonyms for \"get\" that don't fit academic text."
+    },
+    {
+      "id": "q-en7gy-vocabulary-15",
+      "kind": "mc",
+      "topic": "academic vocabulary",
+      "prompt": "Which linking phrase is most appropriate to introduce a supporting example in a formal essay?",
+      "opener": "Which phrase is standard in formal written English for introducing an example?",
+      "choices": [
+        "For instance,",
+        "Like,",
+        "You know,",
+        "I mean,"
+      ],
+      "answer": 0,
+      "explanation": "\"For instance\" is a formal, written-register phrase for introducing examples. The other options are spoken-language filler phrases that don't belong in formal text."
     }
   ]
 }

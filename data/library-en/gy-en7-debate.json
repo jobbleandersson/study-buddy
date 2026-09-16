@@ -123,6 +123,111 @@
       "prompt": "List the key rhetorical and persuasive devices used in English-language debate.",
       "opener": "Common rhetorical tricks and how to recognise them.",
       "answer": "Rhetorical question = a question with no expected answer, used to engage · Repetition/anaphora = repeating to reinforce a point · Rule of three = three examples/words in a row for rhythm and power · Concession = acknowledging the opposing point before responding to it · Hedging = \"it could be argued\", \"some suggest\" — softens claims · Scare rhetoric/slippery slope = manipulative, bypasses reason · Statistics/citing sources = strengthens credibility in a legitimate way"
+    },
+    {
+      "id": "q-en7gy-debate-9",
+      "kind": "mc",
+      "topic": "rhetorical devices",
+      "prompt": "Identify the device: 'We came, we saw, we conquered the challenge together.'",
+      "opener": "Three parallel items in a row ('we came, we saw, we conquered') is a classic rhetorical pattern.",
+      "choices": [
+        "Tricolon (rule of three) for rhythmic emphasis",
+        "Hedging",
+        "A statistic",
+        "A concession"
+      ],
+      "answer": 0,
+      "explanation": "This is a tricolon (rule of three) — three parallel elements that create rhythm and emphasis. It is neither hedging, a statistic, nor a concession."
+    },
+    {
+      "id": "q-en7gy-debate-10",
+      "kind": "mc",
+      "topic": "rhetorical devices",
+      "prompt": "Which sentence uses a rhetorical question effectively in a persuasive speech?",
+      "opener": "A rhetorical question should engage the listener, not just state a fact.",
+      "choices": [
+        "How much longer can we afford to ignore this crisis?",
+        "The crisis began in 2019.",
+        "Some experts believe the crisis is overstated.",
+        "According to the report, costs have doubled."
+      ],
+      "answer": 0,
+      "explanation": "\"How much longer can we afford to ignore this crisis?\" is a rhetorical question that challenges the listener to react. The other options are statements or facts, not questions."
+    },
+    {
+      "id": "q-en7gy-debate-11",
+      "kind": "mc",
+      "topic": "persuasive vs manipulative language",
+      "prompt": "Which technique relies on legitimate persuasion rather than manipulation?",
+      "opener": "Legitimate persuasion relies on evidence, not on bypassing the listener's reasoning.",
+      "choices": [
+        "Citing a peer-reviewed study to support a claim",
+        "Implying that anyone who disagrees is a bad person",
+        "Exaggerating a rare risk to provoke fear",
+        "Repeating a false claim until it feels true"
+      ],
+      "answer": 0,
+      "explanation": "Citing a peer-reviewed study is legitimate, evidence-based persuasion. The other options bypass reasoning through guilt, exaggerated fear, or repeating false claims."
+    },
+    {
+      "id": "q-en7gy-debate-12",
+      "kind": "mc",
+      "topic": "persuasive vs manipulative language",
+      "prompt": "Which sentence is an example of a manipulative false dilemma?",
+      "opener": "A false dilemma presents only two extremes as if there were no middle ground.",
+      "choices": [
+        "Either we ban the product entirely, or we accept that thousands will be harmed — there is no middle ground.",
+        "The evidence on this product's safety is mixed and requires further study.",
+        "Some risks exist, but they can be managed with proper regulation.",
+        "The product has both benefits and drawbacks worth weighing."
+      ],
+      "answer": 0,
+      "explanation": "Claiming there is only \"total ban or massive harm\" with no middle ground is a manipulative false dilemma. The other options acknowledge nuance and uncertainty."
+    },
+    {
+      "id": "q-en7gy-debate-13",
+      "kind": "mc",
+      "topic": "counter-argument structure",
+      "prompt": "Which sentence most effectively refutes a counter-argument after acknowledging it?",
+      "opener": "A good counter-argument acknowledges the opposing point BEFORE countering it with evidence.",
+      "choices": [
+        "While it's true that the new system has a learning curve, most users report increased efficiency within two weeks.",
+        "The new system has a learning curve.",
+        "Some people don't like the new system.",
+        "The new system is perfect and has no drawbacks."
+      ],
+      "answer": 0,
+      "explanation": "\"While it's true that... most users report...\" acknowledges the objection (the learning curve) and then counters it with concrete evidence (increased efficiency). The other options simply assert or exaggerate."
+    },
+    {
+      "id": "q-en7gy-debate-14",
+      "kind": "mc",
+      "topic": "hedging language",
+      "prompt": "Which sentence is appropriately hedged for a claim based on limited evidence?",
+      "opener": "Hedging is especially needed when the evidence is still preliminary or limited.",
+      "choices": [
+        "Preliminary results suggest a possible link, though further research is needed.",
+        "This proves beyond doubt that there is a link.",
+        "Everyone agrees there is a link.",
+        "There is obviously a link."
+      ],
+      "answer": 0,
+      "explanation": "\"Preliminary results suggest... though further research is needed\" is correctly cautious phrasing for limited evidence. The other options are far too certain (\"proves beyond doubt\", \"obviously\", \"everyone agrees\") for an early stage of research."
+    },
+    {
+      "id": "q-en7gy-debate-15",
+      "kind": "mc",
+      "topic": "rhetorical devices",
+      "prompt": "What effect does the rule of three (tricolon) typically have in a persuasive speech?",
+      "opener": "Three items in a row give a sentence rhythm and a sense of completeness.",
+      "choices": [
+        "It creates rhythm and makes the point feel complete and memorable.",
+        "It weakens the argument by repeating the same idea.",
+        "It is used only in written, not spoken, English.",
+        "It signals that the speaker is hedging."
+      ],
+      "answer": 0,
+      "explanation": "The rule of three creates rhythm and makes the point feel more memorable and complete. It doesn't weaken the argument, and it is used in both speech and writing."
     }
   ]
 }

@@ -123,6 +123,111 @@
       "prompt": "List the key rhetorical and persuasive devices used in English-language debate.",
       "opener": "Vanliga retoriska knep och hur du känner igen dem.",
       "answer": "Retorisk fråga = fråga utan förväntat svar, för att engagera · Repetition/anafora = upprepning för att förstärka en poäng · Tretal (rule of three) = tre exempel/ord i rad för rytm och kraft · Eftergift (concession) = erkänna motpartens poäng innan man bemöter den · Hedging = \"it could be argued\", \"some suggest\" — mildrar påståenden · Skrämselretorik/slippery slope = manipulativt, kringgår förnuftet · Statistik/källhänvisning = stärker trovärdighet på ett legitimt sätt"
+    },
+    {
+      "id": "q-en7gy-debate-9",
+      "kind": "mc",
+      "topic": "rhetorical devices",
+      "prompt": "Identify the device: 'We came, we saw, we conquered the challenge together.'",
+      "opener": "Tre led i rad ('we came, we saw, we conquered') är ett klassiskt retoriskt mönster.",
+      "choices": [
+        "Tricolon (rule of three) for rhythmic emphasis",
+        "Hedging",
+        "A statistic",
+        "A concession"
+      ],
+      "answer": 0,
+      "explanation": "Detta är ett tretal (tricolon/rule of three) — tre parallella led som skapar rytm och eftertryck. Det är varken hedging, statistik eller en eftergift."
+    },
+    {
+      "id": "q-en7gy-debate-10",
+      "kind": "mc",
+      "topic": "rhetorical devices",
+      "prompt": "Which sentence uses a rhetorical question effectively in a persuasive speech?",
+      "opener": "En retorisk fråga ska engagera lyssnaren, inte bara konstatera ett faktum.",
+      "choices": [
+        "How much longer can we afford to ignore this crisis?",
+        "The crisis began in 2019.",
+        "Some experts believe the crisis is overstated.",
+        "According to the report, costs have doubled."
+      ],
+      "answer": 0,
+      "explanation": "\"How much longer can we afford to ignore this crisis?\" är en retorisk fråga som utmanar lyssnaren att reagera. De andra alternativen är påståenden eller fakta, inga frågor."
+    },
+    {
+      "id": "q-en7gy-debate-11",
+      "kind": "mc",
+      "topic": "persuasive vs manipulative language",
+      "prompt": "Which technique relies on legitimate persuasion rather than manipulation?",
+      "opener": "Legitim övertalning bygger på belägg, inte på att kringgå lyssnarens förnuft.",
+      "choices": [
+        "Citing a peer-reviewed study to support a claim",
+        "Implying that anyone who disagrees is a bad person",
+        "Exaggerating a rare risk to provoke fear",
+        "Repeating a false claim until it feels true"
+      ],
+      "answer": 0,
+      "explanation": "Att citera en peer-reviewed studie är legitim, evidensbaserad övertalning. De andra alternativen kringgår förnuftet genom skuldbeläggning, överdriven skrämsel eller upprepning av falska påståenden."
+    },
+    {
+      "id": "q-en7gy-debate-12",
+      "kind": "mc",
+      "topic": "persuasive vs manipulative language",
+      "prompt": "Which sentence is an example of a manipulative false dilemma?",
+      "opener": "En falsk dikotomi presenterar bara två extremer som om det inte fanns några mellanlägen.",
+      "choices": [
+        "Either we ban the product entirely, or we accept that thousands will be harmed — there is no middle ground.",
+        "The evidence on this product's safety is mixed and requires further study.",
+        "Some risks exist, but they can be managed with proper regulation.",
+        "The product has both benefits and drawbacks worth weighing."
+      ],
+      "answer": 0,
+      "explanation": "Att hävda att det bara finns \"totalförbud eller massiv skada\" utan mellanlägen är en manipulativ falsk dikotomi. De andra alternativen erkänner nyanser och osäkerhet."
+    },
+    {
+      "id": "q-en7gy-debate-13",
+      "kind": "mc",
+      "topic": "counter-argument structure",
+      "prompt": "Which sentence most effectively refutes a counter-argument after acknowledging it?",
+      "opener": "En bra motargumentation erkänner motpartens poäng INNAN den bemöts med belägg.",
+      "choices": [
+        "While it's true that the new system has a learning curve, most users report increased efficiency within two weeks.",
+        "The new system has a learning curve.",
+        "Some people don't like the new system.",
+        "The new system is perfect and has no drawbacks."
+      ],
+      "answer": 0,
+      "explanation": "\"While it's true that... most users report...\" erkänner invändningen (inlärningskurvan) och bemöter den sedan med konkreta belägg (ökad effektivitet). De andra alternativen konstaterar bara eller överdriver."
+    },
+    {
+      "id": "q-en7gy-debate-14",
+      "kind": "mc",
+      "topic": "hedging language",
+      "prompt": "Which sentence is appropriately hedged for a claim based on limited evidence?",
+      "opener": "Hedging krävs särskilt när beläggen fortfarande är preliminära eller begränsade.",
+      "choices": [
+        "Preliminary results suggest a possible link, though further research is needed.",
+        "This proves beyond doubt that there is a link.",
+        "Everyone agrees there is a link.",
+        "There is obviously a link."
+      ],
+      "answer": 0,
+      "explanation": "\"Preliminary results suggest... though further research is needed\" är korrekt återhållsamt formulerat för begränsade bevis. De andra alternativen är alldeles för säkra (\"proves beyond doubt\", \"obviously\", \"everyone agrees\") för ett tidigt skede av forskning."
+    },
+    {
+      "id": "q-en7gy-debate-15",
+      "kind": "mc",
+      "topic": "rhetorical devices",
+      "prompt": "What effect does the rule of three (tricolon) typically have in a persuasive speech?",
+      "opener": "Tre led i rad ger en mening en viss rytm och känsla av fullständighet.",
+      "choices": [
+        "It creates rhythm and makes the point feel complete and memorable.",
+        "It weakens the argument by repeating the same idea.",
+        "It is used only in written, not spoken, English.",
+        "It signals that the speaker is hedging."
+      ],
+      "answer": 0,
+      "explanation": "Tretalet (rule of three) skapar rytm och gör poängen mer minnesvärd och fullständig. Det försvagar inte argumentet, och det används både i tal och skrift."
     }
   ]
 }

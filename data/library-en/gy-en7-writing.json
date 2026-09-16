@@ -124,6 +124,111 @@
       "prompt": "List key conventions for formal essay and report writing in English.",
       "opener": "Checklist for formal written English.",
       "answer": "Avoid contractions: do not, cannot, it is (not don't, can't, it's) · Avoid colloquialisms: \"a lot of\" → \"considerable\"; \"kind of\" → \"somewhat\" · Use signposting language: firstly/moreover/however/on the other hand/in conclusion · Report structure: title page → executive summary → introduction → methodology → findings → recommendations → appendices · Letters: \"Dear Sir/Madam\" + \"Yours faithfully\"; \"Dear Mr/Ms X\" + \"Yours sincerely\" · Avoid first-person address and emotive language in reports — keep an objective, factual tone"
+    },
+    {
+      "id": "q-en7gy-writing-9",
+      "kind": "mc",
+      "topic": "report structure",
+      "prompt": "Which section of a formal report typically comes immediately before the Recommendations section?",
+      "opener": "Which section comes right BEFORE the concrete suggestions in a report?",
+      "choices": [
+        "Findings",
+        "Title page",
+        "Executive summary",
+        "Appendices"
+      ],
+      "answer": 0,
+      "explanation": "Findings are presented before Recommendations, since the suggestions should be based on the results. The title page and executive summary come earlier, and appendices come last."
+    },
+    {
+      "id": "q-en7gy-writing-10",
+      "kind": "mc",
+      "topic": "formal correspondence conventions",
+      "prompt": "Which salutation is correct when writing to \"Dr. Eleanor Hayes\" in a formal letter?",
+      "opener": "When the recipient's name AND title are known, the specific title is used in the salutation.",
+      "choices": [
+        "Dear Dr. Hayes,",
+        "Dear Eleanor,",
+        "Hi Eleanor,",
+        "To whom it may concern,"
+      ],
+      "answer": 0,
+      "explanation": "\"Dear Dr. Hayes\" is correct since the recipient's name and academic title are known. \"Dear Eleanor\"/\"Hi Eleanor\" are too informal, and \"To whom it may concern\" is only used when the recipient is entirely unknown."
+    },
+    {
+      "id": "q-en7gy-writing-11",
+      "kind": "mc",
+      "topic": "avoiding contractions and colloquialisms",
+      "prompt": "Which sentence needs to be revised for formal register?",
+      "opener": "Look for a contraction (\"won't\") that breaks formal register.",
+      "choices": [
+        "We won't be able to finish the report without more data.",
+        "We will not be able to finish the report without more data.",
+        "It is unlikely that the report can be finished without more data.",
+        "The report cannot be completed without additional data."
+      ],
+      "answer": 0,
+      "explanation": "\"We won't be able to...\" contains the contraction \"won't\", which should be avoided in formal text. The other options are either correctly formal or already rewritten without contractions."
+    },
+    {
+      "id": "q-en7gy-writing-12",
+      "kind": "mc",
+      "topic": "signposting language",
+      "prompt": "Which phrase best introduces the final point in a structured argumentative essay?",
+      "opener": "Which phrase clearly signals that this is the LAST point in the argument?",
+      "choices": [
+        "Finally,",
+        "Firstly,",
+        "Moreover,",
+        "For example,"
+      ],
+      "answer": 0,
+      "explanation": "\"Finally\" clearly signals the concluding point. \"Firstly\" opens, \"moreover\" builds on, and \"for example\" gives an example — none of them mark a conclusion."
+    },
+    {
+      "id": "q-en7gy-writing-13",
+      "kind": "mc",
+      "topic": "report structure",
+      "prompt": "What is the primary purpose of the Methodology section in a formal report?",
+      "opener": "Which section explains HOW the investigation was carried out, so it can be scrutinized?",
+      "choices": [
+        "To describe how the investigation was carried out so it could be evaluated or repeated",
+        "To present the writer's personal opinions",
+        "To list every source used in alphabetical order",
+        "To summarize the conclusions"
+      ],
+      "answer": 0,
+      "explanation": "Methodology describes the approach so the reader can assess the investigation's reliability or repeat it. It is not the place for personal opinions, source lists, or conclusions."
+    },
+    {
+      "id": "q-en7gy-writing-14",
+      "kind": "mc",
+      "topic": "formal correspondence conventions",
+      "prompt": "Which closing phrase for a formal email is most appropriate when you know the recipient's name?",
+      "opener": "The rule \"known name → sincerely, unknown name → faithfully\" applies to emails too.",
+      "choices": [
+        "Yours sincerely,",
+        "Yours faithfully,",
+        "Later,",
+        "Take care,"
+      ],
+      "answer": 0,
+      "explanation": "\"Yours sincerely\" is used when the recipient's name is known, unlike \"Yours faithfully\" which pairs with \"Dear Sir/Madam\". \"Later\"/\"Take care\" are too informal for a formal email."
+    },
+    {
+      "id": "q-en7gy-writing-15",
+      "kind": "mc",
+      "topic": "signposting language",
+      "prompt": "Which phrase signals that the writer is about to qualify or limit a previous claim?",
+      "opener": "The phrase \"that said\" signals that the writer is about to qualify or limit something just stated.",
+      "choices": [
+        "That said,",
+        "In addition,",
+        "Similarly,",
+        "For example,"
+      ],
+      "answer": 0,
+      "explanation": "\"That said\" signals a qualification or limitation of a previous claim, similar to \"however\" but slightly softer. \"In addition\", \"similarly\", and \"for example\" instead build on the same line without qualifying it."
     }
   ]
 }

@@ -123,6 +123,111 @@
       "prompt": "List advanced false friends and connotation traps common at Engelska 7 level.",
       "opener": "Words that are especially easy to misuse at an advanced level.",
       "answer": "sympathetic = compassionate (not likeable/nice) · eventually = in the end/sooner or later (not \"possibly\") · skinny vs slim/slender = negative vs neutral/positive connotation, same denotation · stingy vs thrifty = negative vs positive connotation for \"economical\" · take after (resemble) vs take off (lift off/remove) — same verb, different particle, completely different meaning · a bitter pill to swallow = something unpleasant one accepts; suits a formal register, unlike slangy idioms like \"kick the bucket\""
+    },
+    {
+      "id": "q-en7gy-idiom-9",
+      "kind": "mc",
+      "topic": "advanced idioms and register",
+      "prompt": "What does \"to weigh up the pros and cons\" mean, and in what register is it typically used?",
+      "opener": "The idiom describes careful consideration, not literal weighing.",
+      "choices": [
+        "To carefully consider the advantages and disadvantages; suitable for neutral-to-formal contexts",
+        "To physically weigh two objects; used only in scientific writing",
+        "To argue aggressively for one side; used in informal arguments",
+        "To ignore drawbacks entirely; used sarcastically"
+      ],
+      "answer": 0,
+      "explanation": "\"Weigh up the pros and cons\" means to carefully consider advantages and disadvantages, and suits neutral-to-formal contexts. It is not about physical weighing or aggressive argument."
+    },
+    {
+      "id": "q-en7gy-idiom-10",
+      "kind": "mc",
+      "topic": "advanced idioms and register",
+      "prompt": "Which idiom would be inappropriate in a formal academic essay?",
+      "opener": "\"Not rocket science\" is a casual, informal idiom.",
+      "choices": [
+        "It's not rocket science to see the correlation here.",
+        "The evidence strongly supports this conclusion.",
+        "This finding warrants further investigation.",
+        "The data indicate a clear trend."
+      ],
+      "answer": 0,
+      "explanation": "\"It's not rocket science\" is a casual idiom that doesn't fit a formal academic essay, unlike the other, more neutrally phrased options."
+    },
+    {
+      "id": "q-en7gy-idiom-11",
+      "kind": "mc",
+      "topic": "connotation vs denotation",
+      "prompt": "Which word has a more positive connotation than \"stubborn\", despite a similar denotation?",
+      "opener": "The denotation (\"stubborn\") is the same, but the connotation differs sharply.",
+      "choices": [
+        "determined",
+        "pig-headed",
+        "obstinate",
+        "bull-headed"
+      ],
+      "answer": 0,
+      "explanation": "\"Determined\" has a positive tone (focused on a goal), while \"pig-headed\", \"obstinate\", and \"bull-headed\" all carry more negative, critical connotations despite a similar denotation."
+    },
+    {
+      "id": "q-en7gy-idiom-12",
+      "kind": "mc",
+      "topic": "connotation vs denotation",
+      "prompt": "Which word choice conveys curiosity in a more negative light than \"inquisitive\", despite similar denotation?",
+      "opener": "All four words mean roughly \"curious\", but one of them sounds suspicious/negative.",
+      "choices": [
+        "nosy",
+        "curious",
+        "interested",
+        "inquiring"
+      ],
+      "answer": 0,
+      "explanation": "\"Nosy\" has a negative tone (intrusive, prying), while \"curious\", \"interested\", and \"inquiring\" are more neutral or positive expressions of the same basic meaning."
+    },
+    {
+      "id": "q-en7gy-idiom-13",
+      "kind": "mc",
+      "topic": "phrasal verbs with multiple meanings",
+      "prompt": "In \"The company had to let go of 50 employees,\" what does \"let go of\" mean here, and how does this differ from \"I finally let go of my anger\"?",
+      "opener": "\"Let go of\" has different meanings depending on whether the object is a person or an emotion.",
+      "choices": [
+        "Here it means 'to lay off/dismiss'; in the second sentence it means 'to emotionally release/stop holding onto'",
+        "Both sentences mean exactly the same thing: to physically release an object",
+        "Both mean 'to promote someone'",
+        "The phrase only ever means to release a physical object"
+      ],
+      "answer": 0,
+      "explanation": "In the first sentence, \"let go of\" means to lay off/dismiss, while in the second it means to emotionally release something (the anger). Same phrase, completely different meaning depending on context."
+    },
+    {
+      "id": "q-en7gy-idiom-14",
+      "kind": "mc",
+      "topic": "phrasal verbs with multiple meanings",
+      "prompt": "Compare: (a) 'The rumor was made up.' (b) 'She made up with her sister after the argument.' What do these uses of 'make up' have in common?",
+      "opener": "Compare the meaning of \"make up\" in the two sentences — what do they have in common structurally?",
+      "choices": [
+        "The same phrasal verb takes on entirely different meanings ('invented' vs. 'reconciled') depending on context",
+        "Both mean 'to apply cosmetics'",
+        "Both mean 'to create something physically'",
+        "Both are used only in negative contexts"
+      ],
+      "answer": 0,
+      "explanation": "The same phrasal verb (\"make up\") takes on completely different meanings depending on context: \"invented\" versus \"reconciled\" — a typical trait of phrasal verbs."
+    },
+    {
+      "id": "q-en7gy-idiom-15",
+      "kind": "mc",
+      "topic": "advanced false friends",
+      "prompt": "Correct the false-friend error: \"The politician's speech was very actual and addressed current problems directly.\"",
+      "opener": "\"Actual\" is a classic false friend — it doesn't mean \"aktuell\" in Swedish.",
+      "choices": [
+        "The politician's speech was very relevant/topical and addressed current problems directly.",
+        "The politician's speech was very actual, addressing hypothetical problems.",
+        "The politician's speech was very eventual and addressed current problems directly.",
+        "No correction needed; the sentence is correct as written."
+      ],
+      "answer": 0,
+      "explanation": "In English, \"actual\" means real/genuine, not \"aktuell\" in the sense of relevant/current. The correct word here is \"relevant\" or \"topical\", giving \"very relevant/topical and addressed current problems directly\"."
     }
   ]
 }

@@ -122,6 +122,111 @@
       "prompt": "Summarise the key differences between must, have to, should, ought to, and the modal perfect forms (must have / might have / can't have).",
       "opener": "A quick overview of the most nuanced modal verbs.",
       "answer": "must = strong obligation (the speaker's own rule) or a strong deduction · have to = obligation imposed from outside (law, rule, circumstance) · should/ought to = recommendation, not requirement; \"ought to\" is slightly more formal · must have + past participle = confident conclusion about the past · might/could have = possible conclusion · can't have = ruled-out conclusion (the opposite of must have) · should have = an expectation that was not met, often with regret"
+    },
+    {
+      "id": "q-en7gy-grammar-9",
+      "kind": "mc",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Choose the modal that best fits: 'She ___ be at work now — I just saw her car in the driveway.'",
+      "opener": "The evidence (the car is in the driveway) rules out a possibility — which modal verb expresses that?",
+      "choices": [
+        "can't",
+        "must",
+        "should",
+        "has to"
+      ],
+      "answer": 0,
+      "explanation": "\"Can't\" expresses a ruled-out conclusion based on evidence, the opposite of \"must\". The other options express obligation or a positive conclusion, which doesn't fit the evidence."
+    },
+    {
+      "id": "q-en7gy-grammar-10",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Which sentence uses the subjunctive correctly after a suggestion verb?",
+      "opener": "\"Suggest that\" belongs to the same family of verbs requiring the subjunctive as \"recommend that\".",
+      "choices": [
+        "I suggest that she see a specialist as soon as possible.",
+        "I suggest that she sees a specialist as soon as possible.",
+        "I suggest that she will see a specialist as soon as possible.",
+        "I suggest that she saw a specialist as soon as possible."
+      ],
+      "answer": 0,
+      "explanation": "Verbs like \"suggest\", \"recommend\", \"insist\", and \"demand\" are followed by the subjunctive form (base form) in the that-clause: \"that she see\", not \"sees\"/\"will see\"/\"saw\"."
+    },
+    {
+      "id": "q-en7gy-grammar-11",
+      "kind": "mc",
+      "topic": "future perfect and future continuous",
+      "prompt": "Choose the correct form: 'Don't call at 8pm — I ___ dinner then.'",
+      "opener": "An action in progress AT a specific future point in time.",
+      "choices": [
+        "will be having",
+        "will have had",
+        "have",
+        "will having"
+      ],
+      "answer": 0,
+      "explanation": "The future continuous (\"will be having\") describes an action in progress at 8pm that evening. \"Will have had\" (future perfect) would have meant dinner was already finished."
+    },
+    {
+      "id": "q-en7gy-grammar-12",
+      "kind": "mc",
+      "topic": "future perfect and future continuous",
+      "prompt": "Choose the correct form: 'By next June, she ___ at the company for exactly five years.'",
+      "opener": "An action that is completed/has reached a certain duration BY a future point in time.",
+      "choices": [
+        "will have worked",
+        "will work",
+        "will be working",
+        "works"
+      ],
+      "answer": 0,
+      "explanation": "The future perfect (\"will have worked\") is used to express that something will have been achieved or completed by a specific future point in time — here that the five-year mark is reached in June."
+    },
+    {
+      "id": "q-en7gy-grammar-13",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Choose the correctly formed sentence using the mandative subjunctive.",
+      "opener": "After \"recommended that\", the same subjunctive form (base form) is used as after \"essential that\".",
+      "choices": [
+        "The committee recommended that the policy be reviewed annually.",
+        "The committee recommended that the policy is reviewed annually.",
+        "The committee recommended that the policy was reviewed annually.",
+        "The committee recommended that the policy will be reviewed annually."
+      ],
+      "answer": 0,
+      "explanation": "The verb after \"recommended that\" takes the bare-infinitive form (subjunctive): \"be reviewed\", regardless of subject or tense in the main clause. The other forms (\"is\", \"was\", \"will be\") are all incorrect in this construction."
+    },
+    {
+      "id": "q-en7gy-grammar-14",
+      "kind": "mc",
+      "topic": "modal verbs of deduction and obligation",
+      "prompt": "Which sentence best expresses a strong prohibition rather than mere advice?",
+      "opener": "\"Must not\" is stronger and more absolute than \"shouldn't\".",
+      "choices": [
+        "You must not disclose confidential information to third parties.",
+        "You shouldn't share confidential information carelessly.",
+        "You might not want to share that.",
+        "It's probably best not to mention it."
+      ],
+      "answer": 0,
+      "explanation": "\"Must not\" expresses a strict prohibition, often with legal or regulatory weight, while the other options merely give advice or soft recommendations."
+    },
+    {
+      "id": "q-en7gy-grammar-15",
+      "kind": "mc",
+      "topic": "future perfect and future continuous",
+      "prompt": "'At 3pm tomorrow, the technicians ___ the server for two hours already.' Choose the correct form.",
+      "opener": "The emphasis is on HOW LONG the action has already been going on at the future point in time.",
+      "choices": [
+        "will have been repairing",
+        "will be repairing",
+        "will repair",
+        "repair"
+      ],
+      "answer": 0,
+      "explanation": "The future perfect continuous (\"will have been repairing\") emphasizes the duration of an action that has already continued up to a specific future point in time (3pm, for two hours). \"Will be repairing\" (future continuous) would only describe an ongoing action without specifying duration."
     }
   ]
 }
