@@ -122,6 +122,109 @@
       "prompt": "Summarise the basic concepts of current, voltage, resistance, Ohm's law, series/parallel circuits and electromagnetism.",
       "opener": "Go through one quantity at a time and link them with Ohm's law before turning the card over.",
       "answer": "Current (I), measured in amperes (A): the amount of charge flowing per second · Voltage (U), measured in volts (V): the \"driving force\" that makes the current flow · Resistance (R), measured in ohms (Ω): the opposition that slows down the current · Ohm's law: U = R · I, the relationship between voltage, resistance and current · Series circuit: the components sit one after another in a single current path — if one component breaks, the whole circuit is interrupted · Parallel circuit: the components each have their own current path — a broken component doesn't affect the others, used in household wiring · Magnetism: magnets have a north pole and a south pole, like poles repel each other and unlike poles attract · Electromagnetism: an electric current always creates a magnetic field, which is used in electromagnets, motors and generators."
+    },
+    {
+      "id": "q-fys-el-9",
+      "kind": "mc",
+      "topic": "current, voltage and resistance",
+      "prompt": "A circuit has a current of 2 A and a resistance of 6 Ω. What is the voltage, according to Ohm's law (U = R · I)?",
+      "opener": "Plug the resistance and current straight into the formula.",
+      "choices": [
+        "12 V",
+        "3 V",
+        "8 V",
+        "0.33 V"
+      ],
+      "answer": 0,
+      "explanation": "U = R · I = 6 Ω · 2 A = 12 V."
+    },
+    {
+      "id": "q-fys-el-10",
+      "kind": "mc",
+      "topic": "current, voltage and resistance",
+      "prompt": "A lamp has a voltage of 6 V and a current of 0.5 A through it. What is the lamp's resistance?",
+      "opener": "Rearrange Ohm's law: R = U / I.",
+      "choices": [
+        "12 Ω",
+        "3 Ω",
+        "6.5 Ω",
+        "0.083 Ω"
+      ],
+      "answer": 0,
+      "explanation": "R = U / I = 6 V / 0.5 A = 12 Ω."
+    },
+    {
+      "id": "q-fys-el-11",
+      "kind": "mc",
+      "topic": "series and parallel circuits",
+      "prompt": "What happens to the total resistance if you connect several components in series?",
+      "opener": "The current has to pass through all the components one after another along a single path.",
+      "choices": [
+        "The total resistance increases, since the current has to pass through all the components one after another",
+        "The total resistance always decreases",
+        "The resistance is not affected at all by how the components are connected",
+        "The resistance always becomes zero"
+      ],
+      "answer": 0,
+      "explanation": "In a series circuit, the resistances add up: R_total = R1 + R2 + ..., so more components in series gives a higher total resistance."
+    },
+    {
+      "id": "q-fys-el-12",
+      "kind": "mc",
+      "topic": "magnets and electromagnetism",
+      "prompt": "What happens if you bring the north poles of two magnets together?",
+      "opener": "Like poles or unlike poles — which does the rule apply to?",
+      "choices": [
+        "They repel each other",
+        "They attract each other strongly",
+        "Nothing happens at all",
+        "They both become south poles"
+      ],
+      "answer": 0,
+      "explanation": "Like magnetic poles (north-north or south-south) repel each other, while unlike poles (north-south) attract each other."
+    },
+    {
+      "id": "q-fys-el-13",
+      "kind": "mc",
+      "topic": "current, voltage and resistance",
+      "prompt": "Which quantity is measured in the unit volt (V)?",
+      "opener": "Volt is the unit for the \"driving force\" that makes the current flow.",
+      "choices": [
+        "Voltage",
+        "Current",
+        "Resistance",
+        "Power"
+      ],
+      "answer": 0,
+      "explanation": "Volt (V) is the unit for voltage. Current is measured in amperes (A) and resistance in ohms (Ω)."
+    },
+    {
+      "id": "q-fys-el-14",
+      "kind": "worked",
+      "topic": "series and parallel circuits",
+      "prompt": "Two resistors, 4 Ω and 6 Ω, are connected in series to a voltage of 20 V. Calculate the total resistance and the current through the circuit.",
+      "opener": "In a series circuit, the resistances add up before you apply Ohm's law.",
+      "answer": "Total resistance 10 Ω, current 2 A",
+      "steps": [
+        "In a series circuit, the resistances add up: R_total = 4 Ω + 6 Ω = 10 Ω.",
+        "Use Ohm's law to find the current: I = U / R_total.",
+        "Substitute the values: I = 20 V / 10 Ω = 2 A."
+      ]
+    },
+    {
+      "id": "q-fys-el-15",
+      "kind": "mc",
+      "topic": "magnets and electromagnetism",
+      "prompt": "What is a device called that converts kinetic energy into electrical energy using magnetism, for example in a wind turbine?",
+      "opener": "It's the opposite of an electric motor, which converts electricity into motion.",
+      "choices": [
+        "Generator",
+        "Electromagnet",
+        "Transformer",
+        "Motor"
+      ],
+      "answer": 0,
+      "explanation": "A generator converts kinetic energy into electrical energy as a coil and a magnet move relative to each other. An electric motor instead does the reverse — converts electricity into motion."
     }
   ]
 }

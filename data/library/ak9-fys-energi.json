@@ -123,6 +123,109 @@
       "prompt": "Sammanfatta de vanligaste energiformerna, energiprincipen och skillnaden mellan förnybara och icke-förnybara energikällor.",
       "opener": "Räkna upp energiformerna en efter en innan du vänder på kortet.",
       "answer": "Rörelseenergi: energi hos något som rör sig, beror på massa och hastighet · Lägesenergi: energi som beror på höjd i tyngdkraftsfältet · Värmeenergi: energi kopplad till temperatur och partiklars rörelse · Kemisk energi: lagrad i ämnens bindningar, t.ex. i mat, bränsle och batterier · Strålningsenergi: energi som transporteras som ljus eller annan elektromagnetisk strålning · Elektrisk energi: energi hos elektrisk ström · Energiprincipen: energi kan varken skapas eller förstöras, bara omvandlas mellan former · Förnybara energikällor (sol, vind, vatten, biobränsle) förnyas naturligt och tar inte slut · Icke-förnybara energikällor (kol, olja, naturgas, uran) finns i begränsad mängd och tar mycket lång tid att nybildas · Verkningsgrad = nyttig energi ut / tillförd energi, anger hur effektivt en omvandling är."
+    },
+    {
+      "id": "q-fys-ene-9",
+      "kind": "mc",
+      "topic": "energiformer",
+      "prompt": "Vilken energiform har ett hopdraget gummiband eller en spänd fjäder?",
+      "opener": "Tänk på vad som händer när du släpper greppet — bandet vill tillbaka till sin ursprungsform.",
+      "choices": [
+        "Elastisk energi (spännenergi)",
+        "Kemisk energi",
+        "Rörelseenergi",
+        "Strålningsenergi"
+      ],
+      "answer": 0,
+      "explanation": "Ett spänt gummiband eller en tänjd fjäder lagrar elastisk energi (spännenergi), en typ av lägesenergi som frigörs när materialet får återgå till sin ursprungsform."
+    },
+    {
+      "id": "q-fys-ene-10",
+      "kind": "mc",
+      "topic": "energiformer",
+      "prompt": "En pendel svänger fram och tillbaka. Vid den högsta punkten i sin bana är farten noll. Vilken energiform har pendeln mest av just då?",
+      "opener": "Om farten är noll, hur mycket rörelseenergi har pendeln då?",
+      "choices": [
+        "Lägesenergi",
+        "Rörelseenergi",
+        "Värmeenergi",
+        "Kemisk energi"
+      ],
+      "answer": 0,
+      "explanation": "Vid högsta punkten är farten noll, så rörelseenergin är också noll där — all energi finns i stället som lägesenergi, eftersom pendeln befinner sig på sin högsta höjd."
+    },
+    {
+      "id": "q-fys-ene-11",
+      "kind": "mc",
+      "topic": "energiprincipen",
+      "prompt": "En bil bromsar in och stannar helt. Vart tar rörelseenergin vägen?",
+      "opener": "Energi försvinner aldrig — den byter bara form. Vad känns varmt på en bil efter en inbromsning?",
+      "choices": [
+        "Den omvandlas till värmeenergi (och lite ljud) i bromsarna och däcken",
+        "Den försvinner helt och hållet",
+        "Den omvandlas till lägesenergi",
+        "Den blir till massa"
+      ],
+      "answer": 0,
+      "explanation": "Bromsarna omvandlar rörelseenergin till värmeenergi genom friktion — det är därför bromsskivor blir heta efter en kraftig inbromsning. Energin försvinner aldrig, den byter bara form."
+    },
+    {
+      "id": "q-fys-ene-12",
+      "kind": "mc",
+      "topic": "energikällor",
+      "prompt": "Vilket av följande är en icke-förnybar energikälla?",
+      "opener": "Tänk på hur lång tid det tar för källan att bildas på nytt.",
+      "choices": [
+        "Naturgas",
+        "Vattenkraft",
+        "Solenergi",
+        "Vindkraft"
+      ],
+      "answer": 0,
+      "explanation": "Naturgas är ett fossilt bränsle som bildats under miljontals år och därför räknas som icke-förnybart. Vattenkraft, solenergi och vindkraft förnyas kontinuerligt genom naturens kretslopp."
+    },
+    {
+      "id": "q-fys-ene-13",
+      "kind": "mc",
+      "topic": "verkningsgrad",
+      "prompt": "En elmotor tar emot 200 J elektrisk energi och avger 150 J som rörelseenergi, resten blir värme. Vad är motorns verkningsgrad?",
+      "opener": "Verkningsgrad = nyttig energi ut delat med tillförd energi.",
+      "choices": [
+        "75 %",
+        "50 %",
+        "25 %",
+        "133 %"
+      ],
+      "answer": 0,
+      "explanation": "Verkningsgrad = 150 J / 200 J = 0,75 = 75 %. De återstående 25 % (50 J) blir värme som går förlorad."
+    },
+    {
+      "id": "q-fys-ene-14",
+      "kind": "worked",
+      "topic": "energiformer",
+      "prompt": "En sten med massan 2 kg lyfts upp till höjden 5 m. Ungefär hur stor är stenens lägesenergi? (Formel: E = m · g · h, där g ≈ 10 N/kg)",
+      "opener": "Sätt in massa, tyngdacceleration och höjd i formeln och räkna steg för steg.",
+      "answer": "100 J",
+      "steps": [
+        "Formeln för lägesenergi är E = m · g · h.",
+        "Multiplicera massan med g: 2 kg · 10 N/kg = 20 N.",
+        "Multiplicera med höjden: 20 N · 5 m = 100 J."
+      ]
+    },
+    {
+      "id": "q-fys-ene-15",
+      "kind": "mc",
+      "topic": "energikällor",
+      "prompt": "Varför räknas biobränsle (t.ex. ved eller biogas) som en förnybar energikälla trots att det brinner upp?",
+      "opener": "Vad är skillnaden mot fossila bränslen, som tar miljontals år att bildas?",
+      "choices": [
+        "Nya växter kan odlas och växa upp inom rimlig tid för att ersätta det som förbrukats",
+        "Biobränsle tar aldrig slut oavsett hur mycket som används",
+        "Biobränsle är egentligen ett fossilt bränsle",
+        "Biobränsle producerar ingen koldioxid alls"
+      ],
+      "answer": 0,
+      "explanation": "Biobränsle räknas som förnybart eftersom nya växter kan odlas och växa upp på relativt kort tid (år till decennier) för att ersätta det som förbränts — till skillnad från fossila bränslen som tar miljontals år att nybildas."
     }
   ]
 }
