@@ -113,6 +113,111 @@
       "prompt": "How does the accusative work in German, and which articles/pronouns change?",
       "opener": "Only masculine changes — everything else is like the nominative.",
       "answer": "The accusative is used for the direct object (the one \"receiving\" the action). Definite article: der → den (masculine, the ONLY one that changes), die/das/die unchanged. Indefinite article: ein → einen (masculine), eine/ein unchanged. Personal pronouns: ich→mich, du→dich, er→ihn, sie→sie, es→es, wir→uns, ihr→euch, sie→sie. Examples: \"Ich sehe den Hund\" (I see the dog), \"Ich liebe dich\" (I love you)."
+    },
+    {
+      "id": "q-de8-akk-9",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Choose the right form: \"Ich trinke ___ Kaffee.\" (der Kaffee, direct object)",
+      "opener": "\"Kaffee\" is masculine and is the object of the sentence.",
+      "choices": [
+        "den",
+        "der",
+        "dem",
+        "des"
+      ],
+      "answer": 0,
+      "explanation": "\"Kaffee\" is masculine and is the object (what you're drinking), so the article becomes \"den\" in the accusative."
+    },
+    {
+      "id": "q-de8-akk-10",
+      "kind": "mc",
+      "topic": "accusative pronouns",
+      "prompt": "Choose the right pronoun: \"Er besucht ___ jedes Wochenende.\" (He visits us every weekend.)",
+      "opener": "\"Wir\" (we) becomes a different word in the accusative.",
+      "choices": [
+        "uns",
+        "wir",
+        "euch",
+        "sie"
+      ],
+      "answer": 0,
+      "explanation": "\"Wir\" (we, nominative) becomes \"uns\" in the accusative: \"Er besucht uns\" (he visits us)."
+    },
+    {
+      "id": "q-de8-akk-11",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "What form does \"eine\" (feminine) take in the accusative?",
+      "opener": "Feminine is one of the genders that does NOT change in the accusative.",
+      "choices": [
+        "Eine (unchanged)",
+        "Einen",
+        "Einer",
+        "Einem"
+      ],
+      "answer": 0,
+      "explanation": "Feminine doesn't change in the accusative: \"eine\" is the same in the nominative and accusative."
+    },
+    {
+      "id": "q-de8-akk-12",
+      "kind": "mc",
+      "topic": "accusative pronouns",
+      "prompt": "Choose the right pronoun: \"Ich liebe ___.\" (I love you.)",
+      "opener": "\"Du\" (you) becomes a different word in the accusative.",
+      "choices": [
+        "dich",
+        "du",
+        "dir",
+        "dein"
+      ],
+      "answer": 0,
+      "explanation": "\"Du\" (you, nominative) becomes \"dich\" in the accusative: \"Ich liebe dich\" (I love you)."
+    },
+    {
+      "id": "q-de8-akk-13",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Choose the right indefinite article: \"Sie kauft ___ Tisch.\" (der Tisch, direct object)",
+      "opener": "\"Ein\" changes to \"einen\" for masculine in the accusative.",
+      "choices": [
+        "einen",
+        "ein",
+        "eine",
+        "einem"
+      ],
+      "answer": 0,
+      "explanation": "\"Tisch\" is masculine and is the object, so \"ein\" becomes \"einen\" in the accusative."
+    },
+    {
+      "id": "q-de8-akk-14",
+      "kind": "mc",
+      "topic": "accusative pronouns",
+      "prompt": "Choose the right pronoun: \"Kennst du ___?\" (Do you know him?)",
+      "opener": "\"Er\" (he) becomes a different word in the accusative.",
+      "choices": [
+        "ihn",
+        "er",
+        "ihm",
+        "sein"
+      ],
+      "answer": 0,
+      "explanation": "\"Er\" (he, nominative) becomes \"ihn\" in the accusative: \"Kennst du ihn?\" (do you know him?)."
+    },
+    {
+      "id": "q-de8-akk-15",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Which sentence is grammatically correct?",
+      "opener": "Only masculine changes in the accusative, from \"der\" to \"den\".",
+      "choices": [
+        "Ich sehe den Mann.",
+        "Ich sehe der Mann.",
+        "Ich sehe dem Mann.",
+        "Ich sehe des Mann."
+      ],
+      "answer": 0,
+      "explanation": "\"Mann\" is masculine and is the object of the sentence, so the article should be \"den\": \"Ich sehe den Mann.\"."
     }
   ]
 }

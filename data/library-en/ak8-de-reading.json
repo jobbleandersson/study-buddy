@@ -112,6 +112,111 @@
       "prompt": "Which phrases are good to recognize in a German text message about plans?",
       "opener": "Everyday phrases for suggesting, agreeing, and setting a time.",
       "answer": "Suggesting: Willst du mitkommen? = Do you want to come along? · ich gehe... = I'm going... Agreeing: Klar, gerne! = Sure, gladly! · Ich liebe... = I love... Setting a time: Um wie viel Uhr treffen wir uns? = What time should we meet? · beginnt um... = starts at... Feelings: ich mag = I like · ich liebe = I love (stronger) · ich mag ... nicht = I don't like."
+    },
+    {
+      "id": "q-de8-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the message: \"Liebe Anna, am Sonntag feiere ich meinen Geburtstag. Die Party beginnt um vier Uhr bei mir zu Hause. Kannst du kommen? Bring gern deine Schwester mit!\"\n\nWhat is the person celebrating on Sunday?",
+      "opener": "Look for \"ich feiere meinen...\".",
+      "choices": [
+        "Their birthday",
+        "A graduation",
+        "A wedding",
+        "Christmas"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich feiere meinen Geburtstag\" means \"I'm celebrating my birthday\"."
+    },
+    {
+      "id": "q-de8-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same message. What time does the party start?",
+      "opener": "\"Um vier Uhr\" — look for the time.",
+      "choices": [
+        "Four o'clock",
+        "Five o'clock",
+        "Three o'clock",
+        "Six o'clock"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Party beginnt um vier Uhr\" means \"the party starts at four o'clock\"."
+    },
+    {
+      "id": "q-de8-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same message. Who is Anna welcome to bring along?",
+      "opener": "Look for the last sentence: \"Bring gern deine...\".",
+      "choices": [
+        "Her sister",
+        "Her brother",
+        "Her mom",
+        "Her best friend"
+      ],
+      "answer": 0,
+      "explanation": "\"Bring gern deine Schwester mit!\" means \"feel free to bring your sister along!\"."
+    },
+    {
+      "id": "q-de8-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Anna's reply: \"Hallo! Danke für die Einladung. Ich komme gern, aber meine Schwester kann leider nicht kommen — sie ist krank. Was soll ich mitbringen?\"\n\nCan Anna's sister come to the party?",
+      "opener": "Look for the sentence about the sister.",
+      "choices": [
+        "No, she's sick",
+        "Yes, she'd love to",
+        "No, she's traveling",
+        "Yes, but late"
+      ],
+      "answer": 0,
+      "explanation": "\"Meine Schwester kann leider nicht kommen — sie ist krank\" means \"my sister unfortunately can't come — she's sick\"."
+    },
+    {
+      "id": "q-de8-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same reply. What does Anna ask in the last sentence?",
+      "opener": "\"Was soll ich mitbringen?\" — look for the question word \"was\".",
+      "choices": [
+        "What she should bring",
+        "Where the party is",
+        "What time the party ends",
+        "Who else is coming"
+      ],
+      "answer": 0,
+      "explanation": "\"Was soll ich mitbringen?\" means \"what should I bring?\"."
+    },
+    {
+      "id": "q-de8-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same reply. What does Anna thank for?",
+      "opener": "Look for \"Danke für die...\".",
+      "choices": [
+        "The invitation",
+        "The gift",
+        "The food",
+        "The help"
+      ],
+      "answer": 0,
+      "explanation": "\"Danke für die Einladung\" means \"thanks for the invitation\"."
+    },
+    {
+      "id": "q-de8-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same reply. Is Anna coming to the party?",
+      "opener": "Look for \"Ich komme gern\".",
+      "choices": [
+        "Yes, she'd love to",
+        "No, she can't",
+        "She's unsure",
+        "She asks for a different day"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich komme gern\" means \"I'd love to come\"."
     }
   ]
 }

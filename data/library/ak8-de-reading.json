@@ -112,6 +112,111 @@
       "prompt": "Vilka fraser är bra att känna igen i ett tyskt textmeddelande om planer?",
       "opener": "Vardagsfraser för att föreslå, tacka ja och bestämma tid.",
       "answer": "Föreslå: Willst du mitkommen? = Vill du följa med? · ich gehe... = jag går... Tacka ja: Klar, gerne! = Absolut/gärna! · Ich liebe... = Jag älskar... Bestämma tid: Um wie viel Uhr treffen wir uns? = Vilken tid ska vi träffas? · beginnt um... = börjar klockan... Känslor: ich mag = jag gillar · ich liebe = jag älskar (starkare) · ich mag ... nicht = jag gillar inte."
+    },
+    {
+      "id": "q-de8-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs meddelandet: \"Liebe Anna, am Sonntag feiere ich meinen Geburtstag. Die Party beginnt um vier Uhr bei mir zu Hause. Kannst du kommen? Bring gern deine Schwester mit!\"\n\nVad firar personen på söndag?",
+      "opener": "Leta efter \"ich feiere meinen...\".",
+      "choices": [
+        "Sin födelsedag",
+        "En examen",
+        "Ett bröllop",
+        "Jul"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich feiere meinen Geburtstag\" betyder \"jag firar min födelsedag\"."
+    },
+    {
+      "id": "q-de8-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma meddelande. Hur dags börjar festen?",
+      "opener": "\"Um vier Uhr\" — leta efter klockslaget.",
+      "choices": [
+        "Klockan fyra",
+        "Klockan fem",
+        "Klockan tre",
+        "Klockan sex"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Party beginnt um vier Uhr\" betyder \"festen börjar klockan fyra\"."
+    },
+    {
+      "id": "q-de8-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma meddelande. Vem är Anna välkommen att ta med sig?",
+      "opener": "Leta efter sista meningen: \"Bring gern deine...\".",
+      "choices": [
+        "Sin syster",
+        "Sin bror",
+        "Sin mamma",
+        "Sin bästa vän"
+      ],
+      "answer": 0,
+      "explanation": "\"Bring gern deine Schwester mit!\" betyder \"ta gärna med din syster!\"."
+    },
+    {
+      "id": "q-de8-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Annas svar: \"Hallo! Danke für die Einladung. Ich komme gern, aber meine Schwester kann leider nicht kommen — sie ist krank. Was soll ich mitbringen?\"\n\nKan Annas syster komma på festen?",
+      "opener": "Leta efter meningen om systern.",
+      "choices": [
+        "Nej, hon är sjuk",
+        "Ja, hon kommer gärna",
+        "Nej, hon är bortrest",
+        "Ja, men sent"
+      ],
+      "answer": 0,
+      "explanation": "\"Meine Schwester kann leider nicht kommen — sie ist krank\" betyder \"min syster kan tyvärr inte komma — hon är sjuk\"."
+    },
+    {
+      "id": "q-de8-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma svar. Vad frågar Anna i sista meningen?",
+      "opener": "\"Was soll ich mitbringen?\" — leta efter frågeordet \"was\".",
+      "choices": [
+        "Vad hon ska ta med sig",
+        "Vart festen är",
+        "Vilken tid festen slutar",
+        "Vem mer som kommer"
+      ],
+      "answer": 0,
+      "explanation": "\"Was soll ich mitbringen?\" betyder \"vad ska jag ta med mig?\"."
+    },
+    {
+      "id": "q-de8-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma svar. Vad tackar Anna för?",
+      "opener": "Leta efter \"Danke für die...\".",
+      "choices": [
+        "Inbjudan",
+        "Presenten",
+        "Maten",
+        "Hjälpen"
+      ],
+      "answer": 0,
+      "explanation": "\"Danke für die Einladung\" betyder \"tack för inbjudan\"."
+    },
+    {
+      "id": "q-de8-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma svar. Kommer Anna till festen?",
+      "opener": "Leta efter \"Ich komme gern\".",
+      "choices": [
+        "Ja, hon kommer gärna",
+        "Nej, hon kan inte",
+        "Hon är osäker",
+        "Hon frågar om en annan dag"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich komme gern\" betyder \"jag kommer gärna\"."
     }
   ]
 }

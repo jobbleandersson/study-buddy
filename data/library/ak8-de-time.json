@@ -114,6 +114,111 @@
       "prompt": "Hur frågar och svarar man om klockan, veckodagar och månader på tyska?",
       "opener": "Fasta fraser för tid, dagar och månader — och kom ihåg hur \"halb\" fungerar.",
       "answer": "Klockan: Wie viel Uhr ist es?/Wie spät ist es? = Vad är klockan? · Es ist ... Uhr = Klockan är ... · Viertel nach/vor = kvart över/i · halb + NÄSTA timme = halv (halb drei = 14:30, precis som på svenska). Veckodagar: Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag. Månader: Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember."
+    },
+    {
+      "id": "q-de8-time-9",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"Es ist Viertel vor acht\"?",
+      "opener": "\"Vor\" betyder \"före\".",
+      "choices": [
+        "Klockan är kvart i åtta (07:45)",
+        "Klockan är kvart över åtta (08:15)",
+        "Klockan är halv åtta (07:30)",
+        "Klockan är åtta (08:00)"
+      ],
+      "answer": 0,
+      "explanation": "\"Viertel vor acht\" betyder \"kvart i åtta\" (07:45)."
+    },
+    {
+      "id": "q-de8-time-10",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Vilken veckodag är \"Freitag\"?",
+      "opener": "Den sista vardagen innan helgen.",
+      "choices": [
+        "Fredag",
+        "Torsdag",
+        "Lördag",
+        "Söndag"
+      ],
+      "answer": 0,
+      "explanation": "\"Freitag\" är fredag."
+    },
+    {
+      "id": "q-de8-time-11",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Vilken månad kommer efter \"Juni\"?",
+      "opener": "Månadsnamnen på tyska följer samma ordning som på svenska.",
+      "choices": [
+        "Juli",
+        "Mai",
+        "August",
+        "September"
+      ],
+      "answer": 0,
+      "explanation": "\"Juli\" kommer direkt efter \"Juni\", precis som på svenska."
+    },
+    {
+      "id": "q-de8-time-12",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"Es ist zehn vor sechs\"?",
+      "opener": "\"Zehn vor\" betyder \"tio i\".",
+      "choices": [
+        "Klockan är tio i sex (05:50)",
+        "Klockan är tio över sex (06:10)",
+        "Klockan är sex (06:00)",
+        "Klockan är halv sex (05:30)"
+      ],
+      "answer": 0,
+      "explanation": "\"Zehn vor sechs\" betyder \"tio minuter innan sex\", alltså 05:50."
+    },
+    {
+      "id": "q-de8-time-13",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Vilken dag kommer direkt före \"Sonntag\"?",
+      "opener": "Den sista dagen i veckan innan söndag.",
+      "choices": [
+        "Samstag",
+        "Freitag",
+        "Montag",
+        "Mittwoch"
+      ],
+      "answer": 0,
+      "explanation": "\"Samstag\" (lördag) kommer direkt före \"Sonntag\" (söndag)."
+    },
+    {
+      "id": "q-de8-time-14",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Vilken månad firas jul (\"Weihnachten\") i tyskspråkiga länder?",
+      "opener": "Samma månad som i Sverige.",
+      "choices": [
+        "Dezember",
+        "November",
+        "Januar",
+        "Oktober"
+      ],
+      "answer": 0,
+      "explanation": "Jul firas i \"Dezember\" (december), precis som i Sverige."
+    },
+    {
+      "id": "q-de8-time-15",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"Es ist Mitternacht\"?",
+      "opener": "\"Mitte\" betyder mitten, och \"Nacht\" betyder natt.",
+      "choices": [
+        "Klockan är midnatt (00:00)",
+        "Klockan är middagstid (12:00)",
+        "Det är gryning",
+        "Det är skymning"
+      ],
+      "answer": 0,
+      "explanation": "\"Mitternacht\" betyder midnatt (00:00), \"mitten av natten\"."
     }
   ]
 }

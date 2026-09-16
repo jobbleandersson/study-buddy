@@ -114,6 +114,111 @@
       "prompt": "Which food, drink, and meal words, and mögen conjugations, should you know at grade 8 level?",
       "opener": "Food, meals, and how to express what you like.",
       "answer": "Food: das Brot = bread · der Reis = rice · das Fleisch = meat · der Fisch = fish · das Gemüse = vegetables · das Obst = fruit · das Wasser = water · die Milch = milk. Meals: das Frühstück = breakfast · das Mittagessen = lunch · das Abendessen = dinner. Mögen: ich mag, du magst, er/sie/es mag, wir mögen, ihr mögt, sie mögen. Ordering politely: Ich hätte gern... = I would like... · ..., bitte = ..., please."
+    },
+    {
+      "id": "q-de8-food-9",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"die Suppe\" mean?",
+      "opener": "A liquid dish you eat with a spoon.",
+      "choices": [
+        "Soup",
+        "Salad",
+        "Dessert",
+        "Sauce"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Suppe\" means soup."
+    },
+    {
+      "id": "q-de8-food-10",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Which meal is \"das Mittagessen\"?",
+      "opener": "\"Mittag\" means midday/noon.",
+      "choices": [
+        "Lunch",
+        "Breakfast",
+        "Dinner",
+        "Snack"
+      ],
+      "answer": 0,
+      "explanation": "\"Das Mittagessen\" is lunch (literally \"midday-eating\", i.e. the meal at midday)."
+    },
+    {
+      "id": "q-de8-food-11",
+      "kind": "mc",
+      "topic": "mögen",
+      "prompt": "Choose the right form: \"Wir ___ Pizza.\" (mögen = to like)",
+      "opener": "The \"wir\" form of mögen is the same as the base form.",
+      "choices": [
+        "mögen",
+        "magst",
+        "mag",
+        "mögt"
+      ],
+      "answer": 0,
+      "explanation": "\"Wir\" takes \"mögen\" — the same form as the infinitive."
+    },
+    {
+      "id": "q-de8-food-12",
+      "kind": "mc",
+      "topic": "mögen",
+      "prompt": "Choose the right form: \"Ihr ___ keinen Fisch.\" (You (plural) don't like fish.)",
+      "opener": "The \"ihr\" form of mögen ends in -t.",
+      "choices": [
+        "mögt",
+        "mag",
+        "magst",
+        "mögen"
+      ],
+      "answer": 0,
+      "explanation": "\"Mögen\" is conjugated: ich mag, du magst, er/sie/es mag, wir mögen, ihr mögt, sie mögen. \"Ihr\" takes \"mögt\"."
+    },
+    {
+      "id": "q-de8-food-13",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"der Kuchen\" mean?",
+      "opener": "Something tasty you often eat with coffee.",
+      "choices": [
+        "Cake",
+        "Ice cream",
+        "Candy",
+        "Bread"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Kuchen\" means cake."
+    },
+    {
+      "id": "q-de8-food-14",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"Ich hätte gern die Rechnung, bitte\" mean?",
+      "opener": "Something you say at the end of a restaurant meal.",
+      "choices": [
+        "I would like the bill, please",
+        "I would like to order more",
+        "Where is the bathroom?",
+        "Can I get a menu?"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Rechnung\" means the bill/check, so \"Ich hätte gern die Rechnung, bitte\" means \"I would like the bill, please\"."
+    },
+    {
+      "id": "q-de8-food-15",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "What does \"Was isst du zum Frühstück?\" mean?",
+      "opener": "\"Zum Frühstück\" means \"for breakfast\".",
+      "choices": [
+        "What do you eat for breakfast?",
+        "What do you eat for lunch?",
+        "What do you cook for dinner?",
+        "What do you drink in the morning?"
+      ],
+      "answer": 0,
+      "explanation": "\"Was isst du zum Frühstück?\" means \"what do you eat for breakfast?\"."
     }
   ]
 }

@@ -113,6 +113,111 @@
       "prompt": "Hur böjs können, müssen och wollen, och vad är starka verb med vokalbyte?",
       "opener": "Tre viktiga modalverb plus mönstret för starka verb.",
       "answer": "Können (kunna): kann, kannst, kann, können, könnt, können. Müssen (måsta): muss, musst, muss, müssen, müsst, müssen. Wollen (vilja): will, willst, will, wollen, wollt, wollen. Modalverb + infinitiv sist i satsen: Ich kann gut schwimmen. Starka verb byter stamvokal i du/er-formen: fahren → fährst/fährt (a→ä), sehen → siehst/sieht (e→ie), nehmen → nimmst/nimmt (e→i), sprechen → sprichst/spricht (e→i)."
+    },
+    {
+      "id": "q-de8-verb-9",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Välj rätt form: \"Wir ___ heute Abend ins Kino gehen.\" (wollen = att vilja)",
+      "opener": "\"Wir\"-formen av wollen är samma som grundformen.",
+      "choices": [
+        "wollen",
+        "will",
+        "willst",
+        "wollt"
+      ],
+      "answer": 0,
+      "explanation": "\"Wollen\" böjs: ich will, du willst, er/sie/es will, wir wollen, ihr wollt, sie wollen. \"Wir\" ger \"wollen\"."
+    },
+    {
+      "id": "q-de8-verb-10",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Välj rätt form: \"___ ich dein Handy benutzen?\" (dürfen = att få lov; Får jag använda din mobil?)",
+      "opener": "Dürfen böjs oregelbundet i singular, precis som können.",
+      "choices": [
+        "Darf",
+        "Darfst",
+        "Dürft",
+        "Dürfen"
+      ],
+      "answer": 0,
+      "explanation": "\"Dürfen\" böjs: ich darf, du darfst, er/sie/es darf, wir dürfen, ihr dürft, sie dürfen. \"Ich\" ger \"darf\"."
+    },
+    {
+      "id": "q-de8-verb-11",
+      "kind": "mc",
+      "topic": "strong verbs",
+      "prompt": "Välj rätt form: \"Was ___ du gerade?\" (essen = att äta)",
+      "opener": "Essen byter stamvokal e→i i du- och er/sie/es-formen.",
+      "choices": [
+        "isst",
+        "esst",
+        "esse",
+        "essen"
+      ],
+      "answer": 0,
+      "explanation": "\"Essen\" böjs: ich esse, du isst, er/sie/es isst, wir essen, ihr esst, sie essen. \"Du\" ger \"isst\", med vokalbyte e→i."
+    },
+    {
+      "id": "q-de8-verb-12",
+      "kind": "mc",
+      "topic": "strong verbs",
+      "prompt": "Välj rätt form: \"Er ___ gern Bücher.\" (lesen = att läsa)",
+      "opener": "Lesen byter stamvokal e→ie i du- och er/sie/es-formen, precis som sehen.",
+      "choices": [
+        "liest",
+        "lese",
+        "lest",
+        "lesen"
+      ],
+      "answer": 0,
+      "explanation": "\"Lesen\" böjs: ich lese, du liest, er/sie/es liest, wir lesen, ihr lest, sie lesen. \"Er\" ger \"liest\", med vokalbyte e→ie."
+    },
+    {
+      "id": "q-de8-verb-13",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Vad betyder \"Man darf hier nicht rauchen\"?",
+      "opener": "\"Man darf nicht...\" är en fast fras för förbud.",
+      "choices": [
+        "Man får inte röka här",
+        "Man måste röka här",
+        "Man vill röka här",
+        "Man kan röka här"
+      ],
+      "answer": 0,
+      "explanation": "\"Man darf hier nicht rauchen\" betyder \"man får inte röka här\" — \"dürfen\" i nekad form uttrycker förbud."
+    },
+    {
+      "id": "q-de8-verb-14",
+      "kind": "mc",
+      "topic": "strong verbs",
+      "prompt": "Välj rätt form: \"Sie ___ ihre Schwester jeden Tag.\" (sehen = att se; hon ser sin syster varje dag)",
+      "opener": "\"Sie\" (hon) ger samma form som \"er\".",
+      "choices": [
+        "sieht",
+        "siehst",
+        "seht",
+        "sehen"
+      ],
+      "answer": 0,
+      "explanation": "\"Sehen\" böjs: ich sehe, du siehst, er/sie/es sieht, wir sehen, ihr seht, sie sehen. \"Sie\" (hon) ger \"sieht\"."
+    },
+    {
+      "id": "q-de8-verb-15",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Vilken ordföljd är korrekt?",
+      "opener": "Modalverbet böjs och står på plats två, infinitiven kommer sist i satsen.",
+      "choices": [
+        "Ich muss meine Hausaufgaben machen.",
+        "Ich muss machen meine Hausaufgaben.",
+        "Ich meine Hausaufgaben muss machen.",
+        "Machen ich muss meine Hausaufgaben."
+      ],
+      "answer": 0,
+      "explanation": "\"Ich muss meine Hausaufgaben machen.\" har korrekt ordföljd: det böjda modalverbet på plats två, infinitiven \"machen\" sist."
     }
   ]
 }
