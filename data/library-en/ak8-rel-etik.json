@@ -126,6 +126,111 @@
       "prompt": "Summarise the foundations of ethics: ethics and morality, the three models, the golden rule, and how to work through an ethical dilemma.",
       "opener": "Concepts first, then the models, and finally the process for a dilemma.",
       "answer": "Ethics: the study of and reflection on what is right and wrong — the theory · Morality: how a person actually acts and which values she lives by — the practice · Law ≠ morality: not everything that is legal is morally right, and not everything that feels morally right is always legal · Duty ethics: the act is judged by whether it follows a rule or principle (\"keep your promises\", \"don't lie\"), regardless of consequences · strength: predictable and fair · weakness: can become harsh when rules clash with people's wellbeing · Consequentialism: the act is judged by its consequences — right is whatever gives the most benefit and the least harm · strength: takes real effects into account · weakness: hard to foresee all consequences, and a minority can get squeezed · Virtue/intention ethics: the act is judged by the intention and will behind it · strength: good will counts even when something goes wrong · weakness: good intentions can still lead to harm · The golden rule: treat others as you yourself want to be treated — found in similar form in, among others, Christianity, Judaism, Islam, Buddhism, Confucianism and secular humanism · Ethical dilemma: two or more values clash, so that every choice means giving up something important · Process: 1) describe the situation and who is affected · 2) name which values are clashing · 3) try duty ethics, consequentialism and virtue/intention ethics · 4) weigh it all together, choose an action and justify it · Ethics and religion: religions often give ethical guidance through commandments and stories, but you can also reason ethically from reason, empathy and experience."
+    },
+    {
+      "id": "q-rel8-eti-9",
+      "kind": "mc",
+      "topic": "consequentialism",
+      "prompt": "What is a common criticism of consequentialism?",
+      "opener": "Think about how no one can see the future with certainty.",
+      "choices": [
+        "That it never takes the consequences of an act into account",
+        "That it's only about who is oldest in the group",
+        "That it's exactly the same thing as duty ethics",
+        "That it's hard to foresee all the consequences of an act, and a minority can get squeezed for the majority's benefit"
+      ],
+      "answer": 3,
+      "explanation": "A common criticism of consequentialism is that, in practice, it's hard to foresee all the consequences of an act, and that a strategy maximising overall benefit can mean a minority bears an unreasonable burden. Consequentialism is, on the contrary, exactly about weighing consequences, and it is not the same as duty ethics, which instead starts from rules."
+    },
+    {
+      "id": "q-rel8-eti-10",
+      "kind": "mc",
+      "topic": "duty ethics",
+      "prompt": "What is a strength of duty-based thinking?",
+      "opener": "Think about what happens when the same rules apply to everyone, regardless of situation.",
+      "choices": [
+        "It always takes every conceivable consequence into account",
+        "It's based purely on feelings in the moment",
+        "It never requires any principles at all",
+        "It becomes predictable and fair, since the same rules apply to everyone regardless of situation"
+      ],
+      "answer": 3,
+      "explanation": "A strength of duty-based thinking is that it becomes predictable and fair, since the same principles, for example not lying, apply regardless of who is involved or what the particular situation is. Duty ethics is, on the contrary, based precisely on principles rather than feelings in the moment, and it does not take every conceivable consequence into account — that is instead consequentialism's starting point."
+    },
+    {
+      "id": "q-rel8-eti-11",
+      "kind": "mc",
+      "topic": "the golden rule",
+      "prompt": "In which of these sources is a wording similar to the golden rule found, attributed to the rabbi Hillel?",
+      "opener": "The source belongs to one of the Abrahamic religions.",
+      "choices": [
+        "Only modern legislation",
+        "Only scientific studies",
+        "Only the rules of sport",
+        "Jewish tradition"
+      ],
+      "answer": 3,
+      "explanation": "Within Jewish tradition, the rabbi Hillel is credited with a wording similar to the golden rule: don't do to others what you yourself hate. Similar wordings also appear within Christianity, Islam, Buddhism and other traditions, but the source in the question is specifically Jewish, not legislation, science or the rules of sport."
+    },
+    {
+      "id": "q-rel8-eti-12",
+      "kind": "mc",
+      "topic": "virtue/intention ethics",
+      "prompt": "What is a common criticism of virtue/intention ethics?",
+      "opener": "Think about what can happen despite a good will.",
+      "choices": [
+        "That it never cares about the intention behind an act",
+        "That it requires you to always follow the law exactly",
+        "That it can only be used by lawyers",
+        "That good intentions can still lead to harmful consequences"
+      ],
+      "answer": 3,
+      "explanation": "A common criticism of virtue/intention ethics is that good intentions can still lead to harmful consequences, meaning the act can be judged morally good despite a bad outcome. Virtue/intention ethics is, on the contrary, precisely about the intention behind the act, and it is not limited to legal contexts or tied to always following the law exactly."
+    },
+    {
+      "id": "q-rel8-eti-13",
+      "kind": "mc",
+      "topic": "ethics and morality",
+      "prompt": "Can an act be legal but still be seen as morally wrong by many people?",
+      "opener": "Think about the difference between what the law allows and what feels right.",
+      "choices": [
+        "No, everything that is legal is always morally right",
+        "No, morality is always determined by the law",
+        "The question is impossible to reason about",
+        "Yes, law and morality don't always coincide"
+      ],
+      "answer": 3,
+      "explanation": "Law and morality don't always coincide: an act can be entirely legal but still be seen as morally wrong by many, for example breaking a promise or being disloyal to a friend. Claiming that law and morality are always the same thing, or that the question is impossible to reason about, doesn't match how ethics and law actually relate to each other."
+    },
+    {
+      "id": "q-rel8-eti-14",
+      "kind": "mc",
+      "topic": "everyday ethical questions",
+      "prompt": "What is an example of an everyday ethical dilemma?",
+      "opener": "A dilemma means having to give up something you consider important.",
+      "choices": [
+        "Choosing which colour to paint your room",
+        "Choosing which song to listen to",
+        "Working out which day of the week it is",
+        "Choosing between being loyal to a friend and being honest with others"
+      ],
+      "answer": 3,
+      "explanation": "Choosing between loyalty to a friend and honesty towards others is a typical ethical dilemma, since both values matter and you have to give up one of them. Choosing a room colour, a song, or working out the day of the week involves no conflict between important values."
+    },
+    {
+      "id": "q-rel8-eti-15",
+      "kind": "mc",
+      "topic": "consequentialism",
+      "prompt": "What is the core of consequentialist reasoning?",
+      "opener": "Think forward, towards what the act actually leads to.",
+      "choices": [
+        "Judging an act by which rule it follows",
+        "Judging an act by the intention behind it, regardless of consequences",
+        "Never judging acts at all",
+        "Judging an act by the consequences it has for those affected"
+      ],
+      "answer": 3,
+      "explanation": "The core of consequentialism is judging an act by its consequences for those affected — right is whatever gives the most benefit and the least harm overall. Judging by which rule is followed instead belongs to duty ethics, and judging by intention belongs to virtue/intention ethics."
     }
   ]
 }

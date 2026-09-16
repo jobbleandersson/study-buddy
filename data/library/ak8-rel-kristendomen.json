@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta kristendomens inriktningar: katolskt, ortodoxt och protestantiskt, reformationen, sakrament, Svenska kyrkan och frikyrkorna samt kristendomen i världen.",
       "opener": "Jämför de tre inriktningarna först, ta sedan historien och läget i dag.",
       "answer": "Gemensamt för alla kristna: tron på en Gud · Jesus som Kristus · Bibeln (GT och NT) som helig skrift · dopet och nattvarden · Tre huvudinriktningar: katolsk, ortodox, protestantisk · Katolska kyrkan: påven i Rom som överhuvud · sju sakrament · mässan i centrum · präster i latinska kyrkan lever i celibat · störst i världen räknat i antal · Ortodoxa kyrkan: självstyrande nationella kyrkor (grekisk-, rysk-, serbisk-ortodox m.fl.) · patriarken av Konstantinopel har hedersställning · ikoner och liturgi centrala · församlingspräster får gifta sig · Protestantiska kyrkor: Bibeln som högsta auktoritet · oftast två sakrament (dop och nattvard) · predikan i centrum · inga påveanspråk · Schismen 1054: kyrkan delas i öst och väst · Reformationen 1517: Luthers teser mot avlatshandeln → protestantiska kyrkor, boktryck, bibelöversättningar, religionskrig, motreformationen (Trient) · Sverige: Gustav Vasa från 1527 · Bibeln på svenska 1541 · Uppsala möte 1593 · Svenska kyrkan: evangelisk-luthersk, största trossamfundet, spädbarnsdop, skild från staten år 2000 · Frikyrkor: ur 1800-talets väckelse — Pingströrelsen, Equmeniakyrkan m.fl. · personlig tro, ofta troendedop, stort medlemsengagemang · Globalt: ca 2,3–2,4 miljarder kristna · flest bor i dag utanför Europa, med snabb tillväxt i Afrika söder om Sahara och delar av Asien."
+    },
+    {
+      "id": "q-rel8-kri-9",
+      "kind": "mc",
+      "topic": "reformationen",
+      "prompt": "Vilket år brukar räknas som reformationens början, då Luther offentliggjorde sina teser i Wittenberg?",
+      "opener": "Året är väletablerat i historieböckerna och ligger i början av 1500-talet.",
+      "choices": [
+        "1054",
+        "1593",
+        "1648",
+        "1517"
+      ],
+      "answer": 3,
+      "explanation": "Reformationen brukar räknas från år 1517, då Martin Luther offentliggjorde sina teser i Wittenberg. Året 1054 hör i stället till den stora schismen mellan öst- och västkyrkan, 1593 till Uppsala möte i Sverige, och 1648 till Westfaliska freden som avslutade trettioåriga kriget."
+    },
+    {
+      "id": "q-rel8-kri-10",
+      "kind": "mc",
+      "topic": "kyrkans tre huvudinriktningar",
+      "prompt": "Vilket årtal skedde den stora schismen som delade kyrkan i en västlig katolsk och en östlig ortodox del?",
+      "opener": "Året ligger nästan ett halvt millennium före reformationen.",
+      "choices": [
+        "1517",
+        "1789",
+        "33",
+        "1054"
+      ],
+      "answer": 3,
+      "explanation": "Den stora schismen ägde rum år 1054 och delade den kristna kyrkan i en västlig, katolsk del och en östlig, ortodox del. Året 1517 hör i stället till reformationen, 1789 till franska revolutionen, och år 33 brukar traditionellt kopplas till Jesu korsfästelse, mer än tusen år före schismen."
+    },
+    {
+      "id": "q-rel8-kri-11",
+      "kind": "mc",
+      "topic": "Svenska kyrkan och frikyrkorna",
+      "prompt": "Vilken typ av dop praktiserar många frikyrkor, till skillnad från Svenska kyrkans vanliga spädbarnsdop?",
+      "opener": "Dopet sker då personen själv är gammal nog att förstå och välja.",
+      "choices": [
+        "De döper aldrig någon alls",
+        "Dop sker bara vid begravningar",
+        "Dop sker enbart i Jordanfloden",
+        "Troendedop av ungdomar och vuxna"
+      ],
+      "answer": 3,
+      "explanation": "Många frikyrkor praktiserar troendedop, där ungdomar eller vuxna döps efter att själva ha tagit ett personligt beslut att tro, till skillnad från Svenska kyrkans vanliga spädbarnsdop. Frikyrkorna döper alltså inte aldrig, och dopet är inte begränsat till begravningar eller till Jordanfloden."
+    },
+    {
+      "id": "q-rel8-kri-12",
+      "kind": "mc",
+      "topic": "sakrament och gudstjänst",
+      "prompt": "Vilka två sakrament räknar de flesta protestantiska kyrkor med?",
+      "opener": "Båda dessa sakrament sägs enligt evangelierna ha instiftats av Jesus själv.",
+      "choices": [
+        "Bikten och äktenskapet",
+        "Konfirmationen och prästvigningen",
+        "De sjukas smörjelse och begravningen",
+        "Dopet och nattvarden"
+      ],
+      "answer": 3,
+      "explanation": "De flesta protestantiska kyrkor räknar bara dopet och nattvarden som sakrament, eftersom man menar att det är just dessa två Jesus enligt evangelierna själv instiftade. Katolska kyrkan räknar i stället med sju sakrament, inklusive bikt, äktenskap och prästvigning."
+    },
+    {
+      "id": "q-rel8-kri-13",
+      "kind": "mc",
+      "topic": "kristendomen globalt",
+      "prompt": "Var i världen växer antalet kristna särskilt snabbt i dag?",
+      "opener": "Tänk på var religionens tyngdpunkt har förskjutits till under senare decennier.",
+      "choices": [
+        "Enbart i Västeuropa",
+        "Enbart på Grönland",
+        "Ingenstans, antalet kristna minskar överallt",
+        "I Afrika söder om Sahara och delar av Asien"
+      ],
+      "answer": 3,
+      "explanation": "Antalet kristna växer i dag särskilt snabbt i Afrika söder om Sahara och i delar av Asien, medan andelen aktivt praktiserande kristna i Europa har minskat. Påståendena om att tillväxten enbart sker i Västeuropa, på Grönland, eller att antalet kristna minskar överallt stämmer alltså inte."
+    },
+    {
+      "id": "q-rel8-kri-14",
+      "kind": "mc",
+      "topic": "kyrkans tre huvudinriktningar",
+      "prompt": "Vem är överhuvud för katolska kyrkan?",
+      "opener": "Personen har sitt säte i en stadsstat i Italien.",
+      "choices": [
+        "Patriarken av Konstantinopel",
+        "Ärkebiskopen av Uppsala",
+        "En vald generalsekreterare",
+        "Påven i Rom"
+      ],
+      "answer": 3,
+      "explanation": "Påven, som är biskop av Rom, är katolska kyrkans högsta ledare. Patriarken av Konstantinopel har i stället en hedersställning inom den ortodoxa kyrkan utan samma beslutsmakt, och ärkebiskopen av Uppsala är ledare för Svenska kyrkan, en protestantisk kyrka."
+    },
+    {
+      "id": "q-rel8-kri-15",
+      "kind": "mc",
+      "topic": "reformationen",
+      "prompt": "Vilket år kom hela Bibeln på svenska, som en följd av reformationen i Sverige?",
+      "opener": "Nya testamentet hade kommit på svenska redan några år tidigare.",
+      "choices": [
+        "1517",
+        "1600",
+        "1990",
+        "1541"
+      ],
+      "answer": 3,
+      "explanation": "Hela Bibeln kom på svenska år 1541, medan Nya testamentet hade publicerats separat redan 1526. Året 1517 var i stället när Luther offentliggjorde sina teser i Wittenberg, och 1600 och 1990 stämmer inte med den svenska bibelöversättningen."
     }
   ]
 }

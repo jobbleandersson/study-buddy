@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta islam: tro, Muhammed och Koranen, de fem pelarna, moskén, sunni och shia samt högtider och islam i Sverige.",
       "opener": "Från trosbekännelsen till högtiderna och situationen i Sverige.",
       "answer": "Tro: tawhid — enligt islamisk tro är Gud en och odelbar · Muhammed räknas som den siste profeten i raden efter bl.a. Abraham, Mose och Jesus · Muhammed: född ca 570 i Mecka, uppenbarelserna börjar ca 610, utvandringen till Medina år 622 (hijra) inleder den islamiska tideräkningen, död 632 · Koranen: enligt tron Guds ord på arabiska, förmedlat genom ängeln Jibril; indelad i 114 suror · Sunna och hadither: berättelser om Muhammeds ord och handlingar, förebild för livet · Sharia: den religiösa vägledningen, tolkad på olika sätt i olika rättsskolor och länder · Fem pelare: shahada (trosbekännelse) · salat (fem böner per dag mot Mecka, efter tvagning) · zakat (gåva till behövande) · sawm (fasta under ramadan) · hajj (vallfärd till Mecka) · Moskén: mihrab visar böneriktningen (qibla), minaret, imam leder bönen, fredagsbönen samlar många, kalligrafi och mönster i stället för bilder av människor · Sunni: ledaren (kalifen) väljs bland de troende — ca 85–90 % av världens muslimer · Shia: ledarskapet bör följa Muhammeds släkt via Ali — störst i Iran och Irak · Högtider: ramadan (fastemånad) · id al-fitr (fastan bryts) · id al-adha (offerhögtiden vid vallfärden) · månkalendern gör att högtiderna flyttar ca 11 dagar per år · Islam i Sverige: kom framför allt med arbetskrafts- och flyktinginvandring från 1960-talet och framåt · moskéer och föreningar finns i de flesta större städer · muslimer i Sverige är en mångfaldig grupp med olika ursprung, inriktningar och grad av religiös praktik."
+    },
+    {
+      "id": "q-rel8-isl-9",
+      "kind": "mc",
+      "topic": "de fem pelarna",
+      "prompt": "Vilken av islams fem pelare innebär en obligatorisk gåva till behövande?",
+      "opener": "Ordet syftar på en \"renande\" del av förmögenheten, ofta runt 2,5 procent av besparingarna.",
+      "choices": [
+        "Sawm",
+        "Hajj",
+        "Shahada",
+        "Zakat"
+      ],
+      "answer": 3,
+      "explanation": "Zakat är den obligatoriska gåvan till behövande, ofta beräknad till omkring 2,5 procent av besparingarna. Sawm är fastan under ramadan, hajj är vallfärden till Mecka, och shahada är trosbekännelsen — alla fyra är pelare, men bara zakat handlar om att ge en fastställd andel till behövande."
+    },
+    {
+      "id": "q-rel8-isl-10",
+      "kind": "mc",
+      "topic": "Muhammed och Koranen",
+      "prompt": "Vad kallas Muhammeds utvandring från Mecka till Medina år 622, som inleder den islamiska tideräkningen?",
+      "opener": "Ordet betyder ungefär \"utvandring\" på arabiska.",
+      "choices": [
+        "Hajj",
+        "Shahada",
+        "Sawm",
+        "Hijra"
+      ],
+      "answer": 3,
+      "explanation": "Hijra är namnet på Muhammeds utvandring från Mecka till Medina år 622, en händelse så central att den islamiska kalendern räknar sina år därifrån. Hajj, shahada och sawm är i stället tre av islams fem pelare och har inget med utvandringen att göra."
+    },
+    {
+      "id": "q-rel8-isl-11",
+      "kind": "mc",
+      "topic": "sunni och shia",
+      "prompt": "Ungefär hur stor andel av världens muslimer tillhör den sunnitiska inriktningen?",
+      "opener": "Andelen är klart större än hälften.",
+      "choices": [
+        "Ungefär 10 procent",
+        "Exakt hälften",
+        "Nästan ingen",
+        "Ungefär 85–90 procent"
+      ],
+      "answer": 3,
+      "explanation": "Ungefär 85–90 procent av världens muslimer räknas som sunnimuslimer, medan shiamuslimer är en klar minoritet globalt sett, även om de utgör majoriteten i länder som Iran och Irak. Alternativen om 10 procent, exakt hälften eller nästan ingen stämmer alltså inte med den faktiska fördelningen."
+    },
+    {
+      "id": "q-rel8-isl-12",
+      "kind": "mc",
+      "topic": "moskén och bönen",
+      "prompt": "Vad kallas den rituella tvagningen som föregår bönen inom islam?",
+      "opener": "Ordet är arabiskt och syftar på att rena sig innan man ber.",
+      "choices": [
+        "Zakat",
+        "Hajj",
+        "Qibla",
+        "Wudu"
+      ],
+      "answer": 3,
+      "explanation": "Wudu är den rituella tvagningen som muslimer utför innan bönen, där man bland annat tvättar händer, ansikte och fötter. Zakat och hajj är andra pelare, och qibla är ordet för böneriktningen mot Mecka, inte för själva tvagningen."
+    },
+    {
+      "id": "q-rel8-isl-13",
+      "kind": "mc",
+      "topic": "högtider och islam i Sverige",
+      "prompt": "Varför förskjuts ramadan cirka elva dagar varje år jämfört med den svenska kalendern?",
+      "opener": "Jämför hur lång en månkalender är med hur lång ett solår är.",
+      "choices": [
+        "Eftersom muslimer själva väljer ett nytt datum varje år",
+        "Eftersom det är en solkalender som är längre än den svenska",
+        "Det stämmer inte, ramadan infaller alltid på samma datum",
+        "Eftersom den islamiska kalendern är en månkalender, som är kortare än solåret"
+      ],
+      "answer": 3,
+      "explanation": "Den islamiska kalendern är en månkalender med omkring elva dagar kortare år än den svenska solkalendern, vilket gör att ramadan och andra islamiska högtider förskjuts framåt varje år jämfört med den vanliga kalendern. Datumet väljs alltså inte fritt av muslimer själva, och det handlar inte om en längre solkalender."
+    },
+    {
+      "id": "q-rel8-isl-14",
+      "kind": "mc",
+      "topic": "grundläggande tro",
+      "prompt": "Vilken profet räknas inom islam som den siste i en lång rad profeter som även omfattar Abraham, Mose och Jesus?",
+      "opener": "Profeten som Koranen enligt tron uppenbarades för.",
+      "choices": [
+        "Ali",
+        "Omar",
+        "Bilal",
+        "Muhammed"
+      ],
+      "answer": 3,
+      "explanation": "Muhammed räknas inom islam som den siste profeten i en lång rad som inkluderar bland andra Abraham, Mose och Jesus. Ali, Omar och Bilal var i stället viktiga tidiga gestalter i islams historia, men räknas inte som profeter i den bemärkelsen."
+    },
+    {
+      "id": "q-rel8-isl-15",
+      "kind": "mc",
+      "topic": "moskén och bönen",
+      "prompt": "Vad heter nischen i moskén som visar böneriktningen (qibla) mot Mecka?",
+      "opener": "Ordet är arabiskt för \"nisch\".",
+      "choices": [
+        "Minareten",
+        "Imamen",
+        "Wudu",
+        "Mihrab"
+      ],
+      "answer": 3,
+      "explanation": "Mihrab är den nisch i moskéns vägg som visar riktningen mot Mecka, qibla, som de bedjande vänder sig mot. Minareten är i stället det höga tornet varifrån bönutropet traditionellt hörs, imamen är personen som leder bönen, och wudu är den rituella tvagningen."
     }
   ]
 }

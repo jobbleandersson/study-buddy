@@ -125,6 +125,111 @@
       "prompt": "Summarise religion and society: freedom of religion, secularisation, state and church, religion in conflict and peace work, and prejudice and diversity.",
       "opener": "The right first, then developments in Sweden and religion's role in the world.",
       "answer": "Freedom of religion: protected in the Instrument of Government (a fundamental law), in the European Convention and in the UN's Universal Declaration, article 18 · positive side = the right to believe, practise and change religion · negative side = the right to stand outside · limitation: Swedish law applies equally to everyone, religious motives do not make a criminal act permitted · Secularisation: religion's declining influence over society's institutions and over many people's everyday lives · Sweden is counted as one of the world's most secularised countries, but many are still members of faith communities · State and church in Sweden: the Uppsala Synod of 1593 (a single doctrine) → Jewish settlement permitted 1774–1775 → the Dissenter Laws of 1860 (leaving allowed if you join another approved community) → the Freedom of Religion Act of 1951 (the right to stand entirely outside) → 1996 membership through baptism → 1 January 2000 the Church of Sweden is separated from the state · Religion in conflicts: conflicts usually have several causes — power, land, resources, identity — and religion can be used to motivate or reinforce them · Religion in peace work: mediation, aid work, reconciliation processes and interfaith dialogue · Prejudice: a preconceived view of a person or group without grounding in knowledge · can lead to discrimination and hate crime, e.g. Islamophobia and antisemitism · countered by knowledge, encounters and self-examination · Diversity in Sweden: the Church of Sweden and free churches, Islam, Orthodox Christianity, Catholicism, Judaism, Buddhism, Hinduism, and non-religious world views such as secular humanism · religion or other belief is one of the grounds of discrimination in the Discrimination Act."
+    },
+    {
+      "id": "q-rel8-res-9",
+      "kind": "mc",
+      "topic": "state and church",
+      "prompt": "Which law from 1860 made it possible to leave the Church of Sweden, if you joined another approved faith community at the same time?",
+      "opener": "The word in the law's name refers to someone who deviates from the established doctrine.",
+      "choices": [
+        "The Freedom of Religion Act of 1951",
+        "The Instrument of Government",
+        "The Discrimination Act",
+        "The Dissenter Laws"
+      ],
+      "answer": 3,
+      "explanation": "The Dissenter Laws of 1860 made it possible to leave the Church of Sweden, but only if you joined another, state-approved faith community at the same time. The Freedom of Religion Act of 1951 went further and gave the right to stand entirely outside all faith communities, while the Instrument of Government and the Discrimination Act are other types of legislation."
+    },
+    {
+      "id": "q-rel8-res-10",
+      "kind": "mc",
+      "topic": "freedom of religion",
+      "prompt": "In which year was the Swedish Freedom of Religion Act adopted, giving the right to stand entirely outside all faith communities?",
+      "opener": "The year falls in the middle of the 1900s, after the Second World War.",
+      "choices": [
+        "1860",
+        "2000",
+        "1774",
+        "1951"
+      ],
+      "answer": 3,
+      "explanation": "The Freedom of Religion Act of 1951 gave Swedish citizens the right to stand entirely outside all faith communities, a step further than the Dissenter Laws of 1860. The year 2000 is instead when the Church of Sweden was separated from the state, and 1774 is when Aaron Isaac was allowed to settle as a Jew in Sweden."
+    },
+    {
+      "id": "q-rel8-res-11",
+      "kind": "mc",
+      "topic": "prejudice and religious diversity",
+      "prompt": "What is prejudice and hatred directed specifically at Muslims called?",
+      "opener": "The word begins with \"Islamo-\".",
+      "choices": [
+        "Antisemitism",
+        "Secularisation",
+        "Diaspora",
+        "Islamophobia"
+      ],
+      "answer": 3,
+      "explanation": "Islamophobia is the word for prejudice, fear and hatred directed specifically at Muslims or Islam. Antisemitism is instead directed at Jews, secularisation concerns religion's declining role in society, and diaspora refers to a people living scattered outside their historical homeland."
+    },
+    {
+      "id": "q-rel8-res-12",
+      "kind": "mc",
+      "topic": "prejudice and religious diversity",
+      "prompt": "What is prejudice and hatred directed specifically at Jews called?",
+      "opener": "The word has roots in an older term for Semitic peoples and languages.",
+      "choices": [
+        "Islamophobia",
+        "Atheism",
+        "Agnosticism",
+        "Antisemitism"
+      ],
+      "answer": 3,
+      "explanation": "Antisemitism is the word for prejudice, hatred and discrimination directed specifically at Jews. Islamophobia is instead directed at Muslims, while atheism and agnosticism are positions on belief in god, not forms of prejudice against a group."
+    },
+    {
+      "id": "q-rel8-res-13",
+      "kind": "mc",
+      "topic": "religion in conflict and peace work",
+      "prompt": "Which of the following is an example of religious actors working for peace?",
+      "opener": "Think about what's needed for warring parties to be able to approach each other again.",
+      "choices": [
+        "Always financing armed groups",
+        "Refusing all contact with other religions",
+        "Never taking part in humanitarian aid work",
+        "Mediation and reconciliation processes between warring parties"
+      ],
+      "answer": 3,
+      "explanation": "Religious leaders and organisations often work for peace through mediation, reconciliation processes and interfaith dialogue, as well as through humanitarian aid work in conflict-affected areas. Financing armed groups, refusing all contact with other religions, or avoiding aid work are, on the contrary, examples of how religion can help reinforce conflicts rather than resolve them."
+    },
+    {
+      "id": "q-rel8-res-14",
+      "kind": "mc",
+      "topic": "secularisation",
+      "prompt": "What is Sweden usually counted as in international comparisons regarding religion?",
+      "opener": "Think about how large a role religion plays in public life compared with many other countries.",
+      "choices": [
+        "One of the world's most religious countries",
+        "A country with no freedom of religion at all",
+        "A country with a single permitted religion",
+        "One of the world's most secularised countries"
+      ],
+      "answer": 3,
+      "explanation": "In international surveys, Sweden is often counted as one of the world's most secularised countries, where religion plays a less prominent role in public life and, for many people, in everyday life. Sweden also has freedom of religion enshrined in its constitution, so the claims about a lack of freedom of religion or a single permitted religion are not correct."
+    },
+    {
+      "id": "q-rel8-res-15",
+      "kind": "mc",
+      "topic": "state and church",
+      "prompt": "What happened to the responsibility for civil registration in Sweden, which had previously belonged to the Church of Sweden?",
+      "opener": "The change happened a few years before the church was fully separated from the state.",
+      "choices": [
+        "It still belongs to the Church of Sweden today",
+        "It was abolished entirely and no one keeps records any longer",
+        "It was moved to the UN",
+        "It was moved to the state (the Swedish Tax Agency) already in 1991, before the church was separated from the state in 2000"
+      ],
+      "answer": 3,
+      "explanation": "Responsibility for civil registration was moved from the Church of Sweden to the state as early as 1991, a few years before the church was formally separated from the state on 1 January 2000. It is therefore not true that the responsibility remains with the church, that it was abolished entirely, or that it was moved to the UN."
     }
   ]
 }

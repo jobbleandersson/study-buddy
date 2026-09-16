@@ -125,6 +125,111 @@
       "prompt": "Summarise Judaism: belief and the covenant, scriptures, the synagogue and the Sabbath, festivals, and history and Jews in Sweden.",
       "opener": "Go through belief, scriptures, practice and history in turn.",
       "answer": "Belief: monotheism — according to Jewish belief there is a single God, whose name is out of reverence not pronounced · The covenant (brit): according to tradition made with Abraham and renewed with Moses at Sinai; the people follow the commandments, God promises protection; circumcision is the sign of the covenant · Scriptures: the Tanakh (the Torah = the five Books of Moses, the Prophets, the Writings) · the Torah is handwritten on a scroll and kept in the ark · the Talmud (Mishnah + Gemara) = the rabbis' interpretations of the law · Halacha = the religious rules for living, e.g. the kosher rules about food · The synagogue: a gathering place for prayer, reading and study; the rabbi is a teacher and interpreter, not a priest · The Sabbath: Friday sunset to Saturday darkness, candle-lighting, kiddush, challot, a service, Havdalah at the close · Festivals: Rosh Hashanah (New Year, the shofar) · Yom Kippur (the Day of Atonement, fasting and forgiveness) · Passover/Pesach (the exodus from Egypt, the seder, matza) · Shavuot (the Torah given at Sinai) · Sukkot (the Feast of Tabernacles) · Hanukkah (the rededication of the Temple, the nine-branched hanukkiah) · History: the Temple was destroyed in 70 CE → the diaspora · centuries of persecution in Europe, culminating in the Holocaust during the Second World War · the State of Israel was founded in 1948 · Streams: Orthodox, Conservative and Reform Judaism, with different views on how the rules should be interpreted · Sweden: Jewish settlement permitted from 1774–1775 (Aaron Isaac) · Jews have since the year 2000 been one of five national minorities, Yiddish is a national minority language · congregations exist in, among other places, Stockholm, Gothenburg and Malmö."
+    },
+    {
+      "id": "q-rel8-jud-9",
+      "kind": "mc",
+      "topic": "Jewish festivals",
+      "prompt": "Which Jewish festival is celebrated with an outdoor booth (sukkah)?",
+      "opener": "The festival's name is the same as the name of the booth.",
+      "choices": [
+        "Hanukkah",
+        "Purim",
+        "Shavuot",
+        "Sukkot"
+      ],
+      "answer": 3,
+      "explanation": "Sukkot, the Feast of Tabernacles, is celebrated by building a temporary booth, a sukkah, and often eating and sleeping in it to commemorate the wandering in the desert after the exodus from Egypt. Hanukkah instead celebrates the rededication of the Temple, Purim the story of Queen Esther, and Shavuot the giving of the Torah at Sinai."
+    },
+    {
+      "id": "q-rel8-jud-10",
+      "kind": "mc",
+      "topic": "the Torah and the Talmud",
+      "prompt": "What does the Talmud consist of?",
+      "opener": "Two parts together form this extensive work of interpretation.",
+      "choices": [
+        "Only the five Books of Moses",
+        "Only the books of the Prophets",
+        "A modern translation of the Torah into English",
+        "The Mishnah and the Gemara"
+      ],
+      "answer": 3,
+      "explanation": "The Talmud consists of the Mishnah, an early compilation of oral law, and the Gemara, later commentary and discussion on the Mishnah. Together they form an extensive work of rabbinic interpretation of the Torah — thus not the Torah itself, the books of the Prophets, or a modern translation."
+    },
+    {
+      "id": "q-rel8-jud-11",
+      "kind": "mc",
+      "topic": "the synagogue and the Sabbath",
+      "prompt": "Who usually leads prayer and teaching in a synagogue?",
+      "opener": "The title means roughly \"my teacher\" in Hebrew.",
+      "choices": [
+        "The Pope",
+        "The imam",
+        "The bishop",
+        "The rabbi"
+      ],
+      "answer": 3,
+      "explanation": "The rabbi is a learned person who leads worship, teaches and interprets Jewish law, but is not counted as a priest in the same sense as in other religions. The Pope and the bishop belong to Christianity, and the imam leads prayer in Islam."
+    },
+    {
+      "id": "q-rel8-jud-12",
+      "kind": "mc",
+      "topic": "belief and the covenant",
+      "prompt": "What is a sign of the covenant according to Jewish tradition, performed on boys eight days old?",
+      "opener": "The rite is mentioned already in the story of Abraham.",
+      "choices": [
+        "Baptism",
+        "Confirmation",
+        "Fasting",
+        "Circumcision"
+      ],
+      "answer": 3,
+      "explanation": "Circumcision (brit milah) is traditionally performed on boys eight days old and is seen as a physical sign of the covenant between God and the Jewish people. Baptism and confirmation instead belong to Christianity, and fasting is a different kind of religious practice observed on particular festivals such as Yom Kippur."
+    },
+    {
+      "id": "q-rel8-jud-13",
+      "kind": "mc",
+      "topic": "Jewish festivals",
+      "prompt": "Which Jewish festival celebrates the Jewish New Year?",
+      "opener": "This festival opens the ten solemn days that end with Yom Kippur.",
+      "choices": [
+        "Yom Kippur",
+        "Passover",
+        "Sukkot",
+        "Rosh Hashanah"
+      ],
+      "answer": 3,
+      "explanation": "Rosh Hashanah is the Jewish New Year and is celebrated, among other things, by blowing a ram's horn, the shofar. Yom Kippur falls ten days later and is the Day of Atonement, while Passover and Sukkot are entirely different festivals during the year."
+    },
+    {
+      "id": "q-rel8-jud-14",
+      "kind": "mc",
+      "topic": "the history of Judaism and Jews in Sweden",
+      "prompt": "Which event during the Second World War involved a systematic persecution and murder of Jews in Europe?",
+      "opener": "The event is counted as one of the most extensive genocides in history.",
+      "choices": [
+        "The Reformation",
+        "The Thirty Years' War",
+        "The French Revolution",
+        "The Holocaust"
+      ],
+      "answer": 3,
+      "explanation": "The Holocaust was Nazi Germany's systematic persecution and murder of around six million Jews during the Second World War, and it deeply affected the history of Judaism and Jews' situation in the world. The Reformation, the Thirty Years' War and the French Revolution are events belonging to an entirely different historical context."
+    },
+    {
+      "id": "q-rel8-jud-15",
+      "kind": "mc",
+      "topic": "the history of Judaism and Jews in Sweden",
+      "prompt": "In which year was the State of Israel founded?",
+      "opener": "The year is shortly after the end of the Second World War.",
+      "choices": [
+        "1900",
+        "1774",
+        "2000",
+        "1948"
+      ],
+      "answer": 3,
+      "explanation": "The State of Israel was founded in 1948, a few years after the end of the Second World War and the Holocaust. The years 1774 and 2000 instead belong to Jewish history in Sweden (Aaron Isaac's settlement and the status as a national minority respectively), and 1900 does not match the founding of Israel."
     }
   ]
 }
