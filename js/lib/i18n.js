@@ -87,13 +87,22 @@ export function plural(n, oneKey, otherKey, vars = {}) {
   return t(n === 1 ? oneKey : otherKey, { n, ...vars });
 }
 
+// Regnal/ordinal numerals ("Ludvig xvi", "Karl xii") a topic string sometimes
+// carries in lowercase — real words never collide with these as whole tokens,
+// unlike bare "i" or "x" (which are ordinary Swedish/English words), so those
+// two are deliberately left out.
+const ROMAN_NUMERAL_RE = /\b(ii|iii|iv|vi|vii|viii|ix|xi|xii|xiii|xiv|xv|xvi|xvii|xviii|xix|xx)\b/gi;
+
 /** Uppercase the first letter only, leaving the rest as written. For library /
  *  user data (topic names) that may be stored lowercase: `text-transform:
  *  capitalize` was wrong here — it title-cases every word, turning
- *  "ångmaskinen och mekanisering" into "Ångmaskinen Och Mekanisering". */
+ *  "ångmaskinen och mekanisering" into "Ångmaskinen Och Mekanisering". A
+ *  trailing roman numeral ("ludvig xvi") is fixed up separately, since it's
+ *  wrong regardless of case convention, not just at the start of the string. */
 export function sentenceCase(str) {
   const s = String(str ?? "");
-  return s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+  if (!s) return s;
+  return (s.charAt(0).toUpperCase() + s.slice(1)).replace(ROMAN_NUMERAL_RE, (m) => m.toUpperCase());
 }
 
 /* ---------------- dates ---------------- */

@@ -472,7 +472,7 @@ function runSession(config) {
       testBar.hidden = false;
       clear(testBar);
       testBar.className = "testbar note note--warn";
-      testBar.append(el("span", {}, t("session.examBanner")));
+      testBar.append(el("span", {}, t(config.timeLimitMin ? "session.examBannerTimed" : "session.examBannerUntimed")));
       return;
     }
     if (!isTest) { testBar.hidden = true; return; }
