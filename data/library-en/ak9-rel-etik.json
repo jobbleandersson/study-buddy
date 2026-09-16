@@ -124,6 +124,110 @@
       "prompt": "Summarise the three ethical models — duty ethics, consequentialist ethics and ethics of intention — and how religion can be linked to ethics.",
       "opener": "Go through the models one by one, and finish with the link to religion.",
       "answer": "Duty ethics: an action is right or wrong based on whether it follows a rule or principle (e.g. \"don't lie\"), regardless of consequences. Consequentialist ethics: an action is judged by its consequences — right is whatever produces the most benefit / least harm overall. Ethics of intention: focus on the intention and will behind the action — a good intention counts as morally important, even if the outcome is bad. Ethical dilemma: a situation where different values or principles clash, so that every choice involves a trade-off. Religion and ethics: many religions provide ethical guidance (e.g. through commandments and stories), but ethical reasoning doesn't need to be based on religion — reason, empathy and philosophical theories are other foundations for morality."
+    },
+    {
+      "id": "q-rel-etik-9",
+      "kind": "mc",
+      "topic": "duty ethics",
+      "prompt": "Which philosopher is particularly associated with duty ethics and the idea of acting according to universal, reason-based rules?",
+      "opener": "The philosopher is known for the concept of \"the categorical imperative\".",
+      "choices": [
+        "Immanuel Kant",
+        "Aristotle",
+        "Socrates",
+        "Confucius"
+      ],
+      "answer": 0,
+      "explanation": "Immanuel Kant is the philosopher most strongly associated with duty ethics, including through the idea of the categorical imperative - that one should act according to rules one would want to see as universal laws."
+    },
+    {
+      "id": "q-rel-etik-10",
+      "kind": "mc",
+      "topic": "consequentialist ethics",
+      "prompt": "Which branch of consequentialist ethics holds that an action is right if it produces the greatest total benefit/happiness for the most people?",
+      "opener": "The name comes from the word \"utility\".",
+      "choices": [
+        "Utilitarianism",
+        "Duty ethics",
+        "Ethics of intention",
+        "Virtue ethics"
+      ],
+      "answer": 0,
+      "explanation": "Utilitarianism is a form of consequentialist ethics holding that an action is morally right if it maximises the total benefit or happiness for the most people."
+    },
+    {
+      "id": "q-rel-etik-11",
+      "kind": "mc",
+      "topic": "ethics of intention",
+      "prompt": "A person saves a drowning stranger, but only to be praised in the media, not out of concern. How would an ethics-of-intention thinker likely judge the action morally?",
+      "opener": "Think about what ethics of intention places the greatest weight on.",
+      "choices": [
+        "Less morally valuable, since the intention was self-interested rather than a good will",
+        "Exactly as morally valuable as if the intention had been good, since the outcome was the same",
+        "Ethics of intention never cares about intentions",
+        "The action cannot be judged at all"
+      ],
+      "answer": 0,
+      "explanation": "Since ethics of intention focuses on the intention behind an action, a proponent would see the self-interested motive (being praised) as morally less valuable than if the action had been done out of genuine concern, even though the outcome - the rescued stranger - was the same."
+    },
+    {
+      "id": "q-rel-etik-12",
+      "kind": "mc",
+      "topic": "ethical dilemmas",
+      "prompt": "What is a classic ethical thought experiment called where you must choose between actively diverting a trolley to kill one person instead of five?",
+      "opener": "The thought experiment is named after the vehicle in the example.",
+      "choices": [
+        "The trolley problem",
+        "The Torah principle",
+        "The golden rule",
+        "The Socratic method"
+      ],
+      "answer": 0,
+      "explanation": "The trolley problem is a classic thought experiment in ethics, forcing a choice between active intervention and inaction, weighing the consequences for different numbers of people against each other."
+    },
+    {
+      "id": "q-rel-etik-13",
+      "kind": "mc",
+      "topic": "the link between religion and ethics",
+      "prompt": "What is the principle called, found in some form within several religions and worldviews, that you should treat others as you would want to be treated yourself?",
+      "opener": "The principle recurs across many different cultures and traditions under different names.",
+      "choices": [
+        "The golden rule",
+        "Duty ethics",
+        "Nirvana",
+        "Karma"
+      ],
+      "answer": 0,
+      "explanation": "The golden rule - treating others as you would want to be treated yourself - is found in some form within many religions and worldviews, such as Christianity, Islam, Judaism and humanism."
+    },
+    {
+      "id": "q-rel-etik-14",
+      "kind": "worked",
+      "topic": "ethical dilemmas",
+      "prompt": "A dilemma: a friend confides in you that they're struggling badly with their mental health, but asks you to promise not to tell anyone, including their parents. You're worried the friend could come to harm. Reason using duty ethics and consequentialist ethics about what you should do.",
+      "opener": "Think about whether duty ethics gives a clear-cut answer here, unlike in the wallet example.",
+      "answer": "Duty ethics reasoning: if you go by the rule \"keep your promises\", it points toward staying silent, but if you instead go by a rule about protecting others' life and health, duty ethics can point the opposite way - showing that duty ethics can give different answers depending on which rule you prioritise. Consequentialist reasoning: you weigh the consequences of silence (the friend might not get the help they need) against the consequences of telling (the friend's trust may be damaged, but they could get help) - if the risk of serious harm is judged high, consequentialist ethics likely favours seeking help for the friend, despite breaking the promise.",
+      "steps": [
+        "Identify the conflict: the promise of silence stands against concern for the friend's safety.",
+        "Duty ethics: if the rule \"keep promises\" is followed strictly, it points toward silence, but another possible rule (\"protect others' life and health\") points the opposite way - so duty ethics doesn't give an obvious answer here.",
+        "Consequentialist ethics: weigh the possible harm of not acting (the friend suffers) against the harm of breaking the promise (damaged trust) - if the risk of serious harm is high, consequentialist ethics favours seeking help.",
+        "Conclusion: unlike the wallet dilemma, this dilemma doesn't give the same answer from every model, showing that ethical dilemmas don't always have a simple, clear-cut answer."
+      ]
+    },
+    {
+      "id": "q-rel-etik-15",
+      "kind": "mc",
+      "topic": "duty ethics",
+      "prompt": "What is a common criticism of duty ethics?",
+      "opener": "Think about what can happen if a rule is followed strictly, regardless of the situation.",
+      "choices": [
+        "It can lead to actions that feel wrong in a specific situation, if the rule is followed strictly regardless of consequences",
+        "It never cares about rules at all",
+        "It exists only within a single religion",
+        "It can never be applied to real dilemmas"
+      ],
+      "answer": 0,
+      "explanation": "A common criticism of duty ethics is that strict rule-following can sometimes lead to outcomes that feel morally wrong in a specific situation, for example if an absolute rule to always tell the truth forces an answer that needlessly hurts someone."
     }
   ]
 }

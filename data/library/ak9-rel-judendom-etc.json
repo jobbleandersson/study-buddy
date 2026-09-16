@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta grunderna i judendom, hinduism och buddhism, samt en central skillnad mot de abrahamitiska religionerna.",
       "opener": "Gå igenom en religion i taget, och avsluta med jämförelsen.",
       "answer": "Judendom: monoteistisk, tror på ett förbund mellan Gud och det judiska folket, Toran (de fem Moseböckerna) är centralaste skriften, ingår i Tanak. Hinduism: många gudar/gudinnor som ofta ses som uttryck för en gemensam gudomlig kraft (Brahman) · centrala begrepp: karma, reinkarnation (samsara), moksha som slutmål. Buddhism: grundad av Siddharta Gautama (Buddha) · de fyra ädla sanningarna om lidande och vägen bort från det · åttafaldiga vägen · nirvana som slutmål. Jämförelse: hinduism och buddhism (österländska religioner) betonar ofta kretslopp av liv och återfödelse, medan judendom, kristendom och islam (abrahamitiska religioner) betonar ett jordeliv, en Gud och ett förbund/uppenbarelse."
+    },
+    {
+      "id": "q-rel-jud-9",
+      "kind": "mc",
+      "topic": "judendom",
+      "prompt": "Vad kallas den judiska sabbaten, en vilodag som firas varje vecka?",
+      "opener": "Den infaller från fredag kväll till lördag kväll.",
+      "choices": [
+        "Shabbat",
+        "Pesach",
+        "Chanukka",
+        "Jom Kippur"
+      ],
+      "answer": 0,
+      "explanation": "Shabbat är den judiska vilodagen, som firas varje vecka från fredag kväll till lördag kväll, till minne av att Gud enligt Toran vilade den sjunde dagen efter skapelsen."
+    },
+    {
+      "id": "q-rel-jud-10",
+      "kind": "mc",
+      "topic": "judendom",
+      "prompt": "Vilken judisk högtid firar uttåget ur Egypten och slaveriets slut, enligt berättelsen i Toran?",
+      "opener": "Högtiden firas med en särskild måltid som kallas seder.",
+      "choices": [
+        "Pesach (påsk)",
+        "Chanukka",
+        "Sukkot",
+        "Purim"
+      ],
+      "answer": 0,
+      "explanation": "Pesach firar berättelsen om hur judarna, enligt Toran, leddes ut ur slaveriet i Egypten av Mose. Högtiden firas bland annat med en särskild måltid, sedermåltiden."
+    },
+    {
+      "id": "q-rel-jud-11",
+      "kind": "mc",
+      "topic": "hinduism",
+      "prompt": "Vad kallas det traditionella system som historiskt delat in människor i sociala grupper i hinduistiskt präglade delar av Indien?",
+      "opener": "Systemet har historiskt avgjort vilket yrke och social ställning en person föds in i.",
+      "choices": [
+        "Varna/kastsystemet",
+        "Nirvana",
+        "Brahman",
+        "Dharma"
+      ],
+      "answer": 0,
+      "explanation": "Varna/kastsystemet är ett traditionellt socialt system som historiskt delat in människor i grupper, ofta kopplat till yrke och social status. Systemet är i dag officiellt avskaffat i Indiens lagstiftning men har fortfarande social påverkan på sina håll."
+    },
+    {
+      "id": "q-rel-jud-12",
+      "kind": "mc",
+      "topic": "hinduism",
+      "prompt": "Vad betyder begreppet dharma inom hinduismen, ungefär?",
+      "opener": "Tänk på ett ord som handlar om vad som förväntas av en, snarare än om en plats eller person.",
+      "choices": [
+        "Ens plikt, moraliska ansvar och rätta levnadssätt utifrån ens plats i tillvaron",
+        "En helig flod",
+        "Ett tempel",
+        "En gud"
+      ],
+      "answer": 0,
+      "explanation": "Dharma syftar ungefär på ens plikt, moraliska ansvar och rätta levnadssätt, utifrån vem man är och vilken plats man har i tillvaron — ett centralt begrepp för hur man bör leva inom hinduismen."
+    },
+    {
+      "id": "q-rel-jud-13",
+      "kind": "mc",
+      "topic": "buddhism",
+      "prompt": "Vad kallas den väg med åtta delar som enligt buddhismen leder bort från lidande?",
+      "opener": "Vägen är den fjärde av de fyra ädla sanningarna.",
+      "choices": [
+        "Den åttafaldiga vägen",
+        "De tio budorden",
+        "De fem pelarna",
+        "Toran"
+      ],
+      "answer": 0,
+      "explanation": "Den åttafaldiga vägen beskriver åtta principer (bland annat rätt tal, rätt handling och rätt koncentration) som enligt buddhismen leder bort från lidande mot upplysning."
+    },
+    {
+      "id": "q-rel-jud-14",
+      "kind": "worked",
+      "topic": "religionsjämförelse",
+      "prompt": "Förklara en grundläggande skillnad mellan judendomens syn på Gud och buddhismens syn på det gudomliga.",
+      "opener": "Tänk på om båda religionerna över huvud taget kretsar kring en skapargud.",
+      "answer": "Judendomen är starkt monoteistisk och bygger på tanken om ett särskilt förbund mellan en personlig Gud och det judiska folket, medan buddhismen i sin ursprungliga form inte kretsar kring en skapargud alls, utan fokuserar på en praktisk väg (den åttafaldiga vägen) för att övervinna lidande genom egen insikt och disciplin, snarare än genom relation till en gud.",
+      "steps": [
+        "Judendomen utgår från en enda, personlig Gud som ingått ett förbund med det judiska folket och gett dem bud (mitzvot) att följa.",
+        "Buddhismen, i sin klassiska form, handlar inte om dyrkan av en skapargud utan om att förstå och praktisera vägar bort från lidande (dukkha).",
+        "I stället för gudomlig uppenbarelse betonar buddhismen egen insikt, meditation och etisk träning som vägen till befrielse (nirvana).",
+        "Skillnaden visar att religioner kan skilja sig åt inte bara i VILKEN gud man tror på, utan i om gudstro över huvud taget är centralt för trossystemet."
+      ]
+    },
+    {
+      "id": "q-rel-jud-15",
+      "kind": "mc",
+      "topic": "religionsjämförelse",
+      "prompt": "Vilka tre religioner räknas som de abrahamitiska religionerna, eftersom de alla har en koppling till Abraham?",
+      "opener": "Alla tre är monoteistiska och delar delvis samma historiska rötter i Mellanöstern.",
+      "choices": [
+        "Judendom, kristendom och islam",
+        "Hinduism, buddhism och judendom",
+        "Kristendom, hinduism och buddhism",
+        "Islam, buddhism och judendom"
+      ],
+      "answer": 0,
+      "explanation": "Judendom, kristendom och islam kallas de abrahamitiska religionerna eftersom de alla har en koppling till berättelsen om Abraham och delar historiska och teologiska rötter, trots sina olika läror."
     }
   ]
 }

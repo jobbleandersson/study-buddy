@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta begreppen livsåskådning, existentiella frågor, religionsfrihet och sekularisering.",
       "opener": "Gå igenom varje begrepp med en kort, tydlig definition.",
       "answer": "Livsåskådning: ett sammanhängande sätt att se på tillvaron och meningen med livet, kan vara religiöst (t.ex. kristendom) eller sekulärt (t.ex. humanism). Existentiella frågor: grundläggande frågor om livets mening, döden och lidande, som olika livsåskådningar svarar på olika sätt. Religionsfrihet: rätten att fritt tro, utöva, byta eller avstå från religion, en mänsklig rättighet skyddad i svensk grundlag. Sekularisering: processen där religionens roll i samhälle och vardagsliv minskat över tid · exempel i Sverige: skilsmässan mellan staten och Svenska kyrkan år 2000. Humanism: en sekulär livsåskådning som betonar förnuft, människovärde och etik utan att utgå från en gud."
+    },
+    {
+      "id": "q-rel-liv-9",
+      "kind": "mc",
+      "topic": "livsåskådning",
+      "prompt": "Vilket av dessa räknas som en religiös livsåskådning?",
+      "opener": "Tänk på vilken av dessa som bygger på läror om till exempel karma och nirvana.",
+      "choices": [
+        "Buddhism",
+        "Humanism",
+        "Ateism",
+        "Sekularism"
+      ],
+      "answer": 0,
+      "explanation": "Buddhism räknas som en religiös livsåskådning (en av världsreligionerna), medan humanism, ateism och sekularism i stället räknas som sekulära (icke-religiösa) sätt att se på tillvaron."
+    },
+    {
+      "id": "q-rel-liv-10",
+      "kind": "mc",
+      "topic": "existentiella frågor",
+      "prompt": "Vilken typ av fråga är \"Varför finns det lidande i världen?\" ett exempel på?",
+      "opener": "Frågan rör människans grundvillkor, inte fakta som kan slås upp.",
+      "choices": [
+        "En existentiell fråga",
+        "En algebraisk fråga",
+        "En geografisk fråga",
+        "En biologisk fråga utan filosofiskt innehåll"
+      ],
+      "answer": 0,
+      "explanation": "Frågan om varför lidande finns är en existentiell fråga — en grundläggande fråga om människans villkor som olika livsåskådningar besvarar på olika sätt."
+    },
+    {
+      "id": "q-rel-liv-11",
+      "kind": "mc",
+      "topic": "religionsfrihet",
+      "prompt": "Vad innebär det att religionsfriheten även skyddar rätten att INTE tro?",
+      "opener": "Frihet gäller åt flera håll, inte bara rätten att utöva en religion.",
+      "choices": [
+        "Man har även rätt att vara ateist eller sekulär utan att diskrimineras",
+        "Alla måste tillhöra en religion enligt lag",
+        "Ateism är förbjudet enligt religionsfriheten",
+        "Religionsfrihet gäller bara för de fem stora världsreligionerna"
+      ],
+      "answer": 0,
+      "explanation": "Religionsfriheten skyddar inte bara rätten att utöva en religion, utan också rätten att vara utan religion (t.ex. ateist eller agnostiker) utan att bli diskriminerad för det."
+    },
+    {
+      "id": "q-rel-liv-12",
+      "kind": "mc",
+      "topic": "sekularisering",
+      "prompt": "Vad hände i Sverige år 2000 som ofta lyfts fram som ett tydligt exempel på sekularisering?",
+      "opener": "Det handlar om relationen mellan staten och en specifik kyrka.",
+      "choices": [
+        "Svenska kyrkan skildes från staten och blev ett fristående trossamfund",
+        "Sverige blev en teokrati",
+        "Alla kyrkor i Sverige stängdes",
+        "Religionsfriheten avskaffades"
+      ],
+      "answer": 0,
+      "explanation": "År 2000 skildes Svenska kyrkan formellt från staten och blev ett fristående trossamfund bland andra, vilket ofta lyfts fram som ett tydligt exempel på sekularisering i Sverige."
+    },
+    {
+      "id": "q-rel-liv-13",
+      "kind": "mc",
+      "topic": "livsåskådning",
+      "prompt": "Vad är en viktig skillnad mellan en religiös och en sekulär livsåskådning, generellt sett?",
+      "opener": "Tänk på om svaren grundas i något bortom det jordiska, eller inte.",
+      "choices": [
+        "En religiös livsåskådning utgår ofta från en gud eller andlig verklighet, medan en sekulär livsåskådning grundar sina svar utan att förutsätta något gudomligt",
+        "Sekulära livsåskådningar har alltid fler anhängare",
+        "Religiösa livsåskådningar saknar etiska ställningstaganden",
+        "Det finns ingen skillnad alls"
+      ],
+      "answer": 0,
+      "explanation": "En central skillnad är att religiösa livsåskådningar ofta grundar sina svar på tillvarons och livets mening i en gud eller andlig verklighet, medan sekulära livsåskådningar resonerar utan att förutsätta något gudomligt."
+    },
+    {
+      "id": "q-rel-liv-14",
+      "kind": "worked",
+      "topic": "sekularisering",
+      "prompt": "Förklara hur sekularisering och religionsfrihet kan sägas höra ihop i det svenska samhället, trots att de är två olika begrepp.",
+      "opener": "Tänk på vad som händer med statens neutralitet gentemot olika trosinriktningar när religionens formella roll i staten minskar.",
+      "answer": "Sekularisering innebär att religionens roll i statliga institutioner och lagstiftning minskat, vilket i sin tur har gjort det lättare att praktiskt upprätthålla religionsfrihet för alla trosinriktningar och för dem utan religion, eftersom staten inte längre gynnar en särskild religion framför andra.",
+      "steps": [
+        "Sekularisering betyder att religionens formella koppling till staten och dess institutioner minskar, till exempel genom skilsmässan mellan staten och Svenska kyrkan 2000.",
+        "När staten inte längre officiellt förespråkar en viss religion blir det lättare att behandla alla trosinriktningar (och icke-troende) på lika villkor.",
+        "Religionsfrihet handlar om rätten att fritt tro, utöva, byta eller avstå från religion, utan statlig inblandning eller favorisering.",
+        "I ett sekulariserat samhälle som Sverige kan religionsfriheten därför upprätthållas mer neutralt, eftersom staten inte utgår från en specifik religiös ståndpunkt i sin lagstiftning."
+      ]
+    },
+    {
+      "id": "q-rel-liv-15",
+      "kind": "mc",
+      "topic": "existentiella frågor",
+      "prompt": "Vilket av dessa är ett exempel på en existentiell fråga som en person kan ställa sig oavsett vilken livsåskådning hen har?",
+      "opener": "Skilj på frågor med ett givet, faktabaserat svar och frågor utan ett sådant.",
+      "choices": [
+        "Vad är meningen med mitt liv?",
+        "Vad är huvudstaden i Frankrike?",
+        "Hur löser jag en andragradsekvation?",
+        "Vilket år grundades FN?"
+      ],
+      "answer": 0,
+      "explanation": "\"Vad är meningen med mitt liv?\" är en existentiell fråga utan ett givet, faktabaserat svar — olika livsåskådningar kan besvara den på olika sätt. De andra alternativen har i stället ett konkret, kontrollerbart svar."
     }
   ]
 }

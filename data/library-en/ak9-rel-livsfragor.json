@@ -124,6 +124,110 @@
       "prompt": "Summarise the concepts of worldview, existential questions, freedom of religion and secularisation.",
       "opener": "Go through each concept with a short, clear definition.",
       "answer": "Worldview: a coherent way of seeing existence and the meaning of life, can be religious (e.g. Christianity) or secular (e.g. humanism). Existential questions: fundamental questions about the meaning of life, death and suffering, which different worldviews answer in different ways. Freedom of religion: the right to freely believe, practise, change or abstain from religion, a human right protected in Swedish constitutional law. Secularisation: the process by which religion's role in society and everyday life has decreased over time · example in Sweden: the separation between the state and the Church of Sweden in the year 2000. Humanism: a secular worldview that emphasises reason, human dignity and ethics without starting from a god."
+    },
+    {
+      "id": "q-rel-liv-9",
+      "kind": "mc",
+      "topic": "worldview",
+      "prompt": "Which of these is considered a religious worldview?",
+      "opener": "Think about which of these is built on teachings such as karma and nirvana.",
+      "choices": [
+        "Buddhism",
+        "Humanism",
+        "Atheism",
+        "Secularism"
+      ],
+      "answer": 0,
+      "explanation": "Buddhism is considered a religious worldview (one of the world religions), while humanism, atheism and secularism are instead considered secular (non-religious) ways of viewing existence."
+    },
+    {
+      "id": "q-rel-liv-10",
+      "kind": "mc",
+      "topic": "existential questions",
+      "prompt": "What type of question is \"Why is there suffering in the world?\" an example of?",
+      "opener": "The question concerns the fundamental human condition, not a fact you could look up.",
+      "choices": [
+        "An existential question",
+        "An algebraic question",
+        "A geographical question",
+        "A biological question with no philosophical content"
+      ],
+      "answer": 0,
+      "explanation": "The question of why suffering exists is an existential question - a fundamental question about the human condition that different worldviews answer in different ways."
+    },
+    {
+      "id": "q-rel-liv-11",
+      "kind": "mc",
+      "topic": "freedom of religion",
+      "prompt": "What does it mean that freedom of religion also protects the right NOT to believe?",
+      "opener": "Freedom applies in more than one direction, not just the right to practise a religion.",
+      "choices": [
+        "You also have the right to be an atheist or secular without being discriminated against",
+        "Everyone must belong to a religion by law",
+        "Atheism is prohibited under freedom of religion",
+        "Freedom of religion only applies to the five major world religions"
+      ],
+      "answer": 0,
+      "explanation": "Freedom of religion protects not only the right to practise a religion, but also the right to be without religion (e.g. atheist or agnostic) without being discriminated against for it."
+    },
+    {
+      "id": "q-rel-liv-12",
+      "kind": "mc",
+      "topic": "secularisation",
+      "prompt": "What happened in Sweden in the year 2000 that is often highlighted as a clear example of secularisation?",
+      "opener": "It concerns the relationship between the state and a specific church.",
+      "choices": [
+        "The Church of Sweden was separated from the state and became an independent faith community",
+        "Sweden became a theocracy",
+        "All churches in Sweden were closed",
+        "Freedom of religion was abolished"
+      ],
+      "answer": 0,
+      "explanation": "In 2000, the Church of Sweden was formally separated from the state and became one independent faith community among others, often highlighted as a clear example of secularisation in Sweden."
+    },
+    {
+      "id": "q-rel-liv-13",
+      "kind": "mc",
+      "topic": "worldview",
+      "prompt": "What is an important difference between a religious and a secular worldview, generally speaking?",
+      "opener": "Think about whether the answers are grounded in something beyond the earthly, or not.",
+      "choices": [
+        "A religious worldview often grounds its answers in a god or spiritual reality, while a secular worldview reasons without assuming anything divine",
+        "Secular worldviews always have more followers",
+        "Religious worldviews lack ethical positions",
+        "There is no difference at all"
+      ],
+      "answer": 0,
+      "explanation": "A central difference is that religious worldviews often ground their answers about existence and the meaning of life in a god or spiritual reality, while secular worldviews reason without assuming anything divine."
+    },
+    {
+      "id": "q-rel-liv-14",
+      "kind": "worked",
+      "topic": "secularisation",
+      "prompt": "Explain how secularisation and freedom of religion can be said to be connected in Swedish society, despite being two different concepts.",
+      "opener": "Think about what happens to the state's neutrality toward different faiths when religion's formal role in the state decreases.",
+      "answer": "Secularisation means religion's role in state institutions and legislation has decreased, which in turn has made it easier to practically uphold freedom of religion for all faiths and for those without religion, since the state no longer favours a particular religion over others.",
+      "steps": [
+        "Secularisation means religion's formal connection to the state and its institutions decreases, for example through the separation between the state and the Church of Sweden in 2000.",
+        "When the state no longer officially favours a particular religion, it becomes easier to treat all faiths (and non-believers) on equal terms.",
+        "Freedom of religion concerns the right to freely believe, practise, change or abstain from religion, without state interference or favouritism.",
+        "In a secularised society like Sweden, freedom of religion can therefore be upheld more neutrally, since the state doesn't base its legislation on a specific religious standpoint."
+      ]
+    },
+    {
+      "id": "q-rel-liv-15",
+      "kind": "mc",
+      "topic": "existential questions",
+      "prompt": "Which of these is an example of an existential question a person can ask regardless of their worldview?",
+      "opener": "Distinguish between questions with a given, fact-based answer and questions without one.",
+      "choices": [
+        "What is the meaning of my life?",
+        "What is the capital of France?",
+        "How do I solve a quadratic equation?",
+        "What year was the UN founded?"
+      ],
+      "answer": 0,
+      "explanation": "\"What is the meaning of my life?\" is an existential question with no given, fact-based answer - different worldviews can answer it in different ways. The other options instead have a concrete, verifiable answer."
     }
   ]
 }

@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta islams grunder: gudstro, Muhammed, de fem pelarna, sunni/shia och Koranen.",
       "opener": "Dela upp svaret i tro, profet, pelare, inriktningar och helig skrift.",
       "answer": "Gudstro: islam är monoteistisk — en enda Gud, Allah. Muhammed: ses som den siste profeten, mottog Koranens uppenbarelser via ängeln Gabriel. De fem pelarna: shahada (trosbekännelse) · salat (bön fem ggr/dag) · zakat (allmosa) · sawm (fasta under ramadan) · hajj (pilgrimsfärd till Mecka). Sunni och shia: de två största inriktningarna, splittrade ursprungligen kring frågan om vem som skulle efterträda Muhammed som ledare — sunni är den klart största inriktningen globalt. Koranen: islams heliga skrift, ses som Guds egna ord på arabiska. Ramadan: fastemånaden, en av årets viktigaste högtider, avslutas med högtiden id al-fitr."
+    },
+    {
+      "id": "q-rel-isl-9",
+      "kind": "mc",
+      "topic": "grundläggande tro",
+      "prompt": "Vilken stad räknas som islams heligaste plats, dit muslimer vallfärdar under hajj?",
+      "opener": "Staden ligger i nuvarande Saudiarabien.",
+      "choices": [
+        "Mecka",
+        "Medina",
+        "Jerusalem",
+        "Bagdad"
+      ],
+      "answer": 0,
+      "explanation": "Mecka räknas som islams heligaste stad, med Kaba som pilgrimernas mål under hajj. Medina är islams näst heligaste stad."
+    },
+    {
+      "id": "q-rel-isl-10",
+      "kind": "mc",
+      "topic": "de fem pelarna",
+      "prompt": "Vilken pelare innebär trosbekännelsen, att uttala att det bara finns en Gud och att Muhammed är hans profet?",
+      "opener": "Denna pelare räknas ofta som grunden alla andra pelare vilar på.",
+      "choices": [
+        "Shahada",
+        "Salat",
+        "Zakat",
+        "Sawm"
+      ],
+      "answer": 0,
+      "explanation": "Shahada är trosbekännelsen — att uttala att det bara finns en Gud (Allah) och att Muhammed är hans profet. Det är den första och mest grundläggande av de fem pelarna."
+    },
+    {
+      "id": "q-rel-isl-11",
+      "kind": "mc",
+      "topic": "de fem pelarna",
+      "prompt": "Hur många gånger om dagen ber praktiserande muslimer enligt pelaren salat?",
+      "opener": "Bönetiderna är spridda över dygnet, från gryning till kväll.",
+      "choices": [
+        "Fem gånger",
+        "En gång",
+        "Tre gånger",
+        "Sju gånger"
+      ],
+      "answer": 0,
+      "explanation": "Salat innebär bön fem gånger om dagen vid fastställda tider: gryning, middag, eftermiddag, solnedgång och kväll."
+    },
+    {
+      "id": "q-rel-isl-12",
+      "kind": "mc",
+      "topic": "sunni och shia",
+      "prompt": "Ungefär hur stor andel av världens muslimer tillhör den sunnitiska inriktningen?",
+      "opener": "Det är den klart större av de två huvudinriktningarna.",
+      "choices": [
+        "Ungefär 85-90 procent",
+        "Ungefär 10 procent",
+        "Ungefär 50 procent",
+        "Nästan alla är shiamuslimer"
+      ],
+      "answer": 0,
+      "explanation": "Ungefär 85-90 procent av världens muslimer räknas som sunnimuslimer, medan shiamuslimer utgör ungefär 10-15 procent, med Iran som ett av de länder där shiaislam är i majoritet."
+    },
+    {
+      "id": "q-rel-isl-13",
+      "kind": "mc",
+      "topic": "koranen och högtider",
+      "prompt": "Vilken högtid avslutar fastemånaden ramadan?",
+      "opener": "Namnet betyder ungefär \"fastebrytandets högtid\".",
+      "choices": [
+        "Id al-fitr",
+        "Id al-adha",
+        "Ashura",
+        "Mawlid"
+      ],
+      "answer": 0,
+      "explanation": "Id al-fitr firas när ramadan tar slut och markerar slutet på fastemånaden, ofta med gemensamma måltider, bön och gåvor."
+    },
+    {
+      "id": "q-rel-isl-14",
+      "kind": "worked",
+      "topic": "de fem pelarna",
+      "prompt": "Förklara varför hajj, pilgrimsfärden till Mecka, anses vara en av islams viktigaste handlingar, och vad som krävs för att en muslim ska behöva utföra den.",
+      "opener": "Tänk på vad som händer när miljontals människor från hela världen samlas på samma plats, klädda likadant.",
+      "answer": "Hajj för samman muslimer från hela världen på en och samma heliga plats, vilket stärker känslan av gemenskap (umma) och jämlikhet inför Gud, eftersom alla pilgrimer bär enkla, likadana kläder oavsett social status. Enligt islamisk tradition är hajj obligatorisk minst en gång i livet, men bara för den som har tillräcklig hälsa och ekonomiska resurser för att genomföra resan.",
+      "steps": [
+        "Hajj äger rum en gång om året i staden Mecka och samlar miljontals muslimer från hela världen.",
+        "Under pilgrimsfärden bär alla pilgrimer enkla, vita klädesplagg (ihram), vilket suddar ut synliga skillnader i rikedom eller status.",
+        "Detta stärker upplevelsen av jämlikhet och gemenskap (umma) mellan muslimer oavsett bakgrund.",
+        "Enligt islamisk tradition är hajj en av de fem pelarna och obligatorisk minst en gång i livet — men bara för den som har hälsan och de ekonomiska resurserna att klara resan, vilket gör plikten villkorad snarare än absolut för alla."
+      ]
+    },
+    {
+      "id": "q-rel-isl-15",
+      "kind": "mc",
+      "topic": "grundläggande tro",
+      "prompt": "Vad kallas den heliga staden dit Muhammed enligt tradition flydde år 622, en händelse som markerar början på den islamiska tideräkningen?",
+      "opener": "Staden är islams näst heligaste, efter Mecka.",
+      "choices": [
+        "Medina",
+        "Mecka",
+        "Damaskus",
+        "Kairo"
+      ],
+      "answer": 0,
+      "explanation": "Muhammeds flykt (hijra) till Medina år 622 markerar början på den islamiska kalendern. Medina räknas som islams näst heligaste stad, efter Mecka."
     }
   ]
 }
