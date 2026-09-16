@@ -112,7 +112,113 @@
       "topic": "preterite tense",
       "prompt": "How are regular verbs and the most common irregular verbs conjugated in the preterite?",
       "opener": "Past tense forms for completed events, plus three important irregular verbs.",
-      "answer": "-ar (hablar): hablé, hablaste, habló, hablamos, hablasteis, hablaron. -er/-ir (comer/escribir): comí/escribí, comiste/escribiste, comió/escribió, comimos/escribimos, comisteis/escribisteis, comieron/escribieron. Ir/ser (same form!): fui, fuiste, fue, fuimos, fuisteis, fueron. Hacer: hice, hiciste, hizo, hicimos, hicisteis, hicieron. Time expressions that fit: ayer (yesterday), la semana pasada (last week), el año pasado (last year), anoche (last night)."
+      "answer": "-ar (hablar): hablé, hablaste, habló, hablamos, hablasteis, hablaron. -er/-ir (comer/escribir): comí/escribí, comiste/escribiste, comió/escribió, comimos/escribimos, comisteis/escribisteis, comieron/escribieron. Ir/ser (same form!): fui, fuiste, fue, fuimos, fuisteis, fueron. Hacer: hice, hiciste, hizo, hicimos, hicisteis, hicieron. Time expressions that fit: ayer (yesterday), la semana pasada (last week), el año pasado (last year), anoche (last night).",
+      "id": "q-sp9-past-8"
+    },
+    {
+      "id": "q-sp9-past-9",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Choose the correct form: \"Vosotros ___ mucho en la fiesta.\" (bailar = to dance)",
+      "opener": "\"Vosotros\" (you all) in the preterite for -ar verbs ends in -asteis.",
+      "choices": [
+        "bailasteis",
+        "bailaron",
+        "bailamos",
+        "bailé"
+      ],
+      "answer": 0,
+      "explanation": "Preterite of -ar verbs: bailé, bailaste, bailó, bailamos, bailasteis, bailaron. \"Vosotros\" gives \"bailasteis\"."
+    },
+    {
+      "id": "q-sp9-past-10",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Choose the correct form: \"Ellos ___ la puerta antes de salir.\" (cerrar = to close)",
+      "opener": "\"Ellos\" (they) in the preterite for -ar verbs ends in -aron.",
+      "choices": [
+        "cerraron",
+        "cerró",
+        "cerraste",
+        "cerramos"
+      ],
+      "answer": 0,
+      "explanation": "Preterite of -ar verbs: cerré, cerraste, cerró, cerramos, cerrasteis, cerraron. \"Ellos\" gives \"cerraron\"."
+    },
+    {
+      "id": "q-sp9-past-11",
+      "kind": "mc",
+      "topic": "irregular preterite",
+      "prompt": "Choose the correct form of \"ser\" in the preterite: \"Ese día ___ muy especial.\" (That day was very special.)",
+      "opener": "\"Ese día\" (that day) corresponds to the he/she/it form.",
+      "choices": [
+        "fue",
+        "era",
+        "es",
+        "fui"
+      ],
+      "answer": 0,
+      "explanation": "Preterite of \"ser\": fui, fuiste, fue, fuimos, fuisteis, fueron. \"Ese día\" (that day) gives \"fue\"."
+    },
+    {
+      "id": "q-sp9-past-12",
+      "kind": "mc",
+      "topic": "irregular preterite",
+      "prompt": "What is the preterite form of \"tener\" for \"yo\"?",
+      "opener": "\"Tener\" has an irregular stem \"tuv-\" in the preterite.",
+      "choices": [
+        "tuve",
+        "tenía",
+        "tengo",
+        "tuviste"
+      ],
+      "answer": 0,
+      "explanation": "Preterite of \"tener\": tuve, tuviste, tuvo, tuvimos, tuvisteis, tuvieron. \"Yo\" gives \"tuve\"."
+    },
+    {
+      "id": "q-sp9-past-13",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Which time expression does NOT fit with the preterite?",
+      "opener": "Think about which expression describes a recurring habit rather than a completed event.",
+      "choices": [
+        "todos los días (every day)",
+        "el mes pasado (last month)",
+        "hace dos años (two years ago)",
+        "en 2020"
+      ],
+      "answer": 0,
+      "explanation": "\"Todos los días\" (every day) describes a recurring habit and fits better with the present or imperfect tense, not the preterite, which describes completed events at a specific point in time."
+    },
+    {
+      "id": "q-sp9-past-14",
+      "kind": "mc",
+      "topic": "irregular preterite",
+      "prompt": "Choose the correct form of \"poder\" (to be able to) in the preterite: \"Yo no ___ venir a la fiesta.\" (I couldn't come to the party.)",
+      "opener": "\"Poder\" has an irregular stem \"pud-\" in the preterite.",
+      "choices": [
+        "pude",
+        "puedo",
+        "podía",
+        "pudiste"
+      ],
+      "answer": 0,
+      "explanation": "Preterite of \"poder\": pude, pudiste, pudo, pudimos, pudisteis, pudieron. \"Yo\" gives \"pude\"."
+    },
+    {
+      "id": "q-sp9-past-15",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Choose the correct form: \"¿___ (tú) la película anoche?\" (ver = to see)",
+      "opener": "\"Ver\" is irregular but follows a simple pattern in the preterite.",
+      "choices": [
+        "Viste",
+        "Vi",
+        "Vio",
+        "Vieron"
+      ],
+      "answer": 0,
+      "explanation": "Preterite of \"ver\": vi, viste, vio, vimos, visteis, vieron. \"Tú\" gives \"viste\"."
     }
   ]
 }

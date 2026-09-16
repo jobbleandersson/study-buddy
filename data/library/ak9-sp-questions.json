@@ -113,6 +113,111 @@
       "prompt": "Vilka frågeord och negationsord bör du kunna på åk9-nivå i spanska?",
       "opener": "Att ställa frågor och göra meningar nekande.",
       "answer": "Frågeord: qué = vad · quién = vem · dónde = var · cuándo = när · cómo = hur · por qué = varför · cuántos/cuántas = hur många · cuál = vilken. (Alla frågeord har accent i frågor.) Negation: no + verb = inte (No como carne) · nunca = aldrig · nadie = ingen · nada = inget · tampoco = inte heller. Kom ihåg: \"no\" placeras alltid direkt före verbet."
+    },
+    {
+      "id": "q-sp9-q-9",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Vilket frågeord passar: \"¿___ es tu color favorito?\" — \"Mi color favorito es el azul.\"",
+      "opener": "Frågan handlar om att välja bland flera alternativ (favoritfärg).",
+      "choices": [
+        "Cuál",
+        "Quién",
+        "Cuándo",
+        "Dónde"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Cuál es tu color favorito?\" betyder \"vilken är din favoritfärg?\". \"Cuál\" frågar efter ett specifikt val, inte en definition."
+    },
+    {
+      "id": "q-sp9-q-10",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Vad frågar \"¿Con quién vas al cine?\"?",
+      "opener": "\"Con quién\" betyder \"med vem\".",
+      "choices": [
+        "Med vem går du på bio?",
+        "När går du på bio?",
+        "Varför går du på bio?",
+        "Vad kostar biobiljetten?"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Con quién vas al cine?\" betyder \"med vem går du på bio?\"."
+    },
+    {
+      "id": "q-sp9-q-11",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "Vad betyder \"No tengo ningún problema\"?",
+      "opener": "\"Ningún\" förstärker negationen ytterligare, ungefär som \"inga alls\".",
+      "choices": [
+        "Jag har inga problem alls",
+        "Jag har ett problem",
+        "Jag har många problem",
+        "Jag har glömt problemet"
+      ],
+      "answer": 0,
+      "explanation": "\"No tengo ningún problema\" betyder \"jag har inga problem alls\" — en starkare negation än bara \"no tengo problema\"."
+    },
+    {
+      "id": "q-sp9-q-12",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "Vad betyder \"Tampoco me gusta el café\"?",
+      "opener": "\"Tampoco\" är motsvarigheten till svenskans \"inte heller\".",
+      "choices": [
+        "Jag gillar inte kaffe heller",
+        "Jag gillar bara kaffe",
+        "Jag älskar kaffe",
+        "Jag har aldrig druckit kaffe"
+      ],
+      "answer": 0,
+      "explanation": "\"Tampoco me gusta el café\" betyder \"jag gillar inte kaffe heller\" (som svar på att någon annan inte heller gillar det)."
+    },
+    {
+      "id": "q-sp9-q-13",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Vilket frågeord används för att fråga \"vilken\" direkt framför ett substantiv, t.ex. \"¿___ camisa prefieres, la azul o la roja?\"",
+      "opener": "Framför ett substantiv används oftast ett annat frågeord än \"cuál\" i standardspanska.",
+      "choices": [
+        "Qué",
+        "Cuál",
+        "Cuánto",
+        "Cómo"
+      ],
+      "answer": 0,
+      "explanation": "Framför ett substantiv används oftast \"qué\" i standardspanska, även när frågan gäller ett val mellan alternativ: \"¿qué camisa prefieres?\". \"Cuál\" används i stället fristående eller med \"de\": \"¿cuál prefieres?\", \"¿cuál de las camisas?\"."
+    },
+    {
+      "id": "q-sp9-q-14",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "Vad betyder \"Nadie sabe la respuesta\"?",
+      "opener": "\"Nadie\" betyder \"ingen\", motsatsen till \"alguien\" (någon).",
+      "choices": [
+        "Ingen vet svaret",
+        "Alla vet svaret",
+        "Någon vet svaret",
+        "Jag vet inte svaret"
+      ],
+      "answer": 0,
+      "explanation": "\"Nadie sabe la respuesta\" betyder \"ingen vet svaret\"."
+    },
+    {
+      "id": "q-sp9-q-15",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Vad frågar \"¿Cómo se llama tu perro?\"?",
+      "opener": "Samma fras som man använder för att fråga en persons namn.",
+      "choices": [
+        "Vad heter din hund?",
+        "Hur mår din hund?",
+        "Var är din hund?",
+        "Hur gammal är din hund?"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Cómo se llama...?\" betyder \"vad heter...?\", och används både för personer och djur: \"¿Cómo se llama tu perro?\" = \"vad heter din hund?\"."
     }
   ]
 }

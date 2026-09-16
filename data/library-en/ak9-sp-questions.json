@@ -113,6 +113,111 @@
       "prompt": "Which question words and negation words should you know at the grade 9 level in Spanish?",
       "opener": "Asking questions and making sentences negative.",
       "answer": "Question words: qué = what · quién = who · dónde = where · cuándo = when · cómo = how · por qué = why · cuántos/cuántas = how many · cuál = which. (All question words carry an accent in questions.) Negation: no + verb = not (No como carne) · nunca = never · nadie = nobody · nada = nothing · tampoco = not either. Remember: \"no\" is always placed directly before the verb."
+    },
+    {
+      "id": "q-sp9-q-9",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Which question word fits: \"¿___ es tu color favorito?\" — \"Mi color favorito es el azul.\"",
+      "opener": "The question is about choosing among several options (favorite color).",
+      "choices": [
+        "Cuál",
+        "Quién",
+        "Cuándo",
+        "Dónde"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Cuál es tu color favorito?\" means \"what is your favorite color?\". \"Cuál\" asks for a specific choice, not a definition."
+    },
+    {
+      "id": "q-sp9-q-10",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "What does \"¿Con quién vas al cine?\" ask?",
+      "opener": "\"Con quién\" means \"with whom\".",
+      "choices": [
+        "Who are you going to the movies with?",
+        "When are you going to the movies?",
+        "Why are you going to the movies?",
+        "How much does the movie ticket cost?"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Con quién vas al cine?\" means \"who are you going to the movies with?\"."
+    },
+    {
+      "id": "q-sp9-q-11",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "What does \"No tengo ningún problema\" mean?",
+      "opener": "\"Ningún\" further reinforces the negation, similar to \"none at all\".",
+      "choices": [
+        "I have no problems at all",
+        "I have one problem",
+        "I have many problems",
+        "I have forgotten the problem"
+      ],
+      "answer": 0,
+      "explanation": "\"No tengo ningún problema\" means \"I have no problems at all\" — a stronger negation than just \"no tengo problema\"."
+    },
+    {
+      "id": "q-sp9-q-12",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "What does \"Tampoco me gusta el café\" mean?",
+      "opener": "\"Tampoco\" is the equivalent of \"not ... either\".",
+      "choices": [
+        "I don't like coffee either",
+        "I only like coffee",
+        "I love coffee",
+        "I've never drunk coffee"
+      ],
+      "answer": 0,
+      "explanation": "\"Tampoco me gusta el café\" means \"I don't like coffee either\" (in response to someone else also not liking it)."
+    },
+    {
+      "id": "q-sp9-q-13",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Which question word is used to ask \"which\" directly before a noun, e.g. \"¿___ camisa prefieres, la azul o la roja?\"",
+      "opener": "Before a noun, standard Spanish usually uses a different question word than \"cuál\".",
+      "choices": [
+        "Qué",
+        "Cuál",
+        "Cuánto",
+        "Cómo"
+      ],
+      "answer": 0,
+      "explanation": "Before a noun, standard Spanish usually uses \"qué\", even when the question is about choosing between options: \"¿qué camisa prefieres?\". \"Cuál\" is instead used on its own or with \"de\": \"¿cuál prefieres?\", \"¿cuál de las camisas?\"."
+    },
+    {
+      "id": "q-sp9-q-14",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "What does \"Nadie sabe la respuesta\" mean?",
+      "opener": "\"Nadie\" means \"nobody\", the opposite of \"alguien\" (somebody).",
+      "choices": [
+        "Nobody knows the answer",
+        "Everybody knows the answer",
+        "Somebody knows the answer",
+        "I don't know the answer"
+      ],
+      "answer": 0,
+      "explanation": "\"Nadie sabe la respuesta\" means \"nobody knows the answer\"."
+    },
+    {
+      "id": "q-sp9-q-15",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "What does \"¿Cómo se llama tu perro?\" ask?",
+      "opener": "The same phrase used to ask a person's name.",
+      "choices": [
+        "What's your dog's name?",
+        "How is your dog doing?",
+        "Where is your dog?",
+        "How old is your dog?"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Cómo se llama...?\" means \"what is ... called?\", and is used for both people and animals: \"¿Cómo se llama tu perro?\" = \"what's your dog's name?\"."
     }
   ]
 }
