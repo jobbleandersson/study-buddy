@@ -113,6 +113,111 @@
       "prompt": "Vilka frågeord och negationsuttryck bör du kunna på åk9-nivå i franska?",
       "opener": "Att ställa frågor och göra meningar nekande.",
       "answer": "Frågeord: qu'est-ce que/quoi = vad · qui = vem · où = var · quand = när · comment = hur · pourquoi = varför · combien de = hur mycket/många · quel/quelle = vilken. Negation: ne...pas = inte (Je ne mange pas) · ne...jamais = aldrig · ne...personne = ingen · ne...rien = inget · ne...plus = inte längre. Kom ihåg: \"ne\" står FÖRE verbet, det andra ordet (pas/jamais/rien) EFTER."
+    },
+    {
+      "id": "q-fr9-q-9",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Vilket frågeord passar: \"___ est ta couleur préférée ?\" — \"Ma couleur préférée est le bleu.\"",
+      "opener": "Frågan handlar om att välja mellan flera alternativ (favoritfärg).",
+      "choices": [
+        "Quelle",
+        "Qui",
+        "Quand",
+        "Où"
+      ],
+      "answer": 0,
+      "explanation": "\"Quelle est ta couleur préférée ?\" betyder \"vad är din favoritfärg?\". \"Quelle\" (feminin form, eftersom \"couleur\" är femininum) frågar efter ett specifikt val."
+    },
+    {
+      "id": "q-fr9-q-10",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Vad betyder \"Avec qui vas-tu au cinéma ?\"?",
+      "opener": "\"Avec qui\" betyder \"med vem\".",
+      "choices": [
+        "Vem följer du med till bion?",
+        "När går du på bio?",
+        "Varför går du på bio?",
+        "Hur mycket kostar biobiljetten?"
+      ],
+      "answer": 0,
+      "explanation": "\"Avec qui vas-tu au cinéma ?\" betyder \"vem följer du med till bion?\"."
+    },
+    {
+      "id": "q-fr9-q-11",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "Vad betyder \"Je n'ai aucun problème\"?",
+      "opener": "\"Aucun\" förstärker negationen, ungefär som \"inte alls\".",
+      "choices": [
+        "Jag har inga problem alls",
+        "Jag har ett problem",
+        "Jag har många problem",
+        "Jag har glömt problemet"
+      ],
+      "answer": 0,
+      "explanation": "\"Je n'ai aucun problème\" betyder \"jag har inga problem alls\" — en starkare negation än bara \"je n'ai pas de problème\"."
+    },
+    {
+      "id": "q-fr9-q-12",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "Vad betyder \"Je n'aime pas non plus le café\"?",
+      "opener": "\"Non plus\" motsvarar \"inte heller\".",
+      "choices": [
+        "Jag gillar inte kaffe heller",
+        "Jag gillar bara kaffe",
+        "Jag älskar kaffe",
+        "Jag har aldrig druckit kaffe"
+      ],
+      "answer": 0,
+      "explanation": "\"Je n'aime pas non plus le café\" betyder \"jag gillar inte kaffe heller\" (som svar på att någon annan inte heller gillar det)."
+    },
+    {
+      "id": "q-fr9-q-13",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Vilket frågeord används direkt före ett substantiv för att fråga \"vilken\", t.ex. \"___ chemise préfères-tu ?\"",
+      "opener": "\"Chemise\" är feminint, så frågeordet måste kongruensböjas.",
+      "choices": [
+        "Quelle",
+        "Qu'est-ce que",
+        "Quoi",
+        "Comment"
+      ],
+      "answer": 0,
+      "explanation": "Framför ett substantiv används \"quel/quelle/quels/quelles\", som kongruensböjs efter substantivets genus och numerus: \"quelle chemise\" (feminint singular)."
+    },
+    {
+      "id": "q-fr9-q-14",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "Vad betyder \"Personne ne sait la réponse\"?",
+      "opener": "\"Personne\" betyder \"ingen\", motsatsen till \"quelqu'un\" (någon).",
+      "choices": [
+        "Ingen vet svaret",
+        "Alla vet svaret",
+        "Någon vet svaret",
+        "Jag vet inte svaret"
+      ],
+      "answer": 0,
+      "explanation": "\"Personne ne sait la réponse\" betyder \"ingen vet svaret\". Notera att \"personne\" här står FÖRE verbet, med \"ne\" kvar."
+    },
+    {
+      "id": "q-fr9-q-15",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Vad frågar \"Comment s'appelle ton chien ?\"?",
+      "opener": "Samma fras används både för personer och djur.",
+      "choices": [
+        "Vad heter din hund?",
+        "Hur mår din hund?",
+        "Var är din hund?",
+        "Hur gammal är din hund?"
+      ],
+      "answer": 0,
+      "explanation": "\"Comment s'appelle...?\" betyder \"vad heter...?\", och används för både personer och djur: \"Comment s'appelle ton chien ?\" = \"vad heter din hund?\"."
     }
   ]
 }

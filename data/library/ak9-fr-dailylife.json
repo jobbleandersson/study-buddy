@@ -113,6 +113,111 @@
       "prompt": "Hur bildar man jämförelser och beskriver en vardagsrutin på franska?",
       "opener": "Jämförelseord och reflexiva verb för det dagliga livet.",
       "answer": "Jämförelser: plus ... que = mer ... än · moins ... que = mindre ... än · aussi ... que = lika ... som · meilleur/pire = bättre/sämre (oregelbundna). Vardagsrutin (reflexiva verb): se réveiller = vakna · se lever = gå upp · se doucher = duscha · s'habiller = klä på sig · prendre le petit-déjeuner = äta frukost · se coucher = lägga sig. Reflexiva pronomen: me, te, se, nous, vous, se — placeras före verbet: je me lève, tu te lèves, il se lève."
+    },
+    {
+      "id": "q-fr9-daily-9",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad betyder \"moins cher que\" i en jämförelse mellan två produkter?",
+      "opener": "\"Moins ... que\" är motsatsen till \"plus ... que\".",
+      "choices": [
+        "Mindre dyr/billigare än",
+        "Dyrare än",
+        "Lika dyr som",
+        "Den dyraste"
+      ],
+      "answer": 0,
+      "explanation": "\"Moins cher que\" betyder \"mindre dyr/billigare än\", motsatsen till \"plus cher que\" (dyrare än)."
+    },
+    {
+      "id": "q-fr9-daily-10",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad betyder \"le meilleur\" i superlativ, t.ex. \"C'est le meilleur restaurant de la ville\"?",
+      "opener": "\"Bon\" är oregelbunden även i superlativ, precis som i komparativ.",
+      "choices": [
+        "Den bästa",
+        "Bättre",
+        "Sämre",
+        "Lika bra"
+      ],
+      "answer": 0,
+      "explanation": "\"Le meilleur\" är superlativformen av \"bon\": \"den bästa\". \"C'est le meilleur restaurant de la ville\" betyder \"det är den bästa restaurangen i stan\"."
+    },
+    {
+      "id": "q-fr9-daily-11",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Je m'habille après le petit-déjeuner\"?",
+      "opener": "\"S'habiller\" är ett reflexivt verb för att klä på sig.",
+      "choices": [
+        "Jag klär på mig efter frukost",
+        "Jag äter frukost efter att jag klätt på mig",
+        "Jag duschar efter frukost",
+        "Jag klär av mig efter frukost"
+      ],
+      "answer": 0,
+      "explanation": "\"Je m'habille après le petit-déjeuner\" betyder \"jag klär på mig efter frukost\"."
+    },
+    {
+      "id": "q-fr9-daily-12",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"D'habitude, je quitte la maison à huit heures\"?",
+      "opener": "\"D'habitude\" signalerar en återkommande vana.",
+      "choices": [
+        "Vanligtvis lämnar jag hemmet klockan åtta",
+        "Jag lämnade hemmet igår klockan åtta",
+        "Jag ska lämna hemmet klockan åtta",
+        "Jag kommer aldrig hem klockan åtta"
+      ],
+      "answer": 0,
+      "explanation": "\"D'habitude, je quitte la maison à huit heures\" betyder \"vanligtvis lämnar jag hemmet klockan åtta\" — en beskrivning av en återkommande rutin."
+    },
+    {
+      "id": "q-fr9-daily-13",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad är den oregelbundna superlativformen av \"mauvais\" (dålig)?",
+      "opener": "\"Mauvais\" har, precis som \"bon\", en oregelbunden superlativ.",
+      "choices": [
+        "le pire",
+        "le meilleur",
+        "plus mauvais",
+        "aussi mauvais"
+      ],
+      "answer": 0,
+      "explanation": "\"Mauvais\" har den oregelbundna superlativformen \"le pire\" (den sämsta)."
+    },
+    {
+      "id": "q-fr9-daily-14",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Nous nous réveillons tôt le lundi\"?",
+      "opener": "\"Se réveiller\" är ett annat reflexivt verb, precis som \"se lever\".",
+      "choices": [
+        "Vi vaknar tidigt på måndagar",
+        "Vi somnar tidigt på måndagar",
+        "Vi äter tidigt på måndagar",
+        "Vi kommer hem tidigt på måndagar"
+      ],
+      "answer": 0,
+      "explanation": "\"Se réveiller\" betyder \"att vakna\", och \"nous nous réveillons\" betyder \"vi vaknar\"."
+    },
+    {
+      "id": "q-fr9-daily-15",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Hur uttrycker man att två saker är exakt lika stora, t.ex. \"Ma maison est ___ grande ___ la tienne\"?",
+      "opener": "Likhet uttrycks med \"aussi ... que\", inte \"plus\" eller \"moins\".",
+      "choices": [
+        "aussi ... que",
+        "plus ... que",
+        "moins ... que",
+        "aussi ... comme"
+      ],
+      "answer": 0,
+      "explanation": "\"Aussi ... que\" betyder \"lika ... som\": \"ma maison est aussi grande que la tienne\" = \"mitt hus är lika stort som ditt\"."
     }
   ]
 }

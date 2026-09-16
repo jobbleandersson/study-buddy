@@ -112,6 +112,111 @@
       "prompt": "Vilka strategier hjälper dig att förstå en längre fransk text med flera meningar som hör ihop?",
       "opener": "Att knyta ihop information från olika delar av texten.",
       "answer": "Läs hela texten en gång utan att stanna vid okända ord, för att få helheten. Leta efter tidsmarkörer (l'été dernier, pendant deux semaines) för att förstå NÄR något hände. Leta efter passé composé-former (sommes allés, avons visité, a fait, a plu) för att förstå VAD som hände. Koppla ihop pronomen och syftningar: \"ce que j'ai préféré\" syftar tillbaka på hela upplevelsen. Gissa nya ord från sammanhanget — \"délicieux\" går att gissa (positivt omdöme om mat) även utan att ha sett ordet förut."
+    },
+    {
+      "id": "q-fr9-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"Quand j'avais douze ans, ma famille a déménagé dans une autre ville. Au début, mes anciens amis me manquaient beaucoup, mais peu à peu je me suis fait de nouveaux amis à l'école. Maintenant, cinq ans plus tard, je ne regrette rien.\"\n\nHur gammal var personen när familjen flyttade?",
+      "opener": "Leta efter tidsangivelsen i första meningen.",
+      "choices": [
+        "Tolv år",
+        "Fem år",
+        "Sjutton år",
+        "Tio år"
+      ],
+      "answer": 0,
+      "explanation": "\"Quand j'avais douze ans\" betyder \"när jag var tolv år\", vilket anger personens ålder vid flytten."
+    },
+    {
+      "id": "q-fr9-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Hur kände sig personen i början?",
+      "opener": "Andra meningen beskriver känslorna vid starten.",
+      "choices": [
+        "Saknade sina gamla vänner mycket",
+        "Var jättelycklig från första dagen",
+        "Kände ingenting särskilt",
+        "Ville flytta tillbaka direkt"
+      ],
+      "answer": 0,
+      "explanation": "\"Mes anciens amis me manquaient beaucoup\" betyder \"jag saknade mina gamla vänner mycket\"."
+    },
+    {
+      "id": "q-fr9-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Hur känner sig personen nu, enligt texten?",
+      "opener": "Sista meningen sammanfattar hur personen känner idag.",
+      "choices": [
+        "Ångrar ingenting",
+        "Saknar fortfarande sin gamla stad mycket",
+        "Vill flytta igen",
+        "Har fortfarande inga vänner"
+      ],
+      "answer": 0,
+      "explanation": "\"Je ne regrette rien\" betyder \"jag ångrar ingenting\"."
+    },
+    {
+      "id": "q-fr9-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Ny text: \"Ma meilleure amie et moi nous sommes rencontrées le premier jour de collège. Au début, nous n'avons pas beaucoup parlé, mais pendant le déjeuner, nous avons commencé à parler de musique et découvert que nous aimions le même groupe. Depuis, nous sommes inséparables.\"\n\nNär träffades de två väninnorna?",
+      "opener": "Läs den nya texten om två vänner.",
+      "choices": [
+        "På första skoldagen",
+        "På en födelsedagsfest",
+        "På en konsert",
+        "När de var mycket små"
+      ],
+      "answer": 0,
+      "explanation": "\"Nous sommes rencontrées le premier jour de collège\" betyder \"vi träffades på första skoldagen\"."
+    },
+    {
+      "id": "q-fr9-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad började de prata om under lunchen?",
+      "opener": "Mitten av texten beskriver vad de pratade om.",
+      "choices": [
+        "Om musik",
+        "Om sport",
+        "Om filmer",
+        "Om sina familjer"
+      ],
+      "answer": 0,
+      "explanation": "\"Nous avons commencé à parler de musique\" betyder \"vi började prata om musik\"."
+    },
+    {
+      "id": "q-fr9-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad upptäckte de att de hade gemensamt?",
+      "opener": "Texten beskriver en gemensam upptäckt.",
+      "choices": [
+        "De gillar samma musikgrupp",
+        "De bor på samma gata",
+        "De har samma födelsedag",
+        "De går i samma dansklass"
+      ],
+      "answer": 0,
+      "explanation": "\"Nous avons découvert que nous aimions le même groupe\" betyder \"vi upptäckte att vi gillar samma musikgrupp\"."
+    },
+    {
+      "id": "q-fr9-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Hur beskriver personen sin nuvarande vänskap?",
+      "opener": "Sista meningen beskriver deras vänskap idag.",
+      "choices": [
+        "Oskiljaktiga",
+        "De pratar inte längre",
+        "De ses en gång om året",
+        "De är inte vänner än"
+      ],
+      "answer": 0,
+      "explanation": "\"Nous sommes inséparables\" betyder \"vi är oskiljaktiga\"."
     }
   ]
 }

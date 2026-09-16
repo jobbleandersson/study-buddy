@@ -113,6 +113,111 @@
       "prompt": "Which question words and negation expressions should you know at grade 9 level in French?",
       "opener": "Asking questions and making sentences negative.",
       "answer": "Question words: qu'est-ce que/quoi = what · qui = who · où = where · quand = when · comment = how · pourquoi = why · combien de = how much/many · quel/quelle = which. Negation: ne...pas = not (Je ne mange pas) · ne...jamais = never · ne...personne = no one · ne...rien = nothing · ne...plus = no longer. Remember: \"ne\" goes BEFORE the verb, the second word (pas/jamais/rien) AFTER."
+    },
+    {
+      "id": "q-fr9-q-9",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Which question word fits: \"___ est ta couleur préférée ?\" — \"Ma couleur préférée est le bleu.\"",
+      "opener": "The question is about choosing among several options (favorite color).",
+      "choices": [
+        "Quelle",
+        "Qui",
+        "Quand",
+        "Où"
+      ],
+      "answer": 0,
+      "explanation": "\"Quelle est ta couleur préférée ?\" means \"what is your favorite color?\". \"Quelle\" (feminine form, since \"couleur\" is feminine) asks for a specific choice."
+    },
+    {
+      "id": "q-fr9-q-10",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "What does \"Avec qui vas-tu au cinéma ?\" mean?",
+      "opener": "\"Avec qui\" means \"with whom\".",
+      "choices": [
+        "Who are you going to the movies with?",
+        "When are you going to the movies?",
+        "Why are you going to the movies?",
+        "How much does the movie ticket cost?"
+      ],
+      "answer": 0,
+      "explanation": "\"Avec qui vas-tu au cinéma ?\" means \"who are you going to the movies with?\"."
+    },
+    {
+      "id": "q-fr9-q-11",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "What does \"Je n'ai aucun problème\" mean?",
+      "opener": "\"Aucun\" reinforces the negation, similar to \"none at all\".",
+      "choices": [
+        "I have no problems at all",
+        "I have one problem",
+        "I have many problems",
+        "I have forgotten the problem"
+      ],
+      "answer": 0,
+      "explanation": "\"Je n'ai aucun problème\" means \"I have no problems at all\" — a stronger negation than just \"je n'ai pas de problème\"."
+    },
+    {
+      "id": "q-fr9-q-12",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "What does \"Je n'aime pas non plus le café\" mean?",
+      "opener": "\"Non plus\" is the equivalent of \"not ... either\".",
+      "choices": [
+        "I don't like coffee either",
+        "I only like coffee",
+        "I love coffee",
+        "I've never drunk coffee"
+      ],
+      "answer": 0,
+      "explanation": "\"Je n'aime pas non plus le café\" means \"I don't like coffee either\" (in response to someone else also not liking it)."
+    },
+    {
+      "id": "q-fr9-q-13",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "Which question word is used right before a noun to ask \"which\", e.g. \"___ chemise préfères-tu ?\"",
+      "opener": "\"Chemise\" is feminine, so the question word has to agree.",
+      "choices": [
+        "Quelle",
+        "Qu'est-ce que",
+        "Quoi",
+        "Comment"
+      ],
+      "answer": 0,
+      "explanation": "Before a noun, \"quel/quelle/quels/quelles\" is used, and it agrees with the noun's gender and number: \"quelle chemise\" (feminine singular)."
+    },
+    {
+      "id": "q-fr9-q-14",
+      "kind": "mc",
+      "topic": "negation",
+      "prompt": "What does \"Personne ne sait la réponse\" mean?",
+      "opener": "\"Personne\" means \"nobody\", the opposite of \"quelqu'un\" (somebody).",
+      "choices": [
+        "Nobody knows the answer",
+        "Everybody knows the answer",
+        "Somebody knows the answer",
+        "I don't know the answer"
+      ],
+      "answer": 0,
+      "explanation": "\"Personne ne sait la réponse\" means \"nobody knows the answer\". Note that \"personne\" here stands BEFORE the verb, with \"ne\" kept."
+    },
+    {
+      "id": "q-fr9-q-15",
+      "kind": "mc",
+      "topic": "question words",
+      "prompt": "What does \"Comment s'appelle ton chien ?\" ask?",
+      "opener": "The same phrase is used for both people and animals.",
+      "choices": [
+        "What's your dog's name?",
+        "How is your dog doing?",
+        "Where is your dog?",
+        "How old is your dog?"
+      ],
+      "answer": 0,
+      "explanation": "\"Comment s'appelle...?\" means \"what is ... called?\", and is used for both people and animals: \"Comment s'appelle ton chien ?\" = \"what's your dog's name?\"."
     }
   ]
 }

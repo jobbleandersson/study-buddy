@@ -112,6 +112,111 @@
       "prompt": "Which strategies help you understand a longer French text with several connected sentences?",
       "opener": "Linking information from different parts of the text.",
       "answer": "Read the whole text once without stopping at unknown words, to get the big picture. Look for time markers (l'été dernier, pendant deux semaines) to understand WHEN something happened. Look for passé composé forms (sommes allés, avons visité, a fait, a plu) to understand WHAT happened. Connect pronouns and references: \"ce que j'ai préféré\" refers back to the whole experience. Guess new words from context — \"délicieux\" can be guessed (a positive judgment about food) even without having seen the word before."
+    },
+    {
+      "id": "q-fr9-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Quand j'avais douze ans, ma famille a déménagé dans une autre ville. Au début, mes anciens amis me manquaient beaucoup, mais peu à peu je me suis fait de nouveaux amis à l'école. Maintenant, cinq ans plus tard, je ne regrette rien.\"\n\nHow old was the person when the family moved?",
+      "opener": "Look for the time expression in the first sentence.",
+      "choices": [
+        "Twelve years old",
+        "Five years old",
+        "Seventeen years old",
+        "Ten years old"
+      ],
+      "answer": 0,
+      "explanation": "\"Quand j'avais douze ans\" means \"when I was twelve years old\", indicating the person's age at the time of the move."
+    },
+    {
+      "id": "q-fr9-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. How did the person feel at first?",
+      "opener": "The second sentence describes the feelings at the start.",
+      "choices": [
+        "Missed their old friends a lot",
+        "Was thrilled from day one",
+        "Didn't feel anything in particular",
+        "Wanted to move back right away"
+      ],
+      "answer": 0,
+      "explanation": "\"Mes anciens amis me manquaient beaucoup\" means \"I missed my old friends a lot\"."
+    },
+    {
+      "id": "q-fr9-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. How does the person feel now, according to the text?",
+      "opener": "The last sentence sums up how the person feels today.",
+      "choices": [
+        "Doesn't regret anything",
+        "Still misses their old city a lot",
+        "Wants to move again",
+        "Still has no friends"
+      ],
+      "answer": 0,
+      "explanation": "\"Je ne regrette rien\" means \"I don't regret anything\"."
+    },
+    {
+      "id": "q-fr9-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "New text: \"Ma meilleure amie et moi nous sommes rencontrées le premier jour de collège. Au début, nous n'avons pas beaucoup parlé, mais pendant le déjeuner, nous avons commencé à parler de musique et découvert que nous aimions le même groupe. Depuis, nous sommes inséparables.\"\n\nWhen did the two friends meet?",
+      "opener": "Read the new text about two friends.",
+      "choices": [
+        "On the first day of school",
+        "At a birthday party",
+        "At a concert",
+        "When they were very young"
+      ],
+      "answer": 0,
+      "explanation": "\"Nous sommes rencontrées le premier jour de collège\" means \"we met on the first day of school\"."
+    },
+    {
+      "id": "q-fr9-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What did they start talking about at lunch?",
+      "opener": "The middle of the text describes what they talked about.",
+      "choices": [
+        "Music",
+        "Sports",
+        "Movies",
+        "Their families"
+      ],
+      "answer": 0,
+      "explanation": "\"Nous avons commencé à parler de musique\" means \"we started talking about music\"."
+    },
+    {
+      "id": "q-fr9-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What did they discover they had in common?",
+      "opener": "The text describes a shared discovery.",
+      "choices": [
+        "They like the same band",
+        "They live on the same street",
+        "They have the same birthday",
+        "They go to the same dance class"
+      ],
+      "answer": 0,
+      "explanation": "\"Nous avons découvert que nous aimions le même groupe\" means \"we discovered we like the same band\"."
+    },
+    {
+      "id": "q-fr9-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. How does the person describe their current friendship?",
+      "opener": "The last sentence describes their friendship today.",
+      "choices": [
+        "Inseparable",
+        "They don't talk anymore",
+        "They see each other once a year",
+        "They aren't friends yet"
+      ],
+      "answer": 0,
+      "explanation": "\"Nous sommes inséparables\" means \"we are inseparable\"."
     }
   ]
 }

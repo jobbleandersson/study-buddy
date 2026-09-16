@@ -113,6 +113,111 @@
       "prompt": "Which travel and weather expressions should you know at grade 9 level in French?",
       "opener": "Booking, traveling, and talking about the weather.",
       "answer": "Travel: le billet (aller simple / aller-retour) = ticket (one-way/round-trip) · la valise = suitcase · le passeport = passport · le train/avion/bus = train/plane/bus · partir = to depart · arriver = to arrive · D'où part...? = Where does ... depart from? Weather: il fait chaud/froid/soleil/du vent = it's hot/cold/sunny/windy · il pleut = it's raining · il neige = it's snowing · c'est nuageux = it's cloudy."
+    },
+    {
+      "id": "q-fr9-trav-9",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"le quai\" mean?",
+      "opener": "The place where you wait for the train and board it.",
+      "choices": [
+        "The platform",
+        "The ticket window",
+        "The waiting room",
+        "The exit"
+      ],
+      "answer": 0,
+      "explanation": "\"Le quai\" means the platform, the place along the tracks where you wait for and board the train."
+    },
+    {
+      "id": "q-fr9-trav-10",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"enregistrer les bagages\" mean?",
+      "opener": "Something you do at the check-in counter before the flight.",
+      "choices": [
+        "Check in the luggage",
+        "Open the luggage",
+        "Lose the luggage",
+        "Weigh the luggage yourself"
+      ],
+      "answer": 0,
+      "explanation": "\"Enregistrer les bagages\" means \"to check in the luggage\"."
+    },
+    {
+      "id": "q-fr9-trav-11",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "What does \"c'est nuageux\" mean?",
+      "opener": "\"Le nuage\" means the cloud.",
+      "choices": [
+        "It's cloudy",
+        "It's sunny",
+        "It's snowing",
+        "It's windy"
+      ],
+      "answer": 0,
+      "explanation": "\"C'est nuageux\" means \"it's cloudy\"."
+    },
+    {
+      "id": "q-fr9-trav-12",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "What does \"il gèle\" mean?",
+      "opener": "An expression for when the temperature drops below zero.",
+      "choices": [
+        "It's freezing (subzero)",
+        "It's warm",
+        "It's raining",
+        "It's cloudy"
+      ],
+      "answer": 0,
+      "explanation": "\"Il gèle\" means \"it's freezing\", i.e. the temperature is below zero degrees."
+    },
+    {
+      "id": "q-fr9-trav-13",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"C'est loin d'ici ?\" mean?",
+      "opener": "The question is about distance.",
+      "choices": [
+        "Is it far from here?",
+        "What color is it?",
+        "How much does it cost?",
+        "What's the place called?"
+      ],
+      "answer": 0,
+      "explanation": "\"C'est loin d'ici ?\" means \"is it far from here?\"."
+    },
+    {
+      "id": "q-fr9-trav-14",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "What does \"la température est en dessous de zéro\" mean?",
+      "opener": "\"En dessous de\" means \"below\".",
+      "choices": [
+        "The temperature is below zero degrees",
+        "The temperature is very high",
+        "The weather is uncertain",
+        "It's very windy"
+      ],
+      "answer": 0,
+      "explanation": "\"La température est en dessous de zéro\" means \"the temperature is below zero degrees\", i.e. subzero."
+    },
+    {
+      "id": "q-fr9-trav-15",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"Le vol a du retard\" mean?",
+      "opener": "Something you unfortunately sometimes hear at the airport.",
+      "choices": [
+        "The flight is delayed",
+        "The flight is cancelled",
+        "The flight has departed",
+        "The flight is fully booked"
+      ],
+      "answer": 0,
+      "explanation": "\"Le vol a du retard\" means \"the flight is delayed\"."
     }
   ]
 }
