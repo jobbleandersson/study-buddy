@@ -123,6 +123,110 @@
       "prompt": "Sammanfatta atomens uppbyggnad: vilka partiklar finns, var sitter de, och vilken laddning har de?",
       "opener": "Tänk kärna kontra skal, och laddning plus, minus eller neutral.",
       "answer": "Proton: finns i atomkärnan, positiv laddning (+) · Neutron: finns i atomkärnan, ingen laddning (neutral) · Elektron: rör sig i skal runt kärnan, negativ laddning (−), mycket lättare än proton och neutron · Atomnummer = antal protoner (avgör vilket grundämne det är) · Masstal = antal protoner + antal neutroner · I en oladdad atom är antalet protoner och elektroner alltid lika · Jon = atom som fått laddning genom att ta upp eller lämna ifrån sig elektroner."
+    },
+    {
+      "id": "q-kemi-ato-9",
+      "kind": "mc",
+      "topic": "atomens uppbyggnad",
+      "prompt": "Var i atomen finns nästan hela atomens massa samlad?",
+      "opener": "Jämför massan hos en elektron med massan hos protoner och neutroner.",
+      "choices": [
+        "I atomkärnan (protoner och neutroner)",
+        "I elektronskalen",
+        "Jämnt fördelad i hela atomen",
+        "I de yttersta elektronerna"
+      ],
+      "answer": 0,
+      "explanation": "Protoner och neutroner i atomkärnan är mycket tyngre än elektroner, så nästan hela atomens massa finns samlad i den lilla, täta kärnan."
+    },
+    {
+      "id": "q-kemi-ato-10",
+      "kind": "mc",
+      "topic": "grundämnen",
+      "prompt": "Vilket kemiskt tecken står för grundämnet kalium?",
+      "opener": "Tecknet kommer från det latinska namnet \"kalium\", inte det svenska.",
+      "choices": [
+        "K",
+        "Ka",
+        "C",
+        "Kl"
+      ],
+      "answer": 0,
+      "explanation": "Kalium har det kemiska tecknet K. \"Kl\" och \"Ka\" är inga riktiga grundämnestecken, och \"C\" står för kol."
+    },
+    {
+      "id": "q-kemi-ato-11",
+      "kind": "mc",
+      "topic": "periodiska systemet",
+      "prompt": "Vad har grundämnen i samma PERIOD (samma horisontella rad) i periodiska systemet gemensamt?",
+      "opener": "Perioder går i sidled — grupper går uppifrån och ner.",
+      "choices": [
+        "Samma antal elektronskal",
+        "Samma antal valenselektroner",
+        "Samma atommassa",
+        "Samma antal protoner"
+      ],
+      "answer": 0,
+      "explanation": "Grundämnen i samma period har samma antal elektronskal. Samma antal valenselektroner är i stället det som gäller för ämnen i samma GRUPP."
+    },
+    {
+      "id": "q-kemi-ato-12",
+      "kind": "mc",
+      "topic": "joner",
+      "prompt": "Vilken laddning får en jon som bildas när en kloratom (Cl) tar upp en extra elektron?",
+      "opener": "En extra negativ laddning läggs till en tidigare neutral atom.",
+      "choices": [
+        "−1",
+        "+1",
+        "−2",
+        "0"
+      ],
+      "answer": 0,
+      "explanation": "Kloratomen har från början lika många protoner som elektroner (laddning 0). En extra elektron ger en negativ laddning mer än positiv, alltså −1."
+    },
+    {
+      "id": "q-kemi-ato-13",
+      "kind": "mc",
+      "topic": "atomens uppbyggnad",
+      "prompt": "Två atomer av samma grundämne har olika antal neutroner men samma antal protoner. Vad kallas dessa varianter?",
+      "opener": "Grundämnet är detsamma (samma antal protoner) — bara neutronantalet skiljer.",
+      "choices": [
+        "Isotoper",
+        "Joner",
+        "Molekyler",
+        "Legeringar"
+      ],
+      "answer": 0,
+      "explanation": "Isotoper är atomer av samma grundämne (samma antal protoner) men med olika antal neutroner, vilket ger olika masstal."
+    },
+    {
+      "id": "q-kemi-ato-14",
+      "kind": "worked",
+      "topic": "joner",
+      "prompt": "En kloratom (Cl) har 17 protoner och 17 elektroner. Den bildar lätt en jon genom att TA UPP en extra elektron. Vilken laddning får jonen, och varför bildas den?",
+      "opener": "Räkna laddningarna efter att en elektron lagts till, och tänk på vilken ädelgas klor 'vill' likna.",
+      "answer": "Kloridjonen får laddningen −1 och skrivs Cl−.",
+      "steps": [
+        "Cl har från början 17 positiva protoner och 17 negativa elektroner — laddningarna tar ut varandra (total laddning 0).",
+        "Genom att ta upp 1 extra elektron blir det fortfarande 17 protoner men 18 elektroner.",
+        "17 positiva laddningar minus 18 negativa laddningar ger en total laddning på −1.",
+        "Klor gör detta för att få samma elektronstruktur som ädelgasen argon (fullt yttersta skal), vilket gör jonen stabil."
+      ]
+    },
+    {
+      "id": "q-kemi-ato-15",
+      "kind": "mc",
+      "topic": "periodiska systemet",
+      "prompt": "Vilken grupp i periodiska systemet kallas alkalimetaller, och vad kännetecknar dem?",
+      "opener": "Dessa metaller reagerar ofta våldsamt med vatten.",
+      "choices": [
+        "Grupp 1, mycket reaktiva metaller med en valenselektron",
+        "Grupp 18, oreaktiva gaser",
+        "Grupp 17, mycket reaktiva icke-metaller",
+        "Grupp 2, halvledare"
+      ],
+      "answer": 0,
+      "explanation": "Alkalimetaller (grupp 1, t.ex. natrium och kalium) har en enda valenselektron som lätt lämnas ifrån sig, vilket gör dem mycket reaktiva."
     }
   ]
 }

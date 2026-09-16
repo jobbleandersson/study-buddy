@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta det viktigaste om metaller, vanliga vardagsmaterial och återvinning.",
       "opener": "Tänk igenom var metaller kommer ifrån, vad som skiljer plast/glas/metall åt, och varför återvinning lönar sig.",
       "answer": "Metaller: leder el och värme bra, är oftast blanka och formbara, finns i naturen bundna i malm och måste utvinnas · Legering = blandning av en metall med andra ämnen för nya egenskaper, t.ex. rostfritt stål (järn + krom) · Plast: byggd av långa kolkedjor (polymerer), lätt och formbar, bryts ner mycket långsamt i naturen · Glas: huvudsakligen kiseldioxid, hårt och genomskinligt men sprött · Korrosion/rost: järn reagerar med syre och fukt och bildar järnoxid — en kemisk reaktion, inte bara smuts · Materialkretslopp = material samlas in, bearbetas och blir råvara till nya produkter i stället för att bli avfall · Återvinning av metall (t.ex. aluminium) kräver mycket mindre energi än att utvinna ny metall ur malm."
+    },
+    {
+      "id": "q-kemi-mat-9",
+      "kind": "mc",
+      "topic": "metaller",
+      "prompt": "Vad kallas en blandning av en metall med ett eller flera andra ämnen för att ge nya egenskaper, till exempel rostfritt stål?",
+      "opener": "Järn blandat med krom är ett klassiskt exempel.",
+      "choices": [
+        "En legering",
+        "En jon",
+        "Ett kolväte",
+        "En polymer"
+      ],
+      "answer": 0,
+      "explanation": "En legering är en blandning av en metall med ett eller flera andra ämnen, som ger materialet nya egenskaper — rostfritt stål är järn legerat med bland annat krom."
+    },
+    {
+      "id": "q-kemi-mat-10",
+      "kind": "mc",
+      "topic": "metaller",
+      "prompt": "Varför leder metaller elektricitet bra?",
+      "opener": "Tänk på vad som gör att laddning kan förflytta sig genom materialet.",
+      "choices": [
+        "De har fria elektroner som kan röra sig genom materialet",
+        "De innehåller mycket vatten",
+        "De är alltid magnetiska",
+        "De har låg densitet"
+      ],
+      "answer": 0,
+      "explanation": "Metallbindningen gör att elektroner rör sig fritt genom hela materialet, vilket gör att elektrisk laddning kan transporteras — det är grunden till metallers goda ledningsförmåga."
+    },
+    {
+      "id": "q-kemi-mat-11",
+      "kind": "mc",
+      "topic": "återvinning och kretslopp",
+      "prompt": "Vad är en fördel med att metaller kan återvinnas om och om igen, till skillnad från vissa andra material?",
+      "opener": "Tänk på om metallens egenskaper förändras efter att den smälts om.",
+      "choices": [
+        "Metallens egenskaper förändras inte även efter flera återvinningscykler",
+        "Metaller kan bara återvinnas en enda gång",
+        "Återvinning av metall kräver mer energi än att utvinna ny metall",
+        "Återvunnen metall kan aldrig användas till nya produkter"
+      ],
+      "answer": 0,
+      "explanation": "Metall kan smältas om och återanvändas om och om igen utan att förlora sina grundläggande egenskaper, vilket gör återvinning särskilt värdefull jämfört med material som försämras vid återvinning."
+    },
+    {
+      "id": "q-kemi-mat-12",
+      "kind": "mc",
+      "topic": "material i vardagen",
+      "prompt": "Vad har plast, glas och metall gemensamt trots sina olika kemiska uppbyggnader?",
+      "opener": "Tänk brett — vad gör människor med alla tre materialen?",
+      "choices": [
+        "De är alla material som människor använder och bearbetar för olika ändamål i vardagen",
+        "De består alla av polymerer",
+        "De leder alla elektricitet lika bra",
+        "De bryts alla ner lika snabbt i naturen"
+      ],
+      "answer": 0,
+      "explanation": "Trots helt olika kemisk uppbyggnad (polymerer, kiseldioxidnätverk respektive metallbindning) används alla tre som vardagliga material, valda för sina respektive egenskaper."
+    },
+    {
+      "id": "q-kemi-mat-13",
+      "kind": "mc",
+      "topic": "korrosion",
+      "prompt": "Vad krävs för att järn ska rosta?",
+      "opener": "Två ämnen i luften och vädret måste båda vara närvarande.",
+      "choices": [
+        "Syre och fukt (vatten)",
+        "Enbart hög temperatur",
+        "Enbart solljus",
+        "Kväve och koldioxid"
+      ],
+      "answer": 0,
+      "explanation": "Rost bildas när järn reagerar med både syre och vatten (fukt) samtidigt — saknas endera ämnet går rostbildningen mycket långsammare eller uteblir helt."
+    },
+    {
+      "id": "q-kemi-mat-14",
+      "kind": "worked",
+      "topic": "återvinning och kretslopp",
+      "prompt": "Förklara varför det är mer energieffektivt att återvinna aluminiumburkar än att tillverka nya aluminiumburkar från malm (bauxit), och vad det innebär för miljön.",
+      "opener": "Jämför vad som krävs för att bryta kemiska bindningar i malm med vad som krävs för att bara smälta om ren metall.",
+      "answer": "Att utvinna aluminium ur malm kräver mycket energikrävande processer för att bryta ner de starka kemiska bindningarna, medan omsmältning av redan ren aluminiummetall bara kräver att metallen värms till sin smältpunkt — vilket sparar en stor andel av energin.",
+      "steps": [
+        "Aluminium i malm (bauxit) sitter hårt bundet till syre som aluminiumoxid, och att bryta dessa bindningar kräver mycket energi, ofta genom elektrolys.",
+        "Att smälta om redan utvunnen, ren aluminiummetall kräver bara att man värmer upp metallen till dess smältpunkt — ingen ny stark kemisk bindning behöver brytas.",
+        "Detta gör återvinning av aluminium mycket mindre energikrävande än nyproduktion.",
+        "Mindre energiåtgång ger lägre utsläpp av växthusgaser och minskat behov av att bryta ny malm, vilket skonar naturresurser och miljö."
+      ]
+    },
+    {
+      "id": "q-kemi-mat-15",
+      "kind": "mc",
+      "topic": "korrosion",
+      "prompt": "Varför målas ofta järnbroar och andra järnkonstruktioner utomhus?",
+      "opener": "Tänk på vad rostbildning kräver, och vad målningen hindrar.",
+      "choices": [
+        "Målningen skapar ett skyddande skikt som hindrar syre och fukt från att nå järnet, vilket bromsar rostbildning",
+        "Målning gör järnet starkare rent mekaniskt",
+        "Målning förhindrar att järnet leder elektricitet",
+        "Målning har ingen praktisk funktion, bara estetisk"
+      ],
+      "answer": 0,
+      "explanation": "Färgskiktet fungerar som en barriär som hindrar syre och fukt från att nå järnytan, vilket kraftigt bromsar den kemiska reaktion som orsakar rost — samma princip som kromskiktet i rostfritt stål."
     }
   ]
 }
