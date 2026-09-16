@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta det svenska språkets historiska epoker och deras ungefärliga tidsperioder.",
       "opener": "Fyra namn, fyra tidsåldrar.",
       "answer": "Runsvenska (ca 800–1225): skrevs med runor, äldsta belagda svenska · Fornsvenska (1225–1526): latinska alfabetet införs med kristendomen, t.ex. Magnus Erikssons landslag · Nysvenska (1526–ca 1900): Gustav Vasas bibel (1541) ger enhetligare stavning, franska lånord under 1700-talet · Nusvenska (från ca 1900): dagens svenska, starkt påverkad av engelska lånord. Språket förändras hela tiden genom språkkontakt, samhällsförändringar och strävan mot enklare former."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-9",
+      "kind": "mc",
+      "topic": "runsvenska",
+      "prompt": "Vilket äldre alfabet, föregångare till den yngre futharken, användes tidigare i Norden?",
+      "opener": "Namnet skiljer sig bara i ett ord från den runalfabet som användes under vikingatiden.",
+      "choices": [
+        "Den äldre futharken",
+        "Det grekiska alfabetet",
+        "Det kyrilliska alfabetet",
+        "Hieroglyfer"
+      ],
+      "answer": 0,
+      "explanation": "Den äldre futharken var det runalfabet som användes i Norden före den yngre futharken, som i sin tur användes under runsvensk tid. Det grekiska och kyrilliska alfabetet samt hieroglyfer hör till helt andra kulturer."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-10",
+      "kind": "mc",
+      "topic": "fornsvenska",
+      "prompt": "Ungefär vilken tidsperiod räknas som fornsvensk tid?",
+      "opener": "Perioden sträcker sig från kristnandet till Gustav Vasas bibel.",
+      "choices": [
+        "Ca 1225–1526",
+        "Ca 800–1225",
+        "Ca 1526–1900",
+        "Från ca 1900 och framåt"
+      ],
+      "answer": 0,
+      "explanation": "Fornsvenskan räknas från ca 1225, när det latinska alfabetet infördes med kristendomen, till 1526, då nysvenskan tar vid i samband med reformationen och Gustav Vasas bibel."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-11",
+      "kind": "mc",
+      "topic": "nysvenska",
+      "prompt": "Vilket århundrade är särskilt känt för en stark våg av franska lånord i svenskan?",
+      "opener": "Franskan var då Europas ledande kultur- och hovspråk.",
+      "choices": [
+        "1700-talet",
+        "1200-talet",
+        "1900-talet",
+        "500-talet"
+      ],
+      "answer": 0,
+      "explanation": "Under 1700-talet var franskan det ledande kultur- och hovspråket i Europa, vilket ledde till en stor våg av franska lånord i svenskan, till exempel \"balkong\" och \"affär\"."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-12",
+      "kind": "mc",
+      "topic": "lånord",
+      "prompt": "Under medeltiden fick svenskan många lånord från lågtyska, till stor del genom vilken handelsorganisation?",
+      "opener": "Organisationen dominerade handeln kring Östersjön under medeltiden.",
+      "choices": [
+        "Hansan",
+        "Östindiska kompaniet",
+        "Europeiska unionen",
+        "FN"
+      ],
+      "answer": 0,
+      "explanation": "Hansan var ett nordtyskt handelsförbund som dominerade handeln i Östersjöområdet under medeltiden, vilket förde med sig ett stort antal lågtyska lånord in i svenskan."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-13",
+      "kind": "mc",
+      "topic": "nusvenska",
+      "prompt": "Vilken typ av ord är exempel på engelska lånord i modern svenska, som \"dejta\" och \"boosta\"?",
+      "opener": "Orden har fått svenska böjningsändelser men kommer ursprungligen från ett annat språk.",
+      "choices": [
+        "Ord som anpassats till svensk böjning men har engelskt ursprung",
+        "Ord som funnits i svenskan sedan runsvensk tid",
+        "Ord som bara används i skriftspråk, aldrig i tal",
+        "Franska lånord från 1700-talet"
+      ],
+      "answer": 0,
+      "explanation": "\"Dejta\" och \"boosta\" är engelska låneord som anpassats till svensk grammatik, till exempel med svenska verbändelser, vilket är typiskt för hur engelska lånord integreras i nusvenskan."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-14",
+      "kind": "mc",
+      "topic": "språkförändring",
+      "prompt": "Vad kallas det när ett ord byter betydelse över tid, till exempel som det svenska ordet \"gift\" som en gång betydde \"gåva\"?",
+      "opener": "Ordet i sig är detsamma, men det pekar på något annat i dag.",
+      "choices": [
+        "Betydelseförändring",
+        "Fonologisk förändring",
+        "Grammatikalisering",
+        "Kodväxling"
+      ],
+      "answer": 0,
+      "explanation": "En betydelseförändring innebär att ett ords innebörd förskjuts över tid, som när \"gift\" gick från att betyda \"gåva\" till att betyda \"toxiskt ämne\". Fonologisk förändring handlar i stället om ljudmässiga förändringar, och kodväxling om att växla mellan olika språk."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-15",
+      "kind": "mc",
+      "topic": "epokindelning",
+      "prompt": "Vilken epok i svenska språkets historia räknas oftast som den första, äldsta belagda perioden?",
+      "opener": "Perioden namnges efter det skriftsystem som användes då.",
+      "choices": [
+        "Runsvenska",
+        "Fornsvenska",
+        "Nysvenska",
+        "Nusvenska"
+      ],
+      "answer": 0,
+      "explanation": "Runsvenskan (ca 800–1225) räknas som den äldsta belagda perioden av svenska språket, då runor användes för att skriva, till exempel på runstenar."
     }
   ]
 }

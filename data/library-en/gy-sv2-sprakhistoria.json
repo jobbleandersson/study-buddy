@@ -126,6 +126,111 @@
       "prompt": "Summarise the historical periods of the Swedish language and their approximate time spans.",
       "opener": "Four names, four ages.",
       "answer": "Runic Swedish (c. 800–1225): written with runes, the oldest attested Swedish · Old Swedish (1225–1526): the Latin alphabet is introduced with Christianity, e.g. Magnus Eriksson's Code of the Realm · Early Modern Swedish (1526–c. 1900): Gustav Vasa's Bible (1541) gives more uniform spelling, French loanwords during the 18th century · Modern Swedish (from c. 1900): today's Swedish, strongly influenced by English loanwords. The language keeps changing through language contact, social change and a drift towards simpler forms."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-9",
+      "kind": "mc",
+      "topic": "Runic Swedish",
+      "prompt": "Which older alphabet, a predecessor of the younger futhark, was used earlier in Scandinavia?",
+      "opener": "The name differs by only one word from the runic alphabet used during the Viking Age.",
+      "choices": [
+        "The elder futhark",
+        "The Greek alphabet",
+        "The Cyrillic alphabet",
+        "Hieroglyphs"
+      ],
+      "answer": 0,
+      "explanation": "The elder futhark was the runic alphabet used in Scandinavia before the younger futhark, which was in turn used during the Runic Swedish period. The Greek and Cyrillic alphabets and hieroglyphs belong to entirely different cultures."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-10",
+      "kind": "mc",
+      "topic": "Old Swedish",
+      "prompt": "Roughly which time period is counted as the Old Swedish period?",
+      "opener": "The period stretches from the Christianisation of Sweden to Gustav Vasa's Bible.",
+      "choices": [
+        "C. 1225–1526",
+        "C. 800–1225",
+        "C. 1526–1900",
+        "From c. 1900 onwards"
+      ],
+      "answer": 0,
+      "explanation": "Old Swedish is counted from around 1225, when the Latin alphabet was introduced with Christianity, to 1526, when Early Modern Swedish takes over in connection with the Reformation and Gustav Vasa's Bible."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-11",
+      "kind": "mc",
+      "topic": "Early Modern Swedish",
+      "prompt": "Which century is especially known for a strong wave of French loanwords in Swedish?",
+      "opener": "French was then Europe's leading language of culture and courts.",
+      "choices": [
+        "The 18th century",
+        "The 13th century",
+        "The 20th century",
+        "The 6th century"
+      ],
+      "answer": 0,
+      "explanation": "During the 18th century, French was the leading language of culture and courts in Europe, which led to a large wave of French loanwords in Swedish, for example \"balkong\" and \"affär\"."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-12",
+      "kind": "mc",
+      "topic": "loanwords",
+      "prompt": "During the Middle Ages, Swedish gained many loanwords from Low German, largely through which trading organisation?",
+      "opener": "This organisation dominated trade around the Baltic Sea during the Middle Ages.",
+      "choices": [
+        "The Hanseatic League",
+        "The East India Company",
+        "The European Union",
+        "The UN"
+      ],
+      "answer": 0,
+      "explanation": "The Hanseatic League was a North German trading federation that dominated trade in the Baltic Sea region during the Middle Ages, bringing a large number of Low German loanwords into Swedish."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-13",
+      "kind": "mc",
+      "topic": "Modern Swedish",
+      "prompt": "What type of words are examples of English loanwords in modern Swedish, like \"dejta\" (to date) and \"boosta\" (to boost)?",
+      "opener": "The words have taken Swedish inflectional endings but originally come from another language.",
+      "choices": [
+        "Words adapted to Swedish inflection but of English origin",
+        "Words that have existed in Swedish since the Runic Swedish period",
+        "Words used only in written language, never in speech",
+        "French loanwords from the 18th century"
+      ],
+      "answer": 0,
+      "explanation": "\"Dejta\" and \"boosta\" are English loanwords adapted to Swedish grammar, for example with Swedish verb endings, which is typical of how English loanwords are integrated into Modern Swedish."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-14",
+      "kind": "mc",
+      "topic": "language change",
+      "prompt": "What is it called when a word changes meaning over time, as with the Swedish word \"gift\", which once meant \"gift, present\"?",
+      "opener": "The word itself is unchanged, but it points to something different today.",
+      "choices": [
+        "Semantic change",
+        "Phonological change",
+        "Grammaticalisation",
+        "Code-switching"
+      ],
+      "answer": 0,
+      "explanation": "A semantic change means a word's meaning shifts over time, as when \"gift\" went from meaning \"a present\" to meaning \"poison\" in Swedish. Phonological change instead concerns changes in sound, and code-switching means switching between different languages."
+    },
+    {
+      "id": "q-sv2-sprakhistoria-15",
+      "kind": "mc",
+      "topic": "periodisation",
+      "prompt": "Which period in the history of the Swedish language is usually counted as the first, oldest attested period?",
+      "opener": "The period is named after the writing system used at the time.",
+      "choices": [
+        "Runic Swedish",
+        "Old Swedish",
+        "Early Modern Swedish",
+        "Modern Swedish"
+      ],
+      "answer": 0,
+      "explanation": "Runic Swedish (c. 800–1225) is counted as the oldest attested period of the Swedish language, when runes were used for writing, for example on runestones."
     }
   ]
 }

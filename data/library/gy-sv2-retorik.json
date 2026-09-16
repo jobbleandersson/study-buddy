@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta den klassiska talardispositionens sex delar.",
       "opener": "Från hälsning till avslutande uppmaning — sex steg.",
       "answer": "Exordium: inledning som fångar uppmärksamhet och skapar välvilja · Narratio: bakgrund och redogörelse för sakläget · Propositio: talarens tes eller huvudbudskap · Argumentatio: argument och bevis för tesen · Confutatio (refutatio): bemötande av motargument · Peroratio: sammanfattande och känslomässigt laddad avslutning som ska sätta sig kvar hos publiken."
+    },
+    {
+      "id": "q-sv2-retorik-9",
+      "kind": "mc",
+      "topic": "appellformer",
+      "prompt": "Vilken appellform bygger på logik, fakta och rationella argument?",
+      "opener": "Namnet på appellformen är samma ord som det svenska ordet för förnuftsmässigt tänkande.",
+      "choices": [
+        "Logos",
+        "Ethos",
+        "Pathos",
+        "Kairos"
+      ],
+      "answer": 0,
+      "explanation": "Logos bygger på logik, fakta, statistik och rationella resonemang för att övertyga. Ethos handlar i stället om talarens trovärdighet, och pathos om att väcka känslor hos publiken."
+    },
+    {
+      "id": "q-sv2-retorik-10",
+      "kind": "mc",
+      "topic": "appellformer",
+      "prompt": "Vilken appellform handlar om talarens trovärdighet och karaktär?",
+      "opener": "Ordet är också ursprunget till det svenska ordet \"etik\".",
+      "choices": [
+        "Ethos",
+        "Logos",
+        "Pathos",
+        "Kairos"
+      ],
+      "answer": 0,
+      "explanation": "Ethos handlar om talarens trovärdighet, karaktär och auktoritet — varför publiken ska lita på just den här talaren. Logos bygger i stället på fakta och logik, och pathos på känslor."
+    },
+    {
+      "id": "q-sv2-retorik-11",
+      "kind": "mc",
+      "topic": "stilfigurer",
+      "prompt": "\"Tiden läker alla sår\" är ett exempel på vilken stilfigur, där ett abstrakt begrepp tillskrivs en mänsklig förmåga?",
+      "opener": "Tiden kan i sig inte \"läka\" något — det är en mänsklig handling som tillskrivs begreppet.",
+      "choices": [
+        "Personifikation",
+        "Anafor",
+        "Antites",
+        "Litotes"
+      ],
+      "answer": 0,
+      "explanation": "Personifikation innebär att något icke-mänskligt, här det abstrakta begreppet tid, tillskrivs en mänsklig egenskap eller förmåga, som att kunna läka. Anafor handlar i stället om upprepning i början av meningar."
+    },
+    {
+      "id": "q-sv2-retorik-12",
+      "kind": "mc",
+      "topic": "stilfigurer",
+      "prompt": "Vilken stilfigur innebär att samma ord eller fras upprepas i början av flera på varandra följande meningar eller satser?",
+      "opener": "Upprepningen skapar en stegrande rytm genom talet.",
+      "choices": [
+        "Anafor",
+        "Trikolon",
+        "Litotes",
+        "Eufemism"
+      ],
+      "answer": 0,
+      "explanation": "Anafor är upprepning av samma ord eller fras i början av flera på varandra följande meningar eller satser, vilket skapar rytm och eftertryck. Trikolon är i stället en uppräkning i just tre led."
+    },
+    {
+      "id": "q-sv2-retorik-13",
+      "kind": "mc",
+      "topic": "disposition",
+      "prompt": "Vilken del av den klassiska dispositionen är talets allra första del, till för att fånga publikens uppmärksamhet och skapa välvilja?",
+      "opener": "Ordet betyder ungefär \"det som leder ut\" eller \"inledning\" på latin.",
+      "choices": [
+        "Exordium",
+        "Narratio",
+        "Peroratio",
+        "Confutatio"
+      ],
+      "answer": 0,
+      "explanation": "Exordium är talets inledning, vars syfte är att fånga publikens uppmärksamhet och skapa välvilja gentemot talaren innan resten av talet fortsätter. Peroratio är i stället talets avslutning."
+    },
+    {
+      "id": "q-sv2-retorik-14",
+      "kind": "mc",
+      "topic": "talanalys",
+      "prompt": "När man analyserar ett tals ethos, vad undersöker man då specifikt?",
+      "opener": "Fokus ligger på talarens person, inte på argumentens logik eller känsloläget i publiken.",
+      "choices": [
+        "Hur talaren bygger upp sin trovärdighet, till exempel genom erfarenhet, sakkunskap eller moralisk karaktär",
+        "Bara vilka stilfigurer talaren använder",
+        "Bara hur långt talet är",
+        "Bara vilken dag talet hölls"
+      ],
+      "answer": 0,
+      "explanation": "En analys av talets ethos undersöker hur talaren bygger upp sin trovärdighet, till exempel genom att visa erfarenhet, sakkunskap, moralisk karaktär eller personlig integritet. Stilfigurer, talets längd och vilken dag det hölls är andra typer av analysfrågor."
+    },
+    {
+      "id": "q-sv2-retorik-15",
+      "kind": "mc",
+      "topic": "stilfigurer",
+      "prompt": "\"Han är inte precis den snabbaste\" när man egentligen menar att han är mycket långsam. Vilken stilfigur är detta ett exempel på?",
+      "opener": "Man säger mindre än man menar, ofta med en ironisk underton.",
+      "choices": [
+        "Litotes",
+        "Trikolon",
+        "Anafor",
+        "Personifikation"
+      ],
+      "answer": 0,
+      "explanation": "Litotes är en underdrift, ofta med ironisk effekt, där man säger mindre än man egentligen menar — här antyds att personen är mycket långsam genom att säga att hen \"inte precis\" är snabb."
     }
   ]
 }

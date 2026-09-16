@@ -123,6 +123,111 @@
       "prompt": "Summarise the six parts of the classical speech disposition.",
       "opener": "From greeting to closing appeal — six steps.",
       "answer": "Exordium: the introduction that captures attention and builds goodwill · Narratio: background and an account of the state of affairs · Propositio: the speaker's thesis or main message · Argumentatio: arguments and evidence for the thesis · Confutatio (refutatio): addressing counterarguments · Peroratio: a summarising and emotionally charged conclusion meant to stay with the audience."
+    },
+    {
+      "id": "q-sv2-retorik-9",
+      "kind": "mc",
+      "topic": "modes of appeal",
+      "prompt": "Which mode of appeal is built on logic, facts and rational arguments?",
+      "opener": "The name of this mode of appeal is the root of the English word \"logic\".",
+      "choices": [
+        "Logos",
+        "Ethos",
+        "Pathos",
+        "Kairos"
+      ],
+      "answer": 0,
+      "explanation": "Logos is built on logic, facts, statistics and rational reasoning to persuade. Ethos instead concerns the speaker's credibility, and pathos concerns stirring the audience's emotions."
+    },
+    {
+      "id": "q-sv2-retorik-10",
+      "kind": "mc",
+      "topic": "modes of appeal",
+      "prompt": "Which mode of appeal concerns the speaker's credibility and character?",
+      "opener": "The word is also the root of the English word \"ethics\".",
+      "choices": [
+        "Ethos",
+        "Logos",
+        "Pathos",
+        "Kairos"
+      ],
+      "answer": 0,
+      "explanation": "Ethos concerns the speaker's credibility, character and authority — why the audience should trust this particular speaker. Logos is instead built on facts and logic, and pathos on emotions."
+    },
+    {
+      "id": "q-sv2-retorik-11",
+      "kind": "mc",
+      "topic": "figures of speech",
+      "prompt": "\"Time heals all wounds\" is an example of which figure of speech, where an abstract concept is given a human ability?",
+      "opener": "Time itself cannot literally \"heal\" anything — a human action is attributed to the concept.",
+      "choices": [
+        "Personification",
+        "Anaphora",
+        "Antithesis",
+        "Litotes"
+      ],
+      "answer": 0,
+      "explanation": "Personification means something non-human, here the abstract concept of time, is given a human characteristic or ability, such as being able to heal. Anaphora instead concerns repetition at the start of sentences."
+    },
+    {
+      "id": "q-sv2-retorik-12",
+      "kind": "mc",
+      "topic": "figures of speech",
+      "prompt": "Which figure of speech involves repeating the same word or phrase at the beginning of several consecutive sentences or clauses?",
+      "opener": "The repetition builds a rising rhythm through the speech.",
+      "choices": [
+        "Anaphora",
+        "Tricolon",
+        "Litotes",
+        "Euphemism"
+      ],
+      "answer": 0,
+      "explanation": "Anaphora is the repetition of the same word or phrase at the beginning of several consecutive sentences or clauses, which creates rhythm and emphasis. A tricolon is instead specifically a list of three parts."
+    },
+    {
+      "id": "q-sv2-retorik-13",
+      "kind": "mc",
+      "topic": "disposition",
+      "prompt": "Which part of the classical disposition is the very first part of the speech, meant to capture the audience's attention and build goodwill?",
+      "opener": "The word means roughly \"that which leads out\" or \"introduction\" in Latin.",
+      "choices": [
+        "Exordium",
+        "Narratio",
+        "Peroratio",
+        "Confutatio"
+      ],
+      "answer": 0,
+      "explanation": "Exordium is the introduction of the speech, whose purpose is to capture the audience's attention and build goodwill towards the speaker before the rest of the speech continues. Peroratio is instead the conclusion of the speech."
+    },
+    {
+      "id": "q-sv2-retorik-14",
+      "kind": "mc",
+      "topic": "speech analysis",
+      "prompt": "When analysing a speech's ethos, what exactly are you examining?",
+      "opener": "The focus is on the speaker as a person, not the logic of the arguments or the audience's emotional state.",
+      "choices": [
+        "How the speaker builds up their credibility, for example through experience, expertise or moral character",
+        "Only which figures of speech the speaker uses",
+        "Only how long the speech is",
+        "Only which day the speech was given"
+      ],
+      "answer": 0,
+      "explanation": "An analysis of a speech's ethos examines how the speaker builds up their credibility, for example by demonstrating experience, expertise, moral character or personal integrity. Figures of speech, the length of the speech, and which day it was given are other kinds of analytical questions."
+    },
+    {
+      "id": "q-sv2-retorik-15",
+      "kind": "mc",
+      "topic": "figures of speech",
+      "prompt": "\"He's not exactly the fastest\" when you actually mean he is very slow. Which figure of speech is this an example of?",
+      "opener": "You say less than you mean, often with an ironic undertone.",
+      "choices": [
+        "Litotes",
+        "Tricolon",
+        "Anaphora",
+        "Personification"
+      ],
+      "answer": 0,
+      "explanation": "Litotes is an understatement, often with an ironic effect, where you say less than you actually mean — here it's implied that the person is very slow by saying they're \"not exactly\" fast."
     }
   ]
 }
