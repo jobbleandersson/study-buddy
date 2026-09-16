@@ -112,6 +112,111 @@
       "prompt": "Vilka strategier hjälper dig att förstå en enkel spansk text på åk7-nivå?",
       "opener": "Du behöver inte förstå varje ord för att förstå helheten.",
       "answer": "Leta efter kända mönster: \"me llamo\" (presentation), \"tengo ... años\" (ålder), \"vivo en\" (bostadsort), \"los sábados/domingos\" (veckodagar + aktiviteter). Gissa okända ord från sammanhanget i stället för att slå upp varje ord. Läs texten en gång för helheten och en gång till för detaljer. Leta efter verb i presens (juega, come, vive, descansa) för att förstå vad som händer, och possessiva ord (su, sus, mi) för att förstå vem som gör vad."
+    },
+    {
+      "id": "q-sp7-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"Ana tiene un perro que se llama Rex. Los lunes, va al parque con Rex después de la escuela. A Rex le gusta correr y jugar con la pelota.\"\n\n¿Qué animal tiene Ana?",
+      "opener": "Läs texten om Ana och hennes hund.",
+      "choices": [
+        "Un perro",
+        "Un gato",
+        "Un pájaro",
+        "Un caballo"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger \"Ana tiene un perro que se llama Rex\", alltså har hon en hund som heter Rex."
+    },
+    {
+      "id": "q-sp7-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Cuándo va Ana al parque con Rex?",
+      "opener": "Leta efter tidsangivelsen i andra meningen.",
+      "choices": [
+        "Los lunes, después de la escuela",
+        "Los domingos por la mañana",
+        "Todos los días",
+        "Nunca"
+      ],
+      "answer": 0,
+      "explanation": "\"Los lunes... después de la escuela\" betyder \"på måndagar, efter skolan\"."
+    },
+    {
+      "id": "q-sp7-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Qué le gusta hacer a Rex?",
+      "opener": "Sista meningen beskriver vad Rex tycker om att göra.",
+      "choices": [
+        "Correr y jugar con la pelota",
+        "Dormir todo el día",
+        "Comer pizza",
+        "Nadar en el mar"
+      ],
+      "answer": 0,
+      "explanation": "\"A Rex le gusta correr y jugar con la pelota\" betyder \"Rex gillar att springa och leka med bollen\"."
+    },
+    {
+      "id": "q-sp7-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Ny text: \"Mi amiga Elena tiene quince años y estudia en un instituto en Valencia. Los fines de semana, trabaja en la tienda de su tío. Le gusta mucho la música y toca la guitarra.\"\n\n¿Dónde trabaja Elena los fines de semana?",
+      "opener": "Läs den nya texten om Elena.",
+      "choices": [
+        "En la tienda de su tío",
+        "En un restaurante",
+        "En su casa",
+        "En el instituto"
+      ],
+      "answer": 0,
+      "explanation": "\"Trabaja en la tienda de su tío\" betyder \"hon jobbar i sin morbrors/farbrors butik\"."
+    },
+    {
+      "id": "q-sp7-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Qué instrumento toca Elena?",
+      "opener": "Leta efter ordet för instrument i sista meningen.",
+      "choices": [
+        "La guitarra",
+        "El piano",
+        "La flauta",
+        "La batería"
+      ],
+      "answer": 0,
+      "explanation": "\"Toca la guitarra\" betyder \"hon spelar gitarr\"."
+    },
+    {
+      "id": "q-sp7-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Cuántos años tiene Elena?",
+      "opener": "Åldern nämns i första meningen.",
+      "choices": [
+        "Quince",
+        "Trece",
+        "Dieciséis",
+        "Catorce"
+      ],
+      "answer": 0,
+      "explanation": "\"Tiene quince años\" betyder \"hon är femton år\"."
+    },
+    {
+      "id": "q-sp7-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Dónde estudia Elena?",
+      "opener": "Skolan nämns i första meningen.",
+      "choices": [
+        "En un instituto en Valencia",
+        "En una universidad en Madrid",
+        "En su casa",
+        "En Barcelona"
+      ],
+      "answer": 0,
+      "explanation": "\"Estudia en un instituto en Valencia\" betyder \"hon studerar på ett gymnasium i Valencia\"."
     }
   ]
 }

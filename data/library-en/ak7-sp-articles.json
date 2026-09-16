@@ -115,6 +115,111 @@
       "prompt": "How do gender, definite/indefinite articles, and the plural work in Spanish?",
       "opener": "The basic rules for -o/-a and how the articles follow along.",
       "answer": "Gender: words in -o are usually masculine (el libro), words in -a are usually feminine (la mesa) — but there are exceptions to learn separately, like \"el día\" (the day) and \"la mano\" (the hand). Definite article: el (masc. sg.), la (fem. sg.), los (masc. pl.), las (fem. pl.). Indefinite article: un (masc. sg.), una (fem. sg.), unos (masc. pl., 'some'), unas (fem. pl., 'some'). Plural: vowel + -s (mesa → mesas), consonant + -es (profesor → profesores)."
+    },
+    {
+      "id": "q-sp7-art-9",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "Which of these words is a common exception that is feminine despite ending in -o?",
+      "opener": "This word means \"the hand\" and is a classic exception to the -o/-a rule.",
+      "choices": [
+        "la mano",
+        "el libro",
+        "la mesa",
+        "el día"
+      ],
+      "answer": 0,
+      "explanation": "\"La mano\" (the hand) is feminine despite ending in -o — one of the most important exceptions to memorize. \"El día\" is the corresponding exception in the other direction (masculine despite -a)."
+    },
+    {
+      "id": "q-sp7-art-10",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ agua está fría.\" (The water is cold.)",
+      "opener": "\"Agua\" is actually feminine, but starts with a stressed a-sound, which changes which article form is used in the singular.",
+      "choices": [
+        "El",
+        "La",
+        "Los",
+        "Las"
+      ],
+      "answer": 0,
+      "explanation": "Feminine words that start with a stressed a-/ha- sound, like \"agua\", use \"el\" in the singular for pronunciation reasons (to avoid two a-sounds in a row), even though the word is still feminine — which is why it's \"el agua fría\", not \"el agua frío\"."
+    },
+    {
+      "id": "q-sp7-art-11",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Choose the right article: \"Tengo ___ perro y ___ gata.\" (I have a dog and a cat.)",
+      "opener": "\"Perro\" is masculine, \"gata\" is feminine.",
+      "choices": [
+        "un ... una",
+        "una ... un",
+        "unos ... unas",
+        "el ... la"
+      ],
+      "answer": 0,
+      "explanation": "\"Un\" is used for masculine words like \"perro\" (dog) and \"una\" for feminine words like \"gata\" (female cat)."
+    },
+    {
+      "id": "q-sp7-art-12",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "What is the plural of \"la ciudad\" (the city)?",
+      "opener": "\"Ciudad\" ends in a consonant (-d).",
+      "choices": [
+        "las ciudades",
+        "las ciudads",
+        "los ciudades",
+        "la ciudades"
+      ],
+      "answer": 0,
+      "explanation": "Words ending in a consonant form the plural with -es: \"ciudad\" → \"ciudades\". The article also becomes \"las\" (feminine plural)."
+    },
+    {
+      "id": "q-sp7-art-13",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "What is the plural of \"el lápiz\" (the pencil)?",
+      "opener": "Words ending in -z usually swap the z for c in the plural.",
+      "choices": [
+        "los lápices",
+        "los lápizes",
+        "los lápiz",
+        "las lápices"
+      ],
+      "answer": 0,
+      "explanation": "Words ending in -z change to -ces in the plural: \"lápiz\" → \"lápices\". This is a common spelling rule in Spanish."
+    },
+    {
+      "id": "q-sp7-art-14",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "What gender is the word \"la clase\" (the class/lesson)?",
+      "opener": "The word ends in -e, which doesn't always reveal gender directly.",
+      "choices": [
+        "Feminine",
+        "Masculine",
+        "It depends on the context",
+        "Neuter"
+      ],
+      "answer": 0,
+      "explanation": "\"Clase\" is feminine: \"la clase\". Words ending in -e can be either masculine or feminine and often have to be learned individually."
+    },
+    {
+      "id": "q-sp7-art-15",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ estudiantes llegan tarde.\" (The students are arriving late.)",
+      "opener": "A mixed or unspecified group of students takes the masculine article in standard Spanish.",
+      "choices": [
+        "Los",
+        "Las",
+        "El",
+        "La"
+      ],
+      "answer": 0,
+      "explanation": "\"Los estudiantes\" is used for a group of students, regardless of gender, following the traditional rule that masculine plural is used for mixed groups."
     }
   ]
 }

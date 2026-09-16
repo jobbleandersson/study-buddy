@@ -115,6 +115,111 @@
       "prompt": "Hur fungerar genus, bestämda/obestämda artiklar och plural på spanska?",
       "opener": "Grundreglerna för -o/-a och hur artiklarna följer med.",
       "answer": "Genus: ord på -o är oftast maskulina (el libro), ord på -a är oftast feminina (la mesa) — men det finns undantag att lära sig separat, som \"el día\" (dagen) och \"la mano\" (handen). Bestämd artikel: el (mask. sg.), la (fem. sg.), los (mask. pl.), las (fem. pl.). Obestämd artikel: un (mask. sg.), una (fem. sg.), unos (mask. pl., 'några'), unas (fem. pl., 'några'). Plural: vokal + -s (mesa → mesas), konsonant + -es (profesor → profesores)."
+    },
+    {
+      "id": "q-sp7-art-9",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "Vilket av dessa ord är ett vanligt undantag som är feminint trots att det slutar på -o?",
+      "opener": "Det här ordet betyder \"handen\" och är ett klassiskt undantag från -o/-a-regeln.",
+      "choices": [
+        "la mano",
+        "el libro",
+        "la mesa",
+        "el día"
+      ],
+      "answer": 0,
+      "explanation": "\"La mano\" (handen) är feminint trots att det slutar på -o — ett av de viktigaste undantagen att lära sig utantill. \"El día\" är det motsvarande undantaget åt andra hållet (maskulint trots -a)."
+    },
+    {
+      "id": "q-sp7-art-10",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ agua está fría.\" (Vattnet är kallt.)",
+      "opener": "\"Agua\" är egentligen feminint, men börjar med betonat a-ljud, vilket ändrar vilken artikelform som används i singular.",
+      "choices": [
+        "El",
+        "La",
+        "Los",
+        "Las"
+      ],
+      "answer": 0,
+      "explanation": "Feminina ord som börjar med betonat a-/ha-ljud, som \"agua\", använder \"el\" i singular av uttalsskäl (för att undvika två a-ljud i rad), trots att ordet fortfarande är feminint — därför heter det \"el agua fría\", inte \"el agua frío\"."
+    },
+    {
+      "id": "q-sp7-art-11",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Välj rätt artikel: \"Tengo ___ perro y ___ gata.\" (Jag har en hund och en katt.)",
+      "opener": "\"Perro\" är maskulint, \"gata\" är feminint.",
+      "choices": [
+        "un ... una",
+        "una ... un",
+        "unos ... unas",
+        "el ... la"
+      ],
+      "answer": 0,
+      "explanation": "\"Un\" används för maskulina ord som \"perro\" (hund) och \"una\" för feminina ord som \"gata\" (katt, hona)."
+    },
+    {
+      "id": "q-sp7-art-12",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "Vad är plural av \"la ciudad\" (staden)?",
+      "opener": "\"Ciudad\" slutar på konsonant (-d).",
+      "choices": [
+        "las ciudades",
+        "las ciudads",
+        "los ciudades",
+        "la ciudades"
+      ],
+      "answer": 0,
+      "explanation": "Ord som slutar på konsonant bildar plural med -es: \"ciudad\" → \"ciudades\". Artikeln blir samtidigt \"las\" (feminint plural)."
+    },
+    {
+      "id": "q-sp7-art-13",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "Vad är plural av \"el lápiz\" (pennan)?",
+      "opener": "Ord som slutar på -z byter oftast ut z mot c i plural.",
+      "choices": [
+        "los lápices",
+        "los lápizes",
+        "los lápiz",
+        "las lápices"
+      ],
+      "answer": 0,
+      "explanation": "Ord som slutar på -z ändras till -ces i plural: \"lápiz\" → \"lápices\". Detta är en vanlig stavningsregel i spanskan."
+    },
+    {
+      "id": "q-sp7-art-14",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "Vilket genus har ordet \"la clase\" (klassen/lektionen)?",
+      "opener": "Ordet slutar på -e, vilket inte alltid avslöjar genus direkt.",
+      "choices": [
+        "Femininum",
+        "Maskulinum",
+        "Det beror på sammanhanget",
+        "Neutrum"
+      ],
+      "answer": 0,
+      "explanation": "\"Clase\" är feminint: \"la clase\". Ord som slutar på -e kan vara antingen maskulina eller feminina och måste ofta läras in separat."
+    },
+    {
+      "id": "q-sp7-art-15",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ estudiantes llegan tarde.\" (Eleverna kommer sent.)",
+      "opener": "En blandad eller okänd grupp elever tar den maskulina artikeln i standardspanska.",
+      "choices": [
+        "Los",
+        "Las",
+        "El",
+        "La"
+      ],
+      "answer": 0,
+      "explanation": "\"Los estudiantes\" används för en grupp elever, oavsett kön, enligt den traditionella regeln att maskulint plural används för blandade grupper."
     }
   ]
 }

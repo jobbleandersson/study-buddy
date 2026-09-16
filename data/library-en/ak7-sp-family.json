@@ -114,6 +114,111 @@
       "prompt": "Which family words, possessive pronouns, and numbers should you know at the grade 7 level in Spanish?",
       "opener": "The family, who it belongs to, and counting to a hundred.",
       "answer": "Family: madre/padre = mom/dad · hermano/hermana = brother/sister · abuelo/abuela = grandfather/grandmother · hijo/hija = son/daughter · primo/prima = cousin. Possessives: mi/mis = my (sg/pl) · tu/tus = your (sg/pl) · su/sus = his/her/their. Numbers: 0 cero, 1 uno, 5 cinco, 10 diez, 11 once, 15 quince, 20 veinte, 21 veintiuno, 30 treinta, 37 treinta y siete, 50 cincuenta, 100 cien."
+    },
+    {
+      "id": "q-sp7-fam-9",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"hijo único\" mean?",
+      "opener": "The word \"único\" means \"only\".",
+      "choices": [
+        "Only child (male)",
+        "Older brother",
+        "Cousin",
+        "Grandfather"
+      ],
+      "answer": 0,
+      "explanation": "\"Hijo único\" means \"only child\" (if it's a boy); \"hija única\" is used if it's a girl."
+    },
+    {
+      "id": "q-sp7-fam-10",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"tíos\" mean in the plural?",
+      "opener": "Just like \"abuelos\", \"tíos\" in the plural covers both sides of the family.",
+      "choices": [
+        "Uncles/aunts (a mixed group)",
+        "Only uncles",
+        "Only aunts",
+        "Parents"
+      ],
+      "answer": 0,
+      "explanation": "\"Tíos\" in the plural can refer to a mixed group of uncles and aunts together, just like \"abuelos\" covers both grandfathers and grandmothers."
+    },
+    {
+      "id": "q-sp7-fam-11",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Choose the right possessive: \"___ padres viven en México.\" (Their parents live in Mexico.)",
+      "opener": "The owner is \"they\" (several people).",
+      "choices": [
+        "Sus",
+        "Su",
+        "Mis",
+        "Tu"
+      ],
+      "answer": 0,
+      "explanation": "\"Sus\" means \"their\" (plural possessive, regardless of whether the owned word is singular or plural) and fits with \"padres\" (parents) when the owner is \"they\"."
+    },
+    {
+      "id": "q-sp7-fam-12",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Choose the right possessive: \"Estos son ___ libros.\" (These are our books.)",
+      "opener": "The owner is \"we\", and \"libros\" is masculine plural.",
+      "choices": [
+        "nuestros",
+        "nuestro",
+        "sus",
+        "mi"
+      ],
+      "answer": 0,
+      "explanation": "\"Nuestros\" is the masculine plural form of \"our\" and matches \"libros\" (masculine plural). \"Nuestro\" would fit masculine singular."
+    },
+    {
+      "id": "q-sp7-fam-13",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "How do you write the number 42 in letters?",
+      "opener": "40 + 2, joined with \"y\".",
+      "choices": [
+        "cuarenta y dos",
+        "catorce y dos",
+        "cuarenta y doce",
+        "cuatro y dos"
+      ],
+      "answer": 0,
+      "explanation": "\"Cuarenta\" is 40 and \"dos\" is 2: \"cuarenta y dos\" = 42."
+    },
+    {
+      "id": "q-sp7-fam-14",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Which number is \"sesenta y ocho\"?",
+      "opener": "60 + 8, joined with \"y\".",
+      "choices": [
+        "68",
+        "78",
+        "60",
+        "86"
+      ],
+      "answer": 0,
+      "explanation": "\"Sesenta\" is 60 and \"ocho\" is 8: \"sesenta y ocho\" = 68."
+    },
+    {
+      "id": "q-sp7-fam-15",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"sobrino\" mean?",
+      "opener": "The word is for a male family member one generation younger than yourself, but not your own child.",
+      "choices": [
+        "Nephew",
+        "Male cousin",
+        "Brother-in-law",
+        "Grandfather"
+      ],
+      "answer": 0,
+      "explanation": "\"Sobrino\" means nephew. \"Sobrina\" (with -a) means niece."
     }
   ]
 }

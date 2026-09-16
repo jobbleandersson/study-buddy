@@ -114,6 +114,111 @@
       "prompt": "Vilka familjeord, possessiva pronomen och siffror bör du kunna på åk7-nivå i spanska?",
       "opener": "Familjen, vem den tillhör, och att kunna räkna till hundra.",
       "answer": "Familj: madre/padre = mamma/pappa · hermano/hermana = bror/syster · abuelo/abuela = morfar-farfar/mormor-farmor · hijo/hija = son/dotter · primo/prima = kusin. Possessiva: mi/mis = min/mina · tu/tus = din/dina · su/sus = hans/hennes/deras. Siffror: 0 cero, 1 uno, 5 cinco, 10 diez, 11 once, 15 quince, 20 veinte, 21 veintiuno, 30 treinta, 37 treinta y siete, 50 cincuenta, 100 cien."
+    },
+    {
+      "id": "q-sp7-fam-9",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"hijo único\"?",
+      "opener": "Ordet \"único\" betyder \"enda\".",
+      "choices": [
+        "Enda barnet (son)",
+        "Storebror",
+        "Kusin",
+        "Farfar"
+      ],
+      "answer": 0,
+      "explanation": "\"Hijo único\" betyder \"enda barnet\" (om det är en pojke); \"hija única\" används om det är en flicka."
+    },
+    {
+      "id": "q-sp7-fam-10",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"tíos\" i plural?",
+      "opener": "Precis som \"abuelos\" täcker \"tíos\" i plural båda sidorna av släkten.",
+      "choices": [
+        "Morbröder/fastrar/mostrar (en blandad grupp)",
+        "Bara morbröder",
+        "Bara mostrar",
+        "Föräldrar"
+      ],
+      "answer": 0,
+      "explanation": "\"Tíos\" i plural kan syfta på en blandad grupp av morbröder, farbröder, mostrar och fastrar tillsammans, precis som \"abuelos\" täcker både mor- och farföräldrar."
+    },
+    {
+      "id": "q-sp7-fam-11",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Välj rätt possessiv: \"___ padres viven en México.\" (Deras föräldrar bor i Mexiko.)",
+      "opener": "Ägaren är \"de\" (flera personer).",
+      "choices": [
+        "Sus",
+        "Su",
+        "Mis",
+        "Tu"
+      ],
+      "answer": 0,
+      "explanation": "\"Sus\" betyder \"deras\" (plural possessiv, oavsett om det ägda ordet är singular eller plural) och passar med \"padres\" (föräldrar) när ägaren är \"de\"."
+    },
+    {
+      "id": "q-sp7-fam-12",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Välj rätt possessiv: \"Estos son ___ libros.\" (Det här är våra böcker.)",
+      "opener": "Ägaren är \"vi\", och \"libros\" är maskulint plural.",
+      "choices": [
+        "nuestros",
+        "nuestro",
+        "sus",
+        "mi"
+      ],
+      "answer": 0,
+      "explanation": "\"Nuestros\" är den maskulina pluralformen av \"vår/våra\" och matchar \"libros\" (maskulint plural). \"Nuestro\" hade passat singular maskulinum."
+    },
+    {
+      "id": "q-sp7-fam-13",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Hur skriver man talet 42 med bokstäver?",
+      "opener": "40 + 2, ihopsatt med \"y\".",
+      "choices": [
+        "cuarenta y dos",
+        "catorce y dos",
+        "cuarenta y doce",
+        "cuatro y dos"
+      ],
+      "answer": 0,
+      "explanation": "\"Cuarenta\" är 40 och \"dos\" är 2: \"cuarenta y dos\" = 42."
+    },
+    {
+      "id": "q-sp7-fam-14",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Vilket tal är \"sesenta y ocho\"?",
+      "opener": "60 + 8, ihopsatt med \"y\".",
+      "choices": [
+        "68",
+        "78",
+        "60",
+        "86"
+      ],
+      "answer": 0,
+      "explanation": "\"Sesenta\" är 60 och \"ocho\" är 8: \"sesenta y ocho\" = 68."
+    },
+    {
+      "id": "q-sp7-fam-15",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"sobrino\"?",
+      "opener": "Ordet handlar om en manlig familjemedlem en generation yngre än en själv, men inte ens eget barn.",
+      "choices": [
+        "Brorson/systerson (manlig)",
+        "Kusin (manlig)",
+        "Svåger",
+        "Farfar"
+      ],
+      "answer": 0,
+      "explanation": "\"Sobrino\" betyder brorson eller systerson. \"Sobrina\" (med -a) betyder brorsdotter eller systerdotter."
     }
   ]
 }

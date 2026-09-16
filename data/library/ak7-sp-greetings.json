@@ -114,6 +114,111 @@
       "prompt": "Vilka hälsnings- och artighetsfraser bör du kunna på åk7-nivå i spanska?",
       "opener": "De vanligaste fraserna för att hälsa, tacka och be om hjälp.",
       "answer": "Hälsningar: Hola = hej · Buenos días = god morgon · Buenas tardes = god eftermiddag · Buenas noches = god natt/god kväll · Adiós = hej då · Hasta luego = vi ses. Må bra: ¿Qué tal? / ¿Cómo estás? = hur mår du? · Bien, gracias = bra, tack. Artighet: Por favor = snälla · Gracias = tack · De nada = ingen orsak · Lo siento = förlåt · Perdón = ursäkta. Skolan: ¿Puedo...? = får jag...? · el baño = toaletten · abrir/cerrar el libro = öppna/stänga boken."
+    },
+    {
+      "id": "q-sp7-greet-9",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Vad betyder \"Hasta mañana\"?",
+      "opener": "Frasen används när man ska ses igen nästa dag.",
+      "choices": [
+        "Vi ses imorgon",
+        "God morgon",
+        "Hej då för alltid",
+        "Vad är klockan?"
+      ],
+      "answer": 0,
+      "explanation": "\"Hasta mañana\" betyder \"vi ses imorgon\". \"Hasta luego\" betyder i stället \"vi ses senare\" utan att specificera imorgon."
+    },
+    {
+      "id": "q-sp7-greet-10",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Hur svarar man artigt på frågan \"¿Cómo estás?\" om man mår bra?",
+      "opener": "Ett vanligt, positivt svar på frågan om hur man mår.",
+      "choices": [
+        "Muy bien, gracias.",
+        "De nada.",
+        "Lo siento.",
+        "Buenas noches."
+      ],
+      "answer": 0,
+      "explanation": "\"Muy bien, gracias\" betyder \"mycket bra, tack\" och är ett naturligt svar på \"¿Cómo estás?\". \"De nada\" är svaret på ett tack, inte på en hur-mår-du-fråga."
+    },
+    {
+      "id": "q-sp7-greet-11",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "Vad betyder \"Perdón\"?",
+      "opener": "Ett kort ord man säger när man till exempel råkar knuffa till någon.",
+      "choices": [
+        "Ursäkta",
+        "Tack",
+        "Snälla",
+        "Hej då"
+      ],
+      "answer": 0,
+      "explanation": "\"Perdón\" betyder \"ursäkta\" eller \"förlåt mig\", och används till exempel när man vill be om ursäkt för något litet."
+    },
+    {
+      "id": "q-sp7-greet-12",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "Du vill be någon om hjälp artigt. Vilken fras passar bäst?",
+      "opener": "En artig fråga innehåller ofta \"por favor\" i slutet.",
+      "choices": [
+        "¿Puedes ayudarme, por favor?",
+        "¡Ayuda ahora!",
+        "No quiero ayuda.",
+        "Gracias por nada."
+      ],
+      "answer": 0,
+      "explanation": "\"¿Puedes ayudarme, por favor?\" betyder \"kan du hjälpa mig, snälla?\" och är ett artigt sätt att be om hjälp. De andra alternativen är antingen ohövliga eller betyder något annat."
+    },
+    {
+      "id": "q-sp7-greet-13",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "Vad betyder \"No entiendo\"?",
+      "opener": "En fras man ofta behöver säga när man inte hänger med på lektionen.",
+      "choices": [
+        "Jag förstår inte",
+        "Jag vet inte",
+        "Jag är klar",
+        "Jag har en fråga"
+      ],
+      "answer": 0,
+      "explanation": "\"No entiendo\" betyder \"jag förstår inte\". Verbet \"entender\" betyder att förstå."
+    },
+    {
+      "id": "q-sp7-greet-14",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "Läraren säger \"Cerrad los libros\". Vad ska ni göra?",
+      "opener": "\"Cerrad\" kommer från verbet cerrar, motsatsen till abrir.",
+      "choices": [
+        "Stänga böckerna",
+        "Öppna böckerna",
+        "Ta fram pennorna",
+        "Räcka upp handen"
+      ],
+      "answer": 0,
+      "explanation": "\"Cerrar\" betyder \"att stänga\", så \"cerrad los libros\" betyder \"stäng böckerna\"."
+    },
+    {
+      "id": "q-sp7-greet-15",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Vad betyder \"Buenas tardes\"?",
+      "opener": "En hälsning man använder mitt på dagen, innan kvällen.",
+      "choices": [
+        "God eftermiddag",
+        "God morgon",
+        "God natt",
+        "Hej då"
+      ],
+      "answer": 0,
+      "explanation": "\"Buenas tardes\" betyder \"god eftermiddag\" och används från tidig eftermiddag till tidig kväll."
     }
   ]
 }
