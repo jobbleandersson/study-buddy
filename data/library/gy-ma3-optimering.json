@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta metoden för att lösa ett optimeringsproblem med derivata, steg för steg.",
       "opener": "Fem steg, från formel till tolkning av svaret i sammanhanget.",
       "answer": "1) Skriv en formel för storheten som ska optimeras som funktion av en variabel · 2) Använd eventuella bivillkor för att uttrycka formeln med endast en variabel · 3) Derivera funktionen · 4) Sätt derivatan till noll och lös ut variabeln (kritiska punkter) · 5) Kontrollera med teckenstudium eller andraderivatan att punkten ger max/min, och kom ihåg definitionsmängdens gränser · 6) Tolka och redovisa svaret i uppgiftens sammanhang, med rätt enhet"
+    },
+    {
+      "id": "q-ma3-optimering-9",
+      "kind": "mc",
+      "topic": "areaoptimering",
+      "prompt": "En bonde har 60 m stängsel och vill hägna in ett rektangulärt område utmed en rak vägg (en sida behöver inget stängsel). Stängslet ska räcka till de två kortsidorna (längd $x$ vardera) och långsidan mitt emot väggen. Vilket uttryck ger arean som funktion av $x$?",
+      "opener": "Uttryck den fjärde sidans längd med hjälp av $x$, utifrån att den totala stängsellängden är 60 m.",
+      "choices": [
+        "$A(x)=60x-2x^2$",
+        "$A(x)=60x-x^2$",
+        "$A(x)=30x-2x^2$",
+        "$A(x)=x(60-x)$"
+      ],
+      "answer": 0,
+      "explanation": "Stängslet går åt till två kortsidor och en långsida: $2x+y=60 \\Rightarrow y=60-2x$. Arean blir $A(x)=x\\cdot y=x(60-2x)=60x-2x^2$."
+    },
+    {
+      "id": "q-ma3-optimering-10",
+      "kind": "mc",
+      "topic": "areaoptimering",
+      "prompt": "Vilket värde på $x$ maximerar arean $A(x) = 60x - 2x^2$ från föregående uppgift?",
+      "opener": "Derivera arean och sätt derivatan till noll.",
+      "choices": [
+        "$x=15$ m",
+        "$x=30$ m",
+        "$x=10$ m",
+        "$x=7{,}5$ m"
+      ],
+      "answer": 0,
+      "explanation": "$A'(x)=60-4x$. Sätt $A'(x)=0$: $60-4x=0 \\Rightarrow x=15$. Detta är maximum eftersom $A''(x)=-4<0$."
+    },
+    {
+      "id": "q-ma3-optimering-11",
+      "kind": "mc",
+      "topic": "optimeringsmetod",
+      "prompt": "Efter att ha löst $f'(x)=0$ och hittat en kritisk punkt $x_0$ i ett optimeringsproblem, varför räcker det inte alltid att bara stanna där?",
+      "opener": "En kritisk punkt behöver inte automatiskt vara den lösning problemet efterfrågar.",
+      "choices": [
+        "Man måste kontrollera att punkten verkligen ger max eller min, och att den ligger inom det tillåtna intervallet",
+        "Det räcker alltid, inget mer behöver göras",
+        "Man måste alltid testa fem olika värden på $x$ istället",
+        "Kritiska punkter kan aldrig vara extrempunkter"
+      ],
+      "answer": 0,
+      "explanation": "En kritisk punkt kan vara ett max, ett min eller en terrasspunkt, så man måste kontrollera typen med teckenstudium eller andraderivatan. Punkten måste dessutom ligga inom det fysiskt rimliga intervallet för problemet, annars är den inte en giltig lösning."
+    },
+    {
+      "id": "q-ma3-optimering-12",
+      "kind": "mc",
+      "topic": "volymoptimering",
+      "prompt": "En låda utan lock tillverkas av en kvadratisk skiva med sidan 18 cm, genom att klippa bort kvadrater med sidan $x$ i varje hörn och vika upp kanterna. Volymen ges av $V(x) = x(18-2x)^2$. Vad är $V'(x)$?",
+      "opener": "Utveckla kvadraten $(18-2x)^2$ och skriv $V(x)$ som ett polynom innan du deriverar.",
+      "choices": [
+        "$12x^2-144x+324$",
+        "$4x^2-72x+324$",
+        "$324-72x$",
+        "$12x^2-144x$"
+      ],
+      "answer": 0,
+      "explanation": "Utveckla: $V(x)=x(324-72x+4x^2)=324x-72x^2+4x^3$. Derivera term för term: $V'(x)=324-144x+12x^2=12x^2-144x+324$."
+    },
+    {
+      "id": "q-ma3-optimering-13",
+      "kind": "mc",
+      "topic": "volymoptimering",
+      "prompt": "Vilket värde på $x$ (i intervallet $0 < x < 9$) ger lådan i föregående uppgift maximal volym?",
+      "opener": "Lös ekvationen $V'(x)=0$ och välj den lösning som ligger i det tillåtna intervallet.",
+      "choices": [
+        "$x=3$ cm",
+        "$x=9$ cm",
+        "$x=6$ cm",
+        "$x=12$ cm"
+      ],
+      "answer": 0,
+      "explanation": "$12x^2-144x+324=0$ ger, efter division med 12, $x^2-12x+27=0$. Lösningarna är $x=\\frac{12\\pm\\sqrt{144-108}}{2}=\\frac{12\\pm6}{2}=9$ eller $3$. Eftersom $x=9$ ger sidlängden $18-2\\cdot9=0$ (ingen låda alls) är det bara $x=3$ som ligger i det tillåtna intervallet."
+    },
+    {
+      "id": "q-ma3-optimering-14",
+      "kind": "mc",
+      "topic": "optimeringsmetod",
+      "prompt": "Vilket är första steget vid ett optimeringsproblem med ett bivillkor, till exempel en given stängsellängd eller omkrets?",
+      "opener": "Bivillkoret binder ihop de två variablerna till varandra.",
+      "choices": [
+        "Använd bivillkoret för att uttrycka storheten som ska optimeras med endast en variabel",
+        "Derivera bivillkoret direkt utan vidare bearbetning",
+        "Sätta båda variablerna till noll",
+        "Anta att svaret alltid blir en kvadrat"
+      ],
+      "answer": 0,
+      "explanation": "Bivillkoret, till exempel en given omkrets, används för att uttrycka den ena variabeln i termer av den andra, så att den storhet som ska optimeras kan skrivas som en funktion av bara en variabel. Bara då går det att derivera och lösa ut ett extremvärde på vanligt sätt."
+    },
+    {
+      "id": "q-ma3-optimering-15",
+      "kind": "mc",
+      "topic": "areaoptimering",
+      "prompt": "En rektangel har omkretsen 60 cm. Vilka sidlängder ger maximal area?",
+      "opener": "Uttryck den ena sidan med hjälp av den andra utifrån omkretsvillkoret.",
+      "choices": [
+        "15 cm och 15 cm (en kvadrat)",
+        "10 cm och 20 cm",
+        "30 cm och 0 cm",
+        "12 cm och 18 cm"
+      ],
+      "answer": 0,
+      "explanation": "Omkretsen ger $2x+2y=60 \\Rightarrow y=30-x$. Arean $A(x)=x(30-x)=30x-x^2$, och $A'(x)=30-2x=0 \\Rightarrow x=15$, vilket ger $y=15$. Rektangeln blir alltså en kvadrat med sidan 15 cm, precis som i det klassiska mönstret att en kvadrat maximerar arean vid given omkrets."
     }
   ]
 }

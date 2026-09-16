@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta hur man hittar och klassificerar extrempunkter med första- och andraderivatan.",
       "opener": "Två metoder: teckenstudium av $f'$, eller teckentest med $f''$.",
       "answer": "Extrempunkter finns där $f'(x)=0$ (eller där $f'$ inte är definierad) · Teckenbyte i $f'$ från $+$ till $-$ $\\Rightarrow$ lokal maxpunkt · Teckenbyte i $f'$ från $-$ till $+$ $\\Rightarrow$ lokal minpunkt · Inget teckenbyte $\\Rightarrow$ terrasspunkt · Andraderivatatestet: $f'(x_0)=0$ och $f''(x_0)<0 \\Rightarrow$ lokal max · $f'(x_0)=0$ och $f''(x_0)>0 \\Rightarrow$ lokal min · $f''(x_0)=0 \\Rightarrow$ testet ger inget svar, gör teckenstudium istället"
+    },
+    {
+      "id": "q-ma3-extrem-9",
+      "kind": "mc",
+      "topic": "extrempunkter",
+      "prompt": "Funktionen $f(x) = x^2 - 8x + 3$ har en extrempunkt. Var ligger den (x-värde)?",
+      "opener": "Derivera och lös $f'(x)=0$.",
+      "choices": [
+        "$x = 4$",
+        "$x = 8$",
+        "$x = -4$",
+        "$x = 2$"
+      ],
+      "answer": 0,
+      "explanation": "$f'(x) = 2x-8$. Sätt $f'(x)=0$: $2x-8=0 \\Rightarrow x=4$."
+    },
+    {
+      "id": "q-ma3-extrem-10",
+      "kind": "mc",
+      "topic": "andraderivatan",
+      "prompt": "Vad är andraderivatan av $f(x) = x^4 - 4x^3 + 2$?",
+      "opener": "Derivera $f$ två gånger i följd.",
+      "choices": [
+        "$f''(x) = 12x^2 - 24x$",
+        "$f''(x) = 4x^3 - 12x^2$",
+        "$f''(x) = 12x^2$",
+        "$f''(x) = 24x - 24$"
+      ],
+      "answer": 0,
+      "explanation": "$f'(x) = 4x^3-12x^2$. Derivera igen: $f''(x) = 12x^2-24x$. Svaret $4x^3-12x^2$ är bara första derivatan."
+    },
+    {
+      "id": "q-ma3-extrem-11",
+      "kind": "mc",
+      "topic": "teckenstudium",
+      "prompt": "$f'(x) = (x+2)(x-4)$. I vilket intervall är $f$ växande?",
+      "opener": "Gör en teckentabell för $f'(x)$ med hjälp av nollställena $x=-2$ och $x=4$.",
+      "choices": [
+        "$x < -2$ eller $x > 4$",
+        "$-2 < x < 4$",
+        "$x > 4$ enbart",
+        "Alla $x$"
+      ],
+      "answer": 0,
+      "explanation": "Nollställena är $x=-2$ och $x=4$. Utanför intervallet, t.ex. vid $x=5$: $f'(5)=(7)(1)=7>0$, och vid $x=-3$: $f'(-3)=(-1)(-7)=7>0$. Mellan nollställena, t.ex. vid $x=0$: $f'(0)=(2)(-4)=-8<0$. Så $f$ är växande för $x<-2$ eller $x>4$."
+    },
+    {
+      "id": "q-ma3-extrem-12",
+      "kind": "mc",
+      "topic": "andraderivatan",
+      "prompt": "I en punkt gäller $f'(x_0) = 0$ och $f''(x_0) > 0$. Vad kan man dra för slutsats?",
+      "opener": "Ett positivt tecken på andraderivatan innebär att kurvan buktar uppåt.",
+      "choices": [
+        "$x_0$ är en lokal minpunkt",
+        "$x_0$ är en lokal maxpunkt",
+        "$x_0$ är en terrasspunkt",
+        "Man kan inte dra någon slutsats"
+      ],
+      "answer": 0,
+      "explanation": "Om $f'(x_0)=0$ och $f''(x_0)>0$ är kurvan konkav uppåt vid punkten, vilket innebär en lokal minpunkt."
+    },
+    {
+      "id": "q-ma3-extrem-13",
+      "kind": "mc",
+      "topic": "extrempunkter",
+      "prompt": "Funktionen $f(x) = -x^2 + 10x - 9$ har en extrempunkt. Vilken typ av extrempunkt är det, utan att beräkna $x$-värdet?",
+      "opener": "Titta på tecknet framför $x^2$-termen.",
+      "choices": [
+        "Ett maximum, eftersom koefficienten framför $x^2$ är negativ",
+        "Ett minimum, eftersom koefficienten framför $x^2$ är negativ",
+        "En terrasspunkt",
+        "Ingen extrempunkt finns"
+      ],
+      "answer": 0,
+      "explanation": "Eftersom koefficienten framför $x^2$ är negativ ($-1$) är andraderivatan konstant negativ ($f''(x)=-2$), vilket alltid ger en lokal maxpunkt vid den enda kritiska punkten."
+    },
+    {
+      "id": "q-ma3-extrem-14",
+      "kind": "mc",
+      "topic": "teckenstudium",
+      "prompt": "En funktion $f$ har $f'(x) < 0$ för alla $x$ i intervallet $(-3, 1)$. Vad gäller för $f$ i intervallet?",
+      "opener": "En negativ derivata betyder att tangentens lutning är negativ.",
+      "choices": [
+        "$f$ är avtagande i intervallet",
+        "$f$ är växande i intervallet",
+        "$f$ har ett minimum i intervallet",
+        "$f$ är konstant i intervallet"
+      ],
+      "answer": 0,
+      "explanation": "Om $f'(x)<0$ på ett intervall är tangentens lutning negativ överallt där, så $f$ är avtagande i hela intervallet."
+    },
+    {
+      "id": "q-ma3-extrem-15",
+      "kind": "mc",
+      "topic": "andraderivatan",
+      "prompt": "Vad är andraderivatan av $f(x) = 2x^3 + 5x - 1$?",
+      "opener": "Derivera $f$ två gånger.",
+      "choices": [
+        "$f''(x) = 12x$",
+        "$f''(x) = 6x^2 + 5$",
+        "$f''(x) = 6x$",
+        "$f''(x) = 12x^2$"
+      ],
+      "answer": 0,
+      "explanation": "$f'(x) = 6x^2+5$. Derivera igen: $f''(x) = 12x$."
     }
   ]
 }
