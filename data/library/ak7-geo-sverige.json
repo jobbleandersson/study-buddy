@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta Sveriges geografi.",
       "opener": "Landsdelar, natur, vatten, befolkning och näringar.",
       "answer": "Landsdelar: Norrland (norr), Svealand (mitten), Götaland (söder), tillsammans 25 landskap · Natur i nordväst: fjällkedjan längs norska gränsen, Kebnekaise drygt 2 000 m, kalfjäll och renbetesland · Natur i mitten: stora barrskogar och myrar, det så kallade skogslandet · Natur i söder: bördiga slättbygder i Skåne, Västergötland, Östergötland och Mälardalen, samt lövskog och kalkstensöarna Öland och Gotland · Kust: långa kuster mot Bottenviken, Bottenhavet, Östersjön, Öresund, Kattegatt och Skagerrak, med skärgårdar utanför Stockholm och Göteborg · Sjöar: Vänern (störst), Vättern, Mälaren, Hjälmaren · Älvar: rinner från fjällen i nordväst mot Bottenviken och Bottenhavet, t.ex. Torneälven, Luleälven, Umeälven, Dalälven, samt Klarälven–Göta älv som är landets längsta · Befolkning: ungefär 85 procent bor i den södra tredjedelen, tätast kring Stockholm, Göteborg och Malmö, Norrlands inland är mycket glest befolkat · Näringar: jordbruk i södra slättbygderna, skogsbruk och pappersindustri i Norrland och Mellansverige, järnmalm i Kiruna och Malmberget, vattenkraft i norrlandsälvarna, verkstadsindustri i Mellansverige och tjänsteföretag i storstäderna · Turism: fjällen på vintern, kust och skärgård på sommaren."
+    },
+    {
+      "id": "q-geo7-sve-9",
+      "kind": "mc",
+      "topic": "landskap och landsdelar",
+      "prompt": "Hur många landskap finns det i Sverige totalt?",
+      "opener": "Landskapen är äldre indelningar som fortfarande används för att beskriva olika delar av landet.",
+      "choices": [
+        "10",
+        "25",
+        "50",
+        "100"
+      ],
+      "answer": 1,
+      "explanation": "Sverige har totalt 25 landskap, fördelade på de tre landsdelarna Norrland, Svealand och Götaland. Landskapen är inte samma sak som dagens län, som är en annan, nyare administrativ indelning."
+    },
+    {
+      "id": "q-geo7-sve-10",
+      "kind": "mc",
+      "topic": "Sveriges natur",
+      "prompt": "Vad heter Sveriges högsta berg?",
+      "opener": "Berget ligger i fjällkedjan i Lappland och når drygt 2 000 meter.",
+      "choices": [
+        "Kebnekaise",
+        "Sarek",
+        "Åreskutan",
+        "Helags"
+      ],
+      "answer": 0,
+      "explanation": "Kebnekaise är Sveriges högsta berg med en topp på drygt 2 000 meter. Sarek är i stället ett stort nationalpark-område, och Åreskutan och Helags är lägre fjäll."
+    },
+    {
+      "id": "q-geo7-sve-11",
+      "kind": "mc",
+      "topic": "sjöar och älvar",
+      "prompt": "Vilken är Sveriges längsta älv?",
+      "opener": "Älven byter namn på vägen och rinner till slut ut i havet vid Göteborg.",
+      "choices": [
+        "Luleälven",
+        "Dalälven",
+        "Klarälven–Göta älv",
+        "Torneälven"
+      ],
+      "answer": 2,
+      "explanation": "Klarälven–Göta älv räknas som Sveriges längsta vattendrag, eftersom Klarälven övergår i Göta älv som mynnar vid Göteborg. Luleälven, Dalälven och Torneälven är alla kortare älvar i Norrland."
+    },
+    {
+      "id": "q-geo7-sve-12",
+      "kind": "mc",
+      "topic": "befolkning",
+      "prompt": "Ungefär hur stor andel av Sveriges befolkning bor i den södra tredjedelen av landet?",
+      "opener": "Tänk på var de flesta stora städerna ligger.",
+      "choices": [
+        "50 procent",
+        "65 procent",
+        "85 procent",
+        "95 procent"
+      ],
+      "answer": 2,
+      "explanation": "Ungefär 85 procent av Sveriges befolkning bor i den södra tredjedelen av landet, där klimatet är mildare och arbetsplatserna fler. Norrlands inland är däremot mycket glest befolkat."
+    },
+    {
+      "id": "q-geo7-sve-13",
+      "kind": "mc",
+      "topic": "näringar",
+      "prompt": "Vilken näring är särskilt viktig i Kiruna och Malmberget i Norrland?",
+      "opener": "Städerna är kända för stora underjordiska brytningsområden.",
+      "choices": [
+        "Vinodling",
+        "Gruvdrift (järnmalm)",
+        "Fiske",
+        "Turism enbart"
+      ],
+      "answer": 1,
+      "explanation": "Kiruna och Malmberget är kända för sin omfattande gruvdrift, där stora mängder järnmalm bryts. Vinodling kräver ett betydligt varmare klimat än vad som finns i norra Norrland."
+    },
+    {
+      "id": "q-geo7-sve-14",
+      "kind": "worked",
+      "topic": "näringar",
+      "prompt": "Förklara varför vattenkraft är så viktig i just Norrland och inte lika viktig i Skåne.",
+      "opener": "Tänk på höjdskillnaderna i landskapet och vad de betyder för hur snabbt vattnet rinner.",
+      "answer": "Norrland har stora höjdskillnader mellan fjällkedjan och kusten, och älvarna rinner med kraftigt fall genom skogslandet, vilket gör att vattnets rörelseenergi kan omvandlas effektivt till el i vattenkraftverk. Skåne är däremot mycket flackt utan stora höjdskillnader, så vattnet där rinner långsamt och saknar den kraft som krävs för storskalig vattenkraft.",
+      "steps": [
+        "Vattenkraft bygger på att vattnets rörelseenergi, som beror på hur brant det faller, omvandlas till el.",
+        "Norrlands älvar har sina källor högt uppe i fjällkedjan och rinner ner mot kusten med stor höjdskillnad.",
+        "Den kraftiga lutningen gör att vattnet rör sig snabbt och med mycket energi, perfekt för vattenkraftverk.",
+        "Skåne ligger däremot på en mycket flack slätt utan stora höjdskillnader.",
+        "Utan brant fall rinner vattnet i Skåne långsamt och saknar den kraft som krävs för storskalig vattenkraftsproduktion."
+      ]
+    },
+    {
+      "id": "q-geo7-sve-15",
+      "kind": "mc",
+      "topic": "landskap och landsdelar",
+      "prompt": "Vilket landskap ligger Sveriges huvudstad Stockholm i?",
+      "opener": "Landskapet ligger i Svealand, öster om Mälaren.",
+      "choices": [
+        "Skåne",
+        "Västergötland",
+        "Uppland",
+        "Dalarna"
+      ],
+      "answer": 2,
+      "explanation": "Stockholm ligger traditionellt i landskapet Uppland. Skåne och Västergötland ligger i stället i Götaland, och Dalarna ligger längre norrut i Svealand."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Summarise weather, climate, climate zones and vegetation zones.",
       "opener": "Start with the concepts, then the zones, then the factors that control climate.",
       "answer": "Weather: what it's like right now or over a few days — temperature, rainfall, wind, cloud cover · Climate: the average weather at a place over a long time, usually measured as an average over 30 years · Climate zones: tropical climate around the equator with high, steady heat and heavy rainfall or a wet and dry season · temperate climate between the tropics and the polar regions with four distinct seasons, this is where Sweden lies · polar climate at the poles with cold for most of the year and a short summer or none at all · What affects climate: latitude (the angle of the sun's rays, most important) · height above sea level (about 0.6 °C colder per 100 m) · closeness to the sea (evens out temperature, brings rainfall) · ocean currents and winds (can move heat long distances) · mountains that block air masses · The Gulf Stream: a warm ocean current from the Gulf of Mexico which, together with the North Atlantic Drift and the westerly winds, makes Northern Europe several degrees milder than other places at the same latitude · Vegetation zones follow climate: rainforest at the equator · savannah · desert around the tropics · Mediterranean vegetation · deciduous forest · coniferous forest (taiga) · tundra · polar climate with ice and snow · In Sweden: mountain vegetation and bare mountain in the north-west, coniferous forest in the north and centre, deciduous and mixed forest in the south."
+    },
+    {
+      "id": "q-geo7-kli-9",
+      "kind": "mc",
+      "topic": "weather and climate",
+      "prompt": "Which of these statements describes weather, not climate?",
+      "opener": "Think about which option is about something measured over a long time, and which is about a single moment.",
+      "choices": [
+        "Sweden has cold winters on average",
+        "It's raining in Stockholm right now",
+        "Tropical areas are warm all year round",
+        "Deserts get very little rainfall on average"
+      ],
+      "answer": 1,
+      "explanation": "\"It's raining right now\" describes a temporary condition, i.e. weather. The other statements are about long-term averages, which is climate."
+    },
+    {
+      "id": "q-geo7-kli-10",
+      "kind": "mc",
+      "topic": "climate zones",
+      "prompt": "Which climate zone is Sweden in?",
+      "opener": "This zone lies between the tropics and the polar regions and has four distinct seasons.",
+      "choices": [
+        "Tropical climate",
+        "Temperate climate",
+        "Polar climate",
+        "Desert climate"
+      ],
+      "answer": 1,
+      "explanation": "Sweden is in the temperate climate zone, with distinct seasons and moderate temperatures. Tropical and polar climates are instead found closer to the equator and the poles respectively."
+    },
+    {
+      "id": "q-geo7-kli-11",
+      "kind": "mc",
+      "topic": "what affects climate",
+      "prompt": "How does high elevation affect the temperature of a place?",
+      "opener": "Think about why there can be snow on mountain peaks even in summer.",
+      "choices": [
+        "It makes no difference",
+        "The temperature drops by about 0.6 degrees for every 100 metres of elevation gain",
+        "The temperature rises with elevation",
+        "It only affects rainfall, not temperature"
+      ],
+      "answer": 1,
+      "explanation": "The temperature drops by about 0.6 degrees for every 100 metres you climb, which is why high mountains can have snow even when it's warm in the valley. Elevation clearly affects temperature, not just rainfall."
+    },
+    {
+      "id": "q-geo7-kli-12",
+      "kind": "mc",
+      "topic": "the Gulf Stream",
+      "prompt": "Where does the warm water that the Gulf Stream carries towards Northern Europe come from?",
+      "opener": "The area is in the tropics, near the southern United States.",
+      "choices": [
+        "The Gulf of Mexico",
+        "The Norwegian Sea",
+        "The Arctic Ocean",
+        "The Mediterranean"
+      ],
+      "answer": 0,
+      "explanation": "The Gulf Stream carries warm water from the Gulf of Mexico north-east across the Atlantic towards Northern Europe. The Norwegian Sea and the Arctic Ocean are instead further north, where the water flows later in its journey."
+    },
+    {
+      "id": "q-geo7-kli-13",
+      "kind": "mc",
+      "topic": "vegetation zones",
+      "prompt": "Which vegetation zone lies closest to the equator?",
+      "opener": "This zone requires high heat and heavy rainfall all year round.",
+      "choices": [
+        "Tundra",
+        "Coniferous forest",
+        "Tropical rainforest",
+        "Mediterranean vegetation"
+      ],
+      "answer": 2,
+      "explanation": "Tropical rainforest lies closest to the equator, where it's warm and rainy all year round. Tundra is instead found furthest north and south, near the poles."
+    },
+    {
+      "id": "q-geo7-kli-14",
+      "kind": "worked",
+      "topic": "vegetation zones",
+      "prompt": "Explain why deserts often form around the tropics, about 23 degrees north and south of the equator, even though they aren't near the poles.",
+      "opener": "Think about what happens to air that rises at the equator and then moves towards the tropics.",
+      "answer": "At the equator, warm, moist air rises and releases most of its rain there, producing rainforest. The air then continues in high layers towards the tropics, where it's already dry since the moisture fell as rain earlier. At the tropics, this dry air sinks back towards the ground, and sinking air warms up and absorbs moisture instead of releasing it, meaning very little rain falls there. This pattern is why many of the world's great deserts, such as the Sahara, lie right around the tropics.",
+      "steps": [
+        "At the equator, the air is heated strongly by the sun and rises quickly.",
+        "Rising air cools and loses its moisture as rain, producing the rain-rich rainforest at the equator.",
+        "The now-dry air continues in high layers towards the tropics, about 23 degrees north and south of the equator.",
+        "At the tropics, the air sinks back towards the ground, and sinking air warms up and absorbs moisture instead of releasing it.",
+        "The result is very little rainfall at the tropics, which explains why deserts like the Sahara are located exactly there."
+      ]
+    },
+    {
+      "id": "q-geo7-kli-15",
+      "kind": "mc",
+      "topic": "weather and climate",
+      "prompt": "Over how many years are averages usually calculated to describe the climate of a place?",
+      "opener": "The period needs to be long enough to smooth out individual unusual years.",
+      "choices": [
+        "1 year",
+        "5 years",
+        "30 years",
+        "100 years"
+      ],
+      "answer": 2,
+      "explanation": "Climate is usually described as averages over 30 years, a long enough period to smooth out individual unusual years. A single season or a few years isn't enough to say anything about the climate."
     }
   ]
 }

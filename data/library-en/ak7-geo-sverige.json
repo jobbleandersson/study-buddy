@@ -125,6 +125,111 @@
       "prompt": "Summarise the geography of Sweden.",
       "opener": "Regions, nature, water, population and industries.",
       "answer": "Regions: Norrland (north), Svealand (middle), Götaland (south), together 25 provinces · Nature in the north-west: the mountain range along the Norwegian border, Kebnekaise at just over 2,000 m, bare mountain and reindeer grazing land · Nature in the middle: large coniferous forests and marshland, the so-called forest land · Nature in the south: fertile plains in Skåne, Västergötland, Östergötland and the Mälaren valley, plus deciduous forest and the limestone islands of Öland and Gotland · Coast: long coastlines facing the Gulf of Bothnia, the Baltic Sea, the Öresund strait, the Kattegat and the Skagerrak, with archipelagos off Stockholm and Gothenburg · Lakes: Vänern (largest), Vättern, Mälaren, Hjälmaren · Rivers: flow from the mountains in the north-west towards the Gulf of Bothnia, e.g. the Torne River, the Lule River, the Ume River, the Dal River, plus the Klarälven-Göta River system, the country's longest · Population: about 85 per cent live in the southern third, densest around Stockholm, Gothenburg and Malmö, the interior of Norrland is very sparsely populated · Industries: agriculture in the southern plains, forestry and the paper industry in Norrland and central Sweden, iron ore in Kiruna and Malmberget, hydropower on the rivers of Norrland, engineering industry in central Sweden and service companies in the big cities · Tourism: the mountains in winter, the coast and archipelagos in summer."
+    },
+    {
+      "id": "q-geo7-sve-9",
+      "kind": "mc",
+      "topic": "provinces and regions",
+      "prompt": "How many provinces does Sweden have in total?",
+      "opener": "The provinces are older divisions still used to describe different parts of the country.",
+      "choices": [
+        "10",
+        "25",
+        "50",
+        "100"
+      ],
+      "answer": 1,
+      "explanation": "Sweden has a total of 25 provinces, spread across the three regions of Norrland, Svealand and Götaland. The provinces aren't the same as today's counties, which are a different, more recent administrative division."
+    },
+    {
+      "id": "q-geo7-sve-10",
+      "kind": "mc",
+      "topic": "Sweden's nature",
+      "prompt": "What is Sweden's highest mountain called?",
+      "opener": "The mountain is in the range in Lapland and reaches just over 2,000 metres.",
+      "choices": [
+        "Kebnekaise",
+        "Sarek",
+        "Åreskutan",
+        "Helags"
+      ],
+      "answer": 0,
+      "explanation": "Kebnekaise is Sweden's highest mountain, with a peak just over 2,000 metres. Sarek is instead a large national park area, and Åreskutan and Helags are lower peaks."
+    },
+    {
+      "id": "q-geo7-sve-11",
+      "kind": "mc",
+      "topic": "lakes and rivers",
+      "prompt": "Which is Sweden's longest river?",
+      "opener": "The river changes name along the way and eventually flows into the sea at Gothenburg.",
+      "choices": [
+        "The Lule River",
+        "The Dal River",
+        "The Klarälven-Göta River system",
+        "The Torne River"
+      ],
+      "answer": 2,
+      "explanation": "The Klarälven-Göta River system is counted as Sweden's longest waterway, since the Klarälven turns into the Göta River, which flows out at Gothenburg. The Lule, Dal and Torne rivers are all shorter rivers in Norrland."
+    },
+    {
+      "id": "q-geo7-sve-12",
+      "kind": "mc",
+      "topic": "population",
+      "prompt": "Roughly what share of Sweden's population lives in the southern third of the country?",
+      "opener": "Think about where most of the big cities are located.",
+      "choices": [
+        "50 per cent",
+        "65 per cent",
+        "85 per cent",
+        "95 per cent"
+      ],
+      "answer": 2,
+      "explanation": "About 85 per cent of Sweden's population lives in the southern third of the country, where the climate is milder and there are more jobs. The interior of Norrland, on the other hand, is very sparsely populated."
+    },
+    {
+      "id": "q-geo7-sve-13",
+      "kind": "mc",
+      "topic": "industries",
+      "prompt": "Which industry is especially important in Kiruna and Malmberget in Norrland?",
+      "opener": "These towns are known for large underground mining areas.",
+      "choices": [
+        "Wine growing",
+        "Mining (iron ore)",
+        "Fishing",
+        "Tourism only"
+      ],
+      "answer": 1,
+      "explanation": "Kiruna and Malmberget are known for their extensive mining, where large amounts of iron ore are extracted. Wine growing requires a considerably warmer climate than northern Norrland has."
+    },
+    {
+      "id": "q-geo7-sve-14",
+      "kind": "worked",
+      "topic": "industries",
+      "prompt": "Explain why hydropower is so important in Norrland specifically and not as important in Skåne.",
+      "opener": "Think about the differences in elevation across the landscape and what that means for how fast the water flows.",
+      "answer": "Norrland has large differences in elevation between the mountain range and the coast, and the rivers flow with a steep drop through the forest land, which allows the water's kinetic energy to be converted efficiently into electricity in hydropower plants. Skåne, on the other hand, is very flat with no large elevation differences, so the water there flows slowly and lacks the force needed for large-scale hydropower.",
+      "steps": [
+        "Hydropower relies on the water's kinetic energy, which depends on how steeply it falls, being converted into electricity.",
+        "Norrland's rivers have their sources high up in the mountain range and flow down towards the coast with a large drop in elevation.",
+        "The steep slope makes the water move quickly and with a lot of energy, ideal for hydropower plants.",
+        "Skåne, on the other hand, lies on a very flat plain with no large elevation differences.",
+        "Without a steep drop, the water in Skåne flows slowly and lacks the force needed for large-scale hydropower production."
+      ]
+    },
+    {
+      "id": "q-geo7-sve-15",
+      "kind": "mc",
+      "topic": "provinces and regions",
+      "prompt": "Which province is Sweden's capital, Stockholm, in?",
+      "opener": "The province is in Svealand, east of Lake Mälaren.",
+      "choices": [
+        "Skåne",
+        "Västergötland",
+        "Uppland",
+        "Dalarna"
+      ],
+      "answer": 2,
+      "explanation": "Stockholm is traditionally located in the province of Uppland. Skåne and Västergötland are instead in Götaland, and Dalarna lies further north in Svealand."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta väder, klimat, klimatzoner och vegetationszoner.",
       "opener": "Börja med begreppen, sedan zonerna och faktorerna som styr klimatet.",
       "answer": "Väder: hur det är just nu eller under några dagar — temperatur, nederbörd, vind, molnighet · Klimat: det genomsnittliga vädret på en plats över lång tid, oftast mätt som medelvärde över 30 år · Klimatzoner: tropiskt klimat kring ekvatorn med hög jämn värme och mycket nederbörd eller regn- och torrtid · tempererat klimat mellan tropikerna och polartrakterna med fyra tydliga årstider, här ligger Sverige · polart klimat vid polerna med kyla större delen av året och kort eller ingen sommar · Vad som påverkar klimatet: breddgrad (solstrålarnas vinkel, viktigast) · höjd över havet (ca 0,6 °C kallare per 100 m) · närhet till hav (jämnar ut temperaturen, ger nederbörd) · havsströmmar och vindar (kan flytta värme långa sträckor) · berg som hindrar luftmassor · Golfströmmen: varm havsström från Mexikanska golfen som med Nordatlantiska driften och västvindarna gör Nordeuropa flera grader mildare än andra platser på samma breddgrad · Vegetationszoner följer klimatet: regnskog vid ekvatorn · savann · öken kring vändkretsarna · medelhavsvegetation · lövskog · barrskog (taiga) · tundra · polarklimat med is och snö · I Sverige: fjällvegetation och kalfjäll i nordväst, barrskog i norr och mitten, lövskog och blandskog i söder."
+    },
+    {
+      "id": "q-geo7-kli-9",
+      "kind": "mc",
+      "topic": "väder och klimat",
+      "prompt": "Vilket av dessa påståenden beskriver väder, inte klimat?",
+      "opener": "Tänk på vilket alternativ som handlar om något som mäts över lång tid, och vilket som handlar om ett enda ögonblick.",
+      "choices": [
+        "Sverige har i genomsnitt kalla vintrar",
+        "Det regnar i Stockholm just nu",
+        "Tropiska områden är varma året runt",
+        "Öknar får mycket lite nederbörd i genomsnitt"
+      ],
+      "answer": 1,
+      "explanation": "\"Det regnar just nu\" beskriver ett tillfälligt tillstånd, alltså väder. De andra påståendena handlar om genomsnitt över lång tid, vilket är klimat."
+    },
+    {
+      "id": "q-geo7-kli-10",
+      "kind": "mc",
+      "topic": "klimatzoner",
+      "prompt": "I vilken klimatzon ligger Sverige?",
+      "opener": "Zonen ligger mellan tropikerna och polartrakterna och har fyra tydliga årstider.",
+      "choices": [
+        "Tropiskt klimat",
+        "Tempererat klimat",
+        "Polart klimat",
+        "Ökenklimat"
+      ],
+      "answer": 1,
+      "explanation": "Sverige ligger i den tempererade klimatzonen, med tydliga årstider och måttliga temperaturer. Tropiskt och polart klimat finns i stället närmare ekvatorn respektive polerna."
+    },
+    {
+      "id": "q-geo7-kli-11",
+      "kind": "mc",
+      "topic": "vad som påverkar klimatet",
+      "prompt": "Hur påverkar hög höjd över havet temperaturen på en plats?",
+      "opener": "Tänk på varför det kan vara snö på bergstoppar även på sommaren.",
+      "choices": [
+        "Det gör ingen skillnad",
+        "Temperaturen sjunker ungefär 0,6 grader per 100 meters höjdökning",
+        "Temperaturen stiger med höjden",
+        "Det påverkar bara nederbörden, inte temperaturen"
+      ],
+      "answer": 1,
+      "explanation": "Temperaturen sjunker ungefär 0,6 grader för varje 100 meter man stiger i höjd, vilket är varför höga berg kan ha snö även när det är varmt i dalen. Höjden påverkar alltså tydligt temperaturen, inte bara nederbörden."
+    },
+    {
+      "id": "q-geo7-kli-12",
+      "kind": "mc",
+      "topic": "Golfströmmen",
+      "prompt": "Varifrån kommer det varma vatten som Golfströmmen för mot Nordeuropa?",
+      "opener": "Området ligger i tropikerna, nära södra USA.",
+      "choices": [
+        "Mexikanska golfen",
+        "Norska havet",
+        "Ishavet",
+        "Medelhavet"
+      ],
+      "answer": 0,
+      "explanation": "Golfströmmen för varmt vatten från Mexikanska golfen nordost över Atlanten mot Nordeuropa. Norska havet och Ishavet ligger i stället längre norrut, dit vattnet strömmar senare i sin resa."
+    },
+    {
+      "id": "q-geo7-kli-13",
+      "kind": "mc",
+      "topic": "vegetationszoner",
+      "prompt": "Vilken vegetationszon ligger allra närmast ekvatorn?",
+      "opener": "Zonen kräver hög värme och mycket nederbörd året runt.",
+      "choices": [
+        "Tundra",
+        "Barrskog",
+        "Tropisk regnskog",
+        "Medelhavsvegetation"
+      ],
+      "answer": 2,
+      "explanation": "Tropisk regnskog ligger närmast ekvatorn, där det är varmt och nederbördsrikt året runt. Tundra ligger i stället längst norr och söder, nära polerna."
+    },
+    {
+      "id": "q-geo7-kli-14",
+      "kind": "worked",
+      "topic": "vegetationszoner",
+      "prompt": "Förklara varför öknar ofta bildas kring vändkretsarna, ungefär 23 grader norr och söder om ekvatorn, trots att de inte ligger vid polerna.",
+      "opener": "Tänk på vad som händer med luft som stiger vid ekvatorn och sedan rör sig mot vändkretsarna.",
+      "answer": "Vid ekvatorn stiger varm, fuktig luft uppåt och avger sitt mesta regn där, vilket ger regnskog. Luften fortsätter sedan i höga luftlager mot vändkretsarna, där den redan är torr eftersom fukten fallit som regn tidigare. Vid vändkretsarna sjunker denna torra luft ner mot marken igen, och sjunkande luft värms upp och tar upp fukt i stället för att avge den, vilket gör att mycket lite regn faller där. Detta mönster är anledningen till att många av världens stora öknar, som Sahara, ligger just kring vändkretsarna.",
+      "steps": [
+        "Vid ekvatorn värms luften upp kraftigt av solen och stiger snabbt uppåt.",
+        "Stigande luft kyls av och tappar sin fukt som regn, vilket ger den nederbördsrika regnskogen vid ekvatorn.",
+        "Den nu torra luften fortsätter i höga luftlager mot vändkretsarna, ungefär 23 grader norr och söder om ekvatorn.",
+        "Vid vändkretsarna sjunker luften ner mot marken igen, och sjunkande luft värms upp och tar upp fukt i stället för att släppa ifrån sig den.",
+        "Resultatet blir mycket lite nederbörd vid vändkretsarna, vilket förklarar varför öknar som Sahara ligger just där."
+      ]
+    },
+    {
+      "id": "q-geo7-kli-15",
+      "kind": "mc",
+      "topic": "väder och klimat",
+      "prompt": "Under hur många år brukar man räkna medelvärden för att beskriva klimatet på en plats?",
+      "opener": "Perioden ska vara lång nog för att jämna ut enstaka ovanliga år.",
+      "choices": [
+        "1 år",
+        "5 år",
+        "30 år",
+        "100 år"
+      ],
+      "answer": 2,
+      "explanation": "Klimat beskrivs vanligtvis som medelvärden över 30 år, en tillräckligt lång period för att jämna ut enskilda ovanliga år. En enda årstid eller några få år räcker inte för att säga något om klimatet."
     }
   ]
 }

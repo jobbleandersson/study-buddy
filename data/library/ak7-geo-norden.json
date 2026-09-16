@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta Norden och Europa.",
       "opener": "Först de nordiska länderna, sedan Europas indelning, berg och floder.",
       "answer": "Nordens länder och huvudstäder: Sverige–Stockholm · Norge–Oslo · Danmark–Köpenhamn · Finland–Helsingfors · Island–Reykjavik · självstyrande områden: Färöarna, Grönland (Danmark) och Åland (Finland) · Nordens natur: fjällkedjan i Sverige och Norge, norska fjordar, finska tusen sjöar och skogar, danska låglandet och Islands vulkaner och glaciärer · Klimat: kustklimat i väster med milda vintrar tack vare Golfströmmen, inlandsklimat i norra Sverige och Finland med stora årstidsskillnader, polart klimat på Grönland · Europas indelning: Nordeuropa, Västeuropa, Sydeuropa, Central-/Mellaneuropa och Östeuropa · Europas gräns mot Asien: Uralbergen, Kaukasus och Svarta havet · Bergskedjor: Alperna (högst, Mont Blanc ca 4 800 m), Pyrenéerna, Karpaterna, Apenninerna, Skanderna och Uralbergen · Floder: Volga (längst, till Kaspiska havet), Donau (genom tio länder till Svarta havet), Rhen (till Nordsjön), Themsen, Seine, Po · Likheter i Norden: liknande samhällen, välfärd, demokrati, nordiskt samarbete och tre nära släkta språk · Skillnader: finskan hör till en annan språkfamilj, Norge och Island är inte EU-medlemmar, och naturen skiljer sig kraftigt mellan platt Danmark och vulkaniska Island."
+    },
+    {
+      "id": "q-geo7-nor-9",
+      "kind": "mc",
+      "topic": "de nordiska länderna",
+      "prompt": "Vilken är Finlands huvudstad?",
+      "opener": "Staden ligger vid kusten i södra Finland.",
+      "choices": [
+        "Åbo",
+        "Helsingfors",
+        "Tammerfors",
+        "Uleåborg"
+      ],
+      "answer": 1,
+      "explanation": "Helsingfors är Finlands huvudstad och största stad. Åbo, Tammerfors och Uleåborg är andra stora finska städer, men ingen av dem är huvudstad."
+    },
+    {
+      "id": "q-geo7-nor-10",
+      "kind": "mc",
+      "topic": "de nordiska länderna",
+      "prompt": "Vilket av dessa områden är ett självstyrande område som tillhör Danmark?",
+      "opener": "Ön ligger vid Nordamerika men har starka historiska band till Danmark.",
+      "choices": [
+        "Åland",
+        "Grönland",
+        "Shetlandsöarna",
+        "Sicilien"
+      ],
+      "answer": 1,
+      "explanation": "Grönland är ett självstyrande område som tillhör Danmark. Åland är i stället ett självstyrande område som tillhör Finland, och Shetlandsöarna och Sicilien tillhör andra länder utanför Norden."
+    },
+    {
+      "id": "q-geo7-nor-11",
+      "kind": "mc",
+      "topic": "Nordens natur och klimat",
+      "prompt": "Vad kännetecknar norska kusten geografiskt?",
+      "opener": "Landskapet skapades av glaciärer som grävde djupt under istiden.",
+      "choices": [
+        "Raka, flacka stränder utan inbuktningar",
+        "Djupa, smala fjordar skapade av glaciärer",
+        "Öken och sanddyner",
+        "Stora korallrev"
+      ],
+      "answer": 1,
+      "explanation": "Norges kust kännetecknas av djupa, smala fjordar som grävdes ut av glaciärer under istiden och sedan fylldes med havsvatten. Öken och korallrev hör i stället till helt andra klimat."
+    },
+    {
+      "id": "q-geo7-nor-12",
+      "kind": "mc",
+      "topic": "Europas indelning",
+      "prompt": "Vilka naturliga gränser skiljer ofta Europa från Asien?",
+      "opener": "Gränsen är inte en enda tydlig linje utan en kombination av berg och hav.",
+      "choices": [
+        "Alperna och Pyrenéerna",
+        "Uralbergen, Kaukasus och Svarta havet",
+        "Rhen och Donau",
+        "Medelhavet enbart"
+      ],
+      "answer": 1,
+      "explanation": "Gränsen mellan Europa och Asien dras vanligtvis vid Uralbergen, Kaukasus och Svarta havet. Alperna och Pyrenéerna ligger i stället helt inne i Europa."
+    },
+    {
+      "id": "q-geo7-nor-13",
+      "kind": "mc",
+      "topic": "Europas berg och floder",
+      "prompt": "Vilken är Europas längsta flod?",
+      "opener": "Floden rinner genom Ryssland och mynnar i Kaspiska havet.",
+      "choices": [
+        "Donau",
+        "Rhen",
+        "Volga",
+        "Themsen"
+      ],
+      "answer": 2,
+      "explanation": "Volga är Europas längsta flod och rinner genom Ryssland innan den mynnar i Kaspiska havet. Donau är i stället Europas mest internationella flod, eftersom den passerar genom flest länder."
+    },
+    {
+      "id": "q-geo7-nor-14",
+      "kind": "worked",
+      "topic": "Nordens natur och klimat",
+      "prompt": "Förklara varför Finland har tusentals sjöar medan Danmark nästan helt saknar sjöar.",
+      "opener": "Tänk på vad den senaste inlandsisen gjorde med berggrunden i de två länderna.",
+      "answer": "Finlands landskap formades kraftigt av den senaste inlandsisen, som grävde ur fördjupningar i berggrunden och lämnade kvar enorma mängder smältvatten när den drog sig tillbaka, vilket skapade tiotusentals sjöar. Danmark ligger i stället på ett mjukt, flackt moränlandskap med mycket lite berggrund nära ytan, och där avsatte isen i stället jämnare jordlager utan de djupa bäcken som krävs för att bilda sjöar i någon större omfattning.",
+      "steps": [
+        "Under istiden täcktes både Finland och Danmark av inlandsisen, men effekten på marken blev mycket olika.",
+        "I Finland grävde isen ur fördjupningar direkt i den hårda berggrunden, som sedan fylldes med smältvatten.",
+        "Det skapade tiotusentals sjöar utspridda över hela landet.",
+        "Danmark har i stället mjuk jord och mycket lite hård berggrund nära ytan.",
+        "Isen avsatte där jämnare jordlager utan djupa bäcken, vilket är varför landet nästan helt saknar naturliga sjöar."
+      ]
+    },
+    {
+      "id": "q-geo7-nor-15",
+      "kind": "mc",
+      "topic": "likheter och skillnader",
+      "prompt": "Vilket av de nordiska länderna är inte medlem i EU?",
+      "opener": "Landet har i stället nära samarbete med EU genom andra avtal.",
+      "choices": [
+        "Sverige",
+        "Finland",
+        "Danmark",
+        "Norge"
+      ],
+      "answer": 3,
+      "explanation": "Norge är inte medlem i EU, även om landet samarbetar nära genom EES-avtalet. Sverige, Finland och Danmark är alla medlemmar i EU."
     }
   ]
 }

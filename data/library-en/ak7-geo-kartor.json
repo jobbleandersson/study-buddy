@@ -126,6 +126,111 @@
       "prompt": "Summarise what you need to know to read a map.",
       "opener": "Compass directions, scale, symbols, contour lines and coordinates — in that order.",
       "answer": "Compass directions: north, east, south, west, plus north-east, south-east, south-west and north-west · north is almost always upward on the map, and a north arrow shows the direction · Scale: 1:50,000 means reality is 50,000 times larger than the map · calculate: distance on the map (cm) · scale number = real distance in cm, divide by 100 for metres and by 100,000 for kilometres · a small scale (1:1,000,000) = large area but few details, a large scale (1:10,000) = small area with many details · The key: explains symbols, colours and lines, e.g. blue for water and green for forest · Contour lines: lines through points at the same height above sea level · close lines = steep, widely spaced lines = flat · Latitude: how far north or south of the equator (0°), up to 90° at the poles · Longitude: how far east or west of the prime meridian through Greenwich, up to 180° · Map types: physical (nature and heights), political (countries and borders), road map, thematic maps such as population maps or climate maps."
+    },
+    {
+      "id": "q-geo7-kar-9",
+      "kind": "mc",
+      "topic": "compass directions",
+      "prompt": "Which compass direction lies between south and west?",
+      "opener": "The name is a combination of the two directions, in the order named here.",
+      "choices": [
+        "South-east",
+        "South-west",
+        "North-west",
+        "North-east"
+      ],
+      "answer": 1,
+      "explanation": "Between south and west lies south-west. South-east instead lies between south and east, on the opposite side."
+    },
+    {
+      "id": "q-geo7-kar-10",
+      "kind": "mc",
+      "topic": "scale",
+      "prompt": "A map has the scale 1:100,000. How far apart are two places in reality if they are 3 cm apart on the map?",
+      "opener": "Multiply the distance on the map by 100,000 and then convert to kilometres.",
+      "choices": [
+        "300 metres",
+        "3 kilometres",
+        "30 kilometres",
+        "0.3 kilometres"
+      ],
+      "answer": 1,
+      "explanation": "3 cm · 100,000 = 300,000 cm, and 300,000 cm = 3,000 m = 3 km. Stopping at 300 metres means missing a step in the conversion."
+    },
+    {
+      "id": "q-geo7-kar-11",
+      "kind": "mc",
+      "topic": "the key",
+      "prompt": "What does a thick red line in the key on many road maps show?",
+      "opener": "The thickness and colour of the line usually show how large the road is.",
+      "choices": [
+        "A footpath",
+        "A major road, such as a motorway",
+        "A railway",
+        "A municipal boundary"
+      ],
+      "answer": 1,
+      "explanation": "A thick red line often means a major road, such as a motorway or a main road. Footpaths, railways and municipal boundaries instead have their own, thinner or differently styled symbols according to the key."
+    },
+    {
+      "id": "q-geo7-kar-12",
+      "kind": "mc",
+      "topic": "contour lines",
+      "prompt": "On a map, the contour lines are very widely spaced in an area. What does that mean?",
+      "opener": "Think of the opposite of the previous question about closely spaced contour lines.",
+      "choices": [
+        "The terrain is very steep",
+        "The ground is relatively flat",
+        "The area is a mountain",
+        "The map lacks a scale"
+      ],
+      "answer": 1,
+      "explanation": "Widely spaced contour lines mean the height changes little over a large distance, i.e. flat ground. Closely spaced lines instead show steep terrain, where the height changes quickly."
+    },
+    {
+      "id": "q-geo7-kar-13",
+      "kind": "mc",
+      "topic": "latitude and longitude",
+      "prompt": "Which line has a longitude of 0 degrees?",
+      "opener": "The line divides the Earth into an eastern and a western half.",
+      "choices": [
+        "The equator",
+        "The prime meridian through Greenwich",
+        "The Arctic Circle",
+        "The Tropic of Cancer"
+      ],
+      "answer": 1,
+      "explanation": "The prime meridian through Greenwich has a longitude of 0 degrees and divides the Earth into east and west. The equator instead has a latitude of 0 degrees and divides the Earth into north and south."
+    },
+    {
+      "id": "q-geo7-kar-14",
+      "kind": "worked",
+      "topic": "scale",
+      "prompt": "On a map with the scale 1:200,000, you measure 8 cm between two cities. How far apart are they in reality?",
+      "opener": "Multiply first, then convert from centimetres to metres and kilometres.",
+      "answer": "16 km",
+      "steps": [
+        "The scale 1:200,000 means 1 cm on the map is 200,000 cm in reality.",
+        "Multiply: 8 cm · 200,000 = 1,600,000 cm.",
+        "Convert to metres: 1,600,000 / 100 = 16,000 m.",
+        "Convert to kilometres: 16,000 / 1,000 = 16 km.",
+        "Sanity check: 16 km between two cities on an overview map is a reasonable distance."
+      ]
+    },
+    {
+      "id": "q-geo7-kar-15",
+      "kind": "mc",
+      "topic": "map types",
+      "prompt": "Which type of map is best if you want to see where different countries' borders run?",
+      "opener": "This map type shows societies and borders, not nature.",
+      "choices": [
+        "Physical map",
+        "Political map",
+        "Climate map",
+        "Elevation map"
+      ],
+      "answer": 1,
+      "explanation": "A political map shows countries, borders and sometimes cities. A physical map or elevation map instead shows the shapes of nature, and a climate map shows climate zones or temperature."
     }
   ]
 }

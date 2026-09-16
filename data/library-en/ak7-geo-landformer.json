@@ -126,6 +126,111 @@
       "prompt": "Summarise how the Earth's landforms are created and changed.",
       "opener": "Go from the inside out: the Earth's interior, the plates, the internal forces and finally the external ones.",
       "answer": "The Earth's structure: crust (5-70 km, thinnest under the oceans) · mantle of hot, slow-flowing rock · outer and inner core of iron and nickel · Tectonic plates: the crust is cracked into large plates that move a few cm per year · driven by convection currents in the mantle · plates can collide, slide apart or grind against each other · Internal forces (build up): folding when plates collide creates mountain ranges like the Himalayas, the Alps and the Scandinavian Mountains · volcanoes when magma pushes up, becoming lava at the surface · earthquakes when stresses in the rock are suddenly released · most volcanoes and tremors occur along plate boundaries, e.g. the Ring of Fire around the Pacific and the Mid-Atlantic Ridge where Iceland lies · External forces (break down): erosion by flowing water, waves, wind, ice and frost weathering · weathering breaks up the rock, then the material is transported and deposited · rivers carve V-shaped valleys and form deltas and floodplains, glaciers carve broad U-shaped valleys and fjords · The ice age in Sweden: the ice sheet melted about 10,000 years ago · traces include roche moutonnée and glacial striations, till, glacial erratics, eskers such as the Uppsala esker, and U-shaped valleys in the mountains · land uplift is still happening, most notably at the High Coast · Landforms and settlement: plains and river valleys have fertile soil, water and easy transport, so they are densely populated (Skåne, the Mälaren valley, the Nile valley) · mountains, deserts and large cold areas are sparsely populated because of steep terrain, thin soil and difficult communications."
+    },
+    {
+      "id": "q-geo7-lan-9",
+      "kind": "mc",
+      "topic": "the Earth's structure",
+      "prompt": "What does the Earth's innermost part, the core, mainly consist of?",
+      "opener": "These substances are the same kind of metals that attract a magnet.",
+      "choices": [
+        "Granite and limestone",
+        "Iron and nickel",
+        "Water and ice",
+        "Slow-flowing rock"
+      ],
+      "answer": 1,
+      "explanation": "The Earth's core mainly consists of iron and nickel. Slow-flowing rock is instead found in the mantle, which lies outside the core, and granite and limestone are rock types found in the crust."
+    },
+    {
+      "id": "q-geo7-lan-10",
+      "kind": "mc",
+      "topic": "tectonic plates",
+      "prompt": "What happens when two tectonic plates collide?",
+      "opener": "Think about what created the Himalayas, the world's highest mountain range.",
+      "choices": [
+        "They merge into a single plate immediately",
+        "Mountains can be pushed up, for example the Himalayas",
+        "Nothing in particular happens",
+        "The ocean disappears entirely"
+      ],
+      "answer": 1,
+      "explanation": "When tectonic plates collide, the ground can fold and be pushed up into mountain ranges, as in the Himalayas where the Indian and Asian plates meet. The plates don't merge immediately — the process takes millions of years."
+    },
+    {
+      "id": "q-geo7-lan-11",
+      "kind": "mc",
+      "topic": "volcanoes and earthquakes",
+      "prompt": "What is the belt around the Pacific Ocean called, where many of the Earth's volcanoes and earthquakes occur?",
+      "opener": "The name refers to all the volcanoes located along this belt.",
+      "choices": [
+        "The Ring of Fire",
+        "The Mid-Atlantic Ridge",
+        "The Alpine Belt",
+        "The Scandinavian Belt"
+      ],
+      "answer": 0,
+      "explanation": "The Ring of Fire is the name for the belt of volcanoes and earthquake zones that surrounds the Pacific Ocean. The Mid-Atlantic Ridge is instead a plate boundary in the Atlantic, where Iceland, among other places, is located."
+    },
+    {
+      "id": "q-geo7-lan-12",
+      "kind": "mc",
+      "topic": "erosion and the ice age",
+      "prompt": "What are the large boulders called that the ice sheet carried along and left behind in new places?",
+      "opener": "The boulders can sit completely alone in the landscape, far from similar bedrock.",
+      "choices": [
+        "Eskers",
+        "Glacial erratics",
+        "Till",
+        "Glacial striations"
+      ],
+      "answer": 1,
+      "explanation": "Glacial erratics are large boulders that the ice carried along and left behind in new places as it melted. Eskers are instead long ridges of gravel and sand, and glacial striations are scratches in bedrock."
+    },
+    {
+      "id": "q-geo7-lan-13",
+      "kind": "mc",
+      "topic": "mountains, valleys and rivers",
+      "prompt": "What type of valley does a glacier carve out, unlike a river?",
+      "opener": "Glacial ice is wide and heavy and wears evenly on the sides of the valley.",
+      "choices": [
+        "A narrow V-shaped valley",
+        "A broad U-shaped valley",
+        "No valley at all",
+        "A round crater"
+      ],
+      "answer": 1,
+      "explanation": "A glacier carves out a broad, rounded U-shaped valley since the ice is wide and wears down the entire width of the valley. A river instead carves a narrower V-shaped valley, since the water mainly erodes straight downward."
+    },
+    {
+      "id": "q-geo7-lan-14",
+      "kind": "worked",
+      "topic": "mountains, valleys and rivers",
+      "prompt": "Explain step by step how a river forms a V-shaped valley over a long time.",
+      "opener": "Think about what the water carries along and what it does to the riverbed.",
+      "answer": "The water in the river flows down a slope, carrying sand, gravel and stones that scratch and wear down the riverbed and sides, which is called erosion. Since the water mainly digs straight downward into the bed, the valley becomes narrow and deep with steep sides, giving it the characteristic V shape. Over a very long time, thousands to millions of years, the V-shaped valley becomes ever deeper the more material the river carries away.",
+      "steps": [
+        "The river flows down a slope, carrying sand, gravel and stones from further upstream.",
+        "These particles scratch and wear down the riverbed and sides each time they're carried along by the water — this is called erosion.",
+        "Since the water is concentrated in a narrow channel, it mainly digs straight downward into the bed.",
+        "This creates a narrow, deep valley with steep sides — the characteristic V shape.",
+        "Over a very long time, the valley becomes ever deeper, the more material the river manages to carry away."
+      ]
+    },
+    {
+      "id": "q-geo7-lan-15",
+      "kind": "mc",
+      "topic": "landforms and settlement",
+      "prompt": "Why are river valleys like the Nile valley often densely populated?",
+      "opener": "Think about what the river gives the soil and what it makes easier for the people living there.",
+      "choices": [
+        "They have fertile soil, access to water, and are easy to farm and transport goods through",
+        "They are always the coldest and coolest places",
+        "River valleys have no natural resources at all",
+        "No one wants to live near water"
+      ],
+      "answer": 0,
+      "explanation": "River valleys offer fertile soil, access to water for farming and drinking, and good opportunities for transport along the river, which makes them attractive for settlement. This is the exact opposite of river valleys lacking resources or no one wanting to live there."
     }
   ]
 }

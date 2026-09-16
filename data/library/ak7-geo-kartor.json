@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta vad du behöver kunna för att läsa en karta.",
       "opener": "Väderstreck, skala, tecken, höjdkurvor och koordinater — i den ordningen.",
       "answer": "Väderstreck: norr, öster, söder, väster, samt nordost, sydost, sydväst och nordväst · norr är nästan alltid uppåt på kartan, och en nordpil visar riktningen · Skala: 1:50 000 betyder att verkligheten är 50 000 gånger större än kartan · räkna: avstånd på kartan (cm) · skaltalet = verkligt avstånd i cm, dela med 100 för meter och med 100 000 för kilometer · liten skala (1:1 000 000) = stort område men få detaljer, stor skala (1:10 000) = litet område med många detaljer · Teckenförklaring: förklarar symboler, färger och linjer, t.ex. blått för vatten och grönt för skog · Höjdkurvor: linjer genom punkter på samma höjd över havet · täta kurvor = brant, glesa kurvor = flackt · Latitud (breddgrad): hur långt norr eller söder om ekvatorn (0°), upp till 90° vid polerna · Longitud (längdgrad): hur långt öster eller väster om nollmeridianen genom Greenwich, upp till 180° · Karttyper: naturgeografisk (natur och höjder), politisk (länder och gränser), vägkarta, temakarta som befolkningskarta eller klimatkarta."
+    },
+    {
+      "id": "q-geo7-kar-9",
+      "kind": "mc",
+      "topic": "väderstreck",
+      "prompt": "Vilket väderstreck ligger mellan syd och väst?",
+      "opener": "Namnet är en kombination av de två väderstrecken, i den ordningen de nämns här.",
+      "choices": [
+        "Sydost",
+        "Sydväst",
+        "Nordväst",
+        "Nordost"
+      ],
+      "answer": 1,
+      "explanation": "Mellan syd och väst ligger sydväst. Sydost ligger i stället mellan syd och öst, på motsatt sida."
+    },
+    {
+      "id": "q-geo7-kar-10",
+      "kind": "mc",
+      "topic": "skala",
+      "prompt": "En karta har skalan 1:100 000. Hur långt är det i verkligheten mellan två platser som ligger 3 cm från varandra på kartan?",
+      "opener": "Multiplicera avståndet på kartan med 100 000 och omvandla sedan till kilometer.",
+      "choices": [
+        "300 meter",
+        "3 kilometer",
+        "30 kilometer",
+        "0,3 kilometer"
+      ],
+      "answer": 1,
+      "explanation": "3 cm · 100 000 = 300 000 cm, och 300 000 cm = 3 000 m = 3 km. Att stanna vid 300 meter är att glömma ett nollsteg i omvandlingen."
+    },
+    {
+      "id": "q-geo7-kar-11",
+      "kind": "mc",
+      "topic": "teckenförklaring",
+      "prompt": "Vad visar en tjock röd linje i teckenförklaringen på många vägkartor?",
+      "opener": "Tjockleken och färgen på linjen brukar visa hur stor vägen är.",
+      "choices": [
+        "En gångstig",
+        "En större väg, till exempel motorväg",
+        "En järnväg",
+        "En kommungräns"
+      ],
+      "answer": 1,
+      "explanation": "En tjock röd linje betyder ofta en större väg, som en motorväg eller riksväg. Gångstigar, järnvägar och kommungränser har i stället egna, tunnare eller annorlunda utformade symboler enligt teckenförklaringen."
+    },
+    {
+      "id": "q-geo7-kar-12",
+      "kind": "mc",
+      "topic": "höjdkurvor",
+      "prompt": "På en karta ligger höjdkurvorna mycket glest i ett område. Vad betyder det?",
+      "opener": "Tänk på motsatsen till förra frågan om täta höjdkurvor.",
+      "choices": [
+        "Terrängen är mycket brant",
+        "Marken är förhållandevis flack",
+        "Området är ett berg",
+        "Kartan saknar skala"
+      ],
+      "answer": 1,
+      "explanation": "Glesa höjdkurvor betyder att höjden ändras lite över ett stort avstånd, alltså flack mark. Täta kurvor visar i stället brant terräng, där höjden ändras snabbt."
+    },
+    {
+      "id": "q-geo7-kar-13",
+      "kind": "mc",
+      "topic": "latitud och longitud",
+      "prompt": "Vilken linje har longituden (längdgraden) 0 grader?",
+      "opener": "Linjen delar jorden i en östlig och en västlig halva.",
+      "choices": [
+        "Ekvatorn",
+        "Nollmeridianen genom Greenwich",
+        "Polcirkeln",
+        "Kräftans vändkrets"
+      ],
+      "answer": 1,
+      "explanation": "Nollmeridianen genom Greenwich har longituden 0 grader och delar jorden i öst och väst. Ekvatorn har i stället latituden 0 grader och delar jorden i norr och söder."
+    },
+    {
+      "id": "q-geo7-kar-14",
+      "kind": "worked",
+      "topic": "skala",
+      "prompt": "På en karta med skalan 1:200 000 mäter du 8 cm mellan två städer. Hur långt är det i verkligheten?",
+      "opener": "Multiplicera först, omvandla sedan från centimeter till meter och kilometer.",
+      "answer": "16 km",
+      "steps": [
+        "Skalan 1:200 000 betyder att 1 cm på kartan är 200 000 cm i verkligheten.",
+        "Multiplicera: 8 cm · 200 000 = 1 600 000 cm.",
+        "Omvandla till meter: 1 600 000 / 100 = 16 000 m.",
+        "Omvandla till kilometer: 16 000 / 1 000 = 16 km.",
+        "Rimlighetskontroll: 16 km mellan två städer på en översiktskarta är ett rimligt avstånd."
+      ]
+    },
+    {
+      "id": "q-geo7-kar-15",
+      "kind": "mc",
+      "topic": "karttyper",
+      "prompt": "Vilken karttyp använder du bäst om du vill se var olika länders gränser går?",
+      "opener": "Karttypen visar samhällen och gränser, inte naturen.",
+      "choices": [
+        "Naturgeografisk karta",
+        "Politisk karta",
+        "Klimatkarta",
+        "Höjdkarta"
+      ],
+      "answer": 1,
+      "explanation": "En politisk karta visar länder, gränser och ibland städer. En naturgeografisk karta eller höjdkarta visar i stället naturens former, och en klimatkarta visar klimatzoner eller temperatur."
     }
   ]
 }

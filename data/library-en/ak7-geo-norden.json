@@ -125,6 +125,111 @@
       "prompt": "Summarise the Nordic region and Europe.",
       "opener": "First the Nordic countries, then how Europe is divided, its mountains and its rivers.",
       "answer": "Nordic countries and capitals: Sweden-Stockholm · Norway-Oslo · Denmark-Copenhagen · Finland-Helsinki · Iceland-Reykjavik · self-governing territories: the Faroe Islands, Greenland (Denmark) and Åland (Finland) · Nordic nature: the mountain range in Sweden and Norway, Norwegian fjords, Finland's thousand lakes and forests, the Danish lowlands, and Iceland's volcanoes and glaciers · Climate: coastal climate in the west with mild winters thanks to the Gulf Stream, inland climate in northern Sweden and Finland with large seasonal differences, polar climate in Greenland · How Europe is divided: Northern Europe, Western Europe, Southern Europe, Central Europe and Eastern Europe · Europe's border with Asia: the Ural Mountains, the Caucasus and the Black Sea · Mountain ranges: the Alps (highest, Mont Blanc about 4,800 m), the Pyrenees, the Carpathians, the Apennines, the Scandinavian Mountains and the Ural Mountains · Rivers: the Volga (longest, to the Caspian Sea), the Danube (through ten countries to the Black Sea), the Rhine (to the North Sea), the Thames, the Seine, the Po · Similarities in the Nordic region: similar societies, welfare systems, democracy, Nordic cooperation and three closely related languages · Differences: Finnish belongs to a different language family, Norway and Iceland are not EU members, and the landscape differs sharply between flat Denmark and volcanic Iceland."
+    },
+    {
+      "id": "q-geo7-nor-9",
+      "kind": "mc",
+      "topic": "the Nordic countries",
+      "prompt": "What is Finland's capital?",
+      "opener": "The city is on the coast in southern Finland.",
+      "choices": [
+        "Turku",
+        "Helsinki",
+        "Tampere",
+        "Oulu"
+      ],
+      "answer": 1,
+      "explanation": "Helsinki is Finland's capital and largest city. Turku, Tampere and Oulu are other large Finnish cities, but none of them is the capital."
+    },
+    {
+      "id": "q-geo7-nor-10",
+      "kind": "mc",
+      "topic": "the Nordic countries",
+      "prompt": "Which of these territories is a self-governing territory belonging to Denmark?",
+      "opener": "The island lies near North America but has strong historical ties to Denmark.",
+      "choices": [
+        "Åland",
+        "Greenland",
+        "the Shetland Islands",
+        "Sicily"
+      ],
+      "answer": 1,
+      "explanation": "Greenland is a self-governing territory belonging to Denmark. Åland is instead a self-governing territory belonging to Finland, and the Shetland Islands and Sicily belong to other countries outside the Nordic region."
+    },
+    {
+      "id": "q-geo7-nor-11",
+      "kind": "mc",
+      "topic": "Nordic nature and climate",
+      "prompt": "What characterises the Norwegian coast geographically?",
+      "opener": "The landscape was created by glaciers that dug deep during the ice age.",
+      "choices": [
+        "Straight, flat beaches with no inlets",
+        "Deep, narrow fjords created by glaciers",
+        "Desert and sand dunes",
+        "Large coral reefs"
+      ],
+      "answer": 1,
+      "explanation": "The Norwegian coast is characterised by deep, narrow fjords that were carved out by glaciers during the ice age and later filled with seawater. Desert and coral reefs instead belong to entirely different climates."
+    },
+    {
+      "id": "q-geo7-nor-12",
+      "kind": "mc",
+      "topic": "how Europe is divided",
+      "prompt": "Which natural boundaries often separate Europe from Asia?",
+      "opener": "The border isn't a single clear line but a combination of mountains and sea.",
+      "choices": [
+        "The Alps and the Pyrenees",
+        "The Ural Mountains, the Caucasus and the Black Sea",
+        "The Rhine and the Danube",
+        "The Mediterranean alone"
+      ],
+      "answer": 1,
+      "explanation": "The border between Europe and Asia is usually drawn at the Ural Mountains, the Caucasus and the Black Sea. The Alps and the Pyrenees are instead located entirely within Europe."
+    },
+    {
+      "id": "q-geo7-nor-13",
+      "kind": "mc",
+      "topic": "Europe's mountains and rivers",
+      "prompt": "Which is Europe's longest river?",
+      "opener": "The river flows through Russia and empties into the Caspian Sea.",
+      "choices": [
+        "The Danube",
+        "The Rhine",
+        "The Volga",
+        "The Thames"
+      ],
+      "answer": 2,
+      "explanation": "The Volga is Europe's longest river and flows through Russia before emptying into the Caspian Sea. The Danube is instead Europe's most international river, since it passes through the most countries."
+    },
+    {
+      "id": "q-geo7-nor-14",
+      "kind": "worked",
+      "topic": "Nordic nature and climate",
+      "prompt": "Explain why Finland has thousands of lakes while Denmark has almost none.",
+      "opener": "Think about what the last ice age did to the bedrock in the two countries.",
+      "answer": "Finland's landscape was heavily shaped by the last ice age, which dug out depressions in the bedrock and left behind enormous amounts of meltwater as it retreated, creating tens of thousands of lakes. Denmark, on the other hand, sits on soft, flat moraine landscape with very little bedrock near the surface, and there the ice instead deposited more even layers of soil without the deep basins needed to form lakes on any large scale.",
+      "steps": [
+        "During the ice age, both Finland and Denmark were covered by the ice sheet, but its effect on the ground was very different.",
+        "In Finland, the ice carved out depressions directly in the hard bedrock, which later filled with meltwater.",
+        "That created tens of thousands of lakes spread across the whole country.",
+        "Denmark, on the other hand, has soft soil and very little hard bedrock near the surface.",
+        "There, the ice deposited more even layers of soil without deep basins, which is why the country has almost no natural lakes."
+      ]
+    },
+    {
+      "id": "q-geo7-nor-15",
+      "kind": "mc",
+      "topic": "similarities and differences",
+      "prompt": "Which of the Nordic countries is not a member of the EU?",
+      "opener": "This country instead cooperates closely with the EU through other agreements.",
+      "choices": [
+        "Sweden",
+        "Finland",
+        "Denmark",
+        "Norway"
+      ],
+      "answer": 3,
+      "explanation": "Norway is not a member of the EU, although the country cooperates closely through the EEA agreement. Sweden, Finland and Denmark are all EU members."
     }
   ]
 }

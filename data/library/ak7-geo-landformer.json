@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta hur jordens landformer bildas och förändras.",
       "opener": "Gå inifrån och ut: jordens inre, plattorna, de inre krafterna och till sist de yttre.",
       "answer": "Jordens uppbyggnad: jordskorpa (5–70 km, tunnast under haven) · mantel av het, trögflytande berg · yttre och inre kärna av järn och nickel · Kontinentalplattor: jordskorpan är sprucken i stora plattor som rör sig några cm per år · drivkraft är konvektionsströmmar i manteln · plattor kan krocka, glida isär eller skava mot varandra · Inre krafter (bygger upp): veckning när plattor krockar ger bergskedjor som Himalaya, Alperna och Skanderna · vulkaner när magma tränger upp, blir lava vid ytan · jordbävningar när spänningar i berget plötsligt löses ut · flest vulkaner och skalv längs plattgränser, t.ex. Eldringen runt Stilla havet och mittatlantiska ryggen där Island ligger · Yttre krafter (bryter ned): erosion av rinnande vatten, vågor, vind, is och frostsprängning · vittring löser upp berget, sedan transporteras och avlagras materialet · floder gräver V-dalar och bildar deltan och flodslätter, glaciärer gräver breda U-dalar och fjordar · Istiden i Sverige: inlandsisen smälte för ungefär 10 000 år sedan · spår är rundhällar och isräfflor, morän, flyttblock, rullstensåsar som Uppsalaåsen och U-dalar i fjällen · landhöjningen pågår fortfarande, mest vid Höga kusten · Landformer och bosättning: slätter och floddalar har bördig jord, vatten och lätta transporter, därför tätbefolkade (Skåne, Mälardalen, Nildalen) · berg, öknar och stora kalla områden är glesbefolkade på grund av brant terräng, tunt jordlager och svåra kommunikationer."
+    },
+    {
+      "id": "q-geo7-lan-9",
+      "kind": "mc",
+      "topic": "jordens uppbyggnad",
+      "prompt": "Vad består jordens innersta del, kärnan, huvudsakligen av?",
+      "opener": "Ämnena är samma sorts metaller som lockar en magnet.",
+      "choices": [
+        "Granit och kalksten",
+        "Järn och nickel",
+        "Vatten och is",
+        "Trögflytande berg"
+      ],
+      "answer": 1,
+      "explanation": "Jordens kärna består huvudsakligen av järn och nickel. Trögflytande berg finns i stället i manteln, som ligger utanför kärnan, och granit och kalksten är bergarter som förekommer i jordskorpan."
+    },
+    {
+      "id": "q-geo7-lan-10",
+      "kind": "mc",
+      "topic": "kontinentalplattor",
+      "prompt": "Vad händer när två kontinentalplattor krockar med varandra?",
+      "opener": "Tänk på vad som skapade Himalaya, världens högsta bergskedja.",
+      "choices": [
+        "De smälter samman till en enda platta direkt",
+        "Berg kan pressas upp, till exempel Himalaya",
+        "Inget särskilt händer",
+        "Havet försvinner helt"
+      ],
+      "answer": 1,
+      "explanation": "När kontinentalplattor krockar kan marken vecklas och pressas upp till bergskedjor, som Himalaya där den indiska och den asiatiska plattan möts. Plattorna smälter inte samman direkt, utan processen tar miljontals år."
+    },
+    {
+      "id": "q-geo7-lan-11",
+      "kind": "mc",
+      "topic": "vulkaner och jordbävningar",
+      "prompt": "Vad kallas det bälte runt Stilla havet där många av jordens vulkaner och jordbävningar sker?",
+      "opener": "Namnet syftar på alla vulkaner som ligger längs detta bälte.",
+      "choices": [
+        "Eldringen",
+        "Den mittatlantiska ryggen",
+        "Alpbältet",
+        "Skandinaviska bältet"
+      ],
+      "answer": 0,
+      "explanation": "Eldringen är namnet på bältet av vulkaner och jordbävningszoner som omger Stilla havet. Den mittatlantiska ryggen är i stället en plattgräns i Atlanten, där bland annat Island ligger."
+    },
+    {
+      "id": "q-geo7-lan-12",
+      "kind": "mc",
+      "topic": "erosion och istiden",
+      "prompt": "Vad kallas de stora stenblock som inlandsisen förde med sig och lämnade kvar på nya platser?",
+      "opener": "Blocken kan ligga helt ensamma i landskapet, långt ifrån liknande berggrund.",
+      "choices": [
+        "Rullstensåsar",
+        "Flyttblock",
+        "Moränjord",
+        "Isräfflor"
+      ],
+      "answer": 1,
+      "explanation": "Flyttblock är stora stenblock som isen fraktade med sig och lämnade kvar på nya platser när den smälte. Rullstensåsar är i stället långa ryggar av grus och sand, och isräfflor är repor i berghällar."
+    },
+    {
+      "id": "q-geo7-lan-13",
+      "kind": "mc",
+      "topic": "berg, dalar och floder",
+      "prompt": "Vilken typ av dal gräver en glaciär ut, till skillnad från en flod?",
+      "opener": "Glaciärisen är bred och tung och sliter jämnt på dalens sidor.",
+      "choices": [
+        "En smal V-formad dal",
+        "En bred U-formad dal",
+        "Ingen dal alls",
+        "En rund krater"
+      ],
+      "answer": 1,
+      "explanation": "En glaciär gräver ut en bred, rundad U-formad dal eftersom isen är bred och sliter på hela dalens bredd. En flod gräver i stället en smalare V-formad dal, eftersom vattnet framför allt eroderar rakt nedåt."
+    },
+    {
+      "id": "q-geo7-lan-14",
+      "kind": "worked",
+      "topic": "berg, dalar och floder",
+      "prompt": "Förklara steg för steg hur en flod bildar en V-formad dal över lång tid.",
+      "opener": "Tänk på vad vattnet för med sig och vad det gör med flodbotten.",
+      "answer": "Vattnet i floden rinner nedför en sluttning och för med sig sand, grus och stenar som repar och nöter på flodbotten och sidorna, vilket kallas erosion. Eftersom vattnet framför allt gräver rakt nedåt i botten, blir dalen smal och djup med branta sidor, vilket ger den karakteristiska V-formen. Över mycket lång tid, tusentals till miljontals år, blir V-dalen allt djupare ju mer material floden transporterar bort.",
+      "steps": [
+        "Floden rinner nedför en sluttning och för med sig sand, grus och stenar från högre upp.",
+        "Dessa partiklar repar och nöter på flodbotten och sidorna varje gång de förs fram av vattnet — det kallas erosion.",
+        "Eftersom vattnet är koncentrerat till en smal flodfåra gräver det framför allt rakt nedåt i botten.",
+        "Det skapar en smal, djup dal med branta sidor — den karakteristiska V-formen.",
+        "Över mycket lång tid blir dalen allt djupare, ju mer material floden hinner transportera bort."
+      ]
+    },
+    {
+      "id": "q-geo7-lan-15",
+      "kind": "mc",
+      "topic": "landformer och bosättning",
+      "prompt": "Varför är floddalar som Nildalen ofta tätbefolkade?",
+      "opener": "Tänk på vad floden ger jorden och vad den underlättar för människorna som bor där.",
+      "choices": [
+        "Där finns bördig jord, tillgång till vatten och lätt att odla och transportera varor",
+        "Där är det alltid kallast och svalast",
+        "Floddalar saknar helt naturresurser",
+        "Ingen vill bo nära vatten"
+      ],
+      "answer": 0,
+      "explanation": "Floddalar erbjuder bördig jord, tillgång till vatten för odling och dricksvatten, samt goda möjligheter till transport längs floden, vilket gör dem attraktiva för bosättning. Det är precis tvärtom mot att floddalar skulle sakna resurser eller att ingen skulle vilja bo där."
     }
   ]
 }
