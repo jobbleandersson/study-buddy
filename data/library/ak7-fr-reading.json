@@ -112,6 +112,111 @@
       "prompt": "Vilka strategier hjälper dig att förstå en enkel fransk text på åk7-nivå?",
       "opener": "Du behöver inte förstå varje ord för att förstå helheten.",
       "answer": "Leta efter kända mönster: \"je m'appelle\" (presentation), \"j'ai ... ans\" (ålder), \"j'habite à\" (bostadsort), \"le samedi/dimanche\" (veckodagar med bestämd artikel). Gissa okända ord från sammanhanget i stället för att slå upp varje ord. Läs texten en gång för helheten och en gång till för detaljer. Leta efter verb i presens (joue, mange, se repose) för att förstå vad som händer, och possessiva ord (sa, ses, elle) för att förstå vem som gör vad."
+    },
+    {
+      "id": "q-fr7-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"Je m'appelle Emma et j'ai douze ans. J'habite à Marseille avec mes parents et mon frère. Mon frère s'appelle Paul et il a quinze ans. Nous avons aussi un chien ; il s'appelle Bruno.\"\n\nHur gammal är Emma?",
+      "opener": "Läs texten om Emma och hennes familj.",
+      "choices": [
+        "Tolv år",
+        "Femton år",
+        "Tio år",
+        "Fjorton år"
+      ],
+      "answer": 0,
+      "explanation": "\"J'ai douze ans\" betyder \"jag är tolv år\"."
+    },
+    {
+      "id": "q-fr7-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vem är Paul?",
+      "opener": "Leta efter meningen om \"mon frère\".",
+      "choices": [
+        "Emmas bror",
+        "Emmas pappa",
+        "Emmas hund",
+        "Emmas lärare"
+      ],
+      "answer": 0,
+      "explanation": "\"Mon frère s'appelle Paul\" betyder \"min bror heter Paul\"."
+    },
+    {
+      "id": "q-fr7-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad heter hunden i texten?",
+      "opener": "Leta efter sista meningen om familjens djur.",
+      "choices": [
+        "Bruno",
+        "Paul",
+        "Emma",
+        "Marc"
+      ],
+      "answer": 0,
+      "explanation": "\"Nous avons aussi un chien ; il s'appelle Bruno\" betyder \"vi har också en hund; han heter Bruno\"."
+    },
+    {
+      "id": "q-fr7-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Ny text: \"Le week-end, Emma aime bien nager. Le samedi, elle retrouve son amie Lisa à la piscine. Ensuite, elles vont faire du shopping ensemble. Le dimanche, Emma reste à la maison et elle lit un livre.\"\n\nVad gillar Emma att göra på helgen?",
+      "opener": "Leta efter första meningen: \"aime bien nager\".",
+      "choices": [
+        "Simma",
+        "Läsa",
+        "Handla",
+        "Sova"
+      ],
+      "answer": 0,
+      "explanation": "\"Emma aime bien nager\" betyder \"Emma tycker om att simma\"."
+    },
+    {
+      "id": "q-fr7-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vem träffar Emma på lördagen?",
+      "opener": "Leta efter \"elle retrouve son amie...\".",
+      "choices": [
+        "Lisa",
+        "Paul",
+        "Bruno",
+        "Sin lärare"
+      ],
+      "answer": 0,
+      "explanation": "\"Le samedi, elle retrouve son amie Lisa\" betyder \"på lördagen träffar hon sin väninna Lisa\"."
+    },
+    {
+      "id": "q-fr7-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad gör Emma och Lisa efter att de har simmat?",
+      "opener": "Leta efter ordet \"ensuite\" (därefter).",
+      "choices": [
+        "Går och handlar tillsammans",
+        "Äter middag tillsammans",
+        "Åker hem direkt",
+        "Spelar fotboll"
+      ],
+      "answer": 0,
+      "explanation": "\"Ensuite, elles vont faire du shopping ensemble\" betyder \"därefter går de och handlar tillsammans\"."
+    },
+    {
+      "id": "q-fr7-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad gör Emma på söndagen?",
+      "opener": "Leta efter sista meningen om söndagen.",
+      "choices": [
+        "Stannar hemma och läser en bok",
+        "Går och simmar igen",
+        "Träffar Lisa igen",
+        "Handlar kläder"
+      ],
+      "answer": 0,
+      "explanation": "\"Le dimanche, Emma reste à la maison et elle lit un livre\" betyder \"på söndagen stannar Emma hemma och läser en bok\"."
     }
   ]
 }

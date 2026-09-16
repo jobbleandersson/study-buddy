@@ -114,6 +114,111 @@
       "prompt": "Hur böjs -er-verb i presens, och hur böjs être och avoir?",
       "opener": "Den vanligaste verbgruppen plus två av de allra viktigaste oregelbundna verben.",
       "answer": "-er (parler): je parle, tu parles, il/elle parle, nous parlons, vous parlez, ils/elles parlent. Être (vara): je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. Avoir (ha): j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont. Personliga pronomen: je (j' framför vokal), tu, il/elle, nous, vous, ils/elles."
+    },
+    {
+      "id": "q-fr7-pres-9",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Tu ___ au tennis.\" (jouer = att spela)",
+      "opener": "Presens för \"tu\" slutar på -es.",
+      "choices": [
+        "joues",
+        "joue",
+        "jouons",
+        "jouent"
+      ],
+      "answer": 0,
+      "explanation": "\"Jouer\" böjs: je joue, tu joues, il/elle joue, nous jouons, vous jouez, ils/elles jouent. \"Tu\" ger ändelsen -es: \"joues\"."
+    },
+    {
+      "id": "q-fr7-pres-10",
+      "kind": "mc",
+      "topic": "être and avoir",
+      "prompt": "Välj rätt form: \"Vous ___ beaucoup de chance.\" (avoir = att ha)",
+      "opener": "\"Vous\"-formen av avoir slutar på -ez.",
+      "choices": [
+        "avez",
+        "avons",
+        "as",
+        "ont"
+      ],
+      "answer": 0,
+      "explanation": "\"Avoir\" böjs: j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont. \"Vous\" ger \"avez\"."
+    },
+    {
+      "id": "q-fr7-pres-11",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Elles ___ à Marseille.\" (habiter = att bo)",
+      "opener": "Presens för \"elles\" slutar på -ent.",
+      "choices": [
+        "habitent",
+        "habite",
+        "habitons",
+        "habitez"
+      ],
+      "answer": 0,
+      "explanation": "\"Elles\" ger ändelsen -ent: \"habitent\" — uttalas som singularformerna men stavas annorlunda."
+    },
+    {
+      "id": "q-fr7-pres-12",
+      "kind": "mc",
+      "topic": "être and avoir",
+      "prompt": "Välj rätt form: \"Nous ___ fatigués.\" (être = att vara; vi är trötta)",
+      "opener": "\"Nous\"-formen av être är oregelbunden.",
+      "choices": [
+        "sommes",
+        "sont",
+        "êtes",
+        "suis"
+      ],
+      "answer": 0,
+      "explanation": "\"Être\" böjs: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. \"Nous\" ger \"sommes\"."
+    },
+    {
+      "id": "q-fr7-pres-13",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"J'___ la musique.\" (écouter = att lyssna)",
+      "opener": "Precis som \"habiter\" kortas \"je\" till \"j'\" framför vokal.",
+      "choices": [
+        "écoute",
+        "écoutes",
+        "écoutons",
+        "écoutent"
+      ],
+      "answer": 0,
+      "explanation": "\"Écouter\" böjs: j'écoute, tu écoutes, il/elle écoute, nous écoutons, vous écoutez, ils/elles écoutent. \"Je\" ger ändelsen -e: \"écoute\"."
+    },
+    {
+      "id": "q-fr7-pres-14",
+      "kind": "mc",
+      "topic": "personal pronouns",
+      "prompt": "Vilket pronomen betyder \"de\" (tredje person plural, maskulint eller blandat)?",
+      "opener": "\"Elles\" används bara om grupper som är helt kvinnliga.",
+      "choices": [
+        "ils",
+        "elles",
+        "vous",
+        "nous"
+      ],
+      "answer": 0,
+      "explanation": "\"Ils\" betyder \"de\" för en grupp som är maskulin eller blandad. \"Elles\" används bara om grupper som är helt kvinnliga."
+    },
+    {
+      "id": "q-fr7-pres-15",
+      "kind": "mc",
+      "topic": "être and avoir",
+      "prompt": "Välj rätt form: \"Ils ___ nouveaux ici.\" (être = att vara; de är nya här)",
+      "opener": "\"Ils\"-formen av être är också oregelbunden.",
+      "choices": [
+        "sont",
+        "sommes",
+        "êtes",
+        "est"
+      ],
+      "answer": 0,
+      "explanation": "\"Être\" böjs: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. \"Ils\" ger \"sont\"."
     }
   ]
 }

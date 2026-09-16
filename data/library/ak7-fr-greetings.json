@@ -114,6 +114,111 @@
       "prompt": "Vilka hälsnings- och artighetsfraser bör du kunna på åk7-nivå i franska?",
       "opener": "De vanligaste fraserna för att hälsa, tacka och be om hjälp.",
       "answer": "Hälsningar: Bonjour = hej/god dag · Bonsoir = god kväll · Salut = hej (informellt) · Au revoir = hej då · Bonne nuit = god natt. Må bra: Ça va?/Comment ça va? = hur mår du? · Ça va bien, merci = det går bra, tack. Artighet: S'il te/vous plaît = snälla (till en/flera) · Merci (beaucoup) = tack (så mycket) · De rien = ingen orsak · Pardon/Excusez-moi = ursäkta. Skolan: Je peux...? = får jag...? · les toilettes = toaletten · ouvrir/fermer le livre = öppna/stänga boken."
+    },
+    {
+      "id": "q-fr7-greet-9",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Vad betyder \"Bonsoir\"?",
+      "opener": "En hälsning man använder senare på dagen.",
+      "choices": [
+        "God kväll",
+        "God morgon",
+        "God natt",
+        "Hej då"
+      ],
+      "answer": 0,
+      "explanation": "\"Bonsoir\" betyder \"god kväll\" och används från sen eftermiddag/kväll."
+    },
+    {
+      "id": "q-fr7-greet-10",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "Vad betyder \"Excusez-moi\"?",
+      "opener": "Ett ord man använder för att få någons uppmärksamhet eller be om ursäkt.",
+      "choices": [
+        "Ursäkta mig",
+        "Tack så mycket",
+        "God kväll",
+        "Ingen orsak"
+      ],
+      "answer": 0,
+      "explanation": "\"Excusez-moi\" betyder \"ursäkta mig\"."
+    },
+    {
+      "id": "q-fr7-greet-11",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "Vad betyder \"Je ne comprends pas\"?",
+      "opener": "En viktig fras att kunna om man har kört fast på lektionen.",
+      "choices": [
+        "Jag förstår inte",
+        "Jag vet inte",
+        "Jag kan inte",
+        "Jag hör inte"
+      ],
+      "answer": 0,
+      "explanation": "\"Je ne comprends pas\" betyder \"jag förstår inte\", från verbet comprendre (att förstå)."
+    },
+    {
+      "id": "q-fr7-greet-12",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Vilken av dessa avskedsfraser är mest formell?",
+      "opener": "Jämför med hur man skiljer på \"hej då\" och \"adjö\" på svenska.",
+      "choices": [
+        "Au revoir",
+        "Salut",
+        "De rien",
+        "Bonjour"
+      ],
+      "answer": 0,
+      "explanation": "\"Au revoir\" är den mer formella motsvarigheten till \"hej då\", medan \"Salut\" är avslappnat och används bland vänner."
+    },
+    {
+      "id": "q-fr7-greet-13",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "Vad betyder \"Comment dit-on ça en français ?\"?",
+      "opener": "En fråga man ofta behöver ställa när man lär sig ett nytt språk.",
+      "choices": [
+        "Hur säger man det på franska?",
+        "Vad heter du på franska?",
+        "Kan du upprepa det?",
+        "Var kommer du ifrån?"
+      ],
+      "answer": 0,
+      "explanation": "\"Comment dit-on ça en français ?\" betyder \"hur säger man det på franska?\"."
+    },
+    {
+      "id": "q-fr7-greet-14",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "Vad betyder \"Pas de problème\"?",
+      "opener": "Ett avslappnat sätt att svara när någon tackar dig eller ber om ursäkt.",
+      "choices": [
+        "Inga problem",
+        "Var så god",
+        "Förlåt mig",
+        "Ha det bra"
+      ],
+      "answer": 0,
+      "explanation": "\"Pas de problème\" betyder \"inga problem\", ett vardagligt sätt att säga \"ingen orsak\" eller \"det gör inget\"."
+    },
+    {
+      "id": "q-fr7-greet-15",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Vad betyder \"Bon appétit\"?",
+      "opener": "Något man säger till varandra precis innan man börjar äta.",
+      "choices": [
+        "Smaklig måltid",
+        "God natt",
+        "Skål",
+        "Välkommen"
+      ],
+      "answer": 0,
+      "explanation": "\"Bon appétit\" betyder \"smaklig måltid\" och sägs innan man börjar äta."
     }
   ]
 }

@@ -115,6 +115,111 @@
       "prompt": "Hur fungerar genus, bestämda/obestämda artiklar och plural på franska?",
       "opener": "Två genus, och hur artiklarna följer med.",
       "answer": "Genus: le (maskulinum, t.ex. le livre), la (femininum, t.ex. la table) — måste läras in med varje ord. Framför vokalljud: både le och la blir l' (l'école, l'ami). Bestämd artikel plural: les (samma för båda genus). Obestämd artikel: un (mask.), une (fem.), des (plural, 'några'). Plural: nästan alltid substantiv + -s (som oftast inte uttalas), med artikeln les."
+    },
+    {
+      "id": "q-fr7-art-9",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ voiture est rouge.\" (Bilen är röd.)",
+      "opener": "\"Voiture\" är feminint och börjar med en konsonant.",
+      "choices": [
+        "La",
+        "Le",
+        "Les",
+        "L'"
+      ],
+      "answer": 0,
+      "explanation": "\"Voiture\" (bil) är feminint singular och börjar med konsonant, så artikeln är \"la\"."
+    },
+    {
+      "id": "q-fr7-art-10",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Välj rätt artikel: \"J'ai ___ chien.\" (Jag har en hund.)",
+      "opener": "\"Le chien\" är maskulint.",
+      "choices": [
+        "un",
+        "une",
+        "des",
+        "de"
+      ],
+      "answer": 0,
+      "explanation": "\"Un\" är den obestämda artikeln för maskulinum. \"Une\" används i stället för femininum."
+    },
+    {
+      "id": "q-fr7-art-11",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "Vad är plural av \"le cheval\" (hästen)?",
+      "opener": "Ett oregelbundet mönster: ord som slutar på -al byter ofta till -aux i plural.",
+      "choices": [
+        "les chevaux",
+        "les chevals",
+        "le chevaux",
+        "les cheval"
+      ],
+      "answer": 0,
+      "explanation": "\"Cheval\" → \"chevaux\" i plural (oregelbunden ändelse -al → -aux), med artikeln \"les\"."
+    },
+    {
+      "id": "q-fr7-art-12",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "Vilket genus har ordet \"la lune\" (månen)?",
+      "opener": "Artikeln \"la\" avslöjar genuset direkt.",
+      "choices": [
+        "Femininum",
+        "Maskulinum",
+        "Neutrum",
+        "Plural"
+      ],
+      "answer": 0,
+      "explanation": "\"La lune\" tar artikeln \"la\", vilket betyder att ordet är femininum."
+    },
+    {
+      "id": "q-fr7-art-13",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ ami s'appelle Marc.\" (Vännen heter Marc.)",
+      "opener": "\"Ami\" är maskulint men börjar med en vokal.",
+      "choices": [
+        "L'",
+        "Le",
+        "La",
+        "Les"
+      ],
+      "answer": 0,
+      "explanation": "Framför ord som börjar med vokalljud kortas \"le\" till \"l'\": \"l'ami\"."
+    },
+    {
+      "id": "q-fr7-art-14",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "Vad är plural av \"la fleur\" (blomman)?",
+      "opener": "\"Fleur\" bildar plural med det vanliga mönstret -s.",
+      "choices": [
+        "les fleurs",
+        "les fleures",
+        "la fleurs",
+        "les fleur"
+      ],
+      "answer": 0,
+      "explanation": "\"Fleur\" → \"fleurs\" i plural, med artikeln \"les\"."
+    },
+    {
+      "id": "q-fr7-art-15",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "Vilket genus har ordet \"le soleil\" (solen)?",
+      "opener": "Artikeln \"le\" avslöjar genuset direkt.",
+      "choices": [
+        "Maskulinum",
+        "Femininum",
+        "Neutrum",
+        "Plural"
+      ],
+      "answer": 0,
+      "explanation": "\"Le soleil\" tar artikeln \"le\", vilket betyder att ordet är maskulinum."
     }
   ]
 }
