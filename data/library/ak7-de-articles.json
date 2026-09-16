@@ -115,6 +115,111 @@
       "prompt": "Hur fungerar genus, bestämda/obestämda artiklar och plural på tyska?",
       "opener": "De tre genusen och hur artiklarna följer med.",
       "answer": "Genus: der (maskulinum, t.ex. der Mann), die (femininum, t.ex. die Frau), das (neutrum, t.ex. das Kind) — måste läras in med varje ord, går sällan att gissa. Undantag att komma ihåg: ord som slutar på -chen eller -lein är alltid \"das\" (das Mädchen). Obestämd artikel: ein (mask./neutr.), eine (fem.). Plural: tar alltid artikeln \"die\", oavsett ursprungligt genus — själva ordet böjs på olika sätt (-e, -er, -(e)n, eller ingen ändelse alls)."
+    },
+    {
+      "id": "q-de7-art-9",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ Auto ist neu.\" (Bilen är ny.)",
+      "opener": "\"Auto\" är ett neutrumord.",
+      "choices": [
+        "Das",
+        "Der",
+        "Die",
+        "Den"
+      ],
+      "answer": 0,
+      "explanation": "\"Auto\" (bil) är neutrum, så artikeln är \"das\"."
+    },
+    {
+      "id": "q-de7-art-10",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Välj rätt artikel: \"Ich habe ___ Buch.\" (Jag har en bok.)",
+      "opener": "\"Das Buch\" är neutrum.",
+      "choices": [
+        "ein",
+        "eine",
+        "einen",
+        "einem"
+      ],
+      "answer": 0,
+      "explanation": "\"Ein\" är den obestämda artikeln för neutrum (och maskulinum) i denna form. \"Eine\" används istället för femininum."
+    },
+    {
+      "id": "q-de7-art-11",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "Vad är plural av \"das Kind\" (barnet)?",
+      "opener": "\"Kind\" bildar plural med ändelsen -er.",
+      "choices": [
+        "die Kinder",
+        "die Kinds",
+        "der Kinder",
+        "das Kinder"
+      ],
+      "answer": 0,
+      "explanation": "\"Kind\" → \"Kinder\" i plural, med artikeln \"die\" (plural-artikel för alla genus)."
+    },
+    {
+      "id": "q-de7-art-12",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "Vilket genus har ordet \"die Sonne\" (solen)?",
+      "opener": "Artikeln \"die\" avslöjar genuset direkt.",
+      "choices": [
+        "Femininum",
+        "Maskulinum",
+        "Neutrum",
+        "Plural"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Sonne\" tar artikeln \"die\", vilket betyder att ordet är femininum."
+    },
+    {
+      "id": "q-de7-art-13",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Välj rätt artikel: \"___ Lehrerin heißt Frau Klein.\" (Läraren heter Frau Klein.)",
+      "opener": "\"Lehrerin\" är den feminina formen av lärare.",
+      "choices": [
+        "Die",
+        "Der",
+        "Das",
+        "Den"
+      ],
+      "answer": 0,
+      "explanation": "\"Lehrerin\" är femininum (ändelsen -in gör ord om lärarinnor/kvinnliga yrkesutövare feminina), så artikeln är \"die\"."
+    },
+    {
+      "id": "q-de7-art-14",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "Vad är plural av \"die Frau\" (kvinnan)?",
+      "opener": "\"Frau\" bildar plural med ändelsen -en.",
+      "choices": [
+        "die Frauen",
+        "die Fraus",
+        "die Frauer",
+        "die Frau"
+      ],
+      "answer": 0,
+      "explanation": "\"Frau\" → \"Frauen\" i plural."
+    },
+    {
+      "id": "q-de7-art-15",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "Vilket genus har ordet \"der Tisch\" (bordet)?",
+      "opener": "Artikeln \"der\" avslöjar genuset direkt.",
+      "choices": [
+        "Maskulinum",
+        "Femininum",
+        "Neutrum",
+        "Plural"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Tisch\" tar artikeln \"der\", vilket betyder att ordet är maskulinum."
     }
   ]
 }

@@ -114,6 +114,111 @@
       "prompt": "Vilka familjeord, possessiva pronomen och siffror bör du kunna på åk7-nivå i tyska?",
       "opener": "Familjen, vem den tillhör, och att kunna räkna till hundra.",
       "answer": "Familj: die Mutter/der Vater = mamma/pappa · der Bruder/die Schwester = bror/syster · der Großvater/die Großmutter = morfar-farfar/mormor-farmor · der Sohn/die Tochter = son/dotter · der Cousin/die Cousine = kusin. Possessiva (nominativ): mein/meine = min/mitt · dein/deine = din/ditt · sein/seine = hans · ihr/ihre = hennes. Siffror: 0 null, 1 eins, 5 fünf, 10 zehn, 11 elf, 12 zwölf, 15 fünfzehn, 20 zwanzig, 21 einundzwanzig, 37 siebenunddreißig, 50 fünfzig, 100 hundert."
+    },
+    {
+      "id": "q-de7-fam-9",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"der Onkel\"?",
+      "opener": "En manlig släkting, bror till en av föräldrarna.",
+      "choices": [
+        "Farbror/morbror",
+        "Faster/moster",
+        "Kusin",
+        "Svåger"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Onkel\" betyder farbror eller morbror. Den kvinnliga motsvarigheten är \"die Tante\" (faster/moster)."
+    },
+    {
+      "id": "q-de7-fam-10",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"die Tante\"?",
+      "opener": "En kvinnlig släkting, syster till en av föräldrarna.",
+      "choices": [
+        "Faster/moster",
+        "Farbror/morbror",
+        "Svägerska",
+        "Mormor"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Tante\" betyder faster eller moster."
+    },
+    {
+      "id": "q-de7-fam-11",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Välj rätt ord: \"___ Vater ist Lehrer.\" (Hans pappa är lärare.)",
+      "opener": "\"Vater\" är maskulinum, och possessivet för \"hans\" är sein.",
+      "choices": [
+        "Sein",
+        "Ihr",
+        "Dein",
+        "Meine"
+      ],
+      "answer": 0,
+      "explanation": "\"Sein\" betyder \"hans\" och står utan extra ändelse framför ett maskulint ord i nominativ, precis som \"mein\"."
+    },
+    {
+      "id": "q-de7-fam-12",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Hur skriver man talet 42 med bokstäver?",
+      "opener": "Kom ihåg att entalet sägs före tiotalet på tyska.",
+      "choices": [
+        "zweiundvierzig",
+        "vierundzwanzig",
+        "zweiundzwanzig",
+        "vierzigzwei"
+      ],
+      "answer": 0,
+      "explanation": "\"Zwei\" (2) + \"und\" (och) + \"vierzig\" (40) = \"zweiundvierzig\" = 42."
+    },
+    {
+      "id": "q-de7-fam-13",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Vilket tal är \"neunundneunzig\"?",
+      "opener": "\"Neun\" betyder 9, och \"neunzig\" betyder 90.",
+      "choices": [
+        "99",
+        "89",
+        "19",
+        "90"
+      ],
+      "answer": 0,
+      "explanation": "\"Neun\" (9) + \"und\" (och) + \"neunzig\" (90) = \"neunundneunzig\" = 99."
+    },
+    {
+      "id": "q-de7-fam-14",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"die Cousine\"?",
+      "opener": "Jämför med \"der Cousin\", som är den manliga formen.",
+      "choices": [
+        "Kusin (kvinnlig)",
+        "Kusin (manlig)",
+        "Syster",
+        "Faster"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Cousine\" är den kvinnliga formen av kusin. \"Der Cousin\" är den manliga formen."
+    },
+    {
+      "id": "q-de7-fam-15",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Välj rätt ord: \"___ Eltern wohnen in Hamburg.\" (Mina föräldrar bor i Hamburg.)",
+      "opener": "\"Eltern\" (föräldrar) är plural, och possessivet i plural slutar alltid på -e.",
+      "choices": [
+        "Meine",
+        "Mein",
+        "Dein",
+        "Sein"
+      ],
+      "answer": 0,
+      "explanation": "\"Meine\" används i plural, oavsett genus på substantivet i singular: \"meine Eltern\" (mina föräldrar)."
     }
   ]
 }

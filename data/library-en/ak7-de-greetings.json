@@ -114,6 +114,111 @@
       "prompt": "Which greeting and politeness phrases should you know at grade 7 level in German?",
       "opener": "The most common phrases for greeting, thanking, and asking for help.",
       "answer": "Greetings: Hallo = hi · Guten Morgen = good morning · Guten Tag = good day · Guten Abend = good evening · Gute Nacht = good night · Tschüss = bye · Auf Wiedersehen = goodbye (more formal). Wellbeing: Wie geht's?/Wie geht es dir? = how are you? · Gut, danke = good, thanks. Politeness: Bitte = please/you're welcome · Danke (schön) = thank you (very much) · Bitte schön = you're welcome/no problem · Es tut mir leid = I'm sorry · Entschuldigung = excuse me. School: Darf ich...? = may I...? · die Toilette = the bathroom · das Buch öffnen/schließen = open/close the book."
+    },
+    {
+      "id": "q-de7-greet-9",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "What does \"Guten Morgen\" mean?",
+      "opener": "A greeting used earlier in the day.",
+      "choices": [
+        "Good morning",
+        "Good evening",
+        "Good night",
+        "Good day"
+      ],
+      "answer": 0,
+      "explanation": "\"Guten Morgen\" means \"good morning\" and is used until roughly midday."
+    },
+    {
+      "id": "q-de7-greet-10",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "What does \"Entschuldigung\" mean?",
+      "opener": "A word used to get someone's attention or to apologize.",
+      "choices": [
+        "Excuse me",
+        "Thank you very much",
+        "Good evening",
+        "You're welcome"
+      ],
+      "answer": 0,
+      "explanation": "\"Entschuldigung\" means \"excuse me\"/\"sorry\"."
+    },
+    {
+      "id": "q-de7-greet-11",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "What does \"Ich verstehe nicht\" mean?",
+      "opener": "An important phrase to know if you get stuck during a lesson.",
+      "choices": [
+        "I don't understand",
+        "I don't know",
+        "I can't",
+        "I can't hear"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich verstehe nicht\" means \"I don't understand\", from the verb verstehen (to understand)."
+    },
+    {
+      "id": "q-de7-greet-12",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Which of these farewell phrases is the most formal?",
+      "opener": "Compare it to how English distinguishes \"bye\" from \"goodbye\".",
+      "choices": [
+        "Auf Wiedersehen",
+        "Tschüss",
+        "Bitte schön",
+        "Guten Tag"
+      ],
+      "answer": 0,
+      "explanation": "\"Auf Wiedersehen\" is the more formal equivalent of \"goodbye\", while \"Tschüss\" is casual and used among friends."
+    },
+    {
+      "id": "q-de7-greet-13",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "What does \"Wie sagt man das auf Deutsch?\" mean?",
+      "opener": "A question you often need when learning a new language.",
+      "choices": [
+        "How do you say that in German?",
+        "What's your name in German?",
+        "Can you repeat that?",
+        "Where are you from?"
+      ],
+      "answer": 0,
+      "explanation": "\"Wie sagt man das auf Deutsch?\" means \"how do you say that in German?\"."
+    },
+    {
+      "id": "q-de7-greet-14",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "What does \"Kein Problem\" mean?",
+      "opener": "A casual way to respond when someone thanks you or apologizes.",
+      "choices": [
+        "No problem",
+        "You're welcome",
+        "Forgive me",
+        "Take care"
+      ],
+      "answer": 0,
+      "explanation": "\"Kein Problem\" means \"no problem\", a casual way of saying \"don't mention it\" or \"it's fine\"."
+    },
+    {
+      "id": "q-de7-greet-15",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "What does \"Guten Appetit\" mean?",
+      "opener": "Something people say to each other right before eating.",
+      "choices": [
+        "Enjoy your meal",
+        "Good night",
+        "Cheers",
+        "Welcome"
+      ],
+      "answer": 0,
+      "explanation": "\"Guten Appetit\" means \"enjoy your meal\" and is said before starting to eat."
     }
   ]
 }

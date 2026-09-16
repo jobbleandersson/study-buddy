@@ -112,6 +112,111 @@
       "prompt": "What strategies help you understand a simple German text at grade 7 level?",
       "opener": "You don't need to understand every word to understand the whole.",
       "answer": "Look for familiar patterns: \"ich heiße\" (introduction), \"ich bin ... Jahre alt\" (age), \"ich wohne in\" (where you live), \"samstags/sonntags\" (days of the week used as adverbs, with a lowercase s). Guess unknown words from context instead of looking up every word. Read the text once for the overall gist and again for details. Look for present-tense verbs (spielt, isst, ruht sich aus) to understand what's happening, and possessive words (sein, seine, ihr) to understand who does what."
+    },
+    {
+      "id": "q-de7-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Ich heiße Mia und ich bin zwölf Jahre alt. Ich wohne in Hamburg mit meinen Eltern und meinem Bruder. Mein Bruder heißt Paul und ist fünfzehn Jahre alt. Wir haben auch einen Hund; er heißt Bruno.\"\n\nHow old is Mia?",
+      "opener": "Read the text about Mia and her family.",
+      "choices": [
+        "Twelve years old",
+        "Fifteen years old",
+        "Ten years old",
+        "Fourteen years old"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich bin zwölf Jahre alt\" means \"I am twelve years old\"."
+    },
+    {
+      "id": "q-de7-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Who is Paul?",
+      "opener": "Look for the sentence about \"mein Bruder\".",
+      "choices": [
+        "Mia's brother",
+        "Mia's dad",
+        "Mia's dog",
+        "Mia's teacher"
+      ],
+      "answer": 0,
+      "explanation": "\"Mein Bruder heißt Paul\" means \"my brother's name is Paul\"."
+    },
+    {
+      "id": "q-de7-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What is the dog's name in the text?",
+      "opener": "Look for the last sentence about the family's pet.",
+      "choices": [
+        "Bruno",
+        "Paul",
+        "Mia",
+        "Klaus"
+      ],
+      "answer": 0,
+      "explanation": "\"Wir haben auch einen Hund; er heißt Bruno\" means \"we also have a dog; his name is Bruno\"."
+    },
+    {
+      "id": "q-de7-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "New text: \"Am Wochenende geht Mia gern schwimmen. Am Samstag trifft sie ihre Freundin Lisa im Schwimmbad. Danach gehen sie zusammen einkaufen. Am Sonntag bleibt Mia zu Hause und liest ein Buch.\"\n\nWhat does Mia like to do on the weekend?",
+      "opener": "Look for the first sentence: \"geht Mia gern schwimmen\".",
+      "choices": [
+        "Swim",
+        "Read",
+        "Shop",
+        "Sleep"
+      ],
+      "answer": 0,
+      "explanation": "\"Am Wochenende geht Mia gern schwimmen\" means \"on the weekend Mia likes to go swimming\"."
+    },
+    {
+      "id": "q-de7-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Who does Mia meet on Saturday?",
+      "opener": "Look for \"trifft sie ihre Freundin...\".",
+      "choices": [
+        "Lisa",
+        "Paul",
+        "Bruno",
+        "Her teacher"
+      ],
+      "answer": 0,
+      "explanation": "\"Am Samstag trifft sie ihre Freundin Lisa\" means \"on Saturday she meets her friend Lisa\"."
+    },
+    {
+      "id": "q-de7-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What do Mia and Lisa do after swimming?",
+      "opener": "Look for the word \"danach\" (afterward).",
+      "choices": [
+        "Go shopping together",
+        "Have dinner together",
+        "Go straight home",
+        "Play football"
+      ],
+      "answer": 0,
+      "explanation": "\"Danach gehen sie zusammen einkaufen\" means \"afterward they go shopping together\"."
+    },
+    {
+      "id": "q-de7-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What does Mia do on Sunday?",
+      "opener": "Look for the last sentence about Sunday.",
+      "choices": [
+        "Stays home and reads a book",
+        "Goes swimming again",
+        "Meets Lisa again",
+        "Goes clothes shopping"
+      ],
+      "answer": 0,
+      "explanation": "\"Am Sonntag bleibt Mia zu Hause und liest ein Buch\" means \"on Sunday Mia stays home and reads a book\"."
     }
   ]
 }
