@@ -124,6 +124,111 @@
       "prompt": "Summarise key concepts in scientific method and source criticism: hypothesis, theory, control group, variables, pseudoscience and source criticism.",
       "opener": "Go through the steps of the scientific method and what distinguishes good science from unscientific claims.",
       "answer": "Hypothesis: a testable, falsifiable assumption to be tested · Theory: a well-established explanatory model supported by a large body of evidence, not a guess · Control group: a comparison group that does not receive the tested treatment, making it possible to determine whether an effect really is due to the treatment · Independent variable: what the researcher deliberately changes · Dependent variable: what is measured as the result · Peer review: other researchers independently reviewing the study before publication · Pseudoscience: presents itself as science but avoids genuine testing, lacks independent review, or ignores contradictory results · Source criticism: examining the source, purpose, any interests involved, and whether the claim is supported by collective research or only by isolated, unconfirmed studies."
+    },
+    {
+      "id": "q-nk1b-metod-9",
+      "kind": "mc",
+      "topic": "hypothesis, experiment and theory",
+      "prompt": "What does it mean for a hypothesis to be falsifiable?",
+      "opener": "Think about what would be needed to prove the hypothesis wrong.",
+      "choices": [
+        "That it must, in principle, be possible to show the hypothesis is wrong through observation or experiment, even if it happens to be true",
+        "That the hypothesis must already be proven false before it is tested",
+        "That the hypothesis may never be tested more than once",
+        "That falsifiability means the hypothesis is always incorrect"
+      ],
+      "answer": 0,
+      "explanation": "Falsifiability means it must, in principle, be possible to design an observation or experiment that would show the hypothesis to be wrong, if it actually is. A hypothesis that cannot be disproved in any conceivable way does not count as scientific."
+    },
+    {
+      "id": "q-nk1b-metod-10",
+      "kind": "mc",
+      "topic": "experimental method",
+      "prompt": "What is the purpose of repeating an experiment (replicating results), ideally by other independent research groups?",
+      "opener": "Think about what would happen if a single experiment happened to give a result by chance.",
+      "choices": [
+        "To increase confidence that the result is real and not just due to chance or a one-off error in the original study",
+        "To make it harder for other researchers to understand the result",
+        "Replication is never necessary if the first study was large enough",
+        "To increase the cost of the research with no other benefit"
+      ],
+      "answer": 0,
+      "explanation": "Repeating an experiment, ideally by independent research groups, increases confidence that the result is real and not just due to chance, a one-off error, or bias in the original study."
+    },
+    {
+      "id": "q-nk1b-metod-11",
+      "kind": "mc",
+      "topic": "experimental method",
+      "prompt": "What is a double-blind study, and why is it often used in drug trials?",
+      "opener": "Think about what could affect the result if participants or researchers knew who received the real treatment.",
+      "choices": [
+        "A study in which neither the participants nor those evaluating the results know who received the active treatment and who received the placebo, which reduces the risk that expectations affect the result",
+        "A study in which all participants know exactly which treatment they are receiving",
+        "A study carried out twice with exactly the same participants",
+        "Another word for a study without a control group"
+      ],
+      "answer": 0,
+      "explanation": "In a double-blind study, neither the participants nor those evaluating the results know who received the active treatment and who received the placebo, which reduces the risk that expectations (from patients or researchers) unconsciously affect the result."
+    },
+    {
+      "id": "q-nk1b-metod-12",
+      "kind": "mc",
+      "topic": "science and pseudoscience",
+      "prompt": "What is a common feature of pseudoscientific claims regarding how they respond to criticism or contradictory evidence?",
+      "opener": "Think about how a claim that CANNOT be disproved handles inconvenient results.",
+      "choices": [
+        "They tend to reinterpret or explain away contradictory evidence rather than revising or abandoning the claim",
+        "They always welcome criticism and immediately change their position when faced with contradictory evidence",
+        "They always undergo standard peer review before publication",
+        "They are always based on controlled, repeated experiments"
+      ],
+      "answer": 0,
+      "explanation": "Pseudoscientific claims tend to reinterpret or explain away contradictory evidence rather than revising or abandoning the claim, which distinguishes them from scientific theories that adapt when new evidence contradicts them."
+    },
+    {
+      "id": "q-nk1b-metod-13",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "Why is it problematic if a study on a drug's effect was funded solely by the company that sells the drug, without independent review?",
+      "opener": "Think about who benefits if the study shows a particular result.",
+      "choices": [
+        "There is a risk of a conflict of interest that could (consciously or unconsciously) affect how the study is designed, interpreted or presented",
+        "The funding source never matters for a study's reliability",
+        "It automatically means the result is false",
+        "Companies are legally prohibited from funding scientific research"
+      ],
+      "answer": 0,
+      "explanation": "If the funder has a financial interest in a particular result, there is a risk of a conflict of interest that can (consciously or unconsciously) affect how the study is designed, interpreted or presented, which is why independent review and transparency about funding matter."
+    },
+    {
+      "id": "q-nk1b-metod-14",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "What does \"correlation is not the same as causation\" mean in a scientific context?",
+      "opener": "Think of the classic example of ice cream sales and drowning incidents, both of which rise in summer.",
+      "choices": [
+        "That two factors changing together (correlating) does not necessarily mean one causes the other — an association can be due to a third, underlying factor",
+        "That correlation and causation always mean exactly the same thing",
+        "That causation is always easier to prove than correlation",
+        "That correlation can never occur in scientific studies"
+      ],
+      "answer": 0,
+      "explanation": "Two factors varying together (correlating) does not automatically mean one causes the other — the association can be due to a third, underlying factor (e.g. hot weather increasing both ice cream sales and swimming, and thereby drowning risk)."
+    },
+    {
+      "id": "q-nk1b-metod-15",
+      "kind": "mc",
+      "topic": "hypothesis, experiment and theory",
+      "prompt": "What does it mean that a scientific theory \"can never be completely proven\", despite strong scientific support?",
+      "opener": "Think about the difference between being well-supported and being absolutely, finally proven.",
+      "choices": [
+        "That, in principle, the theory could always be overturned or need revision if sufficiently strong contradictory evidence emerges, even though this is extremely unlikely for many well-established theories",
+        "That all scientific theories are just as uncertain as a guess",
+        "That theories in natural science can never be trusted",
+        "That theories are proven once and for all as soon as they are published in a journal"
+      ],
+      "answer": 0,
+      "explanation": "Scientific theories are built on empirical evidence and can, in principle, always be revised if sufficiently strong contradictory evidence emerges — that is the core of science's self-correcting nature. This does not make them as uncertain as a guess; well-established theories like the theory of evolution have extremely strong support, but the strictly logical possibility of revision remains."
     }
   ]
 }

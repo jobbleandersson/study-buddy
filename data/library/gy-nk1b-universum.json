@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta det viktigaste om Big Bang, stjärnors livscykel, solsystemets uppbyggnad och astronomiska metoder.",
       "opener": "Gå igenom universums historia, en stjärnas liv, planettyperna och hur vi vet något om det vi inte kan besöka.",
       "answer": "Big Bang: universum expanderade från ett hett, tätt tillstånd för ca 13,8 miljarder år sedan och fortsätter expandera, stöds av rödförskjutning och kosmisk bakgrundsstrålning · Stjärnors liv: jämvikt mellan gravitation och fusionens strålningstryck håller stjärnan stabil; massan avgör slutstadiet — vit dvärg, neutronstjärna eller svart hål · Solsystemet: inre stenplaneter (litet, fast yta av berg/metall) och yttre gasjättar (stora, mest väte och helium) kretsar kring solen · Spektroskopi: varje grundämne har unika spektrallinjer, vilket gör att astronomer kan avgöra sammansättning på avstånd genom att analysera ljusets spektrum · Rödförskjutning: förskjutning av spektrallinjer mot rött visar att en galax rör sig bort från oss, och används för att mäta hastighet och stödja universums expansion."
+    },
+    {
+      "id": "q-nk1b-universum-9",
+      "kind": "mc",
+      "topic": "Big Bang och universums utveckling",
+      "prompt": "Vad är mörk materia, såvitt forskare vet idag?",
+      "opener": "Tänk på hur galaxer roterar snabbare än vad den synliga massan borde tillåta.",
+      "choices": [
+        "En form av materia som inte avger eller reflekterar ljus men vars gravitationseffekter kan observeras, t.ex. i hur galaxer roterar",
+        "En synlig typ av materia som lyser starkt i universum",
+        "Ett annat namn för svarta hål",
+        "En teori som helt motbevisats av modern forskning"
+      ],
+      "answer": 0,
+      "explanation": "Mörk materia avger eller reflekterar inget ljus och kan därför inte observeras direkt, men dess gravitationseffekter märks till exempel i hur galaxer roterar snabbare än vad den synliga materian ensam kan förklara."
+    },
+    {
+      "id": "q-nk1b-universum-10",
+      "kind": "mc",
+      "topic": "Big Bang och universums utveckling",
+      "prompt": "Vad innebär det att universums expansion enligt observationer verkar accelerera, snarare än bromsa in?",
+      "opener": "Tänk på vilken okänd faktor forskare föreslår ligger bakom denna acceleration.",
+      "choices": [
+        "Det tyder på förekomsten av en okänd kraft eller energiform, ofta kallad mörk energi, som driver på expansionen",
+        "Det betyder att Big Bang-teorin har motbevisats helt",
+        "Det innebär att universum snart kommer att sluta expandera helt",
+        "Det har ingen koppling till observationer av avlägsna supernovor"
+      ],
+      "answer": 0,
+      "explanation": "Observationer av avlägsna supernovor visade att universums expansion accelererar, vilket tyder på förekomsten av en okänd kraft eller energiform, ofta kallad mörk energi, som driver på expansionen."
+    },
+    {
+      "id": "q-nk1b-universum-11",
+      "kind": "mc",
+      "topic": "stjärnors livscykel",
+      "prompt": "Vad händer när en stjärna med ungefär solens massa har förbrukat sitt vätebränsle i kärnan?",
+      "opener": "Tänk på vad som händer när kärnfusionen i en solliknande stjärnas kärna tar slut på väte.",
+      "choices": [
+        "Den expanderar till en röd jätte innan den så småningom lämnar kvar en vit dvärg",
+        "Den kollapsar omedelbart till ett svart hål",
+        "Den exploderar alltid som en supernova",
+        "Den förblir exakt oförändrad för alltid"
+      ],
+      "answer": 0,
+      "explanation": "När en stjärna med ungefär solens massa förbrukat sitt vätebränsle expanderar den till en röd jätte, innan de yttre lagren så småningom blåses bort och en vit dvärg blir kvar som den kompakta resten."
+    },
+    {
+      "id": "q-nk1b-universum-12",
+      "kind": "mc",
+      "topic": "solsystemet",
+      "prompt": "Vad är skillnaden mellan en komet och en asteroid?",
+      "opener": "Tänk på vad som händer när en av kropparna närmar sig solen och värms upp.",
+      "choices": [
+        "Kometer består till stor del av is och damm och kan bilda en svans nära solen, medan asteroider huvudsakligen består av sten eller metall utan is",
+        "Kometer och asteroider är exakt samma sak med olika namn",
+        "Asteroider finns bara utanför solsystemet, kometer bara innanför",
+        "Kometer kretsar aldrig kring solen"
+      ],
+      "answer": 0,
+      "explanation": "Kometer består till stor del av is och damm, vilket gör att de kan bilda en synlig svans när isen förångas nära solen. Asteroider består i stället huvudsakligen av sten eller metall och saknar denna is."
+    },
+    {
+      "id": "q-nk1b-universum-13",
+      "kind": "mc",
+      "topic": "solsystemet",
+      "prompt": "Var i solsystemet finns huvuddelen av asteroidbältet?",
+      "opener": "Tänk på vilka två stora planeter som ligger på var sin sida om denna region.",
+      "choices": [
+        "Mellan Mars och Jupiters banor",
+        "Mellan solen och Merkurius",
+        "Utanför Neptunus bana",
+        "Mellan jorden och månen"
+      ],
+      "answer": 0,
+      "explanation": "Huvuddelen av asteroidbältet ligger mellan Mars och Jupiters banor, en region där gravitationen från Jupiter troligen hindrade materialet från att samlas till en enda planet."
+    },
+    {
+      "id": "q-nk1b-universum-14",
+      "kind": "mc",
+      "topic": "astronomiska metoder",
+      "prompt": "Vad används parallax till inom astronomin?",
+      "opener": "Tänk på hur din tumme verkar flytta sig mot bakgrunden när du blundar med ena och sedan andra ögat.",
+      "choices": [
+        "Att mäta avståndet till relativt nära stjärnor genom att observera hur deras position mot bakgrundsstjärnorna verkar förändras när jorden rör sig runt solen",
+        "Att mäta en stjärnas exakta kemiska sammansättning",
+        "Att mäta en stjärnas temperatur direkt",
+        "Att räkna antalet planeter som kretsar kring en stjärna"
+      ],
+      "answer": 0,
+      "explanation": "Parallax mäter avståndet till relativt nära stjärnor genom att observera hur deras position mot avlägsnare bakgrundsstjärnor verkar förskjutas när jorden befinner sig på motsatta sidor av sin omloppsbana runt solen."
+    },
+    {
+      "id": "q-nk1b-universum-15",
+      "kind": "mc",
+      "topic": "stjärnors livscykel",
+      "prompt": "Vad är en supernova?",
+      "opener": "Tänk på vad som händer när en mycket massiv stjärnas kärna kollapsar i slutet av dess liv.",
+      "choices": [
+        "En kraftfull explosion som avslutar livet hos en massiv stjärna, och som under kort tid kan lysa starkare än en hel galax",
+        "En stjärna som just bildas ur en gasmoln",
+        "Ett annat namn för en vit dvärg",
+        "En stjärna som roterar extremt långsamt"
+      ],
+      "answer": 0,
+      "explanation": "En supernova är en kraftfull explosion som avslutar livet hos en massiv stjärna när dess kärna kollapsar, och kan under en kort period lysa starkare än en hel galax. Explosionen kan lämna kvar en neutronstjärna eller ett svart hål, beroende på hur massiv den ursprungliga stjärnan var."
     }
   ]
 }

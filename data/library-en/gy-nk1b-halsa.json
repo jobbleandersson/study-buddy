@@ -124,6 +124,111 @@
       "prompt": "Summarise the key points about the determinants of health, sexual health, drugs and addiction, and public health.",
       "opener": "Go through what affects health, what is required for a safe relationship, and what distinguishes the individual and population levels.",
       "answer": "Determinants of health: lifestyle habits, heredity, environment and socioeconomic conditions interact and affect health · Consent: must be voluntary, clear, apply to the current situation, and be able to be withdrawn at any time · Contraception: the condom is the only common method that protects against both pregnancy and most sexually transmitted infections; hormonal methods such as the pill only protect against pregnancy · Physical dependence: the body has adapted to the drug, withdrawal occurs when use stops · Psychological dependence: a strong craving for the drug without the same bodily withdrawal · Public health: the state of health and its distribution across an entire population, along with the preventive work done to improve and even out health in society."
+    },
+    {
+      "id": "q-nk1b-halsa-9",
+      "kind": "mc",
+      "topic": "determinants of health",
+      "prompt": "What is meant by \"health-promoting\" work, as distinct from purely disease-preventive work?",
+      "opener": "Think about the difference between building up something positive and merely preventing something negative.",
+      "choices": [
+        "Actively strengthening factors that contribute to good health and well-being, e.g. by creating good conditions for physical activity and social settings, rather than solely preventing specific diseases",
+        "Another word for only treating diseases that have already occurred",
+        "A concept that applies only within healthcare, not in schools or workplaces",
+        "That health-promoting work is always more expensive than disease-preventive work"
+      ],
+      "answer": 0,
+      "explanation": "Health-promoting work is about actively strengthening factors that contribute to well-being, e.g. through safe social settings and opportunities for physical activity, rather than focusing solely on preventing specific diseases."
+    },
+    {
+      "id": "q-nk1b-halsa-10",
+      "kind": "mc",
+      "topic": "sexual health and relationships",
+      "prompt": "What is a sexually transmitted infection (STI) that is often asymptomatic but, if untreated, can lead to infertility?",
+      "opener": "Think of a very common STI among young people that often produces no clear symptoms at all.",
+      "choices": [
+        "Chlamydia",
+        "The common cold",
+        "Influenza",
+        "Chickenpox"
+      ],
+      "answer": 0,
+      "explanation": "Chlamydia is one of the most common sexually transmitted infections and is often asymptomatic, but if left untreated can lead to complications such as infertility, especially in women."
+    },
+    {
+      "id": "q-nk1b-halsa-11",
+      "kind": "mc",
+      "topic": "sexual health and relationships",
+      "prompt": "What characterises an equal and healthy relationship?",
+      "opener": "Think about what characterises a relationship where both parties feel safe and respected.",
+      "choices": [
+        "Mutual respect, open communication, and both parties' boundaries and wishes being taken seriously",
+        "That one party always decides for the other",
+        "That conflicts may never be expressed openly",
+        "That both parties must agree on absolutely everything"
+      ],
+      "answer": 0,
+      "explanation": "An equal and healthy relationship is characterised by mutual respect, open communication, and both parties' boundaries and wishes being taken seriously - not by one party always deciding or conflicts never being allowed to surface."
+    },
+    {
+      "id": "q-nk1b-halsa-12",
+      "kind": "mc",
+      "topic": "drugs and addiction",
+      "prompt": "What is the difference between risky use and dependence on alcohol?",
+      "opener": "Think about whether HOW MUCH one drinks alone determines whether one is dependent.",
+      "choices": [
+        "Risky use is a level of consumption that increases the risk of harm without the person necessarily being dependent, while dependence involves a strong, often uncontrollable urge to continue using despite negative consequences",
+        "Risky use and dependence mean exactly the same thing",
+        "Dependence is always less serious than risky use",
+        "Risky use can only apply to drugs, never to alcohol"
+      ],
+      "answer": 0,
+      "explanation": "Risky use refers to a level of consumption that increases the risk of harm without the person necessarily being dependent, while dependence involves a strong, often uncontrollable urge to continue despite negative consequences - so a person can engage in risky use without being dependent."
+    },
+    {
+      "id": "q-nk1b-halsa-13",
+      "kind": "mc",
+      "topic": "drugs and addiction",
+      "prompt": "How do many addictive drugs affect the brain's reward system?",
+      "opener": "Think about which neurotransmitter is often linked to feelings of reward and pleasure.",
+      "choices": [
+        "They increase the release of the neurotransmitter dopamine, producing a feeling of pleasure that the body can learn to seek repeatedly",
+        "They shut down the brain's reward system entirely and permanently",
+        "They affect only the muscles, never the brain",
+        "They have no connection at all to brain chemistry"
+      ],
+      "answer": 0,
+      "explanation": "Many addictive drugs increase the release of dopamine in the brain's reward system, producing a feeling of pleasure that the brain can learn to seek repeatedly, which contributes to the development of addiction."
+    },
+    {
+      "id": "q-nk1b-halsa-14",
+      "kind": "mc",
+      "topic": "public health",
+      "prompt": "What is an example of a structural public health measure, as distinct from a measure aimed at a single individual?",
+      "opener": "Think about the difference between a measure aimed at a single person and one that automatically affects the whole population.",
+      "choices": [
+        "Legislation on smoke-free public environments, which reduces exposure to secondhand smoke across the entire population",
+        "An individual doctor giving dietary advice to a patient",
+        "A person deciding on their own to quit smoking",
+        "One friend giving another friend advice about exercise"
+      ],
+      "answer": 0,
+      "explanation": "Legislation on smoke-free public environments is a structural public health measure because it automatically affects the whole population's exposure to secondhand smoke, unlike individual measures such as dietary advice given to a single patient."
+    },
+    {
+      "id": "q-nk1b-halsa-15",
+      "kind": "mc",
+      "topic": "public health",
+      "prompt": "Which of the following is an example of a public health indicator used to track a population's health over time?",
+      "opener": "Think of a measure that describes the health of an entire population, not a single person.",
+      "choices": [
+        "Average life expectancy in the population",
+        "An individual's blood pressure at a doctor's visit",
+        "The number of rooms in a person's home",
+        "A person's favourite food"
+      ],
+      "answer": 0,
+      "explanation": "Average life expectancy is a common public health indicator used to track and compare populations' health over time and between different groups. An individual's blood pressure instead says something about that person's own health, not about public health as a whole."
     }
   ]
 }

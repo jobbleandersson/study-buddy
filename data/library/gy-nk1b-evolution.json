@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta grundbegreppen inom evolution och genetik: naturligt urval, artbildning, DNA, gen, mutation och genteknik.",
       "opener": "Gå igenom hur variation uppstår, hur den ärvs och hur den kan leda till förändring över tid.",
       "answer": "Naturligt urval: individer med gynnsamma, ärftliga egenskaper får i genomsnitt fler avkommor, vilket gör att egenskaperna blir vanligare i populationen över generationer · Artbildning: när populationer isoleras (t.ex. geografiskt) och utvecklas olika tills de inte längre kan få fertil avkomma tillsammans · DNA: molekylen som bär arvsinformationen, uppbyggd av baspar i en dubbelspiral · Gen: ett avsnitt av DNA med information för ett protein eller en reglerande funktion · Mutation: en förändring i DNA-sekvensen, grundkällan till ny genetisk variation · Dominant/recessiv allel: en dominant allel syns även i enkel uppsättning, en recessiv kräver dubbel uppsättning för att synas · Genteknik: metoder som CRISPR för att läsa av och förändra arvsmassa, med stor medicinsk potential men även etiska frågor, särskilt vid redigering av könsceller och embryon."
+    },
+    {
+      "id": "q-nk1b-evolution-9",
+      "kind": "mc",
+      "topic": "naturligt urval och artbildning",
+      "prompt": "Vad är konvergent evolution?",
+      "opener": "Tänk på fenomenet att fiskar, delfiner och (utdöda) ichtyosaurier alla har en liknande, strömlinjeformad kroppsform trots att de inte är nära släkt.",
+      "choices": [
+        "När obesläktade arter oberoende av varandra utvecklar liknande egenskaper eftersom de anpassat sig till liknande miljöer eller levnadssätt",
+        "När två arter blir alltmer olika varandra över tid",
+        "När en art plötsligt förvandlas till en helt annan art inom en generation",
+        "Ett annat ord för artbildning genom geografisk isolering"
+      ],
+      "answer": 0,
+      "explanation": "Konvergent evolution innebär att obesläktade arter oberoende av varandra utvecklar liknande lösningar eftersom de anpassar sig till liknande miljöer eller levnadssätt, till exempel den strömlinjeformade kroppen hos fiskar och delfiner."
+    },
+    {
+      "id": "q-nk1b-evolution-10",
+      "kind": "mc",
+      "topic": "naturligt urval och artbildning",
+      "prompt": "Vad är skillnaden mellan homologa och analoga organ, som exempel inom evolutionsbiologi?",
+      "opener": "Tänk på vingar hos fåglar jämfört med vingar hos insekter — har de samma evolutionära ursprung?",
+      "choices": [
+        "Homologa organ har gemensamt evolutionärt ursprung (t.ex. framben hos olika ryggradsdjur), medan analoga organ liknar varandra funktionellt men har utvecklats oberoende (t.ex. vingar hos fåglar och insekter)",
+        "Homologa och analoga organ betyder exakt samma sak",
+        "Analoga organ finns bara hos växter, homologa bara hos djur",
+        "Homologa organ finns bara hos utdöda arter"
+      ],
+      "answer": 0,
+      "explanation": "Homologa organ, som frambenen hos olika ryggradsdjur, har ett gemensamt evolutionärt ursprung även om de idag har olika funktion. Analoga organ, som vingar hos fåglar och insekter, liknar varandra funktionellt men har utvecklats helt oberoende av varandra."
+    },
+    {
+      "id": "q-nk1b-evolution-11",
+      "kind": "mc",
+      "topic": "DNA och genens funktion",
+      "prompt": "Vad är funktionen hos mRNA i processen där en gen uttrycks till ett protein?",
+      "opener": "Tänk på vägen informationen tar från DNA i cellkärnan till proteinbygget i cytoplasman.",
+      "choices": [
+        "mRNA kopierar den genetiska informationen från DNA i cellkärnan och för den till ribosomerna, där proteinet byggs",
+        "mRNA lagrar den genetiska informationen permanent i cellen",
+        "mRNA bryter ner proteiner efter att de tillverkats",
+        "mRNA finns enbart i bakterier, aldrig i människoceller"
+      ],
+      "answer": 0,
+      "explanation": "mRNA (budbärar-RNA) kopierar den genetiska informationen från en gen i DNA och transporterar den till ribosomerna, där informationen sedan används för att bygga ett protein."
+    },
+    {
+      "id": "q-nk1b-evolution-12",
+      "kind": "mc",
+      "topic": "arv och variation",
+      "prompt": "Vad är skillnaden mellan genotyp och fenotyp?",
+      "opener": "Tänk på skillnaden mellan \"anlaget\" och det \"synliga resultatet\" av anlaget.",
+      "choices": [
+        "Genotyp är en individs genetiska uppsättning (arvsanlag), medan fenotyp är hur dessa anlag faktiskt tar sig uttryck, t.ex. i utseende, ofta i samspel med miljön",
+        "Genotyp och fenotyp betyder exakt samma sak",
+        "Fenotyp avgörs enbart av miljön, aldrig av generna",
+        "Genotyp kan förändras under en individs livstid genom träning"
+      ],
+      "answer": 0,
+      "explanation": "Genotypen är en individs genetiska uppsättning, medan fenotypen är hur dessa anlag faktiskt tar sig uttryck, t.ex. i ögonfärg eller kroppsbyggnad — ofta i samspel med miljöfaktorer, vilket gör att samma genotyp ibland kan ge olika fenotyper."
+    },
+    {
+      "id": "q-nk1b-evolution-13",
+      "kind": "mc",
+      "topic": "arv och variation",
+      "prompt": "Varför kan syskon (utom enäggstvillingar) se olika ut trots att de har samma föräldrar?",
+      "opener": "Tänk på vad som händer med föräldrarnas gener när könsceller bildas.",
+      "choices": [
+        "Vid bildandet av könsceller sker en slumpmässig sortering och omkombinering av föräldrarnas gener (bl.a. genom crossing over), vilket ger varje syskon en unik kombination av arvsanlag",
+        "Syskon har alltid exakt identiska gener om de har samma föräldrar",
+        "Skillnader mellan syskon beror enbart på miljöfaktorer, aldrig på genetik",
+        "Det är omöjligt för syskon med samma föräldrar att se olika ut"
+      ],
+      "answer": 0,
+      "explanation": "Vid bildandet av könsceller sker en slumpmässig sortering och omkombinering av föräldrarnas kromosomer och gener, bland annat genom crossing over, vilket gör att varje barn får en unik kombination av arvsanlag — därför ser syskon (utom enäggstvillingar) sällan exakt likadana ut."
+    },
+    {
+      "id": "q-nk1b-evolution-14",
+      "kind": "mc",
+      "topic": "genteknik",
+      "prompt": "Vad är en genetiskt modifierad organism (GMO)?",
+      "opener": "Tänk på vad som medvetet ändras i organismens arvsmassa, till skillnad från naturliga mutationer.",
+      "choices": [
+        "En organism vars arvsmassa medvetet förändrats med hjälp av genteknik, t.ex. för att ge en gröda motståndskraft mot skadedjur",
+        "Ett annat ord för en art som uppstått genom naturligt urval",
+        "En organism som enbart kan existera i laboratoriemiljö",
+        "Ett samlingsnamn för alla hybridarter i naturen"
+      ],
+      "answer": 0,
+      "explanation": "En genetiskt modifierad organism (GMO) har fått sin arvsmassa medvetet förändrad med hjälp av genteknik, till exempel för att ge en gröda motståndskraft mot skadedjur eller torka — till skillnad från arter som uppstått genom naturligt urval och slumpmässiga mutationer."
+    },
+    {
+      "id": "q-nk1b-evolution-15",
+      "kind": "mc",
+      "topic": "DNA och genens funktion",
+      "prompt": "Vad är en kromosom?",
+      "opener": "Tänk på hur en flera meter lång DNA-molekyl får plats i en mikroskopiskt liten cellkärna.",
+      "choices": [
+        "En tätt hoppackad struktur av DNA och proteiner (histoner), som gör det möjligt att packa den långa DNA-molekylen i cellkärnan",
+        "En typ av protein som bryter ner DNA",
+        "Ett annat ord för en enskild gen",
+        "En struktur som enbart finns hos bakterier"
+      ],
+      "answer": 0,
+      "explanation": "En kromosom är DNA tätt packat tillsammans med proteiner (histoner), vilket gör det möjligt att rymma den mycket långa DNA-molekylen inuti den lilla cellkärnan. En kromosom innehåller många gener, den är alltså inte samma sak som en enskild gen."
     }
   ]
 }
