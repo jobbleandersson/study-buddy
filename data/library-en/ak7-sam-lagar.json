@@ -125,6 +125,111 @@
       "prompt": "Summarise the most important points about laws, the justice system and children's rights.",
       "opener": "Take law versus rule first, then the roles of the justice system, and finally the rights.",
       "answer": "Law: a written rule decided by parliament, applies to everyone in Sweden, can carry a punishment · Rule: decided by, e.g., a school, an association or a family, and only applies there · Why laws are needed: security, order, protection of rights, and clarity about what is allowed · The police: investigate crimes, hold interviews, arrest suspects — do not decide the question of guilt · The prosecutor: leads the preliminary investigation and decides whether to bring charges · The court: examines the evidence, decides guilt and rules on punishment — the district court first, then the court of appeal and the Supreme Court on appeal · Common punishments: fines, a suspended sentence, probation, community service, prison · Age of criminal responsibility in Sweden: from 15 — younger children cannot be sentenced but social services get involved · Age of majority: 18 · The Convention on the Rights of the Child: the UN convention on children's rights, applies to everyone under 18, Swedish law since 2020 · Four core principles: all children have the same rights, the best interests of the child must come first, the right to life and development, the right to have a say."
+    },
+    {
+      "id": "q-sam7-lag-9",
+      "kind": "mc",
+      "topic": "laws and rules",
+      "prompt": "Who decides on new laws in Sweden?",
+      "opener": "Think about which body represents the whole people and votes on bills.",
+      "choices": [
+        "Parliament",
+        "The police",
+        "The school",
+        "Individual municipalities decide all laws"
+      ],
+      "answer": 0,
+      "explanation": "It is parliament, the people's elected representatives, that decides on new laws in Sweden. The police make sure laws are followed and investigate crimes, but neither the police, the school, nor individual municipalities have the power to pass laws."
+    },
+    {
+      "id": "q-sam7-lag-10",
+      "kind": "mc",
+      "topic": "the police and the courts",
+      "prompt": "Who represents the state and brings charges against the suspect in a trial?",
+      "opener": "This person is distinct from both the judge and the one who investigates the crime on the scene.",
+      "choices": [
+        "The prosecutor",
+        "The judge",
+        "The lay judge",
+        "The defence lawyer"
+      ],
+      "answer": 0,
+      "explanation": "The prosecutor leads the preliminary investigation together with the police, decides whether to bring charges, and then represents the state in the trial. The judge and lay judges rule on the case, while the defence lawyer represents the accused — not the state."
+    },
+    {
+      "id": "q-sam7-lag-11",
+      "kind": "mc",
+      "topic": "the police and the courts",
+      "prompt": "Which court rules first in a criminal case, before any appeal?",
+      "opener": "It is the lowest level in the chain of courts.",
+      "choices": [
+        "The district court",
+        "The court of appeal",
+        "The Supreme Court",
+        "Parliament"
+      ],
+      "answer": 0,
+      "explanation": "The district court is the first level that hears a criminal case. If the verdict is appealed, the case moves on to the court of appeal, and in rare cases all the way to the Supreme Court — parliament never rules on individual cases."
+    },
+    {
+      "id": "q-sam7-lag-12",
+      "kind": "mc",
+      "topic": "age of criminal responsibility",
+      "prompt": "What happens if a child under 15 commits a crime in Sweden?",
+      "opener": "Think about who takes over responsibility when the court cannot sentence the child.",
+      "choices": [
+        "The child is always sentenced to prison",
+        "The child cannot be sentenced to a punishment by a court, but social services can get involved",
+        "Nothing at all is done",
+        "The child pays a fine directly to the police on the spot"
+      ],
+      "answer": 1,
+      "explanation": "Children under 15 are not criminally responsible and therefore cannot be sentenced to a punishment by a court. The police can still investigate what happened, and social services often get involved to help the child and put suitable measures in place."
+    },
+    {
+      "id": "q-sam7-lag-13",
+      "kind": "mc",
+      "topic": "the Convention on the Rights of the Child",
+      "prompt": "Since what year has the Convention on the Rights of the Child applied as Swedish law?",
+      "opener": "It is a fairly recent decision, made after many years of discussion.",
+      "choices": [
+        "2010",
+        "2015",
+        "2020",
+        "2025"
+      ],
+      "answer": 2,
+      "explanation": "The Convention on the Rights of the Child has applied as Swedish law since 1 January 2020. Before that, Sweden was admittedly bound by the convention by having signed it, but it was not then written directly into Swedish law."
+    },
+    {
+      "id": "q-sam7-lag-14",
+      "kind": "mc",
+      "topic": "laws and rules",
+      "prompt": "What is a consequence of breaking a law, as opposed to breaking a rule?",
+      "opener": "Think about who investigates and rules in each case.",
+      "choices": [
+        "Nothing in particular happens in either case",
+        "Breaking a law can lead to punishment through a court, while breaking a rule is usually dealt with locally, for example at school",
+        "Breaking the law is always handled by the school",
+        "Breaking a rule always leads to prison"
+      ],
+      "answer": 1,
+      "explanation": "Someone who breaks a law can be investigated by the police and sentenced to a punishment by a court, while someone who breaks a rule, for example a school rule, usually gets a consequence that the school itself decides on. Prison is a punishment for breaking the law, not for breaking a rule."
+    },
+    {
+      "id": "q-sam7-lag-15",
+      "kind": "mc",
+      "topic": "why society has laws",
+      "prompt": "What does it mean that laws should be predictable?",
+      "opener": "Think about what would happen if the rules could change without any warning.",
+      "choices": [
+        "That everyone knows in advance what is allowed and what leads to punishment",
+        "That the laws change every day without warning",
+        "That only certain people are allowed to know what the law says",
+        "That laws are never written down"
+      ],
+      "answer": 0,
+      "explanation": "Laws being predictable means that everyone can know in advance what is allowed and what consequences a crime can have, which creates security in society. Laws are also public and written down, so everyone has the right to access them."
     }
   ]
 }

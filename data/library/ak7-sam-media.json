@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta mediernas roll, källkritikens frågor och reglerna på nätet.",
       "opener": "Ta mediernas uppgift först, sedan texttyperna, källkritiken och till sist rättigheter och gränser.",
       "answer": "Mediernas roll: informera, granska makthavare och ge plats för debatt — kallas ibland tredje statsmakten · Nyhet: ska rapportera vad som hänt sakligt och med flera perspektiv · Åsiktstext: debattartikel, insändare, krönika, ledare — vill övertyga · Reklam: vill sälja, måste märkas som annons, även när en influerare gör den · Källkritikens frågor: Vem är avsändaren? När publicerades det? Varför är det publicerat? Kan uppgiften bekräftas av oberoende källor? · Beroende källor: sidor som bara upprepar varandra räknas som en enda källa · Desinformation: falsk information som sprids medvetet · Filterbubbla: algoritmer visar mest sådant du redan gillar, så du ser färre andra perspektiv · Yttrandefrihet: grundlagsskyddad rätt att uttrycka åsikter, censur i förväg är förbjuden · Gränser: olaga hot, förtal, ofredande och hets mot folkgrupp är brott — samma lagar gäller på nätet som utanför · Vid näthat: spara bevis (skärmdumpar), blockera, berätta för en vuxen och anmäl till polisen."
+    },
+    {
+      "id": "q-sam7-med-9",
+      "kind": "mc",
+      "topic": "mediernas roll",
+      "prompt": "Varför kallas medierna ibland \"den tredje statsmakten\"?",
+      "opener": "Tänk på vilken kontrollerande funktion medierna har i förhållande till dem som styr.",
+      "choices": [
+        "Eftersom de granskar makthavare och informerar medborgarna, vid sidan av lagstiftande och verkställande makt",
+        "Eftersom journalister får rösta två gånger i val",
+        "Eftersom medierna äger alla företag i landet",
+        "Eftersom medierna bestämmer domstolarnas domar"
+      ],
+      "answer": 0,
+      "explanation": "Medierna kallas ibland den tredje statsmakten eftersom de granskar dem som har makt (till exempel riksdag och regering) och informerar medborgarna, vilket är en viktig funktion i en demokrati vid sidan av den lagstiftande och verkställande makten. Medierna varken röstar dubbelt, äger alla företag eller bestämmer domar."
+    },
+    {
+      "id": "q-sam7-med-10",
+      "kind": "mc",
+      "topic": "nyheter och åsikter",
+      "prompt": "Vad är en ledare (ledartext) i en tidning?",
+      "opener": "Ordet \"leder\" ger en ledtråd — vem för fram sin hållning i texten?",
+      "choices": [
+        "En text där tidningens redaktion tar ställning i en fråga utifrån sin politiska hållning",
+        "En helt objektiv nyhetsartikel utan åsikter",
+        "En annons för en produkt",
+        "En sportresultatlista"
+      ],
+      "answer": 0,
+      "explanation": "En ledare är en åsiktstext där tidningens redaktion, ofta ledarskribenten, tar ställning i en aktuell fråga utifrån tidningens politiska hållning. Till skillnad från en nyhetsartikel ska en ledare alltså inte vara objektiv, utan uttrycka en åsikt."
+    },
+    {
+      "id": "q-sam7-med-11",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Vad är en primärkälla?",
+      "opener": "Tänk på vem som var närmast händelsen när informationen skapades.",
+      "choices": [
+        "En förstahandskälla, till exempel ett ögonvittne eller ett originaldokument",
+        "En källa som bara upprepar vad andra redan sagt",
+        "En källa som alltid är falsk",
+        "En källa som inte får användas i skolarbeten"
+      ],
+      "answer": 0,
+      "explanation": "En primärkälla är en förstahandskälla som står närmast händelsen, till exempel ett ögonvittne, ett originaldokument eller en intervju med den inblandade. En källa som bara återger vad en primärkälla redan sagt kallas i stället en sekundärkälla."
+    },
+    {
+      "id": "q-sam7-med-12",
+      "kind": "mc",
+      "topic": "sociala medier och näthat",
+      "prompt": "Vad bör du göra om du själv blir utsatt för kränkningar på nätet?",
+      "opener": "Tänk på att både bevara bevis och ta hjälp av andra.",
+      "choices": [
+        "Spara bevis genom skärmdumpar, blockera personen, berätta för en vuxen och vid behov anmäla till polisen",
+        "Svara med att kränka tillbaka så hårt som möjligt",
+        "Radera allt direkt utan att spara några bevis",
+        "Strunta i det eftersom inget kan göras online"
+      ],
+      "answer": 0,
+      "explanation": "Om du blir utsatt för näthat är det viktigt att spara bevis genom skärmdumpar, blockera personen, berätta för en vuxen och vid behov polisanmäla, eftersom flera former av kränkningar på nätet är brottsliga. Att kränka tillbaka eller radera bevis utan att spara dem gör det svårare att få hjälp och stoppa beteendet."
+    },
+    {
+      "id": "q-sam7-med-13",
+      "kind": "mc",
+      "topic": "yttrandefrihet",
+      "prompt": "Vilket av följande är ett exempel på en laglig gräns för yttrandefriheten i Sverige?",
+      "opener": "Tänk på skillnaden mellan att uttrycka en åsikt och att hetsa mot en grupp av människor.",
+      "choices": [
+        "Hets mot folkgrupp",
+        "Att uttrycka en politisk åsikt i en insändare",
+        "Att kritisera en myndighet i en debattartikel",
+        "Att recensera en film negativt"
+      ],
+      "answer": 0,
+      "explanation": "Hets mot folkgrupp är olagligt i Sverige och en av de gränser som begränsar den annars mycket vida yttrandefriheten. Att uttrycka politiska åsikter, kritisera myndigheter eller recensera en film negativt är däremot helt tillåtet inom ramen för yttrandefriheten."
+    },
+    {
+      "id": "q-sam7-med-14",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Vad är en filterbubbla?",
+      "opener": "Tänk på hur sociala medier väljer ut vad som visas i ditt flöde.",
+      "choices": [
+        "Att algoritmer på nätet mest visar innehåll som liknar det du redan gillat, vilket gör att du ser färre andra perspektiv",
+        "Ett filter som automatiskt rensar bort alla falska nyheter",
+        "Ett fysiskt filter i datorns hårdvara",
+        "Ett annat ord för papperstidning"
+      ],
+      "answer": 0,
+      "explanation": "En filterbubbla uppstår när algoritmer visar mer av sådant du redan gillat eller instämt i, vilket gör att du ser färre motstridiga eller andra perspektiv. Det är alltså inte ett tekniskt filter som tar bort falsk information, utan snarare tvärtom kan göra det svårare att upptäcka den."
+    },
+    {
+      "id": "q-sam7-med-15",
+      "kind": "mc",
+      "topic": "mediernas roll",
+      "prompt": "Vad är en viktig skillnad mellan traditionella nyhetsmedier och sociala medier när det gäller publicering?",
+      "opener": "Tänk på vem som kontrollerar innehållet innan det når läsaren.",
+      "choices": [
+        "Traditionella nyhetsmedier har oftast en redaktion som faktagranskar innan publicering, medan vem som helst kan publicera direkt på sociala medier",
+        "Det finns ingen skillnad alls",
+        "Sociala medier har alltid en redaktion som granskar varje inlägg",
+        "Traditionella medier publicerar aldrig fel"
+      ],
+      "answer": 0,
+      "explanation": "Traditionella nyhetsmedier har oftast en redaktion med ansvarig utgivare som faktagranskar innehållet innan publicering, medan vem som helst kan publicera direkt på sociala medier utan någon sådan granskning. Det gör det extra viktigt att vara källkritisk mot information som sprids på sociala medier."
     }
   ]
 }

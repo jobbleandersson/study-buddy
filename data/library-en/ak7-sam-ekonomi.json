@@ -125,6 +125,111 @@
       "prompt": "Summarise the basics of personal finance and consumer rights.",
       "opener": "Go through income and expenses, budget, saving and loans, needs and wants, and your rights.",
       "answer": "Income: money in — wages, allowance, study grants · Expense: money out — food, bus, phone, subscriptions · Surplus: income minus expenses, what you can save · Deficit: expenses are greater than income, then something has to change · Budget: a plan for coming income and expenses, usually per month · Fixed expenses: the same every month, e.g. subscriptions and a bus pass · Variable expenses: they vary, e.g. entertainment and clothes · Saving: money you set aside, the bank pays you interest · Loans: money you're allowed to borrow and pay back, you pay the bank interest — expensive payday loans and instalment plans can quickly become a debt trap · Needs: what you can't manage without (food, housing, clothes) · Wants: what you can manage without but would like to have · Advertising: wants to get you to buy, often through emotions, influencers and time pressure — hidden advertising must be labelled as an ad · Consumer rights: 14 days' right of withdrawal for online purchases, a 3-year right to complain if an item is faulty, always keep the receipt · Help and advice: the Hallå konsument consumer advice service and the municipality's consumer advisers."
+    },
+    {
+      "id": "q-sam7-eko-9",
+      "kind": "mc",
+      "topic": "income and expenses",
+      "prompt": "What is the difference between gross pay and net pay?",
+      "opener": "Think about what gets deducted before the money reaches your account.",
+      "choices": [
+        "Gross pay is the wage before tax is deducted, net pay is what you get after tax",
+        "They are exactly the same thing",
+        "Net pay is always higher than gross pay",
+        "Gross pay is only paid to companies"
+      ],
+      "answer": 0,
+      "explanation": "Gross pay is the full wage before tax is deducted, while net pay is what is actually paid out to you after tax has been subtracted. Net pay is therefore always lower than or equal to gross pay, never higher."
+    },
+    {
+      "id": "q-sam7-eko-10",
+      "kind": "mc",
+      "topic": "saving and loans",
+      "prompt": "What is the advantage of saving money in a savings account compared to keeping it as cash at home?",
+      "opener": "Think about both safety and whether the money can grow in value.",
+      "choices": [
+        "The money grows through interest and is safer against things like theft or fire",
+        "There is no advantage at all",
+        "Cash at home always earns more interest",
+        "The bank automatically takes the money if you save it there"
+      ],
+      "answer": 0,
+      "explanation": "Money in a savings account is protected by the bank against things like theft and fire, and the bank also pays interest so the money grows a little over time. Cash at home earns no interest at all and is more exposed if something were to happen at home."
+    },
+    {
+      "id": "q-sam7-eko-11",
+      "kind": "mc",
+      "topic": "needs and wants",
+      "prompt": "A student has money left over after buying food and the bus pass needed to get to school. Which of the following is an example of a want the student could choose to spend the money on?",
+      "opener": "A want is nice to have but not something you must have to get by.",
+      "choices": [
+        "More textbooks required for the course",
+        "A cinema ticket just for fun",
+        "More food if it's actually needed",
+        "A new bus pass if the old one has expired and is needed for the trip to school"
+      ],
+      "answer": 1,
+      "explanation": "A cinema ticket is a want — something fun to treat yourself to but that you can manage without. Textbooks required for the course, food you actually need, and a bus pass to get to school are instead needs, since they are necessary."
+    },
+    {
+      "id": "q-sam7-eko-12",
+      "kind": "mc",
+      "topic": "advertising and consumer rights",
+      "prompt": "What is the right to complain (reklamationsrätt)?",
+      "opener": "Unlike the right of withdrawal, the item must actually be faulty, not just something you changed your mind about.",
+      "choices": [
+        "The right to complain, within a certain time, normally 3 years, about an item that was already faulty at the time of purchase",
+        "The right to always change your mind about an item for no reason",
+        "The right to never have to pay for an item",
+        "The right to complain about an item after an unlimited time with no receipt"
+      ],
+      "answer": 0,
+      "explanation": "The right to complain gives you the right to complain about an item that is faulty, normally within three years of purchase, and the seller should then repair it, exchange it, or refund your money. This differs from the right of withdrawal, which applies even if the item is completely fault-free but you've simply changed your mind."
+    },
+    {
+      "id": "q-sam7-eko-13",
+      "kind": "mc",
+      "topic": "advertising and consumer rights",
+      "prompt": "How does advertising often influence consumers?",
+      "opener": "Think about what means advertising usually uses to make you want to buy something.",
+      "choices": [
+        "Advertising is always completely objective fact",
+        "Advertising wants to stir up emotions and create wants, often by linking the item to status or happiness",
+        "Advertising is never allowed to be shown to children in Sweden",
+        "Advertising has no influence at all on purchasing decisions"
+      ],
+      "answer": 1,
+      "explanation": "Advertising often tries to influence emotions rather than just provide factual information, for example by linking a product to status, belonging or happiness. That makes it important to be critical of advertising too, and to separate what you actually need from what the advertising makes you want."
+    },
+    {
+      "id": "q-sam7-eko-14",
+      "kind": "mc",
+      "topic": "budget",
+      "prompt": "Your fixed expenses are 800 kr per month and your variable expenses usually range between 200 and 400 kr. What is most important to think about when planning your budget?",
+      "opener": "Think about what happens if a month turns out more expensive than usual.",
+      "choices": [
+        "You only need to think about the fixed expenses",
+        "You should plan for the highest possible level of the variable expenses so the money is enough even in a more expensive month",
+        "You can ignore the variable expenses completely",
+        "You should always assume the variable expenses will be 0 kr"
+      ],
+      "answer": 1,
+      "explanation": "By budgeting for the higher level of variable expenses, you make sure the money is enough even in months when the variable costs turn out higher. If you only account for the fixed expenses or assume the variable ones will be zero, you risk the money not being enough."
+    },
+    {
+      "id": "q-sam7-eko-15",
+      "kind": "mc",
+      "topic": "saving and loans",
+      "prompt": "What risks can payday loans involve?",
+      "opener": "Think about how the interest rate on a payday loan usually compares to other loans.",
+      "choices": [
+        "Payday loans often have high interest and can quickly lead to a debt trap if you can't pay back on time",
+        "Payday loans are always interest-free",
+        "Payday loans are the cheapest form of loan",
+        "Payday loans involve no risks at all"
+      ],
+      "answer": 0,
+      "explanation": "Payday loans often have a very high interest rate compared to ordinary bank loans, and if you can't pay back on time, the debt grows quickly through interest and fees. This means payday loans and similar instalment plans can easily lead to a debt trap that's hard to get out of."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Summarise the role of the media, the questions of source criticism, and the rules online.",
       "opener": "Take the media's task first, then the types of text, source criticism, and finally rights and limits.",
       "answer": "The role of the media: to inform, scrutinise those in power, and give room for debate — sometimes called the fourth estate · News: should report what happened factually and from several perspectives · Opinion text: opinion piece, letter to the editor, column, editorial — wants to persuade · Advertising: wants to sell, must be labelled as an ad, even when an influencer makes it · The questions of source criticism: Who is the sender? When was it published? Why was it published? Can the claim be confirmed by independent sources? · Dependent sources: pages that just repeat each other count as a single source · Disinformation: false information spread deliberately · Filter bubble: algorithms mostly show you things you already like, so you see fewer other perspectives · Freedom of speech: a constitutionally protected right to express opinions, prior censorship is forbidden · Limits: unlawful threats, defamation, harassment and incitement against an ethnic or national group are crimes — the same laws apply online as offline · If you experience online hate: save evidence (screenshots), block, tell an adult, and report it to the police."
+    },
+    {
+      "id": "q-sam7-med-9",
+      "kind": "mc",
+      "topic": "the role of the media",
+      "prompt": "Why are the media sometimes called \"the fourth estate\"?",
+      "opener": "Think about what monitoring function the media have in relation to those who govern.",
+      "choices": [
+        "Because they scrutinise those in power and inform citizens, alongside the legislative and executive powers",
+        "Because journalists get to vote twice in elections",
+        "Because the media own every company in the country",
+        "Because the media decide the courts' verdicts"
+      ],
+      "answer": 0,
+      "explanation": "The media are sometimes called the fourth estate because they scrutinise those who hold power (for example parliament and the government) and inform citizens, which is an important function in a democracy alongside the legislative and executive powers. The media neither vote twice, own every company, nor decide verdicts."
+    },
+    {
+      "id": "q-sam7-med-10",
+      "kind": "mc",
+      "topic": "news and opinion",
+      "prompt": "What is an editorial in a newspaper?",
+      "opener": "The word \"editorial\" is a clue — whose stance does the text present?",
+      "choices": [
+        "A text in which the newspaper's editorial team takes a position on an issue based on the paper's political stance",
+        "A completely objective news article with no opinions",
+        "An advertisement for a product",
+        "A list of sports results"
+      ],
+      "answer": 0,
+      "explanation": "An editorial is an opinion text in which the newspaper's editorial team, often the leader writer, takes a position on a current issue based on the paper's political stance. Unlike a news article, an editorial is therefore not meant to be objective, but to express an opinion."
+    },
+    {
+      "id": "q-sam7-med-11",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "What is a primary source?",
+      "opener": "Think about who was closest to the event when the information was created.",
+      "choices": [
+        "A firsthand source, for example an eyewitness or an original document",
+        "A source that just repeats what others have already said",
+        "A source that is always false",
+        "A source that isn't allowed to be used in school assignments"
+      ],
+      "answer": 0,
+      "explanation": "A primary source is a firsthand source closest to the event, for example an eyewitness, an original document, or an interview with someone involved. A source that only relays what a primary source has already said is instead called a secondary source."
+    },
+    {
+      "id": "q-sam7-med-12",
+      "kind": "mc",
+      "topic": "social media and online hate",
+      "prompt": "What should you do if you yourself are subjected to abuse online?",
+      "opener": "Think about both preserving evidence and getting help from others.",
+      "choices": [
+        "Save evidence with screenshots, block the person, tell an adult, and report it to the police if necessary",
+        "Respond by being as offensive as possible in return",
+        "Delete everything right away without saving any evidence",
+        "Ignore it since nothing can be done online"
+      ],
+      "answer": 0,
+      "explanation": "If you're subjected to online hate, it's important to save evidence with screenshots, block the person, tell an adult, and report it to the police if necessary, since several forms of online abuse are criminal. Retaliating or deleting evidence without saving it makes it harder to get help and stop the behaviour."
+    },
+    {
+      "id": "q-sam7-med-13",
+      "kind": "mc",
+      "topic": "freedom of speech",
+      "prompt": "Which of the following is an example of a legal limit on freedom of speech in Sweden?",
+      "opener": "Think about the difference between expressing an opinion and inciting against a group of people.",
+      "choices": [
+        "Incitement against an ethnic or national group",
+        "Expressing a political opinion in a letter to the editor",
+        "Criticising an authority in an opinion piece",
+        "Giving a film a negative review"
+      ],
+      "answer": 0,
+      "explanation": "Incitement against an ethnic or national group is illegal in Sweden and one of the limits that restrict the otherwise very broad freedom of speech. Expressing political opinions, criticising authorities, or giving a film a negative review are, however, entirely allowed within freedom of speech."
+    },
+    {
+      "id": "q-sam7-med-14",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "What is a filter bubble?",
+      "opener": "Think about how social media chooses what to show in your feed.",
+      "choices": [
+        "That algorithms online mostly show content similar to what you already like, so you see fewer other perspectives",
+        "A filter that automatically removes all fake news",
+        "A physical filter inside a computer's hardware",
+        "Another word for a printed newspaper"
+      ],
+      "answer": 0,
+      "explanation": "A filter bubble arises when algorithms show more of what you already like or agree with, so you see fewer conflicting or other perspectives. It is therefore not a technical filter that removes false information — if anything, it can make such information harder to spot."
+    },
+    {
+      "id": "q-sam7-med-15",
+      "kind": "mc",
+      "topic": "the role of the media",
+      "prompt": "What is an important difference between traditional news media and social media when it comes to publishing?",
+      "opener": "Think about who checks the content before it reaches the reader.",
+      "choices": [
+        "Traditional news media usually have an editorial team that fact-checks before publishing, while anyone can publish directly on social media",
+        "There is no difference at all",
+        "Social media always has an editorial team that reviews every post",
+        "Traditional media never publish anything wrong"
+      ],
+      "answer": 0,
+      "explanation": "Traditional news media usually have an editorial team with a responsible publisher who fact-checks the content before publishing, while anyone can publish directly on social media without any such review. That makes it especially important to be critical of sources when it comes to information spread on social media."
     }
   ]
 }

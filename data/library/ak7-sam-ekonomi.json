@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta grunderna i privatekonomi och konsumenträtt.",
       "opener": "Gå igenom inkomst och utgift, budget, sparande och lån, behov och önskemål samt dina rättigheter.",
       "answer": "Inkomst: pengar in — lön, månadspeng, studiebidrag · Utgift: pengar ut — mat, buss, mobil, prenumerationer · Överskott: inkomst minus utgift, det du kan spara · Underskott: utgifterna är större än inkomsterna, då måste något ändras · Budget: plan över kommande inkomster och utgifter, oftast per månad · Fasta utgifter: samma varje månad, t.ex. abonnemang och busskort · Rörliga utgifter: varierar, t.ex. nöjen och kläder · Sparande: pengar man lägger undan, banken betalar ränta till dig · Lån: pengar man får låna och betala tillbaka, du betalar ränta till banken — dyra snabblån och delbetalningar kan snabbt bli en skuldfälla · Behov: det man inte klarar sig utan (mat, bostad, kläder) · Önskemål: det man klarar sig utan men gärna vill ha · Reklam: vill få dig att köpa, ofta genom känslor, influerare och tidspress — dold reklam måste märkas som annons · Konsumenträtt: 14 dagars ångerrätt vid köp på nätet, reklamationsrätt i 3 år om varan är felaktig, spara alltid kvittot · Hjälp och råd: Hallå konsument och kommunens konsumentvägledare."
+    },
+    {
+      "id": "q-sam7-eko-9",
+      "kind": "mc",
+      "topic": "inkomst och utgift",
+      "prompt": "Vad är skillnaden mellan bruttolön och nettolön?",
+      "opener": "Tänk på vad som dras bort innan pengarna hamnar på ditt konto.",
+      "choices": [
+        "Bruttolön är lönen innan skatt är dragen, nettolön är det du får ut efter skatt",
+        "De är exakt samma sak",
+        "Nettolön är alltid högre än bruttolön",
+        "Bruttolön betalas bara till företag"
+      ],
+      "answer": 0,
+      "explanation": "Bruttolönen är hela lönen innan skatt dras, medan nettolönen är det som faktiskt betalas ut till dig efter att skatten är avdragen. Nettolönen är därför alltid lägre än eller lika med bruttolönen, aldrig högre."
+    },
+    {
+      "id": "q-sam7-eko-10",
+      "kind": "mc",
+      "topic": "sparande och lån",
+      "prompt": "Vad är fördelen med att spara pengar på ett sparkonto jämfört med att förvara dem som kontanter hemma?",
+      "opener": "Tänk på både säkerhet och om pengarna kan öka i värde.",
+      "choices": [
+        "Pengarna växer genom ränta och är säkrare mot till exempel stöld eller brand",
+        "Det finns ingen fördel alls",
+        "Kontanter hemma ger alltid mer ränta",
+        "Banken tar automatiskt pengarna om man sparar där"
+      ],
+      "answer": 0,
+      "explanation": "Pengar på ett sparkonto skyddas av banken mot till exempel stöld och brand, och banken betalar dessutom ränta så att pengarna växer något över tid. Kontanter hemma ger ingen ränta alls och är mer utsatta om något skulle hända i hemmet."
+    },
+    {
+      "id": "q-sam7-eko-11",
+      "kind": "mc",
+      "topic": "behov och önskemål",
+      "prompt": "En elev har pengar kvar efter att ha köpt mat och det busskort som behövs för att ta sig till skolan. Vilket av följande är ett exempel på ett önskemål eleven kan välja att lägga pengarna på?",
+      "opener": "Ett önskemål är trevligt att ha men inget man måste ha för att klara sig.",
+      "choices": [
+        "Fler skolböcker som krävs för kursen",
+        "En biobiljett för nöjes skull",
+        "Mer mat om det verkligen behövs",
+        "Ett nytt busskort om det gamla gått ut och behövs för resan till skolan"
+      ],
+      "answer": 1,
+      "explanation": "En biobiljett är ett önskemål — något roligt att unna sig men som man klarar sig utan. Skolböcker som krävs för kursen, mat man faktiskt behöver och ett busskort för att ta sig till skolan räknas i stället som behov, eftersom de är nödvändiga."
+    },
+    {
+      "id": "q-sam7-eko-12",
+      "kind": "mc",
+      "topic": "reklam och konsumenträtt",
+      "prompt": "Vad är reklamationsrätt?",
+      "opener": "Skillnaden mot ångerrätten är att varan måste vara felaktig, inte att man bara ångrat sig.",
+      "choices": [
+        "Rätten att inom en viss tid, normalt 3 år, klaga på en vara som var felaktig redan vid köpet",
+        "Rätten att alltid byta åsikt om en vara utan anledning",
+        "Rätten att aldrig behöva betala för en vara",
+        "Rätten att reklamera en vara efter obegränsad tid utan kvitto"
+      ],
+      "answer": 0,
+      "explanation": "Reklamationsrätten ger dig rätt att klaga på en vara som är felaktig, i normalfallet inom tre år från köpet, och säljaren ska då reparera, byta eller ge pengarna tillbaka. Det skiljer sig från ångerrätten, som gäller även om varan är helt felfri men du ändå ångrar dig."
+    },
+    {
+      "id": "q-sam7-eko-13",
+      "kind": "mc",
+      "topic": "reklam och konsumenträtt",
+      "prompt": "Hur påverkar reklam ofta konsumenter?",
+      "opener": "Tänk på vilka medel reklam vanligen använder för att få dig att vilja köpa något.",
+      "choices": [
+        "Reklam är alltid helt objektiv fakta",
+        "Reklam vill väcka känslor och skapa behov, ofta genom att koppla varan till status eller lycka",
+        "Reklam får aldrig visas för barn i Sverige",
+        "Reklam har ingen påverkan alls på köpbeslut"
+      ],
+      "answer": 1,
+      "explanation": "Reklam vill ofta påverka känslor snarare än att bara ge saklig information, till exempel genom att koppla en vara till status, gemenskap eller lycka. Det gör det viktigt att vara källkritisk även mot reklam, och att skilja på vad man faktiskt behöver och vad reklamen får en att vilja ha."
+    },
+    {
+      "id": "q-sam7-eko-14",
+      "kind": "mc",
+      "topic": "budget",
+      "prompt": "Dina fasta utgifter är 800 kr per månad och dina rörliga utgifter brukar variera mellan 200 och 400 kr. Vad är viktigast att tänka på när du planerar din budget?",
+      "opener": "Tänk på vad som händer om en månad blir dyrare än vanligt.",
+      "choices": [
+        "Bara de fasta utgifterna behöver man tänka på",
+        "Man bör räkna med de rörliga utgifternas högsta möjliga nivå så att pengarna räcker även en dyrare månad",
+        "Rörliga utgifter kan man strunta i helt",
+        "Man ska alltid anta att rörliga utgifter blir 0 kr"
+      ],
+      "answer": 1,
+      "explanation": "Genom att räkna med den högre nivån av rörliga utgifter i budgeten säkerställer du att pengarna räcker även de månader då de rörliga kostnaderna blir högre. Om man bara räknar med de fasta utgifterna eller antar att de rörliga blir noll riskerar man att pengarna inte räcker till."
+    },
+    {
+      "id": "q-sam7-eko-15",
+      "kind": "mc",
+      "topic": "sparande och lån",
+      "prompt": "Vad kan snabblån innebära för risker?",
+      "opener": "Tänk på hur räntan på ett snabblån brukar jämföras med andra lån.",
+      "choices": [
+        "Snabblån har ofta hög ränta och kan snabbt leda till en skuldfälla om man inte kan betala tillbaka i tid",
+        "Snabblån är alltid räntefria",
+        "Snabblån är den billigaste formen av lån",
+        "Snabblån innebär inga risker alls"
+      ],
+      "answer": 0,
+      "explanation": "Snabblån har ofta en mycket hög ränta jämfört med vanliga banklån, och om man inte kan betala tillbaka i tid växer skulden snabbt genom ränta och avgifter. Det gör att snabblån och liknande delbetalningar lätt kan leda till en skuldfälla som är svår att ta sig ur."
     }
   ]
 }
