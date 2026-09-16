@@ -113,6 +113,111 @@
       "prompt": "Hur fungerar ordföljden i huvudsatser jämfört med bisatser på tyska?",
       "opener": "En av de tydligaste skillnaderna mellan tyska och svenska.",
       "answer": "Huvudsats: det böjda verbet står alltid på plats två, oavsett vad som kommer först (Ich spiele heute. / Heute spiele ich.). Bisats (efter weil, dass, wenn, ob m.fl.): det böjda verbet flyttas till SISTA platsen i bisatsen (..., weil ich krank bin. / Ich weiß, dass du recht hast.). Vanliga bisats-konjunktioner: weil = eftersom, dass = att, wenn = om/när, ob = om (huruvida)."
+    },
+    {
+      "id": "q-de9-word-9",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Vilket element står ALLTID på plats två i en tysk huvudsats?",
+      "opener": "Detta gäller oavsett vad som står allra först i meningen.",
+      "choices": [
+        "Det böjda verbet",
+        "Subjektet",
+        "Tidsangivelsen",
+        "Objektet"
+      ],
+      "answer": 0,
+      "explanation": "Det böjda verbet står alltid på plats två i en huvudsats, oavsett vad som kommer först."
+    },
+    {
+      "id": "q-de9-word-10",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Välj rätt ordföljd: \"På lördagar spelar jag fotboll.\"",
+      "opener": "Meningen börjar med tidsangivelsen \"am Samstag\".",
+      "choices": [
+        "Am Samstag spiele ich Fußball.",
+        "Am Samstag ich spiele Fußball.",
+        "Ich am Samstag spiele Fußball.",
+        "Spiele ich am Samstag Fußball."
+      ],
+      "answer": 0,
+      "explanation": "\"Am Samstag\" tar plats ett, verbet \"spiele\" måste ändå stå på plats två: \"Am Samstag spiele ich Fußball.\""
+    },
+    {
+      "id": "q-de9-word-11",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Vad betyder konjunktionen \"wenn\"?",
+      "opener": "En vanlig konjunktion för villkor eller tidpunkt.",
+      "choices": [
+        "om/när",
+        "men",
+        "och",
+        "eller"
+      ],
+      "answer": 0,
+      "explanation": "\"Wenn\" betyder \"om\"/\"när\" och inleder en bisats där verbet flyttas till slutet."
+    },
+    {
+      "id": "q-de9-word-12",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Vad betyder konjunktionen \"ob\"?",
+      "opener": "Används ofta efter uttryck som \"jag vet inte...\".",
+      "choices": [
+        "om (huruvida)",
+        "eftersom",
+        "att",
+        "men"
+      ],
+      "answer": 0,
+      "explanation": "\"Ob\" betyder \"om\" i betydelsen \"huruvida\", t.ex. \"Ich weiß nicht, ob er kommt\" (jag vet inte om han kommer)."
+    },
+    {
+      "id": "q-de9-word-13",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Välj rätt mening: \"Jag tror att han har rätt.\"",
+      "opener": "Verbet \"hat\" ska hamna sist i bisatsen efter \"dass\".",
+      "choices": [
+        "Ich glaube, dass er recht hat.",
+        "Ich glaube, dass er hat recht.",
+        "Ich glaube, er dass recht hat.",
+        "Ich glaube, dass recht er hat."
+      ],
+      "answer": 0,
+      "explanation": "\"Dass er recht hat\" — verbet \"hat\" hamnar sist i bisatsen."
+    },
+    {
+      "id": "q-de9-word-14",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Vilken mening har korrekt ordföljd?",
+      "opener": "Verbet \"kommt\" ska stå sist i bisatsen efter \"ob\".",
+      "choices": [
+        "Ich weiß nicht, ob er morgen kommt.",
+        "Ich weiß nicht, ob er kommt morgen.",
+        "Ich weiß nicht, ob kommt er morgen.",
+        "Ich weiß nicht, er ob morgen kommt."
+      ],
+      "answer": 0,
+      "explanation": "\"Ob er morgen kommt\" — verbet \"kommt\" hamnar sist i bisatsen."
+    },
+    {
+      "id": "q-de9-word-15",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Om en bisats (t.ex. en weil-sats) kommer FÖRST i en hel mening, t.ex. \"Weil ich krank bin, bleibe ich zu Hause\" — vad händer med huvudsatsen som följer?",
+      "opener": "Hela bisatsen räknas som plats ett i den sammansatta meningen.",
+      "choices": [
+        "Verbet i huvudsatsen kommer direkt efter kommatecknet",
+        "Verbet i huvudsatsen kommer sist i hela meningen",
+        "Bisatsen måste alltid komma sist",
+        "Det blir ingen skillnad jämfört med om bisatsen kommer sist"
+      ],
+      "answer": 0,
+      "explanation": "Hela bisatsen (\"weil ich krank bin\") räknas som plats ett, så huvudsatsens böjda verb (\"bleibe\") kommer direkt efter kommatecknet, på plats två."
     }
   ]
 }

@@ -113,6 +113,111 @@
       "prompt": "How is the perfect tense formed in German, and when do you use haben versus sein?",
       "opener": "Two auxiliary verbs and two kinds of participles.",
       "answer": "Structure: haben/sein conjugated (position 2) + participle (at the end of the sentence). Sein is used for movement/change of state: gehen → ist gegangen, fahren → ist gefahren, kommen → ist gekommen, sein → ist gewesen. Haben is used for most other verbs: machen → hat gemacht, essen → hat gegessen, spielen → hat gespielt, sehen → hat gesehen. Regular participles: ge+stem+t. Strong (irregular) participles: ge+stem+en, often with a changed stem vowel."
+    },
+    {
+      "id": "q-de9-perf-9",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Choose the right auxiliary verb: \"Sie ___ nach Hause gekommen.\" (kommen = movement; she came home)",
+      "opener": "\"Kommen\" describes movement.",
+      "choices": [
+        "ist",
+        "hat",
+        "sind",
+        "haben"
+      ],
+      "answer": 0,
+      "explanation": "\"Kommen\" describes motion/movement, so it uses \"sein\": \"sie ist ... gekommen\"."
+    },
+    {
+      "id": "q-de9-perf-10",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "Which participle belongs to \"trinken\" (to drink)? A strong verb.",
+      "opener": "Strong verbs can change their stem vowel in the participle.",
+      "choices": [
+        "getrunken",
+        "getrinkt",
+        "trinkt",
+        "getrinken"
+      ],
+      "answer": 0,
+      "explanation": "\"Trinken\" is strong (irregular): participle \"getrunken\", with the vowel change i→u."
+    },
+    {
+      "id": "q-de9-perf-11",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Choose the right auxiliary verb: \"Wir ___ ins Kino gegangen.\" (gehen = movement)",
+      "opener": "\"Gehen\" describes movement.",
+      "choices": [
+        "sind",
+        "haben",
+        "ist",
+        "hat"
+      ],
+      "answer": 0,
+      "explanation": "\"Gehen\" describes motion, so it uses \"sein\": \"wir sind ... gegangen\"."
+    },
+    {
+      "id": "q-de9-perf-12",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "Which participle belongs to \"sprechen\" (to speak)? A strong verb.",
+      "opener": "The stem vowel changes from e to o.",
+      "choices": [
+        "gesprochen",
+        "gesprecht",
+        "gesprechen",
+        "sprachte"
+      ],
+      "answer": 0,
+      "explanation": "\"Sprechen\" is strong (irregular): participle \"gesprochen\", with the vowel change e→o."
+    },
+    {
+      "id": "q-de9-perf-13",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Choose the right auxiliary verb: \"Ich ___ müde gewesen.\" (sein = to be; I was tired)",
+      "opener": "\"Sein\" (to be) is one of the verbs that is itself conjugated with sein as its auxiliary.",
+      "choices": [
+        "bin",
+        "habe",
+        "ist",
+        "hat"
+      ],
+      "answer": 0,
+      "explanation": "\"Sein\" is conjugated with itself as the auxiliary verb in the perfect tense: \"ich bin ... gewesen\"."
+    },
+    {
+      "id": "q-de9-perf-14",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "Which participle belongs to \"kaufen\" (to buy)? A regular verb.",
+      "opener": "ge- + stem + -t.",
+      "choices": [
+        "gekauft",
+        "gekaufen",
+        "kaufte",
+        "gekauf"
+      ],
+      "answer": 0,
+      "explanation": "Regular verbs: ge- + stem + -t. \"Kaufen\" → \"gekauft\"."
+    },
+    {
+      "id": "q-de9-perf-15",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Which of these verbs describes NO movement and therefore needs haben?",
+      "opener": "The other three are all classic \"sein\" verbs.",
+      "choices": [
+        "lesen",
+        "gehen",
+        "kommen",
+        "fahren"
+      ],
+      "answer": 0,
+      "explanation": "\"Lesen\" (to read) describes no movement, so it uses \"haben\". \"Gehen\", \"kommen\", and \"fahren\" all describe motion and use \"sein\"."
     }
   ]
 }

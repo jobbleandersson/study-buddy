@@ -113,6 +113,111 @@
       "prompt": "How do you form comparisons and describe a daily routine in German?",
       "opener": "Comparative/superlative and reflexive verbs for everyday life.",
       "answer": "Comparisons: adjective + -er = comparative (schnell → schneller) · am + adjective + -(e)sten = superlative (am schnellsten) · ... als = ... than · gut → besser → am besten (irregular) · groß → größer → am größten (irregular). Daily routine (reflexive verbs): sich aufwecken/aufstehen = to wake up/get up · sich duschen = to shower · sich anziehen = to get dressed · frühstücken = to eat breakfast · sich hinlegen = to go to bed. Reflexive pronouns: mich, dich, sich, uns, euch, sich."
+    },
+    {
+      "id": "q-de9-daily-9",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "What is the comparative of \"groß\" (big)?",
+      "opener": "\"Groß\" forms the comparative irregularly, with an umlaut change a→ö.",
+      "choices": [
+        "größer",
+        "großer",
+        "am größten",
+        "mehr groß"
+      ],
+      "answer": 0,
+      "explanation": "\"Groß\" has the irregular comparative form \"größer\" (bigger), with the vowel change a→ö."
+    },
+    {
+      "id": "q-de9-daily-10",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "What is the superlative of \"groß\" (big)?",
+      "opener": "The superlative is formed with \"am\" + umlauted stem + \"-sten\".",
+      "choices": [
+        "am größten",
+        "größer",
+        "größten",
+        "am großsten"
+      ],
+      "answer": 0,
+      "explanation": "\"Groß\" has the superlative form \"am größten\" (biggest)."
+    },
+    {
+      "id": "q-de9-daily-11",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "What does \"Ich ziehe mich an\" mean?",
+      "opener": "A reflexive verb with two parts, just like \"aufstehen\".",
+      "choices": [
+        "I get dressed",
+        "I get undressed",
+        "I take a shower",
+        "I brush my teeth"
+      ],
+      "answer": 0,
+      "explanation": "\"Sich anziehen\" means \"to get dressed\", and \"ich ziehe mich an\" means \"I get dressed\"."
+    },
+    {
+      "id": "q-de9-daily-12",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "What does \"Normalerweise frühstücke ich um sieben\" mean?",
+      "opener": "\"Normalerweise\" signals a recurring habit.",
+      "choices": [
+        "I usually eat breakfast at seven",
+        "I never eat breakfast",
+        "I ate breakfast yesterday at seven",
+        "I'm going to eat breakfast at seven"
+      ],
+      "answer": 0,
+      "explanation": "\"Normalerweise frühstücke ich um sieben\" means \"I usually eat breakfast at seven\" — a description of a regular routine."
+    },
+    {
+      "id": "q-de9-daily-13",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "What does the phrase \"genauso ... wie\" mean?",
+      "opener": "Expresses that two things are exactly equal.",
+      "choices": [
+        "just as ... as",
+        "more ... than",
+        "less ... than",
+        "best"
+      ],
+      "answer": 0,
+      "explanation": "\"Genauso ... wie\" means \"just as ... as\", e.g. \"mein Haus ist genauso groß wie deins\" (my house is just as big as yours)."
+    },
+    {
+      "id": "q-de9-daily-14",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "What does \"Wir wachen um sechs Uhr auf\" mean?",
+      "opener": "\"Aufwachen\" is another participle-like verb, just like \"aufstehen\".",
+      "choices": [
+        "We wake up at six o'clock",
+        "We fall asleep at six o'clock",
+        "We eat at six o'clock",
+        "We get home at six o'clock"
+      ],
+      "answer": 0,
+      "explanation": "\"Aufwachen\" means \"to wake up\", and \"wir wachen ... auf\" means \"we wake up\"."
+    },
+    {
+      "id": "q-de9-daily-15",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "What is the comparative of \"teuer\" (expensive)?",
+      "opener": "A small special case: the middle \"e\" in \"teuer\" drops out in the comparative.",
+      "choices": [
+        "teurer",
+        "teuerer",
+        "teuer",
+        "am teuersten"
+      ],
+      "answer": 0,
+      "explanation": "\"Teuer\" drops its middle \"e\" in the comparative: \"teurer\" (more expensive), not \"teuerer\"."
     }
   ]
 }

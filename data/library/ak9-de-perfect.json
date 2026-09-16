@@ -113,6 +113,111 @@
       "prompt": "Hur bildas perfekt på tyska, och när använder man haben respektive sein?",
       "opener": "Två hjälpverb och två sorters particip.",
       "answer": "Struktur: haben/sein böjt (plats 2) + particip (sist i satsen). Sein används för förflyttning/tillståndsförändring: gehen → ist gegangen, fahren → ist gefahren, kommen → ist gekommen, sein → ist gewesen. Haben används för de flesta andra verb: machen → hat gemacht, essen → hat gegessen, spielen → hat gespielt, sehen → hat gesehen. Regelbundna particip: ge+stam+t. Starka (oregelbundna) particip: ge+stam+en, ofta med ändrad stamvokal."
+    },
+    {
+      "id": "q-de9-perf-9",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Välj rätt hjälpverb: \"Sie ___ nach Hause gekommen.\" (kommen = förflyttning; hon kom hem)",
+      "opener": "\"Kommen\" beskriver en förflyttning.",
+      "choices": [
+        "ist",
+        "hat",
+        "sind",
+        "haben"
+      ],
+      "answer": 0,
+      "explanation": "\"Kommen\" beskriver rörelse/förflyttning, så det använder \"sein\": \"sie ist ... gekommen\"."
+    },
+    {
+      "id": "q-de9-perf-10",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "Vilket particip hör till \"trinken\" (dricka)? Ett starkt verb.",
+      "opener": "Starka verb kan ändra stamvokal i participet.",
+      "choices": [
+        "getrunken",
+        "getrinkt",
+        "trinkt",
+        "getrinken"
+      ],
+      "answer": 0,
+      "explanation": "\"Trinken\" är starkt (oregelbundet): particip \"getrunken\", med vokalbyte i→u."
+    },
+    {
+      "id": "q-de9-perf-11",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Välj rätt hjälpverb: \"Wir ___ ins Kino gegangen.\" (gehen = förflyttning)",
+      "opener": "\"Gehen\" beskriver en förflyttning.",
+      "choices": [
+        "sind",
+        "haben",
+        "ist",
+        "hat"
+      ],
+      "answer": 0,
+      "explanation": "\"Gehen\" beskriver rörelse, så det använder \"sein\": \"wir sind ... gegangen\"."
+    },
+    {
+      "id": "q-de9-perf-12",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "Vilket particip hör till \"sprechen\" (tala)? Ett starkt verb.",
+      "opener": "Stamvokalen ändras från e till o.",
+      "choices": [
+        "gesprochen",
+        "gesprecht",
+        "gesprechen",
+        "sprachte"
+      ],
+      "answer": 0,
+      "explanation": "\"Sprechen\" är starkt (oregelbundet): particip \"gesprochen\", med vokalbyte e→o."
+    },
+    {
+      "id": "q-de9-perf-13",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Välj rätt hjälpverb: \"Ich ___ müde gewesen.\" (sein = att vara; jag var trött)",
+      "opener": "\"Sein\" (att vara) är ett av verben som själva böjs med sein som hjälpverb.",
+      "choices": [
+        "bin",
+        "habe",
+        "ist",
+        "hat"
+      ],
+      "answer": 0,
+      "explanation": "\"Sein\" böjs med sig självt som hjälpverb i perfekt: \"ich bin ... gewesen\"."
+    },
+    {
+      "id": "q-de9-perf-14",
+      "kind": "mc",
+      "topic": "perfect tense",
+      "prompt": "Vilket particip hör till \"kaufen\" (köpa)? Ett regelbundet verb.",
+      "opener": "ge- + stam + -t.",
+      "choices": [
+        "gekauft",
+        "gekaufen",
+        "kaufte",
+        "gekauf"
+      ],
+      "answer": 0,
+      "explanation": "Regelbundna verb: ge- + stam + -t. \"Kaufen\" → \"gekauft\"."
+    },
+    {
+      "id": "q-de9-perf-15",
+      "kind": "mc",
+      "topic": "haben or sein",
+      "prompt": "Vilket av dessa verb beskriver INGEN förflyttning och behöver därför haben?",
+      "opener": "De andra tre är alla klassiska \"sein\"-verb.",
+      "choices": [
+        "lesen",
+        "gehen",
+        "kommen",
+        "fahren"
+      ],
+      "answer": 0,
+      "explanation": "\"Lesen\" (läsa) beskriver ingen förflyttning, så det använder \"haben\". \"Gehen\", \"kommen\" och \"fahren\" beskriver alla rörelse och använder \"sein\"."
     }
   ]
 }

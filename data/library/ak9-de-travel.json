@@ -113,6 +113,111 @@
       "prompt": "Vilka rese- och väderuttryck bör du kunna på åk9-nivå i tyska?",
       "opener": "Att boka, resa och prata om vädret.",
       "answer": "Resor: die Fahrkarte (Einzel-/Hin- und Rückfahrkarte) = biljett (enkel/retur) · der Koffer = resväska · der Reisepass = pass · der Zug/das Flugzeug/der Bus = tåg/flyg/buss · abfahren = avgå · ankommen = anlända · Von wo fährt...ab? = Varifrån avgår...? Väder: es ist warm/kalt/sonnig/windig = det är varmt/kallt/soligt/blåsigt · es regnet = det regnar · es schneit = det snöar · es ist bewölkt = det är molnigt."
+    },
+    {
+      "id": "q-de9-trav-9",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad betyder \"der Bahnsteig\"?",
+      "opener": "Platsen där man väntar på och kliver på tåget.",
+      "choices": [
+        "Perrongen",
+        "Biljettluckan",
+        "Väntsalen",
+        "Utgången"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Bahnsteig\" betyder perrongen, platsen längs spåren där man väntar på och kliver på tåget."
+    },
+    {
+      "id": "q-de9-trav-10",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad betyder \"das Gepäck aufgeben\"?",
+      "opener": "Något man gör i incheckningsdisken innan flyget.",
+      "choices": [
+        "Checka in bagaget",
+        "Öppna bagaget",
+        "Tappa bort bagaget",
+        "Väga bagaget själv"
+      ],
+      "answer": 0,
+      "explanation": "\"Das Gepäck aufgeben\" betyder \"att checka in bagaget\"."
+    },
+    {
+      "id": "q-de9-trav-11",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Vad betyder \"Es ist bewölkt\"?",
+      "opener": "\"Die Wolke\" betyder molnet.",
+      "choices": [
+        "Det är molnigt",
+        "Det är soligt",
+        "Det snöar",
+        "Det blåser"
+      ],
+      "answer": 0,
+      "explanation": "\"Es ist bewölkt\" betyder \"det är molnigt\"."
+    },
+    {
+      "id": "q-de9-trav-12",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Vad betyder \"es friert\"?",
+      "opener": "Ett verb för när temperaturen går under noll.",
+      "choices": [
+        "Det fryser (minusgrader)",
+        "Det är varmt",
+        "Det regnar",
+        "Det är molnigt"
+      ],
+      "answer": 0,
+      "explanation": "\"Es friert\" betyder \"det fryser\", alltså att temperaturen är under noll grader."
+    },
+    {
+      "id": "q-de9-trav-13",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad betyder \"Ist es weit von hier?\"?",
+      "opener": "Frågan handlar om avstånd.",
+      "choices": [
+        "Är det långt härifrån?",
+        "Vilken färg har det?",
+        "Hur mycket kostar det?",
+        "Vad heter platsen?"
+      ],
+      "answer": 0,
+      "explanation": "\"Ist es weit von hier?\" betyder \"är det långt härifrån?\"."
+    },
+    {
+      "id": "q-de9-trav-14",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Vad betyder \"die Temperatur liegt unter null\"?",
+      "opener": "\"Unter null\" betyder bokstavligen \"under noll\".",
+      "choices": [
+        "Temperaturen ligger under noll grader",
+        "Temperaturen är mycket hög",
+        "Vädret är osäkert",
+        "Det är väldigt blåsigt"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Temperatur liegt unter null\" betyder \"temperaturen ligger under noll grader\", alltså minusgrader."
+    },
+    {
+      "id": "q-de9-trav-15",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad betyder \"Der Flug hat Verspätung\"?",
+      "opener": "Något man tyvärr ibland får höra på flygplatsen.",
+      "choices": [
+        "Flyget är försenat",
+        "Flyget är inställt",
+        "Flyget har avgått",
+        "Flyget är fullbokat"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Flug hat Verspätung\" betyder \"flyget är försenat\"."
     }
   ]
 }
