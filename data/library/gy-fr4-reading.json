@@ -122,6 +122,111 @@
       "prompt": "Vilka strategier hjälper dig att analysera en längre, åsiktsdriven fransk text på gymnasienivå?",
       "opener": "Att gå bortom att bara förstå orden, till att förstå textens uppbyggnad.",
       "answer": "Identifiera frågan/tesen texten kretsar kring, ofta i första stycket. Leta efter strukturmarkörer som \"d'un côté / de l'autre\", \"cependant\", \"toutefois\", \"en revanche\" — de visar var argumentationen vänder. Skilj på fakta (études, statistiques) och åsikter (disent-ils, selon certains). Fråga dig om texten tar tydlig ställning eller medvetet balanserar perspektiv — ordval som \"la question divise\" signalerar det senare. Vid svåra ord: använd sammanhanget, särskilt ordet eller frasen direkt före/efter. Sammanfatta varje styckes huvudpoäng i en mening innan du svarar på detaljfrågor."
+    },
+    {
+      "id": "q-fr4-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"Le télétravail, longtemps marginal en France, s'est imposé durablement dans de nombreux secteurs depuis la crise sanitaire de 2020. Ses partisans mettent en avant un meilleur équilibre entre vie professionnelle et vie personnelle, ainsi qu'une réduction du temps de trajet, souvent source de fatigue et de stress. Certaines entreprises constatent même une hausse de la productivité chez les salariés qui travaillent depuis leur domicile. Toutefois, plusieurs experts en ressources humaines s'inquiètent d'un effet pervers : l'isolement social. Privés des échanges informels de la pause-café ou du déjeuner entre collègues, certains employés rapportent un sentiment de solitude, voire un désengagement progressif vis-à-vis de leur entreprise. Par ailleurs, les managers peinent parfois à évaluer la charge de travail réelle de leurs équipes à distance, ce qui peut conduire, paradoxalement, à un surinvestissement plutôt qu'à un relâchement. Face à ces constats contrastés, de nombreuses entreprises optent désormais pour un modèle hybride, combinant jours de télétravail et présence au bureau, dans l'espoir de conserver les avantages des deux formules.\"\n\nVad handlar texten framförallt om?",
+      "opener": "Läs hela texten och väg samman fördelarna, nackdelarna och slutsatsen.",
+      "choices": [
+        "Distansarbetets för- och nackdelar, och den hybridmodell många företag nu väljer",
+        "En instruktion för hur man ansöker om distansarbete",
+        "Historien om internets utveckling i Frankrike",
+        "En beskrivning av ett specifikt franskt företag"
+      ],
+      "answer": 0,
+      "explanation": "Texten väger fördelar (balans, produktivitet) mot nackdelar (isolering, svårbedömd arbetsbörda) och landar i att många företag nu väljer en hybridmodell."
+    },
+    {
+      "id": "q-fr4-read-10",
+      "kind": "mc",
+      "topic": "argument analysis",
+      "prompt": "Samma text. Vilket argument använder förespråkarna för distansarbete?",
+      "opener": "Leta efter meningen som börjar med \"Ses partisans mettent en avant...\".",
+      "choices": [
+        "Bättre balans mellan arbete och privatliv samt minskad restid",
+        "Att det är billigare för de anställda",
+        "Att det förbjuder möten helt",
+        "Att kontoren stänger permanent"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att förespråkarna lyfter fram \"un meilleur équilibre entre vie professionnelle et vie personnelle\" och \"une réduction du temps de trajet\"."
+    },
+    {
+      "id": "q-fr4-read-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Samma text. Vad betyder \"un effet pervers\" i sammanhanget om experternas oro?",
+      "opener": "\"Pervers\" här betyder inte samma sak som svenskans \"pervers\" i vardagligt tal — det handlar om en oväntad, negativ konsekvens.",
+      "choices": [
+        "En oönskad/negativ bieffekt",
+        "En positiv överraskning",
+        "Ett lagligt problem",
+        "En ekonomisk vinst"
+      ],
+      "answer": 0,
+      "explanation": "\"Un effet pervers\" betyder en oönskad, negativ bieffekt av något som i övrigt kan verka positivt."
+    },
+    {
+      "id": "q-fr4-read-12",
+      "kind": "mc",
+      "topic": "argument analysis",
+      "prompt": "Samma text. Vad är kritikernas huvudsakliga oro med distansarbete, enligt texten?",
+      "opener": "Leta efter meningarna om \"l'isolement social\" och \"la charge de travail\".",
+      "choices": [
+        "Social isolering och svårighet att bedöma arbetsbördan på distans",
+        "Att internet är för långsamt hemma",
+        "Att distansarbete är olagligt",
+        "Att lönerna sjunker"
+      ],
+      "answer": 0,
+      "explanation": "Texten nämner både \"l'isolement social\" och att chefer \"peinent... à évaluer la charge de travail réelle\" (har svårt att bedöma den verkliga arbetsbördan)."
+    },
+    {
+      "id": "q-fr4-read-13",
+      "kind": "mc",
+      "topic": "argument analysis",
+      "prompt": "Samma text. Vad kan man dra slutsatsen om varför svårigheten att bedöma arbetsbörda kan leda till \"surinvestissement\" (överinvestering) snarare än avslappning?",
+      "opener": "Fundera på vad som händer när en anställd inte vet om hen gör tillräckligt.",
+      "choices": [
+        "Utan tydlig överblick kan anställda känna press att jobba mer för att bevisa sin produktivitet",
+        "Anställda får alltid mindre att göra på distans",
+        "Chefer ger alltid för lite arbete",
+        "Distansarbete kräver alltid övertid enligt lag"
+      ],
+      "answer": 0,
+      "explanation": "När chefer har svårt att bedöma arbetsbördan kan anställda kompensera genom att jobba mer än nödvändigt för att visa engagemang, vilket ger överinvestering snarare än avslappning."
+    },
+    {
+      "id": "q-fr4-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vilken lösning väljer många företag idag, enligt sista meningen?",
+      "opener": "Läs sista meningen om \"un modèle hybride\".",
+      "choices": [
+        "En hybridmodell som kombinerar distansarbete och kontorsnärvaro",
+        "Att helt avskaffa distansarbete",
+        "Att helt avskaffa kontorsarbete",
+        "Att låta varje anställd bestämma helt fritt"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att många företag \"optent désormais pour un modèle hybride, combinant jours de télétravail et présence au bureau\"."
+    },
+    {
+      "id": "q-fr4-read-15",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Samma text. Vad betyder \"la charge de travail\"?",
+      "opener": "\"Charge\" betyder börda/last.",
+      "choices": [
+        "Arbetsbördan",
+        "Arbetsplatsen",
+        "Arbetslönen",
+        "Arbetstiden"
+      ],
+      "answer": 0,
+      "explanation": "\"La charge de travail\" betyder arbetsbördan, hur mycket arbete en person förväntas utföra."
     }
   ]
 }

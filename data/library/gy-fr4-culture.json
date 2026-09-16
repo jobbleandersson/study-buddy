@@ -122,6 +122,111 @@
       "prompt": "Vilket ordförråd och vilka uttryck behöver du för att diskutera miljöfrågor på franska på en nyanserad, gymnasial nivå?",
       "opener": "Substantiv, verb och nyanserande uttryck att ha redo.",
       "answer": "Substantiv: le réchauffement climatique (global uppvärmning), les énergies renouvelables (förnybar energi), l'empreinte carbone (koldioxidavtryck), le tri des déchets (källsortering), le développement durable (hållbar utveckling), la biodiversité (biologisk mångfald). Verb: réduire (minska), polluer (förorena), préserver (bevara), agir (agera). Nyanserande uttryck: certes... mais/cependant (visserligen... men), il est vrai que... néanmoins (det är sant att... ändå), à mon avis / selon moi (enligt min mening), il conviendrait de (det vore lämpligt att), d'un côté... de l'autre (å ena sidan... å andra sidan)."
+    },
+    {
+      "id": "q-fr4-cult-9",
+      "kind": "mc",
+      "topic": "environment",
+      "prompt": "Vad betyder \"la biodiversité\"?",
+      "opener": "Ordet är sammansatt av \"bio-\" (liv) och \"diversité\" (mångfald).",
+      "choices": [
+        "Biologisk mångfald",
+        "Bioteknik",
+        "Biologisk nedbrytning",
+        "Biologisk forskning"
+      ],
+      "answer": 0,
+      "explanation": "\"La biodiversité\" betyder biologisk mångfald, variationen av arter i ett ekosystem."
+    },
+    {
+      "id": "q-fr4-cult-10",
+      "kind": "mc",
+      "topic": "environment",
+      "prompt": "Vad betyder \"le développement durable\"?",
+      "opener": "\"Durable\" betyder hållbar/varaktig.",
+      "choices": [
+        "Hållbar utveckling",
+        "Snabb utveckling",
+        "Ekonomisk tillväxt",
+        "Teknisk innovation"
+      ],
+      "answer": 0,
+      "explanation": "\"Le développement durable\" betyder hållbar utveckling."
+    },
+    {
+      "id": "q-fr4-cult-11",
+      "kind": "mc",
+      "topic": "society vocabulary",
+      "prompt": "Vad betyder verbet \"polluer\"?",
+      "opener": "Ordet liknar det svenska \"förorena\" i sitt sammanhang.",
+      "choices": [
+        "Att förorena",
+        "Att städa",
+        "Att återvinna",
+        "Att odla"
+      ],
+      "answer": 0,
+      "explanation": "\"Polluer\" betyder \"att förorena\"."
+    },
+    {
+      "id": "q-fr4-cult-12",
+      "kind": "mc",
+      "topic": "opinion expressions",
+      "prompt": "Vad uttrycker konstruktionen \"il est vrai que... néanmoins\"?",
+      "opener": "En nyanserande konstruktion som liknar \"certes... mais\".",
+      "choices": [
+        "Det är sant att... ändå (nyanserande)",
+        "Det är falskt att... eftersom",
+        "Jag tror inte att... för att",
+        "Det är omöjligt att... trots att"
+      ],
+      "answer": 0,
+      "explanation": "\"Il est vrai que... néanmoins\" betyder \"det är sant att... ändå/icke desto mindre\" — en nyanserande konstruktion som erkänner ett motargument innan man för fram sin egen poäng."
+    },
+    {
+      "id": "q-fr4-cult-13",
+      "kind": "mc",
+      "topic": "environment",
+      "prompt": "Vad betyder verbet \"préserver\"?",
+      "opener": "Ordet liknar engelskans \"preserve\".",
+      "choices": [
+        "Att bevara",
+        "Att förstöra",
+        "Att sälja",
+        "Att analysera"
+      ],
+      "answer": 0,
+      "explanation": "\"Préserver\" betyder \"att bevara\", t.ex. att bevara naturen eller biologisk mångfald."
+    },
+    {
+      "id": "q-fr4-cult-14",
+      "kind": "mc",
+      "topic": "society vocabulary",
+      "prompt": "Vad betyder verbet \"agir\"?",
+      "opener": "Ett vanligt verb i samhällsdebatt om att göra något konkret.",
+      "choices": [
+        "Att agera/handla",
+        "Att vänta",
+        "Att diskutera",
+        "Att tveka"
+      ],
+      "answer": 0,
+      "explanation": "\"Agir\" betyder \"att agera/handla\", att göra något konkret snarare än att bara prata om det."
+    },
+    {
+      "id": "q-fr4-cult-15",
+      "kind": "mc",
+      "topic": "opinion expressions",
+      "prompt": "Vad betyder konstruktionen \"d'un côté..., de l'autre...\"?",
+      "opener": "Används för att väga två sidor av en fråga mot varandra.",
+      "choices": [
+        "Å ena sidan..., å andra sidan...",
+        "För det första..., för det andra...",
+        "Antingen..., eller...",
+        "Först..., sedan..."
+      ],
+      "answer": 0,
+      "explanation": "\"D'un côté..., de l'autre...\" betyder \"å ena sidan..., å andra sidan...\" och används för att presentera två motstående aspekter av samma fråga."
     }
   ]
 }

@@ -122,6 +122,111 @@
       "prompt": "Vilka uttryck utlöser subjonctif, och vilka gör det inte?",
       "opener": "En lista att ha i bakhuvudet inför prov.",
       "answer": "Utlöser subjonctif: tvivel (douter que, ne pas penser/croire que), känsla (être content/ravi/désolé/surpris que, regretter que, il est dommage que), vilja (vouloir que, souhaiter que, préférer que), nödvändighet/möjlighet (il faut que, il est possible/important/nécessaire que). Utlöser INTE subjonctif (indikativ används): säkerhet och fakta (je pense/crois que utan negation, je suis sûr/certain que, il est vrai/évident que, savoir que). Oregelbundna subjonctif-stammar att kunna: être → sois/soit/soyons/soyez/soient, avoir → aie/ait/ayons/ayez/aient, faire → fasse, pouvoir → puisse, savoir → sache, aller → aille, vouloir → veuille."
+    },
+    {
+      "id": "q-fr4-mood-9",
+      "kind": "mc",
+      "topic": "subjunctive triggers",
+      "prompt": "Välj rätt form: \"Il est essentiel que vous ___ (comprendre) ce texte.\"",
+      "opener": "\"Il est essentiel que\" uttrycker nödvändighet och kräver subjonctif.",
+      "choices": [
+        "compreniez",
+        "comprenez",
+        "comprendrez",
+        "avez compris"
+      ],
+      "answer": 0,
+      "explanation": "\"Il est essentiel que\" kräver subjonctif. \"Comprendre\" i subjonctif för \"vous\" är \"compreniez\"."
+    },
+    {
+      "id": "q-fr4-mood-10",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Välj rätt form: \"Je suis surpris qu'il ___ (venir) si tôt.\"",
+      "opener": "\"Être surpris que\" är ett känslouttryck och kräver subjonctif.",
+      "choices": [
+        "vienne",
+        "vient",
+        "viendra",
+        "venait"
+      ],
+      "answer": 0,
+      "explanation": "\"Être surpris que\" uttrycker förvåning och kräver subjonctif: \"vienne\" (oregelbunden stam av venir)."
+    },
+    {
+      "id": "q-fr4-mood-11",
+      "kind": "mc",
+      "topic": "irregular subjunctive",
+      "prompt": "Välj rätt form: \"Il faut qu'elle ___ (aller) à l'hôpital.\"",
+      "opener": "\"Aller\" har en helt oregelbunden subjonctif-stam.",
+      "choices": [
+        "aille",
+        "va",
+        "allait",
+        "ira"
+      ],
+      "answer": 0,
+      "explanation": "\"Aller\" i subjonctif för \"elle\" är \"aille\": \"il faut qu'elle aille à l'hôpital\"."
+    },
+    {
+      "id": "q-fr4-mood-12",
+      "kind": "mc",
+      "topic": "subjunctive triggers",
+      "prompt": "Välj rätt form: \"J'espère qu'il ___ (venir).\"",
+      "opener": "\"Espérer que\" är ett undantag — trots att det uttrycker en förhoppning tar det indikativ, inte subjonctif.",
+      "choices": [
+        "viendra",
+        "vienne",
+        "venait",
+        "vînt"
+      ],
+      "answer": 0,
+      "explanation": "\"Espérer que\" är ovanligt bland önskeuttryck eftersom det konventionellt tar indikativ, inte subjonctif: \"j'espère qu'il viendra\" (futur simple, indikativ)."
+    },
+    {
+      "id": "q-fr4-mood-13",
+      "kind": "mc",
+      "topic": "irregular subjunctive",
+      "prompt": "Välj rätt form: \"Il faut que vous ___ (faire) vos devoirs.\"",
+      "opener": "\"Faire\" har en oregelbunden subjonctif-stam.",
+      "choices": [
+        "fassiez",
+        "faites",
+        "ferez",
+        "faisiez"
+      ],
+      "answer": 0,
+      "explanation": "\"Faire\" i subjonctif för \"vous\" är \"fassiez\": \"il faut que vous fassiez vos devoirs\"."
+    },
+    {
+      "id": "q-fr4-mood-14",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Välj rätt form: \"Elle regrette que tu ne ___ (être) pas venu.\"",
+      "opener": "\"Regretter que\" är ett känslouttryck och kräver subjonctif.",
+      "choices": [
+        "sois",
+        "es",
+        "étais",
+        "seras"
+      ],
+      "answer": 0,
+      "explanation": "\"Regretter que\" uttrycker beklagande och kräver subjonctif: \"sois\" (être i subjonctif för \"tu\")."
+    },
+    {
+      "id": "q-fr4-mood-15",
+      "kind": "mc",
+      "topic": "subjunctive triggers",
+      "prompt": "Välj rätt form: \"Il est évident qu'elle ___ (avoir) raison.\"",
+      "opener": "\"Il est évident que\" konstaterar ett faktum och tar därför indikativ, inte subjonctif.",
+      "choices": [
+        "a",
+        "ait",
+        "avait",
+        "aura"
+      ],
+      "answer": 0,
+      "explanation": "\"Il est évident que\" uttrycker säkerhet, inte tvivel/känsla/vilja, och tar därför indikativ: \"a\"."
     }
   ]
 }
