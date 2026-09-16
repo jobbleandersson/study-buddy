@@ -125,6 +125,111 @@
       "prompt": "Summarise the electrical quantities with their units, Ohm's law, series and parallel circuits, and electrical safety.",
       "opener": "Take one quantity at a time with the correct unit, link them together with Ohm's law, and finish with the types of connection.",
       "answer": "Voltage (U), volt (V): the driving force that makes the charges move · Current (I), ampere (A): how much charge passes per second · Resistance (R), ohm (Ω): the opposition that slows the current · Ohm's law: U = R · I, so I = U/R and R = U/I · Closed circuit: an unbroken current path from one terminal of the battery back to the other — otherwise no current flows · Series circuit: a single current path, resistances are added, the same current everywhere, the voltage is divided up, one break switches everything off · Parallel circuit: several branches, the same voltage across each branch, the current is divided up, a break in one branch doesn't affect the others — used in houses · Circuit diagram: a circuit drawn with standard symbols for a battery, lamp, switch and resistor · Fuse: breaks the circuit at too high a current, protects against overheating and fire · Electrical safety: a short circuit gives a very high current, a residual-current device (RCD) trips quickly on a fault, only experiment with low voltages."
+    },
+    {
+      "id": "q-fys8-el-9",
+      "kind": "mc",
+      "topic": "voltage, current and resistance",
+      "prompt": "What unit is current measured in?",
+      "opener": "Think about which quantity describes how much charge passes per second.",
+      "choices": [
+        "Volt (V)",
+        "Ampere (A)",
+        "Ohm (Ω)",
+        "Watt (W)"
+      ],
+      "answer": 1,
+      "explanation": "Current (I) is measured in amperes (A). Volt is the unit for voltage, ohm for resistance, and watt for power."
+    },
+    {
+      "id": "q-fys8-el-10",
+      "kind": "mc",
+      "topic": "Ohm's law",
+      "prompt": "A current of 3 A flows through a resistor of 8 Ω. What is the voltage according to Ohm's law (U = R · I)?",
+      "opener": "Substitute the known values directly into the formula.",
+      "choices": [
+        "11 V",
+        "5 V",
+        "2.7 V",
+        "24 V"
+      ],
+      "answer": 3,
+      "explanation": "U = R · I = 8 Ω · 3 A = 24 V. Adding the numbers gives 11, and dividing gives 2.7 — both common mistakes from mixing up which quantity to calculate."
+    },
+    {
+      "id": "q-fys8-el-11",
+      "kind": "mc",
+      "topic": "series and parallel circuits",
+      "prompt": "Two 6 Ω resistors are connected in parallel. What happens to the total resistance compared with a single resistor?",
+      "opener": "In a parallel circuit, the current gets more paths to choose from.",
+      "choices": [
+        "It becomes 12 Ω, larger than each individual resistor",
+        "It becomes 3 Ω, smaller than each individual resistor",
+        "It becomes 6 Ω, unchanged",
+        "It becomes 0 Ω"
+      ],
+      "answer": 1,
+      "explanation": "In a parallel circuit, the total resistance is always smaller than the smallest individual resistor, here 3 Ω, since the current gets more paths to flow through. Adding the resistances to get 12 Ω instead applies to a series circuit."
+    },
+    {
+      "id": "q-fys8-el-12",
+      "kind": "mc",
+      "topic": "circuit diagrams",
+      "prompt": "What is required for a lamp in a simple circuit to light up?",
+      "opener": "Think about what must be unbroken all the way around the circuit.",
+      "choices": [
+        "Just a battery, no closed circuit is needed",
+        "A closed, unbroken current path from one terminal of the battery through the lamp back to the other terminal",
+        "The lamp connected directly to ground",
+        "The switch being open"
+      ],
+      "answer": 1,
+      "explanation": "Current can only flow if there is an unbroken path all the way around the circuit, from one terminal of the battery through the lamp and back to the other terminal. An open switch instead breaks the circuit and turns the lamp off."
+    },
+    {
+      "id": "q-fys8-el-13",
+      "kind": "mc",
+      "topic": "fuses and electrical safety",
+      "prompt": "What happens during a short circuit?",
+      "opener": "Think about what Ohm's law says if the resistance in the circuit suddenly becomes very low.",
+      "choices": [
+        "The current becomes very high because the resistance in the circuit becomes very low",
+        "The voltage disappears completely",
+        "The resistance increases sharply",
+        "Nothing in particular happens"
+      ],
+      "answer": 0,
+      "explanation": "During a short circuit, the resistance in the circuit becomes very low, and according to Ohm's law (I = U/R) this gives a very high current that can overheat the wires. That's exactly why fuses exist — to break the current before a fire can start."
+    },
+    {
+      "id": "q-fys8-el-14",
+      "kind": "worked",
+      "topic": "Ohm's law",
+      "prompt": "A current of 0.25 A flows through a light bulb when it's connected to a voltage of 12 V. Calculate the bulb's resistance.",
+      "opener": "Ohm's law is U = R · I. Rearrange for R before substituting the values.",
+      "answer": "48 Ω",
+      "steps": [
+        "Write down what you know: U = 12 V and I = 0.25 A.",
+        "Start from Ohm's law: U = R · I.",
+        "Rearrange for resistance: R = U / I.",
+        "Substitute the values: R = 12 V / 0.25 A.",
+        "Dividing by 0.25 is the same as multiplying by 4, so R = 48 Ω."
+      ]
+    },
+    {
+      "id": "q-fys8-el-15",
+      "kind": "mc",
+      "topic": "series and parallel circuits",
+      "prompt": "What is the advantage of connecting a house's lamps in parallel instead of in series?",
+      "opener": "Think about what happens to the other lamps if one lamp breaks.",
+      "choices": [
+        "It saves copper wire",
+        "If one lamp breaks, the others don't go out, and all the lamps get the same voltage",
+        "The lamps shine brighter in series",
+        "It's cheaper but works worse"
+      ],
+      "answer": 1,
+      "explanation": "In a parallel circuit, each lamp has its own branch, so a break in one branch doesn't affect the others, and every lamp also gets the full battery voltage. In a series circuit, all the lamps would instead go out if just one breaks."
     }
   ]
 }

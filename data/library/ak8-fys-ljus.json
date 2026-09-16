@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta ljusets utbredning, reflektion, brytning, linser och ögat samt färger.",
       "opener": "Gå från hur ljuset rör sig, via reflektion och brytning, till linser, ögat och färgerna.",
       "answer": "Ljus: elektromagnetisk strålning som breder ut sig rätlinjigt och kan gå genom vakuum · Hastighet: cirka 300 000 km/s i vakuum, långsammare i vatten och glas · Skugga: ogenomskinligt föremål blockerar strålarna — punktformig ljuskälla ger skarp kärnskugga, stor ljuskälla ger även halvskugga · Reflektion: ljus studsar mot en yta · Reflektionslagen: infallsvinkel = reflektionsvinkel, båda mätta från normalen (linjen lodrätt mot ytan) · Plan spegel: ger en spegelvänd bild som verkar ligga lika långt bakom spegeln som föremålet är framför · Diffus reflektion: ljus sprids åt alla håll av ojämna ytor — därför syns vanliga föremål · Brytning (refraktion): ljus ändrar riktning när det byter material eftersom hastigheten ändras — från luft till vatten eller glas bryts strålen mot normalen, tillbaka ut bryts den från normalen · Effekt av brytning: skeden ser bruten ut, bassängen ser grundare ut, prismat delar upp ljuset · Konvex (samlande) lins: buktar utåt, samlar strålarna i en brännpunkt — lupp, kamera, ögats lins · Konkav (spridande) lins: buktar inåt, sprider strålarna · Ögat: hornhinnan och linsen bryter ljuset till en skarp upp-och-nedvänd bild på näthinnan, pupillen reglerar ljusmängden, synnerven skickar signaler till hjärnan · Synfel: närsynt ser dåligt på långt håll och hjälps av konkav lins, översynt hjälps av konvex lins · Vitt ljus: blandning av alla synliga färger, delas i prisma till spektrum rött–orange–gult–grönt–blått–violett · Färg på föremål: ytan reflekterar sin egen färg och absorberar de andra — en röd tröja reflekterar rött, svart absorberar nästan allt, vitt reflekterar allt."
+    },
+    {
+      "id": "q-fys8-ljs-9",
+      "kind": "mc",
+      "topic": "ljusets rätlinjiga utbredning och skuggor",
+      "prompt": "Vilken typ av skugga bildas av en punktformig ljuskälla?",
+      "opener": "Tänk på skillnaden mot en stor, utsträckt ljuskälla.",
+      "choices": [
+        "Bara halvskugga, ingen kärnskugga",
+        "En skarp kärnskugga utan halvskugga",
+        "Ingen skugga alls",
+        "En skugga som är ljusare än omgivningen"
+      ],
+      "answer": 1,
+      "explanation": "En punktformig ljuskälla ger en enda skarp kärnskugga utan halvskugga, eftersom allt ljus kommer från exakt samma punkt. Halvskugga uppstår i stället bara när ljuskällan är stor eller utsträckt."
+    },
+    {
+      "id": "q-fys8-ljs-10",
+      "kind": "mc",
+      "topic": "reflektion och reflektionslagen",
+      "prompt": "En ljusstråle träffar en spegel med infallsvinkeln 40°, mätt från normalen. Hur stor blir reflektionsvinkeln?",
+      "opener": "Reflektionslagen kopplar direkt ihop de två vinklarna.",
+      "choices": [
+        "40°",
+        "50°",
+        "80°",
+        "20°"
+      ],
+      "answer": 0,
+      "explanation": "Reflektionslagen säger att infallsvinkel = reflektionsvinkel, båda mätta från normalen, så reflektionsvinkeln blir också 40°. 50° hade fåtts om man i stället räknat vinkeln mot spegelytan."
+    },
+    {
+      "id": "q-fys8-ljs-11",
+      "kind": "mc",
+      "topic": "brytning i vatten och glas",
+      "prompt": "Vad händer med ljusets hastighet när det går från luft till vatten?",
+      "opener": "Tänk på vad som gör att ljuset bryts vid gränsytan.",
+      "choices": [
+        "Det ökar",
+        "Det minskar",
+        "Det förblir oförändrat",
+        "Ljus kan inte färdas i vatten"
+      ],
+      "answer": 1,
+      "explanation": "Ljuset går långsammare i vatten än i luft, och det är just den hastighetsändringen som gör att strålen bryts vid ytan. Ljus färdas visst genom vatten, bara med lägre hastighet än i luft."
+    },
+    {
+      "id": "q-fys8-ljs-12",
+      "kind": "mc",
+      "topic": "linser och ögat",
+      "prompt": "Vilken typ av lins samlar ljusstrålarna i en brännpunkt?",
+      "opener": "Tänk på formen på en lupp eller på ögats egen lins.",
+      "choices": [
+        "Konkav (spridande) lins",
+        "Konvex (samlande) lins",
+        "Plan lins utan krökning",
+        "Ingen lins samlar ljus"
+      ],
+      "answer": 1,
+      "explanation": "En konvex lins buktar utåt och samlar de infallande strålarna i en brännpunkt, som i en lupp eller ögats lins. En konkav lins gör i stället tvärtom och sprider strålarna."
+    },
+    {
+      "id": "q-fys8-ljs-13",
+      "kind": "mc",
+      "topic": "färger och spektrum",
+      "prompt": "Varför ser en röd tröja röd ut?",
+      "opener": "Tänk på vad som händer med de andra färgerna i det vita ljuset som träffar tröjan.",
+      "choices": [
+        "Den absorberar allt ljus utom rött, som den reflekterar",
+        "Den skapar rött ljus själv",
+        "Den reflekterar alla färger lika mycket",
+        "Den absorberar bara rött ljus"
+      ],
+      "answer": 0,
+      "explanation": "Tröjans yta absorberar alla färger i det vita ljuset utom rött, som reflekteras tillbaka till ögat — det är därför den ser röd ut. Tröjan skapar inget eget ljus, den bara sorterar bland det ljus som redan träffar den."
+    },
+    {
+      "id": "q-fys8-ljs-14",
+      "kind": "worked",
+      "topic": "reflektion och reflektionslagen",
+      "prompt": "En ljusstråle träffar en plan spegel så att strålen bildar vinkeln 25° mot spegelytan. Hur stor blir reflektionsvinkeln mätt från normalen?",
+      "opener": "Vinklar i optiken mäts från normalen, inte från ytan — börja med att räkna om.",
+      "answer": "65°",
+      "steps": [
+        "Normalen står lodrätt mot spegelytan, alltså i 90° mot den.",
+        "Infallsvinkeln mätt från normalen blir 90° − 25° = 65°.",
+        "Reflektionslagen ger att reflektionsvinkeln = infallsvinkeln.",
+        "Reflektionsvinkeln är alltså 65° från normalen, vilket motsvarar 25° mot spegelytan."
+      ]
+    },
+    {
+      "id": "q-fys8-ljs-15",
+      "kind": "mc",
+      "topic": "ljusets rätlinjiga utbredning och skuggor",
+      "prompt": "Vad krävs för att både kärnskugga och halvskugga ska bildas bakom ett föremål?",
+      "opener": "Tänk på om ljuskällan lyser från en enda punkt eller från en större yta.",
+      "choices": [
+        "En punktformig ljuskälla",
+        "En stor eller utsträckt ljuskälla",
+        "Fullständigt mörker",
+        "Ett genomskinligt föremål"
+      ],
+      "answer": 1,
+      "explanation": "En stor eller utsträckt ljuskälla lyser upp delar av det skuggade området från vissa håll men inte andra, vilket skapar halvskugga runt kärnskuggan. En punktformig ljuskälla ger i stället bara en skarp kärnskugga utan halvskugga."
     }
   ]
 }

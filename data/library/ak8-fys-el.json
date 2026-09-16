@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta el-storheterna med enheter, Ohms lag, serie- och parallellkoppling samt elsäkerhet.",
       "opener": "Ta en storhet i taget med rätt enhet, knyt ihop dem med Ohms lag och avsluta med kopplingssätten.",
       "answer": "Spänning (U), volt (V): drivkraften som får laddningarna att röra sig · Ström (I), ampere (A): hur mycket laddning som passerar per sekund · Resistans (R), ohm (Ω): motståndet som bromsar strömmen · Ohms lag: U = R · I, alltså I = U/R och R = U/I · Sluten krets: obruten strömväg från batteriets ena pol tillbaka till den andra — annars flyter ingen ström · Seriekoppling: en enda strömväg, resistanserna adderas, samma ström överallt, spänningen delas upp, ett avbrott släcker allt · Parallellkoppling: flera grenar, samma spänning över varje gren, strömmen delas upp, ett avbrott i en gren påverkar inte de andra — används i hus · Kopplingsschema: krets ritad med standardsymboler för batteri, lampa, strömbrytare och resistor · Säkring: bryter kretsen vid för hög ström, skyddar mot överhettning och brand · Elsäkerhet: kortslutning ger mycket hög ström, jordfelsbrytare bryter snabbt vid fel, laborera bara med låga spänningar."
+    },
+    {
+      "id": "q-fys8-el-9",
+      "kind": "mc",
+      "topic": "spänning, ström och resistans",
+      "prompt": "I vilken enhet mäts strömstyrka?",
+      "opener": "Fundera på vilken storhet som beskriver hur mycket laddning som passerar per sekund.",
+      "choices": [
+        "Volt (V)",
+        "Ampere (A)",
+        "Ohm (Ω)",
+        "Watt (W)"
+      ],
+      "answer": 1,
+      "explanation": "Strömstyrka (I) mäts i ampere (A). Volt är enheten för spänning, ohm för resistans och watt för effekt."
+    },
+    {
+      "id": "q-fys8-el-10",
+      "kind": "mc",
+      "topic": "Ohms lag",
+      "prompt": "Genom en resistor på 8 Ω flyter strömmen 3 A. Hur stor är spänningen enligt Ohms lag (U = R · I)?",
+      "opener": "Sätt in de kända värdena direkt i formeln.",
+      "choices": [
+        "11 V",
+        "5 V",
+        "2,7 V",
+        "24 V"
+      ],
+      "answer": 3,
+      "explanation": "U = R · I = 8 Ω · 3 A = 24 V. Att addera talen ger 11, och att dividera ger 2,7 — båda är vanliga fel när man blandar ihop vilken storhet som ska beräknas."
+    },
+    {
+      "id": "q-fys8-el-11",
+      "kind": "mc",
+      "topic": "serie- och parallellkoppling",
+      "prompt": "Två resistorer på 6 Ω vardera parallellkopplas. Vad händer med den totala resistansen jämfört med en enskild resistor?",
+      "opener": "I en parallellkoppling får strömmen fler vägar att välja mellan.",
+      "choices": [
+        "Den blir 12 Ω, större än varje enskild resistor",
+        "Den blir 3 Ω, mindre än varje enskild resistor",
+        "Den blir 6 Ω, oförändrad",
+        "Den blir 0 Ω"
+      ],
+      "answer": 1,
+      "explanation": "Vid parallellkoppling blir totalresistansen alltid mindre än den minsta enskilda resistorn, här 3 Ω, eftersom strömmen får fler vägar att flyta genom. Att addera resistanserna till 12 Ω gäller i stället för seriekoppling."
+    },
+    {
+      "id": "q-fys8-el-12",
+      "kind": "mc",
+      "topic": "kopplingsschema",
+      "prompt": "Vad krävs för att en lampa i en enkel krets ska lysa?",
+      "opener": "Tänk på vad som måste vara obrutet hela vägen runt kretsen.",
+      "choices": [
+        "Bara ett batteri, ingen sluten krets behövs",
+        "En sluten, obruten strömväg från batteriets ena pol genom lampan tillbaka till den andra polen",
+        "Att lampan är kopplad direkt till jord",
+        "Att strömbrytaren är öppen"
+      ],
+      "answer": 1,
+      "explanation": "Strömmen kan bara flyta om det finns en obruten väg hela vägen runt kretsen, från batteriets ena pol genom lampan och tillbaka till den andra polen. En öppen strömbrytare bryter i stället kretsen och släcker lampan."
+    },
+    {
+      "id": "q-fys8-el-13",
+      "kind": "mc",
+      "topic": "säkringar och elsäkerhet",
+      "prompt": "Vad händer vid en kortslutning?",
+      "opener": "Tänk på vad som gäller enligt Ohms lag om resistansen i kretsen plötsligt blir mycket låg.",
+      "choices": [
+        "Strömstyrkan blir mycket hög eftersom resistansen i kretsen blir mycket låg",
+        "Spänningen försvinner helt",
+        "Resistansen ökar kraftigt",
+        "Ingenting särskilt händer"
+      ],
+      "answer": 0,
+      "explanation": "Vid en kortslutning blir resistansen i kretsen mycket låg, och enligt Ohms lag (I = U/R) ger det en mycket hög strömstyrka som kan överhetta ledningarna. Det är just därför säkringar finns — för att bryta strömmen innan det börjar brinna."
+    },
+    {
+      "id": "q-fys8-el-14",
+      "kind": "worked",
+      "topic": "Ohms lag",
+      "prompt": "Genom en glödlampa flyter strömmen 0,25 A när den kopplas till en spänning på 12 V. Beräkna lampans resistans.",
+      "opener": "Ohms lag är U = R · I. Lös ut R innan du sätter in värdena.",
+      "answer": "48 Ω",
+      "steps": [
+        "Skriv upp det du vet: U = 12 V och I = 0,25 A.",
+        "Utgå från Ohms lag: U = R · I.",
+        "Lös ut resistansen: R = U / I.",
+        "Sätt in värdena: R = 12 V / 0,25 A.",
+        "Att dividera med 0,25 är samma sak som att multiplicera med 4, så R = 48 Ω."
+      ]
+    },
+    {
+      "id": "q-fys8-el-15",
+      "kind": "mc",
+      "topic": "serie- och parallellkoppling",
+      "prompt": "Vad är fördelen med att koppla husets lampor parallellt i stället för i serie?",
+      "opener": "Tänk på vad som händer med de andra lamporna om en lampa går sönder.",
+      "choices": [
+        "Det sparar koppartråd",
+        "Om en lampa går sönder slocknar inte de andra, och alla lampor får samma spänning",
+        "Lamporna lyser starkare i serie",
+        "Det är billigare men fungerar sämre"
+      ],
+      "answer": 1,
+      "explanation": "I en parallellkoppling har varje lampa en egen gren, så ett avbrott i en gren påverkar inte de andra, och alla lampor får dessutom hela batterispänningen. I en seriekoppling skulle i stället alla lampor slockna om en enda går sönder."
     }
   ]
 }

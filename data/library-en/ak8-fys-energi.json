@@ -124,6 +124,110 @@
       "prompt": "Summarise the forms of energy, the conservation principle, energy sources, efficiency, and power and energy with units.",
       "opener": "Take the forms of energy first, then the principle, then the sources, and finish with the units.",
       "answer": "Forms of energy: potential energy · kinetic energy · thermal energy · chemical energy (food, fuel, battery) · electrical energy · radiant energy (light) · nuclear energy · Conservation principle: energy can neither be created nor destroyed, only converted — the total energy is constant · Energy quality: at every conversion some becomes heat that spreads out and becomes hard to use again · Example chains: hydropower = potential energy → kinetic energy → electrical energy · coal power = chemical energy → heat → kinetic energy → electrical energy · solar cell = radiant energy → electrical energy · Renewable sources: water, wind, sun, biofuel, waves and geothermal energy — constantly replenished · Non-renewable sources: coal, oil, natural gas (fossil, produce carbon dioxide emissions) and uranium for nuclear power · Efficiency: useful energy divided by energy supplied, often as a percentage — 5 W of light out of 20 W of electricity gives 25% · Power (P): energy per time, unit watt, 1 W = 1 J/s · Energy: unit joule (J) or kilowatt-hour (kWh) · Calculating kWh: power in kW · time in hours, e.g. 2 kW · 0.25 h = 0.5 kWh · 1 kWh = 1000 W for 1 hour."
+    },
+    {
+      "id": "q-fys8-ene-9",
+      "kind": "mc",
+      "topic": "forms of energy and the conservation principle",
+      "prompt": "What form of energy does a raised object at a great height have?",
+      "opener": "Think about what happens if the object is released and falls.",
+      "choices": [
+        "Kinetic energy",
+        "Potential energy",
+        "Chemical energy",
+        "Radiant energy"
+      ],
+      "answer": 1,
+      "explanation": "An object at a great height has potential energy due to its position in the gravitational field, which converts to kinetic energy if it falls. Chemical energy is instead stored in things like food and fuel."
+    },
+    {
+      "id": "q-fys8-ene-10",
+      "kind": "mc",
+      "topic": "energy conversions",
+      "prompt": "What chain of energy conversions takes place in a solar cell?",
+      "opener": "Think about what the solar cell receives and what it sends out.",
+      "choices": [
+        "Chemical energy to electrical energy",
+        "Radiant energy to electrical energy",
+        "Potential energy to kinetic energy",
+        "Heat to chemical energy"
+      ],
+      "answer": 1,
+      "explanation": "A solar cell converts the sun's radiant energy directly into electrical energy. Chemical energy to electrical energy instead happens in a battery, not in a solar cell."
+    },
+    {
+      "id": "q-fys8-ene-11",
+      "kind": "mc",
+      "topic": "renewable and non-renewable energy sources",
+      "prompt": "Which of these energy sources is renewable?",
+      "opener": "Think about which source is constantly replenished rather than taking millions of years to form.",
+      "choices": [
+        "Coal",
+        "Oil",
+        "Wind power",
+        "Uranium (nuclear power)"
+      ],
+      "answer": 2,
+      "explanation": "Wind power is renewable because the wind is constantly replenished by the sun heating the atmosphere. Coal, oil and uranium are instead non-renewable, since they take millions of years to form or exist in a limited amount."
+    },
+    {
+      "id": "q-fys8-ene-12",
+      "kind": "mc",
+      "topic": "efficiency",
+      "prompt": "A motor receives 100 W of electrical power and outputs 80 W as kinetic energy, with the rest becoming heat. What is the motor's efficiency?",
+      "opener": "Efficiency is useful power divided by power supplied.",
+      "choices": [
+        "20%",
+        "80%",
+        "125%",
+        "8%"
+      ],
+      "answer": 1,
+      "explanation": "Efficiency is 80 W / 100 W = 0.8, i.e. 80%. The remaining 20% is lost as heat, which is the energy loss, not the efficiency."
+    },
+    {
+      "id": "q-fys8-ene-13",
+      "kind": "mc",
+      "topic": "power and energy",
+      "prompt": "What does it mean that an appliance has a power of 800 W?",
+      "opener": "Power is about how fast energy is converted, not about the total amount.",
+      "choices": [
+        "That it contains 800 joules of energy in total",
+        "That it converts 800 joules of energy every second",
+        "That it can be used for at most 800 seconds",
+        "That it costs 800 kronor to use"
+      ],
+      "answer": 1,
+      "explanation": "Power is energy per time, and 1 W = 1 J/s, so 800 W means the appliance converts 800 joules every second. Power says nothing about how long the appliance can be on or what it costs in total."
+    },
+    {
+      "id": "q-fys8-ene-14",
+      "kind": "worked",
+      "topic": "power and energy",
+      "prompt": "A vacuum cleaner has a power of 1200 W and is used for 30 minutes. How much energy does it use in kilowatt-hours, and what does it cost if electricity costs 2 kr/kWh?",
+      "opener": "Convert the power to kilowatts and the time to hours before multiplying.",
+      "answer": "0.6 kWh, which costs 1.20 kronor",
+      "steps": [
+        "Convert the power to kilowatts: 1200 W = 1.2 kW.",
+        "Convert the time to hours: 30 min = 30/60 h = 0.5 h.",
+        "Energy = power · time = 1.2 kW · 0.5 h = 0.6 kWh.",
+        "The cost is 0.6 kWh · 2 kr/kWh = 1.20 kr."
+      ]
+    },
+    {
+      "id": "q-fys8-ene-15",
+      "kind": "mc",
+      "topic": "renewable and non-renewable energy sources",
+      "prompt": "Why does biofuel count as renewable even though it burns up?",
+      "opener": "Think about what happens to the carbon dioxide released when new plants are grown.",
+      "choices": [
+        "Because it contains no carbon",
+        "Because new plants can be grown and bind new carbon dioxide at roughly the same rate the fuel is used",
+        "Because it never runs out no matter how much is burned",
+        "Because it produces no emissions at all"
+      ],
+      "answer": 1,
+      "explanation": "Biofuel counts as renewable because new plants can be grown and, through photosynthesis, bind new carbon dioxide at roughly the same rate the fuel produces emissions. It does produce emissions when burned, but the source can be replenished — unlike fossil fuels."
     }
   ]
 }

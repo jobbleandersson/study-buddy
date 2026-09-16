@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta energiformer, energiprincipen, energikällor, verkningsgrad samt effekt och energi med enheter.",
       "opener": "Ta energiformerna först, sedan principen, därefter källorna och avsluta med enheterna.",
       "answer": "Energiformer: lägesenergi · rörelseenergi · värmeenergi · kemisk energi (mat, bränsle, batteri) · elektrisk energi · strålningsenergi (ljus) · kärnenergi · Energiprincipen: energi kan varken skapas eller förstöras, bara omvandlas — totala energin är konstant · Energikvalitet: vid varje omvandling blir en del värme som sprids ut och blir svår att använda igen · Exempel på kedjor: vattenkraft = lägesenergi → rörelseenergi → elektrisk energi · kolkraft = kemisk energi → värme → rörelseenergi → elektrisk energi · solcell = strålningsenergi → elektrisk energi · Förnybara källor: vatten, vind, sol, biobränsle, våg och geotermisk energi — återbildas hela tiden · Icke-förnybara källor: kol, olja, naturgas (fossila, ger koldioxidutsläpp) och uran till kärnkraft · Verkningsgrad: nyttig energi delat med tillförd energi, ofta i procent — 5 W ljus av 20 W el ger 25 % · Effekt (P): energi per tid, enhet watt, 1 W = 1 J/s · Energi: enhet joule (J) eller kilowattimme (kWh) · Räkna kWh: effekt i kW · tid i timmar, t.ex. 2 kW · 0,25 h = 0,5 kWh · 1 kWh = 1000 W under 1 timme."
+    },
+    {
+      "id": "q-fys8-ene-9",
+      "kind": "mc",
+      "topic": "energiformer och energiprincipen",
+      "prompt": "Vilken energiform har ett uppdraget föremål på hög höjd?",
+      "opener": "Tänk på vad som händer om föremålet släpps och faller nedåt.",
+      "choices": [
+        "Rörelseenergi",
+        "Lägesenergi",
+        "Kemisk energi",
+        "Strålningsenergi"
+      ],
+      "answer": 1,
+      "explanation": "Ett föremål på hög höjd har lägesenergi på grund av sitt läge i tyngdkraftsfältet, som omvandlas till rörelseenergi om det faller. Kemisk energi finns i stället lagrad i till exempel mat och bränsle."
+    },
+    {
+      "id": "q-fys8-ene-10",
+      "kind": "mc",
+      "topic": "energiomvandlingar",
+      "prompt": "Vilken kedja av energiomvandlingar sker i en solcell?",
+      "opener": "Tänk på vad solcellen tar emot och vad den skickar ut.",
+      "choices": [
+        "Kemisk energi till elektrisk energi",
+        "Strålningsenergi till elektrisk energi",
+        "Lägesenergi till rörelseenergi",
+        "Värme till kemisk energi"
+      ],
+      "answer": 1,
+      "explanation": "En solcell omvandlar solens strålningsenergi direkt till elektrisk energi. Kemisk energi till elektrisk energi sker i stället i ett batteri, inte i en solcell."
+    },
+    {
+      "id": "q-fys8-ene-11",
+      "kind": "mc",
+      "topic": "förnybara och icke-förnybara energikällor",
+      "prompt": "Vilken av dessa energikällor är förnybar?",
+      "opener": "Tänk på vilken källa som fylls på hela tiden utan att ta miljontals år att bilda.",
+      "choices": [
+        "Kol",
+        "Olja",
+        "Vindkraft",
+        "Uran (kärnkraft)"
+      ],
+      "answer": 2,
+      "explanation": "Vindkraft räknas som förnybar eftersom vinden ständigt fylls på av solens uppvärmning av atmosfären. Kol, olja och uran är i stället icke-förnybara, eftersom de tar miljontals år att bildas eller finns i en begränsad mängd."
+    },
+    {
+      "id": "q-fys8-ene-12",
+      "kind": "mc",
+      "topic": "verkningsgrad",
+      "prompt": "En motor tar emot 100 W elektrisk effekt och avger 80 W som rörelseenergi, resten blir värme. Vilken verkningsgrad har motorn?",
+      "opener": "Verkningsgraden är nyttig effekt delat med tillförd effekt.",
+      "choices": [
+        "20 %",
+        "80 %",
+        "125 %",
+        "8 %"
+      ],
+      "answer": 1,
+      "explanation": "Verkningsgraden är 80 W / 100 W = 0,8, alltså 80 %. De återstående 20 % försvinner som värme, vilket är energiförlusten, inte verkningsgraden."
+    },
+    {
+      "id": "q-fys8-ene-13",
+      "kind": "mc",
+      "topic": "effekt och energi",
+      "prompt": "Vad betyder det att en apparat har effekten 800 W?",
+      "opener": "Effekt handlar om hur snabbt energi omvandlas, inte om hur mycket totalt.",
+      "choices": [
+        "Att den innehåller 800 joule energi totalt",
+        "Att den omvandlar 800 joule energi varje sekund",
+        "Att den kan användas i högst 800 sekunder",
+        "Att den kostar 800 kronor att använda"
+      ],
+      "answer": 1,
+      "explanation": "Effekt är energi per tid, och 1 W = 1 J/s, så 800 W betyder att apparaten omvandlar 800 joule varje sekund. Effekten säger ingenting om hur länge apparaten kan vara på eller vad den kostar totalt."
+    },
+    {
+      "id": "q-fys8-ene-14",
+      "kind": "worked",
+      "topic": "effekt och energi",
+      "prompt": "En dammsugare har effekten 1200 W och används i 30 minuter. Hur mycket energi förbrukar den i kilowattimmar, och vad kostar det om elen kostar 2 kr/kWh?",
+      "opener": "Skriv om effekten i kilowatt och tiden i timmar innan du multiplicerar.",
+      "answer": "0,6 kWh, vilket kostar 1,20 kronor",
+      "steps": [
+        "Gör om effekten till kilowatt: 1200 W = 1,2 kW.",
+        "Gör om tiden till timmar: 30 min = 30/60 h = 0,5 h.",
+        "Energi = effekt · tid = 1,2 kW · 0,5 h = 0,6 kWh.",
+        "Kostnaden blir 0,6 kWh · 2 kr/kWh = 1,20 kr."
+      ]
+    },
+    {
+      "id": "q-fys8-ene-15",
+      "kind": "mc",
+      "topic": "förnybara och icke-förnybara energikällor",
+      "prompt": "Varför räknas biobränsle som förnybart trots att det brinner upp?",
+      "opener": "Tänk på vad som händer med den koldioxid som släpps ut när nya växter odlas.",
+      "choices": [
+        "Eftersom det inte innehåller kol",
+        "Eftersom nya växter kan odlas och binda ny koldioxid i ungefär samma takt som bränslet används",
+        "Eftersom det aldrig tar slut oavsett hur mycket man eldar",
+        "Eftersom det inte ger några utsläpp alls"
+      ],
+      "answer": 1,
+      "explanation": "Biobränsle räknas som förnybart eftersom nya växter kan odlas och genom fotosyntesen binda ny koldioxid i ungefär samma takt som bränslet ger utsläpp. Det ger visst utsläpp vid förbränning, men källan kan fyllas på igen — till skillnad från fossila bränslen."
     }
   ]
 }

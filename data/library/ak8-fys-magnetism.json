@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta magnetism, elektromagneter, induktion samt hur generator och elmotor fungerar.",
       "opener": "Börja med polerna och fältet, gå vidare till elektromagneten och avsluta med induktion och maskinerna.",
       "answer": "Magnet: har alltid en nordpol och en sydpol, går aldrig att få bara en pol · Polregeln: lika poler repellerar, olika poler attraherar · Magnetfält: området runt magneten där kraften märks, ritas med fältlinjer från nordpol till sydpol, tätast och starkast vid polerna · Magnetiska material: järn, kobolt och nickel — inte koppar, aluminium eller plast · Jordens magnetfält: jorden är som en jättemagnet med en magnetisk sydpol nära geografiska nordpolen, skyddar mot laddade partiklar från solen · Kompass: liten vridbar magnetnål vars nordände dras mot norr · Elektromagnet: ström genom en spole ger magnetfält, förstärks av fler varv, högre ström och järnkärna, kan stängas av — används i reläer, högtalare och skrotmagneter · Induktion: förändrat magnetfält genom en spole ger inducerad spänning, kräver rörelse eller växlande ström · Generator: spole snurrar i magnetfält, rörelseenergi till elektrisk energi, används i kraftverk · Elmotor: strömförande spole i magnetfält vrids av magnetiska krafter, elektrisk energi till rörelseenergi · Transformator: två spolar kring en järnkärna, ändrar växelspänning med hjälp av induktion."
+    },
+    {
+      "id": "q-fys8-mag-9",
+      "kind": "mc",
+      "topic": "magnetpoler och magnetfält",
+      "prompt": "Vad händer om du håller nordpolen på en magnet mot sydpolen på en annan magnet?",
+      "opener": "Tänk på polregeln: lika poler repellerar, olika attraherar.",
+      "choices": [
+        "De stöter bort varandra",
+        "De dras till varandra",
+        "Ingenting händer",
+        "Båda magneterna tappar sin magnetism"
+      ],
+      "answer": 1,
+      "explanation": "Nordpol och sydpol är olika poler och attraherar varandra. Två nordpoler mot varandra hade i stället stött bort varandra."
+    },
+    {
+      "id": "q-fys8-mag-10",
+      "kind": "mc",
+      "topic": "magnetpoler och magnetfält",
+      "prompt": "Vilka material dras till en magnet?",
+      "opener": "Bara ett fåtal metaller är magnetiska.",
+      "choices": [
+        "Koppar, aluminium och plast",
+        "Järn, kobolt och nickel",
+        "Guld och silver",
+        "Alla metaller"
+      ],
+      "answer": 1,
+      "explanation": "Järn, kobolt och nickel är magnetiska material som dras till en magnet. Koppar, aluminium, guld och silver är inte magnetiska, trots att de är metaller."
+    },
+    {
+      "id": "q-fys8-mag-11",
+      "kind": "mc",
+      "topic": "jordens magnetfält och kompassen",
+      "prompt": "Var ligger jordens magnetiska sydpol ungefär?",
+      "opener": "Tänk på vilken pol som drar till sig kompassnålens nordände.",
+      "choices": [
+        "Nära ekvatorn",
+        "Nära den geografiska nordpolen",
+        "Mitt i jordens kärna, långt från ytan",
+        "Den finns inte, bara en nordpol finns"
+      ],
+      "answer": 1,
+      "explanation": "Jordens magnetiska sydpol ligger nära den geografiska nordpolen, vilket är varför kompassnålens nordände dras dit — olika poler attraherar varandra. Jorden har precis som alla magneter både en nord- och en sydpol."
+    },
+    {
+      "id": "q-fys8-mag-12",
+      "kind": "mc",
+      "topic": "elektromagneter",
+      "prompt": "Vad händer med en elektromagnets styrka om du minskar strömmen genom spolen men behåller antalet varv?",
+      "opener": "Magnetfältets styrka beror både på antalet varv och på strömmens storlek.",
+      "choices": [
+        "Den blir starkare",
+        "Den blir svagare",
+        "Den förblir exakt densamma",
+        "Den byter polaritet"
+      ],
+      "answer": 1,
+      "explanation": "Magnetfältet blir svagare om strömmen minskar, eftersom styrkan beror på både antalet varv och strömstyrkan. Att byta polaritet skulle i stället kräva att strömmens riktning vänds, inte dess storlek."
+    },
+    {
+      "id": "q-fys8-mag-13",
+      "kind": "mc",
+      "topic": "induktion",
+      "prompt": "Vad krävs för att en spänning ska induceras i en spole?",
+      "opener": "Tänk på vad som skiljer ett stillastående magnetfält från ett som förändras.",
+      "choices": [
+        "Ett konstant, oföränderligt magnetfält",
+        "Ett magnetfält som förändras genom spolen, till exempel genom rörelse",
+        "Att spolen är gjord av plast",
+        "Att spolen är helt still i ett svagt fält"
+      ],
+      "answer": 1,
+      "explanation": "Induktion kräver att magnetfältet genom spolen förändras, till exempel genom att en magnet rör sig in eller ut. Ett konstant fält inducerar ingen spänning alls, oavsett hur starkt det är."
+    },
+    {
+      "id": "q-fys8-mag-14",
+      "kind": "worked",
+      "topic": "elektromagneter",
+      "prompt": "En elektromagnet har 40 lindningsvarv och strömmen 2 A. Du lindar om den till 80 varv men minskar strömmen till 1 A. Hur förändras magnetfältets styrka, om styrkan beror på antalet varv gånger strömmen?",
+      "opener": "Räkna ut varv gånger ström före och efter, och jämför sedan de två talen.",
+      "answer": "Magnetfältet blir oförändrat, lika starkt som innan.",
+      "steps": [
+        "Före: 40 varv · 2 A = 80.",
+        "Efter: 80 varv · 1 A = 80.",
+        "Jämför genom att dividera: 80 / 80 = 1.",
+        "Magnetfältet är alltså oförändrat — den dubbla mängden varv kompenserar exakt för den halverade strömmen."
+      ]
+    },
+    {
+      "id": "q-fys8-mag-15",
+      "kind": "mc",
+      "topic": "generator och elmotor",
+      "prompt": "Vilken energiomvandling sker i en elmotor?",
+      "opener": "Jämför med en generator — elmotorn gör precis det omvända.",
+      "choices": [
+        "Rörelseenergi till elektrisk energi",
+        "Elektrisk energi till rörelseenergi",
+        "Kemisk energi till elektrisk energi",
+        "Värme till ljus"
+      ],
+      "answer": 1,
+      "explanation": "I en elmotor vrids en strömförande spole av magnetiska krafter, så elektrisk energi omvandlas till rörelseenergi. Det motsatta, rörelseenergi till elektrisk energi, är i stället vad en generator gör."
     }
   ]
 }

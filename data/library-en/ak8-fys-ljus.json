@@ -124,6 +124,110 @@
       "prompt": "Summarise the propagation of light, reflection, refraction, lenses and the eye, and colours.",
       "opener": "Go from how light moves, via reflection and refraction, to lenses, the eye and colours.",
       "answer": "Light: electromagnetic radiation that spreads out in straight lines and can travel through a vacuum · Speed: about 300,000 km/s in a vacuum, slower in water and glass · Shadow: an opaque object blocks the rays — a point-like light source gives a sharp umbra, a large light source also gives a penumbra · Reflection: light bounces off a surface · Law of reflection: angle of incidence = angle of reflection, both measured from the normal (the line perpendicular to the surface) · Flat mirror: gives a mirror-reversed image that appears to be the same distance behind the mirror as the object is in front of it · Diffuse reflection: light is scattered in all directions by uneven surfaces — that's why ordinary objects are visible · Refraction: light changes direction when it moves between materials because its speed changes — going from air to water or glass, the ray bends towards the normal, going back out it bends away from the normal · Effects of refraction: the spoon looks broken, the pool looks shallower, the prism splits up the light · Convex (converging) lens: curves outward, gathers the rays to a focal point — magnifying glass, camera, the eye's lens · Concave (diverging) lens: curves inward, spreads the rays out · The eye: the cornea and the lens refract the light into a sharp, upside-down image on the retina, the pupil regulates the amount of light, the optic nerve sends signals to the brain · Vision defects: short-sightedness gives poor distance vision and is helped by a concave lens, long-sightedness is helped by a convex lens · White light: a mixture of all the visible colours, split by a prism into a spectrum of red–orange–yellow–green–blue–violet · The colour of an object: the surface reflects its own colour and absorbs the others — a red jumper reflects red, black absorbs almost everything, white reflects everything."
+    },
+    {
+      "id": "q-fys8-ljs-9",
+      "kind": "mc",
+      "topic": "the straight-line propagation of light and shadows",
+      "prompt": "What type of shadow is formed by a point-like light source?",
+      "opener": "Think about the difference compared with a large, extended light source.",
+      "choices": [
+        "Only a penumbra, no umbra",
+        "A sharp umbra with no penumbra",
+        "No shadow at all",
+        "A shadow that is brighter than its surroundings"
+      ],
+      "answer": 1,
+      "explanation": "A point-like light source produces a single sharp umbra with no penumbra, since all the light comes from exactly the same point. A penumbra instead only forms when the light source is large or extended."
+    },
+    {
+      "id": "q-fys8-ljs-10",
+      "kind": "mc",
+      "topic": "reflection and the law of reflection",
+      "prompt": "A ray of light hits a mirror with an angle of incidence of 40°, measured from the normal. What is the angle of reflection?",
+      "opener": "The law of reflection directly links the two angles.",
+      "choices": [
+        "40°",
+        "50°",
+        "80°",
+        "20°"
+      ],
+      "answer": 0,
+      "explanation": "The law of reflection states that the angle of incidence equals the angle of reflection, both measured from the normal, so the angle of reflection is also 40°. 50° would result from measuring the angle against the mirror surface instead."
+    },
+    {
+      "id": "q-fys8-ljs-11",
+      "kind": "mc",
+      "topic": "refraction in water and glass",
+      "prompt": "What happens to the speed of light when it moves from air into water?",
+      "opener": "Think about what causes the light to bend at the boundary.",
+      "choices": [
+        "It increases",
+        "It decreases",
+        "It stays unchanged",
+        "Light can't travel through water"
+      ],
+      "answer": 1,
+      "explanation": "Light travels more slowly in water than in air, and it's exactly this change in speed that causes the ray to bend at the surface. Light does travel through water, just at a lower speed than in air."
+    },
+    {
+      "id": "q-fys8-ljs-12",
+      "kind": "mc",
+      "topic": "lenses and the eye",
+      "prompt": "Which type of lens gathers light rays to a focal point?",
+      "opener": "Think about the shape of a magnifying glass or the eye's own lens.",
+      "choices": [
+        "Concave (diverging) lens",
+        "Convex (converging) lens",
+        "Flat lens with no curvature",
+        "No lens gathers light"
+      ],
+      "answer": 1,
+      "explanation": "A convex lens curves outward and gathers the incoming rays to a focal point, as in a magnifying glass or the eye's lens. A concave lens instead does the opposite and spreads the rays out."
+    },
+    {
+      "id": "q-fys8-ljs-13",
+      "kind": "mc",
+      "topic": "colours and spectra",
+      "prompt": "Why does a red jumper look red?",
+      "opener": "Think about what happens to the other colours in the white light hitting the jumper.",
+      "choices": [
+        "It absorbs all light except red, which it reflects",
+        "It creates red light itself",
+        "It reflects all colours equally",
+        "It absorbs only red light"
+      ],
+      "answer": 0,
+      "explanation": "The jumper's surface absorbs all the colours in white light except red, which is reflected back to the eye — that's why it looks red. The jumper doesn't create any light of its own, it just sorts among the light that already hits it."
+    },
+    {
+      "id": "q-fys8-ljs-14",
+      "kind": "worked",
+      "topic": "reflection and the law of reflection",
+      "prompt": "A ray of light hits a flat mirror so that the ray forms an angle of 25° with the mirror surface. What is the angle of reflection measured from the normal?",
+      "opener": "Angles in optics are measured from the normal, not from the surface — start by converting.",
+      "answer": "65°",
+      "steps": [
+        "The normal is perpendicular to the mirror surface, i.e. at 90° to it.",
+        "The angle of incidence measured from the normal is 90° − 25° = 65°.",
+        "The law of reflection gives angle of reflection = angle of incidence.",
+        "The angle of reflection is therefore 65° from the normal, which corresponds to 25° from the mirror surface."
+      ]
+    },
+    {
+      "id": "q-fys8-ljs-15",
+      "kind": "mc",
+      "topic": "the straight-line propagation of light and shadows",
+      "prompt": "What is required for both an umbra and a penumbra to form behind an object?",
+      "opener": "Think about whether the light source shines from a single point or from a larger surface.",
+      "choices": [
+        "A point-like light source",
+        "A large or extended light source",
+        "Complete darkness",
+        "A transparent object"
+      ],
+      "answer": 1,
+      "explanation": "A large or extended light source lights up parts of the shadowed area from some directions but not others, which creates a penumbra around the umbra. A point-like light source instead gives only a sharp umbra with no penumbra."
     }
   ]
 }

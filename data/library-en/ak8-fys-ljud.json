@@ -125,6 +125,110 @@
       "prompt": "Summarise sound as a wave, frequency and amplitude, the speed of sound, echo and resonance, and hearing and noise.",
       "opener": "Start with what sound is, move on to the wave's two properties, and finish with the ears and noise protection.",
       "answer": "Sound: vibrations that spread as longitudinal waves through a medium — the particles vibrate in the wave's direction and form compressions and rarefactions · Vacuum: no sound, since there are no particles that can vibrate · Frequency: vibrations per second, unit hertz (Hz), controls the pitch — high frequency = high tone, double the frequency = one octave higher · Amplitude: the size of the vibration, controls the loudness measured in decibels (dB) · Speed of sound: about 340 m/s in air, about 1500 m/s in water, about 5000 m/s in steel — fastest where the particles are packed tightly and rigidly · Formula: s = v · t · Echo: sound that is reflected off a hard surface and comes back — in an echo calculation, the sound travels double the distance · Resonance: an object vibrates strongly when it is hit by sound at its own frequency · Range of hearing: about 20 Hz to 20,000 Hz, the upper limit drops with age · Infrasound: below 20 Hz · Ultrasound: above 20,000 Hz, used in medical scans and by bats · Noise: unwanted sound that causes tiredness, stress and difficulty concentrating · Hearing damage: high sound levels can permanently destroy the hair cells in the inner ear and cause tinnitus — use hearing protection and lower the volume in headphones."
+    },
+    {
+      "id": "q-fys8-lju-9",
+      "kind": "mc",
+      "topic": "sound as a longitudinal wave",
+      "prompt": "What are the areas in the air called where the particles are packed extra tightly as a sound travels?",
+      "opener": "It's the opposite of the areas where the particles spread out.",
+      "choices": [
+        "Rarefactions",
+        "Compressions",
+        "Nodes",
+        "Amplitudes"
+      ],
+      "answer": 1,
+      "explanation": "Compressions are the areas where the particles are pressed extra tightly together as a longitudinal sound wave passes. Rarefactions are instead the areas where the particles spread out between the compressions."
+    },
+    {
+      "id": "q-fys8-lju-10",
+      "kind": "mc",
+      "topic": "frequency and pitch",
+      "prompt": "What is the relationship between frequency and pitch?",
+      "opener": "Think about the difference between a deep bass voice and a shrill whistle.",
+      "choices": [
+        "High frequency gives a low tone",
+        "High frequency gives a high tone",
+        "Frequency only affects loudness, not pitch",
+        "There is no relationship"
+      ],
+      "answer": 1,
+      "explanation": "The more vibrations per second, the higher the tone sounds — high frequency gives a high tone. Loudness is instead controlled by the amplitude, not the frequency."
+    },
+    {
+      "id": "q-fys8-lju-11",
+      "kind": "mc",
+      "topic": "amplitude and loudness",
+      "prompt": "What unit is loudness (sound level) measured in?",
+      "opener": "The unit is named after Alexander Graham Bell.",
+      "choices": [
+        "Hertz",
+        "Decibel",
+        "Metres per second",
+        "Watt"
+      ],
+      "answer": 1,
+      "explanation": "Loudness is measured in decibels (dB). Hertz instead measures frequency, metres per second is a unit of speed, and watt measures power."
+    },
+    {
+      "id": "q-fys8-lju-12",
+      "kind": "mc",
+      "topic": "the speed of sound in different materials",
+      "prompt": "Roughly how fast does sound travel in air at normal temperature?",
+      "opener": "This value is often used when calculating echoes and distances.",
+      "choices": [
+        "34 m/s",
+        "340 m/s",
+        "3400 m/s",
+        "340,000 m/s"
+      ],
+      "answer": 1,
+      "explanation": "The speed of sound in air at normal temperature is about 340 m/s. In solid materials like steel, sound travels considerably faster, about 5000 m/s."
+    },
+    {
+      "id": "q-fys8-lju-13",
+      "kind": "mc",
+      "topic": "hearing and noise",
+      "prompt": "What is sound with frequencies below the human range of hearing, below about 20 Hz, called?",
+      "opener": "The name refers to the frequency being below what we can hear.",
+      "choices": [
+        "Ultrasound",
+        "Infrasound",
+        "Resonance sound",
+        "Echo sound"
+      ],
+      "answer": 1,
+      "explanation": "Infrasound has frequencies below about 20 Hz, that is, below the human range of hearing. Ultrasound instead has frequencies above about 20,000 Hz, above the range of hearing."
+    },
+    {
+      "id": "q-fys8-lju-14",
+      "kind": "worked",
+      "topic": "echo and resonance",
+      "prompt": "You shout towards a cliff face and hear the echo 1.0 second later. The speed of sound in air is 340 m/s. How far away is the cliff face?",
+      "opener": "Remember that the sound has time to travel there and back during the 1.0 second.",
+      "answer": "170 metres",
+      "steps": [
+        "Calculate the total distance the sound travels: s = v · t = 340 m/s · 1.0 s = 340 m.",
+        "That distance is to the cliff and back again, i.e. twice the distance.",
+        "Divide by 2: 340 m / 2 = 170 m.",
+        "The cliff face is therefore 170 metres away."
+      ]
+    },
+    {
+      "id": "q-fys8-lju-15",
+      "kind": "mc",
+      "topic": "echo and resonance",
+      "prompt": "What is a requirement for resonance to occur in an object?",
+      "opener": "Think about what made the glass in the resonance example start vibrating.",
+      "choices": [
+        "That the sound is very loud, regardless of frequency",
+        "That the sound's frequency matches the object's own vibration frequency",
+        "That the object is made of metal",
+        "That the room is completely silent"
+      ],
+      "answer": 1,
+      "explanation": "Resonance occurs when the sound's frequency matches the object's own vibration frequency, causing the object to absorb energy and vibrate strongly. How loud the sound is or what material the object is made of doesn't determine whether resonance occurs, only how strong the effect becomes."
     }
   ]
 }
