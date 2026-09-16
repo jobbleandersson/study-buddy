@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta rättssystemets grunder: mänskliga rättigheter, rättegångens gång, brottmål/tvistemål och barnkonventionen.",
       "opener": "Från internationella rättigheter till hur en dom faktiskt blir till i Sverige.",
       "answer": "Mänskliga rättigheter: universella och omistliga rättigheter som gäller alla människor, grundade i FN:s allmänna förklaring från 1948 · Brottmål: åklagaren åtalar en misstänkt person på statens vägnar för ett brott · Tvistemål: två enskilda parter (privatpersoner/företag) tvistar om t.ex. avtal eller skuld, ingen åklagare inblandad · Rättegångens gång: polis/åklagare utreder → åklagaren väcker åtal (i brottmål) → förhandling i tingsrätten med åklagare, försvarsadvokat, ev. målsägande och vittnen → domstolen (domare och ibland nämndemän) meddelar dom → domen kan överklagas till hovrätten och i vissa fall Högsta domstolen · Barnkonventionen: FN:s konvention om barns rättigheter (1989), svensk lag sedan 2020, bygger bland annat på barnets bästa och barnets rätt att bli hörd."
+    },
+    {
+      "id": "q-sam-lag-9",
+      "kind": "mc",
+      "topic": "mänskliga rättigheter grundidé",
+      "prompt": "Vilken typ av rättighet är rätten till utbildning ett exempel på, tillsammans med rätten till sjukvård?",
+      "opener": "Dessa rättigheter handlar om vad samhället ska ge tillgång till, inte bara om frihet från inblandning.",
+      "choices": [
+        "Ekonomiska och sociala rättigheter",
+        "Enbart politiska rättigheter",
+        "Enbart medborgerliga rättigheter",
+        "Rättigheter som bara gäller vuxna"
+      ],
+      "answer": 0,
+      "explanation": "Rätten till utbildning och sjukvård räknas som ekonomiska och sociala rättigheter — rättigheter som handlar om tillgång till resurser och tjänster som är nödvändiga för ett värdigt liv."
+    },
+    {
+      "id": "q-sam-lag-10",
+      "kind": "mc",
+      "topic": "hur en rättegång går till i Sverige",
+      "prompt": "Vad kallas principen som innebär att en misstänkt person ska betraktas som oskyldig tills motsatsen bevisats i domstol?",
+      "opener": "En grundläggande rättssäkerhetsprincip i en rättsstat.",
+      "choices": [
+        "Oskyldighetspresumtionen",
+        "Åtalsplikten",
+        "Källskydd",
+        "Meddelarfrihet"
+      ],
+      "answer": 0,
+      "explanation": "Oskyldighetspresumtionen innebär att den misstänkte ska betraktas som oskyldig tills skulden bevisats i domstol — det är åklagaren som måste bevisa skuld, inte den misstänkte som måste bevisa sin oskuld."
+    },
+    {
+      "id": "q-sam-lag-11",
+      "kind": "mc",
+      "topic": "skillnad brottmål/tvistemål",
+      "prompt": "Två grannar tvistar om var tomtgränsen egentligen går. Vilken typ av mål är detta?",
+      "opener": "Är det staten som driver frågan, eller två enskilda parter?",
+      "choices": [
+        "Ett tvistemål",
+        "Ett brottmål",
+        "Ett förvaltningsmål utan part",
+        "Ingen domstol kan pröva detta"
+      ],
+      "answer": 0,
+      "explanation": "En tvist mellan två enskilda parter (grannarna) om till exempel en gränsdragning är ett tvistemål — det finns ingen åklagare inblandad eftersom det inte handlar om ett misstänkt brott."
+    },
+    {
+      "id": "q-sam-lag-12",
+      "kind": "mc",
+      "topic": "barns rättigheter",
+      "prompt": "Vilket år blev barnkonventionen svensk lag?",
+      "opener": "Detta skedde många år efter att FN antog konventionen 1989.",
+      "choices": [
+        "2020",
+        "1989",
+        "1948",
+        "2000"
+      ],
+      "answer": 0,
+      "explanation": "Barnkonventionen antogs av FN 1989, men blev svensk lag först den 1 januari 2020 — dessförinnan var Sverige folkrättsligt bundet av konventionen men den hade inte status som svensk lag."
+    },
+    {
+      "id": "q-sam-lag-13",
+      "kind": "mc",
+      "topic": "hur en rättegång går till i Sverige",
+      "prompt": "Vad är nämndemäns roll i en svensk tingsrätt?",
+      "opener": "De har ingen juridisk examen, men sitter ändå med och dömer.",
+      "choices": [
+        "Lekmän utan juridisk utbildning som dömer tillsammans med en lagfaren domare i vissa mål",
+        "Advokater som alltid företräder den åtalade",
+        "Poliser som utreder brottet",
+        "Åklagare som väcker åtal"
+      ],
+      "answer": 0,
+      "explanation": "Nämndemän är lekmän, valda av politiska partier, som utan juridisk utbildning dömer tillsammans med en lagfaren domare i vissa brottmål och tvistemål — ett sätt att låta allmänheten delta i rättskipningen."
+    },
+    {
+      "id": "q-sam-lag-14",
+      "kind": "worked",
+      "topic": "barns rättigheter",
+      "prompt": "Vid en vårdnadstvist mellan föräldrar ska domstolen enligt barnkonventionen ta särskild hänsyn till en princip. Förklara vilken princip det är och hur den påverkar domstolens beslut.",
+      "opener": "Tänk på vems intresse som ska väga tyngst — föräldrarnas eller barnets.",
+      "answer": "Principen är barnets bästa (artikel 3), vilket innebär att domstolen i första hand ska utgå från vad som är bäst för barnet, snarare än vad som är enklast eller mest rättvist för föräldrarna. Barnet har dessutom rätt att få uttrycka sin åsikt utifrån sin ålder och mognad (artikel 12).",
+      "steps": [
+        "Barnkonventionens artikel 3 slår fast att barnets bästa ska komma i främsta rummet vid alla beslut som rör barn, inklusive vårdnadstvister.",
+        "Det innebär att domstolen inte automatiskt delar upp vårdnaden \"rättvist\" mellan föräldrarna, utan utreder vad som faktiskt gynnar barnets välmående, trygghet och utveckling.",
+        "Enligt artikel 12 har barnet också rätt att få uttrycka sin åsikt i frågan, och åsikten ska vägas in utifrån barnets ålder och mognad.",
+        "Domstolen väger samman denna information för att fatta ett beslut där barnets bästa, inte föräldrarnas önskemål i sig, är avgörande."
+      ]
+    },
+    {
+      "id": "q-sam-lag-15",
+      "kind": "mc",
+      "topic": "mänskliga rättigheter grundidé",
+      "prompt": "Vad innebär det att mänskliga rättigheter är \"odelbara\"?",
+      "opener": "Kan man välja bort en rättighet för att fokusera bara på en annan?",
+      "choices": [
+        "Alla rättigheter är lika viktiga och hänger ihop — man kan inte välja bort vissa rättigheter för att fokusera på andra",
+        "Rättigheterna gäller bara i vissa länder",
+        "Rättigheterna kan säljas eller överlåtas till andra",
+        "Bara en rättighet i taget gäller för varje person"
+      ],
+      "answer": 0,
+      "explanation": "Odelbarhet betyder att alla mänskliga rättigheter — medborgerliga, politiska, ekonomiska, sociala och kulturella — är lika viktiga och beroende av varandra. Man kan inte prioritera bort t.ex. rätten till utbildning för att fokusera enbart på yttrandefrihet."
     }
   ]
 }

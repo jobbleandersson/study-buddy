@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta grunderna kring EU, FN, internationellt samarbete och Sveriges roll internationellt.",
       "opener": "Från Europasamarbetet till Sveriges plats i världen.",
       "answer": "EU: samarbete mellan självständiga europeiska länder inom bland annat ekonomi, handel och delvis lagstiftning, med en inre marknad som ger fri rörlighet för varor, tjänster, personer och kapital · FN: global organisation bildad 1945 för att verka för fred, säkerhet, mänskliga rättigheter och samarbete mellan länder · Säkerhetsrådet: FN-organ med särskilt ansvar för internationell fred och säkerhet, kan besluta om sanktioner · Skäl till internationellt samarbete: gränsöverskridande problem som klimat, handel, säkerhet och smittspridning löses ofta bättre gemensamt · Sverige internationellt: medlem i FN sedan 1946, EU sedan 1995 och Nato sedan 2024, och deltar aktivt i internationellt bistånd och diplomati."
+    },
+    {
+      "id": "q-sam-int-9",
+      "kind": "mc",
+      "topic": "vad EU är och grundidén med samarbetet",
+      "prompt": "Vilket år blev Sverige medlem i EU?",
+      "opener": "Sverige gick med efter en folkomröstning i mitten av 1990-talet.",
+      "choices": [
+        "1995",
+        "1946",
+        "2024",
+        "1957"
+      ],
+      "answer": 0,
+      "explanation": "Sverige blev medlem i EU 1995, efter en folkomröstning 1994 där en majoritet röstade ja till medlemskap."
+    },
+    {
+      "id": "q-sam-int-10",
+      "kind": "mc",
+      "topic": "vad EU är och grundidén med samarbetet",
+      "prompt": "Vad kallas EU:s gemensamma valuta, som Sverige INTE har infört?",
+      "opener": "Sverige behöll sin egen valuta efter en folkomröstning 2003.",
+      "choices": [
+        "Euron",
+        "Kronan",
+        "Dollarn",
+        "Punden"
+      ],
+      "answer": 0,
+      "explanation": "Euron är EU:s gemensamma valuta, som används av de flesta men inte alla medlemsländer. Sverige röstade nej till euron i en folkomröstning 2003 och har kvar den svenska kronan."
+    },
+    {
+      "id": "q-sam-int-11",
+      "kind": "mc",
+      "topic": "FN:s roll grundidé",
+      "prompt": "Vilket FN-organ samlar representanter från alla medlemsländer, där varje land har en röst?",
+      "opener": "Till skillnad från säkerhetsrådet har inget land vetorätt här.",
+      "choices": [
+        "Generalförsamlingen",
+        "Säkerhetsrådet",
+        "Internationella domstolen",
+        "Sekretariatet"
+      ],
+      "answer": 0,
+      "explanation": "Generalförsamlingen samlar representanter från alla FN:s medlemsländer, och varje land har en röst. Den har en bredare, mer rådgivande roll jämfört med säkerhetsrådets bindande beslut i säkerhetsfrågor."
+    },
+    {
+      "id": "q-sam-int-12",
+      "kind": "mc",
+      "topic": "FN:s roll grundidé",
+      "prompt": "Hur många permanenta medlemmar med vetorätt har FN:s säkerhetsråd?",
+      "opener": "USA, Ryssland, Kina, Storbritannien och Frankrike.",
+      "choices": [
+        "5",
+        "10",
+        "15",
+        "193"
+      ],
+      "answer": 0,
+      "explanation": "Säkerhetsrådet har 5 permanenta medlemmar med vetorätt (USA, Ryssland, Kina, Storbritannien och Frankrike) samt 10 icke-permanenta medlemmar utan vetorätt som roterar."
+    },
+    {
+      "id": "q-sam-int-13",
+      "kind": "mc",
+      "topic": "Sveriges roll i internationella sammanhang",
+      "prompt": "Vilket år blev Sverige medlem i Nato?",
+      "opener": "Detta skedde efter en lång period av militär alliansfrihet, och efter Rysslands fullskaliga invasion av Ukraina.",
+      "choices": [
+        "2024",
+        "1995",
+        "1946",
+        "1949"
+      ],
+      "answer": 0,
+      "explanation": "Sverige blev medlem i Nato 2024, efter att tidigare under lång tid ha stått utanför militära allianser. Beslutet togs efter Rysslands fullskaliga invasion av Ukraina 2022."
+    },
+    {
+      "id": "q-sam-int-14",
+      "kind": "worked",
+      "topic": "FN:s roll grundidé",
+      "prompt": "Förklara med ett exempel hur vetorätten i FN:s säkerhetsråd kan påverka om rådet kan agera i en internationell konflikt.",
+      "opener": "Tänk på vad som händer om bara EN av de fem permanenta medlemmarna röstar emot ett förslag.",
+      "answer": "Om säkerhetsrådet ska besluta om till exempel sanktioner mot ett land, men ett av de fem permanenta medlemsländerna röstar emot, stoppas beslutet automatiskt genom vetot, oavsett hur de andra medlemmarna röstar — vilket innebär att rådet ofta blir handlingsförlamat i konflikter där en permanent medlem har egna intressen.",
+      "steps": [
+        "Säkerhetsrådets fem permanenta medlemmar (USA, Ryssland, Kina, Storbritannien, Frankrike) har var och en vetorätt.",
+        "Om ett förslag, till exempel om sanktioner eller en fredsbevarande insats, röstas emot av EN av dessa fem, blir förslaget blockerat — oavsett hur många andra länder som röstar för.",
+        "Detta innebär att säkerhetsrådet ofta har svårt att agera i konflikter där en permanent medlem själv är inblandad eller har starka intressen att skydda en annan part.",
+        "Vetorätten speglar maktbalansen efter andra världskriget men kritiseras ofta idag för att göra FN mindre effektivt i vissa kriser."
+      ]
+    },
+    {
+      "id": "q-sam-int-15",
+      "kind": "mc",
+      "topic": "varför länder samarbetar internationellt",
+      "prompt": "Vilket av dessa är ett exempel på ett internationellt handelsavtal snarare än ett säkerhetssamarbete?",
+      "opener": "Tänk på vad som är målet — ökad handel, eller gemensamt försvar?",
+      "choices": [
+        "Ett avtal som sänker tullar mellan flera länder för att öka handeln",
+        "Nato",
+        "FN:s säkerhetsråd",
+        "En militärallians"
+      ],
+      "answer": 0,
+      "explanation": "Ett handelsavtal som sänker tullar syftar till att underlätta handel mellan länder, medan Nato, säkerhetsrådet och militärallianser i stället handlar om gemensamt försvar och internationell säkerhet."
     }
   ]
 }

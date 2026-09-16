@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta de viktigaste begreppen inom privatekonomi och samhällsekonomi.",
       "opener": "Från den egna plånboken till hela samhällets ekonomi i några nyckelbegrepp.",
       "answer": "Budget: plan där inkomster ställs mot utgifter för att se vad som blir kvar att spara · Fasta utgifter: återkommer med ungefär samma belopp (t.ex. hyra), rörliga utgifter varierar (t.ex. mat, nöjen) · Sparande: bygger buffert för oväntade utgifter och möjliggör större framtida köp · Skatt: pengar medborgare och företag betalar till stat, region och kommun, som finansierar gemensam välfärd (skola, vård, omsorg, infrastruktur) · Moms: skatt på de flesta varor/tjänster, betalas av konsumenten vid köp · Utbud och efterfrågan: hög efterfrågan + oförändrat utbud brukar ge högre pris, ökat utbud utan ökad efterfrågan brukar ge lägre pris · Inflation: allmän prisnivå stiger över tid, vilket minskar pengars köpkraft om inte inkomsten ökar minst lika mycket."
+    },
+    {
+      "id": "q-sam-eko-9",
+      "kind": "mc",
+      "topic": "budget och privatekonomi grunder",
+      "prompt": "Vad kallas pengar man lånar och som ska betalas tillbaka, ofta med ränta?",
+      "opener": "Motsatsen till att spara ihop pengarna själv i förväg.",
+      "choices": [
+        "Ett lån",
+        "En budget",
+        "En skatt",
+        "Ett bidrag"
+      ],
+      "answer": 0,
+      "explanation": "Ett lån är pengar man får låna av t.ex. en bank, och som ska betalas tillbaka över tid — vanligtvis med en ränta som gör att man betalar tillbaka mer än man lånade."
+    },
+    {
+      "id": "q-sam-eko-10",
+      "kind": "mc",
+      "topic": "budget och privatekonomi grunder",
+      "prompt": "Varför är det riskabelt att ta ett snabblån med hög ränta för att köpa något man egentligen inte har råd med?",
+      "opener": "Tänk på vad som händer med den totala kostnaden när räntan är hög.",
+      "choices": [
+        "Den totala kostnaden (lånebelopp + ränta) kan bli mycket högre än om man sparat ihop pengarna själv, och man riskerar skuldsättning",
+        "Snabblån har alltid 0 % ränta",
+        "Det är aldrig någon risk med snabblån",
+        "Snabblån kräver aldrig återbetalning"
+      ],
+      "answer": 0,
+      "explanation": "Snabblån har ofta mycket hög ränta, vilket gör att den totala kostnaden blir betydligt högre än priset på det man köpte. Om man inte kan betala tillbaka i tid riskerar man dessutom att hamna i skuldfälla."
+    },
+    {
+      "id": "q-sam-eko-11",
+      "kind": "mc",
+      "topic": "skatter och vad de finansierar",
+      "prompt": "Vad kallas skatten som dras direkt från din lön innan du får den utbetald?",
+      "opener": "Den syns som ett avdrag på lönebeskedet.",
+      "choices": [
+        "Inkomstskatt",
+        "Moms",
+        "Fastighetsskatt",
+        "Bolagsskatt"
+      ],
+      "answer": 0,
+      "explanation": "Inkomstskatt dras från lönen innan den betalas ut. Moms betalas i stället vid köp av varor och tjänster, och bolagsskatt betalas av företag på deras vinst."
+    },
+    {
+      "id": "q-sam-eko-12",
+      "kind": "mc",
+      "topic": "skatter och vad de finansierar",
+      "prompt": "Vad innebär progressiv inkomstskatt, som delvis tillämpas i Sverige?",
+      "opener": "Tänk på vad som händer med skatteandelen när inkomsten stiger.",
+      "choices": [
+        "Ju högre inkomst, desto högre andel betalas i skatt",
+        "Alla betalar exakt samma summa i skatt oavsett inkomst",
+        "Ju högre inkomst, desto lägre andel betalas i skatt",
+        "Skatten är alltid noll för alla"
+      ],
+      "answer": 0,
+      "explanation": "Progressiv skatt innebär att skatteandelen ökar med inkomsten — höginkomsttagare betalar en högre andel av sin inkomst i skatt än låginkomsttagare, bland annat genom statlig inkomstskatt på högre inkomster."
+    },
+    {
+      "id": "q-sam-eko-13",
+      "kind": "mc",
+      "topic": "utbud och efterfrågan grundidé",
+      "prompt": "Vad händer med priset på en vara om UTBUDET ökar kraftigt samtidigt som efterfrågan är oförändrad?",
+      "opener": "Fler säljare eller mer vara att köpa, men lika många köpare som förut.",
+      "choices": [
+        "Priset brukar sjunka",
+        "Priset brukar stiga",
+        "Priset påverkas aldrig",
+        "Varan försvinner från marknaden"
+      ],
+      "answer": 0,
+      "explanation": "När utbudet ökar men efterfrågan är oförändrad finns det mer av varan att fördela mellan samma antal köpare, vilket vanligtvis pressar ner priset."
+    },
+    {
+      "id": "q-sam-eko-14",
+      "kind": "worked",
+      "topic": "budget och privatekonomi grunder",
+      "prompt": "En elev har 2000 kr i månadspengar och andra inkomster. Fasta utgifter (buss, mobilabonnemang) är 450 kr, och eleven vill spara minst 300 kr varje månad. Hur mycket blir kvar till rörliga utgifter (t.ex. nöjen och kläder) om eleven följer sparmålet?",
+      "opener": "Dra bort de fasta utgifterna och sparmålet från totalinkomsten, i valfri ordning.",
+      "answer": "1250 kr",
+      "steps": [
+        "Totalinkomst: 2000 kr.",
+        "Dra bort fasta utgifter: 2000 − 450 = 1550 kr.",
+        "Dra bort sparmålet: 1550 − 300 = 1250 kr.",
+        "Kvar till rörliga utgifter blir alltså 1250 kr."
+      ]
+    },
+    {
+      "id": "q-sam-eko-15",
+      "kind": "mc",
+      "topic": "inflation grundidé",
+      "prompt": "Vad kallas motsatsen till inflation, det vill säga när den allmänna prisnivån i stället sjunker över tid?",
+      "opener": "Prefixet \"de-\" signalerar ofta en motsatt riktning.",
+      "choices": [
+        "Deflation",
+        "Recession",
+        "Devalvering",
+        "Konjunktur"
+      ],
+      "answer": 0,
+      "explanation": "Deflation innebär att den allmänna prisnivån sjunker över tid, till skillnad från inflation där priserna stiger. Deflation kan låta bra för konsumenter men är ofta ett tecken på svag ekonomi och kan hämma investeringar."
     }
   ]
 }

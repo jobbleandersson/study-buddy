@@ -124,6 +124,110 @@
       "prompt": "Summarise the key concepts in personal and national economics.",
       "opener": "From your own wallet to the economy of the whole of society, in a few key concepts.",
       "answer": "Budget: a plan where income is set against expenses to see what is left to save · Fixed expenses: recur at roughly the same amount (e.g. rent), variable expenses vary (e.g. food, entertainment) · Saving: builds a buffer for unexpected expenses and enables bigger future purchases · Tax: money citizens and companies pay to the state, region and municipality, which funds shared welfare (schools, healthcare, care, infrastructure) · VAT: tax on most goods/services, paid by the consumer at purchase · Supply and demand: high demand + unchanged supply usually gives a higher price, increased supply without increased demand usually gives a lower price · Inflation: the general price level rises over time, which reduces the purchasing power of money unless income rises by at least as much."
+    },
+    {
+      "id": "q-sam-eko-9",
+      "kind": "mc",
+      "topic": "budget and personal finance basics",
+      "prompt": "What is money you borrow and must pay back, often with interest, called?",
+      "opener": "The opposite of saving up the money yourself in advance.",
+      "choices": [
+        "A loan",
+        "A budget",
+        "A tax",
+        "A grant"
+      ],
+      "answer": 0,
+      "explanation": "A loan is money you borrow, for example from a bank, and must pay back over time - usually with interest, meaning you pay back more than you borrowed."
+    },
+    {
+      "id": "q-sam-eko-10",
+      "kind": "mc",
+      "topic": "budget and personal finance basics",
+      "prompt": "Why is it risky to take a high-interest payday loan to buy something you can't really afford?",
+      "opener": "Think about what happens to the total cost when the interest rate is high.",
+      "choices": [
+        "The total cost (loan amount + interest) can end up much higher than if you'd saved up the money yourself, and you risk getting into debt",
+        "Payday loans always have 0% interest",
+        "There's never any risk with payday loans",
+        "Payday loans never require repayment"
+      ],
+      "answer": 0,
+      "explanation": "Payday loans often carry very high interest rates, making the total cost significantly higher than the price of what you bought. If you can't repay on time, you also risk falling into a debt trap."
+    },
+    {
+      "id": "q-sam-eko-11",
+      "kind": "mc",
+      "topic": "taxes and what they fund",
+      "prompt": "What is the tax deducted directly from your salary before you're paid called?",
+      "opener": "It shows up as a deduction on your payslip.",
+      "choices": [
+        "Income tax",
+        "VAT",
+        "Property tax",
+        "Corporate tax"
+      ],
+      "answer": 0,
+      "explanation": "Income tax is deducted from your salary before it's paid out. VAT, by contrast, is paid when buying goods and services, and corporate tax is paid by companies on their profits."
+    },
+    {
+      "id": "q-sam-eko-12",
+      "kind": "mc",
+      "topic": "taxes and what they fund",
+      "prompt": "What does progressive income tax, partly applied in Sweden, mean?",
+      "opener": "Think about what happens to the tax share as income rises.",
+      "choices": [
+        "The higher the income, the higher the share paid in tax",
+        "Everyone pays exactly the same amount in tax regardless of income",
+        "The higher the income, the lower the share paid in tax",
+        "The tax is always zero for everyone"
+      ],
+      "answer": 0,
+      "explanation": "Progressive tax means the tax share increases with income - higher earners pay a larger share of their income in tax than lower earners, partly through national income tax on higher incomes."
+    },
+    {
+      "id": "q-sam-eko-13",
+      "kind": "mc",
+      "topic": "supply and demand, the basic idea",
+      "prompt": "What happens to the price of a good if SUPPLY increases sharply while demand stays unchanged?",
+      "opener": "More sellers or more of the good to buy, but the same number of buyers as before.",
+      "choices": [
+        "The price usually falls",
+        "The price usually rises",
+        "The price is never affected",
+        "The good disappears from the market"
+      ],
+      "answer": 0,
+      "explanation": "When supply increases but demand stays unchanged, there's more of the good to share among the same number of buyers, which usually pushes the price down."
+    },
+    {
+      "id": "q-sam-eko-14",
+      "kind": "worked",
+      "topic": "budget and personal finance basics",
+      "prompt": "A student has 2,000 kr per month in allowance and other income. Fixed expenses (bus pass, phone plan) are 450 kr, and the student wants to save at least 300 kr every month. How much is left for variable expenses (e.g. entertainment and clothes) if the student follows the savings goal?",
+      "opener": "Subtract the fixed expenses and the savings goal from the total income, in either order.",
+      "answer": "1,250 kr",
+      "steps": [
+        "Total income: 2,000 kr.",
+        "Subtract fixed expenses: 2,000 − 450 = 1,550 kr.",
+        "Subtract the savings goal: 1,550 − 300 = 1,250 kr.",
+        "That leaves 1,250 kr for variable expenses."
+      ]
+    },
+    {
+      "id": "q-sam-eko-15",
+      "kind": "mc",
+      "topic": "inflation, the basic idea",
+      "prompt": "What is the opposite of inflation called, that is, when the general price level falls over time instead?",
+      "opener": "The prefix \"de-\" often signals a reverse direction.",
+      "choices": [
+        "Deflation",
+        "Recession",
+        "Devaluation",
+        "Economic cycle"
+      ],
+      "answer": 0,
+      "explanation": "Deflation means the general price level falls over time, unlike inflation where prices rise. Deflation can sound good for consumers but is often a sign of a weak economy and can discourage investment."
     }
   ]
 }

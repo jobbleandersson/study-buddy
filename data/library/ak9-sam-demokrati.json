@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta rollerna för riksdag, regering och kommun i Sverige.",
       "opener": "Tre nivåer med olika uppgifter: den som stiftar lagar, den som verkställer och den som sköter lokala frågor.",
       "answer": "Riksdagen: Sveriges högsta beslutande organ, 349 ledamöter, stiftar lagar och beslutar om statsbudgeten (lagstiftande makt) · Regeringen: verkställer riksdagens beslut, leder myndigheterna och Sveriges förvaltning, utses efter att statsministern godkänts av riksdagen (verkställande makt) · Domstolarna: dömer i brottmål och tvistemål, oberoende av riksdag och regering (dömande makt) · Kommunen: ansvarar för lokala frågor nära invånarna, t.ex. grundskola, förskola, äldreomsorg och socialtjänst, styrs av en kommunfullmäktige som väljs vart fjärde år · Regionen: ansvarar bland annat för sjukvård och kollektivtrafik · Maktdelningen mellan dessa nivåer och funktioner är central för att demokratin ska fungera och för att ingen ska få för mycket makt."
+    },
+    {
+      "id": "q-sam-dem-9",
+      "kind": "mc",
+      "topic": "vad demokrati innebär",
+      "prompt": "Vad kallas det när medborgare direkt röstar ja eller nej till en specifik fråga, till skillnad från att rösta på partier i ett allmänt val?",
+      "opener": "Ett exempel var EMU-omröstningen 2003.",
+      "choices": [
+        "Folkomröstning",
+        "Riksdagsval",
+        "Kommunval",
+        "Remissförfarande"
+      ],
+      "answer": 0,
+      "explanation": "En folkomröstning är ett direkt beslut från medborgarna i en specifik fråga, till skillnad från allmänna val där man röstar på partier och representanter som sedan fattar besluten."
+    },
+    {
+      "id": "q-sam-dem-10",
+      "kind": "mc",
+      "topic": "riksdag, regering och kommun",
+      "prompt": "Vem är formellt Sveriges statschef, med en huvudsakligen ceremoniell roll utan politisk makt?",
+      "opener": "Denna roll är ärftlig, inte vald.",
+      "choices": [
+        "Kungen/monarken",
+        "Statsministern",
+        "Talmannen",
+        "Riksdagens ordförande"
+      ],
+      "answer": 0,
+      "explanation": "Sveriges monark är formellt statschef, men har enligt grundlagen ingen politisk makt — rollen är i praktiken ceremoniell och representativ. Den faktiska politiska makten ligger hos regeringen och riksdagen."
+    },
+    {
+      "id": "q-sam-dem-11",
+      "kind": "mc",
+      "topic": "riksdag, regering och kommun",
+      "prompt": "Vad heter Sveriges regioners folkvalda församling?",
+      "opener": "Jämför med kommunernas motsvarande församling.",
+      "choices": [
+        "Regionfullmäktige",
+        "Kommunfullmäktige",
+        "Riksdagen",
+        "Talmanskonferensen"
+      ],
+      "answer": 0,
+      "explanation": "Regionfullmäktige är regionens folkvalda beslutande församling, som bland annat ansvarar för sjukvård och kollektivtrafik. Kommunfullmäktige är motsvarande församling på kommunal nivå."
+    },
+    {
+      "id": "q-sam-dem-12",
+      "kind": "mc",
+      "topic": "allmänna val i Sverige",
+      "prompt": "Vad kallas gränsen på 4 % av rösterna som ett parti måste nå för att få mandat i riksdagen?",
+      "opener": "Ett parti under denna gräns får inga platser alls i riksdagen.",
+      "choices": [
+        "Fyraprocentsspärren",
+        "Talmansspärren",
+        "Regeringsspärren",
+        "Kommunspärren"
+      ],
+      "answer": 0,
+      "explanation": "Fyraprocentsspärren innebär att ett parti måste få minst 4 % av rösterna i hela landet (eller 12 % i en enskild valkrets) för att få mandat i riksdagen."
+    },
+    {
+      "id": "q-sam-dem-13",
+      "kind": "mc",
+      "topic": "demokrati och diktatur",
+      "prompt": "Vad kännetecknar ofta en diktatur, till skillnad från en demokrati?",
+      "opener": "Tänk på vem som faktiskt kan påverka vem som sitter vid makten.",
+      "choices": [
+        "Makten koncentreras till en person eller en liten grupp utan att medborgarna kan rösta bort dem",
+        "Fria och regelbundna val med flera partier att välja mellan",
+        "En oberoende domstolsmakt som kan döma mot regeringen",
+        "Fri press som får granska makthavare utan censur"
+      ],
+      "answer": 0,
+      "explanation": "I en diktatur saknas ofta möjligheten för medborgarna att genom fria val byta ut makthavare — makten är koncentrerad och skyddas ofta genom censur eller förtryck av opposition. De andra alternativen beskriver i stället kännetecken för en demokrati."
+    },
+    {
+      "id": "q-sam-dem-14",
+      "kind": "worked",
+      "topic": "riksdag, regering och kommun",
+      "prompt": "Förklara med hjälp av maktdelningsprincipen (lagstiftande, verkställande och dömande makt) vad som händer om riksdagen stiftar en lag som sedan påstås strida mot grundlagen.",
+      "opener": "Tänk på vilken av de tre makterna som slutligen avgör en sådan tvist, och varför just den makten behöver vara oberoende.",
+      "answer": "Riksdagen (lagstiftande makt) stiftar lagen, regeringen och dess myndigheter (verkställande makt) tillämpar den i praktiken, men om lagens grundlagsenlighet ifrågasätts kan domstolarna (dömande makt), som är oberoende av riksdag och regering, pröva frågan i ett enskilt fall.",
+      "steps": [
+        "Lagstiftande makt (riksdagen) beslutar om och stiftar lagen.",
+        "Verkställande makt (regeringen och dess myndigheter) tillämpar och verkställer lagen i praktiken.",
+        "Om en enskild anser att lagen strider mot grundlagen kan frågan prövas av domstolarna, som utgör den dömande makten.",
+        "Domstolarna är oberoende av riksdag och regering, vilket är just poängen med maktdelning — ingen del av staten ska ensam kunna kontrollera alla tre funktionerna.",
+        "Detta system med kontroll och motvikt skyddar medborgarna mot att en enda makthavare blir alltför mäktig."
+      ]
+    },
+    {
+      "id": "q-sam-dem-15",
+      "kind": "mc",
+      "topic": "vad demokrati innebär",
+      "prompt": "Vad kallas en demokrati där medborgarna väljer representanter som sedan fattar besluten, till skillnad från att alla röstar direkt om varje fråga?",
+      "opener": "Detta är den vanligaste formen av demokrati i moderna stater, inklusive Sverige.",
+      "choices": [
+        "Representativ demokrati",
+        "Direktdemokrati",
+        "Diktatur",
+        "Teokrati"
+      ],
+      "answer": 0,
+      "explanation": "I en representativ demokrati väljer medborgarna representanter (t.ex. riksdagsledamöter) som sedan fattar besluten å deras vägnar, till skillnad från en direktdemokrati där medborgarna röstar direkt i varje enskild fråga."
     }
   ]
 }
