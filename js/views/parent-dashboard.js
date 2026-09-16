@@ -121,7 +121,7 @@ export function renderParentHub() {
   }
 
   function redeemForm() {
-    const input = el("input", { type: "text", placeholder: "e.g. AB12CD", style: { textTransform: "uppercase" } });
+    const input = el("input", { type: "text", placeholder: t("leaderboard.inviteCodePlaceholder"), style: { textTransform: "uppercase" } });
     const btn = el("button.btn.btn--sm", { type: "button" }, t("parent.link"));
     btn.addEventListener("click", async () => {
       const code = input.value.trim();

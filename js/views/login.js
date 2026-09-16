@@ -12,7 +12,7 @@ export function renderLogin() {
   // someone fill it in and hit a network error.
   const serverDown = !store.proxyUp;
 
-  const emailInput = el("input", { type: "email", autocomplete: "email", placeholder: "you@example.com", disabled: serverDown });
+  const emailInput = el("input", { type: "email", autocomplete: "email", placeholder: t("login.emailPlaceholder"), disabled: serverDown });
   const passInput = el("input", { type: "password", placeholder: "••••••••", disabled: serverDown });
   const errorNote = el("p.note.note--warn", { hidden: true });
   const submitBtn = el("button.btn", { type: "submit", disabled: serverDown }, t("login.signIn"));

@@ -14,7 +14,7 @@ import { t, plural, daysUntil, getLang, sentenceCase } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import { sparkline } from "../lib/spark.js";
-import { weakSpotQuestions } from "../lib/mastery.js";
+import { weakSpotQuestions, firstTryCorrect } from "../lib/mastery.js";
 import { loadHpIndex, loadHpTranslations, isHpImported, importHpSet } from "../data/hp-content.js";
 import {
   normedScore, parseHpSetId, isHpSetId, attemptNormedTotal,
@@ -156,7 +156,7 @@ function delprovAccuracy() {
       const v = store.findQuestion(it.questionId)?.question.variant;
       if (!v) continue;
       const e = acc[v] || (acc[v] = { num: 0, den: 0 });
-      e.num += (it.correct ? 1 : 0) * w;
+      e.num += (firstTryCorrect(it) ? 1 : 0) * w;
       e.den += w;
     }
   });
