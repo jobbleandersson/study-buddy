@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta begreppen om historiska källor, källkritik och historiebruk.",
       "opener": "Samla ihop typer av källor, de fyra kriterierna och hur historia används.",
       "answer": "Kvarleva: fysiskt spår av en verksamhet, till exempel verktyg, mynt, husgrund eller räkenskapsbok – blev inte till för att berätta något · berättande källa: någon skildrar medvetet en händelse, till exempel brev, dagbok, krönika, tidningsartikel eller foto · primärkälla: från själva tiden eller händelsen · sekundärkälla: bygger på andras uppgifter, till exempel lärobok eller dokumentärfilm · fyra källkritiska frågor: äkthet (är källan verkligen vad den utger sig för?), tid (hur lång tid mellan händelse och nedteckning?), beroende (är källorna oberoende av varandra eller avskrifter?), tendens (är källan vinklad för att gynna någon?) · en och samma källa kan vara både kvarleva och berättande källa beroende på vilken fråga man ställer · historiebruk: hur historia används i dag i museer, filmer, spel, reklam, minnesdagar och politik – för att undervisa, underhålla, stärka identitet eller motivera beslut · historiesynen förändras eftersom nya källor och metoder tillkommer och varje tid ställer nya frågor, till exempel om kvinnors, barns och minoriteters historia."
+    },
+    {
+      "id": "q-hist8-kal-9",
+      "kind": "mc",
+      "topic": "källkritiska frågor",
+      "prompt": "Vad undersöker äkthetskriteriet?",
+      "opener": "Frågan handlar om huruvida källan är precis det den ger sig ut för att vara.",
+      "choices": [
+        "Om källan är vinklad",
+        "Hur lång tid som gått sedan händelsen",
+        "Om flera källor är oberoende av varandra",
+        "Om källan verkligen är vad den utger sig för att vara, och inte en förfalskning"
+      ],
+      "answer": 3,
+      "explanation": "Äkthetskriteriet prövar om en källa verkligen är det den påstås vara – till exempel ett äkta brev från rätt tid – och inte en förfalskning eller senare efterkonstruktion. Vinkling, tidsavstånd och beroende mellan källor är i stället tendens-, tids- och beroendekriterierna, tre andra källkritiska frågor."
+    },
+    {
+      "id": "q-hist8-kal-10",
+      "kind": "mc",
+      "topic": "primär- och sekundärkällor",
+      "prompt": "Vilket av följande är ett exempel på en sekundärkälla om ett historiskt krig?",
+      "opener": "Tänk på vem som skrivit texten och när, i förhållande till själva kriget.",
+      "choices": [
+        "Ett brev skrivet av en soldat under kriget",
+        "Ett fotografi taget under kriget",
+        "Ett vapen som hittats på slagfältet",
+        "En modern historiebok som sammanfattar forskningsläget om kriget"
+      ],
+      "answer": 3,
+      "explanation": "En modern historiebok som sammanfattar och tolkar andras forskning är en sekundärkälla, eftersom den bygger vidare på redan insamlat material snarare än att komma direkt från händelsen. Ett soldatbrev, ett foto och ett vapen från slagfältet är i stället exempel på primärkällor respektive kvarlevor från själva kriget."
+    },
+    {
+      "id": "q-hist8-kal-11",
+      "kind": "mc",
+      "topic": "historiebruk",
+      "prompt": "Vilket är ett exempel på kommersiellt historiebruk?",
+      "opener": "Tänk på när det förflutna används för att sälja något.",
+      "choices": [
+        "En historiker som publicerar en vetenskaplig artikel",
+        "Ett arkiv som bevarar gamla dokument",
+        "En källkritisk analys i skolan",
+        "Ett företag som använder en historisk person eller epok i sin reklam för att sälja en produkt"
+      ],
+      "answer": 3,
+      "explanation": "När ett företag använder till exempel en vikingatida bild eller en historisk person i sin marknadsföring för att sälja en vara är det ett exempel på kommersiellt historiebruk. En vetenskaplig artikel, ett arkivs bevarande av dokument och en skolövning i källkritik är i stället exempel på vetenskapligt eller pedagogiskt historiebruk."
+    },
+    {
+      "id": "q-hist8-kal-12",
+      "kind": "mc",
+      "topic": "föränderlig historiesyn",
+      "prompt": "Vilket exempel visar hur historiesynen förändrats över tid?",
+      "opener": "Tänk på vilka grupper som historiskt sett fått lite plats i historieskrivningen.",
+      "choices": [
+        "Att historiska fakta ändras varje år",
+        "Att gamla källor förstörs automatiskt efter hundra år",
+        "Att historia fortfarande bara handlar om kungar och krig, precis som förr",
+        "Att kvinnors, barns och arbetares historia har fått betydligt mer plats i forskningen på senare tid"
+      ],
+      "answer": 3,
+      "explanation": "Ett tydligt exempel på förändrad historiesyn är att grupper som tidigare fick lite uppmärksamhet, som kvinnor, barn och vanliga arbetare, i dag studeras betydligt mer inom historieforskningen. Källorna i sig förstörs inte automatiskt och forskningen handlar numera om betydligt mer än bara kungar och krig."
+    },
+    {
+      "id": "q-hist8-kal-13",
+      "kind": "mc",
+      "topic": "kvarlevor och berättande källor",
+      "prompt": "Kan samma föremål eller dokument räknas som både en kvarleva och en berättande källa?",
+      "opener": "Tänk på ett gammalt brev: vad kan det berätta om innehållet, och vad kan det berätta bara genom att existera?",
+      "choices": [
+        "Nej, aldrig",
+        "Bara om det är skrivet på latin",
+        "Bara om det finns på ett museum",
+        "Ja, beroende på vilken fråga man ställer till källan"
+      ],
+      "answer": 3,
+      "explanation": "Ett brev kan användas som berättande källa om man är intresserad av vad som faktiskt står i texten, men samma brev kan också fungera som en kvarleva om man i stället studerar till exempel papperskvaliteten, bläcket eller skrivstilen från en viss tid. Det avgörande är alltså vilken fråga historikern ställer, inte källans språk eller var den förvaras."
+    },
+    {
+      "id": "q-hist8-kal-14",
+      "kind": "mc",
+      "topic": "källkritiska frågor",
+      "prompt": "Varför är det viktigt att ta reda på tidsavståndet mellan en händelse och när en källa skrevs ner?",
+      "opener": "Tänk på hur ett minne kan förändras ju längre tid som går.",
+      "choices": [
+        "Eftersom källor bara är giltiga i exakt hundra år",
+        "Eftersom det inte spelar någon roll alls",
+        "Eftersom äldre källor alltid är mer pålitliga än nyare",
+        "Eftersom minnet kan svikta och uppgifter kan förvrängas ju längre tid som gått"
+      ],
+      "answer": 3,
+      "explanation": "Ju längre tid som gått mellan en händelse och när någon skriver ner den, desto större är risken att minnet sviktar, att detaljer glöms bort eller att berättelsen färgas av senare händelser. Det handlar alltså inte om att källor har ett bäst-före-datum eller att äldre alltid skulle vara mer trovärdiga än nyare."
+    },
+    {
+      "id": "q-hist8-kal-15",
+      "kind": "mc",
+      "topic": "historiebruk",
+      "prompt": "Vilket är ett exempel på hur en stat kan använda historiebruk för att stärka en nationell identitet?",
+      "opener": "Tänk på vad som firas en gång om året och varför.",
+      "choices": [
+        "Genom att förbjuda all historieundervisning",
+        "Genom att bara undervisa om andra länders historia",
+        "Genom att radera alla historiska arkiv",
+        "Genom att fira nationaldagar och resa minnesmärken kopplade till viktiga historiska händelser"
+      ],
+      "answer": 3,
+      "explanation": "Nationaldagar, monument och minnesmärken som knyter an till viktiga historiska händelser är ett vanligt sätt för stater att bruka historien för att stärka en gemensam nationell identitet och känsla av tillhörighet. Att förbjuda historieundervisning, bara undervisa om andra länder eller radera arkiv skulle tvärtom göra det svårare att bygga en sådan identitet."
     }
   ]
 }

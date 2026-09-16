@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta industrialiseringen i Sverige.",
       "opener": "Tänk tidpunkt, råvaror, uppfinningar, städer, arbetsvillkor och folkrörelser.",
       "answer": "Sverige industrialiserades senare än Storbritannien, framför allt från 1850-talet och framåt · basen var egna råvaror: sågade trävaror, järn från Bergslagen och från 1870-talet pappersmassa · järnvägen byggdes ut från 1856 och band samman skog, gruvor, bruk och hamnar året runt · svenska uppfinnare och företag: Alfred Nobel (dynamiten), Gustaf de Laval (separatorn), Lars Magnus Ericsson (telefoner), senare ASEA och SKF · urbanisering: människor flyttade från landsbygd till städer och bruksorter, Stockholm och Göteborg växte snabbt · arbetsvillkor: långa arbetsdagar, låga löner, olycksrisker, barnarbete och trångboddhet i hyreskaserner · på landsbygden fanns torpare och statare, som fick lön i natura · klasskillnaderna var stora mellan arbetare och fabriksägare · folkrörelserna växte fram nedifrån: arbetarrörelsen med fackföreningar och socialdemokrati, nykterhetsrörelsen mot alkoholens skador och frikyrkorna utanför statskyrkan · folkrörelserna blev en skola i demokrati och drev fram krav på rösträtt, bättre arbetsvillkor och sociala reformer."
+    },
+    {
+      "id": "q-hist8-ind-9",
+      "kind": "mc",
+      "topic": "urbanisering och arbetsvillkor",
+      "prompt": "Vad var vanligt gällande barnarbete i tidiga svenska fabriker?",
+      "opener": "Barnarbetslagstiftningen kom stegvis och skyddade barnen dåligt i början.",
+      "choices": [
+        "Barnarbete var helt förbjudet redan från 1850",
+        "Bara pojkar över 18 år fick arbeta i fabriker",
+        "Barn arbetade aldrig i fabriker utan bara på gårdar",
+        "Barn kunde arbeta långa dagar för låg lön, särskilt inom textilindustrin"
+      ],
+      "answer": 3,
+      "explanation": "I de tidiga fabrikerna, inte minst inom textilindustrin, förekom det att barn arbetade långa dagar för mycket låg lön, innan lagar successivt began begränsa och senare förbjuda barnarbete. Det var alltså varken helt förbjudet redan 1850 eller begränsat till vuxna pojkar eller enbart jordbruket."
+    },
+    {
+      "id": "q-hist8-ind-10",
+      "kind": "mc",
+      "topic": "folkrörelser",
+      "prompt": "Vilken rörelse arbetade särskilt för bättre löner och arbetsvillkor för industriarbetare genom fackföreningar?",
+      "opener": "Rörelsen fick senare ett eget parti kopplat till sig.",
+      "choices": [
+        "Nykterhetsrörelsen",
+        "Frikyrkorörelsen",
+        "Rösträttsrörelsen för enbart kvinnor",
+        "Arbetarrörelsen"
+      ],
+      "answer": 3,
+      "explanation": "Arbetarrörelsen organiserade industriarbetare i fackföreningar för att förhandla om löner och arbetsvillkor, och den fick senare en politisk gren i Socialdemokraterna. Nykterhetsrörelsen och frikyrkorna hade andra huvudfrågor, och rösträttsrörelsen för kvinnor var en egen, delvis överlappande rörelse."
+    },
+    {
+      "id": "q-hist8-ind-11",
+      "kind": "mc",
+      "topic": "från jordbrukssamhälle till industrisamhälle",
+      "prompt": "Vad innebar skiftesreformerna, till exempel laga skifte, för det svenska jordbruket under 1800-talet?",
+      "opener": "Tidigare låg en gårds mark ofta utspridd i många smala tegar runt om i byn.",
+      "choices": [
+        "All jord blev statlig egendom",
+        "Bönderna förlorade rätten att äga jord",
+        "Jordbruket förbjöds till förmån för industrin",
+        "Jordbruksmarken samlades i färre och större sammanhängande skiften i stället för många små tegar"
+      ],
+      "answer": 3,
+      "explanation": "Skiftesreformerna slog samman en gårds tidigare utspridda små tegar till färre och större sammanhängande jordstycken, vilket gjorde det lättare att bruka jorden effektivare. Reformerna handlade alltså om markens indelning, inte om att staten tog över äganderätten eller att jordbruket förbjöds."
+    },
+    {
+      "id": "q-hist8-ind-12",
+      "kind": "mc",
+      "topic": "järnvägar och nya uppfinningar",
+      "prompt": "Vilket företag grundades av Lars Magnus Ericsson och blev senare ett stort internationellt telekombolag?",
+      "opener": "Företaget bär fortfarande grundarens efternamn.",
+      "choices": [
+        "ASEA",
+        "SKF",
+        "Volvo",
+        "Ericsson"
+      ],
+      "answer": 3,
+      "explanation": "Lars Magnus Ericsson grundade det företag som i dag heter Ericsson och som blev ett av världens stora telekombolag. ASEA (i dag en del av ABB), SKF och Volvo var andra viktiga svenska industriföretag men grundades av andra personer inom andra branscher."
+    },
+    {
+      "id": "q-hist8-ind-13",
+      "kind": "mc",
+      "topic": "fattigdom och klasskillnader",
+      "prompt": "Vad var en vanlig bostadsform för fabriksarbetare i växande städer under industrialiseringen?",
+      "opener": "Många familjer fick nöja sig med väldigt lite utrymme.",
+      "choices": [
+        "Stora herrgårdar",
+        "Gratis villor från staten",
+        "Slott",
+        "Trångbodda hyreskaserner"
+      ],
+      "answer": 3,
+      "explanation": "Fabriksarbetare i växande städer bodde ofta trångt i hyreskaserner, ibland med hela familjer i ett enda rum. Herrgårdar och slott hörde till en helt annan samhällsklass, och staten byggde inte gratis villor åt arbetarfamiljer under den här perioden."
+    },
+    {
+      "id": "q-hist8-ind-14",
+      "kind": "mc",
+      "topic": "urbanisering och arbetsvillkor",
+      "prompt": "Ungefär hur långa kunde arbetsdagarna vara för fabriksarbetare under den tidiga industrialiseringen?",
+      "opener": "Jämför med dagens lagstadgade åttatimmarsdag.",
+      "choices": [
+        "Aldrig mer än 6 timmar",
+        "Exakt 8 timmar enligt lag",
+        "Bara 4 timmar per dag",
+        "Ofta 10–12 timmar eller mer"
+      ],
+      "answer": 3,
+      "explanation": "Arbetsdagar på 10–12 timmar eller mer var vanliga i tidiga fabriker, långt innan lagar om normalarbetsdag infördes. Åttatimmarsdagen blev lag i Sverige först 1919, efter mångåriga krav från arbetarrörelsen."
+    },
+    {
+      "id": "q-hist8-ind-15",
+      "kind": "mc",
+      "topic": "folkrörelser",
+      "prompt": "Vad kämpade rösträttsrörelsen för under industrialiseringens tid?",
+      "opener": "Rösträtten var länge kopplad till kön, inkomst och förmögenhet.",
+      "choices": [
+        "Att bara adeln skulle få rösta",
+        "Att avskaffa alla val helt",
+        "Att bara storstäder skulle få rösta",
+        "Att fler, till exempel arbetare och kvinnor, skulle få rösträtt"
+      ],
+      "answer": 3,
+      "explanation": "Rösträttsrörelsen krävde att rösträtten skulle utvidgas till fler grupper som tidigare stod utanför, bland annat obesuttna arbetare och kvinnor, i stället för att bara gälla män med tillräcklig inkomst eller förmögenhet. Den ville alltså bredda demokratin, inte begränsa den till adeln eller till storstäder."
     }
   ]
 }
