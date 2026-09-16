@@ -125,6 +125,111 @@
       "prompt": "Summarise Hinduism and Buddhism and compare them with the Abrahamic religions.",
       "opener": "Take Hinduism first, then Buddhism, and finish with the similarities and differences.",
       "answer": "Hinduism: arose in India, the world's oldest of the major religions, no single founder · holy scriptures the Vedas, also the Bhagavad Gita · many gods, e.g. Brahma (the creator), Vishnu (the preserver), Shiva (the destroyer), Ganesha and Lakshmi, often seen as sides of brahman · building temple · karma: actions have consequences · samsara: the cycle of rebirth · moksha: liberation from the cycle, Hinduism's goal · holy places the river Ganges and the city of Varanasi · festival Diwali, the festival of lights · Buddhism: founder Siddhartha Gautama, Buddha, in northern India about 2,500 years ago · no creator god at the centre · four noble truths: suffering exists, it is caused by desire, it can cease, the Eightfold Path leads there · nirvana: the state in which suffering and rebirth cease · meditation is a central practice · monks and nuns live in monasteries · symbol the dharma wheel · Similarities between the two: karma, rebirth and the goal of escaping the cycle · Difference from Judaism, Christianity and Islam: there a single creator god, revelation and a life after death are central, while Hinduism and Buddhism emphasise rebirth and liberation from the cycle."
+    },
+    {
+      "id": "q-rel7-ost-9",
+      "kind": "mc",
+      "topic": "the basic ideas of Buddhism",
+      "prompt": "What are Buddhism's four noble truths in brief?",
+      "opener": "They describe the problem, the cause, the solution and the path there.",
+      "choices": [
+        "God exists, God is good, God punishes, God forgives",
+        "Suffering exists, it is caused by desire, it can cease, the Eightfold Path leads there",
+        "Karma doesn't exist, everything is random",
+        "Reincarnation is impossible according to Buddhism"
+      ],
+      "answer": 1,
+      "explanation": "The four noble truths are the core of the Buddha's teaching: suffering exists, it is caused by desire, it can cease, and the Eightfold Path leads to suffering ceasing. Buddhism has no creator god at its centre, so the first option doesn't fit at all."
+    },
+    {
+      "id": "q-rel7-ost-10",
+      "kind": "mc",
+      "topic": "the basic ideas of Hinduism",
+      "prompt": "What is the caste system historically associated with Hinduism?",
+      "opener": "It's about which group in society you were born into, not which god you worshipped.",
+      "choices": [
+        "A way of counting karma points",
+        "A calendar for festivals",
+        "A social division of society into groups a person was traditionally born into",
+        "A system for choosing gods"
+      ],
+      "answer": 2,
+      "explanation": "The caste system is a traditional social division of Indian society into groups a person was born into, and it has historically been linked to Hinduism, even though discriminating on the basis of caste is formally banned in India today. So it's about social structure, not festivals or the choice of gods."
+    },
+    {
+      "id": "q-rel7-ost-11",
+      "kind": "mc",
+      "topic": "the basic ideas of Buddhism",
+      "prompt": "What is meditation within Buddhism for?",
+      "opener": "Think about what Buddhists try to achieve by training the mind.",
+      "choices": [
+        "To predict the future",
+        "To train the mind, increase insight and move towards freedom from desire and suffering",
+        "To communicate with ancestors",
+        "To cure physical illnesses directly"
+      ],
+      "answer": 1,
+      "explanation": "Meditation is a central practice within Buddhism for calming and training the mind, increasing insight into existence, and gradually moving towards freedom from desire and suffering. It is therefore not meant as a way to predict the future or cure bodily illnesses."
+    },
+    {
+      "id": "q-rel7-ost-12",
+      "kind": "mc",
+      "topic": "karma and reincarnation",
+      "prompt": "What is the cycle of birth, death and rebirth within Hinduism and Buddhism called?",
+      "opener": "The word is often used together with the concept of karma.",
+      "choices": [
+        "Nirvana",
+        "Dharma",
+        "Samsara",
+        "Moksha"
+      ],
+      "answer": 2,
+      "explanation": "Samsara is the name used for the cycle of birth, death and rebirth within both Hinduism and Buddhism. Nirvana and moksha are instead the names for the goal of escaping the cycle, in Buddhism and Hinduism respectively, while dharma refers to the teaching or the right way to live."
+    },
+    {
+      "id": "q-rel7-ost-13",
+      "kind": "mc",
+      "topic": "holy places and rites",
+      "prompt": "Which city in India is especially important for Hindu pilgrims along the river Ganges?",
+      "opener": "The city lies at one of the river's most-visited bathing spots.",
+      "choices": [
+        "Mumbai",
+        "New Delhi",
+        "Bangalore",
+        "Varanasi"
+      ],
+      "answer": 3,
+      "explanation": "Varanasi is one of the most important pilgrimage cities for Hindus, since it lies on the Ganges and many travel there to bathe in the river and perform rituals. Mumbai, New Delhi and Bangalore are instead large Indian cities without the same religious significance for Hinduism."
+    },
+    {
+      "id": "q-rel7-ost-14",
+      "kind": "mc",
+      "topic": "comparison with the Abrahamic religions",
+      "prompt": "What is an important difference in the view of the afterlife between the Abrahamic religions and Hinduism/Buddhism?",
+      "opener": "Think about whether the afterlife is described as a single event or as a repeated cycle.",
+      "choices": [
+        "Neither group of religions has any view on the afterlife",
+        "Only Buddhism believes in a life after death",
+        "The Abrahamic religions often emphasise an eternal life after death, while Hinduism and Buddhism emphasise rebirth in a cycle",
+        "Both groups believe exactly the same thing about the afterlife"
+      ],
+      "answer": 2,
+      "explanation": "A clear difference is that the Abrahamic religions often emphasise an eternal life after death, for example in a paradise, while Hinduism and Buddhism instead emphasise rebirth in the cycle of samsara, with the goal of eventually being freed from it. Both groups therefore have clear but different views on what happens after death."
+    },
+    {
+      "id": "q-rel7-ost-15",
+      "kind": "mc",
+      "topic": "the basic ideas of Hinduism",
+      "prompt": "Which god within Hinduism is often depicted with an elephant head and seen as the remover of obstacles?",
+      "opener": "The god is often worshipped before starting something new, such as a journey or an exam.",
+      "choices": [
+        "Shiva",
+        "Vishnu",
+        "Ganesha",
+        "Brahma"
+      ],
+      "answer": 2,
+      "explanation": "Ganesha, with his elephant head, is one of Hinduism's best-known gods and is seen as the remover of obstacles — he is often worshipped before starting something new. Shiva, Vishnu and Brahma are other central Hindu gods but are not depicted with an elephant head."
     }
   ]
 }

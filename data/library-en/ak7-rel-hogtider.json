@@ -124,6 +124,111 @@
       "prompt": "Summarise the religions' symbols, rites and biggest festivals.",
       "opener": "Take the symbols first, then the rites, and finally the festivals religion by religion.",
       "answer": "Symbols: cross (Christianity) · Star of David and the seven-branched candlestick, the menorah (Judaism) · crescent with a star (Islam, often used as a symbol) · dharma wheel and lotus flower (Buddhism) · the Om symbol (Hinduism) · Rites of passage mark new stages in life: birth and naming, coming of age, marriage, death · Christianity: baptism · confirmation · a church wedding · a funeral service · Judaism: circumcision and naming · bar mitzvah at 13 for boys and bat mitzvah for girls · a wedding under the chuppah · prompt burial · Islam: the declaration of faith in the child's ear and aqiqah · the marriage contract nikah · burial · Festivals: Christmas and Easter (Christianity) · Passover, Yom Kippur and Hanukkah (Judaism) · Ramadan with Eid al-Fitr and Eid al-Adha (Islam) · Diwali and Holi (Hinduism) · Vesak (Buddhism) · In Sweden: many public holidays have a Christian origin - Christmas, Easter, Whitsun, Ascension Day and All Saints' Day - but are celebrated today by many without religious meaning, while other religions' festivals are celebrated without being public holidays."
+    },
+    {
+      "id": "q-rel7-hog-9",
+      "kind": "mc",
+      "topic": "festivals in different religions",
+      "prompt": "Which Jewish festival celebrates the exodus from Egypt?",
+      "opener": "The festival falls in spring and is celebrated, among other things, with a special meal, the seder.",
+      "choices": [
+        "Hanukkah",
+        "Yom Kippur",
+        "Passover (the Jewish exodus festival)",
+        "Purim"
+      ],
+      "answer": 2,
+      "explanation": "Passover celebrates the exodus from Egypt and the Israelites' liberation from slavery, and is celebrated with, among other things, the seder meal. Hanukkah instead celebrates the rededication of the Temple, Yom Kippur is the Day of Atonement, and Purim celebrates the story of Queen Esther."
+    },
+    {
+      "id": "q-rel7-hog-10",
+      "kind": "mc",
+      "topic": "festivals in different religions",
+      "prompt": "Which Jewish festival is called the Day of Atonement and involves fasting and reflection?",
+      "opener": "The festival is regarded as the most solemn and serious in the Jewish calendar.",
+      "choices": [
+        "Yom Kippur",
+        "Hanukkah",
+        "Passover",
+        "Sukkot"
+      ],
+      "answer": 0,
+      "explanation": "Yom Kippur, the Day of Atonement, is the most solemn day in the Jewish calendar and involves fasting, prayer and reflection on the past year's actions. Hanukkah and Sukkot are instead joyful festivals, and Passover celebrates the exodus from Egypt."
+    },
+    {
+      "id": "q-rel7-hog-11",
+      "kind": "mc",
+      "topic": "religious symbols",
+      "prompt": "What is the menorah within Judaism?",
+      "opener": "The symbol is a candlestick, not a building or a prayer.",
+      "choices": [
+        "A symbol for Islam",
+        "One of Judaism's oldest symbols, a seven-branched candlestick linked to the old Temple in Jerusalem",
+        "A symbol for Buddhism",
+        "A symbol for Hinduism"
+      ],
+      "answer": 1,
+      "explanation": "The menorah, the seven-branched candlestick, is one of Judaism's oldest and best-known symbols and goes back to the old Temple in Jerusalem. It therefore does not belong to Islam, Buddhism or Hinduism."
+    },
+    {
+      "id": "q-rel7-hog-12",
+      "kind": "mc",
+      "topic": "rites of passage",
+      "prompt": "What is the Muslim wedding ceremony and marriage contract called?",
+      "opener": "The word is Arabic and is used for the agreement itself between the spouses.",
+      "choices": [
+        "Chuppah",
+        "Bar mitzvah",
+        "Nikah",
+        "Confirmation"
+      ],
+      "answer": 2,
+      "explanation": "Nikah is the name of the Muslim wedding ceremony and the marriage contract entered into between the spouses. The chuppah is instead the canopy under which a couple marries within Judaism, bar mitzvah is a Jewish rite of passage for boys, and confirmation belongs to Christianity."
+    },
+    {
+      "id": "q-rel7-hog-13",
+      "kind": "mc",
+      "topic": "festivals in Sweden",
+      "prompt": "What does the Swedish public holiday Ascension Day celebrate?",
+      "opener": "The name describes what, according to the Bible, happened to Jesus forty days after Easter.",
+      "choices": [
+        "All Saints' Day",
+        "Jesus ascending to heaven",
+        "Epiphany",
+        "Midsummer's Eve"
+      ],
+      "answer": 1,
+      "explanation": "Ascension Day celebrates that, according to the Bible, Jesus ascended to heaven forty days after Easter. All Saints' Day is instead a day for remembering the dead, Epiphany celebrates the visit of the wise men, and Midsummer's Eve has no Christian origin."
+    },
+    {
+      "id": "q-rel7-hog-14",
+      "kind": "mc",
+      "topic": "religious symbols",
+      "prompt": "What does the crescent moon often used in connection with Islam symbolise?",
+      "opener": "The symbol is linked to how time has traditionally been counted within Islam.",
+      "choices": [
+        "It symbolises war",
+        "It symbolises the sun",
+        "It's often used as a symbol linked to the Islamic lunar calendar",
+        "It symbolises death"
+      ],
+      "answer": 2,
+      "explanation": "The crescent moon is often used as a symbol linked to Islam, partly because the Islamic calendar is a lunar calendar in which, for example, the start of Ramadan is decided by the phases of the moon. It therefore has nothing to do with war, the sun or death."
+    },
+    {
+      "id": "q-rel7-hog-15",
+      "kind": "mc",
+      "topic": "festivals in different religions",
+      "prompt": "Which festival within Hinduism is called the festival of lights and is celebrated with, among other things, oil lamps?",
+      "opener": "The festival celebrates good triumphing over evil and light over darkness.",
+      "choices": [
+        "Holi",
+        "Vesak",
+        "Diwali",
+        "Ramadan"
+      ],
+      "answer": 2,
+      "explanation": "Diwali, the festival of lights, is celebrated within Hinduism with oil lamps and lights that symbolise good triumphing over evil. Holi is instead Hinduism's festival of colours, Vesak is a Buddhist festival, and Ramadan is Islam's month of fasting."
     }
   ]
 }

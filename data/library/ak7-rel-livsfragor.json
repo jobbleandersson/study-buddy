@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta livsfrågor, etik och olika livsåskådningar.",
       "opener": "Ta begreppen i tur och ordning: livsfråga, etik, gyllene regeln, religionsfrihet, livsåskådningar.",
       "answer": "Livsfråga: stor fråga om tillvaron utan facit, t.ex. meningen med livet, vad som händer efter döden, varför det finns lidande, vad ett bra liv är · människor svarar olika utifrån livsåskådning, kultur och egna erfarenheter · Livsåskådning: en persons samlade syn på tillvaron, kan vara religiös (judendom, kristendom, islam, hinduism, buddhism) eller icke-religiös (sekulär humanism) · Etik: att tänka och resonera kring rätt och fel · Moral: hur man faktiskt handlar · Etiska modeller: konsekvensetik ser till följderna av handlingen · pliktetik ser till regler och plikter som gäller oavsett följd · sinnelagsetik ser till avsikten bakom handlingen · dygdetik frågar vilken sorts människa man vill vara · Gyllene regeln: behandla andra som du själv vill bli behandlad · finns i liknande form inom judendom (Hillel), kristendom (Bergspredikan), islam (haditherna), hinduism (Mahabharata) och buddhism (Dhammapada), samt i icke-religiösa livsåskådningar · Religionsfrihet: rätten att ha, byta, lämna och utöva en religion — och rätten att inte tro · finns i FN:s deklaration om de mänskliga rättigheterna artikel 18 och i svensk grundlag · full religionsfrihet i Sverige genom religionsfrihetslagen 1951 · gäller inte över landets lagar och kan begränsas om andra skadas · Ateism: att inte tro att någon gud finns · Agnosticism: att anse att man inte kan veta · Sekulär humanism: livsåskådning utan gudstro som betonar förnuft, vetenskap, medmänsklighet och mänskliga rättigheter · Att studera livsfrågor jämförande betyder att beskriva hur olika människor tänker, inte att avgöra vem som har rätt."
+    },
+    {
+      "id": "q-rel7-liv-9",
+      "kind": "mc",
+      "topic": "etik och moral",
+      "prompt": "Vad kallas den etiska teorin som fokuserar på vilken sorts människa man vill vara, snarare än på regler eller konsekvenser?",
+      "opener": "Namnet kommer från det grekiska ordet för en god egenskap eller förmåga.",
+      "choices": [
+        "Konsekvensetik",
+        "Pliktetik",
+        "Dygdetik",
+        "Sinnelagsetik"
+      ],
+      "answer": 2,
+      "explanation": "Dygdetik fokuserar på vilken sorts människa man vill vara och vilka egenskaper, till exempel mod och ärlighet, som är eftersträvansvärda, snarare än på enskilda regler eller handlingars följder. Konsekvensetik ser i stället till följderna, och pliktetik till regler och plikter."
+    },
+    {
+      "id": "q-rel7-liv-10",
+      "kind": "mc",
+      "topic": "livsfrågor",
+      "prompt": "Vilket av följande är ett exempel på en livsfråga?",
+      "opener": "Jämför med en faktafråga som alltid har samma svar.",
+      "choices": [
+        "Vilken färg har gräset?",
+        "Hur många dagar har en vecka?",
+        "Vad händer efter döden?",
+        "Vad är huvudstaden i Frankrike?"
+      ],
+      "answer": 2,
+      "explanation": "Frågan om vad som händer efter döden är en typisk livsfråga, eftersom människor svarar olika på den utifrån sin livsåskådning och det inte finns något vetenskapligt facit. De andra frågorna är i stället faktafrågor med ett enda korrekt svar."
+    },
+    {
+      "id": "q-rel7-liv-11",
+      "kind": "mc",
+      "topic": "religionsfrihet",
+      "prompt": "Vilket år fick Sverige full religionsfrihet genom religionsfrihetslagen?",
+      "opener": "Året ligger i mitten av 1900-talet, efter andra världskriget.",
+      "choices": [
+        "1809",
+        "1919",
+        "1951",
+        "2000"
+      ],
+      "answer": 2,
+      "explanation": "Religionsfrihetslagen från 1951 gav Sverige full religionsfrihet, bland annat rätten att lämna Svenska kyrkan utan att gå med i ett annat trossamfund. År 2000 skildes i stället kyrka och stat åt, vilket är en annan händelse."
+    },
+    {
+      "id": "q-rel7-liv-12",
+      "kind": "mc",
+      "topic": "ateism och humanism",
+      "prompt": "Vad särskiljer en agnostiker från en ateist?",
+      "opener": "Skillnaden handlar om kunskap kontra tro.",
+      "choices": [
+        "En ateist är alltid religiös",
+        "En agnostiker tror starkt på en gud",
+        "De betyder exakt samma sak",
+        "En agnostiker anser att man inte kan veta om en gud finns, medan en ateist inte tror att någon gud finns"
+      ],
+      "answer": 3,
+      "explanation": "En agnostiker tar ställningen att man inte kan veta säkert om en gud finns eller inte, medan en ateist går längre och inte tror att någon gud finns. Orden betyder alltså inte samma sak, även om många människor kombinerar båda ståndpunkterna."
+    },
+    {
+      "id": "q-rel7-liv-13",
+      "kind": "mc",
+      "topic": "den gyllene regeln",
+      "prompt": "Vilken formulering motsvarar den gyllene regeln uttryckt negativt?",
+      "opener": "Tänk på hur man kan vända på samma tanke: i stället för vad du ska göra, vad du inte ska göra.",
+      "choices": [
+        "Straffa andra som du själv blivit straffad",
+        "Gör inte mot andra det du inte vill att de gör mot dig",
+        "Lita aldrig på någon annan",
+        "Gör mot andra bara det som gynnar dig själv"
+      ],
+      "answer": 1,
+      "explanation": "Den negativt formulerade varianten av den gyllene regeln lyder ungefär: gör inte mot andra det du inte vill att de ska göra mot dig. Båda formuleringarna, positiv och negativ, handlar om att sätta sig in i den andra personens situation, till skillnad från tanken på hämnd eller att bara gynna sig själv."
+    },
+    {
+      "id": "q-rel7-liv-14",
+      "kind": "mc",
+      "topic": "etik och moral",
+      "prompt": "En elev resonerar: \"Man ska aldrig ljuga, oavsett vad konsekvenserna blir, eftersom det är en regel man ska följa.\" Vilken etisk modell ligger resonemanget närmast?",
+      "opener": "Lägg märke till att eleven följer en regel oavsett vad som händer.",
+      "choices": [
+        "Konsekvensetik",
+        "Dygdetik",
+        "Pliktetik",
+        "Inget etiskt resonemang alls"
+      ],
+      "answer": 2,
+      "explanation": "Eleven följer en regel — man ska aldrig ljuga — oavsett vilka följder det får, vilket är typiskt för pliktetik. Konsekvensetik hade i stället utgått från vad lögnen faktiskt leder till, och dygdetik hade frågat vilken sorts person man vill vara."
+    },
+    {
+      "id": "q-rel7-liv-15",
+      "kind": "mc",
+      "topic": "livsfrågor",
+      "prompt": "Vad är en livsåskådning?",
+      "opener": "Begreppet är bredare än bara en enskild religion.",
+      "choices": [
+        "Ett annat ord för en lag",
+        "En specifik högtid",
+        "En persons samlade syn på tillvaron, som kan vara religiös eller icke-religiös",
+        "Ett annat ord för etik"
+      ],
+      "answer": 2,
+      "explanation": "En livsåskådning är en persons samlade syn på tillvaron och de stora livsfrågorna, och den kan vara religiös, som kristendom eller islam, eller icke-religiös, som sekulär humanism. Det är alltså ett bredare begrepp än en enskild lag, högtid eller etikteori."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta hinduism och buddhism och jämför dem med de abrahamitiska religionerna.",
       "opener": "Ta hinduismen först, sedan buddhismen, och avsluta med likheter och skillnader.",
       "answer": "Hinduism: uppstod i Indien, världens äldsta av de stora religionerna, ingen enskild grundare · heliga skrifter Vedaskrifterna, även Bhagavadgita · många gudar, t.ex. Brahma (skaparen), Vishnu (bevararen), Shiva (förstöraren), Ganesha och Lakshmi, som ofta ses som sidor av brahman · byggnad tempel · karma: handlingar får följder · samsara: kretsloppet av återfödelser · moksha: befrielse från kretsloppet, hinduismens mål · heliga platser floden Ganges och staden Varanasi · högtid Diwali, ljusfesten · Buddhism: grundare Siddharta Gautama, Buddha, i norra Indien för ca 2 500 år sedan · ingen skapargud i centrum · fyra ädla sanningar: lidandet finns, det beror på begär, det kan upphöra, den åttafaldiga vägen leder dit · nirvana: tillståndet där lidandet och återfödelserna upphör · meditation är en central övning · munkar och nunnor lever i kloster · symbol dharmahjulet · Likheter mellan de två: karma, återfödelse och målet att komma ur kretsloppet · Skillnad mot judendom, kristendom och islam: där står en enda skapargud, uppenbarelse och ett liv efter döden i centrum, medan hinduism och buddhism betonar återfödelse och befrielse från kretsloppet."
+    },
+    {
+      "id": "q-rel7-ost-9",
+      "kind": "mc",
+      "topic": "buddhismens grundtankar",
+      "prompt": "Vilka är buddhismens fyra ädla sanningar i korthet?",
+      "opener": "De beskriver problemet, orsaken, lösningen och vägen dit.",
+      "choices": [
+        "Gud finns, Gud är god, Gud straffar, Gud förlåter",
+        "Lidandet finns, det beror på begär, det kan upphöra, den åttafaldiga vägen leder dit",
+        "Karma finns inte, allt är slumpmässigt",
+        "Reinkarnation är omöjlig enligt buddhismen"
+      ],
+      "answer": 1,
+      "explanation": "De fyra ädla sanningarna är kärnan i Buddhas lära: lidandet finns, det orsakas av begär, det kan upphöra, och den åttafaldiga vägen leder till att lidandet upphör. Buddhismen har ingen skapargud i centrum, så det första alternativet passar inte alls."
+    },
+    {
+      "id": "q-rel7-ost-10",
+      "kind": "mc",
+      "topic": "hinduismens grundtankar",
+      "prompt": "Vad är kastsystemet som historiskt förknippats med hinduismen?",
+      "opener": "Det handlar om vilken grupp i samhället man föddes in i, inte om vilken gud man dyrkade.",
+      "choices": [
+        "Ett sätt att räkna karma-poäng",
+        "En kalender för högtider",
+        "En social indelning av samhället i grupper som man traditionellt föddes in i",
+        "Ett system för att välja gudar"
+      ],
+      "answer": 2,
+      "explanation": "Kastsystemet är en traditionell social indelning av det indiska samhället i grupper som man föddes in i, och det har historiskt varit kopplat till hinduismen även om det formellt är förbjudet att diskriminera utifrån kast i dagens Indien. Det handlar alltså om samhällsstruktur, inte om högtider eller gudaval."
+    },
+    {
+      "id": "q-rel7-ost-11",
+      "kind": "mc",
+      "topic": "buddhismens grundtankar",
+      "prompt": "Vad är meditation inom buddhismen till för?",
+      "opener": "Tänk på vad buddhister försöker uppnå genom att öva sinnet.",
+      "choices": [
+        "Att förutsäga framtiden",
+        "Att träna sinnet, öka insikten och närma sig frihet från begär och lidande",
+        "Att kommunicera med förfäder",
+        "Att bota fysiska sjukdomar direkt"
+      ],
+      "answer": 1,
+      "explanation": "Meditation är en central övning inom buddhismen för att lugna och träna sinnet, öka insikten om tillvaron och steg för steg närma sig frihet från begär och lidande. Det är alltså inte tänkt som ett sätt att förutsäga framtiden eller bota kroppsliga sjukdomar."
+    },
+    {
+      "id": "q-rel7-ost-12",
+      "kind": "mc",
+      "topic": "karma och reinkarnation",
+      "prompt": "Vad kallas kretsloppet av födelse, död och återfödelse inom hinduism och buddhism?",
+      "opener": "Ordet används ofta tillsammans med begreppet karma.",
+      "choices": [
+        "Nirvana",
+        "Dharma",
+        "Samsara",
+        "Moksha"
+      ],
+      "answer": 2,
+      "explanation": "Samsara är det namn som används för kretsloppet av födelse, död och återfödelse inom både hinduism och buddhism. Nirvana och moksha är i stället namnen på målet att komma ur kretsloppet, i buddhismen respektive hinduismen, medan dharma syftar på läran eller den rätta levnadsvägen."
+    },
+    {
+      "id": "q-rel7-ost-13",
+      "kind": "mc",
+      "topic": "heliga platser och riter",
+      "prompt": "Vilken stad i Indien är särskilt viktig för hinduiska pilgrimer längs floden Ganges?",
+      "opener": "Staden ligger vid en av flodens mest besökta badplatser.",
+      "choices": [
+        "Mumbai",
+        "New Delhi",
+        "Bangalore",
+        "Varanasi"
+      ],
+      "answer": 3,
+      "explanation": "Varanasi är en av de viktigaste pilgrimsstäderna för hinduer, eftersom den ligger vid Ganges och många reser dit för att bada i floden och utföra ritualer. Mumbai, New Delhi och Bangalore är i stället stora indiska städer utan samma religiösa betydelse för hinduismen."
+    },
+    {
+      "id": "q-rel7-ost-14",
+      "kind": "mc",
+      "topic": "jämförelse med de abrahamitiska religionerna",
+      "prompt": "Vad är en viktig skillnad i synen på livet efter döden mellan de abrahamitiska religionerna och hinduism/buddhism?",
+      "opener": "Tänk på om livet efter döden beskrivs som en enda gång eller som ett upprepat kretslopp.",
+      "choices": [
+        "Ingen av religionsgrupperna har någon uppfattning om livet efter döden",
+        "Endast buddhismen tror på ett liv efter döden",
+        "De abrahamitiska religionerna betonar ofta ett evigt liv efter döden, medan hinduism och buddhism betonar återfödelse i ett kretslopp",
+        "Båda grupperna tror exakt likadant om livet efter döden"
+      ],
+      "answer": 2,
+      "explanation": "En tydlig skillnad är att de abrahamitiska religionerna ofta betonar ett evigt liv efter döden, till exempel i ett paradis, medan hinduism och buddhism i stället betonar återfödelse i kretsloppet samsara, med målet att till sist bli befriad från det. Båda grupperna har alltså tydliga men olika uppfattningar om vad som händer efter döden."
+    },
+    {
+      "id": "q-rel7-ost-15",
+      "kind": "mc",
+      "topic": "hinduismens grundtankar",
+      "prompt": "Vilken gud inom hinduismen avbildas ofta med elefanthuvud och ses som den som röjer hinder?",
+      "opener": "Guden dyrkas ofta innan man påbörjar något nytt, som en resa eller ett prov.",
+      "choices": [
+        "Shiva",
+        "Vishnu",
+        "Ganesha",
+        "Brahma"
+      ],
+      "answer": 2,
+      "explanation": "Ganesha, med sitt elefanthuvud, är en av hinduismens mest kända gudar och ses som den som röjer hinder — han dyrkas ofta innan man påbörjar något nytt. Shiva, Vishnu och Brahma är andra centrala hinduiska gudar men avbildas inte med elefanthuvud."
     }
   ]
 }

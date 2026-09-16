@@ -125,6 +125,111 @@
       "prompt": "Summarise Judaism, Christianity and Islam side by side.",
       "opener": "Compare religion by religion: scripture, building, leader, holy day and central figures.",
       "answer": "Shared: monotheism (a single god) · Abraham as forefather · sacred scriptures and prophets · Jerusalem as a holy city · Judaism: sacred scripture the Tanakh, most important is the Torah (five Books of Moses) · building the synagogue · leader the rabbi · holy day the Sabbath from Friday evening to Saturday evening · important figures Abraham and Moses · according to Judaism the Messiah has not yet come · Christianity: sacred scripture the Bible (Old and New Testaments) · building the church · leader a priest or pastor · holy day Sunday · according to Christian belief Jesus is the Son of God who rose from the dead · branches Catholic, Orthodox and Protestant · Islam: sacred scripture the Qur'an · building the mosque · leader the imam · holy day Friday with communal prayer · according to Islam Muhammad is the final prophet and Jesus is one of the prophets · branches Sunni and Shia · The biggest difference between them: the view of Jesus and of which scripture is God's final message."
+    },
+    {
+      "id": "q-rel7-abr-9",
+      "kind": "mc",
+      "topic": "sacred buildings",
+      "prompt": "Which city is regarded as holy by all three Abrahamic religions?",
+      "opener": "The city is mentioned in the history and sanctuaries of all three religions.",
+      "choices": [
+        "Rome",
+        "Mecca",
+        "Jerusalem",
+        "Athens"
+      ],
+      "answer": 2,
+      "explanation": "Jerusalem is holy to all three religions: to Judaism through the old Temple and the Western Wall, to Christianity through the site of Jesus's crucifixion and resurrection, and to Islam through the al-Aqsa Mosque and the story of Muhammad's night journey. Rome, on the other hand, is a centre especially for the Catholic Church, and Mecca is Islam's holiest city but has no particular role within Judaism or Christianity."
+    },
+    {
+      "id": "q-rel7-abr-10",
+      "kind": "mc",
+      "topic": "shared features",
+      "prompt": "What are religions that believe in only a single god called?",
+      "opener": "The word begins with \"mono-\", which means one.",
+      "choices": [
+        "Polytheistic",
+        "Monotheistic",
+        "Atheistic",
+        "Agnostic"
+      ],
+      "answer": 1,
+      "explanation": "Religions that believe in a single god are called monotheistic, which applies to Judaism, Christianity and Islam. Polytheism means belief in several gods, while atheism is the absence of belief in god and agnosticism is the view that one cannot know whether a god exists."
+    },
+    {
+      "id": "q-rel7-abr-11",
+      "kind": "mc",
+      "topic": "key differences",
+      "prompt": "Which day of rest does Judaism observe every week?",
+      "opener": "The day already begins the evening before, at sunset.",
+      "choices": [
+        "Sunday",
+        "The whole of Friday",
+        "The Sabbath, from Friday evening to Saturday evening",
+        "Monday"
+      ],
+      "answer": 2,
+      "explanation": "Judaism's day of rest is the Sabbath, which lasts from Friday evening to Saturday evening. Sunday is instead Christianity's day of worship, and Friday is Islam's day for communal Friday prayer."
+    },
+    {
+      "id": "q-rel7-abr-12",
+      "kind": "mc",
+      "topic": "key differences",
+      "prompt": "What is Islam's worship leader who leads the prayer called?",
+      "opener": "The word is also used for the person who gives the Friday sermon in the mosque.",
+      "choices": [
+        "Rabbi",
+        "Priest",
+        "Imam",
+        "Monk"
+      ],
+      "answer": 2,
+      "explanation": "The imam is the person who leads the prayer and often gives the sermon in the mosque within Islam. A rabbi is instead Judaism's learned leader, and a priest is Christianity's equivalent."
+    },
+    {
+      "id": "q-rel7-abr-13",
+      "kind": "mc",
+      "topic": "sacred scriptures",
+      "prompt": "What is Judaism's collected sacred scripture called, which includes the Torah among other parts?",
+      "opener": "The name is an abbreviation formed from the letters of the scripture's three sections.",
+      "choices": [
+        "The Vedas",
+        "The Qur'an",
+        "The Tanakh",
+        "The Talmud"
+      ],
+      "answer": 2,
+      "explanation": "The Tanakh is Judaism's collected sacred scripture and consists of the Torah, the Prophets and the Writings. The Vedas belong to Hinduism, the Qur'an to Islam, and the Talmud is a later Jewish collection of texts interpreting the law, not the Tanakh itself."
+    },
+    {
+      "id": "q-rel7-abr-14",
+      "kind": "mc",
+      "topic": "key differences",
+      "prompt": "What are the two largest branches within Islam?",
+      "opener": "The split arose early, over the question of who should succeed Muhammad as leader.",
+      "choices": [
+        "Catholic and Protestant",
+        "Sunni and Shia",
+        "Orthodox and Reformed",
+        "Mahayana and Theravada"
+      ],
+      "answer": 1,
+      "explanation": "Sunni and Shia are the two largest branches within Islam, and the difference goes back to an early conflict over who should lead the Muslims after Muhammad's death. Catholic and Protestant are instead branches within Christianity, and Mahayana and Theravada belong to Buddhism."
+    },
+    {
+      "id": "q-rel7-abr-15",
+      "kind": "mc",
+      "topic": "shared features",
+      "prompt": "What do the Torah, the Bible and the Qur'an have in common?",
+      "opener": "Think about what function the books have within their religions.",
+      "choices": [
+        "They are written by exactly the same person",
+        "They are all regarded as sacred scriptures within their respective religions and contain rules for how to live",
+        "They are only used at funerals",
+        "They are translated into exactly the same language in every country"
+      ],
+      "answer": 1,
+      "explanation": "The Torah, the Bible and the Qur'an are all regarded as sacred scriptures within their respective religions (Judaism, Christianity and Islam) and contain stories, rules and guidance for how to live. They were written by different people over a long period and exist translated into many different languages."
     }
   ]
 }

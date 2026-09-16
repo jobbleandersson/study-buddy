@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta kristendomens grunder: tro, skrift, kyrka och högtider.",
       "opener": "Gå igenom tro, bibeln, inriktningar, gudstjänst och högtider som fem korta punkter.",
       "answer": "Tro: en enda gud som enligt kristen tro visar sig som Fadern, Sonen och den heliga Anden (treenigheten) · Jesus: enligt kristen tro Guds son, född i Betlehem, korsfäst och uppstånden — uppståndelsen är trons kärna · Helig skrift: bibeln, i två delar — Gamla testamentet (tiden före Jesus, delas till stor del med judendomen) och Nya testamentet (Jesus, de fyra evangelierna och den tidiga kyrkan) · Byggnad: kyrka · Ledare: präst, pastor eller diakon · Gudstjänst: bön, psalmsång, bibelläsning, predikan och i många kyrkor nattvard · Riter: dop, konfirmation, bröllop, begravning · Inriktningar: katolsk (påven i Rom), ortodox (starkast i östra Europa, ikoner) och protestantisk (t.ex. Svenska kyrkan) · Högtider: advent · jul (Jesu födelse) · påsk (korsfästelse långfredag, uppståndelse påskdagen) · pingst (den heliga Anden) · Kristendomen i Sverige: kom under vikingatiden, dominerande under medeltiden, Svenska kyrkan var statskyrka till år 2000, kyrkan skötte länge folkbokföring och skola · Symbol: korset."
+    },
+    {
+      "id": "q-rel7-kri-9",
+      "kind": "mc",
+      "topic": "bibeln",
+      "prompt": "Vad kallas de fyra böckerna i Nya testamentet som berättar om Jesu liv?",
+      "opener": "Ordet betyder ungefär \"glatt budskap\".",
+      "choices": [
+        "Psalmerna",
+        "Evangelierna",
+        "Apostlagärningarna",
+        "Uppenbarelseboken"
+      ],
+      "answer": 1,
+      "explanation": "Evangelierna — enligt Matteus, Markus, Lukas och Johannes — är de fyra böckerna i Nya testamentet som berättar om Jesu liv, död och uppståndelse. Psalmerna hör till Gamla testamentet, Apostlagärningarna berättar om den tidiga kyrkan efter Jesu himmelsfärd, och Uppenbarelseboken är Nya testamentets sista och mest symboliska bok."
+    },
+    {
+      "id": "q-rel7-kri-10",
+      "kind": "mc",
+      "topic": "kyrkan och gudstjänsten",
+      "prompt": "Vad är nattvarden inom kristendomen?",
+      "opener": "Måltiden återupprepar något som hände kvällen innan Jesus korsfästes.",
+      "choices": [
+        "En pilgrimsfärd till Jerusalem",
+        "En måltid med bröd och vin som påminner om Jesu sista måltid med sina lärjungar",
+        "En bön som bara påven får läsa",
+        "En fasteperiod på fyrtio dagar"
+      ],
+      "answer": 1,
+      "explanation": "Nattvarden är en måltid med bröd och vin som firas till minne av Jesu sista måltid med sina lärjungar innan han korsfästes. Fastan inför påsk kallas i stället fastlagen eller fyrtiodagarsfastan, och den är en annan del av det kristna året."
+    },
+    {
+      "id": "q-rel7-kri-11",
+      "kind": "mc",
+      "topic": "tro om Jesus",
+      "prompt": "Vad kallas läran om att Gud visar sig som Fadern, Sonen och den heliga Anden?",
+      "opener": "Ordet börjar med \"tre-\" och syftar på de tre som ändå räknas som en enda gud.",
+      "choices": [
+        "Reinkarnationen",
+        "Uppenbarelsen",
+        "Treenigheten",
+        "Nattvarden"
+      ],
+      "answer": 2,
+      "explanation": "Treenigheten är den kristna läran om att Gud är en enda gud som visar sig i tre former: Fadern, Sonen (Jesus) och den heliga Anden. Reinkarnation hör i stället till hinduism och buddhism, och det begreppet finns inte inom kristendomen."
+    },
+    {
+      "id": "q-rel7-kri-12",
+      "kind": "mc",
+      "topic": "kristendomen i Sverige",
+      "prompt": "Vilken av följande är en av kristendomens största inriktningar?",
+      "opener": "De andra svarsalternativen hör i stället till islam eller en helt annan religion.",
+      "choices": [
+        "Sunni",
+        "Shia",
+        "Katolska kyrkan",
+        "Hinduism"
+      ],
+      "answer": 2,
+      "explanation": "Katolska kyrkan, med påven i Rom, är en av kristendomens tre stora inriktningar tillsammans med den ortodoxa och den protestantiska kyrkan. Sunni och shia är i stället inriktningar inom islam, och hinduism är en helt annan religion."
+    },
+    {
+      "id": "q-rel7-kri-13",
+      "kind": "mc",
+      "topic": "jul och påsk",
+      "prompt": "Vilken högtid firar att den heliga Anden kom till lärjungarna?",
+      "opener": "Högtiden infaller femtio dagar efter påsk.",
+      "choices": [
+        "Advent",
+        "Jul",
+        "Påsk",
+        "Pingst"
+      ],
+      "answer": 3,
+      "explanation": "Pingsten firar att den heliga Anden enligt bibeln kom till lärjungarna femtio dagar efter påsk, vilket brukar räknas som kyrkans födelsedag. Julen firar i stället Jesu födelse och påsken hans död och uppståndelse."
+    },
+    {
+      "id": "q-rel7-kri-14",
+      "kind": "mc",
+      "topic": "kyrkan och gudstjänsten",
+      "prompt": "Vad är dopet inom kristendomen?",
+      "opener": "Vatten är den centrala symbolen i ceremonin.",
+      "choices": [
+        "En fest efter skörden",
+        "En rit med vatten som välkomnar en person in i den kristna gemenskapen",
+        "Ett sätt att välja ny påve",
+        "En form av fyrtio dagars fasta"
+      ],
+      "answer": 1,
+      "explanation": "Dopet är en rit där vatten används som symbol för att välkomna en person, ofta ett litet barn, in i den kristna gemenskapen. Att välja en ny påve sker i stället genom en konklav, en helt annan kyrklig procedur som bara gäller den katolska kyrkan."
+    },
+    {
+      "id": "q-rel7-kri-15",
+      "kind": "mc",
+      "topic": "tro om Jesus",
+      "prompt": "Vad menas med korsfästelsen?",
+      "opener": "Det var en vanlig avrättningsmetod i Romarriket vid den här tiden.",
+      "choices": [
+        "En judisk högtid",
+        "En muslimsk bönestund",
+        "Avrättningsmetoden som enligt bibeln användes för att döda Jesus",
+        "En hinduisk ritual"
+      ],
+      "answer": 2,
+      "explanation": "Korsfästelsen var en avrättningsmetod i det romerska riket, och enligt bibeln avrättades Jesus på det sättet innan han enligt kristen tro uppstod från de döda. Det är alltså inte en högtid eller ritual inom judendom, islam eller hinduism."
     }
   ]
 }

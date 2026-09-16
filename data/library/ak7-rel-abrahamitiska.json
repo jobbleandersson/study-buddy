@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta judendom, kristendom och islam sida vid sida.",
       "opener": "Jämför religion för religion: skrift, byggnad, ledare, helig dag och centrala gestalter.",
       "answer": "Gemensamt: monoteism (en enda gud) · Abraham som stamfader · heliga skrifter och profeter · Jerusalem som helig stad · Judendom: helig skrift Tanak, viktigast är Toran (fem Moseböcker) · byggnad synagoga · ledare rabbin · helig dag sabbat från fredag kväll till lördag kväll · viktiga gestalter Abraham och Mose · Messias har enligt judendomen ännu inte kommit · Kristendom: helig skrift bibeln (Gamla och Nya testamentet) · byggnad kyrka · ledare präst eller pastor · helig dag söndag · enligt kristen tro är Jesus Guds son som uppstod från de döda · inriktningar katolsk, ortodox och protestantisk · Islam: helig skrift Koranen · byggnad moské · ledare imam · helig dag fredag med gemensam bön · enligt islam är Muhammed den sista profeten och Jesus en av profeterna · inriktningar sunni och shia · Största skillnaden mellan dem: synen på Jesus och på vilken skrift som är Guds slutliga budskap."
+    },
+    {
+      "id": "q-rel7-abr-9",
+      "kind": "mc",
+      "topic": "heliga byggnader",
+      "prompt": "Vilken stad räknas som helig av alla tre abrahamitiska religionerna?",
+      "opener": "Staden nämns i alla tre religionernas historia och helgedomar.",
+      "choices": [
+        "Rom",
+        "Mekka",
+        "Jerusalem",
+        "Aten"
+      ],
+      "answer": 2,
+      "explanation": "Jerusalem är helig för alla tre religionerna: för judendomen genom det gamla templet och Västra muren, för kristendomen genom platsen för Jesu korsfästelse och uppståndelse, och för islam genom al-Aqsa-moskén och berättelsen om Muhammeds himmelsfärd. Rom är i stället ett centrum särskilt för den katolska kyrkan, och Mekka är islams heligaste stad men har ingen särskild roll inom judendom eller kristendom."
+    },
+    {
+      "id": "q-rel7-abr-10",
+      "kind": "mc",
+      "topic": "gemensamma drag",
+      "prompt": "Vad kallas religioner som tror på bara en enda gud?",
+      "opener": "Ordet börjar med \"mono-\", som betyder en.",
+      "choices": [
+        "Polyteistiska",
+        "Monoteistiska",
+        "Ateistiska",
+        "Agnostiska"
+      ],
+      "answer": 1,
+      "explanation": "Religioner som tror på en enda gud kallas monoteistiska, vilket gäller judendom, kristendom och islam. Polyteism betyder tro på flera gudar, medan ateism är avsaknad av gudstro och agnosticism är uppfattningen att man inte kan veta om en gud finns."
+    },
+    {
+      "id": "q-rel7-abr-11",
+      "kind": "mc",
+      "topic": "viktiga skillnader",
+      "prompt": "Vilken vilodag firar judendomen varje vecka?",
+      "opener": "Dagen börjar redan kvällen innan, vid solnedgången.",
+      "choices": [
+        "Söndag",
+        "Fredag hela dagen",
+        "Sabbaten, från fredag kväll till lördag kväll",
+        "Måndag"
+      ],
+      "answer": 2,
+      "explanation": "Judendomens vilodag är sabbaten, som varar från fredag kväll till lördag kväll. Söndagen är i stället kristendomens gudstjänstdag, och fredagen är islams dag för den gemensamma fredagsbönen."
+    },
+    {
+      "id": "q-rel7-abr-12",
+      "kind": "mc",
+      "topic": "viktiga skillnader",
+      "prompt": "Vad heter islams gudstjänstledare som leder bönen?",
+      "opener": "Ordet används också om den som håller fredagspredikan i moskén.",
+      "choices": [
+        "Rabbin",
+        "Präst",
+        "Imam",
+        "Munk"
+      ],
+      "answer": 2,
+      "explanation": "Imamen är den som leder bönen och ofta håller predikan i moskén inom islam. Rabbin är i stället judendomens lärde ledare, och präst är kristendomens motsvarighet."
+    },
+    {
+      "id": "q-rel7-abr-13",
+      "kind": "mc",
+      "topic": "heliga skrifter",
+      "prompt": "Vad heter judendomens samlade heliga skrift, som bland annat innehåller Toran?",
+      "opener": "Namnet är en förkortning som bildas av bokstäverna i skriftens tre delar.",
+      "choices": [
+        "Vedaskrifterna",
+        "Koranen",
+        "Tanak",
+        "Talmud"
+      ],
+      "answer": 2,
+      "explanation": "Tanak är judendomens samlade heliga skrift och består av Toran, Profeterna och Skrifterna. Vedaskrifterna hör till hinduismen, Koranen till islam, och Talmud är en senare judisk skriftsamling med tolkningar av lagen, inte Tanak självt."
+    },
+    {
+      "id": "q-rel7-abr-14",
+      "kind": "mc",
+      "topic": "viktiga skillnader",
+      "prompt": "Vilka är de två största inriktningarna inom islam?",
+      "opener": "Splittringen uppstod tidigt, kring frågan om vem som skulle efterträda Muhammed som ledare.",
+      "choices": [
+        "Katolik och protestant",
+        "Sunni och shia",
+        "Ortodox och reformert",
+        "Mahayana och theravada"
+      ],
+      "answer": 1,
+      "explanation": "Sunni och shia är de två största inriktningarna inom islam, och skillnaden går tillbaka till en tidig konflikt om vem som skulle leda muslimerna efter Muhammeds död. Katolik och protestant är i stället inriktningar inom kristendomen, och mahayana och theravada hör till buddhismen."
+    },
+    {
+      "id": "q-rel7-abr-15",
+      "kind": "mc",
+      "topic": "gemensamma drag",
+      "prompt": "Vad är gemensamt för Toran, bibeln och Koranen?",
+      "opener": "Tänk på vilken funktion böckerna har inom sina religioner.",
+      "choices": [
+        "De är skrivna av exakt samma person",
+        "De räknas alla som heliga skrifter inom sina respektive religioner och innehåller regler för hur man bör leva",
+        "De används bara vid begravningar",
+        "De är översatta till exakt samma språk i alla länder"
+      ],
+      "answer": 1,
+      "explanation": "Toran, bibeln och Koranen räknas alla som heliga skrifter inom sina respektive religioner (judendom, kristendom och islam) och innehåller berättelser, regler och vägledning för hur man bör leva. De är skrivna av olika personer under lång tid och finns översatta till många olika språk."
     }
   ]
 }
