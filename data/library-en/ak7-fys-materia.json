@@ -125,6 +125,111 @@
       "prompt": "Summarise the states of matter, phase changes and density.",
       "opener": "Start with the particles in the three states and finish with the density formula.",
       "answer": "Solid: particles packed tightly in fixed positions, has its own shape · Liquid: particles packed tightly but mobile, takes the shape of its container · Gas: particles far apart and moving fast, fills the whole space · Melting: solid → liquid · Freezing: liquid → solid · Boiling: liquid → gas throughout the liquid at the boiling point · Evaporation: liquid → gas at the surface, even below the boiling point · Condensation: gas → liquid · Mass is always conserved in phase changes, volume can change · Mass is measured in grams or kilograms, volume in cm³, dm³ or litres · Density = mass / volume, unit g/cm³ or kg/m³ · Water: 1 g/cm³ = 1000 kg/m³ · Lower density than the liquid → the object floats, higher density → it sinks"
+    },
+    {
+      "id": "q-fys7-mte-9",
+      "kind": "mc",
+      "topic": "the particle model",
+      "prompt": "In which state do the particles move freely, far apart, and fill the whole space they occupy?",
+      "opener": "Think about which state has no fixed shape or volume of its own at all.",
+      "choices": [
+        "Solid",
+        "Liquid",
+        "Gas",
+        "All states equally"
+      ],
+      "answer": 2,
+      "explanation": "In a gas, the particles move fast and are far apart, so the gas spreads out and fills whatever container it is in. In solids and liquids, the particles sit much closer together."
+    },
+    {
+      "id": "q-fys7-mte-10",
+      "kind": "mc",
+      "topic": "phase changes",
+      "prompt": "What is it called when a substance goes directly from solid to gas without becoming liquid along the way, as dry ice does?",
+      "opener": "This is a less common phase change that skips the liquid step entirely.",
+      "choices": [
+        "Melting",
+        "Sublimation",
+        "Condensation",
+        "Freezing"
+      ],
+      "answer": 1,
+      "explanation": "Sublimation is the change directly from solid to gas, which is exactly what happens with dry ice (frozen carbon dioxide). Melting instead goes from solid to liquid."
+    },
+    {
+      "id": "q-fys7-mte-11",
+      "kind": "mc",
+      "topic": "phase changes",
+      "prompt": "What is the change from liquid to gas called when it happens throughout the whole liquid at once, at the substance's boiling point?",
+      "opener": "Distinguish this change from the one that only happens at the liquid's surface.",
+      "choices": [
+        "Evaporation",
+        "Boiling",
+        "Condensation",
+        "Sublimation"
+      ],
+      "answer": 1,
+      "explanation": "Boiling happens throughout the whole volume of liquid at once, at the boiling point. Evaporation instead happens only at the surface and can occur even at temperatures below the boiling point, for example when a puddle dries up."
+    },
+    {
+      "id": "q-fys7-mte-12",
+      "kind": "mc",
+      "topic": "mass and volume",
+      "prompt": "You melt 50 g of butter in a frying pan. What happens to the mass?",
+      "opener": "The particles change the substance's shape, but they don't disappear.",
+      "choices": [
+        "The mass increases",
+        "The mass decreases",
+        "The mass is unchanged, 50 g",
+        "The mass disappears completely"
+      ],
+      "answer": 2,
+      "explanation": "During a phase change, it's the same particles the whole time, so mass is conserved: 50 g of solid butter becomes 50 g of liquid butter. Only the shape and volume can change, not the mass."
+    },
+    {
+      "id": "q-fys7-mte-13",
+      "kind": "mc",
+      "topic": "density",
+      "prompt": "A piece of metal has a mass of 270 g and a volume of 100 cm³. What is its density?",
+      "opener": "Use the relationship density = mass / volume.",
+      "choices": [
+        "2.7 g/cm³",
+        "27 g/cm³",
+        "0.27 g/cm³",
+        "270 g/cm³"
+      ],
+      "answer": 0,
+      "explanation": "Density = mass / volume = 270 g / 100 cm³ = 2.7 g/cm³. Answering 27 g/cm³ means losing a decimal place in the calculation."
+    },
+    {
+      "id": "q-fys7-mte-14",
+      "kind": "worked",
+      "topic": "density",
+      "prompt": "A piece of plastic has a mass of 45 g and a volume of 50 cm³. Calculate the plastic's density and determine whether it floats in water, which has a density of 1 g/cm³.",
+      "opener": "Use the relationship density = mass / volume and then compare with water.",
+      "answer": "The density is 0.9 g/cm³, which is less than water's 1 g/cm³, so the plastic floats.",
+      "steps": [
+        "Write down the formula: density = mass / volume.",
+        "Substitute the values: 45 g / 50 cm³.",
+        "Calculate: 45 / 50 = 0.9, so the density is 0.9 g/cm³.",
+        "Compare with water: 0.9 g/cm³ < 1 g/cm³, so the plastic is lighter than the same volume of water.",
+        "Conclusion: the plastic floats, with part of its volume above the water surface."
+      ]
+    },
+    {
+      "id": "q-fys7-mte-15",
+      "kind": "mc",
+      "topic": "the particle model",
+      "prompt": "Which state has particles that are packed tightly but can slide past each other, so the substance flows and takes the shape of its container?",
+      "opener": "The substance has no shape of its own, but it also can't be compressed very much.",
+      "choices": [
+        "Solid",
+        "Liquid",
+        "Gas",
+        "Plasma"
+      ],
+      "answer": 1,
+      "explanation": "In a liquid, the particles are packed about as tightly as in a solid, but they can slide past each other, which lets the liquid flow and take the shape of its container. In a solid, the particles can't slide around each other in the same way."
     }
   ]
 }

@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta solsystemet, dygnet, årstiderna och månen.",
       "opener": "Ta planeterna i ordning först, sedan jordens två rörelser och till sist månen.",
       "answer": "Solsystemet: solen i mitten, åtta planeter i banor runt den, plus månar, asteroider och kometer · Planetordning inifrån: Merkurius, Venus, jorden, Mars, Jupiter, Saturnus, Uranus, Neptunus · Stenplaneter: de fyra inre, små med fast yta · Gasjättar: de fyra yttre, stora utan fast yta · Solen är en stjärna som lyser med eget ljus, planeterna speglar solljus · Rotation: jorden snurrar ett varv runt sin egen axel på cirka 24 timmar, det ger dag och natt · Bana: jorden går ett varv runt solen på cirka 365 dygn, det ger året · Årstider: jordaxeln lutar cirka 23,5 grader, sommar när vårt halvklot lutar mot solen (hög sol, långa dagar), vinter när det lutar bort · Norra och södra halvklotet har motsatta årstider · Månens faser: nymåne, växande halvmåne, fullmåne, avtagande halvmåne, hela cykeln cirka 29,5 dygn · Solförmörkelse: månen mellan solen och jorden · Månförmörkelse: jorden mellan solen och månen, jordens skugga på månen"
+    },
+    {
+      "id": "q-fys7-ast-9",
+      "kind": "mc",
+      "topic": "planeterna",
+      "prompt": "Vilken planet är känd för sina tydliga ringar?",
+      "opener": "Ringarna består av is och sten och syns tydligt även i ett litet teleskop.",
+      "choices": [
+        "Mars",
+        "Jupiter",
+        "Saturnus",
+        "Merkurius"
+      ],
+      "answer": 2,
+      "explanation": "Saturnus har det mest kända och tydligaste ringsystemet av alla planeter i solsystemet, uppbyggt av is och stenbitar. Mars och Merkurius saknar synliga ringar."
+    },
+    {
+      "id": "q-fys7-ast-10",
+      "kind": "mc",
+      "topic": "solsystemet",
+      "prompt": "Vad kallas de fyra yttre planeterna som är stora och saknar fast yta?",
+      "opener": "Dessa planeter består mest av gas och saknar mark att landa på.",
+      "choices": [
+        "Stenplaneter",
+        "Gasjättar",
+        "Dvärgplaneter",
+        "Asteroider"
+      ],
+      "answer": 1,
+      "explanation": "Jupiter, Saturnus, Uranus och Neptunus kallas gasjättar eftersom de är stora och mest består av gas utan fast yta. Stenplaneterna är i stället de fyra små inre planeterna med fast yta."
+    },
+    {
+      "id": "q-fys7-ast-11",
+      "kind": "mc",
+      "topic": "dag och natt",
+      "prompt": "Ett dygn på jorden är cirka 24 timmar. Vad beror det på?",
+      "opener": "Skilj på jordens två olika rörelser: en som tar ett dygn och en som tar ett år.",
+      "choices": [
+        "Jordens bana runt solen",
+        "Jordens rotation runt sin egen axel",
+        "Månens bana runt jorden",
+        "Solens rotation runt sin egen axel"
+      ],
+      "answer": 1,
+      "explanation": "Jordens rotation runt sin egen axel tar cirka 24 timmar och ger dygnet med dag och natt. Jordens bana runt solen tar i stället ett helt år, så den kan inte förklara dygnet."
+    },
+    {
+      "id": "q-fys7-ast-12",
+      "kind": "mc",
+      "topic": "årstider",
+      "prompt": "Vilket halvklot har sommar när jordaxeln lutar mot solen på det halvklotet?",
+      "opener": "Tänk på vad som gäller för vårt eget halvklot på sommaren jämfört med det motsatta halvklotet.",
+      "choices": [
+        "Bara norra halvklotet, alltid",
+        "Bara södra halvklotet, alltid",
+        "Det halvklot som lutar mot solen har sommar, det andra har vinter",
+        "Båda halvkloten har sommar samtidigt"
+      ],
+      "answer": 2,
+      "explanation": "Det halvklot som just då lutar mot solen får solstrålarna mer rakt uppifrån och har sommar, medan det motsatta halvklotet lutar bort och har vinter. Det är därför norra och södra halvklotet alltid har motsatta årstider."
+    },
+    {
+      "id": "q-fys7-ast-13",
+      "kind": "mc",
+      "topic": "månens faser",
+      "prompt": "Vad kallas månfasen när hela den solbelysta halvan av månen syns från jorden?",
+      "opener": "Detta inträffar mitt i månens fascykel.",
+      "choices": [
+        "Nymåne",
+        "Halvmåne",
+        "Fullmåne",
+        "Månförmörkelse"
+      ],
+      "answer": 2,
+      "explanation": "Vid fullmåne ser vi hela den solbelysta halvan av månen, eftersom jorden befinner sig mellan solen och månen utan att skugga den. Vid nymåne är det i stället den bortvända, mörka halvan som är vänd mot oss."
+    },
+    {
+      "id": "q-fys7-ast-14",
+      "kind": "worked",
+      "topic": "månens faser",
+      "prompt": "Månens fascykel är cirka 29,5 dygn. Hur många dygn tar det från fullmåne till nästa nymåne?",
+      "opener": "Fullmånen ligger mitt i cykeln — hur långt är det kvar av cykeln därifrån?",
+      "answer": "Ungefär 15 dygn (14,75 dygn).",
+      "steps": [
+        "Ordningen i cykeln är nymåne, växande halvmåne, fullmåne, avtagande halvmåne och sedan nymåne igen.",
+        "Fullmånen ligger precis halvvägs genom cykeln, så det återstår ännu en halv cykel till nästa nymåne.",
+        "Dela cykeln i två: 29,5 / 2 = 14,75 dygn.",
+        "Svaret blir alltså ungefär 15 dygn, drygt två veckor efter fullmånen.",
+        "Rimlighetskoll: detta är samma tid som det tog från nymåne till fullmåne, eftersom fullmånen ligger exakt i mitten av cykeln."
+      ]
+    },
+    {
+      "id": "q-fys7-ast-15",
+      "kind": "mc",
+      "topic": "förmörkelser",
+      "prompt": "Vid en månförmörkelse, var befinner sig jorden?",
+      "opener": "Tänk på vad som skuggar vad vid en månförmörkelse, jämfört med en solförmörkelse.",
+      "choices": [
+        "Mellan solen och månen, så jordens skugga faller på månen",
+        "Bakom månen",
+        "Mellan solen och en annan planet",
+        "Månen befinner sig mellan solen och jorden istället"
+      ],
+      "answer": 0,
+      "explanation": "Vid en månförmörkelse står jorden mellan solen och månen, och jordens skugga faller på månen. Vid en solförmörkelse är det i stället månen som står mellan solen och jorden."
     }
   ]
 }

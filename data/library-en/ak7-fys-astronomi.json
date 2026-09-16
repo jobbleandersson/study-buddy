@@ -126,6 +126,111 @@
       "prompt": "Summarise the solar system, the day-night cycle, the seasons and the moon.",
       "opener": "Take the planets in order first, then the Earth's two movements, and finally the moon.",
       "answer": "Solar system: the sun at the centre, eight planets in orbit around it, plus moons, asteroids and comets · Planet order from the inside: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune · Rocky planets: the four inner ones, small with a solid surface · Gas giants: the four outer ones, large with no solid surface · The sun is a star that shines with its own light, the planets reflect sunlight · Rotation: the Earth spins once around its own axis in about 24 hours, giving us day and night · Orbit: the Earth goes once around the sun in about 365 days, giving us the year · Seasons: the Earth's axis is tilted about 23.5 degrees, summer when our hemisphere tilts towards the sun (high sun, long days), winter when it tilts away · The northern and southern hemispheres have opposite seasons · Phases of the moon: new moon, waxing half moon, full moon, waning half moon, the whole cycle about 29.5 days · Solar eclipse: the moon between the sun and the Earth · Lunar eclipse: the Earth between the sun and the moon, the Earth's shadow on the moon"
+    },
+    {
+      "id": "q-fys7-ast-9",
+      "kind": "mc",
+      "topic": "the planets",
+      "prompt": "Which planet is known for its clear rings?",
+      "opener": "The rings are made of ice and rock and are clearly visible even in a small telescope.",
+      "choices": [
+        "Mars",
+        "Jupiter",
+        "Saturn",
+        "Mercury"
+      ],
+      "answer": 2,
+      "explanation": "Saturn has the most famous and clearest ring system of all the planets in the solar system, made up of ice and rock fragments. Mars and Mercury have no visible rings."
+    },
+    {
+      "id": "q-fys7-ast-10",
+      "kind": "mc",
+      "topic": "the solar system",
+      "prompt": "What are the four outer planets called that are large and have no solid surface?",
+      "opener": "These planets are mostly made of gas and have no ground to land on.",
+      "choices": [
+        "Rocky planets",
+        "Gas giants",
+        "Dwarf planets",
+        "Asteroids"
+      ],
+      "answer": 1,
+      "explanation": "Jupiter, Saturn, Uranus and Neptune are called gas giants because they are large and are mostly made of gas with no solid surface. The rocky planets are instead the four small inner planets with a solid surface."
+    },
+    {
+      "id": "q-fys7-ast-11",
+      "kind": "mc",
+      "topic": "day and night",
+      "prompt": "A day on Earth is about 24 hours. What causes this?",
+      "opener": "Distinguish between the Earth's two different movements: one that takes a day and one that takes a year.",
+      "choices": [
+        "The Earth's orbit around the sun",
+        "The Earth's rotation around its own axis",
+        "The moon's orbit around the Earth",
+        "The sun's rotation around its own axis"
+      ],
+      "answer": 1,
+      "explanation": "The Earth's rotation around its own axis takes about 24 hours and gives us the day-night cycle. The Earth's orbit around the sun instead takes a whole year, so it can't explain the day."
+    },
+    {
+      "id": "q-fys7-ast-12",
+      "kind": "mc",
+      "topic": "the seasons",
+      "prompt": "Which hemisphere has summer when the Earth's axis tilts towards the sun on that hemisphere?",
+      "opener": "Think about what applies to our own hemisphere in summer compared to the opposite hemisphere.",
+      "choices": [
+        "Only the northern hemisphere, always",
+        "Only the southern hemisphere, always",
+        "The hemisphere that tilts towards the sun has summer, the other has winter",
+        "Both hemispheres have summer at the same time"
+      ],
+      "answer": 2,
+      "explanation": "The hemisphere that is tilted towards the sun at that time gets the sun's rays more directly from above and has summer, while the opposite hemisphere tilts away and has winter. That's why the northern and southern hemispheres always have opposite seasons."
+    },
+    {
+      "id": "q-fys7-ast-13",
+      "kind": "mc",
+      "topic": "phases of the moon",
+      "prompt": "What is the phase of the moon called when the whole sunlit half of the moon is visible from Earth?",
+      "opener": "This happens right in the middle of the moon's phase cycle.",
+      "choices": [
+        "New moon",
+        "Half moon",
+        "Full moon",
+        "Lunar eclipse"
+      ],
+      "answer": 2,
+      "explanation": "At full moon, we see the whole sunlit half of the moon, since the Earth is between the sun and the moon without shadowing it. At new moon, it's instead the far, dark half that faces us."
+    },
+    {
+      "id": "q-fys7-ast-14",
+      "kind": "worked",
+      "topic": "phases of the moon",
+      "prompt": "The moon's phase cycle is about 29.5 days. How many days does it take from full moon to the next new moon?",
+      "opener": "The full moon sits in the middle of the cycle — how much of the cycle remains from there?",
+      "answer": "About 15 days (14.75 days).",
+      "steps": [
+        "The order in the cycle is new moon, waxing half moon, full moon, waning half moon, and then new moon again.",
+        "The full moon sits exactly halfway through the cycle, so half a cycle remains until the next new moon.",
+        "Divide the cycle in two: 29.5 / 2 = 14.75 days.",
+        "The answer is about 15 days, just over two weeks after the full moon.",
+        "Sanity check: this is the same length of time it took from new moon to full moon, since the full moon sits exactly in the middle of the cycle."
+      ]
+    },
+    {
+      "id": "q-fys7-ast-15",
+      "kind": "mc",
+      "topic": "eclipses",
+      "prompt": "During a lunar eclipse, where is the Earth?",
+      "opener": "Think about what shadows what during a lunar eclipse, compared to a solar eclipse.",
+      "choices": [
+        "Between the sun and the moon, so the Earth's shadow falls on the moon",
+        "Behind the moon",
+        "Between the sun and another planet",
+        "The moon is between the sun and the Earth instead"
+      ],
+      "answer": 0,
+      "explanation": "During a lunar eclipse, the Earth is between the sun and the moon, and the Earth's shadow falls on the moon. During a solar eclipse, it's instead the moon that is between the sun and the Earth."
     }
   ]
 }

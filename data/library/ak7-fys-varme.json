@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta värme, temperatur och de tre sätten värme sprids.",
       "opener": "Skilj först på värme och temperatur, gå sedan igenom ledning, strömning och strålning.",
       "answer": "Värme: energi som överförs från varmare till kallare, mäts i joule (J) · Temperatur: mått på partiklarnas rörelse, mäts i grader Celsius (°C) · Celsius: 0 °C = vattnets fryspunkt, 100 °C = vattnets kokpunkt vid normalt lufttryck · Ledning: värmen förs vidare mellan partiklar som rör vid varandra, bäst i metaller, dåligt i luft, trä och plast · Strömning: varm vätska eller gas har lägre densitet, stiger uppåt och kall strömmar in underifrån, till exempel luften över ett element · Strålning: värme som färdas som strålning och inte behöver något material, till exempel solens värme genom rymden · Värmeutvidgning: nästan alla ämnen ökar i volym när de värms och krymper när de kyls, massan är oförändrad · Isolering: material med stillastående luft (dun, ull, frigolit, luftspalt i fönster) bromsar värmeledningen · Kyla kan aldrig flytta sig — det är alltid värme som flyttar sig"
+    },
+    {
+      "id": "q-fys7-var-9",
+      "kind": "mc",
+      "topic": "värme och temperatur",
+      "prompt": "Vilken enhet mäts värmeenergi i?",
+      "opener": "Tänk på skillnaden mellan enheten för temperatur och enheten för energi.",
+      "choices": [
+        "Grader Celsius",
+        "Newton",
+        "Joule",
+        "Kilogram"
+      ],
+      "answer": 2,
+      "explanation": "Värmeenergi mäts i joule (J), precis som andra former av energi. Grader Celsius mäter i stället temperatur, och newton mäter kraft."
+    },
+    {
+      "id": "q-fys7-var-10",
+      "kind": "mc",
+      "topic": "Celsius-skalan",
+      "prompt": "Vatten kokar vid 100 °C vid normalt lufttryck. Vad händer med kokpunkten högt uppe i bergen, där lufttrycket är lägre?",
+      "opener": "Tänk på att partiklarna har lättare att lämna vätskan när det yttre trycket är svagare.",
+      "choices": [
+        "Den blir högre än 100 °C",
+        "Den blir lägre än 100 °C",
+        "Den förblir exakt 100 °C",
+        "Vatten kokar inte alls i bergen"
+      ],
+      "answer": 1,
+      "explanation": "Ett lägre lufttryck gör det lättare för vattenmolekylerna att lämna vätskan, så vattnet kokar redan vid en lägre temperatur än 100 °C. Det är därför mat kan ta längre tid att laga på hög höjd."
+    },
+    {
+      "id": "q-fys7-var-11",
+      "kind": "mc",
+      "topic": "värmetransport",
+      "prompt": "Vad kallas det när varm luft stiger uppåt och kall luft strömmar in underifrån, till exempel ovanför ett element?",
+      "opener": "Namnet på detta värmetransportsätt beskriver hur ämnet själv rör på sig.",
+      "choices": [
+        "Ledning",
+        "Strömning",
+        "Strålning",
+        "Isolering"
+      ],
+      "answer": 1,
+      "explanation": "Strömning innebär att varm luft eller vätska med lägre densitet stiger uppåt medan kallare, tätare luft strömmar in underifrån. Ledning sker i stället genom att partiklar som rör vid varandra för värmen vidare utan att själva ämnet förflyttas lika mycket."
+    },
+    {
+      "id": "q-fys7-var-12",
+      "kind": "mc",
+      "topic": "värmeutvidgning",
+      "prompt": "Varför byggs broar ofta med rörelsefogar (glapp) mellan olika delar?",
+      "opener": "Tänk på vad som händer med brons material på en varm sommardag jämfört med en kall vinterdag.",
+      "choices": [
+        "För att minska brons vikt",
+        "För att materialet utvidgas och krymper med temperaturen och behöver plats att röra sig",
+        "För att göra bron vackrare",
+        "För att spara pengar på material"
+      ],
+      "answer": 1,
+      "explanation": "Brons material utvidgas när det är varmt och krymper när det är kallt, och rörelsefogarna ger materialet plats att röra sig utan att bron spricker eller skadas. Utan fogarna skulle värmeutvidgningen bygga upp farliga spänningar i konstruktionen."
+    },
+    {
+      "id": "q-fys7-var-13",
+      "kind": "mc",
+      "topic": "isolering",
+      "prompt": "Varför håller en dunjacka värmen bra?",
+      "opener": "Tänk på vad dunet fångar in mellan sina fibrer.",
+      "choices": [
+        "Dunet leder bort värmen snabbt",
+        "Dunet innehåller mycket stillastående luft som isolerar",
+        "Dunet strålar ut extra värme",
+        "Dunet är tyngre än andra material"
+      ],
+      "answer": 1,
+      "explanation": "Dunet fångar in massor av stillastående luft mellan sina fjädrar, och stillastående luft är en dålig värmeledare, vilket bromsar värmeförlusten från kroppen. En bra isolator leder alltså bort värme långsamt, inte snabbt."
+    },
+    {
+      "id": "q-fys7-var-14",
+      "kind": "worked",
+      "topic": "Celsius-skalan",
+      "prompt": "En vinterdag är det -12 °C i frysen och 19 °C i köket. Hur stor är temperaturskillnaden mellan frysen och köket?",
+      "opener": "Ta hjälp av nollan och räkna sträckan i två steg på termometern.",
+      "answer": "Temperaturskillnaden är 31 grader.",
+      "steps": [
+        "Steg 1: från -12 °C upp till 0 °C är 12 grader.",
+        "Steg 2: från 0 °C upp till 19 °C är 19 grader.",
+        "Lägg ihop stegen: 12 + 19 = 31.",
+        "Svaret blir 31 grader, alltså 19 - (-12) = 31 om du räknar direkt.",
+        "Rimlighetskoll: frysen är minusgrader och köket är plusgrader, så skillnaden måste bli större än 19 grader."
+      ]
+    },
+    {
+      "id": "q-fys7-var-15",
+      "kind": "mc",
+      "topic": "värme och temperatur",
+      "prompt": "En liten kopp kaffe och en stor termos med kaffe har båda temperaturen 80 °C. Vilket påstående stämmer?",
+      "opener": "Tänk på skillnaden mellan att mäta hur varmt något känns och hur mycket värmeenergi det innehåller totalt.",
+      "choices": [
+        "De innehåller exakt lika mycket värmeenergi eftersom temperaturen är samma",
+        "Termosen innehåller mer värmeenergi eftersom den har mer kaffe",
+        "Koppen innehåller mer värmeenergi",
+        "Värmeenergin går inte att jämföra mellan olika behållare"
+      ],
+      "answer": 1,
+      "explanation": "Termosen har mer kaffe och därför fler partiklar med rörelseenergi, så den innehåller mer total värmeenergi trots att temperaturen är densamma som i koppen. Temperatur säger bara hur snabbt partiklarna rör sig i genomsnitt, inte hur många partiklar det finns."
     }
   ]
 }
