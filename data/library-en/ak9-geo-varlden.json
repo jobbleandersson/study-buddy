@@ -124,6 +124,110 @@
       "prompt": "Summarise continents, income differences between countries, globalisation and important geographical landmarks.",
       "opener": "Build a tight overview to quickly revise before the test.",
       "answer": "Continents: Africa, Asia, Europe, North America, South America, Oceania, Antarctica (7 in total) · largest ocean: the Pacific, followed by the Atlantic and the Indian Ocean. High-income and low-income countries: often measured using GDP per capita · high-income countries usually have better access to education, healthcare and infrastructure · the differences are due to economic development, not area or population. Globalisation: countries, economies and people become increasingly interconnected through trade, travel and communication · global production chains spread the manufacturing of a product across several countries. Geographical landmarks: mountain ranges form where continental plates collide (e.g. the Himalayas) · large desert belts (e.g. the Sahara, the Arabian Desert) are often found around certain latitudes with dry, descending air currents · geographical patterns are often linked to plate tectonics and climate."
+    },
+    {
+      "id": "q-geo-var-9",
+      "kind": "mc",
+      "topic": "continents and oceans",
+      "prompt": "Which is the world's smallest ocean by area, located around the North Pole?",
+      "opener": "This ocean is largely covered by sea ice for much of the year.",
+      "choices": [
+        "The Arctic Ocean",
+        "The Pacific Ocean",
+        "The Atlantic Ocean",
+        "The Indian Ocean"
+      ],
+      "answer": 0,
+      "explanation": "The Arctic Ocean is the smallest and shallowest of the world's oceans by area, located around the North Pole and largely covered by sea ice."
+    },
+    {
+      "id": "q-geo-var-10",
+      "kind": "mc",
+      "topic": "continents and oceans",
+      "prompt": "Which continent is one of the smallest by area but also one of the most densely populated, with countries like Germany and France?",
+      "opener": "This continent borders Asia to the east.",
+      "choices": [
+        "Europe",
+        "Oceania",
+        "Antarctica",
+        "South America"
+      ],
+      "answer": 0,
+      "explanation": "Europe is one of the smallest continents by area but has high population density, with many countries and large cities packed into a relatively small area."
+    },
+    {
+      "id": "q-geo-var-11",
+      "kind": "mc",
+      "topic": "high-income and low-income countries",
+      "prompt": "What does GDP per capita NOT measure, despite being a common economic indicator?",
+      "opener": "The measure gives an AVERAGE - but does it say anything about how evenly it's distributed?",
+      "choices": [
+        "How evenly income is distributed among the country's inhabitants",
+        "The country's total economic output",
+        "A rough picture of economic standard of living",
+        "A way to compare countries economically"
+      ],
+      "answer": 0,
+      "explanation": "GDP per capita is an average and says nothing about how income is actually distributed - a country can have high GDP per capita while still having large gaps between rich and poor inhabitants."
+    },
+    {
+      "id": "q-geo-var-12",
+      "kind": "mc",
+      "topic": "globalisation and world trade",
+      "prompt": "What are international organisations, such as the World Trade Organization (WTO), that work to set common rules for trade between countries called?",
+      "opener": "The name describes the area the organisations focus on.",
+      "choices": [
+        "International trade organisations",
+        "Military alliances",
+        "Colonial powers",
+        "Individual nation-states"
+      ],
+      "answer": 0,
+      "explanation": "International trade organisations like the WTO work to set common rules for trade between countries, for example around tariffs and trade disputes, to facilitate world trade."
+    },
+    {
+      "id": "q-geo-var-13",
+      "kind": "mc",
+      "topic": "geographical landmarks and phenomena",
+      "prompt": "Where in the world are most of the Earth's large desert belts often located, in relation to latitude?",
+      "opener": "Think about where atmospheric air circulation patterns often produce descending, drying air currents.",
+      "choices": [
+        "Around the tropics, roughly 20-30 degrees north and south of the equator",
+        "Only at the poles",
+        "Only at the equator",
+        "Deserts are evenly spread across all latitudes"
+      ],
+      "answer": 0,
+      "explanation": "Many of the world's large desert belts, such as the Sahara and the Arabian Desert, are located around the tropics, where large-scale air circulation patterns produce descending, dry air that suppresses cloud formation and rainfall."
+    },
+    {
+      "id": "q-geo-var-14",
+      "kind": "worked",
+      "topic": "geographical landmarks and phenomena",
+      "prompt": "Explain why some coastal deserts, like the Atacama Desert in Chile, lie near the ocean yet are extremely dry.",
+      "opener": "Think about what a cold ocean current does to the air directly above the sea surface.",
+      "answer": "A cold ocean current along the coast cools the air above the sea, which means the air holds less moisture and forms fewer clouds. Large-scale air circulation patterns also often reinforce a stable high-pressure system that suppresses rain formation, which together means very little precipitation reaches the coastal land despite its proximity to the ocean.",
+      "steps": [
+        "A cold ocean current (e.g. the Humboldt Current off Chile) cools the air directly above the sea surface.",
+        "Cold air holds less moisture than warm air, so few clouds form despite the proximity to water.",
+        "Large-scale air circulation patterns in the region often reinforce a stable high-pressure system that further suppresses cloud formation and rainfall.",
+        "The result is that the coastal strip remains extremely dry, despite lying right next to a large ocean - the opposite of what you might expect."
+      ]
+    },
+    {
+      "id": "q-geo-var-15",
+      "kind": "mc",
+      "topic": "high-income and low-income countries",
+      "prompt": "What can a high GDP per capita in a country NOT guarantee on its own?",
+      "opener": "Think about the difference between an average and how reality looks for each individual inhabitant.",
+      "choices": [
+        "That all the country's inhabitants are economically well-off, since income can be very unevenly distributed",
+        "That the country has an economy at all",
+        "That the country can be compared with other countries at all",
+        "That the country has inhabitants"
+      ],
+      "answer": 0,
+      "explanation": "A high GDP per capita is an average and doesn't guarantee that all inhabitants are economically well-off - large income gaps within a country can mean many people live in poverty despite a high average figure."
     }
   ]
 }

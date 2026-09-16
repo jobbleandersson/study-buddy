@@ -123,6 +123,109 @@
       "prompt": "Summarise the Earth's three main climate zones and what governs the climate of a location.",
       "opener": "Picture a band around the Earth from the equator to the poles — the climate changes step by step.",
       "answer": "Tropical climate: around the equator, consistently high heat year-round, often abundant rainfall (rainforest) or distinct wet/dry seasons (savannah). Temperate climate: between the tropics and the polar regions (including Sweden), distinct seasons with warm summers and cold winters. Polar climate: at and around the poles, cold for most of the year, short or no real summer. The climate of a location is governed mainly by · latitude (distance to the equator, determines the angle and strength of sunlight) · altitude above sea level (temperature drops with altitude) · proximity to the sea (water evens out temperature and gives a more humid climate) · ocean currents and winds (can carry heat or cold over long distances)."
+    },
+    {
+      "id": "q-geo-kar-9",
+      "kind": "mc",
+      "topic": "map projections and scale",
+      "prompt": "A map has the scale 1:50,000. How far apart are two points in reality if they are 6 cm apart on the map?",
+      "opener": "Multiply the map distance by the scale factor, then convert to kilometres.",
+      "choices": [
+        "3 kilometres",
+        "300 metres",
+        "30 kilometres",
+        "300 kilometres"
+      ],
+      "answer": 0,
+      "explanation": "6 cm × 50,000 = 300,000 cm = 3,000 m = 3 km."
+    },
+    {
+      "id": "q-geo-kar-10",
+      "kind": "mc",
+      "topic": "compass directions and coordinates",
+      "prompt": "What does longitude indicate for a location?",
+      "opener": "Longitude lines run vertically, from pole to pole.",
+      "choices": [
+        "How far east or west of the prime meridian (Greenwich) the location is",
+        "How far north or south of the equator the location is",
+        "The elevation above sea level",
+        "The time zone directly and unambiguously"
+      ],
+      "answer": 0,
+      "explanation": "Longitude measures the distance east or west of the prime meridian running through Greenwich, London. Distance north/south of the equator is latitude instead."
+    },
+    {
+      "id": "q-geo-kar-11",
+      "kind": "mc",
+      "topic": "compass directions and coordinates",
+      "prompt": "You are facing south. Which compass direction is then on your left side?",
+      "opener": "Reverse the reasoning from when you were facing north — everything is mirrored.",
+      "choices": [
+        "East",
+        "West",
+        "North",
+        "Southwest"
+      ],
+      "answer": 0,
+      "explanation": "When you turn to face south, left and right swap compared with facing north — east ends up on your left side and west on your right."
+    },
+    {
+      "id": "q-geo-kar-12",
+      "kind": "mc",
+      "topic": "climate zones",
+      "prompt": "Which climate zone does Sweden have, with distinct seasons and neither extreme heat nor extreme cold for most of the year?",
+      "opener": "Think of the climate zone that lies between the tropics and the polar regions.",
+      "choices": [
+        "Temperate climate",
+        "Tropical climate",
+        "Polar climate",
+        "Desert climate"
+      ],
+      "answer": 0,
+      "explanation": "Sweden has a temperate climate, with distinct seasons — warm summers and cold winters — unlike the more extreme tropical and polar climate zones."
+    },
+    {
+      "id": "q-geo-kar-13",
+      "kind": "mc",
+      "topic": "climate, latitude and altitude",
+      "prompt": "Why do coastal locations often have a smaller difference between summer and winter temperatures compared with locations far inland on a continent, at the same latitude?",
+      "opener": "Think about how quickly water versus land heats up and cools down.",
+      "choices": [
+        "Water heats up and cools down more slowly than land, which evens out the temperature near the coast",
+        "Coastal locations are always closer to the equator",
+        "The ocean has no influence on climate",
+        "Inland climates are always warmer year-round"
+      ],
+      "answer": 0,
+      "explanation": "Water has a high heat capacity and changes temperature more slowly than land. This makes coastal climates more even (cooler summers, milder winters) than inland climates at the same latitude, which experience more extreme seasonal temperature swings."
+    },
+    {
+      "id": "q-geo-kar-14",
+      "kind": "worked",
+      "topic": "map projections and scale",
+      "prompt": "A hiking trail is 12 km long in reality. The map has the scale 1:25,000. How long will the hiking trail be on the map, in centimetres?",
+      "opener": "Convert the real-world distance to the same unit as the scale (cm), then divide by the scale factor.",
+      "answer": "48 cm",
+      "steps": [
+        "Convert 12 km to cm: 12 km = 1,200,000 cm.",
+        "Divide by the scale factor: 1,200,000 / 25,000 = 48.",
+        "The hiking trail will therefore be 48 cm long on the map."
+      ]
+    },
+    {
+      "id": "q-geo-kar-15",
+      "kind": "mc",
+      "topic": "climate zones",
+      "prompt": "Which climate zone is characterised by very little rainfall, large temperature differences between day and night, and sparse vegetation, such as the Sahara?",
+      "opener": "Think about where the driest areas fall within the climate zone system.",
+      "choices": [
+        "Desert climate",
+        "Tropical climate",
+        "Temperate climate",
+        "Polar climate"
+      ],
+      "answer": 0,
+      "explanation": "Desert climate is characterised by very low rainfall, large day-night temperature swings (no moisture in the air to retain heat), and sparse vegetation."
     }
   ]
 }

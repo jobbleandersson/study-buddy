@@ -124,6 +124,110 @@
       "prompt": "Summarise sustainable development and climate change: concepts, causes and consequences.",
       "opener": "Gather the key concepts into a compact overview for quick revision.",
       "answer": "Sustainable development: development that meets today's needs without compromising the ability of future generations to meet theirs · three dimensions: ecological (environment and ecosystems), social (justice, health, security) and economic (resources lasting in the long run) sustainability. The greenhouse effect: a natural process in which greenhouse gases (carbon dioxide, methane and others) trap heat in the atmosphere · human emissions from fossil fuels and deforestation AMPLIFY the effect. Consequences: rising average temperature · melting glaciers and ice → rising sea levels · more extreme weather (drought, flooding, storms) · crop failure and threats to food supply · low-income countries often hit hardest despite having the lowest emissions. The UN's Global Goals (Agenda 2030): 17 goals for sustainable development by 2030 · the goals are interconnected and must be tackled together."
+    },
+    {
+      "id": "q-geo-hal-9",
+      "kind": "mc",
+      "topic": "sustainable development",
+      "prompt": "What definition is usually used for sustainable development (from the 1987 Brundtland Report)?",
+      "opener": "Think about the balance between meeting needs NOW and not destroying the opportunities of those who come AFTER.",
+      "choices": [
+        "Development that meets today's needs without compromising the ability of future generations to meet their own needs",
+        "Development that focuses solely on economic growth",
+        "Development that stops all change in society",
+        "Development that only applies to rich countries"
+      ],
+      "answer": 0,
+      "explanation": "This definition, from the UN's 1987 Brundtland Report, is the most widely used definition of sustainable development and emphasises the balance between the needs of present and future generations."
+    },
+    {
+      "id": "q-geo-hal-10",
+      "kind": "mc",
+      "topic": "the greenhouse effect and climate change",
+      "prompt": "Which greenhouse gas is the most common and most discussed in connection with human emissions?",
+      "opener": "This gas is formed, among other things, by burning fossil fuels.",
+      "choices": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Nitrogen",
+        "Noble gases"
+      ],
+      "answer": 0,
+      "explanation": "Carbon dioxide (CO2) is the most discussed greenhouse gas because human burning of fossil fuels releases very large amounts of it. Methane and nitrous oxide are other important greenhouse gases, but in smaller total volumes."
+    },
+    {
+      "id": "q-geo-hal-11",
+      "kind": "mc",
+      "topic": "the greenhouse effect and climate change",
+      "prompt": "What is the phenomenon called, beyond burning fossil fuels, where removing large forest areas reduces the Earth's ability to absorb carbon dioxide?",
+      "opener": "The word is the opposite of planting forest.",
+      "choices": [
+        "Deforestation",
+        "Urbanisation",
+        "Erosion",
+        "Colonisation"
+      ],
+      "answer": 0,
+      "explanation": "Deforestation means forest is cut down or burned, which both releases carbon dioxide that was stored in the trees and reduces the Earth's overall ability to absorb carbon dioxide from the atmosphere through photosynthesis."
+    },
+    {
+      "id": "q-geo-hal-12",
+      "kind": "mc",
+      "topic": "consequences of climate change",
+      "prompt": "What is a likely consequence of more frequent and intense heatwaves due to climate change?",
+      "opener": "Think about what extreme heat does to both crops and human health.",
+      "choices": [
+        "Increased risk of crop failure, heat-related health problems and wildfires",
+        "No effect at all on agriculture or health",
+        "Automatically cooler climate globally",
+        "Reduced risk of drought"
+      ],
+      "answer": 0,
+      "explanation": "More frequent and intense heatwaves increase the risk of crop failure through drying out, heat-related illness and death, and favour the outbreak of wildfires - several connected consequences of the same underlying cause."
+    },
+    {
+      "id": "q-geo-hal-13",
+      "kind": "mc",
+      "topic": "the UN's Global Goals",
+      "prompt": "By which year are the UN's Global Goals (Agenda 2030) meant to be achieved at the latest?",
+      "opener": "The name of the agenda reveals the year.",
+      "choices": [
+        "2030",
+        "2050",
+        "2100",
+        "2000"
+      ],
+      "answer": 0,
+      "explanation": "Agenda 2030 was adopted by UN member states in 2015, with the goal that the 17 Global Goals be achieved by 2030 at the latest."
+    },
+    {
+      "id": "q-geo-hal-14",
+      "kind": "worked",
+      "topic": "sustainable development",
+      "prompt": "A municipality is planning to build a new housing development on previously undeveloped forest land near the town. Explain how the decision can be analysed using the three sustainability dimensions.",
+      "opener": "Go through ecological, social and economic sustainability one at a time, then weigh them against each other.",
+      "answer": "Ecological sustainability is affected because forest and its ecosystem disappear. Social sustainability could be strengthened if more people gain access to housing, but could also be weakened if nearby residents lose recreational space. Economic sustainability could benefit from increased tax revenue and housing construction - the municipality needs to weigh all three dimensions against each other rather than focusing on just one.",
+      "steps": [
+        "Ecological sustainability: the forest land is a habitat for plants and animals, and developing it can harm the local ecosystem and reduce the municipality's green spaces.",
+        "Social sustainability: more housing can solve a housing shortage and give more people a secure home, but neighbours may simultaneously lose access to nature-based recreation.",
+        "Economic sustainability: new housing can give the municipality increased tax revenue and strengthen the local economy through construction and new residents.",
+        "A sustainable solution tries to balance all three dimensions, for example by preserving part of the forest as green space while still building housing."
+      ]
+    },
+    {
+      "id": "q-geo-hal-15",
+      "kind": "mc",
+      "topic": "sustainable development",
+      "prompt": "Which of these is an example of ECONOMIC sustainability?",
+      "opener": "Think about which of the three dimensions specifically concerns resources and the economy over time.",
+      "choices": [
+        "That a business can keep generating income and jobs without using up resources that will be needed in the future",
+        "Protecting endangered species",
+        "Everyone having access to clean water",
+        "Reducing carbon dioxide emissions"
+      ],
+      "answer": 0,
+      "explanation": "Economic sustainability is about economic activity being able to continue in the long run without using up resources that future generations will need. Protecting species and reducing emissions instead belong to ecological sustainability, and clean water for all is an example of social sustainability."
     }
   ]
 }

@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta naturresurser och energikällor: förnybart kontra icke-förnybart, fördelning och miljöpåverkan.",
       "opener": "Bygg en tät översikt du snabbt kan repetera inför provet.",
       "answer": "Förnybara resurser: förnyas naturligt inom rimlig tid · exempel: sol, vind, vatten, biomassa, hållbart brukad skog. Icke-förnybara resurser: bildas under miljontals år, tar slut · exempel: olja, kol, naturgas, mineraler och metaller. Global fördelning: naturresurser är ojämnt fördelade beroende på geologi · exempel: olja i Mellanöstern, koppar i Chile, kobolt i Kongo-Kinshasa. Miljöpåverkan: fossila bränslen släpper ut koldioxid vid förbränning → förstärker växthuseffekten · förnybar energi (sol, vind, vatten) släpper inte ut koldioxid vid elproduktion men kan påverka natur och landskap på andra sätt. Konflikter: ojämnt fördelade, värdefulla resurser kan trigga maktkamp om vem som kontrollerar intäkterna, särskilt där institutioner är svaga."
+    },
+    {
+      "id": "q-geo-nat-9",
+      "kind": "mc",
+      "topic": "förnybara och icke-förnybara resurser",
+      "prompt": "Vilket av följande är en förnybar naturresurs, förutsatt att den brukas hållbart?",
+      "opener": "Tänk på vilken resurs som kan växa upp igen inom en människas livstid.",
+      "choices": [
+        "Skog",
+        "Kol",
+        "Olja",
+        "Naturgas"
+      ],
+      "answer": 0,
+      "explanation": "Skog kan räknas som en förnybar resurs om avverkningen sker i en takt som tillåter ny skog att växa upp. Kol, olja och naturgas är fossila bränslen som bildas under miljontals år och räknas som icke-förnybara."
+    },
+    {
+      "id": "q-geo-nat-10",
+      "kind": "mc",
+      "topic": "fördelning av naturresurser globalt",
+      "prompt": "Chile är en av världens ledande producenter av vilken metall, som bland annat används i elektronik och kablar?",
+      "opener": "Metallen har en karakteristisk rödbrun färg.",
+      "choices": [
+        "Koppar",
+        "Guld",
+        "Järn",
+        "Silver"
+      ],
+      "answer": 0,
+      "explanation": "Chile har stora kopparfyndigheter och är världens ledande producent av koppar, en metall som är central i elledningar och elektronik."
+    },
+    {
+      "id": "q-geo-nat-11",
+      "kind": "mc",
+      "topic": "energikällor och miljöpåverkan",
+      "prompt": "Vad är en typisk nackdel med kärnkraft, jämfört med förnybara energikällor som sol och vind?",
+      "opener": "Tänk på vad som blir kvar efter att bränslet i ett kärnkraftverk använts.",
+      "choices": [
+        "Kärnkraft producerar radioaktivt avfall som måste hanteras säkert under mycket lång tid",
+        "Kärnkraft släpper ut mest koldioxid av alla energikällor",
+        "Kärnkraft kan bara användas i öknar",
+        "Kärnkraft är den enda energikällan som inte kräver någon infrastruktur"
+      ],
+      "answer": 0,
+      "explanation": "Kärnkraft släpper ut lite koldioxid vid elproduktionen, men skapar radioaktivt avfall som förblir farligt under tusentals år och kräver säker, långsiktig förvaring — en av de stora utmaningarna med kärnkraft."
+    },
+    {
+      "id": "q-geo-nat-12",
+      "kind": "mc",
+      "topic": "energikällor och miljöpåverkan",
+      "prompt": "Vad är en fördel med solenergi jämfört med fossila bränslen?",
+      "opener": "Tänk på vad som händer vid själva elproduktionen, och hur länge bränslet räcker.",
+      "choices": [
+        "Solenergi släpper inte ut koldioxid vid elproduktionen och solljuset tar aldrig slut",
+        "Solenergi fungerar lika bra på natten som på dagen",
+        "Solpaneler kräver inga råvaror alls att tillverka",
+        "Solenergi är den enda energikällan som fungerar överallt"
+      ],
+      "answer": 0,
+      "explanation": "Solenergi är förnybar (solljuset tar aldrig slut) och släpper inte ut koldioxid när elen produceras, till skillnad från fossila bränslen. Solenergi har dock begränsningar, till exempel att den inte producerar el på natten."
+    },
+    {
+      "id": "q-geo-nat-13",
+      "kind": "mc",
+      "topic": "konflikter kopplade till naturresurser",
+      "prompt": "Vad kallas fenomenet där ett land med rikliga naturresurser paradoxalt nog kan få svagare ekonomisk utveckling och mer korruption än resursfattiga länder?",
+      "opener": "Namnet antyder att resursrikedomen snarare blir en belastning än en fördel.",
+      "choices": [
+        "Resursförbannelsen",
+        "Resurstillväxten",
+        "Handelsöverskottet",
+        "Den gröna revolutionen"
+      ],
+      "answer": 0,
+      "explanation": "Resursförbannelsen beskriver hur länder med stora naturtillgångar ibland får sämre ekonomisk utveckling, mer korruption och konflikt om kontrollen av intäkterna, i stället för att gynnas av rikedomen — ofta på grund av svaga institutioner."
+    },
+    {
+      "id": "q-geo-nat-14",
+      "kind": "worked",
+      "topic": "energikällor och miljöpåverkan",
+      "prompt": "Ett land överväger att bygga antingen ett nytt kolkraftverk eller en ny vindkraftspark för att möta ökande elbehov. Förklara vilka faktorer landet bör väga in i beslutet, kopplat till förnybarhet och miljöpåverkan.",
+      "opener": "Väg fördelar och nackdelar för båda alternativen mot varandra, både kring utsläpp och tillförlitlighet.",
+      "answer": "Landet bör väga kolkraftens fördelar (stabil, väderoberoende produktion) mot dess stora utsläpp av koldioxid och att kol är en ändlig resurs, mot vindkraftens fördelar (förnybar, inga utsläpp vid elproduktion) och dess nackdel att produktionen varierar med vädret och kräver kompletterande lösningar eller lagring.",
+      "steps": [
+        "Kolkraft är en icke-förnybar resurs som tar slut och som vid förbränning släpper ut stora mängder koldioxid, vilket bidrar till växthuseffekten.",
+        "Kolkraft ger dock stabil, planerbar elproduktion oavsett väder.",
+        "Vindkraft är förnybar och släpper inte ut koldioxid vid elproduktionen.",
+        "Vindkraftens nackdel är att produktionen varierar med vinden, vilket kan kräva andra energikällor eller lagringslösningar som komplement.",
+        "Ett hållbart beslut behöver väga klimatpåverkan, resursens uthållighet och behovet av stabil elförsörjning mot varandra."
+      ]
+    },
+    {
+      "id": "q-geo-nat-15",
+      "kind": "mc",
+      "topic": "fördelning av naturresurser globalt",
+      "prompt": "Varför kan ojämn global fördelning av naturresurser som olja ge vissa länder stort politiskt inflytande?",
+      "opener": "Tänk på vad andra länder blir beroende av.",
+      "choices": [
+        "Länder som har stora oljereserver kan bli viktiga leverantörer som andra länder är beroende av",
+        "Oljerika länder har alltid mest demokrati",
+        "Naturresurser har ingen koppling till politiskt inflytande",
+        "Alla länder har exakt lika stora oljereserver"
+      ],
+      "answer": 0,
+      "explanation": "Länder med stora reserver av eftertraktade resurser som olja kan få stort inflytande eftersom andra länder är beroende av att importera resursen, vilket ger de resursrika länderna politisk och ekonomisk vikt på den globala scenen."
     }
   ]
 }

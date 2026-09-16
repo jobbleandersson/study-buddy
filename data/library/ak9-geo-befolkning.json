@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta nyckelbegreppen kring befolkning, urbanisering och migration.",
       "opener": "Samla ihop de viktigaste begreppen i en tät översikt du kan repetera snabbt.",
       "answer": "Befolkningstäthet: antal invånare per kvadratkilometer · hög täthet i floddalar, kuster och storstäder, låg täthet i öknar, regnskog och polartrakter. Urbanisering: en ökande andel av befolkningen bor i städer · drivs av jobb, utbildning och service. Migration: när människor flyttar, inom eller mellan länder · push-faktorer trycker bort (krig, torka, fattigdom, arbetslöshet) · pull-faktorer drar till (jobb, trygghet, familj, bättre liv). Demografi: läran om befolkningens sammansättning · födelsetal (antal födslar per 1000 invånare) · medellivslängd (hur länge människor förväntas leva) · höga födelsetal + låg medellivslängd ofta i låginkomstländer, motsatsen ofta i höginkomstländer."
+    },
+    {
+      "id": "q-geo-bef-9",
+      "kind": "mc",
+      "topic": "befolkningstäthet och befolkningsfördelning",
+      "prompt": "Ett land har 10 miljoner invånare och en yta på 200 000 km². Vad är landets ungefärliga befolkningstäthet?",
+      "opener": "Befolkningstäthet = antal invånare delat med ytan i kvadratkilometer.",
+      "choices": [
+        "50 invånare/km²",
+        "500 invånare/km²",
+        "5 invånare/km²",
+        "5000 invånare/km²"
+      ],
+      "answer": 0,
+      "explanation": "10 000 000 / 200 000 = 50 invånare per kvadratkilometer."
+    },
+    {
+      "id": "q-geo-bef-10",
+      "kind": "mc",
+      "topic": "urbanisering",
+      "prompt": "Vad kallas en mycket stor stad med minst 10 miljoner invånare?",
+      "opener": "Ett ord som betonar storleken, med prefixet \"mega-\".",
+      "choices": [
+        "Megastad",
+        "Glesbygd",
+        "Enklav",
+        "Kolonisering"
+      ],
+      "answer": 0,
+      "explanation": "En megastad definieras vanligen som en stad (eller sammanhängande storstadsregion) med minst 10 miljoner invånare, till exempel Tokyo eller Mexico City."
+    },
+    {
+      "id": "q-geo-bef-11",
+      "kind": "mc",
+      "topic": "migration och push/pull-faktorer",
+      "prompt": "En person flyttar till en annan stad för att där finns fler och bättre betalda jobb. Vilken typ av faktor är detta?",
+      "opener": "Fundera på om jobbmöjligheterna DRAR personen dit eller TRYCKER bort personen från den gamla platsen.",
+      "choices": [
+        "En pull-faktor",
+        "En push-faktor",
+        "En demografisk faktor",
+        "Ingendera"
+      ],
+      "answer": 0,
+      "explanation": "Bättre jobbmöjligheter är ett exempel på en pull-faktor — något som drar människor TILL en ny plats, till skillnad från push-faktorer som trycker bort dem från den gamla."
+    },
+    {
+      "id": "q-geo-bef-12",
+      "kind": "mc",
+      "topic": "demografiska begrepp",
+      "prompt": "Vad kallas en grafisk modell som visar en befolknings ålders- och könsfördelning, ofta formad som en pyramid för snabbt växande befolkningar?",
+      "opener": "Namnet beskriver formen diagrammet ofta får.",
+      "choices": [
+        "Befolkningspyramid",
+        "Klimatdiagram",
+        "Cirkeldiagram",
+        "Kartprojektion"
+      ],
+      "answer": 0,
+      "explanation": "En befolkningspyramid visar hur många människor det finns i varje åldersgrupp, uppdelat på kön. Snabbt växande befolkningar får en bred bas av unga, vilket ger pyramidformen."
+    },
+    {
+      "id": "q-geo-bef-13",
+      "kind": "mc",
+      "topic": "befolkningstäthet och befolkningsfördelning",
+      "prompt": "Varför är floddalar som Nildalen i Egypten mycket tätbefolkade jämfört med omgivande ökenområden?",
+      "opener": "Tänk på vad jordbruk och mänskligt liv grundläggande behöver.",
+      "choices": [
+        "Floden ger tillgång till vatten och bördig jord för jordbruk",
+        "Det är förbjudet att bo i öknen",
+        "Floddalar har alltid kallare klimat",
+        "Det finns ingen skillnad i befolkningstäthet"
+      ],
+      "answer": 0,
+      "explanation": "Floder ger tillgång till sötvatten och för med sig bördigt sediment som gör marken lämplig för jordbruk, vilket historiskt har lockat stora befolkningar till floddalar mitt i annars torra ökenlandskap."
+    },
+    {
+      "id": "q-geo-bef-14",
+      "kind": "worked",
+      "topic": "befolkningstäthet och befolkningsfördelning",
+      "prompt": "Land A har 5 miljoner invånare på en yta av 50 000 km². Land B har 5 miljoner invånare på en yta av 500 000 km². Beräkna befolkningstätheten för båda länderna och förklara vad skillnaden innebär.",
+      "opener": "Räkna ut tätheten för respektive land separat, jämför sedan resultaten.",
+      "answer": "Land A: 100 invånare/km². Land B: 10 invånare/km². Trots samma folkmängd är land A mycket tätare befolkat eftersom ytan är mycket mindre.",
+      "steps": [
+        "Land A: 5 000 000 / 50 000 = 100 invånare/km².",
+        "Land B: 5 000 000 / 500 000 = 10 invånare/km².",
+        "Båda länderna har exakt samma folkmängd, men land A:s yta är tio gånger mindre.",
+        "Det gör att land A blir tio gånger tätare befolkat än land B, trots att folkmängden är identisk."
+      ]
+    },
+    {
+      "id": "q-geo-bef-15",
+      "kind": "mc",
+      "topic": "urbanisering",
+      "prompt": "Vilket av dessa är ett typiskt problem som kan uppstå i snabbt växande städer i låginkomstländer på grund av snabb urbanisering?",
+      "opener": "Tänk på om bostadsbyggandet hinner med när folk strömmar in i städerna.",
+      "choices": [
+        "Brist på bostäder, vatten och sanitet kan leda till framväxten av slumområden",
+        "Städerna blir automatiskt renare",
+        "Ingen efterfrågan på bostäder uppstår",
+        "Urbanisering sker aldrig i låginkomstländer"
+      ],
+      "answer": 0,
+      "explanation": "När städer växer snabbare än vad infrastrukturen hinner byggas ut uppstår ofta bostadsbrist och otillräcklig tillgång till rent vatten och sanitet, vilket kan leda till slumområden i snabbt urbaniserande låginkomstländer."
     }
   ]
 }

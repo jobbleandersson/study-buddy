@@ -123,6 +123,109 @@
       "prompt": "Sammanfatta jordens tre huvudsakliga klimatzoner och vad som styr klimatet på en plats.",
       "opener": "Tänk dig ett band runt jorden från ekvatorn till polerna — klimatet ändras stegvis.",
       "answer": "Tropiskt klimat: kring ekvatorn, hög och jämn värme året runt, ofta riklig nederbörd (regnskog) eller distinkta regn-/torrperioder (savann). Tempererat klimat: mellan tropikerna och polartrakterna (bland annat Sverige), tydliga årstider med varma somrar och kalla vintrar. Polart klimat: vid och kring polerna, kallt större delen av året, kort eller ingen riktig sommar. Klimatet på en plats styrs främst av · breddgrad (avstånd till ekvatorn, avgör solinstrålningens vinkel och styrka) · höjd över havet (temperaturen sjunker med höjden) · närhet till hav (vatten jämnar ut temperaturen och ger fuktigare klimat) · havsströmmar och vindar (kan föra värme eller kyla långa sträckor)."
+    },
+    {
+      "id": "q-geo-kar-9",
+      "kind": "mc",
+      "topic": "kartprojektioner och skala",
+      "prompt": "En karta har skalan 1:50 000. Hur långt är det i verkligheten mellan två punkter som ligger 6 cm från varandra på kartan?",
+      "opener": "Multiplicera kartavståndet med skalfaktorn, och gör sedan om till kilometer.",
+      "choices": [
+        "3 kilometer",
+        "300 meter",
+        "30 kilometer",
+        "300 kilometer"
+      ],
+      "answer": 0,
+      "explanation": "6 cm × 50 000 = 300 000 cm = 3 000 m = 3 km."
+    },
+    {
+      "id": "q-geo-kar-10",
+      "kind": "mc",
+      "topic": "väderstreck och koordinater",
+      "prompt": "Vad anger longitud (längdgrad) för en plats?",
+      "opener": "Longitudlinjerna löper lodrätt, från pol till pol.",
+      "choices": [
+        "Hur långt öster eller väster om nollmeridianen (Greenwich) platsen ligger",
+        "Hur långt norr eller söder om ekvatorn platsen ligger",
+        "Höjden över havet",
+        "Vilken tidszon platsen tillhör, direkt och entydigt"
+      ],
+      "answer": 0,
+      "explanation": "Longitud mäter avståndet öster eller väster om nollmeridianen som går genom Greenwich i London. Avstånd norr/söder om ekvatorn är i stället latitud."
+    },
+    {
+      "id": "q-geo-kar-11",
+      "kind": "mc",
+      "topic": "väderstreck och koordinater",
+      "prompt": "Du står och tittar mot söder. Vilket väderstreck har du då på din vänstra sida?",
+      "opener": "Vänd på resonemanget från när du tittade mot norr — allt blir spegelvänt.",
+      "choices": [
+        "Öster",
+        "Väster",
+        "Norr",
+        "Sydväst"
+      ],
+      "answer": 0,
+      "explanation": "När du vänder dig mot söder byter höger och vänster sida plats jämfört med när du tittar mot norr — öster hamnar då på din vänstra sida och väster på din högra."
+    },
+    {
+      "id": "q-geo-kar-12",
+      "kind": "mc",
+      "topic": "klimatzoner",
+      "prompt": "Vilken klimatzon har Sverige, med tydliga årstider och varken extrem värme eller extrem kyla större delen av året?",
+      "opener": "Tänk på klimatzonen som ligger mellan tropikerna och polartrakterna.",
+      "choices": [
+        "Tempererat klimat",
+        "Tropiskt klimat",
+        "Polart klimat",
+        "Ökenklimat"
+      ],
+      "answer": 0,
+      "explanation": "Sverige har ett tempererat klimat, med tydliga årstider — varma somrar och kalla vintrar — till skillnad från de mer extrema tropiska och polära klimatzonerna."
+    },
+    {
+      "id": "q-geo-kar-13",
+      "kind": "mc",
+      "topic": "klimat, breddgrad och höjd",
+      "prompt": "Varför har kustnära platser ofta mindre skillnad mellan sommar- och vintertemperatur jämfört med platser långt inne i ett kontinent, på samma breddgrad?",
+      "opener": "Tänk på hur snabbt vatten respektive land värms upp och kyls ner.",
+      "choices": [
+        "Vatten värms upp och kyls ner långsammare än land, vilket jämnar ut temperaturen vid kusten",
+        "Kustnära platser ligger alltid närmare ekvatorn",
+        "Hav har inget inflytande på klimatet",
+        "Inlandsklimat är alltid varmare året runt"
+      ],
+      "answer": 0,
+      "explanation": "Vatten har hög värmekapacitet och förändrar temperatur långsammare än land. Det gör att kustklimat blir mer utjämnat (svalare somrar, mildare vintrar) än inlandsklimat på samma breddgrad, som får mer extrema temperaturskillnader mellan årstiderna."
+    },
+    {
+      "id": "q-geo-kar-14",
+      "kind": "worked",
+      "topic": "kartprojektioner och skala",
+      "prompt": "En vandringsled är 12 km lång i verkligheten. Kartan har skalan 1:25 000. Hur lång blir vandringsleden mätt på kartan, i centimeter?",
+      "opener": "Gör om verklighetens sträcka till samma enhet som skalan (cm), och dela sedan med skalfaktorn.",
+      "answer": "48 cm",
+      "steps": [
+        "Gör om 12 km till cm: 12 km = 1 200 000 cm.",
+        "Dela med skalfaktorn: 1 200 000 / 25 000 = 48.",
+        "Vandringsleden blir alltså 48 cm lång på kartan."
+      ]
+    },
+    {
+      "id": "q-geo-kar-15",
+      "kind": "mc",
+      "topic": "klimatzoner",
+      "prompt": "Vilken klimatzon kännetecknas av mycket lite nederbörd, stora temperaturskillnader mellan dag och natt, och sparsam växtlighet, till exempel Sahara?",
+      "opener": "Tänk på var i klimatzonssystemet de allra torraste områdena hamnar.",
+      "choices": [
+        "Ökenklimat",
+        "Tropiskt klimat",
+        "Tempererat klimat",
+        "Polart klimat"
+      ],
+      "answer": 0,
+      "explanation": "Ökenklimat kännetecknas av mycket låg nederbörd, stora temperaturskillnader mellan dag och natt (ingen fuktighet i luften att hålla kvar värmen) och gles växtlighet."
     }
   ]
 }
