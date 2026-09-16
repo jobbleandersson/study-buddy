@@ -113,6 +113,111 @@
       "prompt": "How do French adjectives agree in gender and number, and where are they placed?",
       "opener": "Adjectives \"agree\" with the noun they describe.",
       "answer": "Basic pattern: grand/grande/grands/grandes (masculine, feminine, plural masc., plural fem.). Adjectives ending in -e (like sympathique): same form for both genders, only the plural is added. Placement: most descriptive adjectives come AFTER the noun (une maison grise), but common short adjectives like petit, grand, beau, joli, jeune, vieux, bon come BEFORE (une petite maison). Examples: chat noir (black cat), petite maison (small house), filles sympathiques (nice girls)."
+    },
+    {
+      "id": "q-fr8-adj-9",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the right form: \"Ma mère est ___.\" (heureux/heureuse = happy)",
+      "opener": "\"Mère\" is feminine singular, and \"heureux\" is irregular in the feminine.",
+      "choices": [
+        "heureuse",
+        "heureux",
+        "heureuses",
+        "heureuxe"
+      ],
+      "answer": 0,
+      "explanation": "\"Heureux\" has the irregular feminine form \"heureuse\" (the -eux ending becomes -euse)."
+    },
+    {
+      "id": "q-fr8-adj-10",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the right form: \"Mes frères sont ___.\" (intelligent = smart)",
+      "opener": "\"Frères\" is masculine plural.",
+      "choices": [
+        "intelligents",
+        "intelligent",
+        "intelligente",
+        "intelligentes"
+      ],
+      "answer": 0,
+      "explanation": "Masculine plural is formed with -s: \"intelligent\" → \"intelligents\"."
+    },
+    {
+      "id": "q-fr8-adj-11",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Which group of adjectives comes BEFORE the noun in French?",
+      "opener": "An exception to the main rule that adjectives come after the noun.",
+      "choices": [
+        "petit, grand, beau, joli",
+        "rouge, bleu, vert, noir",
+        "intelligent, sympathique, amusant",
+        "fatigué, content, triste"
+      ],
+      "answer": 0,
+      "explanation": "Common, short adjectives like petit, grand, beau, and joli come BEFORE the noun: \"une petite maison\". Most other adjectives, like colors, come after."
+    },
+    {
+      "id": "q-fr8-adj-12",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "What is the plural of \"un beau chat\" (a nice cat)?",
+      "opener": "\"Beau\" has an irregular plural form ending in -x.",
+      "choices": [
+        "de beaux chats",
+        "de beau chats",
+        "de beaus chats",
+        "de beaux chat"
+      ],
+      "answer": 0,
+      "explanation": "\"Beau\" forms its plural with -x instead of -s: \"beau\" → \"beaux\"."
+    },
+    {
+      "id": "q-fr8-adj-13",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "What is the feminine form of \"blanc\" (white)?",
+      "opener": "An irregular adjective, just like \"beau\".",
+      "choices": [
+        "blanche",
+        "blance",
+        "blanque",
+        "blanke"
+      ],
+      "answer": 0,
+      "explanation": "\"Blanc\" has the irregular feminine form \"blanche\"."
+    },
+    {
+      "id": "q-fr8-adj-14",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Where does the adjective go in \"une belle maison\" (a nice house)?",
+      "opener": "\"Beau/belle\" is a short, common adjective.",
+      "choices": [
+        "Before the noun",
+        "After the noun",
+        "Both before and after",
+        "It depends on context"
+      ],
+      "answer": 0,
+      "explanation": "\"Beau/belle\" is one of the short, common adjectives that go BEFORE the noun: \"une belle maison\"."
+    },
+    {
+      "id": "q-fr8-adj-15",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the right form: \"La fille est ___.\" (nouveau/nouvelle = new)",
+      "opener": "\"Nouveau\" has an irregular feminine form, just like \"beau\".",
+      "choices": [
+        "nouvelle",
+        "nouveau",
+        "nouveaux",
+        "nouvelles"
+      ],
+      "answer": 0,
+      "explanation": "\"Nouveau\" has the irregular feminine form \"nouvelle\"."
     }
   ]
 }

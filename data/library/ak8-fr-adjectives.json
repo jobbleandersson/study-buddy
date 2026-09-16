@@ -113,6 +113,111 @@
       "prompt": "Hur böjs franska adjektiv efter genus och numerus, och var placeras de?",
       "opener": "Adjektiv \"håller med\" substantivet de beskriver.",
       "answer": "Grundmönster: grand/grande/grands/grandes (maskulinum, femininum, plural mask., plural fem.). Adjektiv på -e (som sympathique): samma form för båda genus, bara plural läggs till. Placering: de flesta beskrivande adjektiv kommer EFTER substantivet (une maison grise), men vanliga korta adjektiv som petit, grand, beau, joli, jeune, vieux, bon kommer FÖRE (une petite maison). Exempel: chat noir (svart katt), petite maison (litet hus), filles sympathiques (trevliga tjejer)."
+    },
+    {
+      "id": "q-fr8-adj-9",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"Ma mère est ___.\" (heureux/heureuse = glad)",
+      "opener": "\"Mère\" är feminint singular, och \"heureux\" är oregelbundet i femininum.",
+      "choices": [
+        "heureuse",
+        "heureux",
+        "heureuses",
+        "heureuxe"
+      ],
+      "answer": 0,
+      "explanation": "\"Heureux\" har den oregelbundna feminina formen \"heureuse\" (ändelsen -eux blir -euse)."
+    },
+    {
+      "id": "q-fr8-adj-10",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"Mes frères sont ___.\" (intelligent = intelligent)",
+      "opener": "\"Frères\" är maskulint plural.",
+      "choices": [
+        "intelligents",
+        "intelligent",
+        "intelligente",
+        "intelligentes"
+      ],
+      "answer": 0,
+      "explanation": "Maskulint plural bildas med -s: \"intelligent\" → \"intelligents\"."
+    },
+    {
+      "id": "q-fr8-adj-11",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Vilken grupp adjektiv kommer FÖRE substantivet på franska?",
+      "opener": "Ett undantag från huvudregeln att adjektiv kommer efter substantivet.",
+      "choices": [
+        "petit, grand, beau, joli",
+        "rouge, bleu, vert, noir",
+        "intelligent, sympathique, amusant",
+        "fatigué, content, triste"
+      ],
+      "answer": 0,
+      "explanation": "Vanliga, korta adjektiv som petit, grand, beau och joli kommer FÖRE substantivet: \"une petite maison\". De flesta andra adjektiv, som färger, kommer efter."
+    },
+    {
+      "id": "q-fr8-adj-12",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Vad är plural av \"un beau chat\" (en fin katt)?",
+      "opener": "\"Beau\" har en oregelbunden pluralform på -x.",
+      "choices": [
+        "de beaux chats",
+        "de beau chats",
+        "de beaus chats",
+        "de beaux chat"
+      ],
+      "answer": 0,
+      "explanation": "\"Beau\" bildar plural med -x i stället för -s: \"beau\" → \"beaux\"."
+    },
+    {
+      "id": "q-fr8-adj-13",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Vad är den feminina formen av \"blanc\" (vit)?",
+      "opener": "Ett oregelbundet adjektiv, precis som \"beau\".",
+      "choices": [
+        "blanche",
+        "blance",
+        "blanque",
+        "blanke"
+      ],
+      "answer": 0,
+      "explanation": "\"Blanc\" har den oregelbundna feminina formen \"blanche\"."
+    },
+    {
+      "id": "q-fr8-adj-14",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Var står adjektivet i \"une belle maison\" (ett fint hus)?",
+      "opener": "\"Beau/belle\" är ett kort, vanligt adjektiv.",
+      "choices": [
+        "Före substantivet",
+        "Efter substantivet",
+        "Både före och efter",
+        "Det beror på sammanhanget"
+      ],
+      "answer": 0,
+      "explanation": "\"Beau/belle\" är ett av de korta, vanliga adjektiven som står FÖRE substantivet: \"une belle maison\"."
+    },
+    {
+      "id": "q-fr8-adj-15",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Välj rätt form: \"La fille est ___.\" (nouveau/nouvelle = ny)",
+      "opener": "\"Nouveau\" har en oregelbunden feminin form, precis som \"beau\".",
+      "choices": [
+        "nouvelle",
+        "nouveau",
+        "nouveaux",
+        "nouvelles"
+      ],
+      "answer": 0,
+      "explanation": "\"Nouveau\" har den oregelbundna feminina formen \"nouvelle\"."
     }
   ]
 }

@@ -114,6 +114,111 @@
       "prompt": "Hur böjs aller, faire, vouloir och pouvoir i presens?",
       "opener": "Fyra av de allra vanligaste oregelbundna verben.",
       "answer": "Aller (gå/åka): vais, vas, va, allons, allez, vont. Aller + infinitiv = ska göra något (framtid, futur proche). Faire (göra): fais, fais, fait, faisons, faites, font. Vouloir (vilja): veux, veux, veut, voulons, voulez, veulent. Pouvoir (kunna): peux, peux, peut, pouvons, pouvez, peuvent."
+    },
+    {
+      "id": "q-fr8-verb-9",
+      "kind": "mc",
+      "topic": "aller",
+      "prompt": "Välj rätt form: \"Nous ___ au marché.\" (aller = att gå/åka)",
+      "opener": "\"Nous\"-formen av aller slutar på -ons.",
+      "choices": [
+        "allons",
+        "allez",
+        "vont",
+        "va"
+      ],
+      "answer": 0,
+      "explanation": "\"Aller\" böjs: je vais, tu vas, il/elle va, nous allons, vous allez, ils/elles vont. \"Nous\" ger \"allons\"."
+    },
+    {
+      "id": "q-fr8-verb-10",
+      "kind": "mc",
+      "topic": "futur proche",
+      "prompt": "Vad betyder \"Je vais partir demain\"?",
+      "opener": "\"Aller + infinitiv\" beskriver något man tänker göra.",
+      "choices": [
+        "Jag ska åka imorgon",
+        "Jag åkte igår",
+        "Jag åker just nu",
+        "Jag vill åka imorgon"
+      ],
+      "answer": 0,
+      "explanation": "\"Je vais partir demain\" betyder \"jag ska åka imorgon\", med futur proche (aller + infinitiv)."
+    },
+    {
+      "id": "q-fr8-verb-11",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Välj rätt form: \"Vous ___ vos devoirs ce soir ?\" (faire = att göra)",
+      "opener": "\"Vous\"-formen av faire är oregelbunden.",
+      "choices": [
+        "faites",
+        "fais",
+        "fait",
+        "font"
+      ],
+      "answer": 0,
+      "explanation": "\"Faire\" böjs: je fais, tu fais, il/elle fait, nous faisons, vous faites, ils/elles font. \"Vous\" ger \"faites\"."
+    },
+    {
+      "id": "q-fr8-verb-12",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Välj rätt form: \"Ils ___ leurs devoirs ensemble.\" (faire = att göra)",
+      "opener": "\"Ils\"-formen av faire är också oregelbunden.",
+      "choices": [
+        "font",
+        "fait",
+        "faites",
+        "faisons"
+      ],
+      "answer": 0,
+      "explanation": "\"Ils\" ger \"font\": \"ils font leurs devoirs\" (de gör sina läxor)."
+    },
+    {
+      "id": "q-fr8-verb-13",
+      "kind": "mc",
+      "topic": "aller",
+      "prompt": "Välj rätt form: \"Tu ___ à la piscine samedi ?\" (aller = att gå/åka)",
+      "opener": "\"Tu\"-formen av aller.",
+      "choices": [
+        "vas",
+        "va",
+        "vais",
+        "allez"
+      ],
+      "answer": 0,
+      "explanation": "\"Aller\" böjs: je vais, tu vas, il/elle va, nous allons, vous allez, ils/elles vont. \"Tu\" ger \"vas\"."
+    },
+    {
+      "id": "q-fr8-verb-14",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Välj rätt form: \"Elle ___ venir avec nous.\" (pouvoir = att kunna)",
+      "opener": "\"Elle\"-formen av pouvoir.",
+      "choices": [
+        "peut",
+        "peux",
+        "pouvons",
+        "peuvent"
+      ],
+      "answer": 0,
+      "explanation": "\"Pouvoir\" böjs: je peux, tu peux, il/elle peut, nous pouvons, vous pouvez, ils/elles peuvent. \"Elle\" ger \"peut\"."
+    },
+    {
+      "id": "q-fr8-verb-15",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Välj rätt form: \"Ils ___ regarder un film.\" (vouloir = att vilja)",
+      "opener": "\"Ils\"-formen av vouloir.",
+      "choices": [
+        "veulent",
+        "veut",
+        "voulons",
+        "veux"
+      ],
+      "answer": 0,
+      "explanation": "\"Vouloir\" böjs: je veux, tu veux, il/elle veut, nous voulons, vous voulez, ils/elles veulent. \"Ils\" ger \"veulent\"."
     }
   ]
 }

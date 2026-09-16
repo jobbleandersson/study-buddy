@@ -114,6 +114,111 @@
       "prompt": "Hur frågar och svarar man om klockan, veckodagar och månader på franska?",
       "opener": "Fasta fraser för tid, dagar och månader.",
       "answer": "Klockan: Quelle heure est-il ? = Vad är klockan? · Il est une heure = Klockan är ett · Il est deux/trois heures... = Klockan är två/tre... · et demie = och halv · et quart = och kvart · moins le quart = kvart i. Veckodagar: lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche. Månader: janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre."
+    },
+    {
+      "id": "q-fr8-time-9",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"Il est huit heures moins le quart\"?",
+      "opener": "\"Moins le quart\" betyder \"kvart i\".",
+      "choices": [
+        "Klockan är kvart i åtta (07:45)",
+        "Klockan är kvart över åtta (08:15)",
+        "Klockan är halv åtta (07:30)",
+        "Klockan är åtta (08:00)"
+      ],
+      "answer": 0,
+      "explanation": "\"Huit heures moins le quart\" betyder \"kvart i åtta\" (07:45)."
+    },
+    {
+      "id": "q-fr8-time-10",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Vilken veckodag är \"vendredi\"?",
+      "opener": "Den sista vardagen innan helgen.",
+      "choices": [
+        "Fredag",
+        "Torsdag",
+        "Lördag",
+        "Söndag"
+      ],
+      "answer": 0,
+      "explanation": "\"Vendredi\" är fredag."
+    },
+    {
+      "id": "q-fr8-time-11",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Vilken månad kommer efter \"juin\"?",
+      "opener": "Månadsnamnen på franska följer samma ordning som på svenska.",
+      "choices": [
+        "juillet",
+        "mai",
+        "août",
+        "septembre"
+      ],
+      "answer": 0,
+      "explanation": "\"Juillet\" kommer direkt efter \"juin\", precis som på svenska."
+    },
+    {
+      "id": "q-fr8-time-12",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"Il est six heures moins dix\"?",
+      "opener": "\"Moins dix\" betyder \"tio i\".",
+      "choices": [
+        "Klockan är tio i sex (05:50)",
+        "Klockan är tio över sex (06:10)",
+        "Klockan är sex (06:00)",
+        "Klockan är halv sex (05:30)"
+      ],
+      "answer": 0,
+      "explanation": "\"Six heures moins dix\" betyder \"tio minuter innan sex\", alltså 05:50."
+    },
+    {
+      "id": "q-fr8-time-13",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Vilken dag kommer direkt före \"dimanche\"?",
+      "opener": "Den sista dagen i veckan innan söndag.",
+      "choices": [
+        "samedi",
+        "vendredi",
+        "lundi",
+        "mercredi"
+      ],
+      "answer": 0,
+      "explanation": "\"Samedi\" (lördag) kommer direkt före \"dimanche\" (söndag)."
+    },
+    {
+      "id": "q-fr8-time-14",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Vilken månad firas jul (\"Noël\") i Frankrike?",
+      "opener": "Samma månad som i Sverige.",
+      "choices": [
+        "décembre",
+        "novembre",
+        "janvier",
+        "octobre"
+      ],
+      "answer": 0,
+      "explanation": "Jul firas i \"décembre\" (december), precis som i Sverige."
+    },
+    {
+      "id": "q-fr8-time-15",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "Vad betyder \"Il est minuit\"?",
+      "opener": "\"Minuit\" betyder midnatt.",
+      "choices": [
+        "Klockan är midnatt (00:00)",
+        "Klockan är middagstid (12:00)",
+        "Det är gryning",
+        "Det är skymning"
+      ],
+      "answer": 0,
+      "explanation": "\"Il est minuit\" betyder \"klockan är midnatt\" (00:00)."
     }
   ]
 }

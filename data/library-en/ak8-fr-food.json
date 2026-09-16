@@ -114,6 +114,111 @@
       "prompt": "Which food, drink, and meal words, plus aimer conjugations, should you know at grade 8 level?",
       "opener": "Food, meals, and how to express what you like.",
       "answer": "Food: le pain = bread · le riz = rice · la viande = meat · le poisson = fish · les légumes = vegetables · les fruits = fruit · l'eau = water · le lait = milk. Meals: le petit-déjeuner = breakfast · le déjeuner = lunch · le dîner = dinner. Aimer: j'aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. Ordering politely: Je voudrais... = I would like... · ..., s'il vous plaît = ..., please."
+    },
+    {
+      "id": "q-fr8-food-9",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"la soupe\" mean?",
+      "opener": "A liquid dish you eat with a spoon.",
+      "choices": [
+        "Soup",
+        "Salad",
+        "Dessert",
+        "Sauce"
+      ],
+      "answer": 0,
+      "explanation": "\"La soupe\" means soup."
+    },
+    {
+      "id": "q-fr8-food-10",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Which meal is \"le déjeuner\"?",
+      "opener": "Not to be confused with \"le petit-déjeuner\".",
+      "choices": [
+        "Lunch",
+        "Breakfast",
+        "Dinner",
+        "Snack"
+      ],
+      "answer": 0,
+      "explanation": "\"Le déjeuner\" is lunch. \"Le petit-déjeuner\" (literally \"the small lunch\") is breakfast."
+    },
+    {
+      "id": "q-fr8-food-11",
+      "kind": "mc",
+      "topic": "aimer",
+      "prompt": "Choose the right form: \"Nous ___ la pizza.\" (aimer = to like)",
+      "opener": "The \"nous\" form of aimer ends in -ons.",
+      "choices": [
+        "aimons",
+        "aimez",
+        "aiment",
+        "aime"
+      ],
+      "answer": 0,
+      "explanation": "\"Aimer\" conjugates as: j'aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. \"Nous\" gives \"aimons\"."
+    },
+    {
+      "id": "q-fr8-food-12",
+      "kind": "mc",
+      "topic": "aimer",
+      "prompt": "Choose the right form: \"Vous ___ le poisson ?\" (aimer = to like)",
+      "opener": "The \"vous\" form of aimer ends in -ez.",
+      "choices": [
+        "aimez",
+        "aimons",
+        "aiment",
+        "aimes"
+      ],
+      "answer": 0,
+      "explanation": "\"Vous\" gives \"aimez\": \"Vous aimez le poisson ?\" (do you like fish?)."
+    },
+    {
+      "id": "q-fr8-food-13",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"le gâteau\" mean?",
+      "opener": "Something tasty you often eat with coffee.",
+      "choices": [
+        "Cake",
+        "Ice cream",
+        "Candy",
+        "Bread"
+      ],
+      "answer": 0,
+      "explanation": "\"Le gâteau\" means cake."
+    },
+    {
+      "id": "q-fr8-food-14",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"L'addition, s'il vous plaît\" mean?",
+      "opener": "Something you say at the end of a restaurant meal.",
+      "choices": [
+        "The bill, please",
+        "I would like to order more",
+        "Where is the bathroom?",
+        "Can I get a menu?"
+      ],
+      "answer": 0,
+      "explanation": "\"L'addition\" means the bill/check, so \"L'addition, s'il vous plaît\" means \"the bill, please\"."
+    },
+    {
+      "id": "q-fr8-food-15",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "What does \"Qu'est-ce que tu manges au petit-déjeuner ?\" mean?",
+      "opener": "\"Au petit-déjeuner\" means \"for breakfast\".",
+      "choices": [
+        "What do you eat for breakfast?",
+        "What do you eat for lunch?",
+        "What do you cook for dinner?",
+        "What do you drink in the morning?"
+      ],
+      "answer": 0,
+      "explanation": "\"Qu'est-ce que tu manges au petit-déjeuner ?\" means \"what do you eat for breakfast?\"."
     }
   ]
 }

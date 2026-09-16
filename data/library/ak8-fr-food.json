@@ -114,6 +114,111 @@
       "prompt": "Vilka mat-, dryck- och måltidsord samt aimer-böjningar bör du kunna på åk8-nivå?",
       "opener": "Mat, måltider och hur man uttrycker vad man tycker om.",
       "answer": "Mat: le pain = bröd · le riz = ris · la viande = kött · le poisson = fisk · les légumes = grönsaker · les fruits = frukt · l'eau = vatten · le lait = mjölk. Måltider: le petit-déjeuner = frukost · le déjeuner = lunch · le dîner = middag. Aimer: j'aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. Beställa artigt: Je voudrais... = jag skulle vilja ha... · ..., s'il vous plaît = ..., tack."
+    },
+    {
+      "id": "q-fr8-food-9",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"la soupe\"?",
+      "opener": "En vätskerik rätt man äter med sked.",
+      "choices": [
+        "Soppa",
+        "Sallad",
+        "Efterrätt",
+        "Sås"
+      ],
+      "answer": 0,
+      "explanation": "\"La soupe\" betyder soppa."
+    },
+    {
+      "id": "q-fr8-food-10",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Vilken måltid är \"le déjeuner\"?",
+      "opener": "Inte att förväxla med \"le petit-déjeuner\".",
+      "choices": [
+        "Lunch",
+        "Frukost",
+        "Middag",
+        "Mellanmål"
+      ],
+      "answer": 0,
+      "explanation": "\"Le déjeuner\" är lunch. \"Le petit-déjeuner\" (bokstavligen \"den lilla lunchen\") är frukost."
+    },
+    {
+      "id": "q-fr8-food-11",
+      "kind": "mc",
+      "topic": "aimer",
+      "prompt": "Välj rätt form: \"Nous ___ la pizza.\" (aimer = att gilla)",
+      "opener": "\"Nous\"-formen av aimer slutar på -ons.",
+      "choices": [
+        "aimons",
+        "aimez",
+        "aiment",
+        "aime"
+      ],
+      "answer": 0,
+      "explanation": "\"Aimer\" böjs: j'aime, tu aimes, il/elle aime, nous aimons, vous aimez, ils/elles aiment. \"Nous\" ger \"aimons\"."
+    },
+    {
+      "id": "q-fr8-food-12",
+      "kind": "mc",
+      "topic": "aimer",
+      "prompt": "Välj rätt form: \"Vous ___ le poisson ?\" (aimer = att gilla)",
+      "opener": "\"Vous\"-formen av aimer slutar på -ez.",
+      "choices": [
+        "aimez",
+        "aimons",
+        "aiment",
+        "aimes"
+      ],
+      "answer": 0,
+      "explanation": "\"Vous\" ger \"aimez\": \"Vous aimez le poisson ?\" (gillar ni fisk?)."
+    },
+    {
+      "id": "q-fr8-food-13",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"le gâteau\"?",
+      "opener": "Något gott man ofta äter till kaffet.",
+      "choices": [
+        "Kakan/tårtan",
+        "Glassen",
+        "Godiset",
+        "Brödet"
+      ],
+      "answer": 0,
+      "explanation": "\"Le gâteau\" betyder kaka/tårta."
+    },
+    {
+      "id": "q-fr8-food-14",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"L'addition, s'il vous plaît\"?",
+      "opener": "Något man säger i slutet av en restaurangmåltid.",
+      "choices": [
+        "Jag skulle vilja ha notan, tack",
+        "Jag skulle vilja beställa mer",
+        "Var är toaletten?",
+        "Kan jag få en meny?"
+      ],
+      "answer": 0,
+      "explanation": "\"L'addition\" betyder notan/räkningen, så \"L'addition, s'il vous plaît\" betyder \"notan, tack\"."
+    },
+    {
+      "id": "q-fr8-food-15",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Vad betyder \"Qu'est-ce que tu manges au petit-déjeuner ?\"?",
+      "opener": "\"Au petit-déjeuner\" betyder \"till frukost\".",
+      "choices": [
+        "Vad äter du till frukost?",
+        "Vad äter du till lunch?",
+        "Vad lagar du till middag?",
+        "Vad dricker du på morgonen?"
+      ],
+      "answer": 0,
+      "explanation": "\"Qu'est-ce que tu manges au petit-déjeuner ?\" betyder \"vad äter du till frukost?\"."
     }
   ]
 }
