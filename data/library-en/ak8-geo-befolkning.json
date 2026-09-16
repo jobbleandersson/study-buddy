@@ -125,6 +125,111 @@
       "prompt": "Summarise the key concepts about population and migration.",
       "opener": "Gather density, pyramids, rates and migration into one tight overview.",
       "answer": "Population density: inhabitants per square kilometre · densely populated near coasts, river valleys and major cities, sparse in deserts, rainforest, high mountains and polar regions · population pyramid: a bar chart of age groups and sex · a wide base = high birth rates and a young population (many low-income countries) · a narrow base and wide top = low birth rates and an ageing population (Japan, Sweden) · birth rate and death rate are counted per 1000 inhabitants per year · natural population growth = births minus deaths · net migration = immigration minus emigration · fertility rate = the average number of children per woman · migration: moving within (internal) or between (international) countries · push factors push people away: war, oppression, poverty, unemployment, drought and natural disasters · pull factors draw people in: jobs, safety, education, healthcare, family · refugee: someone who has been forced to flee and has a right to protection · urbanisation: an increasing proportion of the population lives in cities, fastest in Africa and Asia today · megacity: an urban area with over 10 million inhabitants, for example Tokyo, Delhi and Lagos."
+    },
+    {
+      "id": "q-geo8-bef-9",
+      "kind": "mc",
+      "topic": "population density and settlement patterns",
+      "prompt": "Which of the following countries has one of the world's highest population densities?",
+      "opener": "This country is small in area but has a very large population, much of it in the floodplain around the Ganges and Brahmaputra.",
+      "choices": [
+        "Canada",
+        "Australia",
+        "Bangladesh",
+        "Mongolia"
+      ],
+      "answer": 2,
+      "explanation": "Bangladesh has around 170 million inhabitants in an area roughly the size of Illinois, giving it one of the world's highest population densities. Canada, Australia and Mongolia, by contrast, have very low population density, with large sparsely populated areas of desert, tundra or steppe."
+    },
+    {
+      "id": "q-geo8-bef-10",
+      "kind": "mc",
+      "topic": "population pyramids",
+      "prompt": "A population pyramid is narrow at the base but wider further up in the middle. What does that suggest?",
+      "opener": "Think about which age group is smallest compared with the groups above it.",
+      "choices": [
+        "That no one in the country is older than 40",
+        "Extremely high birth rates right now",
+        "That the country has negative mortality",
+        "Falling birth rates in recent years, after a period with more births"
+      ],
+      "answer": 3,
+      "explanation": "A narrow base with a wider middle section shows that fewer children are being born today than before, while the larger age groups born earlier are still visible higher up in the pyramid. It therefore says nothing about no one being older than 40, and mortality can never be negative."
+    },
+    {
+      "id": "q-geo8-bef-11",
+      "kind": "mc",
+      "topic": "migration and push and pull factors",
+      "prompt": "What is a person called who has been forced to flee their country because of war or persecution and has a right to international protection?",
+      "opener": "The word differs from someone who moves voluntarily for, say, a job.",
+      "choices": [
+        "Tourist",
+        "Labour migrant",
+        "Commuter",
+        "Refugee"
+      ],
+      "answer": 3,
+      "explanation": "A refugee is someone who has been forced to leave their country because of war, persecution or violence, and who, under international law, has the right to seek protection in another country. A tourist travels voluntarily and temporarily, a labour migrant moves for a job, and a commuter travels daily between home and work without changing country."
+    },
+    {
+      "id": "q-geo8-bef-12",
+      "kind": "mc",
+      "topic": "urbanisation and major cities",
+      "prompt": "What is meant by urbanisation?",
+      "opener": "The word comes from the Latin word for city.",
+      "choices": [
+        "That people move from cities to the countryside",
+        "That a country's population decreases overall",
+        "That more children are born in the countryside than in cities",
+        "That an ever-increasing proportion of the population lives in cities"
+      ],
+      "answer": 3,
+      "explanation": "Urbanisation means that a growing share of the population lives and works in cities, often as a result of people moving from the countryside for jobs and services. Today the process is fastest in parts of Africa and Asia, not the other way around towards the countryside."
+    },
+    {
+      "id": "q-geo8-bef-13",
+      "kind": "mc",
+      "topic": "birth and death rates",
+      "prompt": "A country has a birth rate of 20 per thousand and a death rate of 8 per thousand. What is the natural population growth per year?",
+      "opener": "Calculate the birth rate minus the death rate.",
+      "choices": [
+        "28 per thousand",
+        "8 per thousand",
+        "20 per thousand",
+        "12 per thousand"
+      ],
+      "answer": 3,
+      "explanation": "Natural population growth is calculated as the birth rate minus the death rate: 20 − 8 = 12 per thousand. Adding the numbers to get 28 per thousand is wrong, since births and deaths should be subtracted, not added together."
+    },
+    {
+      "id": "q-geo8-bef-14",
+      "kind": "mc",
+      "topic": "population density and settlement patterns",
+      "prompt": "Why are large parts of both the Sahara and the Amazon rainforest sparsely populated, even though the reasons are very different?",
+      "opener": "One area is extremely dry, the other extremely wet with dense vegetation.",
+      "choices": [
+        "There's no real reason, both areas are actually densely populated compared with other parts of the world",
+        "Both areas completely lack natural resources",
+        "Both areas are at too high an altitude for people to live there",
+        "The Sahara is too dry for farming, while the Amazon has thin, nutrient-poor soil and dense, hard-to-traverse vegetation"
+      ],
+      "answer": 3,
+      "explanation": "The Sahara is sparsely populated because it hardly ever rains, making farming very difficult, while the Amazon rainforest, despite abundant rainfall, has thin, nutrient-poor soil and vegetation so dense it's hard to farm or move through. Both areas do have natural resources, but completely different obstacles to settlement."
+    },
+    {
+      "id": "q-geo8-bef-15",
+      "kind": "mc",
+      "topic": "migration and push and pull factors",
+      "prompt": "What is it called when people move within their own country, for example from the countryside to a city?",
+      "opener": "The opposite is moving across a national border.",
+      "choices": [
+        "International migration",
+        "Immigration",
+        "Emigration",
+        "Internal migration"
+      ],
+      "answer": 3,
+      "explanation": "Internal migration is moves within one and the same country, for example from the countryside to a major city. International migration, immigration (moving into a country) and emigration (moving out of a country) instead concern moves across a national border."
     }
   ]
 }

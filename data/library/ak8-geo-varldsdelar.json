@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta världsdelarna, de stora landformerna och hur man läser kartor.",
       "opener": "Samla världsdelar, hav, berg, floder, öknar, klimatzoner och kartkunskap i en tät översikt.",
       "answer": "Världsdelar: Europa · Asien · Afrika · Nordamerika · Sydamerika · Oceanien (Australien) · Antarktis · världshav: Stilla havet (störst och djupast) · Atlanten · Indiska oceanen · Norra ishavet · Södra ishavet · Asien störst till ytan (cirka 44 miljoner km²) och folkrikast, Afrika näst störst · Ryssland är världens största land, Kina och Indien de folkrikaste · bergskedjor: Himalaya i Asien med Mount Everest cirka 8 849 m · Anderna längs Sydamerikas västkust, längst på land · Klippiga bergen i Nordamerika · Alperna i Europa · Atlasbergen i norra Afrika · Uralbergen som gräns mellan Europa och Asien · floder: Nilen och Amazonfloden är världens längsta, Amazonfloden har störst vattenföring · Yangtze i Kina · Kongofloden i Afrika · Mississippi i USA · Volga är Europas längsta · öknar: Sahara är världens största varma öken, Gobi i Asien, Kalahari och Namib i södra Afrika, Atacama i Chile är en av de torraste platserna på jorden · Antarktis räknas som världens största köldöken · klimatzoner från ekvatorn mot polerna: tropiskt (regnskog och savann) · subtropiskt och torrt (öken, stäpp, medelhavsklimat) · tempererat (lövskog och barrskog) · kallt och polart (tundra och inlandsis) · kartor: skala visar hur mycket verkligheten är förminskad · teckenförklaring förklarar färger och symboler · latitud (breddgrad) mäts från ekvatorn, longitud (längdgrad) från nollmeridianen i Greenwich · topografisk karta visar höjd och terräng, politisk karta visar gränser och städer, tematisk karta visar ett tema som klimat, befolkningstäthet eller inkomst."
+    },
+    {
+      "id": "q-geo8-var-9",
+      "kind": "mc",
+      "topic": "bergskedjor, floder och öknar",
+      "prompt": "Vilken flod har världens största vattenföring, alltså mest vatten som rinner ut i havet?",
+      "opener": "Floden rinner genom Sydamerikas regnskog och för med sig enorma mängder regnvatten.",
+      "choices": [
+        "Nilen",
+        "Mississippi",
+        "Volga",
+        "Amazonfloden"
+      ],
+      "answer": 3,
+      "explanation": "Amazonfloden har världens överlägset största vattenföring, mycket på grund av den kraftiga nederbörden i regnskogen den rinner genom. Nilen räknas ofta som världens längsta flod, men har betydligt mindre vattenföring, medan Mississippi och Volga är stora floder i Nordamerika respektive Europa men mindre än Amazonfloden."
+    },
+    {
+      "id": "q-geo8-var-10",
+      "kind": "mc",
+      "topic": "länder och gränser",
+      "prompt": "Vilka två länder är folkrikast i världen, med över en miljard invånare vardera?",
+      "opener": "Båda länderna ligger i Asien.",
+      "choices": [
+        "USA och Ryssland",
+        "Indonesien och Brasilien",
+        "Nigeria och Pakistan",
+        "Indien och Kina"
+      ],
+      "answer": 3,
+      "explanation": "Indien och Kina är de enda länderna i världen med över en miljard invånare vardera, och tillsammans utgör de en mycket stor del av jordens befolkning. USA, Ryssland, Indonesien, Brasilien, Nigeria och Pakistan har alla betydligt färre invånare, även om flera av dem också är folkrika länder."
+    },
+    {
+      "id": "q-geo8-var-11",
+      "kind": "mc",
+      "topic": "bergskedjor, floder och öknar",
+      "prompt": "Vilken är världens högsta bergstopp, och i vilken bergskedja ligger den?",
+      "opener": "Toppen ligger på gränsen mellan Nepal och Kina (Tibet).",
+      "choices": [
+        "Mont Blanc, i Alperna",
+        "Kilimanjaro, i Kilimanjaromassivet",
+        "Denali, i Klippiga bergen",
+        "Mount Everest, i Himalaya"
+      ],
+      "answer": 3,
+      "explanation": "Mount Everest, cirka 8 849 meter över havet, är världens högsta bergstopp och ligger i Himalaya på gränsen mellan Nepal och Kina. Mont Blanc, Kilimanjaro och Denali är också kända berg, men alla betydligt lägre och belägna i andra bergskedjor."
+    },
+    {
+      "id": "q-geo8-var-12",
+      "kind": "mc",
+      "topic": "klimat och natur i världsdelarna",
+      "prompt": "Vilket klimat kännetecknas av korta, svala somrar och långa, kalla vintrar, med stora områden barrskog (taiga)?",
+      "opener": "Klimatet finns i ett brett bälte över norra Kanada, Skandinavien och Sibirien.",
+      "choices": [
+        "Tropiskt klimat vid ekvatorn",
+        "Ökenklimat i Sahara",
+        "Medelhavsklimat i södra Europa",
+        "Subarktiskt/tempererat klimat i norra Kanada, Skandinavien och Sibirien"
+      ],
+      "answer": 3,
+      "explanation": "Det subarktiska klimatbältet i norra Kanada, Skandinavien och Sibirien har korta, svala somrar och långa, kalla vintrar, och där växer stora sammanhängande barrskogar som kallas taiga. Tropiskt klimat, ökenklimat och medelhavsklimat har alla helt andra temperatur- och nederbördsmönster."
+    },
+    {
+      "id": "q-geo8-var-13",
+      "kind": "mc",
+      "topic": "tematiska kartor",
+      "prompt": "Vad kallas linjerna på en topografisk karta som förbinder punkter med samma höjd över havet?",
+      "opener": "Ju tätare linjerna ligger, desto brantare är terrängen.",
+      "choices": [
+        "Latituder",
+        "Meridianer",
+        "Isobarer",
+        "Höjdkurvor"
+      ],
+      "answer": 3,
+      "explanation": "Höjdkurvor är linjer på en topografisk karta som binder samman punkter på exakt samma höjd över havet, vilket gör att man kan läsa av terrängens form. Latituder och meridianer används i stället för att ange en plats läge på jorden, och isobarer förekommer på väderkartor och visar lufttryck."
+    },
+    {
+      "id": "q-geo8-var-14",
+      "kind": "mc",
+      "topic": "världsdelar och världshav",
+      "prompt": "Vilket världshav är känt för att vara det minsta av världshaven och till stor del täckt av havsis?",
+      "opener": "Det ligger runt Nordpolen.",
+      "choices": [
+        "Indiska oceanen",
+        "Atlanten",
+        "Stilla havet",
+        "Norra ishavet"
+      ],
+      "answer": 3,
+      "explanation": "Norra ishavet, runt Nordpolen, är det minsta av världshaven och till stora delar täckt av havsis, särskilt under vintern. Indiska oceanen, Atlanten och Stilla havet är alla betydligt större och inte alls täckta av is på samma sätt."
+    },
+    {
+      "id": "q-geo8-var-15",
+      "kind": "mc",
+      "topic": "bergskedjor, floder och öknar",
+      "prompt": "Vilken öken i Sydamerika räknas ofta som en av jordens allra torraste platser?",
+      "opener": "Öknen ligger i Chile, mellan Anderna och Stilla havet.",
+      "choices": [
+        "Sahara",
+        "Gobiöknen",
+        "Kalahari",
+        "Atacamaöknen"
+      ],
+      "answer": 3,
+      "explanation": "Atacamaöknen i Chile räknas ofta som en av jordens allra torraste platser, med vissa delar där det knappt någonsin uppmätts regn. Sahara, Gobi och Kalahari är också stora öknar, men Sahara ligger i Afrika, Gobi i Asien och Kalahari i södra Afrika, inte i Sydamerika."
     }
   ]
 }

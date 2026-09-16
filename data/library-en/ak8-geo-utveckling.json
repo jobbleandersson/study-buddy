@@ -125,6 +125,111 @@
       "prompt": "Summarise the concepts of development, inequality, trade and aid.",
       "opener": "Gather the measures, the causes, trade and the global goals into one tight overview.",
       "answer": "GDP: the value of all goods and services a country produces during one year · GDP per capita: GDP divided by the population, used to compare countries · HDI: the UN's index combining life expectancy, education and income, a value between 0 and 1 · the Gini coefficient: measures how unevenly income is distributed within a country · other measures: child mortality, life expectancy, literacy, share with clean water and electricity · high-income countries: high GDP per capita, low birth rates, an ageing population, a large service sector, developed schooling and healthcare · low-income countries: low GDP per capita, high birth rates, a young population, many people in agriculture, high child mortality · middle-income countries are growing fast, for example China, India, Brazil and Vietnam · causes of inequality: the legacy of colonialism, a one-sided economy with few export goods, corruption, war and conflict, weak education and infrastructure, debt, drought and natural disasters · trade: low-income countries often export raw materials while the processing and the profit end up in rich countries · tariffs and trade barriers make it harder to export finished goods · free trade means trade without tariffs, protectionism means protecting one's own industry · globalisation: goods, money, information and people move more easily across borders, multinational companies produce in many countries · aid: emergency aid during acute crises and long-term aid for schools, healthcare, water and agriculture · the UN's target is for rich countries to give 0.7 per cent of GNI in aid, and Sweden is among the countries that give the most · criticism of aid: it can create dependency or disappear into corruption, which is why ownership and long-term thinking are emphasised · sustainable development: meeting today's needs without destroying future generations' opportunities, with an ecological, economic and social dimension · Agenda 2030: the UN's 17 global goals, including no poverty, quality education, gender equality, clean water, and combating climate change."
+    },
+    {
+      "id": "q-geo8-utv-9",
+      "kind": "mc",
+      "topic": "aid and sustainable development",
+      "prompt": "What is meant by sustainable development?",
+      "opener": "Think about how today's needs should be met without stealing from the future.",
+      "choices": [
+        "Development that is only about economic growth",
+        "Development that happens entirely without international aid",
+        "Development that only applies to high-income countries",
+        "Development that meets today's needs without jeopardising future generations' ability to meet their own"
+      ],
+      "answer": 3,
+      "explanation": "Sustainable development is about meeting today's needs in a way that doesn't destroy the environment or resources for future generations, and the concept covers an ecological, an economic and a social dimension together. It is therefore not just about economic growth, and it applies to all countries, not only high-income ones."
+    },
+    {
+      "id": "q-geo8-utv-10",
+      "kind": "mc",
+      "topic": "GDP and development measures",
+      "prompt": "What does the Gini coefficient measure?",
+      "opener": "This measure is about distribution within a country, not the country's total size.",
+      "choices": [
+        "The country's total GDP",
+        "The number of inhabitants in a country",
+        "The country's area in square kilometres",
+        "How evenly or unevenly income is distributed within a country"
+      ],
+      "answer": 3,
+      "explanation": "The Gini coefficient measures how evenly or unevenly income is distributed within a country, where a low value means small income differences and a high value means large differences. It therefore says nothing about the country's total GDP, population or area in itself."
+    },
+    {
+      "id": "q-geo8-utv-11",
+      "kind": "mc",
+      "topic": "high-income and low-income countries",
+      "prompt": "What often characterises a fast-growing middle-income country, such as China or Brazil?",
+      "opener": "The economy resembles neither the very poorest nor the very richest countries.",
+      "choices": [
+        "Extremely low GDP per capita and very high child mortality",
+        "No industry at all, only agriculture",
+        "The highest GDP per capita in the entire world",
+        "Rapid economic growth and a growing middle class, but still large income gaps"
+      ],
+      "answer": 3,
+      "explanation": "Middle-income countries such as China and Brazil have often had rapid economic growth and a growing middle class, while the gaps between rich and poor within the country are often still large. So they have neither the extremely low GDP per capita that characterises the poorest countries nor the absolute highest GDP per capita in the world."
+    },
+    {
+      "id": "q-geo8-utv-12",
+      "kind": "mc",
+      "topic": "trade and globalisation",
+      "prompt": "What is a multinational company?",
+      "opener": "The word \"multi-\" means many.",
+      "choices": [
+        "A company that only sells to a single customer",
+        "A company owned by the UN",
+        "A company that is only allowed to exist in high-income countries",
+        "A company that operates and produces in several different countries"
+      ],
+      "answer": 3,
+      "explanation": "A multinational company has operations, for example factories, offices or sales, in several different countries at the same time, which is an important part of today's globalised economy. It is therefore not owned by the UN and is not limited to selling to a single customer or operating only in high-income countries."
+    },
+    {
+      "id": "q-geo8-utv-13",
+      "kind": "mc",
+      "topic": "causes of inequality",
+      "prompt": "Which of the following can help hold back a country's economic development?",
+      "opener": "Think about what happens to roads, factories and schools when a country is at war.",
+      "choices": [
+        "Peaceful and stable neighbouring countries",
+        "A well-developed healthcare system",
+        "High literacy among the population",
+        "Prolonged wars and conflicts that destroy infrastructure and scare off investment"
+      ],
+      "answer": 3,
+      "explanation": "Prolonged wars and conflicts destroy roads, factories and schools, force people to flee, and make investors unwilling to put money into the country, which sharply slows economic development. Peaceful neighbours, well-developed healthcare and high literacy are, on the contrary, factors that tend to support development."
+    },
+    {
+      "id": "q-geo8-utv-14",
+      "kind": "mc",
+      "topic": "aid and sustainable development",
+      "prompt": "What is the difference between emergency aid and long-term aid?",
+      "opener": "Think about the time horizon: acute help or building up over several years.",
+      "choices": [
+        "They are exactly the same thing under different names",
+        "Emergency aid is only given to high-income countries",
+        "Long-term aid is only given for a single week",
+        "Emergency aid provides rapid, acute help during crises, while long-term aid builds up schools, healthcare and infrastructure over time"
+      ],
+      "answer": 3,
+      "explanation": "Emergency aid is deployed quickly during acute crises such as natural disasters or war, for example food, water and temporary housing, while long-term aid instead involves building up schools, healthcare, water and agriculture in a country over several years. Emergency aid, moreover, is directed at affected low- and middle-income countries, not at high-income ones."
+    },
+    {
+      "id": "q-geo8-utv-15",
+      "kind": "mc",
+      "topic": "trade and globalisation",
+      "prompt": "What does free trade mean?",
+      "opener": "The opposite is protecting one's own industry with charges on imported goods.",
+      "choices": [
+        "That a country only trades with itself",
+        "That all goods in world trade must be free of charge",
+        "That trade is only allowed between neighbouring countries",
+        "Trade between countries without tariffs and other trade barriers"
+      ],
+      "answer": 3,
+      "explanation": "Free trade means that countries trade with each other without tariffs and other barriers that make imported goods more expensive or harder to sell. The opposite, protecting one's own industry through tariffs and trade barriers, is called protectionism – free trade is therefore not about goods being free of charge or trade being limited to neighbouring countries."
     }
   ]
 }

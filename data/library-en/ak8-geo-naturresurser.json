@@ -125,6 +125,111 @@
       "prompt": "Summarise natural resources, energy sources and water.",
       "opener": "Think resource types, where they are found, the pros and cons of energy sources, and how water is distributed.",
       "answer": "Natural resource: something in nature that humans use · renewable: sun, wind, water, waves, geothermal energy, forest and fish (if used at the rate they are replenished) · non-renewable: oil, coal, natural gas, uranium and metals formed over millions of years · fossil fuels cause carbon dioxide emissions and climate impact but are easy to store and transport · nuclear power: low carbon dioxide emissions and a lot of electricity, but radioactive waste and high construction costs · hydropower: a lot of electricity and controllable, but dams damage ecosystems and can force people to move · wind power and solar power: no emissions during operation but vary with the weather and require materials for the installations · bioenergy: renewable if the forest regrows, but competes for land · Sweden's electricity comes mainly from hydropower, nuclear power and wind power · resources are unevenly distributed: oil around the Persian Gulf, iron in Australia, Brazil and Sweden, copper in Chile, rare earth metals in China · water: about 97 per cent is salt water and much of the fresh water is locked up in ice, so only a fraction is easy to use · water scarcity and falling groundwater levels are big problems in dry areas · ecological footprint: a measure of how much nature a person or a country consumes – many times greater in high-income countries than in low-income countries."
+    },
+    {
+      "id": "q-geo8-nat-9",
+      "kind": "mc",
+      "topic": "pros and cons of energy sources",
+      "prompt": "What is an advantage of solar energy compared with fossil fuels?",
+      "opener": "Think about what comes out of the chimney at a coal power plant compared with a solar panel.",
+      "choices": [
+        "It works just as well at night as during the day",
+        "It requires no materials at all to manufacture",
+        "It always produces more electricity overall than hydropower",
+        "It produces no greenhouse gas emissions when the electricity is generated"
+      ],
+      "answer": 3,
+      "explanation": "Solar panels produce electricity with no greenhouse gas emissions during operation, unlike fossil fuels, which release carbon dioxide when burned. Solar energy does, however, require materials to manufacture the panels, produces no electricity at night, and today accounts for a smaller share of the world's electricity overall than hydropower."
+    },
+    {
+      "id": "q-geo8-nat-10",
+      "kind": "mc",
+      "topic": "where resources are found in the world",
+      "prompt": "In which country are some of the world's largest iron ore deposits found, including at the mining town of Kiruna?",
+      "opener": "This country is in northern Europe and has a long tradition of mining.",
+      "choices": [
+        "Japan",
+        "The Netherlands",
+        "Denmark",
+        "Sweden"
+      ],
+      "answer": 3,
+      "explanation": "Sweden, with among other things the large mines in Kiruna and Malmberget, is one of the world's most important producers of iron ore. Japan, the Netherlands and Denmark, on the other hand, lack significant iron ore deposits of that scale."
+    },
+    {
+      "id": "q-geo8-nat-11",
+      "kind": "mc",
+      "topic": "renewable and non-renewable resources",
+      "prompt": "Does fish count as a renewable or a non-renewable resource?",
+      "opener": "Think about whether fish stocks can recover, and what determines that.",
+      "choices": [
+        "Always non-renewable, no matter how much fishing takes place",
+        "Neither renewable nor non-renewable",
+        "Renewable only in fresh water, never in the sea",
+        "Renewable, if fishing happens at the rate stocks can recover"
+      ],
+      "answer": 3,
+      "explanation": "Fish is a renewable resource because stocks can reproduce and recover, but only if fishing doesn't happen faster than they can reproduce – overfishing can otherwise cause stocks to collapse almost like a non-renewable resource. This applies both in fresh water and at sea, not just one or the other."
+    },
+    {
+      "id": "q-geo8-nat-12",
+      "kind": "mc",
+      "topic": "water resources",
+      "prompt": "What is groundwater?",
+      "opener": "Think about where rainwater goes after it has sunk down through the soil layers.",
+      "choices": [
+        "Another word for seawater",
+        "Rain that hasn't yet reached the ground",
+        "Water that is only stored in glaciers",
+        "Water stored below the ground surface in soil and bedrock"
+      ],
+      "answer": 3,
+      "explanation": "Groundwater is water that has seeped down through the soil layers and collected in pores and cracks below the ground surface, and it's an important source of drinking water in many parts of the world. It is therefore neither seawater, rain in the air, nor only ice in glaciers."
+    },
+    {
+      "id": "q-geo8-nat-13",
+      "kind": "mc",
+      "topic": "resource use in rich and poor countries",
+      "prompt": "What does it mean if a country's ecological footprint corresponds to \"three Earths\"?",
+      "opener": "Think about what the measure actually converts to.",
+      "choices": [
+        "That the country's area is three times bigger than planned",
+        "That the country produces food for three times more people than it has inhabitants",
+        "That the country has too few inhabitants for its area",
+        "That three Earths would be needed if everyone lived and consumed like the average inhabitant of that country"
+      ],
+      "answer": 3,
+      "explanation": "An ecological footprint of \"three Earths\" means that if the whole world's population consumed as much nature and resources as the average inhabitant of that country, three Earths would be needed for it to be sustainable in the long run. It is therefore about consumption in relation to the Earth's carrying capacity, not about the country's own area or food production."
+    },
+    {
+      "id": "q-geo8-nat-14",
+      "kind": "mc",
+      "topic": "pros and cons of energy sources",
+      "prompt": "What is a disadvantage of nuclear power?",
+      "opener": "Think about what's left over after the fuel has been used.",
+      "choices": [
+        "It causes large carbon dioxide emissions during operation",
+        "It can only be used in countries near the equator",
+        "It depends on wind to function",
+        "It produces radioactive waste that must be stored safely for a very long time"
+      ],
+      "answer": 3,
+      "explanation": "Nuclear power does produce low carbon dioxide emissions during operation, but it creates radioactive waste that must be handled and stored safely for tens of thousands of years, and it also requires very high investment costs. It depends neither on wind nor is it limited to countries near the equator."
+    },
+    {
+      "id": "q-geo8-nat-15",
+      "kind": "mc",
+      "topic": "where resources are found in the world",
+      "prompt": "Where in the world is a large share of the rare earth metals used in mobile phones and computers mined?",
+      "opener": "This country is also the world's most populous industrial nation and a major producer of electronics.",
+      "choices": [
+        "Iceland",
+        "New Zealand",
+        "Portugal",
+        "China"
+      ],
+      "answer": 3,
+      "explanation": "China accounts for a very large share of the world's extraction and processing of rare earth metals, which are used in everything from mobile phones to wind turbines. Iceland, New Zealand and Portugal, on the other hand, play no significant role in that production."
     }
   ]
 }

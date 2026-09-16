@@ -125,6 +125,111 @@
       "prompt": "Summarise the greenhouse effect, climate change and the measures being taken.",
       "opener": "Gather causes, gases, consequences, vulnerability and measures into one tight overview.",
       "answer": "Natural greenhouse effect: greenhouse gases retain heat radiation so the Earth's average temperature is about +15 °C instead of roughly -18 °C · greenhouse gases: water vapour, carbon dioxide, methane, nitrous oxide and ozone – but not nitrogen and oxygen · enhanced greenhouse effect: human emissions increase the level of greenhouse gases and the temperature rises · main causes: burning fossil fuels (coal, oil, natural gas) for electricity, industry and transport · deforestation, especially of rainforest · agriculture and livestock producing methane and nitrous oxide · cement and steel production · the Earth's average temperature has risen just over one degree since pre-industrial times · consequences: melting glaciers and sea ice · rising sea levels · heatwaves and drought · heavier downpours and storms · acidified oceans and bleached coral reefs · shifting growing zones and species that move or die out · climate refugees · regionally: the Arctic is warming roughly twice as fast as the world as a whole · the Sahel and the Mediterranean region are getting increased drought · low-lying island nations such as the Maldives, Tuvalu and Kiribati are threatened by the sea · Sweden is getting a warmer and wetter climate, shorter winters and a greater risk of downpours and forest fires · vulnerability: the same natural event becomes a disaster in poor countries with weak housing, poor warning systems, weak healthcare and no insurance · natural disasters: earthquakes, volcanic eruptions, tropical cyclones, floods, drought and forest fires · two strategies: cutting emissions and climate adaptation · globally: the UN's climate panel IPCC compiles the research · the Kyoto Protocol 1997 · the Paris Agreement 2015 with the target of well below 2 degrees, preferably 1.5 · emissions trading and carbon taxes · locally and personally: renewable energy, energy efficiency, public transport and cycling, fewer flights, less meat, recycling, less new production and consumption · Sweden's goal is net-zero emissions by 2045 at the latest."
+    },
+    {
+      "id": "q-geo8-kli-9",
+      "kind": "mc",
+      "topic": "causes of climate change",
+      "prompt": "Why does deforestation, especially of rainforest, contribute to climate change?",
+      "opener": "Think about what a tree does with carbon dioxide while it grows, and what happens when it's cut down or burned.",
+      "choices": [
+        "Trees release large amounts of methane all the time, regardless of whether they are felled",
+        "Deforestation has no connection at all to the greenhouse effect",
+        "Tree roots cool the Earth's climate by lowering air pressure in the ground",
+        "Trees absorb carbon dioxide as they grow, and when forest is cleared or burned the carbon dioxide is released while the capacity to absorb new carbon dioxide is also reduced"
+      ],
+      "answer": 3,
+      "explanation": "Living forest absorbs carbon dioxide through photosynthesis, but when trees are felled or burned the stored carbon dioxide is released into the atmosphere, while a smaller forest area can also absorb less carbon dioxide in the future. It is therefore a double effect, not methane emissions or any impact on air pressure in the ground."
+    },
+    {
+      "id": "q-geo8-kli-10",
+      "kind": "mc",
+      "topic": "measures locally and globally",
+      "prompt": "What is an emissions allowance (\"utsläppsrätt\")?",
+      "opener": "Think about how you can put a price on being allowed to emit greenhouse gases.",
+      "choices": [
+        "A fine that every inhabitant of a country must pay each year",
+        "A law that bans all driving in a city",
+        "A price that only applies to plane tickets",
+        "A permit that gives a company the right to emit a certain amount of greenhouse gases, which can be bought and sold"
+      ],
+      "answer": 3,
+      "explanation": "An emissions allowance is a permit to emit a certain amount of greenhouse gases, and by limiting the number of allowances and allowing them to be bought and sold between companies, an economic incentive is created to cut emissions. It is therefore not a personal fine, a general driving ban, or a price tied only to flights."
+    },
+    {
+      "id": "q-geo8-kli-11",
+      "kind": "mc",
+      "topic": "consequences in different parts of the world",
+      "prompt": "Why is the Arctic warming faster than the Earth's average temperature as a whole?",
+      "opener": "Think about the difference in how bright ice and dark ocean absorb heat from the sun.",
+      "choices": [
+        "The Arctic is closest to the sun during winter",
+        "The Arctic has the most factories and industry in the world",
+        "There is actually no difference in warming rate between the Arctic and the rest of the Earth",
+        "As reflective ice and snow melt, darker ocean and land are exposed and absorb more solar heat, further amplifying the warming"
+      ],
+      "answer": 3,
+      "explanation": "Ice and snow reflect sunlight, but as they melt and darker ocean or land is exposed, more solar heat is absorbed, causing the temperature to rise even faster in a self-reinforcing process. The Arctic isn't closer to the sun and doesn't have the most industry in the world, nor does it warm at the same rate as the rest of the Earth – it's actually considerably faster there."
+    },
+    {
+      "id": "q-geo8-kli-12",
+      "kind": "mc",
+      "topic": "natural disasters and vulnerability",
+      "prompt": "What is an example of climate adaptation, as opposed to emissions reduction?",
+      "opener": "Adaptation is about protecting against the consequences, not preventing the cause.",
+      "choices": [
+        "Switching from coal power to wind power",
+        "Flying less",
+        "Eating less meat",
+        "Building higher embankments and flood protection in an exposed coastal city"
+      ],
+      "answer": 3,
+      "explanation": "Building embankments and flood protection is climate adaptation, since it's about protecting society against consequences that are already happening or expected to happen. Switching energy sources, flying less and eating less meat are instead examples of emissions reduction, which aims to slow the actual cause of climate change."
+    },
+    {
+      "id": "q-geo8-kli-13",
+      "kind": "mc",
+      "topic": "the greenhouse effect",
+      "prompt": "Which greenhouse gas is often released in large amounts from livestock farming, for example cattle?",
+      "opener": "This gas forms partly in the animals' stomachs during digestion.",
+      "choices": [
+        "Oxygen",
+        "Nitrogen",
+        "Argon",
+        "Methane"
+      ],
+      "answer": 3,
+      "explanation": "Methane forms in large amounts in the stomachs of ruminant animals during digestion and is a powerful greenhouse gas, which makes livestock farming a significant source of emissions. Oxygen, nitrogen and argon instead make up most of ordinary air but do not act as greenhouse gases."
+    },
+    {
+      "id": "q-geo8-kli-14",
+      "kind": "mc",
+      "topic": "measures locally and globally",
+      "prompt": "Which international organisation compiles and summarises the scientific research on climate change?",
+      "opener": "The abbreviation stands for Intergovernmental Panel on Climate Change.",
+      "choices": [
+        "NATO",
+        "The World Bank alone",
+        "The Red Cross",
+        "The IPCC, the UN's climate panel"
+      ],
+      "answer": 3,
+      "explanation": "The IPCC, the UN's Intergovernmental Panel on Climate Change, regularly gathers and summarises the state of research on climate change in major reports that form the basis for international agreements such as the Paris Agreement. NATO, the Red Cross and the World Bank work on entirely different main tasks, even though the World Bank also finances some climate-related projects."
+    },
+    {
+      "id": "q-geo8-kli-15",
+      "kind": "mc",
+      "topic": "consequences in different parts of the world",
+      "prompt": "What is a likely consequence of the oceans becoming more acidic because of increased carbon dioxide levels in the atmosphere?",
+      "opener": "Think about what happens to lime (calcium carbonate) in acidic water.",
+      "choices": [
+        "The seawater becomes fresher",
+        "Fish stocks automatically increase across the whole planet",
+        "Sea levels fall",
+        "Coral reefs and shellfish with lime-based shells find it harder to build and maintain their skeletons and shells"
+      ],
+      "answer": 3,
+      "explanation": "As the oceans absorb more carbon dioxide, the water becomes more acidic, which makes it harder for corals and shellfish to form and maintain their lime-based skeletons and shells – a threat to, for example, coral reefs and mussel farming. Seawater becomes neither fresher nor lower in level because of this, and the effect on fish stocks is in most cases negative rather than an automatic increase."
     }
   ]
 }
