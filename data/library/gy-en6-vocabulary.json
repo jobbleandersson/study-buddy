@@ -123,6 +123,111 @@
       "prompt": "List five common English idioms and their meanings.",
       "opener": "Idiom betyder inte alltid det orden bokstavligen säger — lär dig dem som hela fraser.",
       "answer": "\"Hit the nail on the head\" = säga exakt rätt sak · \"On the fence\" = obeslutsam · \"Break the ice\" = få igång ett samtal, minska spänning · \"Once in a blue moon\" = mycket sällan · \"Bite the bullet\" = tvinga sig att göra något obehagligt · \"Under the weather\" = känna sig lite sjuk. Kom ihåg: idiom ska aldrig översättas ord för ord."
+    },
+    {
+      "id": "q-en6-vocabulary-9",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does it mean to \"break the ice\" at a social event?",
+      "opener": "Bilden är att man smälter isen mellan människor som inte känner varandra.",
+      "choices": [
+        "To do something that eases tension and starts conversation",
+        "To literally break something made of ice",
+        "To end a conversation abruptly",
+        "To argue with someone"
+      ],
+      "answer": 0,
+      "explanation": "\"Break the ice\" betyder att göra något som minskar spänning och får ett samtal igång, till exempel i en ny grupp. Det handlar inte om att bokstavligen förstöra något."
+    },
+    {
+      "id": "q-en6-vocabulary-10",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does \"once in a blue moon\" mean?",
+      "opener": "En blå måne är en sällsynt astronomisk händelse.",
+      "choices": [
+        "Very rarely",
+        "Every single day",
+        "Only at night",
+        "Very often"
+      ],
+      "answer": 0,
+      "explanation": "\"Once in a blue moon\" betyder mycket sällan, till skillnad från \"every day\" eller \"often\"."
+    },
+    {
+      "id": "q-en6-vocabulary-11",
+      "kind": "mc",
+      "topic": "abstract nouns",
+      "prompt": "Which abstract noun best completes: \"Her ___ to succeed motivated the entire team.\" (determine)",
+      "opener": "Vilken ordklass krävs efter possessivt \"her\"?",
+      "choices": [
+        "determination",
+        "determine",
+        "determined",
+        "determining"
+      ],
+      "answer": 0,
+      "explanation": "Efter possessivformen \"her\" krävs ett substantiv, och \"determination\" är den abstrakta substantivformen av \"determine\". De andra alternativen är verb- eller particip-former."
+    },
+    {
+      "id": "q-en6-vocabulary-12",
+      "kind": "mc",
+      "topic": "abstract nouns",
+      "prompt": "Which sentence uses an abstract noun correctly?",
+      "opener": "Efter possessivform krävs ett substantiv, inte ett verb.",
+      "choices": [
+        "The company's growth exceeded expectations this year.",
+        "The company's grow exceeded expectations this year.",
+        "The company's growing exceeded expectations this year.",
+        "The company's grew exceeded expectations this year."
+      ],
+      "answer": 0,
+      "explanation": "\"Growth\" är substantivformen av \"grow\" och passar efter possessivet \"company's\". \"Grow\", \"growing\" och \"grew\" är verbformer som inte fungerar grammatiskt på den platsen."
+    },
+    {
+      "id": "q-en6-vocabulary-13",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct collocation: \"It's important to ___ a balance between work and free time.\"",
+      "opener": "Fast uttryck: \"strike a balance\".",
+      "choices": [
+        "strike",
+        "hit",
+        "make",
+        "do"
+      ],
+      "answer": 0,
+      "explanation": "Kollokationen är \"strike a balance between\" (hitta en balans mellan). \"Hit/make/do a balance\" är inga vedertagna uttryck på engelska."
+    },
+    {
+      "id": "q-en6-vocabulary-14",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct collocation: \"The new policy will ___ a significant impact on small businesses.\"",
+      "opener": "Fast uttryck: \"have an impact on something\".",
+      "choices": [
+        "have",
+        "do",
+        "make",
+        "take"
+      ],
+      "answer": 0,
+      "explanation": "Kollokationen är \"have an impact on\", inte \"do/make/take an impact\"."
+    },
+    {
+      "id": "q-en6-vocabulary-15",
+      "kind": "mc",
+      "topic": "formal synonyms",
+      "prompt": "Which is the most formal way to express \"a lot of people think\"?",
+      "opener": "Formellt skriftspråk undviker vardagliga kvantifierare som \"loads of\" och \"tons of\".",
+      "choices": [
+        "It is widely believed",
+        "Loads of people reckon",
+        "Tons of people think",
+        "Everybody kind of thinks"
+      ],
+      "answer": 0,
+      "explanation": "\"It is widely believed\" är opersonligt och formellt, vilket passar i akademiskt skriftspråk. \"Loads of\", \"tons of\" och \"kind of\" är alla vardagliga uttryck som bör undvikas i formell text."
     }
   ]
 }

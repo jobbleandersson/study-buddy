@@ -123,6 +123,111 @@
       "prompt": "List five common English idioms and their meanings.",
       "opener": "Idioms don't always mean what the words literally say — learn them as whole phrases.",
       "answer": "\"Hit the nail on the head\" = say exactly the right thing · \"On the fence\" = undecided · \"Break the ice\" = get a conversation going, ease tension · \"Once in a blue moon\" = very rarely · \"Bite the bullet\" = force yourself to do something unpleasant · \"Under the weather\" = feeling slightly unwell. Remember: idioms should never be translated word for word."
+    },
+    {
+      "id": "q-en6-vocabulary-9",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does it mean to \"break the ice\" at a social event?",
+      "opener": "The image is of melting the ice between people who don't know each other.",
+      "choices": [
+        "To do something that eases tension and starts conversation",
+        "To literally break something made of ice",
+        "To end a conversation abruptly",
+        "To argue with someone"
+      ],
+      "answer": 0,
+      "explanation": "\"Break the ice\" means to do something that eases tension and gets a conversation going, for example in a new group. It has nothing to do with literally destroying something."
+    },
+    {
+      "id": "q-en6-vocabulary-10",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does \"once in a blue moon\" mean?",
+      "opener": "A blue moon is a rare astronomical event.",
+      "choices": [
+        "Very rarely",
+        "Every single day",
+        "Only at night",
+        "Very often"
+      ],
+      "answer": 0,
+      "explanation": "\"Once in a blue moon\" means very rarely, unlike \"every day\" or \"often\"."
+    },
+    {
+      "id": "q-en6-vocabulary-11",
+      "kind": "mc",
+      "topic": "abstract nouns",
+      "prompt": "Which abstract noun best completes: \"Her ___ to succeed motivated the entire team.\" (determine)",
+      "opener": "Which word class is needed after the possessive \"her\"?",
+      "choices": [
+        "determination",
+        "determine",
+        "determined",
+        "determining"
+      ],
+      "answer": 0,
+      "explanation": "After the possessive form \"her\" a noun is required, and \"determination\" is the abstract noun form of \"determine\". The other options are verb or participle forms."
+    },
+    {
+      "id": "q-en6-vocabulary-12",
+      "kind": "mc",
+      "topic": "abstract nouns",
+      "prompt": "Which sentence uses an abstract noun correctly?",
+      "opener": "After a possessive form, a noun is required, not a verb.",
+      "choices": [
+        "The company's growth exceeded expectations this year.",
+        "The company's grow exceeded expectations this year.",
+        "The company's growing exceeded expectations this year.",
+        "The company's grew exceeded expectations this year."
+      ],
+      "answer": 0,
+      "explanation": "\"Growth\" is the noun form of \"grow\" and fits after the possessive \"company's\". \"Grow\", \"growing\", and \"grew\" are verb forms that don't work grammatically in that slot."
+    },
+    {
+      "id": "q-en6-vocabulary-13",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct collocation: \"It's important to ___ a balance between work and free time.\"",
+      "opener": "Fixed expression: \"strike a balance\".",
+      "choices": [
+        "strike",
+        "hit",
+        "make",
+        "do"
+      ],
+      "answer": 0,
+      "explanation": "The collocation is \"strike a balance between\". \"Hit/make/do a balance\" are not established English expressions."
+    },
+    {
+      "id": "q-en6-vocabulary-14",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct collocation: \"The new policy will ___ a significant impact on small businesses.\"",
+      "opener": "Fixed expression: \"have an impact on something\".",
+      "choices": [
+        "have",
+        "do",
+        "make",
+        "take"
+      ],
+      "answer": 0,
+      "explanation": "The collocation is \"have an impact on\", not \"do/make/take an impact\"."
+    },
+    {
+      "id": "q-en6-vocabulary-15",
+      "kind": "mc",
+      "topic": "formal synonyms",
+      "prompt": "Which is the most formal way to express \"a lot of people think\"?",
+      "opener": "Formal written English avoids casual quantifiers like \"loads of\" and \"tons of\".",
+      "choices": [
+        "It is widely believed",
+        "Loads of people reckon",
+        "Tons of people think",
+        "Everybody kind of thinks"
+      ],
+      "answer": 0,
+      "explanation": "\"It is widely believed\" is impersonal and formal, which suits academic writing. \"Loads of\", \"tons of\", and \"kind of\" are all casual expressions that should be avoided in formal text."
     }
   ]
 }

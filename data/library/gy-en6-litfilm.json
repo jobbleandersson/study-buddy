@@ -123,6 +123,111 @@
       "prompt": "List key vocabulary for discussing literature and film.",
       "opener": "Grundbegreppen du behöver för att analysera text och film på engelska.",
       "answer": "Plot = händelseförlopp · Protagonist = huvudkaraktär · Antagonist = motståndare/skurk · Theme = underliggande budskap · Setting = tid och plats · Narrative perspective = berättarperspektiv (first person, third person limited, third person omniscient) · Plot twist = oväntad vändning · Cinematography = filmens bildspråk och kameraarbete · Foreshadowing = förebud om vad som komma skall."
+    },
+    {
+      "id": "q-en6-litfilm-9",
+      "kind": "mc",
+      "topic": "plot and character",
+      "prompt": "What is \"characterization\"?",
+      "opener": "Tänk på HUR författaren visar vem en karaktär är.",
+      "choices": [
+        "The methods an author uses to reveal a character's personality and traits",
+        "The physical setting of a story",
+        "A summary of the entire plot",
+        "The moral lesson of a story"
+      ],
+      "answer": 0,
+      "explanation": "\"Characterization\" är de metoder en författare använder för att avslöja en karaktärs personlighet och drag, t.ex. genom handlingar, dialog eller andra karaktärers reaktioner."
+    },
+    {
+      "id": "q-en6-litfilm-10",
+      "kind": "mc",
+      "topic": "plot and character",
+      "prompt": "What is \"foreshadowing\"?",
+      "opener": "Ledtrådar som planteras tidigt och betalar sig senare i berättelsen.",
+      "choices": [
+        "A hint or clue about events that will happen later in the story",
+        "A flashback to earlier events",
+        "The climax of the story",
+        "A minor character's backstory"
+      ],
+      "answer": 0,
+      "explanation": "\"Foreshadowing\" är en antydan om något som ska hända senare i berättelsen, vilket skapar spänning eller förbereder läsaren. Det är inte samma sak som en tillbakablick (flashback)."
+    },
+    {
+      "id": "q-en6-litfilm-11",
+      "kind": "mc",
+      "topic": "theme and setting",
+      "prompt": "How does setting often influence a story's theme?",
+      "opener": "Tänk på hur en dyster miljö kan förstärka ett dystert tema.",
+      "choices": [
+        "The time and place can reinforce or create tension with the story's central ideas",
+        "Setting has no connection to theme whatsoever",
+        "Setting always determines who the protagonist is",
+        "Setting is only relevant in historical fiction"
+      ],
+      "answer": 0,
+      "explanation": "Tid och plats kan förstärka eller skapa spänning mot berättelsens centrala idéer, t.ex. en isolerad ö som förstärker ett tema om ensamhet."
+    },
+    {
+      "id": "q-en6-litfilm-12",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "What distinguishes \"third person omniscient\" from \"third person limited\"?",
+      "opener": "Skillnaden ligger i HUR MYCKET berättaren vet, inte i vilket pronomen som används.",
+      "choices": [
+        "Omniscient narrators know the thoughts of all characters, while limited narrators only access one character's mind",
+        "Omniscient narrators use \"I\", while limited narrators use \"we\"",
+        "There is no real difference between the two",
+        "Limited narrators always know more than omniscient narrators"
+      ],
+      "answer": 0,
+      "explanation": "En allvetande (omniscient) berättare känner till alla karaktärers tankar, medan en begränsad (limited) berättare bara har tillgång till en enda karaktärs medvetande. Båda använder tredjepersonspronomen (\"he\"/\"she\"/\"they\")."
+    },
+    {
+      "id": "q-en6-litfilm-13",
+      "kind": "mc",
+      "topic": "film terms",
+      "prompt": "What does \"mise-en-scène\" refer to in film analysis?",
+      "opener": "Den franska termen betyder ungefär \"det som placeras i scenen\".",
+      "choices": [
+        "Everything visible within a single frame, including set design, lighting, and actor placement",
+        "The editing style used to cut between scenes",
+        "The film's musical score",
+        "The dialogue written in the script"
+      ],
+      "answer": 0,
+      "explanation": "\"Mise-en-scène\" omfattar allt synligt inom en filmruta — scenografi, ljussättning och skådespelarnas placering. Det handlar inte om klippning, musik eller manus."
+    },
+    {
+      "id": "q-en6-litfilm-14",
+      "kind": "mc",
+      "topic": "film terms",
+      "prompt": "What is a \"close-up\" shot typically used to achieve?",
+      "opener": "Tänk på vad kameran zoomar in på och varför.",
+      "choices": [
+        "To emphasize a character's emotional reaction or a small but important detail",
+        "To show the overall geography of a location",
+        "To introduce a large group of characters at once",
+        "To indicate a long passage of time"
+      ],
+      "answer": 0,
+      "explanation": "En närbild (\"close-up\") används för att betona en karaktärs känslomässiga reaktion eller en liten men viktig detalj, snarare än att visa en hel miljö eller en stor grupp."
+    },
+    {
+      "id": "q-en6-litfilm-15",
+      "kind": "mc",
+      "topic": "theme and setting",
+      "prompt": "A story set during a war often explores which type of theme, even if the war itself is only in the background?",
+      "opener": "Krigets bakgrund färgar ofta vad berättelsen egentligen handlar om.",
+      "choices": [
+        "Themes of survival, loss, or moral conflict shaped by the story's historical context",
+        "Themes are never affected by the setting",
+        "Only themes directly about military strategy",
+        "Themes about unrelated topics like cooking"
+      ],
+      "answer": 0,
+      "explanation": "Berättelser som utspelar sig under krig utforskar ofta teman som överlevnad, förlust eller moraliska konflikter, formade av den historiska kontexten, även om själva stridandet bara skymtar i bakgrunden."
     }
   ]
 }
