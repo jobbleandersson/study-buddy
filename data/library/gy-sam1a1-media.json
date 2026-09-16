@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta centrala begrepp om massmedier, opinionsbildning och algoritmer.",
       "opener": "Mediernas roll, hur opinion formas och vad tekniken gör med det vi ser.",
       "answer": "Den tredje statsmakten: mediernas granskande roll gentemot politisk och ekonomisk makt · Medielogik: tendensen att prioritera dramatiskt, konfliktfyllt och personifierat innehåll · Opinionsbildning: processen där människors åsikter i samhällsfrågor formas, via t.ex. medier, debatt och kampanjer · Påverkanskanaler: insändare, debattartiklar, demonstrationer, sociala medier, lobbying · Filterbubbla: algoritmer visar mest innehåll man redan håller med om, vilket minskar mötet med andra perspektiv · Medieetik/pressetik: principer som vederhäftighet, källkritik och genmäle - att den som anklagas ska få bemöta uppgifter innan publicering."
+    },
+    {
+      "id": "q-sam1a1-media-9",
+      "kind": "mc",
+      "topic": "mediernas roll och medielogik",
+      "prompt": "Vad innebär begreppet \"gatekeeping\" inom medieteori?",
+      "opener": "Tänk på vem som väljer ut vilka händelser som blir till nyheter över huvud taget.",
+      "choices": [
+        "Att redaktioner och journalister väljer ut vilka händelser och perspektiv som når publiken genom sin nyhetsvärdering, och därmed formar bilden av verkligheten",
+        "Att medier bokstavligen håller vakt vid en fysisk grind",
+        "Att alla nyheter automatiskt publiceras utan något urval",
+        "Ett annat ord för censur utövad enbart av staten"
+      ],
+      "answer": 0,
+      "explanation": "Gatekeeping beskriver hur redaktioner och journalister, genom sin nyhetsvärdering, väljer ut vilka händelser och perspektiv som når publiken och vilka som väljs bort, vilket i förlängningen formar den bild av samhället som medierna förmedlar."
+    },
+    {
+      "id": "q-sam1a1-media-10",
+      "kind": "mc",
+      "topic": "opinionsbildning och påverkanskanaler",
+      "prompt": "Vad är en opinionsundersökning (opinionsmätning), och vilken begränsning bör man ha i åtanke när man tolkar resultaten?",
+      "opener": "Tänk på att en mätning bygger på ett urval, inte på hela befolkningen.",
+      "choices": [
+        "En undersökning av ett urval människors åsikter, som ska spegla en större population, men som alltid har en viss felmarginal och kan påverkas av hur frågorna formulerats",
+        "Ett bindande beslut som ersätter allmänna val",
+        "En metod som alltid ger exakt samma resultat som det kommande valet",
+        "En undersökning som enbart mäter politikers egna åsikter"
+      ],
+      "answer": 0,
+      "explanation": "En opinionsundersökning bygger på ett urval av befolkningen och ska spegla en större grupps åsikter, men har alltid en statistisk felmarginal och kan påverkas av hur frågorna är formulerade - den ersätter inte ett val och garanterar inte ett exakt utfall."
+    },
+    {
+      "id": "q-sam1a1-media-11",
+      "kind": "mc",
+      "topic": "algoritmer och filterbubblor",
+      "prompt": "Vad är skillnaden mellan en filterbubbla och en så kallad \"ekokammare\" (echo chamber)?",
+      "opener": "Tänk på om det är en algoritm eller personens eget aktiva val som ligger bakom.",
+      "choices": [
+        "En filterbubbla skapas främst av algoritmer som anpassar innehåll efter tidigare beteende, medan en ekokammare snarare uppstår genom att en person medvetet väljer källor och umgängeskretsar som bekräftar de egna åsikterna",
+        "De två begreppen betyder exakt samma sak utan någon nyansskillnad",
+        "En ekokammare skapas enbart av staten",
+        "En filterbubbla uppstår enbart i tryckta tidningar, aldrig online"
+      ],
+      "answer": 0,
+      "explanation": "En filterbubbla skapas huvudsakligen av algoritmer som anpassar innehåll efter tidigare beteende, medan en ekokammare snarare handlar om att en person aktivt väljer källor, medier och umgängeskretsar som bekräftar de egna åsikterna - effekten kan dock likna varandra."
+    },
+    {
+      "id": "q-sam1a1-media-12",
+      "kind": "mc",
+      "topic": "algoritmer och filterbubblor",
+      "prompt": "Vad kan en person göra för att aktivt motverka effekten av en filterbubbla?",
+      "opener": "Tänk på om lösningen är att söka upp andra perspektiv, eller att bara läsa mer av samma sak.",
+      "choices": [
+        "Medvetet söka upp källor och perspektiv som skiljer sig från de man normalt exponeras för, snarare än att enbart förlita sig på ett algoritmstyrt flöde",
+        "Enbart använda en enda nyhetskälla för att undvika förvirring",
+        "Stänga av alla nyhetsflöden permanent",
+        "Filterbubblor kan inte motverkas på något sätt"
+      ],
+      "answer": 0,
+      "explanation": "Genom att medvetet söka upp källor och perspektiv som skiljer sig från dem man normalt exponeras för kan man motverka effekten av en filterbubbla, snarare än att enbart passivt konsumera ett algoritmstyrt flöde."
+    },
+    {
+      "id": "q-sam1a1-media-13",
+      "kind": "mc",
+      "topic": "medieetik",
+      "prompt": "Vad innebär offentlighetsprincipen i relation till mediernas granskande roll i Sverige?",
+      "opener": "Tänk på vilken rätt medborgare och journalister har att ta del av myndigheters handlingar.",
+      "choices": [
+        "Att medborgare och journalister i regel har rätt att ta del av allmänna handlingar hos myndigheter, vilket underlättar mediernas granskning av makthavare",
+        "Att alla myndighetsmöten måste vara helt slutna för allmänheten",
+        "Att enbart staten får granska sig själv",
+        "Att offentlighetsprincipen enbart gäller kommersiella företag"
+      ],
+      "answer": 0,
+      "explanation": "Offentlighetsprincipen ger medborgare och journalister rätt att i regel ta del av allmänna handlingar hos svenska myndigheter, vilket är ett viktigt verktyg för mediernas granskande roll gentemot makthavare - motsatsen till slutna möten eller att enbart staten skulle granska sig själv."
+    },
+    {
+      "id": "q-sam1a1-media-14",
+      "kind": "mc",
+      "topic": "medieetik",
+      "prompt": "Vad innebär att en nyhetskälla är \"namngiven\" kontra \"anonym\", och varför är det relevant vid källkritisk granskning av en nyhetsartikel?",
+      "opener": "Tänk på vem som kan ställas till svars för en uppgift, och vem som inte kan det.",
+      "choices": [
+        "En namngiven källa kan lättare granskas och ställas till svars för sina uppgifter, medan en anonym källas trovärdighet är svårare att bedöma, vilket ställer högre krav på övrig belägg",
+        "Anonyma källor är alltid mer trovärdiga än namngivna",
+        "Namngivna källor får aldrig förekomma i seriös journalistik",
+        "Det finns ingen skillnad i trovärdighet mellan de två typerna av källor"
+      ],
+      "answer": 0,
+      "explanation": "En namngiven källa kan granskas och ställas till svars på ett sätt som en anonym källa inte kan, vilket gör att anonyma uppgifter normalt kräver starkare kompletterande belägg för att bedömas som trovärdiga i en källkritisk granskning."
+    },
+    {
+      "id": "q-sam1a1-media-15",
+      "kind": "mc",
+      "topic": "mediernas roll och medielogik",
+      "prompt": "Vad kallas det fenomen där en nyhetshändelse rapporteras om på ett sätt som förstärker och sprider sig själv genom att andra medier följer upp samma vinkling, ofta utan egen självständig granskning?",
+      "opener": "Tänk på bilden av djur som rör sig tillsammans i en och samma riktning.",
+      "choices": [
+        "Flockjournalistik (eller \"drevjournalistik\")",
+        "Investigativ journalistik",
+        "Public service-journalistik",
+        "Faktagranskning"
+      ],
+      "answer": 0,
+      "explanation": "Flockjournalistik (ibland kallad drevjournalistik) beskriver hur medier tenderar att följa upp samma vinkling på en nyhet som andra redan rapporterat om, ofta utan egen självständig granskning, vilket kan förstärka och sprida en viss bild snabbt."
     }
   ]
 }

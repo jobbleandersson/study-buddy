@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta centrala begrepp om demokratimodeller och Sveriges statsskick.",
       "opener": "Tre demokratimodeller, tre svenska maktprinciper.",
       "answer": "Direkt demokrati: medborgarna röstar själva i sakfrågor (t.ex. folkomröstning) · Representativ demokrati: medborgarna väljer ombud som beslutar åt dem, Sveriges huvudform · Deliberativ demokrati: fokus på samtal och argumentation innan beslut · Monarki: Sverige har en kung som statschef utan politisk makt, en ceremoniell roll sedan 1974 års regeringsform · Parlamentarism: regeringen måste tolereras av riksdagen för att sitta kvar (negativ parlamentarism i Sverige) · Maktdelning: lagstiftande makt (riksdagen), verkställande makt (regeringen) och dömande makt (domstolarna) hålls isär · Jämförelse: i presidentiella system som USA:s väljs den verkställande makten separat och oberoende av parlamentets förtroende, till skillnad från parlamentariska system."
+    },
+    {
+      "id": "q-sam1a1-demokrati-9",
+      "kind": "mc",
+      "topic": "demokratimodeller",
+      "prompt": "Vad kännetecknar ett flerpartisystem med proportionella val, som det svenska, jämfört med ett tvåpartisystem med majoritetsval, som det brittiska underhuset?",
+      "opener": "Tänk på hur många partier som brukar få mandat i respektive system.",
+      "choices": [
+        "Proportionella val ger fler partier representation i parlamentet i förhållande till sin röstandel, medan majoritetsval i enmansvalkretsar ofta gynnar stora partier och färre partier totalt",
+        "Majoritetsval garanterar alltid fler partier i parlamentet än proportionella val",
+        "Proportionella val innebär att bara ett parti kan få mandat",
+        "Det finns ingen skillnad i hur mandaten fördelas mellan systemen"
+      ],
+      "answer": 0,
+      "explanation": "Proportionella valsystem, som det svenska, fördelar mandat i förhållande till varje partis röstandel, vilket gynnar fler partier. Majoritetsval i enmansvalkretsar, som i Storbritannien, gynnar istället stora partier eftersom bara vinnaren i varje valkrets får mandatet."
+    },
+    {
+      "id": "q-sam1a1-demokrati-10",
+      "kind": "mc",
+      "topic": "Sveriges statsskick",
+      "prompt": "Vad innebär den svenska regeringsformens bestämmelse om att \"all offentlig makt utgår från folket\"?",
+      "opener": "Tänk på varifrån den politiska makten ytterst ska härledas.",
+      "choices": [
+        "Att den politiska makten i grunden ska härledas från medborgarna genom allmänna och fria val, inte från exempelvis en monark eller en självutnämnd elit",
+        "Att varje enskild medborgare måste godkänna varje lag personligen",
+        "Att folket automatiskt äger all statlig egendom",
+        "Att makten enbart utgår från riksdagens talman"
+      ],
+      "answer": 0,
+      "explanation": "Principen slår fast att den politiska makten ytterst kommer från medborgarna genom allmänna och fria val, till skillnad från system där makten härleds från exempelvis en ärftlig monark. Det innebär inte att varje enskild lag måste godkännas individuellt av varje medborgare."
+    },
+    {
+      "id": "q-sam1a1-demokrati-11",
+      "kind": "mc",
+      "topic": "Sveriges statsskick",
+      "prompt": "Vilken funktion har Lagrådet i den svenska lagstiftningsprocessen?",
+      "opener": "Tänk på vilket organ som granskar lagförslag innan riksdagen fattar sitt slutgiltiga beslut.",
+      "choices": [
+        "Att granska lagförslag och yttra sig om hur de förhåller sig till grundlagarna och rättssäkerheten, innan riksdagen beslutar",
+        "Att döma i alla brottmål i Sverige",
+        "Att utse Sveriges statsminister",
+        "Att ersätta riksdagens lagstiftande funktion helt"
+      ],
+      "answer": 0,
+      "explanation": "Lagrådet granskar lagförslag och yttrar sig om hur de förhåller sig till grundlagen och rättssäkerheten, som en rådgivande instans innan riksdagen tar det slutgiltiga beslutet. Det dömer inte i enskilda brottmål och ersätter inte riksdagens lagstiftande makt."
+    },
+    {
+      "id": "q-sam1a1-demokrati-12",
+      "kind": "mc",
+      "topic": "statsskick i jämförelse",
+      "prompt": "Vad kännetecknar en federal statsbildning, som Tyskland eller USA, jämfört med en enhetsstat som Sverige?",
+      "opener": "Tänk på om delstaterna har egen självständig beslutsrätt, eller om all makt samlas centralt.",
+      "choices": [
+        "I en federal stat delas makten konstitutionellt mellan en central regering och delstater/regioner med egen självständig beslutsrätt inom vissa områden, medan makten i en enhetsstat i grunden är samlad hos den centrala nivån",
+        "En federal stat saknar helt en central regering",
+        "En enhetsstat kan aldrig ha kommuner eller regioner",
+        "Federala stater har alltid monarki som statsskick"
+      ],
+      "answer": 0,
+      "explanation": "I en federal stat delas makten konstitutionellt mellan en central regering och delstater med egen beslutsrätt inom vissa områden. En enhetsstat som Sverige kan visserligen ha kommuner och regioner, men den grundläggande politiska makten är samlad på den centrala, statliga nivån."
+    },
+    {
+      "id": "q-sam1a1-demokrati-13",
+      "kind": "mc",
+      "topic": "statsskick i jämförelse",
+      "prompt": "Vad skiljer en konstitutionell monarki som Sveriges från en absolut monarki?",
+      "opener": "Tänk på var den faktiska politiska makten ligger i respektive system.",
+      "choices": [
+        "I en konstitutionell monarki är monarkens makt begränsad av grundlagen och den faktiska politiska makten ligger hos folkvalda organ, medan en absolut monark har i princip obegränsad politisk makt",
+        "En konstitutionell monarki saknar helt en monark",
+        "En absolut monarki har alltid fler folkvalda organ än en konstitutionell",
+        "Det finns ingen praktisk skillnad mellan de två"
+      ],
+      "answer": 0,
+      "explanation": "I en konstitutionell monarki, som Sveriges, är monarkens makt begränsad av grundlagen och den politiska makten utövas av folkvalda organ. I en absolut monarki har monarken däremot i princip obegränsad politisk makt utan sådana konstitutionella begränsningar."
+    },
+    {
+      "id": "q-sam1a1-demokrati-14",
+      "kind": "mc",
+      "topic": "demokratins förutsättningar",
+      "prompt": "Varför brukar en fungerande opposition räknas som en viktig del av en demokrati?",
+      "opener": "Tänk på vad som skulle saknas om ingen fick ifrågasätta den sittande makten.",
+      "choices": [
+        "Oppositionen granskar och utmanar den sittande makten samt erbjuder väljarna ett alternativ, vilket håller makthavare ansvariga",
+        "Oppositionen behövs enbart för att fylla platser i parlamentet",
+        "En stark opposition gör att val blir onödiga",
+        "Opposition förekommer enbart i diktaturer"
+      ],
+      "answer": 0,
+      "explanation": "En fungerande opposition granskar och utmanar regeringens politik och erbjuder väljarna ett tydligt alternativ vid nästa val, vilket är en viktig mekanism för att hålla makthavare ansvariga. Utan opposition riskerar maktkontrollen att försvagas avsevärt."
+    },
+    {
+      "id": "q-sam1a1-demokrati-15",
+      "kind": "mc",
+      "topic": "demokratimodeller",
+      "prompt": "Vad innebär \"one person, one vote\" som demokratisk princip?",
+      "opener": "Tänk på om vissa medborgares röster ska väga tyngre än andras.",
+      "choices": [
+        "Att varje röstberättigad medborgares röst ska väga lika mycket i ett val, oavsett till exempel förmögenhet eller social status",
+        "Att bara en person i hela landet får rösta",
+        "Att en person kan rösta obegränsat många gånger i samma val",
+        "Att röstberättigande enbart gäller för en åldersgrupp"
+      ],
+      "answer": 0,
+      "explanation": "Principen \"one person, one vote\" innebär att varje röstberättigad medborgares röst ska ha samma vikt i ett val, till skillnad från historiska system där till exempel förmögenhet gav extra röster. Den innebär varken att bara en person får rösta eller att man kan rösta flera gånger."
     }
   ]
 }

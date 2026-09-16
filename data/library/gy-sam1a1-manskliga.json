@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta centrala begrepp om mänskliga rättigheter och internationell rätt.",
       "opener": "Från deklaration till konvention till konkreta rättighetskategorier.",
       "answer": "FN:s allmänna förklaring (1948): slår fast grundläggande rättigheter för alla människor, i sig inte juridiskt bindande men grund för senare konventioner · Konventioner: juridiskt bindande avtal mellan stater som ratificerat dem, t.ex. barnkonventionen och Europakonventionen · Medborgerliga/politiska rättigheter: t.ex. yttrandefrihet, rösträtt, rätt till en rättvis rättegång · Ekonomiska/sociala rättigheter: t.ex. rätt till utbildning, hälsa och en skälig levnadsstandard · Folkrätt: regler som styr relationer mellan stater, bland annat via FN-stadgan · Internationell humanitär rätt: krigets lagar, t.ex. Genèvekonventionerna, skyddar civila och krigsfångar i väpnad konflikt · Rättigheter i konflikt: rättigheter kan ibland ställas mot varandra och kräver avvägningar, t.ex. yttrandefrihet kontra skydd mot diskriminering."
+    },
+    {
+      "id": "q-sam1a1-manskliga-9",
+      "kind": "mc",
+      "topic": "FN:s förklaring om mänskliga rättigheter",
+      "prompt": "Vad är Europakonventionen om mänskliga rättigheter, och hur skiljer den sig från FN:s allmänna förklaring?",
+      "opener": "Tänk på om det finns en domstol som faktiskt kan pröva klagomål enligt respektive dokument.",
+      "choices": [
+        "En juridiskt bindande konvention för Europarådets medlemsstater, som till skillnad från FN:s icke-bindande förklaring kan prövas av Europadomstolen",
+        "Ett annat namn för FN:s allmänna förklaring",
+        "En konvention som enbart gäller EU:s institutioner, inte enskilda medborgare",
+        "En konvention som saknar någon domstol för att pröva klagomål"
+      ],
+      "answer": 0,
+      "explanation": "Europakonventionen är, till skillnad från FN:s icke-bindande allmänna förklaring, en juridiskt bindande konvention för Europarådets medlemsstater, och enskilda kan få sina klagomål om kränkningar prövade av Europadomstolen för mänskliga rättigheter."
+    },
+    {
+      "id": "q-sam1a1-manskliga-10",
+      "kind": "mc",
+      "topic": "rättighetskategorier",
+      "prompt": "Barnkonventionen, som blev svensk lag 2020, är ett exempel på vad?",
+      "opener": "Tänk på om detta är ett generellt dokument för alla, eller riktat mot en särskild grupp.",
+      "choices": [
+        "En specifik, juridiskt bindande konvention som preciserar rättigheter för en särskild grupp - i detta fall barn",
+        "En del av FN:s allmänna förklaring från 1948",
+        "En rent nationell svensk lag utan koppling till internationell rätt",
+        "En konvention som enbart gäller inom EU"
+      ],
+      "answer": 0,
+      "explanation": "Barnkonventionen är en juridiskt bindande FN-konvention som specifikt preciserar rättigheter för barn, och blev svensk lag 2020. Den är alltså inte en del av 1948 års allmänna förklaring, utan ett separat, senare internationellt dokument."
+    },
+    {
+      "id": "q-sam1a1-manskliga-11",
+      "kind": "mc",
+      "topic": "rättighetskategorier",
+      "prompt": "Vad innebär rätten till en rättvis rättegång, som en del av medborgerliga/politiska rättigheter?",
+      "opener": "Tänk på vad en anklagad person har rätt till innan en dom fastställs.",
+      "choices": [
+        "Bland annat rätten till en opartisk domstol, att bli informerad om anklagelser och att få försvara sig innan en dom fastställs",
+        "Att den anklagade alltid automatiskt frias",
+        "Att rättegångar aldrig får hållas offentligt",
+        "Att enbart staten har rätt att överklaga en dom"
+      ],
+      "answer": 0,
+      "explanation": "Rätten till en rättvis rättegång omfattar bland annat rätten till en opartisk domstol, att informeras om anklagelserna och att få försvara sig innan dom fastställs. Den innebär varken automatisk frikännande eller ett förbud mot offentliga rättegångar."
+    },
+    {
+      "id": "q-sam1a1-manskliga-12",
+      "kind": "mc",
+      "topic": "folkrätt och humanitär rätt",
+      "prompt": "Vad är Internationella brottmålsdomstolen (ICC)?",
+      "opener": "Tänk på om domstolen dömer stater eller enskilda individer.",
+      "choices": [
+        "En permanent internationell domstol som kan lagföra individer för grova brott som folkmord, brott mot mänskligheten och krigsförbrytelser",
+        "En domstol som enbart dömer i handelstvister mellan stater",
+        "Ett annat namn för Internationella domstolen i Haag som dömer mellan stater",
+        "En domstol som endast FN:s säkerhetsråd kan döma i"
+      ],
+      "answer": 0,
+      "explanation": "ICC är en permanent internationell domstol som lagför enskilda individer, inte stater, för de allvarligaste internationella brotten: folkmord, brott mot mänskligheten, krigsförbrytelser och aggressionsbrott. Den skiljer sig därmed från Internationella domstolen (ICJ), som avgör tvister mellan stater."
+    },
+    {
+      "id": "q-sam1a1-manskliga-13",
+      "kind": "mc",
+      "topic": "folkrätt och humanitär rätt",
+      "prompt": "Vad innebär principen om statssuveränitet inom folkrätten, och vilken spänning kan den skapa gentemot mänskliga rättigheter?",
+      "opener": "Tänk på vad som händer när önskan att skydda mänskliga rättigheter krockar med en stats rätt att styra sig själv.",
+      "choices": [
+        "Att stater i grunden har rätt att styra sina egna inre angelägenheter utan inblandning utifrån, vilket kan stå i spänning mot internationella krav på att ingripa vid grova kränkningar av mänskliga rättigheter inom landet",
+        "Att alla stater måste följa exakt samma lagar utan undantag",
+        "Att statssuveränitet innebär att FN automatiskt styr alla länder",
+        "Att suveränitet enbart gäller ekonomiska frågor"
+      ],
+      "answer": 0,
+      "explanation": "Statssuveränitet innebär att stater i grunden har rätt att styra sina egna inre angelägenheter utan yttre inblandning. Detta kan stå i spänning mot internationella påtryckningar eller krav på ingripande när grova kränkningar av mänskliga rättigheter sker inom landet."
+    },
+    {
+      "id": "q-sam1a1-manskliga-14",
+      "kind": "mc",
+      "topic": "rättigheter i konflikt",
+      "prompt": "Ge ett exempel på hur rätten till privatliv kan komma i konflikt med samhällets intresse av säkerhet.",
+      "opener": "Tänk på metoder som används för att förebygga brott, och vad de kan innebära för den enskildes integritet.",
+      "choices": [
+        "Övervakningsåtgärder som kameror eller avlyssning för att förebygga brott kan inskränka den personliga integriteten, vilket kräver en avvägning mellan trygghet och privatliv",
+        "Rätten till privatliv gäller alltid ovillkorligen utan några undantag",
+        "Säkerhetsintresset kan aldrig påverka någons privatliv i praktiken",
+        "De två rättigheterna har aldrig något samband med varandra"
+      ],
+      "answer": 0,
+      "explanation": "Övervakningsåtgärder som kameraövervakning eller avlyssning, motiverade av brottsförebyggande syften, kan inskränka den personliga integriteten. Detta illustrerar hur rätten till privatliv och samhällets säkerhetsintresse ibland måste vägas mot varandra."
+    },
+    {
+      "id": "q-sam1a1-manskliga-15",
+      "kind": "mc",
+      "topic": "FN:s förklaring om mänskliga rättigheter",
+      "prompt": "Är FN:s säkerhetsråd juridiskt skyldigt att ingripa militärt varje gång grova brott mot mänskliga rättigheter begås i ett land?",
+      "opener": "Tänk på vetorätten som de permanenta medlemmarna i säkerhetsrådet har.",
+      "choices": [
+        "Nej, säkerhetsrådets beslut om ingripanden kräver politisk enighet (eller avstående från veto) bland de permanenta medlemmarna, vilket gör att ingripanden ofta uteblir trots allvarliga kränkningar",
+        "Ja, säkerhetsrådet är alltid tvunget att ingripa militärt omedelbart",
+        "Ja, men bara om det gäller länder i Europa",
+        "Nej, säkerhetsrådet saknar helt möjlighet att besluta om militära insatser"
+      ],
+      "answer": 0,
+      "explanation": "Säkerhetsrådets beslut om militära ingripanden kräver att ingen av de fem permanenta medlemmarna lägger in sitt veto, vilket i praktiken ofta gör att ingripanden uteblir även vid allvarliga kränkningar av mänskliga rättigheter - säkerhetsrådet har befogenheten, men saknar en absolut skyldighet som alltid efterlevs."
     }
   ]
 }

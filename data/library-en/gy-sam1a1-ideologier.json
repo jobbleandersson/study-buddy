@@ -124,6 +124,111 @@
       "prompt": "Summarise the core ideas of liberalism, conservatism and socialism, and what left-right and GAL-TAN measure.",
       "opener": "Three classic ideologies, two analytical scales.",
       "answer": "Liberalism: individual freedom and rights, market economy, limited state involvement · Conservatism: gradual change, upholding traditions, institutions and communities such as family and nation · Socialism: reduced economic inequality, collective or state ownership/control of the means of production for greater equality · The left-right scale: mainly measures views on economic distribution and the state's role in the market · The GAL-TAN scale: measures a values dimension - green/alternative/libertarian (GAL) versus traditional/authoritarian/nationalist (TAN), e.g. views on immigration, the environment and individual freedom versus authority · A policy issue can often be understood better by combining both scales."
+    },
+    {
+      "id": "q-sam1a1-ideologier-9",
+      "kind": "mc",
+      "topic": "liberalism",
+      "prompt": "What is the difference between classical liberalism and social liberalism?",
+      "opener": "Think about how much state redistribution each strand accepts.",
+      "choices": [
+        "Classical liberalism emphasises a very limited state role and a free market, while social liberalism accepts some state redistribution and welfare to protect individual freedom in practice",
+        "The two strands are exactly identical",
+        "Social liberalism advocates that the state should own all means of production",
+        "Classical liberalism advocates a planned economy"
+      ],
+      "answer": 0,
+      "explanation": "Classical liberalism emphasises a very limited state role and a free market, while social liberalism accepts some state redistribution and welfare, on the belief that this can, in practice, strengthen rather than restrict the individual's real freedom."
+    },
+    {
+      "id": "q-sam1a1-ideologier-10",
+      "kind": "mc",
+      "topic": "conservatism",
+      "prompt": "What is meant by the concept of \"conservative liberalism\" (borgerlig konservatism) in the Swedish political context, as distinct from more market-liberal ideas?",
+      "opener": "Think about what is combined: the view on tradition and the view on the economy.",
+      "choices": [
+        "A strand that combines upholding traditions, institutions and order with a fundamentally market-friendly stance on economic issues",
+        "A strand that advocates abolishing the monarchy",
+        "A strand entirely lacking interest in economic policy",
+        "A synonym for socialism"
+      ],
+      "answer": 0,
+      "explanation": "This strand of conservatism often combines upholding traditions, institutions and social order with a fundamentally market-friendly economic stance, unlike an ideology entirely lacking an economic-policy position."
+    },
+    {
+      "id": "q-sam1a1-ideologier-11",
+      "kind": "mc",
+      "topic": "socialism",
+      "prompt": "What distinguishes reformist social democracy from revolutionary communism, even though both have roots in the socialist tradition of thought?",
+      "opener": "Think about the METHOD of social change - gradual or through revolution.",
+      "choices": [
+        "Social democracy seeks to change society gradually through democratic elections and reforms, while revolutionary communism has historically advocated abolishing the capitalist system through revolution",
+        "They are exactly the same ideology under different names",
+        "Social democracy opposes any form of welfare state",
+        "Communism advocates a free market economy without state involvement"
+      ],
+      "answer": 0,
+      "explanation": "Social democracy seeks to change society step by step through democratic elections and reforms within the existing system, while revolutionary communism has historically advocated abolishing capitalism through revolution. Social democracy is, moreover, strongly associated with building the welfare state, not opposing it."
+    },
+    {
+      "id": "q-sam1a1-ideologier-12",
+      "kind": "mc",
+      "topic": "left-right and GAL-TAN",
+      "prompt": "If a party advocates both higher taxes for redistribution and strict border controls against immigration, where would the party roughly fall on the left-right scale and the GAL-TAN scale respectively?",
+      "opener": "Keep the two scales separate: one measures economics, the other values.",
+      "choices": [
+        "Left on the left-right scale (due to redistribution) but TAN-oriented on the GAL-TAN scale (due to border controls)",
+        "Right on the left-right scale and GAL-oriented on the GAL-TAN scale",
+        "The party would automatically fall exactly in the middle on both scales",
+        "The scales can never be combined to describe one and the same party"
+      ],
+      "answer": 0,
+      "explanation": "Higher taxes for redistribution place the party on the left of the economic left-right scale, while strict border controls against immigration place the party on the TAN side (traditional/authoritarian/nationalist) of the GAL-TAN values scale. The example shows exactly how the two scales can be combined to give a more nuanced picture of a party."
+    },
+    {
+      "id": "q-sam1a1-ideologier-13",
+      "kind": "mc",
+      "topic": "left-right and GAL-TAN",
+      "prompt": "Why isn't the left-right scale alone enough to fully explain modern parties' positioning on issues such as immigration or the environment?",
+      "opener": "Think about what these issues actually measure - economics, or something else.",
+      "choices": [
+        "Because these issues are primarily about values rather than economic distribution, meaning parties with similar economic policies can still take very different positions on them",
+        "Because the left-right scale only measures party leaders' age",
+        "Because environmental issues always align perfectly with economic left-right position",
+        "Because immigration issues are forbidden to discuss within the left-right scale"
+      ],
+      "answer": 0,
+      "explanation": "Issues of immigration and the environment are primarily about values rather than economic distribution, which means parties with similar economic policies can still differ sharply on them - something the GAL-TAN scale captures better than the purely economic left-right scale."
+    },
+    {
+      "id": "q-sam1a1-ideologier-14",
+      "kind": "mc",
+      "topic": "conservatism",
+      "prompt": "Which of the following arguments is typically conservative in a debate about quickly reforming a long-standing tradition, for example a celebratory ceremony?",
+      "opener": "Think about what conservatism values in something that has worked for a long time.",
+      "choices": [
+        "That the tradition should be preserved because it has developed over a long time and binds generations together, even if it is not perfectly logical",
+        "That the tradition should be abolished immediately if it is not economically profitable",
+        "That all traditions are always harmful to society",
+        "That traditions only have value if they are younger than ten years"
+      ],
+      "answer": 0,
+      "explanation": "A typically conservative argument emphasises that the tradition has value in itself because it has developed over a long time and binds generations together, even if it cannot be justified solely on economic grounds or strict logic."
+    },
+    {
+      "id": "q-sam1a1-ideologier-15",
+      "kind": "mc",
+      "topic": "liberalism",
+      "prompt": "Which of the following arguments is most clearly built on a liberal view of freedom of expression?",
+      "opener": "Think about how high the bar should be for the state to restrict what individuals may say.",
+      "choices": [
+        "That the state should have a very high bar for restricting what individuals may say, since the individual's freedom to express opinions is fundamental",
+        "That the state should always censor opinions that are uncomfortable for those in power",
+        "That freedom of expression should only apply to journalists employed by the state",
+        "That traditions should weigh more heavily than the individual's right to express themselves"
+      ],
+      "answer": 0,
+      "explanation": "A liberal view of freedom of expression emphasises that the individual's freedom to express their opinions is fundamental, and that the state should therefore have a very high bar for restricting it - not that the state should be free to censor uncomfortable opinions."
     }
   ]
 }

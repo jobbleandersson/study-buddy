@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta viktiga begrepp inom privatekonomi: budget, ränta, amortering och konsumenträtt.",
       "opener": "Grunderna för att hålla koll på sin egen ekonomi.",
       "answer": "Budget: en plan över inkomster och utgifter, grunden för att hålla koll på sin ekonomi · Ränta: kostnaden för att låna pengar, eller avkastningen på sparande · Amortering: den del av en betalning som minskar själva skulden, skild från räntan · Effektiv ränta: den verkliga årliga kostnaden för ett lån inklusive avgifter, bra för att jämföra lån · Kreditupplysning: kontroll av en persons ekonomiska historik som långivare gör innan lån beviljas · Konsumenträtt: regler som skyddar konsumenter, t.ex. ångerrätt vid distansavtal och reklamationsrätt vid fel på varor och tjänster."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-9",
+      "kind": "mc",
+      "topic": "marknadsekonomi och blandekonomi",
+      "prompt": "Vad är en planekonomi, till skillnad från en marknadsekonomi?",
+      "opener": "Tänk på vem som bestämmer vad som ska produceras och till vilket pris.",
+      "choices": [
+        "Ett ekonomiskt system där staten centralt planerar produktion, priser och fördelning av resurser, i stället för att låta utbud och efterfrågan styra",
+        "Ett system där privata företag helt saknar reglering",
+        "Ett annat namn för blandekonomi",
+        "Ett system som enbart förekommer inom EU"
+      ],
+      "answer": 0,
+      "explanation": "En planekonomi innebär att staten centralt planerar vad som ska produceras, till vilka priser och hur resurser fördelas, i stället för att låta utbud och efterfrågan styra som i en marknadsekonomi. Det är alltså motsatsen till en avreglerad marknad."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-10",
+      "kind": "mc",
+      "topic": "marknadsekonomi och blandekonomi",
+      "prompt": "Vad är ett exempel på ett marknadsmisslyckande (market failure) som ofta motiverar statlig inblandning i en blandekonomi?",
+      "opener": "Tänk på en kostnad som drabbar andra än de som köper och säljer varan.",
+      "choices": [
+        "Negativa externa effekter, till exempel att ett företags utsläpp skadar miljön utan att företaget självt bär hela kostnaden",
+        "Att ett företag går med vinst",
+        "Att konsumenter har fullständig information om alla produkter",
+        "Att marknaden alltid ger ett perfekt rättvist resultat"
+      ],
+      "answer": 0,
+      "explanation": "Negativa externa effekter, som föroreningar som drabbar tredje part utan att orsaken (företaget) bär hela kostnaden, är ett klassiskt exempel på marknadsmisslyckande som ofta motiverar statlig reglering, exempelvis genom miljöskatter eller utsläppsregler."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-11",
+      "kind": "mc",
+      "topic": "konjunktur och arbetslöshet",
+      "prompt": "Vad menas med finanspolitik som ett verktyg för att motverka en lågkonjunktur?",
+      "opener": "Tänk på vilket verktyg staten (inte Riksbanken) förfogar över.",
+      "choices": [
+        "Att staten ökar sina utgifter eller sänker skatter för att stimulera efterfrågan i ekonomin",
+        "Att Riksbanken sänker styrräntan",
+        "Att staten fryser alla priser i hela ekonomin",
+        "Att staten förbjuder import av varor"
+      ],
+      "answer": 0,
+      "explanation": "Finanspolitik innebär att staten, via regering och riksdag, ökar sina utgifter eller sänker skatter för att stimulera efterfrågan under en lågkonjunktur. Att justera styrräntan är i stället penningpolitik, ett verktyg som hanteras av Riksbanken."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-12",
+      "kind": "mc",
+      "topic": "konjunktur och arbetslöshet",
+      "prompt": "Vad kallas den typ av arbetslöshet som alltid finns i viss utsträckning eftersom det tar tid för arbetssökande och arbetsgivare att hitta varandra, även i en väl fungerande arbetsmarknad?",
+      "opener": "Tänk på tiden det tar att byta jobb, snarare än en brist på lämplig kompetens eller en lågkonjunktur.",
+      "choices": [
+        "Friktionsarbetslöshet",
+        "Strukturell arbetslöshet",
+        "Konjunkturarbetslöshet",
+        "Dold arbetslöshet"
+      ],
+      "answer": 0,
+      "explanation": "Friktionsarbetslöshet uppstår av att det tar tid för arbetssökande att hitta rätt jobb och för arbetsgivare att hitta rätt person, även när kompetensen i grunden matchar. Detta skiljer sig från strukturell arbetslöshet (bristande matchning i kompetens) och konjunkturarbetslöshet (kopplad till konjunktursvängningar)."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-13",
+      "kind": "mc",
+      "topic": "inflation och penningpolitik",
+      "prompt": "Vad är Riksbankens inflationsmål i Sverige?",
+      "opener": "Tänk på den procentsats som ofta nämns i nyheter om Riksbankens räntebesked.",
+      "choices": [
+        "2 procents årlig prisökning, mätt med konsumentprisindex",
+        "0 procents inflation exakt varje år",
+        "10 procents inflation varje år",
+        "Riksbanken har inget uttalat inflationsmål"
+      ],
+      "answer": 0,
+      "explanation": "Riksbankens inflationsmål är 2 procents årlig ökning av den allmänna prisnivån. Målet ger en riktlinje för penningpolitiken och hjälper hushåll och företag att planera sin ekonomi utifrån en förväntad, måttlig prisökning."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-14",
+      "kind": "mc",
+      "topic": "inflation och penningpolitik",
+      "prompt": "Hur påverkar en höjd styrränta vanligtvis hushållens konsumtion?",
+      "opener": "Tänk på vad som händer med lånekostnader och sparande när räntan stiger.",
+      "choices": [
+        "Den gör det dyrare att låna och mer lönsamt att spara, vilket tenderar att dämpa konsumtionen",
+        "Den gör det automatiskt billigare att låna pengar",
+        "Den har ingen påverkan alls på hushållens ekonomi",
+        "Den innebär att alla lån blir räntefria"
+      ],
+      "answer": 0,
+      "explanation": "En höjd styrränta gör det dyrare för hushåll att låna och mer lönsamt att spara, vilket normalt dämpar konsumtionen och efterfrågan i ekonomin - ett sätt för Riksbanken att bromsa en för hög inflation."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-15",
+      "kind": "mc",
+      "topic": "privatekonomi",
+      "prompt": "Vad är skillnaden mellan bunden och rörlig ränta på ett lån?",
+      "opener": "Tänk på om räntan kan ändras under lånets löptid eller inte.",
+      "choices": [
+        "Bunden ränta ligger fast under en avtalad period oavsett marknadsförändringar, medan rörlig ränta kan förändras löpande i takt med marknadsräntan",
+        "Bunden ränta är alltid lägre än rörlig ränta",
+        "Rörlig ränta kan aldrig förändras efter att lånet tecknats",
+        "Det finns ingen skillnad i praktiken"
+      ],
+      "answer": 0,
+      "explanation": "Bunden ränta innebär att räntan ligger fast under en avtalad period, vilket ger förutsägbarhet men kan innebära att man missar räntesänkningar. Rörlig ränta följer i stället marknadsräntan löpande, vilket ger mer osäkerhet men också möjlighet till lägre kostnad om räntan sjunker."
     }
   ]
 }

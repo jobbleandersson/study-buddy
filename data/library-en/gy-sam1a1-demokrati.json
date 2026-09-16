@@ -124,6 +124,111 @@
       "prompt": "Summarise central concepts about models of democracy and Sweden's form of government.",
       "opener": "Three models of democracy, three Swedish principles of power.",
       "answer": "Direct democracy: citizens vote themselves on specific issues (e.g. a referendum) · Representative democracy: citizens elect representatives who decide on their behalf, Sweden's main form · Deliberative democracy: focus on conversation and argument before decisions are made · Monarchy: Sweden has a king as head of state without political power, a ceremonial role since the 1974 Instrument of Government · Parliamentarism: the government must be tolerated by the Riksdag to remain in office (negative parliamentarism in Sweden) · Separation of powers: legislative power (the Riksdag), executive power (the government) and judicial power (the courts) are kept apart · Comparison: in presidential systems such as that of the USA, the executive power is elected separately and independently of the parliament's confidence, unlike in parliamentary systems."
+    },
+    {
+      "id": "q-sam1a1-demokrati-9",
+      "kind": "mc",
+      "topic": "models of democracy",
+      "prompt": "What characterises a multi-party system with proportional elections, like Sweden's, compared with a two-party system with majority voting, like the British House of Commons?",
+      "opener": "Think about how many parties tend to win seats in each system.",
+      "choices": [
+        "Proportional elections give more parties representation in parliament relative to their vote share, while majority voting in single-member constituencies often favours large parties and fewer parties overall",
+        "Majority voting always guarantees more parties in parliament than proportional elections",
+        "Proportional elections mean only one party can win seats",
+        "There is no difference in how seats are distributed between the systems"
+      ],
+      "answer": 0,
+      "explanation": "Proportional electoral systems, like Sweden's, distribute seats in proportion to each party's vote share, which favours more parties. Majority voting in single-member constituencies, as in Britain, instead favours large parties, since only the winner in each constituency gets the seat."
+    },
+    {
+      "id": "q-sam1a1-demokrati-10",
+      "kind": "mc",
+      "topic": "Sweden's form of government",
+      "prompt": "What does the provision in Sweden's Instrument of Government that \"all public power proceeds from the people\" mean?",
+      "opener": "Think about where political power is ultimately supposed to come from.",
+      "choices": [
+        "That political power should fundamentally be derived from the citizens through general and free elections, not, for example, from a monarch or a self-appointed elite",
+        "That every individual citizen must personally approve every law",
+        "That the people automatically own all state property",
+        "That power comes solely from the Speaker of the Riksdag"
+      ],
+      "answer": 0,
+      "explanation": "The principle establishes that political power ultimately comes from the citizens through general and free elections, unlike systems where power is derived from, for example, a hereditary monarch. It does not mean that every individual law must be personally approved by every citizen."
+    },
+    {
+      "id": "q-sam1a1-demokrati-11",
+      "kind": "mc",
+      "topic": "Sweden's form of government",
+      "prompt": "What function does the Council on Legislation (Lagrådet) have in the Swedish legislative process?",
+      "opener": "Think about which body reviews bills before the Riksdag makes its final decision.",
+      "choices": [
+        "To review bills and give an opinion on how they relate to the constitution and the rule of law, before the Riksdag decides",
+        "To rule on all criminal cases in Sweden",
+        "To appoint Sweden's Prime Minister",
+        "To entirely replace the Riksdag's legislative function"
+      ],
+      "answer": 0,
+      "explanation": "The Council on Legislation reviews bills and gives an opinion on how they relate to the constitution and the rule of law, as an advisory body before the Riksdag makes its final decision. It does not rule on individual criminal cases and does not replace the Riksdag's legislative power."
+    },
+    {
+      "id": "q-sam1a1-demokrati-12",
+      "kind": "mc",
+      "topic": "forms of government compared",
+      "prompt": "What characterises a federal state, such as Germany or the USA, compared with a unitary state like Sweden?",
+      "opener": "Think about whether the states have their own independent decision-making power, or whether all power is concentrated centrally.",
+      "choices": [
+        "In a federal state, power is constitutionally divided between a central government and states/regions with their own independent decision-making power in certain areas, while power in a unitary state is fundamentally concentrated at the central level",
+        "A federal state entirely lacks a central government",
+        "A unitary state can never have municipalities or regions",
+        "Federal states always have a monarchy as their form of government"
+      ],
+      "answer": 0,
+      "explanation": "In a federal state, power is constitutionally divided between a central government and states with their own decision-making power in certain areas. A unitary state like Sweden can certainly have municipalities and regions, but the fundamental political power is concentrated at the central, state level."
+    },
+    {
+      "id": "q-sam1a1-demokrati-13",
+      "kind": "mc",
+      "topic": "forms of government compared",
+      "prompt": "What distinguishes a constitutional monarchy like Sweden's from an absolute monarchy?",
+      "opener": "Think about where the actual political power lies in each system.",
+      "choices": [
+        "In a constitutional monarchy, the monarch's power is limited by the constitution and actual political power lies with elected bodies, while an absolute monarch has essentially unlimited political power",
+        "A constitutional monarchy entirely lacks a monarch",
+        "An absolute monarchy always has more elected bodies than a constitutional one",
+        "There is no practical difference between the two"
+      ],
+      "answer": 0,
+      "explanation": "In a constitutional monarchy, like Sweden's, the monarch's power is limited by the constitution and political power is exercised by elected bodies. In an absolute monarchy, by contrast, the monarch has essentially unlimited political power without such constitutional limits."
+    },
+    {
+      "id": "q-sam1a1-demokrati-14",
+      "kind": "mc",
+      "topic": "preconditions for democracy",
+      "prompt": "Why is a functioning opposition usually counted as an important part of a democracy?",
+      "opener": "Think about what would be missing if no one were allowed to question those in power.",
+      "choices": [
+        "The opposition scrutinises and challenges those in power and offers voters an alternative, which holds those in power accountable",
+        "The opposition is only needed to fill seats in parliament",
+        "A strong opposition makes elections unnecessary",
+        "Opposition exists only in dictatorships"
+      ],
+      "answer": 0,
+      "explanation": "A functioning opposition scrutinises and challenges the government's policies and offers voters a clear alternative at the next election, which is an important mechanism for holding those in power accountable. Without an opposition, this check on power risks being severely weakened."
+    },
+    {
+      "id": "q-sam1a1-demokrati-15",
+      "kind": "mc",
+      "topic": "models of democracy",
+      "prompt": "What does \"one person, one vote\" mean as a democratic principle?",
+      "opener": "Think about whether some citizens' votes should count more than others'.",
+      "choices": [
+        "That every eligible citizen's vote should carry equal weight in an election, regardless of, for example, wealth or social status",
+        "That only one person in the whole country is allowed to vote",
+        "That a person can vote an unlimited number of times in the same election",
+        "That the right to vote applies only to one age group"
+      ],
+      "answer": 0,
+      "explanation": "The principle of \"one person, one vote\" means that every eligible citizen's vote should carry the same weight in an election, unlike historical systems where, for example, wealth gave extra votes. It means neither that only one person may vote nor that one can vote multiple times."
     }
   ]
 }
