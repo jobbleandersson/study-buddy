@@ -123,6 +123,110 @@
       "prompt": "Which reading strategies do you use for main idea, inference, vocabulary in context, and the writer's purpose?",
       "opener": "Four question types, four strategies.",
       "answer": "Main idea: ask \"what is the WHOLE text about?\" — the answer covers both the beginning and the end, not just one detail · Watch out for answers that are true but too narrow, or too general · Inference: combine what the characters do with what you know about the world; the answer is never stated word for word in the text but must be supported by it · Vocabulary in context: read the sentence before and after, look for explanations, examples or opposites (but, however), and test the word you guess in the sentence · Author's purpose: to inform (state facts), to advise (give advice), to persuade (convince), to entertain (amuse) — look at tips, calls to action and how the reader is addressed · Signal words that guide meaning: but, however, although = contrast · because, therefore, so = cause and effect · for example = example."
+    },
+    {
+      "id": "q-en8-rea-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Our town built a new skate park last year. Some residents worried it would attract trouble, but the opposite happened. Local skaters now organise free lessons for younger kids every Saturday, and the park has become one of the safest, most popular spots in town.\"\n\nWhat is the main idea of the text?",
+      "opener": "Look for how the situation changes from the worry at the start to the outcome at the end.",
+      "choices": [
+        "Skate parks are dangerous for young children",
+        "The new skate park turned out to bring the community together instead of causing problems",
+        "Residents were right to worry about the park",
+        "Saturday lessons are only for experienced skaters"
+      ],
+      "answer": 1,
+      "explanation": "The text starts with worry about trouble and ends with the park becoming safe and popular through free lessons — that's the whole picture. That the residents were right to worry isn't true; the text explicitly says the opposite happened."
+    },
+    {
+      "id": "q-en8-rea-10",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Our town built a new skate park last year. Some residents worried it would attract trouble, but the opposite happened. Local skaters now organise free lessons for younger kids every Saturday, and the park has become one of the safest, most popular spots in town.\"\n\nWhat can you infer about the residents who worried about the skate park?",
+      "opener": "Compare what they were worried about with what actually happened, according to the text.",
+      "choices": [
+        "Their concerns turned out to be unfounded",
+        "They were proven completely right",
+        "They now run the free lessons themselves",
+        "They want the park closed"
+      ],
+      "answer": 0,
+      "explanation": "The text explicitly says \"the opposite happened\" — the park became safe and popular, so the worry was unfounded. Nothing in the text says the worried residents now run the lessons or want the park closed."
+    },
+    {
+      "id": "q-en8-rea-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"Are you struggling to fall asleep? Try this simple routine: dim the lights an hour before bed, avoid caffeine after 3 p.m., and keep your phone in another room. These small habits can make a huge difference to how quickly you drift off.\"\n\nIn this context, \"drift off\" means:",
+      "opener": "What is the whole text about — falling asleep, or waking up?",
+      "choices": [
+        "wake up suddenly",
+        "fall asleep gradually",
+        "become angry",
+        "leave the room"
+      ],
+      "answer": 1,
+      "explanation": "The whole text is about falling asleep more easily, so \"drift off\" means to fall asleep gradually. Waking up suddenly would be the opposite of what the text is advising."
+    },
+    {
+      "id": "q-en8-rea-12",
+      "kind": "mc",
+      "topic": "author's purpose",
+      "prompt": "Read the text and answer.\n\n\"Are you struggling to fall asleep? Try this simple routine: dim the lights an hour before bed, avoid caffeine after 3 p.m., and keep your phone in another room. These small habits can make a huge difference to how quickly you drift off.\"\n\nWhat is the writer's main purpose?",
+      "opener": "What does the writer want the reader to do after reading the text?",
+      "choices": [
+        "To advise the reader on how to fall asleep more easily",
+        "To argue that caffeine should be banned",
+        "To entertain the reader with a story about sleep",
+        "To describe how phones are made"
+      ],
+      "answer": 0,
+      "explanation": "The text gives concrete advice and encourages the reader to try it — the purpose is to advise. It doesn't argue for banning caffeine; it's just mentioned as one of several habits to avoid."
+    },
+    {
+      "id": "q-en8-rea-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Leo checked his watch for the third time in two minutes. His hands were shaking slightly, and he kept glancing toward the door. When his name was finally called, he took a deep breath before standing up.\"\n\nWhat can we infer about Leo?",
+      "opener": "The text never says how he feels — read between the lines in what he does.",
+      "choices": [
+        "He is nervous about something that is about to happen",
+        "He is bored and wants to leave",
+        "He is excited to see a friend",
+        "He has been waiting for hours without noticing"
+      ],
+      "answer": 0,
+      "explanation": "Checking his watch repeatedly, shaking hands, glancing at the door and taking a deep breath before standing up all suggest nervousness about something about to happen. That he hasn't noticed the time isn't true — he keeps checking his watch."
+    },
+    {
+      "id": "q-en8-rea-14",
+      "kind": "worked",
+      "topic": "main idea",
+      "prompt": "Read the text and answer in one or two sentences.\n\n\"Our school started a 'silent reading' period every morning for fifteen minutes. At first, many students complained that it was boring. After a few weeks, though, teachers noticed that students seemed calmer and more focused during the rest of the day. Some students even began asking librarians for book recommendations.\"\n\nWhat is the main idea of the text, and what does the last sentence add?",
+      "opener": "First summarise what happened, then think about what the last sentence adds beyond that.",
+      "answer": "The main idea is that the silent reading period, despite early complaints, ended up making students calmer and more focused, and the last sentence adds that it also sparked genuine interest in reading, since some students started asking for book recommendations on their own.",
+      "steps": [
+        "Find the topic: the text is about the school's daily silent reading period.",
+        "Find the result: the early complaints turned into calmer, more focused students after a few weeks.",
+        "Notice the last sentence — it adds an extra step: students started asking for book recommendations themselves.",
+        "Formulate the whole picture: the habit didn't just bring calm during the day but also sparked genuine reading interest in some students."
+      ]
+    },
+    {
+      "id": "q-en8-rea-15",
+      "kind": "mc",
+      "topic": "author's purpose",
+      "prompt": "Read the text and answer.\n\n\"Recycling isn't complicated once you get the hang of it. Rinse containers before sorting them, keep a separate bin for paper, and check your local guidelines for anything unusual, like batteries or electronics. Once it becomes a habit, it barely takes any extra time.\"\n\nWhat is the writer's main purpose?",
+      "opener": "What does the writer want the reader to do after reading the text?",
+      "choices": [
+        "To advise the reader on how to recycle effectively",
+        "To argue that recycling should be made illegal",
+        "To entertain with a funny story about rubbish",
+        "To describe how recycling plants operate"
+      ],
+      "answer": 0,
+      "explanation": "The text gives concrete steps for recycling correctly and ends by saying it soon becomes quick — the purpose is to advise. Nothing in the text argues against recycling."
     }
   ]
 }

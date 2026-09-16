@@ -123,6 +123,110 @@
       "prompt": "How is present perfect formed, when is it used instead of past simple, and how do for/since work?",
       "opener": "Formation · use · time words.",
       "answer": "Formation: have/has + past participle (I have played · she has gone) · Use present perfect when the point in time is unimportant or unstated (I have been to Spain), when something started in the past and is still ongoing (We have lived here for two years), and for recent events with just/already/yet · Use past simple when the time is specific: yesterday, last week, in 2019, when I was ten · Time words: ever/never for experiences, just = recently, already = already (in affirmative sentences), yet = yet/already (in questions and negatives, goes at the end) · for + length (for three days) · since + starting point (since Monday) · Common mistakes: \"have saw\" (should be have seen), \"he have\" (should be he has)."
+    },
+    {
+      "id": "q-en8-per-9",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"We ___ never been to Japan.\"",
+      "opener": "\"We\" behaves like I/you/they — which auxiliary verb goes with it?",
+      "choices": [
+        "has",
+        "have",
+        "did",
+        "was"
+      ],
+      "answer": 1,
+      "explanation": "\"We\" takes \"have\" in present perfect: \"We have never been to Japan.\" \"Has\" only goes with he/she/it."
+    },
+    {
+      "id": "q-en8-per-10",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"I ___ this book twice already.\"",
+      "opener": "\"Already\" signals a recent event with no specific point in time — which tense fits?",
+      "choices": [
+        "read",
+        "have read",
+        "has read",
+        "was reading"
+      ],
+      "answer": 1,
+      "explanation": "\"Already\" goes with present perfect: \"I have read this book twice already.\" With \"I\", \"have\" is used, not \"has\"."
+    },
+    {
+      "id": "q-en8-per-11",
+      "kind": "mc",
+      "topic": "time expressions",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Just\" is placed between the auxiliary verb and the main verb.",
+      "choices": [
+        "She has just left the room.",
+        "She has left just the room.",
+        "She just has left the room.",
+        "She has left the room just."
+      ],
+      "answer": 0,
+      "explanation": "\"Just\" stands between have/has and the past participle: \"She has just left the room.\" The other placements aren't correct English."
+    },
+    {
+      "id": "q-en8-per-12",
+      "kind": "mc",
+      "topic": "for and since",
+      "prompt": "Choose the correct word: \"He has worked at the shop ___ three months.\"",
+      "opener": "Is \"three months\" the length of a period, or a starting point?",
+      "choices": [
+        "for",
+        "since",
+        "in",
+        "from"
+      ],
+      "answer": 0,
+      "explanation": "\"For\" is used for the length of a period: for three months, for a week. \"Since\" is used for a starting point, such as since March."
+    },
+    {
+      "id": "q-en8-per-13",
+      "kind": "mc",
+      "topic": "time expressions",
+      "prompt": "Which question is correct?",
+      "opener": "\"Ever\" is placed between the auxiliary verb and the main verb, just like just and never.",
+      "choices": [
+        "Have you ever visited New York?",
+        "Have you visited ever New York?",
+        "Did you ever have visited New York?",
+        "You have ever visited New York?"
+      ],
+      "answer": 0,
+      "explanation": "\"Ever\" stands between have and the past participle in questions: \"Have you ever visited...?\" Present perfect questions start with have/has, not did."
+    },
+    {
+      "id": "q-en8-per-14",
+      "kind": "worked",
+      "topic": "present perfect",
+      "prompt": "Correct the four errors: \"My sister have never tried sushi. She lived in Paris since 2021, and she has visit the Eiffel Tower already.\"",
+      "opener": "Don't mix up present perfect and past simple — and check the auxiliary verb, the participle and where already should go.",
+      "answer": "My sister has never tried sushi. She has lived in Paris since 2021, and she has already visited the Eiffel Tower.",
+      "steps": [
+        "\"My sister have\" → \"My sister has\". Third person singular takes \"has\" as the auxiliary verb.",
+        "\"She lived in Paris since 2021\" → \"She has lived in Paris since 2021\". Something that started in the past and is still true is expressed with present perfect + since.",
+        "\"has visit\" → \"has visited\". After have/has comes the past participle, which for regular verbs ends in -ed.",
+        "\"visited the Eiffel Tower already\" → \"already visited the Eiffel Tower\". \"Already\" is usually placed between the auxiliary and the main verb, not at the end of the sentence."
+      ]
+    },
+    {
+      "id": "q-en8-per-15",
+      "kind": "mc",
+      "topic": "for and since",
+      "prompt": "Choose the correct word: \"I haven't seen my cousin ___ last Christmas.\"",
+      "opener": "\"Last Christmas\" is a specific starting point, not a length of time.",
+      "choices": [
+        "for",
+        "since",
+        "in",
+        "at"
+      ],
+      "answer": 1,
+      "explanation": "\"Since\" is used for a starting point: since last Christmas. \"For\" would be needed if the sentence instead gave a length, such as \"for six months\"."
     }
   ]
 }

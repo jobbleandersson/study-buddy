@@ -123,6 +123,110 @@
       "prompt": "Which phrasal verbs, collocations and word formation rules do you need to know at this level?",
       "opener": "Phrasal verbs · do/make · say/tell/speak/talk · prefixes and suffixes.",
       "answer": "Phrasal verbs: find out = to discover · look forward to + noun/-ing = to anticipate · get on with someone = to get along with · run out of = to have none left · give up = to stop trying · look after = to take care of · turn up = to arrive · Do: do homework, do the dishes, do your best, do an exercise · Make: make dinner, make a mistake, make friends, make a decision · Say something (to someone) · tell someone something · speak a language · talk to/with someone about something · Prefix: un- (unhappy), im- before p (impossible), in- (incorrect), dis- (dislike), re- = again (rewrite) · Suffix: -ful = full of (helpful), -less = without (careless), -ness turns adjectives into nouns (kindness), -ly turns adjectives into adverbs (quickly)."
+    },
+    {
+      "id": "q-en8-voc-9",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the best option: \"The plane is about to ___ — please fasten your seatbelt.\"",
+      "opener": "A phrasal verb means something different from the verb's basic meaning — which one means that a plane leaves the ground?",
+      "choices": [
+        "take off",
+        "give up",
+        "look after",
+        "run out of"
+      ],
+      "answer": 0,
+      "explanation": "\"Take off\" means that a plane leaves the ground. \"Give up\" means to stop trying and \"look after\" means to take care of — neither fits a plane about to depart."
+    },
+    {
+      "id": "q-en8-voc-10",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the correct form: \"I need to ___ this word in the dictionary.\"",
+      "opener": "Which phrasal verb is used when you look up the meaning of a word?",
+      "choices": [
+        "look up",
+        "look after",
+        "look forward to",
+        "look out"
+      ],
+      "answer": 0,
+      "explanation": "\"Look up\" means to search for something, such as a word in a dictionary. \"Look after\" means to take care of and doesn't fit with a dictionary."
+    },
+    {
+      "id": "q-en8-voc-11",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Do your best\" is a fixed collocation in English.",
+      "choices": [
+        "She always makes her best on tests.",
+        "She always does her best on tests.",
+        "She always does her best of tests.",
+        "She always makes her best of tests."
+      ],
+      "answer": 1,
+      "explanation": "In English it's \"do your best\", not \"make your best\". \"Make my best\" is a literal translation that isn't used."
+    },
+    {
+      "id": "q-en8-voc-12",
+      "kind": "mc",
+      "topic": "say and tell",
+      "prompt": "Choose the correct word: \"She always ___ the truth.\"",
+      "opener": "\"Tell the truth\" is a fixed expression, even without a person directly after the verb.",
+      "choices": [
+        "says",
+        "tells",
+        "speaks",
+        "talks"
+      ],
+      "answer": 1,
+      "explanation": "\"Tell the truth\" is a fixed expression in English. \"Say\" is otherwise used for what is said (say something), but with \"the truth\" specifically, \"tell\" is the usual pairing."
+    },
+    {
+      "id": "q-en8-voc-13",
+      "kind": "mc",
+      "topic": "word formation",
+      "prompt": "Which word means \"not correct\"?",
+      "opener": "The prefix in- works like the negative prefix in some other languages before certain adjectives.",
+      "choices": [
+        "uncorrect",
+        "incorrect",
+        "discorrect",
+        "correctless"
+      ],
+      "answer": 1,
+      "explanation": "The prefix in- is used before \"correct\": incorrect. \"Uncorrect\" and \"discorrect\" don't exist in English."
+    },
+    {
+      "id": "q-en8-voc-14",
+      "kind": "worked",
+      "topic": "collocations",
+      "prompt": "Correct the four errors: \"Yesterday my friend said me she is moving to another city. I was sad, but I must make my best to stay positive. I am looking forward for visiting her this summer, and I will find the address out soon.\"",
+      "opener": "Four common mistakes: wrong verb for a person, wrong collocation, wrong preposition, and wrong word order in a phrasal verb.",
+      "answer": "Yesterday my friend told me she is moving to another city. I was sad, but I must do my best to stay positive. I am looking forward to visiting her this summer, and I will find out the address soon.",
+      "steps": [
+        "\"said me\" → \"told me\". \"Tell\" is followed directly by the person, while \"say\" requires \"to\": said to me.",
+        "\"make my best\" → \"do my best\". \"Do your best\" is the fixed collocation in English.",
+        "\"looking forward for\" → \"looking forward to\". The expression has the fixed preposition \"to\".",
+        "\"find the address out\" → \"find out the address\". When the object is a full noun, it usually comes after the particle; only short pronouns can be split into the middle (find it out)."
+      ]
+    },
+    {
+      "id": "q-en8-voc-15",
+      "kind": "mc",
+      "topic": "word formation",
+      "prompt": "Which word means \"to write again\"?",
+      "opener": "The prefix re- means \"again\".",
+      "choices": [
+        "unwrite",
+        "rewrite",
+        "dewrite",
+        "miswrite"
+      ],
+      "answer": 1,
+      "explanation": "The prefix re- means again: rewrite. \"Unwrite\" and \"dewrite\" don't exist in English."
     }
   ]
 }
