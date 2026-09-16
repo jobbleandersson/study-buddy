@@ -124,6 +124,110 @@
       "prompt": "Vilka vardagsord, fraser och småord bör du kunna på åk7-nivå?",
       "opener": "Ord om skola, familj, fritid och mat — plus de vanligaste artighetsfraserna.",
       "answer": "Skola: lesson = lektion · break = rast · subject = ämne · homework = läxa · timetable = schema. Familj: uncle = morbror/farbror · aunt = moster/faster · cousin = kusin · grandparents = mor-/farföräldrar. Fritid: hobby · spare time = fritid · practise = träna/öva · club = förening. Mat: breakfast/lunch/dinner · vegetables = grönsaker · meal = måltid. Fraser: You're welcome = varsågod (svar på tack) · Here you are = varsågod (när du ger något) · Excuse me = ursäkta (för att få kontakt) · I'm sorry = förlåt · Could you help me, please? Småord: there is + singular / there are + plural · some i jakande satser, any i nekande satser och frågor · a framför konsonantljud, an framför vokalljud, the när lyssnaren vet vilken sak du menar."
+    },
+    {
+      "id": "q-en7-voc-9",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Which word means \"syskon\" (brothers and sisters together) in English?",
+      "opener": "Engelskan har ett gemensamt ord för bröder och systrar tillsammans.",
+      "choices": [
+        "sibling",
+        "relative",
+        "neighbour",
+        "stranger"
+      ],
+      "answer": 0,
+      "explanation": "\"Sibling\" betyder syskon — ett samlingsord för bröder och systrar. \"Relative\" är släkting i allmänhet, \"neighbour\" är granne och \"stranger\" är främling."
+    },
+    {
+      "id": "q-en7-voc-10",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Choose the word that fits: \"We have a ten-minute ___ between lessons.\"",
+      "opener": "Vilket ord används om den korta pausen mellan lektioner?",
+      "choices": [
+        "break",
+        "lesson",
+        "subject",
+        "timetable"
+      ],
+      "answer": 0,
+      "explanation": "\"Break\" betyder rast och passar för pausen mellan lektionerna. \"Lesson\" är själva lektionen, \"subject\" är ämnet och \"timetable\" är schemat."
+    },
+    {
+      "id": "q-en7-voc-11",
+      "kind": "mc",
+      "topic": "phrases",
+      "prompt": "Someone says: \"I'm sorry, I'm late.\" What is a polite reply?",
+      "opener": "Vad svarar man på engelska när någon ber om ursäkt för något smått?",
+      "choices": [
+        "That's okay, no problem.",
+        "You're welcome.",
+        "Excuse me.",
+        "Please."
+      ],
+      "answer": 0,
+      "explanation": "\"That's okay, no problem\" är ett vanligt och artigt svar när någon säger förlåt. \"You're welcome\" hör ihop med ett tack, inte med en ursäkt."
+    },
+    {
+      "id": "q-en7-voc-12",
+      "kind": "mc",
+      "topic": "there is/there are",
+      "prompt": "Choose the correct form: \"___ a cat sleeping on the sofa.\"",
+      "opener": "Ett eller flera? Det avgör om det heter is eller are.",
+      "choices": [
+        "There are",
+        "There is",
+        "They are",
+        "It are"
+      ],
+      "answer": 1,
+      "explanation": "\"A cat\" är singular, så det heter \"There is\". \"There are\" används bara när det som följer är i plural, som i \"There are two cats\"."
+    },
+    {
+      "id": "q-en7-voc-13",
+      "kind": "mc",
+      "topic": "some/any",
+      "prompt": "Choose the correct word: \"Do you have ___ questions about the homework?\"",
+      "opener": "Some och any styrs av om meningen är jakande, nekande eller en fråga.",
+      "choices": [
+        "some",
+        "any",
+        "a",
+        "the"
+      ],
+      "answer": 1,
+      "explanation": "I frågor används oftast \"any\": \"Do you have any questions?\". \"Some\" används vanligtvis i jakande satser: \"I have some questions\"."
+    },
+    {
+      "id": "q-en7-voc-14",
+      "kind": "worked",
+      "topic": "there is/there are",
+      "prompt": "Correct the three errors: \"There is five students in my class from Spain. I need an pencil, and I don't have some paper.\"",
+      "opener": "Tre saker att kolla: singular eller plural, vilken artikel som passar, och some eller any.",
+      "answer": "There are five students in my class from Spain. I need a pencil, and I don't have any paper.",
+      "steps": [
+        "\"There is five students\" → \"There are five students\". \"Five students\" är plural, så det heter \"there are\".",
+        "\"an pencil\" → \"a pencil\". \"Pencil\" börjar med ett konsonantljud, och då används \"a\".",
+        "\"I don't have some paper\" → \"I don't have any paper\". I nekande satser används \"any\", inte \"some\".",
+        "Läs igenom meningen igen till slut och kontrollera att is/are stämmer med det som kommer efter."
+      ]
+    },
+    {
+      "id": "q-en7-voc-15",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"She is ___ university student.\"",
+      "opener": "Lyssna på LJUDET \"university\" börjar med, inte bokstaven — det avgör a eller an.",
+      "choices": [
+        "a",
+        "an",
+        "the",
+        "some"
+      ],
+      "answer": 0,
+      "explanation": "\"University\" börjar med bokstaven u, men LJUDET är /j/ (som i \"you\"), ett konsonantljud — och då används \"a\": \"a university student\". Det är ljudet, inte bokstaven, som avgör a eller an."
     }
   ]
 }

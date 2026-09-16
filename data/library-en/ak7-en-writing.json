@@ -123,6 +123,110 @@
       "prompt": "What rules and common mistakes should you check when you write in English?",
       "opener": "A checklist to go through before you hand in your text.",
       "answer": "Word order: subject - verb - object (I play football) · the subject comes before the verb even after a time expression (Every day I read, not Every day read I). Questions: question word + do/does + subject + verb in base form (Where do you live? Does she play?) · with \"be\" you swap the order instead (Are you tired?). Common mistakes: I am 13 years old (not I have 13 years) · he/she/it doesn't (not he don't) · after doesn't/didn't the verb stands in its base form · don't forget -s in he plays, she watches · don't repeat the subject (My brother he...). Linking words: and = adds information · but = shows a contrast · because = gives a reason · so = shows a result. Always read through your text one last time and check the verbs."
+    },
+    {
+      "id": "q-en7-wri-9",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order?",
+      "opener": "The subject always comes before the verb in English, even after a time expression.",
+      "choices": [
+        "Every morning brushes she her teeth.",
+        "Every morning she brushes her teeth.",
+        "Every morning her teeth she brushes.",
+        "Brushes she every morning her teeth."
+      ],
+      "answer": 1,
+      "explanation": "The subject \"she\" comes before the verb \"brushes\": \"Every morning she brushes her teeth\". Moving the verb before the subject, as in \"brushes she\", is not correct English word order."
+    },
+    {
+      "id": "q-en7-wri-10",
+      "kind": "mc",
+      "topic": "questions",
+      "prompt": "Which question is correct?",
+      "opener": "Question word, then the auxiliary do/does, then the subject and the verb in its base form.",
+      "choices": [
+        "What time does the film start?",
+        "What time the film does start?",
+        "What time starts the film?",
+        "What time does start the film?"
+      ],
+      "answer": 0,
+      "explanation": "The order is question word + does + subject + verb in base form: \"What time does the film start?\". \"Starts\" after \"does\" would inflect the verb twice, which is incorrect."
+    },
+    {
+      "id": "q-en7-wri-11",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence correctly expresses missing someone emotionally?",
+      "opener": "Some languages use a word that literally translates as \"lack\" for this feeling, but English uses a different verb.",
+      "choices": [
+        "I lack you.",
+        "I miss you.",
+        "I am missing you always.",
+        "I have missed you now."
+      ],
+      "answer": 1,
+      "explanation": "Missing someone emotionally is expressed with \"miss\" in English: \"I miss you\". \"I lack you\" is a literal translation that doesn't carry the same meaning in English."
+    },
+    {
+      "id": "q-en7-wri-12",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "In English, adjectives are never inflected for plural, unlike in some other languages.",
+      "choices": [
+        "The cats are blacks.",
+        "The cats are black.",
+        "The cat are black.",
+        "The cats is black."
+      ],
+      "answer": 1,
+      "explanation": "Adjectives like \"black\" have the same form whether the subject is singular or plural: \"The cats are black\". Adding -s, as in \"blacks\", is a common mistake since some other languages inflect adjectives for plural, but English adjectives never do."
+    },
+    {
+      "id": "q-en7-wri-13",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking word: \"I wanted to go outside, ___ it was raining.\"",
+      "opener": "The two parts contrast with each other — wanting one thing while the weather said something else.",
+      "choices": [
+        "but",
+        "and",
+        "because",
+        "so"
+      ],
+      "answer": 0,
+      "explanation": "\"But\" shows a contrast between wanting to go outside and it raining. \"Because\" would mean the rain was the reason for wanting to go outside, which doesn't match the sentence."
+    },
+    {
+      "id": "q-en7-wri-14",
+      "kind": "worked",
+      "topic": "common mistakes",
+      "prompt": "Correct the four errors: \"Hi! My name is Max and I am 13 years. My sister she like football a lot. Every weekend plays she with her friends. What time you come home?\"",
+      "opener": "Look for age, a repeated subject with a missing -s, word order after a time expression, and word order in a question.",
+      "answer": "Hi! My name is Max and I am 13 years old. My sister likes football a lot. Every weekend she plays with her friends. What time do you come home?",
+      "steps": [
+        "\"I am 13 years\" → \"I am 13 years old\". English adds \"old\" when stating someone's age.",
+        "\"My sister she like\" → \"My sister likes\". The subject should only appear once, and third person singular takes -s: \"likes\".",
+        "\"Every weekend plays she\" → \"Every weekend she plays\". The subject comes before the verb in English even after a time expression.",
+        "\"What time you come home?\" → \"What time do you come home?\". Questions in present simple need the auxiliary verb do/does after the question word."
+      ]
+    },
+    {
+      "id": "q-en7-wri-15",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Which sentence joins the two ideas best: \"It started to rain.\" + \"We went inside.\"",
+      "opener": "The second event is a result of the first — which linking word shows that?",
+      "choices": [
+        "It started to rain so we went inside.",
+        "It started to rain but we went inside.",
+        "It started to rain because we went inside.",
+        "It started to rain, we went inside."
+      ],
+      "answer": 0,
+      "explanation": "\"So\" shows that one thing leads to another — the rain led to going inside. \"Because\" would reverse the cause and effect, as if the rain happened because they went inside, which isn't true."
     }
   ]
 }

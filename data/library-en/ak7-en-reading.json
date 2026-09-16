@@ -123,6 +123,110 @@
       "prompt": "How do you read an English text and answer the questions?",
       "opener": "A four-step process — plus tricks for difficult words.",
       "answer": "Step 1: read the whole text quickly to see what it is about · Step 2: read the question and look for the key word in the text — the answer to a fact question is almost always in the same sentence · Step 3: answer and check that you can point to the answer in the text. Main idea = what applies to the whole text, not a single example · an answer option that is only true for one sentence is usually wrong. Inference = combine what the text says with common sense · never make up facts that are missing. Difficult words: don't stop — read the sentence before and after and guess from the context. Common traps: options with words that appear in the text but answer the wrong question · numbers that belong to something else in the text. Answer in full sentences when the question asks for it, and replace pronouns like it and them with what they refer to."
+    },
+    {
+      "id": "q-en7-rea-9",
+      "kind": "mc",
+      "topic": "find information",
+      "prompt": "Read the text:\n\nThe Green Valley School has just built a new sports hall. It has a swimming pool, a climbing wall and three basketball courts. Students can use the sports hall every day after lessons, but they must book the climbing wall in advance because it is very popular.\n\nWhat must students do before using the climbing wall?",
+      "opener": "The answer is stated directly in the text. Look for the sentence about the climbing wall.",
+      "choices": [
+        "Buy a ticket",
+        "Book it in advance",
+        "Bring a helmet",
+        "Ask a teacher for permission every time"
+      ],
+      "answer": 1,
+      "explanation": "The text says students \"must book the climbing wall in advance\". A ticket and a helmet are never mentioned in the text."
+    },
+    {
+      "id": "q-en7-rea-10",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text:\n\nThe Green Valley School has just built a new sports hall. It has a swimming pool, a climbing wall and three basketball courts. Students can use the sports hall every day after lessons, but they must book the climbing wall in advance because it is very popular.\n\nWhy do students probably need to book the climbing wall in advance?",
+      "opener": "The text gives you a clue in the very same sentence as the booking requirement.",
+      "choices": [
+        "Because it is broken most days",
+        "Because it is very popular",
+        "Because it is only open on Fridays",
+        "Because teachers use it every day"
+      ],
+      "answer": 1,
+      "explanation": "The text explicitly says \"because it is very popular\", which explains why booking is required. It being broken or only open on Fridays is never mentioned."
+    },
+    {
+      "id": "q-en7-rea-11",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text:\n\nPlastic pollution is a growing problem in the world's oceans. Every year, millions of tonnes of plastic end up in the sea, and much of it breaks into tiny pieces called microplastics. Fish and birds sometimes eat these pieces by mistake, which can make them ill. Many countries are now trying to use less plastic in shops and restaurants.\n\nWhat is the main idea of the text?",
+      "opener": "The main idea is about the whole text, not just a single sentence.",
+      "choices": [
+        "Fish always die from eating plastic",
+        "Plastic in the oceans is a serious problem that many countries are trying to reduce",
+        "Restaurants should be closed",
+        "Microplastics are good for birds"
+      ],
+      "answer": 1,
+      "explanation": "The text describes the problem (plastic in the oceans, microplastics, animals getting ill) and ends by saying countries are trying to reduce plastic use — that is the main idea. That fish always die or that restaurants should close is never stated."
+    },
+    {
+      "id": "q-en7-rea-12",
+      "kind": "mc",
+      "topic": "words in context",
+      "prompt": "Read the text:\n\nPlastic pollution is a growing problem in the world's oceans. Every year, millions of tonnes of plastic end up in the sea, and much of it breaks into tiny pieces called microplastics. Fish and birds sometimes eat these pieces by mistake, which can make them ill. Many countries are now trying to use less plastic in shops and restaurants.\n\nWhat does \"microplastics\" mean in this text?",
+      "opener": "The word \"micro\" gives a clue about the size, and the sentence explains where the pieces come from.",
+      "choices": [
+        "A type of fish",
+        "Tiny pieces of broken-down plastic",
+        "A country that produces plastic",
+        "A machine that cleans the ocean"
+      ],
+      "answer": 1,
+      "explanation": "The text says the plastic \"breaks into tiny pieces called microplastics\" — so they are small pieces of broken-down plastic. The word is not about a fish species or a country."
+    },
+    {
+      "id": "q-en7-rea-13",
+      "kind": "mc",
+      "topic": "find information",
+      "prompt": "Read the text:\n\nOliver's family are going camping next weekend. They will drive to a campsite near a lake on Friday evening and stay until Sunday. Oliver is in charge of packing the tent, while his sister packs the food. On Saturday they plan to go fishing and swimming.\n\nWho is packing the food for the camping trip?",
+      "opener": "The answer is stated directly in the text — look for the sentence about who packs what.",
+      "choices": [
+        "Oliver",
+        "Oliver's sister",
+        "Oliver's parents",
+        "Nobody, they will buy food there"
+      ],
+      "answer": 1,
+      "explanation": "The text says \"his sister packs the food\". Oliver is instead in charge of the tent, according to the same sentence."
+    },
+    {
+      "id": "q-en7-rea-14",
+      "kind": "worked",
+      "topic": "find information",
+      "prompt": "Read the text and answer the two questions in full sentences.\n\nOliver's family are going camping next weekend. They will drive to a campsite near a lake on Friday evening and stay until Sunday. Oliver is in charge of packing the tent, while his sister packs the food. On Saturday they plan to go fishing and swimming.\n\n1) When will the family arrive at the campsite?\n2) What are they planning to do on Saturday?",
+      "opener": "Find the sentence that contains the key word in each question, and then answer with a full sentence.",
+      "answer": "1) The family will arrive at the campsite on Friday evening. 2) On Saturday they are planning to go fishing and swimming.",
+      "steps": [
+        "Question 1 contains the key word \"arrive\". The text says they \"drive to a campsite... on Friday evening\".",
+        "Answer with a full sentence: \"The family will arrive at the campsite on Friday evening.\"",
+        "Question 2 contains the key word \"Saturday\". The text says \"On Saturday they plan to go fishing and swimming\".",
+        "Rewrite it as a full sentence: \"On Saturday they are planning to go fishing and swimming.\""
+      ]
+    },
+    {
+      "id": "q-en7-rea-15",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text:\n\nOliver's family are going camping next weekend. They will drive to a campsite near a lake on Friday evening and stay until Sunday. Oliver is in charge of packing the tent, while his sister packs the food. On Saturday they plan to go fishing and swimming.\n\nWhat can you tell about Oliver from the text?",
+      "opener": "The text doesn't say it in those exact words — but one detail shows he has a responsibility.",
+      "choices": [
+        "He dislikes camping",
+        "He has some responsibility for the trip",
+        "He is packing the food",
+        "He will stay home this weekend"
+      ],
+      "answer": 1,
+      "explanation": "Oliver being \"in charge of packing the tent\" shows he has a responsibility for the trip. It is his sister, not Oliver, who packs the food, and nothing in the text suggests he dislikes camping or is staying home."
     }
   ]
 }

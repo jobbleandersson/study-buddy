@@ -122,6 +122,110 @@
       "prompt": "When do you use present simple and when do you use present continuous?",
       "opener": "Two tenses, two situations — plus the rules for -s and do/does.",
       "answer": "Present simple = habits and things that are always true (I play football every week) · he/she/it gets -s: he plays, she watches · questions: Do you play? / Does he play? · negative: I don't play / He doesn't play · after do/does the verb stands in its base form. Present continuous = something happening right now (I am playing right now) · formed with am/is/are + verb-ing · signal words: now, right now, at the moment, look!, listen! · signal words for present simple: always, usually, often, sometimes, never, every day."
+    },
+    {
+      "id": "q-en7-pre-9",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Choose the correct form: \"The sun ___ in the east.\"",
+      "opener": "This is always true, just like a habit — which tense fits then?",
+      "choices": [
+        "rise",
+        "rises",
+        "rising",
+        "is rising"
+      ],
+      "answer": 1,
+      "explanation": "A general truth is expressed with present simple, and \"the sun\" is the same as \"it\" — the verb gets -s: \"rises\". \"Rise\" without -s would be needed with I/you/we/they."
+    },
+    {
+      "id": "q-en7-pre-10",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the correct form: \"Look! The cat ___ up the tree.\"",
+      "opener": "The word \"Look!\" is a clear sign that something is happening at this very moment.",
+      "choices": [
+        "climbs",
+        "climb",
+        "is climbing",
+        "climbed"
+      ],
+      "answer": 2,
+      "explanation": "\"Look!\" signals that something is happening right now, so we use present continuous: is + climbing. \"Climbs\" would mean it's a habit the cat always does."
+    },
+    {
+      "id": "q-en7-pre-11",
+      "kind": "mc",
+      "topic": "do/does",
+      "prompt": "Choose the correct question: \"___ they live near the school?\"",
+      "opener": "\"They\" is plural — which helping verb goes with it in questions?",
+      "choices": [
+        "Do",
+        "Does",
+        "Is",
+        "Are"
+      ],
+      "answer": 0,
+      "explanation": "\"They\" is plural and takes \"Do\" in present simple questions: \"Do they live...\". \"Does\" is only used with he/she/it (third person singular)."
+    },
+    {
+      "id": "q-en7-pre-12",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Which sentence is correct?",
+      "opener": "Check whether the subject is one or many — should the verb have -s?",
+      "choices": [
+        "The dogs barks at night.",
+        "The dogs bark at night.",
+        "The dogs is barking at night.",
+        "The dog bark at night."
+      ],
+      "answer": 1,
+      "explanation": "\"The dogs\" is plural, so the verb should NOT have -s: \"bark\". The -s ending only belongs to he/she/it in the singular, as in \"the dog barks\"."
+    },
+    {
+      "id": "q-en7-pre-13",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the sentence that describes something happening right now, not a habit.",
+      "opener": "Look for the signal word that shows something is happening at this very moment.",
+      "choices": [
+        "I usually walk to school.",
+        "She often reads before bed.",
+        "They are playing football at the moment.",
+        "We never eat breakfast."
+      ],
+      "answer": 2,
+      "explanation": "\"At the moment\" together with \"are playing\" shows it is happening right now — present continuous. The other sentences have habit signal words (usually, often, never) and are in present simple."
+    },
+    {
+      "id": "q-en7-pre-14",
+      "kind": "worked",
+      "topic": "present simple",
+      "prompt": "Correct the three errors: \"My sister live in Paris. She don't speak English at home. Right now she learn French at school.\"",
+      "opener": "Look for the same three things as before: -s in the third person, the correct negative form, and the tense with \"right now\".",
+      "answer": "My sister lives in Paris. She doesn't speak English at home. Right now she is learning French at school.",
+      "steps": [
+        "\"My sister live\" → \"My sister lives\". \"My sister\" is the same as \"she\", so the verb gets -s in present simple.",
+        "\"She don't speak\" → \"She doesn't speak\". With he/she/it, doesn't is used, not don't.",
+        "\"Right now she learn\" → \"Right now she is learning\". \"Right now\" means it is ongoing, so we use present continuous: is + learning.",
+        "After \"doesn't\", the verb stands in its base form: \"speak\", never \"speaks\"."
+      ]
+    },
+    {
+      "id": "q-en7-pre-15",
+      "kind": "mc",
+      "topic": "do/does",
+      "prompt": "Choose the correct negative sentence: \"We ___ have any homework today.\"",
+      "opener": "\"We\" is plural — which helping verb fits in negative sentences?",
+      "choices": [
+        "doesn't",
+        "don't",
+        "isn't",
+        "not"
+      ],
+      "answer": 1,
+      "explanation": "With \"we\" (like I/you/they), \"don't\" + the verb in its base form is used: \"We don't have...\". \"Doesn't\" only goes with he/she/it."
     }
   ]
 }

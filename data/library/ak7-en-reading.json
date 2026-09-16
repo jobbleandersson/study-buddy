@@ -123,6 +123,110 @@
       "prompt": "Hur läser du en engelsk text och svarar på frågorna?",
       "opener": "En arbetsgång i fyra steg — plus knep för svåra ord.",
       "answer": "Steg 1: läs hela texten snabbt för att se vad den handlar om · Steg 2: läs frågan och leta efter nyckelordet i texten — svaret på en faktafråga står nästan alltid i samma mening · Steg 3: svara och kontrollera att du kan peka på svaret i texten. Main idea (huvudbudskap) = det som gäller hela texten, inte ett enskilt exempel · ett svarsalternativ som bara stämmer för en mening är oftast fel. Inference (slutledning) = kombinera det texten säger med vanligt förnuft · hitta aldrig på fakta som saknas. Svåra ord: stanna inte upp — läs meningen före och efter och gissa utifrån sammanhanget. Vanliga fällor: alternativ med ord som finns i texten men svarar på fel fråga · siffror som hör till något annat i texten. Svara i hela meningar när frågan ber om det, och byt ut pronomen som it och them mot vad de syftar på."
+    },
+    {
+      "id": "q-en7-rea-9",
+      "kind": "mc",
+      "topic": "find information",
+      "prompt": "Read the text:\n\nThe Green Valley School has just built a new sports hall. It has a swimming pool, a climbing wall and three basketball courts. Students can use the sports hall every day after lessons, but they must book the climbing wall in advance because it is very popular.\n\nWhat must students do before using the climbing wall?",
+      "opener": "Svaret står direkt i texten. Leta efter meningen om klättervägen.",
+      "choices": [
+        "Buy a ticket",
+        "Book it in advance",
+        "Bring a helmet",
+        "Ask a teacher for permission every time"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger att eleverna \"must book the climbing wall in advance\" (måste boka i förväg). Biljett och hjälm nämns inte alls i texten."
+    },
+    {
+      "id": "q-en7-rea-10",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text:\n\nThe Green Valley School has just built a new sports hall. It has a swimming pool, a climbing wall and three basketball courts. Students can use the sports hall every day after lessons, but they must book the climbing wall in advance because it is very popular.\n\nWhy do students probably need to book the climbing wall in advance?",
+      "opener": "Texten ger själv en ledtråd i samma mening som kravet på bokning nämns.",
+      "choices": [
+        "Because it is broken most days",
+        "Because it is very popular",
+        "Because it is only open on Fridays",
+        "Because teachers use it every day"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger uttryckligen \"because it is very popular\" (eftersom den är väldigt populär) — det förklarar varför bokning krävs. Att den skulle vara trasig eller bara öppen på fredagar nämns inte."
+    },
+    {
+      "id": "q-en7-rea-11",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text:\n\nPlastic pollution is a growing problem in the world's oceans. Every year, millions of tonnes of plastic end up in the sea, and much of it breaks into tiny pieces called microplastics. Fish and birds sometimes eat these pieces by mistake, which can make them ill. Many countries are now trying to use less plastic in shops and restaurants.\n\nWhat is the main idea of the text?",
+      "opener": "Huvudbudskapet handlar om hela texten, inte bara om en enda mening.",
+      "choices": [
+        "Fish always die from eating plastic",
+        "Plastic in the oceans is a serious problem that many countries are trying to reduce",
+        "Restaurants should be closed",
+        "Microplastics are good for birds"
+      ],
+      "answer": 1,
+      "explanation": "Texten beskriver problemet (plast i haven, mikroplast, djur som blir sjuka) och avslutar med att länder försöker minska plastanvändningen — det är huvudbudskapet. Att fiskar alltid dör eller att restauranger ska stängas står ingenstans."
+    },
+    {
+      "id": "q-en7-rea-12",
+      "kind": "mc",
+      "topic": "words in context",
+      "prompt": "Read the text:\n\nPlastic pollution is a growing problem in the world's oceans. Every year, millions of tonnes of plastic end up in the sea, and much of it breaks into tiny pieces called microplastics. Fish and birds sometimes eat these pieces by mistake, which can make them ill. Many countries are now trying to use less plastic in shops and restaurants.\n\nWhat does \"microplastics\" mean in this text?",
+      "opener": "Ordet \"micro\" ger en ledtråd om storleken, och meningen förklarar var bitarna kommer ifrån.",
+      "choices": [
+        "A type of fish",
+        "Tiny pieces of broken-down plastic",
+        "A country that produces plastic",
+        "A machine that cleans the ocean"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger att plasten \"breaks into tiny pieces called microplastics\" — alltså är det små bitar av sönderdelad plast. Ordet handlar inte om en fiskart eller ett land."
+    },
+    {
+      "id": "q-en7-rea-13",
+      "kind": "mc",
+      "topic": "find information",
+      "prompt": "Read the text:\n\nOliver's family are going camping next weekend. They will drive to a campsite near a lake on Friday evening and stay until Sunday. Oliver is in charge of packing the tent, while his sister packs the food. On Saturday they plan to go fishing and swimming.\n\nWho is packing the food for the camping trip?",
+      "opener": "Svaret står direkt i texten — leta efter meningen om vem som packar vad.",
+      "choices": [
+        "Oliver",
+        "Oliver's sister",
+        "Oliver's parents",
+        "Nobody, they will buy food there"
+      ],
+      "answer": 1,
+      "explanation": "Texten säger \"his sister packs the food\". Oliver ansvarar istället för tältet, enligt samma mening."
+    },
+    {
+      "id": "q-en7-rea-14",
+      "kind": "worked",
+      "topic": "find information",
+      "prompt": "Read the text and answer the two questions in full sentences.\n\nOliver's family are going camping next weekend. They will drive to a campsite near a lake on Friday evening and stay until Sunday. Oliver is in charge of packing the tent, while his sister packs the food. On Saturday they plan to go fishing and swimming.\n\n1) When will the family arrive at the campsite?\n2) What are they planning to do on Saturday?",
+      "opener": "Leta upp den mening som innehåller nyckelordet i varje fråga, och svara sedan med en hel mening.",
+      "answer": "1) The family will arrive at the campsite on Friday evening. 2) On Saturday they are planning to go fishing and swimming.",
+      "steps": [
+        "Fråga 1 innehåller nyckelordet \"arrive\". Texten säger att de \"drive to a campsite... on Friday evening\".",
+        "Svara med en hel mening: \"The family will arrive at the campsite on Friday evening.\"",
+        "Fråga 2 innehåller nyckelordet \"Saturday\". Texten säger \"On Saturday they plan to go fishing and swimming\".",
+        "Skriv om till en hel mening: \"On Saturday they are planning to go fishing and swimming.\""
+      ]
+    },
+    {
+      "id": "q-en7-rea-15",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text:\n\nOliver's family are going camping next weekend. They will drive to a campsite near a lake on Friday evening and stay until Sunday. Oliver is in charge of packing the tent, while his sister packs the food. On Saturday they plan to go fishing and swimming.\n\nWhat can you tell about Oliver from the text?",
+      "opener": "Texten säger det inte rakt ut med de orden — men en detalj visar att han har ett ansvar.",
+      "choices": [
+        "He dislikes camping",
+        "He has some responsibility for the trip",
+        "He is packing the food",
+        "He will stay home this weekend"
+      ],
+      "answer": 1,
+      "explanation": "Att Oliver är \"in charge of packing the tent\" visar att han har ett ansvar inför resan. Det är hans syster, inte Oliver, som packar maten, och inget i texten tyder på att han ogillar camping eller stannar hemma."
     }
   ]
 }
