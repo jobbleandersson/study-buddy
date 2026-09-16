@@ -122,6 +122,111 @@
       "prompt": "Vilka typer av uttryck utlöser subjuntivo vid tvivel och känsla?",
       "opener": "Tre stora kategorier av utlösare, plus ett undantag att komma ihåg.",
       "answer": "Tvivel: dudar que, no creer que, no estar seguro de que, es posible/probable que. Känsla: alegrarse de que, sentir que, temer que, sorprender que, es una lástima que. Önskan/vilja: querer que, esperar que, desear que, es importante/necesario que. Undantag: när huvud- och bisatsens subjekt är samma person används infinitiv istället för \"que\" + subjuntivo (Quiero venir, inte Quiero que yo venga). Kom ihåg: säkra fakta (creo que, es verdad que, sé que) tar indikativ, osäkra/värderade/önskade tar subjuntivo."
+    },
+    {
+      "id": "q-sp4-mood-9",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Välj rätt form: \"No es cierto que ellos ___ (vivir) aquí.\"",
+      "opener": "\"No es cierto que\" nekar sanningshalten och kräver subjuntivo.",
+      "choices": [
+        "vivan",
+        "viven",
+        "vivieron",
+        "vivirán"
+      ],
+      "answer": 0,
+      "explanation": "\"No es cierto que\" (det är inte sant att) nekar ett påstående och utlöser subjuntivo: \"vivan\"."
+    },
+    {
+      "id": "q-sp4-mood-10",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Välj rätt form: \"Siento mucho que tú no ___ (poder) venir a mi fiesta.\"",
+      "opener": "\"Sentir que\" uttrycker en känsla (beklagande) och kräver subjuntivo.",
+      "choices": [
+        "puedas",
+        "puedes",
+        "pudiste",
+        "podrás"
+      ],
+      "answer": 0,
+      "explanation": "\"Sentir que\" uttrycker beklagande/känsla och kräver subjuntivo: \"puedas\"."
+    },
+    {
+      "id": "q-sp4-mood-11",
+      "kind": "mc",
+      "topic": "impersonal expressions",
+      "prompt": "Välj rätt form: \"Es probable que ___ (llover) mañana.\"",
+      "opener": "\"Es probable que\" uttrycker osäkerhet, inte ett säkert faktum.",
+      "choices": [
+        "llueva",
+        "llueve",
+        "llovió",
+        "lloverá"
+      ],
+      "answer": 0,
+      "explanation": "\"Es probable que\" uttrycker sannolikhet, inte säkerhet, och kräver subjuntivo: \"llueva\"."
+    },
+    {
+      "id": "q-sp4-mood-12",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Välj rätt form: \"Estoy seguro de que ella ___ (tener) razón.\"",
+      "opener": "\"Estar seguro de que\" uttrycker säkerhet, till skillnad från \"dudar que\" — vilket sätt kräver det?",
+      "choices": [
+        "tiene",
+        "tenga",
+        "tuvo",
+        "tendrá"
+      ],
+      "answer": 0,
+      "explanation": "\"Estar seguro de que\" uttrycker övertygelse/säkerhet, inte tvivel, och tar därför indikativ: \"tiene\"."
+    },
+    {
+      "id": "q-sp4-mood-13",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Välj rätt form: \"Nos sorprende que tú no ___ (saber) la noticia.\"",
+      "opener": "\"Sorprender que\" uttrycker en känsla (förvåning) och kräver subjuntivo.",
+      "choices": [
+        "sepas",
+        "sabes",
+        "supiste",
+        "sabrás"
+      ],
+      "answer": 0,
+      "explanation": "\"Sorprender que\" uttrycker förvåning och kräver subjuntivo: \"sepas\"."
+    },
+    {
+      "id": "q-sp4-mood-14",
+      "kind": "mc",
+      "topic": "impersonal expressions",
+      "prompt": "Välj rätt form: \"Es evidente que el clima ___ (estar) cambiando.\"",
+      "opener": "\"Es evidente que\" konstaterar ett faktum, till skillnad från värderande uttryck.",
+      "choices": [
+        "está",
+        "esté",
+        "estuvo",
+        "estará"
+      ],
+      "answer": 0,
+      "explanation": "\"Es evidente que\" konstaterar ett faktum utan tvivel eller värdering, och tar därför indikativ: \"está\"."
+    },
+    {
+      "id": "q-sp4-mood-15",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Välj rätt form: \"Ojalá ___ (haber) más tiempo.\"",
+      "opener": "\"Ojalá\" uttrycker en förhoppning och kräver alltid subjuntivo.",
+      "choices": [
+        "haya",
+        "hay",
+        "había",
+        "habrá"
+      ],
+      "answer": 0,
+      "explanation": "\"Ojalá\" (må det vara så att) kräver alltid subjuntivo: \"haya\" (opersonligt \"haber\" i subjuntivo)."
     }
   ]
 }

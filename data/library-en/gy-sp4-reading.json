@@ -123,6 +123,111 @@
       "prompt": "What reading strategies help you analyze an opinion-driven text (columna de opinión) in Spanish?",
       "opener": "Opinion pieces often build an argument step by step toward a point — here's how to read them effectively.",
       "answer": "Identify the writer's stance early — it's often signaled by word choices like \"como si\", \"sin embargo\", \"cuando menos\". Distinguish between facts/statistics (e.g. \"más de cien veces al día\") and evaluative claims (\"una simplificación cómoda\"). Look for turning points marked by \"sin embargo\" (however) or \"pero\" (but) — that's usually where the text's real point lies. A closing rhetorical question is often the text's summarizing point, phrased so the reader draws the conclusion themselves. Vocabulary worth recognizing: deslizar (to swipe/scroll), capturar la atención (to capture attention), culpar (to blame), residir en (to lie in/be due to)."
+    },
+    {
+      "id": "q-sp4-reading-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text:\n\n\"El otro día, mientras esperaba para hacer una fotografía de la famosa fuente del centro histórico, conté hasta once grupos de turistas que pasaron delante de mí en apenas veinte minutos. Ya no reconozco el barrio donde crecí: las tiendas de toda la vida han cerrado una tras otra, sustituidas por heladerías y tiendas de recuerdos idénticas a las de cualquier otra ciudad europea. Los vecinos hablan de mudarse porque los alquileres han subido más del cuarenta por ciento en cinco años, empujados por los pisos turísticos. Se suele presentar el turismo como una fuente de riqueza sin matices, como si atraer a más visitantes fuera automáticamente positivo para todos. Sin embargo, nadie pregunta a quienes ya no pueden pagar el alquiler de su propio barrio. No se trata de rechazar el turismo por completo, sino de repartir mejor sus beneficios y, sobre todo, de escuchar a quienes viven aquí todo el año, no solo una semana de vacaciones.\"\n\nWhat is the main idea of the text?",
+      "opener": "Look for the sentence that questions the idea of tourism as purely positive.",
+      "choices": [
+        "Tourism is often presented as purely positive, but year-round residents are negatively affected and rarely heard",
+        "All tourism should be banned immediately",
+        "Tourists bear the entire responsibility for rent increases",
+        "Shops in the city center should never be allowed to close"
+      ],
+      "answer": 0,
+      "explanation": "The text questions the idea that tourism is an uncomplicated asset and points out that year-round residents — not just tourists — pay the price. The point is the imbalance between who benefits and who suffers, not that tourism should be abolished entirely."
+    },
+    {
+      "id": "q-sp4-reading-10",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text again. What does \"los pisos turísticos\" mean in the context \"los alquileres han subido... empujados por los pisos turísticos\"?",
+      "opener": "\"Piso\" means apartment in Peninsular Spanish, and \"turístico\" refers to tourism.",
+      "choices": [
+        "Apartments rented out to tourists",
+        "Hotels on the outskirts of the city",
+        "Tourist information offices",
+        "Souvenir shops"
+      ],
+      "answer": 0,
+      "explanation": "\"Los pisos turísticos\" are apartments rented out short-term to tourists, which the text says drives up rent for local residents."
+    },
+    {
+      "id": "q-sp4-reading-11",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text again. What can be inferred about the author's attitude toward tourism from the text as a whole?",
+      "opener": "Notice the last sentence, which starts with \"No se trata de rechazar el turismo por completo\".",
+      "choices": [
+        "The author isn't against tourism itself, but wants its benefits distributed more fairly",
+        "The author thinks tourism is purely harmful and should be banned",
+        "The author works in the tourism industry and defends it uncritically",
+        "The author is completely indifferent to the issue"
+      ],
+      "answer": 0,
+      "explanation": "The last sentence clarifies that the author doesn't want to abolish tourism, but rather \"repartir mejor sus beneficios\" (distribute its benefits more fairly) and listen to year-round residents."
+    },
+    {
+      "id": "q-sp4-reading-12",
+      "kind": "mc",
+      "topic": "argument structuring",
+      "prompt": "Read the text again. What rhetorical device does the author use in the last sentence (\"No se trata de rechazar el turismo por completo, sino de...\")?",
+      "opener": "The sentence has two parts linked by \"sino de\" (but rather).",
+      "choices": [
+        "Clarifies the stance by first dismissing an extreme interpretation before presenting the author's own, more nuanced point",
+        "Apologizes for having been too harsh in the criticism",
+        "Summarizes the statistics mentioned earlier in the text",
+        "Poses a direct question to the reader"
+      ],
+      "answer": 0,
+      "explanation": "The structure \"no se trata de X, sino de Y\" (it's not about X, but about Y) first dismisses an extreme interpretation (abolishing tourism entirely) before presenting the author's own, more nuanced point."
+    },
+    {
+      "id": "q-sp4-reading-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text again. What does the sentence \"conté hasta once grupos de turistas que pasaron delante de mí en apenas veinte minutos\" reveal about the text's tone?",
+      "opener": "Notice that this is a concrete, personal figure, not a general statistic.",
+      "choices": [
+        "A concrete, personal observation that lends credibility to the argument about overtourism",
+        "An exaggeration not meant to be taken literally",
+        "Proof that the author works as a tour guide",
+        "Criticism aimed specifically at photographers"
+      ],
+      "answer": 0,
+      "explanation": "The concrete, personal observation (eleven groups in twenty minutes) lends the argument credibility by grounding it in the author's own experience before the argument broadens."
+    },
+    {
+      "id": "q-sp4-reading-14",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text again. What does \"sin matices\" roughly mean in \"Se suele presentar el turismo como una fuente de riqueza sin matices\"?",
+      "opener": "\"Matiz\" means nuance.",
+      "choices": [
+        "Without nuance (oversimplified)",
+        "With great care",
+        "Without exception",
+        "With clear evidence"
+      ],
+      "answer": 0,
+      "explanation": "\"Sin matices\" means \"without nuance\", i.e. oversimplified — the text criticizes how tourism is often presented as purely positive, without nuancing the picture."
+    },
+    {
+      "id": "q-sp4-reading-15",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text again. What concrete example does the text give of how tourism has affected the author's neighborhood?",
+      "opener": "Look for the sentence about shops and rent.",
+      "choices": [
+        "Traditional shops have closed and been replaced by souvenir shops, and rent has risen sharply",
+        "The city has built more parks in the area",
+        "Schools in the area have received more resources",
+        "Public transport in the area has improved"
+      ],
+      "answer": 0,
+      "explanation": "The text mentions that \"las tiendas de toda la vida han cerrado\" (the old, long-standing shops have closed), replaced by souvenir shops, and that rent \"han subido más del cuarenta por ciento en cinco años\" (has risen more than 40% in five years)."
     }
   ]
 }

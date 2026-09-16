@@ -122,6 +122,111 @@
       "prompt": "How are the three types of si-clauses formed (real, hypothetical present, contrary-to-fact past)?",
       "opener": "Three patterns to keep apart, plus the conditional's irregular stems.",
       "answer": "1) Real/likely (type 1): si + present indicative, main clause in present or future — \"Si tengo tiempo, voy/iré\". 2) Hypothetical/unlikely present (type 2): si + imperfect subjunctive, main clause in the conditional — \"Si tuviera tiempo, iría\". 3) Contrary-to-fact past (type 3): si + pluperfect subjunctive, main clause in the conditional perfect — \"Si hubiera tenido tiempo, habría ido\". Irregular conditional stems (same as the future tense): tener→tendr-, poder→podr-, hacer→har-, decir→dir-, salir→saldr-, querer→querr-, saber→sabr-, poner→pondr-, venir→vendr-."
+    },
+    {
+      "id": "q-sp4-conditional-9",
+      "kind": "mc",
+      "topic": "conditional tense",
+      "prompt": "Choose the correct form: \"Yo ___ (decir) la verdad si me preguntaran.\"",
+      "opener": "\"Decir\" has an irregular stem in the conditional: dir-.",
+      "choices": [
+        "diría",
+        "deciría",
+        "dijera",
+        "diré"
+      ],
+      "answer": 0,
+      "explanation": "\"Decir\" has an irregular stem in the conditional: dir- + endings → \"diría\" (I would say)."
+    },
+    {
+      "id": "q-sp4-conditional-10",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Choose the correct form: \"Si ___ (hacer) buen tiempo mañana, iremos a la playa.\"",
+      "opener": "This is a real, likely si-clause (type 1) about the future, not a hypothetical one.",
+      "choices": [
+        "hace",
+        "hiciera",
+        "hizo",
+        "haría"
+      ],
+      "answer": 0,
+      "explanation": "A real/likely si-clause (type 1) takes the present indicative in the subordinate clause: \"si hace buen tiempo\", with the main clause in the future (\"iremos\")."
+    },
+    {
+      "id": "q-sp4-conditional-11",
+      "kind": "mc",
+      "topic": "hypothetical situations",
+      "prompt": "Choose the correct form: \"Nosotros ___ (hacer) un viaje si tuviéramos más dinero.\"",
+      "opener": "\"Hacer\" has an irregular stem in the conditional: har-.",
+      "choices": [
+        "haríamos",
+        "haceríamos",
+        "hacíamos",
+        "hicimos"
+      ],
+      "answer": 0,
+      "explanation": "\"Hacer\" has an irregular stem in the conditional: har- + endings → \"haríamos\" (we would make/take)."
+    },
+    {
+      "id": "q-sp4-conditional-12",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Choose the correct form: \"Si hubieras llegado a tiempo, no ___ (perder) el tren.\"",
+      "opener": "A contrary-to-fact past (type 3) requires the conditional perfect in the main clause: habría + past participle.",
+      "choices": [
+        "habrías perdido",
+        "perderías",
+        "perdías",
+        "perdiste"
+      ],
+      "answer": 0,
+      "explanation": "Contrary-to-fact past: si + pluperfect subjunctive (hubieras llegado) in the subordinate clause, conditional perfect (habrías perdido) in the main clause."
+    },
+    {
+      "id": "q-sp4-conditional-13",
+      "kind": "mc",
+      "topic": "conditional tense",
+      "prompt": "Choose the most polite phrase: \"¿___ tú acompañarme al médico?\" (querer)",
+      "opener": "\"Querer\" has an irregular stem in the conditional: querr-.",
+      "choices": [
+        "Querrías",
+        "Quererías",
+        "Quisiste",
+        "Quieres"
+      ],
+      "answer": 0,
+      "explanation": "\"Querer\" has an irregular stem in the conditional: querr- + endings → \"querrías\" (would you want to), a polite question."
+    },
+    {
+      "id": "q-sp4-conditional-14",
+      "kind": "mc",
+      "topic": "hypothetical situations",
+      "prompt": "Which si-clause describes a real, likely situation in the present/future?",
+      "opener": "Only one of these four options is type 1 (real/likely).",
+      "choices": [
+        "Si tengo tiempo, iré al cine.",
+        "Si tuviera tiempo, iría al cine.",
+        "Si hubiera tenido tiempo, habría ido al cine.",
+        "Si tendría tiempo, iría al cine."
+      ],
+      "answer": 0,
+      "explanation": "\"Si tengo tiempo, iré al cine\" is a real/likely si-clause (type 1): present indicative + future. The others describe a hypothetical present, a contrary-to-fact past, or are grammatically incorrect (the conditional can never follow \"si\" directly)."
+    },
+    {
+      "id": "q-sp4-conditional-15",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Choose the correct form: \"Ella ___ (saber) la respuesta si hubiera estudiado más.\"",
+      "opener": "\"Saber\" has an irregular stem in the conditional: sabr-.",
+      "choices": [
+        "sabría",
+        "saberia",
+        "supiera",
+        "sabrá"
+      ],
+      "answer": 0,
+      "explanation": "\"Saber\" has an irregular stem in the conditional: sabr- + endings → \"sabría\" (she would know)."
     }
   ]
 }

@@ -122,6 +122,111 @@
       "prompt": "What types of expressions trigger the subjunctive for doubt and emotion?",
       "opener": "Three broad categories of triggers, plus one exception to remember.",
       "answer": "Doubt: dudar que, no creer que, no estar seguro de que, es posible/probable que. Emotion: alegrarse de que, sentir que, temer que, sorprender que, es una lástima que. Wish/will: querer que, esperar que, desear que, es importante/necesario que. Exception: when the main and subordinate clause share the same subject, the infinitive is used instead of \"que\" + subjunctive (Quiero venir, not Quiero que yo venga). Remember: certain facts (creo que, es verdad que, sé que) take the indicative, uncertain/evaluated/wished-for ones take the subjunctive."
+    },
+    {
+      "id": "q-sp4-mood-9",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Choose the correct form: \"No es cierto que ellos ___ (vivir) aquí.\"",
+      "opener": "\"No es cierto que\" negates the truth of the statement and requires the subjunctive.",
+      "choices": [
+        "vivan",
+        "viven",
+        "vivieron",
+        "vivirán"
+      ],
+      "answer": 0,
+      "explanation": "\"No es cierto que\" (it isn't true that) negates a statement and triggers the subjunctive: \"vivan\"."
+    },
+    {
+      "id": "q-sp4-mood-10",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Choose the correct form: \"Siento mucho que tú no ___ (poder) venir a mi fiesta.\"",
+      "opener": "\"Sentir que\" expresses an emotion (regret) and requires the subjunctive.",
+      "choices": [
+        "puedas",
+        "puedes",
+        "pudiste",
+        "podrás"
+      ],
+      "answer": 0,
+      "explanation": "\"Sentir que\" expresses regret/emotion and requires the subjunctive: \"puedas\"."
+    },
+    {
+      "id": "q-sp4-mood-11",
+      "kind": "mc",
+      "topic": "impersonal expressions",
+      "prompt": "Choose the correct form: \"Es probable que ___ (llover) mañana.\"",
+      "opener": "\"Es probable que\" expresses uncertainty, not an established fact.",
+      "choices": [
+        "llueva",
+        "llueve",
+        "llovió",
+        "lloverá"
+      ],
+      "answer": 0,
+      "explanation": "\"Es probable que\" expresses probability, not certainty, and requires the subjunctive: \"llueva\"."
+    },
+    {
+      "id": "q-sp4-mood-12",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Choose the correct form: \"Estoy seguro de que ella ___ (tener) razón.\"",
+      "opener": "\"Estar seguro de que\" expresses certainty, unlike \"dudar que\" — which mood does that require?",
+      "choices": [
+        "tiene",
+        "tenga",
+        "tuvo",
+        "tendrá"
+      ],
+      "answer": 0,
+      "explanation": "\"Estar seguro de que\" expresses conviction/certainty, not doubt, so it takes the indicative: \"tiene\"."
+    },
+    {
+      "id": "q-sp4-mood-13",
+      "kind": "mc",
+      "topic": "doubt and emotion",
+      "prompt": "Choose the correct form: \"Nos sorprende que tú no ___ (saber) la noticia.\"",
+      "opener": "\"Sorprender que\" expresses an emotion (surprise) and requires the subjunctive.",
+      "choices": [
+        "sepas",
+        "sabes",
+        "supiste",
+        "sabrás"
+      ],
+      "answer": 0,
+      "explanation": "\"Sorprender que\" expresses surprise and requires the subjunctive: \"sepas\"."
+    },
+    {
+      "id": "q-sp4-mood-14",
+      "kind": "mc",
+      "topic": "impersonal expressions",
+      "prompt": "Choose the correct form: \"Es evidente que el clima ___ (estar) cambiando.\"",
+      "opener": "\"Es evidente que\" states a fact, unlike evaluative expressions.",
+      "choices": [
+        "está",
+        "esté",
+        "estuvo",
+        "estará"
+      ],
+      "answer": 0,
+      "explanation": "\"Es evidente que\" states a fact without doubt or evaluation, so it takes the indicative: \"está\"."
+    },
+    {
+      "id": "q-sp4-mood-15",
+      "kind": "mc",
+      "topic": "subjunctive mood",
+      "prompt": "Choose the correct form: \"Ojalá ___ (haber) más tiempo.\"",
+      "opener": "\"Ojalá\" expresses a hope and always requires the subjunctive.",
+      "choices": [
+        "haya",
+        "hay",
+        "había",
+        "habrá"
+      ],
+      "answer": 0,
+      "explanation": "\"Ojalá\" (I hope/if only) always requires the subjunctive: \"haya\" (the impersonal \"haber\" in the subjunctive)."
     }
   ]
 }

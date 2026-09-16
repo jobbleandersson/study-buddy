@@ -122,6 +122,111 @@
       "prompt": "Vilka är de vanligaste falska vännerna mellan svenska/engelska och spanska som du bör kunna på den här nivån?",
       "opener": "En lista att ha i bakhuvudet inför nationella provet och muntliga övningar.",
       "answer": "embarazada = gravid (INTE generad → avergonzado/a) · actualmente = för närvarande (INTE aktuellt/faktiskt → de hecho/en realidad) · sensible = känslig (INTE förnuftig → sensato/a) · constipado = förkyld (INTE förstoppad → estreñido/a) · éxito = framgång (INTE utgång → salida) · largo = lång (INTE stor → grande) · red = nät/nätverk (INTE röd → rojo) · pariente = släkting (INTE förälder → padre/madre) · ropa = kläder (INTE rep → cuerda) · fábrica = fabrik (INTE tyg → tela). Idiom att kunna: costar un ojo de la cara (vara skitdyrt), estar en las nubes (vara tankspridd), no tener pelos en la lengua (säga rakt ut vad man tycker), tomar el pelo (skoja med/lura någon)."
+    },
+    {
+      "id": "q-sp4-idioms-9",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder \"éxito\" på spanska?",
+      "opener": "Ordet ser ut som \"exit\" men betyder något helt annat.",
+      "choices": [
+        "Framgång",
+        "Utgång",
+        "Övning",
+        "Examen"
+      ],
+      "answer": 0,
+      "explanation": "\"Éxito\" betyder \"framgång\", inte \"utgång\" (som på spanska heter \"salida\")."
+    },
+    {
+      "id": "q-sp4-idioms-10",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder \"red\" på spanska?",
+      "opener": "Ordet ser ut som \"röd\" på svenska men betyder något helt annat.",
+      "choices": [
+        "Nät/nätverk",
+        "Röd (färg)",
+        "Rep",
+        "Näve"
+      ],
+      "answer": 0,
+      "explanation": "\"Red\" betyder \"nät/nätverk\" på spanska. \"Röd\" heter istället \"rojo\" på spanska."
+    },
+    {
+      "id": "q-sp4-idioms-11",
+      "kind": "mc",
+      "topic": "idiomatic expressions",
+      "prompt": "Vad betyder uttrycket \"no tener pelos en la lengua\"?",
+      "opener": "Bokstavligt: \"att inte ha hår på tungan\".",
+      "choices": [
+        "Att säga rakt ut vad man tycker",
+        "Att vara mycket blyg",
+        "Att prata för mycket i onödan",
+        "Att ha svårt att uttala ord"
+      ],
+      "answer": 0,
+      "explanation": "\"No tener pelos en la lengua\" betyder att säga rakt ut vad man tycker, utan omskrivningar."
+    },
+    {
+      "id": "q-sp4-idioms-12",
+      "kind": "mc",
+      "topic": "idiomatic expressions",
+      "prompt": "Vad betyder uttrycket \"tomar el pelo\"?",
+      "opener": "Bokstavligt: \"att ta håret\".",
+      "choices": [
+        "Att skoja med/lura någon",
+        "Att klippa håret",
+        "Att bli arg på någon",
+        "Att fråga någon om råd"
+      ],
+      "answer": 0,
+      "explanation": "\"Tomar el pelo (a alguien)\" betyder att skoja med eller lura någon, ungefär som svenskans \"dra någon vid näsan\"."
+    },
+    {
+      "id": "q-sp4-idioms-13",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder \"pariente\" på spanska?",
+      "opener": "Ordet ser ut som \"förälder\" men betyder något bredare.",
+      "choices": [
+        "Släkting",
+        "Förälder",
+        "Vän",
+        "Granne"
+      ],
+      "answer": 0,
+      "explanation": "\"Pariente\" betyder \"släkting\" i allmänhet, inte specifikt \"förälder\" (som heter \"padre/madre\" på spanska)."
+    },
+    {
+      "id": "q-sp4-idioms-14",
+      "kind": "mc",
+      "topic": "vocabulary nuance",
+      "prompt": "Vad betyder \"fábrica\" på spanska?",
+      "opener": "Ordet ser ut som \"tyg\" (fabric) men betyder något annat.",
+      "choices": [
+        "Fabrik",
+        "Tyg",
+        "Historia",
+        "Berättelse"
+      ],
+      "answer": 0,
+      "explanation": "\"Fábrica\" betyder \"fabrik\", inte \"tyg\" (som heter \"tela\" på spanska)."
+    },
+    {
+      "id": "q-sp4-idioms-15",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder \"largo\" på spanska?",
+      "opener": "Ordet ser ut som \"stor\" men betyder något annat.",
+      "choices": [
+        "Lång",
+        "Stor",
+        "Bred",
+        "Tung"
+      ],
+      "answer": 0,
+      "explanation": "\"Largo\" betyder \"lång\", inte \"stor\" (som heter \"grande\" på spanska)."
     }
   ]
 }
