@@ -124,6 +124,111 @@
       "prompt": "Summarise in-text citation, the footnote system, quotation, paraphrase and plagiarism.",
       "opener": "Sort the concepts by where the source ends up and how much of the original's wording is kept.",
       "answer": "In-text citation: source in brackets in the body text, e.g. (Berg, 2021) · Footnote system: superscript number referring to a note at the bottom of the page, disrupts reading flow less · Quotation: word-for-word reproduction, quotation marks/indentation, always with a source · Paraphrase: rewording of a delimited thought in your own words, with a source · Summary: condensing longer content in your own words, with a source · Plagiarism: presenting other people's words or ideas as your own, regardless of whether the wording has been changed, when the source is missing · Reference list: sorted alphabetically by the author's surname."
+    },
+    {
+      "id": "q-sv3-kallor-9",
+      "kind": "mc",
+      "topic": "referencing systems",
+      "prompt": "Which referencing system is best known for giving sources in the format (Surname, year) directly in the running text?",
+      "opener": "The system is named after an American university.",
+      "choices": [
+        "The Harvard system (in-text citation)",
+        "The footnote system",
+        "A system with no source references at all",
+        "A system only used in fiction"
+      ],
+      "answer": 0,
+      "explanation": "The Harvard system is a common name for the system of in-text citation, where author and year are given in brackets directly in the body text. The footnote system instead uses superscript numbers referring to notes at the bottom of the page."
+    },
+    {
+      "id": "q-sv3-kallor-10",
+      "kind": "mc",
+      "topic": "reference list",
+      "prompt": "If a source has no stated author, how is it usually sorted in the reference list?",
+      "opener": "What is left to sort by when the author's name is missing?",
+      "choices": [
+        "By the source's title",
+        "The source is left out of the list entirely",
+        "By publication year alone, regardless of title",
+        "The source is always placed last, regardless of letter"
+      ],
+      "answer": 0,
+      "explanation": "If the author is missing, the source is instead sorted alphabetically by title. A source should never be omitted or placed last just because it lacks an author — it still needs to be findable in the list."
+    },
+    {
+      "id": "q-sv3-kallor-11",
+      "kind": "mc",
+      "topic": "quotation and paraphrase",
+      "prompt": "If you quote a longer passage (several sentences), how is this often marked typographically, unlike a short quotation?",
+      "opener": "Think about how longer quotations are often set apart from the surrounding text.",
+      "choices": [
+        "With indentation and/or a smaller font size, without quotation marks",
+        "By writing the whole quotation in capital letters",
+        "By never giving a source for longer quotations",
+        "By using italics only"
+      ],
+      "answer": 0,
+      "explanation": "Longer quotations are often marked with indentation and sometimes a smaller font size, which makes quotation marks unnecessary since the indentation itself shows it is a quotation. A source reference is still required, just as for short quotations."
+    },
+    {
+      "id": "q-sv3-kallor-12",
+      "kind": "mc",
+      "topic": "quotation and paraphrase",
+      "prompt": "What is a summary, as distinct from a paraphrase?",
+      "opener": "Compare the scope: a delimited thought, or an entire piece of content?",
+      "choices": [
+        "A condensed account of longer content (e.g. a whole article) in your own words",
+        "A word-for-word copy without a source",
+        "Always shorter than a paraphrase",
+        "Another word for quotation"
+      ],
+      "answer": 0,
+      "explanation": "A summary condenses longer content, such as a whole article or chapter, in your own words, while a paraphrase reworks a more limited thought or sentence. Both require a source reference, unlike a word-for-word copy without a source, which counts as plagiarism."
+    },
+    {
+      "id": "q-sv3-kallor-13",
+      "kind": "mc",
+      "topic": "plagiarism",
+      "prompt": "If a student submits a text where large parts have been written by an AI service without this being stated, what does this usually count as?",
+      "opener": "Ask whether the reader can trust that the text reflects the student's own work.",
+      "choices": [
+        "A form of academic dishonesty/plagiarism, since the work is not the student's own without this being made clear",
+        "A fully acceptable way of working, with no requirement to state the source",
+        "Irrelevant, since AI is not a \"real\" source",
+        "Only a problem if the teacher happens to notice"
+      ],
+      "answer": 0,
+      "explanation": "Submitting AI-generated content as your own without stating it counts as a form of academic dishonesty, since the text then falsely appears to be the student's own work. That a source is new or unusual, like an AI service, does not exempt you from the requirement to state it."
+    },
+    {
+      "id": "q-sv3-kallor-14",
+      "kind": "mc",
+      "topic": "referencing systems",
+      "prompt": "What do footnotes and entries in a reference list have in common?",
+      "opener": "Think about the basic purpose of all source handling.",
+      "choices": [
+        "Both should allow the reader to trace where the information comes from",
+        "Both are always placed in the middle of the running text",
+        "Both are always written entirely in capital letters",
+        "Neither needs to include the author's name"
+      ],
+      "answer": 0,
+      "explanation": "Both footnotes and entries in a reference list aim to let the reader trace and verify where the information comes from, even though they do so in somewhat different ways and in different places in the text."
+    },
+    {
+      "id": "q-sv3-kallor-15",
+      "kind": "mc",
+      "topic": "plagiarism",
+      "prompt": "What is the best strategy for avoiding unintentional plagiarism when writing about other people's texts?",
+      "opener": "Think about what is always required, regardless of how you reproduce the information.",
+      "choices": [
+        "Always stating the source, whether you are quoting, paraphrasing or summarising",
+        "Never reading any sources at all before writing",
+        "Swapping out a few individual words in the original text but keeping the sentence structure",
+        "Writing as quickly as possible without thinking about the sources"
+      ],
+      "answer": 0,
+      "explanation": "Consistently stating the source, whether you quote, paraphrase or summarise, is the most fundamental strategy for avoiding plagiarism. Swapping out a few words but keeping the sentence structure still counts as plagiarism if the source is missing."
     }
   ]
 }

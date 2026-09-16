@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta de vanligaste argumentationsfelen samt vad som bygger trovärdighet respektive mottagaranpassning.",
       "opener": "Gruppera efter vilken typ av \"genväg\" argumentationsfelet tar.",
       "answer": "Ad hominem: angriper personen, inte argumentet · Halmgubbe: förvränger motståndarens ståndpunkt · Falsk dikotomi: framställer bara två alternativ som enda möjligheterna · Cirkelbevis: slutsatsen används som stöd för sig själv · Förhastad generalisering: drar bred slutsats från ett enda exempel · Ethos: byggs av kompetens, hederlighet och sakligt bemötande av motargument · Mottagaranpassning: ordval, fackspråk och förklaringsnivå justeras efter mottagarens förkunskaper, sakinnehållet förblir detsamma."
+    },
+    {
+      "id": "q-sv3-retorik-9",
+      "kind": "mc",
+      "topic": "argumentationsfel",
+      "prompt": "\"Om vi tillåter elever att ha mobiler i klassrummet kommer de snart vilja ha datorspel, sedan tv-apparater, och till slut är skolan ett nöjesfält.\" Vilket argumentationsfel är detta ett exempel på?",
+      "opener": "Argumentet antar en kedja av allt värre följder utan att egentligen visa att kedjan är sannolik.",
+      "choices": [
+        "Det sluttande planet (slippery slope)",
+        "Ad hominem",
+        "Cirkelbevis",
+        "Auktoritetsargument"
+      ],
+      "answer": 0,
+      "explanation": "Det sluttande planet innebär att man hävdar att ett första steg oundvikligen leder till en kedja av allt mer extrema konsekvenser, utan att egentligen visa att den kedjan är sannolik. Här saknas belägg för att mobiler i klassrummet skulle leda till just de påstådda följderna."
+    },
+    {
+      "id": "q-sv3-retorik-10",
+      "kind": "mc",
+      "topic": "argumentationsfel",
+      "prompt": "Vad kallas det argumentationsfel där man drar slutsatsen att eftersom B inträffade efter A, måste A ha orsakat B, utan annat stöd?",
+      "opener": "Namnet är latin för \"efter detta, alltså på grund av detta\".",
+      "choices": [
+        "Post hoc-felslutet",
+        "Halmgubbe",
+        "Falsk dikotomi",
+        "Ad hominem"
+      ],
+      "answer": 0,
+      "explanation": "Post hoc-felslutet innebär att man förväxlar tidsmässig ordning med orsakssamband: bara för att B kom efter A betyder det inte automatiskt att A orsakade B, utan ytterligare belägg."
+    },
+    {
+      "id": "q-sv3-retorik-11",
+      "kind": "mc",
+      "topic": "trovärdighet",
+      "prompt": "Vad kan undergräva en talares ethos, även om argumenten i sak är korrekta?",
+      "opener": "Tänk på vad som händer med publikens förtroende om talaren tidigare visat sig opålitlig.",
+      "choices": [
+        "Att tidigare ha blivit avslöjad med att medvetet fara med osanning i samma fråga",
+        "Att ha relevant utbildning inom ämnet",
+        "Att hänvisa till flera oberoende källor",
+        "Att bemöta motargument sakligt"
+      ],
+      "answer": 0,
+      "explanation": "Om en talare tidigare avslöjats med att medvetet ljuga i samma fråga skadas trovärdigheten (ethos) allvarligt, även om det aktuella argumentet råkar vara korrekt. Relevant utbildning, källhänvisningar och sakligt bemötande av motargument stärker i stället ethos."
+    },
+    {
+      "id": "q-sv3-retorik-12",
+      "kind": "mc",
+      "topic": "avsändare och mottagare",
+      "prompt": "En myndighetstext om nya regler skrivs om till en lättläst version för en bredare målgrupp. Vad bör i första hand förändras?",
+      "opener": "Tänk på vad som ska bli lättare att förstå, och vad som ska förbli detsamma.",
+      "choices": [
+        "Meningslängd, ordval och grad av fackspråk, medan sakinnehållet i grunden är detsamma",
+        "Själva reglerna som beskrivs, så att de blir mindre strikta",
+        "Ingenting behöver ändras alls",
+        "Enbart typsnittet i den tryckta versionen"
+      ],
+      "answer": 0,
+      "explanation": "En lättläst version anpassar meningslängd, ordval och mängden fackspråk till mottagarens förkunskaper, medan sakinnehållet — själva reglerna — ska förbli detsamma. Att ändra reglerna i sak skulle innebära att texterna inte längre beskriver samma verklighet."
+    },
+    {
+      "id": "q-sv3-retorik-13",
+      "kind": "mc",
+      "topic": "argumentationsfel",
+      "prompt": "\"Om du bryr dig om barns säkerhet måste du stödja det här förslaget.\" Vilket problem finns i detta resonemang?",
+      "opener": "Fundera på om det verkligen bara finns detta enda sätt att visa att man bryr sig om barns säkerhet.",
+      "choices": [
+        "Det är ett känsloargument som kringgår sakfrågan genom att koppla en känsloladdad premiss till en specifik slutsats utan egentligt logiskt samband",
+        "Det är ett cirkelbevis",
+        "Det är en falsk dikotomi mellan exakt två alternativ",
+        "Det är ett auktoritetsargument"
+      ],
+      "answer": 0,
+      "explanation": "Resonemanget utnyttjar en känsloladdad premiss (barns säkerhet) för att pressa fram en specifik slutsats, utan att egentligen visa att just detta förslag är det enda sättet att värna barns säkerhet. Det är alltså primärt ett känsloargument som kringgår sakfrågan, inte ett cirkelbevis eller en tydlig falsk dikotomi."
+    },
+    {
+      "id": "q-sv3-retorik-14",
+      "kind": "mc",
+      "topic": "trovärdighet",
+      "prompt": "Vilket av följande stärker mest trovärdigheten i en debattartikel om ett komplext ämne?",
+      "opener": "Tänk på vad som visar att skribenten har en ärlig, nyanserad relation till ämnet.",
+      "choices": [
+        "Att transparent redovisa källor och erkänna undersökningens begränsningar",
+        "Att undvika att nämna några siffror alls",
+        "Att använda så många superlativ som möjligt",
+        "Att aldrig nämna att andra kan ha en annan uppfattning"
+      ],
+      "answer": 0,
+      "explanation": "Att transparent redovisa källor och öppet erkänna eventuella begränsningar i det egna underlaget visar hederlighet och stärker trovärdigheten. Att undvika siffror, överdriva med superlativ eller ignorera andra uppfattningar undergräver i stället förtroendet."
+    },
+    {
+      "id": "q-sv3-retorik-15",
+      "kind": "mc",
+      "topic": "avsändare och mottagare",
+      "prompt": "Varför är det viktigt att fundera på avsändarens syfte när man läser en text kritiskt?",
+      "opener": "Tänk på hur olika syften kan påverka vilken information som väljs ut eller framhävs.",
+      "choices": [
+        "Syftet (t.ex. att sälja, övertyga eller informera) kan påverka hur informationen vinklas eller väljs ut",
+        "Avsändarens syfte har aldrig någon betydelse för hur en text bör tolkas",
+        "Alla texter har exakt samma syfte: att vara objektiva",
+        "Syftet är alltid tydligt angivet i rubriken"
+      ],
+      "answer": 0,
+      "explanation": "En avsändares syfte, till exempel att sälja en produkt, övertyga om en åsikt eller informera sakligt, påverkar ofta vilken information som lyfts fram eller utelämnas. Att vara medveten om syftet hjälper läsaren att tolka texten mer kritiskt, och syftet är sällan explicit angivet i rubriken."
     }
   ]
 }

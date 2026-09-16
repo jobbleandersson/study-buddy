@@ -123,6 +123,111 @@
       "prompt": "Vad kännetecknar objektivt och opersonligt vetenskapligt språk?",
       "opener": "Tänk källa, ton och avstånd till egna känslor.",
       "answer": "Sakliga, verifierbara påståenden · undviker värdeladdade ord (\"chockerande\", \"fantastisk\") · undviker jag-form till förmån för passiv form eller opersonliga uttryck (\"undersökningen visar\") · belägger påståenden med källor och siffror · håller isär fakta (resultat) och tolkning (diskussion) · neutral, distanserad ton snarare än personligt engagemang."
+    },
+    {
+      "id": "q-sv3-vetenskap-9",
+      "kind": "mc",
+      "topic": "PM-struktur",
+      "prompt": "Vilken del av ett PM kommer vanligtvis allra först, före syftet?",
+      "opener": "Läsaren behöver en bakgrund innan syftet blir begripligt.",
+      "choices": [
+        "Inledningen",
+        "Diskussionen",
+        "Metoden",
+        "Resultatet"
+      ],
+      "answer": 0,
+      "explanation": "Inledningen kommer först och ger bakgrund till frågan, vilket förbereder läsaren för syftesformuleringen som följer. Metod, resultat och diskussion kommer alla senare i texten."
+    },
+    {
+      "id": "q-sv3-vetenskap-10",
+      "kind": "mc",
+      "topic": "PM-struktur",
+      "prompt": "Vad bör en RESULTATDEL i ett PM innehålla?",
+      "opener": "Tänk på skillnaden mellan att redovisa fakta och att tolka dem.",
+      "choices": [
+        "En saklig redovisning av vad undersökningen visat, utan tolkning",
+        "Skribentens personliga åsikter om ämnet",
+        "En lista över alla tänkbara framtida forskningsfrågor",
+        "En kort sammanfattning av inledningen"
+      ],
+      "answer": 0,
+      "explanation": "Resultatdelen ska sakligt redovisa vad undersökningen faktiskt visat, utan tolkning eller värdering — det sparas till diskussionen. Personliga åsikter hör inte hemma i resultatdelen."
+    },
+    {
+      "id": "q-sv3-vetenskap-11",
+      "kind": "mc",
+      "topic": "objektivt språk",
+      "prompt": "Vilket ordval är mest sannolikt att förekomma i en objektiv vetenskaplig text?",
+      "opener": "Leta efter det alternativ som är sakligt och verifierbart, utan känsloladdning.",
+      "choices": [
+        "\"Undersökningen indikerar ett samband mellan X och Y.\"",
+        "\"Jag är helt övertygad om att X orsakar Y.\"",
+        "\"Det är uppenbart att alla borde inse att X orsakar Y.\"",
+        "\"Det känns som att X nog orsakar Y.\""
+      ],
+      "answer": 0,
+      "explanation": "Formuleringen \"undersökningen indikerar\" är saklig, opersonlig och markerar en rimlig försiktighet i slutsatsen, till skillnad från de andra alternativen som uttrycker personlig övertygelse eller känsla."
+    },
+    {
+      "id": "q-sv3-vetenskap-12",
+      "kind": "mc",
+      "topic": "vetenskaplig text",
+      "prompt": "Vad innebär det att en vetenskaplig text ska vara \"källbelagd\"?",
+      "opener": "Tänk på vad som skiljer ett underbyggt påstående från ett löst antagande.",
+      "choices": [
+        "Att påståenden backas upp med hänvisningar till trovärdiga källor",
+        "Att texten bara får innehålla en enda källa",
+        "Att texten skrivs utan någon inledning",
+        "Att skribenten aldrig får använda siffror"
+      ],
+      "answer": 0,
+      "explanation": "Källbelagd betyder att skribentens påståenden stöds av hänvisningar till trovärdiga källor, vilket gör det möjligt för läsaren att kontrollera uppgifterna. Det finns inget krav på exakt en källa eller förbud mot siffror."
+    },
+    {
+      "id": "q-sv3-vetenskap-13",
+      "kind": "mc",
+      "topic": "PM-struktur",
+      "prompt": "Om en undersöknings resultat inte stödjer den ursprungliga hypotesen, var i PM:et bör detta lyftas fram och diskuteras?",
+      "opener": "Tänk på vilken del som ska tolka och värdera resultatet.",
+      "choices": [
+        "I diskussionen",
+        "Genom att utelämna resultatet helt",
+        "Enbart i inledningen",
+        "Genom att ändra syftet i efterhand så att det stämmer med resultatet"
+      ],
+      "answer": 0,
+      "explanation": "Diskussionen är platsen för att tolka och kommentera resultatet, inklusive när det inte stödjer den ursprungliga hypotesen. Att utelämna oönskade resultat eller ändra syftet i efterhand strider mot vetenskaplig hederlighet."
+    },
+    {
+      "id": "q-sv3-vetenskap-14",
+      "kind": "mc",
+      "topic": "objektivt språk",
+      "prompt": "Varför undviks ofta starkt värdeladdade adjektiv som \"fantastisk\" eller \"chockerande\" i vetenskapliga texter?",
+      "opener": "Fundera på vad ett sådant ord signalerar utöver själva sakinnehållet.",
+      "choices": [
+        "De signalerar en personlig värdering snarare än ett sakligt, verifierbart påstående",
+        "De är grammatiskt felaktiga",
+        "De gör texten för kort",
+        "De är förbjudna enligt svensk lag i alla texter"
+      ],
+      "answer": 0,
+      "explanation": "Starkt värdeladdade ord uttrycker en personlig känsla eller bedömning snarare än ett neutralt, verifierbart sakförhållande, vilket gör dem olämpliga i objektiv vetenskaplig text. Det handlar om stil och konvention, inte om grammatik eller lag."
+    },
+    {
+      "id": "q-sv3-vetenskap-15",
+      "kind": "mc",
+      "topic": "vetenskaplig text",
+      "prompt": "Vilket av följande är ett exempel på en tydlig, undersökningsbar frågeställning lämplig för ett PM?",
+      "opener": "En bra frågeställning går att faktiskt besvara med hjälp av källor och metod.",
+      "choices": [
+        "Hur påverkar mängden hemläxor elevers stressnivå enligt tillgänglig forskning?",
+        "Är skolan bra eller dålig?",
+        "Vad tycker jag om skolan?",
+        "Skolan borde förändras totalt"
+      ],
+      "answer": 0,
+      "explanation": "Frågan om hemläxor och stressnivå är avgränsad och går att undersöka systematiskt med hjälp av forskning. De andra alternativen är antingen för vaga, rent personliga eller formulerade som påståenden snarare än undersökningsbara frågor."
     }
   ]
 }

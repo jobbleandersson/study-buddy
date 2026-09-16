@@ -122,6 +122,111 @@
       "prompt": "Summarise levels of style, sociolect, register and key stylistic devices.",
       "opener": "Keep apart what depends on situation and what depends on group membership.",
       "answer": "Levels of style: formal (officialese, impersonal) · neutral · informal/everyday (speech-like, filler words) · Sociolect: language use linked to a social group (age, occupation, class) · Register: the level of style a person deliberately chooses depending on the situation · Sentence structure: short sentences give terseness/drive, long ones give thoughtfulness/formality · Personification: human traits attributed to non-human phenomena · Word choice determines the stylistic impression just as much as grammar."
+    },
+    {
+      "id": "q-sv3-stilistik-9",
+      "kind": "mc",
+      "topic": "levels of style",
+      "prompt": "Which sentence is written at a clearly NEUTRAL level of style, neither markedly formal nor everyday?",
+      "opener": "Look for the sentence that has neither officialese nor speech-like filler words.",
+      "choices": [
+        "Mötet är planerat till klockan tio på torsdag. (\"The meeting is scheduled for ten o'clock on Thursday.\")",
+        "Härmed inkallas ni till sammanträde klockan tio på torsdagen den nionde. (\"You are hereby summoned to a meeting at ten o'clock on Thursday the ninth.\")",
+        "Vi ses typ tio-ish på torsdag, okej? (\"See you like ten-ish on Thursday, okay?\")",
+        "Torsdag tio, fixar du det? (\"Thursday ten, can you sort that?\")"
+      ],
+      "answer": 0,
+      "explanation": "\"Mötet är planerat till klockan tio på torsdag\" is factual and clear without being either officialese-formal or speech-like everyday, which makes it an example of a neutral level of style. The other options clearly lean toward either the formal or the everyday end."
+    },
+    {
+      "id": "q-sv3-stilistik-10",
+      "kind": "mc",
+      "topic": "stylistic devices",
+      "prompt": "A text describes rain as having \"fallit som nålar mot marken\" (\"fallen like needles against the ground\"). Which stylistic device is used here?",
+      "opener": "The word \"like\" (\"som\") signals a comparison between two different things.",
+      "choices": [
+        "Simile (a comparison using a word like \"like\")",
+        "Metonymy",
+        "Euphemism",
+        "Anaphora"
+      ],
+      "answer": 0,
+      "explanation": "A simile explicitly compares two different things using a comparing word such as \"like\" — here the raindrops are compared to needles. Metonymy would instead involve replacing a word with a closely related concept."
+    },
+    {
+      "id": "q-sv3-stilistik-11",
+      "kind": "mc",
+      "topic": "sociolect and register",
+      "prompt": "A doctor uses technical jargon with colleagues but explains the same information with simpler words for a patient. Is this an example of sociolect or register?",
+      "opener": "Consider whether this is about which group the doctor belongs to, or a deliberate choice depending on the situation.",
+      "choices": [
+        "Register, since the doctor deliberately switches style depending on the situation and recipient",
+        "Sociolect, since the doctor belongs to a professional group",
+        "Neither register nor sociolect",
+        "Both register and sociolect in exactly the same way"
+      ],
+      "answer": 0,
+      "explanation": "This is an example of register, since the same doctor deliberately switches linguistic style depending on who they are talking to. The doctor's technical jargon itself could be seen as a sociolect linked to the profession, but the actual switching between situations is register."
+    },
+    {
+      "id": "q-sv3-stilistik-12",
+      "kind": "mc",
+      "topic": "stylistic devices",
+      "prompt": "Which of the following word pairs most clearly shows a difference in level of style, from formal to everyday?",
+      "opener": "A pair should consist of two different words with the same meaning but different stylistic value.",
+      "choices": [
+        "\"Erhålla\" (\"to obtain\") compared with \"få\" (\"to get\")",
+        "\"Hus\" (\"house\") compared with \"hus\" (\"house\")",
+        "\"Springa\" (\"to run\") compared with \"springa\" (\"to run\")",
+        "\"Bil\" (\"car\") compared with \"bil\" (\"car\")"
+      ],
+      "answer": 0,
+      "explanation": "\"Erhålla\" is a clearly formal word while \"få\" is its everyday equivalent, which makes the pair a good example of a stylistic-level difference. The other pairs compare the same word with itself and therefore show no stylistic difference at all."
+    },
+    {
+      "id": "q-sv3-stilistik-13",
+      "kind": "mc",
+      "topic": "levels of style",
+      "prompt": "Which type of text would you normally expect to have a high, formal level of style?",
+      "opener": "Think about which text has the highest demands for precision and impersonality.",
+      "choices": [
+        "A court verdict or a government decision",
+        "A text message between close friends",
+        "A chat on a social forum for teenagers",
+        "A spoken comment during a football match among friends"
+      ],
+      "answer": 0,
+      "explanation": "A court verdict or a government decision requires high precision and an impersonal, formal style to avoid misunderstanding. Text messages, chats among teenagers, and comments among friends instead allow a much more everyday level of style."
+    },
+    {
+      "id": "q-sv3-stilistik-14",
+      "kind": "mc",
+      "topic": "sociolect and register",
+      "prompt": "What is a typical difference between a sociolect linked to young people and one linked to an older generation?",
+      "opener": "Think about what tends to vary between generations' ways of speaking.",
+      "choices": [
+        "Differences in vocabulary, slang expressions, and sometimes pronunciation that signal belonging to the respective group",
+        "There are never any differences between generations' language use",
+        "Sociolects never change over time",
+        "Sociolect is only about written language, never spoken language"
+      ],
+      "answer": 0,
+      "explanation": "Different generations' sociolects often differ in vocabulary, slang expressions and sometimes pronunciation, which signals belonging to a particular age group. Sociolects also change over time and occur mainly in spoken language, although traits can show up in writing too."
+    },
+    {
+      "id": "q-sv3-stilistik-15",
+      "kind": "mc",
+      "topic": "stylistic devices",
+      "prompt": "Why might an author deliberately mix formal and everyday levels of style within the same text?",
+      "opener": "Think about what contrasts in language can be used to show.",
+      "choices": [
+        "To create contrast, for example to mark a class difference between characters or for comic effect",
+        "It is always a writing mistake that should be avoided",
+        "It automatically makes the text harder to understand for no purpose",
+        "Mixed levels of style are forbidden in fiction"
+      ],
+      "answer": 0,
+      "explanation": "Deliberately mixing levels of style can create contrast, for example to mark differences between characters or for comic effect, and is a common and accepted stylistic device in fiction rather than a mistake."
     }
   ]
 }
