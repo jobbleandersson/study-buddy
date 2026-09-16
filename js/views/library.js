@@ -203,7 +203,7 @@ export async function renderLibrary() {
     // Questions per session. Every run draws only from the moment you pick, so
     // the choices stop below the largest set here; "All" is always the full set.
     const maxCount = Math.max(0, ...sets.map((s) => s.count || 0));
-    const countOpts = [5, 10, 15, 20, 25, 30].filter((n) => n < maxCount);
+    const countOpts = [5, 10, 15, 20, 25, 30].filter((n) => n <= maxCount);
     const countSel = el("select", {
       id: "lib-qcount", "aria-label": t("lib.countLabel"),
       onchange: (e) => { state.qCount = Number(e.target.value) || 0; paint(); },
@@ -268,10 +268,12 @@ export async function renderLibrary() {
           },
         }, [icon(ICONS.plus, 16), t("lib.add")]);
 
+    // Exam mode always runs the full set — the question-count picker only
+    // applies to study mode, so it's deliberately left off this link.
     const examAction = imported
       ? el("button.btn.btn--ghost.btn--sm", {
           type: "button", title: t(state.examMin ? "lib.examTip" : "lib.examTipUntimed"),
-          onclick: () => { location.hash = `#/session/${entry.id}?exam=1${state.examMin ? `&min=${state.examMin}` : ""}${countQ ? `&count=${countQ}` : ""}`; },
+          onclick: () => { location.hash = `#/session/${entry.id}?exam=1${state.examMin ? `&min=${state.examMin}` : ""}`; },
         }, [icon(ICONS.clock, 16), t("lib.exam")])
       : null;
 

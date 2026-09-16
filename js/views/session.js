@@ -52,9 +52,10 @@ export async function renderSession(assignmentId, qs) {
 
   // ?count=N studies N questions from this set only — never from another set.
   // Fewer than the set has: a fresh random pick each run, so repeats see others.
+  // Exam mode always runs the full set, even if a count slipped into the URL.
   const allIds = assignment.questions.map((q) => q.id);
   const rawCount = Math.round(Number(qs?.get?.("count")));
-  const count = rawCount > 0 && rawCount < allIds.length ? rawCount : null;
+  const count = !examMode && rawCount > 0 && rawCount < allIds.length ? rawCount : null;
   const questionIds = count ? shuffled(allIds).slice(0, count) : allIds;
   const retryQuery = count ? (examQuery ? `${examQuery}&count=${count}` : `?count=${count}`) : examQuery;
 
