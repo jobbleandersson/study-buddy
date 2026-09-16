@@ -125,6 +125,111 @@
       "prompt": "Summarise how Sweden is governed: the Riksdag, the government, the head of state, municipality and region, elections, and the left-right scale.",
       "opener": "From the people's vote to decisions at national and local level.",
       "answer": "The Riksdag: 349 members elected by the people · decides on laws and the state budget · scrutinises the government · The government: the Prime Minister and ministers · governs the country, implements the Riksdag's decisions and submits government bills · Head of state: the King, a ceremonial role without political power (the 1974 Instrument of Government) · The path of a law: inquiry → consultation → government bill/motion → committee → debate and vote in the chamber → the law is promulgated and comes into force · Municipality: schools, preschools, elderly care, social services, water and waste, planning and building · Region: healthcare and regional public transport · The state: defence, foreign policy, police, courts · Elections: Riksdag, municipality and region every fourth year in September, right to vote at 18, proportional electoral system, four-per-cent threshold for the Riksdag; EU elections every fifth year · The left-right scale: a simplified tool for sorting political ideas, including on the state's role in the economy and the balance between shared solutions and individual responsibility — parties can position themselves differently on different issues."
+    },
+    {
+      "id": "q-sam8-pol-9",
+      "kind": "mc",
+      "topic": "the Riksdag, the government and the head of state",
+      "prompt": "Who proposes a candidate for Prime Minister after an election in Sweden?",
+      "opener": "This person also leads the Riksdag's work from the speaker's chair.",
+      "choices": [
+        "The King appoints the Prime Minister directly on his own",
+        "Voters vote directly for the Prime Minister on the ballot",
+        "The Prime Minister is appointed by the European Commission",
+        "The Speaker proposes a candidate for Prime Minister, whom the Riksdag then votes on"
+      ],
+      "answer": 3,
+      "explanation": "After an election, it is the Speaker who holds talks with the party leaders and then proposes a candidate for Prime Minister, whom the Riksdag votes on. Voters vote for parties, not directly for a Prime Minister, and neither the King nor the European Commission has any role in the appointment."
+    },
+    {
+      "id": "q-sam8-pol-10",
+      "kind": "mc",
+      "topic": "from bill to law",
+      "prompt": "What is the type of public inquiry called that often precedes a new Swedish bill?",
+      "opener": "The abbreviation consists of three letters.",
+      "choices": [
+        "A municipal referendum",
+        "An EU regulation",
+        "A royal decree",
+        "A government official inquiry (SOU)"
+      ],
+      "answer": 3,
+      "explanation": "A government official inquiry, abbreviated SOU, is a common part of the legislative process, in which a committee or a special investigator gathers facts and drafts proposals ahead of a government bill. Municipal referendums, EU regulations and royal decrees are entirely different types of decisions and are not part of the Swedish legislative process in that way."
+    },
+    {
+      "id": "q-sam8-pol-11",
+      "kind": "mc",
+      "topic": "municipality and region",
+      "prompt": "Who leads a municipality's political work between elections?",
+      "opener": "Think about the local equivalents of the Riksdag and the government.",
+      "choices": [
+        "The head of the county administrative board, appointed by the government",
+        "Officials alone, without political direction",
+        "The Riksdag directly",
+        "The municipal council and a municipal executive board made up of politicians elected in the municipal election"
+      ],
+      "answer": 3,
+      "explanation": "The municipal council is the municipality's highest decision-making body, elected by residents in the municipal election, and it in turn appoints a municipal executive board that leads the ongoing work. The head of the county administrative board is a state official without that role, and the Riksdag doesn't govern municipalities directly."
+    },
+    {
+      "id": "q-sam8-pol-12",
+      "kind": "mc",
+      "topic": "elections and the electoral system",
+      "prompt": "What does the Swedish electoral system's four-per-cent threshold mean?",
+      "opener": "The threshold decides whether a small party enters the Riksdag or not.",
+      "choices": [
+        "Only four parties are allowed to run in each election",
+        "The election is held four times during one term",
+        "Only four per cent of the population is allowed to vote",
+        "A party must get at least four per cent of the votes nationwide to enter the Riksdag"
+      ],
+      "answer": 3,
+      "explanation": "The four-per-cent threshold means a party must receive at least four per cent of the votes at the national level to gain seats in the Riksdag, which is meant to prevent the Riksdag from splintering into too many small parties. There's no limit on how many parties may run or how often elections are held, and the right to vote applies to everyone eligible, not just four per cent."
+    },
+    {
+      "id": "q-sam8-pol-13",
+      "kind": "mc",
+      "topic": "the left-right scale",
+      "prompt": "Which issue is traditionally linked to the left-right scale in Swedish politics?",
+      "opener": "The scale is often about who should control resources in society.",
+      "choices": [
+        "Which football team the politicians support",
+        "Which season the election is held in",
+        "How many children a politician has",
+        "How much of the economy should be controlled by the state versus the market"
+      ],
+      "answer": 3,
+      "explanation": "A central issue on the left-right scale is how large a role the state should have in the economy compared with the market, for example regarding taxes, the public sector and redistribution. Football teams, the season of the election, and the number of children a politician has have nothing to do with political ideology or the scale."
+    },
+    {
+      "id": "q-sam8-pol-14",
+      "kind": "mc",
+      "topic": "the Riksdag, the government and the head of state",
+      "prompt": "How many members does the Swedish Riksdag have?",
+      "opener": "The number is odd, so an even vote count is not normally supposed to end in an exact tie.",
+      "choices": [
+        "129",
+        "500",
+        "101",
+        "349"
+      ],
+      "answer": 3,
+      "explanation": "The Swedish Riksdag has 349 members, a deliberately odd number to reduce the risk of tied votes. The other numbers don't match the actual number of Riksdag seats."
+    },
+    {
+      "id": "q-sam8-pol-15",
+      "kind": "mc",
+      "topic": "municipality and region",
+      "prompt": "What are a region's main tasks in the Swedish political system?",
+      "opener": "Think about what belongs at the county level rather than the municipal or national level.",
+      "choices": [
+        "Running the country's defence",
+        "Passing new laws for the whole country",
+        "Passing judgement in criminal cases",
+        "Being responsible for healthcare and regional public transport"
+      ],
+      "answer": 3,
+      "explanation": "Regions, elected in regional elections, are mainly responsible for healthcare and for public transport within the county. Defence and legislation for the whole country are handled by the state and the Riksdag, and passing judgement in criminal cases is the courts' task."
     }
   ]
 }

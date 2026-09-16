@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta hur Sverige styrs: riksdag, regering, statschef, kommun och region, val samt höger-vänster-skalan.",
       "opener": "Från folkets röst till beslut på nationell och lokal nivå.",
       "answer": "Riksdagen: 349 ledamöter valda av folket · beslutar om lagar och statens budget · granskar regeringen · Regeringen: statsministern och statsråden · styr landet, verkställer riksdagens beslut och lämnar propositioner · Statschef: kungen, ceremoniell roll utan politisk makt (regeringsformen 1974) · Lagens väg: utredning → remiss → proposition/motion → utskott → debatt och votering i kammaren → lagen utfärdas och börjar gälla · Kommun: skola, förskola, äldreomsorg, socialtjänst, vatten och avfall, plan och bygg · Region: sjukvård och regional kollektivtrafik · Staten: försvar, utrikespolitik, polis, domstolar · Val: riksdag, kommun och region vart fjärde år i september, rösträtt vid 18 år, proportionellt valsystem, fyraprocentspärr till riksdagen; EU-val vart femte år · Höger-vänster-skalan: ett förenklat verktyg för att sortera politiska idéer, bland annat om statens roll i ekonomin och avvägningen mellan gemensamma lösningar och eget ansvar — partier kan ligga olika i olika frågor."
+    },
+    {
+      "id": "q-sam8-pol-9",
+      "kind": "mc",
+      "topic": "riksdag, regering och statschef",
+      "prompt": "Vem föreslår en statsministerkandidat efter ett val i Sverige?",
+      "opener": "Personen leder också riksdagens arbete från talarstolen.",
+      "choices": [
+        "Kungen utser statsministern direkt på egen hand",
+        "Väljarna röstar direkt på statsministern på valsedeln",
+        "Statsministern utses av EU-kommissionen",
+        "Talmannen föreslår en statsministerkandidat som riksdagen sedan röstar om"
+      ],
+      "answer": 3,
+      "explanation": "Efter ett val är det talmannen som håller samtal med partiledarna och sedan föreslår en statsministerkandidat, som riksdagen röstar om. Väljarna röstar på partier, inte direkt på en statsminister, och varken kungen eller EU-kommissionen har någon roll i utnämningen."
+    },
+    {
+      "id": "q-sam8-pol-10",
+      "kind": "mc",
+      "topic": "från lagförslag till lag",
+      "prompt": "Vad heter den typ av offentlig utredning som ofta föregår ett nytt svenskt lagförslag?",
+      "opener": "Förkortningen består av tre bokstäver.",
+      "choices": [
+        "En kommunal folkomröstning",
+        "En EU-förordning",
+        "Ett kungligt dekret",
+        "En statlig offentlig utredning (SOU)"
+      ],
+      "answer": 3,
+      "explanation": "En statlig offentlig utredning, förkortat SOU, är en vanlig del av lagstiftningsprocessen där en kommitté eller en särskild utredare tar fram fakta och förslag inför en proposition. Kommunala folkomröstningar, EU-förordningar och kungliga dekret är helt andra typer av beslut och hör inte till den svenska lagstiftningsprocessen på det sättet."
+    },
+    {
+      "id": "q-sam8-pol-11",
+      "kind": "mc",
+      "topic": "kommun och region",
+      "prompt": "Vem leder en kommuns politiska arbete mellan valen?",
+      "opener": "Tänk på de lokala motsvarigheterna till riksdag och regering.",
+      "choices": [
+        "Länsstyrelsens chef, som utses av regeringen",
+        "Enbart tjänstemän utan politisk styrning",
+        "Riksdagen direkt",
+        "Kommunfullmäktige och en kommunstyrelse med politiker valda i kommunvalet"
+      ],
+      "answer": 3,
+      "explanation": "Kommunfullmäktige är kommunens högsta beslutande församling, vald av invånarna i kommunvalet, och utser i sin tur en kommunstyrelse som leder det löpande arbetet. Länsstyrelsens chef är en statlig tjänsteman utan den rollen, och riksdagen styr inte kommunerna direkt."
+    },
+    {
+      "id": "q-sam8-pol-12",
+      "kind": "mc",
+      "topic": "val och valsystem",
+      "prompt": "Vad innebär det svenska valsystemets fyraprocentsspärr?",
+      "opener": "Spärren avgör om ett litet parti kommer in i riksdagen eller inte.",
+      "choices": [
+        "Bara fyra partier får ställa upp i varje val",
+        "Valet hålls fyra gånger under en mandatperiod",
+        "Bara fyra procent av befolkningen får rösta",
+        "Ett parti måste få minst fyra procent av rösterna i hela landet för att komma in i riksdagen"
+      ],
+      "answer": 3,
+      "explanation": "Fyraprocentsspärren betyder att ett parti måste få minst fyra procent av rösterna på riksnivå för att få mandat i riksdagen, vilket ska förhindra att riksdagen splittras i alltför många små partier. Det finns ingen begränsning på hur många partier som får ställa upp eller hur ofta val hålls, och rösträtt gäller alla röstberättigade, inte bara fyra procent."
+    },
+    {
+      "id": "q-sam8-pol-13",
+      "kind": "mc",
+      "topic": "höger-vänster-skalan",
+      "prompt": "Vilken fråga brukar traditionellt kopplas till höger-vänster-skalan i svensk politik?",
+      "opener": "Skalan handlar ofta om vem som ska styra över resurserna i samhället.",
+      "choices": [
+        "Vilket fotbollslag politikerna håller på",
+        "Vilken årstid valet hålls",
+        "Hur många barn en politiker har",
+        "Hur stor del av ekonomin som ska styras av staten respektive av marknaden"
+      ],
+      "answer": 3,
+      "explanation": "En central fråga på höger-vänster-skalan är hur stor roll staten ska ha i ekonomin jämfört med marknaden, till exempel när det gäller skatter, offentlig sektor och omfördelning. Fotbollslag, årstid för val och antal barn har ingenting att göra med politisk ideologi eller skalan."
+    },
+    {
+      "id": "q-sam8-pol-14",
+      "kind": "mc",
+      "topic": "riksdag, regering och statschef",
+      "prompt": "Hur många ledamöter har Sveriges riksdag?",
+      "opener": "Talet är udda, så att en jämn rösträkning normalt inte ska ge exakt oavgjort.",
+      "choices": [
+        "129",
+        "500",
+        "101",
+        "349"
+      ],
+      "answer": 3,
+      "explanation": "Sveriges riksdag har 349 ledamöter, ett medvetet udda tal för att minska risken för jämna röstetal vid omröstningar. De andra talen stämmer inte med det faktiska antalet mandat i riksdagen."
+    },
+    {
+      "id": "q-sam8-pol-15",
+      "kind": "mc",
+      "topic": "kommun och region",
+      "prompt": "Vad är en regions huvuduppgifter i det svenska politiska systemet?",
+      "opener": "Tänk på vad som hör hemma på länsnivå snarare än på kommun- eller riksnivå.",
+      "choices": [
+        "Att sköta rikets försvar",
+        "Att stifta nya lagar för hela landet",
+        "Att döma i brottmål",
+        "Att ansvara för sjukvård och regional kollektivtrafik"
+      ],
+      "answer": 3,
+      "explanation": "Regionerna, som väljs i regionval, ansvarar framför allt för hälso- och sjukvård samt för kollektivtrafiken inom länet. Försvar och lagstiftning för hela landet sköts av staten och riksdagen, och att döma i brottmål är domstolarnas uppgift."
     }
   ]
 }

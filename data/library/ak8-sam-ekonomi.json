@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta samhällsekonomins grunder: kretsloppet, skatter och välfärd, prisbildning, arbetsmarknaden och konjunkturen.",
       "opener": "Från kretsloppets aktörer till svängningarna i ekonomin.",
       "answer": "Ekonomiska kretsloppet: hushåll säljer arbete och får lön · hushåll konsumerar hos företag · hushåll och företag betalar skatt · offentlig sektor betalar välfärd, bidrag och offentliga löner · banker förmedlar sparande och lån · Skatter: direkta (inkomstskatt, bolagsskatt) och indirekta (moms, punktskatter) · finansierar skola, sjukvård, omsorg, socialförsäkringar och infrastruktur · Utbud och efterfrågan: priset bildas där köpare och säljare möts · ökad efterfrågan vid oförändrat utbud → högre pris · stort utbud och svag efterfrågan → lägre pris · Arbetsmarknaden: fackförbund företräder anställda, arbetsgivarorganisationer företräder arbetsgivare, tillsammans arbetsmarknadens parter · förhandlingarna leder ofta till kollektivavtal · Högkonjunktur: hög efterfrågan, ökad produktion, fler nyanställningar, låg arbetslöshet · Lågkonjunktur: sjunkande efterfrågan och produktion, färre investeringar, stigande arbetslöshet · ekonomin svänger mellan dessa lägen i konjunktursvängningar."
+    },
+    {
+      "id": "q-sam8-eko-9",
+      "kind": "mc",
+      "topic": "skatter och välfärd",
+      "prompt": "Vad kallas ett skattesystem där den som tjänar mer betalar en högre andel av inkomsten i skatt?",
+      "opener": "Ordet syftar på att skatteandelen ökar i takt med inkomsten.",
+      "choices": [
+        "Regressiv beskattning",
+        "Platt skatt",
+        "Momsbaserad beskattning",
+        "Progressiv beskattning"
+      ],
+      "answer": 3,
+      "explanation": "Progressiv beskattning innebär att skattesatsen stiger med inkomsten, så att den som tjänar mer betalar en högre andel i skatt, vilket bland annat gäller den svenska statliga inkomstskatten. En platt skatt har i stället samma skattesats oavsett inkomst, och regressiv beskattning innebär att andelen sjunker med högre inkomst."
+    },
+    {
+      "id": "q-sam8-eko-10",
+      "kind": "mc",
+      "topic": "arbetsmarknad och parter",
+      "prompt": "Vad är ett kollektivavtal?",
+      "opener": "Avtalet gäller en hel grupp anställda, inte bara en enskild person.",
+      "choices": [
+        "Ett avtal som bara gäller en enskild anställd",
+        "En lag som riksdagen beslutar om löner",
+        "Ett avtal mellan två länder om handel",
+        "Ett avtal mellan fackförbund och arbetsgivare om löner och andra anställningsvillkor"
+      ],
+      "answer": 3,
+      "explanation": "Ett kollektivavtal är ett avtal som ett fackförbund förhandlar fram med en arbetsgivare eller arbetsgivarorganisation, och som reglerar löner, arbetstider och andra villkor för en hel grupp anställda. Det är alltså inte en lag som riksdagen stiftar, inte ett avtal mellan länder, och det omfattar fler än en enskild anställd."
+    },
+    {
+      "id": "q-sam8-eko-11",
+      "kind": "mc",
+      "topic": "utbud och efterfrågan",
+      "prompt": "Vad händer vanligtvis med priset på en vara om utbudet ökar kraftigt medan efterfrågan är oförändrad?",
+      "opener": "Fler säljare vill bli av med samma mängd köpare.",
+      "choices": [
+        "Priset tenderar att stiga",
+        "Priset påverkas inte alls",
+        "Varan blir automatiskt olaglig att sälja",
+        "Priset tenderar att sjunka"
+      ],
+      "answer": 3,
+      "explanation": "När utbudet av en vara ökar utan att fler vill köpa den, brukar säljarna behöva sänka priset för att bli av med varorna — priset tenderar alltså att sjunka. Att priset skulle stiga eller vara helt opåverkat stämmer inte med hur utbud och efterfrågan samspelar på en marknad."
+    },
+    {
+      "id": "q-sam8-eko-12",
+      "kind": "mc",
+      "topic": "konjunktur",
+      "prompt": "Vad kan Riksbanken göra för att bromsa en överhettad högkonjunktur med hög inflation?",
+      "opener": "Tänk på vad som gör det dyrare respektive billigare att låna pengar.",
+      "choices": [
+        "Sänka räntan till noll för att öka konsumtionen ännu mer",
+        "Stänga alla banker under en period",
+        "Trycka mer sedlar utan någon begränsning",
+        "Höja styrräntan för att göra det dyrare att låna och därmed dämpa konsumtionen"
+      ],
+      "answer": 3,
+      "explanation": "Genom att höja styrräntan gör Riksbanken det dyrare att låna pengar och mer lönsamt att spara, vilket brukar dämpa konsumtion och investeringar och därmed bromsa en överhettad ekonomi och hög inflation. Att sänka räntan till noll eller trycka obegränsat med sedlar skulle i stället elda på inflationen ytterligare."
+    },
+    {
+      "id": "q-sam8-eko-13",
+      "kind": "mc",
+      "topic": "det ekonomiska kretsloppet",
+      "prompt": "Vilken roll spelar banker i det ekonomiska kretsloppet?",
+      "opener": "Tänk på vad som händer med pengar som hushåll sätter in på ett sparkonto.",
+      "choices": [
+        "De bestämmer alla priser i butiker",
+        "De betalar ut alla löner i landet",
+        "De ersätter riksdagen som lagstiftare",
+        "De förmedlar sparande från hushåll till lån för företag och andra hushåll"
+      ],
+      "answer": 3,
+      "explanation": "Banker tar emot sparande från hushåll och företag och lånar ut pengarna vidare till andra hushåll och företag som vill investera eller köpa något, vilket gör dem till en viktig länk i det ekonomiska kretsloppet. De bestämmer inte butikspriser, betalar inte ut löner åt andra och har ingen lagstiftande roll."
+    },
+    {
+      "id": "q-sam8-eko-14",
+      "kind": "mc",
+      "topic": "skatter och välfärd",
+      "prompt": "Vilket av följande finansieras huvudsakligen av skatteintäkter i Sverige?",
+      "opener": "Tänk på vad som är gemensamt finansierat och tillgängligt för alla, oavsett inkomst.",
+      "choices": [
+        "Ett privat företags vinst",
+        "En enskild persons sparkonto",
+        "Aktieutdelningar till privata aktieägare",
+        "Grundskolan"
+      ],
+      "answer": 3,
+      "explanation": "Grundskolan är en av de tjänster som huvudsakligen finansieras gemensamt genom skatteintäkter, så att alla barn kan gå i skolan oavsett familjens inkomst. Ett företags vinst, ett privat sparkonto och aktieutdelningar är i stället privat ekonomi som visserligen kan beskattas, men som inte i sig är skattefinansierad verksamhet."
+    },
+    {
+      "id": "q-sam8-eko-15",
+      "kind": "mc",
+      "topic": "arbetsmarknad och parter",
+      "prompt": "Vad kallas det när anställda lägger ner arbetet som påtryckningsmedel i en arbetsmarknadskonflikt?",
+      "opener": "Ordet kommer från franskans strejk, ursprungligen \"göra strand\" — det vill säga sluta arbeta.",
+      "choices": [
+        "Statskupp",
+        "Folkomröstning",
+        "Remiss",
+        "Strejk"
+      ],
+      "answer": 3,
+      "explanation": "En strejk är när anställda gemensamt slutar arbeta för att sätta press på arbetsgivaren i en konflikt, till exempel om löner eller villkor. En statskupp handlar om att med olagliga medel ta makten i ett land, en folkomröstning är en omröstning bland medborgarna, och en remiss är ett steg i lagstiftningsprocessen — inget av dem har med arbetsmarknadskonflikter att göra."
     }
   ]
 }

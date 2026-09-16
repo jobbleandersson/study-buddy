@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta EU, FN, internationellt samarbete och globalisering samt hur Sverige berörs.",
       "opener": "Från Bryssel till New York — och hela världens sammanlänkning.",
       "answer": "EU: politiskt och ekonomiskt samarbete mellan 27 europeiska länder · Sverige medlem sedan 1995 efter folkomröstning 1994 · behöll kronan efter eurofolkomröstningen 2003 · Institutioner: kommissionen föreslår lagar (en kommissionär per land) · Europaparlamentet väljs direkt av väljarna vart femte år (Sverige har 21 ledamöter) · ministerrådet består av medlemsländernas ministrar · Europeiska rådet samlar stats- och regeringscheferna · EU-domstolen tolkar EU-rätten · Inre marknaden: de fyra friheterna — fri rörlighet för varor, tjänster, kapital och personer · påverkar Sverige genom handel, arbete och studier utomlands, konsumentskydd och miljöregler · FN: bildat 1945 · arbetar för fred och säkerhet, mänskliga rättigheter, katastrofhjälp och hållbar utveckling (Agenda 2030) · generalförsamlingen = en röst per medlemsstat, säkerhetsrådet kan besluta om sanktioner och fredsinsatser · Internationellt samarbete: Parisavtalet 2015 om klimatet, WTO om handelsregler, fredsbevarande insatser · behövs eftersom problem som klimat, pandemier och konflikter går över gränserna · Globalisering: länder och människor knyts närmare varandra genom handel, teknik, transporter och information · möjligheter (utbud, kunskapsutbyte, minskad fattigdom i delar av världen) och problem (jobb flyttar, kriser sprids snabbt, utsläpp och arbetsvillkor svåra att kontrollera)."
+    },
+    {
+      "id": "q-sam8-eu-9",
+      "kind": "mc",
+      "topic": "vad EU är",
+      "prompt": "Vilken är EU:s gemensamma valuta, som används av de flesta men inte alla medlemsländer?",
+      "opener": "Sverige har valt att inte införa den.",
+      "choices": [
+        "Dollarn",
+        "Kronan",
+        "Pundet",
+        "Euron"
+      ],
+      "answer": 3,
+      "explanation": "Euron är EU:s gemensamma valuta och används av majoriteten av medlemsländerna, men inte av alla — Sverige har till exempel behållit den svenska kronan. Dollarn är USA:s valuta och pundet Storbritanniens, och Storbritannien är dessutom inte längre EU-medlem."
+    },
+    {
+      "id": "q-sam8-eu-10",
+      "kind": "mc",
+      "topic": "EU och Sverige",
+      "prompt": "Vilket år blev Sverige medlem i EU?",
+      "opener": "Medlemskapet föregicks av en folkomröstning året innan.",
+      "choices": [
+        "1972",
+        "2003",
+        "1945",
+        "1995"
+      ],
+      "answer": 3,
+      "explanation": "Sverige blev medlem i EU 1995, efter en folkomröstning 1994 där en majoritet röstade ja. År 2003 hölls i stället folkomröstningen om euron, som blev nej, 1972 är innan medlemskapet, och 1945 är det år FN bildades."
+    },
+    {
+      "id": "q-sam8-eu-11",
+      "kind": "mc",
+      "topic": "FN:s uppgifter",
+      "prompt": "Vilket FN-organ kan besluta om sanktioner och fredsbevarande insatser?",
+      "opener": "Organet har ett fåtal permanenta medlemmar med vetorätt.",
+      "choices": [
+        "Generalförsamlingen enbart",
+        "EU-kommissionen",
+        "Nato",
+        "Säkerhetsrådet"
+      ],
+      "answer": 3,
+      "explanation": "Säkerhetsrådet är det FN-organ som kan besluta om bindande sanktioner och fredsbevarande insatser, med fem permanenta medlemmar som har vetorätt. Generalförsamlingen kan anta resolutioner men saknar samma bindande makt, och varken EU-kommissionen eller Nato är FN-organ."
+    },
+    {
+      "id": "q-sam8-eu-12",
+      "kind": "mc",
+      "topic": "internationellt samarbete",
+      "prompt": "Vad står förkortningen WTO för, en organisation som arbetar med internationella handelsregler?",
+      "opener": "De två sista bokstäverna avslöjar att det handlar om en organisation.",
+      "choices": [
+        "Världshälsoorganisationen",
+        "Världsbanken",
+        "Världsnaturfonden",
+        "Världshandelsorganisationen (World Trade Organization)"
+      ],
+      "answer": 3,
+      "explanation": "WTO, Världshandelsorganisationen, arbetar med att ta fram gemensamma regler för internationell handel och lösa handelstvister mellan länder. Världshälsoorganisationen (WHO), Världsbanken och Världsnaturfonden (WWF) är andra internationella organisationer med helt andra huvuduppgifter."
+    },
+    {
+      "id": "q-sam8-eu-13",
+      "kind": "mc",
+      "topic": "globalisering",
+      "prompt": "Vilket av följande brukar nämnas som en möjlig nackdel med globalisering?",
+      "opener": "Tänk på vad som kan hända med arbetstillfällen när produktion lätt kan flyttas mellan länder.",
+      "choices": [
+        "Att handeln mellan länder minskar helt",
+        "Att alla länder blir exakt lika rika",
+        "Att internet slutar fungera",
+        "Att jobb inom vissa branscher flyttar till länder med lägre löner"
+      ],
+      "answer": 3,
+      "explanation": "En vanligt nämnd nackdel med globalisering är att företag kan flytta produktion och jobb till länder med lägre löner, vilket kan slå hårt mot vissa branscher i höginkomstländer. Globalisering innebär tvärtom att handeln ökar, den utjämnar inte automatiskt alla ländernas rikedom, och den har inget att göra med att internet skulle sluta fungera."
+    },
+    {
+      "id": "q-sam8-eu-14",
+      "kind": "mc",
+      "topic": "vad EU är",
+      "prompt": "Vad heter avtalet som gör att medborgare kan resa mellan de flesta EU-länder (samt några till) utan passkontroll vid gränserna?",
+      "opener": "Avtalet har fått sitt namn efter en liten by i Luxemburg där det undertecknades.",
+      "choices": [
+        "Parisavtalet",
+        "Lissabonfördraget",
+        "Romfördraget",
+        "Schengenavtalet"
+      ],
+      "answer": 3,
+      "explanation": "Schengenavtalet gör att medborgare kan resa mellan de flesta EU-länder och några ytterligare länder utan passkontroll vid de inre gränserna. Parisavtalet handlar om klimatet, Lissabonfördraget och Romfördraget är andra grundläggande EU-fördrag, men ingen av dem reglerar passfriheten på samma sätt."
+    },
+    {
+      "id": "q-sam8-eu-15",
+      "kind": "mc",
+      "topic": "EU och Sverige",
+      "prompt": "Har Sverige euro eller egen valuta som medlem i EU?",
+      "opener": "Frågan avgjordes i en folkomröstning 2003.",
+      "choices": [
+        "Sverige tvingades införa euro direkt vid medlemskapet",
+        "Sverige använder både euro och krona parallellt i alla butiker",
+        "Sverige har ingen egen valuta alls",
+        "Sverige har behållit den svenska kronan"
+      ],
+      "answer": 3,
+      "explanation": "Sverige har behållit den svenska kronan som valuta, eftersom en majoritet röstade nej till euron i folkomröstningen 2003. Sverige tvingades alltså inte införa euron vid medlemskapet, och kronan är fortfarande den valuta som används i vanliga svenska butiker."
     }
   ]
 }

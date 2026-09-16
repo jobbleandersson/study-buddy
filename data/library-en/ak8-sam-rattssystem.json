@@ -125,6 +125,111 @@
       "prompt": "Summarise the justice system: the actors, how a trial proceeds, the types of case, the sanctions and the causes of crime.",
       "opener": "From the report to the sanction being carried out — and why crimes are committed.",
       "answer": "Actors: the police investigate and arrest · the prosecutor leads the preliminary investigation in more serious crimes and decides whether to bring charges · the court (district court, court of appeal, Supreme Court) passes judgement · the Prison and Probation Service runs prisons and remand centres and manages probation · The course of a trial in a criminal case: report → preliminary investigation → charges → main hearing in the district court → verdict → the sanction is carried out · an appeal goes to the court of appeal and in some cases the Supreme Court · In the courtroom: a legally qualified judge, usually three lay judges, a prosecutor, the accused with a defence lawyer, the injured party with legal counsel, witnesses under oath · Criminal cases: the prosecutor charges someone with a crime on behalf of the state · Civil cases: two private parties disagreeing over a contract, money or property, no prosecutor · Sanctions: fines, a conditional sentence (often with community service), probation, prison; for young people under 18, usually youth care or youth service · The purposes of punishment: marking society's boundaries, deterrence, protecting others and giving a chance for rehabilitation · Causes of crime: several contributing factors — upbringing, failure at school, unemployment, substance abuse, mental ill health, peer group, opportunity and risk of detection."
+    },
+    {
+      "id": "q-sam8-rat-9",
+      "kind": "mc",
+      "topic": "actors in the justice system",
+      "prompt": "Who represents the accused person's interests in a trial?",
+      "opener": "This person must safeguard the accused's rights, not the state's.",
+      "choices": [
+        "The prosecutor",
+        "The legal counsel for the injured party",
+        "The lay judge",
+        "The defence lawyer"
+      ],
+      "answer": 3,
+      "explanation": "The defence lawyer represents and safeguards the accused's rights throughout the legal process. The prosecutor instead represents the state and must prove guilt, the legal counsel for the injured party supports the victim of the crime, and lay judges are laypeople who decide the case together with the judge."
+    },
+    {
+      "id": "q-sam8-rat-10",
+      "kind": "mc",
+      "topic": "criminal cases and civil cases",
+      "prompt": "What can the outcome be in a civil case, unlike in a criminal case?",
+      "opener": "Civil cases are rarely about punishment but about who is in the right in a disagreement.",
+      "choices": [
+        "That one party is automatically sent to prison",
+        "That both parties are always fully acquitted without further ado",
+        "That the police arrest both parties directly in the courtroom",
+        "That a party is, for example, ordered to pay damages or fulfil a contract, instead of being sentenced to a punishment"
+      ],
+      "answer": 3,
+      "explanation": "In a civil case the court settles a dispute between two private parties, and the outcome can be that one party, for example, has to pay damages, fulfil a contract or pay a debt — no punishment is imposed as in a criminal case. Prison, arrests in the courtroom and automatic acquittal are not part of how civil cases are decided."
+    },
+    {
+      "id": "q-sam8-rat-11",
+      "kind": "mc",
+      "topic": "sanctions and the purposes of punishment",
+      "prompt": "What is one of the purposes of punishment in Swedish legal tradition, besides marking society's boundary?",
+      "opener": "Think about what should happen to the convicted person after serving their sentence.",
+      "choices": [
+        "Always maximising suffering for the convicted person",
+        "Entirely replacing the need for police investigations",
+        "Making sure the crime is never mentioned again",
+        "Giving the convicted person a chance to be rehabilitated into a life without crime"
+      ],
+      "answer": 3,
+      "explanation": "One purpose of punishment is rehabilitation: that after serving their sentence, the convicted person should have the conditions to live a life without crime, for example through measures within the Prison and Probation Service. Punishment does not aim to maximise suffering, and it neither replaces police investigations nor means the crime can never be mentioned again."
+    },
+    {
+      "id": "q-sam8-rat-12",
+      "kind": "mc",
+      "topic": "how a trial proceeds",
+      "prompt": "What is the investigation called that the police and prosecutor carry out before any charges are brought?",
+      "opener": "The Swedish word begins with \"för-\" (\"pre-\"), since it happens before any trial.",
+      "choices": [
+        "Post-investigation",
+        "Main hearing",
+        "Appeal",
+        "Preliminary investigation"
+      ],
+      "answer": 3,
+      "explanation": "The preliminary investigation is the inquiry the police and prosecutor conduct to gather evidence and decide whether there is enough grounds to bring charges. The main hearing is the trial itself in the district court, and an appeal happens after a verdict has already been delivered."
+    },
+    {
+      "id": "q-sam8-rat-13",
+      "kind": "mc",
+      "topic": "causes of crime",
+      "prompt": "Which of the following is often mentioned as a factor that can increase the risk of someone turning to crime?",
+      "opener": "Think about what can cause a young person to lose contact with school and stable adults.",
+      "choices": [
+        "Finishing upper secondary school with good grades",
+        "Having a safe and stable home environment",
+        "Taking part in leisure activities with good leaders",
+        "Failure at school and social exclusion at a young age"
+      ],
+      "answer": 3,
+      "explanation": "Research points to failure at school and social exclusion at a young age as factors that, together with other risk factors, can increase the risk of a person later turning to crime. Good school results, a stable home environment and meaningful leisure activities are instead considered protective factors that reduce the risk."
+    },
+    {
+      "id": "q-sam8-rat-14",
+      "kind": "mc",
+      "topic": "actors in the justice system",
+      "prompt": "Which court can a verdict from the district court be appealed to?",
+      "opener": "It's the next step in the ordinary chain of courts.",
+      "choices": [
+        "The Supreme Court directly, with no intermediate step",
+        "The Court of Justice of the EU",
+        "The Riksdag",
+        "The court of appeal"
+      ],
+      "answer": 3,
+      "explanation": "A verdict from the district court can normally be appealed to the court of appeal, the next level in the ordinary chain of courts. The Supreme Court instead hears cases already decided by the court of appeal and usually requires special leave to appeal, while the Court of Justice of the EU and the Riksdag don't handle appeals of Swedish criminal cases in that way."
+    },
+    {
+      "id": "q-sam8-rat-15",
+      "kind": "mc",
+      "topic": "sanctions and the purposes of punishment",
+      "prompt": "Which sanction is most often used for young offenders under 18 in Sweden, instead of prison?",
+      "opener": "Swedish law tries to keep young people out of ordinary prisons as far as possible.",
+      "choices": [
+        "Life imprisonment",
+        "The death penalty",
+        "Deportation",
+        "Youth care or youth service"
+      ],
+      "answer": 3,
+      "explanation": "For young people under 18, special sanctions such as youth care or youth service are most often used instead of prison, since the legislation aims to avoid placing young people in ordinary prison environments. The death penalty is banned in Sweden, and neither life imprisonment nor deportation are typical sanctions for young offenders."
     }
   ]
 }

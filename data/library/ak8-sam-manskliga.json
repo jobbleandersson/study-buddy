@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta mänskliga rättigheter och jämlikhet: FN:s förklaring, barnkonventionen, diskrimineringsgrunderna, jämställdhet och grundlagsskyddade friheter.",
       "opener": "Från global förklaring till konkreta rättigheter i svensk lag.",
       "answer": "FN:s allmänna förklaring om de mänskliga rättigheterna: antagen av FN:s generalförsamling 10 december 1948 · rättigheterna är universella (gäller alla människor) och omistliga (kan inte förtjänas bort) · Barnkonventionen: antagen av FN 1989, ratificerad av Sverige 1990, svensk lag sedan 1 januari 2020 · gäller alla under 18 år · fyra grundprinciper: icke-diskriminering, barnets bästa, rätt till liv och utveckling, barnets rätt att bli hört · Diskrimineringsgrunderna i diskrimineringslagen: kön · könsöverskridande identitet eller uttryck · etnisk tillhörighet · religion eller annan trosuppfattning · funktionsnedsättning · sexuell läggning · ålder · skolor och arbetsgivare omfattas och ska göra skäliga anpassningar · anmälan kan göras till Diskrimineringsombudsmannen · Jämställdhet: samma rättigheter, skyldigheter och möjligheter för kvinnor och män · jämlikhet är det bredare begreppet om alla människors lika villkor · Grundlagsskyddade fri- och rättigheter: yttrandefrihet, informationsfrihet, mötes-, demonstrations-, förenings- och religionsfrihet · Sveriges fyra grundlagar: regeringsformen, successionsordningen, tryckfrihetsförordningen och yttrandefrihetsgrundlagen · friheterna har vissa gränser, t.ex. förbud mot hets mot folkgrupp."
+    },
+    {
+      "id": "q-sam8-man-9",
+      "kind": "mc",
+      "topic": "diskrimineringsgrunderna",
+      "prompt": "Vilken myndighet i Sverige tar emot anmälningar om diskriminering?",
+      "opener": "Myndighetens namn beskriver direkt vad den arbetar mot.",
+      "choices": [
+        "Skatteverket",
+        "Trafikverket",
+        "Migrationsverket",
+        "Diskrimineringsombudsmannen (DO)"
+      ],
+      "answer": 3,
+      "explanation": "Diskrimineringsombudsmannen, DO, är den myndighet i Sverige som tar emot anmälningar om diskriminering och arbetar för att diskrimineringslagen ska följas. Skatteverket, Trafikverket och Migrationsverket arbetar i stället med skatter, vägar och trafik respektive migration, och har ingen sådan roll."
+    },
+    {
+      "id": "q-sam8-man-10",
+      "kind": "mc",
+      "topic": "barnkonventionen",
+      "prompt": "Vilken av barnkonventionens fyra grundprinciper handlar specifikt om att barn ska få uttrycka sin åsikt i frågor som rör dem?",
+      "opener": "Skilj den från principen om att barnets bästa ska komma i första rummet vid beslut.",
+      "choices": [
+        "Icke-diskriminering",
+        "Rätten till liv och utveckling",
+        "Barnets bästa i alla beslut",
+        "Barnets rätt att bli hört"
+      ],
+      "answer": 3,
+      "explanation": "Principen om barnets rätt att bli hört innebär att barn ska få uttrycka sin åsikt i frågor som rör dem, och att åsikten ska beaktas utifrån ålder och mognad. De andra principerna handlar om att inte diskriminera, om rätten till liv och utveckling, och om att barnets bästa ska komma i främsta rummet vid beslut — en annan sak än att själv få komma till tals."
+    },
+    {
+      "id": "q-sam8-man-11",
+      "kind": "mc",
+      "topic": "FN:s allmänna förklaring",
+      "prompt": "Vad menas med att de mänskliga rättigheterna är odelbara?",
+      "opener": "Tänk på att rättigheterna hör ihop som en helhet.",
+      "choices": [
+        "Att en person bara kan ha en enda rättighet i taget",
+        "Att rättigheterna kan delas upp och säljas mellan länder",
+        "Att bara vissa rättigheter räknas som riktiga rättigheter",
+        "Att medborgerliga, politiska, ekonomiska, sociala och kulturella rättigheter hör ihop och är lika viktiga"
+      ],
+      "answer": 3,
+      "explanation": "Odelbarhet betyder att de olika typerna av mänskliga rättigheter — till exempel yttrandefrihet, rätten till utbildning och rätten till hälsa — hör ihop och är lika viktiga, så att man inte kan välja bort vissa och behålla andra. Rättigheterna kan alltså inte köpas, säljas eller rangordnas som mer eller mindre riktiga."
+    },
+    {
+      "id": "q-sam8-man-12",
+      "kind": "mc",
+      "topic": "jämställdhet",
+      "prompt": "Vad är ett exempel på en jämställdhetsfråga i arbetslivet?",
+      "opener": "Frågan handlar om att kön inte ska avgöra villkoren för samma arbetsinsats.",
+      "choices": [
+        "Att alla ska ha exakt samma yrke",
+        "Att bara kvinnor ska få jobba deltid",
+        "Att åldern ska avgöra lönen i stället för arbetsuppgifterna",
+        "Att kvinnor och män ska ha lika lön för lika eller likvärdigt arbete"
+      ],
+      "answer": 3,
+      "explanation": "Att kvinnor och män ska ha lika lön för lika eller likvärdigt arbete är en central jämställdhetsfråga i arbetslivet, eftersom löneskillnader mellan könen fortfarande finns i praktiken trots att de inte är tillåtna enligt lag. Jämställdhet handlar inte om att alla ska ha samma yrke, och deltidsarbete eller lön ska inte styras av kön eller ålder i sig."
+    },
+    {
+      "id": "q-sam8-man-13",
+      "kind": "mc",
+      "topic": "demokratiska fri- och rättigheter",
+      "prompt": "Vilken av Sveriges fyra grundlagar reglerar bland annat vem som ärver den svenska tronen?",
+      "opener": "Namnet på grundlagen ger en tydlig ledtråd.",
+      "choices": [
+        "Tryckfrihetsförordningen",
+        "Yttrandefrihetsgrundlagen",
+        "Regeringsformen enbart",
+        "Successionsordningen"
+      ],
+      "answer": 3,
+      "explanation": "Successionsordningen är den av Sveriges fyra grundlagar som reglerar tronföljden, alltså vem som ärver den svenska tronen. Tryckfrihetsförordningen och yttrandefrihetsgrundlagen handlar i stället om tryck- och yttrandefrihet, och regeringsformen reglerar statsskickets grunder i övrigt."
+    },
+    {
+      "id": "q-sam8-man-14",
+      "kind": "mc",
+      "topic": "diskrimineringsgrunderna",
+      "prompt": "Räknas ålder som en diskrimineringsgrund i den svenska diskrimineringslagen?",
+      "opener": "Tänk på om lagen skyddar alla åldrar eller bara vissa grupper.",
+      "choices": [
+        "Nej, ålder skyddas inte alls av lagen",
+        "Bara för personer under 18 år",
+        "Bara för personer över 65 år",
+        "Ja, ålder är en av de sju diskrimineringsgrunderna"
+      ],
+      "answer": 3,
+      "explanation": "Ålder är en av de sju diskrimineringsgrunderna i diskrimineringslagen och skyddar personer i alla åldrar, inte bara barn eller äldre. Lagen är alltså inte begränsad till en enda åldersgrupp."
+    },
+    {
+      "id": "q-sam8-man-15",
+      "kind": "mc",
+      "topic": "FN:s allmänna förklaring",
+      "prompt": "Ungefär hur många artiklar innehåller FN:s allmänna förklaring om de mänskliga rättigheterna?",
+      "opener": "Talet är runt och ganska lätt att minnas.",
+      "choices": [
+        "10",
+        "100",
+        "5",
+        "30"
+      ],
+      "answer": 3,
+      "explanation": "Den allmänna förklaringen om de mänskliga rättigheterna innehåller 30 artiklar, som tillsammans täcker allt från rätten till liv och frihet till rätten till utbildning och vila. De andra talen stämmer inte med det faktiska antalet artiklar."
     }
   ]
 }
