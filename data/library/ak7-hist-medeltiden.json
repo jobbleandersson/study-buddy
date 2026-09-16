@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta medeltidens samhälle i Europa.",
       "opener": "Tänk tidsperiod, samhällsordning, kyrkan, städerna och de stora händelserna.",
       "answer": "Medeltiden: ungefär 500–1500 e.Kr., från Västroms fall till renässansen · Feodalsamhället: kungen gav län (mark) till adeln, som lovade krigstjänst och trohet, och bönderna brukade jorden mot skatt och dagsverken · Ståndssamhället: de som bad (präster), de som stred (adel) och de som arbetade (bönder), senare även borgare i städerna · Kyrkans makt: katolska kyrkan var gemensam för hela Västeuropa, ägde mycket mark, tog in tionde och drev kloster och skolor där skrivkunskapen fanns · Städer och handel: städer växte kring marknader och hamnar, hantverkare organiserade sig i skrån, Hansan dominerade handeln i Östersjön med Lübeck och Visby som centrum · Digerdöden: pest som nådde Europa 1347 och Sverige 1350, ungefär en tredjedel av befolkningen dog, vilket gav brist på arbetskraft och på sikt bättre villkor för bönder · Korstågen: från 1096, kristna härar tågade mot Jerusalem och det heliga landet, vilket också ökade kontakterna och handeln mellan Europa och Mellanöstern."
+    },
+    {
+      "id": "q-hist7-med-9",
+      "kind": "mc",
+      "topic": "medeltiden som tidsperiod",
+      "prompt": "Vilken händelse brukar räknas som starten på medeltiden i Europa?",
+      "opener": "En stor rikets fall markerar ofta gränsen mellan antiken och medeltiden.",
+      "choices": [
+        "Digerdöden",
+        "Västroms fall år 476",
+        "Korstågens slut",
+        "Boktryckarkonstens uppfinning"
+      ],
+      "answer": 1,
+      "explanation": "Medeltiden räknas vanligtvis från Västroms fall år 476. Digerdöden inträffade i stället mitt i medeltiden, och boktryckarkonsten uppfanns i slutet av perioden, nära övergången till renässansen."
+    },
+    {
+      "id": "q-hist7-med-10",
+      "kind": "mc",
+      "topic": "feodalsamhället och ståndssamhället",
+      "prompt": "Vilka räknades till \"de som bad\" i ståndssamhället?",
+      "opener": "Denna grupp ledde gudstjänster och drev kloster och skolor.",
+      "choices": [
+        "Bönderna",
+        "Adeln",
+        "Prästerskapet",
+        "Borgarna"
+      ],
+      "answer": 2,
+      "explanation": "Prästerskapet, alltså kyrkans folk, räknades som \"de som bad\". Adeln var \"de som stred\" och bönderna \"de som arbetade\", medan borgarna i städerna kom att bilda ett fjärde stånd senare under medeltiden."
+    },
+    {
+      "id": "q-hist7-med-11",
+      "kind": "mc",
+      "topic": "kyrkans makt",
+      "prompt": "Vad var tionde under medeltiden?",
+      "opener": "Namnet avslöjar hur stor andel det handlade om.",
+      "choices": [
+        "En tiondel av skörden som lämnades till kyrkan",
+        "En tiondel av adelns mark",
+        "En skatt till kungen",
+        "En avgift för att gå i skola"
+      ],
+      "answer": 0,
+      "explanation": "Tionde var en avgift på en tiondel av skörden som bönderna lämnade till kyrkan, vilket gav kyrkan stora inkomster. Det var alltså inte en skatt till kungen eller en avgift kopplad till skolgång."
+    },
+    {
+      "id": "q-hist7-med-12",
+      "kind": "mc",
+      "topic": "städer och handel",
+      "prompt": "Vilken stad var Hansans ledande stad?",
+      "opener": "Staden ligger i norra Tyskland vid Östersjökusten.",
+      "choices": [
+        "Visby",
+        "Stockholm",
+        "Lübeck",
+        "Paris"
+      ],
+      "answer": 2,
+      "explanation": "Lübeck var Hansans ledande stad och drev samman handelsförbundet kring Nordsjön och Östersjön. Visby och Stockholm var viktiga handelsstäder inom Hansan, men det var Lübeck som ledde samarbetet."
+    },
+    {
+      "id": "q-hist7-med-13",
+      "kind": "mc",
+      "topic": "digerdöden",
+      "prompt": "Vilket år nådde digerdöden Sverige?",
+      "opener": "Sjukdomen kom till Europa 1347 och spred sig sedan norrut under några år.",
+      "choices": [
+        "1347",
+        "1350",
+        "1400",
+        "1096"
+      ],
+      "answer": 1,
+      "explanation": "Digerdöden nådde Sverige 1350, tre år efter att den först kommit till Europa 1347. Året 1096 hör i stället ihop med de första korstågen."
+    },
+    {
+      "id": "q-hist7-med-14",
+      "kind": "worked",
+      "topic": "kyrkans makt",
+      "prompt": "Förklara steg för steg varför kyrkan kunde ha så stort inflytande över vanliga människors vardagsliv under medeltiden.",
+      "opener": "Fundera på vad kyrkan var med vid i en människas liv, vad den ägde och vad den lärde ut.",
+      "answer": "Kyrkan var närvarande vid alla viktiga händelser i en människas liv — dop, giftermål och begravning — och alla förväntades vara medlemmar. Den ägde stora jordegendomar och tog in tionde, vilket gav ekonomisk makt. Den drev nästan alla skolor och kloster, vilket gav kyrkan nästan monopol på läs- och skrivkunnighet och därmed kontroll över kunskap. Eftersom kyrkan också lärde ut vad som väntade efter döden, hade den stort inflytande över människors tankar och beteende genom hela livet.",
+      "steps": [
+        "Kyrkan var med vid dop, giftermål och begravning, och nästan alla i Västeuropa förväntades vara medlemmar.",
+        "Genom att äga stora jordegendomar och ta in tionde fick kyrkan en stabil och stor ekonomisk grund.",
+        "Kyrkan drev de skolor och kloster som fanns, vilket gav den nästan monopol på läs- och skrivkunnighet.",
+        "Den som kontrollerade kunskapen och undervisningen kunde också forma hur människor tänkte.",
+        "Genom att lära ut vad som väntade efter döden fick kyrkan dessutom inflytande över människors moral och beteende i vardagen."
+      ]
+    },
+    {
+      "id": "q-hist7-med-15",
+      "kind": "mc",
+      "topic": "korstågen",
+      "prompt": "Vad var en vanlig följd av korstågen för handeln mellan Europa och Mellanöstern?",
+      "opener": "Tänk på vad som händer när stora arméer och pilgrimer reser långa sträckor och möter nya kulturer.",
+      "choices": [
+        "Handeln och kontakterna minskade helt",
+        "Kontakterna och handeln mellan Europa och Mellanöstern ökade",
+        "Alla handelsvägar stängdes",
+        "Handeln flyttade helt till Afrika"
+      ],
+      "answer": 1,
+      "explanation": "Trots att korstågen var krig ledde de också till ökade kontakter, kunskapsutbyte och handel mellan Europa och Mellanöstern, till exempel med kryddor, siden och nya idéer. Handeln minskade alltså inte, utan snarare tvärtom."
     }
   ]
 }

@@ -126,6 +126,111 @@
       "prompt": "Summarise the Renaissance, the printing press, the voyages of discovery and the Reformation.",
       "opener": "Four great changes during the same era — take them in turn.",
       "answer": "The Renaissance: about 1350-1600, began in northern Italy (Florence), means rebirth and meant that antiquity became a model in art, architecture and science · artists such as Leonardo da Vinci and Michelangelo, more lifelike people and perspective in paintings · Humanism: the human being, reason and earthly life at the centre, study of the texts of antiquity in the original · The printing press: Gutenberg around 1450, movable metal type made books cheap and quick to spread, which increased literacy and spread new ideas · The voyages of discovery: driven by the pursuit of sea routes to Asia's spices and silk, by wealth, power and mission, made possible by caravels, the compass and better maps · Vasco da Gama reached India in 1498 around Africa, Columbus reached America in 1492 believing it was Asia, Magellan's expedition sailed around the world in 1519-1522 · Consequences: colonies, silver and new crops to Europe, disease and a huge population decline among America's indigenous peoples, the transatlantic slave trade · The Reformation: Martin Luther in 1517 with 95 theses, criticism of indulgences, the Bible in the vernacular, Protestant churches founded — in Sweden the Reformation was carried out by Gustav Vasa through the Riksdag of Västerås in 1527."
+    },
+    {
+      "id": "q-hist7-upp-9",
+      "kind": "mc",
+      "topic": "the Renaissance",
+      "prompt": "In which country and city did the Renaissance begin?",
+      "opener": "The city is in northern Italy and was a wealthy trading centre with powerful merchant families.",
+      "choices": [
+        "France, Paris",
+        "Italy, Florence",
+        "England, London",
+        "Spain, Madrid"
+      ],
+      "answer": 1,
+      "explanation": "The Renaissance began in northern Italy, chiefly in Florence, where wealthy merchant families such as the Medici funded artists and scholars. From there, the ideas of the Renaissance spread to the rest of Europe."
+    },
+    {
+      "id": "q-hist7-upp-10",
+      "kind": "mc",
+      "topic": "humanism",
+      "prompt": "What did the humanists study especially eagerly?",
+      "opener": "They wanted to read the texts as they were originally written, not just summaries.",
+      "choices": [
+        "Only medieval chronicles",
+        "The texts of antiquity in the original",
+        "Future technology",
+        "Only religious writings"
+      ],
+      "answer": 1,
+      "explanation": "The humanists sought out and studied the Greek and Roman texts of antiquity in the original, gaining new knowledge of language, philosophy and science. They weren't limited to medieval chronicles or purely religious texts."
+    },
+    {
+      "id": "q-hist7-upp-11",
+      "kind": "mc",
+      "topic": "the printing press",
+      "prompt": "What did the printing press make possible that hadn't been possible before?",
+      "opener": "Think about the difference between copying a book by hand and printing many copies.",
+      "choices": [
+        "That books could be printed quickly and cheaply in many identical copies",
+        "That only the Church was allowed to read books",
+        "That handwritten books became more common",
+        "That books became more expensive than before"
+      ],
+      "answer": 0,
+      "explanation": "With movable metal type, many identical books could be printed quickly, making books cheaper and more accessible than when each copy was written by hand. More people, not just the Church's people, therefore gained access to books."
+    },
+    {
+      "id": "q-hist7-upp-12",
+      "kind": "mc",
+      "topic": "the voyages of discovery",
+      "prompt": "Who sailed around Africa and reached India by sea in 1498?",
+      "opener": "He was a Portuguese sailor and his voyage opened a new trade route to Asia.",
+      "choices": [
+        "Christopher Columbus",
+        "Vasco da Gama",
+        "Ferdinand Magellan",
+        "Marco Polo"
+      ],
+      "answer": 1,
+      "explanation": "Vasco da Gama sailed around the southern tip of Africa and reached India in 1498, opening a new sea route for trade with Asia. Columbus instead sailed westward and reached America, and Magellan's expedition sailed around the whole world a few decades later."
+    },
+    {
+      "id": "q-hist7-upp-13",
+      "kind": "mc",
+      "topic": "the encounter between Europe and America",
+      "prompt": "Why did the indigenous population of America decline sharply after the encounter with the Europeans?",
+      "opener": "The Europeans brought with them something invisible that the indigenous population had never encountered before.",
+      "choices": [
+        "Because of starvation alone",
+        "Diseases the Europeans brought with them, to which they had no immunity",
+        "Because of severe earthquakes",
+        "They moved voluntarily to Europe"
+      ],
+      "answer": 1,
+      "explanation": "Diseases such as smallpox and measles, brought by the Europeans, hit America's indigenous population extremely hard since they had no immunity to these diseases. This was the main reason for the sharp population decline, not starvation or earthquakes."
+    },
+    {
+      "id": "q-hist7-upp-14",
+      "kind": "worked",
+      "topic": "the printing press",
+      "prompt": "Explain step by step how the printing press contributed to the Reformation being able to spread so quickly in Europe.",
+      "opener": "Think about how long it took to spread a text before the printing press existed, and how that changed afterwards.",
+      "answer": "Before the printing press, books were expensive and rare since they were written by hand, which made it hard to spread new ideas quickly. Gutenberg's technique with movable metal type made it possible to print many identical copies of a text quickly and cheaply. When Martin Luther published his 95 theses and later writings, they could therefore be printed in large numbers and spread across Germany and Europe in a short time, meaning the ideas of the Reformation reached far more people than would have been possible just a few decades earlier.",
+      "steps": [
+        "Before the printing press, every book was written by hand, making books expensive, rare and slow to spread.",
+        "Gutenberg developed a technique with movable, reusable metal type around 1450.",
+        "This made it possible to print many identical copies of the same text in a short time at a lower cost.",
+        "When Luther published his 95 theses in 1517, they could be printed in large numbers and sent out across Germany and Europe.",
+        "The ideas of the Reformation therefore reached far more people in a short time than would have been possible with handwritten texts."
+      ]
+    },
+    {
+      "id": "q-hist7-upp-15",
+      "kind": "mc",
+      "topic": "the Reformation",
+      "prompt": "Who carried out the Reformation in Sweden, through the Riksdag of Västerås in 1527?",
+      "opener": "He became king of Sweden in 1523 after the war of liberation against Christian II.",
+      "choices": [
+        "Olof Skötkonung",
+        "Gustav Vasa",
+        "Martin Luther",
+        "Erik of Pomerania"
+      ],
+      "answer": 1,
+      "explanation": "Gustav Vasa carried out the Reformation in Sweden through the decisions made at the Riksdag of Västerås in 1527, which among other things gave him control over the Church's large properties. Martin Luther instead began the Reformation in Germany ten years earlier."
     }
   ]
 }

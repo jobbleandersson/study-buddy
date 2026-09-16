@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta vikingatiden och Sveriges väg till ett medeltida rike.",
       "opener": "Ta resor och handel, samhället, källorna, kristnandet och unionen i tur och ordning.",
       "answer": "Vikingatiden: ca 800–1050, avslutar järnåldern i Norden · Resor: svenska vikingar reste främst österut längs floderna genom dagens Ryssland till Miklagård (Konstantinopel), norrmän och islänningar västerut till Island, Grönland och Nordamerika, danskar och norrmän mot England och Frankrike · Handel: pälsverk, järn, skinn och slavar byttes mot silver, siden och glas — tusentals arabiska silvermynt har hittats i svensk jord · Handelsplatser: Birka i Mälaren, senare Sigtuna och Visby · Samhället: de flesta var bönder, ting fattade beslut och dömde, samhället var uppdelat i stormän, fria bönder och trälar · Runstenar: samtida källa, oftast minnesstenar med korta texter om namn, släkt, resor och tro · Kristnandet: Ansgar besökte Birka på 800-talet, Olof Skötkonung döptes omkring år 1000, processen tog över hundra år · Sveriges medeltid: kungamakt, kyrkoorganisation, skatter och landskapslagar byggde ett rike · Kalmarunionen 1397: Danmark, Norge och Sverige under samma regent, driven av drottning Margareta, upplöstes med Gustav Vasa 1523."
+    },
+    {
+      "id": "q-hist7-vik-9",
+      "kind": "mc",
+      "topic": "vikingatiden som tidsperiod",
+      "prompt": "Vilken period föregår vikingatiden i Norden?",
+      "opener": "Perioden kännetecknas av att järn blev vanligare och billigare.",
+      "choices": [
+        "Bronsåldern",
+        "Järnåldern",
+        "Medeltiden",
+        "Stenåldern"
+      ],
+      "answer": 1,
+      "explanation": "Vikingatiden räknas som slutet av järnåldern i Norden, innan medeltiden tar vid omkring 1050. Bronsåldern och stenåldern ligger båda mycket tidigare."
+    },
+    {
+      "id": "q-hist7-vik-10",
+      "kind": "mc",
+      "topic": "handel och resor",
+      "prompt": "Vilka varor tog vikingarna med sig hem från sina handelsresor österut?",
+      "opener": "Tusentals mynt av detta slag har hittats nedgrävda i svensk jord.",
+      "choices": [
+        "Silver och siden",
+        "Olja och gas",
+        "Majs och potatis",
+        "Kaffe och te"
+      ],
+      "answer": 0,
+      "explanation": "Vikingarna handlade till sig silver, siden och glas från öster i utbyte mot pälsverk, järn och slavar. Majs, potatis, kaffe och te kom till Europa långt senare, efter mötet med Amerika."
+    },
+    {
+      "id": "q-hist7-vik-11",
+      "kind": "mc",
+      "topic": "vikingarnas samhälle",
+      "prompt": "Vilken grupp i vikingatidens samhälle saknade frihet och rättigheter?",
+      "opener": "Denna grupp ägdes av någon annan och hade ingen rösträtt på tinget.",
+      "choices": [
+        "Fria bönder",
+        "Stormän",
+        "Trälar",
+        "Ting-ledamöter"
+      ],
+      "answer": 2,
+      "explanation": "Trälarna var ofria och ägdes av andra, utan rättigheter eller inflytande på tinget. Fria bönder och stormän hade däremot rätt att delta i tinget och fatta beslut."
+    },
+    {
+      "id": "q-hist7-vik-12",
+      "kind": "mc",
+      "topic": "runstenar som källa",
+      "prompt": "Vad ristades oftast på en runsten?",
+      "opener": "Texterna var korta, bara några rader.",
+      "choices": [
+        "Hela kungars levnadshistoria",
+        "Ett kort minnesmärke över en avliden person",
+        "Matrecept",
+        "Lagtexter för hela riket"
+      ],
+      "answer": 1,
+      "explanation": "De flesta runstenar restes som korta minnesmärken över en avliden person, ofta med namn, släktband och ibland en resa eller kristen tro nämnd. De innehöll aldrig hela historieböcker eller lagtexter — texterna var mycket kortfattade."
+    },
+    {
+      "id": "q-hist7-vik-13",
+      "kind": "mc",
+      "topic": "kristnandet av Sverige",
+      "prompt": "Vem var en tidig missionär som besökte Birka på 800-talet?",
+      "opener": "Han räknas som en av de första att sprida kristendomen i Norden.",
+      "choices": [
+        "Olof Skötkonung",
+        "Ansgar",
+        "Gustav Vasa",
+        "Erik av Pommern"
+      ],
+      "answer": 1,
+      "explanation": "Ansgar besökte Birka på 800-talet som en av de första kristna missionärerna i Norden. Olof Skötkonung var i stället en kung som döptes omkring år 1000, betydligt senare."
+    },
+    {
+      "id": "q-hist7-vik-14",
+      "kind": "worked",
+      "topic": "Sveriges medeltid och Kalmarunionen",
+      "prompt": "Förklara steg för steg vad Kalmarunionen var och varför den till slut upplöstes.",
+      "opener": "Börja med hur unionen bildades, och fundera sedan på vad som gjorde att missnöjet växte.",
+      "answer": "Kalmarunionen bildades 1397 när Danmark, Norge och Sverige fick samma regent, Erik av Pommern, efter att drottning Margareta arbetat fram unionen. Länderna behöll sina egna lagar och råd men delade en gemensam kung. Unionen präglades dock av återkommande konflikter, särskilt eftersom svenska stormän ofta kände sig missgynnade av danska kungar. Missnöjet ledde till uppror, och unionen upplöstes i praktiken när Gustav Vasa blev svensk kung 1523 efter befrielsekriget mot Kristian II.",
+      "steps": [
+        "Drottning Margareta arbetade fram en union mellan de tre nordiska rikena, och 1397 kröntes Erik av Pommern till gemensam regent i Kalmar.",
+        "Danmark, Norge och Sverige behöll sina egna lagar och råd, men delade en och samma kung.",
+        "Svenska stormän kände sig ofta missgynnade av danska kungars beslut, vilket skapade återkommande spänningar.",
+        "Missnöjet växte under 1400- och 1500-talen och ledde till flera uppror mot unionens kungar.",
+        "Unionen upplöstes i praktiken 1523 när Gustav Vasa blev svensk kung efter befrielsekriget mot Kristian II."
+      ]
+    },
+    {
+      "id": "q-hist7-vik-15",
+      "kind": "mc",
+      "topic": "Sveriges medeltid och Kalmarunionen",
+      "prompt": "Vem arbetade fram Kalmarunionen 1397?",
+      "opener": "Hon var drottning och en av medeltidens mest inflytelserika nordiska ledare.",
+      "choices": [
+        "Gustav Vasa",
+        "Drottning Margareta",
+        "Olof Skötkonung",
+        "Ansgar"
+      ],
+      "answer": 1,
+      "explanation": "Drottning Margareta arbetade fram unionen mellan Danmark, Norge och Sverige som formaliserades i Kalmar 1397. Gustav Vasa levde i stället över hundra år senare och var den som slutligen upplöste unionen."
     }
   ]
 }

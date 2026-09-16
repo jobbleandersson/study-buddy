@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta forntidens perioder och de första civilisationerna.",
       "opener": "Gå igenom de tre åldrarna i ordning, sedan de första civilisationerna och källorna.",
       "answer": "Stenåldern: den längsta perioden, redskap av sten, trä och ben · först jägare och samlare, senare bönder när jordbruket spred sig · Bronsåldern (i Sverige ca 1800–500 f.Kr.): brons är en blandning av koppar och tinn, hårdare än sten, men metallen måste handlas in långväga · Järnåldern (i Sverige ca 500 f.Kr.–1050 e.Kr.): järn fanns på fler platser, blev billigare och gav bättre verktyg och vapen · Jordbruksrevolutionen: bofasthet, matöverskott, fler yrken, byar som växte till städer · Mesopotamien: mellan Eufrat och Tigris, sumererna, kilskrift, en av världens första civilisationer · Egypten: kring Nilen, årliga översvämningar gav bördig jord, hieroglyfer, faraoner och pyramider · Skriftens betydelse: kunskap, lagar och affärer kunde bevaras och föras vidare · Historiska källor: skriftliga källor finns först efter skriftens uppkomst, före det bygger kunskapen på arkeologiska lämningar som redskap, gravar och boplatser."
+    },
+    {
+      "id": "q-hist7-fnt-9",
+      "kind": "mc",
+      "topic": "stenålder, bronsålder och järnålder",
+      "prompt": "Vad kännetecknade bronsåldern jämfört med stenåldern?",
+      "opener": "Brons är en metall som måste tillverkas genom att blanda två andra metaller.",
+      "choices": [
+        "Verktyg gjordes av en blandning av koppar och tenn, som var hårdare än sten",
+        "Människor slutade jaga helt",
+        "Det var den första perioden med jordbruk",
+        "Metaller användes inte alls"
+      ],
+      "answer": 0,
+      "explanation": "Brons är en legering av koppar och tenn och gav hårdare, vassare verktyg och vapen än sten. Jordbruket hade redan börjat under senare delen av stenåldern, och jakt förekom fortfarande som komplement till odlingen."
+    },
+    {
+      "id": "q-hist7-fnt-10",
+      "kind": "mc",
+      "topic": "jordbrukets uppkomst",
+      "prompt": "Var i världen uppstod jordbruket först, enligt arkeologiska fynd?",
+      "opener": "Området kallas ibland den bördiga halvmånen och ligger i dagens Mellanöstern.",
+      "choices": [
+        "I norra Europa",
+        "I Mellanöstern, i det så kallade bördiga halvmånen",
+        "I Sydamerika",
+        "I Australien"
+      ],
+      "answer": 1,
+      "explanation": "De äldsta spåren av jordbruk finns i Mellanöstern, i den bördiga halvmånen kring floderna Eufrat och Tigris, för omkring 10 000–12 000 år sedan. Jordbruk uppstod senare även på andra håll i världen, men Mellanöstern räknas som ett av de allra första."
+    },
+    {
+      "id": "q-hist7-fnt-11",
+      "kind": "mc",
+      "topic": "de första civilisationerna",
+      "prompt": "Vad var typiskt för de tidiga civilisationerna i Mesopotamien och Egypten?",
+      "opener": "Tänk på vad som skiljer en civilisation från mindre, spridda byar.",
+      "choices": [
+        "De saknade städer helt",
+        "De hade städer, skrift, en styrande elit och organiserat jordbruk kring floder",
+        "De levde uteslutande som jägare och samlare",
+        "De hade ingen kontakt med varandra alls"
+      ],
+      "answer": 1,
+      "explanation": "Både Mesopotamien och Egypten hade stora städer, utvecklad skrift, en styrande överklass och ett organiserat jordbruk som utnyttjade flodernas vatten. Det fanns dessutom handel och kontakter mellan de olika tidiga civilisationerna."
+    },
+    {
+      "id": "q-hist7-fnt-12",
+      "kind": "mc",
+      "topic": "skriftens betydelse",
+      "prompt": "Vilket skriftsystem utvecklades i Mesopotamien?",
+      "opener": "Tecknen trycktes in i lertavlor med en kilformad pinne.",
+      "choices": [
+        "Hieroglyfer",
+        "Kilskrift",
+        "Det latinska alfabetet",
+        "Runor"
+      ],
+      "answer": 1,
+      "explanation": "Sumererna i Mesopotamien utvecklade kilskrift, där tecken trycktes in i lertavlor. Hieroglyfer hörde i stället till det forna Egypten, och runor användes långt senare i Norden."
+    },
+    {
+      "id": "q-hist7-fnt-13",
+      "kind": "mc",
+      "topic": "historiska källor och lämningar",
+      "prompt": "Vad kallas tiden innan skriften uppfanns?",
+      "opener": "Namnet beskriver att skriftliga källor helt saknas från denna period.",
+      "choices": [
+        "Antiken",
+        "Medeltiden",
+        "Förhistorisk tid",
+        "Nya tiden"
+      ],
+      "answer": 2,
+      "explanation": "Förhistorisk tid är namnet på perioden innan skriften uppfanns, då kunskapen bygger på arkeologiska lämningar i stället för texter. Antiken, medeltiden och nya tiden ligger alla efter att skriften redan var i bruk på flera håll."
+    },
+    {
+      "id": "q-hist7-fnt-14",
+      "kind": "worked",
+      "topic": "stenålder, bronsålder och järnålder",
+      "prompt": "Förklara steg för steg varför järnåldern innebar ett stort framsteg jämfört med bronsåldern.",
+      "opener": "Fundera på var koppar, tenn och järn finns i naturen, och vad det betyder för priset på metallen.",
+      "answer": "Järn fanns tillgängligt på fler platser i naturen än koppar och tenn, som bronsen kräver, så man behövde inte handla lika långväga för att få tag på metallen. Det gjorde järn billigare och mer tillgängligt för fler människor, vilket ledde till bättre och vassare verktyg och vapen för en större del av befolkningen, inte bara för de rika som tidigare hade haft råd med importerad brons.",
+      "steps": [
+        "Brons kräver både koppar och tenn, och tenn fanns bara på ett fåtal platser i Europa, så metallen måste handlas in långväga och blev dyr.",
+        "Järnmalm fanns däremot på betydligt fler platser, ofta nära där människor redan bodde.",
+        "Eftersom järn var lättare att få tag på blev det billigare att tillverka verktyg och vapen av järn.",
+        "Fler människor, inte bara de rikaste, fick därför tillgång till bättre redskap för jordbruk, jakt och krig.",
+        "Resultatet blev vassare yxor, plogar och vapen som spreds till betydligt fler i samhället än under bronsåldern."
+      ]
+    },
+    {
+      "id": "q-hist7-fnt-15",
+      "kind": "mc",
+      "topic": "de första civilisationerna",
+      "prompt": "Vilket skriftsystem använde det forna Egypten?",
+      "opener": "Tecknen är ofta bilder av djur, människor och föremål.",
+      "choices": [
+        "Kilskrift",
+        "Hieroglyfer",
+        "Runor",
+        "Det grekiska alfabetet"
+      ],
+      "answer": 1,
+      "explanation": "Det forna Egypten använde hieroglyfer, ett skriftsystem med bildtecken. Kilskrift hörde i stället till Mesopotamien, och runor och det grekiska alfabetet uppstod på helt andra platser långt senare."
     }
   ]
 }

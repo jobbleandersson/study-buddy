@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta antikens Grekland och Rom.",
       "opener": "Ta Grekland först — stadsstater, demokrati, kultur — och sedan Rom.",
       "answer": "Grekland: hundratals självstyrande stadsstater (polis), främst Athen och Sparta · Athens demokrati från 500-talet f.Kr., direkt demokrati i folkförsamlingen, men rösträtt bara för fria vuxna manliga medborgare · grekisk kultur: teater, olympiska spel, tempel med pelare, myter om gudarna på Olympen · filosofer som Sokrates, Platon och Aristoteles sökte svar genom resonemang · Rom: grundat vid floden Tibern, först kungatid, sedan republik och från 27 f.Kr. kejsartid med Augustus som förste kejsare · romarriket växte till att omfatta hela Medelhavsområdet, Britannien och Mellanöstern · romerskt samhälle: patricier, plebejer och slavar, mycket ojämlika rättigheter · romersk teknik: vägar, akvedukter, betong, bad och stora byggnader som Colosseum · Västrom föll 476 e.Kr., Östrom (Bysantinska riket) levde vidare till 1453 · Arvet från antiken: demokratins idé och ord, latinet i våra språk, arkitektur med pelare, teater, olympiska spel, romersk rätt."
+    },
+    {
+      "id": "q-hist7-ant-9",
+      "kind": "mc",
+      "topic": "stadsstater och Athens demokrati",
+      "prompt": "Vilken grekisk stadsstat var känd för sin militära disciplin och sina soldater, till skillnad från Athen?",
+      "opener": "Stadsstaten låg på Peloponnesos och prioriterade krigsutbildning framför demokrati.",
+      "choices": [
+        "Korinth",
+        "Sparta",
+        "Theben",
+        "Delfi"
+      ],
+      "answer": 1,
+      "explanation": "Sparta byggde sitt samhälle kring militär träning och disciplin, med pojkar som togs in i statlig krigsutbildning redan som barn. Athen satsade i stället mer på handel, kultur och demokrati."
+    },
+    {
+      "id": "q-hist7-ant-10",
+      "kind": "mc",
+      "topic": "grekisk kultur och filosofi",
+      "prompt": "Vad var de olympiska spelen i antikens Grekland?",
+      "opener": "Tävlingarna hölls till en av de grekiska gudarnas ära.",
+      "choices": [
+        "En religiös tävling till Zeus ära där stadsstaterna tävlade mot varandra",
+        "Ett krig mellan Athen och Sparta",
+        "En filosofisk skola",
+        "En handelsmässa"
+      ],
+      "answer": 0,
+      "explanation": "De olympiska spelen hölls vart fjärde år i Olympia till guden Zeus ära, och idrottare från olika grekiska stadsstater tävlade mot varandra. Under spelen rådde ofta vapenvila mellan stadsstaterna."
+    },
+    {
+      "id": "q-hist7-ant-11",
+      "kind": "mc",
+      "topic": "romarriket och expansionen",
+      "prompt": "Vem var Roms förste kejsare?",
+      "opener": "Han tog makten år 27 f.Kr. och gav namn åt en hel månad.",
+      "choices": [
+        "Julius Caesar",
+        "Augustus",
+        "Nero",
+        "Hannibal"
+      ],
+      "answer": 1,
+      "explanation": "Augustus blev Roms förste kejsare år 27 f.Kr. och inledde kejsartiden. Julius Caesar var en mäktig ledare under den sena republiken men blev aldrig formellt kejsare, och Hannibal var en kartagisk fältherre som stred mot Rom."
+    },
+    {
+      "id": "q-hist7-ant-12",
+      "kind": "mc",
+      "topic": "romersk vardag och samhällsklasser",
+      "prompt": "Vad var Colosseum?",
+      "opener": "Byggnaden finns fortfarande kvar i Rom i dag och rymde tiotusentals åskådare.",
+      "choices": [
+        "En romersk badanläggning",
+        "En amfiteater där gladiatorspel och andra föreställningar hölls",
+        "Ett tempel för kejsaren",
+        "En handelsplats för slavar"
+      ],
+      "answer": 1,
+      "explanation": "Colosseum var en stor amfiteater i Rom där gladiatorspel, djurjakter och andra offentliga föreställningar hölls inför tiotusentals åskådare. Romarna hade separata badanläggningar, termer, som inte var samma sak som Colosseum."
+    },
+    {
+      "id": "q-hist7-ant-13",
+      "kind": "mc",
+      "topic": "arvet från antiken",
+      "prompt": "Vilken uppfinning kommer INTE från antiken?",
+      "opener": "Tänk på vilket av alternativen som uppfanns i Europa nästan tusen år efter Västroms fall.",
+      "choices": [
+        "Det grekiska alfabetet",
+        "Romersk rätt (juridik)",
+        "Boktryckarkonsten",
+        "Olympiska spelen"
+      ],
+      "answer": 2,
+      "explanation": "Boktryckarkonsten uppfanns av Johannes Gutenberg omkring år 1450, alltså under renässansen, långt efter antiken. Det grekiska alfabetet, romersk rätt och de olympiska spelen är däremot alla direkta arv från antiken."
+    },
+    {
+      "id": "q-hist7-ant-14",
+      "kind": "worked",
+      "topic": "romarriket och expansionen",
+      "prompt": "Jämför den romerska republiken med den romerska kejsartiden. Vilka är de största skillnaderna i hur makten organiserades?",
+      "opener": "Fundera på hur många personer som hade makten och hur länge de hade den.",
+      "answer": "Under republiken (509–27 f.Kr.) styrdes Rom av valda ämbetsmän, framför allt konsuler som valdes för ett år i taget, och senaten hade stort inflytande — makten var alltså delad och tidsbegränsad. Under kejsartiden (från 27 f.Kr.) samlades makten hos en ensam kejsare som styrde på livstid, ofta med stöd av armén, medan senaten fick en mer rådgivande roll. Skillnaden är alltså övergången från delad, tidsbegränsad makt till en enda persons livslånga envälde.",
+      "steps": [
+        "Under republiken valdes konsuler för ett år i taget, och makten delades mellan flera ämbetsmän och senaten.",
+        "Denna korta mandattid gjorde det svårt för en enskild person att samla all makt under lång tid.",
+        "Efter inbördeskrig och maktkamper tog Augustus makten 27 f.Kr. och blev kejsare på livstid.",
+        "Kejsaren styrde nu med stöd av armén, och senaten fick en mer rådgivande roll utan verklig makt.",
+        "Slutsats: republikens delade, tidsbegränsade makt ersattes av kejsartidens samlade, livslånga envälde."
+      ]
+    },
+    {
+      "id": "q-hist7-ant-15",
+      "kind": "mc",
+      "topic": "grekisk kultur och filosofi",
+      "prompt": "Vem av dessa filosofer var lärare till Alexander den store?",
+      "opener": "Filosofen grundade också en egen skola som kallades Lyceum.",
+      "choices": [
+        "Sokrates",
+        "Platon",
+        "Aristoteles",
+        "Herodotos"
+      ],
+      "answer": 2,
+      "explanation": "Aristoteles var Alexander den stores lärare innan denne blev en av historiens mest kända erövrare. Sokrates och Platon var tidigare filosofer i samma tradition, och Herodotos var en grekisk historieskrivare."
     }
   ]
 }
