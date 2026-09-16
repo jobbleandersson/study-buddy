@@ -125,6 +125,110 @@
       "prompt": "Sammanfatta grundbegreppen inom genetik: DNA, gen, kromosom, dominant och recessiv.",
       "opener": "Gå igenom begreppen i storleksordning, från minst till störst.",
       "answer": "DNA: molekylen som bär all arvsinformation, finns i cellkärnan · Gen: ett avsnitt av DNA med information om en viss egenskap · Kromosom: tätt hoppackat DNA, människan har 46 st (23 par) · Dominant anlag: syns även om personen bara har ett exemplar av anlaget (skrivs med stor bokstav, t.ex. B) · Recessivt anlag: syns bara om personen har två exemplar av anlaget (skrivs med liten bokstav, t.ex. b) · Mutation: en förändring i DNA som kan ge nya egenskaper och är en grund för variation och evolution."
+    },
+    {
+      "id": "q-bio-gen-9",
+      "kind": "mc",
+      "topic": "dominant och recessiv arv",
+      "prompt": "Vad kallas de olika varianterna av en och samma gen, t.ex. anlaget för bruna respektive blå ögon?",
+      "opener": "Samma gen (t.ex. \"ögonfärg\") kan finnas i olika versioner.",
+      "choices": [
+        "Alleler",
+        "Kromosomer",
+        "Mutationer",
+        "Proteiner"
+      ],
+      "answer": 0,
+      "explanation": "Alleler är de olika varianterna av en gen — t.ex. B (bruna ögon) och b (blå ögon) är två alleler av samma gen."
+    },
+    {
+      "id": "q-bio-gen-10",
+      "kind": "mc",
+      "topic": "kromosomer",
+      "prompt": "Hur många kromosomer har en människa i de flesta av sina celler?",
+      "opener": "Kromosomerna kommer i par — hur många par har vi?",
+      "choices": [
+        "46 (23 par)",
+        "23",
+        "92",
+        "44"
+      ],
+      "answer": 0,
+      "explanation": "Människan har normalt 46 kromosomer, organiserade i 23 par — hälften ärvda från vardera föräldern."
+    },
+    {
+      "id": "q-bio-gen-11",
+      "kind": "mc",
+      "topic": "dominant och recessiv arv",
+      "prompt": "Vilken ögonfärg får en person med anlagsparet bb (b = blå ögon, recessiv; B = bruna ögon, dominant)?",
+      "opener": "Ett recessivt anlag syns bara om personen har det i BÅDA exemplaren.",
+      "choices": [
+        "Blå ögon",
+        "Bruna ögon",
+        "Gröna ögon",
+        "Omöjligt att avgöra"
+      ],
+      "answer": 0,
+      "explanation": "Eftersom personen saknar det dominanta B-anlaget helt (bb) visar sig det recessiva anlaget — personen får blå ögon."
+    },
+    {
+      "id": "q-bio-gen-12",
+      "kind": "mc",
+      "topic": "mutationer",
+      "prompt": "Vilket påstående om mutationer stämmer bäst?",
+      "opener": "Är alla förändringar i DNA nödvändigtvis dåliga?",
+      "choices": [
+        "Mutationer är alltid skadliga",
+        "Mutationer kan vara skadliga, neutrala eller ibland fördelaktiga",
+        "Mutationer sker aldrig i naturen utan mänsklig påverkan",
+        "Mutationer gör alltid en organism starkare"
+      ],
+      "answer": 1,
+      "explanation": "De flesta mutationer är neutrala eller skadliga, men vissa kan råka ge en fördel i en viss miljö. Mutationer är en av de viktigaste källorna till den variation som naturligt urval verkar på."
+    },
+    {
+      "id": "q-bio-gen-13",
+      "kind": "mc",
+      "topic": "korsningsschema",
+      "prompt": "Två personer, en med anlagsparet Bb och en med bb (B = bruna ögon, dominant; b = blå ögon, recessiv), får barn. Hur stor är sannolikheten att barnet får bruna ögon?",
+      "opener": "Rita ett korsningsschema med Bb x bb och räkna hur många av de fyra rutorna som innehåller minst ett B.",
+      "choices": [
+        "50%",
+        "25%",
+        "75%",
+        "100%"
+      ],
+      "answer": 0,
+      "explanation": "Korsningsschemat Bb x bb ger kombinationerna Bb, Bb, bb, bb — 2 av 4 (50%) blir Bb och får bruna ögon, medan de andra 2 av 4 blir bb och får blå ögon."
+    },
+    {
+      "id": "q-bio-gen-14",
+      "kind": "worked",
+      "topic": "korsningsschema",
+      "prompt": "Två ärtplantor korsas: en med anlagsparet TT (hög växt, dominant) och en med tt (låg växt, recessiv). Gör ett korsningsschema och beräkna hur stor andel av avkomman som blir höga respektive låga.",
+      "opener": "Tänk på vilka könsceller varje förälder faktiskt kan bilda när de bara har EN sorts anlag var.",
+      "answer": "100% blir höga (Tt). 0% blir låga.",
+      "steps": [
+        "Föräldern TT kan bara bilda könsceller med anlaget T (eftersom båda kromosomerna bär T).",
+        "Föräldern tt kan bara bilda könsceller med anlaget t.",
+        "Varje kombination av en T-könscell och en t-könscell ger avkomman Tt.",
+        "Eftersom T är dominant visar alla Tt-avkommor den höga egenskapen — 100% blir höga, ingen blir låg."
+      ]
+    },
+    {
+      "id": "q-bio-gen-15",
+      "kind": "mc",
+      "topic": "korsningsschema",
+      "prompt": "En person med anlagsparet BB (bruna ögon) och en person med bb (blå ögon) får barn tillsammans. Vilken ögonfärg får alla barnen?",
+      "opener": "Vilka könsceller kan var och en av föräldrarna bilda, och vad blir kombinationen?",
+      "choices": [
+        "Alla får bruna ögon",
+        "Alla får blå ögon",
+        "Hälften får bruna, hälften blå",
+        "En fjärdedel får blå ögon"
+      ],
+      "answer": 0,
+      "explanation": "BB-föräldern kan bara ge B, och bb-föräldern kan bara ge b — alla barn blir därför Bb. Eftersom B är dominant får alla barnen bruna ögon, trots att en av föräldrarna själv har blå ögon."
     }
   ]
 }

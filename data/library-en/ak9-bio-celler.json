@@ -123,6 +123,110 @@
       "prompt": "What are the cell's most important parts called, and what do they do?",
       "opener": "Go through the nucleus, the membrane, the mitochondrion and (for plants) the cell wall.",
       "answer": "Nucleus: contains DNA/the genetic material and controls the cell's activity · Cell membrane: surrounds the cell and regulates what is transported in and out · Cytoplasm: the gel-like fluid where the cell's parts sit and reactions take place · Mitochondria: carry out cellular respiration, break down sugar and release energy · Cell wall: found only in plant cells, provides structural support and protection, built from cellulose · Chloroplasts: found only in plant cells, carry out photosynthesis · Vacuole: stores water and substances, often large in plant cells."
+    },
+    {
+      "id": "q-bio-cel-9",
+      "kind": "mc",
+      "topic": "parts of the cell",
+      "prompt": "What is the gel-like fluid inside the cell called, where the cell organelles are found?",
+      "opener": "Everything inside the cell, outside the nucleus, is surrounded by this fluid.",
+      "choices": [
+        "Cytoplasm",
+        "Nucleus",
+        "Cell wall",
+        "Cell membrane"
+      ],
+      "answer": 0,
+      "explanation": "The cytoplasm is the gel-like fluid where the organelles, such as mitochondria, float and where many of the cell's reactions take place."
+    },
+    {
+      "id": "q-bio-cel-10",
+      "kind": "mc",
+      "topic": "plant cell and animal cell",
+      "prompt": "Which cell organelle carries out photosynthesis and is found only in plant cells?",
+      "opener": "What makes leaves green?",
+      "choices": [
+        "Chloroplast",
+        "Mitochondrion",
+        "Vacuole",
+        "Nucleus"
+      ],
+      "answer": 0,
+      "explanation": "The chloroplast contains chlorophyll and carries out photosynthesis, converting carbon dioxide and water into glucose and oxygen with the help of sunlight. Mitochondria are found in both cell types."
+    },
+    {
+      "id": "q-bio-cel-11",
+      "kind": "mc",
+      "topic": "plant cell and animal cell",
+      "prompt": "What is the function of the vacuole, which is often large in plant cells?",
+      "opener": "Think about what keeps a plant cell firm and rigid.",
+      "choices": [
+        "Stores water and substances, and gives the cell supporting pressure",
+        "Produces energy through cellular respiration",
+        "Controls cell division",
+        "Builds the cell wall"
+      ],
+      "answer": 0,
+      "explanation": "The vacuole stores water and other substances. In plant cells it's often large and creates internal pressure (turgor) that keeps the cell firm and rigid — which is why plants wilt when they get too little water."
+    },
+    {
+      "id": "q-bio-cel-12",
+      "kind": "mc",
+      "topic": "organ systems",
+      "prompt": "Which organ system is responsible for breaking down food and absorbing nutrients?",
+      "opener": "Think about the path food takes through the body.",
+      "choices": [
+        "The digestive system",
+        "The respiratory system",
+        "The nervous system",
+        "The skeletal system"
+      ],
+      "answer": 0,
+      "explanation": "The digestive system, with organs like the mouth, stomach and intestines, breaks down food and absorbs nutrients into the blood."
+    },
+    {
+      "id": "q-bio-cel-13",
+      "kind": "mc",
+      "topic": "tissues and organs",
+      "prompt": "What do several different organs working together to perform a shared task in the body get called?",
+      "opener": "The next level up from organs in the body's structure.",
+      "choices": [
+        "An organ system",
+        "A tissue",
+        "A cell",
+        "A population"
+      ],
+      "answer": 0,
+      "explanation": "An organ system consists of several organs working together, such as the heart and blood vessels in the circulatory system. A tissue is a simpler level, made up of cells of the same type."
+    },
+    {
+      "id": "q-bio-cel-14",
+      "kind": "worked",
+      "topic": "tissues and organs",
+      "prompt": "Explain how cells build up a human body, from cell to organ system. Use the lung as your example.",
+      "opener": "The same four levels as in the heart example — go through them in order, but for the lung.",
+      "answer": "Cells of the same type (e.g. epithelial cells in the airways) form tissue, several tissues form the organ (the lung), and the lung works together with the airways and chest muscles in the respiratory system to take up oxygen and release carbon dioxide.",
+      "steps": [
+        "The cell is the smallest building block, e.g. an epithelial cell in the wall of an air sac.",
+        "Many cells with the same job form a tissue, such as the thin tissue lining the air sacs.",
+        "Different tissues (epithelial tissue, connective tissue, muscle tissue in the airways) together build up the organ - the lung.",
+        "The lung works together with the windpipe, airways and chest muscles to form the respiratory system, an organ system that supplies the body with oxygen and removes carbon dioxide."
+      ]
+    },
+    {
+      "id": "q-bio-cel-15",
+      "kind": "mc",
+      "topic": "parts of the cell",
+      "prompt": "Which part of the cell gives plant cells their structural support and protection, and is built from cellulose?",
+      "opener": "What makes a plant cell hold a firmer shape than an animal cell?",
+      "choices": [
+        "The cell wall",
+        "The cell membrane",
+        "The mitochondrion",
+        "The nucleus"
+      ],
+      "answer": 0,
+      "explanation": "The cell wall, built from cellulose, sits outside the cell membrane in plant cells and provides structural support and protection. Animal cells lack a cell wall, which is why they have a rounder, more flexible surface."
     }
   ]
 }

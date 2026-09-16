@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta grundidéerna i evolutionsteorin.",
       "opener": "Gå igenom variation, urval och resultat.",
       "answer": "Variation: individer inom en art skiljer sig något åt, delvis på grund av mutationer · Konkurrens: fler ungar föds än vad miljön kan försörja, så det blir konkurrens om resurser · Naturligt urval: individer med egenskaper som passar miljön bäst överlever och fortplantar sig oftare · Ärftlighet: fördelaktiga anlag förs vidare till nästa generation och blir vanligare över tid · Artbildning: om populationer isoleras länge kan de utvecklas till skilda arter · Bevis: fossil, DNA-likheter mellan arter och observationer av naturligt urval i verkligheten (t.ex. antibiotikaresistens) stödjer teorin."
+    },
+    {
+      "id": "q-bio-evo-9",
+      "kind": "mc",
+      "topic": "Darwin",
+      "prompt": "Vilket verk publicerade Charles Darwin 1859, där han presenterade sin evolutionsteori?",
+      "opener": "Titeln handlar om hur nya arter bildas.",
+      "choices": [
+        "\"Om arternas uppkomst\"",
+        "\"Om djurens beteende\"",
+        "\"Genetikens grunder\"",
+        "\"Naturens historia\""
+      ],
+      "answer": 0,
+      "explanation": "\"Om arternas uppkomst\" (\"On the Origin of Species\") publicerades 1859 och lade fram Darwins teori om evolution genom naturligt urval."
+    },
+    {
+      "id": "q-bio-evo-10",
+      "kind": "mc",
+      "topic": "naturligt urval",
+      "prompt": "Vad är en grundförutsättning för att naturligt urval ska kunna ske i en population?",
+      "opener": "Om alla individer vore exakt likadana, skulle något kunna \"väljas ut\"?",
+      "choices": [
+        "Att det finns naturlig variation mellan individer",
+        "Att alla individer är exakt lika",
+        "Att populationen inte förökar sig",
+        "Att miljön aldrig förändras"
+      ],
+      "answer": 0,
+      "explanation": "Utan variation mellan individer finns inget för det naturliga urvalet att \"välja\" mellan. Variationen kommer bland annat från mutationer och könlig fortplantning."
+    },
+    {
+      "id": "q-bio-evo-11",
+      "kind": "mc",
+      "topic": "anpassning",
+      "prompt": "En kaktus har tjocka, vattenlagrande stjälkar och taggar istället för stora blad. Vilken typ av miljö är detta sannolikt en anpassning till?",
+      "opener": "Vad är det tjocka stjälkar sparar på, och varför skulle det behövas?",
+      "choices": [
+        "En torr, vattenfattig miljö (öken)",
+        "En mycket kall och snörik miljö",
+        "En djup havsmiljö",
+        "En mycket blöt regnskog"
+      ],
+      "answer": 0,
+      "explanation": "Vattenlagrande stjälkar och en liten bladyta (som minskar avdunstning) är typiska anpassningar till torra miljöer som öknar, där vatten är en bristvara."
+    },
+    {
+      "id": "q-bio-evo-12",
+      "kind": "mc",
+      "topic": "artbildning",
+      "prompt": "Vad kallas det när två populationer av samma art skiljs åt av t.ex. ett hav eller en bergskedja, vilket kan leda till artbildning över tid?",
+      "opener": "De två grupperna kan inte längre para sig med varandra.",
+      "choices": [
+        "Geografisk isolering",
+        "Naturligt urval",
+        "Mutation",
+        "Konkurrens"
+      ],
+      "answer": 0,
+      "explanation": "Geografisk isolering innebär att populationer skiljs åt fysiskt och därför inte längre kan utbyta gener. Över lång tid kan de sedan utvecklas så olika, genom naturligt urval och mutationer, att de blir skilda arter."
+    },
+    {
+      "id": "q-bio-evo-13",
+      "kind": "mc",
+      "topic": "fossil som bevis",
+      "prompt": "Varför räknas fossil som ett viktigt bevis för evolutionsteorin?",
+      "opener": "Vad kan man se om man jämför fossil från olika tidsperioder?",
+      "choices": [
+        "De visar hur arter gradvis förändrats över mycket lång tid",
+        "De bevisar att alla arter uppstod samtidigt",
+        "De visar exakt vilken färg utdöda djur hade",
+        "De motbevisar att arter kan dö ut"
+      ],
+      "answer": 0,
+      "explanation": "Genom att jämföra fossil från olika tidsperioder kan forskare se en gradvis förändring hos arter över miljontals år — ett viktigt bevis för att evolution faktiskt sker."
+    },
+    {
+      "id": "q-bio-evo-14",
+      "kind": "worked",
+      "topic": "naturligt urval",
+      "prompt": "Förklara med hjälp av exemplet björkmätare (en fjärilsart) som blev mörkare under industrialiseringen hur naturligt urval kan förändra en population på kort tid.",
+      "opener": "Tänk på vad som händer med fjärilarnas kamouflage när trädstammarna byter färg.",
+      "answer": "Innan industrialiseringen var ljusa björkmätare bäst kamouflerade mot ljusa, lavbevuxna trädstammar och överlevde oftare. När industrins sot mörkade trädstammarna blev i stället de mörka fjärilarna bättre kamouflerade, så andelen mörka fjärilar ökade kraftigt på några generationer.",
+      "steps": [
+        "Innan industrialiseringen fanns redan naturlig variation i färg bland björkmätare — några var ljusa, några mörka.",
+        "Ljusa fjärilar var bäst kamouflerade mot de ljusa, lavbevuxna trädstammarna och undgick lättare fåglar som jagade på syn.",
+        "När industrins sot mörkade trädstammarna blev i stället de mörka fjärilarna svårare för fåglar att upptäcka.",
+        "De mörka fjärilarna överlevde och förökade sig oftare, så deras anlag blev vanligare i populationen.",
+        "Inom några generationer dominerade den mörka varianten i förorenade områden — ett klassiskt, snabbt exempel på naturligt urval i verkligheten."
+      ]
+    },
+    {
+      "id": "q-bio-evo-15",
+      "kind": "mc",
+      "topic": "naturligt urval",
+      "prompt": "En population av möss lever i ett område som blir alltmer stenigt och grått. Enligt evolutionsteorin, hur uppstår en population av gråaktiga möss som är svårare för rovfåglar att upptäcka?",
+      "opener": "Handlar det om att mössen aktivt ändrar sig, eller om vilka som redan finns i populationen?",
+      "choices": [
+        "Mössen anpassade medvetet sin färg för att smälta in",
+        "Möss med anlag för gråare päls fanns redan av naturlig variation, överlevde oftare och fick fler ungar, så anlaget blev vanligare",
+        "Alla möss föddes plötsligt grå samtidigt som miljön förändrades",
+        "Mössen bytte färg under sin livstid och det gick i arv"
+      ],
+      "answer": 1,
+      "explanation": "Precis som med giraffernas halsar handlar det om naturligt urval på redan existerande variation — inte om att individer medvetet förändras och för den förvärvade egenskapen vidare."
     }
   ]
 }

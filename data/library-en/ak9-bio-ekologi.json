@@ -124,6 +124,111 @@
       "prompt": "Summarise the basic concepts in ecology: producer, consumer, decomposer, food chain, food web and ecosystem.",
       "opener": "Go through who eats whom and how everything is connected.",
       "answer": "Producer: makes its own food through photosynthesis, e.g. plants · Consumer: eats other organisms — a primary consumer eats plants, a secondary consumer eats other animals · Decomposer: breaks down dead material and returns nutrients to the cycle, e.g. fungi and bacteria · Food chain: shows who eats whom in a straight sequence, e.g. grass → rabbit → fox · Food web: several interconnected food chains showing the real, more complex pattern · Population: all the individuals of the same species in an area · Ecosystem: all the living organisms in an area together with the non-living environment (water, soil, climate) · Cycles: substances such as carbon, nitrogen and water are constantly reused in nature."
+    },
+    {
+      "id": "q-bio-eko-9",
+      "kind": "mc",
+      "topic": "food chains and food webs",
+      "prompt": "What is a model called that shows several interconnected food chains in an ecosystem, where organisms eat several different things?",
+      "opener": "A single straight chain rarely captures the real picture.",
+      "choices": [
+        "A food web",
+        "A food chain",
+        "A cycle",
+        "A population"
+      ],
+      "answer": 0,
+      "explanation": "A food web shows how several food chains connect, since most organisms eat more than one kind of food and are eaten by more than one kind of predator."
+    },
+    {
+      "id": "q-bio-eko-10",
+      "kind": "mc",
+      "topic": "producers, consumers and decomposers",
+      "prompt": "In the food chain algae → zooplankton → fish → seal, what is the fish?",
+      "opener": "Count how many steps away the fish is from the producer.",
+      "choices": [
+        "Producer",
+        "Primary consumer",
+        "Secondary consumer",
+        "Decomposer"
+      ],
+      "answer": 2,
+      "explanation": "The algae are the producer, the zooplankton is the primary consumer (eats algae), and the fish that eats zooplankton becomes the secondary consumer. The seal, which eats the fish, becomes the tertiary consumer."
+    },
+    {
+      "id": "q-bio-eko-11",
+      "kind": "mc",
+      "topic": "cycles",
+      "prompt": "Which cycle describes how a substance is taken up by plants, passed through the food chain, and returned to the soil or air by decomposers and certain bacteria - and is needed, among other things, to build proteins?",
+      "opener": "Which element is a key building block in amino acids and DNA?",
+      "choices": [
+        "The nitrogen cycle",
+        "The carbon cycle",
+        "The water cycle",
+        "The oxygen cycle"
+      ],
+      "answer": 0,
+      "explanation": "Nitrogen is a key component of proteins and DNA. The nitrogen cycle describes how nitrogen is taken up by plants (often with the help of bacteria), passed through the food chain, and returned to the soil and air by decomposers and other bacteria."
+    },
+    {
+      "id": "q-bio-eko-12",
+      "kind": "mc",
+      "topic": "ecosystems and populations",
+      "prompt": "What's the difference between a population and an ecosystem?",
+      "opener": "Is one about ONE species, and the other about the WHOLE picture?",
+      "choices": [
+        "A population covers only one species, while an ecosystem covers all species in the area together with the non-living environment",
+        "A population and an ecosystem are exactly the same thing",
+        "An ecosystem covers only plants",
+        "A population only exists in water"
+      ],
+      "answer": 0,
+      "explanation": "A population is all the individuals of ONE species in an area, while an ecosystem covers all species (all populations) together with the non-living environment, such as water, soil and climate."
+    },
+    {
+      "id": "q-bio-eko-13",
+      "kind": "mc",
+      "topic": "ecosystems and populations",
+      "prompt": "What often happens to a prey population if the number of predators in the area increases sharply?",
+      "opener": "More predators means more mouths to feed from the same prey population.",
+      "choices": [
+        "The prey population often decreases because more individuals get eaten",
+        "The prey population always increases regardless of how many predators there are",
+        "The prey automatically become producers",
+        "Nothing changes at all"
+      ],
+      "answer": 0,
+      "explanation": "More predators means more prey get eaten, which often decreases the prey population — an example of how populations in an ecosystem affect each other."
+    },
+    {
+      "id": "q-bio-eko-14",
+      "kind": "worked",
+      "topic": "cycles",
+      "prompt": "Explain the carbon cycle by following a carbon atom from the air, through a plant and a consumer, and back to the air again.",
+      "opener": "The same kind of \"follow the substance\" reasoning as in the water cycle example.",
+      "answer": "The carbon atom is taken up as carbon dioxide by a plant during photosynthesis and built into glucose. A consumer eats the plant and takes the carbon into its body. The carbon is then released back into the air as carbon dioxide when the consumer breathes, or when the material is broken down by decomposers.",
+      "steps": [
+        "The carbon atom starts out as carbon dioxide (CO2) in the atmosphere.",
+        "A plant takes up the carbon dioxide during photosynthesis and builds the carbon into glucose.",
+        "An animal eats the plant, and the carbon becomes part of the animal's body, for example in muscle or fat.",
+        "When the animal breathes, some of the carbon is released back into the air as carbon dioxide through cellular respiration.",
+        "When the plant or animal eventually dies, the rest is broken down by decomposers, releasing further carbon dioxide into the atmosphere - and the cycle starts again."
+      ]
+    },
+    {
+      "id": "q-bio-eko-15",
+      "kind": "mc",
+      "topic": "producers, consumers and decomposers",
+      "prompt": "What would likely happen to an ecosystem if all decomposers suddenly disappeared?",
+      "opener": "Who normally makes nutrients available to the producers again?",
+      "choices": [
+        "Dead organic material would pile up and nutrients would stop being returned to the producers",
+        "Nothing would change because decomposers have no important function",
+        "The producers would die out immediately",
+        "The consumers would become producers"
+      ],
+      "answer": 0,
+      "explanation": "Without decomposers, dead material wouldn't break down, nutrients would become unavailable to producers, and the whole cycle would grind to a halt — a sign of how central the decomposers' role is."
     }
   ]
 }

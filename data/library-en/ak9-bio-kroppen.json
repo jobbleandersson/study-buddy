@@ -125,6 +125,111 @@
       "prompt": "Summarise the key points about puberty, the menstrual cycle and fertilisation.",
       "opener": "Go through what controls the changes and what happens step by step.",
       "answer": "Puberty: controlled by hormones (including oestrogen and testosterone), the body becomes sexually mature and undergoes physical and psychological changes · The menstrual cycle: the lining of the uterus builds up every month to receive a possible fertilised egg; if no fertilisation occurs, the lining is shed as a period · Ovulation: an egg cell is released roughly halfway through the cycle and can be fertilised for about a day · Fertilisation: a sperm cell fuses with an egg cell, usually in the fallopian tube, after which the fertilised egg can implant in the uterus · Contraception: used to reduce the risk of pregnancy, e.g. condoms (also protect against sexually transmitted infections) and the contraceptive pill (hormonal, does not protect against infections)."
+    },
+    {
+      "id": "q-bio-kro-9",
+      "kind": "mc",
+      "topic": "puberty and hormones",
+      "prompt": "Which hormone plays a central role in male puberty, among other things for developing facial hair and muscle?",
+      "opener": "Which hormone is produced in increasing amounts in the testes during puberty?",
+      "choices": [
+        "Testosterone",
+        "Oestrogen",
+        "Insulin",
+        "Adrenaline"
+      ],
+      "answer": 0,
+      "explanation": "Testosterone is the hormone that drives male pubertal changes, such as facial hair growth, a deeper voice and increased muscle mass."
+    },
+    {
+      "id": "q-bio-kro-10",
+      "kind": "mc",
+      "topic": "puberty and hormones",
+      "prompt": "Which hormone plays a central role in female puberty and the menstrual cycle?",
+      "opener": "Which hormone is produced in the ovaries and controls the build-up of the uterine lining?",
+      "choices": [
+        "Oestrogen",
+        "Testosterone",
+        "Insulin",
+        "Melatonin"
+      ],
+      "answer": 0,
+      "explanation": "Oestrogen drives female pubertal changes and controls the build-up of the uterine lining during the menstrual cycle."
+    },
+    {
+      "id": "q-bio-kro-11",
+      "kind": "mc",
+      "topic": "the menstrual cycle and fertilisation",
+      "prompt": "What is it called when a mature egg cell is released from the ovary, usually roughly halfway through the menstrual cycle?",
+      "opener": "This is the period when fertilisation can occur.",
+      "choices": [
+        "Ovulation",
+        "Menstruation",
+        "Fertilisation",
+        "Implantation"
+      ],
+      "answer": 0,
+      "explanation": "Ovulation is when a mature egg cell leaves the ovary and travels into the fallopian tube, where it can be fertilised for about a day."
+    },
+    {
+      "id": "q-bio-kro-12",
+      "kind": "mc",
+      "topic": "contraception",
+      "prompt": "Which of these forms of contraception is the only common option that also protects against sexually transmitted infections?",
+      "opener": "Which form of contraception blocks direct contact between bodily fluids?",
+      "choices": [
+        "Condom",
+        "The contraceptive pill",
+        "The contraceptive injection",
+        "The contraceptive implant"
+      ],
+      "answer": 0,
+      "explanation": "A condom is a barrier method that blocks direct contact between bodily fluids, protecting against both pregnancy and sexually transmitted infections. The pill, injection and implant are hormonal methods that only protect against pregnancy."
+    },
+    {
+      "id": "q-bio-kro-13",
+      "kind": "mc",
+      "topic": "digestion and circulation",
+      "prompt": "What is the small intestine's main job in digestion?",
+      "opener": "Where in the digestive tract do nutrients pass into the blood?",
+      "choices": [
+        "Absorbing nutrients from the broken-down food into the blood",
+        "Storing faeces before it leaves the body",
+        "Producing hormones for puberty",
+        "Pumping blood around the body"
+      ],
+      "answer": 0,
+      "explanation": "In the small intestine, the broken-down nutrients are absorbed through the intestinal wall and into the blood. Storing faeces is the large intestine's job."
+    },
+    {
+      "id": "q-bio-kro-14",
+      "kind": "worked",
+      "topic": "digestion and circulation",
+      "prompt": "Explain how oxygen travels from the air you breathe in to a muscle cell in your arm, and which organs are involved.",
+      "opener": "Follow the oxygen step by step, from the lungs to the muscle cell.",
+      "answer": "Oxygen is breathed into the lungs, absorbed into the blood through the thin air sacs, pumped by the heart through the blood vessels out to the body, and finally reaches the muscle cells in the arm where it's used in cellular respiration.",
+      "steps": [
+        "Air is breathed in through the nose/mouth and down into the lungs, where it reaches the small air sacs (alveoli).",
+        "Oxygen diffuses through the thin walls of the air sacs and is absorbed into the blood in the surrounding blood vessels.",
+        "The heart pumps the oxygen-rich blood onward through the body's blood vessels.",
+        "The blood is carried out to the body's tissues, including the muscles in the arm, where the oxygen leaves the blood and is taken up by the cells.",
+        "The muscle cells use the oxygen in cellular respiration to release energy from nutrients."
+      ]
+    },
+    {
+      "id": "q-bio-kro-15",
+      "kind": "mc",
+      "topic": "health and lifestyle",
+      "prompt": "Why is it especially recommended to avoid alcohol during the teenage years, compared with adulthood?",
+      "opener": "Is the brain fully developed already in the teenage years?",
+      "choices": [
+        "The brain keeps developing well into a person's 20s, and alcohol can disrupt that development especially during that time",
+        "Alcohol only affects teenagers physically, never psychologically",
+        "There is no difference between teenagers and adults",
+        "Alcohol is only dangerous for adults"
+      ],
+      "answer": 0,
+      "explanation": "The brain continues maturing into a person's 20s, and alcohol during that period can disrupt the development of things like impulse control and memory more than in an adult whose brain is already fully developed."
     }
   ]
 }

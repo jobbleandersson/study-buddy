@@ -123,6 +123,110 @@
       "prompt": "Vad heter cellens viktigaste delar och vad gör de?",
       "opener": "Gå igenom kärnan, membranet, mitokondrien och (för växter) cellväggen.",
       "answer": "Cellkärna: innehåller DNA/arvsmassan och styr cellens verksamhet · Cellmembran: omger cellen och reglerar vad som transporteras in och ut · Cellplasma (cytoplasma): geléaktig vätska där cellens delar finns och reaktioner sker · Mitokondrier: sköter cellandning, bryter ner socker och frigör energi · Cellvägg: finns bara hos växtceller, ger stadga och skydd, byggd av cellulosa · Kloroplaster: finns bara hos växtceller, utför fotosyntes · Vakuol: förvarar vatten och ämnen, ofta stor hos växtceller."
+    },
+    {
+      "id": "q-bio-cel-9",
+      "kind": "mc",
+      "topic": "cellens delar",
+      "prompt": "Vad kallas den geléaktiga vätskan inuti cellen där cellorganellerna finns?",
+      "opener": "Allt inuti cellen, utanför kärnan, är omgivet av denna vätska.",
+      "choices": [
+        "Cellplasma (cytoplasma)",
+        "Cellkärna",
+        "Cellvägg",
+        "Cellmembran"
+      ],
+      "answer": 0,
+      "explanation": "Cellplasman (cytoplasman) är den geléaktiga vätskan där organellerna, t.ex. mitokondrier, flyter och där många av cellens reaktioner sker."
+    },
+    {
+      "id": "q-bio-cel-10",
+      "kind": "mc",
+      "topic": "växtcell och djurcell",
+      "prompt": "Vilken cellorganell utför fotosyntes och finns bara hos växtceller?",
+      "opener": "Vad är det som gör bladen gröna?",
+      "choices": [
+        "Kloroplast",
+        "Mitokondrie",
+        "Vakuol",
+        "Cellkärna"
+      ],
+      "answer": 0,
+      "explanation": "Kloroplasten innehåller klorofyll och utför fotosyntes, där koldioxid och vatten omvandlas till druvsocker och syre med hjälp av solljus. Mitokondrier finns i båda celltyperna."
+    },
+    {
+      "id": "q-bio-cel-11",
+      "kind": "mc",
+      "topic": "växtcell och djurcell",
+      "prompt": "Vad är vakuolens funktion, som ofta är stor hos växtceller?",
+      "opener": "Tänk på vad som håller en växtcell utspänd och stadig.",
+      "choices": [
+        "Förvarar vatten och ämnen, och ger cellen stödjande tryck",
+        "Producerar energi genom cellandning",
+        "Styr celldelningen",
+        "Bygger upp cellväggen"
+      ],
+      "answer": 0,
+      "explanation": "Vakuolen förvarar vatten och andra ämnen. Hos växtceller är den ofta stor och ger ett inre tryck (turgor) som håller cellen stadig och utspänd — därför vissnar växter när de får för lite vatten."
+    },
+    {
+      "id": "q-bio-cel-12",
+      "kind": "mc",
+      "topic": "organsystem",
+      "prompt": "Vilket organsystem ansvarar för att bryta ner mat och ta upp näring?",
+      "opener": "Tänk på vägen maten tar genom kroppen.",
+      "choices": [
+        "Matspjälkningssystemet",
+        "Andningssystemet",
+        "Nervsystemet",
+        "Skelettsystemet"
+      ],
+      "answer": 0,
+      "explanation": "Matspjälkningssystemet, med organ som munnen, magsäcken och tarmarna, bryter ner mat och tar upp näringsämnen till blodet."
+    },
+    {
+      "id": "q-bio-cel-13",
+      "kind": "mc",
+      "topic": "vävnader och organ",
+      "prompt": "Vad kallas flera olika organ som samarbetar för att utföra en gemensam uppgift i kroppen?",
+      "opener": "Nästa nivå efter organ i kroppens byggnad.",
+      "choices": [
+        "Ett organsystem",
+        "En vävnad",
+        "En cell",
+        "En population"
+      ],
+      "answer": 0,
+      "explanation": "Ett organsystem består av flera organ som samarbetar, t.ex. hjärta och blodkärl i cirkulationssystemet. En vävnad är en enklare nivå, bestående av celler av samma typ."
+    },
+    {
+      "id": "q-bio-cel-14",
+      "kind": "worked",
+      "topic": "vävnader och organ",
+      "prompt": "Förklara hur celler bygger upp en människokropp, från cell till organsystem. Använd lungan som exempel.",
+      "opener": "Samma fyra nivåer som i hjärtat-exemplet — gå igenom dem i ordning, men för lungan.",
+      "answer": "Celler av samma typ (t.ex. epitelceller i luftvägarna) bildar vävnad, flera vävnader bildar organet lungan, och lungan samarbetar med luftrör och bröstmuskulatur i andningssystemet för att ta upp syre och avge koldioxid.",
+      "steps": [
+        "Cellen är den minsta byggstenen, t.ex. en epitelcell i lungblåsans vägg.",
+        "Många celler med samma uppgift bildar en vävnad, t.ex. den tunna vävnad som klär lungblåsorna.",
+        "Olika vävnader (epitelvävnad, bindväv, muskelvävnad i luftrören) bygger tillsammans upp organet lungan.",
+        "Lungan samarbetar med luftstrupe, luftrör och bröstmuskulatur och bildar andningssystemet, ett organsystem som förser kroppen med syre och för bort koldioxid."
+      ]
+    },
+    {
+      "id": "q-bio-cel-15",
+      "kind": "mc",
+      "topic": "cellens delar",
+      "prompt": "Vilken del av cellen ger växtceller deras stadga och skydd, och är byggd av cellulosa?",
+      "opener": "Vad gör att en växtcell håller en fastare form än en djurcell?",
+      "choices": [
+        "Cellväggen",
+        "Cellmembranet",
+        "Mitokondrien",
+        "Cellkärnan"
+      ],
+      "answer": 0,
+      "explanation": "Cellväggen, byggd av cellulosa, ligger utanför cellmembranet hos växtceller och ger stadga och skydd. Djurceller saknar cellvägg, vilket gör att de har en rundare, mer formbar yta."
     }
   ]
 }

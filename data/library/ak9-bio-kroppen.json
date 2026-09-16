@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta det viktigaste om puberteten, menstruationscykeln och befruktning.",
       "opener": "Gå igenom vad som styr förändringarna och vad som händer steg för steg.",
       "answer": "Puberteten: styrs av hormoner (bl.a. östrogen och testosteron), kroppen blir könsmogen och genomgår fysiska och psykiska förändringar · Menstruationscykeln: livmoderns slemhinna byggs upp varje månad för att ta emot ett eventuellt befruktat ägg; sker ingen befruktning stöts slemhinnan ut som mens · Ägglossning: en äggcell frigörs ungefär mitt i cykeln och kan befruktas i cirka ett dygn · Befruktning: en spermie smälter samman med en äggcell, oftast i äggledaren, varefter det befruktade ägget kan fästa i livmodern · Preventivmedel: används för att minska risken för graviditet, t.ex. kondom (skyddar även mot sexuellt överförbara infektioner) och p-piller (hormonellt, skyddar inte mot infektioner)."
+    },
+    {
+      "id": "q-bio-kro-9",
+      "kind": "mc",
+      "topic": "puberteten och hormoner",
+      "prompt": "Vilket hormon spelar en central roll i den manliga puberteten, bland annat för utveckling av skägg och muskler?",
+      "opener": "Vilket hormon produceras i ökande mängd i testiklarna under puberteten?",
+      "choices": [
+        "Testosteron",
+        "Östrogen",
+        "Insulin",
+        "Adrenalin"
+      ],
+      "answer": 0,
+      "explanation": "Testosteron är det hormon som driver de manliga pubertetsförändringarna, som skäggväxt, mörkare röst och ökad muskelmassa."
+    },
+    {
+      "id": "q-bio-kro-10",
+      "kind": "mc",
+      "topic": "puberteten och hormoner",
+      "prompt": "Vilket hormon spelar en central roll i den kvinnliga puberteten och menstruationscykeln?",
+      "opener": "Vilket hormon produceras i äggstockarna och styr slemhinnans uppbyggnad?",
+      "choices": [
+        "Östrogen",
+        "Testosteron",
+        "Insulin",
+        "Melatonin"
+      ],
+      "answer": 0,
+      "explanation": "Östrogen driver de kvinnliga pubertetsförändringarna och styr uppbyggnaden av livmoderns slemhinna under menstruationscykeln."
+    },
+    {
+      "id": "q-bio-kro-11",
+      "kind": "mc",
+      "topic": "menstruationscykeln och befruktning",
+      "prompt": "Vad kallas det när en mogen äggcell frigörs från äggstocken, vanligtvis ungefär mitt i menstruationscykeln?",
+      "opener": "Detta är den period då en befruktning kan ske.",
+      "choices": [
+        "Ägglossning",
+        "Menstruation",
+        "Befruktning",
+        "Implantation"
+      ],
+      "answer": 0,
+      "explanation": "Ägglossning (ovulation) är när en mogen äggcell lämnar äggstocken och vandrar ut i äggledaren, där den kan befruktas under ungefär ett dygn."
+    },
+    {
+      "id": "q-bio-kro-12",
+      "kind": "mc",
+      "topic": "preventivmedel",
+      "prompt": "Vilket av dessa preventivmedel är det enda vanliga alternativet som även skyddar mot sexuellt överförbara infektioner?",
+      "opener": "Vilket preventivmedel hindrar direktkontakt mellan kroppsvätskor?",
+      "choices": [
+        "Kondom",
+        "P-piller",
+        "P-spruta",
+        "P-stav"
+      ],
+      "answer": 0,
+      "explanation": "Kondom är en barriärmetod som hindrar direktkontakt mellan kroppsvätskor, vilket skyddar både mot graviditet och mot sexuellt överförbara infektioner. P-piller, p-spruta och p-stav är hormonella metoder som bara skyddar mot graviditet."
+    },
+    {
+      "id": "q-bio-kro-13",
+      "kind": "mc",
+      "topic": "matspjälkning och cirkulation",
+      "prompt": "Vad är tunntarmens huvudsakliga uppgift i matspjälkningen?",
+      "opener": "Var i matspjälkningskanalen går näringsämnena över till blodet?",
+      "choices": [
+        "Att ta upp näringsämnen från den sönderdelade maten till blodet",
+        "Att lagra avföring innan den lämnar kroppen",
+        "Att producera hormoner för puberteten",
+        "Att pumpa blod runt i kroppen"
+      ],
+      "answer": 0,
+      "explanation": "I tunntarmen tas de nedbrutna näringsämnena upp genom tarmväggen och vidare ut i blodet. Att lagra avföring är tjocktarmens uppgift."
+    },
+    {
+      "id": "q-bio-kro-14",
+      "kind": "worked",
+      "topic": "matspjälkning och cirkulation",
+      "prompt": "Förklara hur syre tar sig från luften du andas in till en muskelcell i din arm, och vilka organ som är inblandade.",
+      "opener": "Följ syret steg för steg, från lungorna till muskelcellen.",
+      "answer": "Syre andas in i lungorna, tas upp i blodet via de tunna lungblåsorna, pumpas av hjärtat genom blodkärlen ut till kroppen, och når till slut muskelcellerna i armen där det används vid cellandning.",
+      "steps": [
+        "Luft andas in genom näsa/mun och ner i lungorna, där den når de små lungblåsorna (alveolerna).",
+        "Syret diffunderar genom de tunna väggarna i lungblåsorna och tas upp av blodet i de omgivande blodkärlen.",
+        "Hjärtat pumpar det syrerika blodet vidare genom kroppens blodkärl.",
+        "Blodet transporteras ut till kroppens vävnader, inklusive musklerna i armen, där syret lämnar blodet och tas upp av cellerna.",
+        "Muskelcellerna använder syret vid cellandning för att frigöra energi ur näringsämnen."
+      ]
+    },
+    {
+      "id": "q-bio-kro-15",
+      "kind": "mc",
+      "topic": "hälsa och livsstil",
+      "prompt": "Varför rekommenderas det särskilt att undvika alkohol under tonåren, jämfört med i vuxen ålder?",
+      "opener": "Är hjärnan färdigutvecklad redan i tonåren?",
+      "choices": [
+        "Hjärnan fortsätter att utvecklas långt upp i 20-årsåldern, och alkohol kan störa den utvecklingen extra mycket då",
+        "Alkohol påverkar bara tonåringar fysiskt, aldrig psykiskt",
+        "Det finns ingen skillnad mellan tonåringar och vuxna",
+        "Alkohol är bara farligt för vuxna"
+      ],
+      "answer": 0,
+      "explanation": "Hjärnan fortsätter mogna in i 20-årsåldern, och alkohol under den perioden kan störa utvecklingen av bland annat impulskontroll och minne mer än hos en vuxen med en redan färdigutvecklad hjärna."
     }
   ]
 }
