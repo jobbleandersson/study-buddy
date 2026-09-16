@@ -125,6 +125,110 @@
       "prompt": "What organ systems does the body have and what do the most important organs do?",
       "opener": "Take one organ system at a time: movement, breathing, blood and food — and finish with why it is all needed.",
       "answer": "Skeleton and muscles: the skeleton gives structure and shape · protects organs (the skull protects the brain, the ribs protect the heart and lungs) · bone marrow produces blood cells · joints make movement possible · muscles attach to bones with tendons and can only contract, so they work in pairs (the biceps bends the arm, the triceps straightens it) · Respiratory organs: nose → throat → windpipe → airways → alveoli · the diaphragm pulls down and expands the lungs during inhalation · gas exchange in the alveoli: oxygen into the blood, carbon dioxide out into the air · Circulatory system: the heart is a muscle with two atria and two ventricles · the pulmonary circulation runs heart → lungs → heart · the systemic circulation runs heart → body → heart · arteries carry blood from the heart · veins carry blood to the heart · capillaries are hair-thin vessels where exchange with the cells happens · red blood cells carry oxygen · white blood cells defend against bacteria and viruses · platelets make the blood clot · Digestion: mouth (teeth and saliva) → oesophagus → stomach (gastric juice and muscular movements) → small intestine (nutrients are absorbed into the blood via the intestinal villi) → large intestine (water is absorbed) → rectum · the liver and pancreas contribute digestive juices · Why: cellular respiration uses oxygen to release energy from nutrients — sugar + oxygen → carbon dioxide + water + energy."
+    },
+    {
+      "id": "q-bio7-kro-9",
+      "kind": "mc",
+      "topic": "skeleton and muscles",
+      "prompt": "What does the bone marrow inside the skeleton produce?",
+      "opener": "Think about what the body needs to be able to transport oxygen and defend itself against infections.",
+      "choices": [
+        "Oxygen",
+        "Blood cells",
+        "Digestive juices",
+        "Chlorophyll"
+      ],
+      "answer": 1,
+      "explanation": "The bone marrow produces blood cells, both red and white, which are carried out into the circulatory system. Chlorophyll is found only in plants, and digestive juices are instead produced in the digestive organs."
+    },
+    {
+      "id": "q-bio7-kro-10",
+      "kind": "mc",
+      "topic": "respiratory organs",
+      "prompt": "What is the muscle called that pulls down and makes air get sucked into the lungs?",
+      "opener": "The muscle sits below the lungs and works every time you breathe.",
+      "choices": [
+        "The biceps muscle",
+        "The diaphragm",
+        "The heart muscle",
+        "The triceps muscle"
+      ],
+      "answer": 1,
+      "explanation": "The diaphragm pulls down during inhalation, expanding the lungs and drawing in air. The biceps and triceps are instead movement muscles in the upper arm and have nothing to do with breathing."
+    },
+    {
+      "id": "q-bio7-kro-11",
+      "kind": "mc",
+      "topic": "circulatory system and the heart",
+      "prompt": "Which blood vessels carry blood TO the heart?",
+      "opener": "It's the opposite direction from the arteries.",
+      "choices": [
+        "The arteries",
+        "The capillaries",
+        "The veins",
+        "The lymph vessels"
+      ],
+      "answer": 2,
+      "explanation": "The veins carry blood back to the heart. The arteries do the opposite and carry blood from the heart out into the body, with thick, elastic walls that can handle the higher pressure."
+    },
+    {
+      "id": "q-bio7-kro-12",
+      "kind": "mc",
+      "topic": "digestion",
+      "prompt": "Where in the digestive tract is most of the nutrition absorbed into the blood?",
+      "opener": "It's the organ with intestinal villi that gives a large surface area for absorption.",
+      "choices": [
+        "In the mouth",
+        "In the stomach",
+        "In the small intestine",
+        "In the large intestine"
+      ],
+      "answer": 2,
+      "explanation": "In the small intestine, most of the nutrition is absorbed into the blood via the intestinal villi, which give a very large surface area. In the large intestine, water is absorbed instead, and in the mouth and stomach the food is broken down mechanically and chemically without the nutrients being absorbed yet."
+    },
+    {
+      "id": "q-bio7-kro-13",
+      "kind": "mc",
+      "topic": "oxygen and nutrients",
+      "prompt": "What substances are formed when cells break down sugar using oxygen?",
+      "opener": "This is cellular respiration — compare it with what is formed during photosynthesis in plants.",
+      "choices": [
+        "Chlorophyll and water",
+        "Carbon dioxide, water and energy",
+        "Oxygen and glucose",
+        "Nitrogen and salt"
+      ],
+      "answer": 1,
+      "explanation": "During cellular respiration, sugar is broken down using oxygen, producing carbon dioxide, water and energy the cell can use. Oxygen and glucose are instead what goes into the process, not what is formed."
+    },
+    {
+      "id": "q-bio7-kro-14",
+      "kind": "worked",
+      "topic": "digestion",
+      "prompt": "Explain how the nutrition in the food you eat reaches a muscle cell in your arm.",
+      "opener": "Follow the nutrition step by step: the digestive tract, the blood, the heart and the vessels.",
+      "answer": "The food is broken down in the mouth, oesophagus, stomach and small intestine into small nutrients that are absorbed through the intestinal villi into the blood, carried by the blood via the heart and arteries to the muscle cell, which uses the nutrients together with oxygen to release energy during cellular respiration.",
+      "steps": [
+        "The food is chewed in the mouth and carried via the oesophagus to the stomach, where it is processed by gastric juice and muscular movements.",
+        "In the small intestine, the food is broken down into small nutrients that are absorbed through the intestinal villi into the blood.",
+        "The blood carrying the nutrients is carried to the heart and pumped out through arteries and capillaries to the muscle cell in the arm.",
+        "In the muscle cell, the nutrients are used together with oxygen during cellular respiration to release energy, and the carbon dioxide that forms is carried away by the veins."
+      ]
+    },
+    {
+      "id": "q-bio7-kro-15",
+      "kind": "mc",
+      "topic": "skeleton and muscles",
+      "prompt": "What is the function of a joint in the skeleton?",
+      "opener": "Think about what happens at your elbow or knee when you move.",
+      "choices": [
+        "To protect the brain",
+        "To make movement possible between two bones",
+        "To produce blood cells",
+        "To pump blood"
+      ],
+      "answer": 1,
+      "explanation": "Joints sit where two bones meet and allow the body to bend and move. Protecting the brain is the skull's job, producing blood cells happens in the bone marrow, and pumping blood is the heart's job."
     }
   ]
 }

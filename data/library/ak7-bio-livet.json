@@ -124,6 +124,110 @@
       "prompt": "Vad kännetecknar allt levande, och vilka delar har en cell?",
       "opener": "Nämn först kännetecknen för liv, sedan celldelarna — och vilka som bara finns hos växter.",
       "answer": "Kännetecken för liv: växer och utvecklas · tar upp näring · andas och omsätter energi · gör sig av med avfall · reagerar på omgivningen · förökar sig · är uppbyggt av celler · Celldelar hos både växt och djur: cellkärna (arvsmassan, styr cellen) · cellmembran (reglerar vad som går in och ut) · cellplasma (geléaktig vätska där delarna ligger) · mitokondrier (frigör energi ur näringen) · Bara hos växtceller: cellvägg (ger stadga) · kloroplaster (fotosyntes, grönt klorofyll) · stor vakuol (vattenförråd) · Nivåer i kroppen: cell → vävnad → organ → organsystem → organism · Mikroskopet behövs eftersom celler är för små för blotta ögat."
+    },
+    {
+      "id": "q-bio7-liv-9",
+      "kind": "mc",
+      "topic": "kännetecken för liv",
+      "prompt": "Vilket av följande är INTE ett kännetecken för liv?",
+      "opener": "Tänk på en tall — den kan inte förflytta sig alls, men lever ändå.",
+      "choices": [
+        "Reagerar på sin omgivning",
+        "Är uppbyggt av celler",
+        "Kan förflytta sig genom rymden med egen kraft",
+        "Tar upp näring"
+      ],
+      "answer": 2,
+      "explanation": "Att förflytta sig genom rymden med egen kraft är inte något kännetecken för liv — det beskriver snarare en raket. Växter, som är fastsittande, är ett bra exempel på att levande organismer inte behöver kunna förflytta sig."
+    },
+    {
+      "id": "q-bio7-liv-10",
+      "kind": "mc",
+      "topic": "cellen",
+      "prompt": "Vad heter den geléaktiga vätskan inuti cellen där de andra delarna ligger?",
+      "opener": "Tänk på vad som fyller ut resten av cellen mellan kärnan och membranet.",
+      "choices": [
+        "Cellplasma",
+        "Cellvägg",
+        "Cellmembran",
+        "Cellkärna"
+      ],
+      "answer": 0,
+      "explanation": "Cellplasman är den geléaktiga vätskan där cellens övriga delar, till exempel cellkärnan och mitokondrierna, är omgivna. Cellväggen finns bara hos växter och cellmembranet är cellens yttre gräns."
+    },
+    {
+      "id": "q-bio7-liv-11",
+      "kind": "mc",
+      "topic": "cellen",
+      "prompt": "Vilken celldel frigör energi ur näringen?",
+      "opener": "Den här celldelen kallas ibland \"cellens kraftverk\".",
+      "choices": [
+        "Cellkärnan",
+        "Mitokondrien",
+        "Cellmembranet",
+        "Vakuolen"
+      ],
+      "answer": 1,
+      "explanation": "Mitokondrierna bryter ner näring med hjälp av syre och frigör energi som cellen kan använda. Cellkärnan styr i stället cellens arbete genom arvsmassan."
+    },
+    {
+      "id": "q-bio7-liv-12",
+      "kind": "mc",
+      "topic": "växtcell och djurcell",
+      "prompt": "Vilken celldel ger växtceller deras stadga och fasta form?",
+      "opener": "Tänk på varför en växtcell håller sin form även utan skelett.",
+      "choices": [
+        "Cellkärna",
+        "Cellvägg",
+        "Mitokondrie",
+        "Cellmembran"
+      ],
+      "answer": 1,
+      "explanation": "Cellväggen är ett hårt, fast lager utanför cellmembranet som ger växtceller deras stadga. Djurceller saknar cellvägg, vilket är en av de tydligaste skillnaderna mellan växt- och djurceller."
+    },
+    {
+      "id": "q-bio7-liv-13",
+      "kind": "mc",
+      "topic": "från cell till organ",
+      "prompt": "Vad kallas det när flera olika vävnader samarbetar och bildar en enhet, till exempel hjärtat?",
+      "opener": "Det är nivån precis ovanför vävnad.",
+      "choices": [
+        "En cell",
+        "En vävnad",
+        "Ett organ",
+        "En organism"
+      ],
+      "answer": 2,
+      "explanation": "Ett organ, som hjärtat, byggs upp av flera olika vävnader som samarbetar, till exempel muskelvävnad och nervvävnad. En organism är i stället nästa nivå, en hel levande individ."
+    },
+    {
+      "id": "q-bio7-liv-14",
+      "kind": "mc",
+      "topic": "mikroskop",
+      "prompt": "Vilket av dessa skulle du behöva ett mikroskop för att kunna se tydligt?",
+      "opener": "Tänk på vilket av alternativen som är alldeles för litet för blotta ögat.",
+      "choices": [
+        "En myra",
+        "En cellkärna",
+        "Ett löv",
+        "En hund"
+      ],
+      "answer": 1,
+      "explanation": "En cellkärna är bara någon tusendels millimeter stor och kan bara ses med hjälp av ett mikroskop. Myror, löv och hundar går alla att se med blotta ögat, om än mindre detaljerat."
+    },
+    {
+      "id": "q-bio7-liv-15",
+      "kind": "worked",
+      "topic": "från cell till organ",
+      "prompt": "Beskriv hur kroppen är uppbyggd från cell till organsystem. Använd hjärtat som exempel.",
+      "opener": "Gå igenom samma fyra nivåer som förut: cell, vävnad, organ, organsystem — men med hjärtat.",
+      "answer": "Celler av samma sort bildar en vävnad, flera vävnader bygger upp organet hjärtat, och hjärtat samarbetar med blodkärlen i blodomloppet, som är ett organsystem.",
+      "steps": [
+        "Cellen är den minsta levande byggstenen, till exempel en hjärtmuskelcell.",
+        "Många likadana celler tillsammans bildar en vävnad, här hjärtmuskelvävnad.",
+        "Flera olika vävnader bygger ihop ett organ — hjärtat.",
+        "Hjärtat arbetar tillsammans med blodkärlen och bildar blodomloppet, ett organsystem."
+      ]
     }
   ]
 }

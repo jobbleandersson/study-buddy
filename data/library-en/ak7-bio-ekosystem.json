@@ -125,6 +125,111 @@
       "prompt": "What roles exist in an ecosystem, what does a food chain look like, and what characterises Swedish habitat types?",
       "opener": "Take the roles first, then the path of energy through the chain, and finish with adaptations and habitat types.",
       "answer": "Ecosystem: all living things in an area together with the non-living environment (light, water, soil, temperature) and the interaction between them · Population: all individuals of the same species in the area · Producers: plants and algae, make sugar and oxygen from carbon dioxide, water and sunlight through photosynthesis · Consumers: primary consumers = herbivores (hare, vole, elk) · secondary and tertiary consumers = predators (fox, pike, buzzard) · Decomposers: fungi, bacteria and earthworms, break down dead material and release nutrients into the soil · Food chain: producer → herbivore → predator, all energy ultimately comes from the sun and a large share is lost as heat at every link, which is why there are fewer individuals further up · Food web: many food chains connected together, since most species eat more than one kind of food · Cycle: nutrients are used over and over again, energy must constantly be replenished from the sun · Adaptations: the Arctic fox's thick fur and short ears against the cold · the water lily's floating leaves to reach the light · the spruce's narrow needles that withstand drought and heavy snow loads · Swedish habitat types: coniferous forest (spruce and pine, acidic and nutrient-poor soil, elk, squirrel, capercaillie) · lake (algae and water plants, roach and pike, most life near the surface where the light is) · meadow (many flowers and grasses, bumblebees and butterflies, kept open by mowing or grazing animals)."
+    },
+    {
+      "id": "q-bio7-eko-9",
+      "kind": "mc",
+      "topic": "producers, consumers and decomposers",
+      "prompt": "What is an animal that eats other animals called?",
+      "opener": "Think about which link of the food chain the animal is in.",
+      "choices": [
+        "Producer",
+        "Primary consumer",
+        "Secondary consumer (predator)",
+        "Decomposer"
+      ],
+      "answer": 2,
+      "explanation": "An animal that eats other animals is called a secondary consumer, or predator. Primary consumers are instead herbivores, which eat producers directly."
+    },
+    {
+      "id": "q-bio7-eko-10",
+      "kind": "mc",
+      "topic": "food chain and food web",
+      "prompt": "Why are there always fewer predators than herbivores in a food chain?",
+      "opener": "Think about what happens to the energy at each link of the chain.",
+      "choices": [
+        "Predators give birth to fewer young",
+        "A lot of energy is lost as heat at each link",
+        "Predators don't eat enough",
+        "Herbivores live longer"
+      ],
+      "answer": 1,
+      "explanation": "At each link of the food chain, a large share of the energy is lost as heat, so less energy remains to build new individuals further up the chain. That's why there are always fewer predators than herbivores, and fewer herbivores than producers."
+    },
+    {
+      "id": "q-bio7-eko-11",
+      "kind": "mc",
+      "topic": "Swedish habitat types",
+      "prompt": "Which animals are common in Swedish coniferous forest?",
+      "opener": "Think about animals that can handle cold and live among spruce and pine.",
+      "choices": [
+        "Elk, squirrel and capercaillie",
+        "Dolphin and whale",
+        "Camel and ostrich",
+        "Crocodile and hippopotamus"
+      ],
+      "answer": 0,
+      "explanation": "Elk, squirrel and capercaillie are typical animals of Swedish coniferous forest with spruce and pine. The other animals live in completely different climates and habitats, such as the ocean, desert or tropical wetlands."
+    },
+    {
+      "id": "q-bio7-eko-12",
+      "kind": "mc",
+      "topic": "adaptations",
+      "prompt": "The Arctic fox has thick fur and short ears. What advantage does this adaptation give?",
+      "opener": "Think about what short ears and thick fur do to heat loss in a cold climate.",
+      "choices": [
+        "Better vision in the dark",
+        "Reduced heat loss in a cold climate",
+        "Faster swimming ability",
+        "A stronger bite"
+      ],
+      "answer": 1,
+      "explanation": "Thick fur insulates against the cold, and short ears have a smaller surface area for body heat to escape through, which reduces heat loss in the cold Arctic climate. The adaptation has nothing to do with vision, swimming or biting."
+    },
+    {
+      "id": "q-bio7-eko-13",
+      "kind": "mc",
+      "topic": "ecosystem",
+      "prompt": "What are all the individuals of the same species living in an area called?",
+      "opener": "It's a smaller part of the ecosystem, just a single species.",
+      "choices": [
+        "An ecosystem",
+        "A population",
+        "A food web",
+        "A consumer"
+      ],
+      "answer": 1,
+      "explanation": "A population is all the individuals of the same species living in one place, for example all the hares in a forest. An ecosystem instead includes all the species together with the non-living environment."
+    },
+    {
+      "id": "q-bio7-eko-14",
+      "kind": "worked",
+      "topic": "food chain and food web",
+      "prompt": "Write a food chain from a Swedish lake and explain the role of each link. Also include what happens when the animals die.",
+      "opener": "Start with the producer and work upward — and don't forget the decomposers at the end.",
+      "answer": "Algae → roach → pike. The algae are the producer, the roach the primary consumer and the pike the secondary consumer. When they die, fungi and bacteria break down their bodies so the nutrients return to the water and can be taken up by new algae.",
+      "steps": [
+        "Start with a producer: the algae carry out photosynthesis and store the sun's energy as sugar.",
+        "The next link is a primary consumer: the roach is a herbivore and eats algae to get energy.",
+        "Then comes a secondary consumer: the pike is a predator and eats the roach.",
+        "At each link, much of the energy is lost as heat, which is why there are always fewer pike than roach, and fewer roach than algae.",
+        "Decomposers such as fungi and bacteria finally break down the dead animals and algae, so the nutrients return to the water and the cycle is closed."
+      ]
+    },
+    {
+      "id": "q-bio7-eko-15",
+      "kind": "mc",
+      "topic": "Swedish habitat types",
+      "prompt": "What characterises a meadow as a habitat type?",
+      "opener": "Think about which habitat type has the most flowers and open ground.",
+      "choices": [
+        "Dark, dense forest with spruce and pine",
+        "Open ground with many flowers and grasses, kept open by mowing or grazing",
+        "An area completely covered in ice",
+        "A place with only sandy beaches"
+      ],
+      "answer": 1,
+      "explanation": "A meadow is open ground with many flowers and grasses, home to bumblebees and butterflies among others, and kept open by mowing or by grazing animals. Without mowing or grazing, the meadow would eventually grow over with shrubs and trees."
     }
   ]
 }

@@ -123,6 +123,110 @@
       "prompt": "What do the different parts of a plant do, and how do photosynthesis and cellular respiration work?",
       "opener": "Take the four plant parts first, then the two processes that belong together.",
       "answer": "Root: takes up water and mineral nutrients, anchors the plant · Stem: supports the plant and transports water upward and sugar downward · Leaf: carries out photosynthesis, has stomata for gas exchange · Flower: the plant's reproductive organ with stamens (pollen) and pistil (ovules) · Photosynthesis: carbon dioxide + water + sunlight → glucose + oxygen, happens in the chloroplasts with chlorophyll, only in light · Cellular respiration: glucose + oxygen → carbon dioxide + water + energy, happens in the mitochondria, around the clock in both plants and animals · Pollination: pollen from stamen to pistil via insects or wind · Seed dispersal: wind, water, animals that eat berries, or seeds that stick to fur."
+    },
+    {
+      "id": "q-bio7-vax-9",
+      "kind": "mc",
+      "topic": "parts of a plant",
+      "prompt": "What is the function of a plant's stem?",
+      "opener": "Think about what holds up the leaves and flowers, and what needs to be transported through the whole plant.",
+      "choices": [
+        "It takes up water from the soil",
+        "It supports the plant and transports water and sugar",
+        "It carries out photosynthesis",
+        "It attracts insects"
+      ],
+      "answer": 1,
+      "explanation": "The stem supports the plant and transports water upward from the root and sugar downward from the leaves. Taking up water from the soil is the root's job, and photosynthesis mainly happens in the leaves."
+    },
+    {
+      "id": "q-bio7-vax-10",
+      "kind": "mc",
+      "topic": "photosynthesis",
+      "prompt": "Where in the plant does photosynthesis mainly take place?",
+      "opener": "Think about where most of the chloroplasts with the green pigment are found.",
+      "choices": [
+        "In the root",
+        "In the stem",
+        "In the leaves",
+        "In the flower"
+      ],
+      "answer": 2,
+      "explanation": "The leaves contain the most chloroplasts and have a large surface area to capture sunlight, so that's mainly where photosynthesis happens. The root lacks chlorophyll and therefore can't carry out photosynthesis."
+    },
+    {
+      "id": "q-bio7-vax-11",
+      "kind": "mc",
+      "topic": "photosynthesis",
+      "prompt": "What is the green pigment in the chloroplasts called that captures sunlight?",
+      "opener": "This substance gives leaves their green colour.",
+      "choices": [
+        "Cellulose",
+        "Chlorophyll",
+        "Glucose",
+        "Collagen"
+      ],
+      "answer": 1,
+      "explanation": "Chlorophyll is the green pigment in the chloroplasts that captures the energy of sunlight for photosynthesis. Cellulose instead builds up the cell wall, and glucose is what is produced by photosynthesis."
+    },
+    {
+      "id": "q-bio7-vax-12",
+      "kind": "mc",
+      "topic": "cellular respiration",
+      "prompt": "What substances are formed during cellular respiration?",
+      "opener": "Cellular respiration is the opposite of photosynthesis — what's left when the sugar is broken down?",
+      "choices": [
+        "Sugar and oxygen",
+        "Carbon dioxide, water and energy",
+        "Chlorophyll and water",
+        "Pollen and nectar"
+      ],
+      "answer": 1,
+      "explanation": "During cellular respiration, glucose is broken down using oxygen, producing carbon dioxide, water and energy the plant can use. Sugar and oxygen are instead what goes into the process, not what is produced."
+    },
+    {
+      "id": "q-bio7-vax-13",
+      "kind": "mc",
+      "topic": "pollination and seeds",
+      "prompt": "What is it called when seeds are spread to new places?",
+      "opener": "This happens after pollination has already led to seed formation.",
+      "choices": [
+        "Pollination",
+        "Photosynthesis",
+        "Seed dispersal",
+        "Cellular respiration"
+      ],
+      "answer": 2,
+      "explanation": "Seed dispersal is when seeds are carried to new places, for example by wind, water or animals. Pollination instead happens earlier in the process, when pollen is carried from stamen to pistil."
+    },
+    {
+      "id": "q-bio7-vax-14",
+      "kind": "worked",
+      "topic": "photosynthesis",
+      "prompt": "A plant gets plenty of water and light but is kept in a fully airtight room with no carbon dioxide. Explain step by step what happens to the plant's photosynthesis.",
+      "opener": "Start with what photosynthesis needs, then think about what happens when one of the parts is missing.",
+      "answer": "Without carbon dioxide, photosynthesis cannot happen, even though water and light are present, because carbon dioxide is one of the three necessary raw materials. The plant cannot produce new sugar and is forced to live off its stored reserves until they run out, at which point it wilts.",
+      "steps": [
+        "Photosynthesis needs carbon dioxide, water AND sunlight — in the airtight room, the carbon dioxide is missing.",
+        "Without carbon dioxide, the chloroplasts cannot produce new sugar, even with light and water present.",
+        "The plant still continues cellular respiration, using up the sugar it has stored from before.",
+        "When the reserves run out, the cells get too little energy and the plant wilts."
+      ]
+    },
+    {
+      "id": "q-bio7-vax-15",
+      "kind": "mc",
+      "topic": "parts of a plant",
+      "prompt": "Which part of the plant contains the stamens and the pistil?",
+      "opener": "It's the plant's reproductive organ.",
+      "choices": [
+        "The root",
+        "The stem",
+        "The leaf",
+        "The flower"
+      ],
+      "answer": 3,
+      "explanation": "The flower is the plant's reproductive organ and contains stamens, which produce pollen, and the pistil, which contains the ovules. The root, stem and leaf have other jobs, such as taking up water, transporting, and photosynthesis."
     }
   ]
 }

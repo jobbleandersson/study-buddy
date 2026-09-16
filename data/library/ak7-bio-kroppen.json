@@ -125,6 +125,110 @@
       "prompt": "Vilka organsystem har kroppen och vad gör de viktigaste organen?",
       "opener": "Ta ett organsystem i taget: rörelse, andning, blod och mat — och avsluta med varför allt behövs.",
       "answer": "Skelett och muskler: skelettet ger stadga och form · skyddar organ (skallbenet hjärnan, revbenen hjärta och lungor) · benmärgen bildar blodkroppar · leder gör rörelse möjlig · musklerna fäster i benen med senor och kan bara dra ihop sig, därför arbetar de i par (biceps böjer armen, triceps sträcker den) · Andningsorganen: näsa → svalg → luftstrupe → luftrör → lungblåsor (alveoler) · mellangärdet drar ner och vidgar lungorna vid inandning · gasutbyte i lungblåsorna: syre in i blodet, koldioxid ut i luften · Blodomloppet: hjärtat är en muskel med två förmak och två kamrar · lilla kretsloppet går hjärta → lungor → hjärta · stora kretsloppet går hjärta → kroppen → hjärta · artärer (pulsådror) leder blod från hjärtat · vener leder blod till hjärtat · kapillärer är hårfina kärl där utbytet med cellerna sker · röda blodkroppar bär syre · vita blodkroppar försvarar mot bakterier och virus · blodplättar får blodet att levra sig · Matspjälkningen: mun (tänder och saliv) → matstrupe → magsäck (magsaft och muskelrörelser) → tunntarm (näringen tas upp till blodet via tarmludden) → tjocktarm (vatten tas upp) → ändtarm · levern och bukspottkörteln bidrar med matspjälkningssafter · Varför: cellandningen använder syre för att frigöra energi ur näringen — socker + syre → koldioxid + vatten + energi."
+    },
+    {
+      "id": "q-bio7-kro-9",
+      "kind": "mc",
+      "topic": "skelett och muskler",
+      "prompt": "Vad producerar benmärgen inuti skelettet?",
+      "opener": "Tänk på vad kroppen behöver för att kunna transportera syre och försvara sig mot infektioner.",
+      "choices": [
+        "Syre",
+        "Blodkroppar",
+        "Matspjälkningssafter",
+        "Klorofyll"
+      ],
+      "answer": 1,
+      "explanation": "Benmärgen bildar blodkroppar, både röda och vita, som transporteras ut i blodomloppet. Klorofyll finns bara hos växter, och matspjälkningssafter bildas i stället i matsmältningsorganen."
+    },
+    {
+      "id": "q-bio7-kro-10",
+      "kind": "mc",
+      "topic": "andningsorganen",
+      "prompt": "Vad heter muskeln som drar sig ner och gör att luft sugs in i lungorna?",
+      "opener": "Muskeln sitter under lungorna och arbetar varje gång du andas.",
+      "choices": [
+        "Bicepsmuskeln",
+        "Mellangärdet (diafragman)",
+        "Hjärtmuskeln",
+        "Tricepsmuskeln"
+      ],
+      "answer": 1,
+      "explanation": "Mellangärdet, diafragman, drar sig ner vid inandning och gör att lungorna vidgas och suger in luft. Biceps och triceps hör i stället till överarmens rörelsemuskler och har inget med andningen att göra."
+    },
+    {
+      "id": "q-bio7-kro-11",
+      "kind": "mc",
+      "topic": "blodomloppet och hjärtat",
+      "prompt": "Vilka blodkärl leder blodet TILL hjärtat?",
+      "opener": "Det är motsatt riktning mot artärerna.",
+      "choices": [
+        "Artärerna",
+        "Kapillärerna",
+        "Venerna",
+        "Lymfkärlen"
+      ],
+      "answer": 2,
+      "explanation": "Venerna leder blodet tillbaka till hjärtat. Artärerna gör tvärtom och leder blod från hjärtat ut i kroppen, med tjocka elastiska väggar som klarar det högre trycket."
+    },
+    {
+      "id": "q-bio7-kro-12",
+      "kind": "mc",
+      "topic": "matspjälkningen",
+      "prompt": "Var i matspjälkningskanalen tas det mesta av näringen upp i blodet?",
+      "opener": "Det är organet med tarmludd som ger stor yta för upptag.",
+      "choices": [
+        "I munnen",
+        "I magsäcken",
+        "I tunntarmen",
+        "I tjocktarmen"
+      ],
+      "answer": 2,
+      "explanation": "I tunntarmen tas det mesta av näringen upp i blodet via tarmludden, som ger en mycket stor yta. I tjocktarmen tas i stället vatten upp, och i munnen och magsäcken bearbetas maten mekaniskt och kemiskt utan att näringen tas upp än."
+    },
+    {
+      "id": "q-bio7-kro-13",
+      "kind": "mc",
+      "topic": "syre och näring",
+      "prompt": "Vilka ämnen bildas när cellerna bryter ner socker med hjälp av syre?",
+      "opener": "Detta är cellandningen — jämför med vad som bildas vid fotosyntesen i växter.",
+      "choices": [
+        "Klorofyll och vatten",
+        "Koldioxid, vatten och energi",
+        "Syre och druvsocker",
+        "Kväve och salt"
+      ],
+      "answer": 1,
+      "explanation": "Vid cellandningen bryts socker ner med hjälp av syre, och det bildas koldioxid, vatten och energi som cellen kan använda. Syre och druvsocker är i stället det som går in i processen, inte det som bildas."
+    },
+    {
+      "id": "q-bio7-kro-14",
+      "kind": "worked",
+      "topic": "matspjälkningen",
+      "prompt": "Förklara hur näringen i maten du äter tar sig ända fram till en muskelcell i armen.",
+      "opener": "Följ näringen steg för steg: matspjälkningskanalen, blodet, hjärtat och kärlen.",
+      "answer": "Maten bryts ner i munnen, matstrupen, magsäcken och tunntarmen till små näringsämnen som tas upp genom tarmludden till blodet, förs med blodet via hjärtat och artärerna till muskelcellen, som använder näringen tillsammans med syre för att frigöra energi vid cellandningen.",
+      "steps": [
+        "Maten tuggas i munnen och förs via matstrupen till magsäcken, där den bearbetas av magsaft och muskelrörelser.",
+        "I tunntarmen bryts maten ner till små näringsämnen som tas upp genom tarmludden och in i blodet.",
+        "Blodet med näringen förs till hjärtat och pumpas ut genom artärer och kapillärer fram till muskelcellen i armen.",
+        "I muskelcellen används näringen tillsammans med syre vid cellandningen för att frigöra energi, och koldioxiden som bildas förs bort med venerna."
+      ]
+    },
+    {
+      "id": "q-bio7-kro-15",
+      "kind": "mc",
+      "topic": "skelett och muskler",
+      "prompt": "Vad är ledens uppgift i skelettet?",
+      "opener": "Tänk på vad som händer i armbågen eller knäet när du rör dig.",
+      "choices": [
+        "Att skydda hjärnan",
+        "Att göra rörelse möjlig mellan två ben",
+        "Att bilda blodkroppar",
+        "Att pumpa blod"
+      ],
+      "answer": 1,
+      "explanation": "Lederna sitter där två ben möts och gör att kroppen kan böjas och röras. Att skydda hjärnan är skallbenets uppgift, att bilda blodkroppar sker i benmärgen och att pumpa blod är hjärtats jobb."
     }
   ]
 }
