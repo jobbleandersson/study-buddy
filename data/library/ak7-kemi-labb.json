@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta säkerhetsreglerna, utrustningen och stegen i en laborationsrapport.",
       "opener": "Ta säkerheten först, sedan utrustningen och till sist rapportens delar.",
       "answer": "Säkerhetsregler: läs instruktionen innan du börjar · ät, drick och smaka aldrig i labbsalen · spring inte, håll arbetsplatsen ren · håll långt hår uppsatt nära öppen låga · lukta genom att vifta luften mot dig på avstånd · häll aldrig tillbaka kemikalier i originalflaskan · rapportera spill och olyckor till läraren direkt · tvätta händerna efteråt · veta var ögonduschen, nöddusch, brandsläckare och brandfilt finns · Skyddsutrustning: skyddsglasögon, labbrock eller förkläde, handskar vid behov · Faropiktogram (röd ram, vit botten): flamma = brandfarligt · frätande vätska på hand = frätande · dödskalle = akut giftigt · utropstecken = irriterande eller hälsoskadligt · dött träd och död fisk = miljöfarligt · exploderande bomb = explosivt · Labbutrustning: bägare (blanda och hälla, grov volym) · mätglas/mätcylinder (mäta volym noggrant) · provrör och provrörsställ (små mängder, värmning) · e-kolv (blanda utan att skvätta) · tratt och filtrerpapper (filtrering) · gasbrännare med trefot och trådnät (värmning) · degeltång, våg, termometer, urglas · Labbrapportens delar: syfte · hypotes (testbar förutsägelse före försöket) · material och utrustning · utförande (så tydligt att någon annan kan göra om det) · resultat (mätvärden, tabell, diagram) · slutsats (stämde hypotesen, och vilka felkällor fanns?)."
+    },
+    {
+      "id": "q-kemi7-lab-9",
+      "kind": "mc",
+      "topic": "säkerhetsregler",
+      "prompt": "Vad ska du göra om du spiller en kemikalie på labbbänken?",
+      "opener": "Tänk på vem som behöver veta vad som hänt och kan bedöma om det är farligt.",
+      "choices": [
+        "Torka upp det själv med papper och kasta i vanliga soporna",
+        "Rapportera det till läraren direkt",
+        "Ignorera det om det är en liten mängd",
+        "Täcka över det med en bok"
+      ],
+      "answer": 1,
+      "explanation": "Spill ska alltid rapporteras till läraren direkt, som kan bedöma om ämnet är farligt och hur det ska tas om hand på rätt sätt. Att själv torka upp och kasta i vanliga soporna kan vara farligt om ämnet är frätande eller giftigt."
+    },
+    {
+      "id": "q-kemi7-lab-10",
+      "kind": "mc",
+      "topic": "skyddsutrustning",
+      "prompt": "Varför ska långt hår sättas upp under en laboration?",
+      "opener": "Tänk på vad som finns nära bänken när man värmer något.",
+      "choices": [
+        "För att det ser snyggare ut",
+        "För att det inte ska fatta eld nära en öppen låga",
+        "För att det stör synen",
+        "För att det är en skolregel utan anledning"
+      ],
+      "answer": 1,
+      "explanation": "Löst hängande hår kan lätt fatta eld om man lutar sig över en öppen låga, så det ska alltid sättas upp av säkerhetsskäl. Det handlar alltså inte om utseende, utan om att undvika en verklig brandrisk."
+    },
+    {
+      "id": "q-kemi7-lab-11",
+      "kind": "mc",
+      "topic": "faropiktogram",
+      "prompt": "På en flaska sitter ett faropiktogram med en flamma. Vad betyder det?",
+      "opener": "Symbolen visar direkt vilken typ av fara som finns.",
+      "choices": [
+        "Frätande",
+        "Miljöfarligt",
+        "Brandfarligt",
+        "Giftigt"
+      ],
+      "answer": 2,
+      "explanation": "En flamma på faropiktogrammet betyder brandfarligt — ämnet kan lätt börja brinna. Frätande visas i stället med en vätska som fräter hand och yta, och giftigt med en dödskalle."
+    },
+    {
+      "id": "q-kemi7-lab-12",
+      "kind": "mc",
+      "topic": "labbutrustning",
+      "prompt": "Vilken utrustning används för att värma ämnen i ett provrör?",
+      "opener": "Utrustningen ger en öppen låga.",
+      "choices": [
+        "En mätcylinder",
+        "En gasbrännare",
+        "En petriskål",
+        "Ett urglas"
+      ],
+      "answer": 1,
+      "explanation": "Gasbrännaren ger en öppen låga som används för att värma provrör och andra kärl. Mätcylindern mäter i stället volym, och petriskål och urglas används för att lägga fasta prover i, inte för att värma."
+    },
+    {
+      "id": "q-kemi7-lab-13",
+      "kind": "mc",
+      "topic": "experimentmetod",
+      "prompt": "Vad kallas den faktor du medvetet ändrar i ett experiment för att se hur den påverkar resultatet?",
+      "opener": "Det är den enda faktorn som får skilja sig mellan försöken.",
+      "choices": [
+        "Den beroende variabeln",
+        "Den oberoende variabeln",
+        "Felkällan",
+        "Hypotesen"
+      ],
+      "answer": 1,
+      "explanation": "Den oberoende variabeln är det du medvetet ändrar, till exempel temperaturen på vattnet. Den beroende variabeln är i stället det du mäter som resultat, som upplösningstiden."
+    },
+    {
+      "id": "q-kemi7-lab-14",
+      "kind": "worked",
+      "topic": "experimentmetod",
+      "prompt": "Du vill undersöka om olika mängder salt påverkar hur snabbt is smälter. Beskriv hur du planerar, genomför och dokumenterar experimentet så att resultatet blir tillförlitligt.",
+      "opener": "Fundera på vad du ändrar och vad du måste hålla exakt lika i båda försöken.",
+      "answer": "Formulera en hypotes, ändra bara mängden salt och håll allt annat lika, mät smälttiden i varje försök med tidtagarur, skriv ner resultatet i en tabell och jämför sedan med hypotesen i en slutsats.",
+      "steps": [
+        "Skriv en hypotes före försöket, till exempel: \"Isen smälter snabbare med mer salt, eftersom saltet sänker isens fryspunkt.\"",
+        "Bestäm variablerna: det du ÄNDRAR är mängden salt (t.ex. ingen, en tesked och en matsked). Allt annat hålls lika — samma mängd is, samma starttemperatur, samma sorts kärl.",
+        "Genomför försöket: lägg lika stora isbitar i tre skålar, tillsätt olika mängd salt och starta tidtagaruret samtidigt för alla tre.",
+        "Dokumentera: skriv ner saltmängd och smälttid för varje skål i en tabell. Gör om försöket ett par gånger för att se om resultatet blir likadant.",
+        "Dra en slutsats: jämför tiderna med hypotesen och svara på om den stämde. Nämn också vad som kan ha gett fel, till exempel att isbitarna inte var exakt lika stora."
+      ]
+    },
+    {
+      "id": "q-kemi7-lab-15",
+      "kind": "mc",
+      "topic": "faropiktogram",
+      "prompt": "På en flaska sitter ett faropiktogram med en dödskalle. Vad betyder det?",
+      "opener": "Symbolen varnar för den allvarligaste sortens fara för hälsan.",
+      "choices": [
+        "Irriterande",
+        "Akut giftigt",
+        "Explosivt",
+        "Miljöfarligt"
+      ],
+      "answer": 1,
+      "explanation": "Dödskallen betyder akut giftigt — ämnet kan orsaka allvarlig skada eller dödsfall om man andas in, sväljer eller får det på huden. Irriterande visas i stället med ett utropstecken, och explosivt med en exploderande bomb."
     }
   ]
 }

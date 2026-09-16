@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta skillnaden mellan fysikalisk förändring och kemisk reaktion, samt vad du behöver veta om förbränning.",
       "opener": "Nya ämnen eller inte — det är huvudfrågan. Ta sedan förbränning och massa.",
       "answer": "Fysikalisk förändring: samma ämne, ny form — smälta, frysa, koka, lösa upp, krossa, går oftast att göra om baklänges · Kemisk reaktion: nya ämnen bildas med nya egenskaper — rostning, förbränning, bakning, matsmältning, svårt eller omöjligt att vända tillbaka · Tecken på reaktion: gasbubblor, fällning, bestående färgändring, värme eller ljus som frigörs, ny lukt · Reaktionsformel: reaktanter (utgångsämnen) till vänster om pilen, produkter till höger, pilen läses \"blir till\" · Förbränning: bränsle + syre → nya ämnen + värme och ljus · Brandtriangeln: bränsle, syre och värme måste alla finnas — tar man bort en del slocknar det · C + O₂ → CO₂ (kol brinner till koldioxid) · 2 H₂ + O₂ → 2 H₂O (vätgas brinner till vatten) · Ofullständig förbränning ger sot och giftig kolmonoxid (CO) · Massans bevarande: atomerna försvinner aldrig och skapas aldrig, de byter bara plats, så den totala massan är lika stor före och efter reaktionen."
+    },
+    {
+      "id": "q-kemi7-rea-9",
+      "kind": "mc",
+      "topic": "fysikalisk förändring eller kemisk reaktion",
+      "prompt": "Vilket av följande är en fysikalisk förändring, inte en kemisk reaktion?",
+      "opener": "Fråga dig om ämnet bara byter form eller om det bildas något helt nytt.",
+      "choices": [
+        "Bröd bakas i ugnen",
+        "Is smälter till vatten",
+        "Ett äpple ruttnar",
+        "Ett fyrverkeri exploderar"
+      ],
+      "answer": 1,
+      "explanation": "När is smälter är det fortfarande samma ämne, vatten, bara i en annan form — en fysikalisk förändring som lätt går att göra om (frysa tillbaka). Bakning, ruttning och explosioner bildar alla nya ämnen med nya egenskaper och är kemiska reaktioner."
+    },
+    {
+      "id": "q-kemi7-rea-10",
+      "kind": "mc",
+      "topic": "tecken på reaktion",
+      "prompt": "Du blandar två klara vätskor och det bildas genast ett vitt, olösligt pulver som sjunker till botten. Vad kallas detta?",
+      "opener": "Namnet beskriver att något fast \"faller ut\" ur vätskan.",
+      "choices": [
+        "En lösning",
+        "En fällning",
+        "En legering",
+        "En destillation"
+      ],
+      "answer": 1,
+      "explanation": "Ett nybildat, olösligt ämne som sjunker till botten kallas en fällning och är ett tydligt tecken på att en kemisk reaktion har skett. En lösning är i stället ett ämne som är upplöst, inte olösligt."
+    },
+    {
+      "id": "q-kemi7-rea-11",
+      "kind": "mc",
+      "topic": "förbränning",
+      "prompt": "Vad bildas när vätgas (H₂) brinner fullständigt i syre?",
+      "opener": "Sätt ihop vätet med syret enligt reaktionsformeln 2 H₂ + O₂ → 2 H₂O.",
+      "choices": [
+        "Koldioxid",
+        "Vatten",
+        "Kolmonoxid",
+        "Kväveoxid"
+      ],
+      "answer": 1,
+      "explanation": "När vätgas brinner i syre bildas vatten: 2 H₂ + O₂ → 2 H₂O. Koldioxid och kolmonoxid bildas i stället när ett kolhaltigt bränsle brinner, inte vätgas."
+    },
+    {
+      "id": "q-kemi7-rea-12",
+      "kind": "mc",
+      "topic": "massans bevarande",
+      "prompt": "Askan och röken efter att ett stearinljus brunnit klart väger tillsammans lika mycket som ljuset gjorde innan, plus det syre som förbrukades. Vad kallas denna princip?",
+      "opener": "Principen säger att atomerna varken skapas eller förstörs i en reaktion.",
+      "choices": [
+        "Energiprincipen",
+        "Densitetsprincipen",
+        "Massans bevarande",
+        "Löslighetsprincipen"
+      ],
+      "answer": 2,
+      "explanation": "Massans bevarande innebär att den totala massan är oförändrad i en kemisk reaktion, eftersom atomerna bara byter plats och binds om — de försvinner aldrig. Det är därför man måste räkna med syret från luften för att få ihop massan."
+    },
+    {
+      "id": "q-kemi7-rea-13",
+      "kind": "mc",
+      "topic": "reaktionsformler",
+      "prompt": "I reaktionsformeln C + O₂ → CO₂, vad kallas koldioxiden som bildas?",
+      "opener": "Den står på höger sida om pilen.",
+      "choices": [
+        "En reaktant",
+        "En produkt",
+        "Ett lösningsmedel",
+        "En katalysator"
+      ],
+      "answer": 1,
+      "explanation": "Det som bildas och står till höger om pilen kallas produkt. Kolet och syret till vänster om pilen är i stället reaktanterna, ämnena som reagerar med varandra."
+    },
+    {
+      "id": "q-kemi7-rea-14",
+      "kind": "worked",
+      "topic": "förbränning",
+      "prompt": "Du tänder en gasbrännare med naturgas (metan). Förklara vad som händer kemiskt: vilka ämnen reagerar, vad bildas, och varför slocknar lågan om gastillförseln stängs av?",
+      "opener": "Börja med vad som brinner och vad det brinner ihop med.",
+      "answer": "Metanen (bränslet, innehåller kol och väte) reagerar med syre från luften. Det bildas koldioxid och vattenånga, samtidigt som värme och ljus frigörs. När gastillförseln stängs av försvinner bränslet, och utan bränsle kan förbränningen inte fortsätta, så lågan slocknar.",
+      "steps": [
+        "Identifiera bränslet: metan strömmar ut ur brännaren och är det ämne som brinner. Det innehåller kol och väte.",
+        "Identifiera det andra utgångsämnet: syre (O₂) från luften. Utan syre ingen förbränning.",
+        "Bestäm produkterna: kolet blir koldioxid (CO₂) och vätet blir vattenånga (H₂O). Reaktionen avger energi som värme och ljus.",
+        "Förklara varför lågan slocknar: när gastillförseln stängs av finns inget mer bränsle kvar att brinna, och utan bränsle kan reaktionen inte fortsätta.",
+        "Kontrollera att det verkligen är en kemisk reaktion: nya ämnen har bildats och energi har frigjorts — inte bara en förändring av form."
+      ]
+    },
+    {
+      "id": "q-kemi7-rea-15",
+      "kind": "mc",
+      "topic": "fysikalisk förändring eller kemisk reaktion",
+      "prompt": "Vilket av följande är en kemisk reaktion?",
+      "opener": "Fundera på vilket alternativ som bildar en gas som inte fanns där innan.",
+      "choices": [
+        "Choklad smälter i solen",
+        "Vatten kokar och blir ånga",
+        "En brustablett löses upp i vatten och det bubblar",
+        "Salt löses i vatten"
+      ],
+      "answer": 2,
+      "explanation": "När brustabletten löses upp bildas koldioxidgas genom en kemisk reaktion mellan ämnena i tabletten, vilket syns som bubblor — ett nytt ämne har uppstått. Att choklad smälter, vatten kokar eller salt löses är alla fysikaliska förändringar där ämnena bara byter form."
     }
   ]
 }

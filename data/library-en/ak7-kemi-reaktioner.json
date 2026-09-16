@@ -125,6 +125,111 @@
       "prompt": "Summarise the difference between a physical change and a chemical reaction, and what you need to know about combustion.",
       "opener": "New substances or not - that is the main question. Then take combustion and mass.",
       "answer": "Physical change: same substance, new form - melting, freezing, boiling, dissolving, crushing, can usually be reversed · Chemical reaction: new substances are formed with new properties - rusting, combustion, baking, digestion, hard or impossible to reverse · Signs of a reaction: gas bubbles, a precipitate, a permanent colour change, heat or light being released, a new smell · Reaction equation: reactants (starting substances) to the left of the arrow, products to the right, the arrow is read as \"becomes\" · Combustion: fuel + oxygen → new substances + heat and light · The fire triangle: fuel, oxygen and heat must all be present - remove one and the fire goes out · C + O₂ → CO₂ (carbon burns to carbon dioxide) · 2 H₂ + O₂ → 2 H₂O (hydrogen gas burns to water) · Incomplete combustion gives soot and toxic carbon monoxide (CO) · Conservation of mass: atoms never disappear and are never created, they only change places, so the total mass is the same before and after the reaction."
+    },
+    {
+      "id": "q-kemi7-rea-9",
+      "kind": "mc",
+      "topic": "physical change or chemical reaction",
+      "prompt": "Which of these is a physical change, not a chemical reaction?",
+      "opener": "Ask yourself whether the substance just changes form, or whether something completely new forms.",
+      "choices": [
+        "Bread baking in the oven",
+        "Ice melting into water",
+        "An apple rotting",
+        "Fireworks exploding"
+      ],
+      "answer": 1,
+      "explanation": "When ice melts, it's still the same substance, water, just in a different form — a physical change that's easy to reverse (freeze it back). Baking, rotting and exploding all form new substances with new properties and are chemical reactions."
+    },
+    {
+      "id": "q-kemi7-rea-10",
+      "kind": "mc",
+      "topic": "signs of a reaction",
+      "prompt": "You mix two clear liquids and a white, insoluble powder immediately forms and sinks to the bottom. What is this called?",
+      "opener": "The name describes something solid \"falling out\" of the liquid.",
+      "choices": [
+        "A solution",
+        "A precipitate",
+        "An alloy",
+        "A distillation"
+      ],
+      "answer": 1,
+      "explanation": "A newly formed, insoluble substance that sinks to the bottom is called a precipitate, and it's a clear sign that a chemical reaction has taken place. A solution is instead a substance that is dissolved, not insoluble."
+    },
+    {
+      "id": "q-kemi7-rea-11",
+      "kind": "mc",
+      "topic": "combustion",
+      "prompt": "What forms when hydrogen gas (H₂) burns completely in oxygen?",
+      "opener": "Combine the hydrogen with the oxygen according to the equation 2 H₂ + O₂ → 2 H₂O.",
+      "choices": [
+        "Carbon dioxide",
+        "Water",
+        "Carbon monoxide",
+        "Nitrogen oxide"
+      ],
+      "answer": 1,
+      "explanation": "When hydrogen gas burns in oxygen, water forms: 2 H₂ + O₂ → 2 H₂O. Carbon dioxide and carbon monoxide instead form when a carbon-containing fuel burns, not hydrogen gas."
+    },
+    {
+      "id": "q-kemi7-rea-12",
+      "kind": "mc",
+      "topic": "conservation of mass",
+      "prompt": "The ash and smoke left after a candle has finished burning together weigh as much as the candle did before, plus the oxygen that was used up. What is this principle called?",
+      "opener": "The principle says that atoms are neither created nor destroyed in a reaction.",
+      "choices": [
+        "The energy principle",
+        "The density principle",
+        "Conservation of mass",
+        "The solubility principle"
+      ],
+      "answer": 2,
+      "explanation": "Conservation of mass means the total mass is unchanged in a chemical reaction, since atoms only change places and form new bonds — they never disappear. That's why you have to count the oxygen from the air to make the mass add up."
+    },
+    {
+      "id": "q-kemi7-rea-13",
+      "kind": "mc",
+      "topic": "reaction equations",
+      "prompt": "In the reaction equation C + O₂ → CO₂, what is the carbon dioxide that forms called?",
+      "opener": "It stands on the right-hand side of the arrow.",
+      "choices": [
+        "A reactant",
+        "A product",
+        "A solvent",
+        "A catalyst"
+      ],
+      "answer": 1,
+      "explanation": "What forms and stands to the right of the arrow is called a product. The carbon and oxygen to the left of the arrow are instead the reactants, the substances that react with each other."
+    },
+    {
+      "id": "q-kemi7-rea-14",
+      "kind": "worked",
+      "topic": "combustion",
+      "prompt": "You light a gas burner with natural gas (methane). Explain what happens chemically: which substances react, what forms, and why does the flame go out if the gas supply is turned off?",
+      "opener": "Start with what is burning and what it's burning together with.",
+      "answer": "The methane (the fuel, containing carbon and hydrogen) reacts with oxygen from the air. Carbon dioxide and water vapour form, while heat and light are released. When the gas supply is turned off, there is no more fuel left, and without fuel the combustion can't continue, so the flame goes out.",
+      "steps": [
+        "Identify the fuel: methane flows out of the burner and is the substance that burns. It contains carbon and hydrogen.",
+        "Identify the other starting substance: oxygen (O₂) from the air. No combustion without oxygen.",
+        "Determine the products: the carbon becomes carbon dioxide (CO₂) and the hydrogen becomes water vapour (H₂O). The reaction releases energy as heat and light.",
+        "Explain why the flame goes out: when the gas supply is turned off, there is no more fuel left to burn, and without fuel the reaction can't continue.",
+        "Check that it really is a chemical reaction: new substances have formed and energy has been released — not just a change of form."
+      ]
+    },
+    {
+      "id": "q-kemi7-rea-15",
+      "kind": "mc",
+      "topic": "physical change or chemical reaction",
+      "prompt": "Which of these is a chemical reaction?",
+      "opener": "Think about which option forms a gas that wasn't there before.",
+      "choices": [
+        "Chocolate melting in the sun",
+        "Water boiling and turning to steam",
+        "An effervescent tablet dissolving in water and fizzing",
+        "Salt dissolving in water"
+      ],
+      "answer": 2,
+      "explanation": "When the effervescent tablet dissolves, carbon dioxide gas forms through a chemical reaction between the substances in the tablet, seen as bubbles — a new substance has appeared. Chocolate melting, water boiling and salt dissolving are all physical changes where the substances just change form."
     }
   ]
 }

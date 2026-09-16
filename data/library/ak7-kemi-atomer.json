@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta atombegreppen och de kemiska tecken du behöver kunna utantill.",
       "opener": "Ta begreppen atom, grundämne, molekyl och förening först, sedan tecknen.",
       "answer": "Atom: minsta byggstenen i ett grundämne, allt är uppbyggt av atomer · Grundämne: bara ett slags atomer, t.ex. järn (Fe), syrgas (O₂) · Kemisk förening: minst två olika slags atomer bundna till varandra, t.ex. vatten (H₂O), koldioxid (CO₂), koksalt (NaCl) · Molekyl: två eller flera atomer som sitter ihop, kan vara av samma slag (O₂) eller olika slag (H₂O) · Kemisk formel: tecknen visar vilka atomer, den lilla siffran efter ett tecken visar hur många av just den atomen · Kemiska tecken: H = väte, O = syre, C = kol, N = kväve, Fe = järn (ferrum), Cu = koppar (cuprum), Na = natrium, Cl = klor, S = svavel · Stor bokstav först, liten bokstav sedan: Co är kobolt men CO är kolmonoxid · Periodiska systemet: alla kända grundämnen ordnade efter atomnummer (antalet protoner), metaller till vänster och nedåt, icke-metaller upp till höger, ädelgaserna längst till höger."
+    },
+    {
+      "id": "q-kemi7-ato-9",
+      "kind": "mc",
+      "topic": "kemiska tecken",
+      "prompt": "Vilket kemiskt tecken har grundämnet väte?",
+      "opener": "Tecknet är en enda bokstav och samma som den svenska begynnelsebokstaven.",
+      "choices": [
+        "V",
+        "W",
+        "H",
+        "Hy"
+      ],
+      "answer": 2,
+      "explanation": "Väte har det kemiska tecknet H, från latinets hydrogenium. Kemiska tecken är alltid en eller två bokstäver, aldrig tre."
+    },
+    {
+      "id": "q-kemi7-ato-10",
+      "kind": "mc",
+      "topic": "kemiska tecken",
+      "prompt": "Vilket grundämne har det kemiska tecknet Na?",
+      "opener": "Tecknet kommer från det latinska namnet natrium.",
+      "choices": [
+        "Nickel",
+        "Natrium",
+        "Neon",
+        "Niob"
+      ],
+      "answer": 1,
+      "explanation": "Na är tecknet för natrium, som ingår i bland annat koksalt (NaCl). Nickel har tecknet Ni, neon Ne och niob Nb."
+    },
+    {
+      "id": "q-kemi7-ato-11",
+      "kind": "mc",
+      "topic": "grundämnen och föreningar",
+      "prompt": "Vilket av följande är en kemisk förening?",
+      "opener": "Leta efter det alternativ vars formel innehåller mer än ett kemiskt tecken.",
+      "choices": [
+        "Guld (Au)",
+        "Syrgas (O₂)",
+        "Koksalt (NaCl)",
+        "Helium (He)"
+      ],
+      "answer": 2,
+      "explanation": "Koksalt (NaCl) består av två olika slags atomer, natrium och klor, bundna till varandra — det är en kemisk förening. Guld, syrgas och helium innehåller bara ett slags atomer och är grundämnen."
+    },
+    {
+      "id": "q-kemi7-ato-12",
+      "kind": "mc",
+      "topic": "molekyler",
+      "prompt": "I formeln 2 H₂O, vad betyder tvåan som står framför hela formeln?",
+      "opener": "Skilj på siffran framför formeln och den lilla siffran efter ett tecken inuti formeln.",
+      "choices": [
+        "Att varje molekyl innehåller två syreatomer",
+        "Att det finns två hela vattenmolekyler",
+        "Att vätet har laddningen 2",
+        "Att molekylen väger 2 gram"
+      ],
+      "answer": 1,
+      "explanation": "En siffra framför en hel formel visar antalet molekyler, så 2 H₂O betyder två hela vattenmolekyler. Den lilla tvåan efter H inuti formeln är det som visar antalet väteatomer i varje molekyl."
+    },
+    {
+      "id": "q-kemi7-ato-13",
+      "kind": "mc",
+      "topic": "periodiska systemet",
+      "prompt": "Var i periodiska systemet hittar man de flesta metallerna?",
+      "opener": "Metallerna upptar den största delen av systemet.",
+      "choices": [
+        "Uppe till höger",
+        "Längst till höger i en egen kolumn",
+        "Till vänster och nedåt",
+        "Bara i mitten översta raden"
+      ],
+      "answer": 2,
+      "explanation": "Metallerna finns till vänster och nedåt i periodiska systemet och utgör de flesta av de kända grundämnena. Icke-metallerna finns i stället uppe till höger, och ädelgaserna bildar en egen kolumn längst till höger."
+    },
+    {
+      "id": "q-kemi7-ato-14",
+      "kind": "worked",
+      "topic": "grundämnen och föreningar",
+      "prompt": "Vatten har formeln H₂O. Förklara med hjälp av formeln varför vatten är en kemisk förening och inte ett grundämne, och räkna ut hur många atomer en vattenmolekyl består av.",
+      "opener": "Läs formeln tecken för tecken: vilka slags atomer finns med, och hur många av varje?",
+      "answer": "Vatten är en kemisk förening eftersom molekylen innehåller två olika slags atomer (väte och syre), och varje molekyl består av sammanlagt 3 atomer: 2 väteatomer och 1 syreatom.",
+      "steps": [
+        "Dela upp formeln i dess kemiska tecken: H står för väte och O står för syre.",
+        "Läs av siffrorna: efter H står en tvåa, alltså 2 väteatomer. Efter O står ingen siffra, vilket betyder 1 syreatom.",
+        "Räkna totalt antal atomer: 2 + 1 = 3 atomer i varje vattenmolekyl.",
+        "Dra slutsatsen: eftersom molekylen innehåller två OLIKA slags atomer som sitter ihop är vatten en kemisk förening. Ett grundämne, som vätgas H₂, innehåller bara ett slags atomer."
+      ]
+    },
+    {
+      "id": "q-kemi7-ato-15",
+      "kind": "mc",
+      "topic": "kemiska tecken",
+      "prompt": "Vilket grundämne har det kemiska tecknet Fe?",
+      "opener": "Tecknet kommer från det latinska namnet ferrum.",
+      "choices": [
+        "Fluor",
+        "Fosfor",
+        "Järn",
+        "Franium"
+      ],
+      "answer": 2,
+      "explanation": "Fe är tecknet för järn, från latinets ferrum. Fluor har tecknet F, fosfor P och franium Fr — inget av dem stavas Fe."
     }
   ]
 }

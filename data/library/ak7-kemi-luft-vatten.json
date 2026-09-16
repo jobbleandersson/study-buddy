@@ -125,6 +125,110 @@
       "prompt": "Sammanfatta luftens sammansättning, vattnets egenskaper och kretsloppets steg.",
       "opener": "Ta luftens gaser med siffror först, sedan vattnets faser och egenskaper.",
       "answer": "Luftens sammansättning: kväve (N₂) cirka 78 % · syre (O₂) cirka 21 % · argon knappt 1 % · koldioxid (CO₂) cirka 0,04 % · dessutom varierande mängd vattenånga · Syre behövs för andning och för all förbränning · Koldioxid används av växterna vid fotosyntesen och bildas vid förbränning och andning · Vattnets faser: is (fast), vatten (vätska), vattenånga (gas) · Smältpunkt 0 °C, kokpunkt 100 °C vid normalt lufttryck · Fasövergångar: smältning, avdunstning (förångning), kondensation, stelning (frysning) · Is flyter eftersom vatten utvidgas när det fryser, isen har lägre densitet än vattnet — därför fryser sjöar från ytan och nedåt så att fiskarna klarar vintern · Vatten som lösningsmedel: löser ovanligt många ämnen, t.ex. salt och socker, men inte fett och olja · Vattnets kretslopp: avdunstning från hav och sjöar → kondensation till moln → nedbörd som regn eller snö → vattnet rinner via mark, sjöar och älvar tillbaka till havet · Luftföroreningar: koldioxid från fossila bränslen förstärker växthuseffekten, svavel- och kväveoxider ger försurning, sot och partiklar skadar lungorna."
+    },
+    {
+      "id": "q-kemi7-luv-9",
+      "kind": "mc",
+      "topic": "luftens sammansättning",
+      "prompt": "Ungefär hur stor del av luften utgörs av argon och andra ädelgaser?",
+      "opener": "Det är en mycket liten andel jämfört med kväve och syre.",
+      "choices": [
+        "Knappt 1 procent",
+        "Ungefär 21 procent",
+        "Ungefär 50 procent",
+        "Ungefär 78 procent"
+      ],
+      "answer": 0,
+      "explanation": "Argon och andra ädelgaser utgör tillsammans knappt 1 procent av luften. 21 procent är syrets andel och 78 procent kvävets."
+    },
+    {
+      "id": "q-kemi7-luv-10",
+      "kind": "mc",
+      "topic": "vattnets kretslopp",
+      "prompt": "Vad kallas övergången när vatten går från flytande form till gasform genom att dunsta bort från till exempel havsytan?",
+      "opener": "Det är motsatsen till kondensation.",
+      "choices": [
+        "Kondensation",
+        "Avdunstning",
+        "Nedbörd",
+        "Stelning"
+      ],
+      "answer": 1,
+      "explanation": "Avdunstning är övergången från vätska till gas, till exempel när solen värmer havsytan och vatten dunstar bort som vattenånga. Kondensation är den motsatta övergången, från gas till vätska."
+    },
+    {
+      "id": "q-kemi7-luv-11",
+      "kind": "mc",
+      "topic": "vattnets egenskaper",
+      "prompt": "Vid vilken temperatur har vatten sin högsta densitet?",
+      "opener": "Det är faktiskt inte vid fryspunkten, utan strax ovanför den.",
+      "choices": [
+        "0 °C",
+        "4 °C",
+        "20 °C",
+        "100 °C"
+      ],
+      "answer": 1,
+      "explanation": "Vatten har sin högsta densitet vid ungefär 4 °C. Det är därför det kallaste vattnet i en sjö vintertid ofta lägger sig strax under isen, medan det något varmare 4-gradiga vattnet sjunker till botten."
+    },
+    {
+      "id": "q-kemi7-luv-12",
+      "kind": "mc",
+      "topic": "vatten som lösningsmedel",
+      "prompt": "Varför löser sig inte olja i vatten?",
+      "opener": "Tänk på att vattenmolekyler attraheras starkt till varandra, medan oljemolekyler inte gör det på samma sätt.",
+      "choices": [
+        "Eftersom olja alltid är för varm",
+        "Eftersom oljemolekylerna och vattenmolekylerna inte attraherar varandra på samma sätt som vattenmolekyler gör sinsemellan",
+        "Eftersom olja är en gas",
+        "Eftersom vatten redan är mättat med annat"
+      ],
+      "answer": 1,
+      "explanation": "Vattenmolekylerna håller ihop starkt med varandra, medan oljemolekylerna inte binder till vattnet på samma sätt, så olja lägger sig i stället som en hinna ovanpå. Detta har inget med temperatur eller mättnad att göra."
+    },
+    {
+      "id": "q-kemi7-luv-13",
+      "kind": "mc",
+      "topic": "luftföroreningar",
+      "prompt": "Vilka gaser bidrar mest till försurning av sjöar och skog?",
+      "opener": "Dessa gaser bildar syror när de reagerar med vatten i atmosfären.",
+      "choices": [
+        "Syre och kväve",
+        "Svavel- och kväveoxider",
+        "Vattenånga och koldioxid",
+        "Argon och helium"
+      ],
+      "answer": 1,
+      "explanation": "Svavel- och kväveoxider från förbränning reagerar med vatten i luften och bildar svavelsyra och salpetersyra, vilket faller ner som försurande regn. Argon och helium är i stället kemiskt trögreagerade ädelgaser som inte bidrar till försurning."
+    },
+    {
+      "id": "q-kemi7-luv-14",
+      "kind": "worked",
+      "topic": "vattnets kretslopp",
+      "prompt": "Beskriv vad som händer med en vattenmolekyl i ett regnmoln, ända tills den blivit is på toppen av ett högt berg.",
+      "opener": "Tänk på vad som krävs för att vattenånga ska bli fast form.",
+      "answer": "Vattenångan i molnet kondenserar till små vattendroppar. Om det är tillräckligt kallt uppe i molnet fryser dropparna till iskristaller som faller som snö, och snön ligger sedan kvar som is på det kalla bergets topp.",
+      "steps": [
+        "Vattenångan i molnet kyls ner och kondenserar (gas till vätska) till mycket små vattendroppar.",
+        "Är luften i molnet tillräckligt kall fryser dropparna vidare till iskristaller — det kallas stelning (vätska till fast form).",
+        "Iskristallerna växer och faller till slut som snö mot marken.",
+        "Snön hamnar på bergets kalla topp, där temperaturen håller sig under fryspunkten, och ligger kvar som is."
+      ]
+    },
+    {
+      "id": "q-kemi7-luv-15",
+      "kind": "mc",
+      "topic": "luftens sammansättning",
+      "prompt": "Vilken gas är livsnödvändig för andning men står bara för ungefär en femtedel av luften?",
+      "opener": "Denna gas är den vi faktiskt behöver för att andas, till skillnad från den vanligaste gasen i luften.",
+      "choices": [
+        "Kväve",
+        "Syre",
+        "Koldioxid",
+        "Argon"
+      ],
+      "answer": 1,
+      "explanation": "Syre (O₂) står för cirka 21 procent av luften och är den gas cellerna behöver för att frigöra energi ur näringen. Kväve är den vanligaste gasen i luften, men den används inte direkt vid andningen."
     }
   ]
 }
