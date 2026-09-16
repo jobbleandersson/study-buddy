@@ -126,6 +126,111 @@
       "prompt": "Summarise the parts of the reproductive organs, the menstrual cycle and the most common types of contraception.",
       "opener": "Go through the internal organs, the phases of the cycle and then how contraception works.",
       "answer": "Ovaries: produce eggs and the sex hormone oestrogen; the eggs are present from birth · Fallopian tubes: carry the egg to the uterus, usually the site of fertilisation · Uterus: a muscular organ with a lining where the foetus grows · Vagina: the connection between the uterus and the outside of the body · Testicles: produce sperm cells and testosterone, sit in the scrotum where it is a few degrees cooler · Vas deferens and prostate: transport the sperm cells and add fluid so that semen is formed · Penis: carries out both urine and semen, but never at the same time · Menstrual cycle: about 28 days (varies a lot) — period on days 1–5 when the lining is shed, then a new lining is built up, ovulation around day 14, and if the egg is not fertilised the lining is shed again · Fertilisation: sperm cell + egg gives a cell with 46 chromosomes, half from each parent · Pregnancy: the cell cluster attaches to the uterine lining, the placenta and umbilical cord provide oxygen and nutrients, the amniotic fluid protects, birth after around 40 weeks · Puberty: the pituitary gland sets the sex hormones in motion — growth in height, body hair, sweat odour, acne, voice change, breast development, first period and first ejaculation respectively · Contraception: the condom is a barrier and also protects against sexually transmitted infections · The pill, implant, ring and injection are hormonal and usually prevent ovulation · Hormonal and copper IUDs sit in the uterus and prevent pregnancy but not infection · Sexually transmitted infections such as chlamydia and HIV are transmitted through unprotected sex — the condom is the only contraceptive that protects against them."
+    },
+    {
+      "id": "q-bio8-for-9",
+      "kind": "mc",
+      "topic": "the reproductive organs",
+      "prompt": "What is the function of the uterus?",
+      "opener": "Think about where the foetus grows during a pregnancy.",
+      "choices": [
+        "It produces eggs",
+        "It's the muscular organ with a lining where the foetus grows",
+        "It carries out urine",
+        "It produces sperm cells"
+      ],
+      "answer": 1,
+      "explanation": "The uterus is a muscular organ with a lining where a fertilised egg can attach and the foetus grows during pregnancy. Eggs are instead produced in the ovaries, and urine leaves through an entirely different tube."
+    },
+    {
+      "id": "q-bio8-for-10",
+      "kind": "mc",
+      "topic": "the menstrual cycle",
+      "prompt": "What happens during the period, days 1–5 of the cycle?",
+      "opener": "Think about what happens to the lining built up during the previous cycle.",
+      "choices": [
+        "An egg is released from the ovary",
+        "The lining of the uterus is shed",
+        "A fertilised egg attaches to the uterus",
+        "Puberty begins"
+      ],
+      "answer": 1,
+      "explanation": "The period is when the lining the uterus built up is shed, since no fertilised egg attached during the previous cycle. Ovulation instead happens later, around day 14."
+    },
+    {
+      "id": "q-bio8-for-11",
+      "kind": "mc",
+      "topic": "puberty and hormones",
+      "prompt": "Which organ in the brain sets puberty in motion by releasing hormones?",
+      "opener": "This organ controls several of the body's glands through hormones.",
+      "choices": [
+        "The cerebellum",
+        "The pituitary gland",
+        "The brainstem",
+        "The spinal cord"
+      ],
+      "answer": 1,
+      "explanation": "The pituitary gland starts releasing hormones that make the ovaries or testicles produce sex hormones, setting puberty in motion. The cerebellum instead controls balance and movement, not hormones."
+    },
+    {
+      "id": "q-bio8-for-12",
+      "kind": "mc",
+      "topic": "fertilisation",
+      "prompt": "How many chromosomes does a human cell have after the egg and sperm cell have fused during fertilisation?",
+      "opener": "Each sex cell contributes half of the final chromosome total.",
+      "choices": [
+        "23",
+        "46",
+        "92",
+        "12"
+      ],
+      "answer": 1,
+      "explanation": "The egg and the sperm cell each contribute 23 chromosomes, so the fertilised egg has a total of 46 chromosomes, half from each parent. 23 is instead the number of chromosomes in each individual sex cell."
+    },
+    {
+      "id": "q-bio8-for-13",
+      "kind": "mc",
+      "topic": "contraception",
+      "prompt": "Which of these contraceptives is hormonal and usually prevents ovulation?",
+      "opener": "Think about which option affects the body's hormones, unlike a physical barrier.",
+      "choices": [
+        "Condom",
+        "The pill",
+        "Copper IUD",
+        "None of them"
+      ],
+      "answer": 1,
+      "explanation": "The pill contains hormones that usually prevent ovulation and thereby prevent pregnancy. The condom is instead a physical barrier, and the copper IUD works without hormones."
+    },
+    {
+      "id": "q-bio8-for-14",
+      "kind": "worked",
+      "topic": "the menstrual cycle",
+      "prompt": "Explain step by step what happens during a full menstrual cycle, from the first day of the period to the next period.",
+      "opener": "Follow the uterine lining and the ovary through the whole roughly 28-day cycle.",
+      "answer": "Days 1–5, the old lining is shed as the period, while a new lining starts building up in the uterus and an egg matures in the ovary. Around day 14, ovulation occurs and the egg is caught by the fallopian tube. If the egg is not fertilised, the newly built lining breaks down again, and a new period starts the next cycle after about 28 days.",
+      "steps": [
+        "Days 1–5: the old lining is shed as the period, since no fertilised egg attached during the previous cycle.",
+        "At the same time, the uterus starts building up a new, thicker lining, and an egg matures in one of the ovaries.",
+        "Around day 14, ovulation occurs: the mature egg is released and caught by the fallopian tube, where it can be fertilised for about a day.",
+        "If the egg is not fertilised, the newly built lining breaks down again towards the end of the cycle.",
+        "A new period starts the next cycle, usually around day 28 counted from the start of the previous period."
+      ]
+    },
+    {
+      "id": "q-bio8-for-15",
+      "kind": "mc",
+      "topic": "the reproductive organs",
+      "prompt": "Where is the sex hormone oestrogen mainly produced?",
+      "opener": "Think about which organ also produces the eggs.",
+      "choices": [
+        "In the testicles",
+        "In the ovaries",
+        "In the uterus",
+        "In the pituitary gland"
+      ],
+      "answer": 1,
+      "explanation": "Oestrogen is mainly produced in the ovaries, which also produce the eggs. Testosterone is instead the sex hormone mainly produced in the testicles."
     }
   ]
 }

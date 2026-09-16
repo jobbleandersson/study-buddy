@@ -124,6 +124,110 @@
       "prompt": "Summarise the nutrients and the most important parts of the digestive tract.",
       "opener": "Go through the energy-giving substances, the protective substances and the organs in turn.",
       "answer": "Carbohydrates: the body's fastest fuel, found in bread, pasta, potatoes and fruit; broken down into sugar (glucose) · Fat: the most energy-dense, needed for cell membranes, hormones and absorbing certain vitamins · Protein: building material for muscles, enzymes and antibodies; broken down into amino acids · Vitamins: needed in small amounts, provide no energy, e.g. vitamin C and vitamin D · Minerals: e.g. iron (blood) and calcium (skeleton and teeth) · Water and fibre: water is needed in all the body's processes, fibre keeps the intestine working · Mouth: chewing + enzymes in the saliva that break down starch · Oesophagus: transport by muscle movements · Stomach: hydrochloric acid and enzymes, breakdown of protein · Small intestine: most breakdown and almost all nutrient absorption via the villi · Liver and pancreas: contribute bile and enzymes respectively · Large intestine: absorbs water and salts, the rest becomes faeces."
+    },
+    {
+      "id": "q-bio8-mat-9",
+      "kind": "mc",
+      "topic": "the digestive tract",
+      "prompt": "What is the function of the epiglottis?",
+      "opener": "Think about what happens when you accidentally swallow \"down the wrong pipe\".",
+      "choices": [
+        "It breaks down protein",
+        "It closes off the windpipe when you swallow, so food doesn't go the wrong way",
+        "It absorbs nutrients into the blood",
+        "It produces bile"
+      ],
+      "answer": 1,
+      "explanation": "The epiglottis folds down over the opening of the windpipe when you swallow, directing food into the oesophagus instead of the lungs. Nutrient absorption and bile production happen in entirely different parts of the body."
+    },
+    {
+      "id": "q-bio8-mat-10",
+      "kind": "mc",
+      "topic": "enzymes and breakdown",
+      "prompt": "Where in the body does the breakdown of starch begin, even before the food reaches the stomach?",
+      "opener": "Think about what happens in the mouth while you chew.",
+      "choices": [
+        "In the large intestine",
+        "In the mouth, through enzymes in the saliva",
+        "In the oesophagus",
+        "In the liver"
+      ],
+      "answer": 1,
+      "explanation": "Already in the mouth, enzymes in the saliva start breaking down starch into sugar, while the teeth grind the food mechanically. The oesophagus is just a transport tube with no enzymes."
+    },
+    {
+      "id": "q-bio8-mat-11",
+      "kind": "mc",
+      "topic": "nutrients",
+      "prompt": "Which nutrient is the body's most energy-dense, per gram?",
+      "opener": "Think about which substance the body stores as an energy reserve when there's a surplus.",
+      "choices": [
+        "Carbohydrates",
+        "Protein",
+        "Fat",
+        "Vitamins"
+      ],
+      "answer": 2,
+      "explanation": "Fat contains more than twice as much energy per gram as carbohydrates and protein, which is why the body stores surplus energy as fat. Vitamins contain no energy at all."
+    },
+    {
+      "id": "q-bio8-mat-12",
+      "kind": "mc",
+      "topic": "nutrients",
+      "prompt": "Which mineral is needed to form haemoglobin in red blood cells?",
+      "opener": "A deficiency of this substance can cause anaemia.",
+      "choices": [
+        "Calcium",
+        "Iron",
+        "Vitamin C",
+        "Sodium"
+      ],
+      "answer": 1,
+      "explanation": "Iron is part of the haemoglobin that binds oxygen in red blood cells, and iron deficiency can cause anaemia. Calcium is instead mainly needed for bones and teeth."
+    },
+    {
+      "id": "q-bio8-mat-13",
+      "kind": "mc",
+      "topic": "the digestive tract",
+      "prompt": "Which organ contributes bile to digestion?",
+      "opener": "Bile breaks fat into smaller droplets in the small intestine.",
+      "choices": [
+        "The pancreas",
+        "The liver",
+        "The stomach",
+        "The large intestine"
+      ],
+      "answer": 1,
+      "explanation": "The liver produces bile, which is stored in the gallbladder and released into the small intestine to break fat into smaller droplets. The pancreas instead contributes enzymes, not bile."
+    },
+    {
+      "id": "q-bio8-mat-14",
+      "kind": "worked",
+      "topic": "enzymes and breakdown",
+      "prompt": "Explain step by step what happens to a glass of milk from the moment you drink it until the nutrients are in your blood.",
+      "opener": "Think about how milk contains protein, fat and milk sugar (lactose), and that each is broken down in its own way.",
+      "answer": "The milk is swallowed almost directly without chewing, passes through the oesophagus to the stomach where hydrochloric acid and enzymes start breaking down the protein, continues to the small intestine where bile breaks the fat into smaller droplets and enzymes from the pancreas break down protein, fat and lactose into small molecules, which are then absorbed through the villi into the blood.",
+      "steps": [
+        "The milk is liquid and needs no chewing, but saliva still mixes in as it's swallowed.",
+        "The milk passes through the oesophagus to the stomach, where hydrochloric acid and enzymes start breaking down the proteins in the milk.",
+        "In the small intestine, bile from the liver breaks the fat in the milk into smaller droplets, while enzymes from the pancreas break down protein, fat and the milk sugar lactose into small molecules.",
+        "The small nutrient molecules are absorbed through the villi into the blood and carried on to the body's cells, while any unused remains go to the large intestine."
+      ]
+    },
+    {
+      "id": "q-bio8-mat-15",
+      "kind": "mc",
+      "topic": "the digestive tract",
+      "prompt": "Which organ mainly absorbs water from the food remains before faeces are formed?",
+      "opener": "It's the last part of the digestive tract.",
+      "choices": [
+        "The small intestine",
+        "The large intestine",
+        "The stomach",
+        "The oesophagus"
+      ],
+      "answer": 1,
+      "explanation": "The large intestine mainly absorbs water and salts from what remains after the small intestine, making the faeces firmer. The small intestine instead absorbs most of the nutrients."
     }
   ]
 }

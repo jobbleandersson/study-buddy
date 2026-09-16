@@ -126,6 +126,111 @@
       "prompt": "Summarise the parts of the nervous system, the senses and their sense organs.",
       "opener": "Go through the central and peripheral nervous systems, the parts of the brain, and then the five senses.",
       "answer": "Central nervous system: the brain (protected by the skull) and the spinal cord (protected by the vertebrae) — processes and decides · Peripheral nervous system: all the nerves out into the body, sensory nerves in and motor nerves out · Cerebrum: thoughts, memory, language, emotions and voluntary movements; the cortex is the wrinkled surface · Cerebellum: balance and coordinated, smooth movements · Brainstem: automatic functions such as breathing, heartbeat and body temperature · Nerve cell (neuron): a cell body with short extensions that receive signals and a long nerve fibre that sends the signal onward · Synapse: the gap between two nerve cells where neurotransmitters carry the signal · Reflex: a fast switch in the spinal cord without the brain needing to make a decision, protects the body · Sight: the eye — light is refracted in the cornea and lens, the image lands on the retina with cones (colour) and rods (faint light), the signal travels via the optic nerve · Hearing: the ear — sound waves make the eardrum vibrate, the ear bones amplify it, hair cells in the cochlea convert it into nerve signals; the balance organ also sits in the inner ear · Touch: the skin — different cells for pressure, heat, cold and pain, densest in fingertips and lips · Taste: taste buds on the tongue sense sweet, salty, sour, bitter and umami · Smell: smell receptors high up in the nose; smell and taste work together, which is why food tastes bland when you have a cold · Sleep: the brain processes impressions and stores memories, growth hormone is released, cells are repaired; teenagers need roughly 8–10 hours."
+    },
+    {
+      "id": "q-bio8-ner-9",
+      "kind": "mc",
+      "topic": "the structure of the nervous system",
+      "prompt": "Which parts belong to the peripheral nervous system?",
+      "opener": "Think about the nerves that lie outside the brain and spinal cord.",
+      "choices": [
+        "Only the brain",
+        "Only the spinal cord",
+        "All the nerves branching out into the body from the brain and spinal cord",
+        "Only the optic nerve"
+      ],
+      "answer": 2,
+      "explanation": "The peripheral nervous system consists of all the nerves that branch out into the body — sensory nerves in and motor nerves out. The brain and spinal cord instead belong to the central nervous system."
+    },
+    {
+      "id": "q-bio8-ner-10",
+      "kind": "mc",
+      "topic": "the parts of the brain",
+      "prompt": "Which part of the brain controls automatic functions such as breathing and heartbeat?",
+      "opener": "This part sits at the very bottom and connects the brain to the spinal cord.",
+      "choices": [
+        "The cerebral cortex",
+        "The cerebellum",
+        "The brainstem",
+        "The spinal cord"
+      ],
+      "answer": 2,
+      "explanation": "The brainstem controls vital automatic functions such as breathing, heartbeat and body temperature, entirely without you having to think about it. The cerebral cortex instead handles conscious thoughts and decisions."
+    },
+    {
+      "id": "q-bio8-ner-11",
+      "kind": "mc",
+      "topic": "nerve cells and signals",
+      "prompt": "What is the long extension of a nerve cell called that sends the signal onward towards the next cell?",
+      "opener": "This extension can be very long, sometimes over a metre.",
+      "choices": [
+        "Cell body",
+        "Nerve fibre (axon)",
+        "Synapse",
+        "Dendrite"
+      ],
+      "answer": 1,
+      "explanation": "The nerve fibre (axon) is the long extension that carries the electrical signal from the cell body away towards the next nerve cell. Dendrites are instead short extensions that receive signals coming into the cell."
+    },
+    {
+      "id": "q-bio8-ner-12",
+      "kind": "mc",
+      "topic": "the senses",
+      "prompt": "Where in the ear are the hair cells that convert sound waves into nerve signals?",
+      "opener": "This part of the inner ear is shaped like a spiral snail shell.",
+      "choices": [
+        "In the eardrum",
+        "In the ear bones",
+        "In the cochlea",
+        "In the balance organ"
+      ],
+      "answer": 2,
+      "explanation": "The cochlea, a spiral-shaped part of the inner ear, contains hair cells that convert the movement of sound waves into nerve signals sent on to the brain. The eardrum only vibrates in response to sound, and the ear bones amplify the vibrations before they reach the cochlea."
+    },
+    {
+      "id": "q-bio8-ner-13",
+      "kind": "mc",
+      "topic": "the senses",
+      "prompt": "Why does food taste bland when you have a cold?",
+      "opener": "Think about which sense is impaired during a cold and how it works together with taste.",
+      "choices": [
+        "The taste buds stop working completely",
+        "Smell is impaired, and smell and taste normally work together",
+        "The tongue swells up",
+        "Saliva disappears"
+      ],
+      "answer": 1,
+      "explanation": "During a cold, the sense of smell is impaired because the nose is blocked, and since the experience of taste normally relies on the interplay between smell and taste, food tastes less flavourful. The taste buds themselves still work, it's the smell signal that's missing."
+    },
+    {
+      "id": "q-bio8-ner-14",
+      "kind": "worked",
+      "topic": "reflexes",
+      "prompt": "Explain step by step what happens in the nervous system from touching a hot stove plate to pulling your hand away and feeling the pain.",
+      "opener": "Follow the signal from the sensory cells in the hand into the spinal cord and then onward.",
+      "answer": "Sensory cells in the skin of the hand detect the heat and send an electrical nerve signal through the sensory nerve into the spinal cord, where the signal is switched directly to a motor nerve that makes the muscles in the arm contract so the hand is pulled away — all of this happens before the signal, which at the same time continues up through the spinal cord to the brain, is interpreted there as pain and you become aware of what happened.",
+      "steps": [
+        "The sensory cells in the skin of the hand register the high temperature and start a nerve signal.",
+        "The signal travels as an electrical impulse along the sensory nerve into the spinal cord.",
+        "In the spinal cord, the signal is switched across synapses directly to a motor nerve, without first going up to the brain — this is the reflex itself.",
+        "The motor nerve makes the muscles in the arm contract, and the hand is pulled away in a fraction of a second.",
+        "At the same time, a signal continues up to the brain, which interprets it as pain; only then do you become aware of what happened and can blow on your hand or cool it down."
+      ]
+    },
+    {
+      "id": "q-bio8-ner-15",
+      "kind": "mc",
+      "topic": "sleep",
+      "prompt": "About how many hours of sleep does a teenager need per night?",
+      "opener": "Teenagers need more sleep than adults, since the body and brain are still developing.",
+      "choices": [
+        "4-5 hours",
+        "6-7 hours",
+        "8-10 hours",
+        "12-14 hours"
+      ],
+      "answer": 2,
+      "explanation": "Teenagers need roughly 8–10 hours of sleep per night for the brain to process impressions and the body to repair cells and grow. 4–5 hours is far too little and isn't enough for recovery."
     }
   ]
 }

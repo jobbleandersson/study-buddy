@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta nervsystemets delar, sinnena och deras sinnesorgan.",
       "opener": "Gå igenom centrala och perifera nervsystemet, hjärnans delar och sedan de fem sinnena.",
       "answer": "Centrala nervsystemet: hjärnan (skyddad av skallbenet) och ryggmärgen (skyddad av ryggkotorna) — bearbetar och beslutar · Perifera nervsystemet: alla nerver ut i kroppen, känselnerver in och rörelsenerver ut · Storhjärnan: tankar, minne, språk, känslor och viljestyrda rörelser; barken är den skrynkliga ytan · Lillhjärnan: balans och samordnade, mjuka rörelser · Hjärnstammen: automatiska funktioner som andning, hjärtslag och kroppstemperatur · Nervcell (neuron): cellkropp med korta utskott som tar emot signaler och en lång nervtråd som skickar signalen vidare · Synaps: spalten mellan två nervceller där signalämnen förmedlar signalen · Reflex: snabb koppling i ryggmärgen utan att hjärnan behöver fatta beslut, skyddar kroppen · Syn: ögat — ljuset bryts i hornhinna och lins, bilden hamnar på näthinnan med tappar (färg) och stavar (svagt ljus), signalen går via synnerven · Hörsel: örat — ljudvågor får trumhinnan att svänga, hörselbenen förstärker, hårceller i snäckan omvandlar till nervsignaler; balansorganet sitter också i innerörat · Känsel: huden — olika celler för tryck, värme, kyla och smärta, tätast i fingertoppar och läppar · Smak: smaklökar på tungan känner sött, salt, surt, beskt och umami · Lukt: luktceller högt upp i näsan; lukt och smak samverkar, därför smakar maten lite när man är förkyld · Sömn: hjärnan bearbetar intryck och lagrar minnen, tillväxthormon frisätts, celler repareras; tonåringar behöver ungefär 8–10 timmar."
+    },
+    {
+      "id": "q-bio8-ner-9",
+      "kind": "mc",
+      "topic": "nervsystemets uppbyggnad",
+      "prompt": "Vilka delar räknas till det perifera nervsystemet?",
+      "opener": "Tänk på nerverna som ligger utanför hjärnan och ryggmärgen.",
+      "choices": [
+        "Bara hjärnan",
+        "Bara ryggmärgen",
+        "Alla nerver som förgrenar sig ut i kroppen från hjärna och ryggmärg",
+        "Bara synnerven"
+      ],
+      "answer": 2,
+      "explanation": "Det perifera nervsystemet består av alla nerver som förgrenar sig ut i kroppen — känselnerver in och rörelsenerver ut. Hjärnan och ryggmärgen tillhör i stället det centrala nervsystemet."
+    },
+    {
+      "id": "q-bio8-ner-10",
+      "kind": "mc",
+      "topic": "hjärnans delar",
+      "prompt": "Vilken del av hjärnan styr automatiska funktioner som andning och hjärtslag?",
+      "opener": "Denna del sitter längst ner och kopplar samman hjärnan med ryggmärgen.",
+      "choices": [
+        "Storhjärnans bark",
+        "Lillhjärnan",
+        "Hjärnstammen",
+        "Ryggmärgen"
+      ],
+      "answer": 2,
+      "explanation": "Hjärnstammen styr livsnödvändiga automatiska funktioner som andning, hjärtslag och kroppstemperatur, helt utan att du behöver tänka på det. Storhjärnans bark sköter i stället medvetna tankar och beslut."
+    },
+    {
+      "id": "q-bio8-ner-11",
+      "kind": "mc",
+      "topic": "nervceller och signaler",
+      "prompt": "Vad kallas det långa utskottet på en nervcell som skickar signalen vidare mot nästa cell?",
+      "opener": "Detta utskott kan vara mycket långt, ibland över en meter.",
+      "choices": [
+        "Cellkropp",
+        "Nervtråd (axon)",
+        "Synaps",
+        "Dendrit"
+      ],
+      "answer": 1,
+      "explanation": "Nervtråden (axonet) är det långa utskottet som leder den elektriska signalen från cellkroppen bort mot nästa nervcell. Dendriterna är i stället korta utskott som tar emot signaler in till cellen."
+    },
+    {
+      "id": "q-bio8-ner-12",
+      "kind": "mc",
+      "topic": "sinnena",
+      "prompt": "Var i örat sitter de hårceller som omvandlar ljudvågor till nervsignaler?",
+      "opener": "Denna del av innerörat har formen av ett spiralformat snäckskal.",
+      "choices": [
+        "I trumhinnan",
+        "I hörselbenen",
+        "I snäckan",
+        "I balansorganet"
+      ],
+      "answer": 2,
+      "explanation": "I snäckan, en spiralformad del av innerörat, finns hårceller som omvandlar ljudvågornas rörelse till nervsignaler som skickas vidare till hjärnan. Trumhinnan svänger bara av ljudet, och hörselbenen förstärker svängningarna innan de når snäckan."
+    },
+    {
+      "id": "q-bio8-ner-13",
+      "kind": "mc",
+      "topic": "sinnena",
+      "prompt": "Varför smakar maten mindre när man är förkyld?",
+      "opener": "Tänk på vilket sinne som är nedsatt vid en förkylning och hur det samverkar med smaken.",
+      "choices": [
+        "Smaklökarna slutar fungera helt",
+        "Lukten är nedsatt och lukt och smak samverkar normalt",
+        "Tungan svullnar upp",
+        "Saliven försvinner"
+      ],
+      "answer": 1,
+      "explanation": "Vid en förkylning är luktsinnet nedsatt eftersom näsan är täppt, och eftersom smakupplevelsen normalt bygger på samspelet mellan lukt och smak blir maten mindre smakrik. Smaklökarna själva fungerar fortfarande, det är luktsignalen som saknas."
+    },
+    {
+      "id": "q-bio8-ner-14",
+      "kind": "worked",
+      "topic": "reflexer",
+      "prompt": "Förklara steg för steg vad som händer i nervsystemet från att du nuddar en het spisplatta till att du drar undan handen och känner smärtan.",
+      "opener": "Följ signalen från känselcellerna i handen in till ryggmärgen och sedan vidare uppåt.",
+      "answer": "Känselceller i handens hud reagerar på hettan och skickar en elektrisk nervsignal genom känselnerven in till ryggmärgen, där signalen kopplas om direkt till en rörelsenerv som får armens muskler att dra ihop sig så att handen dras undan — allt detta hinner ske innan signalen, som samtidigt fortsätter uppåt genom ryggmärgen till hjärnan, tolkas där som smärta och du blir medveten om vad som hänt.",
+      "steps": [
+        "Känselcellerna i handens hud registrerar den höga temperaturen och startar en nervsignal.",
+        "Signalen går som en elektrisk impuls längs känselnerven in till ryggmärgen.",
+        "I ryggmärgen kopplas signalen över synapser direkt vidare till en rörelsenerv, utan att först gå upp till hjärnan — det är själva reflexen.",
+        "Rörelsenerven får musklerna i armen att dra ihop sig, och handen dras undan på bråkdelen av en sekund.",
+        "Samtidigt fortsätter en signal uppåt till hjärnan, som tolkar den som smärta; först då blir du medveten om vad som hände och kan blåsa på handen eller kyla den."
+      ]
+    },
+    {
+      "id": "q-bio8-ner-15",
+      "kind": "mc",
+      "topic": "sömn",
+      "prompt": "Ungefär hur många timmars sömn behöver en tonåring per natt?",
+      "opener": "Tonåringar behöver mer sömn än vuxna, eftersom kroppen och hjärnan fortfarande utvecklas.",
+      "choices": [
+        "4-5 timmar",
+        "6-7 timmar",
+        "8-10 timmar",
+        "12-14 timmar"
+      ],
+      "answer": 2,
+      "explanation": "Tonåringar behöver ungefär 8–10 timmars sömn per natt för att hjärnan ska hinna bearbeta intryck och kroppen hinna reparera celler och växa. 4–5 timmar är alldeles för lite och räcker inte för återhämtningen."
     }
   ]
 }

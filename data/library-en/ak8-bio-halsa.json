@@ -126,6 +126,111 @@
       "prompt": "Summarise the immune system, transmission routes, and how lifestyle habits and drugs affect health.",
       "opener": "Go through the levels of defence, how infection spreads, and then sleep, diet, exercise and drugs.",
       "answer": "Barriers: skin, mucous membranes, tears, saliva and stomach acid stop most microorganisms · Non-specific defence: white blood cells that engulf invaders, fever and inflammation (redness, heat, swelling) · Specific defence: white blood cells form antibodies that match one particular microorganism, takes a few days · Memory cells: make you immune so you avoid getting ill next time · Bacteria: cells of their own, can reproduce by themselves, most are harmless or beneficial (gut flora); treated with antibiotics when needed · Viruses: genetic material in a protein shell, must get inside a host cell, much smaller than bacteria; antibiotics don't work on viruses · Vaccine: killed or harmless parts of the pathogen give antibodies and memory cells in advance · Antibiotic resistance: bacteria that tolerate antibiotics survive and multiply — use antibiotics only when needed and finish the whole course · Transmission routes: droplets (coughing, sneezing), contact (hands, surfaces), food and water, blood and sex, and via insects · Protection: handwashing, coughing into your elbow, staying home when ill, airing rooms, vaccination · Sleep: 8–10 hours for teenagers, the brain stores memories, the body repairs cells, the immune system is strengthened · Diet: varied food with the right amount of energy gives nutrients to all cells; too much sugar and too little fibre increases the risk of illness in the long run · Exercise: strengthens the heart, lungs, skeleton and muscles, gives better fitness, a lower resting heart rate and a better mood · Tobacco and nicotine: damage the lungs and blood vessels, increase the risk of cancer and cardiovascular disease, nicotine is strongly addictive · Alcohol: affects the brain and reaction time, damages the liver and brain especially during the teenage years when the brain is still developing · Illegal drugs: affect the brain's signal substances, cause rapid addiction and major risks to both body and mental health."
+    },
+    {
+      "id": "q-bio8-hal-9",
+      "kind": "mc",
+      "topic": "the immune system",
+      "prompt": "What is the body's first line of defence against microorganisms, such as skin and mucous membranes, called?",
+      "opener": "This part of the defence stops microorganisms from getting into the body at all.",
+      "choices": [
+        "Specific defence",
+        "Barriers",
+        "Antibodies",
+        "Memory cells"
+      ],
+      "answer": 1,
+      "explanation": "Barriers such as skin, mucous membranes and stomach acid stop most microorganisms before they even get into the body. The specific defence with antibodies and memory cells only kicks in if a microorganism manages to get past the barriers."
+    },
+    {
+      "id": "q-bio8-hal-10",
+      "kind": "mc",
+      "topic": "bacteria and viruses",
+      "prompt": "What is gut flora?",
+      "opener": "Think about how not all bacteria are dangerous.",
+      "choices": [
+        "Harmful bacteria that always make you ill",
+        "Beneficial bacteria that live in the gut and help with digestion",
+        "Viruses that attack the gut",
+        "A type of vitamin"
+      ],
+      "answer": 1,
+      "explanation": "Gut flora consists of beneficial bacteria that live in the gut, help with digestion and produce certain vitamins. So most bacteria are harmless or even beneficial, not harmful."
+    },
+    {
+      "id": "q-bio8-hal-11",
+      "kind": "mc",
+      "topic": "vaccination and antibiotics",
+      "prompt": "Why is it important to finish the whole course of antibiotics, even once you feel better?",
+      "opener": "Think about which bacteria would survive if you stop too early.",
+      "choices": [
+        "Otherwise the medicine tastes bad",
+        "Otherwise the most resistant bacteria can survive and cause resistance",
+        "Otherwise the fever disappears too quickly",
+        "It doesn't matter if you stop the course early"
+      ],
+      "answer": 1,
+      "explanation": "If you stop too early, the most resistant bacteria can survive and multiply, which spreads antibiotic resistance. Finishing the whole course instead kills the bacteria completely before they can develop resistance."
+    },
+    {
+      "id": "q-bio8-hal-12",
+      "kind": "mc",
+      "topic": "spread of infection",
+      "prompt": "What is it called when infection spreads via hands or surfaces?",
+      "opener": "The name describes the infection being carried on through physical touch.",
+      "choices": [
+        "Droplet infection",
+        "Contact infection",
+        "Airborne infection",
+        "Blood-borne infection"
+      ],
+      "answer": 1,
+      "explanation": "Contact infection spreads when microorganisms are carried on via hands or surfaces that are then touched to the face. Droplet infection instead spreads directly through the air via coughing and sneezing."
+    },
+    {
+      "id": "q-bio8-hal-13",
+      "kind": "mc",
+      "topic": "lifestyle habits and health",
+      "prompt": "Why is alcohol especially harmful to teenagers?",
+      "opener": "Think about which organ is still developing during the teenage years.",
+      "choices": [
+        "It only affects adults",
+        "The brain is still developing and can be damaged especially badly",
+        "Alcohol is harmless at any age",
+        "Teenagers tolerate alcohol better than adults"
+      ],
+      "answer": 1,
+      "explanation": "Teenagers' brains are still developing, and alcohol can damage that development especially badly compared with a fully developed adult brain. Teenagers don't tolerate alcohol better — quite the opposite."
+    },
+    {
+      "id": "q-bio8-hal-14",
+      "kind": "worked",
+      "topic": "vaccination and antibiotics",
+      "prompt": "Explain step by step what happens in the body when you're vaccinated against a disease, all the way until you're protected.",
+      "opener": "Think about how the vaccine gives the immune system a harmless practice run before the real infection arrives.",
+      "answer": "The vaccine contains killed or harmless parts of the microorganism, which the immune system recognises as foreign and therefore starts forming antibodies and memory cells against. If the real disease later enters the body, it's recognised immediately by the memory cells, which make sure antibodies are formed so quickly that you don't have time to get ill.",
+      "steps": [
+        "The vaccine is injected and contains killed or harmless parts of a microorganism, not the real disease-causing version.",
+        "The immune system recognises the parts as foreign and starts the specific defence, as if it were a real infection.",
+        "White blood cells form antibodies that match that particular microorganism, which takes a few days.",
+        "Some cells are kept as memory cells, just as after a real infection.",
+        "If the real infection enters later, it's recognised immediately by the memory cells, and antibodies are formed so quickly that you're protected before you get ill."
+      ]
+    },
+    {
+      "id": "q-bio8-hal-15",
+      "kind": "mc",
+      "topic": "lifestyle habits and health",
+      "prompt": "Which combination of lifestyle habits best strengthens the immune system according to biological research?",
+      "opener": "Think about how sleep, food and movement work together to support the body's functions.",
+      "choices": [
+        "Only lots of sleep, nothing else matters",
+        "Sufficient sleep, a varied diet and regular exercise together",
+        "Only dietary supplements",
+        "Avoiding all physical activity"
+      ],
+      "answer": 1,
+      "explanation": "Sleep, diet and exercise are connected and together strengthen both the body and the immune system — none of them can replace the others alone. Avoiding all physical activity instead weakens the body over time."
     }
   ]
 }

@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta immunförsvaret, smittvägarna och hur levnadsvanor och droger påverkar hälsan.",
       "opener": "Gå igenom försvarets nivåer, hur smitta sprids och sedan sömn, kost, motion och droger.",
       "answer": "Barriärer: hud, slemhinnor, tårvätska, saliv och magsäckens saltsyra stoppar de flesta mikroorganismer · Ospecifikt försvar: vita blodkroppar som äter upp inkräktare, feber och inflammation (rodnad, värme, svullnad) · Specifikt försvar: vita blodkroppar bildar antikroppar som passar just en mikroorganism, tar några dagar · Minnesceller: gör att man blir immun och slipper bli sjuk nästa gång · Bakterier: egna celler, kan föröka sig själva, de flesta ofarliga eller nyttiga (tarmflora); behandlas vid behov med antibiotika · Virus: arvsmassa i ett proteinskal, måste in i en värdcell, mycket mindre än bakterier; antibiotika verkar inte på virus · Vaccin: avdödade eller ofarliga delar av smittämnet ger antikroppar och minnesceller i förväg · Antibiotikaresistens: bakterier som tål antibiotika överlever och förökas — använd antibiotika bara när det behövs och ta hela kuren · Smittvägar: droppsmitta (hosta, nysning), kontaktsmitta (händer, ytor), livsmedel och vatten, blod och sex, samt via insekter · Skydd: handtvätt, hosta i armvecket, stanna hemma vid sjukdom, vädra, vaccination · Sömn: 8–10 timmar för tonåringar, hjärnan lagrar minnen, kroppen reparerar celler, immunförsvaret stärks · Kost: varierad mat med lagom energi ger näring till alla celler; för mycket socker och för lite fibrer ökar risken för sjukdom på lång sikt · Motion: stärker hjärta, lungor, skelett och muskler, ger bättre kondition, lägre vilopuls och bättre humör · Tobak och nikotin: skadar lungorna och blodkärlen, ökar risken för cancer och hjärt-kärlsjukdom, nikotin är starkt beroendeframkallande · Alkohol: påverkar hjärnan och reaktionsförmågan, skadar lever och hjärna särskilt mycket under tonåren när hjärnan fortfarande utvecklas · Narkotika: påverkar hjärnans signalämnen, ger snabbt beroende och stora risker för både kropp och psykisk hälsa."
+    },
+    {
+      "id": "q-bio8-hal-9",
+      "kind": "mc",
+      "topic": "immunförsvaret",
+      "prompt": "Vad kallas kroppens första försvarslinje mot mikroorganismer, som hud och slemhinnor?",
+      "opener": "Denna del av försvaret hindrar mikroorganismer från att komma in i kroppen alls.",
+      "choices": [
+        "Specifikt försvar",
+        "Barriärer",
+        "Antikroppar",
+        "Minnesceller"
+      ],
+      "answer": 1,
+      "explanation": "Barriärer som hud, slemhinnor och magsäckens saltsyra stoppar de flesta mikroorganismer redan innan de kommer in i kroppen. Det specifika försvaret med antikroppar och minnesceller kopplas in först om en mikroorganism lyckas ta sig igenom barriärerna."
+    },
+    {
+      "id": "q-bio8-hal-10",
+      "kind": "mc",
+      "topic": "bakterier och virus",
+      "prompt": "Vad är tarmflora?",
+      "opener": "Tänk på att inte alla bakterier är farliga.",
+      "choices": [
+        "Skadliga bakterier som alltid gör en sjuk",
+        "Nyttiga bakterier som lever i tarmen och hjälper till med matspjälkningen",
+        "Virus som angriper tarmen",
+        "En sorts vitamin"
+      ],
+      "answer": 1,
+      "explanation": "Tarmfloran består av nyttiga bakterier som lever i tarmen och hjälper till med matspjälkning och bildar vissa vitaminer. De flesta bakterier är alltså ofarliga eller till och med nyttiga, inte skadliga."
+    },
+    {
+      "id": "q-bio8-hal-11",
+      "kind": "mc",
+      "topic": "vaccination och antibiotika",
+      "prompt": "Varför är det viktigt att ta hela antibiotikakuren, även när man känner sig bättre?",
+      "opener": "Tänk på vilka bakterier som skulle överleva om man slutar för tidigt.",
+      "choices": [
+        "Annars smakar medicinen illa",
+        "Annars kan de mest motståndskraftiga bakterierna överleva och orsaka resistens",
+        "Annars försvinner febern för snabbt",
+        "Det spelar ingen roll om man avbryter kuren"
+      ],
+      "answer": 1,
+      "explanation": "Om man slutar för tidigt kan de mest motståndskraftiga bakterierna överleva och föröka sig, vilket gör att antibiotikaresistens sprids. Att ta hela kuren dödar i stället bakterierna helt innan de hinner utveckla motståndskraft."
+    },
+    {
+      "id": "q-bio8-hal-12",
+      "kind": "mc",
+      "topic": "smittspridning",
+      "prompt": "Vad kallas det när smitta sprids via händer eller ytor?",
+      "opener": "Namnet beskriver att smittan förs vidare genom fysisk beröring.",
+      "choices": [
+        "Droppsmitta",
+        "Kontaktsmitta",
+        "Luftburen smitta",
+        "Blodsmitta"
+      ],
+      "answer": 1,
+      "explanation": "Kontaktsmitta sprids när mikroorganismer förs vidare via händer eller ytor som sedan rörs vid ansiktet. Droppsmitta sprids i stället via hostningar och nysningar direkt genom luften."
+    },
+    {
+      "id": "q-bio8-hal-13",
+      "kind": "mc",
+      "topic": "levnadsvanor och hälsa",
+      "prompt": "Varför är alkohol särskilt skadligt för tonåringar?",
+      "opener": "Tänk på vilket organ som fortfarande utvecklas under tonåren.",
+      "choices": [
+        "Det påverkar bara vuxna",
+        "Hjärnan är fortfarande under utveckling och kan skadas extra mycket",
+        "Alkohol är ofarligt i alla åldrar",
+        "Tonåringar tål alkohol bättre än vuxna"
+      ],
+      "answer": 1,
+      "explanation": "Tonåringars hjärnor är fortfarande under utveckling, och alkohol kan skada denna utveckling extra mycket jämfört med hos en fullt utvecklad vuxen hjärna. Tonåringar tål alltså inte alkohol bättre — snarare tvärtom."
+    },
+    {
+      "id": "q-bio8-hal-14",
+      "kind": "worked",
+      "topic": "vaccination och antibiotika",
+      "prompt": "Förklara steg för steg vad som händer i kroppen när du vaccineras mot en sjukdom, ända tills du är skyddad.",
+      "opener": "Tänk på att vaccinet ger immunförsvaret en ofarlig övning innan den riktiga smittan kommer.",
+      "answer": "Vaccinet innehåller avdödade eller ofarliga delar av mikroorganismen, som immunförsvaret känner igen som främmande och därför börjar bilda antikroppar och minnesceller mot. Om den riktiga sjukdomen senare kommer in i kroppen känns den igen direkt av minnescellerna, som ser till att antikroppar bildas så snabbt att du inte hinner bli sjuk.",
+      "steps": [
+        "Vaccinet sprutas in och innehåller avdödade eller ofarliga delar av en mikroorganism, inte den riktiga sjukdomsframkallande varianten.",
+        "Immunförsvaret känner igen delarna som främmande och startar det specifika försvaret, som om det vore en riktig infektion.",
+        "Vita blodkroppar bildar antikroppar som passar just den mikroorganismen, vilket tar några dagar.",
+        "Vissa celler sparas som minnesceller, precis som efter en verklig infektion.",
+        "Kommer den riktiga smittan in senare känns den igen direkt av minnescellerna, och antikroppar bildas så snabbt att du hinner bli skyddad innan du blir sjuk."
+      ]
+    },
+    {
+      "id": "q-bio8-hal-15",
+      "kind": "mc",
+      "topic": "levnadsvanor och hälsa",
+      "prompt": "Vilken kombination av levnadsvanor stärker immunförsvaret bäst enligt biologisk forskning?",
+      "opener": "Tänk på hur sömn, mat och rörelse samverkar för att stödja kroppens funktioner.",
+      "choices": [
+        "Bara mycket sömn, inget annat spelar roll",
+        "Tillräcklig sömn, varierad kost och regelbunden motion tillsammans",
+        "Bara kosttillskott",
+        "Att undvika all fysisk aktivitet"
+      ],
+      "answer": 1,
+      "explanation": "Sömn, kost och motion hänger ihop och stärker tillsammans både kroppen och immunförsvaret — ingen av delarna kan ensam ersätta de andra. Att undvika all fysisk aktivitet gör tvärtom kroppen svagare över tid."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Summarise the components of blood and the structure of the circulatory system.",
       "opener": "Go through the four components of blood, the three vessel types and the chambers of the heart.",
       "answer": "Red blood cells: contain haemoglobin and transport oxygen from the lungs to the cells · White blood cells: part of the immune system, neutralise bacteria and viruses · Platelets: make the blood clot so wounds stop bleeding · Blood plasma: a yellowish fluid mostly made of water that transports nutrients, hormones and waste · Arteries: carry blood away from the heart, thick and elastic walls · Veins: carry blood to the heart, have valves that prevent backflow · Capillaries: very thin vessels where exchange with the cells takes place · Heart: four chambers — right and left atria plus right and left ventricles, with valves that make sure blood only flows in one direction · Pulmonary circuit: right ventricle → lungs → left atrium · Systemic circuit: left ventricle → the body's organs → right atrium · Heart rate: the number of heartbeats per minute; good fitness gives a stronger heart, a larger stroke volume and a lower resting heart rate."
+    },
+    {
+      "id": "q-bio8-and-9",
+      "kind": "mc",
+      "topic": "the respiratory organs",
+      "prompt": "Which muscle contracts to draw air into the lungs during inhalation?",
+      "opener": "The muscle sits below the lungs and works every time you breathe.",
+      "choices": [
+        "The biceps muscle",
+        "The diaphragm",
+        "The heart muscle",
+        "The triceps muscle"
+      ],
+      "answer": 1,
+      "explanation": "The diaphragm contracts and moves down during inhalation, expanding the lungs and drawing air in. The biceps and triceps are movement muscles in the arm and have nothing to do with breathing."
+    },
+    {
+      "id": "q-bio8-and-10",
+      "kind": "mc",
+      "topic": "gas exchange",
+      "prompt": "Why are the walls of the alveoli so thin?",
+      "opener": "Think about what needs to pass through the wall between air and blood.",
+      "choices": [
+        "So they can withstand high pressure",
+        "To make gas exchange with the blood faster and more efficient",
+        "To save weight in the body",
+        "So they can contract quickly"
+      ],
+      "answer": 1,
+      "explanation": "The thin walls let oxygen and carbon dioxide diffuse between air and blood over the shortest possible distance, making gas exchange efficient. The alveoli don't actively contract like a muscle."
+    },
+    {
+      "id": "q-bio8-and-11",
+      "kind": "mc",
+      "topic": "the heart and blood circulation",
+      "prompt": "What do the valves in the heart do?",
+      "opener": "Think about what would happen if blood could flow the wrong way.",
+      "choices": [
+        "They pump the blood forward",
+        "They prevent blood from flowing backward",
+        "They form new blood cells",
+        "They clean the blood of carbon dioxide"
+      ],
+      "answer": 1,
+      "explanation": "The valves open and close so blood can only flow one way through the heart, from atrium to ventricle and onward. It's the heart muscle, not the valves, that pumps the blood forward."
+    },
+    {
+      "id": "q-bio8-and-12",
+      "kind": "mc",
+      "topic": "blood",
+      "prompt": "What is the function of white blood cells?",
+      "opener": "Think about which type of blood cell increases in number when the body fights an infection.",
+      "choices": [
+        "Transporting oxygen",
+        "Defending the body against bacteria and viruses",
+        "Making the blood clot",
+        "Transporting nutrients"
+      ],
+      "answer": 1,
+      "explanation": "White blood cells are the immune system's cells and attack bacteria, viruses and other invaders. Transporting oxygen is the job of red blood cells, and platelets handle clotting."
+    },
+    {
+      "id": "q-bio8-and-13",
+      "kind": "mc",
+      "topic": "blood",
+      "prompt": "What is the yellowish fluid in blood called that transports nutrients, hormones and waste?",
+      "opener": "This fluid is what remains if you remove all the blood cells and platelets.",
+      "choices": [
+        "Haemoglobin",
+        "Blood plasma",
+        "Lymph",
+        "Bile"
+      ],
+      "answer": 1,
+      "explanation": "Blood plasma is the yellowish fluid mostly made of water that transports nutrients, hormones, waste and the blood cells through the body. Haemoglobin instead exists inside the red blood cells."
+    },
+    {
+      "id": "q-bio8-and-14",
+      "kind": "worked",
+      "topic": "gas exchange",
+      "prompt": "Explain how carbon dioxide formed in a muscle cell in the arm travels all the way out of the body through exhalation.",
+      "opener": "Follow the carbon dioxide from the muscle cell, through the veins, via the heart, and to the lungs.",
+      "answer": "The carbon dioxide leaves the muscle cell and is taken up by the blood in the capillaries, carried by the veins to the right side of the heart, pumped via the pulmonary circuit to the lungs, diffuses from the blood into the alveoli, and is finally breathed out through the airways, the windpipe and the nose or mouth.",
+      "steps": [
+        "The muscle cell produces carbon dioxide during cellular respiration and passes it to the blood in the surrounding capillaries.",
+        "The blood carrying carbon dioxide is carried by the veins back towards the heart and enters the right side of the heart.",
+        "The right ventricle pumps the blood via the pulmonary circuit to the lungs.",
+        "In the alveoli, the carbon dioxide diffuses from the blood into the air, while oxygen moves the opposite way.",
+        "The carbon dioxide leaves the body when you exhale, through the airways, the windpipe and finally the nose or mouth."
+      ]
+    },
+    {
+      "id": "q-bio8-and-15",
+      "kind": "mc",
+      "topic": "fitness and heart rate",
+      "prompt": "What is the amount of blood the heart pumps out per heartbeat called?",
+      "opener": "This measure, together with the number of beats per minute, determines the total blood pumped.",
+      "choices": [
+        "Heart rate",
+        "Stroke volume",
+        "Blood pressure",
+        "Breathing rate"
+      ],
+      "answer": 1,
+      "explanation": "Stroke volume is the amount of blood pumped out with each heartbeat, and it becomes larger in well-trained people. Heart rate is instead the number of heartbeats per minute, not the volume per beat."
     }
   ]
 }
