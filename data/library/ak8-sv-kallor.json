@@ -124,6 +124,111 @@
       "prompt": "Vilka källkritiska kriterier finns, och hur skriver du ett referat utan att plagiera?",
       "opener": "Fyra kriterier och tre regler för referatet.",
       "answer": "Källkritiska kriterier · äkthet: är källan den den utger sig för att vara? · tid: hur gammal är uppgiften, kan den ha ändrats? · beroende: är källan förstahandsuppgift eller bygger den på någon annan? · tendens: vem är avsändaren och vad vinner hen på att du tror på det? Fakta och åsikt · fakta går att kontrollera och kan vara falskt · åsikter innehåller värdeord som bäst, borde, för mycket. Referat · återge huvudinnehållet med egna ord, kortare än originalet · saklig ton, inga egna åsikter · använd referatmarkörer: enligt X, X menar att, X hävdar, skribenten framhåller. Plagiat · att lämna in andras ord eller idéer som sina egna · undviks genom egna formuleringar, citattecken vid ordagranna citat och en källhänvisning med författare, titel, publikation och år."
+    },
+    {
+      "id": "q-sv8-kal-9",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Vilken fråga hör till källkritikens tidskriterium?",
+      "opener": "Tid handlar om hur gammal uppgiften är och om den hunnit bli inaktuell.",
+      "choices": [
+        "Är källan den den utger sig för att vara?",
+        "Hur gammal är informationen, och kan den ha ändrats sedan dess?",
+        "Vill avsändaren sälja något?",
+        "Finns samma uppgift på andra ställen?"
+      ],
+      "answer": 1,
+      "explanation": "Tidskriteriet svarar på hur gammal en uppgift är och om den riskerar att vara inaktuell, till exempel statistik som ändrats sedan publiceringen. Äkthet handlar om vem som står bakom källan, tendens om syftet och beroende om jämförelser med andra källor."
+    },
+    {
+      "id": "q-sv8-kal-10",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Vilken källa är mest trovärdig om du ska ta reda på hur många som cyklar till jobbet i Sverige?",
+      "opener": "Fråga vem som samlat in uppgiften och vad avsändaren tjänar på att du tror på den.",
+      "choices": [
+        "Ett inlägg på sociala medier där någon berättar om sin egen cykelpendling",
+        "En rapport från Trafikanalys med redovisad undersökningsmetod",
+        "En reklamsida för cyklar som citerar \"undersökningar\"",
+        "En kommentar under en nyhetsartikel"
+      ],
+      "answer": 1,
+      "explanation": "Rapporten från en myndighet bygger på en redovisad undersökningsmetod och har ingen vinst att göra på svaret — den är saklig och kontrollerbar. Cykelreklamen har en tydlig tendens eftersom den vill sälja, och inlägget och kommentaren beskriver enstaka personers upplevelser."
+    },
+    {
+      "id": "q-sv8-kal-11",
+      "kind": "mc",
+      "topic": "fakta och åsikt",
+      "prompt": "Vilket av påståendena är ett faktapåstående?",
+      "opener": "Ett faktapåstående går att kontrollera och kan visa sig vara falskt — en åsikt kan bara delas eller inte.",
+      "choices": [
+        "Fotboll är den roligaste sporten som finns.",
+        "Alla borde spela ett lagsport.",
+        "Fotbollsmatcher pågår för länge.",
+        "En fotbollsmatch i Allsvenskan pågår normalt i 90 minuter."
+      ],
+      "answer": 3,
+      "explanation": "Matchlängden går att kontrollera i regelboken och är därför ett faktapåstående. \"Roligast\", \"borde\" och \"för länge\" är värderingar som inte går att mäta."
+    },
+    {
+      "id": "q-sv8-kal-12",
+      "kind": "mc",
+      "topic": "referatteknik",
+      "prompt": "Vilken mening använder en referatmarkör korrekt?",
+      "opener": "Referatmarkören visar var informationen kommer ifrån och att åsikten inte är din.",
+      "choices": [
+        "Kortare skoldagar ger piggare elever.",
+        "Jag tycker att kortare skoldagar ger piggare elever.",
+        "Enligt en studie från Karolinska Institutet ger kortare skoldagar piggare elever.",
+        "Alla vet att kortare skoldagar ger piggare elever."
+      ],
+      "answer": 2,
+      "explanation": "\"Enligt en studie från Karolinska Institutet\" är en referatmarkör som placerar uppgiften hos en namngiven källa. Utan markör låter påståendet som ditt eget, och \"alla vet att\" pekar inte ut någon källa alls."
+    },
+    {
+      "id": "q-sv8-kal-13",
+      "kind": "mc",
+      "topic": "källhänvisning",
+      "prompt": "Vilken uppgift behövs INTE i en fullständig källhänvisning?",
+      "opener": "Tänk på vad en läsare behöver för att själv kunna hitta källan.",
+      "choices": [
+        "Författarens namn",
+        "Publiceringsår",
+        "Läsarens eget namn",
+        "Titel och publikation"
+      ],
+      "answer": 2,
+      "explanation": "En källhänvisning ska innehålla författare, titel, publikation och år, så att läsaren kan hitta källan själv. Läsarens eget namn hör inte hemma i en källhänvisning."
+    },
+    {
+      "id": "q-sv8-kal-14",
+      "kind": "worked",
+      "topic": "referatteknik",
+      "prompt": "Skriv ett referat av följande stycke ur en artikel av Johan Berg i Svenska Dagbladet (2023): \"Vi ser att elever som äter frukost presterar bättre på förmiddagens lektioner. Skolan borde därför erbjuda gratis frukost till alla elever.\"",
+      "opener": "Skilj först på vad som är faktapåstående och vad som är skribentens åsikt. Formulera sedan om med egna ord och sätt dit en referatmarkör.",
+      "answer": "Enligt Johan Berg (SvD, 2023) presterar elever som äter frukost bättre på förmiddagens lektioner. Han menar därför att skolan bör erbjuda gratis frukost till alla elever.",
+      "steps": [
+        "Läs stycket och sortera: att eleverna presterar bättre är ett faktapåstående, att skolan borde erbjuda gratis frukost är skribentens åsikt.",
+        "Formulera om med egna ord — byt ut \"presterar bättre på förmiddagens lektioner\" mot en egen konstruktion i stället för att kopiera meningen.",
+        "Sätt in referatmarkörer: \"enligt Johan Berg\" för faktadelen och \"han menar att\" för åsiktsdelen, så att läsaren ser att det inte är dina åsikter.",
+        "Ange källan med namn, publikation och år — här Johan Berg, Svenska Dagbladet, 2023.",
+        "Kontrollera till sist att inget eget tyckande smugit sig in och att referatet är tydligt kortare än originalet."
+      ]
+    },
+    {
+      "id": "q-sv8-kal-15",
+      "kind": "mc",
+      "topic": "källhänvisning",
+      "prompt": "Vad räknas INTE som plagiat i en skoluppgift?",
+      "opener": "Tänk på vilket alternativ som tydligt visar var informationen kommer ifrån.",
+      "choices": [
+        "Att kopiera flera meningar från en webbsida utan att ange källan",
+        "Att skriva av ett stycke ordagrant och låtsas att det är eget",
+        "Att citera en mening med citattecken och ange varifrån den kommer",
+        "Att lämna in en kompis uppsats som sin egen"
+      ],
+      "answer": 2,
+      "explanation": "Ett citat med citattecken och korrekt källhänvisning visar tydligt vem som egentligen skrivit orden — det är tillåtet. De andra alternativen döljer i stället vem som är den egentliga upphovspersonen, vilket är plagiat."
     }
   ]
 }

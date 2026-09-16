@@ -124,6 +124,111 @@
       "prompt": "Vilka regler och knep använder du för de/dem, särskrivning, satsradning och komma vid bisats?",
       "opener": "Fyra vanliga fällor — en minnesregel för varje.",
       "answer": "De/dem · byt ut mot vi/oss eller they/them · blir det \"vi\"/\"they\" skriver du de, blir det \"oss\"/\"them\" skriver du dem · efter preposition (med, till, av, på, för) alltid dem · \"dom\" hör till talet, inte till skoluppgiften. Särskrivning · hör orden ihop till EN sak skrivs de ihop (klassresa, cykelhjälm) · särskrivning ändrar betydelsen. Satsradning · två huvudsatser får inte hållas ihop av bara komma · fixa med punkt, semikolon eller konjunktion (och, men, för, så). Komma vid bisats · bisats före huvudsats avslutas med komma (\"När vi kom hem, åt vi\") · inskjuten bisats ramas in av komma på båda sidor. Talspråk i skrift · undvik utav, dom, typ, ba, asså."
+    },
+    {
+      "id": "q-sv8-spr-9",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Välj rätt ord: \"Läraren berömde ___ för det fina arbetet.\"",
+      "opener": "Ordet står som objekt efter verbet — testa att byta ut det mot \"oss\" eller \"vi\".",
+      "choices": [
+        "dem",
+        "de",
+        "dom",
+        "dessa de"
+      ],
+      "answer": 0,
+      "explanation": "Ordet är objekt (den som berömdes), och testet med oss/vi visar objektsform: \"läraren berömde oss\" — alltså \"dem\", inte \"de\"."
+    },
+    {
+      "id": "q-sv8-spr-10",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Vilken mening är korrekt skriven i en skoluppgift?",
+      "opener": "Fundera på vilket ord som är subjekt (den som hjälper) och vilket som är objekt (den som får hjälp).",
+      "choices": [
+        "Dom hjälpte dom med flytten.",
+        "De hjälpte dem med flytten.",
+        "Dem hjälpte de med flytten.",
+        "De hjälpte de med flytten."
+      ],
+      "answer": 1,
+      "explanation": "\"De\" är subjekt (de som hjälper) och \"dem\" är objekt (de som får hjälp): \"De hjälpte dem\". \"Dom\" hör till talet, inte till skoluppgiften."
+    },
+    {
+      "id": "q-sv8-spr-11",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "Vilket alternativ är korrekt skrivet?",
+      "opener": "Läs orden högt: hör du ett betoningsfall mitt i, är det troligen ett sammansatt ord.",
+      "choices": [
+        "Hon bor i ett rad hus.",
+        "Hon bor i ett Radhus.",
+        "Hon bor i ett radhus.",
+        "Hon bor i ett rads hus."
+      ],
+      "answer": 2,
+      "explanation": "\"Radhus\" är ett sammansatt ord och skrivs ihop, med liten bokstav mitt i en mening. Skriver man \"rad hus\" blir det två separata ord som inte ger samma betydelse."
+    },
+    {
+      "id": "q-sv8-spr-12",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Vad är felet i meningen? \"Molnen var mörka, det skulle nog regna snart.\"",
+      "opener": "Titta på vad som står på var sida om kommatecknet — kan båda delarna stå som egna meningar?",
+      "choices": [
+        "Särskrivning",
+        "Fel användning av de och dem",
+        "Meningen saknar subjekt",
+        "Satsradning — två huvudsatser binds ihop med bara komma"
+      ],
+      "answer": 3,
+      "explanation": "Båda delarna är fullständiga huvudsatser, och då räcker inte ett komma. Rätta med punkt, semikolon eller en konjunktion: \"Molnen var mörka, för det skulle nog regna snart.\""
+    },
+    {
+      "id": "q-sv8-spr-13",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Var ska kommatecknet stå? \"Eftersom vägen var hal ___ körde vi extra försiktigt.\"",
+      "opener": "Meningen inleds med en bisats — var slutar den?",
+      "choices": [
+        "Efter \"Eftersom\"",
+        "Efter \"hal\"",
+        "Efter \"körde\"",
+        "Inget komma alls behövs"
+      ],
+      "answer": 1,
+      "explanation": "Bisatsen \"Eftersom vägen var hal\" står först och avslutas med komma innan huvudsatsen börjar. Komma efter \"Eftersom\" skulle klippa mitt i bisatsen, vilket aldrig är rätt."
+    },
+    {
+      "id": "q-sv8-spr-14",
+      "kind": "worked",
+      "topic": "de och dem",
+      "prompt": "Rätta meningen och förklara varje ändring: \"Dom som kom försent missade genomgången, dem andra fick anteckningar utav sin bänk kompis.\"",
+      "opener": "Leta efter samma fyra typer av fel som förut: dom i skrift, de/dem-fel, satsradning och särskrivning.",
+      "answer": "De som kom försent missade genomgången. De andra fick anteckningar av sin bänkkompis.",
+      "steps": [
+        "\"Dom som kom försent\" → \"De som kom försent\". Ordet är subjekt, och \"dom\" är talspråk som inte hör hemma i en skoluppgift.",
+        "\"missade genomgången, dem andra fick\" → sätt punkt efter \"genomgången\". Två fullständiga huvudsatser får inte bindas ihop med bara komma (satsradning).",
+        "\"dem andra\" → \"De andra\". Det är de som fick anteckningar, alltså subjekt — testa med \"they\", inte \"them\".",
+        "\"utav sin\" → \"av sin\". \"Utav\" är talspråkligt.",
+        "\"bänk kompis\" → \"bänkkompis\". Sammansatt ord som ska skrivas ihop."
+      ]
+    },
+    {
+      "id": "q-sv8-spr-15",
+      "kind": "mc",
+      "topic": "talspråk och skriftspråk",
+      "prompt": "Vilken formulering hör hemma i en skriven text?",
+      "opener": "Vissa småord hänger med från talet men räknas som fel eller slarv i skrift.",
+      "choices": [
+        "Typ alla i klassen var där.",
+        "Nästan alla i klassen var där.",
+        "Typ dom alla var där liksom.",
+        "Alla var typ där."
+      ],
+      "answer": 1,
+      "explanation": "\"Nästan alla\" är den skriftspråkliga formuleringen. \"Typ\" och \"liksom\" som utfyllnadsord hör hemma i talet, inte i en inlämning."
     }
   ]
 }
