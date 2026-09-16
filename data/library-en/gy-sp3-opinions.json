@@ -122,6 +122,111 @@
       "prompt": "What phrases do you need to give, agree with, and justify an opinion?",
       "opener": "A vocabulary list for argumentation, organized by function.",
       "answer": "Give an opinion: creo que, pienso que, en mi opinión, a mi parecer, me parece que. Agree/disagree: estoy de acuerdo (con)/estoy en desacuerdo (con), no estoy de acuerdo. Justify: porque, ya que, puesto que (since/because), por eso (therefore). Contrast: sin embargo (however), por otro lado (on the other hand), aunque (although). Remember: \"no creo que\" and \"dudo que\" (I doubt that) take the subjunctive in the clause because they express doubt, while \"creo que\" and \"pienso que\" in affirmative form take the indicative."
+    },
+    {
+      "id": "q-sp3-opinions-9",
+      "kind": "mc",
+      "topic": "opinion vocabulary",
+      "prompt": "What does \"me parece que\" mean?",
+      "opener": "Literally \"it seems to me that\".",
+      "choices": [
+        "I think that/it seems to me that",
+        "I'm sure that",
+        "I doubt that",
+        "I disagree"
+      ],
+      "answer": 0,
+      "explanation": "\"Me parece que\" means \"I think that\"/\"it seems to me that\", another common way to introduce an opinion."
+    },
+    {
+      "id": "q-sp3-opinions-10",
+      "kind": "mc",
+      "topic": "agreement and disagreement",
+      "prompt": "What does \"No estoy de acuerdo con eso\" mean?",
+      "opener": "The negation \"no\" in front of an affirmative phrase.",
+      "choices": [
+        "I disagree with that",
+        "I agree with that",
+        "I'm sure of that",
+        "I doubt that"
+      ],
+      "answer": 0,
+      "explanation": "\"No estoy de acuerdo con eso\" means \"I disagree with that\"."
+    },
+    {
+      "id": "q-sp3-opinions-11",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "What does \"puesto que\" mean?",
+      "opener": "A synonym for \"ya que\".",
+      "choices": [
+        "since/because",
+        "however",
+        "on the other hand",
+        "although"
+      ],
+      "answer": 0,
+      "explanation": "\"Puesto que\" means \"since/because\", just like \"ya que\", and is used to justify a statement."
+    },
+    {
+      "id": "q-sp3-opinions-12",
+      "kind": "mc",
+      "topic": "agreement and disagreement",
+      "prompt": "Choose the correct form: \"Dudo que esto ___ (ser) verdad.\"",
+      "opener": "\"Dudar que\" expresses doubt and triggers the subjunctive, just like \"no creo que\".",
+      "choices": [
+        "sea",
+        "es",
+        "era",
+        "será"
+      ],
+      "answer": 0,
+      "explanation": "\"Dudar que\" expresses doubt and requires the subjunctive in the clause: \"sea\"."
+    },
+    {
+      "id": "q-sp3-opinions-13",
+      "kind": "mc",
+      "topic": "opinion vocabulary",
+      "prompt": "What does \"a mi parecer\" mean?",
+      "opener": "A synonym for \"en mi opinión\".",
+      "choices": [
+        "in my opinion",
+        "I disagree",
+        "I'm sure",
+        "despite"
+      ],
+      "answer": 0,
+      "explanation": "\"A mi parecer\" means \"in my opinion\", a synonym for \"en mi opinión\"."
+    },
+    {
+      "id": "q-sp3-opinions-14",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "What is the difference between \"por eso\" and \"ya que\"?",
+      "opener": "One introduces a consequence, the other a cause.",
+      "choices": [
+        "\"Por eso\" marks consequence (therefore), \"ya que\" marks cause (since)",
+        "\"Por eso\" marks cause, \"ya que\" marks consequence",
+        "They mean exactly the same thing and are always interchangeable",
+        "\"Por eso\" is used only in writing, \"ya que\" only in speech"
+      ],
+      "answer": 0,
+      "explanation": "\"Por eso\" (therefore) introduces a consequence of something already said, while \"ya que\" (since) introduces the cause of a statement."
+    },
+    {
+      "id": "q-sp3-opinions-15",
+      "kind": "mc",
+      "topic": "agreement and disagreement",
+      "prompt": "Which preposition is required after \"estar de acuerdo\" when followed by a full clause with \"que\"?",
+      "opener": "\"Estar de acuerdo\" cannot connect directly to \"que\" without an intervening preposition.",
+      "choices": [
+        "en (estar de acuerdo en que)",
+        "con (estar de acuerdo con que)",
+        "de (estar de acuerdo de que)",
+        "a (estar de acuerdo a que)"
+      ],
+      "answer": 0,
+      "explanation": "\"Estar de acuerdo en que\" is the correct construction when a full clause follows: \"estoy de acuerdo en que deberíamos reciclar más\"."
     }
   ]
 }

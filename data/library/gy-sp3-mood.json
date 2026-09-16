@@ -122,6 +122,111 @@
       "prompt": "Vilka uttryck utlöser subjuntivo, och hur böjs det?",
       "opener": "En lista över triggerfraser plus de vanligaste oregelbundna formerna.",
       "answer": "Uttryck som utlöser subjuntivo: querer que, esperar que, es importante que, es necesario que, pedir que, recomendar que — alla uttrycker önskan, nödvändighet eller uppmaning riktad mot NÅGON ANNAN. Regel: samma subjekt → infinitiv (quiero ir), olika subjekt → que + subjuntivo (quiero que vayas). Regelbundna ändelser: -ar → -e/-es/-e/-emos/-éis/-en, -er/-ir → -a/-as/-a/-amos/-áis/-an. Viktiga oregelbundna former: ser → sea, estar → esté, ir → vaya, saber → sepa, dar → dé, haber → haya, tener → tenga."
+    },
+    {
+      "id": "q-sp3-mood-9",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Välj rätt form: \"Mis padres quieren que yo ___ (llegar) a casa temprano.\"",
+      "opener": "Olika subjekt (mis padres / yo) utlöser subjuntivo i bisatsen.",
+      "choices": [
+        "llegue",
+        "llego",
+        "llegué",
+        "llegaré"
+      ],
+      "answer": 0,
+      "explanation": "-ar-verb i subjuntivo byter ändelse till -e: llegue, llegues, llegue, lleguemos, lleguéis, lleguen. \"Yo\" ger \"llegue\"."
+    },
+    {
+      "id": "q-sp3-mood-10",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Välj rätt form: \"Espero que tú ___ (hacer) la tarea.\"",
+      "opener": "\"Hacer\" har en oregelbunden subjuntivo-stam: hag-.",
+      "choices": [
+        "hagas",
+        "haces",
+        "hiciste",
+        "harás"
+      ],
+      "answer": 0,
+      "explanation": "\"Hacer\" bildar subjuntivo på stammen \"hag-\": haga, hagas, haga, hagamos, hagáis, hagan. \"Tú\" ger \"hagas\"."
+    },
+    {
+      "id": "q-sp3-mood-11",
+      "kind": "mc",
+      "topic": "wish and necessity",
+      "prompt": "Välj rätt form: \"Es necesario ___ el pasaporte antes de viajar.\"",
+      "opener": "Utan ett specifikt subjekt (\"que + någon\") används infinitiv efter \"es necesario\", precis som med \"quiero\".",
+      "choices": [
+        "tener",
+        "que tengas",
+        "tengas",
+        "tenga"
+      ],
+      "answer": 0,
+      "explanation": "\"Es necesario\" + infinitiv används för ett allmänt påstående utan specifikt subjekt: \"es necesario tener el pasaporte\". \"Que\" + subjuntivo hade istället krävts om ett specifikt subjekt nämndes, t.ex. \"es necesario que tengas el pasaporte\"."
+    },
+    {
+      "id": "q-sp3-mood-12",
+      "kind": "mc",
+      "topic": "verbs of influence",
+      "prompt": "Välj rätt form: \"El médico recomienda que ella ___ (dejar) de fumar.\"",
+      "opener": "\"Recomendar que\" är ett klassiskt uppmaningsuttryck som utlöser subjuntivo.",
+      "choices": [
+        "deje",
+        "deja",
+        "dejó",
+        "dejará"
+      ],
+      "answer": 0,
+      "explanation": "-ar-verb i subjuntivo byter ändelse till -e: deje, dejes, deje, dejemos, dejéis, dejen. \"Ella\" ger \"deje\"."
+    },
+    {
+      "id": "q-sp3-mood-13",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Välj rätt form: \"Ojalá que ellos ___ (ir) a la fiesta.\"",
+      "opener": "\"Ir\" är helt oregelbundet i subjuntivo.",
+      "choices": [
+        "vayan",
+        "van",
+        "fueron",
+        "irán"
+      ],
+      "answer": 0,
+      "explanation": "\"Ir\" i subjuntivo: vaya, vayas, vaya, vayamos, vayáis, vayan. \"Ellos\" ger \"vayan\". \"Ojalá que\" (må det vara så att) uttrycker en förhoppning och kräver subjuntivo."
+    },
+    {
+      "id": "q-sp3-mood-14",
+      "kind": "mc",
+      "topic": "verbs of influence",
+      "prompt": "Välj rätt form: \"Te pido que me ___ (ayudar).\"",
+      "opener": "\"Pedir que\" är ett annat vanligt uppmaningsuttryck.",
+      "choices": [
+        "ayudes",
+        "ayudas",
+        "ayudaste",
+        "ayudarás"
+      ],
+      "answer": 0,
+      "explanation": "-ar-verb i subjuntivo: ayude, ayudes, ayude, ayudemos, ayudéis, ayuden. \"Tú\" (underförstådd mottagare) ger \"ayudes\"."
+    },
+    {
+      "id": "q-sp3-mood-15",
+      "kind": "mc",
+      "topic": "wish and necessity",
+      "prompt": "Välj rätt form: \"Necesito que tú ___ (venir) mañana.\"",
+      "opener": "Olika subjekt (yo necesito / tú vengas) utlöser subjuntivo, och \"venir\" är oregelbundet.",
+      "choices": [
+        "vengas",
+        "vienes",
+        "viniste",
+        "vendrás"
+      ],
+      "answer": 0,
+      "explanation": "\"Venir\" bildar subjuntivo på stammen \"veng-\": venga, vengas, venga, vengamos, vengáis, vengan. \"Tú\" ger \"vengas\"."
     }
   ]
 }

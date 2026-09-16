@@ -123,6 +123,111 @@
       "prompt": "How do you choose between the preterite and the imperfect in a narrative?",
       "opener": "Two questions, plus a list of verbs that change meaning.",
       "answer": "Preterite: bounded, completed events with a clear start/end, the main events of a story (sonó, llegué, hice). Imperfect: background, descriptions (weather, feelings, clock time, age), ongoing actions, and habits/repetition in the past (estaba, era, jugaban, iba). Pattern: the imperfect sets the scene, the preterite is the action that breaks in. Verbs that shift nuance: conocer (conocí = met for the first time / conocía = already knew), saber (supe = found out / sabía = knew), poder (pude = managed to / podía = had the ability to), querer (quise = tried, no quise = refused / quería = wanted, in general)."
+    },
+    {
+      "id": "q-sp3-aspect-9",
+      "kind": "mc",
+      "topic": "preterite vs imperfect",
+      "prompt": "Choose the correct pair: \"Ayer, cuando yo ___ (salir) de casa, ___ (empezar) a llover.\"",
+      "opener": "Here, both actions are single, bounded events happening one after another — not a background being interrupted.",
+      "choices": [
+        "salí / empezó",
+        "salía / empezaba",
+        "salí / empezaba",
+        "salía / empezó"
+      ],
+      "answer": 0,
+      "explanation": "Both verbs describe punctual, completed events in sequence (I left, then it started raining), not an ongoing background being interrupted — hence the preterite for both: \"salí\" and \"empezó\"."
+    },
+    {
+      "id": "q-sp3-aspect-10",
+      "kind": "mc",
+      "topic": "aspect",
+      "prompt": "What does \"supe\" mean in the preterite in the sentence: \"Supe la verdad ayer\"?",
+      "opener": "\"Saber\" shifts nuance between the preterite and the imperfect, just like \"conocer\".",
+      "choices": [
+        "I found out the truth (for the first time)",
+        "I had known the truth for a long time",
+        "I forgot the truth",
+        "I told the truth"
+      ],
+      "answer": 0,
+      "explanation": "In the preterite, \"saber\" means \"to find out\" — a bounded event. In the imperfect (\"sabía\") it would instead mean \"I already knew\", an ongoing state."
+    },
+    {
+      "id": "q-sp3-aspect-11",
+      "kind": "mc",
+      "topic": "narrative past",
+      "prompt": "Choose the correct form: \"Eran las tres de la tarde cuando ___ (llegar) el autobús.\"",
+      "opener": "The clock time is in the imperfect as background, but the arrival itself is a single event.",
+      "choices": [
+        "llegó",
+        "llegaba",
+        "llega",
+        "ha llegado"
+      ],
+      "answer": 0,
+      "explanation": "\"Eran las tres\" sets the scene in the imperfect, but the bus's arrival is a bounded, single event breaking into that background — hence the preterite: \"llegó\"."
+    },
+    {
+      "id": "q-sp3-aspect-12",
+      "kind": "mc",
+      "topic": "aspect",
+      "prompt": "What does \"pude\" mean in the preterite in the sentence: \"Pude terminar el examen a tiempo\"?",
+      "opener": "\"Poder\" shifts nuance between the preterite and the imperfect, just like \"conocer\" and \"saber\".",
+      "choices": [
+        "I managed to finish the exam on time",
+        "I had the ability to finish the exam, in general",
+        "I couldn't finish the exam",
+        "I wanted to finish the exam"
+      ],
+      "answer": 0,
+      "explanation": "In the preterite, \"poder\" means \"to manage to do something\" in a specific situation — \"pude\" = I managed to. In the imperfect (\"podía\") it would instead describe a general ability, without saying whether the person actually did it."
+    },
+    {
+      "id": "q-sp3-aspect-13",
+      "kind": "mc",
+      "topic": "preterite vs imperfect",
+      "prompt": "Choose the correct form: \"Cuando era joven, mi abuelo me ___ (contar) historias cada noche.\"",
+      "opener": "\"Cada noche\" (every night) signals a repeated habit in the past.",
+      "choices": [
+        "contaba",
+        "contó",
+        "cuenta",
+        "ha contado"
+      ],
+      "answer": 0,
+      "explanation": "\"Cada noche\" signals a habit that was repeated in the past, which requires the imperfect: \"contaba\" (he used to tell)."
+    },
+    {
+      "id": "q-sp3-aspect-14",
+      "kind": "mc",
+      "topic": "narrative past",
+      "prompt": "Choose the correct pair: \"Mientras yo ___ (estudiar), mi hermano ___ (ver) la televisión.\"",
+      "opener": "Two parallel, ongoing actions in the background — neither interrupts the other.",
+      "choices": [
+        "estudiaba / veía",
+        "estudié / vi",
+        "estudiaba / vio",
+        "estudié / veía"
+      ],
+      "answer": 0,
+      "explanation": "Both actions were ongoing at the same time as background to each other, with neither interrupting — hence the imperfect for both: \"estudiaba\" and \"veía\"."
+    },
+    {
+      "id": "q-sp3-aspect-15",
+      "kind": "mc",
+      "topic": "aspect",
+      "prompt": "Which verb changes meaning between the preterite and the imperfect in a way similar to \"conocer\"?",
+      "opener": "Four classic verbs are usually mentioned in this context: conocer, saber, poder, and one more.",
+      "choices": [
+        "saber",
+        "hablar",
+        "comer",
+        "vivir"
+      ],
+      "answer": 0,
+      "explanation": "\"Saber\" is one of the classic verbs that shifts nuance: \"supe\" (found out) versus \"sabía\" (already knew), just like \"conocí\" versus \"conocía\"."
     }
   ]
 }

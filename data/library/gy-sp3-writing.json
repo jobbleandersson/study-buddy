@@ -122,6 +122,111 @@
       "prompt": "Hur bygger man jämförelser och beskrivande, kontrasterande meningar på spanska?",
       "opener": "Strukturer för jämförelse plus några viktiga kopplingsord.",
       "answer": "Jämförelser: más/menos + adjektiv + que (ojämlikhet: más alto que), tan + adjektiv + como (jämlikhet: tan alto como), bestämd artikel + más/menos + adjektiv + de (superlativ: el más alto de la clase). Beskrivande kopplingsord: mientras que (medan/till skillnad från, kontrast), sin embargo (dock), además (dessutom), ya que/porque (eftersom, motivering). Kom ihåg: adjektiv ska alltid kongruera i genus och numerus med substantivet de beskriver, och ser/estar väljs utifrån om egenskapen är bestående (ser) eller tillfällig/en plats (estar)."
+    },
+    {
+      "id": "q-sp3-writing-9",
+      "kind": "mc",
+      "topic": "comparatives",
+      "prompt": "Välj rätt par: \"Mi coche es ___ rápido ___ el tuyo.\" (Min bil är lika snabb som din.)",
+      "opener": "Jämlikhet uttrycks med tan + adjektiv + como.",
+      "choices": [
+        "tan / como",
+        "más / que",
+        "menos / de",
+        "tan / que"
+      ],
+      "answer": 0,
+      "explanation": "Jämlikhet byggs med \"tan + adjektiv + como\": \"tan rápido como\" (lika snabb som)."
+    },
+    {
+      "id": "q-sp3-writing-10",
+      "kind": "mc",
+      "topic": "comparatives",
+      "prompt": "Vilket ord är den oregelbundna komparativformen av \"malo\" (dålig)?",
+      "opener": "Precis som \"bueno\" är \"malo\" oregelbunden i komparativ.",
+      "choices": [
+        "peor",
+        "más malo",
+        "malito",
+        "peorno"
+      ],
+      "answer": 0,
+      "explanation": "\"Malo\" har den oregelbundna komparativformen \"peor\" (sämre/värre), inte \"más malo\"."
+    },
+    {
+      "id": "q-sp3-writing-11",
+      "kind": "mc",
+      "topic": "sentence correction",
+      "prompt": "Vilket verb passar: \"Madrid ___ en España.\"",
+      "opener": "Att ange var något ligger uttrycks alltid med estar, inte ser.",
+      "choices": [
+        "está",
+        "es",
+        "son",
+        "están"
+      ],
+      "answer": 0,
+      "explanation": "Plats och läge uttrycks alltid med \"estar\": \"Madrid está en España\" (Madrid ligger i Spanien)."
+    },
+    {
+      "id": "q-sp3-writing-12",
+      "kind": "mc",
+      "topic": "descriptive writing",
+      "prompt": "Vad betyder ordet \"además\"?",
+      "opener": "Ett ord som lägger till ytterligare information.",
+      "choices": [
+        "dessutom",
+        "dock",
+        "eftersom",
+        "medan"
+      ],
+      "answer": 0,
+      "explanation": "\"Además\" betyder \"dessutom\" och används för att lägga till ytterligare information i en text."
+    },
+    {
+      "id": "q-sp3-writing-13",
+      "kind": "mc",
+      "topic": "sentence correction",
+      "prompt": "Välj rätt form: \"Las casas son muy ___.\" (bonito = fin)",
+      "opener": "\"Casas\" är femininum plural.",
+      "choices": [
+        "bonitas",
+        "bonito",
+        "bonitos",
+        "bonita"
+      ],
+      "answer": 0,
+      "explanation": "Adjektivet måste kongruera med \"casas\" (femininum, plural): \"bonitas\"."
+    },
+    {
+      "id": "q-sp3-writing-14",
+      "kind": "mc",
+      "topic": "comparatives",
+      "prompt": "Välj rätt form: \"Este es ___ restaurante de la ciudad.\" (bueno, superlativ)",
+      "opener": "\"Bueno\" är oregelbunden i superlativ, precis som i komparativ.",
+      "choices": [
+        "el mejor",
+        "el más bueno",
+        "el bueno más",
+        "el buenísimo"
+      ],
+      "answer": 0,
+      "explanation": "\"Bueno\" har superlativformen \"el mejor\" (den bästa), inte \"el más bueno\"."
+    },
+    {
+      "id": "q-sp3-writing-15",
+      "kind": "mc",
+      "topic": "descriptive writing",
+      "prompt": "Vad betyder frasen \"por lo tanto\"?",
+      "opener": "En fras som introducerar en konsekvens.",
+      "choices": [
+        "alltså/därför",
+        "eftersom",
+        "men",
+        "också"
+      ],
+      "answer": 0,
+      "explanation": "\"Por lo tanto\" betyder \"alltså/därför\" och introducerar en konsekvens av något som redan sagts."
     }
   ]
 }

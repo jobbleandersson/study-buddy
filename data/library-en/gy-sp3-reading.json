@@ -123,6 +123,111 @@
       "prompt": "What strategies and vocabulary are useful for reading Spanish texts about culture and society?",
       "opener": "Cognates, the impersonal \"se\", and some vocabulary from the text.",
       "answer": "Reading strategies: read the question before reading the text in detail, so you know what you're looking for. Many Spanish words resemble Swedish/English (cognates) — e.g. \"tradición\", \"celebración\", \"declaró\" — use them as shortcuts. The impersonal \"se\" (se celebra, se cree, se mezcla) often corresponds to a passive form or \"one\"/\"people\" in English. Vocabulary from the text: antepasados = ancestors · difunto = deceased · seres queridos = loved ones · patrimonio = heritage · raíces = roots."
+    },
+    {
+      "id": "q-sp3-reading-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"La sobremesa es una costumbre muy arraigada en muchos países de habla hispana, especialmente en España. Se trata del tiempo que la familia o los amigos pasan conversando alrededor de la mesa después de haber terminado de comer, a veces durante una hora o más. A diferencia de otras culturas, donde se considera de buena educación levantarse de la mesa en cuanto se termina el plato, en España quedarse charlando forma parte esencial de la comida misma. Durante la sobremesa se habla de política, de la familia, de los planes para el fin de semana o simplemente se cuentan chistes. Algunos estudios sugieren que esta costumbre fortalece los lazos familiares y reduce el estrés, ya que obliga a las personas a desconectar del trabajo y del teléfono móvil durante un rato. Sin embargo, con el ritmo de vida moderno, cada vez menos familias jóvenes tienen tiempo para practicarla a diario, y muchos la reservan solo para los domingos o las ocasiones especiales.\"\n\nWhat is \"la sobremesa\", according to the text?",
+      "opener": "Read the second sentence, which explains the concept.",
+      "choices": [
+        "The time spent sitting and talking at the table after the meal",
+        "A dish served after dinner",
+        "A siesta after lunch",
+        "A way of setting the table before the meal"
+      ],
+      "answer": 0,
+      "explanation": "\"Se trata del tiempo que la familia o los amigos pasan conversando alrededor de la mesa después de haber terminado de comer\" describes la sobremesa as the time spent sitting and talking at the table after the meal."
+    },
+    {
+      "id": "q-sp3-reading-10",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text: \"La sobremesa es una costumbre muy arraigada en muchos países de habla hispana, especialmente en España. Se trata del tiempo que la familia o los amigos pasan conversando alrededor de la mesa después de haber terminado de comer, a veces durante una hora o más. A diferencia de otras culturas, donde se considera de buena educación levantarse de la mesa en cuanto se termina el plato, en España quedarse charlando forma parte esencial de la comida misma. Durante la sobremesa se habla de política, de la familia, de los planes para el fin de semana o simplemente se cuentan chistes. Algunos estudios sugieren que esta costumbre fortalece los lazos familiares y reduce el estrés, ya que obliga a las personas a desconectar del trabajo y del teléfono móvil durante un rato. Sin embargo, con el ritmo de vida moderno, cada vez menos familias jóvenes tienen tiempo para practicarla a diario, y muchos la reservan solo para los domingos o las ocasiones especiales.\"\n\nWhat does the word \"arraigada\" mean in the text?",
+      "opener": "The word comes from \"raíz\" (root).",
+      "choices": [
+        "Deeply rooted/established",
+        "New and unusual",
+        "Controversial",
+        "International"
+      ],
+      "answer": 0,
+      "explanation": "\"Arraigada\" means \"deeply rooted/established\", from \"raíz\" (root). The context (\"una costumbre muy arraigada\", a deeply rooted custom) confirms this."
+    },
+    {
+      "id": "q-sp3-reading-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"La sobremesa es una costumbre muy arraigada en muchos países de habla hispana, especialmente en España. Se trata del tiempo que la familia o los amigos pasan conversando alrededor de la mesa después de haber terminado de comer, a veces durante una hora o más. A diferencia de otras culturas, donde se considera de buena educación levantarse de la mesa en cuanto se termina el plato, en España quedarse charlando forma parte esencial de la comida misma. Durante la sobremesa se habla de política, de la familia, de los planes para el fin de semana o simplemente se cuentan chistes. Algunos estudios sugieren que esta costumbre fortalece los lazos familiares y reduce el estrés, ya que obliga a las personas a desconectar del trabajo y del teléfono móvil durante un rato. Sin embargo, con el ritmo de vida moderno, cada vez menos familias jóvenes tienen tiempo para practicarla a diario, y muchos la reservan solo para los domingos o las ocasiones especiales.\"\n\nWhat sets la sobremesa in Spain apart from other cultures, according to the text?",
+      "opener": "Look for the sentence starting with \"A diferencia de otras culturas\".",
+      "choices": [
+        "In Spain people stay and talk, in other cultures it's considered polite to get up right away",
+        "In Spain people eat faster than in other countries",
+        "In Spain people only talk about politics",
+        "In Spain coffee is always served after the meal"
+      ],
+      "answer": 0,
+      "explanation": "The text says that in other cultures it's considered polite to get up from the table right after finishing, while in Spain staying to talk is an essential part of the meal."
+    },
+    {
+      "id": "q-sp3-reading-12",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text: \"La sobremesa es una costumbre muy arraigada en muchos países de habla hispana, especialmente en España. Se trata del tiempo que la familia o los amigos pasan conversando alrededor de la mesa después de haber terminado de comer, a veces durante una hora o más. A diferencia de otras culturas, donde se considera de buena educación levantarse de la mesa en cuanto se termina el plato, en España quedarse charlando forma parte esencial de la comida misma. Durante la sobremesa se habla de política, de la familia, de los planes para el fin de semana o simplemente se cuentan chistes. Algunos estudios sugieren que esta costumbre fortalece los lazos familiares y reduce el estrés, ya que obliga a las personas a desconectar del trabajo y del teléfono móvil durante un rato. Sin embargo, con el ritmo de vida moderno, cada vez menos familias jóvenes tienen tiempo para practicarla a diario, y muchos la reservan solo para los domingos o las ocasiones especiales.\"\n\nWhy, according to the text, is la sobremesa believed to reduce stress?",
+      "opener": "Look for the sentence about \"desconectar del trabajo y del teléfono móvil\".",
+      "choices": [
+        "Because it forces people to disconnect from their phone and work for a while",
+        "Because people eat less food",
+        "Because people sleep afterward",
+        "Because people exercise together"
+      ],
+      "answer": 0,
+      "explanation": "The text says la sobremesa \"obliga a las personas a desconectar del trabajo y del teléfono móvil durante un rato\" (forces people to disconnect from work and their phone for a while), which is linked to reduced stress."
+    },
+    {
+      "id": "q-sp3-reading-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"La sobremesa es una costumbre muy arraigada en muchos países de habla hispana, especialmente en España. Se trata del tiempo que la familia o los amigos pasan conversando alrededor de la mesa después de haber terminado de comer, a veces durante una hora o más. A diferencia de otras culturas, donde se considera de buena educación levantarse de la mesa en cuanto se termina el plato, en España quedarse charlando forma parte esencial de la comida misma. Durante la sobremesa se habla de política, de la familia, de los planes para el fin de semana o simplemente se cuentan chistes. Algunos estudios sugieren que esta costumbre fortalece los lazos familiares y reduce el estrés, ya que obliga a las personas a desconectar del trabajo y del teléfono móvil durante un rato. Sin embargo, con el ritmo de vida moderno, cada vez menos familias jóvenes tienen tiempo para practicarla a diario, y muchos la reservan solo para los domingos o las ocasiones especiales.\"\n\nWhy do fewer and fewer young families practice la sobremesa every day, according to the text?",
+      "opener": "Look for the sentence starting with \"Sin embargo\".",
+      "choices": [
+        "Because of the pace of modern life and lack of time",
+        "Because they don't like the tradition",
+        "Because it's too expensive",
+        "Because the authorities discourage it"
+      ],
+      "answer": 0,
+      "explanation": "The text says \"con el ritmo de vida moderno, cada vez menos familias jóvenes tienen tiempo para practicarla a diario\" (with the pace of modern life, fewer and fewer young families have time to practice it daily)."
+    },
+    {
+      "id": "q-sp3-reading-14",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text: \"La sobremesa es una costumbre muy arraigada en muchos países de habla hispana, especialmente en España. Se trata del tiempo que la familia o los amigos pasan conversando alrededor de la mesa después de haber terminado de comer, a veces durante una hora o más. A diferencia de otras culturas, donde se considera de buena educación levantarse de la mesa en cuanto se termina el plato, en España quedarse charlando forma parte esencial de la comida misma.\"\n\nWhat does the word \"charlando\" mean in the text?",
+      "opener": "The word comes from the verb \"charlar\".",
+      "choices": [
+        "Chatting/talking",
+        "Eating",
+        "Laughing",
+        "Waiting"
+      ],
+      "answer": 0,
+      "explanation": "\"Charlando\" (the gerund of \"charlar\", to chat) means \"chatting/talking\": \"quedarse charlando\" (to stay and chat)."
+    },
+    {
+      "id": "q-sp3-reading-15",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text: \"La sobremesa es una costumbre muy arraigada en muchos países de habla hispana, especialmente en España. Se trata del tiempo que la familia o los amigos pasan conversando alrededor de la mesa después de haber terminado de comer, a veces durante una hora o más. A diferencia de otras culturas, donde se considera de buena educación levantarse de la mesa en cuanto se termina el plato, en España quedarse charlando forma parte esencial de la comida misma. Durante la sobremesa se habla de política, de la familia, de los planes para el fin de semana o simplemente se cuentan chistes. Algunos estudios sugieren que esta costumbre fortalece los lazos familiares y reduce el estrés, ya que obliga a las personas a desconectar del trabajo y del teléfono móvil durante un rato. Sin embargo, con el ritmo de vida moderno, cada vez menos familias jóvenes tienen tiempo para practicarla a diario, y muchos la reservan solo para los domingos o las ocasiones especiales.\"\n\nWhen do many families practice la sobremesa today, according to the text?",
+      "opener": "Look at the last sentence of the text.",
+      "choices": [
+        "Mainly on Sundays or special occasions",
+        "Every day without exception",
+        "Only in winter",
+        "Never anymore"
+      ],
+      "answer": 0,
+      "explanation": "The text says many families \"la reservan solo para los domingos o las ocasiones especiales\" (save it only for Sundays or special occasions)."
     }
   ]
 }
