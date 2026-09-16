@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta gudsuppfattningar, efterlivsföreställningar, inre mångfald och heliga texter i de fem stora världsreligionerna.",
       "opener": "Gå igenom gudssyn, efterliv, inre mångfald och heliga texter i tur och ordning.",
       "answer": "Gudsuppfattningar: judendom, kristendom och islam är monoteistiska (en Gud) · hinduism rymmer allt från dyrkan av många gudar till en filosofisk, opersonlig gudsbild (Brahman) · buddhism fokuserar inte primärt på en skapargud, utan på insikt och befrielse. Efterliv: judendom/kristendom/islam betonar ofta ett slutgiltigt tillstånd (uppståndelse, evigt liv, dom) · hinduism/buddhism utgår från samsara (återfödelse formad av karma) med moksha respektive nirvana som mål. Inre mångfald: varje religion rymmer flera inriktningar, t.ex. sunni/shia inom islam, katolicism/protestantism/ortodoxi inom kristendom, olika skolor inom hinduism och buddhism. Heliga texter: Toran (judendom), Bibeln (kristendom), Koranen (islam), Veda-skrifterna (hinduism) och buddhistiska kanoniska texter · samma text kan tolkas olika inom en tradition beroende på tolkningstradition och kontext."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-9",
+      "kind": "mc",
+      "topic": "gudsuppfattningar",
+      "prompt": "Vad kännetecknar panteism, som ett sätt att förhålla sig till gudsbegreppet som ibland diskuteras i relation till vissa hinduiska och andra traditioner?",
+      "opener": "Tänk på om det gudomliga ses som skilt från världen, eller som identiskt med den.",
+      "choices": [
+        "Uppfattningen att gud och universum är ett och samma, att det gudomliga genomsyrar hela tillvaron snarare än att vara en separat, personlig varelse",
+        "Uppfattningen att det finns exakt tre gudar",
+        "Uppfattningen att gud enbart existerar utanför universum, helt skild från det",
+        "Ett annat namn för strikt monoteism"
+      ],
+      "answer": 0,
+      "explanation": "Panteism innebär uppfattningen att gud och universum är ett och samma, att det gudomliga genomsyrar hela tillvaron snarare än att vara en separat, personlig varelse skild från världen. Denna typ av gudsuppfattning diskuteras ibland i relation till vissa filosofiska strömningar inom hinduism, men förekommer även i andra sammanhang."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-10",
+      "kind": "mc",
+      "topic": "efterlivsföreställningar",
+      "prompt": "Vad är skillnaden mellan moksha inom hinduism och nirvana inom buddhism, som mål för den andliga vägen?",
+      "opener": "Tänk på vad båda begreppen har gemensamt som mål, men i olika filosofiska ramverk.",
+      "choices": [
+        "Båda innebär en befrielse från återfödelsecykeln (samsara), men de förstås inom sina respektive traditioners olika filosofiska ramverk, t.ex. i relation till en gudomlig verklighet (Brahman) respektive frånvaro av ett permanent själv",
+        "Moksha och nirvana betyder exakt samma sak utan någon skillnad",
+        "Moksha handlar om att återfödas oändligt många gånger, nirvana om att aldrig födas alls",
+        "Nirvana finns bara inom hinduism, moksha bara inom buddhism"
+      ],
+      "answer": 0,
+      "explanation": "Både moksha och nirvana innebär en befrielse från återfödelsecykeln (samsara), men de förstås inom sina respektive traditioners olika filosofiska ramverk — moksha ofta i relation till en djupare, gudomlig verklighet (Brahman) inom hinduism, nirvana som frånvaro av ett permanent själv och lidande inom buddhism."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-11",
+      "kind": "mc",
+      "topic": "inre mångfald",
+      "prompt": "Vilka är de tre stora huvudinriktningarna som kristendomen brukar delas in i?",
+      "opener": "Tänk på de tre stora grenarna som växte fram efter kyrkans historiska splittringar.",
+      "choices": [
+        "Katolicism, protestantism och ortodox kristendom",
+        "Sunni, shia och sufism",
+        "Mahayana, theravada och vajrayana",
+        "Reformjudendom, konservativ judendom och ortodox judendom"
+      ],
+      "answer": 0,
+      "explanation": "Kristendomen delas vanligen in i katolicism, protestantism och ortodox kristendom, tre huvudinriktningar som växte fram efter historiska splittringar, bland annat den stora schismen 1054 och reformationen på 1500-talet."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-12",
+      "kind": "mc",
+      "topic": "inre mångfald",
+      "prompt": "Vilka är de två huvudsakliga inriktningarna inom buddhism, och vad skiljer dem åt i grova drag?",
+      "opener": "Tänk på vilken fråga som historiskt splittrade buddhismen i sina två största grenar.",
+      "choices": [
+        "Theravada, som betonar den enskildes väg mot upplysning genom munkväsendet, och mahayana, som lägger större vikt vid bodhisattva-idealet att hjälpa alla varelser till befrielse",
+        "Sunni och shia, som skiljer sig åt i frågan om ledarskap efter Buddha",
+        "Ortodox och reform-buddhism, en uppdelning som uppstod under 1900-talet i Europa",
+        "Det finns bara en enda inriktning inom buddhism utan några undergrupper"
+      ],
+      "answer": 0,
+      "explanation": "Theravada betonar den enskildes väg mot upplysning, ofta genom munkväsendet, medan mahayana lägger större vikt vid bodhisattva-idealet — att sträva efter att hjälpa alla kännande varelser till befrielse, inte bara sig själv."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-13",
+      "kind": "mc",
+      "topic": "heliga texter och tolkning",
+      "prompt": "Vad innebär \"exegetik\" inom religionsvetenskap?",
+      "opener": "Ordet kommer från grekiskans \"exegeisthai\", att förklara eller leda ut.",
+      "choices": [
+        "Den vetenskapliga tolkningen och analysen av en helig eller religiös text",
+        "Ett annat ord för att memorera en text utantill",
+        "En specifik helig text inom judendomen",
+        "Ett samlingsnamn för alla religiösa byggnader"
+      ],
+      "answer": 0,
+      "explanation": "Exegetik är den vetenskapliga tolkningen och analysen av en helig eller religiös text, där forskare studerar textens språk, historiska kontext och tolkningshistoria för att förstå dess innebörd."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-14",
+      "kind": "mc",
+      "topic": "heliga texter och tolkning",
+      "prompt": "Om en text kan tolkas antingen bokstavligt eller symboliskt/allegoriskt inom en och samma tradition, vad säger det om texttolkning i allmänhet?",
+      "opener": "Tänk på om det bara finns ett enda \"rätt\" sätt att läsa en text inom en tradition.",
+      "choices": [
+        "Att tolkningsmetod är ett val som görs inom en tolkningstradition, och att olika tolkningsmetoder kan ge upphov till mycket olika praktiska och teologiska slutsatser från samma grundtext",
+        "Att endast en av tolkningarna någonsin kan vara religionsvetenskapligt intressant",
+        "Att bokstavlig tolkning alltid är den ursprungliga och därmed \"rätta\" tolkningen",
+        "Att symbolisk tolkning alltid är en sen uppfinning utan historiska rötter"
+      ],
+      "answer": 0,
+      "explanation": "Att en text kan tolkas både bokstavligt och symboliskt inom samma tradition visar att tolkningsmetod är ett val som görs inom en tolkningstradition, och att olika tolkningsmetoder kan ge upphov till mycket olika praktiska och teologiska slutsatser utifrån samma grundtext."
+    },
+    {
+      "id": "q-rel1-varldsreligioner-15",
+      "kind": "mc",
+      "topic": "efterlivsföreställningar",
+      "prompt": "Inom judendomen finns historiskt en betydande variation i synen på efterlivet. Vad säger detta om att generalisera \"den judiska synen på efterlivet\"?",
+      "opener": "Tänk på om en religion med lång historia och många inriktningar troligen har en enda, oföränderlig uppfattning i en komplex fråga.",
+      "choices": [
+        "Att det är missvisande, eftersom judendomen rymmer flera olika historiska och samtida uppfattningar om efterlivet, från fokus på det jordiska livet till föreställningar om en kommande värld",
+        "Att judendomen helt saknar några föreställningar om efterlivet",
+        "Att alla judiska inriktningar har exakt samma syn på efterlivet",
+        "Att frågan om efterlivet är irrelevant inom judendomen"
+      ],
+      "answer": 0,
+      "explanation": "Judendomen rymmer historiskt en betydande variation i synen på efterlivet, från ett starkare fokus på det jordiska livet i vissa äldre texter till senare föreställningar om en kommande värld (olam ha-ba) i andra. Detta visar varför en generaliserande beskrivning av \"den judiska synen\" ofta blir missvisande."
     }
   ]
 }

@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta humanism, ateism, agnosticism, sekularisering och hur sekulära livsåskådningar besvarar existentiella frågor.",
       "opener": "Gå igenom begreppen i tur och ordning, och avsluta med existentiella frågor.",
       "answer": "Humanism: livsåskådning som betonar förnuft, empati och människans ansvar för att skapa en god tillvaro, utan att utgå från en gud. Ateism: ståndpunkten att man inte tror att någon gud existerar. Agnosticism: hållningen att guds existens inte går att veta säkert, vare sig bekräfta eller motbevisa · man kan vara både agnostiker och ateist samtidigt. Sekularisering: samhällsprocess där religiösa institutioners inflytande över t.ex. skola, lag och politik minskar, och religion blir mer av en privat fråga. Existentiella frågor utan gudsbegrepp: sekulära livsåskådningar förlägger ofta mening till relationer, kunskap, skapande och ansvar i det levda livet, som ett alternativ till religiösa svar — religionsvetenskap värderar inte det ena svaret som mer sant än det andra."
+    },
+    {
+      "id": "q-rel1-sekular-9",
+      "kind": "mc",
+      "topic": "humanism",
+      "prompt": "Vad innebär den humanistiska principen om människans \"egenvärde\" (inneboende värde)?",
+      "opener": "Tänk på vad som motiverar respekt för en människas rättigheter enligt denna princip.",
+      "choices": [
+        "Att varje människa anses ha ett värde i sig själv, oberoende av nytta, prestation eller tro, vilket motiverar respekt för alla människors rättigheter och värdighet",
+        "Att människans värde enbart avgörs av hur mycket hon presterar ekonomiskt",
+        "Att endast humanister själva anses ha ett värde",
+        "Att egenvärde är ett begrepp som bara förekommer inom religiösa traditioner"
+      ],
+      "answer": 0,
+      "explanation": "Egenvärde innebär att varje människa anses ha ett värde i sig själv, oberoende av nytta, prestation eller tro, vilket blir en grund för att motivera respekt för alla människors rättigheter och värdighet inom humanistisk etik."
+    },
+    {
+      "id": "q-rel1-sekular-10",
+      "kind": "mc",
+      "topic": "ateism och agnosticism",
+      "prompt": "Kan en person vara både troende och samtidigt hålla med om vissa humanistiska värderingar, t.ex. betoningen av förnuft och mänskliga rättigheter?",
+      "opener": "Tänk på om förnuft och mänskliga rättigheter är värden som enbart sekulära personer kan omfamna.",
+      "choices": [
+        "Ja, humanistiska värderingar som förnuft och mänskliga rättigheter delas ofta av både religiösa och sekulära personer, även om sekulär humanism specifikt är en icke-religiös livsåskådning",
+        "Nej, humanistiska värderingar kan bara omfattas av ateister",
+        "Nej, alla former av humanism kräver att man avsäger sig sin religion helt",
+        "Ja, men bara om personen tillhör en specifik religion"
+      ],
+      "answer": 0,
+      "explanation": "Humanistiska värderingar som förnuft och mänskliga rättigheter delas ofta av både religiösa och sekulära personer, även om sekulär humanism specifikt definieras som en livsåskådning som formulerar dessa värden utan att utgå från en gud."
+    },
+    {
+      "id": "q-rel1-sekular-11",
+      "kind": "mc",
+      "topic": "sekularisering",
+      "prompt": "Vad är privatisering av religion, som en aspekt av sekularisering?",
+      "opener": "Tänk på var beslut om religionsutövning fattas — av staten, eller av individen själv.",
+      "choices": [
+        "Att religion i högre grad blir en fråga för individens privata liv och val, snarare än något som formellt styr offentliga institutioner",
+        "Att religiösa organisationer köps upp av privata företag",
+        "Att endast rika personer får utöva religion",
+        "Att en religion blir statsreligion i ett land"
+      ],
+      "answer": 0,
+      "explanation": "Privatisering av religion innebär att religion i högre grad blir en fråga för individens privata liv och val, snarare än något som formellt styr offentliga institutioner som skola, lag eller politik — en central aspekt av sekularisering."
+    },
+    {
+      "id": "q-rel1-sekular-12",
+      "kind": "mc",
+      "topic": "sekularisering",
+      "prompt": "Innebär sekularisering nödvändigtvis att religiös tro försvinner helt ur ett samhälle?",
+      "opener": "Tänk på om sekularisering handlar om institutioners makt, eller om enskilda människors tro.",
+      "choices": [
+        "Nej, sekularisering handlar främst om institutionernas formella roll — individer kan fortfarande vara religiöst troende i ett sekulariserat samhälle, även om religionens offentliga makt minskat",
+        "Ja, sekularisering innebär per definition att all religiös tro upphör",
+        "Ja, men bara i länder utanför Europa",
+        "Nej, sekularisering är ett begrepp som enbart gäller ekonomisk utveckling"
+      ],
+      "answer": 0,
+      "explanation": "Sekularisering handlar främst om institutionernas formella roll i samhället, inte om enskilda människors personliga tro — individer kan fortfarande vara religiöst troende i ett sekulariserat samhälle, även om religionens offentliga och institutionella makt har minskat."
+    },
+    {
+      "id": "q-rel1-sekular-13",
+      "kind": "mc",
+      "topic": "existentiella frågor",
+      "prompt": "Vad är en existentiell fråga, i religionsvetenskaplig mening?",
+      "opener": "Tänk på vilka slags frågor som rör människans mest grundläggande villkor i tillvaron.",
+      "choices": [
+        "En fråga som rör människans grundläggande villkor, till exempel liv, död, mening och lidande, som både religiösa och sekulära livsåskådningar försöker besvara på olika sätt",
+        "En fråga som enbart kan besvaras av utbildade präster eller imamer",
+        "En fråga som saknar relevans utanför religiösa sammanhang",
+        "Ett annat ord för en naturvetenskaplig fråga om universums uppkomst"
+      ],
+      "answer": 0,
+      "explanation": "En existentiell fråga rör människans grundläggande villkor, till exempel liv, död, mening och lidande, frågor som både religiösa och sekulära livsåskådningar försöker besvara, om än på olika sätt och utifrån olika utgångspunkter."
+    },
+    {
+      "id": "q-rel1-sekular-14",
+      "kind": "mc",
+      "topic": "humanism",
+      "prompt": "Vad skiljer humanism, som en positiv livshållning med värderingar, från agnosticism, som primärt är en kunskapsteoretisk hållning?",
+      "opener": "Tänk på om båda begreppen svarar på samma typ av fråga, eller på olika typer av frågor.",
+      "choices": [
+        "Humanism handlar om vilka värden och principer man bygger sitt liv och sin etik på, medan agnosticism enbart uttalar sig om huruvida guds existens går att veta säkert eller inte — en agnostiker kan vara humanist, men behöver inte vara det",
+        "Humanism och agnosticism är exakt samma sak",
+        "Agnosticism är alltid en form av humanism",
+        "Humanism kräver att man är säker på att ingen gud finns"
+      ],
+      "answer": 0,
+      "explanation": "Humanism handlar om vilka värden och principer man bygger sitt liv och sin etik på (en värderingsfråga), medan agnosticism enbart uttalar sig om huruvida guds existens går att veta säkert eller inte (en kunskapsfråga) — en agnostiker kan vara humanist, men behöver inte vara det."
+    },
+    {
+      "id": "q-rel1-sekular-15",
+      "kind": "mc",
+      "topic": "ateism och agnosticism",
+      "prompt": "Är \"ateism\" en enhetlig rörelse med gemensamma institutioner, likt en religion?",
+      "opener": "Tänk på om avsaknad av tro på en gud automatiskt innebär att man delar alla andra åsikter med andra ateister.",
+      "choices": [
+        "Nej, ateism är i grunden en ståndpunkt i en enskild fråga (gudars existens) och ateister kan i övrigt ha mycket olika värderingar, livsåskådningar och organisationstillhörighet",
+        "Ja, alla ateister tillhör en och samma globala organisation",
+        "Ja, ateism kräver medlemskap i en specifik förening",
+        "Nej, ateism är ett begrepp som bara existerar inom en enda kultur"
+      ],
+      "answer": 0,
+      "explanation": "Ateism är i grunden en ståndpunkt i en enskild fråga — att man inte tror att någon gud existerar — och säger i sig inget om personens övriga värderingar, politiska åsikter eller livsåskådning i stort. Ateister kan alltså skilja sig kraftigt åt sinsemellan i andra frågor, till skillnad från en organiserad rörelse med gemensamma institutioner."
     }
   ]
 }

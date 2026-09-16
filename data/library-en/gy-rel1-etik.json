@@ -124,6 +124,111 @@
       "prompt": "Summarise the four normative ethical models: deontological ethics, consequentialist ethics, the ethics of conviction and virtue ethics.",
       "opener": "Go through the models one by one, focusing on what each of them emphasises.",
       "answer": "Deontological ethics (e.g. Kant): an action is right if it follows a principle/maxim that could hold as a universal law for everyone, regardless of consequences. Consequentialist ethics/utilitarianism: an action is right if it maximises the total benefit for everyone affected; sometimes criticised for being able to justify sacrificing a minority's rights. Ethics of conviction: focus on the intention and will behind the action — a good intention counts morally, even with a bad outcome. Virtue ethics (e.g. Aristotle): focus on cultivating good character traits (virtues) such as courage, wisdom and justice, and asking how a virtuous person would act, rather than following an individual rule or calculating consequences. Applying several models to the same dilemma can produce the same practical conclusion but with different justifications, or sometimes entirely different conclusions."
+    },
+    {
+      "id": "q-rel1-etik-9",
+      "kind": "mc",
+      "topic": "deontological ethics",
+      "prompt": "What does it mean that deontological ethics is often described as a \"rule-based\" ethical model?",
+      "opener": "Think about what determines whether an action is right according to this model — the outcome, or something else.",
+      "choices": [
+        "That it judges whether an action is right or wrong based on whether it follows a moral rule or principle, regardless of what consequences the action actually has",
+        "That it is only applied within law, never in everyday ethics",
+        "That it requires all rules to be written down in a sacred text",
+        "That it has no connection to any philosopher at all"
+      ],
+      "answer": 0,
+      "explanation": "Deontological ethics judges whether an action is right or wrong based on whether it follows a moral rule or principle, regardless of what consequences the action actually has — which is why it is often described as rule-based, unlike consequentialist ethics' focus on outcomes."
+    },
+    {
+      "id": "q-rel1-etik-10",
+      "kind": "mc",
+      "topic": "consequentialist ethics",
+      "prompt": "What is a practical difficulty often raised as criticism of consequentialist reasoning?",
+      "opener": "Think about how certain one can really be about the future before acting.",
+      "choices": [
+        "It can be difficult to know in advance with certainty what consequences an action will actually have, which makes the ethical judgement uncertain",
+        "Consequentialist ethics never takes any consequences into account at all",
+        "Consequentialist ethics always requires following a sacred text",
+        "Consequentialist ethics is identical to deontological ethics in every respect"
+      ],
+      "answer": 0,
+      "explanation": "A common criticism of consequentialist reasoning is that it can be difficult to know in advance with certainty what consequences an action will actually have, which makes the ethical judgement uncertain and dependent on predictions that can turn out wrong."
+    },
+    {
+      "id": "q-rel1-etik-11",
+      "kind": "mc",
+      "topic": "ethics of conviction",
+      "prompt": "Which example most clearly shows reasoning from the ethics of conviction?",
+      "opener": "Think about which option places the emphasis on the person's INTENTION rather than on the result or a fixed rule.",
+      "choices": [
+        "\"He meant well when he gave her the advice, so I don't blame him even though it went wrong\"",
+        "\"The action produced the most positive effects overall, so it was right\"",
+        "\"The rule says you must never lie, full stop\"",
+        "\"A virtuous person would never have done this\""
+      ],
+      "answer": 0,
+      "explanation": "\"He meant well, so I don't blame him even though it went wrong\" is a clear example of reasoning from the ethics of conviction, since the judgement is grounded in the person's good intention rather than in the actual, bad outcome or a fixed rule."
+    },
+    {
+      "id": "q-rel1-etik-12",
+      "kind": "mc",
+      "topic": "virtue ethics",
+      "prompt": "Which of these arguments is most clearly built on virtue-ethical reasoning?",
+      "opener": "Think about which option starts from what KIND OF PERSON one wants to be, rather than a rule or a calculation of benefit.",
+      "choices": [
+        "\"A brave and honest person would have stood up for their friend even if it was uncomfortable\"",
+        "\"The rule says you should stand up for your friends, so I have to\"",
+        "\"If I stand up for my friend, the total benefit will be greatest\"",
+        "\"I stood up for my friend because it felt right in the moment, without further thought\""
+      ],
+      "answer": 0,
+      "explanation": "\"A brave and honest person would have stood up for their friend\" is virtue-ethical reasoning because it starts from which character traits (courage, honesty) a good person possesses, rather than from a fixed rule or a calculation of consequences."
+    },
+    {
+      "id": "q-rel1-etik-13",
+      "kind": "mc",
+      "topic": "deontological ethics",
+      "prompt": "What does it mean that Kant's deontological ethics is usually described as a \"universalisability test\"?",
+      "opener": "Think about whether the rule would work if EVERYONE followed it in a similar situation.",
+      "choices": [
+        "That one tests whether the rule for acting behind an action could function as a universal law for all people in a similar situation, without leading to a contradiction",
+        "That everyone in the world must vote on every individual moral rule",
+        "That only rules written in a universal language count as valid",
+        "That the test only applies within natural science"
+      ],
+      "answer": 0,
+      "explanation": "The universalisability test involves testing whether the rule for acting behind an action could function as a universal law for all people in a similar situation, without leading to a contradiction or undermining its own purpose."
+    },
+    {
+      "id": "q-rel1-etik-14",
+      "kind": "mc",
+      "topic": "consequentialist ethics",
+      "prompt": "What distinguishes rule utilitarianism from act utilitarianism, as two variants of consequentialist ethics?",
+      "opener": "Think about whether it is the individual action or a general rule that is being evaluated.",
+      "choices": [
+        "Act utilitarianism judges each individual action by its consequences, while rule utilitarianism instead asks which general rule, if followed generally, would maximise the benefit",
+        "The two variants are exactly identical with no difference",
+        "Rule utilitarianism never takes consequences into account at all",
+        "Act utilitarianism always requires following a sacred text"
+      ],
+      "answer": 0,
+      "explanation": "Act utilitarianism judges each individual action by its own consequences, while rule utilitarianism instead asks which general rule, if followed generally by everyone, would maximise the total benefit."
+    },
+    {
+      "id": "q-rel1-etik-15",
+      "kind": "mc",
+      "topic": "virtue ethics",
+      "prompt": "What does Aristotle mean by the concept of the \"golden mean\" within virtue ethics?",
+      "opener": "Think of courage as an example: what is too little courage, and what is too much?",
+      "choices": [
+        "That a virtue often constitutes a balance point between two vices — too little and too much of a trait — e.g. courage is the balance point between cowardice and recklessness",
+        "That one should always choose the cheapest option in a situation",
+        "That every ethical question has exactly one correct, medium-sized solution regardless of context",
+        "That virtue ethics means never taking a position on difficult questions"
+      ],
+      "answer": 0,
+      "explanation": "Aristotle's golden mean means a virtue often constitutes a balance point between two vices — a deficiency and an excess of the same trait. Courage, for example, is the balance point between cowardice (too little courage) and recklessness (too much, thoughtless courage)."
     }
   ]
 }

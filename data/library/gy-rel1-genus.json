@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta religion och könsroller, religiös feminism, religion och sexuell identitet samt tolkningsmångfald.",
       "opener": "Gå igenom teman i tur och ordning: könsroller, feminism, sexuell identitet, tolkningsmångfald.",
       "answer": "Religion och könsroller: synen på kön varierar mellan och inom religiösa traditioner och har förändrats historiskt i samspel med samhället — det finns ingen enda, entydig \"religiös syn\" på kön. Religiös feminism: argumenterar utifrån den egna traditionens källor för jämställdhet, och menar ofta att ojämställda tolkningar formats av historiska, mansdominerade tolkningstraditioner snarare än av källorna själva. Religion och sexuell identitet: stor variation mellan och inom traditioner, från fullt inkluderande samfund till mer restriktiva hållningar, ofta livligt diskuterat inifrån. Tolkningsmångfald: samma religion kan ge upphov till mycket olika ståndpunkter i frågor som kvinnligt ledarskap eller hbtq-frågor, beroende på inriktning, samfund och tidsperiod — en religionsvetenskaplig analys bör alltid specificera vilken del av en tradition ett påstående gäller."
+    },
+    {
+      "id": "q-rel1-genus-9",
+      "kind": "mc",
+      "topic": "religion och könsroller",
+      "prompt": "Varför är det religionsvetenskapligt missvisande att tala om \"kvinnans ställning inom kristendomen\" som om det vore en enda, entydig fråga?",
+      "opener": "Tänk på hur många olika inriktningar och historiska perioder som ryms inom en global religion som kristendomen.",
+      "choices": [
+        "Eftersom kristendomen rymmer många olika inriktningar, samfund och historiska perioder, där synen på kvinnors roller varierat och fortsätter att variera betydligt",
+        "Eftersom kvinnor aldrig nämns i någon kristen text",
+        "Eftersom frågan om kön är irrelevant för religionsvetenskaplig analys av kristendomen",
+        "Eftersom alla kristna samfund alltid haft identiska regler om kvinnors roller"
+      ],
+      "answer": 0,
+      "explanation": "Kristendomen rymmer många olika inriktningar, samfund och historiska perioder, där synen på kvinnors roller varierat och fortsätter att variera betydligt — därför blir ett enda, entydigt påstående om \"kvinnans ställning\" missvisande."
+    },
+    {
+      "id": "q-rel1-genus-10",
+      "kind": "mc",
+      "topic": "religiös feminism",
+      "prompt": "Vad är ett exempel på hur religiösa feminister kan använda historisk-kritisk metod i sitt arbete med heliga texter?",
+      "opener": "Tänk på vad som skiljer en texts kärnbudskap från de sociala normer som rådde när den skrevs.",
+      "choices": [
+        "Att undersöka den historiska och kulturella kontext en text skrevs i, för att skilja mellan textens kärnbudskap och tidsbundna sociala normer som kan ha påverkat hur den ursprungligen formulerades eller senare tolkades",
+        "Att vägra läsa några heliga texter alls",
+        "Att enbart acceptera tolkningar gjorda av manliga teologer",
+        "Att hävda att alla heliga texter är historiskt exakta i varje detalj"
+      ],
+      "answer": 0,
+      "explanation": "Historisk-kritisk metod innebär att undersöka den historiska och kulturella kontext en text skrevs i, för att skilja mellan textens kärnbudskap och tidsbundna sociala normer som kan ha påverkat hur texten ursprungligen formulerades eller senare tolkades."
+    },
+    {
+      "id": "q-rel1-genus-11",
+      "kind": "mc",
+      "topic": "religion och sexuell identitet",
+      "prompt": "Vad innebär det att frågan om hbtq-personers plats inom en religiös tradition ofta \"diskuteras livligt inifrån\", enligt religionsvetenskaplig beskrivning?",
+      "opener": "Tänk på om frågan är avgjord en gång för alla, eller om den fortfarande diskuteras aktivt.",
+      "choices": [
+        "Att det finns pågående, ofta engagerade, teologiska och praktiska diskussioner mellan medlemmar, teologer och ledare inom traditionen själv, snarare än att frågan är avgjord en gång för alla",
+        "Att diskussionen enbart förs av personer utanför religionen",
+        "Att frågan aldrig diskuteras alls inom religiösa sammanhang",
+        "Att alla inom en tradition redan är fullständigt överens"
+      ],
+      "answer": 0,
+      "explanation": "Att en fråga \"diskuteras livligt inifrån\" innebär att det finns pågående, ofta engagerade, teologiska och praktiska diskussioner mellan medlemmar, teologer och ledare inom traditionen själv, snarare än att frågan är avgjord en gång för alla."
+    },
+    {
+      "id": "q-rel1-genus-12",
+      "kind": "mc",
+      "topic": "tolkningsmångfald",
+      "prompt": "Vad är en metodologisk poäng med att alltid specificera vilken inriktning, samfund eller tidsperiod ett påstående om \"en religions syn\" gäller?",
+      "opener": "Tänk på vad som händer om man i stället talar allmänt om \"religionens syn\" utan vidare precisering.",
+      "choices": [
+        "Det gör påståendet mer exakt och undviker att en enskild tolkning felaktigt framställs som representativ för en hel, mångfacetterad religion",
+        "Det gör påståendet mer vagt och svårare att förstå",
+        "Det är enbart en formalitet utan innehållslig betydelse",
+        "Det behövs bara när man talar om icke-kristna religioner"
+      ],
+      "answer": 0,
+      "explanation": "Att specificera vilken inriktning, vilket samfund eller vilken tidsperiod ett påstående gäller gör påståendet mer exakt och undviker att en enskild tolkning felaktigt framställs som representativ för en hel, mångfacetterad religion."
+    },
+    {
+      "id": "q-rel1-genus-13",
+      "kind": "mc",
+      "topic": "religion och könsroller",
+      "prompt": "Kan förändringar i det omgivande samhället, t.ex. kvinnors ökade tillgång till utbildning, påverka hur religiösa texter tolkas i frågor om könsroller över tid?",
+      "opener": "Tänk på om religiösa tolkningstraditioner utvecklas i ett vakuum, eller i samspel med samhället runt omkring.",
+      "choices": [
+        "Ja, tolkningstraditioner utvecklas ofta i samspel med samhället i stort, vilket är en anledning till att synen på till exempel kvinnligt ledarskap kan förändras inom en religion över tid",
+        "Nej, religiösa tolkningar är helt opåverkade av samhällsförändringar",
+        "Ja, men bara i icke-religiösa sammanhang",
+        "Nej, alla religiösa tolkningar har varit identiska sedan religionens grundande"
+      ],
+      "answer": 0,
+      "explanation": "Tolkningstraditioner utvecklas ofta i samspel med samhället i stort, vilket är en anledning till att synen på till exempel kvinnligt ledarskap kan förändras inom en religion över tid, i takt med bredare samhällsförändringar som kvinnors ökade tillgång till utbildning."
+    },
+    {
+      "id": "q-rel1-genus-14",
+      "kind": "mc",
+      "topic": "religiös feminism",
+      "prompt": "Vad är skillnaden mellan att kritisera en specifik historisk tolkningstradition inom en religion och att kritisera religionen som helhet?",
+      "opener": "Tänk på om kritiken riktas mot en specifik tolkning, eller mot religionen som en enda, odelad helhet.",
+      "choices": [
+        "Att kritisera en specifik tolkningstradition riktar sig mot hur en text eller lära historiskt tolkats av vissa auktoriteter, medan kritik av \"religionen som helhet\" riskerar att felaktigt likställa hela den mångfacetterade traditionen med en enda tolkning",
+        "De två sakerna betyder exakt samma sak",
+        "Det är aldrig legitimt att kritisera en tolkningstradition inifrån en religion",
+        "Religiösa feminister kritiserar alltid religionen som helhet, aldrig enskilda tolkningar"
+      ],
+      "answer": 0,
+      "explanation": "Att kritisera en specifik tolkningstradition riktar sig mot hur en text eller lära historiskt tolkats av vissa auktoriteter, medan kritik av \"religionen som helhet\" riskerar att felaktigt likställa hela den mångfacetterade traditionen med en enda tolkning."
+    },
+    {
+      "id": "q-rel1-genus-15",
+      "kind": "mc",
+      "topic": "religion och sexuell identitet",
+      "prompt": "Vad kan en religionsvetare mena med att ställningstaganden om hbtq-personers plats inom en religion ofta hänger samman med bredare teologiska frågor om till exempel bibeltolkning eller syn på äktenskap?",
+      "opener": "Tänk på om en enskild ståndpunkt ofta hänger ihop med en bredare syn på hur heliga texter ska läsas.",
+      "choices": [
+        "Att ställningstaganden i frågan sällan är isolerade, utan ofta kopplade till en bredare teologisk hållning, t.ex. hur bokstavligt en helig text tolkas i andra sammanhang",
+        "Att frågan om sexuell identitet aldrig har någon koppling till andra teologiska frågor",
+        "Att alla samfund som är restriktiva i en fråga automatiskt är restriktiva i alla andra frågor också",
+        "Att bibeltolkning är irrelevant för frågor om sexuell identitet"
+      ],
+      "answer": 0,
+      "explanation": "Ett samfunds hållning i frågor om sexuell identitet hänger ofta samman med en bredare teologisk hållning, till exempel hur bokstavligt man tolkar heliga texter i andra sammanhang — ställningstaganden i en enskild fråga är alltså sällan helt isolerade från samfundets teologi i stort."
     }
   ]
 }

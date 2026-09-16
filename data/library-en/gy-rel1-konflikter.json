@@ -124,6 +124,111 @@
       "prompt": "Summarise religion and conflict, religious peace work, freedom of religion, and religion and migration.",
       "opener": "Go through conflict, peace work, freedom of religion and migration in turn.",
       "answer": "Religion and conflict: religion often functions as a marker of identity that separates groups, but conflicts are usually driven by several interacting factors such as power, resources, politics and history — religion is rarely the sole cause. Religious peace work: religious leaders and organisations work, based on their faith, for reconciliation, dialogue and conflict resolution, e.g. through interfaith initiatives. Freedom of religion: a human right (among others the UN's Article 18) to freely adopt, practise, change or abstain from a religion or belief, individually or in community, privately or publicly · violated for example through bans on places of worship or punishment for changing faith. Religion and migration: religious persecution can be a cause of flight, while religious community often becomes a source of support and identity for migrants in a new country."
+    },
+    {
+      "id": "q-rel1-konflikter-9",
+      "kind": "mc",
+      "topic": "religion and conflict",
+      "prompt": "What does it mean that religion is sometimes used as a \"mobilising resource\" in a conflict, as distinct from being the conflict's root cause?",
+      "opener": "Think about the difference between religion CAUSING a conflict and religion being USED to rally support in a conflict.",
+      "choices": [
+        "That leaders can use religious symbols, narratives or emotions to mobilise supporters and legitimise a struggle whose underlying causes actually lie in, for example, politics or resources",
+        "That religion is always the sole reason a conflict is mobilised",
+        "That mobilisation only happens through military means, never through religion",
+        "That religious leaders never have any influence in conflict situations"
+      ],
+      "answer": 0,
+      "explanation": "Religion being used as a mobilising resource means leaders can use religious symbols, narratives or emotions to mobilise supporters and legitimise a struggle whose underlying causes actually lie in, for example, politics or control over resources."
+    },
+    {
+      "id": "q-rel1-konflikter-10",
+      "kind": "mc",
+      "topic": "religious peace work",
+      "prompt": "What is an example of interfaith dialogue as a form of peace work?",
+      "opener": "Think about what could be built up through regular, mutual conversations between different faiths.",
+      "choices": [
+        "Representatives of different religions meeting regularly for conversation, mutual understanding and joint initiatives for peace and coexistence",
+        "A religion being officially declared superior to all others",
+        "All religious communities in a country being forced to merge into one",
+        "Religious leaders avoiding all contact with other faiths"
+      ],
+      "answer": 0,
+      "explanation": "Interfaith dialogue means representatives of different religions meet regularly for conversation, mutual understanding and joint initiatives for peace and coexistence — a common example of religiously motivated peace work."
+    },
+    {
+      "id": "q-rel1-konflikter-11",
+      "kind": "mc",
+      "topic": "freedom of religion",
+      "prompt": "What does it mean that freedom of religion also includes the right not to believe in any god at all?",
+      "opener": "Think about whether freedom of religion protects only those who BELIEVE in something, or also those who DON'T.",
+      "choices": [
+        "That freedom of religion as a human right protects both believers' and non-believers' (e.g. atheists' and agnostics') right to freely hold and express their worldview",
+        "That freedom of religion only applies to people belonging to an established religion",
+        "That non-believers lack protection under international human rights conventions",
+        "That freedom of religion is a right that only applies within a handful of countries"
+      ],
+      "answer": 0,
+      "explanation": "Freedom of religion as a human right protects both believers' and non-believers' (e.g. atheists' and agnostics') right to freely hold and express their worldview — the right is therefore not limited to those belonging to an established religion."
+    },
+    {
+      "id": "q-rel1-konflikter-12",
+      "kind": "mc",
+      "topic": "religion and migration",
+      "prompt": "What role can a religious congregation or mosque play for newly arrived migrants in a new country, beyond its purely spiritual function?",
+      "opener": "Think about what a religious community can offer beyond prayer and worship.",
+      "choices": [
+        "It can function as a social meeting place that offers practical help, language support, networks and a sense of community in a new and unfamiliar environment",
+        "It has an exclusively spiritual function and never offers practical support",
+        "It functions solely as an obstacle to integration",
+        "Migrants never seek out religious communities in a new country"
+      ],
+      "answer": 0,
+      "explanation": "A religious congregation or mosque can function as a social meeting place that offers practical help, language support, networks and a sense of community for newly arrived migrants in a new and unfamiliar environment, beyond its purely spiritual function."
+    },
+    {
+      "id": "q-rel1-konflikter-13",
+      "kind": "mc",
+      "topic": "religion and conflict",
+      "prompt": "Why can it be misleading to assume that all members of a religious group involved in a conflict share exactly the same political goals?",
+      "opener": "Think about whether a large group of people, regardless of religious affiliation, tends to think and feel exactly alike on every issue.",
+      "choices": [
+        "Because a religious group, like other large groups, often contains an internal diversity of political opinions, and simplifying the group to a single voice obscures this variation",
+        "Because religious groups are always fewer than ten people",
+        "Because all members of a religion are guaranteed to agree on every question",
+        "Because political goals never occur within religious groups"
+      ],
+      "answer": 0,
+      "explanation": "A religious group, like other large groups, often contains an internal diversity of political opinions, and simplifying the group to a single voice obscures this variation and risks giving a misleading picture of the conflict."
+    },
+    {
+      "id": "q-rel1-konflikter-14",
+      "kind": "mc",
+      "topic": "freedom of religion",
+      "prompt": "What can happen to freedom of religion in a country where a single religion is given a special status in the constitution, as an example of a possible tension?",
+      "opener": "Think about what could happen to other groups' rights if a single faith is given special status in the law.",
+      "choices": [
+        "It can in practice mean that other religious or non-religious groups' rights are restricted or weakened, depending on how the special status is designed and applied",
+        "It always guarantees full freedom of religion for every faith in the country",
+        "It never has any practical significance for other groups",
+        "It automatically means all other religions are entirely banned"
+      ],
+      "answer": 0,
+      "explanation": "If a single religion is given a special status in the constitution, this can in practice mean that other religious or non-religious groups' rights are restricted or weakened, depending on how the special status is designed and applied in practice."
+    },
+    {
+      "id": "q-rel1-konflikter-15",
+      "kind": "mc",
+      "topic": "religious peace work",
+      "prompt": "What can be a challenge for religiously motivated peace work in a conflict where religion is used as a marker of identity by several parties?",
+      "opener": "Think about what peace workers must overcome if religious affiliation has already been used to mark boundaries between the groups.",
+      "choices": [
+        "That peace workers may need to build trust across group boundaries while religious affiliation is already being used to reinforce the separation between \"us\" and \"them\"",
+        "That religious peace work never encounters any challenges at all",
+        "That peace work is impossible as soon as religion is involved in a conflict",
+        "That religious leaders can never cooperate across group boundaries"
+      ],
+      "answer": 0,
+      "explanation": "A challenge for religious peace work in such conflicts is that peace workers may need to build trust across group boundaries while religious affiliation is already being used to reinforce the separation between \"us\" and \"them\" — but this does not make peace work impossible, only more complex."
     }
   ]
 }
