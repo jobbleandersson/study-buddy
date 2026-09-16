@@ -122,6 +122,111 @@
       "prompt": "Vilka fraser behöver du för att uttrycka och motivera en åsikt på franska?",
       "opener": "Att säga vad man tycker, hålla med/inte hålla med, och motivera varför.",
       "answer": "Uttrycka åsikt: à mon avis = enligt min mening · je pense que / je trouve que / je crois que = jag tycker/tror att · selon moi = enligt mig. Hålla med: je suis d'accord (avec) = jag håller med · tu as raison = du har rätt · exactement = precis. Inte hålla med: je ne suis pas d'accord = jag håller inte med · je ne pense pas que... = jag tycker inte att... · pas du tout = inte alls. Motivera: parce que = eftersom/för att · car = för (skriftligt) · c'est pourquoi = det är därför · en revanche / cependant / pourtant = å andra sidan/dock (för motargument)."
+    },
+    {
+      "id": "q-fr3-opinions-9",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Vad betyder \"selon moi\"?",
+      "opener": "En synonym till \"à mon avis\".",
+      "choices": [
+        "Enligt mig",
+        "Jag håller inte med",
+        "Trots det",
+        "För övrigt"
+      ],
+      "answer": 0,
+      "explanation": "\"Selon moi\" betyder \"enligt mig\", en synonym till \"à mon avis\"."
+    },
+    {
+      "id": "q-fr3-opinions-10",
+      "kind": "mc",
+      "topic": "agreeing and disagreeing",
+      "prompt": "Vad betyder \"Tu as raison\"?",
+      "opener": "Bokstavligt: \"du har förnuft/rätt\".",
+      "choices": [
+        "Du har rätt",
+        "Du har fel",
+        "Jag förstår inte",
+        "Det spelar ingen roll"
+      ],
+      "answer": 0,
+      "explanation": "\"Tu as raison\" betyder \"du har rätt\"."
+    },
+    {
+      "id": "q-fr3-opinions-11",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "Vad betyder konnektivet \"car\"?",
+      "opener": "En mer skriftlig synonym till \"parce que\".",
+      "choices": [
+        "för/eftersom (skriftligt)",
+        "dock",
+        "dessutom",
+        "trots det"
+      ],
+      "answer": 0,
+      "explanation": "\"Car\" betyder \"för/eftersom\", en mer formell/skriftlig variant av \"parce que\"."
+    },
+    {
+      "id": "q-fr3-opinions-12",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Vad betyder \"je trouve que\"?",
+      "opener": "Bokstavligt \"jag finner att\", men betyder något annat i praktiken.",
+      "choices": [
+        "Jag tycker/anser att",
+        "Jag hittar att",
+        "Jag är säker på att",
+        "Jag frågar om"
+      ],
+      "answer": 0,
+      "explanation": "\"Je trouve que\" betyder \"jag tycker/anser att\", en synonym till \"je pense que\"."
+    },
+    {
+      "id": "q-fr3-opinions-13",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "Vad betyder frasen \"c'est pourquoi\"?",
+      "opener": "En fras som introducerar en konsekvens.",
+      "choices": [
+        "Det är därför",
+        "Eftersom",
+        "Dock",
+        "Till exempel"
+      ],
+      "answer": 0,
+      "explanation": "\"C'est pourquoi\" betyder \"det är därför\", och introducerar en konsekvens av något som redan sagts."
+    },
+    {
+      "id": "q-fr3-opinions-14",
+      "kind": "mc",
+      "topic": "agreeing and disagreeing",
+      "prompt": "Välj rätt form: \"Je ne pense pas que ce ___ (être) une bonne idée.\"",
+      "opener": "\"Je ne pense pas que\" nekar säkerheten i påståendet och kräver subjonctif.",
+      "choices": [
+        "soit",
+        "est",
+        "était",
+        "sera"
+      ],
+      "answer": 0,
+      "explanation": "\"Je ne pense pas que\" uttrycker tvivel och kräver subjonctif: \"soit\"."
+    },
+    {
+      "id": "q-fr3-opinions-15",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Vad betyder \"pourtant\"?",
+      "opener": "Ett vanligt kontrastord i argumenterande texter.",
+      "choices": [
+        "Ändå/dock",
+        "Dessutom",
+        "Till exempel",
+        "Därför"
+      ],
+      "answer": 0,
+      "explanation": "\"Pourtant\" betyder \"ändå/dock\" och markerar en kontrast, ungefär som \"cependant\"."
     }
   ]
 }

@@ -122,6 +122,111 @@
       "prompt": "Hur bildas och används presens konjunktiv (subjonctif) efter uttryck som il faut que, je veux que och je souhaite que?",
       "opener": "Bildning, undantag och den viktiga infinitiv-regeln.",
       "answer": "Bildning (regelbundna verb): ta stammen från ils-formen i presens (ils parlent → parl-) och lägg till -e, -es, -e, -ions, -iez, -ent: que je parle, que tu parles, qu'il parle, que nous parlions, que vous parliez, qu'ils parlent. Vanliga oregelbundna stammar: être → sois/soyons/soyez, avoir → aie/ayons/ayez, faire → fasse, aller → aille/allions, pouvoir → puisse, savoir → sache. Används efter uttryck som uttrycker vilja, nödvändighet eller önskan när subjekten SKILJER SIG ÅT: il faut que, je veux que, je souhaite que, je voudrais que. Viktig regel: om subjektet är detsamma i båda satserna används infinitiv i stället: \"je veux partir\" (inte \"que je parte\")."
+    },
+    {
+      "id": "q-fr3-mood-9",
+      "kind": "mc",
+      "topic": "subjonctif",
+      "prompt": "Välj rätt form: \"Il faut que tu ___ (aller) chez le médecin.\"",
+      "opener": "\"Aller\" har en oregelbunden subjonctif-stam för tu-formen.",
+      "choices": [
+        "ailles",
+        "vas",
+        "allais",
+        "iras"
+      ],
+      "answer": 0,
+      "explanation": "\"Aller\" i subjonctif: que j'aille, que tu ailles, qu'il aille, que nous allions, que vous alliez, qu'ils aillent. \"Tu\" ger \"ailles\"."
+    },
+    {
+      "id": "q-fr3-mood-10",
+      "kind": "mc",
+      "topic": "il faut que",
+      "prompt": "Välj rätt form: \"Il faut que nous ___ (faire) attention.\"",
+      "opener": "\"Faire\" har en oregelbunden subjonctif-stam.",
+      "choices": [
+        "fassions",
+        "faisons",
+        "ferons",
+        "faisions"
+      ],
+      "answer": 0,
+      "explanation": "\"Faire\" i subjonctif: que je fasse, que tu fasses, qu'il fasse, que nous fassions, que vous fassiez, qu'ils fassent. \"Nous\" ger \"fassions\"."
+    },
+    {
+      "id": "q-fr3-mood-11",
+      "kind": "mc",
+      "topic": "je veux que / je souhaite que",
+      "prompt": "Välj rätt form: \"Je veux qu'il ___ (pouvoir) venir avec nous.\"",
+      "opener": "\"Pouvoir\" har en oregelbunden subjonctif-stam.",
+      "choices": [
+        "puisse",
+        "peut",
+        "pouvait",
+        "pourra"
+      ],
+      "answer": 0,
+      "explanation": "\"Pouvoir\" i subjonctif: que je puisse, que tu puisses, qu'il puisse, que nous puissions, que vous puissiez, qu'ils puissent. \"Il\" ger \"puisse\"."
+    },
+    {
+      "id": "q-fr3-mood-12",
+      "kind": "mc",
+      "topic": "subjonctif",
+      "prompt": "Välj rätt form: \"Il faut que vous ___ (savoir) la vérité.\"",
+      "opener": "\"Savoir\" har en oregelbunden subjonctif-stam.",
+      "choices": [
+        "sachiez",
+        "savez",
+        "saviez",
+        "saurez"
+      ],
+      "answer": 0,
+      "explanation": "\"Savoir\" i subjonctif: que je sache, que tu saches, qu'il sache, que nous sachions, que vous sachiez, qu'ils sachent. \"Vous\" ger \"sachiez\"."
+    },
+    {
+      "id": "q-fr3-mood-13",
+      "kind": "mc",
+      "topic": "je veux que / je souhaite que",
+      "prompt": "Välj rätt form: \"Je souhaite ___ (réussir) mes examens.\" (samma subjekt)",
+      "opener": "När subjektet är detsamma i båda leden används infinitiv, inte subjonctif.",
+      "choices": [
+        "réussir",
+        "que je réussisse",
+        "que tu réussisses",
+        "réussisse"
+      ],
+      "answer": 0,
+      "explanation": "Samma subjekt (jag önskar, jag klarar) → infinitiv: \"je souhaite réussir\", inte \"que je réussisse\"."
+    },
+    {
+      "id": "q-fr3-mood-14",
+      "kind": "mc",
+      "topic": "subjonctif",
+      "prompt": "Välj rätt form: \"Il faut que nous ___ (aller) à la gare.\"",
+      "opener": "\"Aller\" har en oregelbunden nous-form i subjonctif.",
+      "choices": [
+        "allions",
+        "allons",
+        "irons",
+        "allaient"
+      ],
+      "answer": 0,
+      "explanation": "\"Aller\" i subjonctif för \"nous\" är \"allions\" (samma som imparfait-formen, men med subjonctif-betydelse här)."
+    },
+    {
+      "id": "q-fr3-mood-15",
+      "kind": "mc",
+      "topic": "il faut que",
+      "prompt": "Välj rätt form: \"Il faut que tu ___ (choisir) une réponse.\"",
+      "opener": "\"Choisir\" är ett regelbundet -ir-verb i subjonctif.",
+      "choices": [
+        "choisisses",
+        "choisis",
+        "choisissais",
+        "choisiras"
+      ],
+      "answer": 0,
+      "explanation": "Stammen kommer från \"ils choisissent\" → choisiss-. \"Tu\" ger ändelsen -es: \"choisisses\"."
     }
   ]
 }

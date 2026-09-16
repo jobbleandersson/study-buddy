@@ -122,6 +122,111 @@
       "prompt": "Vilka kontrollfrågor bör du ställa dig för ordval och struktur när du skriver en längre text på franska?",
       "opener": "En checklista som binder ihop aspekt, relativpronomen, subjonctif och jämförelser.",
       "answer": "Aspekt: beskriver meningen ett tillstånd/en vana (imparfait) eller en avgränsad, avslutad händelse (passé composé)? Relativpronomen: är ordet subjekt i bisatsen (qui), objekt (que), en plats (où) eller kopplat till verb + de eller ägande (dont)? Subjonctif: styrs verbet av ett uttryck som il faut que/je veux que/je souhaite que OCH har bisatsen ett annat subjekt än huvudsatsen — då krävs subjonctif, annars infinitiv. Jämförelser: plus/moins/aussi + adjektiv + que för att jämföra två saker, le/la plus + adjektiv för superlativ (den mest ...). Att gå igenom denna checklista innan du lämnar in en text fångar de vanligaste felen på den här nivån."
+    },
+    {
+      "id": "q-fr3-writing-9",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Complétez : \"Ce restaurant est ___ que l'autre.\" (bon, komparativ)",
+      "opener": "\"Bon\" har en oregelbunden komparativform.",
+      "choices": [
+        "meilleur",
+        "plus bon",
+        "bonne plus",
+        "bon plus"
+      ],
+      "answer": 0,
+      "explanation": "\"Bon\" har den oregelbundna komparativformen \"meilleur\" (bättre), inte \"plus bon\"."
+    },
+    {
+      "id": "q-fr3-writing-10",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Complétez : \"Le film ___ nous avons vu hier était incroyable.\"",
+      "opener": "Vem gör handlingen \"se\"? \"Nous\" gör det, filmen tas emot.",
+      "choices": [
+        "que",
+        "qui",
+        "dont",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Que\" är objekt (vi såg filmen) och följs av subjekt + verb: \"que nous avons vu\"."
+    },
+    {
+      "id": "q-fr3-writing-11",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Complétez : \"Quand elle ___ (être) jeune, elle ___ (vouloir) devenir actrice.\"",
+      "opener": "Både ett tillstånd (ung) och en pågående önskan — båda i imparfait.",
+      "choices": [
+        "était / voulait",
+        "a été / a voulu",
+        "était / a voulu",
+        "a été / voulait"
+      ],
+      "answer": 0,
+      "explanation": "Både \"vara ung\" och \"vilja bli skådespelerska\" beskriver tillstånd/pågående önskningar utan tydlig start/slut → imparfait för båda: \"était\" och \"voulait\"."
+    },
+    {
+      "id": "q-fr3-writing-12",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Complétez : \"C'est ___ restaurant de la ville.\" (bon, superlativ)",
+      "opener": "\"Bon\" är oregelbunden även i superlativ.",
+      "choices": [
+        "le meilleur",
+        "le plus bon",
+        "le bon plus",
+        "le meilleur plus"
+      ],
+      "answer": 0,
+      "explanation": "\"Bon\" har den oregelbundna superlativformen \"le meilleur\" (den bästa), inte \"le plus bon\"."
+    },
+    {
+      "id": "q-fr3-writing-13",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Complétez : \"Il faut qu'elle ___ (être) à l'heure.\"",
+      "opener": "\"Être\" har en helt egen subjonctif-stam.",
+      "choices": [
+        "soit",
+        "est",
+        "était",
+        "sera"
+      ],
+      "answer": 0,
+      "explanation": "\"Être\" i subjonctif för \"elle\" är \"soit\"."
+    },
+    {
+      "id": "q-fr3-writing-14",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Complétez : \"Le sujet ___ je veux te parler est important.\"",
+      "opener": "Vilken preposition hör till uttrycket \"parler de\"?",
+      "choices": [
+        "dont",
+        "que",
+        "qui",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Parler de quelque chose\" ersätts med \"dont\": \"le sujet dont je veux te parler\"."
+    },
+    {
+      "id": "q-fr3-writing-15",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Complétez : \"Ce quartier est ___ animé ___ le centre-ville.\" (mindre livligt än)",
+      "opener": "Jämförelse av ojämlikhet nedåt.",
+      "choices": [
+        "moins / que",
+        "plus / que",
+        "aussi / que",
+        "moins / comme"
+      ],
+      "answer": 0,
+      "explanation": "\"Moins ... que\" uttrycker mindre av något: \"moins animé que le centre-ville\" (mindre livligt än city)."
     }
   ]
 }

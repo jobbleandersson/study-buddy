@@ -122,6 +122,111 @@
       "prompt": "How is the present subjunctive (subjonctif) formed and used after expressions like il faut que, je veux que and je souhaite que?",
       "opener": "Formation, exceptions, and the important infinitive rule.",
       "answer": "Formation (regular verbs): take the stem from the present-tense ils form (ils parlent → parl-) and add -e, -es, -e, -ions, -iez, -ent: que je parle, que tu parles, qu'il parle, que nous parlions, que vous parliez, qu'ils parlent. Common irregular stems: être → sois/soyons/soyez, avoir → aie/ayons/ayez, faire → fasse, aller → aille/allions, pouvoir → puisse, savoir → sache. Used after expressions of will, necessity, or wish when the subjects DIFFER: il faut que, je veux que, je souhaite que, je voudrais que. Important rule: if the subject is the same in both clauses, the infinitive is used instead: \"je veux partir\" (not \"que je parte\")."
+    },
+    {
+      "id": "q-fr3-mood-9",
+      "kind": "mc",
+      "topic": "subjonctif",
+      "prompt": "Choose the correct form: \"Il faut que tu ___ (aller) chez le médecin.\"",
+      "opener": "\"Aller\" has an irregular subjunctive stem for the tu form.",
+      "choices": [
+        "ailles",
+        "vas",
+        "allais",
+        "iras"
+      ],
+      "answer": 0,
+      "explanation": "\"Aller\" in the subjunctive: que j'aille, que tu ailles, qu'il aille, que nous allions, que vous alliez, qu'ils aillent. \"Tu\" gives \"ailles\"."
+    },
+    {
+      "id": "q-fr3-mood-10",
+      "kind": "mc",
+      "topic": "il faut que",
+      "prompt": "Choose the correct form: \"Il faut que nous ___ (faire) attention.\"",
+      "opener": "\"Faire\" has an irregular subjunctive stem.",
+      "choices": [
+        "fassions",
+        "faisons",
+        "ferons",
+        "faisions"
+      ],
+      "answer": 0,
+      "explanation": "\"Faire\" in the subjunctive: que je fasse, que tu fasses, qu'il fasse, que nous fassions, que vous fassiez, qu'ils fassent. \"Nous\" gives \"fassions\"."
+    },
+    {
+      "id": "q-fr3-mood-11",
+      "kind": "mc",
+      "topic": "je veux que / je souhaite que",
+      "prompt": "Choose the correct form: \"Je veux qu'il ___ (pouvoir) venir avec nous.\"",
+      "opener": "\"Pouvoir\" has an irregular subjunctive stem.",
+      "choices": [
+        "puisse",
+        "peut",
+        "pouvait",
+        "pourra"
+      ],
+      "answer": 0,
+      "explanation": "\"Pouvoir\" in the subjunctive: que je puisse, que tu puisses, qu'il puisse, que nous puissions, que vous puissiez, qu'ils puissent. \"Il\" gives \"puisse\"."
+    },
+    {
+      "id": "q-fr3-mood-12",
+      "kind": "mc",
+      "topic": "subjonctif",
+      "prompt": "Choose the correct form: \"Il faut que vous ___ (savoir) la vérité.\"",
+      "opener": "\"Savoir\" has an irregular subjunctive stem.",
+      "choices": [
+        "sachiez",
+        "savez",
+        "saviez",
+        "saurez"
+      ],
+      "answer": 0,
+      "explanation": "\"Savoir\" in the subjunctive: que je sache, que tu saches, qu'il sache, que nous sachions, que vous sachiez, qu'ils sachent. \"Vous\" gives \"sachiez\"."
+    },
+    {
+      "id": "q-fr3-mood-13",
+      "kind": "mc",
+      "topic": "je veux que / je souhaite que",
+      "prompt": "Choose the correct form: \"Je souhaite ___ (réussir) mes examens.\" (same subject)",
+      "opener": "When the subject is the same in both parts, the infinitive is used, not the subjunctive.",
+      "choices": [
+        "réussir",
+        "que je réussisse",
+        "que tu réussisses",
+        "réussisse"
+      ],
+      "answer": 0,
+      "explanation": "Same subject (I wish, I pass) → infinitive: \"je souhaite réussir\", not \"que je réussisse\"."
+    },
+    {
+      "id": "q-fr3-mood-14",
+      "kind": "mc",
+      "topic": "subjonctif",
+      "prompt": "Choose the correct form: \"Il faut que nous ___ (aller) à la gare.\"",
+      "opener": "\"Aller\" has an irregular nous form in the subjunctive.",
+      "choices": [
+        "allions",
+        "allons",
+        "irons",
+        "allaient"
+      ],
+      "answer": 0,
+      "explanation": "The subjunctive of \"aller\" for \"nous\" is \"allions\" (the same as the imparfait form, but with subjunctive meaning here)."
+    },
+    {
+      "id": "q-fr3-mood-15",
+      "kind": "mc",
+      "topic": "il faut que",
+      "prompt": "Choose the correct form: \"Il faut que tu ___ (choisir) une réponse.\"",
+      "opener": "\"Choisir\" is a regular -ir verb in the subjunctive.",
+      "choices": [
+        "choisisses",
+        "choisis",
+        "choisissais",
+        "choisiras"
+      ],
+      "answer": 0,
+      "explanation": "The stem comes from \"ils choisissent\" → choisiss-. \"Tu\" takes the ending -es: \"choisisses\"."
     }
   ]
 }
