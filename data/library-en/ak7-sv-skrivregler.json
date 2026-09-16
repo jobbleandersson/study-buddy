@@ -125,6 +125,111 @@
       "prompt": "Which writing rules should you always check before handing in a text?",
       "opener": "A short checklist to go through when proofreading.",
       "answer": "Capital letter at the start of every sentence and on names (people, cities, countries) · a full stop at the end of every sentence · commas between the items in a list, but not before the final \"och\" (and) · compound words are written as one word: fotbollsplan (football pitch), mataffär (grocery store), klassrum (classroom) · doubled consonants after a short vowel: kväll (evening), glass (ice cream), kommer (comes) · dialogue: a dash at the start of the line and a new line for each new speaker, or quotation marks around only the spoken words with the speech tag (sa Maja / said Maja) outside them · always read through the text one extra time, ideally out loud."
+    },
+    {
+      "id": "q-sv7-skr-9",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Which line has correct capitalisation and full stops?",
+      "opener": "Every sentence starts with a capital letter, and names are capitalised even in the middle of a sentence.",
+      "choices": [
+        "i somras åkte vi till spanien och badade varje dag.",
+        "I somras åkte vi till Spanien och badade varje dag.",
+        "I somras åkte vi till spanien och Badade varje dag.",
+        "i Somras åkte Vi till Spanien och badade varje dag."
+      ],
+      "answer": 1,
+      "explanation": "The sentence starts with a capital letter, and the country Spanien (Spain), being a name, is capitalised. Ordinary words like \"somras\" (last summer) and \"badade\" (swam) are written with a lowercase letter, though."
+    },
+    {
+      "id": "q-sv7-skr-10",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "Which sentence has the correct punctuation? \"Vill du följa med imorgon Jag hoppas det\" (\"Do you want to come along tomorrow I hope so\")",
+      "opener": "Think about which part is a question and which part is a statement.",
+      "choices": [
+        "Vill du följa med imorgon. Jag hoppas det?",
+        "Vill du följa med imorgon? Jag hoppas det.",
+        "Vill du följa med imorgon Jag hoppas det.",
+        "Vill du följa med imorgon? Jag hoppas det?"
+      ],
+      "answer": 1,
+      "explanation": "\"Vill du följa med imorgon?\" (Do you want to come along tomorrow?) is a question and should end with a question mark. \"Jag hoppas det.\" (I hope so.) is a statement and should end with a full stop."
+    },
+    {
+      "id": "q-sv7-skr-11",
+      "kind": "mc",
+      "topic": "spelling",
+      "prompt": "Which word is spelled correctly?",
+      "opener": "Listen to how the word is pronounced and think about the doubled consonant.",
+      "choices": [
+        "restaurang",
+        "restorang",
+        "restaurangg",
+        "restaurank"
+      ],
+      "answer": 0,
+      "explanation": "\"Restaurang\" (restaurant) is spelled correctly. Common misspellings swap a vowel (restorang), double a letter too much (restaurangg), or change a consonant (restaurank)."
+    },
+    {
+      "id": "q-sv7-skr-12",
+      "kind": "mc",
+      "topic": "compound words",
+      "prompt": "Which option is written correctly?",
+      "opener": "Try saying the word: does it sound like ONE word?",
+      "choices": [
+        "en gräs matta",
+        "en gräsmatta",
+        "engräsmatta",
+        "en gräs-matta"
+      ],
+      "answer": 1,
+      "explanation": "\"Gräsmatta\" (gräs + matta, lawn) is a compound word and is written as one single word: en gräsmatta. The article \"en\" (a) is a separate word and shouldn't be joined to the noun."
+    },
+    {
+      "id": "q-sv7-skr-13",
+      "kind": "mc",
+      "topic": "dialogue",
+      "prompt": "Why should you start a new line when a new person starts speaking in a dialogue?",
+      "opener": "Think about what happens if every line of dialogue is written on the same line.",
+      "choices": [
+        "To make it clear to the reader who is saying what",
+        "It doesn't matter, you can write it all on the same line",
+        "To save space on the page",
+        "Only the very first line of dialogue in the whole text needs its own line"
+      ],
+      "answer": 0,
+      "explanation": "A new line for each new speaker makes it clear who is saying what. If everything is written on the same line, it easily becomes unclear which line of dialogue belongs to whom."
+    },
+    {
+      "id": "q-sv7-skr-14",
+      "kind": "worked",
+      "topic": "sentence structure",
+      "prompt": "Correct the sentence and explain each change: \"igår cyklade jag till JOHANS hus vi spelade data spel hela kvällen\" (\"yesterday i cycled to JOHAN's house we played video games all evening\")",
+      "opener": "Look in turn for a missing capital letter, CAPITAL LETTERS that shouldn't be there, a missing full stop between the sentences, and an incorrectly split word.",
+      "answer": "\"Igår cyklade jag till Johans hus. Vi spelade dataspel hela kvällen.\"",
+      "steps": [
+        "The sentence must start with a capital letter: \"igår\" becomes \"Igår\".",
+        "Names should only be capitalised on the first letter, not written in CAPITALS: \"JOHANS\" becomes \"Johans\".",
+        "There are actually two sentences here — put a full stop after \"hus\" and a capital letter on \"Vi\".",
+        "\"Data spel\" is a compound word and should be written as one word: \"dataspel\".",
+        "End the last sentence with a full stop."
+      ]
+    },
+    {
+      "id": "q-sv7-skr-15",
+      "kind": "mc",
+      "topic": "spelling",
+      "prompt": "Which sentence is spelled correctly?",
+      "opener": "Think about the difference between how the word is pronounced in speech and how it should be written.",
+      "choices": [
+        "Dom sa att dom skulle komma imorgon.",
+        "De sa att de skulle komma imorgon.",
+        "Dem sa att dem skulle komma imorgon.",
+        "Di sa att di skulle komma imorgon."
+      ],
+      "answer": 1,
+      "explanation": "\"De\" (they) is the standard written form when the word is the subject of the sentence (the ones doing the action), even though it's often pronounced \"dom\" in speech. \"Dem\" (them) is used as the object form, and \"dom\"/\"di\" belong in spoken language, not in formal writing."
     }
   ]
 }

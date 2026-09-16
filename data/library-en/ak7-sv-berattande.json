@@ -125,6 +125,111 @@
       "prompt": "What should you think about when writing a story?",
       "opener": "A quick recap of the building blocks before you start writing.",
       "answer": "Structure: opening (characters, setting, time) · problem (something goes wrong or changes) · rising action (things get worse, tension increases) · resolution (the problem is sorted out and the story ends). Narrative perspective: first person (\"I opened the door\") gives closeness but only one person's thoughts · third person gives an overview — choose one and stick to it throughout the text. Character description: outer (appearance, clothes) and inner (traits, feelings, thoughts). Setting description: use the senses — what do you see, hear, smell and feel? Showing vs telling: show instead of tell — not \"he was scared\" but \"he backed against the wall and didn't dare breathe\"."
+    },
+    {
+      "id": "q-sv7-ber-9",
+      "kind": "mc",
+      "topic": "story structure",
+      "prompt": "Which part of the story introduces the characters, setting and time, before any problem arises?",
+      "opener": "Think about what usually comes right at the very start of a story.",
+      "choices": [
+        "The opening",
+        "The rising action",
+        "The resolution",
+        "The problem"
+      ],
+      "answer": 0,
+      "explanation": "The opening introduces the characters, the setting and the time before the plot gets going. Rising action and the problem belong to the middle of the story, and the resolution comes right at the end."
+    },
+    {
+      "id": "q-sv7-ber-10",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "Which sentence is written in third person?",
+      "opener": "Third person means an outside narrator describes what another person does.",
+      "choices": [
+        "I ran as fast as I could.",
+        "She ran as fast as she could.",
+        "You ran as fast as you could.",
+        "We ran as fast as we could."
+      ],
+      "answer": 1,
+      "explanation": "\"She ran\" describes another person from the outside — that is third person. \"I\" is first person, and \"you\" and \"we\" are not the usual narrative perspectives writers choose between in a story."
+    },
+    {
+      "id": "q-sv7-ber-11",
+      "kind": "mc",
+      "topic": "showing vs telling",
+      "prompt": "Which sentence shows that someone is happy, instead of just telling it?",
+      "opener": "Showing reveals the feeling through what the person does or says.",
+      "choices": [
+        "She was really happy.",
+        "She felt happy that day.",
+        "She was happy all day.",
+        "She skipped down the stairs and sang loudly to herself."
+      ],
+      "answer": 3,
+      "explanation": "The reader sees the actions — skipping and singing — and understands for themselves that she is happy. The other options simply state it with the word \"happy\", which is telling instead of showing."
+    },
+    {
+      "id": "q-sv7-ber-12",
+      "kind": "mc",
+      "topic": "setting description",
+      "prompt": "Which setting description uses the most senses (sight, hearing, smell)?",
+      "opener": "Count how many different senses are described in each option.",
+      "choices": [
+        "The forest was silent and dark, it smelled of pine needles, and a branch snapped far away.",
+        "The forest was nice.",
+        "It was a forest with trees.",
+        "The forest was big and green."
+      ],
+      "answer": 0,
+      "explanation": "This describes sight (dark), hearing (silent, a branch snapped) and smell (pine needles) — three different senses. The other options only give a general description without concrete sensory details."
+    },
+    {
+      "id": "q-sv7-ber-13",
+      "kind": "mc",
+      "topic": "character description",
+      "prompt": "What counts as an OUTER character description?",
+      "opener": "Outer is what you can see with your eyes on the outside of a person.",
+      "choices": [
+        "That he is fearless and curious",
+        "That he has glasses and curly hair",
+        "That he is kind to everyone",
+        "That he often feels lonely"
+      ],
+      "answer": 1,
+      "explanation": "Glasses and curly hair are things you can see on the outside — outer description. Fearless, curious, kind and lonely are traits and feelings inside the person, so they count as inner description."
+    },
+    {
+      "id": "q-sv7-ber-14",
+      "kind": "worked",
+      "topic": "showing vs telling",
+      "prompt": "Rewrite the sentence \"Oskar was sad after the argument with his best friend\" so that it shows the feeling instead of telling it.",
+      "opener": "Ask yourself: what do the body, the gaze and the voice do when someone is sad?",
+      "answer": "\"Oskar stared down at his shoes and answered only in single words whenever anyone asked how he was doing. He barely touched the food on his plate.\"",
+      "steps": [
+        "Cross out the word that gives away the feeling outright: \"sad\".",
+        "Think about what the body does when you are sad: a downcast gaze, silence, a poor appetite.",
+        "Think about what the person does and says: short answers, avoiding eye contact.",
+        "Combine two or three concrete details into one or two sentences.",
+        "Test it: does the reader understand that Oskar is sad without the word being there? Then the showing works."
+      ]
+    },
+    {
+      "id": "q-sv7-ber-15",
+      "kind": "mc",
+      "topic": "story structure",
+      "prompt": "Which sentence belongs in the story's RESOLUTION?",
+      "opener": "The resolution is where the problem is sorted out and the story winds down.",
+      "choices": [
+        "The clouds towered up and the wind picked up with every passing minute.",
+        "At last the rescue service found the cat and the family could breathe out.",
+        "It was a sunny afternoon in June.",
+        "The family lived in a small flat near the square."
+      ],
+      "answer": 1,
+      "explanation": "The sentence shows that the problem is solved and the tension is released — that is the resolution. The other sentences belong in the opening or the rising action, where the setting and the problem are being built up."
     }
   ]
 }

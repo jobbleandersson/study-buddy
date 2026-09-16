@@ -125,6 +125,111 @@
       "prompt": "Vad ska du tänka på när du skriver en berättelse?",
       "opener": "En snabbrepetition av byggstenarna innan du börjar skriva.",
       "answer": "Uppbyggnad: inledning (personer, miljö, tid) · problem (något går fel eller ändras) · upptrappning (det blir värre, spänningen stiger) · lösning (problemet reds ut och berättelsen avslutas). Berättarperspektiv: jag-form (\"jag öppnade dörren\") ger närhet men bara en persons tankar · han/hon-form ger överblick — välj ett och håll dig till det genom hela texten. Personbeskrivning: yttre (utseende, kläder) och inre (egenskaper, känslor, tankar). Miljöbeskrivning: använd sinnen — vad ser, hör, luktar och känns det? Gestaltning: visa istället för att berätta — inte \"han var rädd\" utan \"han backade mot väggen och vågade inte andas\"."
+    },
+    {
+      "id": "q-sv7-ber-9",
+      "kind": "mc",
+      "topic": "berättelsens uppbyggnad",
+      "prompt": "Vilken del av berättelsen presenterar personer, miljö och tid, innan något problem uppstår?",
+      "opener": "Tänk på vad som brukar komma allra först i en berättelse.",
+      "choices": [
+        "Inledningen",
+        "Upptrappningen",
+        "Lösningen",
+        "Problemet"
+      ],
+      "answer": 0,
+      "explanation": "Inledningen presenterar personerna, miljön och tiden innan handlingen sätter igång. Upptrappning och problem hör till mitten av berättelsen, och lösningen kommer allra sist."
+    },
+    {
+      "id": "q-sv7-ber-10",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "Vilken mening är skriven i han/hon-form (tredjepersonsperspektiv)?",
+      "opener": "Han/hon-form betyder att en berättare utifrån beskriver vad en annan person gör.",
+      "choices": [
+        "Jag sprang så fort jag kunde.",
+        "Hon sprang så fort hon kunde.",
+        "Du sprang så fort du kunde.",
+        "Vi sprang så fort vi kunde."
+      ],
+      "answer": 1,
+      "explanation": "\"Hon sprang\" beskriver en annan person utifrån — det är han/hon-form. \"Jag\" är jag-form, och \"du\" och \"vi\" är inte de vanliga berättarperspektiven man väljer mellan i en berättelse."
+    },
+    {
+      "id": "q-sv7-ber-11",
+      "kind": "mc",
+      "topic": "gestaltning",
+      "prompt": "Vilken mening gestaltar att någon är glad, istället för att bara berätta det?",
+      "opener": "Gestaltning visar känslan genom vad personen gör eller säger.",
+      "choices": [
+        "Hon var jätteglad.",
+        "Hon kände sig glad den dagen.",
+        "Hon var glad hela dagen.",
+        "Hon skuttade nerför trappan och sjöng högt för sig själv."
+      ],
+      "answer": 3,
+      "explanation": "Läsaren ser handlingarna — att skutta och sjunga — och förstår själv att hon är glad. De andra alternativen talar bara om med ordet \"glad\", vilket är att berätta istället för att visa."
+    },
+    {
+      "id": "q-sv7-ber-12",
+      "kind": "mc",
+      "topic": "miljöbeskrivning",
+      "prompt": "Vilken miljöbeskrivning använder flest sinnen (syn, hörsel, lukt)?",
+      "opener": "Räkna hur många olika sinnen som beskrivs i varje alternativ.",
+      "choices": [
+        "Skogen var tyst och mörk, det doftade barr och en gren knäcktes långt bort.",
+        "Skogen var fin.",
+        "Det var en skog med träd.",
+        "Skogen var stor och grön."
+      ],
+      "answer": 0,
+      "explanation": "Här beskrivs synen (mörk), hörseln (tyst, en gren knäcktes) och lukten (barr) — tre olika sinnen. De andra alternativen ger bara en allmän beskrivning utan konkreta sinnesintryck."
+    },
+    {
+      "id": "q-sv7-ber-13",
+      "kind": "mc",
+      "topic": "personbeskrivning",
+      "prompt": "Vad räknas som YTTRE personbeskrivning?",
+      "opener": "Yttre är det man kan se med ögonen på utsidan av en person.",
+      "choices": [
+        "Att han är orädd och nyfiken",
+        "Att han har glasögon och lockigt hår",
+        "Att han är snäll mot alla",
+        "Att han ofta känner sig ensam"
+      ],
+      "answer": 1,
+      "explanation": "Glasögon och lockigt hår är sådant man kan se på utsidan — yttre beskrivning. Orädd, nyfiken, snäll och ensam är egenskaper och känslor inuti personen, alltså inre beskrivning."
+    },
+    {
+      "id": "q-sv7-ber-14",
+      "kind": "worked",
+      "topic": "gestaltning",
+      "prompt": "Skriv om meningen \"Oskar var ledsen efter bråket med sin bästa vän\" så att den gestaltar känslan istället för att berätta den.",
+      "opener": "Fråga dig: vad gör kroppen, blicken och rösten när man är ledsen?",
+      "answer": "\"Oskar stirrade ner i sina skor och svarade bara med enstaviga ord när någon frågade hur han mådde. Han rörde knappt vid maten på tallriken.\"",
+      "steps": [
+        "Stryk ordet som avslöjar känslan rakt ut: \"ledsen\".",
+        "Fundera på vad kroppen gör när man är ledsen: nedslagen blick, tystnad, dålig aptit.",
+        "Fundera på vad personen gör och säger: korta svar, undviker ögonkontakt.",
+        "Skriv ihop två eller tre konkreta detaljer till en eller två meningar.",
+        "Testa: förstår läsaren att Oskar är ledsen utan att ordet står där? Då fungerar gestaltningen."
+      ]
+    },
+    {
+      "id": "q-sv7-ber-15",
+      "kind": "mc",
+      "topic": "berättelsens uppbyggnad",
+      "prompt": "Vilken mening hör hemma i berättelsens LÖSNING?",
+      "opener": "Lösningen är där problemet reds ut och berättelsen rundas av.",
+      "choices": [
+        "Molnen tornade upp sig och vinden tilltog för varje minut.",
+        "Till slut hittade räddningstjänsten katten och familjen kunde andas ut.",
+        "Det var en solig eftermiddag i juni.",
+        "Familjen bodde i en liten lägenhet nära torget."
+      ],
+      "answer": 1,
+      "explanation": "Meningen visar att problemet är löst och att spänningen släpper — det är lösningen. De andra meningarna hör hemma i inledningen eller upptrappningen, där miljön och problemet byggs upp."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Vilka skrivregler ska du alltid kontrollera innan du lämnar in en text?",
       "opener": "En kort checklista att gå igenom vid genomläsningen.",
       "answer": "Stor bokstav först i varje mening och på namn (personer, städer, länder) · punkt i slutet av varje mening · komma mellan delarna i en uppräkning, men inte före sista \"och\" · sammansatta ord skrivs ihop: fotbollsplan, mataffär, klassrum · dubbelteckning efter kort vokal: kväll, glass, kommer · dialog: talstreck först på raden och ny rad för varje ny talare, eller citattecken runt bara de talade orden med anföringen (sa Maja) utanför · läs alltid igenom texten en extra gång, gärna högt."
+    },
+    {
+      "id": "q-sv7-skr-9",
+      "kind": "mc",
+      "topic": "meningsbyggnad",
+      "prompt": "Vilken rad har korrekt stor bokstav och punkt?",
+      "opener": "Varje mening börjar med stor bokstav, och namn skrivs med stor bokstav även mitt i en mening.",
+      "choices": [
+        "i somras åkte vi till spanien och badade varje dag.",
+        "I somras åkte vi till Spanien och badade varje dag.",
+        "I somras åkte vi till spanien och Badade varje dag.",
+        "i Somras åkte Vi till Spanien och badade varje dag."
+      ],
+      "answer": 1,
+      "explanation": "Meningen börjar med stor bokstav och landet Spanien, som är ett namn, skrivs med stor bokstav. Vanliga ord som \"somras\" och \"badade\" skrivs däremot med liten bokstav."
+    },
+    {
+      "id": "q-sv7-skr-10",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Vilken mening har rätt skiljetecken? \"Vill du följa med imorgon Jag hoppas det\"",
+      "opener": "Fundera på vilken del som är en fråga och vilken som är ett påstående.",
+      "choices": [
+        "Vill du följa med imorgon. Jag hoppas det?",
+        "Vill du följa med imorgon? Jag hoppas det.",
+        "Vill du följa med imorgon Jag hoppas det.",
+        "Vill du följa med imorgon? Jag hoppas det?"
+      ],
+      "answer": 1,
+      "explanation": "\"Vill du följa med imorgon?\" är en fråga och ska avslutas med frågetecken. \"Jag hoppas det.\" är ett påstående och ska avslutas med punkt."
+    },
+    {
+      "id": "q-sv7-skr-11",
+      "kind": "mc",
+      "topic": "stavning",
+      "prompt": "Vilket ord är rättstavat?",
+      "opener": "Lyssna på hur ordet uttalas och tänk på dubbelteckningen.",
+      "choices": [
+        "restaurang",
+        "restorang",
+        "restaurangg",
+        "restaurank"
+      ],
+      "answer": 0,
+      "explanation": "\"Restaurang\" är rättstavat. Vanliga felstavningar byter vokal (restorang), dubblerar en bokstav för mycket (restaurangg) eller ändrar en konsonant (restaurank)."
+    },
+    {
+      "id": "q-sv7-skr-12",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "Vilket alternativ är rätt skrivet?",
+      "opener": "Testa att säga ordet: låter det som ETT ord?",
+      "choices": [
+        "en gräs matta",
+        "en gräsmatta",
+        "engräsmatta",
+        "en gräs-matta"
+      ],
+      "answer": 1,
+      "explanation": "\"Gräsmatta\" (gräs + matta) är ett sammansatt ord och skrivs ihop som ett enda ord: en gräsmatta. Artikeln \"en\" är ett eget ord och ska inte skrivas ihop med substantivet."
+    },
+    {
+      "id": "q-sv7-skr-13",
+      "kind": "mc",
+      "topic": "dialog",
+      "prompt": "Varför ska man börja en ny rad när en ny person börjar tala i en dialog?",
+      "opener": "Tänk på vad som händer om alla repliker står på samma rad.",
+      "choices": [
+        "För att göra det tydligt för läsaren vem som säger vad",
+        "Det spelar ingen roll, man kan skriva allt på samma rad",
+        "För att spara utrymme på sidan",
+        "Bara första repliken i hela texten ska ha en egen rad"
+      ],
+      "answer": 0,
+      "explanation": "En ny rad för varje ny talare gör det tydligt vem som säger vad. Skriver man allt på samma rad blir det lätt otydligt vilken replik som hör till vem."
+    },
+    {
+      "id": "q-sv7-skr-14",
+      "kind": "worked",
+      "topic": "meningsbyggnad",
+      "prompt": "Rätta meningen och förklara varje ändring: \"igår cyklade jag till JOHANS hus vi spelade data spel hela kvällen\"",
+      "opener": "Leta i tur och ordning efter stor bokstav, VERSALER som inte ska vara där, punkt mellan meningarna och särskrivna ord.",
+      "answer": "\"Igår cyklade jag till Johans hus. Vi spelade dataspel hela kvällen.\"",
+      "steps": [
+        "Meningen ska börja med stor bokstav: \"igår\" blir \"Igår\".",
+        "Namn ska bara ha stor bokstav på första bokstaven, inte skrivas med VERSALER: \"JOHANS\" blir \"Johans\".",
+        "Här är det egentligen två meningar — sätt punkt efter \"hus\" och stor bokstav på \"Vi\".",
+        "\"Data spel\" är ett sammansatt ord och ska skrivas ihop: \"dataspel\".",
+        "Avsluta sista meningen med punkt."
+      ]
+    },
+    {
+      "id": "q-sv7-skr-15",
+      "kind": "mc",
+      "topic": "stavning",
+      "prompt": "Vilken mening är rättstavad?",
+      "opener": "Tänk på skillnaden mellan hur ordet uttalas i talspråk och hur det ska skrivas.",
+      "choices": [
+        "Dom sa att dom skulle komma imorgon.",
+        "De sa att de skulle komma imorgon.",
+        "Dem sa att dem skulle komma imorgon.",
+        "Di sa att di skulle komma imorgon."
+      ],
+      "answer": 1,
+      "explanation": "\"De\" är den skriftspråkliga formen när ordet är subjekt i meningen (de som utför handlingen), även om det ofta uttalas \"dom\" i tal. \"Dem\" används som objektsform, och \"dom\"/\"di\" hör hemma i talspråk, inte i formell skrift."
     }
   ]
 }
