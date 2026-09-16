@@ -122,6 +122,111 @@
       "prompt": "Hur böjs relativpronomen (der/die/das) efter genus, numerus och kasus, och var står verbet i en relativsats?",
       "opener": "En tabell och en ordföljdsregel du kan använda för alla bisatser.",
       "answer": "Relativpronomenets genus/numerus kommer från substantivet det syftar på (antecedenten); kasus kommer från pronomenets funktion i bisatsen. Nominativ: der/die/das/die (plural). Ackusativ: den/die/das/die. Dativ: dem/der/dem/denen. Genitiv: dessen/deren/dessen/deren. Exempel: \"Der Mann, der dort steht\" (nom.), \"..., den ich sehe\" (ack.), \"..., dem ich helfe\" (dativ), \"..., dessen Auto rot ist\" (genitiv). Precis som i alla bisatser (weil, dass, obwohl, während m.fl.) hamnar det böjda verbet sist i relativsatsen. Med modalverb hamnar infinitivet före det böjda modalverbet: \"..., der das Auto reparieren kann.\""
+    },
+    {
+      "id": "q-de3-clauses-9",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Välj rätt relativpronomen: \"Die Kinder, ___ im Garten spielen, sind meine Neffen.\" (barnen som leker i trädgården är mina brorsöner)",
+      "opener": "\"Die Kinder\" är subjekt i bisatsen, plural.",
+      "choices": [
+        "die",
+        "denen",
+        "deren",
+        "den"
+      ],
+      "answer": 0,
+      "explanation": "Plural nominativ (subjekt) = \"die\": \"die Kinder, die im Garten spielen\"."
+    },
+    {
+      "id": "q-de3-clauses-10",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Välj rätt relativpronomen: \"Die Leute, ___ ich geholfen habe, waren dankbar.\" (människorna som jag hjälpte var tacksamma)",
+      "opener": "\"Helfen\" tar dativobjekt — vem fick hjälp?",
+      "choices": [
+        "denen",
+        "die",
+        "deren",
+        "der"
+      ],
+      "answer": 0,
+      "explanation": "\"Helfen\" tar dativ, och plural dativ = \"denen\": \"die Leute, denen ich geholfen habe\"."
+    },
+    {
+      "id": "q-de3-clauses-11",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Välj rätt form: \"Ich hoffe, dass du bald gesund ___.\" (werden)",
+      "opener": "I en bisats med \"dass\" hamnar det böjda verbet sist.",
+      "choices": [
+        "wirst",
+        "bist",
+        "werdest",
+        "würdest"
+      ],
+      "answer": 0,
+      "explanation": "\"Werden\" böjs för \"du\" till \"wirst\", och hamnar sist i bisatsen: \"..., dass du bald gesund wirst.\""
+    },
+    {
+      "id": "q-de3-clauses-12",
+      "kind": "mc",
+      "topic": "conjunctions",
+      "prompt": "Vad betyder konjunktionen \"während\" som bisatsinledare?",
+      "opener": "Kan uttrycka både samtidighet och kontrast.",
+      "choices": [
+        "medan",
+        "eftersom",
+        "att",
+        "om"
+      ],
+      "answer": 0,
+      "explanation": "\"Während\" betyder \"medan\" och uttrycker samtidighet eller kontrast: \"Während ich arbeite, hört sie Musik.\""
+    },
+    {
+      "id": "q-de3-clauses-13",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Välj rätt relativpronomen: \"Der Junge, ___ Vater Lehrer ist, sitzt vorne.\" (pojken vars pappa är lärare sitter längst fram)",
+      "opener": "Detta uttrycker ägande (genitiv), och \"der Junge\" är maskulinum.",
+      "choices": [
+        "dessen",
+        "deren",
+        "der",
+        "den"
+      ],
+      "answer": 0,
+      "explanation": "Genitiv maskulinum = \"dessen\": \"der Junge, dessen Vater Lehrer ist\". \"Deren\" används i stället för femininum/plural."
+    },
+    {
+      "id": "q-de3-clauses-14",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Välj rätt form: \"Er ging ins Bett, obwohl er noch arbeiten ___.\" (müssen)",
+      "opener": "I en bisats med modalverb + infinitiv hamnar båda verben sist, infinitivet före det böjda modalverbet.",
+      "choices": [
+        "musste",
+        "muss",
+        "müsste",
+        "hat gemusst"
+      ],
+      "answer": 0,
+      "explanation": "\"Müssen\" böjs i preteritum till \"musste\" och hamnar sist, efter infinitivet: \"..., obwohl er noch arbeiten musste.\""
+    },
+    {
+      "id": "q-de3-clauses-15",
+      "kind": "mc",
+      "topic": "conjunctions",
+      "prompt": "Vilken konjunktion används för en enskild, avgränsad händelse i det förflutna (t.ex. \"när jag var liten hände X en gång\")?",
+      "opener": "Skiljer sig från \"wenn\", som används för upprepade händelser eller nutid/framtid.",
+      "choices": [
+        "als",
+        "wenn",
+        "während",
+        "bevor"
+      ],
+      "answer": 0,
+      "explanation": "\"Als\" används för en enskild, avgränsad händelse i dåtid: \"Als ich klein war, ...\". \"Wenn\" används i stället för upprepade händelser i dåtid eller för nutid/framtid."
     }
   ]
 }

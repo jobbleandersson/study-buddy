@@ -123,6 +123,111 @@
       "prompt": "Vilka strategier hjälper dig att förstå och besvara frågor om en tysk text?",
       "opener": "Vanor som fungerar även för svårare texter på tyska.",
       "answer": "Läs igenom texten en gång för helhetsintrycket innan du läser frågorna noga. Leta efter nyckelord som upprepas — de pekar ofta ut huvudbudskapet. Vid ord du inte förstår (som \"Rückgrat\" eller \"ehrenamtlich\"): använd sammanhanget — närliggande meningar förklarar eller exemplifierar ofta ordet. Vid slutledningsfrågor: utgå bara från vad texten faktiskt antyder, dra inte in egna förkunskaper som texten inte stödjer. Var uppmärksam på siffror, namn och tidsuttryck — de är vanliga i detaljfrågor."
+    },
+    {
+      "id": "q-de3-reading-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Läs texten: \"Anders als in vielen anderen Ländern entscheiden sich in Deutschland jedes Jahr Hunderttausende junger Menschen nach der Schule nicht für ein Universitätsstudium, sondern für eine duale Ausbildung. Das Prinzip ist einfach: Die Auszubildenden, umgangssprachlich \\\"Azubis\\\" genannt, verbringen einen Teil der Woche in einem Betrieb, wo sie praktisch arbeiten und ein Gehalt bekommen, und den anderen Teil in der Berufsschule, wo sie die theoretischen Grundlagen ihres Berufs lernen. Eine Ausbildung dauert je nach Beruf zwischen zwei und dreieinhalb Jahren und schließt mit einer Prüfung vor der zuständigen Kammer ab. Besonders beliebt sind duale Ausbildungen in technischen und handwerklichen Berufen, etwa als Mechatroniker, Industriekaufmann oder Elektroniker. Befürworter des Systems loben, dass die Auszubildenden von Anfang an praktische Erfahrung sammeln und selten arbeitslos werden, weil viele Betriebe ihre eigenen Azubis nach der Ausbildung übernehmen. Kritiker weisen jedoch darauf hin, dass das Ansehen einer akademischen Ausbildung in Deutschland traditionell höher ist, und dass manche Jugendliche sich unter Druck fühlen, sich schon mit sechzehn Jahren für einen bestimmten Berufsweg zu entscheiden.\"\n\nVad är textens huvudbudskap?",
+      "opener": "Väg samman beskrivningen av systemet med både berömmet och kritiken i slutet.",
+      "choices": [
+        "Det tyska duala utbildningssystemet kombinerar praktik och teori på ett sätt som både berömts och kritiserats",
+        "Alla tyska ungdomar måste göra en dual utbildning",
+        "Universitetsstudier är förbjudna i Tyskland",
+        "Duala utbildningar finns bara inom teknik"
+      ],
+      "answer": 0,
+      "explanation": "Texten beskriver systemets uppbyggnad och nämner sedan både fördelar (praktisk erfarenhet, låg arbetslöshet) och kritik (lägre status än akademisk utbildning, tidigt karriärval) — det är textens kärna."
+    },
+    {
+      "id": "q-de3-reading-10",
+      "kind": "mc",
+      "topic": "detail",
+      "prompt": "Läs texten igen. Hur länge pågår en dual Ausbildung enligt texten?",
+      "opener": "Leta efter meningen om \"zwischen zwei und dreieinhalb Jahren\".",
+      "choices": [
+        "Mellan två och tre och ett halvt år",
+        "Alltid exakt fyra år",
+        "En termin",
+        "Mellan tio och femton år"
+      ],
+      "answer": 0,
+      "explanation": "Texten anger \"zwischen zwei und dreieinhalb Jahren\" (mellan två och tre och ett halvt år), beroende på yrke."
+    },
+    {
+      "id": "q-de3-reading-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Läs texten igen. Vad betyder \"Azubi\"?",
+      "opener": "Ordet nämns direkt efter \"die Auszubildenden, umgangssprachlich...\".",
+      "choices": [
+        "Vardaglig förkortning för \"Auszubildende\" (lärling/praktikant)",
+        "En typ av yrkesskola",
+        "Ett betyg",
+        "En arbetsgivare"
+      ],
+      "answer": 0,
+      "explanation": "Texten förklarar direkt att \"Azubi\" är en vardaglig förkortning (\"umgangssprachlich\") för \"Auszubildende\"."
+    },
+    {
+      "id": "q-de3-reading-12",
+      "kind": "mc",
+      "topic": "detail",
+      "prompt": "Läs texten igen. Vilka två platser växlar en Azubi mellan under utbildningen?",
+      "opener": "Leta efter meningen om \"einen Teil der Woche... und den anderen Teil...\".",
+      "choices": [
+        "Ett företag och en yrkesskola",
+        "Ett universitet och ett bibliotek",
+        "Hemmet och skolan",
+        "Två olika företag"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att Azubis tillbringar en del av veckan \"in einem Betrieb\" (på ett företag) och resten \"in der Berufsschule\" (i yrkesskolan)."
+    },
+    {
+      "id": "q-de3-reading-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Läs texten igen. Vad kan man dra slutsatsen om varför Azubis sällan blir arbetslösa, enligt texten?",
+      "opener": "Leta efter meningen om \"weil viele Betriebe ihre eigenen Azubis... übernehmen\".",
+      "choices": [
+        "Eftersom många företag anställer sina egna Azubis efter utbildningen",
+        "Eftersom staten garanterar alla ett jobb",
+        "Eftersom det finns för få Azubis",
+        "Eftersom de flesta byter yrke direkt"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att Azubis sällan blir arbetslösa \"weil viele Betriebe ihre eigenen Azubis nach der Ausbildung übernehmen\" (eftersom många företag anställer sina egna Azubis efter utbildningen)."
+    },
+    {
+      "id": "q-de3-reading-14",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Läs texten igen. Vad avslöjar kritiken om att ungdomar känner press att välja yrkesväg redan vid sexton år om systemet?",
+      "opener": "Fundera på vad det innebär att behöva göra ett så stort val så tidigt.",
+      "choices": [
+        "Att systemet kräver ett tidigt karriärval, vilket vissa ser som en nackdel",
+        "Att sexton år är den lagliga åldersgränsen för alla jobb i Tyskland",
+        "Att kritikerna anser att duala utbildningar bör förbjudas helt",
+        "Att skolan slutar vid sexton års ålder i Tyskland"
+      ],
+      "answer": 0,
+      "explanation": "Kritiken att ungdomar känner press att välja väg redan vid sexton år antyder att det tidiga valet upplevs som en nackdel med systemet, jämfört med att först gå vidare med bredare studier."
+    },
+    {
+      "id": "q-de3-reading-15",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Läs texten igen. Vad betyder \"das Ansehen\" i meningen om akademisk utbildnings \"Ansehen\"?",
+      "opener": "Ordet beskriver hur något värderas socialt.",
+      "choices": [
+        "Anseende/status",
+        "Utseende",
+        "Åsikt",
+        "Erfarenhet"
+      ],
+      "answer": 0,
+      "explanation": "\"Das Ansehen\" betyder \"anseende/status\" — hur högt något värderas socialt, här jämfört mellan akademisk och dual utbildning."
     }
   ]
 }

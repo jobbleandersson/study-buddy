@@ -122,6 +122,111 @@
       "prompt": "What phrases are used to express and justify an opinion in German?",
       "opener": "A small phrase bank for discussion and argumentation.",
       "answer": "Introducing an opinion: Meiner Meinung nach... / Ich finde, dass... / Ich bin der Meinung, dass... / Aus meiner Sicht... Agreeing/disagreeing: Ich stimme zu / Ich stimme dir zu (I agree) — Ich stimme nicht zu / Ich bin nicht einverstanden (I disagree). Weighing pros and cons: Einerseits ... andererseits ... (on one hand ... on the other hand). Justifying: denn (coordinating, normal word order: \"..., denn er hat recht.\") and weil (subordinating, verb at the end: \"..., weil er recht hat.\") both roughly mean \"because\", but have different word order."
+    },
+    {
+      "id": "q-de3-opinions-9",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "What does \"Ich bin der Ansicht, dass...\" mean?",
+      "opener": "A synonym for \"ich bin der Meinung, dass...\".",
+      "choices": [
+        "I am of the opinion that",
+        "I doubt that",
+        "I hope that",
+        "I'm afraid that"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich bin der Ansicht, dass...\" means \"I am of the opinion that...\", a synonym for \"ich bin der Meinung, dass...\"."
+    },
+    {
+      "id": "q-de3-opinions-10",
+      "kind": "mc",
+      "topic": "agreement/disagreement",
+      "prompt": "What does \"Das sehe ich genauso\" mean?",
+      "opener": "Literally: \"I see that the same way\".",
+      "choices": [
+        "I see it the same way",
+        "I don't see it that way at all",
+        "I don't understand what you mean",
+        "I've never seen it"
+      ],
+      "answer": 0,
+      "explanation": "\"Das sehe ich genauso\" means \"I see it the same way\", i.e. agreement."
+    },
+    {
+      "id": "q-de3-opinions-11",
+      "kind": "mc",
+      "topic": "justification",
+      "prompt": "What does the phrase \"aus diesem Grund\" mean?",
+      "opener": "A phrase that introduces a consequence.",
+      "choices": [
+        "For this reason",
+        "For example",
+        "On the other hand",
+        "Despite this"
+      ],
+      "answer": 0,
+      "explanation": "\"Aus diesem Grund\" means \"for this reason\", and introduces a consequence of something already stated."
+    },
+    {
+      "id": "q-de3-opinions-12",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "What does the phrase \"im Gegensatz dazu\" mean?",
+      "opener": "A phrase that signals contrast.",
+      "choices": [
+        "In contrast to this",
+        "In the same way",
+        "In addition",
+        "Finally"
+      ],
+      "answer": 0,
+      "explanation": "\"Im Gegensatz dazu\" means \"in contrast to this\" and is used to signal a contrast between two ideas."
+    },
+    {
+      "id": "q-de3-opinions-13",
+      "kind": "mc",
+      "topic": "agreement/disagreement",
+      "prompt": "What does \"Da hast du recht\" mean?",
+      "opener": "Literally: \"there you have right\".",
+      "choices": [
+        "You're right about that",
+        "You're wrong about that",
+        "I don't understand that",
+        "It doesn't matter"
+      ],
+      "answer": 0,
+      "explanation": "\"Da hast du recht\" means \"you're right about that\", a way of agreeing with a specific point."
+    },
+    {
+      "id": "q-de3-opinions-14",
+      "kind": "mc",
+      "topic": "justification",
+      "prompt": "Complete: \"Ich mag diese Stadt, ___ sie hat viel Kultur zu bieten.\"",
+      "opener": "The word order after the gap is already normal (verb in position two) — which conjunction fits then?",
+      "choices": [
+        "denn",
+        "weil",
+        "obwohl",
+        "dass"
+      ],
+      "answer": 0,
+      "explanation": "Since the word order is already normal (\"sie hat...\", verb in position two), the coordinating conjunction \"denn\" is required, not \"weil\" (which would require the verb at the end: \"weil sie viel Kultur zu bieten hat\")."
+    },
+    {
+      "id": "q-de3-opinions-15",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "What does \"Es kommt darauf an\" mean?",
+      "opener": "A common way to avoid a categorical answer.",
+      "choices": [
+        "It depends",
+        "It doesn't matter",
+        "It's obvious",
+        "It's impossible"
+      ],
+      "answer": 0,
+      "explanation": "\"Es kommt darauf an\" means \"it depends\", a common way to nuance an answer."
     }
   ]
 }

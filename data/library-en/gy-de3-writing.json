@@ -121,6 +121,111 @@
       "prompt": "Which grammatical choices make a German text more coherent and written in style?",
       "opener": "Four tools that lift written German from a basic level to a more mature style.",
       "answer": "Comparisons: comparative + als (\"größer als\", bigger than), equality with so + adjective + wie (\"so groß wie\", as big as). Relative clauses link short sentences and avoid repetition: \"die Stadt, die ... ist\". Register: the simple past as the standard past tense in coherent written narrative (unlike the perfect in speech). Konjunktiv II gives a nuanced, cautious tone in argumentative writing: \"man könnte sagen, dass...\". Conjunctions: \"denn\" keeps normal word order (verb in position two), while \"weil\"/\"dass\"/\"obwohl\" send the verb to the end of the clause — varying between them creates more varied sentence structure."
+    },
+    {
+      "id": "q-de3-writing-9",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Choose the correct form: \"Dieses Restaurant ist ___ als das andere.\" (gut, comparative)",
+      "opener": "\"Gut\" has an irregular comparative form.",
+      "choices": [
+        "besser",
+        "guter",
+        "mehr gut",
+        "gutär"
+      ],
+      "answer": 0,
+      "explanation": "\"Gut\" has the irregular comparative form \"besser\" (better), not \"guter\"."
+    },
+    {
+      "id": "q-de3-writing-10",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Choose the correct form: \"Sie hat ___ Erfahrung als ich.\" (viel, comparative)",
+      "opener": "\"Viel\" has an irregular comparative form.",
+      "choices": [
+        "mehr",
+        "vieler",
+        "mehrer",
+        "viele"
+      ],
+      "answer": 0,
+      "explanation": "\"Viel\" has the irregular comparative form \"mehr\" (more)."
+    },
+    {
+      "id": "q-de3-writing-11",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Choose the correct relative pronoun: \"Der Lehrer, ___ ich sehr dankbar bin, hat mir sehr geholfen.\" (dankbar sein + dative)",
+      "opener": "\"Dankbar sein\" takes a dative object.",
+      "choices": [
+        "dem",
+        "den",
+        "der",
+        "dessen"
+      ],
+      "answer": 0,
+      "explanation": "\"Dankbar sein\" takes the dative, and masculine dative singular = \"dem\": \"der Lehrer, dem ich sehr dankbar bin\"."
+    },
+    {
+      "id": "q-de3-writing-12",
+      "kind": "mc",
+      "topic": "register",
+      "prompt": "Choose the correct form: \"Man ___ mehr Sport treiben.\" (sollen, a cautious recommendation)",
+      "opener": "The Konjunktiv II of \"sollen\" gives a softer recommendation than the present tense.",
+      "choices": [
+        "sollte",
+        "soll",
+        "sollten",
+        "muss"
+      ],
+      "answer": 0,
+      "explanation": "\"Sollte\" (Konjunktiv II of sollen) gives a softer, more nuanced recommendation: \"man sollte mehr Sport treiben\" (one should exercise more)."
+    },
+    {
+      "id": "q-de3-writing-13",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Choose the correct relative pronoun: \"Die Universität, ___ ich besucht habe, war sehr modern.\" (the university I attended was very modern)",
+      "opener": "\"Universität\" is feminine and is the object of \"besuchen\" — which case is required?",
+      "choices": [
+        "die",
+        "der",
+        "den",
+        "das"
+      ],
+      "answer": 0,
+      "explanation": "\"Universität\" is feminine and is the object (accusative) of \"besuchen\": feminine accusative singular = \"die\"."
+    },
+    {
+      "id": "q-de3-writing-14",
+      "kind": "mc",
+      "topic": "register",
+      "prompt": "Choose the correct form: \"Dieser Wein schmeckt ___.\" (gut, superlative)",
+      "opener": "\"Gut\" has an irregular superlative form.",
+      "choices": [
+        "am besten",
+        "am meisten gut",
+        "das beste",
+        "am gutesten"
+      ],
+      "answer": 0,
+      "explanation": "\"Gut\" has the irregular superlative form \"am besten\" (best) in predicate position."
+    },
+    {
+      "id": "q-de3-writing-15",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Complete: \"___ mehr man übt, desto besser wird man.\" (the more one practices, the better one gets)",
+      "opener": "A fixed pair construction for \"the...the\".",
+      "choices": [
+        "Je",
+        "Wie",
+        "Als",
+        "So"
+      ],
+      "answer": 0,
+      "explanation": "\"Je ... desto\" corresponds to English \"the ... the\": \"Je mehr man übt, desto besser wird man.\""
     }
   ]
 }

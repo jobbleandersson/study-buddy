@@ -122,6 +122,111 @@
       "prompt": "How do you choose between the perfect and the simple past in German — in speech and in writing?",
       "opener": "One simple rule of thumb plus three exceptions to remember.",
       "answer": "Spoken language (conversation, everyday messages): use the perfect by default, e.g. \"ich habe gemacht\", \"wir sind gefahren\", regardless of how long ago it was. Written language (stories, newspaper articles, reports): the simple past is the standard past tense, e.g. \"er machte\", \"sie fuhren\". Three exceptions apply in BOTH registers: haben (\"ich hatte\"), sein (\"ich war\"), and the modal verbs (können, müssen, wollen, sollen, dürfen, mögen — e.g. \"ich konnte\", \"ich musste\") are almost always used in the simple past, even when speaking, because their perfect forms feel clunky. Weak verbs form the simple past with stem + -te (machen → machte); strong verbs often change the stem vowel (gehen → ging, fahren → fuhr, sehen → sah)."
+    },
+    {
+      "id": "q-de3-aspect-9",
+      "kind": "mc",
+      "topic": "spoken register",
+      "prompt": "Choose the correct form: \"Wir ___ das Auto verkauft.\" (verkaufen, in spoken language)",
+      "opener": "In spoken language, the perfect is the default.",
+      "choices": [
+        "haben",
+        "hatten",
+        "verkauften",
+        "würden"
+      ],
+      "answer": 0,
+      "explanation": "In spoken language, the perfect is used: \"wir haben ... verkauft\"."
+    },
+    {
+      "id": "q-de3-aspect-10",
+      "kind": "mc",
+      "topic": "written register",
+      "prompt": "Which simple-past form belongs to the strong verb \"sehen\" (to see)?",
+      "opener": "Strong verbs change their stem vowel instead of adding -te.",
+      "choices": [
+        "sah",
+        "sehte",
+        "gesehen",
+        "sieht"
+      ],
+      "answer": 0,
+      "explanation": "\"Sehen\" changes its stem vowel in the simple past: \"sah\" (compare the participle \"gesehen\" in the perfect). \"Sehte\" does not exist."
+    },
+    {
+      "id": "q-de3-aspect-11",
+      "kind": "mc",
+      "topic": "haben/sein/modals",
+      "prompt": "Choose the correct form: \"Ich ___ letztes Jahr in Italien.\" (sein; I was in Italy last year)",
+      "opener": "\"Sein\" is one of the exception verbs almost always conjugated in the simple past.",
+      "choices": [
+        "war",
+        "bin gewesen",
+        "wäre",
+        "sei"
+      ],
+      "answer": 0,
+      "explanation": "\"War\" is the simple-past form of \"sein\". Just like \"haben\" and the modal verbs, \"sein\" is almost always used in the simple past, even when speaking."
+    },
+    {
+      "id": "q-de3-aspect-12",
+      "kind": "mc",
+      "topic": "spoken register",
+      "prompt": "Choose the correct form: \"Wir ___ nach Berlin gefahren.\" (fahren, movement)",
+      "opener": "Verbs of movement form the perfect with sein, not haben.",
+      "choices": [
+        "sind",
+        "haben",
+        "waren",
+        "hatten"
+      ],
+      "answer": 0,
+      "explanation": "\"Fahren\" describes movement and forms the perfect with \"sein\": \"wir sind ... gefahren\"."
+    },
+    {
+      "id": "q-de3-aspect-13",
+      "kind": "mc",
+      "topic": "haben/sein/modals",
+      "prompt": "Choose the correct form: \"Er ___ Arzt werden.\" (wollen; he wanted to become a doctor)",
+      "opener": "Modal verbs are almost always conjugated in the simple past, even when speaking.",
+      "choices": [
+        "wollte",
+        "hat gewollt",
+        "will",
+        "würde wollen"
+      ],
+      "answer": 0,
+      "explanation": "\"Wollte\" is the simple-past form of \"wollen\". Modal verbs are almost always used in the simple past, not the perfect (\"hat gewollt\")."
+    },
+    {
+      "id": "q-de3-aspect-14",
+      "kind": "mc",
+      "topic": "written register",
+      "prompt": "Which simple-past form belongs to the strong verb \"kommen\" (to come)?",
+      "opener": "Strong verbs change their stem vowel.",
+      "choices": [
+        "kamen",
+        "kommten",
+        "gekommen",
+        "kommen"
+      ],
+      "answer": 0,
+      "explanation": "\"Kommen\" changes its stem vowel in the simple past: \"kamen\" (they came) for the plural form."
+    },
+    {
+      "id": "q-de3-aspect-15",
+      "kind": "mc",
+      "topic": "spoken register",
+      "prompt": "Which sentence sounds most natural in everyday spoken language?",
+      "opener": "The default past tense in spoken language is the perfect, not the simple past.",
+      "choices": [
+        "Ich habe gestern Fußball gespielt.",
+        "Ich spielte gestern Fußball.",
+        "Ich spiele gestern Fußball.",
+        "Ich hatte gestern Fußball gespielt."
+      ],
+      "answer": 0,
+      "explanation": "In spoken language, the perfect (\"habe ... gespielt\") is the default for the past, even with time expressions like \"gestern\". The simple past (\"spielte\") sounds unnaturally formal."
     }
   ]
 }

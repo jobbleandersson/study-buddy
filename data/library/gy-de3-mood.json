@@ -121,6 +121,111 @@
       "prompt": "Vad är Konjunktiv II och när används det, med vilka former?",
       "opener": "Artighet och hypoteser – två huvudanvändningar.",
       "answer": "Konjunktiv II uttrycker artiga önskningar/förfrågningar och hypotetiska/overkliga situationer (motsvarar svenskans \"skulle\"). Vanliga korta former (föredras framför würde): sein → wäre, haben → hätte, werden → würde, können → könnte, müssen → müsste, dürfen → dürfte, mögen → möchte. För de flesta andra verb: würde böjt + infinitiv sist, t.ex. \"ich würde fahren\". Artiga fraser: \"Ich hätte gern...\" (jag skulle vilja ha), \"Könnten Sie...?\" (skulle ni kunna...?), \"Ich möchte...\" (jag skulle vilja). Hypotetiska satser: wenn-sats i Konjunktiv II + huvudsats i Konjunktiv II, t.ex. \"Wenn ich Geld hätte, würde ich reisen.\" (Om jag hade pengar skulle jag resa.)"
+    },
+    {
+      "id": "q-de3-mood-9",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Vilken Konjunktiv II-form hör till \"sein\"?",
+      "opener": "En av de vanligaste korta Konjunktiv II-formerna.",
+      "choices": [
+        "wäre",
+        "war",
+        "ist",
+        "sei"
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv II av \"sein\" är \"wäre\": \"ich wäre\", \"du wärst\", osv."
+    },
+    {
+      "id": "q-de3-mood-10",
+      "kind": "mc",
+      "topic": "polite requests",
+      "prompt": "Vad betyder \"Würden Sie mir bitte helfen?\"?",
+      "opener": "Würde-konstruktionen används här för en artig begäran.",
+      "choices": [
+        "Skulle ni kunna hjälpa mig, snälla?",
+        "Hjälper ni mig?",
+        "Ni måste hjälpa mig.",
+        "Kan ni hjälpa mig nu?"
+      ],
+      "answer": 0,
+      "explanation": "\"Würden Sie mir bitte helfen?\" betyder \"skulle ni kunna hjälpa mig, snälla?\" — en artig begäran med würde-konstruktionen."
+    },
+    {
+      "id": "q-de3-mood-11",
+      "kind": "mc",
+      "topic": "hypotheticals",
+      "prompt": "Välj rätt form: \"Wenn ich mehr Geld hätte, ___ ich nicht mehr arbeiten.\" (müssen)",
+      "opener": "Huvudsatsen i en hypotetisk villkorssats står också i Konjunktiv II.",
+      "choices": [
+        "müsste",
+        "musste",
+        "muss",
+        "habe gemusst"
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv II av \"müssen\" är \"müsste\": \"..., müsste ich nicht mehr arbeiten\" (skulle jag inte behöva jobba mer)."
+    },
+    {
+      "id": "q-de3-mood-12",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Vilken form är Konjunktiv II av \"werden\"?",
+      "opener": "Denna form används dessutom som hjälpverb för de flesta andra verbs Konjunktiv II.",
+      "choices": [
+        "würde",
+        "wird",
+        "wurde",
+        "geworden"
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv II av \"werden\" är \"würde\", som också används som hjälpverb i würde-konstruktionen för de flesta andra verb."
+    },
+    {
+      "id": "q-de3-mood-13",
+      "kind": "mc",
+      "topic": "polite requests",
+      "prompt": "Vad betyder \"Dürfte ich...?\"?",
+      "opener": "Konjunktiv II av \"dürfen\", artigare än \"darf ich\".",
+      "choices": [
+        "Får jag lov...? (artigt)",
+        "Måste jag...?",
+        "Vill jag...?",
+        "Kan jag...?"
+      ],
+      "answer": 0,
+      "explanation": "\"Dürfte ich...?\" är den artigare Konjunktiv II-formen av \"darf ich...?\" (får jag?), ungefär \"skulle jag få lov...?\"."
+    },
+    {
+      "id": "q-de3-mood-14",
+      "kind": "mc",
+      "topic": "hypotheticals",
+      "prompt": "Vad betyder \"An deiner Stelle würde ich das nicht tun\"?",
+      "opener": "\"An deiner Stelle\" betyder \"i ditt ställe\".",
+      "choices": [
+        "I ditt ställe skulle jag inte göra det",
+        "Jag gör aldrig det här",
+        "Du borde inte göra det",
+        "Jag skulle göra det annorlunda"
+      ],
+      "answer": 0,
+      "explanation": "\"An deiner Stelle würde ich das nicht tun\" betyder \"i ditt ställe skulle jag inte göra det\" — ett vanligt sätt att ge råd hypotetiskt."
+    },
+    {
+      "id": "q-de3-mood-15",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Välj rätt form: \"___ ich das Fenster öffnen?\" (dürfen, artig fråga)",
+      "opener": "Konjunktiv II av \"dürfen\" gör frågan artigare.",
+      "choices": [
+        "Dürfte",
+        "Darf",
+        "Durfte",
+        "Würde dürfen"
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv II av \"dürfen\" är \"dürfte\": \"Dürfte ich das Fenster öffnen?\" (skulle jag få öppna fönstret?)."
     }
   ]
 }

@@ -122,6 +122,111 @@
       "prompt": "Hur väljer man mellan perfekt och preteritum på tyska – i tal och i skrift?",
       "opener": "En enkel tumregel plus tre undantag att komma ihåg.",
       "answer": "Talspråk (samtal, vardagliga meddelanden): använd perfekt som standard, t.ex. \"ich habe gemacht\", \"wir sind gefahren\", oavsett hur länge sedan det var. Skriftspråk (berättelser, tidningsartiklar, rapporter): preteritum är standardformen för dåtid, t.ex. \"er machte\", \"sie fuhren\". Tre undantag gäller i BÅDA registren: haben (\"ich hatte\"), sein (\"ich war\") och modalverben (können, müssen, wollen, sollen, dürfen, mögen — t.ex. \"ich konnte\", \"ich musste\") används nästan alltid i preteritum, även muntligt, eftersom deras perfektformer känns klumpiga. Svaga verb bildar preteritum med stam + -te (machen → machte), starka verb ändrar ofta stamvokalen (gehen → ging, fahren → fuhr, sehen → sah)."
+    },
+    {
+      "id": "q-de3-aspect-9",
+      "kind": "mc",
+      "topic": "spoken register",
+      "prompt": "Välj rätt form: \"Wir ___ das Auto verkauft.\" (verkaufen, i talspråk)",
+      "opener": "I talspråk används perfekt som standard.",
+      "choices": [
+        "haben",
+        "hatten",
+        "verkauften",
+        "würden"
+      ],
+      "answer": 0,
+      "explanation": "I talspråk används perfekt: \"wir haben ... verkauft\"."
+    },
+    {
+      "id": "q-de3-aspect-10",
+      "kind": "mc",
+      "topic": "written register",
+      "prompt": "Vilken preteritumform hör till det starka verbet \"sehen\" (se)?",
+      "opener": "Starka verb ändrar stamvokal i stället för att lägga till -te.",
+      "choices": [
+        "sah",
+        "sehte",
+        "gesehen",
+        "sieht"
+      ],
+      "answer": 0,
+      "explanation": "\"Sehen\" ändrar stamvokal i preteritum: \"sah\" (jfr particip \"gesehen\" i perfekt). \"Sehte\" finns inte."
+    },
+    {
+      "id": "q-de3-aspect-11",
+      "kind": "mc",
+      "topic": "haben/sein/modals",
+      "prompt": "Välj rätt form: \"Ich ___ letztes Jahr in Italien.\" (sein; jag var i Italien förra året)",
+      "opener": "\"Sein\" är ett av undantagsverben som nästan alltid böjs i preteritum.",
+      "choices": [
+        "war",
+        "bin gewesen",
+        "wäre",
+        "sei"
+      ],
+      "answer": 0,
+      "explanation": "\"War\" är preteritumformen av \"sein\". Precis som \"haben\" och modalverben används \"sein\" nästan alltid i preteritum, även muntligt."
+    },
+    {
+      "id": "q-de3-aspect-12",
+      "kind": "mc",
+      "topic": "spoken register",
+      "prompt": "Välj rätt form: \"Wir ___ nach Berlin gefahren.\" (fahren, förflyttning)",
+      "opener": "Förflyttningsverb bildar perfekt med sein, inte haben.",
+      "choices": [
+        "sind",
+        "haben",
+        "waren",
+        "hatten"
+      ],
+      "answer": 0,
+      "explanation": "\"Fahren\" beskriver en förflyttning och bildar perfekt med \"sein\": \"wir sind ... gefahren\"."
+    },
+    {
+      "id": "q-de3-aspect-13",
+      "kind": "mc",
+      "topic": "haben/sein/modals",
+      "prompt": "Välj rätt form: \"Er ___ Arzt werden.\" (wollen; han ville bli läkare)",
+      "opener": "Modalverb böjs nästan alltid i preteritum, även muntligt.",
+      "choices": [
+        "wollte",
+        "hat gewollt",
+        "will",
+        "würde wollen"
+      ],
+      "answer": 0,
+      "explanation": "\"Wollte\" är preteritumformen av \"wollen\". Modalverb används nästan alltid i preteritum, inte i perfekt (\"hat gewollt\")."
+    },
+    {
+      "id": "q-de3-aspect-14",
+      "kind": "mc",
+      "topic": "written register",
+      "prompt": "Vilken preteritumform hör till det starka verbet \"kommen\"?",
+      "opener": "Starka verb ändrar stamvokal.",
+      "choices": [
+        "kamen",
+        "kommten",
+        "gekommen",
+        "kommen"
+      ],
+      "answer": 0,
+      "explanation": "\"Kommen\" ändrar stamvokal i preteritum: \"kamen\" (de kom) för pluralformen."
+    },
+    {
+      "id": "q-de3-aspect-15",
+      "kind": "mc",
+      "topic": "spoken register",
+      "prompt": "Vilken mening är mest naturlig i vardagligt talspråk?",
+      "opener": "Standardformen för dåtid i talat språk är perfekt, inte preteritum.",
+      "choices": [
+        "Ich habe gestern Fußball gespielt.",
+        "Ich spielte gestern Fußball.",
+        "Ich spiele gestern Fußball.",
+        "Ich hatte gestern Fußball gespielt."
+      ],
+      "answer": 0,
+      "explanation": "I talspråk används perfekt (\"habe ... gespielt\") som standardform för dåtid, även med tidsuttryck som \"gestern\". Preteritum (\"spielte\") låter onaturligt formellt."
     }
   ]
 }
