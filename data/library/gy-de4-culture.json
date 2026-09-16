@@ -122,6 +122,111 @@
       "prompt": "Vilka ord och uttryck behöver du för att diskutera klimat och miljö på tyska?",
       "opener": "En ordlista för samhällsdebatt om Umwelt.",
       "answer": "der Klimawandel = klimatförändringen. die Erderwärmung = den globala uppvärmningen. nachhaltig = hållbar. erneuerbare Energien = förnybar energi. fossile Brennstoffe = fossila bränslen. der CO2-Ausstoß = koldioxidutsläppen. reduzieren = minska. der Ausbau = utbyggnaden. bekämpfen = bekämpa, kämpa mot. klimaneutral = klimatneutral. die Umweltschutzorganisation = miljöskyddsorganisationen. sich zum Ziel setzen = sätta som mål. bezweifeln = tvivla på. Nyttiga fraser: \"Meiner Meinung nach müsste man ...\" (Enligt min mening borde man ...), \"Es ist wichtig, dass ...\" (Det är viktigt att ...), \"Einerseits ..., andererseits ...\" (Å ena sidan ..., å andra sidan ...)."
+    },
+    {
+      "id": "q-de4-cul-9",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Vad betyder \"die Erderwärmung\"?",
+      "opener": "Ordet är sammansatt av \"Erde\" (jorden) och \"Erwärmung\" (uppvärmning).",
+      "choices": [
+        "Den globala uppvärmningen",
+        "Jordbävningen",
+        "Havsnivåhöjningen",
+        "Ökenspridningen"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Erderwärmung\" betyder den globala uppvärmningen."
+    },
+    {
+      "id": "q-de4-cul-10",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Vad betyder \"der Ausbau\", som i \"der Ausbau der erneuerbaren Energien\"?",
+      "opener": "Ordet kommer från verbet \"ausbauen\" (bygga ut).",
+      "choices": [
+        "Utbyggnaden",
+        "Nedmonteringen",
+        "Kostnaden",
+        "Planeringen"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Ausbau\" betyder utbyggnaden, t.ex. av förnybar energi."
+    },
+    {
+      "id": "q-de4-cul-11",
+      "kind": "mc",
+      "topic": "climate debate",
+      "prompt": "Vad betyder \"die Umweltschutzorganisation\"?",
+      "opener": "Ordet är sammansatt av \"Umwelt\" (miljö), \"Schutz\" (skydd) och \"Organisation\".",
+      "choices": [
+        "Miljöskyddsorganisationen",
+        "Energibolaget",
+        "Regeringen",
+        "Fackförbundet"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Umweltschutzorganisation\" betyder miljöskyddsorganisationen."
+    },
+    {
+      "id": "q-de4-cul-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs meningen: \"Viele Städte investieren derzeit in den Ausbau des öffentlichen Nahverkehrs, um den CO2-Ausstoß zu senken.\"\n\nVad betyder meningen?",
+      "opener": "\"Derzeit\" betyder \"just nu\", \"senken\" betyder \"sänka/minska\".",
+      "choices": [
+        "Många städer investerar just nu i utbyggnaden av kollektivtrafiken för att minska koldioxidutsläppen",
+        "Många städer har slutat investera i kollektivtrafik",
+        "Många städer bygger fler motorvägar",
+        "Många städer förbjuder kollektivtrafik"
+      ],
+      "answer": 0,
+      "explanation": "\"Viele Städte investieren derzeit in den Ausbau des öffentlichen Nahverkehrs, um den CO2-Ausstoß zu senken\" betyder \"många städer investerar just nu i utbyggnaden av kollektivtrafiken för att minska koldioxidutsläppen\"."
+    },
+    {
+      "id": "q-de4-cul-13",
+      "kind": "mc",
+      "topic": "climate debate",
+      "prompt": "Vad betyder uttrycket \"sich zum Ziel setzen\"?",
+      "opener": "Bokstavligen \"sätta sig själv till mål\".",
+      "choices": [
+        "Att sätta något som mål",
+        "Att ge upp ett mål",
+        "Att nå ett mål",
+        "Att glömma ett mål"
+      ],
+      "answer": 0,
+      "explanation": "\"Sich zum Ziel setzen\" betyder \"att sätta något som mål\", t.ex. \"Deutschland hat sich zum Ziel gesetzt, klimaneutral zu werden.\""
+    },
+    {
+      "id": "q-de4-cul-14",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "Vad betyder verbet \"bekämpfen\"?",
+      "opener": "Ett vanligt verb i klimatdebatten, sammansatt av \"be-\" och \"Kampf\" (kamp).",
+      "choices": [
+        "Att bekämpa/kämpa mot",
+        "Att stödja",
+        "Att ignorera",
+        "Att fira"
+      ],
+      "answer": 0,
+      "explanation": "\"Bekämpfen\" betyder \"att bekämpa/kämpa mot\", t.ex. \"den Klimawandel bekämpfen\" (bekämpa klimatförändringen)."
+    },
+    {
+      "id": "q-de4-cul-15",
+      "kind": "mc",
+      "topic": "climate debate",
+      "prompt": "Vad betyder konstruktionen \"Einerseits ..., andererseits ...\"?",
+      "opener": "Används för att väga två sidor av en fråga mot varandra.",
+      "choices": [
+        "Å ena sidan..., å andra sidan...",
+        "För det första..., för det andra...",
+        "Antingen..., eller...",
+        "Inte bara..., utan också..."
+      ],
+      "answer": 0,
+      "explanation": "\"Einerseits ..., andererseits ...\" betyder \"å ena sidan ..., å andra sidan ...\" och används för att presentera två motstående aspekter av samma fråga."
     }
   ]
 }

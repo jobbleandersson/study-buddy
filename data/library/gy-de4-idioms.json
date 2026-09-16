@@ -121,6 +121,111 @@
       "prompt": "Vilka är de vanligaste svensk-tyska falska vännerna, och vilka idiom bör man kunna på den här nivån?",
       "opener": "En snabb genomgång av fällor och användbara uttryck.",
       "answer": "Falska vänner: das Gift = gift/poison (INTE gåva → das Geschenk), der Rat = råd/advice (INTE råtta → die Ratte), der Chef = chef/boss (INTE kock → der Koch), aktuell = nuvarande/dagsaktuell (stämmer med svenskan, men blandas ofta ihop med engelskans \"actual\" = faktisk/tatsächlich), das Bekannte = den bekante/known person (inte bekant/kändis i betydelsen berömd → berühmt), die Kost = kost/föda (inte kost i betydelsen kostnad → die Kosten). Idiom: die Daumen drücken = hålla tummarna, ins Wasser fallen = bli inställt, den Nagel auf den Kopf treffen = träffa mitt i prick, unter vier Augen = mellan fyra ögon/privat, Schwein haben = ha tur, die Katze im Sack kaufen = köpa grisen i säcken."
+    },
+    {
+      "id": "q-de4-idi-9",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder tyskans \"die Kost\"?",
+      "opener": "Låter som ett svenskt ord för pengar man betalar, men betyder något annat.",
+      "choices": [
+        "kost/föda",
+        "kostnad",
+        "kust",
+        "konst"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Kost\" betyder kost/föda (mat), INTE kostnad. \"Kostnad\" heter \"die Kosten\" på tyska."
+    },
+    {
+      "id": "q-de4-idi-10",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder \"der Bekannte\" (om en person)?",
+      "opener": "Skiljer sig från betydelsen \"kändis\"/\"berömd\".",
+      "choices": [
+        "Bekant/bekantskap",
+        "Kändis (berömd person)",
+        "Chef",
+        "Granne"
+      ],
+      "answer": 0,
+      "explanation": "\"Der/die Bekannte\" betyder en bekant, någon man känner löst, INTE en kändis. \"Berömd/kändis\" heter \"berühmt\" på tyska."
+    },
+    {
+      "id": "q-de4-idi-11",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "Vad betyder uttrycket \"den Nagel auf den Kopf treffen\"?",
+      "opener": "Bokstavligen \"träffa spiken på huvudet\".",
+      "choices": [
+        "Att träffa mitt i prick",
+        "Att missa totalt",
+        "Att bygga något",
+        "Att slå någon"
+      ],
+      "answer": 0,
+      "explanation": "\"Den Nagel auf den Kopf treffen\" betyder att träffa mitt i prick, alltså säga eller göra precis rätt."
+    },
+    {
+      "id": "q-de4-idi-12",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "Vad betyder uttrycket \"unter vier Augen\"?",
+      "opener": "Bokstavligen \"under fyra ögon\".",
+      "choices": [
+        "I förtroende/privat, mellan fyra ögon",
+        "Inför en stor publik",
+        "Med fyra vittnen närvarande",
+        "Genom telefon"
+      ],
+      "answer": 0,
+      "explanation": "\"Unter vier Augen\" betyder \"i förtroende/privat\", att prata med bara en annan person närvarande."
+    },
+    {
+      "id": "q-de4-idi-13",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "Vad betyder uttrycket \"Schwein haben\"?",
+      "opener": "Bokstavligen \"ha gris\".",
+      "choices": [
+        "Ha tur",
+        "Äta mycket",
+        "Vara smutsig",
+        "Vara girig"
+      ],
+      "answer": 0,
+      "explanation": "\"Schwein haben\" betyder \"ha tur\", ett vardagligt uttryck."
+    },
+    {
+      "id": "q-de4-idi-14",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "Vad betyder uttrycket \"die Katze im Sack kaufen\"?",
+      "opener": "Bokstavligen \"köpa katten i säcken\".",
+      "choices": [
+        "Köpa grisen i säcken (köpa något osett)",
+        "Ha en hemlig katt",
+        "Vara mycket sparsam",
+        "Lura någon medvetet"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Katze im Sack kaufen\" motsvarar svenskans \"köpa grisen i säcken\" — att köpa något utan att undersöka det ordentligt först."
+    },
+    {
+      "id": "q-de4-idi-15",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder tyskans \"der Rock\"?",
+      "opener": "Låter som ett svenskt klädesplagg — men det är fel klädesplagg!",
+      "choices": [
+        "kjol",
+        "ytterrock/kappa",
+        "sten",
+        "musikgenre"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Rock\" betyder kjol, INTE ytterrock/kappa. \"Ytterrock\" heter \"der Mantel\" på tyska."
     }
   ]
 }

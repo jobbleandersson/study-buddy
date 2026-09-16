@@ -123,6 +123,111 @@
       "prompt": "Vilka steg krävs för att omvandla ett direkt citat till indirekt tal på tyska?",
       "opener": "Fyra saker att kontrollera varje gång: verbform, pronomen, tempus, tidsuttryck.",
       "answer": "1) Verbform: använd Konjunktiv I (t.ex. er/sie/es sei, habe, könne, wisse). Om Konjunktiv I sammanfaller med indikativ (vanligt i pluralis), använd Konjunktiv II i stället (wären, hätten, würden). 2) Pronomen: byt utifrån vem som nu talar/omtalas — du → ich/er/sie beroende på sammanhang. 3) Tempus: tyskan backar INTE tempus som svenska/engelska gör — presens i citatet blir Konjunktiv-I-presens, perfekt/preteritum i citatet blir Konjunktiv-I-perfekt (habe/sei + particip), futurum blir würde + infinitiv. 4) Tidsuttryck: heute → an diesem Tag, morgen → am nächsten Tag, gestern → am Tag davor, jetzt → in diesem Moment/da. Reporting verbs: sagen, behaupten, berichten, erklären, meinen, betonen."
+    },
+    {
+      "id": "q-de4-rep-9",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Er sagt: \"Ich kann das Problem lösen.\" Vilken indirekt återgivning använder korrekt Konjunktiv I?",
+      "opener": "Konjunktiv I av \"können\" i tredje person.",
+      "choices": [
+        "Er sagt, er könne das Problem lösen.",
+        "Er sagt, er kann das Problem lösen.",
+        "Er sagt, er könnte das Problem lösen.",
+        "Er sagt, er habe das Problem gelöst."
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv I av \"können\" i tredje person singular är \"könne\": \"er könne das Problem lösen\"."
+    },
+    {
+      "id": "q-de4-rep-10",
+      "kind": "mc",
+      "topic": "pronoun shift",
+      "prompt": "Peter sagt zu Maria: \"Ich liebe dich.\" Maria erzählt später einer Freundin: Peter habe gesagt, ___.",
+      "opener": "Pronomenen byts utifrån vem som talar (Peter) och vem som omtalas (Maria) i den nya berättelsen.",
+      "choices": [
+        "er liebe sie",
+        "ich liebe dich",
+        "sie liebe ihn",
+        "du liebst mich"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich\" (Peter) blir \"er\", och \"dich\" (Maria) blir \"sie\": \"Peter habe gesagt, er liebe sie.\""
+    },
+    {
+      "id": "q-de4-rep-11",
+      "kind": "mc",
+      "topic": "tense shift",
+      "prompt": "Sie sagte: \"Ich rief dich gestern an.\" Vilken är den korrekta indirekta återgivningen?",
+      "opener": "Preteritum i citatet blir Konjunktiv-I-perfekt (habe/sei + particip) i indirekt tal, och \"gestern\" flyttas.",
+      "choices": [
+        "Sie sagte, sie habe mich am Tag davor angerufen.",
+        "Sie sagte, sie ruft mich gestern an.",
+        "Sie sagte, sie rief mich gestern an.",
+        "Sie sagte, sie werde mich anrufen."
+      ],
+      "answer": 0,
+      "explanation": "Preteritum (\"rief ... an\") blir Konjunktiv-I-perfekt: \"habe ... angerufen\", och \"gestern\" flyttas till \"am Tag davor\" (dagen innan)."
+    },
+    {
+      "id": "q-de4-rep-12",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "Vad betyder \"Er meint, dass...\" som inledning till indirekt tal?",
+      "opener": "\"Meinen\" som reporting verb har en specifik betydelse.",
+      "choices": [
+        "Han anser/tycker att",
+        "Han menar bokstavligen att",
+        "Han frågar om",
+        "Han nekar till att"
+      ],
+      "answer": 0,
+      "explanation": "\"Er meint, dass...\" betyder \"han anser/tycker att...\", ett vanligt reporting verb för åsikter."
+    },
+    {
+      "id": "q-de4-rep-13",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Sie sagt: \"Ich weiß die Antwort nicht.\" Vilken indirekt återgivning använder korrekt Konjunktiv I?",
+      "opener": "Konjunktiv I av \"wissen\" i tredje person.",
+      "choices": [
+        "Sie sagt, sie wisse die Antwort nicht.",
+        "Sie sagt, sie weiß die Antwort nicht.",
+        "Sie sagt, sie wusste die Antwort nicht.",
+        "Sie sagt, sie hat die Antwort nicht gewusst."
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv I av \"wissen\" i tredje person singular är \"wisse\": \"sie wisse die Antwort nicht\"."
+    },
+    {
+      "id": "q-de4-rep-14",
+      "kind": "mc",
+      "topic": "tense shift",
+      "prompt": "Er sagte: \"Ich bin jetzt beschäftigt.\" Vilket tidsuttryck ersätter \"jetzt\" i indirekt tal?",
+      "opener": "Precis som \"heute\" och \"morgen\" flyttas \"jetzt\" till ett annat uttryck.",
+      "choices": [
+        "in diesem Moment",
+        "morgen",
+        "gestern",
+        "heute"
+      ],
+      "answer": 0,
+      "explanation": "\"Jetzt\" (nu, ur talarens ursprungliga perspektiv) blir \"in diesem Moment\" (i det ögonblicket) i indirekt tal."
+    },
+    {
+      "id": "q-de4-rep-15",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Er sagt: \"Es gibt kein Problem.\" Vilken indirekt återgivning använder korrekt Konjunktiv I?",
+      "opener": "Konjunktiv I av \"geben\" (i uttrycket \"es gibt\").",
+      "choices": [
+        "Er sagt, es gebe kein Problem.",
+        "Er sagt, es gibt kein Problem.",
+        "Er sagt, es gab kein Problem.",
+        "Er sagt, es hat kein Problem gegeben."
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv I av \"geben\" i tredje person singular är \"gebe\": \"es gebe kein Problem\"."
     }
   ]
 }

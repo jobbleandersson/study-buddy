@@ -123,6 +123,111 @@
       "prompt": "What strategies help you understand an argumentative, opinion-based German text like the one about the four-day work week?",
       "opener": "Look for who is saying what, and which words mark a turn in the argument.",
       "answer": "Identify the two sides early: who are the Befürworter (supporters) and who are the Kritiker (critics)? Look for signal words that mark a turn in the argument: hingegen/jedoch/allerdings (however/though), außerdem (in addition), daher (therefore). Pay attention to Konjunktiv II (würde kompensieren, würde verkehren) — it often marks an assumption or a feared consequence, not an established fact. Distinguish between facts the text reports (the pilot projects' results) and opinions/concerns different groups express. A text that ends with \"bleibt eine offene Frage\" rarely takes a definitive stance — summarize both sides rather than picking one."
+    },
+    {
+      "id": "q-de4-read-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text: \"Der Fleischkonsum in Deutschland ist in den letzten zehn Jahren spürbar zurückgegangen, doch er bleibt im europäischen Vergleich weiterhin hoch. Befürworter einer pflanzlichen Ernährung argumentieren vor allem mit dem Klimaschutz: Die Produktion von Fleisch, insbesondere von Rindfleisch, verursacht deutlich mehr Treibhausgase als der Anbau von Gemüse oder Hülsenfrüchten. Auch der hohe Wasser- und Flächenverbrauch der Tierhaltung wird häufig als Argument angeführt. Vertreter der Landwirtschaft weisen hingegen darauf hin, dass viele Weideflächen in Deutschland für den Anbau von Getreide oder Gemüse gar nicht geeignet wären, sodass die Tierhaltung dort tatsächlich die einzige sinnvolle Nutzung der Flächen darstelle. Zudem betonen sie die wirtschaftliche Bedeutung der Landwirtschaft für ländliche Regionen, wo viele Arbeitsplätze direkt oder indirekt von der Fleischproduktion abhängen. Ernährungswissenschaftler wiederum weisen darauf hin, dass ein moderater Fleischkonsum gesundheitlich unproblematisch sei, ein sehr hoher Konsum jedoch mit einem erhöhten Risiko für Herz-Kreislauf-Erkrankungen in Verbindung gebracht werde. Eine einfache Antwort auf die Frage, wie viel Fleisch \\\"richtig\\\" ist, gibt es also nicht — die Debatte bewegt sich zwischen ökologischen, wirtschaftlichen und gesundheitlichen Argumenten.\"\n\nWhat is the text mainly about?",
+      "opener": "Look for the different groups mentioned and their respective arguments.",
+      "choices": [
+        "The debate about meat consumption in Germany, with arguments from several different perspectives",
+        "Instructions on how to become a vegetarian",
+        "A history of the development of German agriculture",
+        "A cookbook with meat-free recipes"
+      ],
+      "answer": 0,
+      "explanation": "The text presents arguments from supporters of plant-based eating, agricultural representatives, and nutrition scientists — a multi-sided debate about meat consumption, not instructions, history, or a cookbook."
+    },
+    {
+      "id": "q-de4-read-10",
+      "kind": "mc",
+      "topic": "argument structure",
+      "prompt": "Same text. Which argument do the supporters of pflanzliche Ernährung (plant-based eating) use?",
+      "opener": "The first half of the text mentions their main argument.",
+      "choices": [
+        "Climate protection, since meat production causes more greenhouse gases",
+        "That meat tastes worse than vegetables",
+        "That it's cheaper to eat meat",
+        "That livestock farming requires less water"
+      ],
+      "answer": 0,
+      "explanation": "The text says meat production \"verursacht deutlich mehr Treibhausgase als der Anbau von Gemüse\" (causes significantly more greenhouse gases than growing vegetables) — a climate argument."
+    },
+    {
+      "id": "q-de4-read-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Same text. What does \"die Weideflächen\" mean in the context of the farmers' counter-argument?",
+      "opener": "The word comes from \"weiden\" (to graze) and \"die Fläche\" (area/land).",
+      "choices": [
+        "Grazing land/pastures",
+        "Cropland for grain",
+        "Forest land",
+        "Industrial areas"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Weideflächen\" means grazing land/pastures, land where animals graze."
+    },
+    {
+      "id": "q-de4-read-12",
+      "kind": "mc",
+      "topic": "argument structure",
+      "prompt": "Same text. What is the agricultural representatives' main argument against abolishing livestock farming entirely?",
+      "opener": "Look for the sentence about \"Weideflächen\" and \"wirtschaftliche Bedeutung\".",
+      "choices": [
+        "Many pastures aren't suitable for other farming, and livestock farming provides important jobs",
+        "Meat is the only source of protein",
+        "Climate change isn't real",
+        "Consumers refuse to eat vegetables"
+      ],
+      "answer": 0,
+      "explanation": "The text says many pastures aren't suitable for growing grain or vegetables, and that livestock farming has significant economic importance for rural areas."
+    },
+    {
+      "id": "q-de4-read-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Same text. What can be inferred about the nutrition scientists' (Ernährungswissenschaftler) stance, based on the text?",
+      "opener": "Look for the sentence about \"moderater Fleischkonsum\" compared to \"sehr hoher Konsum\".",
+      "choices": [
+        "They take a middle position: moderate meat consumption isn't a health risk, but very high amounts are",
+        "They believe all meat consumption is dangerous",
+        "They believe meat is completely risk-free regardless of amount",
+        "They have no opinion on the health question"
+      ],
+      "answer": 0,
+      "explanation": "The text says moderate meat consumption is \"gesundheitlich unproblematisch\", while very high consumption is linked to an increased risk of cardiovascular disease — a nuanced middle position."
+    },
+    {
+      "id": "q-de4-read-14",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Same text. What does \"Herz-Kreislauf-Erkrankungen\" mean?",
+      "opener": "The word combines \"Herz\" (heart), \"Kreislauf\" (circulation), and \"Erkrankungen\" (diseases).",
+      "choices": [
+        "Cardiovascular disease",
+        "Digestive problems",
+        "Allergies",
+        "Sleep problems"
+      ],
+      "answer": 0,
+      "explanation": "\"Herz-Kreislauf-Erkrankungen\" means cardiovascular disease."
+    },
+    {
+      "id": "q-de4-read-15",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Same text. What conclusion does the text draw about the question of how much meat is the \"right\" amount?",
+      "opener": "Read the last sentence carefully.",
+      "choices": [
+        "There is no simple answer — the debate moves between ecological, economic, and health-related arguments",
+        "Experts fully agree on exactly how much meat one should eat",
+        "Meat should be banned entirely within a few years",
+        "The question is unimportant and rarely discussed"
+      ],
+      "answer": 0,
+      "explanation": "The last sentence says there is no simple answer, and that the debate moves between ecological, economic, and health-related arguments."
     }
   ]
 }

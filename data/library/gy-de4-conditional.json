@@ -122,6 +122,111 @@
       "prompt": "Vilka tre typer av konditionalsatser finns på tyska, och hur bildas de?",
       "opener": "Verkligt villkor, overkligt villkor i nutid, overkligt villkor i dåtid.",
       "answer": "Typ 1 – Verkligt/möjligt villkor: indikativ i båda leden, ofta presens. Wenn es regnet, bleibe ich zu Hause. Typ 2 – Overkligt villkor i nutid: Konjunktiv II i båda leden (hätte/wäre/käme eller würde + infinitiv). Wenn ich Zeit hätte, würde ich kommen. Typ 3 – Overkligt villkor i dåtid: hätte/wäre + particip i båda leden. Wenn ich das gewusst hätte, hätte ich anders gehandelt. Konjunktioner: wenn = om/när, falls/sofern = om (mer formellt). Utan wenn: det böjda verbet flyttas till första plats (Hätte ich mehr Zeit, würde ich kommen)."
+    },
+    {
+      "id": "q-de4-cond-9",
+      "kind": "mc",
+      "topic": "real conditions",
+      "prompt": "Vad betyder \"Wenn man Fieber hat, sollte man zu Hause bleiben\"?",
+      "opener": "Presens indikativ i båda leden signalerar ett verkligt, allmängiltigt villkor.",
+      "choices": [
+        "Om man har feber bör man stanna hemma",
+        "Om man hade feber skulle man stanna hemma",
+        "Om man haft feber hade man stannat hemma",
+        "Man har alltid feber och stannar hemma"
+      ],
+      "answer": 0,
+      "explanation": "Presens indikativ i båda leden ger ett verkligt, allmängiltigt villkor: \"om man har feber bör man stanna hemma\"."
+    },
+    {
+      "id": "q-de4-cond-10",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "Välj rätt form: \"Wenn ich schneller gelaufen ___, hätte ich den Bus erreicht.\"",
+      "opener": "\"Laufen\" tar sein i perfekt.",
+      "choices": [
+        "wäre",
+        "hätte",
+        "bin",
+        "war"
+      ],
+      "answer": 0,
+      "explanation": "\"Laufen\" beskriver en förflyttning och tar \"sein\" i perfekt, alltså \"wäre gelaufen\" i Konjunktiv-II-dåtid."
+    },
+    {
+      "id": "q-de4-cond-11",
+      "kind": "mc",
+      "topic": "conditional word order",
+      "prompt": "Välj rätt form: \"Wäre ich reich, ___ ich nicht mehr arbeiten.\" (müssen)",
+      "opener": "Huvudsatsen i en hypotetisk villkorssats står också i Konjunktiv II.",
+      "choices": [
+        "müsste",
+        "muss",
+        "musste",
+        "würde müssen"
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv II av \"müssen\" är \"müsste\": \"..., müsste ich nicht mehr arbeiten.\""
+    },
+    {
+      "id": "q-de4-cond-12",
+      "kind": "mc",
+      "topic": "real conditions",
+      "prompt": "Vad betyder konjunktionen \"sofern\"?",
+      "opener": "En mer formell/juridisk synonym till \"wenn\" i betydelsen \"om\".",
+      "choices": [
+        "om (formellt)",
+        "trots att",
+        "eftersom",
+        "medan"
+      ],
+      "answer": 0,
+      "explanation": "\"Sofern\" betyder \"om\" i en mer formell/juridisk ton, ungefär \"förutsatt att\"."
+    },
+    {
+      "id": "q-de4-cond-13",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "Välj rätt form: \"Wenn du mehr übtest, ___ du besser Klavier spielen.\" (werden, würde-konstruktion)",
+      "opener": "Huvudsatsen i denna hypotetiska nutidssats bildas med würde + infinitiv.",
+      "choices": [
+        "würdest",
+        "wirst",
+        "würde",
+        "wirst werden"
+      ],
+      "answer": 0,
+      "explanation": "Würde-konstruktionen för \"du\" är \"würdest\": \"..., würdest du besser Klavier spielen.\""
+    },
+    {
+      "id": "q-de4-cond-14",
+      "kind": "mc",
+      "topic": "conditional word order",
+      "prompt": "Välj rätt form: \"___ ich Zeit, käme ich mit.\" (haben, utan \"wenn\")",
+      "opener": "Utan \"wenn\" flyttas det böjda verbet till satsens första plats.",
+      "choices": [
+        "Hätte",
+        "Habe",
+        "Hatte",
+        "Würde haben"
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv II av \"haben\" är \"hätte\", och utan \"wenn\" flyttas det till första plats: \"Hätte ich Zeit, käme ich mit.\""
+    },
+    {
+      "id": "q-de4-cond-15",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "Vilken typ av villkorssats är \"Wenn ich Zeit hätte, würde ich kommen\"?",
+      "opener": "Konjunktiv II i nutid (inte hätte/wäre + particip) avslöjar vilken typ det är.",
+      "choices": [
+        "Overkligt villkor i nutid (typ 2)",
+        "Verkligt villkor (typ 1)",
+        "Overkligt villkor i dåtid (typ 3)",
+        "Ingen av dessa"
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv II i nutid (hätte, würde) utan particip signalerar typ 2: ett overkligt villkor i nutid."
     }
   ]
 }
