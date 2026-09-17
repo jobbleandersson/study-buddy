@@ -124,6 +124,110 @@
       "prompt": "Vilka är de fem grupperna av ryggradsdjur och vad kännetecknar dem?",
       "opener": "Ta grupperna i ordning och nämn hud, andning, ägg eller ungar samt kroppstemperatur.",
       "answer": "Fiskar: fjäll · gälar · yttre befruktning och ägg i vatten · växelvarma · Groddjur: fuktig naken hud · yngel med gälar, vuxna med lungor och hud · ägg i vatten · växelvarma · Kräldjur: torra fjäll · lungor · ägg med läderartat skal på land · växelvarma · Fåglar: fjädrar och näbb · lungor · ägg med hårt skal, ruvas · jämnvarma · Däggdjur: hår eller päls · lungor · föder levande ungar och ger mjölk · jämnvarma · Ryggradslösa djur: insekter (6 ben, tredelad kropp) · spindeldjur (8 ben, tvådelad kropp) · blötdjur (mjuk kropp, ofta skal) · alla saknar ryggrad och är växelvarma."
+    },
+    {
+      "id": "q-bio7-dju-9",
+      "kind": "mc",
+      "topic": "ryggradsdjur",
+      "prompt": "Vad kännetecknar fiskar?",
+      "opener": "Tänk på vad en fisk har för att kunna leva hela sitt liv i vatten.",
+      "choices": [
+        "De andas med lungor hela livet",
+        "De har fjäll och andas med gälar",
+        "De lägger ägg på land",
+        "De ammar sina ungar"
+      ],
+      "answer": 1,
+      "explanation": "Fiskar har fjäll och andas med gälar hela livet, till skillnad från groddjur som byter andningssätt när de växer upp. Att lägga ägg på land och amma ungar är kännetecken för kräldjur respektive däggdjur."
+    },
+    {
+      "id": "q-bio7-dju-10",
+      "kind": "mc",
+      "topic": "däggdjur och fåglar",
+      "prompt": "Vad är typiskt för fåglar?",
+      "opener": "Tänk på vad som gör att en fågel kan flyga och vad den lägger.",
+      "choices": [
+        "De föder levande ungar",
+        "De har fjädrar, näbb och lägger ägg med hårt skal",
+        "De andas med gälar",
+        "De är växelvarma"
+      ],
+      "answer": 1,
+      "explanation": "Fåglar har fjädrar och näbb och lägger ägg med hårt skal som ruvas. Att föda levande ungar är typiskt för däggdjur, och fåglar är jämnvarma, inte växelvarma."
+    },
+    {
+      "id": "q-bio7-dju-11",
+      "kind": "mc",
+      "topic": "växelvarma och jämnvarma",
+      "prompt": "Vad betyder det att en fågel är jämnvarm?",
+      "opener": "Tänk på skillnaden mot ödlan som behöver sola sig för att bli varm.",
+      "choices": [
+        "Kroppstemperaturen följer omgivningens temperatur",
+        "Kroppstemperaturen hålls konstant oavsett omgivningens temperatur",
+        "Den byter kroppstemperatur en gång per år",
+        "Den saknar egen kroppsvärme"
+      ],
+      "answer": 1,
+      "explanation": "Jämnvarma djur som fåglar och däggdjur håller en konstant kroppstemperatur oavsett hur kallt eller varmt det är ute. Att kroppstemperaturen följer omgivningen är i stället vad som gäller för växelvarma djur som ödlor."
+    },
+    {
+      "id": "q-bio7-dju-12",
+      "kind": "mc",
+      "topic": "ryggradslösa djur",
+      "prompt": "Hur många ben har ett spindeldjur som fullvuxet?",
+      "opener": "Räkna på en spindel — kroppen är delad i bara två delar.",
+      "choices": [
+        "6",
+        "8",
+        "10",
+        "4"
+      ],
+      "answer": 1,
+      "explanation": "Spindeldjur har åtta ben och kroppen delad i två delar. Insekter har i stället sex ben och en kropp delad i tre delar, vilket är den viktigaste skillnaden mellan grupperna."
+    },
+    {
+      "id": "q-bio7-dju-13",
+      "kind": "mc",
+      "topic": "ryggradsdjur",
+      "prompt": "Vilket djur är ett kräldjur?",
+      "opener": "Kräldjur har torr, fjällklädd hud och lever hela livet på land.",
+      "choices": [
+        "Salamandern",
+        "Ödlan",
+        "Grodan",
+        "Fladdermusen"
+      ],
+      "answer": 1,
+      "explanation": "Ödlan är ett kräldjur med torra fjäll som lägger ägg med läderartat skal på land. Salamandern och grodan är i stället groddjur som lägger ägg i vatten, och fladdermusen är ett däggdjur."
+    },
+    {
+      "id": "q-bio7-dju-14",
+      "kind": "worked",
+      "topic": "ryggradsdjur",
+      "prompt": "Du hittar ett djur som har fjädrar, näbb, lägger ägg med hårt skal och håller alltid samma kroppstemperatur. Vilken grupp av ryggradsdjur tillhör det? Visa hur du resonerar.",
+      "opener": "Gå igenom ledtrådarna en i taget och stryk de grupper som inte passar.",
+      "answer": "Det är en fågel.",
+      "steps": [
+        "Fjädrar och näbb: fiskar, groddjur, kräldjur och däggdjur faller bort, ingen av dem har varken fjädrar eller näbb.",
+        "Ägg med hårt skal: skiljer fågeln från kräldjur, vars ägg har ett läderartat, mjukare skal.",
+        "Att djuret håller samma kroppstemperatur visar att det är jämnvarmt, vilket stämmer på både fåglar och däggdjur.",
+        "Eftersom djuret har fjädrar och näbb, som bara fåglar har, återstår bara fåglarna — svaret är alltså en fågel."
+      ]
+    },
+    {
+      "id": "q-bio7-dju-15",
+      "kind": "mc",
+      "topic": "ryggradslösa djur",
+      "prompt": "Vilket av dessa djur räknas som ett blötdjur?",
+      "opener": "Blötdjur har en mjuk kropp, ofta med ett skal som skydd.",
+      "choices": [
+        "Bläckfisken",
+        "Myran",
+        "Spindeln",
+        "Kräftan"
+      ],
+      "answer": 0,
+      "explanation": "Bläckfisken är ett blötdjur med mjuk kropp och utan yttre skelett. Myran är en insekt, och spindeln och kräftan har båda ett hårt yttre skelett, vilket blötdjur saknar."
     }
   ]
 }

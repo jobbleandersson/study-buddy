@@ -123,6 +123,109 @@
       "prompt": "What trick do you use to decide whether it should be \"de\" or \"dem\"?",
       "opener": "Two tests that both work.",
       "answer": "Replace the word with the English they/them: if it becomes \"they\" you write \"de\", if it becomes \"them\" you write \"dem\". Alternatively, swap in vi/oss (\"we\"/\"us\"): \"vi\" → de, \"oss\" → dem. Short rule: \"de\" is the subject (the one doing something), \"dem\" is the object (the one something is done to) and always comes after a preposition."
+    },
+    {
+      "id": "q-sv1-spr-9",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Which sentence is correct?",
+      "opener": "Who is it that got invited — subject or object in the sentence?",
+      "choices": [
+        "Vi bjöd in de till festen.",
+        "Vi bjöd in dem till festen.",
+        "Vi bjöd in dom till festen, formellt sett.",
+        "Både de och dem funkar lika bra här."
+      ],
+      "answer": 1,
+      "explanation": "The people who got invited are the object of the sentence (vi bjöd in DEM) — the object form is required: \"dem\". Test: \"we invited them\", not \"we invited they\"."
+    },
+    {
+      "id": "q-sv1-spr-10",
+      "kind": "mc",
+      "topic": "incorrect word spacing (särskrivning)",
+      "prompt": "Which option is written correctly?",
+      "opener": "Two compound words in a row — both should be written as a single connected unit.",
+      "choices": [
+        "Han är en välkänd barnboksförfattare.",
+        "Han är en väl känd barn boksförfattare.",
+        "Han är en välkänd barn boksförfattare.",
+        "Han är en väl känd barnboksförfattare."
+      ],
+      "answer": 0,
+      "explanation": "Both \"välkänd\" (well-known) and \"barnboksförfattare\" (children's book author) are compound words that should be written as one word, not split into several separate words."
+    },
+    {
+      "id": "q-sv1-spr-11",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "Which sentence has correct comma placement?",
+      "opener": "An inserted clause giving extra information about an already-identified subject needs commas on both sides.",
+      "choices": [
+        "Min bror som bor i Malmö kommer på besök.",
+        "Min bror, som bor i Malmö kommer på besök.",
+        "Min bror som bor i Malmö, kommer på besök.",
+        "Min bror, som bor i Malmö, kommer på besök."
+      ],
+      "answer": 3,
+      "explanation": "\"Som bor i Malmö\" is an inserted clause giving extra information about the brother — it needs a comma both before and after it, just like a parenthetical."
+    },
+    {
+      "id": "q-sv1-spr-12",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Which sentence is free of a run-on (satsradning)?",
+      "opener": "Two main clauses can't be joined with just a comma — what's needed instead?",
+      "choices": [
+        "Hon sprang till bussen, den hade redan åkt.",
+        "Hon sprang till bussen den hade redan åkt.",
+        "Hon sprang till bussen, men den hade redan åkt.",
+        "Hon sprang till bussen den, hade redan åkt."
+      ],
+      "answer": 2,
+      "explanation": "The conjunction \"men\" (but) correctly joins the two main clauses. The other options either lack a conjunction entirely or have the comma in the wrong place."
+    },
+    {
+      "id": "q-sv1-spr-13",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "Which sentence uses a dash correctly to mark a sudden turn?",
+      "opener": "A dash should stand free with a space on both sides, not stuck to the words like a hyphen.",
+      "choices": [
+        "Han var säker på sin sak – tills han läste domen.",
+        "Han var säker-på sin sak tills han läste domen.",
+        "Han var säker på sin sak, tills-han läste domen.",
+        "Han var säker på sin sak tills han läste - domen."
+      ],
+      "answer": 0,
+      "explanation": "The dash marks a pause or turn in thought and stands with a space on both sides: \"...sin sak – tills han läste domen.\" The other options use the mark like a hyphen in the middle of words, which is incorrect."
+    },
+    {
+      "id": "q-sv1-spr-14",
+      "kind": "worked",
+      "topic": "sentence structure",
+      "prompt": "Correct the sentence and explain each change: \"Filmen som vi såg i går kväll var väl gjord och jättebra jag rekommenderade den till dom som frågade om den var bra.\"",
+      "opener": "Look for three mistakes: a compound word wrongly split, a sentence with no punctuation between two main clauses, and the wrong form of de/dem.",
+      "answer": "Filmen som vi såg i går kväll var välgjord och jättebra. Jag rekommenderade den till dem som frågade om den var bra.",
+      "steps": [
+        "\"väl gjord\" → \"välgjord\" (well-made). It's a compound word and should be written as one.",
+        "\"...jättebra jag rekommenderade...\" has no punctuation at all between two main clauses — that's a run-on sentence. Add a full stop (or semicolon) between them.",
+        "\"till dom som frågade\" → \"till dem som frågade\". After the preposition \"till\", the object form is required, and \"dom\" is avoided in written language."
+      ]
+    },
+    {
+      "id": "q-sv1-spr-15",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Choose the correct word: \"Ingen var lika förvånad som ___.\"",
+      "opener": "Picture the full sentence: \"...som de var förvånade.\" Which form does that require?",
+      "choices": [
+        "de",
+        "dem",
+        "dom",
+        "den"
+      ],
+      "answer": 0,
+      "explanation": "The sentence is a shortened form of \"...som de var förvånade\", where \"de\" is the subject of the implied \"var\". In formal written Swedish, the subject form \"de\" is therefore used even after \"som\" in comparisons like this."
     }
   ]
 }

@@ -124,6 +124,111 @@
       "prompt": "Vilka tempus- och tidsuttrycksbyten gäller när man gör om direkt tal till indirekt tal efter ett huvudverb i dåtid?",
       "opener": "Ett steg bakåt i tempustrappan, plus bytta tids- och platsord.",
       "answer": "Tempusbyten (ett steg bakåt): présent → imparfait · passé composé → plus-que-parfait · futur simple → conditionnel présent · futur proche (aller + infinitiv) → imparfait av aller + infinitiv. Imparfait och plus-que-parfait ändras inte, de är redan \"längst bak\". Tids-/platsuttryck: aujourd'hui → ce jour-là · demain → le lendemain · hier → la veille · maintenant → à ce moment-là · ici → là · ce week-end → ce week-end-là. Frågor: est-ce que/inversion → si · qu'est-ce que → ce que · qu'est-ce qui → ce qui. Personliga pronomen (je/tu/vous) anpassas alltid efter vem som nu talar om vem."
+    },
+    {
+      "id": "q-fr4-rs-9",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Elle a dit : \"J'étais malade.\" Hur blir det i indirekt tal? \"Elle a dit que...\"",
+      "opener": "Imparfait flyttas INTE bakåt i indirekt tal — det förblir imparfait.",
+      "choices": [
+        "elle était malade.",
+        "elle est malade.",
+        "elle avait été malade.",
+        "elle serait malade."
+      ],
+      "answer": 0,
+      "explanation": "Imparfait (\"j'étais\") behålls oförändrat i indirekt tal, eftersom det redan beskriver ett tillstånd i dåtid: \"qu'elle était malade\"."
+    },
+    {
+      "id": "q-fr4-rs-10",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Il a dit : \"Je vais partir.\" Hur blir det i indirekt tal? \"Il a dit que...\"",
+      "opener": "Futur proche (aller + infinitiv) blir imparfait av aller + infinitiv i indirekt tal.",
+      "choices": [
+        "il allait partir.",
+        "il va partir.",
+        "il irait partir.",
+        "il est allé partir."
+      ],
+      "answer": 0,
+      "explanation": "Futur proche (\"je vais partir\") blir imparfait av aller + infinitiv: \"qu'il allait partir\"."
+    },
+    {
+      "id": "q-fr4-rs-11",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "Elle a demandé : \"Où habites-tu ?\" Hur blir frågan i indirekt tal?",
+      "opener": "Frågeordet \"où\" behålls i indirekt tal.",
+      "choices": [
+        "Elle a demandé où j'habitais.",
+        "Elle a demandé si j'habitais.",
+        "Elle a demandé où j'habite.",
+        "Elle a demandé que j'habitais."
+      ],
+      "answer": 0,
+      "explanation": "Frågeordet \"où\" behålls oförändrat, och verbet backas till imparfait: \"elle a demandé où j'habitais\"."
+    },
+    {
+      "id": "q-fr4-rs-12",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "Il a demandé : \"Qui a téléphoné ?\" Hur blir frågan i indirekt tal?",
+      "opener": "Frågeordet \"qui\" (som subjekt) behålls oförändrat i indirekt tal.",
+      "choices": [
+        "Il a demandé qui avait téléphoné.",
+        "Il a demandé qui a téléphoné.",
+        "Il a demandé si quelqu'un avait téléphoné.",
+        "Il a demandé ce qui avait téléphoné."
+      ],
+      "answer": 0,
+      "explanation": "\"Qui\" som subjekt behålls oförändrat, och verbet backas till plus-que-parfait: \"il a demandé qui avait téléphoné\"."
+    },
+    {
+      "id": "q-fr4-rs-13",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Vilket uttryck ersätter \"maintenant\" (nu) i indirekt tal?",
+      "opener": "Precis som \"demain\" och \"hier\" har \"maintenant\" en indirekt motsvarighet.",
+      "choices": [
+        "à ce moment-là",
+        "demain",
+        "hier",
+        "aujourd'hui"
+      ],
+      "answer": 0,
+      "explanation": "\"Maintenant\" (nu) blir \"à ce moment-là\" (i det ögonblicket) i indirekt tal."
+    },
+    {
+      "id": "q-fr4-rs-14",
+      "kind": "mc",
+      "topic": "reported speech",
+      "prompt": "Le professeur a dit : \"Faites vos devoirs.\" Hur blir detta i indirekt tal?",
+      "opener": "En imperativ i direkt tal blir \"de + infinitiv\" med verbet \"dire\" i indirekt tal.",
+      "choices": [
+        "Le professeur a dit de faire nos devoirs.",
+        "Le professeur a dit que nous fassions nos devoirs.",
+        "Le professeur a dit nous faisons nos devoirs.",
+        "Le professeur a dit nous ferions nos devoirs."
+      ],
+      "answer": 0,
+      "explanation": "Med \"dire\" blir en imperativ i indirekt tal \"de + infinitiv\": \"le professeur a dit de faire nos devoirs\" (läraren sa åt oss att göra våra läxor)."
+    },
+    {
+      "id": "q-fr4-rs-15",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Il a dit : \"Je suis ici.\" Vilket ord ersätter \"ici\" i indirekt tal?",
+      "opener": "Ett platsuttryck som flyttas bort från talögonblicket.",
+      "choices": [
+        "là",
+        "ici",
+        "là-bas",
+        "partout"
+      ],
+      "answer": 0,
+      "explanation": "\"Ici\" (här) blir \"là\" (där) i indirekt tal: \"il a dit qu'il était là\"."
     }
   ]
 }

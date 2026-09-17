@@ -124,6 +124,111 @@
       "prompt": "Summarise the principle of conservation of energy, the difference between renewable and non-renewable energy sources, and the greenhouse effect (natural and enhanced).",
       "opener": "Go through what happens to the energy, where it comes from, and why the Earth is getting warmer.",
       "answer": "Principle of conservation of energy: energy can neither be created nor destroyed, only converted between forms (e.g. kinetic, potential, chemical and heat energy) · Renewable energy sources: sun, wind, water and biofuel — renewed at roughly the same rate as they are used · Non-renewable energy sources: coal, oil and natural gas (fossil fuels) and uranium — take a very long time to form · Natural greenhouse effect: the atmosphere's gases retain heat and make the Earth habitable · Enhanced greenhouse effect: human emissions of greenhouse gases, mainly carbon dioxide from fossil fuels, increase the concentration and enhance warming · Consequences: raised average temperature, melting ice, rising sea levels and more extreme weather."
+    },
+    {
+      "id": "q-nk1b-energi-9",
+      "kind": "mc",
+      "topic": "energy conservation and energy conversions",
+      "prompt": "What is meant by the efficiency of an energy-converting facility, e.g. a power plant?",
+      "opener": "Think about the fact that no energy conversion is completely loss-free.",
+      "choices": [
+        "The share of the input energy that is converted into the intended, usable form of energy; the rest often becomes heat that spreads out",
+        "The total amount of energy the facility can store",
+        "How many years the facility lasts before it must be replaced",
+        "A measure of how environmentally friendly the facility is, regardless of energy conversion"
+      ],
+      "answer": 0,
+      "explanation": "Efficiency indicates how large a share of the input energy is converted into the intended, usable form of energy. The rest is often lost as heat that spreads into the surroundings, consistent with the principle of conservation of energy (energy doesn't disappear, but becomes less usable)."
+    },
+    {
+      "id": "q-nk1b-energi-10",
+      "kind": "mc",
+      "topic": "energy conservation and energy conversions",
+      "prompt": "When petrol is burned in a car engine, which energy conversion mainly takes place?",
+      "opener": "Think about what is stored in the fuel before it is ignited.",
+      "choices": [
+        "Chemical energy is converted into kinetic energy (and heat)",
+        "Kinetic energy is converted directly into chemical energy",
+        "Radiant energy is converted into chemical energy",
+        "Potential energy is converted directly into electrical energy"
+      ],
+      "answer": 0,
+      "explanation": "Petrol's chemical energy is converted during combustion into kinetic energy that drives the car forward, plus a large amount of heat energy. It is therefore not kinetic energy or radiant energy that is the starting point."
+    },
+    {
+      "id": "q-nk1b-energi-11",
+      "kind": "mc",
+      "topic": "energy sources",
+      "prompt": "Why does nuclear power count as neither a renewable nor a fossil energy source?",
+      "opener": "Think about the timescale over which uranium versus fossil fuels form.",
+      "choices": [
+        "Uranium is a limited fuel that is mined and runs out, but it is not a fossil fuel formed from organic material over millions of years",
+        "Nuclear power is actually a renewable energy source",
+        "Nuclear power is actually a fossil fuel",
+        "Nuclear power uses no fuel at all"
+      ],
+      "answer": 0,
+      "explanation": "Uranium is a limited, mined fuel just like fossil fuels, but it is not formed from organic material over millions of years like coal, oil and natural gas. Nuclear power therefore falls into its own category, neither renewable nor fossil."
+    },
+    {
+      "id": "q-nk1b-energi-12",
+      "kind": "mc",
+      "topic": "energy sources",
+      "prompt": "What is an advantage of bioenergy (e.g. burning wood chips) compared with fossil fuels, in terms of the carbon cycle?",
+      "opener": "Think about how old the carbon is in each type of fuel.",
+      "choices": [
+        "The carbon dioxide released during combustion was relatively recently absorbed by growing biomass, unlike fossil carbon that has been locked away for millions of years",
+        "Bioenergy never releases any carbon dioxide at all during combustion",
+        "Bioenergy never requires any fuel to be renewed",
+        "Bioenergy is always cheaper to produce than fossil fuels"
+      ],
+      "answer": 0,
+      "explanation": "The carbon dioxide released when burning bioenergy was recently absorbed by growing biomass through photosynthesis, which makes the cycle faster and more balanced compared with fossil fuels, whose carbon was locked away for millions of years before suddenly being released."
+    },
+    {
+      "id": "q-nk1b-energi-13",
+      "kind": "mc",
+      "topic": "the greenhouse effect",
+      "prompt": "Which greenhouse gas has the strongest warming effect per molecule, but occurs in much smaller quantities in the atmosphere than carbon dioxide?",
+      "opener": "Think about the difference between how POWERFUL each molecule is, and how MUCH of the gas there is.",
+      "choices": [
+        "Methane",
+        "Oxygen",
+        "Nitrogen",
+        "Argon"
+      ],
+      "answer": 0,
+      "explanation": "Methane has a considerably stronger warming effect per molecule than carbon dioxide, but occurs in much smaller quantities in the atmosphere, which means carbon dioxide still accounts for the largest share of the total enhanced greenhouse effect."
+    },
+    {
+      "id": "q-nk1b-energi-14",
+      "kind": "mc",
+      "topic": "climate change",
+      "prompt": "What is one of the expected consequences of melting glaciers and land ice for global sea level?",
+      "opener": "Think about what happens to the ocean's volume when ice that was on land melts and flows into the sea.",
+      "choices": [
+        "Sea level rises, threatening low-lying coastal areas and island nations",
+        "Sea level falls globally",
+        "Sea level remains entirely unaffected",
+        "The effect is purely local and is never felt elsewhere in the world"
+      ],
+      "answer": 0,
+      "explanation": "When glaciers and land ice melt, large amounts of water are added to the oceans, contributing to rising sea levels and threatening low-lying coastal areas and island nations."
+    },
+    {
+      "id": "q-nk1b-energi-15",
+      "kind": "mc",
+      "topic": "climate change",
+      "prompt": "What is the Paris Agreement, adopted in 2015?",
+      "opener": "Think of the specific temperature limit often mentioned in climate news.",
+      "choices": [
+        "An international climate agreement in which countries agreed on the goal of limiting global warming to well below 2 degrees, preferably 1.5 degrees, compared with pre-industrial levels",
+        "An agreement that immediately bans all use of fossil fuels",
+        "An agreement that applies only to EU member states",
+        "An agreement to build more nuclear power plants in Europe"
+      ],
+      "answer": 0,
+      "explanation": "The Paris Agreement of 2015 brought countries together around the goal of limiting global warming to well below 2 degrees, with an ambition to keep it below 1.5 degrees, compared with pre-industrial levels."
     }
   ]
 }

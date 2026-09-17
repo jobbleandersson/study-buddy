@@ -124,6 +124,110 @@
       "prompt": "What characterises everything living, and what parts does a cell have?",
       "opener": "First name the characteristics of life, then the cell parts — and which ones are found only in plants.",
       "answer": "Characteristics of life: grows and develops · takes up nutrients · respires and converts energy · gets rid of waste · reacts to its surroundings · reproduces · is built up of cells · Cell parts in both plant and animal: nucleus (genetic material, controls the cell) · cell membrane (regulates what goes in and out) · cytoplasm (jelly-like fluid where the parts sit) · mitochondria (release energy from nutrients) · Only in plant cells: cell wall (gives structure) · chloroplasts (photosynthesis, green chlorophyll) · large vacuole (water storage) · Levels in the body: cell → tissue → organ → organ system → organism · A microscope is needed because cells are too small for the naked eye."
+    },
+    {
+      "id": "q-bio7-liv-9",
+      "kind": "mc",
+      "topic": "characteristics of life",
+      "prompt": "Which of the following is NOT a characteristic of life?",
+      "opener": "Think about a pine tree — it cannot move at all, yet it is still alive.",
+      "choices": [
+        "Reacts to its surroundings",
+        "Is built up of cells",
+        "Can travel through space under its own power",
+        "Takes up nutrients"
+      ],
+      "answer": 2,
+      "explanation": "Travelling through space under its own power is not a characteristic of life — it describes a rocket rather than a living thing. Plants, which are rooted in place, are a good example that living organisms don't need to be able to move."
+    },
+    {
+      "id": "q-bio7-liv-10",
+      "kind": "mc",
+      "topic": "the cell",
+      "prompt": "What is the jelly-like fluid inside the cell called, where the other parts sit?",
+      "opener": "Think about what fills the rest of the cell between the nucleus and the membrane.",
+      "choices": [
+        "Cytoplasm",
+        "Cell wall",
+        "Cell membrane",
+        "Nucleus"
+      ],
+      "answer": 0,
+      "explanation": "The cytoplasm is the jelly-like fluid surrounding the cell's other parts, such as the nucleus and the mitochondria. The cell wall exists only in plants, and the cell membrane is the cell's outer boundary."
+    },
+    {
+      "id": "q-bio7-liv-11",
+      "kind": "mc",
+      "topic": "the cell",
+      "prompt": "Which cell part releases energy from nutrients?",
+      "opener": "This cell part is sometimes called \"the powerhouse of the cell\".",
+      "choices": [
+        "The nucleus",
+        "The mitochondrion",
+        "The cell membrane",
+        "The vacuole"
+      ],
+      "answer": 1,
+      "explanation": "Mitochondria break down nutrients using oxygen and release energy the cell can use. The nucleus instead controls the cell's work through its genetic material."
+    },
+    {
+      "id": "q-bio7-liv-12",
+      "kind": "mc",
+      "topic": "plant cell and animal cell",
+      "prompt": "Which cell part gives plant cells their structure and fixed shape?",
+      "opener": "Think about why a plant cell keeps its shape even without a skeleton.",
+      "choices": [
+        "Nucleus",
+        "Cell wall",
+        "Mitochondrion",
+        "Cell membrane"
+      ],
+      "answer": 1,
+      "explanation": "The cell wall is a hard, rigid layer outside the cell membrane that gives plant cells their structure. Animal cells lack a cell wall, which is one of the clearest differences between plant and animal cells."
+    },
+    {
+      "id": "q-bio7-liv-13",
+      "kind": "mc",
+      "topic": "from cell to organ",
+      "prompt": "What is it called when several different tissues work together and form a unit, such as the heart?",
+      "opener": "It's the level right above tissue.",
+      "choices": [
+        "A cell",
+        "A tissue",
+        "An organ",
+        "An organism"
+      ],
+      "answer": 2,
+      "explanation": "An organ, such as the heart, is built up of several different tissues working together, for example muscle tissue and nerve tissue. An organism is instead the next level up, a whole living individual."
+    },
+    {
+      "id": "q-bio7-liv-14",
+      "kind": "mc",
+      "topic": "microscope",
+      "prompt": "Which of these would you need a microscope to see clearly?",
+      "opener": "Think about which option is far too small for the naked eye.",
+      "choices": [
+        "An ant",
+        "A cell nucleus",
+        "A leaf",
+        "A dog"
+      ],
+      "answer": 1,
+      "explanation": "A cell nucleus is only a few thousandths of a millimetre in size and can only be seen with a microscope. Ants, leaves and dogs can all be seen with the naked eye, even if less clearly in detail."
+    },
+    {
+      "id": "q-bio7-liv-15",
+      "kind": "worked",
+      "topic": "from cell to organ",
+      "prompt": "Describe how the body is built up from cell to organ system. Use the heart as an example.",
+      "opener": "Go through the same four levels as before: cell, tissue, organ, organ system — but with the heart.",
+      "answer": "Cells of the same kind form a tissue, several tissues build up the organ called the heart, and the heart works together with the blood vessels in the circulatory system, which is an organ system.",
+      "steps": [
+        "The cell is the smallest living building block, for example a heart muscle cell.",
+        "Many identical cells together form a tissue, here heart muscle tissue.",
+        "Several different tissues build up an organ — the heart.",
+        "The heart works together with the blood vessels and forms the circulatory system, an organ system."
+      ]
     }
   ]
 }

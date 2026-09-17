@@ -124,6 +124,110 @@
       "prompt": "Summarise the role of the media, freedom of expression, and the basic concepts around source criticism, propaganda and disinformation.",
       "opener": "From the media's role in society to how you yourself assess what you read.",
       "answer": "The media's role: scrutinises those in power and informs citizens, sometimes called \"the fourth estate\" · Freedom of expression: a constitutionally protected right to express opinions and spread information, with certain legal limits (e.g. hate speech against ethnic groups) · The Freedom of the Press Act: a fundamental law that protects the right to publish printed material without state review in advance, as well as source protection for journalists · Source criticism: examine the sender, purpose, timing, and whether independent sources confirm the information · Disinformation: incorrect information spread deliberately to mislead · Misinformation: incorrect information spread by mistake, without intent to deceive · Propaganda: one-sided, emotionally driven information that aims to influence opinions in a certain direction."
+    },
+    {
+      "id": "q-sam-med-9",
+      "kind": "mc",
+      "topic": "the role of media in a democratic society",
+      "prompt": "What is the approach called where a news outlet strives to impartially show several sides of an issue?",
+      "opener": "The opposite of only showing a biased picture of reality.",
+      "choices": [
+        "Factuality and impartiality",
+        "Propaganda",
+        "Censorship",
+        "Biased reporting"
+      ],
+      "answer": 0,
+      "explanation": "Factuality and impartiality are fundamental journalistic principles involving striving to accurately convey facts and show multiple perspectives, rather than one-sidedly pushing an opinion."
+    },
+    {
+      "id": "q-sam-med-10",
+      "kind": "mc",
+      "topic": "the basic idea of freedom of expression and of the press",
+      "prompt": "What is the protection called that means a journalist doesn't have to reveal who provided information for an article?",
+      "opener": "This protection encourages people to give tips to journalists without fear of retaliation.",
+      "choices": [
+        "Source protection",
+        "Copyright",
+        "Data protection law",
+        "Confidentiality law"
+      ],
+      "answer": 0,
+      "explanation": "Source protection means journalists have the right, and in some cases the duty, not to reveal their sources' identities, which is a central part of the Freedom of the Press Act and the Fundamental Law on Freedom of Expression."
+    },
+    {
+      "id": "q-sam-med-11",
+      "kind": "mc",
+      "topic": "source criticism of news and social media",
+      "prompt": "Why is it wise to compare a news story with several independent sources before trusting it completely?",
+      "opener": "Think about whether a single source could have an error, deliberate or accidental bias.",
+      "choices": [
+        "If several independent sources report the same thing, it increases the likelihood the information is correct",
+        "A single source is always more trustworthy than several",
+        "It's never necessary to compare sources",
+        "More sources always make information false"
+      ],
+      "answer": 0,
+      "explanation": "If several independent, established sources report the same information independently of each other, it increases the likelihood that the information is correct, since it becomes less likely they all share the same error or bias."
+    },
+    {
+      "id": "q-sam-med-12",
+      "kind": "mc",
+      "topic": "basic concepts of propaganda and disinformation",
+      "prompt": "What are images or videos manipulated, often with AI, to make someone appear to say or do something they never did, called?",
+      "opener": "A term that has become common in discussions of disinformation.",
+      "choices": [
+        "Deepfakes",
+        "Memes",
+        "Screenshots",
+        "Reportage"
+      ],
+      "answer": 0,
+      "explanation": "Deepfakes are AI-manipulated images, videos or audio clips that make it look like someone said or did something they never actually said or did - a tool that can be used for disinformation."
+    },
+    {
+      "id": "q-sam-med-13",
+      "kind": "mc",
+      "topic": "the role of media in a democratic society",
+      "prompt": "Why is a diversity of independent media important for a democracy?",
+      "opener": "Think about what happens if a single actor controls all information.",
+      "choices": [
+        "It reduces the risk of a single actor controlling what information citizens receive",
+        "It's better if only the state owns all media",
+        "Media diversity has no importance for democracy",
+        "The fewer media outlets, the better the democracy"
+      ],
+      "answer": 0,
+      "explanation": "A diversity of independent media makes it harder for a single actor (e.g. the state or a single media conglomerate) to control what information citizens receive, which strengthens citizens' ability to form an independent view."
+    },
+    {
+      "id": "q-sam-med-14",
+      "kind": "worked",
+      "topic": "basic concepts of propaganda and disinformation",
+      "prompt": "A state runs a news channel that consistently only reports positively about its own government and never raises criticism or counterarguments. Explain why this resembles propaganda rather than independent journalism, and what independent journalism would have done differently.",
+      "opener": "Think about the definition of propaganda: one-sided information that withholds counterarguments.",
+      "answer": "The channel shows only one side of reality and systematically withholds criticism, which is a hallmark of propaganda rather than factual journalism. Independent journalism would instead have strived to critically scrutinise those in power and show multiple perspectives, even uncomfortable ones for the government.",
+      "steps": [
+        "Propaganda is characterised by one-sided information aiming to influence opinions in a certain direction, often by withholding counterarguments.",
+        "Consistently only reporting positively about one's own government, without ever raising criticism, fits that pattern.",
+        "Independent journalism should instead critically scrutinise those in power, regardless of who holds power, and show multiple perspectives on an issue.",
+        "The lack of critical scrutiny and counterarguments is therefore a clear warning sign that the channel functions as a propaganda outlet rather than an independent news source."
+      ]
+    },
+    {
+      "id": "q-sam-med-15",
+      "kind": "mc",
+      "topic": "the basic idea of freedom of expression and of the press",
+      "prompt": "Is freedom of expression in Sweden completely without limits?",
+      "opener": "Are there statements that are criminal despite the constitutional protection?",
+      "choices": [
+        "No, certain statements, such as hate speech against ethnic groups, are criminal even in a democracy",
+        "Yes, you can say absolutely anything without consequences",
+        "Freedom of expression only applies to journalists",
+        "Freedom of expression doesn't exist in Sweden"
+      ],
+      "answer": 0,
+      "explanation": "Despite the strong constitutional protection, freedom of expression has certain legal limits, such as bans on hate speech against ethnic groups and incitement, in order to protect other fundamental values in society."
     }
   ]
 }

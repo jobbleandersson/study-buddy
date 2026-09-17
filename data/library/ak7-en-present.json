@@ -122,6 +122,110 @@
       "prompt": "När använder du present simple och när använder du present continuous?",
       "opener": "Två tempus, två situationer — plus reglerna för -s och do/does.",
       "answer": "Present simple = vanor och det som alltid gäller (I play football every week) · he/she/it får -s: he plays, she watches · frågor: Do you play? / Does he play? · nekande: I don't play / He doesn't play · efter do/does står verbet i grundform. Present continuous = något som pågår just nu (I am playing right now) · bildas med am/is/are + verb-ing · signalord: now, right now, at the moment, look!, listen! · signalord för present simple: always, usually, often, sometimes, never, every day."
+    },
+    {
+      "id": "q-en7-pre-9",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Choose the correct form: \"The sun ___ in the east.\"",
+      "opener": "Detta är alltid sant, precis som en vana — vilket tempus passar då?",
+      "choices": [
+        "rise",
+        "rises",
+        "rising",
+        "is rising"
+      ],
+      "answer": 1,
+      "explanation": "En allmän sanning uttrycks med present simple, och \"the sun\" är samma sak som \"it\" — verbet får -s: \"rises\". \"Rise\" utan -s hade behövts med I/you/we/they."
+    },
+    {
+      "id": "q-en7-pre-10",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the correct form: \"Look! The cat ___ up the tree.\"",
+      "opener": "Ordet \"Look!\" är ett tydligt tecken på att något pågår just i detta ögonblick.",
+      "choices": [
+        "climbs",
+        "climb",
+        "is climbing",
+        "climbed"
+      ],
+      "answer": 2,
+      "explanation": "\"Look!\" signalerar att något händer just nu, så vi använder present continuous: is + climbing. \"Climbs\" hade betytt att det är en vana katten alltid gör."
+    },
+    {
+      "id": "q-en7-pre-11",
+      "kind": "mc",
+      "topic": "do/does",
+      "prompt": "Choose the correct question: \"___ they live near the school?\"",
+      "opener": "\"They\" är flertal — vilket hjälpverb hör ihop med det i frågor?",
+      "choices": [
+        "Do",
+        "Does",
+        "Is",
+        "Are"
+      ],
+      "answer": 0,
+      "explanation": "\"They\" är flertal och tar \"Do\" i present simple-frågor: \"Do they live...\". \"Does\" används bara med he/she/it (tredje person singular)."
+    },
+    {
+      "id": "q-en7-pre-12",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Which sentence is correct?",
+      "opener": "Kolla om subjektet är en eller flera — ska verbet ha -s?",
+      "choices": [
+        "The dogs barks at night.",
+        "The dogs bark at night.",
+        "The dogs is barking at night.",
+        "The dog bark at night."
+      ],
+      "answer": 1,
+      "explanation": "\"The dogs\" är flertal, och då ska verbet INTE ha -s: \"bark\". Ändelsen -s hör bara till he/she/it i singular, som i \"the dog barks\"."
+    },
+    {
+      "id": "q-en7-pre-13",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the sentence that describes something happening right now, not a habit.",
+      "opener": "Leta efter signalordet som visar att något pågår i detta ögonblick.",
+      "choices": [
+        "I usually walk to school.",
+        "She often reads before bed.",
+        "They are playing football at the moment.",
+        "We never eat breakfast."
+      ],
+      "answer": 2,
+      "explanation": "\"At the moment\" tillsammans med \"are playing\" visar att det pågår just nu — present continuous. De andra meningarna har signalord för vana (usually, often, never) och står i present simple."
+    },
+    {
+      "id": "q-en7-pre-14",
+      "kind": "worked",
+      "topic": "present simple",
+      "prompt": "Correct the three errors: \"My sister live in Paris. She don't speak English at home. Right now she learn French at school.\"",
+      "opener": "Leta efter samma tre saker som förut: -s i tredje person, rätt nekande form, och tempus vid \"right now\".",
+      "answer": "My sister lives in Paris. She doesn't speak English at home. Right now she is learning French at school.",
+      "steps": [
+        "\"My sister live\" → \"My sister lives\". \"My sister\" är samma som \"she\", så verbet får -s i present simple.",
+        "\"She don't speak\" → \"She doesn't speak\". Med he/she/it används doesn't, inte don't.",
+        "\"Right now she learn\" → \"Right now she is learning\". \"Right now\" betyder att det pågår, så vi använder present continuous: is + learning.",
+        "Efter \"doesn't\" står verbet i grundform: \"speak\", aldrig \"speaks\"."
+      ]
+    },
+    {
+      "id": "q-en7-pre-15",
+      "kind": "mc",
+      "topic": "do/does",
+      "prompt": "Choose the correct negative sentence: \"We ___ have any homework today.\"",
+      "opener": "\"We\" är flertal — vilket hjälpverb passar i nekande satser?",
+      "choices": [
+        "doesn't",
+        "don't",
+        "isn't",
+        "not"
+      ],
+      "answer": 1,
+      "explanation": "Med \"we\" (liksom I/you/they) används \"don't\" + verb i grundform: \"We don't have...\". \"Doesn't\" hör bara ihop med he/she/it."
     }
   ]
 }

@@ -124,6 +124,111 @@
       "prompt": "Summarise natural resources and energy sources: renewable versus non-renewable, distribution and environmental impact.",
       "opener": "Build a tight overview you can quickly revise before the test.",
       "answer": "Renewable resources: replenished naturally within a reasonable time · examples: sun, wind, water, biomass, sustainably managed forest. Non-renewable resources: form over millions of years, run out · examples: oil, coal, natural gas, minerals and metals. Global distribution: natural resources are unevenly distributed depending on geology · examples: oil in the Middle East, copper in Chile, cobalt in DR Congo. Environmental impact: fossil fuels release carbon dioxide when burned → strengthens the greenhouse effect · renewable energy (sun, wind, water) does not emit carbon dioxide during power generation but can affect nature and landscapes in other ways. Conflicts: unevenly distributed, valuable resources can trigger power struggles over who controls the revenue, especially where institutions are weak."
+    },
+    {
+      "id": "q-geo-nat-9",
+      "kind": "mc",
+      "topic": "renewable and non-renewable resources",
+      "prompt": "Which of the following is a renewable natural resource, provided it is managed sustainably?",
+      "opener": "Think about which resource can grow back within a human lifetime.",
+      "choices": [
+        "Forest",
+        "Coal",
+        "Oil",
+        "Natural gas"
+      ],
+      "answer": 0,
+      "explanation": "Forest can be considered a renewable resource if logging happens at a rate that allows new forest to grow back. Coal, oil and natural gas are fossil fuels that form over millions of years and are classed as non-renewable."
+    },
+    {
+      "id": "q-geo-nat-10",
+      "kind": "mc",
+      "topic": "global distribution of natural resources",
+      "prompt": "Chile is one of the world's leading producers of which metal, used among other things in electronics and cabling?",
+      "opener": "The metal has a characteristic reddish-brown colour.",
+      "choices": [
+        "Copper",
+        "Gold",
+        "Iron",
+        "Silver"
+      ],
+      "answer": 0,
+      "explanation": "Chile has large copper deposits and is the world's leading producer of copper, a metal central to electrical wiring and electronics."
+    },
+    {
+      "id": "q-geo-nat-11",
+      "kind": "mc",
+      "topic": "energy sources and environmental impact",
+      "prompt": "What is a typical disadvantage of nuclear power compared with renewable energy sources like solar and wind?",
+      "opener": "Think about what's left over after the fuel in a nuclear power plant has been used.",
+      "choices": [
+        "Nuclear power produces radioactive waste that must be handled safely for a very long time",
+        "Nuclear power emits the most carbon dioxide of all energy sources",
+        "Nuclear power can only be used in deserts",
+        "Nuclear power is the only energy source that requires no infrastructure"
+      ],
+      "answer": 0,
+      "explanation": "Nuclear power emits little carbon dioxide during electricity generation, but creates radioactive waste that remains hazardous for thousands of years and requires safe, long-term storage - one of the major challenges with nuclear power."
+    },
+    {
+      "id": "q-geo-nat-12",
+      "kind": "mc",
+      "topic": "energy sources and environmental impact",
+      "prompt": "What is an advantage of solar energy compared with fossil fuels?",
+      "opener": "Think about what happens during the actual electricity generation, and how long the fuel lasts.",
+      "choices": [
+        "Solar energy doesn't emit carbon dioxide during power generation, and sunlight never runs out",
+        "Solar energy works just as well at night as during the day",
+        "Solar panels require no raw materials at all to manufacture",
+        "Solar energy is the only energy source that works everywhere"
+      ],
+      "answer": 0,
+      "explanation": "Solar energy is renewable (sunlight never runs out) and doesn't emit carbon dioxide when the electricity is produced, unlike fossil fuels. Solar energy does have limitations, though, such as not producing electricity at night."
+    },
+    {
+      "id": "q-geo-nat-13",
+      "kind": "mc",
+      "topic": "conflicts linked to natural resources",
+      "prompt": "What is the phenomenon called where a country with abundant natural resources can paradoxically end up with weaker economic development and more corruption than resource-poor countries?",
+      "opener": "The name suggests the resource wealth becomes a burden rather than an advantage.",
+      "choices": [
+        "The resource curse",
+        "Resource growth",
+        "The trade surplus",
+        "The green revolution"
+      ],
+      "answer": 0,
+      "explanation": "The resource curse describes how countries with large natural resources sometimes end up with worse economic development, more corruption, and conflict over control of the revenue, instead of benefiting from the wealth - often due to weak institutions."
+    },
+    {
+      "id": "q-geo-nat-14",
+      "kind": "worked",
+      "topic": "energy sources and environmental impact",
+      "prompt": "A country is considering building either a new coal power plant or a new wind farm to meet rising electricity demand. Explain what factors the country should weigh in the decision, related to renewability and environmental impact.",
+      "opener": "Weigh the pros and cons of both options against each other, both around emissions and reliability.",
+      "answer": "The country should weigh coal power's advantages (stable, weather-independent production) against its large carbon dioxide emissions and the fact that coal is a finite resource, versus wind power's advantages (renewable, no emissions during power generation) and its drawback that production varies with the weather and requires supplementary solutions or storage.",
+      "steps": [
+        "Coal power is a non-renewable resource that will run out, and burning it releases large amounts of carbon dioxide, contributing to the greenhouse effect.",
+        "Coal power does, however, provide stable, predictable electricity generation regardless of weather.",
+        "Wind power is renewable and emits no carbon dioxide during electricity generation.",
+        "Wind power's drawback is that production varies with the wind, which may require other energy sources or storage solutions as a supplement.",
+        "A sustainable decision needs to weigh climate impact, the resource's durability, and the need for stable electricity supply against each other."
+      ]
+    },
+    {
+      "id": "q-geo-nat-15",
+      "kind": "mc",
+      "topic": "global distribution of natural resources",
+      "prompt": "Why can uneven global distribution of natural resources like oil give certain countries great political influence?",
+      "opener": "Think about what other countries become dependent on.",
+      "choices": [
+        "Countries with large oil reserves can become important suppliers that other countries depend on",
+        "Oil-rich countries always have the most democracy",
+        "Natural resources have no connection to political influence",
+        "All countries have exactly equal oil reserves"
+      ],
+      "answer": 0,
+      "explanation": "Countries with large reserves of sought-after resources like oil can gain great influence because other countries depend on importing the resource, which gives the resource-rich countries political and economic weight on the global stage."
     }
   ]
 }

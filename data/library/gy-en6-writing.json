@@ -123,6 +123,111 @@
       "prompt": "What are the key components of a well-structured formal essay?",
       "opener": "Fem byggstenar som binder ihop en argumenterande uppsats.",
       "answer": "Thesis statement = tar tydligt ställning i inledningen och antyder argumenten · Topic sentences = inleder varje stycke med styckets huvudidé · Supporting evidence = exempel, fakta eller citat som stödjer varje argument · Cohesive devices = sambandsord (however, therefore, in addition) och tydlig pronomenreferens som binder ihop meningar och stycken · Conclusion = sammanfattar argumenten formellt utan att introducera ny information, ofta med fraser som \"in conclusion\" eller \"to sum up\"."
+    },
+    {
+      "id": "q-en6-writing-9",
+      "kind": "mc",
+      "topic": "thesis statements",
+      "prompt": "Which revision improves this weak thesis statement: \"Social media has good and bad effects\"?",
+      "opener": "En stark thesis statement är specifik och tar tydligt ställning.",
+      "choices": [
+        "Social media strengthens social connections, but its design also fuels addictive behavior that outweighs its benefits.",
+        "This essay is about social media.",
+        "Social media is something many people use every day.",
+        "In this essay, I will talk about several things related to social media."
+      ],
+      "answer": 0,
+      "explanation": "Den första meningen tar tydligt ställning (\"strengthens... but... outweighs\") och antyder de argument som kommer att utvecklas. De andra alternativen bara konstaterar att ämnet finns, utan ställningstagande."
+    },
+    {
+      "id": "q-en6-writing-10",
+      "kind": "mc",
+      "topic": "cohesive devices",
+      "prompt": "Which linking word best fits: \"The team lost the first three matches. ___, they went on to win the championship.\"",
+      "opener": "Vilket ord markerar en kontrast mellan ett dåligt utgångsläge och ett oväntat resultat?",
+      "choices": [
+        "Nevertheless",
+        "Similarly",
+        "Therefore",
+        "For instance"
+      ],
+      "answer": 0,
+      "explanation": "\"Nevertheless\" markerar en kontrast — trots tre förluster vann laget till slut mästerskapet. \"Similarly\", \"therefore\" och \"for instance\" passar inte in i den logiska relationen här."
+    },
+    {
+      "id": "q-en6-writing-11",
+      "kind": "mc",
+      "topic": "cohesive devices",
+      "prompt": "Identify the cohesion problem: \"Emma emailed her manager and told her the report was late.\"",
+      "opener": "Två kvinnliga referenter gör pronomenet \"her\" dubbeltydigt.",
+      "choices": [
+        "The pronoun \"her\" is ambiguous — it could refer to either Emma or the manager.",
+        "There is no problem in this sentence.",
+        "The verb tense is incorrect.",
+        "The sentence has no cohesion issues at all."
+      ],
+      "answer": 0,
+      "explanation": "Pronomenet \"her\" kan syfta på antingen Emma eller chefen, vilket gör meningen tvetydig — ett vanligt cohesion-problem som löses genom att skriva ut namnet igen."
+    },
+    {
+      "id": "q-en6-writing-12",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "What is the purpose of a \"concluding sentence\" at the end of a body paragraph?",
+      "opener": "Tänk på vad som binder ihop ett stycke med nästa.",
+      "choices": [
+        "To wrap up the paragraph's point and smoothly transition to the next idea",
+        "To introduce a completely new topic",
+        "To repeat the thesis statement word for word",
+        "To list the sources used in the paragraph"
+      ],
+      "answer": 0,
+      "explanation": "En avslutande mening knyter ihop styckets poäng och skapar en smidig övergång till nästa idé. Den ska varken introducera ett helt nytt ämne eller bara upprepa thesis statement ordagrant."
+    },
+    {
+      "id": "q-en6-writing-13",
+      "kind": "mc",
+      "topic": "essay conclusions",
+      "prompt": "Why should a formal essay conclusion avoid introducing brand-new evidence or arguments?",
+      "opener": "En slutsats ska sammanfatta, inte överraska.",
+      "choices": [
+        "Because the conclusion's role is to summarize and reinforce points already made, not to introduce material the reader hasn't seen",
+        "Because conclusions are not allowed to mention the thesis at all",
+        "Because new evidence would make the essay too short",
+        "Because conclusions must always ask a question"
+      ],
+      "answer": 0,
+      "explanation": "Slutsatsens roll är att sammanfatta och förstärka poänger som redan förts fram, inte att introducera nytt material som läsaren inte sett tidigare — det skulle kännas orättvist och förvirrande."
+    },
+    {
+      "id": "q-en6-writing-14",
+      "kind": "mc",
+      "topic": "cohesive devices",
+      "prompt": "Which linking word best fits: \"The results were inconclusive. ___, the researchers decided to repeat the experiment with a larger sample.\"",
+      "opener": "Vilket ord visar orsak och verkan mellan de två meningarna?",
+      "choices": [
+        "Consequently",
+        "Similarly",
+        "For example",
+        "In contrast"
+      ],
+      "answer": 0,
+      "explanation": "\"Consequently\" visar att den andra meningen är en konsekvens av den första — resultaten var oklara, och DÄRFÖR upprepade forskarna experimentet. \"Similarly\", \"for example\" och \"in contrast\" passar inte den logiska relationen."
+    },
+    {
+      "id": "q-en6-writing-15",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "What problem does this paragraph have? \"Dogs make great pets. They are loyal. Paris is the capital of France. Many dog breeds are intelligent.\"",
+      "opener": "En av meningarna hör inte alls hemma i stycket.",
+      "choices": [
+        "It contains an unrelated sentence that breaks the paragraph's unity",
+        "It has too many topic sentences",
+        "It uses no supporting evidence at all",
+        "It is grammatically incorrect throughout"
+      ],
+      "answer": 0,
+      "explanation": "Meningen om Paris huvudstad har inget att göra med de andra meningarna om hundar, vilket bryter styckets enhet (unity). Ett bra stycke håller sig till en enda huvudidé."
     }
   ]
 }

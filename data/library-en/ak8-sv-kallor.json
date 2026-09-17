@@ -124,6 +124,111 @@
       "prompt": "What source-criticism criteria exist, and how do you write a summary without plagiarising?",
       "opener": "Four criteria and three rules for the summary.",
       "answer": "Source-criticism criteria · authenticity: is the source what it claims to be? · time: how old is the information, could it have changed? · dependency: is the source a first-hand account or does it rely on someone else? · bias: who is the sender and what do they gain from you believing it? Fact and opinion · facts can be checked and could be false · opinions contain value words such as best, should, too much. Summary · render the main content in your own words, shorter than the original · factual tone, no opinions of your own · use reporting markers: according to X, X argues that, X claims, the writer points out. Plagiarism · submitting other people's words or ideas as your own · avoided through your own wording, quotation marks for word-for-word quotes, and a source citation with author, title, publication and year."
+    },
+    {
+      "id": "q-sv8-kal-9",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "Which question belongs to the time criterion of source criticism?",
+      "opener": "Time is about how old the information is and whether it has had time to become outdated.",
+      "choices": [
+        "Is the source what it claims to be?",
+        "How old is the information, and could it have changed since then?",
+        "Does the sender want to sell something?",
+        "Does the same information appear elsewhere?"
+      ],
+      "answer": 1,
+      "explanation": "The time criterion asks how old a piece of information is and whether it risks being outdated, for example statistics that have changed since publication. Authenticity is about who is behind the source, bias about the purpose, and dependency about comparing with other sources."
+    },
+    {
+      "id": "q-sv8-kal-10",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "Which source is most trustworthy if you want to find out how many people cycle to work in Sweden?",
+      "opener": "Ask who collected the information and what the sender gains from you believing it.",
+      "choices": [
+        "A social media post where someone talks about their own bike commute",
+        "A report from a transport agency with a documented research method",
+        "An ad page for bikes that cites \"studies\"",
+        "A comment under a news article"
+      ],
+      "answer": 1,
+      "explanation": "The agency report is based on a documented research method and has nothing to gain from the answer — it is factual and verifiable. The bike ad has a clear bias since it wants to sell something, and the post and comment describe individual people's experiences."
+    },
+    {
+      "id": "q-sv8-kal-11",
+      "kind": "mc",
+      "topic": "fact and opinion",
+      "prompt": "Which of these statements is a factual statement?",
+      "opener": "A factual statement can be checked and could turn out to be false — an opinion can only be shared or not.",
+      "choices": [
+        "Football is the most fun sport there is.",
+        "Everyone should play a team sport.",
+        "Football matches go on for too long.",
+        "A match in the Swedish top division normally lasts 90 minutes."
+      ],
+      "answer": 3,
+      "explanation": "The match length can be checked in the rulebook and is therefore a factual statement. \"Most fun\", \"should\" and \"too long\" are value judgements that can't be measured."
+    },
+    {
+      "id": "q-sv8-kal-12",
+      "kind": "mc",
+      "topic": "summarising technique",
+      "prompt": "Which sentence uses a reporting marker correctly?",
+      "opener": "The reporting marker shows where the information comes from and that the opinion isn't yours.",
+      "choices": [
+        "Shorter school days make students more alert.",
+        "I think shorter school days make students more alert.",
+        "According to a study from the Karolinska Institute, shorter school days make students more alert.",
+        "Everyone knows that shorter school days make students more alert."
+      ],
+      "answer": 2,
+      "explanation": "\"According to a study from the Karolinska Institute\" is a reporting marker that attributes the information to a named source. Without a marker, the statement sounds like your own, and \"everyone knows that\" doesn't point to any source at all."
+    },
+    {
+      "id": "q-sv8-kal-13",
+      "kind": "mc",
+      "topic": "source citation",
+      "prompt": "Which piece of information is NOT needed in a complete source citation?",
+      "opener": "Think about what a reader needs in order to find the source themselves.",
+      "choices": [
+        "The author's name",
+        "The year of publication",
+        "The reader's own name",
+        "The title and publication"
+      ],
+      "answer": 2,
+      "explanation": "A source citation should include the author, title, publication and year, so the reader can find the source themselves. The reader's own name has no place in a source citation."
+    },
+    {
+      "id": "q-sv8-kal-14",
+      "kind": "worked",
+      "topic": "summarising technique",
+      "prompt": "Write a summary of the following passage from an article by Johan Berg in Svenska Dagbladet (2023): \"We see that students who eat breakfast perform better in morning lessons. The school should therefore offer free breakfast to all students.\"",
+      "opener": "First separate what is a factual statement from what is the writer's opinion. Then rephrase it in your own words and add a reporting marker.",
+      "answer": "According to Johan Berg (SvD, 2023), students who eat breakfast perform better in morning lessons. He therefore argues that the school should offer free breakfast to all students.",
+      "steps": [
+        "Read the passage and sort it out: that students perform better is a factual statement, that the school should offer free breakfast is the writer's opinion.",
+        "Rephrase it in your own words — replace \"perform better in morning lessons\" with your own construction instead of copying the sentence.",
+        "Insert reporting markers: \"according to Johan Berg\" for the factual part and \"he argues that\" for the opinion part, so the reader sees these aren't your own opinions.",
+        "State the source with name, publication and year — here Johan Berg, Svenska Dagbladet, 2023.",
+        "Finally check that no opinion of your own has crept in and that the summary is clearly shorter than the original."
+      ]
+    },
+    {
+      "id": "q-sv8-kal-15",
+      "kind": "mc",
+      "topic": "source citation",
+      "prompt": "Which of these does NOT count as plagiarism in a school assignment?",
+      "opener": "Think about which option clearly shows where the information comes from.",
+      "choices": [
+        "Copying several sentences from a webpage without stating the source",
+        "Copying a paragraph word for word and pretending it's your own",
+        "Quoting a sentence with quotation marks and stating where it comes from",
+        "Submitting a friend's essay as your own"
+      ],
+      "answer": 2,
+      "explanation": "A quote with quotation marks and a correct source citation clearly shows who actually wrote the words — that is allowed. The other options instead hide who the real author is, which counts as plagiarism."
     }
   ]
 }

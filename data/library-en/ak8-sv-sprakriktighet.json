@@ -124,6 +124,111 @@
       "prompt": "What rules and tricks do you use for de/dem, incorrect word splitting, comma splices and commas with subordinate clauses?",
       "opener": "Four common traps — one memory rule for each.",
       "answer": "De/dem · replace with vi/oss or they/them · if it becomes \"vi\"/\"they\" you write de, if it becomes \"oss\"/\"them\" you write dem · after a preposition (med, till, av, på, för) always dem · \"dom\" belongs to speech, not to the school assignment. Incorrect word splitting · if the words belong together as ONE thing they are written together (klassresa, cykelhjälm) · splitting the word changes the meaning. Comma splices · two main clauses may not be held together by just a comma · fix it with a full stop, semicolon or a conjunction (och, men, för, så). Comma with a subordinate clause · a subordinate clause before the main clause ends with a comma (\"När vi kom hem, åt vi\") · an inserted subordinate clause is framed by commas on both sides. Spoken language in writing · avoid utav, dom, typ, ba, asså."
+    },
+    {
+      "id": "q-sv8-spr-9",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Choose the correct word: \"Läraren berömde ___ för det fina arbetet.\" (The teacher praised ___ for the fine work.)",
+      "opener": "The word is the object after the verb — try replacing it with \"oss\" or \"vi\".",
+      "choices": [
+        "dem",
+        "de",
+        "dom",
+        "dessa de"
+      ],
+      "answer": 0,
+      "explanation": "The word is an object (the one being praised), and the oss/vi test shows the object form: \"läraren berömde oss\" — so \"dem\", not \"de\"."
+    },
+    {
+      "id": "q-sv8-spr-10",
+      "kind": "mc",
+      "topic": "de and dem",
+      "prompt": "Which sentence is correctly written for a school assignment?",
+      "opener": "Think about which word is the subject (the one helping) and which is the object (the one being helped).",
+      "choices": [
+        "Dom hjälpte dom med flytten.",
+        "De hjälpte dem med flytten.",
+        "Dem hjälpte de med flytten.",
+        "De hjälpte de med flytten."
+      ],
+      "answer": 1,
+      "explanation": "\"De\" is the subject (they who help) and \"dem\" is the object (them who get helped): \"De hjälpte dem\" (they helped them). \"Dom\" belongs to speech, not to the school assignment."
+    },
+    {
+      "id": "q-sv8-spr-11",
+      "kind": "mc",
+      "topic": "incorrect word splitting",
+      "prompt": "Which option is written correctly?",
+      "opener": "Read the words aloud: if you hear a stress dip in the middle, it's probably a compound word.",
+      "choices": [
+        "Hon bor i ett rad hus.",
+        "Hon bor i ett Radhus.",
+        "Hon bor i ett radhus.",
+        "Hon bor i ett rads hus."
+      ],
+      "answer": 2,
+      "explanation": "\"Radhus\" (terraced house) is a compound word and is written as one word, lowercase in the middle of a sentence. Writing \"rad hus\" splits it into two separate words that don't carry the same meaning."
+    },
+    {
+      "id": "q-sv8-spr-12",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "What is wrong with the sentence? \"Molnen var mörka, det skulle nog regna snart.\"",
+      "opener": "Look at what's on either side of the comma — could both parts stand as their own sentences?",
+      "choices": [
+        "Incorrect word splitting",
+        "Incorrect use of de and dem",
+        "The sentence is missing a subject",
+        "A comma splice — two main clauses joined by only a comma"
+      ],
+      "answer": 3,
+      "explanation": "Both parts are complete main clauses, so a comma alone is not enough. Fix it with a full stop, a semicolon, or a conjunction: \"Molnen var mörka, för det skulle nog regna snart.\""
+    },
+    {
+      "id": "q-sv8-spr-13",
+      "kind": "mc",
+      "topic": "punctuation",
+      "prompt": "Where should the comma go? \"Eftersom vägen var hal ___ körde vi extra försiktigt.\"",
+      "opener": "The sentence opens with a subordinate clause — where does it end?",
+      "choices": [
+        "After \"Eftersom\"",
+        "After \"hal\"",
+        "After \"körde\"",
+        "No comma is needed at all"
+      ],
+      "answer": 1,
+      "explanation": "The subordinate clause \"Eftersom vägen var hal\" comes first and ends with a comma before the main clause begins. A comma after \"Eftersom\" would cut straight through the subordinate clause, which is never correct."
+    },
+    {
+      "id": "q-sv8-spr-14",
+      "kind": "worked",
+      "topic": "de and dem",
+      "prompt": "Correct the sentence and explain every change: \"Dom som kom försent missade genomgången, dem andra fick anteckningar utav sin bänk kompis.\"",
+      "opener": "Look for the same four types of errors as before: dom in writing, de/dem errors, comma splices and incorrect word splitting.",
+      "answer": "De som kom försent missade genomgången. De andra fick anteckningar av sin bänkkompis.",
+      "steps": [
+        "\"Dom som kom försent\" → \"De som kom försent\". The word is a subject, and \"dom\" is spoken language that doesn't belong in a school assignment.",
+        "\"missade genomgången, dem andra fick\" → put a full stop after \"genomgången\". Two complete main clauses may not be joined together with just a comma (a comma splice).",
+        "\"dem andra\" → \"De andra\". It is they who got the notes, i.e. a subject — test with \"they\", not \"them\".",
+        "\"utav sin\" → \"av sin\". \"Utav\" is colloquial.",
+        "\"bänk kompis\" → \"bänkkompis\". A compound word that should be written as one."
+      ]
+    },
+    {
+      "id": "q-sv8-spr-15",
+      "kind": "mc",
+      "topic": "spoken and written language",
+      "prompt": "Which phrasing belongs in a written text?",
+      "opener": "Certain filler words carry over from speech but count as mistakes or carelessness in writing.",
+      "choices": [
+        "Typ alla i klassen var där.",
+        "Nästan alla i klassen var där.",
+        "Typ dom alla var där liksom.",
+        "Alla var typ där."
+      ],
+      "answer": 1,
+      "explanation": "\"Nästan alla\" (almost everyone) is the written-language phrasing. \"Typ\" and \"liksom\" as filler words belong in speech, not in a submitted assignment."
     }
   ]
 }

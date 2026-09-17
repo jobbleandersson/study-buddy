@@ -123,6 +123,110 @@
       "prompt": "Summarise chemical reactions and bonds: what distinguishes a chemical from a physical change, what types of bonds exist, and what is exothermic/endothermic?",
       "opener": "Think new substance or not, shared or transferred electrons, and energy in or out.",
       "answer": "Physical change: the substance's form or state changes, but it remains the same substance (e.g. ice melts) · Chemical change/reaction: one or more new substances are formed with new properties (e.g. combustion, rusting) · Covalent bond: atoms SHARE electron pairs, common between non-metals (e.g. water, H2O) · Ionic bond: electrons are transferred completely between atoms so that positive and negative ions attract each other (e.g. table salt, NaCl) · Reaction equation: shows which substances react (left of the arrow) and are formed (right of the arrow); the coefficients are balanced so the number of atoms of each element is equal on both sides (law of conservation of mass) · Exothermic reaction: releases energy to the surroundings, often as heat (e.g. combustion) · Endothermic reaction: absorbs energy from the surroundings (e.g. certain dissolution reactions)."
+    },
+    {
+      "id": "q-kemi-rea-9",
+      "kind": "mc",
+      "topic": "chemical and physical change",
+      "prompt": "Which of the following is an example of a PHYSICAL change?",
+      "opener": "Think about whether the substance remains the same substance, or whether something new is formed.",
+      "choices": [
+        "Iron rusts",
+        "Ice melts into water",
+        "A candle burns",
+        "Milk turns sour"
+      ],
+      "answer": 1,
+      "explanation": "When ice melts, it remains the same substance (water), just in a different state - a physical change. The other options form new substances and are chemical changes."
+    },
+    {
+      "id": "q-kemi-rea-10",
+      "kind": "mc",
+      "topic": "chemical bonds",
+      "prompt": "What type of bond holds metal atoms together in, for example, a piece of copper, where electrons can move freely between the atoms?",
+      "opener": "This type of bond also explains why metals conduct electricity well.",
+      "choices": [
+        "Metallic bond",
+        "Covalent bond",
+        "Ionic bond",
+        "Hydrogen bond"
+      ],
+      "answer": 0,
+      "explanation": "A metallic bond means the atoms share a \"sea\" of free electrons that can move through the whole material, which explains metals' good conductivity."
+    },
+    {
+      "id": "q-kemi-rea-11",
+      "kind": "mc",
+      "topic": "reaction equations",
+      "prompt": "In the reaction equation N2 + 3H2 → 2NH3, how many nitrogen atoms are there in total on the left side?",
+      "opener": "The molecule N2 already contains two nitrogen atoms, before you even look at the coefficient.",
+      "choices": [
+        "2",
+        "1",
+        "3",
+        "6"
+      ],
+      "answer": 0,
+      "explanation": "N2 means the molecule consists of two nitrogen atoms. Since the coefficient in front of N2 is 1 (invisible), there's a total of 2 nitrogen atoms on the left side."
+    },
+    {
+      "id": "q-kemi-rea-12",
+      "kind": "mc",
+      "topic": "exothermic and endothermic reactions",
+      "prompt": "Which of the following is an example of an ENDOTHERMIC process, which absorbs energy from the surroundings?",
+      "opener": "Think about what feels cold when it happens.",
+      "choices": [
+        "Ice melting",
+        "Wood burning",
+        "Petrol being burned in an engine",
+        "Acid and base being neutralised with heat released"
+      ],
+      "answer": 0,
+      "explanation": "When ice melts, energy is absorbed from the surroundings (holding ice feels cold) - an endothermic process. Combustion and exothermic neutralisations instead release energy."
+    },
+    {
+      "id": "q-kemi-rea-13",
+      "kind": "mc",
+      "topic": "chemical and physical change",
+      "prompt": "What always remains unchanged in a chemical reaction, according to the law of conservation of mass?",
+      "opener": "Mass is redistributed among new substances, but what happens to the total?",
+      "choices": [
+        "The total mass of all the substances involved",
+        "The number of molecules",
+        "The colour of the substances",
+        "The melting point of the substances"
+      ],
+      "answer": 0,
+      "explanation": "The law of conservation of mass says the total mass is the same before and after a chemical reaction - atoms are neither created nor destroyed, just rearranged. The number of molecules, colour and melting point can, however, change."
+    },
+    {
+      "id": "q-kemi-rea-14",
+      "kind": "worked",
+      "topic": "reaction equations",
+      "prompt": "Balance the reaction equation for the combustion of methane: CH4 + O2 → CO2 + H2O. How many of each molecule are needed?",
+      "opener": "Count the number of carbon, hydrogen and oxygen atoms on each side and adjust the coefficients until they match.",
+      "answer": "The balanced equation is CH4 + 2O2 → CO2 + 2H2O.",
+      "steps": [
+        "Write out the equation: CH4 + O2 → CO2 + H2O. Count atoms: the left side has 1 carbon, 4 hydrogen and 2 oxygen. The right side has 1 carbon, 2 hydrogen and 3 oxygen - unbalanced.",
+        "Put a 2 in front of H2O to get 4 hydrogen atoms on the right: CH4 + O2 → CO2 + 2H2O. Now hydrogen is balanced (4 = 4), but the right side now has 2 + 2 = 4 oxygen atoms against the left side's 2.",
+        "Put a 2 in front of O2 on the left to also get 4 oxygen atoms there: CH4 + 2O2 → CO2 + 2H2O.",
+        "Check: the left side has 1 carbon, 4 hydrogen and 4 oxygen (2×2). The right side has 1 carbon, 4 hydrogen (2×2) and 4 oxygen (2 + 2×1). Everything matches - the equation is balanced."
+      ]
+    },
+    {
+      "id": "q-kemi-rea-15",
+      "kind": "mc",
+      "topic": "exothermic and endothermic reactions",
+      "prompt": "Why does freshly poured concrete often feel warm as it cures?",
+      "opener": "Curing is a chemical reaction - which direction does the energy move?",
+      "choices": [
+        "The curing reaction is exothermic and releases heat to the surroundings",
+        "The curing reaction is endothermic and absorbs heat",
+        "Concrete always contains a heating element",
+        "It's only due to sunlight, not chemistry"
+      ],
+      "answer": 0,
+      "explanation": "The curing of concrete is an exothermic chemical reaction between cement and water, which releases heat - that's why freshly poured concrete often feels warm, even without sunlight."
     }
   ]
 }

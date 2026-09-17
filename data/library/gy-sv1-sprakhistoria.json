@@ -123,6 +123,110 @@
       "prompt": "Förklara dialekt, sociolekt, kronolekt och idiolekt.",
       "opener": "Fyra sorters variation — vad avgör vilken det är?",
       "answer": "Dialekt: variation efter geografiskt område (skånska, norrländska). Sociolekt: variation efter social grupp, klass eller yrke. Kronolekt: variation efter ålder (ungdomsspråk). Idiolekt: den enskilda individens unika språkbruk — summan av alla varieteter en person bär med sig."
+    },
+    {
+      "id": "q-sv1-hist-9",
+      "kind": "mc",
+      "topic": "nordiska språk",
+      "prompt": "Vilka språk räknas som svenskans grannspråk — de som svensktalande ofta kan förstå utan att ha studerat dem?",
+      "opener": "Tänk på vilka nordiska språk som ligger språkligt närmast svenskan i modern tid.",
+      "choices": [
+        "Danska och norska",
+        "Finska och samiska",
+        "Isländska och färöiska",
+        "Tyska och nederländska"
+      ],
+      "answer": 0,
+      "explanation": "Danska och norska är svenskans klassiska grannspråk — de är ömsesidigt begripliga utan formell inlärning. Isländska och färöiska är också nordgermanska, men har förändrats mindre över tid och är därför svårare att förstå utan studier."
+    },
+    {
+      "id": "q-sv1-hist-10",
+      "kind": "mc",
+      "topic": "lånord",
+      "prompt": "Svenskan har under 1900-talet och framåt tagit in många ord från engelskan, till exempel \"dejt\", \"jobb\" och \"chatta\". Vad kallas den här typen av ord?",
+      "opener": "Vilket språk kommer orden ursprungligen från?",
+      "choices": [
+        "Anglicismer (engelska lånord)",
+        "Purism",
+        "Kronolekt",
+        "Sociolekt"
+      ],
+      "answer": 0,
+      "explanation": "Anglicismer är ord eller uttryck som lånats in från engelskan. Purism är i stället en strävan att RENSA bort just sådana lånord ur språket."
+    },
+    {
+      "id": "q-sv1-hist-11",
+      "kind": "mc",
+      "topic": "minoritetsspråk",
+      "prompt": "Vad krävs för att ett språk ska räknas som ett av Sveriges nationella minoritetsspråk?",
+      "opener": "Det handlar inte om hur många som talar språket idag.",
+      "choices": [
+        "Att språket har talats i Sverige under lång, sammanhängande tid (historisk hävd)",
+        "Att språket har flest talare i Sverige efter svenska",
+        "Att språket talas av minst en miljon personer i Sverige",
+        "Att språket är officiellt språk i ett grannland"
+      ],
+      "answer": 0,
+      "explanation": "Kriteriet är historisk hävd — att språket funnits i Sverige under lång, sammanhängande tid. Antalet talare avgör inte statusen, vilket är varför till exempel arabiska (med fler talare i Sverige) inte är ett nationellt minoritetsspråk."
+    },
+    {
+      "id": "q-sv1-hist-12",
+      "kind": "mc",
+      "topic": "nordiska språk",
+      "prompt": "Vilket språk tillhör INTE den nordgermanska språkgrenen?",
+      "opener": "Ett av dessa fyra tillhör en helt annan språkfamilj.",
+      "choices": [
+        "Isländska",
+        "Färöiska",
+        "Finska",
+        "Norska"
+      ],
+      "answer": 2,
+      "explanation": "Finska tillhör den finsk-ugriska språkfamiljen, inte den nordgermanska. Isländska, färöiska och norska härstammar alla från fornnordiskan."
+    },
+    {
+      "id": "q-sv1-hist-13",
+      "kind": "mc",
+      "topic": "språklig variation",
+      "prompt": "En läkare använder facktermer som \"anamnes\" och \"palpation\" med kollegor, men förklarar samma saker enklare för patienter. Vilken typ av språklig variation, kopplad till yrke snarare än geografi eller ålder, handlar det om?",
+      "opener": "Vad har läkaren och kollegorna gemensamt som skiljer dem från patienterna?",
+      "choices": [
+        "Sociolekt",
+        "Dialekt",
+        "Kronolekt",
+        "Idiolekt"
+      ],
+      "answer": 0,
+      "explanation": "Sociolekt är variation kopplad till yrkesgrupp eller social tillhörighet — här skillnaden mellan fackspråk bland kollegor och vardagsspråk mot patienter."
+    },
+    {
+      "id": "q-sv1-hist-14",
+      "kind": "worked",
+      "topic": "nordiska språk",
+      "prompt": "Förklara varför en svensktalande ofta kan förstå en dansktalande utan att ha lärt sig danska, men har svårare att förstå en isländsktalande. Vilka begrepp förklarar skillnaden?",
+      "opener": "Alla fyra språk härstammar från samma rot — vad har hänt sedan dess som skiljer dem åt?",
+      "answer": "Danska och svenska är grannspråk med gemensamt ursprung och likartad utveckling, medan isländskan förändrats mindre och behållit äldre drag på grund av geografisk isolering.",
+      "steps": [
+        "Svenska, danska och norska härstammar alla från fornnordiskan och har genom nära kontakt förändrats på likartat sätt — det gör dem till grannspråk, ömsesidigt begripliga utan formell inlärning.",
+        "Isländska härstammar också från fornnordiskan, men Islands geografiska isolering har gjort att språket förändrats mycket mindre över tid och behållit fler ålderdomliga drag, till exempel böjningsformer.",
+        "Den bevarade ålderdomligheten gör isländska mer olikt modern svenska än vad danska och norska är, trots det gemensamma ursprunget.",
+        "Slutsats: språklig släktskap räcker inte för ömsesidig begriplighet — hur mycket språken har förändrats i förhållande till varandra spelar större roll."
+      ]
+    },
+    {
+      "id": "q-sv1-hist-15",
+      "kind": "mc",
+      "topic": "lånord",
+      "prompt": "Vilket ordpar visar tydligast på lågtyska lånord i svenskan från medeltiden?",
+      "opener": "Tänk på vilka ord som kom in i svenskan via Hansans handel i Östersjön.",
+      "choices": [
+        "borgare och tack",
+        "dejt och chatta",
+        "pizza och sushi",
+        "ombudsman och slalom"
+      ],
+      "answer": 0,
+      "explanation": "\"Borgare\" och \"tack\" är exempel på lågtyska lånord som kom in i svenskan under medeltiden genom Hansans handelskontakter. \"Dejt\" och \"chatta\" är moderna engelska lånord, medan \"pizza\"/\"sushi\" kommer från italienska/japanska och \"ombudsman\"/\"slalom\" är i stället exempel på svenska ord som lånats UT till andra språk."
     }
   ]
 }

@@ -711,7 +711,12 @@ store.init().then(() => {
   // Bring any demo or library sets loaded in a different language up to date —
   // then refresh whatever's on screen so a deep-linked session or the home
   // grid shows the corrected wording.
-  Promise.all([store.syncDemoLanguage(), store.syncLibraryLanguage()]).then((counts) => {
+  // Language first, then any questions a library moment has gained since the
+  // student added it — so an appended question lands in the right language.
+  Promise.all([
+    store.syncDemoLanguage(),
+    store.syncLibraryLanguage().then(async (n) => n + (await store.syncLibraryUpdates())),
+  ]).then((counts) => {
     if (!counts.some(Boolean)) return;
     if (isSessionActive()) { window.dispatchEvent(new Event("sb:langsession")); render({ chromeOnly: true }); }
     else render();

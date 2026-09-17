@@ -123,6 +123,111 @@
       "prompt": "Summarise key strategies for analysing complex texts: implicit argument, correlation vs causation, tone/irony, and accurate summary.",
       "opener": "Fyra vanliga fallgropar och hur du undviker dem på en avancerad läsförståelseuppgift.",
       "answer": "Implicit argument: leta efter vad texten INTE säger, och vad som ställs mot vad (juxtaposition) · Korrelation ≠ kausation: fråga om en tredje faktor kan förklara båda trenderna (confounding variable) · Ironi/sarkasm: orden säger en sak, sammanhanget/överdriften avslöjar motsatsen · Sammanfattning: väg in ALLA sidor texten presenterar, inte bara den du håller med om, och lägg inte till egna slutsatser texten inte stödjer"
+    },
+    {
+      "id": "q-en7gy-reading-9",
+      "kind": "mc",
+      "topic": "implicit argument",
+      "prompt": "Read the text and answer.\n\n\"The press release celebrates a 'restructuring for future growth.' It does not mention that 200 employees lost their jobs in the process.\"\n\nWhat does the omission suggest?",
+      "opener": "Vad avslöjar det pressmeddelandet INTE nämner, jämfört med vad som faktiskt hände?",
+      "choices": [
+        "The company is likely trying to present the layoffs in a more positive light by omitting them.",
+        "The layoffs were not significant enough to mention.",
+        "The press release is entirely objective and complete.",
+        "Future growth is guaranteed as a result of the restructuring."
+      ],
+      "answer": 0,
+      "explanation": "Genom att fira \"omstrukturering för framtida tillväxt\" utan att nämna att 200 personer förlorade jobbet, försöker företaget sannolikt framställa uppsägningarna i en mer positiv dager genom att utelämna dem."
+    },
+    {
+      "id": "q-en7gy-reading-10",
+      "kind": "mc",
+      "topic": "correlation vs causation",
+      "prompt": "Read the text and answer.\n\n\"Regions with more streetlights report lower crime rates. A city councillor proposed that installing more streetlights in all neighborhoods would directly reduce crime.\"\n\nWhat should a careful reader question about this proposal?",
+      "opener": "Kan det finnas en tredje faktor som förklarar både fler gatlyktor och lägre brottslighet?",
+      "choices": [
+        "Whether wealthier, safer areas simply already have more streetlights and lower crime for other reasons",
+        "Whether streetlights are too expensive to install",
+        "Whether the councillor understands what 'crime rate' means",
+        "Whether the study included enough cities"
+      ],
+      "answer": 0,
+      "explanation": "En kritisk läsare bör ifrågasätta om rikare, redan säkrare områden helt enkelt redan har fler gatlyktor OCH lägre brottslighet av andra skäl, snarare än att gatlyktorna orsakar den lägre brottsligheten."
+    },
+    {
+      "id": "q-en7gy-reading-11",
+      "kind": "mc",
+      "topic": "tone and irony",
+      "prompt": "Read the text and answer.\n\n\"Ah yes, because nothing says 'efficient meeting' like discussing the color of the new logo for forty-five minutes.\"\n\nWhat tone does this sentence convey?",
+      "opener": "Orden är överdrivet positiva om något som uppenbarligen var ineffektivt — ett tecken på sarkasm.",
+      "choices": [
+        "Sarcastic criticism of how the meeting's time was used",
+        "Genuine praise for the meeting's efficiency",
+        "A neutral description of the meeting's agenda",
+        "Confusion about what the meeting covered"
+      ],
+      "answer": 0,
+      "explanation": "Att kalla en 45 minuter lång diskussion om logotypens färg för \"effektivt möte\" är sarkastisk kritik av hur mötestiden användes."
+    },
+    {
+      "id": "q-en7gy-reading-12",
+      "kind": "mc",
+      "topic": "summarising complex arguments",
+      "prompt": "Read the text and answer.\n\n\"Proponents of a four-day school week cite improved teacher retention and student well-being. Opponents point to childcare difficulties for working parents and mixed academic results. Some districts report gains in math scores but declines in reading scores.\"\n\nWhich summary best reflects this text?",
+      "opener": "En bra sammanfattning väger in BÅDA sidorna och nyansen i resultaten (matte vs. läsning).",
+      "choices": [
+        "The four-day school week has both benefits and drawbacks, with academic effects that vary by subject.",
+        "The four-day school week is an unqualified success for all students.",
+        "The four-day school week should be abandoned immediately due to poor results.",
+        "Only teachers benefit from the four-day school week."
+      ],
+      "answer": 0,
+      "explanation": "Texten presenterar både fördelar (lärarnas kvarhållande, elevers välmående) och nackdelar (barnomsorg, blandade akademiska resultat) utan att ta ställning — alternativ 1 fångar denna balans."
+    },
+    {
+      "id": "q-en7gy-reading-13",
+      "kind": "mc",
+      "topic": "implicit argument",
+      "prompt": "Read the text and answer.\n\n\"The advertisement shows only young, visibly fit people using the fitness app, despite the company's claim that it is 'designed for everyone.'\"\n\nWhat does this juxtaposition imply?",
+      "opener": "Jämför vad annonsen VISAR med vad företaget PÅSTÅR.",
+      "choices": [
+        "There may be a gap between the company's stated inclusivity and how it actually markets the product.",
+        "The app is exclusively designed for elderly users.",
+        "The advertisement is factually inaccurate about the app's features.",
+        "Fitness apps are generally ineffective."
+      ],
+      "answer": 0,
+      "explanation": "Att bara visa unga, vältränade personer trots påståendet \"designed for everyone\" antyder en klyfta mellan företagets påstådda inkludering och hur produkten faktiskt marknadsförs."
+    },
+    {
+      "id": "q-en7gy-reading-14",
+      "kind": "mc",
+      "topic": "correlation vs causation",
+      "prompt": "Read the text and answer.\n\n\"Students who eat breakfast tend to score higher on tests. A headline claims 'Eating breakfast makes you smarter.'\"\n\nWhat alternative explanation does the headline fail to consider?",
+      "opener": "Kan en tredje faktor (t.ex. hemförhållanden) förklara både frukostvanor och testresultat?",
+      "choices": [
+        "Students from stable, well-resourced households may be both more likely to eat breakfast and to perform well academically for unrelated reasons",
+        "Breakfast cereal companies funded the study",
+        "Test scores are not a valid measure of intelligence",
+        "Some students skip breakfast on test days only"
+      ],
+      "answer": 0,
+      "explanation": "Elever från stabila, resursstarka hushåll äter sannolikt både oftare frukost och presterar bättre i skolan av orsaker som inte har med frukosten i sig att göra — en klassisk confounding variable som rubriken missar."
+    },
+    {
+      "id": "q-en7gy-reading-15",
+      "kind": "mc",
+      "topic": "tone and irony",
+      "prompt": "\"Of course, spending three hours in traffic on the way to a 'stress-free' vacation is exactly what everyone dreams of.\" Identify the rhetorical technique and its effect.",
+      "opener": "Ordet \"stress-free\" ställs mot den faktiska upplevelsen (tre timmar i trafik) — vad avslöjar kontrasten?",
+      "choices": [
+        "Irony — the writer highlights a contradiction between the label 'stress-free' and the actual experience",
+        "A literal, sincere description of an ideal vacation",
+        "A statistical claim about traffic patterns",
+        "An objective summary with no persuasive intent"
+      ],
+      "answer": 0,
+      "explanation": "Detta är ironi: skribenten lyfter fram motsägelsen mellan etiketten \"stress-free\" och den faktiska, stressiga upplevelsen för att kritisera påståendet."
     }
   ]
 }

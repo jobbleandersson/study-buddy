@@ -122,6 +122,110 @@
       "prompt": "Group the most common linking words by function.",
       "opener": "Four functions: addition, contrast, cause and effect, and example.",
       "answer": "Addition: moreover, furthermore, in addition, besides. Contrast: however, nevertheless, on the other hand, although, whereas. Cause and effect: therefore, consequently, as a result, thus, since. Example: for example, for instance, such as. Summary: in conclusion, to sum up, overall."
+    },
+    {
+      "id": "q-en5-wri-9",
+      "kind": "mc",
+      "topic": "formal and informal register",
+      "prompt": "Which sentence is most appropriate in a formal report?",
+      "opener": "Slang and abbreviated wording belong in casual speech, not in a report.",
+      "choices": [
+        "The results were kinda surprising, ngl.",
+        "The results were somewhat surprising.",
+        "OMG the results were surprising.",
+        "The results were surprising, lol."
+      ],
+      "answer": 1,
+      "explanation": "\"Somewhat surprising\" is worded factually and neutrally. \"Kinda\", \"ngl\", \"OMG\" and \"lol\" belong in informal chat messages, not a formal report."
+    },
+    {
+      "id": "q-en5-wri-10",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking word: \"The results were inconclusive. ___, the researchers recommend further study.\"",
+      "opener": "The second sentence is a CONSEQUENCE of the first.",
+      "choices": [
+        "Therefore",
+        "However",
+        "For example",
+        "In addition"
+      ],
+      "answer": 0,
+      "explanation": "\"Therefore\" expresses cause and effect — the results were unclear, THEREFORE further study is recommended."
+    },
+    {
+      "id": "q-en5-wri-11",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking word: \"The hotel was excellent. ___, the location was rather inconvenient.\"",
+      "opener": "The second sentence goes against the expectation the first one creates.",
+      "choices": [
+        "Moreover",
+        "However",
+        "Consequently",
+        "Similarly"
+      ],
+      "answer": 1,
+      "explanation": "\"However\" marks contrast — the hotel was excellent, BUT the location was inconvenient."
+    },
+    {
+      "id": "q-en5-wri-12",
+      "kind": "mc",
+      "topic": "formal and informal register",
+      "prompt": "You are writing a formal complaint email and know the recipient's name is Ms Andersson. How should the email begin?",
+      "opener": "Now the name is known — does that change anything compared with when it isn't?",
+      "choices": [
+        "Hey Andersson,",
+        "Dear Ms Andersson,",
+        "Hi there,",
+        "To whom it may concern,"
+      ],
+      "answer": 1,
+      "explanation": "When the recipient's name is known, \"Dear Ms Andersson,\" is used. \"To whom it may concern\" is instead used when neither the name nor the title is known."
+    },
+    {
+      "id": "q-en5-wri-13",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "What should a concluding paragraph typically do?",
+      "opener": "What does the reader expect from the last paragraph of a text?",
+      "choices": [
+        "Introduce brand new arguments not mentioned before",
+        "Summarise the main points and restate the overall message",
+        "List every source used in the essay",
+        "Ask the reader a series of unrelated questions"
+      ],
+      "answer": 1,
+      "explanation": "The conclusion should tie things together: summarise the main points and restate the text's overall message — not introduce new arguments the reader hasn't had a chance to process."
+    },
+    {
+      "id": "q-en5-wri-14",
+      "kind": "worked",
+      "topic": "formal and informal register",
+      "prompt": "Rewrite this in formal English: \"Hiya! Just wanted to say thanks a ton for the help yesterday, it was super kind of you. Lemme know if there's anything I can do back!\"",
+      "opener": "Go through the same four things as in the earlier example: greeting, contractions, slang, and closing.",
+      "answer": "Dear [Name], I would like to thank you sincerely for your help yesterday; it was extremely kind of you. Please let me know if there is anything I can do in return.",
+      "steps": [
+        "The greeting: \"Hiya!\" → \"Dear [Name],\" (or \"Dear Ms/Mr [Surname],\" if the name is known).",
+        "Slang and vague expressions are replaced: \"thanks a ton\" → \"thank you sincerely\", \"super kind\" → \"extremely kind\", \"Lemme know\" → \"Please let me know\".",
+        "Contractions are spelled out: \"there's\" → \"there is\".",
+        "Close formally, ideally with \"Yours sincerely\" (known recipient) or \"Yours faithfully\" (unknown recipient)."
+      ]
+    },
+    {
+      "id": "q-en5-wri-15",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking word: \"The bridge was closed for repairs. ___, commuters faced long delays every morning.\"",
+      "opener": "The second sentence is a direct CONSEQUENCE of the first.",
+      "choices": [
+        "As a result",
+        "Although",
+        "In contrast",
+        "For instance"
+      ],
+      "answer": 0,
+      "explanation": "\"As a result\" expresses cause and effect, just like \"therefore\" and \"consequently\": the bridge was closed, WHICH LED TO delays."
     }
   ]
 }

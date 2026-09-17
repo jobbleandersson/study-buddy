@@ -125,6 +125,111 @@
       "prompt": "What do you need to remember before an oral presentation and a conversation?",
       "opener": "A checklist for both when you speak and when you listen.",
       "answer": "Structure: an introduction that sparks interest and states what it's about · content with facts and examples · a conclusion that sums up. Preparation: key words on a card, never the whole text · practise out loud and time yourself. Voice and body language: speak a little slower than usual · hold your pauses · make eye contact with the audience · stand steady and avoid swaying. Active listening: look at the person speaking · nod and murmur · don't interrupt · ask follow-up questions starting with how, why or what — not questions answered with yes or no. Spoken forms (dom, nåt, ba, liksom) work when you're talking; written forms (de, något, bara) belong in what you write."
+    },
+    {
+      "id": "q-sv7-mun-9",
+      "kind": "mc",
+      "topic": "structure",
+      "prompt": "What should the CONTENT part of a talk include?",
+      "opener": "Think about what comes after interest has already been sparked.",
+      "choices": [
+        "Facts, examples and the most important thing you want to say",
+        "Just a summary",
+        "A question that sparks interest",
+        "A thank-you to the audience"
+      ],
+      "answer": 0,
+      "explanation": "The content part should give facts, examples and the most important message — it forms the actual core of the talk. A question that sparks interest belongs in the introduction, and a summary and a thank-you belong in the conclusion."
+    },
+    {
+      "id": "q-sv7-mun-10",
+      "kind": "mc",
+      "topic": "giving a talk",
+      "prompt": "Why is it better to use key words than to write out the whole speech word for word?",
+      "opener": "Think about the difference between speaking FREELY and reading aloud.",
+      "choices": [
+        "Key words let you speak in your own words and keep eye contact with the audience",
+        "Key words are always quicker to write",
+        "It's easier to memorise the whole text word for word",
+        "The audience always prefers longer speeches"
+      ],
+      "answer": 0,
+      "explanation": "With key words you remember the order but still speak in your own words and can look up at the audience instead of reading aloud. Writing out the whole speech makes it easy to get stuck if you lose your place."
+    },
+    {
+      "id": "q-sv7-mun-11",
+      "kind": "mc",
+      "topic": "body language and voice",
+      "prompt": "What does it often signal if a speaker talks very fast and keeps looking down at the paper the whole time?",
+      "opener": "Think about what usually happens to the voice and gaze when someone feels uneasy.",
+      "choices": [
+        "Nervousness, which makes the message harder to follow",
+        "That the speaker is very confident and experienced",
+        "That the speech is extra well prepared",
+        "Nothing in particular"
+      ],
+      "answer": 0,
+      "explanation": "A fast pace and eyes stuck on the paper are common signs of nervousness, and that makes it harder for the audience to keep up. A confident speaker more often keeps a calmer pace and seeks eye contact."
+    },
+    {
+      "id": "q-sv7-mun-12",
+      "kind": "mc",
+      "topic": "active listening",
+      "prompt": "Which behaviour shows that you're listening actively to someone telling you something important to them?",
+      "opener": "Think about what makes the person speaking feel heard.",
+      "choices": [
+        "Looking at your phone at the same time",
+        "Nodding, making eye contact and asking a follow-up question",
+        "Immediately changing the subject",
+        "Interrupting to talk about yourself"
+      ],
+      "answer": 1,
+      "explanation": "Nodding, eye contact and a follow-up question show that you're following along and care about what's being said. Looking at your phone, changing the subject or interrupting instead signal that you're not listening."
+    },
+    {
+      "id": "q-sv7-mun-13",
+      "kind": "mc",
+      "topic": "spoken versus written language",
+      "prompt": "Which word pair correctly shows the difference between spoken and written Swedish?",
+      "opener": "Think about which form belongs in a written school assignment.",
+      "choices": [
+        "Spoken: \"nåt\" — Written: \"något\"",
+        "Spoken: \"något\" — Written: \"nåt\"",
+        "Spoken and written Swedish are always identical",
+        "Spoken forms are only used in school"
+      ],
+      "answer": 0,
+      "explanation": "\"Nåt\" (something) is a spoken-language form we often use when talking, while \"något\" is the full written-language form that belongs in what you write. The other options have it backwards or aren't true at all."
+    },
+    {
+      "id": "q-sv7-mun-14",
+      "kind": "worked",
+      "topic": "giving a talk",
+      "prompt": "Plan a two-minute talk about a hobby you have. What should be included, and in what order?",
+      "opener": "Split the time into three parts and decide what each part should contain.",
+      "answer": "Introduction: capture interest with a question or a short example and say which hobby it is. Content: tell how you started, what you do and why you enjoy it, with one concrete example. Conclusion: sum up why others might enjoy the hobby too and thank the audience for listening.",
+      "steps": [
+        "Decide your message in one sentence: what do you want the class to remember about the hobby?",
+        "Introduction (about 20 seconds): a question or a short example that sparks curiosity, plus which hobby it is.",
+        "Content (about 80 seconds): how you started, what the hobby involves, and one concrete example of why it's fun.",
+        "Conclusion (about 20 seconds): sum up why the hobby is worth trying and thank the audience.",
+        "Write the key words on a small card and practise out loud with timing at least twice."
+      ]
+    },
+    {
+      "id": "q-sv7-mun-15",
+      "kind": "mc",
+      "topic": "structure",
+      "prompt": "What is the purpose of the conclusion in a talk?",
+      "opener": "Think about what the audience should be left with once the talk is over.",
+      "choices": [
+        "To briefly sum up the most important points and round off the talk",
+        "To present completely new facts that haven't been mentioned before",
+        "To ask a question the audience never gets an answer to",
+        "To just say goodbye with no connection to the content"
+      ],
+      "answer": 0,
+      "explanation": "The conclusion should tie the talk together by briefly summing up the most important points. New facts belong in the content part, not in the conclusion, which should round off what has already been said."
     }
   ]
 }

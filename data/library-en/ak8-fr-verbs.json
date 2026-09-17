@@ -114,6 +114,111 @@
       "prompt": "How are aller, faire, vouloir and pouvoir conjugated in the present tense?",
       "opener": "Four of the most common irregular verbs.",
       "answer": "Aller (to go): vais, vas, va, allons, allez, vont. Aller + infinitive = going to do something (future, futur proche). Faire (to do/make): fais, fais, fait, faisons, faites, font. Vouloir (to want): veux, veux, veut, voulons, voulez, veulent. Pouvoir (can/to be able to): peux, peux, peut, pouvons, pouvez, peuvent."
+    },
+    {
+      "id": "q-fr8-verb-9",
+      "kind": "mc",
+      "topic": "aller",
+      "prompt": "Choose the right form: \"Nous ___ au marché.\" (aller = to go)",
+      "opener": "The \"nous\" form of aller ends in -ons.",
+      "choices": [
+        "allons",
+        "allez",
+        "vont",
+        "va"
+      ],
+      "answer": 0,
+      "explanation": "\"Aller\" conjugates as: je vais, tu vas, il/elle va, nous allons, vous allez, ils/elles vont. \"Nous\" gives \"allons\"."
+    },
+    {
+      "id": "q-fr8-verb-10",
+      "kind": "mc",
+      "topic": "futur proche",
+      "prompt": "What does \"Je vais partir demain\" mean?",
+      "opener": "\"Aller + infinitive\" describes something you intend to do.",
+      "choices": [
+        "I'm going to leave tomorrow",
+        "I left yesterday",
+        "I'm leaving right now",
+        "I want to leave tomorrow"
+      ],
+      "answer": 0,
+      "explanation": "\"Je vais partir demain\" means \"I'm going to leave tomorrow\", using futur proche (aller + infinitive)."
+    },
+    {
+      "id": "q-fr8-verb-11",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Choose the right form: \"Vous ___ vos devoirs ce soir ?\" (faire = to do)",
+      "opener": "The \"vous\" form of faire is irregular.",
+      "choices": [
+        "faites",
+        "fais",
+        "fait",
+        "font"
+      ],
+      "answer": 0,
+      "explanation": "\"Faire\" conjugates as: je fais, tu fais, il/elle fait, nous faisons, vous faites, ils/elles font. \"Vous\" gives \"faites\"."
+    },
+    {
+      "id": "q-fr8-verb-12",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Choose the right form: \"Ils ___ leurs devoirs ensemble.\" (faire = to do)",
+      "opener": "The \"ils\" form of faire is also irregular.",
+      "choices": [
+        "font",
+        "fait",
+        "faites",
+        "faisons"
+      ],
+      "answer": 0,
+      "explanation": "\"Ils\" gives \"font\": \"ils font leurs devoirs\" (they do their homework)."
+    },
+    {
+      "id": "q-fr8-verb-13",
+      "kind": "mc",
+      "topic": "aller",
+      "prompt": "Choose the right form: \"Tu ___ à la piscine samedi ?\" (aller = to go)",
+      "opener": "The \"tu\" form of aller.",
+      "choices": [
+        "vas",
+        "va",
+        "vais",
+        "allez"
+      ],
+      "answer": 0,
+      "explanation": "\"Aller\" conjugates as: je vais, tu vas, il/elle va, nous allons, vous allez, ils/elles vont. \"Tu\" gives \"vas\"."
+    },
+    {
+      "id": "q-fr8-verb-14",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Choose the right form: \"Elle ___ venir avec nous.\" (pouvoir = to be able to)",
+      "opener": "The \"elle\" form of pouvoir.",
+      "choices": [
+        "peut",
+        "peux",
+        "pouvons",
+        "peuvent"
+      ],
+      "answer": 0,
+      "explanation": "\"Pouvoir\" conjugates as: je peux, tu peux, il/elle peut, nous pouvons, vous pouvez, ils/elles peuvent. \"Elle\" gives \"peut\"."
+    },
+    {
+      "id": "q-fr8-verb-15",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Choose the right form: \"Ils ___ regarder un film.\" (vouloir = to want)",
+      "opener": "The \"ils\" form of vouloir.",
+      "choices": [
+        "veulent",
+        "veut",
+        "voulons",
+        "veux"
+      ],
+      "answer": 0,
+      "explanation": "\"Vouloir\" conjugates as: je veux, tu veux, il/elle veut, nous voulons, vous voulez, ils/elles veulent. \"Ils\" gives \"veulent\"."
     }
   ]
 }

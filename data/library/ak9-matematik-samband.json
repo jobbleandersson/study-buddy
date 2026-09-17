@@ -122,6 +122,108 @@
       "prompt": "Vad betyder $k$ och $m$ i en rät linjes ekvation $y = kx + m$?",
       "opener": "Ett av dem bestämmer lutningen, det andra startpunkten.",
       "answer": "$k$ är lutningen (riktningskoefficienten) — hur mycket $y$ ändras när $x$ ökar med 1. $m$ är där linjen skär y-axeln, alltså $y$-värdet när $x = 0$."
+    },
+    {
+      "id": "q-ma9-sam-9",
+      "kind": "mc",
+      "topic": "linjära funktioner",
+      "prompt": "Funktionen är $y = 5x - 2$. Vad är $y$ när $x = -3$?",
+      "opener": "Byt ut $x$ mot $-3$ och håll koll på tecknen.",
+      "choices": [
+        "-17",
+        "-13",
+        "13",
+        "17"
+      ],
+      "answer": 0,
+      "explanation": "$y = 5 \\cdot (-3) - 2 = -15 - 2 = -17$."
+    },
+    {
+      "id": "q-ma9-sam-10",
+      "kind": "mc",
+      "topic": "grafer",
+      "prompt": "En rät linje går genom punkterna $(0, 4)$ och $(2, 10)$. Vad är $k$-värdet (lutningen)?",
+      "opener": "$k$ är förändringen i $y$ delat med förändringen i $x$.",
+      "choices": [
+        "6",
+        "2",
+        "3",
+        "5"
+      ],
+      "answer": 2,
+      "explanation": "$k = \\frac{10 - 4}{2 - 0} = \\frac{6}{2} = 3$."
+    },
+    {
+      "id": "q-ma9-sam-11",
+      "kind": "mc",
+      "topic": "proportionalitet",
+      "prompt": "$y$ är proportionell mot $x$. När $x = 4$ är $y = 10$. Vad är $y$ när $x = 6$?",
+      "opener": "Räkna först ut proportionalitetskonstanten $k = y/x$.",
+      "choices": [
+        "12",
+        "16",
+        "15",
+        "24"
+      ],
+      "answer": 2,
+      "explanation": "$k = \\frac{10}{4} = 2{,}5$. Då är $y = 2{,}5 \\cdot 6 = 15$ när $x = 6$."
+    },
+    {
+      "id": "q-ma9-sam-12",
+      "kind": "mc",
+      "topic": "linjära funktioner",
+      "prompt": "Ett taxiföretag tar 40 kr i starttaxa plus 15 kr per kilometer. Vad kostar en resa på 12 km?",
+      "opener": "Starttaxan betalas oavsett hur långt du åker.",
+      "choices": [
+        "180 kr",
+        "205 kr",
+        "260 kr",
+        "220 kr"
+      ],
+      "answer": 3,
+      "explanation": "$y = 15 \\cdot 12 + 40 = 180 + 40 = 220$ kr. Att glömma starttaxan ger felaktigt 180 kr."
+    },
+    {
+      "id": "q-ma9-sam-13",
+      "kind": "mc",
+      "topic": "grafer",
+      "prompt": "Grafen till funktionen $y = -2x + 9$ skär y-axeln i vilken punkt?",
+      "opener": "Vad är $x$ i varje punkt som ligger på y-axeln?",
+      "choices": [
+        "$(9, 0)$",
+        "$(-2, 9)$",
+        "$(0, 9)$",
+        "$(0, -2)$"
+      ],
+      "answer": 2,
+      "explanation": "På y-axeln är $x = 0$. Då blir $y = -2 \\cdot 0 + 9 = 9$, alltså punkten $(0, 9)$ — det är $m$-värdet."
+    },
+    {
+      "id": "q-ma9-sam-14",
+      "kind": "worked",
+      "topic": "proportionalitet",
+      "prompt": "8 liter bensin kostar 152 kr. Hur mycket kostar 20 liter, om priset är proportionellt mot mängden? Visa hur du tänker.",
+      "opener": "Räkna först ut priset per liter.",
+      "answer": "380 kr",
+      "steps": [
+        "Pris per liter: $152 / 8 = 19$ kr/liter.",
+        "Pris för 20 liter: $19 \\cdot 20 = 380$ kr."
+      ]
+    },
+    {
+      "id": "q-ma9-sam-15",
+      "kind": "mc",
+      "topic": "linjära funktioner",
+      "prompt": "För funktionen $y = 4x - 5$: för vilket värde av $x$ är $y = 11$?",
+      "opener": "Sätt in $y = 11$ i formeln och lös ut $x$, samma sätt som en ekvation.",
+      "choices": [
+        "1,5",
+        "6",
+        "9",
+        "4"
+      ],
+      "answer": 3,
+      "explanation": "$4x - 5 = 11 \\Rightarrow 4x = 16 \\Rightarrow x = 4$."
     }
   ]
 }

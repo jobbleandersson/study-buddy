@@ -113,6 +113,111 @@
       "prompt": "Hur fungerar ackusativ på tyska, och vilka artiklar/pronomen ändras?",
       "opener": "Bara maskulinum ändras — allt annat är som i nominativ.",
       "answer": "Ackusativ används för det direkta objektet (den som \"tar emot\" handlingen). Bestämd artikel: der → den (maskulinum, ENDA som ändras), die/das/die oförändrade. Obestämd artikel: ein → einen (maskulinum), eine/ein oförändrade. Personliga pronomen: ich→mich, du→dich, er→ihn, sie→sie, es→es, wir→uns, ihr→euch, sie→sie. Exempel: \"Ich sehe den Hund\" (jag ser hunden), \"Ich liebe dich\" (jag älskar dig)."
+    },
+    {
+      "id": "q-de8-akk-9",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Välj rätt form: \"Ich trinke ___ Kaffee.\" (der Kaffee, direkt objekt)",
+      "opener": "\"Kaffee\" är maskulinum och är objektet i meningen.",
+      "choices": [
+        "den",
+        "der",
+        "dem",
+        "des"
+      ],
+      "answer": 0,
+      "explanation": "\"Kaffee\" är maskulinum och är objektet (vad man dricker), så artikeln blir \"den\" i ackusativ."
+    },
+    {
+      "id": "q-de8-akk-10",
+      "kind": "mc",
+      "topic": "accusative pronouns",
+      "prompt": "Välj rätt pronomen: \"Er besucht ___ jedes Wochenende.\" (Han besöker oss varje helg.)",
+      "opener": "\"Wir\" (vi) blir ett annat ord i ackusativ.",
+      "choices": [
+        "uns",
+        "wir",
+        "euch",
+        "sie"
+      ],
+      "answer": 0,
+      "explanation": "\"Wir\" (vi, nominativ) blir \"uns\" i ackusativ: \"Er besucht uns\" (han besöker oss)."
+    },
+    {
+      "id": "q-de8-akk-11",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Vilken form har \"eine\" (femininum) i ackusativ?",
+      "opener": "Femininum är ett av de genus som INTE ändras i ackusativ.",
+      "choices": [
+        "Eine (oförändrad)",
+        "Einen",
+        "Einer",
+        "Einem"
+      ],
+      "answer": 0,
+      "explanation": "Femininum ändras inte i ackusativ: \"eine\" är samma i nominativ och ackusativ."
+    },
+    {
+      "id": "q-de8-akk-12",
+      "kind": "mc",
+      "topic": "accusative pronouns",
+      "prompt": "Välj rätt pronomen: \"Ich liebe ___.\" (Jag älskar dig.)",
+      "opener": "\"Du\" (du) blir ett annat ord i ackusativ.",
+      "choices": [
+        "dich",
+        "du",
+        "dir",
+        "dein"
+      ],
+      "answer": 0,
+      "explanation": "\"Du\" (du, nominativ) blir \"dich\" i ackusativ: \"Ich liebe dich\" (jag älskar dig)."
+    },
+    {
+      "id": "q-de8-akk-13",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Välj rätt obestämd artikel: \"Sie kauft ___ Tisch.\" (der Tisch, direkt objekt)",
+      "opener": "\"Ein\" ändras till \"einen\" i maskulinum ackusativ.",
+      "choices": [
+        "einen",
+        "ein",
+        "eine",
+        "einem"
+      ],
+      "answer": 0,
+      "explanation": "\"Tisch\" är maskulinum och är objektet, så \"ein\" blir \"einen\" i ackusativ."
+    },
+    {
+      "id": "q-de8-akk-14",
+      "kind": "mc",
+      "topic": "accusative pronouns",
+      "prompt": "Välj rätt pronomen: \"Kennst du ___?\" (Känner du honom?)",
+      "opener": "\"Er\" (han) blir ett annat ord i ackusativ.",
+      "choices": [
+        "ihn",
+        "er",
+        "ihm",
+        "sein"
+      ],
+      "answer": 0,
+      "explanation": "\"Er\" (han, nominativ) blir \"ihn\" i ackusativ: \"Kennst du ihn?\" (känner du honom?)."
+    },
+    {
+      "id": "q-de8-akk-15",
+      "kind": "mc",
+      "topic": "accusative case",
+      "prompt": "Vilken mening är grammatiskt korrekt?",
+      "opener": "Bara maskulinum ändras i ackusativ, från \"der\" till \"den\".",
+      "choices": [
+        "Ich sehe den Mann.",
+        "Ich sehe der Mann.",
+        "Ich sehe dem Mann.",
+        "Ich sehe des Mann."
+      ],
+      "answer": 0,
+      "explanation": "\"Mann\" är maskulinum och är objektet i meningen, så artikeln ska vara \"den\": \"Ich sehe den Mann.\"."
     }
   ]
 }

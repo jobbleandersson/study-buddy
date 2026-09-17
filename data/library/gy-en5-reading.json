@@ -124,6 +124,110 @@
       "prompt": "What strategies help you answer reading comprehension questions?",
       "opener": "Ett par vanor som gör skillnad på provet.",
       "answer": "Läs frågan först så vet du vad du letar efter. Skilj på huvudbudskap (textens poäng som helhet) och detaljer (enskilda fakta). Vid ord du inte kan: använd sammanhanget — meningen efter förklarar ofta ordet. Vid inference: bygg bara på det texten faktiskt antyder, inte på egna antaganden. Misstänk svarsalternativ som är sanna men inte svarar på frågan, eller som säger mer än texten gör."
+    },
+    {
+      "id": "q-en5-read-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"City parks were once seen as a luxury few municipalities could afford. Today, a growing body of research links green spaces to lower stress levels, better air quality and even reduced crime rates. Some cities have begun treating parks not as decoration, but as essential infrastructure.\"\n\nWhat is the main idea of the text?",
+      "opener": "Sista meningen sammanfattar ofta textens poäng — vad säger den?",
+      "choices": [
+        "Parks are now viewed as a necessary part of city infrastructure, not just decoration",
+        "Most cities cannot afford to build parks",
+        "Crime rates have nothing to do with green spaces",
+        "Air quality has no connection to city planning"
+      ],
+      "answer": 0,
+      "explanation": "Texten bygger upp forskning som kopplar parker till flera fördelar, och avslutar med att parker nu ses som nödvändig infrastruktur snarare än lyx eller dekoration."
+    },
+    {
+      "id": "q-en5-read-10",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Oliver kept rereading the same paragraph, his eyes drifting to the clock every few seconds. When his phone finally buzzed, he exhaled and let his shoulders drop.\"\n\nWhat can we infer about Oliver?",
+      "opener": "Vad avslöjar det att axlarna sjunker och han andas ut när telefonen ringer?",
+      "choices": [
+        "He was bored with his book",
+        "He was anxiously waiting for a message or call",
+        "He fell asleep while reading",
+        "He was angry at his phone"
+      ],
+      "answer": 1,
+      "explanation": "Att läsa om samma stycke, kolla klockan ofta och sedan slappna av när telefonen ringer signalerar spänd väntan — inte uttråkning eller ilska."
+    },
+    {
+      "id": "q-en5-read-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"The committee's decision was met with widespread outrage; furious residents flooded the town hall with complaints within hours.\"\n\nIn this context, \"outrage\" means:",
+      "opener": "Ordet \"furious\" i samma mening ger en stark ledtråd.",
+      "choices": [
+        "mild amusement",
+        "intense anger",
+        "quiet acceptance",
+        "confusion"
+      ],
+      "answer": 1,
+      "explanation": "\"Furious residents\" (rasande invånare) förklarar innebörden av \"outrage\": stark ilska/upprördhet."
+    },
+    {
+      "id": "q-en5-read-12",
+      "kind": "mc",
+      "topic": "tone and purpose",
+      "prompt": "Read the text and answer.\n\n\"Oh sure, because nothing says 'relaxing vacation' like three connecting flights and a missing suitcase. Can't wait to do it all again next year.\"\n\nWhat is the writer's tone?",
+      "opener": "Menar skribenten verkligen att resan var avkopplande?",
+      "choices": [
+        "Sincere and grateful",
+        "Sarcastic",
+        "Neutral and factual",
+        "Formal"
+      ],
+      "answer": 1,
+      "explanation": "\"Oh sure\" och den överdrivna, motsägelsefulla beskrivningen (tre mellanlandningar och en förlorad väska som \"relaxing vacation\") signalerar sarkasm — skribenten menar motsatsen till vad som sägs."
+    },
+    {
+      "id": "q-en5-read-13",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Automation has eliminated some jobs, but history shows new industries tend to emerge alongside the old ones disappearing. The real challenge, economists argue, is not the number of jobs but how quickly workers can be retrained for the ones that remain or emerge.\"\n\nWhich statement best captures the writer's point?",
+      "opener": "Vad säger sista meningen om VAD den verkliga utmaningen är?",
+      "choices": [
+        "Automation will destroy the job market completely",
+        "The main challenge is retraining workers quickly enough as jobs change, not simply the total number of jobs",
+        "New industries never emerge to replace old ones",
+        "Economists agree automation has no effect on employment"
+      ],
+      "answer": 1,
+      "explanation": "Texten pekar specifikt ut omskolningstakten som den verkliga utmaningen — inte det totala antalet jobb, och inte att automatisering skulle förstöra arbetsmarknaden helt."
+    },
+    {
+      "id": "q-en5-read-14",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Read the text and explain what has happened, and how you know.\n\n\"The garage door was open, and the car was gone. On the kitchen counter lay a hastily scribbled note next to an untouched cup of coffee, still steaming.\"",
+      "opener": "Tre detaljer nämns. Vad betyder de tillsammans?",
+      "answer": "Någon lämnade huset hastigt, troligen kallad iväg oväntat, innan de hann dricka sitt kaffe.",
+      "steps": [
+        "Detalj 1: garageporten är öppen och bilen borta — någon har kört iväg.",
+        "Detalj 2: en hastigt kladdad lapp — meddelandet skrevs snabbt, vilket tyder på tidsbrist.",
+        "Detalj 3: en orörd kopp kaffe som fortfarande ångar — personen lämnade nästan direkt efter att ha bryggt det, vilket gör avfärden plötslig och oplanerad.",
+        "Sammantaget antyder detaljerna en oväntad, hastig avfärd — texten säger det aldrig rakt ut, vilket är just vad inference innebär."
+      ]
+    },
+    {
+      "id": "q-en5-read-15",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"Despite the coach's reassurances, the team's performance remained erratic — brilliant in one half, sloppy and disorganised in the next.\"\n\nIn this context, \"erratic\" means:",
+      "opener": "Vad beskriver kontrasten mellan \"brilliant\" och \"sloppy and disorganised\"?",
+      "choices": [
+        "consistently excellent",
+        "unpredictable and inconsistent",
+        "extremely slow",
+        "well-organised"
+      ],
+      "answer": 1,
+      "explanation": "\"Erratic\" betyder oberäknelig, ojämn. Kontrasten mellan lysande i första halvlek och slarvig i den andra illustrerar just detta."
     }
   ]
 }

@@ -122,6 +122,111 @@
       "prompt": "Vilka är de vanligaste franska-svenska falska vännerna att se upp med, och vad betyder de egentligen?",
       "opener": "En lista att repetera inför läsförståelse och skrivuppgifter.",
       "answer": "actuellement = för närvarande (INTE aktuellt → d'actualité) · librairie = bokhandel (INTE bibliotek → bibliothèque) · sensible = känslig (INTE förnuftig → raisonnable/sensé) · demander = fråga/be om (INTE kräva → exiger) · attendre = vänta (INTE vänta på uppmärksamhet/delta → assister à) · assister à = närvara vid (INTE assistera → aider) · une chance = en tur/möjlighet (kan betyda tur, inte bara chans i betydelsen risk) · rester = stanna kvar (INTE resa → voyager) · un préservatif = kondom (INTE konserveringsmedel → un conservateur). Idiom att kunna: poser un lapin (ställa upp någon), avoir le cafard (vara nere), Ça marche ! (det funkar/okej!)."
+    },
+    {
+      "id": "q-fr4-idiom-9",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder franskans \"demander\"?",
+      "opener": "Ordet liknar engelskans \"demand\" men betyder något mildare.",
+      "choices": [
+        "Fråga/be om",
+        "Kräva",
+        "Beställa",
+        "Föreslå"
+      ],
+      "answer": 0,
+      "explanation": "\"Demander\" betyder \"fråga/be om\", inte \"kräva\" (som heter \"exiger\" på franska)."
+    },
+    {
+      "id": "q-fr4-idiom-10",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder franskans \"assister à\"?",
+      "opener": "Ordet ser ut som \"assistera\" men betyder något annat.",
+      "choices": [
+        "Närvara vid",
+        "Assistera/hjälpa",
+        "Attackera",
+        "Undvika"
+      ],
+      "answer": 0,
+      "explanation": "\"Assister à\" betyder \"att närvara vid\" (t.ex. ett möte), inte \"assistera/hjälpa\" (som heter \"aider\" på franska)."
+    },
+    {
+      "id": "q-fr4-idiom-11",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "Vad betyder uttrycket \"coûter les yeux de la tête\"?",
+      "opener": "Bokstavligen \"kosta ögonen ur huvudet\".",
+      "choices": [
+        "Att vara mycket dyrt",
+        "Att vara mycket smärtsamt",
+        "Att vara värdelöst",
+        "Att göra ont i ögonen"
+      ],
+      "answer": 0,
+      "explanation": "\"Coûter les yeux de la tête\" är ett idiom som betyder \"att kosta skjortan\"."
+    },
+    {
+      "id": "q-fr4-idiom-12",
+      "kind": "mc",
+      "topic": "colloquial expressions",
+      "prompt": "Vad betyder \"C'est pas grave\" i vardagligt tal?",
+      "opener": "Ett vanligt sätt att lugna någon.",
+      "choices": [
+        "Det gör inget/ingen fara",
+        "Det är väldigt allvarligt",
+        "Jag bryr mig inte",
+        "Det är omöjligt"
+      ],
+      "answer": 0,
+      "explanation": "\"C'est pas grave\" (vardaglig form av \"ce n'est pas grave\") betyder \"det gör inget/ingen fara\"."
+    },
+    {
+      "id": "q-fr4-idiom-13",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "Vad betyder franskans \"rester\"?",
+      "opener": "Ordet liknar ett svenskt ord för att resa bort.",
+      "choices": [
+        "Stanna kvar",
+        "Resa",
+        "Vila",
+        "Sova"
+      ],
+      "answer": 0,
+      "explanation": "\"Rester\" betyder \"att stanna kvar\", INTE \"resa\" (som heter \"voyager\" på franska)."
+    },
+    {
+      "id": "q-fr4-idiom-14",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "Vad betyder uttrycket \"avoir un chat dans la gorge\"?",
+      "opener": "Bokstavligen \"ha en katt i halsen\".",
+      "choices": [
+        "Vara hes/ha en klump i halsen",
+        "Vara rädd för katter",
+        "Ha ätit för mycket",
+        "Vara mycket glad"
+      ],
+      "answer": 0,
+      "explanation": "\"Avoir un chat dans la gorge\" betyder att vara hes eller ha en klump i halsen, t.ex. när man har svårt att prata."
+    },
+    {
+      "id": "q-fr4-idiom-15",
+      "kind": "mc",
+      "topic": "colloquial expressions",
+      "prompt": "Vad betyder \"Il pleut des cordes\"?",
+      "opener": "Bokstavligen \"det regnar rep\".",
+      "choices": [
+        "Det öser ner (regnar mycket)",
+        "Det är blåsigt",
+        "Det är soligt",
+        "Det snöar"
+      ],
+      "answer": 0,
+      "explanation": "\"Il pleut des cordes\" är ett bildligt uttryck för att det regnar väldigt mycket, ungefär svenskans \"det öser ner\"."
     }
   ]
 }

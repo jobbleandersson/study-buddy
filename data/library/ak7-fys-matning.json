@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta grundenheterna och prefixen du behöver kunna.",
       "opener": "Gå igenom längd, massa, tid och volym först, sedan prefixen.",
       "answer": "Längd: meter (m) · Massa: kilogram (kg), ofta gram (g) i skolan · Tid: sekund (s) · Volym: kubikmeter (m³), i praktiken liter (l) · Prefix: kilo = 1000 gånger, centi = en hundradel, milli = en tusendel · 1 m = 10 dm = 100 cm = 1000 mm · 1 km = 1000 m · 1 kg = 1000 g · 1 l = 1 dm³ = 1000 ml · 1 ml = 1 cm³ · Mätnoggrannhet: skriv aldrig fler decimaler än mätinstrumentet klarar av att visa · Storleksordning: kontrollera alltid att svaret är rimligt, en penna är centimeter och inte meter."
+    },
+    {
+      "id": "q-fys7-mat-9",
+      "kind": "mc",
+      "topic": "SI-enheter",
+      "prompt": "Vilken är grundenheten för tid i SI-systemet?",
+      "opener": "Grundenheten för tid är den minsta av de vanliga tidsenheterna.",
+      "choices": [
+        "Minut",
+        "Timme",
+        "Sekund",
+        "Dygn"
+      ],
+      "answer": 2,
+      "explanation": "Sekund (s) är SI-systemets grundenhet för tid. Minut, timme och dygn är alla praktiska enheter som bygger på sekunden, men de är inte SI-systemets grundenhet."
+    },
+    {
+      "id": "q-fys7-mat-10",
+      "kind": "mc",
+      "topic": "prefix",
+      "prompt": "Vad betyder prefixet kilo-?",
+      "opener": "Tänk på hur många meter det går på en mil, eller hur många gram på ett kilogram.",
+      "choices": [
+        "Tusen gånger så mycket",
+        "En tiondel",
+        "Hundra gånger så mycket",
+        "En tusendel"
+      ],
+      "answer": 0,
+      "explanation": "Kilo betyder tusen gånger så mycket, alltså 1 kg = 1000 g och 1 km = 1000 m. Att svara \"en tusendel\" är att blanda ihop kilo med milli, som är det tusendels."
+    },
+    {
+      "id": "q-fys7-mat-11",
+      "kind": "mc",
+      "topic": "enhetsomvandling",
+      "prompt": "Hur många millimeter är 3,2 centimeter?",
+      "opener": "På en centimeter går det 10 millimeter.",
+      "choices": [
+        "3,2 mm",
+        "32 mm",
+        "320 mm",
+        "0,32 mm"
+      ],
+      "answer": 1,
+      "explanation": "3,2 cm · 10 = 32 mm, eftersom 1 cm = 10 mm. Svaret 320 mm får man om man multiplicerar med 100 i stället för 10."
+    },
+    {
+      "id": "q-fys7-mat-12",
+      "kind": "mc",
+      "topic": "enhetsomvandling",
+      "prompt": "Hur många liter är 2500 ml?",
+      "opener": "På en liter går det 1000 milliliter.",
+      "choices": [
+        "0,25 l",
+        "2,5 l",
+        "25 l",
+        "250 l"
+      ],
+      "answer": 1,
+      "explanation": "2500 ml / 1000 = 2,5 l, eftersom 1 l = 1000 ml. Svaret 0,25 l får man om man delar med 10000 i stället för 1000."
+    },
+    {
+      "id": "q-fys7-mat-13",
+      "kind": "mc",
+      "topic": "mätnoggrannhet",
+      "prompt": "Du väger en penna på en våg som visar till närmaste gram. Vilket mätvärde är rimligt att skriva ner?",
+      "opener": "Du kan inte avläsa mer noggrant än vad vågen faktiskt visar.",
+      "choices": [
+        "6 g",
+        "6,283 g",
+        "6 kg",
+        "0,006 mg"
+      ],
+      "answer": 0,
+      "explanation": "En våg som visar till närmaste gram ger ett mätvärde som 6 g — fler decimaler låtsas om en noggrannhet vågen inte klarar. 6 kg vore orimligt tungt för en penna, ungefär som sex liter vatten."
+    },
+    {
+      "id": "q-fys7-mat-14",
+      "kind": "worked",
+      "topic": "enhetsomvandling",
+      "prompt": "En simbassäng är 50 meter lång. Du simmar 8 längder. Hur långt har du simmat, uttryckt i kilometer?",
+      "opener": "Räkna först ut sträckan i meter, och omvandla sedan till kilometer.",
+      "answer": "0,4 km",
+      "steps": [
+        "Sträckan i meter: 8 längder · 50 m = 400 m.",
+        "Kom ihåg omvandlingen: 1 km = 1000 m.",
+        "Dela därför antalet meter med 1000: 400 / 1000 = 0,4.",
+        "Svaret blir 0,4 km — rimligt, eftersom åtta bassänglängder är en kortare sträcka än en kilometer."
+      ]
+    },
+    {
+      "id": "q-fys7-mat-15",
+      "kind": "mc",
+      "topic": "storleksordning",
+      "prompt": "Vilket mätvärde är mest rimligt för längden på en helt vanlig skrivpenna?",
+      "opener": "Jämför med hur lång en penna brukar kännas i handen.",
+      "choices": [
+        "17 mm",
+        "17 cm",
+        "17 dm",
+        "17 m"
+      ],
+      "answer": 1,
+      "explanation": "En vanlig penna är ungefär 17 cm lång. 17 mm vore kortare än ett suddgummi, och 17 dm (1,7 m) eller 17 m är alldeles för långt för en penna."
     }
   ]
 }

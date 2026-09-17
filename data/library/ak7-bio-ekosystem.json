@@ -125,6 +125,111 @@
       "prompt": "Vilka roller finns i ett ekosystem, hur ser en näringskedja ut och vad kännetecknar svenska naturtyper?",
       "opener": "Ta rollerna först, sedan energins väg genom kedjan, och avsluta med anpassningar och naturtyper.",
       "answer": "Ekosystem: allt levande i ett område tillsammans med den icke-levande miljön (ljus, vatten, jord, temperatur) och samspelet mellan dem · Population: alla individer av samma art i området · Producenter: växter och alger, gör socker och syre av koldioxid, vatten och solljus genom fotosyntes · Konsumenter: förstahandskonsumenter = växtätare (hare, sork, älg) · andrahands- och tredjehandskonsumenter = rovdjur (räv, gädda, ormvråk) · Nedbrytare: svampar, bakterier och daggmaskar, bryter ner dött material och frigör näring till jorden · Näringskedja: producent → växtätare → rovdjur, all energi kommer ursprungligen från solen och en stor del försvinner som värme i varje led, därför finns det färre individer högre upp · Näringsväv: många näringskedjor som hänger samman, eftersom de flesta arter äter mer än en sorts mat · Kretslopp: näringsämnena används om och om igen, energin måste hela tiden fyllas på från solen · Anpassningar: fjällrävens tjocka päls och korta öron mot kyla · näckrosens flytblad för att nå ljuset · granens smala barr som klarar torka och tunga snölaster · Svenska naturtyper: barrskog (gran och tall, sur och näringsfattig mark, älg, ekorre, tjäder) · sjö (alger och vattenväxter, mört och gädda, mest liv nära ytan där ljuset finns) · äng (många blommor och gräs, humlor och fjärilar, hålls öppen av slåtter eller betande djur)."
+    },
+    {
+      "id": "q-bio7-eko-9",
+      "kind": "mc",
+      "topic": "producenter, konsumenter och nedbrytare",
+      "prompt": "Vad kallas ett djur som äter andra djur?",
+      "opener": "Tänk på vilket led i näringskedjan djuret befinner sig i.",
+      "choices": [
+        "Producent",
+        "Förstahandskonsument",
+        "Andrahandskonsument (rovdjur)",
+        "Nedbrytare"
+      ],
+      "answer": 2,
+      "explanation": "Ett djur som äter andra djur kallas andrahandskonsument, eller rovdjur. Förstahandskonsumenter är i stället växtätare, som äter producenter direkt."
+    },
+    {
+      "id": "q-bio7-eko-10",
+      "kind": "mc",
+      "topic": "näringskedja och näringsväv",
+      "prompt": "Varför finns det alltid färre rovdjur än växtätare i en näringskedja?",
+      "opener": "Tänk på vad som händer med energin i varje led av kedjan.",
+      "choices": [
+        "Rovdjur föder färre ungar",
+        "Mycket energi går förlorad som värme i varje led",
+        "Rovdjur äter inte tillräckligt",
+        "Växtätare lever längre"
+      ],
+      "answer": 1,
+      "explanation": "I varje led av näringskedjan försvinner en stor del av energin som värme, så det blir mindre energi kvar att bygga upp nya individer med längre upp i kedjan. Därför finns det alltid färre rovdjur än växtätare, och färre växtätare än producenter."
+    },
+    {
+      "id": "q-bio7-eko-11",
+      "kind": "mc",
+      "topic": "svenska naturtyper",
+      "prompt": "Vilka djur är vanliga i svensk barrskog?",
+      "opener": "Tänk på djur som klarar kyla och lever bland gran och tall.",
+      "choices": [
+        "Älg, ekorre och tjäder",
+        "Delfin och val",
+        "Kamel och struts",
+        "Krokodil och flodhäst"
+      ],
+      "answer": 0,
+      "explanation": "Älg, ekorre och tjäder är typiska djur i svensk barrskog med gran och tall. De andra djuren lever i helt andra klimat och miljöer, som hav, öken eller tropiska våtmarker."
+    },
+    {
+      "id": "q-bio7-eko-12",
+      "kind": "mc",
+      "topic": "anpassningar",
+      "prompt": "Fjällräven har tjock päls och korta öron. Vilken fördel ger den anpassningen?",
+      "opener": "Tänk på vad korta öron och tjock päls gör med värmeförlusten i kallt klimat.",
+      "choices": [
+        "Bättre syn i mörker",
+        "Minskad värmeförlust i kallt klimat",
+        "Snabbare simförmåga",
+        "Starkare bett"
+      ],
+      "answer": 1,
+      "explanation": "Tjock päls isolerar mot kylan, och korta öron har mindre yta som kroppsvärmen kan försvinna genom, vilket minskar värmeförlusten i det kalla fjällklimatet. Anpassningen har inget med syn, simförmåga eller bett att göra."
+    },
+    {
+      "id": "q-bio7-eko-13",
+      "kind": "mc",
+      "topic": "ekosystem",
+      "prompt": "Vad kallas alla individer av samma art som lever i ett område?",
+      "opener": "Det är en mindre del av ekosystemet, bara en enda art.",
+      "choices": [
+        "Ett ekosystem",
+        "En population",
+        "En näringsväv",
+        "En konsument"
+      ],
+      "answer": 1,
+      "explanation": "En population är alla individer av samma art som lever på en plats, till exempel alla harar i en skog. Ett ekosystem omfattar i stället alla arter tillsammans med den icke-levande miljön."
+    },
+    {
+      "id": "q-bio7-eko-14",
+      "kind": "worked",
+      "topic": "näringskedja och näringsväv",
+      "prompt": "Skriv en näringskedja från en svensk sjö och förklara vilken roll varje led har. Ta också med vad som händer när djuren dör.",
+      "opener": "Börja med producenten och arbeta dig uppåt — och glöm inte nedbrytarna på slutet.",
+      "answer": "Alger → mört → gädda. Algerna är producent, mörten förstahandskonsument och gäddan andrahandskonsument. När de dör bryter svampar och bakterier ner kropparna så att näringen återförs till vattnet och kan tas upp av nya alger.",
+      "steps": [
+        "Börja med en producent: algerna gör fotosyntes och lagrar solens energi som socker.",
+        "Nästa led är en förstahandskonsument: mörten är växtätare och äter alger för att få energi.",
+        "Sedan kommer en andrahandskonsument: gäddan är rovdjur och äter mörten.",
+        "I varje led försvinner mycket av energin som värme, därför finns det alltid färre gäddor än mörtar och färre mörtar än alger.",
+        "Nedbrytare som svampar och bakterier bryter till sist ner döda djur och alger, så att näringsämnena kommer tillbaka till vattnet och kretsloppet sluts."
+      ]
+    },
+    {
+      "id": "q-bio7-eko-15",
+      "kind": "mc",
+      "topic": "svenska naturtyper",
+      "prompt": "Vad kännetecknar en äng som naturtyp?",
+      "opener": "Tänk på vilken naturtyp som har mest blommor och öppen mark.",
+      "choices": [
+        "Mörk och tät skog med gran och tall",
+        "Öppen mark med många blommor och gräs som hålls öppen genom slåtter eller bete",
+        "Ett område helt täckt av is",
+        "En plats med bara sandiga stränder"
+      ],
+      "answer": 1,
+      "explanation": "En äng är öppen mark med många blommor och gräs, hem för till exempel humlor och fjärilar, och hålls öppen genom att den slås eller betas av djur. Utan slåtter eller bete skulle ängen med tiden växa igen med buskar och träd."
     }
   ]
 }

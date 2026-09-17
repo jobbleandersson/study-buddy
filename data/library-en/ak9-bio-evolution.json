@@ -125,6 +125,111 @@
       "prompt": "Summarise the basic ideas of the theory of evolution.",
       "opener": "Go through variation, selection and outcome.",
       "answer": "Variation: individuals within a species differ somewhat, partly due to mutations · Competition: more offspring are born than the environment can support, so there is competition for resources · Natural selection: individuals with traits best suited to the environment survive and reproduce more often · Heredity: favourable traits are passed on to the next generation and become more common over time · Speciation: if populations are isolated for a long time, they can develop into separate species · Evidence: fossils, DNA similarities between species, and real-world observations of natural selection (e.g. antibiotic resistance) support the theory."
+    },
+    {
+      "id": "q-bio-evo-9",
+      "kind": "mc",
+      "topic": "Darwin",
+      "prompt": "Which work did Charles Darwin publish in 1859, presenting his theory of evolution?",
+      "opener": "The title is about how new species arise.",
+      "choices": [
+        "\"On the Origin of Species\"",
+        "\"On Animal Behaviour\"",
+        "\"The Basics of Genetics\"",
+        "\"A History of Nature\""
+      ],
+      "answer": 0,
+      "explanation": "\"On the Origin of Species\" was published in 1859 and laid out Darwin's theory of evolution through natural selection."
+    },
+    {
+      "id": "q-bio-evo-10",
+      "kind": "mc",
+      "topic": "natural selection",
+      "prompt": "What is a basic requirement for natural selection to occur in a population?",
+      "opener": "If every individual were exactly identical, could anything be \"selected\"?",
+      "choices": [
+        "That there is natural variation between individuals",
+        "That all individuals are exactly identical",
+        "That the population doesn't reproduce",
+        "That the environment never changes"
+      ],
+      "answer": 0,
+      "explanation": "Without variation between individuals, there is nothing for natural selection to \"choose\" between. This variation comes partly from mutations and sexual reproduction."
+    },
+    {
+      "id": "q-bio-evo-11",
+      "kind": "mc",
+      "topic": "adaptation",
+      "prompt": "A cactus has thick, water-storing stems and spines instead of large leaves. What type of environment is this likely an adaptation to?",
+      "opener": "What do thick stems save on, and why would that be needed?",
+      "choices": [
+        "A dry environment with little water (desert)",
+        "A very cold, snowy environment",
+        "A deep ocean environment",
+        "A very wet rainforest"
+      ],
+      "answer": 0,
+      "explanation": "Water-storing stems and a small leaf surface (which reduces evaporation) are typical adaptations to dry environments like deserts, where water is scarce."
+    },
+    {
+      "id": "q-bio-evo-12",
+      "kind": "mc",
+      "topic": "speciation",
+      "prompt": "What is it called when two populations of the same species are separated by, for example, an ocean or a mountain range, which can lead to speciation over time?",
+      "opener": "The two groups can no longer mate with each other.",
+      "choices": [
+        "Geographic isolation",
+        "Natural selection",
+        "Mutation",
+        "Competition"
+      ],
+      "answer": 0,
+      "explanation": "Geographic isolation means populations are physically separated and can no longer exchange genes. Over a long time they can then develop so differently, through natural selection and mutations, that they become separate species."
+    },
+    {
+      "id": "q-bio-evo-13",
+      "kind": "mc",
+      "topic": "fossils as evidence",
+      "prompt": "Why are fossils considered important evidence for the theory of evolution?",
+      "opener": "What can you see if you compare fossils from different time periods?",
+      "choices": [
+        "They show how species have gradually changed over a very long time",
+        "They prove that all species arose at the same time",
+        "They show exactly what colour extinct animals were",
+        "They disprove that species can go extinct"
+      ],
+      "answer": 0,
+      "explanation": "By comparing fossils from different time periods, researchers can see a gradual change in species over millions of years — important evidence that evolution actually happens."
+    },
+    {
+      "id": "q-bio-evo-14",
+      "kind": "worked",
+      "topic": "natural selection",
+      "prompt": "Using the example of peppered moths that became darker during industrialisation, explain how natural selection can change a population over a short time.",
+      "opener": "Think about what happens to the moths' camouflage when tree trunks change colour.",
+      "answer": "Before industrialisation, light-coloured peppered moths were best camouflaged against pale, lichen-covered tree trunks and survived more often. When industrial soot darkened the tree trunks, dark moths instead became better camouflaged, so the proportion of dark moths increased sharply within a few generations.",
+      "steps": [
+        "Before industrialisation, natural variation in colour already existed among peppered moths - some were light, some dark.",
+        "Light moths were best camouflaged against the pale, lichen-covered tree trunks and more easily escaped birds hunting by sight.",
+        "When industrial soot darkened the tree trunks, dark moths instead became harder for birds to spot.",
+        "The dark moths survived and reproduced more often, so their trait became more common in the population.",
+        "Within a few generations, the dark variant dominated in polluted areas - a classic, fast real-world example of natural selection."
+      ]
+    },
+    {
+      "id": "q-bio-evo-15",
+      "kind": "mc",
+      "topic": "natural selection",
+      "prompt": "A population of mice lives in an area that is becoming increasingly rocky and grey. According to the theory of evolution, how does a population of greyish mice that are harder for birds of prey to spot arise?",
+      "opener": "Is this about mice actively changing themselves, or about who already exists in the population?",
+      "choices": [
+        "The mice deliberately adapted their colour to blend in",
+        "Mice with genes for greyer fur already existed due to natural variation, survived more often and had more offspring, so the trait became more common",
+        "All the mice suddenly were born grey at the same time the environment changed",
+        "The mice changed colour during their lifetime and it was passed on"
+      ],
+      "answer": 1,
+      "explanation": "Just like with the giraffes' necks, this is about natural selection acting on variation that already existed - not individuals deliberately changing and passing on the acquired trait."
     }
   ]
 }

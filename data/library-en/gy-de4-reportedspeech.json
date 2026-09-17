@@ -123,6 +123,111 @@
       "prompt": "What steps are needed to turn a direct quote into reported speech in German?",
       "opener": "Four things to check every time: verb form, pronoun, tense, time expression.",
       "answer": "1) Verb form: use Konjunktiv I (e.g. er/sie/es sei, habe, könne, wisse). If Konjunktiv I coincides with the indicative (common in the plural), use Konjunktiv II instead (wären, hätten, würden). 2) Pronoun: shift based on who is now speaking/being talked about — du → ich/er/sie depending on context. 3) Tense: German does NOT back-shift tense the way Swedish/English do — present tense in the quote becomes Konjunktiv I present, perfect/simple past in the quote becomes Konjunktiv I perfect (habe/sei + participle), future becomes würde + infinitive. 4) Time expressions: heute → an diesem Tag, morgen → am nächsten Tag, gestern → am Tag davor, jetzt → in diesem Moment/da. Reporting verbs: sagen, behaupten, berichten, erklären, meinen, betonen."
+    },
+    {
+      "id": "q-de4-rep-9",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Er sagt: \"Ich kann das Problem lösen.\" Which is the correct reported version using Konjunktiv I?",
+      "opener": "The Konjunktiv I of \"können\" in the third person.",
+      "choices": [
+        "Er sagt, er könne das Problem lösen.",
+        "Er sagt, er kann das Problem lösen.",
+        "Er sagt, er könnte das Problem lösen.",
+        "Er sagt, er habe das Problem gelöst."
+      ],
+      "answer": 0,
+      "explanation": "The Konjunktiv I of \"können\" in the third person singular is \"könne\": \"er könne das Problem lösen\"."
+    },
+    {
+      "id": "q-de4-rep-10",
+      "kind": "mc",
+      "topic": "pronoun shift",
+      "prompt": "Peter sagt zu Maria: \"Ich liebe dich.\" Maria erzählt später einer Freundin: Peter habe gesagt, ___.",
+      "opener": "The pronouns shift based on who is speaking (Peter) and who is being talked about (Maria) in the new retelling.",
+      "choices": [
+        "er liebe sie",
+        "ich liebe dich",
+        "sie liebe ihn",
+        "du liebst mich"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich\" (Peter) becomes \"er\", and \"dich\" (Maria) becomes \"sie\": \"Peter habe gesagt, er liebe sie.\""
+    },
+    {
+      "id": "q-de4-rep-11",
+      "kind": "mc",
+      "topic": "tense shift",
+      "prompt": "Sie sagte: \"Ich rief dich gestern an.\" Which is the correct reported version?",
+      "opener": "The simple past in the quote becomes Konjunktiv I perfect (habe/sei + participle) in reported speech, and \"gestern\" shifts.",
+      "choices": [
+        "Sie sagte, sie habe mich am Tag davor angerufen.",
+        "Sie sagte, sie ruft mich gestern an.",
+        "Sie sagte, sie rief mich gestern an.",
+        "Sie sagte, sie werde mich anrufen."
+      ],
+      "answer": 0,
+      "explanation": "The simple past (\"rief ... an\") becomes Konjunktiv I perfect: \"habe ... angerufen\", and \"gestern\" shifts to \"am Tag davor\" (the day before)."
+    },
+    {
+      "id": "q-de4-rep-12",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "What does \"Er meint, dass...\" mean as an introduction to reported speech?",
+      "opener": "\"Meinen\" as a reporting verb has a specific meaning.",
+      "choices": [
+        "He thinks/believes that",
+        "He literally means that",
+        "He asks whether",
+        "He denies that"
+      ],
+      "answer": 0,
+      "explanation": "\"Er meint, dass...\" means \"he thinks/believes that...\", a common reporting verb for opinions."
+    },
+    {
+      "id": "q-de4-rep-13",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Sie sagt: \"Ich weiß die Antwort nicht.\" Which is the correct reported version using Konjunktiv I?",
+      "opener": "The Konjunktiv I of \"wissen\" in the third person.",
+      "choices": [
+        "Sie sagt, sie wisse die Antwort nicht.",
+        "Sie sagt, sie weiß die Antwort nicht.",
+        "Sie sagt, sie wusste die Antwort nicht.",
+        "Sie sagt, sie hat die Antwort nicht gewusst."
+      ],
+      "answer": 0,
+      "explanation": "The Konjunktiv I of \"wissen\" in the third person singular is \"wisse\": \"sie wisse die Antwort nicht\"."
+    },
+    {
+      "id": "q-de4-rep-14",
+      "kind": "mc",
+      "topic": "tense shift",
+      "prompt": "Er sagte: \"Ich bin jetzt beschäftigt.\" Which time expression replaces \"jetzt\" in reported speech?",
+      "opener": "Just like \"heute\" and \"morgen\", \"jetzt\" shifts to a different expression.",
+      "choices": [
+        "in diesem Moment",
+        "morgen",
+        "gestern",
+        "heute"
+      ],
+      "answer": 0,
+      "explanation": "\"Jetzt\" (now, from the original speaker's perspective) becomes \"in diesem Moment\" (at that moment) in reported speech."
+    },
+    {
+      "id": "q-de4-rep-15",
+      "kind": "mc",
+      "topic": "Konjunktiv I",
+      "prompt": "Er sagt: \"Es gibt kein Problem.\" Which is the correct reported version using Konjunktiv I?",
+      "opener": "The Konjunktiv I of \"geben\" (in the phrase \"es gibt\").",
+      "choices": [
+        "Er sagt, es gebe kein Problem.",
+        "Er sagt, es gibt kein Problem.",
+        "Er sagt, es gab kein Problem.",
+        "Er sagt, es hat kein Problem gegeben."
+      ],
+      "answer": 0,
+      "explanation": "The Konjunktiv I of \"geben\" in the third person singular is \"gebe\": \"es gebe kein Problem\"."
     }
   ]
 }

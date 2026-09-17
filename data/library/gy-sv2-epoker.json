@@ -127,6 +127,111 @@
       "prompt": "Ge en snabb översikt av de litterära epokerna från antiken till modernismen: tidsperiod och kännetecken.",
       "opener": "Sju epoker, sju hållpunkter.",
       "answer": "Antiken (ca 800 f.Kr.–500 e.Kr.): grekisk-romerska ideal, epos och drama · Medeltiden (500–1400-tal): religiösa texter, riddarromaner (t.ex. Eufemiavisorna) · Renässansen (1400–1600-tal): människan och antiken i centrum, humanism · Upplysningen (1700-talet): förnuft, vetenskap, kritik av auktoriteter (t.ex. Linné) · Romantiken (ca 1800–1850): känsla, natur, det nationella och förflutna · Realismen/naturalismen (1800-talets andra hälft): verklighetstrogen samhällsskildring och social kritik (t.ex. Ibsen) · Modernismen (från ca 1900): brutna former, fri vers, splittrat jag (t.ex. Södergran)."
+    },
+    {
+      "id": "q-sv2-epoker-9",
+      "kind": "mc",
+      "topic": "antiken",
+      "prompt": "Vilken romersk diktare skrev eposet Aeneiden?",
+      "opener": "Verket berättar om Aeneas flykt från Troja och grundandet av Rom.",
+      "choices": [
+        "Vergilius",
+        "Homeros",
+        "Ovidius",
+        "Cicero"
+      ],
+      "answer": 0,
+      "explanation": "Vergilius skrev Aeneiden under de sista decennierna före vår tideräkning, ett av den romerska litteraturens främsta epos. Homeros skrev i stället de grekiska eposen Iliaden och Odysséen flera hundra år tidigare, och Ovidius är mest känd för Metamorfoser."
+    },
+    {
+      "id": "q-sv2-epoker-10",
+      "kind": "mc",
+      "topic": "medeltiden",
+      "prompt": "Vilken genre var särskilt vanlig i medeltidens litteratur, vid sidan av religiösa texter?",
+      "opener": "Tänk på riddare, hövisk kärlek och äventyr.",
+      "choices": [
+        "Riddarromaner",
+        "Science fiction-romaner",
+        "Dagstidningar",
+        "Reseskildringar till andra kontinenter"
+      ],
+      "answer": 0,
+      "explanation": "Riddarromaner, som Eufemiavisorna, var en central och populär genre under medeltiden vid sidan av de religiösa texterna. Science fiction och dagstidningar hör till mycket senare epoker."
+    },
+    {
+      "id": "q-sv2-epoker-11",
+      "kind": "mc",
+      "topic": "renässansen",
+      "prompt": "Vilken engelsk dramatiker, verksam under renässansen, skrev pjäser som Hamlet och Macbeth?",
+      "opener": "En av världslitteraturens mest kända dramatiker, verksam kring år 1600.",
+      "choices": [
+        "William Shakespeare",
+        "Charles Dickens",
+        "Jane Austen",
+        "Geoffrey Chaucer"
+      ],
+      "answer": 0,
+      "explanation": "William Shakespeare skrev sina mest kända dramer, bland annat Hamlet och Macbeth, kring sekelskiftet 1600 under den engelska renässansen. Dickens och Austen tillhör i stället 1800-talet."
+    },
+    {
+      "id": "q-sv2-epoker-12",
+      "kind": "mc",
+      "topic": "upplysningen",
+      "prompt": "Vilket verk av den franske upplysningsfilosofen Voltaire är särskilt känt för sin satir mot blind optimism och orättvisor?",
+      "opener": "Huvudpersonen möter en rad katastrofer trots sin lärares övertygelse om att allt är till det bästa.",
+      "choices": [
+        "Candide",
+        "Faust",
+        "Decamerone",
+        "Divina Commedia"
+      ],
+      "answer": 0,
+      "explanation": "Candide (1759) av Voltaire är en satirisk berättelse som driver med filosofisk optimism och skildrar en rad orättvisor och katastrofer. Faust är i stället av Goethe, och Decamerone och Divina Commedia tillhör tidigare epoker."
+    },
+    {
+      "id": "q-sv2-epoker-13",
+      "kind": "mc",
+      "topic": "romantiken",
+      "prompt": "Vilken svensk författare förknippas med den nationalromantiska diktningen och verket Frithiofs saga?",
+      "opener": "Verket bygger på en fornnordisk sägen och blev mycket populärt under 1800-talet.",
+      "choices": [
+        "Esaias Tegnér",
+        "August Strindberg",
+        "Carl von Linné",
+        "Selma Lagerlöf"
+      ],
+      "answer": 0,
+      "explanation": "Esaias Tegnér skrev Frithiofs saga, ett av den svenska nationalromantikens mest kända verk. Strindberg hör till en senare epok, Linné till upplysningen, och Selma Lagerlöf var verksam ännu senare."
+    },
+    {
+      "id": "q-sv2-epoker-14",
+      "kind": "mc",
+      "topic": "realismen",
+      "prompt": "Vilken norsk dramatiker skrev pjäser som Ett dockhem, vilka kritiskt granskade kvinnans ställning i samhället?",
+      "opener": "Dramatikern räknas som en av realismens och det moderna dramats grundare.",
+      "choices": [
+        "Henrik Ibsen",
+        "Carl Michael Bellman",
+        "Edith Södergran",
+        "Vergilius"
+      ],
+      "answer": 0,
+      "explanation": "Henrik Ibsen skrev Ett dockhem (1879), som kritiskt granskade kvinnans roll i det borgerliga samhället och blev ett centralt verk inom realismen. Bellman skrev under en helt annan epok, och Södergran hör till modernismen."
+    },
+    {
+      "id": "q-sv2-epoker-15",
+      "kind": "mc",
+      "topic": "modernismen",
+      "prompt": "Vilken diktsamling av Edith Södergran räknas som ett banbrytande verk inom den svenskspråkiga modernismen?",
+      "opener": "Samlingen gavs ut 1916 och chockade många läsare med sin fria form.",
+      "choices": [
+        "Dikter (1916)",
+        "Frithiofs saga",
+        "Fänrik Ståls sägner",
+        "Röda rummet"
+      ],
+      "answer": 0,
+      "explanation": "Edith Södergrans debutsamling Dikter (1916) räknas som ett av de första och mest banbrytande verken inom den svenskspråkiga modernismen, med sin fria vers och sitt splittrade jag. Frithiofs saga och Fänrik Ståls sägner tillhör i stället romantiken."
     }
   ]
 }

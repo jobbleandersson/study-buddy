@@ -114,6 +114,111 @@
       "prompt": "Which family words, possessive pronouns, and numbers should you know at grade 7 level in German?",
       "opener": "The family, who it belongs to, and counting to a hundred.",
       "answer": "Family: die Mutter/der Vater = mom/dad · der Bruder/die Schwester = brother/sister · der Großvater/die Großmutter = grandfather/grandmother · der Sohn/die Tochter = son/daughter · der Cousin/die Cousine = cousin. Possessives (nominative): mein/meine = my · dein/deine = your · sein/seine = his · ihr/ihre = her. Numbers: 0 null, 1 eins, 5 fünf, 10 zehn, 11 elf, 12 zwölf, 15 fünfzehn, 20 zwanzig, 21 einundzwanzig, 37 siebenunddreißig, 50 fünfzig, 100 hundert."
+    },
+    {
+      "id": "q-de7-fam-9",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"der Onkel\" mean?",
+      "opener": "A male relative, the brother of one of your parents.",
+      "choices": [
+        "Uncle",
+        "Aunt",
+        "Cousin",
+        "Brother-in-law"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Onkel\" means uncle. The feminine counterpart is \"die Tante\" (aunt)."
+    },
+    {
+      "id": "q-de7-fam-10",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"die Tante\" mean?",
+      "opener": "A female relative, the sister of one of your parents.",
+      "choices": [
+        "Aunt",
+        "Uncle",
+        "Sister-in-law",
+        "Grandmother"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Tante\" means aunt."
+    },
+    {
+      "id": "q-de7-fam-11",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Choose the right word: \"___ Vater ist Lehrer.\" (His dad is a teacher.)",
+      "opener": "\"Vater\" is masculine, and the possessive for \"his\" is sein.",
+      "choices": [
+        "Sein",
+        "Ihr",
+        "Dein",
+        "Meine"
+      ],
+      "answer": 0,
+      "explanation": "\"Sein\" means \"his\" and takes no extra ending before a masculine noun in the nominative, just like \"mein\"."
+    },
+    {
+      "id": "q-de7-fam-12",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "How do you write the number 42 in letters?",
+      "opener": "Remember that the ones digit is said before the tens digit in German.",
+      "choices": [
+        "zweiundvierzig",
+        "vierundzwanzig",
+        "zweiundzwanzig",
+        "vierzigzwei"
+      ],
+      "answer": 0,
+      "explanation": "\"Zwei\" (2) + \"und\" (and) + \"vierzig\" (40) = \"zweiundvierzig\" = 42."
+    },
+    {
+      "id": "q-de7-fam-13",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "What number is \"neunundneunzig\"?",
+      "opener": "\"Neun\" means 9, and \"neunzig\" means 90.",
+      "choices": [
+        "99",
+        "89",
+        "19",
+        "90"
+      ],
+      "answer": 0,
+      "explanation": "\"Neun\" (9) + \"und\" (and) + \"neunzig\" (90) = \"neunundneunzig\" = 99."
+    },
+    {
+      "id": "q-de7-fam-14",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"die Cousine\" mean?",
+      "opener": "Compare it with \"der Cousin\", the masculine form.",
+      "choices": [
+        "Cousin (female)",
+        "Cousin (male)",
+        "Sister",
+        "Aunt"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Cousine\" is the feminine form of cousin. \"Der Cousin\" is the masculine form."
+    },
+    {
+      "id": "q-de7-fam-15",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Choose the right word: \"___ Eltern wohnen in Hamburg.\" (My parents live in Hamburg.)",
+      "opener": "\"Eltern\" (parents) is plural, and the possessive in the plural always ends in -e.",
+      "choices": [
+        "Meine",
+        "Mein",
+        "Dein",
+        "Sein"
+      ],
+      "answer": 0,
+      "explanation": "\"Meine\" is used in the plural, regardless of the noun's gender in the singular: \"meine Eltern\" (my parents)."
     }
   ]
 }

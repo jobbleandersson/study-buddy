@@ -48,7 +48,7 @@ export async function renderLibrary() {
   }
 
   const root = el("div");
-  const state = { level: null, subject: null, query: "", examMin: 0 };
+  const state = { level: null, subject: null, query: "", examMin: 0, addCounts: {} };
 
   // Built once so typing never loses focus — paintBody() only touches bodyEl.
   const searchInput = el("input.search__input", {
@@ -228,19 +228,26 @@ export async function renderLibrary() {
 
   function setCard(entry) {
     const imported = isImported(entry.id);
-    const count = plural(entry.count, "common.questionOne", "common.questionMany");
+    // Before adding, this reflects whatever's picked below — so it never
+    // contradicts the count sitting right next to it — not the moment's full
+    // size, which the dropdown itself already shows via its own "15" option.
+    const chosenCount = imported ? entry.count : (state.addCounts[entry.id] || entry.count);
+    const count = plural(chosenCount, "common.questionOne", "common.questionMany");
 
-    // Added → "Study" is the primary action; "Exam mode" is the secondary.
-    // Not added → "Add" is primary, and exam mode isn't offered yet (it needs
-    // the set in the library).
+    // Added → "Study" is the primary action; "Exam mode" is the secondary. The
+    // question count is chosen once, right here, before adding — it's saved
+    // on the set as its default for future study sessions (see addCountSel
+    // below); exam mode always ignores it and runs the full set.
+    const stored = imported ? store.getAssignment(entry.id) : null;
+    const countQ = stored?._studyCount && stored._studyCount < (entry.count || 0) ? stored._studyCount : 0;
     const action = imported
-      ? el("a.btn.btn--sm", { href: `#/session/${entry.id}` }, [icon(ICONS.play, 16), t("lib.study")])
+      ? el("a.btn.btn--sm", { href: `#/session/${entry.id}${countQ ? `?count=${countQ}` : ""}` }, [icon(ICONS.play, 16), t("lib.study")])
       : el("button.btn.btn--sm", {
           type: "button",
           onclick: async (e) => {
             e.currentTarget.disabled = true;
             try {
-              await importSet(entry);
+              await importSet(entry, state.addCounts[entry.id]);
               toast(t("lib.added", { title: setTitle(entry) }));
               paint();
             } catch {
@@ -250,6 +257,27 @@ export async function renderLibrary() {
           },
         }, [icon(ICONS.plus, 16), t("lib.add")]);
 
+    // A per-set question-count picker, shown only before adding — once it's
+    // in the library the choice above is baked in as its study default.
+    const addCountOpts = [5, 10, 15].filter((n) => n <= (entry.count || 0));
+    const addCountSel = !imported && addCountOpts.length > 1
+      ? (() => {
+          const sel = el("select", {
+            "aria-label": t("lib.countLabel"),
+            style: {
+              font: "inherit", fontSize: "var(--fs-sm)", padding: "6px 8px",
+              borderRadius: "var(--r-md)", border: "1px solid var(--line-strong)",
+              background: "var(--surface)", color: "inherit",
+            },
+            onchange: (e) => { state.addCounts[entry.id] = Number(e.target.value) || entry.count; paint(); },
+          }, addCountOpts.map((n) => el("option", { value: String(n) }, String(n))));
+          sel.value = String(chosenCount);
+          return sel;
+        })()
+      : null;
+
+    // Exam mode always runs the full set — the question-count picker only
+    // applies to study mode, so it's deliberately left off this link.
     const examAction = imported
       ? el("button.btn.btn--ghost.btn--sm", {
           type: "button", title: t(state.examMin ? "lib.examTip" : "lib.examTipUntimed"),
@@ -273,7 +301,7 @@ export async function renderLibrary() {
         imported
           ? el("span.libcard__added", {}, [icon(ICONS.check, 14), t("lib.addedTag"), el("span.libcard__count", {}, ` · ${count}`)])
           : el("span.note", {}, count),
-        el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" } }, [action, examAction, printAction].filter(Boolean)),
+        el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" } }, [addCountSel, action, examAction, printAction].filter(Boolean)),
       ]),
     ]);
   }

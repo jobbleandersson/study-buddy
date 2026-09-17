@@ -122,6 +122,108 @@
       "prompt": "What do $k$ and $m$ mean in the equation of a straight line, $y = kx + m$?",
       "opener": "One of them determines the slope, the other the starting point.",
       "answer": "$k$ is the slope (the gradient) — how much $y$ changes when $x$ increases by 1. $m$ is where the line crosses the y-axis, i.e. the $y$-value when $x = 0$."
+    },
+    {
+      "id": "q-ma9-sam-9",
+      "kind": "mc",
+      "topic": "linear functions",
+      "prompt": "The function is $y = 5x - 2$. What is $y$ when $x = -3$?",
+      "opener": "Substitute $-3$ for $x$ and keep track of the signs.",
+      "choices": [
+        "-17",
+        "-13",
+        "13",
+        "17"
+      ],
+      "answer": 0,
+      "explanation": "$y = 5 \\cdot (-3) - 2 = -15 - 2 = -17$."
+    },
+    {
+      "id": "q-ma9-sam-10",
+      "kind": "mc",
+      "topic": "graphs",
+      "prompt": "A straight line passes through the points $(0, 4)$ and $(2, 10)$. What is the $k$-value (the slope)?",
+      "opener": "$k$ is the change in $y$ divided by the change in $x$.",
+      "choices": [
+        "6",
+        "2",
+        "3",
+        "5"
+      ],
+      "answer": 2,
+      "explanation": "$k = \\frac{10 - 4}{2 - 0} = \\frac{6}{2} = 3$."
+    },
+    {
+      "id": "q-ma9-sam-11",
+      "kind": "mc",
+      "topic": "proportionality",
+      "prompt": "$y$ is proportional to $x$. When $x = 4$, $y = 10$. What is $y$ when $x = 6$?",
+      "opener": "First work out the constant of proportionality, $k = y/x$.",
+      "choices": [
+        "12",
+        "16",
+        "15",
+        "24"
+      ],
+      "answer": 2,
+      "explanation": "$k = \\frac{10}{4} = 2{,}5$. So $y = 2{,}5 \\cdot 6 = 15$ when $x = 6$."
+    },
+    {
+      "id": "q-ma9-sam-12",
+      "kind": "mc",
+      "topic": "linear functions",
+      "prompt": "A taxi firm charges 40 kr as a start fee plus 15 kr per kilometre. What does a 12 km trip cost?",
+      "opener": "The start fee is paid regardless of how far you travel.",
+      "choices": [
+        "180 kr",
+        "205 kr",
+        "260 kr",
+        "220 kr"
+      ],
+      "answer": 3,
+      "explanation": "$y = 15 \\cdot 12 + 40 = 180 + 40 = 220$ kr. Forgetting the start fee wrongly gives 180 kr."
+    },
+    {
+      "id": "q-ma9-sam-13",
+      "kind": "mc",
+      "topic": "graphs",
+      "prompt": "Where does the graph of the function $y = -2x + 9$ cross the y-axis?",
+      "opener": "What is $x$ at every point that lies on the y-axis?",
+      "choices": [
+        "$(9, 0)$",
+        "$(-2, 9)$",
+        "$(0, 9)$",
+        "$(0, -2)$"
+      ],
+      "answer": 2,
+      "explanation": "On the y-axis, $x = 0$. Then $y = -2 \\cdot 0 + 9 = 9$, so the point is $(0, 9)$ — that's the $m$-value."
+    },
+    {
+      "id": "q-ma9-sam-14",
+      "kind": "worked",
+      "topic": "proportionality",
+      "prompt": "8 litres of petrol costs 152 kr. How much does 20 litres cost, if the price is proportional to the amount? Show your reasoning.",
+      "opener": "First work out the price per litre.",
+      "answer": "380 kr",
+      "steps": [
+        "Price per litre: $152 / 8 = 19$ kr/litre.",
+        "Price for 20 litres: $19 \\cdot 20 = 380$ kr."
+      ]
+    },
+    {
+      "id": "q-ma9-sam-15",
+      "kind": "mc",
+      "topic": "linear functions",
+      "prompt": "For the function $y = 4x - 5$: for which value of $x$ is $y = 11$?",
+      "opener": "Substitute $y = 11$ into the formula and solve for $x$, the same way as an equation.",
+      "choices": [
+        "1,5",
+        "6",
+        "9",
+        "4"
+      ],
+      "answer": 3,
+      "explanation": "$4x - 5 = 11 \\Rightarrow 4x = 16 \\Rightarrow x = 4$."
     }
   ]
 }

@@ -124,6 +124,110 @@
       "prompt": "What everyday words, phrases and small words should you know at Year 7 level?",
       "opener": "Words about school, family, free time and food — plus the most common politeness phrases.",
       "answer": "School: lesson = a single class at school · break = a pause between lessons · subject = a school subject such as maths or English · homework = school work done at home · timetable = the schedule of lessons. Family: uncle = your mother's or father's brother · aunt = your mother's or father's sister · cousin = the child of your aunt or uncle · grandparents = your mother's or father's parents. Free time: hobby · spare time · practise = to train or rehearse · club = an organised group for an activity. Food: breakfast/lunch/dinner · vegetables · meal = the food eaten at one sitting. Phrases: You're welcome = a reply to thank you · Here you are = said when you hand something to someone · Excuse me = said to get someone's attention · I'm sorry = an apology · Could you help me, please? Small words: there is + singular / there are + plural · some in affirmative sentences, any in negative sentences and questions · a before a consonant sound, an before a vowel sound, the when the listener already knows which thing you mean."
+    },
+    {
+      "id": "q-en7-voc-9",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Which word means your brothers and sisters together, as a group?",
+      "opener": "English has one collective word for brothers and sisters together.",
+      "choices": [
+        "sibling",
+        "relative",
+        "neighbour",
+        "stranger"
+      ],
+      "answer": 0,
+      "explanation": "\"Sibling\" means a brother or sister — a collective word for brothers and sisters together. \"Relative\" means family member in general, \"neighbour\" is someone who lives next door, and \"stranger\" is someone you don't know."
+    },
+    {
+      "id": "q-en7-voc-10",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Choose the word that fits: \"We have a ten-minute ___ between lessons.\"",
+      "opener": "Which word is used for the short pause between lessons?",
+      "choices": [
+        "break",
+        "lesson",
+        "subject",
+        "timetable"
+      ],
+      "answer": 0,
+      "explanation": "\"Break\" means a pause and fits the gap between lessons. \"Lesson\" is the class itself, \"subject\" is the school subject, and \"timetable\" is the schedule."
+    },
+    {
+      "id": "q-en7-voc-11",
+      "kind": "mc",
+      "topic": "phrases",
+      "prompt": "Someone says: \"I'm sorry, I'm late.\" What is a polite reply?",
+      "opener": "What do you say in English when someone apologises for something small?",
+      "choices": [
+        "That's okay, no problem.",
+        "You're welcome.",
+        "Excuse me.",
+        "Please."
+      ],
+      "answer": 0,
+      "explanation": "\"That's okay, no problem\" is a common and polite reply when someone apologises. \"You're welcome\" goes with a thank you, not with an apology."
+    },
+    {
+      "id": "q-en7-voc-12",
+      "kind": "mc",
+      "topic": "there is/there are",
+      "prompt": "Choose the correct form: \"___ a cat sleeping on the sofa.\"",
+      "opener": "One or several? That decides whether it is is or are.",
+      "choices": [
+        "There are",
+        "There is",
+        "They are",
+        "It are"
+      ],
+      "answer": 1,
+      "explanation": "\"A cat\" is singular, so it should be \"There is\". \"There are\" is only used when what follows is plural, as in \"There are two cats\"."
+    },
+    {
+      "id": "q-en7-voc-13",
+      "kind": "mc",
+      "topic": "some/any",
+      "prompt": "Choose the correct word: \"Do you have ___ questions about the homework?\"",
+      "opener": "Some and any depend on whether the sentence is affirmative, negative or a question.",
+      "choices": [
+        "some",
+        "any",
+        "a",
+        "the"
+      ],
+      "answer": 1,
+      "explanation": "In questions, \"any\" is usually used: \"Do you have any questions?\". \"Some\" is normally used in affirmative sentences: \"I have some questions\"."
+    },
+    {
+      "id": "q-en7-voc-14",
+      "kind": "worked",
+      "topic": "there is/there are",
+      "prompt": "Correct the three errors: \"There is five students in my class from Spain. I need an pencil, and I don't have some paper.\"",
+      "opener": "Three things to check: singular or plural, which article fits, and some or any.",
+      "answer": "There are five students in my class from Spain. I need a pencil, and I don't have any paper.",
+      "steps": [
+        "\"There is five students\" → \"There are five students\". \"Five students\" is plural, so it should be \"there are\".",
+        "\"an pencil\" → \"a pencil\". \"Pencil\" begins with a consonant sound, so \"a\" is used.",
+        "\"I don't have some paper\" → \"I don't have any paper\". In negative sentences, \"any\" is used, not \"some\".",
+        "Read through the sentence once more at the end and check that is/are matches what comes after it."
+      ]
+    },
+    {
+      "id": "q-en7-voc-15",
+      "kind": "mc",
+      "topic": "articles",
+      "prompt": "Choose the correct article: \"She is ___ university student.\"",
+      "opener": "Listen to the SOUND \"university\" begins with, not the letter — that decides a or an.",
+      "choices": [
+        "a",
+        "an",
+        "the",
+        "some"
+      ],
+      "answer": 0,
+      "explanation": "\"University\" begins with the letter u, but the SOUND is /j/ (as in \"you\"), a consonant sound — so \"a\" is used: \"a university student\". It's the sound, not the letter, that decides a or an."
     }
   ]
 }

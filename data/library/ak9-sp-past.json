@@ -113,6 +113,111 @@
       "prompt": "Hur böjs regelbundna och de vanligaste oregelbundna verben i pretérito?",
       "opener": "Dåtidsformer för avslutade händelser, plus tre viktiga oregelbundna verb.",
       "answer": "-ar (hablar): hablé, hablaste, habló, hablamos, hablasteis, hablaron. -er/-ir (comer/escribir): comí/escribí, comiste/escribiste, comió/escribió, comimos/escribimos, comisteis/escribisteis, comieron/escribieron. Ir/ser (samma form!): fui, fuiste, fue, fuimos, fuisteis, fueron. Hacer: hice, hiciste, hizo, hicimos, hicisteis, hicieron. Tidsuttryck som passar: ayer (igår), la semana pasada (förra veckan), el año pasado (förra året), anoche (igår kväll)."
+    },
+    {
+      "id": "q-sp9-past-9",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Välj rätt form: \"Vosotros ___ mucho en la fiesta.\" (bailar = att dansa)",
+      "opener": "\"Vosotros\" (ni) i pretérito för -ar-verb slutar på -asteis.",
+      "choices": [
+        "bailasteis",
+        "bailaron",
+        "bailamos",
+        "bailé"
+      ],
+      "answer": 0,
+      "explanation": "Pretérito av -ar-verb: bailé, bailaste, bailó, bailamos, bailasteis, bailaron. \"Vosotros\" ger \"bailasteis\"."
+    },
+    {
+      "id": "q-sp9-past-10",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Välj rätt form: \"Ellos ___ la puerta antes de salir.\" (cerrar = att stänga)",
+      "opener": "\"Ellos\" (de) i pretérito för -ar-verb slutar på -aron.",
+      "choices": [
+        "cerraron",
+        "cerró",
+        "cerraste",
+        "cerramos"
+      ],
+      "answer": 0,
+      "explanation": "Pretérito av -ar-verb: cerré, cerraste, cerró, cerramos, cerrasteis, cerraron. \"Ellos\" ger \"cerraron\"."
+    },
+    {
+      "id": "q-sp9-past-11",
+      "kind": "mc",
+      "topic": "irregular preterite",
+      "prompt": "Välj rätt form av \"ser\" i pretérito: \"Ese día ___ muy especial.\" (Den dagen var mycket speciell.)",
+      "opener": "\"Ese día\" (den dagen) motsvarar han/hon/den-formen.",
+      "choices": [
+        "fue",
+        "era",
+        "es",
+        "fui"
+      ],
+      "answer": 0,
+      "explanation": "Pretérito av \"ser\": fui, fuiste, fue, fuimos, fuisteis, fueron. \"Ese día\" (den dagen) ger \"fue\"."
+    },
+    {
+      "id": "q-sp9-past-12",
+      "kind": "mc",
+      "topic": "irregular preterite",
+      "prompt": "Vad är pretérito-formen av \"tener\" för \"yo\"?",
+      "opener": "\"Tener\" har en oregelbunden stam \"tuv-\" i pretérito.",
+      "choices": [
+        "tuve",
+        "tenía",
+        "tengo",
+        "tuviste"
+      ],
+      "answer": 0,
+      "explanation": "Pretérito av \"tener\": tuve, tuviste, tuvo, tuvimos, tuvisteis, tuvieron. \"Yo\" ger \"tuve\"."
+    },
+    {
+      "id": "q-sp9-past-13",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Vilket tidsuttryck passar INTE med pretérito?",
+      "opener": "Tänk på vilket uttryck som beskriver en återkommande vana snarare än en avslutad händelse.",
+      "choices": [
+        "todos los días (varje dag)",
+        "el mes pasado (förra månaden)",
+        "hace dos años (för två år sedan)",
+        "en 2020"
+      ],
+      "answer": 0,
+      "explanation": "\"Todos los días\" (varje dag) beskriver en återkommande vana och passar bättre med presens eller imperfekt, inte pretérito som beskriver avslutade händelser vid en bestämd tidpunkt."
+    },
+    {
+      "id": "q-sp9-past-14",
+      "kind": "mc",
+      "topic": "irregular preterite",
+      "prompt": "Välj rätt form av \"poder\" (kunna) i pretérito: \"Yo no ___ venir a la fiesta.\" (Jag kunde inte komma på festen.)",
+      "opener": "\"Poder\" har en oregelbunden stam \"pud-\" i pretérito.",
+      "choices": [
+        "pude",
+        "puedo",
+        "podía",
+        "pudiste"
+      ],
+      "answer": 0,
+      "explanation": "Pretérito av \"poder\": pude, pudiste, pudo, pudimos, pudisteis, pudieron. \"Yo\" ger \"pude\"."
+    },
+    {
+      "id": "q-sp9-past-15",
+      "kind": "mc",
+      "topic": "preterite tense",
+      "prompt": "Välj rätt form: \"¿___ (tú) la película anoche?\" (ver = att se)",
+      "opener": "\"Ver\" är oregelbundet men följer ett enkelt mönster i pretérito.",
+      "choices": [
+        "Viste",
+        "Vi",
+        "Vio",
+        "Vieron"
+      ],
+      "answer": 0,
+      "explanation": "Pretérito av \"ver\": vi, viste, vio, vimos, visteis, vieron. \"Tú\" ger \"viste\"."
     }
   ]
 }

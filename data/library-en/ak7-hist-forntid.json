@@ -125,6 +125,111 @@
       "prompt": "Summarise the periods of prehistory and the first civilisations.",
       "opener": "Go through the three ages in order, then the first civilisations and the sources.",
       "answer": "The Stone Age: the longest period, tools of stone, wood and bone · first hunters and gatherers, later farmers as agriculture spread · The Bronze Age (in Sweden about 1800-500 BC): bronze is a mixture of copper and tin, harder than stone, but the metal had to be traded over long distances · The Iron Age (in Sweden about 500 BC-1050 AD): iron was found in more places, became cheaper and gave better tools and weapons · The agricultural revolution: settled life, food surplus, more occupations, villages growing into cities · Mesopotamia: between the Euphrates and the Tigris, the Sumerians, cuneiform writing, one of the world's first civilisations · Egypt: around the Nile, annual floods gave fertile soil, hieroglyphs, pharaohs and pyramids · The importance of writing: knowledge, laws and business could be preserved and passed on · Historical sources: written sources only exist after the invention of writing, before that knowledge is built on archaeological remains such as tools, graves and settlements."
+    },
+    {
+      "id": "q-hist7-fnt-9",
+      "kind": "mc",
+      "topic": "the Stone Age, Bronze Age and Iron Age",
+      "prompt": "What characterised the Bronze Age compared with the Stone Age?",
+      "opener": "Bronze is a metal that has to be made by mixing two other metals.",
+      "choices": [
+        "Tools were made from a mixture of copper and tin, which was harder than stone",
+        "People stopped hunting entirely",
+        "It was the first period with farming",
+        "Metals weren't used at all"
+      ],
+      "answer": 0,
+      "explanation": "Bronze is an alloy of copper and tin and gave harder, sharper tools and weapons than stone. Farming had already begun in the later Stone Age, and hunting still continued alongside farming."
+    },
+    {
+      "id": "q-hist7-fnt-10",
+      "kind": "mc",
+      "topic": "the origin of farming",
+      "prompt": "Where in the world did farming first arise, according to archaeological finds?",
+      "opener": "The area is sometimes called the Fertile Crescent and lies in today's Middle East.",
+      "choices": [
+        "In northern Europe",
+        "In the Middle East, in the so-called Fertile Crescent",
+        "In South America",
+        "In Australia"
+      ],
+      "answer": 1,
+      "explanation": "The oldest traces of farming are found in the Middle East, in the Fertile Crescent around the Euphrates and Tigris rivers, about 10,000-12,000 years ago. Farming later arose independently elsewhere in the world too, but the Middle East is counted among the very earliest."
+    },
+    {
+      "id": "q-hist7-fnt-11",
+      "kind": "mc",
+      "topic": "the first civilisations",
+      "prompt": "What was typical of the early civilisations in Mesopotamia and Egypt?",
+      "opener": "Think about what distinguishes a civilisation from smaller, scattered villages.",
+      "choices": [
+        "They had no cities at all",
+        "They had cities, writing, a ruling elite and organised farming around rivers",
+        "They lived entirely as hunters and gatherers",
+        "They had no contact with each other at all"
+      ],
+      "answer": 1,
+      "explanation": "Both Mesopotamia and Egypt had large cities, developed writing, a ruling upper class and organised farming that made use of the rivers' water. There was also trade and contact between the different early civilisations."
+    },
+    {
+      "id": "q-hist7-fnt-12",
+      "kind": "mc",
+      "topic": "the importance of writing",
+      "prompt": "What writing system was developed in Mesopotamia?",
+      "opener": "The signs were pressed into clay tablets with a wedge-shaped stylus.",
+      "choices": [
+        "Hieroglyphs",
+        "Cuneiform",
+        "The Latin alphabet",
+        "Runes"
+      ],
+      "answer": 1,
+      "explanation": "The Sumerians in Mesopotamia developed cuneiform writing, where signs were pressed into clay tablets. Hieroglyphs instead belonged to ancient Egypt, and runes were used much later in the Nordic region."
+    },
+    {
+      "id": "q-hist7-fnt-13",
+      "kind": "mc",
+      "topic": "historical sources and remains",
+      "prompt": "What is the period before writing was invented called?",
+      "opener": "The name describes the fact that written sources are entirely absent from this period.",
+      "choices": [
+        "Antiquity",
+        "The Middle Ages",
+        "Prehistoric times",
+        "The Early Modern era"
+      ],
+      "answer": 2,
+      "explanation": "Prehistoric times is the name for the period before writing was invented, when knowledge is built on archaeological remains rather than texts. Antiquity, the Middle Ages and the Early Modern era all come after writing was already in use in several places."
+    },
+    {
+      "id": "q-hist7-fnt-14",
+      "kind": "worked",
+      "topic": "the Stone Age, Bronze Age and Iron Age",
+      "prompt": "Explain step by step why the Iron Age was a major advance compared with the Bronze Age.",
+      "opener": "Think about where copper, tin and iron are found in nature, and what that means for the price of the metal.",
+      "answer": "Iron was available in more places in nature than the copper and tin that bronze requires, so people didn't need to trade over such long distances to get hold of the metal. This made iron cheaper and more accessible to more people, leading to better and sharper tools and weapons for a larger share of the population, not just the wealthy who had previously been able to afford imported bronze.",
+      "steps": [
+        "Bronze requires both copper and tin, and tin was only found in a few places in Europe, so the metal had to be traded over long distances and became expensive.",
+        "Iron ore, on the other hand, was found in considerably more places, often close to where people already lived.",
+        "Since iron was easier to get hold of, it became cheaper to make tools and weapons out of iron.",
+        "More people, not just the wealthiest, therefore gained access to better equipment for farming, hunting and war.",
+        "The result was sharper axes, ploughs and weapons that spread to far more people in society than during the Bronze Age."
+      ]
+    },
+    {
+      "id": "q-hist7-fnt-15",
+      "kind": "mc",
+      "topic": "the first civilisations",
+      "prompt": "Which writing system did ancient Egypt use?",
+      "opener": "The signs are often pictures of animals, people and objects.",
+      "choices": [
+        "Cuneiform",
+        "Hieroglyphs",
+        "Runes",
+        "The Greek alphabet"
+      ],
+      "answer": 1,
+      "explanation": "Ancient Egypt used hieroglyphs, a writing system of pictorial signs. Cuneiform instead belonged to Mesopotamia, and runes and the Greek alphabet arose in entirely different places much later."
     }
   ]
 }

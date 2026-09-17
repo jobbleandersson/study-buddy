@@ -123,6 +123,111 @@
       "prompt": "Summarise the methods for solving a quadratic equation and what the discriminant tells you about the number of solutions.",
       "opener": "Think through when each method is best suited.",
       "answer": "Factorisation: find two numbers whose product is $q$ (or $c$) and whose sum is $p$ (or $b$) · Completing the square: $x^2+px+q = \\left(x+\\dfrac{p}{2}\\right)^2 - \\left(\\dfrac{p}{2}\\right)^2 + q$ · The pq-formula: $x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}$ for $x^2+px+q=0$ · The discriminant $D = \\left(\\dfrac{p}{2}\\right)^2 - q$: $D>0$ gives two solutions, $D=0$ gives one double root, $D<0$ gives no real solution."
+    },
+    {
+      "id": "q-ma2-andragrad-9",
+      "kind": "mc",
+      "topic": "factorisation",
+      "prompt": "Solve the equation $x^2 - x - 12 = 0$ by factorising.",
+      "opener": "Look for two numbers whose product is $-12$ and whose sum is $-1$.",
+      "choices": [
+        "$x = 4$ or $x = -3$",
+        "$x = -4$ or $x = 3$",
+        "$x = 3$ or $x = 4$",
+        "$x = -3$ or $x = -4$"
+      ],
+      "answer": 0,
+      "explanation": "The numbers $-4$ and $3$ give the product $-12$ and the sum $-1$, so $x^2-x-12=(x-4)(x+3)=0$, giving $x=4$ or $x=-3$. Swapping the signs (answer B) confuses which number should be positive and which negative."
+    },
+    {
+      "id": "q-ma2-andragrad-10",
+      "kind": "mc",
+      "topic": "the pq-formula",
+      "prompt": "Solve $x^2 - 6x + 5 = 0$ using the pq-formula.",
+      "opener": "Here $p=-6$ and $q=5$.",
+      "choices": [
+        "$x = 5$ or $x = 1$",
+        "$x = -5$ or $x = -1$",
+        "$x = 3$ or $x = 2$",
+        "$x = 6$ or $x = 5$"
+      ],
+      "answer": 0,
+      "explanation": "$x = 3 \\pm \\sqrt{9-5} = 3 \\pm 2$, so $x=5$ or $x=1$. Answer B gets the sign wrong by mixing up $-p/2$ with $p/2$."
+    },
+    {
+      "id": "q-ma2-andragrad-11",
+      "kind": "mc",
+      "topic": "the discriminant",
+      "prompt": "For which positive value of $p$ does the equation $x^2 + px + 9 = 0$ have exactly one (double) solution?",
+      "opener": "Require that $\\left(\\dfrac{p}{2}\\right)^2 - 9 = 0$.",
+      "choices": [
+        "$p = 6$",
+        "$p = 9$",
+        "$p = 3$",
+        "$p = 18$"
+      ],
+      "answer": 0,
+      "explanation": "$\\left(\\frac{p}{2}\\right)^2 = 9 \\Rightarrow \\frac{p}{2} = 3 \\Rightarrow p=6$ (the positive option). Then $x^2+6x+9=(x+3)^2=0$, which has exactly one double root."
+    },
+    {
+      "id": "q-ma2-andragrad-12",
+      "kind": "mc",
+      "topic": "completing the square",
+      "prompt": "Rewrite $x^2 - 10x + 3$ in the form $(x+a)^2 + b$.",
+      "opener": "Halve the coefficient in front of $x$ to find $a$.",
+      "choices": [
+        "$(x-5)^2 - 22$",
+        "$(x-5)^2 + 22$",
+        "$(x-10)^2 + 3$",
+        "$(x-5)^2 - 28$"
+      ],
+      "answer": 0,
+      "explanation": "Half the coefficient in front of $x$ is $-5$, so $(x-5)^2 = x^2-10x+25$. Since the expression should only contain $+3$: $x^2-10x+3 = (x-5)^2 - 25 + 3 = (x-5)^2 - 22$."
+    },
+    {
+      "id": "q-ma2-andragrad-13",
+      "kind": "mc",
+      "topic": "factorisation",
+      "prompt": "Which factorisation is correct for $3x^2 + 6x = 0$?",
+      "opener": "Take out the common factor in both terms.",
+      "choices": [
+        "$3x(x+2) = 0$, so $x = 0$ or $x = -2$",
+        "$3x(x-2) = 0$, so $x = 0$ or $x = 2$",
+        "$x(3x+6) = 0$, so $x = 0$ or $x = 6$",
+        "$x(3x+6) = 0$, so $x = 0$ or $x = -6$"
+      ],
+      "answer": 0,
+      "explanation": "Take out $3x$: $3x^2+6x = 3x(x+2) = 0$, giving $x=0$ or $x=-2$. Answers C and D only take out $x$ (not $3x$) and then misread $3x+6=0$ — that equation actually gives $x=-2$, not $6$ or $-6$."
+    },
+    {
+      "id": "q-ma2-andragrad-14",
+      "kind": "mc",
+      "topic": "the pq-formula",
+      "prompt": "Solve $3x^2 - 12x + 9 = 0$ using the pq-formula.",
+      "opener": "Divide every term by 3 first so the coefficient in front of $x^2$ becomes 1.",
+      "choices": [
+        "$x = 3$ or $x = 1$",
+        "$x = -3$ or $x = -1$",
+        "$x = 4$ or $x = 3$",
+        "$x = 1$ or $x = 2$"
+      ],
+      "answer": 0,
+      "explanation": "Divide by 3: $x^2-4x+3=0$, so $p=-4$, $q=3$. Then $x=2\\pm\\sqrt{4-3}=2\\pm1$, so $x=3$ or $x=1$."
+    },
+    {
+      "id": "q-ma2-andragrad-15",
+      "kind": "mc",
+      "topic": "the discriminant",
+      "prompt": "How many real solutions does the equation $2x^2 + 4x + 5 = 0$ have?",
+      "opener": "Calculate the discriminant $b^2-4ac$ for $a=2$, $b=4$, $c=5$.",
+      "choices": [
+        "No real solution",
+        "Two different solutions",
+        "One double root",
+        "Infinitely many solutions"
+      ],
+      "answer": 0,
+      "explanation": "The discriminant is $b^2-4ac = 16 - 40 = -24$, which is negative. A negative value under the square root means the equation has no real solutions."
     }
   ]
 }

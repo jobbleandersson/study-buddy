@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta det viktigaste om hälsans bestämningsfaktorer, sexuell hälsa, droger och beroende, samt folkhälsa.",
       "opener": "Gå igenom vad som påverkar hälsa, vad som krävs för en trygg relation, och vad som skiljer individ- och befolkningsnivå.",
       "answer": "Hälsans bestämningsfaktorer: levnadsvanor, arv, miljö och socioekonomiska förhållanden samverkar och påverkar hälsan · Samtycke: ska vara frivilligt, tydligt, gälla den aktuella situationen och kunna dras tillbaka när som helst · Preventivmedel: kondom är det enda vanliga medlet som skyddar både mot graviditet och mot de flesta sexuellt överförbara infektionerna, hormonella metoder som p-piller skyddar bara mot graviditet · Fysiskt beroende: kroppen har anpassat sig till drogen, abstinens uppstår vid uppehåll · Psykiskt beroende: starkt begär efter drogen utan samma kroppsliga abstinens · Folkhälsa: hälsoläget och dess fördelning i en hel befolkning samt det förebyggande arbetet för att förbättra och utjämna hälsan i samhället."
+    },
+    {
+      "id": "q-nk1b-halsa-9",
+      "kind": "mc",
+      "topic": "hälsans bestämningsfaktorer",
+      "prompt": "Vad innebär begreppet \"hälsofrämjande\" arbete, till skillnad från rent sjukdomsförebyggande arbete?",
+      "opener": "Tänk på skillnaden mellan att bygga upp något positivt och att enbart förhindra något negativt.",
+      "choices": [
+        "Att aktivt stärka faktorer som bidrar till god hälsa och välbefinnande, t.ex. genom att skapa goda förutsättningar för fysisk aktivitet och sociala sammanhang, snarare än att enbart förhindra specifika sjukdomar",
+        "Ett annat ord för att enbart behandla sjukdomar som redan uppstått",
+        "Ett begrepp som enbart gäller inom sjukvården, inte i skolan eller på arbetsplatser",
+        "Att hälsofrämjande arbete alltid är dyrare än sjukdomsförebyggande arbete"
+      ],
+      "answer": 0,
+      "explanation": "Hälsofrämjande arbete handlar om att aktivt stärka faktorer som bidrar till välbefinnande, t.ex. genom trygga sociala sammanhang och möjlighet till fysisk aktivitet, snarare än att enbart rikta in sig på att förebygga specifika sjukdomar."
+    },
+    {
+      "id": "q-nk1b-halsa-10",
+      "kind": "mc",
+      "topic": "sexuell hälsa och relationer",
+      "prompt": "Vad är en sexuellt överförbar infektion (STI) som ofta är symtomfri men som obehandlad kan leda till infertilitet?",
+      "opener": "Tänk på en mycket vanlig STI bland unga som ofta inte ger några tydliga symtom alls.",
+      "choices": [
+        "Klamydia",
+        "Förkylning",
+        "Influensa",
+        "Vattkoppor"
+      ],
+      "answer": 0,
+      "explanation": "Klamydia är en av de vanligaste sexuellt överförbara infektionerna och är ofta symtomfri, men kan om den lämnas obehandlad leda till komplikationer som infertilitet, särskilt hos kvinnor."
+    },
+    {
+      "id": "q-nk1b-halsa-11",
+      "kind": "mc",
+      "topic": "sexuell hälsa och relationer",
+      "prompt": "Vad kännetecknar en jämställd och hälsosam relation?",
+      "opener": "Tänk på vad som utmärker en relation där båda parter känner sig trygga och respekterade.",
+      "choices": [
+        "Ömsesidig respekt, öppen kommunikation och att båda parters gränser och önskemål tas på allvar",
+        "Att en part alltid bestämmer över den andra",
+        "Att konflikter aldrig får uttryckas öppet",
+        "Att båda parter måste tycka exakt likadant i alla frågor"
+      ],
+      "answer": 0,
+      "explanation": "En jämställd och hälsosam relation kännetecknas av ömsesidig respekt, öppen kommunikation och att båda parters gränser och önskemål tas på allvar — inte av att en part alltid bestämmer eller att konflikter aldrig får synas."
+    },
+    {
+      "id": "q-nk1b-halsa-12",
+      "kind": "mc",
+      "topic": "droger och beroende",
+      "prompt": "Vad är skillnaden mellan riskbruk och beroende av alkohol?",
+      "opener": "Tänk på om enbart hur MYCKET man dricker avgör om man är beroende.",
+      "choices": [
+        "Riskbruk innebär en konsumtionsnivå som ökar risken för skador utan att personen nödvändigtvis är beroende, medan beroende innebär en stark, ofta okontrollerbar drift att fortsätta använda trots negativa konsekvenser",
+        "Riskbruk och beroende betyder exakt samma sak",
+        "Beroende är alltid mindre allvarligt än riskbruk",
+        "Riskbruk kan bara gälla droger, aldrig alkohol"
+      ],
+      "answer": 0,
+      "explanation": "Riskbruk handlar om en konsumtionsnivå som ökar risken för skador, utan att personen nödvändigtvis är beroende, medan beroende innebär en stark, ofta okontrollerbar drift att fortsätta trots negativa konsekvenser — en person kan alltså ha riskbruk utan att vara beroende."
+    },
+    {
+      "id": "q-nk1b-halsa-13",
+      "kind": "mc",
+      "topic": "droger och beroende",
+      "prompt": "Hur påverkar många beroendeframkallande droger hjärnans belöningssystem?",
+      "opener": "Tänk på vilken signalsubstans som ofta kopplas till känslor av belöning och välbehag.",
+      "choices": [
+        "De ökar frisättningen av signalsubstansen dopamin, vilket ger en känsla av välbehag som kroppen kan lära sig att eftersträva upprepat",
+        "De stänger av hjärnans belöningssystem helt och permanent",
+        "De påverkar enbart musklerna, aldrig hjärnan",
+        "De har ingen koppling alls till hjärnans kemi"
+      ],
+      "answer": 0,
+      "explanation": "Många beroendeframkallande droger ökar frisättningen av dopamin i hjärnans belöningssystem, vilket ger en känsla av välbehag som hjärnan kan lära sig att eftersträva, vilket bidrar till beroendeutveckling."
+    },
+    {
+      "id": "q-nk1b-halsa-14",
+      "kind": "mc",
+      "topic": "folkhälsa",
+      "prompt": "Vad är ett exempel på en strukturell folkhälsoinsats, till skillnad från en insats riktad mot en enskild individ?",
+      "opener": "Tänk på skillnaden mellan en åtgärd som riktas mot en enda person och en åtgärd som påverkar hela befolkningen automatiskt.",
+      "choices": [
+        "Lagstiftning om rökfria offentliga miljöer, som minskar exponering för passiv rökning i hela befolkningen",
+        "Att en enskild läkare ger kostråd till en patient",
+        "Att en person själv bestämmer sig för att sluta röka",
+        "Att en vän ger en annan vän råd om träning"
+      ],
+      "answer": 0,
+      "explanation": "Lagstiftning om rökfria offentliga miljöer är en strukturell folkhälsoinsats eftersom den påverkar hela befolkningens exponering för passiv rökning automatiskt, till skillnad från individuella insatser som kostrådgivning till en enskild patient."
+    },
+    {
+      "id": "q-nk1b-halsa-15",
+      "kind": "mc",
+      "topic": "folkhälsa",
+      "prompt": "Vilket av följande är ett exempel på en folkhälsoindikator som används för att följa upp befolkningens hälsa över tid?",
+      "opener": "Tänk på ett mått som beskriver hela befolkningens hälsoläge, inte en enskild persons.",
+      "choices": [
+        "Medellivslängd i befolkningen",
+        "En enskild persons blodtryck vid ett läkarbesök",
+        "Antalet rum i en persons bostad",
+        "En persons favoritmat"
+      ],
+      "answer": 0,
+      "explanation": "Medellivslängd är en vanlig folkhälsoindikator som används för att följa och jämföra befolkningars hälsoläge över tid och mellan olika grupper. En enskild persons blodtryck säger istället något om just den individens hälsa, inte om folkhälsan i stort."
     }
   ]
 }

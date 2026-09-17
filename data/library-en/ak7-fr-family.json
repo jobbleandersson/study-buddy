@@ -114,6 +114,111 @@
       "prompt": "Which family words, possessive pronouns, and numbers should you know at grade 7 level in French?",
       "opener": "Family, who it belongs to, and being able to count to sixty.",
       "answer": "Family: la mère/le père = mom/dad · le frère/la sœur = brother/sister · le grand-père/la grand-mère = grandfather/grandmother · le fils/la fille = son/daughter · le cousin/la cousine = cousin. Possessives: mon/ma/mes = my · ton/ta/tes = your · son/sa/ses = his/her. (Mon/ton/son are also used for feminine words starting with a vowel sound.) Numbers: 0 zéro, 1 un, 5 cinq, 10 dix, 11 onze, 15 quinze, 20 vingt, 21 vingt et un, 30 trente, 31 trente et un, 50 cinquante, 60 soixante."
+    },
+    {
+      "id": "q-fr7-fam-9",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"l'oncle\" mean?",
+      "opener": "A male relative, the brother of one of your parents.",
+      "choices": [
+        "Uncle",
+        "Aunt",
+        "Cousin",
+        "Brother-in-law"
+      ],
+      "answer": 0,
+      "explanation": "\"L'oncle\" means uncle. The feminine counterpart is \"la tante\" (aunt)."
+    },
+    {
+      "id": "q-fr7-fam-10",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"la tante\" mean?",
+      "opener": "A female relative, the sister of one of your parents.",
+      "choices": [
+        "Aunt",
+        "Uncle",
+        "Sister-in-law",
+        "Grandmother"
+      ],
+      "answer": 0,
+      "explanation": "\"La tante\" means aunt."
+    },
+    {
+      "id": "q-fr7-fam-11",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Choose the right word: \"___ père est professeur.\" (His/her dad is a teacher.)",
+      "opener": "\"Père\" is masculine, and the possessive agrees with the WORD's gender — not the owner's.",
+      "choices": [
+        "Son",
+        "Sa",
+        "Ses",
+        "Ton"
+      ],
+      "answer": 0,
+      "explanation": "\"Son\" is used before masculine singular words, regardless of whether the owner is \"he\" or \"she\": \"son père\" (his/her dad)."
+    },
+    {
+      "id": "q-fr7-fam-12",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "How do you write the number 42 in letters?",
+      "opener": "42 follows the pattern \"quarante\" + the ones digit.",
+      "choices": [
+        "quarante-deux",
+        "quarante-douze",
+        "vingt-deux",
+        "cinquante-deux"
+      ],
+      "answer": 0,
+      "explanation": "\"Quarante\" (40) + \"deux\" (2) = \"quarante-deux\" = 42."
+    },
+    {
+      "id": "q-fr7-fam-13",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "What number is \"soixante\"?",
+      "opener": "A round multiple of ten you've already seen in the flashcard.",
+      "choices": [
+        "60",
+        "16",
+        "70",
+        "6"
+      ],
+      "answer": 0,
+      "explanation": "\"Soixante\" is 60."
+    },
+    {
+      "id": "q-fr7-fam-14",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "What does \"la cousine\" mean?",
+      "opener": "Compare it with \"le cousin\", the masculine form.",
+      "choices": [
+        "Cousin (female)",
+        "Cousin (male)",
+        "Sister",
+        "Aunt"
+      ],
+      "answer": 0,
+      "explanation": "\"La cousine\" is the feminine form of cousin. \"Le cousin\" is the masculine form."
+    },
+    {
+      "id": "q-fr7-fam-15",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Choose the right word: \"___ parents habitent à Paris.\" (My parents live in Paris.)",
+      "opener": "\"Parents\" is plural, and the plural possessive is the same regardless of gender.",
+      "choices": [
+        "Mes",
+        "Mon",
+        "Ma",
+        "Ton"
+      ],
+      "answer": 0,
+      "explanation": "\"Mes\" is used in the plural, regardless of the noun's gender in the singular: \"mes parents\" (my parents)."
     }
   ]
 }

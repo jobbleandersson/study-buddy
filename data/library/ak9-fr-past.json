@@ -113,6 +113,111 @@
       "prompt": "Hur bildas passé composé på franska, och när använder man avoir respektive être?",
       "opener": "Två hjälpverb och två sorters particip.",
       "answer": "Struktur: avoir/être (presens) + particip. Être används för förflyttning: aller → suis allé(e), partir → suis parti(e), venir → suis venu(e) — participet kongruensböjs då efter subjektets kön/numerus. Avoir används för de flesta andra verb: manger → ai mangé, parler → ai parlé, finir → ai fini. Oregelbundna particip: fait (faire), eu (avoir), été (être), vu (voir), pris (prendre)."
+    },
+    {
+      "id": "q-fr9-past-9",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Välj rätt hjälpverb: \"Elle ___ venue chez moi.\" (venir = förflyttning; hon kom hem till mig)",
+      "opener": "\"Venir\" beskriver en förflyttning.",
+      "choices": [
+        "est",
+        "a",
+        "sont",
+        "ont"
+      ],
+      "answer": 0,
+      "explanation": "\"Venir\" beskriver rörelse/förflyttning, så det använder \"être\": \"elle est ... venue\"."
+    },
+    {
+      "id": "q-fr9-past-10",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Vilket particip hör till \"boire\" (dricka)? Ett oregelbundet verb.",
+      "opener": "Ett kort, oregelbundet particip.",
+      "choices": [
+        "bu",
+        "bui",
+        "boiré",
+        "bue"
+      ],
+      "answer": 0,
+      "explanation": "\"Boire\" har det oregelbundna participet \"bu\": \"j'ai bu de l'eau\" (jag har druckit vatten)."
+    },
+    {
+      "id": "q-fr9-past-11",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Välj rätt hjälpverb: \"Nous ___ partis tôt.\" (partir = förflyttning)",
+      "opener": "\"Partir\" beskriver en förflyttning.",
+      "choices": [
+        "sommes",
+        "avons",
+        "est",
+        "a"
+      ],
+      "answer": 0,
+      "explanation": "\"Partir\" beskriver rörelse, så det använder \"être\": \"nous sommes ... partis\"."
+    },
+    {
+      "id": "q-fr9-past-12",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Vilket particip hör till \"prendre\" (ta)? Ett oregelbundet verb.",
+      "opener": "Ett av de vanligaste oregelbundna participen.",
+      "choices": [
+        "pris",
+        "prendu",
+        "prenu",
+        "pridu"
+      ],
+      "answer": 0,
+      "explanation": "\"Prendre\" har det oregelbundna participet \"pris\": \"j'ai pris le train\" (jag tog tåget)."
+    },
+    {
+      "id": "q-fr9-past-13",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Välj rätt hjälpverb: \"J'___ été fatigué(e).\" (être = att vara; jag var trött)",
+      "opener": "\"Être\" (att vara) böjs med avoir som hjälpverb i passé composé.",
+      "choices": [
+        "ai",
+        "suis",
+        "as",
+        "a"
+      ],
+      "answer": 0,
+      "explanation": "\"Être\" böjs med \"avoir\" som hjälpverb i passé composé: \"j'ai été\" (jag var/har varit)."
+    },
+    {
+      "id": "q-fr9-past-14",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Vilket particip hör till \"acheter\" (köpa)? Ett regelbundet -er-verb.",
+      "opener": "-er-verb bildar particip med -é.",
+      "choices": [
+        "acheté",
+        "achetu",
+        "achetais",
+        "achet"
+      ],
+      "answer": 0,
+      "explanation": "-er-verb bildar particip med -é. \"Acheter\" → \"acheté\"."
+    },
+    {
+      "id": "q-fr9-past-15",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Vilket av dessa verb beskriver INGEN förflyttning och behöver därför avoir?",
+      "opener": "De andra tre är alla klassiska \"être\"-verb.",
+      "choices": [
+        "lire",
+        "aller",
+        "venir",
+        "partir"
+      ],
+      "answer": 0,
+      "explanation": "\"Lire\" (läsa) beskriver ingen förflyttning, så det använder \"avoir\". \"Aller\", \"venir\" och \"partir\" beskriver alla rörelse och använder \"être\"."
     }
   ]
 }

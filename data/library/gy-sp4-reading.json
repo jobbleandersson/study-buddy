@@ -123,6 +123,111 @@
       "prompt": "Vilka lässtrategier hjälper dig att analysera en åsiktsdriven text (columna de opinión) på spanska?",
       "opener": "Debattartiklar bygger ofta upp ett resonemang stegvis fram till en poäng — så här läser du dem effektivt.",
       "answer": "Identifiera avsändarens hållning tidigt — ofta signaleras den genom ordval som \"como si\", \"sin embargo\", \"cuando menos\". Skilj på fakta/statistik (t.ex. \"más de cien veces al día\") och värderande påståenden (\"una simplificación cómoda\"). Leta efter vändpunkter markerade med \"sin embargo\" (dock/emellertid) eller \"pero\" (men) — där brukar textens verkliga poäng finnas. En avslutande retorisk fråga är ofta textens sammanfattande poäng, formulerad så att läsaren själv ska dra slutsatsen. Ordförråd att känna igen: deslizar (att svepa/scrolla), capturar la atención (att fånga uppmärksamheten), culpar (att skylla på), residir en (att ligga i/bero på)."
+    },
+    {
+      "id": "q-sp4-reading-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Läs texten:\n\n\"El otro día, mientras esperaba para hacer una fotografía de la famosa fuente del centro histórico, conté hasta once grupos de turistas que pasaron delante de mí en apenas veinte minutos. Ya no reconozco el barrio donde crecí: las tiendas de toda la vida han cerrado una tras otra, sustituidas por heladerías y tiendas de recuerdos idénticas a las de cualquier otra ciudad europea. Los vecinos hablan de mudarse porque los alquileres han subido más del cuarenta por ciento en cinco años, empujados por los pisos turísticos. Se suele presentar el turismo como una fuente de riqueza sin matices, como si atraer a más visitantes fuera automáticamente positivo para todos. Sin embargo, nadie pregunta a quienes ya no pueden pagar el alquiler de su propio barrio. No se trata de rechazar el turismo por completo, sino de repartir mejor sus beneficios y, sobre todo, de escuchar a quienes viven aquí todo el año, no solo una semana de vacaciones.\"\n\nVad är textens huvudbudskap?",
+      "opener": "Leta efter meningen som ifrågasätter bilden av turism som enbart positivt.",
+      "choices": [
+        "Turism presenteras ofta som enbart positivt, men de som bor i staden året runt drabbas negativt och hörs sällan",
+        "All turism bör förbjudas omedelbart",
+        "Turister bär hela ansvaret för hyreshöjningar",
+        "Butiker i centrum bör aldrig få stänga"
+      ],
+      "answer": 0,
+      "explanation": "Texten ifrågasätter tanken att turism är en okomplicerad tillgång och pekar på att de som bor i staden året runt (inte bara turisterna) betalar priset — poängen är obalansen mellan vem som gynnas och vem som drabbas, inte att turism bör avskaffas helt."
+    },
+    {
+      "id": "q-sp4-reading-10",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Läs texten igen. Vad betyder \"los pisos turísticos\" i sammanhanget \"los alquileres han subido... empujados por los pisos turísticos\"?",
+      "opener": "\"Piso\" betyder lägenhet i spansk spanska, och \"turístico\" syftar på turism.",
+      "choices": [
+        "Lägenheter som hyrs ut till turister",
+        "Hotell i stadens utkant",
+        "Turistbyråer",
+        "Souvenirbutiker"
+      ],
+      "answer": 0,
+      "explanation": "\"Los pisos turísticos\" är lägenheter som hyrs ut kortsiktigt till turister, vilket enligt texten pressar upp hyrorna för ortsbefolkningen."
+    },
+    {
+      "id": "q-sp4-reading-11",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Läs texten igen. Vad kan man dra för slutsats om författarens inställning till turism utifrån texten som helhet?",
+      "opener": "Notera sista meningen, som börjar med \"No se trata de rechazar el turismo por completo\".",
+      "choices": [
+        "Författaren är inte emot turism i sig, men vill att fördelarna fördelas mer rättvist",
+        "Författaren tycker att turism bara är av ondo och bör förbjudas",
+        "Författaren arbetar själv inom turistnäringen och försvarar den okritiskt",
+        "Författaren är helt likgiltig inför frågan"
+      ],
+      "answer": 0,
+      "explanation": "Sista meningen klargör att författaren inte vill avskaffa turismen, utan \"repartir mejor sus beneficios\" (fördela dess fördelar bättre) och lyssna på de som bor kvar året runt."
+    },
+    {
+      "id": "q-sp4-reading-12",
+      "kind": "mc",
+      "topic": "argument structuring",
+      "prompt": "Läs texten igen. Vilket retoriskt grepp använder författaren i sista meningen (\"No se trata de rechazar el turismo por completo, sino de...\")?",
+      "opener": "Meningen består av två delar kopplade med \"sino de\" (utan att).",
+      "choices": [
+        "Klargör sin ståndpunkt genom att först avfärda en extrem tolkning innan den egna, mer nyanserade poängen presenteras",
+        "Ber om ursäkt för att ha varit för hård i sin kritik",
+        "Sammanfattar statistiken som nämnts tidigare i texten",
+        "Ställer en direkt fråga till läsaren"
+      ],
+      "answer": 0,
+      "explanation": "Strukturen \"no se trata de X, sino de Y\" (det handlar inte om X, utan om Y) avfärdar först en extrem tolkning (att helt avskaffa turismen) innan författarens egen, mer nyanserade poäng presenteras."
+    },
+    {
+      "id": "q-sp4-reading-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Läs texten igen. Vad avslöjar meningen \"conté hasta once grupos de turistas que pasaron delante de mí en apenas veinte minutos\" om textens ton?",
+      "opener": "Notera att det är en konkret, personlig siffra, inte en allmän statistik.",
+      "choices": [
+        "En konkret, personlig iakttagelse som ger trovärdighet åt argumentet om överdriven turism",
+        "En överdrift som inte ska tas bokstavligt",
+        "Ett bevis på att författaren arbetar som turistguide",
+        "En kritik riktad specifikt mot fotografer"
+      ],
+      "answer": 0,
+      "explanation": "Den konkreta, personliga iakttagelsen (elva grupper på tjugo minuter) ger argumentet trovärdighet genom att grunda det i egen upplevelse innan resonemanget breddas."
+    },
+    {
+      "id": "q-sp4-reading-14",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Läs texten igen. Vad betyder ungefär \"sin matices\" i \"Se suele presentar el turismo como una fuente de riqueza sin matices\"?",
+      "opener": "\"Matiz\" betyder nyans.",
+      "choices": [
+        "Utan nyanser (förenklat)",
+        "Med stor omsorg",
+        "Utan undantag",
+        "Med tydliga bevis"
+      ],
+      "answer": 0,
+      "explanation": "\"Sin matices\" betyder \"utan nyanser\", alltså förenklat — texten kritiserar att turism ofta presenteras som enbart positivt, utan att nyansera bilden."
+    },
+    {
+      "id": "q-sp4-reading-15",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Läs texten igen. Vilket konkret exempel ger texten på hur turismen påverkat författarens grannskap?",
+      "opener": "Leta efter meningen om butiker och hyror.",
+      "choices": [
+        "Traditionella butiker har stängt och ersatts av souvenirbutiker, och hyrorna har stigit kraftigt",
+        "Kommunen har byggt fler parker i området",
+        "Skolorna i området har fått mer resurser",
+        "Kollektivtrafiken i området har blivit bättre"
+      ],
+      "answer": 0,
+      "explanation": "Texten nämner att \"las tiendas de toda la vida han cerrado\" (de gamla butikerna har stängt) ersatta av souvenirbutiker, och att hyrorna \"han subido más del cuarenta por ciento en cinco años\" (stigit mer än 40 % på fem år)."
     }
   ]
 }

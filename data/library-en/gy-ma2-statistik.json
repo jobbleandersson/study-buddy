@@ -123,6 +123,111 @@
       "prompt": "Summarise the formula for conditional probability, the condition for independent events, and the deeper measures of central tendency and spread.",
       "opener": "Connect the formula for conditional probability with the test for independence.",
       "answer": "$P(A\\mid B) = \\dfrac{P(A \\text{ and } B)}{P(B)}$ · A and B are independent if $P(A\\mid B) = P(A)$, which is the same as $P(A \\text{ and } B) = P(A)\\cdot P(B)$ · Quartiles: $Q_1$ = median of the lower half, $Q_2$ = median of all values, $Q_3$ = median of the upper half · Interquartile range $= Q_3 - Q_1$ · Standard deviation measures the average distance to the mean and, unlike the range, takes all values into account."
+    },
+    {
+      "id": "q-ma2-statistik-9",
+      "kind": "mc",
+      "topic": "conditional probability",
+      "prompt": "$P(A) = 0.6$ and $P(A \\text{ and } B) = 0.24$. What is $P(B \\mid A)$?",
+      "opener": "Divide the probability of both events by the probability of the condition (A).",
+      "choices": [
+        "$40\\%$",
+        "$24\\%$",
+        "$60\\%$",
+        "$14.4\\%$"
+      ],
+      "answer": 0,
+      "explanation": "$P(B\\mid A) = \\dfrac{P(A \\text{ and } B)}{P(A)} = \\dfrac{0.24}{0.6} = 0.4 = 40\\%$. Option D is obtained if you instead multiply $0.6\\cdot0.24$, which is not the right method for conditional probability."
+    },
+    {
+      "id": "q-ma2-statistik-10",
+      "kind": "mc",
+      "topic": "independent events",
+      "prompt": "$P(A) = 0.4$ and $P(B) = 0.25$, and A and B are independent. What is $P(A \\text{ and } B)$?",
+      "opener": "For independent events, $P(A \\text{ and } B) = P(A)\\cdot P(B)$.",
+      "choices": [
+        "$0.10$",
+        "$0.65$",
+        "$0.16$",
+        "$1.6$"
+      ],
+      "answer": 0,
+      "explanation": "$P(A \\text{ and } B) = P(A)\\cdot P(B) = 0.4\\cdot0.25 = 0.10$. Option B ($0.65$) instead adds the probabilities, which is not the right condition for independent events."
+    },
+    {
+      "id": "q-ma2-statistik-11",
+      "kind": "mc",
+      "topic": "measures of central tendency",
+      "prompt": "The numbers 3, 7, 7, 9, 12, 14, 18, 22 are sorted in order of size. What is the upper quartile $Q_3$?",
+      "opener": "$Q_3$ is the median of the upper half of the values.",
+      "choices": [
+        "$16$",
+        "$18$",
+        "$15$",
+        "$14$"
+      ],
+      "answer": 0,
+      "explanation": "The upper half (the four largest values) is 12, 14, 18, 22. The median of these four is $\\frac{14+18}{2} = 16$, which is $Q_3$."
+    },
+    {
+      "id": "q-ma2-statistik-12",
+      "kind": "mc",
+      "topic": "measures of spread",
+      "prompt": "A data set consists of five identical values: 4, 4, 4, 4, 4. What is the standard deviation?",
+      "opener": "Think about how much each value deviates from the mean.",
+      "choices": [
+        "$0$",
+        "$4$",
+        "$1$",
+        "$20$"
+      ],
+      "answer": 0,
+      "explanation": "Since every value is exactly equal to the mean of 4, there is no spread at all, so the standard deviation is $0$. The standard deviation is only zero when all values in the data set are identical."
+    },
+    {
+      "id": "q-ma2-statistik-13",
+      "kind": "mc",
+      "topic": "independent events",
+      "prompt": "Two ordinary dice are rolled at the same time. Are the outcome of one die and the outcome of the other die independent events?",
+      "opener": "Think about whether the result on one die affects the probabilities for the other.",
+      "choices": [
+        "Yes, they don't affect each other",
+        "No, they are always dependent on each other",
+        "No, because $P(A)+P(B)=1$",
+        "It's impossible to tell without more rolls"
+      ],
+      "answer": 0,
+      "explanation": "The outcome of one die doesn't affect the probabilities for the other die at all, so the events are independent. This holds for a single roll, not only after several rolls, and $P(A)+P(B)=1$ isn't a relevant condition here."
+    },
+    {
+      "id": "q-ma2-statistik-14",
+      "kind": "mc",
+      "topic": "conditional probability",
+      "prompt": "In a group, 50% like coffee and 20% like both coffee and tea. What is $P(\\text{tea} \\mid \\text{coffee})$?",
+      "opener": "Divide the probability of both drinks by the probability of the condition (coffee).",
+      "choices": [
+        "$40\\%$",
+        "$20\\%$",
+        "$50\\%$",
+        "$10\\%$"
+      ],
+      "answer": 0,
+      "explanation": "$P(\\text{tea}\\mid\\text{coffee}) = \\dfrac{P(\\text{coffee and tea})}{P(\\text{coffee})} = \\dfrac{0.2}{0.5} = 0.4 = 40\\%$. Simply answering $20\\%$ (option B) forgets to divide by the probability of the condition."
+    },
+    {
+      "id": "q-ma2-statistik-15",
+      "kind": "mc",
+      "topic": "measures of central tendency",
+      "prompt": "The numbers 1, 2, 2, 3, 3, 3, 5, 8 form a data set. What is the mode (the most frequently occurring value)?",
+      "opener": "Count how many times each number appears.",
+      "choices": [
+        "$3$",
+        "$2$",
+        "$5$",
+        "$8$"
+      ],
+      "answer": 0,
+      "explanation": "The number 3 appears three times, more than any other number in the data set, so the mode is $3$. The number 2 only appears twice, making it a common but incorrect answer."
     }
   ]
 }

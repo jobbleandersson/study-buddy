@@ -112,6 +112,111 @@
       "prompt": "Which strategies help you understand a simple Spanish text at the grade 7 level?",
       "opener": "You don't need to understand every word to understand the big picture.",
       "answer": "Look for familiar patterns: \"me llamo\" (introduction), \"tengo ... años\" (age), \"vivo en\" (where you live), \"los sábados/domingos\" (weekdays + activities). Guess unknown words from context instead of looking up every word. Read the text once for the overall gist and once more for the details. Look for present-tense verbs (juega, come, vive, descansa) to understand what's happening, and possessive words (su, sus, mi) to understand who is doing what."
+    },
+    {
+      "id": "q-sp7-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Ana tiene un perro que se llama Rex. Los lunes, va al parque con Rex después de la escuela. A Rex le gusta correr y jugar con la pelota.\"\n\n¿Qué animal tiene Ana?",
+      "opener": "Read the text about Ana and her dog.",
+      "choices": [
+        "Un perro",
+        "Un gato",
+        "Un pájaro",
+        "Un caballo"
+      ],
+      "answer": 0,
+      "explanation": "The text says \"Ana tiene un perro que se llama Rex\", meaning she has a dog named Rex."
+    },
+    {
+      "id": "q-sp7-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Cuándo va Ana al parque con Rex?",
+      "opener": "Look for the time expression in the second sentence.",
+      "choices": [
+        "Los lunes, después de la escuela",
+        "Los domingos por la mañana",
+        "Todos los días",
+        "Nunca"
+      ],
+      "answer": 0,
+      "explanation": "\"Los lunes... después de la escuela\" means \"on Mondays, after school\"."
+    },
+    {
+      "id": "q-sp7-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Qué le gusta hacer a Rex?",
+      "opener": "The last sentence describes what Rex likes to do.",
+      "choices": [
+        "Correr y jugar con la pelota",
+        "Dormir todo el día",
+        "Comer pizza",
+        "Nadar en el mar"
+      ],
+      "answer": 0,
+      "explanation": "\"A Rex le gusta correr y jugar con la pelota\" means \"Rex likes to run and play with the ball\"."
+    },
+    {
+      "id": "q-sp7-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "New text: \"Mi amiga Elena tiene quince años y estudia en un instituto en Valencia. Los fines de semana, trabaja en la tienda de su tío. Le gusta mucho la música y toca la guitarra.\"\n\n¿Dónde trabaja Elena los fines de semana?",
+      "opener": "Read the new text about Elena.",
+      "choices": [
+        "En la tienda de su tío",
+        "En un restaurante",
+        "En su casa",
+        "En el instituto"
+      ],
+      "answer": 0,
+      "explanation": "\"Trabaja en la tienda de su tío\" means \"she works at her uncle's store\"."
+    },
+    {
+      "id": "q-sp7-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Qué instrumento toca Elena?",
+      "opener": "Look for the word for instrument in the last sentence.",
+      "choices": [
+        "La guitarra",
+        "El piano",
+        "La flauta",
+        "La batería"
+      ],
+      "answer": 0,
+      "explanation": "\"Toca la guitarra\" means \"she plays the guitar\"."
+    },
+    {
+      "id": "q-sp7-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Cuántos años tiene Elena?",
+      "opener": "Her age is mentioned in the first sentence.",
+      "choices": [
+        "Quince",
+        "Trece",
+        "Dieciséis",
+        "Catorce"
+      ],
+      "answer": 0,
+      "explanation": "\"Tiene quince años\" means \"she is fifteen years old\"."
+    },
+    {
+      "id": "q-sp7-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Dónde estudia Elena?",
+      "opener": "The school is mentioned in the first sentence.",
+      "choices": [
+        "En un instituto en Valencia",
+        "En una universidad en Madrid",
+        "En su casa",
+        "En Barcelona"
+      ],
+      "answer": 0,
+      "explanation": "\"Estudia en un instituto en Valencia\" means \"she studies at a high school in Valencia\"."
     }
   ]
 }

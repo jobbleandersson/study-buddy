@@ -122,6 +122,110 @@
       "prompt": "When do you use present perfect instead of past simple?",
       "opener": "Two questions almost always settle it.",
       "answer": "Use the present perfect when the time is unimportant or unspecified, when the action has a result that is relevant now, or when something has continued from the past up to now (often with for/since/ever/never/just/already/yet). Use the past simple when the time is specified and finished (yesterday, last week, in 2020, when I was ten). Rule of thumb: if there's a finished time expression in the sentence — use the past simple."
+    },
+    {
+      "id": "q-en5-ten-9",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"A: Have you ever been to Japan? B: Yes, I ___ there twice.\"",
+      "opener": "No specific time is mentioned — it's the experience that counts.",
+      "choices": [
+        "go",
+        "went",
+        "have been",
+        "has been"
+      ],
+      "answer": 2,
+      "explanation": "The question is about life experience with no time specified — that requires the present perfect: \"have been\". \"Has been\" would require \"she/he/it\", not \"I\"."
+    },
+    {
+      "id": "q-en5-ten-10",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"When ___ she call you?\"",
+      "opener": "Questions in the past simple about ordinary verbs are formed with a specific helping verb.",
+      "choices": [
+        "has",
+        "did",
+        "does",
+        "was"
+      ],
+      "answer": 1,
+      "explanation": "Past simple questions are formed with \"did\" + subject + verb in its base form: \"When did she call you?\""
+    },
+    {
+      "id": "q-en5-ten-11",
+      "kind": "mc",
+      "topic": "continuous tenses",
+      "prompt": "Choose the correct form: \"I usually take the bus, but this week I ___ my bike because the bus is on strike.\"",
+      "opener": "\"This week\" signals a temporary situation, not the usual routine.",
+      "choices": [
+        "use",
+        "am using",
+        "used",
+        "have used"
+      ],
+      "answer": 1,
+      "explanation": "\"This week\" points to something temporary right now, in contrast to the usual routine (\"usually take the bus\") — that requires the present continuous: \"am using\"."
+    },
+    {
+      "id": "q-en5-ten-12",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"She ___ six novels so far.\"",
+      "opener": "This is about an achieved RESULT (the number of books), not the ongoing activity itself.",
+      "choices": [
+        "has been writing",
+        "has written",
+        "is writing",
+        "wrote"
+      ],
+      "answer": 1,
+      "explanation": "When it's about a result or a completed count, the present perfect simple is used: \"has written\". The present perfect continuous (\"has been writing\") instead emphasises the ongoing activity itself, not how many have been finished."
+    },
+    {
+      "id": "q-en5-ten-13",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"They ___ the news on TV last night.\"",
+      "opener": "\"Last night\" is a specified, finished point in time.",
+      "choices": [
+        "seen",
+        "saw",
+        "have seen",
+        "was seeing"
+      ],
+      "answer": 1,
+      "explanation": "\"Last night\" requires the past simple: \"saw\". \"Seen\" can never stand alone as the main verb — it needs a helping verb (have seen/was seen)."
+    },
+    {
+      "id": "q-en5-ten-14",
+      "kind": "worked",
+      "topic": "present perfect",
+      "prompt": "Explain which tense fits each gap and why: \"I ___ (never/try) sushi. Last Friday, my friend ___ (take) me to a Japanese restaurant, and I ___ (love) it immediately.\"",
+      "opener": "The same pattern as the earlier London example: experience up to now, then a specific occasion.",
+      "answer": "have never tried / took / loved",
+      "steps": [
+        "Gap 1: \"never tried\" is about experience up to now, with no specific time → present perfect: \"have never tried\".",
+        "Gap 2: \"Last Friday\" points to a specific, finished occasion → past simple: \"took\".",
+        "Gap 3: the same finished occasion as gap 2 → past simple: \"loved\".",
+        "Just like the London example: present perfect establishes the experience, then you switch to past simple once you describe the specific occasion."
+      ]
+    },
+    {
+      "id": "q-en5-ten-15",
+      "kind": "mc",
+      "topic": "continuous tenses",
+      "prompt": "Choose the correct form: \"While I ___ dinner, the phone rang.\"",
+      "opener": "An ongoing background action interrupted by a shorter event.",
+      "choices": [
+        "cooked",
+        "was cooking",
+        "have cooked",
+        "cook"
+      ],
+      "answer": 1,
+      "explanation": "The past continuous (\"was cooking\") describes an ongoing background action interrupted by a shorter event in the past simple (\"rang\") — a classic pattern for describing interrupted events."
     }
   ]
 }

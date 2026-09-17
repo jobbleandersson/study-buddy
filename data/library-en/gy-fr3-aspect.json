@@ -123,6 +123,111 @@
       "prompt": "How do you choose between passé composé and imparfait in a narrative text?",
       "opener": "Three typical signals almost always settle it.",
       "answer": "Imparfait is used for background and context: descriptions (where something was, what it looked like), habits/repeated events in the past (tous les jours, chaque été, quand j'étais petit) and ongoing actions that get interrupted. Passé composé is used for bounded, completed events: a single occasion (samedi dernier, un jour, soudain), a chain of events in a story, or the thing that INTERRUPTS an ongoing background action. Rule of thumb: ask whether the action has a clear beginning and end (passé composé) or whether it just paints the scene/was habitual (imparfait). Typical pattern: \"Je faisais X quand Y s'est passé.\""
+    },
+    {
+      "id": "q-fr3-aspect-9",
+      "kind": "mc",
+      "topic": "imparfait",
+      "prompt": "Choose the correct form: \"Chaque été, nous ___ (aller) à la mer.\"",
+      "opener": "\"Chaque été\" signals a recurring habit.",
+      "choices": [
+        "allions",
+        "sommes allés",
+        "allons",
+        "étions allés"
+      ],
+      "answer": 0,
+      "explanation": "\"Chaque été\" (every summer) signals a habit in the past, which requires imparfait: \"allions\"."
+    },
+    {
+      "id": "q-fr3-aspect-10",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Choose the correct form: \"Hier soir, nous ___ (aller) au cinéma.\"",
+      "opener": "\"Hier soir\" points to a single, completed occasion.",
+      "choices": [
+        "sommes allés",
+        "allions",
+        "allons",
+        "étions allés"
+      ],
+      "answer": 0,
+      "explanation": "\"Hier soir\" (last night) points to a specific, bounded occasion, which requires passé composé: \"sommes allés\"."
+    },
+    {
+      "id": "q-fr3-aspect-11",
+      "kind": "mc",
+      "topic": "narrative aspect",
+      "prompt": "Choose the correct combination: \"Il ___ (pleuvoir) quand nous ___ (sortir) de la maison.\"",
+      "opener": "An ongoing background action gets interrupted by a bounded event.",
+      "choices": [
+        "pleuvait / sommes sortis",
+        "a plu / sortions",
+        "pleuvait / sortions",
+        "a plu / sommes sortis"
+      ],
+      "answer": 0,
+      "explanation": "The ongoing background (the rain) is in imparfait: \"pleuvait\". The bounded event that interrupts it (going outside) is in passé composé: \"sommes sortis\"."
+    },
+    {
+      "id": "q-fr3-aspect-12",
+      "kind": "mc",
+      "topic": "imparfait",
+      "prompt": "Choose the correct form: \"Le ciel ___ (être) gris ce jour-là.\"",
+      "opener": "A description of what the sky looked like, with no clear start or end.",
+      "choices": [
+        "était",
+        "a été",
+        "est",
+        "avait été"
+      ],
+      "answer": 0,
+      "explanation": "Descriptions of what something was like in the past use imparfait: \"était\"."
+    },
+    {
+      "id": "q-fr3-aspect-13",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Choose the correct combination: \"Elle ___ (arriver), ___ (poser) ses affaires et ___ (commencer) à travailler.\"",
+      "opener": "A chain of bounded events happening one after another.",
+      "choices": [
+        "est arrivée / a posé / a commencé",
+        "arrivait / posait / commençait",
+        "est arrivée / posait / a commencé",
+        "arrivait / a posé / commençait"
+      ],
+      "answer": 0,
+      "explanation": "A sequence of completed events happening one after another is written throughout in passé composé: est arrivée → a posé → a commencé."
+    },
+    {
+      "id": "q-fr3-aspect-14",
+      "kind": "mc",
+      "topic": "narrative aspect",
+      "prompt": "Choose the correct combination: \"Comme elle ___ (être) fatiguée, elle ___ (se coucher) tôt.\"",
+      "opener": "The cause is a background state; the decision is a bounded action.",
+      "choices": [
+        "était / s'est couchée",
+        "a été / se couchait",
+        "était / se couchait",
+        "a été / s'est couchée"
+      ],
+      "answer": 0,
+      "explanation": "\"Comme elle était fatiguée\" gives the background (imparfait), while \"elle s'est couchée\" is the concrete action that followed (passé composé)."
+    },
+    {
+      "id": "q-fr3-aspect-15",
+      "kind": "mc",
+      "topic": "narrative aspect",
+      "prompt": "What does \"j'ai voulu\" mean in the passé composé in the sentence: \"J'ai voulu l'aider, mais c'était trop tard\"?",
+      "opener": "\"Vouloir\" shifts nuance between the passé composé and the imparfait, just like in Spanish.",
+      "choices": [
+        "I tried/decided to help her",
+        "I always wanted to help her",
+        "I refused to help her",
+        "I already helped her"
+      ],
+      "answer": 0,
+      "explanation": "In the passé composé, \"vouloir\" often means \"to try/decide to do something\" in a specific situation. In the imparfait (\"je voulais\") it would instead describe a general wish, without saying whether the person actually tried."
     }
   ]
 }

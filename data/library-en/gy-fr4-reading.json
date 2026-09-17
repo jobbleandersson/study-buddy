@@ -122,6 +122,111 @@
       "prompt": "Which strategies help you analyze a longer, opinion-driven French text at upper-secondary level?",
       "opener": "Going beyond just understanding the words, to understanding the text's structure.",
       "answer": "Identify the question/thesis the text revolves around, often in the first paragraph. Look for structural markers like \"d'un côté / de l'autre\", \"cependant\", \"toutefois\", \"en revanche\" — they show where the argument turns. Distinguish between facts (études, statistiques) and opinions (disent-ils, selon certains). Ask yourself whether the text takes a clear stance or deliberately balances perspectives — word choices like \"la question divise\" signal the latter. For difficult words: use the context, especially the word or phrase right before/after. Summarize each paragraph's main point in one sentence before answering detail questions."
+    },
+    {
+      "id": "q-fr4-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Le télétravail, longtemps marginal en France, s'est imposé durablement dans de nombreux secteurs depuis la crise sanitaire de 2020. Ses partisans mettent en avant un meilleur équilibre entre vie professionnelle et vie personnelle, ainsi qu'une réduction du temps de trajet, souvent source de fatigue et de stress. Certaines entreprises constatent même une hausse de la productivité chez les salariés qui travaillent depuis leur domicile. Toutefois, plusieurs experts en ressources humaines s'inquiètent d'un effet pervers : l'isolement social. Privés des échanges informels de la pause-café ou du déjeuner entre collègues, certains employés rapportent un sentiment de solitude, voire un désengagement progressif vis-à-vis de leur entreprise. Par ailleurs, les managers peinent parfois à évaluer la charge de travail réelle de leurs équipes à distance, ce qui peut conduire, paradoxalement, à un surinvestissement plutôt qu'à un relâchement. Face à ces constats contrastés, de nombreuses entreprises optent désormais pour un modèle hybride, combinant jours de télétravail et présence au bureau, dans l'espoir de conserver les avantages des deux formules.\"\n\nWhat is the text mainly about?",
+      "opener": "Read the whole text and weigh the advantages, drawbacks, and conclusion together.",
+      "choices": [
+        "The pros and cons of remote work, and the hybrid model many companies are now choosing",
+        "Instructions on how to apply for remote work",
+        "The history of internet development in France",
+        "A description of a specific French company"
+      ],
+      "answer": 0,
+      "explanation": "The text weighs advantages (balance, productivity) against drawbacks (isolation, hard-to-assess workload) and concludes that many companies are now opting for a hybrid model."
+    },
+    {
+      "id": "q-fr4-read-10",
+      "kind": "mc",
+      "topic": "argument analysis",
+      "prompt": "Same text. Which argument do supporters of remote work use?",
+      "opener": "Look for the sentence starting with \"Ses partisans mettent en avant...\".",
+      "choices": [
+        "A better work-life balance and reduced commuting time",
+        "That it's cheaper for employees",
+        "That it bans meetings entirely",
+        "That offices are closing permanently"
+      ],
+      "answer": 0,
+      "explanation": "The text says supporters highlight \"un meilleur équilibre entre vie professionnelle et vie personnelle\" and \"une réduction du temps de trajet\"."
+    },
+    {
+      "id": "q-fr4-read-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Same text. What does \"un effet pervers\" mean in the context of the experts' concern?",
+      "opener": "\"Pervers\" here doesn't mean the same as the common English sense — it refers to an unexpected, negative consequence.",
+      "choices": [
+        "An unintended negative side effect",
+        "A positive surprise",
+        "A legal problem",
+        "A financial gain"
+      ],
+      "answer": 0,
+      "explanation": "\"Un effet pervers\" means an unintended, negative side effect of something that might otherwise seem positive."
+    },
+    {
+      "id": "q-fr4-read-12",
+      "kind": "mc",
+      "topic": "argument analysis",
+      "prompt": "Same text. What is the critics' main concern about remote work, according to the text?",
+      "opener": "Look for the sentences about \"l'isolement social\" and \"la charge de travail\".",
+      "choices": [
+        "Social isolation and difficulty assessing workload remotely",
+        "That home internet is too slow",
+        "That remote work is illegal",
+        "That wages are dropping"
+      ],
+      "answer": 0,
+      "explanation": "The text mentions both \"l'isolement social\" and that managers \"peinent... à évaluer la charge de travail réelle\" (struggle to assess the real workload)."
+    },
+    {
+      "id": "q-fr4-read-13",
+      "kind": "mc",
+      "topic": "argument analysis",
+      "prompt": "Same text. What can be inferred about why the difficulty of assessing workload might lead to \"surinvestissement\" (overworking) rather than relaxation?",
+      "opener": "Think about what happens when an employee doesn't know if they're doing enough.",
+      "choices": [
+        "Without clear oversight, employees may feel pressure to work more to prove their productivity",
+        "Employees always get less work when remote",
+        "Managers always give too little work",
+        "Remote work always legally requires overtime"
+      ],
+      "answer": 0,
+      "explanation": "When managers struggle to assess workload, employees may compensate by working more than necessary to demonstrate commitment, leading to overworking rather than relaxation."
+    },
+    {
+      "id": "q-fr4-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What solution are many companies choosing today, according to the last sentence?",
+      "opener": "Read the last sentence about \"un modèle hybride\".",
+      "choices": [
+        "A hybrid model combining remote work and office presence",
+        "Abolishing remote work entirely",
+        "Abolishing office work entirely",
+        "Letting each employee decide completely freely"
+      ],
+      "answer": 0,
+      "explanation": "The text says many companies \"optent désormais pour un modèle hybride, combinant jours de télétravail et présence au bureau\"."
+    },
+    {
+      "id": "q-fr4-read-15",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Same text. What does \"la charge de travail\" mean?",
+      "opener": "\"Charge\" means load/burden.",
+      "choices": [
+        "The workload",
+        "The workplace",
+        "The salary",
+        "The working hours"
+      ],
+      "answer": 0,
+      "explanation": "\"La charge de travail\" means the workload, how much work a person is expected to do."
     }
   ]
 }

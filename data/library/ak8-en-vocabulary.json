@@ -123,6 +123,110 @@
       "prompt": "Vilka phrasal verbs, kollokationer och ordbildningsregler behöver du kunna på den här nivån?",
       "opener": "Phrasal verbs · do/make · say/tell/speak/talk · prefix och suffix.",
       "answer": "Phrasal verbs: find out = ta reda på · look forward to + substantiv/-ing = se fram emot · get on with someone = komma överens med · run out of = få slut på · give up = ge upp · look after = ta hand om · turn up = dyka upp · Do: do homework, do the dishes, do your best, do an exercise · Make: make dinner, make a mistake, make friends, make a decision · Say something (to someone) · tell someone something · speak a language · talk to/with someone about something · Prefix: un- (unhappy), im- före p (impossible), in- (incorrect), dis- (dislike), re- = igen (rewrite) · Suffix: -ful = full av (helpful), -less = utan (careless), -ness gör adjektiv till substantiv (kindness), -ly gör adjektiv till adverb (quickly)."
+    },
+    {
+      "id": "q-en8-voc-9",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the best option: \"The plane is about to ___ — please fasten your seatbelt.\"",
+      "opener": "Ett phrasal verb betyder något annat än verbets grundbetydelse — vilket betyder att ett flygplan lyfter?",
+      "choices": [
+        "take off",
+        "give up",
+        "look after",
+        "run out of"
+      ],
+      "answer": 0,
+      "explanation": "\"Take off\" betyder att ett flygplan lyfter. \"Give up\" betyder ge upp och \"look after\" betyder ta hand om — inget passar ihop med ett flygplan som ska starta."
+    },
+    {
+      "id": "q-en8-voc-10",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the correct form: \"I need to ___ this word in the dictionary.\"",
+      "opener": "Vilket phrasal verb används när man söker upp betydelsen av ett ord?",
+      "choices": [
+        "look up",
+        "look after",
+        "look forward to",
+        "look out"
+      ],
+      "answer": 0,
+      "explanation": "\"Look up\" betyder att slå upp något, till exempel ett ord i en ordbok. \"Look after\" betyder ta hand om och passar inte ihop med en ordbok."
+    },
+    {
+      "id": "q-en8-voc-11",
+      "kind": "mc",
+      "topic": "kollokationer",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Do your best\" är en fast kollokation på engelska.",
+      "choices": [
+        "She always makes her best on tests.",
+        "She always does her best on tests.",
+        "She always does her best of tests.",
+        "She always makes her best of tests."
+      ],
+      "answer": 1,
+      "explanation": "På engelska heter det \"do your best\", inte \"make your best\". \"Make my best\" är en direktöversättning från svenskan som inte används."
+    },
+    {
+      "id": "q-en8-voc-12",
+      "kind": "mc",
+      "topic": "say och tell",
+      "prompt": "Choose the correct word: \"She always ___ the truth.\"",
+      "opener": "\"Tell the truth\" är ett fast uttryck, även utan en person direkt efter verbet.",
+      "choices": [
+        "says",
+        "tells",
+        "speaks",
+        "talks"
+      ],
+      "answer": 1,
+      "explanation": "\"Tell the truth\" är ett fast uttryck på engelska. \"Say\" används annars om vad som sägs (say something), men just med \"the truth\" är \"tell\" den vanliga kombinationen."
+    },
+    {
+      "id": "q-en8-voc-13",
+      "kind": "mc",
+      "topic": "ordbildning",
+      "prompt": "Which word means \"not correct\"?",
+      "opener": "Prefixet in- fungerar som svenskans o- framför vissa adjektiv.",
+      "choices": [
+        "uncorrect",
+        "incorrect",
+        "discorrect",
+        "correctless"
+      ],
+      "answer": 1,
+      "explanation": "Prefixet in- används framför \"correct\": incorrect. \"Uncorrect\" och \"discorrect\" finns inte på engelska."
+    },
+    {
+      "id": "q-en8-voc-14",
+      "kind": "worked",
+      "topic": "kollokationer",
+      "prompt": "Correct the four errors: \"Yesterday my friend said me she is moving to another city. I was sad, but I must make my best to stay positive. I am looking forward for visiting her this summer, and I will find the address out soon.\"",
+      "opener": "Fyra vanliga fel: fel verb till person, fel kollokation, fel preposition och fel ordföljd i ett phrasal verb.",
+      "answer": "Yesterday my friend told me she is moving to another city. I was sad, but I must do my best to stay positive. I am looking forward to visiting her this summer, and I will find out the address soon.",
+      "steps": [
+        "\"said me\" → \"told me\". \"Tell\" följs direkt av personen, medan \"say\" kräver \"to\": said to me.",
+        "\"make my best\" → \"do my best\". \"Do your best\" är den fasta kollokationen på engelska.",
+        "\"looking forward for\" → \"looking forward to\". Uttrycket har den fasta prepositionen \"to\".",
+        "\"find the address out\" → \"find out the address\". När objektet är ett helt substantiv står det oftast efter partikeln; bara korta pronomen kan delas in i mitten (find it out)."
+      ]
+    },
+    {
+      "id": "q-en8-voc-15",
+      "kind": "mc",
+      "topic": "ordbildning",
+      "prompt": "Which word means \"to write again\"?",
+      "opener": "Prefixet re- betyder \"igen\" eller \"på nytt\".",
+      "choices": [
+        "unwrite",
+        "rewrite",
+        "dewrite",
+        "miswrite"
+      ],
+      "answer": 1,
+      "explanation": "Prefixet re- betyder igen/på nytt: rewrite = skriva om. \"Unwrite\" och \"dewrite\" finns inte på engelska."
     }
   ]
 }

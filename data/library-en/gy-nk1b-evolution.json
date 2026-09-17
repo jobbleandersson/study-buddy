@@ -124,6 +124,111 @@
       "prompt": "Summarise the basic concepts in evolution and genetics: natural selection, speciation, DNA, gene, mutation and genetic engineering.",
       "opener": "Go through how variation arises, how it is inherited, and how it can lead to change over time.",
       "answer": "Natural selection: individuals with favourable, heritable traits have on average more offspring, so the traits become more common in the population over generations · Speciation: when populations become isolated (e.g. geographically) and develop differently until they can no longer produce fertile offspring together · DNA: the molecule that carries hereditary information, built from base pairs in a double helix · Gene: a segment of DNA with information for a protein or a regulatory function · Mutation: a change in the DNA sequence, the fundamental source of new genetic variation · Dominant/recessive allele: a dominant allele shows even in a single copy, a recessive one requires a double copy to show · Genetic engineering: methods such as CRISPR for reading and changing the genome, with great medical potential but also ethical questions, particularly when editing germ cells and embryos."
+    },
+    {
+      "id": "q-nk1b-evolution-9",
+      "kind": "mc",
+      "topic": "natural selection and speciation",
+      "prompt": "What is convergent evolution?",
+      "opener": "Think about how fish, dolphins and (extinct) ichthyosaurs all have a similar, streamlined body shape despite not being closely related.",
+      "choices": [
+        "When unrelated species independently evolve similar traits because they have adapted to similar environments or ways of life",
+        "When two species become increasingly different from each other over time",
+        "When a species suddenly transforms into a completely different species within one generation",
+        "Another word for speciation through geographical isolation"
+      ],
+      "answer": 0,
+      "explanation": "Convergent evolution means that unrelated species independently evolve similar solutions because they adapt to similar environments or ways of life, for example the streamlined body of fish and dolphins."
+    },
+    {
+      "id": "q-nk1b-evolution-10",
+      "kind": "mc",
+      "topic": "natural selection and speciation",
+      "prompt": "What is the difference between homologous and analogous organs, as an example within evolutionary biology?",
+      "opener": "Think about bird wings compared with insect wings — do they share the same evolutionary origin?",
+      "choices": [
+        "Homologous organs share a common evolutionary origin (e.g. the forelimbs of different vertebrates), while analogous organs resemble each other functionally but evolved independently (e.g. the wings of birds and insects)",
+        "Homologous and analogous organs mean exactly the same thing",
+        "Analogous organs are found only in plants, homologous only in animals",
+        "Homologous organs are found only in extinct species"
+      ],
+      "answer": 0,
+      "explanation": "Homologous organs, such as the forelimbs of different vertebrates, share a common evolutionary origin even though they have different functions today. Analogous organs, such as the wings of birds and insects, resemble each other functionally but evolved completely independently."
+    },
+    {
+      "id": "q-nk1b-evolution-11",
+      "kind": "mc",
+      "topic": "DNA and the function of the gene",
+      "prompt": "What is the function of mRNA in the process by which a gene is expressed as a protein?",
+      "opener": "Think about the path the information takes from DNA in the nucleus to protein-building in the cytoplasm.",
+      "choices": [
+        "mRNA copies the genetic information from DNA in the nucleus and carries it to the ribosomes, where the protein is built",
+        "mRNA permanently stores the genetic information in the cell",
+        "mRNA breaks down proteins after they have been made",
+        "mRNA exists only in bacteria, never in human cells"
+      ],
+      "answer": 0,
+      "explanation": "mRNA (messenger RNA) copies the genetic information from a gene in the DNA and transports it to the ribosomes, where the information is then used to build a protein."
+    },
+    {
+      "id": "q-nk1b-evolution-12",
+      "kind": "mc",
+      "topic": "heredity and variation",
+      "prompt": "What is the difference between genotype and phenotype?",
+      "opener": "Think about the difference between the \"instruction\" and the \"visible result\" of that instruction.",
+      "choices": [
+        "Genotype is an individual's genetic makeup, while phenotype is how these genes are actually expressed, e.g. in appearance, often in interaction with the environment",
+        "Genotype and phenotype mean exactly the same thing",
+        "Phenotype is determined solely by the environment, never by genes",
+        "Genotype can change during an individual's lifetime through training"
+      ],
+      "answer": 0,
+      "explanation": "Genotype is an individual's genetic makeup, while phenotype is how these genes are actually expressed, for example in eye colour or body build — often in interaction with environmental factors, which means the same genotype can sometimes produce different phenotypes."
+    },
+    {
+      "id": "q-nk1b-evolution-13",
+      "kind": "mc",
+      "topic": "heredity and variation",
+      "prompt": "Why can siblings (other than identical twins) look different despite having the same parents?",
+      "opener": "Think about what happens to the parents' genes when germ cells are formed.",
+      "choices": [
+        "When germ cells are formed, a random sorting and recombination of the parents' genes occurs (partly through crossing over), giving each sibling a unique combination of genes",
+        "Siblings always have exactly identical genes if they have the same parents",
+        "Differences between siblings are due solely to environmental factors, never genetics",
+        "It is impossible for siblings with the same parents to look different"
+      ],
+      "answer": 0,
+      "explanation": "When germ cells are formed, a random sorting and recombination of the parents' chromosomes and genes occurs, partly through crossing over, giving each child a unique combination of genes — which is why siblings (other than identical twins) rarely look exactly alike."
+    },
+    {
+      "id": "q-nk1b-evolution-14",
+      "kind": "mc",
+      "topic": "genetic engineering",
+      "prompt": "What is a genetically modified organism (GMO)?",
+      "opener": "Think about what is deliberately changed in the organism's genome, as opposed to natural mutations.",
+      "choices": [
+        "An organism whose genome has been deliberately altered using genetic engineering, e.g. to give a crop resistance to pests",
+        "Another word for a species that arose through natural selection",
+        "An organism that can only exist in a laboratory environment",
+        "A collective term for all hybrid species in nature"
+      ],
+      "answer": 0,
+      "explanation": "A genetically modified organism (GMO) has had its genome deliberately altered using genetic engineering, for example to give a crop resistance to pests or drought — unlike species that arose through natural selection and random mutations."
+    },
+    {
+      "id": "q-nk1b-evolution-15",
+      "kind": "mc",
+      "topic": "DNA and the function of the gene",
+      "prompt": "What is a chromosome?",
+      "opener": "Think about how a DNA molecule several metres long fits inside a microscopically small nucleus.",
+      "choices": [
+        "A tightly packed structure of DNA and proteins (histones), which makes it possible to pack the long DNA molecule into the nucleus",
+        "A type of protein that breaks down DNA",
+        "Another word for a single gene",
+        "A structure found only in bacteria"
+      ],
+      "answer": 0,
+      "explanation": "A chromosome is DNA tightly packed together with proteins (histones), which makes it possible to fit the very long DNA molecule inside the small nucleus. A chromosome contains many genes, so it is not the same thing as a single gene."
     }
   ]
 }

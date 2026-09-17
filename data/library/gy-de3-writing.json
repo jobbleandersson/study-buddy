@@ -121,6 +121,111 @@
       "prompt": "Vilka grammatiska val gör en tysk text mer sammanhängande och skriftspråklig?",
       "opener": "Fyra verktyg som lyfter skriftlig tyska från grundnivå till en mer mogen stil.",
       "answer": "Jämförelser: komparativ + als (\"größer als\", större än), likhet med so + adjektiv + wie (\"so groß wie\", lika stor som). Relativsatser binder ihop korta meningar och undviker upprepning: \"die Stadt, die ... ist\". Register: preteritum som standard-dåtid i sammanhängande skriftlig berättelse (till skillnad från perfekt i talspråk). Konjunktiv II ger ett nyanserat, försiktigt tonfall i resonerande text: \"man könnte sagen, dass...\". Konjunktioner: \"denn\" behåller normal ordföljd (verb på plats två), medan \"weil\"/\"dass\"/\"obwohl\" skickar verbet sist i bisatsen — att variera mellan dem ger en mer varierad meningsbyggnad."
+    },
+    {
+      "id": "q-de3-writing-9",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Välj rätt form: \"Dieses Restaurant ist ___ als das andere.\" (gut, komparativ)",
+      "opener": "\"Gut\" har en oregelbunden komparativform.",
+      "choices": [
+        "besser",
+        "guter",
+        "mehr gut",
+        "gutär"
+      ],
+      "answer": 0,
+      "explanation": "\"Gut\" har den oregelbundna komparativformen \"besser\" (bättre), inte \"guter\"."
+    },
+    {
+      "id": "q-de3-writing-10",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Välj rätt form: \"Sie hat ___ Erfahrung als ich.\" (viel, komparativ)",
+      "opener": "\"Viel\" har en oregelbunden komparativform.",
+      "choices": [
+        "mehr",
+        "vieler",
+        "mehrer",
+        "viele"
+      ],
+      "answer": 0,
+      "explanation": "\"Viel\" har den oregelbundna komparativformen \"mehr\" (mer)."
+    },
+    {
+      "id": "q-de3-writing-11",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Välj rätt relativpronomen: \"Der Lehrer, ___ ich sehr dankbar bin, hat mir sehr geholfen.\" (dankbar sein + dativ)",
+      "opener": "\"Dankbar sein\" tar dativobjekt.",
+      "choices": [
+        "dem",
+        "den",
+        "der",
+        "dessen"
+      ],
+      "answer": 0,
+      "explanation": "\"Dankbar sein\" tar dativ, och maskulinum dativ singular = \"dem\": \"der Lehrer, dem ich sehr dankbar bin\"."
+    },
+    {
+      "id": "q-de3-writing-12",
+      "kind": "mc",
+      "topic": "register",
+      "prompt": "Välj rätt form: \"Man ___ mehr Sport treiben.\" (sollen, försiktig rekommendation)",
+      "opener": "Konjunktiv II av \"sollen\" ger en mjukare rekommendation än presens.",
+      "choices": [
+        "sollte",
+        "soll",
+        "sollten",
+        "muss"
+      ],
+      "answer": 0,
+      "explanation": "\"Sollte\" (Konjunktiv II av sollen) ger en mjukare, mer nyanserad rekommendation: \"man sollte mehr Sport treiben\" (man borde träna mer)."
+    },
+    {
+      "id": "q-de3-writing-13",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Välj rätt relativpronomen: \"Die Universität, ___ ich besucht habe, war sehr modern.\" (universitetet jag besökte var mycket modernt)",
+      "opener": "\"Universität\" är femininum och är objekt till \"besuchen\" — vilket kasus krävs?",
+      "choices": [
+        "die",
+        "der",
+        "den",
+        "das"
+      ],
+      "answer": 0,
+      "explanation": "\"Universität\" är femininum och är objekt (ackusativ) till \"besuchen\": femininum ackusativ singular = \"die\"."
+    },
+    {
+      "id": "q-de3-writing-14",
+      "kind": "mc",
+      "topic": "register",
+      "prompt": "Välj rätt form: \"Dieser Wein schmeckt ___.\" (gut, superlativ)",
+      "opener": "\"Gut\" har en oregelbunden superlativform.",
+      "choices": [
+        "am besten",
+        "am meisten gut",
+        "das beste",
+        "am gutesten"
+      ],
+      "answer": 0,
+      "explanation": "\"Gut\" har den oregelbundna superlativformen \"am besten\" (bäst) i predikativ ställning."
+    },
+    {
+      "id": "q-de3-writing-15",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Komplettera: \"___ mehr man übt, desto besser wird man.\" (ju mer man övar, desto bättre blir man)",
+      "opener": "En fast parkonstruktion för \"ju...desto\".",
+      "choices": [
+        "Je",
+        "Wie",
+        "Als",
+        "So"
+      ],
+      "answer": 0,
+      "explanation": "\"Je ... desto\" motsvarar svenskans \"ju ... desto\": \"Je mehr man übt, desto besser wird man.\""
     }
   ]
 }

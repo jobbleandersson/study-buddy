@@ -126,6 +126,111 @@
       "prompt": "Summarise the Viking Age and Sweden's path to becoming a medieval kingdom.",
       "opener": "Take travel and trade, society, sources, Christianisation and the union in turn.",
       "answer": "Viking Age: c. 800-1050, ends the Iron Age in the Nordic region · Travel: Swedish Vikings travelled mainly eastward along the rivers through what is now Russia to Miklagard (Constantinople), Norwegians and Icelanders westward to Iceland, Greenland and North America, Danes and Norwegians towards England and France · Trade: furs, iron, hides and slaves were exchanged for silver, silk and glass - thousands of Arab silver coins have been found in Swedish soil · Trading centres: Birka on Lake Mälaren, later Sigtuna and Visby · Society: most people were farmers, assemblies (things) made decisions and passed judgment, society was divided into magnates, free farmers and thralls · Runestones: contemporary sources, usually memorial stones with short texts about names, family, journeys and beliefs · Christianisation: Ansgar visited Birka in the 9th century, Olof Skötkonung was baptised around the year 1000, the process took over a hundred years · Sweden's Middle Ages: royal power, church organisation, taxes and provincial laws built a kingdom · Kalmar Union 1397: Denmark, Norway and Sweden under the same monarch, driven forward by Queen Margaret, broke up in practice with Gustav Vasa in 1523."
+    },
+    {
+      "id": "q-hist7-vik-9",
+      "kind": "mc",
+      "topic": "the Viking Age as a period",
+      "prompt": "Which period precedes the Viking Age in the Nordic region?",
+      "opener": "This period is characterised by iron becoming more common and cheaper.",
+      "choices": [
+        "The Bronze Age",
+        "The Iron Age",
+        "The Middle Ages",
+        "The Stone Age"
+      ],
+      "answer": 1,
+      "explanation": "The Viking Age is counted as the end of the Iron Age in the Nordic region, before the Middle Ages begin around 1050. The Bronze Age and the Stone Age both lie much earlier."
+    },
+    {
+      "id": "q-hist7-vik-10",
+      "kind": "mc",
+      "topic": "trade and travel",
+      "prompt": "What goods did the Vikings bring home from their trading trips eastward?",
+      "opener": "Thousands of coins of this kind have been found buried in Swedish soil.",
+      "choices": [
+        "Silver and silk",
+        "Oil and gas",
+        "Maize and potatoes",
+        "Coffee and tea"
+      ],
+      "answer": 0,
+      "explanation": "The Vikings traded for silver, silk and glass from the east in exchange for furs, iron and slaves. Maize, potatoes, coffee and tea arrived in Europe much later, after the encounter with the Americas."
+    },
+    {
+      "id": "q-hist7-vik-11",
+      "kind": "mc",
+      "topic": "Viking society",
+      "prompt": "Which group in Viking Age society lacked freedom and rights?",
+      "opener": "This group was owned by someone else and had no vote at the assembly.",
+      "choices": [
+        "Free farmers",
+        "Magnates",
+        "Thralls",
+        "Assembly members"
+      ],
+      "answer": 2,
+      "explanation": "Thralls were unfree and owned by others, with no rights or influence at the assembly. Free farmers and magnates, on the other hand, had the right to take part in the assembly and make decisions."
+    },
+    {
+      "id": "q-hist7-vik-12",
+      "kind": "mc",
+      "topic": "runestones as a source",
+      "prompt": "What was most commonly carved on a runestone?",
+      "opener": "The texts were short, only a few lines.",
+      "choices": [
+        "The entire life story of a king",
+        "A short memorial to a deceased person",
+        "Recipes",
+        "Laws for the whole kingdom"
+      ],
+      "answer": 1,
+      "explanation": "Most runestones were raised as short memorials to a deceased person, often with a name, family ties and sometimes a journey or Christian faith mentioned. They never contained entire history books or laws — the texts were very brief."
+    },
+    {
+      "id": "q-hist7-vik-13",
+      "kind": "mc",
+      "topic": "the Christianisation of Sweden",
+      "prompt": "Who was an early missionary who visited Birka in the 9th century?",
+      "opener": "He is counted among the first to spread Christianity in the Nordic region.",
+      "choices": [
+        "Olof Skötkonung",
+        "Ansgar",
+        "Gustav Vasa",
+        "Erik of Pomerania"
+      ],
+      "answer": 1,
+      "explanation": "Ansgar visited Birka in the 9th century as one of the first Christian missionaries in the Nordic region. Olof Skötkonung was instead a king who was baptised around the year 1000, considerably later."
+    },
+    {
+      "id": "q-hist7-vik-14",
+      "kind": "worked",
+      "topic": "Sweden's Middle Ages and the Kalmar Union",
+      "prompt": "Explain step by step what the Kalmar Union was and why it eventually broke up.",
+      "opener": "Start with how the union was formed, then think about what caused discontent to grow.",
+      "answer": "The Kalmar Union was formed in 1397 when Denmark, Norway and Sweden gained the same monarch, Erik of Pomerania, after Queen Margaret had worked out the union. The countries kept their own laws and councils but shared one king. The union was marked by recurring conflicts, however, particularly because Swedish magnates often felt disadvantaged by Danish kings. The discontent led to uprisings, and the union broke up in practice when Gustav Vasa became king of Sweden in 1523 after the war of liberation against Christian II.",
+      "steps": [
+        "Queen Margaret worked out a union between the three Nordic kingdoms, and in 1397 Erik of Pomerania was crowned joint monarch in Kalmar.",
+        "Denmark, Norway and Sweden kept their own laws and councils, but shared one and the same king.",
+        "Swedish magnates often felt disadvantaged by decisions made by Danish kings, creating recurring tensions.",
+        "The discontent grew during the 15th and 16th centuries and led to several uprisings against the union's kings.",
+        "The union broke up in practice in 1523 when Gustav Vasa became king of Sweden after the war of liberation against Christian II."
+      ]
+    },
+    {
+      "id": "q-hist7-vik-15",
+      "kind": "mc",
+      "topic": "Sweden's Middle Ages and the Kalmar Union",
+      "prompt": "Who worked out the Kalmar Union in 1397?",
+      "opener": "She was a queen and one of the most influential Nordic leaders of the Middle Ages.",
+      "choices": [
+        "Gustav Vasa",
+        "Queen Margaret",
+        "Olof Skötkonung",
+        "Ansgar"
+      ],
+      "answer": 1,
+      "explanation": "Queen Margaret worked out the union between Denmark, Norway and Sweden that was formalised in Kalmar in 1397. Gustav Vasa instead lived over a hundred years later and was the one who eventually broke up the union."
     }
   ]
 }

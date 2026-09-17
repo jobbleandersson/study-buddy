@@ -124,6 +124,111 @@
       "prompt": "Summarize how to form the passive in different tenses.",
       "opener": "Samma mönster i alla tempus — bara hjälpverbet \"be\" ändras.",
       "answer": "Present simple: am/is/are + particip — \"The letter is sent.\" · Past simple: was/were + particip — \"The letter was sent.\" · Present perfect: have/has been + particip — \"The letter has been sent.\" · Future: will be + particip — \"The letter will be sent.\" · Modal: modal + be + particip — \"The letter must be sent.\" · Regel: bara transitiva verb (verb som tar objekt) kan bli passiva, och \"by + agent\" läggs bara till när det är viktigt vem som utförde handlingen."
+    },
+    {
+      "id": "q-en6-passive-9",
+      "kind": "mc",
+      "topic": "active vs passive",
+      "prompt": "Which sentence correctly completes the passive transformation: \"The chef prepared the meal.\" → \"The meal ___ by the chef.\"",
+      "opener": "Vilket tempus hade den aktiva meningen, och vilken particip-form matchar det i passiv?",
+      "choices": [
+        "was prepared",
+        "is prepared",
+        "prepared",
+        "has prepare"
+      ],
+      "answer": 0,
+      "explanation": "Den aktiva meningen står i preteritum (\"prepared\"), så passivformen blir past simple passive: \"was prepared\". De andra alternativen har fel tempus eller felaktig verbform."
+    },
+    {
+      "id": "q-en6-passive-10",
+      "kind": "mc",
+      "topic": "passive tenses",
+      "prompt": "Choose the correct passive form: \"The bridge ___ in 1889.\" (build)",
+      "opener": "Tidsangivelsen 1889 visar att det är dåtid — vilken passivform hör ihop med past simple?",
+      "choices": [
+        "was built",
+        "was build",
+        "has built",
+        "is building"
+      ],
+      "answer": 0,
+      "explanation": "Tidsangivelsen 1889 anger dåtid, så rätt passivform är past simple passive: \"was built\". \"was build\" har fel particip, och de andra alternativen har fel tempus eller form."
+    },
+    {
+      "id": "q-en6-passive-11",
+      "kind": "mc",
+      "topic": "reported statements",
+      "prompt": "Report this statement: \"We have finished the project,\" they said.",
+      "opener": "Present perfect i direkt tal backshiftas till past perfect i reported speech.",
+      "choices": [
+        "They said they had finished the project.",
+        "They said they have finished the project.",
+        "They said we have finished the project.",
+        "They said they finished the project since long."
+      ],
+      "answer": 0,
+      "explanation": "Present perfect (\"have finished\") backshiftas till past perfect (\"had finished\") i reported speech, och \"we\" byts till \"they\" eftersom det är de som talar om sig själva."
+    },
+    {
+      "id": "q-en6-passive-12",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "Report this question: \"Have you ever been to Paris?\" she asked me.",
+      "opener": "Ja/nej-frågor i reported speech inleds med \"if\" eller \"whether\", och ordföljden blir rak.",
+      "choices": [
+        "She asked me if I had ever been to Paris.",
+        "She asked me have I ever been to Paris.",
+        "She asked me if I have ever been to Paris.",
+        "She asked me if had I ever been to Paris."
+      ],
+      "answer": 0,
+      "explanation": "Ja/nej-frågor i reported speech inleds med \"if\" eller \"whether\" och får rak ordföljd, och tempus backshiftas: \"if I had ever been\". De andra alternativen behåller felaktigt frågeordföljden eller presens."
+    },
+    {
+      "id": "q-en6-passive-13",
+      "kind": "mc",
+      "topic": "reported commands",
+      "prompt": "Report this command: \"Don't touch that,\" the guide told the tourists.",
+      "opener": "Negativa uppmaningar i reported speech: var placeras \"not\" i förhållande till \"to\"?",
+      "choices": [
+        "The guide told the tourists not to touch that.",
+        "The guide told the tourists to not touch that.",
+        "The guide told the tourists don't touch that.",
+        "The guide told to the tourists not touch that."
+      ],
+      "answer": 0,
+      "explanation": "Negativa uppmaningar i reported speech bildas med \"not\" + infinitiv med \"to\": \"told them not to touch\". Att placera \"not\" efter \"to\" eller utelämna \"to\" blir fel."
+    },
+    {
+      "id": "q-en6-passive-14",
+      "kind": "mc",
+      "topic": "passive tenses",
+      "prompt": "Which sentence uses the passive correctly to emphasize the agent?",
+      "opener": "\"by + agent\" läggs till när det är relevant vem som utförde handlingen.",
+      "choices": [
+        "The novel was written by an unknown author in the 1800s.",
+        "The novel wrote by an unknown author.",
+        "An unknown author was written the novel.",
+        "The novel has write by an unknown author."
+      ],
+      "answer": 0,
+      "explanation": "\"by + agent\" läggs till efter passivformen när det är relevant vem som utförde handlingen: \"was written by an unknown author\". De andra alternativen har felaktiga verbformer."
+    },
+    {
+      "id": "q-en6-passive-15",
+      "kind": "mc",
+      "topic": "active vs passive",
+      "prompt": "Why might a writer choose the passive voice instead of the active voice in a sentence like \"Mistakes were made\"?",
+      "opener": "Tänk på vad som saknas i meningen \"Mistakes were made\" jämfört med \"I made mistakes\".",
+      "choices": [
+        "To avoid stating who is responsible for the action",
+        "Because passive voice is always grammatically required",
+        "Because the sentence has no verb in active form",
+        "Because passive voice is shorter than active voice"
+      ],
+      "answer": 0,
+      "explanation": "Passiv röst används ofta just för att undvika att peka ut vem som är ansvarig för handlingen, som i \"Mistakes were made\" där ingen nämns som gjorde felen. Det är ett stilistiskt val, inte ett grammatiskt krav."
     }
   ]
 }

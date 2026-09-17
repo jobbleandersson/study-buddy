@@ -124,6 +124,110 @@
       "prompt": "Hur gör du när du ska svara på en läsförståelsefråga?",
       "opener": "Fyra vanor som gör att du hittar rätt svar oftare.",
       "answer": "Läs frågan först — då vet du vad du letar efter i texten. Hitta information: svaret står ofta rakt ut · gå tillbaka och peka på meningen istället för att gissa ur minnet. Huvudbudskap: fråga vad HELA texten handlar om, inte bara en detalj · poängen står ofta i första eller sista meningen. Slutsatser: bygg på ledtrådar i texten — vad personerna gör, säger och känner · aldrig på egna gissningar. Okända ord: läs meningarna runt omkring · testa vilket alternativ som passar in i sammanhanget. Varning: svarsalternativ som låter rimliga men aldrig nämns i texten är fel."
+    },
+    {
+      "id": "q-sv7-las-9",
+      "kind": "mc",
+      "topic": "hitta information",
+      "prompt": "Läs texten och svara.\n\n\"Simhallen har öppet för allmänheten måndag till fredag klockan 6-20. På helger är öppettiderna 9-15. Varje onsdag klockan 18-19 är det reserverat för simskola.\"\n\nNär är simhallen öppen för allmänheten på lördagar?",
+      "opener": "Svaret står rakt ut i texten — leta efter det klockslag som hör ihop med helger.",
+      "choices": [
+        "Klockan 9-15",
+        "Klockan 6-20",
+        "Klockan 18-19",
+        "Simhallen är stängd på lördagar"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att öppettiderna på helger är 9-15. Klockan 6-20 gäller vardagar, och 18-19 på onsdagar är reserverat för simskola, inte allmänheten."
+    },
+    {
+      "id": "q-sv7-las-10",
+      "kind": "mc",
+      "topic": "huvudbudskap",
+      "prompt": "Läs texten och svara.\n\n\"Många växter i trädgården hade vissnat i sommarens hetta. Trots regelbunden vattning klarade sig inte alla. Trädgårdsmästaren bestämde sig för att plantera mer torktåliga växter till nästa år.\"\n\nVad handlar texten främst om?",
+      "opener": "Fråga dig vad hela texten tillsammans handlar om, inte bara första meningen.",
+      "choices": [
+        "Att trädgårdsmästaren aldrig vattnade växterna",
+        "Att sommarens hetta skadade växterna, vilket fick trädgårdsmästaren att tänka om inför nästa år",
+        "Att alla växter i trädgården dog",
+        "Att trädgårdsmästaren slutade odla växter"
+      ],
+      "answer": 1,
+      "explanation": "Texten kopplar ihop hettan, att vattningen inte räckte, och beslutet att välja torktåligare växter framöver. Att trädgårdsmästaren skulle ha slutat vattna eller odla stämmer inte — tvärtom vattnade hen regelbundet och planerar redan för nästa år."
+    },
+    {
+      "id": "q-sv7-las-11",
+      "kind": "mc",
+      "topic": "slutsatser",
+      "prompt": "Läs texten och svara.\n\n\"Ebba läste samma sida i boken för tredje gången utan att komma ihåg vad som hänt. Utanför fönstret dånade åskan, och hon ryckte till varje gång blixten lyste upp rummet.\"\n\nVarför har Ebba svårt att koncentrera sig på boken?",
+      "opener": "Texten säger det inte rakt ut — vad avslöjar detaljerna om vad som stör henne?",
+      "choices": [
+        "Hon ogillar boken",
+        "Ovädret utanför stör och skrämmer henne",
+        "Hon är trött och vill sova",
+        "Rummet är för mörkt för att läsa i"
+      ],
+      "answer": 1,
+      "explanation": "Att hon rycker till vid varje blixt och inte minns vad hon läst, samtidigt som åskan dånar utanför, visar att ovädret är det som stör koncentrationen. Att boken skulle vara dålig eller rummet för mörkt nämns inte alls."
+    },
+    {
+      "id": "q-sv7-las-12",
+      "kind": "mc",
+      "topic": "ordförståelse",
+      "prompt": "Läs texten och svara.\n\n\"Efter den långa vandringen var deras vattenflaskor helt tomma. Läpparna var torra och de längtade febrilt efter en enda klunk vatten.\"\n\nVad betyder ordet \"febrilt\" i texten?",
+      "opener": "Läs meningen igen — hur starkt verkar längtan vara utifrån de tomma flaskorna och de torra läpparna?",
+      "choices": [
+        "Lugnt och avslappnat",
+        "Mycket intensivt",
+        "Utan intresse",
+        "Sorgset"
+      ],
+      "answer": 1,
+      "explanation": "De tomma vattenflaskorna och de torra läpparna visar att törsten är stark — sammanhanget visar att \"febrilt\" betyder mycket intensivt. Ordet handlar alltså inte om känslan sorg, utan om hur starkt längtan känns."
+    },
+    {
+      "id": "q-sv7-las-13",
+      "kind": "mc",
+      "topic": "hitta information",
+      "prompt": "Läs texten och svara.\n\n\"Biblioteket lånar ut böcker i fyra veckor. Filmer och spel lånas ut i en vecka. Om man inte lämnar tillbaka i tid får man en påminnelse via sms efter tre dagars försening.\"\n\nHur länge kan man låna en film?",
+      "opener": "Läs noga vilken lånetid som gäller böcker och vilken som gäller filmer och spel.",
+      "choices": [
+        "En vecka",
+        "Fyra veckor",
+        "Tre dagar",
+        "Filmer går inte att låna"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att filmer och spel lånas ut i en vecka. Fyra veckor gäller böcker, och tre dagar är hur lång försening som krävs innan en påminnelse skickas."
+    },
+    {
+      "id": "q-sv7-las-14",
+      "kind": "worked",
+      "topic": "slutsatser",
+      "prompt": "Läs texten och svara med en mening: \"Innan tävlingen hade laget tränat extra hårt varje dag i tre veckor. På matchdagen var alla på plats en timme i förväg, klädda i sina nya tröjor. Tränaren log brett när laget gick ut på planen.\"\n\nVad tyder detaljerna på om lagets inställning inför matchen, och vilka detaljer stödjer slutsatsen?",
+      "opener": "Leta efter konkreta detaljer i texten som visar hur laget förberett sig, inte bara vad de kände.",
+      "answer": "Detaljerna tyder på att laget var mycket motiverat och väl förberett inför matchen, vilket stöds av att de tränat extra hårt i tre veckor, kommit i god tid och tränarens breda leende.",
+      "steps": [
+        "Läs frågan först: den handlar om lagets inställning och vilka detaljer som stödjer slutsatsen.",
+        "Leta efter konkreta detaljer: extra träning i tre veckor, ankomst en timme i förväg, tränarens leende.",
+        "Dessa detaljer pekar tillsammans mot engagemang och god förberedelse.",
+        "Skriv svaret i en mening och stöd det med minst två av detaljerna."
+      ]
+    },
+    {
+      "id": "q-sv7-las-15",
+      "kind": "mc",
+      "topic": "ordförståelse",
+      "prompt": "Läs texten och svara.\n\n\"Trots att hon var ensam i huset kände Nova sig märkligt trygg. Tystnaden var behaglig, inte skrämmande, och hon somnade snabbt.\"\n\nVad betyder ordet \"behaglig\" i texten?",
+      "opener": "Läs meningen igen — ordet \"inte skrämmande\" ger en ledtråd om motsatsen.",
+      "choices": [
+        "Skön och avkopplande",
+        "Läskig och obehaglig",
+        "Högljudd",
+        "Kall"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger uttryckligen \"inte skrämmande\" och att Nova kände sig trygg och somnade snabbt — sammanhanget visar att \"behaglig\" betyder skön och avkopplande."
     }
   ]
 }

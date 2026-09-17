@@ -125,6 +125,111 @@
       "prompt": "Hur känner du igen de fem vanligaste ordklasserna?",
       "opener": "Ett knep per ordklass räcker långt när du ska sortera orden i en mening.",
       "answer": "Substantiv = saker, personer, platser · testa \"en/ett\" framför · böjs en bok – boken – böcker – böckerna. Verb = vad man gör eller är · testa \"jag ...\" framför · tempus: infinitiv (att läsa), presens (läser), preteritum (läste). Adjektiv = hurdan något är · komparation: glad – gladare – gladast. Pronomen = ersätter ett substantiv · jag, du, han, hon, den, det, vi, ni, de, min, sin. Räkneord = hur många eller vilken i ordningen · en, två, tre (grundtal) · första, andra, tredje (ordningstal)."
+    },
+    {
+      "id": "q-sv7-ord-9",
+      "kind": "mc",
+      "topic": "substantiv",
+      "prompt": "Vilket ord är ett substantiv? \"Den stora hunden skällde högt på natten.\"",
+      "opener": "Testa att sätta \"en\" eller \"ett\" framför ordet.",
+      "choices": [
+        "stora",
+        "skällde",
+        "hunden",
+        "högt"
+      ],
+      "answer": 2,
+      "explanation": "\"Hunden\" är ett djur — man kan säga \"en hund\", alltså är det ett substantiv. \"Stora\" är adjektiv, \"skällde\" är verb och \"högt\" är adverb."
+    },
+    {
+      "id": "q-sv7-ord-10",
+      "kind": "mc",
+      "topic": "verb",
+      "prompt": "Vilket verb står i presens (nutid)? \"Igår lagade jag mat, och imorgon ska jag baka, men just nu diskar jag.\"",
+      "opener": "Presens beskriver vad som händer just nu — leta efter tidsordet \"just nu\".",
+      "choices": [
+        "lagade",
+        "ska",
+        "diskar",
+        "baka"
+      ],
+      "answer": 2,
+      "explanation": "\"Diskar\" står i presens — det händer just nu. \"Lagade\" är preteritum (hände igår) och \"baka\" är infinitiv, grundformen efter \"ska\"."
+    },
+    {
+      "id": "q-sv7-ord-11",
+      "kind": "mc",
+      "topic": "verb",
+      "prompt": "Vilken form av verbet är grundformen (infinitiv)?",
+      "opener": "Infinitiv är den form som ofta står direkt efter \"att\" eller \"ska\".",
+      "choices": [
+        "att simma",
+        "simmar",
+        "simmade",
+        "simmat"
+      ],
+      "answer": 0,
+      "explanation": "\"Att simma\" är infinitiv, verbets grundform. \"Simmar\" är presens, \"simmade\" är preteritum och \"simmat\" är supinum (används t.ex. efter \"har\")."
+    },
+    {
+      "id": "q-sv7-ord-12",
+      "kind": "mc",
+      "topic": "adjektiv",
+      "prompt": "Vilket ord är ett adjektiv? \"Den gamla bilen körde långsamt genom den smala gatan.\"",
+      "opener": "Adjektiv beskriver hurdan någon eller något är.",
+      "choices": [
+        "bilen",
+        "gamla",
+        "körde",
+        "gatan"
+      ],
+      "answer": 1,
+      "explanation": "\"Gamla\" beskriver hurdan bilen är — det är ett adjektiv (liksom \"smala\"). \"Bilen\" och \"gatan\" är substantiv, \"körde\" är verb."
+    },
+    {
+      "id": "q-sv7-ord-13",
+      "kind": "mc",
+      "topic": "pronomen",
+      "prompt": "Vilket pronomen ska stå i meningen? \"___ har glömt sin bok hemma.\" (Erik har glömt boken.)",
+      "opener": "Ordet ska stå som subjekt i meningen, precis som Eriks namn skulle ha gjort.",
+      "choices": [
+        "Han",
+        "Hans",
+        "Honom",
+        "Sin"
+      ],
+      "answer": 0,
+      "explanation": "\"Han\" är subjektsformen och ersätter Eriks namn som den som utför handlingen. \"Hans\" och \"sin\" uttrycker ägande, och \"honom\" är objektsform."
+    },
+    {
+      "id": "q-sv7-ord-14",
+      "kind": "worked",
+      "topic": "ordklasser",
+      "prompt": "Bestäm ordklass för varje ord i meningen: \"Fem röda äpplen låg på bordet.\"",
+      "opener": "Gå ord för ord, precis som i exemplet med de glada eleverna.",
+      "answer": "Fem = räkneord, röda = adjektiv, äpplen = substantiv, låg = verb (preteritum), på = preposition, bordet = substantiv.",
+      "steps": [
+        "\"Fem\" svarar på frågan hur många — räkneord.",
+        "\"Röda\" beskriver hurdana äpplena är — adjektiv.",
+        "\"Äpplen\" är saker och kan böjas ett äpple – äpplet – äpplen — substantiv.",
+        "\"Låg\" är vad äpplena gjorde, och det har redan hänt — verb i preteritum.",
+        "\"På\" talar om var äpplena låg — preposition, och \"bordet\" är substantivet det syftar på."
+      ]
+    },
+    {
+      "id": "q-sv7-ord-15",
+      "kind": "mc",
+      "topic": "räkneord",
+      "prompt": "Vilket ord är ett räkneord? \"Det var den fjärde gången hon vann tävlingen.\"",
+      "opener": "Räkneord kan också svara på \"vilken i ordningen?\", inte bara \"hur många?\".",
+      "choices": [
+        "Det",
+        "fjärde",
+        "gången",
+        "vann"
+      ],
+      "answer": 1,
+      "explanation": "\"Fjärde\" är ett ordningstal — det talar om vilken gång i ordningen det var. \"Det\" är pronomen, \"gången\" är substantiv och \"vann\" är verb."
     }
   ]
 }

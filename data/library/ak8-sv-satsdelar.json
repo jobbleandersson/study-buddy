@@ -123,6 +123,111 @@
       "prompt": "Hur skiljer du på huvudsats och bisats, och vad menas med fundament?",
       "opener": "Tre saker att minnas: självständighet, inte-testet och första platsen.",
       "answer": "Huvudsats · kan stå ensam som fullständig mening · verbet står på plats två · \"inte\" kommer efter verbet (\"han sov inte\"). Bisats · kan inte stå ensam · inleds av bisatsinledare som att, när, eftersom, om, som, medan · \"inte\" kommer före verbet (\"eftersom han inte sov\") · fungerar som en del av huvudsatsen. Fundament · det som står först i en huvudsats, alltså före verbet · kan vara subjekt (\"Vi åt sent\"), tidsbestämning (\"Igår åt vi sent\") eller en hel bisats (\"När vi kom hem åt vi sent\") · när fundamentet inte är subjektet får meningen omvänd ordföljd: verb före subjekt."
+    },
+    {
+      "id": "q-sv8-sat-9",
+      "kind": "mc",
+      "topic": "satsdelar",
+      "prompt": "Vilket ord är subjekt i meningen? \"I går kväll ringde Maja till sin faster.\"",
+      "opener": "Fråga \"vem eller vad gör det som verbet säger?\" — svaret är subjektet, även om det inte står först.",
+      "choices": [
+        "kväll",
+        "ringde",
+        "Maja",
+        "faster"
+      ],
+      "answer": 2,
+      "explanation": "Det är Maja som ringer, alltså är \"Maja\" subjekt. \"I går kväll\" är bara en tidsbestämning, trots att den står först i meningen."
+    },
+    {
+      "id": "q-sv8-sat-10",
+      "kind": "mc",
+      "topic": "satsdelar",
+      "prompt": "Vilket ord är predikat i meningen? \"Barnen lekte glatt i trädgården hela eftermiddagen.\"",
+      "opener": "Predikatet är verbet i satsen.",
+      "choices": [
+        "Barnen",
+        "lekte",
+        "trädgården",
+        "eftermiddagen"
+      ],
+      "answer": 1,
+      "explanation": "\"Lekte\" är det enda verbet i satsen och därför predikatet. \"Trädgården\" och \"eftermiddagen\" är bestämningar som talar om var och när, inte predikat."
+    },
+    {
+      "id": "q-sv8-sat-11",
+      "kind": "mc",
+      "topic": "satsdelar",
+      "prompt": "Vilket ord är objekt i meningen? \"Mormor skickade ett brev till sin gamla vän.\"",
+      "opener": "Objektet är det som handlingen går ut över — fråga \"vad skickade mormor?\"",
+      "choices": [
+        "Mormor",
+        "skickade",
+        "brev",
+        "vän"
+      ],
+      "answer": 2,
+      "explanation": "Det mormor skickar är brevet, alltså är \"brev\" objekt. \"Vän\" står efter prepositionen \"till\" och talar om vem som fick brevet, inte det direkta objektet."
+    },
+    {
+      "id": "q-sv8-sat-12",
+      "kind": "mc",
+      "topic": "huvudsats och bisats",
+      "prompt": "Vilken del av meningen är en bisats? \"Han log stort när han fick beskedet.\"",
+      "opener": "En bisats kan inte stå ensam som mening — den inleds ofta av ord som eftersom, att, när, om eller som.",
+      "choices": [
+        "Han log stort",
+        "när han fick beskedet",
+        "log stort när",
+        "Hela meningen är en huvudsats"
+      ],
+      "answer": 1,
+      "explanation": "\"När han fick beskedet\" inleds av bisatsinledaren \"när\" och kan inte stå som egen mening — det är bisatsen. \"Han log stort\" klarar sig ensamt och är därför huvudsatsen."
+    },
+    {
+      "id": "q-sv8-sat-13",
+      "kind": "mc",
+      "topic": "ordföljd",
+      "prompt": "Vilken mening har korrekt svensk ordföljd när meningen inleds med en bisats?",
+      "opener": "När fundamentet är en hel bisats gäller samma regel: verbet i huvudsatsen kommer direkt efter.",
+      "choices": [
+        "När klockan ringde vi sprang ut.",
+        "När klockan ringde sprang vi ut.",
+        "När klockan ringde vi ut sprang.",
+        "Sprang vi ut när klockan ringde."
+      ],
+      "answer": 1,
+      "explanation": "Bisatsen \"När klockan ringde\" upptar fundamentet, så huvudsatsens verb \"sprang\" måste komma direkt efter: \"sprang vi ut\". \"När klockan ringde vi sprang\" behåller rak ordföljd och bryter mot regeln att verbet står på plats två i huvudsatsen."
+    },
+    {
+      "id": "q-sv8-sat-14",
+      "kind": "worked",
+      "topic": "satsdelar",
+      "prompt": "Analysera meningen: \"Eftersom det regnade tog Lisa med sig ett paraply.\" Ange vilken del som är bisats respektive huvudsats, och ta ut subjekt, predikat och objekt i huvudsatsen.",
+      "opener": "Börja med att dela meningen i två satser. Leta sedan efter verbet i huvudsatsen och fråga vem som gör det.",
+      "answer": "Bisats: \"Eftersom det regnade\" (fundament i meningen). Huvudsats: \"tog Lisa med sig ett paraply\" med predikat \"tog med\", subjekt \"Lisa\" och objekt \"ett paraply\".",
+      "steps": [
+        "\"Eftersom det regnade\" inleds av bisatsinledaren \"eftersom\" och kan inte stå ensam — det är bisatsen.",
+        "Bisatsen står först och fungerar som fundament, därför kommer verbet \"tog\" direkt efter: omvänd ordföljd.",
+        "Predikatet i huvudsatsen är \"tog med\" — partikeln \"med\" hör ihop med verbet och ändrar dess betydelse.",
+        "Fråga \"vem tog med sig?\" → \"Lisa\" är subjekt.",
+        "Fråga \"vad tog hon med sig?\" → \"ett paraply\" är objekt."
+      ]
+    },
+    {
+      "id": "q-sv8-sat-15",
+      "kind": "mc",
+      "topic": "huvudsats och bisats",
+      "prompt": "I vilken sats står \"inte\" FÖRE verbet, vilket visar att satsen är en bisats?",
+      "opener": "Använd inte-testet: i en bisats kommer \"inte\" före verbet, i en huvudsats efter.",
+      "choices": [
+        "hon kom inte i tid",
+        "att hon inte kom i tid",
+        "hon inte kom i tid",
+        "kom hon inte i tid"
+      ],
+      "answer": 1,
+      "explanation": "I \"att hon inte kom i tid\" står \"inte\" före verbet \"kom\" — det är en bisats, inledd av bisatsinledaren \"att\". I en huvudsats som \"hon kom inte i tid\" står \"inte\" efter verbet."
     }
   ]
 }

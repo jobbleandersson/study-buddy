@@ -123,6 +123,109 @@
       "prompt": "Summarise the most common forms of energy, the principle of conservation of energy, and the difference between renewable and non-renewable energy sources.",
       "opener": "List the forms of energy one by one before turning the card over.",
       "answer": "Kinetic energy: the energy of something that is moving, depends on mass and speed · Potential energy: energy that depends on height within a gravitational field · Heat energy: energy linked to temperature and the motion of particles · Chemical energy: stored in the bonds of substances, e.g. in food, fuel and batteries · Radiant energy: energy transported as light or other electromagnetic radiation · Electrical energy: the energy of an electric current · Conservation of energy: energy can neither be created nor destroyed, only converted between forms · Renewable energy sources (sun, wind, water, biofuel) are naturally replenished and don't run out · Non-renewable energy sources (coal, oil, natural gas, uranium) exist in limited amounts and take a very long time to form again · Efficiency = useful energy out / energy supplied, indicates how effective a conversion is."
+    },
+    {
+      "id": "q-fys-ene-9",
+      "kind": "mc",
+      "topic": "forms of energy",
+      "prompt": "What form of energy does a stretched rubber band or a compressed spring have?",
+      "opener": "Think about what happens when you let go — the band wants to return to its original shape.",
+      "choices": [
+        "Elastic (strain) energy",
+        "Chemical energy",
+        "Kinetic energy",
+        "Radiant energy"
+      ],
+      "answer": 0,
+      "explanation": "A stretched rubber band or a compressed spring stores elastic (strain) energy, a type of potential energy released when the material returns to its original shape."
+    },
+    {
+      "id": "q-fys-ene-10",
+      "kind": "mc",
+      "topic": "forms of energy",
+      "prompt": "A pendulum swings back and forth. At the highest point of its path, its speed is zero. What form of energy does the pendulum have the most of at that moment?",
+      "opener": "If the speed is zero, how much kinetic energy does the pendulum have then?",
+      "choices": [
+        "Potential energy",
+        "Kinetic energy",
+        "Heat energy",
+        "Chemical energy"
+      ],
+      "answer": 0,
+      "explanation": "At the highest point, the speed is zero, so the kinetic energy is also zero there — all the energy is instead potential energy, since the pendulum is at its greatest height."
+    },
+    {
+      "id": "q-fys-ene-11",
+      "kind": "mc",
+      "topic": "conservation of energy",
+      "prompt": "A car brakes and comes to a complete stop. Where does the kinetic energy go?",
+      "opener": "Energy never disappears - it just changes form. What feels hot on a car after hard braking?",
+      "choices": [
+        "It's converted into heat energy (and a little sound) in the brakes and tyres",
+        "It disappears completely",
+        "It's converted into potential energy",
+        "It turns into mass"
+      ],
+      "answer": 0,
+      "explanation": "The brakes convert kinetic energy into heat energy through friction — that's why brake discs get hot after hard braking. The energy never disappears, it just changes form."
+    },
+    {
+      "id": "q-fys-ene-12",
+      "kind": "mc",
+      "topic": "energy sources",
+      "prompt": "Which of the following is a non-renewable energy source?",
+      "opener": "Think about how long it takes for the source to form again.",
+      "choices": [
+        "Natural gas",
+        "Hydropower",
+        "Solar energy",
+        "Wind power"
+      ],
+      "answer": 0,
+      "explanation": "Natural gas is a fossil fuel formed over millions of years and is therefore considered non-renewable. Hydropower, solar energy and wind power are continuously replenished through nature's cycles."
+    },
+    {
+      "id": "q-fys-ene-13",
+      "kind": "mc",
+      "topic": "efficiency",
+      "prompt": "An electric motor receives 200 J of electrical energy and outputs 150 J as kinetic energy, the rest becomes heat. What is the motor's efficiency?",
+      "opener": "Efficiency = useful energy out divided by energy supplied.",
+      "choices": [
+        "75%",
+        "50%",
+        "25%",
+        "133%"
+      ],
+      "answer": 0,
+      "explanation": "Efficiency = 150 J / 200 J = 0.75 = 75%. The remaining 25% (50 J) becomes heat that's lost."
+    },
+    {
+      "id": "q-fys-ene-14",
+      "kind": "worked",
+      "topic": "forms of energy",
+      "prompt": "A 2 kg rock is lifted to a height of 5 m. Roughly how much potential energy does the rock have? (Formula: E = m · g · h, where g ≈ 10 N/kg)",
+      "opener": "Plug the mass, gravitational acceleration and height into the formula and work through it step by step.",
+      "answer": "100 J",
+      "steps": [
+        "The formula for potential energy is E = m · g · h.",
+        "Multiply the mass by g: 2 kg · 10 N/kg = 20 N.",
+        "Multiply by the height: 20 N · 5 m = 100 J."
+      ]
+    },
+    {
+      "id": "q-fys-ene-15",
+      "kind": "mc",
+      "topic": "energy sources",
+      "prompt": "Why is biofuel (e.g. firewood or biogas) considered a renewable energy source even though it gets burned up?",
+      "opener": "What's the difference from fossil fuels, which take millions of years to form?",
+      "choices": [
+        "New plants can be grown within a reasonable time to replace what was used",
+        "Biofuel never runs out no matter how much is used",
+        "Biofuel is actually a fossil fuel",
+        "Biofuel produces no carbon dioxide at all"
+      ],
+      "answer": 0,
+      "explanation": "Biofuel is considered renewable because new plants can be grown in a relatively short time (years to decades) to replace what was burned — unlike fossil fuels, which take millions of years to form again."
     }
   ]
 }

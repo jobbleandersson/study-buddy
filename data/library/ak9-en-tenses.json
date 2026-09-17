@@ -123,6 +123,109 @@
       "prompt": "När använder du present simple, present continuous, past simple och \"going to\"/\"will\"?",
       "opener": "Fyra tempus, fyra situationer.",
       "answer": "Present simple: vanor och rutiner (I play football every week). Present continuous: något som pågår just nu (I am playing football right now). Past simple: avslutade händelser i dåtid, ofta med tidsuttryck som yesterday/last week (I played football yesterday). Going to: planer och beslut som redan är fattade (I'm going to play tomorrow). Will: spontana beslut, löften och förutsägelser i stunden (I think it will rain)."
+    },
+    {
+      "id": "q-en9-tns-9",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the correct form: \"They ___ dinner at the moment, can you call back later?\"",
+      "opener": "\"At the moment\" signalerar något som pågår just nu.",
+      "choices": [
+        "cook",
+        "cooks",
+        "are cooking",
+        "cooked"
+      ],
+      "answer": 2,
+      "explanation": "\"At the moment\" kräver present continuous: are + verb-ing. \"They\" tar formen \"are\", inte \"is\"."
+    },
+    {
+      "id": "q-en9-tns-10",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"I ___ my keys somewhere yesterday.\"",
+      "opener": "\"Lose\" är ett oregelbundet verb — det böjs inte med -ed.",
+      "choices": [
+        "lose",
+        "loses",
+        "losed",
+        "lost"
+      ],
+      "answer": 3,
+      "explanation": "\"Lose\" är oregelbundet: lose → lost, inte \"losed\". \"Yesterday\" kräver past simple."
+    },
+    {
+      "id": "q-en9-tns-11",
+      "kind": "mc",
+      "topic": "future",
+      "prompt": "Choose the best option: \"Watch out, that glass is going to ___!\"",
+      "opener": "Efter \"going to\" står huvudverbet alltid i grundform.",
+      "choices": [
+        "fall",
+        "falls",
+        "falling",
+        "fell"
+      ],
+      "answer": 0,
+      "explanation": "Efter \"going to\" kommer verbet i grundform: \"is going to fall\". Detta är en förutsägelse baserad på vad man ser hända just nu — glaset lutar och håller på att välta."
+    },
+    {
+      "id": "q-en9-tns-12",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the correct form: \"My sister ___ in London these days while she finishes her internship.\"",
+      "opener": "\"These days\" signalerar en TILLFÄLLIG situation, inte en permanent vana.",
+      "choices": [
+        "live",
+        "lives",
+        "is living",
+        "lived"
+      ],
+      "answer": 2,
+      "explanation": "\"These days\" pekar på något tillfälligt (under praktiken), inte en permanent vana — då används present continuous även för ett verb som \"live\": \"is living\"."
+    },
+    {
+      "id": "q-en9-tns-13",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct question: \"___ you finish your homework yesterday?\"",
+      "opener": "Frågor i dåtid bildas med hjälpverbet \"did\", oavsett vem som utför handlingen.",
+      "choices": [
+        "Did",
+        "Does",
+        "Do",
+        "Have"
+      ],
+      "answer": 0,
+      "explanation": "\"Yesterday\" kräver past simple, och frågor i past simple bildas med \"did\" + subjekt + verb i grundform: \"Did you finish...?\""
+    },
+    {
+      "id": "q-en9-tns-14",
+      "kind": "worked",
+      "topic": "present simple",
+      "prompt": "Correct the three tense errors: \"Usually I am doing my homework after dinner, but yesterday I do it before dinner instead. Next week I working on a big project.\"",
+      "opener": "Tre olika tempus blandas ihop: en vana, en avslutad händelse och en planerad framtidshändelse.",
+      "answer": "Usually I do my homework after dinner, but yesterday I did it before dinner instead. Next week I am working on a big project.",
+      "steps": [
+        "\"Usually I am doing\" → \"Usually I do\". \"Usually\" signalerar en vana — det kräver present simple, inte continuous.",
+        "\"yesterday I do it\" → \"yesterday I did it\". \"Yesterday\" kräver past simple.",
+        "\"Next week I working\" → \"Next week I am working\". Present continuous kan uttrycka planerade framtidshändelser, men verbet behöver hjälpverbet \"am\" — det fungerar inte utan det."
+      ]
+    },
+    {
+      "id": "q-en9-tns-15",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Choose the correct form: \"He always ___ his teeth before bed.\"",
+      "opener": "Verb som slutar på -sh, -ch, -s, -x eller -o tar -es i stället för bara -s i tredje person singular.",
+      "choices": [
+        "brush",
+        "brushes",
+        "brushing",
+        "brushed"
+      ],
+      "answer": 1,
+      "explanation": "\"Brush\" slutar på -sh, så tredje person singular blir \"brushes\" (inte bara \"brushs\"). \"Always\" bekräftar att det är en rutin — present simple."
     }
   ]
 }

@@ -112,6 +112,111 @@
       "prompt": "Which strategies help you understand a longer German text with several connected sentences?",
       "opener": "Connecting information from different parts of the text.",
       "answer": "Read the whole text once without stopping at unknown words, to get the overall picture. Look for time markers (letzten Sommer, für zwei Wochen) to understand WHEN something happened. Look for perfect-tense forms (sind gefahren, haben besucht, hat geregnet) to understand WHAT happened. Connect pronouns and references: \"was mir am besten gefallen hat\" refers back to the whole experience. Guess new words from context — \"komisch\" can be guessed (something unexpected/strange) even without having seen the word before."
+    },
+    {
+      "id": "q-de9-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Als ich zwölf Jahre alt war, ist meine Familie in eine andere Stadt gezogen. Am Anfang habe ich meine alten Freunde sehr vermisst, aber nach und nach habe ich neue Freunde in der Schule gefunden. Jetzt, fünf Jahre später, bereue ich nichts.\"\n\nHow old was the person when the family moved?",
+      "opener": "Look for the time expression in the first sentence.",
+      "choices": [
+        "Twelve years old",
+        "Five years old",
+        "Seventeen years old",
+        "Ten years old"
+      ],
+      "answer": 0,
+      "explanation": "\"Als ich zwölf Jahre alt war\" means \"when I was twelve years old\", indicating the person's age at the time of the move."
+    },
+    {
+      "id": "q-de9-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. How did the person feel at first?",
+      "opener": "The second sentence describes the feelings at the start.",
+      "choices": [
+        "Missed their old friends a lot",
+        "Was thrilled from day one",
+        "Didn't feel anything in particular",
+        "Wanted to move back right away"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich habe meine alten Freunde sehr vermisst\" means \"I missed my old friends a lot\"."
+    },
+    {
+      "id": "q-de9-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. How does the person feel now, according to the text?",
+      "opener": "The last sentence sums up how the person feels today.",
+      "choices": [
+        "Doesn't regret anything",
+        "Still misses their old city a lot",
+        "Wants to move again",
+        "Still has no friends"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich bereue nichts\" means \"I don't regret anything\"."
+    },
+    {
+      "id": "q-de9-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "New text: \"Meine beste Freundin und ich haben uns am ersten Schultag kennengelernt. Am Anfang haben wir nicht viel geredet, aber beim Mittagessen haben wir angefangen, über Musik zu sprechen, und entdeckt, dass wir dieselbe Band mögen. Seitdem sind wir unzertrennlich.\"\n\nWhen did the two friends meet?",
+      "opener": "Read the new text about two friends.",
+      "choices": [
+        "On the first day of school",
+        "At a birthday party",
+        "At a concert",
+        "When they were very young"
+      ],
+      "answer": 0,
+      "explanation": "\"Wir haben uns am ersten Schultag kennengelernt\" means \"we met on the first day of school\"."
+    },
+    {
+      "id": "q-de9-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What did they start talking about at lunch?",
+      "opener": "The middle of the text describes what they talked about.",
+      "choices": [
+        "Music",
+        "Sports",
+        "Movies",
+        "Their families"
+      ],
+      "answer": 0,
+      "explanation": "\"Wir haben angefangen, über Musik zu sprechen\" means \"we started talking about music\"."
+    },
+    {
+      "id": "q-de9-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What did they discover they had in common?",
+      "opener": "The text describes a shared discovery.",
+      "choices": [
+        "They like the same band",
+        "They live on the same street",
+        "They have the same birthday",
+        "They go to the same dance class"
+      ],
+      "answer": 0,
+      "explanation": "\"Wir haben entdeckt, dass wir dieselbe Band mögen\" means \"we discovered we like the same band\"."
+    },
+    {
+      "id": "q-de9-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. How does the person describe their current friendship?",
+      "opener": "The last sentence describes their friendship today.",
+      "choices": [
+        "Inseparable",
+        "They don't talk anymore",
+        "They see each other once a year",
+        "They aren't friends yet"
+      ],
+      "answer": 0,
+      "explanation": "\"Wir sind unzertrennlich\" means \"we are inseparable\"."
     }
   ]
 }

@@ -123,6 +123,111 @@
       "prompt": "Summarise how to find and classify extreme points using the first and second derivatives.",
       "opener": "Two methods: sign analysis of $f'$, or a sign test using $f''$.",
       "answer": "Extreme points occur where $f'(x)=0$ (or where $f'$ is not defined) · Sign change in $f'$ from $+$ to $-$ $\\Rightarrow$ local maximum point · Sign change in $f'$ from $-$ to $+$ $\\Rightarrow$ local minimum point · No sign change $\\Rightarrow$ terrace point · Second derivative test: $f'(x_0)=0$ and $f''(x_0)<0 \\Rightarrow$ local max · $f'(x_0)=0$ and $f''(x_0)>0 \\Rightarrow$ local min · $f''(x_0)=0 \\Rightarrow$ the test gives no answer, use sign analysis instead"
+    },
+    {
+      "id": "q-ma3-extrem-9",
+      "kind": "mc",
+      "topic": "extreme points",
+      "prompt": "The function $f(x) = x^2 - 8x + 3$ has an extreme point. Where is it located (x-value)?",
+      "opener": "Differentiate and solve $f'(x)=0$.",
+      "choices": [
+        "$x = 4$",
+        "$x = 8$",
+        "$x = -4$",
+        "$x = 2$"
+      ],
+      "answer": 0,
+      "explanation": "$f'(x) = 2x-8$. Set $f'(x)=0$: $2x-8=0 \\Rightarrow x=4$."
+    },
+    {
+      "id": "q-ma3-extrem-10",
+      "kind": "mc",
+      "topic": "the second derivative",
+      "prompt": "What is the second derivative of $f(x) = x^4 - 4x^3 + 2$?",
+      "opener": "Differentiate $f$ twice in a row.",
+      "choices": [
+        "$f''(x) = 12x^2 - 24x$",
+        "$f''(x) = 4x^3 - 12x^2$",
+        "$f''(x) = 12x^2$",
+        "$f''(x) = 24x - 24$"
+      ],
+      "answer": 0,
+      "explanation": "$f'(x) = 4x^3-12x^2$. Differentiate again: $f''(x) = 12x^2-24x$. The answer $4x^3-12x^2$ is only the first derivative."
+    },
+    {
+      "id": "q-ma3-extrem-11",
+      "kind": "mc",
+      "topic": "sign analysis",
+      "prompt": "$f'(x) = (x+2)(x-4)$. In which interval is $f$ increasing?",
+      "opener": "Make a sign table for $f'(x)$ using the roots $x=-2$ and $x=4$.",
+      "choices": [
+        "$x < -2$ or $x > 4$",
+        "$-2 < x < 4$",
+        "$x > 4$ only",
+        "All $x$"
+      ],
+      "answer": 0,
+      "explanation": "The roots are $x=-2$ and $x=4$. Outside the interval, e.g. at $x=5$: $f'(5)=(7)(1)=7>0$, and at $x=-3$: $f'(-3)=(-1)(-7)=7>0$. Between the roots, e.g. at $x=0$: $f'(0)=(2)(-4)=-8<0$. So $f$ is increasing for $x<-2$ or $x>4$."
+    },
+    {
+      "id": "q-ma3-extrem-12",
+      "kind": "mc",
+      "topic": "the second derivative",
+      "prompt": "At a point, $f'(x_0) = 0$ and $f''(x_0) > 0$. What conclusion can be drawn?",
+      "opener": "A positive second derivative means the curve is concave up.",
+      "choices": [
+        "$x_0$ is a local minimum point",
+        "$x_0$ is a local maximum point",
+        "$x_0$ is a terrace point",
+        "No conclusion can be drawn"
+      ],
+      "answer": 0,
+      "explanation": "If $f'(x_0)=0$ and $f''(x_0)>0$, the curve is concave up at the point, which means a local minimum point."
+    },
+    {
+      "id": "q-ma3-extrem-13",
+      "kind": "mc",
+      "topic": "extreme points",
+      "prompt": "The function $f(x) = -x^2 + 10x - 9$ has an extreme point. What type of extreme point is it, without calculating the $x$-value?",
+      "opener": "Look at the sign in front of the $x^2$ term.",
+      "choices": [
+        "A maximum, since the coefficient in front of $x^2$ is negative",
+        "A minimum, since the coefficient in front of $x^2$ is negative",
+        "A terrace point",
+        "No extreme point exists"
+      ],
+      "answer": 0,
+      "explanation": "Since the coefficient in front of $x^2$ is negative ($-1$), the second derivative is constantly negative ($f''(x)=-2$), which always gives a local maximum at the single critical point."
+    },
+    {
+      "id": "q-ma3-extrem-14",
+      "kind": "mc",
+      "topic": "sign analysis",
+      "prompt": "A function $f$ has $f'(x) < 0$ for all $x$ in the interval $(-3, 1)$. What holds for $f$ in this interval?",
+      "opener": "A negative derivative means the tangent's slope is negative.",
+      "choices": [
+        "$f$ is decreasing in the interval",
+        "$f$ is increasing in the interval",
+        "$f$ has a minimum in the interval",
+        "$f$ is constant in the interval"
+      ],
+      "answer": 0,
+      "explanation": "If $f'(x)<0$ on an interval, the tangent's slope is negative everywhere there, so $f$ is decreasing throughout the interval."
+    },
+    {
+      "id": "q-ma3-extrem-15",
+      "kind": "mc",
+      "topic": "the second derivative",
+      "prompt": "What is the second derivative of $f(x) = 2x^3 + 5x - 1$?",
+      "opener": "Differentiate $f$ twice.",
+      "choices": [
+        "$f''(x) = 12x$",
+        "$f''(x) = 6x^2 + 5$",
+        "$f''(x) = 6x$",
+        "$f''(x) = 12x^2$"
+      ],
+      "answer": 0,
+      "explanation": "$f'(x) = 6x^2+5$. Differentiate again: $f''(x) = 12x$."
     }
   ]
 }

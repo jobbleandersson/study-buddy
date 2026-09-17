@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta syror, baser, pH-skalan och neutralisation.",
       "opener": "Tänk skala 0–14, vilken jon som avges, och vad som bildas vid neutralisation.",
       "answer": "pH-skalan: går från 0–14 och visar hur sur eller basisk en lösning är · pH under 7 = surt (syra) · pH = 7 = neutralt (t.ex. rent vatten) · pH över 7 = basiskt (bas) · Syra: avger vätejoner (H+) i vatten, exempel: ättiksyra, saltsyra, magsyra, citronsyra · Bas: avger hydroxidjoner (OH−) i vatten, exempel: bakpulver (natriumvätekarbonat), såpa, tvål, ammoniak · Neutralisation: syra + bas → salt + vatten, pH går mot 7 · Vardagsexempel: ättika (surt) reagerar med bikarbonat (basiskt) och bubblar av koldioxid bildas."
+    },
+    {
+      "id": "q-kemi-syr-9",
+      "kind": "mc",
+      "topic": "pH-skalan",
+      "prompt": "Ett prov har pH 3. Hur skulle du beskriva lösningen?",
+      "opener": "Jämför 3 med det neutrala värdet 7.",
+      "choices": [
+        "Sur",
+        "Svagt basisk",
+        "Neutral",
+        "Starkt basisk"
+      ],
+      "answer": 0,
+      "explanation": "pH 3 ligger klart under 7, vilket betyder att lösningen är sur — ju lägre värde under 7, desto starkare syra."
+    },
+    {
+      "id": "q-kemi-syr-10",
+      "kind": "mc",
+      "topic": "pH-skalan",
+      "prompt": "Ett prov har pH 11. Hur skulle du beskriva lösningen?",
+      "opener": "Jämför 11 med det neutrala värdet 7.",
+      "choices": [
+        "Basisk",
+        "Sur",
+        "Neutral",
+        "Omöjligt att avgöra"
+      ],
+      "answer": 0,
+      "explanation": "pH 11 ligger klart över 7, vilket betyder att lösningen är basisk — ju högre värde över 7, desto starkare bas."
+    },
+    {
+      "id": "q-kemi-syr-11",
+      "kind": "mc",
+      "topic": "syror och baser",
+      "prompt": "Vilken jon avger baser när de löses i vatten?",
+      "opener": "Denna jon är motsatsen till den syror avger.",
+      "choices": [
+        "Hydroxidjoner (OH−)",
+        "Vätejoner (H+)",
+        "Natriumjoner (Na+)",
+        "Kloridjoner (Cl−)"
+      ],
+      "answer": 0,
+      "explanation": "Baser avger hydroxidjoner (OH−) i vatten, vilket ger pH över 7. Syror avger i stället vätejoner (H+)."
+    },
+    {
+      "id": "q-kemi-syr-12",
+      "kind": "mc",
+      "topic": "neutralisation",
+      "prompt": "Vad bildas alltid vid en fullständig neutralisation mellan en syra och en bas?",
+      "opener": "Vätejoner och hydroxidjoner binder till varandra och bildar en av produkterna.",
+      "choices": [
+        "Salt och vatten",
+        "Enbart vatten",
+        "Enbart syra",
+        "En ny stark bas"
+      ],
+      "answer": 0,
+      "explanation": "Vid neutralisation reagerar syra och bas enligt syra + bas → salt + vatten. Vätejoner och hydroxidjoner binder till varandra och bildar vatten, medan de återstående jonerna bildar ett salt."
+    },
+    {
+      "id": "q-kemi-syr-13",
+      "kind": "mc",
+      "topic": "syror och baser i vardagen",
+      "prompt": "Vilket av följande är en bas som du kan hitta i vardagen?",
+      "opener": "Tänk på vilka av dessa ämnen som används för att tvätta eller rengöra.",
+      "choices": [
+        "Såpa",
+        "Citronsyra i citron",
+        "Ättika",
+        "Kolsyra i läsk"
+      ],
+      "answer": 0,
+      "explanation": "Såpa är basiskt. Citronsyra, ättika och kolsyra är alla exempel på syror du stöter på i vardagen."
+    },
+    {
+      "id": "q-kemi-syr-14",
+      "kind": "worked",
+      "topic": "neutralisation",
+      "prompt": "En trädgårdsmästare upptäcker att jorden i en rabatt är för sur (lågt pH) för att växterna ska trivas. Hen strör ut kalk (som är basisk) i jorden. Förklara med hjälp av kemi varför detta hjälper.",
+      "opener": "Tänk på vad som händer kemiskt när en syra möter en bas, precis som i exemplet med magsyra och antacida.",
+      "answer": "Kalken, som är basisk, neutraliserar en del av syran i jorden, vilket höjer jordens pH mot ett mer neutralt värde som passar växterna bättre.",
+      "steps": [
+        "Sur jord har lågt pH, ofta på grund av naturliga processer i marken.",
+        "Kalk är basiskt och reagerar med syran i jorden.",
+        "När kalken möter syran sker en neutralisationsreaktion: syra + bas → salt + vatten.",
+        "En del av vätejonerna i jorden binds upp, vilket gör jorden mindre sur — pH stiger mot ett mer neutralt värde.",
+        "Med bättre pH kan växterna lättare ta upp näringsämnen ur jorden."
+      ]
+    },
+    {
+      "id": "q-kemi-syr-15",
+      "kind": "mc",
+      "topic": "syror och baser i vardagen",
+      "prompt": "Varför bubblar det när man blandar bikarbonat (basiskt) med citronsaft (surt) i ett bakrecept?",
+      "opener": "Vad bildas när en syra och en bas reagerar med varandra?",
+      "choices": [
+        "Syra och bas reagerar och bildar bland annat koldioxidgas, som syns som bubblor",
+        "Bubblorna är bara luft som redan fanns i blandningen",
+        "Det är en fysikalisk förändring utan någon kemisk reaktion",
+        "Bikarbonat kokar vid rumstemperatur"
+      ],
+      "answer": 0,
+      "explanation": "Reaktionen mellan bikarbonat och citronsaft är en syra-bas-reaktion som bildar koldioxidgas som en av produkterna — det är gasbubblorna som syns i degen."
     }
   ]
 }

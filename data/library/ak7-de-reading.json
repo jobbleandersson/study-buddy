@@ -112,6 +112,111 @@
       "prompt": "Vilka strategier hjälper dig att förstå en enkel tysk text på åk7-nivå?",
       "opener": "Du behöver inte förstå varje ord för att förstå helheten.",
       "answer": "Leta efter kända mönster: \"ich heiße\" (presentation), \"ich bin ... Jahre alt\" (ålder), \"ich wohne in\" (bostadsort), \"samstags/sonntags\" (veckodagar som adverb, med litet s). Gissa okända ord från sammanhanget i stället för att slå upp varje ord. Läs texten en gång för helheten och en gång till för detaljer. Leta efter verb i presens (spielt, isst, ruht sich aus) för att förstå vad som händer, och possessiva ord (sein, seine, ihr) för att förstå vem som gör vad."
+    },
+    {
+      "id": "q-de7-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"Ich heiße Mia und ich bin zwölf Jahre alt. Ich wohne in Hamburg mit meinen Eltern und meinem Bruder. Mein Bruder heißt Paul und ist fünfzehn Jahre alt. Wir haben auch einen Hund; er heißt Bruno.\"\n\nHur gammal är Mia?",
+      "opener": "Läs texten om Mia och hennes familj.",
+      "choices": [
+        "Tolv år",
+        "Femton år",
+        "Tio år",
+        "Fjorton år"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich bin zwölf Jahre alt\" betyder \"jag är tolv år\"."
+    },
+    {
+      "id": "q-de7-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vem är Paul?",
+      "opener": "Leta efter meningen om \"mein Bruder\".",
+      "choices": [
+        "Mias bror",
+        "Mias pappa",
+        "Mias hund",
+        "Mias lärare"
+      ],
+      "answer": 0,
+      "explanation": "\"Mein Bruder heißt Paul\" betyder \"min bror heter Paul\"."
+    },
+    {
+      "id": "q-de7-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad heter hunden i texten?",
+      "opener": "Leta efter sista meningen om familjens djur.",
+      "choices": [
+        "Bruno",
+        "Paul",
+        "Mia",
+        "Klaus"
+      ],
+      "answer": 0,
+      "explanation": "\"Wir haben auch einen Hund; er heißt Bruno\" betyder \"vi har också en hund; han heter Bruno\"."
+    },
+    {
+      "id": "q-de7-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Ny text: \"Am Wochenende geht Mia gern schwimmen. Am Samstag trifft sie ihre Freundin Lisa im Schwimmbad. Danach gehen sie zusammen einkaufen. Am Sonntag bleibt Mia zu Hause und liest ein Buch.\"\n\nVad gillar Mia att göra på helgen?",
+      "opener": "Leta efter första meningen: \"geht Mia gern schwimmen\".",
+      "choices": [
+        "Simma",
+        "Läsa",
+        "Handla",
+        "Sova"
+      ],
+      "answer": 0,
+      "explanation": "\"Am Wochenende geht Mia gern schwimmen\" betyder \"på helgen tycker Mia om att gå och simma\"."
+    },
+    {
+      "id": "q-de7-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vem träffar Mia på lördagen?",
+      "opener": "Leta efter \"trifft sie ihre Freundin...\".",
+      "choices": [
+        "Lisa",
+        "Paul",
+        "Bruno",
+        "Sin lärare"
+      ],
+      "answer": 0,
+      "explanation": "\"Am Samstag trifft sie ihre Freundin Lisa\" betyder \"på lördagen träffar hon sin väninna Lisa\"."
+    },
+    {
+      "id": "q-de7-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad gör Mia och Lisa efter att de har simmat?",
+      "opener": "Leta efter ordet \"danach\" (därefter).",
+      "choices": [
+        "Går och handlar tillsammans",
+        "Äter middag tillsammans",
+        "Åker hem direkt",
+        "Spelar fotboll"
+      ],
+      "answer": 0,
+      "explanation": "\"Danach gehen sie zusammen einkaufen\" betyder \"därefter går de och handlar tillsammans\"."
+    },
+    {
+      "id": "q-de7-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad gör Mia på söndagen?",
+      "opener": "Leta efter sista meningen om söndagen.",
+      "choices": [
+        "Stannar hemma och läser en bok",
+        "Går och simmar igen",
+        "Träffar Lisa igen",
+        "Handlar kläder"
+      ],
+      "answer": 0,
+      "explanation": "\"Am Sonntag bleibt Mia zu Hause und liest ein Buch\" betyder \"på söndagen stannar Mia hemma och läser en bok\"."
     }
   ]
 }

@@ -122,6 +122,111 @@
       "prompt": "Sammanfatta modellen för exponentiell förändring och de viktigaste logaritmlagarna.",
       "opener": "Koppla ihop förändringsfaktorn med tillväxt/avtagande, och minns hur $\\lg$ hanterar produkter, kvoter och potenser.",
       "answer": "Exponentiell modell: $y = C \\cdot a^x$, där $C$ är startvärdet och $a$ förändringsfaktorn ($a>1$ tillväxt, $0<a<1$ avtagande) · Förändringsfaktor vid $p\\,\\%$ ökning: $a = 1+\\dfrac{p}{100}$, vid minskning: $a = 1-\\dfrac{p}{100}$ · $\\lg(a\\cdot b) = \\lg(a)+\\lg(b)$ · $\\lg\\!\\left(\\dfrac{a}{b}\\right) = \\lg(a)-\\lg(b)$ · $\\lg(a^n) = n\\lg(a)$ · Lös $a^x=b$ genom att logaritmera båda led: $x = \\dfrac{\\lg(b)}{\\lg(a)}$."
+    },
+    {
+      "id": "q-ma2-exponential-9",
+      "kind": "mc",
+      "topic": "exponentiell förändring",
+      "prompt": "En population startar på 500 individer och halveras varje år. Vilken funktion beskriver antalet $N$ efter $t$ år?",
+      "opener": "En halvering per tidsenhet ger förändringsfaktorn $0{,}5$.",
+      "choices": [
+        "$N(t) = 500 \\cdot 0{,}5^t$",
+        "$N(t) = 0{,}5 \\cdot 500^t$",
+        "$N(t) = 500 - 0{,}5t$",
+        "$N(t) = 500 \\cdot t^{0{,}5}$"
+      ],
+      "answer": 0,
+      "explanation": "Modellen är $N(t)=N_0\\cdot a^t$ med $N_0=500$ och förändringsfaktorn $a=0{,}5$ för en halvering varje år, alltså $N(t)=500\\cdot0{,}5^t$. Alternativet med subtraktion beskriver i stället en linjär minskning."
+    },
+    {
+      "id": "q-ma2-exponential-10",
+      "kind": "mc",
+      "topic": "exponentiell förändring",
+      "prompt": "Ett pris ökar med 8 % per år. Vad är förändringsfaktorn per år?",
+      "opener": "Förändringsfaktorn vid en ökning är 1 plus den decimala procentandelen.",
+      "choices": [
+        "$1{,}08$",
+        "$0{,}08$",
+        "$0{,}92$",
+        "$1{,}8$"
+      ],
+      "answer": 0,
+      "explanation": "En ökning med 8 % ger förändringsfaktorn $1+0{,}08=1{,}08$. Svar C ($0{,}92$) är i stället förändringsfaktorn vid en minskning med 8 %."
+    },
+    {
+      "id": "q-ma2-exponential-11",
+      "kind": "mc",
+      "topic": "logaritmlagar",
+      "prompt": "Vad är $\\lg(1000)$?",
+      "opener": "Skriv 1000 som en tiopotens.",
+      "choices": [
+        "$3$",
+        "$1000$",
+        "$10$",
+        "$30$"
+      ],
+      "answer": 0,
+      "explanation": "$\\lg(1000)=\\lg(10^3)=3$, eftersom $10^3=1000$. Tiologaritmen ger just exponenten, inte talet självt."
+    },
+    {
+      "id": "q-ma2-exponential-12",
+      "kind": "mc",
+      "topic": "logaritmlagar",
+      "prompt": "Vilket uttryck är samma sak som $\\lg(a) - \\lg(b)$?",
+      "opener": "En av logaritmlagarna handlar om differensen mellan två logaritmer.",
+      "choices": [
+        "$\\lg\\left(\\dfrac{a}{b}\\right)$",
+        "$\\lg(a-b)$",
+        "$\\dfrac{\\lg(a)}{\\lg(b)}$",
+        "$\\lg(a \\cdot b)$"
+      ],
+      "answer": 0,
+      "explanation": "Logaritmlagen för kvot: $\\lg(a)-\\lg(b) = \\lg\\left(\\frac{a}{b}\\right)$. Det vanliga misstaget är att tro att $\\lg(a)-\\lg(b)=\\lg(a-b)$, men logaritmer omvandlar division till subtraktion — inte subtraktion till subtraktion."
+    },
+    {
+      "id": "q-ma2-exponential-13",
+      "kind": "mc",
+      "topic": "exponentialekvationer",
+      "prompt": "Lös ekvationen $3^x = 81$.",
+      "opener": "Går det att skriva 81 som en potens med basen 3?",
+      "choices": [
+        "$x = 4$",
+        "$x = 27$",
+        "$x = 3$",
+        "$x = 9$"
+      ],
+      "answer": 0,
+      "explanation": "$81=3^4$, så $3^x=3^4$ ger $x=4$ eftersom baserna är lika."
+    },
+    {
+      "id": "q-ma2-exponential-14",
+      "kind": "mc",
+      "topic": "exponentialekvationer",
+      "prompt": "Lös ekvationen $7^x = 50$ med hjälp av tiologaritmen. Vilket uttryck ger $x$?",
+      "opener": "Ta $\\lg$ av båda leden och använd att $\\lg(7^x) = x\\cdot\\lg(7)$.",
+      "choices": [
+        "$x = \\dfrac{\\lg(50)}{\\lg(7)}$",
+        "$x = \\lg(50) - \\lg(7)$",
+        "$x = \\dfrac{50}{7}$",
+        "$x = \\lg(50) \\cdot \\lg(7)$"
+      ],
+      "answer": 0,
+      "explanation": "Ta $\\lg$ av båda leden: $x\\cdot\\lg(7)=\\lg(50)$, vilket ger $x=\\dfrac{\\lg(50)}{\\lg(7)}\\approx2{,}01$. Att bara dela 50 med 7 (svar C) ignorerar att $x$ står i exponenten."
+    },
+    {
+      "id": "q-ma2-exponential-15",
+      "kind": "mc",
+      "topic": "logaritmlagar",
+      "prompt": "Vad är $\\lg(a^3)$ uttryckt med $\\lg(a)$?",
+      "opener": "En av logaritmlagarna handlar om potenser.",
+      "choices": [
+        "$3\\lg(a)$",
+        "$\\lg(a)^3$",
+        "$\\lg(3a)$",
+        "$\\dfrac{\\lg(a)}{3}$"
+      ],
+      "answer": 0,
+      "explanation": "Logaritmlagen för potenser: $\\lg(a^n) = n\\lg(a)$, så $\\lg(a^3) = 3\\lg(a)$. Att skriva $\\lg(a)^3$ (svar B) blandar ihop att upphöja logaritmen i sig med att upphöja argumentet."
     }
   ]
 }

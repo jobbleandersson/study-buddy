@@ -122,6 +122,111 @@
       "prompt": "Vilka lässtrategier hjälper dig att förstå en längre fransk text om ett samhälls- eller kulturämne?",
       "opener": "Att hitta fakta, sluta dig till underförstådd information och gissa ord från sammanhanget.",
       "answer": "Läs texten en gång för helheten innan du fokuserar på detaljer. Leta efter siffror och namn (300 millions, 2050, Québec, Belgique) — de bär ofta konkreta svar. Uppmärksamma kontrasterande ord som \"pourtant\", \"au contraire\" och \"en revanche\" — de signalerar att en motsatt åsikt eller ett motargument följer. Använd sammanhanget för att gissa nya ord (till exempel \"locuteurs\" = talare, kopplat till \"parlée\" i texten). Vid inference-frågor: fråga dig varför skribenten valt att ha med viss information, inte bara vad som bokstavligen står."
+    },
+    {
+      "id": "q-fr3-reading-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"En 2010, le repas gastronomique des Français a été inscrit par l'UNESCO sur la liste du patrimoine culturel immatériel de l'humanité. Il ne s'agit pas d'un plat précis, mais d'une pratique sociale : un repas festif qui réunit famille et amis autour d'une table, avec plusieurs plats servis dans un ordre précis — entrée, plat principal, fromage, dessert — et accompagnés de vins soigneusement choisis. Selon l'UNESCO, ce qui rend cette tradition unique n'est pas seulement la qualité des ingrédients, mais aussi le temps que l'on prend pour manger et discuter ensemble, loin de toute précipitation. Certains sociologues estiment que cette inscription a eu un effet inattendu : elle aurait renforcé, chez de nombreux Français, la conscience de posséder un patrimoine culinaire à préserver, à une époque où la restauration rapide gagne du terrain, même en France. D'autres restent plus sceptiques et se demandent si un simple label peut réellement freiner l'évolution des habitudes alimentaires, en particulier chez les jeunes générations, pour qui le temps consacré aux repas a tendance à diminuer.\"\n\nVad blev inskrivet av UNESCO 2010, enligt texten?",
+      "opener": "Läs den andra meningen, som förtydligar vad det handlar om.",
+      "choices": [
+        "Den franska gastronomiska måltiden som social sedvänja",
+        "En specifik fransk rätt",
+        "Ett specifikt franskt vin",
+        "En fransk restaurangkedja"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger \"il ne s'agit pas d'un plat précis, mais d'une pratique sociale\" (det handlar inte om en specifik rätt, utan om en social sedvänja)."
+    },
+    {
+      "id": "q-fr3-reading-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. I vilken ordning serveras rätterna enligt texten?",
+      "opener": "Leta efter uppräkningen mitt i första stycket.",
+      "choices": [
+        "Förrätt, huvudrätt, ost, dessert",
+        "Dessert, huvudrätt, förrätt, ost",
+        "Bara huvudrätt och dessert",
+        "Ost, förrätt, huvudrätt, dessert"
+      ],
+      "answer": 0,
+      "explanation": "Texten anger ordningen: \"entrée, plat principal, fromage, dessert\" (förrätt, huvudrätt, ost, dessert)."
+    },
+    {
+      "id": "q-fr3-reading-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Samma text. Vad betyder \"loin de toute précipitation\"?",
+      "opener": "\"Précipitation\" är besläktat med \"se précipiter\" (att skynda sig).",
+      "choices": [
+        "Utan brådska",
+        "Med stor brådska",
+        "Utan mat",
+        "Med stort prat"
+      ],
+      "answer": 0,
+      "explanation": "\"Loin de toute précipitation\" betyder \"långt ifrån all brådska\", alltså \"utan brådska\"."
+    },
+    {
+      "id": "q-fr3-reading-12",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Samma text. Vad kan man dra slutsatsen om varför UNESCO-inskrivningen anses unik, enligt texten?",
+      "opener": "Leta efter meningen som börjar med \"Selon l'UNESCO, ce qui rend cette tradition unique...\".",
+      "choices": [
+        "Det handlar inte bara om ingrediensernas kvalitet utan om tiden man tar sig för att äta och prata tillsammans",
+        "Det handlar bara om vinerna som serveras",
+        "Det handlar om hur dyr måltiden är",
+        "Det handlar om vilken stad måltiden äts i"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att det unika inte bara är ingrediensernas kvalitet, utan också \"le temps que l'on prend pour manger et discuter ensemble\" (tiden man tar sig för att äta och prata tillsammans)."
+    },
+    {
+      "id": "q-fr3-reading-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Samma text. Vad menar vissa sociologer var en oväntad effekt av inskrivningen?",
+      "opener": "Leta efter meningen om \"un effet inattendu\".",
+      "choices": [
+        "Den stärkte många fransmäns medvetenhet om att ha ett kulinariskt arv värt att bevara",
+        "Den fick snabbmatskedjor att stänga i Frankrike",
+        "Den gjorde franska vin billigare",
+        "Den minskade turismen i Frankrike"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att inskrivningen \"aurait renforcé, chez de nombreux Français, la conscience de posséder un patrimoine culinaire à préserver\" (stärkte medvetenheten om att ha ett kulinariskt arv värt att bevara)."
+    },
+    {
+      "id": "q-fr3-reading-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Vad tvivlar de skeptiska sociologerna på, enligt texten?",
+      "opener": "Leta efter meningen som börjar med \"D'autres restent plus sceptiques\".",
+      "choices": [
+        "Om en enkel utmärkelse verkligen kan bromsa förändringen av matvanor",
+        "Om måltiden verkligen smakar bra",
+        "Om Frankrike har någon matkultur alls",
+        "Om UNESCO existerar"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att de skeptiska undrar \"si un simple label peut réellement freiner l'évolution des habitudes alimentaires\" (om en enkel utmärkelse verkligen kan bromsa förändringen av matvanor)."
+    },
+    {
+      "id": "q-fr3-reading-15",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Samma text. Vad betyder \"la restauration rapide\"?",
+      "opener": "Ordet \"rapide\" betyder \"snabb\".",
+      "choices": [
+        "Snabbmat",
+        "Restaurangrenovering",
+        "Långsam matlagning",
+        "Catering"
+      ],
+      "answer": 0,
+      "explanation": "\"La restauration rapide\" betyder \"snabbmat\"."
     }
   ]
 }

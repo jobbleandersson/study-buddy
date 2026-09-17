@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta näringsämnena och matspjälkningskanalens viktigaste delar.",
       "opener": "Gå igenom de energigivande ämnena, skyddsämnena och organen i tur och ordning.",
       "answer": "Kolhydrater: kroppens snabbaste bränsle, finns i bröd, pasta, potatis och frukt; bryts ner till socker (glukos) · Fett: energirikast, behövs för cellmembran, hormoner och för att ta upp vissa vitaminer · Protein: byggmaterial för muskler, enzymer och antikroppar; bryts ner till aminosyror · Vitaminer: behövs i små mängder, ger ingen energi, t.ex. C-vitamin och D-vitamin · Mineraler: t.ex. järn (blodet) och kalcium (skelett och tänder) · Vatten och fibrer: vatten behövs i alla kroppens processer, fibrer får tarmen att fungera · Munnen: tuggning + enzym i saliven som bryter ner stärkelse · Matstrupen: transport med muskelrörelser · Magsäcken: saltsyra och enzymer, nedbrytning av protein · Tunntarmen: mest nedbrytning och nästan allt näringsupptag via tarmludd · Levern och bukspottkörteln: bidrar med galla respektive enzymer · Tjocktarmen: tar upp vatten och salter, resten blir avföring."
+    },
+    {
+      "id": "q-bio8-mat-9",
+      "kind": "mc",
+      "topic": "matspjälkningskanalen",
+      "prompt": "Vilken uppgift har struplocket?",
+      "opener": "Tänk på vad som händer om man sväljer fel och maten \"går i fel strupe\".",
+      "choices": [
+        "Det bryter ner protein",
+        "Det stänger till luftstrupen när man sväljer så att maten inte hamnar fel",
+        "Det tar upp näring till blodet",
+        "Det bildar galla"
+      ],
+      "answer": 1,
+      "explanation": "Struplocket fäller ner över luftstrupens öppning när man sväljer, så att maten leds till matstrupen i stället för till lungorna. Näringsupptag och gallabildning sker i helt andra delar av kroppen."
+    },
+    {
+      "id": "q-bio8-mat-10",
+      "kind": "mc",
+      "topic": "enzymer och nedbrytning",
+      "prompt": "Var i kroppen börjar nedbrytningen av stärkelse redan innan maten når magsäcken?",
+      "opener": "Tänk på vad som händer i munnen medan du tuggar.",
+      "choices": [
+        "I tjocktarmen",
+        "I munnen, genom enzymer i saliven",
+        "I matstrupen",
+        "I levern"
+      ],
+      "answer": 1,
+      "explanation": "Redan i munnen börjar enzymer i saliven bryta ner stärkelse till socker, samtidigt som tänderna maler sönder maten mekaniskt. Matstrupen är bara ett transportrör utan enzymer."
+    },
+    {
+      "id": "q-bio8-mat-11",
+      "kind": "mc",
+      "topic": "näringsämnen",
+      "prompt": "Vilket näringsämne är kroppens energirikaste, räknat per gram?",
+      "opener": "Tänk på vilket ämne kroppen lagrar som energidepå när det blir över.",
+      "choices": [
+        "Kolhydrater",
+        "Protein",
+        "Fett",
+        "Vitaminer"
+      ],
+      "answer": 2,
+      "explanation": "Fett innehåller mer än dubbelt så mycket energi per gram som kolhydrater och protein, vilket är därför kroppen lagrar överskottsenergi som fett. Vitaminer innehåller ingen energi alls."
+    },
+    {
+      "id": "q-bio8-mat-12",
+      "kind": "mc",
+      "topic": "näringsämnen",
+      "prompt": "Vilket mineral behövs för att bilda hemoglobin i röda blodkroppar?",
+      "opener": "Brist på detta ämne kan ge blodbrist (anemi).",
+      "choices": [
+        "Kalcium",
+        "Järn",
+        "C-vitamin",
+        "Natrium"
+      ],
+      "answer": 1,
+      "explanation": "Järn ingår i hemoglobinet som binder syre i de röda blodkropparna, och järnbrist kan ge blodbrist. Kalcium behövs i stället framför allt för skelett och tänder."
+    },
+    {
+      "id": "q-bio8-mat-13",
+      "kind": "mc",
+      "topic": "matspjälkningskanalen",
+      "prompt": "Vilket organ bidrar med galla till matspjälkningen?",
+      "opener": "Gallan finfördelar fettet i tunntarmen.",
+      "choices": [
+        "Bukspottkörteln",
+        "Levern",
+        "Magsäcken",
+        "Tjocktarmen"
+      ],
+      "answer": 1,
+      "explanation": "Levern bildar galla som lagras i gallblåsan och släpps ut i tunntarmen för att finfördela fettet. Bukspottkörteln bidrar i stället med enzymer, inte galla."
+    },
+    {
+      "id": "q-bio8-mat-14",
+      "kind": "worked",
+      "topic": "enzymer och nedbrytning",
+      "prompt": "Förklara steg för steg vad som händer med ett glas mjölk från det att du dricker det tills näringen finns i blodet.",
+      "opener": "Tänk på att mjölk innehåller protein, fett och mjölksocker (laktos), och att var och en bryts ner på sitt sätt.",
+      "answer": "Mjölken sväljs nästan direkt utan att tuggas, förs genom matstrupen till magsäcken där saltsyra och enzymer börjar bryta ner proteinet, fortsätter till tunntarmen där galla finfördelar fettet och enzymer från bukspottkörteln bryter ner protein, fett och laktos till små molekyler, som sedan tas upp genom tarmludden till blodet.",
+      "steps": [
+        "Mjölken är flytande och kräver ingen tuggning, men saliven blandas ändå in när den sväljs.",
+        "Mjölken förs genom matstrupen till magsäcken, där saltsyra och enzymer börjar bryta ner proteinerna i mjölken.",
+        "I tunntarmen finfördelar galla från levern fettet i mjölken, medan enzymer från bukspottkörteln bryter ner protein, fett och mjölksockret laktos till små molekyler.",
+        "De små näringsmolekylerna tas upp genom tarmludden till blodet och förs vidare till kroppens celler, medan eventuella outnyttjade rester går till tjocktarmen."
+      ]
+    },
+    {
+      "id": "q-bio8-mat-15",
+      "kind": "mc",
+      "topic": "matspjälkningskanalen",
+      "prompt": "Vilket organ tar framför allt upp vatten från matresterna innan avföring bildas?",
+      "opener": "Det är den sista delen av matspjälkningskanalen.",
+      "choices": [
+        "Tunntarmen",
+        "Tjocktarmen",
+        "Magsäcken",
+        "Matstrupen"
+      ],
+      "answer": 1,
+      "explanation": "Tjocktarmen tar framför allt upp vatten och salter från det som blir kvar efter tunntarmen, så att avföringen blir fastare. Tunntarmen tar i stället upp huvuddelen av näringsämnena."
     }
   ]
 }

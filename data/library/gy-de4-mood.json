@@ -123,6 +123,111 @@
       "prompt": "Hur bildas och används Konjunktiv II i nutid och dåtid?",
       "opener": "Två tidsplan, två byggsätt.",
       "answer": "Nutid: egna böjda former för haben (hätte), sein (wäre), werden (würde) och modalverben (könnte, müsste, sollte, dürfte, wollte, möchte). För övriga verb används würde + infinitiv (ich würde machen). Dåtid: finns ingen separat form — bildas alltid med hätte/wäre (beroende på haben/sein-regeln från perfekt) + particip: hätte gemacht, wäre gegangen. Användning: orealistiska önskningar (Wenn ich nur ... wäre!), hypotetiska villkor (Wenn ich Zeit hätte, würde ich ...), artiga förfrågningar (Könnten Sie ...? Ich hätte gern ...) och antaganden om det som inte hände (Wenn er sich beeilt hätte, hätte er den Zug erreicht)."
+    },
+    {
+      "id": "q-de4-mood-9",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Välj rätt form: \"Wenn ich du ___, würde ich das anders machen.\" (sein)",
+      "opener": "\"Sein\" har en egen böjd Konjunktiv-II-form.",
+      "choices": [
+        "wäre",
+        "bin",
+        "war",
+        "sei"
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv II av \"sein\" är \"wäre\": \"Wenn ich du wäre, ...\" (Om jag vore du, ...)."
+    },
+    {
+      "id": "q-de4-mood-10",
+      "kind": "mc",
+      "topic": "unreal wishes",
+      "prompt": "Vad betyder \"Wenn ich nur mehr Geduld hätte!\"?",
+      "opener": "\"Wenn nur\" + Konjunktiv II uttrycker en orealistisk önskan.",
+      "choices": [
+        "Om jag ändå hade mer tålamod!",
+        "Jag har inget tålamod alls.",
+        "Jag behöver mer tålamod nu.",
+        "Jag hade tålamod förut."
+      ],
+      "answer": 0,
+      "explanation": "\"Wenn ich nur mehr Geduld hätte!\" betyder \"om jag ändå hade mer tålamod!\" — en orealistisk önskan om nutiden."
+    },
+    {
+      "id": "q-de4-mood-11",
+      "kind": "mc",
+      "topic": "past hypotheticals",
+      "prompt": "Välj rätt form: \"Wenn sie früher gekommen ___, hätten wir zusammen gegessen.\"",
+      "opener": "\"Kommen\" beskriver en förflyttning och tar sein i perfekt/Konjunktiv II-dåtid.",
+      "choices": [
+        "wäre",
+        "hätte",
+        "war",
+        "ist"
+      ],
+      "answer": 0,
+      "explanation": "\"Kommen\" tar \"sein\" i perfekt, alltså blir Konjunktiv-II-dåtidsformen \"wäre gekommen\", inte \"hätte gekommen\"."
+    },
+    {
+      "id": "q-de4-mood-12",
+      "kind": "mc",
+      "topic": "polite requests",
+      "prompt": "Vad betyder \"Ich hätte gern noch eine Frage\"?",
+      "opener": "\"Ich hätte gern...\" är en artig, indirekt fras.",
+      "choices": [
+        "Jag skulle vilja ställa en fråga till",
+        "Jag har redan ställt en fråga",
+        "Jag vill inte ställa några frågor",
+        "Jag har glömt min fråga"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich hätte gern noch eine Frage\" betyder \"jag skulle vilja ställa en fråga till\" — en artig, indirekt fras med Konjunktiv II."
+    },
+    {
+      "id": "q-de4-mood-13",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Välj rätt form: \"___ ich Sie etwas fragen?\" (dürfen, artigt)",
+      "opener": "Konjunktiv II av \"dürfen\" gör frågan artigare.",
+      "choices": [
+        "Dürfte",
+        "Darf",
+        "Durfte",
+        "Würde dürfen"
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv II av \"dürfen\" är \"dürfte\": \"Dürfte ich Sie etwas fragen?\" (skulle jag få fråga er något?)."
+    },
+    {
+      "id": "q-de4-mood-14",
+      "kind": "mc",
+      "topic": "past hypotheticals",
+      "prompt": "Välj rätt form: \"Wenn wir das Ticket früher gekauft ___, hätten wir Geld gespart.\"",
+      "opener": "\"Kaufen\" är ett vanligt verb som tar haben i perfekt.",
+      "choices": [
+        "hätten",
+        "wären",
+        "hatten",
+        "haben"
+      ],
+      "answer": 0,
+      "explanation": "\"Kaufen\" tar \"haben\" i perfekt, alltså blir Konjunktiv-II-dåtidsformen \"hätten gekauft\"."
+    },
+    {
+      "id": "q-de4-mood-15",
+      "kind": "mc",
+      "topic": "unreal wishes",
+      "prompt": "Vad betyder \"Ich wünschte, ich könnte fliegen\"?",
+      "opener": "\"Ich wünschte\" (Konjunktiv II) inleder en orealistisk önskan.",
+      "choices": [
+        "Jag önskar att jag kunde flyga",
+        "Jag ska flyga snart",
+        "Jag har flugit förut",
+        "Jag vill inte flyga"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich wünschte, ich könnte fliegen\" betyder \"jag önskar att jag kunde flyga\" — en orealistisk önskan uttryckt med Konjunktiv II i båda leden."
     }
   ]
 }

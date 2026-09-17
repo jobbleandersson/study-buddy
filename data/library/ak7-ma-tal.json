@@ -123,6 +123,110 @@
       "prompt": "I vilken ordning räknar du, och vad gäller för tecken med negativa tal?",
       "opener": "Tre steg i ordningen plus två teckenregler — säg dem innan du vänder på kortet.",
       "answer": "Prioriteringsordning: 1) parenteser · 2) multiplikation och division, från vänster till höger · 3) addition och subtraktion, från vänster till höger · Teckenregler: att subtrahera ett negativt tal är samma sak som att addera, $5 - (-3) = 5 + 3 = 8$ · minus gånger minus blir plus, plus gånger minus blir minus · Överslag: avrunda till enkla tal först och kontrollera att ditt exakta svar ligger nära överslaget."
+    },
+    {
+      "id": "q-ma7-tal-9",
+      "kind": "mc",
+      "topic": "negativa tal",
+      "prompt": "Vad är $-3 - 5$?",
+      "opener": "Du subtraherar från ett tal som redan är negativt — du fortsätter neråt.",
+      "choices": [
+        "-8",
+        "-2",
+        "8",
+        "2"
+      ],
+      "answer": 0,
+      "explanation": "Från $-3$ går du 5 steg till vänster: $-3 - 5 = -8$."
+    },
+    {
+      "id": "q-ma7-tal-10",
+      "kind": "mc",
+      "topic": "negativa tal",
+      "prompt": "Vad är $-12 + 7$?",
+      "opener": "Du går 7 steg åt höger från $-12$ — räcker det för att passera noll?",
+      "choices": [
+        "-19",
+        "-5",
+        "5",
+        "19"
+      ],
+      "answer": 1,
+      "explanation": "Från $-12$ går du 7 steg uppåt: $-12 + 7 = -5$. Du passerar inte noll eftersom 7 är mindre än 12."
+    },
+    {
+      "id": "q-ma7-tal-11",
+      "kind": "mc",
+      "topic": "prioriteringsregler",
+      "prompt": "Beräkna $5 \\cdot 3 - 2 \\cdot 4$.",
+      "opener": "Gör båda multiplikationerna innan du subtraherar.",
+      "choices": [
+        "7",
+        "52",
+        "13",
+        "20"
+      ],
+      "answer": 0,
+      "explanation": "$5 \\cdot 3 = 15$ och $2 \\cdot 4 = 8$. Sedan $15 - 8 = 7$. Räknar man från vänster till höger utan att tänka på prioritetsordningen ($((5 \\cdot 3) - 2) \\cdot 4$) får man felaktigt 52."
+    },
+    {
+      "id": "q-ma7-tal-12",
+      "kind": "mc",
+      "topic": "avrundning",
+      "prompt": "Avrunda 2 456 till närmaste hundratal.",
+      "opener": "Titta på tiotalssiffran — är den 5 eller större rundar du uppåt.",
+      "choices": [
+        "2 400",
+        "2 460",
+        "2 000",
+        "2 500"
+      ],
+      "answer": 3,
+      "explanation": "Tiotalssiffran är 5, alltså 5 eller mer, så du rundar uppåt till 2 500. Svaret 2 460 är avrundning till närmaste tiotal, inte hundratal."
+    },
+    {
+      "id": "q-ma7-tal-13",
+      "kind": "mc",
+      "topic": "avrundning",
+      "prompt": "Avrunda $3{,}86$ till närmaste tiondel.",
+      "opener": "Titta på hundradelssiffran för att avgöra om tiondelen ska rundas upp eller ner.",
+      "choices": [
+        "$3{,}8$",
+        "$3{,}9$",
+        "$4{,}0$",
+        "$3{,}86$"
+      ],
+      "answer": 1,
+      "explanation": "Hundradelssiffran är 6, alltså 5 eller mer, så tiondelssiffran 8 rundas upp till 9: $3{,}9$."
+    },
+    {
+      "id": "q-ma7-tal-14",
+      "kind": "worked",
+      "topic": "prioriteringsregler",
+      "prompt": "Beräkna $3 \\cdot (4 + 2) - 18 / 3$. Visa hur du tänker steg för steg.",
+      "opener": "Parentesen först, sedan multiplikation och division, till sist subtraktion.",
+      "answer": "12",
+      "steps": [
+        "Parentesen först: $4 + 2 = 6$.",
+        "Multiplikationen: $3 \\cdot 6 = 18$.",
+        "Divisionen: $18 / 3 = 6$.",
+        "Till sist subtraktionen: $18 - 6 = 12$."
+      ]
+    },
+    {
+      "id": "q-ma7-tal-15",
+      "kind": "mc",
+      "topic": "överslagsräkning",
+      "prompt": "Du köper fyra saker som kostar 47 kr, 89 kr, 32 kr och 121 kr. Ungefär hur mycket blir det totalt?",
+      "opener": "Runda varje pris till ett enkelt tal innan du adderar.",
+      "choices": [
+        "ca 200 kr",
+        "ca 250 kr",
+        "ca 300 kr",
+        "ca 350 kr"
+      ],
+      "answer": 2,
+      "explanation": "Avrunda till 50, 90, 30 och 120: $50 + 90 + 30 + 120 = 290$ kr, alltså ungefär 300 kr. Den exakta summan är 289 kr, så överslaget ligger mycket nära."
     }
   ]
 }

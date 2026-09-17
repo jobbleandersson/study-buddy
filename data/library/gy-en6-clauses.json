@@ -124,6 +124,111 @@
       "prompt": "Explain second, third and mixed conditionals: form and use.",
       "opener": "Bygg vidare på first conditional från Engelska 5 — nu handlar det om overkligt nu, overkligt då, och kombinationer av de två.",
       "answer": "Second conditional (overkligt nu/framtid): If + past simple, would + infinitiv — \"If I had more money, I would buy a car.\" Third conditional (overkligt förflutet, ånger): If + past perfect, would have + particip — \"If I had studied, I would have passed.\" Mixed conditional (förflutet orsak → nutida resultat): If + past perfect, would + infinitiv — \"If I hadn't broken my leg, I would be playing football now.\" Kom ihåg: \"would\" finns aldrig i själva if-satsen i någon av dessa."
+    },
+    {
+      "id": "q-en6-clauses-9",
+      "kind": "mc",
+      "topic": "defining relative clauses",
+      "prompt": "Choose the correct relative pronoun: \"This is the house ___ I grew up.\"",
+      "opener": "Handlar det om en plats?",
+      "choices": [
+        "where",
+        "which",
+        "who",
+        "whose"
+      ],
+      "answer": 0,
+      "explanation": "\"Where\" används för att hänvisa till en plats i en definierande bisats. \"Which\" gäller saker, \"who\" personer och \"whose\" ägande."
+    },
+    {
+      "id": "q-en6-clauses-10",
+      "kind": "mc",
+      "topic": "defining relative clauses",
+      "prompt": "Which sentence can correctly drop the relative pronoun?",
+      "opener": "Relativpronomenet kan utelämnas när det är objekt i den definierande bisatsen.",
+      "choices": [
+        "The book (that) I read last week was excellent.",
+        "The woman who called you is my sister.",
+        "The house, which was built in 1900, is for sale.",
+        "I don't know the reason why he left."
+      ],
+      "answer": 0,
+      "explanation": "I \"The book (that) I read\" är \"that\" objekt i bisatsen och kan därför utelämnas. I de andra meningarna är relativpronomenet antingen subjekt (kan inte utelämnas) eller står i en icke-definierande bisats med komma."
+    },
+    {
+      "id": "q-en6-clauses-11",
+      "kind": "mc",
+      "topic": "non-defining relative clauses",
+      "prompt": "Which sentence correctly uses \"which\" to refer to an entire preceding clause?",
+      "opener": "\"Which\" kan syfta tillbaka på en hel sats, inte bara ett enskilt substantiv — och kräver komma.",
+      "choices": [
+        "She finally got the promotion, which made her very happy.",
+        "She finally got the promotion, that made her very happy.",
+        "She finally got the promotion which made her very happy.",
+        "She finally got the promotion, whose made her very happy."
+      ],
+      "answer": 0,
+      "explanation": "När \"which\" syftar på hela den föregående satsen (att hon fick befordran) krävs komma före \"which\". \"That\" används aldrig efter komma, och att utelämna kommat gör satsen otydlig."
+    },
+    {
+      "id": "q-en6-clauses-12",
+      "kind": "mc",
+      "topic": "second conditional",
+      "prompt": "Choose the correct form: \"If I were you, I ___ apologize.\"",
+      "opener": "\"If I were you\" är ett klassiskt second conditional-uttryck.",
+      "choices": [
+        "would",
+        "will",
+        "had",
+        "am"
+      ],
+      "answer": 0,
+      "explanation": "Second conditional: if + past simple (\"were\"), would + infinitiv i huvudsatsen — \"I would apologize\". De andra formerna passar inte in i mönstret."
+    },
+    {
+      "id": "q-en6-clauses-13",
+      "kind": "mc",
+      "topic": "third conditional",
+      "prompt": "Choose the correct form: \"If they ___ the warning, the accident might not have happened.\"",
+      "opener": "Overkligt förflutet kräver past perfect i if-satsen.",
+      "choices": [
+        "had heeded",
+        "heeded",
+        "would heed",
+        "have heeded"
+      ],
+      "answer": 0,
+      "explanation": "Third conditional: if + past perfect (\"had heeded\"), would have + particip i huvudsatsen. \"heeded\" saknar \"had\", och \"would heed\"/\"have heeded\" hör inte hemma i if-satsen."
+    },
+    {
+      "id": "q-en6-clauses-14",
+      "kind": "mc",
+      "topic": "mixed conditionals",
+      "prompt": "Choose the correct form (present cause, past result): \"If she weren't so shy, she ___ up for the job interview yesterday.\"",
+      "opener": "Här är orsaken (att vara blyg) något som gäller generellt/nu, men resultatet gäller i det förflutna — omvänt mönster mot förra blandade meningen.",
+      "choices": [
+        "would have shown",
+        "would show",
+        "had shown",
+        "will show"
+      ],
+      "answer": 0,
+      "explanation": "Denna blandade conditional har ett nutida/generellt orsak (past simple i if-satsen: \"weren't\") och ett förflutet resultat (would have + particip: \"would have shown\"). Det är den omvända kombinationen jämfört med \"if I hadn't stayed up, I wouldn't be tired now\"."
+    },
+    {
+      "id": "q-en6-clauses-15",
+      "kind": "mc",
+      "topic": "non-defining relative clauses",
+      "prompt": "Which sentence contains a relative clause error?",
+      "opener": "Ett av dessa alternativ blandar ihop reglerna för icke-definierande bisatser.",
+      "choices": [
+        "My car, that I bought last year, broke down.",
+        "My car, which I bought last year, broke down.",
+        "Paris, where I spent my honeymoon, is beautiful in spring.",
+        "My grandmother, whose garden is famous, turns 90 this year."
+      ],
+      "answer": 0,
+      "explanation": "\"That\" används aldrig i icke-definierande bisatser (de med komma) — det ska vara \"which\": \"My car, which I bought last year, broke down.\" De andra meningarna använder korrekt \"which\", \"where\" och \"whose\"."
     }
   ]
 }

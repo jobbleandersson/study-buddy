@@ -125,6 +125,111 @@
       "prompt": "Summarise the branches of Christianity: Catholic, Orthodox and Protestant, the Reformation, sacraments, the Church of Sweden and the free churches, and Christianity in the world.",
       "opener": "Compare the three branches first, then take the history and the situation today.",
       "answer": "Common to all Christians: belief in one God · Jesus as the Christ · the Bible (Old and New Testaments) as sacred scripture · baptism and communion · Three main branches: Catholic, Orthodox, Protestant · The Catholic Church: the Pope in Rome as head · seven sacraments · the mass at the centre · priests in the Latin Church live in celibacy · largest in the world by number of followers · The Orthodox Church: self-governing national churches (Greek, Russian, Serbian Orthodox and others) · the Patriarch of Constantinople holds a position of honour · icons and liturgy are central · parish priests are allowed to marry · The Protestant churches: the Bible as the highest authority · usually two sacraments (baptism and communion) · preaching at the centre · no claims to a pope · The Schism of 1054: the church splits into East and West · The Reformation of 1517: Luther's theses against the sale of indulgences → Protestant churches, printing, Bible translations, religious wars, the Counter-Reformation (Trent) · Sweden: Gustav Vasa from 1527 · the Bible in Swedish in 1541 · the Uppsala Synod of 1593 · The Church of Sweden: Evangelical Lutheran, the largest faith community, infant baptism, separated from the state in the year 2000 · Free churches: out of the 19th-century revival — the Pentecostal movement, the Uniting Church in Sweden and others · personal faith, often believer's baptism, strong member involvement · Globally: around 2.3–2.4 billion Christians · most now live outside Europe, with rapid growth in sub-Saharan Africa and parts of Asia."
+    },
+    {
+      "id": "q-rel8-kri-9",
+      "kind": "mc",
+      "topic": "the Reformation",
+      "prompt": "Which year is usually counted as the start of the Reformation, when Luther made his theses public in Wittenberg?",
+      "opener": "The year is well established in history books and falls at the start of the 16th century.",
+      "choices": [
+        "1054",
+        "1593",
+        "1648",
+        "1517"
+      ],
+      "answer": 3,
+      "explanation": "The Reformation is usually dated from the year 1517, when Martin Luther made his theses public in Wittenberg. The year 1054 instead belongs to the Great Schism between the eastern and western churches, 1593 to the Uppsala Synod in Sweden, and 1648 to the Peace of Westphalia, which ended the Thirty Years' War."
+    },
+    {
+      "id": "q-rel8-kri-10",
+      "kind": "mc",
+      "topic": "the church's three main branches",
+      "prompt": "In which year did the Great Schism occur, splitting the church into a western Catholic and an eastern Orthodox part?",
+      "opener": "The year is nearly half a millennium before the Reformation.",
+      "choices": [
+        "1517",
+        "1789",
+        "33",
+        "1054"
+      ],
+      "answer": 3,
+      "explanation": "The Great Schism took place in the year 1054 and split the Christian church into a western, Catholic part and an eastern, Orthodox part. The year 1517 instead belongs to the Reformation, 1789 to the French Revolution, and the year 33 is traditionally linked to the crucifixion of Jesus, more than a thousand years before the Schism."
+    },
+    {
+      "id": "q-rel8-kri-11",
+      "kind": "mc",
+      "topic": "the Church of Sweden and the free churches",
+      "prompt": "What type of baptism do many free churches practise, unlike the Church of Sweden's usual infant baptism?",
+      "opener": "This baptism happens when the person is old enough to understand and choose for themselves.",
+      "choices": [
+        "They never baptise anyone at all",
+        "Baptism only happens at funerals",
+        "Baptism only takes place in the River Jordan",
+        "Believer's baptism of young people and adults"
+      ],
+      "answer": 3,
+      "explanation": "Many free churches practise believer's baptism, where young people or adults are baptised after themselves making a personal decision to believe, unlike the Church of Sweden's usual infant baptism. The free churches thus do not never baptise, and baptism isn't limited to funerals or the River Jordan."
+    },
+    {
+      "id": "q-rel8-kri-12",
+      "kind": "mc",
+      "topic": "sacraments and worship",
+      "prompt": "Which two sacraments do most Protestant churches recognise?",
+      "opener": "Both of these sacraments are said, according to the gospels, to have been instituted by Jesus himself.",
+      "choices": [
+        "Confession and marriage",
+        "Confirmation and ordination",
+        "The anointing of the sick and funerals",
+        "Baptism and communion"
+      ],
+      "answer": 3,
+      "explanation": "Most Protestant churches count only baptism and communion as sacraments, since they hold that these are the two that Jesus himself instituted according to the gospels. The Catholic Church instead recognises seven sacraments, including confession, marriage and ordination."
+    },
+    {
+      "id": "q-rel8-kri-13",
+      "kind": "mc",
+      "topic": "Christianity globally",
+      "prompt": "Where in the world is the number of Christians growing especially fast today?",
+      "opener": "Think about where the religion's centre of gravity has shifted to in recent decades.",
+      "choices": [
+        "Only in Western Europe",
+        "Only in Greenland",
+        "Nowhere, the number of Christians is decreasing everywhere",
+        "In sub-Saharan Africa and parts of Asia"
+      ],
+      "answer": 3,
+      "explanation": "The number of Christians is today growing especially fast in sub-Saharan Africa and in parts of Asia, while the share of actively practising Christians in Europe has declined. The claims that growth happens only in Western Europe, in Greenland, or that the number of Christians is decreasing everywhere are therefore not correct."
+    },
+    {
+      "id": "q-rel8-kri-14",
+      "kind": "mc",
+      "topic": "the church's three main branches",
+      "prompt": "Who is the head of the Catholic Church?",
+      "opener": "This person is based in a city-state in Italy.",
+      "choices": [
+        "The Patriarch of Constantinople",
+        "The Archbishop of Uppsala",
+        "An elected secretary-general",
+        "The Pope in Rome"
+      ],
+      "answer": 3,
+      "explanation": "The Pope, who is the Bishop of Rome, is the highest leader of the Catholic Church. The Patriarch of Constantinople instead holds a position of honour within the Orthodox Church without the same decision-making power, and the Archbishop of Uppsala leads the Church of Sweden, a Protestant church."
+    },
+    {
+      "id": "q-rel8-kri-15",
+      "kind": "mc",
+      "topic": "the Reformation",
+      "prompt": "In which year did the whole Bible appear in Swedish, as a result of the Reformation in Sweden?",
+      "opener": "The New Testament had appeared in Swedish a few years earlier.",
+      "choices": [
+        "1517",
+        "1600",
+        "1990",
+        "1541"
+      ],
+      "answer": 3,
+      "explanation": "The whole Bible appeared in Swedish in 1541, while the New Testament had already been published separately in 1526. The year 1517 was instead when Luther made his theses public in Wittenberg, and 1600 and 1990 don't match the Swedish Bible translation."
     }
   ]
 }

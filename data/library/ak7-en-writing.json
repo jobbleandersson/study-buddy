@@ -123,6 +123,110 @@
       "prompt": "Vilka regler och vanliga fel bör du kolla när du skriver på engelska?",
       "opener": "En checklista att gå igenom innan du lämnar in din text.",
       "answer": "Ordföljd: subjekt - verb - objekt (I play football) · subjektet står före verbet även efter tidsuttryck (Every day I read, inte Every day read I). Frågor: frågeord + do/does + subjekt + verb i grundform (Where do you live? Does she play?) · med \"be\" byter man plats i stället (Are you tired?). Vanliga svensk-engelska fel: I am 13 years old (inte I have 13 years) · he/she/it doesn't (inte he don't) · efter doesn't/didn't står verbet i grundform · glöm inte -s i he plays, she watches · upprepa inte subjektet (My brother he... ). Bindeord: and = och (lägger till) · but = men (kontrast) · because = eftersom (orsak) · so = så (följd). Läs alltid igenom texten en sista gång och kolla verben."
+    },
+    {
+      "id": "q-en7-wri-9",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has the correct word order?",
+      "opener": "Subjektet står alltid före verbet på engelska, även efter ett tidsuttryck.",
+      "choices": [
+        "Every morning brushes she her teeth.",
+        "Every morning she brushes her teeth.",
+        "Every morning her teeth she brushes.",
+        "Brushes she every morning her teeth."
+      ],
+      "answer": 1,
+      "explanation": "Subjektet \"she\" kommer före verbet \"brushes\": \"Every morning she brushes her teeth\". Att flytta verbet före subjektet, som i \"brushes she\", är svensk ordföljd och fungerar inte på engelska."
+    },
+    {
+      "id": "q-en7-wri-10",
+      "kind": "mc",
+      "topic": "questions",
+      "prompt": "Which question is correct?",
+      "opener": "Frågeord, sedan hjälpverbet do/does, sedan subjektet och verbet i grundform.",
+      "choices": [
+        "What time does the film start?",
+        "What time the film does start?",
+        "What time starts the film?",
+        "What time does start the film?"
+      ],
+      "answer": 0,
+      "explanation": "Ordningen är frågeord + does + subjekt + verb i grundform: \"What time does the film start?\". \"Starts\" efter \"does\" hade böjt verbet två gånger, vilket blir fel."
+    },
+    {
+      "id": "q-en7-wri-11",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "How do you say \"Jag saknar dig\" in English?",
+      "opener": "Svenskans \"sakna\" motsvaras inte av ett engelskt ord som betyder \"lack\" i den här betydelsen.",
+      "choices": [
+        "I lack you.",
+        "I miss you.",
+        "I am missing you always.",
+        "I have missed you now."
+      ],
+      "answer": 1,
+      "explanation": "\"Sakna\" (någon man saknar känslomässigt) heter \"miss\" på engelska: \"I miss you\". \"I lack you\" är en direktöversättning av ordet \"sakna\" som inte betyder samma sak på engelska."
+    },
+    {
+      "id": "q-en7-wri-12",
+      "kind": "mc",
+      "topic": "common mistakes",
+      "prompt": "Which sentence is correct?",
+      "opener": "På engelska böjs adjektiv aldrig i plural, till skillnad från svenskan.",
+      "choices": [
+        "The cats are blacks.",
+        "The cats are black.",
+        "The cat are black.",
+        "The cats is black."
+      ],
+      "answer": 1,
+      "explanation": "Adjektiv som \"black\" har samma form oavsett om subjektet är i singular eller plural: \"The cats are black\". \"Blacks\" med -s är ett vanligt fel eftersom svenskans \"svarta\" böjs i plural, men engelska adjektiv gör det aldrig."
+    },
+    {
+      "id": "q-en7-wri-13",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking word: \"I wanted to go outside, ___ it was raining.\"",
+      "opener": "De två delarna står emot varandra — man ville en sak, men vädret sa något annat.",
+      "choices": [
+        "but",
+        "and",
+        "because",
+        "so"
+      ],
+      "answer": 0,
+      "explanation": "\"But\" visar en kontrast mellan att vilja gå ut och att det regnade. \"Because\" hade betytt att regnet var orsaken till att man ville ut, vilket inte stämmer med meningen."
+    },
+    {
+      "id": "q-en7-wri-14",
+      "kind": "worked",
+      "topic": "common mistakes",
+      "prompt": "Correct the four errors: \"Hi! My name is Max and I am 13 years. My sister she like football a lot. Every weekend plays she with her friends. What time you come home?\"",
+      "opener": "Leta efter ålder, upprepat subjekt med -s-fel, ordföljd efter tidsuttryck, och ordföljd i fråga.",
+      "answer": "Hi! My name is Max and I am 13 years old. My sister likes football a lot. Every weekend she plays with her friends. What time do you come home?",
+      "steps": [
+        "\"I am 13 years\" → \"I am 13 years old\". Engelskan lägger till \"old\" när man anger ålder.",
+        "\"My sister she like\" → \"My sister likes\". Subjektet ska bara stå en gång, och tredje person singular tar -s: \"likes\".",
+        "\"Every weekend plays she\" → \"Every weekend she plays\". Subjektet står före verbet på engelska även efter ett tidsuttryck.",
+        "\"What time you come home?\" → \"What time do you come home?\". Frågor i present simple behöver hjälpverbet do/does efter frågeordet."
+      ]
+    },
+    {
+      "id": "q-en7-wri-15",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Which sentence joins the two ideas best: \"It started to rain.\" + \"We went inside.\"",
+      "opener": "Den andra händelsen är en följd av den första — vilket bindeord visar det?",
+      "choices": [
+        "It started to rain so we went inside.",
+        "It started to rain but we went inside.",
+        "It started to rain because we went inside.",
+        "It started to rain, we went inside."
+      ],
+      "answer": 0,
+      "explanation": "\"So\" visar att en sak leder till en annan — regnet ledde till att man gick in. \"Because\" hade vänt på orsakssambandet, som om regnet berodde på att man gick in, vilket inte stämmer."
     }
   ]
 }

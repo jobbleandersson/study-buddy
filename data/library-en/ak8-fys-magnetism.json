@@ -124,6 +124,110 @@
       "prompt": "Summarise magnetism, electromagnets, induction, and how a generator and an electric motor work.",
       "opener": "Start with the poles and the field, move on to the electromagnet, and finish with induction and the machines.",
       "answer": "Magnet: always has a north pole and a south pole, you can never get just one pole · Pole rule: like poles repel, unlike poles attract · Magnetic field: the area around the magnet where the force is noticeable, drawn with field lines from north pole to south pole, densest and strongest at the poles · Magnetic materials: iron, cobalt and nickel — not copper, aluminium or plastic · The Earth's magnetic field: the Earth is like a giant magnet with a magnetic south pole near the geographic north pole, protects against charged particles from the sun · Compass: a small rotatable magnetic needle whose north end is drawn towards north · Electromagnet: current through a coil produces a magnetic field, strengthened by more turns, higher current and an iron core, can be switched off — used in relays, speakers and scrapyard magnets · Induction: a changing magnetic field through a coil produces an induced voltage, requires motion or alternating current · Generator: a coil spins in a magnetic field, kinetic energy to electrical energy, used in power stations · Electric motor: a current-carrying coil in a magnetic field is turned by magnetic forces, electrical energy to kinetic energy · Transformer: two coils around an iron core, changes an alternating voltage using induction."
+    },
+    {
+      "id": "q-fys8-mag-9",
+      "kind": "mc",
+      "topic": "magnetic poles and magnetic fields",
+      "prompt": "What happens if you hold the north pole of one magnet against the south pole of another magnet?",
+      "opener": "Think about the pole rule: like poles repel, unlike poles attract.",
+      "choices": [
+        "They repel each other",
+        "They attract each other",
+        "Nothing happens",
+        "Both magnets lose their magnetism"
+      ],
+      "answer": 1,
+      "explanation": "A north pole and a south pole are unlike poles and attract each other. Two north poles facing each other would instead repel."
+    },
+    {
+      "id": "q-fys8-mag-10",
+      "kind": "mc",
+      "topic": "magnetic poles and magnetic fields",
+      "prompt": "Which materials are attracted to a magnet?",
+      "opener": "Only a handful of metals are magnetic.",
+      "choices": [
+        "Copper, aluminium and plastic",
+        "Iron, cobalt and nickel",
+        "Gold and silver",
+        "All metals"
+      ],
+      "answer": 1,
+      "explanation": "Iron, cobalt and nickel are magnetic materials attracted to a magnet. Copper, aluminium, gold and silver are not magnetic, even though they are metals."
+    },
+    {
+      "id": "q-fys8-mag-11",
+      "kind": "mc",
+      "topic": "the Earth's magnetic field and the compass",
+      "prompt": "Roughly where is the Earth's magnetic south pole located?",
+      "opener": "Think about which pole attracts the north end of a compass needle.",
+      "choices": [
+        "Near the equator",
+        "Near the geographic north pole",
+        "In the middle of the Earth's core, far from the surface",
+        "It doesn't exist, there is only a north pole"
+      ],
+      "answer": 1,
+      "explanation": "The Earth's magnetic south pole is located near the geographic north pole, which is why the north end of a compass needle is drawn there — unlike poles attract. Like every magnet, the Earth has both a north and a south pole."
+    },
+    {
+      "id": "q-fys8-mag-12",
+      "kind": "mc",
+      "topic": "electromagnets",
+      "prompt": "What happens to an electromagnet's strength if you reduce the current through the coil but keep the number of turns the same?",
+      "opener": "The strength of the magnetic field depends on both the number of turns and the size of the current.",
+      "choices": [
+        "It becomes stronger",
+        "It becomes weaker",
+        "It stays exactly the same",
+        "It swaps polarity"
+      ],
+      "answer": 1,
+      "explanation": "The magnetic field becomes weaker if the current is reduced, since its strength depends on both the number of turns and the current. Swapping polarity would instead require reversing the direction of the current, not its size."
+    },
+    {
+      "id": "q-fys8-mag-13",
+      "kind": "mc",
+      "topic": "induction",
+      "prompt": "What is required for a voltage to be induced in a coil?",
+      "opener": "Think about the difference between a stationary magnetic field and one that changes.",
+      "choices": [
+        "A constant, unchanging magnetic field",
+        "A magnetic field that changes through the coil, for example through motion",
+        "The coil being made of plastic",
+        "The coil being completely still in a weak field"
+      ],
+      "answer": 1,
+      "explanation": "Induction requires the magnetic field through the coil to change, for example by a magnet moving in or out. A constant field induces no voltage at all, no matter how strong it is."
+    },
+    {
+      "id": "q-fys8-mag-14",
+      "kind": "worked",
+      "topic": "electromagnets",
+      "prompt": "An electromagnet has 40 turns and a current of 2 A. You rewind it to 80 turns but reduce the current to 1 A. How does the strength of the magnetic field change, if the strength depends on the number of turns times the current?",
+      "opener": "Calculate turns times current before and after, then compare the two numbers.",
+      "answer": "The magnetic field is unchanged, just as strong as before.",
+      "steps": [
+        "Before: 40 turns · 2 A = 80.",
+        "After: 80 turns · 1 A = 80.",
+        "Compare by dividing: 80 / 80 = 1.",
+        "The magnetic field is therefore unchanged — the doubled number of turns exactly compensates for the halved current."
+      ]
+    },
+    {
+      "id": "q-fys8-mag-15",
+      "kind": "mc",
+      "topic": "generator and electric motor",
+      "prompt": "What energy conversion takes place in an electric motor?",
+      "opener": "Compare with a generator — the electric motor does exactly the opposite.",
+      "choices": [
+        "Kinetic energy to electrical energy",
+        "Electrical energy to kinetic energy",
+        "Chemical energy to electrical energy",
+        "Heat to light"
+      ],
+      "answer": 1,
+      "explanation": "In an electric motor, a current-carrying coil is turned by magnetic forces, so electrical energy is converted into kinetic energy. The opposite, kinetic energy to electrical energy, is instead what a generator does."
     }
   ]
 }

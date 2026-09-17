@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta rättssystemet: aktörerna, rättegångens gång, måltyperna, påföljderna och orsaker till brottslighet.",
       "opener": "Från anmälan till verkställd påföljd — och varför brott begås.",
       "answer": "Aktörer: polisen utreder och griper · åklagaren leder förundersökningen vid allvarligare brott och beslutar om åtal · domstolen (tingsrätt, hovrätt, Högsta domstolen) dömer · Kriminalvården sköter fängelser, häkten och frivård · Rättegångens gång i brottmål: anmälan → förundersökning → åtal → huvudförhandling i tingsrätten → dom → påföljden verkställs · överklagan går till hovrätten och i vissa fall Högsta domstolen · I rättssalen: juristdomare, oftast tre nämndemän, åklagare, åtalad med försvarsadvokat, målsägande med biträde, vittnen under ed · Brottmål: åklagaren åtalar för brott på statens vägnar · Tvistemål: två enskilda parter oense om avtal, pengar eller egendom, ingen åklagare · Påföljder: böter, villkorlig dom (ofta med samhällstjänst), skyddstillsyn, fängelse; för unga under 18 oftast ungdomsvård eller ungdomstjänst · Straffets syften: markera samhällets gränser, avskräcka, skydda andra och ge möjlighet till återanpassning · Orsaker till brottslighet: flera samverkande faktorer — uppväxtvillkor, skolmisslyckande, arbetslöshet, missbruk, psykisk ohälsa, umgänge, tillfälle och upptäcktsrisk."
+    },
+    {
+      "id": "q-sam8-rat-9",
+      "kind": "mc",
+      "topic": "rättsväsendets aktörer",
+      "prompt": "Vem representerar den åtalade personens intressen i en rättegång?",
+      "opener": "Personen ska tillvarata den åtalades rättigheter, inte statens.",
+      "choices": [
+        "Åklagaren",
+        "Målsägandebiträdet",
+        "Nämndemannen",
+        "Försvarsadvokaten"
+      ],
+      "answer": 3,
+      "explanation": "Försvarsadvokaten representerar och tillvaratar den åtalades rättigheter under hela rättsprocessen. Åklagaren företräder i stället staten och ska bevisa skulden, målsägandebiträdet stöttar den som utsatts för brottet, och nämndemännen är lekmän som dömer tillsammans med domaren."
+    },
+    {
+      "id": "q-sam8-rat-10",
+      "kind": "mc",
+      "topic": "brottmål och tvistemål",
+      "prompt": "Vad kan utfallet bli i ett tvistemål, till skillnad från ett brottmål?",
+      "opener": "Tvistemål handlar sällan om straff utan om vem som har rätt i en oenighet.",
+      "choices": [
+        "Att den ena parten automatiskt hamnar i fängelse",
+        "Att båda parter alltid frias helt utan vidare",
+        "Att polisen griper båda parter direkt i rättssalen",
+        "Att en part till exempel blir skyldig att betala skadestånd eller fullfölja ett avtal, i stället för att dömas till ett straff"
+      ],
+      "answer": 3,
+      "explanation": "I ett tvistemål avgör domstolen en tvist mellan två enskilda parter, och utfallet kan bli att den ena parten till exempel måste betala skadestånd, fullfölja ett avtal eller betala en skuld — inget straff döms ut som i ett brottmål. Fängelse, gripanden i rättssalen och automatisk frikännande hör inte till hur tvistemål avgörs."
+    },
+    {
+      "id": "q-sam8-rat-11",
+      "kind": "mc",
+      "topic": "påföljder och straffets syften",
+      "prompt": "Vad är ett av straffets syften enligt svensk rättstradition, utöver att markera samhällets gräns?",
+      "opener": "Tänk på vad som ska hända med den dömda personen efter avtjänat straff.",
+      "choices": [
+        "Att alltid maximera lidandet för den dömde",
+        "Att ersätta behovet av polisutredningar helt",
+        "Att undvika att brottet någonsin nämns igen",
+        "Att ge den dömde möjlighet att återanpassas till ett liv utan brott"
+      ],
+      "answer": 3,
+      "explanation": "Ett av straffets syften är återanpassning: att den dömde, efter att ha avtjänat sitt straff, ska ha förutsättningar att leva ett liv utan brott, till exempel genom insatser inom Kriminalvården. Straffet syftar inte till att maximera lidande, och det ersätter varken polisutredningar eller innebär att brottet aldrig får nämnas igen."
+    },
+    {
+      "id": "q-sam8-rat-12",
+      "kind": "mc",
+      "topic": "hur en rättegång går till",
+      "prompt": "Vad kallas den utredning som polis och åklagare gör innan ett eventuellt åtal väcks?",
+      "opener": "Ordet börjar med \"för-\", eftersom den sker före en eventuell rättegång.",
+      "choices": [
+        "Efterundersökning",
+        "Huvudförhandling",
+        "Överklagan",
+        "Förundersökning"
+      ],
+      "answer": 3,
+      "explanation": "Förundersökningen är den utredning som polis och åklagare gör för att samla bevis och avgöra om det finns tillräckligt underlag för att väcka åtal. Huvudförhandlingen är själva rättegången i tingsrätten, och en överklagan sker efter att en dom redan är meddelad."
+    },
+    {
+      "id": "q-sam8-rat-13",
+      "kind": "mc",
+      "topic": "orsaker till brottslighet",
+      "prompt": "Vilket av följande brukar nämnas som en faktor som kan öka risken för att någon hamnar i kriminalitet?",
+      "opener": "Tänk på vad som kan göra att en ung person tappar kontakten med skola och trygga vuxna.",
+      "choices": [
+        "Att gå ut gymnasiet med goda betyg",
+        "Att ha en trygg och stabil hemmiljö",
+        "Att delta i fritidsaktiviteter med bra ledare",
+        "Skolmisslyckande och utanförskap i unga år"
+      ],
+      "answer": 3,
+      "explanation": "Forskning pekar på att skolmisslyckande och utanförskap i unga år är faktorer som tillsammans med andra riskfaktorer kan öka risken för att en person senare hamnar i kriminalitet. Goda skolresultat, en trygg hemmiljö och meningsfulla fritidsaktiviteter räknas i stället som skyddsfaktorer som minskar risken."
+    },
+    {
+      "id": "q-sam8-rat-14",
+      "kind": "mc",
+      "topic": "rättsväsendets aktörer",
+      "prompt": "Till vilken domstol kan man överklaga en dom från tingsrätten?",
+      "opener": "Det är nästa steg i den ordinarie domstolskedjan.",
+      "choices": [
+        "Högsta domstolen direkt, utan mellansteg",
+        "EU-domstolen",
+        "Riksdagen",
+        "Hovrätten"
+      ],
+      "answer": 3,
+      "explanation": "En dom från tingsrätten kan normalt överklagas till hovrätten, som är nästa instans i den allmänna domstolskedjan. Högsta domstolen prövar i stället mål som redan avgjorts i hovrätten och kräver oftast särskilt prövningstillstånd, medan EU-domstolen och riksdagen inte hanterar överklaganden av svenska brottmål på det sättet."
+    },
+    {
+      "id": "q-sam8-rat-15",
+      "kind": "mc",
+      "topic": "påföljder och straffets syften",
+      "prompt": "Vilken påföljd används oftast för unga lagöverträdare under 18 år i Sverige, i stället för fängelse?",
+      "opener": "Svensk rätt strävar efter att hålla unga borta från vanliga fängelser i möjligaste mån.",
+      "choices": [
+        "Livstids fängelse",
+        "Dödsstraff",
+        "Landsförvisning",
+        "Ungdomsvård eller ungdomstjänst"
+      ],
+      "answer": 3,
+      "explanation": "För unga under 18 år används oftast särskilda påföljder som ungdomsvård eller ungdomstjänst i stället för fängelse, eftersom lagstiftningen strävar efter att undvika att unga hamnar i vanliga fängelsemiljöer. Dödsstraff är förbjudet i Sverige, och varken livstids fängelse eller landsförvisning är typiska påföljder för unga lagöverträdare."
     }
   ]
 }

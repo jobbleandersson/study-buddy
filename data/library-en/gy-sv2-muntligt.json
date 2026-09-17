@@ -123,6 +123,111 @@
       "prompt": "Summarise important presentation-technique concepts for oral presentation.",
       "opener": "Voice, gaze, image and preparation — four pieces of the puzzle for a good speech.",
       "answer": "Audience adaptation: word choice, examples and level of detail based on the audience's prior knowledge and age · Prosody: the voice's pitch, tempo, stress and pauses · Dramatic pause: deliberate silence to create tension or reflection · Visual aids: should complement the speech with key words and images, not be filled with long lines of text · Nervousness: best countered with thorough preparation and rehearsal, not by avoiding preparation · Q&A: honesty and calm handling of uncertainty strengthens credibility more than a bluffed answer."
+    },
+    {
+      "id": "q-sv2-muntligt-9",
+      "kind": "mc",
+      "topic": "audience adaptation",
+      "prompt": "What should a speaker keep in mind when the purpose of the speech is to persuade rather than to inform?",
+      "opener": "A persuasive speech needs more than just facts to land.",
+      "choices": [
+        "To clearly formulate a thesis and back it up with arguments aimed at the audience's values",
+        "To just list facts with no clear line of argument",
+        "To avoid all emotional language",
+        "To never address counterarguments"
+      ],
+      "answer": 0,
+      "explanation": "A persuasive speech should have a clear thesis backed up with arguments tailored to the audience's values and interests, and preferably also address likely counterarguments. Just listing facts with no through-line or avoiding emotional language makes the speech less persuasive."
+    },
+    {
+      "id": "q-sv2-muntligt-10",
+      "kind": "mc",
+      "topic": "rhetorical aids",
+      "prompt": "What is the purpose of using concrete examples and stories (anecdotes) in a speech?",
+      "opener": "Consider what's easier to remember: an abstract principle or a concrete story.",
+      "choices": [
+        "To make abstract ideas more understandable and engaging for the audience",
+        "To lengthen the speech with no real purpose",
+        "To avoid needing a clear thesis",
+        "Anecdotes are never used in serious speeches"
+      ],
+      "answer": 0,
+      "explanation": "Concrete examples and anecdotes make abstract ideas more understandable, memorable and engaging for the audience. They are widely used even in serious, well-regarded speeches, not just to fill time."
+    },
+    {
+      "id": "q-sv2-muntligt-11",
+      "kind": "mc",
+      "topic": "nervousness",
+      "prompt": "Which of the following is a common physical breathing technique that can reduce nervousness before a speech?",
+      "opener": "Think about which type of breathing calms the nervous system.",
+      "choices": [
+        "Slow, deep breathing from the stomach",
+        "Holding your breath for as long as possible",
+        "Breathing extremely fast right before the speech",
+        "Avoiding conscious breathing altogether"
+      ],
+      "answer": 0,
+      "explanation": "Slow, deep breathing from the stomach (diaphragmatic breathing) helps calm the nervous system and can reduce nervousness before a speech. Holding your breath or breathing extremely fast instead makes the body more stressed."
+    },
+    {
+      "id": "q-sv2-muntligt-12",
+      "kind": "mc",
+      "topic": "visual aids",
+      "prompt": "What is an advantage of using an image or a diagram instead of a long line of text in a slideshow?",
+      "opener": "Think about what the audience should be paying attention to: the speaker or the screen.",
+      "choices": [
+        "An image can convey information quickly and support the spoken word without competing with it for attention",
+        "Images always make a speech more confusing",
+        "Images can never replace text",
+        "Diagrams are only suitable in scientific subjects"
+      ],
+      "answer": 0,
+      "explanation": "An image or a diagram can convey information quickly and visually, which supports the spoken word instead of competing with it for the audience's attention, as long lines of text otherwise do. Diagrams can, moreover, be useful in many different subjects, not just scientific ones."
+    },
+    {
+      "id": "q-sv2-muntligt-13",
+      "kind": "mc",
+      "topic": "audience adaptation",
+      "prompt": "A speaker is to present the same research findings to both experts in the field and the general public. What should differ the most between the two versions?",
+      "opener": "Think about what background knowledge the two groups already have.",
+      "choices": [
+        "The level of technical language and how much background is explained",
+        "The speaker's vocal volume",
+        "The length of every single sentence should always be identical",
+        "There is no reason to change anything at all"
+      ],
+      "answer": 0,
+      "explanation": "With experts, the speaker can use technical language and go straight to the results, while a presentation for the general public should explain more background and avoid unnecessary jargon to be understandable."
+    },
+    {
+      "id": "q-sv2-muntligt-14",
+      "kind": "mc",
+      "topic": "rhetorical aids",
+      "prompt": "What is the deliberate choice to vary the voice's volume and tempo to hold the audience's attention called?",
+      "opener": "This concept is about the voice as a tool, not about word choice itself.",
+      "choices": [
+        "Vocal variety (part of prosody)",
+        "A written-language aid",
+        "A figure of speech in the text",
+        "A type of source handling"
+      ],
+      "answer": 0,
+      "explanation": "Vocal variety, which is part of prosody, means deliberately varying the voice's volume, tempo and pitch to hold the audience's attention and emphasise important parts of the speech."
+    },
+    {
+      "id": "q-sv2-muntligt-15",
+      "kind": "mc",
+      "topic": "nervousness",
+      "prompt": "What can be an advantage of rehearsing a speech out loud for others before the real occasion?",
+      "opener": "Think about what a test audience can give you that you don't get from just reading through the speech silently.",
+      "choices": [
+        "You get feedback and can adjust content, tempo and body language before the real speech",
+        "It's only a waste of time",
+        "It makes the speaker more nervous than if they hadn't rehearsed at all",
+        "It replaces the need to actually know the content"
+      ],
+      "answer": 0,
+      "explanation": "Rehearsing out loud for others gives concrete feedback on content, tempo, clarity and body language, allowing the speaker to adjust the speech before the real occasion. Rehearsal usually reduces nervousness rather than increasing it, but it doesn't replace the need to actually know the content."
     }
   ]
 }

@@ -124,6 +124,110 @@
       "prompt": "What strategies help you answer reading comprehension questions?",
       "opener": "A few habits that make a difference in the exam.",
       "answer": "Read the question first so you know what you're looking for. Distinguish between the main idea (the overall point of the text) and details (individual facts). For words you don't know: use the context — the following sentence often explains the word. For inference: base your answer only on what the text actually implies, not on your own assumptions. Be suspicious of answer choices that are true but don't answer the question, or that claim more than the text does."
+    },
+    {
+      "id": "q-en5-read-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"City parks were once seen as a luxury few municipalities could afford. Today, a growing body of research links green spaces to lower stress levels, better air quality and even reduced crime rates. Some cities have begun treating parks not as decoration, but as essential infrastructure.\"\n\nWhat is the main idea of the text?",
+      "opener": "The last sentence often sums up the point of the text — what does it say?",
+      "choices": [
+        "Parks are now viewed as a necessary part of city infrastructure, not just decoration",
+        "Most cities cannot afford to build parks",
+        "Crime rates have nothing to do with green spaces",
+        "Air quality has no connection to city planning"
+      ],
+      "answer": 0,
+      "explanation": "The text builds up research linking parks to several benefits, and ends by saying parks are now seen as necessary infrastructure rather than a luxury or decoration."
+    },
+    {
+      "id": "q-en5-read-10",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Oliver kept rereading the same paragraph, his eyes drifting to the clock every few seconds. When his phone finally buzzed, he exhaled and let his shoulders drop.\"\n\nWhat can we infer about Oliver?",
+      "opener": "What does it reveal that his shoulders drop and he exhales when the phone rings?",
+      "choices": [
+        "He was bored with his book",
+        "He was anxiously waiting for a message or call",
+        "He fell asleep while reading",
+        "He was angry at his phone"
+      ],
+      "answer": 1,
+      "explanation": "Rereading the same paragraph, checking the clock often, and then relaxing when the phone rings signals anxious waiting — not boredom or anger."
+    },
+    {
+      "id": "q-en5-read-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"The committee's decision was met with widespread outrage; furious residents flooded the town hall with complaints within hours.\"\n\nIn this context, \"outrage\" means:",
+      "opener": "The word \"furious\" in the same sentence is a strong clue.",
+      "choices": [
+        "mild amusement",
+        "intense anger",
+        "quiet acceptance",
+        "confusion"
+      ],
+      "answer": 1,
+      "explanation": "\"Furious residents\" explains the meaning of \"outrage\": intense anger."
+    },
+    {
+      "id": "q-en5-read-12",
+      "kind": "mc",
+      "topic": "tone and purpose",
+      "prompt": "Read the text and answer.\n\n\"Oh sure, because nothing says 'relaxing vacation' like three connecting flights and a missing suitcase. Can't wait to do it all again next year.\"\n\nWhat is the writer's tone?",
+      "opener": "Does the writer really mean the trip was relaxing?",
+      "choices": [
+        "Sincere and grateful",
+        "Sarcastic",
+        "Neutral and factual",
+        "Formal"
+      ],
+      "answer": 1,
+      "explanation": "\"Oh sure\" and the exaggerated, contradictory description (three connecting flights and a missing suitcase as a \"relaxing vacation\") signal sarcasm — the writer means the opposite of what is said."
+    },
+    {
+      "id": "q-en5-read-13",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Automation has eliminated some jobs, but history shows new industries tend to emerge alongside the old ones disappearing. The real challenge, economists argue, is not the number of jobs but how quickly workers can be retrained for the ones that remain or emerge.\"\n\nWhich statement best captures the writer's point?",
+      "opener": "What does the last sentence say the real challenge actually is?",
+      "choices": [
+        "Automation will destroy the job market completely",
+        "The main challenge is retraining workers quickly enough as jobs change, not simply the total number of jobs",
+        "New industries never emerge to replace old ones",
+        "Economists agree automation has no effect on employment"
+      ],
+      "answer": 1,
+      "explanation": "The text specifically identifies the speed of retraining as the real challenge — not the total number of jobs, and not that automation would destroy the job market entirely."
+    },
+    {
+      "id": "q-en5-read-14",
+      "kind": "worked",
+      "topic": "inference",
+      "prompt": "Read the text and explain what has happened, and how you know.\n\n\"The garage door was open, and the car was gone. On the kitchen counter lay a hastily scribbled note next to an untouched cup of coffee, still steaming.\"",
+      "opener": "Three details are mentioned. What do they mean together?",
+      "answer": "Someone left the house in a hurry, likely called away unexpectedly, before they had time to drink their coffee.",
+      "steps": [
+        "Detail 1: the garage door is open and the car is gone — someone has driven off.",
+        "Detail 2: a hastily scribbled note — the message was written quickly, suggesting a lack of time.",
+        "Detail 3: an untouched cup of coffee, still steaming — the person left almost immediately after making it, making the departure sudden and unplanned.",
+        "Together, the details suggest an unexpected, hurried departure — the text never states this directly, which is exactly what inference means."
+      ]
+    },
+    {
+      "id": "q-en5-read-15",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"Despite the coach's reassurances, the team's performance remained erratic — brilliant in one half, sloppy and disorganised in the next.\"\n\nIn this context, \"erratic\" means:",
+      "opener": "What does the contrast between \"brilliant\" and \"sloppy and disorganised\" describe?",
+      "choices": [
+        "consistently excellent",
+        "unpredictable and inconsistent",
+        "extremely slow",
+        "well-organised"
+      ],
+      "answer": 1,
+      "explanation": "\"Erratic\" means unpredictable and inconsistent. The contrast between brilliant in one half and sloppy in the next illustrates exactly this."
     }
   ]
 }

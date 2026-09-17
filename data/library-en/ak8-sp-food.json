@@ -114,6 +114,111 @@
       "prompt": "Which food, drink, meal words, and gustar constructions should you know at the grade 8 level?",
       "opener": "Food, meals, and how to express what you like.",
       "answer": "Food: el pan = bread · el arroz = rice · la carne = meat · el pescado = fish · las verduras = vegetables · la fruta = fruit · el agua = water · la leche = milk. Meals: el desayuno = breakfast · el almuerzo/la comida = lunch · la cena = dinner. Gustar: me/te/le/nos/os/les gusta (singular) / gustan (plural) — the verb conjugates based on the thing being liked, not the person doing the liking. Ordering politely: Quisiera... = I would like... · ..., por favor = ..., please."
+    },
+    {
+      "id": "q-sp8-food-9",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"el postre\" mean?",
+      "opener": "Comes at the end of a meal, often something sweet.",
+      "choices": [
+        "Dessert",
+        "Appetizer",
+        "Main course",
+        "Salad"
+      ],
+      "answer": 0,
+      "explanation": "\"El postre\" means \"dessert\". \"La entrada\" is the appetizer (or \"el primer plato\"), and \"el plato principal\" is the main course."
+    },
+    {
+      "id": "q-sp8-food-10",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"el zumo de naranja\" mean?",
+      "opener": "\"Naranja\" means orange.",
+      "choices": [
+        "Orange juice",
+        "Apple juice",
+        "Sparkling water",
+        "Milk"
+      ],
+      "answer": 0,
+      "explanation": "\"El zumo de naranja\" means orange juice. \"Zumo\" is the common word for juice in Spain (\"jugo\" is used more often in Latin America)."
+    },
+    {
+      "id": "q-sp8-food-11",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Which word is often used for the snack eaten between lunch and dinner?",
+      "opener": "A snack eaten between lunch and dinner, common in Spanish-speaking countries.",
+      "choices": [
+        "la merienda",
+        "la cena",
+        "el desayuno",
+        "el almuerzo"
+      ],
+      "answer": 0,
+      "explanation": "\"La merienda\" is the Spanish word for a light snack, often eaten in the late afternoon between lunch (\"el almuerzo\") and dinner (\"la cena\")."
+    },
+    {
+      "id": "q-sp8-food-12",
+      "kind": "mc",
+      "topic": "gustar",
+      "prompt": "Choose the right form: \"A nosotros nos ___ el fútbol.\" (We like soccer.)",
+      "opener": "\"Nosotros\" (we) and \"el fútbol\" in the singular.",
+      "choices": [
+        "gusta",
+        "gustan",
+        "gustamos",
+        "gustáis"
+      ],
+      "answer": 0,
+      "explanation": "\"El fútbol\" is singular, so it's \"nos gusta\". If the thing liked had been plural (e.g. \"los deportes\"), it would have been \"nos gustan\"."
+    },
+    {
+      "id": "q-sp8-food-13",
+      "kind": "mc",
+      "topic": "gustar",
+      "prompt": "Choose the right pronoun: \"A ellos ___ gusta la música pop.\" (They like pop music.)",
+      "opener": "\"Ellos\" (they) corresponds to the pronoun \"les\" in the gustar construction.",
+      "choices": [
+        "les",
+        "los",
+        "las",
+        "se"
+      ],
+      "answer": 0,
+      "explanation": "\"Les\" is used for \"they\" (ellos/ellas) in gustar constructions: \"a ellos les gusta...\"."
+    },
+    {
+      "id": "q-sp8-food-14",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "What does \"la ensalada\" mean?",
+      "opener": "A common word for a type of cold, green dish.",
+      "choices": [
+        "Salad",
+        "Soup",
+        "Pasta",
+        "Omelet"
+      ],
+      "answer": 0,
+      "explanation": "\"La ensalada\" means salad."
+    },
+    {
+      "id": "q-sp8-food-15",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Which Spanish expression is used to wish someone a good meal?",
+      "opener": "You say it to someone before they start eating.",
+      "choices": [
+        "¡Buen provecho!",
+        "¡Buenas noches!",
+        "¡Buena suerte!",
+        "¡Feliz cumpleaños!"
+      ],
+      "answer": 0,
+      "explanation": "\"¡Buen provecho!\" roughly means \"enjoy your meal!\" and is said before eating begins."
     }
   ]
 }

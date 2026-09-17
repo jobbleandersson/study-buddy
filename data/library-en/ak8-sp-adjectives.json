@@ -113,6 +113,111 @@
       "prompt": "How do Spanish adjectives agree in gender and number, and where are they placed?",
       "opener": "Adjectives \"agree\" with the noun they describe.",
       "answer": "Adjectives ending in -o: alto/alta/altos/altas (agree in gender and number). Adjectives ending in -e: interesante/interesantes (same form for both genders, only the plural changes). Adjectives ending in a consonant: joven/jóvenes (plural with -es). Placement: most descriptive adjectives come AFTER the noun (una casa grande), unlike in Swedish. Examples: gato negro (black cat), casa pequeña (small house), chicas simpáticas (nice girls)."
+    },
+    {
+      "id": "q-sp8-adj-9",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the correct form: \"Los coches son ___.\" (rápido = fast)",
+      "opener": "\"Coches\" (cars) is masculine plural.",
+      "choices": [
+        "rápidos",
+        "rápido",
+        "rápida",
+        "rápidas"
+      ],
+      "answer": 0,
+      "explanation": "Adjectives ending in -o agree with the noun: masculine plural \"coches\" → \"rápidos\"."
+    },
+    {
+      "id": "q-sp8-adj-10",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the correct form: \"La chica es ___.\" (inteligente = intelligent)",
+      "opener": "\"Inteligente\" ends in -e, just like \"interesante\".",
+      "choices": [
+        "inteligente",
+        "inteligenta",
+        "inteligento",
+        "inteligentes"
+      ],
+      "answer": 0,
+      "explanation": "Adjectives ending in -e have the same form regardless of gender: \"la chica es inteligente\" and \"el chico es inteligente\" both use \"inteligente\"."
+    },
+    {
+      "id": "q-sp8-adj-11",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Which adjective is often placed BEFORE the noun in Spanish, unlike most others?",
+      "opener": "This adjective is often shortened to \"buen\" and can be placed before the noun, e.g. \"un buen amigo\".",
+      "choices": [
+        "bueno (in the form \"buen\")",
+        "grande (always unchanged)",
+        "rojo",
+        "alto"
+      ],
+      "answer": 0,
+      "explanation": "\"Bueno\" (in the shortened form \"buen\") is one of the common adjectives often placed BEFORE the noun in Spanish, unlike most descriptive adjectives, which come after."
+    },
+    {
+      "id": "q-sp8-adj-12",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the correct plural form of \"joven\" (young): \"Mis primos son ___.\"",
+      "opener": "\"Joven\" ends in a consonant, just like \"profesor\".",
+      "choices": [
+        "jóvenes",
+        "jovenes",
+        "jóvenos",
+        "jovenas"
+      ],
+      "answer": 0,
+      "explanation": "Adjectives ending in a consonant form the plural with -es: \"joven\" → \"jóvenes\" (note the accent shift to keep the pronunciation)."
+    },
+    {
+      "id": "q-sp8-adj-13",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "What does the sentence \"Es un chico muy trabajador\" mean?",
+      "opener": "The word \"trabajador\" is related to the verb trabajar (to work).",
+      "choices": [
+        "He is a very hard-working guy",
+        "He is a very lazy guy",
+        "He is a very funny guy",
+        "He is a very young guy"
+      ],
+      "answer": 0,
+      "explanation": "\"Es un chico muy trabajador\" means \"he is a very hard-working guy\"."
+    },
+    {
+      "id": "q-sp8-adj-14",
+      "kind": "mc",
+      "topic": "adjective agreement",
+      "prompt": "Choose the correct form: \"Estas manzanas están ___.\" (verde = green, unripe)",
+      "opener": "\"Verde\" ends in -e, just like \"interesante\".",
+      "choices": [
+        "verdes",
+        "verde",
+        "verda",
+        "verdas"
+      ],
+      "answer": 0,
+      "explanation": "\"Verde\" has the same form regardless of gender, but becomes plural \"verdes\" with \"manzanas\" (apples, plural)."
+    },
+    {
+      "id": "q-sp8-adj-15",
+      "kind": "mc",
+      "topic": "descriptions",
+      "prompt": "Which word pair describes opposites in Spanish: \"grande\" and...?",
+      "opener": "\"Grande\" means \"big\" — what's the opposite?",
+      "choices": [
+        "pequeño",
+        "alto",
+        "bueno",
+        "nuevo"
+      ],
+      "answer": 0,
+      "explanation": "\"Pequeño\" means \"small\" and is the opposite of \"grande\" (big)."
     }
   ]
 }

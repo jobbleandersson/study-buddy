@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta Newtons tre lagar samt begreppen friktion och jämvikt.",
       "opener": "Gå igenom lag för lag i ordning innan du vänder på kortet.",
       "answer": "Newtons första lag (tröghetslagen): ett föremål fortsätter i vila eller med konstant hastighet om ingen resulterande kraft verkar på det · Newtons andra lag: F = m · a, kraften som krävs är massa gånger acceleration — större massa eller acceleration kräver större kraft · Newtons tredje lag: för varje kraft finns en lika stor motriktad kraft (kraft och motkraft) · Friktion är en kraft som motverkar rörelse mellan två ytor som gnids mot varandra, och beror på ytornas beskaffenhet · Jämvikt råder när summan av alla krafter på ett föremål är noll, då står föremålet still eller rör sig med konstant hastighet · Tyngdkraft: F = m · g, där g ≈ 10 N/kg på jorden."
+    },
+    {
+      "id": "q-fys-kra-9",
+      "kind": "mc",
+      "topic": "kraft och Newtons lagar",
+      "prompt": "En simmare trycker bakåt mot vattnet med fötterna för att simma framåt. Vilken lag förklarar bäst varför simmaren rör sig framåt?",
+      "opener": "Tänk på \"kraft och motkraft\" — vad händer när simmaren trycker på vattnet?",
+      "choices": [
+        "Newtons första lag",
+        "Newtons andra lag",
+        "Newtons tredje lag",
+        "Arkimedes princip"
+      ],
+      "answer": 2,
+      "explanation": "Newtons tredje lag säger att varje kraft har en lika stor motriktad kraft. När simmaren trycker vattnet bakåt, trycker vattnet tillbaka på simmaren med lika stor kraft framåt."
+    },
+    {
+      "id": "q-fys-kra-10",
+      "kind": "mc",
+      "topic": "kraft och Newtons lagar",
+      "prompt": "En bil med massan 1000 kg accelererar med 3 m/s². Hur stor kraft krävs, enligt F = m · a?",
+      "opener": "Sätt in massan och accelerationen direkt i formeln.",
+      "choices": [
+        "3000 N",
+        "333 N",
+        "3 N",
+        "30000 N"
+      ],
+      "answer": 0,
+      "explanation": "F = m · a = 1000 kg · 3 m/s² = 3000 N."
+    },
+    {
+      "id": "q-fys-kra-11",
+      "kind": "mc",
+      "topic": "friktion",
+      "prompt": "Vilket av dessa minskar friktionen mellan två ytor mest effektivt?",
+      "opener": "Vad gör man med t.ex. en gnisslande dörrgångjärn?",
+      "choices": [
+        "Att smörja ytorna med olja",
+        "Att trycka ytorna hårdare mot varandra",
+        "Att göra ytorna grövre",
+        "Att öka kontaktytan"
+      ],
+      "answer": 0,
+      "explanation": "Smörjmedel som olja skapar ett tunt lager mellan ytorna som minskar friktionen kraftigt. Att trycka hårdare eller göra ytorna grövre ökar i stället friktionen."
+    },
+    {
+      "id": "q-fys-kra-12",
+      "kind": "mc",
+      "topic": "tyngdkraft",
+      "prompt": "En astronaut har massan 70 kg. Ungefär hur stor är personens tyngdkraft på månen, där g ≈ 1,6 N/kg (jämfört med jordens g ≈ 10 N/kg)?",
+      "opener": "Massan är densamma överallt — det är g som skiljer sig mellan jorden och månen.",
+      "choices": [
+        "112 N",
+        "700 N",
+        "70 N",
+        "11,2 N"
+      ],
+      "answer": 0,
+      "explanation": "F = m · g = 70 kg · 1,6 N/kg = 112 N. Massan (70 kg) är oförändrad, men tyngdkraften blir mycket mindre på månen eftersom gravitationen där är svagare."
+    },
+    {
+      "id": "q-fys-kra-13",
+      "kind": "mc",
+      "topic": "hastighet och acceleration",
+      "prompt": "En bil ökar farten från 10 m/s till 25 m/s på 5 sekunder. Vad är accelerationen?",
+      "opener": "Acceleration är förändringen i hastighet delat med tiden det tar.",
+      "choices": [
+        "3 m/s²",
+        "5 m/s²",
+        "15 m/s²",
+        "1,67 m/s²"
+      ],
+      "answer": 0,
+      "explanation": "a = (v₂ − v₁) / t = (25 − 10) m/s / 5 s = 15/5 = 3 m/s²."
+    },
+    {
+      "id": "q-fys-kra-14",
+      "kind": "worked",
+      "topic": "kraft och Newtons lagar",
+      "prompt": "En låda med massan 25 kg dras med kraften 60 N längs golvet. Friktionskraften mot golvet är 15 N. Beräkna lådans acceleration.",
+      "opener": "Precis som i exemplet med kundvagnen: räkna ut resulterande kraft först.",
+      "answer": "1,8 m/s²",
+      "steps": [
+        "Identifiera krafterna: 60 N framåt (dragkraft) och 15 N bakåt (friktion).",
+        "Beräkna resulterande kraft: F_res = 60 N − 15 N = 45 N.",
+        "Använd Newtons andra lag: a = F / m.",
+        "Sätt in värden: a = 45 N / 25 kg = 1,8 m/s²."
+      ]
+    },
+    {
+      "id": "q-fys-kra-15",
+      "kind": "mc",
+      "topic": "jämvikt av krafter",
+      "prompt": "Två personer drar i var sin ände av ett rep med lika stor kraft åt motsatta håll, och repet står stilla. Vad säger det om krafterna?",
+      "opener": "Repet varken rör sig åt ena eller andra hållet — vad måste det betyda för kraftsumman?",
+      "choices": [
+        "Krafterna är lika stora och motriktade, så de tar ut varandra och nettokraften är noll",
+        "Ingen kraft alls verkar på repet",
+        "Den ena personen är starkare",
+        "Repet accelererar kraftigt"
+      ],
+      "answer": 0,
+      "explanation": "Repet är i jämvikt: båda krafterna finns och är lika stora men motriktade, så de tar ut varandra och nettokraften blir noll — därför står repet still trots att båda drar."
     }
   ]
 }

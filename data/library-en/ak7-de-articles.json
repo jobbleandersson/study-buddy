@@ -115,6 +115,111 @@
       "prompt": "How does gender, the definite/indefinite articles, and the plural work in German?",
       "opener": "The three genders and how the articles follow along.",
       "answer": "Gender: der (masculine, e.g. der Mann), die (feminine, e.g. die Frau), das (neuter, e.g. das Kind) — has to be learned with each word, rarely possible to guess. Exception to remember: words ending in -chen or -lein are always \"das\" (das Mädchen). Indefinite article: ein (masc./neut.), eine (fem.). Plural: always takes the article \"die\", regardless of the original gender — the word itself is inflected in different ways (-e, -er, -(e)n, or no ending at all)."
+    },
+    {
+      "id": "q-de7-art-9",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ Auto ist neu.\" (The car is new.)",
+      "opener": "\"Auto\" is a neuter word.",
+      "choices": [
+        "Das",
+        "Der",
+        "Die",
+        "Den"
+      ],
+      "answer": 0,
+      "explanation": "\"Auto\" (car) is neuter, so the article is \"das\"."
+    },
+    {
+      "id": "q-de7-art-10",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Choose the right article: \"Ich habe ___ Buch.\" (I have a book.)",
+      "opener": "\"Das Buch\" is neuter.",
+      "choices": [
+        "ein",
+        "eine",
+        "einen",
+        "einem"
+      ],
+      "answer": 0,
+      "explanation": "\"Ein\" is the indefinite article for neuter (and masculine) in this form. \"Eine\" is used for feminine instead."
+    },
+    {
+      "id": "q-de7-art-11",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "What is the plural of \"das Kind\" (the child)?",
+      "opener": "\"Kind\" forms the plural with the ending -er.",
+      "choices": [
+        "die Kinder",
+        "die Kinds",
+        "der Kinder",
+        "das Kinder"
+      ],
+      "answer": 0,
+      "explanation": "\"Kind\" → \"Kinder\" in the plural, with the article \"die\" (the plural article for all genders)."
+    },
+    {
+      "id": "q-de7-art-12",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "What gender is the word \"die Sonne\" (the sun)?",
+      "opener": "The article \"die\" gives away the gender directly.",
+      "choices": [
+        "Feminine",
+        "Masculine",
+        "Neuter",
+        "Plural"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Sonne\" takes the article \"die\", which means the word is feminine."
+    },
+    {
+      "id": "q-de7-art-13",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ Lehrerin heißt Frau Klein.\" (The teacher's name is Frau Klein.)",
+      "opener": "\"Lehrerin\" is the feminine form of teacher.",
+      "choices": [
+        "Die",
+        "Der",
+        "Das",
+        "Den"
+      ],
+      "answer": 0,
+      "explanation": "\"Lehrerin\" is feminine (the -in ending makes words for female professionals feminine), so the article is \"die\"."
+    },
+    {
+      "id": "q-de7-art-14",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "What is the plural of \"die Frau\" (the woman)?",
+      "opener": "\"Frau\" forms the plural with the ending -en.",
+      "choices": [
+        "die Frauen",
+        "die Fraus",
+        "die Frauer",
+        "die Frau"
+      ],
+      "answer": 0,
+      "explanation": "\"Frau\" → \"Frauen\" in the plural."
+    },
+    {
+      "id": "q-de7-art-15",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "What gender is the word \"der Tisch\" (the table)?",
+      "opener": "The article \"der\" gives away the gender directly.",
+      "choices": [
+        "Masculine",
+        "Feminine",
+        "Neuter",
+        "Plural"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Tisch\" takes the article \"der\", which means the word is masculine."
     }
   ]
 }

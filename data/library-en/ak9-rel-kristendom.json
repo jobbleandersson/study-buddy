@@ -124,6 +124,110 @@
       "prompt": "Summarise the foundations of Christianity: God, Jesus, the three branches, and the two major festivals.",
       "opener": "Go through faith, branches and festivals as three separate parts.",
       "answer": "God: Christians believe in one God who reveals himself as the Father, the Son and the Holy Spirit (the Trinity). Jesus: according to Christian belief, the Son of God, who was crucified and rose from the dead — the resurrection is central to the hope of eternal life. The three major branches: Catholicism (the Pope in Rome as leader), Protestantism (e.g. the Church of Sweden, no pope, strong focus on the Bible), and Orthodox Christianity (strongest in eastern Europe/Russia, icons and old traditions). The Bible: holy scripture in two parts, the Old and New Testaments. Festivals: Easter celebrates Jesus's death and resurrection · Christmas celebrates Jesus's birth."
+    },
+    {
+      "id": "q-rel-kris-9",
+      "kind": "mc",
+      "topic": "fundamental beliefs",
+      "prompt": "What is it called in Christianity when someone is received into the Christian community through water, often as a child or adult?",
+      "opener": "It's one of the most fundamental Christian sacraments.",
+      "choices": [
+        "Baptism",
+        "Communion",
+        "Confirmation",
+        "Confession"
+      ],
+      "answer": 0,
+      "explanation": "Baptism is one of Christianity's most central rites, in which a person is received into the Christian community with water, in the name of the Father, the Son and the Holy Spirit."
+    },
+    {
+      "id": "q-rel-kris-10",
+      "kind": "mc",
+      "topic": "fundamental beliefs",
+      "prompt": "What is being commemorated in Christianity at Communion?",
+      "opener": "Think about what Jesus, according to the Bible, did with his disciples the evening before he was arrested.",
+      "choices": [
+        "Jesus's last meal with his disciples, remembered by sharing bread and wine",
+        "Jesus's birth",
+        "The end of the church year",
+        "Muhammad's flight to Medina"
+      ],
+      "answer": 0,
+      "explanation": "Communion is celebrated in memory of Jesus's last meal with his disciples, when bread and wine were shared as symbols of his body and blood."
+    },
+    {
+      "id": "q-rel-kris-11",
+      "kind": "mc",
+      "topic": "branches",
+      "prompt": "Which branch of Christianity has the most followers globally?",
+      "opener": "Think about the branch with the Pope in Rome as its leader.",
+      "choices": [
+        "Catholicism",
+        "Protestantism",
+        "Orthodox Christianity",
+        "The Anglican Church"
+      ],
+      "answer": 0,
+      "explanation": "The Catholic Church is the largest branch of Christianity in the world by number of followers, with roughly half of all Christians globally."
+    },
+    {
+      "id": "q-rel-kris-12",
+      "kind": "mc",
+      "topic": "branches",
+      "prompt": "Which church is Sweden's former state church, with a Protestant (Lutheran) orientation?",
+      "opener": "It was separated from the state in 2000.",
+      "choices": [
+        "The Church of Sweden",
+        "The Catholic Church",
+        "The Orthodox Church",
+        "The Pentecostal Church"
+      ],
+      "answer": 0,
+      "explanation": "The Church of Sweden was Sweden's state church until 2000, when it was separated from the state and became an independent faith community. It belongs to the Protestant (Lutheran) branch."
+    },
+    {
+      "id": "q-rel-kris-13",
+      "kind": "mc",
+      "topic": "festivals",
+      "prompt": "Which Christian festival is celebrated 50 days after Easter and commemorates the Holy Spirit coming to the disciples, according to the Bible?",
+      "opener": "The name of the festival comes from the Greek word for \"fifty\".",
+      "choices": [
+        "Pentecost",
+        "Christmas",
+        "Advent",
+        "Candlemas"
+      ],
+      "answer": 0,
+      "explanation": "Pentecost is celebrated 50 days after Easter and commemorates, according to the Bible, the Holy Spirit coming to the disciples - an event often considered the church's \"birthday\"."
+    },
+    {
+      "id": "q-rel-kris-14",
+      "kind": "worked",
+      "topic": "festivals",
+      "prompt": "Explain what Advent is and how it connects to Christmas in the Christian calendar.",
+      "opener": "Think about the word \"advent\" and what it means, and what the four Sundays lead up to.",
+      "answer": "Advent is the four weeks preceding Christmas and marks a time of waiting and preparation for celebrating Jesus's birth. It also opens the new church year, so the Advent period functions both as a preparation period and as the starting point of the church year.",
+      "steps": [
+        "Advent comes from the Latin \"adventus\", meaning \"arrival\".",
+        "The four Sundays of Advent lead up to Christmas Eve/Christmas Day, when Jesus's birth is celebrated.",
+        "The period symbolises waiting and preparation, often expressed by lighting one candle at a time on an Advent candle holder.",
+        "Advent also marks the beginning of the new church year in many Christian traditions, tying the wait for Jesus's birth to the cyclical structure of the church year."
+      ]
+    },
+    {
+      "id": "q-rel-kris-15",
+      "kind": "mc",
+      "topic": "the Bible",
+      "prompt": "Which four books of the New Testament specifically portray Jesus's life, teachings, death and resurrection?",
+      "opener": "They are named after their four authors.",
+      "choices": [
+        "The Gospels (Matthew, Mark, Luke and John)",
+        "The Books of Moses",
+        "The Psalms",
+        "The Book of Revelation"
+      ],
+      "answer": 0,
+      "explanation": "The four Gospels - Matthew, Mark, Luke and John - open the New Testament and portray Jesus's life, teachings, death and resurrection from somewhat different perspectives."
     }
   ]
 }

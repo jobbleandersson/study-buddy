@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta religion och samhälle: religionsfrihet, sekularisering, stat och kyrka, religion i konflikt och fredsarbete samt fördomar och mångfald.",
       "opener": "Rättigheten först, sedan utvecklingen i Sverige och religionens roll i världen.",
       "answer": "Religionsfrihet: skyddas i regeringsformen (grundlag), i Europakonventionen och i FN:s allmänna förklaring artikel 18 · positiv sida = rätt att tro, utöva och byta religion · negativ sida = rätt att stå utanför · begränsning: svensk lag gäller lika för alla, religiösa motiv gör inte en brottslig handling tillåten · Sekularisering: religionens minskade inflytande över samhällets institutioner och över många människors vardag · Sverige räknas som ett av världens mest sekulariserade länder, men många är fortfarande medlemmar i trossamfund · Stat och kyrka i Sverige: Uppsala möte 1593 (en lära) → judisk bosättning tillåts 1774–1775 → dissenterlagarna 1860 (utträde tillåts om man går med i annat godkänt samfund) → religionsfrihetslagen 1951 (rätt att stå helt utanför) → 1996 medlemskap genom dop → 1 januari 2000 Svenska kyrkan skiljs från staten · Religion i konflikter: konflikter har oftast flera orsaker — makt, mark, resurser, identitet — och religion kan användas för att motivera eller förstärka dem · Religion i fredsarbete: medling, hjälparbete, försoningsprocesser och interreligiös dialog · Fördom: förutfattad uppfattning om en person eller grupp utan grund i kunskap · kan leda till diskriminering och hatbrott, t.ex. islamofobi och antisemitism · motverkas av kunskap, möten och självgranskning · Mångfald i Sverige: Svenska kyrkan och frikyrkor, islam, ortodox kristendom, katolicism, judendom, buddhism, hinduism och icke-religiösa livsåskådningar som sekulär humanism · religion eller annan trosuppfattning är en av diskrimineringsgrunderna i diskrimineringslagen."
+    },
+    {
+      "id": "q-rel8-res-9",
+      "kind": "mc",
+      "topic": "stat och kyrka",
+      "prompt": "Vilken lag från 1860 gjorde det möjligt att lämna Svenska kyrkan, om man samtidigt gick med i ett annat godkänt samfund?",
+      "opener": "Ordet i lagens namn syftar på den som avviker från den etablerade läran.",
+      "choices": [
+        "Religionsfrihetslagen 1951",
+        "Regeringsformen",
+        "Diskrimineringslagen",
+        "Dissenterlagarna"
+      ],
+      "answer": 3,
+      "explanation": "Dissenterlagarna från 1860 gjorde det möjligt att lämna Svenska kyrkan, men bara om man samtidigt gick med i ett annat, av staten godkänt trossamfund. Religionsfrihetslagen 1951 gick längre och gav rätten att stå helt utanför alla trossamfund, medan regeringsformen och diskrimineringslagen är andra typer av lagstiftning."
+    },
+    {
+      "id": "q-rel8-res-10",
+      "kind": "mc",
+      "topic": "religionsfrihet",
+      "prompt": "Vilket år antogs den svenska religionsfrihetslagen som gav rätten att stå helt utanför alla trossamfund?",
+      "opener": "Året ligger mitt i 1900-talet, efter andra världskriget.",
+      "choices": [
+        "1860",
+        "2000",
+        "1774",
+        "1951"
+      ],
+      "answer": 3,
+      "explanation": "Religionsfrihetslagen från 1951 gav svenska medborgare rätten att stå helt utanför alla trossamfund, ett steg längre än dissenterlagarna från 1860. Året 2000 är i stället när Svenska kyrkan skildes från staten, och 1774 är när Aaron Isaac tilläts bosätta sig som jude i Sverige."
+    },
+    {
+      "id": "q-rel8-res-11",
+      "kind": "mc",
+      "topic": "fördomar och religiös mångfald",
+      "prompt": "Vad kallas fördomar och hat riktade specifikt mot muslimer?",
+      "opener": "Ordet börjar med \"islamo-\".",
+      "choices": [
+        "Antisemitism",
+        "Sekularisering",
+        "Diaspora",
+        "Islamofobi"
+      ],
+      "answer": 3,
+      "explanation": "Islamofobi är ordet för fördomar, rädsla och hat riktade specifikt mot muslimer eller islam. Antisemitism riktas i stället mot judar, sekularisering handlar om religionens minskade samhällsroll, och diaspora syftar på ett folk som lever spritt utanför sitt historiska hemland."
+    },
+    {
+      "id": "q-rel8-res-12",
+      "kind": "mc",
+      "topic": "fördomar och religiös mångfald",
+      "prompt": "Vad kallas fördomar och hat riktade specifikt mot judar?",
+      "opener": "Ordet har rötter i ett äldre begrepp för semitiska folk och språk.",
+      "choices": [
+        "Islamofobi",
+        "Ateism",
+        "Agnosticism",
+        "Antisemitism"
+      ],
+      "answer": 3,
+      "explanation": "Antisemitism är ordet för fördomar, hat och diskriminering riktade specifikt mot judar. Islamofobi riktas i stället mot muslimer, medan ateism och agnosticism är ståndpunkter om gudstro och inte former av fördomar mot en grupp."
+    },
+    {
+      "id": "q-rel8-res-13",
+      "kind": "mc",
+      "topic": "religion i konflikt och fredsarbete",
+      "prompt": "Vilket av följande är ett exempel på religiösa aktörers arbete för fred?",
+      "opener": "Tänk på vad som krävs för att stridande parter ska kunna närma sig varandra igen.",
+      "choices": [
+        "Att alltid finansiera väpnade grupper",
+        "Att vägra all kontakt med andra religioner",
+        "Att aldrig delta i humanitärt hjälparbete",
+        "Medling och försoningsprocesser mellan stridande parter"
+      ],
+      "answer": 3,
+      "explanation": "Religiösa ledare och organisationer arbetar ofta för fred genom medling, försoningsprocesser och interreligiös dialog, samt genom humanitärt hjälparbete i konfliktdrabbade områden. Att finansiera väpnade grupper, vägra all kontakt med andra religioner eller undvika hjälparbete är tvärtom exempel på hur religion kan bidra till att förstärka konflikter snarare än lösa dem."
+    },
+    {
+      "id": "q-rel8-res-14",
+      "kind": "mc",
+      "topic": "sekularisering",
+      "prompt": "Vad brukar Sverige räknas som i internationella jämförelser gällande religion?",
+      "opener": "Tänk på hur stor roll religionen spelar i det offentliga livet jämfört med i många andra länder.",
+      "choices": [
+        "Ett av världens mest religiösa länder",
+        "Ett land utan någon religionsfrihet",
+        "Ett land med en enda tillåten religion",
+        "Ett av världens mest sekulariserade länder"
+      ],
+      "answer": 3,
+      "explanation": "I internationella undersökningar räknas Sverige ofta som ett av världens mest sekulariserade länder, där religionen spelar en mindre framträdande roll i det offentliga livet och för många i vardagen. Sverige har samtidigt religionsfrihet inskriven i grundlagen, så påståendena om avsaknad av religionsfrihet eller en enda tillåten religion stämmer inte."
+    },
+    {
+      "id": "q-rel8-res-15",
+      "kind": "mc",
+      "topic": "stat och kyrka",
+      "prompt": "Vad hände med ansvaret för folkbokföringen i Sverige, som tidigare låg hos Svenska kyrkan?",
+      "opener": "Förändringen skedde några år innan kyrkan skildes helt från staten.",
+      "choices": [
+        "Det ligger fortfarande kvar hos Svenska kyrkan i dag",
+        "Det avskaffades helt och ingen för längre några register",
+        "Det flyttades till FN",
+        "Det flyttades till staten (Skatteverket) redan 1991, innan kyrkan skildes från staten år 2000"
+      ],
+      "answer": 3,
+      "explanation": "Ansvaret för folkbokföringen flyttades från Svenska kyrkan till staten redan 1991, alltså några år innan kyrkan formellt skildes från staten den 1 januari 2000. Det stämmer alltså inte att ansvaret ligger kvar hos kyrkan, att det avskaffats helt, eller att det flyttats till FN."
     }
   ]
 }

@@ -113,6 +113,111 @@
       "prompt": "Vilka rese- och väderuttryck bör du kunna på åk9-nivå i spanska?",
       "opener": "Att boka, resa och prata om vädret.",
       "answer": "Resor: el billete (de ida / de ida y vuelta) = biljett (enkel/retur) · la maleta = resväska · el pasaporte = pass · el tren/avión/autobús = tåg/flyg/buss · salir = avgå · llegar = anlända · ¿De dónde sale...? = Varifrån avgår...? Väder: hace calor/frío/sol/viento = det är varmt/kallt/soligt/blåsigt · llueve = det regnar · nieva = det snöar · está nublado = det är molnigt."
+    },
+    {
+      "id": "q-sp9-trav-9",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad betyder \"el andén\" på en tågstation?",
+      "opener": "Platsen där man väntar på tåget och kliver på.",
+      "choices": [
+        "Perrongen",
+        "Biljettluckan",
+        "Väntsalen",
+        "Utgången"
+      ],
+      "answer": 0,
+      "explanation": "\"El andén\" betyder perrongen, platsen längs spåret där man väntar på och kliver på tåget."
+    },
+    {
+      "id": "q-sp9-trav-10",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad frågar man om man vill veta hur mycket en biljett kostar?",
+      "opener": "Frågan handlar om pris.",
+      "choices": [
+        "¿Cuánto cuesta el billete?",
+        "¿De dónde sale?",
+        "¿A qué hora llega?",
+        "¿Qué billete es?"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Cuánto cuesta...?\" betyder \"hur mycket kostar...?\". \"¿Cuánto cuesta el billete?\" frågar alltså efter biljettens pris."
+    },
+    {
+      "id": "q-sp9-trav-11",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Vad betyder \"Está nublado\"?",
+      "opener": "Ordet \"nube\" betyder moln.",
+      "choices": [
+        "Det är molnigt",
+        "Det är soligt",
+        "Det snöar",
+        "Det blåser"
+      ],
+      "answer": 0,
+      "explanation": "\"Está nublado\" betyder \"det är molnigt\"."
+    },
+    {
+      "id": "q-sp9-trav-12",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Vilket verb används för att beskriva att det blåser på spanska?",
+      "opener": "Precis som med calor, frío och sol används hacer för vind.",
+      "choices": [
+        "hacer (hace viento)",
+        "llover (llueve viento)",
+        "nevar (nieva viento)",
+        "estar (está viento)"
+      ],
+      "answer": 0,
+      "explanation": "Vind uttrycks med \"hacer\": \"hace viento\" betyder \"det blåser\"."
+    },
+    {
+      "id": "q-sp9-trav-13",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vad betyder \"facturar el equipaje\"?",
+      "opener": "Något man gör vid incheckningsdisken innan flyget.",
+      "choices": [
+        "Checka in bagaget",
+        "Öppna bagaget",
+        "Tappa bort bagaget",
+        "Väga bagaget själv"
+      ],
+      "answer": 0,
+      "explanation": "\"Facturar el equipaje\" betyder \"checka in bagaget\"."
+    },
+    {
+      "id": "q-sp9-trav-14",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Vad betyder \"la temperatura está bajo cero\"?",
+      "opener": "\"Bajo cero\" betyder bokstavligen \"under noll\".",
+      "choices": [
+        "Temperaturen är under noll grader",
+        "Temperaturen är exakt noll grader",
+        "Temperaturen är mycket hög",
+        "Vädret är osäkert"
+      ],
+      "answer": 0,
+      "explanation": "\"La temperatura está bajo cero\" betyder \"temperaturen är under noll grader\", alltså minusgrader."
+    },
+    {
+      "id": "q-sp9-trav-15",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Vilken fråga passar bäst om du vill veta om en plats ligger nära?",
+      "opener": "Frågan handlar om avstånd/närhet.",
+      "choices": [
+        "¿Está cerca de aquí?",
+        "¿De qué color es?",
+        "¿Cuántos años tiene?",
+        "¿Te gusta viajar?"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Está cerca de aquí?\" betyder \"ligger det nära här?\"."
     }
   ]
 }

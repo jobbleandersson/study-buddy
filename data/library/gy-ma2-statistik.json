@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta formeln för betingad sannolikhet, villkoret för oberoende händelser och de fördjupade läges- och spridningsmåtten.",
       "opener": "Koppla ihop formeln för betingad sannolikhet med testet för oberoende.",
       "answer": "$P(A\\mid B) = \\dfrac{P(A \\text{ och } B)}{P(B)}$ · A och B är oberoende om $P(A\\mid B) = P(A)$, vilket är samma sak som $P(A \\text{ och } B) = P(A)\\cdot P(B)$ · Kvartiler: $Q_1$ = medianen av nedre halvan, $Q_2$ = medianen av alla värden, $Q_3$ = medianen av övre halvan · Kvartilavstånd $= Q_3 - Q_1$ · Standardavvikelsen mäter genomsnittligt avstånd till medelvärdet och tar, till skillnad från variationsbredden, hänsyn till alla värden."
+    },
+    {
+      "id": "q-ma2-statistik-9",
+      "kind": "mc",
+      "topic": "betingad sannolikhet",
+      "prompt": "$P(A) = 0{,}6$ och $P(A \\text{ och } B) = 0{,}24$. Vad är $P(B \\mid A)$?",
+      "opener": "Dela sannolikheten för båda händelserna med sannolikheten för villkoret (A).",
+      "choices": [
+        "$40\\ \\%$",
+        "$24\\ \\%$",
+        "$60\\ \\%$",
+        "$14{,}4\\ \\%$"
+      ],
+      "answer": 0,
+      "explanation": "$P(B\\mid A) = \\dfrac{P(A \\text{ och } B)}{P(A)} = \\dfrac{0{,}24}{0{,}6} = 0{,}4 = 40\\ \\%$. Svar D fås om man i stället multiplicerar $0{,}6\\cdot0{,}24$, vilket inte är rätt metod för betingad sannolikhet."
+    },
+    {
+      "id": "q-ma2-statistik-10",
+      "kind": "mc",
+      "topic": "oberoende händelser",
+      "prompt": "$P(A) = 0{,}4$ och $P(B) = 0{,}25$, och A och B är oberoende. Vad är $P(A \\text{ och } B)$?",
+      "opener": "För oberoende händelser gäller $P(A \\text{ och } B) = P(A)\\cdot P(B)$.",
+      "choices": [
+        "$0{,}10$",
+        "$0{,}65$",
+        "$0{,}16$",
+        "$1{,}6$"
+      ],
+      "answer": 0,
+      "explanation": "$P(A \\text{ och } B) = P(A)\\cdot P(B) = 0{,}4\\cdot0{,}25 = 0{,}10$. Svar B ($0{,}65$) adderar i stället sannolikheterna, vilket inte är rätt villkor för oberoende händelser."
+    },
+    {
+      "id": "q-ma2-statistik-11",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Talen 3, 7, 7, 9, 12, 14, 18, 22 är sorterade i storleksordning. Vad är den övre kvartilen $Q_3$?",
+      "opener": "$Q_3$ är medianen av den övre halvan av värdena.",
+      "choices": [
+        "$16$",
+        "$18$",
+        "$15$",
+        "$14$"
+      ],
+      "answer": 0,
+      "explanation": "Den övre halvan (de fyra största värdena) är 12, 14, 18, 22. Medianen av dessa fyra är $\\frac{14+18}{2} = 16$, vilket är $Q_3$."
+    },
+    {
+      "id": "q-ma2-statistik-12",
+      "kind": "mc",
+      "topic": "spridningsmått",
+      "prompt": "En datamängd består av fem identiska värden: 4, 4, 4, 4, 4. Vad är standardavvikelsen?",
+      "opener": "Tänk på hur mycket varje värde avviker från medelvärdet.",
+      "choices": [
+        "$0$",
+        "$4$",
+        "$1$",
+        "$20$"
+      ],
+      "answer": 0,
+      "explanation": "Eftersom alla värden är exakt lika med medelvärdet 4 finns det ingen spridning alls, så standardavvikelsen är $0$. Standardavvikelsen är bara noll när alla värden i datamängden är identiska."
+    },
+    {
+      "id": "q-ma2-statistik-13",
+      "kind": "mc",
+      "topic": "oberoende händelser",
+      "prompt": "Två vanliga tärningar kastas samtidigt. Är utfallet på den ena tärningen och utfallet på den andra tärningen oberoende händelser?",
+      "opener": "Fundera på om resultatet på den ena tärningen påverkar sannolikheterna för den andra.",
+      "choices": [
+        "Ja, de påverkar inte varandra",
+        "Nej, de är alltid beroende av varandra",
+        "Nej, eftersom $P(A)+P(B)=1$",
+        "Det går inte att avgöra utan fler kast"
+      ],
+      "answer": 0,
+      "explanation": "Utfallet på den ena tärningen påverkar inte alls sannolikheterna för den andra tärningen, så händelserna är oberoende. Det stämmer för varje enskilt kast, inte bara efter flera kast, och $P(A)+P(B)=1$ är inget relevant villkor här."
+    },
+    {
+      "id": "q-ma2-statistik-14",
+      "kind": "mc",
+      "topic": "betingad sannolikhet",
+      "prompt": "I en grupp gillar 50 % kaffe och 20 % gillar både kaffe och te. Vad är $P(\\text{te} \\mid \\text{kaffe})$?",
+      "opener": "Dela sannolikheten för båda dryckerna med sannolikheten för villkoret (kaffe).",
+      "choices": [
+        "$40\\ \\%$",
+        "$20\\ \\%$",
+        "$50\\ \\%$",
+        "$10\\ \\%$"
+      ],
+      "answer": 0,
+      "explanation": "$P(\\text{te}\\mid\\text{kaffe}) = \\dfrac{P(\\text{kaffe och te})}{P(\\text{kaffe})} = \\dfrac{0{,}2}{0{,}5} = 0{,}4 = 40\\ \\%$. Att bara svara $20\\ \\%$ (svar B) glömmer att dela med sannolikheten för villkoret."
+    },
+    {
+      "id": "q-ma2-statistik-15",
+      "kind": "mc",
+      "topic": "lägesmått",
+      "prompt": "Talen 1, 2, 2, 3, 3, 3, 5, 8 är en datamängd. Vad är typvärdet (den vanligaste förekommande)?",
+      "opener": "Räkna hur många gånger varje tal förekommer.",
+      "choices": [
+        "$3$",
+        "$2$",
+        "$5$",
+        "$8$"
+      ],
+      "answer": 0,
+      "explanation": "Talet 3 förekommer tre gånger, vilket är fler gånger än något annat tal i datamängden, så typvärdet är $3$. Talet 2 förekommer bara två gånger, vilket gör det till ett vanligt men felaktigt svar."
     }
   ]
 }

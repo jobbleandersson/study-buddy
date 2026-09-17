@@ -124,6 +124,111 @@
       "prompt": "Explain second, third and mixed conditionals: form and use.",
       "opener": "Building on the first conditional from English 5 — now it's about the unreal present, the unreal past, and combinations of the two.",
       "answer": "Second conditional (unreal present/future): If + past simple, would + infinitive — \"If I had more money, I would buy a car.\" Third conditional (unreal past, regret): If + past perfect, would have + past participle — \"If I had studied, I would have passed.\" Mixed conditional (past cause → present result): If + past perfect, would + infinitive — \"If I hadn't broken my leg, I would be playing football now.\" Remember: \"would\" never appears in the if-clause itself in any of these."
+    },
+    {
+      "id": "q-en6-clauses-9",
+      "kind": "mc",
+      "topic": "defining relative clauses",
+      "prompt": "Choose the correct relative pronoun: \"This is the house ___ I grew up.\"",
+      "opener": "Is this about a place?",
+      "choices": [
+        "where",
+        "which",
+        "who",
+        "whose"
+      ],
+      "answer": 0,
+      "explanation": "\"Where\" is used to refer to a place in a defining clause. \"Which\" applies to things, \"who\" to people, and \"whose\" to possession."
+    },
+    {
+      "id": "q-en6-clauses-10",
+      "kind": "mc",
+      "topic": "defining relative clauses",
+      "prompt": "Which sentence can correctly drop the relative pronoun?",
+      "opener": "The relative pronoun can be dropped when it is the object in the defining clause.",
+      "choices": [
+        "The book (that) I read last week was excellent.",
+        "The woman who called you is my sister.",
+        "The house, which was built in 1900, is for sale.",
+        "I don't know the reason why he left."
+      ],
+      "answer": 0,
+      "explanation": "In \"The book (that) I read\", \"that\" is the object of the clause and can therefore be dropped. In the other sentences, the relative pronoun is either the subject (cannot be dropped) or appears in a non-defining clause with a comma."
+    },
+    {
+      "id": "q-en6-clauses-11",
+      "kind": "mc",
+      "topic": "non-defining relative clauses",
+      "prompt": "Which sentence correctly uses \"which\" to refer to an entire preceding clause?",
+      "opener": "\"Which\" can refer back to an entire clause, not just a single noun — and requires a comma.",
+      "choices": [
+        "She finally got the promotion, which made her very happy.",
+        "She finally got the promotion, that made her very happy.",
+        "She finally got the promotion which made her very happy.",
+        "She finally got the promotion, whose made her very happy."
+      ],
+      "answer": 0,
+      "explanation": "When \"which\" refers to the whole preceding clause (that she got the promotion), a comma is required before \"which\". \"That\" is never used after a comma, and omitting the comma makes the sentence unclear."
+    },
+    {
+      "id": "q-en6-clauses-12",
+      "kind": "mc",
+      "topic": "second conditional",
+      "prompt": "Choose the correct form: \"If I were you, I ___ apologize.\"",
+      "opener": "\"If I were you\" is a classic second conditional expression.",
+      "choices": [
+        "would",
+        "will",
+        "had",
+        "am"
+      ],
+      "answer": 0,
+      "explanation": "Second conditional: if + past simple (\"were\"), would + infinitive in the main clause — \"I would apologize\". The other forms don't fit the pattern."
+    },
+    {
+      "id": "q-en6-clauses-13",
+      "kind": "mc",
+      "topic": "third conditional",
+      "prompt": "Choose the correct form: \"If they ___ the warning, the accident might not have happened.\"",
+      "opener": "The unreal past requires the past perfect in the if-clause.",
+      "choices": [
+        "had heeded",
+        "heeded",
+        "would heed",
+        "have heeded"
+      ],
+      "answer": 0,
+      "explanation": "Third conditional: if + past perfect (\"had heeded\"), would have + participle in the main clause. \"heeded\" is missing \"had\", and \"would heed\"/\"have heeded\" don't belong in the if-clause."
+    },
+    {
+      "id": "q-en6-clauses-14",
+      "kind": "mc",
+      "topic": "mixed conditionals",
+      "prompt": "Choose the correct form (present cause, past result): \"If she weren't so shy, she ___ up for the job interview yesterday.\"",
+      "opener": "Here the cause (being shy) applies generally, but the result applies in the past — the reverse mixed pattern.",
+      "choices": [
+        "would have shown",
+        "would show",
+        "had shown",
+        "will show"
+      ],
+      "answer": 0,
+      "explanation": "This mixed conditional has a present/general cause (past simple in the if-clause: \"weren't\") and a past result (would have + participle: \"would have shown\"). It's the reverse combination compared with \"if I hadn't stayed up, I wouldn't be tired now\"."
+    },
+    {
+      "id": "q-en6-clauses-15",
+      "kind": "mc",
+      "topic": "non-defining relative clauses",
+      "prompt": "Which sentence contains a relative clause error?",
+      "opener": "One of these options mixes up the rules for non-defining clauses.",
+      "choices": [
+        "My car, that I bought last year, broke down.",
+        "My car, which I bought last year, broke down.",
+        "Paris, where I spent my honeymoon, is beautiful in spring.",
+        "My grandmother, whose garden is famous, turns 90 this year."
+      ],
+      "answer": 0,
+      "explanation": "\"That\" is never used in non-defining clauses (the ones with commas) — it should be \"which\": \"My car, which I bought last year, broke down.\" The other sentences correctly use \"which\", \"where\", and \"whose\"."
     }
   ]
 }

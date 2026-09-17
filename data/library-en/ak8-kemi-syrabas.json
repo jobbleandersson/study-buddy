@@ -125,6 +125,111 @@
       "prompt": "Summarise the pH scale, indicators, common acids and bases, neutralisation and acidification.",
       "opener": "The scale first, then the indicator colours, then examples of acids and bases and finally neutralisation.",
       "answer": "The pH scale: 0–14, shows how acidic or basic a solution is · pH below 7 = acidic, excess of hydrogen ions (H+) · pH 7 = neutral, e.g. pure water · pH above 7 = basic, excess of hydroxide ions (OH−) · Acid: releases H+ in water · Base: releases OH− in water · BTB: yellow in acidic, green at neutral, blue in basic · Litmus: red in acidic, blue in basic · Universal indicator/pH paper: gives a colour scale across the whole pH range · Common acids: hydrochloric acid HCl (stomach acid), sulfuric acid H2SO4 (car battery), nitric acid HNO3, carbonic acid H2CO3 (fizzy drinks), acetic acid (vinegar), citric acid (lemon) · Common bases: sodium hydroxide NaOH (drain cleaner), calcium hydroxide Ca(OH)2 (slaked lime), ammonia NH3, sodium bicarbonate · Neutralisation: acid + base → salt + water, pH moves towards 7, e.g. HCl + NaOH → NaCl + H2O · The salt's name comes from the base's metal ion + the acid's ion (e.g. sodium + chloride = sodium chloride) · Acidification: sulfur and nitrogen oxides from combustion form acids in the rain, lower the pH of soil and lakes, harm fish and dissolve out toxic metals · Remedies: cleaning up emissions and liming lakes and forest land · Always dilute acid by pouring the acid into the water, never the other way round."
+    },
+    {
+      "id": "q-kemi8-syr-9",
+      "kind": "mc",
+      "topic": "the pH scale and indicators",
+      "prompt": "What colour does litmus paper turn in a basic solution?",
+      "opener": "Litmus only has two colours: one for acidic and one for basic.",
+      "choices": [
+        "Red",
+        "Blue",
+        "Yellow",
+        "Green"
+      ],
+      "answer": 1,
+      "explanation": "Litmus paper turns blue in basic solutions. In acidic solutions it instead turns red — green and yellow belong to BTB, a different indicator."
+    },
+    {
+      "id": "q-kemi8-syr-10",
+      "kind": "mc",
+      "topic": "common acids and bases",
+      "prompt": "Which acid is found in car batteries?",
+      "opener": "This acid is strong and corrosive and is used in lead-acid batteries.",
+      "choices": [
+        "Hydrochloric acid",
+        "Sulfuric acid",
+        "Carbonic acid",
+        "Citric acid"
+      ],
+      "answer": 1,
+      "explanation": "Sulfuric acid (H2SO4) is used as the electrolyte in car batteries. Hydrochloric acid is instead found in the stomach, carbonic acid in fizzy drinks, and citric acid in citrus fruits."
+    },
+    {
+      "id": "q-kemi8-syr-11",
+      "kind": "mc",
+      "topic": "common acids and bases",
+      "prompt": "Which substance is a base used in baking?",
+      "opener": "This substance is often called bicarbonate of soda in everyday speech.",
+      "choices": [
+        "Sodium bicarbonate",
+        "Hydrochloric acid",
+        "Acetic acid",
+        "Sulfuric acid"
+      ],
+      "answer": 0,
+      "explanation": "Sodium bicarbonate is a weak base used in baking, among other things. The other three options are all acids."
+    },
+    {
+      "id": "q-kemi8-syr-12",
+      "kind": "mc",
+      "topic": "neutralisation and salt formation",
+      "prompt": "Sulfuric acid (H2SO4) is neutralised with potassium hydroxide (KOH). What type of substances form?",
+      "opener": "Neutralisation always produces the same two types of products.",
+      "choices": [
+        "Just water",
+        "A salt and water",
+        "Two acids",
+        "Carbon dioxide and oxygen"
+      ],
+      "answer": 1,
+      "explanation": "Neutralisation always produces a salt and water, here potassium sulfate and water. Just water forming isn't correct, since the potassium and sulfate ions remain as a salt in the solution."
+    },
+    {
+      "id": "q-kemi8-syr-13",
+      "kind": "mc",
+      "topic": "acids and bases in everyday life",
+      "prompt": "What pH does a neutral solution like pure water have?",
+      "opener": "This value sits right in the middle of the pH scale.",
+      "choices": [
+        "0",
+        "4",
+        "7",
+        "14"
+      ],
+      "answer": 2,
+      "explanation": "pH 7 is neutral, just like pure water. pH 0 is extremely acidic and pH 14 extremely basic, while pH 4 is mildly acidic."
+    },
+    {
+      "id": "q-kemi8-syr-14",
+      "kind": "worked",
+      "topic": "acidification",
+      "prompt": "A field has been acidified by acid rain and the soil's pH is 4.8. The farmer decides to spread lime (calcium carbonate, CaCO3) on the field. Explain in chemical terms why liming helps.",
+      "opener": "Think about what there's too much of in acidic soil, and what a basic substance does to it.",
+      "answer": "Lime is a basic substance that neutralises some of the acid in the soil. The hydrogen ions are bound up, the pH rises from 4.8 towards 7, and the soil once again becomes a better growing environment for the crops.",
+      "steps": [
+        "pH 4.8 is lower than 7, so the soil is acidic and contains an excess of hydrogen ions (H+).",
+        "The acid mainly comes from deposits of sulfur and nitrogen oxides that form acids in the rain.",
+        "Lime (CaCO3) is basic and reacts with the acid in a neutralisation reaction.",
+        "The hydrogen ions are bound up, producing water and carbon dioxide among other things, so the pH rises towards 7.",
+        "With a higher pH, the crops can take up nutrients better and grow normally again — but the liming needs to be repeated as long as the deposits continue."
+      ]
+    },
+    {
+      "id": "q-kemi8-syr-15",
+      "kind": "mc",
+      "topic": "the pH scale and indicators",
+      "prompt": "What does an indicator like BTB do in a chemical solution?",
+      "opener": "Think about what you actually observe when you add BTB to a solution.",
+      "choices": [
+        "It changes the solution's pH",
+        "It changes colour depending on the solution's pH",
+        "It neutralises the acid in the solution",
+        "It makes the solution electrically conductive"
+      ],
+      "answer": 1,
+      "explanation": "An indicator like BTB changes colour depending on the solution's pH, making it possible to read off whether the solution is acidic, neutral or basic. It doesn't itself change the solution's pH or neutralise the acid."
     }
   ]
 }

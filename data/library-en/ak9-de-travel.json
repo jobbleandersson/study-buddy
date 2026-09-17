@@ -113,6 +113,111 @@
       "prompt": "Which travel and weather expressions should you know at grade 9 level in German?",
       "opener": "Booking, traveling, and talking about the weather.",
       "answer": "Travel: die Fahrkarte (Einzel-/Hin- und Rückfahrkarte) = ticket (one-way/round-trip) · der Koffer = suitcase · der Reisepass = passport · der Zug/das Flugzeug/der Bus = train/plane/bus · abfahren = to depart · ankommen = to arrive · Von wo fährt...ab? = Where does... depart from? Weather: es ist warm/kalt/sonnig/windig = it's warm/cold/sunny/windy · es regnet = it's raining · es schneit = it's snowing · es ist bewölkt = it's cloudy."
+    },
+    {
+      "id": "q-de9-trav-9",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"der Bahnsteig\" mean?",
+      "opener": "The place where you wait for the train and board it.",
+      "choices": [
+        "The platform",
+        "The ticket window",
+        "The waiting room",
+        "The exit"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Bahnsteig\" means the platform, the place along the tracks where you wait for and board the train."
+    },
+    {
+      "id": "q-de9-trav-10",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"das Gepäck aufgeben\" mean?",
+      "opener": "Something you do at the check-in counter before the flight.",
+      "choices": [
+        "Check in the luggage",
+        "Open the luggage",
+        "Lose the luggage",
+        "Weigh the luggage yourself"
+      ],
+      "answer": 0,
+      "explanation": "\"Das Gepäck aufgeben\" means \"to check in the luggage\"."
+    },
+    {
+      "id": "q-de9-trav-11",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "What does \"Es ist bewölkt\" mean?",
+      "opener": "\"Die Wolke\" means the cloud.",
+      "choices": [
+        "It's cloudy",
+        "It's sunny",
+        "It's snowing",
+        "It's windy"
+      ],
+      "answer": 0,
+      "explanation": "\"Es ist bewölkt\" means \"it's cloudy\"."
+    },
+    {
+      "id": "q-de9-trav-12",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "What does \"es friert\" mean?",
+      "opener": "A verb for when the temperature drops below zero.",
+      "choices": [
+        "It's freezing (subzero)",
+        "It's warm",
+        "It's raining",
+        "It's cloudy"
+      ],
+      "answer": 0,
+      "explanation": "\"Es friert\" means \"it's freezing\", i.e. the temperature is below zero degrees."
+    },
+    {
+      "id": "q-de9-trav-13",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"Ist es weit von hier?\" mean?",
+      "opener": "The question is about distance.",
+      "choices": [
+        "Is it far from here?",
+        "What color is it?",
+        "How much does it cost?",
+        "What's the place called?"
+      ],
+      "answer": 0,
+      "explanation": "\"Ist es weit von hier?\" means \"is it far from here?\"."
+    },
+    {
+      "id": "q-de9-trav-14",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "What does \"die Temperatur liegt unter null\" mean?",
+      "opener": "\"Unter null\" literally means \"below zero\".",
+      "choices": [
+        "The temperature is below zero degrees",
+        "The temperature is very high",
+        "The weather is uncertain",
+        "It's very windy"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Temperatur liegt unter null\" means \"the temperature is below zero degrees\", i.e. subzero."
+    },
+    {
+      "id": "q-de9-trav-15",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"Der Flug hat Verspätung\" mean?",
+      "opener": "Something you unfortunately sometimes hear at the airport.",
+      "choices": [
+        "The flight is delayed",
+        "The flight is cancelled",
+        "The flight has departed",
+        "The flight is fully booked"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Flug hat Verspätung\" means \"the flight is delayed\"."
     }
   ]
 }

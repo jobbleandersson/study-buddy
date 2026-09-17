@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta atomens uppbyggnad, atomnummer och masstal samt hur periodiska systemet är ordnat.",
       "opener": "Ta partiklarna först, sedan talen som beskriver kärnan, och avsluta med grupper och perioder.",
       "answer": "Proton: positiv (+), i kärnan · Neutron: oladdad, i kärnan · Elektron: negativ (−), rör sig i elektronskal utanför kärnan, mycket lätt · Atomnummer = antal protoner (och antal elektroner i en oladdad atom) · Masstal = protoner + neutroner · Antal neutroner = masstal − atomnummer · Elektronskal: K rymmer max 2, L max 8, M max 8 (på grundnivå) · Valenselektroner = elektronerna i yttersta skalet, de styr hur ämnet reagerar · Grupp = lodrät kolumn, samma antal valenselektroner, liknande egenskaper · Period = vågrät rad, samma antal elektronskal · Grupp 1 alkalimetaller: 1 valenselektron, avger den och bildar joner som Na+ och K+, mycket reaktiva · Grupp 17 halogener: 7 valenselektroner, tar upp en och bildar joner som Cl− · Grupp 18 ädelgaser: fullt yttersta skal, stabila och reaktionströga (helium, neon, argon) · Metaller avger elektroner och blir positiva joner, icke-metaller tar upp elektroner och blir negativa joner."
+    },
+    {
+      "id": "q-kemi8-per-9",
+      "kind": "mc",
+      "topic": "atomens uppbyggnad",
+      "prompt": "Vilken laddning har en elektron?",
+      "opener": "Elektronen är den partikel som rör sig i skal utanför kärnan.",
+      "choices": [
+        "Positiv",
+        "Negativ",
+        "Neutral (oladdad)",
+        "Den varierar beroende på grundämne"
+      ],
+      "answer": 1,
+      "explanation": "Elektronen har negativ laddning (−), medan protonen i kärnan har positiv laddning (+). Neutronen, som också sitter i kärnan, är oladdad."
+    },
+    {
+      "id": "q-kemi8-per-10",
+      "kind": "mc",
+      "topic": "atomnummer och masstal",
+      "prompt": "En atom har masstal 27 och 14 neutroner. Vilket atomnummer har den?",
+      "opener": "Masstal = protoner + neutroner, så lös ut protonerna.",
+      "choices": [
+        "13",
+        "27",
+        "14",
+        "41"
+      ],
+      "answer": 0,
+      "explanation": "Atomnummer = masstal − neutroner = 27 − 14 = 13. Talet 41 uppstår om man av misstag adderar de två talen i stället för att subtrahera."
+    },
+    {
+      "id": "q-kemi8-per-11",
+      "kind": "mc",
+      "topic": "elektronskal",
+      "prompt": "Hur många elektroner ryms som mest i det andra elektronskalet (L-skalet)?",
+      "opener": "L-skalet är större än det innersta K-skalet.",
+      "choices": [
+        "2",
+        "8",
+        "18",
+        "6"
+      ],
+      "answer": 1,
+      "explanation": "L-skalet rymmer högst 8 elektroner. K-skalet, som ligger innanför, rymmer bara 2, medan 18 gäller ett skal längre ut som inte behandlas på grundnivå."
+    },
+    {
+      "id": "q-kemi8-per-12",
+      "kind": "mc",
+      "topic": "grupper och perioder",
+      "prompt": "Vad har alla ämnen i samma PERIOD (vågrät rad) i periodiska systemet gemensamt?",
+      "opener": "Perioden är motsatsen till gruppen — den räknar en annan egenskap.",
+      "choices": [
+        "Samma antal valenselektroner",
+        "Samma antal elektronskal",
+        "Samma masstal",
+        "Alla är ädelgaser"
+      ],
+      "answer": 1,
+      "explanation": "Ämnen i samma period har lika många elektronskal. Att ha lika många valenselektroner gäller i stället ämnen i samma grupp, alltså samma lodräta kolumn."
+    },
+    {
+      "id": "q-kemi8-per-13",
+      "kind": "mc",
+      "topic": "ädelgaser och alkalimetaller",
+      "prompt": "Varför är alkalimetaller som natrium och kalium så reaktiva?",
+      "opener": "Tänk på hur lätt det är att göra sig av med en enda elektron jämfört med att fylla på flera.",
+      "choices": [
+        "De har fullt yttersta skal",
+        "De har en enda valenselektron som de lätt avger",
+        "De saknar elektroner helt",
+        "De är ädelgaser"
+      ],
+      "answer": 1,
+      "explanation": "Alkalimetaller i grupp 1 har bara en valenselektron, och den är lätt att avge för att uppnå fullt yttersta skal, vilket gör dem mycket reaktiva. Ädelgaser har i stället redan fullt skal och är därför reaktionströga."
+    },
+    {
+      "id": "q-kemi8-per-14",
+      "kind": "worked",
+      "topic": "atomnummer och masstal",
+      "prompt": "Klor (Cl) har atomnummer 17 och masstal 35. Bestäm antalet protoner, neutroner och elektroner i atomen, och förklara med hjälp av elektronskalen varför klor gärna bildar jonen Cl−.",
+      "opener": "Börja med att plocka ut protoner och neutroner ur talen, och fördela sedan elektronerna i skal.",
+      "answer": "Klor har 17 protoner, 18 neutroner och 17 elektroner. Elektronerna fördelas 2, 8, 7, så klor har sju valenselektroner i det yttersta skalet. Genom att ta upp en elektron får klor fullt yttersta skal och blir jonen Cl−.",
+      "steps": [
+        "Antalet protoner är samma som atomnummret: 17 protoner.",
+        "Antalet neutroner är masstal − atomnummer: 35 − 17 = 18 neutroner.",
+        "Atomen är oladdad, så antalet elektroner är lika med antalet protoner: 17 elektroner.",
+        "Fördela elektronerna i skal: 2 i K-skalet, 8 i L-skalet och 7 kvar i M-skalet, alltså 2, 8, 7.",
+        "Det är lättare att ta upp en enda elektron för att fylla skalet än att göra sig av med sju, så klor tar upp en och bildar den negativa jonen Cl− med fullt yttersta skal."
+      ]
+    },
+    {
+      "id": "q-kemi8-per-15",
+      "kind": "mc",
+      "topic": "grupper och perioder",
+      "prompt": "Vilken grupp i periodiska systemet innehåller ädelgaserna?",
+      "opener": "Denna grupp ligger längst till höger i systemet.",
+      "choices": [
+        "Grupp 1",
+        "Grupp 17",
+        "Grupp 18",
+        "Grupp 2"
+      ],
+      "answer": 2,
+      "explanation": "Ädelgaserna, som helium, neon och argon, finns i grupp 18, längst till höger i periodiska systemet. Grupp 1 är i stället alkalimetallerna, och grupp 17 är halogenerna."
     }
   ]
 }

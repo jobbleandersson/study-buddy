@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta viktiga kompositionsgrepp och berättartekniska begrepp för litteraturanalys.",
       "opener": "Verktygslådan för att analysera hur en text är byggd.",
       "answer": "In medias res: börja mitt i handlingen · Ramberättelse: en yttre berättelse omsluter inre berättelser · Kronologisk vs. icke-kronologisk: rak tidsordning eller hopp i tid (flashbacks, förebud) · Cirkelkomposition: slutet återknyter till början · Berättarperspektiv: allvetande, jag-, opålitlig eller personal (bunden till en karaktärs synvinkel) · Symbol och motiv: konkreta bilder som bär abstrakt betydelse respektive återkommande teman · Form och innehåll samspelar — hur något berättas förstärker vad som berättas."
+    },
+    {
+      "id": "q-sv2-analys-9",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "En berättare vet allt om alla karaktärers tankar och känslor, och kan hoppa fritt mellan olika platser och tider. Vad kallas denna typ av berättare?",
+      "opener": "Berättaren har full insyn i hela den fiktiva världen.",
+      "choices": [
+        "Allvetande berättare",
+        "Jagberättare",
+        "Opålitlig berättare",
+        "Personal berättare"
+      ],
+      "answer": 0,
+      "explanation": "En allvetande berättare har full insyn i alla karaktärers inre liv och kan röra sig fritt i tid och rum, till skillnad från en personal berättare som är bunden till en enda karaktärs perspektiv."
+    },
+    {
+      "id": "q-sv2-analys-10",
+      "kind": "mc",
+      "topic": "komposition",
+      "prompt": "En berättelse avslutas på samma sätt eller plats som den började. Vad kallas detta kompositionsgrepp?",
+      "opener": "Tänk på formen som en ring som sluts.",
+      "choices": [
+        "Cirkelkomposition",
+        "In medias res",
+        "Ramberättelse",
+        "Retrospektiv komposition"
+      ],
+      "answer": 0,
+      "explanation": "Cirkelkomposition innebär att berättelsens slut på något sätt återknyter till dess början, vilket kan skapa en känsla av avslutning eller visa att något förändrats trots återkomsten till utgångspunkten."
+    },
+    {
+      "id": "q-sv2-analys-11",
+      "kind": "mc",
+      "topic": "symbolik och motiv",
+      "prompt": "I en roman återkommer temat ensamhet gång på gång genom olika karaktärer och situationer, utan att vara knutet till ett enda konkret föremål. Är detta ett motiv eller en symbol?",
+      "opener": "Fråga dig om det handlar om ett återkommande tema eller om ett konkret föremål som representerar något annat.",
+      "choices": [
+        "Ett motiv, eftersom det är ett återkommande tema",
+        "En symbol, eftersom det representerar något konkret",
+        "Varken motiv eller symbol",
+        "Både motiv och symbol på exakt samma sätt"
+      ],
+      "answer": 0,
+      "explanation": "Ett återkommande abstrakt tema som ensamhet, utan koppling till ett specifikt föremål, räknas som ett motiv. En symbol är i stället ett konkret föremål eller en företeelse som representerar något abstrakt."
+    },
+    {
+      "id": "q-sv2-analys-12",
+      "kind": "mc",
+      "topic": "form och innehåll",
+      "prompt": "En dikt om ett stormigt hav skrivs med långa, svepande rader utan tydlig interpunktion. Vilket samband finns mellan form och innehåll?",
+      "opener": "Fundera på vad den obrutna, flytande texten kan efterlikna.",
+      "choices": [
+        "Den flytande, obrutna formen förstärker känslan av havets rörelse och kraft",
+        "Formen har ingen koppling alls till innehållet",
+        "Formen visar att dikten är skriven i sonettform",
+        "Avsaknaden av interpunktion betyder att dikten saknar mening"
+      ],
+      "answer": 0,
+      "explanation": "De långa, obrutna raderna utan tydlig interpunktion kan efterlikna havets ständiga, svepande rörelse, vilket är ett exempel på hur formen förstärker innehållet. En sonett har i stället en strikt, fast form med 14 rader, vilket inte stämmer med beskrivningen."
+    },
+    {
+      "id": "q-sv2-analys-13",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "Vad kännetecknar en personal berättare, till skillnad från en allvetande berättare?",
+      "opener": "Tänk på hur mycket berättaren egentligen kan veta.",
+      "choices": [
+        "Berättaren är bunden till en enda karaktärs perspektiv och vet bara vad den karaktären vet",
+        "Berättaren talar direkt till läsaren i jagform",
+        "Berättaren vet allt om alla karaktärer samtidigt",
+        "Berättaren finns inte i texten över huvud taget"
+      ],
+      "answer": 0,
+      "explanation": "En personal berättare skildrar handlingen ur en enda karaktärs perspektiv i tredje person och är begränsad till vad den karaktären vet, känner och observerar — till skillnad från den allvetande berättarens fulla insyn."
+    },
+    {
+      "id": "q-sv2-analys-14",
+      "kind": "mc",
+      "topic": "komposition",
+      "prompt": "Vad innebär det när en berättelse använder flashbacks (tillbakablickar)?",
+      "opener": "Tänk på vilken riktning i tiden berättelsen rör sig.",
+      "choices": [
+        "Handlingen hoppar tillbaka i tiden för att visa händelser som skett innan berättelsens nutid",
+        "Handlingen berättas alltid i strikt kronologisk ordning",
+        "Berättelsen saknar helt en tydlig tidsordning",
+        "Flashbacks betyder att berättaren är opålitlig"
+      ],
+      "answer": 0,
+      "explanation": "En flashback är ett hopp bakåt i tiden för att visa händelser som ligger före berättelsens nutid, ofta för att ge bakgrund eller förklara en karaktärs motiv. Det är motsatsen till en strikt kronologisk berättelse."
+    },
+    {
+      "id": "q-sv2-analys-15",
+      "kind": "mc",
+      "topic": "symbolik och motiv",
+      "prompt": "Ett äpple förekommer i en berättelse och får läsaren att associera till syndafallet i Bibeln. Vad är detta ett exempel på?",
+      "opener": "Tänk på hur ett konkret föremål kan bära med sig en kulturell betydelse utöver sig självt.",
+      "choices": [
+        "En symbol med litterär eller kulturell anspelning",
+        "Ett motiv utan djupare betydelse",
+        "In medias res",
+        "En opålitlig berättare"
+      ],
+      "answer": 0,
+      "explanation": "Äpplet fungerar här som en symbol som bär med sig en kulturell och religiös betydelse utöver sin bokstavliga funktion i berättelsen, genom anspelningen på syndafallet."
     }
   ]
 }

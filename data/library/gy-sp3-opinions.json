@@ -122,6 +122,111 @@
       "prompt": "Vilka fraser behöver man för att ge, hålla med om och motivera en åsikt?",
       "opener": "En ordlista för argumentation, uppdelad efter funktion.",
       "answer": "Ge en åsikt: creo que, pienso que, en mi opinión, a mi parecer, me parece que. Hålla med/inte hålla med: estoy de acuerdo (con)/estoy en desacuerdo (con), no estoy de acuerdo. Motivera: porque, ya que, puesto que (eftersom), por eso (därför). Kontrastera: sin embargo (dock), por otro lado (å andra sidan), aunque (även om). Kom ihåg: \"no creo que\" och \"dudo que\" (jag tvivlar på att) tar subjuntivo i bisatsen eftersom de uttrycker tvivel, medan \"creo que\" och \"pienso que\" i bekräftande form tar indikativ."
+    },
+    {
+      "id": "q-sp3-opinions-9",
+      "kind": "mc",
+      "topic": "opinion vocabulary",
+      "prompt": "Vad betyder \"me parece que\"?",
+      "opener": "Bokstavligen \"det förefaller mig att\".",
+      "choices": [
+        "Jag tycker att/det verkar mig som",
+        "Jag är säker på att",
+        "Jag tvivlar på att",
+        "Jag håller inte med"
+      ],
+      "answer": 0,
+      "explanation": "\"Me parece que\" betyder \"jag tycker att\"/\"det verkar mig som\", ytterligare ett vanligt sätt att inleda en åsikt."
+    },
+    {
+      "id": "q-sp3-opinions-10",
+      "kind": "mc",
+      "topic": "agreement and disagreement",
+      "prompt": "Vad betyder \"No estoy de acuerdo con eso\"?",
+      "opener": "Negationen \"no\" framför en bekräftande fras.",
+      "choices": [
+        "Jag håller inte med om det",
+        "Jag håller med om det",
+        "Jag är säker på det",
+        "Jag tvivlar på det"
+      ],
+      "answer": 0,
+      "explanation": "\"No estoy de acuerdo con eso\" betyder \"jag håller inte med om det\"."
+    },
+    {
+      "id": "q-sp3-opinions-11",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "Vad betyder \"puesto que\"?",
+      "opener": "En synonym till \"ya que\".",
+      "choices": [
+        "eftersom",
+        "dock",
+        "å andra sidan",
+        "även om"
+      ],
+      "answer": 0,
+      "explanation": "\"Puesto que\" betyder \"eftersom\", precis som \"ya que\", och används för att motivera ett påstående."
+    },
+    {
+      "id": "q-sp3-opinions-12",
+      "kind": "mc",
+      "topic": "agreement and disagreement",
+      "prompt": "Välj rätt form: \"Dudo que esto ___ (ser) verdad.\"",
+      "opener": "\"Dudar que\" uttrycker tvivel och utlöser subjuntivo, precis som \"no creo que\".",
+      "choices": [
+        "sea",
+        "es",
+        "era",
+        "será"
+      ],
+      "answer": 0,
+      "explanation": "\"Dudar que\" uttrycker tvivel och kräver subjuntivo i bisatsen: \"sea\"."
+    },
+    {
+      "id": "q-sp3-opinions-13",
+      "kind": "mc",
+      "topic": "opinion vocabulary",
+      "prompt": "Vad betyder \"a mi parecer\"?",
+      "opener": "En synonym till \"en mi opinión\".",
+      "choices": [
+        "enligt min mening",
+        "jag håller inte med",
+        "jag är säker på",
+        "trots att"
+      ],
+      "answer": 0,
+      "explanation": "\"A mi parecer\" betyder \"enligt min mening\", en synonym till \"en mi opinión\"."
+    },
+    {
+      "id": "q-sp3-opinions-14",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "Vad är skillnaden mellan \"por eso\" och \"ya que\"?",
+      "opener": "Den ena inleder en konsekvens, den andra en orsak.",
+      "choices": [
+        "\"Por eso\" markerar konsekvens (därför), \"ya que\" markerar orsak (eftersom)",
+        "\"Por eso\" markerar orsak, \"ya que\" markerar konsekvens",
+        "Båda betyder exakt samma sak och kan alltid bytas ut mot varandra",
+        "\"Por eso\" används bara i skrift, \"ya que\" bara i tal"
+      ],
+      "answer": 0,
+      "explanation": "\"Por eso\" (därför) introducerar en konsekvens av något som redan sagts, medan \"ya que\" (eftersom) introducerar orsaken till ett påstående."
+    },
+    {
+      "id": "q-sp3-opinions-15",
+      "kind": "mc",
+      "topic": "agreement and disagreement",
+      "prompt": "Vilken preposition krävs efter \"estar de acuerdo\" när det följs av en hel sats med \"que\"?",
+      "opener": "\"Estar de acuerdo\" kan inte kopplas direkt till \"que\" utan en mellanliggande preposition.",
+      "choices": [
+        "en (estar de acuerdo en que)",
+        "con (estar de acuerdo con que)",
+        "de (estar de acuerdo de que)",
+        "a (estar de acuerdo a que)"
+      ],
+      "answer": 0,
+      "explanation": "\"Estar de acuerdo en que\" är den korrekta konstruktionen när en hel sats följer: \"estoy de acuerdo en que deberíamos reciclar más\"."
     }
   ]
 }

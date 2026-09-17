@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta religion och konflikt, religiöst fredsarbete, religionsfrihet och religion och migration.",
       "opener": "Gå igenom konflikt, fredsarbete, religionsfrihet och migration i tur och ordning.",
       "answer": "Religion och konflikt: religion fungerar ofta som identitetsmarkör som särskiljer grupper, men konflikter drivs vanligen av flera samverkande faktorer som makt, resurser, politik och historia — religion är sällan den enda orsaken. Religiöst fredsarbete: religiösa ledare och organisationer arbetar utifrån sin tro för försoning, dialog och konfliktlösning, t.ex. genom interreligiösa initiativ. Religionsfrihet: mänsklig rättighet (bl.a. FN:s artikel 18) att fritt anta, utöva, byta eller avstå från en religion eller livsåskådning, enskilt eller i grupp, privat eller offentligt · kränks t.ex. genom förbud mot gudstjänstlokaler eller straff för trosbyte. Religion och migration: religiös förföljelse kan vara en flyktorsak, samtidigt som religiös gemenskap ofta blir en källa till stöd och identitet för migranter i ett nytt land."
+    },
+    {
+      "id": "q-rel1-konflikter-9",
+      "kind": "mc",
+      "topic": "religion och konflikt",
+      "prompt": "Vad innebär det att religion ibland används som \"mobiliserande resurs\" i en konflikt, till skillnad från att vara konfliktens grundorsak?",
+      "opener": "Tänk på skillnaden mellan att religion ORSAKAR en konflikt och att religion ANVÄNDS för att samla stöd i en konflikt.",
+      "choices": [
+        "Att ledare kan använda religiösa symboler, narrativ eller känslor för att mobilisera anhängare och legitimera en kamp vars bakomliggande orsaker egentligen ligger i t.ex. politik eller resurser",
+        "Att religion alltid är den enda anledningen till att en konflikt mobiliseras",
+        "Att mobilisering enbart sker genom militära medel, aldrig genom religion",
+        "Att religiösa ledare aldrig har något inflytande i konfliktsituationer"
+      ],
+      "answer": 0,
+      "explanation": "Att religion används som mobiliserande resurs innebär att ledare kan använda religiösa symboler, narrativ eller känslor för att mobilisera anhängare och legitimera en kamp vars bakomliggande orsaker egentligen ligger i till exempel politik eller kontroll över resurser."
+    },
+    {
+      "id": "q-rel1-konflikter-10",
+      "kind": "mc",
+      "topic": "religiöst fredsarbete",
+      "prompt": "Vad är ett exempel på interreligiös dialog som en form av fredsarbete?",
+      "opener": "Tänk på vad som skulle kunna byggas upp genom regelbundna, ömsesidiga samtal mellan olika trosriktningar.",
+      "choices": [
+        "Att företrädare för olika religioner möts regelbundet för samtal, ömsesidig förståelse och gemensamma initiativ för fred och samexistens",
+        "Att en religion officiellt förklaras överlägsen alla andra",
+        "Att alla religiösa samfund i ett land tvingas slås samman till ett enda",
+        "Att religiösa ledare undviker all kontakt med andra trosriktningar"
+      ],
+      "answer": 0,
+      "explanation": "Interreligiös dialog innebär att företrädare för olika religioner möts regelbundet för samtal, ömsesidig förståelse och gemensamma initiativ för fred och samexistens — ett vanligt exempel på religiöst motiverat fredsarbete."
+    },
+    {
+      "id": "q-rel1-konflikter-11",
+      "kind": "mc",
+      "topic": "religionsfrihet",
+      "prompt": "Vad innebär det att religionsfriheten även omfattar rätten att inte tro på någon gud alls?",
+      "opener": "Tänk på om religionsfrihet enbart skyddar de som TROR på något, eller även de som INTE gör det.",
+      "choices": [
+        "Att religionsfriheten som mänsklig rättighet skyddar såväl troendes som icke-troendes (t.ex. ateisters och agnostikers) rätt att fritt inneha och uttrycka sin livsåskådning",
+        "Att religionsfrihet enbart gäller för personer som tillhör en etablerad religion",
+        "Att icke-troende personer saknar skydd enligt internationella konventioner om mänskliga rättigheter",
+        "Att religionsfrihet är en rättighet som endast gäller inom ett fåtal länder"
+      ],
+      "answer": 0,
+      "explanation": "Religionsfriheten som mänsklig rättighet skyddar såväl troendes som icke-troendes (t.ex. ateisters och agnostikers) rätt att fritt inneha och uttrycka sin livsåskådning — rättigheten är alltså inte begränsad till dem som tillhör en etablerad religion."
+    },
+    {
+      "id": "q-rel1-konflikter-12",
+      "kind": "mc",
+      "topic": "religion och migration",
+      "prompt": "Vilken roll kan en religiös församling eller moské spela för nyanlända migranter i ett nytt land, utöver den rent andliga funktionen?",
+      "opener": "Tänk på vad en religiös gemenskap kan erbjuda utöver bön och gudstjänst.",
+      "choices": [
+        "Den kan fungera som en social mötesplats som erbjuder praktisk hjälp, språkstöd, nätverk och en känsla av gemenskap i en ny och främmande miljö",
+        "Den har uteslutande en andlig funktion och erbjuder aldrig praktiskt stöd",
+        "Den fungerar enbart som ett hinder för integration",
+        "Migranter söker sig aldrig till religiösa gemenskaper i ett nytt land"
+      ],
+      "answer": 0,
+      "explanation": "En religiös församling eller moské kan fungera som en social mötesplats som erbjuder praktisk hjälp, språkstöd, nätverk och en känsla av gemenskap för nyanlända migranter i en ny och främmande miljö, utöver den rent andliga funktionen."
+    },
+    {
+      "id": "q-rel1-konflikter-13",
+      "kind": "mc",
+      "topic": "religion och konflikt",
+      "prompt": "Varför kan det vara missvisande att anta att alla medlemmar av en religiös grupp inblandad i en konflikt delar exakt samma politiska mål?",
+      "opener": "Tänk på om en stor grupp människor, oavsett religiös tillhörighet, brukar tänka och tycka exakt likadant i alla frågor.",
+      "choices": [
+        "Eftersom en religiös grupp, precis som andra stora grupper, ofta rymmer en intern mångfald av politiska åsikter, och att förenkla gruppen till en enda röst osynliggör denna variation",
+        "Eftersom religiösa grupper alltid är mindre än tio personer",
+        "Eftersom alla medlemmar av en religion garanterat är överens i alla frågor",
+        "Eftersom politiska mål aldrig förekommer inom religiösa grupper"
+      ],
+      "answer": 0,
+      "explanation": "En religiös grupp rymmer, precis som andra stora grupper, ofta en intern mångfald av politiska åsikter, och att förenkla gruppen till en enda röst osynliggör denna variation och riskerar att ge en missvisande bild av konflikten."
+    },
+    {
+      "id": "q-rel1-konflikter-14",
+      "kind": "mc",
+      "topic": "religionsfrihet",
+      "prompt": "Vad kan hända med religionsfriheten i ett land där en enda religion ges en särställning i grundlagen, som exempel på en möjlig spänning?",
+      "opener": "Tänk på vad som kan hända med andra gruppers rättigheter om en enda tro ges särskild status i lagen.",
+      "choices": [
+        "Det kan i praktiken innebära att andra religiösa eller icke-religiösa gruppers rättigheter begränsas eller att de får en svagare ställning, beroende på hur särställningen utformas och tillämpas",
+        "Det garanterar alltid full religionsfrihet för samtliga trosinriktningar i landet",
+        "Det har aldrig någon praktisk betydelse för andra grupper",
+        "Det innebär automatiskt att alla andra religioner förbjuds helt"
+      ],
+      "answer": 0,
+      "explanation": "Om en enda religion ges en särställning i grundlagen kan det i praktiken innebära att andra religiösa eller icke-religiösa gruppers rättigheter begränsas eller får en svagare ställning, beroende på hur särställningen utformas och tillämpas i praktiken."
+    },
+    {
+      "id": "q-rel1-konflikter-15",
+      "kind": "mc",
+      "topic": "religiöst fredsarbete",
+      "prompt": "Vad kan vara en utmaning för religiöst motiverat fredsarbete i en konflikt där religion används som identitetsmarkör av flera parter?",
+      "opener": "Tänk på vad fredsarbetare måste övervinna om religiös tillhörighet redan använts för att markera gränser mellan grupperna.",
+      "choices": [
+        "Att fredsarbetare kan behöva bygga förtroende över gruppgränser samtidigt som religiös tillhörighet redan används för att befästa åtskillnaden mellan \"vi\" och \"dem\"",
+        "Att religiöst fredsarbete aldrig stöter på några utmaningar alls",
+        "Att fredsarbete är omöjligt så snart religion är inblandad i en konflikt",
+        "Att religiösa ledare aldrig kan samarbeta över gruppgränser"
+      ],
+      "answer": 0,
+      "explanation": "En utmaning för religiöst fredsarbete i sådana konflikter är att fredsarbetare kan behöva bygga förtroende över gruppgränser samtidigt som religiös tillhörighet redan används för att befästa åtskillnaden mellan \"vi\" och \"dem\" — men detta gör inte fredsarbetet omöjligt, bara mer komplext."
     }
   ]
 }

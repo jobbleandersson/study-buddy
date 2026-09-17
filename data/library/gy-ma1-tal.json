@@ -121,6 +121,109 @@
       "prompt": "Räkna upp potenslagarna för multiplikation, division, potens av potens, exponent 0 och negativ exponent.",
       "opener": "Fem regler — försök formulera dem allmänt med $a$, $m$ och $n$.",
       "answer": "$a^m \\cdot a^n = a^{m+n}$ · $\\dfrac{a^m}{a^n} = a^{m-n}$ · $(a^m)^n = a^{m \\cdot n}$ · $a^0 = 1$ (för $a \\neq 0$) · $a^{-n} = \\dfrac{1}{a^n}$"
+    },
+    {
+      "id": "q-ma1-tal-9",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Förenkla $\\dfrac{5^6}{5^2}$.",
+      "opener": "Samma bas vid division — subtrahera exponenterna.",
+      "choices": [
+        "$5^4$",
+        "$5^3$",
+        "$5^8$",
+        "$5^{12}$"
+      ],
+      "answer": 0,
+      "explanation": "Vid division med samma bas subtraheras exponenterna: $\\frac{5^6}{5^2} = 5^{6-2} = 5^4 = 625$."
+    },
+    {
+      "id": "q-ma1-tal-10",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Beräkna $(2 \\cdot 3)^2$.",
+      "opener": "Både $2$ och $3$ upphöjs till exponenten — eller räkna ut parentesen först.",
+      "choices": [
+        "12",
+        "36",
+        "25",
+        "30"
+      ],
+      "answer": 1,
+      "explanation": "$(2 \\cdot 3)^2 = 6^2 = 36$. Det stämmer också med att räkna $2^2 \\cdot 3^2 = 4 \\cdot 9 = 36$."
+    },
+    {
+      "id": "q-ma1-tal-11",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Vad är $10^{-2}$ skrivet som decimaltal?",
+      "opener": "Negativ exponent ger inversen — inte ett negativt tal.",
+      "choices": [
+        "0,01",
+        "-100",
+        "0,1",
+        "-0,01"
+      ],
+      "answer": 0,
+      "explanation": "$10^{-2} = \\frac{1}{10^2} = \\frac{1}{100} = 0{,}01$."
+    },
+    {
+      "id": "q-ma1-tal-12",
+      "kind": "mc",
+      "topic": "grundpotensform",
+      "prompt": "Vilket tal motsvarar $3{,}5 \\cdot 10^3$?",
+      "opener": "Positiv exponent 3 betyder att decimaltecknet flyttas tre steg åt höger.",
+      "choices": [
+        "350",
+        "3500",
+        "35000",
+        "0,0035"
+      ],
+      "answer": 1,
+      "explanation": "$3{,}5 \\cdot 10^3 = 3{,}5 \\cdot 1000 = 3500$."
+    },
+    {
+      "id": "q-ma1-tal-13",
+      "kind": "mc",
+      "topic": "prefix och enheter",
+      "prompt": "Hur många gram är 1,2 kilogram, skrivet i grundpotensform med enheten gram?",
+      "opener": "Prefixet kilo motsvarar $10^3$.",
+      "choices": [
+        "$1{,}2 \\cdot 10^3$ g",
+        "$1{,}2 \\cdot 10^{-3}$ g",
+        "$1{,}2 \\cdot 10^6$ g",
+        "$12 \\cdot 10^2$ g"
+      ],
+      "answer": 0,
+      "explanation": "$1{,}2$ kg $= 1200$ g $= 1{,}2 \\cdot 10^3$ g. Alternativet $12 \\cdot 10^2$ g motsvarar samma tal (1200), men första faktorn ligger inte mellan 1 och 10, så det är inte grundpotensform."
+    },
+    {
+      "id": "q-ma1-tal-14",
+      "kind": "worked",
+      "topic": "potenslagar",
+      "prompt": "Förenkla $\\dfrac{4^3 \\cdot 4^{-5}}{4^{-4}}$ och skriv svaret som ett heltal.",
+      "opener": "Täljaren först med multiplikationsregeln, sedan divisionsregeln — kom ihåg att dra av ett negativt tal blir att addera.",
+      "answer": "$4^2 = 16$",
+      "steps": [
+        "Täljaren: $4^3 \\cdot 4^{-5} = 4^{3 + (-5)} = 4^{-2}$.",
+        "Divisionen: $\\dfrac{4^{-2}}{4^{-4}} = 4^{-2 - (-4)} = 4^{-2+4} = 4^{2}$.",
+        "Räkna ut: $4^2 = 16$."
+      ]
+    },
+    {
+      "id": "q-ma1-tal-15",
+      "kind": "mc",
+      "topic": "grundpotensform",
+      "prompt": "Skriv $56\\,000\\,000$ i grundpotensform.",
+      "opener": "Flytta decimaltecknet tills första siffran ligger mellan 1 och 10, räkna antalet steg.",
+      "choices": [
+        "$5{,}6 \\cdot 10^7$",
+        "$56 \\cdot 10^6$",
+        "$5{,}6 \\cdot 10^6$",
+        "$5{,}6 \\cdot 10^8$"
+      ],
+      "answer": 0,
+      "explanation": "Decimaltecknet flyttas sju steg åt vänster för att hamna efter 5:an: $5{,}6 \\cdot 10^7 = 56\\,000\\,000$. Alternativet $56 \\cdot 10^6$ ger samma tal men är inte grundpotensform, eftersom första faktorn inte ligger mellan 1 och 10."
     }
   ]
 }

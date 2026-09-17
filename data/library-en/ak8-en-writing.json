@@ -123,6 +123,110 @@
       "prompt": "Which linking words, paragraph rules and levels of formality do you need to know when writing in English?",
       "opener": "Linking words · paragraphs · level of formality · emails and stories.",
       "answer": "Contrast: however, but, although, on the other hand · Cause: because, since, as · Result: therefore, so, as a result · Addition: also, in addition, moreover · Example: for example, such as · Conclusion: in conclusion, to sum up · Paragraph: one idea per paragraph, topic sentence first, then explanation and examples, a new paragraph for a new subject · Formal: Dear Sir or Madam, I would like to, I am writing to ask, Yours sincerely — no contractions (do not instead of don't), no slang · Informal: Hi Sam, Thanks a lot, See you soon, contractions are fine · Short email: greeting, purpose in the first sentence, details, polite ending, name · Story: start in the middle of the action, past simple as the basic tense, time words (then, after that, suddenly, finally), end with how it turned out."
+    },
+    {
+      "id": "q-en8-wri-9",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking word: \"The team practised every day. ___, they lost the final match.\"",
+      "opener": "The two sentences contrast with each other — which word signals a contrast?",
+      "choices": [
+        "Therefore",
+        "However",
+        "For example",
+        "Because"
+      ],
+      "answer": 1,
+      "explanation": "\"However\" marks a contrast between practising hard and losing. \"Therefore\" would mean the loss was a result of the practice, which doesn't make sense."
+    },
+    {
+      "id": "q-en8-wri-10",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Which sentence is correct?",
+      "opener": "The cause comes first, and the linking word shows the result — check that the order makes sense.",
+      "choices": [
+        "We were happy so the trip was cancelled.",
+        "The trip was cancelled, so we were disappointed.",
+        "Because the trip was cancelled, so we were disappointed.",
+        "We were disappointed, so the trip was cancelled."
+      ],
+      "answer": 1,
+      "explanation": "The trip being cancelled is the cause and the disappointment is the result: \"The trip was cancelled, so we were disappointed.\" The other options reverse cause and effect, or use \"because ... so\", which is double linking and isn't used in English."
+    },
+    {
+      "id": "q-en8-wri-11",
+      "kind": "mc",
+      "topic": "linking words",
+      "prompt": "Choose the best linking phrase: \"Our school offers many clubs. ___, there is a chess club and a photography club.\"",
+      "opener": "The second sentence gives concrete examples of what the first sentence says.",
+      "choices": [
+        "For example",
+        "However",
+        "In conclusion",
+        "On the other hand"
+      ],
+      "answer": 0,
+      "explanation": "The chess club and the photography club are examples of the clubs mentioned, so \"for example\" fits. \"In conclusion\" is used to summarise at the end of a text, not to introduce examples."
+    },
+    {
+      "id": "q-en8-wri-12",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "Which sentence works best as the topic sentence of a paragraph about recycling at school?",
+      "opener": "A topic sentence should say what the whole paragraph is about — not give a small detail.",
+      "choices": [
+        "We have three different bins in the classroom.",
+        "Recycling at school helps students build habits that matter for the environment.",
+        "Yesterday someone put a banana peel in the paper bin.",
+        "The bins are usually emptied on Fridays."
+      ],
+      "answer": 1,
+      "explanation": "A topic sentence sums up the paragraph's subject and gives the other sentences something to build on. The other options are details that belong further into the paragraph."
+    },
+    {
+      "id": "q-en8-wri-13",
+      "kind": "mc",
+      "topic": "formal and informal",
+      "prompt": "You are writing an informal email to a friend. Which opening is most suitable?",
+      "opener": "Informal language allows contractions and a relaxed tone, unlike formal emails.",
+      "choices": [
+        "Dear Sir or Madam, I am writing to inform you...",
+        "Hi Emma! How's it going?",
+        "To whom it may concern,",
+        "I would like to formally request..."
+      ],
+      "answer": 1,
+      "explanation": "\"Hi Emma! How's it going?\" is a relaxed greeting that fits an email to a friend. The other options belong in formal emails to someone you don't know."
+    },
+    {
+      "id": "q-en8-wri-14",
+      "kind": "worked",
+      "topic": "linking words",
+      "prompt": "Improve this short paragraph by adding linking words and fixing the informal language: \"I joined the drama club. I was shy. Everyone was super friendly. Im really glad I joined and its been awesome.\"",
+      "opener": "Join the short sentences with linking words and replace the informal language.",
+      "answer": "I joined the drama club, although I was shy. Everyone was very friendly. I am really glad I joined, and it has been great.",
+      "steps": [
+        "\"I joined the drama club. I was shy.\" → \"I joined the drama club, although I was shy.\" The sentences contrast with each other, so although joins them.",
+        "\"super friendly\" → \"very friendly\". \"Super\" as an intensifier is informal slang.",
+        "\"Im really glad\" → \"I am really glad\". The apostrophe was missing (I'm = I am).",
+        "\"its been awesome\" → \"it has been great\". The apostrophe was missing (it's = it has), and \"awesome\" is informal slang."
+      ]
+    },
+    {
+      "id": "q-en8-wri-15",
+      "kind": "mc",
+      "topic": "text types",
+      "prompt": "Which sentence is the best opening for a short story?",
+      "opener": "A story usually opens with something concrete happening, not with a summary.",
+      "choices": [
+        "In this essay I will describe my summer holiday.",
+        "The rain hammered against the tent, and something rustled just outside.",
+        "My story is about a strange thing that happened to me.",
+        "First, I will explain what happened, and then I will explain how I felt."
+      ],
+      "answer": 1,
+      "explanation": "A story grabs the reader by showing an event directly: the rain hammers and something rustles outside. The other options explain what the text will be about, which belongs in an essay or report — not in a story."
     }
   ]
 }

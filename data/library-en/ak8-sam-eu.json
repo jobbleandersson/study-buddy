@@ -125,6 +125,111 @@
       "prompt": "Summarise the EU, the UN, international cooperation and globalisation, and how Sweden is affected.",
       "opener": "From Brussels to New York — and the interconnection of the whole world.",
       "answer": "The EU: political and economic partnership between 27 European countries · Sweden a member since 1995 after a referendum in 1994 · kept the krona after the euro referendum in 2003 · Institutions: the Commission proposes laws (one commissioner per country) · the European Parliament is directly elected by voters every five years (Sweden has 21 members) · the Council of Ministers consists of ministers from the member states · the European Council brings together heads of state and government · the Court of Justice interprets EU law · The single market: the four freedoms — free movement of goods, services, capital and people · affects Sweden through trade, working and studying abroad, consumer protection and environmental rules · The UN: founded in 1945 · works for peace and security, human rights, disaster relief and sustainable development (Agenda 2030) · the General Assembly = one vote per member state, the Security Council can decide on sanctions and peacekeeping operations · International cooperation: the Paris Agreement of 2015 on the climate, the WTO on trade rules, peacekeeping operations · needed because problems such as climate, pandemics and conflicts cross borders · Globalisation: countries and people are tied closer together through trade, technology, transport and information · opportunities (choice, exchange of knowledge, reduced poverty in parts of the world) and problems (jobs relocating, crises spreading quickly, emissions and working conditions hard to control)."
+    },
+    {
+      "id": "q-sam8-eu-9",
+      "kind": "mc",
+      "topic": "what the EU is",
+      "prompt": "What is the EU's shared currency, used by most but not all member states?",
+      "opener": "Sweden has chosen not to adopt it.",
+      "choices": [
+        "The dollar",
+        "The krona",
+        "The pound",
+        "The euro"
+      ],
+      "answer": 3,
+      "explanation": "The euro is the EU's shared currency and is used by the majority of member states, but not all — Sweden, for example, has kept the Swedish krona. The dollar is the USA's currency and the pound the UK's, and the UK is, moreover, no longer an EU member."
+    },
+    {
+      "id": "q-sam8-eu-10",
+      "kind": "mc",
+      "topic": "the EU and Sweden",
+      "prompt": "In which year did Sweden become an EU member?",
+      "opener": "Membership was preceded by a referendum the year before.",
+      "choices": [
+        "1972",
+        "2003",
+        "1945",
+        "1995"
+      ],
+      "answer": 3,
+      "explanation": "Sweden became an EU member in 1995, after a referendum in 1994 in which a majority voted yes. In 2003, by contrast, the referendum on the euro was held, which resulted in a no, 1972 is before membership, and 1945 is the year the UN was founded."
+    },
+    {
+      "id": "q-sam8-eu-11",
+      "kind": "mc",
+      "topic": "the UN's tasks",
+      "prompt": "Which UN body can decide on sanctions and peacekeeping operations?",
+      "opener": "This body has a small number of permanent members with veto power.",
+      "choices": [
+        "The General Assembly alone",
+        "The European Commission",
+        "NATO",
+        "The Security Council"
+      ],
+      "answer": 3,
+      "explanation": "The Security Council is the UN body that can decide on binding sanctions and peacekeeping operations, with five permanent members holding veto power. The General Assembly can adopt resolutions but lacks the same binding power, and neither the European Commission nor NATO are UN bodies."
+    },
+    {
+      "id": "q-sam8-eu-12",
+      "kind": "mc",
+      "topic": "international cooperation",
+      "prompt": "What does the abbreviation WTO stand for, an organisation that works on international trade rules?",
+      "opener": "The last two letters reveal it's an organisation.",
+      "choices": [
+        "The World Health Organization",
+        "The World Bank",
+        "The World Wide Fund for Nature",
+        "The World Trade Organization"
+      ],
+      "answer": 3,
+      "explanation": "The WTO, the World Trade Organization, works on drawing up shared rules for international trade and resolving trade disputes between countries. The World Health Organization (WHO), the World Bank and the World Wide Fund for Nature (WWF) are other international organisations with entirely different main tasks."
+    },
+    {
+      "id": "q-sam8-eu-13",
+      "kind": "mc",
+      "topic": "globalisation",
+      "prompt": "Which of the following is often mentioned as a possible disadvantage of globalisation?",
+      "opener": "Think about what can happen to jobs when production can easily move between countries.",
+      "choices": [
+        "That trade between countries decreases entirely",
+        "That all countries become exactly equally wealthy",
+        "That the internet stops working",
+        "That jobs in certain industries relocate to countries with lower wages"
+      ],
+      "answer": 3,
+      "explanation": "A commonly mentioned disadvantage of globalisation is that companies can move production and jobs to countries with lower wages, which can hit certain industries in high-income countries hard. Globalisation, on the contrary, means trade increases, it doesn't automatically equalise every country's wealth, and it has nothing to do with the internet ceasing to work."
+    },
+    {
+      "id": "q-sam8-eu-14",
+      "kind": "mc",
+      "topic": "what the EU is",
+      "prompt": "What is the agreement called that allows citizens to travel between most EU countries (and a few more) without passport checks at the borders?",
+      "opener": "The agreement is named after a small village in Luxembourg where it was signed.",
+      "choices": [
+        "The Paris Agreement",
+        "The Treaty of Lisbon",
+        "The Treaty of Rome",
+        "The Schengen Agreement"
+      ],
+      "answer": 3,
+      "explanation": "The Schengen Agreement allows citizens to travel between most EU countries and a few additional countries without passport checks at the internal borders. The Paris Agreement concerns the climate, and the Treaty of Lisbon and the Treaty of Rome are other foundational EU treaties, but neither of them regulates passport-free travel in the same way."
+    },
+    {
+      "id": "q-sam8-eu-15",
+      "kind": "mc",
+      "topic": "the EU and Sweden",
+      "prompt": "Does Sweden use the euro or its own currency as an EU member?",
+      "opener": "The question was settled in a referendum in 2003.",
+      "choices": [
+        "Sweden was forced to adopt the euro immediately upon membership",
+        "Sweden uses both the euro and the krona in parallel in every shop",
+        "Sweden has no currency of its own at all",
+        "Sweden has kept the Swedish krona"
+      ],
+      "answer": 3,
+      "explanation": "Sweden has kept the Swedish krona as its currency, since a majority voted no to the euro in the 2003 referendum. Sweden was therefore not forced to adopt the euro upon membership, and the krona is still the currency used in ordinary Swedish shops."
     }
   ]
 }

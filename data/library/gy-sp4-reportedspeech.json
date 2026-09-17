@@ -123,6 +123,111 @@
       "prompt": "Vilka tempusväxlingar och andra förändringar sker i estilo indirecto?",
       "opener": "Ett schema att memorera för att smidigt växla mellan direkt och indirekt tal.",
       "answer": "Tempusväxlingar (när det inledande verbet står i dåtid, t.ex. dijo que): presente→imperfecto (estoy→estaba), pretérito→pluscuamperfecto (llegué→había llegado), futuro→condicional (iré→iría), imperativo→imperfecto de subjuntivo (estudiad→estudiáramos). Tids-/platsuttryck: hoy→aquel día, mañana→al día siguiente, ayer→el día anterior, aquí→allí, este→aquel. Frågor: ja/nej-frågor får \"si\" (preguntó si venía), frågeordsfrågor behåller frågeordet (preguntó cuándo venía) — utan frågetecken och utan inverterad ordföljd. Pronomen anpassas alltid efter det nya perspektivet."
+    },
+    {
+      "id": "q-sp4-reportedspeech-9",
+      "kind": "mc",
+      "topic": "reported speech",
+      "prompt": "Omvandla till indirekt tal: Sofía dijo: \"Tengo hambre.\" → Sofía dijo que ___.",
+      "opener": "Presens flyttas ett steg bakåt till imperfekt.",
+      "choices": [
+        "tenía hambre",
+        "tiene hambre",
+        "tuvo hambre",
+        "tendría hambre"
+      ],
+      "answer": 0,
+      "explanation": "Presens (\"tengo\") flyttas bakåt till imperfekt: \"tenía hambre\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-10",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Omvandla till indirekt tal: Miguel dijo: \"He terminado el trabajo.\" → Miguel dijo que ___.",
+      "opener": "Pretérito perfecto compuesto (he terminado) flyttas bakåt till pluskvamperfekt.",
+      "choices": [
+        "había terminado el trabajo",
+        "ha terminado el trabajo",
+        "terminó el trabajo",
+        "terminaría el trabajo"
+      ],
+      "answer": 0,
+      "explanation": "\"He terminado\" (pretérito perfecto compuesto) flyttas bakåt till pluskvamperfekt: \"había terminado el trabajo\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-11",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Omvandla till indirekt tal: Rosa dijo: \"Vivía en Madrid.\" → Rosa dijo que ___.",
+      "opener": "Imperfekt flyttas INTE bakåt i indirekt tal — det förblir imperfekt.",
+      "choices": [
+        "vivía en Madrid",
+        "vive en Madrid",
+        "vivió en Madrid",
+        "había vivido en Madrid"
+      ],
+      "answer": 0,
+      "explanation": "Imperfekt (\"vivía\") behålls oförändrat i indirekt tal, eftersom det redan beskriver bakgrund/vana i dåtid: \"vivía en Madrid\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-12",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "Omvandla till indirekt tal: Juan preguntó: \"¿Dónde vives?\" → Juan preguntó ___.",
+      "opener": "Frågeordsfrågor behåller frågeordet men tappar frågetecknet och den inverterade ordföljden.",
+      "choices": [
+        "dónde vivía",
+        "que dónde vives",
+        "si vivía",
+        "dónde vive"
+      ],
+      "answer": 0,
+      "explanation": "En frågeordsfråga behåller frågeordet (\"dónde\") utan \"que\", och verbet flyttas bakåt i tempus: \"preguntó dónde vivía\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-13",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Omvandla till indirekt tal: María dijo: \"Este libro es mío.\" → María dijo que ___ libro era suyo.",
+      "opener": "Det deiktiska ordet \"este\" (denna, nära talaren) flyttas bakåt till \"aquel\" (den där).",
+      "choices": [
+        "aquel",
+        "este",
+        "ese",
+        "el"
+      ],
+      "answer": 0,
+      "explanation": "\"Este\" (denna, nära talaren i nuet) blir \"aquel\" (den där) i indirekt tal, eftersom perspektivet flyttas bort från den ursprungliga talsituationen."
+    },
+    {
+      "id": "q-sp4-reportedspeech-14",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "Omvandla till indirekt tal: El médico dijo: \"No fumes.\" → El médico le dijo que ___.",
+      "opener": "En nekande imperativ i direkt tal blir \"no\" + imperfekt subjuntivo i indirekt tal.",
+      "choices": [
+        "no fumara",
+        "no fuma",
+        "no fumaría",
+        "no fume"
+      ],
+      "answer": 0,
+      "explanation": "En imperativ (\"no fumes\") blir imperfekt subjuntivo i indirekt tal efter ett verb i dåtid: \"que no fumara\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-15",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Omvandla till indirekt tal: Pablo dijo: \"Llegué ayer.\" → Pablo dijo que había llegado ___.",
+      "opener": "\"Ayer\" (igår) flyttas bakåt till \"el día anterior\" (dagen innan).",
+      "choices": [
+        "el día anterior",
+        "ayer",
+        "hoy",
+        "el día siguiente"
+      ],
+      "answer": 0,
+      "explanation": "\"Ayer\" (igår, ur talarens ursprungliga perspektiv) blir \"el día anterior\" (dagen innan) i indirekt tal."
     }
   ]
 }

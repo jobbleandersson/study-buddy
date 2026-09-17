@@ -123,6 +123,110 @@
       "prompt": "När använder du citat och när använder du referat?",
       "opener": "Ett återger orden, det andra innehållet.",
       "answer": "Citat: när den exakta formuleringen har betydelse — ordagrant, inom citattecken, med källa. Använd sparsamt. Referat: när innehållet är det viktiga — sammanfatta med egna ord och referatmarkör. I skoluppgifter ska merparten vara referat; för många citat visar att du inte bearbetat materialet."
+    },
+    {
+      "id": "q-sv1-txt-9",
+      "kind": "mc",
+      "topic": "argumenterande text",
+      "prompt": "Vilket av följande är ett ARGUMENT som stödjer tesen \"Skolan bör införa mobilförbud\"?",
+      "opener": "Ett argument ska ge ett SKÄL till varför tesen stämmer.",
+      "choices": [
+        "Många elever tycker illa om förbud.",
+        "Forskning visar att mobilanvändning under lektion sänker elevers koncentration och resultat.",
+        "Mobiler är dyra att köpa in.",
+        "Skolan ligger i centrala stan."
+      ],
+      "answer": 1,
+      "explanation": "Att forskning kopplar mobilanvändning till sämre koncentration och resultat är ett sakskäl som direkt stödjer tesen om mobilförbud. De andra alternativen är antingen irrelevanta eller talar snarare emot tesen."
+    },
+    {
+      "id": "q-sv1-txt-10",
+      "kind": "mc",
+      "topic": "utredande text",
+      "prompt": "En elev skriver en utredande text om skolmatens kvalitet. Vad bör texten INTE göra?",
+      "opener": "Vad skiljer en utredande text från en renodlat argumenterande?",
+      "choices": [
+        "Redovisa flera perspektiv på frågan",
+        "Dra en tydlig, väl underbyggd slutsats i slutet, baserad på det som undersökts",
+        "Argumentera enbart för en förutbestämd åsikt genom hela texten",
+        "Använda källor från olika håll"
+      ],
+      "answer": 2,
+      "explanation": "En utredande text ska undersöka frågan från flera håll innan den eventuellt landar i en slutsats — att driva en förutbestämd åsikt genom hela texten hör i stället till den argumenterande texttypen."
+    },
+    {
+      "id": "q-sv1-txt-11",
+      "kind": "mc",
+      "topic": "referat och citat",
+      "prompt": "När är det lämpligt att använda ett direkt CITAT i stället för ett referat?",
+      "opener": "Vad är det som gör citatet värt att bevara ordagrant?",
+      "choices": [
+        "När den exakta formuleringen är viktig, till exempel en unik eller känslig formulering",
+        "Alltid, citat är mer objektivt än referat",
+        "Aldrig, citat räknas som plagiat",
+        "Bara när man inte förstår källans innehåll"
+      ],
+      "answer": 0,
+      "explanation": "Citat används sparsamt, när formuleringen i sig har betydelse — t.ex. ett slagkraftigt eller kontroversiellt uttalande. Ett korrekt markerat citat med källa är inte plagiat."
+    },
+    {
+      "id": "q-sv1-txt-12",
+      "kind": "mc",
+      "topic": "källhantering",
+      "prompt": "Vad innebär det att en källa har hög trovärdighet men låg relevans för din frågeställning?",
+      "opener": "Trovärdighet och relevans är två olika saker — vad är skillnaden?",
+      "choices": [
+        "Källan är oanvändbar för uppgiften, även om den i sig är pålitlig",
+        "Källan bör alltid användas ändå",
+        "Trovärdighet och relevans är samma sak",
+        "Källan är per automatik opålitlig"
+      ],
+      "answer": 0,
+      "explanation": "En källa kan vara helt tillförlitlig men ändå inte svara på just din frågeställning — då är den irrelevant för uppgiften, oavsett hur pålitlig den är i sig."
+    },
+    {
+      "id": "q-sv1-txt-13",
+      "kind": "mc",
+      "topic": "argumenterande text",
+      "prompt": "Vilken mening fungerar som TES i följande utdrag? \"Många menar att läxor är nödvändiga för lärandet. Men forskning visar blandade resultat. Skolan bör därför minska mängden läxor till förmån för mer lärarledd tid.\"",
+      "opener": "Tesen är den ståndpunkt som resten av resonemanget leder fram till.",
+      "choices": [
+        "Många menar att läxor är nödvändiga för lärandet.",
+        "Men forskning visar blandade resultat.",
+        "Skolan bör därför minska mängden läxor till förmån för mer lärarledd tid.",
+        "Ingen av meningarna är en tes."
+      ],
+      "answer": 2,
+      "explanation": "Den avslutande meningen är det diskutabla påstående som texten argumenterar för. De två första meningarna är bakgrund och ett motargument (forskningsläget) som leder fram till tesen."
+    },
+    {
+      "id": "q-sv1-txt-14",
+      "kind": "worked",
+      "topic": "referat och citat",
+      "prompt": "Originaltext: \"Andelen unga som läser böcker på fritiden har minskat med nästan 30 procent under 2010-talet, vilket forskare kopplar till ökad skärmtid.\" (Berg, 2021). Skriv ett korrekt referat av meningen.",
+      "opener": "Tre saker måste med: egna ord, referatmarkör och källa.",
+      "answer": "Enligt Berg (2021) har andelen unga som läser böcker på fritiden minskat med närmare 30 procent under 2010-talet, något forskare kopplar till att skärmtiden ökat.",
+      "steps": [
+        "Börja med en referatmarkör som anger källan: \"Enligt Berg (2021)…\".",
+        "Formulera om innehållet med egna ord: \"minskat med nästan 30 procent\" → \"minskat med närmare 30 procent\", \"vilket forskare kopplar till\" → \"något forskare kopplar till\".",
+        "Ändra meningsbyggnaden, inte bara enstaka ord, så referatet inte ligger för nära originalet.",
+        "Kontrollera att innehållet är oförvanskat: minskningens storleksordning och kopplingen till skärmtid ska finnas kvar."
+      ]
+    },
+    {
+      "id": "q-sv1-txt-15",
+      "kind": "mc",
+      "topic": "källhantering",
+      "prompt": "Du citerar en mening ordagrant från en artikel, sätter citattecken runt den och anger källan tydligt. Är detta plagiat?",
+      "opener": "Vad är det som gör en ordagrann återgivning till plagiat — själva ordagrannheten, eller något annat?",
+      "choices": [
+        "Ja, allt ordagrant återgivet är plagiat",
+        "Nej, ett korrekt markerat och källhänvisat citat är tillåtet",
+        "Bara om texten är längre än en mening",
+        "Bara om källan är en bok, inte en artikel"
+      ],
+      "answer": 1,
+      "explanation": "Plagiat handlar om att låtsas att andras ord eller idéer är dina egna. Ett citat som tydligt markeras med citattecken och källa gör precis motsatsen — det är fullt tillåtet."
     }
   ]
 }

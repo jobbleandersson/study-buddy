@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta pH-skalan, indikatorer, vanliga syror och baser, neutralisation och försurning.",
       "opener": "Skalan först, sedan indikatorfärgerna, därefter exempel på syror och baser och till sist neutralisation.",
       "answer": "pH-skalan: 0–14, visar hur sur eller basisk en lösning är · pH under 7 = surt, överskott av vätejoner (H+) · pH 7 = neutralt, t.ex. rent vatten · pH över 7 = basiskt, överskott av hydroxidjoner (OH−) · Syra: avger H+ i vatten · Bas: avger OH− i vatten · BTB: gul i surt, grön vid neutralt, blå i basiskt · Lakmus: rött i surt, blått i basiskt · Universalindikator/pH-papper: ger färgskala för hela pH-området · Vanliga syror: saltsyra HCl (magsyra), svavelsyra H2SO4 (bilbatteri), salpetersyra HNO3, kolsyra H2CO3 (läsk), ättiksyra (ättika), citronsyra (citron) · Vanliga baser: natriumhydroxid NaOH (propplösare), kalciumhydroxid Ca(OH)2 (släckt kalk), ammoniak NH3, natriumvätekarbonat (bikarbonat) · Neutralisation: syra + bas → salt + vatten, pH går mot 7, t.ex. HCl + NaOH → NaCl + H2O · Saltets namn kommer från basens metalljon + syrans jon (t.ex. natrium + klorid = natriumklorid) · Försurning: svavel- och kväveoxider från förbränning bildar syror i regnet, sänker pH i mark och sjöar, skadar fisk och löser ut giftiga metaller · Motmedel: rening av utsläpp och kalkning av sjöar och skogsmark · Späd alltid syra genom att hälla syran i vattnet, aldrig omvänt."
+    },
+    {
+      "id": "q-kemi8-syr-9",
+      "kind": "mc",
+      "topic": "pH-skalan och indikatorer",
+      "prompt": "Vilken färg får lakmuspapper i en basisk lösning?",
+      "opener": "Lakmus har bara två färger: en för surt och en för basiskt.",
+      "choices": [
+        "Rött",
+        "Blått",
+        "Gult",
+        "Grönt"
+      ],
+      "answer": 1,
+      "explanation": "Lakmuspapper blir blått i basiska lösningar. I sura lösningar blir det i stället rött — grönt och gult hör till BTB, en annan indikator."
+    },
+    {
+      "id": "q-kemi8-syr-10",
+      "kind": "mc",
+      "topic": "vanliga syror och baser",
+      "prompt": "Vilken syra finns i bilbatterier?",
+      "opener": "Denna syra är stark och frätande och används i blyackumulatorer.",
+      "choices": [
+        "Saltsyra",
+        "Svavelsyra",
+        "Kolsyra",
+        "Citronsyra"
+      ],
+      "answer": 1,
+      "explanation": "Svavelsyra (H2SO4) används som elektrolyt i bilbatterier. Saltsyra finns i stället i magsäcken, kolsyra i läsk och citronsyra i citrusfrukter."
+    },
+    {
+      "id": "q-kemi8-syr-11",
+      "kind": "mc",
+      "topic": "vanliga syror och baser",
+      "prompt": "Vilket ämne är en bas som används vid bakning?",
+      "opener": "Ämnet kallas ofta bikarbonat i vardagligt tal.",
+      "choices": [
+        "Natriumvätekarbonat",
+        "Saltsyra",
+        "Ättiksyra",
+        "Svavelsyra"
+      ],
+      "answer": 0,
+      "explanation": "Natriumvätekarbonat, bikarbonat, är en svag bas som bland annat används vid bakning. De övriga tre alternativen är alla syror."
+    },
+    {
+      "id": "q-kemi8-syr-12",
+      "kind": "mc",
+      "topic": "neutralisation och saltbildning",
+      "prompt": "Svavelsyra (H2SO4) neutraliseras med kaliumhydroxid (KOH). Vilken typ av ämnen bildas?",
+      "opener": "Neutralisation ger alltid samma två typer av produkter.",
+      "choices": [
+        "Bara vatten",
+        "Ett salt och vatten",
+        "Två syror",
+        "Koldioxid och syre"
+      ],
+      "answer": 1,
+      "explanation": "Vid neutralisation bildas alltid ett salt och vatten, här kaliumsulfat och vatten. Att bara vatten skulle bildas stämmer inte, eftersom kalium- och sulfatjonerna blir kvar som salt i lösningen."
+    },
+    {
+      "id": "q-kemi8-syr-13",
+      "kind": "mc",
+      "topic": "syror och baser i vardagen",
+      "prompt": "Vilket pH-värde har en neutral lösning som rent vatten?",
+      "opener": "Detta värde ligger mitt på pH-skalan.",
+      "choices": [
+        "0",
+        "4",
+        "7",
+        "14"
+      ],
+      "answer": 2,
+      "explanation": "pH 7 är neutralt, precis som rent vatten. pH 0 är extremt surt och pH 14 extremt basiskt, medan pH 4 är svagt surt."
+    },
+    {
+      "id": "q-kemi8-syr-14",
+      "kind": "worked",
+      "topic": "försurning",
+      "prompt": "En åker har blivit försurad av surt regn och markens pH är 4,8. Bonden bestämmer sig för att sprida kalk (kalciumkarbonat, CaCO3) på åkern. Förklara med kemiska begrepp varför kalkningen hjälper.",
+      "opener": "Fundera på vad som finns för mycket av i sur jord, och vad ett basiskt ämne gör med det.",
+      "answer": "Kalk är ett basiskt ämne som neutraliserar en del av syran i jorden. Vätejonerna binds upp, pH stiger från 4,8 mot 7 och marken blir åter en bättre växtmiljö för grödorna.",
+      "steps": [
+        "pH 4,8 är lägre än 7, så jorden är sur och innehåller ett överskott av vätejoner (H+).",
+        "Syran kommer främst från nedfall av svavel- och kväveoxider som bildar syror i regnet.",
+        "Kalk (CaCO3) är basiskt och reagerar med syran i en neutralisationsreaktion.",
+        "Vätejonerna binds upp och det bildas bland annat vatten och koldioxid, så pH stiger mot 7.",
+        "Med högre pH kan grödorna ta upp näring bättre och växa som vanligt igen — men kalkningen behöver upprepas så länge nedfallet fortsätter."
+      ]
+    },
+    {
+      "id": "q-kemi8-syr-15",
+      "kind": "mc",
+      "topic": "pH-skalan och indikatorer",
+      "prompt": "Vad gör en indikator som BTB i en kemisk lösning?",
+      "opener": "Tänk på vad man faktiskt observerar när man droppar BTB i en lösning.",
+      "choices": [
+        "Den ändrar lösningens pH",
+        "Den byter färg beroende på lösningens pH",
+        "Den neutraliserar syran i lösningen",
+        "Den gör lösningen elektriskt ledande"
+      ],
+      "answer": 1,
+      "explanation": "En indikator som BTB byter färg beroende på lösningens pH, vilket gör det möjligt att avläsa om lösningen är sur, neutral eller basisk. Den ändrar inte själv lösningens pH eller neutraliserar syran."
     }
   ]
 }

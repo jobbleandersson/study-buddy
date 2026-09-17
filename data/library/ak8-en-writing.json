@@ -123,6 +123,110 @@
       "prompt": "Vilka sambandsord, styckeregler och stilnivåer behöver du kunna när du skriver på engelska?",
       "opener": "Sambandsord · stycken · stilnivå · mejl och berättelse.",
       "answer": "Motsats: however, but, although, on the other hand · Orsak: because, since, as · Följd: therefore, so, as a result · Tillägg: also, in addition, moreover · Exempel: for example, such as · Avslutning: in conclusion, to sum up · Stycke: en tanke per stycke, kärnmening först, sedan förklaring och exempel, nytt stycke vid nytt ämne · Formellt: Dear Sir or Madam, I would like to, I am writing to ask, Yours sincerely — inga förkortningar (do not i stället för don't), ingen slang · Informellt: Hi Sam, Thanks a lot, See you soon, förkortningar går bra · Kort mejl: hälsning, syfte i första meningen, detaljer, artig avslutning, namn · Berättelse: börja mitt i händelsen, past simple som grundtempus, tidsord (then, after that, suddenly, finally), avsluta med hur det gick."
+    },
+    {
+      "id": "q-en8-wri-9",
+      "kind": "mc",
+      "topic": "sambandsord",
+      "prompt": "Choose the best linking word: \"The team practised every day. ___, they lost the final match.\"",
+      "opener": "De två meningarna säger emot varandra — vilket ord signalerar en motsats?",
+      "choices": [
+        "Therefore",
+        "However",
+        "For example",
+        "Because"
+      ],
+      "answer": 1,
+      "explanation": "\"However\" markerar en motsats mellan hårt tränande och ett förlorat resultat. \"Therefore\" skulle betyda att förlusten var en följd av träningen, vilket inte stämmer."
+    },
+    {
+      "id": "q-en8-wri-10",
+      "kind": "mc",
+      "topic": "sambandsord",
+      "prompt": "Which sentence is correct?",
+      "opener": "Orsaken kommer först, och sambandsordet visar följden — kolla att ordningen stämmer.",
+      "choices": [
+        "We were happy so the trip was cancelled.",
+        "The trip was cancelled, so we were disappointed.",
+        "Because the trip was cancelled, so we were disappointed.",
+        "We were disappointed, so the trip was cancelled."
+      ],
+      "answer": 1,
+      "explanation": "Att resan ställdes in är orsaken och besvikelsen är följden: \"The trip was cancelled, so we were disappointed.\" De andra alternativen vänder på orsak och verkan, eller använder \"because ... so\" som är dubbel bindning och inte används på engelska."
+    },
+    {
+      "id": "q-en8-wri-11",
+      "kind": "mc",
+      "topic": "sambandsord",
+      "prompt": "Choose the best linking phrase: \"Our school offers many clubs. ___, there is a chess club and a photography club.\"",
+      "opener": "Andra meningen ger konkreta exempel på det som sägs i den första.",
+      "choices": [
+        "For example",
+        "However",
+        "In conclusion",
+        "On the other hand"
+      ],
+      "answer": 0,
+      "explanation": "Schackklubben och fotoklubben är exempel på klubbarna som nämns, så \"for example\" passar. \"In conclusion\" används för att sammanfatta i slutet av en text, inte för att införa exempel."
+    },
+    {
+      "id": "q-en8-wri-12",
+      "kind": "mc",
+      "topic": "styckeindelning",
+      "prompt": "Which sentence works best as the topic sentence of a paragraph about recycling at school?",
+      "opener": "Kärnmeningen ska säga vad hela stycket handlar om — inte ge en liten detalj.",
+      "choices": [
+        "We have three different bins in the classroom.",
+        "Recycling at school helps students build habits that matter for the environment.",
+        "Yesterday someone put a banana peel in the paper bin.",
+        "The bins are usually emptied on Fridays."
+      ],
+      "answer": 1,
+      "explanation": "En kärnmening sammanfattar styckets ämne och ger de andra meningarna något att bygga vidare på. De övriga alternativen är detaljer som hör hemma längre in i stycket."
+    },
+    {
+      "id": "q-en8-wri-13",
+      "kind": "mc",
+      "topic": "formellt och informellt",
+      "prompt": "You are writing an informal email to a friend. Which opening is most suitable?",
+      "opener": "Informellt språk tillåter förkortningar och ett avslappnat tilltal, till skillnad från formella mejl.",
+      "choices": [
+        "Dear Sir or Madam, I am writing to inform you...",
+        "Hi Emma! How's it going?",
+        "To whom it may concern,",
+        "I would like to formally request..."
+      ],
+      "answer": 1,
+      "explanation": "\"Hi Emma! How's it going?\" är en avslappnad hälsning som passar ett mejl till en vän. De andra alternativen hör hemma i formella mejl till någon man inte känner."
+    },
+    {
+      "id": "q-en8-wri-14",
+      "kind": "worked",
+      "topic": "sambandsord",
+      "prompt": "Improve this short paragraph by adding linking words and fixing the informal language: \"I joined the drama club. I was shy. Everyone was super friendly. Im really glad I joined and its been awesome.\"",
+      "opener": "Bind ihop de korta meningarna med sambandsord och byt ut talspråket.",
+      "answer": "I joined the drama club, although I was shy. Everyone was very friendly. I am really glad I joined, and it has been great.",
+      "steps": [
+        "\"I joined the drama club. I was shy.\" → \"I joined the drama club, although I was shy.\" Meningarna står i motsats till varandra, så although binder ihop dem.",
+        "\"super friendly\" → \"very friendly\". \"Super\" som förstärkningsord är vardagligt slang.",
+        "\"Im really glad\" → \"I am really glad\". Apostrofen saknades (I'm = I am).",
+        "\"its been awesome\" → \"it has been great\". Dels saknades apostrofen (it's = it has), dels är \"awesome\" vardagligt slang."
+      ]
+    },
+    {
+      "id": "q-en8-wri-15",
+      "kind": "mc",
+      "topic": "texttyper",
+      "prompt": "Which sentence is the best opening for a short story?",
+      "opener": "En berättelse öppnar oftast med något konkret som händer, inte med en sammanfattning.",
+      "choices": [
+        "In this essay I will describe my summer holiday.",
+        "The rain hammered against the tent, and something rustled just outside.",
+        "My story is about a strange thing that happened to me.",
+        "First, I will explain what happened, and then I will explain how I felt."
+      ],
+      "answer": 1,
+      "explanation": "En berättelse fångar läsaren genom att visa en händelse direkt: regnet hamrar och något prasslar utanför. De andra alternativen förklarar vad texten ska handla om, vilket hör hemma i en faktatext eller uppsats — inte i en berättelse."
     }
   ]
 }

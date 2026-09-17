@@ -121,6 +121,111 @@
       "prompt": "What are the most common Swedish-German false friends, and which idioms should you know at this level?",
       "opener": "A quick rundown of traps and useful expressions.",
       "answer": "False friends: das Gift = poison (NOT a present → das Geschenk), der Rat = advice (NOT a rat → die Ratte), der Chef = boss (NOT a cook → der Koch), aktuell = current/topical (matches the Swedish word, but is often confused with English \"actual\" = real/tatsächlich), das Bekannte = the acquaintance/known thing (not \"famous\" → berühmt), die Kost = food/diet (not \"cost\" → die Kosten). Idioms: die Daumen drücken = keep your fingers crossed, ins Wasser fallen = fall through / be cancelled, den Nagel auf den Kopf treffen = hit the nail on the head, unter vier Augen = privately, just between us, Schwein haben = to be lucky, die Katze im Sack kaufen = to buy a pig in a poke."
+    },
+    {
+      "id": "q-de4-idi-9",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does the German \"die Kost\" mean?",
+      "opener": "Sounds like an English word for money you pay, but means something else.",
+      "choices": [
+        "food/diet",
+        "cost",
+        "coast",
+        "art"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Kost\" means food/diet, NOT cost. \"Cost\" is \"die Kosten\" in German."
+    },
+    {
+      "id": "q-de4-idi-10",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does \"der Bekannte\" mean (referring to a person)?",
+      "opener": "Differs from the meaning \"famous person\".",
+      "choices": [
+        "An acquaintance",
+        "A celebrity (famous person)",
+        "A boss",
+        "A neighbor"
+      ],
+      "answer": 0,
+      "explanation": "\"Der/die Bekannte\" means an acquaintance, someone you know casually, NOT a celebrity. \"Famous/celebrity\" is \"berühmt\" in German."
+    },
+    {
+      "id": "q-de4-idi-11",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does the expression \"den Nagel auf den Kopf treffen\" mean?",
+      "opener": "Literally \"to hit the nail on the head\".",
+      "choices": [
+        "To hit the nail on the head",
+        "To miss completely",
+        "To build something",
+        "To hit someone"
+      ],
+      "answer": 0,
+      "explanation": "\"Den Nagel auf den Kopf treffen\" means to hit the nail on the head, i.e. to say or do exactly the right thing."
+    },
+    {
+      "id": "q-de4-idi-12",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does the expression \"unter vier Augen\" mean?",
+      "opener": "Literally \"under four eyes\".",
+      "choices": [
+        "Privately, just between us",
+        "In front of a large audience",
+        "With four witnesses present",
+        "Over the phone"
+      ],
+      "answer": 0,
+      "explanation": "\"Unter vier Augen\" means \"privately/confidentially\", talking with just one other person present."
+    },
+    {
+      "id": "q-de4-idi-13",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does the expression \"Schwein haben\" mean?",
+      "opener": "Literally \"to have pig\".",
+      "choices": [
+        "To be lucky",
+        "To eat a lot",
+        "To be dirty",
+        "To be greedy"
+      ],
+      "answer": 0,
+      "explanation": "\"Schwein haben\" means \"to be lucky\", a casual idiom."
+    },
+    {
+      "id": "q-de4-idi-14",
+      "kind": "mc",
+      "topic": "idioms",
+      "prompt": "What does the expression \"die Katze im Sack kaufen\" mean?",
+      "opener": "Literally \"to buy the cat in the sack\".",
+      "choices": [
+        "To buy a pig in a poke (buy something unseen)",
+        "To have a secret cat",
+        "To be very frugal",
+        "To deliberately trick someone"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Katze im Sack kaufen\" corresponds to the English \"to buy a pig in a poke\" — to buy something without examining it properly first."
+    },
+    {
+      "id": "q-de4-idi-15",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does the German \"der Rock\" mean?",
+      "opener": "Sounds like an English word for music or stone, but it's neither!",
+      "choices": [
+        "Skirt",
+        "Coat",
+        "Stone",
+        "Music genre"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Rock\" means \"skirt\", NOT rock music or a coat. \"Coat\" is \"der Mantel\" in German."
     }
   ]
 }

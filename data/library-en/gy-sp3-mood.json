@@ -122,6 +122,111 @@
       "prompt": "Which expressions trigger the subjunctive, and how is it conjugated?",
       "opener": "A list of trigger phrases plus the most common irregular forms.",
       "answer": "Expressions that trigger the subjunctive: querer que, esperar que, es importante que, es necesario que, pedir que, recomendar que — all express a wish, necessity, or request directed at SOMEONE ELSE. Rule: same subject → infinitive (quiero ir), different subjects → que + subjunctive (quiero que vayas). Regular endings: -ar → -e/-es/-e/-emos/-éis/-en, -er/-ir → -a/-as/-a/-amos/-áis/-an. Key irregular forms: ser → sea, estar → esté, ir → vaya, saber → sepa, dar → dé, haber → haya, tener → tenga."
+    },
+    {
+      "id": "q-sp3-mood-9",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Choose the correct form: \"Mis padres quieren que yo ___ (llegar) a casa temprano.\"",
+      "opener": "Different subjects (mis padres / yo) trigger the subjunctive in the subordinate clause.",
+      "choices": [
+        "llegue",
+        "llego",
+        "llegué",
+        "llegaré"
+      ],
+      "answer": 0,
+      "explanation": "-ar verbs in the subjunctive switch their ending to -e: llegue, llegues, llegue, lleguemos, lleguéis, lleguen. \"Yo\" gives \"llegue\"."
+    },
+    {
+      "id": "q-sp3-mood-10",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Choose the correct form: \"Espero que tú ___ (hacer) la tarea.\"",
+      "opener": "\"Hacer\" has an irregular subjunctive stem: hag-.",
+      "choices": [
+        "hagas",
+        "haces",
+        "hiciste",
+        "harás"
+      ],
+      "answer": 0,
+      "explanation": "\"Hacer\" forms the subjunctive on the stem \"hag-\": haga, hagas, haga, hagamos, hagáis, hagan. \"Tú\" gives \"hagas\"."
+    },
+    {
+      "id": "q-sp3-mood-11",
+      "kind": "mc",
+      "topic": "wish and necessity",
+      "prompt": "Choose the correct form: \"Es necesario ___ el pasaporte antes de viajar.\"",
+      "opener": "Without a specific subject (\"que + someone\"), the infinitive is used after \"es necesario\", just like with \"quiero\".",
+      "choices": [
+        "tener",
+        "que tengas",
+        "tengas",
+        "tenga"
+      ],
+      "answer": 0,
+      "explanation": "\"Es necesario\" + the infinitive is used for a general statement with no specific subject: \"es necesario tener el pasaporte\". \"Que\" + the subjunctive would instead be required if a specific subject were named, e.g. \"es necesario que tengas el pasaporte\"."
+    },
+    {
+      "id": "q-sp3-mood-12",
+      "kind": "mc",
+      "topic": "verbs of influence",
+      "prompt": "Choose the correct form: \"El médico recomienda que ella ___ (dejar) de fumar.\"",
+      "opener": "\"Recomendar que\" is a classic expression of urging that triggers the subjunctive.",
+      "choices": [
+        "deje",
+        "deja",
+        "dejó",
+        "dejará"
+      ],
+      "answer": 0,
+      "explanation": "-ar verbs in the subjunctive switch their ending to -e: deje, dejes, deje, dejemos, dejéis, dejen. \"Ella\" gives \"deje\"."
+    },
+    {
+      "id": "q-sp3-mood-13",
+      "kind": "mc",
+      "topic": "present subjunctive",
+      "prompt": "Choose the correct form: \"Ojalá que ellos ___ (ir) a la fiesta.\"",
+      "opener": "\"Ir\" is completely irregular in the subjunctive.",
+      "choices": [
+        "vayan",
+        "van",
+        "fueron",
+        "irán"
+      ],
+      "answer": 0,
+      "explanation": "\"Ir\" in the subjunctive: vaya, vayas, vaya, vayamos, vayáis, vayan. \"Ellos\" gives \"vayan\". \"Ojalá que\" (I hope that) expresses a wish and requires the subjunctive."
+    },
+    {
+      "id": "q-sp3-mood-14",
+      "kind": "mc",
+      "topic": "verbs of influence",
+      "prompt": "Choose the correct form: \"Te pido que me ___ (ayudar).\"",
+      "opener": "\"Pedir que\" is another common expression of request.",
+      "choices": [
+        "ayudes",
+        "ayudas",
+        "ayudaste",
+        "ayudarás"
+      ],
+      "answer": 0,
+      "explanation": "-ar verbs in the subjunctive: ayude, ayudes, ayude, ayudemos, ayudéis, ayuden. \"Tú\" (the implied recipient) gives \"ayudes\"."
+    },
+    {
+      "id": "q-sp3-mood-15",
+      "kind": "mc",
+      "topic": "wish and necessity",
+      "prompt": "Choose the correct form: \"Necesito que tú ___ (venir) mañana.\"",
+      "opener": "Different subjects (yo necesito / tú vengas) trigger the subjunctive, and \"venir\" is irregular.",
+      "choices": [
+        "vengas",
+        "vienes",
+        "viniste",
+        "vendrás"
+      ],
+      "answer": 0,
+      "explanation": "\"Venir\" forms the subjunctive on the stem \"veng-\": venga, vengas, venga, vengamos, vengáis, vengan. \"Tú\" gives \"vengas\"."
     }
   ]
 }

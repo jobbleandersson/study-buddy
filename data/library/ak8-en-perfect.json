@@ -123,6 +123,110 @@
       "prompt": "Hur bildas present perfect, när används det i stället för past simple, och hur fungerar for/since?",
       "opener": "Bildning · användning · tidsord.",
       "answer": "Bildning: have/has + perfektparticip (I have played · she has gone) · Använd present perfect när tidpunkten är oviktig eller osagd (I have been to Spain), när något började förr och pågår än (We have lived here for two years) och vid färska händelser med just/already/yet · Använd past simple när tiden är bestämd: yesterday, last week, in 2019, when I was ten · Tidsord: ever/never i erfarenheter, just = nyss, already = redan (jakande), yet = ännu/redan (frågor och nekande, sist i satsen) · for + längd (for three days) · since + startpunkt (since Monday) · Vanliga fel: \"have saw\" (ska vara have seen), \"he have\" (ska vara he has)."
+    },
+    {
+      "id": "q-en8-per-9",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"We ___ never been to Japan.\"",
+      "opener": "\"We\" är samma sort som I/you/they — vilket hjälpverb hör ihop med det?",
+      "choices": [
+        "has",
+        "have",
+        "did",
+        "was"
+      ],
+      "answer": 1,
+      "explanation": "\"We\" tar \"have\" i present perfect: \"We have never been to Japan.\" \"Has\" hör bara ihop med he/she/it."
+    },
+    {
+      "id": "q-en8-per-10",
+      "kind": "mc",
+      "topic": "present perfect",
+      "prompt": "Choose the correct form: \"I ___ this book twice already.\"",
+      "opener": "\"Already\" signalerar en färsk händelse utan bestämd tidpunkt — vilket tempus passar?",
+      "choices": [
+        "read",
+        "have read",
+        "has read",
+        "was reading"
+      ],
+      "answer": 1,
+      "explanation": "\"Already\" hör ihop med present perfect: \"I have read this book twice already.\" Med \"I\" används \"have\", inte \"has\"."
+    },
+    {
+      "id": "q-en8-per-11",
+      "kind": "mc",
+      "topic": "tidsuttryck",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Just\" placeras mellan hjälpverbet och huvudverbet.",
+      "choices": [
+        "She has just left the room.",
+        "She has left just the room.",
+        "She just has left the room.",
+        "She has left the room just."
+      ],
+      "answer": 0,
+      "explanation": "\"Just\" står mellan have/has och perfektparticipet: \"She has just left the room.\" De andra placeringarna är inte korrekta engelska."
+    },
+    {
+      "id": "q-en8-per-12",
+      "kind": "mc",
+      "topic": "for och since",
+      "prompt": "Choose the correct word: \"He has worked at the shop ___ three months.\"",
+      "opener": "Handlar \"three months\" om en tidsperiods längd eller om en startpunkt?",
+      "choices": [
+        "for",
+        "since",
+        "in",
+        "from"
+      ],
+      "answer": 0,
+      "explanation": "\"For\" används om längden på en period: for three months, for a week. \"Since\" används om en startpunkt, till exempel since March."
+    },
+    {
+      "id": "q-en8-per-13",
+      "kind": "mc",
+      "topic": "tidsuttryck",
+      "prompt": "Which question is correct?",
+      "opener": "\"Ever\" placeras mellan hjälpverbet och huvudverbet, precis som just och never.",
+      "choices": [
+        "Have you ever visited New York?",
+        "Have you visited ever New York?",
+        "Did you ever have visited New York?",
+        "You have ever visited New York?"
+      ],
+      "answer": 0,
+      "explanation": "\"Ever\" står mellan have och perfektparticipet i frågor: \"Have you ever visited...?\" Frågor i present perfect inleds med have/has, inte did."
+    },
+    {
+      "id": "q-en8-per-14",
+      "kind": "worked",
+      "topic": "present perfect",
+      "prompt": "Correct the four errors: \"My sister have never tried sushi. She lived in Paris since 2021, and she has visit the Eiffel Tower already.\"",
+      "opener": "Blanda inte ihop present perfect och past simple — och kolla hjälpverb, particip och var already ska stå.",
+      "answer": "My sister has never tried sushi. She has lived in Paris since 2021, and she has already visited the Eiffel Tower.",
+      "steps": [
+        "\"My sister have\" → \"My sister has\". Tredje person singular tar \"has\" som hjälpverb.",
+        "\"She lived in Paris since 2021\" → \"She has lived in Paris since 2021\". Något som började i dåtid och fortfarande gäller uttrycks med present perfect + since.",
+        "\"has visit\" → \"has visited\". Efter have/has står perfektparticipet, som för regelbundna verb slutar på -ed.",
+        "\"visited the Eiffel Tower already\" → \"already visited the Eiffel Tower\". \"Already\" placeras vanligtvis mellan hjälpverbet och huvudverbet, inte sist i satsen."
+      ]
+    },
+    {
+      "id": "q-en8-per-15",
+      "kind": "mc",
+      "topic": "for och since",
+      "prompt": "Choose the correct word: \"I haven't seen my cousin ___ last Christmas.\"",
+      "opener": "\"Last Christmas\" är en bestämd startpunkt, inte en längd.",
+      "choices": [
+        "for",
+        "since",
+        "in",
+        "at"
+      ],
+      "answer": 1,
+      "explanation": "\"Since\" används om en startpunkt: since last Christmas. \"For\" hade behövts om meningen istället angav en längd, till exempel \"for six months\"."
     }
   ]
 }

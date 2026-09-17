@@ -123,6 +123,111 @@
       "prompt": "Summarise how $a$, the axis of symmetry and the vertex relate to each other for a quadratic function $f(x) = ax^2 + bx + c$.",
       "opener": "Connect the coefficient $a$ with the shape, and $b$, $c$ with the position.",
       "answer": "$a>0$ gives an upward-opening parabola (minimum value) · $a<0$ gives a downward-opening parabola (maximum value) · A larger $|a|$ gives a narrower parabola, a smaller $|a|$ gives a wider one · Axis of symmetry: $x = -\\dfrac{b}{2a}$ · Vertex: $\\left(-\\dfrac{b}{2a},\\ f\\!\\left(-\\dfrac{b}{2a}\\right)\\right)$ · Vertex form: $f(x) = a(x-h)^2+k$ with vertex $(h,k)$."
+    },
+    {
+      "id": "q-ma2-funktioner-9",
+      "kind": "mc",
+      "topic": "vertex form",
+      "prompt": "The function $f(x) = (x+5)^2 - 2$ is written in vertex form. What is the vertex?",
+      "opener": "In the form $f(x)=(x-a)^2+b$ the vertex is $(a,b)$ — think about the sign inside the brackets.",
+      "choices": [
+        "$(-5, -2)$",
+        "$(5, -2)$",
+        "$(-5, 2)$",
+        "$(2, -5)$"
+      ],
+      "answer": 0,
+      "explanation": "$(x+5)^2 = (x-(-5))^2$, so $a=-5$ and $b=-2$, giving the vertex $(-5,-2)$. Forgetting the sign change inside the brackets (answer B) is a common mistake."
+    },
+    {
+      "id": "q-ma2-funktioner-10",
+      "kind": "mc",
+      "topic": "axis of symmetry",
+      "prompt": "What is the axis of symmetry for $f(x) = x^2 + 8x + 2$?",
+      "opener": "Use $x = -\\dfrac{p}{2}$ with $p=8$.",
+      "choices": [
+        "$x = -4$",
+        "$x = 4$",
+        "$x = 8$",
+        "$x = -8$"
+      ],
+      "answer": 0,
+      "explanation": "The axis of symmetry is $x = -\\frac{p}{2} = -\\frac{8}{2} = -4$. Answering $x=4$ (answer B) misses the minus sign in the formula."
+    },
+    {
+      "id": "q-ma2-funktioner-11",
+      "kind": "mc",
+      "topic": "extreme value",
+      "prompt": "What is the maximum value of the function $f(x) = -x^2 + 6x - 5$?",
+      "opener": "Find the $x$-value of the axis of symmetry and substitute it into the function.",
+      "choices": [
+        "$4$",
+        "$-5$",
+        "$3$",
+        "$9$"
+      ],
+      "answer": 0,
+      "explanation": "The axis of symmetry is $x = -\\frac{6}{2\\cdot(-1)} = 3$. Substituting: $f(3) = -9+18-5 = 4$. Since the coefficient in front of $x^2$ is negative, the parabola opens downwards, so $4$ is a maximum value."
+    },
+    {
+      "id": "q-ma2-funktioner-12",
+      "kind": "mc",
+      "topic": "significance of coefficients",
+      "prompt": "The graph of $f(x) = 0{.}2x^2$ is compared with the graph of $g(x) = 4x^2$. Which statement is correct?",
+      "opener": "Does a smaller-magnitude coefficient give a steeper or a flatter parabola?",
+      "choices": [
+        "$f$ is wider than $g$",
+        "$f$ is narrower than $g$",
+        "$f$ and $g$ are exactly the same width",
+        "$f$ opens downwards and $g$ opens upwards"
+      ],
+      "answer": 0,
+      "explanation": "A smaller magnitude of the coefficient in front of $x^2$ gives a flatter, i.e. wider, parabola. Since $0{.}2 < 4$, $f$ is wider than $g$. Both open upwards because the coefficients are positive."
+    },
+    {
+      "id": "q-ma2-funktioner-13",
+      "kind": "mc",
+      "topic": "vertex form",
+      "prompt": "Which function has its vertex at the point $(2, -3)$ and opens downwards?",
+      "opener": "A minus sign in front of the brackets flips the parabola's direction of opening.",
+      "choices": [
+        "$f(x) = -(x-2)^2 - 3$",
+        "$f(x) = (x-2)^2 - 3$",
+        "$f(x) = -(x+2)^2 - 3$",
+        "$f(x) = (x+2)^2 + 3$"
+      ],
+      "answer": 0,
+      "explanation": "A vertex of $(2,-3)$ requires $a=2$, $b=-3$, giving $(x-2)^2-3$. For the parabola to open downwards, a minus sign is also needed in front of the whole square: $f(x)=-(x-2)^2-3$."
+    },
+    {
+      "id": "q-ma2-funktioner-14",
+      "kind": "mc",
+      "topic": "extreme value",
+      "prompt": "What is the minimum value of the function $f(x) = 2x^2 - 8x + 3$?",
+      "opener": "Find the $x$-value of the axis of symmetry using $x=-\\dfrac{b}{2a}$ and substitute it in.",
+      "choices": [
+        "$-5$",
+        "$3$",
+        "$8$",
+        "$-8$"
+      ],
+      "answer": 0,
+      "explanation": "The axis of symmetry is $x = \\frac{8}{2\\cdot2} = 2$. Substituting: $f(2) = 2\\cdot4 - 8\\cdot2 + 3 = 8-16+3 = -5$. The minimum value is therefore $-5$, not the constant term $3$."
+    },
+    {
+      "id": "q-ma2-funktioner-15",
+      "kind": "mc",
+      "topic": "axis of symmetry",
+      "prompt": "What is the axis of symmetry for $f(x) = 3x^2 - 12x + 7$?",
+      "opener": "Use $x=-\\dfrac{b}{2a}$ with $a=3$ and $b=-12$.",
+      "choices": [
+        "$x = 2$",
+        "$x = 4$",
+        "$x = -2$",
+        "$x = 6$"
+      ],
+      "answer": 0,
+      "explanation": "The axis of symmetry is $x = \\frac{12}{2\\cdot3} = \\frac{12}{6} = 2$. Forgetting to divide by $2a$ (and dividing by $a$ only) would incorrectly give answer B, $x=4$."
     }
   ]
 }

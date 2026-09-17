@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta derivatans definition och de viktigaste deriveringsreglerna.",
       "opener": "Tänk gränsvärde, potensregel, summaregel och tolkningen som förändringstakt.",
       "answer": "$f'(x) = \\lim_{h \\to 0} \\dfrac{f(x+h)-f(x)}{h}$ · Potensregeln: $\\dfrac{d}{dx}x^n = nx^{n-1}$ · Konstantregeln: derivatan av en konstant är $0$ · Summaregeln: derivera varje term för sig, $\\dfrac{d}{dx}\\big(f(x)+g(x)\\big) = f'(x)+g'(x)$ · Konstant faktor: $\\dfrac{d}{dx}\\big(k \\cdot f(x)\\big) = k \\cdot f'(x)$ · $f'(a)$ = tangentens lutning i $x=a$ = momentan förändringstakt vid $x=a$"
+    },
+    {
+      "id": "q-ma3-derivata-9",
+      "kind": "mc",
+      "topic": "deriveringsregler",
+      "prompt": "Derivera $f(x) = 7x^2$.",
+      "opener": "Potensregeln: multiplicera med exponenten och sänk exponenten ett steg.",
+      "choices": [
+        "$f'(x) = 14x$",
+        "$f'(x) = 7x$",
+        "$f'(x) = 14x^2$",
+        "$f'(x) = 7x^2$"
+      ],
+      "answer": 0,
+      "explanation": "Potensregeln ger $\\frac{d}{dx}(7x^2) = 7\\cdot2x^{2-1} = 14x$. Att bara byta ut exponenten utan att multiplicera med koefficienten 2 (svar B) missar ett steg."
+    },
+    {
+      "id": "q-ma3-derivata-10",
+      "kind": "mc",
+      "topic": "deriveringsregler",
+      "prompt": "Derivera $f(x) = x^6 - 3x^2 + 4x$.",
+      "opener": "Derivera term för term.",
+      "choices": [
+        "$f'(x) = 6x^5 - 6x + 4$",
+        "$f'(x) = 6x^5 - 3x + 4$",
+        "$f'(x) = x^5 - 6x + 4$",
+        "$f'(x) = 6x^5 - 6x$"
+      ],
+      "answer": 0,
+      "explanation": "$\\frac{d}{dx}(x^6)=6x^5$, $\\frac{d}{dx}(-3x^2)=-6x$ och $\\frac{d}{dx}(4x)=4$. Summan blir $f'(x)=6x^5-6x+4$."
+    },
+    {
+      "id": "q-ma3-derivata-11",
+      "kind": "mc",
+      "topic": "derivatans definition",
+      "prompt": "Om $f(x)=x^2$, vad är $f(x+h)-f(x)$?",
+      "opener": "Utveckla $(x+h)^2$ och subtrahera $x^2$.",
+      "choices": [
+        "$2xh+h^2$",
+        "$h^2$",
+        "$2xh$",
+        "$x^2+h^2$"
+      ],
+      "answer": 0,
+      "explanation": "$(x+h)^2-x^2 = x^2+2xh+h^2-x^2 = 2xh+h^2$. Detta uttryck delas sedan med $h$ för att bilda ändringskvoten i derivatans definition."
+    },
+    {
+      "id": "q-ma3-derivata-12",
+      "kind": "mc",
+      "topic": "förändringstakt",
+      "prompt": "En sträcka ges av $s(t) = t^3 - 2t$ (meter, $t$ i sekunder). Vad är farten vid $t=1$?",
+      "opener": "Derivera $s(t)$ och sätt in $t=1$.",
+      "choices": [
+        "$1$ m/s",
+        "$3$ m/s",
+        "$-1$ m/s",
+        "$2$ m/s"
+      ],
+      "answer": 0,
+      "explanation": "$s'(t) = 3t^2-2$. Vid $t=1$: $s'(1)=3\\cdot1-2=1$ m/s."
+    },
+    {
+      "id": "q-ma3-derivata-13",
+      "kind": "mc",
+      "topic": "deriveringsregler",
+      "prompt": "Vad är $\\dfrac{d}{dx}\\left(\\sqrt{x}\\right)$?",
+      "opener": "Skriv om $\\sqrt{x}$ som $x^{1/2}$ innan du använder potensregeln.",
+      "choices": [
+        "$\\dfrac{1}{2\\sqrt{x}}$",
+        "$\\dfrac{\\sqrt{x}}{2}$",
+        "$\\dfrac{1}{\\sqrt{x}}$",
+        "$2\\sqrt{x}$"
+      ],
+      "answer": 0,
+      "explanation": "$\\sqrt{x}=x^{1/2}$, så $\\frac{d}{dx}x^{1/2} = \\frac12 x^{-1/2} = \\dfrac{1}{2\\sqrt{x}}$."
+    },
+    {
+      "id": "q-ma3-derivata-14",
+      "kind": "mc",
+      "topic": "derivatans definition",
+      "prompt": "Tangenten till kurvan $y=f(x)$ i punkten $x=a$ har lutningen $f'(a)=3$. Vad innebär det?",
+      "opener": "Tänk på vad tangentens lutning berättar om kurvans beteende nära $x=a$.",
+      "choices": [
+        "Kurvan ökar med ungefär 3 enheter i $y$ för varje enhet i $x$ nära $x=a$",
+        "Kurvan har ett maximum vid $x=a$",
+        "Kurvans värde vid $x=a$ är $3$",
+        "Kurvan är horisontell vid $x=a$"
+      ],
+      "answer": 0,
+      "explanation": "Lutningen $f'(a)=3$ betyder att kurvan lokalt stiger ungefär 3 enheter i $y$-led för varje enhet den förflyttar sig i $x$-led nära $x=a$. Kurvans värde vid $x=a$ ges av $f(a)$, inte av $f'(a)$, och en positiv lutning utesluter ett maximum eller en horisontell tangent där."
+    },
+    {
+      "id": "q-ma3-derivata-15",
+      "kind": "mc",
+      "topic": "deriveringsregler",
+      "prompt": "Derivera $f(x) = \\dfrac{5}{x^3}$.",
+      "opener": "Skriv om uttrycket som $5x^{-3}$ innan du deriverar.",
+      "choices": [
+        "$-\\dfrac{15}{x^4}$",
+        "$-\\dfrac{15}{x^3}$",
+        "$\\dfrac{15}{x^4}$",
+        "$-\\dfrac{5}{x^4}$"
+      ],
+      "answer": 0,
+      "explanation": "Skriv $f(x)=5x^{-3}$. Potensregeln ger $f'(x)=5\\cdot(-3)x^{-4}=-15x^{-4}=-\\dfrac{15}{x^4}$."
     }
   ]
 }

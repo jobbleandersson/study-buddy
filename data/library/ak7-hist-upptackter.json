@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta renässansen, boktryckarkonsten, upptäcktsresorna och reformationen.",
       "opener": "Fyra stora förändringar under samma epok — ta dem i tur och ordning.",
       "answer": "Renässansen: ca 1350–1600, började i norra Italien (Florens), betyder återfödelse och innebar att antiken blev förebild i konst, arkitektur och vetenskap · konstnärer som Leonardo da Vinci och Michelangelo, mer verklighetstrogna människor och perspektiv i bilderna · Humanismen: människan, förnuftet och det jordiska livet i centrum, studier av antikens texter i original · Boktryckarkonsten: Gutenberg omkring 1450, lösa metalltyper gjorde böcker billiga och snabba att sprida, vilket ökade läskunnigheten och spred nya idéer · Upptäcktsresorna: drevs av jakten på sjövägar till Asiens kryddor och siden, av rikedom, makt och mission, möjliggjorda av karaveller, kompass och bättre kartor · Vasco da Gama nådde Indien 1498 runt Afrika, Columbus nådde Amerika 1492 i tron att det var Asien, Magellans expedition seglade runt jorden 1519–1522 · Följder: kolonier, silver och nya grödor till Europa, sjukdomar och stor befolkningsminskning bland Amerikas urbefolkning, transatlantisk slavhandel · Reformationen: Martin Luther 1517 med 95 teser, kritik mot avlatsbrev, Bibeln på folkspråket, protestantiska kyrkor bildas — i Sverige genomfördes reformationen av Gustav Vasa från riksdagen i Västerås 1527."
+    },
+    {
+      "id": "q-hist7-upp-9",
+      "kind": "mc",
+      "topic": "renässansen",
+      "prompt": "I vilket land och vilken stad inleddes renässansen?",
+      "opener": "Staden ligger i norra Italien och var ett rikt handelscentrum med mäktiga köpmannafamiljer.",
+      "choices": [
+        "Frankrike, Paris",
+        "Italien, Florens",
+        "England, London",
+        "Spanien, Madrid"
+      ],
+      "answer": 1,
+      "explanation": "Renässansen inleddes i norra Italien, framför allt i Florens, där rika köpmannafamiljer som Medici finansierade konstnärer och lärda. Därifrån spred sig renässansens idéer till resten av Europa."
+    },
+    {
+      "id": "q-hist7-upp-10",
+      "kind": "mc",
+      "topic": "humanismen",
+      "prompt": "Vad studerade humanisterna särskilt ivrigt?",
+      "opener": "De ville läsa texterna som de ursprungligen skrevs, inte bara sammanfattningar.",
+      "choices": [
+        "Bara medeltida krönikor",
+        "Antikens texter i original",
+        "Framtidens teknik",
+        "Bara religiösa skrifter"
+      ],
+      "answer": 1,
+      "explanation": "Humanisterna sökte upp och studerade antikens grekiska och romerska texter i original, vilket gav ny kunskap om språk, filosofi och vetenskap. De begränsade sig alltså inte till medeltida krönikor eller enbart religiösa texter."
+    },
+    {
+      "id": "q-hist7-upp-11",
+      "kind": "mc",
+      "topic": "boktryckarkonsten",
+      "prompt": "Vad gjorde boktryckarkonsten möjligt som inte varit möjligt förut?",
+      "opener": "Tänk på skillnaden mellan att skriva av en bok för hand och att trycka många exemplar.",
+      "choices": [
+        "Att böcker kunde tryckas snabbt och billigt i många identiska exemplar",
+        "Att bara kyrkan fick läsa böcker",
+        "Att handskrivna böcker blev vanligare",
+        "Att böcker blev dyrare än tidigare"
+      ],
+      "answer": 0,
+      "explanation": "Med lösa metalltyper kunde man trycka många identiska böcker snabbt, vilket gjorde böcker billigare och mer tillgängliga än när varje exemplar skrevs av för hand. Fler människor, inte bara kyrkans folk, fick därmed tillgång till böcker."
+    },
+    {
+      "id": "q-hist7-upp-12",
+      "kind": "mc",
+      "topic": "upptäcktsresorna",
+      "prompt": "Vem seglade runt Afrika och nådde Indien sjövägen 1498?",
+      "opener": "Han var portugisisk sjöfarare och hans resa öppnade en ny handelsväg till Asien.",
+      "choices": [
+        "Christofer Columbus",
+        "Vasco da Gama",
+        "Ferdinand Magellan",
+        "Marco Polo"
+      ],
+      "answer": 1,
+      "explanation": "Vasco da Gama seglade runt Afrikas sydspets och nådde Indien 1498, vilket öppnade en ny sjöväg för handeln med Asien. Columbus seglade i stället västerut och nådde Amerika, och Magellans expedition seglade runt hela jorden några decennier senare."
+    },
+    {
+      "id": "q-hist7-upp-13",
+      "kind": "mc",
+      "topic": "mötet mellan Europa och Amerika",
+      "prompt": "Varför minskade Amerikas urbefolkning kraftigt efter mötet med européerna?",
+      "opener": "Européerna förde med sig något osynligt som urbefolkningen aldrig tidigare mött.",
+      "choices": [
+        "På grund av svält enbart",
+        "Sjukdomar som européerna förde med sig, som de saknade immunitet mot",
+        "På grund av kraftiga jordbävningar",
+        "De flyttade frivilligt till Europa"
+      ],
+      "answer": 1,
+      "explanation": "Sjukdomar som smittkoppor och mässling, som européerna förde med sig, drabbade Amerikas urbefolkning extremt hårt eftersom de saknade immunitet mot dessa sjukdomar. Det var den viktigaste orsaken till den kraftiga befolkningsminskningen, inte svält eller jordbävningar."
+    },
+    {
+      "id": "q-hist7-upp-14",
+      "kind": "worked",
+      "topic": "boktryckarkonsten",
+      "prompt": "Förklara steg för steg hur boktryckarkonsten bidrog till att reformationen kunde spridas så snabbt i Europa.",
+      "opener": "Tänk på hur lång tid det tog att sprida en text innan boktryckarkonsten fanns, och hur det förändrades efteråt.",
+      "answer": "Innan boktryckarkonsten var böcker dyra och sällsynta eftersom de skrevs för hand, vilket gjorde det svårt att sprida nya idéer snabbt. Gutenbergs teknik med lösa metalltyper gjorde det möjligt att trycka många identiska exemplar av en text snabbt och billigt. När Martin Luther publicerade sina 95 teser och senare skrifter kunde de därför tryckas i stora upplagor och spridas över hela Tyskland och Europa på kort tid, vilket gjorde att reformationens idéer nådde långt fler människor än vad som varit möjligt bara några decennier tidigare.",
+      "steps": [
+        "Före boktryckarkonsten skrevs varje bok för hand, vilket gjorde böcker dyra, sällsynta och långsamma att sprida.",
+        "Gutenberg utvecklade en teknik med lösa, återanvändbara metalltyper omkring 1450.",
+        "Det gjorde det möjligt att trycka många identiska exemplar av samma text på kort tid till en lägre kostnad.",
+        "När Luther publicerade sina 95 teser 1517 kunde de tryckas i stora upplagor och skickas ut över hela Tyskland och Europa.",
+        "Reformationens idéer nådde därmed långt fler människor på kort tid än vad som varit möjligt med handskrivna texter."
+      ]
+    },
+    {
+      "id": "q-hist7-upp-15",
+      "kind": "mc",
+      "topic": "reformationen",
+      "prompt": "Vem genomförde reformationen i Sverige, från riksdagen i Västerås 1527?",
+      "opener": "Han blev svensk kung 1523 efter befrielsekriget mot Kristian II.",
+      "choices": [
+        "Olof Skötkonung",
+        "Gustav Vasa",
+        "Martin Luther",
+        "Erik av Pommern"
+      ],
+      "answer": 1,
+      "explanation": "Gustav Vasa genomförde reformationen i Sverige genom besluten vid riksdagen i Västerås 1527, vilket bland annat gav honom kontroll över kyrkans stora egendomar. Martin Luther inledde i stället reformationen i Tyskland tio år tidigare."
     }
   ]
 }

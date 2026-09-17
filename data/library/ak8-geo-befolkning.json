@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta nyckelbegreppen om befolkning och migration.",
       "opener": "Samla täthet, pyramider, tal och flyttningar i en tät översikt.",
       "answer": "Befolkningstäthet: invånare per kvadratkilometer · tätt befolkat vid kuster, floddalar och storstäder, glest i öknar, regnskog, höga berg och polartrakter · befolkningspyramid: stapeldiagram över åldersgrupper och kön · bred bas = höga födelsetal och ung befolkning (många låginkomstländer) · smal bas och bred topp = låga födelsetal och åldrande befolkning (Japan, Sverige) · födelsetal och dödstal räknas per 1000 invånare och år · naturlig befolkningsökning = födda minus döda · nettomigration = inflyttade minus utflyttade · fruktsamhetstal = antal barn per kvinna i genomsnitt · migration: att flytta inom (intern) eller mellan (internationell) länder · pushfaktorer trycker bort: krig, förtryck, fattigdom, arbetslöshet, torka och naturkatastrofer · pullfaktorer drar till: jobb, trygghet, utbildning, sjukvård, familj · flykting: någon som tvingats fly och har rätt till skydd · urbanisering: en ökande andel av befolkningen bor i städer, snabbast i Afrika och Asien i dag · megastad: stadsområde med över 10 miljoner invånare, till exempel Tokyo, Delhi och Lagos."
+    },
+    {
+      "id": "q-geo8-bef-9",
+      "kind": "mc",
+      "topic": "befolkningstäthet och bosättningsmönster",
+      "prompt": "Vilket av följande länder har en av världens högsta befolkningstätheter?",
+      "opener": "Landet är litet till ytan men har mycket stor folkmängd, mycket av det i flodslätten kring Ganges och Brahmaputra.",
+      "choices": [
+        "Kanada",
+        "Australien",
+        "Bangladesh",
+        "Mongoliet"
+      ],
+      "answer": 2,
+      "explanation": "Bangladesh har omkring 170 miljoner invånare på en yta ungefär som Illinois, vilket ger en av världens högsta befolkningstätheter. Kanada, Australien och Mongoliet har tvärtom mycket låg befolkningstäthet, med stora glesbefolkade områden av öken, tundra eller stäpp."
+    },
+    {
+      "id": "q-geo8-bef-10",
+      "kind": "mc",
+      "topic": "befolkningspyramider",
+      "prompt": "En befolkningspyramid är smal vid basen men bredare längre upp i mitten. Vad tyder det på?",
+      "opener": "Tänk på vilken åldersgrupp som är minst jämfört med grupperna ovanför.",
+      "choices": [
+        "Att ingen i landet är äldre än 40 år",
+        "Extremt höga födelsetal just nu",
+        "Att landet har negativ dödlighet",
+        "Sjunkande födelsetal under senare år, efter en period med fler födda"
+      ],
+      "answer": 3,
+      "explanation": "En smal bas med en bredare mittendel visar att färre barn föds i dag än förr, medan de större årskullarna som föddes tidigare fortfarande syns högre upp i pyramiden. Det säger alltså inget om att ingen skulle vara äldre än 40, och dödlighet kan aldrig bli negativ."
+    },
+    {
+      "id": "q-geo8-bef-11",
+      "kind": "mc",
+      "topic": "migration och push- och pullfaktorer",
+      "prompt": "Vad kallas en person som tvingats fly sitt land på grund av krig eller förföljelse och har rätt till internationellt skydd?",
+      "opener": "Ordet skiljer sig från den som flyttar frivilligt för till exempel jobb.",
+      "choices": [
+        "Turist",
+        "Arbetskraftsinvandrare",
+        "Pendlare",
+        "Flykting"
+      ],
+      "answer": 3,
+      "explanation": "En flykting är någon som tvingats lämna sitt land på grund av krig, förföljelse eller våld, och som enligt internationell rätt har rätt att söka skydd i ett annat land. En turist reser frivilligt och tillfälligt, en arbetskraftsinvandrare flyttar för ett jobb, och en pendlare reser dagligen mellan hem och arbete utan att byta land."
+    },
+    {
+      "id": "q-geo8-bef-12",
+      "kind": "mc",
+      "topic": "urbanisering och storstäder",
+      "prompt": "Vad menas med urbanisering?",
+      "opener": "Ordet kommer av det latinska ordet för stad.",
+      "choices": [
+        "Att människor flyttar från städer till landsbygden",
+        "Att ett lands befolkning minskar totalt sett",
+        "Att fler barn föds på landsbygden än i städer",
+        "Att en allt större andel av befolkningen bor i städer"
+      ],
+      "answer": 3,
+      "explanation": "Urbanisering innebär att en växande andel av befolkningen bor och arbetar i städer, ofta som en följd av att människor flyttar från landsbygden för jobb och service. Processen går i dag snabbast i delar av Afrika och Asien, inte tvärtom mot landsbygden."
+    },
+    {
+      "id": "q-geo8-bef-13",
+      "kind": "mc",
+      "topic": "födelse- och dödstal",
+      "prompt": "Ett land har ett födelsetal på 20 promille och ett dödstal på 8 promille. Vad blir den naturliga befolkningsökningen per år?",
+      "opener": "Räkna födelsetal minus dödstal.",
+      "choices": [
+        "28 promille",
+        "8 promille",
+        "20 promille",
+        "12 promille"
+      ],
+      "answer": 3,
+      "explanation": "Naturlig befolkningsökning räknas som födelsetal minus dödstal: 20 − 8 = 12 promille. Att addera talen till 28 promille är fel eftersom födda och döda ska subtraheras, inte läggas ihop."
+    },
+    {
+      "id": "q-geo8-bef-14",
+      "kind": "mc",
+      "topic": "befolkningstäthet och bosättningsmönster",
+      "prompt": "Varför är stora delar av både Sahara och Amazonas regnskog glesbefolkade, trots att orsakerna är mycket olika?",
+      "opener": "Ett område är extremt torrt, det andra extremt blött och tätt växtlighet.",
+      "choices": [
+        "Ingen egentlig anledning, båda områdena är faktiskt tätbefolkade jämfört med andra delar av världen",
+        "Båda områdena saknar helt naturresurser",
+        "Båda områdena ligger på för hög höjd över havet för att människor ska kunna bo där",
+        "Sahara är för torrt för jordbruk, medan Amazonas har tunn och näringsfattig jord samt tät, svårframkomlig vegetation"
+      ],
+      "answer": 3,
+      "explanation": "Sahara är glesbefolkat eftersom det knappt regnar och odling därför är mycket svår, medan Amazonas regnskog trots riklig nederbörd har tunn och näringsfattig jord samt så tät vegetation att den är svår att bruka och ta sig fram i. Båda områdena har alltså naturresurser, men helt olika hinder för bosättning."
+    },
+    {
+      "id": "q-geo8-bef-15",
+      "kind": "mc",
+      "topic": "migration och push- och pullfaktorer",
+      "prompt": "Vad kallas det när människor flyttar inom sitt eget land, till exempel från landsbygd till stad?",
+      "opener": "Motsatsen är när man flyttar över en landsgräns.",
+      "choices": [
+        "Internationell migration",
+        "Immigration",
+        "Emigration",
+        "Intern migration"
+      ],
+      "answer": 3,
+      "explanation": "Intern migration är flyttningar inom ett och samma land, till exempel från landsbygden till en storstad. Internationell migration, immigration (inflyttning till ett land) och emigration (utflyttning från ett land) handlar i stället om flyttningar över en landsgräns."
     }
   ]
 }

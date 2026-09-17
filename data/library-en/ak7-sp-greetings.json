@@ -114,6 +114,111 @@
       "prompt": "Which greetings and polite phrases should you know at the grade 7 level in Spanish?",
       "opener": "The most common phrases for greeting, thanking, and asking for help.",
       "answer": "Greetings: Hola = hi · Buenos días = good morning · Buenas tardes = good afternoon · Buenas noches = good night/good evening · Adiós = goodbye · Hasta luego = see you later. How are you: ¿Qué tal? / ¿Cómo estás? = how are you? · Bien, gracias = good, thanks. Politeness: Por favor = please · Gracias = thank you · De nada = you're welcome · Lo siento = I'm sorry · Perdón = excuse me. School: ¿Puedo...? = may I...? · el baño = the bathroom · abrir/cerrar el libro = open/close the book."
+    },
+    {
+      "id": "q-sp7-greet-9",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "What does \"Hasta mañana\" mean?",
+      "opener": "The phrase is used when you'll see someone again the next day.",
+      "choices": [
+        "See you tomorrow",
+        "Good morning",
+        "Goodbye forever",
+        "What time is it?"
+      ],
+      "answer": 0,
+      "explanation": "\"Hasta mañana\" means \"see you tomorrow\". \"Hasta luego\" instead means \"see you later\" without specifying tomorrow."
+    },
+    {
+      "id": "q-sp7-greet-10",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "How do you politely answer \"¿Cómo estás?\" if you're doing well?",
+      "opener": "A common, positive reply to being asked how you're doing.",
+      "choices": [
+        "Muy bien, gracias.",
+        "De nada.",
+        "Lo siento.",
+        "Buenas noches."
+      ],
+      "answer": 0,
+      "explanation": "\"Muy bien, gracias\" means \"very well, thank you\" and is a natural reply to \"¿Cómo estás?\". \"De nada\" is the reply to a thank you, not to a how-are-you question."
+    },
+    {
+      "id": "q-sp7-greet-11",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "What does \"Perdón\" mean?",
+      "opener": "A short word you say if you accidentally bump into someone, for example.",
+      "choices": [
+        "Excuse me",
+        "Thank you",
+        "Please",
+        "Goodbye"
+      ],
+      "answer": 0,
+      "explanation": "\"Perdón\" means \"excuse me\" or \"sorry\", and is used, for example, to apologize for something minor."
+    },
+    {
+      "id": "q-sp7-greet-12",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "You want to politely ask someone for help. Which phrase fits best?",
+      "opener": "A polite question often includes \"por favor\" at the end.",
+      "choices": [
+        "¿Puedes ayudarme, por favor?",
+        "¡Ayuda ahora!",
+        "No quiero ayuda.",
+        "Gracias por nada."
+      ],
+      "answer": 0,
+      "explanation": "\"¿Puedes ayudarme, por favor?\" means \"can you help me, please?\" and is a polite way to ask for help. The other options are either impolite or mean something else."
+    },
+    {
+      "id": "q-sp7-greet-13",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "What does \"No entiendo\" mean?",
+      "opener": "A phrase you often need to say when you're not following along in class.",
+      "choices": [
+        "I don't understand",
+        "I don't know",
+        "I'm done",
+        "I have a question"
+      ],
+      "answer": 0,
+      "explanation": "\"No entiendo\" means \"I don't understand\". The verb \"entender\" means to understand."
+    },
+    {
+      "id": "q-sp7-greet-14",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "The teacher says \"Cerrad los libros\". What should you do?",
+      "opener": "\"Cerrad\" comes from the verb cerrar, the opposite of abrir.",
+      "choices": [
+        "Close the books",
+        "Open the books",
+        "Take out your pens",
+        "Raise your hand"
+      ],
+      "answer": 0,
+      "explanation": "\"Cerrar\" means \"to close\", so \"cerrad los libros\" means \"close the books\"."
+    },
+    {
+      "id": "q-sp7-greet-15",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "What does \"Buenas tardes\" mean?",
+      "opener": "A greeting used in the middle of the day, before evening.",
+      "choices": [
+        "Good afternoon",
+        "Good morning",
+        "Good night",
+        "Goodbye"
+      ],
+      "answer": 0,
+      "explanation": "\"Buenas tardes\" means \"good afternoon\" and is used from early afternoon to early evening."
     }
   ]
 }

@@ -122,6 +122,111 @@
       "prompt": "Vilka fraser använder man för att uttrycka och motivera en åsikt på tyska?",
       "opener": "En liten frasbank för diskussion och argumentation.",
       "answer": "Inleda en åsikt: Meiner Meinung nach... / Ich finde, dass... / Ich bin der Meinung, dass... / Aus meiner Sicht... Hålla med/inte hålla med: Ich stimme zu / Ich stimme dir zu (jag håller med) — Ich stimme nicht zu / Ich bin nicht einverstanden (jag håller inte med). Väga för- och nackdelar: Einerseits ... andererseits ... (å ena sidan ... å andra sidan). Motivera: denn (samordnande, normal ordföljd: \"..., denn er hat recht.\") och weil (underordnande, verbet sist: \"..., weil er recht hat.\") betyder båda ungefär \"eftersom/för\", men har olika ordföljd."
+    },
+    {
+      "id": "q-de3-opinions-9",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Vad betyder \"Ich bin der Ansicht, dass...\"?",
+      "opener": "En synonym till \"ich bin der Meinung, dass...\".",
+      "choices": [
+        "Jag är av åsikten att",
+        "Jag tvivlar på att",
+        "Jag hoppas att",
+        "Jag är rädd att"
+      ],
+      "answer": 0,
+      "explanation": "\"Ich bin der Ansicht, dass...\" betyder \"jag är av åsikten att...\", en synonym till \"ich bin der Meinung, dass...\"."
+    },
+    {
+      "id": "q-de3-opinions-10",
+      "kind": "mc",
+      "topic": "agreement/disagreement",
+      "prompt": "Vad betyder \"Das sehe ich genauso\"?",
+      "opener": "Bokstavligt: \"det ser jag likadant\".",
+      "choices": [
+        "Jag ser det på samma sätt",
+        "Jag ser det inte alls",
+        "Jag förstår inte vad du menar",
+        "Jag har aldrig sett det"
+      ],
+      "answer": 0,
+      "explanation": "\"Das sehe ich genauso\" betyder \"jag ser det på samma sätt\", alltså att man håller med."
+    },
+    {
+      "id": "q-de3-opinions-11",
+      "kind": "mc",
+      "topic": "justification",
+      "prompt": "Vad betyder frasen \"aus diesem Grund\"?",
+      "opener": "En fras som introducerar en konsekvens.",
+      "choices": [
+        "Av denna anledning",
+        "Till exempel",
+        "Å andra sidan",
+        "Trots detta"
+      ],
+      "answer": 0,
+      "explanation": "\"Aus diesem Grund\" betyder \"av denna anledning\", och introducerar en konsekvens av något som redan sagts."
+    },
+    {
+      "id": "q-de3-opinions-12",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Vad betyder frasen \"im Gegensatz dazu\"?",
+      "opener": "En fras som markerar kontrast.",
+      "choices": [
+        "I motsats till detta",
+        "På samma sätt",
+        "Dessutom",
+        "Till slut"
+      ],
+      "answer": 0,
+      "explanation": "\"Im Gegensatz dazu\" betyder \"i motsats till detta\" och används för att markera en kontrast mellan två idéer."
+    },
+    {
+      "id": "q-de3-opinions-13",
+      "kind": "mc",
+      "topic": "agreement/disagreement",
+      "prompt": "Vad betyder \"Da hast du recht\"?",
+      "opener": "Bokstavligt: \"där har du rätt\".",
+      "choices": [
+        "Där har du rätt",
+        "Där har du fel",
+        "Jag förstår det inte",
+        "Det spelar ingen roll"
+      ],
+      "answer": 0,
+      "explanation": "\"Da hast du recht\" betyder \"där har du rätt\", ett sätt att hålla med om en specifik punkt."
+    },
+    {
+      "id": "q-de3-opinions-14",
+      "kind": "mc",
+      "topic": "justification",
+      "prompt": "Komplettera: \"Ich mag diese Stadt, ___ sie hat viel Kultur zu bieten.\"",
+      "opener": "Ordföljden efter luckan är redan normal (verbet på plats två) — vilken konjunktion passar då?",
+      "choices": [
+        "denn",
+        "weil",
+        "obwohl",
+        "dass"
+      ],
+      "answer": 0,
+      "explanation": "Eftersom ordföljden redan är normal (\"sie hat...\", verb på plats två) krävs den samordnande konjunktionen \"denn\", inte \"weil\" (som hade krävt verbet sist: \"weil sie viel Kultur zu bieten hat\")."
+    },
+    {
+      "id": "q-de3-opinions-15",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "Vad betyder \"Es kommt darauf an\"?",
+      "opener": "Ett vanligt sätt att undvika ett kategoriskt svar.",
+      "choices": [
+        "Det beror på",
+        "Det spelar ingen roll",
+        "Det är självklart",
+        "Det är omöjligt"
+      ],
+      "answer": 0,
+      "explanation": "\"Es kommt darauf an\" betyder \"det beror på\", ett vanligt sätt att nyansera ett svar."
     }
   ]
 }

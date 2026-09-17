@@ -121,6 +121,110 @@
       "prompt": "List the most common false friends between Swedish and English.",
       "opener": "Ord som ser bekanta ut men betyder något annat.",
       "answer": "eventually = till slut (eventuellt = possibly) · actually = faktiskt (aktuellt = current) · fabric = tyg (fabrik = factory) · gift = present (gift = married/poison) · sensible = förnuftig (sensibel = sensitive) · control = styra (kontrollera = check) · blank = tom (blank = shiny) · novel = roman (novell = short story) · recipe = recept på mat (recept från läkare = prescription)"
+    },
+    {
+      "id": "q-en5-ff-9",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does the English word \"sensible\" mean?",
+      "opener": "Ordet ser ut som svenskans \"sensibel\" — men betyder inte samma sak.",
+      "choices": [
+        "sensitive, easily hurt",
+        "practical and reasonable",
+        "artistic",
+        "emotional"
+      ],
+      "answer": 1,
+      "explanation": "\"Sensible\" betyder förnuftig, praktisk. Svenskans \"sensibel\" (lättsårad) heter \"sensitive\" på engelska."
+    },
+    {
+      "id": "q-en5-ff-10",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does the word \"novel\" mean, when used as a noun?",
+      "opener": "Ordet liknar svenskans \"novell\" — men syftar på något längre.",
+      "choices": [
+        "a short story",
+        "a full-length work of fiction (a book)",
+        "a newspaper",
+        "a poem"
+      ],
+      "answer": 1,
+      "explanation": "\"Novel\" betyder roman. Svenskans \"novell\" (en kort berättelse) heter \"short story\" på engelska."
+    },
+    {
+      "id": "q-en5-ff-11",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does \"control\" mean in the sentence: \"The pilot lost control of the plane\"?",
+      "opener": "Handlar det om att kontrollera (verifiera) något, eller om att styra det?",
+      "choices": [
+        "to check or verify",
+        "to steer or have power over",
+        "to plan",
+        "to count"
+      ],
+      "answer": 1,
+      "explanation": "\"Control\" betyder att styra eller ha makt över något. Svenskans \"kontrollera\" (verifiera) heter \"check\" på engelska."
+    },
+    {
+      "id": "q-en5-ff-12",
+      "kind": "mc",
+      "topic": "confusing word pairs",
+      "prompt": "Choose the correct word: \"Can you ___ me $20 until payday?\"",
+      "opener": "Vem ger pengarna till vem?",
+      "choices": [
+        "borrow",
+        "lend",
+        "loan out",
+        "rent"
+      ],
+      "answer": 1,
+      "explanation": "Talaren ber den andra personen ge (låna ut) pengar — det är \"lend\". \"Borrow\" hade använts om talaren själv skulle ta emot: \"Could I borrow $20?\""
+    },
+    {
+      "id": "q-en5-ff-13",
+      "kind": "mc",
+      "topic": "confusing word pairs",
+      "prompt": "Choose the correct verb: \"She wants to ___ how to play the piano.\"",
+      "opener": "Är det hon själv som ska tillägna sig kunskapen, eller är det någon annan som ska ge den till henne?",
+      "choices": [
+        "teach",
+        "learn",
+        "study",
+        "know"
+      ],
+      "answer": 1,
+      "explanation": "Hon vill tillägna sig kunskapen själv — det är \"learn\". \"Teach\" hade använts om någon annan skulle lära ut till henne."
+    },
+    {
+      "id": "q-en5-ff-14",
+      "kind": "worked",
+      "topic": "false friends",
+      "prompt": "Correct the four errors: \"I'm eventually free this weekend if you want to hang out. My cousin learned herself to skateboard, so I borrowed her my old board. She works at a big fabric that makes furniture.\"",
+      "opener": "Fyra ord som ser rätt ut för ett svenskt öga men betyder något annat, eller används åt fel håll.",
+      "answer": "I might be free this weekend if you want to hang out. My cousin taught herself to skateboard, so I lent her my old board. She works at a big factory that makes furniture.",
+      "steps": [
+        "\"I'm eventually free\" → \"I might be free\". Skribenten menar \"eventuellt\" (osäkerhet), inte \"till slut\".",
+        "\"learned herself\" → \"taught herself\". Att lära sig själv utan lärare heter \"teach yourself\" på engelska, inte \"learn yourself\".",
+        "\"I borrowed her my old board\" → \"I lent her my old board\". Skribenten lånade UT brädan — det är \"lend\", inte \"borrow\".",
+        "\"a big fabric\" → \"a big factory\". \"Fabric\" betyder tyg, inte fabrik."
+      ]
+    },
+    {
+      "id": "q-en5-ff-15",
+      "kind": "mc",
+      "topic": "false friends",
+      "prompt": "What does \"gift\" mean in English?",
+      "opener": "Ordet stavas exakt som ett svenskt ord — men det svenska ordet betyder något helt annat på engelska.",
+      "choices": [
+        "poison",
+        "present",
+        "married",
+        "generous"
+      ],
+      "answer": 1,
+      "explanation": "\"Gift\" betyder present/gåva på engelska. Svenskans \"gift\" (married eller poison, beroende på sammanhang) är en helt annan betydelse — ett klassiskt fall av falska vänner."
     }
   ]
 }

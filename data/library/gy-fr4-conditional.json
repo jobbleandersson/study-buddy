@@ -122,6 +122,111 @@
       "prompt": "Vilka är de tre typerna av si-satser, och vilka tempus hör ihop i var och en?",
       "opener": "Tre mönster, tre grader av verklighet.",
       "answer": "1) Verkligt/troligt villkor: si + présent, ... futur simple (Si tu viens, je serai content). 2) Hypotetiskt villkor i nutid/framtid: si + imparfait, ... conditionnel présent (Si j'avais le temps, j'irais). 3) Kontrafaktiskt villkor i det förflutna: si + plus-que-parfait, ... conditionnel passé (Si j'avais su, je ne serais pas venu). Kom ihåg: \"si\" följs ALDRIG av futur eller conditionnel, bara av présent, imparfait eller plus-que-parfait. Blandade satser förekommer också: en förfluten orsak (plus-que-parfait) kan ge en konsekvens i nutid (conditionnel présent)."
+    },
+    {
+      "id": "q-fr4-cond-9",
+      "kind": "mc",
+      "topic": "conditionnel présent",
+      "prompt": "Välj rätt form: \"Si j'avais plus de temps libre, je ___ (voir) mes amis plus souvent.\"",
+      "opener": "\"Voir\" har en oregelbunden stam i conditionnel.",
+      "choices": [
+        "verrais",
+        "verrai",
+        "voyais",
+        "vois"
+      ],
+      "answer": 0,
+      "explanation": "\"Voir\" har oregelbunden stam i conditionnel: verr- + imparfait-ändelser → \"verrais\"."
+    },
+    {
+      "id": "q-fr4-cond-10",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Välj rätt form: \"Si nous ___ (partir) maintenant, nous arriverons à l'heure.\"",
+      "opener": "Detta är ett verkligt/troligt villkor, inte hypotetiskt.",
+      "choices": [
+        "partons",
+        "partions",
+        "partirions",
+        "étions partis"
+      ],
+      "answer": 0,
+      "explanation": "Ett verkligt/troligt villkor (typ 1) tar présent i si-satsen: \"si nous partons\", med futur simple i huvudsatsen (\"arriverons\")."
+    },
+    {
+      "id": "q-fr4-cond-11",
+      "kind": "mc",
+      "topic": "conditionnel passé",
+      "prompt": "Välj rätt form: \"Tu ___ (devoir) me le dire plus tôt.\" (du borde ha sagt det till mig tidigare)",
+      "opener": "\"Devoir\" i conditionnel passé uttrycker ett förebrående \"borde ha\".",
+      "choices": [
+        "aurais dû",
+        "devrais",
+        "as dû",
+        "devais"
+      ],
+      "answer": 0,
+      "explanation": "Conditionnel passé av \"devoir\" uttrycker \"borde ha\" om något som inte hände: \"tu aurais dû me le dire\" (du borde ha sagt det till mig)."
+    },
+    {
+      "id": "q-fr4-cond-12",
+      "kind": "mc",
+      "topic": "conditionnel présent",
+      "prompt": "Välj rätt form: \"Je ___ (vouloir) réserver une table pour deux personnes.\" (artigt)",
+      "opener": "\"Je voudrais\" är den klassiska artiga frasen för att beställa/be om något.",
+      "choices": [
+        "voudrais",
+        "veux",
+        "voudrai",
+        "voulais"
+      ],
+      "answer": 0,
+      "explanation": "\"Vouloir\" i conditionnel présent för \"je\" är \"voudrais\", en artig motsvarighet till \"je veux\" (jag vill)."
+    },
+    {
+      "id": "q-fr4-cond-13",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Välj rätt form: \"Si elle avait pris le bus, elle ne ___ (être) pas en retard maintenant.\"",
+      "opener": "En förfluten orsak (plus-que-parfait) ger en konsekvens i nutid — vilket tempus krävs då i huvudsatsen?",
+      "choices": [
+        "serait",
+        "sera",
+        "était",
+        "aurait été"
+      ],
+      "answer": 0,
+      "explanation": "En blandad villkorssats: si-satsen i plus-que-parfait (\"avait pris\") ger en konsekvens i NUTID, vilket kräver conditionnel présent i huvudsatsen: \"serait\", inte conditionnel passé."
+    },
+    {
+      "id": "q-fr4-cond-14",
+      "kind": "mc",
+      "topic": "conditionnel passé",
+      "prompt": "Välj rätt form: \"Nous ___ (pouvoir) t'aider si tu nous avais demandé.\"",
+      "opener": "\"Pouvoir\" har en oregelbunden stam i conditionnel.",
+      "choices": [
+        "aurions pu",
+        "pourrions",
+        "avons pu",
+        "pouvions"
+      ],
+      "answer": 0,
+      "explanation": "Conditionnel passé av \"pouvoir\" bildas med \"avoir\" i conditionnel présent + particip: \"nous aurions pu t'aider\" (vi hade kunnat hjälpa dig)."
+    },
+    {
+      "id": "q-fr4-cond-15",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Vad betyder \"Dépêche-toi, sinon tu vas rater le train\"?",
+      "opener": "\"Sinon\" är besläktat med si-satser och betyder ungefär \"annars\".",
+      "choices": [
+        "Skynda dig, annars kommer du missa tåget",
+        "Skynda dig, för du kommer missa tåget",
+        "Skynda dig, även om du missar tåget",
+        "Skynda dig, eftersom tåget är sent"
+      ],
+      "answer": 0,
+      "explanation": "\"Sinon\" betyder \"annars\" och introducerar en konsekvens om villkoret inte uppfylls: \"skynda dig, annars kommer du missa tåget\"."
     }
   ]
 }

@@ -113,6 +113,111 @@
       "prompt": "How is the passé composé formed in French, and when do you use avoir versus être?",
       "opener": "Two auxiliary verbs and two kinds of participles.",
       "answer": "Structure: avoir/être (present tense) + participle. Être is used for movement: aller → suis allé(e), partir → suis parti(e), venir → suis venu(e) — the participle then agrees with the subject's gender/number. Avoir is used for most other verbs: manger → ai mangé, parler → ai parlé, finir → ai fini. Irregular participles: fait (faire), eu (avoir), été (être), vu (voir), pris (prendre)."
+    },
+    {
+      "id": "q-fr9-past-9",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Choose the right auxiliary verb: \"Elle ___ venue chez moi.\" (venir = movement; she came to my place)",
+      "opener": "\"Venir\" describes movement.",
+      "choices": [
+        "est",
+        "a",
+        "sont",
+        "ont"
+      ],
+      "answer": 0,
+      "explanation": "\"Venir\" describes motion/movement, so it uses \"être\": \"elle est ... venue\"."
+    },
+    {
+      "id": "q-fr9-past-10",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Which participle belongs to \"boire\" (to drink)? An irregular verb.",
+      "opener": "A short, irregular participle.",
+      "choices": [
+        "bu",
+        "bui",
+        "boiré",
+        "bue"
+      ],
+      "answer": 0,
+      "explanation": "\"Boire\" has the irregular participle \"bu\": \"j'ai bu de l'eau\" (I drank water)."
+    },
+    {
+      "id": "q-fr9-past-11",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Choose the right auxiliary verb: \"Nous ___ partis tôt.\" (partir = movement)",
+      "opener": "\"Partir\" describes movement.",
+      "choices": [
+        "sommes",
+        "avons",
+        "est",
+        "a"
+      ],
+      "answer": 0,
+      "explanation": "\"Partir\" describes motion, so it uses \"être\": \"nous sommes ... partis\"."
+    },
+    {
+      "id": "q-fr9-past-12",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Which participle belongs to \"prendre\" (to take)? An irregular verb.",
+      "opener": "One of the most common irregular participles.",
+      "choices": [
+        "pris",
+        "prendu",
+        "prenu",
+        "pridu"
+      ],
+      "answer": 0,
+      "explanation": "\"Prendre\" has the irregular participle \"pris\": \"j'ai pris le train\" (I took the train)."
+    },
+    {
+      "id": "q-fr9-past-13",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Choose the right auxiliary verb: \"J'___ été fatigué(e).\" (être = to be; I was tired)",
+      "opener": "\"Être\" (to be) is conjugated with avoir as its auxiliary in the passé composé.",
+      "choices": [
+        "ai",
+        "suis",
+        "as",
+        "a"
+      ],
+      "answer": 0,
+      "explanation": "\"Être\" is conjugated with \"avoir\" as its auxiliary in the passé composé: \"j'ai été\" (I was/have been)."
+    },
+    {
+      "id": "q-fr9-past-14",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Which participle belongs to \"acheter\" (to buy)? A regular -er verb.",
+      "opener": "-er verbs form the participle with -é.",
+      "choices": [
+        "acheté",
+        "achetu",
+        "achetais",
+        "achet"
+      ],
+      "answer": 0,
+      "explanation": "-er verbs form the participle with -é. \"Acheter\" → \"acheté\"."
+    },
+    {
+      "id": "q-fr9-past-15",
+      "kind": "mc",
+      "topic": "avoir or être",
+      "prompt": "Which of these verbs describes NO movement and therefore needs avoir?",
+      "opener": "The other three are all classic \"être\" verbs.",
+      "choices": [
+        "lire",
+        "aller",
+        "venir",
+        "partir"
+      ],
+      "answer": 0,
+      "explanation": "\"Lire\" (to read) describes no movement, so it uses \"avoir\". \"Aller\", \"venir\", and \"partir\" all describe motion and use \"être\"."
     }
   ]
 }

@@ -122,6 +122,110 @@
       "prompt": "Vad är grundregeln när du löser en ekvation?",
       "opener": "Tänk på en våg som ska hållas i balans.",
       "answer": "Det du gör med ena ledet måste du göra med det andra. Ekvationen är som en våg i balans — adderar, subtraherar, multiplicerar eller dividerar du på ena sidan måste samma sak ske på andra sidan."
+    },
+    {
+      "id": "q-ma9-alg-9",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $4x - 7 = 2x + 9$.",
+      "opener": "Samla alla $x$-termer på en sida, alla tal på den andra.",
+      "choices": [
+        "$x = 1$",
+        "$x = 16$",
+        "$x = 8$",
+        "$x = 4$"
+      ],
+      "answer": 2,
+      "explanation": "Dra bort $2x$ från båda leden: $2x - 7 = 9$. Lägg till 7: $2x = 16$. Dela med 2: $x = 8$."
+    },
+    {
+      "id": "q-ma9-alg-10",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $3(x - 4) + 2x$.",
+      "opener": "Multiplicera in 3 i parentesen innan du samlar termerna.",
+      "choices": [
+        "$5x - 4$",
+        "$5x - 12$",
+        "$x - 12$",
+        "$5x + 12$"
+      ],
+      "answer": 1,
+      "explanation": "$3(x-4) = 3x - 12$. Sedan $3x - 12 + 2x = 5x - 12$."
+    },
+    {
+      "id": "q-ma9-alg-11",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $\\frac{x}{3} + 2 = 5$.",
+      "opener": "Gör bort det som inte är delat med 3 först.",
+      "choices": [
+        "$x = 3$",
+        "$x = 15$",
+        "$x = 9$",
+        "$x = 1$"
+      ],
+      "answer": 2,
+      "explanation": "Dra bort 2 från båda leden: $\\frac{x}{3} = 3$. Multiplicera båda leden med 3: $x = 9$."
+    },
+    {
+      "id": "q-ma9-alg-12",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $5x - (2x - 3)$.",
+      "opener": "Minustecknet framför parentesen ska multipliceras in på båda termerna inuti.",
+      "choices": [
+        "$3x + 3$",
+        "$3x - 3$",
+        "$7x - 3$",
+        "$7x + 3$"
+      ],
+      "answer": 0,
+      "explanation": "$-(2x - 3) = -2x + 3$. Då blir det $5x - 2x + 3 = 3x + 3$. Ett vanligt fel är att glömma byta tecken på $-3$:an inuti parentesen."
+    },
+    {
+      "id": "q-ma9-alg-13",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Vad är värdet av $2x^2 - 3x$ när $x = -3$?",
+      "opener": "Räkna ut kvadraten först, och håll koll på tecknet när du subtraherar ett negativt tal.",
+      "choices": [
+        "27",
+        "9",
+        "45",
+        "-9"
+      ],
+      "answer": 0,
+      "explanation": "$2x^2 = 2 \\cdot (-3)^2 = 2 \\cdot 9 = 18$. $3x = 3 \\cdot (-3) = -9$, så $-3x = 9$. Tillsammans: $18 + 9 = 27$."
+    },
+    {
+      "id": "q-ma9-alg-14",
+      "kind": "worked",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $2(x + 1) = 3x - 4$. Visa hur du tänker steg för steg.",
+      "opener": "Multiplicera in parentesen först, samla sedan $x$-termerna på en sida.",
+      "answer": "x = 6",
+      "steps": [
+        "Multiplicera in parentesen: $2x + 2 = 3x - 4$.",
+        "Dra bort $2x$ från båda leden: $2 = x - 4$.",
+        "Lägg till 4 på båda leden: $x = 6$.",
+        "Kontroll: $2(6+1) = 14$ och $3 \\cdot 6 - 4 = 14$. Stämmer."
+      ]
+    },
+    {
+      "id": "q-ma9-alg-15",
+      "kind": "mc",
+      "topic": "mönster",
+      "prompt": "Talföljden börjar 7, 12, 17, 22, … Vilket uttryck ger det $n$:te talet?",
+      "opener": "Hur mycket ökar talen varje steg, och vad ska formeln ge för $n = 1$?",
+      "choices": [
+        "$5n + 2$",
+        "$n + 5$",
+        "$5n - 2$",
+        "$5n + 7$"
+      ],
+      "answer": 0,
+      "explanation": "Följden ökar med 5 varje steg, så uttrycket innehåller $5n$. För $n = 1$ ska det bli 7: $5 \\cdot 1 + 2 = 7$. ✓ Kontrollera även $n = 2$: $5 \\cdot 2 + 2 = 12$. ✓"
     }
   ]
 }

@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta de viktigaste stegen i Sveriges demokratiska utveckling och Sveriges roll under världskrigen.",
       "opener": "Tänk rösträtt, parlamentarism, arbetarrörelse, folkhem och neutralitet.",
       "answer": "Allmän rösträtt för män infördes 1909 · parlamentarismens genombrott skedde 1917–1918, vilket innebar att regeringen måste ha stöd av riksdagens majoritet · kvinnlig rösträtt beslutades 1919, och 1921 hölls det första valet med allmän och lika rösträtt för kvinnor och män · arbetarrörelsen, med fackföreningar och Socialdemokraterna, blev en drivande kraft i svensk politik · begreppet \"folkhemmet\" (från slutet av 1920-talet) byggde på idén att staten skulle ta ansvar för medborgarnas trygghet och välfärd · Sverige förde en neutralitetspolitik under både första och andra världskriget och deltog inte militärt i striderna · efter världskrigen fortsatte Sverige att bygga ut välfärdsstaten under 1900-talet."
+    },
+    {
+      "id": "q-hist-sve-9",
+      "kind": "mc",
+      "topic": "allmän rösträtt",
+      "prompt": "Vilket år infördes allmän rösträtt för män i Sverige (till riksdagens andra kammare)?",
+      "opener": "Detta skedde tolv år innan kvinnor och män fick rösta tillsammans i ett riksdagsval.",
+      "choices": [
+        "1909",
+        "1919",
+        "1921",
+        "1945"
+      ],
+      "answer": 0,
+      "explanation": "1909 infördes allmän rösträtt för män till riksdagens andra kammare. Kvinnlig rösträtt beslutades först tio år senare, 1919."
+    },
+    {
+      "id": "q-hist-sve-10",
+      "kind": "mc",
+      "topic": "allmän rösträtt",
+      "prompt": "Vilket år beslutade riksdagen om kvinnlig rösträtt i Sverige?",
+      "opener": "Beslutet togs två år innan det första valet där kvinnor faktiskt fick rösta.",
+      "choices": [
+        "1919",
+        "1909",
+        "1945",
+        "1971"
+      ],
+      "answer": 0,
+      "explanation": "Riksdagen beslutade om kvinnlig rösträtt 1919, och det första valet där kvinnor faktiskt fick rösta med allmän och lika rösträtt hölls 1921."
+    },
+    {
+      "id": "q-hist-sve-11",
+      "kind": "mc",
+      "topic": "parlamentarismens genombrott",
+      "prompt": "Vad hände ungefär med kungens makt när parlamentarismen genomfördes i Sverige 1917–1918?",
+      "opener": "Vem fick nu avgöra vilken regering som skulle sitta?",
+      "choices": [
+        "Kungens makt över regeringsbildningen minskade kraftigt till förmån för riksdagen",
+        "Kungen fick all makt över regeringen",
+        "Monarkin avskaffades helt",
+        "Ingenting förändrades"
+      ],
+      "answer": 0,
+      "explanation": "Genom parlamentarismens genombrott kom regeringen i praktiken att behöva stöd av riksdagens majoritet snarare än kungens fria val, vilket kraftigt minskade kungens reella politiska makt — men Sverige förblev en monarki."
+    },
+    {
+      "id": "q-hist-sve-12",
+      "kind": "mc",
+      "topic": "viktiga reformer",
+      "prompt": "Vem förknippas särskilt med idén om \"folkhemmet\" i svensk politik?",
+      "opener": "En socialdemokratisk statsminister från 1930- och 40-talen.",
+      "choices": [
+        "Per Albin Hansson",
+        "Carl XVI Gustaf",
+        "Olof Palme",
+        "Gustav Vasa"
+      ],
+      "answer": 0,
+      "explanation": "Per Albin Hansson, socialdemokratisk statsminister, förknippas särskilt med folkhemstanken från slutet av 1920-talet och framåt."
+    },
+    {
+      "id": "q-hist-sve-13",
+      "kind": "mc",
+      "topic": "Sverige under världskrigen",
+      "prompt": "Var Sverige ockuperat av Nazityskland under andra världskriget?",
+      "opener": "Jämför med grannländer som Norge och Danmark.",
+      "choices": [
+        "Nej, Sverige förblev formellt neutralt och blev inte ockuperat",
+        "Ja, hela Sverige ockuperades 1940",
+        "Ja, men bara Stockholm ockuperades",
+        "Sverige gick med i kriget på Tysklands sida"
+      ],
+      "answer": 0,
+      "explanation": "Sverige förde en neutralitetspolitik och blev inte ockuperat, till skillnad från grannländerna Norge och Danmark. Sverige gjorde dock flera eftergifter gentemot Nazityskland, vilket varit omdiskuterat i efterhand."
+    },
+    {
+      "id": "q-hist-sve-14",
+      "kind": "worked",
+      "topic": "viktiga reformer",
+      "prompt": "Förklara hur arbetarrörelsens framväxt under tidigt 1900-tal hänger ihop med idén om folkhemmet som utvecklades under 1930-talet.",
+      "opener": "Tänk på vad arbetarrörelsen krävde, och hur de kraven senare breddades.",
+      "answer": "Arbetarrörelsen, genom fackföreningar och Socialdemokraterna, kämpade länge för bättre villkor och politiskt inflytande för arbetarklassen. När partiet fick regeringsmakt kunde dessa krav omsättas i den bredare politiska visionen om folkhemmet, där staten tog ansvar för alla medborgares trygghet och välfärd, inte bara arbetarnas.",
+      "steps": [
+        "Arbetarrörelsen organiserade sig i fackföreningar från slutet av 1800-talet för att kräva bättre löner och arbetsvillkor.",
+        "Socialdemokraterna växte fram som arbetarrörelsens politiska gren och krävde politiskt inflytande genom rösträtt och parlamentarism.",
+        "När Socialdemokraterna fick regeringsmakt (särskilt från 1932) kunde partiet omsätta sina idéer i praktisk politik.",
+        "Folkhemstanken, som Per Albin Hansson förknippas med, byggde vidare på arbetarrörelsens krav men bredde ut dem till att gälla alla medborgare, inte bara arbetare.",
+        "Detta lade grunden för den svenska välfärdsstatens utbyggnad under resten av 1900-talet."
+      ]
+    },
+    {
+      "id": "q-hist-sve-15",
+      "kind": "mc",
+      "topic": "viktiga reformer",
+      "prompt": "Vilket parti blev arbetarrörelsens viktigaste politiska röst i Sverige under 1900-talet?",
+      "opener": "Partiet som Per Albin Hansson ledde som statsminister.",
+      "choices": [
+        "Socialdemokraterna",
+        "Moderaterna",
+        "Centerpartiet",
+        "Sverigedemokraterna"
+      ],
+      "answer": 0,
+      "explanation": "Socialdemokraterna växte fram ur arbetarrörelsen och blev under stora delar av 1900-talet det ledande partiet i svensk politik, med nära koppling till fackföreningsrörelsen."
     }
   ]
 }

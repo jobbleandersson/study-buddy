@@ -123,6 +123,110 @@
       "prompt": "Sammanfatta kemiska reaktioner och bindningar: vad skiljer kemisk från fysikalisk förändring, vilka bindningstyper finns, och vad är exoterm/endoterm?",
       "opener": "Tänk nytt ämne eller inte, delade eller flyttade elektroner, och energi in eller ut.",
       "answer": "Fysikalisk förändring: ämnets form eller aggregationstillstånd ändras, men det förblir samma ämne (t.ex. is smälter) · Kemisk förändring/reaktion: ett eller flera nya ämnen bildas med nya egenskaper (t.ex. förbränning, rostbildning) · Kovalent bindning: atomer DELAR elektronpar, vanligt mellan icke-metaller (t.ex. vatten, H2O) · Jonbindning: elektroner flyttas helt mellan atomer så att positiva och negativa joner attraherar varandra (t.ex. koksalt, NaCl) · Reaktionsformel: visar vilka ämnen som reagerar (vänster om pilen) och bildas (höger om pilen); koefficienterna balanseras så att antalet atomer av varje grundämne är lika på båda sidor (lagen om bevarande av massa) · Exoterm reaktion: frigör energi till omgivningen, ofta som värme (t.ex. förbränning) · Endoterm reaktion: tar upp energi från omgivningen (t.ex. vissa upplösningsreaktioner)."
+    },
+    {
+      "id": "q-kemi-rea-9",
+      "kind": "mc",
+      "topic": "kemisk och fysikalisk förändring",
+      "prompt": "Vilket av följande är ett exempel på en FYSIKALISK förändring?",
+      "opener": "Fundera på om ämnet förblir samma ämne, eller om något nytt bildas.",
+      "choices": [
+        "Järn rostar",
+        "Is smälter till vatten",
+        "Ett ljus brinner",
+        "Mjölk surnar"
+      ],
+      "answer": 1,
+      "explanation": "När is smälter förblir det samma ämne (vatten), bara i annat aggregationstillstånd — en fysikalisk förändring. De andra alternativen bildar nya ämnen och är kemiska förändringar."
+    },
+    {
+      "id": "q-kemi-rea-10",
+      "kind": "mc",
+      "topic": "kemiska bindningar",
+      "prompt": "Vilken typ av bindning håller ihop metallatomer i till exempel en kopparbit, där elektroner kan röra sig fritt mellan atomerna?",
+      "opener": "Denna typ av bindning förklarar också varför metaller leder ström bra.",
+      "choices": [
+        "Metallbindning",
+        "Kovalent bindning",
+        "Jonbindning",
+        "Vätebindning"
+      ],
+      "answer": 0,
+      "explanation": "Metallbindning innebär att atomerna delar på ett \"hav\" av fria elektroner som kan röra sig genom hela materialet, vilket förklarar metallers goda ledningsförmåga."
+    },
+    {
+      "id": "q-kemi-rea-11",
+      "kind": "mc",
+      "topic": "reaktionsformler",
+      "prompt": "I reaktionsformeln N2 + 3H2 → 2NH3, hur många kväveatomer finns det totalt på vänster sida?",
+      "opener": "Molekylen N2 innehåller redan två kväveatomer, innan man ens tittar på koefficienten.",
+      "choices": [
+        "2",
+        "1",
+        "3",
+        "6"
+      ],
+      "answer": 0,
+      "explanation": "N2 betyder att molekylen består av två kväveatomer. Eftersom koefficienten framför N2 är 1 (osynlig), blir det totalt 2 kväveatomer på vänster sida."
+    },
+    {
+      "id": "q-kemi-rea-12",
+      "kind": "mc",
+      "topic": "exoterma och endoterma reaktioner",
+      "prompt": "Vilket av följande är ett exempel på en ENDOTERM process, som tar upp energi från omgivningen?",
+      "opener": "Tänk på vad som känns kallt när det händer.",
+      "choices": [
+        "Is som smälter",
+        "Ved som brinner",
+        "Bensin som förbränns i en motor",
+        "Syra och bas som neutraliseras med värmeutveckling"
+      ],
+      "answer": 0,
+      "explanation": "När is smälter tas energi upp från omgivningen (det känns kallt att hålla i is) — en endoterm process. Förbränning och exoterma neutralisationer frigör i stället energi."
+    },
+    {
+      "id": "q-kemi-rea-13",
+      "kind": "mc",
+      "topic": "kemisk och fysikalisk förändring",
+      "prompt": "Vad förblir alltid oförändrat i en kemisk reaktion, enligt lagen om bevarande av massa?",
+      "opener": "Massan omfördelas mellan nya ämnen, men vad händer med totalsumman?",
+      "choices": [
+        "Den totala massan av alla ämnen som deltar",
+        "Antalet molekyler",
+        "Ämnenas färg",
+        "Ämnenas smältpunkt"
+      ],
+      "answer": 0,
+      "explanation": "Lagen om bevarande av massa säger att den totala massan är densamma före och efter en kemisk reaktion — atomer varken skapas eller förstörs, bara omgrupperas. Antalet molekyler, färg och smältpunkt kan däremot ändras."
+    },
+    {
+      "id": "q-kemi-rea-14",
+      "kind": "worked",
+      "topic": "reaktionsformler",
+      "prompt": "Balansera reaktionsformeln för förbränning av metan: CH4 + O2 → CO2 + H2O. Hur många av varje molekyl behövs?",
+      "opener": "Räkna antalet kol-, väte- och syreatomer på varje sida och justera koefficienterna tills de stämmer överens.",
+      "answer": "Den balanserade formeln är CH4 + 2O2 → CO2 + 2H2O.",
+      "steps": [
+        "Skriv upp formeln: CH4 + O2 → CO2 + H2O. Räkna atomer: vänster sida har 1 kol, 4 väte och 2 syre. Höger sida har 1 kol, 2 väte och 3 syre — obalanserat.",
+        "Sätt en tvåa framför H2O för att få 4 väteatomer på höger sida: CH4 + O2 → CO2 + 2H2O. Nu är väte balanserat (4 = 4), men höger sida har nu 2 + 2 = 4 syreatomer mot vänster sidans 2.",
+        "Sätt en tvåa framför O2 på vänster sida för att också få 4 syreatomer där: CH4 + 2O2 → CO2 + 2H2O.",
+        "Kontrollera: vänster sida har 1 kol, 4 väte och 4 syre (2×2). Höger sida har 1 kol, 4 väte (2×2) och 4 syre (2 + 2×1). Allt stämmer — formeln är balanserad."
+      ]
+    },
+    {
+      "id": "q-kemi-rea-15",
+      "kind": "mc",
+      "topic": "exoterma och endoterma reaktioner",
+      "prompt": "Varför känns nygjuten betong ofta varm när den härdar?",
+      "opener": "Härdningen är en kemisk reaktion — vilken riktning rör sig energin i?",
+      "choices": [
+        "Härdningsreaktionen är exoterm och frigör värme till omgivningen",
+        "Härdningsreaktionen är endoterm och tar upp värme",
+        "Betongen innehåller alltid ett värmeelement",
+        "Det beror bara på solljus, inte på kemi"
+      ],
+      "answer": 0,
+      "explanation": "Härdningen av betong är en exoterm kemisk reaktion mellan cement och vatten, vilket frigör värme — därför känns nygjuten betong ofta varm, även utan solljus."
     }
   ]
 }

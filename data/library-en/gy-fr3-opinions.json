@@ -122,6 +122,111 @@
       "prompt": "What phrases do you need to express and justify an opinion in French?",
       "opener": "Saying what you think, agreeing/disagreeing, and justifying why.",
       "answer": "Expressing an opinion: à mon avis = in my opinion · je pense que / je trouve que / je crois que = I think that · selon moi = according to me. Agreeing: je suis d'accord (avec) = I agree (with) · tu as raison = you're right · exactement = exactly. Disagreeing: je ne suis pas d'accord = I disagree · je ne pense pas que... = I don't think that... · pas du tout = not at all. Justifying: parce que = because · car = for/because (written) · c'est pourquoi = that's why · en revanche / cependant / pourtant = on the other hand/however (for counterarguments)."
+    },
+    {
+      "id": "q-fr3-opinions-9",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "What does \"selon moi\" mean?",
+      "opener": "A synonym for \"à mon avis\".",
+      "choices": [
+        "According to me",
+        "I disagree",
+        "Despite that",
+        "By the way"
+      ],
+      "answer": 0,
+      "explanation": "\"Selon moi\" means \"according to me\", a synonym for \"à mon avis\"."
+    },
+    {
+      "id": "q-fr3-opinions-10",
+      "kind": "mc",
+      "topic": "agreeing and disagreeing",
+      "prompt": "What does \"Tu as raison\" mean?",
+      "opener": "Literally \"you have reason/right\".",
+      "choices": [
+        "You're right",
+        "You're wrong",
+        "I don't understand",
+        "It doesn't matter"
+      ],
+      "answer": 0,
+      "explanation": "\"Tu as raison\" means \"you're right\"."
+    },
+    {
+      "id": "q-fr3-opinions-11",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "What does the connector \"car\" mean?",
+      "opener": "A more written-register synonym for \"parce que\".",
+      "choices": [
+        "for/because (written)",
+        "however",
+        "furthermore",
+        "despite that"
+      ],
+      "answer": 0,
+      "explanation": "\"Car\" means \"for/because\", a more formal/written variant of \"parce que\"."
+    },
+    {
+      "id": "q-fr3-opinions-12",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "What does \"je trouve que\" mean?",
+      "opener": "Literally \"I find that\", but means something else in practice.",
+      "choices": [
+        "I think/find that",
+        "I locate that",
+        "I'm certain that",
+        "I'm asking whether"
+      ],
+      "answer": 0,
+      "explanation": "\"Je trouve que\" means \"I think/find that\", a synonym for \"je pense que\"."
+    },
+    {
+      "id": "q-fr3-opinions-13",
+      "kind": "mc",
+      "topic": "justifying an opinion",
+      "prompt": "What does the phrase \"c'est pourquoi\" mean?",
+      "opener": "A phrase that introduces a consequence.",
+      "choices": [
+        "That's why",
+        "Because",
+        "However",
+        "For example"
+      ],
+      "answer": 0,
+      "explanation": "\"C'est pourquoi\" means \"that's why\", and introduces a consequence of something already said."
+    },
+    {
+      "id": "q-fr3-opinions-14",
+      "kind": "mc",
+      "topic": "agreeing and disagreeing",
+      "prompt": "Choose the correct form: \"Je ne pense pas que ce ___ (être) une bonne idée.\"",
+      "opener": "\"Je ne pense pas que\" negates the certainty of the statement and requires the subjunctive.",
+      "choices": [
+        "soit",
+        "est",
+        "était",
+        "sera"
+      ],
+      "answer": 0,
+      "explanation": "\"Je ne pense pas que\" expresses doubt and requires the subjunctive: \"soit\"."
+    },
+    {
+      "id": "q-fr3-opinions-15",
+      "kind": "mc",
+      "topic": "opinion phrases",
+      "prompt": "What does \"pourtant\" mean?",
+      "opener": "A common contrast word in argumentative texts.",
+      "choices": [
+        "Yet/however",
+        "Furthermore",
+        "For example",
+        "Therefore"
+      ],
+      "answer": 0,
+      "explanation": "\"Pourtant\" means \"yet/however\" and marks a contrast, similar to \"cependant\"."
     }
   ]
 }

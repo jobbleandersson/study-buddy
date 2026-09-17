@@ -124,6 +124,110 @@
       "prompt": "Summarise Newton's three laws along with the concepts of friction and equilibrium.",
       "opener": "Go through the laws one by one in order before turning the card over.",
       "answer": "Newton's first law (the law of inertia): an object continues at rest or at constant speed if no resultant force acts on it · Newton's second law: F = m · a, the force required is mass times acceleration — a larger mass or acceleration requires a larger force · Newton's third law: for every force there is an equal and opposite reaction force (action and reaction) · Friction is a force that opposes motion between two surfaces rubbing against each other, and depends on the nature of the surfaces · Equilibrium exists when the sum of all forces on an object is zero, in which case the object stays still or moves at constant speed · Gravity: F = m · g, where g ≈ 10 N/kg on Earth."
+    },
+    {
+      "id": "q-fys-kra-9",
+      "kind": "mc",
+      "topic": "force and Newton's laws",
+      "prompt": "A swimmer pushes backward against the water with their feet in order to swim forward. Which law best explains why the swimmer moves forward?",
+      "opener": "Think about \"action and reaction\" — what happens when the swimmer pushes on the water?",
+      "choices": [
+        "Newton's first law",
+        "Newton's second law",
+        "Newton's third law",
+        "Archimedes' principle"
+      ],
+      "answer": 2,
+      "explanation": "Newton's third law states that every force has an equal and opposite reaction force. When the swimmer pushes the water backward, the water pushes back on the swimmer with an equal force forward."
+    },
+    {
+      "id": "q-fys-kra-10",
+      "kind": "mc",
+      "topic": "force and Newton's laws",
+      "prompt": "A car with a mass of 1000 kg accelerates at 3 m/s². How much force is required, according to F = m · a?",
+      "opener": "Plug the mass and acceleration straight into the formula.",
+      "choices": [
+        "3000 N",
+        "333 N",
+        "3 N",
+        "30000 N"
+      ],
+      "answer": 0,
+      "explanation": "F = m · a = 1000 kg · 3 m/s² = 3000 N."
+    },
+    {
+      "id": "q-fys-kra-11",
+      "kind": "mc",
+      "topic": "friction",
+      "prompt": "Which of these most effectively reduces friction between two surfaces?",
+      "opener": "What do you do to a squeaky door hinge?",
+      "choices": [
+        "Lubricating the surfaces with oil",
+        "Pressing the surfaces harder against each other",
+        "Making the surfaces rougher",
+        "Increasing the contact area"
+      ],
+      "answer": 0,
+      "explanation": "Lubricants like oil create a thin layer between the surfaces that greatly reduces friction. Pressing harder or making the surfaces rougher instead increases friction."
+    },
+    {
+      "id": "q-fys-kra-12",
+      "kind": "mc",
+      "topic": "gravity",
+      "prompt": "An astronaut has a mass of 70 kg. Roughly how large is the person's weight (gravitational force) on the Moon, where g ≈ 1.6 N/kg (compared with Earth's g ≈ 10 N/kg)?",
+      "opener": "Mass stays the same everywhere — it's g that differs between Earth and the Moon.",
+      "choices": [
+        "112 N",
+        "700 N",
+        "70 N",
+        "11.2 N"
+      ],
+      "answer": 0,
+      "explanation": "F = m · g = 70 kg · 1.6 N/kg = 112 N. The mass (70 kg) is unchanged, but the weight is much smaller on the Moon because gravity is weaker there."
+    },
+    {
+      "id": "q-fys-kra-13",
+      "kind": "mc",
+      "topic": "speed and acceleration",
+      "prompt": "A car speeds up from 10 m/s to 25 m/s in 5 seconds. What is the acceleration?",
+      "opener": "Acceleration is the change in speed divided by the time it takes.",
+      "choices": [
+        "3 m/s²",
+        "5 m/s²",
+        "15 m/s²",
+        "1.67 m/s²"
+      ],
+      "answer": 0,
+      "explanation": "a = (v₂ − v₁) / t = (25 − 10) m/s / 5 s = 15/5 = 3 m/s²."
+    },
+    {
+      "id": "q-fys-kra-14",
+      "kind": "worked",
+      "topic": "force and Newton's laws",
+      "prompt": "A box with a mass of 25 kg is pulled along the floor with a force of 60 N. The friction force against the floor is 15 N. Calculate the box's acceleration.",
+      "opener": "Just like in the shopping cart example: work out the resultant force first.",
+      "answer": "1.8 m/s²",
+      "steps": [
+        "Identify the forces: 60 N forward (pull) and 15 N backward (friction).",
+        "Calculate the resultant force: F_res = 60 N − 15 N = 45 N.",
+        "Use Newton's second law: a = F / m.",
+        "Substitute the values: a = 45 N / 25 kg = 1.8 m/s²."
+      ]
+    },
+    {
+      "id": "q-fys-kra-15",
+      "kind": "mc",
+      "topic": "equilibrium of forces",
+      "prompt": "Two people pull on opposite ends of a rope with equal force in opposite directions, and the rope stays still. What does this say about the forces?",
+      "opener": "The rope doesn't move in either direction — what must that mean for the sum of the forces?",
+      "choices": [
+        "The forces are equal and opposite, so they cancel out and the net force is zero",
+        "No force at all is acting on the rope",
+        "One person is stronger",
+        "The rope is accelerating strongly"
+      ],
+      "answer": 0,
+      "explanation": "The rope is in equilibrium: both forces exist and are equal but opposite, so they cancel out and the net force becomes zero — that's why the rope stays still even though both people are pulling."
     }
   ]
 }

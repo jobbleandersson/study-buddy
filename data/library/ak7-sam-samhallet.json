@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta grundbegreppen om samhället, gruppen och individen.",
       "opener": "Gå igenom samhälle, familj, grupp, normer och identitet som fem korta punkter.",
       "answer": "Samhälle: många människor som lever tillsammans med gemensamma regler och verksamheter som skola, vård och polis · Familjeformer: kärnfamilj, ensamstående förälder, bonusfamilj, två föräldrar av samma kön, släktingar som vårdnadshavare — alla räknas som familjer · Grupp: primärgrupp är nära och personlig (familj, kompisar), sekundärgrupp är mer opersonlig (klassen, laget, arbetsplatsen) · Vi-grupp och dom-grupp: indelningen skapar gemenskap men kan också skapa fördomar · Grupptryck: att göra något för gruppens förväntningars skull i stället för sin egen vilja · Norm: oskriven regel för hur man förväntas bete sig · Värdering: vad en person eller grupp tycker är viktigt och rätt · Lag: skriven regel beslutad av riksdagen, kan ge straff · Socialisation: processen där vi lär oss språk, normer och roller — familjen först, sedan skola, kompisar och medier · Identitet: uppfattningen om vem man är, formas hela livet av bakgrund, intressen och grupper man tillhör."
+    },
+    {
+      "id": "q-sam7-sam-9",
+      "kind": "mc",
+      "topic": "vad ett samhälle är",
+      "prompt": "Vilket av följande räknas som en samhällsinstitution?",
+      "opener": "Tänk på vad som finns till för alla i samhället, inte bara för en enskild person.",
+      "choices": [
+        "En enskild persons hobby",
+        "Skolan, som finns till för alla barn i samhället",
+        "En semesterresa",
+        "Ett privat sms-samtal"
+      ],
+      "answer": 1,
+      "explanation": "Skolan, sjukvården, polisen och rättsväsendet är samhällsinstitutioner — de organiserar viktiga funktioner som alla i samhället behöver. En hobby, en resa eller ett privat samtal är däremot personliga saker, inte institutioner som samhället byggt upp."
+    },
+    {
+      "id": "q-sam7-sam-10",
+      "kind": "mc",
+      "topic": "familj och familjeformer",
+      "prompt": "Vad är en bonusfamilj?",
+      "opener": "Ordet \"bonus\" ger en ledtråd om att något har lagts till en tidigare familj.",
+      "choices": [
+        "En familj där föräldrarna bildat en ny familj med varsina eller gemensamma barn efter en separation",
+        "En familj som bara finns i sagor",
+        "En familj med enbart mor- och farföräldrar",
+        "En familj utan barn"
+      ],
+      "answer": 0,
+      "explanation": "En bonusfamilj (även kallad styvfamilj) bildas när en förälder får en ny partner, och familjen kan då bestå av varsina barn från tidigare förhållanden och ibland gemensamma syskon. Det är en av flera vanliga familjeformer i Sverige i dag, precis som kärnfamilj eller ensamstående förälder."
+    },
+    {
+      "id": "q-sam7-sam-11",
+      "kind": "mc",
+      "topic": "grupper och grupptryck",
+      "prompt": "Vad är skillnaden mellan en primärgrupp och en sekundärgrupp?",
+      "opener": "Tänk på hur nära och personlig relationen till gruppens medlemmar är.",
+      "choices": [
+        "Det finns ingen skillnad",
+        "En primärgrupp är nära och personlig som familjen och vännerna, en sekundärgrupp är mer opersonlig som klassen eller arbetsplatsen",
+        "En sekundärgrupp är alltid familjen",
+        "En primärgrupp är bara stora grupper med hundratals medlemmar"
+      ],
+      "answer": 1,
+      "explanation": "Primärgrupper, som familj och nära vänner, kännetecknas av nära och långvariga relationer, medan sekundärgrupper, som klassen eller en arbetsplats, är mer opersonliga och ofta byggda kring ett gemensamt syfte. Storleken avgör alltså inte vilken typ av grupp det är, utan relationens karaktär."
+    },
+    {
+      "id": "q-sam7-sam-12",
+      "kind": "mc",
+      "topic": "normer och värderingar",
+      "prompt": "Vilket påstående om normer stämmer bäst?",
+      "opener": "Jämför hur människor klädde sig eller vilka roller de hade för hundra år sedan med i dag.",
+      "choices": [
+        "Normer är alltid likadana överallt och förändras aldrig",
+        "Normer kan skilja sig mellan olika kulturer och förändras över tid, till exempel synen på klädsel eller könsroller",
+        "Normer är samma sak som lagar",
+        "Normer bestäms alltid av regeringen"
+      ],
+      "answer": 1,
+      "explanation": "Normer varierar mellan olika kulturer och grupper och förändras över tid, till exempel hur vi ser på klädsel, könsroller eller artighet. Till skillnad från lagar beslutas normer inte formellt av riksdagen eller regeringen, utan växer fram och förändras i samhället över tid."
+    },
+    {
+      "id": "q-sam7-sam-13",
+      "kind": "mc",
+      "topic": "identitet och socialisation",
+      "prompt": "Vad är skillnaden mellan primär och sekundär socialisation?",
+      "opener": "Tänk på vem som är först med att lära dig samhällets normer och vem som kommer in senare.",
+      "choices": [
+        "Primär socialisation sker först, i familjen under de tidiga åren, medan sekundär socialisation sker senare genom skola, vänner och medier",
+        "De är samma sak",
+        "Sekundär socialisation sker bara hos djur",
+        "Primär socialisation handlar bara om att lära sig ett yrke"
+      ],
+      "answer": 0,
+      "explanation": "Primär socialisation sker i tidig barndom, framför allt i familjen, och lägger grunden för språk och grundläggande normer. Sekundär socialisation fortsätter sedan hela livet genom skola, vänner, arbetsliv och medier, där man lär sig mer specifika roller och sammanhang."
+    },
+    {
+      "id": "q-sam7-sam-14",
+      "kind": "mc",
+      "topic": "grupper och grupptryck",
+      "prompt": "Vad kallas det när en person anpassar sitt beteende eller sina åsikter för att stämma överens med gruppen?",
+      "opener": "Ordet börjar på \"kon-\" och handlar om att bli lik gruppen.",
+      "choices": [
+        "Konformitet",
+        "Demokrati",
+        "Migration",
+        "Konsumtion"
+      ],
+      "answer": 0,
+      "explanation": "Konformitet är när en person anpassar sig till gruppens normer och förväntningar, ofta för att bli accepterad eller undvika att sticka ut. Det hänger ihop med grupptryck, eftersom det ofta är just förväntningarna i gruppen som gör att man anpassar sig."
+    },
+    {
+      "id": "q-sam7-sam-15",
+      "kind": "mc",
+      "topic": "identitet och socialisation",
+      "prompt": "Vad kan påverka en persons identitet?",
+      "opener": "Tänk brett — identitet handlar om mer än bara ett namn.",
+      "choices": [
+        "Enbart vilket namn man har",
+        "Bakgrund, intressen, familj, vänner och de grupper man tillhör",
+        "Bara vilken skola man går i",
+        "Identitet är medfödd och kan aldrig förändras"
+      ],
+      "answer": 1,
+      "explanation": "Identitet formas av många faktorer tillsammans — bakgrund, intressen, familj, vänner och de grupper man känner tillhörighet till — och den kan förändras och utvecklas under livet. Ett enskilt namn eller en enda skola säger alltså inte allt om vem man är."
     }
   ]
 }

@@ -123,6 +123,111 @@
       "prompt": "Vad ska finnas med i en argumenterande text, och hur skiljer sig insändare från debattartikel?",
       "opener": "Delarna först, sedan de två textformerna.",
       "answer": "Delar · tes: din åsikt som ett tydligt påstående · argument: skäl som svarar på \"varför?\", helst 2-3 stycken, ett per stycke · motargument: invändningen någon annan skulle komma med · bemötande: erkänn det som stämmer, visa sedan varför ditt skäl väger tyngre · avslutning: sammanfattning plus uppmaning. Sakskäl · går att kontrollera eller resonera kring · starkast. Känsloargument · vädjar till medkänsla eller rädsla · kan förstärka men bevisar inget · fungerar bäst som krydda. Insändare · kort, personlig, skriven av vem som helst · publiceras på tidningens insändarsida · ofta signatur. Debattartikel · längre, sakligare, oftast undertecknad med namn och titel · riktar sig mot en bestämd beslutsfattare eller motpart."
+    },
+    {
+      "id": "q-sv8-arg-9",
+      "kind": "mc",
+      "topic": "tes och argument",
+      "prompt": "Tesen är \"Skolan borde servera vegetarisk mat en dag i veckan\". Vilket alternativ är ett argument FÖR tesen?",
+      "opener": "Ett argument svarar på frågan \"varför?\" — det ska stötta tesen, inte upprepa den.",
+      "choices": [
+        "Vegetarisk mat är bra.",
+        "Minskad köttkonsumtion en dag i veckan sänker skolans klimatpåverkan.",
+        "Många skolor har redan vegetariska dagar.",
+        "Jag gillar verkligen grönsaker."
+      ],
+      "answer": 1,
+      "explanation": "Alternativet ger ett skäl med en följd: mindre kött leder till lägre klimatpåverkan. \"Vegetarisk mat är bra\" är bara en omformulerad tes, och \"jag gillar\" är en åsikt utan skäl."
+    },
+    {
+      "id": "q-sv8-arg-10",
+      "kind": "mc",
+      "topic": "tes och argument",
+      "prompt": "Vilket av påståendena är ett sakskäl snarare än ett känsloargument?",
+      "opener": "Sakskäl går att kontrollera eller resonera kring, känsloargument vädjar till hur läsaren känner sig.",
+      "choices": [
+        "Tänk på alla djur som lider!",
+        "Det är fruktansvärt att äta kött.",
+        "Forskning visar att minskad köttkonsumtion sänker utsläppen av växthusgaser.",
+        "Ingen med gott samvete äter kött varje dag."
+      ],
+      "answer": 2,
+      "explanation": "Påståendet om forskning bygger på undersökningar som går att kontrollera — det är ett sakskäl. De övriga vädjar till medkänsla och skam, vilket kan förstärka en text men inte bevisar något."
+    },
+    {
+      "id": "q-sv8-arg-11",
+      "kind": "mc",
+      "topic": "motargument",
+      "prompt": "Motargumentet lyder: \"Vegetarisk mat är dyrare för skolan.\" Vilket svar bemöter motargumentet bäst?",
+      "opener": "Ett bra bemötande erkänner invändningen först och visar sedan varför den väger lättare.",
+      "choices": [
+        "Det är ett dåligt argument som inte är värt att diskutera.",
+        "Det stämmer att vissa råvaror kan kosta mer, men andra grönsaksbaserade rätter är billigare än kött, så totalkostnaden behöver inte öka.",
+        "Alla vet att vegetarisk mat är billigare.",
+        "Många andra skolor har redan infört det."
+      ],
+      "answer": 1,
+      "explanation": "Svaret erkänner att invändningen delvis stämmer och lägger sedan fram ett skäl som väger tyngre — det är så ett motargument bemöts. Att avfärda invändningen eller hänvisa till att \"alla vet\" bemöter ingenting."
+    },
+    {
+      "id": "q-sv8-arg-12",
+      "kind": "mc",
+      "topic": "motargument",
+      "prompt": "Vad bör en skribent göra direkt efter att ha bemött ett motargument?",
+      "opener": "Tänk på vad hela poängen med bemötandet är.",
+      "choices": [
+        "Byta ämne helt",
+        "Låta tesen stå kvar starkare än innan",
+        "Be om ursäkt för att ha tagit upp det",
+        "Avsluta texten utan mer förklaring"
+      ],
+      "answer": 1,
+      "explanation": "Syftet med att bemöta ett motargument är att stärka tesen ytterligare, inte att svaga den eller lämna frågan öppen. Efter ett bra bemötande ska läsaren känna sig ännu mer övertygad."
+    },
+    {
+      "id": "q-sv8-arg-13",
+      "kind": "mc",
+      "topic": "textens uppbyggnad",
+      "prompt": "Vad skiljer en debattartikel från en insändare, förutom längden?",
+      "opener": "Tänk på vem som skriver under texten och vem den riktar sig mot.",
+      "choices": [
+        "Debattartikeln är oftast undertecknad med namn och titel och riktar sig mot en bestämd motpart",
+        "Debattartikeln saknar alltid en tes",
+        "Insändaren är alltid längre",
+        "Det finns ingen skillnad alls"
+      ],
+      "answer": 0,
+      "explanation": "Debattartikeln är längre, sakligare och undertecknas ofta med namn och titel, och riktar sig mot en bestämd beslutsfattare eller motpart. Insändaren är kortare och mer personlig och kan skrivas av vem som helst."
+    },
+    {
+      "id": "q-sv8-arg-14",
+      "kind": "worked",
+      "topic": "motargument",
+      "prompt": "Planera en insändare med tesen \"Biblioteket i vår stadsdel ska ha kvällsöppet på vardagar\". Formulera två argument, ett motargument och ett bemötande, samt en avslutande uppmaning.",
+      "opener": "Börja i tesen, hitta sedan skäl som går att pröva. Tänk till sist ut vad någon som tycker tvärtom skulle säga.",
+      "answer": "Tes: Biblioteket i vår stadsdel ska ha kvällsöppet på vardagar. Argument 1: Många som arbetar eller går i skolan på dagtid hinner annars aldrig besöka biblioteket. Argument 2: Ett kvällsöppet bibliotek ger ungdomar en trygg plats att plugga på efter skoltid. Motargument: Kvällsöppet kostar extra i personal. Bemötande: Det stämmer att det kräver mer personal, men kommunen kan testa med begränsat öppethållande några kvällar i veckan innan man satsar fullt ut. Avslutning: Låt biblioteket testa kvällsöppet en termin och utvärdera sedan hur det gått.",
+      "steps": [
+        "Formulera tesen som ett påstående, inte som en fråga — läsaren ska direkt veta vad du vill.",
+        "Välj argument som är sakskäl och går att pröva: tillgänglighet för arbetande och en trygg studieplats, inte bara \"biblioteket är bra\".",
+        "Ställ dig på motståndarens sida en stund: det starkaste motargumentet är kostnaden för extra personal.",
+        "Bemöt genom att först erkänna det som stämmer och sedan visa att problemet går att lösa på annat sätt.",
+        "Avsluta med en konkret uppmaning — ett förslag att testa och utvärdera är lättare att säga ja till än ett krav."
+      ]
+    },
+    {
+      "id": "q-sv8-arg-15",
+      "kind": "mc",
+      "topic": "tes och argument",
+      "prompt": "Vilket alternativ är EN tes, snarare än ett argument?",
+      "opener": "Tesen är ståndpunkten själv, argumenten är skälen som stöttar den.",
+      "choices": [
+        "Fler cykelbanor minskar antalet olyckor.",
+        "Kommunen bör bygga fler cykelbanor i centrum.",
+        "Många cyklister känner sig otrygga i trafiken idag.",
+        "En undersökning visar att 60 procent vill ha fler cykelbanor."
+      ],
+      "answer": 1,
+      "explanation": "\"Kommunen bör bygga fler cykelbanor\" är själva ståndpunkten — tesen. De övriga alternativen är skäl som kan användas för att stötta den tesen, alltså argument."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta rena ämnen, blandningar och de vanligaste separationsmetoderna.",
       "opener": "Gå igenom begreppen först och metoderna sedan — vilken metod passar till vilken blandning?",
       "answer": "Rent ämne: bara ett slags ämne, har bestämd smältpunkt och kokpunkt (rent vatten smälter vid 0 °C och kokar vid 100 °C) · Blandning: två eller flera ämnen blandade utan att reagera, delarna finns kvar · Ojämn blandning: delarna syns, t.ex. sand i vatten, grus, müsli · Jämn blandning (lösning): delarna syns inte, t.ex. saltvatten, sockerlösning, luft · Lösning = lösningsmedel (störst mängd, oftast vatten) + löst ämne · Legering: blandning av metaller, t.ex. messing (koppar + zink), stål (järn + kol), brons (koppar + tin) · Filtrering: skiljer olösta partiklar från vätska, t.ex. sand från vatten · Indunstning: vätskan avdunstar, det lösta ämnet blir kvar, t.ex. salt ur saftvatten · Destillation: vätskan kokas, ångan kyls och blir vätska igen i ett annat kärl — ger rent vatten ur saltvatten · Löslighet: hur mycket av ett ämne som kan lösas, ökar oftast med högre temperatur · Fysikaliska egenskaper som hjälper dig känna igen ett ämne: smältpunkt, kokpunkt, densitet, färg, löslighet."
+    },
+    {
+      "id": "q-kemi7-amn-9",
+      "kind": "mc",
+      "topic": "rena ämnen och blandningar",
+      "prompt": "Vilket av följande är en blandning, inte ett rent ämne?",
+      "opener": "Tänk på vad som finns upplöst i drycken utöver vattnet.",
+      "choices": [
+        "Rent guld",
+        "Syrgas",
+        "Läsk (kolsyrat vatten med socker och smak)",
+        "Destillerat vatten"
+      ],
+      "answer": 2,
+      "explanation": "Läsk innehåller vatten, socker, koldioxid och smakämnen blandade tillsammans, alltså en blandning. Rent guld, syrgas och destillerat vatten innehåller bara ett enda slags ämne var och är rena ämnen."
+    },
+    {
+      "id": "q-kemi7-amn-10",
+      "kind": "mc",
+      "topic": "separationsmetoder",
+      "prompt": "Du vill få rent, saltfritt vatten ur havsvatten. Vilken metod passar bäst?",
+      "opener": "Du vill samla upp själva vattnet, inte bara bli av med det.",
+      "choices": [
+        "Filtrering",
+        "Indunstning",
+        "Destillation",
+        "Att frysa vattnet"
+      ],
+      "answer": 2,
+      "explanation": "Vid destillation kokas vattnet, ångan kyls och samlas upp som rent vatten i ett annat kärl, medan saltet blir kvar. Filtrering fungerar inte eftersom saltet är löst, och indunstning skulle bara göra sig av med vattnet utan att samla upp det."
+    },
+    {
+      "id": "q-kemi7-amn-11",
+      "kind": "mc",
+      "topic": "legeringar",
+      "prompt": "Vilken av dessa är en legering?",
+      "opener": "Tänk på vilket alternativ som består av mer än ett grundämne smälta samman.",
+      "choices": [
+        "Syrgas (O₂)",
+        "Stål (järn + kol)",
+        "Destillerat vatten",
+        "Koksalt (NaCl)"
+      ],
+      "answer": 1,
+      "explanation": "Stål är en legering där järn och kol smälts samman för att ge materialet nya egenskaper, som hårdhet. Syrgas är ett grundämne, och destillerat vatten och koksalt är kemiska föreningar, inte legeringar av metaller."
+    },
+    {
+      "id": "q-kemi7-amn-12",
+      "kind": "mc",
+      "topic": "lösningar",
+      "prompt": "I en lösning av salt i vatten, vad kallas saltet?",
+      "opener": "Saltet är det ämne som finns i mindre mängd och som sprids ut i vattnet.",
+      "choices": [
+        "Lösningsmedlet",
+        "Det lösta ämnet",
+        "Legeringen",
+        "Fällningen"
+      ],
+      "answer": 1,
+      "explanation": "Saltet är det lösta ämnet, medan vattnet är lösningsmedlet eftersom det finns i störst mängd. En fällning är i stället ett olösligt ämne som bildas och sjunker till botten, vilket inte händer här."
+    },
+    {
+      "id": "q-kemi7-amn-13",
+      "kind": "mc",
+      "topic": "fysikaliska egenskaper",
+      "prompt": "Vilken av dessa är en fysikalisk egenskap som kan användas för att identifiera ett ämne?",
+      "opener": "Egenskapen ska höra till ämnet självt, inte till var eller när du köpte det.",
+      "choices": [
+        "Smältpunkt",
+        "Ämnets pris",
+        "Var ämnet köptes",
+        "Ämnets ålder"
+      ],
+      "answer": 0,
+      "explanation": "Smältpunkten är en fysikalisk egenskap som är densamma för alla rena prover av ett ämne och kan därför användas för att identifiera det. Pris, inköpsställe och ålder säger ingenting om vilket ämne det faktiskt är."
+    },
+    {
+      "id": "q-kemi7-amn-14",
+      "kind": "worked",
+      "topic": "separationsmetoder",
+      "prompt": "Du har en bägare med en blandning av järnfilspån och sand. Hur gör du för att separera dem åt?",
+      "opener": "Tänk på en egenskap som järn har men som sand saknar helt.",
+      "answer": "Dra en magnet genom blandningen — järnfilspånen fastnar på magneten medan sanden blir kvar i bägaren.",
+      "steps": [
+        "Tänk igenom blandningen: järnfilspån är magnetiska, sand är det inte.",
+        "För en magnet genom blandningen, gärna i en plastpåse runt magneten för att lätt kunna ta bort järnfilspånen efteråt.",
+        "Järnfilspånen dras till magneten och lyfts bort ur blandningen.",
+        "Kvar i bägaren blir bara sanden, som inte påverkas av magnetens dragningskraft.",
+        "Kontrollera rimligheten: ingen av delarna har förändrats kemiskt, du har bara skiljt dem åt med hjälp av en fysikalisk egenskap."
+      ]
+    },
+    {
+      "id": "q-kemi7-amn-15",
+      "kind": "mc",
+      "topic": "rena ämnen och blandningar",
+      "prompt": "Vad kännetecknar ett rent ämne, till skillnad från en blandning?",
+      "opener": "Tänk på vad som gäller för rent vatten jämfört med saltvatten när de smälter och kokar.",
+      "choices": [
+        "Det har en bestämd smält- och kokpunkt",
+        "Det ser alltid genomskinligt ut",
+        "Det innehåller alltid vatten",
+        "Det kan aldrig vara en gas"
+      ],
+      "answer": 0,
+      "explanation": "Ett rent ämne har en exakt, bestämd smält- och kokpunkt, medan en blandning ofta smälter och kokar inom ett intervall av temperaturer. Både rena ämnen och blandningar kan vara genomskinliga, innehålla vatten eller vara gaser."
     }
   ]
 }

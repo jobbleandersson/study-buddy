@@ -123,6 +123,110 @@
       "prompt": "Vad gör växtens olika delar, och hur ser fotosyntesen och cellandningen ut?",
       "opener": "Ta först de fyra växtdelarna, sedan de två processerna som hör ihop.",
       "answer": "Rot: tar upp vatten och mineralnäring, förankrar växten · Stam/stjälk: bär upp växten och transporterar vatten uppåt och socker nedåt · Blad: gör fotosyntes, har klyvöppningar för gasutbyte · Blomma: växtens fortplantningsorgan med ståndare (pollen) och pistill (fröämnen) · Fotosyntes: koldioxid + vatten + solljus → druvsocker + syre, sker i kloroplasterna med klorofyll, bara i ljus · Cellandning: druvsocker + syre → koldioxid + vatten + energi, sker i mitokondrierna, dygnet runt hos både växter och djur · Pollinering: pollen från ståndare till pistill via insekter eller vind · Fröspridning: vind, vatten, djur som äter bär eller frön som fastnar i pälsen."
+    },
+    {
+      "id": "q-bio7-vax-9",
+      "kind": "mc",
+      "topic": "växtens delar",
+      "prompt": "Vilken uppgift har stammen (stjälken) hos en växt?",
+      "opener": "Tänk på vad som håller upp bladen och blommorna, och vad som måste transporteras genom hela växten.",
+      "choices": [
+        "Den tar upp vatten ur jorden",
+        "Den bär upp växten och transporterar vatten och socker",
+        "Den gör fotosyntes",
+        "Den lockar insekter"
+      ],
+      "answer": 1,
+      "explanation": "Stammen bär upp växten och transporterar vatten uppåt från roten samt socker nedåt från bladen. Att ta upp vatten ur jorden är rotens uppgift, och att göra fotosyntes sker huvudsakligen i bladen."
+    },
+    {
+      "id": "q-bio7-vax-10",
+      "kind": "mc",
+      "topic": "fotosyntes",
+      "prompt": "Var i växten sker fotosyntesen huvudsakligen?",
+      "opener": "Tänk på var kloroplasterna med det gröna färgämnet finns mest av.",
+      "choices": [
+        "I roten",
+        "I stammen",
+        "I bladen",
+        "I blomman"
+      ],
+      "answer": 2,
+      "explanation": "Bladen innehåller flest kloroplaster och har stor yta att fånga upp solljus med, så det är där fotosyntesen huvudsakligen sker. Roten saknar klorofyll och kan därför inte göra fotosyntes."
+    },
+    {
+      "id": "q-bio7-vax-11",
+      "kind": "mc",
+      "topic": "fotosyntes",
+      "prompt": "Vad heter det gröna färgämnet i kloroplasterna som fångar upp solljuset?",
+      "opener": "Ämnet ger bladen deras gröna färg.",
+      "choices": [
+        "Cellulosa",
+        "Klorofyll",
+        "Glukos",
+        "Kollagen"
+      ],
+      "answer": 1,
+      "explanation": "Klorofyllet är det gröna färgämnet i kloroplasterna som fångar upp solljusets energi till fotosyntesen. Cellulosa bygger i stället upp cellväggen, och glukos (druvsocker) är det som bildas vid fotosyntesen."
+    },
+    {
+      "id": "q-bio7-vax-12",
+      "kind": "mc",
+      "topic": "cellandning",
+      "prompt": "Vilka ämnen bildas vid cellandningen?",
+      "opener": "Cellandningen är fotosyntesens motsats — vad blir kvar när sockret bryts ner?",
+      "choices": [
+        "Socker och syre",
+        "Koldioxid, vatten och energi",
+        "Klorofyll och vatten",
+        "Pollen och nektar"
+      ],
+      "answer": 1,
+      "explanation": "Vid cellandningen bryts druvsocker ner med hjälp av syre, och det bildas koldioxid, vatten och energi som växten kan använda. Socker och syre är i stället det som går in i processen, inte det som bildas."
+    },
+    {
+      "id": "q-bio7-vax-13",
+      "kind": "mc",
+      "topic": "pollinering och frön",
+      "prompt": "Vad kallas det när frön sprids till nya platser?",
+      "opener": "Detta sker efter att pollineringen redan har lett till fröbildning.",
+      "choices": [
+        "Pollinering",
+        "Fotosyntes",
+        "Fröspridning",
+        "Cellandning"
+      ],
+      "answer": 2,
+      "explanation": "Fröspridning är när frön förs bort till nya platser, till exempel med vind, vatten eller djur. Pollinering sker i stället tidigare i processen, när pollen förs från ståndare till pistill."
+    },
+    {
+      "id": "q-bio7-vax-14",
+      "kind": "worked",
+      "topic": "fotosyntes",
+      "prompt": "En växt får rikligt med vatten och ljus men står i ett helt lufttätt rum utan koldioxid. Förklara steg för steg vad som händer med växtens fotosyntes.",
+      "opener": "Börja med vad fotosyntesen behöver, och fundera sedan på vad som händer när en av delarna saknas.",
+      "answer": "Utan koldioxid kan fotosyntesen inte ske, trots att vatten och ljus finns, eftersom koldioxid är en av de tre nödvändiga råvarorna. Växten kan inte bilda nytt socker och tvingas leva på sitt lagrade förråd tills det tar slut, då den vissnar.",
+      "steps": [
+        "Fotosyntesen behöver koldioxid, vatten OCH solljus — i det lufttäta rummet saknas koldioxiden.",
+        "Utan koldioxid kan kloroplasterna inte tillverka nytt socker, även om ljus och vatten finns.",
+        "Växten fortsätter ändå med cellandning och gör av med det socker den har lagrat sedan tidigare.",
+        "När förrådet tar slut får cellerna för lite energi och växten vissnar."
+      ]
+    },
+    {
+      "id": "q-bio7-vax-15",
+      "kind": "mc",
+      "topic": "växtens delar",
+      "prompt": "Vilken del av växten innehåller ståndare och pistill?",
+      "opener": "Det är fortplantningsorganet hos växten.",
+      "choices": [
+        "Roten",
+        "Stammen",
+        "Bladet",
+        "Blomman"
+      ],
+      "answer": 3,
+      "explanation": "Blomman är växtens fortplantningsorgan och innehåller ståndare som bildar pollen och pistill som innehåller fröämnen. Roten, stammen och bladet har andra uppgifter, som att ta upp vatten, transportera och göra fotosyntes."
     }
   ]
 }

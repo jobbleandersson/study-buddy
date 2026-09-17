@@ -125,6 +125,111 @@
       "prompt": "Summarise human rights and equality: the UN's Declaration, the Convention on the Rights of the Child, the grounds of discrimination, gender equality, and constitutionally protected freedoms.",
       "opener": "From a global declaration to concrete rights in Swedish law.",
       "answer": "The UN's Universal Declaration of Human Rights: adopted by the UN General Assembly on 10 December 1948 · the rights are universal (apply to every human being) and inalienable (cannot be forfeited) · The Convention on the Rights of the Child: adopted by the UN in 1989, ratified by Sweden in 1990, Swedish law since 1 January 2020 · covers everyone under 18 · four core principles: non-discrimination, the best interests of the child, the right to life and development, the child's right to be heard · The grounds of discrimination in the Discrimination Act: sex · transgender identity or expression · ethnicity · religion or other belief · disability · sexual orientation · age · schools and employers are covered and must make reasonable accommodations · a complaint can be made to the Equality Ombudsman · Gender equality: the same rights, obligations and opportunities for women and men · equality (in general) is the broader concept of everyone's equal conditions · Constitutionally protected freedoms and rights: freedom of expression, freedom of information, freedom of assembly, demonstration, association and religion · Sweden's four fundamental laws: the Instrument of Government, the Act of Succession, the Freedom of the Press Act, and the Fundamental Law on Freedom of Expression · the freedoms have certain limits, e.g. the ban on incitement against a population group."
+    },
+    {
+      "id": "q-sam8-man-9",
+      "kind": "mc",
+      "topic": "the grounds of discrimination",
+      "prompt": "Which agency in Sweden receives complaints about discrimination?",
+      "opener": "The agency's name directly describes what it works against.",
+      "choices": [
+        "The Swedish Tax Agency",
+        "The Swedish Transport Administration",
+        "The Swedish Migration Agency",
+        "The Equality Ombudsman (DO)"
+      ],
+      "answer": 3,
+      "explanation": "The Equality Ombudsman, DO, is the agency in Sweden that receives complaints about discrimination and works to ensure the Discrimination Act is followed. The Swedish Tax Agency, the Swedish Transport Administration and the Swedish Migration Agency instead work with taxes, roads and traffic, and migration respectively, and have no such role."
+    },
+    {
+      "id": "q-sam8-man-10",
+      "kind": "mc",
+      "topic": "the Convention on the Rights of the Child",
+      "prompt": "Which of the Convention on the Rights of the Child's four core principles specifically concerns children being allowed to express their opinion in matters that concern them?",
+      "opener": "Distinguish it from the principle that the best interests of the child must come first in decisions.",
+      "choices": [
+        "Non-discrimination",
+        "The right to life and development",
+        "The best interests of the child in every decision",
+        "The child's right to be heard"
+      ],
+      "answer": 3,
+      "explanation": "The principle of the child's right to be heard means children should be allowed to express their opinion in matters that concern them, and that the opinion should be taken into account based on age and maturity. The other principles concern non-discrimination, the right to life and development, and the best interests of the child coming first in decisions — a different matter from being allowed to speak for oneself."
+    },
+    {
+      "id": "q-sam8-man-11",
+      "kind": "mc",
+      "topic": "the UN's Universal Declaration",
+      "prompt": "What does it mean that human rights are indivisible?",
+      "opener": "Think about the rights belonging together as a whole.",
+      "choices": [
+        "That a person can only have a single right at a time",
+        "That the rights can be split up and sold between countries",
+        "That only certain rights count as real rights",
+        "That civil, political, economic, social and cultural rights belong together and are equally important"
+      ],
+      "answer": 3,
+      "explanation": "Indivisibility means the different types of human rights — for example freedom of expression, the right to education and the right to health — belong together and are equally important, so you cannot pick and choose some while discarding others. The rights can therefore not be bought, sold or ranked as more or less real."
+    },
+    {
+      "id": "q-sam8-man-12",
+      "kind": "mc",
+      "topic": "gender equality",
+      "prompt": "What is an example of a gender equality issue in working life?",
+      "opener": "The issue is about sex not determining the terms for the same work effort.",
+      "choices": [
+        "That everyone should have exactly the same occupation",
+        "That only women should be allowed to work part-time",
+        "That age should determine pay instead of job duties",
+        "That women and men should have equal pay for equal or equivalent work"
+      ],
+      "answer": 3,
+      "explanation": "That women and men should have equal pay for equal or equivalent work is a central gender equality issue in working life, since pay gaps between the sexes still exist in practice even though they are not legally allowed. Gender equality is not about everyone having the same occupation, and part-time work or pay should not be governed by sex or age in themselves."
+    },
+    {
+      "id": "q-sam8-man-13",
+      "kind": "mc",
+      "topic": "democratic freedoms and rights",
+      "prompt": "Which of Sweden's four fundamental laws regulates, among other things, who inherits the Swedish throne?",
+      "opener": "The name of the fundamental law gives a clear clue.",
+      "choices": [
+        "The Freedom of the Press Act",
+        "The Fundamental Law on Freedom of Expression",
+        "The Instrument of Government alone",
+        "The Act of Succession"
+      ],
+      "answer": 3,
+      "explanation": "The Act of Succession is the one of Sweden's four fundamental laws that regulates the line of succession, that is, who inherits the Swedish throne. The Freedom of the Press Act and the Fundamental Law on Freedom of Expression instead concern freedom of the press and of expression, and the Instrument of Government regulates the other foundations of the system of government."
+    },
+    {
+      "id": "q-sam8-man-14",
+      "kind": "mc",
+      "topic": "the grounds of discrimination",
+      "prompt": "Does age count as a ground of discrimination in the Swedish Discrimination Act?",
+      "opener": "Think about whether the law protects every age or only certain groups.",
+      "choices": [
+        "No, age is not protected by the law at all",
+        "Only for people under 18",
+        "Only for people over 65",
+        "Yes, age is one of the seven grounds of discrimination"
+      ],
+      "answer": 3,
+      "explanation": "Age is one of the seven grounds of discrimination in the Discrimination Act and protects people of all ages, not just children or the elderly. The law is therefore not limited to a single age group."
+    },
+    {
+      "id": "q-sam8-man-15",
+      "kind": "mc",
+      "topic": "the UN's Universal Declaration",
+      "prompt": "Roughly how many articles does the UN's Universal Declaration of Human Rights contain?",
+      "opener": "The number is round and fairly easy to remember.",
+      "choices": [
+        "10",
+        "100",
+        "5",
+        "30"
+      ],
+      "answer": 3,
+      "explanation": "The Universal Declaration of Human Rights contains 30 articles, which together cover everything from the right to life and liberty to the right to education and rest. The other numbers don't match the actual number of articles."
     }
   ]
 }

@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta radianbegreppet, enhetscirkeln, lösning av $\\sin x=a$ och de trigonometriska sambanden.",
       "opener": "Tänk grad-till-radian, kvadranternas tecken och identiteterna för dubbla vinkeln.",
       "answer": "$180°=\\pi$ rad, alltså $1$ rad $=\\dfrac{180°}{\\pi}$ · Punkt på enhetscirkeln vid vinkel $v$: $(\\cos v,\\ \\sin v)$ · Trigonometriska ettan: $\\sin^2x+\\cos^2x=1$ · $\\sin(2x)=2\\sin x\\cos x$ · $\\cos(2x)=\\cos^2x-\\sin^2x=1-2\\sin^2x=2\\cos^2x-1$ · $\\sin x=a$ har lösningarna $x=v+2\\pi n$ eller $x=\\pi-v+2\\pi n$, där $v$ är en lösning · $\\cos x=a$ har lösningarna $x=\\pm v+2\\pi n$, där $v$ är en lösning"
+    },
+    {
+      "id": "q-ma3-trig-9",
+      "kind": "mc",
+      "topic": "radianer",
+      "prompt": "Hur många radianer motsvarar $270°$?",
+      "opener": "Använd att $180°$ motsvarar $\\pi$ radianer.",
+      "choices": [
+        "$\\dfrac{3\\pi}{2}$",
+        "$\\dfrac{\\pi}{2}$",
+        "$2\\pi$",
+        "$\\dfrac{\\pi}{3}$"
+      ],
+      "answer": 0,
+      "explanation": "$270° = \\dfrac{270}{180}\\pi = \\dfrac{3\\pi}{2}$ rad."
+    },
+    {
+      "id": "q-ma3-trig-10",
+      "kind": "mc",
+      "topic": "radianer",
+      "prompt": "Hur många grader motsvarar $\\dfrac{\\pi}{6}$ radianer?",
+      "opener": "Använd att $\\pi$ radianer motsvarar $180°$.",
+      "choices": [
+        "$30°$",
+        "$45°$",
+        "$60°$",
+        "$15°$"
+      ],
+      "answer": 0,
+      "explanation": "$\\dfrac{\\pi}{6}\\text{ rad} = \\dfrac{1}{6}\\cdot180° = 30°$."
+    },
+    {
+      "id": "q-ma3-trig-11",
+      "kind": "mc",
+      "topic": "enhetscirkeln",
+      "prompt": "En punkt på enhetscirkeln motsvarar vinkeln $\\pi$ (180°). Vilka koordinater har punkten?",
+      "opener": "Koordinaterna ges av $(\\cos v, \\sin v)$.",
+      "choices": [
+        "$(-1,\\ 0)$",
+        "$(1,\\ 0)$",
+        "$(0,\\ -1)$",
+        "$(0,\\ 1)$"
+      ],
+      "answer": 0,
+      "explanation": "$\\cos(\\pi)=-1$ och $\\sin(\\pi)=0$, så punkten är $(-1, 0)$, längst till vänster på enhetscirkeln."
+    },
+    {
+      "id": "q-ma3-trig-12",
+      "kind": "mc",
+      "topic": "trigonometriska ekvationer",
+      "prompt": "Lös ekvationen $\\cos x = \\dfrac{1}{2}$ för $0 \\le x < 2\\pi$.",
+      "opener": "Cosinus är positiv i två kvadranter — hitta båda lösningarna.",
+      "choices": [
+        "$x=\\dfrac{\\pi}{3}$ eller $x=\\dfrac{5\\pi}{3}$",
+        "$x=\\dfrac{\\pi}{3}$ eller $x=\\dfrac{2\\pi}{3}$",
+        "$x=\\dfrac{\\pi}{6}$ eller $x=\\dfrac{11\\pi}{6}$",
+        "$x=\\dfrac{\\pi}{3}$ (enda lösningen)"
+      ],
+      "answer": 0,
+      "explanation": "Referensvinkeln är $\\frac{\\pi}{3}$ eftersom $\\cos\\frac{\\pi}{3}=\\frac12$. Cosinus är positiv i första och fjärde kvadranten, vilket ger $x=\\frac{\\pi}{3}$ och $x=2\\pi-\\frac{\\pi}{3}=\\frac{5\\pi}{3}$."
+    },
+    {
+      "id": "q-ma3-trig-13",
+      "kind": "mc",
+      "topic": "trigonometriska samband",
+      "prompt": "Vilket uttryck är korrekt för $\\sin(2x)$?",
+      "opener": "Formeln för dubbla vinkeln kombinerar sinus och cosinus av samma vinkel.",
+      "choices": [
+        "$2\\sin x\\cos x$",
+        "$\\sin^2x-\\cos^2x$",
+        "$\\cos^2x-\\sin^2x$",
+        "$\\sin x+\\cos x$"
+      ],
+      "answer": 0,
+      "explanation": "Formeln för dubbla vinkeln är $\\sin(2x)=2\\sin x\\cos x$. Uttrycket $\\cos^2x-\\sin^2x$ är istället formeln för $\\cos(2x)$."
+    },
+    {
+      "id": "q-ma3-trig-14",
+      "kind": "mc",
+      "topic": "trigonometriska ekvationer",
+      "prompt": "Lös ekvationen $\\sin x = -\\dfrac{1}{2}$ för $0 \\le x < 2\\pi$.",
+      "opener": "Sinus är negativ i tredje och fjärde kvadranten.",
+      "choices": [
+        "$x=\\dfrac{7\\pi}{6}$ eller $x=\\dfrac{11\\pi}{6}$",
+        "$x=\\dfrac{\\pi}{6}$ eller $x=\\dfrac{5\\pi}{6}$",
+        "$x=\\pi+\\dfrac{\\pi}{6}$ (enda lösningen)",
+        "$x=-\\dfrac{\\pi}{6}$"
+      ],
+      "answer": 0,
+      "explanation": "Referensvinkeln är $\\frac{\\pi}{6}$ eftersom $\\sin\\frac{\\pi}{6}=\\frac12$. Sinus är negativ i tredje och fjärde kvadranten: $x=\\pi+\\frac{\\pi}{6}=\\frac{7\\pi}{6}$ och $x=2\\pi-\\frac{\\pi}{6}=\\frac{11\\pi}{6}$."
+    },
+    {
+      "id": "q-ma3-trig-15",
+      "kind": "mc",
+      "topic": "trigonometriska samband",
+      "prompt": "Uttryck $\\cos(2x)$ med hjälp av enbart $\\sin x$.",
+      "opener": "Utgå från $\\cos(2x)=\\cos^2x-\\sin^2x$ och använd den trigonometriska ettan för att byta ut $\\cos^2x$.",
+      "choices": [
+        "$1-2\\sin^2x$",
+        "$2\\sin^2x-1$",
+        "$1+2\\sin^2x$",
+        "$\\sin^2x-1$"
+      ],
+      "answer": 0,
+      "explanation": "Eftersom $\\cos^2x=1-\\sin^2x$ enligt trigonometriska ettan, ger $\\cos(2x)=\\cos^2x-\\sin^2x=(1-\\sin^2x)-\\sin^2x=1-2\\sin^2x$."
     }
   ]
 }

@@ -112,6 +112,111 @@
       "prompt": "Which strategies help you understand a longer Spanish text with several connected sentences?",
       "opener": "Linking information from different parts of the text.",
       "answer": "Read the whole text once without stopping at unknown words, to get the overall picture. Look for time markers (el verano pasado, durante dos semanas) to understand WHEN something happened. Look for preterite verbs (fuimos, visitamos, probamos, hizo, llovió) to understand WHAT happened. Connect pronouns and references: \"lo que más me gustó\" refers back to the whole experience. Guess new words from context — \"riquísimo\" can be guessed from context (food you like) even without knowing the superlative ending -ísimo beforehand."
+    },
+    {
+      "id": "q-sp9-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Cuando tenía doce años, mi familia se mudó a otra ciudad. Al principio, extrañaba mucho a mis amigos antiguos, pero poco a poco hice nuevos amigos en el colegio. Ahora, cinco años después, no me arrepiento de nada.\"\n\n¿Cuántos años tenía la persona cuando su familia se mudó?",
+      "opener": "Read the text about moving to a new city.",
+      "choices": [
+        "Doce años",
+        "Cinco años",
+        "Diecisiete años",
+        "Diez años"
+      ],
+      "answer": 0,
+      "explanation": "\"Cuando tenía doce años\" means \"when I was twelve years old\", indicating the person's age at the time of the move."
+    },
+    {
+      "id": "q-sp9-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Cómo se sintió al principio?",
+      "opener": "The second sentence describes the feelings at the start.",
+      "choices": [
+        "Extrañaba mucho a sus amigos antiguos",
+        "Estaba muy feliz desde el primer día",
+        "No sintió nada especial",
+        "Quería volver inmediatamente"
+      ],
+      "answer": 0,
+      "explanation": "\"Extrañaba mucho a mis amigos antiguos\" means \"I missed my old friends a lot\"."
+    },
+    {
+      "id": "q-sp9-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Según el texto, ¿cómo se siente la persona ahora?",
+      "opener": "The last sentence sums up how the person feels today.",
+      "choices": [
+        "No se arrepiente de nada",
+        "Todavía extraña mucho su antigua ciudad",
+        "Quiere mudarse de nuevo",
+        "Sigue sin tener amigos"
+      ],
+      "answer": 0,
+      "explanation": "\"No me arrepiento de nada\" means \"I don't regret anything\"."
+    },
+    {
+      "id": "q-sp9-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "New text: \"Mi mejor amiga y yo nos conocimos en el primer día de instituto. Al principio, no hablamos mucho, pero durante el almuerzo empezamos a charlar sobre música y descubrimos que nos gustaba el mismo grupo. Desde entonces, somos inseparables.\"\n\n¿Cuándo se conocieron las dos amigas?",
+      "opener": "Read the new text about two friends.",
+      "choices": [
+        "El primer día de instituto",
+        "En una fiesta de cumpleaños",
+        "En un concierto",
+        "Cuando eran muy pequeñas"
+      ],
+      "answer": 0,
+      "explanation": "\"Nos conocimos en el primer día de instituto\" means \"we met on the first day of high school\"."
+    },
+    {
+      "id": "q-sp9-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿De qué empezaron a hablar durante el almuerzo?",
+      "opener": "The middle of the text describes what they talked about.",
+      "choices": [
+        "De música",
+        "De deporte",
+        "De películas",
+        "De sus familias"
+      ],
+      "answer": 0,
+      "explanation": "\"Empezamos a charlar sobre música\" means \"we started chatting about music\"."
+    },
+    {
+      "id": "q-sp9-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Qué descubrieron que tenían en común?",
+      "opener": "The text describes a shared discovery.",
+      "choices": [
+        "Les gustaba el mismo grupo de música",
+        "Vivían en la misma calle",
+        "Tenían el mismo cumpleaños",
+        "Iban a la misma clase de baile"
+      ],
+      "answer": 0,
+      "explanation": "\"Descubrimos que nos gustaba el mismo grupo\" means \"we discovered we liked the same band\"."
+    },
+    {
+      "id": "q-sp9-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. ¿Cómo describe la persona su amistad actual?",
+      "opener": "The last sentence describes their friendship today.",
+      "choices": [
+        "Son inseparables",
+        "Ya no se hablan",
+        "Se ven una vez al año",
+        "Todavía no son amigas"
+      ],
+      "answer": 0,
+      "explanation": "\"Somos inseparables\" means \"we are inseparable\"."
     }
   ]
 }

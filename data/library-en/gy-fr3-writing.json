@@ -122,6 +122,111 @@
       "prompt": "What checklist questions should you ask yourself about word choice and structure when writing a longer text in French?",
       "opener": "A checklist that ties together aspect, relative pronouns, the subjunctive, and comparisons.",
       "answer": "Aspect: does the sentence describe a state/habit (imparfait) or a bounded, completed event (passé composé)? Relative pronoun: is the word the subject of the clause (qui), the object (que), a place (où), or linked to a verb + de or ownership (dont)? Subjunctive: is the verb governed by an expression like il faut que/je veux que/je souhaite que AND does the clause have a different subject from the main clause — then the subjunctive is required, otherwise the infinitive. Comparisons: plus/moins/aussi + adjective + que to compare two things, le/la plus + adjective for the superlative (the most ...). Running through this checklist before handing in a text catches the most common mistakes at this level."
+    },
+    {
+      "id": "q-fr3-writing-9",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Complétez : \"Ce restaurant est ___ que l'autre.\" (bon, comparative)",
+      "opener": "\"Bon\" has an irregular comparative form.",
+      "choices": [
+        "meilleur",
+        "plus bon",
+        "bonne plus",
+        "bon plus"
+      ],
+      "answer": 0,
+      "explanation": "\"Bon\" has the irregular comparative form \"meilleur\" (better), not \"plus bon\"."
+    },
+    {
+      "id": "q-fr3-writing-10",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Complétez : \"Le film ___ nous avons vu hier était incroyable.\"",
+      "opener": "Who is doing the action \"see\"? \"Nous\" is, and the movie is what's received.",
+      "choices": [
+        "que",
+        "qui",
+        "dont",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Que\" is the object (we saw the movie) and is followed by subject + verb: \"que nous avons vu\"."
+    },
+    {
+      "id": "q-fr3-writing-11",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Complétez : \"Quand elle ___ (être) jeune, elle ___ (vouloir) devenir actrice.\"",
+      "opener": "Both a state (young) and an ongoing wish — both in the imparfait.",
+      "choices": [
+        "était / voulait",
+        "a été / a voulu",
+        "était / a voulu",
+        "a été / voulait"
+      ],
+      "answer": 0,
+      "explanation": "Both \"being young\" and \"wanting to become an actress\" describe states/ongoing wishes with no clear start/end → imparfait for both: \"était\" and \"voulait\"."
+    },
+    {
+      "id": "q-fr3-writing-12",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Complétez : \"C'est ___ restaurant de la ville.\" (bon, superlative)",
+      "opener": "\"Bon\" is irregular in the superlative too.",
+      "choices": [
+        "le meilleur",
+        "le plus bon",
+        "le bon plus",
+        "le meilleur plus"
+      ],
+      "answer": 0,
+      "explanation": "\"Bon\" has the irregular superlative form \"le meilleur\" (the best), not \"le plus bon\"."
+    },
+    {
+      "id": "q-fr3-writing-13",
+      "kind": "mc",
+      "topic": "word choice",
+      "prompt": "Complétez : \"Il faut qu'elle ___ (être) à l'heure.\"",
+      "opener": "\"Être\" has its own entirely irregular subjunctive stem.",
+      "choices": [
+        "soit",
+        "est",
+        "était",
+        "sera"
+      ],
+      "answer": 0,
+      "explanation": "The subjunctive of \"être\" for \"elle\" is \"soit\"."
+    },
+    {
+      "id": "q-fr3-writing-14",
+      "kind": "mc",
+      "topic": "sentence structure",
+      "prompt": "Complétez : \"Le sujet ___ je veux te parler est important.\"",
+      "opener": "Which preposition belongs to the expression \"parler de\"?",
+      "choices": [
+        "dont",
+        "que",
+        "qui",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Parler de quelque chose\" is replaced with \"dont\": \"le sujet dont je veux te parler\"."
+    },
+    {
+      "id": "q-fr3-writing-15",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Complétez : \"Ce quartier est ___ animé ___ le centre-ville.\" (less lively than)",
+      "opener": "A comparison of inequality going downward.",
+      "choices": [
+        "moins / que",
+        "plus / que",
+        "aussi / que",
+        "moins / comme"
+      ],
+      "answer": 0,
+      "explanation": "\"Moins ... que\" expresses less of something: \"moins animé que le centre-ville\" (less lively than downtown)."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta det viktigaste om lagar, rättsväsendet och barns rättigheter.",
       "opener": "Ta lag kontra regel först, sedan rättsväsendets roller och till sist rättigheterna.",
       "answer": "Lag: skriven regel beslutad av riksdagen, gäller alla i Sverige, kan ge straff · Regel: bestäms av t.ex. skola, förening eller familj och gäller bara där · Varför lagar behövs: trygghet, ordning, skydd för rättigheter och tydlighet om vad som är tillåtet · Polisen: utreder brott, håller förhör, griper misstänkta — avgör inte skuldfrågan · Åklagaren: leder förundersökningen och beslutar om åtal ska väckas · Domstolen: prövar bevisen, avgör skuld och beslutar om straff — tingsrätt först, sedan hovrätt och Högsta domstolen vid överklagande · Vanliga straff: böter, villkorlig dom, skyddstillsyn, samhällstjänst, fängelse · Straffmyndig i Sverige: från 15 år — yngre kan inte dömas men socialtjänsten kopplas in · Myndig: 18 år · Barnkonventionen: FN:s konvention om barnets rättigheter, gäller alla under 18 år, svensk lag sedan 2020 · Fyra grundprinciper: alla barn har samma rättigheter, barnets bästa ska komma först, rätt till liv och utveckling, rätt att komma till tals."
+    },
+    {
+      "id": "q-sam7-lag-9",
+      "kind": "mc",
+      "topic": "lagar och regler",
+      "prompt": "Vem beslutar om nya lagar i Sverige?",
+      "opener": "Tänk på vilket organ som representerar hela folket och röstar om lagförslag.",
+      "choices": [
+        "Riksdagen",
+        "Polisen",
+        "Skolan",
+        "Enskilda kommuner bestämmer alla lagar"
+      ],
+      "answer": 0,
+      "explanation": "Det är riksdagen, folkets valda representanter, som beslutar om nya lagar i Sverige. Polisen ser till att lagar följs och utreder brott, men varken polisen, skolan eller enskilda kommuner har makt att stifta lagar."
+    },
+    {
+      "id": "q-sam7-lag-10",
+      "kind": "mc",
+      "topic": "polis och domstol",
+      "prompt": "Vem för statens talan och driver åtal mot den misstänkte i en rättegång?",
+      "opener": "Den personen är skild från både domaren och den som utreder brottet på plats.",
+      "choices": [
+        "Åklagaren",
+        "Domaren",
+        "Nämndemannen",
+        "Försvarsadvokaten"
+      ],
+      "answer": 0,
+      "explanation": "Åklagaren leder förundersökningen tillsammans med polisen, beslutar om åtal ska väckas och för sedan statens talan i rättegången. Domaren och nämndemännen dömer i målet, medan försvarsadvokaten företräder den åtalade — inte staten."
+    },
+    {
+      "id": "q-sam7-lag-11",
+      "kind": "mc",
+      "topic": "polis och domstol",
+      "prompt": "Vilken domstol dömer först i ett brottmål, innan en eventuell överklagan?",
+      "opener": "Det är den lägsta instansen i domstolskedjan.",
+      "choices": [
+        "Tingsrätten",
+        "Hovrätten",
+        "Högsta domstolen",
+        "Riksdagen"
+      ],
+      "answer": 0,
+      "explanation": "Tingsrätten är den första instansen som prövar ett brottmål. Om domen överklagas går målet vidare till hovrätten, och i sällsynta fall ända till Högsta domstolen — riksdagen dömer aldrig i enskilda mål."
+    },
+    {
+      "id": "q-sam7-lag-12",
+      "kind": "mc",
+      "topic": "straffmyndighetsålder",
+      "prompt": "Vad händer om ett barn under 15 år begår ett brott i Sverige?",
+      "opener": "Tänk på vem som tar över ansvaret när domstolen inte kan döma barnet.",
+      "choices": [
+        "Barnet döms alltid till fängelse",
+        "Barnet kan inte dömas till straff av en domstol, men socialtjänsten kan kopplas in",
+        "Inget alls görs",
+        "Barnet betalar böter direkt till polisen på plats"
+      ],
+      "answer": 1,
+      "explanation": "Barn under 15 år är inte straffmyndiga och kan därför inte dömas till straff av en domstol. Polisen kan ändå utreda vad som hänt, och socialtjänsten kopplas ofta in för att hjälpa barnet och sätta in lämpliga åtgärder."
+    },
+    {
+      "id": "q-sam7-lag-13",
+      "kind": "mc",
+      "topic": "barnkonventionen",
+      "prompt": "Sedan vilket år gäller barnkonventionen som svensk lag?",
+      "opener": "Det är ett relativt nyligt beslut, taget efter många års diskussion.",
+      "choices": [
+        "2010",
+        "2015",
+        "2020",
+        "2025"
+      ],
+      "answer": 2,
+      "explanation": "Barnkonventionen har gällt som svensk lag sedan den 1 januari 2020. Innan dess var Sverige visserligen bundet av konventionen genom att ha skrivit under den, men den var då inte inskriven direkt i svensk lagtext."
+    },
+    {
+      "id": "q-sam7-lag-14",
+      "kind": "mc",
+      "topic": "lagar och regler",
+      "prompt": "Vad är en konsekvens av att bryta mot en lag, till skillnad från att bryta mot en regel?",
+      "opener": "Tänk på vem som utreder och dömer i respektive fall.",
+      "choices": [
+        "Inget särskilt händer i något fall",
+        "Att bryta mot en lag kan leda till straff genom domstol, medan en regelöverträdelse oftast hanteras lokalt, till exempel i skolan",
+        "Lagbrott hanteras alltid av skolan",
+        "Regelbrott leder alltid till fängelse"
+      ],
+      "answer": 1,
+      "explanation": "Den som bryter mot en lag kan utredas av polis och dömas av domstol till ett straff, medan den som bryter mot en regel, till exempel en skolregel, oftast får en konsekvens som skolan själv beslutar om. Fängelse är ett straff för brott mot lagen, inte för regelbrott."
+    },
+    {
+      "id": "q-sam7-lag-15",
+      "kind": "mc",
+      "topic": "varför samhället har lagar",
+      "prompt": "Vad menas med att lagar ska vara förutsägbara?",
+      "opener": "Tänk på vad som skulle hända om reglerna kunde ändras utan förvarning.",
+      "choices": [
+        "Att man i förväg vet vad som är tillåtet och vad som leder till straff",
+        "Att lagarna ändras varje dag utan förvarning",
+        "Att bara vissa personer får veta vad lagen säger",
+        "Att lagar aldrig skrivs ner"
+      ],
+      "answer": 0,
+      "explanation": "Att lagar är förutsägbara betyder att alla i förväg kan veta vad som är tillåtet och vilka konsekvenser ett brott kan få, vilket skapar trygghet i samhället. Lagar är dessutom offentliga och nedskrivna, så alla har rätt att ta del av dem."
     }
   ]
 }

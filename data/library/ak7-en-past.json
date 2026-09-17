@@ -122,6 +122,110 @@
       "prompt": "Hur bildar du past simple, och vilka vanliga oregelbundna verb bör du kunna?",
       "opener": "En regel för regelbundna verb, en lista för de oregelbundna.",
       "answer": "Regelbundna verb: verb + -ed (play → played, watch → watched, want → wanted) · slutar verbet på -e räcker det med -d (like → liked) · konsonant + y blir -ied (study → studied). Vanliga oregelbundna: go → went · have → had · see → saw · take → took · eat → ate · get → got · make → made · come → came · say → said · buy → bought. Frågor: Did you play? · Nekande: I didn't play · efter did/didn't står verbet alltid i grundform. Signalord: yesterday, last week, last summer, two days ago, in 2019."
+    },
+    {
+      "id": "q-en7-pas-9",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"They ___ their rooms yesterday afternoon.\"",
+      "opener": "\"Yesterday afternoon\" betyder att det redan har hänt. \"Clean\" är ett regelbundet verb.",
+      "choices": [
+        "cleaned",
+        "clean",
+        "cleans",
+        "cleaning"
+      ],
+      "answer": 0,
+      "explanation": "\"Yesterday afternoon\" kräver past simple, och \"clean\" är regelbundet: \"cleaned\". \"Cleans\" är presens och passar inte ihop med ett dåtidsuttryck."
+    },
+    {
+      "id": "q-en7-pas-10",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Choose the correct form: \"She ___ a letter to her friend last week.\"",
+      "opener": "\"Write\" är oregelbundet — det får ingen -ed-ändelse.",
+      "choices": [
+        "writed",
+        "wrote",
+        "written",
+        "write"
+      ],
+      "answer": 1,
+      "explanation": "\"Write\" är oregelbundet och blir \"wrote\" i past simple. \"Writed\" finns inte på engelska, och \"written\" är en annan form (perfekt particip) som inte används i vanlig dåtid."
+    },
+    {
+      "id": "q-en7-pas-11",
+      "kind": "mc",
+      "topic": "irregular verbs",
+      "prompt": "Which past simple form is correct?",
+      "opener": "Ett av verben stavas likadant i nutid och dåtid, men uttalas annorlunda.",
+      "choices": [
+        "give → gived",
+        "run → runned",
+        "read → read",
+        "drink → drinked"
+      ],
+      "answer": 2,
+      "explanation": "\"Read\" i dåtid stavas likadant som i presens (uttalas dock \"red\" istället för \"reed\"). De andra är oregelbundna men böjs annorlunda: give → gave, run → ran, drink → drank — ingen av dem tar -ed."
+    },
+    {
+      "id": "q-en7-pas-12",
+      "kind": "mc",
+      "topic": "did/didn't",
+      "prompt": "Choose the correct negative sentence: \"We ___ any time to visit the museum.\"",
+      "opener": "I nekande dåtid används \"didn't\". Vad händer med huvudverbet då?",
+      "choices": [
+        "didn't had",
+        "didn't have",
+        "don't have",
+        "didn't has"
+      ],
+      "answer": 1,
+      "explanation": "Nekande past simple bildas med \"didn't\" + verb i grundform: \"We didn't have any time\". Dåtiden ligger redan i \"didn't\", så verbet \"have\" ska inte böjas en gång till."
+    },
+    {
+      "id": "q-en7-pas-13",
+      "kind": "mc",
+      "topic": "did/didn't",
+      "prompt": "Choose the correct question: \"___ they win the match on Saturday?\"",
+      "opener": "\"On Saturday\" syftar här på en dag som redan varit — vilket hjälpverb ger frågan dåtid?",
+      "choices": [
+        "Do",
+        "Did",
+        "Does",
+        "Were"
+      ],
+      "answer": 1,
+      "explanation": "Frågan handlar om dåtid, och då används \"Did\": \"Did they win...\". Efter \"did\" står verbet i grundform, alltså \"win\" och inte \"won\"."
+    },
+    {
+      "id": "q-en7-pas-14",
+      "kind": "worked",
+      "topic": "past simple",
+      "prompt": "Correct the three errors: \"Last Friday I visit my cousin. We play video games and I didn't finished my homework.\"",
+      "opener": "Alla verb ska stå i dåtid — men tänk på vad som händer efter \"didn't\".",
+      "answer": "Last Friday I visited my cousin. We played video games and I didn't finish my homework.",
+      "steps": [
+        "\"Last Friday\" är ett dåtidsuttryck, så alla verb i texten ska stå i past simple.",
+        "\"I visit\" → \"I visited\". \"Visit\" är regelbundet och får -ed.",
+        "\"We play\" → \"We played\". \"Play\" är också regelbundet och får -ed.",
+        "\"I didn't finished\" → \"I didn't finish\". Efter \"didn't\" står verbet alltid i grundform."
+      ]
+    },
+    {
+      "id": "q-en7-pas-15",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Which time expression fits: \"He called his friend ___.\"",
+      "opener": "Verbet står i dåtid — då måste tidsuttrycket också peka bakåt i tiden.",
+      "choices": [
+        "every morning",
+        "tomorrow",
+        "two days ago",
+        "next year"
+      ],
+      "answer": 2,
+      "explanation": "\"Called\" är past simple, så tidsuttrycket måste handla om det förflutna: \"two days ago\". \"Every morning\" beskriver en vana och kräver present simple: \"He calls his friend every morning\"."
     }
   ]
 }

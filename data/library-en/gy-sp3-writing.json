@@ -122,6 +122,111 @@
       "prompt": "How do you build comparisons and descriptive, contrasting sentences in Spanish?",
       "opener": "Comparison structures plus a few key connectors.",
       "answer": "Comparisons: más/menos + adjective + que (inequality: más alto que), tan + adjective + como (equality: tan alto como), definite article + más/menos + adjective + de (superlative: el más alto de la clase). Descriptive connectors: mientras que (while/unlike, contrast), sin embargo (however), además (furthermore), ya que/porque (since/because, justification). Remember: adjectives must always agree in gender and number with the noun they describe, and ser/estar is chosen based on whether the trait is lasting (ser) or temporary/a location (estar)."
+    },
+    {
+      "id": "q-sp3-writing-9",
+      "kind": "mc",
+      "topic": "comparatives",
+      "prompt": "Choose the correct pair: \"Mi coche es ___ rápido ___ el tuyo.\" (My car is as fast as yours.)",
+      "opener": "Equality is expressed with tan + adjective + como.",
+      "choices": [
+        "tan / como",
+        "más / que",
+        "menos / de",
+        "tan / que"
+      ],
+      "answer": 0,
+      "explanation": "Equality is built with \"tan + adjective + como\": \"tan rápido como\" (as fast as)."
+    },
+    {
+      "id": "q-sp3-writing-10",
+      "kind": "mc",
+      "topic": "comparatives",
+      "prompt": "Which word is the irregular comparative form of \"malo\" (bad)?",
+      "opener": "Just like \"bueno\", \"malo\" is irregular in the comparative.",
+      "choices": [
+        "peor",
+        "más malo",
+        "malito",
+        "peorno"
+      ],
+      "answer": 0,
+      "explanation": "\"Malo\" has the irregular comparative form \"peor\" (worse), not \"más malo\"."
+    },
+    {
+      "id": "q-sp3-writing-11",
+      "kind": "mc",
+      "topic": "sentence correction",
+      "prompt": "Which verb fits: \"Madrid ___ en España.\"",
+      "opener": "Stating where something is located is always expressed with estar, not ser.",
+      "choices": [
+        "está",
+        "es",
+        "son",
+        "están"
+      ],
+      "answer": 0,
+      "explanation": "Location is always expressed with \"estar\": \"Madrid está en España\" (Madrid is located in Spain)."
+    },
+    {
+      "id": "q-sp3-writing-12",
+      "kind": "mc",
+      "topic": "descriptive writing",
+      "prompt": "What does the word \"además\" mean?",
+      "opener": "A word that adds further information.",
+      "choices": [
+        "furthermore",
+        "however",
+        "since",
+        "while"
+      ],
+      "answer": 0,
+      "explanation": "\"Además\" means \"furthermore\" and is used to add further information to a text."
+    },
+    {
+      "id": "q-sp3-writing-13",
+      "kind": "mc",
+      "topic": "sentence correction",
+      "prompt": "Choose the correct form: \"Las casas son muy ___.\" (bonito = nice)",
+      "opener": "\"Casas\" is feminine plural.",
+      "choices": [
+        "bonitas",
+        "bonito",
+        "bonitos",
+        "bonita"
+      ],
+      "answer": 0,
+      "explanation": "The adjective must agree with \"casas\" (feminine, plural): \"bonitas\"."
+    },
+    {
+      "id": "q-sp3-writing-14",
+      "kind": "mc",
+      "topic": "comparatives",
+      "prompt": "Choose the correct form: \"Este es ___ restaurante de la ciudad.\" (bueno, superlative)",
+      "opener": "\"Bueno\" is irregular in the superlative too, just like in the comparative.",
+      "choices": [
+        "el mejor",
+        "el más bueno",
+        "el bueno más",
+        "el buenísimo"
+      ],
+      "answer": 0,
+      "explanation": "\"Bueno\" has the superlative form \"el mejor\" (the best), not \"el más bueno\"."
+    },
+    {
+      "id": "q-sp3-writing-15",
+      "kind": "mc",
+      "topic": "descriptive writing",
+      "prompt": "What does the phrase \"por lo tanto\" mean?",
+      "opener": "A phrase that introduces a consequence.",
+      "choices": [
+        "therefore",
+        "since",
+        "but",
+        "also"
+      ],
+      "answer": 0,
+      "explanation": "\"Por lo tanto\" means \"therefore\" and introduces a consequence of something already said."
     }
   ]
 }

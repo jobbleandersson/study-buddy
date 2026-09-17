@@ -112,6 +112,111 @@
       "prompt": "Vilka fraser är bra att känna igen i ett spanskt textmeddelande om planer?",
       "opener": "Vardagsfraser för att föreslå, tacka ja och bestämma tid.",
       "answer": "Föreslå: ¿Quieres venir? = Vill du följa med? · voy a ir a... = jag ska gå till... Tacka ja: ¡Claro que sí! = Absolut!/Klart! · Me encanta(n)... = Jag älskar... Bestämma tid: ¿A qué hora quedamos? = Vilken tid ska vi ses? · empieza a las... = börjar klockan... Känslor: me gusta(n) = jag gillar · me encanta(n) = jag älskar (starkare) · no me gusta(n) = jag gillar inte."
+    },
+    {
+      "id": "q-sp8-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"Querido diario: Hoy ha sido un día difícil. Perdí el autobús y llegué tarde a clase. Pero por la tarde, mis amigos me invitaron a su casa y vimos una película juntos. Al final, fue un buen día.\"\n\n¿Por qué llegó tarde a clase la persona?",
+      "opener": "Läs dagbokstexten om en svår dag.",
+      "choices": [
+        "Porque perdió el autobús",
+        "Porque se quedó dormida",
+        "Porque estaba enferma",
+        "Porque no tenía ganas de ir"
+      ],
+      "answer": 0,
+      "explanation": "\"Perdí el autobús\" betyder \"jag missade bussen\", vilket förklarar varför personen kom sent till lektionen."
+    },
+    {
+      "id": "q-sp8-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Qué pasó por la tarde?",
+      "opener": "Andra delen av texten beskriver eftermiddagen.",
+      "choices": [
+        "Sus amigos la invitaron a su casa",
+        "Tuvo que trabajar",
+        "Se quedó en casa sola",
+        "Fue al médico"
+      ],
+      "answer": 0,
+      "explanation": "\"Mis amigos me invitaron a su casa\" betyder \"mina vänner bjöd hem mig till sig\"."
+    },
+    {
+      "id": "q-sp8-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Según el texto, ¿cómo terminó el día?",
+      "opener": "Sista meningen sammanfattar hela dagen.",
+      "choices": [
+        "Fue un buen día, a pesar de la mañana difícil",
+        "Fue un día terrible de principio a fin",
+        "No pasó nada especial",
+        "La persona se enfermó"
+      ],
+      "answer": 0,
+      "explanation": "\"Al final, fue un buen día\" betyder \"till slut blev det en bra dag\", trots den svåra morgonen."
+    },
+    {
+      "id": "q-sp8-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Ny text: \"En mi familia, cada domingo cocinamos juntos. Mi padre prepara la paella, mi madre hace la ensalada y yo ayudo a poner la mesa. Después de comer, jugamos a las cartas.\"\n\n¿Quién prepara la paella?",
+      "opener": "Läs den nya texten om familjens söndagstradition.",
+      "choices": [
+        "El padre",
+        "La madre",
+        "La persona que escribe",
+        "Nadie, la compran"
+      ],
+      "answer": 0,
+      "explanation": "\"Mi padre prepara la paella\" betyder \"min pappa lagar paellan\"."
+    },
+    {
+      "id": "q-sp8-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Qué hace la persona que escribe?",
+      "opener": "Personen som skriver texten beskriver sin egen roll sist.",
+      "choices": [
+        "Ayuda a poner la mesa",
+        "Prepara la ensalada",
+        "Cocina la paella",
+        "No ayuda con nada"
+      ],
+      "answer": 0,
+      "explanation": "\"Yo ayudo a poner la mesa\" betyder \"jag hjälper till att duka bordet\"."
+    },
+    {
+      "id": "q-sp8-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Qué hacen después de comer?",
+      "opener": "Sista meningen beskriver vad som händer efter maten.",
+      "choices": [
+        "Juegan a las cartas",
+        "Ven la televisión",
+        "Van al cine",
+        "Duermen la siesta"
+      ],
+      "answer": 0,
+      "explanation": "\"Jugamos a las cartas\" betyder \"vi spelar kort\"."
+    },
+    {
+      "id": "q-sp8-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Con qué frecuencia cocina junta la familia, según el texto?",
+      "opener": "Frekvensen nämns redan i första meningen.",
+      "choices": [
+        "Cada domingo",
+        "Cada día",
+        "Una vez al mes",
+        "Solo en Navidad"
+      ],
+      "answer": 0,
+      "explanation": "\"Cada domingo\" betyder \"varje söndag\"."
     }
   ]
 }

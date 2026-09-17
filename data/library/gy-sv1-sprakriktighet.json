@@ -123,6 +123,109 @@
       "prompt": "Vilket knep använder du för att avgöra om det ska vara \"de\" eller \"dem\"?",
       "opener": "Två test som båda fungerar.",
       "answer": "Byt ut ordet mot engelskans they/them: blir det \"they\" skriver du \"de\", blir det \"them\" skriver du \"dem\". Alternativt byt mot vi/oss: \"vi\" → de, \"oss\" → dem. Kort regel: \"de\" är subjekt (den som gör något), \"dem\" är objekt (den som något görs med) och står alltid efter preposition."
+    },
+    {
+      "id": "q-sv1-spr-9",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Vilken mening är korrekt?",
+      "opener": "Vem är det som blev bjuden — subjekt eller objekt i meningen?",
+      "choices": [
+        "Vi bjöd in de till festen.",
+        "Vi bjöd in dem till festen.",
+        "Vi bjöd in dom till festen, formellt sett.",
+        "Både de och dem funkar lika bra här."
+      ],
+      "answer": 1,
+      "explanation": "De som bjöds in är objekt i meningen (vi bjöd in DEM) — objektsform krävs: \"dem\". Testa: \"we invited them\", inte \"we invited they\"."
+    },
+    {
+      "id": "q-sv1-spr-10",
+      "kind": "mc",
+      "topic": "särskrivning",
+      "prompt": "Vilket alternativ är korrekt skrivet?",
+      "opener": "Två sammansatta ord i rad — båda ska skrivas som en enda sammanhållen enhet.",
+      "choices": [
+        "Han är en välkänd barnboksförfattare.",
+        "Han är en väl känd barn boksförfattare.",
+        "Han är en välkänd barn boksförfattare.",
+        "Han är en väl känd barnboksförfattare."
+      ],
+      "answer": 0,
+      "explanation": "Både \"välkänd\" och \"barnboksförfattare\" är sammansatta ord som ska skrivas ihop, inte delas upp i flera lösa ord."
+    },
+    {
+      "id": "q-sv1-spr-11",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Vilken mening har korrekt kommatering?",
+      "opener": "En inskjuten bisats med extra information om ett redan identifierat subjekt ska ha komma på båda sidor.",
+      "choices": [
+        "Min bror som bor i Malmö kommer på besök.",
+        "Min bror, som bor i Malmö kommer på besök.",
+        "Min bror som bor i Malmö, kommer på besök.",
+        "Min bror, som bor i Malmö, kommer på besök."
+      ],
+      "answer": 3,
+      "explanation": "\"Som bor i Malmö\" är en inskjuten bisats som ger extra information om brodern — den ska ha komma både före och efter, precis som en parentes."
+    },
+    {
+      "id": "q-sv1-spr-12",
+      "kind": "mc",
+      "topic": "meningsbyggnad",
+      "prompt": "Vilken mening är fri från satsradning?",
+      "opener": "Två huvudsatser kan inte bindas ihop med bara komma — vad krävs i stället?",
+      "choices": [
+        "Hon sprang till bussen, den hade redan åkt.",
+        "Hon sprang till bussen den hade redan åkt.",
+        "Hon sprang till bussen, men den hade redan åkt.",
+        "Hon sprang till bussen den, hade redan åkt."
+      ],
+      "answer": 2,
+      "explanation": "Konjunktionen \"men\" binder korrekt ihop de två huvudsatserna. De andra alternativen saknar antingen konjunktion eller har komma på fel plats."
+    },
+    {
+      "id": "q-sv1-spr-13",
+      "kind": "mc",
+      "topic": "skiljetecken",
+      "prompt": "Vilken mening använder tankstreck korrekt för att markera en plötslig vändning?",
+      "opener": "Tankstrecket ska stå fritt med mellanslag på båda sidor, inte klistrat vid orden som ett bindestreck.",
+      "choices": [
+        "Han var säker på sin sak – tills han läste domen.",
+        "Han var säker-på sin sak tills han läste domen.",
+        "Han var säker på sin sak, tills-han läste domen.",
+        "Han var säker på sin sak tills han läste - domen."
+      ],
+      "answer": 0,
+      "explanation": "Tankstrecket markerar en paus eller vändning i tanken och står med mellanslag på båda sidor: \"...sin sak – tills han läste domen.\" De andra alternativen använder tecknet som ett bindestreck mitt i ord, vilket är fel användning."
+    },
+    {
+      "id": "q-sv1-spr-14",
+      "kind": "worked",
+      "topic": "meningsbyggnad",
+      "prompt": "Rätta meningen och förklara varje ändring: \"Filmen som vi såg i går kväll var väl gjord och jättebra jag rekommenderade den till dom som frågade om den var bra.\"",
+      "opener": "Leta efter tre fel: ett sammansatt ord som särskrivits, en mening utan skiljetecken mellan två huvudsatser, och fel form av de/dem.",
+      "answer": "Filmen som vi såg i går kväll var välgjord och jättebra. Jag rekommenderade den till dem som frågade om den var bra.",
+      "steps": [
+        "\"väl gjord\" → \"välgjord\". Det är ett sammansatt ord och ska skrivas ihop.",
+        "\"...jättebra jag rekommenderade...\" saknar helt skiljetecken mellan två huvudsatser — det är satsradning. Sätt punkt (eller semikolon) mellan dem.",
+        "\"till dom som frågade\" → \"till dem som frågade\". Efter prepositionen \"till\" krävs objektsform, och \"dom\" undviks i skriftspråk."
+      ]
+    },
+    {
+      "id": "q-sv1-spr-15",
+      "kind": "mc",
+      "topic": "de och dem",
+      "prompt": "Välj rätt ord: \"Ingen var lika förvånad som ___.\"",
+      "opener": "Tänk dig meningen fullständig: \"...som de var förvånade.\" Vilken form krävs då?",
+      "choices": [
+        "de",
+        "dem",
+        "dom",
+        "den"
+      ],
+      "answer": 0,
+      "explanation": "Meningen är en förkortning av \"...som de var förvånade\", där \"de\" är subjekt till det underförstådda \"var\". I formellt skriftspråk används därför subjektsformen \"de\" även efter \"som\" i jämförelser av det här slaget."
     }
   ]
 }

@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta grundbegreppen inom ljud, ljus och universum.",
       "opener": "Gå igenom ljud, sedan ljus, sedan rymden innan du vänder på kortet.",
       "answer": "Ljud: tryckvågor som sprids genom ett medium (t.ex. luft) när något vibrerar, kräver ett medium för att spridas · Frekvens (Hz) avgör tonhöjd — fler svängningar per sekund ger högre ton · Amplitud avgör volym/ljudstyrka · Ljudhastighet i luft är ca 340 m/s, mycket långsammare än ljusets ca 300 000 km/s · Reflektion: ljus studsar tillbaka mot en yta, t.ex. en spegel · Brytning: ljus ändrar riktning när det byter medium, t.ex. från luft till vatten · Solsystemet: solen är en stjärna som lyser med eget ljus via kärnreaktioner, planeterna (bl.a. jorden) kretsar kring solen och reflekterar bara ljus · Universum: innehåller oräkneliga stjärnor och galaxer, och avstånden är så enorma att de mäts i ljusår (sträckan ljus färdas på ett år)."
+    },
+    {
+      "id": "q-fys-lju-9",
+      "kind": "mc",
+      "topic": "ljudvågor",
+      "prompt": "Vad avgör hur högt (starkt) ett ljud upplevs, det vill säga volymen?",
+      "opener": "Skilj på det som avgör TONHÖJD och det som avgör STYRKA.",
+      "choices": [
+        "Amplituden (svängningens storlek)",
+        "Frekvensen",
+        "Ljudets hastighet",
+        "Avståndet till källan är det enda som spelar roll"
+      ],
+      "answer": 0,
+      "explanation": "Amplituden, hur stor svängningen är, avgör ljudets styrka (volym). Frekvensen avgör i stället tonhöjden — hög eller låg ton."
+    },
+    {
+      "id": "q-fys-lju-10",
+      "kind": "mc",
+      "topic": "ljus, reflektion och brytning",
+      "prompt": "Vad kallas det när ljus absorberas av en yta istället för att reflekteras eller brytas?",
+      "opener": "Tänk på vad som händer med ljuset som träffar en svart, matt yta.",
+      "choices": [
+        "Absorption",
+        "Reflektion",
+        "Brytning",
+        "Diffraktion"
+      ],
+      "answer": 0,
+      "explanation": "Absorption innebär att ljuset tas upp av materialet och omvandlas till t.ex. värme, i stället för att studsa tillbaka (reflektion) eller ändra riktning (brytning). Svarta ytor absorberar mycket ljus, vilket är därför de kan kännas varma i solen."
+    },
+    {
+      "id": "q-fys-lju-11",
+      "kind": "mc",
+      "topic": "solsystemet",
+      "prompt": "Vilken planet i solsystemet är närmast solen?",
+      "opener": "Den första planeten i ordningen från solen och utåt.",
+      "choices": [
+        "Merkurius",
+        "Venus",
+        "Jorden",
+        "Mars"
+      ],
+      "answer": 0,
+      "explanation": "Merkurius är den planet som ligger närmast solen, följd av Venus, jorden och Mars."
+    },
+    {
+      "id": "q-fys-lju-12",
+      "kind": "mc",
+      "topic": "solsystemet",
+      "prompt": "Vad är en måne?",
+      "opener": "Tänk på jordens måne — vad kretsar den runt?",
+      "choices": [
+        "En himlakropp som kretsar runt en planet",
+        "En liten stjärna",
+        "En typ av komet",
+        "Ett annat namn för en planet"
+      ],
+      "answer": 0,
+      "explanation": "En måne är en naturlig himlakropp som kretsar runt en planet, till skillnad från en planet som kretsar runt en stjärna. Jorden har en måne, men andra planeter kan ha flera eller inga."
+    },
+    {
+      "id": "q-fys-lju-13",
+      "kind": "mc",
+      "topic": "universum",
+      "prompt": "Vad är en galax?",
+      "opener": "Tänk i en mycket större skala än solsystemet.",
+      "choices": [
+        "Ett enormt system av miljontals eller miljarder stjärnor, gas och stoft som hålls samman av gravitation",
+        "En enskild stor stjärna",
+        "Ett annat namn för solsystemet",
+        "En typ av planet"
+      ],
+      "answer": 0,
+      "explanation": "En galax, till exempel Vintergatan som vårt solsystem tillhör, är ett enormt system av stjärnor, gas och stoft som hålls samman av gravitationen. Universum innehåller miljarder galaxer."
+    },
+    {
+      "id": "q-fys-lju-14",
+      "kind": "worked",
+      "topic": "ljudvågor",
+      "prompt": "Det tar 6 sekunder från att du ser blixten till att du hör åskan. Ljudets hastighet i luft är ca 340 m/s. Ungefär hur långt bort slog blixten ner?",
+      "opener": "Ljuset når dig nästan direkt — det är i praktiken bara ljudets restid som räknas i de 6 sekunderna.",
+      "answer": "≈ 2040 m (ungefär 2 km)",
+      "steps": [
+        "Ljuset från blixten når ögat nästan omedelbart, så de 6 sekunderna är i praktiken ljudets färdtid.",
+        "Använd sambandet sträcka = hastighet · tid: s = v · t.",
+        "Sätt in värdena: s = 340 m/s · 6 s = 2040 m.",
+        "Det motsvarar ungefär 2 km."
+      ]
+    },
+    {
+      "id": "q-fys-lju-15",
+      "kind": "mc",
+      "topic": "ljus, reflektion och brytning",
+      "prompt": "Varför ser en pool ofta ut att vara grundare än den faktiskt är, när man tittar ner i vattnet snett uppifrån?",
+      "opener": "Ljuset byter medium när det går från vatten till luft på väg till ditt öga.",
+      "choices": [
+        "Ljuset bryts när det går från vatten till luft, vilket förskjuter var botten verkar ligga",
+        "Vattnet förstorar botten optiskt utan att ljuset ändrar riktning",
+        "Poolens botten är faktiskt målad högre upp än den är",
+        "Ögat kan inte uppfatta djup i vatten alls"
+      ],
+      "answer": 0,
+      "explanation": "Ljuset från poolens botten bryts (ändrar riktning) när det passerar från vatten till luft, vilket gör att botten verkar ligga högre upp och närmare ytan än den faktiskt gör."
     }
   ]
 }

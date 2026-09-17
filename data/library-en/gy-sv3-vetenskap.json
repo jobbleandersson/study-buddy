@@ -123,6 +123,111 @@
       "prompt": "What characterises objective and impersonal academic language?",
       "opener": "Think source, tone, and distance from your own feelings.",
       "answer": "Factual, verifiable statements · avoids value-laden words (\"shocking\", \"amazing\") · avoids the first person in favour of the passive voice or impersonal expressions (\"the investigation shows\") · backs up statements with sources and figures · keeps fact (results) and interpretation (discussion) separate · a neutral, detached tone rather than personal engagement."
+    },
+    {
+      "id": "q-sv3-vetenskap-9",
+      "kind": "mc",
+      "topic": "PM structure",
+      "prompt": "Which part of a PM report usually comes first, before the purpose statement?",
+      "opener": "The reader needs background before the purpose becomes meaningful.",
+      "choices": [
+        "The introduction",
+        "The discussion",
+        "The method",
+        "The results"
+      ],
+      "answer": 0,
+      "explanation": "The introduction comes first and gives background to the question, preparing the reader for the purpose statement that follows. The method, results, and discussion all come later in the text."
+    },
+    {
+      "id": "q-sv3-vetenskap-10",
+      "kind": "mc",
+      "topic": "PM structure",
+      "prompt": "What should a RESULTS section of a PM report contain?",
+      "opener": "Think about the difference between reporting facts and interpreting them.",
+      "choices": [
+        "A factual account of what the study found, without interpretation",
+        "The writer's personal opinions on the topic",
+        "A list of every conceivable future research question",
+        "A brief summary of the introduction"
+      ],
+      "answer": 0,
+      "explanation": "The results section should factually report what the study actually found, without interpretation or evaluation — that is saved for the discussion. Personal opinions have no place in the results section."
+    },
+    {
+      "id": "q-sv3-vetenskap-11",
+      "kind": "mc",
+      "topic": "objective language",
+      "prompt": "Which wording is most likely to appear in an objective scholarly text?",
+      "opener": "Look for the option that is factual and verifiable, without emotional loading.",
+      "choices": [
+        "\"The study indicates a link between X and Y.\"",
+        "\"I am completely convinced that X causes Y.\"",
+        "\"It is obvious that everyone should realize X causes Y.\"",
+        "\"It feels like X probably causes Y.\""
+      ],
+      "answer": 0,
+      "explanation": "The phrase \"the study indicates\" is factual, impersonal, and signals reasonable caution about the conclusion, unlike the other options, which express personal conviction or feeling."
+    },
+    {
+      "id": "q-sv3-vetenskap-12",
+      "kind": "mc",
+      "topic": "academic text",
+      "prompt": "What does it mean for a scholarly text to be \"source-supported\"?",
+      "opener": "Think about what separates a substantiated claim from a loose assumption.",
+      "choices": [
+        "That claims are backed up with references to credible sources",
+        "That the text may only contain a single source",
+        "That the text is written without any introduction",
+        "That the writer may never use numbers"
+      ],
+      "answer": 0,
+      "explanation": "Source-supported means that the writer's claims are backed by references to credible sources, allowing the reader to verify the information. There is no requirement for exactly one source or a ban on numbers."
+    },
+    {
+      "id": "q-sv3-vetenskap-13",
+      "kind": "mc",
+      "topic": "PM structure",
+      "prompt": "If a study's results do not support the original hypothesis, where in the PM report should this be highlighted and discussed?",
+      "opener": "Think about which section is meant to interpret and evaluate the results.",
+      "choices": [
+        "In the discussion",
+        "By omitting the result entirely",
+        "Only in the introduction",
+        "By changing the purpose statement afterward so it matches the result"
+      ],
+      "answer": 0,
+      "explanation": "The discussion is the place to interpret and comment on the result, including when it does not support the original hypothesis. Omitting unwanted results or changing the purpose statement afterward violates scholarly honesty."
+    },
+    {
+      "id": "q-sv3-vetenskap-14",
+      "kind": "mc",
+      "topic": "objective language",
+      "prompt": "Why are strongly value-laden adjectives like \"amazing\" or \"shocking\" often avoided in scholarly texts?",
+      "opener": "Consider what such a word signals beyond the factual content itself.",
+      "choices": [
+        "They signal a personal value judgment rather than a neutral, verifiable claim",
+        "They are grammatically incorrect",
+        "They make the text too short",
+        "They are banned by law in all texts"
+      ],
+      "answer": 0,
+      "explanation": "Strongly value-laden words express a personal feeling or judgment rather than a neutral, verifiable fact, which makes them unsuitable in objective scholarly writing. This is a matter of style and convention, not grammar or law."
+    },
+    {
+      "id": "q-sv3-vetenskap-15",
+      "kind": "mc",
+      "topic": "academic text",
+      "prompt": "Which of the following is an example of a clear, investigable research question suitable for a PM report?",
+      "opener": "A good research question can actually be answered using sources and method.",
+      "choices": [
+        "How does the amount of homework affect students' stress levels according to available research?",
+        "Is school good or bad?",
+        "What do I think of school?",
+        "School should be completely changed"
+      ],
+      "answer": 0,
+      "explanation": "The question about homework and stress levels is well-defined and can be systematically investigated using research. The other options are either too vague, purely personal, or phrased as statements rather than investigable questions."
     }
   ]
 }

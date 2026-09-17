@@ -125,6 +125,111 @@
       "prompt": "Summarise the water molecule, solutions, concentration and water's environmental issues.",
       "opener": "The molecule and the dipole first, then the solution concepts, and finally treatment and environmental problems.",
       "answer": "Water molecule: H2O, two hydrogen atoms covalently bonded to one oxygen atom, bent shape · Dipole: the oxygen side slightly negative, the hydrogen side slightly positive, the molecule as a whole uncharged · Hydrogen bonds between the molecules give a high melting and boiling point (0 °C and 100 °C), surface tension and capillary action · Ice is lighter than water and floats, since water has its greatest density at +4 °C · Solution: dissolved substance + solvent, e.g. salt in water · Like dissolves like: polar water dissolves salts and sugar, but not non-polar oil (which settles on top, lower density) · Saturated solution: no more can be dissolved at that temperature, the rest becomes a residue at the bottom · Solubility usually increases with higher temperature (gases are the opposite: less soluble in warm water) · Concentration = amount of dissolved substance / volume, e.g. 40 g in 2 l gives 20 g/l · Water treatment in three stages: mechanical (screens, grit chambers) · biological (bacteria break down organic material) · chemical (precipitation of phosphorus) · Drinking water plants: sedimentation, filtration through sand and carbon, disinfection · Eutrophication: excess phosphorus and nitrogen from fertiliser and sewage → algal bloom → decomposition uses up the oxygen → dead zones at the bottom · Acidification: a different problem, caused by sulfur and nitrogen oxides · Environmental toxins: e.g. heavy metals such as mercury and lead, and persistent substances — they break down slowly, are stored in fat and become concentrated further up the food chain."
+    },
+    {
+      "id": "q-kemi8-vat-9",
+      "kind": "mc",
+      "topic": "the water molecule",
+      "prompt": "What type of bond holds the hydrogen and oxygen atoms together within a water molecule?",
+      "opener": "Think about how hydrogen and oxygen are both non-metals that share electrons.",
+      "choices": [
+        "Ionic bond",
+        "Covalent bond",
+        "Metallic bond",
+        "No bond at all"
+      ],
+      "answer": 1,
+      "explanation": "Hydrogen and oxygen are both non-metals and share electron pairs through covalent bonding within the molecule. Ionic bonding instead occurs between a metal and a non-metal, as in table salt."
+    },
+    {
+      "id": "q-kemi8-vat-10",
+      "kind": "mc",
+      "topic": "the water molecule",
+      "prompt": "Why does ice have a lower density than liquid water?",
+      "opener": "Think about how hydrogen bonds arrange the molecules as the water freezes.",
+      "choices": [
+        "Ice contains air bubbles",
+        "The water molecules arrange themselves in a more spread-out pattern when they freeze",
+        "Ice is warmer than water",
+        "The ice shrinks as it freezes"
+      ],
+      "answer": 1,
+      "explanation": "When water freezes, the hydrogen bonds form a more spread-out, ordered pattern that takes up more space than in liquid water, giving ice a lower density. So ice doesn't shrink when it freezes — it expands."
+    },
+    {
+      "id": "q-kemi8-vat-11",
+      "kind": "mc",
+      "topic": "solutions and solubility",
+      "prompt": "What is a solution called that contains little dissolved substance compared with the solvent?",
+      "opener": "The name is the opposite of a concentrated solution.",
+      "choices": [
+        "Saturated solution",
+        "Dilute solution",
+        "Neutral solution",
+        "Concentrated solution"
+      ],
+      "answer": 1,
+      "explanation": "A dilute solution contains little dissolved substance relative to the amount of solvent. A saturated solution instead contains the maximum amount that can be dissolved at that temperature."
+    },
+    {
+      "id": "q-kemi8-vat-12",
+      "kind": "mc",
+      "topic": "concentration",
+      "prompt": "100 g of sugar is dissolved in 5 litres of water. What is the concentration of the solution in grams per litre?",
+      "opener": "Concentration means amount of dissolved substance per volume — divide the amount by the number of litres.",
+      "choices": [
+        "500 g/l",
+        "20 g/l",
+        "5 g/l",
+        "100 g/l"
+      ],
+      "answer": 1,
+      "explanation": "The concentration is 100 g / 5 l = 20 g/l. Multiplying 100 by 5 instead gives 500 g/l, which is a common calculation mistake."
+    },
+    {
+      "id": "q-kemi8-vat-13",
+      "kind": "mc",
+      "topic": "water treatment",
+      "prompt": "Which treatment stage in a sewage treatment plant binds phosphorus with precipitation chemicals?",
+      "opener": "This stage comes last of the three and uses added chemicals, not just screening or bacteria.",
+      "choices": [
+        "Mechanical treatment",
+        "Biological treatment",
+        "Chemical treatment",
+        "None of the stages remove phosphorus"
+      ],
+      "answer": 2,
+      "explanation": "In the chemical treatment stage, precipitation chemicals are added that bind phosphorus so it can be removed as sludge. Mechanical treatment screens out debris and particles, and biological treatment lets bacteria break down organic material."
+    },
+    {
+      "id": "q-kemi8-vat-14",
+      "kind": "worked",
+      "topic": "water treatment",
+      "prompt": "Describe the main stages of a drinking water plant that treats water from a lake, and explain why disinfection is the last stage.",
+      "opener": "Follow the water from the lake through sedimentation, filtration and finally disinfection.",
+      "answer": "The water from the lake first undergoes sedimentation, where the heaviest particles sink to the bottom, then filtration through sand and carbon, which removes smaller particles and certain substances, and finally disinfection, which kills remaining bacteria and viruses. Disinfection comes last because the water needs to be free of microorganisms right before it's sent out to the taps, otherwise new bacteria would have time to grow in the pipes.",
+      "steps": [
+        "Sedimentation: the water is left to sit still or flow slowly so the heaviest particles sink to the bottom.",
+        "Filtration: the water passes through layers of sand and carbon that trap smaller particles and certain unwanted substances.",
+        "Disinfection: the water is treated, often with chlorine or UV light, to kill remaining bacteria and viruses.",
+        "Disinfection is done last because the water needs to be microbiologically safe right before it leaves the plant and enters the pipe network to the taps.",
+        "If disinfection were done earlier in the chain, bacteria from later stages or the pipes could still contaminate the water again."
+      ]
+    },
+    {
+      "id": "q-kemi8-vat-15",
+      "kind": "mc",
+      "topic": "eutrophication and environmental toxins",
+      "prompt": "Why do certain environmental toxins become concentrated further up the food chain?",
+      "opener": "Think about what happens when a predator eats many smaller animals that each carry a little toxin.",
+      "choices": [
+        "They break down quickly and disappear",
+        "They are persistent and stored in fat tissue, so they build up in animals higher up the chain",
+        "They dissolve easily in water and get washed away",
+        "They only affect plants, not animals"
+      ],
+      "answer": 1,
+      "explanation": "Persistent environmental toxins break down very slowly and are stored in fat tissue instead of being washed out, so when a predator eats many contaminated prey, the toxins accumulate and the concentration increases further up the food chain. So they don't disappear quickly, which is exactly what makes them dangerous."
     }
   ]
 }

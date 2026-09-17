@@ -113,6 +113,111 @@
       "prompt": "How do you form comparisons and describe a daily routine in Spanish?",
       "opener": "Comparison words and reflexive verbs for everyday life.",
       "answer": "Comparisons: más ... que = more ... than · menos ... que = less ... than · tan ... como = as ... as · mejor/peor = better/worse (irregular). Daily routine (reflexive verbs): despertarse = to wake up · levantarse = to get up · ducharse = to shower · vestirse = to get dressed · desayunar = to eat breakfast · acostarse = to go to bed. Reflexive pronouns: me, te, se, nos, os, se — placed before the verb: me levanto, te levantas, se levanta."
+    },
+    {
+      "id": "q-sp9-daily-9",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "What does \"menos caro que\" mean in a comparison between two products?",
+      "opener": "\"Menos ... que\" is the opposite of \"más ... que\".",
+      "choices": [
+        "Less expensive than",
+        "More expensive than",
+        "Just as expensive as",
+        "The most expensive"
+      ],
+      "answer": 0,
+      "explanation": "\"Menos caro que\" means \"less expensive than\", the opposite of \"más caro que\" (more expensive than)."
+    },
+    {
+      "id": "q-sp9-daily-10",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Choose the correct superlative form: \"Este restaurante es ___ de la ciudad.\" (This restaurant is the best in the city.)",
+      "opener": "\"Bueno\" has an irregular superlative form, just like in the comparative.",
+      "choices": [
+        "el mejor",
+        "el más bueno",
+        "más mejor",
+        "el buenísimo"
+      ],
+      "answer": 0,
+      "explanation": "The superlative form of \"bueno\" is \"el mejor\" (the best), not \"el más bueno\". The same irregularity as in the comparative (mejor)."
+    },
+    {
+      "id": "q-sp9-daily-11",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "What does \"Me cepillo los dientes después de desayunar\" mean?",
+      "opener": "\"Cepillarse los dientes\" is a reflexive expression for brushing your teeth.",
+      "choices": [
+        "I brush my teeth after breakfast",
+        "I eat breakfast after brushing my teeth",
+        "I shower after breakfast",
+        "I get dressed after breakfast"
+      ],
+      "answer": 0,
+      "explanation": "\"Me cepillo los dientes después de desayunar\" means \"I brush my teeth after breakfast\"."
+    },
+    {
+      "id": "q-sp9-daily-12",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "What does \"Normalmente salgo de casa a las ocho\" mean?",
+      "opener": "\"Normalmente\" signals a recurring habit, not a one-time event.",
+      "choices": [
+        "I usually leave home at eight",
+        "I sometimes leave home at eight",
+        "I left home yesterday at eight",
+        "I'm going to leave home at eight"
+      ],
+      "answer": 0,
+      "explanation": "\"Normalmente salgo de casa a las ocho\" means \"I usually leave home at eight\" — a description of a regular routine."
+    },
+    {
+      "id": "q-sp9-daily-13",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Which word is irregular in the superlative for \"bad\" (the worst)?",
+      "opener": "\"Malo\", just like \"bueno\", has an irregular superlative form.",
+      "choices": [
+        "el peor",
+        "el más malo",
+        "malísimo",
+        "menos malo"
+      ],
+      "answer": 0,
+      "explanation": "The superlative form of \"malo\" is \"el peor\" (the worst), not \"el más malo\"."
+    },
+    {
+      "id": "q-sp9-daily-14",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Which reflexive pronoun fits \"nosotros\"? \"___ levantamos temprano los lunes.\" (We get up early on Mondays.)",
+      "opener": "Reflexive pronouns follow the same pattern as personal pronouns: yo-me, tú-te, nosotros-nos.",
+      "choices": [
+        "Nos",
+        "Se",
+        "Te",
+        "Me"
+      ],
+      "answer": 0,
+      "explanation": "\"Nos\" is the reflexive pronoun for \"nosotros\" (we): \"nos levantamos\" means \"we get up\"."
+    },
+    {
+      "id": "q-sp9-daily-15",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "How do you express that two things are exactly the same size, e.g. \"Mi casa es ___ grande ___ la tuya\"?",
+      "opener": "Similarity is expressed with \"tan ... como\", not \"más\" or \"menos\".",
+      "choices": [
+        "tan ... como",
+        "más ... que",
+        "menos ... que",
+        "tan ... que"
+      ],
+      "answer": 0,
+      "explanation": "\"Tan ... como\" means \"as ... as\": \"mi casa es tan grande como la tuya\" = \"my house is as big as yours\"."
     }
   ]
 }

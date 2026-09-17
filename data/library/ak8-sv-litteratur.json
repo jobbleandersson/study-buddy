@@ -125,6 +125,111 @@
       "prompt": "Vilka begrepp behöver du för en bokanalys, och vad betyder de?",
       "opener": "Sex begrepp du bör kunna använda utan att blanda ihop dem.",
       "answer": "Genre · berättelsens typ · roman (lång, flera trådar), novell (kort, en händelse), deckare (brott och utredning), fantasy (påhittad värld med magi). Berättarperspektiv · jagberättare (\"jag\", ser bara sina egna tankar), allvetande tredjeperson (ser alla tankar), begränsad tredjeperson (följer en person). Miljö · var och när berättelsen utspelar sig · yttre miljö (plats, tid) och social miljö (klass, familj, samhälle) · skapar stämning. Motiv · det konkreta som återkommer (skolbyte, en resa, ett svek). Tema · den stora frågan under ytan (vänskap, utanförskap, rättvisa). Bildspråk · liknelse med \"som\" · metafor utan jämförelseord · personifikation när något livlöst gör mänskliga saker. Karaktärsutveckling · inre förändring från början till slut."
+    },
+    {
+      "id": "q-sv8-lit-9",
+      "kind": "mc",
+      "topic": "genrer",
+      "prompt": "Vad kännetecknar en dystopi som genre?",
+      "opener": "Tänk på vilken sorts framtid boken oftast skildrar.",
+      "choices": [
+        "En idealisk framtid där alla problem är lösta",
+        "En skräckinjagande, förtryckande samhällsvision som ofta varnar för en verklig utveckling",
+        "En berättelse som alltid utspelar sig i förfluten tid",
+        "En genre som bara handlar om djur"
+      ],
+      "answer": 1,
+      "explanation": "Dystopin skildrar ett mörkt, ofta totalitärt framtidssamhälle och fungerar som en varning för vart en samhällsutveckling skulle kunna leda. Motsatsen — en idealisk framtid — kallas i stället utopi."
+    },
+    {
+      "id": "q-sv8-lit-10",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "Vilket berättarperspektiv används här? \"Jag visste inte vad jag skulle säga, så jag teg och hoppades att hon inte märkte hur nervös jag var.\"",
+      "opener": "Vems tankar har läsaren tillgång till, och vilket ord används om berättaren själv?",
+      "choices": [
+        "Allvetande berättare",
+        "Jagberättare",
+        "Begränsad tredjeperson",
+        "Du-perspektiv"
+      ],
+      "answer": 1,
+      "explanation": "Berättaren säger \"jag\" och beskriver bara sina egna tankar och känslor — det är en jagberättare. En allvetande berättare skulle i stället kunna redovisa flera personers tankar."
+    },
+    {
+      "id": "q-sv8-lit-11",
+      "kind": "mc",
+      "topic": "tema och motiv",
+      "prompt": "En bok handlar om en pojke som tränar inför en viktig tävling trots ett svårt skadat knä. Vad är rimligast som TEMA?",
+      "opener": "Motiv är det konkreta som händer, tema är den större frågan boken handlar om på djupet.",
+      "choices": [
+        "En fotbollstävling",
+        "Ett skadat knä",
+        "Att inte ge upp trots motgångar",
+        "En pojke som tränar varje dag"
+      ],
+      "answer": 2,
+      "explanation": "Temat är den övergripande idén — här uthållighet och att inte ge upp trots motgångar. Tävlingen och knäskadan är konkreta motiv som fungerar som exempel på temat, inte temat självt."
+    },
+    {
+      "id": "q-sv8-lit-12",
+      "kind": "mc",
+      "topic": "bildspråk",
+      "prompt": "Vilken mening innehåller en metafor?",
+      "opener": "Metaforen jämför utan jämförelseord som \"som\" — jämförelsen är underförstådd.",
+      "choices": [
+        "Hennes röst var som honung.",
+        "Hennes röst var honung i mina öron.",
+        "Klockan tickade som ett hjärta.",
+        "Vinden viskade genom trädkronorna."
+      ],
+      "answer": 1,
+      "explanation": "\"Hennes röst var honung\" jämför utan jämförelseordet \"som\" — det är en metafor. De två första alternativen med \"som\" är liknelser, och \"vinden viskade\" är personifikation."
+    },
+    {
+      "id": "q-sv8-lit-13",
+      "kind": "mc",
+      "topic": "karaktärer",
+      "prompt": "Vad är skillnaden mellan huvudkaraktär och bikaraktär i en berättelse?",
+      "opener": "Tänk på vems resa historien egentligen följer.",
+      "choices": [
+        "Huvudkaraktären nämns oftast i titeln, bikaraktären aldrig",
+        "Huvudkaraktären står i centrum för handlingen, bikaraktären har en mindre roll som stöttar eller påverkar handlingen",
+        "Huvudkaraktären är alltid den äldsta personen i boken",
+        "Det finns ingen egentlig skillnad"
+      ],
+      "answer": 1,
+      "explanation": "Huvudkaraktären är den vars utveckling och mål står i centrum för berättelsen, medan bikaraktärer har mindre roller som ändå kan påverka handlingen. Att nämnas i titeln är varken ett krav eller en garanti för att vara huvudkaraktär."
+    },
+    {
+      "id": "q-sv8-lit-14",
+      "kind": "worked",
+      "topic": "bildspråk",
+      "prompt": "Analysera bildspråket i textstycket: \"Solen log över torget. Hennes leende var ett fyrverkeri, och skrattet studsade genom rummet likt en boll.\" Namnge varje bild och förklara vad den gör med texten.",
+      "opener": "Leta först efter jämförelseordet, sedan efter bilder utan jämförelseord, och till sist efter något livlöst som beter sig som en människa.",
+      "answer": "Tre bilder: personifikation (\"solen log\"), metafor (\"hennes leende var ett fyrverkeri\") och liknelse (\"studsade... likt en boll\"). Tillsammans målar de upp en glad, energisk stämning.",
+      "steps": [
+        "\"Solen log\" ger solen en mänsklig handling — personifikation, som gör miljön varm och glad.",
+        "\"Hennes leende var ett fyrverkeri\" jämför utan jämförelseord — metafor, som visar att leendet är strålande och intensivt.",
+        "\"Studsade genom rummet likt en boll\" innehåller jämförelseordet \"likt\" — liknelse, som förstärker att skrattet är studsigt och energiskt.",
+        "Notera att alla tre bilderna förstärker samma stämning: glädje och energi.",
+        "I en analys räcker det inte att namnge bilden — skriv alltid vad den gör för stämningen eller karaktären."
+      ]
+    },
+    {
+      "id": "q-sv8-lit-15",
+      "kind": "mc",
+      "topic": "genrer",
+      "prompt": "Vilket drag är typiskt för en deckare?",
+      "opener": "Fråga vad huvudpersonen ägnar sig åt genom hela berättelsen.",
+      "choices": [
+        "Berättelsen kretsar kring ett brott som ska utredas och lösas",
+        "Berättelsen utspelar sig alltid i en påhittad värld med magi",
+        "Berättelsen handlar alltid om en kärlekshistoria",
+        "Berättelsen saknar alltid en huvudperson"
+      ],
+      "answer": 0,
+      "explanation": "Deckarens kännetecken är brottet och utredningen som driver handlingen framåt. Påhittade världar med magi hör i stället till fantasy."
     }
   ]
 }

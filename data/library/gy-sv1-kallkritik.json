@@ -123,6 +123,111 @@
       "prompt": "Vilka frågor ställer du till en källa du hittat på nätet?",
       "opener": "Fyra kriterier, plus ett par praktiska frågor.",
       "answer": "Äkthet: vem är avsändaren, går det att verifiera? Tid: när publicerades den, är den fortfarande aktuell? Beroende: bygger den på egna iakttagelser eller återger den någon annan? Tendens: har avsändaren något att vinna på en viss bild? Fråga också: vad är syftet — informera, övertyga eller sälja? Och finns uppgiften bekräftad i en oberoende källa?"
+    },
+    {
+      "id": "q-sv1-kall-9",
+      "kind": "mc",
+      "topic": "källkritiska kriterier",
+      "prompt": "Vad innebär kriteriet ÄKTHET?",
+      "opener": "Är källan verkligen den den ger sig ut för att vara?",
+      "choices": [
+        "Om källan är vad den utger sig för att vara",
+        "Om källan är aktuell i tid",
+        "Om källan har ett ekonomiskt intresse",
+        "Om källan bygger på en annan källa"
+      ],
+      "answer": 0,
+      "explanation": "Äkthet handlar om huruvida källan verkligen är vad den påstår sig vara — rätt avsändare, inte förfalskad eller felaktigt tillskriven."
+    },
+    {
+      "id": "q-sv1-kall-10",
+      "kind": "mc",
+      "topic": "källtyper",
+      "prompt": "Ett originalmanuskript från en författare är exempel på vilken typ av källa?",
+      "opener": "Kommer materialet direkt från källan själv, eller har det passerat genom någon annan?",
+      "choices": [
+        "Primärkälla",
+        "Sekundärkälla",
+        "Tendentiös källa",
+        "Beroende källa"
+      ],
+      "answer": 0,
+      "explanation": "Ett originalmanuskript är förstahandsmaterial direkt från upphovspersonen — en primärkälla."
+    },
+    {
+      "id": "q-sv1-kall-11",
+      "kind": "mc",
+      "topic": "tendens",
+      "prompt": "En politisk organisation publicerar en rapport som stödjer just deras egen politik. Vilket kriterium bör granskas extra noga?",
+      "opener": "Vem tjänar på att rapporten visar det den visar?",
+      "choices": [
+        "Äkthet",
+        "Tid",
+        "Tendens",
+        "Ingetdera"
+      ],
+      "answer": 2,
+      "explanation": "Organisationen har ett tydligt intresse av resultatet — det är ett tendensproblem. Rapporten kan fortfarande vara korrekt, men bör jämföras med oberoende källor."
+    },
+    {
+      "id": "q-sv1-kall-12",
+      "kind": "mc",
+      "topic": "källkritiska kriterier",
+      "prompt": "Du hittar en artikel om ett historiskt slag, skriven 300 år efter händelsen av en historiker utan tillgång till ögonvittnesskildringar. Vilket kriterium väger tyngst att ifrågasätta?",
+      "opener": "Vad bygger texten på, om inga förstahandskällor finns kvar?",
+      "choices": [
+        "Beroende — utan ögonvittnen bygger texten sannolikt på andra, redan existerande källor",
+        "Tendens — historikern har garanterat ett ekonomiskt intresse",
+        "Äkthet — texten är säkerligen förfalskad",
+        "Inget kriterium behöver ifrågasättas"
+      ],
+      "answer": 0,
+      "explanation": "Utan tillgång till ögonvittnen måste historikern bygga på andrahandsuppgifter — beroendekriteriet blir därför särskilt relevant att granska."
+    },
+    {
+      "id": "q-sv1-kall-13",
+      "kind": "mc",
+      "topic": "källtyper",
+      "prompt": "Vad kallas en källa som själv bygger på och återger en annan, tidigare källa?",
+      "opener": "Är detta förstahandsmaterial eller en återgivning av något annat?",
+      "choices": [
+        "Sekundärkälla",
+        "Primärkälla",
+        "Tendentiös källa",
+        "Anonym källa"
+      ],
+      "answer": 0,
+      "explanation": "En sekundärkälla bygger på och återger en primärkälla — den är alltså ett steg längre bort från originalet."
+    },
+    {
+      "id": "q-sv1-kall-14",
+      "kind": "worked",
+      "topic": "tendens",
+      "prompt": "Ett anonymt konto på sociala medier påstår att en känd person sagt något kontroversiellt, utan att visa video, ljudklipp eller annan dokumentation. Inlägget publicerades för tre år sedan men sprids nu igen som om det vore nytt. Granska påståendet med de fyra källkritiska kriterierna.",
+      "opener": "Gå igenom ett kriterium i taget, precis som i exemplet om kosttillskottssajten.",
+      "answer": "Källan brister på samtliga fyra kriterier och bör inte accepteras utan vidare granskning.",
+      "steps": [
+        "Äkthet: kontot är anonymt, så det går inte att verifiera vem som ligger bakom eller om personen har någon faktisk insyn.",
+        "Tid: inlägget är tre år gammalt men sprids som om det vore nytt — sammanhanget kan ha förändrats sedan dess.",
+        "Beroende: ingen dokumentation (video, ljud, källhänvisning) finns — påståendet går inte att spåra till en primärkälla.",
+        "Tendens: ett konto som sprider kontroversiella påståenden om kända personer kan ha ett intresse av uppmärksamhet eller att skada personens rykte.",
+        "Slutsats: sök efter primärkällor, t.ex. den påstått uttalade personen själv eller etablerade nyhetsmedier, innan påståendet accepteras eller sprids vidare."
+      ]
+    },
+    {
+      "id": "q-sv1-kall-15",
+      "kind": "mc",
+      "topic": "tendens",
+      "prompt": "Vilken av dessa rubriker är minst vinklad?",
+      "opener": "Leta efter den rubrik som saknar värdeladdade ord och slutsatser.",
+      "choices": [
+        "Skandal! Företaget mörkade sanningen i åratal",
+        "Företaget höjde inte priserna trots påtryckningar — en förebild för branschen",
+        "Företaget meddelade under tisdagen att priserna hålls oförändrade",
+        "Företagets ledning vägrar äntligen göra rätt för sig"
+      ],
+      "answer": 2,
+      "explanation": "Den tredje rubriken beskriver händelsen sakligt och neutralt, utan värdeladdade ord som \"skandal\", \"förebild\" eller \"vägrar äntligen\"."
     }
   ]
 }

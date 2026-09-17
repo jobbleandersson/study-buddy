@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta judendomen: tro och förbund, skrifter, synagoga och sabbat, högtider samt historia och judar i Sverige.",
       "opener": "Gå igenom tron, skrifterna, praktiken och historien i tur och ordning.",
       "answer": "Tro: monoteism — enligt judisk tro finns en enda Gud, vars namn av vördnad inte uttalas · Förbundet (brit): enligt traditionen slutet med Abraham och förnyat med Mose vid Sinai; folket följer buden, Gud lovar beskydd; omskärelsen är förbundets tecken · Skrifter: Tanakh (Toran = de fem Moseböckerna, profeterna, skrifterna) · Toran skrivs för hand i en rulle och förvaras i arken · Talmud (Mishna + Gemara) = rabbinernas tolkningar av lagen · Halacha = de religiösa levnadsreglerna, t.ex. kosher-reglerna om mat · Synagogan: samlingslokal för bön, läsning och studier; rabbinen är lärare och tolkare, inte präst · Sabbat: fredag solnedgång till lördag mörker, ljuständning, kiddush, challot, gudstjänst, havdala vid avslutningen · Högtider: rosh hashana (nyår, shofar) · jom kippur (försoningsdagen, fasta och förlåtelse) · pesach (uttåget ur Egypten, seder, matza) · shavuot (Toran ges vid Sinai) · sukkot (lövhyddohögtiden) · chanukka (templets återinvigning, chanukkia med nio armar) · Historia: templet förstördes år 70 e.Kr. → diasporan · århundraden av förföljelser i Europa, kulminerande i Förintelsen under andra världskriget · staten Israel bildades 1948 · Riktningar: ortodox, konservativ och reformjudendom, med olika syn på hur reglerna ska tolkas · Sverige: judisk bosättning tilläts från 1774–1775 (Aaron Isaac) · judar är sedan år 2000 en av fem nationella minoriteter, jiddisch är nationellt minoritetsspråk · församlingar finns bl.a. i Stockholm, Göteborg och Malmö."
+    },
+    {
+      "id": "q-rel8-jud-9",
+      "kind": "mc",
+      "topic": "judiska högtider",
+      "prompt": "Vilken judisk högtid firas med en lövhydda (sukka) utomhus?",
+      "opener": "Namnet på högtiden är samma som namnet på hyddan.",
+      "choices": [
+        "Chanukka",
+        "Purim",
+        "Shavuot",
+        "Sukkot"
+      ],
+      "answer": 3,
+      "explanation": "Sukkot, lövhyddohögtiden, firas genom att man bygger en tillfällig hydda, sukka, och gärna äter och sover i den för att minnas ökenvandringen efter uttåget ur Egypten. Chanukka firar i stället templets återinvigning, purim berättelsen om drottning Ester, och shavuot att Toran gavs vid Sinai."
+    },
+    {
+      "id": "q-rel8-jud-10",
+      "kind": "mc",
+      "topic": "Toran och Talmud",
+      "prompt": "Vad består Talmud av?",
+      "opener": "Två delar tillsammans bildar detta omfattande verk av tolkningar.",
+      "choices": [
+        "Enbart de fem Moseböckerna",
+        "Profeternas böcker enbart",
+        "En modern översättning av Toran till engelska",
+        "Mishna och Gemara"
+      ],
+      "answer": 3,
+      "explanation": "Talmud består av Mishna, en tidig sammanställning av muntlig lag, och Gemara, senare kommentarer och diskussioner kring Mishna. Tillsammans bildar de ett omfattande verk av rabbinska tolkningar av Toran, alltså inte Toran själv, profeternas böcker eller en modern översättning."
+    },
+    {
+      "id": "q-rel8-jud-11",
+      "kind": "mc",
+      "topic": "synagogan och sabbaten",
+      "prompt": "Vem leder oftast bönen och undervisningen i en synagoga?",
+      "choices": [
+        "Påven",
+        "Imamen",
+        "Biskopen",
+        "Rabbinen"
+      ],
+      "opener": "Titeln betyder ungefär \"min lärare\" på hebreiska.",
+      "answer": 3,
+      "explanation": "Rabbinen är en lärd person som leder gudstjänst, undervisar och tolkar den judiska lagen, men räknas inte som präst i samma bemärkelse som inom andra religioner. Påven och biskopen hör till kristendomen, och imamen leder bönen inom islam."
+    },
+    {
+      "id": "q-rel8-jud-12",
+      "kind": "mc",
+      "topic": "tro och förbundet",
+      "prompt": "Vad är ett tecken på förbundet enligt judisk tradition, som utförs på pojkar åtta dagar gamla?",
+      "opener": "Riten nämns redan i berättelsen om Abraham.",
+      "choices": [
+        "Dopet",
+        "Konfirmationen",
+        "Fastan",
+        "Omskärelsen"
+      ],
+      "answer": 3,
+      "explanation": "Omskärelsen (brit mila) utförs traditionellt på pojkar åtta dagar gamla och ses som ett fysiskt tecken på förbundet mellan Gud och det judiska folket. Dop och konfirmation hör i stället till kristendomen, och fastan är en annan sorts religiös praktik som firas vid särskilda högtider som jom kippur."
+    },
+    {
+      "id": "q-rel8-jud-13",
+      "kind": "mc",
+      "topic": "judiska högtider",
+      "prompt": "Vilken judisk högtid firar det judiska nyåret?",
+      "opener": "Högtiden inleder de tio allvarliga dagarna som avslutas med jom kippur.",
+      "choices": [
+        "Jom kippur",
+        "Pesach",
+        "Sukkot",
+        "Rosh hashana"
+      ],
+      "answer": 3,
+      "explanation": "Rosh hashana är det judiska nyåret och firas bland annat genom att blåsa i ett vädurshorn, shofar. Jom kippur infaller tio dagar senare och är försoningsdagen, medan pesach och sukkot är helt andra högtider under året."
+    },
+    {
+      "id": "q-rel8-jud-14",
+      "kind": "mc",
+      "topic": "judendomens historia och judar i Sverige",
+      "prompt": "Vilken händelse under andra världskriget innebar en systematisk förföljelse och mord på judar i Europa?",
+      "opener": "Händelsen räknas som en av historiens mest omfattande folkmord.",
+      "choices": [
+        "Reformationen",
+        "Trettioåriga kriget",
+        "Franska revolutionen",
+        "Förintelsen"
+      ],
+      "answer": 3,
+      "explanation": "Förintelsen var nazi-Tysklands systematiska förföljelse och mord på cirka sex miljoner judar under andra världskriget, och den påverkade djupt judendomens historia och judars situation i världen. Reformationen, trettioåriga kriget och franska revolutionen är händelser inom en helt annan historisk kontext."
+    },
+    {
+      "id": "q-rel8-jud-15",
+      "kind": "mc",
+      "topic": "judendomens historia och judar i Sverige",
+      "prompt": "Vilket år bildades staten Israel?",
+      "opener": "Året ligger strax efter andra världskrigets slut.",
+      "choices": [
+        "1900",
+        "1774",
+        "2000",
+        "1948"
+      ],
+      "answer": 3,
+      "explanation": "Staten Israel bildades 1948, några år efter andra världskrigets slut och Förintelsen. Åren 1774 och 2000 hör i stället till judisk historia i Sverige (Aaron Isaacs bosättning respektive statusen som nationell minoritet), och 1900 stämmer inte med Israels bildande."
     }
   ]
 }

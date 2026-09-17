@@ -124,6 +124,111 @@
       "prompt": "Summarise the key points about the Big Bang, the life cycle of stars, the structure of the solar system, and astronomical methods.",
       "opener": "Go through the history of the universe, the life of a star, the planet types, and how we know anything about what we cannot visit.",
       "answer": "Big Bang: the universe expanded from a hot, dense state around 13.8 billion years ago and continues to expand, supported by redshift and the cosmic microwave background · Life of a star: a balance between gravity and the radiation pressure of fusion keeps the star stable; mass determines the final stage — white dwarf, neutron star or black hole · Solar system: inner rocky planets (small, solid surface of rock/metal) and outer gas giants (large, mostly hydrogen and helium) orbit the Sun · Spectroscopy: every element has unique spectral lines, allowing astronomers to determine composition at a distance by analysing the spectrum of light · Redshift: a shift of spectral lines towards red shows that a galaxy is moving away from us, and is used to measure speed and support the expansion of the universe."
+    },
+    {
+      "id": "q-nk1b-universum-9",
+      "kind": "mc",
+      "topic": "the Big Bang and the evolution of the universe",
+      "prompt": "What is dark matter, as far as scientists know today?",
+      "opener": "Think about how galaxies rotate faster than their visible mass should allow.",
+      "choices": [
+        "A form of matter that does not emit or reflect light but whose gravitational effects can be observed, e.g. in how galaxies rotate",
+        "A visible type of matter that shines brightly in the universe",
+        "Another name for black holes",
+        "A theory that has been completely disproved by modern research"
+      ],
+      "answer": 0,
+      "explanation": "Dark matter emits or reflects no light and therefore cannot be observed directly, but its gravitational effects can be seen, for example, in how galaxies rotate faster than the visible matter alone can explain."
+    },
+    {
+      "id": "q-nk1b-universum-10",
+      "kind": "mc",
+      "topic": "the Big Bang and the evolution of the universe",
+      "prompt": "What does it mean that the universe's expansion, according to observations, appears to be accelerating rather than slowing down?",
+      "opener": "Think about which unknown factor researchers propose lies behind this acceleration.",
+      "choices": [
+        "It suggests the existence of an unknown force or form of energy, often called dark energy, that drives the expansion",
+        "It means the Big Bang theory has been completely disproved",
+        "It means the universe will soon stop expanding entirely",
+        "It has no connection to observations of distant supernovae"
+      ],
+      "answer": 0,
+      "explanation": "Observations of distant supernovae showed that the universe's expansion is accelerating, suggesting the existence of an unknown force or form of energy, often called dark energy, that drives the expansion."
+    },
+    {
+      "id": "q-nk1b-universum-11",
+      "kind": "mc",
+      "topic": "the life cycle of stars",
+      "prompt": "What happens when a star with roughly the Sun's mass has used up its hydrogen fuel in the core?",
+      "opener": "Think about what happens when nuclear fusion in a sun-like star's core runs out of hydrogen.",
+      "choices": [
+        "It expands into a red giant before eventually leaving behind a white dwarf",
+        "It collapses immediately into a black hole",
+        "It always explodes as a supernova",
+        "It remains exactly unchanged forever"
+      ],
+      "answer": 0,
+      "explanation": "When a star with roughly the Sun's mass has used up its hydrogen fuel, it expands into a red giant, before the outer layers eventually blow away, leaving behind a white dwarf as the compact remnant."
+    },
+    {
+      "id": "q-nk1b-universum-12",
+      "kind": "mc",
+      "topic": "the solar system",
+      "prompt": "What is the difference between a comet and an asteroid?",
+      "opener": "Think about what happens as one of the bodies approaches the Sun and heats up.",
+      "choices": [
+        "Comets consist largely of ice and dust and can form a tail near the Sun, while asteroids consist mainly of rock or metal without ice",
+        "Comets and asteroids are exactly the same thing with different names",
+        "Asteroids exist only outside the solar system, comets only inside it",
+        "Comets never orbit the Sun"
+      ],
+      "answer": 0,
+      "explanation": "Comets consist largely of ice and dust, which allows them to form a visible tail when the ice vaporises near the Sun. Asteroids, by contrast, consist mainly of rock or metal and lack this ice."
+    },
+    {
+      "id": "q-nk1b-universum-13",
+      "kind": "mc",
+      "topic": "the solar system",
+      "prompt": "Where in the solar system is the main part of the asteroid belt located?",
+      "opener": "Think about which two large planets lie on either side of this region.",
+      "choices": [
+        "Between the orbits of Mars and Jupiter",
+        "Between the Sun and Mercury",
+        "Beyond Neptune's orbit",
+        "Between Earth and the Moon"
+      ],
+      "answer": 0,
+      "explanation": "The main part of the asteroid belt lies between the orbits of Mars and Jupiter, a region where Jupiter's gravity likely prevented the material from coming together into a single planet."
+    },
+    {
+      "id": "q-nk1b-universum-14",
+      "kind": "mc",
+      "topic": "astronomical methods",
+      "prompt": "What is parallax used for in astronomy?",
+      "opener": "Think about how your thumb seems to shift against the background when you close first one eye, then the other.",
+      "choices": [
+        "Measuring the distance to relatively nearby stars by observing how their position against background stars appears to change as Earth moves around the Sun",
+        "Measuring a star's exact chemical composition",
+        "Measuring a star's temperature directly",
+        "Counting the number of planets orbiting a star"
+      ],
+      "answer": 0,
+      "explanation": "Parallax measures the distance to relatively nearby stars by observing how their position against more distant background stars appears to shift when Earth is on opposite sides of its orbit around the Sun."
+    },
+    {
+      "id": "q-nk1b-universum-15",
+      "kind": "mc",
+      "topic": "the life cycle of stars",
+      "prompt": "What is a supernova?",
+      "opener": "Think about what happens when a very massive star's core collapses at the end of its life.",
+      "choices": [
+        "A powerful explosion that ends the life of a massive star, and which can briefly shine brighter than an entire galaxy",
+        "A star that is just forming from a gas cloud",
+        "Another name for a white dwarf",
+        "A star that rotates extremely slowly"
+      ],
+      "answer": 0,
+      "explanation": "A supernova is a powerful explosion that ends the life of a massive star when its core collapses, and can briefly outshine an entire galaxy. The explosion can leave behind a neutron star or a black hole, depending on how massive the original star was."
     }
   ]
 }

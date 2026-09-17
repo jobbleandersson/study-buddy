@@ -124,6 +124,110 @@
       "prompt": "Summarise the base units and prefixes you need to know.",
       "opener": "Go through length, mass, time and volume first, then the prefixes.",
       "answer": "Length: metre (m) · Mass: kilogram (kg), often gram (g) at school · Time: second (s) · Volume: cubic metre (m³), in practice litre (l) · Prefixes: kilo = 1000 times, centi = a hundredth, milli = a thousandth · 1 m = 10 dm = 100 cm = 1000 mm · 1 km = 1000 m · 1 kg = 1000 g · 1 l = 1 dm³ = 1000 ml · 1 ml = 1 cm³ · Measurement accuracy: never write more decimal places than the measuring instrument can actually show · Order of magnitude: always check that the answer is reasonable, a pencil is measured in centimetres, not metres."
+    },
+    {
+      "id": "q-fys7-mat-9",
+      "kind": "mc",
+      "topic": "SI units",
+      "prompt": "What is the base unit for time in the SI system?",
+      "opener": "The base unit for time is the smallest of the common time units.",
+      "choices": [
+        "Minute",
+        "Hour",
+        "Second",
+        "Day"
+      ],
+      "answer": 2,
+      "explanation": "The second (s) is the SI system's base unit for time. Minute, hour and day are all practical units built on the second, but none of them is the SI base unit."
+    },
+    {
+      "id": "q-fys7-mat-10",
+      "kind": "mc",
+      "topic": "prefixes",
+      "prompt": "What does the prefix kilo- mean?",
+      "opener": "Think about how many grams go into a kilogram.",
+      "choices": [
+        "A thousand times as much",
+        "A tenth",
+        "A hundred times as much",
+        "A thousandth"
+      ],
+      "answer": 0,
+      "explanation": "Kilo means a thousand times as much, so 1 kg = 1000 g and 1 km = 1000 m. Answering \"a thousandth\" mixes up kilo with milli, which is the thousandth."
+    },
+    {
+      "id": "q-fys7-mat-11",
+      "kind": "mc",
+      "topic": "unit conversion",
+      "prompt": "How many millimetres is 3.2 centimetres?",
+      "opener": "There are 10 millimetres in a centimetre.",
+      "choices": [
+        "3.2 mm",
+        "32 mm",
+        "320 mm",
+        "0.32 mm"
+      ],
+      "answer": 1,
+      "explanation": "3.2 cm · 10 = 32 mm, since 1 cm = 10 mm. You get 320 mm if you multiply by 100 instead of 10."
+    },
+    {
+      "id": "q-fys7-mat-12",
+      "kind": "mc",
+      "topic": "unit conversion",
+      "prompt": "How many litres is 2500 ml?",
+      "opener": "There are 1000 millilitres in a litre.",
+      "choices": [
+        "0.25 l",
+        "2.5 l",
+        "25 l",
+        "250 l"
+      ],
+      "answer": 1,
+      "explanation": "2500 ml / 1000 = 2.5 l, since 1 l = 1000 ml. You get 0.25 l if you divide by 10000 instead of 1000."
+    },
+    {
+      "id": "q-fys7-mat-13",
+      "kind": "mc",
+      "topic": "measurement accuracy",
+      "prompt": "You weigh a pencil on a scale that shows the nearest gram. Which measured value is reasonable to write down?",
+      "opener": "You can't read more precisely than the scale actually shows.",
+      "choices": [
+        "6 g",
+        "6.283 g",
+        "6 kg",
+        "0.006 mg"
+      ],
+      "answer": 0,
+      "explanation": "A scale that shows the nearest gram gives a value like 6 g — more decimal places pretend at a precision the scale doesn't have. 6 kg would be unreasonably heavy for a pencil, about the same as six litres of water."
+    },
+    {
+      "id": "q-fys7-mat-14",
+      "kind": "worked",
+      "topic": "unit conversion",
+      "prompt": "A swimming pool is 50 metres long. You swim 8 lengths. How far have you swum, expressed in kilometres?",
+      "opener": "First work out the distance in metres, then convert to kilometres.",
+      "answer": "0.4 km",
+      "steps": [
+        "Distance in metres: 8 lengths · 50 m = 400 m.",
+        "Remember the conversion: 1 km = 1000 m.",
+        "Divide the number of metres by 1000: 400 / 1000 = 0.4.",
+        "The answer is 0.4 km — reasonable, since eight pool lengths is a shorter distance than a kilometre."
+      ]
+    },
+    {
+      "id": "q-fys7-mat-15",
+      "kind": "mc",
+      "topic": "order of magnitude",
+      "prompt": "Which measured value is most reasonable for the length of an ordinary pen?",
+      "opener": "Compare with how long a pen usually feels in your hand.",
+      "choices": [
+        "17 mm",
+        "17 cm",
+        "17 dm",
+        "17 m"
+      ],
+      "answer": 1,
+      "explanation": "An ordinary pen is about 17 cm long. 17 mm would be shorter than an eraser, and 17 dm (1.7 m) or 17 m is far too long for a pen."
     }
   ]
 }

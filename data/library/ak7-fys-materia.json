@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta faserna, fasövergångarna och densitet.",
       "opener": "Börja med partiklarna i de tre faserna och avsluta med densitetsformeln.",
       "answer": "Fast form: partiklarna tätt packade på bestämda platser, egen form · Flytande form: partiklarna tätt men rörliga, tar kärlets form · Gasform: partiklarna långt ifrån varandra och i snabb rörelse, fyller hela utrymmet · Smältning: fast → flytande · Stelning: flytande → fast · Kokning: flytande → gas i hela vätskan vid kokpunkten · Avdunstning: flytande → gas vid ytan, även under kokpunkten · Kondensation: gas → flytande · Massan bevaras alltid vid fasövergångar, volymen kan ändras · Massa mäts i gram eller kilogram, volym i cm³, dm³ eller liter · Densitet = massa / volym, enhet g/cm³ eller kg/m³ · Vatten: 1 g/cm³ = 1000 kg/m³ · Lägre densitet än vätskan → föremålet flyter, högre densitet → det sjunker"
+    },
+    {
+      "id": "q-fys7-mte-9",
+      "kind": "mc",
+      "topic": "partikelmodellen",
+      "prompt": "I vilken fas rör sig partiklarna fritt, långt ifrån varandra, och fyller hela utrymmet de befinner sig i?",
+      "opener": "Fundera på vilken fas som inte har någon egen form eller volym alls.",
+      "choices": [
+        "Fast form",
+        "Flytande form",
+        "Gasform",
+        "Alla faser lika mycket"
+      ],
+      "answer": 2,
+      "explanation": "I gasform rör sig partiklarna snabbt och långt ifrån varandra, så gasen sprider ut sig och fyller hela behållaren den finns i. I fast och flytande form sitter partiklarna mycket tätare."
+    },
+    {
+      "id": "q-fys7-mte-10",
+      "kind": "mc",
+      "topic": "fasövergångar",
+      "prompt": "Vad kallas det när ett ämne går direkt från fast form till gasform utan att bli flytande på vägen, som torris gör?",
+      "opener": "Detta är en mer ovanlig fasövergång som hoppar över det flytande steget helt.",
+      "choices": [
+        "Smältning",
+        "Sublimering",
+        "Kondensation",
+        "Stelning"
+      ],
+      "answer": 1,
+      "explanation": "Sublimering är övergången direkt från fast till gasform, vilket är precis vad som händer med torris (fruset koldioxid). Smältning går i stället från fast till flytande."
+    },
+    {
+      "id": "q-fys7-mte-11",
+      "kind": "mc",
+      "topic": "fasövergångar",
+      "prompt": "Vad kallas övergången från flytande form till gasform som sker i hela vätskan samtidigt, vid ämnets kokpunkt?",
+      "opener": "Skilj denna övergång från den som bara sker vid vätskans yta.",
+      "choices": [
+        "Avdunstning",
+        "Kokning",
+        "Kondensation",
+        "Sublimering"
+      ],
+      "answer": 1,
+      "explanation": "Kokning sker i hela vätskevolymen samtidigt vid kokpunkten. Avdunstning sker i stället bara vid ytan och kan ske även vid temperaturer under kokpunkten, till exempel när en pöl torkar upp."
+    },
+    {
+      "id": "q-fys7-mte-12",
+      "kind": "mc",
+      "topic": "massa och volym",
+      "prompt": "Du smälter 50 g smör i en stekpanna. Vad händer med massan?",
+      "opener": "Partiklarna byter form på ämnet, men de försvinner inte.",
+      "choices": [
+        "Massan ökar",
+        "Massan minskar",
+        "Massan är oförändrad, 50 g",
+        "Massan försvinner helt"
+      ],
+      "answer": 2,
+      "explanation": "Vid en fasövergång är det samma partiklar hela tiden, så massan bevaras: 50 g fast smör blir 50 g flytande smör. Bara formen och volymen kan ändras, inte massan."
+    },
+    {
+      "id": "q-fys7-mte-13",
+      "kind": "mc",
+      "topic": "densitet",
+      "prompt": "En metallbit har massan 270 g och volymen 100 cm³. Vad är dess densitet?",
+      "opener": "Använd sambandet densitet = massa / volym.",
+      "choices": [
+        "2,7 g/cm³",
+        "27 g/cm³",
+        "0,27 g/cm³",
+        "270 g/cm³"
+      ],
+      "answer": 0,
+      "explanation": "Densitet = massa / volym = 270 g / 100 cm³ = 2,7 g/cm³. Att svara 27 g/cm³ är att glömma bort en decimal i uträkningen."
+    },
+    {
+      "id": "q-fys7-mte-14",
+      "kind": "worked",
+      "topic": "densitet",
+      "prompt": "En bit plast har massan 45 g och volymen 50 cm³. Beräkna plastens densitet och avgör om den flyter i vatten, som har densiteten 1 g/cm³.",
+      "opener": "Använd sambandet densitet = massa / volym och jämför sedan med vattnet.",
+      "answer": "Densiteten är 0,9 g/cm³, vilket är mindre än vattnets 1 g/cm³, så plasten flyter.",
+      "steps": [
+        "Skriv upp formeln: densitet = massa / volym.",
+        "Sätt in värdena: 45 g / 50 cm³.",
+        "Räkna ut: 45 / 50 = 0,9, alltså densiteten 0,9 g/cm³.",
+        "Jämför med vatten: 0,9 g/cm³ < 1 g/cm³, så plasten är lättare än lika mycket vatten.",
+        "Slutsats: plasten flyter, med en del av volymen ovanför vattenytan."
+      ]
+    },
+    {
+      "id": "q-fys7-mte-15",
+      "kind": "mc",
+      "topic": "partikelmodellen",
+      "prompt": "Vilken fas har partiklar som sitter tätt men kan glida förbi varandra, så att ämnet rinner och tar formen av sitt kärl?",
+      "opener": "Ämnet har ingen egen form, men det går heller inte att pressa ihop det särskilt mycket.",
+      "choices": [
+        "Fast form",
+        "Flytande form",
+        "Gasform",
+        "Plasma"
+      ],
+      "answer": 1,
+      "explanation": "I flytande form sitter partiklarna tätt, ungefär lika tätt som i fast form, men de kan glida förbi varandra, vilket gör att vätskan rinner och tar kärlets form. I fast form kan partiklarna inte glida runt varandra på samma sätt."
     }
   ]
 }

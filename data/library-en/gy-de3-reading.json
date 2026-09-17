@@ -123,6 +123,111 @@
       "prompt": "What strategies help you understand and answer questions about a German text?",
       "opener": "Habits that work even for more difficult texts in German.",
       "answer": "Read through the text once for the overall impression before reading the questions carefully. Look for keywords that repeat — they often point to the main idea. For words you don't understand (like \"Rückgrat\" or \"ehrenamtlich\"): use the context — nearby sentences often explain or exemplify the word. For inference questions: base your answer only on what the text actually implies, don't bring in prior knowledge the text doesn't support. Pay attention to numbers, names, and time expressions — they are common in detail questions."
+    },
+    {
+      "id": "q-de3-reading-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text: \"Anders als in vielen anderen Ländern entscheiden sich in Deutschland jedes Jahr Hunderttausende junger Menschen nach der Schule nicht für ein Universitätsstudium, sondern für eine duale Ausbildung. Das Prinzip ist einfach: Die Auszubildenden, umgangssprachlich \\\"Azubis\\\" genannt, verbringen einen Teil der Woche in einem Betrieb, wo sie praktisch arbeiten und ein Gehalt bekommen, und den anderen Teil in der Berufsschule, wo sie die theoretischen Grundlagen ihres Berufs lernen. Eine Ausbildung dauert je nach Beruf zwischen zwei und dreieinhalb Jahren und schließt mit einer Prüfung vor der zuständigen Kammer ab. Besonders beliebt sind duale Ausbildungen in technischen und handwerklichen Berufen, etwa als Mechatroniker, Industriekaufmann oder Elektroniker. Befürworter des Systems loben, dass die Auszubildenden von Anfang an praktische Erfahrung sammeln und selten arbeitslos werden, weil viele Betriebe ihre eigenen Azubis nach der Ausbildung übernehmen. Kritiker weisen jedoch darauf hin, dass das Ansehen einer akademischen Ausbildung in Deutschland traditionell höher ist, und dass manche Jugendliche sich unter Druck fühlen, sich schon mit sechzehn Jahren für einen bestimmten Berufsweg zu entscheiden.\"\n\nWhat is the main idea of the text?",
+      "opener": "Weigh the description of the system against both the praise and the criticism at the end.",
+      "choices": [
+        "Germany's dual education system combines practical training and theory in a way that has drawn both praise and criticism",
+        "All German teenagers are required to complete a dual education",
+        "University studies are banned in Germany",
+        "Dual education programs only exist in engineering"
+      ],
+      "answer": 0,
+      "explanation": "The text describes how the system is structured, then mentions both advantages (practical experience, low unemployment) and criticism (lower status than academic education, an early career choice) — that is the core of the text."
+    },
+    {
+      "id": "q-de3-reading-10",
+      "kind": "mc",
+      "topic": "detail",
+      "prompt": "Read the text again. How long does a dual Ausbildung last, according to the text?",
+      "opener": "Look for the sentence about \"zwischen zwei und dreieinhalb Jahren\".",
+      "choices": [
+        "Between two and three and a half years",
+        "Always exactly four years",
+        "One semester",
+        "Between ten and fifteen years"
+      ],
+      "answer": 0,
+      "explanation": "The text states \"zwischen zwei und dreieinhalb Jahren\" (between two and three and a half years), depending on the profession."
+    },
+    {
+      "id": "q-de3-reading-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text again. What does \"Azubi\" mean?",
+      "opener": "The word is mentioned directly after \"die Auszubildenden, umgangssprachlich...\".",
+      "choices": [
+        "A colloquial abbreviation for \"Auszubildende\" (trainee/apprentice)",
+        "A type of vocational school",
+        "A grade",
+        "An employer"
+      ],
+      "answer": 0,
+      "explanation": "The text directly explains that \"Azubi\" is a colloquial abbreviation (\"umgangssprachlich\") for \"Auszubildende\"."
+    },
+    {
+      "id": "q-de3-reading-12",
+      "kind": "mc",
+      "topic": "detail",
+      "prompt": "Read the text again. Between which two places does an Azubi alternate during their training?",
+      "opener": "Look for the sentence about \"einen Teil der Woche... und den anderen Teil...\".",
+      "choices": [
+        "A company and a vocational school",
+        "A university and a library",
+        "Home and school",
+        "Two different companies"
+      ],
+      "answer": 0,
+      "explanation": "The text says Azubis spend part of the week \"in einem Betrieb\" (at a company) and the rest \"in der Berufsschule\" (at the vocational school)."
+    },
+    {
+      "id": "q-de3-reading-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text again. What can be inferred about why Azubis rarely become unemployed, according to the text?",
+      "opener": "Look for the sentence about \"weil viele Betriebe ihre eigenen Azubis... übernehmen\".",
+      "choices": [
+        "Because many companies hire their own Azubis after training",
+        "Because the state guarantees everyone a job",
+        "Because there are too few Azubis",
+        "Because most switch careers right away"
+      ],
+      "answer": 0,
+      "explanation": "The text says Azubis rarely become unemployed \"weil viele Betriebe ihre eigenen Azubis nach der Ausbildung übernehmen\" (because many companies hire their own Azubis after training)."
+    },
+    {
+      "id": "q-de3-reading-14",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text again. What does the criticism that young people feel pressure to choose a career path as early as sixteen reveal about the system?",
+      "opener": "Think about what it means to have to make such a big choice so early.",
+      "choices": [
+        "That the system requires an early career choice, which some see as a drawback",
+        "That sixteen is the legal age limit for all jobs in Germany",
+        "That critics believe dual education should be banned entirely",
+        "That school ends at age sixteen in Germany"
+      ],
+      "answer": 0,
+      "explanation": "The criticism that young people feel pressure to choose a path at sixteen suggests that the early choice is seen as a drawback of the system, compared to continuing with broader studies first."
+    },
+    {
+      "id": "q-de3-reading-15",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text again. What does \"das Ansehen\" mean in the sentence about academic education's \"Ansehen\"?",
+      "opener": "The word describes how something is valued socially.",
+      "choices": [
+        "Reputation/status",
+        "Appearance",
+        "Opinion",
+        "Experience"
+      ],
+      "answer": 0,
+      "explanation": "\"Das Ansehen\" means \"reputation/status\" — how highly something is regarded socially, here compared between academic and dual education."
     }
   ]
 }

@@ -113,6 +113,111 @@
       "prompt": "How does word order work in main clauses compared to subordinate clauses in German?",
       "opener": "One of the clearest differences between German and Swedish.",
       "answer": "Main clause: the conjugated verb always stands in position two, regardless of what comes first (Ich spiele heute. / Heute spiele ich.). Subordinate clause (after weil, dass, wenn, ob, and others): the conjugated verb moves to the LAST position in the clause (..., weil ich krank bin. / Ich weiß, dass du recht hast.). Common subordinate-clause conjunctions: weil = because, dass = that, wenn = if/when, ob = whether."
+    },
+    {
+      "id": "q-de9-word-9",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which element ALWAYS stands in position two in a German main clause?",
+      "opener": "This holds regardless of what comes first in the sentence.",
+      "choices": [
+        "The conjugated verb",
+        "The subject",
+        "The time expression",
+        "The object"
+      ],
+      "answer": 0,
+      "explanation": "The conjugated verb always stands in position two in a main clause, no matter what comes first."
+    },
+    {
+      "id": "q-de9-word-10",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Choose the right word order: \"On Saturdays I play football.\"",
+      "opener": "The sentence starts with the time expression \"am Samstag\".",
+      "choices": [
+        "Am Samstag spiele ich Fußball.",
+        "Am Samstag ich spiele Fußball.",
+        "Ich am Samstag spiele Fußball.",
+        "Spiele ich am Samstag Fußball."
+      ],
+      "answer": 0,
+      "explanation": "\"Am Samstag\" takes position one, but the verb \"spiele\" still has to go in position two: \"Am Samstag spiele ich Fußball.\""
+    },
+    {
+      "id": "q-de9-word-11",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "What does the conjunction \"wenn\" mean?",
+      "opener": "A common conjunction for a condition or a point in time.",
+      "choices": [
+        "if/when",
+        "but",
+        "and",
+        "or"
+      ],
+      "answer": 0,
+      "explanation": "\"Wenn\" means \"if\"/\"when\" and introduces a subordinate clause where the verb moves to the end."
+    },
+    {
+      "id": "q-de9-word-12",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "What does the conjunction \"ob\" mean?",
+      "opener": "Often used after expressions like \"I don't know...\".",
+      "choices": [
+        "whether",
+        "because",
+        "that",
+        "but"
+      ],
+      "answer": 0,
+      "explanation": "\"Ob\" means \"whether\", e.g. \"Ich weiß nicht, ob er kommt\" (I don't know whether he's coming)."
+    },
+    {
+      "id": "q-de9-word-13",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Choose the right sentence: \"I think that he's right.\"",
+      "opener": "The verb \"hat\" should go at the end of the clause after \"dass\".",
+      "choices": [
+        "Ich glaube, dass er recht hat.",
+        "Ich glaube, dass er hat recht.",
+        "Ich glaube, er dass recht hat.",
+        "Ich glaube, dass recht er hat."
+      ],
+      "answer": 0,
+      "explanation": "\"Dass er recht hat\" — the verb \"hat\" goes at the end of the clause."
+    },
+    {
+      "id": "q-de9-word-14",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Which sentence has the correct word order?",
+      "opener": "The verb \"kommt\" should stand at the end of the clause after \"ob\".",
+      "choices": [
+        "Ich weiß nicht, ob er morgen kommt.",
+        "Ich weiß nicht, ob er kommt morgen.",
+        "Ich weiß nicht, ob kommt er morgen.",
+        "Ich weiß nicht, er ob morgen kommt."
+      ],
+      "answer": 0,
+      "explanation": "\"Ob er morgen kommt\" — the verb \"kommt\" goes at the end of the clause."
+    },
+    {
+      "id": "q-de9-word-15",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "If a subordinate clause (e.g. a weil-clause) comes FIRST in a whole sentence, e.g. \"Weil ich krank bin, bleibe ich zu Hause\" — what happens to the main clause that follows?",
+      "opener": "The entire subordinate clause counts as position one in the combined sentence.",
+      "choices": [
+        "The main clause's verb comes right after the comma",
+        "The main clause's verb comes at the very end of the whole sentence",
+        "The subordinate clause must always come last",
+        "There's no difference compared to when the subordinate clause comes last"
+      ],
+      "answer": 0,
+      "explanation": "The entire subordinate clause (\"weil ich krank bin\") counts as position one, so the main clause's conjugated verb (\"bleibe\") comes right after the comma, in position two."
     }
   ]
 }

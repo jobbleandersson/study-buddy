@@ -122,6 +122,111 @@
       "prompt": "List common informal-to-formal word swaps useful in academic writing.",
       "opener": "Vardagsord och deras formella motsvarigheter.",
       "answer": "a lot of → numerous/considerable · kind of/sort of → somewhat/rather · get → obtain/receive · show → demonstrate/indicate · big → significant/substantial · but → however/nevertheless · so → therefore/consequently · think → consider/argue · stuff/things → issues/factors/aspects · a bit → slightly/somewhat"
+    },
+    {
+      "id": "q-en7gy-vocabulary-9",
+      "kind": "mc",
+      "topic": "formal vs informal register",
+      "prompt": "Which sentence uses the most formal register?",
+      "opener": "Vilken mening undviker helt vardagliga fyllnadsord och vaga uttryck?",
+      "choices": [
+        "The findings indicate a clear correlation between the two variables.",
+        "The findings kinda show a link between the two things.",
+        "The findings sort of point to a connection.",
+        "The findings show stuff is connected, basically."
+      ],
+      "answer": 0,
+      "explanation": "Den första meningen använder precist, formellt ordval (\"indicate\", \"correlation\") utan vardagliga fyllnadsord som \"kinda\", \"sort of\" eller \"basically\"."
+    },
+    {
+      "id": "q-en7gy-vocabulary-10",
+      "kind": "mc",
+      "topic": "academic vocabulary",
+      "prompt": "Which word best replaces \"a big problem\" in a formal report?",
+      "opener": "Vilket alternativ låter akademiskt utan att bli vagt?",
+      "choices": [
+        "a substantial issue",
+        "a mega problem",
+        "a huge deal",
+        "a really big thing"
+      ],
+      "answer": 0,
+      "explanation": "\"A substantial issue\" är precist och formellt. De andra alternativen är vardagliga eller överdrivet informella uttryck."
+    },
+    {
+      "id": "q-en7gy-vocabulary-11",
+      "kind": "mc",
+      "topic": "academic vocabulary",
+      "prompt": "Choose the word that best completes: 'The data ___ that the intervention had a measurable effect.'",
+      "opener": "Vilket verb är precist och formellt utan vardagliga tillägg?",
+      "choices": [
+        "demonstrate",
+        "show kinda",
+        "sort of prove",
+        "basically prove"
+      ],
+      "answer": 0,
+      "explanation": "\"Demonstrate\" är ett precist akademiskt verb. De andra alternativen blandar in vardagliga ord som \"kinda\", \"sort of\" och \"basically\", vilket bryter det formella registret."
+    },
+    {
+      "id": "q-en7gy-vocabulary-12",
+      "kind": "mc",
+      "topic": "precise word choice",
+      "prompt": "Which sentence uses the most precise verb to describe a researcher's cautious claim?",
+      "opener": "Vilket verb uttrycker en försiktig, akademisk hållning på ett precist sätt?",
+      "choices": [
+        "The researcher suggests that further studies are needed.",
+        "The researcher goes on about needing more studies.",
+        "The researcher is like, we need more studies.",
+        "The researcher basically wants more studies done."
+      ],
+      "answer": 0,
+      "explanation": "\"Suggests\" är precist och signalerar akademisk försiktighet. De andra alternativen är alldeles för vardagliga för en formell text."
+    },
+    {
+      "id": "q-en7gy-vocabulary-13",
+      "kind": "mc",
+      "topic": "formal vs informal register",
+      "prompt": "Which sentence avoids vague intensifiers in favor of precise, formal language?",
+      "opener": "Vilken mening undviker vardagliga förstärkningsord som \"super\" och \"really really\"?",
+      "choices": [
+        "The policy change had a considerable impact on unemployment rates.",
+        "The policy change had a super big impact on unemployment.",
+        "The policy change majorly affected unemployment, like, a lot.",
+        "The policy change really really changed unemployment."
+      ],
+      "answer": 0,
+      "explanation": "\"Considerable\" är ett precist, formellt förstärkningsord. De andra alternativen upprepar eller överdriver med vardagliga intensifierare."
+    },
+    {
+      "id": "q-en7gy-vocabulary-14",
+      "kind": "mc",
+      "topic": "precise word choice",
+      "prompt": "Which word most precisely replaces \"get\" in the sentence 'The study ___ data from over 500 participants'?",
+      "opener": "Vilket verb är standard i akademisk metodbeskrivning?",
+      "choices": [
+        "collected",
+        "got",
+        "grabbed",
+        "picked up"
+      ],
+      "answer": 0,
+      "explanation": "\"Collected\" är det precisa, standardmässiga verbet i vetenskapliga metodbeskrivningar. De andra är vardagliga synonymer till \"get\" som inte passar i akademisk text."
+    },
+    {
+      "id": "q-en7gy-vocabulary-15",
+      "kind": "mc",
+      "topic": "academic vocabulary",
+      "prompt": "Which linking phrase is most appropriate to introduce a supporting example in a formal essay?",
+      "opener": "Vilken fras är standard i formell, skriftlig engelska för att introducera ett exempel?",
+      "choices": [
+        "For instance,",
+        "Like,",
+        "You know,",
+        "I mean,"
+      ],
+      "answer": 0,
+      "explanation": "\"For instance\" är en formell, skriftspråklig fras för att introducera exempel. De andra alternativen är talspråkliga utfyllnadsfraser som inte hör hemma i formell text."
     }
   ]
 }

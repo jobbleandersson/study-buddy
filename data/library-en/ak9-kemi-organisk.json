@@ -124,6 +124,110 @@
       "prompt": "Summarise organic chemistry and carbon compounds.",
       "opener": "Think of the carbon atom's bonding ability, hydrocarbons, combustion and everyday examples.",
       "answer": "Organic chemistry: the study of carbon compounds, with a few exceptions (e.g. carbon dioxide and carbonates are classed as inorganic) · The carbon atom: has 4 valence electrons, forms 4 covalent bonds, can bond to itself in chains, branches and rings, giving enormously many possible compounds · Hydrocarbon: a compound containing only carbon and hydrogen, e.g. methane (CH4), petrol, natural gas · Combustion of hydrocarbons: hydrocarbon + oxygen → carbon dioxide + water + energy (exothermic reaction) · Fossil fuels: oil, coal and natural gas, formed from dead plant and animal remains over millions of years, contain stored energy in carbon compounds · Plastic: man-made polymers, long chains of carbon compounds, often made from crude oil."
+    },
+    {
+      "id": "q-kemi-org-9",
+      "kind": "mc",
+      "topic": "organic chemistry",
+      "prompt": "Which of these substances is NOT classed as an organic compound, even though it contains carbon?",
+      "opener": "A small number of simple carbon compounds are exceptions for historical reasons.",
+      "choices": [
+        "Carbon dioxide (CO2)",
+        "Methane (CH4)",
+        "Ethanol",
+        "Glucose"
+      ],
+      "answer": 0,
+      "explanation": "Carbon dioxide contains carbon but is classed as inorganic for historical reasons, along with a few other simple carbon compounds like carbonates. Methane, ethanol and glucose are all organic compounds."
+    },
+    {
+      "id": "q-kemi-org-10",
+      "kind": "mc",
+      "topic": "properties of the carbon atom",
+      "prompt": "How many covalent bonds can a carbon atom usually form at the same time?",
+      "opener": "This is linked to the number of valence electrons carbon has.",
+      "choices": [
+        "4",
+        "2",
+        "8",
+        "1"
+      ],
+      "answer": 0,
+      "explanation": "Carbon has 4 valence electrons and can therefore form 4 covalent bonds at once, giving rise to an enormous variety of possible structures."
+    },
+    {
+      "id": "q-kemi-org-11",
+      "kind": "mc",
+      "topic": "hydrocarbons",
+      "prompt": "Which of these substances is NOT a hydrocarbon?",
+      "opener": "A hydrocarbon contains only two elements - which of these substances contains a third?",
+      "choices": [
+        "Ethanol",
+        "Methane",
+        "Propane",
+        "Petrol"
+      ],
+      "answer": 0,
+      "explanation": "Ethanol contains carbon, hydrogen AND oxygen, so it isn't classed as a pure hydrocarbon even though it's an organic compound. Methane, propane and petrol contain only carbon and hydrogen."
+    },
+    {
+      "id": "q-kemi-org-12",
+      "kind": "mc",
+      "topic": "carbon in everyday life",
+      "prompt": "What's the main problem with burning large amounts of fossil fuels, chemically speaking?",
+      "opener": "Think about how long the carbon has been \"locked away\" compared with how quickly it's now released.",
+      "choices": [
+        "It releases carbon stored for millions of years as carbon dioxide into the atmosphere, faster than nature can absorb it again",
+        "It never forms carbon dioxide",
+        "It makes the fuel inorganic",
+        "It destroys the carbon atom's ability to form bonds"
+      ],
+      "answer": 0,
+      "explanation": "Fossil fuels release carbon that's been locked up for millions of years, as carbon dioxide into the atmosphere in a very short time - faster than plants and oceans can absorb it, which disrupts the carbon cycle."
+    },
+    {
+      "id": "q-kemi-org-13",
+      "kind": "mc",
+      "topic": "hydrocarbons",
+      "prompt": "What distinguishes methane (CH4) from propane (C3H8) chemically?",
+      "opener": "Compare the number of carbon atoms in each molecular formula.",
+      "choices": [
+        "Propane has a longer carbon chain with more carbon and hydrogen atoms",
+        "Methane contains oxygen but propane doesn't",
+        "Propane isn't a hydrocarbon",
+        "There's no difference, they're the same substance"
+      ],
+      "answer": 0,
+      "explanation": "Propane (C3H8) has three carbon atoms in a chain, while methane (CH4) has just one - otherwise both are pure hydrocarbons with no oxygen."
+    },
+    {
+      "id": "q-kemi-org-14",
+      "kind": "worked",
+      "topic": "carbon in everyday life",
+      "prompt": "Explain why plastic, which often consists of very long carbon chains (polymers), breaks down so slowly in nature compared with, for example, food scraps.",
+      "opener": "Think about which enzymes decomposers in nature actually have access to.",
+      "answer": "Plastic's long, often man-made carbon chains are hard for natural microorganisms to break down chemically, since most decomposers lack enzymes suited to these particular bonds - unlike the simpler molecules in food scraps.",
+      "steps": [
+        "Food scraps mostly consist of simpler organic molecules (sugar, starch, protein) that natural microorganisms have enzymes adapted to break down.",
+        "Plastic's polymers are very long chains of carbon atoms, often with bonding patterns that don't occur naturally.",
+        "Most bacteria and fungi lack enzymes that can effectively cleave these particular bonds.",
+        "Without effective decomposition, plastic can remain in nature for hundreds of years before breaking down, if it breaks down at all."
+      ]
+    },
+    {
+      "id": "q-kemi-org-15",
+      "kind": "mc",
+      "topic": "hydrocarbons",
+      "prompt": "What's needed for complete combustion of a hydrocarbon, besides the hydrocarbon itself?",
+      "opener": "What does the hydrocarbon react with to form carbon dioxide and water?",
+      "choices": [
+        "Enough oxygen",
+        "Just heat with no oxygen",
+        "Water",
+        "Nitrogen"
+      ],
+      "answer": 0,
+      "explanation": "Complete combustion requires enough oxygen for the hydrocarbon to react fully and form carbon dioxide and water. With too little oxygen, combustion is incomplete and soot or carbon monoxide can form instead."
     }
   ]
 }

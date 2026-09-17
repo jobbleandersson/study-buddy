@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta etikens grunder: etik och moral, de tre modellerna, gyllene regeln och hur man hanterar ett etiskt dilemma.",
       "opener": "Begreppen först, sedan modellerna, sist arbetsgången i ett dilemma.",
       "answer": "Etik: läran om och reflektionen kring vad som är rätt och fel — teorin · Moral: hur en människa faktiskt handlar och vilka värderingar hon lever efter — praktiken · Lag ≠ moral: allt som är lagligt är inte moraliskt rätt, och allt som känns moraliskt rätt är inte alltid lagligt · Pliktetik: handlingen bedöms utifrån om den följer en regel eller princip (\"håll dina löften\", \"ljug inte\"), oavsett konsekvenser · styrka: förutsägbart och rättvist · svaghet: kan bli hårt när regler krockar med människors bästa · Konsekvensetik: handlingen bedöms utifrån följderna — rätt är det som ger mest nytta och minst skada · styrka: tar hänsyn till verkliga effekter · svaghet: svårt att förutse alla följder, och en minoritet kan komma i kläm · Sinnelagsetik: handlingen bedöms utifrån avsikten och viljan bakom den · styrka: en god vilja räknas även när något går fel · svaghet: goda avsikter kan leda till skada · Gyllene regeln: behandla andra som du själv vill bli behandlad — finns i liknande form i bl.a. kristendom, judendom, islam, buddhism, konfucianism och sekulär humanism · Etiskt dilemma: två eller flera värden krockar, så att varje val innebär att något viktigt väljs bort · Arbetsgång: 1) beskriv situationen och vilka som berörs · 2) sätt ord på vilka värden som krockar · 3) pröva pliktetik, konsekvensetik och sinnelagsetik · 4) väg samman, välj handling och motivera · Etik och religion: religioner ger ofta etisk vägledning genom bud och berättelser, men man kan också resonera etiskt utifrån förnuft, empati och erfarenhet."
+    },
+    {
+      "id": "q-rel8-eti-9",
+      "kind": "mc",
+      "topic": "konsekvensetik",
+      "prompt": "Vilken är en vanlig kritik mot konsekvensetiken?",
+      "opener": "Tänk på att man aldrig kan se in i framtiden med säkerhet.",
+      "choices": [
+        "Att den aldrig tar hänsyn till följderna av en handling",
+        "Att den bara handlar om vem som är äldst i gruppen",
+        "Att den är exakt samma sak som pliktetik",
+        "Att det är svårt att förutse alla följder av en handling, och att en minoritet kan komma i kläm för majoritetens nytta"
+      ],
+      "answer": 3,
+      "explanation": "En vanlig kritik mot konsekvensetiken är att det i praktiken är svårt att förutse alla följder av en handling, och att en strategi som maximerar den samlade nyttan kan innebära att en minoritet får bära en orimlig börda. Konsekvensetiken handlar tvärtom just om att väga följder, och den är inte samma sak som pliktetik, som i stället utgår från regler."
+    },
+    {
+      "id": "q-rel8-eti-10",
+      "kind": "mc",
+      "topic": "pliktetik",
+      "prompt": "Vilken är en styrka med pliktetiskt tänkande?",
+      "opener": "Tänk på vad som händer när samma regler gäller för alla, oavsett situation.",
+      "choices": [
+        "Det tar alltid hänsyn till alla tänkbara konsekvenser",
+        "Det bygger enbart på känslor i stunden",
+        "Det kräver aldrig några principer alls",
+        "Det blir förutsägbart och rättvist, eftersom samma regler gäller alla oavsett situation"
+      ],
+      "answer": 3,
+      "explanation": "En styrka med pliktetiskt tänkande är att det blir förutsägbart och rättvist, eftersom samma principer, till exempel att inte ljuga, gäller oavsett vem som är inblandad eller vad situationen råkar vara. Pliktetik bygger tvärtom just på principer snarare än stundens känslor, och den tar inte hänsyn till alla tänkbara konsekvenser — det är i stället konsekvensetikens utgångspunkt."
+    },
+    {
+      "id": "q-rel8-eti-11",
+      "kind": "mc",
+      "topic": "gyllene regeln",
+      "prompt": "I vilken av dessa källor återfinns en formulering som liknar den gyllene regeln, tillskriven rabbinen Hillel?",
+      "opener": "Källan hör till en av de abrahamitiska religionerna.",
+      "choices": [
+        "Endast modern lagstiftning",
+        "Endast vetenskapliga studier",
+        "Endast sportens regelverk",
+        "Judisk tradition"
+      ],
+      "answer": 3,
+      "explanation": "Inom judisk tradition tillskrivs rabbinen Hillel en formulering som liknar den gyllene regeln: gör inte mot andra det du själv hatar. Liknande formuleringar finns även inom kristendom, islam, buddhism och andra traditioner, men källan i frågan är specifikt judisk, inte lagstiftning, vetenskap eller sportens regler."
+    },
+    {
+      "id": "q-rel8-eti-12",
+      "kind": "mc",
+      "topic": "sinnelagsetik",
+      "prompt": "Vad är en vanlig kritik mot sinnelagsetiken?",
+      "opener": "Tänk på vad som kan hända trots en god vilja.",
+      "choices": [
+        "Att den aldrig bryr sig om avsikten bakom en handling",
+        "Att den kräver att man alltid följer lagen exakt",
+        "Att den bara kan användas av jurister",
+        "Att goda avsikter ändå kan leda till skadliga följder"
+      ],
+      "answer": 3,
+      "explanation": "En vanlig kritik mot sinnelagsetiken är att goda avsikter ändå kan leda till skadliga följder, vilket gör att handlingen kan bedömas som moraliskt god trots ett dåligt utfall. Sinnelagsetiken handlar tvärtom just om avsikten bakom handlingen, och den är inte begränsad till juridiska sammanhang eller kopplad till att alltid följa lagen exakt."
+    },
+    {
+      "id": "q-rel8-eti-13",
+      "kind": "mc",
+      "topic": "etik och moral",
+      "prompt": "Kan en handling vara laglig men ändå uppfattas som moraliskt fel av många människor?",
+      "opener": "Tänk på skillnaden mellan vad lagen tillåter och vad som känns rätt.",
+      "choices": [
+        "Nej, allt som är lagligt är alltid moraliskt rätt",
+        "Nej, moral bestäms alltid av lagen",
+        "Frågan är omöjlig att resonera kring",
+        "Ja, lag och moral sammanfaller inte alltid"
+      ],
+      "answer": 3,
+      "explanation": "Lag och moral sammanfaller inte alltid: en handling kan vara fullt laglig men ändå uppfattas som moraliskt fel av många, till exempel att bryta ett löfte eller vara illojal mot en vän. Att påstå att lag och moral alltid är samma sak, eller att frågan är omöjlig att resonera kring, stämmer inte med hur etik och juridik faktiskt förhåller sig till varandra."
+    },
+    {
+      "id": "q-rel8-eti-14",
+      "kind": "mc",
+      "topic": "etiska frågor i vardagen",
+      "prompt": "Vilket är ett exempel på ett etiskt dilemma i vardagen?",
+      "opener": "Ett dilemma innebär att man måste välja bort något man tycker är viktigt.",
+      "choices": [
+        "Att välja vilken färg man ska måla sitt rum",
+        "Att välja vilken låt man ska lyssna på",
+        "Att välja vilken dag i veckan det är",
+        "Att välja mellan att vara lojal mot en vän och att vara ärlig mot andra"
+      ],
+      "answer": 3,
+      "explanation": "Att välja mellan lojalitet mot en vän och ärlighet mot andra är ett typiskt etiskt dilemma, eftersom båda värdena är viktiga och man måste välja bort ett av dem. Att välja rumsfärg, låt eller att konstatera vilken veckodag det är innebär däremot ingen konflikt mellan viktiga värden."
+    },
+    {
+      "id": "q-rel8-eti-15",
+      "kind": "mc",
+      "topic": "konsekvensetik",
+      "prompt": "Vad är kärnan i ett konsekvensetiskt resonemang?",
+      "opener": "Tänk framåt, mot vad handlingen faktiskt leder till.",
+      "choices": [
+        "Att bedöma en handling utifrån vilken regel den följer",
+        "Att bedöma en handling utifrån avsikten bakom den, oavsett följder",
+        "Att aldrig bedöma handlingar över huvud taget",
+        "Att bedöma en handling utifrån vilka följder den får för de berörda"
+      ],
+      "answer": 3,
+      "explanation": "Kärnan i konsekvensetiken är att bedöma en handling utifrån dess följder för de som berörs — rätt är det som ger mest nytta och minst skada totalt sett. Att bedöma utifrån vilken regel som följs hör i stället till pliktetiken, och att bedöma utifrån avsikten hör till sinnelagsetiken."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Summarise the most important points about democracy, influence and the right to vote.",
       "opener": "Take the meaning of democracy first, then ways of deciding, ways to have influence, and the opposite, dictatorship.",
       "answer": "Democracy: from the Greek demos (people) and kratos (power) — rule by the people, power comes from the people · Direct democracy: everyone votes themselves on every issue, e.g. a class council or a referendum · Representative democracy: the people elect representatives who decide, e.g. parliament and the municipal council · Majority decision: the proposal with the most votes wins · Minority protection: rights such as freedom of speech and freedom of religion apply to everyone, even those who voted in the minority · Having influence at school: class council, student council, talking with the head teacher · Having influence in society: voting, joining a party or association, writing a letter to the editor, demonstrating, starting a petition · Democracy is characterised by free elections, several parties, freedom of speech, free media and independent courts · Dictatorship: power cannot be replaced in free elections, the media are controlled and criticism can be punished · Universal suffrage: all adult citizens can vote regardless of gender, income or background — in Sweden from the 1921 election · Voting age in Sweden today: 18."
+    },
+    {
+      "id": "q-sam7-dem-9",
+      "kind": "mc",
+      "topic": "what democracy means",
+      "prompt": "What is direct democracy?",
+      "opener": "Think about who votes — the people themselves or chosen representatives?",
+      "choices": [
+        "When the people themselves vote directly on every issue, for example in a referendum",
+        "When a king decides everything",
+        "When only politicians are allowed to vote",
+        "When no one is allowed to vote"
+      ],
+      "answer": 0,
+      "explanation": "Direct democracy means that citizens themselves vote on every individual issue, for example in a referendum or a class council. It differs from representative democracy, where the people instead elect representatives who then make the decisions on their behalf."
+    },
+    {
+      "id": "q-sam7-dem-10",
+      "kind": "mc",
+      "topic": "what democracy means",
+      "prompt": "What is representative democracy?",
+      "opener": "Think about how parliamentary elections work in Sweden.",
+      "choices": [
+        "The people elect representatives, such as members of parliament, who then make the decisions",
+        "Everyone votes on every single issue",
+        "One person decides without any election",
+        "Only companies are allowed to vote"
+      ],
+      "answer": 0,
+      "explanation": "In a representative democracy, the people elect representatives, such as members of parliament, who then make decisions on their behalf. It is the most common form of democracy in larger countries, since it isn't practically possible for everyone to vote on every single issue."
+    },
+    {
+      "id": "q-sam7-dem-11",
+      "kind": "mc",
+      "topic": "majority and minority",
+      "prompt": "In a class of 30 students, 18 vote for a trip to the forest and 12 vote for a trip to town. Which proposal wins according to the majority principle?",
+      "opener": "Compare how many voted for each proposal.",
+      "choices": [
+        "Town, because the votes there should count double",
+        "The forest, because most people voted for it",
+        "Neither, because it wasn't unanimous",
+        "The teacher decides regardless of the votes"
+      ],
+      "answer": 1,
+      "explanation": "18 out of 30 votes is a majority, so the forest wins according to the majority principle. A majority decision doesn't require everyone to agree, only that the proposal gets the most votes."
+    },
+    {
+      "id": "q-sam7-dem-12",
+      "kind": "mc",
+      "topic": "democracy and dictatorship",
+      "prompt": "What characterises a democracy?",
+      "opener": "Think about whether citizens can replace those who govern.",
+      "choices": [
+        "That power can be replaced through free elections",
+        "That one person holds power forever without any election",
+        "That the media are controlled by the state",
+        "That criticism of the leadership is forbidden"
+      ],
+      "answer": 0,
+      "explanation": "A democracy is characterised by citizens being able to replace those in power through free and regular elections. Power staying in place forever without elections, the media being controlled, and criticism being forbidden are instead characteristics of a dictatorship."
+    },
+    {
+      "id": "q-sam7-dem-13",
+      "kind": "mc",
+      "topic": "having influence at school and in society",
+      "prompt": "What is one way to have influence in society outside of school?",
+      "opener": "Think about the democratic channels available to adult citizens.",
+      "choices": [
+        "Voting in an election, joining a party, or writing a letter to the editor",
+        "Waiting for someone else to solve the problem",
+        "Only complaining to yourself at home",
+        "It isn't possible to have influence as a private individual"
+      ],
+      "answer": 0,
+      "explanation": "Voting, joining a party or an association, writing a letter to the editor, demonstrating, or starting a petition are all ways to have influence in society. As a private individual there are therefore several democratic channels you can use, even between elections."
+    },
+    {
+      "id": "q-sam7-dem-14",
+      "kind": "mc",
+      "topic": "universal suffrage",
+      "prompt": "In which year was universal and equal suffrage for women and men used for the first time in a Swedish parliamentary election?",
+      "opener": "The decision was made in 1919 and 1921 — but when was the first election held under the new suffrage rules?",
+      "choices": [
+        "1919",
+        "1921",
+        "1945",
+        "1971"
+      ],
+      "answer": 1,
+      "explanation": "Universal and equal suffrage for women and men was decided in 1919 and 1921, but was used for the first time in the parliamentary election of 1921. That is why 1921 is usually counted as the year Sweden achieved universal suffrage in practice."
+    },
+    {
+      "id": "q-sam7-dem-15",
+      "kind": "mc",
+      "topic": "what democracy means",
+      "prompt": "What does it mean that citizens have basic freedoms and rights in a democracy?",
+      "opener": "Think about what would happen if only some people were allowed to express their opinions freely.",
+      "choices": [
+        "That citizens have the right to, among other things, freedom of speech, freedom of assembly and a fair trial",
+        "That only some citizens have rights",
+        "That rights only apply to adults over the age of 65",
+        "That rights can be taken away by anyone"
+      ],
+      "answer": 0,
+      "explanation": "In a democracy, all citizens have basic freedoms and rights, for example freedom of speech, freedom of assembly and the right to a fair trial. They apply equally to all citizens, not just a particular group, and cannot be arbitrarily removed by individuals or even by the majority."
     }
   ]
 }

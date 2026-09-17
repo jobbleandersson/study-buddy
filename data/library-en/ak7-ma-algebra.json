@@ -123,6 +123,110 @@
       "prompt": "What is a variable, and how do you solve a simple equation?",
       "opener": "Think of a set of scales that has to be kept balanced.",
       "answer": "Variable = a letter that stands for an unknown number, e.g. $x$ · $3x$ means $3 \\cdot x$ · Simplify: only merge terms with the same variable, $4a + 2a = 6a$, but $6a$ and $2$ cannot be merged · Substituting a value: replace the letter with the number and follow the order of operations · Solving an equation: use the opposite operation and always do the same thing on both sides · $x + 5 = 12$ gives $x = 7$ (subtract 5) · $3x = 15$ gives $x = 5$ (divide by 3) · Always check by substituting the answer back in."
+    },
+    {
+      "id": "q-ma7-alg-9",
+      "kind": "mc",
+      "topic": "variables",
+      "prompt": "In the expression $5y - 3$, which part is the variable?",
+      "opener": "The variable is the letter that stands for an unknown number.",
+      "choices": [
+        "5",
+        "-3",
+        "y",
+        "5y"
+      ],
+      "answer": 2,
+      "explanation": "$y$ is the variable - the letter standing for a number we don't know. 5 is a coefficient (the number in front of $y$), and $-3$ is a constant."
+    },
+    {
+      "id": "q-ma7-alg-10",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Simplify $7b - 2b + 4$.",
+      "opener": "Only merge the terms that contain $b$.",
+      "choices": [
+        "$9b + 4$",
+        "$5b - 4$",
+        "$5b + 4$",
+        "$3b + 4$"
+      ],
+      "answer": 2,
+      "explanation": "$7b - 2b = 5b$, and the number 4 is untouched. The answer is $5b + 4$."
+    },
+    {
+      "id": "q-ma7-alg-11",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "What is the value of $3x - 2$ when $x = 5$?",
+      "opener": "Substitute 5 for $x$, and remember multiplication comes before subtraction.",
+      "choices": [
+        "8",
+        "9",
+        "17",
+        "13"
+      ],
+      "answer": 3,
+      "explanation": "$3 \\cdot 5 - 2 = 15 - 2 = 13$."
+    },
+    {
+      "id": "q-ma7-alg-12",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $x - 6 = 9$.",
+      "opener": "What is the opposite of subtracting 6?",
+      "choices": [
+        "$x = 3$",
+        "$x = 54$",
+        "$x = 15$",
+        "$x = -15$"
+      ],
+      "answer": 2,
+      "explanation": "Add 6 to both sides: $x = 9 + 6 = 15$."
+    },
+    {
+      "id": "q-ma7-alg-13",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $\\frac{x}{4} = 7$.",
+      "opener": "What is the opposite of dividing by 4?",
+      "choices": [
+        "$x = 3$",
+        "$x = 11$",
+        "$x = 1{,}75$",
+        "$x = 28$"
+      ],
+      "answer": 3,
+      "explanation": "Multiply both sides by 4: $x = 7 \\cdot 4 = 28$."
+    },
+    {
+      "id": "q-ma7-alg-14",
+      "kind": "worked",
+      "topic": "equations",
+      "prompt": "A number is decreased by 8, and the result is 15. Set up an equation and work out the number.",
+      "opener": "Call the unknown number $x$ and rewrite the sentence as an equation.",
+      "answer": "The number is 23",
+      "steps": [
+        "Let $x$ be the number. Decreased by 8 it becomes $x - 8$.",
+        "The equation becomes $x - 8 = 15$.",
+        "Add 8 to both sides: $x = 23$.",
+        "Check: $23 - 8 = 15$. ✓"
+      ]
+    },
+    {
+      "id": "q-ma7-alg-15",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Simplify $2(x + 3)$.",
+      "opener": "Multiply the number in front of the brackets into both terms inside.",
+      "choices": [
+        "$2x + 3$",
+        "$x + 6$",
+        "$2x + 6$",
+        "$2x + 5$"
+      ],
+      "answer": 2,
+      "explanation": "$2 \\cdot x = 2x$ and $2 \\cdot 3 = 6$, so $2(x+3) = 2x + 6$. A common mistake is to multiply only into the first term and forget the second, giving $2x + 3$."
     }
   ]
 }

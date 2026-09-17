@@ -121,6 +121,109 @@
       "prompt": "What is a change factor, and which change factor corresponds to an increase of 15 %?",
       "opener": "Think about the number you multiply by to make the change in one step.",
       "answer": "The change factor is the number you multiply by to make the whole change in one step. An increase of 15 % gives the factor 1,15 (and a decrease of 15 % gives 0,85)."
+    },
+    {
+      "id": "q-ma9-proc-9",
+      "kind": "mc",
+      "topic": "fractions",
+      "prompt": "Calculate $\\frac{2}{3} - \\frac{1}{6}$.",
+      "opener": "Convert both fractions to the same denominator before subtracting.",
+      "choices": [
+        "$\\frac{1}{3}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{9}$",
+        "$\\frac{5}{6}$"
+      ],
+      "answer": 1,
+      "explanation": "$\\frac{2}{3} = \\frac{4}{6}$. Then $\\frac{4}{6} - \\frac{1}{6} = \\frac{3}{6} = \\frac{1}{2}$."
+    },
+    {
+      "id": "q-ma9-proc-10",
+      "kind": "mc",
+      "topic": "percentages",
+      "prompt": "What is 15 % of 240 kr?",
+      "opener": "10 % is easy to work out — can you get the rest from there?",
+      "choices": [
+        "36 kr",
+        "24 kr",
+        "15 kr",
+        "3,6 kr"
+      ],
+      "answer": 0,
+      "explanation": "$240 \\cdot 0{,}15 = 36$ kr. (10 % is 24 kr, half of 10 % is 12 kr — together $24 + 12 = 36$ kr.)"
+    },
+    {
+      "id": "q-ma9-proc-11",
+      "kind": "mc",
+      "topic": "percentage change",
+      "prompt": "A price is reduced from 150 kr to 120 kr. What percentage is the reduction?",
+      "opener": "Compare the change with the original price, not the new one.",
+      "choices": [
+        "30 %",
+        "25 %",
+        "80 %",
+        "20 %"
+      ],
+      "answer": 3,
+      "explanation": "The change is 30 kr. $\\frac{30}{150} = 0{,}20 = 20\\ \\%$. Comparing with the new price (120 kr) instead wrongly gives 25 %."
+    },
+    {
+      "id": "q-ma9-proc-12",
+      "kind": "mc",
+      "topic": "fractions",
+      "prompt": "Which fraction in simplest form equals $0{,}375$?",
+      "opener": "Write the number as thousandths first, then simplify as far as possible.",
+      "choices": [
+        "$\\frac{3}{7}$",
+        "$\\frac{3}{8}$",
+        "$\\frac{1}{3}$",
+        "$\\frac{5}{8}$"
+      ],
+      "answer": 1,
+      "explanation": "$0{,}375 = \\frac{375}{1000}$. Simplified by 125, this is $\\frac{3}{8}$. Check: $3 \\div 8 = 0{,}375$."
+    },
+    {
+      "id": "q-ma9-proc-13",
+      "kind": "mc",
+      "topic": "percentage change",
+      "prompt": "A price is 450 kr after being increased by 20 %. What was the price before the increase?",
+      "opener": "450 kr is 120 % of the original price — not the original price plus 20 %.",
+      "choices": [
+        "360 kr",
+        "540 kr",
+        "375 kr",
+        "430 kr"
+      ],
+      "answer": 2,
+      "explanation": "The new price is $1{,}20$ times the old one: $450 = 1{,}20 \\cdot x$, so $x = 450 / 1{,}20 = 375$ kr. Simply subtracting 20 % of 450 (360 kr) uses the wrong base."
+    },
+    {
+      "id": "q-ma9-proc-14",
+      "kind": "worked",
+      "topic": "percentages",
+      "prompt": "An item costs 800 kr excluding VAT. VAT is 25 %. What is the price including VAT? Show your working.",
+      "opener": "VAT is added to the original price as a percentage.",
+      "answer": "1 000 kr",
+      "steps": [
+        "VAT in kronor: $800 \\cdot 0{,}25 = 200$ kr.",
+        "Add the VAT: $800 + 200 = 1\\,000$ kr.",
+        "Alternatively in one step: $800 \\cdot 1{,}25 = 1\\,000$ kr."
+      ]
+    },
+    {
+      "id": "q-ma9-proc-15",
+      "kind": "mc",
+      "topic": "fractions",
+      "prompt": "Which of these fractions is the largest: $\\frac{3}{5}$, $\\frac{7}{10}$, $\\frac{2}{3}$ or $\\frac{13}{20}$?",
+      "opener": "Convert them all to decimals so they're easy to compare.",
+      "choices": [
+        "$\\frac{3}{5}$",
+        "$\\frac{7}{10}$",
+        "$\\frac{2}{3}$",
+        "$\\frac{13}{20}$"
+      ],
+      "answer": 1,
+      "explanation": "As decimals: $\\frac{3}{5} = 0{,}60$, $\\frac{7}{10} = 0{,}70$, $\\frac{2}{3} \\approx 0{,}667$, $\\frac{13}{20} = 0{,}65$. The largest is $\\frac{7}{10}$."
     }
   ]
 }

@@ -123,6 +123,111 @@
       "prompt": "Vilka regler gäller för parenteser och för att lösa ekvationer?",
       "opener": "Två delar att minnas: hur parenteser öppnas, och balansregeln.",
       "answer": "Multiplicera in: $a(b + c) = ab + ac$ — talet utanför möter varje term inuti · Minus framför parentes byter tecken på allt inuti: $-(3x + 2) = -3x - 2$ · Bara lika termer kan slås ihop: $x$-termer med $x$-termer, tal med tal · Balansregeln: det du gör i ena ledet gör du i det andra · Arbetsordning vid ekvation: förenkla båda leden → samla $x$ på ena sidan och tal på den andra → dividera med koefficienten framför $x$ · Kontrollera alltid genom att sätta in svaret i den ursprungliga ekvationen."
+    },
+    {
+      "id": "q-ma8-ekv-9",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Multiplicera in i parentesen: $-2(x - 5)$.",
+      "opener": "Ett negativt tal utanför parentesen byter tecken på båda termerna inuti.",
+      "choices": [
+        "$-2x + 10$",
+        "$-2x - 10$",
+        "$-2x - 5$",
+        "$2x - 10$"
+      ],
+      "answer": 0,
+      "explanation": "$-2 \\cdot x = -2x$ och $-2 \\cdot (-5) = 10$, alltså $-2x + 10$. Minus gånger minus blir plus — ett vanligt fel är att missa det och få $-2x - 10$."
+    },
+    {
+      "id": "q-ma8-ekv-10",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $5x - (2x - 7)$.",
+      "opener": "Minustecknet framför parentesen gäller båda termerna inuti.",
+      "choices": [
+        "$3x + 7$",
+        "$3x - 7$",
+        "$7x - 7$",
+        "$7x + 7$"
+      ],
+      "answer": 0,
+      "explanation": "$-(2x - 7) = -2x + 7$. Då blir det $5x - 2x + 7 = 3x + 7$."
+    },
+    {
+      "id": "q-ma8-ekv-11",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $5x + 8 = 2x + 23$.",
+      "opener": "Samla $x$-termerna på en sida, talen på den andra.",
+      "choices": [
+        "$x = 5$",
+        "$x = -5$",
+        "$x = 15$",
+        "$x = 3$"
+      ],
+      "answer": 0,
+      "explanation": "Dra bort $2x$ från båda leden: $3x + 8 = 23$. Dra bort 8: $3x = 15$. Dela med 3: $x = 5$."
+    },
+    {
+      "id": "q-ma8-ekv-12",
+      "kind": "mc",
+      "topic": "ekvationer",
+      "prompt": "Lös ekvationen $\\frac{x}{5} - 2 = 3$.",
+      "opener": "Gör bort det som inte är delat med 5 först.",
+      "choices": [
+        "$x = 25$",
+        "$x = 5$",
+        "$x = 15$",
+        "$x = 1$"
+      ],
+      "answer": 0,
+      "explanation": "Lägg till 2 på båda leden: $\\frac{x}{5} = 5$. Multiplicera båda leden med 5: $x = 25$."
+    },
+    {
+      "id": "q-ma8-ekv-13",
+      "kind": "mc",
+      "topic": "problemlösning",
+      "prompt": "En biobiljett kostar $y$ kr. En familj köper 4 biljetter och en hink popcorn för 60 kr, och betalar 340 kr totalt. Vilken ekvation beskriver situationen?",
+      "opener": "Fyra biljetter till samma pris, plus en fast kostnad för popcornet.",
+      "choices": [
+        "$4y + 60 = 340$",
+        "$4(y + 60) = 340$",
+        "$y + 4 \\cdot 60 = 340$",
+        "$4y - 60 = 340$"
+      ],
+      "answer": 0,
+      "explanation": "Fyra biljetter kostar $4y$, och popcornet läggs till en enda gång: $4y + 60 = 340$. Alternativet $4(y+60)$ skulle betyda att popcornet köps fyra gånger."
+    },
+    {
+      "id": "q-ma8-ekv-14",
+      "kind": "worked",
+      "topic": "problemlösning",
+      "prompt": "Summan av två på varandra följande heltal är 47. Vilka är talen? Ställ upp en ekvation och lös den.",
+      "opener": "Om det första talet är $x$, hur uttrycker du \"nästa heltal\" med hjälp av $x$?",
+      "answer": "23 och 24",
+      "steps": [
+        "Låt $x$ vara det första talet. Nästa heltal är då $x + 1$.",
+        "Ekvationen blir $x + (x + 1) = 47$, alltså $2x + 1 = 47$.",
+        "Dra bort 1: $2x = 46$.",
+        "Dela med 2: $x = 23$. Talen är 23 och 24.",
+        "Kontroll: $23 + 24 = 47$. ✓"
+      ]
+    },
+    {
+      "id": "q-ma8-ekv-15",
+      "kind": "mc",
+      "topic": "algebraiska uttryck",
+      "prompt": "Förenkla $-3(2x - 4) + 5x$.",
+      "opener": "Multiplicera in $-3$ i parentesen innan du samlar termerna.",
+      "choices": [
+        "$-x + 12$",
+        "$-11x + 12$",
+        "$x + 12$",
+        "$-x - 12$"
+      ],
+      "answer": 0,
+      "explanation": "$-3(2x-4) = -6x + 12$. Lägg till $5x$: $-6x + 5x = -x$. Svaret blir $-x + 12$."
     }
   ]
 }

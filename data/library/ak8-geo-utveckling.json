@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta begreppen om utveckling, ojämlikhet, handel och bistånd.",
       "opener": "Samla måtten, orsakerna, handeln och de globala målen i en tät översikt.",
       "answer": "BNP: värdet av alla varor och tjänster ett land producerar under ett år · BNP per capita: BNP delat med folkmängden, används för att jämföra länder · HDI: FN:s index som väger samman förväntad livslängd, utbildning och inkomst, värde mellan 0 och 1 · Gini-koefficienten: mäter hur ojämnt inkomsterna är fördelade inom ett land · andra mått: barnadödlighet, förväntad livslängd, läskunnighet, andel med rent vatten och elektricitet · höginkomstländer: hög BNP per capita, låga födelsetal, åldrande befolkning, stor tjänstesektor, utbyggd skola och sjukvård · låginkomstländer: låg BNP per capita, höga födelsetal, ung befolkning, många i jordbruket, hög barnadödlighet · medelinkomstländer växer snabbt, till exempel Kina, Indien, Brasilien och Vietnam · orsaker till ojämlikhet: kolonialismens arv, ensidig ekonomi med få exportvaror, korruption, krig och konflikter, svag utbildning och infrastruktur, skuldsättning, torka och naturkatastrofer · handel: låginkomstländer exporterar ofta råvaror medan förädlingen och vinsten hamnar i rika länder · tullar och handelshinder försvårar export av färdiga varor · frihandel innebär handel utan tullar, protektionism innebär att man skyddar den egna industrin · globalisering: varor, pengar, information och människor rör sig lättare över gränserna, multinationella företag producerar i många länder · bistånd: katastrofbistånd vid akuta kriser och långsiktigt bistånd till skola, sjukvård, vatten och jordbruk · FN:s mål är att rika länder ger 0,7 procent av BNI i bistånd, och Sverige hör till de länder som ger mest · kritik mot bistånd: kan skapa beroende eller försvinna i korruption, därför betonas ägarskap och långsiktighet · hållbar utveckling: att tillgodose dagens behov utan att förstöra kommande generationers möjligheter, med ekologisk, ekonomisk och social dimension · Agenda 2030: FN:s 17 globala mål, bland annat ingen fattigdom, god utbildning, jämställdhet, rent vatten och bekämpa klimatförändringarna."
+    },
+    {
+      "id": "q-geo8-utv-9",
+      "kind": "mc",
+      "topic": "bistånd och hållbar utveckling",
+      "prompt": "Vad menas med hållbar utveckling?",
+      "opener": "Tänk på hur dagens behov ska mötas utan att stjäla från framtiden.",
+      "choices": [
+        "Utveckling som bara handlar om ekonomisk tillväxt",
+        "Utveckling som sker helt utan internationellt bistånd",
+        "Utveckling som bara gäller höginkomstländer",
+        "Utveckling som tillgodoser dagens behov utan att äventyra kommande generationers möjlighet att tillgodose sina"
+      ],
+      "answer": 3,
+      "explanation": "Hållbar utveckling handlar om att möta dagens behov på ett sätt som inte förstör miljön eller resurserna för kommande generationer, och begreppet omfattar en ekologisk, en ekonomisk och en social dimension tillsammans. Det handlar alltså inte bara om ekonomisk tillväxt, och det gäller alla länder, inte bara höginkomstländer."
+    },
+    {
+      "id": "q-geo8-utv-10",
+      "kind": "mc",
+      "topic": "BNP och utvecklingsmått",
+      "prompt": "Vad mäter Gini-koefficienten?",
+      "opener": "Måttet handlar om fördelning inom ett land, inte om landets totala storlek.",
+      "choices": [
+        "Landets totala BNP",
+        "Antalet invånare i ett land",
+        "Landets yta i kvadratkilometer",
+        "Hur jämnt eller ojämnt inkomsterna är fördelade inom ett land"
+      ],
+      "answer": 3,
+      "explanation": "Gini-koefficienten mäter hur jämnt eller ojämnt inkomsterna är fördelade inom ett land, där ett lågt värde betyder små inkomstskillnader och ett högt värde stora skillnader. Den säger alltså ingenting om landets totala BNP, folkmängd eller yta i sig."
+    },
+    {
+      "id": "q-geo8-utv-11",
+      "kind": "mc",
+      "topic": "hög- och låginkomstländer",
+      "prompt": "Vad kännetecknar ofta ett snabbt växande medelinkomstland, till exempel Kina eller Brasilien?",
+      "opener": "Ekonomin liknar varken de allra fattigaste eller de allra rikaste länderna.",
+      "choices": [
+        "Extremt låg BNP per capita och mycket hög barnadödlighet",
+        "Ingen industri alls, enbart jordbruk",
+        "Högst BNP per capita i hela världen",
+        "Snabb ekonomisk tillväxt och en växande medelklass, men fortfarande stora inkomstskillnader"
+      ],
+      "answer": 3,
+      "explanation": "Medelinkomstländer som Kina och Brasilien har ofta haft snabb ekonomisk tillväxt och en växande medelklass, samtidigt som klyftorna mellan rika och fattiga inom landet ofta är stora. De har alltså varken den extremt låga BNP per capita som präglar de fattigaste länderna eller den absolut högsta BNP per capita i världen."
+    },
+    {
+      "id": "q-geo8-utv-12",
+      "kind": "mc",
+      "topic": "handel och globalisering",
+      "prompt": "Vad är ett multinationellt företag?",
+      "opener": "Ordet \"multi-\" betyder många.",
+      "choices": [
+        "Ett företag som bara säljer till en enda kund",
+        "Ett företag som ägs av FN",
+        "Ett företag som bara får finnas i höginkomstländer",
+        "Ett företag som bedriver verksamhet och produktion i flera olika länder"
+      ],
+      "answer": 3,
+      "explanation": "Ett multinationellt företag har verksamhet, till exempel fabriker, kontor eller försäljning, i flera olika länder samtidigt, vilket är en viktig del av dagens globaliserade ekonomi. Det ägs alltså inte av FN och är inte begränsat till att bara sälja till en kund eller bara verka i höginkomstländer."
+    },
+    {
+      "id": "q-geo8-utv-13",
+      "kind": "mc",
+      "topic": "orsaker till ojämlikhet",
+      "prompt": "Vilket av följande kan bidra till att bromsa ett lands ekonomiska utveckling?",
+      "opener": "Tänk på vad som händer med vägar, fabriker och skolor när ett land är i krig.",
+      "choices": [
+        "Fredliga och stabila grannländer",
+        "Väl utbyggd sjukvård",
+        "Hög läskunnighet bland befolkningen",
+        "Långvariga krig och konflikter som förstör infrastruktur och skrämmer bort investeringar"
+      ],
+      "answer": 3,
+      "explanation": "Långvariga krig och konflikter förstör vägar, fabriker och skolor, driver människor på flykt och gör investerare ovilliga att satsa pengar i landet, vilket bromsar den ekonomiska utvecklingen kraftigt. Fredliga grannländer, väl utbyggd sjukvård och hög läskunnighet är tvärtom faktorer som brukar gynna utveckling."
+    },
+    {
+      "id": "q-geo8-utv-14",
+      "kind": "mc",
+      "topic": "bistånd och hållbar utveckling",
+      "prompt": "Vad är skillnaden mellan katastrofbistånd och långsiktigt bistånd?",
+      "opener": "Tänk på tidshorisonten: akut hjälp eller uppbyggnad över flera år.",
+      "choices": [
+        "De är exakt samma sak under olika namn",
+        "Katastrofbistånd ges bara till höginkomstländer",
+        "Långsiktigt bistånd ges bara under en enda vecka",
+        "Katastrofbistånd ger snabb akut hjälp vid kriser, medan långsiktigt bistånd bygger upp skola, sjukvård och infrastruktur över tid"
+      ],
+      "answer": 3,
+      "explanation": "Katastrofbistånd sätts in snabbt vid akuta kriser som naturkatastrofer eller krig, till exempel mat, vatten och tillfälliga bostäder, medan långsiktigt bistånd i stället handlar om att över flera år bygga upp skolor, sjukvård, vatten och jordbruk i ett land. Katastrofbistånd riktas för övrigt till drabbade låginkomst- och medelinkomstländer, inte till höginkomstländer."
+    },
+    {
+      "id": "q-geo8-utv-15",
+      "kind": "mc",
+      "topic": "handel och globalisering",
+      "prompt": "Vad innebär frihandel?",
+      "opener": "Motsatsen är att skydda den egna industrin med avgifter på importerade varor.",
+      "choices": [
+        "Att ett land bara handlar med sig självt",
+        "Att alla varor i världshandeln måste vara gratis",
+        "Att handel bara får ske mellan grannländer",
+        "Handel mellan länder utan tullar och andra handelshinder"
+      ],
+      "answer": 3,
+      "explanation": "Frihandel innebär att länder handlar med varandra utan tullar och andra hinder som gör importerade varor dyrare eller svårare att sälja. Motsatsen, att skydda den egna industrin genom tullar och handelshinder, kallas protektionism – frihandel handlar alltså inte om att varor ska vara gratis eller att handeln ska begränsas till grannländer."
     }
   ]
 }

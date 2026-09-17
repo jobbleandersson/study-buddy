@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta mediernas roll, yttrandefrihet och grundbegreppen kring källkritik, propaganda och desinformation.",
       "opener": "Från mediernas samhällsuppdrag till hur du själv granskar det du läser.",
       "answer": "Mediernas roll: granskar makthavare och informerar medborgare, kallas ibland \"den tredje statsmakten\" · Yttrandefrihet: grundlagsskyddad rätt att uttrycka åsikter och sprida information, med vissa lagliga begränsningar (t.ex. hets mot folkgrupp) · Tryckfrihetsförordningen: grundlag som skyddar rätten att ge ut tryckta skrifter utan statlig förhandsgranskning, samt källskydd för journalister · Källkritik: granska avsändare, syfte, tidpunkt och om oberoende källor bekräftar uppgiften · Desinformation: felaktig information som sprids medvetet för att vilseleda · Missinformation: felaktig information som sprids av misstag, utan avsikt att lura · Propaganda: ensidig, känslostyrd information som syftar till att påverka åsikter åt ett visst håll."
+    },
+    {
+      "id": "q-sam-med-9",
+      "kind": "mc",
+      "topic": "mediers roll i ett demokratiskt samhälle",
+      "prompt": "Vad kallas det förhållningssätt där en nyhetsredaktion strävar efter att opartiskt visa flera sidor av en fråga?",
+      "opener": "Motsatsen till att bara visa en vinklad bild av verkligheten.",
+      "choices": [
+        "Saklighet och opartiskhet",
+        "Propaganda",
+        "Censur",
+        "Vinklad rapportering"
+      ],
+      "answer": 0,
+      "explanation": "Saklighet och opartiskhet är grundläggande journalistiska principer som innebär att sträva efter att korrekt återge fakta och visa flera perspektiv, i stället för att ensidigt driva en åsikt."
+    },
+    {
+      "id": "q-sam-med-10",
+      "kind": "mc",
+      "topic": "yttrandefrihet och tryckfrihet grundidé",
+      "prompt": "Vad kallas skyddet som gör att en journalist inte behöver avslöja vem som lämnat information till en artikel?",
+      "opener": "Detta skydd uppmuntrar människor att lämna tips till journalister utan rädsla för repressalier.",
+      "choices": [
+        "Källskydd",
+        "Upphovsrätt",
+        "Personuppgiftslagen",
+        "Sekretesslagen"
+      ],
+      "answer": 0,
+      "explanation": "Källskydd innebär att journalister har rätt, och i vissa fall skyldighet, att inte avslöja sina källors identitet, vilket är en central del av tryckfrihetsförordningen och yttrandefrihetsgrundlagen."
+    },
+    {
+      "id": "q-sam-med-11",
+      "kind": "mc",
+      "topic": "källkritik av nyheter och sociala medier",
+      "prompt": "Varför är det klokt att jämföra en nyhet med flera oberoende källor innan du litar på den helt?",
+      "opener": "Tänk på om en enda källa kan ha fel, medveten eller omedveten vinkling.",
+      "choices": [
+        "Om flera oberoende källor rapporterar samma sak ökar sannolikheten att uppgiften stämmer",
+        "En enda källa är alltid mer trovärdig än flera",
+        "Det är aldrig nödvändigt att jämföra källor",
+        "Fler källor gör alltid en uppgift falsk"
+      ],
+      "answer": 0,
+      "explanation": "Om flera oberoende, etablerade källor rapporterar samma uppgift oberoende av varandra ökar det sannolikheten att informationen stämmer, eftersom det blir mindre troligt att alla har samma fel eller vinkling."
+    },
+    {
+      "id": "q-sam-med-12",
+      "kind": "mc",
+      "topic": "propaganda och desinformation grundbegrepp",
+      "prompt": "Vad kallas bilder eller videor som manipulerats, ofta med AI, för att få någon att säga eller göra något de aldrig gjort?",
+      "opener": "Ett engelskt låneord som blivit vanligt i debatten om desinformation.",
+      "choices": [
+        "Deepfakes",
+        "Memes",
+        "Skärmdumpar",
+        "Reportage"
+      ],
+      "answer": 0,
+      "explanation": "Deepfakes är AI-manipulerade bilder, videor eller ljudklipp som får det att se ut som att någon sagt eller gjort något de aldrig faktiskt sagt eller gjort — ett verktyg som kan användas för desinformation."
+    },
+    {
+      "id": "q-sam-med-13",
+      "kind": "mc",
+      "topic": "mediers roll i ett demokratiskt samhälle",
+      "prompt": "Varför är en mångfald av oberoende medier viktig för en demokrati?",
+      "opener": "Tänk på vad som händer om bara en enda aktör kontrollerar all information.",
+      "choices": [
+        "Det minskar risken att en enskild aktör kontrollerar vilken information medborgarna får",
+        "Det är bättre om bara staten äger alla medier",
+        "Mångfald av medier har ingen betydelse för demokratin",
+        "Ju färre medier, desto bättre demokrati"
+      ],
+      "answer": 0,
+      "explanation": "En mångfald av oberoende medier gör det svårare för en enskild aktör (t.ex. staten eller en enda mediekoncern) att kontrollera vilken information medborgarna får, vilket stärker medborgarnas möjlighet att bilda sig en självständig uppfattning."
+    },
+    {
+      "id": "q-sam-med-14",
+      "kind": "worked",
+      "topic": "propaganda och desinformation grundbegrepp",
+      "prompt": "En stat driver en nyhetskanal som konsekvent bara rapporterar positivt om den egna regeringen och aldrig lyfter fram kritik eller motargument. Förklara varför detta liknar propaganda snarare än oberoende journalistik, och vad oberoende journalistik hade gjort annorlunda.",
+      "opener": "Tänk på definitionen av propaganda: ensidig information som undanhåller motargument.",
+      "answer": "Kanalen visar bara en sida av verkligheten och undanhåller systematiskt kritik, vilket är ett kännetecken för propaganda snarare än saklig journalistik. Oberoende journalistik hade i stället strävat efter att granska makthavare kritiskt och visa flera perspektiv, även sådana som är obekväma för regeringen.",
+      "steps": [
+        "Propaganda kännetecknas av ensidig information som syftar till att påverka åsikter åt ett visst håll, ofta genom att undanhålla motargument.",
+        "Att konsekvent bara rapportera positivt om den egna regeringen, utan att någonsin lyfta kritik, passar in på det mönstret.",
+        "Oberoende journalistik ska i stället granska makthavare kritiskt, oavsett vem som sitter vid makten, och visa flera perspektiv på en fråga.",
+        "Avsaknaden av kritisk granskning och motargument är därför ett tydligt varningstecken på att kanalen fungerar som ett propagandaorgan snarare än en oberoende nyhetskälla."
+      ]
+    },
+    {
+      "id": "q-sam-med-15",
+      "kind": "mc",
+      "topic": "yttrandefrihet och tryckfrihet grundidé",
+      "prompt": "Är yttrandefriheten i Sverige helt utan begränsningar?",
+      "opener": "Finns det yttranden som är brottsliga trots grundlagsskyddet?",
+      "choices": [
+        "Nej, vissa yttranden, som hets mot folkgrupp, är brottsliga även i en demokrati",
+        "Ja, man får säga precis vad som helst utan konsekvenser",
+        "Yttrandefrihet gäller bara för journalister",
+        "Yttrandefrihet finns inte i Sverige"
+      ],
+      "answer": 0,
+      "explanation": "Trots det starka grundlagsskyddet har yttrandefriheten vissa lagliga begränsningar, till exempel förbud mot hets mot folkgrupp och uppvigling, för att skydda andra grundläggande värden i samhället."
     }
   ]
 }

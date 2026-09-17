@@ -125,6 +125,110 @@
       "prompt": "Sammanfatta ljud som våg, frekvens och amplitud, ljudhastighet, eko och resonans samt hörsel och buller.",
       "opener": "Börja med vad ljud är, gå vidare till vågens två egenskaper och avsluta med öronen och bullerskydd.",
       "answer": "Ljud: svängningar som sprids som longitudinella vågor genom ett medium — partiklarna svänger i vågens riktning och bildar förtätningar och förtunningar · Vakuum: inget ljud, eftersom det saknas partiklar som kan svänga · Frekvens: svängningar per sekund, enhet hertz (Hz), styr tonhöjden — hög frekvens = hög ton, dubbel frekvens = en oktav högre · Amplitud: svängningens storlek, styr ljudstyrkan som mäts i decibel (dB) · Ljudets hastighet: cirka 340 m/s i luft, cirka 1500 m/s i vatten, cirka 5000 m/s i stål — snabbast där partiklarna sitter tätt och styvt · Formel: s = v · t · Eko: ljud som reflekteras mot en hård yta och kommer tillbaka — vid ekomätning gäller att ljudet färdas dubbla avståndet · Resonans: föremål svänger kraftigt när det träffas av ljud med sin egen frekvens · Hörselområdet: cirka 20 Hz till 20 000 Hz, det övre gränsen sjunker med åldern · Infraljud: under 20 Hz · Ultraljud: över 20 000 Hz, används vid undersökningar och av fladdermöss · Buller: oönskat ljud som ger trötthet, stress och koncentrationssvårigheter · Hörselskada: höga ljudnivåer kan förstöra hårcellerna i innerörat permanent och ge tinnitus — använd hörselskydd och sänk volymen i hörlurar."
+    },
+    {
+      "id": "q-fys8-lju-9",
+      "kind": "mc",
+      "topic": "ljud som longitudinella vågor",
+      "prompt": "Vad kallas de områden i luften där partiklarna är extra tätt packade när ett ljud sprids?",
+      "opener": "Det är motsatsen till de områden där partiklarna glesas ut.",
+      "choices": [
+        "Förtunningar",
+        "Förtätningar",
+        "Noder",
+        "Amplituder"
+      ],
+      "answer": 1,
+      "explanation": "Förtätningar är de områden där partiklarna trycks ihop extra tätt när en longitudinell ljudvåg passerar. Förtunningar är i stället de områden där partiklarna glesas ut mellan förtätningarna."
+    },
+    {
+      "id": "q-fys8-lju-10",
+      "kind": "mc",
+      "topic": "frekvens och tonhöjd",
+      "prompt": "Vilket samband gäller mellan frekvens och tonhöjd?",
+      "opener": "Tänk på skillnaden mellan en djup basstämma och ett gällt visselljud.",
+      "choices": [
+        "Hög frekvens ger låg ton",
+        "Hög frekvens ger hög ton",
+        "Frekvensen påverkar bara ljudstyrkan, inte tonhöjden",
+        "Det finns inget samband"
+      ],
+      "answer": 1,
+      "explanation": "Ju fler svängningar per sekund, desto högre ton hörs — hög frekvens ger hög ton. Ljudstyrkan styrs i stället av amplituden, inte frekvensen."
+    },
+    {
+      "id": "q-fys8-lju-11",
+      "kind": "mc",
+      "topic": "amplitud och ljudstyrka",
+      "prompt": "I vilken enhet mäts ljudstyrka (ljudnivå)?",
+      "opener": "Enheten är uppkallad efter Alexander Graham Bell.",
+      "choices": [
+        "Hertz",
+        "Decibel",
+        "Meter per sekund",
+        "Watt"
+      ],
+      "answer": 1,
+      "explanation": "Ljudstyrka mäts i decibel (dB). Hertz mäter i stället frekvens, meter per sekund är en hastighetsenhet och watt mäter effekt."
+    },
+    {
+      "id": "q-fys8-lju-12",
+      "kind": "mc",
+      "topic": "ljudets hastighet i olika material",
+      "prompt": "Ungefär hur snabbt går ljudet i luft vid normal temperatur?",
+      "opener": "Detta värde används ofta vid beräkningar av eko och avstånd.",
+      "choices": [
+        "34 m/s",
+        "340 m/s",
+        "3400 m/s",
+        "340 000 m/s"
+      ],
+      "answer": 1,
+      "explanation": "Ljudets hastighet i luft vid normal temperatur är cirka 340 m/s. I fasta material som stål går ljudet betydligt snabbare, cirka 5000 m/s."
+    },
+    {
+      "id": "q-fys8-lju-13",
+      "kind": "mc",
+      "topic": "hörsel och buller",
+      "prompt": "Vad kallas ljud med frekvenser under det mänskliga hörselområdet, under cirka 20 Hz?",
+      "opener": "Namnet syftar på att frekvensen ligger under det vi kan höra.",
+      "choices": [
+        "Ultraljud",
+        "Infraljud",
+        "Resonansljud",
+        "Ekoljud"
+      ],
+      "answer": 1,
+      "explanation": "Infraljud har frekvenser under cirka 20 Hz, alltså under det mänskliga hörselområdet. Ultraljud har i stället frekvenser över cirka 20 000 Hz, ovanför hörselområdet."
+    },
+    {
+      "id": "q-fys8-lju-14",
+      "kind": "worked",
+      "topic": "eko och resonans",
+      "prompt": "Du ropar mot en klippvägg och hör ekot 1,0 sekund senare. Ljudets hastighet i luften är 340 m/s. Hur långt bort är klippväggen?",
+      "opener": "Kom ihåg att ljudet hinner både dit och tillbaka under den 1,0 sekunden.",
+      "answer": "170 meter",
+      "steps": [
+        "Räkna ut hela sträckan ljudet färdas: s = v · t = 340 m/s · 1,0 s = 340 m.",
+        "Den sträckan är fram till klippan och tillbaka igen, alltså två gånger avståndet.",
+        "Dividera med 2: 340 m / 2 = 170 m.",
+        "Klippväggen är alltså 170 meter bort."
+      ]
+    },
+    {
+      "id": "q-fys8-lju-15",
+      "kind": "mc",
+      "topic": "eko och resonans",
+      "prompt": "Vad är en förutsättning för att resonans ska uppstå hos ett föremål?",
+      "opener": "Tänk på vad som gjorde att glaset i exemplet med resonans började vibrera.",
+      "choices": [
+        "Att ljudet är mycket starkt, oavsett frekvens",
+        "Att ljudets frekvens matchar föremålets egen svängningsfrekvens",
+        "Att föremålet är av metall",
+        "Att det är helt tyst i rummet"
+      ],
+      "answer": 1,
+      "explanation": "Resonans uppstår när ljudets frekvens matchar föremålets egen svängningsfrekvens, vilket gör att föremålet tar upp energi och svänger kraftigt. Styrkan på ljudet eller vilket material föremålet är gjort av avgör inte om resonans uppstår, bara hur kraftig effekten blir."
     }
   ]
 }

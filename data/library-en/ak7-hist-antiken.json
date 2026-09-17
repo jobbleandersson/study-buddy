@@ -125,6 +125,111 @@
       "prompt": "Summarise ancient Greece and Rome.",
       "opener": "Take Greece first — city-states, democracy, culture — then Rome.",
       "answer": "Greece: hundreds of self-governing city-states (polis), chiefly Athens and Sparta · Athenian democracy from the 5th century BC, direct democracy in the assembly, but the right to vote only for free adult male citizens · Greek culture: theatre, the Olympic Games, temples with columns, myths about the gods on Olympus · philosophers such as Socrates, Plato and Aristotle sought answers through reasoning · Rome: founded by the river Tiber, first a kingdom, then a republic, and from 27 BC an empire with Augustus as the first emperor · the Roman empire grew to cover the whole Mediterranean region, Britain and the Middle East · Roman society: patricians, plebeians and slaves, very unequal rights · Roman technology: roads, aqueducts, concrete, baths and large buildings such as the Colosseum · the Western Roman Empire fell in 476 AD, the Eastern Roman Empire (the Byzantine Empire) lived on until 1453 · The legacy of antiquity: the idea and word of democracy, Latin in our languages, architecture with columns, theatre, the Olympic Games, Roman law."
+    },
+    {
+      "id": "q-hist7-ant-9",
+      "kind": "mc",
+      "topic": "city-states and Athenian democracy",
+      "prompt": "Which Greek city-state was known for its military discipline and soldiers, unlike Athens?",
+      "opener": "This city-state was located on the Peloponnese and prioritised military training over democracy.",
+      "choices": [
+        "Corinth",
+        "Sparta",
+        "Thebes",
+        "Delphi"
+      ],
+      "answer": 1,
+      "explanation": "Sparta built its society around military training and discipline, with boys entering state military training from a young age. Athens instead focused more on trade, culture and democracy."
+    },
+    {
+      "id": "q-hist7-ant-10",
+      "kind": "mc",
+      "topic": "Greek culture and philosophy",
+      "prompt": "What were the Olympic Games in ancient Greece?",
+      "opener": "The competitions were held to honour one of the Greek gods.",
+      "choices": [
+        "A religious competition in honour of Zeus where the city-states competed against each other",
+        "A war between Athens and Sparta",
+        "A philosophical school",
+        "A trade fair"
+      ],
+      "answer": 0,
+      "explanation": "The Olympic Games were held every four years at Olympia in honour of the god Zeus, and athletes from different Greek city-states competed against each other. A truce between the city-states was often observed during the games."
+    },
+    {
+      "id": "q-hist7-ant-11",
+      "kind": "mc",
+      "topic": "the Roman empire and its expansion",
+      "prompt": "Who was Rome's first emperor?",
+      "opener": "He took power in 27 BC and gave his name to an entire month.",
+      "choices": [
+        "Julius Caesar",
+        "Augustus",
+        "Nero",
+        "Hannibal"
+      ],
+      "answer": 1,
+      "explanation": "Augustus became Rome's first emperor in 27 BC and began the imperial era. Julius Caesar was a powerful leader in the late republic but never formally became emperor, and Hannibal was a Carthaginian general who fought against Rome."
+    },
+    {
+      "id": "q-hist7-ant-12",
+      "kind": "mc",
+      "topic": "Roman daily life and social classes",
+      "prompt": "What was the Colosseum?",
+      "opener": "The building still stands in Rome today and held tens of thousands of spectators.",
+      "choices": [
+        "A Roman bathhouse",
+        "An amphitheatre where gladiator fights and other performances were held",
+        "A temple for the emperor",
+        "A marketplace for slaves"
+      ],
+      "answer": 1,
+      "explanation": "The Colosseum was a large amphitheatre in Rome where gladiator fights, animal hunts and other public performances were held in front of tens of thousands of spectators. The Romans had separate bathhouses, thermae, which were not the same as the Colosseum."
+    },
+    {
+      "id": "q-hist7-ant-13",
+      "kind": "mc",
+      "topic": "the legacy of antiquity",
+      "prompt": "Which invention does NOT come from antiquity?",
+      "opener": "Think about which option was invented in Europe almost a thousand years after the fall of the Western Roman Empire.",
+      "choices": [
+        "The Greek alphabet",
+        "Roman law",
+        "The printing press",
+        "The Olympic Games"
+      ],
+      "answer": 2,
+      "explanation": "The printing press was invented by Johannes Gutenberg around 1450, during the Renaissance, long after antiquity. The Greek alphabet, Roman law and the Olympic Games are all direct legacies of antiquity."
+    },
+    {
+      "id": "q-hist7-ant-14",
+      "kind": "worked",
+      "topic": "the Roman empire and its expansion",
+      "prompt": "Compare the Roman republic with the Roman empire. What are the biggest differences in how power was organised?",
+      "opener": "Think about how many people held power and for how long.",
+      "answer": "Under the republic (509–27 BC), Rome was governed by elected officials, chiefly consuls elected for one year at a time, and the senate had great influence — power was therefore shared and time-limited. Under the empire (from 27 BC), power was concentrated in a single emperor who ruled for life, often backed by the army, while the senate took on a more advisory role. The difference, then, is the shift from shared, time-limited power to one person's lifelong rule.",
+      "steps": [
+        "Under the republic, consuls were elected for one year at a time, and power was shared between several officials and the senate.",
+        "This short term of office made it difficult for a single person to gather all power for a long time.",
+        "After civil wars and power struggles, Augustus took power in 27 BC and became emperor for life.",
+        "The emperor now ruled with the backing of the army, and the senate took on a more advisory role without real power.",
+        "Conclusion: the republic's shared, time-limited power was replaced by the empire's concentrated, lifelong rule."
+      ]
+    },
+    {
+      "id": "q-hist7-ant-15",
+      "kind": "mc",
+      "topic": "Greek culture and philosophy",
+      "prompt": "Which of these philosophers was the teacher of Alexander the Great?",
+      "opener": "The philosopher also founded his own school called the Lyceum.",
+      "choices": [
+        "Socrates",
+        "Plato",
+        "Aristotle",
+        "Herodotus"
+      ],
+      "answer": 2,
+      "explanation": "Aristotle was Alexander the Great's teacher before Alexander became one of history's most famous conquerors. Socrates and Plato were earlier philosophers in the same tradition, and Herodotus was a Greek historian."
     }
   ]
 }

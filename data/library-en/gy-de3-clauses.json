@@ -122,6 +122,111 @@
       "prompt": "How is the relative pronoun (der/die/das) declined for gender, number, and case, and where does the verb go in a relative clause?",
       "opener": "One table and one word-order rule you can use for every subordinate clause.",
       "answer": "The relative pronoun's gender/number come from the noun it refers to (the antecedent); its case comes from its function within the relative clause. Nominative: der/die/das/die (plural). Accusative: den/die/das/die. Dative: dem/der/dem/denen. Genitive: dessen/deren/dessen/deren. Examples: \"Der Mann, der dort steht\" (nom.), \"..., den ich sehe\" (acc.), \"..., dem ich helfe\" (dative), \"..., dessen Auto rot ist\" (genitive). Just as in every subordinate clause (weil, dass, obwohl, während, etc.), the conjugated verb goes to the end of the relative clause. With a modal verb, the infinitive comes before the conjugated modal: \"..., der das Auto reparieren kann.\""
+    },
+    {
+      "id": "q-de3-clauses-9",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Choose the correct relative pronoun: \"Die Kinder, ___ im Garten spielen, sind meine Neffen.\" (the children playing in the garden are my nephews)",
+      "opener": "\"Die Kinder\" is the subject of the clause, plural.",
+      "choices": [
+        "die",
+        "denen",
+        "deren",
+        "den"
+      ],
+      "answer": 0,
+      "explanation": "Plural nominative (subject) = \"die\": \"die Kinder, die im Garten spielen\"."
+    },
+    {
+      "id": "q-de3-clauses-10",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Choose the correct relative pronoun: \"Die Leute, ___ ich geholfen habe, waren dankbar.\" (the people I helped were grateful)",
+      "opener": "\"Helfen\" takes a dative object — who received the help?",
+      "choices": [
+        "denen",
+        "die",
+        "deren",
+        "der"
+      ],
+      "answer": 0,
+      "explanation": "\"Helfen\" takes the dative, and plural dative = \"denen\": \"die Leute, denen ich geholfen habe\"."
+    },
+    {
+      "id": "q-de3-clauses-11",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Choose the correct form: \"Ich hoffe, dass du bald gesund ___.\" (werden)",
+      "opener": "In a clause with \"dass\", the conjugated verb goes to the end.",
+      "choices": [
+        "wirst",
+        "bist",
+        "werdest",
+        "würdest"
+      ],
+      "answer": 0,
+      "explanation": "\"Werden\" is conjugated for \"du\" as \"wirst\", and goes to the end of the clause: \"..., dass du bald gesund wirst.\""
+    },
+    {
+      "id": "q-de3-clauses-12",
+      "kind": "mc",
+      "topic": "conjunctions",
+      "prompt": "What does the conjunction \"während\" mean as a subordinating conjunction?",
+      "opener": "Can express both simultaneity and contrast.",
+      "choices": [
+        "while",
+        "because",
+        "that",
+        "if"
+      ],
+      "answer": 0,
+      "explanation": "\"Während\" means \"while\" and expresses simultaneity or contrast: \"Während ich arbeite, hört sie Musik.\""
+    },
+    {
+      "id": "q-de3-clauses-13",
+      "kind": "mc",
+      "topic": "relative clauses",
+      "prompt": "Choose the correct relative pronoun: \"Der Junge, ___ Vater Lehrer ist, sitzt vorne.\" (the boy whose father is a teacher sits in front)",
+      "opener": "This expresses possession (genitive), and \"der Junge\" is masculine.",
+      "choices": [
+        "dessen",
+        "deren",
+        "der",
+        "den"
+      ],
+      "answer": 0,
+      "explanation": "Genitive masculine = \"dessen\": \"der Junge, dessen Vater Lehrer ist\". \"Deren\" is used instead for feminine/plural."
+    },
+    {
+      "id": "q-de3-clauses-14",
+      "kind": "mc",
+      "topic": "subordinate clauses",
+      "prompt": "Choose the correct form: \"Er ging ins Bett, obwohl er noch arbeiten ___.\" (müssen)",
+      "opener": "In a clause with a modal verb plus infinitive, both verbs go to the end, with the infinitive before the conjugated modal.",
+      "choices": [
+        "musste",
+        "muss",
+        "müsste",
+        "hat gemusst"
+      ],
+      "answer": 0,
+      "explanation": "\"Müssen\" is conjugated in the simple past as \"musste\" and goes to the end, after the infinitive: \"..., obwohl er noch arbeiten musste.\""
+    },
+    {
+      "id": "q-de3-clauses-15",
+      "kind": "mc",
+      "topic": "conjunctions",
+      "prompt": "Which conjunction is used for a single, bounded event in the past (e.g. \"when I was little, X happened once\")?",
+      "opener": "Differs from \"wenn\", which is used for repeated events or the present/future.",
+      "choices": [
+        "als",
+        "wenn",
+        "während",
+        "bevor"
+      ],
+      "answer": 0,
+      "explanation": "\"Als\" is used for a single, bounded event in the past: \"Als ich klein war, ...\". \"Wenn\" is instead used for repeated events in the past or for the present/future."
     }
   ]
 }

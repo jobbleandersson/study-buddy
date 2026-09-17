@@ -125,6 +125,111 @@
       "prompt": "How do you recognise the five most common word classes?",
       "opener": "One trick per word class goes a long way when sorting the words in a sentence.",
       "answer": "Noun = things, people, places · try \"en/ett\" (\"a\") in front · inflects en bok – boken – böcker – böckerna (a book – the book – books – the books). Verb = what someone does or is · try \"jag ...\" (\"I ...\") in front · tenses: infinitive (att läsa, to read), present (läser, reads), preterite (läste, read). Adjective = what something is like · comparison: glad – gladare – gladast (happy – happier – happiest). Pronoun = replaces a noun · jag, du, han, hon, den, det, vi, ni, de, min, sin (I, you, he, she, it, it, we, you, they, my, his/her/its own). Numeral = how many or which in order · en, två, tre (cardinal numbers) · första, andra, tredje (ordinal numbers: first, second, third)."
+    },
+    {
+      "id": "q-sv7-ord-9",
+      "kind": "mc",
+      "topic": "noun",
+      "prompt": "Which word is a noun? \"Den stora hunden skällde högt på natten.\" (\"The big dog barked loudly in the night.\")",
+      "opener": "Try putting \"en\" or \"ett\" (\"a\") in front of the word.",
+      "choices": [
+        "stora",
+        "skällde",
+        "hunden",
+        "högt"
+      ],
+      "answer": 2,
+      "explanation": "\"Hunden\" (the dog) is an animal — you can say \"en hund\" (a dog), so it's a noun. \"Stora\" (big) is an adjective, \"skällde\" (barked) is a verb and \"högt\" (loudly) is an adverb."
+    },
+    {
+      "id": "q-sv7-ord-10",
+      "kind": "mc",
+      "topic": "verb",
+      "prompt": "Which verb is in the present tense? \"Igår lagade jag mat, och imorgon ska jag baka, men just nu diskar jag.\" (\"Yesterday I cooked food, and tomorrow I'm going to bake, but right now I'm washing dishes.\")",
+      "opener": "Present tense describes what is happening right now — look for the time phrase \"just nu\" (right now).",
+      "choices": [
+        "lagade",
+        "ska",
+        "diskar",
+        "baka"
+      ],
+      "answer": 2,
+      "explanation": "\"Diskar\" (washes dishes) is in the present tense — it's happening right now. \"Lagade\" (cooked) is the preterite (happened yesterday) and \"baka\" (to bake) is the infinitive after \"ska\" (going to)."
+    },
+    {
+      "id": "q-sv7-ord-11",
+      "kind": "mc",
+      "topic": "verb",
+      "prompt": "Which form of the verb is the base form (infinitive)?",
+      "opener": "The infinitive is the form that often stands directly after \"att\" (to) or \"ska\" (going to/shall).",
+      "choices": [
+        "att simma",
+        "simmar",
+        "simmade",
+        "simmat"
+      ],
+      "answer": 0,
+      "explanation": "\"Att simma\" (to swim) is the infinitive, the base form of the verb. \"Simmar\" (swims) is present tense, \"simmade\" (swam) is the preterite and \"simmat\" (swum) is the supine (used e.g. after \"har\", has)."
+    },
+    {
+      "id": "q-sv7-ord-12",
+      "kind": "mc",
+      "topic": "adjective",
+      "prompt": "Which word is an adjective? \"Den gamla bilen körde långsamt genom den smala gatan.\" (\"The old car drove slowly through the narrow street.\")",
+      "opener": "Adjectives describe what someone or something is like.",
+      "choices": [
+        "bilen",
+        "gamla",
+        "körde",
+        "gatan"
+      ],
+      "answer": 1,
+      "explanation": "\"Gamla\" (old) describes what the car is like — it's an adjective (as is \"smala\", narrow). \"Bilen\" (the car) and \"gatan\" (the street) are nouns, \"körde\" (drove) is a verb."
+    },
+    {
+      "id": "q-sv7-ord-13",
+      "kind": "mc",
+      "topic": "pronoun",
+      "prompt": "Which pronoun belongs in the sentence? \"___ har glömt sin bok hemma.\" (\"___ has forgotten his/her book at home.\" — Erik has forgotten his book.)",
+      "opener": "The word should act as the subject of the sentence, just as Erik's name would have.",
+      "choices": [
+        "Han",
+        "Hans",
+        "Honom",
+        "Sin"
+      ],
+      "answer": 0,
+      "explanation": "\"Han\" (he) is the subject form and replaces Erik's name as the one performing the action. \"Hans\" (his) and \"sin\" (his own) express possession, and \"honom\" (him) is the object form."
+    },
+    {
+      "id": "q-sv7-ord-14",
+      "kind": "worked",
+      "topic": "word classes",
+      "prompt": "Determine the word class of each word in the sentence: \"Fem röda äpplen låg på bordet.\" (\"Five red apples lay on the table.\")",
+      "opener": "Go word by word, just like in the example with the happy students.",
+      "answer": "Fem (five) = numeral, röda (red) = adjective, äpplen (apples) = noun, låg (lay) = verb (preterite), på (on) = preposition, bordet (the table) = noun.",
+      "steps": [
+        "\"Fem\" (five) answers the question how many — a numeral.",
+        "\"Röda\" (red) describes what the apples are like — an adjective.",
+        "\"Äpplen\" (apples) are things and can be inflected ett äpple – äpplet – äpplen (an apple – the apple – apples) — a noun.",
+        "\"Låg\" (lay) is what the apples did, and it has already happened — a verb in the preterite.",
+        "\"På\" (on) tells where the apples lay — a preposition, and \"bordet\" (the table) is the noun it refers to."
+      ]
+    },
+    {
+      "id": "q-sv7-ord-15",
+      "kind": "mc",
+      "topic": "numeral",
+      "prompt": "Which word is a numeral? \"Det var den fjärde gången hon vann tävlingen.\" (\"It was the fourth time she won the competition.\")",
+      "opener": "Numerals can also answer \"which in order?\", not just \"how many?\".",
+      "choices": [
+        "Det",
+        "fjärde",
+        "gången",
+        "vann"
+      ],
+      "answer": 1,
+      "explanation": "\"Fjärde\" (fourth) is an ordinal number — it tells which time in order it was. \"Det\" (it) is a pronoun, \"gången\" (the time) is a noun and \"vann\" (won) is a verb."
     }
   ]
 }

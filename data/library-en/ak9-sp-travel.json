@@ -113,6 +113,111 @@
       "prompt": "Which travel and weather expressions should you know at the grade 9 level in Spanish?",
       "opener": "Booking, traveling, and talking about the weather.",
       "answer": "Travel: el billete (de ida / de ida y vuelta) = ticket (one-way/round-trip) · la maleta = suitcase · el pasaporte = passport · el tren/avión/autobús = train/plane/bus · salir = to depart · llegar = to arrive · ¿De dónde sale...? = Where does ... depart from? Weather: hace calor/frío/sol/viento = it's hot/cold/sunny/windy · llueve = it's raining · nieva = it's snowing · está nublado = it's cloudy."
+    },
+    {
+      "id": "q-sp9-trav-9",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"el andén\" mean at a train station?",
+      "opener": "The place where you wait for the train and board it.",
+      "choices": [
+        "The platform",
+        "The ticket window",
+        "The waiting room",
+        "The exit"
+      ],
+      "answer": 0,
+      "explanation": "\"El andén\" means the platform, the place along the tracks where you wait for and board the train."
+    },
+    {
+      "id": "q-sp9-trav-10",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What do you ask if you want to know how much a ticket costs?",
+      "opener": "The question is about price.",
+      "choices": [
+        "¿Cuánto cuesta el billete?",
+        "¿De dónde sale?",
+        "¿A qué hora llega?",
+        "¿Qué billete es?"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Cuánto cuesta...?\" means \"how much does ... cost?\". \"¿Cuánto cuesta el billete?\" therefore asks about the price of the ticket."
+    },
+    {
+      "id": "q-sp9-trav-11",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "What does \"Está nublado\" mean?",
+      "opener": "The word \"nube\" means cloud.",
+      "choices": [
+        "It's cloudy",
+        "It's sunny",
+        "It's snowing",
+        "It's windy"
+      ],
+      "answer": 0,
+      "explanation": "\"Está nublado\" means \"it's cloudy\"."
+    },
+    {
+      "id": "q-sp9-trav-12",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "Which verb is used to describe wind in Spanish?",
+      "opener": "Just like with calor, frío, and sol, hacer is used for wind.",
+      "choices": [
+        "hacer (hace viento)",
+        "llover (llueve viento)",
+        "nevar (nieva viento)",
+        "estar (está viento)"
+      ],
+      "answer": 0,
+      "explanation": "Wind is expressed with \"hacer\": \"hace viento\" means \"it's windy\"."
+    },
+    {
+      "id": "q-sp9-trav-13",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "What does \"facturar el equipaje\" mean?",
+      "opener": "Something you do at the check-in counter before the flight.",
+      "choices": [
+        "Check in the luggage",
+        "Open the luggage",
+        "Lose the luggage",
+        "Weigh the luggage yourself"
+      ],
+      "answer": 0,
+      "explanation": "\"Facturar el equipaje\" means \"to check in the luggage\"."
+    },
+    {
+      "id": "q-sp9-trav-14",
+      "kind": "mc",
+      "topic": "weather",
+      "prompt": "What does \"la temperatura está bajo cero\" mean?",
+      "opener": "\"Bajo cero\" literally means \"below zero\".",
+      "choices": [
+        "The temperature is below zero degrees",
+        "The temperature is exactly zero degrees",
+        "The temperature is very high",
+        "The weather is uncertain"
+      ],
+      "answer": 0,
+      "explanation": "\"La temperatura está bajo cero\" means \"the temperature is below zero degrees\", i.e. subzero."
+    },
+    {
+      "id": "q-sp9-trav-15",
+      "kind": "mc",
+      "topic": "travel",
+      "prompt": "Which question fits best if you want to know whether a place is nearby?",
+      "opener": "The question is about distance/closeness.",
+      "choices": [
+        "¿Está cerca de aquí?",
+        "¿De qué color es?",
+        "¿Cuántos años tiene?",
+        "¿Te gusta viajar?"
+      ],
+      "answer": 0,
+      "explanation": "\"¿Está cerca de aquí?\" means \"is it close to here?\"."
     }
   ]
 }

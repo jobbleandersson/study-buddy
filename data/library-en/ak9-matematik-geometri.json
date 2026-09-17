@@ -122,6 +122,109 @@
       "prompt": "What does Pythagoras' theorem say, and when can you use it?",
       "opener": "Two things to include: the formula and the condition for when it applies.",
       "answer": "In a right-angled triangle, $a^2 + b^2 = c^2$, where $a$ and $b$ are the legs and $c$ is the hypotenuse (the side opposite the right angle). The theorem only applies to right-angled triangles."
+    },
+    {
+      "id": "q-ma9-geo-9",
+      "kind": "mc",
+      "topic": "area and perimeter",
+      "prompt": "A rectangle has a perimeter of 28 cm and a width of 5 cm. How long is the rectangle?",
+      "opener": "The perimeter is the sum of all four sides: $P = 2(l + w)$.",
+      "choices": [
+        "23 cm",
+        "14 cm",
+        "9 cm",
+        "4 cm"
+      ],
+      "answer": 2,
+      "explanation": "$28 = 2(l + 5)$, so $l + 5 = 14$. That gives $l = 9$ cm."
+    },
+    {
+      "id": "q-ma9-geo-10",
+      "kind": "mc",
+      "topic": "volume",
+      "prompt": "A cube has a side of 4 cm. What is the volume?",
+      "opener": "A cube's volume is the side multiplied by itself three times.",
+      "choices": [
+        "16 cm³",
+        "64 cm³",
+        "12 cm³",
+        "48 cm³"
+      ],
+      "answer": 1,
+      "explanation": "$V = a^3 = 4^3 = 4 \\cdot 4 \\cdot 4 = 64$ cm³."
+    },
+    {
+      "id": "q-ma9-geo-11",
+      "kind": "mc",
+      "topic": "pythagoras' theorem",
+      "prompt": "A ladder leans against a wall. Its foot stands 3 m from the wall, and the ladder is 5 m long. How high up the wall does the ladder reach?",
+      "opener": "The ladder is the hypotenuse of a right-angled triangle.",
+      "choices": [
+        "8 m",
+        "2 m",
+        "4 m",
+        "34 m"
+      ],
+      "answer": 2,
+      "explanation": "$3^2 + h^2 = 5^2$, so $9 + h^2 = 25$. That gives $h^2 = 16$ and $h = 4$ m."
+    },
+    {
+      "id": "q-ma9-geo-12",
+      "kind": "mc",
+      "topic": "scale",
+      "prompt": "A map has a scale of 1:50 000. Two towns are 8 cm apart on the map. How far apart are the towns in reality?",
+      "opener": "Work out the distance in cm first, then convert to a more sensible unit.",
+      "choices": [
+        "0,4 km",
+        "4 km",
+        "40 km",
+        "400 km"
+      ],
+      "answer": 1,
+      "explanation": "$8 \\cdot 50\\,000 = 400\\,000$ cm. Since $1$ km $= 100\\,000$ cm, that is $400\\,000 / 100\\,000 = 4$ km."
+    },
+    {
+      "id": "q-ma9-geo-13",
+      "kind": "mc",
+      "topic": "area and perimeter",
+      "prompt": "A parallelogram has a base of 9 cm and a height of 4 cm. What is the area?",
+      "opener": "A parallelogram's area is calculated differently from a triangle's — no dividing by 2.",
+      "choices": [
+        "18 cm²",
+        "36 cm²",
+        "26 cm²",
+        "13 cm²"
+      ],
+      "answer": 1,
+      "explanation": "$A = b \\cdot h = 9 \\cdot 4 = 36$ cm². (You get 18 cm² if you mistakenly use the triangle formula and divide by 2.)"
+    },
+    {
+      "id": "q-ma9-geo-14",
+      "kind": "worked",
+      "topic": "pythagoras' theorem",
+      "prompt": "A ship sails 8 km east and then 6 km north. What is the straight-line distance back to the starting point? Show your working.",
+      "opener": "The two legs of the journey form the legs of a right-angled triangle.",
+      "answer": "10 km",
+      "steps": [
+        "The two legs are at right angles to each other (east and north), so they are the legs of a right-angled triangle.",
+        "$8^2 + 6^2 = 64 + 36 = 100$.",
+        "The distance is $\\sqrt{100} = 10$ km."
+      ]
+    },
+    {
+      "id": "q-ma9-geo-15",
+      "kind": "mc",
+      "topic": "volume",
+      "prompt": "A beam is 1,5 m long, 40 cm wide and 25 cm high. What is the volume in cm³?",
+      "opener": "Convert all the measurements to the same unit before multiplying.",
+      "choices": [
+        "600 cm³",
+        "15 000 cm³",
+        "150 000 cm³",
+        "1 500 000 cm³"
+      ],
+      "answer": 2,
+      "explanation": "$1{,}5$ m $= 150$ cm. $V = 150 \\cdot 40 \\cdot 25 = 150\\,000$ cm³. Forgetting to convert the metre to centimetres (and using 15 cm) wrongly gives $15\\,000$ cm³."
     }
   ]
 }

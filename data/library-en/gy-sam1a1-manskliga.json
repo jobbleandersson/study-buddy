@@ -124,6 +124,111 @@
       "prompt": "Summarise key concepts about human rights and international law.",
       "opener": "From declaration to convention to concrete categories of rights.",
       "answer": "The UN's Universal Declaration (1948): sets out fundamental rights for all people, not itself legally binding but the basis for later conventions · Conventions: legally binding agreements between states that have ratified them, e.g. the Convention on the Rights of the Child and the European Convention on Human Rights · Civil/political rights: e.g. freedom of expression, the right to vote, the right to a fair trial · Economic/social rights: e.g. the right to education, health and an adequate standard of living · International law: rules governing relations between states, partly via the UN Charter · International humanitarian law: the laws of war, e.g. the Geneva Conventions, protecting civilians and prisoners of war in armed conflict · Rights in conflict: rights can sometimes be set against each other and require trade-offs, e.g. freedom of expression versus protection against discrimination."
+    },
+    {
+      "id": "q-sam1a1-manskliga-9",
+      "kind": "mc",
+      "topic": "the UN Declaration of Human Rights",
+      "prompt": "What is the European Convention on Human Rights, and how does it differ from the UN's Universal Declaration?",
+      "opener": "Think about whether there is a court that can actually rule on complaints under each document.",
+      "choices": [
+        "A legally binding convention for the Council of Europe's member states, which, unlike the UN's non-binding declaration, can be ruled on by the European Court of Human Rights",
+        "Another name for the UN's Universal Declaration",
+        "A convention that applies only to EU institutions, not individual citizens",
+        "A convention that has no court to rule on complaints"
+      ],
+      "answer": 0,
+      "explanation": "Unlike the UN's non-binding Universal Declaration, the European Convention is a legally binding convention for the Council of Europe's member states, and individuals can have their complaints about violations ruled on by the European Court of Human Rights."
+    },
+    {
+      "id": "q-sam1a1-manskliga-10",
+      "kind": "mc",
+      "topic": "categories of rights",
+      "prompt": "The Convention on the Rights of the Child, which became Swedish law in 2020, is an example of what?",
+      "opener": "Think about whether this is a general document for everyone, or aimed at a specific group.",
+      "choices": [
+        "A specific, legally binding convention that spells out rights for a particular group - in this case children",
+        "Part of the UN's Universal Declaration from 1948",
+        "A purely national Swedish law with no connection to international law",
+        "A convention that applies only within the EU"
+      ],
+      "answer": 0,
+      "explanation": "The Convention on the Rights of the Child is a legally binding UN convention that specifically spells out rights for children, and became Swedish law in 2020. It is therefore not part of the 1948 Universal Declaration, but a separate, later international document."
+    },
+    {
+      "id": "q-sam1a1-manskliga-11",
+      "kind": "mc",
+      "topic": "categories of rights",
+      "prompt": "What does the right to a fair trial involve, as part of civil/political rights?",
+      "opener": "Think about what an accused person is entitled to before a verdict is reached.",
+      "choices": [
+        "Among other things, the right to an impartial court, to be informed of the charges, and to be able to defend oneself before a verdict is reached",
+        "That the accused is always automatically acquitted",
+        "That trials may never be held in public",
+        "That only the state has the right to appeal a verdict"
+      ],
+      "answer": 0,
+      "explanation": "The right to a fair trial includes, among other things, the right to an impartial court, to be informed of the charges, and to be able to defend oneself before a verdict is reached. It means neither automatic acquittal nor a ban on public trials."
+    },
+    {
+      "id": "q-sam1a1-manskliga-12",
+      "kind": "mc",
+      "topic": "international law and humanitarian law",
+      "prompt": "What is the International Criminal Court (ICC)?",
+      "opener": "Think about whether the court tries states or individuals.",
+      "choices": [
+        "A permanent international court that can prosecute individuals for serious crimes such as genocide, crimes against humanity and war crimes",
+        "A court that only rules on trade disputes between states",
+        "Another name for the International Court of Justice in The Hague, which rules between states",
+        "A court that only the UN Security Council can bring cases before"
+      ],
+      "answer": 0,
+      "explanation": "The ICC is a permanent international court that prosecutes individuals, not states, for the most serious international crimes: genocide, crimes against humanity, war crimes and the crime of aggression. It therefore differs from the International Court of Justice (ICJ), which settles disputes between states."
+    },
+    {
+      "id": "q-sam1a1-manskliga-13",
+      "kind": "mc",
+      "topic": "international law and humanitarian law",
+      "prompt": "What does the principle of state sovereignty in international law mean, and what tension can it create with human rights?",
+      "opener": "Think about what happens when the wish to protect human rights clashes with a state's right to govern itself.",
+      "choices": [
+        "That states fundamentally have the right to govern their own internal affairs without outside interference, which can be in tension with international demands to intervene when serious human rights violations occur within the country",
+        "That all states must follow exactly the same laws without exception",
+        "That state sovereignty means the UN automatically governs all countries",
+        "That sovereignty applies only to economic matters"
+      ],
+      "answer": 0,
+      "explanation": "State sovereignty means that states fundamentally have the right to govern their own internal affairs without outside interference. This can be in tension with international pressure or demands to intervene when serious human rights violations occur within the country."
+    },
+    {
+      "id": "q-sam1a1-manskliga-14",
+      "kind": "mc",
+      "topic": "rights in conflict",
+      "prompt": "Give an example of how the right to privacy can come into conflict with society's interest in security.",
+      "opener": "Think about methods used to prevent crime, and what they can mean for an individual's privacy.",
+      "choices": [
+        "Surveillance measures such as cameras or wiretapping to prevent crime can restrict personal privacy, requiring a trade-off between security and privacy",
+        "The right to privacy always applies unconditionally with no exceptions",
+        "The security interest can never in practice affect anyone's privacy",
+        "The two rights never have any connection to each other"
+      ],
+      "answer": 0,
+      "explanation": "Surveillance measures such as camera monitoring or wiretapping, justified by crime-prevention purposes, can restrict personal privacy. This illustrates how the right to privacy and society's security interest sometimes have to be weighed against each other."
+    },
+    {
+      "id": "q-sam1a1-manskliga-15",
+      "kind": "mc",
+      "topic": "the UN Declaration of Human Rights",
+      "prompt": "Is the UN Security Council legally obliged to intervene militarily every time serious human rights violations occur in a country?",
+      "opener": "Think about the veto power held by the permanent members of the Security Council.",
+      "choices": [
+        "No, the Security Council's decisions on intervention require political unity (or an abstention from veto) among the permanent members, which means interventions are often absent despite serious violations",
+        "Yes, the Security Council is always required to intervene militarily immediately",
+        "Yes, but only if it concerns countries in Europe",
+        "No, the Security Council has no ability at all to decide on military action"
+      ],
+      "answer": 0,
+      "explanation": "The Security Council's decisions on military intervention require none of the five permanent members to cast a veto, which in practice often means interventions are absent even in cases of serious human rights violations - the Security Council has the authority, but lacks an absolute obligation that is always fulfilled."
     }
   ]
 }

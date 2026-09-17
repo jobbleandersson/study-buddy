@@ -124,6 +124,111 @@
       "prompt": "Which tense and time-expression shifts apply when turning direct speech into reported speech after a main verb in the past?",
       "opener": "One step back on the tense ladder, plus swapped time and place words.",
       "answer": "Tense shifts (one step back): présent → imparfait · passé composé → plus-que-parfait · futur simple → conditionnel présent · futur proche (aller + infinitive) → imparfait of aller + infinitive. Imparfait and plus-que-parfait don't change, since they're already \"as far back as they go\". Time/place expressions: aujourd'hui → ce jour-là · demain → le lendemain · hier → la veille · maintenant → à ce moment-là · ici → là · ce week-end → ce week-end-là. Questions: est-ce que/inversion → si · qu'est-ce que → ce que · qu'est-ce qui → ce qui. Personal pronouns (je/tu/vous) always adjust to reflect who is now talking about whom."
+    },
+    {
+      "id": "q-fr4-rs-9",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Elle a dit : \"J'étais malade.\" How does this become reported speech? \"Elle a dit que...\"",
+      "opener": "The imparfait does NOT shift back in reported speech — it stays the imparfait.",
+      "choices": [
+        "elle était malade.",
+        "elle est malade.",
+        "elle avait été malade.",
+        "elle serait malade."
+      ],
+      "answer": 0,
+      "explanation": "The imparfait (\"j'étais\") stays unchanged in reported speech, since it already describes a state in the past: \"qu'elle était malade\"."
+    },
+    {
+      "id": "q-fr4-rs-10",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Il a dit : \"Je vais partir.\" How does this become reported speech? \"Il a dit que...\"",
+      "opener": "The futur proche (aller + infinitive) becomes the imparfait of aller + infinitive in reported speech.",
+      "choices": [
+        "il allait partir.",
+        "il va partir.",
+        "il irait partir.",
+        "il est allé partir."
+      ],
+      "answer": 0,
+      "explanation": "The futur proche (\"je vais partir\") becomes the imparfait of aller + infinitive: \"qu'il allait partir\"."
+    },
+    {
+      "id": "q-fr4-rs-11",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "Elle a demandé : \"Où habites-tu ?\" How does the question become reported speech?",
+      "opener": "The question word \"où\" stays the same in reported speech.",
+      "choices": [
+        "Elle a demandé où j'habitais.",
+        "Elle a demandé si j'habitais.",
+        "Elle a demandé où j'habite.",
+        "Elle a demandé que j'habitais."
+      ],
+      "answer": 0,
+      "explanation": "The question word \"où\" stays unchanged, and the verb shifts back to the imparfait: \"elle a demandé où j'habitais\"."
+    },
+    {
+      "id": "q-fr4-rs-12",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "Il a demandé : \"Qui a téléphoné ?\" How does the question become reported speech?",
+      "opener": "The question word \"qui\" (as subject) stays unchanged in reported speech.",
+      "choices": [
+        "Il a demandé qui avait téléphoné.",
+        "Il a demandé qui a téléphoné.",
+        "Il a demandé si quelqu'un avait téléphoné.",
+        "Il a demandé ce qui avait téléphoné."
+      ],
+      "answer": 0,
+      "explanation": "\"Qui\" as subject stays unchanged, and the verb shifts back to the plus-que-parfait: \"il a demandé qui avait téléphoné\"."
+    },
+    {
+      "id": "q-fr4-rs-13",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Which expression replaces \"maintenant\" (now) in reported speech?",
+      "opener": "Just like \"demain\" and \"hier\", \"maintenant\" has a reported-speech equivalent.",
+      "choices": [
+        "à ce moment-là",
+        "demain",
+        "hier",
+        "aujourd'hui"
+      ],
+      "answer": 0,
+      "explanation": "\"Maintenant\" (now) becomes \"à ce moment-là\" (at that moment) in reported speech."
+    },
+    {
+      "id": "q-fr4-rs-14",
+      "kind": "mc",
+      "topic": "reported speech",
+      "prompt": "Le professeur a dit : \"Faites vos devoirs.\" How does this become reported speech?",
+      "opener": "An imperative in direct speech becomes \"de + infinitive\" with the verb \"dire\" in reported speech.",
+      "choices": [
+        "Le professeur a dit de faire nos devoirs.",
+        "Le professeur a dit que nous fassions nos devoirs.",
+        "Le professeur a dit nous faisons nos devoirs.",
+        "Le professeur a dit nous ferions nos devoirs."
+      ],
+      "answer": 0,
+      "explanation": "With \"dire\", an imperative becomes \"de + infinitive\" in reported speech: \"le professeur a dit de faire nos devoirs\" (the teacher told us to do our homework)."
+    },
+    {
+      "id": "q-fr4-rs-15",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Il a dit : \"Je suis ici.\" Which word replaces \"ici\" in reported speech?",
+      "opener": "A place expression that shifts away from the moment of speaking.",
+      "choices": [
+        "là",
+        "ici",
+        "là-bas",
+        "partout"
+      ],
+      "answer": 0,
+      "explanation": "\"Ici\" (here) becomes \"là\" (there) in reported speech: \"il a dit qu'il était là\"."
     }
   ]
 }

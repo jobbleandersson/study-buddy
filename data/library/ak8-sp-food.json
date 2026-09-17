@@ -114,6 +114,111 @@
       "prompt": "Vilka mat-, dryck- och måltidsord samt gustar-konstruktioner bör du kunna på åk8-nivå?",
       "opener": "Mat, måltider och hur man uttrycker vad man tycker om.",
       "answer": "Mat: el pan = bröd · el arroz = ris · la carne = kött · el pescado = fisk · las verduras = grönsaker · la fruta = frukt · el agua = vatten · la leche = mjölk. Måltider: el desayuno = frukost · el almuerzo/la comida = lunch · la cena = middag. Gustar: me/te/le/nos/os/les gusta (singular) / gustan (plural) — verbet böjs efter det man gillar, inte efter den som gillar. Beställa artigt: Quisiera... = jag skulle vilja ha... · ..., por favor = ..., tack."
+    },
+    {
+      "id": "q-sp8-food-9",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"el postre\"?",
+      "opener": "Kommer sist i en måltid, ofta något sött.",
+      "choices": [
+        "Efterrätt",
+        "Förrätt",
+        "Huvudrätt",
+        "Sallad"
+      ],
+      "answer": 0,
+      "explanation": "\"El postre\" betyder \"efterrätt\". \"La entrada\" är förrätt (eller \"el primer plato\"), och \"el plato principal\" är huvudrätt."
+    },
+    {
+      "id": "q-sp8-food-10",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"el zumo de naranja\"?",
+      "opener": "\"Naranja\" betyder apelsin.",
+      "choices": [
+        "Apelsinjuice",
+        "Äppeljuice",
+        "Mineralvatten",
+        "Mjölk"
+      ],
+      "answer": 0,
+      "explanation": "\"El zumo de naranja\" betyder apelsinjuice. \"Zumo\" är det vanliga ordet för juice i Spanien (\"jugo\" används oftare i Latinamerika)."
+    },
+    {
+      "id": "q-sp8-food-11",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Vilket ord används ofta för mellanmålet man äter mellan lunch och middag?",
+      "opener": "Ett mellanmål man äter mellan lunch och middag, vanligt i spansktalande länder.",
+      "choices": [
+        "la merienda",
+        "la cena",
+        "el desayuno",
+        "el almuerzo"
+      ],
+      "answer": 0,
+      "explanation": "\"La merienda\" är det spanska ordet för ett lättare mellanmål, ofta ätet sent på eftermiddagen mellan lunch (\"el almuerzo\") och middag (\"la cena\")."
+    },
+    {
+      "id": "q-sp8-food-12",
+      "kind": "mc",
+      "topic": "gustar",
+      "prompt": "Välj rätt form: \"A nosotros nos ___ el fútbol.\" (Vi gillar fotboll.)",
+      "opener": "\"Nosotros\" (vi) och \"el fútbol\" i singular.",
+      "choices": [
+        "gusta",
+        "gustan",
+        "gustamos",
+        "gustáis"
+      ],
+      "answer": 0,
+      "explanation": "\"El fútbol\" är singular, så det heter \"nos gusta\". Om det gillade hade varit plural (t.ex. \"los deportes\") hade det blivit \"nos gustan\"."
+    },
+    {
+      "id": "q-sp8-food-13",
+      "kind": "mc",
+      "topic": "gustar",
+      "prompt": "Välj rätt pronomen: \"A ellos ___ gusta la música pop.\" (De gillar poppmusik.)",
+      "opener": "\"Ellos\" (de) motsvaras av pronomenet \"les\" i gustar-konstruktionen.",
+      "choices": [
+        "les",
+        "los",
+        "las",
+        "se"
+      ],
+      "answer": 0,
+      "explanation": "\"Les\" används för \"de\" (ellos/ellas) i gustar-konstruktioner: \"a ellos les gusta...\"."
+    },
+    {
+      "id": "q-sp8-food-14",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"la ensalada\"?",
+      "opener": "Ett vanligt ord för en typ av kall, grön maträtt.",
+      "choices": [
+        "Sallad",
+        "Soppa",
+        "Pasta",
+        "Omelett"
+      ],
+      "answer": 0,
+      "explanation": "\"La ensalada\" betyder sallad."
+    },
+    {
+      "id": "q-sp8-food-15",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Vilket spanskt uttryck används för att önska någon smaklig måltid?",
+      "opener": "Man säger det till någon innan de börjar äta.",
+      "choices": [
+        "¡Buen provecho!",
+        "¡Buenas noches!",
+        "¡Buena suerte!",
+        "¡Feliz cumpleaños!"
+      ],
+      "answer": 0,
+      "explanation": "\"¡Buen provecho!\" betyder ungefär \"smaklig måltid!\" och sägs innan man börjar äta."
     }
   ]
 }

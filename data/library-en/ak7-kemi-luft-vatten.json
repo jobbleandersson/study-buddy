@@ -125,6 +125,110 @@
       "prompt": "Summarise the composition of air, the properties of water, and the steps of the water cycle.",
       "opener": "Take the gases in air with their figures first, then the phases and properties of water.",
       "answer": "Composition of air: nitrogen (N₂) about 78% · oxygen (O₂) about 21% · argon just under 1% · carbon dioxide (CO₂) about 0.04% · plus a varying amount of water vapour · Oxygen is needed for breathing and for all combustion · Carbon dioxide is used by plants in photosynthesis and is formed during combustion and respiration · Phases of water: ice (solid), water (liquid), water vapour (gas) · Melting point 0°C, boiling point 100°C at normal air pressure · Phase changes: melting, evaporation (vaporisation), condensation, freezing (solidification) · Ice floats because water expands when it freezes, so the ice has a lower density than the water - this is why lakes freeze from the surface downwards, letting fish survive the winter · Water as a solvent: dissolves an unusually large number of substances, e.g. salt and sugar, but not fat and oil · The water cycle: evaporation from seas and lakes → condensation into clouds → precipitation as rain or snow → the water flows via the ground, lakes and rivers back to the sea · Air pollution: carbon dioxide from fossil fuels strengthens the greenhouse effect, sulphur and nitrogen oxides cause acidification, soot and particles harm the lungs."
+    },
+    {
+      "id": "q-kemi7-luv-9",
+      "kind": "mc",
+      "topic": "the composition of air",
+      "prompt": "About how much of the air is made up of argon and other noble gases?",
+      "opener": "It's a very small share compared with nitrogen and oxygen.",
+      "choices": [
+        "Just under 1 percent",
+        "About 21 percent",
+        "About 50 percent",
+        "About 78 percent"
+      ],
+      "answer": 0,
+      "explanation": "Argon and other noble gases together make up just under 1 percent of the air. 21 percent is oxygen's share and 78 percent is nitrogen's."
+    },
+    {
+      "id": "q-kemi7-luv-10",
+      "kind": "mc",
+      "topic": "the water cycle",
+      "prompt": "What is it called when water goes from liquid to gas by evaporating from, for example, the sea's surface?",
+      "opener": "It's the opposite of condensation.",
+      "choices": [
+        "Condensation",
+        "Evaporation",
+        "Precipitation",
+        "Freezing"
+      ],
+      "answer": 1,
+      "explanation": "Evaporation is the change from liquid to gas, for example when the sun heats the sea's surface and water evaporates as water vapour. Condensation is the opposite change, from gas to liquid."
+    },
+    {
+      "id": "q-kemi7-luv-11",
+      "kind": "mc",
+      "topic": "the properties of water",
+      "prompt": "At what temperature does water have its highest density?",
+      "opener": "It's actually not at the freezing point, but just above it.",
+      "choices": [
+        "0°C",
+        "4°C",
+        "20°C",
+        "100°C"
+      ],
+      "answer": 1,
+      "explanation": "Water has its highest density at about 4°C. This is why the coldest water in a lake in winter often sits just below the ice, while the slightly warmer 4-degree water sinks to the bottom."
+    },
+    {
+      "id": "q-kemi7-luv-12",
+      "kind": "mc",
+      "topic": "water as a solvent",
+      "prompt": "Why doesn't oil dissolve in water?",
+      "opener": "Think about how water molecules attract each other strongly, while oil molecules don't in the same way.",
+      "choices": [
+        "Because oil is always too warm",
+        "Because the oil molecules and water molecules don't attract each other the way water molecules attract each other",
+        "Because oil is a gas",
+        "Because water is already saturated with other substances"
+      ],
+      "answer": 1,
+      "explanation": "Water molecules hold together strongly with each other, while oil molecules don't bond to water in the same way, so oil instead sits as a film on top. This has nothing to do with temperature or saturation."
+    },
+    {
+      "id": "q-kemi7-luv-13",
+      "kind": "mc",
+      "topic": "air pollution",
+      "prompt": "Which gases contribute most to the acidification of lakes and forests?",
+      "opener": "These gases form acids when they react with water in the atmosphere.",
+      "choices": [
+        "Oxygen and nitrogen",
+        "Sulphur and nitrogen oxides",
+        "Water vapour and carbon dioxide",
+        "Argon and helium"
+      ],
+      "answer": 1,
+      "explanation": "Sulphur and nitrogen oxides from combustion react with water in the air and form sulphuric acid and nitric acid, which fall as acidifying rain. Argon and helium are instead chemically unreactive noble gases that don't contribute to acidification."
+    },
+    {
+      "id": "q-kemi7-luv-14",
+      "kind": "worked",
+      "topic": "the water cycle",
+      "prompt": "Describe what happens to a water molecule in a rain cloud, all the way until it has become ice on top of a tall mountain.",
+      "opener": "Think about what's needed for water vapour to become a solid.",
+      "answer": "The water vapour in the cloud condenses into small water droplets. If it's cold enough up in the cloud, the droplets freeze into ice crystals that fall as snow, and the snow then stays behind as ice on the cold mountain top.",
+      "steps": [
+        "The water vapour in the cloud cools and condenses (gas to liquid) into very small water droplets.",
+        "If the air in the cloud is cold enough, the droplets freeze further into ice crystals — this is called freezing (liquid to solid).",
+        "The ice crystals grow and eventually fall as snow towards the ground.",
+        "The snow lands on the mountain's cold peak, where the temperature stays below freezing, and remains there as ice."
+      ]
+    },
+    {
+      "id": "q-kemi7-luv-15",
+      "kind": "mc",
+      "topic": "the composition of air",
+      "prompt": "Which gas is essential for breathing but only makes up about a fifth of the air?",
+      "opener": "This gas is the one we actually need to breathe, unlike the most common gas in the air.",
+      "choices": [
+        "Nitrogen",
+        "Oxygen",
+        "Carbon dioxide",
+        "Argon"
+      ],
+      "answer": 1,
+      "explanation": "Oxygen (O₂) makes up about 21 percent of the air and is the gas cells need to release energy from nutrients. Nitrogen is the most common gas in the air, but it isn't used directly in breathing."
     }
   ]
 }

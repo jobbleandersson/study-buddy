@@ -126,6 +126,111 @@
       "prompt": "Summarise Islam: belief, Muhammad and the Quran, the five pillars, the mosque, Sunni and Shia, and festivals and Islam in Sweden.",
       "opener": "From the declaration of faith to the festivals and the situation in Sweden.",
       "answer": "Belief: tawhid — according to Islamic belief, God is one and indivisible · Muhammad is counted as the last prophet in the line after, among others, Abraham, Moses and Jesus · Muhammad: born around 570 in Mecca, the revelations begin around 610, the emigration to Medina in 622 (hijra) opens the Islamic calendar, died 632 · The Quran: according to belief, God's word in Arabic, conveyed through the angel Jibril; divided into 114 suras · Sunna and hadith: accounts of Muhammad's words and actions, a model for life · Sharia: the religious guidance, interpreted differently across various legal schools and countries · Five pillars: shahada (declaration of faith) · salat (five prayers a day facing Mecca, after washing) · zakat (gift to those in need) · sawm (fasting during Ramadan) · hajj (pilgrimage to Mecca) · The mosque: the mihrab shows the direction of prayer (qibla), a minaret, an imam leads the prayer, the Friday prayer draws large numbers, calligraphy and patterns instead of images of people · Sunni: the leader (the caliph) is chosen from among the believers — around 85–90% of the world's Muslims · Shia: leadership should follow Muhammad's family via Ali — largest in Iran and Iraq · Festivals: Ramadan (month of fasting) · Eid al-Fitr (the fast is broken) · Eid al-Adha (the sacrifice festival linked to the pilgrimage) · the lunar calendar means the festivals shift by about 11 days each year · Islam in Sweden: arrived above all with labour and refugee immigration from the 1960s onward · mosques and associations exist in most larger cities · Muslims in Sweden are a diverse group with different origins, branches and degrees of religious practice."
+    },
+    {
+      "id": "q-rel8-isl-9",
+      "kind": "mc",
+      "topic": "the five pillars",
+      "prompt": "Which of the five pillars of Islam involves an obligatory gift to those in need?",
+      "opener": "The word refers to a \"purifying\" share of one's wealth, often around 2.5 per cent of savings.",
+      "choices": [
+        "Sawm",
+        "Hajj",
+        "Shahada",
+        "Zakat"
+      ],
+      "answer": 3,
+      "explanation": "Zakat is the obligatory gift to those in need, often calculated at around 2.5 per cent of savings. Sawm is fasting during Ramadan, hajj is the pilgrimage to Mecca, and shahada is the declaration of faith — all four are pillars, but only zakat is about giving a set share to those in need."
+    },
+    {
+      "id": "q-rel8-isl-10",
+      "kind": "mc",
+      "topic": "Muhammad and the Quran",
+      "prompt": "What is Muhammad's emigration from Mecca to Medina in 622, which opens the Islamic calendar, called?",
+      "opener": "The word means roughly \"emigration\" in Arabic.",
+      "choices": [
+        "Hajj",
+        "Shahada",
+        "Sawm",
+        "Hijra"
+      ],
+      "answer": 3,
+      "explanation": "Hijra is the name of Muhammad's emigration from Mecca to Medina in 622, an event so central that the Islamic calendar counts its years from it. Hajj, shahada and sawm are instead three of Islam's five pillars and have nothing to do with the emigration."
+    },
+    {
+      "id": "q-rel8-isl-11",
+      "kind": "mc",
+      "topic": "Sunni and Shia",
+      "prompt": "Roughly what share of the world's Muslims belong to the Sunni branch?",
+      "opener": "The share is clearly more than half.",
+      "choices": [
+        "About 10 per cent",
+        "Exactly half",
+        "Almost none",
+        "About 85–90 per cent"
+      ],
+      "answer": 3,
+      "explanation": "Around 85–90 per cent of the world's Muslims are counted as Sunni Muslims, while Shia Muslims are a clear minority globally, even though they form the majority in countries such as Iran and Iraq. The options of 10 per cent, exactly half, or almost none don't match the actual distribution."
+    },
+    {
+      "id": "q-rel8-isl-12",
+      "kind": "mc",
+      "topic": "the mosque and prayer",
+      "prompt": "What is the ritual washing that precedes prayer in Islam called?",
+      "opener": "The word is Arabic and refers to purifying oneself before praying.",
+      "choices": [
+        "Zakat",
+        "Hajj",
+        "Qibla",
+        "Wudu"
+      ],
+      "answer": 3,
+      "explanation": "Wudu is the ritual washing Muslims perform before prayer, which includes washing the hands, face and feet, among other things. Zakat and hajj are other pillars, and qibla is the word for the direction of prayer towards Mecca, not for the washing itself."
+    },
+    {
+      "id": "q-rel8-isl-13",
+      "kind": "mc",
+      "topic": "festivals and Islam in Sweden",
+      "prompt": "Why does Ramadan shift by about eleven days each year relative to the Swedish calendar?",
+      "opener": "Compare how long a lunar calendar is with how long a solar year is.",
+      "choices": [
+        "Because Muslims themselves choose a new date each year",
+        "Because it is a solar calendar that is longer than the Swedish one",
+        "That's not true, Ramadan always falls on the same date",
+        "Because the Islamic calendar is a lunar calendar, which is shorter than the solar year"
+      ],
+      "answer": 3,
+      "explanation": "The Islamic calendar is a lunar calendar with a year roughly eleven days shorter than the Swedish solar calendar, which causes Ramadan and other Islamic festivals to shift forward each year relative to the ordinary calendar. The date is therefore not freely chosen by Muslims themselves, and it's not a matter of a longer solar calendar."
+    },
+    {
+      "id": "q-rel8-isl-14",
+      "kind": "mc",
+      "topic": "fundamental beliefs",
+      "prompt": "Which prophet is counted in Islam as the last in a long line of prophets that also includes Abraham, Moses and Jesus?",
+      "opener": "The prophet to whom the Quran was, according to belief, revealed.",
+      "choices": [
+        "Ali",
+        "Omar",
+        "Bilal",
+        "Muhammad"
+      ],
+      "answer": 3,
+      "explanation": "Muhammad is counted in Islam as the last prophet in a long line that includes, among others, Abraham, Moses and Jesus. Ali, Omar and Bilal were instead important early figures in Islamic history, but are not counted as prophets in that sense."
+    },
+    {
+      "id": "q-rel8-isl-15",
+      "kind": "mc",
+      "topic": "the mosque and prayer",
+      "prompt": "What is the niche in the mosque called that shows the direction of prayer (qibla) towards Mecca?",
+      "opener": "The word is Arabic for \"niche\".",
+      "choices": [
+        "The minaret",
+        "The imam",
+        "Wudu",
+        "The mihrab"
+      ],
+      "answer": 3,
+      "explanation": "The mihrab is the niche in the mosque's wall that shows the direction towards Mecca, the qibla, which worshippers face. The minaret is instead the tall tower from which the call to prayer is traditionally heard, the imam is the person who leads the prayer, and wudu is the ritual washing."
     }
   ]
 }

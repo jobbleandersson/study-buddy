@@ -123,6 +123,111 @@
       "prompt": "What should you look for to identify an author's stance and bias in an opinion text?",
       "opener": "Five things to always scan the text for.",
       "answer": "Loaded words (e.g. \"so-called\", \"obviously\", \"sadly\") reveal judgements · Turn words like \"however\", \"yet\", \"but\" mark counter-arguments or a shift in opinion · Facts can be verified objectively, opinions express judgement or interpretation · Who is quoted and how (named experts vs. \"some say\") can reveal bias · The concluding final sentence often reveals the text's main message or stance."
+    },
+    {
+      "id": "q-en6-reading-9",
+      "kind": "mc",
+      "topic": "fact vs opinion",
+      "prompt": "Read the text and answer.\n\n\"The survey included 2,000 participants across five countries. The results were, frankly, disappointing.\"\n\nWhich sentence expresses an opinion?",
+      "opener": "The word \"frankly\" signals a personal judgement.",
+      "choices": [
+        "The results were, frankly, disappointing.",
+        "The survey included 2,000 participants.",
+        "The survey included participants across five countries.",
+        "Neither sentence expresses an opinion."
+      ],
+      "answer": 0,
+      "explanation": "\"The results were, frankly, disappointing\" expresses the writer's personal disappointment — an opinion. The number of participants and countries, by contrast, are verifiable facts."
+    },
+    {
+      "id": "q-en6-reading-10",
+      "kind": "mc",
+      "topic": "counter-arguments",
+      "prompt": "Read the text and answer.\n\n\"Critics argue that remote work reduces collaboration. Yet many companies report that flexible schedules have actually boosted employee morale and output.\"\n\nWhat is the function of \"Yet\" here?",
+      "opener": "\"Yet\" often marks a turn in the argument.",
+      "choices": [
+        "It introduces a counter-argument to the criticism just mentioned.",
+        "It restates the criticism in different words.",
+        "It signals total agreement with the critics.",
+        "It has no logical function."
+      ],
+      "answer": 0,
+      "explanation": "\"Yet\" introduces a counter-argument to the criticism that remote work reduces collaboration, by highlighting the opposite experience reported by many companies."
+    },
+    {
+      "id": "q-en6-reading-11",
+      "kind": "mc",
+      "topic": "tone and bias",
+      "prompt": "Read the text and answer.\n\n\"The billionaire generously 'donated' a fraction of his fortune to charity.\"\n\nWhat does the use of quotation marks around \"donated\" suggest?",
+      "opener": "Quotation marks around a word often signal that the writer is questioning the word choice.",
+      "choices": [
+        "The writer is skeptical about whether the act was genuinely generous.",
+        "The writer fully approves of the donation.",
+        "The word is being used in its normal, literal sense.",
+        "The writer made a spelling mistake."
+      ],
+      "answer": 0,
+      "explanation": "The quotation marks around \"donated\" suggest the writer doubts whether the act was genuinely generous, rather than simply stating a fact."
+    },
+    {
+      "id": "q-en6-reading-12",
+      "kind": "mc",
+      "topic": "author's stance",
+      "prompt": "Read the text and answer.\n\n\"It is essential that we act now — every year of delay costs lives.\"\n\nWhat does the word \"essential\" reveal about the author's stance?",
+      "opener": "The word \"essential\" is strongly value-laden.",
+      "choices": [
+        "The author believes the action is urgently necessary, not merely optional.",
+        "The author is indifferent to the issue.",
+        "The author believes the action can wait.",
+        "The author is only stating a fact with no opinion."
+      ],
+      "answer": 0,
+      "explanation": "\"Essential\" signals that the writer sees the action as absolutely necessary, not merely desirable — this reveals a clear, urgent stance."
+    },
+    {
+      "id": "q-en6-reading-13",
+      "kind": "mc",
+      "topic": "fact vs opinion",
+      "prompt": "Which of these is a fact rather than an opinion?",
+      "opener": "A fact can be measured and verified objectively.",
+      "choices": [
+        "The average global temperature has risen by about 1.1°C since pre-industrial times.",
+        "This is the most important issue of our generation.",
+        "Everyone should be doing more to fight climate change.",
+        "It's shocking how little people care about the climate."
+      ],
+      "answer": 0,
+      "explanation": "The 1.1°C temperature rise is a measurable, verifiable figure. The other options contain judgemental words like \"most important\", \"should\", and \"shocking\"."
+    },
+    {
+      "id": "q-en6-reading-14",
+      "kind": "mc",
+      "topic": "counter-arguments",
+      "prompt": "A writer states an opposing view before dismantling it with evidence. What is this technique typically called?",
+      "opener": "The technique means directly addressing an objection, not avoiding it.",
+      "choices": [
+        "Addressing a counter-argument",
+        "Circular reasoning",
+        "A rhetorical question",
+        "An ad hominem attack"
+      ],
+      "answer": 0,
+      "explanation": "Mentioning an opposing viewpoint and then countering it with evidence is called addressing a counter-argument, which strengthens the text's credibility."
+    },
+    {
+      "id": "q-en6-reading-15",
+      "kind": "mc",
+      "topic": "tone and bias",
+      "prompt": "\"Naturally, any reasonable person would agree with this proposal.\" What rhetorical technique does the word \"naturally\" employ here, and why is it potentially misleading?",
+      "opener": "The word \"naturally\" tries to turn an opinion into an obvious truth.",
+      "choices": [
+        "It implies that disagreeing would be unreasonable, pressuring the reader to agree without providing evidence.",
+        "It objectively proves the proposal is correct.",
+        "It simply states a well-known scientific fact.",
+        "It has no persuasive effect at all."
+      ],
+      "answer": 0,
+      "explanation": "\"Naturally\" implies that anyone who disagrees is being unreasonable, which pressures the reader to agree without any actual evidence being presented — a rhetorical technique, not proof."
     }
   ]
 }

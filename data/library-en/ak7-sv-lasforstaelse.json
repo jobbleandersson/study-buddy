@@ -124,6 +124,110 @@
       "prompt": "How do you go about answering a reading comprehension question?",
       "opener": "Four habits that help you find the right answer more often.",
       "answer": "Read the question first — then you know what you're looking for in the text. Finding information: the answer is often stated directly · go back and point to the sentence instead of guessing from memory. Main message: ask what the WHOLE text is about, not just one detail · the point is often in the first or last sentence. Conclusions: build on clues in the text — what the people do, say and feel · never on your own guesses. Unknown words: read the surrounding sentences · test which option fits the context. Warning: answer options that sound plausible but are never mentioned in the text are wrong."
+    },
+    {
+      "id": "q-sv7-las-9",
+      "kind": "mc",
+      "topic": "finding information",
+      "prompt": "Read the text and answer.\n\n\"The swimming pool is open to the public Monday to Friday from 6 am to 8 pm. On weekends the opening hours are 9 am to 3 pm. Every Wednesday from 6 to 7 pm it is reserved for swimming lessons.\"\n\nWhen is the pool open to the public on Saturdays?",
+      "opener": "The answer is stated directly in the text — look for the time that goes with weekends.",
+      "choices": [
+        "9 am to 3 pm",
+        "6 am to 8 pm",
+        "6 to 7 pm",
+        "The pool is closed on Saturdays"
+      ],
+      "answer": 0,
+      "explanation": "The text says the weekend opening hours are 9 am to 3 pm. 6 am to 8 pm applies on weekdays, and 6 to 7 pm on Wednesdays is reserved for swimming lessons, not the public."
+    },
+    {
+      "id": "q-sv7-las-10",
+      "kind": "mc",
+      "topic": "main message",
+      "prompt": "Read the text and answer.\n\n\"Many plants in the garden had wilted in the summer heat. Despite regular watering, not all of them survived. The gardener decided to plant more drought-tolerant plants next year.\"\n\nWhat is the text mainly about?",
+      "opener": "Ask yourself what the whole text is about together, not just the first sentence.",
+      "choices": [
+        "That the gardener never watered the plants",
+        "That the summer heat damaged the plants, which made the gardener rethink things for next year",
+        "That all the plants in the garden died",
+        "That the gardener gave up gardening"
+      ],
+      "answer": 1,
+      "explanation": "The text links the heat, the watering not being enough, and the decision to choose more drought-tolerant plants going forward. That the gardener stopped watering or gardening isn't true — quite the opposite, they watered regularly and are already planning for next year."
+    },
+    {
+      "id": "q-sv7-las-11",
+      "kind": "mc",
+      "topic": "conclusions",
+      "prompt": "Read the text and answer.\n\n\"Ebba read the same page of the book for the third time without remembering what had happened. Outside the window thunder boomed, and she flinched every time lightning lit up the room.\"\n\nWhy does Ebba find it hard to concentrate on the book?",
+      "opener": "The text doesn't say it directly — what do the details reveal about what's bothering her?",
+      "choices": [
+        "She dislikes the book",
+        "The storm outside is distracting and frightening her",
+        "She is tired and wants to sleep",
+        "The room is too dark to read in"
+      ],
+      "answer": 1,
+      "explanation": "Flinching at every flash of lightning and not remembering what she's read, together with the thunder booming outside, show that the storm is what's disrupting her concentration. That the book is bad or the room too dark is never mentioned."
+    },
+    {
+      "id": "q-sv7-las-12",
+      "kind": "mc",
+      "topic": "vocabulary",
+      "prompt": "Read the text and answer.\n\n\"After the long hike their water bottles were completely empty. Their lips were dry and they longed febrilely for just one sip of water.\"\n\nWhat does the word \"febrilely\" mean in the text?",
+      "opener": "Read the sentence again — how strong does the longing seem, given the empty bottles and dry lips?",
+      "choices": [
+        "Calmly and relaxed",
+        "Very intensely",
+        "Without any interest",
+        "Sadly"
+      ],
+      "answer": 1,
+      "explanation": "The empty water bottles and dry lips show that the thirst is strong — the context shows that \"febrilely\" means very intensely. The word is not about sadness, but about how strong the longing feels."
+    },
+    {
+      "id": "q-sv7-las-13",
+      "kind": "mc",
+      "topic": "finding information",
+      "prompt": "Read the text and answer.\n\n\"The library lends out books for four weeks. Films and games are lent out for one week. If you don't return an item on time, you get a reminder by text message after three days' delay.\"\n\nHow long can you borrow a film for?",
+      "opener": "Read carefully which loan period applies to books and which applies to films and games.",
+      "choices": [
+        "One week",
+        "Four weeks",
+        "Three days",
+        "Films cannot be borrowed"
+      ],
+      "answer": 0,
+      "explanation": "The text says films and games are lent out for one week. Four weeks applies to books, and three days is how long a delay is needed before a reminder is sent."
+    },
+    {
+      "id": "q-sv7-las-14",
+      "kind": "worked",
+      "topic": "conclusions",
+      "prompt": "Read the text and answer in one sentence: \"Before the competition the team had trained extra hard every day for three weeks. On match day everyone arrived an hour early, wearing their new shirts. The coach smiled broadly as the team walked out onto the field.\"\n\nWhat do the details suggest about the team's attitude before the match, and which details support that conclusion?",
+      "opener": "Look for concrete details in the text that show how the team prepared, not just what they felt.",
+      "answer": "The details suggest that the team was highly motivated and well prepared for the match, supported by the fact that they trained extra hard for three weeks, arrived early, and the coach smiled broadly.",
+      "steps": [
+        "Read the question first: it's about the team's attitude and which details support the conclusion.",
+        "Look for concrete details: extra training for three weeks, arriving an hour early, the coach's smile.",
+        "Together these details point toward commitment and good preparation.",
+        "Write the answer in one sentence and back it up with at least two of the details."
+      ]
+    },
+    {
+      "id": "q-sv7-las-15",
+      "kind": "mc",
+      "topic": "vocabulary",
+      "prompt": "Read the text and answer.\n\n\"Even though she was alone in the house, Nova felt strangely safe. The silence was pleasant, not frightening, and she fell asleep quickly.\"\n\nWhat does the word \"pleasant\" mean in the text?",
+      "opener": "Read the sentence again — the phrase \"not frightening\" gives a clue about the opposite meaning.",
+      "choices": [
+        "Nice and relaxing",
+        "Scary and unpleasant",
+        "Loud",
+        "Cold"
+      ],
+      "answer": 0,
+      "explanation": "The text explicitly says \"not frightening\" and that Nova felt safe and fell asleep quickly — the context shows that \"pleasant\" means nice and relaxing."
     }
   ]
 }

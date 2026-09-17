@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta de fyra normativa etiska modellerna pliktetik, konsekvensetik, sinnelagsetik och dygdetik.",
       "opener": "Gå igenom modellerna en efter en, med fokus på vad var och en lägger tonvikten vid.",
       "answer": "Pliktetik (t.ex. Kant): en handling är rätt om den följer en princip/maxim som skulle kunna gälla som allmän lag för alla, oavsett konsekvenser. Konsekvensetik/utilitarism: en handling är rätt om den maximerar den sammanlagda nyttan för alla berörda; kritiseras ibland för att kunna rättfärdiga att en minoritets rättigheter offras. Sinnelagsetik: fokus på avsikten och viljan bakom handlingen — en god avsikt räknas moraliskt, även vid ett dåligt utfall. Dygdetik (t.ex. Aristoteles): fokus på att odla goda karaktärsdrag (dygder) som mod, klokhet och rättrådighet, och fråga hur en dygdig person skulle handla, snarare än att följa en enskild regel eller räkna konsekvenser. Att tillämpa flera modeller på samma dilemma kan ge samma praktiska slutsats men med olika motivering, eller ibland olika slutsatser helt."
+    },
+    {
+      "id": "q-rel1-etik-9",
+      "kind": "mc",
+      "topic": "pliktetik",
+      "prompt": "Vad innebär det att pliktetik ofta beskrivs som en \"regelbaserad\" etisk modell?",
+      "opener": "Tänk på vad som avgör om en handling är rätt enligt denna modell — resultatet, eller något annat.",
+      "choices": [
+        "Att den bedömer om en handling är rätt eller fel utifrån om den följer en moralisk regel eller princip, oavsett vilka konsekvenser handlingen faktiskt får",
+        "Att den enbart tillämpas inom juridiken, aldrig i vardagsetik",
+        "Att den kräver att alla regler ska vara nedskrivna i en helig text",
+        "Att den helt saknar koppling till någon filosof"
+      ],
+      "answer": 0,
+      "explanation": "Pliktetik bedömer om en handling är rätt eller fel utifrån om den följer en moralisk regel eller princip, oavsett vilka konsekvenser handlingen faktiskt får — därför beskrivs den ofta som regelbaserad, till skillnad från konsekvensetikens fokus på utfall."
+    },
+    {
+      "id": "q-rel1-etik-10",
+      "kind": "mc",
+      "topic": "konsekvensetik",
+      "prompt": "Vad är en praktisk svårighet som ofta lyfts fram som kritik mot konsekvensetiska resonemang?",
+      "opener": "Tänk på hur säker man egentligen kan vara på framtiden innan man handlar.",
+      "choices": [
+        "Det kan vara svårt att i förväg veta säkert vilka konsekvenser en handling faktiskt kommer att få, vilket gör den etiska bedömningen osäker",
+        "Konsekvensetik tar aldrig hänsyn till några konsekvenser alls",
+        "Konsekvensetik kräver alltid att man följer en helig text",
+        "Konsekvensetik är identisk med pliktetik i alla avseenden"
+      ],
+      "answer": 0,
+      "explanation": "En vanlig kritik mot konsekvensetiska resonemang är att det kan vara svårt att i förväg veta säkert vilka konsekvenser en handling faktiskt kommer att få, vilket gör den etiska bedömningen osäker och beroende av förutsägelser som kan slå fel."
+    },
+    {
+      "id": "q-rel1-etik-11",
+      "kind": "mc",
+      "topic": "sinnelagsetik",
+      "prompt": "Vilket exempel visar tydligast ett sinnelagsetiskt resonemang?",
+      "opener": "Tänk på vilket alternativ som lägger tonvikten på personens AVSIKT snarare än på resultatet eller en fast regel.",
+      "choices": [
+        "\"Han menade väl när han gav henne rådet, så jag klandrar honom inte trots att det gick fel\"",
+        "\"Handlingen gav flest positiva effekter totalt sett, så den var rätt\"",
+        "\"Regeln säger att man aldrig får ljuga, punkt slut\"",
+        "\"En dygdig person hade aldrig gjort så här\""
+      ],
+      "answer": 0,
+      "explanation": "\"Han menade väl, så jag klandrar honom inte trots att det gick fel\" är ett tydligt exempel på sinnelagsetiskt resonemang, eftersom bedömningen grundas i personens goda avsikt snarare än i det faktiska, dåliga utfallet eller en fast regel."
+    },
+    {
+      "id": "q-rel1-etik-12",
+      "kind": "mc",
+      "topic": "dygdetik",
+      "prompt": "Vilket av dessa argument bygger tydligast på ett dygdetiskt resonemang?",
+      "opener": "Tänk på vilket alternativ som utgår från vilken SORTS PERSON man vill vara, snarare än en regel eller en nyttokalkyl.",
+      "choices": [
+        "\"En modig och ärlig person hade stått upp för sin vän även om det var obekvämt\"",
+        "\"Regeln säger att man ska stå upp för sina vänner, så det måste jag göra\"",
+        "\"Om jag står upp för min vän blir den sammanlagda nyttan störst\"",
+        "\"Jag stod upp för min vän eftersom jag kände att det var rätt i stunden, utan vidare eftertanke\""
+      ],
+      "answer": 0,
+      "explanation": "\"En modig och ärlig person hade stått upp för sin vän\" är ett dygdetiskt resonemang eftersom det utgår från vilka karaktärsdrag (mod, ärlighet) en god person besitter, snarare än från en fast regel eller en beräkning av konsekvenser."
+    },
+    {
+      "id": "q-rel1-etik-13",
+      "kind": "mc",
+      "topic": "pliktetik",
+      "prompt": "Vad innebär det att Kants pliktetik brukar beskrivas som en \"universaliserbarhetstest\"?",
+      "opener": "Tänk på om regeln skulle fungera om ALLA följde den i en liknande situation.",
+      "choices": [
+        "Att man prövar om handlingsregeln bakom en handling skulle kunna fungera som en allmän lag för alla människor i en liknande situation, utan att leda till en motsägelse",
+        "Att alla människor i världen måste rösta om varje enskild moralisk regel",
+        "Att endast regler skrivna på ett universellt språk räknas som giltiga",
+        "Att testet enbart gäller inom naturvetenskapen"
+      ],
+      "answer": 0,
+      "explanation": "Universaliserbarhetstestet innebär att man prövar om handlingsregeln bakom en handling skulle kunna fungera som en allmän lag för alla människor i en liknande situation, utan att leda till en motsägelse eller undergräva sitt eget syfte."
+    },
+    {
+      "id": "q-rel1-etik-14",
+      "kind": "mc",
+      "topic": "konsekvensetik",
+      "prompt": "Vad skiljer regelutilitarism från handlingsutilitarism, som två varianter av konsekvensetik?",
+      "opener": "Tänk på om det är den enskilda handlingen eller en allmän regel som utvärderas.",
+      "choices": [
+        "Handlingsutilitarism bedömer varje enskild handling utifrån dess konsekvenser, medan regelutilitarism i stället frågar vilken allmän regel som, om den följdes generellt, skulle maximera nyttan",
+        "De två varianterna är exakt identiska utan någon skillnad",
+        "Regelutilitarism tar aldrig hänsyn till konsekvenser alls",
+        "Handlingsutilitarism kräver alltid att man följer en helig text"
+      ],
+      "answer": 0,
+      "explanation": "Handlingsutilitarism bedömer varje enskild handling utifrån dess egna konsekvenser, medan regelutilitarism i stället frågar vilken allmän regel som, om den följdes generellt av alla, skulle maximera den sammanlagda nyttan."
+    },
+    {
+      "id": "q-rel1-etik-15",
+      "kind": "mc",
+      "topic": "dygdetik",
+      "prompt": "Vad menar Aristoteles med begreppet \"den gyllene medelvägen\" inom dygdetiken?",
+      "opener": "Tänk på mod som ett exempel: vad är för lite mod, och vad är för mycket?",
+      "choices": [
+        "Att en dygd ofta utgör en balanspunkt mellan två laster — för lite och för mycket av en egenskap — t.ex. är mod balanspunkten mellan feghet och dumdristighet",
+        "Att man alltid ska välja det billigaste alternativet i en situation",
+        "Att alla etiska frågor har exakt en rätt medelstor lösning oavsett sammanhang",
+        "Att dygdetik innebär att aldrig ta ställning i svåra frågor"
+      ],
+      "answer": 0,
+      "explanation": "Aristoteles gyllene medelväg innebär att en dygd ofta utgör en balanspunkt mellan två laster — en brist och ett överflöd av samma egenskap. Mod är till exempel balanspunkten mellan feghet (för lite mod) och dumdristighet (för mycket, obetänksamt mod)."
     }
   ]
 }

@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta energiprincipen, skillnaden mellan förnybara och icke-förnybara energikällor, samt växthuseffekten (naturlig och förstärkt).",
       "opener": "Gå igenom vad som händer med energin, varifrån den kommer, och varför jorden blir varmare.",
       "answer": "Energiprincipen: energi kan varken skapas eller förstöras, bara omvandlas mellan former (t.ex. rörelse-, läges-, kemisk och värmeenergi) · Förnybara energikällor: sol, vind, vatten och biobränsle — förnyas i ungefär samma takt som de används · Icke-förnybara energikällor: kol, olja och naturgas (fossila bränslen) samt uran — tar mycket lång tid att bildas · Naturlig växthuseffekt: atmosfärens gaser håller kvar värme och gör jorden beboelig · Förstärkt växthuseffekt: mänskliga utsläpp av växthusgaser, främst koldioxid från fossila bränslen, ökar halten och förstärker uppvärmningen · Konsekvenser: höjd medeltemperatur, smältande is, stigande havsnivåer och mer extremväder."
+    },
+    {
+      "id": "q-nk1b-energi-9",
+      "kind": "mc",
+      "topic": "energiprincipen och energiomvandlingar",
+      "prompt": "Vad menas med verkningsgrad hos en energiomvandlande anläggning, t.ex. ett kraftverk?",
+      "opener": "Tänk på att ingen energiomvandling är helt förlustfri.",
+      "choices": [
+        "Andelen av den tillförda energin som omvandlas till den avsedda, användbara energiformen, resten blir ofta värme som sprids ut",
+        "Den totala mängden energi anläggningen kan lagra",
+        "Hur många år anläggningen håller innan den måste bytas ut",
+        "Ett mått på hur miljövänlig anläggningen är, oavsett energiomvandling"
+      ],
+      "answer": 0,
+      "explanation": "Verkningsgraden anger hur stor andel av den tillförda energin som omvandlas till den avsedda, användbara energiformen. Resten går ofta förlorad som värme som sprids ut i omgivningen, i enlighet med energiprincipen (energin försvinner inte, men blir mindre användbar)."
+    },
+    {
+      "id": "q-nk1b-energi-10",
+      "kind": "mc",
+      "topic": "energiprincipen och energiomvandlingar",
+      "prompt": "När bensin förbränns i en bilmotor, vilken energiomvandling sker huvudsakligen?",
+      "opener": "Tänk på vad som finns lagrat i bränslet innan det antänds.",
+      "choices": [
+        "Kemisk energi omvandlas till rörelseenergi (och värme)",
+        "Rörelseenergi omvandlas direkt till kemisk energi",
+        "Strålningsenergi omvandlas till kemisk energi",
+        "Lägesenergi omvandlas direkt till elektrisk energi"
+      ],
+      "answer": 0,
+      "explanation": "Bensinens kemiska energi omvandlas vid förbränningen till rörelseenergi som driver bilen framåt, samt en stor del värmeenergi. Det är alltså inte rörelseenergi eller strålningsenergi som är utgångspunkten."
+    },
+    {
+      "id": "q-nk1b-energi-11",
+      "kind": "mc",
+      "topic": "energikällor",
+      "prompt": "Varför räknas kärnkraft varken som en förnybar eller en fossil energikälla?",
+      "opener": "Tänk på tidsperspektivet för hur uran respektive fossila bränslen bildas.",
+      "choices": [
+        "Uran är ett begränsat bränsle som bryts och tar slut, men det är inte ett fossilt bränsle bildat av organiskt material under miljontals år",
+        "Kärnkraft är i själva verket en förnybar energikälla",
+        "Kärnkraft är i själva verket ett fossilt bränsle",
+        "Kärnkraft använder inget bränsle alls"
+      ],
+      "answer": 0,
+      "explanation": "Uran är ett begränsat, brytbart bränsle precis som fossila bränslen, men det är inte bildat av organiskt material under miljontals år som kol, olja och naturgas. Kärnkraft hamnar därför i en egen kategori, varken förnybar eller fossil."
+    },
+    {
+      "id": "q-nk1b-energi-12",
+      "kind": "mc",
+      "topic": "energikällor",
+      "prompt": "Vad är en fördel med bioenergi (t.ex. förbränning av skogsflis) jämfört med fossila bränslen, sett till kolets kretslopp?",
+      "opener": "Tänk på hur gammalt kolet är i respektive bränsletyp.",
+      "choices": [
+        "Den koldioxid som frigörs vid förbränning har relativt nyligen tagits upp av växande biomassa, till skillnad från fossilt kol som legat bundet under miljontals år",
+        "Bioenergi släpper aldrig ut någon koldioxid alls vid förbränning",
+        "Bioenergi kräver aldrig något bränsle att förnyas",
+        "Bioenergi är alltid billigare att producera än fossila bränslen"
+      ],
+      "answer": 0,
+      "explanation": "Koldioxiden som frigörs vid förbränning av bioenergi togs nyligen upp av växande biomassa genom fotosyntes, vilket gör kretsloppet snabbare och mer balanserat jämfört med fossila bränslen, vars kol legat bundet under miljontals år innan det plötsligt frigörs."
+    },
+    {
+      "id": "q-nk1b-energi-13",
+      "kind": "mc",
+      "topic": "växthuseffekten",
+      "prompt": "Vilken växthusgas har starkast uppvärmningseffekt per molekyl, men förekommer i mycket mindre mängd i atmosfären än koldioxid?",
+      "opener": "Tänk på skillnaden mellan hur KRAFTFULL varje molekyl är, och hur MYCKET det finns av gasen.",
+      "choices": [
+        "Metan",
+        "Syre",
+        "Kväve",
+        "Argon"
+      ],
+      "answer": 0,
+      "explanation": "Metan har en betydligt starkare uppvärmningseffekt per molekyl än koldioxid, men förekommer i mycket mindre mängd i atmosfären, vilket gör att koldioxid ändå står för den största delen av den totala förstärkta växthuseffekten."
+    },
+    {
+      "id": "q-nk1b-energi-14",
+      "kind": "mc",
+      "topic": "klimatförändringar",
+      "prompt": "Vad är en av de förväntade konsekvenserna av smältande glaciärer och landis för havsnivån globalt?",
+      "opener": "Tänk på vad som händer med havets volym när is som legat på land smälter och rinner ut i havet.",
+      "choices": [
+        "Havsnivån stiger, vilket hotar låglänta kustområden och önationer",
+        "Havsnivån sjunker globalt",
+        "Havsnivån förblir helt opåverkad",
+        "Effekten är enbart lokal och märks aldrig på andra håll i världen"
+      ],
+      "answer": 0,
+      "explanation": "När glaciärer och landis smälter tillförs stora mängder vatten till haven, vilket bidrar till stigande havsnivåer och hotar låglänta kustområden och önationer."
+    },
+    {
+      "id": "q-nk1b-energi-15",
+      "kind": "mc",
+      "topic": "klimatförändringar",
+      "prompt": "Vad innebär Parisavtalet, som antogs 2015?",
+      "opener": "Tänk på den specifika temperaturgränsen som ofta nämns i klimatnyheter.",
+      "choices": [
+        "Ett internationellt klimatavtal där länder enats om målet att begränsa den globala uppvärmningen till väl under 2 grader, helst 1,5 grader, jämfört med förindustriell nivå",
+        "Ett avtal som förbjuder all användning av fossila bränslen omedelbart",
+        "Ett avtal som enbart gäller EU:s medlemsländer",
+        "Ett avtal om att bygga fler kärnkraftverk i Europa"
+      ],
+      "answer": 0,
+      "explanation": "Parisavtalet 2015 samlade länder kring målet att begränsa den globala uppvärmningen till väl under 2 grader, med en strävan att hålla den under 1,5 grader, jämfört med förindustriell nivå."
     }
   ]
 }

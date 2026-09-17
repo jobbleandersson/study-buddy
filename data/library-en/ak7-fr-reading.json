@@ -112,6 +112,111 @@
       "prompt": "Which strategies help you understand a simple French text at grade 7 level?",
       "opener": "You don't need to understand every word to understand the whole.",
       "answer": "Look for familiar patterns: \"je m'appelle\" (introduction), \"j'ai ... ans\" (age), \"j'habite à\" (place of residence), \"le samedi/dimanche\" (days of the week with a definite article). Guess unknown words from context instead of looking up every word. Read the text once for the overall gist and again for details. Look for verbs in the present tense (joue, mange, se repose) to understand what's happening, and possessive words (sa, ses, elle) to understand who's doing what."
+    },
+    {
+      "id": "q-fr7-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"Je m'appelle Emma et j'ai douze ans. J'habite à Marseille avec mes parents et mon frère. Mon frère s'appelle Paul et il a quinze ans. Nous avons aussi un chien ; il s'appelle Bruno.\"\n\nHow old is Emma?",
+      "opener": "Read the text about Emma and her family.",
+      "choices": [
+        "Twelve years old",
+        "Fifteen years old",
+        "Ten years old",
+        "Fourteen years old"
+      ],
+      "answer": 0,
+      "explanation": "\"J'ai douze ans\" means \"I am twelve years old\"."
+    },
+    {
+      "id": "q-fr7-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Who is Paul?",
+      "opener": "Look for the sentence about \"mon frère\".",
+      "choices": [
+        "Emma's brother",
+        "Emma's dad",
+        "Emma's dog",
+        "Emma's teacher"
+      ],
+      "answer": 0,
+      "explanation": "\"Mon frère s'appelle Paul\" means \"my brother's name is Paul\"."
+    },
+    {
+      "id": "q-fr7-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What is the dog's name in the text?",
+      "opener": "Look for the last sentence about the family's pet.",
+      "choices": [
+        "Bruno",
+        "Paul",
+        "Emma",
+        "Marc"
+      ],
+      "answer": 0,
+      "explanation": "\"Nous avons aussi un chien ; il s'appelle Bruno\" means \"we also have a dog; his name is Bruno\"."
+    },
+    {
+      "id": "q-fr7-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "New text: \"Le week-end, Emma aime bien nager. Le samedi, elle retrouve son amie Lisa à la piscine. Ensuite, elles vont faire du shopping ensemble. Le dimanche, Emma reste à la maison et elle lit un livre.\"\n\nWhat does Emma like to do on the weekend?",
+      "opener": "Look for the first sentence: \"aime bien nager\".",
+      "choices": [
+        "Swim",
+        "Read",
+        "Shop",
+        "Sleep"
+      ],
+      "answer": 0,
+      "explanation": "\"Emma aime bien nager\" means \"Emma likes to swim\"."
+    },
+    {
+      "id": "q-fr7-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. Who does Emma meet on Saturday?",
+      "opener": "Look for \"elle retrouve son amie...\".",
+      "choices": [
+        "Lisa",
+        "Paul",
+        "Bruno",
+        "Her teacher"
+      ],
+      "answer": 0,
+      "explanation": "\"Le samedi, elle retrouve son amie Lisa\" means \"on Saturday she meets her friend Lisa\"."
+    },
+    {
+      "id": "q-fr7-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What do Emma and Lisa do after swimming?",
+      "opener": "Look for the word \"ensuite\" (afterward).",
+      "choices": [
+        "Go shopping together",
+        "Have dinner together",
+        "Go straight home",
+        "Play soccer"
+      ],
+      "answer": 0,
+      "explanation": "\"Ensuite, elles vont faire du shopping ensemble\" means \"afterward they go shopping together\"."
+    },
+    {
+      "id": "q-fr7-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What does Emma do on Sunday?",
+      "opener": "Look for the last sentence about Sunday.",
+      "choices": [
+        "Stays home and reads a book",
+        "Goes swimming again",
+        "Meets Lisa again",
+        "Goes clothes shopping"
+      ],
+      "answer": 0,
+      "explanation": "\"Le dimanche, Emma reste à la maison et elle lit un livre\" means \"on Sunday Emma stays home and reads a book\"."
     }
   ]
 }

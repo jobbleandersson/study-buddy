@@ -123,6 +123,111 @@
       "prompt": "Summarise what characterises a strong expository speech.",
       "opener": "Think of structure, content and adaptation as three separate parts.",
       "answer": "Clear structure: an introduction with a question, clear main sections, a summarising conclusion · Verbal signal words (\"firstly\", \"in summary\") guide the listener · Concrete evidence (sources, statistics) strengthens credibility more than pure opinion · Counterarguments are actively raised and addressed objectively, strengthening ethos · Audience adaptation: technical language, examples and level of explanation are adjusted to the audience's prior knowledge, while the conclusion stays the same · Especially important orally: the listener cannot flip back, so repetition and clarity matter more than in writing."
+    },
+    {
+      "id": "q-sv3-muntligt-9",
+      "kind": "mc",
+      "topic": "the speech's structure",
+      "prompt": "What is a suitable function of a short summary in the middle of a longer speech?",
+      "opener": "Think about what the listener needs before the next section begins.",
+      "choices": [
+        "To repeat the main points so far and help the listener keep up before the next section begins",
+        "To replace the need for a conclusion entirely",
+        "To lengthen the speech for no particular reason",
+        "To introduce entirely new material with no connection to what has been said"
+      ],
+      "answer": 0,
+      "explanation": "A short summary in the middle of a speech repeats the main points and helps the listener orient themselves before the next section begins, which is especially important since the listener cannot flip back. It does not replace the need for a summarising conclusion at the end."
+    },
+    {
+      "id": "q-sv3-muntligt-10",
+      "kind": "mc",
+      "topic": "evidence and counterarguments",
+      "prompt": "If a speaker presents statistics to support their thesis, what should the speaker also do to strengthen credibility further?",
+      "opener": "Think about what allows the audience to trust the figures.",
+      "choices": [
+        "State where the statistics come from, e.g. which organisation or study",
+        "Avoid mentioning the source to seem more confident",
+        "Mention the statistics only once, with no context",
+        "Read out as many figures as possible without explanation"
+      ],
+      "answer": 0,
+      "explanation": "Stating where the statistics come from lets the audience assess the source's credibility, which strengthens the speech's ethos. Hiding the source or simply reeling off figures without explanation instead makes the statistics harder to trust and understand."
+    },
+    {
+      "id": "q-sv3-muntligt-11",
+      "kind": "mc",
+      "topic": "audience adaptation",
+      "prompt": "A speaker notices partway through a speech that the audience looks confused at a particular piece of jargon. What is an appropriate response?",
+      "opener": "Think about what happens to understanding if the confusion is not addressed.",
+      "choices": [
+        "Briefly explain or define the term before moving on",
+        "Ignore the audience's reaction and continue as planned",
+        "Stop the speech entirely",
+        "Change the subject completely"
+      ],
+      "answer": 0,
+      "explanation": "Briefly explaining a piece of jargon that is causing confusion helps the audience keep up without needing to stop the speech or change the subject. Ignoring the audience's reaction risks losing the listeners for the rest of the speech."
+    },
+    {
+      "id": "q-sv3-muntligt-12",
+      "kind": "mc",
+      "topic": "the speech's structure",
+      "prompt": "Why is a clear \"through line\" especially important in a spoken speech compared with a written text?",
+      "opener": "Think about what a reader can do that a listener cannot.",
+      "choices": [
+        "Because the listener cannot flip back and reread a passage that is unclear",
+        "It is more important in writing, not when speaking",
+        "A through line is only needed in works of fiction",
+        "It does not matter in any context"
+      ],
+      "answer": 0,
+      "explanation": "A reader can flip back and reread an unclear passage, but a listener must understand immediately when something is said, which makes a clear through line especially important in oral presentation. The need applies to all kinds of speeches, not only fiction."
+    },
+    {
+      "id": "q-sv3-muntligt-13",
+      "kind": "mc",
+      "topic": "evidence and counterarguments",
+      "prompt": "What is the difference between addressing a counterargument and simply mentioning that it exists?",
+      "opener": "Think about whether the speaker actually explains why their own conclusion still holds.",
+      "choices": [
+        "Addressing it means actively explaining why one's own position still holds, not just noting that others think differently",
+        "There is no difference at all",
+        "Addressing it means changing your opinion entirely",
+        "Mentioning a counterargument is always enough to strengthen credibility"
+      ],
+      "answer": 0,
+      "explanation": "Addressing a counterargument means actively explaining why your own position still holds despite the objection, which is more convincing than simply stating that others think differently without further explanation."
+    },
+    {
+      "id": "q-sv3-muntligt-14",
+      "kind": "mc",
+      "topic": "audience adaptation",
+      "prompt": "Which of the following is a sign of good adaptation to an audience with mixed prior knowledge?",
+      "opener": "Think about how to meet both those who already know a lot and those who do not.",
+      "choices": [
+        "Briefly explaining key terms the first time they are used, without becoming overly obvious for those who already know them",
+        "Assuming everyone in the audience is already an expert",
+        "Never explaining any terms at all",
+        "Only aiming the speech at the least knowledgeable person in the room"
+      ],
+      "answer": 0,
+      "explanation": "Briefly explaining key terms the first time they appear makes the speech accessible to those with less prior knowledge, without becoming tediously obvious for those who already understand. Only aiming at the least knowledgeable person, or assuming everyone is an expert, risks losing parts of the audience."
+    },
+    {
+      "id": "q-sv3-muntligt-15",
+      "kind": "mc",
+      "topic": "the speech's structure",
+      "prompt": "What should a speaker do if they notice time is running out partway through a speech?",
+      "opener": "Think about which part of the speech is most important for the listener to actually hear.",
+      "choices": [
+        "Quickly prioritise reaching a clear summary and conclusion, even if it means cutting the middle section short",
+        "Continue at exactly the same pace and risk never reaching the conclusion",
+        "End the speech mid-sentence without warning",
+        "Start the speech over from the beginning"
+      ],
+      "answer": 0,
+      "explanation": "If time is running out, the speaker should prioritise reaching a clear summary and conclusion, since that is what is most likely to stay with the listener. Continuing at an unchanged pace risks the speech being cut off before the conclusion is even reached."
     }
   ]
 }

@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta grundbegreppen inom ekologi: producent, konsument, nedbrytare, näringskedja, näringsväv och ekosystem.",
       "opener": "Gå igenom vem som äter vem och hur allt hänger ihop.",
       "answer": "Producent: tillverkar egen näring genom fotosyntes, t.ex. växter · Konsument: äter andra organismer — förstahandskonsument äter växter, andrahandskonsument äter andra djur · Nedbrytare: bryter ner dött material och återför näring till kretsloppet, t.ex. svampar och bakterier · Näringskedja: visar vem som äter vem i en rak följd, t.ex. gräs → kanin → räv · Näringsväv: flera sammankopplade näringskedjor som visar det verkliga, mer komplexa mönstret · Population: alla individer av samma art i ett område · Ekosystem: alla levande organismer i ett område tillsammans med den icke-levande miljön (vatten, mark, klimat) · Kretslopp: ämnen som kol, kväve och vatten återanvänds ständigt i naturen."
+    },
+    {
+      "id": "q-bio-eko-9",
+      "kind": "mc",
+      "topic": "näringskedjor och näringsvävar",
+      "prompt": "Vad kallas en modell som visar flera sammankopplade näringskedjor i ett ekosystem, där organismer äter flera olika saker?",
+      "opener": "En enda rak kedja räcker sällan för att visa verkligheten.",
+      "choices": [
+        "En näringsväv",
+        "En näringskedja",
+        "Ett kretslopp",
+        "En population"
+      ],
+      "answer": 0,
+      "explanation": "En näringsväv visar hur flera näringskedjor hänger ihop, eftersom de flesta organismer äter mer än en sorts föda och äts av mer än en sorts rovdjur."
+    },
+    {
+      "id": "q-bio-eko-10",
+      "kind": "mc",
+      "topic": "producenter, konsumenter och nedbrytare",
+      "prompt": "I näringskedjan alger → djurplankton → fisk → säl, vad är fisken?",
+      "opener": "Räkna hur många steg bort fisken är från producenten.",
+      "choices": [
+        "Producent",
+        "Förstahandskonsument",
+        "Andrahandskonsument",
+        "Nedbrytare"
+      ],
+      "answer": 2,
+      "explanation": "Algerna är producent, djurplanktonet är förstahandskonsument (äter alger), och fisken som äter djurplankton blir andrahandskonsument. Säl, som äter fisken, blir tredjehandskonsument."
+    },
+    {
+      "id": "q-bio-eko-11",
+      "kind": "mc",
+      "topic": "kretslopp",
+      "prompt": "Vilket kretslopp beskriver hur ett ämne tas upp av växter, förs genom näringskedjan och återförs till marken eller luften via nedbrytare och vissa bakterier — och behövs bland annat för att bygga proteiner?",
+      "opener": "Vilket grundämne är en central byggsten i aminosyror och DNA?",
+      "choices": [
+        "Kvävets kretslopp",
+        "Kolets kretslopp",
+        "Vattnets kretslopp",
+        "Syrets kretslopp"
+      ],
+      "answer": 0,
+      "explanation": "Kväve är en central beståndsdel i proteiner och DNA. Kvävets kretslopp beskriver hur kväve tas upp av växter (ofta med hjälp av bakterier), förs genom näringskedjan och återförs till marken och luften via nedbrytare och andra bakterier."
+    },
+    {
+      "id": "q-bio-eko-12",
+      "kind": "mc",
+      "topic": "ekosystem och populationer",
+      "prompt": "Vad skiljer en population från ett ekosystem?",
+      "opener": "Handlar det ena om EN art, och det andra om HELHETEN?",
+      "choices": [
+        "En population omfattar bara en art, medan ett ekosystem omfattar alla arter i området tillsammans med den icke-levande miljön",
+        "En population och ett ekosystem är exakt samma sak",
+        "Ett ekosystem omfattar bara växter",
+        "En population finns bara i vatten"
+      ],
+      "answer": 0,
+      "explanation": "En population är alla individer av EN art i ett område, medan ett ekosystem omfattar alla arter (alla populationer) tillsammans med den icke-levande miljön, som vatten, mark och klimat."
+    },
+    {
+      "id": "q-bio-eko-13",
+      "kind": "mc",
+      "topic": "ekosystem och populationer",
+      "prompt": "Vad händer ofta med en bytesdjurspopulation om antalet rovdjur i området ökar kraftigt?",
+      "opener": "Fler rovdjur betyder fler munnar som ska mättas av samma bytespopulation.",
+      "choices": [
+        "Bytesdjurspopulationen minskar ofta eftersom fler individer blir uppätna",
+        "Bytesdjurspopulationen ökar alltid oavsett hur många rovdjur det finns",
+        "Bytesdjuren blir automatiskt producenter",
+        "Ingenting förändras alls"
+      ],
+      "answer": 0,
+      "explanation": "Fler rovdjur innebär att fler bytesdjur äts upp, vilket ofta minskar bytespopulationen — ett exempel på hur populationer i ett ekosystem påverkar varandra."
+    },
+    {
+      "id": "q-bio-eko-14",
+      "kind": "worked",
+      "topic": "kretslopp",
+      "prompt": "Förklara kolets kretslopp genom att följa en kolatom från luften, genom en växt och en konsument, och tillbaka till luften igen.",
+      "opener": "Samma typ av \"följ ämnet\"-resonemang som i exemplet om vattnets kretslopp.",
+      "answer": "Kolatomen tas upp som koldioxid av en växt vid fotosyntes och binds in i druvsocker. En konsument äter växten och tar upp kolet i sin kropp. Kolet frigörs sedan tillbaka till luften som koldioxid när konsumenten andas eller när materialet bryts ner av nedbrytare.",
+      "steps": [
+        "Kolatomen finns till en början som koldioxid (CO2) i atmosfären.",
+        "En växt tar upp koldioxiden vid fotosyntes och bygger in kolet i druvsocker (glukos).",
+        "Ett djur äter växten, och kolet blir en del av djurets kropp, till exempel i muskler eller fett.",
+        "När djuret andas frigörs en del av kolet tillbaka till luften som koldioxid genom cellandningen.",
+        "När växten eller djuret till slut dör bryts resten ner av nedbrytare, vilket frigör ytterligare koldioxid till atmosfären — och kretsloppet börjar om."
+      ]
+    },
+    {
+      "id": "q-bio-eko-15",
+      "kind": "mc",
+      "topic": "producenter, konsumenter och nedbrytare",
+      "prompt": "Vad skulle troligen hända med ett ekosystem om alla nedbrytare plötsligt försvann?",
+      "opener": "Vem är det som normalt gör näringsämnena tillgängliga för producenterna igen?",
+      "choices": [
+        "Dött organiskt material skulle hopa sig och näringsämnen skulle sluta återföras till producenterna",
+        "Inget skulle förändras eftersom nedbrytare inte har någon viktig funktion",
+        "Producenterna skulle omedelbart dö ut",
+        "Konsumenterna skulle bli producenter"
+      ],
+      "answer": 0,
+      "explanation": "Utan nedbrytare skulle dött material inte brytas ner, näringsämnen skulle bli otillgängliga för producenterna, och hela kretsloppet skulle stanna av — ett tecken på hur central nedbrytarnas roll är."
     }
   ]
 }

@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta strategin för att lösa polynomekvationer av högre grad med faktorsatsen och polynomdivision.",
       "opener": "Från att gissa ett nollställe till att bryta ner polynomet steg för steg.",
       "answer": "Faktorsatsen: $p(a)=0 \\Leftrightarrow (x-a)$ är en faktor i $p(x)$ · Möjliga rationella nollställen (om högstagradskoefficienten är 1) är delare till konstanttermen · Testa dessa delare genom insättning tills $p(a)=0$ hittas · Utför polynomdivision $\\dfrac{p(x)}{x-a}$ för att sänka graden ett steg · Upprepa tills kvoten är högst av grad 2, faktorisera den (t.ex. med pq-formeln eller konjugatregeln) · Ett polynom av grad $n$ har som mest $n$ reella nollställen"
+    },
+    {
+      "id": "q-ma3-polynom-9",
+      "kind": "mc",
+      "topic": "faktorsatsen",
+      "prompt": "Polynomet är $p(x) = x^3-3x^2-x+3$. Vad är $p(1)$?",
+      "opener": "Sätt in $x=1$ och räkna ut varje term för sig.",
+      "choices": [
+        "$0$",
+        "$3$",
+        "$-1$",
+        "$4$"
+      ],
+      "answer": 0,
+      "explanation": "$p(1)=1^3-3\\cdot1^2-1+3=1-3-1+3=0$. Eftersom $p(1)=0$ är $x=1$ ett nollställe."
+    },
+    {
+      "id": "q-ma3-polynom-10",
+      "kind": "mc",
+      "topic": "faktorsatsen",
+      "prompt": "Eftersom $p(1)=0$ för $p(x)=x^3-3x^2-x+3$ (från föregående uppgift), vilken faktor vet vi finns i $p(x)$?",
+      "opener": "Faktorsatsen kopplar ett nollställe direkt till en faktor.",
+      "choices": [
+        "$(x-1)$",
+        "$(x+1)$",
+        "$(x-3)$",
+        "$(x+3)$"
+      ],
+      "answer": 0,
+      "explanation": "Enligt faktorsatsen ger $p(1)=0$ att $(x-1)$ är en faktor i $p(x)$."
+    },
+    {
+      "id": "q-ma3-polynom-11",
+      "kind": "mc",
+      "topic": "rationella nollställen",
+      "prompt": "Vilka tal kan vara rationella nollställen till $p(x)=x^3+2x^2-5x-6$ (högstagradskoefficient 1)?",
+      "opener": "Möjliga rationella nollställen är delare till konstanttermen.",
+      "choices": [
+        "$\\pm1,\\pm2,\\pm3,\\pm6$",
+        "$\\pm1,\\pm5,\\pm6$",
+        "Endast $\\pm1$",
+        "$\\pm2,\\pm5$"
+      ],
+      "answer": 0,
+      "explanation": "Konstanttermen är $-6$, och dess delare är $\\pm1,\\pm2,\\pm3,\\pm6$ — det är dessa tal som kan vara rationella nollställen när högstagradskoefficienten är 1."
+    },
+    {
+      "id": "q-ma3-polynom-12",
+      "kind": "mc",
+      "topic": "polynomdivision",
+      "prompt": "Utför polynomdivisionen $\\dfrac{x^3-3x^2-x+3}{x-1}$.",
+      "opener": "Dividera term för term, med utgångspunkt i att $x=1$ är ett känt nollställe.",
+      "choices": [
+        "$x^2-2x-3$",
+        "$x^2+2x-3$",
+        "$x^2-2x+3$",
+        "$x^2-4x-3$"
+      ],
+      "answer": 0,
+      "explanation": "Divisionen ger $x^2-2x-3$. Kontroll: $(x-1)(x^2-2x-3)=x^3-2x^2-3x-x^2+2x+3=x^3-3x^2-x+3$, vilket stämmer med täljaren."
+    },
+    {
+      "id": "q-ma3-polynom-13",
+      "kind": "mc",
+      "topic": "faktorsatsen",
+      "prompt": "Med vetskapen att $\\dfrac{p(x)}{x-1}=x^2-2x-3$ för $p(x)=x^3-3x^2-x+3$, vilka är samtliga nollställen?",
+      "opener": "Faktorisera andragradsuttrycket $x^2-2x-3$.",
+      "choices": [
+        "$x=1,\\ x=3,\\ x=-1$",
+        "$x=1,\\ x=-3,\\ x=1$",
+        "$x=-1,\\ x=-3,\\ x=1$",
+        "$x=1,\\ x=2,\\ x=3$"
+      ],
+      "answer": 0,
+      "explanation": "$x^2-2x-3=(x-3)(x+1)$ eftersom $-3\\cdot1=-3$ och $-3+1=-2$. Tillsammans med det kända nollstället $x=1$ blir nollställena $x=1,\\ x=3,\\ x=-1$."
+    },
+    {
+      "id": "q-ma3-polynom-14",
+      "kind": "mc",
+      "topic": "rationella nollställen",
+      "prompt": "Testa om $x=2$ är ett nollställe till $p(x)=x^3-4x^2+x+6$.",
+      "opener": "Sätt in $x=2$ i uttrycket och räkna ut resultatet.",
+      "choices": [
+        "Ja, $p(2)=0$",
+        "Nej, $p(2)=6$",
+        "Nej, $p(2)=-6$",
+        "Nej, $p(2)=2$"
+      ],
+      "answer": 0,
+      "explanation": "$p(2)=2^3-4\\cdot2^2+2+6=8-16+2+6=0$. Alltså är $x=2$ ett nollställe till polynomet."
+    },
+    {
+      "id": "q-ma3-polynom-15",
+      "kind": "mc",
+      "topic": "faktorsatsen",
+      "prompt": "Ett polynom av grad 4 har som mest hur många reella nollställen?",
+      "opener": "Tänk på antalet förstagradsfaktorer som ryms i ett polynom av den graden.",
+      "choices": [
+        "$4$",
+        "$3$",
+        "$5$",
+        "Oändligt många"
+      ],
+      "answer": 0,
+      "explanation": "Ett polynom av grad 4 kan skrivas som en produkt av som mest fyra förstagradsfaktorer, och har därför som mest fyra reella nollställen."
     }
   ]
 }

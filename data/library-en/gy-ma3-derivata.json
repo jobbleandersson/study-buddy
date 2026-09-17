@@ -123,6 +123,111 @@
       "prompt": "Summarise the definition of the derivative and the most important differentiation rules.",
       "opener": "Think limit, power rule, sum rule and the interpretation as rate of change.",
       "answer": "$f'(x) = \\lim_{h \\to 0} \\dfrac{f(x+h)-f(x)}{h}$ · Power rule: $\\dfrac{d}{dx}x^n = nx^{n-1}$ · Constant rule: the derivative of a constant is $0$ · Sum rule: differentiate each term separately, $\\dfrac{d}{dx}\\big(f(x)+g(x)\\big) = f'(x)+g'(x)$ · Constant factor: $\\dfrac{d}{dx}\\big(k \\cdot f(x)\\big) = k \\cdot f'(x)$ · $f'(a)$ = the tangent's slope at $x=a$ = the instantaneous rate of change at $x=a$"
+    },
+    {
+      "id": "q-ma3-derivata-9",
+      "kind": "mc",
+      "topic": "differentiation rules",
+      "prompt": "Differentiate $f(x) = 7x^2$.",
+      "opener": "The power rule: multiply by the exponent and reduce the exponent by one.",
+      "choices": [
+        "$f'(x) = 14x$",
+        "$f'(x) = 7x$",
+        "$f'(x) = 14x^2$",
+        "$f'(x) = 7x^2$"
+      ],
+      "answer": 0,
+      "explanation": "The power rule gives $\\frac{d}{dx}(7x^2) = 7\\cdot2x^{2-1} = 14x$. Simply swapping the exponent without multiplying by the coefficient 2 (answer B) misses a step."
+    },
+    {
+      "id": "q-ma3-derivata-10",
+      "kind": "mc",
+      "topic": "differentiation rules",
+      "prompt": "Differentiate $f(x) = x^6 - 3x^2 + 4x$.",
+      "opener": "Differentiate term by term.",
+      "choices": [
+        "$f'(x) = 6x^5 - 6x + 4$",
+        "$f'(x) = 6x^5 - 3x + 4$",
+        "$f'(x) = x^5 - 6x + 4$",
+        "$f'(x) = 6x^5 - 6x$"
+      ],
+      "answer": 0,
+      "explanation": "$\\frac{d}{dx}(x^6)=6x^5$, $\\frac{d}{dx}(-3x^2)=-6x$, and $\\frac{d}{dx}(4x)=4$. The sum is $f'(x)=6x^5-6x+4$."
+    },
+    {
+      "id": "q-ma3-derivata-11",
+      "kind": "mc",
+      "topic": "definition of the derivative",
+      "prompt": "If $f(x)=x^2$, what is $f(x+h)-f(x)$?",
+      "opener": "Expand $(x+h)^2$ and subtract $x^2$.",
+      "choices": [
+        "$2xh+h^2$",
+        "$h^2$",
+        "$2xh$",
+        "$x^2+h^2$"
+      ],
+      "answer": 0,
+      "explanation": "$(x+h)^2-x^2 = x^2+2xh+h^2-x^2 = 2xh+h^2$. This expression is then divided by $h$ to form the difference quotient in the derivative's definition."
+    },
+    {
+      "id": "q-ma3-derivata-12",
+      "kind": "mc",
+      "topic": "rate of change",
+      "prompt": "A distance is given by $s(t) = t^3 - 2t$ (metres, $t$ in seconds). What is the speed at $t=1$?",
+      "opener": "Differentiate $s(t)$ and substitute $t=1$.",
+      "choices": [
+        "$1$ m/s",
+        "$3$ m/s",
+        "$-1$ m/s",
+        "$2$ m/s"
+      ],
+      "answer": 0,
+      "explanation": "$s'(t) = 3t^2-2$. At $t=1$: $s'(1)=3\\cdot1-2=1$ m/s."
+    },
+    {
+      "id": "q-ma3-derivata-13",
+      "kind": "mc",
+      "topic": "differentiation rules",
+      "prompt": "What is $\\dfrac{d}{dx}\\left(\\sqrt{x}\\right)$?",
+      "opener": "Rewrite $\\sqrt{x}$ as $x^{1/2}$ before using the power rule.",
+      "choices": [
+        "$\\dfrac{1}{2\\sqrt{x}}$",
+        "$\\dfrac{\\sqrt{x}}{2}$",
+        "$\\dfrac{1}{\\sqrt{x}}$",
+        "$2\\sqrt{x}$"
+      ],
+      "answer": 0,
+      "explanation": "$\\sqrt{x}=x^{1/2}$, so $\\frac{d}{dx}x^{1/2} = \\frac12 x^{-1/2} = \\dfrac{1}{2\\sqrt{x}}$."
+    },
+    {
+      "id": "q-ma3-derivata-14",
+      "kind": "mc",
+      "topic": "definition of the derivative",
+      "prompt": "The tangent to the curve $y=f(x)$ at the point $x=a$ has slope $f'(a)=3$. What does this mean?",
+      "opener": "Think about what the tangent's slope tells you about the curve's behaviour near $x=a$.",
+      "choices": [
+        "The curve rises by about 3 units in $y$ for every unit in $x$ near $x=a$",
+        "The curve has a maximum at $x=a$",
+        "The value of the curve at $x=a$ is $3$",
+        "The curve is horizontal at $x=a$"
+      ],
+      "answer": 0,
+      "explanation": "A slope of $f'(a)=3$ means the curve locally rises by about 3 units in $y$ for every unit it moves in $x$ near $x=a$. The value of the curve at $x=a$ is given by $f(a)$, not $f'(a)$, and a positive slope rules out a maximum or a horizontal tangent there."
+    },
+    {
+      "id": "q-ma3-derivata-15",
+      "kind": "mc",
+      "topic": "differentiation rules",
+      "prompt": "Differentiate $f(x) = \\dfrac{5}{x^3}$.",
+      "opener": "Rewrite the expression as $5x^{-3}$ before differentiating.",
+      "choices": [
+        "$-\\dfrac{15}{x^4}$",
+        "$-\\dfrac{15}{x^3}$",
+        "$\\dfrac{15}{x^4}$",
+        "$-\\dfrac{5}{x^4}$"
+      ],
+      "answer": 0,
+      "explanation": "Write $f(x)=5x^{-3}$. The power rule gives $f'(x)=5\\cdot(-3)x^{-4}=-15x^{-4}=-\\dfrac{15}{x^4}$."
     }
   ]
 }

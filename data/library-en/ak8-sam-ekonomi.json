@@ -125,6 +125,111 @@
       "prompt": "Summarise the basics of the economy of society: the circular flow, taxes and welfare, price formation, the labour market and the business cycle.",
       "opener": "From the circular flow's actors to the swings in the economy.",
       "answer": "The economic circular flow: households sell labour and receive wages · households consume from businesses · households and businesses pay tax · the public sector pays for welfare, benefits and public-sector wages · banks channel savings and loans · Taxes: direct (income tax, corporate tax) and indirect (VAT, excise duties) · fund schools, healthcare, social care, social insurance and infrastructure · Supply and demand: the price is formed where buyers and sellers meet · increased demand with unchanged supply → higher price · large supply and weak demand → lower price · The labour market: trade unions represent employees, employer organisations represent employers, together the labour market's parties · negotiations often lead to a collective agreement · Boom: high demand, increased production, more new hires, low unemployment · Recession: falling demand and production, fewer investments, rising unemployment · the economy swings between these states in business-cycle fluctuations."
+    },
+    {
+      "id": "q-sam8-eko-9",
+      "kind": "mc",
+      "topic": "taxes and welfare",
+      "prompt": "What is a tax system called in which someone who earns more pays a higher share of their income in tax?",
+      "opener": "The word refers to the tax share increasing along with income.",
+      "choices": [
+        "Regressive taxation",
+        "A flat tax",
+        "VAT-based taxation",
+        "Progressive taxation"
+      ],
+      "answer": 3,
+      "explanation": "Progressive taxation means the tax rate rises with income, so someone who earns more pays a higher share in tax, which applies among other things to Swedish national income tax. A flat tax instead has the same rate regardless of income, and regressive taxation means the share falls as income rises."
+    },
+    {
+      "id": "q-sam8-eko-10",
+      "kind": "mc",
+      "topic": "the labour market and its parties",
+      "prompt": "What is a collective agreement?",
+      "opener": "The agreement covers a whole group of employees, not just one individual.",
+      "choices": [
+        "An agreement that only applies to a single employee",
+        "A law the Riksdag passes about wages",
+        "An agreement between two countries about trade",
+        "An agreement negotiated between a trade union and an employer about wages and other terms of employment"
+      ],
+      "answer": 3,
+      "explanation": "A collective agreement is an agreement a trade union negotiates with an employer or employer organisation, regulating wages, working hours and other terms for a whole group of employees. It is therefore not a law passed by the Riksdag, not an agreement between countries, and it covers more than a single employee."
+    },
+    {
+      "id": "q-sam8-eko-11",
+      "kind": "mc",
+      "topic": "supply and demand",
+      "prompt": "What usually happens to the price of a good if supply rises sharply while demand is unchanged?",
+      "opener": "More sellers want to get rid of goods, but the same number of buyers.",
+      "choices": [
+        "The price tends to rise",
+        "The price is not affected at all",
+        "The good automatically becomes illegal to sell",
+        "The price tends to fall"
+      ],
+      "answer": 3,
+      "explanation": "When the supply of a good increases without more people wanting to buy it, sellers usually need to lower the price to get rid of the goods — the price therefore tends to fall. The idea that the price would rise or be completely unaffected doesn't match how supply and demand interact in a market."
+    },
+    {
+      "id": "q-sam8-eko-12",
+      "kind": "mc",
+      "topic": "the business cycle",
+      "prompt": "What can the Riksbank do to slow an overheated boom with high inflation?",
+      "opener": "Think about what makes it more expensive versus cheaper to borrow money.",
+      "choices": [
+        "Cut the interest rate to zero to boost consumption even more",
+        "Close all banks for a period",
+        "Print more banknotes with no limit",
+        "Raise the policy rate to make borrowing more expensive and thereby dampen consumption"
+      ],
+      "answer": 3,
+      "explanation": "By raising the policy rate, the Riksbank makes it more expensive to borrow money and more profitable to save, which usually dampens consumption and investment and thereby slows an overheated economy and high inflation. Cutting the rate to zero or printing unlimited banknotes would instead fuel inflation further."
+    },
+    {
+      "id": "q-sam8-eko-13",
+      "kind": "mc",
+      "topic": "the economic circular flow",
+      "prompt": "What role do banks play in the economic circular flow?",
+      "opener": "Think about what happens to money households deposit in a savings account.",
+      "choices": [
+        "They set all the prices in shops",
+        "They pay out all the wages in the country",
+        "They replace the Riksdag as lawmaker",
+        "They channel savings from households into loans for businesses and other households"
+      ],
+      "answer": 3,
+      "explanation": "Banks take in savings from households and businesses and lend the money on to other households and businesses that want to invest or buy something, which makes them an important link in the economic circular flow. They don't set shop prices, don't pay other people's wages, and have no lawmaking role."
+    },
+    {
+      "id": "q-sam8-eko-14",
+      "kind": "mc",
+      "topic": "taxes and welfare",
+      "prompt": "Which of the following is mainly funded by tax revenue in Sweden?",
+      "opener": "Think about what is jointly funded and available to everyone regardless of income.",
+      "choices": [
+        "A private company's profit",
+        "An individual person's savings account",
+        "Dividends paid to private shareholders",
+        "Compulsory school (grundskolan)"
+      ],
+      "answer": 3,
+      "explanation": "Compulsory school is one of the services mainly funded jointly through tax revenue, so that every child can attend school regardless of their family's income. A company's profit, a private savings account and share dividends are instead private finances that can certainly be taxed, but are not themselves tax-funded activities."
+    },
+    {
+      "id": "q-sam8-eko-15",
+      "kind": "mc",
+      "topic": "the labour market and its parties",
+      "prompt": "What is it called when employees stop working as a means of pressure in a labour market conflict?",
+      "opener": "The word comes from the French grève, originally referring to a riverbank where unemployed workers used to gather.",
+      "choices": [
+        "A coup",
+        "A referendum",
+        "A consultation (remiss)",
+        "A strike"
+      ],
+      "answer": 3,
+      "explanation": "A strike is when employees jointly stop working to put pressure on the employer in a conflict, for example over wages or conditions. A coup involves seizing power in a country by illegal means, a referendum is a vote among citizens, and a consultation (remiss) is a step in the legislative process — none of them has to do with labour market conflicts."
     }
   ]
 }

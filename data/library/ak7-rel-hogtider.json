@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta religionernas symboler, riter och största högtider.",
       "opener": "Ta symbolerna först, sedan riterna och till sist högtiderna religion för religion.",
       "answer": "Symboler: kors (kristendom) · davidsstjärna och sjuarmad ljusstake, menora (judendom) · halvmåne med stjärna (islam, ofta använd som symbol) · dharmahjul och lotusblomma (buddhism) · om-tecknet (hinduism) · Övergångsriter markerar nya faser i livet: födelse och namngivning, vuxenblivande, giftermål, död · Kristendom: dop · konfirmation · vigsel i kyrkan · begravningsgudstjänst · Judendom: omskärelse och namngivning · bar mitzva vid 13 år för pojkar och bat mitzva för flickor · vigsel under chuppa · snar jordbegravning · Islam: trosbekännelsen i barnets öra och aqiqa · vigselkontraktet nikah · jordbegravning · Högtider: jul och påsk (kristendom) · pesach, jom kippur och chanukka (judendom) · ramadan med id al-fitr och id al-adha (islam) · Diwali och Holi (hinduism) · Vesak (buddhism) · I Sverige: många röda dagar har kristet ursprung — jul, påsk, pingst, Kristi himmelsfärdsdag och alla helgons dag — men firas i dag av många utan religiös innebörd, samtidigt som andra religioners högtider firas utan att vara helgdagar."
+    },
+    {
+      "id": "q-rel7-hog-9",
+      "kind": "mc",
+      "topic": "högtider i olika religioner",
+      "prompt": "Vilken judisk högtid firar uttåget ur Egypten?",
+      "opener": "Högtiden infaller på våren och firas bland annat med en särskild måltid, sedermåltiden.",
+      "choices": [
+        "Chanukka",
+        "Jom kippur",
+        "Pesach (judisk påsk)",
+        "Purim"
+      ],
+      "answer": 2,
+      "explanation": "Pesach, den judiska påsken, firar uttåget ur Egypten och israeliternas befrielse från slaveri, och firas bland annat med sedermåltiden. Chanukka firar i stället tempelinvigningen, jom kippur är försoningsdagen, och purim firar berättelsen om drottning Ester."
+    },
+    {
+      "id": "q-rel7-hog-10",
+      "kind": "mc",
+      "topic": "högtider i olika religioner",
+      "prompt": "Vilken judisk högtid kallas för försoningsdagen och innebär fasta och eftertanke?",
+      "opener": "Högtiden räknas som den allvarligaste och mest högtidliga i den judiska kalendern.",
+      "choices": [
+        "Jom kippur",
+        "Chanukka",
+        "Pesach",
+        "Sukkot"
+      ],
+      "answer": 0,
+      "explanation": "Jom kippur, försoningsdagen, är den allvarligaste dagen i den judiska kalendern och innebär fasta, bön och eftertanke kring det gångna årets handlingar. Chanukka och sukkot är i stället glädjefyllda högtider, och pesach firar uttåget ur Egypten."
+    },
+    {
+      "id": "q-rel7-hog-11",
+      "kind": "mc",
+      "topic": "religiösa symboler",
+      "prompt": "Vad är menoran inom judendomen?",
+      "opener": "Symbolen är en ljusstake, inte en byggnad eller en bön.",
+      "choices": [
+        "En symbol för islam",
+        "En av judendomens äldsta symboler, en sjuarmad ljusstake kopplad till det gamla templet i Jerusalem",
+        "En symbol för buddhismen",
+        "En symbol för hinduismen"
+      ],
+      "answer": 1,
+      "explanation": "Menoran, den sjuarmade ljusstaken, är en av judendomens äldsta och mest kända symboler och går tillbaka till det gamla templet i Jerusalem. Den hör alltså inte till islam, buddhism eller hinduism."
+    },
+    {
+      "id": "q-rel7-hog-12",
+      "kind": "mc",
+      "topic": "övergångsriter",
+      "prompt": "Vad kallas den muslimska vigselceremonin och äktenskapskontraktet?",
+      "opener": "Ordet är arabiskt och används för själva avtalet mellan makarna.",
+      "choices": [
+        "Chuppa",
+        "Bar mitzva",
+        "Nikah",
+        "Konfirmation"
+      ],
+      "answer": 2,
+      "explanation": "Nikah är namnet på den muslimska vigselceremonin och det äktenskapskontrakt som ingås mellan makarna. Chuppa är i stället den baldakin man gifter sig under inom judendomen, bar mitzva är en judisk övergångsrit för pojkar, och konfirmation hör till kristendomen."
+    },
+    {
+      "id": "q-rel7-hog-13",
+      "kind": "mc",
+      "topic": "högtider i Sverige",
+      "prompt": "Vad firar den svenska helgdagen Kristi himmelsfärdsdag?",
+      "opener": "Namnet beskriver vad som enligt bibeln hände med Jesus fyrtio dagar efter påsk.",
+      "choices": [
+        "Alla helgons dag",
+        "Att Jesus for upp till himlen",
+        "Trettondedag jul",
+        "Midsommarafton"
+      ],
+      "answer": 1,
+      "explanation": "Kristi himmelsfärdsdag firar att Jesus enligt bibeln for upp till himlen fyrtio dagar efter påsk. Alla helgons dag är i stället en dag för att minnas de döda, trettondedag jul firar de vise männens besök, och midsommarafton har inget kristet ursprung."
+    },
+    {
+      "id": "q-rel7-hog-14",
+      "kind": "mc",
+      "topic": "religiösa symboler",
+      "prompt": "Vad symboliserar halvmånen som ofta används i samband med islam?",
+      "opener": "Symbolen är kopplad till hur man traditionellt räknat tiden inom islam.",
+      "choices": [
+        "Den symboliserar krig",
+        "Den symboliserar solen",
+        "Den används ofta som en symbol kopplad till den islamiska månkalendern",
+        "Den symboliserar döden"
+      ],
+      "answer": 2,
+      "explanation": "Halvmånen används ofta som en symbol kopplad till islam, delvis eftersom den islamiska kalendern är en månkalender där till exempel ramadans början bestäms av månens faser. Den har alltså inget att göra med krig, solen eller döden."
+    },
+    {
+      "id": "q-rel7-hog-15",
+      "kind": "mc",
+      "topic": "högtider i olika religioner",
+      "prompt": "Vilken högtid inom hinduismen kallas ljusfesten och firas bland annat med oljelampor?",
+      "opener": "Högtiden firar att det goda segrar över det onda och ljuset över mörkret.",
+      "choices": [
+        "Holi",
+        "Vesak",
+        "Diwali",
+        "Ramadan"
+      ],
+      "answer": 2,
+      "explanation": "Diwali, ljusfesten, firas inom hinduismen med oljelampor och ljus som symboliserar att det goda segrar över det onda. Holi är i stället hinduismens färgfest, vesak är en buddhistisk högtid, och ramadan är islams fastemånad."
     }
   ]
 }

@@ -112,6 +112,111 @@
       "prompt": "Which phrases are useful to recognize in a French text message about plans?",
       "opener": "Everyday phrases for suggesting, agreeing, and setting a time.",
       "answer": "Suggesting: Tu veux venir ? = Do you want to come? · je vais à... = I'm going to... Agreeing: Bien sûr ! = Of course! · J'adore... = I love... Setting a time: On se retrouve à quelle heure ? = What time shall we meet? · commence à... = starts at... Feelings: j'aime = I like · j'adore = I love (stronger) · je n'aime pas = I don't like."
+    },
+    {
+      "id": "q-fr8-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the message: \"Salut Anna ! Dimanche, je fête mon anniversaire. La fête commence à quatre heures chez moi. Tu peux venir ? Amène ta sœur si tu veux !\"\n\nWhat is the person celebrating on Sunday?",
+      "opener": "Look for \"je fête mon...\".",
+      "choices": [
+        "Their birthday",
+        "A graduation",
+        "A wedding",
+        "Christmas"
+      ],
+      "answer": 0,
+      "explanation": "\"Je fête mon anniversaire\" means \"I'm celebrating my birthday\"."
+    },
+    {
+      "id": "q-fr8-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same message. What time does the party start?",
+      "opener": "\"À quatre heures\" — look for the time.",
+      "choices": [
+        "Four o'clock",
+        "Five o'clock",
+        "Three o'clock",
+        "Six o'clock"
+      ],
+      "answer": 0,
+      "explanation": "\"La fête commence à quatre heures\" means \"the party starts at four o'clock\"."
+    },
+    {
+      "id": "q-fr8-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same message. Who is Anna welcome to bring along?",
+      "opener": "Look for the last sentence: \"Amène ta...\".",
+      "choices": [
+        "Her sister",
+        "Her brother",
+        "Her mom",
+        "Her best friend"
+      ],
+      "answer": 0,
+      "explanation": "\"Amène ta sœur si tu veux !\" means \"feel free to bring your sister along!\"."
+    },
+    {
+      "id": "q-fr8-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Anna's reply: \"Salut ! Merci pour l'invitation. Je viens avec plaisir, mais ma sœur ne peut pas venir — elle est malade. Qu'est-ce que je dois apporter ?\"\n\nCan Anna's sister come to the party?",
+      "opener": "Look for the sentence about the sister.",
+      "choices": [
+        "No, she's sick",
+        "Yes, she'd love to",
+        "No, she's traveling",
+        "Yes, but late"
+      ],
+      "answer": 0,
+      "explanation": "\"Ma sœur ne peut pas venir — elle est malade\" means \"my sister can't come — she's sick\"."
+    },
+    {
+      "id": "q-fr8-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same reply. What does Anna ask in the last sentence?",
+      "opener": "\"Qu'est-ce que je dois apporter ?\" — look for the question word \"qu'est-ce que\".",
+      "choices": [
+        "What she should bring",
+        "Where the party is",
+        "What time the party ends",
+        "Who else is coming"
+      ],
+      "answer": 0,
+      "explanation": "\"Qu'est-ce que je dois apporter ?\" means \"what should I bring?\"."
+    },
+    {
+      "id": "q-fr8-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same reply. What does Anna thank for?",
+      "opener": "Look for \"Merci pour...\".",
+      "choices": [
+        "The invitation",
+        "The gift",
+        "The food",
+        "The help"
+      ],
+      "answer": 0,
+      "explanation": "\"Merci pour l'invitation\" means \"thanks for the invitation\"."
+    },
+    {
+      "id": "q-fr8-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same reply. Is Anna coming to the party?",
+      "opener": "Look for \"Je viens avec plaisir\".",
+      "choices": [
+        "Yes, she'd love to",
+        "No, she can't",
+        "She's unsure",
+        "She asks for a different day"
+      ],
+      "answer": 0,
+      "explanation": "\"Je viens avec plaisir\" means \"I'd love to come\"."
     }
   ]
 }

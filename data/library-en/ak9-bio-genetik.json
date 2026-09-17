@@ -125,6 +125,110 @@
       "prompt": "Summarise the basic concepts in genetics: DNA, gene, chromosome, dominant and recessive.",
       "opener": "Go through the concepts in order of size, from smallest to largest.",
       "answer": "DNA: the molecule that carries all genetic information, found in the cell nucleus · Gene: a section of DNA with information about a particular trait · Chromosome: tightly packed DNA, humans have 46 of them (23 pairs) · Dominant allele: shows even if the person has only one copy of it (written with a capital letter, e.g. B) · Recessive allele: only shows if the person has two copies of it (written with a lowercase letter, e.g. b) · Mutation: a change in DNA that can produce new traits and is a basis for variation and evolution."
+    },
+    {
+      "id": "q-bio-gen-9",
+      "kind": "mc",
+      "topic": "dominant and recessive inheritance",
+      "prompt": "What are the different versions of the same gene called, e.g. the allele for brown versus blue eyes?",
+      "opener": "The same gene (e.g. \"eye colour\") can exist in different versions.",
+      "choices": [
+        "Alleles",
+        "Chromosomes",
+        "Mutations",
+        "Proteins"
+      ],
+      "answer": 0,
+      "explanation": "Alleles are the different versions of a gene — e.g. B (brown eyes) and b (blue eyes) are two alleles of the same gene."
+    },
+    {
+      "id": "q-bio-gen-10",
+      "kind": "mc",
+      "topic": "chromosomes",
+      "prompt": "How many chromosomes does a human have in most of their cells?",
+      "opener": "Chromosomes come in pairs - how many pairs do we have?",
+      "choices": [
+        "46 (23 pairs)",
+        "23",
+        "92",
+        "44"
+      ],
+      "answer": 0,
+      "explanation": "Humans normally have 46 chromosomes, organised into 23 pairs — half inherited from each parent."
+    },
+    {
+      "id": "q-bio-gen-11",
+      "kind": "mc",
+      "topic": "dominant and recessive inheritance",
+      "prompt": "What eye colour does a person with the allele pair bb get (b = blue eyes, recessive; B = brown eyes, dominant)?",
+      "opener": "A recessive allele only shows if the person has it in BOTH copies.",
+      "choices": [
+        "Blue eyes",
+        "Brown eyes",
+        "Green eyes",
+        "Impossible to tell"
+      ],
+      "answer": 0,
+      "explanation": "Since the person entirely lacks the dominant B allele (bb), the recessive allele shows — the person gets blue eyes."
+    },
+    {
+      "id": "q-bio-gen-12",
+      "kind": "mc",
+      "topic": "mutations",
+      "prompt": "Which statement about mutations is most accurate?",
+      "opener": "Are all changes to DNA necessarily bad?",
+      "choices": [
+        "Mutations are always harmful",
+        "Mutations can be harmful, neutral, or sometimes beneficial",
+        "Mutations never occur in nature without human influence",
+        "Mutations always make an organism stronger"
+      ],
+      "answer": 1,
+      "explanation": "Most mutations are neutral or harmful, but some can happen to give an advantage in a particular environment. Mutations are one of the most important sources of the variation that natural selection acts on."
+    },
+    {
+      "id": "q-bio-gen-13",
+      "kind": "mc",
+      "topic": "Punnett square",
+      "prompt": "Two people, one with the allele pair Bb and one with bb (B = brown eyes, dominant; b = blue eyes, recessive), have a child. What is the probability the child gets brown eyes?",
+      "opener": "Draw a Punnett square for Bb x bb and count how many of the four boxes contain at least one B.",
+      "choices": [
+        "50%",
+        "25%",
+        "75%",
+        "100%"
+      ],
+      "answer": 0,
+      "explanation": "The Punnett square for Bb x bb gives the combinations Bb, Bb, bb, bb — 2 out of 4 (50%) become Bb and get brown eyes, while the other 2 out of 4 become bb and get blue eyes."
+    },
+    {
+      "id": "q-bio-gen-14",
+      "kind": "worked",
+      "topic": "Punnett square",
+      "prompt": "Two pea plants are crossed: one with the allele pair TT (tall, dominant) and one with tt (short, recessive). Draw a Punnett square and calculate what proportion of the offspring will be tall versus short.",
+      "opener": "Think about which gametes each parent can actually produce when they only carry ONE version of the allele.",
+      "answer": "100% will be tall (Tt). 0% will be short.",
+      "steps": [
+        "The TT parent can only produce gametes carrying T (since both chromosomes carry T).",
+        "The tt parent can only produce gametes carrying t.",
+        "Every combination of a T gamete and a t gamete gives offspring Tt.",
+        "Since T is dominant, all Tt offspring show the tall trait — 100% are tall, none are short."
+      ]
+    },
+    {
+      "id": "q-bio-gen-15",
+      "kind": "mc",
+      "topic": "Punnett square",
+      "prompt": "A person with the allele pair BB (brown eyes) and a person with bb (blue eyes) have children together. What eye colour do all the children get?",
+      "opener": "What gametes can each parent produce, and what does the combination become?",
+      "choices": [
+        "All get brown eyes",
+        "All get blue eyes",
+        "Half brown, half blue",
+        "A quarter get blue eyes"
+      ],
+      "answer": 0,
+      "explanation": "The BB parent can only give B, and the bb parent can only give b — so all children become Bb. Since B is dominant, all the children get brown eyes, even though one parent themself has blue eyes."
     }
   ]
 }

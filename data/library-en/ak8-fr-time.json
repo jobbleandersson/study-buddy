@@ -114,6 +114,111 @@
       "prompt": "How do you ask about and answer questions about time, days of the week, and months in French?",
       "opener": "Fixed phrases for time, days, and months.",
       "answer": "Time: Quelle heure est-il ? = What time is it? · Il est une heure = It's one o'clock · Il est deux/trois heures... = It's two/three o'clock... · et demie = and half · et quart = and a quarter · moins le quart = quarter to. Days of the week: lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche. Months: janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre."
+    },
+    {
+      "id": "q-fr8-time-9",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"Il est huit heures moins le quart\" mean?",
+      "opener": "\"Moins le quart\" means \"quarter to\".",
+      "choices": [
+        "It's a quarter to eight (7:45)",
+        "It's a quarter past eight (8:15)",
+        "It's half past seven (7:30)",
+        "It's eight o'clock (8:00)"
+      ],
+      "answer": 0,
+      "explanation": "\"Huit heures moins le quart\" means \"a quarter to eight\" (7:45)."
+    },
+    {
+      "id": "q-fr8-time-10",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Which day of the week is \"vendredi\"?",
+      "opener": "The last weekday before the weekend.",
+      "choices": [
+        "Friday",
+        "Thursday",
+        "Saturday",
+        "Sunday"
+      ],
+      "answer": 0,
+      "explanation": "\"Vendredi\" is Friday."
+    },
+    {
+      "id": "q-fr8-time-11",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Which month comes after \"juin\"?",
+      "opener": "The French month names follow the same order as in Swedish/English.",
+      "choices": [
+        "juillet",
+        "mai",
+        "août",
+        "septembre"
+      ],
+      "answer": 0,
+      "explanation": "\"Juillet\" comes right after \"juin\", just like July comes after June."
+    },
+    {
+      "id": "q-fr8-time-12",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"Il est six heures moins dix\" mean?",
+      "opener": "\"Moins dix\" means \"ten to\".",
+      "choices": [
+        "It's ten to six (5:50)",
+        "It's ten past six (6:10)",
+        "It's six o'clock (6:00)",
+        "It's half past five (5:30)"
+      ],
+      "answer": 0,
+      "explanation": "\"Six heures moins dix\" means \"ten minutes before six\", i.e. 5:50."
+    },
+    {
+      "id": "q-fr8-time-13",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Which day comes right before \"dimanche\"?",
+      "opener": "The last day of the week before Sunday.",
+      "choices": [
+        "samedi",
+        "vendredi",
+        "lundi",
+        "mercredi"
+      ],
+      "answer": 0,
+      "explanation": "\"Samedi\" (Saturday) comes right before \"dimanche\" (Sunday)."
+    },
+    {
+      "id": "q-fr8-time-14",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Which month is Christmas (\"Noël\") celebrated in France?",
+      "opener": "The same month as in Sweden.",
+      "choices": [
+        "décembre",
+        "novembre",
+        "janvier",
+        "octobre"
+      ],
+      "answer": 0,
+      "explanation": "Christmas is celebrated in \"décembre\" (December), just like in Sweden."
+    },
+    {
+      "id": "q-fr8-time-15",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"Il est minuit\" mean?",
+      "opener": "\"Minuit\" means midnight.",
+      "choices": [
+        "It's midnight (00:00)",
+        "It's noon (12:00)",
+        "It's dawn",
+        "It's dusk"
+      ],
+      "answer": 0,
+      "explanation": "\"Il est minuit\" means \"it's midnight\" (00:00)."
     }
   ]
 }

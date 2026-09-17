@@ -124,6 +124,111 @@
       "prompt": "Summarise the concept of radians, the unit circle, solving $\\sin x=a$, and the trigonometric identities.",
       "opener": "Think degree-to-radian, the signs in each quadrant, and the double-angle identities.",
       "answer": "$180°=\\pi$ rad, so $1$ rad $=\\dfrac{180°}{\\pi}$ · Point on the unit circle at angle $v$: $(\\cos v,\\ \\sin v)$ · Pythagorean identity: $\\sin^2x+\\cos^2x=1$ · $\\sin(2x)=2\\sin x\\cos x$ · $\\cos(2x)=\\cos^2x-\\sin^2x=1-2\\sin^2x=2\\cos^2x-1$ · $\\sin x=a$ has solutions $x=v+2\\pi n$ or $x=\\pi-v+2\\pi n$, where $v$ is one solution · $\\cos x=a$ has solutions $x=\\pm v+2\\pi n$, where $v$ is one solution"
+    },
+    {
+      "id": "q-ma3-trig-9",
+      "kind": "mc",
+      "topic": "radians",
+      "prompt": "How many radians correspond to $270°$?",
+      "opener": "Use the fact that $180°$ corresponds to $\\pi$ radians.",
+      "choices": [
+        "$\\dfrac{3\\pi}{2}$",
+        "$\\dfrac{\\pi}{2}$",
+        "$2\\pi$",
+        "$\\dfrac{\\pi}{3}$"
+      ],
+      "answer": 0,
+      "explanation": "$270° = \\dfrac{270}{180}\\pi = \\dfrac{3\\pi}{2}$ rad."
+    },
+    {
+      "id": "q-ma3-trig-10",
+      "kind": "mc",
+      "topic": "radians",
+      "prompt": "How many degrees correspond to $\\dfrac{\\pi}{6}$ radians?",
+      "opener": "Use the fact that $\\pi$ radians corresponds to $180°$.",
+      "choices": [
+        "$30°$",
+        "$45°$",
+        "$60°$",
+        "$15°$"
+      ],
+      "answer": 0,
+      "explanation": "$\\dfrac{\\pi}{6}\\text{ rad} = \\dfrac{1}{6}\\cdot180° = 30°$."
+    },
+    {
+      "id": "q-ma3-trig-11",
+      "kind": "mc",
+      "topic": "the unit circle",
+      "prompt": "A point on the unit circle corresponds to the angle $\\pi$ (180°). What are the coordinates of the point?",
+      "opener": "The coordinates are given by $(\\cos v, \\sin v)$.",
+      "choices": [
+        "$(-1,\\ 0)$",
+        "$(1,\\ 0)$",
+        "$(0,\\ -1)$",
+        "$(0,\\ 1)$"
+      ],
+      "answer": 0,
+      "explanation": "$\\cos(\\pi)=-1$ and $\\sin(\\pi)=0$, so the point is $(-1, 0)$, the leftmost point on the unit circle."
+    },
+    {
+      "id": "q-ma3-trig-12",
+      "kind": "mc",
+      "topic": "trigonometric equations",
+      "prompt": "Solve the equation $\\cos x = \\dfrac{1}{2}$ for $0 \\le x < 2\\pi$.",
+      "opener": "Cosine is positive in two quadrants — find both solutions.",
+      "choices": [
+        "$x=\\dfrac{\\pi}{3}$ or $x=\\dfrac{5\\pi}{3}$",
+        "$x=\\dfrac{\\pi}{3}$ or $x=\\dfrac{2\\pi}{3}$",
+        "$x=\\dfrac{\\pi}{6}$ or $x=\\dfrac{11\\pi}{6}$",
+        "$x=\\dfrac{\\pi}{3}$ (the only solution)"
+      ],
+      "answer": 0,
+      "explanation": "The reference angle is $\\frac{\\pi}{3}$ since $\\cos\\frac{\\pi}{3}=\\frac12$. Cosine is positive in the first and fourth quadrants, giving $x=\\frac{\\pi}{3}$ and $x=2\\pi-\\frac{\\pi}{3}=\\frac{5\\pi}{3}$."
+    },
+    {
+      "id": "q-ma3-trig-13",
+      "kind": "mc",
+      "topic": "trigonometric identities",
+      "prompt": "Which expression is correct for $\\sin(2x)$?",
+      "opener": "The double-angle formula combines sine and cosine of the same angle.",
+      "choices": [
+        "$2\\sin x\\cos x$",
+        "$\\sin^2x-\\cos^2x$",
+        "$\\cos^2x-\\sin^2x$",
+        "$\\sin x+\\cos x$"
+      ],
+      "answer": 0,
+      "explanation": "The double-angle formula is $\\sin(2x)=2\\sin x\\cos x$. The expression $\\cos^2x-\\sin^2x$ is instead the formula for $\\cos(2x)$."
+    },
+    {
+      "id": "q-ma3-trig-14",
+      "kind": "mc",
+      "topic": "trigonometric equations",
+      "prompt": "Solve the equation $\\sin x = -\\dfrac{1}{2}$ for $0 \\le x < 2\\pi$.",
+      "opener": "Sine is negative in the third and fourth quadrants.",
+      "choices": [
+        "$x=\\dfrac{7\\pi}{6}$ or $x=\\dfrac{11\\pi}{6}$",
+        "$x=\\dfrac{\\pi}{6}$ or $x=\\dfrac{5\\pi}{6}$",
+        "$x=\\pi+\\dfrac{\\pi}{6}$ (the only solution)",
+        "$x=-\\dfrac{\\pi}{6}$"
+      ],
+      "answer": 0,
+      "explanation": "The reference angle is $\\frac{\\pi}{6}$ since $\\sin\\frac{\\pi}{6}=\\frac12$. Sine is negative in the third and fourth quadrants: $x=\\pi+\\frac{\\pi}{6}=\\frac{7\\pi}{6}$ and $x=2\\pi-\\frac{\\pi}{6}=\\frac{11\\pi}{6}$."
+    },
+    {
+      "id": "q-ma3-trig-15",
+      "kind": "mc",
+      "topic": "trigonometric identities",
+      "prompt": "Express $\\cos(2x)$ using only $\\sin x$.",
+      "opener": "Start from $\\cos(2x)=\\cos^2x-\\sin^2x$ and use the Pythagorean identity to replace $\\cos^2x$.",
+      "choices": [
+        "$1-2\\sin^2x$",
+        "$2\\sin^2x-1$",
+        "$1+2\\sin^2x$",
+        "$\\sin^2x-1$"
+      ],
+      "answer": 0,
+      "explanation": "Since $\\cos^2x=1-\\sin^2x$ by the Pythagorean identity, $\\cos(2x)=\\cos^2x-\\sin^2x=(1-\\sin^2x)-\\sin^2x=1-2\\sin^2x$."
     }
   ]
 }

@@ -122,6 +122,111 @@
       "prompt": "Hur väljer man mellan qui, que, où och dont?",
       "opener": "Fyra pronomen, fyra roller i bisatsen.",
       "answer": "qui = subjekt i bisatsen, följs direkt av verb (l'homme qui parle). que = objekt i bisatsen, följs av subjekt + verb (l'homme que je vois) — förkortas till qu' framför vokal. où = plats eller tid (la ville où j'habite, le jour où c'est arrivé). dont = ersätter de + något: verb med prepositionen de (parler de, avoir besoin de, être content de) eller ägande/tillhörighet (vars) — dont följs alltid av subjekt + verb utan omkastad ordföljd. Minnesregel: qui gör något, que tar emot något, où är en plats, dont hör ihop med de."
+    },
+    {
+      "id": "q-fr3-clauses-9",
+      "kind": "mc",
+      "topic": "qui / que",
+      "prompt": "Välj rätt pronomen: \"La chanson ___ j'écoute en ce moment est géniale.\"",
+      "opener": "Vem gör handlingen \"lyssna\"? \"Je\" gör det, låten tas emot.",
+      "choices": [
+        "que",
+        "qui",
+        "où",
+        "dont"
+      ],
+      "answer": 0,
+      "explanation": "\"Que\" är objekt (jag lyssnar PÅ låten) och följs av subjekt + verb: \"que j'écoute\"."
+    },
+    {
+      "id": "q-fr3-clauses-10",
+      "kind": "mc",
+      "topic": "qui / que",
+      "prompt": "Välj rätt pronomen: \"Les amis ___ viennent dîner ce soir sont très sympas.\"",
+      "opener": "Vem gör handlingen \"komma\"?",
+      "choices": [
+        "qui",
+        "que",
+        "dont",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Qui\" är subjekt (vännerna SOM kommer) och följs direkt av verbet \"viennent\"."
+    },
+    {
+      "id": "q-fr3-clauses-11",
+      "kind": "mc",
+      "topic": "où / dont",
+      "prompt": "Välj rätt pronomen: \"Le jour ___ nous nous sommes rencontrés était pluvieux.\"",
+      "opener": "Handlar det om en tidpunkt?",
+      "choices": [
+        "où",
+        "que",
+        "qui",
+        "dont"
+      ],
+      "answer": 0,
+      "explanation": "\"Où\" används även för tid: \"le jour où\" betyder \"dagen då\"."
+    },
+    {
+      "id": "q-fr3-clauses-12",
+      "kind": "mc",
+      "topic": "où / dont",
+      "prompt": "Välj rätt pronomen: \"C'est un sujet ___ on parle beaucoup en ce moment.\"",
+      "opener": "Vilken preposition hör till verbet \"parler de\"?",
+      "choices": [
+        "dont",
+        "que",
+        "où",
+        "qui"
+      ],
+      "answer": 0,
+      "explanation": "\"Dont\" ersätter \"de + något\": \"parler de quelque chose\" → \"un sujet dont on parle\"."
+    },
+    {
+      "id": "q-fr3-clauses-13",
+      "kind": "mc",
+      "topic": "qui / que",
+      "prompt": "Vilken mening kombinerar korrekt: \"J'ai un chat. J'adore ce chat.\"?",
+      "opener": "Vem gör handlingen \"älska\"? \"J'\" gör det, katten tas emot.",
+      "choices": [
+        "J'ai un chat que j'adore.",
+        "J'ai un chat qui j'adore.",
+        "J'ai un chat dont j'adore.",
+        "J'ai un chat où j'adore."
+      ],
+      "answer": 0,
+      "explanation": "\"Que\" är objekt (jag älskar katten) och följs av subjekt + verb: \"que j'adore\"."
+    },
+    {
+      "id": "q-fr3-clauses-14",
+      "kind": "mc",
+      "topic": "où / dont",
+      "prompt": "Välj rätt pronomen: \"C'est l'outil ___ j'ai besoin pour ce travail.\"",
+      "opener": "Vilken preposition hör till uttrycket \"avoir besoin de\"?",
+      "choices": [
+        "dont",
+        "que",
+        "qui",
+        "où"
+      ],
+      "answer": 0,
+      "explanation": "\"Avoir besoin de quelque chose\" ersätts med \"dont\": \"l'outil dont j'ai besoin\" (verktyget jag behöver)."
+    },
+    {
+      "id": "q-fr3-clauses-15",
+      "kind": "mc",
+      "topic": "qui / que",
+      "prompt": "Hur avgör man om man ska använda \"qui\" eller \"que\"?",
+      "opener": "Fundera på pronomenets roll i bisatsen, inte på om det syftar på en person eller sak.",
+      "choices": [
+        "\"Qui\" följs direkt av ett verb (subjekt), \"que\" följs av subjekt + verb (objekt)",
+        "\"Qui\" används alltid för saker, \"que\" alltid för personer",
+        "De två pronomenen är utbytbara",
+        "\"Qui\" används bara i plural"
+      ],
+      "answer": 0,
+      "explanation": "Både \"qui\" och \"que\" kan syfta på både personer och saker — skillnaden är pronomenets roll: \"qui\" är subjekt (följs direkt av verb), \"que\" är objekt (följs av subjekt + verb)."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Summarise existential questions, ethics and different worldviews.",
       "opener": "Take the concepts in turn: existential question, ethics, the golden rule, freedom of religion, worldviews.",
       "answer": "Existential question: a big question about existence with no single correct answer, e.g. the meaning of life, what happens after death, why suffering exists, what a good life is · people answer differently based on worldview, culture and their own experiences · Worldview: a person's overall view of existence, can be religious (Judaism, Christianity, Islam, Hinduism, Buddhism) or non-religious (secular humanism) · Ethics: thinking and reasoning about right and wrong · Morality: how you actually act · Ethical models: consequentialist ethics looks at the consequences of the action · duty ethics looks at rules and duties that apply regardless of the outcome · ethics of intention looks at the intention behind the action · virtue ethics asks what kind of person you want to be · The golden rule: treat others as you yourself would want to be treated · exists in similar form within Judaism (Hillel), Christianity (the Sermon on the Mount), Islam (the hadiths), Hinduism (the Mahabharata) and Buddhism (the Dhammapada), as well as in non-religious worldviews · Freedom of religion: the right to hold, change, leave and practise a religion — and the right not to believe · found in Article 18 of the UN Declaration of Human Rights and in the Swedish constitution · full freedom of religion in Sweden through the Freedom of Religion Act of 1951 · does not override the country's laws and can be limited if others are harmed · Atheism: not believing that any god exists · Agnosticism: holding that you cannot know · Secular humanism: a worldview without belief in god that emphasises reason, science, compassion and human rights · Studying existential questions comparatively means describing how different people think, not deciding who is right."
+    },
+    {
+      "id": "q-rel7-liv-9",
+      "kind": "mc",
+      "topic": "ethics and morality",
+      "prompt": "What is the ethical theory called that focuses on what kind of person you want to be, rather than on rules or consequences?",
+      "opener": "The name comes from the Greek word for a good quality or ability.",
+      "choices": [
+        "Consequentialist ethics",
+        "Duty ethics",
+        "Virtue ethics",
+        "Ethics of intention"
+      ],
+      "answer": 2,
+      "explanation": "Virtue ethics focuses on what kind of person you want to be and which qualities, for example courage and honesty, are worth striving for, rather than on individual rules or the consequences of actions. Consequentialist ethics instead looks at the consequences, and duty ethics at rules and duties."
+    },
+    {
+      "id": "q-rel7-liv-10",
+      "kind": "mc",
+      "topic": "existential questions",
+      "prompt": "Which of the following is an example of an existential question?",
+      "opener": "Compare it with a factual question that always has the same answer.",
+      "choices": [
+        "What colour is grass?",
+        "How many days does a week have?",
+        "What happens after death?",
+        "What is the capital of France?"
+      ],
+      "answer": 2,
+      "explanation": "The question of what happens after death is a typical existential question, since people answer it differently based on their worldview, and there is no scientific answer key. The other questions are instead factual questions with a single correct answer."
+    },
+    {
+      "id": "q-rel7-liv-11",
+      "kind": "mc",
+      "topic": "freedom of religion",
+      "prompt": "In which year did Sweden gain full freedom of religion through the Freedom of Religion Act?",
+      "opener": "The year falls in the middle of the 1900s, after the Second World War.",
+      "choices": [
+        "1809",
+        "1919",
+        "1951",
+        "2000"
+      ],
+      "answer": 2,
+      "explanation": "The Freedom of Religion Act of 1951 gave Sweden full freedom of religion, including the right to leave the Church of Sweden without joining another faith community. In the year 2000, church and state were instead separated, which is a different event."
+    },
+    {
+      "id": "q-rel7-liv-12",
+      "kind": "mc",
+      "topic": "atheism and humanism",
+      "prompt": "What distinguishes an agnostic from an atheist?",
+      "opener": "The difference is about knowledge versus belief.",
+      "choices": [
+        "An atheist is always religious",
+        "An agnostic strongly believes in a god",
+        "They mean exactly the same thing",
+        "An agnostic holds that one cannot know whether a god exists, while an atheist does not believe that any god exists"
+      ],
+      "answer": 3,
+      "explanation": "An agnostic takes the position that one cannot know for certain whether a god exists or not, while an atheist goes further and does not believe that any god exists. So the words don't mean the same thing, even though many people combine both positions."
+    },
+    {
+      "id": "q-rel7-liv-13",
+      "kind": "mc",
+      "topic": "the golden rule",
+      "prompt": "Which wording corresponds to the golden rule expressed negatively?",
+      "opener": "Think about how the same idea can be turned around: instead of what you should do, what you shouldn't do.",
+      "choices": [
+        "Punish others as you yourself have been punished",
+        "Don't do to others what you don't want them to do to you",
+        "Never trust anyone else",
+        "Only do to others what benefits yourself"
+      ],
+      "answer": 1,
+      "explanation": "The negatively phrased version of the golden rule goes roughly: don't do to others what you don't want them to do to you. Both wordings, positive and negative, are about putting yourself in the other person's situation, unlike the idea of revenge or only benefiting yourself."
+    },
+    {
+      "id": "q-rel7-liv-14",
+      "kind": "mc",
+      "topic": "ethics and morality",
+      "prompt": "A student reasons: \"You should never lie, whatever the consequences, because that's a rule you should follow.\" Which ethical model is this reasoning closest to?",
+      "opener": "Notice that the student follows a rule regardless of what happens.",
+      "choices": [
+        "Consequentialist ethics",
+        "Virtue ethics",
+        "Duty ethics",
+        "No ethical reasoning at all"
+      ],
+      "answer": 2,
+      "explanation": "The student follows a rule — you should never lie — regardless of what consequences it has, which is typical of duty ethics. Consequentialist ethics would instead have started from what the lie actually leads to, and virtue ethics would have asked what kind of person you want to be."
+    },
+    {
+      "id": "q-rel7-liv-15",
+      "kind": "mc",
+      "topic": "existential questions",
+      "prompt": "What is a worldview?",
+      "opener": "The concept is broader than just a single religion.",
+      "choices": [
+        "Another word for a law",
+        "A specific festival",
+        "A person's overall view of existence, which can be religious or non-religious",
+        "Another word for ethics"
+      ],
+      "answer": 2,
+      "explanation": "A worldview is a person's overall view of existence and the big existential questions, and it can be religious, such as Christianity or Islam, or non-religious, such as secular humanism. So it is a broader concept than a single law, festival or ethical theory."
     }
   ]
 }

@@ -123,6 +123,111 @@
       "prompt": "Summarise important compositional devices and narrative-technique concepts for literary analysis.",
       "opener": "The toolbox for analysing how a text is constructed.",
       "answer": "In medias res: starting in the middle of the action · Frame narrative: an outer story encloses inner stories · Chronological vs. non-chronological: straightforward time order or jumps in time (flashbacks, foreshadowing) · Circular composition: the ending returns to the beginning · Narrative perspective: omniscient, first-person, unreliable, or personal (tied to one character's point of view) · Symbol and motif: concrete images that carry abstract meaning, versus recurring themes · Form and content interact — how something is told reinforces what is being told."
+    },
+    {
+      "id": "q-sv2-analys-9",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "A narrator knows everything about every character's thoughts and feelings, and can jump freely between different places and times. What is this type of narrator called?",
+      "opener": "The narrator has full insight into the entire fictional world.",
+      "choices": [
+        "Omniscient narrator",
+        "First-person narrator",
+        "Unreliable narrator",
+        "Personal narrator"
+      ],
+      "answer": 0,
+      "explanation": "An omniscient narrator has full insight into every character's inner life and can move freely through time and space, unlike a personal narrator, who is tied to a single character's perspective."
+    },
+    {
+      "id": "q-sv2-analys-10",
+      "kind": "mc",
+      "topic": "composition",
+      "prompt": "A story ends in the same way or place that it began. What is this compositional device called?",
+      "opener": "Think of the form as a ring closing.",
+      "choices": [
+        "Circular composition",
+        "In medias res",
+        "Frame narrative",
+        "Retrospective composition"
+      ],
+      "answer": 0,
+      "explanation": "Circular composition means the ending of a story somehow ties back to its beginning, which can create a sense of closure or show that something has changed despite the return to the starting point."
+    },
+    {
+      "id": "q-sv2-analys-11",
+      "kind": "mc",
+      "topic": "symbolism and motif",
+      "prompt": "In a novel, the theme of loneliness recurs again and again through different characters and situations, without being tied to a single concrete object. Is this a motif or a symbol?",
+      "opener": "Ask yourself whether this is about a recurring theme or a concrete object that represents something else.",
+      "choices": [
+        "A motif, since it is a recurring theme",
+        "A symbol, since it represents something concrete",
+        "Neither a motif nor a symbol",
+        "Both a motif and a symbol in exactly the same way"
+      ],
+      "answer": 0,
+      "explanation": "A recurring abstract theme like loneliness, without being tied to a specific object, counts as a motif. A symbol is instead a concrete object or phenomenon that represents something abstract."
+    },
+    {
+      "id": "q-sv2-analys-12",
+      "kind": "mc",
+      "topic": "form and content",
+      "prompt": "A poem about a stormy sea is written with long, sweeping lines with no clear punctuation. What connection is there between form and content?",
+      "opener": "Consider what the unbroken, flowing text might imitate.",
+      "choices": [
+        "The flowing, unbroken form reinforces the sense of the sea's movement and power",
+        "The form has no connection at all to the content",
+        "The form shows that the poem is written as a sonnet",
+        "The lack of punctuation means the poem is meaningless"
+      ],
+      "answer": 0,
+      "explanation": "The long, unbroken lines with no clear punctuation can imitate the sea's constant, sweeping motion, which is an example of how form reinforces content. A sonnet instead has a strict, fixed form with 14 lines, which does not match the description."
+    },
+    {
+      "id": "q-sv2-analys-13",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "What characterises a personal narrator, as opposed to an omniscient narrator?",
+      "opener": "Think about how much the narrator can actually know.",
+      "choices": [
+        "The narrator is tied to a single character's perspective and only knows what that character knows",
+        "The narrator speaks directly to the reader in the first person",
+        "The narrator knows everything about every character at once",
+        "The narrator does not exist in the text at all"
+      ],
+      "answer": 0,
+      "explanation": "A personal narrator depicts the action from a single character's perspective in the third person and is limited to what that character knows, feels and observes — unlike the omniscient narrator's full insight."
+    },
+    {
+      "id": "q-sv2-analys-14",
+      "kind": "mc",
+      "topic": "composition",
+      "prompt": "What does it mean when a story uses flashbacks?",
+      "opener": "Think about which direction in time the story moves.",
+      "choices": [
+        "The plot jumps back in time to show events that happened before the story's present",
+        "The plot is always told in strict chronological order",
+        "The story completely lacks a clear time order",
+        "Flashbacks mean the narrator is unreliable"
+      ],
+      "answer": 0,
+      "explanation": "A flashback is a jump backwards in time to show events that precede the story's present, often to provide background or explain a character's motives. It is the opposite of a strictly chronological story."
+    },
+    {
+      "id": "q-sv2-analys-15",
+      "kind": "mc",
+      "topic": "symbolism and motif",
+      "prompt": "An apple appears in a story and makes the reader associate it with the fall of man in the Bible. What is this an example of?",
+      "opener": "Think about how a concrete object can carry a cultural meaning beyond itself.",
+      "choices": [
+        "A symbol with a literary or cultural allusion",
+        "A motif with no deeper meaning",
+        "In medias res",
+        "An unreliable narrator"
+      ],
+      "answer": 0,
+      "explanation": "Here the apple functions as a symbol that carries a cultural and religious meaning beyond its literal function in the story, through the allusion to the fall of man."
     }
   ]
 }

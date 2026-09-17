@@ -123,6 +123,109 @@
       "prompt": "When do you use present simple, present continuous, past simple and \"going to\"/\"will\"?",
       "opener": "Four tenses, four situations.",
       "answer": "Present simple: habits and routines (I play football every week). Present continuous: something happening right now (I am playing football right now). Past simple: completed events in the past, often with time expressions like yesterday/last week (I played football yesterday). Going to: plans and decisions already made (I'm going to play tomorrow). Will: spontaneous decisions, promises and predictions made in the moment (I think it will rain)."
+    },
+    {
+      "id": "q-en9-tns-9",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the correct form: \"They ___ dinner at the moment, can you call back later?\"",
+      "opener": "\"At the moment\" signals something happening right now.",
+      "choices": [
+        "cook",
+        "cooks",
+        "are cooking",
+        "cooked"
+      ],
+      "answer": 2,
+      "explanation": "\"At the moment\" requires present continuous: are + verb-ing. \"They\" takes \"are\", not \"is\"."
+    },
+    {
+      "id": "q-en9-tns-10",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct form: \"I ___ my keys somewhere yesterday.\"",
+      "opener": "\"Lose\" is an irregular verb — it doesn't take -ed.",
+      "choices": [
+        "lose",
+        "loses",
+        "losed",
+        "lost"
+      ],
+      "answer": 3,
+      "explanation": "\"Lose\" is irregular: lose → lost, not \"losed\". \"Yesterday\" requires past simple."
+    },
+    {
+      "id": "q-en9-tns-11",
+      "kind": "mc",
+      "topic": "future",
+      "prompt": "Choose the best option: \"Watch out, that glass is going to ___!\"",
+      "opener": "After \"going to\", the main verb always stays in its base form.",
+      "choices": [
+        "fall",
+        "falls",
+        "falling",
+        "fell"
+      ],
+      "answer": 0,
+      "explanation": "After \"going to\" the verb takes its base form: \"is going to fall\". This is a prediction based on what you can see happening right now — the glass is tipping and about to fall."
+    },
+    {
+      "id": "q-en9-tns-12",
+      "kind": "mc",
+      "topic": "present continuous",
+      "prompt": "Choose the correct form: \"My sister ___ in London these days while she finishes her internship.\"",
+      "opener": "\"These days\" signals a TEMPORARY situation, not a permanent habit.",
+      "choices": [
+        "live",
+        "lives",
+        "is living",
+        "lived"
+      ],
+      "answer": 2,
+      "explanation": "\"These days\" points to something temporary (during the internship), not a permanent habit — that means present continuous is used even for a verb like \"live\": \"is living\"."
+    },
+    {
+      "id": "q-en9-tns-13",
+      "kind": "mc",
+      "topic": "past simple",
+      "prompt": "Choose the correct question: \"___ you finish your homework yesterday?\"",
+      "opener": "Questions in the past are formed with the helping verb \"did\", no matter who performs the action.",
+      "choices": [
+        "Did",
+        "Does",
+        "Do",
+        "Have"
+      ],
+      "answer": 0,
+      "explanation": "\"Yesterday\" requires past simple, and past simple questions are formed with \"did\" + subject + verb in its base form: \"Did you finish...?\""
+    },
+    {
+      "id": "q-en9-tns-14",
+      "kind": "worked",
+      "topic": "present simple",
+      "prompt": "Correct the three tense errors: \"Usually I am doing my homework after dinner, but yesterday I do it before dinner instead. Next week I working on a big project.\"",
+      "opener": "Three different tenses are mixed up here: a habit, a completed event, and a planned future event.",
+      "answer": "Usually I do my homework after dinner, but yesterday I did it before dinner instead. Next week I am working on a big project.",
+      "steps": [
+        "\"Usually I am doing\" → \"Usually I do\". \"Usually\" signals a habit — that requires present simple, not continuous.",
+        "\"yesterday I do it\" → \"yesterday I did it\". \"Yesterday\" requires past simple.",
+        "\"Next week I working\" → \"Next week I am working\". Present continuous can express planned future events, but the verb needs the helping verb \"am\" — it doesn't work without it."
+      ]
+    },
+    {
+      "id": "q-en9-tns-15",
+      "kind": "mc",
+      "topic": "present simple",
+      "prompt": "Choose the correct form: \"He always ___ his teeth before bed.\"",
+      "opener": "Verbs ending in -sh, -ch, -s, -x or -o take -es instead of just -s in the third person singular.",
+      "choices": [
+        "brush",
+        "brushes",
+        "brushing",
+        "brushed"
+      ],
+      "answer": 1,
+      "explanation": "\"Brush\" ends in -sh, so the third person singular becomes \"brushes\" (not just \"brushs\"). \"Always\" confirms this is a routine — present simple."
     }
   ]
 }

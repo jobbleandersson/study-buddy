@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta krafter, tyngd och hastighet.",
       "opener": "Börja med vad en kraft är och avsluta med hastighetsformeln.",
       "answer": "Kraft: något som drar eller trycker och kan ändra ett föremåls fart, riktning eller form · Enhet: newton (N), mäts med dynamometer · Krafter har både storlek och riktning och ritas som pilar · Tyngdkraft: kraften som drar allt mot jordens mitt, ungefär 10 N per kilogram · Tyngd = massa · 10 N/kg, till exempel 2 kg ger 20 N · Massa: mängden materia, mäts i kg, samma överallt · Tyngd: en kraft, mäts i N, mindre på månen än på jorden · Friktion: bromsande kraft mellan ytor som rör sig mot varandra, stor mot asfalt och sandpapper, liten mot is och olja · Krafter som är lika stora och motriktade tar ut varandra, då står föremålet stilla eller rör sig med jämn fart · Hastighet = sträcka / tid, enhet m/s eller km/h · 100 m på 20 s ger 5 m/s"
+    },
+    {
+      "id": "q-fys7-kra-9",
+      "kind": "mc",
+      "topic": "kraft och newton",
+      "prompt": "Vad mäter man en kraft med?",
+      "opener": "Instrumentet har ofta en fjäder som sträcks ut mer ju hårdare man drar.",
+      "choices": [
+        "En termometer",
+        "En dynamometer (fjädervåg)",
+        "En linjal",
+        "Ett stoppur"
+      ],
+      "answer": 1,
+      "explanation": "En dynamometer, en fjädervåg, mäter kraft i newton genom att fjädern sträcks ut olika mycket beroende på hur hårt man drar. En termometer mäter temperatur och ett stoppur mäter tid."
+    },
+    {
+      "id": "q-fys7-kra-10",
+      "kind": "mc",
+      "topic": "tyngdkraft",
+      "prompt": "Tyngdkraften på jorden är ungefär 10 N per kilogram. Hur stor är tyngden hos en ryggsäck med massan 5 kg?",
+      "opener": "Multiplicera massan i kilogram med 10 N/kg.",
+      "choices": [
+        "5 N",
+        "50 N",
+        "500 N",
+        "0,5 N"
+      ],
+      "answer": 1,
+      "explanation": "Tyngd = massa · tyngdkraft per kilo = 5 kg · 10 N/kg = 50 N. Att svara 5 N är att blanda ihop massan med tyngden."
+    },
+    {
+      "id": "q-fys7-kra-11",
+      "kind": "mc",
+      "topic": "massa och tyngd",
+      "prompt": "Vad är skillnaden mellan massa och tyngd?",
+      "opener": "Den ena storheten ändras när du reser till en annan himlakropp, den andra gör det inte.",
+      "choices": [
+        "De är exakt samma sak",
+        "Massan mäts i newton, tyngden i kilogram",
+        "Massan är mängden materia och är konstant, tyngden är en kraft som beror på var du befinner dig",
+        "Tyngden är konstant överallt i universum"
+      ],
+      "answer": 2,
+      "explanation": "Massan är mängden materia i ett föremål och ändras inte oavsett var det befinner sig, medan tyngden är tyngdkraften på föremålet och varierar beroende på himlakropp — till exempel är tyngden mindre på månen än på jorden. Massan mäts i kg, tyngden i newton, inte tvärtom."
+    },
+    {
+      "id": "q-fys7-kra-12",
+      "kind": "mc",
+      "topic": "friktion",
+      "prompt": "Varför halkar man lättare på blankt is än på grus?",
+      "opener": "Tänk på hur mycket ytorna \"fastnar\" i varandra i de två fallen.",
+      "choices": [
+        "Friktionen mellan skorna och isen är mycket mindre",
+        "Tyngdkraften är svagare på is",
+        "Isen har större massa",
+        "Friktionen blir större på is"
+      ],
+      "answer": 0,
+      "explanation": "Is är mycket slätare än grus, så friktionen mellan skorna och underlaget blir mycket mindre, vilket gör det lättare att halka. Tyngdkraften och massan påverkas inte av vilket underlag man står på."
+    },
+    {
+      "id": "q-fys7-kra-13",
+      "kind": "mc",
+      "topic": "kraft och newton",
+      "prompt": "Två personer drar i var sin ände av ett rep med precis lika stor kraft åt motsatta håll. Vad händer?",
+      "opener": "Tänk på vad som gäller när två lika stora krafter verkar i motsatt riktning.",
+      "choices": [
+        "Repet accelererar åt det ena hållet",
+        "Krafterna tar ut varandra och repet står still",
+        "Repet går av direkt",
+        "Den ena kraften försvinner"
+      ],
+      "answer": 1,
+      "explanation": "När två krafter är lika stora men motriktade tar de ut varandra, så den sammanlagda kraften på repet blir noll och det står stilla. Om den ena personen drog hårdare skulle repet i stället röra sig åt det hållet."
+    },
+    {
+      "id": "q-fys7-kra-14",
+      "kind": "worked",
+      "topic": "hastighet",
+      "prompt": "En bil kör 180 km på 3 timmar. Beräkna bilens medelhastighet i km/h.",
+      "opener": "Sträckan är redan i kilometer och tiden i timmar, så du kan sätta in direkt.",
+      "answer": "60 km/h",
+      "steps": [
+        "Skriv upp sambandet: hastighet = sträcka / tid.",
+        "Sätt in värdena: 180 km / 3 h.",
+        "Räkna ut: 180 / 3 = 60.",
+        "Svaret blir 60 km/h.",
+        "Rimlighetskoll: 60 km/h är en vanlig fart på en landsväg, så svaret stämmer med verkligheten."
+      ]
+    },
+    {
+      "id": "q-fys7-kra-15",
+      "kind": "mc",
+      "topic": "hastighet",
+      "prompt": "En cyklist håller farten 20 km/h i 1,5 timmar. Hur långt har cyklisten kommit?",
+      "opener": "Vänd på hastighetsformeln: sträcka = hastighet · tid.",
+      "choices": [
+        "13,3 km",
+        "18,5 km",
+        "30 km",
+        "21,5 km"
+      ],
+      "answer": 2,
+      "explanation": "Sträcka = hastighet · tid = 20 km/h · 1,5 h = 30 km. Att svara 13,3 km är att dela i stället för att multiplicera."
     }
   ]
 }

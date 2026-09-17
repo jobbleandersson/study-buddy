@@ -121,6 +121,110 @@
       "prompt": "List common everyday phrasal verbs and what they mean.",
       "opener": "Åtta vanliga phrasal verbs att kunna utantill.",
       "answer": "turn on/off = sätta på/stänga av · turn up/down = höja/sänka (volym) · look up = slå upp · look after = ta hand om · look for = leta efter · give up = ge upp · find out = ta reda på · get up = gå upp (ur sängen) · pick up = plocka upp/hämta · put on = ta på sig (kläder)."
+    },
+    {
+      "id": "q-en9-voc-9",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"The plane will ___ at 9pm sharp.\"",
+      "opener": "Vad gör ett flygplan när resan börjar?",
+      "choices": [
+        "take off",
+        "take up",
+        "take out",
+        "take in"
+      ],
+      "answer": 0,
+      "explanation": "\"Take off\" betyder att lyfta (om ett flygplan) eller att starta. \"Take up\" betyder att börja med en hobby, \"take out\" att ta ut/ta med."
+    },
+    {
+      "id": "q-en9-voc-10",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "What does \"run into\" mean in: \"I ran into my old teacher at the mall yesterday.\"",
+      "opener": "Vad kallas det när man oväntat träffar på någon man känner?",
+      "choices": [
+        "To meet someone by chance",
+        "To physically crash into something",
+        "To avoid someone",
+        "To run quickly"
+      ],
+      "answer": 0,
+      "explanation": "\"Run into\" betyder att träffa någon av en slump, oväntat — inte att bokstavligen springa in i något."
+    },
+    {
+      "id": "q-en9-voc-11",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"I need to ___ these old clothes I never wear.\"",
+      "opener": "Vad gör man med saker man inte längre vill ha?",
+      "choices": [
+        "throw away",
+        "throw up",
+        "throw in",
+        "throw back"
+      ],
+      "answer": 0,
+      "explanation": "\"Throw away\" betyder att slänga något man inte vill ha kvar. \"Throw up\" betyder att kräkas — ett helt annat uttryck."
+    },
+    {
+      "id": "q-en9-voc-12",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Affect\" är ett verb (att påverka), \"effect\" är oftast ett substantiv (en effekt/följd).",
+      "choices": [
+        "The weather will effect our plans.",
+        "The weather will affect our plans.",
+        "The weather will affects our plans.",
+        "The weather will affecting our plans."
+      ],
+      "answer": 1,
+      "explanation": "\"Affect\" är verbet som betyder \"påverka\" — det som behövs här. \"Effect\" är substantivet (en effekt/ett resultat) och passar inte grammatiskt efter \"will\"."
+    },
+    {
+      "id": "q-en9-voc-13",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Borrow\" är att LÅNA (ta emot), \"lend\" är att LÅNA UT (ge).",
+      "choices": [
+        "Can I lend your pen for a minute?",
+        "Can I borrow your pen for a minute?",
+        "Can I borrowed your pen for a minute?",
+        "Can I lending your pen for a minute?"
+      ],
+      "answer": 1,
+      "explanation": "Den som vill LÅNA något av någon annan använder \"borrow\". \"Lend\" används av personen som lånar UT något, t.ex. \"Can you lend me your pen?\""
+    },
+    {
+      "id": "q-en9-voc-14",
+      "kind": "worked",
+      "topic": "phrasal verbs",
+      "prompt": "Fill in the correct phrasal verb for each blank, choosing from: run into, throw away, take off, find out. \"I need to (1) ___ what time the flight will (2) ___. On my way to the airport I (3) ___ an old friend, and later I had to (4) ___ my boarding pass because I printed it wrong and had a new one on my phone.\"",
+      "opener": "Fyra olika phrasal verbs: ta reda på, lyfta (flygplan), träffa på någon av en slump, slänga.",
+      "answer": "1) find out, 2) take off, 3) ran into, 4) throw away.",
+      "steps": [
+        "\"I need to ___ what time\" betyder att ta reda på något — \"find out\".",
+        "\"the flight will ___\" betyder att flygplanet lyfter — \"take off\".",
+        "\"On my way to the airport I ___ an old friend\" beskriver ett oväntat möte i dåtid — \"ran into\" (böjd form av \"run into\").",
+        "\"I had to ___ my boarding pass\" betyder att slänga den felaktiga utskriften — \"throw away\"."
+      ]
+    },
+    {
+      "id": "q-en9-voc-15",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"Can you ___ the form before Friday?\"",
+      "opener": "Vad gör man med ett formulär — man fyller i det.",
+      "choices": [
+        "fill out",
+        "fill up",
+        "fill over",
+        "fill down"
+      ],
+      "answer": 0,
+      "explanation": "\"Fill out\" (eller \"fill in\") betyder att fylla i ett formulär. \"Fill up\" används oftast om att fylla något helt, t.ex. en bensintank."
     }
   ]
 }

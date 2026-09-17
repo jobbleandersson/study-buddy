@@ -122,6 +122,111 @@
       "prompt": "Hur bildas de tre typerna av si-satser (verklig, hypotetisk nutid, overklig dåtid)?",
       "opener": "Tre mönster att hålla isär, plus konditionalisens oregelbundna stammar.",
       "answer": "1) Verklig/sannolik (typ 1): si + presens indikativ, huvudsats i presens eller futurum — \"Si tengo tiempo, voy/iré\". 2) Hypotetisk/osannolik nutid (typ 2): si + imperfekt subjuntivo, huvudsats i konditionalis — \"Si tuviera tiempo, iría\". 3) Overklig dåtid (typ 3): si + pluskvamperfekt subjuntivo, huvudsats i konditionalis perfekt — \"Si hubiera tenido tiempo, habría ido\". Oregelbundna konditionalis-stammar (samma som futurum): tener→tendr-, poder→podr-, hacer→har-, decir→dir-, salir→saldr-, querer→querr-, saber→sabr-, poner→pondr-, venir→vendr-."
+    },
+    {
+      "id": "q-sp4-conditional-9",
+      "kind": "mc",
+      "topic": "conditional tense",
+      "prompt": "Välj rätt form: \"Yo ___ (decir) la verdad si me preguntaran.\"",
+      "opener": "\"Decir\" har en oregelbunden stam i konditionalis: dir-.",
+      "choices": [
+        "diría",
+        "deciría",
+        "dijera",
+        "diré"
+      ],
+      "answer": 0,
+      "explanation": "\"Decir\" har oregelbunden stam i konditionalis: dir- + ändelser → \"diría\" (jag skulle säga)."
+    },
+    {
+      "id": "q-sp4-conditional-10",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Välj rätt form: \"Si ___ (hacer) buen tiempo mañana, iremos a la playa.\"",
+      "opener": "Detta är en verklig, sannolik si-sats (typ 1) om framtiden, inte en hypotetisk.",
+      "choices": [
+        "hace",
+        "hiciera",
+        "hizo",
+        "haría"
+      ],
+      "answer": 0,
+      "explanation": "En verklig/sannolik si-sats (typ 1) tar presens indikativ i bisatsen: \"si hace buen tiempo\", med huvudsats i futurum (\"iremos\")."
+    },
+    {
+      "id": "q-sp4-conditional-11",
+      "kind": "mc",
+      "topic": "hypothetical situations",
+      "prompt": "Välj rätt form: \"Nosotros ___ (hacer) un viaje si tuviéramos más dinero.\"",
+      "opener": "\"Hacer\" har en oregelbunden stam i konditionalis: har-.",
+      "choices": [
+        "haríamos",
+        "haceríamos",
+        "hacíamos",
+        "hicimos"
+      ],
+      "answer": 0,
+      "explanation": "\"Hacer\" har oregelbunden stam i konditionalis: har- + ändelser → \"haríamos\" (vi skulle göra)."
+    },
+    {
+      "id": "q-sp4-conditional-12",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Välj rätt form: \"Si hubieras llegado a tiempo, no ___ (perder) el tren.\"",
+      "opener": "En overklig dåtid (typ 3) kräver konditionalis perfekt i huvudsatsen: habría + perfektparticip.",
+      "choices": [
+        "habrías perdido",
+        "perderías",
+        "perdías",
+        "perdiste"
+      ],
+      "answer": 0,
+      "explanation": "Overklig dåtid: si + pluskvamperfekt subjuntivo (hubieras llegado) i bisatsen, konditionalis perfekt (habrías perdido) i huvudsatsen."
+    },
+    {
+      "id": "q-sp4-conditional-13",
+      "kind": "mc",
+      "topic": "conditional tense",
+      "prompt": "Välj den artigaste frasen: \"¿___ tú acompañarme al médico?\" (querer)",
+      "opener": "\"Querer\" har en oregelbunden stam i konditionalis: querr-.",
+      "choices": [
+        "Querrías",
+        "Quererías",
+        "Quisiste",
+        "Quieres"
+      ],
+      "answer": 0,
+      "explanation": "\"Querer\" har oregelbunden stam i konditionalis: querr- + ändelser → \"querrías\" (skulle du vilja), en artig fråga."
+    },
+    {
+      "id": "q-sp4-conditional-14",
+      "kind": "mc",
+      "topic": "hypothetical situations",
+      "prompt": "Vilken si-sats beskriver en verklig, sannolik situation i nutid/framtid?",
+      "opener": "Bara en av dessa fyra alternativ är typ 1 (verklig/sannolik).",
+      "choices": [
+        "Si tengo tiempo, iré al cine.",
+        "Si tuviera tiempo, iría al cine.",
+        "Si hubiera tenido tiempo, habría ido al cine.",
+        "Si tendría tiempo, iría al cine."
+      ],
+      "answer": 0,
+      "explanation": "\"Si tengo tiempo, iré al cine\" är en verklig/sannolik si-sats (typ 1): presens indikativ + futurum. De andra beskriver hypotetisk nutid, overklig dåtid, eller är grammatiskt felaktiga (konditionalis får inte stå direkt efter \"si\")."
+    },
+    {
+      "id": "q-sp4-conditional-15",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Välj rätt form: \"Ella ___ (saber) la respuesta si hubiera estudiado más.\"",
+      "opener": "\"Saber\" har en oregelbunden stam i konditionalis: sabr-.",
+      "choices": [
+        "sabría",
+        "saberia",
+        "supiera",
+        "sabrá"
+      ],
+      "answer": 0,
+      "explanation": "\"Saber\" har oregelbunden stam i konditionalis: sabr- + ändelser → \"sabría\" (hon skulle veta)."
     }
   ]
 }

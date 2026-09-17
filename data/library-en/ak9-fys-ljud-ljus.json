@@ -124,6 +124,110 @@
       "prompt": "Summarise the basic concepts of sound, light and the universe.",
       "opener": "Go through sound, then light, then space before turning the card over.",
       "answer": "Sound: pressure waves that spread through a medium (e.g. air) when something vibrates, requires a medium in order to spread · Frequency (Hz) determines pitch — more oscillations per second gives a higher tone · Amplitude determines volume/loudness · The speed of sound in air is about 340 m/s, much slower than light's roughly 300,000 km/s · Reflection: light bounces back off a surface, e.g. a mirror · Refraction: light changes direction when it changes medium, e.g. from air to water · The solar system: the Sun is a star that shines with its own light via nuclear reactions, the planets (including Earth) orbit the Sun and only reflect light · The universe: contains countless stars and galaxies, and the distances are so enormous that they are measured in light-years (the distance light travels in one year)."
+    },
+    {
+      "id": "q-fys-lju-9",
+      "kind": "mc",
+      "topic": "sound waves",
+      "prompt": "What determines how loud a sound is perceived to be, that is, its volume?",
+      "opener": "Distinguish between what determines PITCH and what determines LOUDNESS.",
+      "choices": [
+        "The amplitude (the size of the oscillation)",
+        "The frequency",
+        "The speed of sound",
+        "Distance from the source is the only thing that matters"
+      ],
+      "answer": 0,
+      "explanation": "The amplitude, how big the oscillation is, determines the loudness of the sound. The frequency instead determines the pitch — a high or low tone."
+    },
+    {
+      "id": "q-fys-lju-10",
+      "kind": "mc",
+      "topic": "light, reflection and refraction",
+      "prompt": "What is it called when light is absorbed by a surface instead of being reflected or refracted?",
+      "opener": "Think about what happens to light hitting a black, matte surface.",
+      "choices": [
+        "Absorption",
+        "Reflection",
+        "Refraction",
+        "Diffraction"
+      ],
+      "answer": 0,
+      "explanation": "Absorption means the light is taken up by the material and converted into, for example, heat, instead of bouncing back (reflection) or changing direction (refraction). Black surfaces absorb a lot of light, which is why they can feel warm in the sun."
+    },
+    {
+      "id": "q-fys-lju-11",
+      "kind": "mc",
+      "topic": "the solar system",
+      "prompt": "Which planet in the solar system is closest to the Sun?",
+      "opener": "The first planet in order going outward from the Sun.",
+      "choices": [
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars"
+      ],
+      "answer": 0,
+      "explanation": "Mercury is the planet closest to the Sun, followed by Venus, Earth and Mars."
+    },
+    {
+      "id": "q-fys-lju-12",
+      "kind": "mc",
+      "topic": "the solar system",
+      "prompt": "What is a moon?",
+      "opener": "Think about Earth's Moon — what does it orbit?",
+      "choices": [
+        "A celestial body that orbits a planet",
+        "A small star",
+        "A type of comet",
+        "Another name for a planet"
+      ],
+      "answer": 0,
+      "explanation": "A moon is a natural celestial body that orbits a planet, unlike a planet, which orbits a star. Earth has one moon, but other planets can have several or none."
+    },
+    {
+      "id": "q-fys-lju-13",
+      "kind": "mc",
+      "topic": "the universe",
+      "prompt": "What is a galaxy?",
+      "opener": "Think on a much larger scale than the solar system.",
+      "choices": [
+        "An enormous system of millions or billions of stars, gas and dust held together by gravity",
+        "A single large star",
+        "Another name for the solar system",
+        "A type of planet"
+      ],
+      "answer": 0,
+      "explanation": "A galaxy, such as the Milky Way that our solar system belongs to, is an enormous system of stars, gas and dust held together by gravity. The universe contains billions of galaxies."
+    },
+    {
+      "id": "q-fys-lju-14",
+      "kind": "worked",
+      "topic": "sound waves",
+      "prompt": "It takes 6 seconds from when you see a flash of lightning to when you hear the thunder. The speed of sound in air is about 340 m/s. Roughly how far away did the lightning strike?",
+      "opener": "The light reaches you almost instantly — in practice, it's just the sound's travel time that counts in those 6 seconds.",
+      "answer": "≈ 2040 m (roughly 2 km)",
+      "steps": [
+        "The light from the lightning reaches your eye almost immediately, so the 6 seconds is in practice the sound's travel time.",
+        "Use the relationship distance = speed · time: s = v · t.",
+        "Substitute the values: s = 340 m/s · 6 s = 2040 m.",
+        "That's roughly 2 km."
+      ]
+    },
+    {
+      "id": "q-fys-lju-15",
+      "kind": "mc",
+      "topic": "light, reflection and refraction",
+      "prompt": "Why does a pool often look shallower than it actually is, when you look down into the water from an angle?",
+      "opener": "The light changes medium as it travels from water to air on its way to your eye.",
+      "choices": [
+        "The light refracts when it goes from water to air, which shifts where the bottom appears to be",
+        "The water optically magnifies the bottom without the light changing direction",
+        "The pool's bottom is actually painted higher up than it really is",
+        "The eye can't perceive depth in water at all"
+      ],
+      "answer": 0,
+      "explanation": "Light from the bottom of the pool refracts (changes direction) as it passes from water to air, which makes the bottom appear to be higher up and closer to the surface than it actually is."
     }
   ]
 }

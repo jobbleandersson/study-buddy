@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta viktiga presentationstekniska begrepp för muntlig framställning.",
       "opener": "Röst, blick, bild och förberedelse — fyra pusselbitar för ett bra anförande.",
       "answer": "Mottagaranpassning: ordval, exempel och detaljnivå utifrån publikens förkunskaper och ålder · Prosodi: röstens tonhöjd, tempo, betoning och pauser · Talarpaus: medveten tystnad för att skapa spänning eller eftertanke · Visuella hjälpmedel: bör komplettera talet med nyckelord och bilder, inte fyllas med långa textrader · Nervositet: motverkas bäst med grundlig förberedelse och övning, inte med att undvika förberedelse · Frågestund: ärlighet och lugn hantering av osäkerhet stärker trovärdigheten mer än ett bluffat svar."
+    },
+    {
+      "id": "q-sv2-muntligt-9",
+      "kind": "mc",
+      "topic": "mottagaranpassning",
+      "prompt": "Vad bör en talare tänka på när syftet med anförandet är att övertyga snarare än att informera?",
+      "opener": "Ett övertygande tal behöver mer än bara fakta för att nå fram.",
+      "choices": [
+        "Att tydligt formulera en tes och backa upp den med argument riktade mot mottagarens värderingar",
+        "Att bara rada upp fakta utan någon tydlig linje",
+        "Att undvika allt känslomässigt språk",
+        "Att aldrig bemöta motargument"
+      ],
+      "answer": 0,
+      "explanation": "Ett övertygande anförande bör ha en tydlig tes som backas upp med argument anpassade till mottagarens värderingar och intressen, samt gärna bemöta troliga motargument. Att bara rada upp fakta utan linje eller undvika känslomässigt språk gör talet mindre övertygande."
+    },
+    {
+      "id": "q-sv2-muntligt-10",
+      "kind": "mc",
+      "topic": "retoriska hjälpmedel",
+      "prompt": "Vad är syftet med att använda konkreta exempel och berättelser (anekdoter) i ett anförande?",
+      "opener": "Tänk på vad som är lättare att minnas: en abstrakt princip eller en konkret berättelse.",
+      "choices": [
+        "Att göra abstrakta idéer mer begripliga och engagerande för publiken",
+        "Att förlänga talet utan egentligt syfte",
+        "Att undvika att behöva ha en tydlig tes",
+        "Anekdoter används aldrig i seriösa anföranden"
+      ],
+      "answer": 0,
+      "explanation": "Konkreta exempel och anekdoter gör abstrakta idéer mer begripliga, minnesvärda och engagerande för publiken. De används flitigt även i seriösa och välrenommerade anföranden, inte bara för att fylla ut tiden."
+    },
+    {
+      "id": "q-sv2-muntligt-11",
+      "kind": "mc",
+      "topic": "nervositet",
+      "prompt": "Vilket av följande är en vanlig fysisk andningsteknik som kan minska nervositet inför ett tal?",
+      "opener": "Tänk på vilken typ av andning som lugnar nervsystemet.",
+      "choices": [
+        "Långsam, djup andning från magen",
+        "Att hålla andan så länge som möjligt",
+        "Att andas extremt snabbt precis innan talet",
+        "Att undvika att andas medvetet alls"
+      ],
+      "answer": 0,
+      "explanation": "Långsam, djup andning från magen (bukandning) hjälper till att lugna nervsystemet och kan minska nervositet inför ett tal. Att hålla andan eller andas extremt snabbt gör i stället kroppen mer stressad."
+    },
+    {
+      "id": "q-sv2-muntligt-12",
+      "kind": "mc",
+      "topic": "visuella hjälpmedel",
+      "prompt": "Vad är en fördel med att använda en bild eller ett diagram i stället för en lång textrad i ett bildspel?",
+      "opener": "Tänk på vad publiken ska ägna sin uppmärksamhet åt: talaren eller skärmen.",
+      "choices": [
+        "En bild kan förmedla information snabbt och stödja det talade ordet utan att konkurrera med det om uppmärksamheten",
+        "Bilder gör alltid ett anförande mer förvirrande",
+        "Bilder kan aldrig ersätta text",
+        "Diagram är bara lämpliga i naturvetenskapliga ämnen"
+      ],
+      "answer": 0,
+      "explanation": "En bild eller ett diagram kan förmedla information snabbt och visuellt, vilket stödjer det talade ordet i stället för att konkurrera med det om publikens uppmärksamhet, som långa textrader annars gör. Diagram kan för övrigt vara användbara i många olika ämnen, inte bara naturvetenskapliga."
+    },
+    {
+      "id": "q-sv2-muntligt-13",
+      "kind": "mc",
+      "topic": "mottagaranpassning",
+      "prompt": "En talare ska presentera samma forskningsresultat för både experter på området och för allmänheten. Vad bör skilja sig mest mellan de två versionerna?",
+      "opener": "Tänk på vilken bakgrundskunskap de två grupperna redan har.",
+      "choices": [
+        "Graden av fackspråk och hur mycket bakgrund som förklaras",
+        "Talarens röststyrka",
+        "Längden på varje enskild mening ska alltid vara identisk",
+        "Det finns ingen anledning att förändra något alls"
+      ],
+      "answer": 0,
+      "explanation": "Mot experter kan talaren använda fackspråk och gå rakt på resultaten, medan en presentation för allmänheten bör förklara mer bakgrund och undvika onödig jargong för att bli begriplig."
+    },
+    {
+      "id": "q-sv2-muntligt-14",
+      "kind": "mc",
+      "topic": "retoriska hjälpmedel",
+      "prompt": "Vad kallas det medvetna valet att variera röstens styrka och tempo för att hålla kvar publikens uppmärksamhet?",
+      "opener": "Begreppet handlar om rösten som ett verktyg, inte om ordvalet i sig.",
+      "choices": [
+        "Röstvariation (en del av prosodin)",
+        "Ett skriftspråkligt hjälpmedel",
+        "En stilfigur i texten",
+        "En typ av källhantering"
+      ],
+      "answer": 0,
+      "explanation": "Röstvariation, som är en del av prosodin, innebär att medvetet variera röstens styrka, tempo och tonläge för att hålla kvar publikens uppmärksamhet och betona viktiga delar av talet."
+    },
+    {
+      "id": "q-sv2-muntligt-15",
+      "kind": "mc",
+      "topic": "nervositet",
+      "prompt": "Vad kan vara en fördel med att öva sitt anförande högt för andra innan det verkliga tillfället?",
+      "opener": "Tänk på vad en testpublik kan ge dig som du inte får genom att bara läsa igenom talet tyst.",
+      "choices": [
+        "Man får respons och kan justera innehåll, tempo och kroppsspråk innan det verkliga anförandet",
+        "Det är bara till för att slösa tid",
+        "Det gör talaren mer nervös än om hen inte övat alls",
+        "Det ersätter behovet av att kunna innehållet"
+      ],
+      "answer": 0,
+      "explanation": "Att öva högt för andra ger konkret respons på innehåll, tempo, tydlighet och kroppsspråk, vilket gör att talaren kan justera anförandet innan det verkliga tillfället. Övning minskar vanligtvis nervositeten snarare än att öka den, men ersätter inte behovet av att faktiskt kunna innehållet."
     }
   ]
 }

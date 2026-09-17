@@ -115,6 +115,111 @@
       "prompt": "How do gender, definite/indefinite articles, and plural work in French?",
       "opener": "Two genders, and how the articles follow along.",
       "answer": "Gender: le (masculine, e.g. le livre), la (feminine, e.g. la table) — must be learned with each word. Before a vowel sound: both le and la become l' (l'école, l'ami). Definite article plural: les (same for both genders). Indefinite article: un (masc.), une (fem.), des (plural, 'some'). Plural: almost always noun + -s (usually not pronounced), with the article les."
+    },
+    {
+      "id": "q-fr7-art-9",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ voiture est rouge.\" (The car is red.)",
+      "opener": "\"Voiture\" is feminine and starts with a consonant.",
+      "choices": [
+        "La",
+        "Le",
+        "Les",
+        "L'"
+      ],
+      "answer": 0,
+      "explanation": "\"Voiture\" (car) is feminine singular and starts with a consonant, so the article is \"la\"."
+    },
+    {
+      "id": "q-fr7-art-10",
+      "kind": "mc",
+      "topic": "indefinite articles",
+      "prompt": "Choose the right article: \"J'ai ___ chien.\" (I have a dog.)",
+      "opener": "\"Le chien\" is masculine.",
+      "choices": [
+        "un",
+        "une",
+        "des",
+        "de"
+      ],
+      "answer": 0,
+      "explanation": "\"Un\" is the indefinite article for masculine. \"Une\" is used instead for feminine."
+    },
+    {
+      "id": "q-fr7-art-11",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "What is the plural of \"le cheval\" (the horse)?",
+      "opener": "An irregular pattern: words ending in -al often switch to -aux in the plural.",
+      "choices": [
+        "les chevaux",
+        "les chevals",
+        "le chevaux",
+        "les cheval"
+      ],
+      "answer": 0,
+      "explanation": "\"Cheval\" → \"chevaux\" in the plural (the irregular -al → -aux ending), with the article \"les\"."
+    },
+    {
+      "id": "q-fr7-art-12",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "What gender is the word \"la lune\" (the moon)?",
+      "opener": "The article \"la\" gives away the gender directly.",
+      "choices": [
+        "Feminine",
+        "Masculine",
+        "Neuter",
+        "Plural"
+      ],
+      "answer": 0,
+      "explanation": "\"La lune\" takes the article \"la\", which means the word is feminine."
+    },
+    {
+      "id": "q-fr7-art-13",
+      "kind": "mc",
+      "topic": "definite articles",
+      "prompt": "Choose the right article: \"___ ami s'appelle Marc.\" (The friend's name is Marc.)",
+      "opener": "\"Ami\" is masculine but starts with a vowel.",
+      "choices": [
+        "L'",
+        "Le",
+        "La",
+        "Les"
+      ],
+      "answer": 0,
+      "explanation": "In front of words starting with a vowel sound, \"le\" shortens to \"l'\": \"l'ami\"."
+    },
+    {
+      "id": "q-fr7-art-14",
+      "kind": "mc",
+      "topic": "plural",
+      "prompt": "What is the plural of \"la fleur\" (the flower)?",
+      "opener": "\"Fleur\" forms the plural with the regular -s pattern.",
+      "choices": [
+        "les fleurs",
+        "les fleures",
+        "la fleurs",
+        "les fleur"
+      ],
+      "answer": 0,
+      "explanation": "\"Fleur\" → \"fleurs\" in the plural, with the article \"les\"."
+    },
+    {
+      "id": "q-fr7-art-15",
+      "kind": "mc",
+      "topic": "gender",
+      "prompt": "What gender is the word \"le soleil\" (the sun)?",
+      "opener": "The article \"le\" gives away the gender directly.",
+      "choices": [
+        "Masculine",
+        "Feminine",
+        "Neuter",
+        "Plural"
+      ],
+      "answer": 0,
+      "explanation": "\"Le soleil\" takes the article \"le\", which means the word is masculine."
     }
   ]
 }

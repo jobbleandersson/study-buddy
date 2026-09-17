@@ -124,6 +124,111 @@
       "prompt": "Summarise the roles of the Riksdag, the government and municipalities in Sweden.",
       "opener": "Three levels with different tasks: the one that enacts laws, the one that implements them, and the one that handles local matters.",
       "answer": "The Riksdag: Sweden's highest decision-making body, 349 members, enacts laws and decides on the state budget (legislative power) · The government: implements the Riksdag's decisions, leads the government agencies and Sweden's administration, appointed after the Prime Minister is approved by the Riksdag (executive power) · The courts: rule on criminal and civil cases, independent of the Riksdag and government (judicial power) · The municipality: responsible for local matters close to residents, e.g. primary schools, preschools, elderly care and social services, governed by a municipal council elected every fourth year · The region: responsible for, among other things, healthcare and public transport · The separation of power between these levels and functions is central to making democracy work and ensuring that no one gains too much power."
+    },
+    {
+      "id": "q-sam-dem-9",
+      "kind": "mc",
+      "topic": "what democracy means",
+      "prompt": "What is it called when citizens vote directly yes or no on a specific issue, as opposed to voting for parties in a general election?",
+      "opener": "One example was the 2003 referendum on the euro.",
+      "choices": [
+        "A referendum",
+        "A Riksdag election",
+        "A municipal election",
+        "A consultation process"
+      ],
+      "answer": 0,
+      "explanation": "A referendum is a direct decision by citizens on a specific issue, unlike general elections where you vote for parties and representatives who then make the decisions."
+    },
+    {
+      "id": "q-sam-dem-10",
+      "kind": "mc",
+      "topic": "the Riksdag, the government and municipalities",
+      "prompt": "Who is formally Sweden's head of state, with a mainly ceremonial role and no political power?",
+      "opener": "This role is hereditary, not elected.",
+      "choices": [
+        "The King/monarch",
+        "The Prime Minister",
+        "The Speaker of the Riksdag",
+        "The Chair of the Riksdag"
+      ],
+      "answer": 0,
+      "explanation": "Sweden's monarch is formally the head of state, but under the constitution has no political power - the role is in practice ceremonial and representative. Actual political power lies with the government and the Riksdag."
+    },
+    {
+      "id": "q-sam-dem-11",
+      "kind": "mc",
+      "topic": "the Riksdag, the government and municipalities",
+      "prompt": "What is the name of Sweden's regions' elected assembly?",
+      "opener": "Compare it with the municipalities' equivalent assembly.",
+      "choices": [
+        "The regional council (regionfullmäktige)",
+        "The municipal council (kommunfullmäktige)",
+        "The Riksdag",
+        "The Speaker's Conference"
+      ],
+      "answer": 0,
+      "explanation": "The regional council is the region's elected decision-making assembly, responsible for things like healthcare and public transport. The municipal council is the equivalent assembly at the municipal level."
+    },
+    {
+      "id": "q-sam-dem-12",
+      "kind": "mc",
+      "topic": "general elections in Sweden",
+      "prompt": "What is the threshold of 4% of votes that a party must reach to get seats in the Riksdag called?",
+      "opener": "A party below this threshold gets no seats in the Riksdag at all.",
+      "choices": [
+        "The four percent threshold",
+        "The Speaker's threshold",
+        "The government threshold",
+        "The municipal threshold"
+      ],
+      "answer": 0,
+      "explanation": "The four percent threshold means a party must get at least 4% of the votes nationally (or 12% in a single constituency) to gain seats in the Riksdag."
+    },
+    {
+      "id": "q-sam-dem-13",
+      "kind": "mc",
+      "topic": "democracy and dictatorship",
+      "prompt": "What often characterises a dictatorship, unlike a democracy?",
+      "opener": "Think about who actually has the power to influence who holds power.",
+      "choices": [
+        "Power is concentrated in one person or a small group, without citizens being able to vote them out",
+        "Free and regular elections with several parties to choose from",
+        "An independent judiciary that can rule against the government",
+        "A free press that can scrutinise those in power without censorship"
+      ],
+      "answer": 0,
+      "explanation": "A dictatorship often lacks any way for citizens to vote out those in power through free elections - power is concentrated and often protected through censorship or suppression of the opposition. The other options instead describe features of a democracy."
+    },
+    {
+      "id": "q-sam-dem-14",
+      "kind": "worked",
+      "topic": "the Riksdag, the government and municipalities",
+      "prompt": "Using the principle of separation of powers (legislative, executive and judicial), explain what happens if the Riksdag enacts a law that is then claimed to conflict with the constitution.",
+      "opener": "Think about which of the three powers ultimately settles such a dispute, and why that power needs to be independent.",
+      "answer": "The Riksdag (legislative power) enacts the law, the government and its agencies (executive power) apply it in practice, but if the law's constitutionality is questioned, the courts (judicial power), which are independent of the Riksdag and government, can review the matter in an individual case.",
+      "steps": [
+        "Legislative power (the Riksdag) decides on and enacts the law.",
+        "Executive power (the government and its agencies) applies and enforces the law in practice.",
+        "If someone believes the law conflicts with the constitution, the matter can be reviewed by the courts, which make up the judicial power.",
+        "The courts are independent of the Riksdag and government, which is exactly the point of separating powers - no single part of the state should alone control all three functions.",
+        "This system of checks and balances protects citizens from any single power-holder becoming too powerful."
+      ]
+    },
+    {
+      "id": "q-sam-dem-15",
+      "kind": "mc",
+      "topic": "what democracy means",
+      "prompt": "What is a democracy called where citizens elect representatives who then make the decisions, as opposed to everyone voting directly on every issue?",
+      "opener": "This is the most common form of democracy in modern states, including Sweden.",
+      "choices": [
+        "Representative democracy",
+        "Direct democracy",
+        "Dictatorship",
+        "Theocracy"
+      ],
+      "answer": 0,
+      "explanation": "In a representative democracy, citizens elect representatives (e.g. members of the Riksdag) who then make decisions on their behalf, unlike a direct democracy where citizens vote directly on every individual issue."
     }
   ]
 }

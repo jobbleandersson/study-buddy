@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta de tre etiska modellerna pliktetik, konsekvensetik och sinnelagsetik, samt hur religion kan kopplas till etik.",
       "opener": "Gå igenom modellerna en efter en, och avsluta med kopplingen till religion.",
       "answer": "Pliktetik: en handling är rätt eller fel utifrån om den följer en regel eller princip (t.ex. \"ljug inte\"), oavsett konsekvenser. Konsekvensetik: en handling bedöms utifrån sina följder — rätt är det som ger mest nytta/minst skada totalt sett. Sinnelagsetik: fokus på avsikten och viljan bakom handlingen — en god avsikt räknas som moraliskt viktig, även om resultatet blir dåligt. Etiskt dilemma: en situation där olika värden eller principer krockar, så att varje val innebär en avvägning. Religion och etik: många religioner ger etisk vägledning (t.ex. genom bud och berättelser), men etiskt resonerande behöver inte bygga på religion — förnuft, empati och filosofiska teorier är andra grunder för moral."
+    },
+    {
+      "id": "q-rel-etik-9",
+      "kind": "mc",
+      "topic": "pliktetik",
+      "prompt": "Vilken filosof förknippas särskilt med pliktetik och idén om att handla efter universella, förnuftsgrundade regler?",
+      "opener": "Filosofen är känd för begreppet \"det kategoriska imperativet\".",
+      "choices": [
+        "Immanuel Kant",
+        "Aristoteles",
+        "Sokrates",
+        "Konfucius"
+      ],
+      "answer": 0,
+      "explanation": "Immanuel Kant är den filosof som förknippas starkast med pliktetik, bland annat genom idén om det kategoriska imperativet — att man bör handla efter regler man skulle vilja se som allmängiltiga lagar."
+    },
+    {
+      "id": "q-rel-etik-10",
+      "kind": "mc",
+      "topic": "konsekvensetik",
+      "prompt": "Vilken inriktning inom konsekvensetiken menar att en handling är rätt om den ger störst sammanlagd nytta/lycka för flest människor?",
+      "opener": "Namnet kommer av det engelska ordet för \"nytta\".",
+      "choices": [
+        "Utilitarism",
+        "Pliktetik",
+        "Sinnelagsetik",
+        "Dygdetik"
+      ],
+      "answer": 0,
+      "explanation": "Utilitarism är en form av konsekvensetik som menar att en handling är moraliskt rätt om den maximerar den sammanlagda nyttan eller lyckan för flest människor."
+    },
+    {
+      "id": "q-rel-etik-11",
+      "kind": "mc",
+      "topic": "sinnelagsetik",
+      "prompt": "En person räddar en drunknande främling, men gör det bara för att bli hyllad i media, inte av omtanke. Hur skulle en sinnelagsetiker troligen bedöma handlingen moraliskt?",
+      "opener": "Tänk på vad sinnelagsetiken lägger allra störst vikt vid.",
+      "choices": [
+        "Mindre moraliskt värdefull, eftersom avsikten var egennyttig snarare än god vilja",
+        "Precis lika moraliskt värdefull som om avsikten varit god, eftersom resultatet blev detsamma",
+        "Sinnelagsetik bryr sig aldrig om avsikter",
+        "Handlingen kan inte bedömas alls"
+      ],
+      "answer": 0,
+      "explanation": "Eftersom sinnelagsetik fokuserar på avsikten bakom en handling, skulle en sinnelagsetiker se den egennyttiga avsikten (att bli hyllad) som moraliskt mindre värdefull än om handlingen gjorts av genuin omtanke, trots att resultatet — den räddade främlingen — blev detsamma."
+    },
+    {
+      "id": "q-rel-etik-12",
+      "kind": "mc",
+      "topic": "etiska dilemman",
+      "prompt": "Vad kallas ett klassiskt etiskt tankeexperiment där man måste välja mellan att aktivt styra om en spårvagn för att döda en person i stället för fem?",
+      "opener": "Tankeexperimentet är uppkallat efter fordonet i exemplet.",
+      "choices": [
+        "Spårvagnsdilemmat (trolley-problemet)",
+        "Toranprincipen",
+        "Den gyllene regeln",
+        "Sokratisk metod"
+      ],
+      "answer": 0,
+      "explanation": "Spårvagnsdilemmat (trolley-problemet) är ett klassiskt tankeexperiment inom etik, där man tvingas väga aktivt handlande mot passivitet och konsekvenser för olika antal människor mot varandra."
+    },
+    {
+      "id": "q-rel-etik-13",
+      "kind": "mc",
+      "topic": "koppling mellan religion och etik",
+      "prompt": "Vad kallas principen, som finns i någon form inom flera religioner och livsåskådningar, att man ska behandla andra som man själv vill bli behandlad?",
+      "opener": "Principen går igen i många olika kulturer och traditioner under olika namn.",
+      "choices": [
+        "Den gyllene regeln",
+        "Pliktetik",
+        "Nirvana",
+        "Karma"
+      ],
+      "answer": 0,
+      "explanation": "Den gyllene regeln — att behandla andra som man själv vill bli behandlad — återfinns i någon form inom många religioner och livsåskådningar, till exempel kristendom, islam, judendom och humanism."
+    },
+    {
+      "id": "q-rel-etik-14",
+      "kind": "worked",
+      "topic": "etiska dilemman",
+      "prompt": "Ett dilemma: en vän anförtror dig en hemlighet om att hen mår mycket dåligt psykiskt, men ber dig lova att inte berätta för någon, inklusive föräldrar. Du är orolig att vännen kan fara illa. Resonera med hjälp av pliktetik och konsekvensetik kring vad du bör göra.",
+      "opener": "Fundera på om pliktetiken ger ett självklart svar här, till skillnad från i plånboksexemplet.",
+      "answer": "Pliktetiskt resonemang: om man utgår från regeln \"håll dina löften\" pekar det mot att inte berätta, men om man i stället utgår från en regel om att skydda liv och hälsa kan pliktetiken peka åt motsatt håll — vilket visar att pliktetik kan ge olika svar beroende på vilken regel man prioriterar. Konsekvensetiskt resonemang: man väger konsekvenserna av tystnad (vännen kanske inte får den hjälp som behövs) mot konsekvenserna av att berätta (vännens förtroende kan skadas, men hen kan få hjälp) — om risken för allvarlig skada bedöms som stor väger konsekvensetiken sannolikt mot att söka hjälp åt vännen, trots löftesbrottet.",
+      "steps": [
+        "Identifiera konflikten: löftet om tystnad står mot omsorgen om vännens säkerhet.",
+        "Pliktetik: om regeln \"håll löften\" följs strikt pekar det mot tystnad, men en annan möjlig regel (\"skydda andras liv och hälsa\") pekar åt motsatt håll — pliktetiken ger alltså inte ett självklart svar här.",
+        "Konsekvensetik: väg den möjliga skadan av att inte agera (vännen far illa) mot skadan av att bryta löftet (skadat förtroende) — om risken för allvarlig skada är stor talar konsekvensetiken för att söka hjälp.",
+        "Slutsats: till skillnad från plånboksdilemmat ger detta dilemma inte samma svar från alla modeller, vilket visar att etiska dilemman inte alltid har ett enkelt, entydigt svar."
+      ]
+    },
+    {
+      "id": "q-rel-etik-15",
+      "kind": "mc",
+      "topic": "pliktetik",
+      "prompt": "Vad är en vanlig kritik mot pliktetik?",
+      "opener": "Tänk på vad som kan hända om en regel följs strikt, oavsett situation.",
+      "choices": [
+        "Den kan leda till handlingar som känns fel i en specifik situation, om regeln följs strikt oavsett konsekvenser",
+        "Den bryr sig aldrig om regler alls",
+        "Den finns bara inom en enda religion",
+        "Den kan aldrig tillämpas på riktiga dilemman"
+      ],
+      "answer": 0,
+      "explanation": "En vanlig kritik mot pliktetik är att strikt regelföljande ibland kan leda till resultat som känns moraliskt fel i en specifik situation, till exempel om en absolut regel om att alltid tala sanning tvingar fram ett svar som skadar någon i onödan."
     }
   ]
 }

@@ -122,6 +122,111 @@
       "prompt": "Sammanfatta stilnivåer, sociolekt, register och centrala stilistiska medel.",
       "opener": "Håll isär vad som beror på situation och vad som beror på grupptillhörighet.",
       "answer": "Stilnivåer: formell (kanslispråk, opersonlig) · neutral · informell/vardaglig (talspråksnära, utfyllnadsord) · Sociolekt: språkbruk kopplat till social grupp (ålder, yrke, klass) · Register: den stilnivå en person medvetet väljer beroende på situation · Meningsbyggnad: korta meningar ger kärvhet/driv, långa ger eftertänksamhet/formalitet · Personifikation: mänskliga drag tillskrivs icke-mänskliga företeelser · Ordval avgör stilintryck lika mycket som grammatik."
+    },
+    {
+      "id": "q-sv3-stilistik-9",
+      "kind": "mc",
+      "topic": "stilnivåer",
+      "prompt": "Vilken mening är skriven på en tydligt NEUTRAL stilnivå, varken påfallande formell eller vardaglig?",
+      "opener": "Leta efter den mening som varken har kanslispråk eller talspråkliga utfyllnadsord.",
+      "choices": [
+        "Mötet är planerat till klockan tio på torsdag.",
+        "Härmed inkallas ni till sammanträde klockan tio på torsdagen den nionde.",
+        "Vi ses typ tio-ish på torsdag, okej?",
+        "Torsdag tio, fixar du det?"
+      ],
+      "answer": 0,
+      "explanation": "\"Mötet är planerat till klockan tio på torsdag\" är sakligt och tydligt utan att vara vare sig kanslispråkligt formellt eller talspråkligt vardagligt, vilket gör den till ett exempel på neutral stilnivå. De andra alternativen lutar tydligt åt antingen det formella eller det vardagliga hållet."
+    },
+    {
+      "id": "q-sv3-stilistik-10",
+      "kind": "mc",
+      "topic": "stilistiska medel",
+      "prompt": "En text beskriver ett regn som \"föll som nålar mot marken\". Vilket stilistiskt grepp används här?",
+      "opener": "Ordet \"som\" markerar en jämförelse mellan två olika saker.",
+      "choices": [
+        "Liknelse (jämförelse med hjälp av \"som\")",
+        "Metonymi",
+        "Eufemism",
+        "Anafor"
+      ],
+      "answer": 0,
+      "explanation": "En liknelse jämför explicit två olika företeelser med hjälp av ett jämförande ord som \"som\" — här jämförs regndropparna med nålar. Metonymi hade i stället inneburit att ersätta ett ord med ett närbesläktat begrepp."
+    },
+    {
+      "id": "q-sv3-stilistik-11",
+      "kind": "mc",
+      "topic": "sociolekt och register",
+      "prompt": "En läkare använder fackspråk med kollegor men förklarar samma information med enklare ord för en patient. Är detta ett exempel på sociolekt eller register?",
+      "opener": "Fundera på om det handlar om vilken grupp läkaren tillhör, eller om ett medvetet val beroende på situation.",
+      "choices": [
+        "Register, eftersom läkaren medvetet växlar stil beroende på situation och mottagare",
+        "Sociolekt, eftersom läkaren tillhör en yrkesgrupp",
+        "Varken register eller sociolekt",
+        "Både register och sociolekt på precis samma sätt"
+      ],
+      "answer": 0,
+      "explanation": "Detta är ett exempel på register, eftersom samma läkare medvetet växlar språklig stil beroende på vem hen talar med. Läkarens fackspråk i sig kan visserligen ses som en sociolekt kopplad till yrkesgruppen, men själva växlingen mellan situationer är just register."
+    },
+    {
+      "id": "q-sv3-stilistik-12",
+      "kind": "mc",
+      "topic": "stilistiska medel",
+      "prompt": "Vilket av följande ordpar visar tydligast en skillnad i stilnivå, från formellt till vardagligt?",
+      "opener": "Ett par bör bestå av två olika ord med samma betydelse men olika stilvärde.",
+      "choices": [
+        "\"Erhålla\" jämfört med \"få\"",
+        "\"Hus\" jämfört med \"hus\"",
+        "\"Springa\" jämfört med \"springa\"",
+        "\"Bil\" jämfört med \"bil\""
+      ],
+      "answer": 0,
+      "explanation": "\"Erhålla\" är ett tydligt formellt ord medan \"få\" är den vardagliga motsvarigheten, vilket gör paret till ett bra exempel på stilnivåskillnad. De andra paren jämför samma ord med sig självt och visar därför ingen stilnivåskillnad alls."
+    },
+    {
+      "id": "q-sv3-stilistik-13",
+      "kind": "mc",
+      "topic": "stilnivåer",
+      "prompt": "Vilken typ av text skulle man normalt förvänta sig hålla en hög, formell stilnivå?",
+      "opener": "Tänk på vilken text som har högst krav på precision och opersonlighet.",
+      "choices": [
+        "En juridisk dom eller ett myndighetsbeslut",
+        "Ett sms mellan nära vänner",
+        "En chatt på ett socialt forum för ungdomar",
+        "En muntlig kommentar under en fotbollsmatch bland kompisar"
+      ],
+      "answer": 0,
+      "explanation": "En juridisk dom eller ett myndighetsbeslut kräver hög precision och en opersonlig, formell stil för att undvika missförstånd. Sms, chattar bland ungdomar och kommentarer bland kompisar tillåter i stället en mycket mer vardaglig stilnivå."
+    },
+    {
+      "id": "q-sv3-stilistik-14",
+      "kind": "mc",
+      "topic": "sociolekt och register",
+      "prompt": "Vad är en typisk skillnad mellan en sociolekt kopplad till ungdomar och en kopplad till en äldre generation?",
+      "opener": "Tänk på vad som brukar variera mellan generationers sätt att tala.",
+      "choices": [
+        "Skillnader i ordförråd, slanguttryck och ibland uttal som markerar tillhörighet till respektive grupp",
+        "Det finns aldrig några skillnader mellan generationers språkbruk",
+        "Sociolekter förändras aldrig över tid",
+        "Sociolekt handlar enbart om skriftspråk, aldrig talspråk"
+      ],
+      "answer": 0,
+      "explanation": "Olika generationers sociolekter skiljer sig ofta åt genom ordförråd, slanguttryck och ibland uttal, vilket signalerar tillhörighet till en viss åldersgrupp. Sociolekter förändras dessutom över tid och förekommer främst i talspråk, även om drag kan synas i skrift också."
+    },
+    {
+      "id": "q-sv3-stilistik-15",
+      "kind": "mc",
+      "topic": "stilistiska medel",
+      "prompt": "Varför kan en författare medvetet blanda formell och vardaglig stilnivå inom samma text?",
+      "opener": "Tänk på vad kontraster i språket kan användas för att visa.",
+      "choices": [
+        "För att skapa kontrast, till exempel för att markera en klasskillnad mellan karaktärer eller för komisk effekt",
+        "Det är alltid ett skrivfel som bör undvikas",
+        "Det gör automatiskt texten svårare att förstå utan något syfte",
+        "Blandad stilnivå är förbjuden i skönlitteratur"
+      ],
+      "answer": 0,
+      "explanation": "Att medvetet blanda stilnivåer kan skapa kontrast, till exempel för att markera skillnader mellan karaktärer eller för komisk effekt, och är ett vanligt och accepterat stilmedel i skönlitteratur snarare än ett misstag."
     }
   ]
 }

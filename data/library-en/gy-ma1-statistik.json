@@ -123,6 +123,110 @@
       "prompt": "When do you multiply probabilities, and when do you add them?",
       "opener": "The key words are \"and\" versus \"or\".",
       "answer": "Multiply when both events must occur (\"A AND B\") — e.g. two rolls in a row. Add when either one or the other must occur and they cannot happen at the same time (\"A OR B\") — e.g. a die showing 1 or 6. For dependent events, you must adjust the second probability based on what happened first."
+    },
+    {
+      "id": "q-ma1-stat-9",
+      "kind": "mc",
+      "topic": "measures of central tendency",
+      "prompt": "Which measure of central tendency is most robust against extreme values — that is, least affected by a single very unusual value?",
+      "opener": "Which measure only cares about which value sits in the middle, not about how large or small the extremes are?",
+      "choices": [
+        "The mean",
+        "The median",
+        "The sum",
+        "The range"
+      ],
+      "answer": 1,
+      "explanation": "The median isn't affected by how extreme a single value is, only by its position in the sorted order. The mean and the range, by contrast, can change drastically because of one extreme value."
+    },
+    {
+      "id": "q-ma1-stat-10",
+      "kind": "mc",
+      "topic": "measures of spread",
+      "prompt": "What is the range of the numbers 12, 18, 7, 25, 14?",
+      "opener": "Find the largest and the smallest number.",
+      "choices": [
+        "18",
+        "25",
+        "7",
+        "15.2"
+      ],
+      "answer": 0,
+      "explanation": "Range = largest value minus smallest: $25 - 7 = 18$."
+    },
+    {
+      "id": "q-ma1-stat-11",
+      "kind": "mc",
+      "topic": "probability",
+      "prompt": "You flip a coin twice. What is the probability that both are heads?",
+      "opener": "The flips are independent of each other — what do you do with the probabilities then?",
+      "choices": [
+        "$\\frac{1}{4}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{8}$",
+        "$\\frac{2}{2}$"
+      ],
+      "answer": 0,
+      "explanation": "Independent events: the probabilities are multiplied. $\\frac{1}{2} \\cdot \\frac{1}{2} = \\frac{1}{4}$."
+    },
+    {
+      "id": "q-ma1-stat-12",
+      "kind": "mc",
+      "topic": "probability",
+      "prompt": "A box contains 4 blue and 6 green pens. You draw two pens without replacement. What is the probability that both are blue?",
+      "opener": "How many pens, and how many blue ones, are left before the second draw?",
+      "choices": [
+        "$\\frac{2}{15}$",
+        "$\\frac{4}{25}$",
+        "$\\frac{3}{10}$",
+        "$\\frac{1}{15}$"
+      ],
+      "answer": 0,
+      "explanation": "First draw: $\\frac{4}{10}$. Before the second draw, 3 blue pens remain out of 9: $\\frac{3}{9}$. Together: $\\frac{4}{10} \\cdot \\frac{3}{9} = \\frac{12}{90} = \\frac{2}{15}$. The answer $\\frac{4}{25}$ comes from incorrectly treating the pen as if it were replaced."
+    },
+    {
+      "id": "q-ma1-stat-13",
+      "kind": "mc",
+      "topic": "probability",
+      "prompt": "The probability that a train is delayed on a given day is 0.15. What is the probability that it is NOT delayed?",
+      "opener": "All possible outcomes must add up to 1.",
+      "choices": [
+        "0.85",
+        "0.15",
+        "1.15",
+        "0.5"
+      ],
+      "answer": 0,
+      "explanation": "The complementary event: $P(\\text{not delayed}) = 1 - 0.15 = 0.85$."
+    },
+    {
+      "id": "q-ma1-stat-14",
+      "kind": "worked",
+      "topic": "probability",
+      "prompt": "You roll a die three times. What is the probability of getting at least one six? Show your reasoning.",
+      "opener": "\"At least one\" is usually easiest to work out backwards, via the complementary event.",
+      "answer": "91/216 ≈ 42.1%",
+      "steps": [
+        "The complementary event of \"at least one six\" is \"no six at all\".",
+        "The probability of no six on one roll is $\\frac{5}{6}$. For three independent rolls: $\\left(\\frac{5}{6}\\right)^3 = \\frac{125}{216}$.",
+        "At least one six is the complement: $1 - \\frac{125}{216} = \\frac{91}{216}$.",
+        "As a decimal: $\\frac{91}{216} \\approx 0.421 = 42.1\\,\\%$."
+      ]
+    },
+    {
+      "id": "q-ma1-stat-15",
+      "kind": "mc",
+      "topic": "source criticism",
+      "prompt": "A headline says \"New study shows coffee cures cancer!\" based on a study with 12 participants and no control group. What is the problem?",
+      "opener": "Think about how reliable the conclusions can be from such a small sample with no comparison group.",
+      "choices": [
+        "No problem, the result still applies to everyone",
+        "Such a small sample with no control group gives very uncertain conclusions, and the headline overstates what the study shows",
+        "Coffee can never be studied scientifically",
+        "The study is automatically wrong because it's about coffee"
+      ],
+      "answer": 1,
+      "explanation": "With only 12 participants and no control group to compare against, you can't draw reliable conclusions about cause and effect — chance alone could easily explain the result. The headline \"cures cancer\" is a huge overstatement of what such a small study can show."
     }
   ]
 }

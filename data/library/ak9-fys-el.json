@@ -122,6 +122,109 @@
       "prompt": "Sammanfatta grundbegreppen ström, spänning, resistans, Ohms lag, seriekoppling/parallellkoppling och elektromagnetism.",
       "opener": "Gå igenom en storhet i taget och koppla ihop dem med Ohms lag innan du vänder på kortet.",
       "answer": "Ström (I), mäts i ampere (A): mängden laddning som flyter per sekund · Spänning (U), mäts i volt (V): \"drivkraften\" som får strömmen att flyta · Resistans (R), mäts i ohm (Ω): motståndet som bromsar strömmen · Ohms lag: U = R · I, sambandet mellan spänning, resistans och ström · Seriekoppling: komponenterna sitter efter varandra i en enda strömväg — går en komponent sönder bryts hela kretsen · Parallellkoppling: komponenterna har varsin egen strömväg — en trasig komponent påverkar inte de andra, används i hushållsel · Magnetism: magneter har en nordpol och en sydpol, lika poler stöter bort varandra och olika poler attraherar · Elektromagnetism: en elektrisk ström skapar alltid ett magnetfält, vilket utnyttjas i elektromagneter, motorer och generatorer."
+    },
+    {
+      "id": "q-fys-el-9",
+      "kind": "mc",
+      "topic": "ström, spänning och resistans",
+      "prompt": "En krets har strömmen 2 A och resistansen 6 Ω. Vad är spänningen enligt Ohms lag (U = R · I)?",
+      "opener": "Sätt in resistansen och strömmen direkt i formeln.",
+      "choices": [
+        "12 V",
+        "3 V",
+        "8 V",
+        "0,33 V"
+      ],
+      "answer": 0,
+      "explanation": "U = R · I = 6 Ω · 2 A = 12 V."
+    },
+    {
+      "id": "q-fys-el-10",
+      "kind": "mc",
+      "topic": "ström, spänning och resistans",
+      "prompt": "En lampa har spänningen 6 V och strömmen 0,5 A genom sig. Vad är lampans resistans?",
+      "opener": "Lös ut R ur Ohms lag: R = U / I.",
+      "choices": [
+        "12 Ω",
+        "3 Ω",
+        "6,5 Ω",
+        "0,083 Ω"
+      ],
+      "answer": 0,
+      "explanation": "R = U / I = 6 V / 0,5 A = 12 Ω."
+    },
+    {
+      "id": "q-fys-el-11",
+      "kind": "mc",
+      "topic": "seriekoppling och parallellkoppling",
+      "prompt": "Vad händer med den totala resistansen om man kopplar flera komponenter i serie?",
+      "opener": "Strömmen måste passera alla komponenter efter varandra i en enda väg.",
+      "choices": [
+        "Den totala resistansen ökar, eftersom strömmen måste passera alla komponenter efter varandra",
+        "Den totala resistansen minskar alltid",
+        "Resistansen påverkas inte alls av hur komponenterna kopplas",
+        "Resistansen blir alltid noll"
+      ],
+      "answer": 0,
+      "explanation": "I en seriekoppling adderas resistanserna: R_total = R1 + R2 + …, så fler komponenter i serie ger högre total resistans."
+    },
+    {
+      "id": "q-fys-el-12",
+      "kind": "mc",
+      "topic": "magneter och elektromagnetism",
+      "prompt": "Vad händer om man för två magneters nordpoler mot varandra?",
+      "opener": "Lika poler eller olika poler — vad gäller regeln för?",
+      "choices": [
+        "De stöter bort varandra",
+        "De attraherar varandra starkt",
+        "Inget alls händer",
+        "De blir båda till sydpoler"
+      ],
+      "answer": 0,
+      "explanation": "Lika magnetiska poler (nord-nord eller syd-syd) stöter bort varandra, medan olika poler (nord-syd) attraherar varandra."
+    },
+    {
+      "id": "q-fys-el-13",
+      "kind": "mc",
+      "topic": "ström, spänning och resistans",
+      "prompt": "Vilken storhet mäts i enheten volt (V)?",
+      "opener": "Volt är enheten för \"drivkraften\" som får strömmen att flyta.",
+      "choices": [
+        "Spänning",
+        "Ström",
+        "Resistans",
+        "Effekt"
+      ],
+      "answer": 0,
+      "explanation": "Volt (V) är enheten för spänning. Ström mäts i ampere (A) och resistans i ohm (Ω)."
+    },
+    {
+      "id": "q-fys-el-14",
+      "kind": "worked",
+      "topic": "seriekoppling och parallellkoppling",
+      "prompt": "Två resistorer, 4 Ω och 6 Ω, kopplas i serie till en spänning på 20 V. Beräkna den totala resistansen och strömmen genom kretsen.",
+      "opener": "I en seriekoppling adderas resistanserna innan du använder Ohms lag.",
+      "answer": "Total resistans 10 Ω, ström 2 A",
+      "steps": [
+        "I en seriekoppling adderas resistanserna: R_total = 4 Ω + 6 Ω = 10 Ω.",
+        "Använd Ohms lag för att hitta strömmen: I = U / R_total.",
+        "Sätt in värdena: I = 20 V / 10 Ω = 2 A."
+      ]
+    },
+    {
+      "id": "q-fys-el-15",
+      "kind": "mc",
+      "topic": "magneter och elektromagnetism",
+      "prompt": "Vad kallas en apparat som omvandlar rörelseenergi till elektrisk energi med hjälp av magnetism, till exempel i ett vindkraftverk?",
+      "opener": "Det är motsatsen till en elmotor, som omvandlar el till rörelse.",
+      "choices": [
+        "Generator",
+        "Elektromagnet",
+        "Transformator",
+        "Motor"
+      ],
+      "answer": 0,
+      "explanation": "En generator omvandlar rörelseenergi till elektrisk energi genom att en spole och en magnet rör sig i förhållande till varandra. En elmotor gör i stället det omvända — omvandlar el till rörelse."
     }
   ]
 }

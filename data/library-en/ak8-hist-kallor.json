@@ -125,6 +125,111 @@
       "prompt": "Summarise the concepts of historical sources, source criticism and the uses of history.",
       "opener": "Gather together the types of sources, the four criteria and how history is used.",
       "answer": "Remnant: a physical trace of an activity, for example a tool, a coin, a house foundation or an account book – not created in order to tell anyone anything · narrative source: someone deliberately describes an event, for example a letter, diary, chronicle, newspaper article or photograph · primary source: from the actual time or event · secondary source: builds on other people's information, for example a textbook or a documentary film · four source-critical questions: authenticity (is the source really what it claims to be?), time (how much time passed between the event and it being written down?), dependence (are the sources independent of each other, or are they copies?), tendency (is the source slanted to favour someone?) · one and the same source can be both a remnant and a narrative source depending on which question you ask · the uses of history: how history is used today in museums, films, games, advertising, commemoration days and politics – to teach, entertain, strengthen identity or justify decisions · the view of history keeps changing because new sources and methods emerge and each era asks new questions, for example about the history of women, children and minorities."
+    },
+    {
+      "id": "q-hist8-kal-9",
+      "kind": "mc",
+      "topic": "source-critical questions",
+      "prompt": "What does the authenticity criterion examine?",
+      "opener": "The question is about whether the source really is exactly what it claims to be.",
+      "choices": [
+        "Whether the source is slanted",
+        "How much time has passed since the event",
+        "Whether several sources are independent of each other",
+        "Whether the source really is what it claims to be, and not a forgery"
+      ],
+      "answer": 3,
+      "explanation": "The authenticity criterion tests whether a source really is what it claims to be – for example a genuine letter from the right period – and not a forgery or a later fabrication. Slant, time distance and dependence between sources are instead the tendency, time and dependence criteria, three other source-critical questions."
+    },
+    {
+      "id": "q-hist8-kal-10",
+      "kind": "mc",
+      "topic": "primary and secondary sources",
+      "prompt": "Which of the following is an example of a secondary source about a historical war?",
+      "opener": "Think about who wrote the text and when, in relation to the war itself.",
+      "choices": [
+        "A letter written by a soldier during the war",
+        "A photograph taken during the war",
+        "A weapon found on the battlefield",
+        "A modern history book that summarises current research on the war"
+      ],
+      "answer": 3,
+      "explanation": "A modern history book that summarises and interprets other people's research is a secondary source, since it builds on already gathered material rather than coming directly from the event. A soldier's letter, a photograph and a weapon from the battlefield are instead examples of primary sources and remnants from the war itself."
+    },
+    {
+      "id": "q-hist8-kal-11",
+      "kind": "mc",
+      "topic": "the uses of history",
+      "prompt": "Which is an example of commercial uses of history?",
+      "opener": "Think about when the past is used to sell something.",
+      "choices": [
+        "A historian publishing a scholarly article",
+        "An archive preserving old documents",
+        "A source-criticism exercise at school",
+        "A company using a historical figure or era in its advertising to sell a product"
+      ],
+      "answer": 3,
+      "explanation": "When a company uses, for example, a Viking-Age image or a historical figure in its marketing to sell a product, that is an example of commercial uses of history. A scholarly article, an archive's preservation of documents, and a school exercise in source criticism are instead examples of scholarly or educational uses of history."
+    },
+    {
+      "id": "q-hist8-kal-12",
+      "kind": "mc",
+      "topic": "a changing view of history",
+      "prompt": "Which example shows how the view of history has changed over time?",
+      "opener": "Think about which groups have historically received little attention in the writing of history.",
+      "choices": [
+        "That historical facts change every year",
+        "That old sources are automatically destroyed after a hundred years",
+        "That history still only deals with kings and wars, just like before",
+        "That the history of women, children and workers has gained considerably more attention in research in recent times"
+      ],
+      "answer": 3,
+      "explanation": "A clear example of a changing view of history is that groups who previously received little attention, such as women, children and ordinary workers, are studied considerably more in historical research today. Sources themselves are not automatically destroyed, and research today covers far more than just kings and wars."
+    },
+    {
+      "id": "q-hist8-kal-13",
+      "kind": "mc",
+      "topic": "remnants and narrative sources",
+      "prompt": "Can the same object or document count as both a remnant and a narrative source?",
+      "opener": "Think about an old letter: what can it tell you through its content, and what can it tell you just by existing?",
+      "choices": [
+        "No, never",
+        "Only if it's written in Latin",
+        "Only if it's kept in a museum",
+        "Yes, depending on which question you ask of the source"
+      ],
+      "answer": 3,
+      "explanation": "A letter can be used as a narrative source if you're interested in what the text actually says, but the same letter can also function as a remnant if you instead study, for example, the paper quality, the ink or the handwriting style of a particular time. What matters is therefore which question the historian asks, not the source's language or where it's kept."
+    },
+    {
+      "id": "q-hist8-kal-14",
+      "kind": "mc",
+      "topic": "source-critical questions",
+      "prompt": "Why is it important to find out the time distance between an event and when a source was written down?",
+      "opener": "Think about how a memory can change the more time that passes.",
+      "choices": [
+        "Because sources are only valid for exactly a hundred years",
+        "Because it doesn't matter at all",
+        "Because older sources are always more reliable than newer ones",
+        "Because memory can fail and details can be distorted the more time has passed"
+      ],
+      "answer": 3,
+      "explanation": "The longer the time between an event and someone writing it down, the greater the risk that memory fails, details are forgotten, or the account is coloured by later events. It is therefore not about sources having a best-before date, or older sources always being more trustworthy than newer ones."
+    },
+    {
+      "id": "q-hist8-kal-15",
+      "kind": "mc",
+      "topic": "the uses of history",
+      "prompt": "Which is an example of how a state can use history to strengthen a national identity?",
+      "opener": "Think about what is celebrated once a year, and why.",
+      "choices": [
+        "By banning all history teaching",
+        "By only teaching the history of other countries",
+        "By destroying all historical archives",
+        "By celebrating national days and erecting memorials linked to important historical events"
+      ],
+      "answer": 3,
+      "explanation": "National days, monuments and memorials that connect to important historical events are a common way for states to use history to strengthen a shared national identity and sense of belonging. Banning history teaching, only teaching about other countries, or destroying archives would instead make it harder to build such an identity."
     }
   ]
 }

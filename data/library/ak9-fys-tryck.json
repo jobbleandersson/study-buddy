@@ -124,6 +124,109 @@
       "prompt": "Sammanfatta begreppen tryck, lufttryck, högtryck/lågtryck och vattnets kretslopp.",
       "opener": "Gå igenom varje begrepp för sig innan du vänder på kortet.",
       "answer": "Tryck: p = F / A, kraft delat med den area kraften verkar över — mindre area ger högre tryck vid samma kraft · Lufttryck: uppstår för att luften i atmosfären har massa och tyngdkraften drar den nedåt, vilket skapar ett tryck mot jordytan · Lufttrycket är lägre högre upp eftersom mindre luft finns ovanför en given punkt där · Högtryck: luften sjunker, värms upp och torkar ut → lugnt, klart väder · Lågtryck: luften stiger, kyls av, bildar moln → regn, blåst och ostadigt väder · Vattnets kretslopp: avdunstning (sol värmer vatten till ånga) → kondensation (ånga kyls till moln) → nederbörd (regn/snö faller) → avrinning tillbaka till hav och sjöar, och kretsloppet upprepas."
+    },
+    {
+      "id": "q-fys-try-9",
+      "kind": "mc",
+      "topic": "tryck och area",
+      "prompt": "En låda med tyngdkraften 200 N står på en yta med arean 0,5 m². Hur stort tryck utövar lådan mot underlaget?",
+      "opener": "Sätt in kraften och arean i p = F / A.",
+      "choices": [
+        "400 N/m²",
+        "100 N/m²",
+        "200 N/m²",
+        "0,0025 N/m²"
+      ],
+      "answer": 0,
+      "explanation": "p = F / A = 200 N / 0,5 m² = 400 N/m² (pascal)."
+    },
+    {
+      "id": "q-fys-try-10",
+      "kind": "mc",
+      "topic": "tryck och area",
+      "prompt": "Varför skär en vass kniv bättre än en slö kniv, trots att man trycker med samma kraft?",
+      "opener": "Tänk på hur liten kontaktyta en vass egg har jämfört med en slö.",
+      "choices": [
+        "Den vassa kniven har en mycket mindre kontaktyta mot det som skärs, vilket ger ett mycket högre tryck",
+        "Den vassa kniven väger mer",
+        "Den slöa kniven har mindre area",
+        "Det finns ingen fysikalisk förklaring, det är bara vanesak"
+      ],
+      "answer": 0,
+      "explanation": "Samma kraft fördelad över en mycket mindre area (den vassa eggen) ger ett mycket högre tryck, enligt p = F/A, vilket gör att kniven lättare tränger igenom materialet."
+    },
+    {
+      "id": "q-fys-try-11",
+      "kind": "mc",
+      "topic": "lufttryck",
+      "prompt": "Vad är normalt lufttryck vid havsnivå ungefär?",
+      "opener": "Det är ett värde som ofta anges i väderrapporter, mätt i hektopascal (hPa).",
+      "choices": [
+        "Ca 1013 hPa",
+        "Ca 100 hPa",
+        "Ca 10 000 hPa",
+        "Ca 1 hPa"
+      ],
+      "answer": 0,
+      "explanation": "Normalt lufttryck vid havsnivå är ungefär 1013 hPa (hektopascal). Detta värde används ofta som referens när man pratar om hög- och lågtryck."
+    },
+    {
+      "id": "q-fys-try-12",
+      "kind": "mc",
+      "topic": "högtryck och lågtryck",
+      "prompt": "Vilket väder är typiskt under sommaren vid ett högtryck som ligger stilla länge?",
+      "opener": "Tänk på vad som händer med luften i ett högtryck — sjunker den eller stiger den?",
+      "choices": [
+        "Varmt, soligt och torrt väder",
+        "Kallt och snöigt väder",
+        "Kraftiga åskväder varje dag",
+        "Ihållande regn"
+      ],
+      "answer": 0,
+      "explanation": "I ett högtryck sjunker luften, värms upp och torkar ut, vilket ger klart och soligt väder — under sommaren blir det ofta varmt och torrt om högtrycket ligger kvar länge."
+    },
+    {
+      "id": "q-fys-try-13",
+      "kind": "mc",
+      "topic": "vattnets kretslopp och väder",
+      "prompt": "Vad kallas processen när vattenånga i luften övergår till flytande vattendroppar och bildar moln?",
+      "opener": "Motsatsen till avdunstning.",
+      "choices": [
+        "Kondensation",
+        "Avdunstning",
+        "Nederbörd",
+        "Avrinning"
+      ],
+      "answer": 0,
+      "explanation": "Kondensation är när vattenånga kyls av och övergår till flytande vattendroppar, vilket bildar moln. Avdunstning är den omvända processen: flytande vatten som blir vattenånga."
+    },
+    {
+      "id": "q-fys-try-14",
+      "kind": "worked",
+      "topic": "tryck och area",
+      "prompt": "En person med tyngdkraften 700 N står på ett ben med foten som har arean 0,015 m². Beräkna trycket mot marken. Jämför sedan ungefär hur trycket hade förändrats om personen stått på båda fötterna.",
+      "opener": "Sätt in kraften och arean i p = F/A, och tänk sedan på hur arean förändras med två fötter.",
+      "answer": "≈ 46 700 N/m² på ett ben. Ungefär hälften så stort tryck på båda fötterna, eftersom arean då är ungefär dubbelt så stor.",
+      "steps": [
+        "p = F / A = 700 N / 0,015 m² ≈ 46 667 N/m² på ett ben.",
+        "Med båda fötterna blir den totala kontaktarean ungefär dubbelt så stor (ca 0,03 m²), medan kraften (tyngden) är oförändrad.",
+        "Eftersom trycket är kraft delat med area, och arean nu är dubbelt så stor, blir trycket ungefär hälften så stort — cirka 23 300 N/m²."
+      ]
+    },
+    {
+      "id": "q-fys-try-15",
+      "kind": "mc",
+      "topic": "vattnets kretslopp och väder",
+      "prompt": "Vad kallas det när flytande vatten övergår till vattenånga, till exempel från havsytan?",
+      "opener": "Vad heter det första steget i vattnets kretslopp?",
+      "choices": [
+        "Avdunstning",
+        "Kondensation",
+        "Nederbörd",
+        "Avrinning"
+      ],
+      "answer": 0,
+      "explanation": "Avdunstning är när flytande vatten värms upp av solen och övergår till osynlig vattenånga i luften — det första steget i vattnets kretslopp."
     }
   ]
 }

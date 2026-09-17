@@ -123,6 +123,111 @@
       "prompt": "What are the key components of a well-structured formal essay?",
       "opener": "Five building blocks that hold an argumentative essay together.",
       "answer": "Thesis statement = clearly takes a stance in the introduction and hints at the arguments · Topic sentences = open each paragraph with its main idea · Supporting evidence = examples, facts, or quotations that support each argument · Cohesive devices = linking words (however, therefore, in addition) and clear pronoun reference that tie sentences and paragraphs together · Conclusion = formally summarises the arguments without introducing new information, often with phrases like \"in conclusion\" or \"to sum up\"."
+    },
+    {
+      "id": "q-en6-writing-9",
+      "kind": "mc",
+      "topic": "thesis statements",
+      "prompt": "Which revision improves this weak thesis statement: \"Social media has good and bad effects\"?",
+      "opener": "A strong thesis statement is specific and clearly takes a stance.",
+      "choices": [
+        "Social media strengthens social connections, but its design also fuels addictive behavior that outweighs its benefits.",
+        "This essay is about social media.",
+        "Social media is something many people use every day.",
+        "In this essay, I will talk about several things related to social media."
+      ],
+      "answer": 0,
+      "explanation": "The first option clearly takes a stance (\"strengthens... but... outweighs\") and hints at the arguments that will be developed. The other options simply state that the topic exists, without taking a stance."
+    },
+    {
+      "id": "q-en6-writing-10",
+      "kind": "mc",
+      "topic": "cohesive devices",
+      "prompt": "Which linking word best fits: \"The team lost the first three matches. ___, they went on to win the championship.\"",
+      "opener": "Which word marks a contrast between a poor starting position and an unexpected result?",
+      "choices": [
+        "Nevertheless",
+        "Similarly",
+        "Therefore",
+        "For instance"
+      ],
+      "answer": 0,
+      "explanation": "\"Nevertheless\" marks a contrast — despite three losses, the team went on to win the championship. \"Similarly\", \"therefore\", and \"for instance\" don't fit the logical relationship here."
+    },
+    {
+      "id": "q-en6-writing-11",
+      "kind": "mc",
+      "topic": "cohesive devices",
+      "prompt": "Identify the cohesion problem: \"Emma emailed her manager and told her the report was late.\"",
+      "opener": "Two female referents make the pronoun \"her\" ambiguous.",
+      "choices": [
+        "The pronoun \"her\" is ambiguous — it could refer to either Emma or the manager.",
+        "There is no problem in this sentence.",
+        "The verb tense is incorrect.",
+        "The sentence has no cohesion issues at all."
+      ],
+      "answer": 0,
+      "explanation": "The pronoun \"her\" could refer to either Emma or the manager, making the sentence ambiguous — a common cohesion problem that is solved by repeating the name."
+    },
+    {
+      "id": "q-en6-writing-12",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "What is the purpose of a \"concluding sentence\" at the end of a body paragraph?",
+      "opener": "Think about what ties one paragraph to the next.",
+      "choices": [
+        "To wrap up the paragraph's point and smoothly transition to the next idea",
+        "To introduce a completely new topic",
+        "To repeat the thesis statement word for word",
+        "To list the sources used in the paragraph"
+      ],
+      "answer": 0,
+      "explanation": "A concluding sentence wraps up the paragraph's point and creates a smooth transition to the next idea. It should neither introduce a completely new topic nor simply repeat the thesis statement word for word."
+    },
+    {
+      "id": "q-en6-writing-13",
+      "kind": "mc",
+      "topic": "essay conclusions",
+      "prompt": "Why should a formal essay conclusion avoid introducing brand-new evidence or arguments?",
+      "opener": "A conclusion should summarize, not surprise.",
+      "choices": [
+        "Because the conclusion's role is to summarize and reinforce points already made, not to introduce material the reader hasn't seen",
+        "Because conclusions are not allowed to mention the thesis at all",
+        "Because new evidence would make the essay too short",
+        "Because conclusions must always ask a question"
+      ],
+      "answer": 0,
+      "explanation": "The conclusion's role is to summarize and reinforce points already made, not to introduce new material the reader hasn't seen before — that would feel unfair and confusing."
+    },
+    {
+      "id": "q-en6-writing-14",
+      "kind": "mc",
+      "topic": "cohesive devices",
+      "prompt": "Which linking word best fits: \"The results were inconclusive. ___, the researchers decided to repeat the experiment with a larger sample.\"",
+      "opener": "Which word shows cause and effect between the two sentences?",
+      "choices": [
+        "Consequently",
+        "Similarly",
+        "For example",
+        "In contrast"
+      ],
+      "answer": 0,
+      "explanation": "\"Consequently\" shows that the second sentence is a result of the first — the results were inconclusive, and CONSEQUENTLY the researchers repeated the experiment. \"Similarly\", \"for example\", and \"in contrast\" don't fit the logical relationship."
+    },
+    {
+      "id": "q-en6-writing-15",
+      "kind": "mc",
+      "topic": "paragraph structure",
+      "prompt": "What problem does this paragraph have? \"Dogs make great pets. They are loyal. Paris is the capital of France. Many dog breeds are intelligent.\"",
+      "opener": "One of the sentences doesn't belong in the paragraph at all.",
+      "choices": [
+        "It contains an unrelated sentence that breaks the paragraph's unity",
+        "It has too many topic sentences",
+        "It uses no supporting evidence at all",
+        "It is grammatically incorrect throughout"
+      ],
+      "answer": 0,
+      "explanation": "The sentence about Paris being the capital has nothing to do with the other sentences about dogs, which breaks the paragraph's unity. A good paragraph sticks to a single main idea."
     }
   ]
 }

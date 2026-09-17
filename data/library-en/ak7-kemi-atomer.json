@@ -124,6 +124,110 @@
       "prompt": "Summarise the key atomic concepts and the chemical symbols you need to know by heart.",
       "opener": "Take the concepts atom, element, molecule and compound first, then the symbols.",
       "answer": "Atom: the smallest building block in an element, everything is built from atoms · Element: only one kind of atom, e.g. iron (Fe), oxygen gas (O₂) · Chemical compound: at least two different kinds of atoms bonded together, e.g. water (H₂O), carbon dioxide (CO₂), table salt (NaCl) · Molecule: two or more atoms joined together, can be of the same kind (O₂) or different kinds (H₂O) · Chemical formula: the symbols show which atoms are present, the small number after a symbol shows how many of that atom there are · Chemical symbols: H = hydrogen, O = oxygen, C = carbon, N = nitrogen, Fe = iron (ferrum), Cu = copper (cuprum), Na = sodium, Cl = chlorine, S = sulphur · Capital letter first, lower-case letter second: Co is cobalt but CO is carbon monoxide · Periodic table: all known elements arranged by atomic number (the number of protons), metals to the left and lower down, non-metals to the upper right, the noble gases furthest to the right."
+    },
+    {
+      "id": "q-kemi7-ato-9",
+      "kind": "mc",
+      "topic": "chemical symbols",
+      "prompt": "What is the chemical symbol for the element hydrogen?",
+      "opener": "The symbol is a single letter, the same as the first letter of the English name.",
+      "choices": [
+        "V",
+        "W",
+        "H",
+        "Hy"
+      ],
+      "answer": 2,
+      "explanation": "Hydrogen has the chemical symbol H, from the Latin hydrogenium. Chemical symbols are always one or two letters, never three."
+    },
+    {
+      "id": "q-kemi7-ato-10",
+      "kind": "mc",
+      "topic": "chemical symbols",
+      "prompt": "Which element has the chemical symbol Na?",
+      "opener": "The symbol comes from the Latin name natrium.",
+      "choices": [
+        "Nickel",
+        "Sodium",
+        "Neon",
+        "Niobium"
+      ],
+      "answer": 1,
+      "explanation": "Na is the symbol for sodium, found in table salt (NaCl) among other things. Nickel has the symbol Ni, neon Ne, and niobium Nb."
+    },
+    {
+      "id": "q-kemi7-ato-11",
+      "kind": "mc",
+      "topic": "elements and compounds",
+      "prompt": "Which of these is a chemical compound?",
+      "opener": "Look for the option whose formula contains more than one chemical symbol.",
+      "choices": [
+        "Gold (Au)",
+        "Oxygen gas (O₂)",
+        "Table salt (NaCl)",
+        "Helium (He)"
+      ],
+      "answer": 2,
+      "explanation": "Table salt (NaCl) is made of two different kinds of atoms, sodium and chlorine, bonded together — it's a chemical compound. Gold, oxygen gas and helium each contain only one kind of atom and are elements."
+    },
+    {
+      "id": "q-kemi7-ato-12",
+      "kind": "mc",
+      "topic": "molecules",
+      "prompt": "In the formula 2 H₂O, what does the 2 in front of the whole formula mean?",
+      "opener": "Distinguish between the number in front of the formula and the small number after a symbol inside the formula.",
+      "choices": [
+        "That each molecule contains two oxygen atoms",
+        "That there are two whole water molecules",
+        "That the hydrogen has a charge of 2",
+        "That the molecule weighs 2 grams"
+      ],
+      "answer": 1,
+      "explanation": "A number in front of a whole formula shows the number of molecules, so 2 H₂O means two whole water molecules. The small 2 after H inside the formula is what shows the number of hydrogen atoms in each molecule."
+    },
+    {
+      "id": "q-kemi7-ato-13",
+      "kind": "mc",
+      "topic": "the periodic table",
+      "prompt": "Where in the periodic table do you find most of the metals?",
+      "opener": "The metals take up the largest part of the table.",
+      "choices": [
+        "Upper right",
+        "Furthest right, in their own column",
+        "To the left and lower down",
+        "Only in the middle of the top row"
+      ],
+      "answer": 2,
+      "explanation": "Metals are found to the left and lower down in the periodic table and make up most of the known elements. Non-metals are instead found in the upper right, and the noble gases form their own column furthest to the right."
+    },
+    {
+      "id": "q-kemi7-ato-14",
+      "kind": "worked",
+      "topic": "elements and compounds",
+      "prompt": "Water has the formula H₂O. Use the formula to explain why water is a chemical compound and not an element, and work out how many atoms a water molecule consists of.",
+      "opener": "Read the formula symbol by symbol: which kinds of atoms are present, and how many of each?",
+      "answer": "Water is a chemical compound because the molecule contains two different kinds of atoms (hydrogen and oxygen), and each molecule consists of a total of 3 atoms: 2 hydrogen atoms and 1 oxygen atom.",
+      "steps": [
+        "Break the formula into its chemical symbols: H stands for hydrogen and O stands for oxygen.",
+        "Read the numbers: after H there is a 2, so 2 hydrogen atoms. After O there is no number, which means 1 oxygen atom.",
+        "Count the total number of atoms: 2 + 1 = 3 atoms in each water molecule.",
+        "Draw the conclusion: since the molecule contains two DIFFERENT kinds of atoms bonded together, water is a chemical compound. An element, such as hydrogen gas H₂, contains only one kind of atom."
+      ]
+    },
+    {
+      "id": "q-kemi7-ato-15",
+      "kind": "mc",
+      "topic": "chemical symbols",
+      "prompt": "Which element has the chemical symbol Fe?",
+      "opener": "The symbol comes from the Latin name ferrum.",
+      "choices": [
+        "Fluorine",
+        "Phosphorus",
+        "Iron",
+        "Francium"
+      ],
+      "answer": 2,
+      "explanation": "Fe is the symbol for iron, from the Latin ferrum. Fluorine has the symbol F, phosphorus P, and francium Fr — none of them is spelled Fe."
     }
   ]
 }

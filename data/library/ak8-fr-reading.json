@@ -112,6 +112,111 @@
       "prompt": "Vilka fraser är bra att känna igen i ett franskt textmeddelande om planer?",
       "opener": "Vardagsfraser för att föreslå, tacka ja och bestämma tid.",
       "answer": "Föreslå: Tu veux venir ? = Vill du följa med? · je vais à... = jag går till... Tacka ja: Bien sûr ! = Absolut!/Självklart! · J'adore... = Jag älskar... Bestämma tid: On se retrouve à quelle heure ? = Vilken tid ska vi ses? · commence à... = börjar klockan... Känslor: j'aime = jag gillar · j'adore = jag älskar (starkare) · je n'aime pas = jag gillar inte."
+    },
+    {
+      "id": "q-fr8-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs meddelandet: \"Salut Anna ! Dimanche, je fête mon anniversaire. La fête commence à quatre heures chez moi. Tu peux venir ? Amène ta sœur si tu veux !\"\n\nVad firar personen på söndag?",
+      "opener": "Leta efter \"je fête mon...\".",
+      "choices": [
+        "Sin födelsedag",
+        "En examen",
+        "Ett bröllop",
+        "Jul"
+      ],
+      "answer": 0,
+      "explanation": "\"Je fête mon anniversaire\" betyder \"jag firar min födelsedag\"."
+    },
+    {
+      "id": "q-fr8-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma meddelande. Hur dags börjar festen?",
+      "opener": "\"À quatre heures\" — leta efter klockslaget.",
+      "choices": [
+        "Klockan fyra",
+        "Klockan fem",
+        "Klockan tre",
+        "Klockan sex"
+      ],
+      "answer": 0,
+      "explanation": "\"La fête commence à quatre heures\" betyder \"festen börjar klockan fyra\"."
+    },
+    {
+      "id": "q-fr8-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma meddelande. Vem är Anna välkommen att ta med sig?",
+      "opener": "Leta efter sista meningen: \"Amène ta...\".",
+      "choices": [
+        "Sin syster",
+        "Sin bror",
+        "Sin mamma",
+        "Sin bästa vän"
+      ],
+      "answer": 0,
+      "explanation": "\"Amène ta sœur si tu veux !\" betyder \"ta gärna med din syster!\"."
+    },
+    {
+      "id": "q-fr8-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Annas svar: \"Salut ! Merci pour l'invitation. Je viens avec plaisir, mais ma sœur ne peut pas venir — elle est malade. Qu'est-ce que je dois apporter ?\"\n\nKan Annas syster komma på festen?",
+      "opener": "Leta efter meningen om systern.",
+      "choices": [
+        "Nej, hon är sjuk",
+        "Ja, hon kommer gärna",
+        "Nej, hon är bortrest",
+        "Ja, men sent"
+      ],
+      "answer": 0,
+      "explanation": "\"Ma sœur ne peut pas venir — elle est malade\" betyder \"min syster kan inte komma — hon är sjuk\"."
+    },
+    {
+      "id": "q-fr8-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma svar. Vad frågar Anna i sista meningen?",
+      "opener": "\"Qu'est-ce que je dois apporter ?\" — leta efter frågeordet \"qu'est-ce que\".",
+      "choices": [
+        "Vad hon ska ta med sig",
+        "Vart festen är",
+        "Vilken tid festen slutar",
+        "Vem mer som kommer"
+      ],
+      "answer": 0,
+      "explanation": "\"Qu'est-ce que je dois apporter ?\" betyder \"vad ska jag ta med mig?\"."
+    },
+    {
+      "id": "q-fr8-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma svar. Vad tackar Anna för?",
+      "opener": "Leta efter \"Merci pour...\".",
+      "choices": [
+        "Inbjudan",
+        "Presenten",
+        "Maten",
+        "Hjälpen"
+      ],
+      "answer": 0,
+      "explanation": "\"Merci pour l'invitation\" betyder \"tack för inbjudan\"."
+    },
+    {
+      "id": "q-fr8-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma svar. Kommer Anna till festen?",
+      "opener": "Leta efter \"Je viens avec plaisir\".",
+      "choices": [
+        "Ja, hon kommer gärna",
+        "Nej, hon kan inte",
+        "Hon är osäker",
+        "Hon frågar om en annan dag"
+      ],
+      "answer": 0,
+      "explanation": "\"Je viens avec plaisir\" betyder \"jag kommer gärna\"."
     }
   ]
 }

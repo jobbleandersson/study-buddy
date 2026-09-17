@@ -123,6 +123,111 @@
       "prompt": "Hur väljer man mellan passé composé och imparfait i en berättande text?",
       "opener": "Tre typiska signaler avgör nästan alltid valet.",
       "answer": "Imparfait används för bakgrund och sammanhang: beskrivningar (var, hur något såg ut), vanor/upprepade händelser i det förflutna (tous les jours, chaque été, quand j'étais petit) och pågående handlingar som avbryts. Passé composé används för avgränsade, avslutade händelser: en enskild gång (samedi dernier, un jour, soudain), en händelsekedja i en berättelse, eller det som AVBRYTER en pågående bakgrundshandling. Tumregel: fråga dig om handlingen har en tydlig början och slut (passé composé) eller om den bara målar upp scenen/var vanemässig (imparfait). Typiskt mönster: \"Je faisais X quand Y s'est passé.\""
+    },
+    {
+      "id": "q-fr3-aspect-9",
+      "kind": "mc",
+      "topic": "imparfait",
+      "prompt": "Välj rätt form: \"Chaque été, nous ___ (aller) à la mer.\"",
+      "opener": "\"Chaque été\" signalerar en återkommande vana.",
+      "choices": [
+        "allions",
+        "sommes allés",
+        "allons",
+        "étions allés"
+      ],
+      "answer": 0,
+      "explanation": "\"Chaque été\" (varje sommar) signalerar en vana i det förflutna, vilket kräver imparfait: \"allions\"."
+    },
+    {
+      "id": "q-fr3-aspect-10",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Välj rätt form: \"Hier soir, nous ___ (aller) au cinéma.\"",
+      "opener": "\"Hier soir\" pekar ut en enskild, avslutad gång.",
+      "choices": [
+        "sommes allés",
+        "allions",
+        "allons",
+        "étions allés"
+      ],
+      "answer": 0,
+      "explanation": "\"Hier soir\" (igår kväll) pekar ut en specifik, avgränsad gång, vilket kräver passé composé: \"sommes allés\"."
+    },
+    {
+      "id": "q-fr3-aspect-11",
+      "kind": "mc",
+      "topic": "narrative aspect",
+      "prompt": "Välj rätt kombination: \"Il ___ (pleuvoir) quand nous ___ (sortir) de la maison.\"",
+      "opener": "En pågående bakgrundshandling avbryts av en avgränsad händelse.",
+      "choices": [
+        "pleuvait / sommes sortis",
+        "a plu / sortions",
+        "pleuvait / sortions",
+        "a plu / sommes sortis"
+      ],
+      "answer": 0,
+      "explanation": "Den pågående bakgrunden (regnet) står i imparfait: \"pleuvait\". Den avgränsade händelsen som avbryter (att gå ut) står i passé composé: \"sommes sortis\"."
+    },
+    {
+      "id": "q-fr3-aspect-12",
+      "kind": "mc",
+      "topic": "imparfait",
+      "prompt": "Välj rätt form: \"Le ciel ___ (être) gris ce jour-là.\"",
+      "opener": "En beskrivning av hur himlen såg ut, utan tydlig start eller slut.",
+      "choices": [
+        "était",
+        "a été",
+        "est",
+        "avait été"
+      ],
+      "answer": 0,
+      "explanation": "Beskrivningar av hur något var beskaffat i det förflutna använder imparfait: \"était\"."
+    },
+    {
+      "id": "q-fr3-aspect-13",
+      "kind": "mc",
+      "topic": "passé composé",
+      "prompt": "Välj rätt kombination: \"Elle ___ (arriver), ___ (poser) ses affaires et ___ (commencer) à travailler.\"",
+      "opener": "En kedja av avgränsade händelser i tur och ordning.",
+      "choices": [
+        "est arrivée / a posé / a commencé",
+        "arrivait / posait / commençait",
+        "est arrivée / posait / a commencé",
+        "arrivait / a posé / commençait"
+      ],
+      "answer": 0,
+      "explanation": "En sekvens av avslutade händelser efter varandra skrivs genomgående i passé composé: est arrivée → a posé → a commencé."
+    },
+    {
+      "id": "q-fr3-aspect-14",
+      "kind": "mc",
+      "topic": "narrative aspect",
+      "prompt": "Välj rätt kombination: \"Comme elle ___ (être) fatiguée, elle ___ (se coucher) tôt.\"",
+      "opener": "Orsaken är ett bakgrundstillstånd; beslutet är en avgränsad handling.",
+      "choices": [
+        "était / s'est couchée",
+        "a été / se couchait",
+        "était / se couchait",
+        "a été / s'est couchée"
+      ],
+      "answer": 0,
+      "explanation": "\"Comme elle était fatiguée\" ger bakgrunden (imparfait), medan \"elle s'est couchée\" är den konkreta handlingen som följde (passé composé)."
+    },
+    {
+      "id": "q-fr3-aspect-15",
+      "kind": "mc",
+      "topic": "narrative aspect",
+      "prompt": "Vad betyder \"j'ai voulu\" i passé composé i meningen: \"J'ai voulu l'aider, mais c'était trop tard\"?",
+      "opener": "\"Vouloir\" byter nyans mellan passé composé och imparfait, precis som på spanska.",
+      "choices": [
+        "Jag försökte/bestämde mig för att hjälpa henne",
+        "Jag ville alltid hjälpa henne",
+        "Jag vägrade hjälpa henne",
+        "Jag hjälpte henne redan"
+      ],
+      "answer": 0,
+      "explanation": "I passé composé betyder \"vouloir\" ofta \"att försöka/bestämma sig för att göra något\" i en specifik situation. I imparfait (\"je voulais\") hade det istället beskrivit en allmän önskan, utan att säga om personen faktiskt försökte."
     }
   ]
 }

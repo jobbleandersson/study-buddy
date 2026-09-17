@@ -112,6 +112,111 @@
       "prompt": "Vilka strategier hjälper dig att förstå en längre spansk text med flera meningar som hör ihop?",
       "opener": "Att knyta ihop information från olika delar av texten.",
       "answer": "Läs hela texten en gång utan att stanna vid okända ord, för att få helheten. Leta efter tidsmarkörer (el verano pasado, durante dos semanas) för att förstå NÄR något hände. Leta efter pretérito-verb (fuimos, visitamos, probamos, hizo, llovió) för att förstå VAD som hände. Koppla ihop pronomen och syftningar: \"lo que más me gustó\" syftar tillbaka på hela upplevelsen. Gissa nya ord från sammanhanget — \"riquísimo\" går att gissa från sammanhanget (mat man gillar) även utan att känna till superlativändelsen -ísimo sedan tidigare."
+    },
+    {
+      "id": "q-sp9-read-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Läs texten: \"Cuando tenía doce años, mi familia se mudó a otra ciudad. Al principio, extrañaba mucho a mis amigos antiguos, pero poco a poco hice nuevos amigos en el colegio. Ahora, cinco años después, no me arrepiento de nada.\"\n\n¿Cuántos años tenía la persona cuando su familia se mudó?",
+      "opener": "Läs texten om flytten till en ny stad.",
+      "choices": [
+        "Doce años",
+        "Cinco años",
+        "Diecisiete años",
+        "Diez años"
+      ],
+      "answer": 0,
+      "explanation": "\"Cuando tenía doce años\" betyder \"när jag var tolv år\", vilket anger personens ålder vid flytten."
+    },
+    {
+      "id": "q-sp9-read-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Cómo se sintió al principio?",
+      "opener": "Andra meningen beskriver känslorna i början.",
+      "choices": [
+        "Extrañaba mucho a sus amigos antiguos",
+        "Estaba muy feliz desde el primer día",
+        "No sintió nada especial",
+        "Quería volver inmediatamente"
+      ],
+      "answer": 0,
+      "explanation": "\"Extrañaba mucho a mis amigos antiguos\" betyder \"jag saknade mina gamla vänner mycket\"."
+    },
+    {
+      "id": "q-sp9-read-11",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. Según el texto, ¿cómo se siente la persona ahora?",
+      "opener": "Sista meningen sammanfattar hur personen känner sig idag.",
+      "choices": [
+        "No se arrepiente de nada",
+        "Todavía extraña mucho su antigua ciudad",
+        "Quiere mudarse de nuevo",
+        "Sigue sin tener amigos"
+      ],
+      "answer": 0,
+      "explanation": "\"No me arrepiento de nada\" betyder \"jag ångrar ingenting\"."
+    },
+    {
+      "id": "q-sp9-read-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Ny text: \"Mi mejor amiga y yo nos conocimos en el primer día de instituto. Al principio, no hablamos mucho, pero durante el almuerzo empezamos a charlar sobre música y descubrimos que nos gustaba el mismo grupo. Desde entonces, somos inseparables.\"\n\n¿Cuándo se conocieron las dos amigas?",
+      "opener": "Läs den nya texten om två väninnor.",
+      "choices": [
+        "El primer día de instituto",
+        "En una fiesta de cumpleaños",
+        "En un concierto",
+        "Cuando eran muy pequeñas"
+      ],
+      "answer": 0,
+      "explanation": "\"Nos conocimos en el primer día de instituto\" betyder \"vi lärde känna varandra första dagen på gymnasiet\"."
+    },
+    {
+      "id": "q-sp9-read-13",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿De qué empezaron a hablar durante el almuerzo?",
+      "opener": "Mitten av texten beskriver vad de pratade om.",
+      "choices": [
+        "De música",
+        "De deporte",
+        "De películas",
+        "De sus familias"
+      ],
+      "answer": 0,
+      "explanation": "\"Empezamos a charlar sobre música\" betyder \"vi började prata om musik\"."
+    },
+    {
+      "id": "q-sp9-read-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Qué descubrieron que tenían en común?",
+      "opener": "Texten beskriver en gemensam upptäckt.",
+      "choices": [
+        "Les gustaba el mismo grupo de música",
+        "Vivían en la misma calle",
+        "Tenían el mismo cumpleaños",
+        "Iban a la misma clase de baile"
+      ],
+      "answer": 0,
+      "explanation": "\"Descubrimos que nos gustaba el mismo grupo\" betyder \"vi upptäckte att vi gillade samma musikgrupp\"."
+    },
+    {
+      "id": "q-sp9-read-15",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Samma text. ¿Cómo describe la persona su amistad actual?",
+      "opener": "Sista meningen beskriver deras vänskap idag.",
+      "choices": [
+        "Son inseparables",
+        "Ya no se hablan",
+        "Se ven una vez al año",
+        "Todavía no son amigas"
+      ],
+      "answer": 0,
+      "explanation": "\"Somos inseparables\" betyder \"vi är oskiljaktiga\"."
     }
   ]
 }

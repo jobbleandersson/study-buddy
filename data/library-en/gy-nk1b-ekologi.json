@@ -124,6 +124,111 @@
       "prompt": "Summarise key concepts within ecology and sustainable development: ecosystem services, biodiversity, cycles, and the three parts of sustainability.",
       "opener": "Go through what nature gives us, why variation matters, and what keeps substances in circulation.",
       "answer": "Ecosystem services: benefits humans get from nature — provisioning (food, timber), regulating (pollination, water purification), supporting (photosynthesis, soil formation) and cultural (recreation, experiences of nature) · Biodiversity: variation at the gene, species and ecosystem levels, increases nature's resilience against disturbances · Carbon cycle: circulates quickly via the atmosphere through photosynthesis, respiration and combustion · Nitrogen cycle: nitrogen-fixing bacteria convert nitrogen gas into a form plants can use · Phosphorus cycle: slow, lacks a gas phase, bound in bedrock and sediment — excess phosphorus and nitrogen cause eutrophication · Sustainable development: meets the needs of the present without compromising those of future generations, rests on ecological, social and economic sustainability together."
+    },
+    {
+      "id": "q-nk1b-ekologi-9",
+      "kind": "mc",
+      "topic": "ecosystem services",
+      "prompt": "What type of ecosystem service is photosynthesis, which underlies almost all other ecosystem services?",
+      "opener": "Think about which process underlies nearly all biological production on Earth.",
+      "choices": [
+        "A supporting ecosystem service",
+        "A cultural ecosystem service",
+        "A provisioning ecosystem service",
+        "None of these; photosynthesis doesn't count as an ecosystem service"
+      ],
+      "answer": 0,
+      "explanation": "Photosynthesis counts as a supporting ecosystem service because it is a fundamental process that enables nearly all other ecosystem services, unlike provisioning services, which are the concrete products themselves."
+    },
+    {
+      "id": "q-nk1b-ekologi-10",
+      "kind": "mc",
+      "topic": "ecosystem services",
+      "prompt": "What is an example of a cultural ecosystem service?",
+      "opener": "Think of benefits that are not physical products or regulating processes, but are about experiences.",
+      "choices": [
+        "Recreation and experiences of nature in a forest or nature reserve",
+        "A forest storing carbon dioxide",
+        "Bees pollinating fruit trees",
+        "Wetlands purifying water"
+      ],
+      "answer": 0,
+      "explanation": "Cultural ecosystem services involve non-material benefits such as recreation, experiences of nature, and aesthetic or spiritual value. Carbon storage and pollination are instead examples of regulating services, and water purification is another regulating service."
+    },
+    {
+      "id": "q-nk1b-ekologi-11",
+      "kind": "mc",
+      "topic": "biodiversity",
+      "prompt": "What does it mean for a species to be \"endemic\"?",
+      "opener": "The word comes from the Greek \"endemos\", meaning native to a place.",
+      "choices": [
+        "A species that naturally occurs only within a specific, limited geographic area and nowhere else",
+        "A species that is extinct",
+        "A species that occurs across the whole Earth",
+        "A species humans have introduced to a new area"
+      ],
+      "answer": 0,
+      "explanation": "An endemic species occurs naturally only within a specific, limited area, such as an island or a mountain range, and nowhere else in the world. Such species are often especially vulnerable to disturbances since they cannot spread to other areas."
+    },
+    {
+      "id": "q-nk1b-ekologi-12",
+      "kind": "mc",
+      "topic": "biodiversity",
+      "prompt": "Why are introduced, invasive species often counted as a threat to biodiversity?",
+      "opener": "Think about what happens to local species that aren't adapted to compete with or defend against a new species.",
+      "choices": [
+        "They can outcompete local species that aren't adapted to deal with them, which reduces local species richness",
+        "Invasive species always increase biodiversity without exception",
+        "Invasive species never occur in natural ecosystems",
+        "Invasive species are always less adaptable than local species"
+      ],
+      "answer": 0,
+      "explanation": "Invasive species often lack natural enemies in their new environment and can outcompete local species for food, space or other resources, which reduces local biodiversity."
+    },
+    {
+      "id": "q-nk1b-ekologi-13",
+      "kind": "mc",
+      "topic": "cycles in depth",
+      "prompt": "What are the main processes that add carbon dioxide to, and remove carbon dioxide from, the atmosphere in the carbon cycle?",
+      "opener": "Think about which processes release carbon dioxide, and which process captures it again.",
+      "choices": [
+        "Respiration and combustion add carbon dioxide, while photosynthesis absorbs carbon dioxide",
+        "Photosynthesis adds carbon dioxide, while respiration removes it",
+        "Only human activity affects the carbon cycle",
+        "The carbon cycle contains no gas phase at all"
+      ],
+      "answer": 0,
+      "explanation": "Respiration (by animals, plants and decomposers) and combustion release carbon dioxide into the atmosphere, while photosynthesis by green plants and algae absorbs carbon dioxide and binds the carbon into organic matter — an ongoing balance in the carbon cycle."
+    },
+    {
+      "id": "q-nk1b-ekologi-14",
+      "kind": "mc",
+      "topic": "cycles in depth",
+      "prompt": "What happens to nitrogen through denitrification, the process that closes the nitrogen cycle in the soil?",
+      "opener": "Denitrification is, in a sense, the opposite of nitrogen fixation.",
+      "choices": [
+        "Bacteria convert nitrate back into nitrogen gas, which returns to the atmosphere",
+        "Plants absorb nitrogen gas directly from the air",
+        "Nitrogen is converted into phosphorus",
+        "Denitrification increases the amount of nitrogen available to plants"
+      ],
+      "answer": 0,
+      "explanation": "Denitrifying bacteria convert nitrate in the soil back into nitrogen gas, which returns to the atmosphere and closes the nitrogen cycle. This contrasts with nitrogen fixation, which brings nitrogen gas into the cycle in the first place."
+    },
+    {
+      "id": "q-nk1b-ekologi-15",
+      "kind": "mc",
+      "topic": "sustainable development",
+      "prompt": "What are the three parts that sustainable development is usually said to rest on, and how do they relate to each other?",
+      "opener": "Think about whether the three parts can be treated entirely separately from one another.",
+      "choices": [
+        "Ecological, social and economic sustainability, often described as mutually dependent rather than standalone",
+        "Economic growth alone; environmental protection is not part of the concept",
+        "Environmental sustainability alone, with no connection to social or economic issues",
+        "National, regional and global sustainability"
+      ],
+      "answer": 0,
+      "explanation": "Sustainable development rests on ecological, social and economic sustainability, which are often described as mutually dependent: for example, long-term economic development requires a functioning environment, and social stability in turn affects both the economy and environmental work."
     }
   ]
 }

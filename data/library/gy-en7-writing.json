@@ -124,6 +124,111 @@
       "prompt": "List key conventions for formal essay and report writing in English.",
       "opener": "Checklista för formell skriftlig engelska.",
       "answer": "Undvik sammandragningar: do not, cannot, it is (ej don't, can't, it's) · Undvik talspråk: \"a lot of\" → \"considerable\"; \"kind of\" → \"somewhat\" · Använd signalord: firstly/moreover/however/on the other hand/in conclusion · Rapportstruktur: title page → executive summary → introduction → methodology → findings → recommendations → appendices · Brev: \"Dear Sir/Madam\" + \"Yours faithfully\"; \"Dear Mr/Ms X\" + \"Yours sincerely\" · Undvik jag-tilltal och känsloladdat språk i rapporter — håll en objektiv, saklig ton"
+    },
+    {
+      "id": "q-en7gy-writing-9",
+      "kind": "mc",
+      "topic": "report structure",
+      "prompt": "Which section of a formal report typically comes immediately before the Recommendations section?",
+      "opener": "Vilken del kommer precis FÖRE de konkreta förslagen i en rapport?",
+      "choices": [
+        "Findings",
+        "Title page",
+        "Executive summary",
+        "Appendices"
+      ],
+      "answer": 0,
+      "explanation": "Findings (resultaten) presenteras innan Recommendations, eftersom förslagen ska bygga på resultaten. Title page och executive summary kommer tidigare, appendices sist."
+    },
+    {
+      "id": "q-en7gy-writing-10",
+      "kind": "mc",
+      "topic": "formal correspondence conventions",
+      "prompt": "Which salutation is correct when writing to \"Dr. Eleanor Hayes\" in a formal letter?",
+      "opener": "När mottagarens namn OCH titel är kända används den specifika titeln i hälsningsfrasen.",
+      "choices": [
+        "Dear Dr. Hayes,",
+        "Dear Eleanor,",
+        "Hi Eleanor,",
+        "To whom it may concern,"
+      ],
+      "answer": 0,
+      "explanation": "\"Dear Dr. Hayes\" är korrekt eftersom mottagarens namn och akademiska titel är kända. \"Dear Eleanor\"/\"Hi Eleanor\" är för informella, och \"To whom it may concern\" används bara när mottagaren är helt okänd."
+    },
+    {
+      "id": "q-en7gy-writing-11",
+      "kind": "mc",
+      "topic": "avoiding contractions and colloquialisms",
+      "prompt": "Which sentence needs to be revised for formal register?",
+      "opener": "Leta efter en sammandragning (\"won't\") som bryter mot formellt register.",
+      "choices": [
+        "We won't be able to finish the report without more data.",
+        "We will not be able to finish the report without more data.",
+        "It is unlikely that the report can be finished without more data.",
+        "The report cannot be completed without additional data."
+      ],
+      "answer": 0,
+      "explanation": "\"We won't be able to...\" innehåller sammandragningen \"won't\", vilket bör undvikas i formell text. De andra alternativen är antingen korrekt formella eller redan omskrivna utan sammandragningar."
+    },
+    {
+      "id": "q-en7gy-writing-12",
+      "kind": "mc",
+      "topic": "signposting language",
+      "prompt": "Which phrase best introduces the final point in a structured argumentative essay?",
+      "opener": "Vilken fras signalerar tydligt att detta är SISTA punkten i resonemanget?",
+      "choices": [
+        "Finally,",
+        "Firstly,",
+        "Moreover,",
+        "For example,"
+      ],
+      "answer": 0,
+      "explanation": "\"Finally\" signalerar tydligt den avslutande punkten. \"Firstly\" inleder, \"moreover\" bygger vidare, och \"for example\" ger ett exempel — ingen av dem markerar ett avslut."
+    },
+    {
+      "id": "q-en7gy-writing-13",
+      "kind": "mc",
+      "topic": "report structure",
+      "prompt": "What is the primary purpose of the Methodology section in a formal report?",
+      "opener": "Vilken del förklarar HUR undersökningen genomfördes, så att den kan granskas?",
+      "choices": [
+        "To describe how the investigation was carried out so it could be evaluated or repeated",
+        "To present the writer's personal opinions",
+        "To list every source used in alphabetical order",
+        "To summarize the conclusions"
+      ],
+      "answer": 0,
+      "explanation": "Methodology beskriver tillvägagångssättet så att läsaren kan bedöma undersökningens tillförlitlighet eller upprepa den. Det är inte platsen för personliga åsikter, källförteckningar eller slutsatser."
+    },
+    {
+      "id": "q-en7gy-writing-14",
+      "kind": "mc",
+      "topic": "formal correspondence conventions",
+      "prompt": "Which closing phrase for a formal email is most appropriate when you know the recipient's name?",
+      "opener": "Regeln \"känt namn → sincerely, okänt namn → faithfully\" gäller även för mejl.",
+      "choices": [
+        "Yours sincerely,",
+        "Yours faithfully,",
+        "Later,",
+        "Take care,"
+      ],
+      "answer": 0,
+      "explanation": "\"Yours sincerely\" används när mottagarens namn är känt, till skillnad från \"Yours faithfully\" som hör ihop med \"Dear Sir/Madam\". \"Later\"/\"Take care\" är för informella för ett formellt mejl."
+    },
+    {
+      "id": "q-en7gy-writing-15",
+      "kind": "mc",
+      "topic": "signposting language",
+      "prompt": "Which phrase signals that the writer is about to qualify or limit a previous claim?",
+      "opener": "Frasen \"that said\" markerar att skribenten ska nyansera eller begränsa något som just sagts.",
+      "choices": [
+        "That said,",
+        "In addition,",
+        "Similarly,",
+        "For example,"
+      ],
+      "answer": 0,
+      "explanation": "\"That said\" signalerar en kvalificering eller begränsning av ett tidigare påstående, ungefär som \"however\" men något mjukare. \"In addition\", \"similarly\" och \"for example\" bygger istället vidare på samma linje utan att nyansera."
     }
   ]
 }

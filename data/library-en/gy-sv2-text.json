@@ -123,6 +123,111 @@
       "prompt": "Summarise the basics of good source handling and structure in expository and argumentative text.",
       "opener": "Structure and sources — the two things that determine whether a text holds up.",
       "answer": "Expository text: shedding light on a question from all sides, structure of introduction–examination–conclusion · Argumentative text: clear thesis, arguments, addressing counterarguments, a closing restatement of the thesis · Source handling: weave sources naturally into running text, always state where information comes from, avoid near-word-for-word rewording without quotation marks (plagiarism) · Paragraphing: each paragraph one main idea, linking words create a common thread running through the whole text."
+    },
+    {
+      "id": "q-sv2-text-9",
+      "kind": "mc",
+      "topic": "source handling",
+      "prompt": "What is a list of references at the end of a text called, listing all the sources used?",
+      "opener": "The name refers directly to what the list contains.",
+      "choices": [
+        "Bibliography (reference list)",
+        "Table of contents",
+        "Index",
+        "Abstract"
+      ],
+      "answer": 0,
+      "explanation": "A bibliography or reference list lists all the sources used in the text, often at the end. A table of contents instead shows the text's structure, and an index lists key terms with page references."
+    },
+    {
+      "id": "q-sv2-text-10",
+      "kind": "mc",
+      "topic": "expository text",
+      "prompt": "Which of the following is a characteristic of a good research question in an expository text?",
+      "opener": "A good research question should actually be answerable with the material you have.",
+      "choices": [
+        "It is clearly defined and can be investigated using the available material",
+        "It is so broad that it covers the whole of human history",
+        "It requires no answer at all",
+        "It is phrased as a statement, not a question"
+      ],
+      "answer": 0,
+      "explanation": "A good research question in an expository text is clearly defined and can be investigated with the material and time available. An overly broad question becomes difficult to answer in any depth."
+    },
+    {
+      "id": "q-sv2-text-11",
+      "kind": "mc",
+      "topic": "argumentative text",
+      "prompt": "What is an argument called that relies on an authority or expert having said something, rather than on independent evidence?",
+      "opener": "The strength of the argument rests on who said something, not on what is actually proven.",
+      "choices": [
+        "An argument from authority",
+        "A consequentialist argument",
+        "An argument from analogy",
+        "An argument from experience"
+      ],
+      "answer": 0,
+      "explanation": "An argument from authority refers to an expert or authority having said something, which can strengthen an argument but can also be weak if the authority is not relevant to the question. A consequentialist argument instead relies on what consequences something would have."
+    },
+    {
+      "id": "q-sv2-text-12",
+      "kind": "mc",
+      "topic": "source handling",
+      "prompt": "Why is it important to state the publication year of a source you use?",
+      "opener": "Consider how quickly certain information, such as statistics, can become outdated.",
+      "choices": [
+        "So the reader can judge how up to date the information is",
+        "It is never important to state the publication year",
+        "Only to make the text longer",
+        "A publication year is only needed for fiction"
+      ],
+      "answer": 0,
+      "explanation": "The publication year helps the reader judge how up to date the information is, which is especially important for rapidly changing topics such as statistics, research or news."
+    },
+    {
+      "id": "q-sv2-text-13",
+      "kind": "mc",
+      "topic": "paragraphing",
+      "prompt": "What is the sentence in a paragraph called that usually presents the paragraph's main idea?",
+      "opener": "It usually comes early in the paragraph and sums up what the rest is about.",
+      "choices": [
+        "Topic sentence",
+        "Closing statement",
+        "Linking word",
+        "Source reference"
+      ],
+      "answer": 0,
+      "explanation": "The topic sentence, often the paragraph's first sentence, presents the paragraph's main idea, which the rest of the paragraph then develops. A closing statement instead concludes the whole text, and linking words connect sentences and paragraphs."
+    },
+    {
+      "id": "q-sv2-text-14",
+      "kind": "mc",
+      "topic": "argumentative text",
+      "prompt": "What does circular reasoning mean as a logical fallacy?",
+      "opener": "Think about what happens if the conclusion is already hidden in the premise.",
+      "choices": [
+        "That the conclusion is already assumed in the premise, so the argument doesn't actually prove anything new",
+        "That you restate your thesis at the end of the text as a summary",
+        "That you address counterarguments clearly",
+        "That you cite your sources correctly"
+      ],
+      "answer": 0,
+      "explanation": "Circular reasoning is a logical fallacy where the conclusion is already built into the premise, so the argument in practice just repeats itself without actually proving anything. Summarising your thesis at the end is instead a normal and legitimate part of an argumentative text."
+    },
+    {
+      "id": "q-sv2-text-15",
+      "kind": "mc",
+      "topic": "expository text",
+      "prompt": "Which of the following would be a suitable ending for an expository text?",
+      "opener": "Think about what should tie together the different perspectives raised in the text.",
+      "choices": [
+        "A summarising conclusion or reflection that ties together the perspectives raised",
+        "An entirely new question with no connection to the rest of the text",
+        "A personal testimony with no connection to the investigation",
+        "No ending at all — the text can stop in the middle of an argument"
+      ],
+      "answer": 0,
+      "explanation": "An expository text should end with a summarising conclusion or reflection that ties together the perspectives raised, rather than introducing a new, unrelated question or stopping abruptly."
     }
   ]
 }

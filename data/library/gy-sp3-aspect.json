@@ -123,6 +123,111 @@
       "prompt": "Hur väljer man mellan pretérito indefinido och imperfecto i en berättelse?",
       "opener": "Två frågor och en lista över verb som byter betydelse.",
       "answer": "Pretérito: avgränsade, avslutade händelser med tydlig start/slut, huvudhändelserna i en berättelse (sonó, llegué, hice). Imperfecto: bakgrund, beskrivningar (väder, känslor, klockslag, ålder), pågående handlingar och vanor/upprepning förr (estaba, era, jugaban, iba). Mönster: imperfecto sätter scenen, pretérito för handlingen som bryter in. Verb som byter nyans: conocer (conocí = träffade för första gången / conocía = kände redan), saber (supe = fick reda på / sabía = visste), poder (pude = lyckades / podía = hade förmågan), querer (quise = försökte, no quise = vägrade / quería = ville, allmänt)."
+    },
+    {
+      "id": "q-sp3-aspect-9",
+      "kind": "mc",
+      "topic": "preterite vs imperfect",
+      "prompt": "Välj rätt par: \"Ayer, cuando yo ___ (salir) de casa, ___ (empezar) a llover.\"",
+      "opener": "Här är båda handlingarna enskilda, avgränsade händelser som sker efter varandra — inte en bakgrund som avbryts.",
+      "choices": [
+        "salí / empezó",
+        "salía / empezaba",
+        "salí / empezaba",
+        "salía / empezó"
+      ],
+      "answer": 0,
+      "explanation": "Båda verben beskriver punktuella, avslutade händelser i sekvens (jag gick ut, sedan började det regna), inte en pågående bakgrund som avbryts — därför pretérito för båda: \"salí\" och \"empezó\"."
+    },
+    {
+      "id": "q-sp3-aspect-10",
+      "kind": "mc",
+      "topic": "aspect",
+      "prompt": "Vad betyder \"supe\" i pretérito i meningen: \"Supe la verdad ayer\"?",
+      "opener": "\"Saber\" byter nyans mellan pretérito och imperfecto, precis som \"conocer\".",
+      "choices": [
+        "Jag fick reda på sanningen (för första gången)",
+        "Jag visste sanningen sedan länge",
+        "Jag glömde sanningen",
+        "Jag sa sanningen"
+      ],
+      "answer": 0,
+      "explanation": "I pretérito betyder \"saber\" \"att få reda på\" — en avgränsad händelse. I imperfecto (\"sabía\") hade det istället betytt \"jag visste (redan)\", ett pågående tillstånd."
+    },
+    {
+      "id": "q-sp3-aspect-11",
+      "kind": "mc",
+      "topic": "narrative past",
+      "prompt": "Välj rätt form: \"Eran las tres de la tarde cuando ___ (llegar) el autobús.\"",
+      "opener": "Klockslaget står i imperfecto som bakgrund, men själva ankomsten är en enskild händelse.",
+      "choices": [
+        "llegó",
+        "llegaba",
+        "llega",
+        "ha llegado"
+      ],
+      "answer": 0,
+      "explanation": "\"Eran las tres\" sätter scenen i imperfecto, men bussens ankomst är en avgränsad, enskild händelse som bryter in i den bakgrunden — därför pretérito: \"llegó\"."
+    },
+    {
+      "id": "q-sp3-aspect-12",
+      "kind": "mc",
+      "topic": "aspect",
+      "prompt": "Vad betyder \"pude\" i pretérito i meningen: \"Pude terminar el examen a tiempo\"?",
+      "opener": "\"Poder\" byter nyans mellan pretérito och imperfecto, precis som \"conocer\" och \"saber\".",
+      "choices": [
+        "Jag lyckades avsluta provet i tid",
+        "Jag hade förmågan att avsluta provet, i allmänhet",
+        "Jag kunde inte avsluta provet",
+        "Jag ville avsluta provet"
+      ],
+      "answer": 0,
+      "explanation": "I pretérito betyder \"poder\" \"att lyckas göra något\" i en specifik situation — \"pude\" = jag lyckades. I imperfecto (\"podía\") hade det istället beskrivit en allmän förmåga, utan att säga om personen faktiskt gjorde det."
+    },
+    {
+      "id": "q-sp3-aspect-13",
+      "kind": "mc",
+      "topic": "preterite vs imperfect",
+      "prompt": "Välj rätt form: \"Cuando era joven, mi abuelo me ___ (contar) historias cada noche.\"",
+      "opener": "\"Cada noche\" (varje kväll) signalerar en upprepad vana i det förflutna.",
+      "choices": [
+        "contaba",
+        "contó",
+        "cuenta",
+        "ha contado"
+      ],
+      "answer": 0,
+      "explanation": "\"Cada noche\" signalerar en vana som upprepades förr, vilket kräver imperfecto: \"contaba\" (han brukade berätta)."
+    },
+    {
+      "id": "q-sp3-aspect-14",
+      "kind": "mc",
+      "topic": "narrative past",
+      "prompt": "Välj rätt par: \"Mientras yo ___ (estudiar), mi hermano ___ (ver) la televisión.\"",
+      "opener": "Två parallella, pågående handlingar i bakgrunden — ingen av dem avbryter den andra.",
+      "choices": [
+        "estudiaba / veía",
+        "estudié / vi",
+        "estudiaba / vio",
+        "estudié / veía"
+      ],
+      "answer": 0,
+      "explanation": "Båda handlingarna pågick samtidigt som bakgrund till varandra, utan att någon avbryter — därför imperfecto för båda: \"estudiaba\" och \"veía\"."
+    },
+    {
+      "id": "q-sp3-aspect-15",
+      "kind": "mc",
+      "topic": "aspect",
+      "prompt": "Vilket verb byter betydelse mellan pretérito och imperfecto på ett sätt som liknar \"conocer\"?",
+      "opener": "Fyra klassiska verb brukar nämnas i detta sammanhang: conocer, saber, poder och ett till.",
+      "choices": [
+        "saber",
+        "hablar",
+        "comer",
+        "vivir"
+      ],
+      "answer": 0,
+      "explanation": "\"Saber\" är ett av de klassiska verben som byter nyans: \"supe\" (fick reda på) mot \"sabía\" (visste redan), precis som \"conocí\" mot \"conocía\"."
     }
   ]
 }

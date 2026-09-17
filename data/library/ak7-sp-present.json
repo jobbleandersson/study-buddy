@@ -114,6 +114,111 @@
       "prompt": "Hur böjs -ar-, -er- och -ir-verb i presens, och när använder man ser respektive estar?",
       "opener": "De tre verbgrupperna följer olika men regelbundna mönster.",
       "answer": "-ar (hablar): hablo, hablas, habla, hablamos, habláis, hablan. -er (aprender): aprendo, aprendes, aprende, aprendemos, aprendéis, aprenden. -ir (vivir): vivo, vives, vive, vivimos, vivís, viven. Ser används för permanenta saker: yo soy, tú eres, él/ella es, nosotros somos, ellos son — t.ex. utseende, yrke, nationalitet. Estar används för plats och tillfälliga tillstånd: yo estoy, tú estás, él/ella está, nosotros estamos, ellos están — t.ex. var något är, eller hur man mår just nu."
+    },
+    {
+      "id": "q-sp7-pres-9",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Ellos ___ en Barcelona.\" (vivir)",
+      "opener": "\"Ellos\" betyder \"de\", och vivir är ett -ir-verb.",
+      "choices": [
+        "viven",
+        "vive",
+        "vivimos",
+        "vivo"
+      ],
+      "answer": 0,
+      "explanation": "\"Vivir\" böjs: vivo, vives, vive, vivimos, vivís, viven. \"Ellos\" (de) ger ändelsen -en: \"viven\"."
+    },
+    {
+      "id": "q-sp7-pres-10",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"¿Tú ___ español?\" (hablar)",
+      "opener": "\"Tú\" (du) med ett -ar-verb slutar på -as.",
+      "choices": [
+        "hablas",
+        "hablo",
+        "habla",
+        "hablamos"
+      ],
+      "answer": 0,
+      "explanation": "\"Hablar\" böjs: hablo, hablas, habla... \"Tú\" ger ändelsen -as: \"hablas\"."
+    },
+    {
+      "id": "q-sp7-pres-11",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"Nosotros ___ pizza los sábados.\" (comer = att äta)",
+      "opener": "\"Nosotros\" (vi) med ett -er-verb slutar på -emos.",
+      "choices": [
+        "comemos",
+        "come",
+        "comen",
+        "como"
+      ],
+      "answer": 0,
+      "explanation": "\"Comer\" böjs: como, comes, come, comemos... \"Nosotros\" ger ändelsen -emos: \"comemos\"."
+    },
+    {
+      "id": "q-sp7-pres-12",
+      "kind": "mc",
+      "topic": "ser and estar",
+      "prompt": "Välj rätt verb: \"Yo ___ de Suecia.\" (Jag är från Sverige.)",
+      "opener": "Ursprung/nationalitet är en permanent egenskap.",
+      "choices": [
+        "soy",
+        "estoy",
+        "eres",
+        "está"
+      ],
+      "answer": 0,
+      "explanation": "\"Ser\" används för ursprung och nationalitet: \"yo soy de Suecia\" = \"jag är från Sverige\". \"Estar\" hade passat för plats eller tillfälligt tillstånd."
+    },
+    {
+      "id": "q-sp7-pres-13",
+      "kind": "mc",
+      "topic": "ser and estar",
+      "prompt": "Välj rätt verb: \"Los niños ___ cansados hoy.\" (Barnen är trötta idag.)",
+      "opener": "Att vara trött ÄR ett tillfälligt tillstånd, inte en permanent egenskap.",
+      "choices": [
+        "están",
+        "son",
+        "estoy",
+        "es"
+      ],
+      "answer": 0,
+      "explanation": "\"Estar\" används för tillfälliga tillstånd som trötthet: \"están cansados\" = \"är trötta\". \"Ser\" hade i stället uttryckt en permanent egenskap."
+    },
+    {
+      "id": "q-sp7-pres-14",
+      "kind": "mc",
+      "topic": "personal pronouns",
+      "prompt": "Vilket pronomen används för \"hon\" på spanska?",
+      "opener": "Ett kvinnligt tredjepersonspronomen i singular.",
+      "choices": [
+        "ella",
+        "él",
+        "usted",
+        "ellos"
+      ],
+      "answer": 0,
+      "explanation": "\"Ella\" betyder \"hon\". \"Él\" är \"han\", \"usted\" är den artiga formen av \"du\", och \"ellos\" är \"de\" (maskulint/blandat)."
+    },
+    {
+      "id": "q-sp7-pres-15",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Välj rätt form: \"¿Qué ___ (tú) los domingos?\" (hacer = att göra)",
+      "opener": "\"Hacer\" är oregelbundet för \"jag\" (hago), men regelbundet för \"du\".",
+      "choices": [
+        "haces",
+        "hago",
+        "hace",
+        "hacemos"
+      ],
+      "answer": 0,
+      "explanation": "\"Hacer\" böjs: hago, haces, hace, hacemos, hacéis, hacen. \"Tú\" ger ändelsen -es: \"haces\"."
     }
   ]
 }

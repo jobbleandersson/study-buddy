@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta organisk kemi och kolföreningar.",
       "opener": "Tänk kolatomens bindningsförmåga, kolväten, förbränning och vardagliga exempel.",
       "answer": "Organisk kemi: läran om kolföreningar, med några få undantag (t.ex. koldioxid och karbonater räknas som oorganiska) · Kolatomen: har 4 valenselektroner, bildar 4 kovalenta bindningar, kan binda till sig själv i kedjor, grenar och ringar, vilket ger enormt många möjliga föreningar · Kolväte: förening som bara innehåller kol och väte, t.ex. metan (CH4), bensin, naturgas · Förbränning av kolväten: kolväte + syre → koldioxid + vatten + energi (exoterm reaktion) · Fossila bränslen: olja, kol och naturgas, bildade av döda växt- och djurrester under miljontals år, innehåller lagrad energi i kolföreningar · Plast: konstgjorda polymerer, långa kedjor av kolföreningar, ofta tillverkade av råolja."
+    },
+    {
+      "id": "q-kemi-org-9",
+      "kind": "mc",
+      "topic": "organisk kemi",
+      "prompt": "Vilket av dessa ämnen räknas INTE som en organisk förening, trots att det innehåller kol?",
+      "opener": "Ett litet antal enkla kolföreningar undantas av historiska skäl.",
+      "choices": [
+        "Koldioxid (CO2)",
+        "Metan (CH4)",
+        "Etanol",
+        "Glukos"
+      ],
+      "answer": 0,
+      "explanation": "Koldioxid innehåller kol men räknas av historiska skäl som oorganiskt, tillsammans med några andra enkla kolföreningar som karbonater. Metan, etanol och glukos är alla organiska föreningar."
+    },
+    {
+      "id": "q-kemi-org-10",
+      "kind": "mc",
+      "topic": "kolatomens egenskaper",
+      "prompt": "Hur många kovalenta bindningar kan en kolatom vanligtvis bilda samtidigt?",
+      "opener": "Detta hänger ihop med antalet valenselektroner kol har.",
+      "choices": [
+        "4",
+        "2",
+        "8",
+        "1"
+      ],
+      "answer": 0,
+      "explanation": "Kol har 4 valenselektroner och kan därför bilda 4 kovalenta bindningar samtidigt, vilket ger upphov till en enorm variation av möjliga strukturer."
+    },
+    {
+      "id": "q-kemi-org-11",
+      "kind": "mc",
+      "topic": "kolväten",
+      "prompt": "Vilket av dessa ämnen är INTE ett kolväte?",
+      "opener": "Ett kolväte innehåller bara två grundämnen — vilket av ämnena innehåller ett tredje?",
+      "choices": [
+        "Etanol",
+        "Metan",
+        "Propan",
+        "Bensin"
+      ],
+      "answer": 0,
+      "explanation": "Etanol innehåller kol, väte OCH syre, så det räknas inte som ett rent kolväte trots att det är en organisk förening. Metan, propan och bensin innehåller bara kol och väte."
+    },
+    {
+      "id": "q-kemi-org-12",
+      "kind": "mc",
+      "topic": "kol i vardagen",
+      "prompt": "Vad är huvudproblemet med att förbränna stora mängder fossila bränslen, kemiskt sett?",
+      "opener": "Tänk på hur lång tid kolet varit \"inlåst\" jämfört med hur snabbt det nu släpps ut.",
+      "choices": [
+        "Det frigör kol som lagrats i miljontals år som koldioxid till atmosfären, snabbare än naturen kan ta upp det igen",
+        "Det bildar aldrig koldioxid",
+        "Det gör bränslet oorganiskt",
+        "Det förstör kolatomens förmåga att bilda bindningar"
+      ],
+      "answer": 0,
+      "explanation": "Fossila bränslen frigör kol som varit bundet i miljontals år, som koldioxid till atmosfären på mycket kort tid — snabbare än växter och hav hinner ta upp det, vilket rubbar kolets kretslopp."
+    },
+    {
+      "id": "q-kemi-org-13",
+      "kind": "mc",
+      "topic": "kolväten",
+      "prompt": "Vad skiljer metan (CH4) från propan (C3H8) kemiskt sett?",
+      "opener": "Jämför antalet kolatomer i respektive molekylformel.",
+      "choices": [
+        "Propan har en längre kolkedja med fler kol- och väteatomer",
+        "Metan innehåller syre men propan gör det inte",
+        "Propan är inte ett kolväte",
+        "Det finns ingen skillnad, de är samma ämne"
+      ],
+      "answer": 0,
+      "explanation": "Propan (C3H8) har tre kolatomer i en kedja, medan metan (CH4) bara har en — annars är båda rena kolväten utan syre."
+    },
+    {
+      "id": "q-kemi-org-14",
+      "kind": "worked",
+      "topic": "kol i vardagen",
+      "prompt": "Förklara varför plast, som ofta består av mycket långa kolkedjor (polymerer), bryts ner så långsamt i naturen jämfört med till exempel matrester.",
+      "opener": "Tänk på vilka enzymer nedbrytare i naturen faktiskt har tillgång till.",
+      "answer": "Plastens långa, ofta konstgjorda kolkedjor är svåra för naturliga mikroorganismer att bryta ner kemiskt, eftersom de flesta nedbrytare saknar enzymer anpassade för just dessa bindningar — till skillnad från de enklare molekylerna i matrester.",
+      "steps": [
+        "Matrester består till stor del av enklare organiska molekyler (socker, stärkelse, protein) som naturliga mikroorganismer har enzymer anpassade för att bryta ner.",
+        "Plastens polymerer är mycket långa kedjor av kolatomer, ofta med bindningsmönster som inte förekommer naturligt.",
+        "De flesta bakterier och svampar saknar enzymer som effektivt kan klyva just dessa bindningar.",
+        "Utan effektiv nedbrytning kan plast ligga kvar i naturen i hundratals år innan den brutits ner, om den alls gör det."
+      ]
+    },
+    {
+      "id": "q-kemi-org-15",
+      "kind": "mc",
+      "topic": "kolväten",
+      "prompt": "Vad krävs för fullständig förbränning av ett kolväte, förutom själva kolvätet?",
+      "opener": "Vad reagerar kolvätet med för att bilda koldioxid och vatten?",
+      "choices": [
+        "Tillräckligt med syre",
+        "Enbart värme utan syre",
+        "Vatten",
+        "Kväve"
+      ],
+      "answer": 0,
+      "explanation": "Fullständig förbränning kräver tillräckligt med syre för att kolvätet ska reagera helt och bilda koldioxid och vatten. Med för lite syre blir förbränningen ofullständig och sot eller kolmonoxid kan bildas i stället."
     }
   ]
 }

@@ -123,6 +123,111 @@
       "prompt": "What needs to be included in an argumentative text, and how does a letter to the editor differ from an opinion article?",
       "opener": "The parts first, then the two text types.",
       "answer": "Parts · thesis: your opinion as a clear statement · arguments: reasons that answer \"why?\", ideally 2-3, one per paragraph · counter-argument: the objection someone else would raise · response: acknowledge what is true, then show why your reason weighs more · conclusion: summary plus a call to action. Factual reasons · can be checked or reasoned about · strongest. Emotional arguments · appeal to compassion or fear · can strengthen but prove nothing · work best as seasoning. Letter to the editor · short, personal, written by anyone · published on the newspaper's letters page · often signed with just initials or a pseudonym. Opinion article · longer, more factual, usually signed with a full name and title · aimed at a specific decision-maker or opposing party."
+    },
+    {
+      "id": "q-sv8-arg-9",
+      "kind": "mc",
+      "topic": "thesis and arguments",
+      "prompt": "The thesis is \"The school should serve vegetarian food one day a week\". Which option is an argument FOR the thesis?",
+      "opener": "An argument answers the question \"why?\" — it should support the thesis, not just repeat it.",
+      "choices": [
+        "Vegetarian food is good.",
+        "Reduced meat consumption one day a week lowers the school's climate impact.",
+        "Many schools already have vegetarian days.",
+        "I really like vegetables."
+      ],
+      "answer": 1,
+      "explanation": "This option gives a reason with a consequence: less meat leads to a lower climate impact. \"Vegetarian food is good\" is just the thesis restated, and \"I like\" is an opinion without a reason."
+    },
+    {
+      "id": "q-sv8-arg-10",
+      "kind": "mc",
+      "topic": "thesis and arguments",
+      "prompt": "Which of these statements is a factual reason rather than an emotional argument?",
+      "opener": "Factual reasons can be checked or reasoned about; emotional arguments appeal to how the reader feels.",
+      "choices": [
+        "Think of all the animals suffering!",
+        "It's terrible to eat meat.",
+        "Research shows that reduced meat consumption lowers greenhouse gas emissions.",
+        "No one with a clear conscience eats meat every day."
+      ],
+      "answer": 2,
+      "explanation": "The statement about research is based on studies that can be checked — that's a factual reason. The others appeal to compassion and shame, which can strengthen a text but prove nothing."
+    },
+    {
+      "id": "q-sv8-arg-11",
+      "kind": "mc",
+      "topic": "counter-arguments",
+      "prompt": "The counter-argument is: \"Vegetarian food is more expensive for the school.\" Which response best addresses the counter-argument?",
+      "opener": "A good response first acknowledges the objection and then shows why it weighs less.",
+      "choices": [
+        "That's a bad argument not worth discussing.",
+        "It's true that some ingredients can cost more, but other vegetable-based dishes are cheaper than meat, so the total cost doesn't need to increase.",
+        "Everyone knows vegetarian food is cheaper.",
+        "Many other schools have already introduced it."
+      ],
+      "answer": 1,
+      "explanation": "The response acknowledges that the objection is partly true and then presents a reason that weighs more — that's how a counter-argument is addressed. Dismissing the objection or claiming \"everyone knows\" addresses nothing."
+    },
+    {
+      "id": "q-sv8-arg-12",
+      "kind": "mc",
+      "topic": "counter-arguments",
+      "prompt": "What should a writer do right after addressing a counter-argument?",
+      "opener": "Think about the whole point of addressing it in the first place.",
+      "choices": [
+        "Change the subject completely",
+        "Let the thesis stand stronger than before",
+        "Apologise for bringing it up",
+        "End the text without further explanation"
+      ],
+      "answer": 1,
+      "explanation": "The purpose of addressing a counter-argument is to strengthen the thesis further, not to weaken it or leave the question open. After a good response, the reader should feel even more convinced."
+    },
+    {
+      "id": "q-sv8-arg-13",
+      "kind": "mc",
+      "topic": "how the text is structured",
+      "prompt": "Besides length, what distinguishes an opinion article from a letter to the editor?",
+      "opener": "Think about who signs the text and who it is aimed at.",
+      "choices": [
+        "The opinion article is usually signed with a full name and title, and aimed at a specific opposing party",
+        "The opinion article never has a thesis",
+        "The letter to the editor is always longer",
+        "There is no difference at all"
+      ],
+      "answer": 0,
+      "explanation": "The opinion article is longer, more factual, and is often signed with a full name and title, and aimed at a specific decision-maker or opposing party. The letter to the editor is shorter and more personal, and can be written by anyone."
+    },
+    {
+      "id": "q-sv8-arg-14",
+      "kind": "worked",
+      "topic": "counter-arguments",
+      "prompt": "Plan a letter to the editor with the thesis \"The library in our neighbourhood should be open in the evenings on weekdays\". Formulate two arguments, one counter-argument and a response, plus a closing call to action.",
+      "opener": "Start from the thesis, then find reasons that can be tested. Finally, think about what someone who disagrees would say.",
+      "answer": "Thesis: The library in our neighbourhood should be open in the evenings on weekdays. Argument 1: Many people who work or attend school during the day would otherwise never get to visit the library. Argument 2: An evening-open library gives young people a safe place to study after school. Counter-argument: Evening opening costs extra in staffing. Response: It's true that it requires more staff, but the municipality could try limited evening opening a few nights a week before committing fully. Conclusion: Let the library try evening opening for one term and then evaluate how it went.",
+      "steps": [
+        "Formulate the thesis as a statement, not a question — the reader should immediately know what you want.",
+        "Choose arguments that are factual reasons and can be tested: accessibility for working people and a safe place to study, not just \"the library is good\".",
+        "Put yourself in the opponent's shoes for a moment: the strongest counter-argument is the cost of extra staffing.",
+        "Respond by first acknowledging what is true, then showing the problem can be solved another way.",
+        "End with a concrete call to action — a proposal to test and evaluate is easier to agree to than a demand."
+      ]
+    },
+    {
+      "id": "q-sv8-arg-15",
+      "kind": "mc",
+      "topic": "thesis and arguments",
+      "prompt": "Which option is A THESIS, rather than an argument?",
+      "opener": "The thesis is the stance itself; the arguments are the reasons that support it.",
+      "choices": [
+        "More bike lanes reduce the number of accidents.",
+        "The municipality should build more bike lanes in the city centre.",
+        "Many cyclists feel unsafe in traffic today.",
+        "A survey shows that 60 percent want more bike lanes."
+      ],
+      "answer": 1,
+      "explanation": "\"The municipality should build more bike lanes\" is the stance itself — the thesis. The other options are reasons that could be used to support that thesis, i.e. arguments."
     }
   ]
 }

@@ -123,6 +123,109 @@
       "prompt": "Vilka formler och enhetssamband behöver du ha i huvudet?",
       "opener": "Dela upp minneslistan i tre: area, volym och enheter.",
       "answer": "Rektangel: $A = b \\cdot h$ · Parallellogram: $A = b \\cdot h$ · Triangel: $A = \\frac{b \\cdot h}{2}$ · Cirkel: $A = \\pi r^2$ och $O = 2\\pi r = \\pi d$ · Rätblock: $V = l \\cdot b \\cdot h$ · Cylinder: $V = \\pi r^2 \\cdot h$ (basytan gånger höjden) · Areaenheter växlar med faktorn 100: 1 m² = 100 dm² = 10 000 cm² · Volymenheter växlar med faktorn 1000: 1 m³ = 1000 dm³ = 1 000 000 cm³ · 1 liter = 1 dm³ = 1000 cm³ · Skala 1:$n$ är förminskning (verkligheten = bilden $\\cdot\\, n$), skala $n$:1 är förstoring."
+    },
+    {
+      "id": "q-ma8-geo-9",
+      "kind": "mc",
+      "topic": "area och omkrets",
+      "prompt": "En cirkel har radien 6 cm. Vad är omkretsen, avrundat till en decimal?",
+      "opener": "Omkrets med radien: $O = 2\\pi r$.",
+      "choices": [
+        "18,8 cm",
+        "37,7 cm",
+        "75,4 cm",
+        "113,1 cm²"
+      ],
+      "answer": 1,
+      "explanation": "$O = 2\\pi r = 2\\pi \\cdot 6 = 12\\pi \\approx 37{,}7$ cm. Svaret 113,1 cm² är istället arean ($\\pi r^2$), inte omkretsen."
+    },
+    {
+      "id": "q-ma8-geo-10",
+      "kind": "mc",
+      "topic": "area och omkrets",
+      "prompt": "En cirkel har diametern 14 cm. Vad är arean, avrundat till en decimal?",
+      "opener": "Kom ihåg att arean räknas med radien, inte diametern — så halvera först.",
+      "choices": [
+        "44,0 cm",
+        "22,0 cm",
+        "153,9 cm²",
+        "307,9 cm²"
+      ],
+      "answer": 2,
+      "explanation": "Radien är $14 / 2 = 7$ cm. $A = \\pi r^2 = \\pi \\cdot 7^2 = 49\\pi \\approx 153{,}9$ cm². Svaret 44,0 cm är omkretsen ($\\pi d$), inte arean, och 307,9 cm² får man om man använder diametern i stället för radien i areaformeln."
+    },
+    {
+      "id": "q-ma8-geo-11",
+      "kind": "mc",
+      "topic": "volym",
+      "prompt": "Ett rätblock är 8 cm långt, 5 cm brett och 3 cm högt. Vad är volymen?",
+      "opener": "Multiplicera alla tre måtten.",
+      "choices": [
+        "16 cm³",
+        "24 cm³",
+        "40 cm³",
+        "120 cm³"
+      ],
+      "answer": 3,
+      "explanation": "$V = 8 \\cdot 5 \\cdot 3 = 120$ cm³."
+    },
+    {
+      "id": "q-ma8-geo-12",
+      "kind": "mc",
+      "topic": "skala",
+      "prompt": "En ritning är i skala 1:25. En vägg är 6 m lång i verkligheten. Hur lång blir väggen på ritningen, i cm?",
+      "opener": "Gör om till samma enhet först, dela sedan med skalfaktorn.",
+      "choices": [
+        "0,24 cm",
+        "2,4 cm",
+        "24 cm",
+        "150 cm"
+      ],
+      "answer": 2,
+      "explanation": "6 m $= 600$ cm. Ritningen är $1/25$ av verkligheten: $600 / 25 = 24$ cm."
+    },
+    {
+      "id": "q-ma8-geo-13",
+      "kind": "mc",
+      "topic": "enheter",
+      "prompt": "Hur många cm² är 3 dm²?",
+      "opener": "Areaenheter växlar med faktorn 100, inte 10.",
+      "choices": [
+        "30 cm²",
+        "300 cm²",
+        "3 000 cm²",
+        "0,3 cm²"
+      ],
+      "answer": 1,
+      "explanation": "$1$ dm² $= 100$ cm², så $3$ dm² $= 3 \\cdot 100 = 300$ cm²."
+    },
+    {
+      "id": "q-ma8-geo-14",
+      "kind": "worked",
+      "topic": "volym",
+      "prompt": "En simbassäng är 25 m lång, 10 m bred och 1,5 m djup. Hur många kubikmeter vatten rymmer den?",
+      "opener": "Samma volymformel som för ett rätblock, bara med större mått.",
+      "answer": "375 m³",
+      "steps": [
+        "$V = l \\cdot b \\cdot h = 25 \\cdot 10 \\cdot 1{,}5$.",
+        "$25 \\cdot 10 = 250$.",
+        "$250 \\cdot 1{,}5 = 375$ m³."
+      ]
+    },
+    {
+      "id": "q-ma8-geo-15",
+      "kind": "mc",
+      "topic": "skala",
+      "prompt": "En karta har skalan 1:25 000. Ett avstånd på kartan är 6 cm. Hur långt är det i verkligheten, i km?",
+      "opener": "Räkna ut avståndet i cm först, gör sedan om till km.",
+      "choices": [
+        "0,15 km",
+        "1,5 km",
+        "15 km",
+        "150 km"
+      ],
+      "answer": 1,
+      "explanation": "$6 \\cdot 25\\,000 = 150\\,000$ cm. Eftersom $1$ km $= 100\\,000$ cm blir det $150\\,000 / 100\\,000 = 1{,}5$ km."
     }
   ]
 }

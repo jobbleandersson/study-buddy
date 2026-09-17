@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta Sveriges stormaktstid: tid, kungar, krig och vardagsliv.",
       "opener": "Tänk period, viktiga kungar, hur riket växte och krympte, och vad det kostade befolkningen.",
       "answer": "Stormaktstiden varade cirka 1611–1721 · Gustav II Adolf gick in i trettioåriga kriget 1630 och stupade vid Lützen 1632 · segrar och freder (Brömsebro 1645, Westfaliska freden 1648, Roskilde 1658) gjorde Östersjön till nästan ett svenskt innanhav med Finland, Baltikum, nordtyska områden samt Skåne, Blekinge och Halland · Karl XI ordnade statens ekonomi och byggde indelningsverket, där rotar av bondgårdar höll soldater med torp och naturaförmåner · Karl XII förde stora nordiska kriget 1700–1721, vann vid Narva 1700 men förlorade vid Poltava 1709 och dog 1718 vid Fredriksten i Norge · freden i Nystad 1721 avslutade stormaktstiden och Ryssland blev Östersjöns starkaste makt · för vanliga människor betydde tiden höga skatter, utskrivningar av unga män till armén, många döda soldater och hårt arbete för kvinnor och barn som blev kvar på gårdarna · grunden var svag: liten befolkning, fattigt land och för stora områden att försvara."
+    },
+    {
+      "id": "q-hist8-sto-9",
+      "kind": "mc",
+      "topic": "Gustav II Adolf och trettioåriga kriget",
+      "prompt": "Vilken religiös sida stred Sverige för i trettioåriga kriget?",
+      "opener": "Gustav II Adolf grep in för att stödja trosfränder i norra Tyskland.",
+      "choices": [
+        "Den katolska sidan",
+        "Den ortodoxa sidan",
+        "Sverige var strikt neutralt",
+        "Den protestantiska sidan"
+      ],
+      "answer": 3,
+      "explanation": "Sverige stred på den protestantiska sidan mot den katolska habsburgska kejsarmakten, och Gustav II Adolf motiverade sitt ingripande bland annat med att skydda de tyska protestanterna. Sverige var alltså varken katolskt, ortodoxt eller neutralt i konflikten."
+    },
+    {
+      "id": "q-hist8-sto-10",
+      "kind": "mc",
+      "topic": "Sveriges expansion runt Östersjön",
+      "prompt": "Vilket landskap i södra Sverige blev svenskt genom freden i Roskilde 1658?",
+      "opener": "Landskapet hade tidigare varit danskt i flera hundra år.",
+      "choices": [
+        "Dalarna",
+        "Norrland",
+        "Skåne",
+        "Värmland"
+      ],
+      "answer": 2,
+      "explanation": "Genom freden i Roskilde 1658 tvingades Danmark avstå Skåne, tillsammans med Blekinge, Halland, Bohuslän och Gotland, till Sverige. Dalarna, Norrland och Värmland hade däremot varit svenska långt tidigare och berördes inte av den freden."
+    },
+    {
+      "id": "q-hist8-sto-11",
+      "kind": "mc",
+      "topic": "Karl XII och stormaktstidens slut",
+      "prompt": "Var stupade Karl XII år 1718?",
+      "opener": "Platsen ligger i Norge, dit kungen hade fört ett fälttåg.",
+      "choices": [
+        "Vid Poltava i Ukraina",
+        "Vid Lützen i Tyskland",
+        "Vid Narva i Estland",
+        "Vid Fredriksten i Norge"
+      ],
+      "answer": 3,
+      "explanation": "Karl XII stupade vid belägringen av fästningen Fredriksten i Norge 1718, troligen skjuten under ett fälttåg mot Danmark-Norge. Poltava (1709) var i stället en förlorad strid tidigare i kriget, Narva (1700) en tidig svensk seger, och Lützen (1632) hörde till Gustav II Adolfs krig nästan hundra år tidigare."
+    },
+    {
+      "id": "q-hist8-sto-12",
+      "kind": "mc",
+      "topic": "livet för bönder och soldater",
+      "prompt": "Vad innebar utskrivning för unga svenska män under stormaktstiden?",
+      "opener": "Ordet syftar på hur staten fyllde sina arméled med manskap.",
+      "choices": [
+        "Att de fick gratis mark av staten",
+        "Att de blev automatiskt adlade",
+        "Att de slapp betala skatt",
+        "Att de kunde tvingas till krigstjänst i armén"
+      ],
+      "answer": 3,
+      "explanation": "Utskrivning innebar att unga bondsöner kunde tvingas mönstra in i armén för krigstjänst, ofta under lång tid och med stor risk att aldrig komma hem. Det gav varken mark, adelskap eller skattebefrielse, utan var en tung börda för bondebefolkningen."
+    },
+    {
+      "id": "q-hist8-sto-13",
+      "kind": "mc",
+      "topic": "Sveriges expansion runt Östersjön",
+      "prompt": "Vilken fred år 1648 avslutade trettioåriga kriget och gav Sverige områden i norra Tyskland?",
+      "opener": "Freden slöts i en tysk region och gav namn åt en hel internationell ordning av suveräna stater.",
+      "choices": [
+        "Freden i Nystad",
+        "Freden i Roskilde",
+        "Westfaliska freden",
+        "Freden i Fredrikshamn"
+      ],
+      "answer": 2,
+      "explanation": "Westfaliska freden 1648 avslutade trettioåriga kriget och gav Sverige bland annat Vorpommern och andra områden i norra Tyskland. Freden i Roskilde (1658) och Nystad (1721) hörde till senare krig, och freden i Fredrikshamn gällde ett krig 1809, långt efter stormaktstiden."
+    },
+    {
+      "id": "q-hist8-sto-14",
+      "kind": "mc",
+      "topic": "Karl XII och stormaktstidens slut",
+      "prompt": "Vilken fred år 1721 avslutade stora nordiska kriget?",
+      "opener": "Freden slöts i en finsk stad efter mer än tjugo års krig.",
+      "choices": [
+        "Westfaliska freden",
+        "Freden i Roskilde",
+        "Freden i Kiel",
+        "Freden i Nystad"
+      ],
+      "answer": 3,
+      "explanation": "Freden i Nystad 1721 avslutade det stora nordiska kriget, och Sverige tvingades lämna ifrån sig sina baltiska provinser till Ryssland. Westfaliska freden (1648) och Roskilde (1658) hörde till tidigare krig, och freden i Kiel gällde i stället Sveriges krig 1814 mot Danmark."
+    },
+    {
+      "id": "q-hist8-sto-15",
+      "kind": "mc",
+      "topic": "Gustav II Adolf och trettioåriga kriget",
+      "prompt": "Vilken ny stridstaktik förknippas med Gustav II Adolf?",
+      "opener": "Han ville göra armén snabbare och mer rörlig på slagfältet.",
+      "choices": [
+        "Att aldrig använda kavalleri",
+        "Att bara strida på vintern",
+        "Att undvika alla fältslag",
+        "Rörligare artilleri och bättre samordning mellan infanteri, kavalleri och artilleri"
+      ],
+      "answer": 3,
+      "explanation": "Gustav II Adolf moderniserade den svenska krigskonsten med lättare och mer rörligt artilleri och en bättre samordning mellan de olika vapenslagen, vilket gjorde den svenska armén mer effektiv på slagfältet. Han använde tvärtom kavalleri flitigt och sökte ofta upp fältslag i stället för att undvika dem."
     }
   ]
 }

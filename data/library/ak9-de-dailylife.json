@@ -113,6 +113,111 @@
       "prompt": "Hur bildar man jämförelser och beskriver en vardagsrutin på tyska?",
       "opener": "Komparativ/superlativ och reflexiva verb för det dagliga livet.",
       "answer": "Jämförelser: adjektiv + -er = komparativ (schnell → schneller) · am + adjektiv + -(e)sten = superlativ (am schnellsten) · ... als = ... än · gut → besser → am besten (oregelbunden) · groß → größer → am größten (oregelbunden). Vardagsrutin (reflexiva verb): sich aufwecken/aufstehen = vakna/gå upp · sich duschen = duscha · sich anziehen = klä på sig · frühstücken = äta frukost · sich hinlegen = lägga sig. Reflexiva pronomen: mich, dich, sich, uns, euch, sich."
+    },
+    {
+      "id": "q-de9-daily-9",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad är komparativ av \"groß\" (stor)?",
+      "opener": "\"Groß\" bildar komparativ oregelbundet, med omljud a→ö.",
+      "choices": [
+        "größer",
+        "großer",
+        "am größten",
+        "mehr groß"
+      ],
+      "answer": 0,
+      "explanation": "\"Groß\" har den oregelbundna komparativformen \"größer\" (större), med vokalbyte a→ö."
+    },
+    {
+      "id": "q-de9-daily-10",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad är superlativ av \"groß\" (stor)?",
+      "opener": "Superlativ bildas med \"am\" + omljudd stam + \"-sten\".",
+      "choices": [
+        "am größten",
+        "größer",
+        "größten",
+        "am großsten"
+      ],
+      "answer": 0,
+      "explanation": "\"Groß\" har superlativformen \"am größten\" (störst)."
+    },
+    {
+      "id": "q-de9-daily-11",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Ich ziehe mich an\"?",
+      "opener": "Ett reflexivt verb med två delar, precis som \"aufstehen\".",
+      "choices": [
+        "Jag klär på mig",
+        "Jag klär av mig",
+        "Jag duschar",
+        "Jag borstar tänderna"
+      ],
+      "answer": 0,
+      "explanation": "\"Sich anziehen\" betyder \"att klä på sig\", och \"ich ziehe mich an\" betyder \"jag klär på mig\"."
+    },
+    {
+      "id": "q-de9-daily-12",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Normalerweise frühstücke ich um sieben\"?",
+      "opener": "\"Normalerweise\" signalerar en återkommande vana.",
+      "choices": [
+        "Vanligtvis äter jag frukost klockan sju",
+        "Jag äter aldrig frukost",
+        "Jag åt frukost igår klockan sju",
+        "Jag ska äta frukost klockan sju"
+      ],
+      "answer": 0,
+      "explanation": "\"Normalerweise frühstücke ich um sieben\" betyder \"vanligtvis äter jag frukost klockan sju\" — en beskrivning av en återkommande rutin."
+    },
+    {
+      "id": "q-de9-daily-13",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad betyder uttrycket \"genauso ... wie\"?",
+      "opener": "Uttrycker att två saker är precis lika.",
+      "choices": [
+        "lika ... som",
+        "mer ... än",
+        "mindre ... än",
+        "bäst"
+      ],
+      "answer": 0,
+      "explanation": "\"Genauso ... wie\" betyder \"lika ... som\", t.ex. \"mein Haus ist genauso groß wie deins\" (mitt hus är lika stort som ditt)."
+    },
+    {
+      "id": "q-de9-daily-14",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Wir wachen um sechs Uhr auf\"?",
+      "opener": "\"Aufwachen\" är ett annat particip-liknande verb, precis som \"aufstehen\".",
+      "choices": [
+        "Vi vaknar klockan sex",
+        "Vi somnar klockan sex",
+        "Vi äter klockan sex",
+        "Vi kommer hem klockan sex"
+      ],
+      "answer": 0,
+      "explanation": "\"Aufwachen\" betyder \"att vakna\", och \"wir wachen ... auf\" betyder \"vi vaknar\"."
+    },
+    {
+      "id": "q-de9-daily-15",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad är komparativ av \"teuer\" (dyr)?",
+      "opener": "Ett litet specialfall: det mellersta \"e\" i \"teuer\" faller bort i komparativ.",
+      "choices": [
+        "teurer",
+        "teuerer",
+        "teuer",
+        "am teuersten"
+      ],
+      "answer": 0,
+      "explanation": "\"Teuer\" tappar sitt mellersta \"e\" i komparativ: \"teurer\" (dyrare), inte \"teuerer\"."
     }
   ]
 }

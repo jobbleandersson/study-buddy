@@ -114,6 +114,111 @@
       "prompt": "Vilka mat-, dryck- och måltidsord samt mögen-böjningar bör du kunna på åk8-nivå?",
       "opener": "Mat, måltider och hur man uttrycker vad man tycker om.",
       "answer": "Mat: das Brot = bröd · der Reis = ris · das Fleisch = kött · der Fisch = fisk · das Gemüse = grönsaker · das Obst = frukt · das Wasser = vatten · die Milch = mjölk. Måltider: das Frühstück = frukost · das Mittagessen = lunch · das Abendessen = middag. Mögen: ich mag, du magst, er/sie/es mag, wir mögen, ihr mögt, sie mögen. Beställa artigt: Ich hätte gern... = jag skulle vilja ha... · ..., bitte = ..., tack."
+    },
+    {
+      "id": "q-de8-food-9",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"die Suppe\"?",
+      "opener": "En vätskerik rätt man äter med sked.",
+      "choices": [
+        "Soppa",
+        "Sallad",
+        "Efterrätt",
+        "Sås"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Suppe\" betyder soppa."
+    },
+    {
+      "id": "q-de8-food-10",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Vilken måltid är \"das Mittagessen\"?",
+      "opener": "\"Mittag\" betyder middagstid/mitt på dagen.",
+      "choices": [
+        "Lunch",
+        "Frukost",
+        "Middag",
+        "Mellanmål"
+      ],
+      "answer": 0,
+      "explanation": "\"Das Mittagessen\" är lunch (bokstavligen \"middagsätande\", dvs. maten mitt på dagen)."
+    },
+    {
+      "id": "q-de8-food-11",
+      "kind": "mc",
+      "topic": "mögen",
+      "prompt": "Välj rätt form: \"Wir ___ Pizza.\" (mögen = att gilla)",
+      "opener": "\"Wir\"-formen av mögen är samma som grundformen.",
+      "choices": [
+        "mögen",
+        "magst",
+        "mag",
+        "mögt"
+      ],
+      "answer": 0,
+      "explanation": "\"Wir\" ger \"mögen\" — samma form som infinitivet."
+    },
+    {
+      "id": "q-de8-food-12",
+      "kind": "mc",
+      "topic": "mögen",
+      "prompt": "Välj rätt form: \"Ihr ___ keinen Fisch.\" (Ni gillar inte fisk.)",
+      "opener": "\"Ihr\"-formen av mögen slutar på -t.",
+      "choices": [
+        "mögt",
+        "mag",
+        "magst",
+        "mögen"
+      ],
+      "answer": 0,
+      "explanation": "\"Mögen\" böjs: ich mag, du magst, er/sie/es mag, wir mögen, ihr mögt, sie mögen. \"Ihr\" ger \"mögt\"."
+    },
+    {
+      "id": "q-de8-food-13",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"der Kuchen\"?",
+      "opener": "Något gott man ofta äter till kaffet.",
+      "choices": [
+        "Kakan/tårtan",
+        "Glassen",
+        "Godiset",
+        "Brödet"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Kuchen\" betyder kaka/tårta."
+    },
+    {
+      "id": "q-de8-food-14",
+      "kind": "mc",
+      "topic": "food and drink",
+      "prompt": "Vad betyder \"Ich hätte gern die Rechnung, bitte\"?",
+      "opener": "Något man säger i slutet av en restaurangmåltid.",
+      "choices": [
+        "Jag skulle vilja ha notan, tack",
+        "Jag skulle vilja beställa mer",
+        "Var är toaletten?",
+        "Kan jag få en meny?"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Rechnung\" betyder notan/räkningen, så \"Ich hätte gern die Rechnung, bitte\" betyder \"jag skulle vilja ha notan, tack\"."
+    },
+    {
+      "id": "q-de8-food-15",
+      "kind": "mc",
+      "topic": "meals",
+      "prompt": "Vad betyder \"Was isst du zum Frühstück?\"?",
+      "opener": "\"Zum Frühstück\" betyder \"till frukost\".",
+      "choices": [
+        "Vad äter du till frukost?",
+        "Vad äter du till lunch?",
+        "Vad lagar du till middag?",
+        "Vad dricker du på morgonen?"
+      ],
+      "answer": 0,
+      "explanation": "\"Was isst du zum Frühstück?\" betyder \"vad äter du till frukost?\"."
     }
   ]
 }

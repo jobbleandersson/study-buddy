@@ -114,6 +114,111 @@
       "prompt": "How do you ask and answer about the time, days of the week, and months in German?",
       "opener": "Fixed phrases for time, days, and months — and remember how \"halb\" works.",
       "answer": "Time: Wie viel Uhr ist es?/Wie spät ist es? = What time is it? · Es ist ... Uhr = It's ... o'clock · Viertel nach/vor = quarter past/to · halb + NEXT hour = half past (halb drei = 2:30, just like in Swedish). Days of the week: Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag. Months: Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember."
+    },
+    {
+      "id": "q-de8-time-9",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"Es ist Viertel vor acht\" mean?",
+      "opener": "\"Vor\" means \"before\".",
+      "choices": [
+        "It's a quarter to eight (7:45)",
+        "It's a quarter past eight (8:15)",
+        "It's half past seven (7:30)",
+        "It's eight o'clock (8:00)"
+      ],
+      "answer": 0,
+      "explanation": "\"Viertel vor acht\" means \"a quarter to eight\" (7:45)."
+    },
+    {
+      "id": "q-de8-time-10",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Which day of the week is \"Freitag\"?",
+      "opener": "The last weekday before the weekend.",
+      "choices": [
+        "Friday",
+        "Thursday",
+        "Saturday",
+        "Sunday"
+      ],
+      "answer": 0,
+      "explanation": "\"Freitag\" is Friday."
+    },
+    {
+      "id": "q-de8-time-11",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Which month comes after \"Juni\"?",
+      "opener": "The German month names follow the same order as in Swedish/English.",
+      "choices": [
+        "Juli",
+        "Mai",
+        "August",
+        "September"
+      ],
+      "answer": 0,
+      "explanation": "\"Juli\" comes right after \"Juni\", just like July comes after June."
+    },
+    {
+      "id": "q-de8-time-12",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"Es ist zehn vor sechs\" mean?",
+      "opener": "\"Zehn vor\" means \"ten to\".",
+      "choices": [
+        "It's ten to six (5:50)",
+        "It's ten past six (6:10)",
+        "It's six o'clock (6:00)",
+        "It's half past five (5:30)"
+      ],
+      "answer": 0,
+      "explanation": "\"Zehn vor sechs\" means \"ten minutes before six\", i.e. 5:50."
+    },
+    {
+      "id": "q-de8-time-13",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "Which day comes right before \"Sonntag\"?",
+      "opener": "The last day of the week before Sunday.",
+      "choices": [
+        "Samstag",
+        "Freitag",
+        "Montag",
+        "Mittwoch"
+      ],
+      "answer": 0,
+      "explanation": "\"Samstag\" (Saturday) comes right before \"Sonntag\" (Sunday)."
+    },
+    {
+      "id": "q-de8-time-14",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Which month is Christmas (\"Weihnachten\") celebrated in German-speaking countries?",
+      "opener": "The same month as in Sweden.",
+      "choices": [
+        "Dezember",
+        "November",
+        "Januar",
+        "Oktober"
+      ],
+      "answer": 0,
+      "explanation": "Christmas is celebrated in \"Dezember\" (December), just like in Sweden."
+    },
+    {
+      "id": "q-de8-time-15",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"Es ist Mitternacht\" mean?",
+      "opener": "\"Mitte\" means middle, and \"Nacht\" means night.",
+      "choices": [
+        "It's midnight (00:00)",
+        "It's noon (12:00)",
+        "It's dawn",
+        "It's dusk"
+      ],
+      "answer": 0,
+      "explanation": "\"Mitternacht\" means midnight (00:00), \"the middle of the night\"."
     }
   ]
 }

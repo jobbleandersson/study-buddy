@@ -122,6 +122,110 @@
       "prompt": "What is the basic rule when solving an equation?",
       "opener": "Think of a scale that must be kept in balance.",
       "answer": "Whatever you do to one side, you must do to the other. The equation is like a scale in balance — if you add, subtract, multiply or divide on one side, the same must happen on the other side."
+    },
+    {
+      "id": "q-ma9-alg-9",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $4x - 7 = 2x + 9$.",
+      "opener": "Collect all the $x$-terms on one side, all the numbers on the other.",
+      "choices": [
+        "$x = 1$",
+        "$x = 16$",
+        "$x = 8$",
+        "$x = 4$"
+      ],
+      "answer": 2,
+      "explanation": "Subtract $2x$ from both sides: $2x - 7 = 9$. Add 7: $2x = 16$. Divide by 2: $x = 8$."
+    },
+    {
+      "id": "q-ma9-alg-10",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Simplify $3(x - 4) + 2x$.",
+      "opener": "Multiply the 3 into the brackets before you collect the terms.",
+      "choices": [
+        "$5x - 4$",
+        "$5x - 12$",
+        "$x - 12$",
+        "$5x + 12$"
+      ],
+      "answer": 1,
+      "explanation": "$3(x-4) = 3x - 12$. Then $3x - 12 + 2x = 5x - 12$."
+    },
+    {
+      "id": "q-ma9-alg-11",
+      "kind": "mc",
+      "topic": "equations",
+      "prompt": "Solve the equation $\\frac{x}{3} + 2 = 5$.",
+      "opener": "Remove what isn't divided by 3 first.",
+      "choices": [
+        "$x = 3$",
+        "$x = 15$",
+        "$x = 9$",
+        "$x = 1$"
+      ],
+      "answer": 2,
+      "explanation": "Subtract 2 from both sides: $\\frac{x}{3} = 3$. Multiply both sides by 3: $x = 9$."
+    },
+    {
+      "id": "q-ma9-alg-12",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "Simplify $5x - (2x - 3)$.",
+      "opener": "The minus sign in front of the brackets must be multiplied into both terms inside.",
+      "choices": [
+        "$3x + 3$",
+        "$3x - 3$",
+        "$7x - 3$",
+        "$7x + 3$"
+      ],
+      "answer": 0,
+      "explanation": "$-(2x - 3) = -2x + 3$. That gives $5x - 2x + 3 = 3x + 3$. A common mistake is forgetting to flip the sign on the $-3$ inside the brackets."
+    },
+    {
+      "id": "q-ma9-alg-13",
+      "kind": "mc",
+      "topic": "algebraic expressions",
+      "prompt": "What is the value of $2x^2 - 3x$ when $x = -3$?",
+      "opener": "Work out the square first, and keep track of the sign when you subtract a negative number.",
+      "choices": [
+        "27",
+        "9",
+        "45",
+        "-9"
+      ],
+      "answer": 0,
+      "explanation": "$2x^2 = 2 \\cdot (-3)^2 = 2 \\cdot 9 = 18$. $3x = 3 \\cdot (-3) = -9$, so $-3x = 9$. Together: $18 + 9 = 27$."
+    },
+    {
+      "id": "q-ma9-alg-14",
+      "kind": "worked",
+      "topic": "equations",
+      "prompt": "Solve the equation $2(x + 1) = 3x - 4$. Show your reasoning step by step.",
+      "opener": "Multiply out the brackets first, then collect the $x$-terms on one side.",
+      "answer": "x = 6",
+      "steps": [
+        "Multiply out the brackets: $2x + 2 = 3x - 4$.",
+        "Subtract $2x$ from both sides: $2 = x - 4$.",
+        "Add 4 to both sides: $x = 6$.",
+        "Check: $2(6+1) = 14$ and $3 \\cdot 6 - 4 = 14$. Correct."
+      ]
+    },
+    {
+      "id": "q-ma9-alg-15",
+      "kind": "mc",
+      "topic": "patterns",
+      "prompt": "The number sequence begins 7, 12, 17, 22, … Which expression gives the $n$th term?",
+      "opener": "How much do the numbers increase by each step, and what should the formula give for $n = 1$?",
+      "choices": [
+        "$5n + 2$",
+        "$n + 5$",
+        "$5n - 2$",
+        "$5n + 7$"
+      ],
+      "answer": 0,
+      "explanation": "The sequence increases by 5 each step, so the expression contains $5n$. For $n = 1$ it should give 7: $5 \\cdot 1 + 2 = 7$. ✓ Also check $n = 2$: $5 \\cdot 2 + 2 = 12$. ✓"
     }
   ]
 }

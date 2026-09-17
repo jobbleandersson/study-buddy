@@ -123,6 +123,110 @@
       "prompt": "Om längdskalan är $k$, vad blir areaskalan och volymskalan?",
       "opener": "Tänk på hur många dimensioner area respektive volym har.",
       "answer": "Areaskalan är $k^2$ och volymskalan är $k^3$. Exempel: dubbleras alla längder ($k = 2$) blir arean 4 gånger större och volymen 8 gånger större. Det är därför en dubbelt så stor pizza innehåller fyra gånger så mycket pizza."
+    },
+    {
+      "id": "q-ma1-geo-9",
+      "kind": "mc",
+      "topic": "pythagoras sats",
+      "prompt": "En rätvinklig triangel har kateterna 9 cm och 12 cm. Hur lång är hypotenusan?",
+      "opener": "Kvadrera kateterna, addera, dra sedan roten ur.",
+      "choices": [
+        "15 cm",
+        "21 cm",
+        "10,5 cm",
+        "225 cm"
+      ],
+      "answer": 0,
+      "explanation": "$9^2 + 12^2 = 81 + 144 = 225$ och $\\sqrt{225} = 15$ cm."
+    },
+    {
+      "id": "q-ma1-geo-10",
+      "kind": "mc",
+      "topic": "pythagoras sats",
+      "prompt": "En rätvinklig triangel har hypotenusan 25 cm och en katet på 7 cm. Hur lång är den andra kateten?",
+      "opener": "När hypotenusan är känd subtraherar man i stället för att addera.",
+      "choices": [
+        "24 cm",
+        "18 cm",
+        "32 cm",
+        "20,5 cm"
+      ],
+      "answer": 0,
+      "explanation": "$a^2 + 7^2 = 25^2$ ger $a^2 = 625 - 49 = 576$, alltså $a = \\sqrt{576} = 24$ cm."
+    },
+    {
+      "id": "q-ma1-geo-11",
+      "kind": "mc",
+      "topic": "likformighet",
+      "prompt": "Två trianglar är likformiga med längdskalan 2:5. Den mindre triangelns omkrets är 14 cm. Vad är den större triangelns omkrets?",
+      "opener": "Omkrets är en längd — den skalar precis som sidorna, inte som arean.",
+      "choices": [
+        "35 cm",
+        "17,5 cm",
+        "70 cm",
+        "28 cm"
+      ],
+      "answer": 0,
+      "explanation": "Omkrets skalar linjärt precis som sidlängder: $14 \\cdot \\frac{5}{2} = 35$ cm."
+    },
+    {
+      "id": "q-ma1-geo-12",
+      "kind": "mc",
+      "topic": "skala",
+      "prompt": "En kvadrat förstoras med längdskalan 4. Hur många gånger större blir arean?",
+      "opener": "Areaskalan är längdskalan i kvadrat.",
+      "choices": [
+        "16 gånger",
+        "8 gånger",
+        "4 gånger",
+        "64 gånger"
+      ],
+      "answer": 0,
+      "explanation": "Areaskalan är $k^2 = 4^2 = 16$ gånger större. (Volymskalan hade blivit $4^3 = 64$.)"
+    },
+    {
+      "id": "q-ma1-geo-13",
+      "kind": "mc",
+      "topic": "skala",
+      "prompt": "En modell har längdskalan 1:10 jämfört med originalet. Om modellens volym är 5 cm³, vad är originalets volym?",
+      "opener": "Volymskalan är längdskalan i kubik — och originalet är större, inte mindre, här.",
+      "choices": [
+        "5000 cm³",
+        "500 cm³",
+        "50 cm³",
+        "15 cm³"
+      ],
+      "answer": 0,
+      "explanation": "Volymskalan är $10^3 = 1000$. Eftersom originalet är större: $5 \\cdot 1000 = 5000$ cm³ (5 liter)."
+    },
+    {
+      "id": "q-ma1-geo-14",
+      "kind": "worked",
+      "topic": "pythagoras sats",
+      "prompt": "En stege lutar mot en vägg. Stegens fot står 1,5 m från väggen, och stegen är 4 m lång. Hur högt upp på väggen når stegen? Avrunda till en decimal.",
+      "opener": "Stegen är hypotenusan i en rätvinklig triangel — avståndet från väggen är en katet.",
+      "answer": "≈ 3,7 m",
+      "steps": [
+        "Höjden $h$ är den okända kateten: $h^2 + 1{,}5^2 = 4^2$.",
+        "$h^2 = 16 - 2{,}25 = 13{,}75$.",
+        "$h = \\sqrt{13{,}75} \\approx 3{,}708$ m.",
+        "Avrundat: $h \\approx 3{,}7$ m."
+      ]
+    },
+    {
+      "id": "q-ma1-geo-15",
+      "kind": "mc",
+      "topic": "area och volym",
+      "prompt": "En cirkel har arean 200 cm². Vad är radien, avrundat till en decimal?",
+      "opener": "Lös ut $r$ ur $A = \\pi r^2$ innan du sätter in siffrorna.",
+      "choices": [
+        "8,0 cm",
+        "63,7 cm",
+        "14,2 cm",
+        "4,0 cm"
+      ],
+      "answer": 0,
+      "explanation": "$r = \\sqrt{\\dfrac{A}{\\pi}} = \\sqrt{\\dfrac{200}{\\pi}} \\approx \\sqrt{63{,}66} \\approx 8{,}0$ cm."
     }
   ]
 }

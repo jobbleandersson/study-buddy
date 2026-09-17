@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta kristendomens grunder: Gud, Jesus, de tre inriktningarna och de två stora högtiderna.",
       "opener": "Gå igenom tro, inriktningar och högtider som tre separata delar.",
       "answer": "Gud: kristna tror på en gud som visar sig som Fadern, Sonen och den heliga Anden (treenigheten). Jesus: enligt kristen tro Guds son, som korsfästes och uppstod från de döda — uppståndelsen är central för hoppet om evigt liv. De tre stora inriktningarna: katolicism (påven i Rom som ledare), protestantism (t.ex. Svenska kyrkan, ingen påve, stort fokus på bibeln) och ortodox kristendom (starkast i östra Europa/Ryssland, ikoner och gamla traditioner). Bibeln: helig skrift i två delar, Gamla och Nya testamentet. Högtider: påsk firar Jesu död och uppståndelse · jul firar Jesu födelse."
+    },
+    {
+      "id": "q-rel-kris-9",
+      "kind": "mc",
+      "topic": "grundläggande tro",
+      "prompt": "Vad kallas det inom kristendomen att bli upptagen i den kristna gemenskapen genom vatten, ofta som barn eller vuxen?",
+      "opener": "Det är ett av de mest grundläggande kristna sakramenten.",
+      "choices": [
+        "Dopet",
+        "Nattvarden",
+        "Konfirmationen",
+        "Bikten"
+      ],
+      "answer": 0,
+      "explanation": "Dopet är en av kristendomens mest centrala riter, då en person upptas i den kristna gemenskapen med vatten, i Faderns, Sonens och den heliga Andens namn."
+    },
+    {
+      "id": "q-rel-kris-10",
+      "kind": "mc",
+      "topic": "grundläggande tro",
+      "prompt": "Vad firas inom kristendomen vid nattvarden?",
+      "opener": "Tänk på vad Jesus enligt Bibeln gjorde med sina lärjungar kvällen innan han greps.",
+      "choices": [
+        "Man minns Jesu sista måltid med sina lärjungar genom att dela bröd och vin",
+        "Man minns Jesu födelse",
+        "Man firar kyrkoårets slut",
+        "Man minns Muhammeds flykt till Medina"
+      ],
+      "answer": 0,
+      "explanation": "Nattvarden firas till minne av Jesu sista måltid med sina lärjungar, då bröd och vin delades som symboler för hans kropp och blod."
+    },
+    {
+      "id": "q-rel-kris-11",
+      "kind": "mc",
+      "topic": "inriktningar",
+      "prompt": "Vilken kristen inriktning är den till antalet anhängare största globalt?",
+      "opener": "Tänk på inriktningen med påven i Rom som ledare.",
+      "choices": [
+        "Katolicism",
+        "Protestantism",
+        "Ortodox kristendom",
+        "Anglikanska kyrkan"
+      ],
+      "answer": 0,
+      "explanation": "Katolska kyrkan är den till antalet anhängare största kristna inriktningen i världen, med ungefär hälften av alla kristna globalt."
+    },
+    {
+      "id": "q-rel-kris-12",
+      "kind": "mc",
+      "topic": "inriktningar",
+      "prompt": "Vilken kyrka är Sveriges tidigare statskyrka, med protestantisk (luthersk) inriktning?",
+      "opener": "Den skildes från staten år 2000.",
+      "choices": [
+        "Svenska kyrkan",
+        "Katolska kyrkan",
+        "Ortodoxa kyrkan",
+        "Pingstkyrkan"
+      ],
+      "answer": 0,
+      "explanation": "Svenska kyrkan var Sveriges statskyrka fram till år 2000, då den skildes från staten och blev ett fristående trossamfund. Den tillhör den protestantiska (lutherska) inriktningen."
+    },
+    {
+      "id": "q-rel-kris-13",
+      "kind": "mc",
+      "topic": "högtider",
+      "prompt": "Vilken kristen högtid firas 50 dagar efter påsk och firar att den heliga Anden, enligt Bibeln, kom till lärjungarna?",
+      "opener": "Namnet på högtiden kommer av det grekiska ordet för \"femtio\".",
+      "choices": [
+        "Pingst",
+        "Jul",
+        "Advent",
+        "Kyndelsmässa"
+      ],
+      "answer": 0,
+      "explanation": "Pingst firas 50 dagar efter påsk och firar, enligt Bibeln, att den heliga Anden kom till lärjungarna — en händelse som ofta räknas som kyrkans \"födelsedag\"."
+    },
+    {
+      "id": "q-rel-kris-14",
+      "kind": "worked",
+      "topic": "högtider",
+      "prompt": "Förklara vad advent är och hur det hänger ihop med julen i den kristna kalendern.",
+      "opener": "Tänk på ordet \"advent\" och vad det betyder, samt vad de fyra söndagarna leder fram till.",
+      "answer": "Advent är de fyra veckorna som föregår jul och markerar en tid av väntan och förberedelse inför firandet av Jesu födelse. Den inleder dessutom det nya kyrkoåret, så adventstiden fungerar både som en förberedelseperiod och som kyrkoårets startpunkt.",
+      "steps": [
+        "Advent kommer från latinets \"adventus\", som betyder \"ankomst\".",
+        "De fyra söndagarna i advent leder fram till julafton/juldagen, då Jesu födelse firas.",
+        "Perioden symboliserar väntan och förberedelse, ofta uttryckt genom att tända ett ljus i taget på en adventsljusstake.",
+        "Advent markerar samtidigt början på det nya kyrkoåret inom många kristna traditioner, vilket knyter ihop väntan på Jesu födelse med kyrkoårets cykliska struktur."
+      ]
+    },
+    {
+      "id": "q-rel-kris-15",
+      "kind": "mc",
+      "topic": "bibeln",
+      "prompt": "Vilka fyra böcker i Nya testamentet skildrar särskilt Jesu liv, lärdomar, död och uppståndelse?",
+      "opener": "De är uppkallade efter sina fyra författare.",
+      "choices": [
+        "Evangelierna (Matteus, Markus, Lukas och Johannes)",
+        "Moseböckerna",
+        "Psaltaren",
+        "Uppenbarelseboken"
+      ],
+      "answer": 0,
+      "explanation": "De fyra evangelierna — Matteus, Markus, Lukas och Johannes — inleder Nya testamentet och skildrar Jesu liv, lärdomar, död och uppståndelse ur delvis olika perspektiv."
     }
   ]
 }

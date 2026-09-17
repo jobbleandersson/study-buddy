@@ -123,6 +123,111 @@
       "prompt": "Summarise the most common logical fallacies, as well as what builds credibility and audience adaptation respectively.",
       "opener": "Group them by what kind of \"shortcut\" the fallacy takes.",
       "answer": "Ad hominem: attacks the person, not the argument · Straw man: distorts the opponent's position · False dichotomy: presents only two alternatives as the only possibilities · Circular reasoning: the conclusion is used as support for itself · Hasty generalisation: draws a broad conclusion from a single example · Ethos: built from competence, honesty and objectively addressing counterarguments · Audience adaptation: word choice, technical language and level of explanation are adjusted to the audience's prior knowledge, while the factual content remains the same."
+    },
+    {
+      "id": "q-sv3-retorik-9",
+      "kind": "mc",
+      "topic": "logical fallacies",
+      "prompt": "\"If we allow students to have phones in the classroom, soon they'll want video games, then TVs, and eventually school will be an amusement park.\" What logical fallacy is this an example of?",
+      "opener": "The argument assumes a chain of ever-worse consequences without actually showing the chain is likely.",
+      "choices": [
+        "Slippery slope",
+        "Ad hominem",
+        "Circular reasoning",
+        "Argument from authority"
+      ],
+      "answer": 0,
+      "explanation": "A slippery slope argument claims that a first step will inevitably lead to a chain of increasingly extreme consequences, without actually showing that chain is likely. Here there is no evidence that phones in the classroom would lead to the claimed consequences."
+    },
+    {
+      "id": "q-sv3-retorik-10",
+      "kind": "mc",
+      "topic": "logical fallacies",
+      "prompt": "What is the logical fallacy called where one concludes that, because B happened after A, A must have caused B, without further support?",
+      "opener": "The name is Latin for \"after this, therefore because of this\".",
+      "choices": [
+        "The post hoc fallacy",
+        "Straw man",
+        "False dichotomy",
+        "Ad hominem"
+      ],
+      "answer": 0,
+      "explanation": "The post hoc fallacy mistakes temporal order for causation: just because B came after A does not automatically mean A caused B, without further evidence."
+    },
+    {
+      "id": "q-sv3-retorik-11",
+      "kind": "mc",
+      "topic": "credibility",
+      "prompt": "What can undermine a speaker's ethos, even if the arguments themselves are correct?",
+      "opener": "Think about what happens to the audience's trust if the speaker has previously proven unreliable.",
+      "choices": [
+        "Having previously been caught deliberately spreading falsehoods on the very same issue",
+        "Having relevant education in the subject",
+        "Referring to several independent sources",
+        "Addressing counterarguments objectively"
+      ],
+      "answer": 0,
+      "explanation": "If a speaker has previously been caught deliberately lying on the same issue, their credibility (ethos) is seriously damaged, even if the current argument happens to be correct. Relevant education, source references, and objectively addressing counterarguments instead strengthen ethos."
+    },
+    {
+      "id": "q-sv3-retorik-12",
+      "kind": "mc",
+      "topic": "sender and recipient",
+      "prompt": "A government text about new regulations is rewritten into an easy-to-read version for a broader audience. What should primarily change?",
+      "opener": "Think about what should become easier to understand, and what should stay the same.",
+      "choices": [
+        "Sentence length, word choice and the degree of technical language, while the factual content remains essentially the same",
+        "The actual regulations being described, so that they become less strict",
+        "Nothing needs to change at all",
+        "Only the typeface in the printed version"
+      ],
+      "answer": 0,
+      "explanation": "An easy-to-read version adapts sentence length, word choice and the amount of technical language to the audience's prior knowledge, while the factual content — the regulations themselves — stays the same. Changing the actual regulations would mean the texts no longer describe the same reality."
+    },
+    {
+      "id": "q-sv3-retorik-13",
+      "kind": "mc",
+      "topic": "logical fallacies",
+      "prompt": "\"If you care about children's safety, you must support this proposal.\" What is the problem with this reasoning?",
+      "opener": "Consider whether this is really the only way to show that you care about children's safety.",
+      "choices": [
+        "It is an emotional appeal that bypasses the actual issue by linking a highly charged premise to a specific conclusion without genuine logical connection",
+        "It is circular reasoning",
+        "It is a false dichotomy between exactly two alternatives",
+        "It is an argument from authority"
+      ],
+      "answer": 0,
+      "explanation": "The reasoning exploits an emotionally charged premise (children's safety) to force through a specific conclusion, without actually showing that this particular proposal is the only way to protect children's safety. It is therefore primarily an emotional appeal that bypasses the actual issue, rather than circular reasoning or a clear-cut false dichotomy."
+    },
+    {
+      "id": "q-sv3-retorik-14",
+      "kind": "mc",
+      "topic": "credibility",
+      "prompt": "Which of the following most strengthens the credibility of an opinion piece on a complex topic?",
+      "opener": "Think about what shows the writer has an honest, nuanced relationship to the topic.",
+      "choices": [
+        "Transparently stating sources and acknowledging the limitations of the underlying evidence",
+        "Avoiding mentioning any figures at all",
+        "Using as many superlatives as possible",
+        "Never mentioning that others might hold a different view"
+      ],
+      "answer": 0,
+      "explanation": "Transparently stating sources and openly acknowledging any limitations in the underlying evidence shows honesty and strengthens credibility. Avoiding figures, overusing superlatives, or ignoring other viewpoints instead undermines trust."
+    },
+    {
+      "id": "q-sv3-retorik-15",
+      "kind": "mc",
+      "topic": "sender and recipient",
+      "prompt": "Why is it important to consider the sender's purpose when reading a text critically?",
+      "opener": "Think about how different purposes can affect which information is highlighted or selected.",
+      "choices": [
+        "The purpose (e.g. to sell, persuade or inform) can affect how information is framed or selected",
+        "The sender's purpose is never relevant to how a text should be interpreted",
+        "All texts have exactly the same purpose: to be objective",
+        "The purpose is always clearly stated in the headline"
+      ],
+      "answer": 0,
+      "explanation": "A sender's purpose, such as selling a product, persuading of an opinion, or informing factually, often affects which information is highlighted or left out. Being aware of the purpose helps the reader interpret the text more critically, and the purpose is rarely explicitly stated in the headline."
     }
   ]
 }

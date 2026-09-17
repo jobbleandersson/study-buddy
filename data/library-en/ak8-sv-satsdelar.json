@@ -123,6 +123,111 @@
       "prompt": "How do you tell a main clause from a subordinate clause, and what is meant by the foundation (fundament)?",
       "opener": "Three things to remember: independence, the \"not\" test, and the first position.",
       "answer": "Main clause · can stand alone as a complete sentence · the verb sits in second position · \"inte\" (not) comes after the verb (\"han sov inte\" — he didn't sleep). Subordinate clause · cannot stand alone · is introduced by subordinators such as att, när, eftersom, om, som, medan (that, when, because, if, that/which, while) · \"inte\" comes before the verb (\"eftersom han inte sov\" — because he didn't sleep) · functions as part of the main clause. Foundation (fundament) · whatever comes first in a main clause, i.e. before the verb · can be the subject (\"Vi åt sent\" — we ate late), a time adverbial (\"Igår åt vi sent\" — yesterday we ate late) or a whole subordinate clause (\"När vi kom hem åt vi sent\" — when we got home we ate late) · when the foundation isn't the subject, the sentence gets inverted word order: verb before subject."
+    },
+    {
+      "id": "q-sv8-sat-9",
+      "kind": "mc",
+      "topic": "sentence parts",
+      "prompt": "Which word is the subject in the sentence: \"I går kväll ringde Maja till sin faster.\" (Last night Maja called her aunt.)?",
+      "opener": "Ask \"who or what does what the verb says?\" — that's the subject, even if it doesn't come first.",
+      "choices": [
+        "kväll",
+        "ringde",
+        "Maja",
+        "faster"
+      ],
+      "answer": 2,
+      "explanation": "It is Maja who calls, so \"Maja\" is the subject. \"I går kväll\" (last night) is just a time adverbial, even though it comes first in the sentence."
+    },
+    {
+      "id": "q-sv8-sat-10",
+      "kind": "mc",
+      "topic": "sentence parts",
+      "prompt": "Which word is the predicate in the sentence: \"Barnen lekte glatt i trädgården hela eftermiddagen.\" (The children played happily in the garden all afternoon.)?",
+      "opener": "The predicate is the verb in the clause.",
+      "choices": [
+        "Barnen",
+        "lekte",
+        "trädgården",
+        "eftermiddagen"
+      ],
+      "answer": 1,
+      "explanation": "\"Lekte\" (played) is the only verb in the clause and therefore the predicate. \"Trädgården\" (the garden) and \"eftermiddagen\" (the afternoon) are complements saying where and when, not the predicate."
+    },
+    {
+      "id": "q-sv8-sat-11",
+      "kind": "mc",
+      "topic": "sentence parts",
+      "prompt": "Which word is the object in the sentence: \"Mormor skickade ett brev till sin gamla vän.\" (Grandma sent a letter to her old friend.)?",
+      "opener": "The object is what the action is directed at — ask \"what did grandma send?\"",
+      "choices": [
+        "Mormor",
+        "skickade",
+        "brev",
+        "vän"
+      ],
+      "answer": 2,
+      "explanation": "What grandma sends is the letter, so \"brev\" (letter) is the object. \"Vän\" (friend) comes after the preposition \"till\" (to) and says who received the letter, not the direct object."
+    },
+    {
+      "id": "q-sv8-sat-12",
+      "kind": "mc",
+      "topic": "main clause and subordinate clause",
+      "prompt": "Which part of the sentence is a subordinate clause? \"Han log stort när han fick beskedet.\" (He smiled broadly when he got the news.)",
+      "opener": "A subordinate clause can't stand alone as a sentence — it's often introduced by words like eftersom (because), att (that), när (when), om (if) or som (that/which).",
+      "choices": [
+        "Han log stort",
+        "när han fick beskedet",
+        "log stort när",
+        "The whole sentence is a main clause"
+      ],
+      "answer": 1,
+      "explanation": "\"När han fick beskedet\" is introduced by the subordinator \"när\" (when) and can't stand as a sentence on its own — that is the subordinate clause. \"Han log stort\" stands on its own and is therefore the main clause."
+    },
+    {
+      "id": "q-sv8-sat-13",
+      "kind": "mc",
+      "topic": "word order",
+      "prompt": "Which sentence has correct Swedish word order when the sentence begins with a subordinate clause?",
+      "opener": "When the foundation is a whole subordinate clause, the same rule applies: the main clause's verb comes directly after it.",
+      "choices": [
+        "När klockan ringde vi sprang ut.",
+        "När klockan ringde sprang vi ut.",
+        "När klockan ringde vi ut sprang.",
+        "Sprang vi ut när klockan ringde."
+      ],
+      "answer": 1,
+      "explanation": "The subordinate clause \"När klockan ringde\" (when the bell rang) takes up the foundation, so the main clause's verb \"sprang\" (ran) must come directly after: \"sprang vi ut\" (we ran out). \"När klockan ringde vi sprang\" keeps straight word order and breaks the rule that the verb sits in second position in the main clause."
+    },
+    {
+      "id": "q-sv8-sat-14",
+      "kind": "worked",
+      "topic": "sentence parts",
+      "prompt": "Analyse the sentence: \"Eftersom det regnade tog Lisa med sig ett paraply.\" (Because it was raining, Lisa took an umbrella with her.) State which part is the subordinate clause and which is the main clause, and identify the subject, predicate and object in the main clause.",
+      "opener": "Start by splitting the sentence into two clauses. Then look for the verb in the main clause and ask who is doing it.",
+      "answer": "Subordinate clause: \"Eftersom det regnade\" (this is the foundation of the sentence). Main clause: \"tog Lisa med sig ett paraply\", with predicate \"tog med\" (took along), subject \"Lisa\" and object \"ett paraply\" (an umbrella).",
+      "steps": [
+        "\"Eftersom det regnade\" is introduced by the subordinating conjunction \"eftersom\" (because) and can't stand alone — that's the subordinate clause.",
+        "The subordinate clause comes first and acts as the foundation, so the verb \"tog\" (took) comes directly after it: inverted word order.",
+        "The predicate in the main clause is \"tog med\" (took along) — the particle \"med\" belongs with the verb and changes its meaning.",
+        "Ask \"who took along?\" → \"Lisa\" is the subject.",
+        "Ask \"what did she take along?\" → \"ett paraply\" (an umbrella) is the object."
+      ]
+    },
+    {
+      "id": "q-sv8-sat-15",
+      "kind": "mc",
+      "topic": "main clause and subordinate clause",
+      "prompt": "In which clause does \"inte\" (not) come BEFORE the verb, showing that the clause is a subordinate clause?",
+      "opener": "Use the \"not\" test: in a subordinate clause \"inte\" comes before the verb, in a main clause it comes after.",
+      "choices": [
+        "hon kom inte i tid (she didn't arrive on time)",
+        "att hon inte kom i tid (that she didn't arrive on time)",
+        "hon inte kom i tid",
+        "kom hon inte i tid"
+      ],
+      "answer": 1,
+      "explanation": "In \"att hon inte kom i tid\", \"inte\" comes before the verb \"kom\" (came) — that is a subordinate clause, introduced by the subordinator \"att\" (that). In a main clause like \"hon kom inte i tid\", \"inte\" comes after the verb."
     }
   ]
 }

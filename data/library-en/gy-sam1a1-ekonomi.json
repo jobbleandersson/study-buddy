@@ -124,6 +124,111 @@
       "prompt": "Summarise key concepts in personal finance: budget, interest, amortisation and consumer rights.",
       "opener": "The basics of keeping track of your own finances.",
       "answer": "Budget: a plan of income and expenses, the basis for keeping track of your finances · Interest: the cost of borrowing money, or the return on saving · Amortisation: the part of a payment that reduces the debt itself, distinct from the interest · Effective interest rate: the real annual cost of a loan including fees, useful for comparing loans · Credit check: a check of a person's financial history that lenders carry out before a loan is approved · Consumer rights: rules that protect consumers, e.g. the right of withdrawal on distance contracts and the right to complain about faulty goods or services."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-9",
+      "kind": "mc",
+      "topic": "market economy and mixed economy",
+      "prompt": "What is a planned economy, as distinct from a market economy?",
+      "opener": "Think about who decides what is to be produced and at what price.",
+      "choices": [
+        "An economic system in which the state centrally plans production, prices and the distribution of resources, instead of letting supply and demand govern",
+        "A system in which private companies are entirely unregulated",
+        "Another name for a mixed economy",
+        "A system that exists only within the EU"
+      ],
+      "answer": 0,
+      "explanation": "A planned economy means the state centrally plans what is to be produced, at what prices, and how resources are distributed, instead of letting supply and demand govern as in a market economy. It is thus the opposite of a deregulated market."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-10",
+      "kind": "mc",
+      "topic": "market economy and mixed economy",
+      "prompt": "What is an example of a market failure that often justifies state involvement in a mixed economy?",
+      "opener": "Think about a cost that affects people other than the buyer and seller of the good.",
+      "choices": [
+        "Negative externalities, for example a company's emissions harming the environment without the company itself bearing the full cost",
+        "That a company makes a profit",
+        "That consumers have complete information about all products",
+        "That the market always produces a perfectly fair outcome"
+      ],
+      "answer": 0,
+      "explanation": "Negative externalities, such as pollution that harms third parties without the cause (the company) bearing the full cost, are a classic example of market failure that often justifies state regulation, for example through environmental taxes or emissions rules."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-11",
+      "kind": "mc",
+      "topic": "business cycle and unemployment",
+      "prompt": "What is meant by fiscal policy as a tool for counteracting a downturn?",
+      "opener": "Think about which tool the state (not the Riksbank) has at its disposal.",
+      "choices": [
+        "That the state increases its spending or lowers taxes to stimulate demand in the economy",
+        "That the Riksbank lowers the policy rate",
+        "That the state freezes all prices throughout the economy",
+        "That the state bans the import of goods"
+      ],
+      "answer": 0,
+      "explanation": "Fiscal policy means the state, via the government and the Riksdag, increases its spending or lowers taxes to stimulate demand during a downturn. Adjusting the policy rate is instead monetary policy, a tool handled by the Riksbank."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-12",
+      "kind": "mc",
+      "topic": "business cycle and unemployment",
+      "prompt": "What is it called when a certain amount of unemployment always exists because it takes time for jobseekers and employers to find each other, even in a well-functioning labour market?",
+      "opener": "Think about the time it takes to change jobs, rather than a lack of the right skills or a downturn.",
+      "choices": [
+        "Frictional unemployment",
+        "Structural unemployment",
+        "Cyclical unemployment",
+        "Hidden unemployment"
+      ],
+      "answer": 0,
+      "explanation": "Frictional unemployment arises because it takes time for jobseekers to find the right job and for employers to find the right person, even when skills fundamentally match. This differs from structural unemployment (a skills mismatch) and cyclical unemployment (linked to swings in the business cycle)."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-13",
+      "kind": "mc",
+      "topic": "inflation and monetary policy",
+      "prompt": "What is the Riksbank's inflation target in Sweden?",
+      "opener": "Think of the percentage often mentioned in news about the Riksbank's rate decisions.",
+      "choices": [
+        "2 per cent annual price increase, measured by the consumer price index",
+        "Exactly 0 per cent inflation every year",
+        "10 per cent inflation every year",
+        "The Riksbank has no stated inflation target"
+      ],
+      "answer": 0,
+      "explanation": "The Riksbank's inflation target is a 2 per cent annual increase in the general price level. The target provides a guideline for monetary policy and helps households and companies plan their finances based on an expected, moderate rate of price increase."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-14",
+      "kind": "mc",
+      "topic": "inflation and monetary policy",
+      "prompt": "How does a raised policy rate usually affect households' consumption?",
+      "opener": "Think about what happens to borrowing costs and savings when the rate rises.",
+      "choices": [
+        "It makes borrowing more expensive and saving more profitable, which tends to dampen consumption",
+        "It automatically makes it cheaper to borrow money",
+        "It has no effect at all on household finances",
+        "It means all loans become interest-free"
+      ],
+      "answer": 0,
+      "explanation": "A raised policy rate makes it more expensive for households to borrow and more profitable to save, which normally dampens consumption and demand in the economy - a way for the Riksbank to slow down excessive inflation."
+    },
+    {
+      "id": "q-sam1a1-ekonomi-15",
+      "kind": "mc",
+      "topic": "personal finance",
+      "prompt": "What is the difference between a fixed and a variable interest rate on a loan?",
+      "opener": "Think about whether the rate can change during the loan's term or not.",
+      "choices": [
+        "A fixed rate stays the same during an agreed period regardless of market changes, while a variable rate can change continuously in line with the market rate",
+        "A fixed rate is always lower than a variable rate",
+        "A variable rate can never change after the loan is taken out",
+        "There is no practical difference"
+      ],
+      "answer": 0,
+      "explanation": "A fixed interest rate means the rate stays the same during an agreed period, giving predictability but potentially missing out on rate cuts. A variable rate instead follows the market rate continuously, giving more uncertainty but also the possibility of a lower cost if rates fall."
     }
   ]
 }

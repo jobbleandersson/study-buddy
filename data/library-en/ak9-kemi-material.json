@@ -124,6 +124,110 @@
       "prompt": "Summarise the key points about metals, common everyday materials and recycling.",
       "opener": "Think through where metals come from, what distinguishes plastic/glass/metal, and why recycling pays off.",
       "answer": "Metals: conduct electricity and heat well, are usually shiny and mouldable, are found in nature bound in ore and must be extracted · Alloy = a mixture of a metal with other substances for new properties, e.g. stainless steel (iron + chromium) · Plastic: built from long carbon chains (polymers), light and mouldable, breaks down very slowly in nature · Glass: mainly silicon dioxide, hard and transparent but brittle · Corrosion/rust: iron reacts with oxygen and moisture and forms iron oxide — a chemical reaction, not just dirt · Material cycle = material is collected, processed and turned into raw material for new products instead of becoming waste · Recycling metal (e.g. aluminium) requires much less energy than extracting new metal from ore."
+    },
+    {
+      "id": "q-kemi-mat-9",
+      "kind": "mc",
+      "topic": "metals",
+      "prompt": "What is a mixture of a metal with one or more other substances called, made to give new properties, for example stainless steel?",
+      "opener": "Iron mixed with chromium is a classic example.",
+      "choices": [
+        "An alloy",
+        "An ion",
+        "A hydrocarbon",
+        "A polymer"
+      ],
+      "answer": 0,
+      "explanation": "An alloy is a mixture of a metal with one or more other substances, giving the material new properties - stainless steel is iron alloyed with, among other things, chromium."
+    },
+    {
+      "id": "q-kemi-mat-10",
+      "kind": "mc",
+      "topic": "metals",
+      "prompt": "Why do metals conduct electricity well?",
+      "opener": "Think about what allows charge to move through the material.",
+      "choices": [
+        "They have free electrons that can move through the material",
+        "They contain a lot of water",
+        "They are always magnetic",
+        "They have low density"
+      ],
+      "answer": 0,
+      "explanation": "The metallic bond means electrons move freely throughout the material, which allows electric charge to be carried - this is the basis of metals' good conductivity."
+    },
+    {
+      "id": "q-kemi-mat-11",
+      "kind": "mc",
+      "topic": "recycling and cycles",
+      "prompt": "What is an advantage of metals being recyclable again and again, unlike some other materials?",
+      "opener": "Think about whether the metal's properties change after it's melted down.",
+      "choices": [
+        "The metal's properties don't change even after several recycling cycles",
+        "Metals can only be recycled once",
+        "Recycling metal requires more energy than extracting new metal",
+        "Recycled metal can never be used for new products"
+      ],
+      "answer": 0,
+      "explanation": "Metal can be melted down and reused again and again without losing its basic properties, which makes recycling especially valuable compared with materials that degrade when recycled."
+    },
+    {
+      "id": "q-kemi-mat-12",
+      "kind": "mc",
+      "topic": "everyday materials",
+      "prompt": "What do plastic, glass and metal have in common despite their different chemical structures?",
+      "opener": "Think broadly - what do people do with all three materials?",
+      "choices": [
+        "They are all materials people use and process for various everyday purposes",
+        "They are all made of polymers",
+        "They all conduct electricity equally well",
+        "They all break down at the same rate in nature"
+      ],
+      "answer": 0,
+      "explanation": "Despite completely different chemical structures (polymers, a silicon dioxide network, and metallic bonding respectively), all three are used as everyday materials, chosen for their respective properties."
+    },
+    {
+      "id": "q-kemi-mat-13",
+      "kind": "mc",
+      "topic": "corrosion",
+      "prompt": "What is required for iron to rust?",
+      "opener": "Two substances in the air and weather both need to be present.",
+      "choices": [
+        "Oxygen and moisture (water)",
+        "Only high temperature",
+        "Only sunlight",
+        "Nitrogen and carbon dioxide"
+      ],
+      "answer": 0,
+      "explanation": "Rust forms when iron reacts with both oxygen and water (moisture) at the same time - if either is missing, rust formation is much slower or doesn't happen at all."
+    },
+    {
+      "id": "q-kemi-mat-14",
+      "kind": "worked",
+      "topic": "recycling and cycles",
+      "prompt": "Explain why it's more energy-efficient to recycle aluminium cans than to manufacture new aluminium cans from ore (bauxite), and what that means for the environment.",
+      "opener": "Compare what's needed to break chemical bonds in ore with what's needed to simply remelt pure metal.",
+      "answer": "Extracting aluminium from ore requires very energy-intensive processes to break down the strong chemical bonds, while remelting already-pure aluminium metal only requires heating the metal to its melting point - which saves a large share of the energy.",
+      "steps": [
+        "Aluminium in ore (bauxite) is tightly bound to oxygen as aluminium oxide, and breaking these bonds requires a lot of energy, often through electrolysis.",
+        "Remelting already-extracted, pure aluminium metal only requires heating the metal to its melting point - no new strong chemical bond needs to be broken.",
+        "This makes recycling aluminium far less energy-intensive than producing it new.",
+        "Less energy use means lower greenhouse gas emissions and less need to mine new ore, which spares natural resources and the environment."
+      ]
+    },
+    {
+      "id": "q-kemi-mat-15",
+      "kind": "mc",
+      "topic": "corrosion",
+      "prompt": "Why are iron bridges and other outdoor iron structures often painted?",
+      "opener": "Think about what rust formation requires, and what the paint blocks.",
+      "choices": [
+        "The paint creates a protective layer that blocks oxygen and moisture from reaching the iron, slowing down rust formation",
+        "Painting makes the iron mechanically stronger",
+        "Painting prevents the iron from conducting electricity",
+        "Painting has no practical function, only an aesthetic one"
+      ],
+      "answer": 0,
+      "explanation": "The paint layer acts as a barrier that blocks oxygen and moisture from reaching the iron surface, greatly slowing the chemical reaction that causes rust - the same principle as the chromium layer in stainless steel."
     }
   ]
 }

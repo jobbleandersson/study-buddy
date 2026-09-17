@@ -123,6 +123,110 @@
       "prompt": "Vilka lässtrategier använder du för huvudbudskap, slutledning, ord i sammanhang och skribentens syfte?",
       "opener": "Fyra frågetyper, fyra strategier.",
       "answer": "Huvudbudskap: fråga \"vad handlar HELA texten om?\" — svaret täcker både början och slutet, inte bara en detalj · Akta dig för svar som är sanna men för smala, eller för generella · Slutledning: kombinera vad personerna gör med vad du vet om världen; svaret står aldrig ordagrant i texten men måste ha stöd i den · Ord i sammanhang: läs meningen före och efter, leta efter förklaringar, exempel eller motsatser (but, however) och testa ordet du gissar i meningen · Skribentens syfte: to inform (berätta fakta), to advise (ge råd), to persuade (övertyga), to entertain (underhålla) — titta på tips, uppmaningar och tilltal · Signalord som styr betydelsen: but, however, although = motsats · because, therefore, so = orsak och följd · for example = exempel."
+    },
+    {
+      "id": "q-en8-rea-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Read the text and answer.\n\n\"Our town built a new skate park last year. Some residents worried it would attract trouble, but the opposite happened. Local skaters now organise free lessons for younger kids every Saturday, and the park has become one of the safest, most popular spots in town.\"\n\nWhat is the main idea of the text?",
+      "opener": "Leta efter hur situationen förändras från oron i början till resultatet i slutet.",
+      "choices": [
+        "Skate parks are dangerous for young children",
+        "The new skate park turned out to bring the community together instead of causing problems",
+        "Residents were right to worry about the park",
+        "Saturday lessons are only for experienced skaters"
+      ],
+      "answer": 1,
+      "explanation": "Texten börjar med oro för problem och slutar med att parken blivit trygg och populär genom gratis lektioner — det är helheten. Att invånarna hade rätt att oroa sig stämmer inte, texten säger uttryckligen att det motsatta hände."
+    },
+    {
+      "id": "q-en8-rea-10",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Our town built a new skate park last year. Some residents worried it would attract trouble, but the opposite happened. Local skaters now organise free lessons for younger kids every Saturday, and the park has become one of the safest, most popular spots in town.\"\n\nWhat can you infer about the residents who worried about the skate park?",
+      "opener": "Jämför det de oroade sig för med vad som faktiskt hände enligt texten.",
+      "choices": [
+        "Their concerns turned out to be unfounded",
+        "They were proven completely right",
+        "They now run the free lessons themselves",
+        "They want the park closed"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger uttryckligen \"the opposite happened\" — parken blev trygg och populär, alltså var oron obefogad. Inget i texten säger att de oroliga invånarna nu driver lektionerna eller vill stänga parken."
+    },
+    {
+      "id": "q-en8-rea-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Read the text and answer.\n\n\"Are you struggling to fall asleep? Try this simple routine: dim the lights an hour before bed, avoid caffeine after 3 p.m., and keep your phone in another room. These small habits can make a huge difference to how quickly you drift off.\"\n\nIn this context, \"drift off\" means:",
+      "opener": "Vad handlar hela texten om — att somna eller att vakna?",
+      "choices": [
+        "wake up suddenly",
+        "fall asleep gradually",
+        "become angry",
+        "leave the room"
+      ],
+      "answer": 1,
+      "explanation": "Hela texten handlar om att somna lättare, så \"drift off\" betyder att somna successivt. Att vakna plötsligt skulle vara motsatsen till vad texten ger råd om."
+    },
+    {
+      "id": "q-en8-rea-12",
+      "kind": "mc",
+      "topic": "author's purpose",
+      "prompt": "Read the text and answer.\n\n\"Are you struggling to fall asleep? Try this simple routine: dim the lights an hour before bed, avoid caffeine after 3 p.m., and keep your phone in another room. These small habits can make a huge difference to how quickly you drift off.\"\n\nWhat is the writer's main purpose?",
+      "opener": "Vad vill skribenten att läsaren ska göra efter att ha läst texten?",
+      "choices": [
+        "To advise the reader on how to fall asleep more easily",
+        "To argue that caffeine should be banned",
+        "To entertain the reader with a story about sleep",
+        "To describe how phones are made"
+      ],
+      "answer": 0,
+      "explanation": "Texten ger konkreta råd och uppmanar läsaren att pröva dem — syftet är att ge råd. Den argumenterar inte för ett kaffeförbud; koffein nämns bara som en av flera vanor att undvika."
+    },
+    {
+      "id": "q-en8-rea-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Read the text and answer.\n\n\"Leo checked his watch for the third time in two minutes. His hands were shaking slightly, and he kept glancing toward the door. When his name was finally called, he took a deep breath before standing up.\"\n\nWhat can we infer about Leo?",
+      "opener": "Texten säger aldrig hur han känner sig — läs mellan raderna i det han gör.",
+      "choices": [
+        "He is nervous about something that is about to happen",
+        "He is bored and wants to leave",
+        "He is excited to see a friend",
+        "He has been waiting for hours without noticing"
+      ],
+      "answer": 0,
+      "explanation": "Att kolla klockan upprepade gånger, darrande händer, blickar mot dörren och ett djupt andetag innan han reser sig antyder nervositet inför något som ska hända. Att han inte märkt tiden stämmer inte — han kollar klockan gång på gång."
+    },
+    {
+      "id": "q-en8-rea-14",
+      "kind": "worked",
+      "topic": "main idea",
+      "prompt": "Read the text and answer in one or two sentences.\n\n\"Our school started a 'silent reading' period every morning for fifteen minutes. At first, many students complained that it was boring. After a few weeks, though, teachers noticed that students seemed calmer and more focused during the rest of the day. Some students even began asking librarians for book recommendations.\"\n\nWhat is the main idea of the text, and what does the last sentence add?",
+      "opener": "Sammanfatta först vad som hände, och fundera sedan på vad sista meningen lägger till utöver det.",
+      "answer": "The main idea is that the silent reading period, despite early complaints, ended up making students calmer and more focused, and the last sentence adds that it also sparked genuine interest in reading, since some students started asking for book recommendations on their own.",
+      "steps": [
+        "Hitta ämnet: texten handlar om skolans tysta läsning varje morgon.",
+        "Hitta resultatet: klagomålen i början vändes till lugnare och mer fokuserade elever efter några veckor.",
+        "Lägg märke till sista meningen — den lägger till ett extra steg: elever började själva be om boktips.",
+        "Formulera helheten: vanan gav inte bara lugn under dagen utan väckte också ett genuint läsintresse hos vissa elever."
+      ]
+    },
+    {
+      "id": "q-en8-rea-15",
+      "kind": "mc",
+      "topic": "author's purpose",
+      "prompt": "Read the text and answer.\n\n\"Recycling isn't complicated once you get the hang of it. Rinse containers before sorting them, keep a separate bin for paper, and check your local guidelines for anything unusual, like batteries or electronics. Once it becomes a habit, it barely takes any extra time.\"\n\nWhat is the writer's main purpose?",
+      "opener": "Vad vill skribenten att läsaren ska göra efter att ha läst texten?",
+      "choices": [
+        "To advise the reader on how to recycle effectively",
+        "To argue that recycling should be made illegal",
+        "To entertain with a funny story about rubbish",
+        "To describe how recycling plants operate"
+      ],
+      "answer": 0,
+      "explanation": "Texten ger konkreta steg för hur man återvinner rätt och avslutar med att det snart går snabbt — syftet är att ge råd. Inget i texten argumenterar mot återvinning."
     }
   ]
 }

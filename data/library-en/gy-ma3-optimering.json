@@ -123,6 +123,111 @@
       "prompt": "Summarise the method for solving an optimisation problem using derivatives, step by step.",
       "opener": "Five steps, from formula to interpreting the answer in context.",
       "answer": "1) Write a formula for the quantity to be optimised as a function of one variable · 2) Use any constraints to express the formula using only one variable · 3) Differentiate the function · 4) Set the derivative to zero and solve for the variable (critical points) · 5) Check using sign analysis or the second derivative that the point gives a max/min, and remember the boundaries of the domain · 6) Interpret and state the answer in the context of the problem, with the correct unit"
+    },
+    {
+      "id": "q-ma3-optimering-9",
+      "kind": "mc",
+      "topic": "area optimisation",
+      "prompt": "A farmer has 60 m of fencing and wants to enclose a rectangular area along a straight wall (one side needs no fencing). The fencing must be enough for the two short sides (length $x$ each) and the long side opposite the wall. Which expression gives the area as a function of $x$?",
+      "opener": "Express the length of the fourth side in terms of $x$, based on the total fencing length being 60 m.",
+      "choices": [
+        "$A(x)=60x-2x^2$",
+        "$A(x)=60x-x^2$",
+        "$A(x)=30x-2x^2$",
+        "$A(x)=x(60-x)$"
+      ],
+      "answer": 0,
+      "explanation": "The fencing is used for two short sides and one long side: $2x+y=60 \\Rightarrow y=60-2x$. The area is $A(x)=x\\cdot y=x(60-2x)=60x-2x^2$."
+    },
+    {
+      "id": "q-ma3-optimering-10",
+      "kind": "mc",
+      "topic": "area optimisation",
+      "prompt": "Which value of $x$ maximises the area $A(x) = 60x - 2x^2$ from the previous question?",
+      "opener": "Differentiate the area and set the derivative to zero.",
+      "choices": [
+        "$x=15$ m",
+        "$x=30$ m",
+        "$x=10$ m",
+        "$x=7.5$ m"
+      ],
+      "answer": 0,
+      "explanation": "$A'(x)=60-4x$. Set $A'(x)=0$: $60-4x=0 \\Rightarrow x=15$. This is a maximum since $A''(x)=-4<0$."
+    },
+    {
+      "id": "q-ma3-optimering-11",
+      "kind": "mc",
+      "topic": "optimisation method",
+      "prompt": "After solving $f'(x)=0$ and finding a critical point $x_0$ in an optimisation problem, why isn't it always enough to stop there?",
+      "opener": "A critical point isn't automatically the solution the problem is asking for.",
+      "choices": [
+        "You need to check that the point really gives a max or min, and that it lies within the allowed interval",
+        "It's always enough, nothing more needs to be done",
+        "You always have to test five different values of $x$ instead",
+        "Critical points can never be extreme points"
+      ],
+      "answer": 0,
+      "explanation": "A critical point could be a max, a min, or a terrace point, so you need to check the type using sign analysis or the second derivative. The point also needs to lie within the physically reasonable interval for the problem, otherwise it isn't a valid solution."
+    },
+    {
+      "id": "q-ma3-optimering-12",
+      "kind": "mc",
+      "topic": "volume optimisation",
+      "prompt": "A box without a lid is made from a square sheet with a side of 18 cm, by cutting away squares of side $x$ from each corner and folding up the edges. The volume is given by $V(x) = x(18-2x)^2$. What is $V'(x)$?",
+      "opener": "Expand the square $(18-2x)^2$ and write $V(x)$ as a polynomial before differentiating.",
+      "choices": [
+        "$12x^2-144x+324$",
+        "$4x^2-72x+324$",
+        "$324-72x$",
+        "$12x^2-144x$"
+      ],
+      "answer": 0,
+      "explanation": "Expand: $V(x)=x(324-72x+4x^2)=324x-72x^2+4x^3$. Differentiate term by term: $V'(x)=324-144x+12x^2=12x^2-144x+324$."
+    },
+    {
+      "id": "q-ma3-optimering-13",
+      "kind": "mc",
+      "topic": "volume optimisation",
+      "prompt": "Which value of $x$ (in the interval $0 < x < 9$) gives the box in the previous question maximum volume?",
+      "opener": "Solve $V'(x)=0$ and choose the solution that lies within the allowed interval.",
+      "choices": [
+        "$x=3$ cm",
+        "$x=9$ cm",
+        "$x=6$ cm",
+        "$x=12$ cm"
+      ],
+      "answer": 0,
+      "explanation": "$12x^2-144x+324=0$ gives, after dividing by 12, $x^2-12x+27=0$. The solutions are $x=\\frac{12\\pm\\sqrt{144-108}}{2}=\\frac{12\\pm6}{2}=9$ or $3$. Since $x=9$ gives a side length of $18-2\\cdot9=0$ (no box at all), only $x=3$ lies within the allowed interval."
+    },
+    {
+      "id": "q-ma3-optimering-14",
+      "kind": "mc",
+      "topic": "optimisation method",
+      "prompt": "What is the first step in an optimisation problem with a constraint, for example a given fencing length or perimeter?",
+      "opener": "The constraint ties the two variables to each other.",
+      "choices": [
+        "Use the constraint to express the quantity to be optimised using only one variable",
+        "Differentiate the constraint directly with no further work",
+        "Set both variables to zero",
+        "Assume the answer will always be a square"
+      ],
+      "answer": 0,
+      "explanation": "The constraint, for example a given perimeter, is used to express one variable in terms of the other, so the quantity to be optimised can be written as a function of just one variable. Only then can you differentiate and solve for an extreme value in the usual way."
+    },
+    {
+      "id": "q-ma3-optimering-15",
+      "kind": "mc",
+      "topic": "area optimisation",
+      "prompt": "A rectangle has a perimeter of 60 cm. Which side lengths give maximum area?",
+      "opener": "Express one side in terms of the other using the perimeter condition.",
+      "choices": [
+        "15 cm and 15 cm (a square)",
+        "10 cm and 20 cm",
+        "30 cm and 0 cm",
+        "12 cm and 18 cm"
+      ],
+      "answer": 0,
+      "explanation": "The perimeter gives $2x+2y=60 \\Rightarrow y=30-x$. The area $A(x)=x(30-x)=30x-x^2$, and $A'(x)=30-2x=0 \\Rightarrow x=15$, giving $y=15$. The rectangle becomes a square with side 15 cm, matching the classic pattern that a square maximises area for a given perimeter."
     }
   ]
 }

@@ -123,6 +123,111 @@
       "prompt": "List key vocabulary for discussing literature and film.",
       "opener": "The basic concepts you need to analyse text and film in English.",
       "answer": "Plot = the sequence of events · Protagonist = main character · Antagonist = opponent/villain · Theme = underlying message · Setting = time and place · Narrative perspective = the perspective from which the story is told (first person, third person limited, third person omniscient) · Plot twist = unexpected turn · Cinematography = the film's visual style and camera work · Foreshadowing = a hint of what is to come."
+    },
+    {
+      "id": "q-en6-litfilm-9",
+      "kind": "mc",
+      "topic": "plot and character",
+      "prompt": "What is \"characterization\"?",
+      "opener": "Think about HOW the author shows who a character is.",
+      "choices": [
+        "The methods an author uses to reveal a character's personality and traits",
+        "The physical setting of a story",
+        "A summary of the entire plot",
+        "The moral lesson of a story"
+      ],
+      "answer": 0,
+      "explanation": "\"Characterization\" is the methods an author uses to reveal a character's personality and traits, for example through actions, dialogue, or other characters' reactions."
+    },
+    {
+      "id": "q-en6-litfilm-10",
+      "kind": "mc",
+      "topic": "plot and character",
+      "prompt": "What is \"foreshadowing\"?",
+      "opener": "Clues planted early that pay off later in the story.",
+      "choices": [
+        "A hint or clue about events that will happen later in the story",
+        "A flashback to earlier events",
+        "The climax of the story",
+        "A minor character's backstory"
+      ],
+      "answer": 0,
+      "explanation": "\"Foreshadowing\" is a hint about something that will happen later in the story, which builds tension or prepares the reader. It is not the same as a flashback."
+    },
+    {
+      "id": "q-en6-litfilm-11",
+      "kind": "mc",
+      "topic": "theme and setting",
+      "prompt": "How does setting often influence a story's theme?",
+      "opener": "Think about how a bleak setting can reinforce a bleak theme.",
+      "choices": [
+        "The time and place can reinforce or create tension with the story's central ideas",
+        "Setting has no connection to theme whatsoever",
+        "Setting always determines who the protagonist is",
+        "Setting is only relevant in historical fiction"
+      ],
+      "answer": 0,
+      "explanation": "Time and place can reinforce or create tension with a story's central ideas, for example an isolated island reinforcing a theme of loneliness."
+    },
+    {
+      "id": "q-en6-litfilm-12",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "What distinguishes \"third person omniscient\" from \"third person limited\"?",
+      "opener": "The difference lies in HOW MUCH the narrator knows, not in which pronoun is used.",
+      "choices": [
+        "Omniscient narrators know the thoughts of all characters, while limited narrators only access one character's mind",
+        "Omniscient narrators use \"I\", while limited narrators use \"we\"",
+        "There is no real difference between the two",
+        "Limited narrators always know more than omniscient narrators"
+      ],
+      "answer": 0,
+      "explanation": "An omniscient narrator knows all characters' thoughts, while a limited narrator only has access to a single character's mind. Both use third-person pronouns (\"he\"/\"she\"/\"they\")."
+    },
+    {
+      "id": "q-en6-litfilm-13",
+      "kind": "mc",
+      "topic": "film terms",
+      "prompt": "What does \"mise-en-scène\" refer to in film analysis?",
+      "opener": "The French term roughly means \"what is placed in the scene\".",
+      "choices": [
+        "Everything visible within a single frame, including set design, lighting, and actor placement",
+        "The editing style used to cut between scenes",
+        "The film's musical score",
+        "The dialogue written in the script"
+      ],
+      "answer": 0,
+      "explanation": "\"Mise-en-scène\" covers everything visible within a film frame — set design, lighting, and actor placement. It is not about editing, music, or the script."
+    },
+    {
+      "id": "q-en6-litfilm-14",
+      "kind": "mc",
+      "topic": "film terms",
+      "prompt": "What is a \"close-up\" shot typically used to achieve?",
+      "opener": "Think about what the camera zooms in on, and why.",
+      "choices": [
+        "To emphasize a character's emotional reaction or a small but important detail",
+        "To show the overall geography of a location",
+        "To introduce a large group of characters at once",
+        "To indicate a long passage of time"
+      ],
+      "answer": 0,
+      "explanation": "A \"close-up\" is used to emphasize a character's emotional reaction or a small but important detail, rather than showing an entire setting or a large group."
+    },
+    {
+      "id": "q-en6-litfilm-15",
+      "kind": "mc",
+      "topic": "theme and setting",
+      "prompt": "A story set during a war often explores which type of theme, even if the war itself is only in the background?",
+      "opener": "The backdrop of war often colors what the story is really about.",
+      "choices": [
+        "Themes of survival, loss, or moral conflict shaped by the story's historical context",
+        "Themes are never affected by the setting",
+        "Only themes directly about military strategy",
+        "Themes about unrelated topics like cooking"
+      ],
+      "answer": 0,
+      "explanation": "Stories set during war often explore themes of survival, loss, or moral conflict, shaped by the historical context, even if the fighting itself is only in the background."
     }
   ]
 }

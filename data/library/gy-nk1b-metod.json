@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta centrala begrepp inom naturvetenskaplig metod och källkritik: hypotes, teori, kontrollgrupp, variabler, pseudovetenskap och källkritik.",
       "opener": "Gå igenom stegen i den vetenskapliga metoden och vad som skiljer god vetenskap från ovetenskapliga påståenden.",
       "answer": "Hypotes: ett testbart, falsifierbart antagande som ska prövas · Teori: en väl underbyggd förklaringsmodell som stöds av mycket samlad evidens, inte en gissning · Kontrollgrupp: en jämförelsegrupp som inte får den testade behandlingen, gör det möjligt att avgöra om en effekt verkligen beror på behandlingen · Oberoende variabel: det forskaren medvetet ändrar · Beroende variabel: det som mäts som resultat · Peer review: att andra forskare oberoende granskar studien innan publicering · Pseudovetenskap: presenterar sig som vetenskap men undviker verklig prövning, saknar oberoende granskning eller ignorerar motsägande resultat · Källkritik: granska avsändare, syfte, eventuella intressen och om påståendet stöds av samlad forskning eller bara enskilda, obekräftade studier."
+    },
+    {
+      "id": "q-nk1b-metod-9",
+      "kind": "mc",
+      "topic": "hypotes, experiment och teori",
+      "prompt": "Vad innebär det att en hypotes ska vara falsifierbar?",
+      "opener": "Tänk på vad som skulle behövas för att kunna bevisa att hypotesen är felaktig.",
+      "choices": [
+        "Att det i princip måste vara möjligt att visa att hypotesen är fel genom observation eller experiment, även om den råkar vara sann",
+        "Att hypotesen redan måste vara bevisad falsk innan den prövas",
+        "Att hypotesen aldrig får testas mer än en gång",
+        "Att falsifierbarhet innebär att hypotesen alltid är felaktig"
+      ],
+      "answer": 0,
+      "explanation": "Falsifierbarhet innebär att det i princip måste gå att utforma en observation eller ett experiment som skulle visa att hypotesen är fel, om den faktiskt är det. En hypotes som inte kan motbevisas på något tänkbart sätt räknas inte som vetenskaplig."
+    },
+    {
+      "id": "q-nk1b-metod-10",
+      "kind": "mc",
+      "topic": "experimentell metod",
+      "prompt": "Vad är syftet med att upprepa ett experiment (replikera resultat), gärna av andra oberoende forskargrupper?",
+      "opener": "Tänk på vad som skulle hända om ett enskilt experiment råkade ge ett resultat av en slump.",
+      "choices": [
+        "Att öka tilltron till att resultatet är verkligt och inte bara berodde på slump eller ett engångsfel i den ursprungliga studien",
+        "Att göra det svårare för andra forskare att förstå resultatet",
+        "Replikering är aldrig nödvändig om den första studien var stor nog",
+        "Att öka kostnaden för forskningen utan annan nytta"
+      ],
+      "answer": 0,
+      "explanation": "Att upprepa ett experiment, gärna av oberoende forskargrupper, ökar tilltron till att resultatet är verkligt och inte bara berodde på slump, ett engångsfel eller partiskhet i den ursprungliga studien."
+    },
+    {
+      "id": "q-nk1b-metod-11",
+      "kind": "mc",
+      "topic": "experimentell metod",
+      "prompt": "Vad är en dubbelblind studie, och varför används den ofta vid läkemedelsprövningar?",
+      "opener": "Tänk på vad som skulle kunna påverka resultatet om deltagare eller forskare visste vem som fick den riktiga behandlingen.",
+      "choices": [
+        "En studie där varken deltagarna eller de som utvärderar resultaten vet vem som fått den verksamma behandlingen och vem som fått placebo, vilket minskar risken för att förväntningar påverkar resultatet",
+        "En studie där alla deltagare vet exakt vilken behandling de får",
+        "En studie som genomförs två gånger med exakt samma deltagare",
+        "Ett annat ord för en studie utan kontrollgrupp"
+      ],
+      "answer": 0,
+      "explanation": "I en dubbelblind studie vet varken deltagarna eller de som utvärderar resultaten vem som fått den verksamma behandlingen och vem som fått placebo, vilket minskar risken att förväntningar (hos patient eller forskare) omedvetet påverkar resultatet."
+    },
+    {
+      "id": "q-nk1b-metod-12",
+      "kind": "mc",
+      "topic": "vetenskap och pseudovetenskap",
+      "prompt": "Vad är ett vanligt kännetecken hos pseudovetenskapliga påståenden när det gäller hur de bemöter kritik eller motbevis?",
+      "opener": "Tänk på hur ett påstående som INTE kan motbevisas hanterar obekväma resultat.",
+      "choices": [
+        "De tenderar att omtolka eller bortförklara motbevis snarare än att revidera eller överge påståendet",
+        "De välkomnar alltid kritik och ändrar omedelbart sin ståndpunkt vid motbevis",
+        "De genomgår alltid sedvanlig peer review innan publicering",
+        "De baseras alltid på kontrollerade, upprepade experiment"
+      ],
+      "answer": 0,
+      "explanation": "Pseudovetenskapliga påståenden tenderar att omtolka eller bortförklara motbevis, snarare än att revidera eller överge påståendet, vilket skiljer dem från vetenskapliga teorier som anpassas när ny evidens motsäger dem."
+    },
+    {
+      "id": "q-nk1b-metod-13",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Varför är det problematiskt om en studie om ett läkemedels effekt enbart finansierats av företaget som säljer läkemedlet, utan oberoende granskning?",
+      "opener": "Tänk på vem som tjänar på att studien visar ett visst resultat.",
+      "choices": [
+        "Det finns en risk för intressekonflikt som kan (medvetet eller omedvetet) påverka hur studien utformas, tolkas eller presenteras",
+        "Finansieringskällan har aldrig någon betydelse för en studies tillförlitlighet",
+        "Det innebär automatiskt att resultatet är falskt",
+        "Företag får aldrig finansiera vetenskaplig forskning enligt lag"
+      ],
+      "answer": 0,
+      "explanation": "Om finansiären har ett ekonomiskt intresse av ett visst resultat finns risk för en intressekonflikt som (medvetet eller omedvetet) kan påverka hur studien utformas, tolkas eller presenteras, vilket är varför oberoende granskning och transparens kring finansiering är viktigt."
+    },
+    {
+      "id": "q-nk1b-metod-14",
+      "kind": "mc",
+      "topic": "källkritik",
+      "prompt": "Vad innebär \"korrelation är inte samma sak som kausalitet\" i ett naturvetenskapligt sammanhang?",
+      "opener": "Tänk på det klassiska exemplet med glassförsäljning och drunkningsolyckor, som båda ökar på sommaren.",
+      "choices": [
+        "Att två faktorer som förändras tillsammans (samvarierar) inte nödvändigtvis betyder att den ena orsakar den andra — ett samband kan bero på en tredje, bakomliggande faktor",
+        "Att korrelation och kausalitet alltid betyder exakt samma sak",
+        "Att kausalitet är lättare att bevisa än korrelation i alla lägen",
+        "Att korrelation aldrig kan förekomma i naturvetenskapliga studier"
+      ],
+      "answer": 0,
+      "explanation": "Att två faktorer samvarierar (korrelerar) betyder inte automatiskt att den ena orsakar den andra — sambandet kan bero på en tredje, bakomliggande faktor (t.ex. varmt väder som ökar både glassförsäljning och badande, och därmed drunkningsrisk)."
+    },
+    {
+      "id": "q-nk1b-metod-15",
+      "kind": "mc",
+      "topic": "hypotes, experiment och teori",
+      "prompt": "Vad innebär det att en naturvetenskaplig teori \"aldrig kan bevisas helt och hållet\", trots starkt vetenskapligt stöd?",
+      "opener": "Tänk på skillnaden mellan att vara väl underbyggd och att vara absolut, slutgiltigt bevisad.",
+      "choices": [
+        "Att teorin i princip alltid skulle kunna omkullkastas eller behöva revideras om tillräckligt stark motsägande evidens framkommer, även om det för många väletablerade teorier är extremt osannolikt",
+        "Att alla vetenskapliga teorier är lika osäkra som en gissning",
+        "Att teorier inom naturvetenskap aldrig går att lita på",
+        "Att teorier bevisas slutgiltigt så fort de publicerats i en tidskrift"
+      ],
+      "answer": 0,
+      "explanation": "Vetenskapliga teorier bygger på empirisk evidens och kan i princip alltid revideras om ny, tillräckligt stark motsägande evidens framkommer — det är kärnan i vetenskapens självkorrigerande natur. Detta gör dem inte lika osäkra som en gissning; väletablerade teorier som evolutionsteorin har oerhört starkt stöd, men den strikt logiska möjligheten till revidering kvarstår."
     }
   ]
 }

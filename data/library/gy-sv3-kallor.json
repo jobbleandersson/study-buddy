@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta löpande hänvisning, fotnotssystem, citat, parafras och plagiat.",
       "opener": "Sortera begreppen efter var källan hamnar och hur mycket av originalets ord som behålls.",
       "answer": "Löpande hänvisning: källa i parentes i brödtexten, t.ex. (Berg, 2021) · Fotnotssystem: upphöjd siffra som hänvisar till not längst ner på sidan, stör läsflytet mindre · Citat: ordagrann återgivning, citattecken/indrag, alltid med källa · Parafras: omformulering av en avgränsad tanke med egna ord, med källa · Referat: sammanfattning av ett längre innehåll med egna ord, med källa · Plagiat: att presentera andras ord eller idéer som sina egna, oavsett om formuleringarna ändrats, när källa saknas · Källförteckning: sorteras alfabetiskt efter författarens efternamn."
+    },
+    {
+      "id": "q-sv3-kallor-9",
+      "kind": "mc",
+      "topic": "referenssystem",
+      "prompt": "Vilket referenssystem är mest känt för att ange källor i formatet (Efternamn, år) direkt i den löpande texten?",
+      "opener": "Systemet är uppkallat efter ett amerikanskt universitet.",
+      "choices": [
+        "Harvardsystemet (löpande hänvisning)",
+        "Fotnotssystemet",
+        "Ett system utan några källhänvisningar alls",
+        "Ett system som bara används i skönlitteratur"
+      ],
+      "answer": 0,
+      "explanation": "Harvardsystemet är ett vanligt namn på systemet med löpande hänvisning, där författare och år skrivs i en parentes direkt i brödtexten. Fotnotssystemet använder i stället upphöjda siffror till noter längst ner på sidan."
+    },
+    {
+      "id": "q-sv3-kallor-10",
+      "kind": "mc",
+      "topic": "källförteckning",
+      "prompt": "Om en källa saknar angiven författare, hur sorteras den vanligtvis i källförteckningen?",
+      "opener": "Vad finns kvar att sortera på när författarnamnet saknas?",
+      "choices": [
+        "Efter källans titel",
+        "Källan utelämnas helt ur förteckningen",
+        "Efter publiceringsåret enbart, oavsett titel",
+        "Källan placeras alltid sist, oavsett bokstav"
+      ],
+      "answer": 0,
+      "explanation": "Om författare saknas sorteras källan i stället alfabetiskt efter titel. Källan ska aldrig utelämnas eller placeras sist bara för att författare saknas — den ska fortfarande gå att hitta i förteckningen."
+    },
+    {
+      "id": "q-sv3-kallor-11",
+      "kind": "mc",
+      "topic": "citat och parafras",
+      "prompt": "Om man citerar en längre passage (flera meningar), hur markeras detta ofta typografiskt, till skillnad från ett kort citat?",
+      "opener": "Tänk på hur längre citat ofta placeras för sig, avskilda från övrig text.",
+      "choices": [
+        "Med indrag och/eller mindre teckenstorlek, utan citattecken",
+        "Genom att skriva hela citatet i versaler",
+        "Genom att aldrig ange källa för längre citat",
+        "Genom att använda kursiv stil enbart"
+      ],
+      "answer": 0,
+      "explanation": "Längre citat markeras ofta genom indrag och ibland mindre teckenstorlek, vilket gör citattecken överflödiga eftersom indraget i sig visar att det är ett citat. Källhänvisning krävs fortfarande, precis som för korta citat."
+    },
+    {
+      "id": "q-sv3-kallor-12",
+      "kind": "mc",
+      "topic": "citat och parafras",
+      "prompt": "Vad är ett referat, till skillnad från en parafras?",
+      "opener": "Jämför omfånget: en avgränsad tanke eller ett helt innehåll?",
+      "choices": [
+        "En sammanfattning av ett längre innehåll (t.ex. en hel artikel) med egna ord",
+        "En ordagrann avskrift utan källa",
+        "Alltid kortare än en parafras",
+        "Ett annat ord för citat"
+      ],
+      "answer": 0,
+      "explanation": "Ett referat sammanfattar ett längre innehåll, som en hel artikel eller ett kapitel, med egna ord, medan en parafras omformulerar en mer avgränsad tanke eller mening. Båda kräver källhänvisning, till skillnad från en ordagrann avskrift utan källa, som räknas som plagiat."
+    },
+    {
+      "id": "q-sv3-kallor-13",
+      "kind": "mc",
+      "topic": "plagiat",
+      "prompt": "Om en elev lämnar in en text där stora delar är skrivna av en AI-tjänst utan att detta anges, vad räknas det oftast som?",
+      "opener": "Fråga dig om läsaren kan lita på att texten återspeglar elevens eget arbete.",
+      "choices": [
+        "En form av akademisk ohederlighet/plagiat, eftersom arbetet inte är elevens eget utan att det framgår",
+        "Ett fullt godkänt arbetssätt utan krav på att ange källan",
+        "Irrelevant eftersom AI inte är en \"riktig\" källa",
+        "Bara ett problem om läraren märker det"
+      ],
+      "answer": 0,
+      "explanation": "Att lämna in AI-genererat innehåll som sitt eget utan att ange det räknas som en form av akademisk ohederlighet, eftersom texten då felaktigt framstår som elevens eget arbete. Att en källa är ny eller ovanlig (som en AI-tjänst) fritar inte från kravet på att ange den."
+    },
+    {
+      "id": "q-sv3-kallor-14",
+      "kind": "mc",
+      "topic": "referenssystem",
+      "prompt": "Vad har fotnoter och poster i en källförteckning gemensamt?",
+      "opener": "Tänk på det grundläggande syftet med all källhantering.",
+      "choices": [
+        "Båda ska göra det möjligt för läsaren att spåra varifrån informationen kommer",
+        "Båda placeras alltid mitt i den löpande texten",
+        "Båda skrivs alltid med enbart versaler",
+        "Ingetdera behöver innehålla författarens namn"
+      ],
+      "answer": 0,
+      "explanation": "Både fotnoter och källförteckningens poster syftar till att göra det möjligt för läsaren att spåra och kontrollera varifrån informationen kommer, om än på lite olika sätt och platser i texten."
+    },
+    {
+      "id": "q-sv3-kallor-15",
+      "kind": "mc",
+      "topic": "plagiat",
+      "prompt": "Vad är den bästa strategin för att undvika oavsiktligt plagiat när man skriver om andras texter?",
+      "opener": "Tänk på vad som alltid krävs, oavsett hur man återger informationen.",
+      "choices": [
+        "Att alltid ange källa, oavsett om man citerar, parafraserar eller refererar",
+        "Att aldrig läsa några källor alls innan man skriver",
+        "Att byta ut enstaka ord i originaltexten men behålla meningsbyggnaden",
+        "Att skriva så snabbt som möjligt utan att tänka på källorna"
+      ],
+      "answer": 0,
+      "explanation": "Att konsekvent ange källa, oavsett om man citerar, parafraserar eller sammanfattar, är den mest grundläggande strategin för att undvika plagiat. Att bara byta enstaka ord men behålla meningsbyggnaden räknas fortfarande som plagiat om källa saknas."
     }
   ]
 }

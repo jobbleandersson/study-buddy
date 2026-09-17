@@ -122,6 +122,110 @@
       "prompt": "When do you use \"do\" and when do you use \"make\"?",
       "opener": "A rule of thumb plus the fixed expressions you need to know by heart.",
       "answer": "Do: tasks, work, chores and unspecified activities — do homework, do the dishes, do research, do business, do someone a favour, do good. Make: when something is created or comes into being — make a decision, make a mistake, make progress, make an effort, make money, make friends, make noise. Rule of thumb: \"do\" for the activity, \"make\" for the result."
+    },
+    {
+      "id": "q-en5-voc-9",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct verb: \"Please ___ me a favour and close the window.\"",
+      "opener": "One of the fixed expressions you need to know by heart.",
+      "choices": [
+        "make",
+        "do",
+        "take",
+        "give"
+      ],
+      "answer": 1,
+      "explanation": "\"Do someone a favour\" is a fixed expression. \"Make\" doesn't work here, even though Swedish says \"göra någon en tjänst\"."
+    },
+    {
+      "id": "q-en5-voc-10",
+      "kind": "mc",
+      "topic": "collocations",
+      "prompt": "Choose the correct verb: \"The company plans to ___ progress on the new project this quarter.\"",
+      "opener": "Something that comes into being belongs to the \"make\" group.",
+      "choices": [
+        "do",
+        "take",
+        "make",
+        "have"
+      ],
+      "answer": 2,
+      "explanation": "\"Make progress\" is a fixed expression. Progress is something that is created or comes into being, just like make a decision or make an effort."
+    },
+    {
+      "id": "q-en5-voc-11",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "What does \"come across\" mean in: \"I came across an old photo while cleaning the attic\"?",
+      "opener": "Was the person actively searching for the photo, or did they find it by chance?",
+      "choices": [
+        "to find by chance",
+        "to visit someone",
+        "to argue with someone",
+        "to understand something"
+      ],
+      "answer": 0,
+      "explanation": "\"Come across\" means to find something by chance, without actively searching for it."
+    },
+    {
+      "id": "q-en5-voc-12",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"The company had to ___ hundreds of workers during the recession.\"",
+      "opener": "What's it called when a company is forced to dismiss staff?",
+      "choices": [
+        "lay off",
+        "lay down",
+        "lay out",
+        "lay into"
+      ],
+      "answer": 0,
+      "explanation": "\"Lay off\" means to dismiss employees, usually for financial reasons. \"Lay out\" means to present or plan, \"lay into\" means to attack verbally."
+    },
+    {
+      "id": "q-en5-voc-13",
+      "kind": "mc",
+      "topic": "word formation",
+      "prompt": "What is the noun form of the adjective \"happy\"?",
+      "opener": "The suffix \"-ness\" forms nouns from adjectives - but the spelling changes slightly.",
+      "choices": [
+        "happiness",
+        "happyness",
+        "happility",
+        "happyment"
+      ],
+      "answer": 0,
+      "explanation": "\"-ness\" forms nouns from adjectives (kind → kindness, happy → happiness). When the adjective ends in consonant + y, the y changes to i: happy → happiness."
+    },
+    {
+      "id": "q-en5-voc-14",
+      "kind": "worked",
+      "topic": "collocations",
+      "prompt": "Correct the four errors: \"She always makes her best at work, and yesterday she finally took a decision to ask for a raise. Her boss was very impress and gave her more responsibility, which made her a lot of good.\"",
+      "opener": "Two errors are about do/make, one is a word formation issue, and one is a fixed expression.",
+      "answer": "She always does her best at work, and yesterday she finally made a decision to ask for a raise. Her boss was very impressed and gave her more responsibility, which did her a lot of good.",
+      "steps": [
+        "\"makes her best\" → \"does her best\". \"Do one's best\" is a fixed expression.",
+        "\"took a decision\" → \"made a decision\". Decisions are \"made\" in English: \"make a decision\".",
+        "\"was very impress\" → \"was very impressed\". The adjective form of the verb \"impress\" (past participle used as an adjective) is \"impressed\".",
+        "\"made her a lot of good\" → \"did her a lot of good\". A fixed expression with \"do\", just like the flashcard example \"do someone good\"."
+      ]
+    },
+    {
+      "id": "q-en5-voc-15",
+      "kind": "mc",
+      "topic": "word formation",
+      "prompt": "Which adjective is formed from the noun \"danger\"?",
+      "opener": "The suffix \"-ous\" forms many adjectives from nouns.",
+      "choices": [
+        "dangerous",
+        "dangerful",
+        "dangerious",
+        "dangerly"
+      ],
+      "answer": 0,
+      "explanation": "\"-ous\" forms adjectives from nouns: danger → dangerous, fame → famous, ambition → ambitious."
     }
   ]
 }

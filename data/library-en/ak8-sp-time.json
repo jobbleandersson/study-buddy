@@ -114,6 +114,111 @@
       "prompt": "How do you ask about and answer questions about time, days of the week, and months in Spanish?",
       "opener": "Fixed phrases for time, days, and months.",
       "answer": "Time: ¿Qué hora es? = What time is it? · Es la una = It's one o'clock · Son las dos/tres... = It's two/three o'clock... · y media = and a half · y cuarto = and a quarter · menos cuarto = quarter to. Days of the week: lunes, martes, miércoles, jueves, viernes, sábado, domingo. Months: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre."
+    },
+    {
+      "id": "q-sp8-time-9",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"las diez menos cuarto\" mean?",
+      "opener": "\"Menos cuarto\" means \"minus a quarter\".",
+      "choices": [
+        "Quarter to ten",
+        "Quarter past ten",
+        "Half past nine",
+        "Ten oh five"
+      ],
+      "answer": 0,
+      "explanation": "\"Menos cuarto\" means \"quarter to\": \"las diez menos cuarto\" = quarter to ten (09:45)."
+    },
+    {
+      "id": "q-sp8-time-10",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "How do you say \"it's midnight\"?",
+      "opener": "A specific word for twelve o'clock at night.",
+      "choices": [
+        "Es medianoche.",
+        "Es mediodía.",
+        "Son las doce de la tarde.",
+        "Es la una de la noche."
+      ],
+      "answer": 0,
+      "explanation": "\"Es medianoche\" means \"it's midnight\". \"Es mediodía\" instead means \"it's noon\" (twelve o'clock in the daytime)."
+    },
+    {
+      "id": "q-sp8-time-11",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "What does the expression \"el fin de semana\" refer to?",
+      "opener": "The phrase refers to TWO days together, not a single one.",
+      "choices": [
+        "A collective term for Saturday and Sunday, not a single day",
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "answer": 0,
+      "explanation": "\"El fin de semana\" is a collective term for the weekend, meaning Saturday and Sunday together, not a single day of the week."
+    },
+    {
+      "id": "q-sp8-time-12",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "Which month is \"abril\"?",
+      "opener": "The month between March and May.",
+      "choices": [
+        "April",
+        "August",
+        "March",
+        "May"
+      ],
+      "answer": 0,
+      "explanation": "\"Abril\" is April, the fourth month of the year."
+    },
+    {
+      "id": "q-sp8-time-13",
+      "kind": "mc",
+      "topic": "telling time",
+      "prompt": "What does \"por la mañana\" mean in a time expression like \"a las ocho por la mañana\"?",
+      "opener": "\"Mañana\" can mean both \"tomorrow\" and \"morning\" depending on context.",
+      "choices": [
+        "In the morning",
+        "In the afternoon",
+        "In the evening",
+        "At night"
+      ],
+      "answer": 0,
+      "explanation": "In a time expression like \"a las ocho por la mañana\", \"por la mañana\" means \"in the morning\", not \"tomorrow\"."
+    },
+    {
+      "id": "q-sp8-time-14",
+      "kind": "mc",
+      "topic": "days of the week",
+      "prompt": "If something happens \"todos los lunes\", how often does it happen?",
+      "opener": "\"Todos los...\" means \"every...\".",
+      "choices": [
+        "Every Monday",
+        "Only once, last Monday",
+        "Every day except Monday",
+        "Once a month"
+      ],
+      "answer": 0,
+      "explanation": "\"Todos los lunes\" means \"every Monday\", i.e. something that repeats regularly each week."
+    },
+    {
+      "id": "q-sp8-time-15",
+      "kind": "mc",
+      "topic": "months",
+      "prompt": "What is the first month of the year according to the Spanish calendar?",
+      "opener": "The Spanish calendar follows the same order as the English one.",
+      "choices": [
+        "enero",
+        "febrero",
+        "diciembre",
+        "marzo"
+      ],
+      "answer": 0,
+      "explanation": "\"Enero\" is January, the first month of the year."
     }
   ]
 }

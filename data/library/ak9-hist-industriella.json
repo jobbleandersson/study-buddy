@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta industriella revolutionens viktigaste drag och konsekvenser.",
       "opener": "Tänk startland, drivkraft, samhällsförändring och följder.",
       "answer": "Industriella revolutionen startade i Storbritannien i slutet av 1700-talet · drevs av nya uppfinningar som ångmaskinen (James Watt) och mekaniska vävstolar · innebar en övergång från hantverk och jordbruk till fabriksproduktion · ledde till urbanisering, då människor flyttade från landsbygden till växande städer för fabriksarbete · skapade nya klasskillnader mellan arbetarklass och borgarklass (fabriksägare) · innebar ofta hårda arbetsvillkor med långa arbetsdagar, låga löner och barnarbete · ledde till att fackföreningar bildades för att kämpa för arbetares rättigheter · spred sig gradvis till andra länder i Europa och till USA under 1800-talet."
+    },
+    {
+      "id": "q-hist-ind-9",
+      "kind": "mc",
+      "topic": "industriella revolutionen",
+      "prompt": "Ungefär när inleddes den industriella revolutionen i Storbritannien?",
+      "opener": "Tänk på vilket sekelskifte som brukar nämnas i samband med ångmaskinens genombrott.",
+      "choices": [
+        "Andra hälften av 1700-talet",
+        "1500-talet",
+        "1900-talet",
+        "Under antiken"
+      ],
+      "answer": 0,
+      "explanation": "Den industriella revolutionen brukar dateras till andra hälften av 1700-talet i Storbritannien, med genombrott för ångmaskinen och mekaniserad textilproduktion."
+    },
+    {
+      "id": "q-hist-ind-10",
+      "kind": "mc",
+      "topic": "ångmaskinen och mekanisering",
+      "prompt": "Vem förknippas särskilt med att ha förbättrat ångmaskinen och gjort den industriellt användbar?",
+      "opener": "Ett efternamn som blivit en internationell enhet för effekt.",
+      "choices": [
+        "James Watt",
+        "Thomas Edison",
+        "Alfred Nobel",
+        "Henry Ford"
+      ],
+      "answer": 0,
+      "explanation": "James Watt förbättrade ångmaskinen på 1760–70-talet och gjorde den betydligt effektivare, vilket blev avgörande för industrialiseringen. Enheten \"watt\" är uppkallad efter honom."
+    },
+    {
+      "id": "q-hist-ind-11",
+      "kind": "mc",
+      "topic": "ångmaskinen och mekanisering",
+      "prompt": "Vilken industri var bland de första att mekaniseras under industriella revolutionen i Storbritannien?",
+      "opener": "Tänk på vävstolar och spinnmaskiner.",
+      "choices": [
+        "Textilindustrin",
+        "Rymdindustrin",
+        "IT-industrin",
+        "Bilindustrin"
+      ],
+      "answer": 0,
+      "explanation": "Textilindustrin, med uppfinningar som den mekaniska vävstolen och spinnmaskiner, var bland de första branscherna att mekaniseras och blev en motor i den tidiga industrialiseringen."
+    },
+    {
+      "id": "q-hist-ind-12",
+      "kind": "mc",
+      "topic": "urbanisering",
+      "prompt": "Vad blev en vanlig konsekvens av snabb urbanisering under industrialiseringen?",
+      "opener": "Tänk på vad som händer när städer växer snabbare än bostadsbyggandet hinner med.",
+      "choices": [
+        "Trångboddhet och dåliga sanitära förhållanden i snabbt växande städer",
+        "Städerna krympte snabbt",
+        "Ingen efterfrågan på bostäder",
+        "Landsbygden växte snabbare än städerna"
+      ],
+      "answer": 0,
+      "explanation": "När människor strömmade till städerna snabbare än bostäder kunde byggas uppstod ofta trångboddhet, bristfällig sanitet och dålig arbetsmiljö i arbetarkvarteren."
+    },
+    {
+      "id": "q-hist-ind-13",
+      "kind": "mc",
+      "topic": "arbetsvillkor och fackföreningar",
+      "prompt": "Vad var ett vanligt krav från tidiga fackföreningar?",
+      "opener": "Vad ville arbetarna förbättra i sin vardag?",
+      "choices": [
+        "Kortare arbetsdagar och högre löner",
+        "Fler barnarbetare",
+        "Längre arbetsdagar",
+        "Att avskaffa alla fabriker"
+      ],
+      "answer": 0,
+      "explanation": "Fackföreningarna krävde framför allt kortare arbetsdagar, högre löner och säkrare arbetsmiljö — grundläggande förbättringar som saknades under den tidiga industrialiseringen."
+    },
+    {
+      "id": "q-hist-ind-14",
+      "kind": "worked",
+      "topic": "urbanisering",
+      "prompt": "Förklara hur ångmaskinens uppfinning ledde till urbanisering, i flera steg.",
+      "opener": "Tänk på vad fabriker var beroende av innan ångmaskinen, och vad som förändrades.",
+      "answer": "Ångmaskinen gjorde fabriker oberoende av vattenkraft, vilket gjorde att de kunde byggas i eller nära städer. Det skapade arbetstillfällen som lockade människor från landsbygden, vilket i sin tur drev på städernas snabba tillväxt.",
+      "steps": [
+        "Innan ångmaskinen var fabriker tvungna att ligga vid strömmande vatten för kraft, ofta på landsbygden.",
+        "Ångmaskinen, som drevs av kol, gjorde det möjligt att placera fabriker var som helst, till exempel i eller nära städer med bra transportmöjligheter.",
+        "Fabrikerna i städerna erbjöd nya arbetstillfällen som lockade människor från landsbygden.",
+        "Detta ledde till snabb befolkningstillväxt i städerna — urbanisering — och skapade i sin tur nya utmaningar som trångboddhet."
+      ]
+    },
+    {
+      "id": "q-hist-ind-15",
+      "kind": "mc",
+      "topic": "industriella revolutionen",
+      "prompt": "Vilket av dessa var INTE en central del av den industriella revolutionen?",
+      "opener": "Ett av alternativen är en mycket senare uppfinning.",
+      "choices": [
+        "Internet och digital teknik",
+        "Ångmaskinen",
+        "Mekaniserade textilfabriker",
+        "Järnvägen"
+      ],
+      "answer": 0,
+      "explanation": "Internet och digital teknik hör till 1900- och 2000-talet, mycket senare än den industriella revolutionen. Ångmaskinen, mekaniserade fabriker och järnvägen var däremot centrala delar av 1700- och 1800-talens industrialisering."
     }
   ]
 }

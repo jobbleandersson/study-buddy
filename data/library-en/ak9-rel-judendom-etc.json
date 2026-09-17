@@ -124,6 +124,110 @@
       "prompt": "Summarise the foundations of Judaism, Hinduism and Buddhism, and a key difference from the Abrahamic religions.",
       "opener": "Go through one religion at a time, and finish with the comparison.",
       "answer": "Judaism: monotheistic, believes in a covenant between God and the Jewish people, the Torah (the five Books of Moses) is the most central scripture, included in the Tanakh. Hinduism: many gods/goddesses often seen as expressions of a shared divine force (Brahman) · central concepts: karma, reincarnation (samsara), moksha as the ultimate goal. Buddhism: founded by Siddhartha Gautama (Buddha) · the Four Noble Truths about suffering and the path away from it · the Noble Eightfold Path · nirvana as the ultimate goal. Comparison: Hinduism and Buddhism (Eastern religions) often emphasise cycles of life and rebirth, while Judaism, Christianity and Islam (Abrahamic religions) emphasise a single earthly life, one God, and a covenant/revelation."
+    },
+    {
+      "id": "q-rel-jud-9",
+      "kind": "mc",
+      "topic": "Judaism",
+      "prompt": "What is the Jewish Sabbath called, a weekly day of rest?",
+      "opener": "It falls from Friday evening to Saturday evening.",
+      "choices": [
+        "Shabbat",
+        "Passover",
+        "Hanukkah",
+        "Yom Kippur"
+      ],
+      "answer": 0,
+      "explanation": "Shabbat is the Jewish day of rest, observed every week from Friday evening to Saturday evening, commemorating that God, according to the Torah, rested on the seventh day after creation."
+    },
+    {
+      "id": "q-rel-jud-10",
+      "kind": "mc",
+      "topic": "Judaism",
+      "prompt": "Which Jewish festival celebrates the exodus from Egypt and the end of slavery, according to the account in the Torah?",
+      "opener": "The festival is celebrated with a special meal called a seder.",
+      "choices": [
+        "Passover",
+        "Hanukkah",
+        "Sukkot",
+        "Purim"
+      ],
+      "answer": 0,
+      "explanation": "Passover celebrates the account of how the Jewish people, according to the Torah, were led out of slavery in Egypt by Moses. The festival is celebrated with, among other things, a special meal, the seder."
+    },
+    {
+      "id": "q-rel-jud-11",
+      "kind": "mc",
+      "topic": "Hinduism",
+      "prompt": "What is the traditional system called that has historically divided people into social groups in Hindu-influenced parts of India?",
+      "opener": "The system has historically determined the occupation and social status a person is born into.",
+      "choices": [
+        "The varna/caste system",
+        "Nirvana",
+        "Brahman",
+        "Dharma"
+      ],
+      "answer": 0,
+      "explanation": "The varna/caste system is a traditional social system that has historically divided people into groups, often linked to occupation and social status. The system is officially abolished in Indian law today but still has social influence in some areas."
+    },
+    {
+      "id": "q-rel-jud-12",
+      "kind": "mc",
+      "topic": "Hinduism",
+      "prompt": "What does the concept of dharma roughly mean in Hinduism?",
+      "opener": "Think of a word about what's expected of a person, rather than a place or a person.",
+      "choices": [
+        "One's duty, moral responsibility and right way of living based on one's place in existence",
+        "A holy river",
+        "A temple",
+        "A god"
+      ],
+      "answer": 0,
+      "explanation": "Dharma roughly refers to one's duty, moral responsibility and right way of living, based on who one is and one's place in existence - a central concept for how one should live within Hinduism."
+    },
+    {
+      "id": "q-rel-jud-13",
+      "kind": "mc",
+      "topic": "Buddhism",
+      "prompt": "What is the eight-part path called that, according to Buddhism, leads away from suffering?",
+      "opener": "The path is the fourth of the Four Noble Truths.",
+      "choices": [
+        "The Noble Eightfold Path",
+        "The Ten Commandments",
+        "The five pillars",
+        "The Torah"
+      ],
+      "answer": 0,
+      "explanation": "The Noble Eightfold Path describes eight principles (including right speech, right action and right concentration) that, according to Buddhism, lead away from suffering toward enlightenment."
+    },
+    {
+      "id": "q-rel-jud-14",
+      "kind": "worked",
+      "topic": "comparing religions",
+      "prompt": "Explain a fundamental difference between Judaism's view of God and Buddhism's view of the divine.",
+      "opener": "Think about whether both religions revolve around a creator god at all.",
+      "answer": "Judaism is strongly monotheistic and is built on the idea of a special covenant between a personal God and the Jewish people, while Buddhism, in its original form, does not revolve around a creator god at all, instead focusing on a practical path (the Noble Eightfold Path) to overcome suffering through personal insight and discipline, rather than through a relationship with a god.",
+      "steps": [
+        "Judaism is built on a single, personal God who entered into a covenant with the Jewish people and gave them commandments (mitzvot) to follow.",
+        "Buddhism, in its classical form, is not about worshipping a creator god but about understanding and practising paths away from suffering (dukkha).",
+        "Instead of divine revelation, Buddhism emphasises personal insight, meditation and ethical training as the path to liberation (nirvana).",
+        "The difference shows that religions can differ not just in WHICH god they believe in, but in whether belief in a god is central to the belief system at all."
+      ]
+    },
+    {
+      "id": "q-rel-jud-15",
+      "kind": "mc",
+      "topic": "comparing religions",
+      "prompt": "Which three religions are considered the Abrahamic religions, since they all have a connection to Abraham?",
+      "opener": "All three are monotheistic and partly share the same historical roots in the Middle East.",
+      "choices": [
+        "Judaism, Christianity and Islam",
+        "Hinduism, Buddhism and Judaism",
+        "Christianity, Hinduism and Buddhism",
+        "Islam, Buddhism and Judaism"
+      ],
+      "answer": 0,
+      "explanation": "Judaism, Christianity and Islam are called the Abrahamic religions because they all have a connection to the account of Abraham and share historical and theological roots, despite their different teachings."
     }
   ]
 }

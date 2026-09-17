@@ -124,6 +124,111 @@
       "prompt": "Summarise the key steps in Sweden's democratic development and Sweden's role during the world wars.",
       "opener": "Think suffrage, parliamentarism, the labour movement, the people's home and neutrality.",
       "answer": "Universal suffrage for men was introduced in 1909 · the breakthrough of parliamentarism took place in 1917–1918, meaning the government had to have the support of a majority in the Riksdag · women's suffrage was decided in 1919, and in 1921 the first election was held with universal and equal suffrage for women and men · the labour movement, with trade unions and the Social Democrats, became a driving force in Swedish politics · the concept of the \"people's home\" (from the late 1920s) was built on the idea that the state should take responsibility for citizens' security and welfare · Sweden pursued a policy of neutrality during both the First and Second World Wars and did not take part militarily in the fighting · after the world wars, Sweden continued to build out the welfare state during the 20th century."
+    },
+    {
+      "id": "q-hist-sve-9",
+      "kind": "mc",
+      "topic": "universal suffrage",
+      "prompt": "In which year was universal suffrage for men introduced in Sweden (for the Riksdag's second chamber)?",
+      "opener": "This happened twelve years before women and men voted together in a Riksdag election.",
+      "choices": [
+        "1909",
+        "1919",
+        "1921",
+        "1945"
+      ],
+      "answer": 0,
+      "explanation": "Universal suffrage for men in elections to the Riksdag's second chamber was introduced in 1909. Women's suffrage wasn't decided until ten years later, in 1919."
+    },
+    {
+      "id": "q-hist-sve-10",
+      "kind": "mc",
+      "topic": "universal suffrage",
+      "prompt": "In which year did the Riksdag decide on women's suffrage in Sweden?",
+      "opener": "The decision came two years before the first election where women actually got to vote.",
+      "choices": [
+        "1919",
+        "1909",
+        "1945",
+        "1971"
+      ],
+      "answer": 0,
+      "explanation": "The Riksdag decided on women's suffrage in 1919, and the first election where women actually got to vote with universal and equal suffrage was held in 1921."
+    },
+    {
+      "id": "q-hist-sve-11",
+      "kind": "mc",
+      "topic": "the breakthrough of parliamentarism",
+      "prompt": "What roughly happened to the king's power when parliamentarism took hold in Sweden in 1917-1918?",
+      "opener": "Who now got to decide which government would sit?",
+      "choices": [
+        "The king's power over forming governments decreased sharply in favour of the Riksdag",
+        "The king gained total control over the government",
+        "The monarchy was abolished entirely",
+        "Nothing changed"
+      ],
+      "answer": 0,
+      "explanation": "With the breakthrough of parliamentarism, the government came to need the support of a majority in the Riksdag rather than the king's free choice, which sharply reduced the king's real political power - but Sweden remained a monarchy."
+    },
+    {
+      "id": "q-hist-sve-12",
+      "kind": "mc",
+      "topic": "key reforms",
+      "prompt": "Who is particularly associated with the idea of the \"people's home\" in Swedish politics?",
+      "opener": "A Social Democratic prime minister from the 1930s and 40s.",
+      "choices": [
+        "Per Albin Hansson",
+        "Carl XVI Gustaf",
+        "Olof Palme",
+        "Gustav Vasa"
+      ],
+      "answer": 0,
+      "explanation": "Per Albin Hansson, a Social Democratic prime minister, is particularly associated with the idea of the people's home from the late 1920s onward."
+    },
+    {
+      "id": "q-hist-sve-13",
+      "kind": "mc",
+      "topic": "Sweden during the world wars",
+      "prompt": "Was Sweden occupied by Nazi Germany during the Second World War?",
+      "opener": "Compare with neighbouring countries like Norway and Denmark.",
+      "choices": [
+        "No, Sweden remained formally neutral and was not occupied",
+        "Yes, all of Sweden was occupied in 1940",
+        "Yes, but only Stockholm was occupied",
+        "Sweden joined the war on Germany's side"
+      ],
+      "answer": 0,
+      "explanation": "Sweden pursued a policy of neutrality and was not occupied, unlike its neighbours Norway and Denmark. Sweden did, however, make several concessions to Nazi Germany, which has been debated since."
+    },
+    {
+      "id": "q-hist-sve-14",
+      "kind": "worked",
+      "topic": "key reforms",
+      "prompt": "Explain how the rise of the labour movement in the early 1900s is connected to the idea of the people's home that developed in the 1930s.",
+      "opener": "Think about what the labour movement demanded, and how those demands were later broadened.",
+      "answer": "The labour movement, through trade unions and the Social Democrats, fought for a long time for better conditions and political influence for the working class. Once the party gained government power, these demands could be turned into the broader political vision of the people's home, where the state took responsibility for the security and welfare of all citizens, not just workers.",
+      "steps": [
+        "The labour movement organised itself into trade unions from the late 1800s to demand better wages and working conditions.",
+        "The Social Democrats emerged as the labour movement's political branch and demanded political influence through suffrage and parliamentarism.",
+        "When the Social Democrats gained government power (especially from 1932), the party could turn its ideas into practical policy.",
+        "The idea of the people's home, associated with Per Albin Hansson, built on the labour movement's demands but broadened them to apply to all citizens, not just workers.",
+        "This laid the foundation for the expansion of the Swedish welfare state for the rest of the 20th century."
+      ]
+    },
+    {
+      "id": "q-hist-sve-15",
+      "kind": "mc",
+      "topic": "key reforms",
+      "prompt": "Which party became the labour movement's most important political voice in Sweden during the 20th century?",
+      "opener": "The party Per Albin Hansson led as prime minister.",
+      "choices": [
+        "The Social Democrats",
+        "The Moderates",
+        "The Centre Party",
+        "The Sweden Democrats"
+      ],
+      "answer": 0,
+      "explanation": "The Social Democrats emerged from the labour movement and became, for much of the 20th century, the leading party in Swedish politics, closely tied to the trade union movement."
     }
   ]
 }

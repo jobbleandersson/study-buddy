@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta naturresurser, energikällor och vatten.",
       "opener": "Tänk resurstyper, var de finns, energikällornas för- och nackdelar och hur vattnet är fördelat.",
       "answer": "Naturresurs: något i naturen som människan använder · förnybara: sol, vind, vatten, vågor, geotermisk energi, skog och fisk (om de används i takt med att de återbildas) · icke-förnybara: olja, kol, naturgas, uran och metaller som bildats under miljontals år · fossila bränslen ger koldioxidutsläpp och klimatpåverkan men är lätta att lagra och transportera · kärnkraft: låga koldioxidutsläpp och mycket el, men radioaktivt avfall och höga byggkostnader · vattenkraft: mycket el och reglerbar, men dammar skadar ekosystem och kan tvinga folk att flytta · vindkraft och solkraft: inga utsläpp under drift men varierar med väder och kräver material till anläggningarna · bioenergi: förnybar om skogen återväxer, men konkurrerar om mark · Sveriges el kommer främst från vattenkraft, kärnkraft och vindkraft · resurser är ojämnt fördelade: olja kring Persiska viken, järn i Australien, Brasilien och Sverige, koppar i Chile, sällsynta jordartsmetaller i Kina · vatten: cirka 97 procent är saltvatten och mycket av sötvattnet är bundet i is, så bara en bråkdel är lätt att använda · vattenbrist och sinkande grundvatten är stora problem i torra områden · ekologiskt fotavtryck: mått på hur mycket natur en person eller ett land förbrukar – mångdubbelt större i höginkomstländer än i låginkomstländer."
+    },
+    {
+      "id": "q-geo8-nat-9",
+      "kind": "mc",
+      "topic": "energikällors för- och nackdelar",
+      "prompt": "Vilken är en fördel med solenergi jämfört med fossila bränslen?",
+      "opener": "Tänk på vad som kommer ut ur skorstenen vid ett kolkraftverk jämfört med en solcellspanel.",
+      "choices": [
+        "Den fungerar lika bra på natten som på dagen",
+        "Den kräver inga material alls att tillverka",
+        "Den ger alltid mer el totalt sett än vattenkraft",
+        "Den ger inga utsläpp av växthusgaser när elen produceras"
+      ],
+      "answer": 3,
+      "explanation": "Solceller producerar el utan utsläpp av växthusgaser under drift, till skillnad från fossila bränslen som släpper ut koldioxid när de förbränns. Solenergi kräver däremot material för att tillverka panelerna, ger ingen el på natten, och står i dag för en mindre andel av världens el totalt sett än vattenkraft."
+    },
+    {
+      "id": "q-geo8-nat-10",
+      "kind": "mc",
+      "topic": "var resurserna finns i världen",
+      "prompt": "I vilket land finns några av världens största järnmalmsfyndigheter, bland annat i gruvorten Kiruna?",
+      "opener": "Landet ligger i norra Europa och har en lång tradition av gruvdrift.",
+      "choices": [
+        "Japan",
+        "Nederländerna",
+        "Danmark",
+        "Sverige"
+      ],
+      "answer": 3,
+      "explanation": "Sverige, med bland annat de stora gruvorna i Kiruna och Malmberget, är en av världens viktigaste producenter av järnmalm. Japan, Nederländerna och Danmark saknar i stället betydande järnmalmsfyndigheter av den storleken."
+    },
+    {
+      "id": "q-geo8-nat-11",
+      "kind": "mc",
+      "topic": "förnybara och icke-förnybara resurser",
+      "prompt": "Räknas fisk som en förnybar eller icke-förnybar resurs?",
+      "opener": "Tänk på om fiskbestånden kan återhämta sig, och vad som avgör det.",
+      "choices": [
+        "Alltid icke-förnybar, oavsett hur mycket man fiskar",
+        "Varken förnybar eller icke-förnybar",
+        "Förnybar bara i sötvatten, aldrig i havet",
+        "Förnybar, om man fiskar i den takt som bestånden hinner återhämta sig"
+      ],
+      "answer": 3,
+      "explanation": "Fisk är en förnybar resurs eftersom bestånden kan föröka sig och återhämta sig, men bara om man inte fiskar snabbare än de hinner reproducera sig – överfiske kan annars få bestånd att kollapsa nästan som en icke-förnybar resurs. Det gäller både i sötvatten och i havet, inte bara det ena."
+    },
+    {
+      "id": "q-geo8-nat-12",
+      "kind": "mc",
+      "topic": "vattenresurser",
+      "prompt": "Vad är grundvatten?",
+      "opener": "Tänk på vart regnvatten tar vägen efter att det sjunkit ner genom jordlagren.",
+      "choices": [
+        "Ett annat ord för havsvatten",
+        "Regn som ännu inte nått marken",
+        "Vatten som bara finns lagrat i glaciärer",
+        "Vatten som finns lagrat under markytan i jord och berggrund"
+      ],
+      "answer": 3,
+      "explanation": "Grundvatten är vatten som sipprat ner genom jordlagren och samlats i porer och sprickor under markytan, och det är en viktig källa till dricksvatten på många håll i världen. Det är alltså varken havsvatten, regn i luften eller enbart is i glaciärer."
+    },
+    {
+      "id": "q-geo8-nat-13",
+      "kind": "mc",
+      "topic": "resursanvändning i rika och fattiga länder",
+      "prompt": "Vad innebär det om ett lands ekologiska fotavtryck motsvarar \"tre jordklot\"?",
+      "opener": "Tänk på vad måttet egentligen räknar om till.",
+      "choices": [
+        "Att landets yta är tre gånger större än planerat",
+        "Att landet producerar mat till tre gånger fler människor än det har invånare",
+        "Att landet har för få invånare för sin yta",
+        "Att det skulle behövas tre jordklot om alla människor levde och konsumerade som den genomsnittliga invånaren i landet"
+      ],
+      "answer": 3,
+      "explanation": "Ett ekologiskt fotavtryck på \"tre jordklot\" betyder att om hela jordens befolkning konsumerade lika mycket natur och resurser som en genomsnittlig invånare i det landet, skulle det krävas tre jordklot för att det skulle vara hållbart i längden. Det handlar alltså om konsumtion i förhållande till jordens bärkraft, inte om landets egen yta eller matproduktion."
+    },
+    {
+      "id": "q-geo8-nat-14",
+      "kind": "mc",
+      "topic": "energikällors för- och nackdelar",
+      "prompt": "Vilken är en nackdel med kärnkraft?",
+      "opener": "Tänk på vad som blir kvar efter att bränslet använts.",
+      "choices": [
+        "Den ger stora utsläpp av koldioxid under drift",
+        "Den kan bara användas i länder nära ekvatorn",
+        "Den är beroende av vind för att fungera",
+        "Den ger radioaktivt avfall som måste förvaras säkert under mycket lång tid"
+      ],
+      "answer": 3,
+      "explanation": "Kärnkraft ger visserligen låga koldioxidutsläpp under drift, men den skapar radioaktivt avfall som måste hanteras och förvaras säkert i tiotusentals år, samt kräver mycket höga investeringskostnader. Den är varken beroende av vind eller begränsad till länder nära ekvatorn."
+    },
+    {
+      "id": "q-geo8-nat-15",
+      "kind": "mc",
+      "topic": "var resurserna finns i världen",
+      "prompt": "Var i världen bryts en stor andel av de sällsynta jordartsmetaller som används i mobiltelefoner och datorer?",
+      "opener": "Landet är också världens folkrikaste industriland och en stor producent av elektronik.",
+      "choices": [
+        "Island",
+        "Nya Zeeland",
+        "Portugal",
+        "Kina"
+      ],
+      "answer": 3,
+      "explanation": "Kina står för en mycket stor del av världens utvinning och förädling av sällsynta jordartsmetaller, som används i allt från mobiltelefoner till vindkraftverk. Island, Nya Zeeland och Portugal spelar däremot ingen större roll i den produktionen."
     }
   ]
 }

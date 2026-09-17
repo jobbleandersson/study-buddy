@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta hur $a$, symmetrilinjen och vertex hänger ihop för en andragradsfunktion $f(x) = ax^2 + bx + c$.",
       "opener": "Koppla ihop koefficienten $a$ med formen, och $b$, $c$ med lägen.",
       "answer": "$a>0$ ger uppåtöppnad parabel (minimivärde) · $a<0$ ger nedåtöppnad parabel (maximivärde) · Större $|a|$ ger smalare parabel, mindre $|a|$ ger bredare · Symmetrilinje: $x = -\\dfrac{b}{2a}$ · Vertex: $\\left(-\\dfrac{b}{2a},\\ f\\!\\left(-\\dfrac{b}{2a}\\right)\\right)$ · Vertexform: $f(x) = a(x-h)^2+k$ med vertex $(h,k)$."
+    },
+    {
+      "id": "q-ma2-funktioner-9",
+      "kind": "mc",
+      "topic": "vertexform",
+      "prompt": "Funktionen $f(x) = (x+5)^2 - 2$ är skriven i vertexform. Vad är vertex?",
+      "opener": "I formen $f(x)=(x-a)^2+b$ är vertex $(a,b)$ — tänk på tecknet inuti parentesen.",
+      "choices": [
+        "$(-5, -2)$",
+        "$(5, -2)$",
+        "$(-5, 2)$",
+        "$(2, -5)$"
+      ],
+      "answer": 0,
+      "explanation": "$(x+5)^2 = (x-(-5))^2$, så $a=-5$ och $b=-2$, vilket ger vertex $(-5,-2)$. Att glömma teckenbytet inuti parentesen (svar B) är ett vanligt misstag."
+    },
+    {
+      "id": "q-ma2-funktioner-10",
+      "kind": "mc",
+      "topic": "symmetrilinje",
+      "prompt": "Vad är symmetrilinjen för $f(x) = x^2 + 8x + 2$?",
+      "opener": "Använd $x = -\\dfrac{p}{2}$ med $p=8$.",
+      "choices": [
+        "$x = -4$",
+        "$x = 4$",
+        "$x = 8$",
+        "$x = -8$"
+      ],
+      "answer": 0,
+      "explanation": "Symmetrilinjen är $x = -\\frac{p}{2} = -\\frac{8}{2} = -4$. Att svara $x=4$ (svar B) missar minustecknet i formeln."
+    },
+    {
+      "id": "q-ma2-funktioner-11",
+      "kind": "mc",
+      "topic": "extremvärde",
+      "prompt": "Vad är maximivärdet för funktionen $f(x) = -x^2 + 6x - 5$?",
+      "opener": "Hitta symmetrilinjens $x$-värde och sätt in det i funktionen.",
+      "choices": [
+        "$4$",
+        "$-5$",
+        "$3$",
+        "$9$"
+      ],
+      "answer": 0,
+      "explanation": "Symmetrilinjen är $x = -\\frac{6}{2\\cdot(-1)} = 3$. Insatt: $f(3) = -9+18-5 = 4$. Eftersom koefficienten framför $x^2$ är negativ öppnar parabeln nedåt, så $4$ är ett maximivärde."
+    },
+    {
+      "id": "q-ma2-funktioner-12",
+      "kind": "mc",
+      "topic": "koefficienters betydelse",
+      "prompt": "Grafen till $f(x) = 0{,}2x^2$ jämförs med grafen till $g(x) = 4x^2$. Vilket påstående stämmer?",
+      "opener": "Ett mindre belopp på koefficienten ger en brantare eller en flackare parabel?",
+      "choices": [
+        "$f$ är bredare än $g$",
+        "$f$ är smalare än $g$",
+        "$f$ och $g$ är exakt lika breda",
+        "$f$ öppnar sig nedåt och $g$ uppåt"
+      ],
+      "answer": 0,
+      "explanation": "Ett mindre belopp på koefficienten framför $x^2$ ger en flackare, alltså bredare, parabel. Eftersom $0{,}2 < 4$ är $f$ bredare än $g$. Båda öppnar uppåt eftersom koefficienterna är positiva."
+    },
+    {
+      "id": "q-ma2-funktioner-13",
+      "kind": "mc",
+      "topic": "vertexform",
+      "prompt": "Vilken funktion har vertex i punkten $(2, -3)$ och öppnar sig nedåt?",
+      "opener": "Ett minustecken framför parentesen vänder parabelns öppningsriktning.",
+      "choices": [
+        "$f(x) = -(x-2)^2 - 3$",
+        "$f(x) = (x-2)^2 - 3$",
+        "$f(x) = -(x+2)^2 - 3$",
+        "$f(x) = (x+2)^2 + 3$"
+      ],
+      "answer": 0,
+      "explanation": "Vertex $(2,-3)$ kräver $a=2$, $b=-3$, så uttrycket blir $(x-2)^2-3$. För att parabeln ska öppna nedåt behövs dessutom ett minustecken framför hela kvadraten: $f(x)=-(x-2)^2-3$."
+    },
+    {
+      "id": "q-ma2-funktioner-14",
+      "kind": "mc",
+      "topic": "extremvärde",
+      "prompt": "Vad är minimivärdet för funktionen $f(x) = 2x^2 - 8x + 3$?",
+      "opener": "Hitta symmetrilinjens $x$-värde med $x=-\\dfrac{b}{2a}$ och sätt in det.",
+      "choices": [
+        "$-5$",
+        "$3$",
+        "$8$",
+        "$-8$"
+      ],
+      "answer": 0,
+      "explanation": "Symmetrilinjen är $x = \\frac{8}{2\\cdot2} = 2$. Insatt: $f(2) = 2\\cdot4 - 8\\cdot2 + 3 = 8-16+3 = -5$. Minimivärdet är alltså $-5$, inte konstanttermen $3$."
+    },
+    {
+      "id": "q-ma2-funktioner-15",
+      "kind": "mc",
+      "topic": "symmetrilinje",
+      "prompt": "Vad är symmetrilinjen för $f(x) = 3x^2 - 12x + 7$?",
+      "opener": "Använd $x=-\\dfrac{b}{2a}$ med $a=3$ och $b=-12$.",
+      "choices": [
+        "$x = 2$",
+        "$x = 4$",
+        "$x = -2$",
+        "$x = 6$"
+      ],
+      "answer": 0,
+      "explanation": "Symmetrilinjen är $x = \\frac{12}{2\\cdot3} = \\frac{12}{6} = 2$. Att glömma att dela med $2a$ (och bara dela med $a$) hade felaktigt gett svar B, $x=4$."
     }
   ]
 }

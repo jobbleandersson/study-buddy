@@ -125,6 +125,111 @@
       "prompt": "Summarise forces, weight and speed.",
       "opener": "Start with what a force is and finish with the speed formula.",
       "answer": "Force: something that pulls or pushes and can change an object's speed, direction or shape · Unit: newton (N), measured with a dynamometer · Forces have both size and direction and are drawn as arrows · Gravity: the force that pulls everything towards the Earth's centre, about 10 N per kilogram · Weight = mass · 10 N/kg, for example 2 kg gives 20 N · Mass: the amount of matter, measured in kg, the same everywhere · Weight: a force, measured in N, smaller on the moon than on Earth · Friction: braking force between surfaces moving against each other, large against tarmac and sandpaper, small against ice and oil · Forces that are equal in size and opposite in direction cancel out, then the object stands still or moves at a steady speed · Speed = distance / time, unit m/s or km/h · 100 m in 20 s gives 5 m/s"
+    },
+    {
+      "id": "q-fys7-kra-9",
+      "kind": "mc",
+      "topic": "force and newtons",
+      "prompt": "What do you use to measure a force?",
+      "opener": "The instrument often has a spring that stretches more the harder you pull.",
+      "choices": [
+        "A thermometer",
+        "A dynamometer (spring scale)",
+        "A ruler",
+        "A stopwatch"
+      ],
+      "answer": 1,
+      "explanation": "A dynamometer, a spring scale, measures force in newtons by stretching its spring different amounts depending on how hard you pull. A thermometer measures temperature and a stopwatch measures time."
+    },
+    {
+      "id": "q-fys7-kra-10",
+      "kind": "mc",
+      "topic": "gravity",
+      "prompt": "Gravity on Earth is about 10 N per kilogram. How large is the weight of a backpack with a mass of 5 kg?",
+      "opener": "Multiply the mass in kilograms by 10 N/kg.",
+      "choices": [
+        "5 N",
+        "50 N",
+        "500 N",
+        "0.5 N"
+      ],
+      "answer": 1,
+      "explanation": "Weight = mass · gravity per kilo = 5 kg · 10 N/kg = 50 N. Answering 5 N confuses the mass with the weight."
+    },
+    {
+      "id": "q-fys7-kra-11",
+      "kind": "mc",
+      "topic": "mass and weight",
+      "prompt": "What is the difference between mass and weight?",
+      "opener": "One of these quantities changes when you travel to another celestial body, the other doesn't.",
+      "choices": [
+        "They are exactly the same thing",
+        "Mass is measured in newtons, weight in kilograms",
+        "Mass is the amount of matter and stays constant, weight is a force that depends on where you are",
+        "Weight is constant everywhere in the universe"
+      ],
+      "answer": 2,
+      "explanation": "Mass is the amount of matter in an object and doesn't change no matter where it is, while weight is the force of gravity on the object and varies depending on the celestial body — for example, weight is smaller on the moon than on Earth. Mass is measured in kg, weight in newtons, not the other way around."
+    },
+    {
+      "id": "q-fys7-kra-12",
+      "kind": "mc",
+      "topic": "friction",
+      "prompt": "Why is it easier to slip on smooth ice than on gravel?",
+      "opener": "Think about how much the surfaces \"grip\" each other in the two cases.",
+      "choices": [
+        "The friction between the shoes and the ice is much smaller",
+        "Gravity is weaker on ice",
+        "The ice has greater mass",
+        "The friction becomes greater on ice"
+      ],
+      "answer": 0,
+      "explanation": "Ice is much smoother than gravel, so the friction between the shoes and the surface is much smaller, which makes it easier to slip. Gravity and mass aren't affected by which surface you're standing on."
+    },
+    {
+      "id": "q-fys7-kra-13",
+      "kind": "mc",
+      "topic": "force and newtons",
+      "prompt": "Two people each pull on one end of a rope with exactly the same force in opposite directions. What happens?",
+      "opener": "Think about what applies when two equally sized forces act in opposite directions.",
+      "choices": [
+        "The rope accelerates in one direction",
+        "The forces cancel out and the rope stays still",
+        "The rope snaps immediately",
+        "One of the forces disappears"
+      ],
+      "answer": 1,
+      "explanation": "When two forces are equal in size but opposite in direction, they cancel out, so the total force on the rope is zero and it stays still. If one person pulled harder, the rope would instead move in that direction."
+    },
+    {
+      "id": "q-fys7-kra-14",
+      "kind": "worked",
+      "topic": "speed",
+      "prompt": "A car drives 180 km in 3 hours. Calculate the car's average speed in km/h.",
+      "opener": "The distance is already in kilometres and the time in hours, so you can substitute directly.",
+      "answer": "60 km/h",
+      "steps": [
+        "Write down the relationship: speed = distance / time.",
+        "Substitute the values: 180 km / 3 h.",
+        "Calculate: 180 / 3 = 60.",
+        "The answer is 60 km/h.",
+        "Sanity check: 60 km/h is a common speed on a country road, so the answer matches reality."
+      ]
+    },
+    {
+      "id": "q-fys7-kra-15",
+      "kind": "mc",
+      "topic": "speed",
+      "prompt": "A cyclist keeps a speed of 20 km/h for 1.5 hours. How far has the cyclist travelled?",
+      "opener": "Rearrange the speed formula: distance = speed · time.",
+      "choices": [
+        "13.3 km",
+        "18.5 km",
+        "30 km",
+        "21.5 km"
+      ],
+      "answer": 2,
+      "explanation": "Distance = speed · time = 20 km/h · 1.5 h = 30 km. Answering 13.3 km means dividing instead of multiplying."
     }
   ]
 }

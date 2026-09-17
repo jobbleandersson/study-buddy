@@ -122,6 +122,108 @@
       "prompt": "How do you calculate with percentages? List the most important rules.",
       "opener": "Three things: what percentage means, the proportion of a number, and what percentage something is.",
       "answer": "Percentage = hundredths, 1% = $\\frac{1}{100}$ = $0{,}01$ · Proportion of a number: convert the percentage to a decimal number and multiply, 30% of 200 = $0{,}3 \\cdot 200 = 60$ · What percentage something is: the part divided by the whole, then times 100 · Quick tricks: 10% = divide by 10 · 25% = divide by 4 · 50% = divide by 2 · Increase: add the change in kronor · decrease: subtract it · always calculate the percentage on the original value."
+    },
+    {
+      "id": "q-ma7-pro-9",
+      "kind": "mc",
+      "topic": "proportions",
+      "prompt": "How much is 50% of 90 kr?",
+      "opener": "50% is a half.",
+      "choices": [
+        "40 kr",
+        "45 kr",
+        "50 kr",
+        "9 kr"
+      ],
+      "answer": 1,
+      "explanation": "50% is $\\frac{1}{2}$, and $90 / 2 = 45$ kr."
+    },
+    {
+      "id": "q-ma7-pro-10",
+      "kind": "mc",
+      "topic": "percentage",
+      "prompt": "What is 75%, written as a fraction in simplest form?",
+      "opener": "75 hundredths - can the fraction be simplified?",
+      "choices": [
+        "$\\frac{75}{100}$",
+        "$\\frac{3}{4}$",
+        "$\\frac{7}{5}$",
+        "$\\frac{1}{75}$"
+      ],
+      "answer": 1,
+      "explanation": "$75\\% = \\frac{75}{100}$, which simplifies to $\\frac{3}{4}$. $\\frac{75}{100}$ is the correct value but not in simplest form."
+    },
+    {
+      "id": "q-ma7-pro-11",
+      "kind": "mc",
+      "topic": "proportions",
+      "prompt": "In a class of 25 pupils, 4 pupils are away today. What percentage of the class is that?",
+      "opener": "Write the proportion as a fraction and convert to hundredths.",
+      "choices": [
+        "4%",
+        "16%",
+        "20%",
+        "25%"
+      ],
+      "answer": 1,
+      "explanation": "The proportion is $\\frac{4}{25}$. Scale up by 4 so the denominator becomes 100: $\\frac{16}{100} = 16$%."
+    },
+    {
+      "id": "q-ma7-pro-12",
+      "kind": "mc",
+      "topic": "percentage change",
+      "prompt": "A book costs 150 kr. The price is reduced by 10%. What does the book cost now?",
+      "opener": "Work out 10% of 150 kr, then subtract it.",
+      "choices": [
+        "140 kr",
+        "135 kr",
+        "145 kr",
+        "120 kr"
+      ],
+      "answer": 1,
+      "explanation": "10% of 150 kr is 15 kr, and $150 - 15 = 135$ kr. The answer 140 kr comes from subtracting 10 kr instead of 10%."
+    },
+    {
+      "id": "q-ma7-pro-13",
+      "kind": "mc",
+      "topic": "proportions",
+      "prompt": "How much is 1% of 4,000 kr?",
+      "opener": "1% is a hundredth - divide by 100.",
+      "choices": [
+        "4 kr",
+        "40 kr",
+        "400 kr",
+        "0,4 kr"
+      ],
+      "answer": 1,
+      "explanation": "$4\\,000 / 100 = 40$ kr. Check: $4\\,000 \\cdot 0{,}01 = 40$ kr."
+    },
+    {
+      "id": "q-ma7-pro-14",
+      "kind": "worked",
+      "topic": "percentage change",
+      "prompt": "A school trip cost 800 kr last year. This year the price is raised by 15%. What does the trip cost this year?",
+      "opener": "Work out the increase in kronor first, then add it.",
+      "answer": "920 kr",
+      "steps": [
+        "The increase in kronor: $800 \\cdot 0{,}15 = 120$ kr.",
+        "New price: $800 + 120 = 920$ kr."
+      ]
+    },
+    {
+      "id": "q-ma7-pro-15",
+      "kind": "mc",
+      "topic": "proportions",
+      "prompt": "Which is bigger: 8% of 500, or 40% of 90?",
+      "opener": "Work out both amounts and compare.",
+      "choices": [
+        "8% of 500",
+        "40% of 90",
+        "They are equal",
+        "It can't be determined"
+      ],
+      "answer": 0,
+      "explanation": "8% of 500 is $500 \\cdot 0{,}08 = 40$. 40% of 90 is $90 \\cdot 0{,}4 = 36$. Since $40 > 36$, 8% of 500 is bigger."
     }
   ]
 }

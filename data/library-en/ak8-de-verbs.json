@@ -113,6 +113,111 @@
       "prompt": "How are können, müssen, and wollen conjugated, and what are strong verbs with a vowel change?",
       "opener": "Three important modal verbs plus the pattern for strong verbs.",
       "answer": "Können (to be able to): kann, kannst, kann, können, könnt, können. Müssen (to have to): muss, musst, muss, müssen, müsst, müssen. Wollen (to want): will, willst, will, wollen, wollt, wollen. Modal verb + infinitive last in the clause: Ich kann gut schwimmen. Strong verbs change their stem vowel in the du/er form: fahren → fährst/fährt (a→ä), sehen → siehst/sieht (e→ie), nehmen → nimmst/nimmt (e→i), sprechen → sprichst/spricht (e→i)."
+    },
+    {
+      "id": "q-de8-verb-9",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Choose the right form: \"Wir ___ heute Abend ins Kino gehen.\" (wollen = to want)",
+      "opener": "The \"wir\" form of wollen is the same as the base form.",
+      "choices": [
+        "wollen",
+        "will",
+        "willst",
+        "wollt"
+      ],
+      "answer": 0,
+      "explanation": "\"Wollen\" is conjugated: ich will, du willst, er/sie/es will, wir wollen, ihr wollt, sie wollen. \"Wir\" takes \"wollen\"."
+    },
+    {
+      "id": "q-de8-verb-10",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Choose the right form: \"___ ich dein Handy benutzen?\" (dürfen = to be allowed to; May I use your phone?)",
+      "opener": "Dürfen is irregular in the singular, just like können.",
+      "choices": [
+        "Darf",
+        "Darfst",
+        "Dürft",
+        "Dürfen"
+      ],
+      "answer": 0,
+      "explanation": "\"Dürfen\" is conjugated: ich darf, du darfst, er/sie/es darf, wir dürfen, ihr dürft, sie dürfen. \"Ich\" takes \"darf\"."
+    },
+    {
+      "id": "q-de8-verb-11",
+      "kind": "mc",
+      "topic": "strong verbs",
+      "prompt": "Choose the right form: \"Was ___ du gerade?\" (essen = to eat)",
+      "opener": "Essen changes its stem vowel e→i in the du and er/sie/es forms.",
+      "choices": [
+        "isst",
+        "esst",
+        "esse",
+        "essen"
+      ],
+      "answer": 0,
+      "explanation": "\"Essen\" is conjugated: ich esse, du isst, er/sie/es isst, wir essen, ihr esst, sie essen. \"Du\" takes \"isst\", with the vowel change e→i."
+    },
+    {
+      "id": "q-de8-verb-12",
+      "kind": "mc",
+      "topic": "strong verbs",
+      "prompt": "Choose the right form: \"Er ___ gern Bücher.\" (lesen = to read)",
+      "opener": "Lesen changes its stem vowel e→ie in the du and er/sie/es forms, just like sehen.",
+      "choices": [
+        "liest",
+        "lese",
+        "lest",
+        "lesen"
+      ],
+      "answer": 0,
+      "explanation": "\"Lesen\" is conjugated: ich lese, du liest, er/sie/es liest, wir lesen, ihr lest, sie lesen. \"Er\" takes \"liest\", with the vowel change e→ie."
+    },
+    {
+      "id": "q-de8-verb-13",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "What does \"Man darf hier nicht rauchen\" mean?",
+      "opener": "\"Man darf nicht...\" is a fixed phrase for a prohibition.",
+      "choices": [
+        "You're not allowed to smoke here",
+        "You have to smoke here",
+        "You want to smoke here",
+        "You can smoke here"
+      ],
+      "answer": 0,
+      "explanation": "\"Man darf hier nicht rauchen\" means \"you're not allowed to smoke here\" — \"dürfen\" in the negative expresses a prohibition."
+    },
+    {
+      "id": "q-de8-verb-14",
+      "kind": "mc",
+      "topic": "strong verbs",
+      "prompt": "Choose the right form: \"Sie ___ ihre Schwester jeden Tag.\" (sehen = to see; she sees her sister every day)",
+      "opener": "\"Sie\" (she) takes the same form as \"er\".",
+      "choices": [
+        "sieht",
+        "siehst",
+        "seht",
+        "sehen"
+      ],
+      "answer": 0,
+      "explanation": "\"Sehen\" is conjugated: ich sehe, du siehst, er/sie/es sieht, wir sehen, ihr seht, sie sehen. \"Sie\" (she) takes \"sieht\"."
+    },
+    {
+      "id": "q-de8-verb-15",
+      "kind": "mc",
+      "topic": "modal verbs",
+      "prompt": "Which word order is correct?",
+      "opener": "The modal verb is conjugated and sits in position two, and the infinitive comes last in the clause.",
+      "choices": [
+        "Ich muss meine Hausaufgaben machen.",
+        "Ich muss machen meine Hausaufgaben.",
+        "Ich meine Hausaufgaben muss machen.",
+        "Machen ich muss meine Hausaufgaben."
+      ],
+      "answer": 0,
+      "explanation": "\"Ich muss meine Hausaufgaben machen.\" has the correct word order: the conjugated modal verb in position two, the infinitive \"machen\" last."
     }
   ]
 }

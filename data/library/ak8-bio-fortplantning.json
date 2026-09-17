@@ -126,6 +126,111 @@
       "prompt": "Sammanfatta könsorganens delar, menstruationscykeln och de vanligaste preventivmedlen.",
       "opener": "Gå igenom de inre organen, cykelns faser och sedan hur preventivmedlen fungerar.",
       "answer": "Äggstockar: bildar ägg och könshormonet östrogen; äggen finns anlagda från födseln · Äggledare: leder ägget till livmodern, oftast platsen för befruktning · Livmoder: muskelorgan med slemhinna där fostret växer · Slida: förbindelsen mellan livmodern och kroppens utsida · Testiklar: bildar sädesceller och testosteron, ligger i pungen där det är några grader svalare · Sädesledare och prostata: transporterar sädescellerna och tillför vätska så att sädesvätska bildas · Penis: leder ut både urin och sädesvätska, men aldrig samtidigt · Menstruationscykeln: cirka 28 dagar (varierar mycket) — mens dag 1–5 då slemhinnan stöts ut, sedan byggs en ny slemhinna upp, ägglossning omkring dag 14, och om ägget inte befruktas stöts slemhinnan ut igen · Befruktning: sädescell + ägg ger en cell med 46 kromosomer, hälften från varje förälder · Graviditet: cellklumpen fäster i livmoderslemhinnan, moderkakan och navelsträngen ger syre och näring, fostervattnet skyddar, förlossning efter ungefär 40 veckor · Puberteten: hypofysen sätter i gång könshormonerna — längdökning, kroppshår, svettlukt, akne, röstförändring, bröstutveckling, första mens respektive första utlösning · Preventivmedel: kondom är en barriär och skyddar även mot könssjukdomar · P-piller, p-stav, p-ring och p-spruta är hormonella och hindrar oftast ägglossningen · Hormonspiral och kopparspiral sitter i livmodern och hindrar graviditet men inte smitta · Könssjukdomar som klamydia och hiv smittar vid oskyddat sex — kondom är enda preventivmedlet som skyddar mot dem."
+    },
+    {
+      "id": "q-bio8-for-9",
+      "kind": "mc",
+      "topic": "könsorganen",
+      "prompt": "Vilken uppgift har livmodern?",
+      "opener": "Tänk på var fostret växer under en graviditet.",
+      "choices": [
+        "Den bildar ägg",
+        "Den är det muskelorgan med slemhinna där fostret växer",
+        "Den leder ut urin",
+        "Den tillverkar sädesceller"
+      ],
+      "answer": 1,
+      "explanation": "Livmodern är ett muskelorgan med en slemhinna där ett befruktat ägg kan fästa och fostret växa under graviditeten. Äggen bildas i stället i äggstockarna, och urin leds ut genom ett helt annat rör."
+    },
+    {
+      "id": "q-bio8-for-10",
+      "kind": "mc",
+      "topic": "menstruationscykeln",
+      "prompt": "Vad händer under mensen, cykelns dag 1–5?",
+      "opener": "Tänk på vad som händer med slemhinnan som byggts upp föregående cykel.",
+      "choices": [
+        "Ett ägg lossnar från äggstocken",
+        "Livmoderns slemhinna stöts ut",
+        "Ett befruktat ägg fäster i livmodern",
+        "Puberteten börjar"
+      ],
+      "answer": 1,
+      "explanation": "Mensen är när livmoderns uppbyggda slemhinna stöts ut, eftersom inget befruktat ägg har fäst under den föregående cykeln. Ägglossningen sker i stället senare, omkring dag 14."
+    },
+    {
+      "id": "q-bio8-for-11",
+      "kind": "mc",
+      "topic": "puberteten och hormoner",
+      "prompt": "Vilket organ i hjärnan sätter i gång puberteten genom att skicka ut hormoner?",
+      "opener": "Detta organ styr flera av kroppens körtlar via hormoner.",
+      "choices": [
+        "Lillhjärnan",
+        "Hypofysen",
+        "Hjärnstammen",
+        "Ryggmärgen"
+      ],
+      "answer": 1,
+      "explanation": "Hypofysen börjar skicka ut hormoner som får äggstockarna respektive testiklarna att bilda könshormoner, vilket sätter i gång puberteten. Lillhjärnan styr i stället balans och rörelser, inte hormoner."
+    },
+    {
+      "id": "q-bio8-for-12",
+      "kind": "mc",
+      "topic": "befruktning",
+      "prompt": "Hur många kromosomer har en mänsklig cell efter att ägg och sädescell smält samman vid befruktningen?",
+      "opener": "Varje könscell bidrar med hälften av den slutliga kromosomsumman.",
+      "choices": [
+        "23",
+        "46",
+        "92",
+        "12"
+      ],
+      "answer": 1,
+      "explanation": "Ägget och sädescellen bidrar med 23 kromosomer var, så den befruktade äggcellen får totalt 46 kromosomer, hälften från varje förälder. 23 är i stället antalet kromosomer i varje enskild könscell."
+    },
+    {
+      "id": "q-bio8-for-13",
+      "kind": "mc",
+      "topic": "preventivmedel",
+      "prompt": "Vilket av dessa preventivmedel är hormonellt och hindrar oftast ägglossningen?",
+      "opener": "Tänk på vilket alternativ som påverkar kroppens hormoner, till skillnad från en fysisk barriär.",
+      "choices": [
+        "Kondom",
+        "P-piller",
+        "Kopparspiral",
+        "Ingen av dem"
+      ],
+      "answer": 1,
+      "explanation": "P-piller innehåller hormoner som oftast hindrar ägglossningen och därmed förhindrar graviditet. Kondomen är i stället en fysisk barriär, och kopparspiralen fungerar utan hormoner."
+    },
+    {
+      "id": "q-bio8-for-14",
+      "kind": "worked",
+      "topic": "menstruationscykeln",
+      "prompt": "Förklara steg för steg vad som händer under en hel menstruationscykel, från mensens första dag till nästa mens.",
+      "opener": "Följ livmoderns slemhinna och äggstocken genom hela cykelns ungefär 28 dagar.",
+      "answer": "Dag 1–5 stöts den gamla slemhinnan ut som mens, samtidigt som en ny slemhinna börjar byggas upp i livmodern och ett ägg mognar i äggstocken. Omkring dag 14 sker ägglossning och ägget fångas upp av äggledaren. Om ägget inte befruktas bryts den nybildade slemhinnan ner igen, och en ny mens inleder nästa cykel efter cirka 28 dagar.",
+      "steps": [
+        "Dag 1–5: den gamla slemhinnan stöts ut som mens, eftersom inget befruktat ägg fäste under föregående cykel.",
+        "Samtidigt börjar livmodern bygga upp en ny, tjockare slemhinna, och ett ägg mognar i en äggstock.",
+        "Omkring dag 14 sker ägglossning: det mogna ägget lossnar och fångas upp av äggledaren, där det kan befruktas under ungefär ett dygn.",
+        "Befruktas inte ägget bryts den nybildade slemhinnan ner igen mot slutet av cykeln.",
+        "En ny mens inleder nästa cykel, vanligtvis omkring dag 28 räknat från den förra mensens start."
+      ]
+    },
+    {
+      "id": "q-bio8-for-15",
+      "kind": "mc",
+      "topic": "könsorganen",
+      "prompt": "Var bildas könshormonet östrogen framför allt?",
+      "opener": "Tänk på vilket organ som också bildar äggen.",
+      "choices": [
+        "I testiklarna",
+        "I äggstockarna",
+        "I livmodern",
+        "I hypofysen"
+      ],
+      "answer": 1,
+      "explanation": "Östrogen bildas framför allt i äggstockarna, som också bildar äggen. Testosteron är i stället det könshormon som framför allt bildas i testiklarna."
     }
   ]
 }

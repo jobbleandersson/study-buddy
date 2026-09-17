@@ -125,6 +125,111 @@
       "prompt": "Summarise key concepts about mass media, opinion formation and algorithms.",
       "opener": "The media's role, how opinion is shaped, and what technology does to what we see.",
       "answer": "The third estate: the media's scrutinising role towards political and economic power · Media logic: the tendency to prioritise dramatic, conflict-filled and personalised content · Opinion formation: the process by which people's views on societal issues are shaped, e.g. via media, debate and campaigns · Channels of influence: letters to the editor, opinion pieces, demonstrations, social media, lobbying · Filter bubble: algorithms mostly show content one already agrees with, which reduces exposure to other perspectives · Media ethics/press ethics: principles such as accuracy, source criticism and the right of reply - that the accused should get to respond to claims before publication."
+    },
+    {
+      "id": "q-sam1a1-media-9",
+      "kind": "mc",
+      "topic": "the media's role and media logic",
+      "prompt": "What is meant by \"gatekeeping\" in media theory?",
+      "opener": "Think about who selects which events become news in the first place.",
+      "choices": [
+        "That editorial staff and journalists select which events and perspectives reach the audience through their news judgement, thereby shaping the picture of reality",
+        "That media literally guard a physical gate",
+        "That all news is automatically published without any selection",
+        "Another word for censorship carried out solely by the state"
+      ],
+      "answer": 0,
+      "explanation": "Gatekeeping describes how editorial staff and journalists, through their news judgement, select which events and perspectives reach the audience and which are left out, which in turn shapes the picture of society that the media convey."
+    },
+    {
+      "id": "q-sam1a1-media-10",
+      "kind": "mc",
+      "topic": "opinion formation and channels of influence",
+      "prompt": "What is an opinion poll, and what limitation should be kept in mind when interpreting the results?",
+      "opener": "Think about the fact that a poll is based on a sample, not the whole population.",
+      "choices": [
+        "A survey of a sample of people's opinions, intended to reflect a larger population, but which always has a certain margin of error and can be affected by how the questions are worded",
+        "A binding decision that replaces general elections",
+        "A method that always gives exactly the same result as the upcoming election",
+        "A survey that measures only politicians' own opinions"
+      ],
+      "answer": 0,
+      "explanation": "An opinion poll is based on a sample of the population and is intended to reflect a larger group's opinions, but always has a statistical margin of error and can be affected by how the questions are worded - it does not replace an election or guarantee an exact outcome."
+    },
+    {
+      "id": "q-sam1a1-media-11",
+      "kind": "mc",
+      "topic": "algorithms and filter bubbles",
+      "prompt": "What is the difference between a filter bubble and a so-called \"echo chamber\"?",
+      "opener": "Think about whether it is an algorithm or the person's own active choice that lies behind it.",
+      "choices": [
+        "A filter bubble is created mainly by algorithms that tailor content based on past behaviour, while an echo chamber instead arises from a person deliberately choosing sources and social circles that confirm their own opinions",
+        "The two terms mean exactly the same thing with no nuance of difference",
+        "An echo chamber is created solely by the state",
+        "A filter bubble arises only in printed newspapers, never online"
+      ],
+      "answer": 0,
+      "explanation": "A filter bubble is created mainly by algorithms that tailor content based on past behaviour, while an echo chamber is more about a person actively choosing sources, media and social circles that confirm their own opinions - though the effect can be similar."
+    },
+    {
+      "id": "q-sam1a1-media-12",
+      "kind": "mc",
+      "topic": "algorithms and filter bubbles",
+      "prompt": "What can a person do to actively counteract the effect of a filter bubble?",
+      "opener": "Think about whether the solution is to seek out other perspectives, or to just read more of the same thing.",
+      "choices": [
+        "Deliberately seek out sources and perspectives that differ from those one is normally exposed to, rather than relying solely on an algorithm-driven feed",
+        "Use only a single news source to avoid confusion",
+        "Turn off all news feeds permanently",
+        "Filter bubbles cannot be counteracted in any way"
+      ],
+      "answer": 0,
+      "explanation": "By deliberately seeking out sources and perspectives that differ from those one is normally exposed to, a person can counteract the effect of a filter bubble, rather than passively consuming only an algorithm-driven feed."
+    },
+    {
+      "id": "q-sam1a1-media-13",
+      "kind": "mc",
+      "topic": "media ethics",
+      "prompt": "What does the principle of public access to official documents mean in relation to the media's scrutinising role in Sweden?",
+      "opener": "Think about what right citizens and journalists have to access authorities' documents.",
+      "choices": [
+        "That citizens and journalists generally have the right to access official documents held by authorities, which facilitates the media's scrutiny of those in power",
+        "That all meetings held by authorities must be completely closed to the public",
+        "That only the state is allowed to scrutinise itself",
+        "That the principle of public access applies only to commercial companies"
+      ],
+      "answer": 0,
+      "explanation": "The principle of public access gives citizens and journalists the right to generally access official documents held by Swedish authorities, which is an important tool for the media's scrutinising role towards those in power - the opposite of closed meetings or the state only scrutinising itself."
+    },
+    {
+      "id": "q-sam1a1-media-14",
+      "kind": "mc",
+      "topic": "media ethics",
+      "prompt": "What does it mean for a news source to be \"named\" versus \"anonymous\", and why is that relevant when critically assessing a news article?",
+      "opener": "Think about who can be held accountable for a claim, and who cannot.",
+      "choices": [
+        "A named source can more easily be scrutinised and held accountable for their claims, while an anonymous source's credibility is harder to assess, which places higher demands on other evidence",
+        "Anonymous sources are always more credible than named ones",
+        "Named sources must never appear in serious journalism",
+        "There is no difference in credibility between the two types of source"
+      ],
+      "answer": 0,
+      "explanation": "A named source can be scrutinised and held accountable in a way an anonymous source cannot, which means anonymous claims normally require stronger supporting evidence to be assessed as credible in a critical examination of sources."
+    },
+    {
+      "id": "q-sam1a1-media-15",
+      "kind": "mc",
+      "topic": "the media's role and media logic",
+      "prompt": "What is it called when a news event is reported on in a way that reinforces and spreads itself as other media follow up on the same angle, often without their own independent scrutiny?",
+      "opener": "Think of the image of animals moving together in the same direction.",
+      "choices": [
+        "Pack journalism (or \"herd journalism\")",
+        "Investigative journalism",
+        "Public service journalism",
+        "Fact-checking"
+      ],
+      "answer": 0,
+      "explanation": "Pack journalism (sometimes called herd journalism) describes how media outlets tend to follow up on the same angle on a story that others have already reported, often without their own independent scrutiny, which can quickly reinforce and spread a particular picture."
     }
   ]
 }

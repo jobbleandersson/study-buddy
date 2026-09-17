@@ -124,6 +124,111 @@
       "prompt": "Summarise religion and gender roles, religious feminism, religion and sexual identity, and diversity of interpretation.",
       "opener": "Go through the themes in turn: gender roles, feminism, sexual identity, diversity of interpretation.",
       "answer": "Religion and gender roles: the view of gender varies between and within religious traditions and has changed historically in interplay with society — there is no single, clear-cut \"religious view\" of gender. Religious feminism: argues for equality based on the tradition's own sources, and often holds that unequal interpretations were shaped by historical, male-dominated interpretive traditions rather than by the sources themselves. Religion and sexual identity: great variation between and within traditions, from fully inclusive communities to more restrictive stances, often debated vigorously from within. Diversity of interpretation: the same religion can give rise to very different positions on questions such as female leadership or LGBTQ issues, depending on denomination, community and time period — a religious studies analysis should always specify which part of a tradition a statement concerns."
+    },
+    {
+      "id": "q-rel1-genus-9",
+      "kind": "mc",
+      "topic": "religion and gender roles",
+      "prompt": "Why is it misleading, from a religious studies perspective, to speak of \"women's position within Christianity\" as if it were a single, clear-cut question?",
+      "opener": "Think about how many different denominations and historical periods are contained within a global religion like Christianity.",
+      "choices": [
+        "Because Christianity contains many different denominations, communities and historical periods, in which the view of women's roles has varied and continues to vary considerably",
+        "Because women are never mentioned in any Christian text",
+        "Because the question of gender is irrelevant to religious studies analysis of Christianity",
+        "Because all Christian communities have always had identical rules about women's roles"
+      ],
+      "answer": 0,
+      "explanation": "Christianity contains many different denominations, communities and historical periods, in which the view of women's roles has varied and continues to vary considerably — which is why a single, clear-cut statement about \"women's position\" is misleading."
+    },
+    {
+      "id": "q-rel1-genus-10",
+      "kind": "mc",
+      "topic": "religious feminism",
+      "prompt": "What is an example of how religious feminists can use historical-critical method in their work with sacred texts?",
+      "opener": "Think about what distinguishes a text's core message from the social norms prevailing when it was written.",
+      "choices": [
+        "Examining the historical and cultural context in which a text was written, in order to distinguish between the text's core message and time-bound social norms that may have influenced how it was originally formulated or later interpreted",
+        "Refusing to read any sacred texts at all",
+        "Only accepting interpretations made by male theologians",
+        "Claiming that all sacred texts are historically accurate in every detail"
+      ],
+      "answer": 0,
+      "explanation": "Historical-critical method involves examining the historical and cultural context in which a text was written, in order to distinguish between the text's core message and time-bound social norms that may have influenced how the text was originally formulated or later interpreted."
+    },
+    {
+      "id": "q-rel1-genus-11",
+      "kind": "mc",
+      "topic": "religion and sexual identity",
+      "prompt": "What does it mean that the question of LGBTQ people's place within a religious tradition is often \"debated vigorously from within\", according to religious studies descriptions?",
+      "opener": "Think about whether the question is settled once and for all, or still being actively debated.",
+      "choices": [
+        "That there are ongoing, often engaged, theological and practical discussions among members, theologians and leaders within the tradition itself, rather than the question being settled once and for all",
+        "That the discussion is carried out only by people outside the religion",
+        "That the question is never discussed at all within religious contexts",
+        "That everyone within a tradition already fully agrees"
+      ],
+      "answer": 0,
+      "explanation": "A question being \"debated vigorously from within\" means there are ongoing, often engaged, theological and practical discussions among members, theologians and leaders within the tradition itself, rather than the question being settled once and for all."
+    },
+    {
+      "id": "q-rel1-genus-12",
+      "kind": "mc",
+      "topic": "diversity of interpretation",
+      "prompt": "What is a methodological point of always specifying which denomination, community or time period a statement about \"a religion's view\" concerns?",
+      "opener": "Think about what happens if one instead speaks generally of \"the religion's view\" without further specification.",
+      "choices": [
+        "It makes the statement more precise and avoids a single interpretation being incorrectly presented as representative of an entire, multifaceted religion",
+        "It makes the statement vaguer and harder to understand",
+        "It is purely a formality with no substantive significance",
+        "It is only needed when discussing non-Christian religions"
+      ],
+      "answer": 0,
+      "explanation": "Specifying which denomination, community or time period a statement concerns makes the statement more precise and avoids a single interpretation being incorrectly presented as representative of an entire, multifaceted religion."
+    },
+    {
+      "id": "q-rel1-genus-13",
+      "kind": "mc",
+      "topic": "religion and gender roles",
+      "prompt": "Can changes in the surrounding society, e.g. women's increased access to education, affect how religious texts are interpreted on questions of gender roles over time?",
+      "opener": "Think about whether religious interpretive traditions develop in a vacuum, or in interplay with the surrounding society.",
+      "choices": [
+        "Yes, interpretive traditions often develop in interplay with society at large, which is one reason the view of, for example, female leadership can change within a religion over time",
+        "No, religious interpretations are entirely unaffected by social change",
+        "Yes, but only in non-religious contexts",
+        "No, all religious interpretations have been identical since the religion's founding"
+      ],
+      "answer": 0,
+      "explanation": "Interpretive traditions often develop in interplay with society at large, which is one reason the view of, for example, female leadership can change within a religion over time, in step with broader social changes such as women's increased access to education."
+    },
+    {
+      "id": "q-rel1-genus-14",
+      "kind": "mc",
+      "topic": "religious feminism",
+      "prompt": "What is the difference between criticising a specific historical interpretive tradition within a religion and criticising the religion as a whole?",
+      "opener": "Think about whether the criticism is directed at a specific interpretation, or at the religion as a single, undivided whole.",
+      "choices": [
+        "Criticising a specific interpretive tradition targets how a text or teaching has historically been interpreted by certain authorities, while criticism of \"the religion as a whole\" risks incorrectly equating the entire multifaceted tradition with a single interpretation",
+        "The two things mean exactly the same",
+        "It is never legitimate to criticise an interpretive tradition from within a religion",
+        "Religious feminists always criticise the religion as a whole, never individual interpretations"
+      ],
+      "answer": 0,
+      "explanation": "Criticising a specific interpretive tradition targets how a text or teaching has historically been interpreted by certain authorities, while criticism of \"the religion as a whole\" risks incorrectly equating the entire multifaceted tradition with a single interpretation."
+    },
+    {
+      "id": "q-rel1-genus-15",
+      "kind": "mc",
+      "topic": "religion and sexual identity",
+      "prompt": "What might a scholar of religion mean by saying that positions on LGBTQ people's place within a religion are often connected to broader theological questions, such as biblical interpretation or the view of marriage?",
+      "opener": "Think about whether a single position is often connected to a broader view of how sacred texts should be read.",
+      "choices": [
+        "That positions on the question are rarely isolated, but often linked to a broader theological stance, e.g. how literally a sacred text is interpreted in other contexts",
+        "That the question of sexual identity never has any connection to other theological questions",
+        "That every community that is restrictive on one question is automatically restrictive on every other question too",
+        "That biblical interpretation is irrelevant to questions of sexual identity"
+      ],
+      "answer": 0,
+      "explanation": "A community's stance on questions of sexual identity is often connected to a broader theological position, for example how literally sacred texts are interpreted in other contexts — positions on a single question are therefore rarely entirely isolated from the community's theology as a whole."
     }
   ]
 }

@@ -122,6 +122,111 @@
       "prompt": "What are the three types of si-clauses, and which tenses pair up in each?",
       "opener": "Three patterns, three degrees of reality.",
       "answer": "1) Real/likely condition: si + présent, ... futur simple (Si tu viens, je serai content). 2) Hypothetical condition in the present/future: si + imparfait, ... conditionnel présent (Si j'avais le temps, j'irais). 3) Counterfactual condition in the past: si + plus-que-parfait, ... conditionnel passé (Si j'avais su, je ne serais pas venu). Remember: \"si\" is NEVER followed by the future or the conditional, only by the présent, imparfait, or plus-que-parfait. Mixed sentences also occur: a past cause (plus-que-parfait) can produce a present-day consequence (conditionnel présent)."
+    },
+    {
+      "id": "q-fr4-cond-9",
+      "kind": "mc",
+      "topic": "conditionnel présent",
+      "prompt": "Choose the correct form: \"Si j'avais plus de temps libre, je ___ (voir) mes amis plus souvent.\"",
+      "opener": "\"Voir\" has an irregular stem in the conditional.",
+      "choices": [
+        "verrais",
+        "verrai",
+        "voyais",
+        "vois"
+      ],
+      "answer": 0,
+      "explanation": "\"Voir\" has an irregular stem in the conditional: verr- + imperfect endings → \"verrais\"."
+    },
+    {
+      "id": "q-fr4-cond-10",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Choose the correct form: \"Si nous ___ (partir) maintenant, nous arriverons à l'heure.\"",
+      "opener": "This is a real/likely condition, not a hypothetical one.",
+      "choices": [
+        "partons",
+        "partions",
+        "partirions",
+        "étions partis"
+      ],
+      "answer": 0,
+      "explanation": "A real/likely condition (type 1) takes the present in the si-clause: \"si nous partons\", with the futur simple in the main clause (\"arriverons\")."
+    },
+    {
+      "id": "q-fr4-cond-11",
+      "kind": "mc",
+      "topic": "conditionnel passé",
+      "prompt": "Choose the correct form: \"Tu ___ (devoir) me le dire plus tôt.\" (you should have told me earlier)",
+      "opener": "\"Devoir\" in the conditionnel passé expresses a reproachful \"should have\".",
+      "choices": [
+        "aurais dû",
+        "devrais",
+        "as dû",
+        "devais"
+      ],
+      "answer": 0,
+      "explanation": "The conditionnel passé of \"devoir\" expresses \"should have\" about something that didn't happen: \"tu aurais dû me le dire\" (you should have told me)."
+    },
+    {
+      "id": "q-fr4-cond-12",
+      "kind": "mc",
+      "topic": "conditionnel présent",
+      "prompt": "Choose the correct form: \"Je ___ (vouloir) réserver une table pour deux personnes.\" (polite)",
+      "opener": "\"Je voudrais\" is the classic polite phrase for ordering or requesting something.",
+      "choices": [
+        "voudrais",
+        "veux",
+        "voudrai",
+        "voulais"
+      ],
+      "answer": 0,
+      "explanation": "\"Vouloir\" in the conditionnel présent for \"je\" is \"voudrais\", a polite equivalent of \"je veux\" (I want)."
+    },
+    {
+      "id": "q-fr4-cond-13",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "Choose the correct form: \"Si elle avait pris le bus, elle ne ___ (être) pas en retard maintenant.\"",
+      "opener": "A past cause (plus-que-parfait) produces a present-day consequence — which tense does the main clause need then?",
+      "choices": [
+        "serait",
+        "sera",
+        "était",
+        "aurait été"
+      ],
+      "answer": 0,
+      "explanation": "A mixed conditional sentence: the si-clause in the plus-que-parfait (\"avait pris\") produces a consequence in the PRESENT, which requires the conditionnel présent in the main clause: \"serait\", not the conditionnel passé."
+    },
+    {
+      "id": "q-fr4-cond-14",
+      "kind": "mc",
+      "topic": "conditionnel passé",
+      "prompt": "Choose the correct form: \"Nous ___ (pouvoir) t'aider si tu nous avais demandé.\"",
+      "opener": "\"Pouvoir\" has an irregular stem in the conditional.",
+      "choices": [
+        "aurions pu",
+        "pourrions",
+        "avons pu",
+        "pouvions"
+      ],
+      "answer": 0,
+      "explanation": "The conditionnel passé of \"pouvoir\" is formed with \"avoir\" in the conditionnel présent + past participle: \"nous aurions pu t'aider\" (we could have helped you)."
+    },
+    {
+      "id": "q-fr4-cond-15",
+      "kind": "mc",
+      "topic": "si-clauses",
+      "prompt": "What does \"Dépêche-toi, sinon tu vas rater le train\" mean?",
+      "opener": "\"Sinon\" is related to si-clauses and roughly means \"otherwise\".",
+      "choices": [
+        "Hurry up, otherwise you're going to miss the train",
+        "Hurry up, because you're going to miss the train",
+        "Hurry up, even if you miss the train",
+        "Hurry up, since the train is late"
+      ],
+      "answer": 0,
+      "explanation": "\"Sinon\" means \"otherwise\" and introduces a consequence if the condition isn't met: \"hurry up, otherwise you're going to miss the train\"."
     }
   ]
 }

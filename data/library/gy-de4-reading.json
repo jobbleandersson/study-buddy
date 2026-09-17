@@ -123,6 +123,111 @@
       "prompt": "Vilka strategier hjälper dig att förstå en argumenterande, åsiktsbaserad tysk text som den om fyradagarsveckan?",
       "opener": "Leta efter vem som säger vad, och vilka ord som markerar en vändning i argumentationen.",
       "answer": "Identifiera de två sidorna tidigt: vem är Befürworter (förespråkare) och vem är Kritiker (kritiker)? Leta efter signalord som markerar en vändning i argumentationen: hingegen/jedoch/allerdings (däremot/dock), außerdem (dessutom), daher (därför). Var uppmärksam på Konjunktiv II (würde kompensieren, würde verkehren) — det markerar ofta ett antagande eller en befarad konsekvens, inte ett fastställt faktum. Skilj på fakta som texten redovisar (pilotprojektens resultat) och åsikter/farhågor som olika grupper uttrycker. En text som avslutar med \"bleibt eine offene Frage\" tar sällan definitiv ställning — sammanfatta då båda sidor snarare än att välja den ena."
+    },
+    {
+      "id": "q-de4-read-9",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Läs texten: \"Der Fleischkonsum in Deutschland ist in den letzten zehn Jahren spürbar zurückgegangen, doch er bleibt im europäischen Vergleich weiterhin hoch. Befürworter einer pflanzlichen Ernährung argumentieren vor allem mit dem Klimaschutz: Die Produktion von Fleisch, insbesondere von Rindfleisch, verursacht deutlich mehr Treibhausgase als der Anbau von Gemüse oder Hülsenfrüchten. Auch der hohe Wasser- und Flächenverbrauch der Tierhaltung wird häufig als Argument angeführt. Vertreter der Landwirtschaft weisen hingegen darauf hin, dass viele Weideflächen in Deutschland für den Anbau von Getreide oder Gemüse gar nicht geeignet wären, sodass die Tierhaltung dort tatsächlich die einzige sinnvolle Nutzung der Flächen darstelle. Zudem betonen sie die wirtschaftliche Bedeutung der Landwirtschaft für ländliche Regionen, wo viele Arbeitsplätze direkt oder indirekt von der Fleischproduktion abhängen. Ernährungswissenschaftler wiederum weisen darauf hin, dass ein moderater Fleischkonsum gesundheitlich unproblematisch sei, ein sehr hoher Konsum jedoch mit einem erhöhten Risiko für Herz-Kreislauf-Erkrankungen in Verbindung gebracht werde. Eine einfache Antwort auf die Frage, wie viel Fleisch \\\"richtig\\\" ist, gibt es also nicht — die Debatte bewegt sich zwischen ökologischen, wirtschaftlichen und gesundheitlichen Argumenten.\"\n\nVad handlar texten huvudsakligen om?",
+      "opener": "Leta efter de olika grupperna som nämns och deras respektive argument.",
+      "choices": [
+        "Debatten om köttkonsumtion i Tyskland, med argument från flera olika perspektiv",
+        "En instruktion för hur man blir vegetarian",
+        "En historia om det tyska jordbrukets utveckling",
+        "En kokbok med köttfria recept"
+      ],
+      "answer": 0,
+      "explanation": "Texten presenterar argument från förespråkare för växtbaserad kost, jordbruksrepresentanter och näringsforskare — det är en flersidig debatt om köttkonsumtion, inte en instruktion, historia eller kokbok."
+    },
+    {
+      "id": "q-de4-read-10",
+      "kind": "mc",
+      "topic": "argument structure",
+      "prompt": "Samma text. Vilket argument använder förespråkarna för pflanzliche Ernährung (växtbaserad kost)?",
+      "opener": "Första halvan av texten nämner deras huvudargument.",
+      "choices": [
+        "Klimatskydd, eftersom köttproduktion orsakar mer växthusgaser",
+        "Att kött smakar sämre än grönsaker",
+        "Att det är billigare att äta kött",
+        "Att djurhållning kräver mindre vatten"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att köttproduktion \"verursacht deutlich mehr Treibhausgase als der Anbau von Gemüse\" (orsakar betydligt mer växthusgaser än odling av grönsaker) — ett klimatargument."
+    },
+    {
+      "id": "q-de4-read-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Samma text. Vad betyder \"die Weideflächen\" i sammanhanget om jordbrukarnas motargument?",
+      "opener": "Ordet kommer från \"weiden\" (beta) och \"die Fläche\" (yta/mark).",
+      "choices": [
+        "Betesmarker",
+        "Åkermark för spannmål",
+        "Skogsmark",
+        "Industriområden"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Weideflächen\" betyder betesmarker, mark där djur betar."
+    },
+    {
+      "id": "q-de4-read-12",
+      "kind": "mc",
+      "topic": "argument structure",
+      "prompt": "Samma text. Vad är jordbrukarrepresentanternas huvudargument mot att helt avskaffa djurhållning?",
+      "opener": "Leta efter meningen om \"Weideflächen\" och \"wirtschaftliche Bedeutung\".",
+      "choices": [
+        "Många betesmarker lämpar sig inte för annan odling, och djurhållningen ger viktiga arbetstillfällen",
+        "Kött är den enda källan till protein",
+        "Klimatförändringen är inte verklig",
+        "Konsumenterna vägrar äta grönsaker"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att många betesmarker inte lämpar sig för spannmåls- eller grönsaksodling, och att djurhållningen har stor ekonomisk betydelse för landsbygden."
+    },
+    {
+      "id": "q-de4-read-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Samma text. Vad kan man dra slutsatsen om näringsforskarnas (Ernährungswissenschaftler) hållning, utifrån texten?",
+      "opener": "Leta efter meningen om \"moderater Fleischkonsum\" jämfört med \"sehr hoher Konsum\".",
+      "choices": [
+        "De intar en mellanposition: måttligt köttätande är inte hälsofarligt, men mycket höga mängder är riskabelt",
+        "De anser att allt köttätande är farligt",
+        "De anser att kött är helt riskfritt oavsett mängd",
+        "De har ingen åsikt om hälsofrågan"
+      ],
+      "answer": 0,
+      "explanation": "Texten säger att måttligt köttätande är \"gesundheitlich unproblematisch\", medan mycket höga mängder kopplas till ökad risk för hjärt-kärlsjukdomar — en nyanserad mellanposition."
+    },
+    {
+      "id": "q-de4-read-14",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Samma text. Vad betyder \"Herz-Kreislauf-Erkrankungen\"?",
+      "opener": "Ordet är sammansatt av \"Herz\" (hjärta), \"Kreislauf\" (kretslopp/cirkulation) och \"Erkrankungen\" (sjukdomar).",
+      "choices": [
+        "Hjärt-kärlsjukdomar",
+        "Matsmältningsbesvär",
+        "Allergier",
+        "Sömnproblem"
+      ],
+      "answer": 0,
+      "explanation": "\"Herz-Kreislauf-Erkrankungen\" betyder hjärt-kärlsjukdomar."
+    },
+    {
+      "id": "q-de4-read-15",
+      "kind": "mc",
+      "topic": "main idea",
+      "prompt": "Samma text. Vilken slutsats drar texten om frågan hur mycket kött som är \"rätt\" mängd?",
+      "opener": "Läs den sista meningen noga.",
+      "choices": [
+        "Det finns inget enkelt svar — debatten rör sig mellan ekologiska, ekonomiska och hälsomässiga argument",
+        "Experter är helt överens om exakt hur mycket kött man bör äta",
+        "Kött bör förbjudas helt inom några år",
+        "Frågan är oviktig och sällan diskuterad"
+      ],
+      "answer": 0,
+      "explanation": "Sista meningen säger att det inte finns något enkelt svar, och att debatten rör sig mellan ekologiska, ekonomiska och hälsomässiga argument."
     }
   ]
 }

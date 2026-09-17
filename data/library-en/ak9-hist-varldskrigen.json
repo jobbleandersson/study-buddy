@@ -124,6 +124,110 @@
       "prompt": "Summarise the main causes, events and consequences of the world wars.",
       "opener": "Think causes, turning points and what happened afterwards for both wars.",
       "answer": "The First World War (1914–1918) was triggered by the assassination of Franz Ferdinand in Sarajevo and spread through the alliance system (the Triple Alliance versus the Triple Entente) · the war ended with the Treaty of Versailles, which punished Germany harshly with reparations and loss of territory · the harsh peace terms created economic crisis and bitterness that contributed to the rise of Nazism in Germany in the 1930s · the Second World War (1939–1945) began when Germany invaded Poland · important turning points included the Battle of Stalingrad and the Allied landings in Normandy · the war ended with the defeat of Germany and Japan in 1945 · after the war, the UN was formed to promote peace and international cooperation and prevent new world wars · new borders were drawn and Europe was divided into east and west, laying the foundation for the Cold War."
+    },
+    {
+      "id": "q-hist-vk-9",
+      "kind": "mc",
+      "topic": "causes of the First World War",
+      "prompt": "Which of these was a contributing cause of the First World War, beyond the alliance system?",
+      "opener": "Think about the mood between Europe's great powers before the war broke out.",
+      "choices": [
+        "Great-power rivalry and nationalism between European countries",
+        "The invention of the internet",
+        "The Cold War",
+        "The decolonisation of Africa"
+      ],
+      "answer": 0,
+      "explanation": "Great-power rivalry, nationalism and competition over colonies and military strength built up tensions between European countries even before the assassination in Sarajevo. The other options belong to a completely different era."
+    },
+    {
+      "id": "q-hist-vk-10",
+      "kind": "mc",
+      "topic": "causes of the Second World War",
+      "prompt": "Which event in 1939 is considered the start of the Second World War in Europe?",
+      "opener": "Which country was invaded by Germany, prompting Britain and France to declare war?",
+      "choices": [
+        "Germany's invasion of Poland",
+        "The attack on Pearl Harbor",
+        "The Battle of Stalingrad",
+        "The assassination of Franz Ferdinand"
+      ],
+      "answer": 0,
+      "explanation": "Germany's invasion of Poland in September 1939 prompted Britain and France to declare war on Germany, which is considered the start of the Second World War in Europe."
+    },
+    {
+      "id": "q-hist-vk-11",
+      "kind": "mc",
+      "topic": "course of events and turning points",
+      "prompt": "Which event caused the USA to join the Second World War?",
+      "opener": "A Japanese attack on an American naval base in Hawaii.",
+      "choices": [
+        "The Japanese attack on Pearl Harbor in 1941",
+        "The Battle of Stalingrad",
+        "The assassination of Franz Ferdinand",
+        "The fall of the Berlin Wall"
+      ],
+      "answer": 0,
+      "explanation": "Japan's surprise attack on the American naval base at Pearl Harbor in December 1941 caused the USA to declare war on Japan and enter the Second World War fully."
+    },
+    {
+      "id": "q-hist-vk-12",
+      "kind": "mc",
+      "topic": "course of events and turning points",
+      "prompt": "What was D-Day (the Normandy landings in 1944)?",
+      "opener": "Think about the western front and the Allies' path toward Germany.",
+      "choices": [
+        "The Allies' large-scale invasion of German-occupied France, a major turning point on the western front",
+        "The day the First World War broke out",
+        "The day the Soviet Union dissolved",
+        "The day the UN was founded"
+      ],
+      "answer": 0,
+      "explanation": "D-Day was the Allies' massive landing in Normandy in June 1944, which opened a western front against Nazi Germany and became a decisive turning point toward the end of the war."
+    },
+    {
+      "id": "q-hist-vk-13",
+      "kind": "mc",
+      "topic": "consequences",
+      "prompt": "What was a direct consequence of the Holocaust for international law after the Second World War?",
+      "opener": "Think about what the world community wanted to be able to do about those responsible for similar crimes in the future.",
+      "choices": [
+        "New international laws and courts to prosecute genocide and crimes against humanity",
+        "All countries permanently abolished their armies",
+        "Germany was never divided",
+        "The UN was formed to replace all national governments"
+      ],
+      "answer": 0,
+      "explanation": "The horrors of the Holocaust contributed to the development of international law, including the Nuremberg trials and later conventions against genocide, to be able to prosecute those responsible for similar crimes."
+    },
+    {
+      "id": "q-hist-vk-14",
+      "kind": "worked",
+      "topic": "consequences",
+      "prompt": "Explain how the end of the First World War led to several new countries being formed in Europe.",
+      "opener": "Think about which major empires collapsed as a result of the war.",
+      "answer": "When the losing empires (German, Austro-Hungarian, Russian and Ottoman) collapsed after the war, their territories were divided up, and several new independent states were formed.",
+      "steps": [
+        "Four large empires - German, Austro-Hungarian, Russian and Ottoman - collapsed wholly or partly as a result of the war and its aftermath.",
+        "The peace negotiations after the war, including at Versailles, redrew the map of Europe.",
+        "New states such as Poland, Czechoslovakia and Yugoslavia were formed, partly based on the idea that peoples should have their own nation-states.",
+        "This redrawing did not always create stable borders, however, and several of the new states contained tensions between different ethnic groups that would matter later in the century."
+      ]
+    },
+    {
+      "id": "q-hist-vk-15",
+      "kind": "mc",
+      "topic": "causes of the Second World War",
+      "prompt": "What did Hitler's policy toward other countries involve even before the war broke out in 1939?",
+      "opener": "Think about Austria and the Sudetenland - what happened to them before the invasion of Poland?",
+      "choices": [
+        "He annexed and demanded territory, such as Austria and the Sudetenland, without facing sufficient resistance",
+        "He refused any form of rearmament",
+        "He cooperated peacefully with all neighbouring countries",
+        "He abolished the Nazi party"
+      ],
+      "answer": 0,
+      "explanation": "Before the war broke out, Hitler annexed Austria (the Anschluss) and then demanded the Sudetenland from Czechoslovakia, without the other great powers clearly stopping him - a policy of appeasement that later proved to have encouraged further aggression."
     }
   ]
 }

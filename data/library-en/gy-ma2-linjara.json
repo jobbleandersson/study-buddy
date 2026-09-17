@@ -123,6 +123,111 @@
       "prompt": "Summarise the equation of the straight line and the two methods for solving systems of linear equations, and what the graphs show about the number of solutions.",
       "opener": "Connect the algebraic solution with how the lines are positioned relative to each other.",
       "answer": "Equation of the straight line: $y = kx + m$, where $k$ is the gradient and $m$ is the value where the line crosses the y-axis · Substitution method: solve for one variable in one equation and substitute it into the other · Elimination method: multiply as needed so that one variable's coefficients become opposites, then add the equations together · Graphically: different gradients give one intersection point (one solution) · same gradient, different y-intercept gives parallel lines (no solution) · same gradient and y-intercept gives identical lines (infinitely many solutions)."
+    },
+    {
+      "id": "q-ma2-linjara-9",
+      "kind": "mc",
+      "topic": "gradient and y-intercept",
+      "prompt": "A straight line passes through the points $(1, 3)$ and $(4, 12)$. What is the gradient of the line?",
+      "opener": "The gradient is the change in y divided by the change in x.",
+      "choices": [
+        "$3$",
+        "$9$",
+        "$4$",
+        "$1$"
+      ],
+      "answer": 0,
+      "explanation": "$k = \\dfrac{12-3}{4-1} = \\dfrac{9}{3} = 3$. Answer B ($9$) misses dividing by the change in x."
+    },
+    {
+      "id": "q-ma2-linjara-10",
+      "kind": "mc",
+      "topic": "gradient and y-intercept",
+      "prompt": "The line $y = 4x - 7$ has which y-intercept, and what does it mean?",
+      "opener": "The y-intercept is the constant in $y=kx+m$.",
+      "choices": [
+        "$m=-7$; the line crosses the y-axis at $(0,-7)$",
+        "$m=4$; the line crosses the y-axis at $(0,4)$",
+        "$m=-7$; the line's gradient is $-7$",
+        "$m=-7$; the line passes through the origin"
+      ],
+      "answer": 0,
+      "explanation": "In $y=kx+m$, $m=-7$ is the constant, and it shows where the line crosses the y-axis: $(0,-7)$. The gradient is instead given by the k-value, which here is $4$, not $m$."
+    },
+    {
+      "id": "q-ma2-linjara-11",
+      "kind": "mc",
+      "topic": "the substitution method",
+      "prompt": "Solve the system of equations $\\begin{cases} y = 3x - 2 \\\\ y = x + 4 \\end{cases}$ using substitution.",
+      "opener": "Set the two expressions for y equal to each other.",
+      "choices": [
+        "$x=3,\\ y=7$",
+        "$x=2,\\ y=6$",
+        "$x=-1,\\ y=3$",
+        "$x=1,\\ y=1$"
+      ],
+      "answer": 0,
+      "explanation": "$3x-2=x+4 \\Rightarrow 2x=6 \\Rightarrow x=3$. Substituting: $y=3+4=7$. Check in the first equation: $3\\cdot3-2=7$. Correct."
+    },
+    {
+      "id": "q-ma2-linjara-12",
+      "kind": "mc",
+      "topic": "the elimination method",
+      "prompt": "Solve $\\begin{cases} 4x + 3y = 18 \\\\ 2x - 3y = 0 \\end{cases}$ using the elimination method.",
+      "opener": "The coefficients in front of y already have opposite signs.",
+      "choices": [
+        "$x=3,\\ y=2$",
+        "$x=2,\\ y=3$",
+        "$x=0,\\ y=6$",
+        "$x=6,\\ y=-2$"
+      ],
+      "answer": 0,
+      "explanation": "Add the rows: $(4x+3y)+(2x-3y)=18+0 \\Rightarrow 6x=18 \\Rightarrow x=3$. Substitute into the second equation: $2\\cdot3-3y=0 \\Rightarrow 6=3y \\Rightarrow y=2$. Check in the first: $4\\cdot3+3\\cdot2=18$. Correct."
+    },
+    {
+      "id": "q-ma2-linjara-13",
+      "kind": "mc",
+      "topic": "graphical interpretation",
+      "prompt": "Two lines have different gradients and different y-intercepts. What holds for the system of equations they form?",
+      "opener": "Think about whether the lines could be parallel when the slopes differ.",
+      "choices": [
+        "The system has exactly one solution",
+        "The system has no solution",
+        "The system has infinitely many solutions",
+        "The lines are parallel"
+      ],
+      "answer": 0,
+      "explanation": "Different gradients mean the lines are not parallel, so they intersect at exactly one point regardless of their y-intercepts. The system therefore has exactly one solution."
+    },
+    {
+      "id": "q-ma2-linjara-14",
+      "kind": "mc",
+      "topic": "gradient and y-intercept",
+      "prompt": "A straight line is vertical (parallel to the y-axis). What holds for the line's gradient?",
+      "opener": "Can a vertical line even be written in the form $y=kx+m$?",
+      "choices": [
+        "The gradient is undefined",
+        "The gradient is 0",
+        "The gradient is 1",
+        "The gradient is infinitely large but defined"
+      ],
+      "answer": 0,
+      "explanation": "A vertical line cannot be written in the form $y=kx+m$, since each x-value would correspond to a whole vertical line rather than a function of x. The gradient is therefore counted as undefined, not zero or some large defined number."
+    },
+    {
+      "id": "q-ma2-linjara-15",
+      "kind": "mc",
+      "topic": "the substitution method",
+      "prompt": "Solve the system of equations $\\begin{cases} y = -2x + 9 \\\\ y = 5x - 5 \\end{cases}$ using substitution.",
+      "opener": "Set the two expressions for y equal to each other.",
+      "choices": [
+        "$x=2,\\ y=5$",
+        "$x=1,\\ y=7$",
+        "$x=3,\\ y=3$",
+        "$x=-2,\\ y=13$"
+      ],
+      "answer": 0,
+      "explanation": "$-2x+9=5x-5 \\Rightarrow 14=7x \\Rightarrow x=2$. Substituting: $y=-2\\cdot2+9=5$. Check in the second equation: $5\\cdot2-5=5$. Correct."
     }
   ]
 }

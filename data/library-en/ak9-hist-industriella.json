@@ -124,6 +124,110 @@
       "prompt": "Summarise the Industrial Revolution's key features and consequences.",
       "opener": "Think starting country, driving force, social change and consequences.",
       "answer": "The Industrial Revolution began in Britain in the late 1700s · driven by new inventions such as the steam engine (James Watt) and mechanical looms · involved a shift from craft and farming to factory production · led to urbanisation, as people moved from the countryside to growing cities for factory work · created new class divisions between the working class and the bourgeoisie (factory owners) · often involved harsh working conditions with long working days, low wages and child labour · led to trade unions being formed to fight for workers' rights · spread gradually to other countries in Europe and to the USA during the 1800s."
+    },
+    {
+      "id": "q-hist-ind-9",
+      "kind": "mc",
+      "topic": "the Industrial Revolution",
+      "prompt": "Roughly when did the Industrial Revolution begin in Britain?",
+      "opener": "Think about the century-turn often mentioned alongside the steam engine's breakthrough.",
+      "choices": [
+        "The second half of the 1700s",
+        "The 1500s",
+        "The 1900s",
+        "During antiquity"
+      ],
+      "answer": 0,
+      "explanation": "The Industrial Revolution is usually dated to the second half of the 1700s in Britain, with the breakthrough of the steam engine and mechanised textile production."
+    },
+    {
+      "id": "q-hist-ind-10",
+      "kind": "mc",
+      "topic": "the steam engine and mechanisation",
+      "prompt": "Who is particularly associated with improving the steam engine and making it industrially useful?",
+      "opener": "A surname that became an international unit of power.",
+      "choices": [
+        "James Watt",
+        "Thomas Edison",
+        "Alfred Nobel",
+        "Henry Ford"
+      ],
+      "answer": 0,
+      "explanation": "James Watt improved the steam engine in the 1760s-70s and made it significantly more efficient, which became crucial for industrialisation. The unit \"watt\" is named after him."
+    },
+    {
+      "id": "q-hist-ind-11",
+      "kind": "mc",
+      "topic": "the steam engine and mechanisation",
+      "prompt": "Which industry was among the first to be mechanised during the Industrial Revolution in Britain?",
+      "opener": "Think about looms and spinning machines.",
+      "choices": [
+        "The textile industry",
+        "The space industry",
+        "The IT industry",
+        "The car industry"
+      ],
+      "answer": 0,
+      "explanation": "The textile industry, with inventions such as the mechanical loom and spinning machines, was among the first sectors to be mechanised and became a driving force of early industrialisation."
+    },
+    {
+      "id": "q-hist-ind-12",
+      "kind": "mc",
+      "topic": "urbanisation",
+      "prompt": "What became a common consequence of rapid urbanisation during industrialisation?",
+      "opener": "Think about what happens when cities grow faster than housing can be built.",
+      "choices": [
+        "Overcrowding and poor sanitary conditions in rapidly growing cities",
+        "Cities shrank quickly",
+        "No demand for housing",
+        "The countryside grew faster than the cities"
+      ],
+      "answer": 0,
+      "explanation": "As people flooded into cities faster than housing could be built, overcrowding, poor sanitation and poor living conditions often resulted in working-class neighbourhoods."
+    },
+    {
+      "id": "q-hist-ind-13",
+      "kind": "mc",
+      "topic": "working conditions and trade unions",
+      "prompt": "What was a common demand from early trade unions?",
+      "opener": "What did workers want to improve in their daily lives?",
+      "choices": [
+        "Shorter working days and higher wages",
+        "More child labourers",
+        "Longer working days",
+        "Abolishing all factories"
+      ],
+      "answer": 0,
+      "explanation": "Trade unions demanded, above all, shorter working days, higher wages and safer working conditions - basic improvements lacking during early industrialisation."
+    },
+    {
+      "id": "q-hist-ind-14",
+      "kind": "worked",
+      "topic": "urbanisation",
+      "prompt": "Explain, in several steps, how the invention of the steam engine led to urbanisation.",
+      "opener": "Think about what factories depended on before the steam engine, and what changed.",
+      "answer": "The steam engine made factories independent of water power, which meant they could be built in or near cities. This created jobs that attracted people from the countryside, which in turn drove the rapid growth of cities.",
+      "steps": [
+        "Before the steam engine, factories had to be located by flowing water for power, often in the countryside.",
+        "The steam engine, powered by coal, made it possible to place factories anywhere, for example in or near cities with good transport links.",
+        "Factories in the cities offered new jobs that attracted people from the countryside.",
+        "This led to rapid population growth in cities - urbanisation - which in turn created new challenges such as overcrowding."
+      ]
+    },
+    {
+      "id": "q-hist-ind-15",
+      "kind": "mc",
+      "topic": "the Industrial Revolution",
+      "prompt": "Which of these was NOT a central part of the Industrial Revolution?",
+      "opener": "One of the options is a much later invention.",
+      "choices": [
+        "The internet and digital technology",
+        "The steam engine",
+        "Mechanised textile factories",
+        "The railway"
+      ],
+      "answer": 0,
+      "explanation": "The internet and digital technology belong to the 1900s and 2000s, much later than the Industrial Revolution. The steam engine, mechanised factories and the railway, by contrast, were central parts of 1700s and 1800s industrialisation."
     }
   ]
 }

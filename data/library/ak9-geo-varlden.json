@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta världsdelar, inkomstskillnader mellan länder, globalisering och viktiga geografiska landmärken.",
       "opener": "Bygg en tät översikt att repetera snabbt inför provet.",
       "answer": "Världsdelar: Afrika, Asien, Europa, Nordamerika, Sydamerika, Oceanien, Antarktis (7 st) · största hav: Stilla havet, följt av Atlanten och Indiska oceanen. Höginkomst- och låginkomstländer: mäts ofta med BNP per capita · höginkomstländer har oftast bättre tillgång till utbildning, sjukvård och infrastruktur · skillnaderna beror på ekonomisk utveckling, inte på yta eller folkmängd. Globalisering: länder, ekonomier och människor blir alltmer sammanlänkade genom handel, resor och kommunikation · globala produktionskedjor sprider tillverkningen av en vara över flera länder. Geografiska landmärken: bergskedjor bildas där kontinentalplattor kolliderar (t.ex. Himalaya) · stora ökenbälten (t.ex. Sahara, Arabiska öknen) finns ofta kring vissa breddgrader med torrt, nedåtgående luftflöde · geografiska mönster hänger ofta ihop med plattektonik och klimat."
+    },
+    {
+      "id": "q-geo-var-9",
+      "kind": "mc",
+      "topic": "världsdelar och hav",
+      "prompt": "Vilket är världens till ytan minsta hav, som ligger runt Nordpolen?",
+      "opener": "Detta hav är till stor del täckt av havsis under stora delar av året.",
+      "choices": [
+        "Norra ishavet",
+        "Stilla havet",
+        "Atlanten",
+        "Indiska oceanen"
+      ],
+      "answer": 0,
+      "explanation": "Norra ishavet (Arktiska oceanen) är det till ytan minsta och grundaste av världens hav, beläget runt Nordpolen och till stor del täckt av havsis."
+    },
+    {
+      "id": "q-geo-var-10",
+      "kind": "mc",
+      "topic": "världsdelar och hav",
+      "prompt": "Vilken världsdel är en av de till ytan minsta men samtidigt en av de folktätaste, med länder som Tyskland och Frankrike?",
+      "opener": "Denna världsdel gränsar till Asien i öster.",
+      "choices": [
+        "Europa",
+        "Oceanien",
+        "Antarktis",
+        "Sydamerika"
+      ],
+      "answer": 0,
+      "explanation": "Europa är en av de till ytan minsta världsdelarna men har samtidigt hög befolkningstäthet, med många länder och stora städer på relativt liten yta."
+    },
+    {
+      "id": "q-geo-var-11",
+      "kind": "mc",
+      "topic": "höginkomst- och låginkomstländer",
+      "prompt": "Vad mäter INTE BNP per capita, trots att det är ett vanligt ekonomiskt mått?",
+      "opener": "Måttet ger ett GENOMSNITT — men säger det något om hur jämnt det är fördelat?",
+      "choices": [
+        "Hur jämnt inkomsterna är fördelade mellan invånarna i landet",
+        "Landets totala ekonomiska produktion",
+        "En ungefärlig bild av ekonomisk levnadsstandard",
+        "Ett sätt att jämföra länder ekonomiskt"
+      ],
+      "answer": 0,
+      "explanation": "BNP per capita är ett genomsnitt och säger ingenting om hur inkomsterna faktiskt är fördelade — ett land kan ha hög BNP per capita men samtidigt stora klyftor mellan rika och fattiga invånare."
+    },
+    {
+      "id": "q-geo-var-12",
+      "kind": "mc",
+      "topic": "globalisering och världshandel",
+      "prompt": "Vad kallas internationella organisationer, som Världshandelsorganisationen (WTO), som arbetar med att sätta gemensamma regler för handel mellan länder?",
+      "opener": "Namnet beskriver vilket område organisationerna fokuserar på.",
+      "choices": [
+        "Internationella handelsorganisationer",
+        "Militärallianser",
+        "Kolonialmakter",
+        "Enskilda nationalstater"
+      ],
+      "answer": 0,
+      "explanation": "Internationella handelsorganisationer som WTO arbetar med att sätta gemensamma regler för handel mellan länder, till exempel kring tullar och handelstvister, för att underlätta världshandeln."
+    },
+    {
+      "id": "q-geo-var-13",
+      "kind": "mc",
+      "topic": "geografiska landmärken och fenomen",
+      "prompt": "Var i världen ligger de flesta av jordens stora ökenbälten ofta, i förhållande till breddgrad?",
+      "opener": "Tänk på var luftcirkulationsmönster i atmosfären ofta ger nedåtgående, torkande luftflöden.",
+      "choices": [
+        "Kring vändkretsarna, ungefär 20-30 grader norr och söder om ekvatorn",
+        "Enbart vid polerna",
+        "Enbart vid ekvatorn",
+        "Öknar finns jämnt utspridda på alla breddgrader"
+      ],
+      "answer": 0,
+      "explanation": "Många av världens stora ökenbälten, som Sahara och Arabiska öknen, ligger kring vändkretsarna där storskaliga luftcirkulationsmönster ger nedåtgående, torr luft som hämmar molnbildning och nederbörd."
+    },
+    {
+      "id": "q-geo-var-14",
+      "kind": "worked",
+      "topic": "geografiska landmärken och fenomen",
+      "prompt": "Förklara varför vissa kustöknar, som Atacamaöknen i Chile, ligger nära havet men ändå är extremt torra.",
+      "opener": "Tänk på vad en kall havsström gör med luften direkt ovanför havsytan.",
+      "answer": "En kall havsström längs kusten kyler ner luften ovanför havet, vilket gör att luften håller mindre fuktighet och bildar färre moln. Storskaliga luftcirkulationsmönster förstärker dessutom ofta ett stabilt högtryck som motverkar regnbildning, vilket tillsammans gör att mycket lite nederbörd når kustlandet trots närheten till havet.",
+      "steps": [
+        "En kall havsström (t.ex. Humboldtströmmen utanför Chile) kyler ner luften direkt ovanför havsytan.",
+        "Kall luft håller mindre fukt än varm luft, vilket gör att få moln bildas trots närheten till vatten.",
+        "Storskaliga luftcirkulationsmönster i området förstärker ofta ett stabilt högtryck som ytterligare motverkar molnbildning och nederbörd.",
+        "Resultatet blir att kustremsan förblir extremt torr, trots att den ligger precis vid ett stort hav — motsatsen till vad man kanske skulle vänta sig."
+      ]
+    },
+    {
+      "id": "q-geo-var-15",
+      "kind": "mc",
+      "topic": "höginkomst- och låginkomstländer",
+      "prompt": "Vad kan en hög BNP per capita i ett land INTE ensamt garantera?",
+      "opener": "Tänk på skillnaden mellan ett genomsnitt och hur verkligheten ser ut för varje enskild invånare.",
+      "choices": [
+        "Att alla invånare i landet har det ekonomiskt bra, eftersom inkomsterna kan vara mycket ojämnt fördelade",
+        "Att landet har en ekonomi över huvud taget",
+        "Att landet kan jämföras med andra länder alls",
+        "Att landet har invånare"
+      ],
+      "answer": 0,
+      "explanation": "En hög BNP per capita är ett genomsnitt och garanterar inte att alla invånare har det ekonomiskt bra — stora inkomstskillnader inom ett land kan innebära att många lever i fattigdom trots en hög genomsnittssiffra."
     }
   ]
 }

@@ -121,6 +121,110 @@
       "prompt": "List common everyday phrasal verbs and what they mean.",
       "opener": "Eight common phrasal verbs to know by heart.",
       "answer": "turn on/off = to switch on/off · turn up/down = to increase/decrease (volume) · look up = to look something up (e.g. in a dictionary) · look after = to take care of · look for = to search for · give up = to quit/stop trying · find out = to discover · get up = to get out of bed · pick up = to collect/fetch · put on = to dress in (clothes)."
+    },
+    {
+      "id": "q-en9-voc-9",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"The plane will ___ at 9pm sharp.\"",
+      "opener": "What does a plane do when a flight begins?",
+      "choices": [
+        "take off",
+        "take up",
+        "take out",
+        "take in"
+      ],
+      "answer": 0,
+      "explanation": "\"Take off\" means to leave the ground (for a plane) or to start something. \"Take up\" means to start a hobby, \"take out\" means to remove or take with you."
+    },
+    {
+      "id": "q-en9-voc-10",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "What does \"run into\" mean in: \"I ran into my old teacher at the mall yesterday.\"",
+      "opener": "What do you call it when you unexpectedly meet someone you know?",
+      "choices": [
+        "To meet someone by chance",
+        "To physically crash into something",
+        "To avoid someone",
+        "To run quickly"
+      ],
+      "answer": 0,
+      "explanation": "\"Run into\" means to meet someone by chance, unexpectedly — not to literally run into something physically."
+    },
+    {
+      "id": "q-en9-voc-11",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"I need to ___ these old clothes I never wear.\"",
+      "opener": "What do you do with things you no longer want?",
+      "choices": [
+        "throw away",
+        "throw up",
+        "throw in",
+        "throw back"
+      ],
+      "answer": 0,
+      "explanation": "\"Throw away\" means to discard something you don't want to keep. \"Throw up\" means to vomit — a completely different expression."
+    },
+    {
+      "id": "q-en9-voc-12",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Affect\" is a verb (to influence), \"effect\" is usually a noun (a result).",
+      "choices": [
+        "The weather will effect our plans.",
+        "The weather will affect our plans.",
+        "The weather will affects our plans.",
+        "The weather will affecting our plans."
+      ],
+      "answer": 1,
+      "explanation": "\"Affect\" is the verb meaning \"to influence\" — what's needed here. \"Effect\" is the noun (a result/outcome) and doesn't fit grammatically after \"will\"."
+    },
+    {
+      "id": "q-en9-voc-13",
+      "kind": "mc",
+      "topic": "everyday vocabulary",
+      "prompt": "Which sentence is correct?",
+      "opener": "\"Borrow\" means to receive something to use, \"lend\" means to give something for someone else to use.",
+      "choices": [
+        "Can I lend your pen for a minute?",
+        "Can I borrow your pen for a minute?",
+        "Can I borrowed your pen for a minute?",
+        "Can I lending your pen for a minute?"
+      ],
+      "answer": 1,
+      "explanation": "The person who wants to take something from someone else uses \"borrow\". \"Lend\" is used by the person giving something, e.g. \"Can you lend me your pen?\""
+    },
+    {
+      "id": "q-en9-voc-14",
+      "kind": "worked",
+      "topic": "phrasal verbs",
+      "prompt": "Fill in the correct phrasal verb for each blank, choosing from: run into, throw away, take off, find out. \"I need to (1) ___ what time the flight will (2) ___. On my way to the airport I (3) ___ an old friend, and later I had to (4) ___ my boarding pass because I printed it wrong and had a new one on my phone.\"",
+      "opener": "Four different phrasal verbs: to discover, to leave the ground, to unexpectedly meet someone, to discard.",
+      "answer": "1) find out, 2) take off, 3) ran into, 4) throw away.",
+      "steps": [
+        "\"I need to ___ what time\" means to discover something — \"find out\".",
+        "\"the flight will ___\" means the plane leaves the ground — \"take off\".",
+        "\"On my way to the airport I ___ an old friend\" describes an unexpected meeting in the past — \"ran into\" (the past form of \"run into\").",
+        "\"I had to ___ my boarding pass\" means to discard the incorrect printout — \"throw away\"."
+      ]
+    },
+    {
+      "id": "q-en9-voc-15",
+      "kind": "mc",
+      "topic": "phrasal verbs",
+      "prompt": "Choose the phrasal verb that fits: \"Can you ___ the form before Friday?\"",
+      "opener": "What do you do with a form — you fill it in.",
+      "choices": [
+        "fill out",
+        "fill up",
+        "fill over",
+        "fill down"
+      ],
+      "answer": 0,
+      "explanation": "\"Fill out\" (or \"fill in\") means to complete a form. \"Fill up\" is usually used for filling something completely, e.g. a fuel tank."
     }
   ]
 }

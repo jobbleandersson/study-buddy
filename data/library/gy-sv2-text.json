@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta grunderna för god källhantering och disposition i utredande och argumenterande text.",
       "opener": "Struktur och källor — de två saker som avgör om en text håller.",
       "answer": "Utredande text: allsidig belysning av en fråga, disposition inledning–utredning–slutsats · Argumenterande text: tydlig tes, argument, bemötande av motargument, avslutande upprepning av tesen · Källhantering: väv in källor naturligt i löpande text, ange alltid varifrån information kommer, undvik nästan ordagranna omskrivningar utan citat (plagiat) · Styckeindelning: varje stycke en huvudtanke, sambandsord skapar röd tråd genom hela texten."
+    },
+    {
+      "id": "q-sv2-text-9",
+      "kind": "mc",
+      "topic": "källhantering",
+      "prompt": "Vad kallas en källförteckning i slutet av en text som listar alla källor som använts?",
+      "opener": "Namnet syftar direkt på vad listan innehåller.",
+      "choices": [
+        "Källförteckning (referenslista)",
+        "Innehållsförteckning",
+        "Sakregister",
+        "Abstract"
+      ],
+      "answer": 0,
+      "explanation": "En källförteckning eller referenslista listar alla källor som använts i texten, ofta i slutet. En innehållsförteckning visar i stället textens struktur, och ett sakregister listar viktiga begrepp med sidhänvisningar."
+    },
+    {
+      "id": "q-sv2-text-10",
+      "kind": "mc",
+      "topic": "utredande text",
+      "prompt": "Vilket av följande är ett kännetecken för en bra frågeställning i en utredande text?",
+      "opener": "En bra frågeställning ska gå att faktiskt besvara med det material man har.",
+      "choices": [
+        "Den är tydligt avgränsad och går att undersöka utifrån tillgängligt material",
+        "Den är så bred att den omfattar hela mänsklighetens historia",
+        "Den kräver inget svar alls",
+        "Den är formulerad som ett påstående, inte en fråga"
+      ],
+      "answer": 0,
+      "explanation": "En bra frågeställning i en utredande text är tydligt avgränsad och går att undersöka med det material och den tid man har till förfogande. En alltför bred frågeställning blir svår att besvara på djupet."
+    },
+    {
+      "id": "q-sv2-text-11",
+      "kind": "mc",
+      "topic": "argumenterande text",
+      "prompt": "Vad kallas ett argument som bygger på att en auktoritet eller expert sagt något, snarare än på egna belägg?",
+      "opener": "Argumentets styrka vilar på vem som sagt något, inte på det som faktiskt bevisas.",
+      "choices": [
+        "Auktoritetsargument",
+        "Konsekvensargument",
+        "Analogiargument",
+        "Erfarenhetsargument"
+      ],
+      "answer": 0,
+      "explanation": "Ett auktoritetsargument hänvisar till att en expert eller auktoritet sagt något, vilket kan stärka ett argument men också vara svagt om auktoriteten inte är relevant för frågan. Ett konsekvensargument bygger i stället på vilka följder något får."
+    },
+    {
+      "id": "q-sv2-text-12",
+      "kind": "mc",
+      "topic": "källhantering",
+      "prompt": "Varför är det viktigt att ange publiceringsår för en källa man använder?",
+      "opener": "Tänk på hur snabbt viss information, till exempel statistik, kan bli inaktuell.",
+      "choices": [
+        "För att läsaren ska kunna bedöma hur aktuell informationen är",
+        "Det är aldrig viktigt att ange publiceringsår",
+        "Enbart för att texten ska bli längre",
+        "Publiceringsår behövs bara för skönlitteratur"
+      ],
+      "answer": 0,
+      "explanation": "Publiceringsåret hjälper läsaren att bedöma hur aktuell informationen är, vilket är särskilt viktigt för snabbt föränderliga ämnen som statistik, forskning eller nyheter."
+    },
+    {
+      "id": "q-sv2-text-13",
+      "kind": "mc",
+      "topic": "styckeindelning",
+      "prompt": "Vad kallas den mening i ett stycke som oftast presenterar styckets huvudtanke?",
+      "opener": "Den brukar komma tidigt i stycket och sammanfatta vad resten handlar om.",
+      "choices": [
+        "Tematisk mening (inledande mening)",
+        "Slutkläm",
+        "Sambandsord",
+        "Källhänvisning"
+      ],
+      "answer": 0,
+      "explanation": "Den tematiska meningen, ofta styckets första mening, presenterar styckets huvudtanke som resten av stycket sedan utvecklar. En slutkläm avslutar i stället hela texten, och sambandsord binder ihop meningar och stycken."
+    },
+    {
+      "id": "q-sv2-text-14",
+      "kind": "mc",
+      "topic": "argumenterande text",
+      "prompt": "Vad innebär ett cirkelresonemang som argumentationsfel?",
+      "opener": "Tänk på vad som händer om slutsatsen redan finns gömd i förutsättningen.",
+      "choices": [
+        "Att slutsatsen redan förutsätts i premissen, så argumentet bevisar egentligen ingenting nytt",
+        "Att man upprepar sin tes i slutet av texten som sammanfattning",
+        "Att man bemöter motargument på ett tydligt sätt",
+        "Att man anger sina källor korrekt"
+      ],
+      "answer": 0,
+      "explanation": "Ett cirkelresonemang är ett argumentationsfel där slutsatsen redan är inbyggd i premissen, så att argumentet i praktiken bara upprepar sig själv utan att faktiskt bevisa något. Att sammanfatta sin tes i slutet är i stället en normal och legitim del av en argumenterande text."
+    },
+    {
+      "id": "q-sv2-text-15",
+      "kind": "mc",
+      "topic": "utredande text",
+      "prompt": "Vilket av följande skulle vara en lämplig avslutning på en utredande text?",
+      "opener": "Tänk på vad som ska knyta ihop de olika perspektiv som lyfts fram i texten.",
+      "choices": [
+        "En sammanfattande slutsats eller reflektion som knyter ihop de perspektiv som lyfts fram",
+        "En helt ny fråga utan koppling till resten av texten",
+        "Ett personligt vittnesmål utan koppling till utredningen",
+        "Inget avslut alls, texten kan sluta mitt i ett resonemang"
+      ],
+      "answer": 0,
+      "explanation": "En utredande text bör avslutas med en sammanfattande slutsats eller reflektion som knyter ihop de perspektiv som lyfts fram, snarare än att introducera en ny, obesläktad fråga eller sluta abrupt."
     }
   ]
 }

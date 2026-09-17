@@ -125,6 +125,111 @@
       "prompt": "Summarise the continents, the great landforms and how to read maps.",
       "opener": "Gather continents, oceans, mountains, rivers, deserts, climate zones and map skills into one tight overview.",
       "answer": "Continents: Europe · Asia · Africa · North America · South America · Oceania (Australia) · Antarctica · oceans: the Pacific Ocean (largest and deepest) · the Atlantic · the Indian Ocean · the Arctic Ocean · the Southern Ocean · Asia largest by area (around 44 million km²) and most populous, Africa second largest · Russia is the world's largest country, China and India the most populous · mountain ranges: the Himalayas in Asia with Mount Everest at around 8,849 m · the Andes along South America's west coast, the longest on land · the Rocky Mountains in North America · the Alps in Europe · the Atlas Mountains in northern Africa · the Ural Mountains as the border between Europe and Asia · rivers: the Nile and the Amazon are the world's longest, the Amazon has the greatest flow of water · the Yangtze in China · the Congo River in Africa · the Mississippi in the USA · the Volga is Europe's longest · deserts: the Sahara is the world's largest hot desert, the Gobi in Asia, the Kalahari and Namib in southern Africa, the Atacama in Chile is one of the driest places on Earth · Antarctica counts as the world's largest cold desert · climate zones from the equator towards the poles: tropical (rainforest and savannah) · subtropical and dry (desert, steppe, Mediterranean climate) · temperate (deciduous and coniferous forest) · cold and polar (tundra and ice sheets) · maps: scale shows how much reality has been reduced · the legend explains colours and symbols · latitude is measured from the equator, longitude from the prime meridian in Greenwich · a topographic map shows height and terrain, a political map shows borders and cities, a thematic map shows a theme such as climate, population density or income."
+    },
+    {
+      "id": "q-geo8-var-9",
+      "kind": "mc",
+      "topic": "mountain ranges, rivers and deserts",
+      "prompt": "Which river has the greatest flow of water in the world, that is, the most water flowing out into the sea?",
+      "opener": "This river flows through South America's rainforest and carries huge amounts of rainwater.",
+      "choices": [
+        "The Nile",
+        "The Mississippi",
+        "The Volga",
+        "The Amazon"
+      ],
+      "answer": 3,
+      "explanation": "The Amazon has by far the greatest flow of water in the world, largely because of the heavy rainfall in the rainforest it flows through. The Nile is often counted as the world's longest river, but has a much smaller flow of water, while the Mississippi and the Volga are large rivers in North America and Europe respectively, but smaller than the Amazon."
+    },
+    {
+      "id": "q-geo8-var-10",
+      "kind": "mc",
+      "topic": "countries and borders",
+      "prompt": "Which two countries are the most populous in the world, each with over a billion inhabitants?",
+      "opener": "Both countries are in Asia.",
+      "choices": [
+        "The USA and Russia",
+        "Indonesia and Brazil",
+        "Nigeria and Pakistan",
+        "India and China"
+      ],
+      "answer": 3,
+      "explanation": "India and China are the only countries in the world with over a billion inhabitants each, and together they make up a very large share of the Earth's population. The USA, Russia, Indonesia, Brazil, Nigeria and Pakistan all have significantly fewer inhabitants, even though several of them are also populous countries."
+    },
+    {
+      "id": "q-geo8-var-11",
+      "kind": "mc",
+      "topic": "mountain ranges, rivers and deserts",
+      "prompt": "What is the world's highest mountain peak, and which mountain range is it in?",
+      "opener": "The peak lies on the border between Nepal and China (Tibet).",
+      "choices": [
+        "Mont Blanc, in the Alps",
+        "Kilimanjaro, in the Kilimanjaro massif",
+        "Denali, in the Rocky Mountains",
+        "Mount Everest, in the Himalayas"
+      ],
+      "answer": 3,
+      "explanation": "Mount Everest, about 8,849 metres above sea level, is the world's highest mountain peak and lies in the Himalayas on the border between Nepal and China. Mont Blanc, Kilimanjaro and Denali are also well-known mountains, but all considerably lower and located in other mountain ranges."
+    },
+    {
+      "id": "q-geo8-var-12",
+      "kind": "mc",
+      "topic": "climate and nature in the continents",
+      "prompt": "Which climate is characterised by short, cool summers and long, cold winters, with large areas of coniferous forest (taiga)?",
+      "opener": "This climate is found in a broad belt across northern Canada, Scandinavia and Siberia.",
+      "choices": [
+        "Tropical climate at the equator",
+        "Desert climate in the Sahara",
+        "Mediterranean climate in southern Europe",
+        "Subarctic/temperate climate in northern Canada, Scandinavia and Siberia"
+      ],
+      "answer": 3,
+      "explanation": "The subarctic climate belt in northern Canada, Scandinavia and Siberia has short, cool summers and long, cold winters, and large continuous coniferous forests called taiga grow there. Tropical, desert and Mediterranean climates all have completely different temperature and rainfall patterns."
+    },
+    {
+      "id": "q-geo8-var-13",
+      "kind": "mc",
+      "topic": "thematic maps",
+      "prompt": "What are the lines on a topographic map called that connect points at the same height above sea level?",
+      "opener": "The closer together the lines are, the steeper the terrain.",
+      "choices": [
+        "Latitudes",
+        "Meridians",
+        "Isobars",
+        "Contour lines"
+      ],
+      "answer": 3,
+      "explanation": "Contour lines are lines on a topographic map that connect points at exactly the same height above sea level, which makes it possible to read the shape of the terrain. Latitudes and meridians are instead used to state a place's position on Earth, and isobars appear on weather maps and show air pressure."
+    },
+    {
+      "id": "q-geo8-var-14",
+      "kind": "mc",
+      "topic": "continents and oceans",
+      "prompt": "Which ocean is known for being the smallest of the world's oceans and largely covered by sea ice?",
+      "opener": "It lies around the North Pole.",
+      "choices": [
+        "The Indian Ocean",
+        "The Atlantic",
+        "The Pacific Ocean",
+        "The Arctic Ocean"
+      ],
+      "answer": 3,
+      "explanation": "The Arctic Ocean, around the North Pole, is the smallest of the world's oceans and largely covered by sea ice, especially in winter. The Indian Ocean, the Atlantic and the Pacific Ocean are all considerably larger and not covered by ice in the same way."
+    },
+    {
+      "id": "q-geo8-var-15",
+      "kind": "mc",
+      "topic": "mountain ranges, rivers and deserts",
+      "prompt": "Which desert in South America is often counted as one of the very driest places on Earth?",
+      "opener": "This desert is in Chile, between the Andes and the Pacific Ocean.",
+      "choices": [
+        "The Sahara",
+        "The Gobi Desert",
+        "The Kalahari",
+        "The Atacama Desert"
+      ],
+      "answer": 3,
+      "explanation": "The Atacama Desert in Chile is often counted as one of the very driest places on Earth, with some parts where rain has almost never been recorded. The Sahara, the Gobi and the Kalahari are also large deserts, but the Sahara is in Africa, the Gobi in Asia, and the Kalahari in southern Africa, not in South America."
     }
   ]
 }

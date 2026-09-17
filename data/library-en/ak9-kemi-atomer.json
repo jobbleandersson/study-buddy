@@ -123,6 +123,110 @@
       "prompt": "Summarise the structure of the atom: which particles are there, where are they located, and what charge do they have?",
       "opener": "Think nucleus versus shell, and charge positive, negative or neutral.",
       "answer": "Proton: found in the atomic nucleus, positive charge (+) · Neutron: found in the atomic nucleus, no charge (neutral) · Electron: moves in shells around the nucleus, negative charge (−), much lighter than the proton and neutron · Atomic number = number of protons (determines which element it is) · Mass number = number of protons + number of neutrons · In an uncharged atom, the number of protons and electrons is always equal · Ion = an atom that has gained a charge by gaining or losing electrons."
+    },
+    {
+      "id": "q-kemi-ato-9",
+      "kind": "mc",
+      "topic": "the structure of the atom",
+      "prompt": "Where in the atom is almost all of the atom's mass concentrated?",
+      "opener": "Compare the mass of an electron with the mass of protons and neutrons.",
+      "choices": [
+        "In the atomic nucleus (protons and neutrons)",
+        "In the electron shells",
+        "Evenly spread throughout the atom",
+        "In the outermost electrons"
+      ],
+      "answer": 0,
+      "explanation": "Protons and neutrons in the nucleus are much heavier than electrons, so almost all of the atom's mass is concentrated in the small, dense nucleus."
+    },
+    {
+      "id": "q-kemi-ato-10",
+      "kind": "mc",
+      "topic": "elements",
+      "prompt": "Which chemical symbol stands for the element potassium?",
+      "opener": "The symbol comes from the Latin name \"kalium\", not the English name.",
+      "choices": [
+        "K",
+        "Po",
+        "C",
+        "Pt"
+      ],
+      "answer": 0,
+      "explanation": "Potassium has the chemical symbol K, from the Latin \"kalium\". \"Po\" is polonium, \"Pt\" is platinum, and \"C\" stands for carbon."
+    },
+    {
+      "id": "q-kemi-ato-11",
+      "kind": "mc",
+      "topic": "the periodic table",
+      "prompt": "What do elements in the same PERIOD (same horizontal row) of the periodic table have in common?",
+      "opener": "Periods run sideways — groups run up and down.",
+      "choices": [
+        "The same number of electron shells",
+        "The same number of valence electrons",
+        "The same atomic mass",
+        "The same number of protons"
+      ],
+      "answer": 0,
+      "explanation": "Elements in the same period have the same number of electron shells. Having the same number of valence electrons is instead what applies to elements in the same GROUP."
+    },
+    {
+      "id": "q-kemi-ato-12",
+      "kind": "mc",
+      "topic": "ions",
+      "prompt": "What charge does an ion get when a chlorine atom (Cl) gains an extra electron?",
+      "opener": "An extra negative charge is added to a previously neutral atom.",
+      "choices": [
+        "−1",
+        "+1",
+        "−2",
+        "0"
+      ],
+      "answer": 0,
+      "explanation": "The chlorine atom starts out with equal numbers of protons and electrons (charge 0). One extra electron gives one more negative charge than positive, so −1."
+    },
+    {
+      "id": "q-kemi-ato-13",
+      "kind": "mc",
+      "topic": "the structure of the atom",
+      "prompt": "Two atoms of the same element have different numbers of neutrons but the same number of protons. What are these variants called?",
+      "opener": "The element is the same (same number of protons) — only the neutron count differs.",
+      "choices": [
+        "Isotopes",
+        "Ions",
+        "Molecules",
+        "Alloys"
+      ],
+      "answer": 0,
+      "explanation": "Isotopes are atoms of the same element (same number of protons) but with different numbers of neutrons, giving different mass numbers."
+    },
+    {
+      "id": "q-kemi-ato-14",
+      "kind": "worked",
+      "topic": "ions",
+      "prompt": "A chlorine atom (Cl) has 17 protons and 17 electrons. It readily forms an ion by GAINING an extra electron. What charge does the ion get, and why does it form?",
+      "opener": "Count the charges after an electron has been added, and think about which noble gas chlorine 'wants' to resemble.",
+      "answer": "The chloride ion gets a charge of −1 and is written Cl−.",
+      "steps": [
+        "Cl starts out with 17 positive protons and 17 negative electrons — the charges cancel out (total charge 0).",
+        "By gaining 1 extra electron, it still has 17 protons but now 18 electrons.",
+        "17 positive charges minus 18 negative charges gives a total charge of −1.",
+        "Chlorine does this to get the same electron structure as the noble gas argon (a full outer shell), which makes the ion stable."
+      ]
+    },
+    {
+      "id": "q-kemi-ato-15",
+      "kind": "mc",
+      "topic": "the periodic table",
+      "prompt": "Which group of the periodic table is called the alkali metals, and what characterises them?",
+      "opener": "These metals often react violently with water.",
+      "choices": [
+        "Group 1, highly reactive metals with one valence electron",
+        "Group 18, unreactive gases",
+        "Group 17, highly reactive non-metals",
+        "Group 2, semiconductors"
+      ],
+      "answer": 0,
+      "explanation": "Alkali metals (group 1, e.g. sodium and potassium) have a single valence electron that is readily given up, making them highly reactive."
     }
   ]
 }

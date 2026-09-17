@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta vad som kännetecknar ett starkt utredande anförande.",
       "opener": "Tänk struktur, innehåll och anpassning som tre olika delar.",
       "answer": "Tydlig disposition: inledning med fråga, tydliga huvuddelar, sammanfattande avslutning · Muntliga signalord (\"för det första\", \"sammanfattningsvis\") vägleder lyssnaren · Konkreta belägg (källor, statistik) stärker trovärdigheten mer än rena åsikter · Motargument lyfts fram aktivt och bemöts sakligt, stärker ethos · Publikanpassning: fackspråk, exempel och förklaringsnivå justeras efter mottagarens förkunskaper, medan slutsatsen förblir densamma · Extra viktigt muntligt: lyssnaren kan inte bläddra tillbaka, så repetition och tydlighet väger tyngre än i skrift."
+    },
+    {
+      "id": "q-sv3-muntligt-9",
+      "kind": "mc",
+      "topic": "anförandets struktur",
+      "prompt": "Vad är en lämplig funktion hos en kort sammanfattning i mitten av ett längre anförande?",
+      "opener": "Tänk på vad lyssnaren behöver innan nästa avsnitt börjar.",
+      "choices": [
+        "Att repetera huvudpoängerna hittills och hjälpa lyssnaren hänga med innan nästa del börjar",
+        "Att ersätta behovet av en avslutning helt",
+        "Att förlänga anförandet utan syfte",
+        "Att introducera helt nytt material utan koppling till det som sagts"
+      ],
+      "answer": 0,
+      "explanation": "En kort sammanfattning i mitten av anförandet repeterar huvudpoängerna och hjälper lyssnaren orientera sig innan nästa avsnitt börjar, vilket är extra viktigt eftersom lyssnaren inte kan bläddra tillbaka. Den ersätter inte behovet av en avslutande sammanfattning i slutet."
+    },
+    {
+      "id": "q-sv3-muntligt-10",
+      "kind": "mc",
+      "topic": "belägg och motargument",
+      "prompt": "Om en talare presenterar statistik som stöd för sin tes, vad bör talaren även göra för att stärka trovärdigheten ytterligare?",
+      "opener": "Tänk på vad som gör att publiken kan lita på siffrorna.",
+      "choices": [
+        "Ange varifrån statistiken kommer, t.ex. vilken organisation eller studie",
+        "Undvika att nämna källan för att verka mer självsäker",
+        "Bara nämna statistiken en enda gång utan sammanhang",
+        "Läsa upp så många siffror som möjligt utan förklaring"
+      ],
+      "answer": 0,
+      "explanation": "Att ange varifrån statistiken kommer gör att publiken kan bedöma källans trovärdighet, vilket stärker anförandets ethos. Att dölja källan eller bara rada upp siffror utan förklaring gör i stället statistiken svårare att lita på och förstå."
+    },
+    {
+      "id": "q-sv3-muntligt-11",
+      "kind": "mc",
+      "topic": "publikanpassning",
+      "prompt": "En talare märker mitt under ett anförande att publiken ser förvirrad ut vid ett visst fackuttryck. Vad är en lämplig respons?",
+      "opener": "Tänk på vad som händer med förståelsen om förvirringen inte hanteras.",
+      "choices": [
+        "Att kort förklara eller definiera uttrycket innan man går vidare",
+        "Att strunta i publikens reaktion och fortsätta som planerat",
+        "Att avbryta anförandet helt",
+        "Att byta ämne fullständigt"
+      ],
+      "answer": 0,
+      "explanation": "Att kort förklara ett fackuttryck som skapar förvirring hjälper publiken hänga med utan att anförandet behöver avbrytas eller ämnet bytas. Att strunta i publikens reaktion riskerar att tappa lyssnarna för resten av anförandet."
+    },
+    {
+      "id": "q-sv3-muntligt-12",
+      "kind": "mc",
+      "topic": "anförandets struktur",
+      "prompt": "Varför är en tydlig \"röd tråd\" särskilt viktig i ett muntligt anförande jämfört med i en skriven text?",
+      "opener": "Tänk på vad en läsare kan göra som en lyssnare inte kan.",
+      "choices": [
+        "Eftersom lyssnaren inte kan bläddra tillbaka och läsa om ett stycke som är otydligt",
+        "Det är viktigare i skrift, inte muntligt",
+        "Röd tråd behövs bara i skönlitterära texter",
+        "Det spelar ingen roll i något sammanhang"
+      ],
+      "answer": 0,
+      "explanation": "En läsare kan bläddra tillbaka och läsa om ett otydligt stycke, men en lyssnare måste förstå direkt när något sägs, vilket gör en tydlig röd tråd extra viktig i muntlig framställning. Behovet gäller alla typer av anföranden, inte bara skönlitterära texter."
+    },
+    {
+      "id": "q-sv3-muntligt-13",
+      "kind": "mc",
+      "topic": "belägg och motargument",
+      "prompt": "Vad är skillnaden mellan att bemöta ett motargument och att bara nämna att det finns?",
+      "opener": "Tänk på om talaren faktiskt förklarar varför den egna slutsatsen ändå håller.",
+      "choices": [
+        "Att bemöta innebär att aktivt förklara varför den egna ståndpunkten ändå håller, inte bara konstatera att andra tycker annorlunda",
+        "Det finns ingen skillnad alls",
+        "Att bemöta betyder att man byter åsikt helt",
+        "Att nämna motargument räcker alltid för att stärka trovärdigheten"
+      ],
+      "answer": 0,
+      "explanation": "Att bemöta ett motargument innebär att aktivt förklara varför den egna ståndpunkten ändå håller trots invändningen, vilket är mer övertygande än att bara konstatera att andra tycker annorlunda utan vidare förklaring."
+    },
+    {
+      "id": "q-sv3-muntligt-14",
+      "kind": "mc",
+      "topic": "publikanpassning",
+      "prompt": "Vilket av följande är ett tecken på god anpassning till en publik med blandade förkunskaper?",
+      "opener": "Tänk på hur man kan möta både de som redan kan mycket och de som inte gör det.",
+      "choices": [
+        "Att förklara centrala begrepp kort första gången de används, utan att bli övertydlig för de som redan kan dem",
+        "Att anta att alla i publiken redan är experter",
+        "Att aldrig förklara några begrepp alls",
+        "Att bara rikta anförandet till den mest okunniga personen i rummet"
+      ],
+      "answer": 0,
+      "explanation": "Att kort förklara centrala begrepp första gången de dyker upp gör anförandet tillgängligt för dem med mindre förkunskap, utan att bli tjatigt tydligt för dem som redan förstår. Att bara rikta sig till den mest okunniga eller anta att alla är experter riskerar att förlora delar av publiken."
+    },
+    {
+      "id": "q-sv3-muntligt-15",
+      "kind": "mc",
+      "topic": "anförandets struktur",
+      "prompt": "Vad bör en talare göra om hen märker att tiden håller på att ta slut mitt i anförandet?",
+      "opener": "Tänk på vilken del av anförandet som är viktigast att lyssnaren faktiskt får höra.",
+      "choices": [
+        "Snabbt prioritera att hinna med en tydlig sammanfattning och slutsats, även om det innebär att korta ner mittendelen",
+        "Fortsätta i exakt samma tempo och riskera att aldrig nå fram till slutsatsen",
+        "Avsluta anförandet mitt i en mening utan förvarning",
+        "Börja om anförandet från början"
+      ],
+      "answer": 0,
+      "explanation": "Om tiden håller på att ta slut bör talaren prioritera att hinna fram till en tydlig sammanfattning och slutsats, eftersom det är det som mest sannolikt stannar kvar hos lyssnaren. Att fortsätta i oförändrat tempo riskerar att anförandet avbryts innan slutsatsen ens nåtts."
     }
   ]
 }

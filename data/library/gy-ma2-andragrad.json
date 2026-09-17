@@ -123,6 +123,111 @@
       "prompt": "Sammanfatta metoderna för att lösa en andragradsekvation och vad diskriminanten säger om antalet lösningar.",
       "opener": "Tänk igenom när varje metod passar bäst.",
       "answer": "Faktorisering: hitta två tal vars produkt är $q$ (eller $c$) och summa är $p$ (eller $b$) · Kvadratkomplettering: $x^2+px+q = \\left(x+\\dfrac{p}{2}\\right)^2 - \\left(\\dfrac{p}{2}\\right)^2 + q$ · Pq-formeln: $x = -\\dfrac{p}{2} \\pm \\sqrt{\\left(\\dfrac{p}{2}\\right)^2 - q}$ för $x^2+px+q=0$ · Diskriminanten $D = \\left(\\dfrac{p}{2}\\right)^2 - q$: $D>0$ ger två lösningar, $D=0$ ger en dubbelrot, $D<0$ ger ingen reell lösning."
+    },
+    {
+      "id": "q-ma2-andragrad-9",
+      "kind": "mc",
+      "topic": "faktorisering",
+      "prompt": "Lös ekvationen $x^2 - x - 12 = 0$ genom faktorisering.",
+      "opener": "Sök två tal vars produkt är $-12$ och vars summa är $-1$.",
+      "choices": [
+        "$x = 4$ eller $x = -3$",
+        "$x = -4$ eller $x = 3$",
+        "$x = 3$ eller $x = 4$",
+        "$x = -3$ eller $x = -4$"
+      ],
+      "answer": 0,
+      "explanation": "Talen $-4$ och $3$ ger produkten $-12$ och summan $-1$, så $x^2-x-12=(x-4)(x+3)=0$, vilket ger $x=4$ eller $x=-3$. Att kasta om tecknen (svar B) blandar ihop vilket tal som ska vara positivt respektive negativt."
+    },
+    {
+      "id": "q-ma2-andragrad-10",
+      "kind": "mc",
+      "topic": "pq-formeln",
+      "prompt": "Lös $x^2 - 6x + 5 = 0$ med pq-formeln.",
+      "opener": "Här är $p=-6$ och $q=5$.",
+      "choices": [
+        "$x = 5$ eller $x = 1$",
+        "$x = -5$ eller $x = -1$",
+        "$x = 3$ eller $x = 2$",
+        "$x = 6$ eller $x = 5$"
+      ],
+      "answer": 0,
+      "explanation": "$x = 3 \\pm \\sqrt{9-5} = 3 \\pm 2$, alltså $x=5$ eller $x=1$. Svar B får fel tecken genom att blanda ihop $-p/2$ med $p/2$."
+    },
+    {
+      "id": "q-ma2-andragrad-11",
+      "kind": "mc",
+      "topic": "diskriminanten",
+      "prompt": "För vilket positivt värde på $p$ har ekvationen $x^2 + px + 9 = 0$ exakt en (dubbel) lösning?",
+      "opener": "Kräv att $\\left(\\dfrac{p}{2}\\right)^2 - 9 = 0$.",
+      "choices": [
+        "$p = 6$",
+        "$p = 9$",
+        "$p = 3$",
+        "$p = 18$"
+      ],
+      "answer": 0,
+      "explanation": "$\\left(\\frac{p}{2}\\right)^2 = 9 \\Rightarrow \\frac{p}{2} = 3 \\Rightarrow p=6$ (det positiva alternativet). Då blir $x^2+6x+9=(x+3)^2=0$, som har exakt en dubbelrot."
+    },
+    {
+      "id": "q-ma2-andragrad-12",
+      "kind": "mc",
+      "topic": "kvadratkomplettering",
+      "prompt": "Skriv om $x^2 - 10x + 3$ på formen $(x+a)^2 + b$.",
+      "opener": "Halvera koefficienten framför $x$ för att hitta $a$.",
+      "choices": [
+        "$(x-5)^2 - 22$",
+        "$(x-5)^2 + 22$",
+        "$(x-10)^2 + 3$",
+        "$(x-5)^2 - 28$"
+      ],
+      "answer": 0,
+      "explanation": "Halva koefficienten framför $x$ är $-5$, så $(x-5)^2 = x^2-10x+25$. Eftersom uttrycket bara ska innehålla $+3$: $x^2-10x+3 = (x-5)^2 - 25 + 3 = (x-5)^2 - 22$."
+    },
+    {
+      "id": "q-ma2-andragrad-13",
+      "kind": "mc",
+      "topic": "faktorisering",
+      "prompt": "Vilken faktorisering stämmer för $3x^2 + 6x = 0$?",
+      "opener": "Bryt ut den gemensamma faktorn i båda termerna.",
+      "choices": [
+        "$3x(x+2) = 0$, alltså $x = 0$ eller $x = -2$",
+        "$3x(x-2) = 0$, alltså $x = 0$ eller $x = 2$",
+        "$x(3x+6) = 0$, alltså $x = 0$ eller $x = 6$",
+        "$x(3x+6) = 0$, alltså $x = 0$ eller $x = -6$"
+      ],
+      "answer": 0,
+      "explanation": "Bryt ut $3x$: $3x^2+6x = 3x(x+2) = 0$, vilket ger $x=0$ eller $x=-2$. Svar C och D bryter bara ut $x$ (inte $3x$) och tolkar sedan $3x+6=0$ fel — den ekvationen ger faktiskt $x=-2$, inte $6$ eller $-6$."
+    },
+    {
+      "id": "q-ma2-andragrad-14",
+      "kind": "mc",
+      "topic": "pq-formeln",
+      "prompt": "Lös $3x^2 - 12x + 9 = 0$ med pq-formeln.",
+      "opener": "Dela alla termer med 3 först så att koefficienten framför $x^2$ blir 1.",
+      "choices": [
+        "$x = 3$ eller $x = 1$",
+        "$x = -3$ eller $x = -1$",
+        "$x = 4$ eller $x = 3$",
+        "$x = 1$ eller $x = 2$"
+      ],
+      "answer": 0,
+      "explanation": "Dela med 3: $x^2-4x+3=0$, så $p=-4$, $q=3$. Då blir $x=2\\pm\\sqrt{4-3}=2\\pm1$, alltså $x=3$ eller $x=1$."
+    },
+    {
+      "id": "q-ma2-andragrad-15",
+      "kind": "mc",
+      "topic": "diskriminanten",
+      "prompt": "Hur många reella lösningar har ekvationen $2x^2 + 4x + 5 = 0$?",
+      "opener": "Räkna ut diskriminanten $b^2-4ac$ för $a=2$, $b=4$, $c=5$.",
+      "choices": [
+        "Ingen reell lösning",
+        "Två olika lösningar",
+        "En dubbelrot",
+        "Oändligt många lösningar"
+      ],
+      "answer": 0,
+      "explanation": "Diskriminanten är $b^2-4ac = 16 - 40 = -24$, vilket är negativt. Ett negativt värde under rottecknet betyder att ekvationen saknar reella lösningar."
     }
   ]
 }

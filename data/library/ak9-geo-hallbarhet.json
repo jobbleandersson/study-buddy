@@ -124,6 +124,110 @@
       "prompt": "Sammanfatta hållbar utveckling och klimatförändringarna: begrepp, orsaker och konsekvenser.",
       "opener": "Samla de viktigaste begreppen i en tät översikt att repetera snabbt.",
       "answer": "Hållbar utveckling: utveckling som möter dagens behov utan att äventyra kommande generationers möjligheter · tre dimensioner: ekologisk (miljö och ekosystem), social (rättvisa, hälsa, trygghet) och ekonomisk (resurser räcker på lång sikt) hållbarhet. Växthuseffekten: naturlig process där växthusgaser (koldioxid, metan m.fl.) håller kvar värme i atmosfären · människans utsläpp av fossila bränslen och avskogning FÖRSTÄRKER effekten. Konsekvenser: stigande medeltemperatur · smältande glaciärer och is → stigande havsnivå · fler extremväder (torka, översvämningar, stormar) · skördebortfall och hot mot matförsörjning · låginkomstländer ofta hårdast drabbade trots minst utsläpp. FN:s globala mål (Agenda 2030): 17 mål för hållbar utveckling till 2030 · målen hänger ihop och måste angripas tillsammans."
+    },
+    {
+      "id": "q-geo-hal-9",
+      "kind": "mc",
+      "topic": "hållbar utveckling",
+      "prompt": "Vilken definition brukar användas för hållbar utveckling (från Brundtlandrapporten 1987)?",
+      "opener": "Tänk på balansen mellan att tillgodose behov NU och att inte förstöra möjligheterna för dem som kommer SEDAN.",
+      "choices": [
+        "Utveckling som tillgodoser dagens behov utan att äventyra kommande generationers möjligheter att tillgodose sina behov",
+        "Utveckling som enbart fokuserar på ekonomisk tillväxt",
+        "Utveckling som stoppar all förändring i samhället",
+        "Utveckling som bara gäller rika länder"
+      ],
+      "answer": 0,
+      "explanation": "Denna definition, från FN:s Brundtlandrapport 1987, är den mest använda definitionen av hållbar utveckling och betonar balansen mellan nuvarande och framtida generationers behov."
+    },
+    {
+      "id": "q-geo-hal-10",
+      "kind": "mc",
+      "topic": "växthuseffekten och klimatförändringar",
+      "prompt": "Vilken växthusgas är den vanligaste och mest diskuterade i samband med människans utsläpp?",
+      "opener": "Denna gas bildas bland annat vid förbränning av fossila bränslen.",
+      "choices": [
+        "Koldioxid",
+        "Syre",
+        "Kväve",
+        "Ädelgaser"
+      ],
+      "answer": 0,
+      "explanation": "Koldioxid (CO2) är den mest diskuterade växthusgasen eftersom människans förbränning av fossila bränslen släpper ut mycket stora mängder av den. Metan och lustgas är andra viktiga växthusgaser, men i mindre volym totalt."
+    },
+    {
+      "id": "q-geo-hal-11",
+      "kind": "mc",
+      "topic": "växthuseffekten och klimatförändringar",
+      "prompt": "Vad kallas det fenomen, utöver förbränning av fossila bränslen, där borttagning av stora skogsytor minskar jordens förmåga att ta upp koldioxid?",
+      "opener": "Ordet är motsatsen till att plantera skog.",
+      "choices": [
+        "Avskogning",
+        "Urbanisering",
+        "Erosion",
+        "Kolonisation"
+      ],
+      "answer": 0,
+      "explanation": "Avskogning innebär att skog huggs ner eller bränns, vilket dels frigör koldioxid som varit bunden i träden, dels minskar jordens totala förmåga att ta upp koldioxid ur atmosfären via fotosyntes."
+    },
+    {
+      "id": "q-geo-hal-12",
+      "kind": "mc",
+      "topic": "konsekvenser av klimatförändringar",
+      "prompt": "Vad är en trolig konsekvens av mer frekventa och kraftigare värmeböljor på grund av klimatförändringarna?",
+      "opener": "Tänk på vad extrem värme gör med både grödor och människors hälsa.",
+      "choices": [
+        "Ökad risk för skördebortfall, värmerelaterade hälsoproblem och skogsbränder",
+        "Ingen påverkan alls på jordbruk eller hälsa",
+        "Automatiskt svalare klimat globalt",
+        "Minskad risk för torka"
+      ],
+      "answer": 0,
+      "explanation": "Mer frekventa och kraftigare värmeböljor ökar risken för skördebortfall genom uttorkning, värmerelaterade sjukdomar och dödsfall, samt gynnar utbrott av skogsbränder — flera sammanhängande konsekvenser av samma bakomliggande orsak."
+    },
+    {
+      "id": "q-geo-hal-13",
+      "kind": "mc",
+      "topic": "FN:s globala mål",
+      "prompt": "Vilket årtal ska FN:s globala mål (Agenda 2030) vara uppnådda senast?",
+      "opener": "Namnet på agendan avslöjar årtalet.",
+      "choices": [
+        "2030",
+        "2050",
+        "2100",
+        "2000"
+      ],
+      "answer": 0,
+      "explanation": "Agenda 2030 antogs av FN:s medlemsländer 2015, med målet att de 17 globala målen ska vara uppnådda senast år 2030."
+    },
+    {
+      "id": "q-geo-hal-14",
+      "kind": "worked",
+      "topic": "hållbar utveckling",
+      "prompt": "En kommun planerar att bygga ett nytt bostadsområde på tidigare obebyggd skogsmark nära staden. Förklara hur beslutet kan analyseras utifrån de tre hållbarhetsdimensionerna.",
+      "opener": "Gå igenom ekologisk, social och ekonomisk hållbarhet var för sig, och väg dem sedan mot varandra.",
+      "answer": "Ekologisk hållbarhet påverkas eftersom skog och dess ekosystem försvinner. Social hållbarhet kan stärkas om fler får tillgång till bostäder, men kan också försvagas om närboende förlorar rekreationsyta. Ekonomisk hållbarhet kan gynnas av ökade skatteintäkter och bostadsbyggande — kommunen behöver väga alla tre dimensioner mot varandra snarare än att bara fokusera på en.",
+      "steps": [
+        "Ekologisk hållbarhet: skogsmarken utgör en livsmiljö för växter och djur, och att bebygga den kan skada det lokala ekosystemet och minska kommunens gröna ytor.",
+        "Social hållbarhet: fler bostäder kan lösa bostadsbrist och ge fler människor en trygg bostad, men grannar kan samtidigt förlora tillgång till naturnära rekreation.",
+        "Ekonomisk hållbarhet: nya bostäder kan ge kommunen ökade skatteintäkter och stärka den lokala ekonomin genom byggande och inflyttning.",
+        "En hållbar lösning försöker balansera alla tre dimensioner, till exempel genom att bevara en del av skogen som grönområde samtidigt som bostäder byggs."
+      ]
+    },
+    {
+      "id": "q-geo-hal-15",
+      "kind": "mc",
+      "topic": "hållbar utveckling",
+      "prompt": "Vilket av dessa är ett exempel på EKONOMISK hållbarhet?",
+      "opener": "Tänk på vilken av de tre dimensionerna som specifikt handlar om resurser och ekonomi över tid.",
+      "choices": [
+        "Att en verksamhet kan fortsätta generera intäkter och arbetstillfällen utan att förbruka resurser som behövs i framtiden",
+        "Att skydda hotade djurarter",
+        "Att alla människor har tillgång till rent vatten",
+        "Att minska koldioxidutsläppen"
+      ],
+      "answer": 0,
+      "explanation": "Ekonomisk hållbarhet handlar om att ekonomisk verksamhet ska kunna fortsätta på lång sikt utan att förbruka resurser som kommande generationer behöver. Att skydda djurarter och minska utsläpp hör i stället till ekologisk hållbarhet, och rent vatten till alla är ett exempel på social hållbarhet."
     }
   ]
 }

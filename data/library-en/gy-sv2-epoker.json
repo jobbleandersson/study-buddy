@@ -127,6 +127,111 @@
       "prompt": "Give a quick overview of the literary periods from antiquity to Modernism: time period and characteristics.",
       "opener": "Seven periods, seven landmarks.",
       "answer": "Antiquity (c. 800 BC–500 AD): Greco-Roman ideals, epic and drama · The Middle Ages (5th–14th century): religious texts, chivalric romances (e.g. the Eufemiavisor) · The Renaissance (15th–16th century): humankind and antiquity at the centre, humanism · The Enlightenment (18th century): reason, science, criticism of authorities (e.g. Linnaeus) · Romanticism (c. 1800–1850): feeling, nature, the national and the past · Realism/Naturalism (second half of the 19th century): true-to-life depictions of society and social criticism (e.g. Ibsen) · Modernism (from c. 1900): broken forms, free verse, a fractured self (e.g. Södergran)."
+    },
+    {
+      "id": "q-sv2-epoker-9",
+      "kind": "mc",
+      "topic": "antiquity",
+      "prompt": "Which Roman poet wrote the epic the Aeneid?",
+      "opener": "The work tells of Aeneas's flight from Troy and the founding of Rome.",
+      "choices": [
+        "Virgil",
+        "Homer",
+        "Ovid",
+        "Cicero"
+      ],
+      "answer": 0,
+      "explanation": "Virgil wrote the Aeneid in the final decades before the Common Era, one of the foremost epics of Roman literature. Homer instead wrote the Greek epics the Iliad and the Odyssey several hundred years earlier, and Ovid is best known for Metamorphoses."
+    },
+    {
+      "id": "q-sv2-epoker-10",
+      "kind": "mc",
+      "topic": "the Middle Ages",
+      "prompt": "Which genre was especially common in medieval literature, alongside religious texts?",
+      "opener": "Think knights, courtly love and adventure.",
+      "choices": [
+        "Chivalric romances",
+        "Science fiction novels",
+        "Daily newspapers",
+        "Travel accounts of other continents"
+      ],
+      "answer": 0,
+      "explanation": "Chivalric romances, such as the Eufemiavisor, were a central and popular genre during the Middle Ages alongside religious texts. Science fiction and daily newspapers belong to much later periods."
+    },
+    {
+      "id": "q-sv2-epoker-11",
+      "kind": "mc",
+      "topic": "the Renaissance",
+      "prompt": "Which English playwright, active during the Renaissance, wrote plays such as Hamlet and Macbeth?",
+      "opener": "One of world literature's most famous playwrights, active around the year 1600.",
+      "choices": [
+        "William Shakespeare",
+        "Charles Dickens",
+        "Jane Austen",
+        "Geoffrey Chaucer"
+      ],
+      "answer": 0,
+      "explanation": "William Shakespeare wrote his most famous plays, including Hamlet and Macbeth, around the turn of the 17th century during the English Renaissance. Dickens and Austen instead belong to the 19th century."
+    },
+    {
+      "id": "q-sv2-epoker-12",
+      "kind": "mc",
+      "topic": "the Enlightenment",
+      "prompt": "Which work by the French Enlightenment philosopher Voltaire is especially known for its satire of blind optimism and injustice?",
+      "opener": "The protagonist meets a series of disasters despite his tutor's conviction that everything is for the best.",
+      "choices": [
+        "Candide",
+        "Faust",
+        "The Decameron",
+        "The Divine Comedy"
+      ],
+      "answer": 0,
+      "explanation": "Candide (1759) by Voltaire is a satirical tale that mocks philosophical optimism and depicts a series of injustices and disasters. Faust is instead by Goethe, and The Decameron and The Divine Comedy belong to earlier periods."
+    },
+    {
+      "id": "q-sv2-epoker-13",
+      "kind": "mc",
+      "topic": "Romanticism",
+      "prompt": "Which Swedish author is associated with National Romantic poetry and the work Frithiof's Saga?",
+      "opener": "The work is based on an Old Norse legend and became very popular during the 19th century.",
+      "choices": [
+        "Esaias Tegnér",
+        "August Strindberg",
+        "Carl von Linné (Linnaeus)",
+        "Selma Lagerlöf"
+      ],
+      "answer": 0,
+      "explanation": "Esaias Tegnér wrote Frithiof's Saga, one of the best-known works of Swedish National Romanticism. Strindberg belongs to a later period, Linnaeus to the Enlightenment, and Selma Lagerlöf was active even later."
+    },
+    {
+      "id": "q-sv2-epoker-14",
+      "kind": "mc",
+      "topic": "Realism",
+      "prompt": "Which Norwegian playwright wrote plays such as A Doll's House, which critically examined women's position in society?",
+      "opener": "This playwright is counted as one of the founders of Realism and of modern drama.",
+      "choices": [
+        "Henrik Ibsen",
+        "Carl Michael Bellman",
+        "Edith Södergran",
+        "Virgil"
+      ],
+      "answer": 0,
+      "explanation": "Henrik Ibsen wrote A Doll's House (1879), which critically examined women's role in bourgeois society and became a central work of Realism. Bellman wrote during an entirely different period, and Södergran belongs to Modernism."
+    },
+    {
+      "id": "q-sv2-epoker-15",
+      "kind": "mc",
+      "topic": "Modernism",
+      "prompt": "Which poetry collection by Edith Södergran is regarded as a groundbreaking work within Swedish-language Modernism?",
+      "opener": "The collection was published in 1916 and shocked many readers with its free form.",
+      "choices": [
+        "Dikter (\"Poems\", 1916)",
+        "Frithiof's Saga",
+        "The Tales of Ensign Stål",
+        "The Red Room"
+      ],
+      "answer": 0,
+      "explanation": "Edith Södergran's debut collection Dikter (1916) is regarded as one of the first and most groundbreaking works within Swedish-language Modernism, with its free verse and fractured self. Frithiof's Saga and The Tales of Ensign Stål instead belong to Romanticism."
     }
   ]
 }

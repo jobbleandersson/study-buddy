@@ -114,6 +114,111 @@
       "prompt": "Vilka familjeord, possessiva pronomen och siffror bör du kunna på åk7-nivå i franska?",
       "opener": "Familjen, vem den tillhör, och att kunna räkna till sextio.",
       "answer": "Familj: la mère/le père = mamma/pappa · le frère/la sœur = bror/syster · le grand-père/la grand-mère = morfar-farfar/mormor-farmor · le fils/la fille = son/dotter · le cousin/la cousine = kusin. Possessiva: mon/ma/mes = min/mina · ton/ta/tes = din/dina · son/sa/ses = hans/hennes. (Mon/ton/son används även för feminina ord som börjar med vokalljud.) Siffror: 0 zéro, 1 un, 5 cinq, 10 dix, 11 onze, 15 quinze, 20 vingt, 21 vingt et un, 30 trente, 31 trente et un, 50 cinquante, 60 soixante."
+    },
+    {
+      "id": "q-fr7-fam-9",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"l'oncle\"?",
+      "opener": "En manlig släkting, bror till en av föräldrarna.",
+      "choices": [
+        "Farbror/morbror",
+        "Faster/moster",
+        "Kusin",
+        "Svåger"
+      ],
+      "answer": 0,
+      "explanation": "\"L'oncle\" betyder farbror eller morbror. Den kvinnliga motsvarigheten är \"la tante\" (faster/moster)."
+    },
+    {
+      "id": "q-fr7-fam-10",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"la tante\"?",
+      "opener": "En kvinnlig släkting, syster till en av föräldrarna.",
+      "choices": [
+        "Faster/moster",
+        "Farbror/morbror",
+        "Svägerska",
+        "Mormor"
+      ],
+      "answer": 0,
+      "explanation": "\"La tante\" betyder faster eller moster."
+    },
+    {
+      "id": "q-fr7-fam-11",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Välj rätt ord: \"___ père est professeur.\" (Hans/hennes pappa är lärare.)",
+      "opener": "\"Père\" är maskulinum, och possessivet böjs efter ORDETS genus — inte ägarens.",
+      "choices": [
+        "Son",
+        "Sa",
+        "Ses",
+        "Ton"
+      ],
+      "answer": 0,
+      "explanation": "\"Son\" används framför maskulina ord i singular, oavsett om ägaren är \"han\" eller \"hon\": \"son père\" (hans/hennes pappa)."
+    },
+    {
+      "id": "q-fr7-fam-12",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Hur skriver man talet 42 med bokstäver?",
+      "opener": "42 följer mönstret \"quarante\" + entalet.",
+      "choices": [
+        "quarante-deux",
+        "quarante-douze",
+        "vingt-deux",
+        "cinquante-deux"
+      ],
+      "answer": 0,
+      "explanation": "\"Quarante\" (40) + \"deux\" (2) = \"quarante-deux\" = 42."
+    },
+    {
+      "id": "q-fr7-fam-13",
+      "kind": "mc",
+      "topic": "numbers",
+      "prompt": "Vilket tal är \"soixante\"?",
+      "opener": "Ett runt tiotal du redan sett i flashcardet.",
+      "choices": [
+        "60",
+        "16",
+        "70",
+        "6"
+      ],
+      "answer": 0,
+      "explanation": "\"Soixante\" är 60."
+    },
+    {
+      "id": "q-fr7-fam-14",
+      "kind": "mc",
+      "topic": "family",
+      "prompt": "Vad betyder \"la cousine\"?",
+      "opener": "Jämför med \"le cousin\", som är den manliga formen.",
+      "choices": [
+        "Kusin (kvinnlig)",
+        "Kusin (manlig)",
+        "Syster",
+        "Faster"
+      ],
+      "answer": 0,
+      "explanation": "\"La cousine\" är den kvinnliga formen av kusin. \"Le cousin\" är den manliga formen."
+    },
+    {
+      "id": "q-fr7-fam-15",
+      "kind": "mc",
+      "topic": "possessives",
+      "prompt": "Välj rätt ord: \"___ parents habitent à Paris.\" (Mina föräldrar bor i Paris.)",
+      "opener": "\"Parents\" (föräldrar) är plural, och possessivet i plural är samma oavsett genus.",
+      "choices": [
+        "Mes",
+        "Mon",
+        "Ma",
+        "Ton"
+      ],
+      "answer": 0,
+      "explanation": "\"Mes\" används i plural, oavsett genus på substantivet i singular: \"mes parents\" (mina föräldrar)."
     }
   ]
 }

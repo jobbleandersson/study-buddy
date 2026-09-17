@@ -123,6 +123,112 @@
       "prompt": "What is the difference between word class and sentence element?",
       "opener": "A word can have the same word class in every sentence, but a different sentence element depending on where it stands.",
       "answer": "Word class is WHAT a word is in itself — noun, verb, adjective, adverb, pronoun, preposition, conjunction, numeral. It never changes, no matter where in the sentence the word stands. Sentence element is what ROLE the word plays in that particular sentence — subject (the one doing something), predicate (the verb/action), object (the one receiving the action), or complement. Example: \"hund\" is always a noun (word class), but can be the subject in \"Hunden skäller\" and the object in \"Jag ser hunden\"."
+    },
+    {
+      "id": "q-sv9-ord-9",
+      "kind": "mc",
+      "topic": "word classes",
+      "prompt": "Which word is an adverb in the sentence? \"Hon sjöng vackert i går.\"",
+      "opener": "Adverbs often describe HOW something is done — they answer the question \"how?\" about the verb.",
+      "choices": [
+        "Hon",
+        "sjöng",
+        "vackert",
+        "i"
+      ],
+      "answer": 2,
+      "explanation": "\"Vackert\" describes HOW she sang — it's an adverb. \"Hon\" is a pronoun, \"sjöng\" is a verb and \"i\" is a preposition."
+    },
+    {
+      "id": "q-sv9-ord-10",
+      "kind": "mc",
+      "topic": "word classes",
+      "prompt": "Which word is a preposition in the sentence? \"Katten satt under bordet.\"",
+      "opener": "Prepositions often tell us WHERE something is located in relation to something else.",
+      "choices": [
+        "Katten",
+        "satt",
+        "under",
+        "bordet"
+      ],
+      "answer": 2,
+      "explanation": "\"Under\" tells us where the cat is located in relation to the table — it's a preposition."
+    },
+    {
+      "id": "q-sv9-ord-11",
+      "kind": "mc",
+      "topic": "word classes",
+      "prompt": "Which word is a conjunction in the sentence? \"Jag ville gå ut, men det regnade.\"",
+      "opener": "Conjunctions link two clauses or words together — e.g. och (and), men (but), eller (or).",
+      "choices": [
+        "Jag",
+        "ville",
+        "men",
+        "regnade"
+      ],
+      "answer": 2,
+      "explanation": "\"Men\" links the two clauses \"jag ville gå ut\" and \"det regnade\" together — it's a conjunction."
+    },
+    {
+      "id": "q-sv9-ord-12",
+      "kind": "mc",
+      "topic": "sentence elements",
+      "prompt": "Which word is the object in the sentence? \"Anna bakade en kaka till festen.\"",
+      "opener": "The object is what the action is directed at — what was it that Anna baked?",
+      "choices": [
+        "Anna",
+        "bakade",
+        "en kaka",
+        "till festen"
+      ],
+      "answer": 2,
+      "explanation": "\"En kaka\" is what Anna baked — the object receives the action. \"Anna\" is the subject, \"bakade\" is the predicate, and \"till festen\" is a complement stating the purpose."
+    },
+    {
+      "id": "q-sv9-ord-13",
+      "kind": "mc",
+      "topic": "sentence elements",
+      "prompt": "Which word is the subject in the sentence? \"Bilen stannade plötsligt vid vägkanten.\"",
+      "opener": "Ask: what is performing the action — what is it that stops?",
+      "choices": [
+        "Bilen",
+        "stannade",
+        "plötsligt",
+        "vägkanten"
+      ],
+      "answer": 0,
+      "explanation": "\"Bilen\" is the one performing the action (stopping) — so it's the subject. \"Stannade\" is the predicate and \"plötsligt\" is an adverb describing how it happened."
+    },
+    {
+      "id": "q-sv9-ord-14",
+      "kind": "worked",
+      "topic": "sentence elements",
+      "prompt": "Analyse the sentence: \"Den gamla katten sover lugnt på soffan.\" State the word class of each word and the sentence element for the subject and predicate.",
+      "opener": "Go word by word, just like in the example with the student who greeted everyone.",
+      "answer": "Den (definite article/pronoun), gamla (adjective), katten (noun, = subject), sover (verb, = predicate), lugnt (adverb), på soffan (preposition + noun, = complement).",
+      "steps": [
+        "\"Den\" points to a definite noun — it counts as a determiner/pronoun.",
+        "\"Gamla\" describes the cat — an adjective.",
+        "\"Katten\" is the one performing the action (sleeping) — a noun as word class, subject as sentence element.",
+        "\"Sover\" is the verb — the predicate.",
+        "\"Lugnt\" describes HOW the cat sleeps — an adverb, not an adjective.",
+        "\"På soffan\" tells us WHERE the cat is sleeping — it functions as a complement to the predicate."
+      ]
+    },
+    {
+      "id": "q-sv9-ord-15",
+      "kind": "mc",
+      "topic": "word classes",
+      "prompt": "Which word is a numeral in the sentence? \"Hon åt tre äpplen.\"",
+      "opener": "Numerals indicate quantity or order — one, two, three... or first, second, third...",
+      "choices": [
+        "Hon",
+        "åt",
+        "tre",
+        "äpplen"
+      ],
+      "answer": 2,
+      "explanation": "\"Tre\" indicates quantity — it's a numeral. \"Hon\" is a pronoun, \"åt\" is a verb and \"äpplen\" is a noun."
     }
   ]
 }

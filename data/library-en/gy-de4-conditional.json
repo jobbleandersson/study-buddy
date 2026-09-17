@@ -122,6 +122,111 @@
       "prompt": "What three types of conditional clauses exist in German, and how are they formed?",
       "opener": "Real condition, unreal present condition, unreal past condition.",
       "answer": "Type 1 – Real/possible condition: indicative in both clauses, often present tense. Wenn es regnet, bleibe ich zu Hause. Type 2 – Unreal present condition: Konjunktiv II in both clauses (hätte/wäre/käme or würde + infinitive). Wenn ich Zeit hätte, würde ich kommen. Type 3 – Unreal past condition: hätte/wäre + participle in both clauses. Wenn ich das gewusst hätte, hätte ich anders gehandelt. Conjunctions: wenn = if/when, falls/sofern = if (more formal). Without wenn: the conjugated verb moves to the first position (Hätte ich mehr Zeit, würde ich kommen)."
+    },
+    {
+      "id": "q-de4-cond-9",
+      "kind": "mc",
+      "topic": "real conditions",
+      "prompt": "What does \"Wenn man Fieber hat, sollte man zu Hause bleiben\" mean?",
+      "opener": "The present indicative in both clauses signals a real, general condition.",
+      "choices": [
+        "If you have a fever, you should stay home",
+        "If you had a fever, you would stay home",
+        "If you had had a fever, you would have stayed home",
+        "You always have a fever and stay home"
+      ],
+      "answer": 0,
+      "explanation": "The present indicative in both clauses gives a real, general condition: \"if you have a fever, you should stay home\"."
+    },
+    {
+      "id": "q-de4-cond-10",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "Choose the correct form: \"Wenn ich schneller gelaufen ___, hätte ich den Bus erreicht.\"",
+      "opener": "\"Laufen\" takes sein in the perfect.",
+      "choices": [
+        "wäre",
+        "hätte",
+        "bin",
+        "war"
+      ],
+      "answer": 0,
+      "explanation": "\"Laufen\" describes movement and takes \"sein\" in the perfect, so \"wäre gelaufen\" in the Konjunktiv II past."
+    },
+    {
+      "id": "q-de4-cond-11",
+      "kind": "mc",
+      "topic": "conditional word order",
+      "prompt": "Choose the correct form: \"Wäre ich reich, ___ ich nicht mehr arbeiten.\" (müssen)",
+      "opener": "The main clause of a hypothetical conditional sentence also uses Konjunktiv II.",
+      "choices": [
+        "müsste",
+        "muss",
+        "musste",
+        "würde müssen"
+      ],
+      "answer": 0,
+      "explanation": "The Konjunktiv II of \"müssen\" is \"müsste\": \"..., müsste ich nicht mehr arbeiten.\""
+    },
+    {
+      "id": "q-de4-cond-12",
+      "kind": "mc",
+      "topic": "real conditions",
+      "prompt": "What does the conjunction \"sofern\" mean?",
+      "opener": "A more formal/legalistic synonym of \"wenn\" in the sense of \"if\".",
+      "choices": [
+        "if (formal)",
+        "although",
+        "because",
+        "while"
+      ],
+      "answer": 0,
+      "explanation": "\"Sofern\" means \"if\" in a more formal/legalistic tone, roughly \"provided that\"."
+    },
+    {
+      "id": "q-de4-cond-13",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "Choose the correct form: \"Wenn du mehr übtest, ___ du besser Klavier spielen.\" (werden, würde construction)",
+      "opener": "The main clause of this hypothetical present sentence is built with würde + infinitive.",
+      "choices": [
+        "würdest",
+        "wirst",
+        "würde",
+        "wirst werden"
+      ],
+      "answer": 0,
+      "explanation": "The würde construction for \"du\" is \"würdest\": \"..., würdest du besser Klavier spielen.\""
+    },
+    {
+      "id": "q-de4-cond-14",
+      "kind": "mc",
+      "topic": "conditional word order",
+      "prompt": "Choose the correct form: \"___ ich Zeit, käme ich mit.\" (haben, without \"wenn\")",
+      "opener": "Without \"wenn\", the conjugated verb moves to the first position of the clause.",
+      "choices": [
+        "Hätte",
+        "Habe",
+        "Hatte",
+        "Würde haben"
+      ],
+      "answer": 0,
+      "explanation": "The Konjunktiv II of \"haben\" is \"hätte\", and without \"wenn\" it moves to the first position: \"Hätte ich Zeit, käme ich mit.\""
+    },
+    {
+      "id": "q-de4-cond-15",
+      "kind": "mc",
+      "topic": "unreal conditions",
+      "prompt": "What type of conditional clause is \"Wenn ich Zeit hätte, würde ich kommen\"?",
+      "opener": "Konjunktiv II in the present (not hätte/wäre + participle) reveals which type it is.",
+      "choices": [
+        "Unreal present condition (type 2)",
+        "Real condition (type 1)",
+        "Unreal past condition (type 3)",
+        "None of these"
+      ],
+      "answer": 0,
+      "explanation": "Konjunktiv II in the present (hätte, würde) without a participle signals type 2: an unreal condition in the present."
     }
   ]
 }

@@ -123,6 +123,110 @@
       "prompt": "How are adjectives compared in English, and when are adverbs used instead of adjectives?",
       "opener": "Regular · irregular · adjective versus adverb.",
       "answer": "Short adjectives (1 syllable, often also 2 ending in -y): -er/-est — old/older/oldest · easy/easier/easiest (y becomes i) · big/bigger/biggest (double consonant) · Long adjectives (2–3+ syllables): more/most — more careful/most careful · Irregular: good/better/best · bad/worse/worst · much–many/more/most · little/less/least · far/further/furthest · Never double comparison: \"more better\" and \"most easiest\" are wrong · Comparative + than (taller than me) · equal degree: as + base form + as (as tall as me) · Adjectives describe nouns (a quick car, her English is good) · Adverbs describe verbs and are usually formed with -ly (drives quickly, speaks well) · Remember: good → the adverb well."
+    },
+    {
+      "id": "q-en8-adj-9",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Choose the correct form: \"This backpack is ___ than mine.\"",
+      "opener": "Short adjectives (one syllable) are compared with -er, not with \"more\".",
+      "choices": [
+        "more light",
+        "lighter",
+        "lightest",
+        "more lighter"
+      ],
+      "answer": 1,
+      "explanation": "\"Light\" has one syllable and is compared with -er: lighter. \"More light\" is wrong because \"more\" is used for longer adjectives, and \"more lighter\" is double comparison."
+    },
+    {
+      "id": "q-en8-adj-10",
+      "kind": "mc",
+      "topic": "comparison",
+      "prompt": "Choose the correct form: \"That was the ___ decision the team has ever made.\"",
+      "opener": "Long adjectives (three syllables or more) take most in the superlative.",
+      "choices": [
+        "importantest",
+        "most important",
+        "more important",
+        "most importantest"
+      ],
+      "answer": 1,
+      "explanation": "\"Important\" is long and is compared with more/most: the most important. \"More important\" is comparative, but the superlative is required here after \"the\"."
+    },
+    {
+      "id": "q-en8-adj-11",
+      "kind": "mc",
+      "topic": "irregular adjectives",
+      "prompt": "Choose the correct form: \"This is by far the ___ meal I have ever cooked.\"",
+      "opener": "\"Good\" doesn't follow the -er pattern — it has its own separate form.",
+      "choices": [
+        "goodest",
+        "most good",
+        "better",
+        "best"
+      ],
+      "answer": 3,
+      "explanation": "\"Good\" is compared irregularly: good – better – best. \"Best\" is superlative and fits after \"the\" together with \"by far\", which emphasises a superlative."
+    },
+    {
+      "id": "q-en8-adj-12",
+      "kind": "mc",
+      "topic": "adjectives and adverbs",
+      "prompt": "Choose the correct word: \"She sang the song very ___.\"",
+      "opener": "Does the word describe the noun \"song\" or how she sang?",
+      "choices": [
+        "beautiful",
+        "beautifully",
+        "more beautiful",
+        "beautifulness"
+      ],
+      "answer": 1,
+      "explanation": "The word describes how she sang, i.e. the verb — so the adverb \"beautifully\" is used. \"Beautiful\" is an adjective and describes a noun: \"a beautiful song\"."
+    },
+    {
+      "id": "q-en8-adj-13",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Choose the correct form: \"This test was ___ the last one — I found both really difficult.\"",
+      "opener": "Equal degree uses a fixed construction with two small words around the adjective.",
+      "choices": [
+        "as difficult as",
+        "as difficulter as",
+        "so difficult than",
+        "as difficult than"
+      ],
+      "answer": 0,
+      "explanation": "Equal degree is expressed with as + adjective in the base form + as: \"as difficult as the last one\". \"Than\" is only used after a comparative, such as \"more difficult than\"."
+    },
+    {
+      "id": "q-en8-adj-14",
+      "kind": "worked",
+      "topic": "comparison",
+      "prompt": "Correct the four errors: \"This is the baddest storm of the year. It is more worse than last week's storm, and the wind blows very strong today.\"",
+      "opener": "Look for an incorrect superlative form, double comparison, and an adjective that should be an adverb.",
+      "answer": "This is the worst storm of the year. It is worse than last week's storm, and the wind blows very strongly today.",
+      "steps": [
+        "\"the baddest\" → \"the worst\". \"Bad\" is compared irregularly: bad – worse – worst, never with -est.",
+        "\"more worse\" → \"worse\". \"Worse\" is already comparative, and you never combine \"more\" with an irregular comparative form.",
+        "\"blows very strong\" → \"blows very strongly\". The word describes how the wind blows, so the adverb strongly is needed.",
+        "Read through the sentence once more and check that the superlative is only used after \"the\", not together with \"than\"."
+      ]
+    },
+    {
+      "id": "q-en8-adj-15",
+      "kind": "mc",
+      "topic": "adjectives and adverbs",
+      "prompt": "Which sentence is correct?",
+      "opener": "Adverbs are usually formed with the adjective + -ly and describe how something is done.",
+      "choices": [
+        "He closed the door quiet and careful.",
+        "He closed the door quietly and carefully.",
+        "He quiet closed the door carefully.",
+        "He closed quietly the door careful."
+      ],
+      "answer": 1,
+      "explanation": "The words describe how he closed the door, so the adverb forms quietly and carefully are used. \"Quiet\" and \"careful\" are adjectives and would describe a noun, such as \"a quiet room\"."
     }
   ]
 }

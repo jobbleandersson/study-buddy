@@ -124,6 +124,111 @@
       "prompt": "Summarise acids, bases, the pH scale and neutralisation.",
       "opener": "Think scale 0–14, which ion is released, and what is formed during neutralisation.",
       "answer": "The pH scale: runs from 0–14 and shows how acidic or basic a solution is · pH below 7 = acidic (acid) · pH = 7 = neutral (e.g. pure water) · pH above 7 = basic (base) · Acid: releases hydrogen ions (H+) in water, examples: acetic acid, hydrochloric acid, stomach acid, citric acid · Base: releases hydroxide ions (OH−) in water, examples: baking soda (sodium bicarbonate), soft soap, soap, ammonia · Neutralisation: acid + base → salt + water, pH moves towards 7 · Everyday example: vinegar (acidic) reacts with bicarbonate (basic) and bubbles of carbon dioxide are formed."
+    },
+    {
+      "id": "q-kemi-syr-9",
+      "kind": "mc",
+      "topic": "the pH scale",
+      "prompt": "A sample has pH 3. How would you describe the solution?",
+      "opener": "Compare 3 with the neutral value 7.",
+      "choices": [
+        "Acidic",
+        "Weakly basic",
+        "Neutral",
+        "Strongly basic"
+      ],
+      "answer": 0,
+      "explanation": "pH 3 is well below 7, meaning the solution is acidic - the lower the value below 7, the stronger the acid."
+    },
+    {
+      "id": "q-kemi-syr-10",
+      "kind": "mc",
+      "topic": "the pH scale",
+      "prompt": "A sample has pH 11. How would you describe the solution?",
+      "opener": "Compare 11 with the neutral value 7.",
+      "choices": [
+        "Basic",
+        "Acidic",
+        "Neutral",
+        "Impossible to tell"
+      ],
+      "answer": 0,
+      "explanation": "pH 11 is well above 7, meaning the solution is basic - the higher the value above 7, the stronger the base."
+    },
+    {
+      "id": "q-kemi-syr-11",
+      "kind": "mc",
+      "topic": "acids and bases",
+      "prompt": "Which ion do bases release when dissolved in water?",
+      "opener": "This ion is the opposite of the one acids release.",
+      "choices": [
+        "Hydroxide ions (OH−)",
+        "Hydrogen ions (H+)",
+        "Sodium ions (Na+)",
+        "Chloride ions (Cl−)"
+      ],
+      "answer": 0,
+      "explanation": "Bases release hydroxide ions (OH−) in water, giving a pH above 7. Acids instead release hydrogen ions (H+)."
+    },
+    {
+      "id": "q-kemi-syr-12",
+      "kind": "mc",
+      "topic": "neutralisation",
+      "prompt": "What is always formed in a complete neutralisation between an acid and a base?",
+      "opener": "Hydrogen ions and hydroxide ions bind to each other and form one of the products.",
+      "choices": [
+        "Salt and water",
+        "Only water",
+        "Only acid",
+        "A new strong base"
+      ],
+      "answer": 0,
+      "explanation": "In neutralisation, acid and base react according to acid + base → salt + water. Hydrogen ions and hydroxide ions bind to each other and form water, while the remaining ions form a salt."
+    },
+    {
+      "id": "q-kemi-syr-13",
+      "kind": "mc",
+      "topic": "acids and bases in everyday life",
+      "prompt": "Which of the following is a base you can find in everyday life?",
+      "opener": "Think about which of these substances is used for washing or cleaning.",
+      "choices": [
+        "Soft soap",
+        "Citric acid in lemons",
+        "Vinegar",
+        "Carbonic acid in soda"
+      ],
+      "answer": 0,
+      "explanation": "Soft soap is basic. Citric acid, vinegar and carbonic acid are all examples of acids you encounter in everyday life."
+    },
+    {
+      "id": "q-kemi-syr-14",
+      "kind": "worked",
+      "topic": "neutralisation",
+      "prompt": "A gardener discovers that the soil in a flower bed is too acidic (low pH) for the plants to thrive. They spread lime (which is basic) on the soil. Explain using chemistry why this helps.",
+      "opener": "Think about what happens chemically when an acid meets a base, just like in the stomach acid and antacid example.",
+      "answer": "The lime, being basic, neutralises some of the acid in the soil, raising the soil's pH towards a more neutral value that suits the plants better.",
+      "steps": [
+        "Acidic soil has a low pH, often due to natural processes in the ground.",
+        "Lime is basic and reacts with the acid in the soil.",
+        "When the lime meets the acid, a neutralisation reaction occurs: acid + base → salt + water.",
+        "Some of the hydrogen ions in the soil are bound up, making the soil less acidic - the pH rises towards a more neutral value.",
+        "With a better pH, the plants can more easily absorb nutrients from the soil."
+      ]
+    },
+    {
+      "id": "q-kemi-syr-15",
+      "kind": "mc",
+      "topic": "acids and bases in everyday life",
+      "prompt": "Why does it bubble when you mix baking soda (basic) with lemon juice (acidic) in a baking recipe?",
+      "opener": "What forms when an acid and a base react with each other?",
+      "choices": [
+        "Acid and base react and form, among other things, carbon dioxide gas, which is seen as bubbles",
+        "The bubbles are just air that was already in the mixture",
+        "It's a physical change with no chemical reaction involved",
+        "Baking soda boils at room temperature"
+      ],
+      "answer": 0,
+      "explanation": "The reaction between baking soda and lemon juice is an acid-base reaction that forms carbon dioxide gas as one of the products - that's the gas bubbles seen in the batter."
     }
   ]
 }

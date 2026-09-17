@@ -121,6 +121,111 @@
       "prompt": "What is Konjunktiv II, when is it used, and what forms does it take?",
       "opener": "Politeness and hypotheticals — two main uses.",
       "answer": "Konjunktiv II expresses polite wishes/requests and hypothetical/unreal situations (corresponds to \"would\" in English). Common short forms (preferred over würde): sein → wäre, haben → hätte, werden → würde, können → könnte, müssen → müsste, dürfen → dürfte, mögen → möchte. For most other verbs: conjugated würde + infinitive at the end, e.g. \"ich würde fahren\". Polite phrases: \"Ich hätte gern...\" (I would like), \"Könnten Sie...?\" (could you...?), \"Ich möchte...\" (I would like). Hypothetical sentences: wenn-clause in Konjunktiv II + main clause in Konjunktiv II, e.g. \"Wenn ich Geld hätte, würde ich reisen.\" (If I had money, I would travel.)"
+    },
+    {
+      "id": "q-de3-mood-9",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Which Konjunktiv II form belongs to \"sein\"?",
+      "opener": "One of the most common short Konjunktiv II forms.",
+      "choices": [
+        "wäre",
+        "war",
+        "ist",
+        "sei"
+      ],
+      "answer": 0,
+      "explanation": "The Konjunktiv II of \"sein\" is \"wäre\": \"ich wäre\", \"du wärst\", etc."
+    },
+    {
+      "id": "q-de3-mood-10",
+      "kind": "mc",
+      "topic": "polite requests",
+      "prompt": "What does \"Würden Sie mir bitte helfen?\" mean?",
+      "opener": "The würde construction is used here for a polite request.",
+      "choices": [
+        "Could you please help me?",
+        "Are you helping me?",
+        "You must help me.",
+        "Can you help me now?"
+      ],
+      "answer": 0,
+      "explanation": "\"Würden Sie mir bitte helfen?\" means \"could you please help me?\" — a polite request using the würde construction."
+    },
+    {
+      "id": "q-de3-mood-11",
+      "kind": "mc",
+      "topic": "hypotheticals",
+      "prompt": "Choose the correct form: \"Wenn ich mehr Geld hätte, ___ ich nicht mehr arbeiten.\" (müssen)",
+      "opener": "The main clause of a hypothetical conditional sentence also uses Konjunktiv II.",
+      "choices": [
+        "müsste",
+        "musste",
+        "muss",
+        "habe gemusst"
+      ],
+      "answer": 0,
+      "explanation": "The Konjunktiv II of \"müssen\" is \"müsste\": \"..., müsste ich nicht mehr arbeiten\" (I wouldn't have to work anymore)."
+    },
+    {
+      "id": "q-de3-mood-12",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Which form is the Konjunktiv II of \"werden\"?",
+      "opener": "This form is also used as the auxiliary for the Konjunktiv II of most other verbs.",
+      "choices": [
+        "würde",
+        "wird",
+        "wurde",
+        "geworden"
+      ],
+      "answer": 0,
+      "explanation": "The Konjunktiv II of \"werden\" is \"würde\", which is also used as the auxiliary in the würde construction for most other verbs."
+    },
+    {
+      "id": "q-de3-mood-13",
+      "kind": "mc",
+      "topic": "polite requests",
+      "prompt": "What does \"Dürfte ich...?\" mean?",
+      "opener": "The Konjunktiv II of \"dürfen\", more polite than \"darf ich\".",
+      "choices": [
+        "Might I...? (polite)",
+        "Must I...?",
+        "Do I want to...?",
+        "Can I...?"
+      ],
+      "answer": 0,
+      "explanation": "\"Dürfte ich...?\" is the more polite Konjunktiv II form of \"darf ich...?\" (may I?), roughly \"might I be allowed to...?\"."
+    },
+    {
+      "id": "q-de3-mood-14",
+      "kind": "mc",
+      "topic": "hypotheticals",
+      "prompt": "What does \"An deiner Stelle würde ich das nicht tun\" mean?",
+      "opener": "\"An deiner Stelle\" means \"in your place\".",
+      "choices": [
+        "In your place, I wouldn't do that",
+        "I never do this",
+        "You shouldn't do that",
+        "I would do it differently"
+      ],
+      "answer": 0,
+      "explanation": "\"An deiner Stelle würde ich das nicht tun\" means \"in your place, I wouldn't do that\" — a common way to give hypothetical advice."
+    },
+    {
+      "id": "q-de3-mood-15",
+      "kind": "mc",
+      "topic": "Konjunktiv II",
+      "prompt": "Choose the correct form: \"___ ich das Fenster öffnen?\" (dürfen, polite question)",
+      "opener": "The Konjunktiv II of \"dürfen\" makes the question more polite.",
+      "choices": [
+        "Dürfte",
+        "Darf",
+        "Durfte",
+        "Würde dürfen"
+      ],
+      "answer": 0,
+      "explanation": "The Konjunktiv II of \"dürfen\" is \"dürfte\": \"Dürfte ich das Fenster öffnen?\" (might I open the window?)."
     }
   ]
 }

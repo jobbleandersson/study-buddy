@@ -124,6 +124,110 @@
       "prompt": "Summarise the foundations of Islam: belief in God, Muhammad, the five pillars, Sunni/Shia, and the Quran.",
       "opener": "Split the answer into faith, prophet, pillars, branches, and holy scripture.",
       "answer": "Belief in God: Islam is monotheistic — one single God, Allah. Muhammad: seen as the last prophet, received the revelations of the Quran via the angel Gabriel. The five pillars: shahada (declaration of faith) · salat (prayer five times a day) · zakat (almsgiving) · sawm (fasting during Ramadan) · hajj (pilgrimage to Mecca). Sunni and Shia: the two largest branches, originally split over the question of who should succeed Muhammad as leader — Sunni is by far the largest branch globally. The Quran: Islam's holy scripture, seen as God's own words in Arabic. Ramadan: the month of fasting, one of the year's most important festivals, ending with the festival of Eid al-Fitr."
+    },
+    {
+      "id": "q-rel-isl-9",
+      "kind": "mc",
+      "topic": "fundamental beliefs",
+      "prompt": "Which city is considered Islam's holiest site, where Muslims make pilgrimage during Hajj?",
+      "opener": "The city is located in modern-day Saudi Arabia.",
+      "choices": [
+        "Mecca",
+        "Medina",
+        "Jerusalem",
+        "Baghdad"
+      ],
+      "answer": 0,
+      "explanation": "Mecca is considered Islam's holiest city, with the Kaaba as the pilgrims' destination during Hajj. Medina is Islam's second-holiest city."
+    },
+    {
+      "id": "q-rel-isl-10",
+      "kind": "mc",
+      "topic": "the five pillars",
+      "prompt": "Which pillar is the declaration of faith, stating that there is only one God and that Muhammad is his prophet?",
+      "opener": "This pillar is often considered the foundation all the other pillars rest on.",
+      "choices": [
+        "Shahada",
+        "Salat",
+        "Zakat",
+        "Sawm"
+      ],
+      "answer": 0,
+      "explanation": "Shahada is the declaration of faith - stating that there is only one God (Allah) and that Muhammad is his prophet. It's the first and most fundamental of the five pillars."
+    },
+    {
+      "id": "q-rel-isl-11",
+      "kind": "mc",
+      "topic": "the five pillars",
+      "prompt": "How many times a day do practising Muslims pray according to the pillar of salat?",
+      "opener": "The prayer times are spread across the day, from dawn to evening.",
+      "choices": [
+        "Five times",
+        "Once",
+        "Three times",
+        "Seven times"
+      ],
+      "answer": 0,
+      "explanation": "Salat means praying five times a day at set times: dawn, midday, afternoon, sunset and evening."
+    },
+    {
+      "id": "q-rel-isl-12",
+      "kind": "mc",
+      "topic": "Sunni and Shia",
+      "prompt": "Roughly what share of the world's Muslims belong to the Sunni branch?",
+      "opener": "It's by far the larger of the two main branches.",
+      "choices": [
+        "Roughly 85-90 percent",
+        "Roughly 10 percent",
+        "Roughly 50 percent",
+        "Almost all are Shia Muslims"
+      ],
+      "answer": 0,
+      "explanation": "Roughly 85-90 percent of the world's Muslims are considered Sunni, while Shia Muslims make up roughly 10-15 percent, with Iran being one of the countries where Shia Islam is the majority."
+    },
+    {
+      "id": "q-rel-isl-13",
+      "kind": "mc",
+      "topic": "the Quran and festivals",
+      "prompt": "Which festival marks the end of the fasting month of Ramadan?",
+      "opener": "The name roughly means \"festival of breaking the fast\".",
+      "choices": [
+        "Eid al-Fitr",
+        "Eid al-Adha",
+        "Ashura",
+        "Mawlid"
+      ],
+      "answer": 0,
+      "explanation": "Eid al-Fitr is celebrated when Ramadan ends and marks the close of the fasting month, often with shared meals, prayer and gifts."
+    },
+    {
+      "id": "q-rel-isl-14",
+      "kind": "worked",
+      "topic": "the five pillars",
+      "prompt": "Explain why Hajj, the pilgrimage to Mecca, is considered one of Islam's most important acts, and what is required for a Muslim to need to perform it.",
+      "opener": "Think about what happens when millions of people from around the world gather in the same place, dressed the same way.",
+      "answer": "Hajj brings together Muslims from around the world at a single holy site, strengthening the sense of community (ummah) and equality before God, since all pilgrims wear simple, identical clothing regardless of social status. According to Islamic tradition, Hajj is obligatory at least once in a lifetime, but only for those who have sufficient health and financial resources to make the journey.",
+      "steps": [
+        "Hajj takes place once a year in the city of Mecca and brings together millions of Muslims from around the world.",
+        "During the pilgrimage, all pilgrims wear simple, white garments (ihram), which erases visible differences in wealth or status.",
+        "This strengthens the experience of equality and community (ummah) among Muslims regardless of background.",
+        "According to Islamic tradition, Hajj is one of the five pillars and obligatory at least once in a lifetime - but only for those with the health and financial resources to manage the journey, making the duty conditional rather than absolute for everyone."
+      ]
+    },
+    {
+      "id": "q-rel-isl-15",
+      "kind": "mc",
+      "topic": "fundamental beliefs",
+      "prompt": "What is the holy city called that Muhammad, according to tradition, fled to in 622, an event marking the start of the Islamic calendar?",
+      "opener": "The city is Islam's second-holiest, after Mecca.",
+      "choices": [
+        "Medina",
+        "Mecca",
+        "Damascus",
+        "Cairo"
+      ],
+      "answer": 0,
+      "explanation": "Muhammad's flight (hijra) to Medina in 622 marks the start of the Islamic calendar. Medina is considered Islam's second-holiest city, after Mecca."
     }
   ]
 }

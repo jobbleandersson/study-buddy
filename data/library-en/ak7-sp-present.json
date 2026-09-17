@@ -114,6 +114,111 @@
       "prompt": "How are -ar, -er, and -ir verbs conjugated in the present tense, and when do you use ser versus estar?",
       "opener": "The three verb groups follow different but regular patterns.",
       "answer": "-ar (hablar): hablo, hablas, habla, hablamos, habláis, hablan. -er (aprender): aprendo, aprendes, aprende, aprendemos, aprendéis, aprenden. -ir (vivir): vivo, vives, vive, vivimos, vivís, viven. Ser is used for permanent things: yo soy, tú eres, él/ella es, nosotros somos, ellos son — e.g. appearance, profession, nationality. Estar is used for location and temporary states: yo estoy, tú estás, él/ella está, nosotros estamos, ellos están — e.g. where something is, or how someone feels right now."
+    },
+    {
+      "id": "q-sp7-pres-9",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Ellos ___ en Barcelona.\" (vivir)",
+      "opener": "\"Ellos\" means \"they\", and vivir is an -ir verb.",
+      "choices": [
+        "viven",
+        "vive",
+        "vivimos",
+        "vivo"
+      ],
+      "answer": 0,
+      "explanation": "\"Vivir\" conjugates: vivo, vives, vive, vivimos, vivís, viven. \"Ellos\" (they) gives the ending -en: \"viven\"."
+    },
+    {
+      "id": "q-sp7-pres-10",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"¿Tú ___ español?\" (hablar)",
+      "opener": "\"Tú\" (you) with an -ar verb ends in -as.",
+      "choices": [
+        "hablas",
+        "hablo",
+        "habla",
+        "hablamos"
+      ],
+      "answer": 0,
+      "explanation": "\"Hablar\" conjugates: hablo, hablas, habla... \"Tú\" gives the ending -as: \"hablas\"."
+    },
+    {
+      "id": "q-sp7-pres-11",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Nosotros ___ pizza los sábados.\" (comer = to eat)",
+      "opener": "\"Nosotros\" (we) with an -er verb ends in -emos.",
+      "choices": [
+        "comemos",
+        "come",
+        "comen",
+        "como"
+      ],
+      "answer": 0,
+      "explanation": "\"Comer\" conjugates: como, comes, come, comemos... \"Nosotros\" gives the ending -emos: \"comemos\"."
+    },
+    {
+      "id": "q-sp7-pres-12",
+      "kind": "mc",
+      "topic": "ser and estar",
+      "prompt": "Choose the right verb: \"Yo ___ de Suecia.\" (I am from Sweden.)",
+      "opener": "Origin/nationality is a permanent trait.",
+      "choices": [
+        "soy",
+        "estoy",
+        "eres",
+        "está"
+      ],
+      "answer": 0,
+      "explanation": "\"Ser\" is used for origin and nationality: \"yo soy de Suecia\" = \"I am from Sweden\". \"Estar\" would instead fit location or a temporary state."
+    },
+    {
+      "id": "q-sp7-pres-13",
+      "kind": "mc",
+      "topic": "ser and estar",
+      "prompt": "Choose the right verb: \"Los niños ___ cansados hoy.\" (The kids are tired today.)",
+      "opener": "Being tired IS a temporary state, not a permanent trait.",
+      "choices": [
+        "están",
+        "son",
+        "estoy",
+        "es"
+      ],
+      "answer": 0,
+      "explanation": "\"Estar\" is used for temporary states like tiredness: \"están cansados\" = \"are tired\". \"Ser\" would instead express a permanent trait."
+    },
+    {
+      "id": "q-sp7-pres-14",
+      "kind": "mc",
+      "topic": "personal pronouns",
+      "prompt": "Which pronoun is used for \"she\" in Spanish?",
+      "opener": "A feminine third-person singular pronoun.",
+      "choices": [
+        "ella",
+        "él",
+        "usted",
+        "ellos"
+      ],
+      "answer": 0,
+      "explanation": "\"Ella\" means \"she\". \"Él\" is \"he\", \"usted\" is the polite form of \"you\", and \"ellos\" is \"they\" (masculine/mixed)."
+    },
+    {
+      "id": "q-sp7-pres-15",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"¿Qué ___ (tú) los domingos?\" (hacer = to do)",
+      "opener": "\"Hacer\" is irregular for \"I\" (hago), but regular for \"you\".",
+      "choices": [
+        "haces",
+        "hago",
+        "hace",
+        "hacemos"
+      ],
+      "answer": 0,
+      "explanation": "\"Hacer\" conjugates: hago, haces, hace, hacemos, hacéis, hacen. \"Tú\" gives the ending -es: \"haces\"."
     }
   ]
 }

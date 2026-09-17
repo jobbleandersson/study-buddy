@@ -123,6 +123,109 @@
       "prompt": "Vilka potenslagar, regler för grundpotensform och prefix behöver du kunna?",
       "opener": "Tre block att minnas: lagarna, formen och prefixen.",
       "answer": "$a^n$ betyder att basen $a$ multipliceras med sig själv $n$ gånger · $a^m \\cdot a^n = a^{m+n}$ (samma bas: addera exponenterna) · $\\frac{a^m}{a^n} = a^{m-n}$ (samma bas: subtrahera exponenterna) · $a^0 = 1$ för alla $a \\neq 0$ · $a^{-n} = \\frac{1}{a^n}$, så negativ exponent ger ett tal mindre än 1 · Grundpotensform: $a \\cdot 10^n$ där $1 \\leq a < 10$ och $n$ är ett heltal · Stora tal ger positiv exponent, små tal ger negativ · Exponenten $=$ antalet steg decimaltecknet flyttas · Prefix: kilo $= 10^3$ · mega $= 10^6$ · milli $= 10^{-3}$."
+    },
+    {
+      "id": "q-ma8-pot-9",
+      "kind": "mc",
+      "topic": "potenser",
+      "prompt": "Vad är $3^4$?",
+      "opener": "Multiplicera 3 med sig själv fyra gånger.",
+      "choices": [
+        "12",
+        "34",
+        "64",
+        "81"
+      ],
+      "answer": 3,
+      "explanation": "$3^4 = 3 \\cdot 3 \\cdot 3 \\cdot 3 = 81$. Svaret 12 kommer av att man multiplicerar bas och exponent ($3 \\cdot 4$) i stället för att upprepa multiplikationen."
+    },
+    {
+      "id": "q-ma8-pot-10",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Beräkna $(2^3)^2$.",
+      "opener": "En potens upphöjd till en potens till — multiplicera exponenterna.",
+      "choices": [
+        "36",
+        "16",
+        "48",
+        "64"
+      ],
+      "answer": 3,
+      "explanation": "$(2^3)^2 = 2^{3 \\cdot 2} = 2^6 = 64$. (Man kan också räkna direkt: $2^3 = 8$, och $8^2 = 64$.) Svaret 36 får man om man felaktigt multiplicerar basen och den yttre exponenten ($2 \\cdot 3)^2$."
+    },
+    {
+      "id": "q-ma8-pot-11",
+      "kind": "mc",
+      "topic": "potenslagar",
+      "prompt": "Vad är $4^{-2}$?",
+      "opener": "Negativ exponent betyder \"ett delat med\" — räkna ut $4^2$ först.",
+      "choices": [
+        "$\\frac{1}{16}$",
+        "-8",
+        "$\\frac{1}{8}$",
+        "16"
+      ],
+      "answer": 0,
+      "explanation": "$4^{-2} = \\frac{1}{4^2} = \\frac{1}{16}$. Svaret 16 får man om man glömmer att den negativa exponenten betyder invers, och svaret $-8$ om man multiplicerar bas och exponent i stället."
+    },
+    {
+      "id": "q-ma8-pot-12",
+      "kind": "mc",
+      "topic": "grundpotensform",
+      "prompt": "Skriv $0{,}00052$ i grundpotensform.",
+      "opener": "Flytta decimaltecknet tills första siffran är mellan 1 och 10, räkna stegen.",
+      "choices": [
+        "$5{,}2 \\cdot 10^{-4}$",
+        "$5{,}2 \\cdot 10^{4}$",
+        "$52 \\cdot 10^{-5}$",
+        "$0{,}52 \\cdot 10^{-3}$"
+      ],
+      "answer": 0,
+      "explanation": "Decimaltecknet flyttas fyra steg åt höger för att hamna efter 5:an: $5{,}2 \\cdot 10^{-4} = 0{,}00052$. Alternativen $52 \\cdot 10^{-5}$ och $0{,}52 \\cdot 10^{-3}$ är visserligen lika stora, men inte grundpotensform eftersom första faktorn inte ligger mellan 1 och 10."
+    },
+    {
+      "id": "q-ma8-pot-13",
+      "kind": "mc",
+      "topic": "prefix",
+      "prompt": "En bakterie är ungefär 2 mikrometer stor. Hur många meter är det, i grundpotensform? (Prefixet mikro betyder miljondel, $10^{-6}$.)",
+      "opener": "Mikro är mindre än milli — en miljondel, inte en tusendel.",
+      "choices": [
+        "$2 \\cdot 10^{-6}$ m",
+        "$2 \\cdot 10^{6}$ m",
+        "$2 \\cdot 10^{-3}$ m",
+        "$2 \\cdot 10^{-9}$ m"
+      ],
+      "answer": 0,
+      "explanation": "Mikro $= 10^{-6}$, så $2$ mikrometer $= 2 \\cdot 10^{-6}$ m. Alternativet $2 \\cdot 10^{-3}$ m är i stället millimeter, och $2 \\cdot 10^{-9}$ m är nanometer."
+    },
+    {
+      "id": "q-ma8-pot-14",
+      "kind": "worked",
+      "topic": "potenslagar",
+      "prompt": "Förenkla $\\frac{2^5 \\cdot 2^3}{2^4}$ till en enda potens, och räkna ut värdet.",
+      "opener": "Först multiplikationslagen i täljaren, sedan divisionslagen.",
+      "answer": "$2^4 = 16$",
+      "steps": [
+        "Täljaren: $2^5 \\cdot 2^3 = 2^{5+3} = 2^8$.",
+        "Divisionen: $\\frac{2^8}{2^4} = 2^{8-4} = 2^4$.",
+        "Räkna ut värdet: $2^4 = 16$."
+      ]
+    },
+    {
+      "id": "q-ma8-pot-15",
+      "kind": "mc",
+      "topic": "grundpotensform",
+      "prompt": "Vilket av dessa tal är störst: $3 \\cdot 10^4$, $2{,}9 \\cdot 10^5$, $8 \\cdot 10^3$ eller $4 \\cdot 10^4$?",
+      "opener": "Skriv ut talen i vanlig form så blir de lätta att jämföra.",
+      "choices": [
+        "$3 \\cdot 10^4$",
+        "$2{,}9 \\cdot 10^5$",
+        "$8 \\cdot 10^3$",
+        "$4 \\cdot 10^4$"
+      ],
+      "answer": 1,
+      "explanation": "I vanlig form: $3 \\cdot 10^4 = 30\\,000$, $2{,}9 \\cdot 10^5 = 290\\,000$, $8 \\cdot 10^3 = 8\\,000$ och $4 \\cdot 10^4 = 40\\,000$. Störst är $2{,}9 \\cdot 10^5$ — högre exponent väger tyngre än en större första faktor."
     }
   ]
 }

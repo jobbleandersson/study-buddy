@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta blodets delar och blodomloppets uppbyggnad.",
       "opener": "Gå igenom blodets fyra beståndsdelar, de tre kärltyperna och hjärtats rum.",
       "answer": "Röda blodkroppar: innehåller hemoglobin och transporterar syre från lungorna till cellerna · Vita blodkroppar: en del av immunförsvaret, oskadliggör bakterier och virus · Blodplättar: får blodet att levra sig så att sår slutar blöda · Blodplasma: gulaktig vätska som mest består av vatten och transporterar näring, hormoner och avfall · Artärer: leder blod från hjärtat, tjocka och elastiska väggar · Vener: leder blod till hjärtat, har klaffar som hindrar backflöde · Hårrörskärl (kapillärer): mycket tunna kärl där utbytet med cellerna sker · Hjärtat: fyra rum — höger och vänster förmak samt höger och vänster kammare, med klaffar som gör att blodet bara går åt ett håll · Lilla kretsloppet: höger kammare → lungorna → vänster förmak · Stora kretsloppet: vänster kammare → kroppens organ → höger förmak · Puls: antalet hjärtslag per minut; god kondition ger starkare hjärta, större slagvolym och lägre vilopuls."
+    },
+    {
+      "id": "q-bio8-and-9",
+      "kind": "mc",
+      "topic": "andningsorganen",
+      "prompt": "Vilken muskel drar ihop sig och gör att luft sugs in i lungorna vid inandning?",
+      "opener": "Muskeln sitter under lungorna och arbetar varje gång du andas.",
+      "choices": [
+        "Bicepsmuskeln",
+        "Mellangärdet (diafragman)",
+        "Hjärtmuskeln",
+        "Tricepsmuskeln"
+      ],
+      "answer": 1,
+      "explanation": "Mellangärdet, diafragman, drar sig ner vid inandning så att lungorna vidgas och luft sugs in. Biceps och triceps är rörelsemuskler i armen och har inget med andningen att göra."
+    },
+    {
+      "id": "q-bio8-and-10",
+      "kind": "mc",
+      "topic": "gasutbyte",
+      "prompt": "Varför är lungblåsornas väggar så tunna?",
+      "opener": "Tänk på vad som ska passera väggen mellan luft och blod.",
+      "choices": [
+        "För att de ska tåla högt tryck",
+        "För att göra gasutbytet med blodet snabbare och effektivare",
+        "För att spara vikt i kroppen",
+        "För att de ska kunna dra ihop sig snabbt"
+      ],
+      "answer": 1,
+      "explanation": "De tunna väggarna gör att syre och koldioxid kan diffundera mellan luft och blod på kortast möjliga väg, vilket gör gasutbytet effektivt. Lungblåsorna drar inte ihop sig aktivt som en muskel."
+    },
+    {
+      "id": "q-bio8-and-11",
+      "kind": "mc",
+      "topic": "hjärtat och blodomloppet",
+      "prompt": "Vad gör klaffarna i hjärtat?",
+      "opener": "Tänk på vad som skulle hända om blodet kunde rinna åt fel håll.",
+      "choices": [
+        "De pumpar blodet framåt",
+        "De hindrar blodet från att rinna baklänges",
+        "De bildar nya blodkroppar",
+        "De renar blodet från koldioxid"
+      ],
+      "answer": 1,
+      "explanation": "Klaffarna öppnas och stängs så att blodet bara kan flöda åt ett håll genom hjärtat, från förmak till kammare och vidare ut. Det är hjärtmuskeln, inte klaffarna, som pumpar blodet framåt."
+    },
+    {
+      "id": "q-bio8-and-12",
+      "kind": "mc",
+      "topic": "blodet",
+      "prompt": "Vilken uppgift har de vita blodkropparna?",
+      "opener": "Tänk på vilken sorts blodkropp som ökar i antal när kroppen bekämpar en infektion.",
+      "choices": [
+        "Transportera syre",
+        "Försvara kroppen mot bakterier och virus",
+        "Få blodet att levra sig",
+        "Transportera näring"
+      ],
+      "answer": 1,
+      "explanation": "De vita blodkropparna är immunförsvarets celler och angriper bakterier, virus och andra inkräktare. Att transportera syre är de röda blodkropparnas uppgift, och blodplättarna sköter levringen."
+    },
+    {
+      "id": "q-bio8-and-13",
+      "kind": "mc",
+      "topic": "blodet",
+      "prompt": "Vad heter den gulaktiga vätskan i blodet som transporterar näring, hormoner och avfall?",
+      "opener": "Vätskan blir kvar om man tar bort alla blodkroppar och blodplättar.",
+      "choices": [
+        "Hemoglobin",
+        "Blodplasma",
+        "Lymfa",
+        "Galla"
+      ],
+      "answer": 1,
+      "explanation": "Blodplasman är den gulaktiga vätskan som mest består av vatten och transporterar näring, hormoner, avfall och blodkropparna genom kroppen. Hemoglobin finns i stället inuti de röda blodkropparna."
+    },
+    {
+      "id": "q-bio8-and-14",
+      "kind": "worked",
+      "topic": "gasutbyte",
+      "prompt": "Förklara hur koldioxid som bildas i en muskelcell i armen tar sig hela vägen ut ur kroppen genom utandningen.",
+      "opener": "Följ koldioxiden från muskelcellen, genom venerna, via hjärtat och till lungorna.",
+      "answer": "Koldioxiden lämnar muskelcellen och tas upp av blodet i hårrörskärlen, förs med venerna till hjärtats högra sida, pumpas via lilla kretsloppet till lungorna, diffunderar över från blodet till lungblåsorna och andas till slut ut genom luftrören, luftstrupen och näsan eller munnen.",
+      "steps": [
+        "Muskelcellen bildar koldioxid vid cellandningen och lämnar av den till blodet i de omgivande hårrörskärlen.",
+        "Blodet med koldioxid förs med venerna tillbaka mot hjärtat och kommer in i hjärtats högra sida.",
+        "Höger kammare pumpar blodet via lilla kretsloppet till lungorna.",
+        "I lungblåsorna diffunderar koldioxiden över från blodet till luften, samtidigt som syre går åt andra hållet.",
+        "Koldioxiden lämnar kroppen när du andas ut, genom luftrören, luftstrupen och till slut näsan eller munnen."
+      ]
+    },
+    {
+      "id": "q-bio8-and-15",
+      "kind": "mc",
+      "topic": "kondition och puls",
+      "prompt": "Vad kallas den blodmängd hjärtat pumpar ut per hjärtslag?",
+      "opener": "Detta mått, tillsammans med antalet slag per minut, avgör hur mycket blod som pumpas totalt.",
+      "choices": [
+        "Pulsen",
+        "Slagvolymen",
+        "Blodtrycket",
+        "Andningsfrekvensen"
+      ],
+      "answer": 1,
+      "explanation": "Slagvolymen är den mängd blod som pumpas ut vid varje hjärtslag, och den blir större hos vältränade personer. Pulsen är i stället antalet hjärtslag per minut, inte volymen per slag."
     }
   ]
 }

@@ -124,6 +124,111 @@
       "prompt": "Summarize how to form the passive in different tenses.",
       "opener": "The same pattern in every tense — only the auxiliary verb \"be\" changes.",
       "answer": "Present simple: am/is/are + participle — \"The letter is sent.\" · Past simple: was/were + participle — \"The letter was sent.\" · Present perfect: have/has been + participle — \"The letter has been sent.\" · Future: will be + participle — \"The letter will be sent.\" · Modal: modal + be + participle — \"The letter must be sent.\" · Rule: only transitive verbs (verbs that take an object) can become passive, and \"by + agent\" is only added when it matters who performed the action."
+    },
+    {
+      "id": "q-en6-passive-9",
+      "kind": "mc",
+      "topic": "active vs passive",
+      "prompt": "Which sentence correctly completes the passive transformation: \"The chef prepared the meal.\" → \"The meal ___ by the chef.\"",
+      "opener": "What tense was the active sentence in, and which participle form matches that in the passive?",
+      "choices": [
+        "was prepared",
+        "is prepared",
+        "prepared",
+        "has prepare"
+      ],
+      "answer": 0,
+      "explanation": "The active sentence is in the past simple (\"prepared\"), so the passive form is past simple passive: \"was prepared\". The other options have the wrong tense or an incorrect verb form."
+    },
+    {
+      "id": "q-en6-passive-10",
+      "kind": "mc",
+      "topic": "passive tenses",
+      "prompt": "Choose the correct passive form: \"The bridge ___ in 1889.\" (build)",
+      "opener": "The date 1889 shows this is the past — which passive form goes with the past simple?",
+      "choices": [
+        "was built",
+        "was build",
+        "has built",
+        "is building"
+      ],
+      "answer": 0,
+      "explanation": "The date 1889 indicates the past, so the correct passive form is past simple passive: \"was built\". \"was build\" has the wrong participle, and the other options have the wrong tense or form."
+    },
+    {
+      "id": "q-en6-passive-11",
+      "kind": "mc",
+      "topic": "reported statements",
+      "prompt": "Report this statement: \"We have finished the project,\" they said.",
+      "opener": "Present perfect in direct speech is backshifted to past perfect in reported speech.",
+      "choices": [
+        "They said they had finished the project.",
+        "They said they have finished the project.",
+        "They said we have finished the project.",
+        "They said they finished the project since long."
+      ],
+      "answer": 0,
+      "explanation": "Present perfect (\"have finished\") is backshifted to past perfect (\"had finished\") in reported speech, and \"we\" changes to \"they\" since they are talking about themselves."
+    },
+    {
+      "id": "q-en6-passive-12",
+      "kind": "mc",
+      "topic": "reported questions",
+      "prompt": "Report this question: \"Have you ever been to Paris?\" she asked me.",
+      "opener": "Yes/no questions in reported speech begin with \"if\" or \"whether\", with normal word order.",
+      "choices": [
+        "She asked me if I had ever been to Paris.",
+        "She asked me have I ever been to Paris.",
+        "She asked me if I have ever been to Paris.",
+        "She asked me if had I ever been to Paris."
+      ],
+      "answer": 0,
+      "explanation": "Yes/no reported questions begin with \"if\" or \"whether\" and take normal word order, with the tense backshifted: \"if I had ever been\". The other options incorrectly keep the question word order or the present tense."
+    },
+    {
+      "id": "q-en6-passive-13",
+      "kind": "mc",
+      "topic": "reported commands",
+      "prompt": "Report this command: \"Don't touch that,\" the guide told the tourists.",
+      "opener": "Negative commands in reported speech: where does \"not\" go in relation to \"to\"?",
+      "choices": [
+        "The guide told the tourists not to touch that.",
+        "The guide told the tourists to not touch that.",
+        "The guide told the tourists don't touch that.",
+        "The guide told to the tourists not touch that."
+      ],
+      "answer": 0,
+      "explanation": "Negative reported commands are formed with \"not\" + infinitive with \"to\": \"told them not to touch\". Placing \"not\" after \"to\" or omitting \"to\" is incorrect."
+    },
+    {
+      "id": "q-en6-passive-14",
+      "kind": "mc",
+      "topic": "passive tenses",
+      "prompt": "Which sentence uses the passive correctly to emphasize the agent?",
+      "opener": "\"by + agent\" is added when it matters who performed the action.",
+      "choices": [
+        "The novel was written by an unknown author in the 1800s.",
+        "The novel wrote by an unknown author.",
+        "An unknown author was written the novel.",
+        "The novel has write by an unknown author."
+      ],
+      "answer": 0,
+      "explanation": "\"by + agent\" is added after the passive form when it is relevant who performed the action: \"was written by an unknown author\". The other options have incorrect verb forms."
+    },
+    {
+      "id": "q-en6-passive-15",
+      "kind": "mc",
+      "topic": "active vs passive",
+      "prompt": "Why might a writer choose the passive voice instead of the active voice in a sentence like \"Mistakes were made\"?",
+      "opener": "Think about what is missing from the sentence \"Mistakes were made\" compared with \"I made mistakes\".",
+      "choices": [
+        "To avoid stating who is responsible for the action",
+        "Because passive voice is always grammatically required",
+        "Because the sentence has no verb in active form",
+        "Because passive voice is shorter than active voice"
+      ],
+      "answer": 0,
+      "explanation": "The passive voice is often used precisely to avoid pointing out who is responsible for an action, as in \"Mistakes were made\", where no one is named as having made the mistakes. It is a stylistic choice, not a grammatical requirement."
     }
   ]
 }

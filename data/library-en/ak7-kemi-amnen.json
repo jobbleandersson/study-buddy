@@ -125,6 +125,111 @@
       "prompt": "Summarise pure substances, mixtures and the most common separation methods.",
       "opener": "Go through the concepts first and the methods afterwards - which method suits which mixture?",
       "answer": "Pure substance: only one kind of substance, has a fixed melting point and boiling point (pure water melts at 0°C and boils at 100°C) · Mixture: two or more substances mixed without reacting, the parts remain · Heterogeneous mixture: the parts are visible, e.g. sand in water, gravel, muesli · Homogeneous mixture (solution): the parts are not visible, e.g. salt water, sugar solution, air · Solution = solvent (largest amount, usually water) + solute · Alloy: a mixture of metals, e.g. brass (copper + zinc), steel (iron + carbon), bronze (copper + tin) · Filtration: separates undissolved particles from a liquid, e.g. sand from water · Evaporation: the liquid evaporates, the dissolved substance is left behind, e.g. salt from squash · Distillation: the liquid is boiled, the vapour is cooled and turns back into liquid in another container - gives pure water from salt water · Solubility: how much of a substance can be dissolved, usually increases with higher temperature · Physical properties that help you identify a substance: melting point, boiling point, density, colour, solubility."
+    },
+    {
+      "id": "q-kemi7-amn-9",
+      "kind": "mc",
+      "topic": "pure substances and mixtures",
+      "prompt": "Which of these is a mixture, not a pure substance?",
+      "opener": "Think about what is dissolved in the drink besides the water.",
+      "choices": [
+        "Pure gold",
+        "Oxygen gas",
+        "Soda (carbonated water with sugar and flavouring)",
+        "Distilled water"
+      ],
+      "answer": 2,
+      "explanation": "Soda contains water, sugar, carbon dioxide and flavourings mixed together, so it's a mixture. Pure gold, oxygen gas and distilled water each contain only one kind of substance and are pure substances."
+    },
+    {
+      "id": "q-kemi7-amn-10",
+      "kind": "mc",
+      "topic": "separation methods",
+      "prompt": "You want to get pure, salt-free water from seawater. Which method works best?",
+      "opener": "You want to collect the water itself, not just get rid of it.",
+      "choices": [
+        "Filtration",
+        "Evaporation",
+        "Distillation",
+        "Freezing the water"
+      ],
+      "answer": 2,
+      "explanation": "In distillation, the water is boiled, the vapour is cooled and collected as pure water in another container, while the salt is left behind. Filtration doesn't work since the salt is dissolved, and evaporation would just get rid of the water without collecting it."
+    },
+    {
+      "id": "q-kemi7-amn-11",
+      "kind": "mc",
+      "topic": "alloys",
+      "prompt": "Which of these is an alloy?",
+      "opener": "Think about which option is made of more than one element melted together.",
+      "choices": [
+        "Oxygen gas (O₂)",
+        "Steel (iron + carbon)",
+        "Distilled water",
+        "Table salt (NaCl)"
+      ],
+      "answer": 1,
+      "explanation": "Steel is an alloy where iron and carbon are melted together to give the material new properties, such as hardness. Oxygen gas is an element, and distilled water and table salt are chemical compounds, not metal alloys."
+    },
+    {
+      "id": "q-kemi7-amn-12",
+      "kind": "mc",
+      "topic": "solutions",
+      "prompt": "In a solution of salt in water, what is the salt called?",
+      "opener": "The salt is the substance present in the smaller amount, spread out through the water.",
+      "choices": [
+        "The solvent",
+        "The solute",
+        "The alloy",
+        "The precipitate"
+      ],
+      "answer": 1,
+      "explanation": "The salt is the solute, while the water is the solvent since it's present in the largest amount. A precipitate is instead an insoluble substance that forms and sinks to the bottom, which doesn't happen here."
+    },
+    {
+      "id": "q-kemi7-amn-13",
+      "kind": "mc",
+      "topic": "physical properties",
+      "prompt": "Which of these is a physical property that can be used to identify a substance?",
+      "opener": "The property should belong to the substance itself, not to where or when you bought it.",
+      "choices": [
+        "Melting point",
+        "The substance's price",
+        "Where the substance was bought",
+        "The substance's age"
+      ],
+      "answer": 0,
+      "explanation": "Melting point is a physical property that is the same for all pure samples of a substance and can therefore be used to identify it. Price, place of purchase and age say nothing about what substance it actually is."
+    },
+    {
+      "id": "q-kemi7-amn-14",
+      "kind": "worked",
+      "topic": "separation methods",
+      "prompt": "You have a beaker with a mixture of iron filings and sand. How do you separate them?",
+      "opener": "Think about a property iron has that sand completely lacks.",
+      "answer": "Drag a magnet through the mixture — the iron filings stick to the magnet while the sand stays behind in the beaker.",
+      "steps": [
+        "Think through the mixture: iron filings are magnetic, sand is not.",
+        "Move a magnet through the mixture, ideally inside a plastic bag around the magnet so the iron filings can be removed easily afterwards.",
+        "The iron filings are pulled to the magnet and lifted out of the mixture.",
+        "Only the sand remains in the beaker, unaffected by the magnet's pull.",
+        "Check the reasoning: neither substance has changed chemically, you've just separated them using a physical property."
+      ]
+    },
+    {
+      "id": "q-kemi7-amn-15",
+      "kind": "mc",
+      "topic": "pure substances and mixtures",
+      "prompt": "What characterises a pure substance, as opposed to a mixture?",
+      "opener": "Think about what applies to pure water compared to salt water when they melt and boil.",
+      "choices": [
+        "It has a fixed melting and boiling point",
+        "It always looks transparent",
+        "It always contains water",
+        "It can never be a gas"
+      ],
+      "answer": 0,
+      "explanation": "A pure substance has an exact, fixed melting and boiling point, while a mixture often melts and boils across a range of temperatures. Both pure substances and mixtures can be transparent, contain water, or be gases."
     }
   ]
 }

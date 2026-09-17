@@ -124,6 +124,110 @@
       "prompt": "Summarise the basics around the EU, the UN, international cooperation and Sweden's international role.",
       "opener": "From European cooperation to Sweden's place in the world.",
       "answer": "EU: cooperation between independent European countries in areas including economics, trade and, to some extent, legislation, with an internal market that provides free movement of goods, services, people and capital · UN: global organisation formed in 1945 to work for peace, security, human rights and cooperation between countries · The Security Council: UN body with particular responsibility for international peace and security, can decide on sanctions · Reasons for international cooperation: cross-border problems such as climate, trade, security and the spread of disease are often solved better jointly · Sweden internationally: member of the UN since 1946, the EU since 1995 and NATO since 2024, and actively participates in international aid and diplomacy."
+    },
+    {
+      "id": "q-sam-int-9",
+      "kind": "mc",
+      "topic": "what the EU is and the basic idea behind the cooperation",
+      "prompt": "In which year did Sweden become a member of the EU?",
+      "opener": "Sweden joined after a referendum in the mid-1990s.",
+      "choices": [
+        "1995",
+        "1946",
+        "2024",
+        "1957"
+      ],
+      "answer": 0,
+      "explanation": "Sweden became a member of the EU in 1995, following a 1994 referendum where a majority voted in favour of membership."
+    },
+    {
+      "id": "q-sam-int-10",
+      "kind": "mc",
+      "topic": "what the EU is and the basic idea behind the cooperation",
+      "prompt": "What is the EU's common currency, which Sweden has NOT adopted, called?",
+      "opener": "Sweden kept its own currency after a 2003 referendum.",
+      "choices": [
+        "The euro",
+        "The krona",
+        "The dollar",
+        "The pound"
+      ],
+      "answer": 0,
+      "explanation": "The euro is the EU's common currency, used by most but not all member states. Sweden voted no to the euro in a 2003 referendum and has kept the Swedish krona."
+    },
+    {
+      "id": "q-sam-int-11",
+      "kind": "mc",
+      "topic": "the UN's role, the basic idea",
+      "prompt": "Which UN body brings together representatives from all member states, where each country has one vote?",
+      "opener": "Unlike the Security Council, no country has a veto here.",
+      "choices": [
+        "The General Assembly",
+        "The Security Council",
+        "The International Court of Justice",
+        "The Secretariat"
+      ],
+      "answer": 0,
+      "explanation": "The General Assembly brings together representatives from all UN member states, and each country has one vote. It has a broader, more advisory role compared with the Security Council's binding decisions on security matters."
+    },
+    {
+      "id": "q-sam-int-12",
+      "kind": "mc",
+      "topic": "the UN's role, the basic idea",
+      "prompt": "How many permanent members with veto power does the UN Security Council have?",
+      "opener": "The USA, Russia, China, Britain and France.",
+      "choices": [
+        "5",
+        "10",
+        "15",
+        "193"
+      ],
+      "answer": 0,
+      "explanation": "The Security Council has 5 permanent members with veto power (the USA, Russia, China, Britain and France) plus 10 non-permanent members without veto power who rotate."
+    },
+    {
+      "id": "q-sam-int-13",
+      "kind": "mc",
+      "topic": "Sweden's role in international contexts",
+      "prompt": "In which year did Sweden become a member of NATO?",
+      "opener": "This happened after a long period of military non-alignment, and after Russia's full-scale invasion of Ukraine.",
+      "choices": [
+        "2024",
+        "1995",
+        "1946",
+        "1949"
+      ],
+      "answer": 0,
+      "explanation": "Sweden became a member of NATO in 2024, after having previously stayed outside military alliances for a long time. The decision came after Russia's full-scale invasion of Ukraine in 2022."
+    },
+    {
+      "id": "q-sam-int-14",
+      "kind": "worked",
+      "topic": "the UN's role, the basic idea",
+      "prompt": "Using an example, explain how the veto power in the UN Security Council can affect whether the council can act in an international conflict.",
+      "opener": "Think about what happens if just ONE of the five permanent members votes against a proposal.",
+      "answer": "If the Security Council is to decide on, for example, sanctions against a country, but one of the five permanent member states votes against it, the decision is automatically blocked by the veto, regardless of how the other members vote - meaning the council often becomes paralysed in conflicts where a permanent member has its own interests.",
+      "steps": [
+        "The Security Council's five permanent members (the USA, Russia, China, Britain, France) each have veto power.",
+        "If a proposal, for example about sanctions or a peacekeeping mission, is voted against by just ONE of these five, the proposal is blocked - no matter how many other countries vote in favour.",
+        "This means the Security Council often struggles to act in conflicts where a permanent member is itself involved or has strong interests in protecting another party.",
+        "The veto power reflects the balance of power after the Second World War but is often criticised today for making the UN less effective in certain crises."
+      ]
+    },
+    {
+      "id": "q-sam-int-15",
+      "kind": "mc",
+      "topic": "why countries cooperate internationally",
+      "prompt": "Which of these is an example of an international trade agreement rather than a security partnership?",
+      "opener": "Think about the goal - increased trade, or joint defence?",
+      "choices": [
+        "An agreement that lowers tariffs between several countries to increase trade",
+        "NATO",
+        "The UN Security Council",
+        "A military alliance"
+      ],
+      "answer": 0,
+      "explanation": "A trade agreement that lowers tariffs aims to facilitate trade between countries, while NATO, the Security Council and military alliances instead concern joint defence and international security."
     }
   ]
 }

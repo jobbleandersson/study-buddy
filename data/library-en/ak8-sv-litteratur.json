@@ -125,6 +125,111 @@
       "prompt": "Which concepts do you need for a book analysis, and what do they mean?",
       "opener": "Six concepts you should be able to use without mixing them up.",
       "answer": "Genre · the type of story · novel (long, several threads), short story (short, one event), detective story (crime and investigation), fantasy (made-up world with magic). Narrative perspective · first-person narrator (\"I\", sees only their own thoughts), omniscient third person (sees everyone's thoughts), limited third person (follows one character). Setting · where and when the story takes place · physical setting (place, time) and social setting (class, family, society) · creates atmosphere. Motif · the concrete thing that recurs (changing schools, a journey, a betrayal). Theme · the big question beneath the surface (friendship, not belonging, justice). Imagery · simile with \"like\"/\"as\" · metaphor without a comparison word · personification when something lifeless does human things. Character development · inner change from start to finish."
+    },
+    {
+      "id": "q-sv8-lit-9",
+      "kind": "mc",
+      "topic": "genres",
+      "prompt": "What characterises a dystopia as a genre?",
+      "opener": "Think about what kind of future the book usually portrays.",
+      "choices": [
+        "An ideal future where all problems are solved",
+        "A frightening, oppressive vision of society that often warns of a real trend",
+        "A story that always takes place in the past",
+        "A genre that is only about animals"
+      ],
+      "answer": 1,
+      "explanation": "The dystopia portrays a dark, often totalitarian future society and serves as a warning about where a real trend in society could lead. The opposite — an ideal future — is instead called a utopia."
+    },
+    {
+      "id": "q-sv8-lit-10",
+      "kind": "mc",
+      "topic": "narrative perspective",
+      "prompt": "Which narrative perspective is used here? \"I didn't know what to say, so I stayed quiet and hoped she wouldn't notice how nervous I was.\"",
+      "opener": "Whose thoughts does the reader have access to, and what word is used for the narrator themselves?",
+      "choices": [
+        "Omniscient narrator",
+        "First-person narrator",
+        "Limited third person",
+        "Second-person perspective"
+      ],
+      "answer": 1,
+      "explanation": "The narrator says \"I\" and only describes their own thoughts and feelings — that is a first-person narrator. An omniscient narrator could instead report several characters' thoughts."
+    },
+    {
+      "id": "q-sv8-lit-11",
+      "kind": "mc",
+      "topic": "theme and motif",
+      "prompt": "A book is about a boy who trains for an important competition despite a badly injured knee. What is the most likely THEME?",
+      "opener": "Motif is the concrete thing that happens; theme is the bigger question the book is really about.",
+      "choices": [
+        "A football competition",
+        "An injured knee",
+        "Not giving up despite setbacks",
+        "A boy who trains every day"
+      ],
+      "answer": 2,
+      "explanation": "The theme is the overarching idea — here, perseverance and not giving up despite setbacks. The competition and the knee injury are concrete motifs that serve as examples of the theme, not the theme itself."
+    },
+    {
+      "id": "q-sv8-lit-12",
+      "kind": "mc",
+      "topic": "imagery",
+      "prompt": "Which sentence contains a metaphor?",
+      "opener": "A metaphor compares without a comparison word like \"like\" or \"as\" — the comparison is implied.",
+      "choices": [
+        "Her voice was like honey.",
+        "Her voice was honey to my ears.",
+        "The clock ticked like a heartbeat.",
+        "The wind whispered through the treetops."
+      ],
+      "answer": 1,
+      "explanation": "\"Her voice was honey\" compares without the comparison word \"like\" — that is a metaphor. The first two options with \"like\" are similes, and \"the wind whispered\" is personification."
+    },
+    {
+      "id": "q-sv8-lit-13",
+      "kind": "mc",
+      "topic": "characters",
+      "prompt": "What is the difference between a main character and a minor character in a story?",
+      "opener": "Think about whose journey the story is really following.",
+      "choices": [
+        "The main character is usually mentioned in the title, the minor character never is",
+        "The main character is at the centre of the plot, while the minor character has a smaller role that supports or influences the plot",
+        "The main character is always the oldest person in the book",
+        "There is no real difference"
+      ],
+      "answer": 1,
+      "explanation": "The main character is the one whose development and goals are at the centre of the story, while minor characters have smaller roles that can still influence the plot. Being mentioned in the title is neither a requirement nor a guarantee of being the main character."
+    },
+    {
+      "id": "q-sv8-lit-14",
+      "kind": "worked",
+      "topic": "imagery",
+      "prompt": "Analyse the imagery in the passage: \"The sun smiled over the square. Her smile was a firework, and her laughter bounced through the room like a ball.\" Name each image and explain what it does to the text.",
+      "opener": "First look for the comparison word, then for images without a comparison word, and finally for something lifeless behaving like a person.",
+      "answer": "Three images: personification (\"the sun smiled\"), metaphor (\"her smile was a firework\") and simile (\"bounced... like a ball\"). Together they paint a joyful, energetic mood.",
+      "steps": [
+        "\"The sun smiled\" gives the sun a human action — personification, which makes the setting feel warm and cheerful.",
+        "\"Her smile was a firework\" compares without a comparison word — a metaphor, showing that the smile is radiant and intense.",
+        "\"Bounced through the room like a ball\" contains the comparison word \"like\" — a simile, reinforcing that the laughter is bouncy and energetic.",
+        "Note that all three images reinforce the same mood: joy and energy.",
+        "In an analysis it isn't enough to name the image — always write what it does for the mood or the character."
+      ]
+    },
+    {
+      "id": "q-sv8-lit-15",
+      "kind": "mc",
+      "topic": "genres",
+      "prompt": "Which trait is typical of a detective story?",
+      "opener": "Ask what the main character spends the whole story doing.",
+      "choices": [
+        "The story revolves around a crime that must be investigated and solved",
+        "The story always takes place in a made-up world with magic",
+        "The story is always about a love story",
+        "The story always lacks a main character"
+      ],
+      "answer": 0,
+      "explanation": "The detective story's hallmark is the crime and the investigation that drive the plot forward. Made-up worlds with magic instead belong to fantasy."
     }
   ]
 }

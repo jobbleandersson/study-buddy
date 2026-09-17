@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta den svenska emigrationen: omfattning, orsaker, resa, liv och följder.",
       "opener": "Tänk siffror, push och pull, resvägen, livet i Amerika och effekterna hemma.",
       "answer": "Cirka 1,3 miljoner svenskar utvandrade mellan 1850 och 1930, de flesta till USA · toppar kring nödåren 1867–1869 och under 1880-talet · pushfaktorer: jordbrist vid befolkningsökning, fattigdom, missväxt och svält, hårda klasskillnader, tvånget att tillhöra statskyrkan, militärtjänst och brist på framtidsutsikter · pullfaktorer: Homestead Act 1862 med nästan fri jord, jobb i amerikansk industri, religionsfrihet, billiga ångbåtsbiljetter, agenters reklam och \"Amerikabrev\" från släktingar · resan gick ofta Göteborg–Hull–Liverpool–New York, senare direkt med ångbåt, och tog en till tre veckor i trånga utrymmen · många bosatte sig i Mellanvästern (Minnesota, Illinois, Iowa) som nybyggare, andra arbetade i städer som Chicago · svenskamerikaner byggde kyrkor, föreningar och tidningar och bevarade språket i generationer · följder för Sverige: långsammare befolkningstillväxt, avfolkad landsbygd, hemskickade pengar, emigrationsutredningen 1907 och stärkta krav på rösträtt, egnahem och sociala reformer · källor: kyrkböckernas utflyttningslängder och passagerarlistor ger siffror, medan brev, dagböcker och foton berättar om upplevelser – men brev kan vara vinklade eftersom man ogärna skrev om misslyckanden."
+    },
+    {
+      "id": "q-hist8-emi-9",
+      "kind": "mc",
+      "topic": "resan och livet i Amerika",
+      "prompt": "Genom vilken amerikansk anläggning passerade många europeiska immigranter, inklusive svenskar, för kontroll vid ankomst till New York?",
+      "opener": "Platsen ligger på en ö i New Yorks hamn, nära Frihetsgudinnan.",
+      "choices": [
+        "Alcatraz",
+        "Staten Island Ferry",
+        "Liberty Bell",
+        "Ellis Island"
+      ],
+      "answer": 3,
+      "explanation": "Ellis Island i New Yorks hamn var USA:s största immigrationsstation, där miljontals européer, däribland många svenskar, kontrollerades och registrerades innan de fick resa vidare in i landet. Alcatraz var ett fängelse, Liberty Bell en symbolisk klocka i Philadelphia, och Staten Island Ferry en färjeförbindelse utan koppling till invandringskontrollen."
+    },
+    {
+      "id": "q-hist8-emi-10",
+      "kind": "mc",
+      "topic": "push- och pullfaktorer",
+      "prompt": "Vilket av följande är ett exempel på en pullfaktor som lockade svenskar till Amerika?",
+      "opener": "En pullfaktor drar människor till det nya landet, snarare än att driva dem bort från det gamla.",
+      "choices": [
+        "Missväxt i Sverige",
+        "Tvånget att tillhöra statskyrkan i Sverige",
+        "Fattigdom på den svenska landsbygden",
+        "Löften om religionsfrihet och möjlighet att välja sin egen tro"
+      ],
+      "answer": 3,
+      "explanation": "Möjligheten till religionsfrihet i USA, där man kunde välja sin egen tro utan att tvingas tillhöra statskyrkan, var en tydlig pullfaktor som drog människor till Amerika. Missväxt, tvånget att tillhöra statskyrkan och fattigdom var i stället pushfaktorer som drev människor bort från Sverige."
+    },
+    {
+      "id": "q-hist8-emi-11",
+      "kind": "mc",
+      "topic": "orsaker till utvandringen",
+      "prompt": "Vilken grupp av svenskar utvandrade allra flest av, sett till ålder?",
+      "opener": "Tänk på vilka som hade minst att förlora och mest framtid att vinna på en ny start.",
+      "choices": [
+        "Mest spädbarn",
+        "Mest pensionärer över 70 år",
+        "Nästan enbart präster",
+        "Unga vuxna i arbetsför ålder"
+      ],
+      "answer": 3,
+      "explanation": "Det var framför allt unga vuxna i arbetsför ålder som utvandrade, eftersom de hade störst chans att skaffa sig ett nytt liv och arbete i Amerika. Det gjorde att vissa svenska landsbygdssocknar förlorade en stor del av just den åldersgruppen, medan äldre och yngre barn i högre grad stannade kvar."
+    },
+    {
+      "id": "q-hist8-emi-12",
+      "kind": "mc",
+      "topic": "brev och register som källor",
+      "prompt": "Vad kallas de svenska källor som listar namn på personer som flyttade ut ur en församling?",
+      "opener": "Ordet börjar med \"ut-\" och syftar på riktningen personerna flyttade.",
+      "choices": [
+        "Dopböcker",
+        "Skattelängder för adeln",
+        "Militärhistoriska kartor",
+        "Utflyttningslängder"
+      ],
+      "answer": 3,
+      "explanation": "Utflyttningslängderna, förda av prästerna i varje församling, listar namn, ålder, yrke och destination för dem som flyttade ut, och är därför en central källa för att studera emigrationen. Dopböcker, adelns skattelängder och militärkartor innehåller helt andra typer av uppgifter."
+    },
+    {
+      "id": "q-hist8-emi-13",
+      "kind": "mc",
+      "topic": "emigrationens följder för Sverige",
+      "prompt": "Vad tillsatte den svenska staten år 1907 för att undersöka orsakerna till utvandringen?",
+      "opener": "Namnet beskriver direkt vad utredningen skulle granska.",
+      "choices": [
+        "Rösträttskommittén",
+        "Skolkommissionen",
+        "Fattigvårdsnämnden",
+        "Emigrationsutredningen"
+      ],
+      "answer": 3,
+      "explanation": "Emigrationsutredningen tillsattes 1907 för att kartlägga orsakerna till den stora utvandringen och föreslå åtgärder för att fler skulle vilja stanna i Sverige. Rösträttsfrågan, skolan och fattigvården var viktiga samhällsfrågor under samma period, men det var just emigrationsutredningen som fokuserade specifikt på utvandringen."
+    },
+    {
+      "id": "q-hist8-emi-14",
+      "kind": "mc",
+      "topic": "resan och livet i Amerika",
+      "prompt": "Vilken stad blev under en period känd som en av världens mest \"svenska\" städer utanför Sverige?",
+      "opener": "Staden ligger i Mellanvästern och lockade många svenska nybyggare och arbetare.",
+      "choices": [
+        "New York",
+        "Boston",
+        "Miami",
+        "Chicago"
+      ],
+      "answer": 3,
+      "explanation": "Chicago fick under en period så många svenska invånare att staden ibland kallades en av världens mest \"svenska\" städer utanför Sverige, med egna svenskspråkiga tidningar, kyrkor och föreningar. New York, Boston och Miami tog visserligen emot invandrare, men hade inte samma koncentration av svenskar."
+    },
+    {
+      "id": "q-hist8-emi-15",
+      "kind": "mc",
+      "topic": "push- och pullfaktorer",
+      "prompt": "Vilket av följande beskriver bäst innebörden av ett \"Amerikabrev\"?",
+      "opener": "Brevet skickades från väster till öster, över Atlanten.",
+      "choices": [
+        "Ett officiellt brev från USA:s regering till Sverige",
+        "Ett brev där man ansökte om amerikanskt medborgarskap",
+        "Ett brev från kyrkan som förbjöd utvandring",
+        "Ett brev från en redan utvandrad släkting som beskrev livet i Amerika och ofta uppmuntrade fler att komma"
+      ],
+      "answer": 3,
+      "explanation": "Ett Amerikabrev var ett brev som en redan utvandrad släkting eller vän skickade hem till Sverige, där man beskrev livet i Amerika – ofta i ljusa ordalag – vilket kunde locka fler att följa efter. Det var alltså ett privat brev mellan enskilda personer, inte ett officiellt dokument från staten eller kyrkan."
     }
   ]
 }

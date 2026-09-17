@@ -123,6 +123,110 @@
       "prompt": "Vilka är de vanligaste typerna av bildspråk och hur känner du igen dem?",
       "opener": "Fyra vanliga typer att kunna skilja på.",
       "answer": "Liknelse: jämför två saker med \"som\" eller \"liksom\" (\"stark som en björn\"). Metafor: likställer två saker direkt utan jämförelseord (\"han är en björn\"). Personifikation: ger icke-mänskliga saker mänskliga egenskaper (\"solen log\"). Allitteration: flera ord i rad börjar på samma bokstav/ljud (\"vilda vindar viskar\"). Symbol: ett konkret föremål som står för något abstrakt (en duva som symbol för fred)."
+    },
+    {
+      "id": "q-sv9-lit-9",
+      "kind": "mc",
+      "topic": "genre",
+      "prompt": "En berättelse om riddare, drakar och magiska svärd i en påhittad värld tillhör vilken genre?",
+      "opener": "Vilken genre bygger på magi och påhittade världar utan vetenskaplig grund?",
+      "choices": [
+        "Fantasy",
+        "Science fiction",
+        "Deckare",
+        "Biografi"
+      ],
+      "answer": 0,
+      "explanation": "Fantasy bygger på magi och påhittade världar (riddare, drakar, trollkarlar) utan vetenskaplig förklaring. Science fiction bygger i stället på teknik och vetenskap."
+    },
+    {
+      "id": "q-sv9-lit-10",
+      "kind": "mc",
+      "topic": "genre",
+      "prompt": "Vad kännetecknar en biografi?",
+      "opener": "Handlar boken om en påhittad person eller om någon som faktiskt levt?",
+      "choices": [
+        "Den skildrar en verklig persons liv",
+        "Den handlar alltid om övernaturliga varelser",
+        "Den är alltid skriven i jag-form av en fiktiv karaktär",
+        "Den saknar en verklig avsändare"
+      ],
+      "answer": 0,
+      "explanation": "En biografi skildrar en verklig persons liv, till skillnad från skönlitteratur som kan vara helt eller delvis påhittad."
+    },
+    {
+      "id": "q-sv9-lit-11",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "\"Maria visste inte att Johan, på andra sidan stan, just då bestämde sig för att ringa henne.\" Vilket berättarperspektiv är detta?",
+      "opener": "Berättaren vet vad som händer på två olika platser samtidigt — vilken typ av berättare klarar det?",
+      "choices": [
+        "Jag-perspektiv",
+        "Allvetande berättare",
+        "Objektiv berättare",
+        "Dagboksberättare"
+      ],
+      "answer": 1,
+      "explanation": "Berättaren vet vad som händer med Maria OCH med Johan på andra sidan stan samtidigt — bara en allvetande berättare har tillgång till flera personers tankar och platser samtidigt."
+    },
+    {
+      "id": "q-sv9-lit-12",
+      "kind": "mc",
+      "topic": "miljö och tema",
+      "prompt": "En bok utspelar sig ombord på ett rymdskepp på väg till en ny planet, och handlar på djupet om vad det innebär att lämna allt man känner för att bygga något nytt. Vad är miljön och vad är temat?",
+      "opener": "Miljön är VAR handlingen utspelar sig, temat är vad boken egentligen handlar om.",
+      "choices": [
+        "Miljön är rymdskeppet, temat är uppbrott och att våga starta om",
+        "Miljön och temat är samma sak: rymdskeppet",
+        "Miljön är uppbrott, temat är rymdskeppet",
+        "Boken saknar både miljö och tema"
+      ],
+      "answer": 0,
+      "explanation": "Miljön är den konkreta platsen (rymdskeppet), medan temat är den djupare idén boken utforskar (uppbrott, att lämna det bekanta för att bygga något nytt)."
+    },
+    {
+      "id": "q-sv9-lit-13",
+      "kind": "mc",
+      "topic": "bildspråk",
+      "prompt": "\"Tystnaden var tung som bly.\" Vilket bildspråk används här?",
+      "opener": "Jämförs två saker med ordet \"som\"?",
+      "choices": [
+        "Metafor",
+        "Liknelse",
+        "Personifikation",
+        "Allitteration"
+      ],
+      "answer": 1,
+      "explanation": "\"Som\" gör detta till en liknelse — tystnaden jämförs med bly, den likställs inte direkt (det hade varit en metafor: \"tystnaden var bly\")."
+    },
+    {
+      "id": "q-sv9-lit-14",
+      "kind": "worked",
+      "topic": "bildspråk",
+      "prompt": "Identifiera bildspråket i varje mening och förklara vilken typ det är: (1) \"Löven dansade i vinden.\" (2) \"Hennes leende var solsken.\" (3) \"Tiden är en tjuv.\"",
+      "opener": "Fråga för varje mening: ges något mänskliga egenskaper (personifikation), eller likställs två olika saker helt (metafor)?",
+      "answer": "(1) Personifikation — löven får en mänsklig handling (att dansa). (2) Metafor — leendet likställs direkt med solsken. (3) Metafor — tiden likställs direkt med en tjuv.",
+      "steps": [
+        "Mening 1: \"löven dansade\" ger löven en mänsklig handling (att dansa) — det är personifikation.",
+        "Mening 2: \"hennes leende VAR solsken\", inte \"var SOM solsken\" — det direkta likställandet utan jämförelseord gör det till en metafor.",
+        "Mening 3: samma mönster — \"tiden ÄR en tjuv\" är en metafor, inte en liknelse.",
+        "Minnesregel: liknelse innehåller \"som\"/\"liksom\", metafor likställer direkt utan jämförelseord, personifikation ger saker/djur mänskliga egenskaper."
+      ]
+    },
+    {
+      "id": "q-sv9-lit-15",
+      "kind": "mc",
+      "topic": "berättarperspektiv",
+      "prompt": "\"Genom fönstret såg man en man gå fram och tillbaka. Han stannade, tittade på klockan och fortsatte gå.\" Vilket berättarperspektiv beskriver bara det som går att se eller höra utifrån, utan inre tankar?",
+      "opener": "Vi får bara veta vad som SYNS utifrån — inga tankar eller känslor beskrivs.",
+      "choices": [
+        "Jag-perspektiv",
+        "Allvetande berättare",
+        "Objektiv berättare",
+        "Opålitlig berättare"
+      ],
+      "answer": 2,
+      "explanation": "En objektiv berättare beskriver bara det som går att se eller höra utifrån, som en kamera, utan att ge oss tillgång till personernas tankar eller känslor."
     }
   ]
 }

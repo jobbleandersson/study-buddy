@@ -123,6 +123,108 @@
       "prompt": "How do you use a change factor, and what is the difference between percent and percentage points?",
       "opener": "Three things: how the factor is formed, how you work backwards, and the difference in wording.",
       "answer": "Increase by $p$%: factor $= 1 + p/100$ (e.g. $+15\\,\\% \\to 1.15$) · Decrease by $p$%: factor $= 1 - p/100$ (e.g. $-15\\,\\% \\to 0.85$) · New value $=$ old value $\\cdot$ the factor · Working backwards: old value $=$ new value $/$ the factor · Several changes one after another: multiply the factors together · A factor $> 1$ means an increase, a factor $< 1$ means a decrease · Percentage points $=$ the difference between two percentage figures (15% → 21% is $+6$ percentage points) · Percent $=$ the change relative to the starting value (the same change is $+40\\,\\%$) · Simple interest for one year $=$ the capital $\\cdot$ the interest rate."
+    },
+    {
+      "id": "q-ma8-pro-9",
+      "kind": "mc",
+      "topic": "change factor",
+      "prompt": "A salary is raised by 3.5%. Which change factor should you multiply by?",
+      "opener": "Add the increase to 100%, written as a decimal number.",
+      "choices": [
+        "0.965",
+        "1.035",
+        "1.35",
+        "3.5"
+      ],
+      "answer": 1,
+      "explanation": "$100\\,\\% + 3.5\\,\\% = 103.5\\,\\%$, that is, the factor $1.035$."
+    },
+    {
+      "id": "q-ma8-pro-10",
+      "kind": "mc",
+      "topic": "change factor",
+      "prompt": "A price is reduced by 35%. Which change factor should you multiply by?",
+      "opener": "What percentage of the price is left?",
+      "choices": [
+        "0.35",
+        "1.35",
+        "0.65",
+        "-0.35"
+      ],
+      "answer": 2,
+      "explanation": "What's left is $100\\,\\% - 35\\,\\% = 65\\,\\%$, that is, the factor $0.65$."
+    },
+    {
+      "id": "q-ma8-pro-11",
+      "kind": "mc",
+      "topic": "percentages",
+      "prompt": "After a 15% increase, an item costs 690 kr. What did it cost before the increase?",
+      "opener": "690 kr is 115% of the old price — not 100% plus 15 kronor.",
+      "choices": [
+        "600 kr",
+        "586.50 kr",
+        "793.50 kr",
+        "675 kr"
+      ],
+      "answer": 0,
+      "explanation": "The change factor is $1.15$, so $690 / 1.15 = 600$ kr. The answer 586.50 kr comes from instead subtracting 15% of the NEW price — but that's the wrong base, since the increase happened on the old price."
+    },
+    {
+      "id": "q-ma8-pro-12",
+      "kind": "mc",
+      "topic": "interest",
+      "prompt": "You deposit 2,000 kr at 5% interest per year, and the interest is added to the account every year (compound interest). How much is in the account after 2 years?",
+      "opener": "Multiply by the change factor 1.05 once per year, not just once in total.",
+      "choices": [
+        "2,100 kr",
+        "2,200 kr",
+        "2,205 kr",
+        "2,210 kr"
+      ],
+      "answer": 2,
+      "explanation": "After year 1: $2000 \\cdot 1.05 = 2100$ kr. After year 2: $2100 \\cdot 1.05 = 2205$ kr. The answer 2,200 kr is simple interest (the same amount, 100 kr, added both years) — with compound interest, the second year's interest is calculated on the already-increased amount."
+    },
+    {
+      "id": "q-ma8-pro-13",
+      "kind": "mc",
+      "topic": "percentages",
+      "prompt": "Voter turnout increased from 40% to 52%. How big is the increase in percentage points?",
+      "opener": "Percentage points are just the difference between the two percentage figures.",
+      "choices": [
+        "12 percentage points",
+        "30 percentage points",
+        "52 percentage points",
+        "40 percentage points"
+      ],
+      "answer": 0,
+      "explanation": "$52 - 40 = 12$ percentage points. (Expressed as a percentage, the increase is $12/40 = 30\\,\\%$ — that's where the 30 comes from, but the question asks for percentage points.)"
+    },
+    {
+      "id": "q-ma8-pro-14",
+      "kind": "worked",
+      "topic": "change factor",
+      "prompt": "A computer costs 9,000 kr. On Black Friday the price is reduced by 10%, and then the reduced price is raised by 5% for the Christmas shopping season. What does the computer cost after the increase?",
+      "opener": "Take one change at a time, and calculate on the most recent price each time.",
+      "answer": "8,505 kr",
+      "steps": [
+        "A 10% reduction gives the factor $0.90$: $9000 \\cdot 0.90 = 8100$ kr.",
+        "A 5% increase gives the factor $1.05$: $8100 \\cdot 1.05 = 8505$ kr."
+      ]
+    },
+    {
+      "id": "q-ma8-pro-15",
+      "kind": "mc",
+      "topic": "percentages",
+      "prompt": "A company's profit margin increased from 8% to 10%. Which statement is true?",
+      "opener": "Work out both the increase in percentage points and the increase in percent, and compare with the statements.",
+      "choices": [
+        "The increase is 2%.",
+        "The increase is 2 percentage points, which corresponds to a 25% relative increase.",
+        "The increase is 20 percentage points.",
+        "The profit margin has doubled."
+      ],
+      "answer": 1,
+      "explanation": "The difference is $10 - 8 = 2$ percentage points. In relative terms, the increase is $2/8 = 0.25 = 25\\,\\%$. Doubling would have required a margin of 16%, not 10%."
     }
   ]
 }

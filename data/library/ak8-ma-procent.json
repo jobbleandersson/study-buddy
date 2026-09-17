@@ -123,6 +123,108 @@
       "prompt": "Hur använder du förändringsfaktor, och vad är skillnaden mellan procent och procentenheter?",
       "opener": "Tre saker: hur faktorn bildas, hur du räknar baklänges, och skillnaden i orden.",
       "answer": "Ökning med $p$ %: faktor $= 1 + p/100$ (t.ex. $+15\\,\\% \\to 1{,}15$) · Minskning med $p$ %: faktor $= 1 - p/100$ (t.ex. $-15\\,\\% \\to 0{,}85$) · Nytt värde $=$ gammalt värde $\\cdot$ faktorn · Baklänges: gammalt värde $=$ nytt värde $/$ faktorn · Flera förändringar efter varandra: multiplicera faktorerna · Faktor $> 1$ betyder ökning, faktor $< 1$ betyder minskning · Procentenheter $=$ skillnaden mellan två procenttal (15 % → 21 % är $+6$ procentenheter) · Procent $=$ förändringen jämfört med utgångsvärdet (samma ändring är $+40\\,\\%$) · Enkel ränta för ett år $=$ kapitalet $\\cdot$ räntesatsen."
+    },
+    {
+      "id": "q-ma8-pro-9",
+      "kind": "mc",
+      "topic": "förändringsfaktor",
+      "prompt": "En lön höjs med 3,5 %. Vilken förändringsfaktor ska du multiplicera med?",
+      "opener": "Lägg höjningen till 100 %, skrivet som decimaltal.",
+      "choices": [
+        "0,965",
+        "1,035",
+        "1,35",
+        "3,5"
+      ],
+      "answer": 1,
+      "explanation": "$100\\,\\% + 3{,}5\\,\\% = 103{,}5\\,\\%$, alltså faktorn $1{,}035$."
+    },
+    {
+      "id": "q-ma8-pro-10",
+      "kind": "mc",
+      "topic": "förändringsfaktor",
+      "prompt": "Ett pris sänks med 35 %. Vilken förändringsfaktor ska du multiplicera med?",
+      "opener": "Vad blir kvar av priset i procent?",
+      "choices": [
+        "0,35",
+        "1,35",
+        "0,65",
+        "-0,35"
+      ],
+      "answer": 2,
+      "explanation": "Kvar är $100\\,\\% - 35\\,\\% = 65\\,\\%$, alltså faktorn $0{,}65$."
+    },
+    {
+      "id": "q-ma8-pro-11",
+      "kind": "mc",
+      "topic": "procent",
+      "prompt": "Efter en höjning med 15 % kostar en vara 690 kr. Vad kostade den innan höjningen?",
+      "opener": "690 kr är 115 % av det gamla priset — inte 100 % plus 15 kronor.",
+      "choices": [
+        "600 kr",
+        "586,50 kr",
+        "793,50 kr",
+        "675 kr"
+      ],
+      "answer": 0,
+      "explanation": "Förändringsfaktorn är $1{,}15$, så $690 / 1{,}15 = 600$ kr. Svaret 586,50 kr får man om man i stället drar bort 15 % av det NYA priset — men det är fel bas, eftersom höjningen skedde på det gamla priset."
+    },
+    {
+      "id": "q-ma8-pro-12",
+      "kind": "mc",
+      "topic": "ränta",
+      "prompt": "Du sätter in 2 000 kr med 5 % ränta per år, och räntan läggs till kontot varje år (ränta på ränta). Hur mycket finns på kontot efter 2 år?",
+      "opener": "Multiplicera med förändringsfaktorn 1,05 en gång per år, inte bara en gång totalt.",
+      "choices": [
+        "2 100 kr",
+        "2 200 kr",
+        "2 205 kr",
+        "2 210 kr"
+      ],
+      "answer": 2,
+      "explanation": "Efter år 1: $2000 \\cdot 1{,}05 = 2100$ kr. Efter år 2: $2100 \\cdot 1{,}05 = 2205$ kr. Svaret 2 200 kr är enkel ränta (samma belopp, $100$ kr, läggs till båda åren) — vid ränta på ränta räknas den andra räntan på det redan höjda beloppet."
+    },
+    {
+      "id": "q-ma8-pro-13",
+      "kind": "mc",
+      "topic": "procent",
+      "prompt": "Valdeltagandet ökade från 40 % till 52 %. Hur stor är ökningen i procentenheter?",
+      "opener": "Procentenheter är bara skillnaden mellan de två procenttalen.",
+      "choices": [
+        "12 procentenheter",
+        "30 procentenheter",
+        "52 procentenheter",
+        "40 procentenheter"
+      ],
+      "answer": 0,
+      "explanation": "$52 - 40 = 12$ procentenheter. (Uttryckt i procent är ökningen $12/40 = 30\\,\\%$ — det är det 30 kommer ifrån, men frågan gäller procentenheter.)"
+    },
+    {
+      "id": "q-ma8-pro-14",
+      "kind": "worked",
+      "topic": "förändringsfaktor",
+      "prompt": "En dator kostar 9 000 kr. På Black Friday sänks priset med 10 %, och sedan höjs det sänkta priset med 5 % inför julhandeln. Vad kostar datorn efter höjningen?",
+      "opener": "Ta en förändring i taget, och räkna på det senaste priset varje gång.",
+      "answer": "8 505 kr",
+      "steps": [
+        "Sänkning med 10 % ger faktorn $0{,}90$: $9000 \\cdot 0{,}90 = 8100$ kr.",
+        "Höjning med 5 % ger faktorn $1{,}05$: $8100 \\cdot 1{,}05 = 8505$ kr."
+      ]
+    },
+    {
+      "id": "q-ma8-pro-15",
+      "kind": "mc",
+      "topic": "procent",
+      "prompt": "Ett företags vinstmarginal ökade från 8 % till 10 %. Vilket påstående stämmer?",
+      "opener": "Räkna ut både ökningen i procentenheter och ökningen i procent, och jämför med påståendena.",
+      "choices": [
+        "Ökningen är 2 %.",
+        "Ökningen är 2 procentenheter, vilket motsvarar 25 % i relativ ökning.",
+        "Ökningen är 20 procentenheter.",
+        "Vinstmarginalen har fördubblats."
+      ],
+      "answer": 1,
+      "explanation": "Skillnaden är $10 - 8 = 2$ procentenheter. I relativa tal är ökningen $2/8 = 0{,}25 = 25\\,\\%$. Att fördubblas hade krävt en marginal på 16 %, inte 10 %."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Summarise heat, temperature and the three ways heat spreads.",
       "opener": "First separate heat from temperature, then go through conduction, convection and radiation.",
       "answer": "Heat: energy transferred from warmer to colder, measured in joules (J) · Temperature: a measure of how the particles are moving, measured in degrees Celsius (°C) · Celsius: 0 °C = water's freezing point, 100 °C = water's boiling point at normal air pressure · Conduction: heat passed on between particles touching each other, best in metals, poor in air, wood and plastic · Convection: warm liquid or gas has lower density, rises, and cold flows in from below, for example the air above a radiator · Radiation: heat that travels as radiation and needs no material, for example the sun's heat through space · Thermal expansion: almost all substances increase in volume when heated and shrink when cooled, mass stays the same · Insulation: materials with still air trapped inside (down, wool, foam, the air gap in windows) slow down heat conduction · Cold can never move — it is always heat that moves"
+    },
+    {
+      "id": "q-fys7-var-9",
+      "kind": "mc",
+      "topic": "heat and temperature",
+      "prompt": "Which unit is heat energy measured in?",
+      "opener": "Think about the difference between the unit for temperature and the unit for energy.",
+      "choices": [
+        "Degrees Celsius",
+        "Newton",
+        "Joule",
+        "Kilogram"
+      ],
+      "answer": 2,
+      "explanation": "Heat energy is measured in joules (J), just like other forms of energy. Degrees Celsius instead measures temperature, and newton measures force."
+    },
+    {
+      "id": "q-fys7-var-10",
+      "kind": "mc",
+      "topic": "the Celsius scale",
+      "prompt": "Water boils at 100 °C at normal air pressure. What happens to the boiling point high up in the mountains, where the air pressure is lower?",
+      "opener": "Think about how it's easier for particles to leave the liquid when the outside pressure is weaker.",
+      "choices": [
+        "It becomes higher than 100 °C",
+        "It becomes lower than 100 °C",
+        "It stays exactly 100 °C",
+        "Water doesn't boil at all in the mountains"
+      ],
+      "answer": 1,
+      "explanation": "Lower air pressure makes it easier for water molecules to leave the liquid, so the water boils at a lower temperature than 100 °C. That's why cooking food can take longer at high altitude."
+    },
+    {
+      "id": "q-fys7-var-11",
+      "kind": "mc",
+      "topic": "heat transfer",
+      "prompt": "What is it called when warm air rises and cold air flows in from below, for example above a radiator?",
+      "opener": "The name of this heat transfer method describes how the substance itself moves.",
+      "choices": [
+        "Conduction",
+        "Convection",
+        "Radiation",
+        "Insulation"
+      ],
+      "answer": 1,
+      "explanation": "Convection is when warm air or liquid with lower density rises while colder, denser air flows in from below. Conduction instead happens through particles touching each other passing on the heat without the substance itself moving as much."
+    },
+    {
+      "id": "q-fys7-var-12",
+      "kind": "mc",
+      "topic": "thermal expansion",
+      "prompt": "Why are bridges often built with expansion joints (gaps) between different sections?",
+      "opener": "Think about what happens to the bridge's material on a hot summer day compared to a cold winter day.",
+      "choices": [
+        "To reduce the bridge's weight",
+        "Because the material expands and shrinks with temperature and needs room to move",
+        "To make the bridge look nicer",
+        "To save money on materials"
+      ],
+      "answer": 1,
+      "explanation": "The bridge's material expands when it's warm and shrinks when it's cold, and the expansion joints give the material room to move without the bridge cracking or being damaged. Without the joints, thermal expansion would build up dangerous stresses in the structure."
+    },
+    {
+      "id": "q-fys7-var-13",
+      "kind": "mc",
+      "topic": "insulation",
+      "prompt": "Why does a down jacket keep you warm so well?",
+      "opener": "Think about what the down traps between its fibres.",
+      "choices": [
+        "The down conducts heat away quickly",
+        "The down traps a lot of still air that insulates",
+        "The down radiates extra heat",
+        "The down is heavier than other materials"
+      ],
+      "answer": 1,
+      "explanation": "Down traps a lot of still air between its feathers, and still air is a poor conductor of heat, which slows heat loss from the body. A good insulator conducts heat away slowly, not quickly."
+    },
+    {
+      "id": "q-fys7-var-14",
+      "kind": "worked",
+      "topic": "the Celsius scale",
+      "prompt": "On a winter day it is -12 °C in the freezer and 19 °C in the kitchen. What is the temperature difference between the freezer and the kitchen?",
+      "opener": "Use zero as a helping point and work out the distance on the thermometer in two steps.",
+      "answer": "The temperature difference is 31 degrees.",
+      "steps": [
+        "Step 1: from -12 °C up to 0 °C is 12 degrees.",
+        "Step 2: from 0 °C up to 19 °C is 19 degrees.",
+        "Add the steps together: 12 + 19 = 31.",
+        "The answer is 31 degrees, i.e. 19 - (-12) = 31 if you calculate it directly.",
+        "Sanity check: the freezer is below zero and the kitchen is above zero, so the difference must be greater than 19 degrees."
+      ]
+    },
+    {
+      "id": "q-fys7-var-15",
+      "kind": "mc",
+      "topic": "heat and temperature",
+      "prompt": "A small cup of coffee and a large thermos of coffee both have a temperature of 80 °C. Which statement is true?",
+      "opener": "Think about the difference between how hot something feels and how much heat energy it contains in total.",
+      "choices": [
+        "They contain exactly the same amount of heat energy since the temperature is the same",
+        "The thermos contains more heat energy because it has more coffee",
+        "The cup contains more heat energy",
+        "Heat energy can't be compared between different containers"
+      ],
+      "answer": 1,
+      "explanation": "The thermos has more coffee and therefore more particles with kinetic energy, so it contains more total heat energy even though the temperature is the same as in the cup. Temperature only tells you how fast the particles are moving on average, not how many particles there are."
     }
   ]
 }

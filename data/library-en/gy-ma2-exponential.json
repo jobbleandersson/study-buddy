@@ -122,6 +122,111 @@
       "prompt": "Summarise the model for exponential change and the most important logarithm laws.",
       "opener": "Connect the change factor to growth/decay, and remember how $\\lg$ handles products, quotients and powers.",
       "answer": "Exponential model: $y = C \\cdot a^x$, where $C$ is the starting value and $a$ is the change factor ($a>1$ growth, $0<a<1$ decay) · Change factor for a $p\\,\\%$ increase: $a = 1+\\dfrac{p}{100}$, for a decrease: $a = 1-\\dfrac{p}{100}$ · $\\lg(a\\cdot b) = \\lg(a)+\\lg(b)$ · $\\lg\\!\\left(\\dfrac{a}{b}\\right) = \\lg(a)-\\lg(b)$ · $\\lg(a^n) = n\\lg(a)$ · Solve $a^x=b$ by taking the logarithm of both sides: $x = \\dfrac{\\lg(b)}{\\lg(a)}$."
+    },
+    {
+      "id": "q-ma2-exponential-9",
+      "kind": "mc",
+      "topic": "exponential change",
+      "prompt": "A population starts at 500 individuals and halves every year. Which function describes the number $N$ after $t$ years?",
+      "opener": "Halving each time unit gives the change factor $0.5$.",
+      "choices": [
+        "$N(t) = 500 \\cdot 0.5^t$",
+        "$N(t) = 0.5 \\cdot 500^t$",
+        "$N(t) = 500 - 0.5t$",
+        "$N(t) = 500 \\cdot t^{0.5}$"
+      ],
+      "answer": 0,
+      "explanation": "The model is $N(t)=N_0\\cdot a^t$ with $N_0=500$ and the change factor $a=0.5$ for a halving every year, so $N(t)=500\\cdot0.5^t$. The subtraction option instead describes linear decrease."
+    },
+    {
+      "id": "q-ma2-exponential-10",
+      "kind": "mc",
+      "topic": "exponential change",
+      "prompt": "A price increases by 8% per year. What is the change factor per year?",
+      "opener": "The change factor for an increase is 1 plus the decimal percentage.",
+      "choices": [
+        "$1.08$",
+        "$0.08$",
+        "$0.92$",
+        "$1.8$"
+      ],
+      "answer": 0,
+      "explanation": "An increase of 8% gives the change factor $1+0.08=1.08$. Option C ($0.92$) is instead the change factor for a decrease of 8%."
+    },
+    {
+      "id": "q-ma2-exponential-11",
+      "kind": "mc",
+      "topic": "logarithm laws",
+      "prompt": "What is $\\lg(1000)$?",
+      "opener": "Write 1000 as a power of 10.",
+      "choices": [
+        "$3$",
+        "$1000$",
+        "$10$",
+        "$30$"
+      ],
+      "answer": 0,
+      "explanation": "$\\lg(1000)=\\lg(10^3)=3$, since $10^3=1000$. The base-10 logarithm gives exactly the exponent, not the number itself."
+    },
+    {
+      "id": "q-ma2-exponential-12",
+      "kind": "mc",
+      "topic": "logarithm laws",
+      "prompt": "Which expression is the same as $\\lg(a) - \\lg(b)$?",
+      "opener": "One of the logarithm laws concerns the difference between two logarithms.",
+      "choices": [
+        "$\\lg\\left(\\dfrac{a}{b}\\right)$",
+        "$\\lg(a-b)$",
+        "$\\dfrac{\\lg(a)}{\\lg(b)}$",
+        "$\\lg(a \\cdot b)$"
+      ],
+      "answer": 0,
+      "explanation": "The quotient rule for logarithms: $\\lg(a)-\\lg(b) = \\lg\\left(\\frac{a}{b}\\right)$. The common mistake is thinking $\\lg(a)-\\lg(b)=\\lg(a-b)$, but logarithms turn division into subtraction — not subtraction into subtraction."
+    },
+    {
+      "id": "q-ma2-exponential-13",
+      "kind": "mc",
+      "topic": "exponential equations",
+      "prompt": "Solve the equation $3^x = 81$.",
+      "opener": "Can 81 be written as a power with base 3?",
+      "choices": [
+        "$x = 4$",
+        "$x = 27$",
+        "$x = 3$",
+        "$x = 9$"
+      ],
+      "answer": 0,
+      "explanation": "$81=3^4$, so $3^x=3^4$ gives $x=4$ since the bases are equal."
+    },
+    {
+      "id": "q-ma2-exponential-14",
+      "kind": "mc",
+      "topic": "exponential equations",
+      "prompt": "Solve the equation $7^x = 50$ using the base-10 logarithm. Which expression gives $x$?",
+      "opener": "Take $\\lg$ of both sides and use the fact that $\\lg(7^x) = x\\cdot\\lg(7)$.",
+      "choices": [
+        "$x = \\dfrac{\\lg(50)}{\\lg(7)}$",
+        "$x = \\lg(50) - \\lg(7)$",
+        "$x = \\dfrac{50}{7}$",
+        "$x = \\lg(50) \\cdot \\lg(7)$"
+      ],
+      "answer": 0,
+      "explanation": "Take $\\lg$ of both sides: $x\\cdot\\lg(7)=\\lg(50)$, giving $x=\\dfrac{\\lg(50)}{\\lg(7)}\\approx2.01$. Simply dividing 50 by 7 (option C) ignores that $x$ is in the exponent."
+    },
+    {
+      "id": "q-ma2-exponential-15",
+      "kind": "mc",
+      "topic": "logarithm laws",
+      "prompt": "What is $\\lg(a^3)$ expressed using $\\lg(a)$?",
+      "opener": "One of the logarithm laws concerns powers.",
+      "choices": [
+        "$3\\lg(a)$",
+        "$\\lg(a)^3$",
+        "$\\lg(3a)$",
+        "$\\dfrac{\\lg(a)}{3}$"
+      ],
+      "answer": 0,
+      "explanation": "The power rule for logarithms: $\\lg(a^n) = n\\lg(a)$, so $\\lg(a^3) = 3\\lg(a)$. Writing $\\lg(a)^3$ (option B) confuses raising the logarithm itself to a power with raising the argument."
     }
   ]
 }

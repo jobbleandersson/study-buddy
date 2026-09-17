@@ -125,6 +125,111 @@
       "prompt": "Summarise the foundations of Christianity: faith, scripture, church and festivals.",
       "opener": "Go through faith, the Bible, branches, worship and festivals as five short points.",
       "answer": "Faith: a single God who, according to Christian belief, is revealed as the Father, the Son and the Holy Spirit (the Trinity) · Jesus: according to Christian belief the son of God, born in Bethlehem, crucified and risen — the resurrection is the core of the faith · Holy scripture: the Bible, in two parts — the Old Testament (the time before Jesus, largely shared with Judaism) and the New Testament (Jesus, the four Gospels and the early Church) · Building: church · Leader: priest, pastor or deacon · Service: prayer, hymn singing, Bible reading, sermon and in many churches communion · Rites: baptism, confirmation, wedding, funeral · Branches: Catholic (the Pope in Rome), Orthodox (strongest in Eastern Europe, icons) and Protestant (e.g. the Church of Sweden) · Festivals: Advent · Christmas (the birth of Jesus) · Easter (crucifixion on Good Friday, resurrection on Easter Sunday) · Pentecost (the Holy Spirit) · Christianity in Sweden: arrived during the Viking Age, dominant during the Middle Ages, the Church of Sweden was the state church until the year 2000, the Church long handled civil registration and schooling · Symbol: the cross."
+    },
+    {
+      "id": "q-rel7-kri-9",
+      "kind": "mc",
+      "topic": "the Bible",
+      "prompt": "What are the four books in the New Testament that tell the story of Jesus's life called?",
+      "opener": "The word means roughly \"good news\".",
+      "choices": [
+        "The Psalms",
+        "The Gospels",
+        "The Acts of the Apostles",
+        "The Book of Revelation"
+      ],
+      "answer": 1,
+      "explanation": "The Gospels — according to Matthew, Mark, Luke and John — are the four books in the New Testament that tell the story of Jesus's life, death and resurrection. The Psalms belong to the Old Testament, the Acts of the Apostles tells of the early Church after Jesus's ascension, and the Book of Revelation is the New Testament's final and most symbolic book."
+    },
+    {
+      "id": "q-rel7-kri-10",
+      "kind": "mc",
+      "topic": "the Church and the service",
+      "prompt": "What is communion within Christianity?",
+      "opener": "The meal re-enacts something that happened the evening before Jesus was crucified.",
+      "choices": [
+        "A pilgrimage to Jerusalem",
+        "A meal of bread and wine that recalls Jesus's last meal with his disciples",
+        "A prayer that only the Pope is allowed to read",
+        "A forty-day period of fasting"
+      ],
+      "answer": 1,
+      "explanation": "Communion is a meal of bread and wine celebrated in memory of Jesus's last meal with his disciples before he was crucified. The fast before Easter is instead called Lent, and it is a different part of the Christian year."
+    },
+    {
+      "id": "q-rel7-kri-11",
+      "kind": "mc",
+      "topic": "belief about Jesus",
+      "prompt": "What is the teaching that God is revealed as the Father, the Son and the Holy Spirit called?",
+      "opener": "The word begins with \"tri-\" and refers to the three who are nonetheless counted as a single god.",
+      "choices": [
+        "The reincarnation",
+        "The revelation",
+        "The Trinity",
+        "The communion"
+      ],
+      "answer": 2,
+      "explanation": "The Trinity is the Christian teaching that God is a single god who is revealed in three forms: the Father, the Son (Jesus) and the Holy Spirit. Reincarnation instead belongs to Hinduism and Buddhism, and that concept does not exist within Christianity."
+    },
+    {
+      "id": "q-rel7-kri-12",
+      "kind": "mc",
+      "topic": "Christianity in Sweden",
+      "prompt": "Which of the following is one of Christianity's largest branches?",
+      "opener": "The other answer options instead belong to Islam or a completely different religion.",
+      "choices": [
+        "Sunni",
+        "Shia",
+        "The Catholic Church",
+        "Hinduism"
+      ],
+      "answer": 2,
+      "explanation": "The Catholic Church, with the Pope in Rome, is one of Christianity's three major branches along with the Orthodox and the Protestant churches. Sunni and Shia are instead branches within Islam, and Hinduism is a completely different religion."
+    },
+    {
+      "id": "q-rel7-kri-13",
+      "kind": "mc",
+      "topic": "Christmas and Easter",
+      "prompt": "Which festival celebrates the Holy Spirit coming to the disciples?",
+      "opener": "The festival falls fifty days after Easter.",
+      "choices": [
+        "Advent",
+        "Christmas",
+        "Easter",
+        "Pentecost"
+      ],
+      "answer": 3,
+      "explanation": "Pentecost celebrates that, according to the Bible, the Holy Spirit came to the disciples fifty days after Easter, which is usually counted as the birthday of the Church. Christmas instead celebrates the birth of Jesus, and Easter his death and resurrection."
+    },
+    {
+      "id": "q-rel7-kri-14",
+      "kind": "mc",
+      "topic": "the Church and the service",
+      "prompt": "What is baptism within Christianity?",
+      "opener": "Water is the central symbol in the ceremony.",
+      "choices": [
+        "A festival after the harvest",
+        "A rite with water that welcomes a person into the Christian community",
+        "A way of choosing a new Pope",
+        "A form of forty-day fast"
+      ],
+      "answer": 1,
+      "explanation": "Baptism is a rite in which water is used as a symbol to welcome a person, often a small child, into the Christian community. Choosing a new Pope instead happens through a conclave, a completely different church procedure that only applies to the Catholic Church."
+    },
+    {
+      "id": "q-rel7-kri-15",
+      "kind": "mc",
+      "topic": "belief about Jesus",
+      "prompt": "What is meant by the crucifixion?",
+      "opener": "It was a common method of execution in the Roman empire at the time.",
+      "choices": [
+        "A Jewish festival",
+        "A Muslim time of prayer",
+        "The method of execution that, according to the Bible, was used to kill Jesus",
+        "A Hindu ritual"
+      ],
+      "answer": 2,
+      "explanation": "The crucifixion was a method of execution in the Roman empire, and according to the Bible, Jesus was executed that way before, according to Christian belief, he rose from the dead. So it is not a festival or ritual within Judaism, Islam or Hinduism."
     }
   ]
 }

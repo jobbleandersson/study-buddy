@@ -123,6 +123,111 @@
       "prompt": "What tense shifts and other changes happen in estilo indirecto?",
       "opener": "A pattern to memorize so you can move smoothly between direct and reported speech.",
       "answer": "Tense shifts (when the reporting verb is in the past, e.g. dijo que): presente→imperfecto (estoy→estaba), pretérito→pluscuamperfecto (llegué→había llegado), futuro→condicional (iré→iría), imperativo→imperfecto de subjuntivo (estudiad→estudiáramos). Time/place expressions: hoy→aquel día, mañana→al día siguiente, ayer→el día anterior, aquí→allí, este→aquel. Questions: yes/no questions get \"si\" (preguntó si venía), wh-questions keep the question word (preguntó cuándo venía) — with no question mark and no inverted word order. Pronouns always adjust to the new perspective."
+    },
+    {
+      "id": "q-sp4-reportedspeech-9",
+      "kind": "mc",
+      "topic": "reported speech",
+      "prompt": "Convert to reported speech: Sofía dijo: \"Tengo hambre.\" → Sofía dijo que ___.",
+      "opener": "The present shifts one step back to the imperfect.",
+      "choices": [
+        "tenía hambre",
+        "tiene hambre",
+        "tuvo hambre",
+        "tendría hambre"
+      ],
+      "answer": 0,
+      "explanation": "The present (\"tengo\") shifts back to the imperfect: \"tenía hambre\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-10",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Convert to reported speech: Miguel dijo: \"He terminado el trabajo.\" → Miguel dijo que ___.",
+      "opener": "The present perfect (he terminado) shifts back to the pluperfect.",
+      "choices": [
+        "había terminado el trabajo",
+        "ha terminado el trabajo",
+        "terminó el trabajo",
+        "terminaría el trabajo"
+      ],
+      "answer": 0,
+      "explanation": "\"He terminado\" (present perfect) shifts back to the pluperfect: \"había terminado el trabajo\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-11",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Convert to reported speech: Rosa dijo: \"Vivía en Madrid.\" → Rosa dijo que ___.",
+      "opener": "The imperfect does NOT shift back in reported speech — it stays the imperfect.",
+      "choices": [
+        "vivía en Madrid",
+        "vive en Madrid",
+        "vivió en Madrid",
+        "había vivido en Madrid"
+      ],
+      "answer": 0,
+      "explanation": "The imperfect (\"vivía\") stays unchanged in reported speech, since it already describes background/habit in the past: \"vivía en Madrid\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-12",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "Convert to reported speech: Juan preguntó: \"¿Dónde vives?\" → Juan preguntó ___.",
+      "opener": "Wh-questions keep the question word but lose the question mark and inverted word order.",
+      "choices": [
+        "dónde vivía",
+        "que dónde vives",
+        "si vivía",
+        "dónde vive"
+      ],
+      "answer": 0,
+      "explanation": "A wh-question keeps the question word (\"dónde\") without \"que\", and the verb shifts back in tense: \"preguntó dónde vivía\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-13",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Convert to reported speech: María dijo: \"Este libro es mío.\" → María dijo que ___ libro era suyo.",
+      "opener": "The deictic word \"este\" (this, near the speaker) shifts back to \"aquel\" (that).",
+      "choices": [
+        "aquel",
+        "este",
+        "ese",
+        "el"
+      ],
+      "answer": 0,
+      "explanation": "\"Este\" (this, near the speaker in the moment) becomes \"aquel\" (that) in reported speech, since the perspective moves away from the original speech situation."
+    },
+    {
+      "id": "q-sp4-reportedspeech-14",
+      "kind": "mc",
+      "topic": "reporting verbs",
+      "prompt": "Convert to reported speech: El médico dijo: \"No fumes.\" → El médico le dijo que ___.",
+      "opener": "A negative imperative in direct speech becomes \"no\" + the imperfect subjunctive in reported speech.",
+      "choices": [
+        "no fumara",
+        "no fuma",
+        "no fumaría",
+        "no fume"
+      ],
+      "answer": 0,
+      "explanation": "An imperative (\"no fumes\") becomes the imperfect subjunctive in reported speech after a past-tense verb: \"que no fumara\"."
+    },
+    {
+      "id": "q-sp4-reportedspeech-15",
+      "kind": "mc",
+      "topic": "tense shifts",
+      "prompt": "Convert to reported speech: Pablo dijo: \"Llegué ayer.\" → Pablo dijo que había llegado ___.",
+      "opener": "\"Ayer\" (yesterday) shifts back to \"el día anterior\" (the day before).",
+      "choices": [
+        "el día anterior",
+        "ayer",
+        "hoy",
+        "el día siguiente"
+      ],
+      "answer": 0,
+      "explanation": "\"Ayer\" (yesterday, from the original speaker's perspective) becomes \"el día anterior\" (the day before) in reported speech."
     }
   ]
 }

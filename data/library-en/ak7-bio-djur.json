@@ -124,6 +124,110 @@
       "prompt": "What are the five groups of vertebrates and what characterises them?",
       "opener": "Take the groups in order and mention skin, breathing, eggs or young, and body temperature.",
       "answer": "Fish: scales · gills · external fertilisation and eggs in water · cold-blooded · Amphibians: moist bare skin · larvae with gills, adults with lungs and skin · eggs in water · cold-blooded · Reptiles: dry scales · lungs · eggs with a leathery shell laid on land · cold-blooded · Birds: feathers and a beak · lungs · eggs with a hard shell, incubated · warm-blooded · Mammals: hair or fur · lungs · give birth to live young and produce milk · warm-blooded · Invertebrates: insects (6 legs, three-part body) · arachnids (8 legs, two-part body) · molluscs (soft body, often a shell) · all lack a spine and are cold-blooded."
+    },
+    {
+      "id": "q-bio7-dju-9",
+      "kind": "mc",
+      "topic": "vertebrates",
+      "prompt": "What characterises fish?",
+      "opener": "Think about what a fish has that lets it live its whole life in water.",
+      "choices": [
+        "They breathe with lungs their whole life",
+        "They have scales and breathe with gills",
+        "They lay eggs on land",
+        "They nurse their young"
+      ],
+      "answer": 1,
+      "explanation": "Fish have scales and breathe with gills their whole life, unlike amphibians, which switch how they breathe as they grow up. Laying eggs on land and nursing young are instead characteristics of reptiles and mammals."
+    },
+    {
+      "id": "q-bio7-dju-10",
+      "kind": "mc",
+      "topic": "mammals and birds",
+      "prompt": "What is typical of birds?",
+      "opener": "Think about what lets a bird fly and what it lays.",
+      "choices": [
+        "They give birth to live young",
+        "They have feathers, a beak, and lay eggs with a hard shell",
+        "They breathe with gills",
+        "They are cold-blooded"
+      ],
+      "answer": 1,
+      "explanation": "Birds have feathers and a beak and lay eggs with a hard shell that are incubated. Giving birth to live young is typical of mammals, and birds are warm-blooded, not cold-blooded."
+    },
+    {
+      "id": "q-bio7-dju-11",
+      "kind": "mc",
+      "topic": "cold-blooded and warm-blooded",
+      "prompt": "What does it mean that a bird is warm-blooded?",
+      "opener": "Think about the difference from a lizard, which needs to bask in the sun to warm up.",
+      "choices": [
+        "Its body temperature follows the temperature of its surroundings",
+        "Its body temperature stays constant regardless of the surrounding temperature",
+        "It changes its body temperature once a year",
+        "It has no body heat of its own"
+      ],
+      "answer": 1,
+      "explanation": "Warm-blooded animals like birds and mammals keep a constant body temperature no matter how cold or warm it is outside. Body temperature following the surroundings is instead what happens with cold-blooded animals like lizards."
+    },
+    {
+      "id": "q-bio7-dju-12",
+      "kind": "mc",
+      "topic": "invertebrates",
+      "prompt": "How many legs does an adult arachnid have?",
+      "opener": "Count on a spider — its body is divided into only two parts.",
+      "choices": [
+        "6",
+        "8",
+        "10",
+        "4"
+      ],
+      "answer": 1,
+      "explanation": "Arachnids have eight legs and a body divided into two parts. Insects instead have six legs and a body divided into three parts, which is the key difference between the groups."
+    },
+    {
+      "id": "q-bio7-dju-13",
+      "kind": "mc",
+      "topic": "vertebrates",
+      "prompt": "Which animal is a reptile?",
+      "opener": "Reptiles have dry, scaly skin and live their whole life on land.",
+      "choices": [
+        "The salamander",
+        "The lizard",
+        "The frog",
+        "The bat"
+      ],
+      "answer": 1,
+      "explanation": "The lizard is a reptile with dry scales that lays eggs with a leathery shell on land. The salamander and the frog are instead amphibians that lay their eggs in water, and the bat is a mammal."
+    },
+    {
+      "id": "q-bio7-dju-14",
+      "kind": "worked",
+      "topic": "vertebrates",
+      "prompt": "You find an animal that has feathers, a beak, lays eggs with a hard shell, and always keeps the same body temperature. Which group of vertebrates does it belong to? Show your reasoning.",
+      "opener": "Go through the clues one at a time and rule out the groups that don't fit.",
+      "answer": "It is a bird.",
+      "steps": [
+        "Feathers and a beak: fish, amphibians, reptiles and mammals are ruled out, since none of them have feathers or a beak.",
+        "Eggs with a hard shell: distinguishes the bird from reptiles, whose eggs have a softer, leathery shell.",
+        "The animal keeping the same body temperature shows it is warm-blooded, which is true of both birds and mammals.",
+        "Since the animal has feathers and a beak, which only birds have, only birds remain — so the answer is a bird."
+      ]
+    },
+    {
+      "id": "q-bio7-dju-15",
+      "kind": "mc",
+      "topic": "invertebrates",
+      "prompt": "Which of these animals counts as a mollusc?",
+      "opener": "Molluscs have a soft body, often with a shell for protection.",
+      "choices": [
+        "The octopus",
+        "The ant",
+        "The spider",
+        "The crayfish"
+      ],
+      "answer": 0,
+      "explanation": "The octopus is a mollusc with a soft body and no external skeleton. The ant is an insect, and the spider and crayfish both have a hard external skeleton, which molluscs lack."
     }
   ]
 }

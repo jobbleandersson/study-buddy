@@ -123,6 +123,111 @@
       "prompt": "Summarise the trigonometric ratios in a right-angled triangle and how to calculate an unknown angle.",
       "opener": "SOH-CAH-TOA is the mnemonic — what does each letter stand for?",
       "answer": "$\\sin(v) = \\dfrac{\\text{opposite}}{\\text{hypotenuse}}$ (SOH) · $\\cos(v) = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}}$ (CAH) · $\\tan(v) = \\dfrac{\\text{opposite}}{\\text{adjacent}}$ (TOA) · Pythagoras' theorem for the sides: $a^2+b^2=c^2$ (c = the hypotenuse) · To find an angle, use the inverse functions: $v=\\sin^{-1}(\\ldots)$, $v=\\cos^{-1}(\\ldots)$ or $v=\\tan^{-1}(\\ldots)$."
+    },
+    {
+      "id": "q-ma2-trig-9",
+      "kind": "mc",
+      "topic": "trigonometric ratios",
+      "prompt": "In a right-angled triangle, what is the definition of $\\cos(v)$ for the angle $v$?",
+      "opener": "Think SOH-CAH-TOA — which side belongs to cosine?",
+      "choices": [
+        "$\\dfrac{\\text{adjacent side}}{\\text{hypotenuse}}$",
+        "$\\dfrac{\\text{opposite side}}{\\text{hypotenuse}}$",
+        "$\\dfrac{\\text{opposite side}}{\\text{adjacent side}}$",
+        "$\\dfrac{\\text{hypotenuse}}{\\text{adjacent side}}$"
+      ],
+      "answer": 0,
+      "explanation": "Cosine is defined as the ratio of the adjacent side to the hypotenuse: $\\cos(v)=\\dfrac{\\text{adjacent}}{\\text{hypotenuse}}$. The option with the opposite side over the hypotenuse (answer B) is instead the definition of sine."
+    },
+    {
+      "id": "q-ma2-trig-10",
+      "kind": "mc",
+      "topic": "calculating sides",
+      "prompt": "A right-angled triangle has a hypotenuse of 8 cm and an angle of 45°. How long is the adjacent side?",
+      "opener": "Set up $\\cos(45°) = \\dfrac{\\text{adjacent}}{8}$ and solve for the adjacent side.",
+      "choices": [
+        "$\\approx 5.66$ cm",
+        "$4$ cm",
+        "$8$ cm",
+        "$\\approx 6.93$ cm"
+      ],
+      "answer": 0,
+      "explanation": "Adjacent side $= 8\\cdot\\cos(45°) = 8\\cdot0.707 \\approx 5.66$ cm. Option C ($8$ cm) would mean the triangle has no angle at all, which doesn't match a 45° angle."
+    },
+    {
+      "id": "q-ma2-trig-11",
+      "kind": "mc",
+      "topic": "applications",
+      "prompt": "A flagpole casts a 10 m shadow when the sun's angle above the horizon is 35°. How tall is the flagpole?",
+      "opener": "The height and the shadow form the two legs, with the 35° angle between the ground and the sun's ray.",
+      "choices": [
+        "$\\approx 7.0$ m",
+        "$\\approx 8.2$ m",
+        "$\\approx 5.7$ m",
+        "$\\approx 10$ m"
+      ],
+      "answer": 0,
+      "explanation": "Height $= 10\\cdot\\tan(35°) \\approx 10\\cdot0.700 \\approx 7.0$ m, since tangent compares the opposite side (the height) with the adjacent side (the shadow)."
+    },
+    {
+      "id": "q-ma2-trig-12",
+      "kind": "mc",
+      "topic": "trigonometric ratios",
+      "prompt": "A right-angled triangle has sides of 9 cm and 12 cm and a hypotenuse of 15 cm. What is $\\sin(v)$ for the angle $v$ opposite the 9 cm side?",
+      "opener": "Sine compares the opposite side with the hypotenuse.",
+      "choices": [
+        "$0.6$",
+        "$0.8$",
+        "$0.75$",
+        "$1.33$"
+      ],
+      "answer": 0,
+      "explanation": "$\\sin(v) = \\dfrac{\\text{opposite}}{\\text{hypotenuse}} = \\dfrac{9}{15} = 0.6$. Option B ($0.8$) is instead $\\cos(v) = \\frac{12}{15}$."
+    },
+    {
+      "id": "q-ma2-trig-13",
+      "kind": "mc",
+      "topic": "calculating angles",
+      "prompt": "A right-angled triangle has two equal legs, both 7 cm. What is the angle between the hypotenuse and one of the legs?",
+      "opener": "Equal legs give an isosceles right-angled triangle.",
+      "choices": [
+        "$45°$",
+        "$30°$",
+        "$60°$",
+        "$35°$"
+      ],
+      "answer": 0,
+      "explanation": "Since the legs are equal, $\\tan(v) = \\frac{7}{7} = 1$, giving $v = \\tan^{-1}(1) = 45°$. This matches the fact that a right-angled triangle with equal legs always has two 45° angles."
+    },
+    {
+      "id": "q-ma2-trig-14",
+      "kind": "mc",
+      "topic": "trigonometric ratios",
+      "prompt": "Which statement about exact trigonometric values is correct?",
+      "opener": "Check each statement against a standard triangle or the unit circle.",
+      "choices": [
+        "$\\cos(45°) \\approx 0.707$",
+        "$\\sin(0°) = 1$",
+        "$\\tan(0°) = 1$",
+        "$\\cos(90°) = 1$"
+      ],
+      "answer": 0,
+      "explanation": "$\\cos(45°) = \\frac{\\sqrt2}{2} \\approx 0.707$ is correct. The others are wrong: $\\sin(0°)=0$ (not 1), $\\tan(0°)=0$ (not 1), and $\\cos(90°)=0$ (not 1)."
+    },
+    {
+      "id": "q-ma2-trig-15",
+      "kind": "mc",
+      "topic": "applications",
+      "prompt": "From a boat, the angle of elevation to the top of a 40 m tall lighthouse is measured as 20°. How far is it from the boat to the base of the lighthouse?",
+      "opener": "The height is the opposite side and the distance is the adjacent side to the 20° angle.",
+      "choices": [
+        "$\\approx 109.9$ m",
+        "$\\approx 116.9$ m",
+        "$\\approx 14.6$ m",
+        "$\\approx 40$ m"
+      ],
+      "answer": 0,
+      "explanation": "The distance $= \\dfrac{40}{\\tan(20°)} \\approx \\dfrac{40}{0.364} \\approx 109.9$ m. Option B is obtained if you mistakenly use sine instead of tangent and calculate $\\frac{40}{\\sin(20°)}$."
     }
   ]
 }

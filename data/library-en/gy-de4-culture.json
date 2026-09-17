@@ -122,6 +122,111 @@
       "prompt": "What words and phrases do you need to discuss climate and the environment in German?",
       "opener": "A vocabulary list for a social debate about Umwelt.",
       "answer": "der Klimawandel = climate change. die Erderwärmung = global warming. nachhaltig = sustainable. erneuerbare Energien = renewable energy. fossile Brennstoffe = fossil fuels. der CO2-Ausstoß = CO2 emissions. reduzieren = to reduce. der Ausbau = the expansion. bekämpfen = to fight, combat. klimaneutral = climate-neutral. die Umweltschutzorganisation = the environmental protection organization. sich zum Ziel setzen = to set as a goal. bezweifeln = to doubt. Useful phrases: \"Meiner Meinung nach müsste man ...\" (In my opinion, one should ...), \"Es ist wichtig, dass ...\" (It is important that ...), \"Einerseits ..., andererseits ...\" (On the one hand ..., on the other hand ...)."
+    },
+    {
+      "id": "q-de4-cul-9",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "What does \"die Erderwärmung\" mean?",
+      "opener": "The word combines \"Erde\" (earth) and \"Erwärmung\" (warming).",
+      "choices": [
+        "Global warming",
+        "Earthquake",
+        "Sea level rise",
+        "Desertification"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Erderwärmung\" means global warming."
+    },
+    {
+      "id": "q-de4-cul-10",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "What does \"der Ausbau\" mean, as in \"der Ausbau der erneuerbaren Energien\"?",
+      "opener": "The word comes from the verb \"ausbauen\" (to expand).",
+      "choices": [
+        "The expansion",
+        "The dismantling",
+        "The cost",
+        "The planning"
+      ],
+      "answer": 0,
+      "explanation": "\"Der Ausbau\" means \"the expansion\", e.g. of renewable energy."
+    },
+    {
+      "id": "q-de4-cul-11",
+      "kind": "mc",
+      "topic": "climate debate",
+      "prompt": "What does \"die Umweltschutzorganisation\" mean?",
+      "opener": "The word combines \"Umwelt\" (environment), \"Schutz\" (protection), and \"Organisation\".",
+      "choices": [
+        "The environmental protection organization",
+        "The energy company",
+        "The government",
+        "The labor union"
+      ],
+      "answer": 0,
+      "explanation": "\"Die Umweltschutzorganisation\" means \"the environmental protection organization\"."
+    },
+    {
+      "id": "q-de4-cul-12",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the sentence: \"Viele Städte investieren derzeit in den Ausbau des öffentlichen Nahverkehrs, um den CO2-Ausstoß zu senken.\"\n\nWhat does the sentence mean?",
+      "opener": "\"Derzeit\" means \"currently\", \"senken\" means \"to lower/reduce\".",
+      "choices": [
+        "Many cities are currently investing in expanding public transport to reduce CO2 emissions",
+        "Many cities have stopped investing in public transport",
+        "Many cities are building more highways",
+        "Many cities are banning public transport"
+      ],
+      "answer": 0,
+      "explanation": "\"Viele Städte investieren derzeit in den Ausbau des öffentlichen Nahverkehrs, um den CO2-Ausstoß zu senken\" means \"many cities are currently investing in expanding public transport to reduce CO2 emissions\"."
+    },
+    {
+      "id": "q-de4-cul-13",
+      "kind": "mc",
+      "topic": "climate debate",
+      "prompt": "What does the phrase \"sich zum Ziel setzen\" mean?",
+      "opener": "Literally \"to set oneself a goal\".",
+      "choices": [
+        "To set something as a goal",
+        "To give up a goal",
+        "To reach a goal",
+        "To forget a goal"
+      ],
+      "answer": 0,
+      "explanation": "\"Sich zum Ziel setzen\" means \"to set something as a goal\", e.g. \"Deutschland hat sich zum Ziel gesetzt, klimaneutral zu werden.\""
+    },
+    {
+      "id": "q-de4-cul-14",
+      "kind": "mc",
+      "topic": "environment vocabulary",
+      "prompt": "What does the verb \"bekämpfen\" mean?",
+      "opener": "A common verb in the climate debate, combining \"be-\" and \"Kampf\" (fight).",
+      "choices": [
+        "To fight/combat",
+        "To support",
+        "To ignore",
+        "To celebrate"
+      ],
+      "answer": 0,
+      "explanation": "\"Bekämpfen\" means \"to fight/combat\", e.g. \"den Klimawandel bekämpfen\" (to fight climate change)."
+    },
+    {
+      "id": "q-de4-cul-15",
+      "kind": "mc",
+      "topic": "climate debate",
+      "prompt": "What does the construction \"Einerseits ..., andererseits ...\" mean?",
+      "opener": "Used to weigh two sides of an issue against each other.",
+      "choices": [
+        "On the one hand..., on the other hand...",
+        "Firstly..., secondly...",
+        "Either..., or...",
+        "Not only..., but also..."
+      ],
+      "answer": 0,
+      "explanation": "\"Einerseits ..., andererseits ...\" means \"on the one hand ..., on the other hand ...\" and is used to present two opposing aspects of the same issue."
     }
   ]
 }

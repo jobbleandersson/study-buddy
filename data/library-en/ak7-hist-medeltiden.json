@@ -126,6 +126,111 @@
       "prompt": "Summarise medieval society in Europe.",
       "opener": "Think time period, social order, the Church, the towns and the major events.",
       "answer": "The Middle Ages: roughly 500-1500 AD, from the fall of the Western Roman Empire to the Renaissance · Feudal society: the king gave fiefs (land) to the nobility, who promised military service and loyalty, and the peasants worked the land in return for tax and labour service · The society of estates: those who prayed (clergy), those who fought (nobility) and those who worked (peasants), later also burghers in the towns · The power of the Church: the Catholic Church was shared across the whole of Western Europe, owned a great deal of land, collected tithes and ran the monasteries and schools where literacy was held · Towns and trade: towns grew up around markets and harbours, craftspeople organised themselves into guilds, the Hanseatic League dominated trade in the Baltic with Lübeck and Visby as its centres · The Black Death: a plague that reached Europe in 1347 and Sweden in 1350, roughly a third of the population died, which caused a labour shortage and, in the long run, better conditions for peasants · The Crusades: from 1096, Christian armies marched towards Jerusalem and the Holy Land, which also increased contact and trade between Europe and the Middle East."
+    },
+    {
+      "id": "q-hist7-med-9",
+      "kind": "mc",
+      "topic": "the Middle Ages as a period",
+      "prompt": "Which event is usually counted as the start of the Middle Ages in Europe?",
+      "opener": "The fall of a great empire often marks the boundary between antiquity and the Middle Ages.",
+      "choices": [
+        "The Black Death",
+        "The fall of the Western Roman Empire in 476",
+        "The end of the Crusades",
+        "The invention of the printing press"
+      ],
+      "answer": 1,
+      "explanation": "The Middle Ages are usually dated from the fall of the Western Roman Empire in 476. The Black Death instead occurred in the middle of the Middle Ages, and the printing press was invented at the end of the period, close to the transition to the Renaissance."
+    },
+    {
+      "id": "q-hist7-med-10",
+      "kind": "mc",
+      "topic": "feudal society and the society of estates",
+      "prompt": "Who counted as \"those who prayed\" in the society of estates?",
+      "opener": "This group led church services and ran monasteries and schools.",
+      "choices": [
+        "The peasants",
+        "The nobility",
+        "The clergy",
+        "The burghers"
+      ],
+      "answer": 2,
+      "explanation": "The clergy, the Church's people, counted as \"those who prayed\". The nobility were \"those who fought\" and the peasants \"those who worked\", while the burghers in the towns came to form a fourth estate later in the Middle Ages."
+    },
+    {
+      "id": "q-hist7-med-11",
+      "kind": "mc",
+      "topic": "the power of the Church",
+      "prompt": "What was the tithe during the Middle Ages?",
+      "opener": "The name reveals what share was involved.",
+      "choices": [
+        "A tenth of the harvest handed over to the Church",
+        "A tenth of the nobility's land",
+        "A tax to the king",
+        "A fee for attending school"
+      ],
+      "answer": 0,
+      "explanation": "The tithe was a levy of a tenth of the harvest that peasants handed over to the Church, giving the Church large revenues. It wasn't a tax to the king or a fee tied to schooling."
+    },
+    {
+      "id": "q-hist7-med-12",
+      "kind": "mc",
+      "topic": "towns and trade",
+      "prompt": "Which city was the leading city of the Hanseatic League?",
+      "opener": "The city is in northern Germany on the Baltic coast.",
+      "choices": [
+        "Visby",
+        "Stockholm",
+        "Lübeck",
+        "Paris"
+      ],
+      "answer": 2,
+      "explanation": "Lübeck was the leading city of the Hanseatic League and drove the trade alliance around the North Sea and the Baltic. Visby and Stockholm were important Hanseatic trading towns, but it was Lübeck that led the alliance."
+    },
+    {
+      "id": "q-hist7-med-13",
+      "kind": "mc",
+      "topic": "the Black Death",
+      "prompt": "What year did the Black Death reach Sweden?",
+      "opener": "The disease arrived in Europe in 1347 and then spread northward over the following years.",
+      "choices": [
+        "1347",
+        "1350",
+        "1400",
+        "1096"
+      ],
+      "answer": 1,
+      "explanation": "The Black Death reached Sweden in 1350, three years after it first arrived in Europe in 1347. The year 1096 is instead linked to the first Crusades."
+    },
+    {
+      "id": "q-hist7-med-14",
+      "kind": "worked",
+      "topic": "the power of the Church",
+      "prompt": "Explain step by step why the Church could have such great influence over ordinary people's daily lives during the Middle Ages.",
+      "opener": "Think about what the Church was present for in a person's life, what it owned, and what it taught.",
+      "answer": "The Church was present at all the important events in a person's life — baptism, marriage and burial — and everyone was expected to be a member. It owned large landholdings and collected tithes, which gave it economic power. It ran almost all the schools and monasteries, giving the Church a near-monopoly on literacy and therefore control over knowledge. Since the Church also taught what awaited people after death, it had great influence over people's thoughts and behaviour throughout their lives.",
+      "steps": [
+        "The Church was present at baptisms, marriages and burials, and almost everyone in Western Europe was expected to be a member.",
+        "By owning large landholdings and collecting tithes, the Church built a stable and substantial economic base.",
+        "The Church ran the schools and monasteries that existed, giving it a near-monopoly on literacy.",
+        "Whoever controlled knowledge and education could also shape how people thought.",
+        "By teaching what awaited people after death, the Church also gained influence over people's morals and everyday behaviour."
+      ]
+    },
+    {
+      "id": "q-hist7-med-15",
+      "kind": "mc",
+      "topic": "the Crusades",
+      "prompt": "What was a common consequence of the Crusades for trade between Europe and the Middle East?",
+      "opener": "Think about what happens when large armies and pilgrims travel long distances and encounter new cultures.",
+      "choices": [
+        "Trade and contact decreased entirely",
+        "Contact and trade between Europe and the Middle East increased",
+        "All trade routes were closed",
+        "Trade moved entirely to Africa"
+      ],
+      "answer": 1,
+      "explanation": "Even though the Crusades were wars, they also led to increased contact, exchange of knowledge and trade between Europe and the Middle East, for example in spices, silk and new ideas. Trade therefore didn't decrease — quite the opposite."
     }
   ]
 }

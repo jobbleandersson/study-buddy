@@ -113,6 +113,111 @@
       "prompt": "Hur bildar man jämförelser och beskriver en vardagsrutin på spanska?",
       "opener": "Jämförelseord och reflexiva verb för det dagliga livet.",
       "answer": "Jämförelser: más ... que = mer ... än · menos ... que = mindre ... än · tan ... como = lika ... som · mejor/peor = bättre/sämre (oregelbundna). Vardagsrutin (reflexiva verb): despertarse = vakna · levantarse = gå upp · ducharse = duscha · vestirse = klä på sig · desayunar = äta frukost · acostarse = lägga sig. Reflexiva pronomen: me, te, se, nos, os, se — placeras före verbet: me levanto, te levantas, se levanta."
+    },
+    {
+      "id": "q-sp9-daily-9",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vad betyder \"menos caro que\" i en jämförelse mellan två produkter?",
+      "opener": "\"Menos ... que\" är motsatsen till \"más ... que\".",
+      "choices": [
+        "Mindre dyr än",
+        "Dyrare än",
+        "Lika dyr som",
+        "Den dyraste"
+      ],
+      "answer": 0,
+      "explanation": "\"Menos caro que\" betyder \"mindre dyr än\", motsatsen till \"más caro que\" (dyrare än)."
+    },
+    {
+      "id": "q-sp9-daily-10",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Välj rätt superlativform: \"Este restaurante es ___ de la ciudad.\" (Den här restaurangen är den bästa i staden.)",
+      "opener": "\"Bueno\" har en oregelbunden superlativform, precis som i komparativ.",
+      "choices": [
+        "el mejor",
+        "el más bueno",
+        "más mejor",
+        "el buenísimo"
+      ],
+      "answer": 0,
+      "explanation": "Superlativformen av \"bueno\" är \"el mejor\" (den bästa), inte \"el más bueno\". Samma oregelbundenhet som i komparativ (mejor)."
+    },
+    {
+      "id": "q-sp9-daily-11",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Me cepillo los dientes después de desayunar\"?",
+      "opener": "\"Cepillarse los dientes\" är ett reflexivt uttryck för att borsta tänderna.",
+      "choices": [
+        "Jag borstar tänderna efter frukost",
+        "Jag äter frukost efter att ha borstat tänderna",
+        "Jag duschar efter frukost",
+        "Jag klär på mig efter frukost"
+      ],
+      "answer": 0,
+      "explanation": "\"Me cepillo los dientes después de desayunar\" betyder \"jag borstar tänderna efter frukost\"."
+    },
+    {
+      "id": "q-sp9-daily-12",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vad betyder \"Normalmente salgo de casa a las ocho\"?",
+      "opener": "\"Normalmente\" signalerar en återkommande vana, inte en engångshändelse.",
+      "choices": [
+        "Vanligtvis lämnar jag hemmet klockan åtta",
+        "Ibland lämnar jag hemmet klockan åtta",
+        "Jag lämnade hemmet igår klockan åtta",
+        "Jag ska lämna hemmet klockan åtta"
+      ],
+      "answer": 0,
+      "explanation": "\"Normalmente salgo de casa a las ocho\" betyder \"vanligtvis lämnar jag hemmet klockan åtta\" — en beskrivning av en vanlig rutin."
+    },
+    {
+      "id": "q-sp9-daily-13",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Vilket ord är oregelbundet i superlativ för \"dålig\" (den sämsta)?",
+      "opener": "\"Malo\" har, precis som \"bueno\", en oregelbunden superlativform.",
+      "choices": [
+        "el peor",
+        "el más malo",
+        "malísimo",
+        "menos malo"
+      ],
+      "answer": 0,
+      "explanation": "Superlativformen av \"malo\" är \"el peor\" (den sämsta), inte \"el más malo\"."
+    },
+    {
+      "id": "q-sp9-daily-14",
+      "kind": "mc",
+      "topic": "daily routine",
+      "prompt": "Vilket reflexivt pronomen passar för \"nosotros\"? \"___ levantamos temprano los lunes.\" (Vi går upp tidigt på måndagar.)",
+      "opener": "Reflexiva pronomen följer samma mönster som personliga pronomen: yo-me, tú-te, nosotros-nos.",
+      "choices": [
+        "Nos",
+        "Se",
+        "Te",
+        "Me"
+      ],
+      "answer": 0,
+      "explanation": "\"Nos\" är det reflexiva pronomenet för \"nosotros\" (vi): \"nos levantamos\" betyder \"vi går upp\"."
+    },
+    {
+      "id": "q-sp9-daily-15",
+      "kind": "mc",
+      "topic": "comparisons",
+      "prompt": "Hur uttrycker man att två saker är exakt lika stora, t.ex. \"Mi casa es ___ grande ___ la tuya\"?",
+      "opener": "Likhet uttrycks med \"tan ... como\", inte \"más\" eller \"menos\".",
+      "choices": [
+        "tan ... como",
+        "más ... que",
+        "menos ... que",
+        "tan ... que"
+      ],
+      "answer": 0,
+      "explanation": "\"Tan ... como\" betyder \"lika ... som\": \"mi casa es tan grande como la tuya\" = \"mitt hus är lika stort som ditt\"."
     }
   ]
 }

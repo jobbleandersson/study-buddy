@@ -125,6 +125,111 @@
       "prompt": "Sammanfatta det viktigaste om demokrati, inflytande och rösträtt.",
       "opener": "Ta demokratins innebörd först, sedan beslutsformer, påverkansvägar och motsatsen diktatur.",
       "answer": "Demokrati: från grekiskans demos (folk) och kratos (makt) — folkstyre, makten utgår från folket · Direkt demokrati: alla röstar själva om varje fråga, t.ex. klassråd eller folkomröstning · Representativ demokrati: folket väljer representanter som beslutar, t.ex. riksdagen och kommunfullmäktige · Majoritetsbeslut: förslaget med flest röster vinner · Minoritetsskydd: rättigheter som yttrandefrihet och religionsfrihet gäller alla, även dem som röstade i minoritet · Påverka i skolan: klassråd, elevråd, samtal med rektor · Påverka i samhället: rösta, gå med i parti eller förening, skriva insändare, demonstrera, starta upprop · Demokrati kännetecknas av fria val, flera partier, yttrandefrihet, fria medier och oberoende domstolar · Diktatur: makten kan inte bytas ut i fria val, medierna styrs och kritik kan straffas · Allmän rösträtt: alla vuxna medborgare får rösta oavsett kön, inkomst eller bakgrund — i Sverige från valet 1921 · Rösträttsålder i Sverige idag: 18 år."
+    },
+    {
+      "id": "q-sam7-dem-9",
+      "kind": "mc",
+      "topic": "vad demokrati betyder",
+      "prompt": "Vad är direkt demokrati?",
+      "opener": "Tänk på vem som röstar — folket själva eller utvalda representanter?",
+      "choices": [
+        "När folket själva röstar direkt om varje fråga, till exempel i en folkomröstning",
+        "När en kung bestämmer allt",
+        "När bara politiker får rösta",
+        "När ingen får rösta"
+      ],
+      "answer": 0,
+      "explanation": "Direkt demokrati innebär att medborgarna själva röstar om varje enskild fråga, till exempel i en folkomröstning eller ett klassråd. Det skiljer sig från representativ demokrati, där folket i stället väljer representanter som sedan fattar besluten åt dem."
+    },
+    {
+      "id": "q-sam7-dem-10",
+      "kind": "mc",
+      "topic": "vad demokrati betyder",
+      "prompt": "Vad är representativ demokrati?",
+      "opener": "Tänk på hur riksdagsval fungerar i Sverige.",
+      "choices": [
+        "Folket väljer representanter, som riksdagsledamöter, som sedan fattar besluten",
+        "Alla röstar om varje enskild fråga",
+        "En person bestämmer utan val",
+        "Bara företag får rösta"
+      ],
+      "answer": 0,
+      "explanation": "I en representativ demokrati väljer folket representanter, till exempel riksdagsledamöter, som sedan fattar besluten i deras ställe. Det är den vanligaste formen av demokrati i större länder, eftersom det inte är praktiskt möjligt att alla röstar om varje enskild fråga."
+    },
+    {
+      "id": "q-sam7-dem-11",
+      "kind": "mc",
+      "topic": "majoritet och minoritet",
+      "prompt": "I en klass med 30 elever röstar 18 för en utflykt till skogen och 12 för en utflykt till stan. Vilket förslag vinner enligt majoritetsprincipen?",
+      "opener": "Jämför hur många som röstade på respektive förslag.",
+      "choices": [
+        "Stan, eftersom antalet röster där borde räknas dubbelt",
+        "Skogen, eftersom flest röstade på det",
+        "Ingetdera, eftersom det inte var enhälligt",
+        "Läraren avgör oavsett röster"
+      ],
+      "answer": 1,
+      "explanation": "18 av 30 röster är en majoritet, så skogen vinner enligt majoritetsprincipen. Ett majoritetsbeslut kräver inte att alla är överens, bara att förslaget får flest röster."
+    },
+    {
+      "id": "q-sam7-dem-12",
+      "kind": "mc",
+      "topic": "demokrati och diktatur",
+      "prompt": "Vilket kännetecknar en demokrati?",
+      "opener": "Fundera på om medborgarna kan byta ut de styrande.",
+      "choices": [
+        "Att makten kan bytas ut genom fria val",
+        "Att en person har makten för alltid utan val",
+        "Att medierna kontrolleras av staten",
+        "Att kritik mot ledningen är förbjuden"
+      ],
+      "answer": 0,
+      "explanation": "En demokrati kännetecknas av att medborgarna genom fria och regelbundna val kan byta ut dem som styr. Att makten sitter kvar för alltid utan val, att medierna kontrolleras och att kritik förbjuds är i stället kännetecken för en diktatur."
+    },
+    {
+      "id": "q-sam7-dem-13",
+      "kind": "mc",
+      "topic": "påverka i skolan och samhället",
+      "prompt": "Vilket är ett sätt att påverka i samhället utanför skolan?",
+      "opener": "Tänk på de demokratiska kanaler som finns för vuxna medborgare.",
+      "choices": [
+        "Att rösta i val, gå med i ett parti eller skriva en insändare",
+        "Att vänta tills någon annan löser problemet",
+        "Att bara klaga för sig själv hemma",
+        "Det går inte att påverka som privatperson"
+      ],
+      "answer": 0,
+      "explanation": "Att rösta, gå med i ett parti eller en förening, skriva en insändare, demonstrera eller starta ett upprop är alla sätt att påverka i samhället. Som privatperson finns det alltså flera demokratiska kanaler att använda, även mellan valen."
+    },
+    {
+      "id": "q-sam7-dem-14",
+      "kind": "mc",
+      "topic": "allmän rösträtt",
+      "prompt": "Vilket årtal användes den allmänna och lika rösträtten för kvinnor och män för första gången i ett riksdagsval i Sverige?",
+      "opener": "Beslutet togs 1919 och 1921 — men när hölls det första valet med den nya rösträtten?",
+      "choices": [
+        "1919",
+        "1921",
+        "1945",
+        "1971"
+      ],
+      "answer": 1,
+      "explanation": "Allmän och lika rösträtt för kvinnor och män beslutades 1919 och 1921, men användes första gången i riksdagsvalet 1921. Det är därför 1921 brukar räknas som året då Sverige fick allmän rösträtt i praktiken."
+    },
+    {
+      "id": "q-sam7-dem-15",
+      "kind": "mc",
+      "topic": "vad demokrati betyder",
+      "prompt": "Vad innebär det att medborgare har grundläggande fri- och rättigheter i en demokrati?",
+      "opener": "Tänk på vad som skulle hända om bara vissa fick uttrycka sina åsikter fritt.",
+      "choices": [
+        "Att medborgare har rätt till bland annat yttrandefrihet, mötesfrihet och en rättvis rättegång",
+        "Att bara vissa medborgare har rättigheter",
+        "Att rättigheter bara gäller vuxna över 65 år",
+        "Att rättigheter kan tas bort av vem som helst"
+      ],
+      "answer": 0,
+      "explanation": "I en demokrati har alla medborgare grundläggande fri- och rättigheter, till exempel yttrandefrihet, mötesfrihet och rätten till en rättvis rättegång. De gäller alla medborgare lika, inte bara en särskild grupp, och kan inte tas bort godtyckligt av enskilda personer eller ens av majoriteten."
     }
   ]
 }

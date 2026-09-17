@@ -123,6 +123,111 @@
       "prompt": "List advanced false friends and connotation traps common at Engelska 7 level.",
       "opener": "Ord som är extra lätta att missbruka på avancerad nivå.",
       "answer": "sympathetic = medkännande (ej sympatisk/trevlig = likeable) · eventually = till slut (ej eventuellt = possibly) · skinny vs slim/slender = negativ vs neutral/positiv konnotation, samma denotation · stingy vs thrifty = negativ vs positiv konnotation för \"sparsam\" · take after (likna) vs take off (lyfta/ta av) — samma verb, olika partikel, helt olika betydelse · a bitter pill to swallow = något obehagligt man accepterar; passar formellt register, till skillnad från slangiga idiom som \"kick the bucket\""
+    },
+    {
+      "id": "q-en7gy-idiom-9",
+      "kind": "mc",
+      "topic": "advanced idioms and register",
+      "prompt": "What does \"to weigh up the pros and cons\" mean, and in what register is it typically used?",
+      "opener": "Idiomet beskriver ett noggrant övervägande, inte en bokstavlig vägning.",
+      "choices": [
+        "To carefully consider the advantages and disadvantages; suitable for neutral-to-formal contexts",
+        "To physically weigh two objects; used only in scientific writing",
+        "To argue aggressively for one side; used in informal arguments",
+        "To ignore drawbacks entirely; used sarcastically"
+      ],
+      "answer": 0,
+      "explanation": "\"Weigh up the pros and cons\" betyder att noggrant överväga för- och nackdelar, och passar neutralt till formellt sammanhang. Det handlar inte om fysisk vägning eller aggressiv argumentation."
+    },
+    {
+      "id": "q-en7gy-idiom-10",
+      "kind": "mc",
+      "topic": "advanced idioms and register",
+      "prompt": "Which idiom would be inappropriate in a formal academic essay?",
+      "opener": "\"Not rocket science\" är ett vardagligt, informellt idiom.",
+      "choices": [
+        "It's not rocket science to see the correlation here.",
+        "The evidence strongly supports this conclusion.",
+        "This finding warrants further investigation.",
+        "The data indicate a clear trend."
+      ],
+      "answer": 0,
+      "explanation": "\"It's not rocket science\" är ett vardagligt idiom som inte passar i en formell akademisk uppsats, till skillnad från de andra, mer neutralt formulerade alternativen."
+    },
+    {
+      "id": "q-en7gy-idiom-11",
+      "kind": "mc",
+      "topic": "connotation vs denotation",
+      "prompt": "Which word has a more positive connotation than \"stubborn\", despite a similar denotation?",
+      "opener": "Denotationen (\"envis\") är densamma, men konnotationen skiljer sig kraftigt.",
+      "choices": [
+        "determined",
+        "pig-headed",
+        "obstinate",
+        "bull-headed"
+      ],
+      "answer": 0,
+      "explanation": "\"Determined\" har en positiv klang (målmedveten), medan \"pig-headed\", \"obstinate\" och \"bull-headed\" alla har mer negativa, kritiska konnotationer trots liknande denotation."
+    },
+    {
+      "id": "q-en7gy-idiom-12",
+      "kind": "mc",
+      "topic": "connotation vs denotation",
+      "prompt": "Which word choice conveys curiosity in a more negative light than \"inquisitive\", despite similar denotation?",
+      "opener": "Alla fyra ord betyder ungefär \"nyfiken\", men ett av dem klingar misstänksamt/negativt.",
+      "choices": [
+        "nosy",
+        "curious",
+        "interested",
+        "inquiring"
+      ],
+      "answer": 0,
+      "explanation": "\"Nosy\" har en negativ klang (påträngande, lägger sig i), medan \"curious\", \"interested\" och \"inquiring\" är mer neutrala eller positiva uttryck för samma grundbetydelse."
+    },
+    {
+      "id": "q-en7gy-idiom-13",
+      "kind": "mc",
+      "topic": "phrasal verbs with multiple meanings",
+      "prompt": "In \"The company had to let go of 50 employees,\" what does \"let go of\" mean here, and how does this differ from \"I finally let go of my anger\"?",
+      "opener": "\"Let go of\" har olika betydelser beroende på om objektet är en person eller en känsla.",
+      "choices": [
+        "Here it means 'to lay off/dismiss'; in the second sentence it means 'to emotionally release/stop holding onto'",
+        "Both sentences mean exactly the same thing: to physically release an object",
+        "Both mean 'to promote someone'",
+        "The phrase only ever means to release a physical object"
+      ],
+      "answer": 0,
+      "explanation": "I den första meningen betyder \"let go of\" att säga upp/avskeda, medan det i den andra meningen betyder att känslomässigt släppa taget om något (ilskan). Samma fras, helt olika betydelse beroende på sammanhang."
+    },
+    {
+      "id": "q-en7gy-idiom-14",
+      "kind": "mc",
+      "topic": "phrasal verbs with multiple meanings",
+      "prompt": "Compare: (a) 'The rumor was made up.' (b) 'She made up with her sister after the argument.' What do these uses of 'make up' have in common?",
+      "opener": "Jämför betydelsen av \"make up\" i de två meningarna — vad har de gemensamt strukturellt?",
+      "choices": [
+        "The same phrasal verb takes on entirely different meanings ('invented' vs. 'reconciled') depending on context",
+        "Both mean 'to apply cosmetics'",
+        "Both mean 'to create something physically'",
+        "Both are used only in negative contexts"
+      ],
+      "answer": 0,
+      "explanation": "Samma phrasal verb (\"make up\") får helt olika betydelser beroende på sammanhanget: \"hittades på\" (påhittad) respektive \"blev sams\" (försonades) — ett typiskt drag hos phrasal verbs."
+    },
+    {
+      "id": "q-en7gy-idiom-15",
+      "kind": "mc",
+      "topic": "advanced false friends",
+      "prompt": "Correct the false-friend error: \"The politician's speech was very actual and addressed current problems directly.\"",
+      "opener": "\"Actual\" är ett klassiskt false friend — det betyder inte \"aktuell\" på engelska.",
+      "choices": [
+        "The politician's speech was very relevant/topical and addressed current problems directly.",
+        "The politician's speech was very actual, addressing hypothetical problems.",
+        "The politician's speech was very eventual and addressed current problems directly.",
+        "No correction needed; the sentence is correct as written."
+      ],
+      "answer": 0,
+      "explanation": "På engelska betyder \"actual\" verklig/faktisk, inte \"aktuell\" i betydelsen relevant/nutida. Rätt ord här är \"relevant\" eller \"topical\", vilket ger \"very relevant/topical and addressed current problems directly\"."
     }
   ]
 }

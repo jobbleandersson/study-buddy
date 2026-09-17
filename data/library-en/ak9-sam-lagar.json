@@ -124,6 +124,110 @@
       "prompt": "Summarise the basics of the justice system: human rights, the course of a trial, criminal/civil cases and the Convention on the Rights of the Child.",
       "opener": "From international rights to how a judgment is actually reached in Sweden.",
       "answer": "Human rights: universal and inalienable rights that apply to all people, founded in the UN's Universal Declaration from 1948 · Criminal case: the prosecutor charges a suspected person on behalf of the state for a crime · Civil case: two private parties (individuals/companies) dispute, for example, a contract or a debt, no prosecutor involved · Course of a trial: police/prosecutor investigate → the prosecutor brings charges (in criminal cases) → hearing in the District Court with prosecutor, defence lawyer, possible plaintiff and witnesses → the court (judge and sometimes lay judges) delivers judgment → the judgment can be appealed to the Court of Appeal and in some cases the Supreme Court · Convention on the Rights of the Child: the UN's convention on children's rights (1989), Swedish law since 2020, built among other things on the best interests of the child and the child's right to be heard."
+    },
+    {
+      "id": "q-sam-lag-9",
+      "kind": "mc",
+      "topic": "human rights, the basic idea",
+      "prompt": "What type of right is the right to education an example of, along with the right to healthcare?",
+      "opener": "These rights are about what society should provide access to, not just freedom from interference.",
+      "choices": [
+        "Economic and social rights",
+        "Political rights only",
+        "Civil rights only",
+        "Rights that only apply to adults"
+      ],
+      "answer": 0,
+      "explanation": "The right to education and healthcare are classed as economic and social rights - rights concerning access to resources and services necessary for a dignified life."
+    },
+    {
+      "id": "q-sam-lag-10",
+      "kind": "mc",
+      "topic": "how a trial proceeds in Sweden",
+      "prompt": "What is the principle called that a suspected person should be considered innocent until proven otherwise in court?",
+      "opener": "A fundamental rule-of-law principle in a state governed by law.",
+      "choices": [
+        "The presumption of innocence",
+        "The duty to prosecute",
+        "Source protection",
+        "Freedom to provide information to the press"
+      ],
+      "answer": 0,
+      "explanation": "The presumption of innocence means the suspect should be considered innocent until guilt is proven in court - it's the prosecutor who must prove guilt, not the suspect who must prove innocence."
+    },
+    {
+      "id": "q-sam-lag-11",
+      "kind": "mc",
+      "topic": "difference between criminal cases and civil cases",
+      "prompt": "Two neighbours are disputing where their property boundary actually runs. What type of case is this?",
+      "opener": "Is it the state pursuing the matter, or two private parties?",
+      "choices": [
+        "A civil case",
+        "A criminal case",
+        "An administrative case with no party",
+        "No court can rule on this"
+      ],
+      "answer": 0,
+      "explanation": "A dispute between two private parties (the neighbours) over something like a boundary line is a civil case - no prosecutor is involved since it doesn't concern a suspected crime."
+    },
+    {
+      "id": "q-sam-lag-12",
+      "kind": "mc",
+      "topic": "children's rights",
+      "prompt": "In which year did the Convention on the Rights of the Child become Swedish law?",
+      "opener": "This happened many years after the UN adopted the convention in 1989.",
+      "choices": [
+        "2020",
+        "1989",
+        "1948",
+        "2000"
+      ],
+      "answer": 0,
+      "explanation": "The Convention on the Rights of the Child was adopted by the UN in 1989, but didn't become Swedish law until 1 January 2020 - before that, Sweden was bound by the convention under international law but it didn't have status as Swedish law."
+    },
+    {
+      "id": "q-sam-lag-13",
+      "kind": "mc",
+      "topic": "how a trial proceeds in Sweden",
+      "prompt": "What is the role of lay judges in a Swedish district court?",
+      "opener": "They have no law degree, but still sit and rule.",
+      "choices": [
+        "Laypeople with no legal training who rule together with a qualified judge in certain cases",
+        "Lawyers who always represent the defendant",
+        "Police officers who investigate the crime",
+        "Prosecutors who bring charges"
+      ],
+      "answer": 0,
+      "explanation": "Lay judges are laypeople, elected by political parties, who without legal training rule together with a qualified judge in certain criminal and civil cases - a way of letting the public take part in the administration of justice."
+    },
+    {
+      "id": "q-sam-lag-14",
+      "kind": "worked",
+      "topic": "children's rights",
+      "prompt": "In a custody dispute between parents, the court must, according to the Convention on the Rights of the Child, give special weight to a particular principle. Explain which principle this is and how it affects the court's decision.",
+      "opener": "Think about whose interest should weigh heaviest - the parents' or the child's.",
+      "answer": "The principle is the best interests of the child (Article 3), meaning the court must primarily base its decision on what's best for the child, rather than what's easiest or fairest for the parents. The child also has the right to express their opinion based on their age and maturity (Article 12).",
+      "steps": [
+        "Article 3 of the Convention on the Rights of the Child states that the best interests of the child must be a primary consideration in all decisions concerning children, including custody disputes.",
+        "This means the court doesn't automatically split custody \"fairly\" between the parents, but investigates what actually benefits the child's well-being, security and development.",
+        "Under Article 12, the child also has the right to express their opinion on the matter, and that opinion must be weighed according to the child's age and maturity.",
+        "The court weighs this information together to reach a decision where the child's best interests, not the parents' wishes in themselves, are decisive."
+      ]
+    },
+    {
+      "id": "q-sam-lag-15",
+      "kind": "mc",
+      "topic": "human rights, the basic idea",
+      "prompt": "What does it mean that human rights are \"indivisible\"?",
+      "opener": "Can you drop one right in order to focus only on another?",
+      "choices": [
+        "All rights are equally important and interconnected - you can't drop certain rights to focus on others",
+        "The rights only apply in certain countries",
+        "The rights can be sold or transferred to others",
+        "Only one right applies to each person at a time"
+      ],
+      "answer": 0,
+      "explanation": "Indivisibility means all human rights - civil, political, economic, social and cultural - are equally important and interdependent. You can't deprioritise, say, the right to education to focus solely on freedom of expression."
     }
   ]
 }

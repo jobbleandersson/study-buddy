@@ -124,6 +124,111 @@
       "prompt": "Sammanfatta centrala begrepp inom ekologi och hållbar utveckling: ekosystemtjänster, biologisk mångfald, kretslopp och hållbarhetens tre delar.",
       "opener": "Gå igenom vad naturen ger oss, varför variation spelar roll och vad som håller ämnena i omlopp.",
       "answer": "Ekosystemtjänster: nyttor människan får av naturen — försörjande (mat, virke), reglerande (pollinering, vattenrening), stödjande (fotosyntes, jordbildning) och kulturella (rekreation, naturupplevelser) · Biologisk mångfald: variation på gen-, art- och ekosystemnivå, ökar naturens motståndskraft mot störningar · Kolets kretslopp: cirkulerar snabbt via atmosfären genom fotosyntes, andning och förbränning · Kvävets kretslopp: kvävefixerande bakterier omvandlar kvävgas till en form växter kan använda · Fosforns kretslopp: långsamt, saknar gasfas, binds i berggrund och sediment — överskott av fosfor och kväve orsakar övergödning · Hållbar utveckling: tillgodoser dagens behov utan att äventyra framtida generationers, vilar på ekologisk, social och ekonomisk hållbarhet tillsammans."
+    },
+    {
+      "id": "q-nk1b-ekologi-9",
+      "kind": "mc",
+      "topic": "ekosystemtjänster",
+      "prompt": "Vilken typ av ekosystemtjänst är fotosyntesen, som ligger till grund för nästan alla andra ekosystemtjänster?",
+      "opener": "Tänk på vilken process som ligger till grund för nästan all biologisk produktion på jorden.",
+      "choices": [
+        "En stödjande ekosystemtjänst",
+        "En kulturell ekosystemtjänst",
+        "En försörjande ekosystemtjänst",
+        "Ingen av dessa, fotosyntesen räknas inte som en ekosystemtjänst"
+      ],
+      "answer": 0,
+      "explanation": "Fotosyntesen räknas som en stödjande ekosystemtjänst eftersom den är en grundläggande process som möjliggör nästan alla andra ekosystemtjänster, till skillnad från försörjande tjänster som är de konkreta produkterna själva."
+    },
+    {
+      "id": "q-nk1b-ekologi-10",
+      "kind": "mc",
+      "topic": "ekosystemtjänster",
+      "prompt": "Vad är ett exempel på en kulturell ekosystemtjänst?",
+      "opener": "Tänk på nyttor som inte är fysiska produkter eller reglerande processer, utan handlar om upplevelser.",
+      "choices": [
+        "Rekreation och naturupplevelser i en skog eller ett naturreservat",
+        "Att en skog binder koldioxid",
+        "Att bin pollinerar fruktträd",
+        "Att våtmarker renar vatten"
+      ],
+      "answer": 0,
+      "explanation": "Kulturella ekosystemtjänster handlar om icke-materiella nyttor som rekreation, naturupplevelser och estetiska eller andliga värden. Koldioxidbindning och pollinering är istället exempel på reglerande tjänster, och vattenrening är en annan reglerande tjänst."
+    },
+    {
+      "id": "q-nk1b-ekologi-11",
+      "kind": "mc",
+      "topic": "biologisk mångfald",
+      "prompt": "Vad innebär en \"endemisk\" art?",
+      "opener": "Ordet kommer från grekiskans \"endemos\", hemmahörande.",
+      "choices": [
+        "En art som naturligt bara förekommer inom ett visst avgränsat geografiskt område och ingen annanstans",
+        "En art som är utrotad",
+        "En art som förekommer över hela jorden",
+        "En art som människan introducerat i ett nytt område"
+      ],
+      "answer": 0,
+      "explanation": "En endemisk art förekommer naturligt bara inom ett visst avgränsat område, t.ex. en ö eller ett bergsmassiv, och ingen annanstans i världen. Sådana arter är ofta extra sårbara för störningar eftersom de saknar spridning till andra områden."
+    },
+    {
+      "id": "q-nk1b-ekologi-12",
+      "kind": "mc",
+      "topic": "biologisk mångfald",
+      "prompt": "Varför räknas introducerade, invasiva arter ofta som ett hot mot biologisk mångfald?",
+      "opener": "Tänk på vad som händer med lokala arter som inte är anpassade att konkurrera med eller försvara sig mot en ny art.",
+      "choices": [
+        "De kan konkurrera ut lokala arter som inte är anpassade till att hantera dem, vilket minskar den lokala artrikedomen",
+        "Invasiva arter ökar alltid den biologiska mångfalden utan undantag",
+        "Invasiva arter förekommer aldrig i naturliga ekosystem",
+        "Invasiva arter är alltid mindre anpassningsbara än lokala arter"
+      ],
+      "answer": 0,
+      "explanation": "Invasiva arter saknar ofta naturliga fiender i sin nya miljö och kan konkurrera ut lokala arter om föda, utrymme eller andra resurser, vilket minskar den lokala biologiska mångfalden."
+    },
+    {
+      "id": "q-nk1b-ekologi-13",
+      "kind": "mc",
+      "topic": "kretslopp fördjupning",
+      "prompt": "Vilka är de huvudsakliga processerna som för in koldioxid i, respektive tar bort koldioxid från, atmosfären i kolets kretslopp?",
+      "opener": "Tänk på vilka processer som frigör koldioxid, och vilken process som binder in den igen.",
+      "choices": [
+        "Andning och förbränning tillför koldioxid, medan fotosyntes tar upp koldioxid",
+        "Fotosyntes tillför koldioxid, medan andning tar bort den",
+        "Enbart mänsklig aktivitet påverkar kolets kretslopp",
+        "Kolets kretslopp innehåller ingen gasfas alls"
+      ],
+      "answer": 0,
+      "explanation": "Andning (hos djur, växter och nedbrytare) och förbränning frigör koldioxid till atmosfären, medan fotosyntesen hos gröna växter och alger tar upp koldioxid och binder in kolet i organiskt material — en ständigt pågående balans i kolets kretslopp."
+    },
+    {
+      "id": "q-nk1b-ekologi-14",
+      "kind": "mc",
+      "topic": "kretslopp fördjupning",
+      "prompt": "Vad händer med kväve genom denitrifikation, den process som avslutar kvävets kretslopp i marken?",
+      "opener": "Denitrifikation är på sätt och vis motsatsen till kvävefixering.",
+      "choices": [
+        "Bakterier omvandlar nitrat tillbaka till kvävgas, som återgår till atmosfären",
+        "Växter tar upp kvävgas direkt ur luften",
+        "Kväve omvandlas till fosfor",
+        "Denitrifikation ökar mängden kväve tillgängligt för växter"
+      ],
+      "answer": 0,
+      "explanation": "Denitrifierande bakterier omvandlar nitrat i marken tillbaka till kvävgas, som återgår till atmosfären och sluter kvävets kretslopp. Detta står i kontrast till kvävefixering, som för in kvävgas i kretsloppet från början."
+    },
+    {
+      "id": "q-nk1b-ekologi-15",
+      "kind": "mc",
+      "topic": "hållbar utveckling",
+      "prompt": "Vilka är de tre delarna som hållbar utveckling brukar sägas vila på, och hur förhåller de sig till varandra?",
+      "opener": "Tänk på om de tre delarna kan behandlas helt separat från varandra.",
+      "choices": [
+        "Ekologisk, social och ekonomisk hållbarhet, som ofta beskrivs som ömsesidigt beroende av varandra snarare än fristående",
+        "Enbart ekonomisk tillväxt, miljöskydd är inte en del av begreppet",
+        "Enbart miljömässig hållbarhet, utan koppling till sociala eller ekonomiska frågor",
+        "Nationell, regional och global hållbarhet"
+      ],
+      "answer": 0,
+      "explanation": "Hållbar utveckling vilar på ekologisk, social och ekonomisk hållbarhet, som ofta beskrivs som ömsesidigt beroende: till exempel kräver långsiktig ekonomisk utveckling en fungerande miljö, och social stabilitet påverkar i sin tur både ekonomi och miljöarbete."
     }
   ]
 }

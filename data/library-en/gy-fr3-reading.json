@@ -122,6 +122,111 @@
       "prompt": "What reading strategies help you understand a longer French text on a society or culture topic?",
       "opener": "Finding facts, inferring implied information, and guessing words from context.",
       "answer": "Read the text once for the overall picture before focusing on details. Look for numbers and names (300 millions, 2050, Québec, Belgique) — they often carry concrete answers. Pay attention to contrasting words like \"pourtant\", \"au contraire\" and \"en revanche\" — they signal that an opposing opinion or counterargument follows. Use context to guess new words (for example, \"locuteurs\" = speakers, linked to \"parlée\" in the text). For inference questions: ask yourself why the writer chose to include certain information, not just what is literally stated."
+    },
+    {
+      "id": "q-fr3-reading-9",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Read the text: \"En 2010, le repas gastronomique des Français a été inscrit par l'UNESCO sur la liste du patrimoine culturel immatériel de l'humanité. Il ne s'agit pas d'un plat précis, mais d'une pratique sociale : un repas festif qui réunit famille et amis autour d'une table, avec plusieurs plats servis dans un ordre précis — entrée, plat principal, fromage, dessert — et accompagnés de vins soigneusement choisis. Selon l'UNESCO, ce qui rend cette tradition unique n'est pas seulement la qualité des ingrédients, mais aussi le temps que l'on prend pour manger et discuter ensemble, loin de toute précipitation. Certains sociologues estiment que cette inscription a eu un effet inattendu : elle aurait renforcé, chez de nombreux Français, la conscience de posséder un patrimoine culinaire à préserver, à une époque où la restauration rapide gagne du terrain, même en France. D'autres restent plus sceptiques et se demandent si un simple label peut réellement freiner l'évolution des habitudes alimentaires, en particulier chez les jeunes générations, pour qui le temps consacré aux repas a tendance à diminuer.\"\n\nWhat was inscribed by UNESCO in 2010, according to the text?",
+      "opener": "Read the second sentence, which clarifies what it's about.",
+      "choices": [
+        "The French gastronomic meal as a social practice",
+        "A specific French dish",
+        "A specific French wine",
+        "A French restaurant chain"
+      ],
+      "answer": 0,
+      "explanation": "The text says \"il ne s'agit pas d'un plat précis, mais d'une pratique sociale\" (it isn't about a specific dish, but a social practice)."
+    },
+    {
+      "id": "q-fr3-reading-10",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. In what order are the courses served, according to the text?",
+      "opener": "Look for the list in the middle of the first paragraph.",
+      "choices": [
+        "Starter, main course, cheese, dessert",
+        "Dessert, main course, starter, cheese",
+        "Only main course and dessert",
+        "Cheese, starter, main course, dessert"
+      ],
+      "answer": 0,
+      "explanation": "The text lists the order: \"entrée, plat principal, fromage, dessert\" (starter, main course, cheese, dessert)."
+    },
+    {
+      "id": "q-fr3-reading-11",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Same text. What does \"loin de toute précipitation\" mean?",
+      "opener": "\"Précipitation\" is related to \"se précipiter\" (to rush).",
+      "choices": [
+        "Without any rushing",
+        "In a great hurry",
+        "Without any food",
+        "With a lot of talking"
+      ],
+      "answer": 0,
+      "explanation": "\"Loin de toute précipitation\" means \"far from any rushing\", i.e. \"without any rushing\"."
+    },
+    {
+      "id": "q-fr3-reading-12",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Same text. What can you infer about why the UNESCO inscription is considered unique, according to the text?",
+      "opener": "Look for the sentence starting with \"Selon l'UNESCO, ce qui rend cette tradition unique...\".",
+      "choices": [
+        "It's not just about the quality of the ingredients but also the time people take to eat and talk together",
+        "It's only about the wines that are served",
+        "It's about how expensive the meal is",
+        "It's about which city the meal is eaten in"
+      ],
+      "answer": 0,
+      "explanation": "The text says what's unique isn't just the ingredients' quality, but also \"le temps que l'on prend pour manger et discuter ensemble\" (the time taken to eat and talk together)."
+    },
+    {
+      "id": "q-fr3-reading-13",
+      "kind": "mc",
+      "topic": "inference",
+      "prompt": "Same text. What do some sociologists say was an unexpected effect of the inscription?",
+      "opener": "Look for the sentence about \"un effet inattendu\".",
+      "choices": [
+        "It strengthened many French people's awareness of having a culinary heritage worth preserving",
+        "It caused fast-food chains to close in France",
+        "It made French wine cheaper",
+        "It reduced tourism in France"
+      ],
+      "answer": 0,
+      "explanation": "The text says the inscription \"aurait renforcé, chez de nombreux Français, la conscience de posséder un patrimoine culinaire à préserver\" (strengthened the awareness of having a culinary heritage worth preserving)."
+    },
+    {
+      "id": "q-fr3-reading-14",
+      "kind": "mc",
+      "topic": "reading comprehension",
+      "prompt": "Same text. What do the skeptical sociologists doubt, according to the text?",
+      "opener": "Look for the sentence starting with \"D'autres restent plus sceptiques\".",
+      "choices": [
+        "Whether a simple label can really slow down the change in eating habits",
+        "Whether the meal really tastes good",
+        "Whether France has any food culture at all",
+        "Whether UNESCO exists"
+      ],
+      "answer": 0,
+      "explanation": "The text says the skeptics wonder \"si un simple label peut réellement freiner l'évolution des habitudes alimentaires\" (whether a simple label can really slow down the change in eating habits)."
+    },
+    {
+      "id": "q-fr3-reading-15",
+      "kind": "mc",
+      "topic": "vocabulary in context",
+      "prompt": "Same text. What does \"la restauration rapide\" mean?",
+      "opener": "The word \"rapide\" means \"fast\".",
+      "choices": [
+        "Fast food",
+        "Restaurant renovation",
+        "Slow cooking",
+        "Catering"
+      ],
+      "answer": 0,
+      "explanation": "\"La restauration rapide\" means \"fast food\"."
     }
   ]
 }

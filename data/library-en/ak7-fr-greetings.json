@@ -114,6 +114,111 @@
       "prompt": "Which greeting and politeness phrases should you know at grade 7 level in French?",
       "opener": "The most common phrases for greeting, thanking, and asking for help.",
       "answer": "Greetings: Bonjour = hello/good day · Bonsoir = good evening · Salut = hi (informal) · Au revoir = goodbye · Bonne nuit = good night. Wellbeing: Ça va?/Comment ça va? = how are you? · Ça va bien, merci = I'm doing well, thanks. Politeness: S'il te/vous plaît = please (to one/several) · Merci (beaucoup) = thank you (very much) · De rien = you're welcome · Pardon/Excusez-moi = excuse me. School: Je peux...? = may I...? · les toilettes = the bathroom · ouvrir/fermer le livre = open/close the book."
+    },
+    {
+      "id": "q-fr7-greet-9",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "What does \"Bonsoir\" mean?",
+      "opener": "A greeting used later in the day.",
+      "choices": [
+        "Good evening",
+        "Good morning",
+        "Good night",
+        "Goodbye"
+      ],
+      "answer": 0,
+      "explanation": "\"Bonsoir\" means \"good evening\" and is used from late afternoon/evening onward."
+    },
+    {
+      "id": "q-fr7-greet-10",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "What does \"Excusez-moi\" mean?",
+      "opener": "A word used to get someone's attention or to apologize.",
+      "choices": [
+        "Excuse me",
+        "Thank you very much",
+        "Good evening",
+        "You're welcome"
+      ],
+      "answer": 0,
+      "explanation": "\"Excusez-moi\" means \"excuse me\"."
+    },
+    {
+      "id": "q-fr7-greet-11",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "What does \"Je ne comprends pas\" mean?",
+      "opener": "An important phrase to know if you get stuck during a lesson.",
+      "choices": [
+        "I don't understand",
+        "I don't know",
+        "I can't",
+        "I can't hear"
+      ],
+      "answer": 0,
+      "explanation": "\"Je ne comprends pas\" means \"I don't understand\", from the verb comprendre (to understand)."
+    },
+    {
+      "id": "q-fr7-greet-12",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "Which of these farewell phrases is the most formal?",
+      "opener": "Compare it to how English distinguishes \"bye\" from \"goodbye\".",
+      "choices": [
+        "Au revoir",
+        "Salut",
+        "De rien",
+        "Bonjour"
+      ],
+      "answer": 0,
+      "explanation": "\"Au revoir\" is the more formal equivalent of \"goodbye\", while \"Salut\" is casual and used among friends."
+    },
+    {
+      "id": "q-fr7-greet-13",
+      "kind": "mc",
+      "topic": "classroom phrases",
+      "prompt": "What does \"Comment dit-on ça en français ?\" mean?",
+      "opener": "A question you often need when learning a new language.",
+      "choices": [
+        "How do you say that in French?",
+        "What's your name in French?",
+        "Can you repeat that?",
+        "Where are you from?"
+      ],
+      "answer": 0,
+      "explanation": "\"Comment dit-on ça en français ?\" means \"how do you say that in French?\"."
+    },
+    {
+      "id": "q-fr7-greet-14",
+      "kind": "mc",
+      "topic": "politeness",
+      "prompt": "What does \"Pas de problème\" mean?",
+      "opener": "A casual way to respond when someone thanks you or apologizes.",
+      "choices": [
+        "No problem",
+        "You're welcome",
+        "Forgive me",
+        "Take care"
+      ],
+      "answer": 0,
+      "explanation": "\"Pas de problème\" means \"no problem\", a casual way of saying \"don't mention it\" or \"it's fine\"."
+    },
+    {
+      "id": "q-fr7-greet-15",
+      "kind": "mc",
+      "topic": "greetings",
+      "prompt": "What does \"Bon appétit\" mean?",
+      "opener": "Something people say to each other right before eating.",
+      "choices": [
+        "Enjoy your meal",
+        "Good night",
+        "Cheers",
+        "Welcome"
+      ],
+      "answer": 0,
+      "explanation": "\"Bon appétit\" means \"enjoy your meal\" and is said before starting to eat."
     }
   ]
 }

@@ -125,6 +125,111 @@
       "prompt": "Summarise the safety rules, the equipment, and the steps in a lab report.",
       "opener": "Take safety first, then the equipment, and finally the parts of the report.",
       "answer": "Safety rules: read the instruction before you start · never eat, drink or taste anything in the lab · do not run, keep your workspace tidy · keep long hair tied back near an open flame · smell substances by wafting the air towards you from a distance · never pour chemicals back into the original bottle · report spills and accidents to the teacher immediately · wash your hands afterwards · know where the eyewash station, emergency shower, fire extinguisher and fire blanket are · Protective equipment: safety goggles, lab coat or apron, gloves when needed · Hazard pictograms (red frame, white background): flame = flammable · corrosive liquid on a hand = corrosive · skull = acutely toxic · exclamation mark = irritant or harmful to health · dead tree and dead fish = hazardous to the environment · exploding bomb = explosive · Lab equipment: beaker (mixing and pouring, rough volume) · measuring cylinder (measuring volume accurately) · test tube and test tube rack (small amounts, heating) · conical (Erlenmeyer) flask (mixing without spilling) · funnel and filter paper (filtration) · gas burner with tripod and wire gauze (heating) · crucible tongs, scale, thermometer, watch glass · Parts of a lab report: aim · hypothesis (testable prediction made before the trial) · materials and equipment · procedure (clear enough for someone else to repeat it) · results (measurements, table, diagram) · conclusion (was the hypothesis correct, and what sources of error were there?)."
+    },
+    {
+      "id": "q-kemi7-lab-9",
+      "kind": "mc",
+      "topic": "safety rules",
+      "prompt": "What should you do if you spill a chemical on the lab bench?",
+      "opener": "Think about who needs to know what happened and can judge whether it's dangerous.",
+      "choices": [
+        "Wipe it up yourself with paper and throw it in the regular bin",
+        "Report it to the teacher immediately",
+        "Ignore it if it's a small amount",
+        "Cover it with a book"
+      ],
+      "answer": 1,
+      "explanation": "Spills should always be reported to the teacher immediately, who can judge whether the substance is dangerous and how it should be dealt with properly. Wiping it up yourself and throwing it in the regular bin can be dangerous if the substance is corrosive or toxic."
+    },
+    {
+      "id": "q-kemi7-lab-10",
+      "kind": "mc",
+      "topic": "protective equipment",
+      "prompt": "Why should long hair be tied back during a lab session?",
+      "opener": "Think about what's near the bench when something is being heated.",
+      "choices": [
+        "Because it looks neater",
+        "Because it could catch fire near an open flame",
+        "Because it gets in the way of your vision",
+        "Because it's a school rule with no real reason"
+      ],
+      "answer": 1,
+      "explanation": "Loose hair can easily catch fire if you lean over an open flame, so it should always be tied back for safety reasons. It's not about appearance, but about avoiding a real fire risk."
+    },
+    {
+      "id": "q-kemi7-lab-11",
+      "kind": "mc",
+      "topic": "hazard pictograms",
+      "prompt": "A bottle has a hazard pictogram with a flame on it. What does it mean?",
+      "opener": "The symbol shows directly what kind of danger is present.",
+      "choices": [
+        "Corrosive",
+        "Hazardous to the environment",
+        "Flammable",
+        "Toxic"
+      ],
+      "answer": 2,
+      "explanation": "A flame on the hazard pictogram means flammable — the substance can easily catch fire. Corrosive is instead shown with a liquid corroding a hand and a surface, and toxic with a skull."
+    },
+    {
+      "id": "q-kemi7-lab-12",
+      "kind": "mc",
+      "topic": "lab equipment",
+      "prompt": "Which equipment is used to heat substances in a test tube?",
+      "opener": "The equipment produces an open flame.",
+      "choices": [
+        "A measuring cylinder",
+        "A gas burner",
+        "A petri dish",
+        "A watch glass"
+      ],
+      "answer": 1,
+      "explanation": "The gas burner produces an open flame used to heat test tubes and other containers. A measuring cylinder instead measures volume, and a petri dish and watch glass are used to hold solid samples, not for heating."
+    },
+    {
+      "id": "q-kemi7-lab-13",
+      "kind": "mc",
+      "topic": "experimental method",
+      "prompt": "What is the factor you deliberately change in an experiment to see how it affects the result called?",
+      "opener": "It's the only factor that should differ between the trials.",
+      "choices": [
+        "The dependent variable",
+        "The independent variable",
+        "The source of error",
+        "The hypothesis"
+      ],
+      "answer": 1,
+      "explanation": "The independent variable is what you deliberately change, for example the water's temperature. The dependent variable is instead what you measure as the result, such as the dissolving time."
+    },
+    {
+      "id": "q-kemi7-lab-14",
+      "kind": "worked",
+      "topic": "experimental method",
+      "prompt": "You want to investigate whether different amounts of salt affect how quickly ice melts. Describe how you plan, carry out and document the experiment so the result is reliable.",
+      "opener": "Think about what you change and what you must keep exactly the same in every trial.",
+      "answer": "Formulate a hypothesis, only change the amount of salt and keep everything else the same, measure the melting time in each trial with a stopwatch, write down the results in a table, and then compare them with the hypothesis in a conclusion.",
+      "steps": [
+        "Write a hypothesis before the trial, for example: \"The ice melts faster with more salt, since the salt lowers the ice's freezing point.\"",
+        "Decide the variables: what you CHANGE is the amount of salt (e.g. none, a teaspoon and a tablespoon). Everything else is kept the same — the same amount of ice, the same starting temperature, the same type of container.",
+        "Carry out the trial: put equally sized ice cubes in three bowls, add different amounts of salt, and start the stopwatch for all three at the same time.",
+        "Document: write down the amount of salt and the melting time for each bowl in a table. Repeat the trial a couple of times to see if the result is the same.",
+        "Draw a conclusion: compare the times with the hypothesis and state whether it was correct. Also mention what could have caused errors, for example that the ice cubes weren't exactly the same size."
+      ]
+    },
+    {
+      "id": "q-kemi7-lab-15",
+      "kind": "mc",
+      "topic": "hazard pictograms",
+      "prompt": "A bottle has a hazard pictogram with a skull on it. What does it mean?",
+      "opener": "The symbol warns of the most serious kind of danger to health.",
+      "choices": [
+        "Irritant",
+        "Acutely toxic",
+        "Explosive",
+        "Hazardous to the environment"
+      ],
+      "answer": 1,
+      "explanation": "The skull means acutely toxic — the substance can cause serious harm or death if inhaled, swallowed or on skin contact. Irritant is instead shown with an exclamation mark, and explosive with an exploding bomb."
     }
   ]
 }

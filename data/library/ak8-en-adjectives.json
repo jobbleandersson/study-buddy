@@ -123,6 +123,110 @@
       "prompt": "Hur kompareras adjektiv på engelska, och när används adverb i stället för adjektiv?",
       "opener": "Regelbundet · oregelbundet · adjektiv mot adverb.",
       "answer": "Korta adjektiv (1 stavelse, ofta även 2 på -y): -er/-est — old/older/oldest · easy/easier/easiest (y blir i) · big/bigger/biggest (dubbel konsonant) · Långa adjektiv (2–3+ stavelser): more/most — more careful/most careful · Oregelbundet: good/better/best · bad/worse/worst · much–many/more/most · little/less/least · far/further/furthest · Aldrig dubbel komparation: \"more better\" och \"most easiest\" är fel · Komparativ + than (taller than me) · lika grad: as + grundform + as (as tall as me) · Adjektiv beskriver substantiv (a quick car, her English is good) · Adverb beskriver verb och bildas oftast med -ly (drives quickly, speaks well) · Kom ihåg: good → adverbet well."
+    },
+    {
+      "id": "q-en8-adj-9",
+      "kind": "mc",
+      "topic": "komparation",
+      "prompt": "Choose the correct form: \"This backpack is ___ than mine.\"",
+      "opener": "Korta adjektiv (en stavelse) kompareras med -er, inte med \"more\".",
+      "choices": [
+        "more light",
+        "lighter",
+        "lightest",
+        "more lighter"
+      ],
+      "answer": 1,
+      "explanation": "\"Light\" har en stavelse och kompareras med -er: lighter. \"More light\" är fel eftersom \"more\" används till längre adjektiv, och \"more lighter\" är dubbel komparation."
+    },
+    {
+      "id": "q-en8-adj-10",
+      "kind": "mc",
+      "topic": "komparation",
+      "prompt": "Choose the correct form: \"That was the ___ decision the team has ever made.\"",
+      "opener": "Långa adjektiv (tre stavelser eller fler) tar most i superlativ.",
+      "choices": [
+        "importantest",
+        "most important",
+        "more important",
+        "most importantest"
+      ],
+      "answer": 1,
+      "explanation": "\"Important\" är långt och kompareras med more/most: the most important. \"More important\" är komparativ, men här krävs superlativ efter \"the\"."
+    },
+    {
+      "id": "q-en8-adj-11",
+      "kind": "mc",
+      "topic": "oregelbundna adjektiv",
+      "prompt": "Choose the correct form: \"This is by far the ___ meal I have ever cooked.\"",
+      "opener": "\"Good\" följer inte -er-mönstret utan har en helt egen form.",
+      "choices": [
+        "goodest",
+        "most good",
+        "better",
+        "best"
+      ],
+      "answer": 3,
+      "explanation": "\"Good\" kompareras oregelbundet: good – better – best. \"Best\" är superlativ och passar efter \"the\" tillsammans med \"by far\", som förstärker en superlativ."
+    },
+    {
+      "id": "q-en8-adj-12",
+      "kind": "mc",
+      "topic": "adjektiv och adverb",
+      "prompt": "Choose the correct word: \"She sang the song very ___.\"",
+      "opener": "Beskriver ordet substantivet \"song\" eller hur hon sjöng?",
+      "choices": [
+        "beautiful",
+        "beautifully",
+        "more beautiful",
+        "beautifulness"
+      ],
+      "answer": 1,
+      "explanation": "Ordet beskriver hur hon sjöng, alltså verbet — då används adverbet \"beautifully\". \"Beautiful\" är adjektiv och beskriver substantiv: \"a beautiful song\"."
+    },
+    {
+      "id": "q-en8-adj-13",
+      "kind": "mc",
+      "topic": "jämförelser",
+      "prompt": "Choose the correct form: \"This test was ___ the last one — I found both really difficult.\"",
+      "opener": "Vid lika stor grad används en fast konstruktion med två småord runt adjektivet.",
+      "choices": [
+        "as difficult as",
+        "as difficulter as",
+        "so difficult than",
+        "as difficult than"
+      ],
+      "answer": 0,
+      "explanation": "Lika grad uttrycks med as + adjektiv i grundform + as: \"as difficult as the last one\". \"Than\" används bara efter komparativ, till exempel \"more difficult than\"."
+    },
+    {
+      "id": "q-en8-adj-14",
+      "kind": "worked",
+      "topic": "komparation",
+      "prompt": "Correct the four errors: \"This is the baddest storm of the year. It is more worse than last week's storm, and the wind blows very strong today.\"",
+      "opener": "Leta efter fel superlativform, dubbel komparation och adjektiv som borde vara adverb.",
+      "answer": "This is the worst storm of the year. It is worse than last week's storm, and the wind blows very strongly today.",
+      "steps": [
+        "\"the baddest\" → \"the worst\". \"Bad\" kompareras oregelbundet: bad – worse – worst, aldrig med -est.",
+        "\"more worse\" → \"worse\". \"Worse\" är redan komparativ, och man kombinerar aldrig \"more\" med en oregelbunden komparativform.",
+        "\"blows very strong\" → \"blows very strongly\". Ordet beskriver hur vinden blåser, alltså behövs adverbet strongly.",
+        "Läs igenom meningen en gång till och kontrollera att superlativ bara används efter \"the\", inte tillsammans med \"than\"."
+      ]
+    },
+    {
+      "id": "q-en8-adj-15",
+      "kind": "mc",
+      "topic": "adjektiv och adverb",
+      "prompt": "Which sentence is correct?",
+      "opener": "Adverb bildas oftast av adjektivet + -ly och berättar hur något görs.",
+      "choices": [
+        "He closed the door quiet and careful.",
+        "He closed the door quietly and carefully.",
+        "He quiet closed the door carefully.",
+        "He closed quietly the door careful."
+      ],
+      "answer": 1,
+      "explanation": "Orden beskriver hur han stängde dörren, så adverbformerna quietly och carefully används. \"Quiet\" och \"careful\" är adjektiv och skulle beskriva ett substantiv, till exempel \"a quiet room\"."
     }
   ]
 }

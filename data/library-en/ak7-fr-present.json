@@ -114,6 +114,111 @@
       "prompt": "How are -er verbs conjugated in the present tense, and how are être and avoir conjugated?",
       "opener": "The most common verb group plus two of the most important irregular verbs.",
       "answer": "-er (parler): je parle, tu parles, il/elle parle, nous parlons, vous parlez, ils/elles parlent. Être (to be): je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. Avoir (to have): j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont. Personal pronouns: je (j' before a vowel), tu, il/elle, nous, vous, ils/elles."
+    },
+    {
+      "id": "q-fr7-pres-9",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Tu ___ au tennis.\" (jouer = to play)",
+      "opener": "The present tense for \"tu\" ends in -es.",
+      "choices": [
+        "joues",
+        "joue",
+        "jouons",
+        "jouent"
+      ],
+      "answer": 0,
+      "explanation": "\"Jouer\" conjugates as: je joue, tu joues, il/elle joue, nous jouons, vous jouez, ils/elles jouent. \"Tu\" takes the -es ending: \"joues\"."
+    },
+    {
+      "id": "q-fr7-pres-10",
+      "kind": "mc",
+      "topic": "être and avoir",
+      "prompt": "Choose the right form: \"Vous ___ beaucoup de chance.\" (avoir = to have)",
+      "opener": "The \"vous\" form of avoir ends in -ez.",
+      "choices": [
+        "avez",
+        "avons",
+        "as",
+        "ont"
+      ],
+      "answer": 0,
+      "explanation": "\"Avoir\" conjugates as: j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont. \"Vous\" gives \"avez\"."
+    },
+    {
+      "id": "q-fr7-pres-11",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"Elles ___ à Marseille.\" (habiter = to live)",
+      "opener": "The present tense for \"elles\" ends in -ent.",
+      "choices": [
+        "habitent",
+        "habite",
+        "habitons",
+        "habitez"
+      ],
+      "answer": 0,
+      "explanation": "\"Elles\" takes the -ent ending: \"habitent\" — pronounced the same as the singular forms but spelled differently."
+    },
+    {
+      "id": "q-fr7-pres-12",
+      "kind": "mc",
+      "topic": "être and avoir",
+      "prompt": "Choose the right form: \"Nous ___ fatigués.\" (être = to be; we are tired)",
+      "opener": "The \"nous\" form of être is irregular.",
+      "choices": [
+        "sommes",
+        "sont",
+        "êtes",
+        "suis"
+      ],
+      "answer": 0,
+      "explanation": "\"Être\" conjugates as: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. \"Nous\" gives \"sommes\"."
+    },
+    {
+      "id": "q-fr7-pres-13",
+      "kind": "mc",
+      "topic": "present tense",
+      "prompt": "Choose the right form: \"J'___ la musique.\" (écouter = to listen)",
+      "opener": "Just like \"habiter\", \"je\" shortens to \"j'\" before a vowel.",
+      "choices": [
+        "écoute",
+        "écoutes",
+        "écoutons",
+        "écoutent"
+      ],
+      "answer": 0,
+      "explanation": "\"Écouter\" conjugates as: j'écoute, tu écoutes, il/elle écoute, nous écoutons, vous écoutez, ils/elles écoutent. \"Je\" takes the -e ending: \"écoute\"."
+    },
+    {
+      "id": "q-fr7-pres-14",
+      "kind": "mc",
+      "topic": "personal pronouns",
+      "prompt": "Which pronoun means \"they\" (third person plural, masculine or mixed)?",
+      "opener": "\"Elles\" is used only for groups that are entirely feminine.",
+      "choices": [
+        "ils",
+        "elles",
+        "vous",
+        "nous"
+      ],
+      "answer": 0,
+      "explanation": "\"Ils\" means \"they\" for a group that is masculine or mixed. \"Elles\" is used only for groups that are entirely feminine."
+    },
+    {
+      "id": "q-fr7-pres-15",
+      "kind": "mc",
+      "topic": "être and avoir",
+      "prompt": "Choose the right form: \"Ils ___ nouveaux ici.\" (être = to be; they are new here)",
+      "opener": "The \"ils\" form of être is also irregular.",
+      "choices": [
+        "sont",
+        "sommes",
+        "êtes",
+        "est"
+      ],
+      "answer": 0,
+      "explanation": "\"Être\" conjugates as: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont. \"Ils\" gives \"sont\"."
     }
   ]
 }

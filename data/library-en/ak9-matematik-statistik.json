@@ -122,6 +122,108 @@
       "prompt": "Explain the difference between mean, median and mode.",
       "opener": "Three different ways of answering the question \"what is typical?\".",
       "answer": "Mean: the sum of all the values divided by how many there are. Median: the middle value once they've been sorted in order (the mean of the two middle values when there's an even number). Mode: the value that occurs most often. The median is the least affected by extreme values."
+    },
+    {
+      "id": "q-ma9-stat-9",
+      "kind": "mc",
+      "topic": "measures of central tendency",
+      "prompt": "What is the mode of the data set 2, 3, 3, 5, 7, 7, 7, 9?",
+      "opener": "The mode is the value that occurs most often — count how many times each number appears.",
+      "choices": [
+        "3",
+        "5",
+        "7",
+        "9"
+      ],
+      "answer": 2,
+      "explanation": "The number 7 occurs three times, more than any other number in the data set (3 occurs twice, 5 and 9 once each)."
+    },
+    {
+      "id": "q-ma9-stat-10",
+      "kind": "mc",
+      "topic": "measures of central tendency",
+      "prompt": "The mean of five test scores is 74. Four of the scores are 68, 70, 75 and 80. What is the fifth score?",
+      "opener": "Work out what the sum of all five must be, then subtract the four you know.",
+      "choices": [
+        "76",
+        "78",
+        "72",
+        "77"
+      ],
+      "answer": 3,
+      "explanation": "The sum of all five: $74 \\cdot 5 = 370$. The four known: $68 + 70 + 75 + 80 = 293$. The fifth: $370 - 293 = 77$."
+    },
+    {
+      "id": "q-ma9-stat-11",
+      "kind": "mc",
+      "topic": "probability",
+      "prompt": "You draw a card from a standard deck of 52 cards. What is the probability that it is a heart (13 cards out of four suits)?",
+      "opener": "How many of the 52 cards are hearts?",
+      "choices": [
+        "13 %",
+        "50 %",
+        "4 %",
+        "25 %"
+      ],
+      "answer": 3,
+      "explanation": "$\\frac{13}{52} = \\frac{1}{4} = 25\\ \\%$."
+    },
+    {
+      "id": "q-ma9-stat-12",
+      "kind": "mc",
+      "topic": "probability",
+      "prompt": "The probability that it rains tomorrow is 35 %. What is the probability that it does NOT rain?",
+      "opener": "The two outcomes (rain or no rain) must together add up to 100 %.",
+      "choices": [
+        "35 %",
+        "135 %",
+        "70 %",
+        "65 %"
+      ],
+      "answer": 3,
+      "explanation": "$100\\ \\% - 35\\ \\% = 65\\ \\%$."
+    },
+    {
+      "id": "q-ma9-stat-13",
+      "kind": "mc",
+      "topic": "combinatorics",
+      "prompt": "A menu has 4 starters, 5 main courses and 3 desserts. How many different three-course meals (one of each) can you put together?",
+      "opener": "Multiply the number of choices at each step.",
+      "choices": [
+        "12",
+        "15",
+        "20",
+        "60"
+      ],
+      "answer": 3,
+      "explanation": "$4 \\cdot 5 \\cdot 3 = 60$. All three steps must be multiplied together, not just two of them."
+    },
+    {
+      "id": "q-ma9-stat-14",
+      "kind": "worked",
+      "topic": "probability",
+      "prompt": "In a class of 30 students, 18 have siblings. If you randomly pick a student, what is the probability that the student does NOT have siblings? Show your reasoning.",
+      "opener": "First work out how many students have no siblings.",
+      "answer": "40 %",
+      "steps": [
+        "Students without siblings: $30 - 18 = 12$.",
+        "The probability: $\\frac{12}{30} = \\frac{2}{5} = 0{,}4 = 40\\ \\%$."
+      ]
+    },
+    {
+      "id": "q-ma9-stat-15",
+      "kind": "mc",
+      "topic": "measures of central tendency",
+      "prompt": "A group has the monthly salaries (in thousands of kr) 25, 27, 28, 26 and 95. Which statement is true?",
+      "opener": "Work out both the mean and the median, and compare how the extreme value 95 affects them.",
+      "choices": [
+        "The mean is a better picture of a typical salary because it takes all the values into account.",
+        "The median (27) gives a better picture of a typical salary than the mean (40,2), because 95 pulls the mean up.",
+        "The mean and the median are the same size in this group.",
+        "The mode is the most representative measure here."
+      ],
+      "answer": 1,
+      "explanation": "The mean is $(25+27+28+26+95)/5 = 40{,}2$, but the median (the middle value in 25, 26, 27, 28, 95) is only 27. The extreme value 95 pulls up the mean but does not affect the median as much. There is no mode here since no number repeats."
     }
   ]
 }
