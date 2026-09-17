@@ -32,20 +32,18 @@ export function mountSiteChat() {
   const inputEl = el("input.sitechat__input", {
     type: "text", placeholder: t("sitechat.ask"), "aria-label": t("sitechat.askAria"),
   });
-  const formEl = el("form.sitechat__form", { onsubmit: (e) => { e.preventDefault(); submit(); } }, [
-    inputEl,
-    el("button.iconbtn", { type: "submit", "aria-label": t("sitechat.send"), style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]),
-  ]);
+  const sendBtn = el("button.iconbtn", { type: "submit", "aria-label": t("sitechat.send"), style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]);
+  const formEl = el("form.sitechat__form", { onsubmit: (e) => { e.preventDefault(); submit(); } }, [inputEl, sendBtn]);
 
   const mascotEl = mascot("idle", 32);
+  const titleEl = el("div.sitechat__title", {}, t("sitechat.title"));
+  const subEl = el("div.sitechat__sub", {}, t("sitechat.sub"));
+  const closeBtn = el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.close"), onclick: close }, [icon(ICONS.close, 16)]);
   const panel = el("div.sitechat__panel", { role: "dialog", "aria-modal": "false", "aria-label": t("sitechat.title"), hidden: true }, [
     el("div.sitechat__head", {}, [
       mascotEl,
-      el("div", { style: { flex: "1", minWidth: "0" } }, [
-        el("div.sitechat__title", {}, t("sitechat.title")),
-        el("div.sitechat__sub", {}, t("sitechat.sub")),
-      ]),
-      el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.close"), onclick: close }, [icon(ICONS.close, 16)]),
+      el("div", { style: { flex: "1", minWidth: "0" } }, [titleEl, subEl]),
+      closeBtn,
     ]),
     logEl,
     formEl,
@@ -54,6 +52,22 @@ export function mountSiteChat() {
   fab.addEventListener("click", () => (opened ? close() : open()));
 
   document.body.append(fab, panel);
+
+  // This widget lives outside the router (see the file header), so main.js's
+  // sb:langchange re-render never reaches it — without this it'd stay stuck
+  // in whatever language it was mounted in, even after a language switch.
+  window.addEventListener("sb:langchange", () => {
+    fab.setAttribute("aria-label", t("sitechat.fabLabel"));
+    panel.setAttribute("aria-label", t("sitechat.title"));
+    titleEl.textContent = t("sitechat.title");
+    subEl.textContent = t("sitechat.sub");
+    closeBtn.setAttribute("aria-label", t("common.close"));
+    inputEl.placeholder = t("sitechat.ask");
+    inputEl.setAttribute("aria-label", t("sitechat.askAria"));
+    sendBtn.setAttribute("aria-label", t("sitechat.send"));
+    logEl.setAttribute("aria-label", t("sitechat.convAria"));
+    if (!messages.length) store.hasKey() ? paintIntro() : paintDormant();
+  });
 
   function paintDormant() {
     clear(logEl);
