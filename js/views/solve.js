@@ -1,10 +1,10 @@
-// Instant photo-solve: snap a photo of ONE problem, then keep talking about
-// it — a real back-and-forth with the tutor, not one static answer. The
-// photo seeds the conversation (as an image content block, kept in the
-// message history so follow-ups can still refer to it); everything after
-// that reuses the exact same streaming call the practice-session tutor uses.
-// Needs the tutor server (store.hasKey()); until then the button is disabled
-// and the reason is spelled out, exactly like Create.
+// Instant problem help, as a chat from the moment the page loads — no
+// upload-then-chat gate. Attach a photo (button or paste), paste or type
+// plain text, or both, and send; the tutor answers, then it's a normal
+// back-and-forth about that same problem, reusing the exact streaming call
+// the practice-session tutor already runs on. Needs the tutor server
+// (store.hasKey()); until then the composer is disabled and the reason is
+// spelled out, exactly like Create.
 
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
@@ -18,73 +18,106 @@ import { homeButton } from "../components/nav.js";
 
 export function renderSolve() {
   const root = el("div.solve");
+  const canChat = store.hasKey();
   const state = {
-    step: "idle",   // idle | chat
-    image: null,    // { mediaType, data, preview }
-    note: "",
-    messages: [],   // Anthropic-format history for this photo's thread
+    messages: [],       // Anthropic-format history for this conversation
+    pendingImage: null, // { mediaType, data, preview } attached, not yet sent
     busy: false,
-    error: "",
   };
 
-  // Built once on entering the chat step, then mutated directly for
-  // streaming — a full re-render per token would be wasteful and janky.
-  let chat = null; // { logEl, inputEl, formEl }
+  // Built once; mutated directly from here on (streaming and attach
+  // previews need to update in place without losing focus or typed text).
+  let refs = null;
 
-  function paint() {
-    clear(root);
-    root.appendChild(homeButton({ grid: true }));
-    root.appendChild(el("h1", { style: { marginTop: "8px" } }, t("solve.title")));
-    root.appendChild(state.step === "chat" ? chatPanel() : idlePanel());
+  function appendWelcome() {
+    const node = el("div.msg.ai.solve-chat__welcome", {});
+    node.innerHTML = markdown(t("solve.intro"));
+    refs.logEl.appendChild(node);
   }
 
-  function reset() {
-    state.step = "idle"; state.image = null; state.note = ""; state.messages = []; state.error = "";
-    chat = null;
-    paint();
+  function appendUserBubble(text, imgSrc) {
+    const node = el("div.msg.me", {});
+    if (imgSrc) node.appendChild(el("img.msg__img", { src: imgSrc, alt: "" }));
+    if (text) node.appendChild(el("span", { html: escapeHtml(text) }));
+    refs.logEl.appendChild(node);
+    refs.logEl.scrollTop = refs.logEl.scrollHeight;
   }
 
-  async function startChat() {
-    state.messages = [{
-      role: "user",
-      content: [
-        { type: "image", source: { type: "base64", media_type: state.image.mediaType, data: state.image.data } },
-        { type: "text", text: state.note.trim() ? `Extra context from the student: ${state.note.trim()}` : t("solve.chatSeedText") },
-      ],
-    }];
-    state.step = "chat";
-    paint();
-    await streamReply();
-  }
-
-  function appendBubble(who, text) {
-    const node = el(`div.msg.${who}`, {});
-    node.innerHTML = who === "me" ? escapeHtml(text) : markdown(text);
-    chat.logEl.appendChild(node);
-    chat.logEl.scrollTop = chat.logEl.scrollHeight;
+  function appendAiBubble() {
+    const node = el("div.msg.ai", {});
+    refs.logEl.appendChild(node);
+    refs.logEl.scrollTop = refs.logEl.scrollHeight;
     return node;
   }
 
-  async function submitFollowUp() {
-    const text = chat.inputEl.value.trim();
-    if (!text || state.busy) return;
-    chat.inputEl.value = "";
-    state.messages.push({ role: "user", content: text });
-    appendBubble("me", text);
+  async function attachImage(file) {
+    try {
+      state.pendingImage = await readImageFile(file);
+    } catch (err) {
+      toast(err.message || t("err.readFile"));
+      return;
+    }
+    renderPending();
+  }
+
+  function renderPending() {
+    clear(refs.pendingEl);
+    refs.pendingEl.hidden = !state.pendingImage;
+    if (!state.pendingImage) return;
+    refs.pendingEl.appendChild(el("img", { src: state.pendingImage.preview, alt: "" }));
+    refs.pendingEl.appendChild(el("button.iconbtn.iconbtn--sm", {
+      type: "button", "aria-label": t("solve.removeImage"),
+      onclick: () => { state.pendingImage = null; renderPending(); },
+    }, [icon(ICONS.close, 14)]));
+  }
+
+  function resetChat() {
+    state.messages = [];
+    state.pendingImage = null;
+    clear(refs.logEl);
+    appendWelcome();
+    renderPending();
+    refs.inputEl.value = "";
+    refs.resetBtn.hidden = true;
+    refs.inputEl.focus();
+  }
+
+  async function send() {
+    if (state.busy) return;
+    const text = refs.inputEl.value.trim();
+    if (!text && !state.pendingImage) return;
+
+    const img = state.pendingImage;
+    state.messages.push({
+      role: "user",
+      content: img
+        ? [
+            { type: "image", source: { type: "base64", media_type: img.mediaType, data: img.data } },
+            { type: "text", text: text || t("solve.chatSeedText") },
+          ]
+        : text,
+    });
+    appendUserBubble(text, img?.preview);
+    state.pendingImage = null;
+    renderPending();
+    refs.inputEl.value = "";
+    refs.resetBtn.hidden = false;
+
     await streamReply();
   }
 
   async function streamReply() {
     state.busy = true;
-    chat.inputEl.disabled = true;
-    const bubble = appendBubble("ai", "");
+    refs.inputEl.disabled = true;
+    refs.attachBtn.disabled = true;
+    const bubble = appendAiBubble();
     bubble.innerHTML = `<span class="typing"><span></span><span></span><span></span></span>`;
     let acc = "";
     try {
       for await (const chunk of tutorStream({ system: solveChatSystem(), messages: state.messages })) {
         acc += chunk;
         bubble.innerHTML = markdown(acc);
-        chat.logEl.scrollTop = chat.logEl.scrollHeight;
+        refs.logEl.scrollTop = refs.logEl.scrollHeight;
       }
       state.messages.push({ role: "assistant", content: acc || "…" });
       announce(t("tutor.prefix", { text: acc }));
@@ -94,94 +127,88 @@ export function renderSolve() {
       toast(msg);
     } finally {
       state.busy = false;
-      chat.inputEl.disabled = false;
-      chat.inputEl.focus();
+      refs.inputEl.disabled = false;
+      refs.attachBtn.disabled = false;
+      refs.inputEl.focus();
     }
   }
 
-  function idlePanel() {
+  function gateNote() {
+    return store.aiNeedsSignIn()
+      ? el("p.note", { style: { marginBottom: "16px" } }, [
+          t("solve.needSignIn"),
+          el("a", { href: "#/login" }, t("solve.needSignInLink")),
+          t("solve.needSignInTail"),
+        ])
+      : el("p.note.note--warn", { style: { marginBottom: "16px" } }, [
+          t("solve.noServerHere"),
+          el("a", { href: "#/library" }, t("solve.noServerAlt")),
+        ]);
+  }
+
+  function build() {
+    const logEl = el("div.solve-chat__log", { "aria-live": "off", tabindex: "0", "aria-label": t("tutor.convAria") });
+    const pendingEl = el("div.solve-chat__pending", { hidden: true });
+
     const fileInput = el("input", {
       type: "file", accept: "image/*", capture: "environment", style: { display: "none" },
       onchange: async (e) => {
         const file = e.target.files[0];
-        if (!file) return;
-        state.error = "";
-        try {
-          state.image = await readImageFile(file);
-        } catch (err) {
-          state.image = null;
-          state.error = err.message || t("err.readFile");
-        }
-        paint();
+        e.target.value = "";
+        if (file) await attachImage(file);
       },
     });
 
-    const dropzone = el("label.solve-dropzone" + (state.image ? ".has-image" : ""), {}, [
-      fileInput,
-      state.image
-        ? el("img", { src: state.image.preview, alt: "" })
-        : el("div.solve-dropzone__inner", {}, [
-            icon(ICONS.camera, 32),
-            el("span.solve-dropzone__cta", {}, t("solve.uploadCta")),
-            el("span.note", {}, t("solve.uploadHint")),
-          ]),
-    ]);
-
-    const noteInput = el("textarea", {
-      placeholder: t("solve.notePlaceholder"), rows: 2, style: { minHeight: "60px" },
-      oninput: (e) => { state.note = e.target.value; },
-    });
-    noteInput.value = state.note;
-
-    return el("div.panel", {}, [
-      el("p", { style: { marginBottom: "16px" } }, t("solve.intro")),
-      el("div.field", {}, [el("span", {}, t("solve.uploadLabel")), dropzone]),
-      state.image
-        ? el("button.linkbtn", { type: "button", style: { marginTop: "8px" }, onclick: () => fileInput.click() }, t("solve.retake"))
-        : null,
-      el("label.field", { style: { marginTop: "16px" } }, [el("span", {}, t("solve.noteLabel")), noteInput]),
-      state.error ? el("p.note.note--warn", { style: { marginTop: "12px" } }, state.error) : null,
-      // Server is up and keyed but the visitor isn't signed in: say that, not
-      // "no server" — same split as Create's source step.
-      !store.hasKey() && store.aiNeedsSignIn() ? el("p.note", { style: { marginTop: "16px" } }, [
-        t("solve.needSignIn"),
-        el("a", { href: "#/login" }, t("solve.needSignInLink")),
-        t("solve.needSignInTail"),
-      ])
-      : !store.hasKey() ? el("p.note.note--warn", { style: { marginTop: "16px" } }, [
-        t("solve.noServerHere"),
-        el("a", { href: "#/library" }, t("solve.noServerAlt")),
-      ]) : null,
-      el("div", { style: { marginTop: "20px", textAlign: "center" } }, [
-        el("button.btn", { type: "button", disabled: !state.image || !store.hasKey(), onclick: startChat },
-          [icon(ICONS.spark, 18), t("solve.solveButton")]),
-      ]),
-    ].filter(Boolean));
-  }
-
-  function chatPanel() {
-    const logEl = el("div.solve-chat__log", { "aria-live": "off", tabindex: "0", "aria-label": t("tutor.convAria") });
     const inputEl = el("input.tutor__input", {
       type: "text", placeholder: t("solve.chatPlaceholder"), "aria-label": t("solve.chatPlaceholder"),
-      onkeydown: (e) => { if (e.key === "Enter") submitFollowUp(); },
+      onkeydown: (e) => { if (e.key === "Enter") send(); },
+      onpaste: async (e) => {
+        for (const item of e.clipboardData?.items || []) {
+          if (item.kind === "file" && item.type.startsWith("image/")) {
+            e.preventDefault();
+            const file = item.getAsFile();
+            if (file) await attachImage(file);
+            return;
+          }
+        }
+        // No image on the clipboard — let a text paste land in the input as normal.
+      },
     });
-    const formEl = el("form.tutor__form", { onsubmit: (e) => { e.preventDefault(); submitFollowUp(); } }, [
-      inputEl,
-      el("button.iconbtn", { type: "submit", "aria-label": t("tutor.send"), style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]),
-    ]);
-    chat = { logEl, inputEl, formEl };
 
-    return el("div.panel", {}, [
-      el("div.solve-chat__pinned", {}, [
-        el("img", { src: state.image.preview, alt: "" }),
-        el("button.linkbtn", { type: "button", onclick: reset }, [icon(ICONS.camera, 14), t("solve.newPhoto")]),
-      ]),
+    const attachBtn = el("button.iconbtn", {
+      type: "button", "aria-label": t("solve.attachLabel"), title: t("solve.uploadHint"),
+      onclick: () => fileInput.click(),
+    }, [icon(ICONS.camera, 18)]);
+
+    const sendBtn = el("button.iconbtn", { type: "submit", "aria-label": t("tutor.send"), style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]);
+    const formEl = el("form.tutor__form", { onsubmit: (e) => { e.preventDefault(); send(); } }, [fileInput, attachBtn, inputEl, sendBtn]);
+
+    const resetBtn = el("button.linkbtn.solve-chat__reset", { type: "button", hidden: true, onclick: resetChat }, t("solve.newChat"));
+
+    if (!canChat) {
+      inputEl.disabled = true;
+      attachBtn.disabled = true;
+      sendBtn.disabled = true;
+    }
+
+    refs = { logEl, pendingEl, inputEl, attachBtn, resetBtn };
+
+    root.appendChild(homeButton({ grid: true }));
+    root.appendChild(el("div", { style: { display: "flex", alignItems: "baseline", gap: "12px", flexWrap: "wrap", marginTop: "8px" } }, [
+      el("h1", {}, t("solve.title")),
+      resetBtn,
+    ]));
+    root.appendChild(el("div.panel", {}, [
+      canChat ? null : gateNote(),
       logEl,
+      pendingEl,
       formEl,
-    ]);
+    ].filter(Boolean)));
+
+    if (canChat) appendWelcome();
   }
 
-  paint();
+  build();
   return { title: t("solve.pageTitle"), node: root };
 }
 
