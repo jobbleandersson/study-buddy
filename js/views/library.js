@@ -48,7 +48,7 @@ export async function renderLibrary() {
   }
 
   const root = el("div");
-  const state = { level: null, subject: null, query: "", examMin: 0 };
+  const state = { level: null, subject: null, query: "", examMin: 0, addCounts: {} };
 
   // Built once so typing never loses focus — paintBody() only touches bodyEl.
   const searchInput = el("input.search__input", {
@@ -200,19 +200,6 @@ export async function renderLibrary() {
     ]);
     examSel.value = String(state.examMin);
 
-    // Questions per session. Every run draws only from the moment you pick, so
-    // the choices stop below the largest set here; "All" is always the full set.
-    const maxCount = Math.max(0, ...sets.map((s) => s.count || 0));
-    const countOpts = [5, 10, 15, 20, 25, 30].filter((n) => n <= maxCount);
-    const countSel = el("select", {
-      id: "lib-qcount", "aria-label": t("lib.countLabel"),
-      onchange: (e) => { state.qCount = Number(e.target.value) || 0; paint(); },
-    }, [
-      el("option", { value: "0" }, t("lib.countAll")),
-      ...countOpts.map((n) => el("option", { value: String(n) }, String(n))),
-    ]);
-    countSel.value = String(state.qCount || 0);
-
     return el("div", {}, [
       el("section.panel", {}, [
         el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "start", gap: "12px", flexWrap: "wrap", marginBottom: "6px" } }, [
@@ -228,9 +215,6 @@ export async function renderLibrary() {
             missing.length ? addAllBtn : el("span.note", { style: { alignSelf: "center" } }, t("lib.allAdded")),
           ].filter(Boolean)),
         ]),
-        countOpts.length ? el("label.field", { style: { maxWidth: "220px", margin: "10px 0 0" } }, [
-          el("span", {}, t("lib.countLabel")), countSel,
-        ]) : null,
         el("details.libexam", {}, [
           el("summary", {}, [icon(ICONS.clock, 14), t("lib.examOptions")]),
           el("label.field", { style: { maxWidth: "220px", margin: "10px 0 0" } }, [
@@ -246,11 +230,12 @@ export async function renderLibrary() {
     const imported = isImported(entry.id);
     const count = plural(entry.count, "common.questionOne", "common.questionMany");
 
-    // Added → "Study" is the primary action; "Exam mode" is the secondary.
-    // Not added → "Add" is primary, and exam mode isn't offered yet (it needs
-    // the set in the library).
-    // A chosen question count only applies when this moment has more than that.
-    const countQ = state.qCount && state.qCount < (entry.count || 0) ? state.qCount : 0;
+    // Added → "Study" is the primary action; "Exam mode" is the secondary. The
+    // question count is chosen once, right here, before adding — it's saved
+    // on the set as its default for future study sessions (see addCountSel
+    // below); exam mode always ignores it and runs the full set.
+    const stored = imported ? store.getAssignment(entry.id) : null;
+    const countQ = stored?._studyCount && stored._studyCount < (entry.count || 0) ? stored._studyCount : 0;
     const action = imported
       ? el("a.btn.btn--sm", { href: `#/session/${entry.id}${countQ ? `?count=${countQ}` : ""}` }, [icon(ICONS.play, 16), t("lib.study")])
       : el("button.btn.btn--sm", {
@@ -258,7 +243,7 @@ export async function renderLibrary() {
           onclick: async (e) => {
             e.currentTarget.disabled = true;
             try {
-              await importSet(entry);
+              await importSet(entry, state.addCounts[entry.id]);
               toast(t("lib.added", { title: setTitle(entry) }));
               paint();
             } catch {
@@ -267,6 +252,25 @@ export async function renderLibrary() {
             }
           },
         }, [icon(ICONS.plus, 16), t("lib.add")]);
+
+    // A per-set question-count picker, shown only before adding — once it's
+    // in the library the choice above is baked in as its study default.
+    const addCountOpts = [5, 10, 15].filter((n) => n <= (entry.count || 0));
+    const addCountSel = !imported && addCountOpts.length > 1
+      ? (() => {
+          const sel = el("select", {
+            "aria-label": t("lib.countLabel"),
+            style: {
+              font: "inherit", fontSize: "var(--fs-sm)", padding: "6px 8px",
+              borderRadius: "var(--r-md)", border: "1px solid var(--line-strong)",
+              background: "var(--surface)", color: "inherit",
+            },
+            onchange: (e) => { state.addCounts[entry.id] = Number(e.target.value) || entry.count; },
+          }, addCountOpts.map((n) => el("option", { value: String(n) }, String(n))));
+          sel.value = String(state.addCounts[entry.id] || entry.count);
+          return sel;
+        })()
+      : null;
 
     // Exam mode always runs the full set — the question-count picker only
     // applies to study mode, so it's deliberately left off this link.
@@ -293,7 +297,7 @@ export async function renderLibrary() {
         imported
           ? el("span.libcard__added", {}, [icon(ICONS.check, 14), t("lib.addedTag"), el("span.libcard__count", {}, ` · ${count}`)])
           : el("span.note", {}, count),
-        el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" } }, [action, examAction, printAction].filter(Boolean)),
+        el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" } }, [addCountSel, action, examAction, printAction].filter(Boolean)),
       ]),
     ]);
   }

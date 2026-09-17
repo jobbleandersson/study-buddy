@@ -24,8 +24,11 @@ export function isImported(setId) {
  *  or null if it was already there. In English mode the translated file is
  *  tried first, falling back to the Swedish original if it isn't there yet;
  *  the set is tagged with the language it actually landed in so a later
- *  language switch can bring it up to date (see store.syncLibraryLanguage). */
-export async function importSet(entry) {
+ *  language switch can bring it up to date (see store.syncLibraryLanguage).
+ *  `studyCount`, when given and smaller than the set, is remembered as this
+ *  set's default number of questions per study session (chosen once, at
+ *  add time — exam mode always ignores it and runs the full set). */
+export async function importSet(entry, studyCount) {
   if (isImported(entry.id)) return null;
   const lang = getLang();
   const wantFile = lang === "en" ? englishFile(entry.file) : entry.file;
@@ -37,7 +40,10 @@ export async function importSet(entry) {
 
   const doc = await res.json();
   const a = store.addAssignmentDoc(doc, { silent: true });
-  if (a) a._libLang = docLang;
+  if (a) {
+    a._libLang = docLang;
+    if (studyCount > 0 && studyCount < a.questions.length) a._studyCount = studyCount;
+  }
   store.save();
   store.emit();
   return a;
