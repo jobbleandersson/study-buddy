@@ -2,7 +2,7 @@
 // the actual Claude API key. The browser never sees it.
 
 import { store } from "./store.js";
-import { generationSystem, gradingSystem, solveSystem } from "./prompts.js";
+import { generationSystem, gradingSystem } from "./prompts.js";
 import { t } from "./lib/i18n.js";
 import { PROXY_URL } from "./config.js";
 
@@ -12,14 +12,14 @@ const API_URL = PROXY_URL;
  * One fixed model per job — not a user choice. The jobs have very different
  * requirements: writing a question set is worth a stronger model, because
  * the result is saved and reused by every student who studies that set
- * afterward, not just once. Tutoring, grading, and solving are one-off —
- * forgotten the moment they're done — so they run on the fast, cheap model.
+ * afterward, not just once. Tutoring and grading (Solve included — it's a
+ * tutoring conversation, not a one-shot lookup) are forgotten the moment
+ * they're done, so they run on the fast, cheap model.
  */
 export const MODELS = {
   generate: "claude-sonnet-5",
   tutor: "claude-haiku-4-5",
   grade: "claude-haiku-4-5",
-  solve: "claude-haiku-4-5",
 };
 
 function headers() {
@@ -164,50 +164,6 @@ function normalizeDoc(doc) {
 }
 function topicTitle(doc) { return (doc.topics && doc.topics[0]) ? cap(doc.topics[0]) : "New assignment"; }
 function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
-
-// ---------- instant photo solve ----------
-
-/** One problem in, a worked explanation out. Returns
- *  { restated, answer, steps[], topic, subject }. Throws ClaudeError with a
- *  friendly message if the photo can't be read. */
-export async function solveProblem({ image, note = "" }) {
-  const userContent = [
-    { type: "image", source: { type: "base64", media_type: image.mediaType, data: image.data } },
-    { type: "text", text: (note.trim() ? `Extra context from the student: ${note.trim()}\n\n` : "") + "Return the JSON only." },
-  ];
-  const body = {
-    model: modelFor("solve"),
-    max_tokens: 1500,
-    system: solveSystem(),
-    messages: [{ role: "user", content: userContent }],
-  };
-
-  let raw = await callJSON(body);
-  let parsed;
-  try {
-    parsed = parseLooseJSON(raw);
-  } catch {
-    const repair = await callJSON({
-      ...body,
-      messages: [
-        { role: "user", content: userContent },
-        { role: "assistant", content: [{ type: "text", text: raw.slice(0, 2000) }] },
-        { role: "user", content: [{ type: "text", text: "That wasn't valid JSON. Reply again with ONLY the JSON object." }] },
-      ],
-    });
-    parsed = parseLooseJSON(repair);
-  }
-
-  if (parsed?.error === "unreadable") throw new ClaudeError(t("solve.unreadable"));
-
-  return {
-    restated: typeof parsed.restated === "string" ? parsed.restated : "",
-    answer: typeof parsed.answer === "string" ? parsed.answer : "",
-    steps: Array.isArray(parsed.steps) ? parsed.steps.filter((s) => typeof s === "string" && s.trim()) : [],
-    topic: typeof parsed.topic === "string" && parsed.topic.trim() ? parsed.topic.trim().toLowerCase() : "general",
-    subject: typeof parsed.subject === "string" && parsed.subject.trim() ? parsed.subject.trim() : t("common.general"),
-  };
-}
 
 // ---------- free-text grading ----------
 

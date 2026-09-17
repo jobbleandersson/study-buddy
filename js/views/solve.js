@@ -1,53 +1,101 @@
-// Instant photo-solve: snap a photo of ONE problem, get a clear step-by-step
-// explanation back in seconds. Deliberately separate from the Create flow —
-// that one builds a whole study set (source, material, subject, count,
-// review); this one is a single focused answer, closer to "point your camera
-// at it and go." Needs the tutor server (store.hasKey()); until then the
-// button is disabled and the reason is spelled out, exactly like Create.
+// Instant photo-solve: snap a photo of ONE problem, then keep talking about
+// it — a real back-and-forth with the tutor, not one static answer. The
+// photo seeds the conversation (as an image content block, kept in the
+// message history so follow-ups can still refer to it); everything after
+// that reuses the exact same streaming call the practice-session tutor uses.
+// Needs the tutor server (store.hasKey()); until then the button is disabled
+// and the reason is spelled out, exactly like Create.
 
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
-import { renderRich } from "../lib/rich.js";
+import { markdown } from "../lib/markdown.js";
+import { announce } from "../lib/a11y.js";
 import { readImageFile } from "../material.js";
-import { solveProblem, ClaudeError } from "../claude.js";
+import { tutorStream, ClaudeError } from "../claude.js";
+import { solveChatSystem } from "../prompts.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 
 export function renderSolve() {
   const root = el("div.solve");
   const state = {
-    step: "idle",   // idle | loading | result
+    step: "idle",   // idle | chat
     image: null,    // { mediaType, data, preview }
     note: "",
-    result: null,   // { restated, answer, steps, topic, subject }
+    messages: [],   // Anthropic-format history for this photo's thread
+    busy: false,
     error: "",
   };
+
+  // Built once on entering the chat step, then mutated directly for
+  // streaming — a full re-render per token would be wasteful and janky.
+  let chat = null; // { logEl, inputEl, formEl }
 
   function paint() {
     clear(root);
     root.appendChild(homeButton({ grid: true }));
     root.appendChild(el("h1", { style: { marginTop: "8px" } }, t("solve.title")));
-    root.appendChild(
-      state.step === "loading" ? loadingPanel()
-        : state.step === "result" ? resultPanel()
-        : idlePanel(),
-    );
+    root.appendChild(state.step === "chat" ? chatPanel() : idlePanel());
   }
 
   function reset() {
-    state.step = "idle"; state.image = null; state.note = ""; state.result = null; state.error = "";
+    state.step = "idle"; state.image = null; state.note = ""; state.messages = []; state.error = "";
+    chat = null;
     paint();
   }
 
-  async function solve() {
-    state.step = "loading"; state.error = ""; paint();
+  async function startChat() {
+    state.messages = [{
+      role: "user",
+      content: [
+        { type: "image", source: { type: "base64", media_type: state.image.mediaType, data: state.image.data } },
+        { type: "text", text: state.note.trim() ? `Extra context from the student: ${state.note.trim()}` : t("solve.chatSeedText") },
+      ],
+    }];
+    state.step = "chat";
+    paint();
+    await streamReply();
+  }
+
+  function appendBubble(who, text) {
+    const node = el(`div.msg.${who}`, {});
+    node.innerHTML = who === "me" ? escapeHtml(text) : markdown(text);
+    chat.logEl.appendChild(node);
+    chat.logEl.scrollTop = chat.logEl.scrollHeight;
+    return node;
+  }
+
+  async function submitFollowUp() {
+    const text = chat.inputEl.value.trim();
+    if (!text || state.busy) return;
+    chat.inputEl.value = "";
+    state.messages.push({ role: "user", content: text });
+    appendBubble("me", text);
+    await streamReply();
+  }
+
+  async function streamReply() {
+    state.busy = true;
+    chat.inputEl.disabled = true;
+    const bubble = appendBubble("ai", "");
+    bubble.innerHTML = `<span class="typing"><span></span><span></span><span></span></span>`;
+    let acc = "";
     try {
-      state.result = await solveProblem({ image: state.image, note: state.note });
-      state.step = "result"; paint();
+      for await (const chunk of tutorStream({ system: solveChatSystem(), messages: state.messages })) {
+        acc += chunk;
+        bubble.innerHTML = markdown(acc);
+        chat.logEl.scrollTop = chat.logEl.scrollHeight;
+      }
+      state.messages.push({ role: "assistant", content: acc || "…" });
+      announce(t("tutor.prefix", { text: acc }));
     } catch (e) {
-      state.error = e instanceof ClaudeError ? e.message : t("create.genFailed");
-      state.step = "idle"; paint();
-      toast(state.error);
+      const msg = e instanceof ClaudeError ? e.message : t("tutor.snag");
+      bubble.innerHTML = markdown(`_${msg}_`);
+      toast(msg);
+    } finally {
+      state.busy = false;
+      chat.inputEl.disabled = false;
+      chat.inputEl.focus();
     }
   }
 
@@ -105,54 +153,38 @@ export function renderSolve() {
         el("a", { href: "#/library" }, t("solve.noServerAlt")),
       ]) : null,
       el("div", { style: { marginTop: "20px", textAlign: "center" } }, [
-        el("button.btn", { type: "button", disabled: !state.image || !store.hasKey(), onclick: solve },
+        el("button.btn", { type: "button", disabled: !state.image || !store.hasKey(), onclick: startChat },
           [icon(ICONS.spark, 18), t("solve.solveButton")]),
       ]),
     ].filter(Boolean));
   }
 
-  function loadingPanel() {
-    return el("div.panel", { style: { textAlign: "center" } }, [
-      el("div.spinner"),
-      el("p", {}, t("solve.loading")),
+  function chatPanel() {
+    const logEl = el("div.solve-chat__log", { "aria-live": "off", tabindex: "0", "aria-label": t("tutor.convAria") });
+    const inputEl = el("input.tutor__input", {
+      type: "text", placeholder: t("solve.chatPlaceholder"), "aria-label": t("solve.chatPlaceholder"),
+      onkeydown: (e) => { if (e.key === "Enter") submitFollowUp(); },
+    });
+    const formEl = el("form.tutor__form", { onsubmit: (e) => { e.preventDefault(); submitFollowUp(); } }, [
+      inputEl,
+      el("button.iconbtn", { type: "submit", "aria-label": t("tutor.send"), style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]),
     ]);
-  }
+    chat = { logEl, inputEl, formEl };
 
-  function resultPanel() {
-    const r = state.result;
     return el("div.panel", {}, [
-      el("div.solve-result", {}, [
-        state.image ? el("img.solve-result__thumb", { src: state.image.preview, alt: "" }) : null,
-        el("div", { style: { flex: "1", minWidth: "220px" } }, [
-          r.restated ? el("p.solve-restated", {}, [t("solve.restatedLabel"), " “", el("span", { html: renderRich(r.restated) }), "”"]) : null,
-          el("div.solve-answer", {}, [
-            el("span.solve-answer__label", {}, t("solve.answerLabel")),
-            el("div.solve-answer__value", { html: renderRich(r.answer) }),
-          ]),
-        ].filter(Boolean)),
-      ].filter(Boolean)),
-
-      // The method, collapsible — the answer's already visible, so seeing *how*
-      // is a choice. A student can hide it and try to reconstruct the working.
-      r.steps.length ? el("details.solve-method", { open: true }, [
-        el("summary", {}, t("solve.stepsLabel")),
-        el("ol.solve-steps", {}, r.steps.map((s) => el("li", { html: renderRich(s) }))),
-      ]) : null,
-
-      // Push toward doing one, not just reading one — the point of the tool.
-      el("div.solve-next", {}, [
-        el("p.solve-next__lead", {}, t("solve.tryYourself")),
-        el("a.btn", { href: `#/create?subject=${encodeURIComponent(r.subject)}` },
-          [icon(ICONS.plus, 16), t("solve.practiseTopic")]),
-        el("p.note", { style: { margin: "8px 0 0" } }, t("solve.similarDormant")),
+      el("div.solve-chat__pinned", {}, [
+        el("img", { src: state.image.preview, alt: "" }),
+        el("button.linkbtn", { type: "button", onclick: reset }, [icon(ICONS.camera, 14), t("solve.newPhoto")]),
       ]),
-
-      el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "20px", flexWrap: "wrap" } }, [
-        el("button.btn.btn--ghost", { type: "button", onclick: reset }, [icon(ICONS.camera, 16), t("solve.another")]),
-      ]),
-    ].filter(Boolean));
+      logEl,
+      formEl,
+    ]);
   }
 
   paint();
   return { title: t("solve.pageTitle"), node: root };
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
