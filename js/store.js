@@ -768,7 +768,9 @@ class Store extends EventTarget {
       const entry = entryById.get(a.id);
       if (!entry) continue;
       const enTitle = tr.sets[a.id]?.title;
-      if (a.title !== entry.title && a.title !== enTitle) continue; // renamed by the student
+      // The English titles used to say "practice set"; sets imported back then are still ours, not renamed.
+      const oldEnTitle = enTitle?.replace("practice test", "practice set");
+      if (a.title !== entry.title && a.title !== enTitle && a.title !== oldEnTitle) continue; // renamed by the student
 
       const wantTitle = lang === "en" ? (enTitle || entry.title) : entry.title;
       if (a.title !== wantTitle) { a.title = wantTitle; changed++; }

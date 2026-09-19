@@ -53,6 +53,8 @@ async function errorFrom(res) {
   if (code === "server_no_key" || (res.status === 500 && /ANTHROPIC_API_KEY/.test(detail))) return new ClaudeError(t("err.serverNoKey"));
   if (code === "model_not_allowed" || code === "bad_request") return new ClaudeError(detail || t("err.api", { status: res.status }));
   if (res.status === 401) return new ClaudeError(t("err.badKey"));   // Anthropic passthrough (server key rejected)
+  // The proxy couldn't reach Anthropic (502), timed out (504), or Anthropic said it's overloaded (529).
+  if (code === "upstream_unreachable" || [502, 504, 529].includes(res.status)) return new ClaudeError(t("err.upstream"));
   return new ClaudeError(detail ? t("err.apiDetail", { status: res.status, detail }) : t("err.api", { status: res.status }));
 }
 

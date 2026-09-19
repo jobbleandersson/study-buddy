@@ -177,26 +177,37 @@ export function datePicker({ value = "", min = "", max = "", onChange } = {}) {
   }
   paint();
 
+  function clearDay({ silent = false } = {}) {
+    selected = "";
+    focusKey = clamp(today);
+    paint();
+    if (!silent) onChange?.("");
+  }
+
   return {
     el: root,
     getValue: () => selected,
-    setValue: (key) => select(key || "", { silent: true }),
+    setValue: (key) => (key ? select(key, { silent: true }) : clearDay({ silent: true })),
+    clear: () => clearDay(),
   };
 }
 
 /** A datePicker folded into one row that shows the chosen day, so the month
  *  grid opens on demand instead of filling half the screen above the
- *  questions. Same getValue/setValue as datePicker. */
+ *  questions. It closes itself after a pick, and a "Remove deadline" button
+ *  appears once a day is set. Same getValue/setValue as datePicker. */
 export function foldedDatePicker({ label, value = "", min = "" } = {}) {
   const valueEl = el("span.deadline__value");
-  const show = (key) => { valueEl.textContent = key ? fmtDate(key) : ""; };
-  const picker = datePicker({ value, min, onChange: show });
+  const details = el("details.deadline");
+  const removeBtn = el("button.btn.btn--ghost.btn--sm.deadline__remove", {
+    type: "button", hidden: !value, onclick: () => picker.clear(),
+  }, t("datepick.clear"));
+  const show = (key) => { valueEl.textContent = key ? fmtDate(key) : ""; removeBtn.hidden = !key; };
+  const picker = datePicker({ value, min, onChange: (key) => { show(key); if (key) details.open = false; } });
+  details.append(el("summary", {}, [el("span", {}, label), valueEl]), picker.el);
   show(value);
   return {
-    el: el("details.deadline", {}, [
-      el("summary", {}, [el("span", {}, label), valueEl]),
-      picker.el,
-    ]),
+    el: el("div.deadline-row", {}, [details, removeBtn]),
     getValue: picker.getValue,
     setValue: (key) => { picker.setValue(key); show(key); },
   };
