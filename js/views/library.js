@@ -240,6 +240,7 @@ export async function renderLibrary() {
     // below); exam mode always ignores it and runs the full set.
     const stored = imported ? store.getAssignment(entry.id) : null;
     const countQ = stored?._studyCount && stored._studyCount < (entry.count || 0) ? stored._studyCount : 0;
+    const countText = countQ ? t("lib.countOfTotal", { n: countQ, total: entry.count }) : count;
     const action = imported
       ? el("a.btn.btn--sm", { href: `#/session/${entry.id}${countQ ? `?count=${countQ}` : ""}` }, [icon(ICONS.play, 16), t("lib.study")])
       : el("button.btn.btn--sm", {
@@ -299,7 +300,7 @@ export async function renderLibrary() {
       ]),
       el("div.libcard__foot", {}, [
         imported
-          ? el("span.libcard__added", {}, [icon(ICONS.check, 14), t("lib.addedTag"), el("span.libcard__count", {}, ` · ${count}`)])
+          ? el("span.libcard__added", {}, [icon(ICONS.check, 14), t("lib.addedTag"), el("span.libcard__count", {}, ` · ${countText}`)])
           : el("span.note", {}, count),
         el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" } }, [addCountSel, action, examAction, printAction].filter(Boolean)),
       ]),
