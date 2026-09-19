@@ -138,3 +138,12 @@ db.exec(`
     created_at INTEGER NOT NULL
   );
 `);
+
+// Sign in with Google: the Google account's stable id ("sub"), on the same user
+// row as the email. Added after the fact so it works on a database that already
+// holds accounts. SQLite can't add a UNIQUE column in place, so uniqueness is a
+// separate partial index (many users have no Google account, i.e. NULL).
+if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "google_sub")) {
+  db.exec("ALTER TABLE users ADD COLUMN google_sub TEXT");
+}
+db.exec("CREATE UNIQUE INDEX IF NOT EXISTS users_google_sub ON users(google_sub) WHERE google_sub IS NOT NULL");

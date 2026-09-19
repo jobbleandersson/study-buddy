@@ -72,7 +72,7 @@ export function renderTeachback(subjectId) {
           verdict = await gradeAnswer({
             question: {
               prompt: t("teach.gradePrompt", { topic }),
-              answer: q.answer || q.prompt || topic,
+              answer: modelAnswerFor(q, topic),
               rubric: t("teach.rubric"),
             },
             studentAnswer: answer,
@@ -160,4 +160,17 @@ function notFound() {
 
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+/** A model answer the grader can actually use. `q.answer` on a multiple-choice
+ *  question is just the option's index, and a cloze has none — so build it from
+ *  the question's own explanation, worked steps, or the right choice's text. */
+function modelAnswerFor(q, topic) {
+  if (q.explanation) return String(q.explanation);
+  if (Array.isArray(q.steps) && q.steps.length) return q.steps.join(" ");
+  if (q.kind === "mc" && Array.isArray(q.choices) && typeof q.answer === "number") {
+    return `${q.prompt} → ${q.choices[q.answer]}`;
+  }
+  if (typeof q.answer === "string" && q.answer) return q.answer;
+  return q.prompt || topic;
 }

@@ -29,6 +29,10 @@ const KNOWN = {
   "That set is already assigned to this class.": "srv.err.alreadyAssigned",
   "This class has too many assignments.": "srv.err.tooManyAssignments",
   "Couldn't create the class. Try again.": "srv.err.classCreate",
+  "Google sign-in isn't set up on this server.": "srv.err.googleOff",
+  "Couldn't verify your Google sign-in.": "srv.err.googleInvalid",
+  "Your Google account's email isn't verified.": "srv.err.googleUnverified",
+  "Google sign-in is unavailable right now. Try again shortly.": "srv.err.googleUnavailable",
 };
 
 export function serverMessage(message, fallback) {

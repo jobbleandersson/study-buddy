@@ -202,7 +202,7 @@ a.streakbadge:hover {
 }
 .topbar__inner {
   max-width: var(--maxw); margin: 0 auto;
-  padding: var(--s-3) var(--s-4);
+  padding: var(--s-3) clamp(var(--s-4), 3vw, var(--s-7));
   display: flex; align-items: center; gap: var(--s-4);
 }
 .brand {
@@ -331,8 +331,12 @@ a.streakbadge:hover {
 .content {
   flex: 1;
   max-width: var(--maxw); width: 100%; margin: 0 auto;
-  padding: var(--s-6) var(--s-4) var(--s-8);
+  padding: var(--s-6) clamp(var(--s-4), 3vw, var(--s-7)) var(--s-8);
+  /* Column, so the footer can sit at the bottom of a short page (margin-top:auto)
+     instead of floating right under the content. */
+  display: flex; flex-direction: column; row-gap: var(--s-8);
 }
+.content > * { min-width: 0; }
 @media (max-width: 899.98px) {
   /* Room for the fixed bottom tab bar so page content — and anything that
      floats at the bottom, like the solve-screen hint — never sits under it.
@@ -1085,7 +1089,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 /* Bottom of every page — About/Terms/Privacy, deliberately not in the main
    nav. Shares .content's max-width by living inside it. */
 .sitefooter {
-  margin-top: var(--s-8); padding-top: var(--s-5); border-top: 1px solid var(--line);
+  margin-top: auto; padding-top: var(--s-5); border-top: 1px solid var(--line);
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-3);
   font-size: var(--fs-sm); color: var(--ink-faint);
 }
@@ -2049,6 +2053,11 @@ body.route-immersive .sitechat__panel { display: none; }
 .subjchips { display: flex; flex-wrap: wrap; gap: 6px; }
 .subjchips .chip { font-size: var(--fs-sm); font-weight: 600; }
 
+/* Sign in with Google: Google's own button (its size/colours are fixed by
+   Google), centred above the email form with an "or" rule beneath. */
+.gbtn { display: flex; justify-content: center; min-height: 44px; }
+.login-or { display: flex; align-items: center; gap: var(--s-3); margin: var(--s-4) 0; color: var(--ink-faint); font-size: var(--fs-sm); }
+.login-or::before, .login-or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .field { display: block; margin-bottom: var(--s-4); }
 .field > span { display: block; font-weight: 700; font-size: var(--fs-sm); margin-bottom: var(--s-2); }
 .field input[type=text], .field input[type=number], .field input[type=email], .field input[type=password], .field select, .field textarea {
