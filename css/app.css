@@ -2521,7 +2521,7 @@ kbd {
 /* ---------- instant solve: a chat from the first load ---------- */
 .solve-chat__log {
   display: flex; flex-direction: column; gap: var(--s-3); text-align: left;
-  max-height: 50vh; min-height: 160px; overflow-y: auto; padding: var(--s-2) 2px;
+  min-height: clamp(300px, 52vh, 560px); max-height: 68vh; overflow-y: auto; padding: var(--s-2) 2px;
 }
 /* Instructional, not a real reply — reads as the tutor's own opening line,
    but visually a touch quieter so it's not mistaken for a live answer. */
