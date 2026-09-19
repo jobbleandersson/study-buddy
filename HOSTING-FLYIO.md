@@ -75,6 +75,18 @@ and that password before showing anything — a plain browser login prompt, not
 a paywall. Share the password only with people you want testing it. Unset it
 later (`fly secrets unset SITE_PASSWORD`) when you're ready to actually publish.
 
+### Optional: Sign in with Google
+
+1. [Google Cloud Console](https://console.cloud.google.com/) → APIs & Services → **OAuth consent screen**: External, add app name + support email, then **Publish app** (otherwise only test users can sign in).
+2. **Credentials → Create credentials → OAuth client ID → Web application.** Under *Authorized JavaScript origins* add `https://studybuddy-jobble.fly.dev` (and `http://localhost:8787` for local dev). No redirect URIs are needed.
+3. Copy the Client ID (it is public, not a secret) and set it:
+
+```bash
+fly secrets set GOOGLE_CLIENT_ID=1234567890-abc.apps.googleusercontent.com
+```
+
+The Google button then appears on the sign-in screen. Unset = no button. A Google sign-in whose email already has a password account links to it and switches that account to Google-only sign-in.
+
 ## 4. Deploy
 
 ```bash

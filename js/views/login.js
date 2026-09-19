@@ -4,6 +4,7 @@
 import { store } from "../store.js";
 import { el, toast, icon, ICONS } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
+import { renderGoogleButton } from "../components/google-signin.js";
 
 export function renderLogin() {
   let mode = "login"; // | "signup"
@@ -29,7 +30,38 @@ export function renderLogin() {
     mode = mode === "login" ? "signup" : "login";
     errorNote.hidden = true;
     paintMode();
+    paintGoogle();
   });
+
+  // Google's button: only when the server has it set up. If Google's script
+  // can't load (blocked, offline) the whole section stays hidden and the form
+  // below works exactly as before.
+  const googleBox = el("div.gbtn");
+  const googleSection = el("div.login-google", { hidden: true }, [
+    googleBox,
+    el("div.login-or", {}, [el("span", {}, t("login.or"))]),
+  ]);
+  async function onGoogle(credential) {
+    errorNote.hidden = true;
+    try {
+      const r = await store.loginWithGoogle(credential);
+      toast(r.linked ? t("login.googleLinkedToast") : r.created ? t("login.googleCreatedToast") : t("login.signedInToast"));
+      location.hash = "#/settings";
+    } catch (err) {
+      errorNote.textContent = err.message || t("login.googleFailed");
+      errorNote.hidden = false;
+    }
+  }
+  async function paintGoogle() {
+    if (serverDown || !store.googleClientId) return;
+    googleSection.hidden = false;   // reserve the space first so the button can measure its width
+    const ok = await renderGoogleButton(googleBox, {
+      clientId: store.googleClientId,
+      mode,
+      handler: onGoogle,
+    });
+    if (!ok) googleSection.hidden = true;
+  }
 
   async function submit(e) {
     e.preventDefault();
@@ -65,10 +97,12 @@ export function renderLogin() {
     el("section.panel", {}, [
       el("p.note", { style: { margin: "0 0 16px" } }, t("login.intro")),
       serverDown ? el("p.note.note--warn", { style: { margin: "0 0 16px" } }, t("login.serverDown")) : null,
+      googleSection,
       form,
     ].filter(Boolean)),
     el("a.btn.btn--ghost", { href: "#/settings" }, [icon(ICONS.back, 16), t("login.back")]),
   ]);
+  paintGoogle();
 
   return { title: t("login.title"), node };
 }

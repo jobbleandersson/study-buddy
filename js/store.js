@@ -8,7 +8,7 @@ import { serverMessage } from "./lib/server-errors.js";
 import { ACHIEVEMENTS, achievementMetrics } from "./lib/achievements.js";
 import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } from "./lib/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
-import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, STATE_URL, USAGE_URL } from "./config.js";
+import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, STATE_URL, USAGE_URL } from "./config.js";
 
 const KEY = "studybuddy.v1";
 const SCHEMA_VERSION = 7;
@@ -375,6 +375,9 @@ class Store extends EventTarget {
     // single-user server sets MESSAGES_REQUIRE_AUTH=false. When false, the AI
     // features work signed out (and spend isn't metered — no user to bill).
     this.proxyRequiresAuth = true;
+    // Google OAuth client id when the server has Google sign-in set up, else null
+    // (the sign-in screen then shows no Google button).
+    this.googleClientId = null;
 
     // Auth/sync status — also instance-only, not synced app data. Sign-in is
     // opt-in: local-only mode (authed === false) works exactly as before.
@@ -440,9 +443,11 @@ class Store extends EventTarget {
       this.proxyKeyConfigured = !!data?.keyConfigured;
       // Absent (older server) → assume it does require auth, the safe default.
       this.proxyRequiresAuth = data?.messagesRequireAuth !== false;
+      this.googleClientId = data?.googleClientId || null;
     } catch {
       this.proxyUp = false;
       this.proxyKeyConfigured = false;
+      this.googleClientId = null;
     }
 
     if (this.proxyUp) {
@@ -1306,7 +1311,33 @@ class Store extends EventTarget {
     this.emit();
   }
 
+  // One call covers "sign in" and "create account": the server decides which.
+  // Returns { created, linked } so the screen can say what happened. A brand-new
+  // account adopts this device's data (like signup); an existing one pulls.
+  async loginWithGoogle(credential) {
+    const res = await fetch(AUTH_GOOGLE_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ credential }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.googleFailed")));
+    this.authed = true;
+    this.authEmail = data.email;
+    if (data.created) {
+      this._setSyncVersion(0);
+      await this._pushNow();
+    } else {
+      await this._pullOnLogin();
+    }
+    await this.refreshUsage();
+    this.emit();
+    return { created: !!data.created, linked: !!data.linked };
+  }
+
   async logout() {
+    // Stop Google from silently re-selecting this account on the next visit.
+    try { window.google?.accounts?.id?.disableAutoSelect?.(); } catch {}
     try { await fetch(AUTH_LOGOUT_URL, { method: "POST", credentials: "include" }); } catch {}
     this.authed = false;
     this.authEmail = null;

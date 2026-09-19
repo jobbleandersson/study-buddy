@@ -19,6 +19,10 @@ const KNOWN = {
   "Link not found.": "srv.err.linkNotFound",
   "Not linked to that student.": "srv.err.notLinked",
   "Not found.": "srv.err.notFound",
+  "Google sign-in isn't set up on this server.": "srv.err.googleOff",
+  "Couldn't verify your Google sign-in.": "srv.err.googleInvalid",
+  "Your Google account's email isn't verified.": "srv.err.googleUnverified",
+  "Google sign-in is unavailable right now. Try again shortly.": "srv.err.googleUnavailable",
 };
 
 export function serverMessage(message, fallback) {
