@@ -9,6 +9,8 @@ import { t, plural, getLang, relativeDay, sentenceCase } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
+import { foldedDatePicker } from "../components/calendar.js";
+import { localDayKey } from "../lib/activity.js";
 import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
 import { setProgress } from "../lib/mastery.js";
 import { CLASSES_URL, CLASS_JOIN_URL, MY_CLASS_ASSIGNMENTS_URL, classUrl } from "../config.js";
@@ -231,13 +233,13 @@ export async function renderClassDetail(id) {
     subjectSel.addEventListener("change", fillSets);
     fillSets();
 
-    const due = el("input", { id: "assign-due", type: "date" });
+    const due = foldedDatePicker({ label: t("classes.assignDue"), min: localDayKey() });
     const btn = el("button.btn.btn--sm", { type: "button" }, t("classes.assign"));
     btn.addEventListener("click", async () => {
       if (!setSel.value) return;
       btn.disabled = true;
       try {
-        await api(`${classUrl(id)}/assignments`, { method: "POST", body: JSON.stringify({ setId: setSel.value, dueAt: due.value || null }) });
+        await api(`${classUrl(id)}/assignments`, { method: "POST", body: JSON.stringify({ setId: setSel.value, dueAt: due.getValue() || null }) });
         toast(t("classes.assigned", { title: names.setTitle(setSel.value) }));
         await reload();
       } catch (e) { toast(e.message); btn.disabled = false; }
@@ -245,11 +247,11 @@ export async function renderClassDetail(id) {
 
     return el("section.panel", {}, [
       el("h3", { style: { marginBottom: "12px" } }, t("classes.assignHeading")),
-      el("div", { style: { display: "grid", gap: "8px", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", marginBottom: "12px" } }, [
+      el("div", { style: { display: "grid", gap: "8px", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", marginBottom: "12px" } }, [
         el("label.field", { style: { margin: 0 } }, [el("span", {}, t("classes.assignSubject")), subjectSel]),
         el("label.field", { style: { margin: 0 } }, [el("span", {}, t("classes.assignSet")), setSel]),
-        el("label.field", { style: { margin: 0 } }, [el("span", {}, t("classes.assignDue")), due]),
       ]),
+      due.el,
       btn,
     ]);
   }
