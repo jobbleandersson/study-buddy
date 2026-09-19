@@ -51,64 +51,135 @@ function header() {
   ]);
 }
 
-/** A faux question card — the real thing, rebuilt from landing-scoped classes
- *  so app CSS changes can never quietly break the front page. */
-function preview() {
-  return el("div.lp-mock", { "aria-hidden": "true" }, [
-    el("div.lp-mock__bar", {}, [
-      el("span.lp-mock__dot"), el("span.lp-mock__dot"), el("span.lp-mock__dot"),
+/** The hero: a question you can actually answer, built from landing-scoped
+ *  classes so app CSS changes can never quietly break the front page. Wrong
+ *  answers stay open to another try (as in the app); the right one locks the
+ *  card and shows the explanation. */
+const RIGHT = 1;
+
+function questionCard() {
+  const segs = [0, 1, 2, 3, 4].map((i) => el(i < 2 ? "i.is-done" : i === 2 ? "i.is-now" : "i"));
+  const fb = el("p.lp-q__fb", { "aria-live": "polite" }, t("lp.mockPrompt"));
+  let solved = false;
+
+  const opts = ["lp.mockA", "lp.mockB", "lp.mockC"].map((key, idx) => el("button.lp-q__opt", {
+    type: "button",
+    onclick: (e) => {
+      if (solved) return;
+      const btn = e.currentTarget;
+      if (idx === RIGHT) {
+        solved = true;
+        btn.classList.add("is-right");
+        btn.appendChild(icon(ICONS.check, 16));
+        opts.forEach((o) => { if (o !== btn) o.disabled = true; });
+        segs[2].className = "is-done";
+        fb.className = "lp-q__fb is-right";
+        fb.replaceChildren(icon(ICONS.spark, 14), t("lp.mockExplain"));
+      } else {
+        btn.classList.add("is-wrong");
+        btn.disabled = true;
+        fb.className = "lp-q__fb is-wrong";
+        fb.textContent = t("lp.mockWrong");
+      }
+    },
+  }, [el("b", {}, "ABC"[idx]), el("span", {}, t(key))]));
+
+  return el("div.lp-q", {}, [
+    el("div.lp-q__meta", {}, [
+      el("b", {}, t("lp.mockSubject")),
+      el("span.lp-q__count", {}, t("lp.mockProgress")),
     ]),
-    el("div.lp-mock__body", {}, [
-      el("div.lp-mock__meta", {}, [
-        el("span.lp-mock__tag", {}, t("lp.mockSubject")),
-        el("span.lp-mock__count", {}, t("lp.mockProgress")),
-      ]),
-      el("div.lp-mock__track", {}, [el("i")]),
-      el("p.lp-mock__q", {}, t("lp.mockQuestion")),
-      el("div.lp-mock__opts", {}, [
-        el("div.lp-mock__opt", {}, [el("b", {}, "A"), t("lp.mockA")]),
-        el("div.lp-mock__opt.is-right", {}, [el("b", {}, "B"), t("lp.mockB"), icon(ICONS.check, 16)]),
-        el("div.lp-mock__opt", {}, [el("b", {}, "C"), t("lp.mockC")]),
-      ]),
-      el("div.lp-mock__note", {}, [icon(ICONS.spark, 14), t("lp.mockExplain")]),
-    ]),
+    el("div.lp-q__track", { "aria-hidden": "true" }, segs),
+    el("p.lp-q__prompt", { id: "lp-q-prompt" }, t("lp.mockQuestion")),
+    el("div.lp-q__opts", { role: "group", "aria-labelledby": "lp-q-prompt" }, opts),
+    fb,
   ]);
 }
 
 function hero() {
   return el("section.lp-hero", {}, [
     el("div.lp-hero__copy", {}, [
-      el("span.lp-chip", {}, [icon(ICONS.download, 14), t("lp.chip")]),
       el("h1.lp-h1", {}, t("lp.title")),
       el("p.lp-lead", {}, t("lp.lead")),
       el("div.lp-cta", {}, [
-        el("button.btn.btn--lg", { type: "button", onclick: () => enter("#/library") },
-          [t("lp.ctaPrimary"), icon(ICONS.arrow, 18)]),
+        el("button.btn.btn--lg", { type: "button", onclick: () => enter("#/library") }, t("lp.ctaPrimary")),
         el("button.btn.btn--ghost.btn--lg", { type: "button", onclick: () => enter("#/") },
           t("lp.ctaSecondary")),
       ]),
       el("p.lp-fineprint", {}, t("lp.fineprint")),
     ]),
-    el("div.lp-hero__art", {}, [preview()]),
+    el("div.lp-hero__art", {}, [questionCard()]),
   ]);
+}
+
+/* Each feature gets a picture only it could have: the real subjects, the real
+   eight delprov as an answer sheet, the forgetting curve, the three inputs. */
+
+const HUES = ["grape", "ocean", "leaf", "tangerine", "berry", "sky"];
+
+function libraryArt() {
+  return el("div", {}, [
+    el("ul.lp-subjects", {}, t("lp.subjectList").split("|").map((name, i) =>
+      el("li", { style: { "--dot": `var(--c-${HUES[i % HUES.length]})` } }, name))),
+    el("ul.lp-levels", {}, t("lp.levels").split("|").map((l) => el("li", {}, l))),
+  ]);
+}
+
+function sourcesArt() {
+  const rows = [[ICONS.pencil, "lp.srcNotes"], [ICONS.fileText, "lp.srcPdf"], [ICONS.camera, "lp.srcPhoto"]];
+  return el("div.lp-src", {}, [
+    el("ul", {}, rows.map(([ic, key]) => el("li", {}, [icon(ic, 20), el("span", {}, t(key))]))),
+    el("div.lp-src__out", {}, [icon(ICONS.spark, 18), t("lp.srcResult")]),
+  ]);
+}
+
+const CURVE_SVG = `<svg viewBox="0 0 480 210" role="img" aria-hidden="true" focusable="false">
+  <line class="grid" x1="24" y1="30" x2="456" y2="30"/><line class="grid" x1="24" y1="110" x2="456" y2="110"/>
+  <line class="grid" x1="24" y1="190" x2="456" y2="190"/>
+  <path class="without" d="M24 34 C70 112 140 158 456 176"/>
+  <path class="with" d="M24 34 C60 66 110 88 150 98 L150 46 C185 68 235 82 270 88 L270 44 C300 62 350 74 390 76 L390 46 C415 58 440 64 456 66"/>
+  <circle class="dot" cx="150" cy="46" r="5"/><circle class="dot" cx="270" cy="44" r="5"/><circle class="dot" cx="390" cy="46" r="5"/>
+</svg>`;
+
+function curveArt() {
+  return el("div.lp-curve", {}, [
+    el("div.lp-curve__legend", {}, [
+      el("span", {}, [el("i"), t("lp.curveWith")]),
+      el("span", {}, [el("i.is-dashed"), t("lp.curveWithout")]),
+    ]),
+    el("div", { html: CURVE_SVG }),
+    el("div.lp-curve__axis", {}, [el("span", {}, t("lp.curveNow")), el("span", {}, t("lp.curveLater"))]),
+    el("p.lp-curve__note", {}, t("lp.curveNote")),
+  ]);
+}
+
+// Real delprov, with the real number of answer options each one uses.
+const SHEET = [
+  ["hp.verbal", [["ORD", 5], ["LÄS", 4], ["MEK", 4], ["ELF", 4]]],
+  ["hp.kvant", [["XYZ", 5], ["KVA", 4], ["NOG", 5], ["DTK", 5]]],
+];
+
+function sheetArt() {
+  return el("div.lp-sheet", {}, SHEET.map(([label, cells]) => el("div", {}, [
+    el("h4", {}, t(label)),
+    el("div.lp-sheet__cells", {}, cells.map(([code, n], ci) => el("div.lp-sheet__cell", {}, [
+      el("b", {}, code),
+      el("div.lp-sheet__bubbles", { "aria-hidden": "true" },
+        Array.from({ length: n }, (_, k) => el(k === (ci * 2 + 1) % n ? "span.is-on" : "span", {}, "ABCDE"[k]))),
+    ]))),
+  ])));
 }
 
 function features() {
   const rows = [
-    { k: "grape", i: ICONS.book, t: "lp.f1title", b: "lp.f1body" },
-    { k: "sky", i: ICONS.camera, t: "lp.f2title", b: "lp.f2body" },
-    { k: "leaf", i: ICONS.layers, t: "lp.f3title", b: "lp.f3body" },
-    { k: "tangerine", i: ICONS.award, t: "lp.f4title", b: "lp.f4body" },
+    ["f1", libraryArt], ["f2", sourcesArt], ["f3", curveArt], ["f4", sheetArt],
   ];
   return el("section.lp-sec", {}, [
     el("h2.lp-h2", {}, t("lp.featTitle")),
     el("p.lp-sub", {}, t("lp.featSub")),
-    el("div.lp-grid", {}, rows.map((r) => el("article.lp-card", {
-      style: { "--accent": `var(--c-${r.k})`, "--accent-tint": `var(--c-${r.k}-tint)`, "--accent-ink": `var(--c-${r.k}-ink)` },
-    }, [
-      el("span.lp-card__ic", {}, icon(r.i, 22)),
-      el("h3", {}, t(r.t)),
-      el("p", {}, t(r.b)),
+    el("div.lp-rows", {}, rows.map(([k, art]) => el("article.lp-row", {}, [
+      el("div.lp-row__text", {}, [el("h3", {}, t(`lp.${k}title`)), el("p", {}, t(`lp.${k}body`))]),
+      el("div.lp-row__art", {}, [art()]),
     ]))),
   ]);
 }
@@ -118,33 +189,20 @@ function steps() {
   return el("section.lp-sec.lp-sec--steps", {}, [
     el("h2.lp-h2", {}, t("lp.stepsTitle")),
     el("ol.lp-steps", {}, items.map((k, i) => el("li.lp-step", {}, [
-      el("span.lp-step__n", {}, String(i + 1)),
-      el("div", {}, [
-        el("h3", {}, t(`${k}title`)),
-        el("p", {}, t(`${k}body`)),
-      ]),
+      el("span.lp-step__n", { "aria-hidden": "true" }, String(i + 1)),
+      el("h3", {}, t(`${k}title`)),
+      el("p", {}, t(`${k}body`)),
     ]))),
   ]);
 }
 
-function trust() {
-  const items = [
-    { i: ICONS.download, k: "lp.t1" },
-    { i: ICONS.shield, k: "lp.t2" },
-    { i: ICONS.check, k: "lp.t3" },
-    { i: ICONS.check, k: "lp.t4" },
-  ];
-  return el("section.lp-trust", {}, items.map((x) => el("div.lp-trust__item", {}, [
-    icon(x.i, 16), el("span", {}, t(x.k)),
-  ])));
-}
-
 function closer() {
   return el("section.lp-closer", {}, [
-    el("h2.lp-h2", {}, t("lp.closeTitle")),
-    el("p.lp-sub", {}, t("lp.closeBody")),
-    el("button.btn.btn--lg", { type: "button", onclick: () => enter("#/library") },
-      [t("lp.ctaPrimary"), icon(ICONS.arrow, 18)]),
+    el("div", {}, [
+      el("h2.lp-h2", {}, t("lp.closeTitle")),
+      el("p.lp-sub", {}, t("lp.closeBody")),
+    ]),
+    el("button.btn.btn--lg", { type: "button", onclick: () => enter("#/library") }, t("lp.ctaPrimary")),
   ]);
 }
 
@@ -170,13 +228,11 @@ export function renderLanding() {
     title: t("lp.pageTitle"),
     chrome: false,
     node: el("div.lp", {}, [
-      el("div.lp-glow", { "aria-hidden": "true" }),
       header(),
       el("main.lp-main", { id: "main" }, [
         hero(),
         features(),
         steps(),
-        trust(),
         closer(),
       ]),
       footer(),
