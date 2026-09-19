@@ -375,6 +375,7 @@ export class TutorChat {
         verbosity: store.settings.tutorVerbosity,
         history: this.history,
         testMode: this.testMode,
+        student: store.profile,
       });
       for await (const chunk of tutorStream({ system, messages: this.messages, signal: this.abort.signal })) {
         acc += chunk;

@@ -9,6 +9,7 @@
 import { el, icon, ICONS } from "../lib/dom.js";
 import { store } from "../store.js";
 import { t, getLang, setLang, LANGS } from "../lib/i18n.js";
+import { openWelcomeQuiz } from "../components/onboarding.js";
 
 /** Leaving the front page counts as having seen the intro, so the old
  *  first-run modal doesn't fire on top of the app right afterwards.
@@ -103,7 +104,7 @@ function hero() {
       el("h1.lp-h1", {}, t("lp.title")),
       el("p.lp-lead", {}, t("lp.lead")),
       el("div.lp-cta", {}, [
-        el("button.btn.btn--lg", { type: "button", onclick: () => enter("#/library") }, t("lp.ctaPrimary")),
+        el("button.btn.btn--lg", { type: "button", onclick: () => openWelcomeQuiz() }, t("lp.ctaPrimary")),
         el("button.btn.btn--ghost.btn--lg", { type: "button", onclick: () => enter("#/") },
           t("lp.ctaSecondary")),
       ]),
@@ -203,7 +204,7 @@ function closer() {
       el("h2.lp-h2", {}, t("lp.closeTitle")),
       el("p.lp-sub", {}, t("lp.closeBody")),
     ]),
-    el("button.btn.btn--lg", { type: "button", onclick: () => enter("#/library") }, t("lp.ctaPrimary")),
+    el("button.btn.btn--lg", { type: "button", onclick: () => openWelcomeQuiz() }, t("lp.ctaPrimary")),
   ]);
 }
 

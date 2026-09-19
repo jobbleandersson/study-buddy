@@ -9,6 +9,7 @@ import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
+import { openWelcomeQuiz } from "../components/onboarding.js";
 import { playFanfare } from "../lib/sound.js";
 import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
 
@@ -178,6 +179,10 @@ export function renderSettings() {
         noted("set.adaptive", adaptiveSel, "set.adaptiveNote"),
         noted("set.pomodoro", pomoSel, "set.pomodoroNote"),
         noted("set.voice", voiceSel, voiceSupported ? "set.voiceNote" : "set.voiceUnsupported"),
+      ]),
+      el("div.settings__redo", {}, [
+        el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => openWelcomeQuiz({ force: true }) }, t("set.welcomeRedo")),
+        el("p.note", {}, t("set.welcomeRedoNote")),
       ]),
     ]);
 

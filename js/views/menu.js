@@ -848,7 +848,9 @@ function ring(v, color) {
 
 function greeting() {
   const h = new Date().getHours();
-  return t(h < 12 ? "menu.morning" : h < 18 ? "menu.afternoon" : "menu.evening");
+  const hello = t(h < 12 ? "menu.morning" : h < 18 ? "menu.afternoon" : "menu.evening");
+  const name = store.profile?.name;   // from the welcome quiz — see components/onboarding.js
+  return name ? `${hello}, ${name}` : hello;
 }
 
 /**
@@ -884,8 +886,13 @@ async function fillStarterSuggestion(slot) {
     tr = getLang() === "en" ? await loadLibraryTranslations() : { levels: {}, subjects: {}, sets: {} };
   } catch { return; }
 
-  const level = index.levels?.find((l) => l.id === "ak9") || index.levels?.[0];
-  const subject = level && index.subjects?.find((s) => s.level === level.id);
+  // The welcome quiz's level and first subject, when they match the library;
+  // åk 9 otherwise.
+  const wantLevel = { ak7: "ak7", ak8: "ak8", ak9: "ak9", gy: "gymnasiet" }[store.profile?.level];
+  const level = index.levels?.find((l) => l.id === wantLevel) || index.levels?.find((l) => l.id === "ak9") || index.levels?.[0];
+  const wanted = (store.profile?.subjects || []).map((n) => String(n).toLowerCase());
+  const subject = level && (index.subjects?.find((s) => s.level === level.id && wanted.includes(String(tr.subjects?.[s.id]?.name || s.name).toLowerCase()))
+    || index.subjects?.find((s) => s.level === level.id));
   const entry = subject && index.sets?.find((s) => s.subject === subject.id);
   if (!entry) return;
 

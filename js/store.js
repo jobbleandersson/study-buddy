@@ -134,6 +134,7 @@ function seedState() {
     srs: {},
     sessions: {},                    // in-progress sessions, keyed by session key
     onboarded: false,                // has the first-run walkthrough been seen?
+    profile: null,                   // answers to the welcome quiz — see components/onboarding.js; null until answered
     achievements: {},                // { id: unlockedAt } — 0 = "already true when shipped"
     readNotifications: {},           // { [notificationId]: signature } — see buildNotifications() in main.js
     activity: {
@@ -286,6 +287,7 @@ function mergeStates(server, local) {
   s.achievements = ach;
 
   s.onboarded = !!(s.onboarded || l.onboarded);
+  s.profile = s.profile || l.profile || null;
   // settings + readNotifications: the server's win (last-synced config, transient state)
   return s;
 }
@@ -324,6 +326,7 @@ function finishMigrate(s) {
   // Existing users have already "onboarded" by virtue of having data — only a
   // genuinely fresh seedState() starts with onboarded: false.
   s.onboarded = s.onboarded ?? ((s.assignments || []).length > 0 || (s.attempts || []).length > 0);
+  s.profile = s.profile || null;
   s.srs = s.srs || {};
   s.sessions = s.sessions || {};
   s.attempts = s.attempts || [];
@@ -561,6 +564,15 @@ class Store extends EventTarget {
   markOnboarded() {
     if (this.state.onboarded) return;
     this.update((s) => { s.onboarded = true; });
+  }
+
+  /** What the welcome quiz learned about the student (or null). Kept small and
+   *  personal-data-light on purpose: it is synced with the account and a slice of
+   *  it (first name, level, mood) is handed to the tutor. */
+  get profile() { return this.state.profile || null; }
+
+  saveProfile(patch) {
+    this.update((s) => { s.profile = { ...(s.profile || {}), ...patch }; });
   }
 
   /** Demo sets are examples, not the student's own content, so they follow the

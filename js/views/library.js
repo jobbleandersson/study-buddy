@@ -9,7 +9,7 @@ import { homeButton } from "../components/nav.js";
 import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
 import { masteryByTopic, setProgress } from "../lib/mastery.js";
 
-export async function renderLibrary() {
+export async function renderLibrary(qs = null) {
   let index, tr;
   try {
     index = await loadLibraryIndex();
@@ -50,6 +50,11 @@ export async function renderLibrary() {
 
   const root = el("div");
   const state = { level: null, subject: null, query: "", examMin: 0, addCounts: {} };
+  // Deep links from the welcome quiz: #/library?subject=<id> or ?level=<id>.
+  const wantSubject = qs?.get?.("subject") && index.subjects.find((s) => s.id === qs.get("subject"));
+  const wantLevel = qs?.get?.("level");
+  if (wantSubject) { state.level = wantSubject.level; state.subject = wantSubject.id; }
+  else if (wantLevel && index.levels.some((l) => l.id === wantLevel)) state.level = wantLevel;
 
   // Built once so typing never loses focus — paintBody() only touches bodyEl.
   const searchInput = el("input.search__input", {
