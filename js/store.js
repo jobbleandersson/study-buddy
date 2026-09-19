@@ -4,6 +4,7 @@
 import { uid } from "./lib/dom.js";
 import { localDayKey, currentStreak, addDays, studiedToday } from "./lib/activity.js";
 import { getLang, t } from "./lib/i18n.js";
+import { serverMessage } from "./lib/server-errors.js";
 import { ACHIEVEMENTS, achievementMetrics } from "./lib/achievements.js";
 import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } from "./lib/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
@@ -1279,7 +1280,7 @@ class Store extends EventTarget {
       body: JSON.stringify({ email, password }),
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(data?.error?.message || t("login.signupFailed"));
+    if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.signupFailed")));
     this.authed = true;
     this.authEmail = data.email;
     this._setSyncVersion(0);
@@ -1295,7 +1296,7 @@ class Store extends EventTarget {
       body: JSON.stringify({ email, password }),
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(data?.error?.message || t("login.loginFailed"));
+    if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.loginFailed")));
     this.authed = true;
     this.authEmail = data.email;
     await this._pullOnLogin();

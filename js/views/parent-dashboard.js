@@ -6,6 +6,7 @@
 import { store } from "../store.js";
 import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
 import { t, plural } from "../lib/i18n.js";
+import { serverMessage } from "../lib/server-errors.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { masteryByTopic, masteryForSubject } from "../lib/mastery.js";
@@ -23,7 +24,7 @@ async function api(url, opts) {
     ...opts,
   });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data?.error?.message || t("login.somethingWrong"));
+  if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.somethingWrong")));
   return data;
 }
 

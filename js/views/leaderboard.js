@@ -10,6 +10,7 @@ import { shareCard, tierEmoji } from "../lib/share-card.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { homeButton } from "../components/nav.js";
 import { t, plural } from "../lib/i18n.js";
+import { serverMessage } from "../lib/server-errors.js";
 
 async function api(url, opts) {
   const res = await fetch(url, {
@@ -18,7 +19,7 @@ async function api(url, opts) {
     ...opts,
   });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data?.error?.message || t("leaderboard.requestFailed"));
+  if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("leaderboard.requestFailed")));
   return data;
 }
 
