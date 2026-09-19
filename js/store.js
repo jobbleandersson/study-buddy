@@ -379,6 +379,10 @@ class Store extends EventTarget {
     // (the sign-in screen then shows no Google button).
     this.googleClientId = null;
 
+    // Optional https link the server offers for getting more AI allowance;
+    // null hides the upgrade button in the limit-reached prompt.
+    this.premiumUrl = null;
+
     // Auth/sync status — also instance-only, not synced app data. Sign-in is
     // opt-in: local-only mode (authed === false) works exactly as before.
     this.authed = false;
@@ -444,6 +448,8 @@ class Store extends EventTarget {
       // Absent (older server) → assume it does require auth, the safe default.
       this.proxyRequiresAuth = data?.messagesRequireAuth !== false;
       this.googleClientId = data?.googleClientId || null;
+
+      this.premiumUrl = typeof data?.premiumUrl === "string" && /^https:\/\//.test(data.premiumUrl) ? data.premiumUrl : null;
     } catch {
       this.proxyUp = false;
       this.proxyKeyConfigured = false;
@@ -485,11 +491,15 @@ class Store extends EventTarget {
    *  spent. Latches the gates shut until refreshUsage() clears it (next month,
    *  or a raised limit). */
   markAiQuotaExhausted(detail = {}) {
+    const wasOut = this._aiQuotaOut;
     this._aiQuotaOut = true;
     if (typeof detail.limit === "number") {
       this.aiUsage = { used: detail.used ?? detail.limit, limit: detail.limit, resetsAt: detail.resetsAt ?? this.aiUsage?.resetsAt ?? null };
     }
     this.emit();
+    // Only the moment the limit is first hit — the upgrade prompt listens for
+    // this, and shouldn't reappear on every later rejected request.
+    if (!wasOut) window.dispatchEvent(new CustomEvent("sb:quotaout", { detail: { resetsAt: this.aiUsage?.resetsAt ?? null } }));
   }
 
   /** A deadline that passed more than DUE_GRACE_DAYS ago clears itself, so the

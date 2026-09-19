@@ -7,6 +7,7 @@ import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
+import { masteryByTopic, setProgress } from "../lib/mastery.js";
 
 export async function renderLibrary() {
   let index, tr;
@@ -226,6 +227,19 @@ export async function renderLibrary() {
     ]);
   }
 
+  // Attempts don't change while this view is open (studying happens on other
+  // routes), so walk them once and let every card reuse the result.
+  let topicMasteryCache = null;
+  const topicMastery = () => (topicMasteryCache ??= masteryByTopic(store.attempts));
+
+  function lastStudiedText(ts) {
+    const days = Math.max(0, Math.round((new Date().setHours(0, 0, 0, 0) - new Date(ts).setHours(0, 0, 0, 0)) / 86400000));
+    if (days === 0) return t("lib.lastToday");
+    if (days === 1) return t("lib.lastYesterday");
+    if (days < 14) return t("lib.lastDays", { n: days });
+    return t("lib.lastWeeks", { n: Math.round(days / 7) });
+  }
+
   function setCard(entry) {
     const imported = isImported(entry.id);
     // Before adding, this reflects whatever's picked below — so it never
@@ -235,12 +249,13 @@ export async function renderLibrary() {
     const count = plural(chosenCount, "common.questionOne", "common.questionMany");
 
     // Added → "Study" is the primary action; "Exam mode" is the secondary. The
-    // question count is chosen once, right here, before adding — it's saved
-    // on the set as its default for future study sessions (see addCountSel
-    // below); exam mode always ignores it and runs the full set.
+    // question count is picked before adding (addCountSel below) and can be
+    // changed any time after (countSwitch); either way it's saved on the set as
+    // its study default. Exam mode always ignores it and runs the full set.
     const stored = imported ? store.getAssignment(entry.id) : null;
-    const countQ = stored?._studyCount && stored._studyCount < (entry.count || 0) ? stored._studyCount : 0;
-    const countText = countQ ? t("lib.countOfTotal", { n: countQ, total: entry.count }) : count;
+    const total = stored ? stored.questions.length : (entry.count || 0);
+    const countQ = stored?._studyCount && stored._studyCount < total ? stored._studyCount : 0;
+    const countText = countQ ? t("lib.countOfTotal", { n: countQ, total }) : count;
     const action = imported
       ? el("a.btn.btn--sm", { href: `#/session/${entry.id}${countQ ? `?count=${countQ}` : ""}` }, [icon(ICONS.play, 16), t("lib.study")])
       : el("button.btn.btn--sm", {
@@ -293,18 +308,60 @@ export async function renderLibrary() {
         }, [icon(ICONS.fileText, 16)])
       : null;
 
+    // How this set is going: a bar of questions you got right last time, when
+    // you last studied it, and the topic you miss most.
+    const progress = stored ? setProgress(stored, store.attempts, topicMastery()) : null;
+    const progressEl = progress
+      ? el("div.libprog", {}, [
+          el("div.libprog__bar", {
+            role: "img",
+            "aria-label": progress.seen ? t("lib.progressOf", { n: progress.known, total: progress.total }) : t("lib.notStarted"),
+          }, [el("i", { style: { width: `${progress.total ? Math.round((progress.known / progress.total) * 100) : 0}%` } })]),
+          el("div.libprog__row", {}, [
+            el("span", {}, progress.seen ? t("lib.progressOf", { n: progress.known, total: progress.total }) : t("lib.notStarted")),
+            progress.lastAt ? el("span.note", {}, lastStudiedText(progress.lastAt)) : null,
+          ].filter(Boolean)),
+          progress.weakTopic ? el("span.libprog__weak", {}, t("lib.weakestTopic", { topic: progress.weakTopic })) : null,
+        ].filter(Boolean))
+      : null;
+
+    // Session length, changeable after adding. 5/10/15 are offered up to the
+    // size of the copy in the student's library; the full size clears the limit.
+    const switchOpts = stored ? [5, 10, 15].filter((n) => n <= total) : [];
+    const perSession = countQ || total;
+    const countSwitch = switchOpts.length > 1
+      ? el("div.libseg", {}, [
+          el("span.libseg__label", {}, t("lib.countLabel")),
+          el("div.libseg__group", { role: "group", "aria-label": t("lib.countLabel") }, switchOpts.map((n) =>
+            el("button", {
+              type: "button", "aria-pressed": String(n === perSession),
+              onclick: () => {
+                store.updateAssignment(stored.id, { _studyCount: n < total ? n : undefined });
+                paint();
+              },
+            }, String(n)))),
+        ])
+      : null;
+
+    const weakAction = progress?.weakCount
+      ? el("a.btn.btn--ghost.btn--sm", { href: `#/practice-weak?set=${entry.id}`, title: t("lib.weakDrillTip") },
+          [icon(ICONS.target, 16), t("lib.weakDrill", { n: progress.weakCount })])
+      : null;
+
     return el("div.libcard" + (imported ? ".libcard--added" : ""), {}, [
       el("div", {}, [
         el("div.libcard__title", {}, setTitle(entry)),
         el("p.note", { style: { margin: "4px 0 0" } }, setSummary(entry)),
       ]),
+      progressEl,
+      countSwitch,
       el("div.libcard__foot", {}, [
         imported
           ? el("span.libcard__added", {}, [icon(ICONS.check, 14), t("lib.addedTag"), el("span.libcard__count", {}, ` · ${countText}`)])
           : el("span.note", {}, count),
-        el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" } }, [addCountSel, action, examAction, printAction].filter(Boolean)),
+        el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" } }, [addCountSel, action, weakAction, examAction, printAction].filter(Boolean)),
       ]),
-    ]);
+    ].filter(Boolean));
   }
 
   root.appendChild(headerEl);

@@ -13,5 +13,10 @@ health.get("/health", (req, res) => {
     // Public by design (it's sent to every browser anyway). Null = Google
     // sign-in isn't set up, and the sign-in screen shows no Google button.
     googleClientId: process.env.GOOGLE_CLIENT_ID || null,
+
+    // Where the "you've used this month's AI allowance" prompt sends people
+    // who want more (e.g. a Stripe Payment Link). Unset = the prompt only
+    // explains the limit, with no upgrade button.
+    premiumUrl: /^https:\/\//.test(process.env.PREMIUM_URL || "") ? process.env.PREMIUM_URL : null,
   });
 });
