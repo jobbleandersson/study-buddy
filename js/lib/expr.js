@@ -8,6 +8,8 @@
 // Supports the variable x, constants pi/π/e/tau, and the functions below.
 // compile(src) returns f(x) => Number, or throws with a short message.
 
+import { t } from "./i18n.js";
+
 const FUNCS = {
   sin: Math.sin, cos: Math.cos, tan: Math.tan,
   asin: Math.asin, acos: Math.acos, atan: Math.atan,
@@ -47,7 +49,7 @@ function tokenize(src) {
     } else if (c === "·" || c === "×") { tokens.push({ t: "*" }); i++; }
     else if (c === "÷" || c === "∕") { tokens.push({ t: "/" }); i++; }
     else if (c === "−") { tokens.push({ t: "-" }); i++; }
-    else throw new Error("Oväntat tecken: " + c);
+    else throw new Error(t("calc.err.char", { c }));
   }
   return tokens;
 }
@@ -61,11 +63,11 @@ const neg = (a) => (x) => -a(x);
 
 export function compile(src, { degrees = false } = {}) {
   const tokens = tokenize(src);
-  if (!tokens.length) throw new Error("Skriv ett uttryck");
+  if (!tokens.length) throw new Error(t("calc.err.empty"));
   let pos = 0;
   const peek = () => tokens[pos];
   const eat = () => tokens[pos++];
-  const expect = (t) => { if (!peek() || peek().t !== t) throw new Error("Förväntade '" + t + "'"); return eat(); };
+  const expect = (tt) => { if (!peek() || peek().t !== tt) throw new Error(t("calc.err.expected", { t: tt })); return eat(); };
 
   function parseExpr() {
     let node = parseTerm();
@@ -101,7 +103,7 @@ export function compile(src, { degrees = false } = {}) {
   }
   function parseAtom() {
     const tk = peek();
-    if (!tk) throw new Error("Uttrycket är ofullständigt");
+    if (!tk) throw new Error(t("calc.err.incomplete"));
     if (tk.t === "num") { eat(); return () => tk.v; }
     if (tk.t === "(") { eat(); const e = parseExpr(); expect(")"); return e; }
     if (tk.t === "name") {
@@ -113,7 +115,7 @@ export function compile(src, { degrees = false } = {}) {
         while (peek() && peek().t === ",") { eat(); args.push(parseExpr()); }
         expect(")");
         const fn = FUNCS[nm];
-        if (!fn) throw new Error("Okänd funktion: " + tk.v);
+        if (!fn) throw new Error(t("calc.err.fn", { name: tk.v }));
         return (x) => {
           let a = args[0](x);
           if (degrees && TRIG.has(nm)) a = a * Math.PI / 180;
@@ -124,13 +126,13 @@ export function compile(src, { degrees = false } = {}) {
       }
       if (nm === "x") return (x) => x;
       if (nm in CONSTS) { const v = CONSTS[nm]; return () => v; }
-      throw new Error("Okänt namn: " + tk.v);
+      throw new Error(t("calc.err.name", { name: tk.v }));
     }
-    throw new Error("Oväntat: " + (tk.t === "num" ? tk.v : tk.t));
+    throw new Error(t("calc.err.unexpected", { what: tk.t === "num" ? tk.v : tk.t }));
   }
 
   const f = parseExpr();
-  if (pos < tokens.length) throw new Error("Oväntat efter uttrycket");
+  if (pos < tokens.length) throw new Error(t("calc.err.trailing"));
   return f;
 }
 
