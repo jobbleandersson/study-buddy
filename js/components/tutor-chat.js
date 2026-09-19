@@ -78,8 +78,11 @@ function contentLadder(question) {
 }
 
 export class TutorChat {
-  constructor({ locked = false, hintBudget = Infinity } = {}) {
+  constructor({ locked = false, hintBudget = Infinity, testMode = false } = {}) {
     this.locked = locked;
+    // In a graded test the tutor may hint but must never confirm or reveal the answer
+    // (the session flips this if the student leaves test mode).
+    this.testMode = testMode;
     // In a test the tutor can be given a small hint allowance instead of being
     // shut off entirely. hintBudget counts student questions, not tutor lines.
     this.hintBudget = hintBudget;
@@ -371,6 +374,7 @@ export class TutorChat {
         assignment: this.assignment, question: this.question,
         verbosity: store.settings.tutorVerbosity,
         history: this.history,
+        testMode: this.testMode,
       });
       for await (const chunk of tutorStream({ system, messages: this.messages, signal: this.abort.signal })) {
         acc += chunk;

@@ -1367,6 +1367,11 @@ class Store extends EventTarget {
       this.state = migrate(blob);
       this._setSyncVersion(version);
       this.save({ skipPush: true });
+      // The language is a per-device choice but the sets came from another
+      // device, so they may be in the other language — bring them in line, as a
+      // language switch would. (Found on a live sign-in: an English UI over
+      // Swedish library sets, and a tutor that answered half in each.)
+      try { await Promise.all([this.syncDemoLanguage(), this.syncLibraryLanguage(), this.syncHpLanguage()]); } catch {}
     } else {
       // Existing account with nothing synced yet — seed it from this device.
       await this._pushNow();

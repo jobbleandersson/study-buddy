@@ -282,7 +282,7 @@ function runSession(config) {
   let tutorSilent = testMode && hintBudget === 0;
   let leftTestMode = false;
 
-  const tutor = new TutorChat({ locked: tutorSilent, hintBudget });
+  const tutor = new TutorChat({ locked: tutorSilent, hintBudget, testMode });
 
   const fill = el("div.progressbar__fill");
   const bar = el("div.progressbar", {}, [fill]);
@@ -520,6 +520,7 @@ function runSession(config) {
     if (!on) leftTestMode = true;
 
     tutor.locked = tutorSilent;
+    tutor.testMode = testMode;
     tutor.formEl.hidden = tutorSilent;
     hintFab.hidden = tutorSilent;
 
@@ -563,7 +564,7 @@ function runSession(config) {
     skipBtn.hidden = answered || alreadySkipped || unansweredCount() <= 1;
 
     if (tutorSilent) tutor.showLocked();
-    else tutor.setQuestion(assignment, question);
+    else tutor.setQuestion(assignment, viewQuestion(question));
 
     const r = renderQuestion({
       question: viewQuestion(question),
