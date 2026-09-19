@@ -35,6 +35,7 @@ import { mountCommandPalette } from "./components/command-palette.js";
 import { mountSiteChat } from "./components/site-chat.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
 import { renderChallenge } from "./views/challenge.js";
+import { renderClasses, renderClassDetail } from "./views/classes.js";
 import { maybeShowOnboarding } from "./components/onboarding.js";
 
 const app = document.getElementById("app");
@@ -89,6 +90,8 @@ const routes = [
   { rx: /^\/login$/, view: () => renderLogin() },
   { rx: /^\/parent$/, view: () => renderParentHub() },
   { rx: /^\/parent\/(.+)$/, view: (m) => renderParentStudent(m[1]) },
+  { rx: /^\/classes$/, view: () => renderClasses() },
+  { rx: /^\/classes\/(.+)$/, view: (m) => renderClassDetail(m[1]) },
   { rx: /^\/national\/mix\/(.+)$/, view: (m, qs) => renderNationalMix(m[1], qs) },
   { rx: /^\/welcome$/, view: () => renderLanding() },
   { rx: /^\/about$/, view: () => renderAbout() },
@@ -143,6 +146,7 @@ function navGroups() {
     { href: "#/calculator", match: "/calculator", icon: ICONS.calculator, label: t("nav.calculator") },
   ];
   const account = [];
+  if (store.authed) account.push({ href: "#/classes", match: "/classes", icon: ICONS.clipboard, label: t("nav.classes") });
   if (store.authed) account.push({ href: "#/parent", match: "/parent", icon: ICONS.users, label: t("common.parent") });
   account.push({ href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings") });
 

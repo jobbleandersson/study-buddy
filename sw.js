@@ -88,6 +88,7 @@ const APP_SHELL = [
   "./js/views/print.js",
   "./js/views/teachback.js",
   "./js/views/challenge.js",
+  "./js/views/classes.js",
   "./js/components/questions.js",
   "./js/components/question-editor.js",
   "./js/components/tutor-chat.js",

@@ -39,3 +39,9 @@ export const FRIEND_INVITE_CODE_URL = `${API}/api/friends/invite-code`;
 export const FRIEND_REDEEM_URL = `${API}/api/friends/redeem`;
 export const FRIEND_LEADERBOARD_URL = `${API}/api/friends/leaderboard`;
 export const unfriendUrl = (linkId) => `${API}/api/friends/${linkId}`;
+
+// Class mode: a teacher's classes, and a student's view of what they've been given.
+export const CLASSES_URL = `${API}/api/classes`;
+export const CLASS_JOIN_URL = `${API}/api/classes/join`;
+export const MY_CLASS_ASSIGNMENTS_URL = `${API}/api/my-class-assignments`;
+export const classUrl = (id) => `${API}/api/classes/${id}`;

@@ -107,4 +107,34 @@ db.exec(`
     updated_at INTEGER NOT NULL,
     PRIMARY KEY (user_id, period)
   );
+
+  -- Class mode. Like parent/student links there's no teacher role: whoever
+  -- creates a class teaches it. A class has a standing join code (unlike the
+  -- short-lived invite codes above) so a whole room can join from one slide.
+  -- Joining is the students' consent for their teacher to see how they do on
+  -- the sets assigned to the class — and only those (see class-stats.js).
+  CREATE TABLE IF NOT EXISTS classes (
+    id TEXT PRIMARY KEY,
+    teacher_user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    name TEXT NOT NULL,
+    code TEXT UNIQUE NOT NULL,
+    created_at INTEGER NOT NULL
+  );
+
+  CREATE TABLE IF NOT EXISTS class_members (
+    class_id TEXT NOT NULL REFERENCES classes(id) ON DELETE CASCADE,
+    student_user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    joined_at INTEGER NOT NULL,
+    PRIMARY KEY (class_id, student_user_id)
+  );
+
+  -- A ready-made library set given to the whole class. due_at is a
+  -- "YYYY-MM-DD" day, same as a student's own deadlines, or NULL.
+  CREATE TABLE IF NOT EXISTS class_assignments (
+    id TEXT PRIMARY KEY,
+    class_id TEXT NOT NULL REFERENCES classes(id) ON DELETE CASCADE,
+    set_id TEXT NOT NULL,
+    due_at TEXT,
+    created_at INTEGER NOT NULL
+  );
 `);

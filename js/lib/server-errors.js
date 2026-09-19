@@ -19,6 +19,16 @@ const KNOWN = {
   "Link not found.": "srv.err.linkNotFound",
   "Not linked to that student.": "srv.err.notLinked",
   "Not found.": "srv.err.notFound",
+  "Enter a class name.": "srv.err.className",
+  "Class not found.": "srv.err.classNotFound",
+  "You can't join your own class.": "srv.err.joinOwnClass",
+  "This class is full.": "srv.err.classFull",
+  "You can have up to 20 classes.": "srv.err.classLimit",
+  "Pick a set from the library.": "srv.err.pickSet",
+  "That date isn't valid.": "srv.err.badDate",
+  "That set is already assigned to this class.": "srv.err.alreadyAssigned",
+  "This class has too many assignments.": "srv.err.tooManyAssignments",
+  "Couldn't create the class. Try again.": "srv.err.classCreate",
 };
 
 export function serverMessage(message, fallback) {

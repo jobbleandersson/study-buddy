@@ -2321,6 +2321,30 @@ body.route-immersive .sitechat__panel { display: none; }
 }
 .confirmdlg__actions .btn { flex: 1 1 auto; justify-content: center; min-width: 120px; }
 
+/* Class mode: the hub rows, and a teacher's results grid. */
+.classrow {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--s-3); flex-wrap: wrap;
+  padding: var(--s-3); border: 1px solid var(--line); border-radius: var(--r-md);
+}
+.classcode { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 30px; font-weight: 700; letter-spacing: .14em; }
+.classgrid-wrap { overflow-x: auto; }
+.classgrid { border-collapse: collapse; width: 100%; font-size: var(--fs-sm); }
+.classgrid th, .classgrid td { padding: 6px 8px; text-align: left; vertical-align: middle; }
+.classgrid thead th { font-weight: 600; color: var(--ink-soft); vertical-align: bottom; min-width: 132px; }
+.classgrid thead th:first-child { min-width: 190px; }
+.classgrid tbody tr + tr td { border-top: 1px solid var(--line); }
+.classgrid__title { font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.classgrid__student { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); word-break: break-all; }
+.classcell { display: block; min-width: 56px; text-align: center; border-radius: var(--r-sm); padding: 3px 6px; font-weight: 700; }
+.classcell--hi { background: var(--ok-tint); color: var(--ok-ink); }
+.classcell--mid { background: var(--surface-sunk); color: var(--ink); }
+.classcell--lo { background: var(--retry-tint); color: var(--retry-ink); }
+.classcell--none { color: var(--ink-faint); font-weight: 400; }
+.classmiss { display: flex; align-items: center; gap: var(--s-3); font-size: var(--fs-sm); padding: 3px 0; }
+.classmiss__topic { flex: 0 0 34%; min-width: 0; }
+.classmiss__bar { flex: 1; height: 6px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
+.classmiss__bar > i { display: block; height: 100%; background: var(--retry); border-radius: inherit; }
+
 /* Challenge a friend: the share dialog, the friend's landing card, and the
    comparison on the results screen. */
 .challengedlg { max-width: 440px; }
