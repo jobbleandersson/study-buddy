@@ -649,6 +649,7 @@ class Store extends EventTarget {
 
     const targets = this.state.assignments.filter((a) => {
       if (a._sampleLang) return false;             // a demo set — syncDemoLanguage's job
+      if (/^lib-hp-/.test(a.id)) return false;     // Högskoleprovet — syncHpLanguage's job
       if (a._libLang === "custom") return false;   // the student's own now
       if (!a._libLang && !entryById.has(a.id)) return false;
       return (a._libLang || "sv") !== lang;        // untagged sets count as Swedish
@@ -727,6 +728,51 @@ class Store extends EventTarget {
       }
       a._libLang = lang;
       changed++;
+    }
+
+    if (changed) { this.save({ skipPush: true }); this.emit(); }
+    return changed;
+  }
+
+  /** Högskoleprov sets live in their own index (data/library/hp-index.json),
+   *  which syncLibraryLanguage never sees — it used to mark them "custom" on
+   *  the first language switch, freezing the Swedish titles. Their questions
+   *  ship in Swedish only, so this only swaps the set title and the subject
+   *  name for the hub's English overlay. A set the student renamed is left
+   *  alone; one wrongly frozen as "custom" is adopted again if its title is
+   *  still one of ours. */
+  async syncHpLanguage() {
+    const lang = getLang();
+    const hpSets = this.state.assignments.filter((a) => /^lib-hp-/.test(a.id));
+    if (!hpSets.length) return 0;
+
+    let index, tr;
+    try {
+      const hp = await import("./data/hp-content.js");
+      index = await hp.loadHpIndex();
+      tr = await hp.loadHpTranslations();
+    } catch { return 0; } // index not reachable/cached — try again next time
+    const entryById = new Map(index.sets.map((s) => [s.id, s]));
+
+    let changed = 0;
+    for (const a of hpSets) {
+      const entry = entryById.get(a.id);
+      if (!entry) continue;
+      const enTitle = tr.sets[a.id]?.title;
+      if (a.title !== entry.title && a.title !== enTitle) continue; // renamed by the student
+
+      const wantTitle = lang === "en" ? (enTitle || entry.title) : entry.title;
+      if (a.title !== wantTitle) { a.title = wantTitle; changed++; }
+      if (a._libLang !== lang) { a._libLang = lang; changed++; }
+
+      const svName = index.subjects.find((s) => s.id === entry.subject)?.name;
+      const targetName = lang === "en" ? tr.subjects[entry.subject]?.name : svName;
+      const subj = this.state.subjects.find((x) => x.id === a.subjectId);
+      if (targetName && subj && subj.name !== targetName &&
+          this.state.assignments.every((x) => x.subjectId !== subj.id || x._libLang)) {
+        subj.name = targetName;
+        changed++;
+      }
     }
 
     if (changed) { this.save({ skipPush: true }); this.emit(); }

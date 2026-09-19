@@ -1119,7 +1119,7 @@ export const STRINGS = {
 
     /* ---- formula sheet ---- */
     "ref.title": "Formula sheet",
-    "ref.sub": "Maths, physics and chemistry formulas for åk 7–gymnasiet. Works offline.",
+    "ref.sub": "Maths, physics and chemistry formulas from year 7 through gymnasiet. Works offline.",
     "ref.search": "Search formulas…",
     "ref.noHits": "No formulas match “{q}”.",
     "ref.loadFail": "Couldn't load the formula sheet.",

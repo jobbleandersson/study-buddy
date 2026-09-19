@@ -677,7 +677,7 @@ window.addEventListener("sb:langchange", async () => {
   // Best-effort — a failed content sync must not leave the UI stranded in the
   // old language, so the re-render below always runs.
   try {
-    await Promise.all([store.syncDemoLanguage(), store.syncLibraryLanguage()]);
+    await Promise.all([store.syncDemoLanguage(), store.syncLibraryLanguage(), store.syncHpLanguage()]);
   } catch (e) {
     console.warn("language content sync failed:", e);
   }
@@ -716,6 +716,7 @@ store.init().then(() => {
   Promise.all([
     store.syncDemoLanguage(),
     store.syncLibraryLanguage().then(async (n) => n + (await store.syncLibraryUpdates())),
+    store.syncHpLanguage(),
   ]).then((counts) => {
     if (!counts.some(Boolean)) return;
     if (isSessionActive()) { window.dispatchEvent(new Event("sb:langsession")); render({ chromeOnly: true }); }
