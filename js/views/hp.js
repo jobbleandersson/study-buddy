@@ -12,6 +12,8 @@ import { store, PALETTE } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t, plural, daysUntil, getLang, sentenceCase } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
+import { foldedDatePicker } from "../components/calendar.js";
+import { localDayKey } from "../lib/activity.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import { sparkline } from "../lib/spark.js";
 import { weakSpotQuestions, firstTryCorrect } from "../lib/mastery.js";
@@ -244,7 +246,7 @@ export async function renderHp() {
     const prog = hpPrognosis();
 
     /* ---- countdown / date ---- */
-    const dateInput = el("input", { type: "date", value: hpDate || "", "aria-label": t("hp.setDate") });
+    const datePick = foldedDatePicker({ label: t("hp.dateLabel"), min: localDayKey() });
     bodyEl.appendChild(el("section.panel.hp-dash__head", {}, [
       hpDate
         ? el("p.hp-dash__when", {}, [
@@ -257,12 +259,15 @@ export async function renderHp() {
           ])
         : el("div", {}, [
             el("p.note", { style: { marginBottom: "9px" } }, t("hp.noDatePrompt")),
-            el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center" } }, [
-              dateInput,
+            el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "flex-start" } }, [
+              datePick.el,
               el("button.btn.btn--sm", {
                 type: "button",
                 onclick: () => {
-                  if (store.setHpDate(dateInput.value)) { toast(t("hp.dateSaved")); paint(); }
+                  const day = datePick.getValue();
+                  // Nothing picked yet: open the calendar rather than "saving" an empty date.
+                  if (!day) { datePick.el.querySelector("details")?.setAttribute("open", ""); return; }
+                  if (store.setHpDate(day)) { toast(t("hp.dateSaved")); paint(); }
                 },
               }, [icon(ICONS.calendar, 16), t("hp.setDate")]),
             ]),
