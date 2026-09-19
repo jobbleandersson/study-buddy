@@ -127,24 +127,31 @@ export async function renderPractice(attemptId) {
 
 /** Drill whatever topics you keep getting wrong. Across every set by
  *  default; scoped to one subject when `?subject=<id>` is set (the
- *  exam-prep page uses this — weakSpotQuestions already filters on the
- *  assignments array it's handed, so a subset scopes it for free). */
+ *  exam-prep page uses this) or to one set with `?set=<id>` (a library
+ *  card's "weak spots" button) — weakSpotQuestions already filters on the
+ *  assignments array it's handed, so a subset scopes it for free. */
 export async function renderWeakPractice(qs) {
   const subjectId = qs?.get?.("subject") || null;
-  const pool = subjectId
-    ? store.assignments.filter((a) => a.subjectId === subjectId)
-    : store.assignments;
+  const setId = qs?.get?.("set") || null;
+  const pool = setId
+    ? store.assignments.filter((a) => a.id === setId)
+    : subjectId
+      ? store.assignments.filter((a) => a.subjectId === subjectId)
+      : store.assignments;
   const weak = weakSpotQuestions(pool, store.attempts);
   if (!weak.length) {
     return emptyScreen(t("session.noWeakTitle"), t("session.noWeakBody"), t("session.badgeWeak"));
   }
 
   return runSession({
-    key: WEAK_ID,
+    // A set-scoped drill gets its own resumable slot, so it can't resume into
+    // (or over) the all-sets drill.
+    key: setId ? `${WEAK_ID}::${setId}` : WEAK_ID,
     assignmentId: WEAK_ID,
     title: t("session.weakTitle"),
     type: "assignment",
-    retryHash: subjectId ? `#/practice-weak?subject=${subjectId}` : "#/practice-weak",
+    retryHash: setId ? `#/practice-weak?set=${setId}`
+      : subjectId ? `#/practice-weak?subject=${subjectId}` : "#/practice-weak",
     questionIds: weak.map((w) => w.question.id),
     forceTutor: true,
   });

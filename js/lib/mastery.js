@@ -70,6 +70,42 @@ export function deltaFromAttempt(attempts, newAttempt) {
 }
 
 /**
+ * How one set is going, from every attempt that touched its questions.
+ * A question is "known" when its most recent answer was right first try.
+ * `weakTopic`/`weakCount` use the same threshold and "untouched isn't weak"
+ * rule as weakSpotQuestions, so the card agrees with the weak-spots drill.
+ * Pass a precomputed `topicMastery` to avoid re-walking every attempt per set.
+ */
+export function setProgress(assignment, attempts, topicMastery = masteryByTopic(attempts), { threshold = 0.6 } = {}) {
+  const questions = assignment.questions || [];
+  const ids = new Set(questions.map((q) => q.id));
+
+  const latest = new Map(); // questionId -> { at, ok }
+  let lastAt = 0;
+  for (const att of attempts) {
+    const at = att.finishedAt || 0;
+    for (const it of att.items || []) {
+      if (!ids.has(it.questionId)) continue;
+      if (at > lastAt) lastAt = at;
+      const prev = latest.get(it.questionId);
+      if (!prev || at >= prev.at) latest.set(it.questionId, { at, ok: firstTryCorrect(it) });
+    }
+  }
+  let known = 0;
+  for (const v of latest.values()) if (v.ok) known++;
+
+  let weakTopic = null, weakLevel = threshold, weakCount = 0;
+  for (const q of questions) {
+    const m = topicMastery[q.topic];
+    if (m == null || m >= threshold) continue;
+    weakCount++;
+    if (m < weakLevel) { weakLevel = m; weakTopic = q.topic; }
+  }
+
+  return { total: ids.size, known, seen: latest.size, lastAt: lastAt || null, weakTopic, weakCount };
+}
+
+/**
  * Questions worth drilling because you keep getting their topic wrong.
  * Uses the same recency-weighted mastery as everything else, so it reflects
  * how you've been doing lately rather than your all-time average.

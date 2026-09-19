@@ -33,6 +33,7 @@ import { renderAbout, renderTerms, renderPrivacy } from "./views/legal.js";
 import { renderLanding } from "./views/landing.js";
 import { mountCommandPalette } from "./components/command-palette.js";
 import { mountSiteChat } from "./components/site-chat.js";
+import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
 import { maybeShowOnboarding } from "./components/onboarding.js";
 
 const app = document.getElementById("app");
@@ -701,6 +702,7 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
 
 mountCommandPalette();
 mountSiteChat();
+mountUpgradePrompt();
 
 store.init().then(() => {
   applyLang();
