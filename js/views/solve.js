@@ -15,6 +15,7 @@ import { tutorStream, ClaudeError } from "../claude.js";
 import { solveChatSystem } from "../prompts.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
+import { bindFileTargets } from "../components/file-drop.js";
 
 export function renderSolve() {
   const root = el("div.solve");
@@ -162,17 +163,6 @@ export function renderSolve() {
     const inputEl = el("input.tutor__input", {
       type: "text", placeholder: t("solve.chatPlaceholder"), "aria-label": t("solve.chatPlaceholder"),
       onkeydown: (e) => { if (e.key === "Enter") send(); },
-      onpaste: async (e) => {
-        for (const item of e.clipboardData?.items || []) {
-          if (item.kind === "file" && item.type.startsWith("image/")) {
-            e.preventDefault();
-            const file = item.getAsFile();
-            if (file) await attachImage(file);
-            return;
-          }
-        }
-        // No image on the clipboard — let a text paste land in the input as normal.
-      },
     });
 
     const attachBtn = el("button.iconbtn", {
@@ -198,14 +188,24 @@ export function renderSolve() {
       el("h1", {}, t("solve.title")),
       resetBtn,
     ]));
-    root.appendChild(el("div.panel", {}, [
+    const panel = el("div.panel.solve-chat__panel", {}, [
       canChat ? null : gateNote(),
       logEl,
       pendingEl,
       formEl,
-    ].filter(Boolean)));
+      canChat ? el("div.solve-chat__drop", { "aria-hidden": "true" }, t("solve.dropHere")) : null,
+    ].filter(Boolean));
+    root.appendChild(panel);
 
-    if (canChat) appendWelcome();
+    if (canChat) {
+      appendWelcome();
+      // Drag a picture onto the page, or paste one anywhere — focused or not.
+      bindFileTargets(panel, {
+        accept: "image/*", paste: true,
+        onFiles: ([file]) => attachImage(file),
+        onReject: () => toast(t("err.imageType")),
+      });
+    }
   }
 
   build();

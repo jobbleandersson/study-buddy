@@ -7,7 +7,7 @@
 // app uses (see js/lib/activity.js).
 
 import { el, clear } from "../lib/dom.js";
-import { t, getLang } from "../lib/i18n.js";
+import { t, getLang, fmtDate } from "../lib/i18n.js";
 import { localDayKey, addDays } from "../lib/activity.js";
 
 function locale() { return getLang() === "sv" ? "sv-SE" : "en-GB"; }
@@ -181,6 +181,24 @@ export function datePicker({ value = "", min = "", max = "", onChange } = {}) {
     el: root,
     getValue: () => selected,
     setValue: (key) => select(key || "", { silent: true }),
+  };
+}
+
+/** A datePicker folded into one row that shows the chosen day, so the month
+ *  grid opens on demand instead of filling half the screen above the
+ *  questions. Same getValue/setValue as datePicker. */
+export function foldedDatePicker({ label, value = "", min = "" } = {}) {
+  const valueEl = el("span.deadline__value");
+  const show = (key) => { valueEl.textContent = key ? fmtDate(key) : ""; };
+  const picker = datePicker({ value, min, onChange: show });
+  show(value);
+  return {
+    el: el("details.deadline", {}, [
+      el("summary", {}, [el("span", {}, label), valueEl]),
+      picker.el,
+    ]),
+    getValue: picker.getValue,
+    setValue: (key) => { picker.setValue(key); show(key); },
   };
 }
 

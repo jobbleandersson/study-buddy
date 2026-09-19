@@ -13,7 +13,8 @@ import { questionEditor } from "../components/question-editor.js";
 import { subjectField } from "../components/subject-field.js";
 import { t, plural } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
-import { datePicker } from "../components/calendar.js";
+import { foldedDatePicker } from "../components/calendar.js";
+import { fileDrop } from "../components/file-drop.js";
 import { NATIONAL_TEST_LEVELS, NATIONAL_TEST_SUBJECTS, nationalSubjectName } from "../data/national-tests.js";
 
 // Starter questions for a "build it myself" set — one of each kind, cycling.
@@ -85,6 +86,8 @@ export function renderCreate(prefill) {
     material: "",
     topic: "",
     image: null,
+    imageName: "",            // what's shown in the photo drop zone if we come back to it
+    pdfName: "",
     gradeHint: "",
     // No fallback to t("common.general") here — that's a real value the
     // subject field would show pre-filled (not placeholder text), inviting a
@@ -229,34 +232,42 @@ export function renderCreate(prefill) {
    * shared by the "Upload PDF" source and the Nationellt prov source. */
   function appendPdfOrZipField(body) {
     const status = el("p.note", { style: { marginTop: "8px" } });
-    const input = el("input", {
-      type: "file",
+    let run = 0;   // a newer file wins if an older one is still being read
+    const zone = fileDrop({
       accept: "application/pdf,.pdf,application/zip,application/x-zip-compressed,.zip",
-      onchange: async (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
+      types: t("drop.typesPdf"),
+      initial: state.material && state.pdfName ? { name: state.pdfName } : null,
+      onFile: async (file) => {
+        const mine = ++run;
+        state.pdfName = file.name;
         status.className = "note";
         status.textContent = t("create.reading"); state.material = "";
         const isZip = /\.zip$/i.test(file.name) || file.type.includes("zip");
         try {
           if (isZip) {
             const { text, pdfCount, totalPdfCount, skippedAudio } = await extractZipText(file);
+            if (mine !== run) return;
             state.material = text;
             status.textContent = t("create.zipExtracted", {
               n: pdfCount, total: totalPdfCount, name: file.name,
               audio: skippedAudio ? t("create.zipSkippedAudio", { n: skippedAudio }) : "",
             });
           } else {
-            state.material = await extractPdfText(file);
+            const text = await extractPdfText(file);
+            if (mine !== run) return;
+            state.material = text;
             status.textContent = t("create.extracted", { n: state.material.length.toLocaleString(), name: file.name });
           }
         } catch (err) {
+          if (mine !== run) return;
           status.className = "note note--warn";
           status.textContent = err.message || t("create.readFail");
+          zone.reset(); state.pdfName = "";
         }
       },
+      onClear: () => { run++; state.material = ""; state.pdfName = ""; status.textContent = ""; },
     });
-    body.appendChild(el("label.field", {}, [el("span", {}, t("create.pdfOrZipFile")), input]));
+    body.appendChild(el("div.field", {}, [el("span", {}, t("create.pdfOrZipFile")), zone.el]));
     body.appendChild(status);
   }
 
@@ -336,29 +347,34 @@ export function renderCreate(prefill) {
 
     if (state.source === "photo") {
       const status = el("p.note", { style: { marginTop: "8px" } });
-      const preview = el("div", { style: { marginTop: "10px" } });
-      const onFile = async (file) => {
-        if (!file) return;
-        status.className = "note";
-        status.textContent = t("create.reading"); state.image = null; clear(preview);
-        try {
-          state.image = await readImageFile(file);
-          status.textContent = t("create.loadedFile", { name: file.name });
-          preview.appendChild(el("img", { src: state.image.preview, alt: "", style: { maxWidth: "260px", borderRadius: "12px", border: "1px solid var(--line)" } }));
-        } catch (err) {
-          status.className = "note note--warn";
-          status.textContent = err.message || t("create.readFail");
-        }
-      };
-      // capture="environment" opens the camera on mobile; ignored on desktop.
-      const camInput = el("input", { type: "file", accept: "image/*", capture: "environment",
-        onchange: (e) => onFile(e.target.files[0]) });
-      const fileInput = el("input", { type: "file", accept: "image/*",
-        onchange: (e) => onFile(e.target.files[0]) });
-      body.appendChild(el("label.field", {}, [el("span", {}, t("create.takePhoto")), camInput]));
-      body.appendChild(el("label.field", {}, [el("span", {}, t("create.choosePhoto")), fileInput]));
+      let run = 0;   // a newer picture wins if an older one is still being read
+      const zone = fileDrop({
+        kind: "image", accept: "image/*", types: t("drop.typesImage"),
+        camera: true,   // "Take a photo" on touch devices — a desktop has no camera to ask for
+        paste: true,    // a screenshot on the clipboard just works, focused or not
+        initial: state.image ? { name: state.imageName || t("drop.pastedName"), thumb: state.image.preview } : null,
+        onFile: async (file, { pasted }) => {
+          const mine = ++run;
+          state.imageName = pasted ? t("drop.pastedName") : file.name;
+          status.className = "note";
+          status.textContent = t("create.reading"); state.image = null;
+          try {
+            const img = await readImageFile(file);
+            if (mine !== run) return;
+            state.image = img;
+            status.textContent = "";
+            zone.setThumb(img.preview);
+          } catch (err) {
+            if (mine !== run) return;
+            status.className = "note note--warn";
+            status.textContent = err.message || t("create.readFail");
+            zone.reset(); state.imageName = "";
+          }
+        },
+        onClear: () => { run++; state.image = null; state.imageName = ""; status.textContent = ""; },
+      });
+      body.appendChild(el("div.field", {}, [el("span", {}, t("create.choosePhotoLabel")), zone.el]));
       body.appendChild(status);
-      body.appendChild(preview);
     }
 
     if (state.source === "import") {
@@ -368,11 +384,10 @@ export function renderCreate(prefill) {
         oninput: (e) => { state.material = e.target.value; refresh(); },
       });
       ta.value = state.material;
-      const fileInput = el("input", {
-        type: "file", accept: ".csv,.tsv,.txt,.json,text/csv,text/plain,application/json",
-        onchange: async (e) => {
-          const f = e.target.files[0];
-          if (!f) return;
+      const zone = fileDrop({
+        accept: ".csv,.tsv,.txt,.json,text/csv,text/plain,application/json",
+        types: t("drop.typesCards"),
+        onFile: async (f) => {
           const text = await f.text();
           // A friend's shared set (studybuddy .json) imports straight away —
           // it's already questions, no parsing needed.
@@ -384,7 +399,7 @@ export function renderCreate(prefill) {
               location.hash = `#/edit/${a.id}`;
               return;
             }
-          } catch (err) { toast(err.message); return; }
+          } catch (err) { toast(err.message); zone.reset(); return; }
           state.material = text;
           ta.value = state.material;
           refresh();
@@ -393,7 +408,7 @@ export function renderCreate(prefill) {
       body.append(
         el("p.note", {}, t("create.importHint")),
         el("label.field", {}, [el("span", {}, t("create.importPaste")), ta]),
-        el("label.field", {}, [el("span", {}, t("create.importFile")), fileInput]),
+        el("div.field", {}, [el("span", {}, t("create.importFile")), zone.el]),
         status,
       );
       function refresh() {
@@ -410,7 +425,7 @@ export function renderCreate(prefill) {
       const levelSel = el("select", {
         onchange: (e) => {
           state.npLevel = e.target.value || null;
-          state.npEntry = null; state.subjectLocked = false; state.material = "";
+          state.npEntry = null; state.subjectLocked = false; state.material = ""; state.pdfName = "";
           paint();
         },
       }, [
@@ -426,7 +441,7 @@ export function renderCreate(prefill) {
           onchange: (e) => {
             const entry = subjectEntries.find((s) => s.id === e.target.value) || null;
             state.npEntry = entry;
-            state.material = "";
+            state.material = ""; state.pdfName = "";
             if (entry) { state.subject = nationalSubjectName(entry); state.subjectLocked = true; }
             else state.subjectLocked = false;
             paint();
@@ -610,7 +625,7 @@ export function renderCreate(prefill) {
       ? { el: el("input", { type: "text", value: doc.subject, "aria-label": t("create.subject"), disabled: true }) }
       : subjectField({ value: doc.subject, onChange: (v) => { doc.subject = v; } });
 
-    const duePicker = datePicker({ value: doc.dueAt || "", min: localDayKey() });
+    const duePicker = foldedDatePicker({ label: t("create.dueDate"), value: doc.dueAt || "", min: localDayKey() });
 
     const countNote = el("p.note");
     const editor = questionEditor(doc, {
@@ -633,7 +648,7 @@ export function renderCreate(prefill) {
           el("label.field", {}, [el("span", {}, t("create.setTitle")), titleInput]),
           el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
         ]),
-        el("div.field", { style: { maxWidth: "320px" } }, [el("span", {}, t("create.dueDate")), duePicker.el]),
+        duePicker.el,
         countNote,
       ]),
       editor.el,

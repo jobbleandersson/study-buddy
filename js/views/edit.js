@@ -7,7 +7,7 @@ import { questionEditor } from "../components/question-editor.js";
 import { generateAssignment, ClaudeError } from "../claude.js";
 import { t, plural } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
-import { datePicker } from "../components/calendar.js";
+import { foldedDatePicker } from "../components/calendar.js";
 import { subjectField } from "../components/subject-field.js";
 import { homeButton } from "../components/nav.js";
 
@@ -28,7 +28,8 @@ export function renderEdit(assignmentId, qs) {
   const subjectName = store.subjects.find((s) => s.id === original.subjectId)?.name || t("common.general");
   // A deadline already in the past stays editable — don't clamp to today here,
   // only when creating.
-  const duePicker = datePicker({
+  const duePicker = foldedDatePicker({
+    label: t("edit.dueDate"),
     value: original.dueAt || "",
     min: original.dueAt && original.dueAt < localDayKey() ? original.dueAt : localDayKey(),
   });
@@ -111,7 +112,7 @@ export function renderEdit(assignmentId, qs) {
         el("label.field", {}, [el("span", {}, t("create.subject")), subjectFld.el]),
       ]),
       el("label.field", { style: { maxWidth: "260px" } }, [el("span", {}, t("create.type")), typeSel]),
-      el("div.field", { style: { maxWidth: "320px", marginBottom: "0" } }, [el("span", {}, t("edit.dueDate")), duePicker.el]),
+      duePicker.el,
       countNote,
     ]),
 

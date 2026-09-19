@@ -78,18 +78,21 @@ export function questionEditor(doc, { onChange } = {}) {
         if (!Array.isArray(q.choices) || q.choices.length < 2) q.choices = ["", ""];
         if (typeof q.answer !== "number") q.answer = 0;
         q.choices.forEach((c, ci) => {
+          // A real radio underneath (keyboard, screen readers), drawn as the
+          // choice's letter — filled green when it's the right answer.
           const radio = el("input", {
             type: "radio", name: `correct-${q.id}`, checked: q.answer === ci,
             "aria-label": t("ed.choiceCorrect", { letter: String.fromCharCode(65 + ci) }),
             onchange: () => { q.answer = ci; },
           });
+          const pick = el("label.qedit__pick", {}, [radio, el("span", {}, String.fromCharCode(65 + ci))]);
           const text = el("input", {
             type: "text", value: c, style: { flex: "1" },
             "aria-label": t("ed.choiceAria", { letter: String.fromCharCode(65 + ci) }),
             oninput: (e) => { q.choices[ci] = e.target.value; },
           });
           body.appendChild(el("div.qedit__row", {}, [
-            radio, text,
+            pick, text,
             q.choices.length > 2 && el("button.iconbtn.iconbtn--sm", {
               type: "button", "aria-label": t("ed.removeChoice", { letter: String.fromCharCode(65 + ci) }),
               onclick: () => {
@@ -150,7 +153,7 @@ export function questionEditor(doc, { onChange } = {}) {
       oninput: (e) => { q.topic = e.target.value.toLowerCase(); },
     });
 
-    wrap.appendChild(el("div.qedit__row", {}, [
+    wrap.appendChild(el("div.qedit__row.qedit__head", {}, [
       grip,
       el("span.badge", {}, t("ed.qBadge", { n: idx + 1 })),
       kindSel,
