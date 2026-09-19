@@ -482,22 +482,58 @@ function flashcard({ question, tutor, live, testMode, onDone }) {
     };
   }
 
+  const promptText = el("div.flashcard__text", { html: renderRich(question.prompt) });
+  const answerText = el("div.flashcard__text", { html: renderRich(question.answer) });
   const card = el("div.flashcard", { role: "button", tabindex: "0", "aria-label": t("q.flipAria") }, [
     el("div.flashcard__inner", {}, [
-      el("div.flashcard__face", { html: renderRich(question.prompt) }),
-      el("div.flashcard__face.flashcard__face--back", { html: renderRich(question.answer) }),
+      el("div.flashcard__face", {}, [promptText]),
+      el("div.flashcard__face.flashcard__face--back", {}, [answerText]),
     ]),
   ]);
+  // Space is the session's flip shortcut — keep it from firing while this
+  // button has focus, or "Show more" would flip the card instead.
+  const more = el("button.linkbtn", {
+    type: "button", hidden: true, "aria-expanded": "false",
+    onclick: () => (expanded ? collapse() : expand()),
+    onkeydown: (e) => e.stopPropagation(),
+  }, t("q.showMore"));
   const rate = el("div.selfrate", { hidden: true }, [
     [t("q.rateAgain"), "again"], [t("q.rateHard"), "hard"], [t("q.rateGood"), "good"], [t("q.rateEasy"), "easy"],
   ].map(([label, grade]) =>
     el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => pick(grade) }, label)));
 
   let flipped = false;
+  let expanded = false;
+
+  // A face is "clamped" when its text is taller than the cap; only then is
+  // there anything for "Show more" to reveal. Not measured while expanded
+  // (the cap is off, so nothing overflows) — collapse() re-measures.
+  function syncMore() {
+    const face = flipped ? answerText : promptText;
+    more.hidden = !(expanded || face.classList.contains("is-clamped"));
+    more.textContent = t(expanded ? "q.showLess" : "q.showMore");
+    more.setAttribute("aria-expanded", String(expanded));
+  }
+  function measure() {
+    if (!card.isConnected) { resizeWatch?.disconnect(); return; }
+    if (expanded) return;
+    for (const txt of [promptText, answerText]) {
+      txt.classList.toggle("is-clamped", txt.scrollHeight > txt.clientHeight + 1);
+    }
+    syncMore();
+  }
+  function expand() { expanded = true; card.classList.add("is-expanded"); syncMore(); }
+  function collapse() { expanded = false; card.classList.remove("is-expanded"); measure(); }
+
+  const resizeWatch = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(measure);
+  resizeWatch?.observe(promptText);
+  resizeWatch?.observe(answerText);
+
   function flip() {
     flipped = !flipped;
     card.classList.toggle("is-flipped", flipped);
     if (flipped) rate.hidden = false;
+    collapse();
   }
   card.addEventListener("click", flip);
   card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); } });
@@ -526,7 +562,7 @@ function flashcard({ question, tutor, live, testMode, onDone }) {
     result, handleKey,
     el: shell(question, el("div", {}, [
       card,
-      el("p.note", { style: { marginTop: "10px" } }, t("q.tapFlip")),
+      el("div.flashcard__meta", {}, [el("p.note", {}, t("q.tapFlip")), more]),
       rate,
     ]), { showPrompt: false }),
   };
