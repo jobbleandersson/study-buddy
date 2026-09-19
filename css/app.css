@@ -1448,6 +1448,24 @@ body.no-chrome .sitechat__panel { display: none; }
 }
 .q-speak:hover { color: var(--brand); border-color: var(--brand); }
 .q-speak.is-on { background: var(--brand); border-color: var(--brand); color: #fff; }
+/* Read / Listen / Speak tools on a language-set question. */
+.langbar { display: flex; flex-direction: column; gap: var(--s-2); margin-bottom: var(--s-4); }
+.langbar__row { display: flex; align-items: center; gap: var(--s-2); flex-wrap: wrap; }
+.langbar__modes { display: inline-flex; border: 1px solid var(--line-strong); border-radius: var(--r-md); overflow: hidden; }
+.langbar__modes button {
+  border: 0; background: transparent; color: var(--ink-soft); cursor: pointer;
+  font: inherit; font-size: var(--fs-sm); font-weight: 700; padding: 4px 12px;
+}
+.langbar__modes button + button { border-left: 1px solid var(--line-strong); }
+.langbar__modes button[aria-pressed="true"] { background: var(--brand); color: #fff; }
+.langbar__modes button:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; }
+.langbar__note { margin: 0; }
+.langbar__speak { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+.langbar__speak .btn.is-on { background: var(--retry); border-color: var(--retry); color: #fff; }
+.langbar__out { font-size: var(--fs-sm); color: var(--ink-soft); }
+.langbar__out.is-good { color: var(--ok-ink); font-weight: 700; }
+.langbar__out.is-close { color: var(--ink); font-weight: 700; }
+.langbar__out.is-off { color: var(--retry-ink); }
 .reading__row--stack { flex-direction: column; align-items: stretch; gap: 6px; }
 .reading__voice { width: 100%; font: inherit; font-size: var(--fs-sm); padding: 6px 8px; border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); }
 
@@ -2311,6 +2329,56 @@ body.route-immersive .sitechat__panel { display: none; }
   margin-top: var(--s-5); flex-wrap: wrap;
 }
 .confirmdlg__actions .btn { flex: 1 1 auto; justify-content: center; min-width: 120px; }
+
+/* Class mode: the hub rows, and a teacher's results grid. */
+.classrow {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--s-3); flex-wrap: wrap;
+  padding: var(--s-3); border: 1px solid var(--line); border-radius: var(--r-md);
+}
+.classcode { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 30px; font-weight: 700; letter-spacing: .14em; }
+.classgrid-wrap { overflow-x: auto; }
+.classgrid { border-collapse: collapse; width: 100%; font-size: var(--fs-sm); }
+.classgrid th, .classgrid td { padding: 6px 8px; text-align: left; vertical-align: middle; }
+.classgrid thead th { font-weight: 600; color: var(--ink-soft); vertical-align: bottom; min-width: 132px; }
+.classgrid thead th:first-child { min-width: 190px; }
+.classgrid tbody tr + tr td { border-top: 1px solid var(--line); }
+.classgrid__title { font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.classgrid__student { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); word-break: break-all; }
+.classcell { display: block; min-width: 56px; text-align: center; border-radius: var(--r-sm); padding: 3px 6px; font-weight: 700; }
+.classcell--hi { background: var(--ok-tint); color: var(--ok-ink); }
+.classcell--mid { background: var(--surface-sunk); color: var(--ink); }
+.classcell--lo { background: var(--retry-tint); color: var(--retry-ink); }
+.classcell--none { color: var(--ink-faint); font-weight: 400; }
+.classmiss { display: flex; align-items: center; gap: var(--s-3); font-size: var(--fs-sm); padding: 3px 0; }
+.classmiss__topic { flex: 0 0 34%; min-width: 0; }
+.classmiss__bar { flex: 1; height: 6px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; }
+.classmiss__bar > i { display: block; height: 100%; background: var(--retry); border-radius: inherit; }
+
+/* Challenge a friend: the share dialog, the friend's landing card, and the
+   comparison on the results screen. */
+.challengedlg { max-width: 440px; }
+.challengedlg__title { margin: 0 0 var(--s-2); font-family: var(--font-display); font-size: var(--fs-lg); line-height: 1.3; }
+.challengedlg__body { margin: 0 0 var(--s-4); color: var(--ink-soft); font-size: var(--fs-sm); line-height: 1.5; }
+.challengedlg__error { margin: calc(-1 * var(--s-2)) 0 var(--s-3); color: var(--retry-ink); font-size: var(--fs-sm); }
+.challengedlg__actions { display: flex; justify-content: flex-end; gap: var(--s-3); flex-wrap: wrap; margin-top: var(--s-4); }
+.challengedlg__actions .btn { flex: 1 1 auto; justify-content: center; min-width: 110px; }
+.challenge { max-width: 560px; margin: 0 auto; }
+.challenge__card { text-align: left; }
+.challenge__from { margin: 0 0 var(--s-1); color: var(--ink-soft); font-weight: 700; }
+.challenge__title { margin: 0 0 var(--s-4); font-size: var(--fs-xl); line-height: 1.2; }
+.challenge__score { display: flex; align-items: baseline; gap: var(--s-3); flex-wrap: wrap; margin-bottom: var(--s-3); }
+.challenge__pct { font-family: var(--font-display); font-weight: 700; font-size: 44px; line-height: 1; color: var(--brand); }
+.challenge__actions { display: flex; gap: var(--s-3); flex-wrap: wrap; }
+.challengecard { margin: var(--s-4) 0; padding: var(--s-4); border-radius: var(--r-lg); border: 1px solid var(--line); background: var(--surface); text-align: center; }
+.challengecard h3 { margin: 0 0 var(--s-3); }
+.challengecard--win { border-color: var(--ok); background: var(--ok-tint); }
+.challengecard--win h3 { color: var(--ok-ink); }
+.challengecard--lose { border-color: var(--line-strong); }
+.challengecard__vs { display: flex; align-items: center; justify-content: center; gap: var(--s-4); flex-wrap: wrap; }
+.challengecard__side { display: flex; flex-direction: column; align-items: center; min-width: 88px; }
+.challengecard__pct { font-family: var(--font-display); font-weight: 700; font-size: 32px; line-height: 1.1; }
+.challengecard__side.is-me .challengecard__pct { color: var(--brand); }
+.challengecard__dash { color: var(--ink-faint); font-weight: 700; font-size: var(--fs-sm); }
 
 /* "You've used this month's AI allowance" prompt. */
 .upgradedlg { max-width: 400px; }

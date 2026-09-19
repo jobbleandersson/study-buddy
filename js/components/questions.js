@@ -12,31 +12,49 @@ import { fromCorrect } from "../lib/srs.js";
 import { t } from "../lib/i18n.js";
 import { mathKeypad } from "./math-keypad.js";
 import { heuristic, normalizeAnswer } from "../lib/answer-match.js";
-import { speechSupported, isSpeaking, speak, stopSpeaking, questionToSpeech, getAutoRead } from "../lib/speech.js";
+import {
+  speechSupported, isSpeaking, speakSegments, stopSpeaking, questionToSegments, getAutoRead,
+  voiceForBcp, recognitionSupported, listenOnce, similarity,
+} from "../lib/speech.js";
+import { targetPhrases, maskTargetSpans, choicesAreTarget, segmentPrompt } from "../lib/lang-detect.js";
+
+// The language being learned in the question being built ({ code, bcp }), or
+// null for every other subject. Set for the duration of renderQuestion so
+// shell() can add the listen/speak tools without threading it through every
+// renderer.
+let activeTarget = null;
 
 export function renderQuestion(opts) {
-  const r = (() => {
-    switch (opts.question.kind) {
-      case "mc": return mc(opts);
-      case "flashcard": return flashcard(opts);
-      case "worked": return worked(opts);
-      // A cloze with no {{blanks}} is just a short-answer question — fall through
-      // rather than render a sentence nobody can answer.
-      case "cloze": return parseCloze(opts.question.prompt).some((p) => p.blank) ? cloze(opts) : text(opts);
-      default: return text(opts);
-    }
-  })();
+  activeTarget = opts.targetLang || null;
+  let r;
+  try {
+    r = (() => {
+      switch (opts.question.kind) {
+        case "mc": return mc(opts);
+        case "flashcard": return flashcard(opts);
+        case "worked": return worked(opts);
+        // A cloze with no {{blanks}} is just a short-answer question — fall through
+        // rather than render a sentence nobody can answer.
+        case "cloze": return parseCloze(opts.question.prompt).some((p) => p.blank) ? cloze(opts) : text(opts);
+        default: return text(opts);
+      }
+    })();
+  } finally {
+    activeTarget = null;
+  }
   // Read-aloud: if the student has turned on auto-read, speak the new question
   // once it's on screen. The speaker button on the card does it on demand.
   if (getAutoRead() && speechSupported()) {
-    setTimeout(() => speak(questionToSpeech(opts.question, t)), 350);
+    const target = opts.targetLang || null;
+    setTimeout(() => speakSegments(questionToSegments(opts.question, t, target)), 350);
   }
   return r;
 }
 
 /** A speaker button that reads a question aloud (prompt + options), toggling
- *  to "stop" while it speaks. Null when the browser has no speech synthesis. */
-function speakButton(question) {
+ *  to "stop" while it speaks. In a language set the quoted foreign text is
+ *  read in that language's voice. Null when the browser has no speech synthesis. */
+function speakButton(question, target) {
   if (!speechSupported()) return null;
   const btn = el("button.q-speak", {
     type: "button", "aria-label": t("q.readAloud"), title: t("q.readAloud"),
@@ -45,9 +63,143 @@ function speakButton(question) {
     if (isSpeaking()) { stopSpeaking(); btn.classList.remove("is-on"); return; }
     btn.classList.add("is-on");
     const done = () => btn.classList.remove("is-on");
-    speak(questionToSpeech(question, t), { onend: done, onerror: done });
+    speakSegments(questionToSegments(question, t, target), { onend: done, onerror: done });
   });
   return btn;
+}
+
+/* ---------------- listen / speak tools for language sets ---------------- */
+const LANG_MODE_KEY = "studybuddy.langMode";
+const getLangMode = () => {
+  try { const m = localStorage.getItem(LANG_MODE_KEY); return m === "listen" || m === "speak" ? m : "read"; } catch { return "read"; }
+};
+const setLangMode = (m) => { try { localStorage.setItem(LANG_MODE_KEY, m); } catch {} };
+
+/**
+ * Read / Listen / Speak for a question in a language set.
+ *   Read    — as before.
+ *   Listen  — the quoted foreign text is hidden behind a play button, so it's
+ *             a listening exercise; "Show text" lifts the mask.
+ *   Speak   — say the foreign phrase (the one in the prompt, or the right
+ *             answer once it's been found) and get a match score from the
+ *             browser's speech recognition. Practice only: not scored.
+ * Returns { el, reveal } — reveal() tells it the question has been answered.
+ */
+function languageBar(question, target, promptEl) {
+  const langName = t(`lang.name.${target.code}`);
+  const canSpeak = recognitionSupported();
+  const phrases = targetPhrases(question.prompt, target.code);
+  // Shadowing a whole reading passage is too much — take its first sentence.
+  const shadow = phrases.length
+    ? (() => {
+        const longest = phrases.reduce((a, b) => (b.split(/\s+/).length > a.split(/\s+/).length ? b : a));
+        return longest.split(/\s+/).length > 20 ? (longest.split(/(?<=[.!?])\s+/)[0] || longest) : longest;
+      })()
+    : null;
+  const choicesInTarget = question.kind === "mc" && Array.isArray(question.choices)
+    && choicesAreTarget(question.choices, question.prompt, target.code);
+  const masked = phrases.length ? maskTargetSpans(question.prompt, target.code) : null;
+
+  let mode = getLangMode();
+  if (mode === "speak" && !canSpeak) mode = "read";
+  let answered = false, revealed = false, listening = null;
+
+  // What to say out loud. A prompt sentence with gaps only makes sense once
+  // the right answer is known and can fill them ("llegué / cocinaba" → two gaps).
+  const gap = /_{2,}(?:\s*\([^)]*\))?/g;
+  const filled = () => {
+    const answer = question.choices?.[question.answer];
+    const gaps = shadow.match(gap) || [];
+    const parts = String(answer || "").split(/\s*\/\s*/);
+    if (!answer || !gaps.length) return null;
+    if (gaps.length === 1) return shadow.replace(gap, answer);
+    if (parts.length !== gaps.length) return null;
+    let i = 0;
+    return shadow.replace(gap, () => parts[i++]);
+  };
+  const phrase = () => {
+    const known = choicesInTarget && answered;
+    if (shadow && /_{2,}/.test(shadow)) return known ? filled() : null;
+    return shadow || (known ? question.choices[question.answer] : null);
+  };
+  const promptRuns = () => segmentPrompt(question.prompt, target.code)
+    .map((s) => ({ text: s.text.replace(/_{2,}/g, ", "), bcp: s.target ? target.bcp : null }));
+
+  const modes = ["read", "listen", ...(canSpeak ? ["speak"] : [])];
+  const modeBtns = modes.map((m) => el("button", {
+    type: "button", "data-mode": m,
+    onclick: () => { mode = m; setLangMode(m); if (listening) listening.stop(); apply(); },
+  }, t(`lang.mode${m[0].toUpperCase()}${m.slice(1)}`)));
+
+  const voiceNote = el("p.note.langbar__note", { hidden: true }, t("lang.noVoice", { lang: t(`lang.adj.${target.code}`) }));
+  function play(rate) {
+    if (!speechSupported()) return;
+    if (!voiceForBcp(target.bcp)) voiceNote.hidden = false;
+    const p = mode === "speak" ? phrase() : null;
+    speakSegments(p ? [{ text: p, bcp: target.bcp }] : promptRuns(), { rate });
+  }
+  const playBtn = el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => play(1) }, [icon(ICONS.volume, 16), t("lang.play")]);
+  const slowBtn = el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => play(0.65) }, t("lang.slow"));
+  const showBtn = el("button.linkbtn", { type: "button", onclick: () => { revealed = !revealed; apply(); } }, t("lang.showText"));
+  const hint = el("p.note.langbar__note", {}, t("lang.listenHint", { lang: langName }));
+
+  const micBtn = el("button.btn.btn--sm", { type: "button", onclick: toggleMic }, [icon(ICONS.mic, 16), t("lang.sayIt", { lang: langName })]);
+  const out = el("span.langbar__out", { "aria-live": "polite" });
+  const speakRow = el("div.langbar__speak", {}, [micBtn, out]);
+
+  function toggleMic() {
+    if (listening) { listening.stop(); return; }
+    const want = phrase();
+    if (!want) return;
+    out.className = "langbar__out"; out.textContent = t("lang.listening");
+    micBtn.classList.add("is-on");
+    const session = listenOnce(target.bcp, {
+      onresult: (alts) => {
+        const best = alts.map((a) => ({ a, pct: similarity(a, want) })).sort((x, y) => y.pct - x.pct)[0];
+        if (!best) { out.textContent = t("lang.heardNothing"); return; }
+        const tone = best.pct >= 85 ? "good" : best.pct >= 60 ? "close" : "off";
+        out.className = `langbar__out is-${tone}`;
+        out.textContent = `${t("lang.heard", { said: best.a, pct: best.pct })} · ${t(tone === "good" ? "lang.heardGood" : tone === "close" ? "lang.heardClose" : "lang.heardOff")}`;
+      },
+      onerror: (err) => {
+        out.className = "langbar__out is-off";
+        out.textContent = t(err === "no-speech" || err === "aborted" ? "lang.heardNothing" : "lang.micBlocked");
+      },
+      onend: () => { listening = null; micBtn.classList.remove("is-on"); },
+    });
+    if (session) listening = session;
+    else { micBtn.classList.remove("is-on"); out.className = "langbar__out is-off"; out.textContent = t("lang.micBlocked"); }
+  }
+
+  function apply() {
+    modeBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === mode)));
+    const listen = mode === "listen", speak = mode === "speak";
+    const hidden = listen && masked && !revealed;
+    promptEl.innerHTML = renderRich(hidden ? masked : question.prompt);
+    playBtn.hidden = slowBtn.hidden = mode === "read";
+    showBtn.hidden = !(listen && masked);
+    showBtn.textContent = t(revealed ? "lang.hideText" : "lang.showText");
+    hint.hidden = !hidden;
+    speakRow.hidden = !speak;
+    if (speak && !listening) {
+      const p = phrase();
+      micBtn.disabled = !p;
+      out.className = "langbar__out";
+      out.textContent = p ? `“${p}”` : t(choicesInTarget ? "lang.answerFirst" : "lang.nothingToSay");
+    }
+  }
+  apply();
+
+  return {
+    el: el("div.langbar", {}, [
+      el("div.langbar__row", {}, [
+        el("div.langbar__modes", { role: "group", "aria-label": t("lang.modeLabel") }, modeBtns),
+        playBtn, slowBtn, showBtn,
+      ]),
+      hint, voiceNote, speakRow,
+    ]),
+    reveal() { answered = true; if (mode === "speak") apply(); },
+  };
 }
 
 /**
@@ -146,16 +298,20 @@ function framePanel(question) {
 }
 
 function shell(question, body, { showPrompt = true } = {}) {
-  const speak = speakButton(question);
-  return el("div.question", {}, [
+  const target = activeTarget;
+  const speak = speakButton(question, target);
+  const promptEl = showPrompt ? el("div.question__prompt", { html: renderRich(question.prompt) }) : null;
+  // Flashcards keep their text on the card itself, so they only get the speaker.
+  const bar = target && promptEl && question.kind !== "flashcard" ? languageBar(question, target, promptEl) : null;
+  const node = el("div.question", {}, [
     framePanel(question),
     figurePanel(question.figure),
-    (showPrompt || speak) && el("div.question__topline", {}, [
-      showPrompt ? el("div.question__prompt", { html: renderRich(question.prompt) }) : el("span"),
-      speak,
-    ].filter(Boolean)),
+    (showPrompt || speak) && el("div.question__topline", {}, [promptEl || el("span"), speak].filter(Boolean)),
+    bar?.el,
     body,
   ].filter(Boolean));
+  node.langReveal = bar ? bar.reveal : null;
+  return node;
 }
 
 /* ---------------- multiple choice ---------------- */
@@ -208,6 +364,7 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2 
     if (correct) {
       btns[question.answer].classList.add("is-correct");
       done = true;
+      node.langReveal?.();
       result.correct = true;
       // Found after wrong picks: celebrated here, but not scored as known.
       result.firstTry = attempts === 1;
@@ -245,6 +402,7 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2 
     result.correct = false;
     btns.forEach((b) => (b.disabled = true));
     btns[question.answer].classList.add("is-correct");
+    node.langReveal?.();
     feedback.className = "feedback retry";
     feedback.innerHTML = renderRich(question.explanation || t("q.answerIs", { letter: String.fromCharCode(65 + question.answer) }));
     explainWhyRow(tutor, question, lastWrongChoice, feedback);
@@ -265,10 +423,8 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2 
     return false;
   }
 
-  return {
-    result, handleKey,
-    el: shell(question, el("div", {}, [list, el("div", { style: { marginTop: "16px" } }, [checkBtn]), feedback])),
-  };
+  const node = shell(question, el("div", {}, [list, el("div", { style: { marginTop: "16px" } }, [checkBtn]), feedback]));
+  return { result, handleKey, el: node };
 }
 
 /* ---------------- short text ---------------- */
