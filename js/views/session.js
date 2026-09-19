@@ -11,6 +11,7 @@ import { parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER } from "../lib/hp.js"
 import { announce } from "../lib/a11y.js";
 import { t, plural } from "../lib/i18n.js";
 import { renderQuestion, parseCloze, clozeToUnderscores } from "../components/questions.js";
+import { targetLangFor } from "../lib/lang-detect.js";
 import { renderRich } from "../lib/rich.js";
 import { TutorChat } from "../components/tutor-chat.js";
 import { homeButton } from "../components/nav.js";
@@ -567,6 +568,8 @@ function runSession(config) {
 
     const r = renderQuestion({
       question: viewQuestion(question),
+      // Language subjects get read-aloud in the right voice plus listen/speak tools.
+      targetLang: targetLangFor(store.subjects.find((s) => s.id === assignment.subjectId)?.name),
       tutor: tutorSilent ? null : tutor,
       live: store.hasKey(),
       testMode,

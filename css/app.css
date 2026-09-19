@@ -1444,6 +1444,24 @@ body.no-chrome .sitechat__panel { display: none; }
 }
 .q-speak:hover { color: var(--brand); border-color: var(--brand); }
 .q-speak.is-on { background: var(--brand); border-color: var(--brand); color: #fff; }
+/* Read / Listen / Speak tools on a language-set question. */
+.langbar { display: flex; flex-direction: column; gap: var(--s-2); margin-bottom: var(--s-4); }
+.langbar__row { display: flex; align-items: center; gap: var(--s-2); flex-wrap: wrap; }
+.langbar__modes { display: inline-flex; border: 1px solid var(--line-strong); border-radius: var(--r-md); overflow: hidden; }
+.langbar__modes button {
+  border: 0; background: transparent; color: var(--ink-soft); cursor: pointer;
+  font: inherit; font-size: var(--fs-sm); font-weight: 700; padding: 4px 12px;
+}
+.langbar__modes button + button { border-left: 1px solid var(--line-strong); }
+.langbar__modes button[aria-pressed="true"] { background: var(--brand); color: #fff; }
+.langbar__modes button:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; }
+.langbar__note { margin: 0; }
+.langbar__speak { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+.langbar__speak .btn.is-on { background: var(--retry); border-color: var(--retry); color: #fff; }
+.langbar__out { font-size: var(--fs-sm); color: var(--ink-soft); }
+.langbar__out.is-good { color: var(--ok-ink); font-weight: 700; }
+.langbar__out.is-close { color: var(--ink); font-weight: 700; }
+.langbar__out.is-off { color: var(--retry-ink); }
 .reading__row--stack { flex-direction: column; align-items: stretch; gap: 6px; }
 .reading__voice { width: 100%; font: inherit; font-size: var(--fs-sm); padding: 6px 8px; border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); }
 
