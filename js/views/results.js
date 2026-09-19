@@ -13,6 +13,8 @@ import { homeButton } from "../components/nav.js";
 import { playFanfare } from "../lib/sound.js";
 import { parseCloze, clozeToUnderscores } from "../components/questions.js";
 import { shareCard } from "../lib/share-card.js";
+import { openChallengeDialog } from "../components/challenge-dialog.js";
+import { isChallengeableSet, percentOf } from "../lib/challenge.js";
 
 export function renderResults(attemptId) {
   const attempt = store.attempts.find((a) => a.id === attemptId);
@@ -27,6 +29,11 @@ export function renderResults(attemptId) {
   const heading = (synced && assignment.title) || attempt.title || assignment?.title || t("session.reviewTitle");
   const score = attempt.scorePct;
   const great = score >= 80;
+
+  // Ready-made library sets can be turned into a challenge link for a friend.
+  const answeredN = (attempt.items || []).length;
+  const rightN = (attempt.items || []).filter(firstTryCorrect).length;
+  const canChallenge = !isReview && !attempt.hp && isChallengeableSet(attempt.assignmentId) && answeredN > 0;
 
   const before = store.attempts.filter((a) => a.finishedAt < attempt.finishedAt);
   const deltas = deltaFromAttempt(before, attempt);
@@ -103,6 +110,7 @@ export function renderResults(attemptId) {
       return n ? el("p.note", { style: { marginTop: "-4px" } }, plural(n, "results.retriedOne", "results.retriedMany")) : null;
     })(),
 
+    challengeCard(attempt),
     gradeReveal(attempt),
     hpReveal(attempt),
 
@@ -150,6 +158,10 @@ export function renderResults(attemptId) {
     ].filter(Boolean)) : null,
 
     el("div", { style: { display: "flex", gap: "12px", justifyContent: "center", marginTop: "24px", flexWrap: "wrap" } }, [
+      canChallenge && el("button.btn", {
+        type: "button",
+        onclick: () => openChallengeDialog({ setId: attempt.assignmentId, title: heading, correct: rightN, total: answeredN }),
+      }, [icon(ICONS.share, 16), t("challenge.button")]),
       el("button.btn.btn--ghost", {
         type: "button",
         onclick: () => shareCard({
@@ -173,6 +185,30 @@ export function renderResults(attemptId) {
   });
 
   return { title: t("results.title"), node, cleanup: clearConfetti };
+}
+
+/** A run that answered a friend's challenge: both scores side by side and who
+ *  came out ahead. Compared as percentages, since a friend may have played a
+ *  shorter or longer run. */
+function challengeCard(attempt) {
+  const c = attempt.challenge;
+  if (!c) return null;
+  const name = c.name || t("challenge.someone");
+  const mine = attempt.scorePct;
+  const theirs = percentOf(c.correct, c.total);
+  const outcome = mine > theirs ? "win" : mine === theirs ? "tie" : "lose";
+  const side = (label, pct, cls) => el("div.challengecard__side" + cls, {}, [
+    el("span.challengecard__pct", {}, `${pct} %`),
+    el("span.note", {}, label),
+  ]);
+  return el("div.challengecard.challengecard--" + outcome, {}, [
+    el("h3", {}, t(`challenge.${outcome}`, { name })),
+    el("div.challengecard__vs", {}, [
+      side(t("challenge.you"), mine, ".is-me"),
+      el("span.challengecard__dash", { "aria-hidden": "true" }, "vs"),
+      side(name, theirs, ""),
+    ]),
+  ]);
 }
 
 function countLabel(attempt) {

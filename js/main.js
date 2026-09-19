@@ -34,6 +34,7 @@ import { renderLanding } from "./views/landing.js";
 import { mountCommandPalette } from "./components/command-palette.js";
 import { mountSiteChat } from "./components/site-chat.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
+import { renderChallenge } from "./views/challenge.js";
 import { maybeShowOnboarding } from "./components/onboarding.js";
 
 const app = document.getElementById("app");
@@ -77,6 +78,7 @@ const routes = [
   { rx: /^\/settings$/, view: () => renderSettings() },
   { rx: /^\/gallery$/, view: () => renderGallery() },
   { rx: /^\/library$/, view: () => renderLibrary() },
+  { rx: /^\/utmaning$/, view: (m, qs) => renderChallenge(qs) },
   { rx: /^\/solve$/, view: () => renderSolve() },
   { rx: /^\/reference$/, view: () => renderReference() },
   { rx: /^\/calculator$/, view: () => renderCalculator() },

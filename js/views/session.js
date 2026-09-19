@@ -12,6 +12,7 @@ import { announce } from "../lib/a11y.js";
 import { t, plural } from "../lib/i18n.js";
 import { renderQuestion, parseCloze, clozeToUnderscores } from "../components/questions.js";
 import { targetLangFor } from "../lib/lang-detect.js";
+import { parseChallenge } from "../lib/challenge.js";
 import { renderRich } from "../lib/rich.js";
 import { TutorChat } from "../components/tutor-chat.js";
 import { homeButton } from "../components/nav.js";
@@ -60,10 +61,15 @@ export async function renderSession(assignmentId, qs) {
   const questionIds = count ? shuffled(allIds).slice(0, count) : allIds;
   const retryQuery = count ? (examQuery ? `${examQuery}&count=${count}` : `?count=${count}`) : examQuery;
 
+  // A friend's challenge (#/utmaning): remembered on the attempt so the results
+  // screen can compare. A retry is an ordinary run, hence not in retryQuery.
+  const challenge = examMode ? null : parseChallenge(qs, assignment.id);
+
   return runSession({
     // A shorter run keeps its own resumable slot, so it can't resume into a
-    // full run of the same set (or the other way round).
-    key: `${assignment.id}${examMode ? "::exam" : ""}${count ? `::n${count}` : ""}`,
+    // full run of the same set (or the other way round); same for a challenge.
+    key: `${assignment.id}${examMode ? "::exam" : ""}${count ? `::n${count}` : ""}${challenge ? "::ch" : ""}`,
+    challenge,
     assignmentId: assignment.id,
     title: assignment.title,
     type: assignment.type,
@@ -757,6 +763,7 @@ function runSession(config) {
       scorePct: answered.length ? Math.round((correct / answered.length) * 100) : 0,
       tutorHints: Number.isFinite(hintBudget) ? hintBudget - tutor.hintsLeft : 0,
       items: answered,
+      ...(config.challenge ? { challenge: config.challenge } : {}),
       // Högskoleprovet: mark the attempt and record raw verbal/kvant scores so
       // results.js can show a normed estimate instead of the F–A reveal.
       ...(config.hp ? {
