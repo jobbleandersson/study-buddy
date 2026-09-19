@@ -1479,18 +1479,30 @@ body.no-chrome .sitechat__panel { display: none; }
 .feedback.retry { background: var(--retry-tint); color: var(--retry-ink); }
 
 .flashcard { perspective: 1200px; }
+/* Both faces share one grid cell, so the card is always as tall as its taller
+   face — text can't spill out of it. The text itself is capped (see
+   .flashcard__text) and "Show more" lifts the cap. */
 .flashcard__inner {
-  position: relative; min-height: 200px; border-radius: var(--r-lg);
+  position: relative; display: grid; min-height: 200px; border-radius: var(--r-lg);
   transition: transform var(--dur-slow) var(--ease-spring); transform-style: preserve-3d; cursor: pointer;
 }
 .flashcard.is-flipped .flashcard__inner { transform: rotateY(180deg); }
 .flashcard__face {
-  position: absolute; inset: 0; backface-visibility: hidden;
-  display: grid; place-items: center; text-align: center; padding: var(--s-5);
+  grid-area: 1 / 1; backface-visibility: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: var(--s-5);
   border-radius: var(--r-lg); border: 2px solid var(--line-strong); background: var(--surface);
   font-size: var(--fs-lg); font-family: var(--font-display); font-weight: 600;
 }
 .flashcard__face--back { transform: rotateY(180deg); background: var(--brand-tint); }
+.flashcard__text { max-height: clamp(140px, 30vh, 260px); overflow: hidden; }
+.flashcard.is-expanded .flashcard__text { max-height: none; }
+.flashcard:not(.is-expanded) .flashcard__text.is-clamped {
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 36px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 36px), transparent);
+}
+.flashcard__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-4); margin-top: 10px; }
+.flashcard__meta .note { margin: 0; }
 .selfrate { display: flex; gap: var(--s-2); margin-top: var(--s-4); flex-wrap: wrap; }
 
 /* "how sure were you?" row after a practice answer */
@@ -2533,7 +2545,7 @@ kbd {
 /* ---------- instant solve: a chat from the first load ---------- */
 .solve-chat__log {
   display: flex; flex-direction: column; gap: var(--s-3); text-align: left;
-  max-height: 50vh; min-height: 160px; overflow-y: auto; padding: var(--s-2) 2px;
+  min-height: clamp(300px, 52vh, 560px); max-height: 68vh; overflow-y: auto; padding: var(--s-2) 2px;
 }
 /* Instructional, not a real reply — reads as the tutor's own opening line,
    but visually a touch quieter so it's not mistaken for a live answer. */
