@@ -1326,9 +1326,15 @@ body.no-chrome .sitechat__panel { display: none; }
 
 /* ---------- Högskoleprovet: figure + stimulus + KVA/NOG panels ---------- */
 .question__figure { margin: 0 0 var(--s-4); }
+/* The SVG figures pick their ink with prefers-color-scheme (an <img> can't see
+   the app's own theme toggle), so the ground has to follow the OS too — else
+   an OS-dark visitor on the light theme gets pale ink on white, and vice versa. */
 .question__figure img {
   display: block; max-width: 100%; height: auto;
-  border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--r-md); background: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  .question__figure img { background: #161a23; }
 }
 .question__figure figcaption { font-size: var(--fs-sm); color: var(--ink-faint); margin-top: var(--s-2); }
 .question__figure--missing {
