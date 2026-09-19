@@ -46,6 +46,9 @@ export async function importHpSet(entry) {
   const doc = await res.json();
   const a = store.addAssignmentDoc(doc, { silent: true });
   if (a) a._libLang = "sv";
+  // The set files are Swedish; if the app is in English, translate the title
+  // and subject now rather than waiting for the next boot or language switch.
+  await store.syncHpLanguage();
   store.save();
   store.emit();
   return a;

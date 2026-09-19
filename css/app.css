@@ -313,7 +313,7 @@ a.streakbadge:hover {
 .psheet__bar .homebtn { margin-bottom: 0; }
 
 .iconbtn {
-  display: inline-flex; align-items: center; justify-content: center;
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
   width: 40px; height: 40px; border-radius: var(--r-full);
   border: 1px solid var(--line-strong); background: var(--surface);
   color: var(--ink-soft); cursor: pointer;
@@ -1123,6 +1123,15 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .lp-brand img { width: 30px; height: 30px; }
 .lp-head__actions { display: flex; align-items: center; gap: var(--s-3); }
 .lp-head__actions .btn { white-space: nowrap; }
+/* On the narrowest phones the logo, language pill and "Open the app" no longer
+   fit in one row — the wordmark steps aside (still read by screen readers). */
+@media (max-width: 360px) {
+  .lp-brand { position: relative; }
+  .lp-brand span {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+  }
+}
 .lp-lang {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 6px 12px; border-radius: var(--r-full);
@@ -1180,7 +1189,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   font: inherit; font-size: 1rem; cursor: pointer;
   transition: border-color var(--dur-fast), background var(--dur-fast);
 }
-.lp-q__opt:hover:not(:disabled) { border-color: var(--brand); background: var(--brand-tint); }
+.lp-q__opt:hover:not([aria-disabled="true"]) { border-color: var(--brand); background: var(--brand-tint); }
 .lp-q__opt:focus-visible { outline: none; box-shadow: var(--ring); }
 .lp-q__opt b {
   flex: none; width: 26px; height: 26px; border-radius: 50%;
@@ -1191,8 +1200,8 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .lp-q__opt.is-right b { background: var(--ok); color: #fff; }
 .lp-q__opt.is-right svg { margin-left: auto; }
 .lp-q__opt.is-wrong { border-color: var(--retry); background: var(--retry-tint); color: var(--retry-ink); }
-.lp-q__opt:disabled { cursor: default; }
-.lp-q__opt:disabled:not(.is-right):not(.is-wrong) { opacity: .55; }
+.lp-q__opt[aria-disabled="true"] { cursor: default; }
+.lp-q__opt[aria-disabled="true"]:not(.is-right):not(.is-wrong) { opacity: .55; }
 .lp-q__fb {
   display: flex; align-items: flex-start; gap: 8px; margin: var(--s-4) 0 0; min-height: 3.1em;
   font-size: var(--fs-sm); line-height: 1.5; color: var(--ink-soft);
@@ -1624,7 +1633,8 @@ body.no-chrome .sitechat__panel { display: none; }
    the stat pills — so it needs a top gap, not a bottom one. */
 .home-panel--today > .recap { margin: var(--s-3) 0 0; }
 
-.nav-row { display: flex; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
+.nav-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-5); }
+.nav-row > div { flex-wrap: wrap; justify-content: flex-end; }
 
 /* ---------- tutor chat ---------- */
 .mascot { position: relative; display: inline-flex; flex: none; }
@@ -2046,6 +2056,7 @@ body.route-immersive .sitechat__panel { display: none; }
 .qedit { border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--s-4); margin-bottom: var(--s-3); background: var(--surface); }
 .qedit__row { display: flex; gap: var(--s-2); align-items: center; margin-bottom: var(--s-2); }
 .qedit__head { flex-wrap: wrap; row-gap: var(--s-2); }
+.qedit__row input[type=text] { min-width: 0; }   /* lets an answer box shrink instead of pushing the × off a small screen */
 /* Every control in a question gets the same look as the app's other fields,
    instead of the browser's stock select and text box. */
 .qedit select, .qedit input[type=text], .qedit textarea {
@@ -2073,7 +2084,8 @@ body.route-immersive .sitechat__panel { display: none; }
 .qedit__pick input:focus-visible + span { box-shadow: var(--ring); }
 
 /* A deadline folded into one row — the month grid opens on demand. */
-.deadline { max-width: 360px; margin-bottom: var(--s-4); border: 1px solid var(--line-strong); border-radius: var(--r-md); background: var(--surface); }
+.deadline-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--s-2); margin-bottom: var(--s-4); }
+.deadline { flex: 1 1 240px; max-width: 360px; border: 1px solid var(--line-strong); border-radius: var(--r-md); background: var(--surface); }
 .deadline > summary {
   display: flex; align-items: center; gap: var(--s-3); padding: 10px var(--s-4);
   font-weight: 700; font-size: var(--fs-sm); cursor: pointer; list-style: none;

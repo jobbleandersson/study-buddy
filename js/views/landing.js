@@ -65,19 +65,20 @@ function questionCard() {
   const opts = ["lp.mockA", "lp.mockB", "lp.mockC"].map((key, idx) => el("button.lp-q__opt", {
     type: "button",
     onclick: (e) => {
-      if (solved) return;
       const btn = e.currentTarget;
+      // aria-disabled, not disabled: a truly disabled button drops keyboard focus.
+      if (solved || btn.getAttribute("aria-disabled") === "true") return;
       if (idx === RIGHT) {
         solved = true;
         btn.classList.add("is-right");
         btn.appendChild(icon(ICONS.check, 16));
-        opts.forEach((o) => { if (o !== btn) o.disabled = true; });
+        opts.forEach((o) => { if (o !== btn) o.setAttribute("aria-disabled", "true"); });
         segs[2].className = "is-done";
         fb.className = "lp-q__fb is-right";
         fb.replaceChildren(icon(ICONS.spark, 14), t("lp.mockExplain"));
       } else {
         btn.classList.add("is-wrong");
-        btn.disabled = true;
+        btn.setAttribute("aria-disabled", "true");
         fb.className = "lp-q__fb is-wrong";
         fb.textContent = t("lp.mockWrong");
       }

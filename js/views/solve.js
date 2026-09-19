@@ -197,15 +197,17 @@ export function renderSolve() {
     ].filter(Boolean));
     root.appendChild(panel);
 
-    if (canChat) {
-      appendWelcome();
-      // Drag a picture onto the page, or paste one anywhere — focused or not.
-      bindFileTargets(panel, {
-        accept: "image/*", paste: true,
-        onFiles: ([file]) => attachImage(file),
-        onReject: () => toast(t("err.imageType")),
-      });
-    }
+    if (canChat) appendWelcome();
+    // Drag a picture onto the page, or paste one anywhere — focused or not.
+    // Signed out, a drop is still caught (otherwise the browser opens the image
+    // and the visitor loses the page) and answered with the reason instead.
+    bindFileTargets(panel, {
+      accept: "image/*", paste: canChat,
+      onFiles: canChat
+        ? ([file]) => attachImage(file)
+        : () => toast(store.aiNeedsSignIn() ? t("err.notSignedIn") : t("solve.noServerHere").trim()),
+      onReject: () => toast(t("err.imageType")),
+    });
   }
 
   build();
