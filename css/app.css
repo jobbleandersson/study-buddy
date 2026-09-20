@@ -2837,6 +2837,9 @@ kbd {
   .sidebar__link svg { width: clamp(15px, 2.5vh, 18px); height: clamp(15px, 2.5vh, 18px); }
   .sidebar__more { display: contents; }
   .sidebar__morecap { display: none; }
+  /* Spare height is split evenly above and below the links (auto margins), instead
+     of all landing as one gap above the streak card. */
+  .sidebar__nav { flex: 0 1 auto; margin-block: auto; }
 }
 @media (min-width: 900px) and (max-height: 1010px) {
   .sidebar { padding: var(--s-3); }
