@@ -47,3 +47,13 @@ export async function loadLibraryTranslations() {
 export function englishFile(file) {
   return file.replace(/^data\/library\//, "data/library-en/");
 }
+
+/** "Matematik 2" → "Matematik", "Historia 1a1" → "Historia". Gymnasium courses come as one
+ *  library subject per course level; a welcome-quiz answer or a "what do you study"
+ *  match cares about the subject, not the course. Names without a trailing course code
+ *  (every åk 7–9 subject) come back unchanged. */
+export function baseSubjectName(name) {
+  const s = String(name || "").trim();
+  const base = s.replace(/\s+\d+[a-z0-9]*$/i, "").trim();
+  return base || s;
+}

@@ -1710,6 +1710,7 @@ body.has-welcome { overflow: hidden; }
 .welcome__chip[aria-pressed="true"] .welcome__chip-mark { display: inline-flex; }
 
 .welcome__nav { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+.welcome__spacer { flex: 1; }
 
 .welcome__done { width: 52px; height: 52px; border-radius: var(--r-full); display: grid; place-items: center; background: var(--ok-tint); color: var(--ok); margin-bottom: var(--s-4); }
 .welcome__recap { list-style: none; margin: 0 0 var(--s-5); padding: 0; display: grid; gap: var(--s-2); }
@@ -2812,4 +2813,13 @@ kbd {
   .content { max-width: none; padding: 0; }
   .psheet__lines { background: none; height: 60px; border-bottom: 1px solid #999; }
   a[href]::after { content: ""; }
+}
+
+/* Phones: the primary action gets its own full-width row, where thumbs reach. */
+@media (max-width: 520px) {
+  .welcome__nav .btn--ghost { order: 1; }
+  .welcome__spacer { order: 2; }
+  .welcome__nav .linkbtn { order: 3; }
+  .welcome__nav .btn:not(.btn--ghost) { flex: 1 1 100%; order: 4; justify-content: center; }
+  .welcome__cta .btn { flex: 1 1 100%; justify-content: center; }
 }

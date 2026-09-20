@@ -713,9 +713,14 @@ mountUpgradePrompt();
 store.init().then(() => {
   applyLang();
   render();
-  // The front page covers the same ground as the first-run modal (better),
-  // so only one of the two ever greets a new visitor.
-  if (!shouldShowLanding()) maybeShowOnboarding();
+  // The front page covers the same ground as the welcome quiz (it opens the
+  // quiz itself), so only one of the two ever greets a new visitor. A first-timer
+  // who lands straight on an app page (say a shared #/library link) gets the
+  // quiz there — but never over a challenge link, the sign-in screen or the
+  // legal pages, where it would be an interruption.
+  const bootPath = currentPath();
+  const landingShown = shouldShowLanding() && (bootPath === "/" || bootPath === "/welcome");
+  if (!landingShown && /^\/(library|study|create|solve|hp|exam-prep)?$/.test(bootPath)) maybeShowOnboarding();
   // Bring any demo or library sets loaded in a different language up to date —
   // then refresh whatever's on screen so a deep-linked session or the home
   // grid shows the corrected wording.

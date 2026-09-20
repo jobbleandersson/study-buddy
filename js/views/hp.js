@@ -236,6 +236,14 @@ export async function renderHp() {
     const sets = hpSets();
 
     if (!sets.length) {
+      // A date saved before any set was added (the welcome quiz can do that)
+      // still deserves to be seen — otherwise it looks like it was lost.
+      const savedDate = store.settings.hpDate;
+      if (savedDate) {
+        bodyEl.appendChild(el("p.hp-dash__when", { style: { marginBottom: "14px" } }, [
+          icon(ICONS.clock, 16), " ", t("hp.provIn", { when: countdownLabel(savedDate) }),
+        ]));
+      }
       if (index) bodyEl.appendChild(hpAddPanel(index, tr, paint));
       else bodyEl.appendChild(el("section.panel", {}, [el("p", {}, t("lib.loadFailBody"))]));
       return;

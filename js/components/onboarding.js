@@ -13,6 +13,7 @@ import { store } from "../store.js";
 import { t, getLang, fmtDate } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { loadLibraryIndex, loadLibraryTranslations } from "../data/library.js";
+import { baseSubjectName } from "../lib/library-content.js";
 import { renderGoogleButton } from "./google-signin.js";
 import { openQuickAdd } from "./quick-add.js";
 
@@ -61,6 +62,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
     styleSet: false,
   };
   const libIds = new Map();                 // subject label -> library subject id (for the recap's "see practice" link)
+  const noPin = new Set();                  // labels that must not become a pinned home chip (grouped course names)
 
   let stepIdx = 0;
   let recap = false;
@@ -117,7 +119,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
     if (student && a.styleSet) settings.tutorVerbosity = a.style;
     if (a.goal === "hp" && a.testDate) settings.hpDate = a.testDate;
     if (Object.keys(settings).length) store.setSettings(settings);
-    for (const s of a.subjects) store.addSubject(s);
+    for (const s of a.subjects) if (!noPin.has(s)) store.addSubject(s);
     store.markOnboarded();
   }
 
@@ -145,7 +147,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
       content,
       el("div.welcome__nav", {}, [
         stepIdx > 0 ? el("button.btn.btn--ghost", { type: "button", onclick: () => go(stepIdx - 1) }, [icon(ICONS.back, 16), t("common.back")]) : el("span"),
-        el("span", { style: { flex: "1" } }),
+        el("span.welcome__spacer"),
         canSkip ? el("button.linkbtn", { type: "button", onclick: next }, t("welcome.skipStep")) : null,
         contBtn,
       ].filter(Boolean)),
@@ -232,7 +234,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
     const f = frame({ title: t("welcome.subjectsTitle"), body: t("welcome.subjectsBody"), content: wrap, canContinue: true });
     subjectOptions(a.level).then((opts) => {
       if (!wrap.isConnected) return;
-      for (const o of opts) if (o.libId) libIds.set(o.label, o.libId);
+      for (const o of opts) { if (o.libId) libIds.set(o.label, o.libId); if (o.pin === false) noPin.add(o.label); }
       wrap.replaceChildren(...opts.map((o) => {
         const b = el("button.welcome__chip", {
           type: "button", "aria-pressed": String(a.subjects.includes(o.label)),
@@ -389,10 +391,19 @@ async function subjectOptions(level) {
     try {
       const index = await loadLibraryIndex();
       const tr = getLang() === "en" ? await loadLibraryTranslations() : { subjects: {} };
-      const list = (index.subjects || []).filter((s) => s.level === libLevel)
-        .map((s) => ({ label: tr.subjects?.[s.id]?.name || s.name, libId: s.id }));
+      // One chip per subject: gymnasium courses (Matematik 1/2/3) collapse to "Matematik",
+      // and the chip links to the first course. Only un-grouped names are pinned as home chips,
+      // since a pinned "Matematik" would sit beside the real "Matematik 1" once it is added.
+      const seen = new Map();
+      for (const s of index.subjects || []) {
+        if (s.level !== libLevel) continue;
+        const full = tr.subjects?.[s.id]?.name || s.name;
+        const label = baseSubjectName(full);
+        if (!seen.has(label)) seen.set(label, { label, libId: s.id, pin: label === full });
+      }
+      const list = [...seen.values()];
       if (list.length) return list;
     } catch { /* fall through to the generic list */ }
   }
-  return GENERIC_SUBJECTS.map((k) => ({ label: t(`welcome.subj.${k}`) }));
+  return GENERIC_SUBJECTS.map((k) => ({ label: t(`welcome.subj.${k}`), pin: true }));
 }

@@ -5,7 +5,7 @@ import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast, downloadText } from "../lib/dom.js";
 import { t, plural, fmtDate, relativeDay, daysUntil, getLang } from "../lib/i18n.js";
 import { importSet } from "../data/library.js";
-import { loadLibraryIndex, loadLibraryTranslations } from "../lib/library-content.js";
+import { loadLibraryIndex, loadLibraryTranslations, baseSubjectName } from "../lib/library-content.js";
 import { localDayKey, questionsAnsweredToday } from "../lib/activity.js";
 import { weeklyRecap, isoWeek } from "../lib/recap.js";
 import { masteryByTopic, masteryForAssignment, weakSpotQuestions } from "../lib/mastery.js";
@@ -890,8 +890,8 @@ async function fillStarterSuggestion(slot) {
   // åk 9 otherwise.
   const wantLevel = { ak7: "ak7", ak8: "ak8", ak9: "ak9", gy: "gymnasiet" }[store.profile?.level];
   const level = index.levels?.find((l) => l.id === wantLevel) || index.levels?.find((l) => l.id === "ak9") || index.levels?.[0];
-  const wanted = (store.profile?.subjects || []).map((n) => String(n).toLowerCase());
-  const subject = level && (index.subjects?.find((s) => s.level === level.id && wanted.includes(String(tr.subjects?.[s.id]?.name || s.name).toLowerCase()))
+  const wanted = (store.profile?.subjects || []).map((n) => baseSubjectName(n).toLowerCase());
+  const subject = level && (index.subjects?.find((s) => s.level === level.id && wanted.includes(baseSubjectName(tr.subjects?.[s.id]?.name || s.name).toLowerCase()))
     || index.subjects?.find((s) => s.level === level.id));
   const entry = subject && index.sets?.find((s) => s.subject === subject.id);
   if (!entry) return;
