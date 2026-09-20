@@ -2845,19 +2845,14 @@ kbd {
   .sidebar__link svg { width: clamp(15px, 2.5vh, 18px); height: clamp(15px, 2.5vh, 18px); }
   .sidebar__more { display: contents; }
   .sidebar__morecap { display: none; }
-  /* Spare height is shared between the space under the logo and the space above the
-     streak card, 1 : 2 — a modest gap under the logo, the rest below the links —
-     rather than all landing in one place. Pseudo-elements act as weighted spacers. */
-  .sidebar__nav { flex: 0 1 auto; margin-block: 0; order: 2; }
-  .sidebar__brand { order: 0; font-size: 1.4rem; }
-  .sidebar__brand img { width: 34px; height: 34px; }
-  .sidebar::before { content: ""; order: 1; flex: 1 1 0; }
-  .sidebar::after { content: ""; order: 3; flex: 2 1 0; }
-  .sidebar__foot { order: 4; }
+  /* A big logo with only a small gap under it: the links sit right below it, and all
+     the spare height goes between the last link and the streak card. */
+  .sidebar__brand { font-size: 1.65rem; padding-bottom: var(--s-2); margin-bottom: var(--s-1); }
+  .sidebar__brand img { width: 42px; height: 42px; }
 }
 @media (min-width: 900px) and (max-height: 1010px) {
   .sidebar { padding: var(--s-3); }
-  .sidebar__brand { position: static; margin: 0 0 var(--s-2); padding: 2px var(--s-3); }
+  .sidebar__brand { position: static; margin: 0 0 var(--s-1); padding: 2px var(--s-3) var(--s-1); }
   .sidebar__nav { gap: 0; }
   .sidebar__group { margin: clamp(6px, 1.2vh, 14px) var(--s-3) 2px; }
   .sidebar__div { margin: var(--s-2) var(--s-3); }
@@ -2872,6 +2867,9 @@ kbd {
   .sidebar__group { height: 1px; margin: clamp(4px, 1vh, 9px) var(--s-3); padding: 0; font-size: 0; background: var(--line); }
   .sidebar__nav > .sidebar__group:first-child { display: none; }
   .sidebar__div { display: none; }
+}
+@media (min-width: 900px) and (max-height: 679px) {
+  .sidebar__link { min-height: clamp(26px, 4vh, 40px); }   /* room for the larger logo on laptop-height windows */
 }
 @media (min-width: 900px) and (max-height: 639px) {
   .sidebar__more { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 0 4px; }
