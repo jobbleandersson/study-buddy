@@ -163,6 +163,31 @@ function navItems() {
   return navGroups().flatMap((g) => g.items);
 }
 
+/** The desktop sidebar's nav. The first group (the everyday pages) sits directly
+ *  in the list; everything after it lives in `.sidebar__more`, which is
+ *  `display: contents` — invisible to layout — until the window is very short.
+ *  Then CSS turns it into a compact icon dock, so the whole nav still fits with
+ *  no scrolling (the links carry a title/aria-label for exactly that mode). */
+function sidebarNav() {
+  const groups = navGroups();
+  const link = (it, inMore) => el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
+    href: it.href,
+    "aria-current": navActive(it.match) ? "page" : null,
+    ...(inMore ? { title: it.label, "aria-label": it.label } : {}),
+  }, [icon(it.icon, 18), it.label]);
+  const part = (g, gi, inMore) => [
+    g.label ? el("p.sidebar__group", {}, g.label) : gi > 0 ? el("div.sidebar__div") : null,
+    ...g.items.map((it) => link(it, inMore)),
+  ].filter(Boolean);
+  return el("div.sidebar__nav", {}, [
+    ...part(groups[0], 0, false),
+    el("div.sidebar__more", {}, [
+      el("p.sidebar__morecap", {}, t("nav.more")),
+      ...groups.slice(1).flatMap((g, i) => part(g, i + 1, true)),
+    ]),
+  ]);
+}
+
 function currentPath() {
   return "/" + location.hash.replace(/^#\/?/, "").split("?")[0];
 }
@@ -547,15 +572,7 @@ function shell(contentNode) {
       el("img", { src: "assets/favicon.svg", alt: "" }),
       el("span.wordmark", {}, wordmark("Studify")),
     ]),
-    el("div.sidebar__nav", {}, navGroups().flatMap((g, gi) => [
-      g.label
-        ? el("p.sidebar__group", {}, g.label)
-        : gi > 0 ? el("div.sidebar__div") : null,
-      ...g.items.map((it) =>
-        el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
-          href: it.href, "aria-current": navActive(it.match) ? "page" : null,
-        }, [icon(it.icon, 18), it.label])),
-    ].filter(Boolean))),
+    sidebarNav(),
     el("div.sidebar__foot", {}, [
       sidebarStreak(streak, atRisk),
       themePicker(),
