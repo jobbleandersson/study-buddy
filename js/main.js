@@ -231,6 +231,7 @@ function moreMenu(active) {
 
   function close() {
     list.hidden = true;
+    document.body.classList.remove("has-topmenu");   // lets CSS tuck the chat bubble away while the menu is open
     btn.setAttribute("aria-expanded", "false");
     document.removeEventListener("click", onDoc, true);
     document.removeEventListener("keydown", onEsc, true);
@@ -241,6 +242,7 @@ function moreMenu(active) {
   btn.addEventListener("click", () => {
     if (list.hidden) {
       list.hidden = false;
+      document.body.classList.add("has-topmenu");
       btn.setAttribute("aria-expanded", "true");
       setTimeout(() => {
         document.addEventListener("click", onDoc, true);

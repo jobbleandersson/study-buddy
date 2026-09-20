@@ -248,39 +248,47 @@ a.streakbadge:hover {
 .tabbar__item svg { flex: none; }
 .tabbar__item span { font-size: 10.5px; font-weight: 600; }
 .tabbar__item.is-active { color: var(--brand-ink); }
-.tabbar__more { position: relative; flex: 1; display: flex; }
+.tabbar__more { flex: 1; display: flex; }   /* not positioned: the menu below anchors to the whole bar */
 /* Desktop carries the whole nav in the sidebar — hide the mobile bar. Placed
    after .tabbar's base rule so it wins the cascade (media queries add no
    specificity, so source order decides). */
 @media (min-width: 900px) { .tabbar { display: none; } }
 
 /* The "Meny" tab's popover — the full nav, opened upward from the bottom bar. */
+/* A grid of icon-over-label tiles, spanning the width of the bar. The old
+   one-per-row list was ~730px tall (~810 signed in) and scrolled on every small
+   phone; this needs about 380px and never scrolls, down to a 568px-tall screen
+   and in landscape. Tiles stay >= 60px tall, so they are easy targets. */
 .topmenu__list {
-  position: absolute; right: 8px; bottom: calc(100% + 10px); z-index: 30;
-  min-width: 190px; padding: 6px;
+  position: absolute; left: 8px; right: 8px; bottom: calc(100% + 8px); z-index: 30;
+  padding: 8px;
   max-height: calc(100vh - 90px); overflow-y: auto; overscroll-behavior: contain;
   background: var(--surface); border: 1px solid var(--line-strong);
-  border-radius: var(--r-md); box-shadow: var(--shadow-2);
-  display: flex; flex-direction: column; gap: 2px;
+  border-radius: var(--r-lg); box-shadow: var(--shadow-2);
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 6px;
 }
 .topmenu__item {
-  display: flex; align-items: center; gap: 10px;
-  padding: 9px 10px; border-radius: var(--r-md);
-  color: var(--ink); text-decoration: none; font-size: var(--fs-sm); font-weight: 600;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  min-height: 62px; padding: 8px 2px; border-radius: var(--r-md); text-align: center;
+  color: var(--ink); text-decoration: none; font-size: 10.5px; line-height: 1.15; font-weight: 600;
+  overflow-wrap: break-word; hyphens: auto;
 }
 .topmenu__item:hover { background: var(--surface-sunk); }
-.topmenu__item svg { flex: none; color: var(--ink-soft); }
+.topmenu__item svg { flex: none; width: 20px; height: 20px; color: var(--ink-soft); }
 .topmenu__item.is-active { background: var(--brand-tint); color: var(--brand-ink); }
 .topmenu__item.is-active svg { color: var(--brand-ink); }
 .topmenu__group {
   margin: 8px 10px 2px; font-size: 10px; font-weight: 700;
   text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint);
 }
-.topmenu__list > .topmenu__group:first-child { margin-top: 2px; }
-.topmenu__div { height: 1px; margin: 6px 10px; background: var(--line); }
+/* In the grid the section headings and rules go: the tiles are self-explanatory,
+   and letting them flow (instead of every section starting a new row) is what lets
+   the menu fit narrow phones and landscape. Only the theme footer keeps a rule. */
+.topmenu__list > .topmenu__group, .topmenu__list > .topmenu__div { display: none; }
 /* Theme switcher tucked in the ⋮ menu's footer — the sidebar carries it on
    desktop, but there's no sidebar on mobile. */
-.topmenu__foot { padding: 2px 10px 6px; }
+.topmenu__foot { grid-column: 1 / -1; padding: 6px 4px 2px; border-top: 1px solid var(--line); }
+body.has-topmenu .sitechat__fab { display: none; }
 .topmenu__foot .topmenu__group { margin: 4px 0 6px; }
 .topmenu__foot .sidebar__theme { width: 100%; }
 
