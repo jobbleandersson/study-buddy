@@ -9,6 +9,7 @@ import { t, plural, getLang, relativeDay, sentenceCase } from "../lib/i18n.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
+import { classDailyPanel } from "../components/class-daily-panel.js";
 import { foldedDatePicker } from "../components/calendar.js";
 import { localDayKey } from "../lib/activity.js";
 import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
@@ -214,6 +215,8 @@ export async function renderClassDetail(id) {
   }
   const reload = () => renderClassDetailInto();
   const root = el("div.settings");
+  // Built once, so what's typed into it survives the page repainting after an assignment.
+  const dailyPanel = classDailyPanel(id);
 
   function assignForm() {
     const subjectSel = el("select", { id: "assign-subject" });
@@ -336,6 +339,7 @@ export async function renderClassDetail(id) {
         ]),
       ]),
       assignForm(),
+      dailyPanel,
       resultsPanel(),
       el("button.btn.btn--ghost.btn--sm", {
         type: "button", style: { color: "var(--retry-ink)", marginTop: "8px" },

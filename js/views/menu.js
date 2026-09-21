@@ -20,6 +20,7 @@ import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import { testsTomorrow } from "../lib/tonight.js";
 import { isBusQuestion } from "../components/bus-question.js";
+import { dailySlot } from "../components/daily-card.js";
 import { speechSupported } from "../lib/speech.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
@@ -414,7 +415,7 @@ export function renderMenu(mode) {
     rail,
   ].filter(Boolean));
 
-  return { title: t("menu.title"), node: el("div", {}, [greetingBlock, tonightCard(), layout].filter(Boolean)), cleanup: menuCleanup };
+  return { title: t("menu.title"), node: el("div", {}, [greetingBlock, tonightCard(), dailySlot(), layout].filter(Boolean)), cleanup: menuCleanup };
 }
 
 /** The evening before a test the home page leads with a calm card that opens the

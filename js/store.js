@@ -111,6 +111,8 @@ export const WEAK_ID = "__weak__";
 export const RULES_ID = "__rules__";
 // The last-look session on the evening before a test — see lib/tonight.js.
 export const TONIGHT_ID = "__tonight__";
+// A class's question of the day, logged as a one-question attempt.
+export const DAILY_ID = "__daily__";
 // The Högskoleprov mini-mock — its own resumable slot, like the three above.
 export const HP_MOCK_ID = "__hpmock__";
 // Per-subject, unlike the three above — several subjects can each have their
@@ -1308,6 +1310,19 @@ class Store extends EventTarget {
 
   /** Are reminders quiet right now (the student finished their evening)? */
   isQuiet(now = Date.now()) { return (this.state.tonight?.quietUntil || 0) > now; }
+
+  /** The student answered their class's question of the day. It's a single
+   *  question, logged as a tiny attempt so it counts toward today's goal and the
+   *  streak like any other answer. The question itself lives on the server, so
+   *  there's no spaced-repetition record to write. */
+  recordDailyAnswer({ dailyId, title, correct }) {
+    const now = Date.now();
+    this.recordAttempt({
+      id: uid(), assignmentId: DAILY_ID, title, retryHash: null, wasTest: false, examMode: false,
+      startedAt: now, finishedAt: now, scorePct: correct ? 100 : 0, tutorHints: 0,
+      items: [{ questionId: `daily:${dailyId}`, topic: "", correct, firstTry: correct, srsGrade: correct ? "good" : "again", hintsUsed: 0 }],
+    });
+  }
 
   recordAttempt(attempt) {
     let freezeUsed = false;

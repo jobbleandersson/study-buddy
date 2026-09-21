@@ -46,3 +46,7 @@ export const CLASSES_URL = `${API}/api/classes`;
 export const CLASS_JOIN_URL = `${API}/api/classes/join`;
 export const MY_CLASS_ASSIGNMENTS_URL = `${API}/api/my-class-assignments`;
 export const classUrl = (id) => `${API}/api/classes/${id}`;
+// Dagens fråga: a teacher writes one question a day for a class; students answer it once.
+export const classDailyUrl = (id) => `${API}/api/classes/${id}/daily`;
+export const MY_DAILY_URL = `${API}/api/my-daily`;
+export const myDailyAnswerUrl = (id) => `${API}/api/my-daily/${id}/answer`;

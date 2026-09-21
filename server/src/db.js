@@ -148,6 +148,30 @@ db.exec(`
     due_at TEXT,
     created_at INTEGER NOT NULL
   );
+
+  -- Dagens fråga: at most one multiple-choice question per class per day, written
+  -- by the teacher. day is a "YYYY-MM-DD" calendar day. A student answers once;
+  -- the row is what enforces that. The teacher only ever gets counts back — see
+  -- class-daily.js — never which student chose what.
+  CREATE TABLE IF NOT EXISTS class_daily (
+    id TEXT PRIMARY KEY,
+    class_id TEXT NOT NULL REFERENCES classes(id) ON DELETE CASCADE,
+    day TEXT NOT NULL,
+    prompt TEXT NOT NULL,
+    choices TEXT NOT NULL,            -- JSON array of strings
+    answer INTEGER NOT NULL,          -- index into choices
+    explanation TEXT NOT NULL DEFAULT '',
+    created_at INTEGER NOT NULL,
+    UNIQUE (class_id, day)
+  );
+
+  CREATE TABLE IF NOT EXISTS class_daily_answers (
+    daily_id TEXT NOT NULL REFERENCES class_daily(id) ON DELETE CASCADE,
+    student_user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    choice INTEGER NOT NULL,
+    answered_at INTEGER NOT NULL,
+    PRIMARY KEY (daily_id, student_user_id)
+  );
 `);
 
 // Sign in with Google: the Google account's stable id ("sub"), on the same user
