@@ -2,9 +2,11 @@
 // the actual Claude API key. The browser never sees it.
 
 import { store } from "./store.js";
-import { generationSystem, gradingSystem } from "./prompts.js";
+import { generationSystem, gradingSystem, checkWorkSystem } from "./prompts.js";
 import { t } from "./lib/i18n.js";
 import { PROXY_URL } from "./config.js";
+import { parseLooseJSON } from "./lib/loose-json.js";
+import { normalizeCheck } from "./lib/check.js";
 
 const API_URL = PROXY_URL;
 
@@ -14,19 +16,23 @@ const API_URL = PROXY_URL;
  * the result is saved and reused by every student who studies that set
  * afterward, not just once. Tutoring and grading (Solve included — it's a
  * tutoring conversation, not a one-shot lookup) are forgotten the moment
- * they're done, so they run on the fast, cheap model.
+ * they're done, so they run on the fast, cheap model. Checking a photo of
+ * handwritten working is the exception among the throwaway jobs: it has to read
+ * handwriting and re-do the maths line by line, and telling a student a correct
+ * line is wrong costs more trust than the price difference saves.
  */
 export const MODELS = {
   generate: "claude-sonnet-5",
   tutor: "claude-haiku-4-5",
   grade: "claude-haiku-4-5",
+  check: "claude-sonnet-5",
 };
 
 function headers() {
   return { "content-type": "application/json" };
 }
 
-/** task: "generate" | "tutor" | "grade" | "solve" */
+/** task: "generate" | "tutor" | "grade" | "check" | "solve" */
 export function modelFor(task) {
   return MODELS[task] || MODELS.generate;
 }
@@ -59,7 +65,8 @@ async function errorFrom(res) {
   return new ClaudeError(detail ? t("err.apiDetail", { status: res.status, detail }) : t("err.api", { status: res.status }));
 }
 
-async function callJSON(body) {
+/** One non-streaming call: the reply text plus what Anthropic says it used. */
+async function callRaw(body) {
   let res;
   try {
     res = await fetch(API_URL, { method: "POST", headers: headers(), body: JSON.stringify(body) });
@@ -68,17 +75,11 @@ async function callJSON(body) {
   }
   if (!res.ok) throw await errorFrom(res);
   const data = await res.json();
-  return data.content?.map((b) => b.text || "").join("") || "";
+  return { text: data.content?.map((b) => b.text || "").join("") || "", usage: data.usage || null };
 }
 
-function parseLooseJSON(text) {
-  let t = text.trim();
-  const fence = t.match(/```(?:json)?\s*([\s\S]*?)```/i);
-  if (fence) t = fence[1].trim();
-  const first = t.search(/[[{]/);
-  const last = Math.max(t.lastIndexOf("}"), t.lastIndexOf("]"));
-  if (first >= 0 && last > first) t = t.slice(first, last + 1);
-  return JSON.parse(t);
+async function callJSON(body) {
+  return (await callRaw(body)).text;
 }
 
 // ---------- assignment generation ----------
@@ -189,6 +190,54 @@ export async function gradeAnswer({ question, studentAnswer }) {
     feedback: j.feedback || t(j.correct ? "q.heuristicOk" : "q.heuristicMiss"),
     missedPoints: Array.isArray(j.missedPoints) ? j.missedPoints : [],
   };
+}
+
+// ---------- check my working ----------
+
+const tokensOf = (u) => (u ? (u.input_tokens || 0) + (u.output_tokens || 0) : 0);
+
+/**
+ * Look over a student's written working and find the first line that doesn't
+ * follow. `image` is a photo of it ({ mediaType, data }); `workingText` is the
+ * same working typed line by line (used to re-check after the student fixes how
+ * a line was read — no photo needed then). `problem` is optional either way.
+ * Resolves the cleaned result from normalizeCheck() plus `tokens` (what the
+ * call used, so the screen can say what it cost).
+ */
+export async function checkWorking({ image = null, problem = "", workingText = "" }) {
+  const content = [];
+  if (image) content.push({ type: "image", source: { type: "base64", media_type: image.mediaType, data: image.data } });
+  const parts = [];
+  if (problem.trim()) parts.push(`The problem, as the student gave it:\n"""\n${problem.trim()}\n"""`);
+  if (workingText.trim()) parts.push(`The student's working, one line per step (typed, so there is no photo):\n"""\n${workingText.trim()}\n"""`);
+  else if (image) parts.push("Check the working in the attached photo.");
+  parts.push("Return the JSON object only.");
+  content.push({ type: "text", text: parts.join("\n\n") });
+
+  const body = {
+    model: modelFor("check"),
+    max_tokens: 2500,
+    system: checkWorkSystem(),
+    messages: [{ role: "user", content }],
+  };
+
+  const first = await callRaw(body);
+  let tokens = tokensOf(first.usage);
+  let json;
+  try {
+    json = parseLooseJSON(first.text);
+  } catch {
+    // One cheap repair pass: hand the model its own reply back, without the photo.
+    const repair = await callRaw({
+      ...body,
+      max_tokens: 2500,
+      messages: [{ role: "user", content: [{ type: "text", text: `Return this as ONLY a valid JSON object in the shape described in your instructions — no other text:\n\n${first.text.slice(0, 6000)}` }] }],
+    });
+    tokens += tokensOf(repair.usage);
+    try { json = parseLooseJSON(repair.text); }
+    catch { throw new ClaudeError(t("check.err.parse")); }
+  }
+  return { ...normalizeCheck(json), tokens };
 }
 
 // ---------- streaming tutor ----------

@@ -16,6 +16,7 @@ import { solveChatSystem } from "../prompts.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { bindFileTargets } from "../components/file-drop.js";
+import { solveTabs } from "../components/solve-tabs.js";
 
 export function renderSolve() {
   const root = el("div.solve");
@@ -184,6 +185,7 @@ export function renderSolve() {
     refs = { logEl, pendingEl, inputEl, attachBtn, resetBtn };
 
     root.appendChild(homeButton({ grid: true }));
+    root.appendChild(solveTabs("help"));
     root.appendChild(el("div", { style: { display: "flex", alignItems: "baseline", gap: "12px", flexWrap: "wrap", marginTop: "8px" } }, [
       el("h1", {}, t("solve.title")),
       resetBtn,

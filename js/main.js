@@ -27,6 +27,7 @@ import { renderCalendarPage } from "./views/calendar.js";
 import { renderExamPrep } from "./views/exam-prep.js";
 import { renderHp } from "./views/hp.js";
 import { renderSolve } from "./views/solve.js";
+import { renderCheck } from "./views/check.js";
 import { renderReference } from "./views/reference.js";
 import { renderCalculator } from "./views/calculator.js";
 import { renderAchievements } from "./views/achievements.js";
@@ -86,7 +87,7 @@ const routes = [
   { rx: /^\/gallery$/, view: () => renderGallery() },
   { rx: /^\/library$/, view: (m, qs) => renderLibrary(qs) },
   { rx: /^\/utmaning$/, view: (m, qs) => renderChallenge(qs) },
-  { rx: /^\/solve$/, view: () => renderSolve() },
+  { rx: /^\/solve$/, view: (m, qs) => (qs.get("mode") === "check" ? renderCheck() : renderSolve()) },
   { rx: /^\/reference$/, view: () => renderReference() },
   { rx: /^\/calculator$/, view: () => renderCalculator() },
   { rx: /^\/achievements$/, view: () => renderAchievements() },

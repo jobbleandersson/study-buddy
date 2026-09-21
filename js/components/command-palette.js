@@ -17,6 +17,7 @@ function actions() {
     { label: t("cmd.gallery"), run: () => (location.hash = "#/gallery") },
     { label: t("cmd.progress"), run: () => (location.hash = "#/progress") },
     { label: t("cmd.rules"), run: () => (location.hash = "#/rules") },
+    { label: t("cmd.check"), run: () => (location.hash = "#/solve?mode=check") },
     { label: t("cmd.settings"), run: () => (location.hash = "#/settings") },
     other && { label: t("cmd.lang", { lang: other[1] }), run: () => setLang(other[0]) },
     { label: t("cmd.theme"), run: () => setTheme(getTheme() === "dark" ? "light" : "dark") },
