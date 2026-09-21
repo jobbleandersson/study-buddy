@@ -1,6 +1,7 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
+import { CONTACT_EMAIL } from "./config.js";
 import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
@@ -621,7 +622,7 @@ function siteFooter() {
       el("a", { href: "#/about" }, t("footer.about")),
       el("a", { href: "#/terms" }, t("footer.terms")),
       el("a", { href: "#/privacy" }, t("footer.privacy")),
-      el("a", { href: "mailto:liamohrn0911@gmail.com" }, t("footer.contact")),
+      el("a", { href: `mailto:${CONTACT_EMAIL}` }, t("footer.contact")),
     ]),
     el("span.sitefooter__copy", {}, t("footer.copy")),
   ]);

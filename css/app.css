@@ -2915,3 +2915,8 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 
 /* progress: caption under the day strip */
 .streak__cap { margin-top: 8px; }
+
+/* sign-up consent (login.js): checkbox + sentence with links */
+.field.consentrow { display: flex; align-items: flex-start; gap: var(--s-3); }
+.field.consentrow > input { flex: 0 0 auto; width: 20px; height: 20px; margin: 2px 0 0; }
+.field.consentrow > span { font-weight: 400; margin: 0; line-height: 1.45; }

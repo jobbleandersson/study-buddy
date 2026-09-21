@@ -5,10 +5,17 @@ import { uid } from "./lib/dom.js";
 import { localDayKey, currentStreak, addDays, studiedToday } from "./lib/activity.js";
 import { getLang, t } from "./lib/i18n.js";
 import { serverMessage } from "./lib/server-errors.js";
+
+/** An Error carrying the server's message (translated where known) and its machine-readable code. */
+function authError(data, fallback) {
+  const err = new Error(serverMessage(data?.error?.message, fallback));
+  err.code = data?.error?.code || "";
+  return err;
+}
 import { ACHIEVEMENTS, achievementMetrics } from "./lib/achievements.js";
 import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } from "./lib/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
-import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, STATE_URL, USAGE_URL } from "./config.js";
+import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL, STATE_URL, USAGE_URL } from "./config.js";
 
 const KEY = "studybuddy.v1";
 const SCHEMA_VERSION = 7;
@@ -327,6 +334,9 @@ function finishMigrate(s) {
   // genuinely fresh seedState() starts with onboarded: false.
   s.onboarded = s.onboarded ?? ((s.assignments || []).length > 0 || (s.attempts || []).length > 0);
   s.profile = s.profile || null;
+  // The welcome quiz used to ask how studying feels; that answer is no longer collected or sent
+  // anywhere, so drop old ones.
+  if (s.profile) delete s.profile.mood;
   s.srs = s.srs || {};
   s.sessions = s.sessions || {};
   s.attempts = s.attempts || [];
@@ -390,6 +400,7 @@ class Store extends EventTarget {
     // opt-in: local-only mode (authed === false) works exactly as before.
     this.authed = false;
     this.authEmail = null;
+    this.authPasswordless = false;   // a Google-linked account has no password to type
 
     // Claude usage this month, once signed in: { used, limit, resetsAt } or
     // null when unknown / not metered. `_aiQuotaOut` latches true when a call
@@ -467,6 +478,7 @@ class Store extends EventTarget {
         if (data?.email && data.authed !== false) {
           this.authed = true;
           this.authEmail = data.email;
+          this.authPasswordless = !!data.passwordless;
         }
       } catch { /* not signed in / server unreachable — stay local-only */ }
     }
@@ -1302,16 +1314,17 @@ class Store extends EventTarget {
   // last-write-wins: a stale push gets the server's current blob back and
   // adopts it, surfacing a "syncConflict" event rather than clobbering it.
 
-  async signup(email, password) {
+  async signup(email, password, { consent = false } = {}) {
     const res = await fetch(AUTH_SIGNUP_URL, {
       method: "POST", credentials: "include",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, consent: consent === true }),
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.signupFailed")));
+    if (!res.ok) throw authError(data, t("login.signupFailed"));
     this.authed = true;
     this.authEmail = data.email;
+    this.authPasswordless = false;
     this._setSyncVersion(0);
     await this._pushNow(); // this device's local data becomes the account's data
     await this.refreshUsage();
@@ -1336,16 +1349,17 @@ class Store extends EventTarget {
   // One call covers "sign in" and "create account": the server decides which.
   // Returns { created, linked } so the screen can say what happened. A brand-new
   // account adopts this device's data (like signup); an existing one pulls.
-  async loginWithGoogle(credential) {
+  async loginWithGoogle(credential, { consent = false } = {}) {
     const res = await fetch(AUTH_GOOGLE_URL, {
       method: "POST", credentials: "include",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ credential }),
+      body: JSON.stringify({ credential, consent: consent === true }),
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.googleFailed")));
+    if (!res.ok) throw authError(data, t("login.googleFailed"));   // err.code === "consent_required" when a new account needs the checkbox
     this.authed = true;
     this.authEmail = data.email;
+    this.authPasswordless = true;
     if (data.created) {
       this._setSyncVersion(0);
       await this._pushNow();
@@ -1367,23 +1381,50 @@ class Store extends EventTarget {
     let wiped = false;
     if (this.authed) {
       await this._pushNow();
-      if (this._lastPushOk) {
-        this.state = seedState();
-        this.state.onboarded = true;
-        this._setSyncVersion(0);
-        try { localStorage.removeItem(SYNC_DISCARD_KEY); } catch {}
-        this.save({ skipPush: true });
-        wiped = true;
-      }
+      if (this._lastPushOk) { this._clearDevice(); wiped = true; }
     }
     try { await fetch(AUTH_LOGOUT_URL, { method: "POST", credentials: "include" }); } catch {}
     this.authed = false;
     this.authEmail = null;
+    this.authPasswordless = false;
     this.aiUsage = null;
     this._aiQuotaOut = false;
     clearTimeout(this._pushTimer);
     this.emit();
     return { wiped };
+  }
+
+  /** Remove this device's copy of the study data (the account, if any, is untouched). The
+   *  first-run walkthrough stays dismissed so the next person doesn't get a "welcome back" tour. */
+  _clearDevice() {
+    this.state = seedState();
+    this.state.onboarded = true;
+    this._setSyncVersion(0);
+    try { localStorage.removeItem(SYNC_DISCARD_KEY); } catch {}
+    this.save({ skipPush: true });
+  }
+
+  /** Permanently delete the signed-in account on the server (login, synced data, links, classes),
+   *  then clear this device. A password account sends its password; a Google-linked one sends its
+   *  email. Throws with the server's message (and err.code "confirm_mismatch") if it refuses, in
+   *  which case nothing has been deleted anywhere. */
+  async deleteAccount({ password = "", email = "" } = {}) {
+    const res = await fetch(ACCOUNT_URL, {
+      method: "DELETE", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ password, email }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("set.acctDeleteFailed"));
+    clearTimeout(this._pushTimer);
+    try { window.google?.accounts?.id?.disableAutoSelect?.(); } catch {}
+    this.authed = false;
+    this.authEmail = null;
+    this.authPasswordless = false;
+    this.aiUsage = null;
+    this._aiQuotaOut = false;
+    this._clearDevice();
+    this.emit();
   }
 
   async _pullOnLogin() {

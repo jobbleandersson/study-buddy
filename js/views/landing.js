@@ -8,6 +8,7 @@
 
 import { el, icon, ICONS } from "../lib/dom.js";
 import { store } from "../store.js";
+import { CONTACT_EMAIL } from "../config.js";
 import { t, getLang, setLang, LANGS } from "../lib/i18n.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
 
@@ -218,7 +219,7 @@ function footer() {
         el("a", { href: "#/about" }, t("footer.about")),
         el("a", { href: "#/terms" }, t("footer.terms")),
         el("a", { href: "#/privacy" }, t("footer.privacy")),
-        el("a", { href: "mailto:liamohrn0911@gmail.com" }, t("footer.contact")),
+        el("a", { href: `mailto:${CONTACT_EMAIL}` }, t("footer.contact")),
       ]),
       el("span.lp-foot__copy", {}, t("footer.copy")),
     ]),

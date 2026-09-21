@@ -25,6 +25,10 @@ export const AUTH_LOGIN_URL = `${API}/api/auth/login`;
 export const AUTH_GOOGLE_URL = `${API}/api/auth/google`;
 export const AUTH_LOGOUT_URL = `${API}/api/auth/logout`;
 export const AUTH_ME_URL = `${API}/api/auth/me`;
+export const ACCOUNT_URL = `${API}/api/account`;
+
+// Where people write with privacy, data and general questions. One place, so it changes in one place.
+export const CONTACT_EMAIL = "liamohrn0911@gmail.com";
 export const STATE_URL = `${API}/api/state`;
 export const LINKS_URL = `${API}/api/links`;
 export const INVITE_CODE_URL = `${API}/api/links/invite-code`;

@@ -37,20 +37,28 @@ function createSession(res, userId) {
 const emailTaken = (res) =>
   res.status(409).json({ error: { message: "An account with that email already exists." } });
 
+// Creating an account needs a yes to the Terms and Privacy Policy and to the age statement next to
+// it. The date is stored with the account as evidence; bump it when either text changes materially.
+const TERMS_VERSION = "2026-09-21";
+const consentRequired = (res) =>
+  res.status(400).json({ error: { message: "Accept the Terms and Privacy Policy to create an account.", code: "consent_required" } });
+
 auth.post("/auth/signup", signupHourly, signupDaily, asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "");
   if (!email || !email.includes("@")) return res.status(400).json({ error: { message: "Enter a valid email." } });
   if (password.length < 8) return res.status(400).json({ error: { message: "Password must be at least 8 characters." } });
   if (password.length > 200) return res.status(400).json({ error: { message: "Password is too long." } });   // bcrypt only reads 72 bytes; don't hash megabytes
+  if (req.body?.consent !== true) return consentRequired(res);
 
   if (db.prepare("SELECT id FROM users WHERE email = ?").get(email)) return emailTaken(res);
 
   const id = crypto.randomUUID();
   const hash = await bcrypt.hash(password, 10);
   try {
-    db.prepare("INSERT INTO users (id, email, password_hash, created_at) VALUES (?, ?, ?, ?)")
-      .run(id, email, hash, Date.now());
+    const now = Date.now();
+    db.prepare("INSERT INTO users (id, email, password_hash, created_at, consent_at, terms_version) VALUES (?, ?, ?, ?, ?, ?)")
+      .run(id, email, hash, now, now, TERMS_VERSION);
   } catch (e) {
     // The check above ran before the bcrypt await, so two signups for the same
     // new address can both get past it — the UNIQUE index turns the loser away.
@@ -116,6 +124,8 @@ auth.post("/auth/google", asyncHandler(async (req, res) => {
     if (!user) {
       const existing = db.prepare("SELECT id, email, google_sub FROM users WHERE email = ?").get(email);
       if (existing && existing.google_sub) return emailTaken(res);   // that address belongs to a different Google account
+      // Linking to an account that already agreed at signup needs no new yes; making a new one does.
+      if (!existing && req.body?.consent !== true) return consentRequired(res);
 
       // A random hash nobody knows: this account signs in with Google only.
       const unusableHash = await bcrypt.hash(crypto.randomBytes(32).toString("hex"), 10);
@@ -129,8 +139,9 @@ auth.post("/auth/google", asyncHandler(async (req, res) => {
           linked = true;
         } else {
           const id = crypto.randomUUID();
-          db.prepare("INSERT INTO users (id, email, password_hash, google_sub, created_at) VALUES (?, ?, ?, ?, ?)")
-            .run(id, email, unusableHash, sub, Date.now());
+          const now = Date.now();
+          db.prepare("INSERT INTO users (id, email, password_hash, google_sub, created_at, consent_at, terms_version) VALUES (?, ?, ?, ?, ?, ?, ?)")
+            .run(id, email, unusableHash, sub, now, now, TERMS_VERSION);
           user = { id, email };
           created = true;
         }
@@ -161,9 +172,10 @@ auth.post("/auth/logout", (req, res) => {
 auth.get("/auth/me", (req, res) => {
   const sid = req.cookies?.[COOKIE_NAME];
   const row = sid && db.prepare(
-    `SELECT users.email AS email
+    `SELECT users.email AS email, users.google_sub AS googleSub
      FROM sessions JOIN users ON users.id = sessions.user_id
      WHERE sessions.id = ? AND sessions.expires_at > ?`
   ).get(sid, Date.now());
-  res.json(row ? { authed: true, email: row.email } : { authed: false });
+  // passwordless: a Google-linked account has no usable password, so account deletion asks for its email instead.
+  res.json(row ? { authed: true, email: row.email, passwordless: !!row.googleSub } : { authed: false });
 });

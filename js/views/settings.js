@@ -9,6 +9,7 @@ import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
+import { deleteAccountDialog } from "../components/delete-account-dialog.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
 import { playFanfare } from "../lib/sound.js";
 import { offlineSupported, isLibraryCached, cacheLibraryOffline } from "../lib/offline.js";
@@ -358,6 +359,12 @@ export function renderSettings() {
           },
         }, t("set.acctSignOut")));
         actions.appendChild(el("a.btn.btn--ghost.btn--sm", { href: "#/parent" }, t("set.acctParentLink")));
+        actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
+          type: "button", style: { color: "var(--retry-ink)" },
+          onclick: async () => {
+            if (await deleteAccountDialog()) { toast(t("set.acctDeleted")); location.hash = "#/"; paint(); }
+          },
+        }, t("set.acctDelete")));
       } else {
         actions.appendChild(el("a.btn.btn--sm", { href: "#/login" }, t("set.acctSignIn")));
       }

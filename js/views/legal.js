@@ -3,10 +3,11 @@
 // not something a student needs a shortcut to mid-study.
 
 import { el } from "../lib/dom.js";
+import { CONTACT_EMAIL } from "../config.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 
-const FEEDBACK_MAIL = "mailto:liamohrn0911@gmail.com";
+const FEEDBACK_MAIL = `mailto:${CONTACT_EMAIL}`;
 
 function page(titleKey, body) {
   return {
@@ -63,7 +64,9 @@ export function renderPrivacy() {
   return page("privacy.pageTitle", [
     draftBanner("privacy.draftBody"),
     section("privacy.dataTitle", "privacy.dataBody"),
+    section("privacy.whoTitle", "privacy.whoBody"),
     section("privacy.useTitle", "privacy.useBody"),
+    section("privacy.keepTitle", "privacy.keepBody"),
     section("privacy.cookiesTitle", "privacy.cookiesBody"),
     section("privacy.minorsTitle", "privacy.minorsBody"),
     el("section.panel", {}, [
