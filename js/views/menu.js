@@ -118,7 +118,7 @@ export function renderMenu(mode) {
 
     const items = visibleSets();
     clear(grid);
-    grid.appendChild(newCard());
+    if (store.assignments.length) grid.appendChild(newCard());   // first run: the empty state below already offers it
     for (const a of items) grid.appendChild(card(a, topicMastery));
 
     // A search that misses in this tab but hits in the other is a dead end
@@ -240,7 +240,7 @@ export function renderMenu(mode) {
 
   function emptyState() {
     const isFirstRun = !store.assignments.length;
-    return el("div.empty", { style: { gridColumn: "1 / -1" } }, [
+    return el("div.empty" + (isFirstRun ? ".empty--first" : ""), { style: { gridColumn: "1 / -1" } }, [
       icon(ICONS.book, 26),
       el("h3", { style: { marginBottom: "6px" } },
         isFirstRun ? t("menu.emptyFirstTitle")
@@ -248,7 +248,7 @@ export function renderMenu(mode) {
       el("p", {}, isFirstRun ? t("menu.emptyFirstBody")
         : t(tab === "assignment" ? "menu.emptyAssignBody" : "menu.emptyTestBody")),
       el("div", { style: { display: "flex", gap: "10px", justifyContent: "center", marginTop: "16px", flexWrap: "wrap" } }, [
-        el("a.btn", { href: "#/library" }, [icon(ICONS.book, 18), t("menu.libraryCta")]),
+        el("a.btn" + (isFirstRun ? ".btn--ghost" : ""), { href: "#/library" }, [icon(ICONS.book, 18), t("menu.libraryCta")]),
         el("a.btn.btn--ghost", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
         isFirstRun && store.demoStatus.loaded === 0 && el("button.btn.btn--ghost", {
           type: "button",
@@ -397,7 +397,8 @@ export function renderMenu(mode) {
     el("a.btn.btn--ghost", { href: "#/solve" }, [icon(ICONS.camera, 18), t("menu.solveLink")]),
     // With no sets yet the head's "Pick a set" already leads to the library.
     store.assignments.length && !store.hasKey() && el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
-    el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
+    // One filled button per screen: with no sets yet, "Pick a set" in the head is the primary.
+    el("a.btn" + (store.assignments.length ? "" : ".btn--ghost"), { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
   ].filter(Boolean));
 
   // Right-hand rail: upcoming deadlines (calendar) + an achievements teaser.

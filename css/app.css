@@ -2878,3 +2878,40 @@ kbd {
   .sidebar__more .sidebar__link { font-size: 0; justify-content: center; gap: 0; padding: 0; min-height: clamp(30px, 4.6vh, 40px); }
   .sidebar__more .sidebar__link svg { width: 19px; height: 19px; }
 }
+
+
+/* ===== polish ===== */
+
+/* chat button: away while scrolling down on phones */
+@media (max-width: 899px) {
+  .sitechat__fab { transition: transform var(--dur-mid) var(--ease-out), opacity var(--dur-mid) var(--ease-out), visibility 0s; }
+  body.fab-away .sitechat__fab { transform: translateY(140px); opacity: 0; visibility: hidden; pointer-events: none; transition-delay: 0s, 0s, var(--dur-mid); }
+}
+
+/* home, first run: nothing to search or filter yet */
+body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { display: none; }
+
+/* phones: readable labels and touch-sized controls */
+@media (max-width: 899px) {
+  .tabbar__item span { font-size: 12px; }
+  .tabbar__item { padding: 10px 0 9px; }
+  .libcard .btn, .libcard .libseg__group button { min-height: 44px; }
+  .libseg__group button { min-width: 52px; }
+  .libcard__foot > div { width: 100%; justify-content: space-between; }
+  .sitefooter__links a { display: inline-block; padding: 12px 4px; }
+  summary { padding-block: 11px; }
+  .btn--sm { min-height: 40px; }
+  .iconbtn:not(.iconbtn--sm), .homebtn { min-width: 44px; min-height: 44px; }
+}
+
+/* home, first run: a compact, balanced empty state */
+.empty--first { padding-block: var(--s-5); }
+.empty--first h3 { text-wrap: balance; }
+
+/* library on phones: the Add button spans the card, easy to hit with a thumb */
+@media (max-width: 899px) {
+  .libcard__foot > div > .btn:not(.btn--ghost) { flex: 1 1 100%; justify-content: center; }
+}
+
+/* progress: caption under the day strip */
+.streak__cap { margin-top: 8px; }

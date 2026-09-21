@@ -903,6 +903,8 @@ export const STRINGS = {
 
     "prog.heatmapTitle": "Study days",
     "prog.heatmapSub": "The last 12 weeks — filled squares are days you studied.",
+    "prog.streakCap": "The last 14 days. Filled days are days you studied.",
+    "prog.firstHint": "Finish a session and your streak starts here.",
 
     "set.dailyGoal": "Daily goal (questions)",
     "set.dailyGoalNote": "The ring on the home screen and Progress fills as you answer questions each day. Set to 0 to hide it.",
@@ -2509,6 +2511,8 @@ export const STRINGS = {
 
     "prog.heatmapTitle": "Pluggdagar",
     "prog.heatmapSub": "De senaste 12 veckorna — ifyllda rutor är dagar du pluggade.",
+    "prog.streakCap": "De senaste 14 dagarna. Ifyllda dagar är dagar du pluggade.",
+    "prog.firstHint": "Gör ett pass så börjar din streak här.",
 
     "set.dailyGoal": "Dagsmål (frågor)",
     "set.dailyGoalNote": "Ringen på startsidan och Framsteg fylls när du svarar på frågor varje dag. Sätt till 0 för att dölja den.",
