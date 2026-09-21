@@ -2897,7 +2897,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .tabbar__item { padding: 10px 0 9px; }
   .libcard .btn, .libcard .libseg__group button { min-height: 44px; }
   .libseg__group button { min-width: 52px; }
-  .libcard__foot > div { width: 100%; justify-content: space-between; }
+  .libcard:not(.libcard--added) .libcard__foot > div { width: 100%; justify-content: space-between; }
   .sitefooter__links a { display: inline-block; padding: 12px 4px; }
   summary { padding-block: 11px; }
   .btn--sm { min-height: 40px; }
@@ -2910,7 +2910,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 
 /* library on phones: the Add button spans the card, easy to hit with a thumb */
 @media (max-width: 899px) {
-  .libcard__foot > div > .btn:not(.btn--ghost) { flex: 1 1 100%; justify-content: center; }
+  .libcard:not(.libcard--added) .libcard__foot > div > .btn:not(.btn--ghost) { flex: 1 1 100%; justify-content: center; }
 }
 
 /* progress: caption under the day strip */

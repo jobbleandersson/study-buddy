@@ -248,7 +248,7 @@ export function renderMenu(mode) {
       el("p", {}, isFirstRun ? t("menu.emptyFirstBody")
         : t(tab === "assignment" ? "menu.emptyAssignBody" : "menu.emptyTestBody")),
       el("div", { style: { display: "flex", gap: "10px", justifyContent: "center", marginTop: "16px", flexWrap: "wrap" } }, [
-        el("a.btn" + (isFirstRun ? ".btn--ghost" : ""), { href: "#/library" }, [icon(ICONS.book, 18), t("menu.libraryCta")]),
+        el("a.btn" + (isFirstRun && mode !== "study" ? ".btn--ghost" : ""), { href: "#/library" }, [icon(ICONS.book, 18), t("menu.libraryCta")]),
         el("a.btn.btn--ghost", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
         isFirstRun && store.demoStatus.loaded === 0 && el("button.btn.btn--ghost", {
           type: "button",
