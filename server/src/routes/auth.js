@@ -4,6 +4,8 @@ import crypto from "node:crypto";
 import { db } from "../db.js";
 import { COOKIE_NAME } from "../constants.js";
 import { verifyGoogleIdToken, GoogleTokenError } from "../google.js";
+import { asyncHandler } from "../middleware/asyncHandler.js";
+import { isUniqueViolation } from "../errors.js";
 
 export const auth = Router();
 
@@ -27,26 +29,34 @@ function createSession(res, userId) {
   res.cookie(COOKIE_NAME, id, cookieOpts());
 }
 
-auth.post("/auth/signup", async (req, res) => {
+const emailTaken = (res) =>
+  res.status(409).json({ error: { message: "An account with that email already exists." } });
+
+auth.post("/auth/signup", asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "");
   if (!email || !email.includes("@")) return res.status(400).json({ error: { message: "Enter a valid email." } });
   if (password.length < 8) return res.status(400).json({ error: { message: "Password must be at least 8 characters." } });
 
-  if (db.prepare("SELECT id FROM users WHERE email = ?").get(email)) {
-    return res.status(409).json({ error: { message: "An account with that email already exists." } });
-  }
+  if (db.prepare("SELECT id FROM users WHERE email = ?").get(email)) return emailTaken(res);
 
   const id = crypto.randomUUID();
   const hash = await bcrypt.hash(password, 10);
-  db.prepare("INSERT INTO users (id, email, password_hash, created_at) VALUES (?, ?, ?, ?)")
-    .run(id, email, hash, Date.now());
+  try {
+    db.prepare("INSERT INTO users (id, email, password_hash, created_at) VALUES (?, ?, ?, ?)")
+      .run(id, email, hash, Date.now());
+  } catch (e) {
+    // The check above ran before the bcrypt await, so two signups for the same
+    // new address can both get past it — the UNIQUE index turns the loser away.
+    if (isUniqueViolation(e)) return emailTaken(res);
+    throw e;
+  }
 
   createSession(res, id);
   res.json({ email });
-});
+}));
 
-auth.post("/auth/login", async (req, res) => {
+auth.post("/auth/login", asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "");
 
@@ -57,7 +67,7 @@ auth.post("/auth/login", async (req, res) => {
 
   createSession(res, user.id);
   res.json({ email });
-});
+}));
 
 // Sign in with Google — and, for someone new, how the account gets made. The
 // browser sends the ID token Google gave it; we verify it, then one of:
@@ -67,7 +77,7 @@ auth.post("/auth/login", async (req, res) => {
 // Linking turns the old password OFF and signs out other sessions. Email
 // isn't verified at password signup, so without that, whoever registered an
 // address first could keep a password to the real owner's data forever.
-auth.post("/auth/google", async (req, res) => {
+auth.post("/auth/google", asyncHandler(async (req, res) => {
   const clientId = process.env.GOOGLE_CLIENT_ID;
   if (!clientId) {
     return res.status(501).json({ error: { message: "Google sign-in isn't set up on this server.", code: "google_not_configured" } });
@@ -130,7 +140,7 @@ auth.post("/auth/google", async (req, res) => {
     console.error("[study-buddy-server] /auth/google failed:", e);
     if (!res.headersSent) res.status(500).json({ error: { message: "Something went wrong." } });
   }
-});
+}));
 
 auth.post("/auth/logout", (req, res) => {
   const sid = req.cookies?.[COOKIE_NAME];

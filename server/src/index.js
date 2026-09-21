@@ -103,11 +103,25 @@ app.get("*", (req, res, next) => {
 });
 
 // Turn a swallowed 500 into a logged stack trace — otherwise Render just shows
-// "Internal Server Error" with nothing to go on.
+// "Internal Server Error" with nothing to go on. The app reads API errors as
+// {error:{message}}, so /api gets that shape; everything else gets plain text.
 app.use((err, req, res, next) => {
   console.error(`[study-buddy-server] error on ${req.method} ${req.originalUrl}:`, err);
   if (res.headersSent) return next(err);
+  if (req.originalUrl.startsWith("/api/")) {
+    return res.status(500).json({ error: { message: "Something went wrong.", code: "server_error" } });
+  }
   res.status(500).send("Internal Server Error");
+});
+
+// Last line of defence: a promise rejection nobody handled (a timer, a fire-
+// and-forget fetch) would otherwise exit the process on Node 15+ and take the
+// site down with it. Log it and keep serving. Route handlers don't rely on
+// this — async ones go through asyncHandler. Uncaught *exceptions* are left
+// alone on purpose: after one, the process state can't be trusted, so let it
+// exit and the host restart it.
+process.on("unhandledRejection", (reason) => {
+  console.error("[study-buddy-server] unhandled rejection (still running):", reason);
 });
 
 try {

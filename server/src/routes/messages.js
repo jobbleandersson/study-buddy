@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { requireAuth } from "../middleware/requireAuth.js";
+import { asyncHandler } from "../middleware/asyncHandler.js";
 import { takeToken, RATE_PER_MIN } from "../middleware/rateLimit.js";
 import {
   addUsage, checkBudget, readUsage, currentPeriod, periodResetsAt,
@@ -47,7 +48,7 @@ function log(fields) {
 const guards = [];
 if (REQUIRE_AUTH) guards.push(requireAuth);
 
-messages.post("/messages", ...guards, async (req, res) => {
+messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
   const userId = req.user?.userId || null;
   const started = Date.now();
 
@@ -148,7 +149,7 @@ messages.post("/messages", ...guards, async (req, res) => {
   } catch { /* error body / non-JSON */ }
   if (userId && upstream.ok) addUsage(userId, { inputTokens: inTok, outputTokens: outTok });
   log({ userId, model: body.model, status: upstream.status, in: inTok, out: outTok, ms: Date.now() - started });
-});
+}));
 
 // The signed-in user's spend this month, for the Settings usage line and the
 // client's "limit reached" state. Cheap; no auth escape hatch (if
