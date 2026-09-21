@@ -1,5 +1,6 @@
 import "dotenv/config";
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import express from "express";
@@ -17,6 +18,7 @@ import { parent } from "./routes/parent.js";
 import { friends } from "./routes/friends.js";
 import { classes } from "./routes/classes.js";
 import { classDaily } from "./routes/class-daily.js";
+import { account } from "./routes/account.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // The frontend (index.html, css/, js/, etc.) is the repo root — normally two
@@ -69,8 +71,11 @@ if (process.env.SITE_PASSWORD) {
     if (req.path.startsWith("/api/")) return next();
     const header = req.headers.authorization || "";
     const [, encoded] = header.split(" ");
-    const [, pass] = Buffer.from(encoded || "", "base64").toString().split(":");
-    if (pass === process.env.SITE_PASSWORD) return next();
+    // "user:pass" — the password may itself contain colons, so split on the first one only.
+    const decoded = Buffer.from(encoded || "", "base64").toString();
+    const pass = decoded.slice(decoded.indexOf(":") + 1);
+    const given = Buffer.from(pass), wanted = Buffer.from(process.env.SITE_PASSWORD);
+    if (decoded.includes(":") && given.length === wanted.length && crypto.timingSafeEqual(given, wanted)) return next();
     // Header VALUES must be Latin-1/ASCII — an em dash here throws
     // ERR_INVALID_CHAR at the http layer and 500s every unauthenticated
     // request, which is worse than the gate being slightly plainer-worded.
@@ -93,10 +98,20 @@ app.use("/api", parent);
 app.use("/api", friends);
 app.use("/api", classes);
 app.use("/api", classDaily);
+app.use("/api", account);
 
 // Never let the static server reach into server/ itself — it holds .env,
 // the sqlite db, and node_modules, none of which are meant to be fetchable.
-app.use((req, res, next) => (req.path === "/server" || req.path.startsWith("/server/")) ? res.status(404).end() : next());
+// The check runs on the DECODED, slash-collapsed, lower-cased path: express.static decodes the URL
+// itself, so a raw-path comparison was bypassed by "/%73erver/...", "//server/..." and (on
+// case-insensitive disks) "/SERVER/...". Deploy files are blocked too.
+const BLOCKED = /^\/(server|deploy)(\/|$)|^\/(dockerfile|fly\.toml|\.dockerignore)$/;
+app.use((req, res, next) => {
+  let p;
+  try { p = decodeURIComponent(req.path); } catch { return res.status(400).end(); }
+  p = p.replace(/\/{2,}/g, "/").toLowerCase();
+  return BLOCKED.test(p) ? res.status(404).end() : next();
+});
 app.use(express.static(FRONTEND_ROOT, { dotfiles: "ignore" }));
 
 // Single-page app: any unmatched GET falls back to index.html so deep links

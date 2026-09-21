@@ -199,7 +199,16 @@ export function questionEditor(doc, { onChange } = {}) {
   function commit() {
     doc.questions = doc.questions.filter((q) => (q.prompt || "").trim());
     for (const q of doc.questions) {
-      if (q.kind === "mc") q.choices = (q.choices || []).map((c) => c.trim()).filter(Boolean);
+      if (q.kind === "mc") {
+        // Dropping blank choices shifts the rest up, so the answer index has to follow its choice.
+        const all = q.choices || [];
+        const answerText = typeof q.answer === "number" ? (all[q.answer] || "").trim() : "";
+        q.choices = all.map((c) => c.trim()).filter(Boolean);
+        if (typeof q.answer === "number") {
+          const at = answerText ? q.choices.indexOf(answerText) : -1;
+          q.answer = at >= 0 ? at : Math.min(Math.max(q.answer, 0), Math.max(q.choices.length - 1, 0));
+        }
+      }
       q.topic = (q.topic || "general").trim().toLowerCase() || "general";
     }
     return doc.questions;

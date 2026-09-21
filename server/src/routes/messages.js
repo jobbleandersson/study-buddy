@@ -39,6 +39,19 @@ function sanitizeBody(raw) {
   return out;
 }
 
+// Characters of real text in a request (images and documents are billed by tokens, not characters).
+// A clear 413 for an absurd request, before the spend estimate would refuse it as "AI paused".
+const MAX_TEXT_CHARS = 400_000;
+function textChars(v) {
+  if (typeof v === "string") return v.length;
+  if (Array.isArray(v)) return v.reduce((n, x) => n + textChars(x), 0);
+  if (v && typeof v === "object") {
+    if (v.type === "image" || v.type === "document") return 0;
+    return Object.values(v).reduce((n, x) => n + textChars(x), 0);
+  }
+  return 0;
+}
+
 function log(fields) {
   // One structured line per request — grep-able, and the seed of a cost view.
   try { console.log("[proxy] " + JSON.stringify({ t: new Date().toISOString(), ...fields })); } catch {}
@@ -101,6 +114,9 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
   if (!body.messages.length) {
     return res.status(400).json({ error: { message: "No messages.", code: "bad_request" } });
   }
+  if (textChars(body.messages) + textChars(body.system) > MAX_TEXT_CHARS) {
+    return res.status(413).json({ error: { message: "That request is too large.", code: "bad_request" } });
+  }
 
   // The whole server's daily dollar cap: past it, AI is off for everyone until
   // 00:00 UTC, however many accounts are asking (see usage.js). Applies with or
@@ -131,20 +147,27 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
   // so a burst of parallel requests can't all slip in before the first is booked. Released
   // when forward() finishes, not when the client hangs up: Anthropic keeps working (and
   // billing) either way.
+  // If the browser goes away (tab closed, question changed) stop the upstream call too, and never
+  // let one hang forever. A streamed reply still books what it had produced before the cut.
+  const ac = new AbortController();
+  res.on("close", () => { if (!res.writableEnded) ac.abort(); });
+  const timer = setTimeout(() => ac.abort(), 180_000);
+  res.on("close", () => clearTimeout(timer));
   const release = reserveSpend(worstMicro);
   try {
-    await forward({ res, userId, body, apiKey, started });
+    await forward({ res, userId, body, apiKey, started, signal: ac.signal });
   } finally {
     release();
   }
 }));
 
 // Send one admitted request to Anthropic, relay the answer, and book what it cost.
-async function forward({ res, userId, body, apiKey, started }) {
+async function forward({ res, userId, body, apiKey, started, signal }) {
   let upstream;
   try {
     upstream = await fetch(ANTHROPIC_URL, {
       method: "POST",
+      signal,
       headers: {
         "content-type": "application/json",
         "x-api-key": apiKey,
@@ -196,7 +219,9 @@ async function forward({ res, userId, body, apiKey, started }) {
   }
 
   // --- non-streaming: buffer so we can read response.usage before forwarding. ---
-  const text = await upstream.text();
+  let text;
+  try { text = await upstream.text(); }
+  catch { log({ userId, model: body.model, status: 499, ms: Date.now() - started, err: "aborted" }); return res.end(); }   // client left or the timeout fired
   res.setHeader("content-length", Buffer.byteLength(text));
   res.end(text);
   const usage = emptyUsage();

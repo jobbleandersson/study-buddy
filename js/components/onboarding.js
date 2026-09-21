@@ -35,7 +35,6 @@ const GOALS = [
   ["test", ICONS.target], ["grades", ICONS.chart], ["keepup", ICONS.book],
   ["hp", ICONS.award], ["stick", ICONS.layers], ["explore", ICONS.compass],
 ];
-const MOODS = [["stressed", "var(--retry)"], ["unsure", "var(--info)"], ["okay", "var(--ok)"], ["pumped", "var(--brand)"]];
 const AMOUNTS = [["light", 5], ["medium", 10], ["heavy", 20]];
 const STYLES = [["concise", "concise"], ["normal", "normal"], ["detailed", "detailed"]];
 const GENERIC_SUBJECTS = ["math", "swedish", "english", "science", "social", "languages"];
@@ -55,7 +54,6 @@ export function openWelcomeQuiz({ force = false } = {}) {
     subjects: Array.isArray(prior.subjects) ? [...prior.subjects] : [],
     goal: prior.goal || null,
     testDate: prior.testDate || "",
-    mood: prior.mood || null,
     amount: Number(store.settings.dailyGoal) || 10,
     amountSet: false,
     style: store.settings.tutorVerbosity || "normal",
@@ -66,6 +64,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
 
   let stepIdx = 0;
   let recap = false;
+  let advTimer = 0;   // the short pause after a single-pick answer before moving on
   let committed = false;
 
   const stage = el("div.welcome__stage");
@@ -84,8 +83,13 @@ export function openWelcomeQuiz({ force = false } = {}) {
   document.body.classList.add("has-welcome");
   document.addEventListener("keydown", onKey);
 
-  function onKey(e) { if (e.key === "Escape") { recap ? close() : toRecap(); } }
+  function onKey(e) {
+    if (e.key !== "Escape" || e.defaultPrevented) return;
+    if (document.querySelector(".cmd, .confirmdlg, .popover")) return;   // that overlay owns this Escape
+    recap ? close() : toRecap();
+  }
   function close() {
+    clearTimeout(advTimer);
     document.removeEventListener("keydown", onKey);
     document.body.classList.remove("has-welcome");
     overlayEl?.remove();
@@ -94,7 +98,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
 
   /* ---------- flow ---------- */
   function steps() {
-    return a.role && a.role !== "student" ? ["name", "role"] : ["name", "role", "level", "subjects", "goal", "mood", "amount", "style"];
+    return a.role && a.role !== "student" ? ["name", "role"] : ["name", "role", "level", "subjects", "goal", "amount", "style"];
   }
   function go(n) {
     const list = steps();
@@ -103,7 +107,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
     stepIdx = n;
     paintStep(list[n]);
   }
-  function next() { go(stepIdx + 1); }
+  function next() { clearTimeout(advTimer); go(stepIdx + 1); }
 
   function commit() {
     if (committed) return;
@@ -112,7 +116,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
     const student = !a.role || a.role === "student";
     store.saveProfile({
       name, role: a.role || "student", level: a.level, subjects: a.subjects, goal: a.goal,
-      testDate: a.testDate || "", mood: a.mood, completedAt: Date.now(),
+      testDate: a.testDate || "", completedAt: Date.now(),
     });
     const settings = {};
     if (student && a.amountSet) settings.dailyGoal = a.amount;
@@ -176,7 +180,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
           onPick(o.key);
           paintOpts(o.key);
           f.contBtn.disabled = false;
-          if (!needsContinue) setTimeout(() => { if (overlayEl && !recap) next(); }, 260);
+          if (!needsContinue) { clearTimeout(advTimer); advTimer = setTimeout(() => { if (overlayEl && !recap) next(); }, 260); }
         },
       })));
     }
@@ -192,7 +196,6 @@ export function openWelcomeQuiz({ force = false } = {}) {
     if (id === "level") return stepLevel();
     if (id === "subjects") return stepSubjects();
     if (id === "goal") return stepGoal();
-    if (id === "mood") return stepMood();
     if (id === "amount") return stepAmount();
     return stepStyle();
   }
@@ -266,14 +269,6 @@ export function openWelcomeQuiz({ force = false } = {}) {
       extra: dateWrap,
     });
     return f;
-  }
-
-  function stepMood() {
-    return singleStep({
-      title: t("welcome.moodTitle"), body: t("welcome.moodBody"), value: a.mood,
-      options: MOODS.map(([k, color]) => ({ key: k, title: t(`welcome.mood.${k}`), dot: color })),
-      onPick: (k) => { a.mood = k; },
-    });
   }
 
   function stepAmount() {

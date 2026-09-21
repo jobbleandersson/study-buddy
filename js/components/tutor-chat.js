@@ -196,6 +196,11 @@ export class TutorChat {
   }
 
   async setQuestion(assignment, question) {
+    // A new question ends whatever the last one was doing: stop the stream and free the input,
+    // and bump the generation so a late reply can't touch the fresh thread.
+    this._gen = (this._gen || 0) + 1;
+    try { this.abort?.abort(); } catch {}
+    this.busy = false;
     this.assignment = assignment;
     this.question = question;
     this.messages = [];
@@ -282,6 +287,7 @@ export class TutorChat {
     if (this.busy) return;
     this.el.classList.add("is-open");
     this._append("me", t("tutor.explainWhyLabel"));
+    const gen = this._gen || 0;
     this.turns++;
     this.busy = true;
     setMood(this.mascotEl, "encourage");
@@ -299,7 +305,7 @@ export class TutorChat {
         || (Array.isArray(question?.steps) && question.steps.length ? question.steps.join(" ") : "");
       await this._typeOut(q.correct || authored || g.correct || t("tutor.explainWhyScripted"));
     }
-    this.busy = false;
+    if (gen === (this._gen || 0)) this.busy = false;
   }
 
   _submit() {
@@ -320,6 +326,7 @@ export class TutorChat {
 
   async _respond(userText, opts = {}) {
     if (!opts.fromNote) this._append("me", userText);
+    const gen = this._gen || 0;
     this.turns++;
     this.busy = true;
 
@@ -328,7 +335,7 @@ export class TutorChat {
     } else {
       await this._respondScripted(userText, opts);
     }
-    this.busy = false;
+    if (gen === (this._gen || 0)) this.busy = false;
   }
 
   async _respondScripted(userText, opts) {
@@ -358,11 +365,9 @@ export class TutorChat {
   }
 
   async _respondLive(userText, opts) {
-    if (this.messages.length === 0) {
-      this.messages.push({ role: "user", content: userText });
-    } else {
-      this.messages.push({ role: "user", content: userText });
-    }
+    const gen = this._gen || 0;
+    const msgs = this.messages;   // this question's thread — setQuestion swaps in a new array
+    msgs.push({ role: "user", content: userText });
     const bubble = this._append("ai", "");
     bubble.innerHTML = `<span class="typing"><span></span><span></span><span></span></span>`;
     setMood(this.mascotEl, "thinking");
@@ -377,19 +382,20 @@ export class TutorChat {
         testMode: this.testMode,
         student: store.profile,
       });
-      for await (const chunk of tutorStream({ system, messages: this.messages, signal: this.abort.signal })) {
+      for await (const chunk of tutorStream({ system, messages: msgs, signal: this.abort.signal })) {
         acc += chunk;
         bubble.innerHTML = markdown(acc);
         this._scroll();
       }
-      this.messages.push({ role: "assistant", content: acc || "…" });
+      msgs.push({ role: "assistant", content: acc || "…" });
+      if (gen !== (this._gen || 0)) return;
       setMood(this.mascotEl, opts.correct ? "cheer" : "idle");
       announce(t("tutor.prefix", { text: acc }));
       this._speak(acc);
     } catch (e) {
       const msg = e instanceof ClaudeError ? e.message : t("tutor.snag");
       bubble.innerHTML = markdown(`_${msg}_`);
-      this.messages.pop(); // drop the user turn that failed
+      msgs.pop(); // drop the user turn that failed
     }
   }
 

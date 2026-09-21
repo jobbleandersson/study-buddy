@@ -3236,3 +3236,8 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .dailyform input[type=date] { width: auto; min-width: 200px; }
 .dailyform textarea { border-radius: var(--r-md); }
 .dailyform input[type=radio] { width: 18px; min-height: 0; padding: 0; }
+
+/* sign-up consent (login.js): checkbox + sentence with links */
+.field.consentrow { display: flex; align-items: flex-start; gap: var(--s-3); }
+.field.consentrow > input { flex: 0 0 auto; width: 20px; height: 20px; margin: 2px 0 0; }
+.field.consentrow > span { font-weight: 400; margin: 0; line-height: 1.45; }

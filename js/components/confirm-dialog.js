@@ -23,7 +23,15 @@ export function confirmDialog({ message = "", confirmLabel, cancelLabel, danger 
     }
     function onKey(e) {
       if (e.key === "Escape") { e.stopPropagation(); finish(false); }
-      else if (e.key === "Enter") { e.stopPropagation(); finish(true); }
+      else if (e.key === "Enter") {
+        // Enter on the focused Cancel button must cancel, not confirm — let the native click run.
+        if (document.activeElement === cancelBtn) return;
+        e.stopPropagation(); e.preventDefault(); finish(true);
+      } else if (e.key === "Tab") {
+        // Keep focus inside the dialog.
+        e.preventDefault();
+        (document.activeElement === confirmBtn ? cancelBtn : confirmBtn).focus();
+      }
     }
 
     const confirmBtn = el("button.btn" + (danger ? ".btn--danger" : ""), {

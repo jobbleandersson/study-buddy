@@ -1,6 +1,7 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
+import { CONTACT_EMAIL } from "./config.js";
 import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
@@ -548,7 +549,12 @@ function shellActions() {
         popoverLink("#/settings", ICONS.gear, t("account.settings")),
         el("button.cardmenu__item.cardmenu__item--danger", {
           type: "button",
-          onclick: async () => { closePopover(); try { await store.logout(); } catch {} toast(t("account.signOutDone")); },
+          onclick: async () => {
+            closePopover();
+            let r = null;
+            try { r = await store.logout(); } catch {}
+            toast(t(r?.wiped === false ? "set.acctSignedOutKept" : "account.signOutDone"));
+          },
         }, [icon(ICONS.logout, 15), t("account.signOut")]),
       ] : [
         popoverLink("#/login", ICONS.user, t("account.signIn")),
@@ -640,7 +646,7 @@ function siteFooter() {
       el("a", { href: "#/about" }, t("footer.about")),
       el("a", { href: "#/terms" }, t("footer.terms")),
       el("a", { href: "#/privacy" }, t("footer.privacy")),
-      el("a", { href: "mailto:liamohrn0911@gmail.com" }, t("footer.contact")),
+      el("a", { href: `mailto:${CONTACT_EMAIL}` }, t("footer.contact")),
     ]),
     el("span.sitefooter__copy", {}, t("footer.copy")),
   ]);

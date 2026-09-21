@@ -266,13 +266,6 @@ const LEVEL_EN = {
   k16: "school years 1-6 (Sweden)", ak7: "year 7 (Sweden)", ak8: "year 8 (Sweden)", ak9: "year 9 (Sweden)",
   gy: "upper secondary school / gymnasiet (Sweden)", other: "the university-entrance test or another level",
 };
-const MOOD_EN = {
-  stressed: "stressful — be extra gentle, keep steps small and celebrate every bit of progress",
-  unsure: "uncertain — build confidence with small, achievable steps and say what they did well",
-  okay: "fine — keep a steady, friendly pace",
-  pumped: "motivated — you can move a little faster and offer a stretch question when they are right",
-};
-
 /** What the student told the welcome quiz, as a few private lines for the tutor.
  *  The first name is reduced to plain letters here too — it comes from a text box
  *  and ends up inside a prompt. */
@@ -282,6 +275,5 @@ function studentNote(student) {
   const bits = [];
   if (name) bits.push(`their first name is ${name} (use it now and then, naturally)`);
   if (LEVEL_EN[student.level]) bits.push(`they study at ${LEVEL_EN[student.level]} level`);
-  if (MOOD_EN[student.mood]) bits.push(`they said studying feels ${MOOD_EN[student.mood]}`);
   return bits.length ? `\nAbout the student (private context — never quote it back or mention it unprompted): ${bits.join("; ")}.\n` : "";
 }

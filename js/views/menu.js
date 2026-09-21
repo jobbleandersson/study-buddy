@@ -258,9 +258,10 @@ export function renderMenu(mode) {
         isFirstRun && store.demoStatus.loaded === 0 && el("button.btn.btn--ghost", {
           type: "button",
           onclick: async (e) => {
-            e.currentTarget.disabled = true;
+            const btn = e.currentTarget;
+            btn.disabled = true;
             try { await store.loadDemoContent(); toast(t("menu.demoAdded")); }
-            catch { toast(t("menu.demoFailed")); e.currentTarget.disabled = false; }
+            catch { toast(t("menu.demoFailed")); btn.disabled = false; }
           },
         }, [icon(ICONS.play, 16), t("menu.tryDemo")]),
       ].filter(Boolean)),

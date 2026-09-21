@@ -19,10 +19,28 @@ export function renderLogin() {
   const submitBtn = el("button.btn", { type: "submit", disabled: serverDown }, t("login.signIn"));
   const toggleBtn = el("button.btn.btn--ghost.btn--sm", { type: "button" }, "");
 
+  // Making an account needs a yes to the Terms + Privacy Policy and the age statement. The box
+  // shows in sign-up mode, and for Google when the server says the sign-in would create a new account.
+  const consentInput = el("input", { type: "checkbox", id: "consent", onchange: () => { errorNote.hidden = true; } });
+  const consentRow = el("label.field.consentrow", { hidden: true }, [
+    consentInput,
+    el("span", {}, [
+      t("login.consentLead") + " ",
+      el("a", { href: "#/terms", target: "_blank", rel: "noopener" }, t("login.consentTerms")),
+      " " + t("login.consentAnd") + " ",
+      el("a", { href: "#/privacy", target: "_blank", rel: "noopener" }, t("login.consentPrivacy")),
+      ".",
+    ]),
+  ]);
+  let googleCredential = null;   // kept while the person ticks the box, so they needn't pick their account again
+  const googleConfirmBtn = el("button.btn", { type: "button", hidden: true, onclick: () => confirmGoogle() }, t("login.googleConfirm"));
+
   function paintMode() {
     submitBtn.textContent = mode === "login" ? t("login.signIn") : t("login.createAccount");
     toggleBtn.textContent = mode === "login" ? t("login.needAccount") : t("login.haveAccount");
     passInput.autocomplete = mode === "login" ? "current-password" : "new-password";
+    consentRow.hidden = mode === "login" && !googleCredential;
+    googleConfirmBtn.hidden = !googleCredential;
     passInput.placeholder = mode === "login" ? "••••••••" : t("login.passwordHint");
   }
 
@@ -44,13 +62,26 @@ export function renderLogin() {
   async function onGoogle(credential) {
     errorNote.hidden = true;
     try {
-      const r = await store.loginWithGoogle(credential);
+      const r = await store.loginWithGoogle(credential, { consent: consentInput.checked });
+      googleCredential = null;
       toast(r.linked ? t("login.googleLinkedToast") : r.created ? t("login.googleCreatedToast") : t("login.signedInToast"));
       location.hash = "#/settings";
     } catch (err) {
-      errorNote.textContent = err.message || t("login.googleFailed");
+      if (err.code === "consent_required") {
+        // A new account would be created â ask first, then let them confirm without re-picking.
+        googleCredential = credential;
+        paintMode();
+        errorNote.textContent = t("login.googleNeedsConsent");
+      } else {
+        errorNote.textContent = err.message || t("login.googleFailed");
+      }
       errorNote.hidden = false;
     }
+  }
+  async function confirmGoogle() {
+    if (!googleCredential) return;
+    if (!consentInput.checked) { errorNote.textContent = t("login.consentNeeded"); errorNote.hidden = false; consentInput.focus(); return; }
+    await onGoogle(googleCredential);
   }
   async function paintGoogle() {
     if (serverDown || !store.googleClientId) return;
@@ -68,12 +99,18 @@ export function renderLogin() {
     const email = emailInput.value.trim();
     const password = passInput.value;
     if (!email || !password) return;
+    if (mode === "signup" && !consentInput.checked) {
+      errorNote.textContent = t("login.consentNeeded");
+      errorNote.hidden = false;
+      consentInput.focus();
+      return;
+    }
 
     submitBtn.disabled = true;
     errorNote.hidden = true;
     try {
       if (mode === "login") await store.login(email, password);
-      else await store.signup(email, password);
+      else await store.signup(email, password, { consent: consentInput.checked });
       toast(mode === "login" ? t("login.signedInToast") : t("login.createdToast"));
       location.hash = "#/settings";
     } catch (err) {
@@ -88,8 +125,9 @@ export function renderLogin() {
   const form = el("form", { onsubmit: submit }, [
     el("label.field", {}, [el("span", {}, t("login.email")), emailInput]),
     el("label.field", {}, [el("span", {}, t("login.password")), passInput]),
+    consentRow,
     errorNote,
-    el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center" } }, [submitBtn, toggleBtn]),
+    el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center" } }, [submitBtn, googleConfirmBtn, toggleBtn]),
   ]);
 
   const node = el("div.settings", {}, [

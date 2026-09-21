@@ -824,6 +824,10 @@ function runSession(config) {
     const answered = Object.values(state.items);
     // The score is first-try answers; a choice found after wrong picks isn't counted.
     const correct = answered.filter(firstTryCorrect).length;
+    // A test or exam is out of every question: skipped or timed-out ones count as wrong, so a
+    // student can not score 100% by answering one question. Practice scores what was answered.
+    const graded = (config.type === "test" && !leftTestMode) || isExam;
+    const denom = graded ? Math.max(state.order.length, answered.length) : answered.length;
     const attempt = {
       id: uid(),
       assignmentId: config.assignmentId,
@@ -837,7 +841,7 @@ function runSession(config) {
       timedOut: !!opts.timedOut,
       startedAt: state.startedAt,
       finishedAt: Date.now(),
-      scorePct: answered.length ? Math.round((correct / answered.length) * 100) : 0,
+      scorePct: denom ? Math.round((correct / denom) * 100) : 0,
       tutorHints: Number.isFinite(hintBudget) ? hintBudget - tutor.hintsLeft : 0,
       items: answered,
       ...(config.challenge ? { challenge: config.challenge } : {}),

@@ -205,7 +205,8 @@ export async function renderLibrary(qs = null) {
     const addAllBtn = el("button.btn.btn--sm", {
       type: "button",
       onclick: async (e) => {
-        e.currentTarget.disabled = true;
+        const btn = e.currentTarget;
+        btn.disabled = true;
         let added = 0;
         for (const s of missing) {
           try { if (await importSet(s)) added++; } catch { /* skip the ones that fail */ }
@@ -283,14 +284,15 @@ export async function renderLibrary(qs = null) {
       : el("button.btn.btn--sm", {
           type: "button",
           onclick: async (e) => {
-            e.currentTarget.disabled = true;
+            const btn = e.currentTarget;
+            btn.disabled = true;
             try {
               await importSet(entry, state.addCounts[entry.id]);
               toast(t("lib.added", { title: setTitle(entry) }));
               paint();
             } catch {
               toast(t("lib.addFail"));
-              e.currentTarget.disabled = false;
+              btn.disabled = false;
             }
           },
         }, [icon(ICONS.plus, 16), t("lib.add")]);
