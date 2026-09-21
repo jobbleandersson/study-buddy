@@ -3241,3 +3241,9 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .field.consentrow { display: flex; align-items: flex-start; gap: var(--s-3); }
 .field.consentrow > input { flex: 0 0 auto; width: 20px; height: 20px; margin: 2px 0 0; }
 .field.consentrow > span { font-weight: 400; margin: 0; line-height: 1.45; }
+
+/* sidebar: share spare height between the rows (up to a comfortable cap) instead of
+   leaving it as a gap above the streak card */
+@media (min-width: 900px) and (min-height: 640px) {
+  .sidebar__nav > .sidebar__link, .sidebar__more > .sidebar__link { flex: 1 1 auto; max-height: 46px; }
+}
