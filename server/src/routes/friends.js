@@ -2,7 +2,7 @@ import { Router } from "express";
 import crypto from "node:crypto";
 import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
-import { takeKey, tooMany } from "../middleware/rateLimit.js";
+import { codeGuessLimits } from "../middleware/authLimits.js";
 
 export const friends = Router();
 
@@ -33,8 +33,7 @@ friends.post("/friends/invite-code", requireAuth, (req, res) => {
   res.json({ code, expiresAt: now + CODE_TTL_MS });
 });
 
-friends.post("/friends/redeem", requireAuth, (req, res) => {
-  if (!takeKey(`redeem:${req.user.userId}`, 10, 30_000)) return tooMany(res);
+friends.post("/friends/redeem", requireAuth, ...codeGuessLimits, (req, res) => {
   const code = String(req.body?.code || "").trim().toUpperCase();
   if (!code) return res.status(400).json({ error: { message: "Enter a code." } });
 

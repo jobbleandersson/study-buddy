@@ -284,19 +284,14 @@ export async function renderLibrary(qs = null) {
     // in the library the choice above is baked in as its study default.
     const addCountOpts = [5, 10, 15].filter((n) => n <= (entry.count || 0));
     const addCountSel = !imported && addCountOpts.length > 1
-      ? (() => {
-          const sel = el("select", {
-            "aria-label": t("lib.countLabel"),
-            style: {
-              font: "inherit", fontSize: "var(--fs-sm)", padding: "6px 8px",
-              borderRadius: "var(--r-md)", border: "1px solid var(--line-strong)",
-              background: "var(--surface)", color: "inherit",
-            },
-            onchange: (e) => { state.addCounts[entry.id] = Number(e.target.value) || entry.count; paint(); },
-          }, addCountOpts.map((n) => el("option", { value: String(n) }, String(n))));
-          sel.value = String(chosenCount);
-          return sel;
-        })()
+      ? el("div.libseg", {}, [
+          el("span.libseg__label", {}, t("lib.countLabel")),
+          el("div.libseg__group", { role: "group", "aria-label": t("lib.countLabel") }, addCountOpts.map((n) =>
+            el("button", {
+              type: "button", "aria-pressed": String(n === chosenCount),
+              onclick: () => { state.addCounts[entry.id] = n; paint(); },
+            }, String(n)))),
+        ])
       : null;
 
     // Exam mode always runs the full set — the question-count picker only
@@ -365,9 +360,9 @@ export async function renderLibrary(qs = null) {
       el("div.libcard__foot", {}, [
         imported
           ? el("span.libcard__added", {}, [icon(ICONS.check, 14), t("lib.addedTag"), el("span.libcard__count", {}, ` · ${countText}`)])
-          : el("span.note", {}, count),
+          : (addCountSel ? null : el("span.note", {}, count)),
         el("div", { style: { display: "flex", gap: "6px", flexWrap: "wrap", alignItems: "center" } }, [addCountSel, action, weakAction, examAction, printAction].filter(Boolean)),
-      ]),
+      ].filter(Boolean)),
     ].filter(Boolean));
   }
 

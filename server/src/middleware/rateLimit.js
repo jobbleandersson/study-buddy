@@ -27,37 +27,3 @@ export function takeToken(userId) {
 }
 
 export { RATE_PER_MIN };
-
-// ---- named buckets for everything that isn't the AI proxy -------------------
-// Logins, sign-ups and invite/class-code guesses used to have no limit at all:
-// unlimited password guesses (each one also a bcrypt compare, i.e. CPU) and
-// unlimited code guesses. A key like "login:email:a@b.se" gets `capacity`
-// attempts up front and one more every `perMs` milliseconds.
-const named = new Map();
-setInterval(() => {
-  const now = Date.now();
-  for (const [k, b] of named) if (now - b.last > 60 * 60_000) named.delete(k);
-}, 10 * 60_000).unref?.();
-
-/** True if this attempt is allowed (and spends a token). */
-export function takeKey(key, capacity, perMs) {
-  const now = Date.now();
-  let b = named.get(key);
-  if (!b) { b = { tokens: capacity, last: now }; named.set(key, b); }
-  b.tokens = Math.min(capacity, b.tokens + (now - b.last) / perMs);
-  b.last = now;
-  if (b.tokens < 1) return false;
-  b.tokens -= 1;
-  return true;
-}
-
-/** The caller's address — Fly's own header first (we sit behind its proxy), then Express's view. */
-export function clientIp(req) {
-  return String(req.headers["fly-client-ip"] || req.ip || "unknown");
-}
-
-/** The one message the client translates for a throttled attempt (js/lib/server-errors.js). */
-export const TOO_MANY_MESSAGE = "Too many attempts. Wait a few minutes and try again.";
-export function tooMany(res) {
-  return res.status(429).json({ error: { message: TOO_MANY_MESSAGE, code: "rate_limited" } });
-}

@@ -50,14 +50,13 @@ if (process.env.COOKIE_SECURE !== "true") {
   console.warn("[study-buddy-server] COOKIE_SECURE is not 'true' — session cookies are not marked Secure. Fine over http on localhost; set COOKIE_SECURE=true once this is served over https.");
 }
 
-// A rejected async handler must never take the whole server down for every student.
-process.on("unhandledRejection", (e) => console.error("[study-buddy-server] unhandled rejection:", e));
-
 const app = express();
 
 // Behind a hosting platform's load balancer (Render, Railway, Fly, …) the real
-// client protocol and IP arrive in X-Forwarded-* headers. Trusting one proxy
-// hop lets `secure` session cookies and the per-IP rate limiter work correctly.
+// client protocol arrives in X-Forwarded-* headers; trusting one proxy hop makes
+// req.protocol / req.secure right. It does NOT give the client's IP on Fly — there
+// the last X-Forwarded-For entry is the app's own address — so the throttles use
+// clientIp() in middleware/attemptLimit.js, which reads Fly-Client-IP.
 // Harmless locally (there is no proxy, so nothing is forwarded).
 app.set("trust proxy", 1);
 
@@ -119,11 +118,25 @@ app.get("*", (req, res, next) => {
 });
 
 // Turn a swallowed 500 into a logged stack trace — otherwise Render just shows
-// "Internal Server Error" with nothing to go on.
+// "Internal Server Error" with nothing to go on. The app reads API errors as
+// {error:{message}}, so /api gets that shape; everything else gets plain text.
 app.use((err, req, res, next) => {
   console.error(`[study-buddy-server] error on ${req.method} ${req.originalUrl}:`, err);
   if (res.headersSent) return next(err);
+  if (req.originalUrl.startsWith("/api/")) {
+    return res.status(500).json({ error: { message: "Something went wrong.", code: "server_error" } });
+  }
   res.status(500).send("Internal Server Error");
+});
+
+// Last line of defence: a promise rejection nobody handled (a timer, a fire-
+// and-forget fetch) would otherwise exit the process on Node 15+ and take the
+// site down with it. Log it and keep serving. Route handlers don't rely on
+// this — async ones go through asyncHandler. Uncaught *exceptions* are left
+// alone on purpose: after one, the process state can't be trusted, so let it
+// exit and the host restart it.
+process.on("unhandledRejection", (reason) => {
+  console.error("[study-buddy-server] unhandled rejection (still running):", reason);
 });
 
 try {

@@ -108,6 +108,17 @@ db.exec(`
     PRIMARY KEY (user_id, period)
   );
 
+  -- One row per UTC day for the whole server: estimated Claude spend, in
+  -- millionths of a dollar. Drives the daily spend cap (see usage.js).
+  CREATE TABLE IF NOT EXISTS ai_spend_daily (
+    day TEXT PRIMARY KEY,
+    cost_micro INTEGER NOT NULL DEFAULT 0,
+    input_tokens INTEGER NOT NULL DEFAULT 0,
+    output_tokens INTEGER NOT NULL DEFAULT 0,
+    request_count INTEGER NOT NULL DEFAULT 0,
+    updated_at INTEGER NOT NULL
+  );
+
   -- Class mode. Like parent/student links there's no teacher role: whoever
   -- creates a class teaches it. A class has a standing join code (unlike the
   -- short-lived invite codes above) so a whole room can join from one slide.

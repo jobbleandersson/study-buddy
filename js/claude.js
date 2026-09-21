@@ -43,6 +43,7 @@ async function errorFrom(res) {
   const code = body?.error?.code || "";
   const detail = body?.error?.message || "";
 
+  if (code === "daily_cap") return new ClaudeError(t("err.dailyCap"));   // the server's daily spend cap: off until tomorrow, not "shortly"
   if (code === "maintenance" || res.status === 503) return new ClaudeError(t("err.maintenance"));
   if (code === "quota_exceeded" || res.status === 402) {
     store.markAiQuotaExhausted({ used: body?.used, limit: body?.limit, resetsAt: body?.resetsAt });

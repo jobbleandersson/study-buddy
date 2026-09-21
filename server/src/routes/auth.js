@@ -4,16 +4,17 @@ import crypto from "node:crypto";
 import { db } from "../db.js";
 import { COOKIE_NAME } from "../constants.js";
 import { verifyGoogleIdToken, GoogleTokenError } from "../google.js";
-import { takeKey, clientIp, tooMany } from "../middleware/rateLimit.js";
-import { safe } from "../middleware/safe.js";
+import { asyncHandler } from "../middleware/asyncHandler.js";
+import { signupHourly, signupDaily, loginFailures } from "../middleware/authLimits.js";
+import { isUniqueViolation } from "../errors.js";
 
 export const auth = Router();
 
-const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
-
-// Compared against when the email is unknown, so "no such account" costs the same
-// bcrypt time as "wrong password" — otherwise response time reveals which emails exist.
+// Compared against when the email is unknown, so "no such account" costs the same bcrypt time as
+// "wrong password" - otherwise response time reveals which emails have accounts.
 const DUMMY_HASH = bcrypt.hashSync("studify-no-such-account", 10);
+
+const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 
 function cookieOpts() {
   return {
@@ -33,18 +34,17 @@ function createSession(res, userId) {
   res.cookie(COOKIE_NAME, id, cookieOpts());
 }
 
-auth.post("/auth/signup", safe(async (req, res) => {
-  // A whole class may sign up from one school network, so the per-address budget is generous.
-  if (!takeKey(`signup:${clientIp(req)}`, 30, 60_000)) return tooMany(res);
+const emailTaken = (res) =>
+  res.status(409).json({ error: { message: "An account with that email already exists." } });
+
+auth.post("/auth/signup", signupHourly, signupDaily, asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "");
   if (!email || !email.includes("@")) return res.status(400).json({ error: { message: "Enter a valid email." } });
   if (password.length < 8) return res.status(400).json({ error: { message: "Password must be at least 8 characters." } });
   if (password.length > 200) return res.status(400).json({ error: { message: "Password is too long." } });   // bcrypt only reads 72 bytes; don't hash megabytes
 
-  if (db.prepare("SELECT id FROM users WHERE email = ?").get(email)) {
-    return res.status(409).json({ error: { message: "An account with that email already exists." } });
-  }
+  if (db.prepare("SELECT id FROM users WHERE email = ?").get(email)) return emailTaken(res);
 
   const id = crypto.randomUUID();
   const hash = await bcrypt.hash(password, 10);
@@ -52,10 +52,9 @@ auth.post("/auth/signup", safe(async (req, res) => {
     db.prepare("INSERT INTO users (id, email, password_hash, created_at) VALUES (?, ?, ?, ?)")
       .run(id, email, hash, Date.now());
   } catch (e) {
-    // Two requests for the same address both passed the check above while hashing; the loser lands here.
-    if (String(e?.code || "").startsWith("SQLITE_CONSTRAINT")) {
-      return res.status(409).json({ error: { message: "An account with that email already exists." } });
-    }
+    // The check above ran before the bcrypt await, so two signups for the same
+    // new address can both get past it — the UNIQUE index turns the loser away.
+    if (isUniqueViolation(e)) return emailTaken(res);
     throw e;
   }
 
@@ -63,13 +62,9 @@ auth.post("/auth/signup", safe(async (req, res) => {
   res.json({ email });
 }));
 
-auth.post("/auth/login", safe(async (req, res) => {
+auth.post("/auth/login", ...loginFailures, asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "").slice(0, 200);
-
-  // Two budgets: per account (stops guessing at one password — 8 tries, then one per 3 minutes)
-  // and per address (stops sweeping many accounts, but roomy enough for a classroom on one network).
-  if (!takeKey(`login:email:${email}`, 8, 180_000) || !takeKey(`login:ip:${clientIp(req)}`, 100, 1_500)) return tooMany(res);
 
   const user = db.prepare("SELECT id, password_hash FROM users WHERE email = ?").get(email);
   const ok = await bcrypt.compare(password, user ? user.password_hash : DUMMY_HASH);
@@ -89,9 +84,8 @@ auth.post("/auth/login", safe(async (req, res) => {
 // Linking turns the old password OFF and signs out other sessions. Email
 // isn't verified at password signup, so without that, whoever registered an
 // address first could keep a password to the real owner's data forever.
-auth.post("/auth/google", safe(async (req, res) => {
+auth.post("/auth/google", asyncHandler(async (req, res) => {
   const clientId = process.env.GOOGLE_CLIENT_ID;
-  if (!takeKey(`google:${clientIp(req)}`, 60, 2_000)) return tooMany(res);
   if (!clientId) {
     return res.status(501).json({ error: { message: "Google sign-in isn't set up on this server.", code: "google_not_configured" } });
   }
@@ -121,8 +115,7 @@ auth.post("/auth/google", safe(async (req, res) => {
 
     if (!user) {
       const existing = db.prepare("SELECT id, email, google_sub FROM users WHERE email = ?").get(email);
-      const taken = () => res.status(409).json({ error: { message: "An account with that email already exists." } });
-      if (existing && existing.google_sub) return taken();   // that address belongs to a different Google account
+      if (existing && existing.google_sub) return emailTaken(res);   // that address belongs to a different Google account
 
       // A random hash nobody knows: this account signs in with Google only.
       const unusableHash = await bcrypt.hash(crypto.randomBytes(32).toString("hex"), 10);
@@ -142,7 +135,7 @@ auth.post("/auth/google", safe(async (req, res) => {
           created = true;
         }
       } catch (e) {
-        if (String(e?.code || "").startsWith("SQLITE_CONSTRAINT")) return taken();   // lost a race with a parallel request
+        if (isUniqueViolation(e)) return emailTaken(res);   // lost a race with a parallel request
         throw e;
       }
     }

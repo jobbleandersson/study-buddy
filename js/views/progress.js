@@ -125,6 +125,7 @@ export function renderProgress() {
       ].filter(Boolean)),
       atRisk && el("p.note.note--warn", { style: { marginBottom: "10px" } }, t("streak.atRisk", { n: displayStreak })),
       el("div.streak", { role: "img", "aria-label": t("prog.streakAria", { n: [...studied].filter((d) => recentDays(14).includes(d)).length }) }, days),
+      el("p.note.streak__cap", {}, attemptsCount === 0 ? t("prog.firstHint") : t("prog.streakCap")),
       el("p.note", { style: { marginTop: "10px" } }, [
         t("prog.summary", {
           days: plural(store.state.activity.daysStudied.length, "prog.daysOne", "prog.daysMany"),

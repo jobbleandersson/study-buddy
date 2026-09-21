@@ -734,6 +734,19 @@ mountCommandPalette();
 mountSiteChat();
 mountUpgradePrompt();
 
+// On phones the chat button sat on top of the content it scrolls past (it hid the "Add" buttons in the
+// library). Tuck it away while scrolling down; it slides back on the way up.
+{
+  let lastY = window.scrollY;
+  window.addEventListener("scroll", () => {
+    if (document.querySelector('.sitechat__fab[aria-expanded="true"]')) return;   // chat is open: keep its button
+    const y = window.scrollY;
+    if (y > lastY + 6 && y > 60) document.body.classList.add("fab-away");
+    else if (y < lastY - 6 || y <= 60) document.body.classList.remove("fab-away");
+    lastY = y;
+  }, { passive: true });
+}
+
 store.init().then(() => {
   applyLang();
   render();

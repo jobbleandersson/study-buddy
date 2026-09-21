@@ -1,19 +1,26 @@
-// Per-user Claude token accounting + the monthly budget check.
+// Per-user Claude token accounting + the monthly budget check, plus one
+// account-wide spend counter with a daily dollar cap.
 //
 // The proxy (routes/messages.js) is the only route that spends money, so the
-// meter lives right next to it. One row per user per UTC calendar month in
-// ai_usage; the budget is a flat token ceiling from env until entitlements
-// (Phase 2) make it per-plan.
+// meters live right next to it. One row per user per UTC calendar month in
+// ai_usage; the per-user budget is a flat token ceiling from env until
+// entitlements (Phase 2) make it per-plan. ai_spend_daily has one row per UTC
+// day for the whole server, in estimated dollars: the backstop that holds no
+// matter how many accounts exist.
 
 import { db } from "./db.js";
 
-/** Default ceiling — generous enough that a heavy real student never hits it.
- *  Tune against a real cost model (see the "Turning on live mode" plan):
- *  roughly a generation ≈ 18k tokens, a tutor session ≈ 15k, grading is cheap. */
+/** Default ceiling for a free account: 200,000 tokens (input + output) a month —
+ *  a few AI-made sets plus some tutor chat, and at most a few kronor of API spend
+ *  even if all of it is set generation. (The old default, 2M, was sized so a heavy
+ *  student never hit it, but one account could run up $3-$20 with it.) Tokens are
+ *  a blunt meter: Sonnet output costs ten times Haiku input, so the daily dollar
+ *  cap below is the real limit. A generation is roughly 9k tokens, a tutor session
+ *  ~19k, grading ~1k. */
 export const MONTHLY_TOKEN_BUDGET =
   Number(process.env.AI_MONTHLY_TOKEN_BUDGET) > 0
     ? Number(process.env.AI_MONTHLY_TOKEN_BUDGET)
-    : 2_000_000;
+    : 200_000;
 
 /** Hard cap on output tokens per request, whatever the client asks for.
  *  16k covers the largest legitimate use (generateAssignment). */
@@ -31,6 +38,31 @@ export const ALLOWED_MODELS = new Set([
   "claude-haiku-4-5",
   "claude-haiku-4-5-20251001",
 ]);
+
+// ---------- what a request costs ----------
+
+/** Anthropic's list prices in USD per million tokens (checked 2026-09-21 against
+ *  platform.claude.com/docs/en/about-claude/pricing). A million tokens at $1 is
+ *  $1 per 1,000,000 tokens, so the price is also what one token costs in
+ *  millionths of a dollar — which keeps the sums below in whole numbers
+ *  ("micro-dollars"). Update this when a price or a model changes. */
+export const PRICE_PER_MTOK = {
+  "claude-sonnet-5": { in: 2, out: 10 },
+  "claude-haiku-4-5": { in: 1, out: 5 },
+  "claude-haiku-4-5-20251001": { in: 1, out: 5 },
+};
+const PRICIEST = { in: 2, out: 10 };   // for a model that isn't listed: assume the dearer one
+
+/** Estimated cost in micro-dollars of one request. `input` and `cacheRead`/`cacheWrite`
+ *  are separate because the API's input_tokens leaves out anything read from or written to
+ *  the prompt cache: a cache read costs 0.1x the input price, a write up to 2x (the 1-hour
+ *  kind — assumed here, the dearer one). Thinking tokens arrive inside `output`. */
+export function costMicroUsd(model, { input = 0, output = 0, cacheWrite = 0, cacheRead = 0 } = {}) {
+  const p = PRICE_PER_MTOK[model] || PRICIEST;
+  return Math.round(input * p.in + output * p.out + cacheWrite * p.in * 2 + cacheRead * p.in * 0.1);
+}
+
+// ---------- per-user monthly tokens ----------
 
 /** "YYYY-MM" for the current UTC month. */
 export function currentPeriod(d = new Date()) {
@@ -79,4 +111,123 @@ export function addUsage(userId, { inputTokens = 0, outputTokens = 0 } = {}) {
 export function checkBudget(userId) {
   const used = readUsage(userId).totalTokens;
   return { ok: used < MONTHLY_TOKEN_BUDGET, used, limit: MONTHLY_TOKEN_BUDGET, resetsAt: periodResetsAt() };
+}
+
+// ---------- the account-wide daily dollar cap ----------
+
+function capFromEnv() {
+  const raw = process.env.AI_DAILY_SPEND_CAP_USD;
+  if (raw == null || raw.trim() === "") return 5;
+  const n = Number(raw);
+  return Number.isFinite(n) && n >= 0 ? n : 5;
+}
+
+/** Most the whole server may spend on Claude in one UTC day, in USD (estimated
+ *  from token counts). Past it, /api/messages answers 503 until 00:00 UTC for
+ *  everyone, however many accounts are asking. 0 turns the cap off. */
+export const DAILY_SPEND_CAP_USD = capFromEnv();
+const CAP_MICRO = Math.round(DAILY_SPEND_CAP_USD * 1_000_000);
+
+/** "YYYY-MM-DD" for the current UTC day. */
+export function currentDay(d = new Date()) {
+  return d.toISOString().slice(0, 10);
+}
+
+/** First instant of the next UTC day, as an epoch ms — when the cap resets. */
+export function dayResetsAt(d = new Date()) {
+  return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + 1);
+}
+
+const daySpendStmt = db.prepare("SELECT cost_micro, request_count FROM ai_spend_daily WHERE day = ?");
+const addSpendStmt = db.prepare(`
+  INSERT INTO ai_spend_daily (day, cost_micro, input_tokens, output_tokens, request_count, updated_at)
+  VALUES (@day, @cost, @input, @output, 1, @now)
+  ON CONFLICT(day) DO UPDATE SET
+    cost_micro    = cost_micro    + @cost,
+    input_tokens  = input_tokens  + @input,
+    output_tokens = output_tokens + @output,
+    request_count = request_count + 1,
+    updated_at    = @now
+`);
+
+/** { costMicro, requests } for a UTC day (default: today). */
+export function readDaySpend(day = currentDay()) {
+  const row = daySpendStmt.get(day);
+  return { costMicro: row?.cost_micro ?? 0, requests: row?.request_count ?? 0 };
+}
+
+// A request is only booked when it finishes, which for a long generation can be
+// many seconds. Checking the cap against finished spend alone would let any number
+// of parallel requests in before the first one is counted, so every admitted request
+// also holds its worst-case cost here until it is done (in memory: it only has to
+// cover requests in flight, and a restart drops those anyway).
+let inflightMicro = 0;
+
+/** What a request could cost at most: it may write all of max_tokens, and it reads
+ *  an input about the size the body suggests. In micro-dollars. */
+export function worstCaseMicro(model, { maxTokens, inputTokens }) {
+  return costMicroUsd(model, { input: inputTokens, output: maxTokens });
+}
+
+/** Hold `micro` against the cap; returns the function that releases it. */
+export function reserveSpend(micro) {
+  inflightMicro += micro;
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    inflightMicro = Math.max(0, inflightMicro - micro);
+  };
+}
+
+/** { ok, spentMicro, capMicro, resetsAt } — call before forwarding a request, with that
+ *  request's worst-case cost. ok means finished spend + requests in flight + this one
+ *  still fit under the cap. */
+export function checkDailyCap(extraMicro = 0) {
+  const spentMicro = readDaySpend().costMicro;
+  return {
+    ok: !CAP_MICRO || spentMicro + inflightMicro + extraMicro < CAP_MICRO,
+    spentMicro, capMicro: CAP_MICRO, resetsAt: dayResetsAt(),
+  };
+}
+
+// One warning line per threshold per day (per process) — `fly logs` is where
+// these are read; grep for "spend-alert".
+const usd = (micro) => `$${(micro / 1_000_000).toFixed(2)}`;
+const alerted = new Set();
+function alertIfNeeded(day, spentMicro) {
+  if (!CAP_MICRO) return;
+  for (const fraction of [0.5, 0.8, 1]) {
+    const key = `${day}:${fraction}`;
+    if (spentMicro < CAP_MICRO * fraction || alerted.has(key)) continue;
+    alerted.add(key);
+    if (fraction >= 1) {
+      console.error(`[spend-alert] daily AI spend cap reached (${usd(spentMicro)} of ${usd(CAP_MICRO)}); AI is paused until 00:00 UTC`);
+    } else {
+      console.warn(`[spend-alert] daily AI spend at ${Math.round(fraction * 100)}% (${usd(spentMicro)} of ${usd(CAP_MICRO)})`);
+    }
+  }
+}
+
+/**
+ * Book one finished request: the user's monthly tokens (if there is a user) and
+ * the server's daily dollars. `usage` is { input, output, cacheWrite, cacheRead }
+ * as the API reported it. The per-user meter counts every input token, cached
+ * or not, so a client can't hide spend behind cache_control. Returns the
+ * request's estimated cost in micro-dollars.
+ */
+export function recordUsage({ userId, model, usage }) {
+  const input = usage.input + usage.cacheWrite + usage.cacheRead;
+  if (userId) addUsage(userId, { inputTokens: input, outputTokens: usage.output });
+
+  const costMicro = costMicroUsd(model, usage);
+  const day = currentDay();
+  addSpendStmt.run({
+    day, cost: costMicro,
+    input: Math.max(0, Math.round(input) || 0),
+    output: Math.max(0, Math.round(usage.output) || 0),
+    now: Date.now(),
+  });
+  alertIfNeeded(day, readDaySpend(day).costMicro);
+  return costMicro;
 }
