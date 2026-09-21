@@ -11,7 +11,8 @@ import { showAchievementUnlocks } from "./lib/achievement-toast.js";
 import { renderMenu } from "./views/menu.js";
 import { renderCreate } from "./views/create.js";
 import { renderEdit } from "./views/edit.js";
-import { renderSession, renderReview, renderPractice, renderWeakPractice, renderNationalMix, renderHpMock, isSessionActive } from "./views/session.js";
+import { renderSession, renderReview, renderPractice, renderWeakPractice, renderRulesPractice, renderNationalMix, renderHpMock, isSessionActive } from "./views/session.js";
+import { renderRules } from "./views/rules.js";
 import { renderResults } from "./views/results.js";
 import { renderProgress } from "./views/progress.js";
 import { renderSettings } from "./views/settings.js";
@@ -69,6 +70,8 @@ const routes = [
   { rx: /^\/edit\/(.+)$/, view: (m, qs) => renderEdit(m[1], qs) },
   { rx: /^\/review$/, view: () => renderReview() },
   { rx: /^\/practice-weak$/, view: (m, qs) => renderWeakPractice(qs) },
+  { rx: /^\/practice-rules$/, view: () => renderRulesPractice() },
+  { rx: /^\/rules$/, view: () => renderRules() },
   { rx: /^\/practice\/(.+)$/, view: (m) => renderPractice(m[1]) },
   { rx: /^\/exam-prep(?:\/(.*))?$/, view: (m, qs) => renderExamPrep(m[1] || null, qs) },
   { rx: /^\/hp$/, view: () => renderHp() },
@@ -143,6 +146,7 @@ function navGroups() {
   ];
   const tools = [
     { href: "#/reference",  match: "/reference",  icon: ICONS.sigma,      label: t("nav.formulas") },
+    { href: "#/rules",      match: "/rules",      icon: ICONS.pencil,     label: t("nav.rules") },
     { href: "#/calculator", match: "/calculator", icon: ICONS.calculator, label: t("nav.calculator") },
   ];
   const account = [];
@@ -548,7 +552,7 @@ function shellActions() {
  *  session's own floating hint button. The homeButton() at the top of each of
  *  those views is the way out. */
 function immersiveRoute() {
-  return /^\/(session|review|practice|practice-weak|print|teachback)(\/|$)/.test(currentPath())
+  return /^\/(session|review|practice|practice-weak|practice-rules|print|teachback)(\/|$)/.test(currentPath())
     || currentPath() === "/hp/mock";
 }
 

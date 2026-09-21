@@ -10,6 +10,8 @@ import { figureURL } from "../lib/figures.js";
 import { gradeAnswer } from "../claude.js";
 import { fromCorrect } from "../lib/srs.js";
 import { t } from "../lib/i18n.js";
+import { store } from "../store.js";
+import { ruleSaveCard, rulePeek } from "./rule-card.js";
 import { mathKeypad } from "./math-keypad.js";
 import { heuristic, normalizeAnswer } from "../lib/answer-match.js";
 import {
@@ -23,9 +25,15 @@ import { targetPhrases, maskTargetSpans, choicesAreTarget, segmentPrompt } from 
 // shell() can add the listen/speak tools without threading it through every
 // renderer.
 let activeTarget = null;
+// The "your rule" line for the question being built (see ruleHooks), placed by
+// shell() the same way.
+let activeRulePeek = null;
 
 export function renderQuestion(opts) {
+  const rules = ruleHooks(opts);
+  if (rules) opts = rules.opts;
   activeTarget = opts.targetLang || null;
+  activeRulePeek = rules?.peek || null;
   let r;
   try {
     r = (() => {
@@ -41,7 +49,9 @@ export function renderQuestion(opts) {
     })();
   } finally {
     activeTarget = null;
+    activeRulePeek = null;
   }
+  rules?.attach(r.el);
   // Read-aloud: if the student has turned on auto-read, speak the new question
   // once it's on screen. The speaker button on the card does it on demand.
   if (getAutoRead() && speechSupported()) {
@@ -49,6 +59,58 @@ export function renderQuestion(opts) {
     setTimeout(() => speakSegments(questionToSegments(opts.question, t, target)), 350);
   }
   return r;
+}
+
+const SRS_ORDER = ["again", "hard", "good", "easy"];
+
+/**
+ * Memory rules around one question, outside tests: a collapsed "your rule" line
+ * when the student has already written one for it, and after a miss a one-line
+ * prompt to write one (Settings can switch the prompt off — the line stays).
+ * Reading a rule and then answering right still counts, but the question comes
+ * back a little sooner: you needed the help.
+ *
+ * Returns { opts, peek, attach } — opts with onDone / askConfidence wrapped —
+ * or null when the session isn't asking for rules.
+ */
+function ruleHooks(opts) {
+  const ctx = opts.ruleContext;
+  if (!ctx || opts.testMode) return null;
+  const { question } = opts;
+  const known = store.rulesFor(ctx.subjectId, question);
+  const prompting = store.settings.rulePrompts !== false;
+  if (!known.length && !prompting) return null;
+
+  let peeked = false, host = null, card = null;
+  const peek = known.length
+    ? rulePeek(known, question.topic, () => { peeked = true; store.notePeek(known.map((r) => r.id)); })
+    : null;
+
+  const onDone = (result) => {
+    if (peeked && result.correct) {
+      result.rulePeek = true;
+      if (SRS_ORDER.indexOf(result.srsGrade) > 1) result.srsGrade = "hard";
+    }
+    opts.onDone(result);
+    if (!prompting || !host) return;
+    // Missed it, or found it only after a wrong pick.
+    const missed = !result.correct || result.firstTry === false;
+    if (missed && !card) {
+      card = ruleSaveCard({ subjectId: ctx.subjectId, topic: question.topic, questionId: question.id });
+      host.appendChild(card);
+      // Below the fold on a short screen — bring it into view without moving focus.
+      requestAnimationFrame(() => card?.scrollIntoView?.({ block: "nearest" }));
+    } else if (!missed && card && !card.classList.contains("rulecard--saved")) {
+      card.remove();     // an appeal turned the miss around
+      card = null;
+    }
+  };
+  // A rule you had to read is its own signal — don't also ask "how sure were you?".
+  const askConfidence = opts.askConfidence
+    ? (result) => !peeked && opts.askConfidence(result)
+    : opts.askConfidence;
+
+  return { opts: { ...opts, onDone, askConfidence }, peek, attach: (node) => { host = node; } };
 }
 
 /** A speaker button that reads a question aloud (prompt + options), toggling
@@ -308,6 +370,7 @@ function shell(question, body, { showPrompt = true } = {}) {
     figurePanel(question.figure),
     (showPrompt || speak) && el("div.question__topline", {}, [promptEl || el("span"), speak].filter(Boolean)),
     bar?.el,
+    activeRulePeek,
     body,
   ].filter(Boolean));
   node.langReveal = bar ? bar.reveal : null;

@@ -5,7 +5,7 @@
 // a targeted practice run and a weak-spots drill identically — and it's what
 // gets saved so you can resume.
 
-import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId } from "../store.js";
+import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, RULES_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER } from "../lib/hp.js";
 import { announce } from "../lib/a11y.js";
@@ -21,6 +21,7 @@ import { openReadingControls } from "../components/reading-controls.js";
 import { closePopover } from "../lib/popover.js";
 import { review } from "../lib/srs.js";
 import { weakSpotQuestions, masteryByTopic, firstTryCorrect } from "../lib/mastery.js";
+import { ruleQuestionIds } from "../lib/rules.js";
 import { playCorrect, playWrong, playChime } from "../lib/sound.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
@@ -160,6 +161,26 @@ export async function renderWeakPractice(qs) {
     retryHash: setId ? `#/practice-weak?set=${setId}`
       : subjectId ? `#/practice-weak?subject=${subjectId}` : "#/practice-weak",
     questionIds: weak.map((w) => w.question.id),
+    forceTutor: true,
+  });
+}
+
+/** "Repeat only my rules": the questions the student's memory rules were written
+ *  for, plus others on the same subjects and topics. Each question shows its rule
+ *  on request (see ruleHooks in components/questions.js), so this is the fastest
+ *  way to find out whether the rules have stuck. */
+export async function renderRulesPractice() {
+  const ids = ruleQuestionIds(store.assignments, store.rules, { limit: 15, pick: shuffled });
+  if (!ids.length) {
+    return emptyScreen(t("session.noRulesTitle"), t("session.noRulesBody"), t("session.badgeRules"));
+  }
+  return runSession({
+    key: RULES_ID,
+    assignmentId: RULES_ID,
+    title: t("session.rulesTitle"),
+    type: "assignment",
+    retryHash: "#/practice-rules",
+    questionIds: ids,
     forceTutor: true,
   });
 }
@@ -330,6 +351,7 @@ function runSession(config) {
     if (config.assignmentId === REVIEW_ID) return t("session.reviewTitle");
     if (config.assignmentId === PRACTICE_ID) return t("session.practiceTitle");
     if (config.assignmentId === WEAK_ID) return t("session.weakTitle");
+    if (config.assignmentId === RULES_ID) return t("session.rulesTitle");
     if (config.assignmentId === HP_MOCK_ID) return t("hp.mockTitle");
     return store.getAssignment(config.assignmentId)?.title || config.title;
   }
@@ -581,6 +603,8 @@ function runSession(config) {
       live: store.hasKey(),
       testMode,
       askConfidence,
+      // Memory rules: shown on request, offered after a miss — never in a test.
+      ruleContext: testMode ? null : { subjectId: assignment.subjectId },
       // Can't be skipped any more (last one left, or already skipped once): offer
       // the answer after one wrong try instead of two, so the student isn't
       // left with only "Lämna" as a way out.
@@ -1054,6 +1078,7 @@ function badgeLabel(config) {
   if (config.assignmentId === REVIEW_ID) return t("session.badgeReview");
   if (config.assignmentId === PRACTICE_ID) return t("session.badgePractice");
   if (config.assignmentId === WEAK_ID) return t("session.badgeWeak");
+  if (config.assignmentId === RULES_ID) return t("session.badgeRules");
   if (config.assignmentId?.startsWith?.(NATIONAL_MIX_PREFIX)) return t("session.badgeNationalMix");
   return config.type === "test" ? t("common.test") : t("common.assignment");
 }

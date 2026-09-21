@@ -8,6 +8,7 @@ import { serverMessage } from "./lib/server-errors.js";
 import { ACHIEVEMENTS, achievementMetrics } from "./lib/achievements.js";
 import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } from "./lib/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
+import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js";
 import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, STATE_URL, USAGE_URL } from "./config.js";
 
 const KEY = "studybuddy.v1";
@@ -106,6 +107,8 @@ const DEFAULT_SUBJECTS = ["Science", "History", "Math", "English", "Geography"];
 export const REVIEW_ID = "__review__";
 export const PRACTICE_ID = "__practice__";
 export const WEAK_ID = "__weak__";
+// "Repeat only my rules" — questions on the topics the student wrote rules for.
+export const RULES_ID = "__rules__";
 // The Högskoleprov mini-mock — its own resumable slot, like the three above.
 export const HP_MOCK_ID = "__hpmock__";
 // Per-subject, unlike the three above — several subjects can each have their
@@ -132,8 +135,9 @@ function seedState() {
     assignments: [],
     attempts: [],
     srs: {},
+    rules: [],                       // memory rules the student wrote after a miss — see lib/rules.js
     sessions: {},                    // in-progress sessions, keyed by session key
-    onboarded: false,                // has the first-run walkthrough been seen?
+    onboarded: false,               // has the first-run walkthrough been seen?
     profile: null,                   // answers to the welcome quiz — see components/onboarding.js; null until answered
     achievements: {},                // { id: unlockedAt } — 0 = "already true when shipped"
     readNotifications: {},           // { [notificationId]: signature } — see buildNotifications() in main.js
@@ -243,6 +247,19 @@ function mergeStates(server, local) {
   const suSeen = new Set(arr(s.subjects).map((x) => x && x.id));
   s.subjects = [...arr(s.subjects), ...arr(l.subjects).filter((x) => x && x.id && !suSeen.has(x.id))];
 
+  // rules — union by id; on a shared id the later edit wins. (Like sets, a rule
+  // deleted on one device can come back from a stale one — worth it to never
+  // lose something a student wrote.)
+  {
+    const byId = new Map(arr(s.rules).filter((r) => r && r.id).map((r) => [r.id, r]));
+    for (const r of arr(l.rules)) {
+      if (!r || !r.id) continue;
+      const cur = byId.get(r.id);
+      if (!cur || (r.updatedAt || r.createdAt || 0) > (cur.updatedAt || cur.createdAt || 0)) byId.set(r.id, r);
+    }
+    s.rules = [...byId.values()].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+  }
+
   // srs — per question, keep the record with more review history
   const srs = { ...o(s.srs) };
   for (const [qid, rec] of Object.entries(o(l.srs))) {
@@ -331,6 +348,12 @@ function finishMigrate(s) {
   s.sessions = s.sessions || {};
   s.attempts = s.attempts || [];
   s.assignments = s.assignments || [];
+  // Rules are the student's own writing — keep only well-formed ones, and cap
+  // the list so a corrupt or hand-edited blob can't grow without bound.
+  s.rules = (Array.isArray(s.rules) ? s.rules : [])
+    .filter((r) => r && typeof r === "object" && r.id && typeof r.text === "string" && r.text.trim())
+    .map((r) => ({ ...r, text: cleanRuleText(r.text) }))
+    .slice(-RULE_MAX_COUNT);
 
   // Merge subjects duplicated by name (a demo set's subject could get recreated
   // after a language swap left the original renamed). Keep the first, repoint
@@ -1148,6 +1171,72 @@ class Store extends EventTarget {
   /** The user closed this week's recap card — don't show it again until next week. */
   dismissRecap(weekKey) {
     this.update((s) => { s.activity.recapWeek = weekKey; });
+  }
+
+  // ---------- memory rules ("Minnesregler") ----------
+  get rules() { return this.state.rules; }
+
+  /** The rules that apply to a question — same subject and topic, or the very
+   *  question one was written for — newest first. */
+  rulesFor(subjectId, question) { return rulesForQuestion(this.state.rules, subjectId, question); }
+
+  /**
+   * Save a rule the student wrote after a miss. Returns the saved rule (the
+   * existing one if the same words are already kept for that topic), or null
+   * when there's nothing to save or the list is full.
+   */
+  addRule({ subjectId, topic, questionId, text }) {
+    const clean = cleanRuleText(text);
+    if (!clean) return null;
+    const same = this.state.rules.find((r) => r.subjectId === subjectId && (r.topic || "") === (topic || "")
+      && r.text.toLowerCase() === clean.toLowerCase());
+    if (same) return same;
+    if (this.state.rules.length >= RULE_MAX_COUNT) return null;
+    const rule = {
+      id: uid(), subjectId,
+      subjectName: this.state.subjects.find((x) => x.id === subjectId)?.name || "",
+      topic: topic || "", questionId: questionId || null,
+      text: clean, createdAt: Date.now(),
+    };
+    this.update((s) => { s.rules.push(rule); });
+    return rule;
+  }
+
+  updateRule(id, text) {
+    const clean = cleanRuleText(text);
+    if (!clean) return false;
+    let found = false;
+    this.update((s) => {
+      const r = s.rules.find((x) => x.id === id);
+      if (r) { r.text = clean; r.updatedAt = Date.now(); found = true; }
+    });
+    return found;
+  }
+
+  /** Delete a rule. Returns it, so the caller can offer Undo. */
+  removeRule(id) {
+    let removed = null;
+    this.update((s) => {
+      const i = s.rules.findIndex((x) => x.id === id);
+      if (i >= 0) [removed] = s.rules.splice(i, 1);
+    });
+    return removed;
+  }
+
+  /** Undo of removeRule(). */
+  restoreRule(rule) {
+    if (!rule || this.state.rules.some((r) => r.id === rule.id)) return;
+    this.update((s) => {
+      s.rules.push(rule);
+      s.rules.sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+    });
+  }
+
+  /** The student opened these rules while answering. Kept as a plain count so
+   *  the rules page can show which ones haven't stuck yet. */
+  notePeek(ids) {
+    const set = new Set(ids);
+    this.update((s) => { for (const r of s.rules) if (set.has(r.id)) r.peeks = (r.peeks || 0) + 1; });
   }
 
   recordAttempt(attempt) {

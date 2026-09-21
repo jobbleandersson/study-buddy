@@ -146,6 +146,16 @@ export function renderSettings() {
     toast(t("set.saved"));
   });
 
+  const rulesSel = el("select", { "aria-label": t("set.rulePrompts") }, [
+    opt("on", t("set.rulePromptsOn")),
+    opt("off", t("set.rulePromptsOff")),
+  ]);
+  rulesSel.value = s.rulePrompts === false ? "off" : "on";
+  rulesSel.addEventListener("change", () => {
+    store.setSettings({ rulePrompts: rulesSel.value === "on" });
+    toast(t("set.saved"));
+  });
+
   /* ---------------- tutor server status ---------------- */
   // The Claude key lives in the backend proxy now, so there's nothing to type
   // here — just whether live mode is available.
@@ -179,6 +189,7 @@ export function renderSettings() {
         noted("set.adaptive", adaptiveSel, "set.adaptiveNote"),
         noted("set.pomodoro", pomoSel, "set.pomodoroNote"),
         noted("set.voice", voiceSel, voiceSupported ? "set.voiceNote" : "set.voiceUnsupported"),
+        noted("set.rulePrompts", rulesSel, "set.rulePromptsNote"),
       ]),
       el("div.settings__redo", {}, [
         el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: () => openWelcomeQuiz({ force: true }) }, t("set.welcomeRedo")),
