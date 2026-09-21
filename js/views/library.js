@@ -147,6 +147,18 @@ export async function renderLibrary(qs = null) {
     ]);
   }
 
+  // The cover of the subject's book on the shelf: two letters ("Ma", "Sv"), and for a
+  // gymnasium course the course underneath ("Ma" over "1c"). Made from the name, so it
+  // works for every subject without a list to keep up to date.
+  function subjectMark(name) {
+    const words = String(name || "").trim().split(/\s+/);
+    const first = words[0] || "?";
+    const last = words.length > 1 ? words[words.length - 1] : "";
+    const course = /^\d\w{0,2}$/.test(last) ? last : "";
+    const letters = first.charAt(0).toUpperCase() + first.charAt(1).toLowerCase();
+    return el("span.subjmark", { "aria-hidden": "true" }, course ? [el("span", {}, letters), el("small", {}, course)] : letters);
+  }
+
   /* ---- step 2: pick a subject ---- */
   function subjectPicker() {
     const level = index.levels.find((l) => l.id === state.level);
@@ -155,14 +167,19 @@ export async function renderLibrary(qs = null) {
       el("p", { style: { marginBottom: "16px" } }, t("lib.pickSubject", { level: lvlLabel(level) || "" })),
       el("div.source-grid.source-grid--subjects", {}, subjects.map((subject) => {
         const color = libSubjectColor(subject, subjects);
+        const nSets = index.sets.filter((s) => s.subject === subject.id).length;
         return el("button.source-opt.source-opt--subject", {
           type: "button", onclick: () => { state.subject = subject.id; paint(); },
-          style: { "--subject": color.solid },
+          style: { "--subject": color.solid, "--subject-ink": color.ink, "--subject-tint": color.tint },
         }, [
-          icon(ICONS.book, 26), subjName(subject),
+          subjectMark(subjName(subject)),
+          el("span.subjtext", {}, [
+            el("strong.subjname", {}, subjName(subject)),
+            el("span.subjmeta", {}, plural(nSets, "lib.subjSetsOne", "lib.subjSetsMany")),
+          ]),
           // Hidden on narrow screens (see .source-grid--subjects in app.css) —
           // the same blurb shows on the set-list header you land on.
-          el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, subjDesc(subject)),
+          el("div.note.subjdesc", {}, subjDesc(subject)),
         ]);
       })),
     ]);

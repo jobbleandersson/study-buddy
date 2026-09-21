@@ -2915,3 +2915,20 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 
 /* progress: caption under the day strip */
 .streak__cap { margin-top: 8px; }
+
+
+/* ===== subject picker: book covers ===== */
+.source-grid--subjects { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.source-opt--subject { display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: 14px; align-items: center; align-content: start; text-align: left; padding: 16px 16px 14px 18px; }
+.subjmark { width: 56px; height: 56px; border-radius: var(--r-md); background: var(--subject-tint, var(--brand-tint)); color: var(--subject-ink, var(--brand-ink)); display: grid; place-items: center; align-content: center; text-align: center; font-family: var(--font-display); font-weight: 700; font-size: 21px; letter-spacing: -.02em; line-height: 1.05; }
+.subjmark small { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0; opacity: .9; }
+.subjtext { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.subjname { font-size: var(--fs-md); font-weight: 600; }
+.subjmeta { font-size: 13px; font-weight: 400; color: var(--ink-soft); }
+.source-opt--subject .subjdesc { grid-column: 1 / -1; margin: 12px 0 0; text-align: left; font-weight: 400; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+@media (max-width: 560px) {
+  .source-grid--subjects .source-opt--subject { padding: 8px 16px 8px 14px; }
+  .subjmark { width: 38px; height: 38px; font-size: 15px; flex: none; border-radius: var(--r-sm); }
+  .subjmark small { font-size: 9.5px; }
+  .subjtext { flex: 1; flex-direction: row; align-items: baseline; justify-content: space-between; gap: 10px; }
+}
