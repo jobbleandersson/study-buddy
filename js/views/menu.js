@@ -19,6 +19,8 @@ import { playFanfare } from "../lib/sound.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import { testsTomorrow } from "../lib/tonight.js";
+import { isBusQuestion } from "../components/bus-question.js";
+import { speechSupported } from "../lib/speech.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
 
@@ -600,6 +602,10 @@ function todayPanel() {
   const pills = [];
   if (showGoal) pills.push(goalPill(goal));
   if (due) pills.push(statPill("#/review", ICONS.spark, t("menu.tileDue", { n: due }), "pill--due"));
+  // Something to listen to on the way: due questions that can be done by ear.
+  if (speechSupported() && store.dueQuestions().filter((d) => isBusQuestion(d.question)).length >= 3) {
+    pills.push(statPill("#/review?bus=1", ICONS.headphones, t("bus.pill"), "pill--bus"));
+  }
   if (weak) pills.push(statPill("#/practice-weak", ICONS.target,
     plural(weak, "menu.tileWeakOne", "menu.tileWeakMany"), "pill--weak"));
   if (streak > 0) pills.push(statPill("#/progress", ICONS.flame,

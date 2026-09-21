@@ -24,6 +24,8 @@ import { weakSpotQuestions, masteryByTopic, firstTryCorrect } from "../lib/maste
 import { ruleQuestionIds } from "../lib/rules.js";
 import { pickTonightQuestions } from "../lib/tonight.js";
 import { playCorrect, playWrong, playChime } from "../lib/sound.js";
+import { renderBusQuestion, isBusQuestion, resetBusPrime } from "../components/bus-question.js";
+import { speechSupported } from "../lib/speech.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
 
@@ -57,11 +59,19 @@ export async function renderSession(assignmentId, qs) {
   // ?count=N studies N questions from this set only — never from another set.
   // Fewer than the set has: a fresh random pick each run, so repeats see others.
   // Exam mode always runs the full set, even if a count slipped into the URL.
-  const allIds = assignment.questions.map((q) => q.id);
+  // ?bus=1 is commute mode: the multiple-choice questions only, read aloud and
+  // answered by voice or tap (components/bus-question.js). It always counts as
+  // practice, even on a test set — feedback is spoken straight away.
+  const bus = !examMode && qs?.get?.("bus") === "1";
+  const allIds = assignment.questions
+    .filter((q) => !bus || isBusQuestion(q))
+    .map((q) => q.id);
+  if (bus && !allIds.length) return emptyScreen(t("bus.noneTitle"), t("bus.noneBody"), t("bus.badge"));
   const rawCount = Math.round(Number(qs?.get?.("count")));
   const count = !examMode && rawCount > 0 && rawCount < allIds.length ? rawCount : null;
   const questionIds = count ? shuffled(allIds).slice(0, count) : allIds;
   const retryQuery = count ? (examQuery ? `${examQuery}&count=${count}` : `?count=${count}`) : examQuery;
+  const busQuery = bus ? (retryQuery ? "&bus=1" : "?bus=1") : "";
 
   // A friend's challenge (#/utmaning): remembered on the attempt so the results
   // screen can compare. A retry is an ordinary run, hence not in retryQuery.
@@ -70,16 +80,18 @@ export async function renderSession(assignmentId, qs) {
   return runSession({
     // A shorter run keeps its own resumable slot, so it can't resume into a
     // full run of the same set (or the other way round); same for a challenge.
-    key: `${assignment.id}${examMode ? "::exam" : ""}${count ? `::n${count}` : ""}${challenge ? "::ch" : ""}`,
+    key: `${assignment.id}${examMode ? "::exam" : ""}${count ? `::n${count}` : ""}${challenge ? "::ch" : ""}${bus ? "::bus" : ""}`,
     challenge,
     assignmentId: assignment.id,
     title: assignment.title,
-    type: assignment.type,
+    type: bus ? "assignment" : assignment.type,
+    bus,
+    forceTutor: bus || undefined,
     examMode,
     timeLimitMin,
     hp,
     hpTestId: hp ? parseHpSetId(assignment.id).test : null,
-    retryHash: `#/session/${assignment.id}${retryQuery}`,
+    retryHash: `#/session/${assignment.id}${retryQuery}${busQuery}`,
     questionIds,
     shuffle: isRetry || examMode || !!count,
   });
@@ -88,21 +100,27 @@ export async function renderSession(assignmentId, qs) {
 // A review can span the whole library's backlog — cap a single sitting so
 // it's never hundreds of questions long, and let the rest wait for next time.
 const REVIEW_CAP = 40;
+// A commute is short, and a spoken question takes longer than a read one.
+const BUS_REVIEW_CAP = 15;
 
-export async function renderReview() {
-  const due = store.dueQuestions(); // most-overdue-first
+export async function renderReview(qs) {
+  const bus = qs?.get?.("bus") === "1";
+  const due = store.dueQuestions().filter((d) => !bus || isBusQuestion(d.question)); // most-overdue-first
   if (!due.length) {
-    return emptyScreen(t("session.nothingDueTitle"), t("session.nothingDueBody"), t("session.badgeReview"));
+    return bus
+      ? emptyScreen(t("bus.noneTitle"), t("bus.noneReviewBody"), t("bus.badge"))
+      : emptyScreen(t("session.nothingDueTitle"), t("session.nothingDueBody"), t("session.badgeReview"));
   }
 
-  const batch = due.slice(0, REVIEW_CAP);
+  const batch = due.slice(0, bus ? BUS_REVIEW_CAP : REVIEW_CAP);
 
   return runSession({
-    key: REVIEW_ID,
+    key: bus ? `${REVIEW_ID}::bus` : REVIEW_ID,
     assignmentId: REVIEW_ID,
     title: t("session.reviewTitle"),
     type: "assignment",
-    retryHash: "#/review",
+    bus,
+    retryHash: bus ? "#/review?bus=1" : "#/review",
     questionIds: batch.map((d) => d.question.id),
     reviewRemaining: due.length - batch.length,
   });
@@ -599,6 +617,7 @@ function runSession(config) {
   }
 
   function loadQuestion() {
+    currentRenderer?.cleanup?.();   // commute mode: stop the last question's voice before drawing the next
     clear(stage);
     const found = store.findQuestion(currentId());
     if (!found) { dropMissing(); return; }
@@ -616,7 +635,7 @@ function runSession(config) {
     if (tutorSilent) tutor.showLocked();
     else tutor.setQuestion(assignment, viewQuestion(question));
 
-    const r = renderQuestion({
+    const questionOpts = {
       question: viewQuestion(question),
       // Language subjects get read-aloud in the right voice plus listen/speak tools.
       targetLang: targetLangFor(store.subjects.find((s) => s.id === assignment.subjectId)?.name),
@@ -648,15 +667,27 @@ function runSession(config) {
         nextBtn.textContent = unansweredCount() === 0 ? t("session.finish") : t("session.next");
         paintProgress();
         persist();
-        if (isNew) adapt();
+        if (isNew && !config.bus) adapt();
         // An appeal re-fires onDone for the same question; only log it once.
         if (!result.revised) tutor.recordOutcome(question, result);
         // Sound follows the first verdict only — an appeal shouldn't re-chime.
-        if (isNew) (result.correct ? playCorrect : playWrong)();
+        if (isNew && !config.bus) (result.correct ? playCorrect : playWrong)();   // commute mode speaks its verdict instead
         if (!testMode) announce(result.correct ? t("session.annCorrect") : t("session.annWrong"));
         else announce(t("session.annRecorded"));
       },
-    });
+    };
+    // Commute mode runs its own conversation: it reads the question, listens,
+    // says whether it was right, and moves on by itself.
+    const r = config.bus
+      ? renderBusQuestion({
+          question: questionOpts.question,
+          targetLang: questionOpts.targetLang,
+          progress: { n: Math.min(answeredCount() + 1, state.order.length), total: state.order.length },
+          onDone: questionOpts.onDone,
+          advance: () => next(),
+          skip: () => { if (skipBtn.hidden) return false; skip(); return true; },
+        })
+      : renderQuestion(questionOpts);
 
     stage.appendChild(r.el);
     currentRenderer = r;
@@ -917,7 +948,7 @@ function runSession(config) {
   // from then on. Shown once ever, per browser.
   let tipTimer = null;
   try {
-    if (!localStorage.getItem(TIP_SEEN_KEY)) {
+    if (!config.bus && !localStorage.getItem(TIP_SEEN_KEY)) {   // not over a screen you use by ear
       localStorage.setItem(TIP_SEEN_KEY, "1");
       tipTimer = setTimeout(() => toast(t("session.shortcutTip")), 1200);
     }
@@ -1009,7 +1040,19 @@ function runSession(config) {
   }
   window.addEventListener("sb:langsession", onLangSession);
 
-  const node = el("div", {}, [
+  // Commute mode for this same set: only where it makes sense — practice on a
+  // real set or the review queue, and only when the browser can read aloud.
+  const busHref = (() => {
+    if (config.bus || isTest || isExam || config.hp || !speechSupported()) return null;
+    if (!state.order.some((id) => isBusQuestion(store.findQuestion(id)?.question))) return null;
+    if (config.assignmentId === REVIEW_ID) return "#/review?bus=1";
+    return store.getAssignment(config.assignmentId) ? `#/session/${config.assignmentId}?bus=1` : null;
+  })();
+  const busBtn = busHref ? el("a.iconbtn.busbtn", {
+    href: busHref, "aria-label": t("bus.start"), title: t("bus.start"),
+  }, [icon(ICONS.headphones, 18)]) : null;
+
+  const node = el("div" + (config.bus ? ".session--bus" : ""), {}, [
     homeButton({ confirm: () => hasProgress() }),
     el("div.session__head", {}, [
       headH2,
@@ -1017,6 +1060,7 @@ function runSession(config) {
         examTimer,
         pomoEl,
         badgeEl,
+        busBtn,
         readingBtn,
         shortcutsBtn,
       ]),
@@ -1054,6 +1098,8 @@ function runSession(config) {
       closeReviewSoFar();
       document.removeEventListener("keydown", reviewEsc);
       closePopover();
+      currentRenderer?.cleanup?.();
+      resetBusPrime();
       tutor.destroy();
     },
   };
@@ -1094,6 +1140,7 @@ function shuffled(arr) {
 }
 
 function badgeLabel(config) {
+  if (config.bus) return t("bus.badge");
   if (config.assignmentId === HP_MOCK_ID) return t("hp.mockBadge");
   if (config.examMode) return t("session.examBadge");
   if (config.assignmentId === REVIEW_ID) return t("session.badgeReview");
