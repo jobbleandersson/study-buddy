@@ -79,8 +79,10 @@ export function parseSpokenChoice(heard, choices = []) {
     }
 
     // The option itself: "1,25", "koldioxid". Needs a clear winner.
+    // Match the option against what was said both ways: with the filler words dropped
+    // ("alternativ koldioxid") and as spoken ("det är sant", where "det är" is part of the option).
     const said = words.join(" ") || text;
-    const scored = options.map((o, i) => ({ i, s: o ? similarity(said, o) : 0 })).sort((a, b) => b.s - a.s);
+    const scored = options.map((o, i) => ({ i, s: o ? Math.max(similarity(said, o), similarity(text, o)) : 0 })).sort((a, b) => b.s - a.s);
     if (scored[0] && scored[0].s >= 80 && (scored.length < 2 || scored[0].s - scored[1].s >= 15)) {
       return { type: "choice", index: scored[0].i };
     }

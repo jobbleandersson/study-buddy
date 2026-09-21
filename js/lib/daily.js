@@ -4,21 +4,23 @@
 
 import { MY_DAILY_URL, myDailyAnswerUrl } from "../config.js";
 import { localDayKey } from "./activity.js";
+import { store } from "../store.js";
 
 const TTL_MS = 2 * 60 * 1000;
-let cache = null;   // { day, at, items }
+let cache = null;   // { day, email, at, items } — per account, so signing in as someone else never shows the last person's card
+const fresh = () => cache && cache.day === localDayKey() && cache.email === store.authEmail && Date.now() - cache.at < TTL_MS;
 
 /** Today's question for each class the student is in. Never throws: signed out,
  *  an older server, offline — all just mean "no card". */
 export async function fetchMyDaily({ force = false } = {}) {
   const day = localDayKey();
-  if (!force && cache && cache.day === day && Date.now() - cache.at < TTL_MS) return cache.items;
+  if (!force && fresh()) return cache.items;
   try {
     const res = await fetch(`${MY_DAILY_URL}?day=${encodeURIComponent(day)}`, { credentials: "include" });
     if (!res.ok) return [];
     const data = await res.json().catch(() => null);
     const items = Array.isArray(data?.items) ? data.items : [];
-    cache = { day, at: Date.now(), items };
+    cache = { day, email: store.authEmail, at: Date.now(), items };
     return items;
   } catch {
     return [];
@@ -27,7 +29,7 @@ export async function fetchMyDaily({ force = false } = {}) {
 
 /** What's already known without a request — for the first paint. */
 export function cachedDaily() {
-  return cache && cache.day === localDayKey() && Date.now() - cache.at < TTL_MS ? cache.items : null;
+  return fresh() ? cache.items : null;
 }
 
 export function forgetDaily() { cache = null; }

@@ -25,28 +25,22 @@ function teacherClass(req, res) {
 
 const memberCount = (classId) => db.prepare("SELECT COUNT(*) AS n FROM class_members WHERE class_id = ?").get(classId).n;
 
-/** How one question was answered — only by people still in the class. */
+/** How one question was answered. Every answer given counts, including from someone who has
+ *  since left or been removed: if removing a student changed the spread, a teacher could read
+ *  off what that student chose. The displayed head-count is clamped to the class size. */
 function answerStats(q, members = memberCount(q.class_id)) {
   const choices = JSON.parse(q.choices);
-  const rows = db.prepare(`
-    SELECT a.choice AS choice, COUNT(*) AS n
-    FROM class_daily_answers a
-    JOIN class_members m ON m.class_id = ? AND m.student_user_id = a.student_user_id
-    WHERE a.daily_id = ? GROUP BY a.choice
-  `).all(q.class_id, q.id);
+  const rows = db.prepare("SELECT choice, COUNT(*) AS n FROM class_daily_answers WHERE daily_id = ? GROUP BY choice").all(q.id);
   const counts = countsFrom(rows, choices.length);
   const answered = counts.reduce((a, b) => a + b, 0);
-  return { choices, counts, answered, members, spread: shownSpread(counts) };
+  return { choices, counts, answered, shown: Math.min(answered, members), members, spread: shownSpread(counts) };
 }
 
 /** Consecutive question days the class has kept up (see classStreak). */
 function streakFor(classId, today) {
   const members = memberCount(classId);
   const rows = db.prepare(`
-    SELECT d.day AS day,
-           (SELECT COUNT(*) FROM class_daily_answers a
-              JOIN class_members m ON m.class_id = d.class_id AND m.student_user_id = a.student_user_id
-             WHERE a.daily_id = d.id) AS answered
+    SELECT d.day AS day, (SELECT COUNT(*) FROM class_daily_answers a WHERE a.daily_id = d.id) AS answered
     FROM class_daily d WHERE d.class_id = ? AND d.day <= ? ORDER BY d.day DESC LIMIT 60
   `).all(classId, today);
   return classStreak(rows.map((r) => ({ day: r.day, answered: r.answered, members })), today);
@@ -70,7 +64,7 @@ classDaily.get("/classes/:id/daily", requireAuth, (req, res) => {
       const s = answerStats(q, members);
       return {
         id: q.id, day: q.day, prompt: q.prompt, choices: s.choices, answer: q.answer, explanation: q.explanation,
-        answered: s.answered, members, spread: s.spread,
+        answered: s.shown, members, spread: s.spread,
       };
     }),
   });
@@ -122,7 +116,7 @@ function studentView(q, cls, userId, today) {
   const mine = db.prepare("SELECT choice FROM class_daily_answers WHERE daily_id = ? AND student_user_id = ?").get(q.id, userId);
   return {
     id: q.id, classId: cls.id, className: cls.name, day: q.day, prompt: q.prompt, choices: stats.choices,
-    participation: { answered: stats.answered, members: stats.members },
+    participation: { answered: stats.shown, members: stats.members },
     streak: streakFor(cls.id, today),
     result: mine ? reveal(q, stats, mine.choice) : null,
   };
@@ -131,7 +125,7 @@ function studentView(q, cls, userId, today) {
 function reveal(q, stats, choice) {
   return {
     choice, correct: choice === q.answer, answer: q.answer, explanation: q.explanation,
-    spread: stats.spread, answered: stats.answered, members: stats.members,
+    spread: stats.spread, answered: stats.shown, members: stats.members,
   };
 }
 

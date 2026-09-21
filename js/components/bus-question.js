@@ -17,7 +17,7 @@ import { fromCorrect } from "../lib/srs.js";
 import { renderRich } from "../lib/rich.js";
 import { choicesAreTarget } from "../lib/lang-detect.js";
 import {
-  speechSupported, speakSegments, stopSpeaking, questionToSegments, toSpeakable,
+  speechSupported, speakSegments, stopSpeaking, questionToSegments, toSpeakable, getRate,
   recognitionSupported, listenOnce,
 } from "../lib/speech.js";
 import { parseSpokenChoice } from "../lib/voice-answer.js";
@@ -170,7 +170,7 @@ export function renderBusQuestion({ question, targetLang = null, progress = null
     // Some phones accept the speech and then never say it (or never say it's done) —
     // don't wait forever. Generous: about twice as long as it should take to read.
     const chars = segments.reduce((n, seg) => n + String(seg.text || "").length, 0);
-    later(finish, chars * 120 + 4000);
+    later(finish, (chars * 120) / Math.min(1, getRate() || 1) + 4000);
   }
 
   function readQuestion() {
