@@ -352,8 +352,8 @@ export function renderSettings() {
           type: "button",
           onclick: async (e) => {
             e.currentTarget.disabled = true;
-            await store.logout();
-            toast(t("set.acctSignedOutToast"));
+            const r = await store.logout();
+            toast(t(r?.wiped === false ? "set.acctSignedOutKept" : "set.acctSignedOutToast"));
             paint();
           },
         }, t("set.acctSignOut")));

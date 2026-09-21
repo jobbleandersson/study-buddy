@@ -1360,6 +1360,22 @@ class Store extends EventTarget {
   async logout() {
     // Stop Google from silently re-selecting this account on the next visit.
     try { window.google?.accounts?.id?.disableAutoSelect?.(); } catch {}
+    // Flush anything still waiting in the debounce, then clear this device's copy so the next
+    // person on a shared computer doesn't inherit the account. If the flush didn't reach the
+    // server the data stays put (nothing is lost) and { wiped: false } tells the caller.
+    clearTimeout(this._pushTimer);
+    let wiped = false;
+    if (this.authed) {
+      await this._pushNow();
+      if (this._lastPushOk) {
+        this.state = seedState();
+        this.state.onboarded = true;
+        this._setSyncVersion(0);
+        try { localStorage.removeItem(SYNC_DISCARD_KEY); } catch {}
+        this.save({ skipPush: true });
+        wiped = true;
+      }
+    }
     try { await fetch(AUTH_LOGOUT_URL, { method: "POST", credentials: "include" }); } catch {}
     this.authed = false;
     this.authEmail = null;
@@ -1367,6 +1383,7 @@ class Store extends EventTarget {
     this._aiQuotaOut = false;
     clearTimeout(this._pushTimer);
     this.emit();
+    return { wiped };
   }
 
   async _pullOnLogin() {
@@ -1376,7 +1393,12 @@ class Store extends EventTarget {
     if (!res.ok) return;
     const { version, blob } = await res.json();
     if (blob) {
-      this.state = migrate(blob);
+      // Work done on this device before signing in is merged in, never replaced; a copy of it is
+      // kept in case the merge has to be undone.
+      const localBefore = this.state;
+      try { localStorage.setItem(SYNC_DISCARD_KEY, JSON.stringify({ at: Date.now(), blob: localBefore })); } catch {}
+      try { this.state = migrate(mergeStates(migrate(blob), localBefore)); }
+      catch (e) { console.warn("login merge failed — adopting the account's data:", e); this.state = migrate(blob); }
       this._setSyncVersion(version);
       this.save({ skipPush: true });
       // The language is a per-device choice but the sets came from another
@@ -1384,6 +1406,7 @@ class Store extends EventTarget {
       // language switch would. (Found on a live sign-in: an English UI over
       // Swedish library sets, and a tutor that answered half in each.)
       try { await Promise.all([this.syncDemoLanguage(), this.syncLibraryLanguage(), this.syncHpLanguage()]); } catch {}
+      await this._pushNow();   // the merged result becomes the account's data
     } else {
       // Existing account with nothing synced yet — seed it from this device.
       await this._pushNow();
@@ -1396,6 +1419,7 @@ class Store extends EventTarget {
   }
 
   async _pushNow(_retry = 0) {
+    if (_retry === 0) this._lastPushOk = false;
     let res;
     try {
       res = await fetch(STATE_URL, {
@@ -1443,6 +1467,7 @@ class Store extends EventTarget {
     if (res.ok) {
       const data = await res.json();
       this._setSyncVersion(data.version);
+      this._lastPushOk = true;
       // Our state is the server's now — no stale discard copy to keep.
       try { localStorage.removeItem(SYNC_DISCARD_KEY); } catch {}
     }

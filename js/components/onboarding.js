@@ -66,6 +66,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
 
   let stepIdx = 0;
   let recap = false;
+  let advTimer = 0;   // the short pause after a single-pick answer before moving on
   let committed = false;
 
   const stage = el("div.welcome__stage");
@@ -84,8 +85,13 @@ export function openWelcomeQuiz({ force = false } = {}) {
   document.body.classList.add("has-welcome");
   document.addEventListener("keydown", onKey);
 
-  function onKey(e) { if (e.key === "Escape") { recap ? close() : toRecap(); } }
+  function onKey(e) {
+    if (e.key !== "Escape" || e.defaultPrevented) return;
+    if (document.querySelector(".cmd, .confirmdlg, .popover")) return;   // that overlay owns this Escape
+    recap ? close() : toRecap();
+  }
   function close() {
+    clearTimeout(advTimer);
     document.removeEventListener("keydown", onKey);
     document.body.classList.remove("has-welcome");
     overlayEl?.remove();
@@ -103,7 +109,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
     stepIdx = n;
     paintStep(list[n]);
   }
-  function next() { go(stepIdx + 1); }
+  function next() { clearTimeout(advTimer); go(stepIdx + 1); }
 
   function commit() {
     if (committed) return;
@@ -176,7 +182,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
           onPick(o.key);
           paintOpts(o.key);
           f.contBtn.disabled = false;
-          if (!needsContinue) setTimeout(() => { if (overlayEl && !recap) next(); }, 260);
+          if (!needsContinue) { clearTimeout(advTimer); advTimer = setTimeout(() => { if (overlayEl && !recap) next(); }, 260); }
         },
       })));
     }

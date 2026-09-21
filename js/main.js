@@ -524,7 +524,12 @@ function shellActions() {
         popoverLink("#/settings", ICONS.gear, t("account.settings")),
         el("button.cardmenu__item.cardmenu__item--danger", {
           type: "button",
-          onclick: async () => { closePopover(); try { await store.logout(); } catch {} toast(t("account.signOutDone")); },
+          onclick: async () => {
+            closePopover();
+            let r = null;
+            try { r = await store.logout(); } catch {}
+            toast(t(r?.wiped === false ? "set.acctSignedOutKept" : "account.signOutDone"));
+          },
         }, [icon(ICONS.logout, 15), t("account.signOut")]),
       ] : [
         popoverLink("#/login", ICONS.user, t("account.signIn")),

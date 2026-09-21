@@ -2,6 +2,7 @@ import { Router } from "express";
 import crypto from "node:crypto";
 import { db } from "../db.js";
 import { requireAuth } from "../middleware/requireAuth.js";
+import { takeKey, tooMany } from "../middleware/rateLimit.js";
 
 export const links = Router();
 
@@ -27,6 +28,8 @@ links.post("/links/invite-code", requireAuth, (req, res) => {
 
 // A parent/teacher redeems a student's code to create the link.
 links.post("/links/redeem", requireAuth, (req, res) => {
+  // Guessing invite codes: 10 tries up front, then one every 30 seconds per account.
+  if (!takeKey(`redeem:${req.user.userId}`, 10, 30_000)) return tooMany(res);
   const code = String(req.body?.code || "").trim().toUpperCase();
   if (!code) return res.status(400).json({ error: { message: "Enter a code." } });
 

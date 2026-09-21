@@ -58,7 +58,7 @@ async function errorFrom(res) {
   return new ClaudeError(detail ? t("err.apiDetail", { status: res.status, detail }) : t("err.api", { status: res.status }));
 }
 
-async function callJSON(body) {
+async function callJSON(body, { strict = false } = {}) {
   let res;
   try {
     res = await fetch(API_URL, { method: "POST", headers: headers(), body: JSON.stringify(body) });
@@ -67,6 +67,8 @@ async function callJSON(body) {
   }
   if (!res.ok) throw await errorFrom(res);
   const data = await res.json();
+  // Cut off at the token cap: the JSON is incomplete, and asking again would just repeat it.
+  if (strict && data.stop_reason === "max_tokens") throw new ClaudeError(t("err.genTooLong"));
   return data.content?.map((b) => b.text || "").join("") || "";
 }
 
@@ -111,7 +113,7 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
     messages: [{ role: "user", content: userContent }],
   };
 
-  let raw = await callJSON(body);
+  let raw = await callJSON(body, { strict: true });
   try {
     return normalizeDoc(parseLooseJSON(raw));
   } catch {
@@ -123,7 +125,7 @@ export async function generateAssignment({ material, topic, image, count = 6, gr
         { role: "assistant", content: [{ type: "text", text: raw.slice(0, 4000) }] },
         { role: "user", content: [{ type: "text", text: "That wasn't valid JSON. Reply again with ONLY the JSON object." }] },
       ],
-    });
+    }, { strict: true });
     return normalizeDoc(parseLooseJSON(repair));
   }
 }
@@ -210,6 +212,7 @@ export async function* tutorStream({ system, messages, signal }) {
   const reader = res.body.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
+  try {
   while (true) {
     const { done, value } = await reader.read();
     if (done) break;
@@ -225,8 +228,13 @@ export async function* tutorStream({ system, messages, signal }) {
       try { json = JSON.parse(payload); } catch { continue; }
       if (json.type === "content_block_delta" && json.delta?.type === "text_delta") {
         yield json.delta.text;
+      } else if (json.type === "error") {
+        throw new ClaudeError(json.error?.message || t("err.network"));
       }
     }
+  }
+  } finally {
+    try { await reader.cancel(); } catch {}
   }
 }
 

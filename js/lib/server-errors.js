@@ -9,6 +9,8 @@ const KNOWN = {
   "Password must be at least 8 characters.": "srv.err.password",
   "An account with that email already exists.": "srv.err.emailTaken",
   "Wrong email or password.": "srv.err.badLogin",
+  "Too many attempts. Wait a few minutes and try again.": "srv.err.tooMany",
+  "That request is too large.": "srv.err.tooLarge",
   "Not signed in.": "srv.err.notSignedIn",
   "Session expired.": "srv.err.sessionExpired",
   "Enter a code.": "srv.err.enterCode",

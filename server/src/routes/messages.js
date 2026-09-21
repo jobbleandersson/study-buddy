@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { requireAuth } from "../middleware/requireAuth.js";
+import { safe } from "../middleware/safe.js";
 import { takeToken, RATE_PER_MIN } from "../middleware/rateLimit.js";
 import {
   addUsage, checkBudget, readUsage, currentPeriod, periodResetsAt,
@@ -38,6 +39,20 @@ function sanitizeBody(raw) {
   return out;
 }
 
+// Characters of real text in a request (images and documents count by tokens, not characters).
+// A single request can otherwise carry ~2.5M tokens of input inside the 10 MB body limit — and the
+// monthly budget is only checked before the call, so one giant request could overshoot it.
+const MAX_TEXT_CHARS = 400_000;
+function textChars(v) {
+  if (typeof v === "string") return v.length;
+  if (Array.isArray(v)) return v.reduce((n, x) => n + textChars(x), 0);
+  if (v && typeof v === "object") {
+    if (v.type === "image" || v.type === "document") return 0;
+    return Object.values(v).reduce((n, x) => n + textChars(x), 0);
+  }
+  return 0;
+}
+
 function log(fields) {
   // One structured line per request — grep-able, and the seed of a cost view.
   try { console.log("[proxy] " + JSON.stringify({ t: new Date().toISOString(), ...fields })); } catch {}
@@ -47,7 +62,7 @@ function log(fields) {
 const guards = [];
 if (REQUIRE_AUTH) guards.push(requireAuth);
 
-messages.post("/messages", ...guards, async (req, res) => {
+messages.post("/messages", ...guards, safe(async (req, res) => {
   const userId = req.user?.userId || null;
   const started = Date.now();
 
@@ -67,6 +82,9 @@ messages.post("/messages", ...guards, async (req, res) => {
   if (!body.messages.length) {
     return res.status(400).json({ error: { message: "No messages.", code: "bad_request" } });
   }
+  if (textChars(body.messages) + textChars(body.system) > MAX_TEXT_CHARS) {
+    return res.status(413).json({ error: { message: "That request is too large.", code: "bad_request" } });
+  }
 
   // Metering only applies when there's a user to meter (REQUIRE_AUTH on).
   if (userId) {
@@ -82,10 +100,18 @@ messages.post("/messages", ...guards, async (req, res) => {
     }
   }
 
+  // Stop paying for a reply nobody will read: abort the upstream call when the browser
+  // goes away (tab closed, question changed), and never let one hang forever.
+  const ac = new AbortController();
+  res.on("close", () => { if (!res.writableEnded) ac.abort(); });
+  const timer = setTimeout(() => ac.abort(), 180_000);
+  res.on("close", () => clearTimeout(timer));
+
   let upstream;
   try {
     upstream = await fetch(ANTHROPIC_URL, {
       method: "POST",
+      signal: ac.signal,
       headers: {
         "content-type": "application/json",
         "x-api-key": apiKey,
@@ -94,6 +120,7 @@ messages.post("/messages", ...guards, async (req, res) => {
       body: JSON.stringify(body),
     });
   } catch (e) {
+    clearTimeout(timer);
     log({ userId, model: body.model, status: 502, ms: Date.now() - started, err: "unreachable" });
     return res.status(502).json({ error: { message: "Could not reach the Claude API.", code: "upstream_unreachable" } });
   }
@@ -148,7 +175,7 @@ messages.post("/messages", ...guards, async (req, res) => {
   } catch { /* error body / non-JSON */ }
   if (userId && upstream.ok) addUsage(userId, { inputTokens: inTok, outputTokens: outTok });
   log({ userId, model: body.model, status: upstream.status, in: inTok, out: outTok, ms: Date.now() - started });
-});
+}));
 
 // The signed-in user's spend this month, for the Settings usage line and the
 // client's "limit reached" state. Cheap; no auth escape hatch (if

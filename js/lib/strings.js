@@ -617,6 +617,10 @@ export const STRINGS = {
     "set.acctSignIn": "Sign in / create account",
     "set.acctSignOut": "Sign out",
     "set.acctSignedOutToast": "Signed out — local mode",
+    "set.acctSignedOutKept": "Signed out. Some changes hadn't synced yet, so they stay on this device.",
+    "srv.err.tooMany": "Too many attempts. Wait a few minutes and try again.",
+    "srv.err.tooLarge": "That request is too large.",
+    "err.genTooLong": "That was too much to generate in one go. Try a shorter source or fewer questions.",
     "set.acctParentLink": "Parent / teacher linking",
     "set.acctNoServer": "The tutor server isn't reachable, so signing in won't work right now.",
 
@@ -2221,6 +2225,10 @@ export const STRINGS = {
     "set.acctSignIn": "Logga in / skapa konto",
     "set.acctSignOut": "Logga ut",
     "set.acctSignedOutToast": "Utloggad — lokalt läge",
+    "set.acctSignedOutKept": "Utloggad. Vissa ändringar hann inte synkas, så de finns kvar på den här enheten.",
+    "srv.err.tooMany": "För många försök. Vänta några minuter och försök igen.",
+    "srv.err.tooLarge": "Förfrågan är för stor.",
+    "err.genTooLong": "Det blev för mycket att generera på en gång. Prova en kortare källa eller färre frågor.",
     "set.acctParentLink": "Förälder-/lärarkoppling",
     "set.acctNoServer": "Handledarservern är inte nåbar, så inloggning fungerar inte just nu.",
 
