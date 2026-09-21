@@ -166,7 +166,11 @@ export function renderBusQuestion({ question, targetLang = null, progress = null
     let fired = false;
     const finish = () => { if (fired || !alive(id)) return; fired = true; then?.(); };
     if (!speechOn) { finish(); return; }
-    if (!speakSegments(segments, { onend: finish, onerror: finish })) finish();
+    if (!speakSegments(segments, { onend: finish, onerror: finish })) { finish(); return; }
+    // Some phones accept the speech and then never say it (or never say it's done) —
+    // don't wait forever. Generous: about twice as long as it should take to read.
+    const chars = segments.reduce((n, seg) => n + String(seg.text || "").length, 0);
+    later(finish, chars * 120 + 4000);
   }
 
   function readQuestion() {
@@ -189,7 +193,14 @@ export function renderBusQuestion({ question, targetLang = null, progress = null
       onerror: (code) => { handled = true; if (alive(id)) listenError(code); },
       onend: () => { if (!handled && alive(id)) heard([]); },
     });
-    if (!listener) { voiceOn = false; setPhase("idle"); say(t("bus.micFailed")); paint(); }
+    if (!listener) { voiceOn = false; setPhase("idle"); say(t("bus.micFailed")); paint(); return; }
+    // A recogniser that neither answers nor ends would leave this open for good: call it silence.
+    later(() => {
+      if (handled || !alive(id)) return;
+      handled = true;
+      stopListening();
+      heard([]);
+    }, 12000);
   }
 
   function listenError(code) {
