@@ -18,6 +18,8 @@ import { openQuickAdd, closeQuickAdd } from "../components/quick-add.js";
 import { playFanfare } from "../lib/sound.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
+import { testsTomorrow } from "../lib/tonight.js";
+import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
@@ -410,7 +412,26 @@ export function renderMenu(mode) {
     rail,
   ].filter(Boolean));
 
-  return { title: t("menu.title"), node: el("div", {}, [greetingBlock, layout]), cleanup: menuCleanup };
+  return { title: t("menu.title"), node: el("div", {}, [greetingBlock, tonightCard(), layout].filter(Boolean)), cleanup: menuCleanup };
+}
+
+/** The evening before a test the home page leads with a calm card that opens the
+ *  short evening plan (#/tonight). Nothing at all on any other day. */
+function tonightCard() {
+  const test = testsTomorrow(store.assignments)[0];
+  if (!test) return null;
+  const plan = tonightPlan(test);
+  const name = plan.subject?.name || test.title;
+  const finished = !!plan.day.finishedAt;
+  return el("a.tonightcard.theme-night" + (finished ? ".tonightcard--done" : ""), { href: `#/tonight/${test.id}` }, [
+    el("span.tonightcard__moon", { "aria-hidden": "true" }, [icon(ICONS.moon, 22)]),
+    el("span.tonightcard__text", {}, [
+      el("strong", {}, t("tonight.cardTitle", { subject: name })),
+      el("span", {}, finished ? t("tonight.cardDone")
+        : plan.minutes.total ? t("tonight.cardBody", { n: plan.minutes.total }) : t("tonight.leadNone")),
+    ]),
+    el("span.tonightcard__cta", {}, finished ? t("tonight.cardOpen") : t("tonight.cardCta")),
+  ]);
 }
 
 /** The right-hand rail on the home page: an always-present mini calendar +

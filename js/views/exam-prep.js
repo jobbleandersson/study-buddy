@@ -116,7 +116,11 @@ export function renderExamPrep(subjectId) {
             onclick: () => openDueDialog(sets[0], { defaultTest: true }),
           }, [icon(ICONS.calendar, 16), t("exam.setDate")]),
         ]),
-  ]);
+    // The evening before a test the short evening plan is the better place to be.
+    testSet?.type === "test" && daysUntil(testSet.dueAt) === 1
+      ? el("a.btn.btn--sm", { href: `#/tonight/${testSet.id}`, style: { marginTop: "10px" } }, [icon(ICONS.moon, 16), t("tonight.cardCta")])
+      : null,
+  ].filter(Boolean));
 
   /* ---- where you stand: subject % in the heading, a per-topic breakdown
      below (weakest first — that's what prep should point at) ---- */

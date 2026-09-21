@@ -11,8 +11,9 @@ import { showAchievementUnlocks } from "./lib/achievement-toast.js";
 import { renderMenu } from "./views/menu.js";
 import { renderCreate } from "./views/create.js";
 import { renderEdit } from "./views/edit.js";
-import { renderSession, renderReview, renderPractice, renderWeakPractice, renderRulesPractice, renderNationalMix, renderHpMock, isSessionActive } from "./views/session.js";
+import { renderSession, renderReview, renderPractice, renderWeakPractice, renderRulesPractice, renderTonightPractice, renderNationalMix, renderHpMock, isSessionActive } from "./views/session.js";
 import { renderRules } from "./views/rules.js";
+import { renderTonight } from "./views/tonight.js";
 import { renderResults } from "./views/results.js";
 import { renderProgress } from "./views/progress.js";
 import { renderSettings } from "./views/settings.js";
@@ -72,6 +73,8 @@ const routes = [
   { rx: /^\/practice-weak$/, view: (m, qs) => renderWeakPractice(qs) },
   { rx: /^\/practice-rules$/, view: () => renderRulesPractice() },
   { rx: /^\/rules$/, view: () => renderRules() },
+  { rx: /^\/tonight(?:\/(.+))?$/, view: (m) => renderTonight(m[1] || null) },
+  { rx: /^\/tonight-practice\/(.+)$/, view: (m) => renderTonightPractice(m[1]) },
   { rx: /^\/practice\/(.+)$/, view: (m) => renderPractice(m[1]) },
   { rx: /^\/exam-prep(?:\/(.*))?$/, view: (m, qs) => renderExamPrep(m[1] || null, qs) },
   { rx: /^\/hp$/, view: () => renderHp() },
@@ -370,6 +373,8 @@ const DAY_MS = 86400000;
 function buildNotifications() {
   const now = Date.now();
   const list = [];
+  // "Klart för i kväll" quiets reminders until morning — see views/tonight.js.
+  if (store.isQuiet(now)) return list;
 
   const due = store.dueQuestions();
   if (due.length) {
@@ -421,8 +426,10 @@ function buildNotifications() {
         title: d === 0 ? t("notif.examToday") : d === 1 ? t("notif.examTomorrow") : t("notif.examInDays", { n: d }),
         body: t("notif.examBody"),
         meta: test.title,
-        href: test.subjectId ? `#/exam-prep/${test.subjectId}` : `#/session/${test.id}`,
-        linkLabel: t("notif.viewExam"),
+        // The day before, the evening plan is the useful place to land.
+        href: d === 1 ? `#/tonight/${test.id}`
+          : test.subjectId ? `#/exam-prep/${test.subjectId}` : `#/session/${test.id}`,
+        linkLabel: d === 1 ? t("tonight.notifLink") : t("notif.viewExam"),
         signature,
         read: store.isNotificationRead("exam-reminder", signature),
       });
@@ -431,6 +438,18 @@ function buildNotifications() {
 
   return list;
 }
+
+/** Re-check the bell's unread dot without re-rendering the page — for when
+ *  something quiets (or un-quiets) reminders while a view is open. */
+function syncBellDots() {
+  const unread = buildNotifications().some((n) => !n.read);
+  document.querySelectorAll(".topbar__bell").forEach((bell) => {
+    const dot = bell.querySelector(".topbar__dot");
+    if (unread && !dot) bell.appendChild(el("span.topbar__dot"));
+    else if (!unread && dot) dot.remove();
+  });
+}
+window.addEventListener("sb:reminders", syncBellDots);
 
 function popoverLink(href, path, label) {
   return el("a.cardmenu__item", { href, onclick: closePopover }, [icon(path, 15), label]);
@@ -552,7 +571,7 @@ function shellActions() {
  *  session's own floating hint button. The homeButton() at the top of each of
  *  those views is the way out. */
 function immersiveRoute() {
-  return /^\/(session|review|practice|practice-weak|practice-rules|print|teachback)(\/|$)/.test(currentPath())
+  return /^\/(session|review|practice|practice-weak|practice-rules|tonight|tonight-practice|print|teachback)(\/|$)/.test(currentPath())
     || currentPath() === "/hp/mock";
 }
 

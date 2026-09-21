@@ -5,7 +5,7 @@
 // a targeted practice run and a weak-spots drill identically — and it's what
 // gets saved so you can resume.
 
-import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, RULES_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId } from "../store.js";
+import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, RULES_ID, TONIGHT_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER } from "../lib/hp.js";
 import { announce } from "../lib/a11y.js";
@@ -22,6 +22,7 @@ import { closePopover } from "../lib/popover.js";
 import { review } from "../lib/srs.js";
 import { weakSpotQuestions, masteryByTopic, firstTryCorrect } from "../lib/mastery.js";
 import { ruleQuestionIds } from "../lib/rules.js";
+import { pickTonightQuestions } from "../lib/tonight.js";
 import { playCorrect, playWrong, playChime } from "../lib/sound.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
@@ -180,6 +181,25 @@ export async function renderRulesPractice() {
     title: t("session.rulesTitle"),
     type: "assignment",
     retryHash: "#/practice-rules",
+    questionIds: ids,
+    forceTutor: true,
+  });
+}
+
+/** The last look before a test: a short session of questions from that subject that
+ *  are worth one more pass (see pickTonightQuestions). Started from the evening
+ *  plan (#/tonight); finishing it ticks that step off. */
+export async function renderTonightPractice(setId) {
+  const set = store.getAssignment(setId);
+  if (!set) return notFound(t("session.goneSet"));
+  const ids = pickTonightQuestions(store.assignments, store.state.srs, { subjectId: set.subjectId, pick: shuffled });
+  if (!ids.length) return emptyScreen(t("session.noTonightTitle"), t("session.noTonightBody"), t("session.badgeTonight"));
+  return runSession({
+    key: `${TONIGHT_ID}::${setId}`,
+    assignmentId: TONIGHT_ID,
+    title: t("session.tonightTitle"),
+    type: "assignment",
+    retryHash: `#/tonight-practice/${setId}`,
     questionIds: ids,
     forceTutor: true,
   });
@@ -352,6 +372,7 @@ function runSession(config) {
     if (config.assignmentId === PRACTICE_ID) return t("session.practiceTitle");
     if (config.assignmentId === WEAK_ID) return t("session.weakTitle");
     if (config.assignmentId === RULES_ID) return t("session.rulesTitle");
+    if (config.assignmentId === TONIGHT_ID) return t("session.tonightTitle");
     if (config.assignmentId === HP_MOCK_ID) return t("hp.mockTitle");
     return store.getAssignment(config.assignmentId)?.title || config.title;
   }
@@ -1079,6 +1100,7 @@ function badgeLabel(config) {
   if (config.assignmentId === PRACTICE_ID) return t("session.badgePractice");
   if (config.assignmentId === WEAK_ID) return t("session.badgeWeak");
   if (config.assignmentId === RULES_ID) return t("session.badgeRules");
+  if (config.assignmentId === TONIGHT_ID) return t("session.badgeTonight");
   if (config.assignmentId?.startsWith?.(NATIONAL_MIX_PREFIX)) return t("session.badgeNationalMix");
   return config.type === "test" ? t("common.test") : t("common.assignment");
 }

@@ -145,7 +145,10 @@
    than a pale one. Applied by [data-theme="dark"] on <html>, or by the
    system preference when the user hasn't chosen (data-theme="system").
    --------------------------------------------------------------- */
-:root[data-theme="dark"] {
+/* `.theme-night` puts the same palette on one panel of an otherwise light page
+   (the evening-before-a-test screen), whatever theme the rest of the app is in. */
+:root[data-theme="dark"],
+.theme-night {
   /* "Signal Blue" repaint: near-black ground with a faint blue bias, crisper
      text (ink-faint clears ~6.5:1 on surface, up from ~5.7), blue accent. */
   --canvas:        #0A0C11;

@@ -109,6 +109,8 @@ export const PRACTICE_ID = "__practice__";
 export const WEAK_ID = "__weak__";
 // "Repeat only my rules" — questions on the topics the student wrote rules for.
 export const RULES_ID = "__rules__";
+// The last-look session on the evening before a test — see lib/tonight.js.
+export const TONIGHT_ID = "__tonight__";
 // The Högskoleprov mini-mock — its own resumable slot, like the three above.
 export const HP_MOCK_ID = "__hpmock__";
 // Per-subject, unlike the three above — several subjects can each have their
@@ -136,6 +138,9 @@ function seedState() {
     attempts: [],
     srs: {},
     rules: [],                       // memory rules the student wrote after a miss — see lib/rules.js
+    // The evening before a test: per-evening checklists ("YYYY-MM-DD|subjectId" ->
+    // { done: { stepId: ms }, finishedAt }) and when reminders stay quiet until.
+    tonight: { days: {}, quietUntil: 0 },
     sessions: {},                    // in-progress sessions, keyed by session key
     onboarded: false,               // has the first-run walkthrough been seen?
     profile: null,                   // answers to the welcome quiz — see components/onboarding.js; null until answered
@@ -260,6 +265,21 @@ function mergeStates(server, local) {
     s.rules = [...byId.values()].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
   }
 
+  // tonight — union the evening checklists (a step done on either device stays
+  // done); quiet hours end at the later of the two
+  {
+    const st = o(s.tonight), lt = o(l.tonight);
+    const days = { ...o(st.days) };
+    for (const [k, v] of Object.entries(o(lt.days))) {
+      const cur = days[k];
+      days[k] = !cur ? v : {
+        done: { ...o(v?.done), ...o(cur.done) },
+        finishedAt: Math.max(cur.finishedAt || 0, v?.finishedAt || 0) || null,
+      };
+    }
+    s.tonight = { days, quietUntil: Math.max(st.quietUntil || 0, lt.quietUntil || 0) };
+  }
+
   // srs — per question, keep the record with more review history
   const srs = { ...o(s.srs) };
   for (const [qid, rec] of Object.entries(o(l.srs))) {
@@ -309,6 +329,12 @@ function mergeStates(server, local) {
   return s;
 }
 
+/** Forget evening checklists older than two weeks — they're only ever read on the day. */
+function pruneTonight(tonight) {
+  const keep = addDays(localDayKey(), -14);
+  for (const k of Object.keys(tonight.days)) if (k.split("|")[0] < keep) delete tonight.days[k];
+}
+
 /** The tail of migrate() — the version-independent normalisation — split out so
  *  a merged blob (which is already at SCHEMA_VERSION) gets the same treatment. */
 function finishMigrate(s) {
@@ -354,6 +380,17 @@ function finishMigrate(s) {
     .filter((r) => r && typeof r === "object" && r.id && typeof r.text === "string" && r.text.trim())
     .map((r) => ({ ...r, text: cleanRuleText(r.text) }))
     .slice(-RULE_MAX_COUNT);
+  {
+    const raw = s.tonight && typeof s.tonight === "object" ? s.tonight : {};
+    const days = {};
+    for (const [k, v] of Object.entries(raw.days && typeof raw.days === "object" ? raw.days : {})) {
+      if (v && typeof v === "object") {
+        days[k] = { done: v.done && typeof v.done === "object" ? v.done : {}, finishedAt: v.finishedAt || null };
+      }
+    }
+    s.tonight = { days, quietUntil: Number(raw.quietUntil) || 0 };
+    pruneTonight(s.tonight);
+  }
 
   // Merge subjects duplicated by name (a demo set's subject could get recreated
   // after a language swap left the original renamed). Keep the first, repoint
@@ -905,7 +942,7 @@ class Store extends EventTarget {
   _updateAppBadge() {
     try {
       if (!("setAppBadge" in navigator)) return;
-      const n = this.dueQuestions().length;
+      const n = this.isQuiet() ? 0 : this.dueQuestions().length;   // quiet hours: no count on the icon
       if (n > 0) navigator.setAppBadge(n);
       else navigator.clearAppBadge?.();
     } catch { /* not installed / not permitted — fine */ }
@@ -1238,6 +1275,39 @@ class Store extends EventTarget {
     const set = new Set(ids);
     this.update((s) => { for (const r of s.rules) if (set.has(r.id)) r.peeks = (r.peeks || 0) + 1; });
   }
+
+  // ---------- the evening before a test ----------
+  tonightDay(key) { return this.state.tonight.days[key] || { done: {}, finishedAt: null }; }
+
+  /** Tick a step off for this evening. Ticking it again keeps the first time. */
+  markTonightStep(key, stepId) {
+    this.update((s) => {
+      const day = (s.tonight.days[key] ||= { done: {}, finishedAt: null });
+      if (!day.done[stepId]) day.done[stepId] = Date.now();
+      pruneTonight(s.tonight);
+    });
+  }
+
+  /** "Klart för i kväll" — the evening is over, and reminders stay quiet until `quietUntil` (ms). */
+  finishTonight(key, quietUntil) {
+    this.update((s) => {
+      const day = (s.tonight.days[key] ||= { done: {}, finishedAt: null });
+      day.finishedAt = Date.now();
+      s.tonight.quietUntil = quietUntil;
+    });
+  }
+
+  /** Take "done" back: reminders on again, the checklist open. */
+  reopenTonight(key) {
+    this.update((s) => {
+      const day = s.tonight.days[key];
+      if (day) day.finishedAt = null;
+      s.tonight.quietUntil = 0;
+    });
+  }
+
+  /** Are reminders quiet right now (the student finished their evening)? */
+  isQuiet(now = Date.now()) { return (this.state.tonight?.quietUntil || 0) > now; }
 
   recordAttempt(attempt) {
     let freezeUsed = false;
