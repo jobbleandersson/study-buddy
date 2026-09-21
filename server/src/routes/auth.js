@@ -5,6 +5,7 @@ import { db } from "../db.js";
 import { COOKIE_NAME } from "../constants.js";
 import { verifyGoogleIdToken, GoogleTokenError } from "../google.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
+import { signupHourly, signupDaily, loginFailures } from "../middleware/authLimits.js";
 import { isUniqueViolation } from "../errors.js";
 
 export const auth = Router();
@@ -32,7 +33,7 @@ function createSession(res, userId) {
 const emailTaken = (res) =>
   res.status(409).json({ error: { message: "An account with that email already exists." } });
 
-auth.post("/auth/signup", asyncHandler(async (req, res) => {
+auth.post("/auth/signup", signupHourly, signupDaily, asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "");
   if (!email || !email.includes("@")) return res.status(400).json({ error: { message: "Enter a valid email." } });
@@ -56,7 +57,7 @@ auth.post("/auth/signup", asyncHandler(async (req, res) => {
   res.json({ email });
 }));
 
-auth.post("/auth/login", asyncHandler(async (req, res) => {
+auth.post("/auth/login", ...loginFailures, asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   const password = String(req.body?.password || "");
 
@@ -108,8 +109,7 @@ auth.post("/auth/google", asyncHandler(async (req, res) => {
 
     if (!user) {
       const existing = db.prepare("SELECT id, email, google_sub FROM users WHERE email = ?").get(email);
-      const taken = () => res.status(409).json({ error: { message: "An account with that email already exists." } });
-      if (existing && existing.google_sub) return taken();   // that address belongs to a different Google account
+      if (existing && existing.google_sub) return emailTaken(res);   // that address belongs to a different Google account
 
       // A random hash nobody knows: this account signs in with Google only.
       const unusableHash = await bcrypt.hash(crypto.randomBytes(32).toString("hex"), 10);
@@ -129,7 +129,7 @@ auth.post("/auth/google", asyncHandler(async (req, res) => {
           created = true;
         }
       } catch (e) {
-        if (String(e?.code || "").startsWith("SQLITE_CONSTRAINT")) return taken();   // lost a race with a parallel request
+        if (isUniqueViolation(e)) return emailTaken(res);   // lost a race with a parallel request
         throw e;
       }
     }

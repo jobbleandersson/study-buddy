@@ -34,14 +34,16 @@ and set `ALLOWED_ORIGIN` below so CORS allows it.
 - `GET /api/health` — `{ok, keyConfigured}`
 - `POST /api/messages` — proxies to Anthropic (streaming passthrough for the tutor).
   Requires a signed-in session by default (`MESSAGES_REQUIRE_AUTH`); enforces a
-  per-user request rate limit and a per-user monthly token budget; clamps
-  `max_tokens` and rejects unknown models; obeys the `PROXY_DISABLED` kill switch.
+  per-user request rate limit, a per-user monthly token budget and a server-wide
+  daily dollar cap (`AI_DAILY_SPEND_CAP_USD`); clamps `max_tokens` and rejects
+  unknown models; obeys the `PROXY_DISABLED` kill switch.
   Its own failures carry a machine `code` in `error.code` (`not_authenticated`,
-  `rate_limited`, `quota_exceeded`, `maintenance`, `model_not_allowed`).
+  `rate_limited`, `quota_exceeded`, `daily_cap`, `maintenance`, `model_not_allowed`).
 - `GET /api/usage` — the signed-in user's Claude token spend this month:
   `{period, used, limit, requests, resetsAt, metered}`
 - `POST /api/auth/signup`, `/login`, `/logout`, `GET /api/auth/me` — email/password,
-  httpOnly session cookie
+  httpOnly session cookie. Signup and login are throttled per IP (`429`, code
+  `rate_limited`, with `Retry-After`); so is guessing class / friend / parent codes.
 - `GET/PUT /api/state` — the signed-in user's synced state blob (requires auth);
   `PUT` takes `{version, blob}` and returns `409` with the current version/blob on
   a stale write
@@ -67,9 +69,12 @@ and set `ALLOWED_ORIGIN` below so CORS allows it.
 default) and meters every request against a per-user monthly token budget, so the key
 is no longer spendable anonymously. Still open before a paid launch (see the "Turning
 on live mode" plan): there's no **entitlement** check yet — any signed-in account can
-spend up to the flat budget, paid or not; login has no throttle; there's no password
-reset; the rate limiter and budget counter are per-process, so a multi-process deploy
-needs shared state (Redis) and a single owner for the hourly row sweep (`src/sweep.js`).
+spend up to the flat budget, paid or not; there's no email verification or password
+reset. Signup, login and code guessing are throttled per IP, and the server as a whole
+stops spending at a daily dollar cap (see `.env.example`), so free accounts can't run
+up a bill. The throttles and the per-user rate limiter are per-process, so a
+multi-process deploy needs shared state (Redis) and a single owner for the hourly row
+sweep (`src/sweep.js`).
 `COOKIE_SECURE` should be `true` once this runs over https (left `false` for local http
 dev). `ALLOWED_ORIGIN` only matters if the frontend is served
 from somewhere other than this same process — normally leave it unset.

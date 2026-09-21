@@ -99,9 +99,10 @@ See `js/claude.js` (`MODELS`).
 The Claude API key lives only on the machine running `server/` — the browser never sees
 it. Every API route, `/api/messages` (the Claude proxy) included, requires a signed-in
 session by default, and the proxy meters each user against a monthly token budget and a
-request rate limit. What's still missing before charging for it: an *entitlement* check
-(any account can spend up to the flat budget, paid or not), login throttling, and
-password reset — see `server/README.md` and the "Turning on live mode" plan.
+request rate limit, and the whole server against a daily dollar cap; signup, login and
+code guessing are throttled per IP. What's still missing before charging for it: an
+*entitlement* check (any account can spend up to the flat budget, paid or not), email
+verification, and password reset — see `server/README.md` and the "Turning on live mode" plan.
 
 ## Project layout
 

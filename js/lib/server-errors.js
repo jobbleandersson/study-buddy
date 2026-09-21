@@ -33,6 +33,7 @@ const KNOWN = {
   "Couldn't verify your Google sign-in.": "srv.err.googleInvalid",
   "Your Google account's email isn't verified.": "srv.err.googleUnverified",
   "Google sign-in is unavailable right now. Try again shortly.": "srv.err.googleUnavailable",
+  "Too many attempts. Try again in a few minutes.": "srv.err.tooManyAttempts",
 };
 
 export function serverMessage(message, fallback) {

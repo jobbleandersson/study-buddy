@@ -3,7 +3,7 @@ import { requireAuth } from "../middleware/requireAuth.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 import { takeToken, RATE_PER_MIN } from "../middleware/rateLimit.js";
 import {
-  addUsage, checkBudget, readUsage, currentPeriod, periodResetsAt,
+  recordUsage, checkBudget, checkDailyCap, reserveSpend, worstCaseMicro, readUsage, currentPeriod, periodResetsAt,
   MONTHLY_TOKEN_BUDGET, MAX_OUTPUT_TOKENS, ALLOWED_MODELS,
 } from "../usage.js";
 
@@ -44,6 +44,39 @@ function log(fields) {
   try { console.log("[proxy] " + JSON.stringify({ t: new Date().toISOString(), ...fields })); } catch {}
 }
 
+// Every token Anthropic bills, by kind. input_tokens leaves out whatever was read
+// from or written to the prompt cache, and the client can ask for caching (the body's
+// messages and system pass through untouched), so those are counted too. Values only
+// grow over a stream, so the largest one seen is the final one.
+const emptyUsage = () => ({ input: 0, output: 0, cacheWrite: 0, cacheRead: 0 });
+function mergeUsage(acc, u) {
+  if (!u) return acc;
+  acc.input = Math.max(acc.input, u.input_tokens || 0);
+  acc.output = Math.max(acc.output, u.output_tokens || 0);
+  acc.cacheWrite = Math.max(acc.cacheWrite, u.cache_creation_input_tokens || 0);
+  acc.cacheRead = Math.max(acc.cacheRead, u.cache_read_input_tokens || 0);
+  return acc;
+}
+const usageFields = (u, costMicro) => ({
+  in: u.input, out: u.output,
+  ...(u.cacheWrite ? { cacheWrite: u.cacheWrite } : {}),
+  ...(u.cacheRead ? { cacheRead: u.cacheRead } : {}),
+  usd: costMicro / 1_000_000,
+});
+
+// A rough upper bound on the tokens a request will read, for the spend cap: half a
+// token per character of JSON is well above what English or Swedish text needs.
+// Images are the exception — their base64 isn't what's billed — so each counts a flat
+// 6,000 tokens, about the most one costs.
+function estimateInputTokens(body) {
+  let images = 0;
+  const json = JSON.stringify([body.system ?? null, body.messages], (key, value) => {
+    if (value && typeof value === "object" && value.type === "image") { images++; return { type: "image" }; }
+    return value;
+  });
+  return Math.ceil(json.length / 2) + images * 6000;
+}
+
 // Everything below /messages runs the same guard chain.
 const guards = [];
 if (REQUIRE_AUTH) guards.push(requireAuth);
@@ -69,7 +102,18 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
     return res.status(400).json({ error: { message: "No messages.", code: "bad_request" } });
   }
 
-  // Metering only applies when there's a user to meter (REQUIRE_AUTH on).
+  // The whole server's daily dollar cap: past it, AI is off for everyone until
+  // 00:00 UTC, however many accounts are asking (see usage.js). Applies with or
+  // without auth — it protects the API key, not a user. The request counts at its
+  // worst case, alongside everything already spent or in flight.
+  const worstMicro = worstCaseMicro(body.model, { maxTokens: body.max_tokens, inputTokens: estimateInputTokens(body) });
+  const cap = checkDailyCap(worstMicro);
+  if (!cap.ok) {
+    log({ userId, model: body.model, status: 503, err: "daily_cap" });
+    return res.status(503).json({ error: { message: "AI is paused for today.", code: "daily_cap" }, resetsAt: cap.resetsAt });
+  }
+
+  // Per-user metering only applies when there's a user to meter (REQUIRE_AUTH on).
   if (userId) {
     if (!takeToken(userId)) {
       return res.status(429).json({ error: { message: `Too many requests — max ${RATE_PER_MIN}/min.`, code: "rate_limited" } });
@@ -83,6 +127,20 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
     }
   }
 
+  // Admitted. Hold this request's worst-case cost against the cap until it is done,
+  // so a burst of parallel requests can't all slip in before the first is booked. Released
+  // when forward() finishes, not when the client hangs up: Anthropic keeps working (and
+  // billing) either way.
+  const release = reserveSpend(worstMicro);
+  try {
+    await forward({ res, userId, body, apiKey, started });
+  } finally {
+    release();
+  }
+}));
+
+// Send one admitted request to Anthropic, relay the answer, and book what it cost.
+async function forward({ res, userId, body, apiKey, started }) {
   let upstream;
   try {
     upstream = await fetch(ANTHROPIC_URL, {
@@ -110,7 +168,7 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
     const reader = upstream.body.getReader();
     const decoder = new TextDecoder();
     let buf = "";
-    let inTok = 0, outTok = 0;
+    const usage = emptyUsage();
     try {
       while (true) {
         const { done, value } = await reader.read();
@@ -125,15 +183,15 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
           if (!dataLine) continue;
           try {
             const j = JSON.parse(dataLine.slice(5).trim());
-            if (j.type === "message_start" && j.message?.usage) inTok = j.message.usage.input_tokens || inTok;
-            if (j.type === "message_delta" && j.usage?.output_tokens != null) outTok = j.usage.output_tokens;
+            if (j.type === "message_start") mergeUsage(usage, j.message?.usage);
+            else if (j.type === "message_delta") mergeUsage(usage, j.usage);
           } catch { /* partial / non-JSON keepalive */ }
         }
       }
     } catch { /* client hung up mid-stream — still bill what we saw */ }
     res.end();
-    if (userId && upstream.ok) addUsage(userId, { inputTokens: inTok, outputTokens: outTok });
-    log({ userId, model: body.model, stream: true, status: upstream.status, in: inTok, out: outTok, ms: Date.now() - started });
+    const costMicro = upstream.ok ? recordUsage({ userId, model: body.model, usage }) : 0;
+    log({ userId, model: body.model, stream: true, status: upstream.status, ...usageFields(usage, costMicro), ms: Date.now() - started });
     return;
   }
 
@@ -141,15 +199,11 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
   const text = await upstream.text();
   res.setHeader("content-length", Buffer.byteLength(text));
   res.end(text);
-  let inTok = 0, outTok = 0;
-  try {
-    const j = JSON.parse(text);
-    inTok = j?.usage?.input_tokens || 0;
-    outTok = j?.usage?.output_tokens || 0;
-  } catch { /* error body / non-JSON */ }
-  if (userId && upstream.ok) addUsage(userId, { inputTokens: inTok, outputTokens: outTok });
-  log({ userId, model: body.model, status: upstream.status, in: inTok, out: outTok, ms: Date.now() - started });
-}));
+  const usage = emptyUsage();
+  try { mergeUsage(usage, JSON.parse(text)?.usage); } catch { /* error body / non-JSON */ }
+  const costMicro = upstream.ok ? recordUsage({ userId, model: body.model, usage }) : 0;
+  log({ userId, model: body.model, status: upstream.status, ...usageFields(usage, costMicro), ms: Date.now() - started });
+}
 
 // The signed-in user's spend this month, for the Settings usage line and the
 // client's "limit reached" state. Cheap; no auth escape hatch (if

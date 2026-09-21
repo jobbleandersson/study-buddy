@@ -52,8 +52,10 @@ if (process.env.COOKIE_SECURE !== "true") {
 const app = express();
 
 // Behind a hosting platform's load balancer (Render, Railway, Fly, …) the real
-// client protocol and IP arrive in X-Forwarded-* headers. Trusting one proxy
-// hop lets `secure` session cookies and the per-IP rate limiter work correctly.
+// client protocol arrives in X-Forwarded-* headers; trusting one proxy hop makes
+// req.protocol / req.secure right. It does NOT give the client's IP on Fly — there
+// the last X-Forwarded-For entry is the app's own address — so the throttles use
+// clientIp() in middleware/attemptLimit.js, which reads Fly-Client-IP.
 // Harmless locally (there is no proxy, so nothing is forwarded).
 app.set("trust proxy", 1);
 
