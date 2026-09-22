@@ -19,52 +19,6 @@
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/fonts.css" />
 
-  <!-- js/main.js (type=module, below) only *discovers* its own imports once it's
-       fetched and parsed, and each of those discovers its own in turn — every
-       hop costs a full round trip. This is the real cost of native ES modules
-       with no bundler: on a fast connection HTTP/2 hides it, on mobile's
-       higher RTT it's most of the gap between First Contentful Paint and
-       Largest Contentful Paint. modulepreload starts fetching (and, where
-       supported, parsing) the whole "app shell" — everything main.js eager-
-       imports, transitively, for a first-time visit to "/" — in parallel from
-       the moment the HTML is parsed, instead of one hop at a time; module
-       *execution* still happens later, in the normal import order, so this
-       changes nothing but timing. The list below is main.js's actual eager
-       (non-route) import closure, confirmed empirically via a resource-timing
-       measurement of a fresh "/" load — re-measure and update it if that
-       closure changes (a new eager import in main.js or one of these files). -->
-  <link rel="modulepreload" href="js/store.js" />
-  <link rel="modulepreload" href="js/config.js" />
-  <link rel="modulepreload" href="js/lib/dom.js" />
-  <link rel="modulepreload" href="js/lib/a11y.js" />
-  <link rel="modulepreload" href="js/lib/i18n.js" />
-  <link rel="modulepreload" href="js/lib/activity.js" />
-  <link rel="modulepreload" href="js/lib/theme.js" />
-  <link rel="modulepreload" href="js/lib/popover.js" />
-  <link rel="modulepreload" href="js/lib/achievement-toast.js" />
-  <link rel="modulepreload" href="js/lib/session-active.js" />
-  <link rel="modulepreload" href="js/lib/strings.js" />
-  <link rel="modulepreload" href="js/lib/server-errors.js" />
-  <link rel="modulepreload" href="js/lib/markdown.js" />
-  <link rel="modulepreload" href="js/lib/sound.js" />
-  <link rel="modulepreload" href="js/lib/srs.js" />
-  <link rel="modulepreload" href="js/lib/mastery.js" />
-  <link rel="modulepreload" href="js/lib/grade.js" />
-  <link rel="modulepreload" href="js/lib/rules.js" />
-  <link rel="modulepreload" href="js/lib/library.js" />
-  <link rel="modulepreload" href="js/lib/library-content.js" />
-  <link rel="modulepreload" href="js/lib/confetti-helper.js" />
-  <link rel="modulepreload" href="js/lib/achievements.js" />
-  <link rel="modulepreload" href="js/data/library.js" />
-  <link rel="modulepreload" href="js/components/command-palette.js" />
-  <link rel="modulepreload" href="js/components/site-chat.js" />
-  <link rel="modulepreload" href="js/components/upgrade-prompt.js" />
-  <link rel="modulepreload" href="js/components/onboarding.js" />
-  <link rel="modulepreload" href="js/components/mascot.js" />
-  <link rel="modulepreload" href="js/components/google-signin.js" />
-  <!-- Not part of the shell, but the single most common first route: -->
-  <link rel="modulepreload" href="js/views/landing.js" />
-
   <!-- Set the palette and language before first paint, so there's no flash of
        the wrong theme and <html lang> is right for screen readers from the start. -->
   <script>
