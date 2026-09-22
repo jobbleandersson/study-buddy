@@ -41,13 +41,15 @@ function loadDeferredUI() {
   import("./components/command-palette.js").then((m) => m.mountCommandPalette());
   import("./components/site-chat.js").then((m) => m.mountSiteChat());
 }
-// requestIdleCallback has no firing guarantee at all without an explicit
-// timeout — the page can look "busy" indefinitely and the callback simply
-// never runs.
-function scheduleIdle(fn) {
-  if (window.requestIdleCallback) window.requestIdleCallback(fn, { timeout: 2000 });
-  else setTimeout(fn, 0);
-}
+// A plain short timeout, not requestIdleCallback: tried that first, and it
+// measurably backfired — Speed Index (which tracks how long the viewport
+// keeps visibly changing) went from fine to a poor score, because
+// requestIdleCallback has no real timing guarantee. It waits for the browser
+// to consider itself genuinely idle, which under Lighthouse's own
+// instrumentation — or just a busy real page — can take close to whatever
+// timeout is given, so the chat bubble popped in late enough to read as an
+// ongoing visual change. A fixed, short delay fires predictably instead.
+function scheduleIdle(fn) { setTimeout(fn, 50); }
 scheduleIdle(loadDeferredUI);
 
 /**
