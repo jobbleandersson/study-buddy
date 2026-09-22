@@ -11,6 +11,13 @@ const DB_PATH = process.env.DB_PATH || path.join(__dirname, "..", "studybuddy.sq
 
 export const db = new Database(DB_PATH);
 db.pragma("journal_mode = WAL");
+// Off by default per connection — every ON DELETE CASCADE below is inert until this is set. Found
+// missing after account deletion (routes/account.js) left orphaned class_daily_answers rows behind:
+// its explicit delete list predates that table, and with no cascade to fall back on, nothing else
+// cleaned them up either. This doesn't fix that list — a delete people rely on for their privacy
+// still shouldn't depend on a pragma, so account.js keeps its own explicit deletes — but it makes
+// the schema's own cascades real, as a backstop for the next table someone adds and forgets there.
+db.pragma("foreign_keys = ON");
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (

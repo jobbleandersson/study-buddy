@@ -81,7 +81,7 @@ export function renderLogin(qs) {
       location.hash = dest;
     } catch (err) {
       if (err.code === "consent_required") {
-        // A new account would be created â ask first, then let them confirm without re-picking.
+        // A new account would be created — ask first, then let them confirm without re-picking.
         googleCredential = credential;
         paintMode();
         errorNote.textContent = t("login.googleNeedsConsent");

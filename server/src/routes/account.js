@@ -17,9 +17,10 @@ const deleteFailures = attemptLimit({
 
 // Erase the signed-in account and everything the server holds about it: the login, every session
 // (so other devices are signed out), the synced study data, parent/friend links and their codes,
-// sets assigned to or by them, AI usage, and — for a teacher — their classes with all members and
-// assignments. Each table is named here on purpose; the schema also cascades, but a delete that
-// people rely on for their privacy shouldn't depend on a pragma.
+// sets assigned to or by them, AI usage, their own answers to any class's daily question, and —
+// for a teacher — their classes with all members, assignments, and daily questions (with everyone's
+// answers to them). Each table is named here on purpose; the schema also cascades (db.js turns that
+// enforcement on), but a delete that people rely on for their privacy shouldn't depend on a pragma.
 //
 // To make sure it's really them (a session cookie alone can be left on a shared computer), a
 // password account must send its password; a Google-only account has none, so it sends its email.
@@ -43,10 +44,15 @@ account.delete("/account", requireAuth, deleteFailures, asyncHandler(async (req,
   db.transaction(() => {
     const taught = db.prepare("SELECT id FROM classes WHERE teacher_user_id = ?").all(userId).map((r) => r.id);
     for (const classId of taught) {
+      // Children of class_daily first — daily_id would otherwise dangle for an instant mid-transaction.
+      db.prepare("DELETE FROM class_daily_answers WHERE daily_id IN (SELECT id FROM class_daily WHERE class_id = ?)").run(classId);
+      db.prepare("DELETE FROM class_daily WHERE class_id = ?").run(classId);
       db.prepare("DELETE FROM class_assignments WHERE class_id = ?").run(classId);
       db.prepare("DELETE FROM class_members WHERE class_id = ?").run(classId);
     }
     db.prepare("DELETE FROM classes WHERE teacher_user_id = ?").run(userId);
+    // Their own answers in any class — including ones they don't teach.
+    db.prepare("DELETE FROM class_daily_answers WHERE student_user_id = ?").run(userId);
     db.prepare("DELETE FROM class_members WHERE student_user_id = ?").run(userId);
     db.prepare("DELETE FROM assigned_sets WHERE student_user_id = ? OR assigned_by_user_id = ?").run(userId, userId);
     db.prepare("DELETE FROM links WHERE parent_user_id = ? OR student_user_id = ?").run(userId, userId);
