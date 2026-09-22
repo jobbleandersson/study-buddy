@@ -2900,7 +2900,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .libcard:not(.libcard--added) .libcard__foot > div { width: 100%; justify-content: space-between; }
   .sitefooter__links a { display: inline-block; padding: 12px 4px; }
   summary { padding-block: 11px; }
-  .btn--sm { min-height: 40px; }
+  .btn--sm, .lp-lang { min-height: 40px; }
   .iconbtn:not(.iconbtn--sm), .homebtn { min-width: 44px; min-height: 44px; }
 }
 
@@ -3246,4 +3246,127 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
    leaving it as a gap above the streak card */
 @media (min-width: 900px) and (min-height: 640px) {
   .sidebar__nav > .sidebar__link, .sidebar__more > .sidebar__link { flex: 1 1 auto; max-height: 46px; }
+}
+
+/* ===== "för lärare" front page (#/teachers) — reuses the consumer front
+   page's .lp-* layout scaffolding (header, hero grid, section/steps/closer
+   rhythm), with its own hero art and feature illustrations. ===== */
+.teach-eyebrow {
+  margin: 0 0 var(--s-3); font-size: 13px; font-weight: 800;
+  letter-spacing: .07em; text-transform: uppercase; color: var(--brand-ink);
+}
+.lp-teachnote { margin: var(--s-4) 0 0; font-size: 13.5px; color: var(--ink-faint); }
+.lp-teachnote a { color: var(--brand-ink); font-weight: 600; }
+
+/* hero art: a teacher's view of one day's question, already answered */
+.teach-daily {
+  background: var(--surface); border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg); padding: var(--s-5); box-shadow: var(--shadow-2);
+  display: flex; flex-direction: column; gap: var(--s-4);
+}
+.teach-daily__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.teach-daily__chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px;
+  border-radius: var(--r-full); background: var(--brand-tint); color: var(--brand-ink);
+  font-size: 12.5px; font-weight: 700;
+}
+.teach-daily__class { font-size: 13px; font-weight: 600; color: var(--ink-faint); }
+.teach-daily__q {
+  margin: 0; font-family: var(--font-display); font-weight: 700;
+  font-size: 1.1rem; line-height: 1.35; color: var(--ink);
+}
+.teach-daily__opts { display: flex; flex-direction: column; gap: 8px; }
+.teach-daily__opt {
+  display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+  border-radius: var(--r-md); border: 1px solid var(--line-strong); font-size: 15px; font-weight: 500; color: var(--ink);
+}
+.teach-daily__key {
+  flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 12px; font-weight: 700; background: var(--surface-sunk); color: var(--ink-soft);
+}
+.teach-daily__opt.is-right { border-color: var(--ok-bright); background: var(--ok-tint); color: var(--ok-ink); }
+.teach-daily__opt.is-right .teach-daily__key { background: var(--ok-bright); color: #fff; }
+.teach-daily__opt.is-right svg { margin-left: auto; }
+.teach-daily__result {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding-top: var(--s-3); border-top: 1px solid var(--line); color: var(--ok-ink);
+}
+.teach-daily__result svg { flex: none; margin-top: 2px; }
+.teach-daily__result strong { display: block; font-size: 15px; }
+.teach-daily__result p { margin: 2px 0 0; font-size: 13.5px; color: var(--ink-soft); }
+.teach-daily__privacy { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 12.5px; color: var(--ink-faint); }
+
+/* feature row 1: assign, as a numbered flow */
+.teach-assign { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+.teach-assign li { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-4) var(--s-5); font-weight: 600; color: var(--ink); }
+.teach-assign li + li { border-top: 1px solid var(--line); }
+.teach-assign__n {
+  flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--brand-tint); color: var(--brand-ink); font-size: 13px; font-weight: 800;
+}
+
+/* feature row 2: writing a question, "mark the correct one" */
+.teach-compose { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--s-5); }
+.teach-compose__q { margin: 0 0 var(--s-4); font-weight: 600; font-size: 1.02rem; color: var(--ink); }
+.teach-compose__opts { display: flex; flex-direction: column; gap: 8px; }
+.teach-compose__row {
+  display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+  border-radius: var(--r-md); border: 1px solid var(--line-strong); font-size: 14.5px; color: var(--ink-soft);
+}
+.teach-compose__radio { flex: none; width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--line-strong); }
+.teach-compose__row.is-marked { border-color: var(--ok-bright); background: var(--ok-tint); color: var(--ok-ink); font-weight: 600; }
+.teach-compose__row.is-marked .teach-compose__radio { border-color: var(--ok-bright); background: var(--ok-bright); }
+.teach-compose__tag { margin-left: auto; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--ok-ink); }
+
+/* feature row 3: results as counts, never names */
+.teach-results { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--s-5); }
+.teach-results__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-2); }
+.teach-results__cell {
+  display: grid; place-items: center; min-height: 56px; border-radius: var(--r-md);
+  font-weight: 700; font-size: 15px; font-variant-numeric: tabular-nums;
+  background: var(--surface-sunk); color: var(--ink-faint);
+}
+.teach-results__cell.is-hi { background: var(--ok-tint); color: var(--ok-ink); }
+.teach-results__cell.is-mid { background: var(--retry-tint); color: var(--retry-ink); }
+.teach-results__caption { display: flex; align-items: center; gap: 6px; margin: var(--s-4) 0 0; font-size: 12.5px; color: var(--ink-faint); }
+
+/* ===== class wizard: the "get this class going" checklist ===== */
+.classwiz { border-color: var(--brand-tint); }
+.classwiz__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); margin-bottom: var(--s-4); }
+.classwiz__head h3 { margin: 0; }
+.classwiz__dismiss { font-size: 13px; }
+.classwiz__steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--s-4); }
+.classwiz__step { display: flex; gap: var(--s-3); }
+.classwiz__mark {
+  flex: none; width: 28px; height: 28px; margin-top: 1px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 13px; font-weight: 700;
+  background: var(--surface-sunk); color: var(--ink-soft);
+}
+.classwiz__step.is-done .classwiz__mark { background: var(--ok-bright); color: #fff; }
+.classwiz__step.is-done .classwiz__body { opacity: .7; }
+.classwiz__body h4 { margin: 0; font-size: var(--fs-md); font-weight: 700; color: var(--ink); }
+.classwiz__body p { margin: 4px 0 0; font-size: var(--fs-sm); color: var(--ink-soft); }
+.classwiz__cta { margin-top: var(--s-3); }
+
+/* ===== share slide: the class code, big enough to read off a projector ===== */
+.shareslide { position: relative; max-width: 460px; text-align: center; padding: var(--s-7) var(--s-6); }
+.shareslide__close { position: absolute; top: var(--s-4); right: var(--s-4); }
+.shareslide__title { margin: 0 0 var(--s-3); font-family: var(--font-display); font-size: 1.4rem; }
+.shareslide__how { margin: 0 0 var(--s-5); font-size: var(--fs-sm); color: var(--ink-soft); }
+.shareslide__code {
+  margin: 0; font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(2.6rem, 9vw, 4rem); letter-spacing: .08em; color: var(--brand-ink);
+}
+.shareslide__url { margin: var(--s-3) 0 0; font-size: var(--fs-sm); color: var(--ink-faint); }
+.shareslide__actions { margin-top: var(--s-6); }
+@media print {
+  body:has(.shareslide-modal) * { visibility: hidden; }
+  body:has(.shareslide-modal) .shareslide-modal,
+  body:has(.shareslide-modal) .shareslide-modal * { visibility: visible; }
+  .shareslide-modal { position: fixed; inset: 0; background: #fff; backdrop-filter: none; }
+  .shareslide-modal [data-noprint] { display: none !important; }
+}
+@media (max-width: 560px) {
+  .shareslide { padding: 56px var(--s-4) var(--s-5); }
+  .teach-results__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

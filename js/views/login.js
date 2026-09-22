@@ -6,7 +6,20 @@ import { el, toast, icon, ICONS } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { renderGoogleButton } from "../components/google-signin.js";
 
-export function renderLogin() {
+/** Where to land after signing in. `?next=` carries a hash path, optionally with
+ *  its own plain query string (e.g. from the classes hub's sign-in prompt,
+ *  `?next=%23%2Fclasses%3Fcode%3DABC123`, so a join code someone shared survives
+ *  the detour through sign-in) — restricted to a safe character set so it can
+ *  never become an open redirect or carry anything but a plain internal route.
+ *  Anything else falls back to the usual Settings landing. */
+function safeNext(raw) {
+  if (typeof raw !== "string" || !raw) return "#/settings";
+  const hash = raw.startsWith("#") ? raw : `#${raw}`;
+  return /^#\/[a-zA-Z0-9/_-]*(\?[a-zA-Z0-9_=&-]*)?$/.test(hash) ? hash : "#/settings";
+}
+
+export function renderLogin(qs) {
+  const dest = safeNext(qs?.get?.("next"));
   let mode = "login"; // | "signup"
 
   // No server reachable → the whole form is inert; disable it rather than let
@@ -65,7 +78,7 @@ export function renderLogin() {
       const r = await store.loginWithGoogle(credential, { consent: consentInput.checked });
       googleCredential = null;
       toast(r.linked ? t("login.googleLinkedToast") : r.created ? t("login.googleCreatedToast") : t("login.signedInToast"));
-      location.hash = "#/settings";
+      location.hash = dest;
     } catch (err) {
       if (err.code === "consent_required") {
         // A new account would be created â ask first, then let them confirm without re-picking.
@@ -112,7 +125,7 @@ export function renderLogin() {
       if (mode === "login") await store.login(email, password);
       else await store.signup(email, password, { consent: consentInput.checked });
       toast(mode === "login" ? t("login.signedInToast") : t("login.createdToast"));
-      location.hash = "#/settings";
+      location.hash = dest;
     } catch (err) {
       errorNote.textContent = err.message || t("login.somethingWrong");
       errorNote.hidden = false;

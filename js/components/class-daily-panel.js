@@ -38,7 +38,12 @@ function pickableQuestions() {
   return out.slice(0, 300);
 }
 
-export function classDailyPanel(classId) {
+/** `onChange(data)` — optional — fires with the freshly loaded `{ today, members,
+ *  items }` once the list has (re)loaded, whether from the initial load, a save,
+ *  or a delete. Lets a caller (see class-wizard.js's step 3, wired from
+ *  classes.js) know whether the class has a daily question without fetching the
+ *  same list a second time. */
+export function classDailyPanel(classId, { onChange } = {}) {
   const panel = el("section.panel.dailyadmin");
   let data = null;                    // { today, members, items }
   let editing = null;                 // { id, day } of the question being rewritten, if any
@@ -52,6 +57,7 @@ export function classDailyPanel(classId) {
   async function load() {
     try { data = await call(classDailyUrl(classId)); }
     catch (e) { panel.replaceChildren(el("h3", {}, t("daily.adminTitle")), el("p.note", {}, e.message || t("classes.loadFail"))); return; }
+    onChange?.(data);
     // Suggest the first day from today that has no question yet.
     if (!editing) {
       let d = localDayKey();

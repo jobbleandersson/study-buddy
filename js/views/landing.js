@@ -36,7 +36,7 @@ function langSwitch() {
   }, [el("span.lp-lang__flag", { "aria-hidden": "true", html: flag }), el("span", {}, current.toUpperCase())]);
 }
 
-function header() {
+export function header() {
   return el("header.lp-head", {}, [
     el("div.lp-head__inner", {}, [
       el("a.lp-brand", { href: "#/welcome" }, [
@@ -173,24 +173,30 @@ function sheetArt() {
   ])));
 }
 
-function features() {
-  const rows = [
-    ["f1", libraryArt], ["f2", sourcesArt], ["f3", curveArt], ["f4", sheetArt],
-  ];
+/** A "<title> / <sub> / N illustrated rows" section — the same shape on the
+ *  consumer and teacher front pages, each with its own string prefix and art.
+ *  Exported so #/teachers builds its three rows from this instead of
+ *  re-describing the same markup. */
+export function featureSection(prefix, rows) {
   return el("section.lp-sec", {}, [
-    el("h2.lp-h2", {}, t("lp.featTitle")),
-    el("p.lp-sub", {}, t("lp.featSub")),
+    el("h2.lp-h2", {}, t(`${prefix}.featTitle`)),
+    el("p.lp-sub", {}, t(`${prefix}.featSub`)),
     el("div.lp-rows", {}, rows.map(([k, art]) => el("article.lp-row", {}, [
-      el("div.lp-row__text", {}, [el("h3", {}, t(`lp.${k}title`)), el("p", {}, t(`lp.${k}body`))]),
+      el("div.lp-row__text", {}, [el("h3", {}, t(`${prefix}.${k}title`)), el("p", {}, t(`${prefix}.${k}body`))]),
       el("div.lp-row__art", {}, [art()]),
     ]))),
   ]);
 }
 
-function steps() {
-  const items = ["lp.s1", "lp.s2", "lp.s3"];
+function features() {
+  return featureSection("lp", [["f1", libraryArt], ["f2", sourcesArt], ["f3", curveArt], ["f4", sheetArt]]);
+}
+
+/** A numbered "how it works" strip — see featureSection() above for the same
+ *  reasoning; also exported for #/teachers. */
+export function stepsSection(titleKey, items) {
   return el("section.lp-sec.lp-sec--steps", {}, [
-    el("h2.lp-h2", {}, t("lp.stepsTitle")),
+    el("h2.lp-h2", {}, t(titleKey)),
     el("ol.lp-steps", {}, items.map((k, i) => el("li.lp-step", {}, [
       el("span.lp-step__n", { "aria-hidden": "true" }, String(i + 1)),
       el("h3", {}, t(`${k}title`)),
@@ -199,23 +205,32 @@ function steps() {
   ]);
 }
 
+function steps() {
+  return stepsSection("lp.stepsTitle", ["lp.s1", "lp.s2", "lp.s3"]);
+}
+
 function closer() {
   return el("section.lp-closer", {}, [
     el("div", {}, [
       el("h2.lp-h2", {}, t("lp.closeTitle")),
       el("p.lp-sub", {}, t("lp.closeBody")),
+      el("p.lp-teachnote", {}, [
+        t("lp.teacherNote"), " ",
+        el("a", { href: "#/teachers" }, t("lp.teacherLink")),
+      ]),
     ]),
     el("button.btn.btn--lg", { type: "button", onclick: () => openWelcomeQuiz() }, t("lp.ctaPrimary")),
   ]);
 }
 
-function footer() {
+export function footer() {
   return el("footer.lp-foot", {}, [
     el("div.lp-foot__inner", {}, [
       el("span.lp-foot__brand", {}, [
         el("img", { src: "assets/favicon.svg", alt: "" }), "Studify",
       ]),
       el("nav.lp-foot__links", { "aria-label": t("footer.nav") }, [
+        el("a", { href: "#/teachers" }, t("footer.teachers")),
         el("a", { href: "#/about" }, t("footer.about")),
         el("a", { href: "#/terms" }, t("footer.terms")),
         el("a", { href: "#/privacy" }, t("footer.privacy")),

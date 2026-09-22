@@ -10,6 +10,8 @@ import { serverMessage } from "../lib/server-errors.js";
 import { homeButton } from "../components/nav.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { classDailyPanel } from "../components/class-daily-panel.js";
+import { classWizard } from "../components/class-wizard.js";
+import { openClassShareSlide } from "../components/class-share-slide.js";
 import { foldedDatePicker } from "../components/calendar.js";
 import { localDayKey } from "../lib/activity.js";
 import { loadLibraryIndex, loadLibraryTranslations, isImported, importSet } from "../data/library.js";
@@ -35,12 +37,17 @@ async function libraryNames() {
   };
 }
 
-function signedOut() {
+function signedOut(qs) {
+  // A join code on the URL (someone followed a share-slide link before signing
+  // up) rides along through sign-in, so it's still there to fill the join box
+  // with once they land back here — see renderClasses's own prefillCode below.
+  const code = (qs?.get?.("code") || "").trim();
+  const next = code ? `#/classes?code=${encodeURIComponent(code)}` : "#/classes";
   return el("div.settings", {}, [
     el("h1", {}, t("classes.title")),
     el("section.panel", {}, [
       el("p.note", { style: { marginBottom: "12px" } }, t("classes.signInPrompt")),
-      el("a.btn", { href: "#/login" }, t("login.signIn")),
+      el("a.btn", { href: `#/login?next=${encodeURIComponent(next)}` }, t("login.signIn")),
     ]),
     el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), t("parent.backToMenu")]),
   ]);
@@ -50,8 +57,11 @@ const row = (children) => el("div.classrow", {}, children);
 
 // ---------- the hub: #/classes ----------
 
-export async function renderClasses() {
-  if (!store.authed) return { title: t("classes.title"), node: signedOut() };
+export async function renderClasses(qs) {
+  if (!store.authed) return { title: t("classes.title"), node: signedOut(qs) };
+  // A code arriving on the URL (e.g. `#/classes?code=ABC123`, from a share slide
+  // or a link a student passed along) fills the join box — nothing auto-submits.
+  const prefillCode = (qs?.get?.("code") || "").trim().toUpperCase();
 
   let names = null;
   try { names = await libraryNames(); } catch { /* titles fall back to set ids */ }
@@ -98,7 +108,10 @@ export async function renderClasses() {
             ]),
             el("a.btn.btn--ghost.btn--sm", { href: `#/classes/${c.id}` }, t("classes.resultsHeading")),
           ])))
-        : el("p.note", { style: { marginBottom: "12px" } }, t("classes.teachingNone")),
+        : el("p.note", { style: { marginBottom: "12px" } }, [
+            t("classes.teachingNone"), " ",
+            el("a", { href: "#/teachers" }, t("lp.teacherLink")),
+          ]),
       el("label.field", { style: { marginBottom: "8px" } }, [el("span", {}, t("classes.createLabel")), input]),
       btn,
     );
@@ -154,7 +167,7 @@ export async function renderClasses() {
   }
 
   function paintJoin() {
-    const input = el("input", { id: "class-code", type: "text", maxlength: "12", autocomplete: "off", placeholder: t("classes.joinPlaceholder"), style: { textTransform: "uppercase" } });
+    const input = el("input", { id: "class-code", type: "text", maxlength: "12", autocomplete: "off", value: prefillCode, placeholder: t("classes.joinPlaceholder"), style: { textTransform: "uppercase" } });
     const btn = el("button.btn.btn--sm", { type: "button" }, t("classes.join"));
     btn.addEventListener("click", async () => {
       const code = input.value.trim();
@@ -216,7 +229,16 @@ export async function renderClassDetail(id) {
   const reload = () => renderClassDetailInto();
   const root = el("div.settings");
   // Built once, so what's typed into it survives the page repainting after an assignment.
-  const dailyPanel = classDailyPanel(id);
+  const wizard = classWizard(id, cls, {
+    onOpenShare: () => openClassShareSlide({ name: cls.name, code: cls.code }),
+    onJumpToAssign: () => {
+      document.getElementById("class-assign-panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById("assign-subject")?.focus();
+    },
+  });
+  // dailyPanel already fetches this class's daily questions for its own display —
+  // feed that same list to the wizard's step 3 instead of asking the server again.
+  const dailyPanel = classDailyPanel(id, { onChange: (data) => wizard.setDaily((data?.items?.length || 0) > 0) });
 
   function assignForm() {
     const subjectSel = el("select", { id: "assign-subject" });
@@ -248,7 +270,7 @@ export async function renderClassDetail(id) {
       } catch (e) { toast(e.message); btn.disabled = false; }
     });
 
-    return el("section.panel", {}, [
+    return el("section.panel#class-assign-panel", {}, [
       el("h3", { style: { marginBottom: "12px" } }, t("classes.assignHeading")),
       el("div", { style: { display: "grid", gap: "8px", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", marginBottom: "12px" } }, [
         el("label.field", { style: { margin: 0 } }, [el("span", {}, t("classes.assignSubject")), subjectSel]),
@@ -261,7 +283,7 @@ export async function renderClassDetail(id) {
 
   function resultsPanel() {
     const panel = el("section.panel", {}, [el("h3", { style: { marginBottom: "12px" } }, t("classes.resultsHeading"))]);
-    if (!cls.members.length) { panel.append(el("p.note", {}, t("classes.noStudents"))); return panel; }
+    if (!cls.members.length) { panel.append(el("p.note", {}, t("classes.noStudentsHelp"))); return panel; }
     if (!cls.assignments.length) { panel.append(el("p.note", {}, t("classes.noneAssigned"))); return panel; }
 
     const byId = new Map(results.assignments.map((a) => [a.id, a]));
@@ -338,6 +360,7 @@ export async function renderClassDetail(id) {
           el("span.note", {}, plural(cls.members.length, "classes.studentOne", "classes.studentMany")),
         ]),
       ]),
+      wizard.el,
       assignForm(),
       dailyPanel,
       resultsPanel(),
@@ -354,6 +377,7 @@ export async function renderClassDetail(id) {
   async function renderClassDetailInto() {
     [cls, results] = await Promise.all([api(classUrl(id)), api(`${classUrl(id)}/results`)]);
     paint();
+    wizard.refresh(cls);
   }
 
   paint();

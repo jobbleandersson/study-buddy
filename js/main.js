@@ -35,6 +35,7 @@ import { renderAchievements } from "./views/achievements.js";
 import { renderLeaderboard } from "./views/leaderboard.js";
 import { renderAbout, renderTerms, renderPrivacy } from "./views/legal.js";
 import { renderLanding } from "./views/landing.js";
+import { renderTeacherLanding } from "./views/teachers.js";
 import { mountCommandPalette } from "./components/command-palette.js";
 import { mountSiteChat } from "./components/site-chat.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
@@ -95,11 +96,12 @@ const routes = [
   { rx: /^\/leaderboard$/, view: () => renderLeaderboard() },
   { rx: /^\/print\/(.+)$/, view: (m, qs) => renderPrint(m[1], qs) },
   { rx: /^\/teachback\/(.+)$/, view: (m) => renderTeachback(m[1]) },
-  { rx: /^\/login$/, view: () => renderLogin() },
+  { rx: /^\/login$/, view: (m, qs) => renderLogin(qs) },
   { rx: /^\/parent$/, view: () => renderParentHub() },
   { rx: /^\/parent\/(.+)$/, view: (m) => renderParentStudent(m[1]) },
-  { rx: /^\/classes$/, view: () => renderClasses() },
+  { rx: /^\/classes$/, view: (m, qs) => renderClasses(qs) },
   { rx: /^\/classes\/(.+)$/, view: (m) => renderClassDetail(m[1]) },
+  { rx: /^\/teachers$/, view: () => renderTeacherLanding() },
   { rx: /^\/national\/mix\/(.+)$/, view: (m, qs) => renderNationalMix(m[1], qs) },
   { rx: /^\/welcome$/, view: () => renderLanding() },
   { rx: /^\/about$/, view: () => renderAbout() },
@@ -643,6 +645,7 @@ function siteFooter() {
       el("img", { src: "assets/favicon.svg", alt: "" }), "Studify",
     ]),
     el("nav.sitefooter__links", { "aria-label": t("footer.nav") }, [
+      el("a", { href: "#/teachers" }, t("footer.teachers")),
       el("a", { href: "#/about" }, t("footer.about")),
       el("a", { href: "#/terms" }, t("footer.terms")),
       el("a", { href: "#/privacy" }, t("footer.privacy")),
