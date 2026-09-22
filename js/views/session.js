@@ -26,14 +26,9 @@ import { pickTonightQuestions } from "../lib/tonight.js";
 import { playCorrect, playWrong, playChime } from "../lib/sound.js";
 import { renderBusQuestion, isBusQuestion, resetBusPrime } from "../components/bus-question.js";
 import { speechSupported } from "../lib/speech.js";
+import { setSessionActive } from "../lib/session-active.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
-
-// True while a session is on screen. main.js checks this on a language switch:
-// a running session updates its own question + tutor in place rather than
-// being torn down and rebuilt mid-set.
-let sessionActive = false;
-export function isSessionActive() { return sessionActive; }
 
 export async function renderSession(assignmentId, qs) {
   const assignment = store.getAssignment(assignmentId);
@@ -323,7 +318,7 @@ function runSession(config) {
     : freshState(config);
 
   if (!state.order.length) return notFound(t("session.goneQuestions"));
-  sessionActive = true;   // cleared in cleanup()
+  setSessionActive(true);   // cleared in cleanup()
   state.cursor = Math.min(state.cursor, state.order.length - 1);
   state.skipped = state.skipped || [];
   state.choiceOrder = state.choiceOrder || {};
@@ -1092,7 +1087,7 @@ function runSession(config) {
     title: config.title,
     node,
     cleanup: () => {
-      sessionActive = false;
+      setSessionActive(false);
       document.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("sb:langsession", onLangSession);
       clearTimeout(tipTimer);

@@ -15,7 +15,11 @@ import { serverMessage } from "../lib/server-errors.js";
 import { loadLibraryIndex, loadLibraryTranslations } from "../data/library.js";
 import { baseSubjectName } from "../lib/library-content.js";
 import { renderGoogleButton } from "./google-signin.js";
-import { openQuickAdd } from "./quick-add.js";
+// Loaded lazily below, at the one click site that needs it — quick-add.js
+// pulls in views/create.js (and, transitively, claude.js/material.js/
+// prompts.js), and this whole file is eager-loaded on every page for the
+// maybeShowOnboarding() check, so a static import here would ship that
+// weight to every visitor whether or not they ever reach this button.
 
 let shownThisSession = false;
 let overlayEl = null;
@@ -316,7 +320,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
         el("button.btn.btn--ghost", { type: "button", onclick: () => { close(); location.hash = "#/"; } }, t("welcome.ctaHome")),
       ]),
       student && a.goal === "test" && a.testDate
-        ? el("button.linkbtn", { type: "button", style: { marginTop: "12px" }, onclick: () => { close(); openQuickAdd(a.testDate); } }, t("welcome.addTestToCalendar"))
+        ? el("button.linkbtn", { type: "button", style: { marginTop: "12px" }, onclick: () => { close(); import("./quick-add.js").then((mod) => mod.openQuickAdd(a.testDate)); } }, t("welcome.addTestToCalendar"))
         : null,
     ].filter(Boolean));
     stage.replaceChildren(card);

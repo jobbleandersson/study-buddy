@@ -9,39 +9,10 @@ import { localDayKey } from "./lib/activity.js";
 import { THEMES, getTheme, setTheme } from "./lib/theme.js";
 import { openPopover, closePopover } from "./lib/popover.js";
 import { showAchievementUnlocks } from "./lib/achievement-toast.js";
-import { renderMenu } from "./views/menu.js";
-import { renderCreate } from "./views/create.js";
-import { renderEdit } from "./views/edit.js";
-import { renderSession, renderReview, renderPractice, renderWeakPractice, renderRulesPractice, renderTonightPractice, renderNationalMix, renderHpMock, isSessionActive } from "./views/session.js";
-import { renderRules } from "./views/rules.js";
-import { renderTonight } from "./views/tonight.js";
-import { renderResults } from "./views/results.js";
-import { renderProgress } from "./views/progress.js";
-import { renderSettings } from "./views/settings.js";
-import { renderLogin } from "./views/login.js";
-import { renderParentHub, renderParentStudent } from "./views/parent-dashboard.js";
-import { renderGallery } from "./views/gallery.js";
-import { renderPrint } from "./views/print.js";
-import { renderTeachback } from "./views/teachback.js";
-import { renderLibrary } from "./views/library.js";
-import { renderCalendarPage } from "./views/calendar.js";
-import { renderExamPrep } from "./views/exam-prep.js";
-import { renderHp } from "./views/hp.js";
-import { renderSolve } from "./views/solve.js";
-import { renderCheck } from "./views/check.js";
-import { renderReference } from "./views/reference.js";
-import { renderCalculator } from "./views/calculator.js";
-import { renderAchievements } from "./views/achievements.js";
-import { renderLeaderboard } from "./views/leaderboard.js";
-import { renderAbout, renderTerms, renderPrivacy } from "./views/legal.js";
-import { renderPremiumWaitlist } from "./views/premium-waitlist.js";
-import { renderLanding } from "./views/landing.js";
-import { renderTeacherLanding } from "./views/teachers.js";
+import { isSessionActive } from "./lib/session-active.js";
 import { mountCommandPalette } from "./components/command-palette.js";
 import { mountSiteChat } from "./components/site-chat.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
-import { renderChallenge } from "./views/challenge.js";
-import { renderClasses, renderClassDetail } from "./views/classes.js";
 import { maybeShowOnboarding } from "./components/onboarding.js";
 
 const app = document.getElementById("app");
@@ -64,56 +35,76 @@ function shouldShowLanding() {
   return true;
 }
 
+// Each route's view module loads only when that route is actually visited.
+// This used to be ~30 eager top-level imports — the whole app (settings,
+// calculator, classes, everything) had to be fetched before even the landing
+// page's hero could paint, which was invisible on a fast desktop connection
+// but showed up as a slow mobile LCP (PageSpeed: 77 mobile vs. 99 desktop,
+// with actual script execution — TBT — already low, meaning it was a loading
+// problem, not a slow-code one). session.js's render* exports share one
+// import since they're one quiz engine already meant to load together.
 const routes = [
   // Root is the front page for a first-time visitor and the app for everyone
   // else, decided at render time rather than by redirecting — no flash, and
   // the URL a newcomer was given stays the URL they're looking at.
-  { rx: /^\/?$/, view: () => (shouldShowLanding() ? renderLanding() : renderMenu()) },
-  { rx: /^\/study$/, view: () => renderMenu("study") },
-  { rx: /^\/calendar$/, view: () => renderCalendarPage() },
-  { rx: /^\/create$/, view: (m, qs) => renderCreate(qs) },
-  { rx: /^\/edit\/(.+)$/, view: (m, qs) => renderEdit(m[1], qs) },
-  { rx: /^\/review$/, view: (m, qs) => renderReview(qs) },
-  { rx: /^\/practice-weak$/, view: (m, qs) => renderWeakPractice(qs) },
-  { rx: /^\/practice-rules$/, view: () => renderRulesPractice() },
-  { rx: /^\/rules$/, view: () => renderRules() },
-  { rx: /^\/tonight(?:\/(.+))?$/, view: (m) => renderTonight(m[1] || null) },
-  { rx: /^\/tonight-practice\/(.+)$/, view: (m) => renderTonightPractice(m[1]) },
-  { rx: /^\/practice\/(.+)$/, view: (m) => renderPractice(m[1]) },
-  { rx: /^\/exam-prep(?:\/(.*))?$/, view: (m, qs) => renderExamPrep(m[1] || null, qs) },
-  { rx: /^\/hp$/, view: () => renderHp() },
-  { rx: /^\/hp\/mock$/, view: (m, qs) => renderHpMock(qs) },
-  { rx: /^\/session\/(.+)$/, view: (m, qs) => renderSession(m[1], qs) },
-  { rx: /^\/results\/(.+)$/, view: (m) => renderResults(m[1]) },
-  { rx: /^\/progress$/, view: () => renderProgress() },
-  { rx: /^\/settings$/, view: () => renderSettings() },
-  { rx: /^\/gallery$/, view: () => renderGallery() },
-  { rx: /^\/library$/, view: (m, qs) => renderLibrary(qs) },
-  { rx: /^\/utmaning$/, view: (m, qs) => renderChallenge(qs) },
-  { rx: /^\/solve$/, view: (m, qs) => (qs.get("mode") === "check" ? renderCheck() : renderSolve()) },
-  { rx: /^\/reference$/, view: () => renderReference() },
-  { rx: /^\/calculator$/, view: () => renderCalculator() },
-  { rx: /^\/achievements$/, view: () => renderAchievements() },
-  { rx: /^\/leaderboard$/, view: () => renderLeaderboard() },
-  { rx: /^\/print\/(.+)$/, view: (m, qs) => renderPrint(m[1], qs) },
-  { rx: /^\/teachback\/(.+)$/, view: (m) => renderTeachback(m[1]) },
-  { rx: /^\/login$/, view: (m, qs) => renderLogin(qs) },
-  { rx: /^\/parent$/, view: () => renderParentHub() },
-  { rx: /^\/parent\/(.+)$/, view: (m) => renderParentStudent(m[1]) },
-  { rx: /^\/classes$/, view: (m, qs) => renderClasses(qs) },
-  { rx: /^\/classes\/(.+)$/, view: (m) => renderClassDetail(m[1]) },
-  { rx: /^\/teachers$/, view: () => renderTeacherLanding() },
-  { rx: /^\/national\/mix\/(.+)$/, view: (m, qs) => renderNationalMix(m[1], qs) },
-  { rx: /^\/welcome$/, view: () => renderLanding() },
-  { rx: /^\/about$/, view: () => renderAbout() },
-  { rx: /^\/terms$/, view: () => renderTerms() },
-  { rx: /^\/privacy$/, view: () => renderPrivacy() },
-  { rx: /^\/premium$/, view: () => renderPremiumWaitlist() },
+  { rx: /^\/?$/, view: () => (shouldShowLanding()
+    ? import("./views/landing.js").then((mod) => mod.renderLanding())
+    : import("./views/menu.js").then((mod) => mod.renderMenu())) },
+  { rx: /^\/study$/, view: () => import("./views/menu.js").then((mod) => mod.renderMenu("study")) },
+  { rx: /^\/calendar$/, view: () => import("./views/calendar.js").then((mod) => mod.renderCalendarPage()) },
+  { rx: /^\/create$/, view: (m, qs) => import("./views/create.js").then((mod) => mod.renderCreate(qs)) },
+  { rx: /^\/edit\/(.+)$/, view: (m, qs) => import("./views/edit.js").then((mod) => mod.renderEdit(m[1], qs)) },
+  { rx: /^\/review$/, view: (m, qs) => import("./views/session.js").then((mod) => mod.renderReview(qs)) },
+  { rx: /^\/practice-weak$/, view: (m, qs) => import("./views/session.js").then((mod) => mod.renderWeakPractice(qs)) },
+  { rx: /^\/practice-rules$/, view: () => import("./views/session.js").then((mod) => mod.renderRulesPractice()) },
+  { rx: /^\/rules$/, view: () => import("./views/rules.js").then((mod) => mod.renderRules()) },
+  { rx: /^\/tonight(?:\/(.+))?$/, view: (m) => import("./views/tonight.js").then((mod) => mod.renderTonight(m[1] || null)) },
+  { rx: /^\/tonight-practice\/(.+)$/, view: (m) => import("./views/session.js").then((mod) => mod.renderTonightPractice(m[1])) },
+  { rx: /^\/practice\/(.+)$/, view: (m) => import("./views/session.js").then((mod) => mod.renderPractice(m[1])) },
+  { rx: /^\/exam-prep(?:\/(.*))?$/, view: (m, qs) => import("./views/exam-prep.js").then((mod) => mod.renderExamPrep(m[1] || null, qs)) },
+  { rx: /^\/hp$/, view: () => import("./views/hp.js").then((mod) => mod.renderHp()) },
+  { rx: /^\/hp\/mock$/, view: (m, qs) => import("./views/session.js").then((mod) => mod.renderHpMock(qs)) },
+  { rx: /^\/session\/(.+)$/, view: (m, qs) => import("./views/session.js").then((mod) => mod.renderSession(m[1], qs)) },
+  { rx: /^\/results\/(.+)$/, view: (m) => import("./views/results.js").then((mod) => mod.renderResults(m[1])) },
+  { rx: /^\/progress$/, view: () => import("./views/progress.js").then((mod) => mod.renderProgress()) },
+  { rx: /^\/settings$/, view: () => import("./views/settings.js").then((mod) => mod.renderSettings()) },
+  { rx: /^\/gallery$/, view: () => import("./views/gallery.js").then((mod) => mod.renderGallery()) },
+  { rx: /^\/library$/, view: (m, qs) => import("./views/library.js").then((mod) => mod.renderLibrary(qs)) },
+  { rx: /^\/utmaning$/, view: (m, qs) => import("./views/challenge.js").then((mod) => mod.renderChallenge(qs)) },
+  { rx: /^\/solve$/, view: (m, qs) => (qs.get("mode") === "check"
+    ? import("./views/check.js").then((mod) => mod.renderCheck())
+    : import("./views/solve.js").then((mod) => mod.renderSolve())) },
+  { rx: /^\/reference$/, view: () => import("./views/reference.js").then((mod) => mod.renderReference()) },
+  { rx: /^\/calculator$/, view: () => import("./views/calculator.js").then((mod) => mod.renderCalculator()) },
+  { rx: /^\/achievements$/, view: () => import("./views/achievements.js").then((mod) => mod.renderAchievements()) },
+  { rx: /^\/leaderboard$/, view: () => import("./views/leaderboard.js").then((mod) => mod.renderLeaderboard()) },
+  { rx: /^\/print\/(.+)$/, view: (m, qs) => import("./views/print.js").then((mod) => mod.renderPrint(m[1], qs)) },
+  { rx: /^\/teachback\/(.+)$/, view: (m) => import("./views/teachback.js").then((mod) => mod.renderTeachback(m[1])) },
+  { rx: /^\/login$/, view: (m, qs) => import("./views/login.js").then((mod) => mod.renderLogin(qs)) },
+  { rx: /^\/parent$/, view: () => import("./views/parent-dashboard.js").then((mod) => mod.renderParentHub()) },
+  { rx: /^\/parent\/(.+)$/, view: (m) => import("./views/parent-dashboard.js").then((mod) => mod.renderParentStudent(m[1])) },
+  { rx: /^\/classes$/, view: (m, qs) => import("./views/classes.js").then((mod) => mod.renderClasses(qs)) },
+  { rx: /^\/classes\/(.+)$/, view: (m) => import("./views/classes.js").then((mod) => mod.renderClassDetail(m[1])) },
+  { rx: /^\/teachers$/, view: () => import("./views/teachers.js").then((mod) => mod.renderTeacherLanding()) },
+  { rx: /^\/national\/mix\/(.+)$/, view: (m, qs) => import("./views/session.js").then((mod) => mod.renderNationalMix(m[1], qs)) },
+  { rx: /^\/welcome$/, view: () => import("./views/landing.js").then((mod) => mod.renderLanding()) },
+  { rx: /^\/about$/, view: () => import("./views/legal.js").then((mod) => mod.renderAbout()) },
+  { rx: /^\/terms$/, view: () => import("./views/legal.js").then((mod) => mod.renderTerms()) },
+  { rx: /^\/privacy$/, view: () => import("./views/legal.js").then((mod) => mod.renderPrivacy()) },
+  { rx: /^\/premium$/, view: () => import("./views/premium-waitlist.js").then((mod) => mod.renderPremiumWaitlist()) },
 ];
 
 let currentCleanup = null;
 let currentViewNode = null;
 let firstPaintDone = false;
+// Bumped at the start of every non-chromeOnly render() and captured by each
+// call; if a newer render() has started by the time an older one's view
+// finishes loading, the older one discards its result instead of clobbering
+// whatever the newer navigation already mounted. Matters more now that every
+// route goes through a real `import()` (a network op) instead of the handful
+// that used to — two rapid navigations racing to resolve out of order used to
+// be a rare edge case and is now the common one.
+let renderGen = 0;
 
 function parseHash() {
   const full = location.hash.replace(/^#/, "");
@@ -123,7 +114,7 @@ function parseHash() {
     const m = path.match(r.rx);
     if (m) return () => r.view(m, params);
   }
-  return () => renderMenu();
+  return () => import("./views/menu.js").then((mod) => mod.renderMenu());
 }
 
 /** Cycles through the supported languages — with two, it's a straight toggle. */
@@ -709,6 +700,7 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
   // (a background sync, a goal reached) — not a navigation. Keep the scroll
   // position and don't steal focus or announce.
   const keepY = softRefresh ? window.scrollY : 0;
+  const gen = ++renderGen;
 
   closePopover();
   if (typeof currentCleanup === "function") { try { currentCleanup(); } catch {} }
@@ -725,6 +717,14 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
 
   try {
     const result = await viewFn();
+    if (gen !== renderGen) {
+      // A newer navigation started while this one's view was still loading —
+      // it already mounted its own result, so don't clobber it. Still run
+      // this stale result's own cleanup, in case building it already wired
+      // up global listeners or timers that would otherwise leak.
+      try { result?.cleanup?.(); } catch {}
+      return;
+    }
     const node = result?.node || result;
     currentCleanup = result?.cleanup || null;
     currentViewNode = node;
@@ -753,7 +753,13 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     }
     firstPaintDone = true;
   } catch (e) {
+    if (gen !== renderGen) return;   // a newer navigation is already showing — don't stomp it with a stale failure
     console.error(e);
+    // currentCleanup is already null (cleared above) but currentViewNode still
+    // points at the screen this navigation was leaving, whose cleanup already
+    // ran — left as-is, a later chromeOnly re-render (e.g. a language switch)
+    // would silently resurrect that dead node over this error screen.
+    currentViewNode = null;
     // The error screen is a normal app screen, so the chrome comes back.
     document.body.classList.remove("no-chrome");
     mount(app, shell(el("div.empty", {}, [
