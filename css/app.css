@@ -125,6 +125,29 @@ a.streakbadge:hover {
 }
 .sidebar__nav > .sidebar__group:first-child { margin-top: 0; }
 .sidebar__div { height: 1px; margin: var(--s-3) var(--s-3) var(--s-2); background: var(--line); }
+
+/* Collapsible sections ("Uppföljning", "Verktyg") — a header row standing in
+   for the group's own rows until it's opened, same footprint as a link. */
+.sidebar__acc {
+  display: flex; align-items: center; gap: var(--s-3); width: 100%;
+  margin-top: var(--s-3);
+  padding: 9px var(--s-3); border-radius: var(--r-md);
+  background: none; border: none; font: inherit; text-align: left; cursor: pointer;
+  color: var(--ink-soft); font-weight: 600; font-size: var(--fs-sm);
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.sidebar__acc:hover { background: var(--surface-sunk); color: var(--ink); }
+.sidebar__acc svg:first-child { flex: none; }
+.sidebar__acc-label { flex: 1; }
+.sidebar__acc-count {
+  font-size: 11px; font-weight: 700; color: var(--ink-faint);
+  background: var(--surface-sunk); padding: 1px 7px; border-radius: var(--r-full);
+}
+.sidebar__acc svg:last-child { flex: none; color: var(--ink-faint); transition: transform var(--dur-fast); }
+.sidebar__acc.is-open svg:last-child { transform: rotate(180deg); }
+.sidebar__acc-body { display: contents; }
+.sidebar__acc-body.is-closed { display: none; }
+
 .sidebar__foot { display: flex; flex-direction: column; gap: var(--s-2); margin-top: var(--s-4); }
 
 /* Fuller streak row (icon + the day count in words) — sidebar only, the
@@ -2878,6 +2901,10 @@ kbd {
   .sidebar__morecap { display: block; grid-column: 1 / -1; margin: clamp(6px, 1.6vh, 14px) var(--s-2) 0; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint); }
   .sidebar__more .sidebar__link { font-size: 0; justify-content: center; gap: 0; padding: 0; min-height: clamp(30px, 4.6vh, 40px); }
   .sidebar__more .sidebar__link svg { width: 19px; height: 19px; }
+  /* The icon dock has room for everything — a closed accordion section would
+     otherwise hide its icons entirely instead of just shrinking them. */
+  .sidebar__more .sidebar__acc { display: none; }
+  .sidebar__more .sidebar__acc-body { display: contents !important; }
 }
 
 

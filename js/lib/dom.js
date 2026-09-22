@@ -151,6 +151,7 @@ export const ICONS = {
   calculator: "M5 3h14a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z M8 7h8 M8 11h.01 M12 11h.01 M16 11h.01 M8 15h.01 M12 15h.01 M16 15h.01 M12 19h.01",
   sigma: "M18 7V4H6l6 8-6 8h12v-3",
   download: "M12 3v12 M8 11l4 4 4-4 M4 21h16",
+  chevronDown: "M6 9l6 6 6-6",
 
   /* --- achievement track / milestone icons --- */
   trophy: "M6 9H4.5a2.5 2.5 0 0 1 0-5H6 M18 9h1.5a2.5 2.5 0 0 0 0-5H18 M4 22h16 M10 14.7V17c0 .6-.5 1-1 1.2C7.9 18.8 7 20.2 7 22 M14 14.7V17c0 .6.5 1 1 1.2 1.1.6 2 2 2 4.8 M6 2h12v7a6 6 0 0 1-12 0V2Z",

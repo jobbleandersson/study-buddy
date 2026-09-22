@@ -174,11 +174,30 @@ function navItems() {
   return navGroups().flatMap((g) => g.items);
 }
 
+/** "Uppföljning" and "Verktyg" collapse behind a header row instead of always
+ *  taking their full row count — "Lära" (the everyday pages) and the unlabeled
+ *  account group at the bottom stay fully expanded. A section auto-opens
+ *  whenever the current page is one of its own items, so navigating there
+ *  never leaves the active link hidden behind a closed header. */
+const SIDEBAR_COLLAPSIBLE = new Set(["track", "tools"]);
+const sidebarOpenKey = (key) => `studybuddy.navOpen.${key}`;
+function isSidebarSectionOpen(group) {
+  if (group.items.some((it) => navActive(it.match))) return true;
+  try { return localStorage.getItem(sidebarOpenKey(group.key)) === "1"; } catch { return false; }
+}
+function toggleSidebarSection(group) {
+  const next = !isSidebarSectionOpen(group);
+  try { localStorage.setItem(sidebarOpenKey(group.key), next ? "1" : "0"); } catch { /* private mode — fine, it'll just default shut again */ }
+  render({ chromeOnly: true });
+}
+
 /** The desktop sidebar's nav. The first group (the everyday pages) sits directly
  *  in the list; everything after it lives in `.sidebar__more`, which is
  *  `display: contents` — invisible to layout — until the window is very short.
  *  Then CSS turns it into a compact icon dock, so the whole nav still fits with
- *  no scrolling (the links carry a title/aria-label for exactly that mode). */
+ *  no scrolling (the links carry a title/aria-label for exactly that mode) —
+ *  overriding a collapsed section open there, since the dock has room for
+ *  every icon regardless. */
 function sidebarNav() {
   const groups = navGroups();
   const link = (it, inMore) => el("a.sidebar__link" + (navActive(it.match) ? ".is-active" : ""), {
@@ -186,10 +205,27 @@ function sidebarNav() {
     "aria-current": navActive(it.match) ? "page" : null,
     ...(inMore ? { title: it.label, "aria-label": it.label } : {}),
   }, [icon(it.icon, 18), it.label]);
-  const part = (g, gi, inMore) => [
-    g.label ? el("p.sidebar__group", {}, g.label) : gi > 0 ? el("div.sidebar__div") : null,
-    ...g.items.map((it) => link(it, inMore)),
-  ].filter(Boolean);
+  const part = (g, gi, inMore) => {
+    if (SIDEBAR_COLLAPSIBLE.has(g.key)) {
+      const open = isSidebarSectionOpen(g);
+      return [
+        el("button.sidebar__acc" + (open ? ".is-open" : ""), {
+          type: "button", "aria-expanded": String(open),
+          onclick: () => toggleSidebarSection(g),
+        }, [
+          icon(g.items[0].icon, 16),
+          el("span.sidebar__acc-label", {}, g.label),
+          el("span.sidebar__acc-count", {}, String(g.items.length)),
+          icon(ICONS.chevronDown, 14),
+        ]),
+        el("div.sidebar__acc-body" + (open ? "" : ".is-closed"), {}, g.items.map((it) => link(it, inMore))),
+      ];
+    }
+    return [
+      g.label ? el("p.sidebar__group", {}, g.label) : gi > 0 ? el("div.sidebar__div") : null,
+      ...g.items.map((it) => link(it, inMore)),
+    ].filter(Boolean);
+  };
   return el("div.sidebar__nav", {}, [
     ...part(groups[0], 0, false),
     el("div.sidebar__more", {}, [
