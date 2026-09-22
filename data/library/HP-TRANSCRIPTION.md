@@ -5,8 +5,20 @@ How to add Högskoleprovet content. Two kinds of set:
 - **Delprov sets** — `"type": "test"`, one delprov, ~10–12 questions. Ids
   `lib-hp-<YYYY><v|h>-<delprov>` (e.g. `lib-hp-2026v-xyz`). The `<YYYY><v|h>`
   segment must match a key in `NORM_TABLES` in `js/lib/hp.js` for the normed
-  estimate to use that test's real table; anything else falls back to the
+  estimate to use that test's own table; anything else falls back to the
   blended `GENERIC_NORM`.
+
+  **The `<YYYY><v|h>` id shape does not by itself mean "a real sitting" — it's
+  reused for self-written practice tests too (every set shipped so far is one).
+  What matters is `NORM_TABLES[id].label`: it must only name a real sitting
+  ("Våren 2026") when the questions under that id are a genuine, verbatim
+  transcription of that real, released test. A self-written practice test's
+  label must say so — "Övningsprov N" — never a real date, even though its id
+  keeps the `<YYYY><v|h>` shape.** Attaching a real UHR normeringstabell to
+  self-written questions doesn't make the estimate more accurate — that table
+  measures the real cohort's performance on the real paper, not on these
+  questions — it just makes an ungrounded number look calibrated. See the
+  comment above `NORM_TABLES` in `js/lib/hp.js`.
 - **ORD word banks** — `"type": "assignment"`, ids `lib-hp-ord-bank-NN`. These
   feed spaced repetition, not a timed test.
 

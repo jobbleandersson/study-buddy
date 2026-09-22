@@ -5,9 +5,10 @@
 // a per-test equating table UHR publishes with each released prov, then averages
 // the two and rounds to the nearest 0.05.
 //
-// We ship one table per transcribed released test in NORM_TABLES. GENERIC_NORM
-// is their element-wise mean and is used — always labelled "uppskattning" — when
-// the test isn't known or a practice run only covered part of a section.
+// NORM_TABLES holds one table per shipped test — today that's self-written practice material in
+// the official format, not a transcribed released test (see the note above NORM_TABLES below).
+// GENERIC_NORM is their element-wise mean and is used — always labelled "uppskattning" — when the
+// test isn't known or a practice run only covered part of a section.
 //
 // Everything here is an ESTIMATE and every caller must present it as one.
 
@@ -39,12 +40,30 @@ export const DELPROV_ORDER = ["ord", "las", "mek", "elf", "xyz", "kva", "nog", "
  * Norm tables
  *
  * Each entry is { label, verbal:[81], kvant:[81] } where index === raw score
- * 0..80 and the value is the normed score for that half. Real UHR tables are
- * transcribed digit-by-digit from the published normeringstabell; until those
- * are in, the two tables below are built from the published anchor points
- * (≈150/160 total → 2.0, ≈120 → 1.5, ≈95 → 1.0, ≈65 → 0.5) with a small
- * per-test difficulty shift, so "which prov" already changes the estimate and
- * the surrounding code is exercised. Replace the arrays, keep the shape.
+ * 0..80 and the value is the normed score for that half.
+ *
+ * IMPORTANT — a table's `label` must never name a real Högskoleprov sitting
+ * (e.g. "Våren 2026") unless the QUESTIONS under that same key are a genuine,
+ * verbatim transcription of that exact real, released test. The estimate is
+ * only as calibrated as the table it's built from — a real UHR normeringstabell
+ * measures how the real national cohort actually did on THAT real paper; bolt
+ * it onto different (self-written) questions and the estimate looks precise
+ * without being any more accurate, which is worse than an openly synthetic
+ * curve. See data/library/HP-TRANSCRIPTION.md's "Transcribing a released
+ * test" section for doing a real one properly — content and table together.
+ *
+ * Every set shipped so far (data/library/hp-2026v-*.json) is self-written
+ * practice material in the official format, not a transcription — its
+ * sourceSummary says so — so its table below is labelled as a practice test,
+ * not a sitting. The "2026v" *id* stays (it's just an internal key already
+ * baked into file names and figure paths); only the human-facing label
+ * changed. No real UHR table has been transcribed yet.
+ *
+ * Built from the published anchor points (≈150/160 total → 2.0, ≈120 → 1.5,
+ * ≈95 → 1.0, ≈65 → 0.5) with a small per-test difficulty shift, so "which
+ * practice test" already changes the estimate and the surrounding code is
+ * exercised. Replace buildTable(...) with a real transcribed array (still
+ * indexed 0..80) the day a real table is added, alongside its real questions.
  * ------------------------------------------------------------------ */
 
 /** Base raw(0..80) → normed(0..2) curve. Near-linear in the middle, flat at
@@ -73,10 +92,9 @@ function buildTable(shift) {
 }
 
 export const NORM_TABLES = {
-  // vårprovet (spring) — slightly harder, so a given raw score norms a touch higher
-  "2026v": { label: "Våren 2026", verbal: buildTable(2), kvant: buildTable(1) },
-  // höstprovet (autumn) — slightly easier
-  "2025h": { label: "Hösten 2025", verbal: buildTable(-1), kvant: buildTable(0) },
+  // Matches the set title "… – övningsprov 1" (data/library/hp-2026v-*.json) — see the note above
+  // on why this is not "Våren 2026" even though the id keeps that shape.
+  "2026v": { label: "Övningsprov 1", verbal: buildTable(2), kvant: buildTable(1) },
 };
 
 /** Element-wise mean of every shipped table — the fallback. */
