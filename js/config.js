@@ -32,7 +32,7 @@ export const FORGOT_PASSWORD_URL = `${API}/api/auth/forgot-password`;
 export const RESET_PASSWORD_URL = `${API}/api/auth/reset-password`;
 
 // Where people write with privacy, data and general questions. One place, so it changes in one place.
-export const CONTACT_EMAIL = "liamohrn0911@gmail.com";
+export const CONTACT_EMAIL = "studifyorganisation@gmail.com";
 export const STATE_URL = `${API}/api/state`;
 export const LINKS_URL = `${API}/api/links`;
 export const INVITE_CODE_URL = `${API}/api/links/invite-code`;
