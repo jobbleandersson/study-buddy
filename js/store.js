@@ -16,7 +16,10 @@ import { ACHIEVEMENTS, achievementMetrics } from "./lib/achievements.js";
 import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } from "./lib/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
 import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js";
-import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL, STATE_URL, USAGE_URL } from "./config.js";
+import {
+  PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
+  RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL,
+} from "./config.js";
 
 const KEY = "studybuddy.v1";
 const SCHEMA_VERSION = 7;
@@ -458,11 +461,18 @@ class Store extends EventTarget {
     // null hides the upgrade button in the limit-reached prompt.
     this.premiumUrl = null;
 
+    // Whether the server can send email (RESEND_API_KEY set) — false hides every verify/reset
+    // control, the same way a null googleClientId hides the Google button.
+    this.emailConfigured = false;
+
     // Auth/sync status — also instance-only, not synced app data. Sign-in is
     // opt-in: local-only mode (authed === false) works exactly as before.
     this.authed = false;
     this.authEmail = null;
     this.authPasswordless = false;   // a Google-linked account has no password to type
+    // Meaningless while emailConfigured is false — the server reports true in that case so
+    // nothing here ever nags about a feature that isn't switched on.
+    this.authEmailVerified = false;
 
     // Claude usage this month, once signed in: { used, limit, resetsAt } or
     // null when unknown / not metered. `_aiQuotaOut` latches true when a call
@@ -524,12 +534,14 @@ class Store extends EventTarget {
       // Absent (older server) → assume it does require auth, the safe default.
       this.proxyRequiresAuth = data?.messagesRequireAuth !== false;
       this.googleClientId = data?.googleClientId || null;
+      this.emailConfigured = !!data?.emailConfigured;
 
       this.premiumUrl = typeof data?.premiumUrl === "string" && /^https:\/\//.test(data.premiumUrl) ? data.premiumUrl : null;
     } catch {
       this.proxyUp = false;
       this.proxyKeyConfigured = false;
       this.googleClientId = null;
+      this.emailConfigured = false;
     }
 
     if (this.proxyUp) {
@@ -541,6 +553,7 @@ class Store extends EventTarget {
           this.authed = true;
           this.authEmail = data.email;
           this.authPasswordless = !!data.passwordless;
+          this.authEmailVerified = !!data.emailVerified;
         }
       } catch { /* not signed in / server unreachable — stay local-only */ }
     }
@@ -1504,6 +1517,7 @@ class Store extends EventTarget {
     this.authed = true;
     this.authEmail = data.email;
     this.authPasswordless = false;
+    this.authEmailVerified = !!data.emailVerified;
     this._setSyncVersion(0);
     await this._pushNow(); // this device's local data becomes the account's data
     await this.refreshUsage();
@@ -1520,9 +1534,64 @@ class Store extends EventTarget {
     if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.loginFailed")));
     this.authed = true;
     this.authEmail = data.email;
+    this.authEmailVerified = !!data.emailVerified;
     await this._pullOnLogin();
     await this.refreshUsage();
     this.emit();
+  }
+
+  /** Sends a reset link if that address has a password account — always resolves the same way
+   *  whether or not it does, so this can never be used to check who has an account. Throws only
+   *  on a genuine network/server failure. */
+  async forgotPassword(email) {
+    const res = await fetch(FORGOT_PASSWORD_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+  }
+
+  /** The token from a reset-password email. Success signs the browser in with the new password,
+   *  same as loginWithGoogle does for a brand-new account — no separate login step needed. */
+  async resetPassword(token, password) {
+    const res = await fetch(RESET_PASSWORD_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ token, password }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("reset.failed"));   // err.code === "bad_token" when the link is dead
+    this.authed = true;
+    this.authEmail = data.email;
+    this.authPasswordless = false;
+    this.authEmailVerified = !!data.emailVerified;
+    await this._pullOnLogin();
+    await this.refreshUsage();
+    this.emit();
+  }
+
+  /** The token from a verify-email email. Doesn't require being signed in on this device — someone
+   *  may well tap the link from their phone after signing up on a school computer. */
+  async verifyEmail(token) {
+    const res = await fetch(VERIFY_EMAIL_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ token }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("verify.failed"));
+    if (this.authed) { this.authEmailVerified = true; this.emit(); }   // reflect it immediately if it was this device's own account
+  }
+
+  /** Ask for a fresh verification link on the signed-in account. */
+  async resendVerification() {
+    const res = await fetch(RESEND_VERIFICATION_URL, {
+      method: "POST", credentials: "include",
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("set.acctVerificationResendFailed"));
   }
 
   // One call covers "sign in" and "create account": the server decides which.
@@ -1539,6 +1608,7 @@ class Store extends EventTarget {
     this.authed = true;
     this.authEmail = data.email;
     this.authPasswordless = true;
+    this.authEmailVerified = true;   // Google already verified it — see routes/auth.js
     if (data.created) {
       this._setSyncVersion(0);
       await this._pushNow();
@@ -1566,6 +1636,7 @@ class Store extends EventTarget {
     this.authed = false;
     this.authEmail = null;
     this.authPasswordless = false;
+    this.authEmailVerified = false;
     this.aiUsage = null;
     this._aiQuotaOut = false;
     clearTimeout(this._pushTimer);
@@ -1600,6 +1671,7 @@ class Store extends EventTarget {
     this.authed = false;
     this.authEmail = null;
     this.authPasswordless = false;
+    this.authEmailVerified = false;
     this.aiUsage = null;
     this._aiQuotaOut = false;
     this._clearDevice();

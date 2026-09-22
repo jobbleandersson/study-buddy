@@ -42,6 +42,22 @@ export const loginFailures = [
 export const waitlistHourly = attemptLimit({ name: "waitlist-hour", max: num("WAITLIST_PER_HOUR_PER_IP", 60), windowMs: HOUR });
 export const waitlistDaily = attemptLimit({ name: "waitlist-day", max: num("WAITLIST_PER_DAY_PER_IP", 200), windowMs: DAY });
 
+// Verification and password-reset. All three are reachable without an existing session (reset and
+// verify have to be — that's the whole point), so IP is the only key available for two of them; a
+// generous default keeps a shared school network from locking a class out of resetting anything.
+export const resendVerificationLimit = attemptLimit({
+  name: "resend-verify", max: num("RESEND_VERIFY_PER_HOUR_PER_USER", 5), windowMs: HOUR, key: (req) => req.user?.userId,
+});
+export const forgotPasswordLimits = [
+  attemptLimit({
+    name: "forgot-pw-email", max: num("FORGOT_PW_PER_HOUR_PER_EMAIL", 5), windowMs: HOUR,
+    key: (req) => String(req.body?.email || "").trim().toLowerCase().slice(0, 254),
+  }),
+  attemptLimit({ name: "forgot-pw-ip", max: num("FORGOT_PW_PER_HOUR_PER_IP", 30), windowMs: HOUR }),
+];
+export const verifyEmailIpLimit = attemptLimit({ name: "verify-email-ip", max: num("VERIFY_EMAIL_PER_HOUR_PER_IP", 60), windowMs: HOUR });
+export const resetPasswordIpLimit = attemptLimit({ name: "reset-pw-ip", max: num("RESET_PW_PER_HOUR_PER_IP", 30), windowMs: HOUR });
+
 // Class, friend and parent codes: only failed guesses count. These routes need
 // a session, so the tight limit is per account; the looser per-IP one catches
 // guesses spread over many accounts. All three routes share the same counts.

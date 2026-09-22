@@ -3416,3 +3416,14 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .shareslide { padding: 56px var(--s-4) var(--s-5); }
   .teach-results__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* Password show/hide toggle (login.js, reset-password.js) — an eye button glued to the input's
+   right edge; the extra padding-right on the input keeps its own text clear of the button. */
+.pwfield { position: relative; }
+.pwfield input[type=password], .pwfield input[type=text] { padding-right: 44px; }
+.pwtoggle {
+  position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; padding: 8px; display: flex; color: var(--ink-faint);
+  cursor: pointer; border-radius: var(--r-sm);
+}
+.pwtoggle:hover { color: var(--ink); background: var(--surface-sunk); }

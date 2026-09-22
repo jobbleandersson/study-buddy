@@ -189,6 +189,32 @@ db.exec(`
     email TEXT UNIQUE NOT NULL,
     created_at INTEGER NOT NULL
   );
+
+  -- Same shape as invite_codes / friend_codes, kept separate for the same reason those two are:
+  -- a token means something different in each flow, so one lookup can't accidentally redeem a
+  -- token from the other. Only ever one *unused* row per user at a time in practice — a new
+  -- request doesn't delete the old one, it just becomes moot once used_at is set on the new one
+  -- or the sweeper clears it out (see sweep.js).
+  CREATE TABLE IF NOT EXISTS email_verify_tokens (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    token TEXT UNIQUE NOT NULL,
+    expires_at INTEGER NOT NULL,
+    used_at INTEGER,
+    created_at INTEGER NOT NULL
+  );
+
+  -- Deliberately its own table, not email_verify_tokens with a "kind" column: a verify token and a
+  -- reset token must never be redeemable in each other's endpoint, and a shared table makes that a
+  -- WHERE clause someone can forget rather than a table someone can't.
+  CREATE TABLE IF NOT EXISTS password_reset_tokens (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    token TEXT UNIQUE NOT NULL,
+    expires_at INTEGER NOT NULL,
+    used_at INTEGER,
+    created_at INTEGER NOT NULL
+  );
 `);
 
 // Sign in with Google: the Google account's stable id ("sub"), on the same user
@@ -206,4 +232,10 @@ for (const [col, type] of [["consent_at", "INTEGER"], ["terms_version", "TEXT"]]
   if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === col)) {
     db.exec(`ALTER TABLE users ADD COLUMN ${col} ${type}`);
   }
+}
+
+// NULL = not verified. Set the moment a token is confirmed (routes/auth.js), or immediately for a
+// Google-authenticated account — Google has already checked the address, there's nothing to add.
+if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "email_verified_at")) {
+  db.exec("ALTER TABLE users ADD COLUMN email_verified_at INTEGER");
 }

@@ -2,9 +2,10 @@
 // this only turns on syncing the same library across devices.
 
 import { store } from "../store.js";
-import { el, toast, icon, ICONS } from "../lib/dom.js";
+import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { renderGoogleButton } from "../components/google-signin.js";
+import { passwordField } from "../components/password-field.js";
 
 /** Where to land after signing in. `?next=` carries a hash path, optionally with
  *  its own plain query string (e.g. from the classes hub's sign-in prompt,
@@ -20,7 +21,7 @@ function safeNext(raw) {
 
 export function renderLogin(qs) {
   const dest = safeNext(qs?.get?.("next"));
-  let mode = "login"; // | "signup"
+  let mode = "login"; // "login" | "signup" | "forgot" | "forgotSent"
 
   // No server reachable → the whole form is inert; disable it rather than let
   // someone fill it in and hit a network error.
@@ -28,9 +29,16 @@ export function renderLogin(qs) {
 
   const emailInput = el("input", { type: "email", autocomplete: "email", placeholder: t("login.emailPlaceholder"), disabled: serverDown });
   const passInput = el("input", { type: "password", placeholder: "••••••••", disabled: serverDown });
+  const confirmInput = el("input", { type: "password", placeholder: "••••••••", disabled: serverDown, autocomplete: "new-password" });
   const errorNote = el("p.note.note--warn", { hidden: true });
   const submitBtn = el("button.btn", { type: "submit", disabled: serverDown }, t("login.signIn"));
   const toggleBtn = el("button.btn.btn--ghost.btn--sm", { type: "button" }, "");
+  const forgotLink = el("button.btn.btn--ghost.btn--sm", { type: "button" }, t("login.forgotPassword"));
+  const backToSignInLink = el("button.btn.btn--ghost.btn--sm", { type: "button" }, t("login.backToSignIn"));
+  const forgotSentNote = el("p.note", { hidden: true }, t("login.forgotSent"));
+
+  const passRow = el("label.field", {}, [el("span", {}, t("login.password")), passwordField(passInput)]);
+  const confirmRow = el("label.field", {}, [el("span", {}, t("login.confirmPassword")), passwordField(confirmInput)]);
 
   // Making an account needs a yes to the Terms + Privacy Policy and the age statement. The box
   // shows in sign-up mode, and for Google when the server says the sign-in would create a new account.
@@ -49,16 +57,37 @@ export function renderLogin(qs) {
   const googleConfirmBtn = el("button.btn", { type: "button", hidden: true, onclick: () => confirmGoogle() }, t("login.googleConfirm"));
 
   function paintMode() {
-    submitBtn.textContent = mode === "login" ? t("login.signIn") : t("login.createAccount");
+    const forgotDone = mode === "forgotSent";
+    submitBtn.textContent = mode === "forgot" ? t("login.forgotSubmit") : mode === "login" ? t("login.signIn") : t("login.createAccount");
+    submitBtn.hidden = forgotDone;
+    toggleBtn.hidden = mode === "forgot" || forgotDone;
     toggleBtn.textContent = mode === "login" ? t("login.needAccount") : t("login.haveAccount");
+    forgotLink.hidden = mode !== "login";
+    backToSignInLink.hidden = mode !== "forgot" && !forgotDone;
+    forgotSentNote.hidden = !forgotDone;
+    emailInput.hidden = forgotDone;
+    passRow.hidden = mode === "forgot" || forgotDone;
+    confirmRow.hidden = mode !== "signup";
     passInput.autocomplete = mode === "login" ? "current-password" : "new-password";
-    consentRow.hidden = mode === "login" && !googleCredential;
+    consentRow.hidden = mode !== "signup" && !googleCredential;
     googleConfirmBtn.hidden = !googleCredential;
     passInput.placeholder = mode === "login" ? "••••••••" : t("login.passwordHint");
   }
 
   toggleBtn.addEventListener("click", () => {
     mode = mode === "login" ? "signup" : "login";
+    errorNote.hidden = true;
+    paintMode();
+    paintGoogle();
+  });
+  forgotLink.addEventListener("click", () => {
+    mode = "forgot";
+    errorNote.hidden = true;
+    paintMode();
+    paintGoogle();
+  });
+  backToSignInLink.addEventListener("click", () => {
+    mode = "login";
     errorNote.hidden = true;
     paintMode();
     paintGoogle();
@@ -97,7 +126,7 @@ export function renderLogin(qs) {
     await onGoogle(googleCredential);
   }
   async function paintGoogle() {
-    if (serverDown || !store.googleClientId) return;
+    if (serverDown || !store.googleClientId || mode === "forgot" || mode === "forgotSent") { googleSection.hidden = true; return; }
     googleSection.hidden = false;   // reserve the space first so the button can measure its width
     const ok = await renderGoogleButton(googleBox, {
       clientId: store.googleClientId,
@@ -110,21 +139,51 @@ export function renderLogin(qs) {
   async function submit(e) {
     e.preventDefault();
     const email = emailInput.value.trim();
+
+    if (mode === "forgot") {
+      if (!email) return;
+      submitBtn.disabled = true;
+      errorNote.hidden = true;
+      try {
+        await store.forgotPassword(email);
+        mode = "forgotSent";
+        paintMode();
+      } catch (err) {
+        errorNote.textContent = err.message || t("login.somethingWrong");
+        errorNote.hidden = false;
+      } finally {
+        submitBtn.disabled = false;
+      }
+      return;
+    }
+
     const password = passInput.value;
     if (!email || !password) return;
-    if (mode === "signup" && !consentInput.checked) {
-      errorNote.textContent = t("login.consentNeeded");
-      errorNote.hidden = false;
-      consentInput.focus();
-      return;
+    if (mode === "signup") {
+      if (password !== confirmInput.value) {
+        errorNote.textContent = t("login.passwordMismatch");
+        errorNote.hidden = false;
+        confirmInput.focus();
+        return;
+      }
+      if (!consentInput.checked) {
+        errorNote.textContent = t("login.consentNeeded");
+        errorNote.hidden = false;
+        consentInput.focus();
+        return;
+      }
     }
 
     submitBtn.disabled = true;
     errorNote.hidden = true;
     try {
-      if (mode === "login") await store.login(email, password);
-      else await store.signup(email, password, { consent: consentInput.checked });
-      toast(mode === "login" ? t("login.signedInToast") : t("login.createdToast"));
+      if (mode === "login") {
+        await store.login(email, password);
+        toast(t("login.signedInToast"));
+      } else {
+        await store.signup(email, password, { consent: consentInput.checked });
+        toast(t(store.emailConfigured && !store.authEmailVerified ? "login.createdToastUnverified" : "login.createdToast"));
+      }
       location.hash = dest;
     } catch (err) {
       errorNote.textContent = err.message || t("login.somethingWrong");
@@ -137,8 +196,11 @@ export function renderLogin(qs) {
 
   const form = el("form", { onsubmit: submit }, [
     el("label.field", {}, [el("span", {}, t("login.email")), emailInput]),
-    el("label.field", {}, [el("span", {}, t("login.password")), passInput]),
+    passRow,
+    confirmRow,
     consentRow,
+    el("p.field__note", { style: { margin: "-4px 0 4px" } }, [forgotLink, backToSignInLink]),
+    forgotSentNote,
     errorNote,
     el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center" } }, [submitBtn, googleConfirmBtn, toggleBtn]),
   ]);
@@ -146,7 +208,7 @@ export function renderLogin(qs) {
   const node = el("div.settings", {}, [
     el("h1", {}, t("login.title")),
     el("section.panel", {}, [
-      el("p.note", { style: { margin: "0 0 16px" } }, t("login.intro")),
+      mode === "forgot" || mode === "forgotSent" ? null : el("p.note", { style: { margin: "0 0 16px" } }, t("login.intro")),
       serverDown ? el("p.note.note--warn", { style: { margin: "0 0 16px" } }, t("login.serverDown")) : null,
       googleSection,
       form,

@@ -51,6 +51,9 @@ const KNOWN = {
   "Couldn't verify your Google sign-in.": "srv.err.googleInvalid",
   "Your Google account's email isn't verified.": "srv.err.googleUnverified",
   "Google sign-in is unavailable right now. Try again shortly.": "srv.err.googleUnavailable",
+  "That link is invalid or has expired.": "verify.failed",
+  "That email is already verified.": "set.acctEmailVerified",
+  "Email isn't set up on this server.": "srv.err.emailOff",
   "Too many attempts. Try again in a few minutes.": "srv.err.tooManyAttempts",
 };
 

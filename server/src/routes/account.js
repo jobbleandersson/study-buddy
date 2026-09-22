@@ -17,10 +17,11 @@ const deleteFailures = attemptLimit({
 
 // Erase the signed-in account and everything the server holds about it: the login, every session
 // (so other devices are signed out), the synced study data, parent/friend links and their codes,
-// sets assigned to or by them, AI usage, their own answers to any class's daily question, and —
-// for a teacher — their classes with all members, assignments, and daily questions (with everyone's
-// answers to them). Each table is named here on purpose; the schema also cascades (db.js turns that
-// enforcement on), but a delete that people rely on for their privacy shouldn't depend on a pragma.
+// sets assigned to or by them, AI usage, any outstanding verify/reset email token, their own
+// answers to any class's daily question, and — for a teacher — their classes with all members,
+// assignments, and daily questions (with everyone's answers to them). Each table is named here on
+// purpose; the schema also cascades (db.js turns that enforcement on), but a delete that people
+// rely on for their privacy shouldn't depend on a pragma.
 //
 // To make sure it's really them (a session cookie alone can be left on a shared computer), a
 // password account must send its password; a Google-only account has none, so it sends its email.
@@ -59,6 +60,8 @@ account.delete("/account", requireAuth, deleteFailures, asyncHandler(async (req,
     db.prepare("DELETE FROM invite_codes WHERE student_user_id = ?").run(userId);
     db.prepare("DELETE FROM friend_links WHERE user_a_id = ? OR user_b_id = ?").run(userId, userId);
     db.prepare("DELETE FROM friend_codes WHERE user_id = ?").run(userId);
+    db.prepare("DELETE FROM email_verify_tokens WHERE user_id = ?").run(userId);
+    db.prepare("DELETE FROM password_reset_tokens WHERE user_id = ?").run(userId);
     db.prepare("DELETE FROM ai_usage WHERE user_id = ?").run(userId);
     db.prepare("DELETE FROM state_blobs WHERE user_id = ?").run(userId);
     db.prepare("DELETE FROM sessions WHERE user_id = ?").run(userId);

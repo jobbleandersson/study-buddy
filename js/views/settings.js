@@ -364,6 +364,7 @@ export function renderSettings() {
 
   function accountSection() {
     const status = el("p.note", { style: { margin: "6px 0 12px" } });
+    const verifyRow = el("p.note", { style: { margin: "0 0 12px" }, hidden: true });
     const actions = el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap" } });
 
     function paint() {
@@ -371,8 +372,29 @@ export function renderSettings() {
         ? t("set.acctSignedIn", { email: store.authEmail })
         : t("set.acctSignedOut");
 
+      // Meaningless while the server has no email set up — hidden entirely then, same as the
+      // Google button hides when googleClientId is null.
+      const showVerify = store.authed && store.emailConfigured;
+      verifyRow.hidden = !showVerify;
+      if (showVerify) {
+        verifyRow.className = "note" + (store.authEmailVerified ? "" : " note--warn");
+        verifyRow.textContent = t(store.authEmailVerified ? "set.acctEmailVerified" : "set.acctEmailNotVerified");
+      }
+
       clear(actions);
       if (store.authed) {
+        if (showVerify && !store.authEmailVerified) {
+          actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
+            type: "button",
+            onclick: async (e) => {
+              const btn = e.currentTarget;   // e.currentTarget is null once this resumes after the await
+              btn.disabled = true;
+              try { await store.resendVerification(); toast(t("set.acctVerificationSent")); }
+              catch (err) { toast(err.message || t("set.acctVerificationResendFailed")); }
+              finally { btn.disabled = false; }
+            },
+          }, t("set.acctResendVerification")));
+        }
         actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
           type: "button",
           onclick: async (e) => {
@@ -399,6 +421,7 @@ export function renderSettings() {
       el("h3", {}, t("set.acctTitle")),
       !store.proxyUp && el("p.note.note--warn", {}, t("set.acctNoServer")),
       status,
+      verifyRow,
       actions,
     ]);
   }

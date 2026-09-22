@@ -81,6 +81,8 @@ const routes = [
   { rx: /^\/print\/(.+)$/, view: (m, qs) => import("./views/print.js").then((mod) => mod.renderPrint(m[1], qs)) },
   { rx: /^\/teachback\/(.+)$/, view: (m) => import("./views/teachback.js").then((mod) => mod.renderTeachback(m[1])) },
   { rx: /^\/login$/, view: (m, qs) => import("./views/login.js").then((mod) => mod.renderLogin(qs)) },
+  { rx: /^\/verify$/, view: (m, qs) => import("./views/verify-email.js").then((mod) => mod.renderVerifyEmail(qs)) },
+  { rx: /^\/reset$/, view: (m, qs) => import("./views/reset-password.js").then((mod) => mod.renderResetPassword(qs)) },
   { rx: /^\/parent$/, view: () => import("./views/parent-dashboard.js").then((mod) => mod.renderParentHub()) },
   { rx: /^\/parent\/(.+)$/, view: (m) => import("./views/parent-dashboard.js").then((mod) => mod.renderParentStudent(m[1])) },
   { rx: /^\/classes$/, view: (m, qs) => import("./views/classes.js").then((mod) => mod.renderClasses(qs)) },
