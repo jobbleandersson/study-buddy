@@ -51,7 +51,15 @@
     })();
   </script>
 
-  <link rel="stylesheet" href="vendor/katex.min.css" />
+  <!-- Math rendering (KaTeX) only appears inside specific components — most
+       pages, including this one's own landing/marketing routes, never use it
+       at all. Loaded with media="print" so the browser fetches it at normal
+       priority but doesn't block first paint on it; onload flips it to the
+       real media once it's in, so it's already applied by the time any page
+       that does render math needs it. The noscript fallback is for the
+       no-JS case only (the app itself already requires JS to run at all). -->
+  <link rel="stylesheet" href="vendor/katex.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="vendor/katex.min.css" /></noscript>
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/app.css" />
 
