@@ -412,7 +412,7 @@ export function renderMenu(mode) {
   // badge) → no rail, and the layout falls back to one column.
   const rail = homeRail();
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
-    el("div.home-main", {}, [todayPanel(), headActions, setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [homeStarter(), todayPanel(), headActions, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 
@@ -884,26 +884,36 @@ function greeting() {
   return name ? `${hello}, ${name}` : hello;
 }
 
-/**
- * The top of the home page: the greeting and one line, and — for a brand-new
- * student — one clear action plus a real starter set to open.
- */
+/** The top of the home page: just the greeting and one line. Kept full-width
+ *  and short for every student, so the rail (Kommande/Utmärkelser) always
+ *  lines up with the top of the main column — see homeStarter() below for
+ *  the brand-new-student content, which lives inside the grid instead. */
 function homeHead() {
-  const hasSets = store.assignments.length > 0;
-  const needsSignIn = store.aiNeedsSignIn();
-
-  const suggestSlot = el("div", { hidden: true });
-  if (!hasSets) fillStarterSuggestion(suggestSlot);
-
   return el("div.home__head", {}, [
     el("h1", {}, greeting()),
     el("p.home__hi", {}, t("menu.subHasKey")),
-    !hasSets && el("div.home__cta", {}, [
+  ]);
+}
+
+/** For a brand-new student with no sets yet: one clear action plus a real
+ *  starter set to open. Rendered as the first block of the main column
+ *  (inside home-layout) rather than full-width above it — full-width would
+ *  push the whole two-column grid down while leaving the rail's side empty,
+ *  so Kommande/Utmärkelser end up floating with a big gap above them. */
+function homeStarter() {
+  if (store.assignments.length) return null;
+  const needsSignIn = store.aiNeedsSignIn();
+
+  const suggestSlot = el("div", { hidden: true });
+  fillStarterSuggestion(suggestSlot);
+
+  return el("div.home__starter", {}, [
+    el("div.home__cta", {}, [
       el("a.btn", { href: "#/library" }, [icon(ICONS.book, 18), t("menu.headPickSet")]),
       needsSignIn && el("a.btn.btn--ghost", { href: "#/login" }, t("login.signIn")),
     ].filter(Boolean)),
     suggestSlot,
-  ].filter(Boolean));
+  ]);
 }
 
 /** One real set from the practice library for a student with nothing added

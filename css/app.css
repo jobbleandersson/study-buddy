@@ -392,7 +392,8 @@ body.has-topmenu .sitechat__fab { display: none; }
 /* ---------- menu / home ---------- */
 .home__head { margin-bottom: var(--s-5); }
 .home__hi { color: var(--ink-soft); margin-top: 2px; }
-.home__cta { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-4); }
+.home__starter { margin-bottom: var(--s-5); }
+.home__cta { display: flex; gap: var(--s-2); flex-wrap: wrap; }
 /* The starter-set suggestion under a new student's head. */
 .home-suggest {
   display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: var(--s-3); align-items: center;
