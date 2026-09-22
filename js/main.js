@@ -10,12 +10,45 @@ import { THEMES, getTheme, setTheme } from "./lib/theme.js";
 import { openPopover, closePopover } from "./lib/popover.js";
 import { showAchievementUnlocks } from "./lib/achievement-toast.js";
 import { isSessionActive } from "./lib/session-active.js";
-import { mountCommandPalette } from "./components/command-palette.js";
-import { mountSiteChat } from "./components/site-chat.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
-import { maybeShowOnboarding } from "./components/onboarding.js";
 
 const app = document.getElementById("app");
+
+// mountUpgradePrompt() only needs store/dom/i18n — already eager either way,
+// so keeping it a static import costs nothing. It stays synchronous rather
+// than deferred like the other three below for a reason that isn't about
+// bytes: it attaches the one-shot listener for store's "sb:quotaout" event,
+// which fires (and latches — never again until next month) the moment an AI
+// call comes back over budget. Anything that leaves it unattached for even a
+// short window risks losing that one firing for the rest of the session, and
+// unlike a UI widget that can just look a little late, there's no visible
+// symptom telling the student their upgrade prompt silently never came.
+mountUpgradePrompt();
+
+// command-palette.js and site-chat.js render nothing that's part of first
+// paint (a keyboard-shortcut palette, a chat bubble) but pulled in real extra
+// weight — markdown.js, mascot.js, and their own trees — as static imports,
+// which made them mandatory prerequisites of main.js itself: native ES
+// modules fully evaluate every import before the importing module's own
+// top-level code runs, first render() included. Scheduled independently of
+// render()/store.init() (not chained to either) so neither a slower/losing
+// navigation nor a failed boot can strand them — one earlier version of this
+// chained onto a specific render() call's promise and got both wrong: a
+// stale render (see the renderGen guard below) resolves early without ever
+// finishing the real paint, and a store.init() rejection meant this code
+// never ran at all.
+function loadDeferredUI() {
+  import("./components/command-palette.js").then((m) => m.mountCommandPalette());
+  import("./components/site-chat.js").then((m) => m.mountSiteChat());
+}
+// requestIdleCallback has no firing guarantee at all without an explicit
+// timeout — the page can look "busy" indefinitely and the callback simply
+// never runs.
+function scheduleIdle(fn) {
+  if (window.requestIdleCallback) window.requestIdleCallback(fn, { timeout: 2000 });
+  else setTimeout(fn, 0);
+}
+scheduleIdle(loadDeferredUI);
 
 /**
  * Should the root route show the front page instead of the app? Only for a
@@ -803,12 +836,10 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   });
 }
 
-mountCommandPalette();
-mountSiteChat();
-mountUpgradePrompt();
-
 // On phones the chat button sat on top of the content it scrolls past (it hid the "Add" buttons in the
-// library). Tuck it away while scrolling down; it slides back on the way up.
+// library). Tuck it away while scrolling down; it slides back on the way up. site-chat.js loads lazily
+// (loadDeferredUI, above) but its fab is the only thing this listener acts on, so the listener itself
+// can register up front — it's a no-op scroll handler until the fab actually exists.
 {
   let lastY = window.scrollY;
   window.addEventListener("scroll", () => {
@@ -828,9 +859,15 @@ store.init().then(() => {
   // who lands straight on an app page (say a shared #/library link) gets the
   // quiz there — but never over a challenge link, the sign-in screen or the
   // legal pages, where it would be an interruption.
+  // bootPath is captured synchronously, in the same tick as render() right
+  // above — not inside a .then() — so a fast navigation that happens while
+  // onboarding.js is still being fetched can't change which route this gate
+  // decides against; only the fetch of onboarding.js itself is deferred.
   const bootPath = currentPath();
   const landingShown = shouldShowLanding() && (bootPath === "/" || bootPath === "/welcome");
-  if (!landingShown && /^\/(library|study|create|solve|hp|exam-prep)?$/.test(bootPath)) maybeShowOnboarding();
+  if (!landingShown && /^\/(library|study|create|solve|hp|exam-prep)?$/.test(bootPath)) {
+    import("./components/onboarding.js").then((m) => m.maybeShowOnboarding());
+  }
   // Bring any demo or library sets loaded in a different language up to date —
   // then refresh whatever's on screen so a deep-linked session or the home
   // grid shows the corrected wording.
