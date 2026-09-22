@@ -1476,6 +1476,11 @@ class Store extends EventTarget {
    *  all have to change at once; new code should call canUseAI(). */
   hasKey() { return this.canUseAI(); }
 
+  /** No paid plan exists yet (see the Phase 2 note on canUseAI() above) — this is a placeholder
+   *  that always says "not premium" so free-tier-only UI (house-ad promos, upsell copy) has one
+   *  place to check. Wire it to a real entitlement the day one ships, and this UI hides itself. */
+  isPremium() { return false; }
+
   /** True when the monthly Claude allowance is spent (a 402 latched it, or the
    *  last usage fetch was at/over the limit). Read by Settings. */
   get aiOverBudget() { return this._aiQuotaOut; }

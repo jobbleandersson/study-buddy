@@ -21,6 +21,7 @@ import { countdownLabel } from "../lib/date-phrases.js";
 import { testsTomorrow } from "../lib/tonight.js";
 import { isBusQuestion } from "../components/bus-question.js";
 import { dailySlot } from "../components/daily-card.js";
+import { houseAd } from "../components/house-ad.js";
 import { speechSupported } from "../lib/speech.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
@@ -411,8 +412,11 @@ export function renderMenu(mode) {
   // Nothing to show yet (fresh library, everything unlocked with no next
   // badge) → no rail, and the layout falls back to one column.
   const rail = homeRail();
+  // Only once there's at least one set: homeStarter() above already covers the empty state with
+  // its own "pick a set" call to action, and showing this too would just repeat it.
+  const ad = store.assignments.length ? houseAd() : null;
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
-    el("div.home-main", {}, [homeStarter(), todayPanel(), headActions, setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [homeStarter(), todayPanel(), headActions, ad, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 

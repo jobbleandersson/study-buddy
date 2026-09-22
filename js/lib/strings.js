@@ -115,6 +115,13 @@ export const STRINGS = {
     "menu.panelSets": "Your sets",
     "menu.filter": "Filter",
     "menu.resumeGo": "Continue",
+    "menu.houseAdHpTitle": "Try Högskoleprovet mode",
+    "menu.houseAdHpBody": "Timed drills and a normed-score estimate — free.",
+    "menu.houseAdExamTitle": "Get a day-by-day exam plan",
+    "menu.houseAdExamBody": "One task a day, building up to your test date.",
+    "menu.houseAdLibTitle": "Browse the practice library",
+    "menu.houseAdLibBody": "Hundreds of ready-made sets, no typing required.",
+    "menu.houseAdDismiss": "Dismiss",
     "menu.achAllDone": "Every achievement unlocked — nicely done.",
 
     /* ---- due date dialog ---- */
@@ -2033,6 +2040,13 @@ export const STRINGS = {
     "menu.panelSets": "Dina set",
     "menu.filter": "Filter",
     "menu.resumeGo": "Fortsätt",
+    "menu.houseAdHpTitle": "Prova Högskoleprovet-läget",
+    "menu.houseAdHpBody": "Tidsbegränsade övningar och en uppskattad normerad poäng — gratis.",
+    "menu.houseAdExamTitle": "Få en dagsplan inför provet",
+    "menu.houseAdExamBody": "En uppgift per dag, fram till provdagen.",
+    "menu.houseAdLibTitle": "Bläddra i övningsbiblioteket",
+    "menu.houseAdLibBody": "Hundratals färdiga set, inget eget skrivande krävs.",
+    "menu.houseAdDismiss": "Dölj",
     "menu.achAllDone": "Alla utmärkelser upplåsta — snyggt jobbat.",
 
     /* ---- due date dialog ---- */

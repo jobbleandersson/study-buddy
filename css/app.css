@@ -584,6 +584,24 @@ body.has-topmenu .sitechat__fab { display: none; }
   width: 34px; height: 34px; flex: none; border-radius: var(--r-full);
   display: grid; place-items: center; background: var(--brand); color: #fff;
 }
+
+/* Studify promoting Studify (see js/components/house-ad.js) — same tinted-banner language as
+   .continue-banner so it reads as "part of the app," not an inserted ad slot. */
+.house-ad {
+  display: flex; align-items: flex-start; gap: var(--s-3);
+  padding: var(--s-3) var(--s-4); border-radius: var(--r-md);
+  background: var(--brand-tint); border: 1px solid var(--brand); border-left-width: 4px;
+  margin-bottom: var(--s-3);
+}
+.house-ad__ic { flex: none; color: var(--brand-ink); margin-top: 1px; }
+.house-ad__body { flex: 1; display: flex; flex-direction: column; gap: 2px; text-decoration: none; color: inherit; min-width: 0; }
+.house-ad__body strong { color: var(--brand-ink); font-size: var(--fs-sm); }
+.house-ad__body span { color: var(--ink-soft); font-size: var(--fs-sm); }
+.house-ad__x {
+  flex: none; background: none; border: none; padding: 4px; margin: -4px -4px 0 0;
+  color: var(--ink-faint); border-radius: var(--r-sm); cursor: pointer;
+}
+.house-ad__x:hover { background: color-mix(in srgb, var(--brand) 14%, transparent); color: var(--brand-ink); }
 .continue-banner__body { flex: 1; min-width: 0; }
 .continue-banner__body strong { display: block; font-family: var(--font-display); color: var(--brand-ink); }
 .continue-banner__body span { display: block; font-size: var(--fs-sm); color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
