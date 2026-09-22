@@ -174,12 +174,13 @@ function navItems() {
   return navGroups().flatMap((g) => g.items);
 }
 
-/** "Uppföljning" and "Verktyg" collapse behind a header row instead of always
- *  taking their full row count — "Lära" (the everyday pages) and the unlabeled
- *  account group at the bottom stay fully expanded. A section auto-opens
- *  whenever the current page is one of its own items, so navigating there
- *  never leaves the active link hidden behind a closed header. */
-const SIDEBAR_COLLAPSIBLE = new Set(["track", "tools"]);
+/** "Verktyg" collapses behind a header row instead of always taking its full
+ *  row count — everything else ("Lära", "Uppföljning", the unlabeled account
+ *  group) stays fully expanded; three items wasn't worth folding away. A
+ *  collapsed section auto-opens whenever the current page is one of its own
+ *  items, so navigating there never leaves the active link hidden behind a
+ *  closed header. */
+const SIDEBAR_COLLAPSIBLE = new Set(["tools"]);
 const sidebarOpenKey = (key) => `studybuddy.navOpen.${key}`;
 function isSidebarSectionOpen(group) {
   if (group.items.some((it) => navActive(it.match))) return true;
