@@ -19,46 +19,14 @@
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/fonts.css" />
 
-  <!-- Set the palette and language before first paint, so there's no flash of
-       the wrong theme and <html lang> is right for screen readers from the start. -->
-  <script>
-    (function () {
-      var root = document.documentElement;
-      try {
-        var t = localStorage.getItem("studybuddy.theme");
-        root.setAttribute("data-theme", ["light", "paper", "dark", "system"].indexOf(t) >= 0 ? t : "system");
-      } catch (e) {
-        root.setAttribute("data-theme", "system");
-      }
-      try {
-        var f = localStorage.getItem("studybuddy.font");
-        root.setAttribute("data-font", f === "hyperlegible" ? "hyperlegible" : "system");
-        var sz = localStorage.getItem("studybuddy.textSize");
-        root.setAttribute("data-textsize", ["s", "m", "l"].indexOf(sz) >= 0 ? sz : "m");
-      } catch (e) {
-        root.setAttribute("data-font", "system");
-        root.setAttribute("data-textsize", "m");
-      }
-      try {
-        var supported = ["en", "sv"];
-        var l = localStorage.getItem("studybuddy.lang");
-        // Every bundled set is Swedish curriculum content, so that's the
-        // default when the student hasn't chosen — not a browser-language guess.
-        root.setAttribute("lang", supported.indexOf(l) >= 0 ? l : "sv");
-      } catch (e) {
-        root.setAttribute("lang", "sv");
-      }
-    })();
-  </script>
-
   <!-- Math rendering (KaTeX) only appears inside specific components — most
        pages, including this one's own landing/marketing routes, never use it
        at all. Loaded with media="print" so the browser fetches it at normal
-       priority but doesn't block first paint on it; onload flips it to the
-       real media once it's in, so it's already applied by the time any page
-       that does render math needs it. The noscript fallback is for the
+       priority but doesn't block first paint on it; js/boot.js flips it to
+       the real media once it's in, so it's already applied by the time any
+       page that does render math needs it. The noscript fallback is for the
        no-JS case only (the app itself already requires JS to run at all). -->
-  <link rel="stylesheet" href="vendor/katex.min.css" media="print" onload="this.media='all'" />
+  <link id="katex-print-css" rel="stylesheet" href="vendor/katex.min.css" media="print" />
   <noscript><link rel="stylesheet" href="vendor/katex.min.css" /></noscript>
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/app.css" />
@@ -67,6 +35,11 @@
   <script src="vendor/pdf.min.js" defer></script>
   <script src="vendor/katex.min.js" defer></script>
   <script src="vendor/jszip.min.js" defer></script>
+
+  <!-- Sets the palette/font/language attributes <html> needs before first paint (no flash of the
+       wrong one) and finishes the KaTeX media-swap above. A plain external script, not inline, so
+       this page's Content-Security-Policy (server/src/index.js) needs no 'unsafe-inline' for scripts. -->
+  <script src="js/boot.js"></script>
 </head>
 <body>
   <a class="skiplink" href="#main">Skip to content</a>

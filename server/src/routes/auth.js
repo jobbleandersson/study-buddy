@@ -6,7 +6,7 @@ import { COOKIE_NAME } from "../constants.js";
 import { verifyGoogleIdToken, GoogleTokenError } from "../google.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 import {
-  signupHourly, signupDaily, loginFailures,
+  signupHourly, signupDaily, loginFailures, googleSignInLimit,
   resendVerificationLimit, forgotPasswordLimits, verifyEmailIpLimit, resetPasswordIpLimit,
 } from "../middleware/authLimits.js";
 import { isUniqueViolation } from "../errors.js";
@@ -119,7 +119,7 @@ auth.post("/auth/login", ...loginFailures, asyncHandler(async (req, res) => {
 // Linking turns the old password OFF and signs out other sessions. Email
 // isn't verified at password signup, so without that, whoever registered an
 // address first could keep a password to the real owner's data forever.
-auth.post("/auth/google", asyncHandler(async (req, res) => {
+auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
   const clientId = process.env.GOOGLE_CLIENT_ID;
   if (!clientId) {
     return res.status(501).json({ error: { message: "Google sign-in isn't set up on this server.", code: "google_not_configured" } });
