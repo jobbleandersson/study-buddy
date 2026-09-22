@@ -9,9 +9,13 @@ import { announce } from "../lib/a11y.js";
 import { markdown } from "../lib/markdown.js";
 import { mascot, setMood } from "./mascot.js";
 import { store } from "../store.js";
-import { siteHelpSystem } from "../prompts.js";
 import { t } from "../lib/i18n.js";
-import { tutorStream, ClaudeError } from "../claude.js";
+// prompts.js and claude.js (plus their own transitive weight — check.js,
+// loose-json.js) are loaded lazily in submit() below, not here: this widget
+// mounts on every page from main.js, but almost nobody who loads a page ever
+// opens the chat and sends a message, so shipping the AI-call machinery to
+// everyone up front was pure waste on the path this file's own header says
+// matters (LCP).
 
 let mounted = false;
 
@@ -133,8 +137,11 @@ export function mountSiteChat() {
 
     abort = new AbortController();
     let acc = "";
+    let ClaudeError;   // set once the lazy import below resolves; stays undefined if that itself fails
     try {
-      for await (const chunk of tutorStream({ system: siteHelpSystem(), messages, signal: abort.signal })) {
+      const [claudeMod, promptsMod] = await Promise.all([import("../claude.js"), import("../prompts.js")]);
+      ClaudeError = claudeMod.ClaudeError;
+      for await (const chunk of claudeMod.tutorStream({ system: promptsMod.siteHelpSystem(), messages, signal: abort.signal })) {
         acc += chunk;
         bubble.innerHTML = markdown(acc);
         logEl.scrollTop = logEl.scrollHeight;
@@ -143,7 +150,7 @@ export function mountSiteChat() {
       setMood(mascotEl, "idle");
       announce(t("sitechat.prefix", { text: acc }));
     } catch (e) {
-      const msg = e instanceof ClaudeError ? e.message : t("sitechat.snag");
+      const msg = ClaudeError && e instanceof ClaudeError ? e.message : t("sitechat.snag");
       bubble.innerHTML = markdown(`_${msg}_`);
       messages.pop();
       setMood(mascotEl, "idle");
