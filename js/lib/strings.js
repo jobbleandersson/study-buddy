@@ -122,6 +122,10 @@ export const STRINGS = {
     "menu.houseAdLibTitle": "Browse the practice library",
     "menu.houseAdLibBody": "Hundreds of ready-made sets, no typing required.",
     "menu.houseAdDismiss": "Dismiss",
+    "premium.pageTitle": "Premium",
+    "premium.lead": "There's no paid plan yet. We're thinking about one — likely a higher monthly AI limit for students who study a lot. Leave your email and we'll write the day it exists, and not before.",
+    "premium.note": "No payment now, no account needed. One email if it ships — nothing else.",
+    "premium.done": "You're on the list — thanks. We'll email you if this ships.",
     "menu.achAllDone": "Every achievement unlocked — nicely done.",
 
     /* ---- due date dialog ---- */
@@ -506,6 +510,8 @@ export const STRINGS = {
     "set.aiUsageLine": "{used} of {limit} tokens used this month",
     "set.aiUsageResets": "Resets {date}",
     "set.aiQuotaReached": "This month's AI allowance is used up — the ready-made and your own sets still work as normal. Resets {date}.",
+    "set.premiumTeaser": "Thinking about a paid plan with a higher AI limit?",
+    "set.premiumLink": "Join the waitlist",
     "set.theme": "Theme",
     "set.themeSystem": "Match my device",
     "set.themeLight": "Light",
@@ -2047,6 +2053,10 @@ export const STRINGS = {
     "menu.houseAdLibTitle": "Bläddra i övningsbiblioteket",
     "menu.houseAdLibBody": "Hundratals färdiga set, inget eget skrivande krävs.",
     "menu.houseAdDismiss": "Dölj",
+    "premium.pageTitle": "Premium",
+    "premium.lead": "Det finns ingen betald nivå än. Vi funderar på en — troligen en högre månatlig AI-gräns för den som pluggar mycket. Lämna din mejl så hör vi av oss den dag den finns, och inte förrän dess.",
+    "premium.note": "Ingen betalning nu, inget konto behövs. Ett mejl om det blir av — inget annat.",
+    "premium.done": "Du är med på listan — tack. Vi mejlar dig om det blir av.",
     "menu.achAllDone": "Alla utmärkelser upplåsta — snyggt jobbat.",
 
     /* ---- due date dialog ---- */
@@ -2431,6 +2441,8 @@ export const STRINGS = {
     "set.aiUsageLine": "{used} av {limit} tokens använda den här månaden",
     "set.aiUsageResets": "Återställs {date}",
     "set.aiQuotaReached": "Månadens AI-utrymme är slut — de färdiga seten och dina egna fungerar som vanligt. Återställs {date}.",
+    "set.premiumTeaser": "Sugen på en betald nivå med en högre AI-gräns?",
+    "set.premiumLink": "Gå med i väntelistan",
     "set.theme": "Tema",
     "set.themeSystem": "Följ min enhet",
     "set.themeLight": "Ljust",

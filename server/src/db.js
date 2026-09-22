@@ -179,6 +179,16 @@ db.exec(`
     answered_at INTEGER NOT NULL,
     PRIMARY KEY (daily_id, student_user_id)
   );
+
+  -- No paid plan exists yet (see store.isPremium()) — just names collected ahead
+  -- of one, from the "#/premium" page. Not tied to a user row: someone can leave
+  -- an address other than their account's (a parent's, say), and a signed-out
+  -- visitor can join too.
+  CREATE TABLE IF NOT EXISTS premium_waitlist (
+    id TEXT PRIMARY KEY,
+    email TEXT UNIQUE NOT NULL,
+    created_at INTEGER NOT NULL
+  );
 `);
 
 // Sign in with Google: the Google account's stable id ("sub"), on the same user

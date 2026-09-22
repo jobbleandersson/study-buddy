@@ -54,3 +54,6 @@ export const classUrl = (id) => `${API}/api/classes/${id}`;
 export const classDailyUrl = (id) => `${API}/api/classes/${id}/daily`;
 export const MY_DAILY_URL = `${API}/api/my-daily`;
 export const myDailyAnswerUrl = (id) => `${API}/api/my-daily/${id}/answer`;
+
+// No paid plan exists yet — this just joins the waitlist for one (see server/.env.example).
+export const WAITLIST_PREMIUM_URL = `${API}/api/waitlist/premium`;

@@ -34,6 +34,14 @@ export const loginFailures = [
   }),
 ];
 
+// Joining the premium waitlist: no account needed, so this is the only thing
+// standing between it and a scraper filling the table with junk addresses.
+// Same generous defaults as signup above — joining a waitlist is lower-stakes
+// than creating an account, so it shouldn't be the tighter of the two limits
+// a class on one shared IP can run into.
+export const waitlistHourly = attemptLimit({ name: "waitlist-hour", max: num("WAITLIST_PER_HOUR_PER_IP", 60), windowMs: HOUR });
+export const waitlistDaily = attemptLimit({ name: "waitlist-day", max: num("WAITLIST_PER_DAY_PER_IP", 200), windowMs: DAY });
+
 // Class, friend and parent codes: only failed guesses count. These routes need
 // a session, so the tight limit is per account; the looser per-IP one catches
 // guesses spread over many accounts. All three routes share the same counts.

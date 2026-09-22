@@ -254,6 +254,13 @@ export function renderSettings() {
    * the user is signed in (the proxy requires it), and this month's allowance
    * isn't spent. Otherwise it collapses to a status line and whatever the one
    * missing thing is. */
+  function premiumTeaser() {
+    return store.isPremium() ? null : el("p.note", { style: { marginTop: "8px" } }, [
+      t("set.premiumTeaser") + " ",
+      el("a", { href: "#/premium" }, t("set.premiumLink")),
+    ]);
+  }
+
   function aiSection() {
     if (!store.canUseAI()) {
       const serverReady = store.proxyUp && store.proxyKeyConfigured;
@@ -275,11 +282,16 @@ export function renderSettings() {
           serverStatus,
         ]),
         reason,
+        // Only when `reason` is actually the quota-reached line above — not just
+        // whenever the budget happens to be spent, which could also be true while
+        // the server is unreachable (reason would then read "AI isn't connected",
+        // and showing a premium upsell right under that reads as contradictory).
+        serverReady && store.aiOverBudget ? premiumTeaser() : null,
         el("details.set-ai-how", { style: { marginTop: "12px" } }, [
           el("summary", {}, t("set.aiHowConnect")),
           el("p.note", { style: { margin: "8px 0 0" } }, t("set.serverBody")),
         ]),
-      ]);
+      ].filter(Boolean));
     }
 
     const usage = store.aiUsage;
@@ -295,6 +307,7 @@ export function renderSettings() {
         t("set.aiUsageLine", { used: usage.used.toLocaleString(), limit: usage.limit.toLocaleString() }),
         usage.resetsAt ? " · " + t("set.aiUsageResets", { date: fmtResetDate(usage.resetsAt) }) : "",
       ]) : null,
+      premiumTeaser(),
       el("h4.settings__sub", {}, t("set.modelTitle")),
       el("p.note", { style: { margin: "6px 0 12px" } }, t("set.modelIntro")),
       modelTable,

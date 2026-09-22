@@ -34,6 +34,7 @@ import { renderCalculator } from "./views/calculator.js";
 import { renderAchievements } from "./views/achievements.js";
 import { renderLeaderboard } from "./views/leaderboard.js";
 import { renderAbout, renderTerms, renderPrivacy } from "./views/legal.js";
+import { renderPremiumWaitlist } from "./views/premium-waitlist.js";
 import { renderLanding } from "./views/landing.js";
 import { renderTeacherLanding } from "./views/teachers.js";
 import { mountCommandPalette } from "./components/command-palette.js";
@@ -107,6 +108,7 @@ const routes = [
   { rx: /^\/about$/, view: () => renderAbout() },
   { rx: /^\/terms$/, view: () => renderTerms() },
   { rx: /^\/privacy$/, view: () => renderPrivacy() },
+  { rx: /^\/premium$/, view: () => renderPremiumWaitlist() },
 ];
 
 let currentCleanup = null;
