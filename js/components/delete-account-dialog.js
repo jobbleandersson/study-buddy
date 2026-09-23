@@ -18,6 +18,7 @@ export function deleteAccountDialog() {
     const cancelBtn = el("button.btn.btn--ghost", { type: "button", onclick: () => close(false) }, t("common.cancel"));
 
     let closed = false;
+    let busy = false;   // the request is on its way: closing now would hide an outcome the person still needs to see
     function close(value) {
       if (closed) return;
       closed = true;
@@ -26,7 +27,7 @@ export function deleteAccountDialog() {
       resolve(value);
     }
     function onKey(e) {
-      if (e.key === "Escape") { e.stopPropagation(); close(false); }
+      if (e.key === "Escape") { e.stopPropagation(); if (!busy) close(false); }
       else if (e.key === "Tab") {
         // Keep focus inside the dialog.
         const stops = [input, cancelBtn, confirmBtn].filter((n) => !n.disabled);
@@ -40,6 +41,7 @@ export function deleteAccountDialog() {
       e.preventDefault();
       const value = input.value.trim();
       if (!value) { err.textContent = t(passwordless ? "set.acctDeleteEmailLabel" : "set.acctDeletePasswordLabel"); err.hidden = false; input.focus(); return; }
+      busy = true;
       confirmBtn.disabled = true; cancelBtn.disabled = true; err.hidden = true;
       try {
         await store.deleteAccount(passwordless ? { email: value } : { password: value });
@@ -49,6 +51,8 @@ export function deleteAccountDialog() {
         err.hidden = false;
         confirmBtn.disabled = false; cancelBtn.disabled = false;
         input.focus();
+      } finally {
+        busy = false;
       }
     }
 

@@ -2,7 +2,7 @@
 // this only turns on syncing the same library across devices.
 
 import { store } from "../store.js";
-import { el, clear, toast, icon, ICONS } from "../lib/dom.js";
+import { el, toast, icon, ICONS } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { renderGoogleButton } from "../components/google-signin.js";
 import { passwordField } from "../components/password-field.js";
@@ -36,13 +36,14 @@ export function renderLogin(qs) {
   const forgotLink = el("button.btn.btn--ghost.btn--sm", { type: "button" }, t("login.forgotPassword"));
   const backToSignInLink = el("button.btn.btn--ghost.btn--sm", { type: "button" }, t("login.backToSignIn"));
   const forgotSentNote = el("p.note", { hidden: true }, t("login.forgotSent"));
+  const introNote = el("p.note", { style: { margin: "0 0 16px" } }, t("login.intro"));
 
   const passRow = el("label.field", {}, [el("span", {}, t("login.password")), passwordField(passInput)]);
   const confirmRow = el("label.field", {}, [el("span", {}, t("login.confirmPassword")), passwordField(confirmInput)]);
 
   // Making an account needs a yes to the Terms + Privacy Policy and the age statement. The box
   // shows in sign-up mode, and for Google when the server says the sign-in would create a new account.
-  const consentInput = el("input", { type: "checkbox", id: "consent", onchange: () => { errorNote.hidden = true; } });
+  const consentInput = el("input", { type: "checkbox", onchange: () => { errorNote.hidden = true; } });
   const consentRow = el("label.field.consentrow", { hidden: true }, [
     consentInput,
     el("span", {}, [
@@ -62,9 +63,12 @@ export function renderLogin(qs) {
     submitBtn.hidden = forgotDone;
     toggleBtn.hidden = mode === "forgot" || forgotDone;
     toggleBtn.textContent = mode === "login" ? t("login.needAccount") : t("login.haveAccount");
-    forgotLink.hidden = mode !== "login";
+    // No reset link can be sent unless the server has email set up — showing the control anyway
+    // would promise a message that never arrives (store.emailConfigured, from /api/health).
+    forgotLink.hidden = mode !== "login" || !store.emailConfigured;
     backToSignInLink.hidden = mode !== "forgot" && !forgotDone;
     forgotSentNote.hidden = !forgotDone;
+    introNote.hidden = mode === "forgot" || forgotDone;
     emailInput.hidden = forgotDone;
     passRow.hidden = mode === "forgot" || forgotDone;
     confirmRow.hidden = mode !== "signup";
@@ -74,24 +78,15 @@ export function renderLogin(qs) {
     passInput.placeholder = mode === "login" ? "••••••••" : t("login.passwordHint");
   }
 
-  toggleBtn.addEventListener("click", () => {
-    mode = mode === "login" ? "signup" : "login";
+  function setMode(next) {
+    mode = next;
     errorNote.hidden = true;
     paintMode();
     paintGoogle();
-  });
-  forgotLink.addEventListener("click", () => {
-    mode = "forgot";
-    errorNote.hidden = true;
-    paintMode();
-    paintGoogle();
-  });
-  backToSignInLink.addEventListener("click", () => {
-    mode = "login";
-    errorNote.hidden = true;
-    paintMode();
-    paintGoogle();
-  });
+  }
+  toggleBtn.addEventListener("click", () => setMode(mode === "login" ? "signup" : "login"));
+  forgotLink.addEventListener("click", () => setMode("forgot"));
+  backToSignInLink.addEventListener("click", () => setMode("login"));
 
   // Google's button: only when the server has it set up. If Google's script
   // can't load (blocked, offline) the whole section stays hidden and the form
@@ -208,7 +203,7 @@ export function renderLogin(qs) {
   const node = el("div.settings", {}, [
     el("h1", {}, t("login.title")),
     el("section.panel", {}, [
-      mode === "forgot" || mode === "forgotSent" ? null : el("p.note", { style: { margin: "0 0 16px" } }, t("login.intro")),
+      introNote,
       serverDown ? el("p.note.note--warn", { style: { margin: "0 0 16px" } }, t("login.serverDown")) : null,
       googleSection,
       form,

@@ -32,6 +32,12 @@
   // The KaTeX stylesheet loads with media="print" so the browser fetches it at normal priority
   // without blocking first paint on it; flipping it to "all" the moment it's actually in means
   // it's already applied by the time any page that renders math needs it. See index.html.
+  // This script runs after the <link> is parsed, so from a warm cache the stylesheet can already have
+  // loaded - its "load" event fired before the listener existed, and waiting for it would leave the
+  // sheet on media="print" for good (math unstyled on screen). A present .sheet means it's already in.
   var katexLink = document.getElementById("katex-print-css");
-  if (katexLink) katexLink.addEventListener("load", function () { katexLink.media = "all"; });
+  if (katexLink) {
+    if (katexLink.sheet) katexLink.media = "all";
+    else katexLink.addEventListener("load", function () { katexLink.media = "all"; });
+  }
 })();

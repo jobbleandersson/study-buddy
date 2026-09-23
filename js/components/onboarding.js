@@ -349,24 +349,58 @@ export function openWelcomeQuiz({ force = false } = {}) {
     const googleSection = el("div.login-google", { hidden: true }, [googleBox, el("div.login-or", {}, [el("span", {}, t("login.or"))])]);
     const box = el("section.welcome__acct");
 
+    // Making an account needs the same yes to the Terms + Privacy Policy and the age statement as
+    // the sign-in page — the server refuses to create one without it (routes/auth.js).
+    let pendingCredential = null;   // a Google pick waiting on the box, so they needn't pick again
+    const consentInput = el("input", {
+      type: "checkbox",
+      onchange: () => {
+        err.hidden = true;
+        if (consentInput.checked && pendingCredential) onGoogle(pendingCredential);
+      },
+    });
+    const consentRow = el("label.field.consentrow", {}, [
+      consentInput,
+      el("span", {}, [
+        t("login.consentLead") + " ",
+        el("a", { href: "#/terms", target: "_blank", rel: "noopener" }, t("login.consentTerms")),
+        " " + t("login.consentAnd") + " ",
+        el("a", { href: "#/privacy", target: "_blank", rel: "noopener" }, t("login.consentPrivacy")),
+        ".",
+      ]),
+    ]);
+
     function done() {
       box.replaceChildren(el("div.welcome__acct-done", {}, [icon(ICONS.check, 18), el("span", {}, t("welcome.accDone"))]));
     }
     async function onGoogle(credential) {
       err.hidden = true;
-      try { await store.loginWithGoogle(credential); toast(t("login.googleCreatedToast")); done(); }
-      catch (e) { err.textContent = e.message || t("login.googleFailed"); err.hidden = false; }
+      try {
+        await store.loginWithGoogle(credential, { consent: consentInput.checked });
+        pendingCredential = null;
+        toast(t("login.googleCreatedToast"));
+        done();
+      } catch (e) {
+        if (e.code === "consent_required") { pendingCredential = credential; err.textContent = t("login.googleNeedsConsent"); }
+        else err.textContent = e.message || t("login.googleFailed");
+        err.hidden = false;
+      }
     }
     const form = el("form", {
       onsubmit: async (ev) => {
         ev.preventDefault();
         if (!email.value.trim() || !pass.value) return;
+        if (!consentInput.checked) { err.textContent = t("login.consentNeeded"); err.hidden = false; consentInput.focus(); return; }
         submit.disabled = true; err.hidden = true;
-        try { await store.signup(email.value.trim(), pass.value); toast(t("login.createdToast")); done(); }
-        catch (e) { err.textContent = e.message || t("login.somethingWrong"); err.hidden = false; submit.disabled = false; }
+        try {
+          await store.signup(email.value.trim(), pass.value, { consent: true });
+          toast(t(store.emailConfigured && !store.authEmailVerified ? "login.createdToastUnverified" : "login.createdToast"));
+          done();
+        } catch (e) { err.textContent = e.message || t("login.somethingWrong"); err.hidden = false; submit.disabled = false; }
       },
     }, [
       el("div.welcome__acct-fields", {}, [email, pass, submit]),
+      consentRow,
       err,
     ]);
     box.append(el("h3", {}, t("welcome.accTitle")), el("p.note", {}, t("welcome.accBody")), googleSection, form);

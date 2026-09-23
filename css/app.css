@@ -3451,3 +3451,6 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   cursor: pointer; border-radius: var(--r-sm);
 }
 .pwtoggle:hover { color: var(--ink); background: var(--surface-sunk); }
+
+/* The welcome quiz's account card carries the same consent box as the sign-in page. */
+.welcome__acct .consentrow { margin: var(--s-3) 0 var(--s-2); font-size: var(--fs-sm); }

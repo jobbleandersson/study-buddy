@@ -61,6 +61,29 @@ function issueResetToken(userId) {
 }
 const badToken = (res) => res.status(400).json({ error: { message: "That link is invalid or has expired.", code: "bad_token" } });
 
+// Used up every reset link still floating around for an account, so a second, older email can't be
+// redeemed after the first one (or after the account was linked to Google, which has no password).
+const retireResetTokens = (userId, now) =>
+  db.prepare("UPDATE password_reset_tokens SET used_at = ? WHERE user_id = ? AND used_at IS NULL").run(now, userId);
+
+// An account whose address nobody has proven may have been registered by someone who doesn't own
+// that address - they can sign up as anyone@example.com and wire the account to their own other
+// accounts (a parent link via an invite code, a friendship, a class) before the real owner turns up.
+// Password reset and Google linking both hand that account to its rightful owner, and both already
+// cut off the old password and sessions; this cuts what the earlier holder attached to it as well,
+// or their second account would keep reading the new owner's progress. The study data itself is
+// kept - the owner may well have started using the account too - so the cost of the rare false
+// alarm (someone who signed up, never confirmed, and later links Google) is re-adding a link.
+function revokeTies(userId) {
+  db.prepare("DELETE FROM links WHERE parent_user_id = ? OR student_user_id = ?").run(userId, userId);
+  db.prepare("DELETE FROM invite_codes WHERE student_user_id = ?").run(userId);
+  db.prepare("DELETE FROM friend_links WHERE user_a_id = ? OR user_b_id = ?").run(userId, userId);
+  db.prepare("DELETE FROM friend_codes WHERE user_id = ?").run(userId);
+  db.prepare("DELETE FROM class_daily_answers WHERE student_user_id = ?").run(userId);
+  db.prepare("DELETE FROM class_members WHERE student_user_id = ?").run(userId);
+  db.prepare("DELETE FROM assigned_sets WHERE student_user_id = ? OR assigned_by_user_id = ?").run(userId, userId);
+}
+
 // Creating an account needs a yes to the Terms and Privacy Policy and to the age statement next to
 // it. The date is stored with the account as evidence; bump it when either text changes materially.
 const TERMS_VERSION = "2026-09-21";
@@ -149,7 +172,7 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
     let linked = false;
 
     if (!user) {
-      const existing = db.prepare("SELECT id, email, google_sub FROM users WHERE email = ?").get(email);
+      const existing = db.prepare("SELECT id, email, google_sub, email_verified_at AS emailVerifiedAt FROM users WHERE email = ?").get(email);
       if (existing && existing.google_sub) return emailTaken(res);   // that address belongs to a different Google account
       // Linking to an account that already agreed at signup needs no new yes; making a new one does.
       if (!existing && req.body?.consent !== true) return consentRequired(res);
@@ -165,6 +188,8 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
             db.prepare("UPDATE users SET google_sub = ?, password_hash = ?, email_verified_at = ? WHERE id = ?")
               .run(sub, unusableHash, now, existing.id);
             db.prepare("DELETE FROM sessions WHERE user_id = ?").run(existing.id);
+            retireResetTokens(existing.id, now);
+            if (!existing.emailVerifiedAt) revokeTies(existing.id);
           })();
           user = { id: existing.id, email: existing.email };
           linked = true;
@@ -220,7 +245,10 @@ auth.post("/auth/verify-email/resend", requireAuth, resendVerificationLimit, asy
   const user = db.prepare("SELECT email, email_verified_at AS emailVerifiedAt FROM users WHERE id = ?").get(req.user.userId);
   if (!user) return res.status(404).json({ error: { message: "Not found." } });
   if (user.emailVerifiedAt) return res.status(400).json({ error: { message: "That email is already verified.", code: "already_verified" } });
-  await sendVerifyEmail(user.email, issueVerifyToken(req.user.userId));
+  // sendEmail never throws, it answers false - and "sent" is exactly what this button promises,
+  // so a provider that refused the message has to show up as an error, not a quiet ok.
+  const sent = await sendVerifyEmail(user.email, issueVerifyToken(req.user.userId));
+  if (!sent) return res.status(502).json({ error: { message: "Couldn't send the email. Try again shortly.", code: "email_send_failed" } });
   res.json({ ok: true });
 }));
 
@@ -232,22 +260,41 @@ auth.post("/auth/verify-email", verifyEmailIpLimit, asyncHandler(async (req, res
   const row = db.prepare("SELECT id, user_id AS userId FROM email_verify_tokens WHERE token = ? AND used_at IS NULL AND expires_at > ?")
     .get(token, Date.now());
   if (!row) return badToken(res);
-  db.transaction(() => {
-    db.prepare("UPDATE email_verify_tokens SET used_at = ? WHERE id = ?").run(Date.now(), row.id);
-    db.prepare("UPDATE users SET email_verified_at = ? WHERE id = ?").run(Date.now(), row.userId);
+  // Claim the token in the same statement that checks it is unused: two requests carrying the same
+  // link (a double-tap, a mail scanner that opened it first) both pass the SELECT above, and only
+  // one may win - the other reads as an already-used link.
+  const now = Date.now();
+  const email = db.transaction(() => {
+    const claimed = db.prepare("UPDATE email_verify_tokens SET used_at = ? WHERE id = ? AND used_at IS NULL").run(now, row.id);
+    if (claimed.changes === 0) return null;
+    db.prepare("UPDATE users SET email_verified_at = ? WHERE id = ?").run(now, row.userId);
+    return db.prepare("SELECT email FROM users WHERE id = ?").get(row.userId)?.email ?? null;
   })();
-  res.json({ ok: true });
+  if (!email) return badToken(res);
+  // The address goes back so a signed-in browser can tell whether this link was for ITS account.
+  res.json({ ok: true, email });
 }));
 
 // Always the same reply, whether or not that address has an account — otherwise this endpoint
 // would let anyone check which emails are registered. A Google-linked account has no password to
 // reset (it signs in with Google only), so it's silently skipped too; the reply doesn't say which
-// case applied.
+// case applied. Two things follow from that:
+//   • the email is sent in the background - waiting for the provider only when the account exists
+//     would make "has an account" measurably slower than "doesn't";
+//   • throttling can't be keyed on the address (a per-email counter that answers 429 tells anyone
+//     which addresses are registered, and lets a stranger lock the owner out of resetting). Instead
+//     an account that was mailed a link a moment ago is simply not mailed another, and the reply
+//     is the same either way. The per-IP limit still caps how fast one machine can ask.
+const RESET_COOLDOWN_MS = 2 * 60 * 1000;
 auth.post("/auth/forgot-password", ...forgotPasswordLimits, asyncHandler(async (req, res) => {
   const email = String(req.body?.email || "").trim().toLowerCase();
   if (email && emailEnabled()) {
     const user = db.prepare("SELECT id, google_sub AS googleSub FROM users WHERE email = ?").get(email);
-    if (user && !user.googleSub) await sendResetEmail(email, issueResetToken(user.id));
+    if (user && !user.googleSub) {
+      const recent = db.prepare("SELECT 1 AS x FROM password_reset_tokens WHERE user_id = ? AND created_at > ?")
+        .get(user.id, Date.now() - RESET_COOLDOWN_MS);
+      if (!recent) sendResetEmail(email, issueResetToken(user.id)).catch(() => {});
+    }
   }
   res.json({ ok: true });
 }));
@@ -266,7 +313,13 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
   const hash = await bcrypt.hash(password, 10);
   const now = Date.now();
   const user = db.transaction(() => {
-    db.prepare("UPDATE password_reset_tokens SET used_at = ? WHERE id = ?").run(now, row.id);
+    // Claim the link before anything else: the SELECT above and this write are separated by a bcrypt
+    // await, so two requests with the same link can both get here - only one may change the password.
+    const claimed = db.prepare("UPDATE password_reset_tokens SET used_at = ? WHERE id = ? AND used_at IS NULL").run(now, row.id);
+    if (claimed.changes === 0) return null;
+    retireResetTokens(row.userId, now);   // any other link mailed for this account dies with this one
+    const before = db.prepare("SELECT email, email_verified_at AS emailVerifiedAt FROM users WHERE id = ?").get(row.userId);
+    if (!before.emailVerifiedAt) revokeTies(row.userId);   // see revokeTies: this hands the account to whoever owns the inbox
     // Clicking a link mailed to this address proves the address as surely as the verify-email flow
     // does, so an unverified account is now verified too — COALESCE leaves an already-set date alone.
     db.prepare("UPDATE users SET password_hash = ?, email_verified_at = COALESCE(email_verified_at, ?) WHERE id = ?")
@@ -274,8 +327,9 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
     // A reset that wasn't the account owner's idea is exactly the case where every other signed-in
     // device should be signed out — same move as linking a Google account (see /auth/google above).
     db.prepare("DELETE FROM sessions WHERE user_id = ?").run(row.userId);
-    return db.prepare("SELECT email FROM users WHERE id = ?").get(row.userId);
+    return { email: before.email };
   })();
+  if (!user) return badToken(res);
 
   createSession(res, row.userId);
   res.json({ email: user.email, emailVerified: true });   // they just proved they control the inbox

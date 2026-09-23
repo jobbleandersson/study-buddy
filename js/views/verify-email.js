@@ -5,6 +5,18 @@ import { store } from "../store.js";
 import { el, clear, icon, ICONS } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 
+// A link can only be redeemed once, but this view can render more than once for the same link -
+// the app re-renders the current route on a language switch, for one. The second render would ask
+// the server again, hear "already used", and turn a success into a failure. So: one request per
+// token per page load, and every render after that reuses its answer.
+const redeemed = new Map();   // token -> Promise<boolean>
+function redeem(token) {
+  if (!redeemed.has(token)) {
+    redeemed.set(token, store.verifyEmail(token).then(() => true, () => false));
+  }
+  return redeemed.get(token);
+}
+
 export function renderVerifyEmail(qs) {
   const token = qs?.get?.("token") || "";
   const body = el("div", {}, [el("p.note", {}, t("verify.checking"))]);
@@ -24,8 +36,7 @@ export function renderVerifyEmail(qs) {
 
   (async () => {
     if (!token) return paint(false);
-    try { await store.verifyEmail(token); paint(true); }
-    catch { paint(false); }
+    paint(await redeem(token));
   })();
 
   const node = el("div.settings", {}, [

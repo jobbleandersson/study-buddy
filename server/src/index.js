@@ -84,9 +84,10 @@ app.use((req, res, next) => {
     // sign-in iframe it opens.
     "script-src 'self' 'unsafe-eval' https://accounts.google.com",
     // 'unsafe-inline': a few places build an inline style="" attribute into an HTML string
-    // (e.g. js/components/questions.js) rather than setting it through the DOM — nothing here
-    // ever loads a stylesheet or style from outside the app's own code either way.
-    "style-src 'self' 'unsafe-inline'",
+    // (e.g. js/components/questions.js) rather than setting it through the DOM. The one outside
+    // stylesheet is Google's own for its sign-in button (dormant until GOOGLE_CLIENT_ID is set) -
+    // the script injects a <link> to it, and without this the button renders unstyled.
+    "style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style",
     "img-src 'self' data: blob:",
     "font-src 'self'",
     "connect-src 'self' https://accounts.google.com",

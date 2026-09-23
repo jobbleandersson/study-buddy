@@ -1514,9 +1514,7 @@ class Store extends EventTarget {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw authError(data, t("login.signupFailed"));
-    this.authed = true;
-    this.authEmail = data.email;
-    this.authPasswordless = false;
+    this._adoptSignIn(data.email, { passwordless: false });
     this.authEmailVerified = !!data.emailVerified;
     this._setSyncVersion(0);
     await this._pushNow(); // this device's local data becomes the account's data
@@ -1532,8 +1530,7 @@ class Store extends EventTarget {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.loginFailed")));
-    this.authed = true;
-    this.authEmail = data.email;
+    this._adoptSignIn(data.email, { passwordless: false });
     this.authEmailVerified = !!data.emailVerified;
     await this._pullOnLogin();
     await this.refreshUsage();
@@ -1563,9 +1560,7 @@ class Store extends EventTarget {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw authError(data, t("reset.failed"));   // err.code === "bad_token" when the link is dead
-    this.authed = true;
-    this.authEmail = data.email;
-    this.authPasswordless = false;
+    this._adoptSignIn(data.email, { passwordless: false });
     this.authEmailVerified = !!data.emailVerified;
     await this._pullOnLogin();
     await this.refreshUsage();
@@ -1582,7 +1577,24 @@ class Store extends EventTarget {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw authError(data, t("verify.failed"));
-    if (this.authed) { this.authEmailVerified = true; this.emit(); }   // reflect it immediately if it was this device's own account
+    // Reflect it straight away if the link was for the account this device is signed in to. The link
+    // works from any browser, so it can just as well be for someone else's account - then nothing here changes.
+    if (this.authed && data.email && data.email === this.authEmail) { this.authEmailVerified = true; this.emit(); }
+    return { email: data.email || null };
+  }
+
+  /** The server has just signed this browser in as `email`. If a different account was still signed
+   *  in here (a reset link for someone else opened on a shared computer, say), what's on this device
+   *  is that account's copy - it must be wiped, not merged into the new account and pushed up to it.
+   *  Also resets the per-account flags a previous sign-in may have left behind. */
+  _adoptSignIn(email, { passwordless }) {
+    if (this.authed && this.authEmail && email !== this.authEmail) {
+      clearTimeout(this._pushTimer);
+      this._clearDevice();
+    }
+    this.authed = true;
+    this.authEmail = email;
+    this.authPasswordless = passwordless;
   }
 
   /** Ask for a fresh verification link on the signed-in account. */
@@ -1605,9 +1617,7 @@ class Store extends EventTarget {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw authError(data, t("login.googleFailed"));   // err.code === "consent_required" when a new account needs the checkbox
-    this.authed = true;
-    this.authEmail = data.email;
-    this.authPasswordless = true;
+    this._adoptSignIn(data.email, { passwordless: true });
     this.authEmailVerified = true;   // Google already verified it — see routes/auth.js
     if (data.created) {
       this._setSyncVersion(0);

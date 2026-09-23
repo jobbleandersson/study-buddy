@@ -8,13 +8,12 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studify-v120";
+const CACHE = "studify-v121";
 
 const APP_SHELL = [
   "./",
   "./index.html",
   "./manifest.json",
-  "./api/health",
   "./css/tokens.css",
   "./css/fonts.css",
   "./assets/fonts/inter-latin.woff2",
@@ -255,6 +254,11 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;   // never touch the API or fonts
+  // The app's own API is same-origin too, and answers with someone's private data (/api/state is
+  // the whole study blob, /api/auth/me their email). Caching those would leave them behind after
+  // sign-out or account deletion — and let an offline boot come up "signed in" as a previous
+  // person from a stale copy — so they always go straight to the network, never through the cache.
+  if (url.pathname.includes("/api/")) return;
 
   event.respondWith((async () => {
     try {
