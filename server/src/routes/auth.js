@@ -72,8 +72,14 @@ const retireResetTokens = (userId, now) =>
 // Password reset and Google linking both hand that account to its rightful owner, and both already
 // cut off the old password and sessions; this cuts what the earlier holder attached to it as well,
 // or their second account would keep reading the new owner's progress. The study data itself is
-// kept - the owner may well have started using the account too - so the cost of the rare false
-// alarm (someone who signed up, never confirmed, and later links Google) is re-adding a link.
+// kept - the owner may well have started using the account too.
+//
+// "Unverified" only counts as a warning sign when verification was possible at signup
+// (users.email_verify_required, set while email is on). Every account made before email existed has
+// email_verified_at NULL too, and those are the real, pre-existing users - treating them as suspects
+// would wipe a legitimate person's parent, friend and class links the first time they reset a password.
+// The price is that an address someone pre-registered before email was switched on is not caught.
+const looksPreRegistered = (u) => !u.emailVerifiedAt && !!u.verifyRequired;
 function revokeTies(userId) {
   db.prepare("DELETE FROM links WHERE parent_user_id = ? OR student_user_id = ?").run(userId, userId);
   db.prepare("DELETE FROM invite_codes WHERE student_user_id = ?").run(userId);
@@ -104,8 +110,8 @@ auth.post("/auth/signup", signupHourly, signupDaily, asyncHandler(async (req, re
   const hash = await bcrypt.hash(password, 10);
   try {
     const now = Date.now();
-    db.prepare("INSERT INTO users (id, email, password_hash, created_at, consent_at, terms_version) VALUES (?, ?, ?, ?, ?, ?)")
-      .run(id, email, hash, now, now, TERMS_VERSION);
+    db.prepare("INSERT INTO users (id, email, password_hash, created_at, consent_at, terms_version, email_verify_required) VALUES (?, ?, ?, ?, ?, ?, ?)")
+      .run(id, email, hash, now, now, TERMS_VERSION, emailEnabled() ? 1 : null);
   } catch (e) {
     // The check above ran before the bcrypt await, so two signups for the same
     // new address can both get past it — the UNIQUE index turns the loser away.
@@ -172,7 +178,7 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
     let linked = false;
 
     if (!user) {
-      const existing = db.prepare("SELECT id, email, google_sub, email_verified_at AS emailVerifiedAt FROM users WHERE email = ?").get(email);
+      const existing = db.prepare("SELECT id, email, google_sub, email_verified_at AS emailVerifiedAt, email_verify_required AS verifyRequired FROM users WHERE email = ?").get(email);
       if (existing && existing.google_sub) return emailTaken(res);   // that address belongs to a different Google account
       // Linking to an account that already agreed at signup needs no new yes; making a new one does.
       if (!existing && req.body?.consent !== true) return consentRequired(res);
@@ -189,7 +195,7 @@ auth.post("/auth/google", googleSignInLimit, asyncHandler(async (req, res) => {
               .run(sub, unusableHash, now, existing.id);
             db.prepare("DELETE FROM sessions WHERE user_id = ?").run(existing.id);
             retireResetTokens(existing.id, now);
-            if (!existing.emailVerifiedAt) revokeTies(existing.id);
+            if (looksPreRegistered(existing)) revokeTies(existing.id);
           })();
           user = { id: existing.id, email: existing.email };
           linked = true;
@@ -318,8 +324,8 @@ auth.post("/auth/reset-password", resetPasswordIpLimit, asyncHandler(async (req,
     const claimed = db.prepare("UPDATE password_reset_tokens SET used_at = ? WHERE id = ? AND used_at IS NULL").run(now, row.id);
     if (claimed.changes === 0) return null;
     retireResetTokens(row.userId, now);   // any other link mailed for this account dies with this one
-    const before = db.prepare("SELECT email, email_verified_at AS emailVerifiedAt FROM users WHERE id = ?").get(row.userId);
-    if (!before.emailVerifiedAt) revokeTies(row.userId);   // see revokeTies: this hands the account to whoever owns the inbox
+    const before = db.prepare("SELECT email, email_verified_at AS emailVerifiedAt, email_verify_required AS verifyRequired FROM users WHERE id = ?").get(row.userId);
+    if (looksPreRegistered(before)) revokeTies(row.userId);   // see revokeTies: this hands the account to whoever owns the inbox
     // Clicking a link mailed to this address proves the address as surely as the verify-email flow
     // does, so an unverified account is now verified too — COALESCE leaves an already-set date alone.
     db.prepare("UPDATE users SET password_hash = ?, email_verified_at = COALESCE(email_verified_at, ?) WHERE id = ?")

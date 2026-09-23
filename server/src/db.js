@@ -253,3 +253,10 @@ for (const [col, type] of [["consent_at", "INTEGER"], ["terms_version", "TEXT"]]
 if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "email_verified_at")) {
   db.exec("ALTER TABLE users ADD COLUMN email_verified_at INTEGER");
 }
+
+// 1 = made while email verification was live (RESEND_API_KEY set), so an address still unconfirmed is
+// a signal worth acting on; NULL = made when nobody could confirm anything (every account so far),
+// where "unverified" says nothing about who registered it. Read by routes/auth.js (revokeTies).
+if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "email_verify_required")) {
+  db.exec("ALTER TABLE users ADD COLUMN email_verify_required INTEGER");
+}

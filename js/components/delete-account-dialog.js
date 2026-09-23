@@ -39,7 +39,8 @@ export function deleteAccountDialog() {
 
     async function submit(e) {
       e.preventDefault();
-      const value = input.value.trim();
+      // Only an email is cleaned up; a password goes as typed - it may legitimately start or end with a space.
+      const value = passwordless ? input.value.trim() : input.value;
       if (!value) { err.textContent = t(passwordless ? "set.acctDeleteEmailLabel" : "set.acctDeletePasswordLabel"); err.hidden = false; input.focus(); return; }
       busy = true;
       confirmBtn.disabled = true; cancelBtn.disabled = true; err.hidden = true;
