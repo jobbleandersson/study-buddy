@@ -1264,6 +1264,30 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .lp-q__fb.is-right { color: var(--brand-ink); }
 .lp-q__fb.is-wrong { color: var(--retry-ink); }
 
+/* trust bar — full-bleed edge to edge even though .lp-main itself is a
+   centered, max-width column; the standard break-out-of-the-container trick
+   rather than a second <main> landmark. calc(50% - 50vw) on both margins,
+   not width:100vw + transform:translateX(-50%): that pairing mixes two
+   different reference boxes (100vw is measured against the initial
+   containing block, which on a platform with a classic, space-reserving
+   scrollbar is wider than the visible viewport the transform then has to
+   cancel out against) — a known source of a stray sliver at one edge or a
+   horizontal scrollbar. calc(50% - 50vw) sidesteps it by never computing an
+   explicit width at all. */
+.lp-trust {
+  margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: var(--surface-sunk); margin-top: var(--s-7); margin-bottom: 0;
+}
+.lp-trust__inner {
+  max-width: 1120px; margin: 0 auto; padding: var(--s-5) var(--s-4);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-5) var(--s-6);
+}
+@media (min-width: 860px) { .lp-trust__inner { flex-wrap: nowrap; justify-content: space-between; } }
+.lp-trust__item { display: flex; align-items: center; gap: var(--s-3); min-width: 0; }
+.lp-trust__item b { display: block; font-size: var(--fs-sm); font-weight: 700; color: var(--ink); white-space: nowrap; }
+.lp-trust__item span { display: block; font-size: var(--fs-sm); color: var(--ink-faint); white-space: nowrap; }
+
 /* sections */
 .lp-sec { padding: 56px 0 0; }
 .lp-h2 {
@@ -3089,7 +3113,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 
 .tonightcard { display: flex; align-items: center; gap: 14px; margin: 0 0 var(--s-5); padding: 14px 16px; text-decoration: none; transition: transform var(--dur-fast) var(--ease-spring); }
 .tonightcard:hover { transform: translateY(-1px); }
-.tonightcard__moon { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--brand-tint); color: var(--brand-ink); display: grid; place-items: center; }
+.tonightcard__moon, .lp-trust__icon { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--brand-tint); color: var(--brand-ink); display: grid; place-items: center; }
 .tonightcard__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .tonightcard__text strong { font-size: var(--fs-md); font-weight: 600; }
 .tonightcard__text span { font-size: 14px; color: var(--ink-soft); }

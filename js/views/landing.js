@@ -99,6 +99,25 @@ function questionCard() {
   ]);
 }
 
+/** A full-bleed strip of four short, concrete claims right under the hero —
+ *  the numbers have to stay true, not just persuasive: the exercise count
+ *  below is read straight from the library data, and there's no "results
+ *  guarantee" item here because there's no payment system yet to refund. */
+function trustBar() {
+  const items = [
+    [ICONS.layers, "lp.trust1Title", "lp.trust1Sub"],
+    [ICONS.book, "lp.trust2Title", "lp.trust2Sub"],
+    [ICONS.message, "lp.trust3Title", "lp.trust3Sub"],
+    [ICONS.check, "lp.trust4Title", "lp.trust4Sub"],
+  ];
+  return el("section.lp-trust", {}, [
+    el("div.lp-trust__inner", {}, items.map(([ic, titleKey, subKey]) => el("div.lp-trust__item", {}, [
+      el("div.lp-trust__icon", { "aria-hidden": "true" }, [icon(ic, 20)]),
+      el("div", {}, [el("b", {}, t(titleKey)), el("span", {}, t(subKey))]),
+    ]))),
+  ]);
+}
+
 function hero() {
   return el("section.lp-hero", {}, [
     el("div.lp-hero__copy", {}, [
@@ -249,6 +268,7 @@ export function renderLanding() {
       header(),
       el("main.lp-main", { id: "main" }, [
         hero(),
+        trustBar(),
         features(),
         steps(),
         closer(),
