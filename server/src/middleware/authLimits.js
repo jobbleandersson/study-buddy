@@ -63,6 +63,11 @@ export const forgotPasswordLimits = [
 export const verifyEmailIpLimit = attemptLimit({ name: "verify-email-ip", max: num("VERIFY_EMAIL_PER_HOUR_PER_IP", 60), windowMs: HOUR });
 export const resetPasswordIpLimit = attemptLimit({ name: "reset-pw-ip", max: num("RESET_PW_PER_HOUR_PER_IP", 30), windowMs: HOUR });
 
+// One ping per app load (see js/main.js) — generous enough that a whole class
+// opening the app on one school IP at once never gets blocked, tight enough
+// that a script hammering the endpoint can't grow the page_views table without bound.
+export const pageviewLimit = attemptLimit({ name: "pageview-ip", max: num("PAGEVIEW_PER_HOUR_PER_IP", 300), windowMs: HOUR });
+
 // Class, friend and parent codes: only failed guesses count. These routes need
 // a session, so the tight limit is per account; the looser per-IP one catches
 // guesses spread over many accounts. All three routes share the same counts.

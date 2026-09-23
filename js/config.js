@@ -61,3 +61,8 @@ export const myDailyAnswerUrl = (id) => `${API}/api/my-daily/${id}/answer`;
 
 // No paid plan exists yet — this just joins the waitlist for one (see server/.env.example).
 export const WAITLIST_PREMIUM_URL = `${API}/api/waitlist/premium`;
+
+// Anonymous pageview ping (see js/main.js's trackEntryPageview) — measures
+// where traffic comes from (e.g. a TikTok bio link's ?utm_source=tiktok)
+// without a cookie or a user id.
+export const PAGEVIEW_URL = `${API}/api/analytics/pageview`;

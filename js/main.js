@@ -1,7 +1,7 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
-import { CONTACT_EMAIL } from "./config.js";
+import { CONTACT_EMAIL, PAGEVIEW_URL } from "./config.js";
 import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
@@ -41,6 +41,38 @@ function loadDeferredUI() {
   import("./components/command-palette.js").then((m) => m.mountCommandPalette());
   import("./components/site-chat.js").then((m) => m.mountSiteChat());
 }
+
+// One ping per app load, not per in-app route change — enough to tell where
+// traffic came from (e.g. a TikTok bio link's ?utm_source=tiktok) without a
+// session id or a cookie, so it never needs a consent banner. sendBeacon so
+// it can't delay or block anything else happening at boot; a browser without
+// it (very old) just skips the ping rather than falling back to a blocking
+// fetch. Server side: server/src/routes/analytics.js.
+//
+// UTM params are read from both sides of the '#': before it, the usual
+// convention for a hand-written campaign link, and after it, in the hash's
+// own query string — how every route in this app already spells a query
+// param (see parseHash() below, e.g. "#/create?subject=..."). A campaign
+// link built to match the app's own URLs still gets attributed instead of
+// silently reading as direct traffic.
+function trackEntryPageview() {
+  try {
+    if (!navigator.sendBeacon) return;
+    const [hashPath, hashQs] = location.hash.replace(/^#/, "").split("?");
+    const searchParams = new URLSearchParams(location.search);
+    const hashParams = new URLSearchParams(hashQs || "");
+    const pick = (name) => searchParams.get(name) || hashParams.get(name);
+    const body = JSON.stringify({
+      path: hashPath || "/",
+      referrer: document.referrer || null,
+      utm_source: pick("utm_source"),
+      utm_medium: pick("utm_medium"),
+      utm_campaign: pick("utm_campaign"),
+    });
+    navigator.sendBeacon(PAGEVIEW_URL, new Blob([body], { type: "application/json" }));
+  } catch { /* analytics must never break boot */ }
+}
+
 // A plain short timeout, not requestIdleCallback: tried that first, and it
 // measurably backfired — Speed Index (which tracks how long the viewport
 // keeps visibly changing) went from fine to a poor score, because
@@ -50,7 +82,7 @@ function loadDeferredUI() {
 // timeout is given, so the chat bubble popped in late enough to read as an
 // ongoing visual change. A fixed, short delay fires predictably instead.
 function scheduleIdle(fn) { setTimeout(fn, 50); }
-scheduleIdle(loadDeferredUI);
+scheduleIdle(() => { loadDeferredUI(); trackEntryPageview(); });
 
 /**
  * Should the root route show the front page instead of the app? Only for a

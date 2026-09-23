@@ -215,6 +215,20 @@ db.exec(`
     used_at INTEGER,
     created_at INTEGER NOT NULL
   );
+
+  -- Anonymous pageview ping, one row per app load (not per in-app route change) —
+  -- see js/main.js and routes/analytics.js. No user id, no IP, no cookie: just
+  -- enough to tell where traffic came from (e.g. a TikTok bio link's
+  -- ?utm_source=tiktok) without tracking anyone individually.
+  CREATE TABLE IF NOT EXISTS page_views (
+    id TEXT PRIMARY KEY,
+    path TEXT NOT NULL,
+    referrer TEXT,
+    utm_source TEXT,
+    utm_medium TEXT,
+    utm_campaign TEXT,
+    created_at INTEGER NOT NULL
+  );
 `);
 
 // Sign in with Google: the Google account's stable id ("sub"), on the same user
