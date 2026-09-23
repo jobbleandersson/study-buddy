@@ -11,6 +11,13 @@ const DB_PATH = process.env.DB_PATH || path.join(__dirname, "..", "studybuddy.sq
 
 export const db = new Database(DB_PATH);
 db.pragma("journal_mode = WAL");
+// Off by default per connection — every ON DELETE CASCADE below is inert until this is set. Found
+// missing after account deletion (routes/account.js) left orphaned class_daily_answers rows behind:
+// its explicit delete list predates that table, and with no cascade to fall back on, nothing else
+// cleaned them up either. This doesn't fix that list — a delete people rely on for their privacy
+// still shouldn't depend on a pragma, so account.js keeps its own explicit deletes — but it makes
+// the schema's own cascades real, as a backstop for the next table someone adds and forgets there.
+db.pragma("foreign_keys = ON");
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
@@ -148,6 +155,66 @@ db.exec(`
     due_at TEXT,
     created_at INTEGER NOT NULL
   );
+
+  -- Dagens fråga: at most one multiple-choice question per class per day, written
+  -- by the teacher. day is a "YYYY-MM-DD" calendar day. A student answers once;
+  -- the row is what enforces that. The teacher only ever gets counts back — see
+  -- class-daily.js — never which student chose what.
+  CREATE TABLE IF NOT EXISTS class_daily (
+    id TEXT PRIMARY KEY,
+    class_id TEXT NOT NULL REFERENCES classes(id) ON DELETE CASCADE,
+    day TEXT NOT NULL,
+    prompt TEXT NOT NULL,
+    choices TEXT NOT NULL,            -- JSON array of strings
+    answer INTEGER NOT NULL,          -- index into choices
+    explanation TEXT NOT NULL DEFAULT '',
+    created_at INTEGER NOT NULL,
+    UNIQUE (class_id, day)
+  );
+
+  CREATE TABLE IF NOT EXISTS class_daily_answers (
+    daily_id TEXT NOT NULL REFERENCES class_daily(id) ON DELETE CASCADE,
+    student_user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    choice INTEGER NOT NULL,
+    answered_at INTEGER NOT NULL,
+    PRIMARY KEY (daily_id, student_user_id)
+  );
+
+  -- No paid plan exists yet (see store.isPremium()) — just names collected ahead
+  -- of one, from the "#/premium" page. Not tied to a user row: someone can leave
+  -- an address other than their account's (a parent's, say), and a signed-out
+  -- visitor can join too.
+  CREATE TABLE IF NOT EXISTS premium_waitlist (
+    id TEXT PRIMARY KEY,
+    email TEXT UNIQUE NOT NULL,
+    created_at INTEGER NOT NULL
+  );
+
+  -- Same shape as invite_codes / friend_codes, kept separate for the same reason those two are:
+  -- a token means something different in each flow, so one lookup can't accidentally redeem a
+  -- token from the other. Only ever one *unused* row per user at a time in practice — a new
+  -- request doesn't delete the old one, it just becomes moot once used_at is set on the new one
+  -- or the sweeper clears it out (see sweep.js).
+  CREATE TABLE IF NOT EXISTS email_verify_tokens (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    token TEXT UNIQUE NOT NULL,
+    expires_at INTEGER NOT NULL,
+    used_at INTEGER,
+    created_at INTEGER NOT NULL
+  );
+
+  -- Deliberately its own table, not email_verify_tokens with a "kind" column: a verify token and a
+  -- reset token must never be redeemable in each other's endpoint, and a shared table makes that a
+  -- WHERE clause someone can forget rather than a table someone can't.
+  CREATE TABLE IF NOT EXISTS password_reset_tokens (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    token TEXT UNIQUE NOT NULL,
+    expires_at INTEGER NOT NULL,
+    used_at INTEGER,
+    created_at INTEGER NOT NULL
+  );
 `);
 
 // Sign in with Google: the Google account's stable id ("sub"), on the same user
@@ -158,3 +225,17 @@ if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "google
   db.exec("ALTER TABLE users ADD COLUMN google_sub TEXT");
 }
 db.exec("CREATE UNIQUE INDEX IF NOT EXISTS users_google_sub ON users(google_sub) WHERE google_sub IS NOT NULL");
+
+// When someone accepted the Terms and confirmed their age at signup, and which version of the
+// terms that was — evidence of consent. NULL for accounts made before the checkbox existed.
+for (const [col, type] of [["consent_at", "INTEGER"], ["terms_version", "TEXT"]]) {
+  if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === col)) {
+    db.exec(`ALTER TABLE users ADD COLUMN ${col} ${type}`);
+  }
+}
+
+// NULL = not verified. Set the moment a token is confirmed (routes/auth.js), or immediately for a
+// Google-authenticated account — Google has already checked the address, there's nothing to add.
+if (!db.prepare("PRAGMA table_info(users)").all().some((c) => c.name === "email_verified_at")) {
+  db.exec("ALTER TABLE users ADD COLUMN email_verified_at INTEGER");
+}

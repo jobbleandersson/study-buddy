@@ -5,10 +5,21 @@ import { uid } from "./lib/dom.js";
 import { localDayKey, currentStreak, addDays, studiedToday } from "./lib/activity.js";
 import { getLang, t } from "./lib/i18n.js";
 import { serverMessage } from "./lib/server-errors.js";
+
+/** An Error carrying the server's message (translated where known) and its machine-readable code. */
+function authError(data, fallback) {
+  const err = new Error(serverMessage(data?.error?.message, fallback));
+  err.code = data?.error?.code || "";
+  return err;
+}
 import { ACHIEVEMENTS, achievementMetrics } from "./lib/achievements.js";
 import { findQuestion as findQuestionPure, dueQuestions as dueQuestionsPure } from "./lib/library.js";
 import { loadLibraryIndex, loadLibraryTranslations, englishFile } from "./lib/library-content.js";
-import { PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, STATE_URL, USAGE_URL } from "./config.js";
+import { cleanRuleText, rulesForQuestion, RULE_MAX_COUNT } from "./lib/rules.js";
+import {
+  PROXY_HEALTH_URL, AUTH_SIGNUP_URL, AUTH_LOGIN_URL, AUTH_GOOGLE_URL, AUTH_LOGOUT_URL, AUTH_ME_URL, ACCOUNT_URL,
+  RESEND_VERIFICATION_URL, VERIFY_EMAIL_URL, FORGOT_PASSWORD_URL, RESET_PASSWORD_URL, STATE_URL, USAGE_URL,
+} from "./config.js";
 
 const KEY = "studybuddy.v1";
 const SCHEMA_VERSION = 7;
@@ -106,6 +117,12 @@ const DEFAULT_SUBJECTS = ["Science", "History", "Math", "English", "Geography"];
 export const REVIEW_ID = "__review__";
 export const PRACTICE_ID = "__practice__";
 export const WEAK_ID = "__weak__";
+// "Repeat only my rules" — questions on the topics the student wrote rules for.
+export const RULES_ID = "__rules__";
+// The last-look session on the evening before a test — see lib/tonight.js.
+export const TONIGHT_ID = "__tonight__";
+// A class's question of the day, logged as a one-question attempt.
+export const DAILY_ID = "__daily__";
 // The Högskoleprov mini-mock — its own resumable slot, like the three above.
 export const HP_MOCK_ID = "__hpmock__";
 // Per-subject, unlike the three above — several subjects can each have their
@@ -132,8 +149,12 @@ function seedState() {
     assignments: [],
     attempts: [],
     srs: {},
+    rules: [],                       // memory rules the student wrote after a miss — see lib/rules.js
+    // The evening before a test: per-evening checklists ("YYYY-MM-DD|subjectId" ->
+    // { done: { stepId: ms }, finishedAt }) and when reminders stay quiet until.
+    tonight: { days: {}, quietUntil: 0 },
     sessions: {},                    // in-progress sessions, keyed by session key
-    onboarded: false,                // has the first-run walkthrough been seen?
+    onboarded: false,               // has the first-run walkthrough been seen?
     profile: null,                   // answers to the welcome quiz — see components/onboarding.js; null until answered
     achievements: {},                // { id: unlockedAt } — 0 = "already true when shipped"
     readNotifications: {},           // { [notificationId]: signature } — see buildNotifications() in main.js
@@ -243,6 +264,34 @@ function mergeStates(server, local) {
   const suSeen = new Set(arr(s.subjects).map((x) => x && x.id));
   s.subjects = [...arr(s.subjects), ...arr(l.subjects).filter((x) => x && x.id && !suSeen.has(x.id))];
 
+  // rules — union by id; on a shared id the later edit wins. (Like sets, a rule
+  // deleted on one device can come back from a stale one — worth it to never
+  // lose something a student wrote.)
+  {
+    const byId = new Map(arr(s.rules).filter((r) => r && r.id).map((r) => [r.id, r]));
+    for (const r of arr(l.rules)) {
+      if (!r || !r.id) continue;
+      const cur = byId.get(r.id);
+      if (!cur || (r.updatedAt || r.createdAt || 0) > (cur.updatedAt || cur.createdAt || 0)) byId.set(r.id, r);
+    }
+    s.rules = [...byId.values()].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+  }
+
+  // tonight — union the evening checklists (a step done on either device stays
+  // done); quiet hours end at the later of the two
+  {
+    const st = o(s.tonight), lt = o(l.tonight);
+    const days = { ...o(st.days) };
+    for (const [k, v] of Object.entries(o(lt.days))) {
+      const cur = days[k];
+      days[k] = !cur ? v : {
+        done: { ...o(v?.done), ...o(cur.done) },
+        finishedAt: Math.max(cur.finishedAt || 0, v?.finishedAt || 0) || null,
+      };
+    }
+    s.tonight = { days, quietUntil: Math.max(st.quietUntil || 0, lt.quietUntil || 0) };
+  }
+
   // srs — per question, keep the record with more review history
   const srs = { ...o(s.srs) };
   for (const [qid, rec] of Object.entries(o(l.srs))) {
@@ -292,6 +341,12 @@ function mergeStates(server, local) {
   return s;
 }
 
+/** Forget evening checklists older than two weeks — they're only ever read on the day. */
+function pruneTonight(tonight) {
+  const keep = addDays(localDayKey(), -14);
+  for (const k of Object.keys(tonight.days)) if (k.split("|")[0] < keep) delete tonight.days[k];
+}
+
 /** The tail of migrate() — the version-independent normalisation — split out so
  *  a merged blob (which is already at SCHEMA_VERSION) gets the same treatment. */
 function finishMigrate(s) {
@@ -327,10 +382,30 @@ function finishMigrate(s) {
   // genuinely fresh seedState() starts with onboarded: false.
   s.onboarded = s.onboarded ?? ((s.assignments || []).length > 0 || (s.attempts || []).length > 0);
   s.profile = s.profile || null;
+  // The welcome quiz used to ask how studying feels; that answer is no longer collected or sent
+  // anywhere, so drop old ones.
+  if (s.profile) delete s.profile.mood;
   s.srs = s.srs || {};
   s.sessions = s.sessions || {};
   s.attempts = s.attempts || [];
   s.assignments = s.assignments || [];
+  // Rules are the student's own writing — keep only well-formed ones, and cap
+  // the list so a corrupt or hand-edited blob can't grow without bound.
+  s.rules = (Array.isArray(s.rules) ? s.rules : [])
+    .filter((r) => r && typeof r === "object" && r.id && typeof r.text === "string" && r.text.trim())
+    .map((r) => ({ ...r, text: cleanRuleText(r.text) }))
+    .slice(-RULE_MAX_COUNT);
+  {
+    const raw = s.tonight && typeof s.tonight === "object" ? s.tonight : {};
+    const days = {};
+    for (const [k, v] of Object.entries(raw.days && typeof raw.days === "object" ? raw.days : {})) {
+      if (v && typeof v === "object") {
+        days[k] = { done: v.done && typeof v.done === "object" ? v.done : {}, finishedAt: v.finishedAt || null };
+      }
+    }
+    s.tonight = { days, quietUntil: Number(raw.quietUntil) || 0 };
+    pruneTonight(s.tonight);
+  }
 
   // Merge subjects duplicated by name (a demo set's subject could get recreated
   // after a language swap left the original renamed). Keep the first, repoint
@@ -386,10 +461,18 @@ class Store extends EventTarget {
     // null hides the upgrade button in the limit-reached prompt.
     this.premiumUrl = null;
 
+    // Whether the server can send email (RESEND_API_KEY set) — false hides every verify/reset
+    // control, the same way a null googleClientId hides the Google button.
+    this.emailConfigured = false;
+
     // Auth/sync status — also instance-only, not synced app data. Sign-in is
     // opt-in: local-only mode (authed === false) works exactly as before.
     this.authed = false;
     this.authEmail = null;
+    this.authPasswordless = false;   // a Google-linked account has no password to type
+    // Meaningless while emailConfigured is false — the server reports true in that case so
+    // nothing here ever nags about a feature that isn't switched on.
+    this.authEmailVerified = false;
 
     // Claude usage this month, once signed in: { used, limit, resetsAt } or
     // null when unknown / not metered. `_aiQuotaOut` latches true when a call
@@ -451,12 +534,14 @@ class Store extends EventTarget {
       // Absent (older server) → assume it does require auth, the safe default.
       this.proxyRequiresAuth = data?.messagesRequireAuth !== false;
       this.googleClientId = data?.googleClientId || null;
+      this.emailConfigured = !!data?.emailConfigured;
 
       this.premiumUrl = typeof data?.premiumUrl === "string" && /^https:\/\//.test(data.premiumUrl) ? data.premiumUrl : null;
     } catch {
       this.proxyUp = false;
       this.proxyKeyConfigured = false;
       this.googleClientId = null;
+      this.emailConfigured = false;
     }
 
     if (this.proxyUp) {
@@ -467,6 +552,8 @@ class Store extends EventTarget {
         if (data?.email && data.authed !== false) {
           this.authed = true;
           this.authEmail = data.email;
+          this.authPasswordless = !!data.passwordless;
+          this.authEmailVerified = !!data.emailVerified;
         }
       } catch { /* not signed in / server unreachable — stay local-only */ }
     }
@@ -882,7 +969,7 @@ class Store extends EventTarget {
   _updateAppBadge() {
     try {
       if (!("setAppBadge" in navigator)) return;
-      const n = this.dueQuestions().length;
+      const n = this.isQuiet() ? 0 : this.dueQuestions().length;   // quiet hours: no count on the icon
       if (n > 0) navigator.setAppBadge(n);
       else navigator.clearAppBadge?.();
     } catch { /* not installed / not permitted — fine */ }
@@ -1150,6 +1237,118 @@ class Store extends EventTarget {
     this.update((s) => { s.activity.recapWeek = weekKey; });
   }
 
+  // ---------- memory rules ("Minnesregler") ----------
+  get rules() { return this.state.rules; }
+
+  /** The rules that apply to a question — same subject and topic, or the very
+   *  question one was written for — newest first. */
+  rulesFor(subjectId, question) { return rulesForQuestion(this.state.rules, subjectId, question); }
+
+  /**
+   * Save a rule the student wrote after a miss. Returns the saved rule (the
+   * existing one if the same words are already kept for that topic), or null
+   * when there's nothing to save or the list is full.
+   */
+  addRule({ subjectId, topic, questionId, text }) {
+    const clean = cleanRuleText(text);
+    if (!clean) return null;
+    const same = this.state.rules.find((r) => r.subjectId === subjectId && (r.topic || "") === (topic || "")
+      && r.text.toLowerCase() === clean.toLowerCase());
+    if (same) return same;
+    if (this.state.rules.length >= RULE_MAX_COUNT) return null;
+    const rule = {
+      id: uid(), subjectId,
+      subjectName: this.state.subjects.find((x) => x.id === subjectId)?.name || "",
+      topic: topic || "", questionId: questionId || null,
+      text: clean, createdAt: Date.now(),
+    };
+    this.update((s) => { s.rules.push(rule); });
+    return rule;
+  }
+
+  updateRule(id, text) {
+    const clean = cleanRuleText(text);
+    if (!clean) return false;
+    let found = false;
+    this.update((s) => {
+      const r = s.rules.find((x) => x.id === id);
+      if (r) { r.text = clean; r.updatedAt = Date.now(); found = true; }
+    });
+    return found;
+  }
+
+  /** Delete a rule. Returns it, so the caller can offer Undo. */
+  removeRule(id) {
+    let removed = null;
+    this.update((s) => {
+      const i = s.rules.findIndex((x) => x.id === id);
+      if (i >= 0) [removed] = s.rules.splice(i, 1);
+    });
+    return removed;
+  }
+
+  /** Undo of removeRule(). */
+  restoreRule(rule) {
+    if (!rule || this.state.rules.some((r) => r.id === rule.id)) return;
+    this.update((s) => {
+      s.rules.push(rule);
+      s.rules.sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+    });
+  }
+
+  /** The student opened these rules while answering. Kept as a plain count so
+   *  the rules page can show which ones haven't stuck yet. */
+  notePeek(ids) {
+    const set = new Set(ids);
+    this.update((s) => { for (const r of s.rules) if (set.has(r.id)) r.peeks = (r.peeks || 0) + 1; });
+  }
+
+  // ---------- the evening before a test ----------
+  tonightDay(key) { return this.state.tonight.days[key] || { done: {}, finishedAt: null }; }
+
+  /** Tick a step off for this evening. Ticking it again keeps the first time. */
+  markTonightStep(key, stepId) {
+    this.update((s) => {
+      const day = (s.tonight.days[key] ||= { done: {}, finishedAt: null });
+      if (!day.done[stepId]) day.done[stepId] = Date.now();
+      pruneTonight(s.tonight);
+    });
+  }
+
+  /** "Klart för i kväll" — the evening is over, and reminders stay quiet until `quietUntil` (ms). */
+  finishTonight(key, quietUntil) {
+    this.update((s) => {
+      const day = (s.tonight.days[key] ||= { done: {}, finishedAt: null });
+      day.finishedAt = Date.now();
+      s.tonight.quietUntil = quietUntil;
+    });
+  }
+
+  /** Take "done" back: reminders on again, the checklist open. */
+  reopenTonight(key) {
+    this.update((s) => {
+      const day = s.tonight.days[key];
+      if (day) day.finishedAt = null;
+      s.tonight.quietUntil = 0;
+    });
+  }
+
+  /** Are reminders quiet right now (the student finished their evening)? */
+  isQuiet(now = Date.now()) { return (this.state.tonight?.quietUntil || 0) > now; }
+
+  /** The student answered their class's question of the day. It's a single
+   *  question, logged as a tiny attempt so it counts toward today's goal and the
+   *  streak like any other answer. The question itself lives on the server, so
+   *  there's no spaced-repetition record to write. */
+  recordDailyAnswer({ dailyId, title, correct }) {
+    const now = Date.now();
+    this.recordAttempt({
+      id: uid(), assignmentId: DAILY_ID, title, retryHash: null, wasTest: false, examMode: false,
+      startedAt: now, finishedAt: now, scorePct: correct ? 100 : 0, tutorHints: 0,
+      items: [{ questionId: `daily:${dailyId}`, topic: "", correct, firstTry: correct, srsGrade: correct ? "good" : "again", hintsUsed: 0 }],
+    });
+  }
+
   recordAttempt(attempt) {
     let freezeUsed = false;
     const unlocked = [];
@@ -1290,6 +1489,11 @@ class Store extends EventTarget {
    *  all have to change at once; new code should call canUseAI(). */
   hasKey() { return this.canUseAI(); }
 
+  /** No paid plan exists yet (see the Phase 2 note on canUseAI() above) — this is a placeholder
+   *  that always says "not premium" so free-tier-only UI (house-ad promos, upsell copy) has one
+   *  place to check. Wire it to a real entitlement the day one ships, and this UI hides itself. */
+  isPremium() { return false; }
+
   /** True when the monthly Claude allowance is spent (a 402 latched it, or the
    *  last usage fetch was at/over the limit). Read by Settings. */
   get aiOverBudget() { return this._aiQuotaOut; }
@@ -1302,16 +1506,18 @@ class Store extends EventTarget {
   // last-write-wins: a stale push gets the server's current blob back and
   // adopts it, surfacing a "syncConflict" event rather than clobbering it.
 
-  async signup(email, password) {
+  async signup(email, password, { consent = false } = {}) {
     const res = await fetch(AUTH_SIGNUP_URL, {
       method: "POST", credentials: "include",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, consent: consent === true }),
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.signupFailed")));
+    if (!res.ok) throw authError(data, t("login.signupFailed"));
     this.authed = true;
     this.authEmail = data.email;
+    this.authPasswordless = false;
+    this.authEmailVerified = !!data.emailVerified;
     this._setSyncVersion(0);
     await this._pushNow(); // this device's local data becomes the account's data
     await this.refreshUsage();
@@ -1328,24 +1534,81 @@ class Store extends EventTarget {
     if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.loginFailed")));
     this.authed = true;
     this.authEmail = data.email;
+    this.authEmailVerified = !!data.emailVerified;
     await this._pullOnLogin();
     await this.refreshUsage();
     this.emit();
   }
 
+  /** Sends a reset link if that address has a password account — always resolves the same way
+   *  whether or not it does, so this can never be used to check who has an account. Throws only
+   *  on a genuine network/server failure. */
+  async forgotPassword(email) {
+    const res = await fetch(FORGOT_PASSWORD_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("login.somethingWrong"));
+  }
+
+  /** The token from a reset-password email. Success signs the browser in with the new password,
+   *  same as loginWithGoogle does for a brand-new account — no separate login step needed. */
+  async resetPassword(token, password) {
+    const res = await fetch(RESET_PASSWORD_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ token, password }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("reset.failed"));   // err.code === "bad_token" when the link is dead
+    this.authed = true;
+    this.authEmail = data.email;
+    this.authPasswordless = false;
+    this.authEmailVerified = !!data.emailVerified;
+    await this._pullOnLogin();
+    await this.refreshUsage();
+    this.emit();
+  }
+
+  /** The token from a verify-email email. Doesn't require being signed in on this device — someone
+   *  may well tap the link from their phone after signing up on a school computer. */
+  async verifyEmail(token) {
+    const res = await fetch(VERIFY_EMAIL_URL, {
+      method: "POST", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ token }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("verify.failed"));
+    if (this.authed) { this.authEmailVerified = true; this.emit(); }   // reflect it immediately if it was this device's own account
+  }
+
+  /** Ask for a fresh verification link on the signed-in account. */
+  async resendVerification() {
+    const res = await fetch(RESEND_VERIFICATION_URL, {
+      method: "POST", credentials: "include",
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("set.acctVerificationResendFailed"));
+  }
+
   // One call covers "sign in" and "create account": the server decides which.
   // Returns { created, linked } so the screen can say what happened. A brand-new
   // account adopts this device's data (like signup); an existing one pulls.
-  async loginWithGoogle(credential) {
+  async loginWithGoogle(credential, { consent = false } = {}) {
     const res = await fetch(AUTH_GOOGLE_URL, {
       method: "POST", credentials: "include",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ credential }),
+      body: JSON.stringify({ credential, consent: consent === true }),
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.googleFailed")));
+    if (!res.ok) throw authError(data, t("login.googleFailed"));   // err.code === "consent_required" when a new account needs the checkbox
     this.authed = true;
     this.authEmail = data.email;
+    this.authPasswordless = true;
+    this.authEmailVerified = true;   // Google already verified it — see routes/auth.js
     if (data.created) {
       this._setSyncVersion(0);
       await this._pushNow();
@@ -1367,23 +1630,52 @@ class Store extends EventTarget {
     let wiped = false;
     if (this.authed) {
       await this._pushNow();
-      if (this._lastPushOk) {
-        this.state = seedState();
-        this.state.onboarded = true;
-        this._setSyncVersion(0);
-        try { localStorage.removeItem(SYNC_DISCARD_KEY); } catch {}
-        this.save({ skipPush: true });
-        wiped = true;
-      }
+      if (this._lastPushOk) { this._clearDevice(); wiped = true; }
     }
     try { await fetch(AUTH_LOGOUT_URL, { method: "POST", credentials: "include" }); } catch {}
     this.authed = false;
     this.authEmail = null;
+    this.authPasswordless = false;
+    this.authEmailVerified = false;
     this.aiUsage = null;
     this._aiQuotaOut = false;
     clearTimeout(this._pushTimer);
     this.emit();
     return { wiped };
+  }
+
+  /** Remove this device's copy of the study data (the account, if any, is untouched). The
+   *  first-run walkthrough stays dismissed so the next person doesn't get a "welcome back" tour. */
+  _clearDevice() {
+    this.state = seedState();
+    this.state.onboarded = true;
+    this._setSyncVersion(0);
+    try { localStorage.removeItem(SYNC_DISCARD_KEY); } catch {}
+    this.save({ skipPush: true });
+  }
+
+  /** Permanently delete the signed-in account on the server (login, synced data, links, classes),
+   *  then clear this device. A password account sends its password; a Google-linked one sends its
+   *  email. Throws with the server's message (and err.code "confirm_mismatch") if it refuses, in
+   *  which case nothing has been deleted anywhere. */
+  async deleteAccount({ password = "", email = "" } = {}) {
+    const res = await fetch(ACCOUNT_URL, {
+      method: "DELETE", credentials: "include",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ password, email }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw authError(data, t("set.acctDeleteFailed"));
+    clearTimeout(this._pushTimer);
+    try { window.google?.accounts?.id?.disableAutoSelect?.(); } catch {}
+    this.authed = false;
+    this.authEmail = null;
+    this.authPasswordless = false;
+    this.authEmailVerified = false;
+    this.aiUsage = null;
+    this._aiQuotaOut = false;
+    this._clearDevice();
+    this.emit();
   }
 
   async _pullOnLogin() {

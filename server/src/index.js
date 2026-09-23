@@ -17,6 +17,9 @@ import { assigned } from "./routes/assigned.js";
 import { parent } from "./routes/parent.js";
 import { friends } from "./routes/friends.js";
 import { classes } from "./routes/classes.js";
+import { classDaily } from "./routes/class-daily.js";
+import { account } from "./routes/account.js";
+import { waitlist } from "./routes/waitlist.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // The frontend (index.html, css/, js/, etc.) is the repo root — normally two
@@ -60,6 +63,41 @@ const app = express();
 // Harmless locally (there is no proxy, so nothing is forwarded).
 app.set("trust proxy", 1);
 
+// Security headers on every response, including the ones above (a 401 from the password gate
+// deserves them too). Hand-written rather than a dependency like helmet, so each choice below is
+// visible in one place.
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  // Only meaningful once the connection really is HTTPS — same signal the session cookie's
+  // `secure` flag already uses, just above.
+  if (process.env.COOKIE_SECURE === "true") {
+    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  }
+  res.setHeader("Content-Security-Policy", [
+    "default-src 'self'",
+    // 'unsafe-eval': vendor/pdf.min.js and its worker (vendor/pdf.worker.min.js) call
+    // new Function()/eval() internally — importing a PDF breaks without it. The Google origin is
+    // for "Sign in with Google" (dormant until GOOGLE_CLIENT_ID is set): its script and the
+    // sign-in iframe it opens.
+    "script-src 'self' 'unsafe-eval' https://accounts.google.com",
+    // 'unsafe-inline': a few places build an inline style="" attribute into an HTML string
+    // (e.g. js/components/questions.js) rather than setting it through the DOM — nothing here
+    // ever loads a stylesheet or style from outside the app's own code either way.
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: blob:",
+    "font-src 'self'",
+    "connect-src 'self' https://accounts.google.com",
+    "frame-src https://accounts.google.com",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'self'",
+  ].join("; "));
+  next();
+});
+
 // Optional shared-password gate for private testing. Set SITE_PASSWORD in the
 // host's env to switch it on; unset (the default) leaves the site open. The
 // /api/* paths are exempt so Stripe webhooks and the app's own API — which have
@@ -95,6 +133,9 @@ app.use("/api", assigned);
 app.use("/api", parent);
 app.use("/api", friends);
 app.use("/api", classes);
+app.use("/api", classDaily);
+app.use("/api", account);
+app.use("/api", waitlist);
 
 // Never let the static server reach into server/ itself — it holds .env,
 // the sqlite db, and node_modules, none of which are meant to be fetchable.
