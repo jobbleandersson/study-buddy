@@ -218,7 +218,6 @@ function alertIfNeeded(day, spentMicro) {
  */
 export function recordUsage({ userId, model, usage }) {
   const input = usage.input + usage.cacheWrite + usage.cacheRead;
-  if (userId) addUsage(userId, { inputTokens: input, outputTokens: usage.output });
 
   const costMicro = costMicroUsd(model, usage);
   const day = currentDay();
@@ -229,5 +228,18 @@ export function recordUsage({ userId, model, usage }) {
     now: Date.now(),
   });
   alertIfNeeded(day, readDaySpend(day).costMicro);
+
+  // The user's own meter goes last, and its failure is contained. The money has already been spent
+  // at this point, so the server-wide tally and the cap alert above must not depend on it - and a
+  // request can outlive its account (someone deletes theirs while a long answer is still streaming;
+  // ai_usage.user_id is a foreign key, so the upsert is refused). Losing that one row costs nothing:
+  // the account it belonged to is gone.
+  if (userId) {
+    try {
+      addUsage(userId, { inputTokens: input, outputTokens: usage.output });
+    } catch (e) {
+      if (!/FOREIGN KEY/i.test(String(e?.message)) && e?.code !== "SQLITE_CONSTRAINT_FOREIGNKEY") throw e;
+    }
+  }
   return costMicro;
 }

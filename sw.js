@@ -8,19 +8,26 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studify-v112";
+const CACHE = "studify-v121";
 
 const APP_SHELL = [
   "./",
   "./index.html",
   "./manifest.json",
-  "./api/health",
   "./css/tokens.css",
+  "./css/fonts.css",
+  "./assets/fonts/inter-latin.woff2",
+  "./assets/fonts/inter-latin-ext.woff2",
+  "./assets/fonts/inter-italic-latin.woff2",
+  "./assets/fonts/atkinson-400-latin.woff2",
+  "./assets/fonts/atkinson-700-latin.woff2",
+  "./assets/fonts/atkinson-400-italic-latin.woff2",
   "./css/app.css",
   "./assets/favicon.svg",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
   "./js/config.js",
+  "./js/boot.js",
   "./js/main.js",
   "./js/store.js",
   "./js/claude.js",
@@ -58,6 +65,13 @@ const APP_SHELL = [
   "./js/lib/share-set.js",
   "./js/lib/achievements.js",
   "./js/lib/recap.js",
+  "./js/lib/rules.js",
+  "./js/lib/daily.js",
+  "./js/lib/voice-answer.js",
+  "./js/lib/check.js",
+  "./js/lib/loose-json.js",
+  "./js/lib/photo.js",
+  "./js/lib/tonight.js",
   "./js/lib/typeface.js",
   "./js/lib/import.js",
   "./js/lib/split.js",
@@ -72,6 +86,8 @@ const APP_SHELL = [
   "./js/views/progress.js",
   "./js/views/settings.js",
   "./js/views/login.js",
+  "./js/views/verify-email.js",
+  "./js/views/reset-password.js",
   "./js/views/parent-dashboard.js",
   "./js/views/gallery.js",
   "./js/views/library.js",
@@ -84,11 +100,24 @@ const APP_SHELL = [
   "./js/views/achievements.js",
   "./js/views/leaderboard.js",
   "./js/views/landing.js",
+  "./js/views/teachers.js",
   "./js/views/legal.js",
+  "./js/views/premium-waitlist.js",
   "./js/views/print.js",
+  "./js/views/rules.js",
+  "./js/components/daily-card.js",
+  "./js/components/house-ad.js",
+  "./js/components/class-daily-panel.js",
+  "./js/components/bus-question.js",
+  "./js/views/check.js",
+  "./js/components/solve-tabs.js",
+  "./js/views/tonight.js",
+  "./js/components/rule-card.js",
   "./js/views/teachback.js",
   "./js/views/challenge.js",
   "./js/views/classes.js",
+  "./js/components/class-wizard.js",
+  "./js/components/class-share-slide.js",
   "./js/components/questions.js",
   "./js/components/question-editor.js",
   "./js/components/tutor-chat.js",
@@ -100,12 +129,14 @@ const APP_SHELL = [
   "./js/components/challenge-dialog.js",
   "./js/components/nav.js",
   "./js/components/confirm-dialog.js",
+  "./js/components/delete-account-dialog.js",
   "./js/components/due-dialog.js",
   "./js/components/subject-field.js",
   "./js/components/quick-add.js",
   "./js/components/reading-controls.js",
   "./js/components/file-drop.js",
   "./js/components/google-signin.js",
+  "./js/components/password-field.js",
   "./js/components/mascot.js",
   "./js/components/calendar.js",
   "./js/components/goal-ring.js",
@@ -223,6 +254,11 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;   // never touch the API or fonts
+  // The app's own API is same-origin too, and answers with someone's private data (/api/state is
+  // the whole study blob, /api/auth/me their email). Caching those would leave them behind after
+  // sign-out or account deletion — and let an offline boot come up "signed in" as a previous
+  // person from a stale copy — so they always go straight to the network, never through the cache.
+  if (url.pathname.includes("/api/")) return;
 
   event.respondWith((async () => {
     try {

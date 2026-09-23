@@ -15,7 +15,11 @@ import { serverMessage } from "../lib/server-errors.js";
 import { loadLibraryIndex, loadLibraryTranslations } from "../data/library.js";
 import { baseSubjectName } from "../lib/library-content.js";
 import { renderGoogleButton } from "./google-signin.js";
-import { openQuickAdd } from "./quick-add.js";
+// Loaded lazily below, at the one click site that needs it — quick-add.js
+// pulls in views/create.js (and, transitively, claude.js/material.js/
+// prompts.js), and this whole file is eager-loaded on every page for the
+// maybeShowOnboarding() check, so a static import here would ship that
+// weight to every visitor whether or not they ever reach this button.
 
 let shownThisSession = false;
 let overlayEl = null;
@@ -35,7 +39,6 @@ const GOALS = [
   ["test", ICONS.target], ["grades", ICONS.chart], ["keepup", ICONS.book],
   ["hp", ICONS.award], ["stick", ICONS.layers], ["explore", ICONS.compass],
 ];
-const MOODS = [["stressed", "var(--retry)"], ["unsure", "var(--info)"], ["okay", "var(--ok)"], ["pumped", "var(--brand)"]];
 const AMOUNTS = [["light", 5], ["medium", 10], ["heavy", 20]];
 const STYLES = [["concise", "concise"], ["normal", "normal"], ["detailed", "detailed"]];
 const GENERIC_SUBJECTS = ["math", "swedish", "english", "science", "social", "languages"];
@@ -55,7 +58,6 @@ export function openWelcomeQuiz({ force = false } = {}) {
     subjects: Array.isArray(prior.subjects) ? [...prior.subjects] : [],
     goal: prior.goal || null,
     testDate: prior.testDate || "",
-    mood: prior.mood || null,
     amount: Number(store.settings.dailyGoal) || 10,
     amountSet: false,
     style: store.settings.tutorVerbosity || "normal",
@@ -100,7 +102,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
 
   /* ---------- flow ---------- */
   function steps() {
-    return a.role && a.role !== "student" ? ["name", "role"] : ["name", "role", "level", "subjects", "goal", "mood", "amount", "style"];
+    return a.role && a.role !== "student" ? ["name", "role"] : ["name", "role", "level", "subjects", "goal", "amount", "style"];
   }
   function go(n) {
     const list = steps();
@@ -118,7 +120,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
     const student = !a.role || a.role === "student";
     store.saveProfile({
       name, role: a.role || "student", level: a.level, subjects: a.subjects, goal: a.goal,
-      testDate: a.testDate || "", mood: a.mood, completedAt: Date.now(),
+      testDate: a.testDate || "", completedAt: Date.now(),
     });
     const settings = {};
     if (student && a.amountSet) settings.dailyGoal = a.amount;
@@ -198,7 +200,6 @@ export function openWelcomeQuiz({ force = false } = {}) {
     if (id === "level") return stepLevel();
     if (id === "subjects") return stepSubjects();
     if (id === "goal") return stepGoal();
-    if (id === "mood") return stepMood();
     if (id === "amount") return stepAmount();
     return stepStyle();
   }
@@ -274,14 +275,6 @@ export function openWelcomeQuiz({ force = false } = {}) {
     return f;
   }
 
-  function stepMood() {
-    return singleStep({
-      title: t("welcome.moodTitle"), body: t("welcome.moodBody"), value: a.mood,
-      options: MOODS.map(([k, color]) => ({ key: k, title: t(`welcome.mood.${k}`), dot: color })),
-      onPick: (k) => { a.mood = k; },
-    });
-  }
-
   function stepAmount() {
     return singleStep({
       title: t("welcome.amountTitle"), body: t("welcome.amountBody"), value: a.amountSet ? a.amount : null,
@@ -327,7 +320,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
         el("button.btn.btn--ghost", { type: "button", onclick: () => { close(); location.hash = "#/"; } }, t("welcome.ctaHome")),
       ]),
       student && a.goal === "test" && a.testDate
-        ? el("button.linkbtn", { type: "button", style: { marginTop: "12px" }, onclick: () => { close(); openQuickAdd(a.testDate); } }, t("welcome.addTestToCalendar"))
+        ? el("button.linkbtn", { type: "button", style: { marginTop: "12px" }, onclick: () => { close(); import("./quick-add.js").then((mod) => mod.openQuickAdd(a.testDate)); } }, t("welcome.addTestToCalendar"))
         : null,
     ].filter(Boolean));
     stage.replaceChildren(card);
@@ -356,24 +349,58 @@ export function openWelcomeQuiz({ force = false } = {}) {
     const googleSection = el("div.login-google", { hidden: true }, [googleBox, el("div.login-or", {}, [el("span", {}, t("login.or"))])]);
     const box = el("section.welcome__acct");
 
+    // Making an account needs the same yes to the Terms + Privacy Policy and the age statement as
+    // the sign-in page — the server refuses to create one without it (routes/auth.js).
+    let pendingCredential = null;   // a Google pick waiting on the box, so they needn't pick again
+    const consentInput = el("input", {
+      type: "checkbox",
+      onchange: () => {
+        err.hidden = true;
+        if (consentInput.checked && pendingCredential) onGoogle(pendingCredential);
+      },
+    });
+    const consentRow = el("label.field.consentrow", {}, [
+      consentInput,
+      el("span", {}, [
+        t("login.consentLead") + " ",
+        el("a", { href: "#/terms", target: "_blank", rel: "noopener" }, t("login.consentTerms")),
+        " " + t("login.consentAnd") + " ",
+        el("a", { href: "#/privacy", target: "_blank", rel: "noopener" }, t("login.consentPrivacy")),
+        ".",
+      ]),
+    ]);
+
     function done() {
       box.replaceChildren(el("div.welcome__acct-done", {}, [icon(ICONS.check, 18), el("span", {}, t("welcome.accDone"))]));
     }
     async function onGoogle(credential) {
       err.hidden = true;
-      try { await store.loginWithGoogle(credential); toast(t("login.googleCreatedToast")); done(); }
-      catch (e) { err.textContent = e.message || t("login.googleFailed"); err.hidden = false; }
+      try {
+        await store.loginWithGoogle(credential, { consent: consentInput.checked });
+        pendingCredential = null;
+        toast(t("login.googleCreatedToast"));
+        done();
+      } catch (e) {
+        if (e.code === "consent_required") { pendingCredential = credential; err.textContent = t("login.googleNeedsConsent"); }
+        else err.textContent = e.message || t("login.googleFailed");
+        err.hidden = false;
+      }
     }
     const form = el("form", {
       onsubmit: async (ev) => {
         ev.preventDefault();
         if (!email.value.trim() || !pass.value) return;
+        if (!consentInput.checked) { err.textContent = t("login.consentNeeded"); err.hidden = false; consentInput.focus(); return; }
         submit.disabled = true; err.hidden = true;
-        try { await store.signup(email.value.trim(), pass.value); toast(t("login.createdToast")); done(); }
-        catch (e) { err.textContent = e.message || t("login.somethingWrong"); err.hidden = false; submit.disabled = false; }
+        try {
+          await store.signup(email.value.trim(), pass.value, { consent: true });
+          toast(t(store.emailConfigured && !store.authEmailVerified ? "login.createdToastUnverified" : "login.createdToast"));
+          done();
+        } catch (e) { err.textContent = e.message || t("login.somethingWrong"); err.hidden = false; submit.disabled = false; }
       },
     }, [
       el("div.welcome__acct-fields", {}, [email, pass, submit]),
+      consentRow,
       err,
     ]);
     box.append(el("h3", {}, t("welcome.accTitle")), el("p.note", {}, t("welcome.accBody")), googleSection, form);
