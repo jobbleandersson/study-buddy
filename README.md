@@ -133,6 +133,29 @@ server/              serves the frontend + API: key proxy, accounts/sync, parent
                      linking (Node/Express/SQLite) — see server/README.md
 ```
 
+## Testing
+
+Three layers, all plain `node:test` — no test framework dependency, no mocks for the
+database or HTTP:
+
+```bash
+node tools/validate-library.mjs && node tools/validate-hp.mjs   # library content shape (no install needed)
+npm run test:unit      # js/lib pure-logic modules (srs, mastery, hp, answer-match, expr, …)
+cd server && npm install && cd ..
+npm run test:server    # spawns the real server against a throwaway SQLite file per suite
+npm test                # all of the above
+```
+
+`test:server` starts actual `server/src/index.js` processes (real Express, real
+better-sqlite3, a fresh temp DB per suite) rather than mocking the app — signup,
+login, email verification, password reset (including its account-takeover
+defenses), account deletion, and the request-throttling middleware are all
+exercised over real HTTP. A dummy `RESEND_API_KEY` is used to turn email features
+on without a real provider: the outbound send fails (there's no real key), but the
+token it issues first is still readable straight from the SQLite file, which is
+how those tests grab a verify/reset link without an inbox. `.github/workflows/ci.yml`
+runs all three layers on every push and pull request.
+
 ## Accounts & sync
 
 Optional. Studify works fully signed out — everything stays in this browser's

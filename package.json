@@ -1,0 +1,11 @@
+{
+  "name": "study-buddy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node tools/validate-library.mjs && node tools/validate-hp.mjs",
+    "test:unit": "node --test test/lib/*.test.mjs",
+    "test:server": "node --test server/test/*.test.mjs",
+    "test": "npm run validate && npm run test:unit && npm run test:server"
+  }
+}

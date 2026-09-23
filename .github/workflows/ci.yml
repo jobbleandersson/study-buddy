@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+
+      # No server/package-lock.json on purpose (see server/package.json's
+      # better-sqlite3 pin, and the Dockerfile's own comment) - npm install,
+      # not npm ci.
+      - name: Install server dependencies
+        run: npm install
+        working-directory: server
+
+      - name: Validate library content
+        run: npm run validate
+
+      - name: Unit tests (js/lib)
+        run: npm run test:unit
+
+      - name: Server integration tests
+        run: npm run test:server
