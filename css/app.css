@@ -3463,3 +3463,23 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 
 /* The welcome quiz's account card carries the same consent box as the sign-in page. */
 .welcome__acct .consentrow { margin: var(--s-3) 0 var(--s-2); font-size: var(--fs-sm); }
+
+/* Exam mode: question map (overview), flag button, flagged dots. */
+.progress-dots .is-flag { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--retry); }
+.flagbtn.is-on { color: var(--retry); border-color: var(--retry); }
+.examoverview { max-width: 520px; max-height: 84vh; overflow-y: auto; }
+.examgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(48px, 1fr)); gap: var(--s-2); }
+.examcell {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 2px;
+  min-height: 44px; padding: 0 6px; font: inherit; font-weight: 600; font-variant-numeric: tabular-nums;
+  color: var(--ink-soft); background: var(--surface);
+  border: 2px solid var(--line-strong); border-radius: var(--r-sm); cursor: pointer;
+}
+.examcell:hover { border-color: var(--brand-bright, var(--brand)); }
+.examcell.is-done { color: var(--ink); background: color-mix(in srgb, var(--ok) 16%, var(--surface)); border-color: var(--ok); }
+.examcell.is-flag { border-color: var(--retry); }
+.examcell.is-flag svg { color: var(--retry); }
+.examcell.is-now { outline: 3px solid var(--brand); outline-offset: 2px; }
+.examlegend { display: flex; flex-wrap: wrap; gap: var(--s-4); margin-bottom: var(--s-3); font-size: var(--fs-sm); color: var(--ink-faint); }
+.examlegend span { display: inline-flex; align-items: center; gap: 6px; }
+.examlegend .examcell { width: 16px; height: 16px; min-height: 0; padding: 0; border-radius: 4px; cursor: default; }
