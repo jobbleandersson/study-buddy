@@ -1,7 +1,7 @@
 import "./helpers.mjs";
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
-import { normalizeAnswer, tokenize, heuristic } from "../../js/lib/answer-match.js";
+import { normalizeAnswer, tokenize, heuristic, foldAccents } from "../../js/lib/answer-match.js";
 
 describe("answer-match.normalizeAnswer", () => {
   test("keeps å/ä/ö intact while lowercasing", () => {
@@ -76,5 +76,58 @@ describe("answer-match.heuristic", () => {
     const model = "Växter omvandlar ljusenergi till kemisk energi genom fotosyntes i sina blad";
     const out = heuristic("Detta handlar om helt andra saker som inte alls är relaterade till frågan", model);
     assert.equal(out.correct, false);
+  });
+});
+
+describe("answer-match.foldAccents", () => {
+  test("drops accents a Swedish keyboard cannot type", () => {
+    assert.equal(foldAccents("sábado"), "sabado");
+    assert.equal(foldAccents("pequeña"), "pequena");
+    assert.equal(foldAccents("quién"), "quien");
+    assert.equal(foldAccents("français, où"), "francais, ou");
+  });
+
+  test("keeps å ä ö ü, which make different words in Swedish and German", () => {
+    assert.equal(foldAccents("får schön Mütter Ångest"), "får schön Mütter Ångest");
+  });
+
+  test("composes decomposed input first, so a typed a + combining ring is still å", () => {
+    const decomposed = String.fromCharCode(0x61, 0x30a);   // "a" + U+030A
+    assert.equal(foldAccents(decomposed), "å");
+  });
+
+  test("handles null/undefined without throwing", () => {
+    assert.equal(foldAccents(undefined), "");
+  });
+});
+
+describe("answer-match.heuristic accents", () => {
+  test("a short answer typed without its accent is accepted, and the feedback shows the accented form", () => {
+    const out = heuristic("sabado", "sábado");
+    assert.equal(out.correct, true);
+    assert.ok(out.feedback.includes("sábado"), out.feedback);
+    assert.equal(heuristic("pequena", "pequeña").correct, true);
+    assert.equal(heuristic("quien", "quién").correct, true);
+  });
+
+  test("the exact accented answer is still plain correct, with no accent note", () => {
+    const out = heuristic("sábado", "sábado");
+    assert.equal(out.correct, true);
+    assert.ok(!out.feedback.includes("sábado"), out.feedback);
+  });
+
+  test("a wrong word is still wrong, accents or not", () => {
+    assert.equal(heuristic("domingo", "sábado").correct, false);
+    assert.equal(heuristic("sabados", "sábado").correct, false);
+  });
+
+  test("å/ä/ö are never folded: 'far' is not 'får'", () => {
+    assert.equal(heuristic("far", "får").correct, false);
+    assert.equal(heuristic("mor", "mör").correct, false);
+  });
+
+  test("long answers match keywords regardless of accents", () => {
+    const model = "El sábado por la tarde vamos a la playa con mis abuelos";
+    assert.equal(heuristic("El sabado por la tarde vamos a la playa con mis abuelos", model).correct, true);
   });
 });

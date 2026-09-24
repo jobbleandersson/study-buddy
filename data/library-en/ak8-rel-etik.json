@@ -3,12 +3,12 @@
   "type": "assignment",
   "subject": "Religionskunskap",
   "title": "Ethics and morality",
-  "sourceSummary": "The difference between ethics and morality, the three ethical models of duty ethics, consequentialism and virtue/intention ethics, how to reason step by step through an ethical dilemma, the golden rule and how it appears across many traditions, and ethical questions that come up in everyday life.",
+  "sourceSummary": "The difference between ethics and morality, the three ethical models of duty ethics, consequentialism and ethics of intention, how to reason step by step through an ethical dilemma, the golden rule and how it appears across many traditions, and ethical questions that come up in everyday life.",
   "topics": [
     "ethics and morality",
     "duty ethics",
     "consequentialism",
-    "virtue/intention ethics",
+    "ethics of intention",
     "the golden rule",
     "everyday ethical questions"
   ],
@@ -42,7 +42,7 @@
         "Whether someone else happens to find out about the broken promise"
       ],
       "answer": 2,
-      "explanation": "Duty ethics starts from the idea that certain acts are right or wrong in themselves, because they follow or break a principle. A duty ethicist therefore asks whether breaking the promise violates the rule, not what it leads to. Weighing up how many people become happy is instead a consequentialist line of reasoning, and focusing on the feeling behind the act belongs to virtue/intention ethics."
+      "explanation": "Duty ethics starts from the idea that certain acts are right or wrong in themselves, because they follow or break a principle. A duty ethicist therefore asks whether breaking the promise violates the rule, not what it leads to. Weighing up how many people become happy is instead a consequentialist line of reasoning, and focusing on the feeling behind the act belongs to ethics of intention."
     },
     {
       "id": "q-rel8-eti-3",
@@ -62,8 +62,8 @@
     {
       "id": "q-rel8-eti-4",
       "kind": "mc",
-      "topic": "virtue/intention ethics",
-      "prompt": "Elin wants to help a neighbour and carries his shopping bags home, but trips so that the eggs break. How would a virtue/intention ethicist judge the act?",
+      "topic": "ethics of intention",
+      "prompt": "Elin wants to help a neighbour and carries his shopping bags home, but trips so that the eggs break. How would an ethicist of intention judge the act?",
       "opener": "Intention means the purpose and will behind what you do.",
       "choices": [
         "The act was morally good, since Elin's intention was to help — even though the outcome was bad",
@@ -72,7 +72,7 @@
         "The act cannot be judged morally at all"
       ],
       "answer": 0,
-      "explanation": "Virtue/intention ethics judges the act based on the intention and will behind it. Since Elin wanted to help, the act counts as morally good, despite the unfortunate outcome. A consequentialist would instead point out that the consequences were bad, and a duty ethicist would ask whether any rule was broken — so the three models can land on different judgements of the same event."
+      "explanation": "Ethics of intention judges the act based on the intention and will behind it. Since Elin wanted to help, the act counts as morally good, despite the unfortunate outcome. A consequentialist would instead point out that the consequences were bad, and a duty ethicist would ask whether any rule was broken — so the three models can land on different judgements of the same event."
     },
     {
       "id": "q-rel8-eti-5",
@@ -108,14 +108,14 @@
       "id": "q-rel8-eti-7",
       "kind": "worked",
       "topic": "everyday ethical questions",
-      "prompt": "A friend tells you in confidence that they cheated on a test and asks you not to say anything to the teacher. Reason step by step about what you should do, using duty ethics, consequentialism and virtue/intention ethics.",
+      "prompt": "A friend tells you in confidence that they cheated on a test and asks you not to say anything to the teacher. Reason step by step about what you should do, using duty ethics, consequentialism and ethics of intention.",
       "opener": "Start by naming which values are clashing, and then try the models one at a time.",
-      "answer": "Several values clash here: loyalty to a friend and the promise to keep a confidence stand against honesty and fairness towards classmates, who actually did the test properly. From a duty-ethics view: if you start from the principle that you should be honest and not help conceal cheating, that points towards the cheating coming out — but keeping a confidence is also a rule, so a duty ethicist must decide which principle weighs heaviest. From a consequentialist view: you weigh the consequences of staying silent against the consequences of telling. If the cheating stays hidden, the friend gets a grade they didn't earn, other pupils are treated unfairly, and the friend learns nothing from the situation; if it comes out, the consequence is unpleasant for the friend in the short term, but probably better for both the class and the friend in the longer term. From a virtue/intention-ethics view: the intention behind the choice becomes decisive — talking to the friend out of genuine concern, so that they take responsibility, weighs morally heavier than telling because you want to see the friend punished or want to look good yourself. A reasonable conclusion might be a middle step: first talk to the friend, explain why you think it's wrong, and urge them to tell the teacher themselves, and only after that consider whether you need to do anything more. It's important to remember that the models are tools for thinking clearly — they don't always give one single obvious answer.",
+      "answer": "Several values clash here: loyalty to a friend and the promise to keep a confidence stand against honesty and fairness towards classmates, who actually did the test properly. From a duty-ethics view: if you start from the principle that you should be honest and not help conceal cheating, that points towards the cheating coming out — but keeping a confidence is also a rule, so a duty ethicist must decide which principle weighs heaviest. From a consequentialist view: you weigh the consequences of staying silent against the consequences of telling. If the cheating stays hidden, the friend gets a grade they didn't earn, other pupils are treated unfairly, and the friend learns nothing from the situation; if it comes out, the consequence is unpleasant for the friend in the short term, but probably better for both the class and the friend in the longer term. From an ethics-of-intention view: the intention behind the choice becomes decisive — talking to the friend out of genuine concern, so that they take responsibility, weighs morally heavier than telling because you want to see the friend punished or want to look good yourself. A reasonable conclusion might be a middle step: first talk to the friend, explain why you think it's wrong, and urge them to tell the teacher themselves, and only after that consider whether you need to do anything more. It's important to remember that the models are tools for thinking clearly — they don't always give one single obvious answer.",
       "steps": [
         "Name the dilemma: loyalty and confidence clash with honesty and fairness towards classmates.",
         "Duty ethics: which principles apply — honesty and not concealing cheating, but also keeping a confidence? Decide which weighs heaviest.",
         "Consequentialism: weigh the consequences of staying silent (an unfair grade, no lesson learned) against the consequences of telling (discomfort now, a more reasonable outcome later).",
-        "Virtue/intention ethics: examine your own intention — are you acting out of concern for your friend, or because you want to see them punished?",
+        "Ethics of intention: examine your own intention — are you acting out of concern for your friend, or because you want to see them punished?",
         "Weigh it all together and settle on a course of action, for example talking to the friend yourself first, and remember that the models can point in different directions."
       ]
     },
@@ -125,7 +125,7 @@
       "topic": "ethics and morality",
       "prompt": "Summarise the foundations of ethics: ethics and morality, the three models, the golden rule, and how to work through an ethical dilemma.",
       "opener": "Concepts first, then the models, and finally the process for a dilemma.",
-      "answer": "Ethics: the study of and reflection on what is right and wrong — the theory · Morality: how a person actually acts and which values she lives by — the practice · Law ≠ morality: not everything that is legal is morally right, and not everything that feels morally right is always legal · Duty ethics: the act is judged by whether it follows a rule or principle (\"keep your promises\", \"don't lie\"), regardless of consequences · strength: predictable and fair · weakness: can become harsh when rules clash with people's wellbeing · Consequentialism: the act is judged by its consequences — right is whatever gives the most benefit and the least harm · strength: takes real effects into account · weakness: hard to foresee all consequences, and a minority can get squeezed · Virtue/intention ethics: the act is judged by the intention and will behind it · strength: good will counts even when something goes wrong · weakness: good intentions can still lead to harm · The golden rule: treat others as you yourself want to be treated — found in similar form in, among others, Christianity, Judaism, Islam, Buddhism, Confucianism and secular humanism · Ethical dilemma: two or more values clash, so that every choice means giving up something important · Process: 1) describe the situation and who is affected · 2) name which values are clashing · 3) try duty ethics, consequentialism and virtue/intention ethics · 4) weigh it all together, choose an action and justify it · Ethics and religion: religions often give ethical guidance through commandments and stories, but you can also reason ethically from reason, empathy and experience."
+      "answer": "Ethics: the study of and reflection on what is right and wrong — the theory · Morality: how a person actually acts and which values she lives by — the practice · Law ≠ morality: not everything that is legal is morally right, and not everything that feels morally right is always legal · Duty ethics: the act is judged by whether it follows a rule or principle (\"keep your promises\", \"don't lie\"), regardless of consequences · strength: predictable and fair · weakness: can become harsh when rules clash with people's wellbeing · Consequentialism: the act is judged by its consequences — right is whatever gives the most benefit and the least harm · strength: takes real effects into account · weakness: hard to foresee all consequences, and a minority can get squeezed · Ethics of intention: the act is judged by the intention and will behind it · strength: good will counts even when something goes wrong · weakness: good intentions can still lead to harm · The golden rule: treat others as you yourself want to be treated — found in similar form in, among others, Christianity, Judaism, Islam, Buddhism, Confucianism and secular humanism · Ethical dilemma: two or more values clash, so that every choice means giving up something important · Process: 1) describe the situation and who is affected · 2) name which values are clashing · 3) try duty ethics, consequentialism and ethics of intention · 4) weigh it all together, choose an action and justify it · Ethics and religion: religions often give ethical guidance through commandments and stories, but you can also reason ethically from reason, empathy and experience."
     },
     {
       "id": "q-rel8-eti-9",
@@ -175,8 +175,8 @@
     {
       "id": "q-rel8-eti-12",
       "kind": "mc",
-      "topic": "virtue/intention ethics",
-      "prompt": "What is a common criticism of virtue/intention ethics?",
+      "topic": "ethics of intention",
+      "prompt": "What is a common criticism of ethics of intention?",
       "opener": "Think about what can happen despite a good will.",
       "choices": [
         "That it never cares about the intention behind an act",
@@ -185,7 +185,7 @@
         "That good intentions can still lead to harmful consequences"
       ],
       "answer": 3,
-      "explanation": "A common criticism of virtue/intention ethics is that good intentions can still lead to harmful consequences, meaning the act can be judged morally good despite a bad outcome. Virtue/intention ethics is, on the contrary, precisely about the intention behind the act, and it is not limited to legal contexts or tied to always following the law exactly."
+      "explanation": "A common criticism of ethics of intention is that good intentions can still lead to harmful consequences, meaning the act can be judged morally good despite a bad outcome. Ethics of intention is, on the contrary, precisely about the intention behind the act, and it is not limited to legal contexts or tied to always following the law exactly."
     },
     {
       "id": "q-rel8-eti-13",
@@ -230,7 +230,7 @@
         "Judging an act by the consequences it has for those affected"
       ],
       "answer": 3,
-      "explanation": "The core of consequentialism is judging an act by its consequences for those affected — right is whatever gives the most benefit and the least harm overall. Judging by which rule is followed instead belongs to duty ethics, and judging by intention belongs to virtue/intention ethics."
+      "explanation": "The core of consequentialism is judging an act by its consequences for those affected — right is whatever gives the most benefit and the least harm overall. Judging by which rule is followed instead belongs to duty ethics, and judging by intention belongs to ethics of intention."
     }
   ]
 }

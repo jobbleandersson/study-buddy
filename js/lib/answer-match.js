@@ -19,6 +19,16 @@ export function normalizeAnswer(s) {
   return str.toLowerCase();
 }
 
+/** Drops accents a Swedish keyboard can't type (é à ê ç ñ ...) so "sábado", "pequeña" and "quién"
+ *  can be matched by someone who typed "sabado", "pequena" and "quien". å ä ö ü are deliberately kept:
+ *  in Swedish and German they make different words ("får"/"far", "schön"/"schon", "Mütter"/"Mutter"),
+ *  so folding them would mark a wrong answer right. */
+const KEEP = new Set(["å", "ä", "ö", "ü"]);
+export function foldAccents(s) {
+  return Array.from(String(s ?? "").normalize("NFC"), (c) =>
+    KEEP.has(c.toLowerCase()) ? c : c.normalize("NFD").replace(/[\u0300-\u036f]/g, "")).join("");
+}
+
 /** Unicode-aware word split — \p{L} matches å/ä/ö (and every other script),
  *  unlike an ASCII-only [^a-z0-9\s] strip. */
 export function tokenize(s) {
@@ -35,12 +45,19 @@ export function heuristic(ans, model) {
 
   const modelWords = modelStr.split(/\s+/).filter(Boolean).length;
   if (modelWords <= 3) {
-    const correct = normalizeAnswer(ans) === normalizeAnswer(modelStr);
-    return { correct, feedback: correct ? t("q.heuristicOk") : t("q.heuristicMiss"), missedPoints: [] };
+    const a = normalizeAnswer(ans);
+    const m = normalizeAnswer(modelStr);
+    if (a === m) return { correct: true, feedback: t("q.heuristicOk"), missedPoints: [] };
+    // Right word, missing accent: accept it (many students can't type the accent) but say so, since
+    // the accent is part of the spelling they are learning.
+    if (foldAccents(a) === foldAccents(m)) {
+      return { correct: true, feedback: t("q.heuristicOkAccent", { answer: modelStr }), missedPoints: [] };
+    }
+    return { correct: false, feedback: t("q.heuristicMiss"), missedPoints: [] };
   }
 
-  const mTokens = tokenize(modelStr);
-  const aTokens = new Set(tokenize(ans));
+  const mTokens = tokenize(modelStr).map(foldAccents);
+  const aTokens = new Set(tokenize(ans).map(foldAccents));
   if (!mTokens.length) {
     return { correct: tokenize(ans).length > 0, feedback: t("q.heuristicMiss"), missedPoints: [] };
   }
