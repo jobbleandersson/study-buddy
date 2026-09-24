@@ -5,6 +5,7 @@
 // without stepping on each other's rate-limit buckets or rows.
 
 import { spawn } from "node:child_process";
+import net from "node:net";
 import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
@@ -14,8 +15,19 @@ import Database from "better-sqlite3";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SERVER_ENTRY = path.join(__dirname, "..", "src", "index.js");
 
-function randomPort() {
-  return 20000 + Math.floor(Math.random() * 20000);
+// Ask the OS for a free port instead of guessing one: with a dozen suites starting servers at once, two
+// random picks in a 20,000-wide range collided often enough to fail CI now and then (EADDRINUSE) - and
+// worse, the /api/health poll then succeeded against the OTHER suite's server.
+function freePort() {
+  return new Promise((resolve, reject) => {
+    const probe = net.createServer();
+    probe.unref();
+    probe.on("error", reject);
+    probe.listen(0, "127.0.0.1", () => {
+      const { port } = probe.address();
+      probe.close(() => resolve(port));
+    });
+  });
 }
 
 async function waitForHealth(baseUrl, { timeoutMs = 10000 } = {}) {
@@ -43,9 +55,24 @@ async function waitForHealth(baseUrl, { timeoutMs = 10000 } = {}) {
  * only).
  */
 export async function startServer(env = {}) {
+  // A port the OS just handed out can still be grabbed by another suite before this server binds it;
+  // when that is why it did not come up, take a new port and try again.
+  let lastError;
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    try {
+      return await startOnce(env);
+    } catch (e) {
+      if (!e.retryable) throw e;
+      lastError = e;
+    }
+  }
+  throw lastError;
+}
+
+async function startOnce(env) {
   const dir = mkdtempSync(path.join(tmpdir(), "sb-server-test-"));
   const dbPath = path.join(dir, "test.sqlite3");
-  const port = randomPort();
+  const port = await freePort();
   const baseUrl = `http://127.0.0.1:${port}`;
 
   const child = spawn(process.execPath, [SERVER_ENTRY], {
@@ -84,11 +111,22 @@ export async function startServer(env = {}) {
 
   const exited = new Promise((resolve) => child.once("exit", (code, signal) => resolve({ code, signal })));
 
+  // Healthy only counts if OUR child is still running: if it died on EADDRINUSE, a health answer can only
+  // be coming from someone else's server.
+  const diedEarly = () => Object.assign(new Error("server exited before it became healthy"), { early: true });
   try {
-    await waitForHealth(baseUrl);
+    // `exited` resolves (never rejects) with "exited", so the normal exit at stop() leaves no stray rejection.
+    const health = waitForHealth(baseUrl).then(() => "healthy");
+    health.catch(() => {});   // if the child exits first, the poll's later timeout must not surface as an unhandled rejection
+    const first = await Promise.race([health, exited.then(() => "exited")]);
+    if (first === "exited" || child.exitCode !== null) throw diedEarly();
   } catch (e) {
     child.kill();
-    throw new Error(`${e.message}\n--- server output ---\n${logLines.join("")}`);
+    rmSync(dir, { recursive: true, force: true });
+    const output = logLines.join("");
+    const err = new Error(`${e.message}\n--- server output ---\n${output}`);
+    err.retryable = /EADDRINUSE/.test(output);
+    throw err;
   }
 
   const db = new Database(dbPath);
