@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studify-v124";
+const CACHE = "studify-v125";
 
 const APP_SHELL = [
   "./",
@@ -262,10 +262,16 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith((async () => {
     try {
-      // no-store: go past the browser's HTTP cache to the network, so an
-      // updated file lands the first time you're online rather than after a
-      // second reload. The CacheStorage copy below is the offline fallback.
-      const fresh = await fetch(request, { cache: "no-store" });
+      // Always ask the server whether the file is still current, so an updated one
+      // lands the first time you're online rather than after a second reload. "no-cache"
+      // (not "no-store") lets the browser send its stored copy's ETag, and the server
+      // answers an unchanged file with an empty 304 instead of the whole body again - the
+      // difference between a page load costing about 3 MB and costing a few hundred bytes.
+      // Fonts and the vendored libraries are the exception: they never change under the
+      // same name and the server gives them a long lifetime, so the HTTP cache may answer
+      // without any request at all. The CacheStorage copy below is the offline fallback.
+      const stable = /\/(assets\/fonts|vendor)\//.test(url.pathname);
+      const fresh = await fetch(request, { cache: stable ? "default" : "no-cache" });
       if (fresh && fresh.ok) {
         const cache = await caches.open(CACHE);
         cache.put(request, fresh.clone());
