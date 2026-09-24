@@ -378,26 +378,44 @@ function shell(question, body, { showPrompt = true } = {}) {
 }
 
 /* ---------------- multiple choice ---------------- */
-function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2 }) {
+// `revisable` (exam mode): there is no Check button — picking an option records it at once, and
+// picking another one replaces it, until the student hands the exam in. `initialPick` re-selects the
+// recorded choice when the student comes back to the question.
+function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2, revisable = false, initialPick = -1 }) {
   const result = { correct: false, hintsUsed: 0 };
   let picked = -1, attempts = 0, done = false;
 
   const btns = question.choices.map((c, i) =>
     el("button.choice", {
       type: "button",
-      onclick: () => { if (done) return; picked = i; sync(); },
+      onclick: () => { if (done) return; picked = i; sync(); if (revisable) record(); },
     }, [
       el("span.choice__key", {}, String.fromCharCode(65 + i)),
       el("span", { html: renderRich(c) }),
     ]));
 
-  const checkBtn = el("button.btn.btn--sm", { type: "button", disabled: true, onclick: check }, t("q.check"));
+  const checkBtn = el("button.btn.btn--sm", { type: "button", disabled: true, hidden: revisable, onclick: check }, t("q.check"));
   const feedback = el("div", {});
   const list = el("div.choices", {}, btns);
 
   function sync() {
     btns.forEach((b, i) => b.setAttribute("aria-pressed", String(i === picked)));
     checkBtn.disabled = picked < 0;
+  }
+
+  // Exam mode: a fresh result each time (finalize() keeps the first srsGrade it is given, which
+  // would freeze the grade of a first pick that was later changed).
+  function record() {
+    if (picked < 0) return;
+    feedback.className = "feedback";
+    feedback.textContent = t("q.recordedChangeable");
+    onDone(finalize({ correct: picked === question.answer, hintsUsed: 0, picked }));
+  }
+  if (revisable && initialPick >= 0 && initialPick < btns.length) {
+    picked = initialPick;
+    sync();
+    feedback.className = "feedback";
+    feedback.textContent = t("q.recordedChangeable");
   }
 
   const triedWrong = new Set();
@@ -480,9 +498,10 @@ function mc({ question, tutor, testMode, onDone, askConfidence, revealAfter = 2 
     const idx = letter >= 0 && letter < btns.length ? letter : digit;
     if (idx >= 0 && idx < btns.length && !btns[idx].disabled) {
       picked = idx; sync(); btns[idx].focus();
+      if (revisable) record();
       return true;
     }
-    if (e.key === "Enter" && picked >= 0) { check(); return true; }
+    if (e.key === "Enter" && picked >= 0) { if (revisable) record(); else check(); return true; }
     return false;
   }
 

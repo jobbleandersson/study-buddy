@@ -27,6 +27,7 @@ import { playCorrect, playWrong, playChime } from "../lib/sound.js";
 import { renderBusQuestion, isBusQuestion, resetBusPrime } from "../components/bus-question.js";
 import { speechSupported } from "../lib/speech.js";
 import { setSessionActive } from "../lib/session-active.js";
+import { examCells, examSummary, toggleFlag } from "../lib/exam-nav.js";
 
 const TIP_SEEN_KEY = "studybuddy.shortcutTipSeen";
 
@@ -321,6 +322,7 @@ function runSession(config) {
   setSessionActive(true);   // cleared in cleanup()
   state.cursor = Math.min(state.cursor, state.order.length - 1);
   state.skipped = state.skipped || [];
+  state.flagged = state.flagged || [];   // exam mode: questions the student marked to come back to
   state.choiceOrder = state.choiceOrder || {};
   // Question ids already written to SRS this session, whether by an earlier
   // exit or a completed finish — lets commitSrs() below run from both without
@@ -357,6 +359,14 @@ function runSession(config) {
   const nextBtn = el("button.btn", { type: "button", disabled: true, onclick: next }, t("session.next"));
   const skipBtn = el("button.btn.btn--ghost", { type: "button", onclick: skip }, t("session.skip"));
   const exitBtn = el("button.btn.btn--ghost", { type: "button", onclick: exit }, t("session.exit"));
+  // Exam mode only: reads like the paper test it simulates - any question in any order, a flag to come
+  // back to one, answers that can be changed until hand-in (see the exam block below).
+  const prevBtn = el("button.btn.btn--ghost", { type: "button", hidden: !isExam, onclick: prev }, t("session.prev"));
+  const overviewLbl = el("span", {}, t("session.overview"));
+  const overviewBtn = el("button.btn.btn--ghost.btn--sm", { type: "button", hidden: !isExam, onclick: openOverview }, [icon(ICONS.layers, 15), overviewLbl]);
+  const flagLbl = el("span", {}, t("session.flag"));
+  const flagBtn = el("button.btn.btn--ghost.btn--sm.flagbtn", { type: "button", hidden: !isExam, "aria-pressed": "false", onclick: toggleFlagged }, [icon(ICONS.flag, 15), flagLbl]);
+  const handInBtn = el("button.btn.btn--sm", { type: "button", hidden: !isExam, onclick: handIn }, t("session.handIn"));
   // Practice / review only — a test doesn't get to look back. Shown once
   // there's something answered to look at (paintReviewBtn keeps it in sync).
   const reviewBtn = el("button.btn.btn--ghost.btn--sm", {
@@ -391,6 +401,7 @@ function runSession(config) {
   }
 
   function nextBtnLabel() {
+    if (isExam) return state.cursor >= state.order.length - 1 ? t("session.handIn") : t("session.next");
     const answered = !!state.items[currentId()];
     return unansweredCount() === 0 || (answered && state.cursor === state.order.length - 1)
       ? t("session.finish") : t("session.next");
@@ -410,6 +421,7 @@ function runSession(config) {
       cursor: state.cursor,
       items: state.items,
       skipped: state.skipped,
+      flagged: state.flagged,
       choiceOrder: state.choiceOrder,
       committedSrs: state.committedSrs,
       startedAt: state.startedAt,
@@ -440,9 +452,9 @@ function runSession(config) {
     if (showDots) {
       clear(dots);
       for (const id of state.order) {
-        const cls = state.items[id] ? ".is-done"
+        const cls = (state.items[id] ? ".is-done"
           : id === current ? ".is-now"
-          : state.skipped.includes(id) ? ".is-saved" : "";
+          : state.skipped.includes(id) ? ".is-saved" : "") + (state.flagged.includes(id) ? ".is-flag" : "");
         dots.appendChild(el("span" + cls));
       }
     }
@@ -620,12 +632,13 @@ function runSession(config) {
     lastPrompt = question.prompt;
 
     const answered = !!state.items[question.id];
-    nextBtn.disabled = !answered;
+    // Exam mode moves freely, so "next" never waits for an answer and there is nothing to skip.
+    nextBtn.disabled = isExam ? false : !answered;
     nextBtn.textContent = nextBtnLabel();
 
     // Skipping is only offered while there's somewhere else to go.
     const alreadySkipped = state.skipped.includes(question.id);
-    skipBtn.hidden = answered || alreadySkipped || unansweredCount() <= 1;
+    skipBtn.hidden = isExam || answered || alreadySkipped || unansweredCount() <= 1;
 
     if (tutorSilent) tutor.showLocked();
     else tutor.setQuestion(assignment, viewQuestion(question));
@@ -637,6 +650,9 @@ function runSession(config) {
       tutor: tutorSilent ? null : tutor,
       live: store.hasKey(),
       testMode,
+      // Exam mode: a multiple-choice pick is recorded at once and can be changed (questions.js mc).
+      revisable: isExam,
+      initialPick: isExam ? (state.items[question.id]?.pick ?? -1) : -1,
       askConfidence,
       // Memory rules: shown on request, offered after a miss — never in a test.
       ruleContext: testMode ? null : { subjectId: assignment.subjectId },
@@ -656,10 +672,11 @@ function runSession(config) {
           srsGrade: result.srsGrade,
           hintsUsed: result.hintsUsed || 0,
           appealed: !!result.appealed,
+          pick: result.picked ?? null,   // exam mode: which option (in the order shown), so a revisit can show it
         };
         skipBtn.hidden = true;
         nextBtn.disabled = false;
-        nextBtn.textContent = unansweredCount() === 0 ? t("session.finish") : t("session.next");
+        nextBtn.textContent = isExam ? nextBtnLabel() : unansweredCount() === 0 ? t("session.finish") : t("session.next");
         paintProgress();
         persist();
         if (isNew && !config.bus) adapt();
@@ -685,8 +702,13 @@ function runSession(config) {
       : renderQuestion(questionOpts);
 
     stage.appendChild(r.el);
+    // A question that isn't multiple choice can't show the earlier answer again, so say it is recorded.
+    if (isExam && answered && question.kind !== "mc") {
+      stage.insertBefore(el("p.note", {}, t("session.examRevisit")), r.el);
+    }
     currentRenderer = r;
     paintProgress();
+    paintExamNav();
   }
 
   /* ----- adaptive pacing -----
@@ -764,6 +786,10 @@ function runSession(config) {
   }
 
   function next() {
+    if (isExam) {
+      if (state.cursor >= state.order.length - 1) handIn(); else goTo(state.cursor + 1);
+      return;
+    }
     if (!state.items[currentId()]) return;
     if (unansweredCount() === 0) { finish(); return; }
     // Advance to the next question that still needs answering.
@@ -772,6 +798,109 @@ function runSession(config) {
     loadQuestion();
     announce(t("session.annQuestion", { n: state.cursor + 1, total: state.order.length }));
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  /* ----- exam mode: free navigation, changeable answers, question map, hand-in ----- */
+  // The order is fixed (the map's numbers mean something), every question is reachable, an answer can
+  // be changed until hand-in, and nothing is marked until the results screen. Unanswered questions
+  // count as wrong when the exam is handed in or the clock runs out (finish()).
+  function goTo(i) {
+    if (i < 0 || i >= state.order.length || i === state.cursor) return;
+    state.cursor = i;
+    persist();
+    loadQuestion();
+    announce(t("session.annQuestion", { n: state.cursor + 1, total: state.order.length }));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  function prev() { if (isExam) goTo(state.cursor - 1); }
+
+  function toggleFlagged() {
+    const id = currentId();
+    if (!isExam || !id) return;
+    state.flagged = toggleFlag(state.flagged, id);
+    persist();
+    paintProgress();
+    paintExamNav();
+    announce(t(state.flagged.includes(id) ? "session.annFlagged" : "session.annUnflagged"));
+  }
+
+  /** Keeps the exam-only controls in step with the question on screen. */
+  function paintExamNav() {
+    if (!isExam) return;
+    const flagged = state.flagged.includes(currentId());
+    flagBtn.setAttribute("aria-pressed", String(flagged));
+    flagBtn.classList.toggle("is-on", flagged);
+    flagLbl.textContent = t(flagged ? "session.flagOn" : "session.flag");
+    prevBtn.disabled = state.cursor <= 0;
+    nextBtn.textContent = nextBtnLabel();
+  }
+  /** Language switch: the exam-only labels. */
+  function paintExamLabels() {
+    if (!isExam) return;
+    prevBtn.textContent = t("session.prev");
+    overviewLbl.textContent = t("session.overview");
+    handInBtn.textContent = t("session.handIn");
+    paintExamNav();
+  }
+
+  async function handIn() {
+    if (!isExam) return;
+    const sum = examSummary(state.order, state.items, state.flagged);
+    const notes = [];
+    if (sum.unanswered) notes.push(plural(sum.unanswered, "session.handInOpenOne", "session.handInOpenMany"));
+    if (sum.flaggedOpen) notes.push(t("session.handInFlaggedOpen", { n: sum.flaggedOpen }));
+    const ok = await confirmDialog({
+      message: [t("session.handInQuestion"), notes.join(" ")].filter(Boolean).join("\n\n"),
+      confirmLabel: t("session.handIn"),
+      cancelLabel: t("session.handInBack"),
+    });
+    if (ok) finish();
+  }
+
+  let overviewModal = null;
+  function closeOverview() {
+    overviewModal?.remove();
+    overviewModal = null;
+    document.removeEventListener("keydown", overviewEsc);
+  }
+  function overviewEsc(e) { if (e.key === "Escape") closeOverview(); }
+  function openOverview() {
+    if (!isExam) return;
+    closeOverview();
+    const cells = examCells(state.order, state.items, state.flagged, state.cursor);
+    const sum = examSummary(state.order, state.items, state.flagged);
+    const cellState = (c) => [t(c.answered ? "session.cellAnswered" : "session.cellOpen"), c.flagged ? t("session.cellFlagged") : null].filter(Boolean).join(", ");
+    overviewModal = el("div.modal", {
+      role: "dialog", "aria-modal": "true", "aria-label": t("session.overview"),
+      onclick: (e) => { if (e.target === overviewModal) closeOverview(); },
+    }, [
+      el("div.modal__card.examoverview", {}, [
+        el("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" } }, [
+          el("h3", {}, t("session.overview")),
+          el("button.iconbtn.iconbtn--sm", { type: "button", "aria-label": t("common.close"), onclick: closeOverview }, [icon(ICONS.close, 16)]),
+        ]),
+        el("p.note", { style: { margin: "0 0 10px" } }, t("session.overviewCounts", { answered: sum.answered, total: sum.total, flagged: sum.flagged })),
+        el("div.examlegend", { "aria-hidden": "true" }, [
+          el("span", {}, [el("i.examcell.is-done"), t("session.cellAnswered")]),
+          el("span", {}, [el("i.examcell"), t("session.cellOpen")]),
+          el("span", {}, [el("i.examcell.is-flag"), t("session.cellFlagged")]),
+        ]),
+        el("div.examgrid", {}, cells.map((c) => el("button.examcell"
+          + (c.answered ? ".is-done" : "") + (c.flagged ? ".is-flag" : "") + (c.current ? ".is-now" : ""), {
+          type: "button",
+          "aria-label": t("session.overviewCell", { n: c.n, state: cellState(c) }),
+          "aria-current": c.current ? "true" : null,
+          onclick: () => { closeOverview(); goTo(c.n - 1); },
+        }, [String(c.n), c.flagged ? icon(ICONS.flag, 11) : null].filter((x) => x != null)))),
+        el("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "16px" } }, [
+          el("button.btn", { type: "button", onclick: () => { closeOverview(); handIn(); } }, t("session.handIn")),
+          el("button.btn.btn--ghost", { type: "button", onclick: closeOverview }, t("common.close")),
+        ]),
+      ]),
+    ]);
+    document.body.appendChild(overviewModal);
+    document.addEventListener("keydown", overviewEsc);
+    overviewModal.querySelector(".examcell.is-now")?.focus();
   }
 
   // Writes SRS for whatever in `items` hasn't already been committed this
@@ -898,6 +1027,15 @@ function runSession(config) {
     if (e.key === "Escape") { closeShortcuts(); return; }
     if (typing) return;
 
+    // Exam mode: the question map is open (its own Esc closes it), so the keys must not move the page behind it.
+    if (isExam && overviewModal) return;
+    if (isExam) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); prev(); return; }
+      const k = e.key.toLowerCase();
+      if (k === "m") { e.preventDefault(); toggleFlagged(); return; }
+      if (k === "o") { e.preventDefault(); openOverview(); return; }
+    }
+
     if (e.key === "ArrowRight" || (e.key === "Enter" && !nextBtn.disabled && !currentRenderer)) {
       if (!nextBtn.disabled) { e.preventDefault(); next(); }
       return;
@@ -924,11 +1062,14 @@ function runSession(config) {
           keyRow("A – D  ·  1 – 4", t("keys.pick")),
           keyRow("Enter", t("keys.enter")),
           keyRow("→", t("keys.next")),
-          keyRow("S", t("keys.skip")),
+          isExam ? keyRow("←", t("keys.prev")) : null,
+          isExam ? keyRow("M", t("keys.mark")) : null,
+          isExam ? keyRow("O", t("keys.overview")) : null,
+          isExam ? null : keyRow("S", t("keys.skip")),
           keyRow("Space", t("keys.space")),
           keyRow("?", t("keys.show")),
           keyRow("Esc", t("keys.close")),
-        ])]),
+        ].filter(Boolean))]),
         el("button.btn.btn--ghost.btn--sm", {
           type: "button", style: { marginTop: "16px" }, onclick: closeShortcuts,
         }, t("common.close")),
@@ -1027,6 +1168,7 @@ function runSession(config) {
     nextBtn.textContent = nextBtnLabel();
     skipBtn.textContent = t("session.skip");
     exitBtn.textContent = t("session.exit");
+    paintExamLabels();
     if (reviewMoreEl) reviewMoreEl.textContent = t("session.reviewMore", { n: config.reviewRemaining });
     if (!hintFab.hidden) {
       hintFab.textContent = tutor.el.classList.contains("is-open")
@@ -1057,6 +1199,7 @@ function runSession(config) {
       headH2,
       el("span.session__headright", {}, [
         examTimer,
+        handInBtn,
         pomoEl,
         badgeEl,
         busBtn,
@@ -1074,8 +1217,8 @@ function runSession(config) {
       el("div", {}, [
         stage,
         el("div.nav-row", {}, [
-          el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [exitBtn, reviewBtn]),
-          el("div", { style: { display: "flex", gap: "10px" } }, [skipBtn, nextBtn]),
+          el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap" } }, [exitBtn, reviewBtn, overviewBtn, flagBtn]),
+          el("div", { style: { display: "flex", gap: "10px" } }, [prevBtn, skipBtn, nextBtn]),
         ]),
       ]),
       tutor.el,
@@ -1095,6 +1238,7 @@ function runSession(config) {
       stopExam();
       closeShortcuts();
       closeReviewSoFar();
+      closeOverview();
       document.removeEventListener("keydown", reviewEsc);
       closePopover();
       currentRenderer?.cleanup?.();
@@ -1126,7 +1270,7 @@ function freshState(config) {
   }
   const startedAt = Date.now();
   const deadlineAt = config.examMode && config.timeLimitMin ? startedAt + config.timeLimitMin * 60000 : null;
-  return { ...config, order, cursor: 0, items: {}, skipped: [], choiceOrder, startedAt, deadlineAt };
+  return { ...config, order, cursor: 0, items: {}, skipped: [], flagged: [], choiceOrder, startedAt, deadlineAt };
 }
 
 function shuffled(arr) {
