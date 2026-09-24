@@ -3,9 +3,10 @@
 // not something a student needs a shortcut to mid-study.
 
 import { el } from "../lib/dom.js";
-import { CONTACT_EMAIL } from "../config.js";
+import { CONTACT_EMAIL, TIKTOK_URL } from "../config.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
+import { TIKTOK_SVG } from "./landing.js";
 
 const FEEDBACK_MAIL = `mailto:${CONTACT_EMAIL}`;
 
@@ -16,7 +17,12 @@ function page(titleKey, body) {
       homeButton({ grid: true }),
       el("h1", {}, t(titleKey)),
       ...body,
-      el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "8px", justifySelf: "start" } }, t("common.backToMenu")),
+      el("div", { style: { display: "flex", gap: "8px", flexWrap: "wrap", marginTop: "8px" } }, [
+        el("a.btn.btn--ghost", { href: "#/", style: { justifySelf: "start" } }, t("common.backToMenu")),
+        el("a.btn.btn--ghost", { href: TIKTOK_URL, target: "_blank", rel: "noopener noreferrer" }, [
+          el("span", { html: TIKTOK_SVG, style: { display: "inline-flex", marginRight: "6px" } }), "TikTok",
+        ]),
+      ]),
     ]),
   };
 }
