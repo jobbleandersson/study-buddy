@@ -10,6 +10,7 @@ import { markdown } from "../lib/markdown.js";
 import { mascot, setMood } from "./mascot.js";
 import { store } from "../store.js";
 import { t } from "../lib/i18n.js";
+import { resetDateText } from "./ai-gate.js";
 // prompts.js and claude.js (plus their own transitive weight — check.js,
 // loose-json.js) are loaded lazily in submit() below, not here: this widget
 // mounts on every page from main.js, but almost nobody who loads a page ever
@@ -80,6 +81,14 @@ export function mountSiteChat() {
         el("p", {}, t("sitechat.signInTitle")),
         el("p.note", {}, t("sitechat.signInBody")),
         el("a.btn.btn--sm", { href: "#/login", style: { marginTop: "12px" } }, t("login.signIn")),
+      ]));
+      formEl.hidden = true;
+      return;
+    }
+    if (store.aiBlockReason() === "quota") {
+      logEl.appendChild(el("div.sitechat__dormant", {}, [
+        el("p", {}, t("sitechat.quotaTitle")),
+        el("p.note", {}, t("sitechat.quotaBody", { date: resetDateText(store.aiUsage?.resetsAt) })),
       ]));
       formEl.hidden = true;
       return;

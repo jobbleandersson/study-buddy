@@ -17,6 +17,7 @@ import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { bindFileTargets } from "../components/file-drop.js";
 import { solveTabs } from "../components/solve-tabs.js";
+import { aiQuotaNote } from "../components/ai-gate.js";
 
 export function renderSolve() {
   const root = el("div.solve");
@@ -136,6 +137,7 @@ export function renderSolve() {
   }
 
   function gateNote() {
+    if (store.aiBlockReason() === "quota") return aiQuotaNote({ style: { marginBottom: "16px" } });
     return store.aiNeedsSignIn()
       ? el("p.note", { style: { marginBottom: "16px" } }, [
           t("solve.needSignIn"),
@@ -207,13 +209,19 @@ export function renderSolve() {
       accept: "image/*", paste: canChat,
       onFiles: canChat
         ? ([file]) => attachImage(file)
-        : () => toast(store.aiNeedsSignIn() ? t("err.notSignedIn") : t("solve.noServerHere").trim()),
+        : () => toast(blockedToast()),
       onReject: () => toast(t("err.imageType")),
     });
   }
 
   build();
   return { title: t("solve.pageTitle"), node: root };
+}
+
+/** The toast for a picture dropped on the page while the AI is off, worded for the actual reason. */
+function blockedToast() {
+  const why = store.aiBlockReason();
+  return why === "signin" ? t("err.notSignedIn") : why === "quota" ? t("err.quotaExceeded") : t("solve.noServerHere").trim();
 }
 
 function escapeHtml(s) {

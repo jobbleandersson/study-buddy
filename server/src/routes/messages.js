@@ -3,7 +3,7 @@ import { requireAuth } from "../middleware/requireAuth.js";
 import { asyncHandler } from "../middleware/asyncHandler.js";
 import { takeToken, RATE_PER_MIN } from "../middleware/rateLimit.js";
 import {
-  recordUsage, checkBudget, checkDailyCap, reserveSpend, worstCaseMicro, readUsage, currentPeriod, periodResetsAt,
+  recordUsage, checkBudget, isBudgetExempt, checkDailyCap, reserveSpend, worstCaseMicro, readUsage, currentPeriod, periodResetsAt,
   MONTHLY_TOKEN_BUDGET, MAX_OUTPUT_TOKENS, ALLOWED_MODELS,
 } from "../usage.js";
 
@@ -134,7 +134,7 @@ messages.post("/messages", ...guards, asyncHandler(async (req, res) => {
     if (!takeToken(userId)) {
       return res.status(429).json({ error: { message: `Too many requests — max ${RATE_PER_MIN}/min.`, code: "rate_limited" } });
     }
-    const budget = checkBudget(userId);
+    const budget = isBudgetExempt(userId) ? { ok: true } : checkBudget(userId);
     if (!budget.ok) {
       return res.status(402).json({
         error: { message: "You've reached this month's AI limit.", code: "quota_exceeded" },
@@ -241,6 +241,7 @@ messages.get("/usage", requireAuth, (req, res) => {
     limit: MONTHLY_TOKEN_BUDGET,
     requests: u.requests,
     resetsAt: periodResetsAt(),
-    metered: REQUIRE_AUTH,
+    // An exempt account (AI_BUDGET_EXEMPT_EMAILS) has no monthly ceiling, so the client shows no limit for it.
+    metered: REQUIRE_AUTH && !isBudgetExempt(req.user.userId),
   });
 });
