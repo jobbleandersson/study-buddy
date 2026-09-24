@@ -755,8 +755,8 @@ function siteFooter() {
     el("span.sitefooter__copy", {}, t("footer.copy")),
     el("div.sitefooter__social", {}, [
       el("a.sitefooter__social-link", {
-        href: TIKTOK_URL, target: "_blank", rel: "noopener noreferrer", "aria-label": "TikTok",
-      }, [el("span", { html: TIKTOK_SVG })]),
+        href: TIKTOK_URL, target: "_blank", rel: "noopener noreferrer", "aria-label": "TikTok", html: TIKTOK_SVG,
+      }),
     ]),
   ]);
 }
