@@ -29,16 +29,16 @@
       "id": "q-fr9-q-2",
       "kind": "mc",
       "topic": "question words",
-      "prompt": "Vilket frågeord passar: \"___ ans as-tu ?\" — \"J'ai quinze ans.\"",
-      "opener": "Svaret är ett tal följt av \"ans\".",
+      "prompt": "Vilket frågeord passar: \"___ âge as-tu ?\" — \"J'ai quinze ans.\"",
+      "opener": "Frågan gäller åldern, och \"âge\" är ett maskulint ord.",
       "choices": [
         "Quel",
-        "Combien d'",
+        "Combien de",
         "Quelle",
         "Qui"
       ],
-      "answer": 1,
-      "explanation": "\"Combien d'ans as-tu ?\" betyder \"hur gammal är du?\" (bokstavligen \"hur många år har du?\")."
+      "answer": 0,
+      "explanation": "\"Quel âge as-tu ?\" betyder \"hur gammal är du?\" (bokstavligen \"vilken ålder har du?\"). \"Âge\" är maskulint, därför \"quel\" och inte \"quelle\"."
     },
     {
       "id": "q-fr9-q-3",

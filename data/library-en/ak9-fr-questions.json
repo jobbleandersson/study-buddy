@@ -29,16 +29,16 @@
       "id": "q-fr9-q-2",
       "kind": "mc",
       "topic": "question words",
-      "prompt": "Which question word fits: \"___ ans as-tu ?\" — \"J'ai quinze ans.\"",
-      "opener": "The answer is a number followed by \"ans\".",
+      "prompt": "Which question word fits: \"___ âge as-tu ?\" — \"J'ai quinze ans.\"",
+      "opener": "The question is about age, and \"âge\" is a masculine noun.",
       "choices": [
         "Quel",
-        "Combien d'",
+        "Combien de",
         "Quelle",
         "Qui"
       ],
-      "answer": 1,
-      "explanation": "\"Combien d'ans as-tu ?\" means \"how old are you?\" (literally \"how many years do you have?\")."
+      "answer": 0,
+      "explanation": "\"Quel âge as-tu ?\" means \"how old are you?\" (literally \"what age do you have?\"). \"Âge\" is masculine, so \"quel\" and not \"quelle\"."
     },
     {
       "id": "q-fr9-q-3",
