@@ -25,6 +25,7 @@ import { houseAd } from "../components/house-ad.js";
 import { speechSupported } from "../lib/speech.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
+import { STUDY_MODES } from "../lib/study-modes.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
 let tab = "assignment";
@@ -416,11 +417,26 @@ export function renderMenu(mode) {
   // its own "pick a set" call to action, and showing this too would just repeat it.
   const ad = store.assignments.length ? houseAd() : null;
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
-    el("div.home-main", {}, [homeStarter(), todayPanel(), headActions, ad, setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [homeStarter(), todayPanel(), headActions, chatPanel(), ad, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 
   return { title: t("menu.title"), node: el("div", {}, [greetingBlock, tonightCard(), dailySlot(), layout].filter(Boolean)), cleanup: menuCleanup };
+}
+
+/** "AI study help": one tap into the study chat already set to a way of studying. Only when the AI is
+ *  available - a strip of buttons that lead to "needs a server" would be a dead end on the home page. */
+function chatPanel() {
+  if (!store.hasKey()) return null;
+  return el("section.home-panel.home-panel--chat", {}, [
+    el("div.home-panel__label", {}, [
+      el("span", {}, t("menu.chatPanel")),
+      el("a.linkbtn", { href: "#/chat" }, t("menu.chatOpen")),
+    ]),
+    el("div.chatmodes", {}, STUDY_MODES.map((m) => el("a.chatmode", { href: `#/chat?mode=${m.id}` }, [
+      icon(ICONS[m.icon] || ICONS.spark, 16), t(`chat.mode.${m.id}`),
+    ]))),
+  ]);
 }
 
 /** The evening before a test the home page leads with a calm card that opens the
