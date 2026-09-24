@@ -6,6 +6,8 @@ import { fileURLToPath } from "node:url";
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import { compress } from "./compress.js";
+import { staticCacheControl } from "./static-cache.js";
 import "./db.js"; // creates tables on first run
 import { startSweeper } from "./sweep.js";
 import { health } from "./routes/health.js";
@@ -123,6 +125,7 @@ if (process.env.SITE_PASSWORD) {
 }
 
 if (ALLOWED_ORIGIN) app.use(cors({ origin: ALLOWED_ORIGIN, credentials: true })); // only needed if the frontend is ever hosted separately from this server
+app.use(compress);   // gzip/brotli for text responses; see compress.js
 app.use(cookieParser());
 app.use(express.json({ limit: "10mb" })); // material.js caps uploaded images at 5MB, base64 inflates that ~33%
 
@@ -152,7 +155,14 @@ app.use((req, res, next) => {
   p = p.replace(/\/{2,}/g, "/").toLowerCase();
   return BLOCKED.test(p) ? res.status(404).end() : next();
 });
-app.use(express.static(FRONTEND_ROOT, { dotfiles: "ignore" }));
+// Long-lived caching only for files that never change under the same name; see static-cache.js.
+app.use(express.static(FRONTEND_ROOT, {
+  dotfiles: "ignore",
+  setHeaders(res, filePath) {
+    const cc = staticCacheControl(filePath);
+    if (cc) res.setHeader("Cache-Control", cc);
+  },
+}));
 
 // Single-page app: any unmatched GET falls back to index.html so deep links
 // (the client uses hash routing, but a bare "/" and any stray path) resolve.
