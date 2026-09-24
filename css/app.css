@@ -3464,6 +3464,22 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 /* The welcome quiz's account card carries the same consent box as the sign-in page. */
 .welcome__acct .consentrow { margin: var(--s-3) 0 var(--s-2); font-size: var(--fs-sm); }
 
+/* Study chat (#/chat) and the home page's AI study help strip: the one-tap ways to study. */
+.chatmodes { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-bottom: var(--s-3); }
+.chatmode {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px;
+  font: inherit; font-size: var(--fs-sm); font-weight: 600; text-decoration: none; cursor: pointer;
+  color: var(--ink-soft); background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--r-full);
+}
+.chatmode:hover { color: var(--ink); border-color: var(--brand-bright, var(--brand)); }
+.chatmode.is-on { color: var(--brand-ink, var(--brand)); background: var(--brand-tint); border-color: var(--brand); }
+.chatmode svg { flex: none; }
+.home-panel--chat .chatmodes { margin: 6px 0 0; }
+.studychat__input { border-radius: var(--r-md); resize: none; line-height: 1.4; min-height: 44px; max-height: 40vh; overflow-y: auto; }
+.studychat__form { align-items: flex-end; }
+.studychat .msg.me { white-space: pre-wrap; overflow-wrap: anywhere; }
+.studychat .solve-chat__log { min-height: 200px; max-height: min(56vh, 520px); }
+
 /* Exam mode: question map (overview), flag button, flagged dots. */
 .progress-dots .is-flag { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--retry); }
 .flagbtn.is-on { color: var(--retry); border-color: var(--retry); }

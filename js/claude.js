@@ -244,14 +244,14 @@ export async function checkWorking({ image = null, problem = "", workingText = "
 
 // ---------- streaming tutor ----------
 
-export async function* tutorStream({ system, messages, signal }) {
+export async function* tutorStream({ system, messages, signal, maxTokens = 800 }) {
   const res = await fetch(API_URL, {
     method: "POST",
     headers: headers(),
     signal,
     body: JSON.stringify({
       model: modelFor("tutor"),
-      max_tokens: 800,
+      max_tokens: maxTokens,
       stream: true,
       system,
       messages,

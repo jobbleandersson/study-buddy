@@ -141,6 +141,7 @@ const routes = [
   { rx: /^\/solve$/, view: (m, qs) => (qs.get("mode") === "check"
     ? import("./views/check.js").then((mod) => mod.renderCheck())
     : import("./views/solve.js").then((mod) => mod.renderSolve())) },
+  { rx: /^\/chat$/, view: (m, qs) => import("./views/study-chat.js").then((mod) => mod.renderStudyChat(qs)) },
   { rx: /^\/reference$/, view: () => import("./views/reference.js").then((mod) => mod.renderReference()) },
   { rx: /^\/calculator$/, view: () => import("./views/calculator.js").then((mod) => mod.renderCalculator()) },
   { rx: /^\/achievements$/, view: () => import("./views/achievements.js").then((mod) => mod.renderAchievements()) },
@@ -203,6 +204,7 @@ function navGroups() {
     { href: "#/library",  match: "/library",   icon: ICONS.book,      label: t("nav.library") },
     { href: "#/create",   match: "/create",    icon: ICONS.plus,      label: t("nav.create") },
     { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
+    { href: "#/chat",     match: "/chat",      icon: ICONS.message,   label: t("nav.chat") },
     { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
     { href: "#/hp",       match: "/hp",        icon: ICONS.award,     label: t("nav.hp") },
   ];

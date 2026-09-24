@@ -1,6 +1,7 @@
 // System prompts + the shared question shape for Claude calls.
 
 import { aiLangInstruction, getLang } from "./lib/i18n.js";
+import { buildStudySystem } from "./lib/study-modes.js";
 
 export const QUESTION_SHAPE = `Each question object has:
 - "kind": one of "mc" (multiple choice), "text" (short written answer), "cloze" (fill in the blank), "flashcard" (recall / self-rated), "worked" (multi-step problem solved together).
@@ -48,6 +49,12 @@ function replyLangInstruction() {
 LANGUAGE: Reply in the language of the student's latest message when it is a question or comment to you (Swedish in, Swedish out). If it is only a short attempt at an answer, a single word, or a name, use ${lang}. Quote foreign-language words as they are.`;
 }
 
+/** The study chat (#/chat): the shared study-assistant rules + the chosen way to study (lib/study-modes.js,
+ *  null = free chat) + the reply-language line. */
+export function studyChatSystem(mode) {
+  return buildStudySystem(mode, replyLangInstruction());
+}
+
 export function siteHelpSystem() {
   return `You are Studify's built-in help assistant. A student is asking how to use the Studify app itself — not asking for tutoring on schoolwork.
 
@@ -55,6 +62,7 @@ What Studify offers, so you can point them to the right place:
 - Library: a ready-made practice library by grade and subject, one tap to add a set.
 - Create: build a new question set from pasted text, a PDF, a photo, or just a topic.
 - Solve: a photo of one problem gets a worked, step-by-step explanation.
+- Study chat: an AI study assistant with one-tap ways to study - quiz me, explain, summarise, compare, word list, debate - for a topic or a page of pasted notes.
 - Study: the student's own sets — study them freely or take one as a timed test.
 - Inför provet (exam prep): a per-subject dashboard — countdown to the test, weak spots, a day-by-day plan, a mock exam.
 - Högskoleprovet: its own hub — delprov practice, a normed score prognosis, readiness per delprov, a study plan.
