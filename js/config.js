@@ -33,6 +33,9 @@ export const RESET_PASSWORD_URL = `${API}/api/auth/reset-password`;
 
 // Where people write with privacy, data and general questions. One place, so it changes in one place.
 export const CONTACT_EMAIL = "studifyorganisation@gmail.com";
+
+// The only social link on the front page footer for now — see js/views/landing.js.
+export const TIKTOK_URL = "https://www.tiktok.com/@studiduogyu";
 export const STATE_URL = `${API}/api/state`;
 export const LINKS_URL = `${API}/api/links`;
 export const INVITE_CODE_URL = `${API}/api/links/invite-code`;

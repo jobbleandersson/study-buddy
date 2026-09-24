@@ -1402,6 +1402,14 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .lp-foot__links { display: flex; flex-wrap: wrap; gap: var(--s-4); }
 .lp-foot__links a { color: var(--ink-faint); text-decoration: none; }
 .lp-foot__links a:hover { color: var(--ink-soft); text-decoration: underline; }
+.lp-foot__social { display: flex; gap: var(--s-2); }
+.lp-foot__social-link {
+  display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--surface-sunk); color: var(--ink-faint);
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.lp-foot__social-link:hover { background: var(--brand-tint); color: var(--brand-ink); }
+.lp-foot__social-link:focus-visible { outline: none; box-shadow: var(--ring); }
 .lp-foot__copy { width: 100%; font-size: 12px; }
 @media (min-width: 760px) { .lp-foot__copy { width: auto; } }
 
