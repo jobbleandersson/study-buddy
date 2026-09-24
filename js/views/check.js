@@ -18,6 +18,7 @@ import { shrinkImage } from "../lib/photo.js";
 import { budgetShare } from "../lib/check.js";
 import { homeButton } from "../components/nav.js";
 import { solveTabs } from "../components/solve-tabs.js";
+import { aiQuotaNote } from "../components/ai-gate.js";
 import { bindFileTargets, pasteKey } from "../components/file-drop.js";
 
 export function renderCheck() {
@@ -51,7 +52,11 @@ export function renderCheck() {
   return { title: t("check.pageTitle"), node: root };
 
   async function attach(file) {
-    if (!store.hasKey()) { toast(store.aiNeedsSignIn() ? t("err.notSignedIn") : t("solve.noServerHere").trim()); return; }
+    if (!store.hasKey()) {
+      const why = store.aiBlockReason();
+      toast(why === "signin" ? t("err.notSignedIn") : why === "quota" ? t("err.quotaExceeded") : t("solve.noServerHere").trim());
+      return;
+    }
     try {
       st.image = await shrinkImage(file);
     } catch (err) {
@@ -77,6 +82,7 @@ export function renderCheck() {
   }
 
   function gateNote() {
+    if (store.aiBlockReason() === "quota") return aiQuotaNote({ style: { marginBottom: "16px" } });
     return store.aiNeedsSignIn()
       ? el("p.note", { style: { marginBottom: "16px" } }, [
           t("solve.needSignIn"), el("a", { href: "#/login" }, t("solve.needSignInLink")), t("solve.needSignInTail"),

@@ -181,7 +181,8 @@ export class TutorChat {
   _subText() {
     if (this.locked) return t("tutor.subLocked");
     if (Number.isFinite(this.hintBudget)) return t("tutor.hintsLeft", { n: this.hintsLeft });
-    return this.live ? t("tutor.subLive") : t("tutor.subDemo");
+    if (this.live) return t("tutor.subLive");
+    return store.aiBlockReason() === "quota" ? t("tutor.subQuota") : t("tutor.subDemo");
   }
   _refreshSub() { if (this.subEl) this.subEl.textContent = this._subText(); }
 

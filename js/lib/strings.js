@@ -313,6 +313,7 @@ export const STRINGS = {
     "tutor.name": "Studify",
     "tutor.subLive": "your tutor",
     "tutor.subDemo": "your tutor · demo mode",
+    "tutor.subQuota": "your tutor · allowance used up, built-in hints",
     "tutor.subLocked": "locked during the test",
     "tutor.lockedTitle": "I'm sitting this one out.",
     "tutor.lockedBody": "It's a test, so no hints — answer as best you can. When you finish I'll go through everything you missed with you.",
@@ -420,6 +421,7 @@ export const STRINGS = {
     "create.needKeyLink": "check its status in Settings",
     "create.needKeyTail": ".",
     "create.optNeedsServer": "needs a server",
+    "create.optQuotaOut": "AI allowance used up",
     "create.optNeedsSignIn": "sign in",
     "create.needSignIn": "“Build it myself” and “Import cards” work without an account. The rest write questions with AI — ",
     "create.needSignInLink": "sign in",
@@ -1964,6 +1966,8 @@ export const STRINGS = {
     "sitechat.signInTitle": "Sign in to chat",
     "sitechat.signInBody": "Answers come from AI, so the chat is available once you're signed in.",
     "sitechat.dormantBody": "This chat needs a live tutor server to answer — {status}",
+    "sitechat.quotaTitle": "This month's AI allowance is used up",
+    "sitechat.quotaBody": "The help chat is back when it resets on {date}. Everything else keeps working.",
   },
 
   /* ================================================================ */
@@ -2289,6 +2293,7 @@ export const STRINGS = {
     "tutor.name": "Studify",
     "tutor.subLive": "din handledare",
     "tutor.subDemo": "din handledare · demoläge",
+    "tutor.subQuota": "din handledare · AI-utrymmet slut, inbyggda tips",
     "tutor.subLocked": "avstängd under provet",
     "tutor.lockedTitle": "Jag sitter över den här.",
     "tutor.lockedBody": "Det är ett prov, så inga tips — svara så gott du kan. När du är klar går jag igenom allt du missade med dig.",
@@ -2396,6 +2401,7 @@ export const STRINGS = {
     "create.needKeyLink": "se dess status i Inställningar",
     "create.needKeyTail": ".",
     "create.optNeedsServer": "kräver server",
+    "create.optQuotaOut": "AI-utrymmet är slut",
     "create.optNeedsSignIn": "logga in",
     "create.needSignIn": "”Bygg själv” och ”Importera kort” fungerar utan konto. Övriga skapar frågor med AI — ",
     "create.needSignInLink": "logga in",
@@ -3926,5 +3932,7 @@ export const STRINGS = {
     "sitechat.signInTitle": "Logga in för att chatta",
     "sitechat.signInBody": "Svaren kommer från AI, så chatten fungerar när du är inloggad.",
     "sitechat.dormantBody": "Den här chatten behöver en live handledarserver för att svara — {status}",
+    "sitechat.quotaTitle": "Månadens AI-utrymme är slut",
+    "sitechat.quotaBody": "Hjälpchatten är tillbaka när det återställs {date}. Allt annat fungerar som vanligt.",
   },
 };

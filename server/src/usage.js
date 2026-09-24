@@ -107,6 +107,19 @@ export function addUsage(userId, { inputTokens = 0, outputTokens = 0 } = {}) {
   });
 }
 
+const emailOfStmt = db.prepare("SELECT email FROM users WHERE id = ?");
+
+/** Accounts that skip the per-account monthly token ceiling: the owner and the people testing the product,
+ *  listed by email in AI_BUDGET_EXEMPT_EMAILS (comma-separated; empty by default, so nobody is exempt).
+ *  Only this per-account ceiling is lifted - every request is still metered and booked, and the
+ *  server-wide daily dollar cap below applies to everyone, so this can't run up an unbounded bill. */
+export function isBudgetExempt(userId) {
+  const list = String(process.env.AI_BUDGET_EXEMPT_EMAILS || "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
+  if (!userId || !list.length) return false;
+  const row = emailOfStmt.get(userId);
+  return !!row && list.includes(String(row.email).toLowerCase());
+}
+
 /** { ok, used, limit, resetsAt } — call before forwarding a request. */
 export function checkBudget(userId) {
   const used = readUsage(userId).totalTokens;

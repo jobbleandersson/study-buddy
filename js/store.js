@@ -1485,6 +1485,18 @@ class Store extends EventTarget {
       && this.proxyRequiresAuth && !this.authed;
   }
 
+  /** Why the AI features are off for this visitor right now, or null when they are on:
+   *  "signin"      the server is ready and only an account is missing,
+   *  "quota"       this month's allowance is used up (the server is fine),
+   *  "unavailable" no server reachable, or it has no key.
+   *  Pages use it to say the true reason instead of blaming a missing server for all three. */
+  aiBlockReason() {
+    if (this.canUseAI()) return null;
+    if (this.aiNeedsSignIn()) return "signin";
+    if (this.proxyUp && this.proxyKeyConfigured && this._aiQuotaOut) return "quota";
+    return "unavailable";
+  }
+
   /** Legacy name — every existing caller means canUseAI(). Kept so views don't
    *  all have to change at once; new code should call canUseAI(). */
   hasKey() { return this.canUseAI(); }

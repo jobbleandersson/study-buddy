@@ -15,6 +15,7 @@ import { t, plural } from "../lib/i18n.js";
 import { localDayKey } from "../lib/activity.js";
 import { foldedDatePicker } from "../components/calendar.js";
 import { fileDrop } from "../components/file-drop.js";
+import { aiQuotaNote } from "../components/ai-gate.js";
 import { NATIONAL_TEST_LEVELS, NATIONAL_TEST_SUBJECTS, nationalSubjectName } from "../data/national-tests.js";
 
 // Starter questions for a "build it myself" set — one of each kind, cycling.
@@ -189,6 +190,7 @@ export function renderCreate(prefill) {
   function sourceStep() {
     const noServer = !store.hasKey();
     const needsSignIn = store.aiNeedsSignIn();
+    const quotaOut = store.aiBlockReason() === "quota";
     const opt = (key, iconPath, label, desc, needsAi) => el("button.source-opt" + (needsAi && noServer ? ".source-opt--locked" : ""), {
       type: "button",
       onclick: () => {
@@ -203,7 +205,7 @@ export function renderCreate(prefill) {
     }, [
       icon(iconPath, 26), label,
       el("div.note", { style: { fontWeight: "400", marginTop: "4px" } }, desc),
-      needsAi && noServer ? el("span.source-opt__tag", {}, t(needsSignIn ? "create.optNeedsSignIn" : "create.optNeedsServer")) : null,
+      needsAi && noServer ? el("span.source-opt__tag", {}, t(needsSignIn ? "create.optNeedsSignIn" : quotaOut ? "create.optQuotaOut" : "create.optNeedsServer")) : null,
     ].filter(Boolean));
 
     return el("div.panel", {}, [
@@ -220,7 +222,8 @@ export function renderCreate(prefill) {
         t("create.needSignIn"), el("a", { href: "#/login" }, t("create.needSignInLink")),
         t("create.needSignInTail"),
       ]),
-      noServer && !needsSignIn && el("p.note.note--warn", { style: { marginTop: "16px" } }, [
+      noServer && quotaOut && aiQuotaNote({ altHref: "#/library", altKey: "create.noServerAlt", style: { marginTop: "16px" } }),
+      noServer && !needsSignIn && !quotaOut && el("p.note.note--warn", { style: { marginTop: "16px" } }, [
         t("create.needKey"), el("a", { href: "#/settings" }, t("create.needKeyLink")),
         t("create.needKeyTail"),
       ]),
@@ -586,7 +589,9 @@ export function renderCreate(prefill) {
       ]),
       err,
       // Spell out why the button is dead — right where it's dead, not just on step 1.
-      !store.hasKey() && (store.aiNeedsSignIn()
+      !store.hasKey() && (store.aiBlockReason() === "quota"
+        ? aiQuotaNote({ altHref: "#/library", altKey: "create.noServerAlt", style: { marginBottom: "12px" } })
+        : store.aiNeedsSignIn()
         ? el("p.note", { style: { marginBottom: "12px" } }, [
             t("create.genNeedSignIn"),
             el("a", { href: "#/login" }, t("create.needSignInLink")),
