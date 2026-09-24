@@ -806,6 +806,10 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     // A running session / worksheet is a focus context — hide the floating
     // app-help chat there too (it lives on <body>, outside the shell).
     document.body.classList.toggle("route-immersive", immersiveRoute());
+    // A soft refresh stays on the same screen (same scroll position, same
+    // reason the fab was or wasn't tucked away) — only a real navigation
+    // should clear a scroll-hidden fab from whatever route came before it.
+    if (!softRefresh) resetFabAway();
 
     const title = result?.title || "Studify";
     document.title = result?.title ? `${result.title} · Studify` : "Studify";
@@ -876,15 +880,26 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
 // library). Tuck it away while scrolling down; it slides back on the way up. site-chat.js loads lazily
 // (loadDeferredUI, above) but its fab is the only thing this listener acts on, so the listener itself
 // can register up front — it's a no-op scroll handler until the fab actually exists.
-{
-  let lastY = window.scrollY;
-  window.addEventListener("scroll", () => {
-    if (document.querySelector('.sitechat__fab[aria-expanded="true"]')) return;   // chat is open: keep its button
-    const y = window.scrollY;
-    if (y > lastY + 6 && y > 60) document.body.classList.add("fab-away");
-    else if (y < lastY - 6 || y <= 60) document.body.classList.remove("fab-away");
-    lastY = y;
-  }, { passive: true });
+let lastFabY = window.scrollY;
+window.addEventListener("scroll", () => {
+  if (document.querySelector('.sitechat__fab[aria-expanded="true"]')) return;   // chat is open: keep its button
+  const y = window.scrollY;
+  if (y > lastFabY + 6 && y > 60) document.body.classList.add("fab-away");
+  else if (y < lastFabY - 6 || y <= 60) document.body.classList.remove("fab-away");
+  lastFabY = y;
+}, { passive: true });
+
+// render()'s own window.scrollTo(0, keepY) below (a real navigation always
+// resets to 0) does NOT reliably re-trigger the listener above: a browser
+// only fires "scroll" on an actual position change, so landing on a route
+// that was already at scrollY 0 leaves "fab-away" exactly as a previous,
+// now-gone route left it — observed live as the chat button staying hidden
+// on plain, unscrolled pages after merely having scrolled once anywhere
+// earlier in the session. Navigation is its own reset point regardless of
+// whether a scroll event happens to fire, so it clears the class directly.
+function resetFabAway() {
+  lastFabY = 0;
+  document.body.classList.remove("fab-away");
 }
 
 store.init().then(() => {
