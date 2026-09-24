@@ -1,8 +1,8 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
-import { CONTACT_EMAIL, PAGEVIEW_URL } from "./config.js";
-import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
+import { CONTACT_EMAIL, PAGEVIEW_URL, TIKTOK_URL } from "./config.js";
+import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText, TIKTOK_SVG } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
 import { localDayKey } from "./lib/activity.js";
@@ -751,6 +751,11 @@ function siteFooter() {
       el("a", { href: `mailto:${CONTACT_EMAIL}` }, t("footer.contact")),
     ]),
     el("span.sitefooter__copy", {}, t("footer.copy")),
+    el("div.sitefooter__social", {}, [
+      el("a.sitefooter__social-link", {
+        href: TIKTOK_URL, target: "_blank", rel: "noopener noreferrer", "aria-label": "TikTok",
+      }, [el("span", { html: TIKTOK_SVG })]),
+    ]),
   ]);
 }
 

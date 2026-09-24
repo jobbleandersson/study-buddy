@@ -1153,6 +1153,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .sitefooter__links a:hover { color: var(--ink-soft); text-decoration: underline; }
 .sitefooter__copy { width: 100%; font-size: 12px; order: 3; }
 @media (min-width: 620px) { .sitefooter__copy { width: auto; order: 0; } }
+.sitefooter__social { display: flex; gap: var(--s-2); }
 
 /* ---------- front page (#/welcome) ----------
    Rendered without the app shell, so this section owns its own header,
@@ -1403,13 +1404,13 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .lp-foot__links a { color: var(--ink-faint); text-decoration: none; }
 .lp-foot__links a:hover { color: var(--ink-soft); text-decoration: underline; }
 .lp-foot__social { display: flex; gap: var(--s-2); }
-.lp-foot__social-link {
+.lp-foot__social-link, .sitefooter__social-link {
   display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
   background: var(--surface-sunk); color: var(--ink-faint);
   transition: background var(--dur-fast), color var(--dur-fast);
 }
-.lp-foot__social-link:hover { background: var(--brand-tint); color: var(--brand-ink); }
-.lp-foot__social-link:focus-visible { outline: none; box-shadow: var(--ring); }
+.lp-foot__social-link:hover, .sitefooter__social-link:hover { background: var(--brand-tint); color: var(--brand-ink); }
+.lp-foot__social-link:focus-visible, .sitefooter__social-link:focus-visible { outline: none; box-shadow: var(--ring); }
 .lp-foot__copy { width: 100%; font-size: 12px; }
 @media (min-width: 760px) { .lp-foot__copy { width: auto; } }
 
