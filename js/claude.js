@@ -160,11 +160,17 @@ function normalizeDoc(doc) {
     return out;
   }).filter((q) => q.prompt && (q.kind !== "mc" || q.choices.length >= 2));
 
+  const topics = doc.topics || [...new Set(questions.map((q) => q.topic))];
   return {
     title: doc.title || topicTitle(doc),
     subject: doc.subject || "General",
-    sourceSummary: doc.sourceSummary || "",
-    topics: doc.topics || [...new Set(questions.map((q) => q.topic))],
+    // The prompt asks for a real summary and calls it out as easy to skip
+    // (see generationSystem in prompts.js), but a model instruction is never
+    // a guarantee — this still needs a real fallback, not just a better ask.
+    // Topics as a plain list, not a fake sentence: honest about being a
+    // fallback rather than passing off derived data as the model's own prose.
+    sourceSummary: doc.sourceSummary || (topics.length ? cap(topics.join(", ")) : ""),
+    topics,
     questions,
   };
 }

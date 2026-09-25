@@ -26,13 +26,15 @@ Respond with ONLY a single JSON object (no prose, no markdown fence) of this sha
 {
   "title": string,              // short, specific
   "subject": string,            // e.g. "Science", "History", "Math"
-  "sourceSummary": string,      // 3-5 sentences a student would actually want to read before
-                                 // practicing: what the material covers and why it matters, in
-                                 // plain language. Markdown is fine (paragraphs, a short list,
+  "sourceSummary": string,      // ALWAYS a real 3-5 sentence summary — never empty, never a
+                                 // placeholder. What the material covers and why it matters, in
+                                 // plain language a student would actually want to read before
+                                 // practicing. Markdown is fine (paragraphs, a short list,
                                  // **bold**) — it's rendered, not shown as raw text.
   "topics": string[],           // the distinct topic tags you used
   "questions": Question[]        // the questions — EVERY question carries an "opener"
 }
+Two fields are easy to skip under time pressure and must never be skipped: "sourceSummary" above, and "opener" on every question below.
 
 A multiple-choice question therefore looks like this (other kinds swap in their own fields, but never drop "opener"):
 { "kind": "mc", "topic": "fractions", "prompt": "…", "choices": ["…", "…", "…"], "answerIndex": 0, "explanation": "…", "opener": "Think about what the bottom numbers tell you before you add." }
