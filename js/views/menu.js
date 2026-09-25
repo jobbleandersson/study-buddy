@@ -26,6 +26,7 @@ import { speechSupported } from "../lib/speech.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
 import { STUDY_MODES } from "../lib/study-modes.js";
+import { MY_REVIEW_URL } from "../config.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
 let tab = "assignment";
@@ -462,7 +463,7 @@ function tonightCard() {
  *  Upcoming list, and an achievements teaser (the badge closest to
  *  unlocking, or a "you got them all" note). */
 function homeRail() {
-  const panels = [backupPanel(), calendarPanel(), achievementsPanel()].filter(Boolean);
+  const panels = [backupPanel(), reviewPanel(), calendarPanel(), achievementsPanel()].filter(Boolean);
   return panels.length ? el("aside.home-rail", {}, panels) : null;
 }
 
@@ -494,6 +495,40 @@ function backupPanel() {
       el("a.btn.btn--ghost.btn--sm", { href: "#/login" }, t("backup.signIn")),
     ]),
   ]);
+  return panel;
+}
+
+/** "Gillar du Studify?" — asks a signed-in student with real history for a review (#/rate). Only
+ *  once they've finished a few sessions, never if they already wrote one, and a dismissal keeps it
+ *  away for 60 days on this device. Whether they have a review is asked once per page load (the
+ *  home page re-renders on every store change); the panel starts hidden and shows once that's known. */
+const REVIEW_PROMPT_KEY = "studify.reviewPromptDismissedAt";
+const REVIEW_PROMPT_MIN_ATTEMPTS = 5;
+let ownReview = null;   // null = not asked yet, then a promise of true/false
+
+function reviewPanel() {
+  if (!store.authed || (store.state.attempts || []).length < REVIEW_PROMPT_MIN_ATTEMPTS) return null;
+  let dismissedAt = 0;
+  try { dismissedAt = Number(localStorage.getItem(REVIEW_PROMPT_KEY)) || 0; } catch {}
+  if (Date.now() - dismissedAt < 60 * 86400000) return null;
+
+  ownReview ??= fetch(MY_REVIEW_URL, { credentials: "include" })
+    .then((r) => (r.ok ? r.json() : { review: true }))   // unsure = don't nag
+    .then((d) => !!d?.review)
+    .catch(() => true);
+
+  const panel = el("section.home-panel", { hidden: true }, [
+    el("div.home-panel__label", {}, [
+      el("span", {}, t("rate.promptTitle")),
+      el("button.linkbtn", {
+        type: "button",
+        onclick: () => { try { localStorage.setItem(REVIEW_PROMPT_KEY, String(Date.now())); } catch {} panel.remove(); },
+      }, t("backup.dismiss")),
+    ]),
+    el("p.note", { style: { margin: "2px 0 10px" } }, t("rate.promptBody")),
+    el("a.btn.btn--sm", { href: "#/rate" }, [icon(ICONS.pencil, 15), t("rate.promptCta")]),
+  ]);
+  ownReview.then((has) => { if (!has) panel.hidden = false; });
   return panel;
 }
 

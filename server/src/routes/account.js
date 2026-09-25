@@ -17,7 +17,7 @@ const deleteFailures = attemptLimit({
 
 // Erase the signed-in account and everything the server holds about it: the login, every session
 // (so other devices are signed out), the synced study data, parent/friend links and their codes,
-// sets assigned to or by them, AI usage, any outstanding verify/reset email token, a premium-waitlist
+// sets assigned to or by them, AI usage, their review of Studify (approved or not), any outstanding verify/reset email token, a premium-waitlist
 // entry under the account's own email, their own answers to any class's daily question, and — for a
 // teacher — their classes with all members, assignments, and daily questions (with everyone's
 // answers to them). Each table is named here on
@@ -67,6 +67,7 @@ account.delete("/account", requireAuth, deleteFailures, asyncHandler(async (req,
     // email can be tied to it - one they joined with some other address (a parent's, say) stays.
     db.prepare("DELETE FROM premium_waitlist WHERE email = ?").run(user.email);
     db.prepare("DELETE FROM ai_usage WHERE user_id = ?").run(userId);
+    db.prepare("DELETE FROM reviews WHERE user_id = ?").run(userId);
     db.prepare("DELETE FROM state_blobs WHERE user_id = ?").run(userId);
     db.prepare("DELETE FROM sessions WHERE user_id = ?").run(userId);
     db.prepare("DELETE FROM users WHERE id = ?").run(userId);

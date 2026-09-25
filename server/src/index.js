@@ -23,6 +23,7 @@ import { classDaily } from "./routes/class-daily.js";
 import { account } from "./routes/account.js";
 import { waitlist } from "./routes/waitlist.js";
 import { analytics } from "./routes/analytics.js";
+import { reviews } from "./routes/reviews.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // The frontend (index.html, css/, js/, etc.) is the repo root — normally two
@@ -142,6 +143,7 @@ app.use("/api", classDaily);
 app.use("/api", account);
 app.use("/api", waitlist);
 app.use("/api", analytics);
+app.use("/api", reviews);
 
 // Never let the static server reach into server/ itself — it holds .env,
 // the sqlite db, and node_modules, none of which are meant to be fetchable.

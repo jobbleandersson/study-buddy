@@ -220,6 +220,24 @@ db.exec(`
   -- see js/main.js and routes/analytics.js. No user id, no IP, no cookie: just
   -- enough to tell where traffic came from (e.g. a TikTok bio link's
   -- ?utm_source=tiktok) without tracking anyone individually.
+  -- A student's own review of Studify, written in the app (#/rate). One per account: sending a new
+  -- one replaces the old and puts it back in the queue. Nothing is shown publicly until someone with
+  -- REVIEW_ADMIN_KEY approves it (routes/reviews.js), and only with consent = 1. display_name is what
+  -- the student chose to be shown as (first name or initials), never taken from the account.
+  CREATE TABLE IF NOT EXISTS reviews (
+    id TEXT PRIMARY KEY,
+    user_id TEXT UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    rating INTEGER NOT NULL,
+    text TEXT NOT NULL,
+    display_name TEXT NOT NULL,
+    context TEXT NOT NULL DEFAULT '',
+    lang TEXT NOT NULL,
+    consent INTEGER NOT NULL,
+    status TEXT NOT NULL DEFAULT 'pending',   -- 'pending' | 'approved' | 'rejected'
+    created_at INTEGER NOT NULL,
+    reviewed_at INTEGER
+  );
+
   CREATE TABLE IF NOT EXISTS page_views (
     id TEXT PRIMARY KEY,
     path TEXT NOT NULL,

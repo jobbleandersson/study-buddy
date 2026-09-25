@@ -405,6 +405,7 @@ export function renderSettings() {
           },
         }, t("set.acctSignOut")));
         actions.appendChild(el("a.btn.btn--ghost.btn--sm", { href: "#/parent" }, t("set.acctParentLink")));
+        actions.appendChild(el("a.btn.btn--ghost.btn--sm", { href: "#/rate" }, t("set.acctReviewLink")));
         actions.appendChild(el("button.btn.btn--ghost.btn--sm", {
           type: "button", style: { color: "var(--retry-ink)" },
           onclick: async () => {
