@@ -18,6 +18,7 @@ import { homeButton } from "../components/nav.js";
 import { bindFileTargets } from "../components/file-drop.js";
 import { solveTabs } from "../components/solve-tabs.js";
 import { aiQuotaNote } from "../components/ai-gate.js";
+import { mascot, setMood } from "../components/mascot.js";
 
 export function renderSolve() {
   const root = el("div.solve");
@@ -31,6 +32,9 @@ export function renderSolve() {
   // Built once; mutated directly from here on (streaming and attach
   // previews need to update in place without losing focus or typed text).
   let refs = null;
+  // The chat header's avatar — its mood follows the same busy/idle rhythm as the
+  // help-chat bubble's (site-chat.js), so the assistant visibly "thinks" while streaming.
+  const mascotEl = mascot("idle", 40);
 
   function appendWelcome() {
     const node = el("div.msg.ai.solve-chat__welcome", {});
@@ -113,6 +117,7 @@ export function renderSolve() {
     state.busy = true;
     refs.inputEl.disabled = true;
     refs.attachBtn.disabled = true;
+    setMood(mascotEl, "thinking");
     const bubble = appendAiBubble();
     bubble.innerHTML = `<span class="typing"><span></span><span></span><span></span></span>`;
     let acc = "";
@@ -132,6 +137,7 @@ export function renderSolve() {
       state.busy = false;
       refs.inputEl.disabled = false;
       refs.attachBtn.disabled = false;
+      setMood(mascotEl, "idle");
       refs.inputEl.focus();
     }
   }
@@ -187,11 +193,17 @@ export function renderSolve() {
     refs = { logEl, pendingEl, inputEl, attachBtn, resetBtn };
 
     root.appendChild(homeButton({ grid: true }));
-    root.appendChild(solveTabs("help"));
-    root.appendChild(el("div", { style: { display: "flex", alignItems: "baseline", gap: "12px", flexWrap: "wrap", marginTop: "8px" } }, [
-      el("h1", {}, t("solve.title")),
+    root.appendChild(el("div.solvehead", {}, [
+      mascotEl,
+      el("div.solvehead__id", {}, [
+        el("h1.solvehead__name", {}, t("solve.aiName")),
+        el("p.solvehead__status", {}, canChat
+          ? [el("i.solvehead__livedot", { "aria-hidden": "true" }), t("solve.aiStatus")]
+          : [el("i.solvehead__livedot.is-off", { "aria-hidden": "true" }), t("solve.aiOffline")]),
+      ]),
       resetBtn,
     ]));
+    root.appendChild(solveTabs("help"));
     const panel = el("div.panel.solve-chat__panel", {}, [
       canChat ? null : gateNote(),
       logEl,

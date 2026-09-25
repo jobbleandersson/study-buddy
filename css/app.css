@@ -3524,3 +3524,27 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .examlegend { display: flex; flex-wrap: wrap; gap: var(--s-4); margin-bottom: var(--s-3); font-size: var(--fs-sm); color: var(--ink-faint); }
 .examlegend span { display: inline-flex; align-items: center; gap: 6px; }
 .examlegend .examcell { width: 16px; height: 16px; min-height: 0; padding: 0; border-radius: 4px; cursor: default; }
+
+/* Solve's chat header: an avatar + name + status, in place of a plain page title — the
+   assistant is a "someone", not a form field, and this is the first thing on the page that
+   says so. Reuses the mascot() component so the same face appears in the tutor and here. */
+.solvehead { display: flex; align-items: center; gap: var(--s-3); margin: 12px 0 var(--s-3); }
+.solvehead__id { flex: 1; min-width: 0; }
+.solvehead__name { font-size: var(--fs-lg); margin: 0; }
+.solvehead__status {
+  display: flex; align-items: center; gap: 6px;
+  margin: 2px 0 0; font-size: var(--fs-sm); color: var(--ink-faint);
+}
+.solvehead__livedot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--ok-bright); flex: none;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok-bright) 55%, transparent);
+  animation: solvehead-pulse 2.2s ease-out infinite;
+}
+.solvehead__livedot.is-off { background: var(--ink-faint); box-shadow: none; animation: none; }
+@keyframes solvehead-pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok-bright) 55%, transparent); }
+  70%  { box-shadow: 0 0 0 6px color-mix(in srgb, var(--ok-bright) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok-bright) 0%, transparent); }
+}
+@media (prefers-reduced-motion: reduce) { .solvehead__livedot { animation: none; } }
+.solvehead .solve-chat__reset { flex: none; }

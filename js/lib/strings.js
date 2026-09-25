@@ -1114,6 +1114,9 @@ export const STRINGS = {
 
     "solve.pageTitle": "Solve a problem",
     "solve.title": "Solve a problem",
+    "solve.aiName": "Studify AI",
+    "solve.aiStatus": "Answers right away, day or night",
+    "solve.aiOffline": "Not available right now",
     "solve.intro": "Send a photo of the problem, paste or drag one in, or just type your question — I'll help you work through it, step by step.",
     "solve.uploadHint": "A clear, well-lit photo works best — PNG or JPG, up to 5 MB.",
     "solve.attachLabel": "Attach a photo",
@@ -3173,6 +3176,9 @@ export const STRINGS = {
 
     "solve.pageTitle": "Lös en uppgift",
     "solve.title": "Lös en uppgift",
+    "solve.aiName": "Studify AI",
+    "solve.aiStatus": "Svarar direkt, dygnet runt",
+    "solve.aiOffline": "Inte tillgänglig just nu",
     "solve.intro": "Skicka en bild på uppgiften, klistra in en eller dra hit den, eller skriv bara din fråga — jag hjälper dig lösa den, steg för steg.",
     "solve.uploadHint": "En tydlig, välbelyst bild fungerar bäst — PNG eller JPG, upp till 5 MB.",
     "solve.attachLabel": "Bifoga en bild",
