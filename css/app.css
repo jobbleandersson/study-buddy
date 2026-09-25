@@ -1314,19 +1314,27 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 }
 .lp-row p { max-width: 38ch; font-size: 1.05rem; line-height: 1.65; color: var(--ink-soft); margin: 0; }
 
-/* library: the real subjects, then the four levels */
-.lp-subjects { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 22px; }
+/* library: the real subjects, then the four levels — one pill family for
+   both, so the level row reads as part of the same system instead of a
+   separate, disconnected element underneath. */
+.lp-subjects { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .lp-subjects li {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: clamp(1.1rem, 2vw, 1.45rem); font-weight: 700; letter-spacing: -.015em; color: var(--ink);
+  display: inline-flex; align-items: center;
+  padding: 7px 15px; border-radius: var(--r-full);
+  font-size: var(--fs-sm); font-weight: 700; letter-spacing: -.005em;
+  background: var(--subj-tint); color: var(--subj-ink);
 }
-.lp-subjects li::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--dot); }
 .lp-levels {
-  list-style: none; margin: var(--s-5) 0 0; padding: 0; display: inline-flex;
-  border: 1px solid var(--line-strong); border-radius: var(--r-full); overflow: hidden; background: var(--surface);
+  list-style: none; margin: var(--s-5) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px;
 }
-.lp-levels li { padding: 8px 16px; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-soft); }
-.lp-levels li + li { border-left: 1px solid var(--line); }
+.lp-levels li {
+  padding: 7px 15px; border-radius: var(--r-full);
+  font-size: var(--fs-sm); font-weight: 700; color: var(--ink);
+  background: var(--surface-sunk);
+}
+/* The last level is the highest one — lp.levels is always ordered low to
+   high — so it's the one worth a brand accent, not a decorative choice. */
+.lp-levels li:last-child { background: var(--brand); color: #fff; }
 
 /* own material: three inputs in, questions out */
 .lp-src { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }

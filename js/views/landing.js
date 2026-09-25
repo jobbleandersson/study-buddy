@@ -141,8 +141,14 @@ const HUES = ["grape", "ocean", "leaf", "tangerine", "berry", "sky"];
 
 function libraryArt() {
   return el("div", {}, [
-    el("ul.lp-subjects", {}, t("lp.subjectList").split("|").map((name, i) =>
-      el("li", { style: { "--dot": `var(--c-${HUES[i % HUES.length]})` } }, name))),
+    el("ul.lp-subjects", {}, t("lp.subjectList").split("|").map((name, i) => {
+      const hue = HUES[i % HUES.length];
+      // Named --subj-*, not --tint/--ink: those would shadow the app's own
+      // global --ink token for anything nested inside this <li>, which reads
+      // fine here but silently breaks the moment something else needs the
+      // real text color inside one of these pills.
+      return el("li", { style: { "--subj-tint": `var(--c-${hue}-tint)`, "--subj-ink": `var(--c-${hue}-ink)` } }, name);
+    })),
     el("ul.lp-levels", {}, t("lp.levels").split("|").map((l) => el("li", {}, l))),
   ]);
 }
