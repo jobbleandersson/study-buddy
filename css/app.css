@@ -2090,9 +2090,14 @@ body.route-chat .sitechat__panel { display: none; }
 .scorering text { font-family: var(--font-display); font-weight: 700; fill: var(--ink); }
 .delta-list { display: flex; flex-direction: column; gap: var(--s-2); margin: var(--s-5) 0; text-align: left; }
 .delta { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); padding: var(--s-3) var(--s-4); border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--line); }
+/* Topic rows line up as columns — name, bar, change — so every bar starts at the same x
+   however long the topic name is. The review list below reuses .delta as a plain stack. */
+.delta-list:not(.delta-list--review) .delta { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr) 3.2em; }
+@media (max-width: 480px) { .delta-list:not(.delta-list--review) .delta { grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr) 3em; } }
+.delta__topic { min-width: 0; overflow-wrap: anywhere; }
 .delta__bar { flex: 1; height: 8px; border-radius: var(--r-full); background: var(--surface-sunk); overflow: hidden; margin: 0 var(--s-3); }
 .delta__bar i { display: block; height: 100%; background: var(--ok); border-radius: inherit; transition: width var(--dur-slow) var(--ease-out); }
-.delta__n { font-size: var(--fs-sm); font-weight: 700; }
+.delta__n { font-size: var(--fs-sm); font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
 .delta__n.up { color: var(--ok); } .delta__n.down { color: var(--retry-ink); }
 
 /* Wrong-answer review on the results screen — the correct answer + any
@@ -2138,11 +2143,14 @@ body.route-chat .sitechat__panel { display: none; }
 .badge-card.is-locked .badge-card__text strong { color: var(--ink-soft); }
 
 /* 12-week study heatmap — 7 rows (Mon-Sun), columns are weeks, oldest left. */
+/* Cells grow with the window (13px on a phone, up to 22px on desktop) so the grid fills its card
+   instead of sitting small in one corner. */
 .heatmap {
-  display: grid; grid-template-rows: repeat(7, 13px); grid-auto-flow: column;
-  grid-auto-columns: 13px; gap: 3px; width: max-content; max-width: 100%;
+  --cell: clamp(13px, 1.6vw, 22px);
+  display: grid; grid-template-rows: repeat(7, var(--cell)); grid-auto-flow: column;
+  grid-auto-columns: var(--cell); gap: clamp(3px, .3vw, 5px); width: max-content; max-width: 100%;
 }
-.heatmap__cell { width: 13px; height: 13px; border-radius: 3px; background: var(--surface-sunk); }
+.heatmap__cell { width: var(--cell); height: var(--cell); border-radius: 4px; background: var(--surface-sunk); }
 .heatmap__cell.on { background: var(--ok); }
 .heatmap__cell.frozen { background: var(--info); }
 .heatmap__cell.is-today { outline: 2px solid var(--brand); outline-offset: 1px; }

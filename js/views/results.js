@@ -114,12 +114,12 @@ export function renderResults(attemptId) {
     gradeReveal(attempt),
     hpReveal(attempt),
 
-    deltaEntries.length ? el("div", {}, [
+    deltaEntries.length ? el("div", { style: { marginTop: "24px", textAlign: "left" } }, [
       el("h3", { style: { marginBottom: "8px" } }, t("results.topicMastery")),
       el("div.delta-list", {}, deltaEntries.map(([topic, d]) => {
         const change = Math.round((d.after - d.before) * 100);
         return el("div.delta", {}, [
-          el("span", { style: { minWidth: "110px" } }, sentenceCase(topic)),
+          el("span.delta__topic", {}, sentenceCase(topic)),
           el("span.delta__bar", {}, [el("i", { style: { width: "0%" }, dataset: { w: Math.round(d.after * 100) } })]),
           el("span", { class: "delta__n " + (change > 0 ? "up" : change < 0 ? "down" : ""), }, change > 0 ? `+${change}` : `${change}`),
         ]);
