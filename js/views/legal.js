@@ -2,7 +2,7 @@
 // Reached from the site footer, not the main nav — read-once material,
 // not something a student needs a shortcut to mid-study.
 
-import { el } from "../lib/dom.js";
+import { el, icon, ICONS } from "../lib/dom.js";
 import { CONTACT_EMAIL } from "../config.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
@@ -32,6 +32,17 @@ function draftBanner(bodyKey) {
   return el("p.note.note--warn", { style: { marginBottom: "4px" } }, t(bodyKey));
 }
 
+/** One collapsed-by-default row — native <details>/<summary> rather than a
+ *  hand-rolled open/closed toggle: free keyboard support (Enter/Space,
+ *  Tab-focusable), free screen-reader semantics (aria-expanded comes from
+ *  the element itself), and no per-item component state to manage. */
+function faqItem(titleKey, bodyKey, extra) {
+  return el("details.faq-item", {}, [
+    el("summary.faq-item__q", {}, [t(titleKey), icon(ICONS.chevronDown, 18)]),
+    el("div.faq-item__a", {}, [el("p", {}, t(bodyKey)), extra].filter(Boolean)),
+  ]);
+}
+
 export function renderAbout() {
   return page("about.pageTitle", [
     el("p.note", { style: { marginBottom: "4px" } }, t("about.heroLead")),
@@ -47,18 +58,17 @@ export function renderAbout() {
 
 export function renderFaq() {
   return page("faq.pageTitle", [
-    section("faq.q1Title", "faq.q1Body"),
-    section("faq.q2Title", "faq.q2Body"),
-    section("faq.q3Title", "faq.q3Body"),
-    section("faq.q4Title", "faq.q4Body"),
-    section("faq.q5Title", "faq.q5Body"),
-    section("faq.q6Title", "faq.q6Body"),
-    section("faq.q7Title", "faq.q7Body"),
-    section("faq.q8Title", "faq.q8Body"),
-    el("section.panel", {}, [
-      el("h3", { style: { marginBottom: "8px" } }, t("faq.q9Title")),
-      el("p", { style: { marginTop: "8px" } }, t("faq.q9Body")),
-      el("a.btn.btn--ghost", { href: FEEDBACK_MAIL, style: { marginTop: "12px" } }, t("about.contactLink")),
+    el("div.faq-list", {}, [
+      faqItem("faq.q1Title", "faq.q1Body"),
+      faqItem("faq.q2Title", "faq.q2Body"),
+      faqItem("faq.q3Title", "faq.q3Body"),
+      faqItem("faq.q4Title", "faq.q4Body"),
+      faqItem("faq.q5Title", "faq.q5Body"),
+      faqItem("faq.q6Title", "faq.q6Body"),
+      faqItem("faq.q7Title", "faq.q7Body"),
+      faqItem("faq.q8Title", "faq.q8Body"),
+      faqItem("faq.q9Title", "faq.q9Body",
+        el("a.btn.btn--ghost", { href: FEEDBACK_MAIL, style: { marginTop: "8px" } }, t("about.contactLink"))),
     ]),
   ]);
 }

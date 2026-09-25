@@ -2381,6 +2381,23 @@ body.route-immersive .sitechat__panel { display: none; }
 .preset-table { width: 100%; border-collapse: collapse; margin-top: var(--s-3); font-size: var(--fs-sm); }
 .preset-table th, .preset-table td { text-align: left; padding: 6px 8px; border-top: 1px solid var(--line); }
 .preset-table th { font-weight: 600; color: var(--ink-soft); width: 40%; }
+
+/* ---------- FAQ accordion ---------- */
+.faq-list { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+.faq-item { border-top: 1px solid var(--line); }
+.faq-item:first-child { border-top: none; }
+.faq-item__q {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
+  padding: var(--s-4) var(--s-5); cursor: pointer; list-style: none;
+  font-weight: 700; color: var(--ink);
+}
+.faq-item__q::-webkit-details-marker { display: none; }
+.faq-item__q:hover { background: var(--surface-sunk); }
+.faq-item__q:focus-visible { outline: none; box-shadow: inset var(--ring); }
+.faq-item__q svg { flex: none; color: var(--ink-faint); transition: transform var(--dur-fast); }
+.faq-item[open] .faq-item__q svg { transform: rotate(180deg); }
+.faq-item__a { padding: 0 var(--s-5) var(--s-4); color: var(--ink-soft); }
+.faq-item__a p { margin: 0; }
 .preset-table td:nth-child(2) { font-weight: 700; }
 
 .roadmap { list-style: none; display: grid; gap: var(--s-2); }
