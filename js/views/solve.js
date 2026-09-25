@@ -5,6 +5,21 @@
 // the practice-session tutor already runs on. Needs the tutor server
 // (store.hasKey()); until then the composer is disabled and the reason is
 // spelled out, exactly like Create.
+//
+// Also where the six one-tap "ways to study" live (quiz me, explain, summarise, compare,
+// word list, debate — lib/study-modes.js): tapping one starts a fresh thread under that
+// mode's own ground rules instead of the default "help with one problem" persona; tapping
+// the active one again returns to the default. This used to be its own page (#/chat) —
+// folded in here because it was the exact same chat, just with a different system prompt,
+// and having "the AI page" and "the AI chat page" as two separate things confused more than
+// it helped. #/chat?mode=X still gets read as ?mode=X here (main.js no longer routes #/chat
+// at all — an old link to it lands on the home page, same as any other unknown hash).
+//
+//   #/solve            the default "help with a problem" persona
+//   #/solve?mode=quiz  starts in that way of studying (also linked from the home page's
+//                      AI study help strip, and from the mode chips below)
+//   #/solve?mode=check is intercepted by main.js before this module ever loads — that's
+//                      the separate "Kolla min uträkning" tab (check.js), not a mode here.
 
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
@@ -12,7 +27,8 @@ import { markdown } from "../lib/markdown.js";
 import { announce } from "../lib/a11y.js";
 import { readImageFile } from "../material.js";
 import { tutorStream, ClaudeError } from "../claude.js";
-import { solveChatSystem } from "../prompts.js";
+import { solveChatSystem, studyChatSystem } from "../prompts.js";
+import { STUDY_MODES, isStudyMode, trimHistory, MAX_INPUT_CHARS } from "../lib/study-modes.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { bindFileTargets } from "../components/file-drop.js";
@@ -20,13 +36,20 @@ import { solveTabs } from "../components/solve-tabs.js";
 import { aiQuotaNote } from "../components/ai-gate.js";
 import { mascot, setMood } from "../components/mascot.js";
 
-export function renderSolve() {
+/** How much of a long pasted text is echoed back in the student's own bubble — the message
+ *  sent to the model is never truncated, only what's shown (a page of notes shouldn't make
+ *  the transcript unscrollable). */
+const ECHO_CHARS = 600;
+
+export function renderSolve(qs) {
   const root = el("div.solve");
   const canChat = store.hasKey();
   const state = {
+    mode: isStudyMode(qs?.get?.("mode")) ? qs.get("mode") : null,   // null = the default "help with a problem" persona
     messages: [],       // Anthropic-format history for this conversation
     pendingImage: null, // { mediaType, data, preview } attached, not yet sent
     busy: false,
+    abort: null,        // lets switching mode mid-stream cut the old reply off cleanly
   };
 
   // Built once; mutated directly from here on (streaming and attach
@@ -36,25 +59,32 @@ export function renderSolve() {
   // help-chat bubble's (site-chat.js), so the assistant visibly "thinks" while streaming.
   const mascotEl = mascot("idle", 40);
 
-  function appendWelcome() {
-    const node = el("div.msg.ai.solve-chat__welcome", {});
-    node.innerHTML = markdown(t("solve.intro"));
+  /** The default persona has its own strings (solve.*, unchanged from before the modes existed);
+   *  each study mode has its own (chat.intro.<id> / chat.placeholder.<id>). */
+  const introText = () => (state.mode ? t(`chat.intro.${state.mode}`) : t("solve.intro"));
+  const placeholderText = () => (state.mode ? t(`chat.placeholder.${state.mode}`) : t("solve.chatPlaceholder"));
+
+  function appendBubble(who, html) {
+    const node = el(`div.msg.${who}`, {});
+    if (html != null) node.innerHTML = html;
     refs.logEl.appendChild(node);
+    refs.logEl.scrollTop = refs.logEl.scrollHeight;
+    return node;
+  }
+
+  function appendWelcome() {
+    // el() wants dot-separated classes in the tag string, not space-separated (a space in a single
+    // token throws on classList.add) — appendBubble's `who` is always one plain word, so add the
+    // second class after the fact instead of trying to smuggle it through that param.
+    appendBubble("ai", markdown(introText())).classList.add("solve-chat__welcome");
   }
 
   function appendUserBubble(text, imgSrc) {
     const node = el("div.msg.me", {});
     if (imgSrc) node.appendChild(el("img.msg__img", { src: imgSrc, alt: "" }));
-    if (text) node.appendChild(el("span", { html: escapeHtml(text) }));
+    if (text) node.appendChild(el("span", { html: escapeHtml(text.length > ECHO_CHARS ? `${text.slice(0, ECHO_CHARS)}…` : text) }));
     refs.logEl.appendChild(node);
     refs.logEl.scrollTop = refs.logEl.scrollHeight;
-  }
-
-  function appendAiBubble() {
-    const node = el("div.msg.ai", {});
-    refs.logEl.appendChild(node);
-    refs.logEl.scrollTop = refs.logEl.scrollHeight;
-    return node;
   }
 
   async function attachImage(file) {
@@ -78,21 +108,52 @@ export function renderSolve() {
     }, [icon(ICONS.close, 14)]));
   }
 
+  /** A fresh conversation, opened with whatever the current mode (or the default persona)
+   *  leads with. Cuts an in-flight reply off first — switching mode mid-stream must not let
+   *  the old answer land in the new, just-cleared thread. */
   function resetChat() {
+    state.abort?.abort();
     state.messages = [];
     state.pendingImage = null;
+    state.busy = false;
     clear(refs.logEl);
     appendWelcome();
     renderPending();
     refs.inputEl.value = "";
+    autosize();
     refs.resetBtn.hidden = true;
-    refs.inputEl.focus();
+    refs.inputEl.disabled = !canChat;
+    refs.attachBtn.disabled = !canChat;
+    paintModes();
+    if (canChat) refs.inputEl.focus();
+  }
+
+  function pickMode(id) {
+    state.mode = state.mode === id ? null : id;   // tap the active one again to go back to the default persona
+    resetChat();
+  }
+
+  function paintModes() {
+    for (const btn of refs.modeBtns) {
+      const on = btn.dataset.mode === state.mode;
+      btn.setAttribute("aria-pressed", String(on));
+      btn.classList.toggle("is-on", on);
+    }
+    refs.inputEl.placeholder = placeholderText();
+    refs.inputEl.setAttribute("aria-label", placeholderText());
+  }
+
+  function autosize() {
+    const ta = refs.inputEl;
+    ta.style.height = "auto";
+    ta.style.height = `${Math.min(ta.scrollHeight, Math.round(window.innerHeight * 0.4))}px`;
   }
 
   async function send() {
     if (state.busy) return;
     const text = refs.inputEl.value.trim();
     if (!text && !state.pendingImage) return;
+    if (text.length > MAX_INPUT_CHARS) { toast(t("chat.tooLong", { n: MAX_INPUT_CHARS })); return; }
 
     const img = state.pendingImage;
     state.messages.push({
@@ -108,6 +169,7 @@ export function renderSolve() {
     state.pendingImage = null;
     renderPending();
     refs.inputEl.value = "";
+    autosize();
     refs.resetBtn.hidden = false;
 
     await streamReply();
@@ -118,11 +180,16 @@ export function renderSolve() {
     refs.inputEl.disabled = true;
     refs.attachBtn.disabled = true;
     setMood(mascotEl, "thinking");
-    const bubble = appendAiBubble();
-    bubble.innerHTML = `<span class="typing"><span></span><span></span><span></span></span>`;
+    const bubble = appendBubble("ai", `<span class="typing"><span></span><span></span><span></span></span>`);
+    state.abort = new AbortController();
+    const mine = state.abort;
     let acc = "";
     try {
-      for await (const chunk of tutorStream({ system: solveChatSystem(), messages: state.messages })) {
+      for await (const chunk of tutorStream({
+        system: state.mode ? studyChatSystem(state.mode) : solveChatSystem(),
+        messages: trimHistory(state.messages),
+        signal: mine.signal,
+      })) {
         acc += chunk;
         bubble.innerHTML = markdown(acc);
         refs.logEl.scrollTop = refs.logEl.scrollHeight;
@@ -130,15 +197,19 @@ export function renderSolve() {
       state.messages.push({ role: "assistant", content: acc || "…" });
       announce(t("tutor.prefix", { text: acc }));
     } catch (e) {
+      if (mine.signal.aborted) return;   // resetChat() already cleared this thread — nothing left to update
       const msg = e instanceof ClaudeError ? e.message : t("tutor.snag");
       bubble.innerHTML = markdown(`_${msg}_`);
+      state.messages.pop();   // the failed question isn't part of the history; they can send it again
       toast(msg);
     } finally {
-      state.busy = false;
-      refs.inputEl.disabled = false;
-      refs.attachBtn.disabled = false;
-      setMood(mascotEl, "idle");
-      refs.inputEl.focus();
+      if (state.abort === mine) {
+        state.busy = false;
+        refs.inputEl.disabled = !canChat;
+        refs.attachBtn.disabled = !canChat;
+        setMood(mascotEl, "idle");
+        if (canChat) refs.inputEl.focus();
+      }
     }
   }
 
@@ -169,9 +240,12 @@ export function renderSolve() {
       },
     });
 
-    const inputEl = el("input.tutor__input", {
-      type: "text", placeholder: t("solve.chatPlaceholder"), "aria-label": t("solve.chatPlaceholder"),
-      onkeydown: (e) => { if (e.key === "Enter") send(); },
+    const inputEl = el("textarea.tutor__input.solve-chat__textarea", {
+      rows: 1,
+      placeholder: placeholderText(), "aria-label": placeholderText(),
+      oninput: autosize,
+      // Enter sends; Shift+Enter is a new line — pasted notes need multiple lines.
+      onkeydown: (e) => { if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); send(); } },
     });
 
     const attachBtn = el("button.iconbtn", {
@@ -184,13 +258,17 @@ export function renderSolve() {
 
     const resetBtn = el("button.linkbtn.solve-chat__reset", { type: "button", hidden: true, onclick: resetChat }, t("solve.newChat"));
 
+    const modeBtns = STUDY_MODES.map((m) => el("button.chatmode", {
+      type: "button", "data-mode": m.id, "aria-pressed": "false", onclick: () => pickMode(m.id),
+    }, [icon(ICONS[m.icon] || ICONS.spark, 16), t(`chat.mode.${m.id}`)]));
+
     if (!canChat) {
       inputEl.disabled = true;
       attachBtn.disabled = true;
       sendBtn.disabled = true;
     }
 
-    refs = { logEl, pendingEl, inputEl, attachBtn, resetBtn };
+    refs = { logEl, pendingEl, inputEl, attachBtn, resetBtn, modeBtns };
 
     root.appendChild(homeButton({ grid: true }));
     root.appendChild(el("div.solvehead", {}, [
@@ -204,6 +282,7 @@ export function renderSolve() {
       resetBtn,
     ]));
     root.appendChild(solveTabs("help"));
+    root.appendChild(el("div.chatmodes", { role: "group", "aria-label": t("chat.modesLabel") }, modeBtns));
     const panel = el("div.panel.solve-chat__panel", {}, [
       canChat ? null : gateNote(),
       logEl,
@@ -213,6 +292,7 @@ export function renderSolve() {
     ].filter(Boolean));
     root.appendChild(panel);
 
+    paintModes();
     if (canChat) appendWelcome();
     // Drag a picture onto the page, or paste one anywhere — focused or not.
     // Signed out, a drop is still caught (otherwise the browser opens the image
@@ -227,7 +307,11 @@ export function renderSolve() {
   }
 
   build();
-  return { title: t("solve.pageTitle"), node: root };
+  return {
+    title: t("solve.pageTitle"),
+    node: root,
+    cleanup: () => state.abort?.abort(),
+  };
 }
 
 /** The toast for a picture dropped on the page while the AI is off, worded for the actual reason. */

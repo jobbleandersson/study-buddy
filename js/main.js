@@ -140,8 +140,7 @@ const routes = [
   { rx: /^\/utmaning$/, view: (m, qs) => import("./views/challenge.js").then((mod) => mod.renderChallenge(qs)) },
   { rx: /^\/solve$/, view: (m, qs) => (qs.get("mode") === "check"
     ? import("./views/check.js").then((mod) => mod.renderCheck())
-    : import("./views/solve.js").then((mod) => mod.renderSolve())) },
-  { rx: /^\/chat$/, view: (m, qs) => import("./views/study-chat.js").then((mod) => mod.renderStudyChat(qs)) },
+    : import("./views/solve.js").then((mod) => mod.renderSolve(qs))) },
   { rx: /^\/reference$/, view: () => import("./views/reference.js").then((mod) => mod.renderReference()) },
   { rx: /^\/calculator$/, view: () => import("./views/calculator.js").then((mod) => mod.renderCalculator()) },
   { rx: /^\/achievements$/, view: () => import("./views/achievements.js").then((mod) => mod.renderAchievements()) },
@@ -205,7 +204,6 @@ function navGroups() {
     { href: "#/library",  match: "/library",   icon: ICONS.book,      label: t("nav.library") },
     { href: "#/create",   match: "/create",    icon: ICONS.plus,      label: t("nav.create") },
     { href: "#/solve",    match: "/solve",     icon: ICONS.spark,     label: t("nav.solve") },
-    { href: "#/chat",     match: "/chat",      icon: ICONS.message,   label: t("nav.chat") },
     { href: "#/exam-prep", match: "/exam-prep", icon: ICONS.graduation, label: t("nav.examPrep") },
     { href: "#/hp",       match: "/hp",        icon: ICONS.award,     label: t("nav.hp") },
   ];
@@ -686,6 +684,14 @@ function immersiveRoute() {
     || currentPath() === "/hp/mock";
 }
 
+/** Routes that keep the nav chrome but are themselves a full chat with an AI
+ *  assistant — the floating app-help bubble would sit on top of their
+ *  composer's send button at phone widths, so it's hidden there. Kept apart
+ *  from immersiveRoute(), which also drops the tab bar and footer. */
+function chatRoute() {
+  return /^\/solve(\/|$)/.test(currentPath());
+}
+
 // Highlighter-swipe wordmark: two rough, overlapping tinted strokes behind
 // the brand text, like it's been marked up twice with a highlighter.
 function wordmark(text) {
@@ -815,6 +821,7 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     // A running session / worksheet is a focus context — hide the floating
     // app-help chat there too (it lives on <body>, outside the shell).
     document.body.classList.toggle("route-immersive", immersiveRoute());
+    document.body.classList.toggle("route-chat", chatRoute());
     // A soft refresh stays on the same screen (same scroll position, same
     // reason the fab was or wasn't tucked away) — only a real navigation
     // should clear a scroll-hidden fab from whatever route came before it.

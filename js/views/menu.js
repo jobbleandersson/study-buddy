@@ -431,9 +431,9 @@ function chatPanel() {
   return el("section.home-panel.home-panel--chat", {}, [
     el("div.home-panel__label", {}, [
       el("span", {}, t("menu.chatPanel")),
-      el("a.linkbtn", { href: "#/chat" }, t("menu.chatOpen")),
+      el("a.linkbtn", { href: "#/solve" }, t("menu.chatOpen")),
     ]),
-    el("div.chatmodes", {}, STUDY_MODES.map((m) => el("a.chatmode", { href: `#/chat?mode=${m.id}` }, [
+    el("div.chatmodes", {}, STUDY_MODES.map((m) => el("a.chatmode", { href: `#/solve?mode=${m.id}` }, [
       icon(ICONS[m.icon] || ICONS.spark, 16), t(`chat.mode.${m.id}`),
     ]))),
   ]);
