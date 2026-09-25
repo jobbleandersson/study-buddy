@@ -136,14 +136,31 @@ export async function renderLibrary(qs = null) {
   }
 
   /* ---- step 1: pick a level ---- */
+  // One card per level: how much is in it, and its subjects as small colour marks, so the first
+  // screen already shows the size of the library instead of four empty buttons.
   function levelPicker() {
     const levels = index.levels.filter((l) => index.subjects.some((s) => s.level === l.id));
-    return el("div.panel", {}, [
-      el("p", { style: { marginBottom: "16px" } }, t("lib.intro")),
-      el("div.source-grid", {}, levels.map((lvl) =>
-        el("button.source-opt", { type: "button", onclick: () => { state.level = lvl.id; paint(); } }, [
-          icon(ICONS.graduation, 26), lvlLabel(lvl),
-        ]))),
+    return el("div", {}, [
+      el("p.note", { style: { margin: "0 0 16px", fontSize: "1rem" } }, t("lib.intro")),
+      el("div.levelcards", {}, levels.map((lvl) => {
+        const subjects = index.subjects.filter((s) => s.level === lvl.id);
+        const sets = index.sets.filter((s) => subjects.some((sub) => sub.id === s.subject));
+        const questions = sets.reduce((n, s) => n + (s.count || 0), 0);
+        return el("button.levelcard", { type: "button", onclick: () => { state.level = lvl.id; paint(); } }, [
+          el("span.levelcard__top", {}, [
+            el("span.levelcard__name", {}, lvlLabel(lvl)),
+            icon(ICONS.arrow, 18),
+          ]),
+          el("span.levelcard__stats", {}, t("lib.levelStats", { subjects: subjects.length, sets: sets.length, questions })),
+          el("span.levelcard__marks", { "aria-hidden": "true" }, subjects.slice(0, 8).map((s) => {
+            const c = libSubjectColor(s, subjects);
+            const m = subjectMark(subjName(s));
+            m.style.setProperty("--subject-tint", c.tint);
+            m.style.setProperty("--subject-ink", c.ink);
+            return m;
+          })),
+        ]);
+      })),
     ]);
   }
 

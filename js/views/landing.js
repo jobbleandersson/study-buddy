@@ -119,6 +119,24 @@ function trustBar() {
   ]);
 }
 
+/** A real screenshot of a study session, in a browser frame — so a visitor sees the actual app,
+ *  not just claims about it. Made by tools/landing-shots.mjs; rerun it when the session screen
+ *  changes. One per language, since the app's text is in it. */
+function showcase() {
+  const lang = getLang() === "en" ? "en" : "sv";
+  return el("section.lp-sec.lp-show", {}, [
+    el("h2.lp-h2", {}, t("lp.showTitle")),
+    el("p.lp-sub", {}, t("lp.showSub")),
+    el("figure.lp-frame", {}, [
+      el("div.lp-frame__bar", { "aria-hidden": "true" }, [el("i"), el("i"), el("i"), el("span", {}, "studify")]),
+      el("img", {
+        src: `assets/shots/session-${lang}.jpg`, alt: t("lp.showAlt"),
+        width: 1920, height: 1200, loading: "lazy", decoding: "async",
+      }),
+    ]),
+  ]);
+}
+
 function hero() {
   return el("section.lp-hero", {}, [
     el("div.lp-hero__copy", {}, [
@@ -131,7 +149,19 @@ function hero() {
       ]),
       el("p.lp-fineprint", {}, t("lp.fineprint")),
     ]),
-    el("div.lp-hero__art", {}, [questionCard()]),
+    el("div.lp-hero__art", {}, [
+      questionCard(),
+      // Two small notes around the card, pointing at what happens next in the real app: the tutor's
+      // hint for this very question, and the question coming back later for review.
+      el("div.lp-badge.lp-badge--hint", { "aria-hidden": "true" }, [
+        el("span.lp-badge__icon", {}, [icon(ICONS.spark, 14)]),
+        el("span", {}, [el("b", {}, t("lp.badgeHintLabel")), t("lp.badgeHint")]),
+      ]),
+      el("div.lp-badge.lp-badge--repeat", { "aria-hidden": "true" }, [
+        el("span.lp-badge__icon", {}, [icon(ICONS.calendar, 14)]),
+        el("span", {}, t("lp.badgeRepeat")),
+      ]),
+    ]),
   ]);
 }
 
@@ -325,6 +355,7 @@ export function renderLanding() {
       el("main.lp-main", { id: "main" }, [
         hero(),
         trustBar(),
+        showcase(),
         features(),
         steps(),
         reviews(),

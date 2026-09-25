@@ -1220,6 +1220,44 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .lp-cta { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-6); }
 .lp-fineprint { margin-top: var(--s-4); max-width: 44ch; font-size: var(--fs-sm); line-height: 1.55; color: var(--ink-faint); }
 
+/* A soft brand glow and a faint dot grid behind the hero, full-bleed like the trust bar. Behind
+   everything (isolation keeps z-index:-1 inside the hero), and purely decorative. */
+.lp-hero { position: relative; isolation: isolate; }
+.lp-hero::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  top: -140px; bottom: 0; left: calc(50% - 50vw); right: calc(50% - 50vw);
+  background:
+    radial-gradient(40% 55% at 78% 42%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 70%),
+    radial-gradient(30% 40% at 12% 18%, color-mix(in srgb, var(--c-sky, var(--brand)) 10%, transparent), transparent 70%);
+}
+.lp-hero::after {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  top: -140px; bottom: 0; left: calc(50% - 50vw); right: calc(50% - 50vw);
+  background-image: radial-gradient(color-mix(in srgb, var(--ink) 11%, transparent) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(55% 70% at 75% 45%, #000 20%, transparent 75%);
+          mask-image: radial-gradient(55% 70% at 75% 45%, #000 20%, transparent 75%);
+}
+.lp-hero__art { position: relative; }
+
+/* the two notes floating around the question card (desktop only — on a phone they'd cover it) */
+.lp-badge { display: none; }
+@media (min-width: 1080px) {
+  .lp-badge {
+    position: absolute; z-index: 2; display: flex; align-items: center; gap: 10px; max-width: 260px;
+    padding: 10px 14px; border-radius: var(--r-md); background: var(--surface);
+    border: 1px solid var(--line); box-shadow: var(--shadow-2);
+    font-size: var(--fs-sm); line-height: 1.35; color: var(--ink-soft);
+  }
+  .lp-badge b { display: block; font-size: 12px; font-weight: 700; color: var(--ink); }
+  .lp-badge__icon { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--brand-tint); color: var(--brand-ink); }
+  /* Both hang off the card's corners, over the gap and the margin — never over the card's
+     answers or the headline text to the left. */
+  .lp-badge--hint { top: -52px; right: -34px; transform: rotate(2deg); }
+  .lp-badge--repeat { bottom: -30px; left: -30px; transform: rotate(-1.5deg); }
+  .lp-badge--repeat .lp-badge__icon { background: var(--ok-tint); color: var(--ok-ink); }
+}
+
 /* the playable question card */
 .lp-q {
   background: var(--surface); border: 1px solid var(--line-strong);
@@ -1278,7 +1316,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 .lp-trust {
   margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-  background: var(--surface-sunk); margin-top: var(--s-7); margin-bottom: 0;
+  background: var(--surface); margin-top: var(--s-7); margin-bottom: 0;
 }
 .lp-trust__inner {
   max-width: 1120px; margin: 0 auto; padding: var(--s-5) var(--s-4);
@@ -1286,8 +1324,27 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
 }
 @media (min-width: 860px) { .lp-trust__inner { flex-wrap: nowrap; justify-content: space-between; } }
 .lp-trust__item { display: flex; align-items: center; gap: var(--s-3); min-width: 0; }
-.lp-trust__item b { display: block; font-size: var(--fs-sm); font-weight: 700; color: var(--ink); white-space: nowrap; }
-.lp-trust__item span { display: block; font-size: var(--fs-sm); color: var(--ink-faint); white-space: nowrap; }
+.lp-trust__item b { display: block; font-size: 1rem; font-weight: 700; letter-spacing: -.01em; color: var(--ink); white-space: nowrap; }
+.lp-trust__item span { display: block; font-size: var(--fs-sm); color: var(--ink-soft); white-space: nowrap; }
+@media (max-width: 859px) { .lp-trust__inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); justify-content: stretch; } }
+
+/* showcase: a real screenshot in a browser frame */
+.lp-show .lp-sub { max-width: 60ch; }
+.lp-frame {
+  margin: var(--s-6) 0 0; border-radius: 14px; overflow: hidden;
+  border: 1px solid var(--line-strong); background: var(--surface);
+  box-shadow: 0 1px 2px rgba(20,24,40,.06), 0 24px 60px -12px rgba(20,24,40,.22);
+}
+.lp-frame__bar {
+  display: flex; align-items: center; gap: 7px; padding: 10px 14px;
+  background: var(--surface-sunk); border-bottom: 1px solid var(--line);
+}
+.lp-frame__bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line-strong); }
+.lp-frame__bar span {
+  margin: 0 auto; padding: 2px 40px; border-radius: 6px; background: var(--surface);
+  font-size: 11px; color: var(--ink-faint); letter-spacing: .02em;
+}
+.lp-frame img { display: block; width: 100%; height: auto; }
 
 /* sections */
 .lp-sec { padding: 56px 0 0; }
@@ -1386,8 +1443,8 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   display: block; margin-bottom: var(--s-3); font-size: 2.4rem; font-weight: 800; line-height: 1;
   letter-spacing: -.04em; color: var(--brand); font-variant-numeric: tabular-nums;
 }
-.lp-step h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--ink); margin: 0 0 6px; }
-.lp-step p { font-size: var(--fs-sm); line-height: 1.55; color: var(--ink-soft); margin: 0; }
+.lp-step h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: -.01em; color: var(--ink); margin: 0 0 8px; }
+.lp-step p { font-size: 1rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
 
 /* reviews — real quotes only, see js/data/reviews.js */
 .lp-reviews { list-style: none; margin: var(--s-6) 0 0; padding: 0; display: grid; gap: var(--s-5); }
@@ -1726,6 +1783,25 @@ body.no-chrome .sitechat__panel { display: none; }
 .gallery__preview { font-style: italic; color: var(--ink-soft); font-size: var(--fs-sm); }
 
 /* practice library */
+/* Library, step 1: one card per level with its size and subjects */
+.levelcards { display: grid; gap: var(--s-4); grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.levelcard {
+  display: flex; flex-direction: column; gap: var(--s-3); text-align: left; cursor: pointer;
+  padding: var(--s-5); border-radius: var(--r-lg); border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); font: inherit; box-shadow: var(--shadow-1);
+  transition: transform var(--dur-fast) var(--ease-spring), border-color var(--dur-fast), box-shadow var(--dur-fast);
+}
+.levelcard:hover { transform: translateY(-2px); border-color: var(--brand); box-shadow: var(--shadow-2); }
+.levelcard:focus-visible { outline: none; box-shadow: var(--ring); }
+.levelcard__top { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.levelcard__top svg { color: var(--ink-faint); transition: transform var(--dur-fast), color var(--dur-fast); }
+.levelcard:hover .levelcard__top svg { color: var(--brand); transform: translateX(3px); }
+.levelcard__name { font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; letter-spacing: -.02em; }
+.levelcard__stats { font-size: var(--fs-sm); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.levelcard__marks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.levelcard__marks .subjmark { width: 34px; height: 34px; font-size: 13px; border-radius: 9px; }
+.levelcard__marks .subjmark small { font-size: 8px; }
+
 .libgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: var(--s-3); margin-top: var(--s-4); }
 .libcard {
   border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--s-4);
