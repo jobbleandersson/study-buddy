@@ -8,9 +8,10 @@
 
 import { el, icon, ICONS, TIKTOK_SVG } from "../lib/dom.js";
 import { store } from "../store.js";
-import { CONTACT_EMAIL, TIKTOK_URL } from "../config.js";
+import { CONTACT_EMAIL, TIKTOK_URL, REVIEWS_URL } from "../config.js";
 import { t, getLang, setLang, LANGS } from "../lib/i18n.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
+import { REVIEWS, publishableReviews } from "../data/reviews.js";
 
 /** Leaving the front page counts as having seen the intro, so the old
  *  first-run modal doesn't fire on top of the app right afterwards.
@@ -234,6 +235,48 @@ function steps() {
   return stepsSection("lp.stepsTitle", ["lp.s1", "lp.s2", "lp.s3"]);
 }
 
+/** Real reviews, newest first: approved ones from the server (written in #/rate) plus any added by
+ *  hand in js/data/reviews.js. The section stays hidden until there is at least one — the server
+ *  list arrives after first paint, so it fills in then. Each quote keeps the language it was
+ *  written in, marked with lang= for screen readers. */
+function reviewCard(r) {
+  return el("li", {}, [
+    el("figure.lp-review", {}, [
+      r.rating ? el("p.lp-review__stars", {
+        role: "img", "aria-label": t("lp.reviewStars", { n: r.rating }),
+      }, "★".repeat(r.rating) + "☆".repeat(5 - r.rating)) : null,
+      el("blockquote", { lang: r.lang }, [el("p", {}, r.text)]),
+      el("figcaption", {}, [
+        el("b", {}, r.name),
+        r.context ? el("span", { lang: r.lang }, r.context) : null,
+      ].filter(Boolean)),
+    ].filter(Boolean)),
+  ]);
+}
+
+function reviews() {
+  const list = el("ul.lp-reviews");
+  const section = el("section.lp-sec", { "aria-labelledby": "lp-reviews-title", hidden: true }, [
+    el("h2.lp-h2", { id: "lp-reviews-title" }, t("lp.reviewsTitle")),
+    list,
+    el("p.lp-sub.lp-reviews__cta", {}, [t("lp.reviewsCta") + " ", el("a", { href: "#/rate" }, t("lp.reviewsCtaLink"))]),
+  ]);
+  const paint = (items) => {
+    const shown = publishableReviews(items);
+    list.replaceChildren(...shown.map(reviewCard));
+    section.hidden = !shown.length;
+  };
+  paint(REVIEWS);
+  fetch(REVIEWS_URL)
+    .then((res) => (res.ok ? res.json() : null))
+    .then((data) => {
+      const fromServer = Array.isArray(data?.reviews) ? data.reviews.map((r) => ({ ...r, consent: true })) : [];
+      if (fromServer.length) paint([...fromServer, ...REVIEWS]);
+    })
+    .catch(() => { /* no server (static hosting, offline): the hand-added list is all there is */ });
+  return section;
+}
+
 function closer() {
   return el("section.lp-closer", {}, [
     el("div", {}, [
@@ -283,6 +326,7 @@ export function renderLanding() {
         trustBar(),
         features(),
         steps(),
+        reviews(),
         closer(),
       ]),
       footer(),

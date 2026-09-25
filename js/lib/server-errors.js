@@ -6,6 +6,11 @@ import { t } from "./i18n.js";
 
 const KNOWN = {
   "Enter a valid email.": "srv.err.email",
+  "Pick 1 to 5 stars.": "srv.err.reviewRating",
+  "Write between 10 and 600 characters.": "srv.err.reviewText",
+  "Enter a first name or initials.": "srv.err.reviewName",
+  "Keep the description under 60 characters.": "srv.err.reviewContext",
+  "Tick the box to let us show your review.": "srv.err.reviewConsent",
   "Password must be at least 8 characters.": "srv.err.password",
   "An account with that email already exists.": "srv.err.emailTaken",
   "Wrong email or password.": "srv.err.badLogin",

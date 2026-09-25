@@ -87,6 +87,19 @@ fly secrets set GOOGLE_CLIENT_ID=1234567890-abc.apps.googleusercontent.com
 
 The Google button then appears on the sign-in screen. Unset = no button. A Google sign-in whose email already has a password account links to it and switches that account to Google-only sign-in.
 
+### Approving reviews
+
+Students write reviews at `#/rate`; none show on the front page until someone approves them at
+`https://studybuddy-jobble.fly.dev/#/admin/reviews`. That page asks for a key, which you pick once
+and set here (anything long and random — both of you use the same one):
+
+```bash
+fly secrets set REVIEW_ADMIN_KEY=$(openssl rand -hex 24)
+fly secrets list   # shows it's set, not the value, so save it somewhere safe first
+```
+
+Unset = nobody can approve, and the page says so. To rotate it, set a new value.
+
 ## 4. Deploy
 
 ```bash

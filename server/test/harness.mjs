@@ -100,6 +100,8 @@ async function startOnce(env) {
       PAGEVIEW_PER_HOUR_PER_IP: "0",
       CODE_FAILS_PER_10MIN_PER_USER: "0",
       CODE_FAILS_PER_10MIN_PER_IP: "0",
+      REVIEW_SUBMITS_PER_HOUR_PER_USER: "0",
+      REVIEW_ADMIN_FAILS_PER_15MIN_PER_IP: "0",
       ...env,
     },
     stdio: ["ignore", "pipe", "pipe"],

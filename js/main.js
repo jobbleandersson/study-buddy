@@ -162,6 +162,8 @@ const routes = [
   { rx: /^\/terms$/, view: () => import("./views/legal.js").then((mod) => mod.renderTerms()) },
   { rx: /^\/privacy$/, view: () => import("./views/legal.js").then((mod) => mod.renderPrivacy()) },
   { rx: /^\/premium$/, view: () => import("./views/premium-waitlist.js").then((mod) => mod.renderPremiumWaitlist()) },
+  { rx: /^\/rate$/, view: () => import("./views/rate.js").then((mod) => mod.renderRate()) },
+  { rx: /^\/admin\/reviews$/, view: () => import("./views/admin-reviews.js").then((mod) => mod.renderAdminReviews()) },
 ];
 
 let currentCleanup = null;

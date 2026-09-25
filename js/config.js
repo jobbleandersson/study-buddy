@@ -30,6 +30,11 @@ export const RESEND_VERIFICATION_URL = `${API}/api/auth/verify-email/resend`;
 export const VERIFY_EMAIL_URL = `${API}/api/auth/verify-email`;
 export const FORGOT_PASSWORD_URL = `${API}/api/auth/forgot-password`;
 export const RESET_PASSWORD_URL = `${API}/api/auth/reset-password`;
+// Reviews: students write one in #/rate; approved ones show on the front page. See routes/reviews.js.
+export const REVIEWS_URL = `${API}/api/reviews`;
+export const MY_REVIEW_URL = `${API}/api/reviews/mine`;
+export const ADMIN_REVIEWS_URL = `${API}/api/admin/reviews`;
+export const adminReviewUrl = (id) => `${API}/api/admin/reviews/${encodeURIComponent(id)}`;
 
 // Where people write with privacy, data and general questions. One place, so it changes in one place.
 export const CONTACT_EMAIL = "studifyorganisation@gmail.com";
