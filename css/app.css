@@ -3507,7 +3507,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
    the viewport and only the message list scrolls, so the footer is a scroll away instead of in view. */
 .solve { width: 100%; max-width: 1180px; }
 .solve-chat { display: flex; flex-direction: column; gap: var(--s-3); border-radius: var(--r-lg); height: max(380px, calc(100dvh - 400px)); }
-@media (min-width: 900px) { .solve-chat { height: max(420px, calc(100dvh - 300px)); } }
+@media (min-width: 900px) { .solve-chat { height: max(420px, calc(100dvh - 340px)); } }
 .solve .solve-chat__log { flex: 1 1 0; min-height: 0; max-height: none; }
 .solve .msg { max-width: min(92%, 760px); }
 
