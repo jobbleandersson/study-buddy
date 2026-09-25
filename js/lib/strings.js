@@ -1372,6 +1372,7 @@ export const STRINGS = {
     "session.examTimeUp": "Time's up — your answers were submitted automatically.",
 
     "lib.title": "Practice library",
+    "lib.starting": "Opening the set…",
     "lib.loadFail": "Couldn't load the library",
     "lib.loadFailBody": "Try again in a moment.",
     "lib.search": "Search the library…",
@@ -1860,6 +1861,7 @@ export const STRINGS = {
     "sitechat.prefix": "Studify: {text}",
     "sitechat.snag": "Couldn't get an answer just now. Try again in a moment.",
     "footer.nav": "Site information",
+    "footer.practice": "Practice questions",
     "footer.teachers": "For teachers",
     "footer.about": "About",
     "footer.faq": "FAQ",
@@ -3467,6 +3469,7 @@ export const STRINGS = {
     "session.examTimeUp": "Tiden är ute — dina svar skickades in automatiskt.",
 
     "lib.title": "Övningsbibliotek",
+    "lib.starting": "Öppnar setet…",
     "lib.loadFail": "Kunde inte ladda biblioteket",
     "lib.loadFailBody": "Försök igen om en stund.",
     "lib.search": "Sök i biblioteket…",
@@ -3955,6 +3958,7 @@ export const STRINGS = {
     "sitechat.prefix": "Studify: {text}",
     "sitechat.snag": "Kunde inte få ett svar just nu. Försök igen om en stund.",
     "footer.nav": "Sidinformation",
+    "footer.practice": "Övningsfrågor",
     "footer.teachers": "För lärare",
     "footer.about": "Om oss",
     "footer.faq": "Vanliga frågor",

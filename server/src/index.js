@@ -24,6 +24,7 @@ import { account } from "./routes/account.js";
 import { waitlist } from "./routes/waitlist.js";
 import { analytics } from "./routes/analytics.js";
 import { reviews } from "./routes/reviews.js";
+import { practicePages } from "./routes/practice-pages.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // The frontend (index.html, css/, js/, etc.) is the repo root — normally two
@@ -157,6 +158,10 @@ app.use((req, res, next) => {
   p = p.replace(/\/{2,}/g, "/").toLowerCase();
   return BLOCKED.test(p) ? res.status(404).end() : next();
 });
+// Public practice pages (/ova/...), robots.txt and sitemap.xml — server-rendered so search engines
+// can read them. See routes/practice-pages.js.
+app.use(practicePages);
+
 // Long-lived caching only for files that never change under the same name; see static-cache.js.
 app.use(express.static(FRONTEND_ROOT, {
   dotfiles: "ignore",

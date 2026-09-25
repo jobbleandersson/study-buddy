@@ -298,6 +298,7 @@ export function footer() {
         el("img", { src: "assets/favicon.svg", alt: "" }), "Studify",
       ]),
       el("nav.lp-foot__links", { "aria-label": t("footer.nav") }, [
+        el("a", { href: "/ova" }, t("footer.practice")),
         el("a", { href: "#/teachers" }, t("footer.teachers")),
         el("a", { href: "#/about" }, t("footer.about")),
         el("a", { href: "#/faq" }, t("footer.faq")),

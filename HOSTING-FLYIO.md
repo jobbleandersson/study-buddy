@@ -100,6 +100,20 @@ fly secrets list   # shows it's set, not the value, so save it somewhere safe fi
 
 Unset = nobody can approve, and the page says so. To rotate it, set a new value.
 
+### When you go public: let Google in
+
+Every ready-made set has its own public page at `/ova/...` (plus `/sitemap.xml`), so students can
+find Studify by searching for what they're studying. They say `noindex` until you switch indexing on,
+so a test deploy never ends up in search results. When you remove `SITE_PASSWORD`, also run:
+
+```bash
+fly secrets set PUBLIC_INDEXING=true
+```
+
+and remove the `<meta name="robots" content="noindex, nofollow">` line from `index.html`. Then add
+the site in [Google Search Console](https://search.google.com/search-console) and submit
+`https://studybuddy-jobble.fly.dev/sitemap.xml`.
+
 ## 4. Deploy
 
 ```bash

@@ -389,3 +389,25 @@ export async function renderLibrary(qs = null) {
   paint();
   return { title: t("lib.title"), node: root };
 }
+
+/** "#/start/<set id>" — the "Öva" button on a public practice page (/ova/...). Adds the set if it
+ *  isn't already in the student's library, then opens it straight away, so someone coming from a
+ *  search result lands in the questions instead of a list. An unknown id falls back to the library. */
+export async function renderStartSet(setId) {
+  const node = el("div.empty", {}, [el("p.note", {}, t("lib.starting"))]);
+  (async () => {
+    let target = "#/library";
+    try {
+      const index = await loadLibraryIndex();
+      const entry = index.sets.find((s) => s.id === setId);
+      if (entry) {
+        if (!isImported(entry.id)) await importSet(entry);
+        target = `#/session/${entry.id}`;
+      }
+    } catch { /* offline or a bad id: the library is the useful place to land */ }
+    // Arriving from a practice page counts as having seen the intro.
+    store.markOnboarded();
+    location.replace(`${location.pathname}${location.search}${target}`);
+  })();
+  return { title: t("lib.title"), node };
+}

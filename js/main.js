@@ -162,6 +162,7 @@ const routes = [
   { rx: /^\/terms$/, view: () => import("./views/legal.js").then((mod) => mod.renderTerms()) },
   { rx: /^\/privacy$/, view: () => import("./views/legal.js").then((mod) => mod.renderPrivacy()) },
   { rx: /^\/premium$/, view: () => import("./views/premium-waitlist.js").then((mod) => mod.renderPremiumWaitlist()) },
+  { rx: /^\/start\/(lib-[a-z0-9-]+)$/, view: (m) => import("./views/library.js").then((mod) => mod.renderStartSet(m[1])) },
   { rx: /^\/rate$/, view: () => import("./views/rate.js").then((mod) => mod.renderRate()) },
   { rx: /^\/admin\/reviews$/, view: () => import("./views/admin-reviews.js").then((mod) => mod.renderAdminReviews()) },
 ];
@@ -755,6 +756,7 @@ function siteFooter() {
       el("img", { src: "assets/favicon.svg", alt: "" }), "Studify",
     ]),
     el("nav.sitefooter__links", { "aria-label": t("footer.nav") }, [
+      el("a", { href: "/ova" }, t("footer.practice")),
       el("a", { href: "#/teachers" }, t("footer.teachers")),
       el("a", { href: "#/about" }, t("footer.about")),
       el("a", { href: "#/faq" }, t("footer.faq")),

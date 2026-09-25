@@ -1,0 +1,75 @@
+/* Public practice pages (/ova/...), rendered by server/src/routes/practice-pages.js.
+   Standalone on purpose: tokens.css for colour and type, nothing from app.css, so an app
+   restyle can't break pages search engines have indexed. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--canvas); color: var(--ink);
+  font-family: var(--font-body); font-size: 1rem; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--brand-ink); }
+:root[data-theme="dark"] a { color: var(--brand-bright); }
+@media (prefers-color-scheme: dark) { :root[data-theme="system"] a { color: var(--brand-bright); } }
+
+.ova-wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+main.ova-wrap { padding-top: var(--s-5); padding-bottom: var(--s-8); }
+
+.ova-head { border-bottom: 1px solid var(--line); background: var(--surface); }
+.ova-head__inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; }
+.ova-brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+
+.ova-crumbs { font-size: var(--fs-sm); color: var(--ink-faint); margin-bottom: var(--s-4); overflow-wrap: anywhere; }
+.ova-crumbs a { color: var(--ink-soft); }
+
+h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; margin: 0 0 var(--s-3); }
+h2 { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.25; margin: var(--s-7) 0 var(--s-4); }
+.ova-eyebrow { margin: 0 0 var(--s-2); font-size: var(--fs-sm); font-weight: 700; color: var(--brand-ink); text-transform: uppercase; letter-spacing: .06em; }
+.ova-lead { font-size: 1.1rem; color: var(--ink-soft); max-width: 62ch; margin: 0 0 var(--s-4); }
+.ova-meta { font-size: var(--fs-sm); color: var(--ink-faint); margin: 0 0 var(--s-3); }
+
+.ova-btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 20px;
+  border-radius: 999px; background: var(--brand); color: #fff !important; font-weight: 700; text-decoration: none;
+}
+.ova-btn:hover { background: var(--brand-bright); }
+.ova-btn--ghost { background: transparent; color: var(--ink) !important; border: 1px solid var(--line-strong); min-height: 38px; padding: 6px 16px; font-size: var(--fs-sm); }
+.ova-btn--ghost:hover { background: var(--surface-sunk); }
+
+.ova-topics { list-style: none; padding: 0; margin: 0 0 var(--s-5); display: flex; flex-wrap: wrap; gap: 8px; }
+.ova-topics li { background: var(--brand-tint); color: var(--brand-ink); border-radius: 999px; padding: 2px 12px; font-size: var(--fs-sm); font-weight: 600; }
+
+.ova-level h2 { margin-top: var(--s-6); }
+.ova-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.ova-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.ova-card {
+  display: grid; gap: 4px; height: 100%; padding: var(--s-4); border-radius: var(--r-md, 14px);
+  background: var(--surface); border: 1px solid var(--line); color: var(--ink) !important; text-decoration: none;
+}
+.ova-card:hover { border-color: var(--brand); }
+.ova-card span { color: var(--ink-soft); font-size: var(--fs-sm); }
+.ova-card small { color: var(--ink-faint); }
+.ova-list--compact { gap: 6px; }
+.ova-list--compact li { padding-left: 1em; text-indent: -1em; }
+.ova-list--compact li::before { content: "› "; color: var(--ink-faint); }
+
+.ova-qs { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
+.ova-q { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--s-5); }
+.ova-q__n { margin: 0 0 4px; font-size: var(--fs-sm); font-weight: 700; color: var(--ink-faint); }
+.ova-q > p { margin: 0 0 var(--s-3); overflow-wrap: anywhere; }
+.ova-choices { margin: 0 0 var(--s-3); padding-left: 1.6em; display: grid; gap: 4px; }
+.ova-steps { padding-left: 1.4em; display: grid; gap: 4px; }
+.ova-q__ans { border-top: 1px solid var(--line); padding-top: var(--s-3); }
+.ova-q__ans summary { cursor: pointer; font-weight: 700; color: var(--brand-ink); min-height: 32px; }
+.ova-q__ans p { margin: var(--s-2) 0 0; }
+.ova-q .katex { font-size: 1.05em; }
+.ova-q .katex-display { overflow-x: auto; overflow-y: hidden; }
+
+.ova-cta { margin-top: var(--s-6); padding: var(--s-5); border-radius: var(--r-lg); background: var(--brand-tint); }
+.ova-cta h2 { margin-top: 0; }
+.ova-cta p { color: var(--ink-soft); max-width: 60ch; }
+
+.ova-foot { border-top: 1px solid var(--line); padding: var(--s-5) 0; font-size: var(--fs-sm); color: var(--ink-faint); }
+.ova-foot__inner { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; }
+.ova-foot nav { display: flex; flex-wrap: wrap; gap: 16px; }
+.ova-foot a { color: var(--ink-soft); }
