@@ -44,9 +44,19 @@ function faqItem(titleKey, bodyKey, extra) {
 }
 
 export function renderAbout() {
+  // Reuses the landing page's own level list (lp.levels) plus the nav's
+  // Högskoleprovet label — one source of truth for "what does Studify cover"
+  // instead of a third copy of the same four grades to keep in sync.
+  const levels = [...t("lp.levels").split("|"), t("nav.hp")];
   return page("about.pageTitle", [
     el("p.note", { style: { marginBottom: "4px" } }, t("about.heroLead")),
     section("about.missionTitle", "about.missionBody"),
+    el("section.panel", {}, [
+      el("h3", { style: { marginBottom: "8px" } }, t("about.levelsTitle")),
+      el("p", { style: { margin: "8px 0 12px" } }, t("about.levelsBody")),
+      el("div", { style: { display: "flex", flexWrap: "wrap", gap: "8px" } },
+        levels.map((label) => el("span.badge", {}, label))),
+    ]),
     section("about.backgroundTitle", "about.backgroundBody"),
     el("section.panel", {}, [
       el("h3", { style: { marginBottom: "8px" } }, t("about.contactTitle")),
