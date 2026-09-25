@@ -1907,7 +1907,17 @@ body.has-welcome { overflow: hidden; }
 .tutor__title { font-family: var(--font-display); font-weight: 600; }
 .tutor__sub { font-size: var(--fs-sm); color: var(--ink-faint); }
 .tutor__log { flex: 1; overflow-y: auto; padding: var(--s-4); display: flex; flex-direction: column; gap: var(--s-3); }
-.msg { max-width: 92%; padding: var(--s-3) var(--s-4); border-radius: var(--r-md); font-size: var(--fs-sm); line-height: 1.5; }
+/* Nothing inside a bubble may push past its edge: long URLs and words break, wide code, tables and
+   display equations scroll on their own, and anything else that cannot wrap (a very long inline
+   formula) scrolls the bubble instead of giving the whole chat a sideways scrollbar. */
+.msg { flex: none; max-width: 92%; padding: var(--s-3) var(--s-4); border-radius: var(--r-md); font-size: var(--fs-sm); line-height: 1.5; overflow-wrap: anywhere; overflow-x: auto; overflow-y: hidden; }
+.msg pre { max-width: 100%; overflow-x: auto; margin: .5em 0; padding: .5em .75em; border-radius: var(--r-sm); background: rgba(0,0,0,.08); font-size: .92em; line-height: 1.45; }
+.msg pre code { padding: 0; background: none; white-space: pre; overflow-wrap: normal; }
+.msg .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+.msg .mdtable { max-width: 100%; margin: .5em 0; overflow-x: auto; }
+.msg table { border-collapse: collapse; min-width: 100%; font-size: .95em; }
+.msg th, .msg td { padding: 6px 10px; border: 1px solid var(--line-strong); text-align: left; vertical-align: top; overflow-wrap: normal; }
+.msg th { background: color-mix(in srgb, var(--brand) 10%, transparent); font-weight: 600; }
 .msg :is(p, ul, ol) + :is(p, ul, ol) { margin-top: .5em; }
 .msg li + li { margin-top: .25em; }
 /* The global `* { padding: 0 }` reset strips a list's indent, so its markers hang outside the

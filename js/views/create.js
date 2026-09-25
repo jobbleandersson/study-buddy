@@ -4,7 +4,8 @@ import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
 import { markdown } from "../lib/markdown.js";
-import { extractPdfText, extractZipText, readImageFile, fitText } from "../material.js";
+import { extractPdfText, extractZipText, fitText } from "../material.js";
+import { shrinkImage } from "../lib/photo.js";
 import { parseCards, cardsToDoc } from "../lib/import.js";
 import { parseSharedSet, importSharedSet } from "../lib/share-set.js";
 import { detectSections } from "../lib/split.js";
@@ -363,7 +364,7 @@ export function renderCreate(prefill) {
           status.className = "note";
           status.textContent = t("create.reading"); state.image = null;
           try {
-            const img = await readImageFile(file);
+            const img = await shrinkImage(file);
             if (mine !== run) return;
             state.image = img;
             status.textContent = "";

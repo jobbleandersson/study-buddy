@@ -1,6 +1,6 @@
 // Minimal, safe Markdown -> HTML for tutor messages.
 // Supports: paragraphs, bold, italic, inline code, fenced/indented code,
-// unordered/ordered lists, and $...$ / $$...$$ math via KaTeX when available.
+// unordered/ordered lists, pipe tables, and $...$ / $$...$$ math via KaTeX when available.
 // Everything is HTML-escaped first, so model output can't inject markup.
 
 function esc(s) {
@@ -53,6 +53,30 @@ function itemHtml(lines) {
   return chunks.join("");
 }
 
+const TABLE_SEP = /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$/;
+
+/** A table starts at a line with a pipe when the next line is the |---|---| separator. */
+function isTableStart(lines, i) {
+  return i + 1 < lines.length && lines[i].includes("|") && lines[i + 1].includes("|") && TABLE_SEP.test(lines[i + 1]);
+}
+
+function tableCells(line) {
+  return line.trim().replace(/^\|/, "").replace(/\|$/, "").split(/(?<!\\)\|/).map((c) => c.replace(/\\\|/g, "|").trim());
+}
+
+/** Header, separator and every following line that has a pipe -> one scrollable table. */
+function tableHtml(lines, start) {
+  const head = tableCells(lines[start]);
+  const align = tableCells(lines[start + 1]).map((c) => (/^:-*:$/.test(c) ? "center" : /-:$/.test(c) ? "right" : ""));
+  const rows = [];
+  let i = start + 2;
+  while (i < lines.length && lines[i].trim() !== "" && lines[i].includes("|")) rows.push(tableCells(lines[i++]));
+  const cell = (tag, text, n) => `<${tag}${align[n] ? ` style="text-align:${align[n]}"` : ""}>${inline(text ?? "")}</${tag}>`;
+  const tr = (tag, cells) => `<tr>${head.map((_, n) => cell(tag, cells[n], n)).join("")}</tr>`;
+  const html = `<div class="mdtable"><table><thead>${tr("th", head)}</thead>${rows.length ? `<tbody>${rows.map((r) => tr("td", r)).join("")}</tbody>` : ""}</table></div>`;
+  return { html, next: i };
+}
+
 export function markdown(src) {
   const lines = String(src ?? "").replace(/\r\n/g, "\n").split("\n");
   const out = [];
@@ -74,6 +98,13 @@ export function markdown(src) {
       // A model heading ("# Solving …") has no place in a chat bubble: show it as a bold line.
       out.push(`<p><strong>${inline(line.replace(/^#{1,6}\s+/, "").replace(/\s*#+\s*$/, ""))}</strong></p>`);
       i++;
+      continue;
+    }
+
+    if (isTableStart(lines, i)) {
+      const table = tableHtml(lines, i);
+      out.push(table.html);
+      i = table.next;
       continue;
     }
 
@@ -109,7 +140,7 @@ export function markdown(src) {
     // paragraph: gather until blank line
     const buf = [line];
     i++;
-    while (i < lines.length && lines[i].trim() !== "" && !/^\s*([-*]|\d+[.)])\s+/.test(lines[i]) && !/^```/.test(lines[i])) {
+    while (i < lines.length && lines[i].trim() !== "" && !/^\s*([-*]|\d+[.)])\s+/.test(lines[i]) && !/^```/.test(lines[i]) && !isTableStart(lines, i)) {
       buf.push(lines[i++]);
     }
     out.push(`<p>${inline(buf.join(" "))}</p>`);
