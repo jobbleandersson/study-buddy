@@ -25,7 +25,7 @@ import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { markdown } from "../lib/markdown.js";
 import { announce } from "../lib/a11y.js";
-import { readImageFile } from "../material.js";
+import { shrinkImage } from "../lib/photo.js";
 import { tutorStream, ClaudeError } from "../claude.js";
 import { solveChatSystem, studyChatSystem } from "../prompts.js";
 import { STUDY_MODES, isStudyMode, trimHistory, MAX_INPUT_CHARS } from "../lib/study-modes.js";
@@ -89,7 +89,7 @@ export function renderSolve(qs) {
 
   async function attachImage(file) {
     try {
-      state.pendingImage = await readImageFile(file);
+      state.pendingImage = await shrinkImage(file);
     } catch (err) {
       toast(err.message || t("err.readFile"));
       return;
