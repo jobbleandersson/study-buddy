@@ -63,6 +63,20 @@ describe("study-modes", () => {
     assert.equal(out.at(-1).content, "19");
   });
 
+  test("keeps the very first message as an anchor even once the thread runs well past the window", () => {
+    const msgs = [{ role: "user", content: "topic: cellandning" }];
+    for (let i = 0; i < 30; i++) msgs.push({ role: i % 2 === 0 ? "assistant" : "user", content: String(i) });
+    const out = trimHistory(msgs, 6);
+    assert.equal(out.length, 6);
+    assert.equal(out[0].content, "topic: cellandning");
+    assert.equal(out.at(-1).content, "29");
+  });
+
+  test("does not duplicate the anchor when the whole conversation still fits in the window", () => {
+    const msgs = [{ role: "user", content: "a" }, { role: "assistant", content: "b" }, { role: "user", content: "c" }];
+    assert.deepEqual(trimHistory(msgs, 5), msgs);
+  });
+
   test("trimHistory copes with short, empty and missing input", () => {
     assert.deepEqual(trimHistory([]), []);
     assert.deepEqual(trimHistory(undefined), []);

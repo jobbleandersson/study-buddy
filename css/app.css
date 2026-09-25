@@ -1912,7 +1912,9 @@ body.has-welcome { overflow: hidden; }
 .sitechat__dormant p:first-child { font-family: var(--font-display); font-weight: 600; margin-bottom: var(--s-2); color: var(--ink); }
 /* Out of the way during a running session / worksheet. */
 body.route-immersive .sitechat__fab,
-body.route-immersive .sitechat__panel { display: none; }
+body.route-immersive .sitechat__panel,
+body.route-chat .sitechat__fab,
+body.route-chat .sitechat__panel { display: none; }
 /* Clear of the fixed bottom tab bar on mobile. */
 @media (max-width: 899.98px) {
   .sitechat__fab { bottom: calc(70px + var(--s-3) + env(safe-area-inset-bottom, 0)); }
@@ -3500,10 +3502,10 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .chatmode.is-on { color: var(--brand-ink, var(--brand)); background: var(--brand-tint); border-color: var(--brand); }
 .chatmode svg { flex: none; }
 .home-panel--chat .chatmodes { margin: 6px 0 0; }
-.studychat__input { border-radius: var(--r-md); resize: none; line-height: 1.4; min-height: 44px; max-height: 40vh; overflow-y: auto; }
-.studychat__form { align-items: flex-end; }
-.studychat .msg.me { white-space: pre-wrap; overflow-wrap: anywhere; }
-.studychat .solve-chat__log { min-height: 200px; max-height: min(56vh, 520px); }
+.solve-chat__textarea { border-radius: var(--r-md); resize: none; line-height: 1.4; min-height: 44px; max-height: 40vh; overflow-y: auto; }
+.solve .tutor__form { align-items: flex-end; }
+.solve .msg.me { white-space: pre-wrap; overflow-wrap: anywhere; }
+.solve .solve-chat__log { min-height: 200px; max-height: min(56vh, 520px); }
 
 /* Exam mode: question map (overview), flag button, flagged dots. */
 .progress-dots .is-flag { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--retry); }

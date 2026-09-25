@@ -1,7 +1,7 @@
-// The one-tap "ways to study" of the study chat (#/chat) and the home page's AI study help strip:
-// quiz me, explain, summarise, compare, word list, debate. Each is the same conversation with a
-// different set of ground rules for the assistant, so a student who only types "photosynthesis" and
-// taps a mode gets a useful reply without knowing how to write a prompt.
+// The one-tap "ways to study" on the Solve page (#/solve?mode=...) and the home page's AI study
+// help strip: quiz me, explain, summarise, compare, word list, debate. Each is the same conversation
+// with a different set of ground rules for the assistant, so a student who only types
+// "photosynthesis" and taps a mode gets a useful reply without knowing how to write a prompt.
 //
 // Pure data and string building - no DOM, store or i18n imports - so it can be unit-tested. The labels
 // live in strings.js (chat.mode.<id>), and prompts.js adds the reply-language line when it builds the
@@ -54,9 +54,21 @@ export function buildStudySystem(id, replyLang = "") {
   return [BASE, studyModeRules(id)].filter(Boolean).join("\n\n") + replyLang;
 }
 
-/** The last `limit` messages, never starting on an assistant turn (the API wants a user message first). */
+/** The last `limit` messages - but the very first one is always kept too, even once the thread runs
+ *  past the window. It's always the first user turn (every caller pushes it before anything else),
+ *  and it's usually the topic or the pasted notes the whole conversation is about; losing it let a
+ *  long "Förhör mig" quiz or a "Sammanfatta" run drift off the original material after a few
+ *  exchanges. Never starts on an assistant turn either (the API wants a user message first). */
 export function trimHistory(messages, limit = HISTORY_LIMIT) {
-  const list = Array.isArray(messages) ? messages.slice(-limit) : [];
-  while (list.length && list[0].role !== "user") list.shift();
-  return list;
+  const list = Array.isArray(messages) ? messages : [];
+  if (list.length <= limit) {
+    const out = list.slice();
+    while (out.length && out[0].role !== "user") out.shift();
+    return out;
+  }
+  const anchor = list[0];
+  const tailLen = Math.max(0, limit - 1);
+  const tail = tailLen ? list.slice(-tailLen) : [];
+  while (tail.length && tail[0].role !== "user") tail.shift();
+  return tail.length ? [anchor, ...tail] : [anchor];
 }
