@@ -251,6 +251,7 @@ export function footer() {
       el("nav.lp-foot__links", { "aria-label": t("footer.nav") }, [
         el("a", { href: "#/teachers" }, t("footer.teachers")),
         el("a", { href: "#/about" }, t("footer.about")),
+        el("a", { href: "#/faq" }, t("footer.faq")),
         el("a", { href: "#/terms" }, t("footer.terms")),
         el("a", { href: "#/privacy" }, t("footer.privacy")),
         el("a", { href: `mailto:${CONTACT_EMAIL}` }, t("footer.contact")),

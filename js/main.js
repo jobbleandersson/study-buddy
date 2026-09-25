@@ -159,6 +159,7 @@ const routes = [
   { rx: /^\/national\/mix\/(.+)$/, view: (m, qs) => import("./views/session.js").then((mod) => mod.renderNationalMix(m[1], qs)) },
   { rx: /^\/welcome$/, view: () => import("./views/landing.js").then((mod) => mod.renderLanding()) },
   { rx: /^\/about$/, view: () => import("./views/legal.js").then((mod) => mod.renderAbout()) },
+  { rx: /^\/faq$/, view: () => import("./views/legal.js").then((mod) => mod.renderFaq()) },
   { rx: /^\/terms$/, view: () => import("./views/legal.js").then((mod) => mod.renderTerms()) },
   { rx: /^\/privacy$/, view: () => import("./views/legal.js").then((mod) => mod.renderPrivacy()) },
   { rx: /^\/premium$/, view: () => import("./views/premium-waitlist.js").then((mod) => mod.renderPremiumWaitlist()) },
@@ -748,6 +749,7 @@ function siteFooter() {
     el("nav.sitefooter__links", { "aria-label": t("footer.nav") }, [
       el("a", { href: "#/teachers" }, t("footer.teachers")),
       el("a", { href: "#/about" }, t("footer.about")),
+      el("a", { href: "#/faq" }, t("footer.faq")),
       el("a", { href: "#/terms" }, t("footer.terms")),
       el("a", { href: "#/privacy" }, t("footer.privacy")),
       el("a", { href: `mailto:${CONTACT_EMAIL}` }, t("footer.contact")),

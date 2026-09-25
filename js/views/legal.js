@@ -1,4 +1,4 @@
-// Static informational pages: About, Terms of Service, Privacy Policy.
+// Static informational pages: About, FAQ, Terms of Service, Privacy Policy.
 // Reached from the site footer, not the main nav — read-once material,
 // not something a student needs a shortcut to mid-study.
 
@@ -40,6 +40,24 @@ export function renderAbout() {
     el("section.panel", {}, [
       el("h3", { style: { marginBottom: "8px" } }, t("about.contactTitle")),
       el("p", { style: { marginTop: "8px" } }, t("about.contactBody")),
+      el("a.btn.btn--ghost", { href: FEEDBACK_MAIL, style: { marginTop: "12px" } }, t("about.contactLink")),
+    ]),
+  ]);
+}
+
+export function renderFaq() {
+  return page("faq.pageTitle", [
+    section("faq.q1Title", "faq.q1Body"),
+    section("faq.q2Title", "faq.q2Body"),
+    section("faq.q3Title", "faq.q3Body"),
+    section("faq.q4Title", "faq.q4Body"),
+    section("faq.q5Title", "faq.q5Body"),
+    section("faq.q6Title", "faq.q6Body"),
+    section("faq.q7Title", "faq.q7Body"),
+    section("faq.q8Title", "faq.q8Body"),
+    el("section.panel", {}, [
+      el("h3", { style: { marginBottom: "8px" } }, t("faq.q9Title")),
+      el("p", { style: { marginTop: "8px" } }, t("faq.q9Body")),
       el("a.btn.btn--ghost", { href: FEEDBACK_MAIL, style: { marginTop: "12px" } }, t("about.contactLink")),
     ]),
   ]);
