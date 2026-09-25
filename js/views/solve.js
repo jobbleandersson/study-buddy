@@ -240,7 +240,7 @@ export function renderSolve(qs) {
       },
     });
 
-    const inputEl = el("textarea.tutor__input.solve-chat__textarea", {
+    const inputEl = el("textarea.solve-dock__input", {
       rows: 1,
       placeholder: placeholderText(), "aria-label": placeholderText(),
       oninput: autosize,
@@ -253,20 +253,28 @@ export function renderSolve(qs) {
       onclick: () => fileInput.click(),
     }, [icon(ICONS.camera, 18)]);
 
-    const sendBtn = el("button.iconbtn", { type: "submit", "aria-label": t("tutor.send"), style: { color: "var(--brand)" } }, [icon(ICONS.arrow, 18)]);
-    const formEl = el("form.tutor__form", { onsubmit: (e) => { e.preventDefault(); send(); } }, [fileInput, attachBtn, inputEl, sendBtn]);
+    const sendBtn = el("button.iconbtn.solve-dock__send", { type: "submit", "aria-label": t("tutor.send") }, [icon(ICONS.arrow, 18)]);
 
     const resetBtn = el("button.linkbtn.solve-chat__reset", { type: "button", hidden: true, onclick: resetChat }, t("solve.newChat"));
 
     const modeBtns = STUDY_MODES.map((m) => el("button.chatmode", {
       type: "button", "data-mode": m.id, "aria-pressed": "false", onclick: () => pickMode(m.id),
-    }, [icon(ICONS[m.icon] || ICONS.spark, 16), t(`chat.mode.${m.id}`)]));
+    }, [icon(ICONS[m.icon] || ICONS.spark, 18), t(`chat.mode.${m.id}`)]));
 
     if (!canChat) {
       inputEl.disabled = true;
       attachBtn.disabled = true;
       sendBtn.disabled = true;
     }
+
+    // One docked card: the six ways to study on top, then the box, then attach + send.
+    const formEl = el("form.solve-dock", { onsubmit: (e) => { e.preventDefault(); send(); } }, [
+      fileInput,
+      el("div.chatmodes", { role: "group", "aria-label": t("chat.modesLabel") }, modeBtns),
+      pendingEl,
+      inputEl,
+      el("div.solve-dock__row", {}, [attachBtn, el("span.solve-dock__hint", {}, t("solve.enterHint")), sendBtn]),
+    ]);
 
     refs = { logEl, pendingEl, inputEl, attachBtn, resetBtn, modeBtns };
 
@@ -282,11 +290,9 @@ export function renderSolve(qs) {
       resetBtn,
     ]));
     root.appendChild(solveTabs("help"));
-    root.appendChild(el("div.chatmodes", { role: "group", "aria-label": t("chat.modesLabel") }, modeBtns));
-    const panel = el("div.panel.solve-chat__panel", {}, [
+    const panel = el("div.solve-chat.solve-chat__panel", {}, [
       canChat ? null : gateNote(),
       logEl,
-      pendingEl,
       formEl,
       canChat ? el("div.solve-chat__drop", { "aria-hidden": "true" }, t("solve.dropHere")) : null,
     ].filter(Boolean));
