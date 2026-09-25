@@ -815,7 +815,7 @@ function worked({ question, tutor, live, testMode, onDone }) {
     "aria-label": t("q.yourWorking"),
   });
   const keypad = mathKeypad(ta);
-  const revealed = el("ol", { style: { margin: "12px 0 0 18px" } });
+  const revealed = el("ol", { style: { marginTop: "12px" } });
   const revealBtn = steps.length && !testMode
     ? el("button.btn.btn--ghost.btn--sm", { type: "button", onclick: revealStep }, t("q.showStep"))
     : null;
