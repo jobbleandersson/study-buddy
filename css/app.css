@@ -1908,7 +1908,12 @@ body.has-welcome { overflow: hidden; }
 .tutor__sub { font-size: var(--fs-sm); color: var(--ink-faint); }
 .tutor__log { flex: 1; overflow-y: auto; padding: var(--s-4); display: flex; flex-direction: column; gap: var(--s-3); }
 .msg { max-width: 92%; padding: var(--s-3) var(--s-4); border-radius: var(--r-md); font-size: var(--fs-sm); line-height: 1.5; }
-.msg p + p { margin-top: .5em; }
+.msg :is(p, ul, ol) + :is(p, ul, ol) { margin-top: .5em; }
+.msg li + li { margin-top: .25em; }
+/* The global `* { padding: 0 }` reset strips a list's indent, so its markers hang outside the
+   box and poke out of the bubble. Restore it for the class-less lists markdown() emits;
+   class-based / scoped lists (.lp-src ul, .rulesheet ul, …) still win on specificity. */
+:where(ul, ol):not([class]) { padding-left: 1.4em; }
 .msg.ai { background: var(--surface-sunk); align-self: flex-start; border-bottom-left-radius: 4px; }
 .msg.me { background: var(--brand); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
 .msg.ai code, .msg.me code { background: rgba(0,0,0,.08); padding: 1px 4px; border-radius: 4px; }
