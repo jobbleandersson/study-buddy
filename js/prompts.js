@@ -26,7 +26,10 @@ Respond with ONLY a single JSON object (no prose, no markdown fence) of this sha
 {
   "title": string,              // short, specific
   "subject": string,            // e.g. "Science", "History", "Math"
-  "sourceSummary": string,      // one sentence describing what this set covers
+  "sourceSummary": string,      // 3-5 sentences a student would actually want to read before
+                                 // practicing: what the material covers and why it matters, in
+                                 // plain language. Markdown is fine (paragraphs, a short list,
+                                 // **bold**) — it's rendered, not shown as raw text.
   "topics": string[],           // the distinct topic tags you used
   "questions": Question[]        // the questions — EVERY question carries an "opener"
 }

@@ -3,6 +3,7 @@
 import { store } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { renderRich } from "../lib/rich.js";
+import { markdown } from "../lib/markdown.js";
 import { extractPdfText, extractZipText, readImageFile, fitText } from "../material.js";
 import { parseCards, cardsToDoc } from "../lib/import.js";
 import { parseSharedSet, importSharedSet } from "../lib/share-set.js";
@@ -656,6 +657,12 @@ export function renderCreate(prefill) {
         duePicker.el,
         countNote,
       ]),
+      // Blank/imported sets never call AI and always carry sourceSummary: ""
+      // (buildBlank() above, lib/import.js's cardsToDoc) — nothing to show them.
+      doc.sourceSummary ? el("div.panel.set-summary", {}, [
+        el("h3", {}, t("create.summaryLabel")),
+        el("div", { html: markdown(doc.sourceSummary) }),
+      ]) : null,
       editor.el,
       el("div.nav-row", {}, [
         el("button.btn.btn--ghost", { type: "button", onclick: () => { state.step = "input"; paint(); } }, t("common.back")),

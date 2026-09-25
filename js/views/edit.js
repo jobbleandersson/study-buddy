@@ -38,6 +38,13 @@ export function renderEdit(assignmentId, qs) {
     type: "text", value: draft.title, "aria-label": t("create.setTitleAria"),
     oninput: (e) => { draft.title = e.target.value; },
   });
+  // draft.sourceSummary can be undefined on a set saved before this field
+  // existed — no migration backfills it (see js/store.js), so this is the
+  // one place it's read without the `|| ""` every other call site already uses.
+  const summaryInput = el("textarea", {
+    rows: 4, value: draft.sourceSummary || "", "aria-label": t("create.summaryLabel"),
+    oninput: (e) => { draft.sourceSummary = e.target.value; },
+  });
   const subjectFld = subjectField({ value: subjectName });
   const typeSel = el("select", { "aria-label": t("create.type") }, [
     el("option", { value: "assignment" }, t("create.typeAssignment")),
@@ -96,6 +103,7 @@ export function renderEdit(assignmentId, qs) {
       type: typeSel.value,
       subjectId: subject.id,
       dueAt: duePicker.getValue() || null,
+      sourceSummary: draft.sourceSummary || "",
       questions,
     });
     toast(t("edit.saved"));
@@ -113,6 +121,7 @@ export function renderEdit(assignmentId, qs) {
       ]),
       el("label.field", { style: { maxWidth: "260px" } }, [el("span", {}, t("create.type")), typeSel]),
       duePicker.el,
+      el("label.field", {}, [el("span", {}, t("create.summaryLabel")), summaryInput]),
       countNote,
     ]),
 

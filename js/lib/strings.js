@@ -490,6 +490,7 @@ export const STRINGS = {
     "create.giveName": "Give the set a name.",
     "create.saved": "Saved!",
     "create.dueDate": "Due date (optional)",
+    "create.summaryLabel": "About this set",
 
     /* ---- edit ---- */
     "edit.title": "Edit set",
@@ -2525,6 +2526,7 @@ export const STRINGS = {
     "create.giveName": "Ge settet ett namn.",
     "create.saved": "Sparat!",
     "create.dueDate": "Deadline (valfritt)",
+    "create.summaryLabel": "Om det här",
 
     /* ---- edit ---- */
     "edit.title": "Redigera set",
