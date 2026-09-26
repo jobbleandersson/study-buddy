@@ -558,7 +558,16 @@ class Store extends EventTarget {
       } catch { /* not signed in / server unreachable — stay local-only */ }
     }
 
-    if (this.authed) await this.refreshUsage();
+    if (this.authed) {
+      // _syncVersion is read from localStorage above, in the constructor — 0 means this
+      // browser has never completed a sync for this account. The cookie can outlive that
+      // local copy (Safari clears localStorage after ~7 days of inactivity; the session
+      // cookie here lasts 30), so on a cold boot the account's real data would otherwise
+      // stay hidden until some unrelated write happened to trigger a 409-conflict merge.
+      // Pulling it now shows the right state immediately instead of an empty one.
+      if (this._syncVersion === 0) await this._pullOnLogin();
+      await this.refreshUsage();
+    }
 
     this.emit();
   }
