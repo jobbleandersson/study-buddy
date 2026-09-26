@@ -1654,6 +1654,21 @@ body.no-chrome .sitechat__panel { display: none; }
 .reading__row--stack { flex-direction: column; align-items: stretch; gap: 6px; }
 .reading__voice { width: 100%; font: inherit; font-size: var(--fs-sm); padding: 6px 8px; border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); }
 
+/* read-aloud voice controls (Settings + the reading popover): voice list, play sample, speed, tips */
+.voicectl { display: flex; flex-direction: column; gap: var(--s-2); }
+.voicectl [hidden] { display: none !important; }
+.voicectl__body { display: flex; flex-direction: column; gap: var(--s-2); }
+.voicectl__row { display: flex; align-items: center; gap: var(--s-3); flex-wrap: wrap; }
+.voicectl__speed { display: flex; align-items: center; gap: var(--s-2); flex: 1 1 140px; min-width: 0; font-size: var(--fs-sm); color: var(--ink-soft); }
+.voicectl__speed > span { flex: none; }
+.voicectl__speed input[type=range] { flex: 1; min-width: 60px; accent-color: var(--brand); }
+.voicectl__rate { flex: none; min-width: 2.6em; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+.voicectl__tip { margin: 0; font-size: var(--fs-sm); line-height: 1.4; }
+.voicectl--compact .voicectl__tip { font-size: 12px; }
+.voicectl--compact .voicectl__row { gap: var(--s-2); }
+.voicectl--compact .voicectl__speed > span { display: none; }
+.voicectl-field .voicectl { max-width: 520px; }
+
 .choices { display: flex; flex-direction: column; gap: var(--s-3); }
 .choice {
   text-align: left; font: inherit; cursor: pointer;
