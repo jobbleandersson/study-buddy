@@ -395,7 +395,8 @@ export class TutorChat {
       this._speak(acc);
     } catch (e) {
       const msg = e instanceof ClaudeError ? e.message : t("tutor.snag");
-      bubble.innerHTML = markdown(`_${msg}_`);
+      bubble.textContent = msg;
+      bubble.classList.add("msg--error");
       msgs.pop(); // drop the user turn that failed
     }
   }
