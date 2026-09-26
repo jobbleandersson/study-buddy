@@ -1,0 +1,212 @@
+/* Studify design layer — loaded after app.css, and wins over it.
+ *
+ * The app's look had grown one patch at a time: pill-shaped everything, a floating sidebar card,
+ * buttons that jump on hover, coloured stripes down the left edge of cards. Each was fine alone;
+ * together they read as home-made. This file sets the calmer, more deliberate system every
+ * screen now shares:
+ *
+ *   - a flush, full-height sidebar and a real top bar (with library search) on desktop
+ *   - 10px corners on controls, 14px on cards; pills only for tags and toggles
+ *   - buttons that darken on hover instead of lifting; hairline borders and quiet shadows
+ *   - subject colour shown as a small mark, never as a thick stripe down a card's edge
+ *   - tighter, heavier headings
+ *
+ * Tokens come first so light, paper and dark themes all pick the system up.
+ */
+
+:root {
+  --canvas:       #F6F7F9;
+  --surface-sunk: #F0F2F5;
+  --line:         #E3E6EB;
+  --line-strong:  #CFD4DC;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --shadow-1: 0 1px 2px rgba(16, 24, 40, .05);
+  --shadow-2: 0 2px 4px -2px rgba(16, 24, 40, .06), 0 12px 24px -6px rgba(16, 24, 40, .12);
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, .04), 0 1px 3px rgba(16, 24, 40, .04);
+  --sidebar-w: 248px;
+  --topbar-h: 60px;
+}
+:root[data-theme="dark"], .theme-night { --shadow-card: 0 1px 2px rgba(0, 0, 0, .3); }
+@media (prefers-color-scheme: dark) { :root[data-theme="system"] { --shadow-card: 0 1px 2px rgba(0, 0, 0, .3); } }
+
+/* ---------- type ---------- */
+h1, h2, h3, .display { letter-spacing: -.022em; }
+h1 { font-weight: 750; }
+.content h1 { font-size: clamp(1.6rem, 1.25rem + 1vw, 2rem); }
+
+/* ---------- buttons ---------- */
+.btn {
+  border-radius: var(--r-md);
+  padding: 10px 18px; min-height: 42px;
+  font-size: .95rem; font-weight: 600; letter-spacing: -.005em;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, .1), inset 0 1px 0 rgba(255, 255, 255, .12);
+  transition: background var(--dur-fast), border-color var(--dur-fast), box-shadow var(--dur-fast), color var(--dur-fast);
+}
+.btn:hover, .btn:active { transform: none; }
+.btn:hover { background: color-mix(in srgb, var(--brand) 86%, #000); box-shadow: 0 1px 2px rgba(16, 24, 40, .12); }
+.btn--ghost { box-shadow: 0 1px 2px rgba(16, 24, 40, .05); border-color: var(--line-strong); }
+.btn--ghost:hover { background: var(--surface-sunk); border-color: var(--line-strong); box-shadow: 0 1px 2px rgba(16, 24, 40, .05); }
+.btn--ok:hover { background: color-mix(in srgb, var(--ok) 86%, #000); }
+.btn--danger:hover { background: color-mix(in srgb, var(--c-berry-ink) 86%, #000); }
+.btn--sm { padding: 6px 12px; min-height: 34px; font-size: var(--fs-sm); border-radius: 8px; }
+.btn--lg { padding: 13px 24px; min-height: 50px; font-size: 1.0625rem; border-radius: 12px; }
+.btn:disabled, .btn:disabled:hover { box-shadow: none; }
+
+.iconbtn { width: 38px; height: 38px; border-radius: var(--r-md); border-color: var(--line); box-shadow: 0 1px 2px rgba(16, 24, 40, .04); }
+.iconbtn:hover { transform: none; border-color: var(--line-strong); }
+.iconbtn svg { stroke-width: 1.8; }
+.langbtn { padding: 0 10px; }
+.homebtn { border-radius: 8px; border-color: var(--line); }
+
+/* ---------- cards & panels ---------- */
+.card, .panel { border-radius: var(--r-lg); box-shadow: var(--shadow-card); }
+.panel { border-color: var(--line); }
+
+/* Set cards: subject shown as the tag's colour and a thin top edge, not a 6px stripe. */
+.acard {
+  border: 1px solid var(--line); border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+  overflow: hidden;
+}
+.acard::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+  background: var(--subject, var(--brand)); opacity: .9;
+}
+.acard:hover { transform: none; border-color: var(--line-strong); box-shadow: var(--shadow-2); }
+.acard--new { border: 1.5px dashed var(--line-strong); box-shadow: none; }
+.acard--new::before { display: none; }
+.acard--new:hover { box-shadow: none; }
+.acard__tag { border-radius: 6px; letter-spacing: .05em; }
+.acard__title { font-weight: 650; letter-spacing: -.015em; }
+/* The card's own ⋮ menu is positioned inside; don't let the clip hide it. */
+.acard:has(.acard__menu[aria-expanded="true"]), .acard:focus-within { overflow: visible; }
+
+/* The remaining left-edge stripes become an even hairline border. */
+.tile--resume { border-left-width: 1px; }
+.continue-banner, .house-ad { border-left-width: 1px; border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); }
+.plan-row { border-left: 1px solid var(--line); }
+.plan-row.is-soon, .plan-row.is-overdue { border-left-color: var(--retry); }
+.exam-prep__head, .exam-prep__plan { border-left: 1px solid var(--line); }
+.exam-prep__pick-card { border-left: 1px solid var(--line); }
+.exam-prep__pick-card::before {
+  content: ""; flex: none; width: 10px; height: 10px; border-radius: 3px;
+  background: var(--subject, var(--brand));
+}
+.source-opt--subject { border-left-width: 1px; }
+.review-so-far__item { border-left-width: 1px; }
+.review-so-far__item.is-ok { border-color: color-mix(in srgb, var(--ok) 45%, var(--line)); }
+.review-so-far__item.is-miss { border-color: color-mix(in srgb, var(--retry) 45%, var(--line)); }
+
+/* ---------- inputs ---------- */
+.search { border-radius: var(--r-md); }
+
+/* ---------- desktop shell ---------- */
+@media (min-width: 900px) {
+  .sidebar {
+    width: var(--sidebar-w); margin: 0; top: 0; height: 100vh;
+    padding: 0 12px 14px;
+    border: 0; border-right: 1px solid var(--line); border-radius: 0;
+    background: var(--surface);
+  }
+  .sidebar__brand {
+    position: sticky; top: 0; z-index: 2;
+    height: var(--topbar-h); margin: 0 -12px 10px; padding: 0 22px;
+    font-size: 1.15rem; font-weight: 750; letter-spacing: -.02em;
+    border-bottom: 1px solid var(--line); background: var(--surface);
+  }
+  .sidebar__brand img { width: 28px; height: 28px; }
+  .sidebar__link {
+    min-height: 36px; max-height: 40px; padding: 0 10px; gap: 11px;
+    border-radius: 8px; font-size: 14px; font-weight: 500; color: var(--ink-soft);
+  }
+  .sidebar__link svg { width: 18px; height: 18px; stroke-width: 1.8; color: var(--ink-faint); }
+  .sidebar__link:hover svg { color: var(--ink-soft); }
+  .sidebar__link.is-active { background: var(--brand-tint); color: var(--brand-ink); font-weight: 600; }
+  .sidebar__link.is-active svg { color: var(--brand); }
+  .sidebar__group { margin: 18px 10px 6px; font-size: 11px; letter-spacing: .07em; font-weight: 650; }
+  .sidebar__acc { min-height: 36px; padding: 0 10px; border-radius: 8px; font-weight: 500; font-size: 14px; }
+  .sidebar__acc svg:first-child { stroke-width: 1.8; color: var(--ink-faint); }
+  .sidebar__acc-count { border-radius: 6px; }
+  .sidebar__div { margin: 10px 10px; }
+  .sidebar__foot { gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .sidebar__streak { border-radius: var(--r-md); }
+  .sidebar__theme { border-radius: var(--r-md); }
+  .sidebar__theme-btn { border-radius: 7px; }
+
+  /* A real top bar: search on the left, account controls on the right, a hairline underneath. */
+  .topbar {
+    height: var(--topbar-h);
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar__inner {
+    max-width: none; height: 100%;
+    justify-content: flex-start; gap: 10px;
+    padding: 0 clamp(24px, 3vw, 40px);
+  }
+  .content { padding-top: clamp(28px, 3vw, 40px); }
+}
+
+/* Library search in the top bar — desktop only; phones have the library tab. */
+.topsearch { display: none; }
+@media (min-width: 900px) {
+  .topsearch {
+    display: flex; align-items: center; gap: 8px;
+    flex: 0 1 420px; height: 38px; padding: 0 12px;
+    border: 1px solid var(--line); border-radius: var(--r-md);
+    background: var(--surface-sunk); color: var(--ink-faint);
+    transition: border-color var(--dur-fast), background var(--dur-fast), box-shadow var(--dur-fast);
+  }
+  .topsearch:focus-within { background: var(--surface); border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent); }
+  .topsearch svg { flex: none; stroke-width: 1.8; }
+  .topsearch__input {
+    flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
+    font: inherit; font-size: 14px; color: var(--ink);
+  }
+  .topsearch__input::placeholder { color: var(--ink-faint); }
+  .topsearch__input::-webkit-search-cancel-button { display: none; }
+}
+
+/* ---------- mobile shell ---------- */
+@media (max-width: 899.98px) {
+  .topbar { background: color-mix(in srgb, var(--surface) 90%, transparent); }
+  .brand { font-weight: 750; letter-spacing: -.02em; }
+  .tabbar__item span { font-size: 11px; font-weight: 550; }
+  .tabbar__item svg { stroke-width: 1.8; }
+}
+
+/* ---------- in-app footer: one quiet line ---------- */
+.sitefooter {
+  padding-top: 18px; gap: 6px 18px; font-size: 13px;
+  justify-content: flex-start;
+}
+.sitefooter__links { gap: 4px 18px; }
+.sitefooter__links a { color: var(--ink-faint); }
+.sitefooter__copy { width: auto; order: 0; margin-left: auto; font-size: 13px; }
+@media (max-width: 620px) { .sitefooter__copy { margin-left: 0; width: 100%; } }
+
+/* The language button carries a flag and a code, so it keeps its own width. */
+.iconbtn.langbtn { width: auto; }
+
+/* ---------- home ---------- */
+.home__head {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: 16px 24px; margin-bottom: 28px;
+}
+.home__title { min-width: 0; }
+.home__date { margin: 0 0 6px; font-size: 13px; font-weight: 600; color: var(--ink-faint); letter-spacing: .01em; }
+.home__hi { margin-top: 6px; }
+.home__head .home__actions { margin: 0; }
+@media (max-width: 620px) {
+  .home__head .home__actions { width: 100%; }
+  .home__head .home__actions .btn { flex: 1 1 auto; justify-content: center; }
+}
+
+/* Panel headings on the home page read as section titles, not bold body text. */
+.home-panel { border-radius: var(--r-lg); box-shadow: var(--shadow-card); }
+.home-panel__label > span:first-child { font-size: 15px; font-weight: 650; letter-spacing: -.01em; }
+.home-panel__label .linkbtn { font-size: 13.5px; font-weight: 600; }

@@ -12,6 +12,7 @@ import { CONTACT_EMAIL, TIKTOK_URL, REVIEWS_URL } from "../config.js";
 import { t, getLang, setLang, LANGS } from "../lib/i18n.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
 import { REVIEWS, publishableReviews } from "../data/reviews.js";
+import { STUDY_MODES } from "../lib/study-modes.js";
 
 /** Leaving the front page counts as having seen the intro, so the old
  *  first-run modal doesn't fire on top of the app right afterwards.
@@ -37,21 +38,48 @@ function langSwitch() {
   }, [el("span.lp-lang__flag", { "aria-hidden": "true", html: flag }), el("span", {}, current.toUpperCase())]);
 }
 
-export function header() {
-  return el("header.lp-head", {}, [
+/** Smooth-scrolls to a section of the front page. The app routes on the hash, so these can't be
+ *  plain #anchor links — that would navigate away to an unknown route. */
+function scrollToId(id) {
+  const target = document.getElementById(id);
+  if (!target) return;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+}
+
+const NAV = [["lp-features", "lp.navFeatures"], ["lp-ai", "lp.navAi"], ["lp-hp", "lp.navHp"], ["lp-subjects", "lp.navSubjects"], ["lp-faq", "lp.navFaq"]];
+
+/** The front pages' top bar. On the student front page (`sections: true`) it carries links to
+ *  that page's own sections; the teacher page links back here instead. Sticky, and it gains a
+ *  hairline once the page scrolls. */
+export function header({ sections = false } = {}) {
+  const links = sections
+    ? NAV.map(([id, key]) => el("a.lp-nav__link", {
+      href: "#/welcome", onclick: (e) => { e.preventDefault(); scrollToId(id); },
+    }, t(key)))
+    : [el("a.lp-nav__link", { href: "#/welcome" }, t("lp.forStudentT"))];
+  links.push(el("a.lp-nav__link", { href: "#/teachers" }, t("lp.navTeachers")));
+
+  const bar = el("header.lp-head", {}, [
     el("div.lp-head__inner", {}, [
       el("a.lp-brand", { href: "#/welcome" }, [
-        el("img", { src: "assets/favicon.svg", alt: "" }),
+        el("img", { src: "assets/favicon.svg", alt: "", width: 28, height: 28 }),
         el("span", {}, "Studify"),
       ]),
+      el("nav.lp-nav", { "aria-label": t("lp.navAria") }, links),
       el("div.lp-head__actions", {}, [
         langSwitch(),
-        el("button.btn.btn--ghost.btn--sm", {
-          type: "button", onclick: () => enter("#/"),
-        }, t("lp.openApp")),
+        store.authed ? null : el("a.lp-head__login", { href: "#/login" }, t("lp.navLogin")),
+        el("button.btn.btn--sm.lp-head__cta", { type: "button", onclick: () => openWelcomeQuiz() }, t("lp.navStart")),
       ].filter(Boolean)),
     ]),
   ]);
+  const onScroll = () => {
+    if (!bar.isConnected) { window.removeEventListener("scroll", onScroll); return; }
+    bar.classList.toggle("is-scrolled", window.scrollY > 8);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  return bar;
 }
 
 /** The hero: a question you can actually answer, built from landing-scoped
@@ -100,63 +128,41 @@ function questionCard() {
   ]);
 }
 
-/** A full-bleed strip of four short, concrete claims right under the hero —
- *  the numbers have to stay true, not just persuasive: the exercise count
- *  below is read straight from the library data, and there's no "results
- *  guarantee" item here because there's no payment system yet to refund. */
-function trustBar() {
-  const items = [
-    [ICONS.layers, "lp.trust1Title", "lp.trust1Sub"],
-    [ICONS.book, "lp.trust2Title", "lp.trust2Sub"],
-    [ICONS.message, "lp.trust3Title", "lp.trust3Sub"],
-    [ICONS.check, "lp.trust4Title", "lp.trust4Sub"],
-  ];
-  return el("section.lp-trust", {}, [
-    el("div.lp-trust__inner", {}, items.map(([ic, titleKey, subKey]) => el("div.lp-trust__item", {}, [
-      el("div.lp-trust__icon", { "aria-hidden": "true" }, [icon(ic, 20)]),
-      el("div", {}, [el("b", {}, t(titleKey)), el("span", {}, t(subKey))]),
-    ]))),
-  ]);
+/** A small ✓ list under the hero's buttons — four plain facts, each one true today. */
+function heroChecks() {
+  return el("ul.lp-checks", {}, ["lp.check1", "lp.check2", "lp.check3", "lp.check4"].map((k) =>
+    el("li", {}, [icon(ICONS.check, 15), t(k)])));
 }
 
-/** A real screenshot of a study session, in a browser frame — so a visitor sees the actual app,
- *  not just claims about it. Made by tools/landing-shots.mjs; rerun it when the session screen
- *  changes. One per language, since the app's text is in it. */
-function showcase() {
-  const lang = getLang() === "en" ? "en" : "sv";
-  return el("section.lp-sec.lp-show", {}, [
-    el("h2.lp-h2", {}, t("lp.showTitle")),
-    el("p.lp-sub", {}, t("lp.showSub")),
-    el("figure.lp-frame", {}, [
-      el("div.lp-frame__bar", { "aria-hidden": "true" }, [el("i"), el("i"), el("i"), el("span", {}, "studify")]),
-      // A phone-sized shot on narrow screens, where the desktop one would be too small to read.
-      el("picture", {}, [
-        el("source", { media: "(max-width: 640px)", srcset: `assets/shots/session-phone-${lang}.jpg`, width: 780, height: 1560 }),
-        el("img", {
-          src: `assets/shots/session-${lang}.jpg`, alt: t("lp.showAlt"),
-          width: 1920, height: 1200, loading: "lazy", decoding: "async",
-        }),
-      ]),
-    ]),
-  ]);
-}
-
+/** The hero: headline, two actions, and below them the real app — a screenshot of the home page
+ *  (made by tools/landing-shots.mjs) with the playable question card over its corner. On a phone
+ *  the screenshot would be unreadable, so the question card stands alone there. */
 function hero() {
+  const lang = getLang() === "en" ? "en" : "sv";
   return el("section.lp-hero", {}, [
     el("div.lp-hero__copy", {}, [
-      el("h1.lp-h1", {}, t("lp.title")),
+      el("a.lp-eyebrow", { href: "#/solve", onclick: (e) => { e.preventDefault(); enter("#/solve"); } }, [
+        el("span.lp-eyebrow__dot", { "aria-hidden": "true" }),
+        el("span", {}, t("lp.eyebrow")),
+        icon(ICONS.arrow, 14),
+      ]),
+      el("h1.lp-h1", {}, [t("lp.heroA"), " ", el("span.lp-h1__accent", {}, t("lp.heroB"))]),
       el("p.lp-lead", {}, t("lp.lead")),
       el("div.lp-cta", {}, [
-        el("button.btn.btn--lg", { type: "button", onclick: () => openWelcomeQuiz() }, t("lp.ctaPrimary")),
-        el("button.btn.btn--ghost.btn--lg", { type: "button", onclick: () => enter("#/") },
-          t("lp.ctaSecondary")),
+        el("button.btn.btn--lg", { type: "button", onclick: () => openWelcomeQuiz() }, [t("lp.ctaStart"), icon(ICONS.arrow, 18)]),
+        el("button.btn.btn--ghost.btn--lg", { type: "button", onclick: () => scrollToId("lp-features") }, t("lp.ctaTour")),
       ]),
-      el("p.lp-fineprint", {}, t("lp.fineprint")),
+      heroChecks(),
     ]),
-    el("div.lp-hero__art", {}, [
-      questionCard(),
-      // Two small notes around the card, pointing at what happens next in the real app: the tutor's
-      // hint for this very question, and the question coming back later for review.
+    el("div.lp-stage", {}, [
+      el("figure.lp-stage__shot", {}, [
+        el("div.lp-frame__bar", { "aria-hidden": "true" }, [el("i"), el("i"), el("i"), el("span", {}, "studify")]),
+        el("img", {
+          src: `assets/shots/home-${lang}.jpg`, alt: t("lp.heroAlt"),
+          width: 2160, height: 1350, decoding: "async", fetchpriority: "high",
+        }),
+      ]),
+      el("div.lp-stage__card", {}, [questionCard()]),
       el("div.lp-badge.lp-badge--hint", { "aria-hidden": "true" }, [
         el("span.lp-badge__icon", {}, [icon(ICONS.spark, 14)]),
         el("span", {}, [el("b", {}, t("lp.badgeHintLabel")), t("lp.badgeHint")]),
@@ -166,6 +172,16 @@ function hero() {
         el("span", {}, t("lp.badgeRepeat")),
       ]),
     ]),
+  ]);
+}
+
+/** Four numbers, all read off the real library (tools/validate-library.mjs counts them). */
+function stats() {
+  return el("section.lp-stats", {}, [
+    el("dl.lp-stats__inner", {}, [1, 2, 3, 4].map((n) => el("div.lp-stat", {}, [
+      el("dt", {}, t(`lp.stat${n}L`)),
+      el("dd", {}, t(`lp.stat${n}N`)),
+    ]))),
   ]);
 }
 
@@ -248,8 +264,162 @@ export function featureSection(prefix, rows) {
   ]);
 }
 
+function eyebrow(key) { return el("p.lp-eyebrow-text", {}, t(key)); }
+
+/** A short, static tutor exchange — what the AI tutor's answers look like. Illustrative, so it's
+ *  hidden from screen readers; the section's own text says the same in words. */
+function chatArt({ modes = false } = {}) {
+  return el("div.lp-chat", { "aria-hidden": "true" }, [
+    modes ? el("div.lp-chat__modes", {}, STUDY_MODES.map((m) => el("span", {}, [icon(ICONS[m.icon] || ICONS.spark, 13), t(`chat.mode.${m.id}`)]))) : null,
+    el("div.lp-chat__msgs", {}, [
+      el("p.lp-chat__me", {}, t("lp.aiChatUser")),
+      el("div.lp-chat__bot", {}, [
+        el("span.lp-chat__avatar", {}, [icon(ICONS.spark, 14)]),
+        el("div", {}, [el("p", {}, t("lp.aiChatBot")), el("span.lp-chat__chip", {}, t("lp.aiChatFollow"))]),
+      ]),
+    ]),
+    modes ? el("div.lp-chat__input", {}, [icon(ICONS.camera, 16), el("span", {}, t("lp.aiChatInput")), el("b", {}, [icon(ICONS.arrow, 14)])]) : null,
+  ].filter(Boolean));
+}
+
+function progressArt() {
+  const rows = [["lp.progT1", 92, "ok"], ["lp.progT2", 68, "mid"], ["lp.progT3", 41, "low"]];
+  return el("div.lp-prog", { "aria-hidden": "true" }, [
+    el("p.lp-prog__cap", {}, t("lp.progEx")),
+    ...rows.map(([k, pct, tone]) => el("div.lp-prog__row", {}, [
+      el("span", {}, t(k)),
+      el("i", {}, [el(`b.is-${tone}`, { style: { width: `${pct}%` } })]),
+      el("span.lp-prog__pct", {}, `${pct} %`),
+    ])),
+  ]);
+}
+
+/** "Everything you need": a bento grid — each tile one feature with a picture only it could have. */
 function features() {
-  return featureSection("lp", [["f1", libraryArt], ["f2", sourcesArt], ["f3", curveArt], ["f4", sheetArt]]);
+  const tile = (cls, title, body, art) => el(`article.lp-tile${cls}`, {}, [
+    el("div.lp-tile__text", {}, [el("h3", {}, t(title)), el("p", {}, t(body))]),
+    el("div.lp-tile__art", {}, [art()]),
+  ]);
+  return el("section.lp-sec", { id: "lp-features" }, [
+    el("div.lp-sechead", {}, [
+      eyebrow("lp.bentoEyebrow"),
+      el("h2.lp-h2", {}, t("lp.bentoTitle")),
+      el("p.lp-sub", {}, t("lp.bentoSub")),
+    ]),
+    el("div.lp-bento", {}, [
+      tile(".lp-tile--wide", "lp.f1title", "lp.f1body", libraryArt),
+      tile("", "lp.bAiTitle", "lp.bAiBody", () => chatArt()),
+      tile("", "lp.f3title", "lp.f3body", curveArt),
+      tile("", "lp.f2title", "lp.f2body", sourcesArt),
+      tile("", "lp.bProgTitle", "lp.bProgBody", progressArt),
+    ]),
+  ]);
+}
+
+/** A dark band for the AI tutor — the one feature a visitor most wants to see in action. */
+function aiSection() {
+  return el("section.lp-band.theme-night", { id: "lp-ai" }, [
+    el("div.lp-band__inner", {}, [
+      el("div.lp-band__copy", {}, [
+        eyebrow("lp.aiEyebrow"),
+        el("h2.lp-h2", {}, t("lp.aiTitle")),
+        el("p.lp-sub", {}, t("lp.aiBody")),
+        el("ul.lp-points", {}, ["lp.aiP1", "lp.aiP2", "lp.aiP3", "lp.aiP4"].map((k) => el("li", {}, [icon(ICONS.check, 16), t(k)]))),
+        el("button.btn.btn--lg", { type: "button", onclick: () => enter("#/solve") }, [t("lp.aiCta"), icon(ICONS.arrow, 18)]),
+      ]),
+      el("div.lp-band__art", {}, [chatArt({ modes: true })]),
+    ]),
+  ]);
+}
+
+function hpSection() {
+  return el("section.lp-sec.lp-split", { id: "lp-hp" }, [
+    el("div.lp-split__art", {}, [sheetArt()]),
+    el("div.lp-split__copy", {}, [
+      eyebrow("lp.hpEyebrow"),
+      el("h2.lp-h2", {}, t("lp.hpTitle")),
+      el("p.lp-sub", {}, t("lp.hpBody")),
+      el("ul.lp-points", {}, ["lp.hpP1", "lp.hpP2", "lp.hpP3"].map((k) => el("li", {}, [icon(ICONS.check, 16), t(k)]))),
+      el("button.btn.btn--ghost.btn--lg", { type: "button", onclick: () => enter("#/hp") }, [t("lp.hpCta"), icon(ICONS.arrow, 18)]),
+    ]),
+  ]);
+}
+
+const SUBJECT_ICONS = [ICONS.sigma, ICONS.pencil, ICONS.message, ICONS.spark, ICONS.target, ICONS.layers, ICONS.book, ICONS.compass, ICONS.users, ICONS.medal, ICONS.flag, ICONS.flag, ICONS.flag];
+
+/** Every subject in the library, each a door into the public practice pages at /ova. */
+function subjects() {
+  const names = t("lp.subjectList").split("|");
+  return el("section.lp-sec", { id: "lp-subjects" }, [
+    el("div.lp-sechead", {}, [
+      el("h2.lp-h2", {}, t("lp.subjTitle")),
+      el("p.lp-sub", {}, t("lp.subjSub")),
+    ]),
+    el("ul.lp-subjgrid", {}, names.map((name, i) => {
+      const hue = HUES[i % HUES.length];
+      return el("li", { style: { "--subj-tint": `var(--c-${hue}-tint)`, "--subj-ink": `var(--c-${hue}-ink)` } }, [
+        el("span.lp-subjgrid__ic", { "aria-hidden": "true" }, [icon(SUBJECT_ICONS[i] || ICONS.book, 18)]),
+        el("span", {}, name),
+      ]);
+    })),
+    el("div.lp-levelrow", {}, [
+      el("ul.lp-levels", {}, t("lp.levels").split("|").map((l) => el("li", {}, l))),
+      el("a.lp-more", { href: "/ova" }, [t("lp.subjAll"), icon(ICONS.arrow, 15)]),
+    ]),
+  ]);
+}
+
+function audiences() {
+  const card = (ic, title, body, link, onclick) => el("article.lp-aud", {}, [
+    el("span.lp-aud__ic", { "aria-hidden": "true" }, [icon(ic, 20)]),
+    el("h3", {}, t(title)),
+    el("p", {}, t(body)),
+    el("a.lp-more", { href: "#/welcome", onclick: (e) => { e.preventDefault(); onclick(); } }, [t(link), icon(ICONS.arrow, 15)]),
+  ]);
+  return el("section.lp-sec", {}, [
+    el("div.lp-sechead", {}, [el("h2.lp-h2", {}, t("lp.forTitle"))]),
+    el("div.lp-auds", {}, [
+      card(ICONS.graduation, "lp.forStudentT", "lp.forStudentB", "lp.forStudentL", () => openWelcomeQuiz()),
+      card(ICONS.users, "lp.forParentT", "lp.forParentB", "lp.forParentL", () => enter("#/faq")),
+      card(ICONS.presentation, "lp.forTeacherT", "lp.forTeacherB", "lp.forTeacherL", () => { location.hash = "#/teachers"; }),
+    ]),
+  ]);
+}
+
+function pricing() {
+  const feat = (k) => el("li", {}, [icon(ICONS.check, 16), t(k)]);
+  return el("section.lp-sec", { id: "lp-price" }, [
+    el("div.lp-sechead.lp-sechead--center", {}, [
+      eyebrow("lp.priceEyebrow"),
+      el("h2.lp-h2", {}, t("lp.priceTitle")),
+      el("p.lp-sub", {}, t("lp.priceSub")),
+    ]),
+    el("div.lp-plans", {}, [
+      el("article.lp-plan.lp-plan--main", {}, [
+        el("div.lp-plan__top", {}, [el("h3", {}, t("lp.freeName")), el("span.lp-plan__badge", {}, t("lp.freeBadge"))]),
+        el("p.lp-plan__price", {}, [el("b", {}, t("lp.freePrice")), el("span", {}, t("lp.freePer"))]),
+        el("ul.lp-plan__list", {}, ["lp.freeF1", "lp.freeF2", "lp.freeF3", "lp.freeF4", "lp.freeF5"].map(feat)),
+        el("button.btn.btn--lg", { type: "button", onclick: () => openWelcomeQuiz() }, t("lp.ctaStart")),
+      ]),
+      el("article.lp-plan", {}, [
+        el("div.lp-plan__top", {}, [el("h3", {}, t("lp.premName")), el("span.lp-plan__badge.is-muted", {}, t("lp.premBadge"))]),
+        el("p.lp-plan__price", {}, [el("b", {}, t("lp.premPrice"))]),
+        el("p.lp-plan__body", {}, t("lp.premBody")),
+        el("button.btn.btn--ghost.btn--lg", { type: "button", onclick: () => enter("#/premium") }, t("lp.premCta")),
+      ]),
+    ]),
+  ]);
+}
+
+function faq() {
+  return el("section.lp-sec.lp-faqsec", { id: "lp-faq" }, [
+    el("div.lp-sechead", {}, [el("h2.lp-h2", {}, t("lp.faqTitle"))]),
+    el("div.lp-faq", {}, [1, 2, 3, 4, 5, 6].map((n) => el("details.lp-faq__item", {}, [
+      el("summary", {}, [el("span", {}, t(`faq.q${n}Title`)), icon(ICONS.plus, 18)]),
+      el("p", {}, t(`faq.q${n}Body`)),
+    ]))),
+    el("a.lp-more", { href: "#/faq" }, [t("lp.faqMore"), icon(ICONS.arrow, 15)]),
+  ]);
 }
 
 /** A numbered "how it works" strip — see featureSection() above for the same
@@ -316,36 +486,40 @@ function closer() {
     el("div", {}, [
       el("h2.lp-h2", {}, t("lp.closeTitle")),
       el("p.lp-sub", {}, t("lp.closeBody")),
-      el("p.lp-teachnote", {}, [
-        t("lp.teacherNote"), " ",
-        el("a", { href: "#/teachers" }, t("lp.teacherLink")),
-      ]),
     ]),
-    el("button.btn.btn--lg", { type: "button", onclick: () => openWelcomeQuiz() }, t("lp.ctaPrimary")),
+    el("div.lp-closer__cta", {}, [
+      el("button.btn.btn--lg.lp-closer__btn", { type: "button", onclick: () => openWelcomeQuiz() }, [t("lp.ctaStart"), icon(ICONS.arrow, 18)]),
+      el("p.lp-teachnote", {}, [t("lp.teacherNote"), " ", el("a", { href: "#/teachers" }, t("lp.teacherLink"))]),
+    ]),
   ]);
 }
 
 export function footer() {
+  const col = (title, links) => el("div.lp-foot__col", {}, [
+    el("h4", {}, t(title)),
+    el("ul", {}, links.map(([href, key]) => el("li", {}, [el("a", { href }, t(key))]))),
+  ]);
   return el("footer.lp-foot", {}, [
     el("div.lp-foot__inner", {}, [
-      el("span.lp-foot__brand", {}, [
-        el("img", { src: "assets/favicon.svg", alt: "" }), "Studify",
+      el("div.lp-foot__about", {}, [
+        el("span.lp-foot__brand", {}, [el("img", { src: "assets/favicon.svg", alt: "", width: 24, height: 24 }), "Studify"]),
+        el("p", {}, t("lp.footBlurb")),
+        el("div.lp-foot__social", {}, [
+          el("a.lp-foot__social-link", {
+            href: TIKTOK_URL, target: "_blank", rel: "noopener noreferrer", "aria-label": "TikTok", html: TIKTOK_SVG,
+          }),
+        ]),
       ]),
-      el("nav.lp-foot__links", { "aria-label": t("footer.nav") }, [
-        el("a", { href: "/ova" }, t("footer.practice")),
-        el("a", { href: "#/teachers" }, t("footer.teachers")),
-        el("a", { href: "#/about" }, t("footer.about")),
-        el("a", { href: "#/faq" }, t("footer.faq")),
-        el("a", { href: "#/terms" }, t("footer.terms")),
-        el("a", { href: "#/privacy" }, t("footer.privacy")),
-        el("a", { href: `mailto:${CONTACT_EMAIL}` }, t("footer.contact")),
+      el("nav.lp-foot__cols", { "aria-label": t("footer.nav") }, [
+        col("lp.footProduct", [["/ova", "footer.practice"], ["#/solve", "nav.solve"], ["#/hp", "nav.hp"], ["#/exam-prep", "nav.examPrep"]]),
+        col("lp.footFor", [["#/welcome", "lp.forStudentT"], ["#/faq", "lp.forParentT"], ["#/teachers", "lp.forTeacherT"]]),
+        col("lp.footCompany", [["#/about", "footer.about"], ["#/faq", "footer.faq"], [`mailto:${CONTACT_EMAIL}`, "footer.contact"]]),
+        col("lp.footLegal", [["#/terms", "footer.terms"], ["#/privacy", "footer.privacy"]]),
       ]),
-      el("span.lp-foot__copy", {}, t("footer.copy")),
-      el("div.lp-foot__social", {}, [
-        el("a.lp-foot__social-link", {
-          href: TIKTOK_URL, target: "_blank", rel: "noopener noreferrer", "aria-label": "TikTok", html: TIKTOK_SVG,
-        }),
-      ]),
+    ]),
+    el("div.lp-foot__base", {}, [
+      el("span", {}, `© ${new Date().getFullYear()} Studify`),
+      el("span", {}, t("footer.copy")),
     ]),
   ]);
 }
@@ -354,16 +528,14 @@ export function renderLanding() {
   return {
     title: t("lp.pageTitle"),
     chrome: false,
-    node: el("div.lp", {}, [
-      header(),
-      el("main.lp-main", { id: "main" }, [
-        hero(),
-        trustBar(),
-        showcase(),
-        features(),
-        steps(),
-        reviews(),
-        closer(),
+    node: el("div.lp.lp--home", {}, [
+      header({ sections: true }),
+      // One <main>; the dark AI band inside it runs edge to edge, so the sections around it
+      // sit in their own width-capped wrappers.
+      el("main.lp-body", { id: "main" }, [
+        el("div.lp-main", {}, [hero(), stats(), features()]),
+        aiSection(),
+        el("div.lp-main", {}, [hpSection(), subjects(), audiences(), reviews(), pricing(), faq(), closer()]),
       ]),
       footer(),
     ]),

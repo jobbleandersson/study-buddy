@@ -396,13 +396,9 @@ export function renderMenu(mode) {
     ...libraryUI,
   ]);
 
-  // The head stays at the very top, full width: what to do right now.
-  const greetingBlock = homeHead();
-
-  // The Solve / Library / New-set shortcuts sit *below* the "Idag" panel — a
-  // returning user sees their status (continue, due, streak) first, then the
-  // ways to add material. Solve first, New-set last (the primary); in demo
-  // mode a Library shortcut slots in between rather than jumping the queue.
+  // The Solve / Library / New-set shortcuts sit in the page head, to the right of
+  // the greeting, like any dashboard's page actions. Solve first, New-set last
+  // (the primary); in demo mode a Library shortcut slots in between.
   const headActions = el("div.home__actions", {}, [
     el("a.btn.btn--ghost", { href: "#/solve" }, [icon(ICONS.camera, 18), t("menu.solveLink")]),
     // With no sets yet the head's "Pick a set" already leads to the library.
@@ -410,6 +406,10 @@ export function renderMenu(mode) {
     // One filled button per screen: with no sets yet, "Pick a set" in the head is the primary.
     el("a.btn" + (store.assignments.length ? "" : ".btn--ghost"), { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
   ].filter(Boolean));
+
+  // The head stays at the very top, full width: what to do right now. A brand-new
+  // student gets homeStarter()'s own call to action instead of these shortcuts.
+  const greetingBlock = homeHead(store.assignments.length ? headActions : null);
 
   // Right-hand rail: upcoming deadlines (calendar) + an achievements teaser.
   // Nothing to show yet (fresh library, everything unlocked with no next
@@ -419,7 +419,7 @@ export function renderMenu(mode) {
   // its own "pick a set" call to action, and showing this too would just repeat it.
   const ad = store.assignments.length ? houseAd() : null;
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
-    el("div.home-main", {}, [homeStarter(), todayPanel(), nearPanel(), headActions, chatPanel(), ad, setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [homeStarter(), todayPanel(), nearPanel(), chatPanel(), ad, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 
@@ -985,11 +985,16 @@ function greeting() {
  *  and short for every student, so the rail (Kommande/Utmärkelser) always
  *  lines up with the top of the main column — see homeStarter() below for
  *  the brand-new-student content, which lives inside the grid instead. */
-function homeHead() {
+function homeHead(actions) {
+  const today = new Date().toLocaleDateString(getLang() === "en" ? "en-GB" : "sv-SE", { weekday: "long", day: "numeric", month: "long" });
   return el("div.home__head", {}, [
-    el("h1", {}, greeting()),
-    el("p.home__hi", {}, t("menu.subHasKey")),
-  ]);
+    el("div.home__title", {}, [
+      el("p.home__date", {}, today.charAt(0).toUpperCase() + today.slice(1)),
+      el("h1", {}, greeting()),
+      el("p.home__hi", {}, t("menu.subHasKey")),
+    ]),
+    actions,
+  ].filter(Boolean));
 }
 
 /** For a brand-new student with no sets yet: one clear action plus a real

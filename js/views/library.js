@@ -49,7 +49,8 @@ export async function renderLibrary(qs = null) {
   }
 
   const root = el("div");
-  const state = { level: null, subject: null, query: "", examMin: 0, addCounts: {} };
+  // ?q= comes from the search field in the app's top bar.
+  const state = { level: null, subject: null, query: qs?.get?.("q") || "", examMin: 0, addCounts: {} };
   // Deep links from the welcome quiz: #/library?subject=<id> or ?level=<id>.
   const wantSubject = qs?.get?.("subject") && index.subjects.find((s) => s.id === qs.get("subject"));
   const wantLevel = qs?.get?.("level");

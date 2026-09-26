@@ -1,8 +1,8 @@
 // Router + persistent app shell.
 
 import { store } from "./store.js";
-import { CONTACT_EMAIL, PAGEVIEW_URL, TIKTOK_URL } from "./config.js";
-import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText, TIKTOK_SVG } from "./lib/dom.js";
+import { CONTACT_EMAIL, PAGEVIEW_URL } from "./config.js";
+import { el, clear, mount, append, icon, ICONS, toast, showBanner, hideBanner, downloadText } from "./lib/dom.js";
 import { announce, focusHeading } from "./lib/a11y.js";
 import { t, plural, getLang, setLang, applyLang, LANGS, daysUntil } from "./lib/i18n.js";
 import { localDayKey } from "./lib/activity.js";
@@ -215,7 +215,7 @@ function navGroups() {
   const track = [
     { href: "#/calendar", match: "/calendar",  icon: ICONS.calendar,  label: t("nav.calendar") },
     { href: "#/progress", match: "/progress",  icon: ICONS.chart,     label: t("common.progress") },
-    { href: "#/achievements", match: "/achievements", icon: ICONS.award, label: t("nav.achievements") },
+    { href: "#/achievements", match: "/achievements", icon: ICONS.trophy, label: t("nav.achievements") },
   ];
   const tools = [
     { href: "#/reference",  match: "/reference",  icon: ICONS.sigma,      label: t("nav.formulas") },
@@ -223,7 +223,7 @@ function navGroups() {
     { href: "#/calculator", match: "/calculator", icon: ICONS.calculator, label: t("nav.calculator") },
   ];
   const account = [];
-  if (store.authed) account.push({ href: "#/classes", match: "/classes", icon: ICONS.clipboard, label: t("nav.classes") });
+  if (store.authed) account.push({ href: "#/classes", match: "/classes", icon: ICONS.presentation, label: t("nav.classes") });
   if (store.authed) account.push({ href: "#/parent", match: "/parent", icon: ICONS.users, label: t("common.parent") });
   account.push({ href: "#/settings", match: "/settings", icon: ICONS.gear, label: t("common.settings") });
 
@@ -729,6 +729,7 @@ function shell(contentNode) {
             el("img", { src: "assets/favicon.svg", alt: "" }),
             el("span.brand__name.wordmark", {}, wordmark("Studify")),
           ]),
+          topSearch(),
           el("span.topbar__spacer"),
           streakBadge(streak, atRisk),
           langButton(),
@@ -743,14 +744,30 @@ function shell(contentNode) {
   ]);
 }
 
+/** Desktop top bar: search the whole practice library from any page. Hands the
+ *  query to #/library?q=, which runs the same search as the library's own field. */
+function topSearch() {
+  const input = el("input.topsearch__input", {
+    type: "search", name: "q", placeholder: t("nav.searchPlaceholder"), "aria-label": t("nav.searchAria"),
+    autocomplete: "off",
+  });
+  return el("form.topsearch", {
+    role: "search",
+    onsubmit: (e) => {
+      e.preventDefault();
+      const q = input.value.trim();
+      location.hash = q ? `#/library?q=${encodeURIComponent(q)}` : "#/library";
+      input.blur();
+    },
+  }, [icon(ICONS.search, 16), input]);
+}
+
 /** Sits at the bottom of every page's content, inside .content so it shares
  *  its max-width and mobile tab-bar clearance — the one place About/Terms/
- *  Privacy are reachable from, deliberately not the main nav. */
+ *  Privacy are reachable from, deliberately not the main nav. Kept to one quiet
+ *  line inside the app; the front page has the full footer. */
 function siteFooter() {
   return el("footer.sitefooter", {}, [
-    el("span.sitefooter__brand", {}, [
-      el("img", { src: "assets/favicon.svg", alt: "" }), "Studify",
-    ]),
     el("nav.sitefooter__links", { "aria-label": t("footer.nav") }, [
       el("a", { href: "/ova" }, t("footer.practice")),
       el("a", { href: "#/teachers" }, t("footer.teachers")),
@@ -760,12 +777,7 @@ function siteFooter() {
       el("a", { href: "#/privacy" }, t("footer.privacy")),
       el("a", { href: `mailto:${CONTACT_EMAIL}` }, t("footer.contact")),
     ]),
-    el("span.sitefooter__copy", {}, t("footer.copy")),
-    el("div.sitefooter__social", {}, [
-      el("a.sitefooter__social-link", {
-        href: TIKTOK_URL, target: "_blank", rel: "noopener noreferrer", "aria-label": "TikTok", html: TIKTOK_SVG,
-      }),
-    ]),
+    el("span.sitefooter__copy", {}, `© ${new Date().getFullYear()} Studify`),
   ]);
 }
 
