@@ -47,6 +47,9 @@ function emphasis(s) {
     .replace(/(^|[^\p{L}\p{N}_])_([^_\n]+)_(?![\p{L}\p{N}])/gu, "$1<em>$2</em>");
 }
 
+// A list item marker: "- " / "* ", or a typographic "•" (models often write those, and without this the
+// separate lines were glued into one paragraph with the bullets inline). "•" needs no space after it.
+const BULLET = /^\s*(?:[-*]\s+|•\s*)/;
 const RULE = /^\s*([-*_])(\s*\1){2,}\s*$/;
 const QUOTE = /^\s{0,3}>/;
 
@@ -127,7 +130,7 @@ export function markdown(src) {
       continue;
     }
 
-    const bullet = /^\s*[-*]\s+/, numbered = /^\s*(\d+)[.)]\s+/;
+    const bullet = BULLET, numbered = /^\s*(\d+)[.)]\s+/;
     if (bullet.test(line) || numbered.test(line)) {
       const ordered = numbered.test(line);
       const re = ordered ? numbered : bullet;
@@ -159,7 +162,7 @@ export function markdown(src) {
     // paragraph: gather until blank line
     const buf = [line];
     i++;
-    while (i < lines.length && lines[i].trim() !== "" && !/^\s*([-*]|\d+[.)])\s+/.test(lines[i]) && !/^```/.test(lines[i]) && !isTableStart(lines, i) && !RULE.test(lines[i]) && !QUOTE.test(lines[i])) {
+    while (i < lines.length && lines[i].trim() !== "" && !BULLET.test(lines[i]) && !/^\s*\d+[.)]\s+/.test(lines[i]) && !/^```/.test(lines[i]) && !isTableStart(lines, i) && !RULE.test(lines[i]) && !QUOTE.test(lines[i])) {
       buf.push(lines[i++]);
     }
     out.push(`<p>${inline(buf.join(" "))}</p>`);

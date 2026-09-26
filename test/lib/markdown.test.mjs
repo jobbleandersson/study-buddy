@@ -99,3 +99,25 @@ describe("markdown emphasis, quotes and rules", () => {
     assert.equal(markdown("- ett\n- två"), "<ul><li>ett</li><li>två</li></ul>");
   });
 });
+
+describe("markdown • bullets", () => {
+  // Field-test failure: the tutor wrote four tips as separate "• " lines, and they were glued into one
+  // paragraph with the bullets inline, because only "- " and "* " counted as list markers.
+  test("separate • lines become a real list", () => {
+    assert.equal(markdown("• ett\n• två"), "<ul><li>ett</li><li>två</li></ul>");
+  });
+
+  test("the real reply shape: intro line, then • items with bold lead-ins", () => {
+    const html = markdown("Här är 4 tips:\n\n• **Öva** — gamla uppgifter\n• **Läs** — noga\n\nBehöver du mer hjälp?");
+    assert.equal(html, "<p>Här är 4 tips:</p><ul><li><strong>Öva</strong> — gamla uppgifter</li><li><strong>Läs</strong> — noga</li></ul><p>Behöver du mer hjälp?</p>");
+  });
+
+  test("a • list straight after a text line (no blank line) still splits off", () => {
+    assert.equal(markdown("Tips:\n• ett\n• två"), "<p>Tips:</p><ul><li>ett</li><li>två</li></ul>");
+  });
+
+  test("• needs no space after it, and a • in the middle of a line is left alone", () => {
+    assert.equal(markdown("•ett\n•två"), "<ul><li>ett</li><li>två</li></ul>");
+    assert.equal(markdown("A • B • C"), "<p>A • B • C</p>");
+  });
+});
