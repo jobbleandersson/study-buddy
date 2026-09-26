@@ -1,6 +1,7 @@
 // Minimal, safe Markdown -> HTML for tutor messages.
-// Supports: paragraphs, bold, italic, inline code, fenced/indented code,
-// unordered/ordered lists, pipe tables, and $...$ / $$...$$ math via KaTeX when available.
+// Supports: paragraphs, bold, italic (* or _), inline code, fenced/indented code,
+// unordered/ordered lists, pipe tables, blockquotes, horizontal rules, and
+// $...$ / $$...$$ math via KaTeX when available.
 // Everything is HTML-escaped first, so model output can't inject markup.
 
 function esc(s) {
@@ -33,12 +34,21 @@ function inline(text) {
 
   return parts.map((p) => {
     if (p.t === "math") return renderMath(p.v, p.display);
-    return esc(p.v)
-      .replace(/`([^`]+)`/g, "<code>$1</code>")
-      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-      .replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>");
+    // Split on `code` first so nothing inside a code span gets bold/italic treatment.
+    return esc(p.v).split(/(`[^`]+`)/).map((seg, k) => (k % 2 ? `<code>${seg.slice(1, -1)}</code>` : emphasis(seg))).join("");
   }).join("");
 }
+
+/** **bold**, *italic* and _italic_ (an underscore only counts at a word edge, so snake_case and URLs are left alone). */
+function emphasis(s) {
+  return s
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>")
+    .replace(/(^|[^\p{L}\p{N}_])_([^_\n]+)_(?![\p{L}\p{N}])/gu, "$1<em>$2</em>");
+}
+
+const RULE = /^\s*([-*_])(\s*\1){2,}\s*$/;
+const QUOTE = /^\s{0,3}>/;
 
 /** One list item: its lines joined with line breaks, a lone $$…$$ line kept as its own block. */
 function itemHtml(lines) {
@@ -101,6 +111,15 @@ export function markdown(src) {
       continue;
     }
 
+    if (RULE.test(line)) { out.push("<hr>"); i++; continue; }
+
+    if (QUOTE.test(line)) {
+      const buf = [];
+      while (i < lines.length && QUOTE.test(lines[i])) buf.push(lines[i++].replace(/^\s{0,3}>\s?/, ""));
+      out.push(`<blockquote>${markdown(buf.join("\n"))}</blockquote>`);
+      continue;
+    }
+
     if (isTableStart(lines, i)) {
       const table = tableHtml(lines, i);
       out.push(table.html);
@@ -140,7 +159,7 @@ export function markdown(src) {
     // paragraph: gather until blank line
     const buf = [line];
     i++;
-    while (i < lines.length && lines[i].trim() !== "" && !/^\s*([-*]|\d+[.)])\s+/.test(lines[i]) && !/^```/.test(lines[i]) && !isTableStart(lines, i)) {
+    while (i < lines.length && lines[i].trim() !== "" && !/^\s*([-*]|\d+[.)])\s+/.test(lines[i]) && !/^```/.test(lines[i]) && !isTableStart(lines, i) && !RULE.test(lines[i]) && !QUOTE.test(lines[i])) {
       buf.push(lines[i++]);
     }
     out.push(`<p>${inline(buf.join(" "))}</p>`);

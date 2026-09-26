@@ -199,7 +199,8 @@ export function renderSolve(qs) {
     } catch (e) {
       if (mine.signal.aborted) return;   // resetChat() already cleared this thread — nothing left to update
       const msg = e instanceof ClaudeError ? e.message : t("tutor.snag");
-      bubble.innerHTML = markdown(`_${msg}_`);
+      bubble.textContent = msg;
+      bubble.classList.add("msg--error");
       state.messages.pop();   // the failed question isn't part of the history; they can send it again
       toast(msg);
     } finally {

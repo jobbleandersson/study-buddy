@@ -60,3 +60,42 @@ describe("markdown tables", () => {
     assert.match(html, /<pre><code>kod<\/code><\/pre>$/);
   });
 });
+
+describe("markdown emphasis, quotes and rules", () => {
+  test("_italic_ works at word edges", () => {
+    assert.equal(markdown("Detta är _viktigt_ att veta"), "<p>Detta är <em>viktigt</em> att veta</p>");
+    assert.equal(markdown("_Hela raden_"), "<p><em>Hela raden</em></p>");
+    assert.equal(markdown("Se (_här_)."), "<p>Se (<em>här</em>).</p>");
+  });
+
+  test("underscores inside words, snake_case and URLs are left alone", () => {
+    assert.equal(markdown("variabeln snake_case_namn"), "<p>variabeln snake_case_namn</p>");
+    assert.equal(markdown("https://sv.wikipedia.org/wiki/Fotosyntes_och_cellandning_i_växter"), "<p>https://sv.wikipedia.org/wiki/Fotosyntes_och_cellandning_i_växter</p>");
+  });
+
+  test("nothing inside inline code gets bold or italic treatment", () => {
+    assert.equal(markdown("Skriv `_x_` och `**y**` här"), "<p>Skriv <code>_x_</code> och <code>**y**</code> här</p>");
+  });
+
+  test("bold and *italic* still work", () => {
+    assert.equal(markdown("**fet** och *kursiv*"), "<p><strong>fet</strong> och <em>kursiv</em></p>");
+  });
+
+  test("a > line becomes a blockquote, and its text is formatted", () => {
+    assert.equal(markdown("> Ett **citat**\n> på två rader"), "<blockquote><p>Ett <strong>citat</strong> på två rader</p></blockquote>");
+  });
+
+  test("--- and *** are horizontal rules, also straight after a paragraph", () => {
+    assert.equal(markdown("före\n\n---\n\nefter"), "<p>före</p><hr><p>efter</p>");
+    assert.equal(markdown("Rubrik\n---"), "<p>Rubrik</p><hr>");
+    assert.equal(markdown("***"), "<hr>");
+  });
+
+  test("a table separator is not mistaken for a rule", () => {
+    assert.match(markdown("| A | B |\n|---|---|\n| 1 | 2 |"), /^<div class="mdtable">/);
+  });
+
+  test("a bullet list is not mistaken for a rule", () => {
+    assert.equal(markdown("- ett\n- två"), "<ul><li>ett</li><li>två</li></ul>");
+  });
+});

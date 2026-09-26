@@ -160,7 +160,8 @@ export function mountSiteChat() {
       announce(t("sitechat.prefix", { text: acc }));
     } catch (e) {
       const msg = ClaudeError && e instanceof ClaudeError ? e.message : t("sitechat.snag");
-      bubble.innerHTML = markdown(`_${msg}_`);
+      bubble.textContent = msg;
+      bubble.classList.add("msg--error");
       messages.pop();
       setMood(mascotEl, "idle");
     }

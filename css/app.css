@@ -1987,6 +1987,9 @@ body.has-welcome { overflow: hidden; }
 .msg table { border-collapse: collapse; min-width: 100%; font-size: .95em; }
 .msg th, .msg td { padding: 6px 10px; border: 1px solid var(--line-strong); text-align: left; vertical-align: top; overflow-wrap: normal; }
 .msg th { background: color-mix(in srgb, var(--brand) 10%, transparent); font-weight: 600; }
+.msg blockquote { margin: .5em 0; padding-left: .75em; border-left: 3px solid var(--line-strong); color: var(--ink-soft); }
+.msg hr { margin: .75em 0; border: 0; border-top: 1px solid var(--line-strong); }
+.msg--error { font-style: italic; color: var(--ink-soft); }
 .msg :is(p, ul, ol) + :is(p, ul, ol) { margin-top: .5em; }
 .msg li + li { margin-top: .25em; }
 /* The global `* { padding: 0 }` reset strips a list's indent, so its markers hang outside the
