@@ -256,46 +256,40 @@ function langToggle() {
     [el("span.lp-lang__flag", { "aria-hidden": "true", html: flag }), el("span", {}, current.toUpperCase())]);
 }
 
-/** The right half on wide screens: what an account is for, as three short slides that turn every
- *  few seconds (paused for reduced motion, and on hover or focus so nobody loses the one they're
- *  reading). Hidden on phones, where the form is all that fits. */
+/** The right half on wide screens: the product itself rather than a slideshow of claims — a
+ *  question from the app, answered right, with the tutor's hint beside it and the note that it
+ *  comes back for review. Same strings as the front page's hero card, so the two stay in step.
+ *  Purely illustrative (aria-hidden) apart from the headline. Hidden on phones. */
 function showcase() {
-  const slides = [
-    [ICONS.spark, "login.slide1Title", "login.slide1Body"],
-    [ICONS.calendar, "login.slide2Title", "login.slide2Body"],
-    [ICONS.layers, "login.slide3Title", "login.slide3Body"],
-  ];
-  let at = 0;
-  const items = slides.map(([ic, title, body], i) => el("div.auth__slide", { hidden: i !== 0, "aria-hidden": String(i !== 0) }, [
-    el("span.auth__slideicon", { "aria-hidden": "true" }, [icon(ic, 28)]),
-    el("h2", {}, t(title)),
-    el("p", {}, t(body)),
-  ]));
-  const dots = slides.map((_, i) => el("button.auth__dot", {
-    type: "button", "aria-label": t("login.slideN", { n: i + 1 }), "aria-current": String(i === 0),
-    onclick: () => { show(i); restart(); },
-  }));
-  function show(i) {
-    at = i;
-    items.forEach((s, j) => { s.hidden = j !== i; s.setAttribute("aria-hidden", String(j !== i)); });
-    dots.forEach((d, j) => d.setAttribute("aria-current", String(j === i)));
-  }
-  const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-  let timer = null;
-  function restart() {
-    clearInterval(timer);
-    if (reduce) return;
-    timer = setInterval(() => { if (!panel.isConnected) { clearInterval(timer); return; } show((at + 1) % slides.length); }, 6000);
-  }
-  const panel = el("aside.auth__panel", {
-    onmouseenter: () => clearInterval(timer), onmouseleave: restart,
-    onfocusin: () => clearInterval(timer), onfocusout: restart,
-  }, [
-    el("div.auth__panelbrand", {}, [el("img", { src: "assets/favicon.svg", alt: "", width: 48, height: 48 }), el("span", {}, "Studify")]),
-    el("div.auth__slides", { "aria-live": "polite" }, items),
-    el("div.auth__dots", {}, dots),
-    el("p.auth__panelfoot", {}, t("login.panelFoot")),
+  const segs = [0, 1, 2, 3, 4].map((i) => el(i < 3 ? "i.is-done" : "i"));
+  const opt = (letter, key, right) => el("div.authq__opt" + (right ? ".is-right" : ""), {}, [
+    el("b", {}, letter), el("span", {}, t(key)), right ? icon(ICONS.check, 16) : null,
+  ].filter(Boolean));
+  return el("aside.auth__panel", {}, [
+    el("div.auth__panelbrand", {}, [el("img", { src: "assets/favicon.svg", alt: "", width: 32, height: 32 }), el("span", {}, "Studify")]),
+    el("div.auth__pitch", {}, [
+      el("h2", {}, t("lp.title")),
+      el("p", {}, t("login.panelLead")),
+    ]),
+    el("div.authq", { "aria-hidden": "true" }, [
+      el("div.authq__card", {}, [
+        el("div.authq__meta", {}, [el("b", {}, t("lp.mockSubject")), el("span", {}, t("lp.mockProgress"))]),
+        el("div.authq__track", {}, segs),
+        el("p.authq__prompt", {}, t("lp.mockQuestion")),
+        el("div.authq__opts", {}, [opt("A", "lp.mockA"), opt("B", "lp.mockB", true), opt("C", "lp.mockC")]),
+        el("p.authq__fb", {}, [icon(ICONS.spark, 14), t("lp.mockExplain")]),
+      ]),
+      el("div.authq__note.authq__note--hint", {}, [
+        el("span.authq__noteicon", {}, [icon(ICONS.spark, 14)]),
+        el("span", {}, [el("b", {}, t("lp.badgeHintLabel")), t("lp.badgeHint")]),
+      ]),
+      el("div.authq__note.authq__note--repeat", {}, [
+        el("span.authq__noteicon", {}, [icon(ICONS.calendar, 14)]),
+        el("span", {}, t("lp.badgeRepeat")),
+      ]),
+    ]),
+    el("ul.auth__facts", {}, [
+      ["lp.trust1Title", "lp.trust1Sub"], ["lp.trust2Title", "lp.trust2Sub"], ["lp.trust4Title", "lp.trust4Sub"],
+    ].map(([a, b]) => el("li", {}, [el("b", {}, t(a)), el("span", {}, t(b))]))),
   ]);
-  restart();
-  return panel;
 }
