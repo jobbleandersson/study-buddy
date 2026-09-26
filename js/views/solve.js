@@ -167,6 +167,7 @@ export function renderSolve(qs) {
     state.busy = false;
     state.chatId = newChatId();
     if (!keepMaterial) state.material = null;
+    paintChatting();
     showChat();
     clear(refs.logEl);
     appendWelcome();
@@ -200,6 +201,7 @@ export function renderSolve(qs) {
       content: m.img ? `${m.content}\n${t("solve.imageSent")}`.trim() : m.content,
     }));
     showChat();
+    paintChatting();
     clear(refs.logEl);
     appendWelcome();
     for (const m of state.messages) {
@@ -216,6 +218,11 @@ export function renderSolve(qs) {
     paintModes();
     paintMaterial();
     refs.logEl.scrollTop = refs.logEl.scrollHeight;
+  }
+
+  /** Once there is a conversation the page trades its chrome for room to read: see .solve.is-chatting. */
+  function paintChatting() {
+    root.classList.toggle("is-chatting", state.messages.length > 0);
   }
 
   /** The chip above the input: which set or file the answers come from, and how much of it fits. */
@@ -275,7 +282,8 @@ export function renderSolve(qs) {
   function autosize() {
     const ta = refs.inputEl;
     ta.style.height = "auto";
-    ta.style.height = `${Math.min(ta.scrollHeight, Math.round(window.innerHeight * 0.4))}px`;
+    // A long paste scrolls inside the box instead of pushing the conversation off the screen.
+    ta.style.height = `${Math.min(ta.scrollHeight, Math.round(Math.min(180, window.innerHeight * 0.28)))}px`;
   }
 
   async function send() {
@@ -300,6 +308,7 @@ export function renderSolve(qs) {
     refs.inputEl.value = "";
     autosize();
     refs.resetBtn.hidden = false;
+    paintChatting();
 
     await streamReply();
   }
@@ -334,6 +343,7 @@ export function renderSolve(qs) {
       bubble.textContent = msg;
       bubble.classList.add("msg--error");
       state.messages.pop();   // the failed question isn't part of the history; they can send it again
+      paintChatting();
       persist();
       toast(msg);
     } finally {
@@ -405,8 +415,10 @@ export function renderSolve(qs) {
     }, [icon(ICONS.clock, 18)]);
 
     const modeBtns = STUDY_MODES.map((m) => el("button.chatmode", {
-      type: "button", "data-mode": m.id, "aria-pressed": "false", onclick: () => pickMode(m.id),
-    }, [icon(ICONS[m.icon] || ICONS.spark, 18), t(`chat.mode.${m.id}`)]));
+      type: "button", "data-mode": m.id, "aria-pressed": "false", title: t(`chat.mode.${m.id}`), onclick: () => pickMode(m.id),
+    // The label is a span so a phone in mid-conversation can show the six tiles as icons only (css) and
+    // still keep the name for screen readers and as a tooltip.
+    }, [icon(ICONS[m.icon] || ICONS.spark, 18), el("span.chatmode__label", {}, t(`chat.mode.${m.id}`))]));
 
     if (!canChat) {
       inputEl.disabled = true;
