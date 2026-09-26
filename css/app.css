@@ -3907,7 +3907,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   color: var(--ink); font-variant-numeric: tabular-nums;
 }
 .stat__value small { margin-left: 3px; font-size: .8rem; font-weight: 600; letter-spacing: 0; color: var(--ink-faint); }
-.stat__bar { display: block; height: 3px; margin: 3px 0 2px; border-radius: 2px; background: var(--surface-sunk); overflow: hidden; }
+.stat__bar { display: block; height: 2px; margin: 3px 0 2px; border-radius: 1px; background: var(--surface-sunk); overflow: hidden; }
 .stat__bar i { display: block; height: 100%; background: var(--brand); border-radius: inherit; }
 .stat__bar.is-done i { background: var(--ok); }
 .stat__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; margin-top: auto; padding-top: 3px; font-size: 12.5px; }
