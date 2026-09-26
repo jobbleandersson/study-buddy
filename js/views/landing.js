@@ -129,10 +129,14 @@ function showcase() {
     el("p.lp-sub", {}, t("lp.showSub")),
     el("figure.lp-frame", {}, [
       el("div.lp-frame__bar", { "aria-hidden": "true" }, [el("i"), el("i"), el("i"), el("span", {}, "studify")]),
-      el("img", {
-        src: `assets/shots/session-${lang}.jpg`, alt: t("lp.showAlt"),
-        width: 1920, height: 1200, loading: "lazy", decoding: "async",
-      }),
+      // A phone-sized shot on narrow screens, where the desktop one would be too small to read.
+      el("picture", {}, [
+        el("source", { media: "(max-width: 640px)", srcset: `assets/shots/session-phone-${lang}.jpg`, width: 780, height: 1560 }),
+        el("img", {
+          src: `assets/shots/session-${lang}.jpg`, alt: t("lp.showAlt"),
+          width: 1920, height: 1200, loading: "lazy", decoding: "async",
+        }),
+      ]),
     ]),
   ]);
 }

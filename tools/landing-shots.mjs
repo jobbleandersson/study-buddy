@@ -22,8 +22,14 @@ const LIVE_LABEL = { sv: "din handledare", en: "your tutor" };
 const SET = "lib-ma9-procent";
 
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
-for (const lang of ["sv", "en"]) {
-  const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1.5, colorScheme: "light" });
+// Desktop for the framed shot on wide screens; phone for narrow ones, where a shrunken desktop
+// screenshot would be unreadable.
+const SIZES = [
+  ["", { width: 1280, height: 800 }, 1.5],
+  ["-phone", { width: 390, height: 780 }, 2],
+];
+for (const lang of ["sv", "en"]) for (const [suffix, viewport, scale] of SIZES) {
+  const ctx = await browser.newContext({ viewport, deviceScaleFactor: scale, colorScheme: "light" });
   const page = await ctx.newPage();
   await page.addInitScript((l) => {
     localStorage.setItem("studybuddy.lang", l);
@@ -44,8 +50,11 @@ for (const lang of ["sv", "en"]) {
     }
     document.querySelectorAll(".toast").forEach((n) => n.remove());
   }, LIVE_LABEL[lang]);
-  await page.screenshot({ path: join(out, `session-${lang}.jpg`), type: "jpeg", quality: 82 });
-  console.log(`wrote assets/shots/session-${lang}.jpg`);
+  // The phone layout puts the tutor below the question; hide the floating chat button so the
+  // shot shows the question and its choices, not a button over them.
+  await page.addStyleTag({ content: ".sitechat__fab, .hintfab { display: none !important; }" });
+  await page.screenshot({ path: join(out, `session${suffix}-${lang}.jpg`), type: "jpeg", quality: 82 });
+  console.log(`wrote assets/shots/session${suffix}-${lang}.jpg`);
   await ctx.close();
 }
 await browser.close();

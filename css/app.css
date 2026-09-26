@@ -1345,6 +1345,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   font-size: 11px; color: var(--ink-faint); letter-spacing: .02em;
 }
 .lp-frame img { display: block; width: 100%; height: auto; }
+@media (max-width: 640px) { .lp-frame { max-width: 340px; margin-left: auto; margin-right: auto; border-radius: 22px; } }
 
 /* sections */
 .lp-sec { padding: 56px 0 0; }
@@ -2757,12 +2758,22 @@ kbd {
 @media (max-width: 540px) {
   .content { padding: var(--s-5) var(--s-3) var(--s-7); }
   h1 { font-size: 1.6rem; }
-  .grid { grid-template-columns: 1fr 1fr; }
+  /* One set per row: two ~150px columns broke a title like "Bråk, decimaler och procent" into
+     one word per line. The "new set" card shrinks to a slim row so it doesn't cost a full card. */
+  .grid { grid-template-columns: 1fr; gap: var(--s-3); }
+  .acard--new { min-height: 0; flex-direction: row; padding: var(--s-3) var(--s-4); }
+  /* Study session: Skip / Next as the full-width primary row, the lesser actions (Leave,
+     overview, flag) underneath instead of wrapping into three ragged rows. */
+  .nav-row { flex-direction: column-reverse; align-items: stretch; }
+  .nav-row > div:last-child { width: 100%; }
+  .nav-row > div:last-child > .btn { flex: 1; }
+  .nav-row > div:first-child { justify-content: flex-start; }
+  /* Footer links: tappable height, tighter rows. */
+  .sitefooter__links, .lp-foot__links { gap: 0 var(--s-4); }
+  .sitefooter__links a, .lp-foot__links a { display: inline-block; padding: 8px 0; }
   .meter { grid-template-columns: 88px 1fr 40px 26px; gap: var(--s-2); }
 }
-@media (max-width: 380px) {
-  .grid { grid-template-columns: 1fr; }
-}
+
 
 /* ---------- print worksheet ---------- */
 .psheet__bar { display: flex; gap: 10px; margin-bottom: var(--s-5); }
