@@ -60,6 +60,19 @@ export function studyChatSystem(mode) {
   return buildStudySystem(mode, replyLangInstruction());
 }
 
+/** The script-writing job behind "Lyssna som samtal": two speakers, JSON out, written to be heard. */
+export function podcastSystem() {
+  return `You write a short, friendly conversation between two people for a student to LISTEN to while studying. Alex is a curious student who asks the questions a classmate would ask. Sam knows the material and explains it simply, with one concrete example where it helps.
+
+Return ONLY a JSON object, no other text: {"title": "a short title", "lines": [{"who": "A", "text": "..."}, {"who": "S", "text": "..."}]}  ("A" is Alex, "S" is Sam).
+
+Rules:
+- 14 to 20 lines, each one to three short sentences (about 35 words at most), spoken language.
+- Cover the most important ideas in the material, in a sensible order, and finish with a two-line recap of the key points.
+- Use ONLY what is in the material. Do not add facts that are not there.
+- It will be read aloud by a speech voice: no markdown, no lists, no emoji, no symbols. Say numbers and formulas in words.${aiLangInstruction()}`;
+}
+
 export function siteHelpSystem() {
   return `You are Studify's built-in help assistant. A student is asking how to use the Studify app itself — not asking for tutoring on schoolwork.
 

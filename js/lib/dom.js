@@ -171,6 +171,11 @@ export const ICONS = {
   contrast: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z M12 18a6 6 0 0 0 0-12Z",
   message: "M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-5 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z",
   headphones: "M3 18v-6a9 9 0 0 1 18 0v6 M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3Z",
+  paperclip: "M15 7 8.5 13.5a1.5 1.5 0 0 0 3 3L18 10a3 3 0 0 0-6-6l-6.5 6.5a4.5 4.5 0 0 0 9 9L21 12",
+  bookmark: "M6 4h12a1 1 0 0 1 1 1v16l-7-4-7 4V5a1 1 0 0 1 1-1Z",
+  pause: "M8 5v14 M16 5v14",
+  skipBack: "M6 5v14 M19 5 9 12l10 7V5Z",
+  skipForward: "M18 5v14 M5 5l10 7-10 7V5Z",
 };
 
 // This whole set above is stroke-only outline icons (icon() below always

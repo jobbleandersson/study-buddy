@@ -29,12 +29,16 @@ import { shrinkImage } from "../lib/photo.js";
 import { tutorStream, ClaudeError } from "../claude.js";
 import { solveChatSystem, studyChatSystem } from "../prompts.js";
 import { STUDY_MODES, isStudyMode, trimHistory, MAX_INPUT_CHARS } from "../lib/study-modes.js";
-import { t } from "../lib/i18n.js";
+import { t, plural } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { bindFileTargets } from "../components/file-drop.js";
 import { solveTabs } from "../components/solve-tabs.js";
 import { aiQuotaNote } from "../components/ai-gate.js";
 import { mascot, setMood } from "../components/mascot.js";
+import { openMaterialPicker } from "../components/material-picker.js";
+import { chatHistoryPanel } from "../components/chat-history-panel.js";
+import { materialSystemBlock, extractSourceRefs } from "../lib/chat-material.js";
+import { newChatId, saveChat, chatTitle, addSaved, removeSaved, findSaved } from "../lib/chat-history.js";
 
 /** How much of a long pasted text is echoed back in the student's own bubble — the message
  *  sent to the model is never truncated, only what's shown (a page of notes shouldn't make
@@ -50,6 +54,8 @@ export function renderSolve(qs) {
     pendingImage: null, // { mediaType, data, preview } attached, not yet sent
     busy: false,
     abort: null,        // lets switching mode mid-stream cut the old reply off cleanly
+    chatId: newChatId(), // the key this conversation is saved under (lib/chat-history.js)
+    material: null,     // a set / file the answers are based on (lib/chat-material.js)
   };
 
   // Built once; mutated directly from here on (streaming and attach
@@ -62,7 +68,50 @@ export function renderSolve(qs) {
   /** The default persona has its own strings (solve.*, unchanged from before the modes existed);
    *  each study mode has its own (chat.intro.<id> / chat.placeholder.<id>). */
   const introText = () => (state.mode ? t(`chat.intro.${state.mode}`) : t("solve.intro"));
-  const placeholderText = () => (state.mode ? t(`chat.placeholder.${state.mode}`) : t("solve.chatPlaceholder"));
+  const placeholderText = () => (state.mode ? t(`chat.placeholder.${state.mode}`) : state.material ? t("solve.materialPlaceholder") : t("solve.chatPlaceholder"));
+
+  /** Save the conversation so it shows up under "Tidigare chattar". Cheap, and safe to call often. */
+  function persist() {
+    saveChat({ id: state.chatId, mode: state.mode, material: state.material, messages: state.messages });
+  }
+
+  /** An assistant reply, drawn from its raw text: the [F4] source markers become "fråga 4" tags, and a
+   *  finished reply gets a bookmark. Runs on every streamed chunk, with `final` only at the end. */
+  function renderReply(bubble, raw, final) {
+    const set = state.material?.kind === "set";
+    const { text, refs: sources } = extractSourceRefs(raw, set ? state.material.used : 0);
+    bubble.innerHTML = markdown(text);
+    if (!final) return;
+    const foot = el("div.msg__foot", {}, [
+      sources.length
+        ? el("span.msg__sources", {}, [
+            el("span.tag", {}, [icon(ICONS.book, 12), t("solve.sourceFrom")]),
+            ...sources.map((n) => el("span.tag", {}, t("solve.sourceQuestion", { n }))),
+          ])
+        : el("span"),
+      saveButton(text),
+    ]);
+    bubble.appendChild(foot);
+  }
+
+  function saveButton(text) {
+    const btn = el("button.msg__save", { type: "button" }, icon(ICONS.bookmark, 15));
+    const paint = () => {
+      const on = !!findSaved(state.chatId, text);
+      btn.classList.toggle("is-on", on);
+      btn.setAttribute("aria-pressed", String(on));
+      btn.setAttribute("aria-label", on ? t("solve.unsaveAnswer") : t("solve.saveAnswer"));
+      btn.title = on ? t("solve.unsaveAnswer") : t("solve.saveAnswer");
+    };
+    btn.addEventListener("click", () => {
+      const existing = findSaved(state.chatId, text);
+      if (existing) { removeSaved(existing.id); toast(t("solve.unsavedToast")); }
+      else { addSaved({ chatId: state.chatId, chatTitle: chatTitle(state.messages), text }); toast(t("solve.savedToast")); }
+      paint();
+    });
+    paint();
+    return btn;
+  }
 
   function appendBubble(who, html) {
     const node = el(`div.msg.${who}`, {});
@@ -111,11 +160,14 @@ export function renderSolve(qs) {
   /** A fresh conversation, opened with whatever the current mode (or the default persona)
    *  leads with. Cuts an in-flight reply off first — switching mode mid-stream must not let
    *  the old answer land in the new, just-cleared thread. */
-  function resetChat() {
+  function resetChat({ keepMaterial = false } = {}) {
     state.abort?.abort();
     state.messages = [];
     state.pendingImage = null;
     state.busy = false;
+    state.chatId = newChatId();
+    if (!keepMaterial) state.material = null;
+    showChat();
     clear(refs.logEl);
     appendWelcome();
     renderPending();
@@ -124,13 +176,90 @@ export function renderSolve(qs) {
     refs.resetBtn.hidden = true;
     refs.inputEl.disabled = !canChat;
     refs.attachBtn.disabled = !canChat;
+    refs.materialBtn.disabled = !canChat;
     paintModes();
+    paintMaterial();
     if (canChat) refs.inputEl.focus();
   }
 
   function pickMode(id) {
     state.mode = state.mode === id ? null : id;   // tap the active one again to go back to the default persona
-    resetChat();
+    resetChat({ keepMaterial: true });            // a new thread, but "quiz me" on the set you attached is the point
+  }
+
+  /** Open a saved chat: its mode, its material and every message, ready to carry on. */
+  function restoreChat(chat) {
+    state.abort?.abort();
+    state.chatId = chat.id;
+    state.mode = isStudyMode(chat.mode) ? chat.mode : null;
+    state.material = chat.material || null;
+    state.pendingImage = null;
+    state.busy = false;
+    state.messages = chat.messages.map((m) => ({
+      role: m.role,
+      content: m.img ? `${m.content}\n${t("solve.imageSent")}`.trim() : m.content,
+    }));
+    showChat();
+    clear(refs.logEl);
+    appendWelcome();
+    for (const m of state.messages) {
+      if (m.role === "user") appendUserBubble(m.content);
+      else renderReply(appendBubble("ai", ""), m.content, true);
+    }
+    renderPending();
+    refs.inputEl.value = "";
+    autosize();
+    refs.resetBtn.hidden = false;
+    refs.inputEl.disabled = !canChat;
+    refs.attachBtn.disabled = !canChat;
+    refs.materialBtn.disabled = !canChat;
+    paintModes();
+    paintMaterial();
+    refs.logEl.scrollTop = refs.logEl.scrollHeight;
+  }
+
+  /** The chip above the input: which set or file the answers come from, and how much of it fits. */
+  function paintMaterial() {
+    const m = state.material;
+    clear(refs.materialEl);
+    refs.materialEl.hidden = !m;
+    if (m) {
+      const cut = m.kind === "set"
+        ? (m.used < m.count ? t("solve.materialCutSet", { used: m.used, count: m.count }) : "")
+        : (m.cut ? t("solve.materialCut", { n: m.text.length }) : "");
+      refs.materialEl.appendChild(icon(m.kind === "set" ? ICONS.book : ICONS.fileText, 16));
+      refs.materialEl.appendChild(el("span.matchip__txt", {}, [
+        el("b", {}, m.title),
+        el("small", {}, [m.kind === "set" ? t("solve.materialKindSet") : t("solve.materialKindFile"), m.kind === "set" ? plural(m.count, "solve.materialQuestionsOne", "solve.materialQuestionsMany", { n: m.count }) : "", cut].filter(Boolean).join(" · ")),
+      ]));
+      refs.materialEl.appendChild(el("button.iconbtn.iconbtn--sm", {
+        type: "button", "aria-label": t("solve.materialRemove"), title: t("solve.materialRemove"),
+        onclick: () => { state.material = null; paintMaterial(); persist(); refs.inputEl.focus(); },
+      }, icon(ICONS.close, 14)));
+    }
+    paintModes();   // the placeholder depends on whether material is attached
+  }
+
+  function showHistory() {
+    refs.history?.node.remove();
+    refs.history = chatHistoryPanel({
+      activeId: state.chatId,
+      onOpen: restoreChat,
+      onNew: () => resetChat(),
+      onBack: showChat,
+    });
+    refs.panel.appendChild(refs.history.node);
+    refs.logEl.hidden = true;
+    refs.formEl.hidden = true;
+    refs.historyBtn.setAttribute("aria-pressed", "true");
+  }
+
+  function showChat() {
+    refs.history?.node.remove();
+    refs.history = null;
+    refs.logEl.hidden = false;
+    refs.formEl.hidden = false;
+    refs.historyBtn.setAttribute("aria-pressed", "false");
   }
 
   function paintModes() {
@@ -179,6 +308,7 @@ export function renderSolve(qs) {
     state.busy = true;
     refs.inputEl.disabled = true;
     refs.attachBtn.disabled = true;
+    refs.materialBtn.disabled = true;
     setMood(mascotEl, "thinking");
     const bubble = appendBubble("ai", `<span class="typing"><span></span><span></span><span></span></span>`);
     state.abort = new AbortController();
@@ -186,15 +316,17 @@ export function renderSolve(qs) {
     let acc = "";
     try {
       for await (const chunk of tutorStream({
-        system: state.mode ? studyChatSystem(state.mode) : solveChatSystem(),
+        system: (state.mode ? studyChatSystem(state.mode) : solveChatSystem()) + materialSystemBlock(state.material),
         messages: trimHistory(state.messages),
         signal: mine.signal,
       })) {
         acc += chunk;
-        bubble.innerHTML = markdown(acc);
+        renderReply(bubble, acc, false);
         refs.logEl.scrollTop = refs.logEl.scrollHeight;
       }
       state.messages.push({ role: "assistant", content: acc || "…" });
+      renderReply(bubble, acc, true);
+      persist();
       announce(t("tutor.prefix", { text: acc }));
     } catch (e) {
       if (mine.signal.aborted) return;   // resetChat() already cleared this thread — nothing left to update
@@ -202,12 +334,14 @@ export function renderSolve(qs) {
       bubble.textContent = msg;
       bubble.classList.add("msg--error");
       state.messages.pop();   // the failed question isn't part of the history; they can send it again
+      persist();
       toast(msg);
     } finally {
       if (state.abort === mine) {
         state.busy = false;
         refs.inputEl.disabled = !canChat;
         refs.attachBtn.disabled = !canChat;
+        refs.materialBtn.disabled = !canChat;
         setMood(mascotEl, "idle");
         if (canChat) refs.inputEl.focus();
       }
@@ -254,9 +388,21 @@ export function renderSolve(qs) {
       onclick: () => fileInput.click(),
     }, [icon(ICONS.camera, 18)]);
 
+    const materialBtn = el("button.iconbtn", {
+      type: "button", "aria-label": t("solve.attachMaterial"), title: t("solve.attachMaterial"),
+      onclick: () => openMaterialPicker({
+        onPick: (m) => { state.material = m; paintMaterial(); persist(); refs.inputEl.focus(); },
+      }),
+    }, [icon(ICONS.paperclip, 18)]);
+    const materialEl = el("div.matchip", { hidden: true });
+
     const sendBtn = el("button.iconbtn.solve-dock__send", { type: "submit", "aria-label": t("tutor.send") }, [icon(ICONS.arrow, 18)]);
 
-    const resetBtn = el("button.linkbtn.solve-chat__reset", { type: "button", hidden: true, onclick: resetChat }, t("solve.newChat"));
+    const resetBtn = el("button.linkbtn.solve-chat__reset", { type: "button", hidden: true, onclick: () => resetChat() }, t("solve.newChat"));
+    const historyBtn = el("button.iconbtn.solvehead__hist", {
+      type: "button", "aria-label": t("solve.historyOpen"), title: t("solve.historyOpen"), "aria-pressed": "false",
+      onclick: () => (refs.history ? showChat() : showHistory()),
+    }, [icon(ICONS.clock, 18)]);
 
     const modeBtns = STUDY_MODES.map((m) => el("button.chatmode", {
       type: "button", "data-mode": m.id, "aria-pressed": "false", onclick: () => pickMode(m.id),
@@ -265,6 +411,7 @@ export function renderSolve(qs) {
     if (!canChat) {
       inputEl.disabled = true;
       attachBtn.disabled = true;
+      materialBtn.disabled = true;
       sendBtn.disabled = true;
     }
 
@@ -272,12 +419,13 @@ export function renderSolve(qs) {
     const formEl = el("form.solve-dock", { onsubmit: (e) => { e.preventDefault(); send(); } }, [
       fileInput,
       el("div.chatmodes", { role: "group", "aria-label": t("chat.modesLabel") }, modeBtns),
+      materialEl,
       pendingEl,
       inputEl,
-      el("div.solve-dock__row", {}, [attachBtn, el("span.solve-dock__hint", {}, t("solve.enterHint")), sendBtn]),
+      el("div.solve-dock__row", {}, [attachBtn, materialBtn, el("span.solve-dock__hint", {}, t("solve.enterHint")), sendBtn]),
     ]);
 
-    refs = { logEl, pendingEl, inputEl, attachBtn, resetBtn, modeBtns };
+    refs = { logEl, pendingEl, inputEl, attachBtn, materialBtn, materialEl, resetBtn, historyBtn, modeBtns, formEl, panel: null, history: null };
 
     root.appendChild(homeButton({ grid: true }));
     root.appendChild(el("div.solvehead", {}, [
@@ -289,6 +437,7 @@ export function renderSolve(qs) {
           : [el("i.solvehead__livedot.is-off", { "aria-hidden": "true" }), t("solve.aiOffline")]),
       ]),
       resetBtn,
+      historyBtn,
     ]));
     root.appendChild(solveTabs("help"));
     const panel = el("div.solve-chat.solve-chat__panel", {}, [
@@ -297,9 +446,11 @@ export function renderSolve(qs) {
       formEl,
       canChat ? el("div.solve-chat__drop", { "aria-hidden": "true" }, t("solve.dropHere")) : null,
     ].filter(Boolean));
+    refs.panel = panel;
     root.appendChild(panel);
 
     paintModes();
+    paintMaterial();
     if (canChat) appendWelcome();
     // Drag a picture onto the page, or paste one anywhere — focused or not.
     // Signed out, a drop is still caught (otherwise the browser opens the image

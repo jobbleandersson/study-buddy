@@ -3928,3 +3928,86 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
   .stats:has(.stat:only-child) { grid-template-columns: 1fr; }
 }
 @media (max-width: 620px) { .stat:last-child:nth-child(odd) { grid-column: 1 / -1; border-left: 0; } }
+
+/* ---------- Studify AI: chat history, bookmarks, attached material ---------- */
+.solvehead__hist { flex: none; }
+.solvehead__hist[aria-pressed="true"] { background: var(--brand-tint); border-color: var(--brand); color: var(--brand-ink); }
+
+.matchip { display: flex; align-items: center; gap: var(--s-2); margin: 0 0 var(--s-2); padding: 6px 8px 6px 10px; border-radius: var(--r-md); background: var(--brand-tint); color: var(--brand-ink); }
+.matchip__txt { min-width: 0; display: flex; flex-direction: column; line-height: 1.25; font-size: var(--fs-sm); }
+.matchip__txt b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.matchip__txt small { color: var(--ink-soft); font-size: .72rem; }
+.matchip .iconbtn { margin-left: auto; }
+
+.tag { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: var(--r-full); background: var(--brand-tint); color: var(--brand-ink); font-size: .72rem; font-weight: 600; line-height: 1.5; }
+.msg__foot { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); margin-top: var(--s-2); }
+.msg__sources { display: flex; flex-wrap: wrap; gap: 4px; }
+.msg__save { flex: none; margin-left: auto; display: inline-grid; place-items: center; width: 28px; height: 28px; border: 0; border-radius: var(--r-full); background: transparent; color: var(--ink-faint); cursor: pointer; }
+.msg__save:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); color: var(--ink); }
+.msg__save.is-on { color: var(--brand-ink); background: var(--brand-tint); }
+.msg__save.is-on svg { fill: currentColor; }
+
+.history { display: flex; flex-direction: column; gap: var(--s-3); flex: 1; min-height: 0; overflow-y: auto; }
+.history__top { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.history__count { margin: 0; color: var(--ink-faint); font-size: var(--fs-sm); }
+.history__search input { width: 100%; box-sizing: border-box; font: inherit; padding: 8px 14px; border-radius: var(--r-full); border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); }
+.history__h { display: flex; align-items: center; gap: 6px; margin: var(--s-2) 0 0; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-faint); }
+.history__list { display: flex; flex-direction: column; gap: var(--s-2); }
+.history__item { display: flex; align-items: center; gap: var(--s-2); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); }
+.history__item.is-active { border-color: var(--brand); }
+.history__open { flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--s-3); padding: var(--s-2) var(--s-3); background: none; border: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.history__ic { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: var(--brand-tint); color: var(--brand-ink); flex: none; }
+.history__txt { min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
+.history__txt b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--fs-sm); }
+.history__txt small { color: var(--ink-faint); font-size: .75rem; }
+.history__del { margin-right: var(--s-2); }
+.history__saved { border-top: 1px solid var(--line); padding-top: var(--s-2); }
+.history__answer { margin-top: var(--s-2); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); }
+.history__answer summary { cursor: pointer; padding: var(--s-2) var(--s-3); font-size: var(--fs-sm); }
+.history__answerbody { padding: 0 var(--s-3) var(--s-2); font-size: var(--fs-sm); line-height: 1.5; overflow-wrap: anywhere; }
+.history__answeractions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); padding: 0 var(--s-3) var(--s-3); }
+.history__answeractions small { margin-right: auto; color: var(--ink-faint); }
+
+.matpick { max-width: 440px; width: 100%; }
+.matpick__search input { width: 100%; box-sizing: border-box; margin-bottom: var(--s-2); }
+.matpick__list { display: flex; flex-direction: column; gap: var(--s-2); max-height: 300px; overflow-y: auto; }
+.matpick__item { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-2) var(--s-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.matpick__item:hover { border-color: var(--brand); }
+.matpick__name { display: flex; flex-direction: column; min-width: 0; line-height: 1.3; }
+.matpick__name b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.matpick__name small { color: var(--ink-faint); }
+
+/* ---------- Home: "Nästan där" ---------- */
+.near__sub { margin-left: var(--s-2); font-weight: 400; color: var(--ink-faint); }
+.near__list { display: flex; flex-direction: column; gap: var(--s-2); }
+.near__row { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-2) var(--s-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); color: inherit; text-decoration: none; }
+.near__row:hover { border-color: var(--brand-bright, var(--brand)); }
+.near__ic { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: var(--retry-tint); color: var(--retry-ink); flex: none; }
+.near__txt { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
+.near__txt b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.near__txt small { color: var(--ink-faint); font-size: var(--fs-sm); }
+.near__dots { display: flex; gap: 3px; margin-top: 4px; }
+.near__dots i { display: block; width: 7px; height: 7px; border-radius: 50%; background: var(--line-strong); }
+.near__dots i.is-f { background: var(--ok-bright); }
+.near__go { display: inline-flex; align-items: center; gap: 4px; color: var(--brand-ink); font-weight: 600; font-size: var(--fs-sm); white-space: nowrap; }
+
+/* ---------- Listen as a conversation ---------- */
+.talk { max-width: 460px; width: 100%; }
+.talk__head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-3); margin-bottom: var(--s-3); }
+.talk__head h3 { margin: 0; }
+.talk__actions { margin-top: var(--s-3); }
+.talk__meta { text-align: center; color: var(--ink-faint); font-size: var(--fs-sm); }
+.talk__cast { display: flex; justify-content: center; gap: var(--s-5); margin: var(--s-2) 0 var(--s-3); }
+.talk__who { display: flex; flex-direction: column; align-items: center; gap: 4px; font-weight: 600; font-size: var(--fs-sm); }
+.talk__avatar { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; font-weight: 700; }
+.talk__avatar--a { background: var(--c-grape-tint); color: var(--c-grape-ink); }
+.talk__avatar--s { background: var(--c-leaf-tint); color: var(--c-leaf-ink); }
+.talk__who.is-on .talk__avatar { box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--brand); }
+.talk__lines { list-style: none; margin: 0; padding: 0; max-height: 240px; overflow-y: auto; display: flex; flex-direction: column; gap: 2px; }
+.talk__line button { width: 100%; padding: 6px 10px; border: 0; border-radius: var(--r-sm); background: none; font: inherit; line-height: 1.4; text-align: left; color: var(--ink-faint); cursor: pointer; }
+.talk__line b { margin-right: 6px; font-size: var(--fs-sm); color: var(--ink-soft); }
+.talk__line.is-cur button { background: var(--brand-tint); color: var(--ink); }
+.talk__ctl { display: flex; align-items: center; justify-content: center; gap: var(--s-3); margin: var(--s-3) 0 var(--s-2); }
+.talk__play { width: 48px; height: 48px; background: var(--brand); border-color: var(--brand); color: #fff; }
+.talk__speed { padding: 4px 10px; border: 1px solid var(--line-strong); border-radius: var(--r-full); background: var(--surface); font: inherit; font-weight: 600; color: var(--ink-soft); cursor: pointer; }
+.talk__hint { font-size: var(--fs-sm); }

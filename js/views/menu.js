@@ -23,6 +23,9 @@ import { houseAd } from "../components/house-ad.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
 import { STUDY_MODES } from "../lib/study-modes.js";
+import { nearlyThere } from "../lib/near.js";
+import { openTalk } from "../components/talk-player.js";
+import { loadScript, scriptKey } from "../lib/podcast.js";
 import { MY_REVIEW_URL } from "../config.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
@@ -282,6 +285,7 @@ export function renderMenu(mode) {
         if (copy) toast(t("menu.copiedAs", { title: copy.title }));
       }),
       item(ICONS.play, t("menu.itemPrint"), () => { location.hash = `#/print/${a.id}`; }),
+      (store.canUseAI() || loadScript(scriptKey(a))) && (a.questions?.length || 0) > 0 && item(ICONS.headphones, t("menu.itemTalk"), () => openTalk(a)),
       item(ICONS.share, t("menu.itemShare"), () => shareSet(a)),
       store.hasKey() && item(ICONS.spark, t("menu.itemMore"), () => { location.hash = `#/edit/${a.id}?more=1`; }),
       item(ICONS.trash, t("menu.itemDelete"), () => remove(a), true),
@@ -415,7 +419,7 @@ export function renderMenu(mode) {
   // its own "pick a set" call to action, and showing this too would just repeat it.
   const ad = store.assignments.length ? houseAd() : null;
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
-    el("div.home-main", {}, [homeStarter(), todayPanel(), headActions, chatPanel(), ad, setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [homeStarter(), todayPanel(), nearPanel(), headActions, chatPanel(), ad, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 
@@ -678,6 +682,33 @@ function todayPanel() {
     pills.length ? el("div.stats", { style: { "--stat-n": String(pills.length) } }, pills) : null,
     recap,
   ].filter(Boolean));
+}
+
+/** "Nästan där": the sets you got close on but never finished at 100 %, closest first. Each row shows
+ *  the best score as a strip of ten dots and links straight into the set. Null when there are none. */
+function nearPanel() {
+  const { items, total } = nearlyThere(store.assignments, store.attempts);
+  if (!items.length) return null;
+  const rows = items.map(({ assignment: a, best, attempts }) => {
+    const pct = Math.round(best);
+    const filled = Math.round(best / 10);
+    return el("a.near__row", { href: `#/session/${a.id}`, "aria-label": t("menu.nearAria", { title: a.title, best: pct }) }, [
+      el("span.near__ic", {}, icon(ICONS.target, 16)),
+      el("span.near__txt", {}, [
+        el("b", {}, a.title),
+        el("small", {}, [t("menu.nearBest", { best: pct }), plural(attempts, "menu.nearTriesOne", "menu.nearTriesMany", { n: attempts })].join(" · ")),
+        el("span.near__dots", { "aria-hidden": "true" }, Array.from({ length: 10 }, (_, i) => el("i" + (i < filled ? ".is-f" : "")))),
+      ]),
+      el("span.near__go", {}, [t("menu.nearGo"), icon(ICONS.arrow, 14)]),
+    ]);
+  });
+  return el("section.home-panel.home-panel--near", {}, [
+    el("div.home-panel__label", {}, [
+      el("span", {}, t("menu.nearTitle")),
+      el("small.near__sub", {}, plural(total, "menu.nearSubOne", "menu.nearSubMany", { n: total })),
+    ]),
+    el("div.near__list", {}, rows),
+  ]);
 }
 
 function continueBanner(open) {
