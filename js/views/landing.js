@@ -74,11 +74,13 @@ export function header({ sections = false } = {}) {
       ].filter(Boolean)),
     ]),
   ]);
-  const onScroll = () => {
-    if (!bar.isConnected) { window.removeEventListener("scroll", onScroll); return; }
-    bar.classList.toggle("is-scrolled", window.scrollY > 8);
-  };
+  const onScroll = () => bar.classList.toggle("is-scrolled", window.scrollY > 8);
   window.addEventListener("scroll", onScroll, { passive: true });
+  // No scroll event fires just because the view was torn down, so relying on one to notice
+  // bar.isConnected and self-remove could leave this listener (and the closed-over bar) alive
+  // indefinitely if the visitor navigates away without ever scrolling. The caller's cleanup()
+  // removes it deterministically instead.
+  bar._removeScrollListener = () => window.removeEventListener("scroll", onScroll);
   return bar;
 }
 
@@ -541,11 +543,12 @@ export function footer() {
 }
 
 export function renderLanding() {
+  const headerBar = header({ sections: true });
   return {
     title: t("lp.pageTitle"),
     chrome: false,
     node: el("div.lp.lp--home", {}, [
-      header({ sections: true }),
+      headerBar,
       // One <main>; the dark AI band inside it runs edge to edge, so the sections around it
       // sit in their own width-capped wrappers.
       el("main.lp-body", { id: "main" }, [
@@ -555,5 +558,6 @@ export function renderLanding() {
       ]),
       footer(),
     ]),
+    cleanup: () => headerBar._removeScrollListener(),
   };
 }

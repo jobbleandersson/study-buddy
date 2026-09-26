@@ -1305,23 +1305,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
    cancel out against) — a known source of a stray sliver at one edge or a
    horizontal scrollbar. calc(50% - 50vw) sidesteps it by never computing an
    explicit width at all. */
-.lp-trust {
-  margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
-  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-  background: var(--surface); margin-top: var(--s-7); margin-bottom: 0;
-}
-.lp-trust__inner {
-  max-width: 1120px; margin: 0 auto; padding: var(--s-5) var(--s-4);
-  display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-5) var(--s-6);
-}
-@media (min-width: 860px) { .lp-trust__inner { flex-wrap: nowrap; justify-content: space-between; } }
-.lp-trust__item { display: flex; align-items: center; gap: var(--s-3); min-width: 0; }
-.lp-trust__item b { display: block; font-size: 1rem; font-weight: 700; letter-spacing: -.01em; color: var(--ink); white-space: nowrap; }
-.lp-trust__item span { display: block; font-size: var(--fs-sm); color: var(--ink-soft); white-space: nowrap; }
-@media (max-width: 859px) { .lp-trust__inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); justify-content: stretch; } }
-
 /* showcase: a real screenshot in a browser frame */
-.lp-show .lp-sub { max-width: 60ch; }
 .lp-frame {
   margin: var(--s-6) 0 0; border-radius: 14px; overflow: hidden;
   border: 1px solid var(--line-strong); background: var(--surface);

@@ -129,11 +129,12 @@ function closer() {
 }
 
 export function renderTeacherLanding() {
+  const headerBar = header();
   return {
     title: t("teachers.pageTitle"),
     chrome: false,
     node: el("div.lp", {}, [
-      header(),
+      headerBar,
       el("main.lp-main", { id: "main" }, [
         hero(),
         features(),
@@ -142,5 +143,6 @@ export function renderTeacherLanding() {
       ]),
       footer(),
     ]),
+    cleanup: () => headerBar._removeScrollListener(),
   };
 }

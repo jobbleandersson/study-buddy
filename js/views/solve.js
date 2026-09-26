@@ -6,8 +6,8 @@
 // (store.hasKey()); until then the composer is disabled and the reason is
 // spelled out, exactly like Create.
 //
-// Also where the six one-tap "ways to study" live (quiz me, explain, summarise, compare,
-// word list, debate — lib/study-modes.js): tapping one starts a fresh thread under that
+// Also where the seven one-tap "ways to study" live (quiz me, explain, summarise, compare,
+// word list, debate, feedback on text — lib/study-modes.js): tapping one starts a fresh thread under that
 // mode's own ground rules instead of the default "help with one problem" persona; tapping
 // the active one again returns to the default. This used to be its own page (#/chat) —
 // folded in here because it was the exact same chat, just with a different system prompt,
@@ -416,7 +416,7 @@ export function renderSolve(qs) {
 
     const modeBtns = STUDY_MODES.map((m) => el("button.chatmode", {
       type: "button", "data-mode": m.id, "aria-pressed": "false", title: t(`chat.mode.${m.id}`), onclick: () => pickMode(m.id),
-    // The label is a span so a phone in mid-conversation can show the six tiles as icons only (css) and
+    // The label is a span so a phone in mid-conversation can show the seven tiles as icons only (css) and
     // still keep the name for screen readers and as a tooltip.
     }, [icon(ICONS[m.icon] || ICONS.spark, 18), el("span.chatmode__label", {}, t(`chat.mode.${m.id}`))]));
 
@@ -427,7 +427,7 @@ export function renderSolve(qs) {
       sendBtn.disabled = true;
     }
 
-    // One docked card: the six ways to study on top, then the box, then attach + send.
+    // One docked card: the seven ways to study on top, then the box, then attach + send.
     const formEl = el("form.solve-dock", { onsubmit: (e) => { e.preventDefault(); send(); } }, [
       fileInput,
       el("div.chatmodes", { role: "group", "aria-label": t("chat.modesLabel") }, modeBtns),
