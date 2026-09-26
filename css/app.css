@@ -2763,11 +2763,13 @@ kbd {
   .grid { grid-template-columns: 1fr; gap: var(--s-3); }
   .acard--new { min-height: 0; flex-direction: row; padding: var(--s-3) var(--s-4); }
   /* Study session: Skip / Next as the full-width primary row, the lesser actions (Leave,
-     overview, flag) underneath instead of wrapping into three ragged rows. */
-  .nav-row { flex-direction: column-reverse; align-items: stretch; }
-  .nav-row > div:last-child { width: 100%; }
-  .nav-row > div:last-child > .btn { flex: 1; }
-  .nav-row > div:first-child { justify-content: flex-start; }
+     overview, flag) underneath instead of wrapping into three ragged rows. Scoped to .session
+     specifically — .nav-row is shared with create/edit, whose two children aren't both <div>s
+     wrapping button groups, so the same column-reverse would silently flip their button order. */
+  .session .nav-row { flex-direction: column-reverse; align-items: stretch; }
+  .session .nav-row > div:last-child { width: 100%; }
+  .session .nav-row > div:last-child > .btn { flex: 1; }
+  .session .nav-row > div:first-child { justify-content: flex-start; }
   /* Footer links: tappable height, tighter rows. */
   .sitefooter__links, .lp-foot__links { gap: 0 var(--s-4); }
   .sitefooter__links a, .lp-foot__links a { display: inline-block; padding: 8px 0; }
