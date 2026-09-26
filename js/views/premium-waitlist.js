@@ -56,7 +56,7 @@ export function renderPremiumWaitlist() {
       el("h1", {}, t("premium.pageTitle")),
       el("p.note", { style: { marginBottom: "16px" } }, t("premium.lead")),
       panel,
-      el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "8px", justifySelf: "start" } }, t("common.backToMenu")),
+      el("a.btn.btn--ghost.pageback", { href: "#/", style: { marginTop: "8px", justifySelf: "start" } }, t("common.backToMenu")),
     ]),
   };
 }

@@ -222,7 +222,7 @@ export function renderProgress() {
         : el("p.note", {}, t("prog.nothingDue")),
     ]),
 
-    el("a.btn.btn--ghost", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
+    el("a.btn.btn--ghost.pageback", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
   ]);
 
   requestAnimationFrame(() => {

@@ -698,11 +698,7 @@ function chatRoute() {
 // Highlighter-swipe wordmark: two rough, overlapping tinted strokes behind
 // the brand text, like it's been marked up twice with a highlighter.
 function wordmark(text) {
-  return [
-    el("span.wordmark__bar.wordmark__bar--1", { "aria-hidden": "true" }),
-    el("span.wordmark__bar.wordmark__bar--2", { "aria-hidden": "true" }),
-    el("span.wordmark__text", {}, text),
-  ];
+  return [el("span.wordmark__text", {}, text)];
 }
 
 function shell(contentNode) {

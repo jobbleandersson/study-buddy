@@ -71,7 +71,7 @@ export function renderAchievements() {
     hero,
     ...trackGroups,
     milestoneGroup,
-    el("a.btn.btn--ghost", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
+    el("a.btn.btn--ghost.pageback", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
   ].filter(Boolean));
 
   requestAnimationFrame(() => {

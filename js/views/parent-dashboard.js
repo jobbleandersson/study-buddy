@@ -35,7 +35,7 @@ function signedOutNode() {
       el("p.note", { style: { marginBottom: "12px" } }, t("parent.signInPrompt")),
       el("a.btn", { href: "#/login" }, t("login.signIn")),
     ]),
-    el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), t("parent.backToMenu")]),
+    el("a.btn.btn--ghost.pageback", { href: "#/" }, [icon(ICONS.back, 16), t("parent.backToMenu")]),
   ]);
 }
 
@@ -218,7 +218,7 @@ export function renderParentHub() {
     studentsPanel,
     parentsPanel,
     assignedPanel,
-    el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), t("parent.backToMenu")]),
+    el("a.btn.btn--ghost.pageback", { href: "#/" }, [icon(ICONS.back, 16), t("parent.backToMenu")]),
   ]);
 
   return { title: t("parent.title"), node };

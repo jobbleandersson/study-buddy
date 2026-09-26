@@ -50,7 +50,7 @@ export async function renderGallery() {
     el("h1", {}, t("gallery.title")),
     el("p.note", { style: { marginBottom: "16px" } }, t("gallery.intro")),
     grid,
-    el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "20px" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
+    el("a.btn.btn--ghost.pageback", { href: "#/", style: { marginTop: "20px" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
   ]);
 
   return { title: t("gallery.title"), node };

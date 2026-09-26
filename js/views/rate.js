@@ -165,7 +165,7 @@ export function renderRate() {
       el("h1", {}, t("rate.title")),
       el("p.note", { style: { marginBottom: "16px" } }, t("rate.lead")),
       el("section.panel", {}, [statusNote, form]),
-      el("a.btn.btn--ghost", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
+      el("a.btn.btn--ghost.pageback", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
     ]),
   };
 }

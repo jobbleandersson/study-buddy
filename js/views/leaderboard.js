@@ -150,7 +150,7 @@ export function renderLeaderboard() {
     el("h1", {}, t("leaderboard.title")),
     boardPanel,
     invitePanel,
-    el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), t("common.backToMenu")]),
+    el("a.btn.btn--ghost.pageback", { href: "#/" }, [icon(ICONS.back, 16), t("common.backToMenu")]),
   ]);
 
   return { title: t("leaderboard.pageTitle"), node };

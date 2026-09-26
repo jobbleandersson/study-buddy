@@ -49,7 +49,7 @@ function signedOut(qs) {
       el("p.note", { style: { marginBottom: "12px" } }, t("classes.signInPrompt")),
       el("a.btn", { href: `#/login?next=${encodeURIComponent(next)}` }, t("login.signIn")),
     ]),
-    el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), t("parent.backToMenu")]),
+    el("a.btn.btn--ghost.pageback", { href: "#/" }, [icon(ICONS.back, 16), t("parent.backToMenu")]),
   ]);
 }
 
@@ -199,7 +199,7 @@ export async function renderClasses(qs) {
     memberPanel,
     joinPanel,
     teachingPanel,
-    el("a.btn.btn--ghost", { href: "#/" }, [icon(ICONS.back, 16), t("parent.backToMenu")]),
+    el("a.btn.btn--ghost.pageback", { href: "#/" }, [icon(ICONS.back, 16), t("parent.backToMenu")]),
   ]);
   return { title: t("classes.title"), node };
 }

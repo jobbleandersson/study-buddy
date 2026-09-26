@@ -12,11 +12,11 @@ const FEEDBACK_MAIL = `mailto:${CONTACT_EMAIL}`;
 function page(titleKey, body) {
   return {
     title: t(titleKey),
-    node: el("div.settings", {}, [
+    node: el("div.settings.docpage", {}, [
       homeButton({ grid: true }),
       el("h1", {}, t(titleKey)),
       ...body,
-      el("a.btn.btn--ghost", { href: "#/", style: { marginTop: "8px", justifySelf: "start" } }, t("common.backToMenu")),
+      el("a.btn.btn--ghost.pageback", { href: "#/", style: { marginTop: "8px", justifySelf: "start" } }, t("common.backToMenu")),
     ]),
   };
 }

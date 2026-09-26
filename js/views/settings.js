@@ -224,13 +224,7 @@ export function renderSettings() {
       el("nav.settings__nav", { "aria-label": t("set.title") }, navLinks),
       el("div.settings__sections", {}, [
         ...sections.map(([, , panel]) => panel),
-        el("section.roadmapbox", {}, [
-          el("h3", {}, t("set.roadmap")),
-          el("ul.roadmap", {}, [
-            el("li", {}, t("set.roadShare")),
-          ]),
-        ]),
-        el("a.btn.btn--ghost", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
+        el("a.btn.btn--ghost.pageback", { href: "#/", style: { justifySelf: "start" } }, [icon(ICONS.back, 16), t("common.backToMenu")]),
       ]),
     ]),
   ]);
