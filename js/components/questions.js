@@ -28,12 +28,17 @@ let activeTarget = null;
 // The "your rule" line for the question being built (see ruleHooks), placed by
 // shell() the same way.
 let activeRulePeek = null;
+// The text a follow-up question depends on ("Samma text. ..."), shown above it by shell() - see lib/passages.js.
+let activePassage = null;
+// Whether the student left the text open. Kept across questions, so hiding it once keeps it hidden.
+let passageOpen = true;
 
 export function renderQuestion(opts) {
   const rules = ruleHooks(opts);
   if (rules) opts = rules.opts;
   activeTarget = opts.targetLang || null;
   activeRulePeek = rules?.peek || null;
+  activePassage = opts.passage || null;
   let r;
   try {
     r = (() => {
@@ -50,6 +55,7 @@ export function renderQuestion(opts) {
   } finally {
     activeTarget = null;
     activeRulePeek = null;
+    activePassage = null;
   }
   rules?.attach(r.el);
   // Read-aloud: if the student has turned on auto-read, speak the new question
@@ -359,6 +365,17 @@ function framePanel(question) {
   return null;
 }
 
+/** The shared reading text above a follow-up question: open by default, and the student can fold it away. */
+function passagePanel(text) {
+  if (!text) return null;
+  const box = el("details.question__passage", { open: passageOpen }, [
+    el("summary", {}, t("q.passage")),
+    el("div.question__stimulus-body", { html: renderRich(text) }),
+  ]);
+  box.addEventListener("toggle", () => { passageOpen = box.open; });
+  return box;
+}
+
 function shell(question, body, { showPrompt = true } = {}) {
   const target = activeTarget;
   const speak = speakButton(question, target);
@@ -366,6 +383,7 @@ function shell(question, body, { showPrompt = true } = {}) {
   // Flashcards keep their text on the card itself, so they only get the speaker.
   const bar = target && promptEl && question.kind !== "flashcard" ? languageBar(question, target, promptEl) : null;
   const node = el("div.question", {}, [
+    passagePanel(activePassage),
     framePanel(question),
     figurePanel(question.figure),
     (showPrompt || speak) && el("div.question__topline", {}, [promptEl || el("span"), speak].filter(Boolean)),

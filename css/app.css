@@ -1551,6 +1551,15 @@ body.no-chrome .sitechat__panel { display: none; }
 }
 .question__stimulus-body { font-size: var(--fs-sm); line-height: 1.6; color: var(--ink-soft); }
 .question__stimulus-body br { content: ""; display: block; margin-bottom: .5em; }
+/* The shared text above a follow-up question: the same panel as a stimulus, but it can be folded away. */
+.question__passage {
+  margin: 0 0 var(--s-4); padding: var(--s-2) var(--s-4);
+  border: 1px solid var(--line); border-left: 3px solid var(--brand);
+  border-radius: var(--r-sm); background: var(--surface-sunk);
+}
+.question__passage > summary { cursor: pointer; padding: var(--s-1) 0; font-weight: 700; color: var(--brand-ink); }
+.question__passage[open] > summary { margin-bottom: var(--s-2); }
+.question__passage .question__stimulus-body { max-height: 38vh; overflow: auto; padding-bottom: var(--s-2); white-space: pre-line; }
 
 .hp-kva {
   display: grid; grid-template-columns: 1fr auto 1fr; gap: 0;
