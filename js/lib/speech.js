@@ -121,6 +121,37 @@ export function speakSegments(segments, { rate = 1, onstart, onend, onerror } = 
   }
 }
 
+/** The two voices for a spoken conversation: the student's own (or best local) voice, and a second,
+ *  different one in the same language when the device has one (null when it does not). */
+export function talkVoices() {
+  const first = pickVoice();
+  const rest = voicesForLang().filter((v) => v !== first && v.voiceURI !== first?.voiceURI);
+  return [first, rest.find((v) => v.localService) || rest[0] || null];
+}
+
+/** Read one line of a conversation as speaker 0 or 1. With a single voice installed the speakers are
+ *  told apart by pitch instead. Cancels anything already speaking; false if TTS is unavailable. */
+export function speakTalkLine(text, role, { rate = 1, onend, onerror } = {}) {
+  const clean = toSpeakable(text);
+  if (!speechSupported() || !clean) return false;
+  try {
+    window.speechSynthesis.cancel();
+    const [a, b] = talkVoices();
+    const v = role ? (b || a) : a;
+    const u = new SpeechSynthesisUtterance(clean);
+    if (v) u.voice = v;
+    u.lang = v?.lang || bcp();
+    u.rate = Math.min(1.5, Math.max(0.5, getRate() * rate));
+    if (!b) u.pitch = role ? 1.3 : 0.9;
+    u.onend = () => onend?.();
+    u.onerror = (e) => onerror?.(e);
+    window.speechSynthesis.speak(u);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 /** Speak `text` in the student's own voice. Cancels anything already
  *  speaking. Returns false if TTS isn't available or there's nothing to say. */
 export function speak(text, opts) {
