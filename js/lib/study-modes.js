@@ -54,11 +54,14 @@ export function buildStudySystem(id, replyLang = "") {
   return [BASE, studyModeRules(id)].filter(Boolean).join("\n\n") + replyLang;
 }
 
-/** The last `limit` messages - but the very first one is always kept too, even once the thread runs
- *  past the window. It's always the first user turn (every caller pushes it before anything else),
- *  and it's usually the topic or the pasted notes the whole conversation is about; losing it let a
- *  long "Förhör mig" quiz or a "Sammanfatta" run drift off the original material after a few
- *  exchanges. Never starts on an assistant turn either (the API wants a user message first). */
+/** The last `limit` messages - but the first exchange is always kept too, even once the thread runs
+ *  past the window: the opening user turn (every caller pushes it before anything else) AND the
+ *  assistant reply to it. The opening turn is usually the topic, the pasted notes or the problem the
+ *  whole conversation is about; losing it let a long "Förhör mig" quiz or a "Sammanfatta" run drift
+ *  off the original material. Keeping only the question was worse than keeping nothing for a worked
+ *  problem: the model saw the problem with no solution after it and, asked to explain, insisted it had
+ *  never solved it. Never starts on an assistant turn (the API wants a user message first) and never
+ *  ends on the kept assistant turn (the newest message is always in the tail). */
 export function trimHistory(messages, limit = HISTORY_LIMIT) {
   const list = Array.isArray(messages) ? messages : [];
   if (list.length <= limit) {
@@ -66,9 +69,9 @@ export function trimHistory(messages, limit = HISTORY_LIMIT) {
     while (out.length && out[0].role !== "user") out.shift();
     return out;
   }
-  const anchor = list[0];
-  const tailLen = Math.max(0, limit - 1);
+  const anchor = list[1]?.role === "assistant" ? [list[0], list[1]] : [list[0]];
+  const tailLen = Math.max(0, limit - anchor.length);
   const tail = tailLen ? list.slice(-tailLen) : [];
   while (tail.length && tail[0].role !== "user") tail.shift();
-  return tail.length ? [anchor, ...tail] : [anchor];
+  return tail.length ? [...anchor, ...tail] : [list[0]];
 }

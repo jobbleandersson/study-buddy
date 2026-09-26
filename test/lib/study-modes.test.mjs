@@ -63,13 +63,38 @@ describe("study-modes", () => {
     assert.equal(out.at(-1).content, "19");
   });
 
-  test("keeps the very first message as an anchor even once the thread runs well past the window", () => {
+  test("keeps the first exchange as an anchor even once the thread runs well past the window", () => {
     const msgs = [{ role: "user", content: "topic: cellandning" }];
     for (let i = 0; i < 30; i++) msgs.push({ role: i % 2 === 0 ? "assistant" : "user", content: String(i) });
     const out = trimHistory(msgs, 6);
-    assert.equal(out.length, 6);
+    assert.ok(out.length <= 6);
     assert.equal(out[0].content, "topic: cellandning");
+    assert.equal(out[1].content, "0");            // the answer to the opening question is kept too
+    assert.equal(out[1].role, "assistant");
     assert.equal(out.at(-1).content, "29");
+    assert.equal(out.at(-1).role, "user");        // the request never ends on the kept assistant turn
+  });
+
+  test("a long chat still shows the model its own solution to the opening problem", () => {
+    // The field-test failure: after ~6 exchanges the solution was trimmed away, leaving the problem
+    // with nothing after it, and asked to explain it the tutor said "I didn't solve it yet".
+    const msgs = [{ role: "user", content: "Lös rebusen" }, { role: "assistant", content: "Svar: uggla = 4" }];
+    for (let i = 0; i < 20; i++) msgs.push({ role: i % 2 === 0 ? "user" : "assistant", content: `tur ${i}` });
+    msgs.push({ role: "user", content: "Förklara på engelska hur du löste rebusen" });
+    const out = trimHistory(msgs);
+    assert.ok(out.length <= HISTORY_LIMIT);
+    assert.deepEqual(out.slice(0, 2).map((m) => m.content), ["Lös rebusen", "Svar: uggla = 4"]);
+    assert.equal(out.at(-1).content, "Förklara på engelska hur du löste rebusen");
+    for (let i = 1; i < out.length; i++) assert.notEqual(out[i].role, out[i - 1].role, `roles alternate at ${i}`);
+  });
+
+  test("an opening question with no reply after it is anchored on its own", () => {
+    const msgs = [{ role: "user", content: "a" }, { role: "user", content: "b" }];
+    for (let i = 0; i < 12; i++) msgs.push({ role: i % 2 === 0 ? "assistant" : "user", content: String(i) });
+    const out = trimHistory(msgs, 5);
+    assert.equal(out[0].content, "a");
+    assert.equal(out.at(-1).role, "user");
+    assert.ok(out.length <= 5);
   });
 
   test("does not duplicate the anchor when the whole conversation still fits in the window", () => {
