@@ -18,10 +18,8 @@ import { playFanfare } from "../lib/sound.js";
 import { ACHIEVEMENTS, nextAchievement } from "../lib/achievements.js";
 import { countdownLabel } from "../lib/date-phrases.js";
 import { testsTomorrow } from "../lib/tonight.js";
-import { isBusQuestion } from "../components/bus-question.js";
 import { dailySlot } from "../components/daily-card.js";
 import { houseAd } from "../components/house-ad.js";
-import { speechSupported } from "../lib/speech.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
 import { STUDY_MODES } from "../lib/study-modes.js";
@@ -656,14 +654,9 @@ function todayPanel() {
 
   if (!open && !showGoal && !due && !weak && streak <= 0 && !recap && !upcoming.length) return null;
 
-  // Something to listen to on the way: due questions that can be done by ear.
-  const canListen = speechSupported() && dueList.filter((d) => isBusQuestion(d.question)).length >= 3;
   const pills = [
     showGoal ? goalStat(goal) : null,
-    due ? stat({
-      href: "#/review", label: t("menu.statDue"), value: due, action: t("menu.statReview"),
-      extra: canListen ? el("a.stat__extra", { href: "#/review?bus=1" }, [icon(ICONS.headphones, 14), t("menu.statListen")]) : null,
-    }) : null,
+    due ? stat({ href: "#/review", label: t("menu.statDue"), value: due, action: t("menu.statReview") }) : null,
     weak ? stat({ href: "#/practice-weak", label: t("menu.statWeak"), value: weak, action: t("menu.statPractise") }) : null,
     streak > 0 ? stat({
       href: "#/progress", label: t("menu.statStreak"), value: streak,
