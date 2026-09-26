@@ -9,6 +9,7 @@ import { generateTalkScript, ClaudeError } from "../claude.js";
 import { materialFromSet } from "../lib/chat-material.js";
 import { scriptKey, loadScript, saveScript, estimateMinutes } from "../lib/podcast.js";
 import { speechSupported, speakTalkLine, stopSpeaking, talkVoices } from "../lib/speech.js";
+import { talkVoicePicker } from "./voice-controls.js";
 
 const SPEAKERS = { A: { name: "Alex", letter: "A" }, S: { name: "Sam", letter: "S" } };
 const SPEEDS = [1, 1.25, 0.85];
@@ -136,6 +137,18 @@ function showPlayer(body, script, assignment, key) {
   stopPlayback = () => { playing = false; token += 1; stopSpeaking(); };
 
   if (!canSpeak) { playBtn.disabled = true; }
+  // Pick a voice for Alex and one for Sam, in place - it applies from the next line, so it can be done
+  // while the conversation is playing.
+  const voicesPanel = canSpeak ? el("div.talk__voices", { hidden: true }, [talkVoicePicker()]) : null;
+  const voicesBtn = el("button.talk__speed", {
+    type: "button", "aria-expanded": "false",
+    onclick: () => {
+      const open = voicesPanel.hidden;
+      voicesPanel.hidden = !open;
+      voicesBtn.setAttribute("aria-expanded", String(open));
+      voicesBtn.classList.toggle("is-on", open);
+    },
+  }, t("talk.voices"));
   body.append(...[
     canSpeak ? null : el("p.note.note--warn", {}, t("talk.noSpeech")),
     el("div.talk__meta", {}, [t("talk.minutes", { n: estimateMinutes(lines) })]),
@@ -146,7 +159,9 @@ function showPlayer(body, script, assignment, key) {
       playBtn,
       el("button.iconbtn", { type: "button", "aria-label": t("talk.next"), onclick: skip(1) }, icon(ICONS.skipForward, 18)),
       speedBtn,
+      ...(canSpeak ? [voicesBtn] : []),
     ]),
+    voicesPanel,
     el("p.note.talk__hint", {}, [t("talk.hint"), canSpeak && !twoVoices ? ` ${t("talk.oneVoice")}` : ""].join("")),
     el("button.linkbtn", {
       type: "button",

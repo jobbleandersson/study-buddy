@@ -3,7 +3,7 @@ import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import {
   voiceScore, rankVoices, chooseVoice, voiceAdvice, platformKind, splitForSpeech,
-  voiceIsNatural, voiceIsOnline,
+  voiceIsNatural, voiceIsOnline, pickTalkVoices,
 } from "../../js/lib/speech.js";
 
 // A fake SpeechSynthesisVoice: name doubles as its voiceURI.
@@ -57,6 +57,41 @@ describe("choosing the voice", () => {
     assert.equal(chooseVoice(all, { preferredURI: "uninstalled", lang: "sv" }).name, "Alva (Enhanced)");
     assert.equal(chooseVoice([GB], { lang: "sv" }), null);
     assert.equal(chooseVoice([], { lang: "sv" }), null);
+  });
+});
+
+describe("pickTalkVoices (Alex and Sam)", () => {
+  const all = [BENGT, HEDVIG, ALVA, SOFIE, GB];
+  const names = (pair) => pair.map((v) => v && v.name);
+
+  test("by default Alex gets the best voice and Sam the best of the rest", () => {
+    assert.deepEqual(names(pickTalkVoices(all, { lang: "sv" })), [ALVA.name, BENGT.name]);
+  });
+
+  test("Alex follows the student's general voice; Sam is then a different one", () => {
+    assert.deepEqual(names(pickTalkVoices(all, { preferredURI: HEDVIG.voiceURI, lang: "sv" })), [HEDVIG.name, ALVA.name]);
+  });
+
+  test("a voice picked for each speaker is used, even an online one", () => {
+    assert.deepEqual(names(pickTalkVoices(all, { a: SOFIE.voiceURI, s: HEDVIG.voiceURI, lang: "sv" })), [SOFIE.name, HEDVIG.name]);
+  });
+
+  test("picking only Sam's voice leaves Alex on automatic", () => {
+    assert.deepEqual(names(pickTalkVoices(all, { s: BENGT.voiceURI, lang: "sv" })), [ALVA.name, BENGT.name]);
+    assert.deepEqual(names(pickTalkVoices(all, { s: SOFIE.voiceURI, lang: "sv" })), [ALVA.name, SOFIE.name]);
+  });
+
+  test("the same voice picked for both is honoured (the player then tells them apart by pitch)", () => {
+    assert.deepEqual(names(pickTalkVoices(all, { a: BENGT.voiceURI, s: BENGT.voiceURI, lang: "sv" })), [BENGT.name, BENGT.name]);
+  });
+
+  test("a picked voice that is no longer installed falls back to automatic", () => {
+    assert.deepEqual(names(pickTalkVoices(all, { a: "gone", s: "gone", lang: "sv" })), [ALVA.name, BENGT.name]);
+  });
+
+  test("with one voice Sam is null, and with none both are", () => {
+    assert.deepEqual(names(pickTalkVoices([BENGT], { lang: "sv" })), [BENGT.name, null]);
+    assert.deepEqual(names(pickTalkVoices([GB], { lang: "sv" })), [null, null]);
   });
 });
 

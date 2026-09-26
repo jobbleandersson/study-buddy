@@ -9,6 +9,7 @@ import { segmentPrompt, choicesAreTarget } from "./lang-detect.js";
 const VOICE_KEY = "studybuddy.ttsVoice";
 const AUTO_KEY = "studybuddy.ttsAuto";
 const RATE_KEY = "studybuddy.ttsRate";
+const TALK_KEY = "studybuddy.talkVoice";   // + "A" / "S"
 
 export function speechSupported() {
   return typeof window !== "undefined" && "speechSynthesis" in window
@@ -240,12 +241,31 @@ export function speakSample(text, { voiceURI = "", rate = 1, onend } = {}) {
   }
 }
 
-/** The two voices for a spoken conversation: the student's own (or best) voice, and a second, different
- *  one in the same language when the device has one (null when it does not) - the best of the rest. */
+/** The two voices for a spoken conversation, [Alex, Sam]. Each is the one the student chose for that
+ *  speaker while it is still installed. Otherwise Alex gets the student's own (or the best) voice and
+ *  Sam the best of the rest - a different voice in the same language when the device has one, else null
+ *  (the two are then told apart by pitch). */
+export function pickTalkVoices(all, { a = "", s = "", preferredURI = "", lang = getLang() } = {}) {
+  const chosen = (uri) => (uri ? all.find((v) => v.voiceURI === uri) || null : null);
+  const first = chosen(a) || chooseVoice(all, { preferredURI, lang });
+  const prefix = lang === "sv" ? "sv" : "en";
+  const rest = rankVoices(all.filter((v) => normTag(v).startsWith(prefix)), lang)
+    .filter((v) => v.voiceURI !== first?.voiceURI);
+  return [first, chosen(s) || rest[0] || null];
+}
+
 export function talkVoices() {
-  const first = pickVoice();
-  const rest = rankVoices(voicesForLang()).filter((v) => v.voiceURI !== first?.voiceURI);
-  return [first, rest[0] || null];
+  return pickTalkVoices(refreshVoices(), {
+    a: getTalkVoiceURI("A"), s: getTalkVoiceURI("S"), preferredURI: getPreferredVoiceURI(),
+  });
+}
+
+// The voice picked for each conversation speaker ("A" = Alex, "S" = Sam); "" means automatic.
+export function getTalkVoiceURI(who) {
+  try { return localStorage.getItem(TALK_KEY + who) || ""; } catch { return ""; }
+}
+export function setTalkVoiceURI(who, uri) {
+  try { uri ? localStorage.setItem(TALK_KEY + who, uri) : localStorage.removeItem(TALK_KEY + who); } catch {}
 }
 
 /** Read one line of a conversation as speaker 0 or 1. With a single voice installed the speakers are
@@ -258,12 +278,14 @@ export function speakTalkLine(text, role, { rate = 1, onend, onerror } = {}) {
     const [a, b] = talkVoices();
     const v = role ? (b || a) : a;
     const chunks = splitForSpeech(clean);
+    // One voice for both speakers (only one installed, or the same picked twice): tell them apart by pitch.
+    const sameVoice = !b || b.voiceURI === a?.voiceURI;
     chunks.forEach((chunk, i) => {
       const u = new SpeechSynthesisUtterance(chunk);
       if (v) u.voice = v;
       u.lang = v?.lang || bcp();
       u.rate = Math.min(1.5, Math.max(0.5, getRate() * rate));
-      if (!b) u.pitch = role ? 1.3 : 0.9;
+      if (sameVoice) u.pitch = role ? 1.3 : 0.9;
       if (i === chunks.length - 1) u.onend = () => onend?.();
       u.onerror = (e) => onerror?.(e);
       window.speechSynthesis.speak(u);
