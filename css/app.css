@@ -3891,3 +3891,42 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .docpage > .panel { background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: var(--s-5) 0 var(--s-2); box-shadow: none; }
 .docpage > .panel h3 { font-size: 1.15rem; letter-spacing: -.01em; }
 .docpage > .panel p { line-height: 1.7; color: var(--ink-soft); max-width: 68ch; }
+
+/* Home "Idag": a stat strip — equal cells split by hairlines, each with a label, one number and
+   what clicking it does. Neutral on purpose; the number carries the weight, not coloured pills. */
+.stats {
+  display: grid; grid-template-columns: repeat(var(--stat-n, 4), minmax(0, 1fr));
+  border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); overflow: hidden;
+}
+.stat { position: relative; display: flex; flex-direction: column; gap: 4px; padding: 14px 16px 12px; min-width: 0; }
+.stat + .stat { border-left: 1px solid var(--line); }
+.stat:hover { background: color-mix(in srgb, var(--brand) 4%, var(--surface)); }
+.stat__label { font-size: 12.5px; font-weight: 600; color: var(--ink-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stat__value {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.7rem; line-height: 1.1; letter-spacing: -.03em;
+  color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.stat__value small { margin-left: 4px; font-size: .9rem; font-weight: 600; letter-spacing: 0; color: var(--ink-faint); }
+.stat__bar { display: block; height: 4px; margin: 2px 0 2px; border-radius: 2px; background: var(--surface-sunk); overflow: hidden; }
+.stat__bar i { display: block; height: 100%; background: var(--brand); border-radius: inherit; }
+.stat__bar.is-done i { background: var(--ok); }
+.stat__foot { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 2px; font-size: 13px; }
+.stat__link { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; color: var(--brand-ink); text-decoration: none; }
+.stat__link svg { transition: transform var(--dur-fast); }
+.stat:hover .stat__link svg { transform: translateX(2px); }
+.stat__link::after { content: ""; position: absolute; inset: 0; }
+.stat__link:focus-visible { outline: none; }
+.stat:has(.stat__link:focus-visible) { box-shadow: inset 0 0 0 2px var(--brand); }
+.stat__extra {
+  position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 4px;
+  color: var(--ink-soft); font-weight: 600; text-decoration: none;
+}
+.stat__extra:hover { color: var(--brand-ink); text-decoration: underline; }
+@media (max-width: 620px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat + .stat { border-left: 0; }
+  .stat:nth-child(even) { border-left: 1px solid var(--line); }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .stats:has(.stat:only-child) { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) { .stat:last-child:nth-child(odd) { grid-column: 1 / -1; border-left: 0; } }
