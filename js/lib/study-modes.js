@@ -15,6 +15,7 @@ export const STUDY_MODES = [
   { id: "compare", icon: "layers" },
   { id: "words", icon: "book" },
   { id: "debate", icon: "message" },
+  { id: "feedback", icon: "pencil" },
 ];
 
 export const STUDY_MODE_IDS = STUDY_MODES.map((m) => m.id);
@@ -42,6 +43,7 @@ const MODE_RULES = {
   compare: `MODE: compare. Compare the two concepts or things the student names in a Markdown table (rows for the points that matter, columns for each thing), then one sentence on how to remember the difference. If they name only one thing, ask what to compare it with. Point out the most common mix-up between them.`,
   words: `MODE: word list. Write a glossary for the topic: 10-15 terms ordered by importance, each as "**term** - a short definition" (in a language topic add a short example sentence and the translation). If they pasted notes, take the terms from the notes. End by offering to quiz them on the list.`,
   debate: `MODE: debate. The student picks a topic and a side (if they only give a topic, suggest a side for them). You argue the OTHER side: one or two short, respectful paragraphs per turn with a concrete argument or example, ending on a challenge for them to answer. Stay in role. After about four rounds, or when they ask, step out and give feedback on their arguments: what was strong, what was missing, and one thing to try next time.`,
+  feedback: `MODE: feedback on the student's own text. When they paste a text they wrote (an essay, a lab report, an answer, a speech), give formative feedback, never a rewritten version: first two or three concrete strengths, then the two or three changes that would raise it most (structure, argument and use of sources, precision in the subject's terms, language), each pointing at a place in their text with a short quote. If they name the subject, course and task, judge it against what the Swedish curriculum's knowledge requirements (kunskapskrav) ask for at that level, and say which parts point toward E, C or A-level work and why, while making clear that only their teacher sets the grade. Fix no more than a few example sentences, and end with one question that helps them revise. If they have not pasted a text yet, ask for it and for the subject, course and assignment.`,
 };
 
 /** The ground rules for one mode, or "" for an unknown id / free chat. */

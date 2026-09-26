@@ -324,7 +324,7 @@ function aiSection() {
         eyebrow("lp.aiEyebrow"),
         el("h2.lp-h2", {}, t("lp.aiTitle")),
         el("p.lp-sub", {}, t("lp.aiBody")),
-        el("ul.lp-points", {}, ["lp.aiP1", "lp.aiP2", "lp.aiP3", "lp.aiP4"].map((k) => el("li", {}, [icon(ICONS.check, 16), t(k)]))),
+        el("ul.lp-points", {}, ["lp.aiP1", "lp.aiP5", "lp.aiP2", "lp.aiP3", "lp.aiP4"].map((k) => el("li", {}, [icon(ICONS.check, 16), t(k)]))),
         el("button.btn.btn--lg", { type: "button", onclick: () => enter("#/solve") }, [t("lp.aiCta"), icon(ICONS.arrow, 18)]),
       ]),
       el("div.lp-band__art", {}, [chatArt({ modes: true })]),
@@ -383,6 +383,22 @@ function audiences() {
       card(ICONS.users, "lp.forParentT", "lp.forParentB", "lp.forParentL", () => enter("#/faq")),
       card(ICONS.presentation, "lp.forTeacherT", "lp.forTeacherB", "lp.forTeacherL", () => { location.hash = "#/teachers"; }),
     ]),
+  ]);
+}
+
+/** Why Studify is safe to use. Every line is a fact about how the app works today. */
+function trust() {
+  const items = [[ICONS.book, 1], [ICONS.target, 2], [ICONS.shield, 3], [ICONS.lock, 4], [ICONS.flag, 5], [ICONS.users, 6]];
+  return el("section.lp-sec", { id: "lp-trust" }, [
+    el("div.lp-sechead", {}, [
+      eyebrow("lp.trustEyebrow"),
+      el("h2.lp-h2", {}, t("lp.trustTitle")),
+      el("p.lp-sub", {}, t("lp.trustSub")),
+    ]),
+    el("ul.lp-trustgrid", {}, items.map(([ic, n]) => el("li", {}, [
+      el("span.lp-trustgrid__ic", { "aria-hidden": "true" }, [icon(ic, 18)]),
+      el("div", {}, [el("h3", {}, t(`lp.tr${n}T`)), el("p", {}, t(`lp.tr${n}B`))]),
+    ]))),
   ]);
 }
 
@@ -535,7 +551,7 @@ export function renderLanding() {
       el("main.lp-body", { id: "main" }, [
         el("div.lp-main", {}, [hero(), stats(), features()]),
         aiSection(),
-        el("div.lp-main", {}, [hpSection(), subjects(), audiences(), reviews(), pricing(), faq(), closer()]),
+        el("div.lp-main", {}, [hpSection(), subjects(), audiences(), trust(), reviews(), pricing(), faq(), closer()]),
       ]),
       footer(),
     ]),

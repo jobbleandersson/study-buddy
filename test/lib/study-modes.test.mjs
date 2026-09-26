@@ -8,7 +8,7 @@ import {
 
 describe("study-modes", () => {
   test("has the six ways to study, each with an icon name and a unique id", () => {
-    assert.deepEqual(STUDY_MODE_IDS, ["quiz", "explain", "summarise", "compare", "words", "debate"]);
+    assert.deepEqual(STUDY_MODE_IDS, ["quiz", "explain", "summarise", "compare", "words", "debate", "feedback"]);
     assert.equal(new Set(STUDY_MODE_IDS).size, STUDY_MODES.length);
     for (const m of STUDY_MODES) assert.ok(typeof m.icon === "string" && m.icon.length > 0, m.id);
   });
