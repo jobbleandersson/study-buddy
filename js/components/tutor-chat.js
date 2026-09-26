@@ -11,6 +11,7 @@ import { tutorSystem, fallbackOpeners } from "../prompts.js";
 import { passageContext } from "../lib/passages.js";
 import { t, getLang } from "../lib/i18n.js";
 import { tutorStream, ClaudeError } from "../claude.js";
+import { speak } from "../lib/speech.js";
 
 // Cached per language — switching language should pick up the other script,
 // not keep serving the one loaded first.
@@ -265,17 +266,12 @@ export class TutorChat {
     this.inputEl.placeholder = t("tutor.ask");
   }
 
-  /** Read a reply aloud, when the student has turned voice output on. */
+  /** Read a reply aloud, when the student has turned voice output on. Goes through speech.js like every
+   *  other read-aloud, so it uses the voice and speed they picked (it used to take the browser's default
+   *  voice at normal speed whatever they chose) and long replies are spoken in pieces. */
   _speak(text) {
     if (!this._canSpeak || store.settings.voice !== true) return;
-    try {
-      const clean = String(text).replace(/[#*_`>~]|\$\$?/g, "").replace(/\s+/g, " ").trim();
-      if (!clean) return;
-      const u = new SpeechSynthesisUtterance(clean);
-      u.lang = getLang() === "sv" ? "sv-SE" : "en-GB";
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
-    } catch {}
+    speak(text);
   }
 
   /**
