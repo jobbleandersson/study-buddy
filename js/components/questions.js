@@ -847,7 +847,7 @@ function worked({ question, tutor, live, testMode, onDone }) {
     if (shown >= steps.length) return;
     revealed.appendChild(el("li", { html: renderRich(steps[shown]) }));
     shown++; result.hintsUsed = shown;
-    tutor?.note(t("q.tutorRevealedStep", { n: shown }), "thinking");
+    tutor?.note(t("q.tutorRevealedStep", { n: shown, step: String(steps[shown - 1]).replace(/\s+/g, " ").slice(0, 240) }), "thinking");
     if (shown >= steps.length) revealBtn.disabled = true;
   }
 
