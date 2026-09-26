@@ -227,6 +227,7 @@ export const STRINGS = {
 
     /* ---- questions ---- */
     "q.check": "Check answer",
+    "q.passage": "The text",
     "q.readAloud": "Read aloud",
     "q.readBlankWord": "blank",
     "q.submit": "Submit answer",
@@ -2435,6 +2436,7 @@ export const STRINGS = {
 
     /* ---- questions ---- */
     "q.check": "Rätta svaret",
+    "q.passage": "Texten",
     "q.readAloud": "Läs upp",
     "q.readBlankWord": "lucka",
     "q.submit": "Skicka svar",

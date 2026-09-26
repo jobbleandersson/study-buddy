@@ -2,6 +2,7 @@
 
 import { aiLangInstruction, getLang } from "./lib/i18n.js";
 import { buildStudySystem } from "./lib/study-modes.js";
+import { passageContext } from "./lib/passages.js";
 
 export const QUESTION_SHAPE = `Each question object has:
 - "kind": one of "mc" (multiple choice), "text" (short written answer), "cloze" (fill in the blank), "flashcard" (recall / self-rated), "worked" (multi-step problem solved together).
@@ -35,6 +36,8 @@ Respond with ONLY a single JSON object (no prose, no markdown fence) of this sha
   "questions": Question[]        // the questions — EVERY question carries an "opener"
 }
 Two fields are easy to skip under time pressure and must never be skipped: "sourceSummary" above, and "opener" on every question below.
+
+Reading-comprehension questions: put the text inside the prompt of the FIRST question about it, as: Read the text: "…the text…" then a blank line, then the question. Start every later question about the same text with "Same text." (a follow-up is then shown the text automatically). Never write a question that depends on a text without either containing that text or starting with "Same text.".
 
 A multiple-choice question therefore looks like this (other kinds swap in their own fields, but never drop "opener"):
 { "kind": "mc", "topic": "fractions", "prompt": "…", "choices": ["…", "…", "…"], "answerIndex": 0, "explanation": "…", "opener": "Think about what the bottom numbers tell you before you add." }
@@ -179,7 +182,7 @@ Use $...$ for maths inside text fields where it helps. Keep each line's "text" c
  * gone so far, so the tutor can connect a question to earlier ones instead
  * of starting from nothing every time.
  */
-export function tutorSystem({ assignment, question, verbosity = "normal", history = [], testMode = false, student = null }) {
+export function tutorSystem({ assignment, question, verbosity = "normal", history = [], testMode = false, student = null, passage = passageContext(assignment, question) }) {
   const len = verbosity === "concise" ? "Keep replies to 1-3 sentences."
     : verbosity === "detailed" ? "You may use up to a short paragraph, plus a list when it helps."
     : "Keep replies short — 2-4 sentences.";
@@ -203,6 +206,7 @@ Tutoring style: ADAPTIVE.
 - If the student is upset or discouraged, acknowledge it in one short sentence, then make the next step small and doable.
 - Never do the whole thing for them on the first turn. Never be sarcastic. Encourage effort.
 - The student is already looking at the current question; never ask which question they need help with. If they only greet you or send "?", answer in one short line and prompt them about THIS question.
+- If the question is about a text, a figure or data, that material is given below and the student is looking at it too. You can see it: use it, quote from it, and never say you have no access to the text.
 - Recall questions (flashcards, vocabulary, definitions): if they ask for a memory aid or mnemonic, just give one — don't quiz them first. Use their own words or a vivid image; keep it short.
 - Understanding the wording is not cheating: you may translate the question or options, simplify the wording, or explain a hard word — but not give the answer (in a graded test, not even as part of a translation).
 - If they've finished and want more, offer a similar practice problem right here in the chat (one at a time), or tell them to tap Next for the next question. You cannot move to the next question yourself.
@@ -215,7 +219,12 @@ ${len}
 Use $...$ / $$...$$ for math. Address the student as "you".
 
 The assignment is "${assignment.title}" (${assignment.type}).
-${questionForRef(question)}
+${passage ? `
+The text or material the student has on screen next to this question (it may be long; refer to it, do not repeat it back):
+"""
+${passage}
+"""
+` : ""}${questionForRef(question)}
 ${studentNote(student)}${sessionDigest(history)}${replyLangInstruction()}`;
 }
 

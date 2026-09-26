@@ -8,6 +8,7 @@
 import { store, REVIEW_ID, PRACTICE_ID, WEAK_ID, RULES_ID, TONIGHT_ID, HP_MOCK_ID, NATIONAL_MIX_PREFIX, nationalMixId } from "../store.js";
 import { el, clear, icon, ICONS, toast, uid } from "../lib/dom.js";
 import { parseHpSetId, isHpSetId, rawByPart, DELPROV_ORDER } from "../lib/hp.js";
+import { passageFor } from "../lib/passages.js";
 import { announce } from "../lib/a11y.js";
 import { t, plural } from "../lib/i18n.js";
 import { renderQuestion, parseCloze, clozeToUnderscores } from "../components/questions.js";
@@ -645,6 +646,8 @@ function runSession(config) {
 
     const questionOpts = {
       question: viewQuestion(question),
+      // Follow-up questions ("Samma text. ...") need the text from the first one on screen too.
+      passage: passageFor(store.findQuestion(question.id)?.assignment || assignment, question),
       // Language subjects get read-aloud in the right voice plus listen/speak tools.
       targetLang: targetLangFor(store.subjects.find((s) => s.id === assignment.subjectId)?.name),
       tutor: tutorSilent ? null : tutor,
