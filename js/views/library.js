@@ -412,6 +412,11 @@ export async function renderLibrary(qs = null) {
  *  search result lands in the questions instead of a list. An unknown id falls back to the library. */
 export async function renderStartSet(setId) {
   const node = el("div.empty", {}, [el("p.note", {}, t("lib.starting"))]);
+  // Captured up front so that if the user navigates elsewhere while the import below is still
+  // in flight, this stale hash no longer matches location.hash and we skip the replace() instead
+  // of yanking them back — the same protection main.js's render() gives every other route via its
+  // renderGen guard, which this detached async block sits outside of.
+  const startHash = location.hash;
   (async () => {
     let target = "#/library";
     try {
@@ -421,7 +426,10 @@ export async function renderStartSet(setId) {
         if (!isImported(entry.id)) await importSet(entry);
         target = `#/session/${entry.id}`;
       }
-    } catch { /* offline or a bad id: the library is the useful place to land */ }
+    } catch (e) {
+      console.error(e); // offline or a bad id: the library is still the useful place to land
+    }
+    if (location.hash !== startHash) return; // navigated away already — don't clobber it
     // Arriving from a practice page counts as having seen the intro.
     store.markOnboarded();
     location.replace(`${location.pathname}${location.search}${target}`);

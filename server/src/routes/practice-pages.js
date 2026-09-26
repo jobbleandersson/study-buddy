@@ -59,7 +59,9 @@ let lib = null;
 function loadLibrary() {
   if (lib) return lib;
   const dir = findLibraryDir();
-  if (!dir) return (lib = { levels: [], subjects: [], sets: [], bySubject: new Map(), byPath: new Map() });
+  // Not cached: a dir that isn't found yet (e.g. mounted moments after this process started)
+  // should keep being retried on the next request, not lock in an empty library forever.
+  if (!dir) return { levels: [], subjects: [], sets: [], bySubject: new Map(), byPath: new Map() };
   const index = JSON.parse(fs.readFileSync(path.join(dir, "index.json"), "utf8"));
   const levels = new Map(index.levels.map((l) => [l.id, l]));
   const subjects = index.subjects.filter((s) => levels.has(s.level));
@@ -89,13 +91,18 @@ function readSet(set) {
   }
 }
 
-/** Up to three questions that show the set's range: a multiple-choice one, a worked problem or
- *  flashcard if there is one, then another multiple-choice. */
+/** Up to n questions that show the set's range, alternating multiple-choice with everything else
+ *  (worked problem, flashcard, free text) so a set with few or no mc questions still fills out. */
 export function pickSamples(questions, n = SAMPLE_COUNT) {
   const mc = questions.filter((q) => q.kind === "mc");
   const other = questions.filter((q) => q.kind !== "mc");
-  const picked = [mc[0], other[0], mc[1], mc[2], other[1]].filter(Boolean);
-  return [...new Set(picked)].slice(0, n);
+  const picked = [];
+  let mi = 0, oi = 0;
+  while (picked.length < n && (mi < mc.length || oi < other.length)) {
+    if (mi < mc.length) picked.push(mc[mi++]);
+    if (picked.length < n && oi < other.length) picked.push(other[oi++]);
+  }
+  return picked;
 }
 
 /* ---------------- HTML ---------------- */
@@ -195,7 +202,9 @@ function page({ title, description, canonical, crumbs, body }) {
 const origin = (req) => `${req.protocol}://${req.get("host")}`;
 
 function send(res, html) {
-  res.set("Cache-Control", "public, max-age=600");
+  // Private while SITE_PASSWORD gates the site: a shared proxy/CDN must not cache and replay an
+  // authenticated response to a later visitor who hasn't entered the password.
+  res.set("Cache-Control", process.env.SITE_PASSWORD ? "private, max-age=600" : "public, max-age=600");
   res.type("html").send(html);
 }
 
