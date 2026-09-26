@@ -890,6 +890,20 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
       console.warn("Service worker not registered:", e.message);
     });
   });
+  // A new version takes over silently, but a tab that was already open keeps running the old scripts
+  // until it is reloaded. Say so instead of leaving someone on stale code - without reloading for
+  // them, which could throw away a half-finished exam. (No banner on the very first install.)
+  const hadController = !!navigator.serviceWorker.controller;
+  let updateBar = null;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (!hadController || updateBar) return;
+    updateBar = el("div.savebar.savebar--update.show", { role: "status" }, [
+      el("span", {}, t("app.updateReady")),
+      el("button.savebar__action", { type: "button", onclick: () => location.reload() }, t("app.updateReload")),
+      el("button.savebar__close", { type: "button", "aria-label": t("common.close"), onclick: () => updateBar.remove() }, "×"),
+    ]);
+    document.body.appendChild(updateBar);
+  });
 }
 
 // On phones the chat button sat on top of the content it scrolls past (it hid the "Add" buttons in the

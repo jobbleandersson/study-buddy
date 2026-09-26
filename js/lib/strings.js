@@ -330,7 +330,7 @@ export const STRINGS = {
     "q.tutorWhatMissing": "Here's what I wrote: \"{answer}\". What am I missing?",
     "q.tutorForgot": "I couldn't remember this one. Can you help it stick?",
     "q.tutorRemembered": "Remembered it!",
-    "q.tutorRevealedStep": "I've revealed step {n}. Can you nudge me toward the next bit?",
+    "q.tutorRevealedStep": "[App: the student pressed \"Show a step\". Step {n} is now visible on their screen: \"{step}\". The student has not answered or found anything yet.]",
 
     /* ---- tutor ---- */
     "tutor.name": "Studify",
@@ -602,6 +602,8 @@ export const STRINGS = {
     "set.recoveryDownload": "Download it",
     "set.recoveryDismiss": "Dismiss",
     "save.failedBanner": "Couldn't save — your browser's storage may be full.",
+    "app.updateReady": "A new version of Studify is ready.",
+    "app.updateReload": "Reload",
     "save.emergencyExport": "Download a backup now",
     "backup.title": "Back up your work",
     "backup.body": "Everything you've done is only on this device — clearing browser data would lose it.",
@@ -2539,7 +2541,7 @@ export const STRINGS = {
     "q.tutorWhatMissing": "Så här skrev jag: ”{answer}”. Vad missar jag?",
     "q.tutorForgot": "Jag kom inte ihåg den här. Kan du hjälpa mig komma ihåg den?",
     "q.tutorRemembered": "Jag kom ihåg den!",
-    "q.tutorRevealedStep": "Jag har visat steg {n}. Kan du knuffa mig mot nästa del?",
+    "q.tutorRevealedStep": "[Appen: eleven tryckte på ”Visa ett steg”. Steg {n} syns nu på skärmen: ”{step}”. Eleven har inte svarat eller hittat något ännu.]",
 
     /* ---- tutor ---- */
     "tutor.name": "Studify",
@@ -2811,6 +2813,8 @@ export const STRINGS = {
     "set.recoveryDownload": "Ladda ner den",
     "set.recoveryDismiss": "Avfärda",
     "save.failedBanner": "Kunde inte spara — webbläsarens lagring kan vara full.",
+    "app.updateReady": "Det finns en ny version av Studify.",
+    "app.updateReload": "Ladda om",
     "save.emergencyExport": "Ladda ner en säkerhetskopia nu",
     "backup.title": "Säkerhetskopiera ditt jobb",
     "backup.body": "Allt du gjort finns bara på den här enheten — rensar du webbläsardata försvinner det.",

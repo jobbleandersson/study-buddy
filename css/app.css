@@ -2582,6 +2582,7 @@ body.route-chat .sitechat__panel { display: none; }
   transform: translateY(-100%); transition: transform var(--dur-mid) var(--ease-out);
 }
 .savebar.show { transform: translateY(0); }
+.savebar--update { background: var(--brand-tint); color: var(--brand-ink); }
 .savebar__action {
   margin-left: auto; font: inherit; font-weight: 700; cursor: pointer;
   background: none; border: none; color: inherit;
