@@ -4051,4 +4051,11 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .talk__ctl { display: flex; align-items: center; justify-content: center; gap: var(--s-3); margin: var(--s-3) 0 var(--s-2); }
 .talk__play { width: 48px; height: 48px; background: var(--brand); border-color: var(--brand); color: #fff; }
 .talk__speed { padding: 4px 10px; border: 1px solid var(--line-strong); border-radius: var(--r-full); background: var(--surface); font: inherit; font-weight: 600; color: var(--ink-soft); cursor: pointer; }
+.talk__speed.is-on { border-color: var(--brand); color: var(--brand-ink); }
+.talk__ctl { flex-wrap: wrap; }
+/* the Alex / Sam voice picker, shown in place under the controls */
+.talk__voices { margin: var(--s-2) 0; padding: var(--s-3); border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-sunk); }
+.talkvoices__row { display: flex; align-items: center; gap: var(--s-2); }
+.talkvoices__who { flex: none; width: 3.2em; font-weight: 600; font-size: var(--fs-sm); }
+.talkvoices__row .reading__voice { flex: 1; min-width: 0; }
 .talk__hint { font-size: var(--fs-sm); }
