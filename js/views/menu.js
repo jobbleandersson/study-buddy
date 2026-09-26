@@ -701,12 +701,17 @@ function continueBanner(open) {
  *  cell is the link (a stretched ::after on the action), so an extra link inside — "Lyssna" on
  *  the review cell — can sit on top of it without nesting one <a> in another. */
 function stat({ href, label, value, unit = "", action, extra = null, foot = null }) {
+  // The link's own text is just the action verb ("Repetera") — the stretched ::after makes it the
+  // whole cell's click target, but a screen reader tabbing between links (or using a links list)
+  // would hear only that verb with no idea what it's acting on. aria-label restores the full
+  // context ("Att repetera 31, Repetera") without changing what's shown on screen.
+  const fullLabel = `${label} ${value}${unit ? ` ${unit}` : ""}, ${action}`;
   return el("div.stat", {}, [
     el("span.stat__label", {}, label),
     el("span.stat__value", {}, [String(value), unit ? el("small", {}, unit) : null].filter(Boolean)),
     foot,
     el("span.stat__foot", {}, [
-      el("a.stat__link", { href }, [action, icon(ICONS.arrow, 14)]),
+      el("a.stat__link", { href, "aria-label": fullLabel }, [action, icon(ICONS.arrow, 14)]),
       extra,
     ].filter(Boolean)),
   ].filter(Boolean));
