@@ -207,7 +207,7 @@ Then open `https://pluggera.se` on a phone and sign in.
 - Google sign-in (if on): add `https://pluggera.se` under *Authorized JavaScript origins* — otherwise
   the Google button silently fails on the new domain.
 - Email (when you turn on Resend): verify `pluggera.se` as a sending domain in Resend (it gives you
-  a few DNS records), then `fly secrets set EMAIL_FROM="Studify <noreply@pluggera.se>"`.
+  a few DNS records), then `fly secrets set EMAIL_FROM="PluggEra <noreply@pluggera.se>"`.
 - Search Console, when you go public: add `pluggera.se` as a *Domain* property.
 
 **What people notice:** logins and on-device data belong to one web address, so everyone signs in
