@@ -4,7 +4,7 @@
 // are remembered in localStorage.
 
 import { getLang } from "./i18n.js";
-import { segmentPrompt, choicesAreTarget } from "./lang-detect.js";
+import { segmentPrompt, choicesAreTarget, segmentByLanguage, LANG_BCP } from "./lang-detect.js";
 
 const VOICE_KEY = "studybuddy.ttsVoice";
 const AUTO_KEY = "studybuddy.ttsAuto";
@@ -175,11 +175,20 @@ export function toSpeakable(text) {
  *  first, then any voice for that language, preferring on-device ones.
  *  null when the device has none. */
 export function voiceForBcp(tag) {
-  const want = String(tag || "").toLowerCase();
+  const want = String(tag || "").toLowerCase().replace("_", "-");
   const lang = want.slice(0, 2);
-  const all = refreshVoices().filter((v) => (v.lang || "").toLowerCase().replace("_", "-").startsWith(lang));
-  const exact = all.filter((v) => (v.lang || "").toLowerCase().replace("_", "-") === want);
-  return exact.find((v) => v.localService) || exact[0] || all.find((v) => v.localService) || all[0] || null;
+  const all = refreshVoices().filter((v) => normTag(v).startsWith(lang));
+  const exact = all.filter((v) => normTag(v) === want);
+  // Best of the right language: the exact locale first, then on-device and natural ones (voiceScore).
+  return rankVoices(exact.length ? exact : all, lang)[0] || null;
+}
+
+/** Text as runs in the language each part is written in, so a Swedish voice never reads Spanish or
+ *  English and the voice changes where the language does: [{ text, bcp }]. A run in the interface
+ *  language (`home`) has bcp null, meaning "the student's own voice"; any other language carries the
+ *  locale to find a voice for. Needs no subject or target language, unlike questionToSegments. */
+export function languageRuns(text, home = getLang()) {
+  return segmentByLanguage(text, home).map((r) => ({ text: r.text, bcp: r.code === home ? null : LANG_BCP[r.code] }));
 }
 
 /**
@@ -191,9 +200,13 @@ export function voiceForBcp(tag) {
  */
 export function speakSegments(segments, { rate = 1, onstart, onend, onerror } = {}) {
   if (!speechSupported()) return false;
+  // A run that names its language (a language-set question) keeps it; every other run is split by the
+  // language it is actually written in, so mixed text changes voice at the switch.
   const parts = (segments || [])
     .map((s) => ({ text: toSpeakable(s.text), bcp: s.bcp || null }))
-    .filter((p) => p.text);
+    .filter((p) => p.text)
+    .flatMap((p) => (p.bcp ? [p] : languageRuns(p.text)))
+    .filter((p) => p.text.trim());
   if (!parts.length) return false;
   try {
     window.speechSynthesis.cancel();
@@ -277,15 +290,18 @@ export function speakTalkLine(text, role, { rate = 1, onend, onerror } = {}) {
     window.speechSynthesis.cancel();
     const [a, b] = talkVoices();
     const v = role ? (b || a) : a;
-    const chunks = splitForSpeech(clean);
+    // The speaker's own voice for their own language; a phrase in another language is voiced by a
+    // voice of that language (see languageRuns), so nobody reads Spanish in a Swedish voice.
+    const chunks = languageRuns(clean).flatMap((r) => splitForSpeech(r.text).map((text) => ({ text, bcp: r.bcp })));
     // One voice for both speakers (only one installed, or the same picked twice): tell them apart by pitch.
     const sameVoice = !b || b.voiceURI === a?.voiceURI;
-    chunks.forEach((chunk, i) => {
-      const u = new SpeechSynthesisUtterance(chunk);
-      if (v) u.voice = v;
-      u.lang = v?.lang || bcp();
+    chunks.forEach((c, i) => {
+      const u = new SpeechSynthesisUtterance(c.text);
+      const voice = c.bcp ? voiceForBcp(c.bcp) : v;
+      if (voice) u.voice = voice;
+      u.lang = voice?.lang || c.bcp || bcp();
       u.rate = Math.min(1.5, Math.max(0.5, getRate() * rate));
-      if (sameVoice) u.pitch = role ? 1.3 : 0.9;
+      if (sameVoice && !c.bcp) u.pitch = role ? 1.3 : 0.9;
       if (i === chunks.length - 1) u.onend = () => onend?.();
       u.onerror = (e) => onerror?.(e);
       window.speechSynthesis.speak(u);
