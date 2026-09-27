@@ -4,11 +4,12 @@
 // are remembered in localStorage.
 
 import { getLang } from "./i18n.js";
-import { segmentPrompt, choicesAreTarget } from "./lang-detect.js";
+import { segmentPrompt, choicesAreTarget, segmentByLanguage, LANG_BCP } from "./lang-detect.js";
 
 const VOICE_KEY = "studybuddy.ttsVoice";
 const AUTO_KEY = "studybuddy.ttsAuto";
 const RATE_KEY = "studybuddy.ttsRate";
+const TALK_KEY = "studybuddy.talkVoice";   // + "A" / "S"
 
 export function speechSupported() {
   return typeof window !== "undefined" && "speechSynthesis" in window
@@ -54,16 +55,109 @@ export function setRate(r) {
   try { localStorage.setItem(RATE_KEY, String(r)); } catch {}
 }
 
-function pickVoice() {
-  const all = refreshVoices();
-  const want = getPreferredVoiceURI();
-  if (want) {
-    const v = all.find((x) => x.voiceURI === want);
+/* ---- voice quality: rank what the device has ---- */
+
+// Names that mark a better-sounding voice ("Microsoft Sofie Online (Natural)", an Apple "Enhanced" or
+// "Premium" download, Google's neural/WaveNet ones) and the old robotic engines to avoid.
+const NATURAL_RE = /natural|neural|premium|enhanced|wavenet|studio|\bhd\b/i;
+const ROBOTIC_RE = /espeak|festival|flite|compact/i;
+
+const normTag = (v) => String(v?.lang || "").toLowerCase().replace("_", "-");
+export const voiceIsNatural = (v) => NATURAL_RE.test(v?.name || "");
+/** Not `localService`: the browser sends the text to its vendor (Microsoft/Google) to be voiced. */
+export const voiceIsOnline = (v) => !v?.localService;
+
+/** Higher is better. On-device beats online by a wide margin - it's instant, works offline and the text
+ *  never leaves the device - so the automatic choice stays private; a student who wants an online
+ *  "Natural" voice picks it themselves, and the list labels it. Within each, natural beats basic, and
+ *  the voice for this exact locale beats another region's. */
+export function voiceScore(v, lang = getLang()) {
+  let s = 0;
+  if (v?.localService) s += 300;
+  if (voiceIsNatural(v)) s += 100;
+  if (ROBOTIC_RE.test(v?.name || "")) s -= 100;
+  const tag = normTag(v);
+  if (tag === (lang === "sv" ? "sv-se" : "en-gb")) s += 10;
+  else if (lang !== "sv" && tag === "en-us") s += 5;
+  return s;
+}
+
+/** A copy of `list`, best voice first (name breaks ties so the order is stable). */
+export function rankVoices(list, lang = getLang()) {
+  return [...list].sort((a, b) => voiceScore(b, lang) - voiceScore(a, lang)
+    || String(a?.name).localeCompare(String(b?.name)));
+}
+
+/** The voice to use: the student's own pick while it is still installed, else the best one for `lang`. */
+export function chooseVoice(all, { preferredURI = "", lang = getLang() } = {}) {
+  if (preferredURI) {
+    const v = all.find((x) => x.voiceURI === preferredURI);
     if (v) return v;
   }
-  const langVoices = voicesForLang();
-  // Prefer a local (on-device) voice — it works offline and starts instantly.
-  return langVoices.find((v) => v.localService) || langVoices[0] || null;
+  const prefix = lang === "sv" ? "sv" : "en";
+  return rankVoices(all.filter((v) => normTag(v).startsWith(prefix)), lang)[0] || null;
+}
+
+function pickVoice() {
+  return chooseVoice(refreshVoices(), { preferredURI: getPreferredVoiceURI() });
+}
+
+/** Which OS a student is on, for "how to get a better voice" advice. */
+export function platformKind(ua = typeof navigator !== "undefined" ? navigator.userAgent : "",
+  touchPoints = typeof navigator !== "undefined" ? navigator.maxTouchPoints : 0) {
+  if (/android/i.test(ua)) return "android";
+  // iPadOS reports a Mac user agent; the touch screen gives it away.
+  if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && touchPoints > 1)) return "ios";
+  if (/windows/i.test(ua)) return "windows";
+  if (/macintosh|mac os x/i.test(ua)) return "mac";
+  return "other";
+}
+
+/** What to tell the student about their voice: nothing when the active one is natural, "pick-natural"
+ *  when a natural one is installed but not in use, else "install" with the OS to give steps for; "none"
+ *  when the device has no voice for the language at all. */
+export function voiceAdvice(all = refreshVoices(), { preferredURI = getPreferredVoiceURI(), lang = getLang() } = {}) {
+  const prefix = lang === "sv" ? "sv" : "en";
+  const forLang = all.filter((v) => normTag(v).startsWith(prefix));
+  if (!forLang.length) return { kind: "none" };
+  const active = chooseVoice(all, { preferredURI, lang });
+  if (active && voiceIsNatural(active)) return { kind: "ok" };
+  if (forLang.some(voiceIsNatural)) return { kind: "pick-natural" };
+  return { kind: "install", platform: platformKind() };
+}
+
+/** Speech in sentence-sized pieces. Chrome silently stops a long utterance after ~15 s (a whole tutor
+ *  reply or a reading passage), and one short chunk at a time also makes Stop respond at once. Sentences
+ *  are packed together up to `max` characters, so it isn't a pause after every full stop; a sentence
+ *  longer than that is cut at a comma, else a space, never mid-word. "3.14" and "t.ex." don't split:
+ *  a break needs whitespace after the punctuation. */
+export function splitForSpeech(text, max = 180) {
+  const s = String(text || "").replace(/\s+/g, " ").trim();
+  if (!s) return [];
+  const chunks = [];
+  let cur = "";
+  const push = (piece) => {
+    if (!cur) cur = piece;
+    else if (cur.length + 1 + piece.length <= max) cur += " " + piece;
+    else { chunks.push(cur); cur = piece; }
+  };
+  // Sentences by lookahead only: a lookbehind here is a SyntaxError in Safari before 16.4, and this
+  // module is imported by the question view, so it would take the whole app down on an older iPhone.
+  for (const sentence of s.match(/.+?(?:[.!?…]+(?=\s|$)|$)/g) || [s]) {
+    let rest = sentence.trim();
+    if (!rest) continue;
+    while (rest.length > max) {
+      const win = rest.slice(0, max + 1);
+      let end = Math.max(win.lastIndexOf(", "), win.lastIndexOf("; "), win.lastIndexOf(": ")) + 1;  // keep the punctuation
+      if (end < max * 0.4) end = win.lastIndexOf(" ");   // no useful clause break: break at a space
+      if (end <= 0) end = max;                            // one unbroken run: hard cut
+      push(rest.slice(0, end).trim());
+      rest = rest.slice(end).trim();
+    }
+    if (rest) push(rest);
+  }
+  if (cur) chunks.push(cur);
+  return chunks;
 }
 
 /** Flatten markdown / LaTeX / cloze markup to something that reads as speech. */
@@ -81,11 +175,20 @@ export function toSpeakable(text) {
  *  first, then any voice for that language, preferring on-device ones.
  *  null when the device has none. */
 export function voiceForBcp(tag) {
-  const want = String(tag || "").toLowerCase();
+  const want = String(tag || "").toLowerCase().replace("_", "-");
   const lang = want.slice(0, 2);
-  const all = refreshVoices().filter((v) => (v.lang || "").toLowerCase().replace("_", "-").startsWith(lang));
-  const exact = all.filter((v) => (v.lang || "").toLowerCase().replace("_", "-") === want);
-  return exact.find((v) => v.localService) || exact[0] || all.find((v) => v.localService) || all[0] || null;
+  const all = refreshVoices().filter((v) => normTag(v).startsWith(lang));
+  const exact = all.filter((v) => normTag(v) === want);
+  // Best of the right language: the exact locale first, then on-device and natural ones (voiceScore).
+  return rankVoices(exact.length ? exact : all, lang)[0] || null;
+}
+
+/** Text as runs in the language each part is written in, so a Swedish voice never reads Spanish or
+ *  English and the voice changes where the language does: [{ text, bcp }]. A run in the interface
+ *  language (`home`) has bcp null, meaning "the student's own voice"; any other language carries the
+ *  locale to find a voice for. Needs no subject or target language, unlike questionToSegments. */
+export function languageRuns(text, home = getLang()) {
+  return segmentByLanguage(text, home).map((r) => ({ text: r.text, bcp: r.code === home ? null : LANG_BCP[r.code] }));
 }
 
 /**
@@ -97,22 +200,110 @@ export function voiceForBcp(tag) {
  */
 export function speakSegments(segments, { rate = 1, onstart, onend, onerror } = {}) {
   if (!speechSupported()) return false;
+  // A run that names its language (a language-set question) keeps it; every other run is split by the
+  // language it is actually written in, so mixed text changes voice at the switch.
   const parts = (segments || [])
     .map((s) => ({ text: toSpeakable(s.text), bcp: s.bcp || null }))
-    .filter((p) => p.text);
+    .filter((p) => p.text)
+    .flatMap((p) => (p.bcp ? [p] : languageRuns(p.text)))
+    .filter((p) => p.text.trim());
   if (!parts.length) return false;
   try {
     window.speechSynthesis.cancel();
     const speed = Math.min(1.5, Math.max(0.5, getRate() * rate));
-    parts.forEach((p, i) => {
-      const u = new SpeechSynthesisUtterance(p.text);
+    // Every run in sentence-sized pieces (see splitForSpeech), each in that run's voice.
+    const queue = [];
+    parts.forEach((p) => {
       const v = p.bcp ? voiceForBcp(p.bcp) : pickVoice();
-      if (v) u.voice = v;
-      u.lang = v?.lang || p.bcp || bcp();
+      splitForSpeech(p.text).forEach((text) => queue.push({ text, v, tag: p.bcp }));
+    });
+    queue.forEach((q, i) => {
+      const u = new SpeechSynthesisUtterance(q.text);
+      if (q.v) u.voice = q.v;
+      u.lang = q.v?.lang || q.tag || bcp();
       u.rate = speed;
       if (i === 0 && onstart) u.onstart = onstart;
-      if (i === parts.length - 1 && onend) u.onend = onend;
+      if (i === queue.length - 1 && onend) u.onend = onend;
       u.onerror = (e) => { if (onerror) onerror(e); };
+      window.speechSynthesis.speak(u);
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Speak `text` once in a specific voice (`voiceURI`, or "" for the automatic one) at `rate` - for the
+ *  "play sample" buttons, so a voice or a speed can be tried before it is saved. */
+export function speakSample(text, { voiceURI = "", rate = 1, onend } = {}) {
+  const clean = toSpeakable(text);
+  if (!speechSupported() || !clean) return false;
+  try {
+    window.speechSynthesis.cancel();
+    const v = voiceURI ? refreshVoices().find((x) => x.voiceURI === voiceURI) : pickVoice();
+    const u = new SpeechSynthesisUtterance(clean);
+    if (v) u.voice = v;
+    u.lang = v?.lang || bcp();
+    u.rate = Math.min(1.5, Math.max(0.5, rate));
+    u.onend = () => onend?.();
+    u.onerror = () => onend?.();
+    window.speechSynthesis.speak(u);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** The two voices for a spoken conversation, [Alex, Sam]. Each is the one the student chose for that
+ *  speaker while it is still installed. Otherwise Alex gets the student's own (or the best) voice and
+ *  Sam the best of the rest - a different voice in the same language when the device has one, else null
+ *  (the two are then told apart by pitch). */
+export function pickTalkVoices(all, { a = "", s = "", preferredURI = "", lang = getLang() } = {}) {
+  const chosen = (uri) => (uri ? all.find((v) => v.voiceURI === uri) || null : null);
+  const first = chosen(a) || chooseVoice(all, { preferredURI, lang });
+  const prefix = lang === "sv" ? "sv" : "en";
+  const rest = rankVoices(all.filter((v) => normTag(v).startsWith(prefix)), lang)
+    .filter((v) => v.voiceURI !== first?.voiceURI);
+  return [first, chosen(s) || rest[0] || null];
+}
+
+export function talkVoices() {
+  return pickTalkVoices(refreshVoices(), {
+    a: getTalkVoiceURI("A"), s: getTalkVoiceURI("S"), preferredURI: getPreferredVoiceURI(),
+  });
+}
+
+// The voice picked for each conversation speaker ("A" = Alex, "S" = Sam); "" means automatic.
+export function getTalkVoiceURI(who) {
+  try { return localStorage.getItem(TALK_KEY + who) || ""; } catch { return ""; }
+}
+export function setTalkVoiceURI(who, uri) {
+  try { uri ? localStorage.setItem(TALK_KEY + who, uri) : localStorage.removeItem(TALK_KEY + who); } catch {}
+}
+
+/** Read one line of a conversation as speaker 0 or 1. With a single voice installed the speakers are
+ *  told apart by pitch instead. Cancels anything already speaking; false if TTS is unavailable. */
+export function speakTalkLine(text, role, { rate = 1, onend, onerror } = {}) {
+  const clean = toSpeakable(text);
+  if (!speechSupported() || !clean) return false;
+  try {
+    window.speechSynthesis.cancel();
+    const [a, b] = talkVoices();
+    const v = role ? (b || a) : a;
+    // The speaker's own voice for their own language; a phrase in another language is voiced by a
+    // voice of that language (see languageRuns), so nobody reads Spanish in a Swedish voice.
+    const chunks = languageRuns(clean).flatMap((r) => splitForSpeech(r.text).map((text) => ({ text, bcp: r.bcp })));
+    // One voice for both speakers (only one installed, or the same picked twice): tell them apart by pitch.
+    const sameVoice = !b || b.voiceURI === a?.voiceURI;
+    chunks.forEach((c, i) => {
+      const u = new SpeechSynthesisUtterance(c.text);
+      const voice = c.bcp ? voiceForBcp(c.bcp) : v;
+      if (voice) u.voice = voice;
+      u.lang = voice?.lang || c.bcp || bcp();
+      u.rate = Math.min(1.5, Math.max(0.5, getRate() * rate));
+      if (sameVoice && !c.bcp) u.pitch = role ? 1.3 : 0.9;
+      if (i === chunks.length - 1) u.onend = () => onend?.();
+      u.onerror = (e) => onerror?.(e);
       window.speechSynthesis.speak(u);
     });
     return true;

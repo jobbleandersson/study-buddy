@@ -2,11 +2,12 @@
 // the actual Claude API key. The browser never sees it.
 
 import { store } from "./store.js";
-import { generationSystem, gradingSystem, checkWorkSystem } from "./prompts.js";
+import { generationSystem, gradingSystem, checkWorkSystem, podcastSystem } from "./prompts.js";
 import { t } from "./lib/i18n.js";
 import { PROXY_URL } from "./config.js";
 import { parseLooseJSON } from "./lib/loose-json.js";
 import { normalizeCheck } from "./lib/check.js";
+import { parseScript } from "./lib/podcast.js";
 
 const API_URL = PROXY_URL;
 
@@ -246,6 +247,20 @@ export async function checkWorking({ image = null, problem = "", workingText = "
     catch { throw new ClaudeError(t("check.err.parse")); }
   }
   return { ...normalizeCheck(json), tokens };
+}
+
+// ---------- listen-as-conversation ----------
+
+/** A two-person spoken-style script about the material, ready for parseScript()'s { title, lines } shape. */
+export async function generateTalkScript({ material }) {
+  const { text } = await callRaw({
+    model: modelFor("tutor"),
+    max_tokens: 2200,
+    system: podcastSystem(),
+    messages: [{ role: "user", content: [{ type: "text", text: `Material:\n${material.text}\n\nWrite the conversation now.` }] }],
+  }, { strict: true });
+  try { return parseScript(parseLooseJSON(text)); }
+  catch { throw new ClaudeError(t("talk.err")); }
 }
 
 // ---------- streaming tutor ----------

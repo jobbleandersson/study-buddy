@@ -1,5 +1,5 @@
 // The one-tap "ways to study" on the Solve page (#/solve?mode=...) and the home page's AI study
-// help strip: quiz me, explain, summarise, compare, word list, debate. Each is the same conversation
+// help strip: quiz me, explain, summarise, compare, word list, debate, feedback on a text. Each is the same conversation
 // with a different set of ground rules for the assistant, so a student who only types
 // "photosynthesis" and taps a mode gets a useful reply without knowing how to write a prompt.
 //
@@ -15,6 +15,7 @@ export const STUDY_MODES = [
   { id: "compare", icon: "layers" },
   { id: "words", icon: "book" },
   { id: "debate", icon: "message" },
+  { id: "feedback", icon: "pencil" },
 ];
 
 export const STUDY_MODE_IDS = STUDY_MODES.map((m) => m.id);
@@ -25,7 +26,7 @@ export const MAX_INPUT_CHARS = 8000;
 /** Messages sent back with each request. Older turns are dropped so a long chat cannot grow the bill. */
 export const HISTORY_LIMIT = 12;
 
-const BASE = `You are Studify's study assistant for a student in Swedish school (grundskola, gymnasium or Högskoleprovet preparation). Help them learn - explain, question and practise - rather than handing over finished work to hand in.
+const BASE = `You are PluggEra's study assistant for a student in Swedish school (grundskola, gymnasium or Högskoleprovet preparation). Help them learn - explain, question and practise - rather than handing over finished work to hand in.
 
 Rules that always apply:
 - Base everything on the notes or text the student pastes when they give you some; otherwise on what is reliably known. If you are not sure of a fact, say so instead of guessing, and never invent sources, quotes or numbers.
@@ -42,6 +43,7 @@ const MODE_RULES = {
   compare: `MODE: compare. Compare the two concepts or things the student names in a Markdown table (rows for the points that matter, columns for each thing), then one sentence on how to remember the difference. If they name only one thing, ask what to compare it with. Point out the most common mix-up between them.`,
   words: `MODE: word list. Write a glossary for the topic: 10-15 terms ordered by importance, each as "**term** - a short definition" (in a language topic add a short example sentence and the translation). If they pasted notes, take the terms from the notes. End by offering to quiz them on the list.`,
   debate: `MODE: debate. The student picks a topic and a side (if they only give a topic, suggest a side for them). You argue the OTHER side: one or two short, respectful paragraphs per turn with a concrete argument or example, ending on a challenge for them to answer. Stay in role. After about four rounds, or when they ask, step out and give feedback on their arguments: what was strong, what was missing, and one thing to try next time.`,
+  feedback: `MODE: feedback on the student's own text. When they paste a text they wrote (an essay, a lab report, an answer, a speech), give formative feedback, never a rewritten version: first two or three concrete strengths, then the two or three changes that would raise it most (structure, argument and use of sources, precision in the subject's terms, language), each pointing at a place in their text with a short quote. If they name the subject, course and task, judge it against what the Swedish curriculum's knowledge requirements (kunskapskrav) ask for at that level, and say which parts point toward E, C or A-level work and why, while making clear that only their teacher sets the grade. Fix no more than a few example sentences, and end with one question that helps them revise. If they have not pasted a text yet, ask for it and for the subject, course and assignment.`,
 };
 
 /** The ground rules for one mode, or "" for an unknown id / free chat. */
@@ -54,11 +56,14 @@ export function buildStudySystem(id, replyLang = "") {
   return [BASE, studyModeRules(id)].filter(Boolean).join("\n\n") + replyLang;
 }
 
-/** The last `limit` messages - but the very first one is always kept too, even once the thread runs
- *  past the window. It's always the first user turn (every caller pushes it before anything else),
- *  and it's usually the topic or the pasted notes the whole conversation is about; losing it let a
- *  long "Förhör mig" quiz or a "Sammanfatta" run drift off the original material after a few
- *  exchanges. Never starts on an assistant turn either (the API wants a user message first). */
+/** The last `limit` messages - but the first exchange is always kept too, even once the thread runs
+ *  past the window: the opening user turn (every caller pushes it before anything else) AND the
+ *  assistant reply to it. The opening turn is usually the topic, the pasted notes or the problem the
+ *  whole conversation is about; losing it let a long "Förhör mig" quiz or a "Sammanfatta" run drift
+ *  off the original material. Keeping only the question was worse than keeping nothing for a worked
+ *  problem: the model saw the problem with no solution after it and, asked to explain, insisted it had
+ *  never solved it. Never starts on an assistant turn (the API wants a user message first) and never
+ *  ends on the kept assistant turn (the newest message is always in the tail). */
 export function trimHistory(messages, limit = HISTORY_LIMIT) {
   const list = Array.isArray(messages) ? messages : [];
   if (list.length <= limit) {
@@ -66,9 +71,9 @@ export function trimHistory(messages, limit = HISTORY_LIMIT) {
     while (out.length && out[0].role !== "user") out.shift();
     return out;
   }
-  const anchor = list[0];
-  const tailLen = Math.max(0, limit - 1);
+  const anchor = list[1]?.role === "assistant" ? [list[0], list[1]] : [list[0]];
+  const tailLen = Math.max(0, limit - anchor.length);
   const tail = tailLen ? list.slice(-tailLen) : [];
   while (tail.length && tail[0].role !== "user") tail.shift();
-  return tail.length ? [anchor, ...tail] : [anchor];
+  return tail.length ? [...anchor, ...tail] : [list[0]];
 }

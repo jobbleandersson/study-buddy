@@ -6,7 +6,7 @@
 // providers later means changing sendEmail() below — nothing that calls it needs to know how.
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const EMAIL_FROM = process.env.EMAIL_FROM || "Studify <onboarding@resend.dev>";
+const EMAIL_FROM = process.env.EMAIL_FROM || "PluggEra <onboarding@resend.dev>";
 
 export function emailEnabled() {
   return !!RESEND_API_KEY;
@@ -42,7 +42,7 @@ const PUBLIC_URL = (process.env.PUBLIC_URL || "http://localhost:8787").replace(/
 
 function layout(bodyHtml) {
   return `<div style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:480px;margin:0 auto;color:#191D28">
-    <h1 style="font-size:20px;margin:0 0 16px">Studify</h1>
+    <h1 style="font-size:20px;margin:0 0 16px">PluggEra</h1>
     ${bodyHtml}
     <p style="font-size:12px;color:#6B7386;margin-top:32px">If you didn't request this, you can ignore this email.</p>
   </div>`;
@@ -51,7 +51,7 @@ function layout(bodyHtml) {
 export function sendVerifyEmail(to, token) {
   const url = `${PUBLIC_URL}/#/verify?token=${token}`;
   return sendEmail({
-    to, subject: "Confirm your email for Studify",
+    to, subject: "Confirm your email for PluggEra",
     html: layout(`
       <p>Tap the button below to confirm this is your email address.</p>
       <p><a href="${url}" style="display:inline-block;background:#2C5CD6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600">Confirm email</a></p>
@@ -64,9 +64,9 @@ export function sendVerifyEmail(to, token) {
 export function sendResetEmail(to, token) {
   const url = `${PUBLIC_URL}/#/reset?token=${token}`;
   return sendEmail({
-    to, subject: "Reset your Studify password",
+    to, subject: "Reset your PluggEra password",
     html: layout(`
-      <p>Someone asked to reset the password for this Studify account. Tap the button below to set a new one.</p>
+      <p>Someone asked to reset the password for this PluggEra account. Tap the button below to set a new one.</p>
       <p><a href="${url}" style="display:inline-block;background:#2C5CD6;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600">Reset password</a></p>
       <p style="font-size:13px;color:#6B7386">Or paste this link into your browser: ${url}</p>
       <p style="font-size:13px;color:#6B7386">This link works for 1 hour. Your current password still works until you use it.</p>

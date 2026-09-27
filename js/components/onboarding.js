@@ -76,7 +76,7 @@ export function openWelcomeQuiz({ force = false } = {}) {
   const stepLabel = el("span.welcome__step");
   const skipBtn = el("button.linkbtn", { type: "button", onclick: () => toRecap() }, t("welcome.skipAll"));
   const top = el("div.welcome__top", {}, [
-    el("div.welcome__brand", {}, [el("img", { src: "assets/favicon.svg", alt: "" }), "Studify"]),
+    el("div.welcome__brand", {}, [el("img", { src: "assets/favicon.svg", alt: "" }), "PluggEra"]),
     stepLabel,
     skipBtn,
   ]);

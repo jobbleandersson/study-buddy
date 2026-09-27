@@ -1,5 +1,5 @@
 // "#/admin/reviews" — the moderation queue for reviews students write in #/rate. Not linked from
-// anywhere in the app: whoever runs Studify opens it directly and types the REVIEW_ADMIN_KEY set on
+// anywhere in the app: whoever runs PluggEra opens it directly and types the REVIEW_ADMIN_KEY set on
 // the server (`fly secrets set REVIEW_ADMIN_KEY=...`). The key is kept in sessionStorage for this tab
 // only, so closing the tab forgets it. Server side: routes/reviews.js.
 

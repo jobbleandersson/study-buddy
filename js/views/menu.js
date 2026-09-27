@@ -23,6 +23,9 @@ import { houseAd } from "../components/house-ad.js";
 import { tonightPlan } from "./tonight.js";
 import { shareSet } from "../lib/share-set.js";
 import { STUDY_MODES } from "../lib/study-modes.js";
+import { nearlyThere } from "../lib/near.js";
+import { openTalk } from "../components/talk-player.js";
+import { loadScript, scriptKey } from "../lib/podcast.js";
 import { MY_REVIEW_URL } from "../config.js";
 
 // Module-level so the choices survive a re-render (e.g. after deleting a set).
@@ -282,6 +285,7 @@ export function renderMenu(mode) {
         if (copy) toast(t("menu.copiedAs", { title: copy.title }));
       }),
       item(ICONS.play, t("menu.itemPrint"), () => { location.hash = `#/print/${a.id}`; }),
+      (store.canUseAI() || loadScript(scriptKey(a))) && (a.questions?.length || 0) > 0 && item(ICONS.headphones, t("menu.itemTalk"), () => openTalk(a)),
       item(ICONS.share, t("menu.itemShare"), () => shareSet(a)),
       store.hasKey() && item(ICONS.spark, t("menu.itemMore"), () => { location.hash = `#/edit/${a.id}?more=1`; }),
       item(ICONS.trash, t("menu.itemDelete"), () => remove(a), true),
@@ -392,20 +396,19 @@ export function renderMenu(mode) {
     ...libraryUI,
   ]);
 
-  // The head stays at the very top, full width: what to do right now.
-  const greetingBlock = homeHead();
-
-  // The Solve / Library / New-set shortcuts sit *below* the "Idag" panel — a
-  // returning user sees their status (continue, due, streak) first, then the
-  // ways to add material. Solve first, New-set last (the primary); in demo
-  // mode a Library shortcut slots in between rather than jumping the queue.
+  // The Solve / Library / New-set shortcuts sit in the page head, to the right of
+  // the greeting, like any dashboard's page actions — only once there's at least
+  // one set (see greetingBlock). Solve first, New-set last (the one filled button);
+  // in demo mode a Library shortcut slots in between.
   const headActions = el("div.home__actions", {}, [
     el("a.btn.btn--ghost", { href: "#/solve" }, [icon(ICONS.camera, 18), t("menu.solveLink")]),
-    // With no sets yet the head's "Pick a set" already leads to the library.
-    store.assignments.length && !store.hasKey() && el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
-    // One filled button per screen: with no sets yet, "Pick a set" in the head is the primary.
-    el("a.btn" + (store.assignments.length ? "" : ".btn--ghost"), { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
+    !store.hasKey() && el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
+    el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
   ].filter(Boolean));
+
+  // The head stays at the very top, full width: what to do right now. A brand-new
+  // student gets homeStarter()'s own call to action instead of these shortcuts.
+  const greetingBlock = homeHead(store.assignments.length ? headActions : null);
 
   // Right-hand rail: upcoming deadlines (calendar) + an achievements teaser.
   // Nothing to show yet (fresh library, everything unlocked with no next
@@ -415,7 +418,7 @@ export function renderMenu(mode) {
   // its own "pick a set" call to action, and showing this too would just repeat it.
   const ad = store.assignments.length ? houseAd() : null;
   const layout = el(rail ? "div.home-layout" : "div.home-layout.home-layout--solo", {}, [
-    el("div.home-main", {}, [homeStarter(), todayPanel(), headActions, chatPanel(), ad, setsPanel].filter(Boolean)),
+    el("div.home-main", {}, [homeStarter(), todayPanel(), nearPanel(), chatPanel(), ad, setsPanel].filter(Boolean)),
     rail,
   ].filter(Boolean));
 
@@ -483,7 +486,7 @@ function backupPanel() {
       el("button.btn.btn--sm", {
         type: "button",
         onclick: () => {
-          downloadText(`studify-backup-${localDayKey()}.json`, store.exportJSON());
+          downloadText(`pluggera-backup-${localDayKey()}.json`, store.exportJSON());
           store.markBackedUp();
           toast(t("backup.done"));
           panel.remove();
@@ -495,7 +498,7 @@ function backupPanel() {
   return panel;
 }
 
-/** "Gillar du Studify?" — asks a signed-in student with real history for a review (#/rate). Only
+/** "Gillar du PluggEra?" — asks a signed-in student with real history for a review (#/rate). Only
  *  once they've finished a few sessions, never if they already wrote one, and a dismissal keeps it
  *  away for 60 days on this device. Whether they have a review is asked once per page load (the
  *  home page re-renders on every store change); the panel starts hidden and shows once that's known. */
@@ -678,6 +681,33 @@ function todayPanel() {
     pills.length ? el("div.stats", { style: { "--stat-n": String(pills.length) } }, pills) : null,
     recap,
   ].filter(Boolean));
+}
+
+/** "Nästan där": the sets you got close on but never finished at 100 %, closest first. Each row shows
+ *  the best score as a strip of ten dots and links straight into the set. Null when there are none. */
+function nearPanel() {
+  const { items, total } = nearlyThere(store.assignments, store.attempts);
+  if (!items.length) return null;
+  const rows = items.map(({ assignment: a, best, attempts }) => {
+    const pct = Math.round(best);
+    const filled = Math.round(best / 10);
+    return el("a.near__row", { href: `#/session/${a.id}`, "aria-label": t("menu.nearAria", { title: a.title, best: pct }) }, [
+      el("span.near__ic", {}, icon(ICONS.target, 16)),
+      el("span.near__txt", {}, [
+        el("b", {}, a.title),
+        el("small", {}, [t("menu.nearBest", { best: pct }), plural(attempts, "menu.nearTriesOne", "menu.nearTriesMany", { n: attempts })].join(" · ")),
+        el("span.near__dots", { "aria-hidden": "true" }, Array.from({ length: 10 }, (_, i) => el("i" + (i < filled ? ".is-f" : "")))),
+      ]),
+      el("span.near__go", {}, [t("menu.nearGo"), icon(ICONS.arrow, 14)]),
+    ]);
+  });
+  return el("section.home-panel.home-panel--near", {}, [
+    el("div.home-panel__label", {}, [
+      el("span", {}, t("menu.nearTitle")),
+      el("small.near__sub", {}, plural(total, "menu.nearSubOne", "menu.nearSubMany", { n: total })),
+    ]),
+    el("div.near__list", {}, rows),
+  ]);
 }
 
 function continueBanner(open) {
@@ -954,11 +984,16 @@ function greeting() {
  *  and short for every student, so the rail (Kommande/Utmärkelser) always
  *  lines up with the top of the main column — see homeStarter() below for
  *  the brand-new-student content, which lives inside the grid instead. */
-function homeHead() {
+function homeHead(actions) {
+  const today = new Date().toLocaleDateString(getLang() === "en" ? "en-GB" : "sv-SE", { weekday: "long", day: "numeric", month: "long" });
   return el("div.home__head", {}, [
-    el("h1", {}, greeting()),
-    el("p.home__hi", {}, t("menu.subHasKey")),
-  ]);
+    el("div.home__title", {}, [
+      el("p.home__date", {}, today.charAt(0).toUpperCase() + today.slice(1)),
+      el("h1", {}, greeting()),
+      el("p.home__hi", {}, t("menu.subHasKey")),
+    ]),
+    actions,
+  ].filter(Boolean));
 }
 
 /** For a brand-new student with no sets yet: one clear action plus a real

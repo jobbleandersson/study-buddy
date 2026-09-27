@@ -8,6 +8,7 @@ import { MODELS } from "../claude.js";
 import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
 import { t, plural, getLang } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
+import { voiceControls } from "../components/voice-controls.js";
 import { confirmDialog } from "../components/confirm-dialog.js";
 import { deleteAccountDialog } from "../components/delete-account-dialog.js";
 import { openWelcomeQuiz } from "../components/onboarding.js";
@@ -190,6 +191,8 @@ export function renderSettings() {
         noted("set.adaptive", adaptiveSel, "set.adaptiveNote"),
         noted("set.pomodoro", pomoSel, "set.pomodoroNote"),
         noted("set.voice", voiceSel, voiceSupported ? "set.voiceNote" : "set.voiceUnsupported"),
+        // Which voice reads aloud, a sample of it, its speed, and how to get a better one.
+        ...(voiceSupported ? [el("div.field.voicectl-field", {}, [el("span", {}, t("voice.title")), voiceControls()])] : []),
         noted("set.rulePrompts", rulesSel, "set.rulePromptsNote"),
       ]),
       el("div.settings__redo", {}, [
@@ -437,7 +440,7 @@ export function renderSettings() {
       recovery.appendChild(el("span", {}, t("set.recoveryFound") + " "));
       recovery.appendChild(el("button.linkbtn", {
         type: "button",
-        onclick: () => downloadText(`studify-recovered-${localDayKey()}.txt`, blob, "text/plain"),
+        onclick: () => downloadText(`pluggera-recovered-${localDayKey()}.txt`, blob, "text/plain"),
       }, t("set.recoveryDownload")));
       recovery.appendChild(el("span", {}, " · "));
       recovery.appendChild(el("button.linkbtn", {
@@ -448,7 +451,7 @@ export function renderSettings() {
     paintRecovery();
 
     function exportData() {
-      downloadText(`studify-backup-${localDayKey()}.json`, store.exportJSON());
+      downloadText(`pluggera-backup-${localDayKey()}.json`, store.exportJSON());
       store.markBackedUp();
       toast(t("set.backupDownloaded"));
     }

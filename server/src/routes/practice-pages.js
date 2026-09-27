@@ -139,8 +139,8 @@ function questionHtml(q, i) {
   </li>`;
 }
 
-function page({ title, description, canonical, crumbs, body }) {
-  const robots = indexing() ? "index, follow" : "noindex, nofollow";
+function page({ title, description, canonical, crumbs, body, noindex = false }) {
+  const robots = indexing() && !noindex ? "index, follow" : "noindex, nofollow";
   const ld = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -161,7 +161,7 @@ function page({ title, description, canonical, crumbs, body }) {
   <meta name="robots" content="${robots}" />
   <link rel="canonical" href="${esc(canonical)}" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Studify" />
+  <meta property="og:site_name" content="PluggEra" />
   <meta property="og:locale" content="sv_SE" />
   <meta property="og:title" content="${esc(title)}" />
   <meta property="og:description" content="${esc(description)}" />
@@ -180,7 +180,7 @@ function page({ title, description, canonical, crumbs, body }) {
 </head>
 <body>
   <header class="ova-head"><div class="ova-wrap ova-head__inner">
-    <a class="ova-brand" href="/"><img src="/assets/favicon.svg" alt="" width="28" height="28" />Studify</a>
+    <a class="ova-brand" href="/"><img src="/assets/favicon.svg" alt="" width="28" height="28" />PluggEra</a>
     <a class="ova-btn ova-btn--ghost" href="/#/">Öppna appen</a>
   </div></header>
   <main class="ova-wrap" id="main">
@@ -188,7 +188,7 @@ function page({ title, description, canonical, crumbs, body }) {
     ${body}
   </main>
   <footer class="ova-foot"><div class="ova-wrap ova-foot__inner">
-    <span>Studify — gratis, utan reklam, byggt på den svenska läroplanen.</span>
+    <span>PluggEra — gratis, utan reklam, byggt på den svenska läroplanen.</span>
     <nav aria-label="Sidfot">
       <a href="/ova">Alla övningar</a>
       <a href="/#/about">Om oss</a>
@@ -200,6 +200,23 @@ function page({ title, description, canonical, crumbs, body }) {
 }
 
 const origin = (req) => `${req.protocol}://${req.get("host")}`;
+
+// A stale/mistyped /ova/... link: answer a real 404 (never indexed, whatever PUBLIC_INDEXING says)
+// instead of falling through to the app shell, which a search engine would read as a live 200 page.
+function sendNotFound(req, res) {
+  const o = origin(req);
+  res.status(404);
+  send(res, page({
+    title: "Sidan hittades inte | PluggEra",
+    description: "Den här övningssidan finns inte, eller har flyttats.",
+    canonical: `${o}${req.path}`,
+    crumbs: [["Övningsfrågor", `${o}/ova`]],
+    noindex: true,
+    body: `<h1>Sidan hittades inte</h1>
+      <p class="ova-lead">Vi kunde inte hitta den övningssidan. Den kan ha tagits bort eller bytt namn.</p>
+      <p><a class="ova-btn" href="/ova">Se alla övningsämnen</a></p>`,
+  }));
+}
 
 function send(res, html) {
   // Private while SITE_PASSWORD gates the site: a shared proxy/CDN must not cache and replay an
@@ -222,25 +239,25 @@ practicePages.get(["/ova", "/ova/"], (req, res) => {
       <span>${bySubject.get(s.id).length} övningsset</span></a></li>`).join("")}</ul></section>`;
   }).join("");
   send(res, page({
-    title: "Övningsfrågor med förklaringar – åk 7 till gymnasiet | Studify",
+    title: "Övningsfrågor med förklaringar – åk 7 till gymnasiet | PluggEra",
     description: `Över ${Math.floor(total / 100) * 100} gratis övningsfrågor med förklaringar, byggda på den svenska läroplanen. Matematik, svenska, engelska, NO, SO och språk för åk 7–9 och gymnasiet.`,
     canonical: `${o}/ova`,
     crumbs: [["Övningsfrågor", `${o}/ova`]],
     body: `<h1>Övningsfrågor för åk 7 till gymnasiet</h1>
       <p class="ova-lead">Färdiga övningsset byggda på den svenska läroplanen, med förklaring till varje fråga.
-      Välj ämne, se exempelfrågor och öva på hela setet gratis i Studify.</p>${blocks}`,
+      Välj ämne, se exempelfrågor och öva på hela setet gratis i PluggEra.</p>${blocks}`,
   }));
 });
 
-practicePages.get("/ova/:subject", (req, res, next) => {
+practicePages.get("/ova/:subject", (req, res) => {
   const { subjects, bySubject, levelById } = loadLibrary();
   const subject = subjects.find((s) => s.id === req.params.subject);
-  if (!subject) return next();
+  if (!subject) return sendNotFound(req, res);
   const level = levelById.get(subject.level);
   const o = origin(req);
   const sets = bySubject.get(subject.id);
   send(res, page({
-    title: `${subject.name} ${level.label.toLowerCase()} – övningsfrågor med förklaringar | Studify`,
+    title: `${subject.name} ${level.label.toLowerCase()} – övningsfrågor med förklaringar | PluggEra`,
     description: `${sets.length} gratis övningsset i ${subject.name.toLowerCase()} för ${level.label.toLowerCase()}. ${subject.description || ""}`.trim(),
     canonical: `${o}/ova/${subject.id}`,
     crumbs: [["Övningsfrågor", `${o}/ova`], [`${subject.name}, ${level.label.toLowerCase()}`, `${o}/ova/${subject.id}`]],
@@ -252,12 +269,12 @@ practicePages.get("/ova/:subject", (req, res, next) => {
   }));
 });
 
-practicePages.get("/ova/:subject/:slug", (req, res, next) => {
+practicePages.get("/ova/:subject/:slug", (req, res) => {
   const { bySubject, subjects, levelById, byPath } = loadLibrary();
   const set = byPath.get(`/ova/${req.params.subject}/${req.params.slug}`);
-  if (!set) return next();
+  if (!set) return sendNotFound(req, res);
   const doc = readSet(set);
-  if (!doc) return next();
+  if (!doc) return sendNotFound(req, res);
   const subject = subjects.find((s) => s.id === set.subject);
   const level = levelById.get(subject.level);
   const o = origin(req);
@@ -269,7 +286,7 @@ practicePages.get("/ova/:subject/:slug", (req, res, next) => {
   const n = questions.length;
 
   send(res, page({
-    title: `${set.title} – ${subject.name} ${level.label.toLowerCase()}: ${n} övningsfrågor | Studify`,
+    title: `${set.title} – ${subject.name} ${level.label.toLowerCase()}: ${n} övningsfrågor | PluggEra`,
     description: `${set.summary || doc.sourceSummary || ""} ${n} frågor med förklaringar för ${level.label.toLowerCase()}. Se exempel och öva gratis.`.trim(),
     canonical: `${o}${set.path}`,
     crumbs: [["Övningsfrågor", `${o}/ova`], [`${subject.name}, ${level.label.toLowerCase()}`, `${o}/ova/${subject.id}`], [set.title, `${o}${set.path}`]],
@@ -283,7 +300,7 @@ practicePages.get("/ova/:subject/:slug", (req, res, next) => {
       <ol class="ova-qs">${samples.map(questionHtml).join("")}</ol>
       <aside class="ova-cta">
         <h2>Resten av setet väntar i appen</h2>
-        <p>I Studify får du tips när du kör fast, en handledare som förklarar i stället för att bara rätta,
+        <p>I PluggEra får du tips när du kör fast, en handledare som förklarar i stället för att bara rätta,
         och repetition som tar tillbaka varje fråga precis innan du hade glömt den. Gratis, utan konto.</p>
         <a class="ova-btn" href="${esc(start)}">Starta setet</a>
       </aside>

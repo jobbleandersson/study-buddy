@@ -1,4 +1,4 @@
-// "Concept A" from the free-tier ad review: Studify promoting Studify on its own home screen —
+// "Concept A" from the free-tier ad review: PluggEra promoting PluggEra on its own home screen —
 // never a third party, never tracked, never shown once a real paid plan exists (store.isPremium()).
 // One of a few messages, picked deterministically by day so it doesn't feel identical every visit;
 // dismissible for the rest of the browser session (sessionStorage, not synced — this is a per-device
@@ -36,7 +36,7 @@ function dismiss() {
   try { sessionStorage.setItem(DISMISS_KEY, "1"); } catch { /* private mode — just won't stick */ }
 }
 
-/** A dismissible card promoting one of Studify's own features, or null when there's nothing to
+/** A dismissible card promoting one of PluggEra's own features, or null when there's nothing to
  *  show (premium, already dismissed this session, or no eligible variant has content to point at). */
 export function houseAd() {
   if (store.isPremium() || dismissed()) return null;

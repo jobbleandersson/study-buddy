@@ -1,4 +1,4 @@
-// Studify service worker.
+// PluggEra service worker.
 //
 // Strategy: network-first for same-origin GETs, falling back to the cache.
 // Cache-first would be faster, but this app is under active development and
@@ -8,7 +8,7 @@
 // Anything cross-origin (api.anthropic.com, Google Fonts) is left entirely
 // alone — API calls must never be served from a cache.
 
-const CACHE = "studify-v155";
+const CACHE = "studify-v168";
 
 const APP_SHELL = [
   "./",
@@ -23,6 +23,8 @@ const APP_SHELL = [
   "./assets/fonts/atkinson-700-latin.woff2",
   "./assets/fonts/atkinson-400-italic-latin.woff2",
   "./css/app.css",
+  "./css/design.css",
+  "./css/landing.css",
   "./assets/favicon.svg",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
@@ -62,6 +64,11 @@ const APP_SHELL = [
   "./js/lib/exam-nav.js",
   "./js/lib/expr.js",
   "./js/lib/study-modes.js",
+  "./js/lib/passages.js",
+  "./js/lib/near.js",
+  "./js/lib/chat-history.js",
+  "./js/lib/chat-material.js",
+  "./js/lib/podcast.js",
   "./js/lib/offline.js",
   "./js/lib/share-card.js",
   "./js/lib/share-set.js",
@@ -128,6 +135,9 @@ const APP_SHELL = [
   "./js/components/tutor-chat.js",
   "./js/components/math-keypad.js",
   "./js/components/onboarding.js",
+  "./js/components/material-picker.js",
+  "./js/components/chat-history-panel.js",
+  "./js/components/talk-player.js",
   "./js/components/command-palette.js",
   "./js/components/site-chat.js",
   "./js/components/upgrade-prompt.js",
@@ -140,6 +150,7 @@ const APP_SHELL = [
   "./js/components/subject-field.js",
   "./js/components/quick-add.js",
   "./js/components/reading-controls.js",
+  "./js/components/voice-controls.js",
   "./js/components/file-drop.js",
   "./js/components/google-signin.js",
   "./js/components/password-field.js",

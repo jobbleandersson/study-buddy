@@ -100,7 +100,7 @@ function badge(def, metrics, unlockedMap) {
         tag: t("share.badgeTag"),
         headline: t(def.nameKey),
         caption: t(def.descKey, { n: def.target }),
-        filename: "studify-badge.png",
+        filename: "pluggera-badge.png",
       });
     },
   }, [icon(ICONS.share, 13)]) : null;

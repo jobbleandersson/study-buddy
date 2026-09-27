@@ -45,7 +45,7 @@ function faqItem(titleKey, bodyKey, extra) {
 
 export function renderAbout() {
   // Reuses the landing page's own level list (lp.levels) plus the nav's
-  // Högskoleprovet label — one source of truth for "what does Studify cover"
+  // Högskoleprovet label — one source of truth for "what does PluggEra cover"
   // instead of a third copy of the same four grades to keep in sync.
   const levels = [...t("lp.levels").split("|"), t("nav.hp")];
   return page("about.pageTitle", [

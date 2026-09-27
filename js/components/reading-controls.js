@@ -9,10 +9,8 @@ import { t } from "../lib/i18n.js";
 import { getTheme, setTheme } from "../lib/theme.js";
 import { getFont, setFont, getTextSize, setTextSize } from "../lib/typeface.js";
 import { openPopover } from "../lib/popover.js";
-import {
-  speechSupported, voicesForLang, getPreferredVoiceURI, setPreferredVoiceURI,
-  getAutoRead, setAutoRead,
-} from "../lib/speech.js";
+import { speechSupported, getAutoRead, setAutoRead } from "../lib/speech.js";
+import { voiceControls } from "./voice-controls.js";
 
 // "system" is a settings choice, not a reading choice — the popover offers the
 // three concrete looks.
@@ -65,8 +63,7 @@ export function openReadingControls(anchor) {
     );
   }
 
-  // Read-aloud (browser text-to-speech) — an auto-read toggle plus, when the
-  // device offers more than one matching voice, a picker.
+  // Read-aloud (browser text-to-speech) — an auto-read toggle plus the voice controls.
   const speechRows = [];
   if (speechSupported()) {
     const autoRow = el("div.reading__row");
@@ -84,16 +81,11 @@ export function openReadingControls(anchor) {
     paintAuto();
     speechRows.push(autoRow);
 
-    const voices = voicesForLang();
-    if (voices.length > 1) {
-      const sel = el("select.reading__voice", { "aria-label": t("read.voice") },
-        voices.map((v) => el("option", { value: v.voiceURI }, v.name)));
-      sel.value = getPreferredVoiceURI() || voices.find((v) => v.localService)?.voiceURI || voices[0].voiceURI;
-      sel.addEventListener("change", () => setPreferredVoiceURI(sel.value));
-      speechRows.push(el("div.reading__row.reading__row--stack", {}, [
-        el("span.reading__k", {}, t("read.voice")), sel,
-      ]));
-    }
+    // Voice list + play sample + speed (+ a tip when the voice is a basic one) — the same controls
+    // Settings shows, so a voice picked in either place is the one that is used everywhere.
+    speechRows.push(el("div.reading__row.reading__row--stack", {}, [
+      el("span.reading__k", {}, t("read.voice")), voiceControls({ compact: true }),
+    ]));
   }
 
   paintThemes(); paintSize(); paintFont();

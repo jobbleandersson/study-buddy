@@ -135,7 +135,7 @@ if (process.env.SITE_PASSWORD) {
     // Header VALUES must be Latin-1/ASCII — an em dash here throws
     // ERR_INVALID_CHAR at the http layer and 500s every unauthenticated
     // request, which is worse than the gate being slightly plainer-worded.
-    res.set("WWW-Authenticate", 'Basic realm="Studify - private testing"');
+    res.set("WWW-Authenticate", 'Basic realm="PluggEra - private testing"');
     return res.status(401).send("Authentication required.");
   });
 }
