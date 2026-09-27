@@ -170,7 +170,7 @@ export function renderResults(attemptId) {
           tag: attempt.wasTest ? t("share.gradeTag") : t("share.scoreTag"),
           headline: `${score}%`,
           caption: heading,
-          filename: "studify-result.png",
+          filename: "pluggera-result.png",
         }),
       }, [icon(ICONS.share, 16), t("share.shareButton")]),
       retryHash(attempt, assignment) && el("a.btn.btn--ghost", { href: retryHash(attempt, assignment) },

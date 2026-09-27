@@ -397,14 +397,13 @@ export function renderMenu(mode) {
   ]);
 
   // The Solve / Library / New-set shortcuts sit in the page head, to the right of
-  // the greeting, like any dashboard's page actions. Solve first, New-set last
-  // (the primary); in demo mode a Library shortcut slots in between.
+  // the greeting, like any dashboard's page actions — only once there's at least
+  // one set (see greetingBlock). Solve first, New-set last (the one filled button);
+  // in demo mode a Library shortcut slots in between.
   const headActions = el("div.home__actions", {}, [
     el("a.btn.btn--ghost", { href: "#/solve" }, [icon(ICONS.camera, 18), t("menu.solveLink")]),
-    // With no sets yet the head's "Pick a set" already leads to the library.
-    store.assignments.length && !store.hasKey() && el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
-    // One filled button per screen: with no sets yet, "Pick a set" in the head is the primary.
-    el("a.btn" + (store.assignments.length ? "" : ".btn--ghost"), { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
+    !store.hasKey() && el("a.btn.btn--ghost", { href: "#/library" }, [icon(ICONS.book, 18), t("nav.library")]),
+    el("a.btn", { href: "#/create" }, [icon(ICONS.plus, 18), t("common.newSet")]),
   ].filter(Boolean));
 
   // The head stays at the very top, full width: what to do right now. A brand-new
@@ -487,7 +486,7 @@ function backupPanel() {
       el("button.btn.btn--sm", {
         type: "button",
         onclick: () => {
-          downloadText(`studify-backup-${localDayKey()}.json`, store.exportJSON());
+          downloadText(`pluggera-backup-${localDayKey()}.json`, store.exportJSON());
           store.markBackedUp();
           toast(t("backup.done"));
           panel.remove();

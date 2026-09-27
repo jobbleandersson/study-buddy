@@ -337,12 +337,14 @@ body.has-topmenu .sitechat__fab { display: none; }
 
 .iconbtn {
   display: inline-flex; align-items: center; justify-content: center; flex: none;
-  width: 40px; height: 40px; border-radius: var(--r-full);
-  border: 1px solid var(--line-strong); background: var(--surface);
+  width: 38px; height: 38px; border-radius: var(--r-md);
+  border: 1px solid var(--line); background: var(--surface);
   color: var(--ink-soft); cursor: pointer;
-  transition: transform var(--dur-fast) var(--ease-spring), background var(--dur-fast);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+  transition: border-color var(--dur-fast), background var(--dur-fast);
 }
-.iconbtn:hover { transform: translateY(-1px); background: var(--surface-sunk); }
+.iconbtn:hover { background: var(--surface-sunk); border-color: var(--line-strong); }
+.iconbtn svg { stroke-width: 1.8; }
 
 /* Language toggle: the globe alone is ambiguous, so it carries the code it
    will switch to. */
@@ -373,19 +375,22 @@ body.has-topmenu .sitechat__fab { display: none; }
 .btn {
   font-family: var(--font-display); font-weight: 600; font-size: var(--fs-md);
   display: inline-flex; align-items: center; gap: var(--s-2);
-  padding: var(--s-3) var(--s-5); border-radius: var(--r-full);
+  padding: 10px 18px; min-height: 42px; border-radius: var(--r-md);
+  font-size: .95rem; letter-spacing: -.005em;
   border: none; cursor: pointer; text-decoration: none;
   background: var(--brand); color: #fff;
-  box-shadow: var(--shadow-1);
-  transition: transform var(--dur-fast) var(--ease-spring), box-shadow var(--dur-fast), background var(--dur-fast);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, .1), inset 0 1px 0 rgba(255, 255, 255, .12);
+  transition: background var(--dur-fast), border-color var(--dur-fast), box-shadow var(--dur-fast), color var(--dur-fast);
 }
-.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-2); }
-.btn:active { transform: translateY(0); }
-.btn--ghost { background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); box-shadow: none; }
+/* Darken on hover rather than lift: a button that jumps reads as a toy. */
+.btn:hover { background: color-mix(in srgb, var(--brand) 86%, #000); }
+.btn--ghost { background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); box-shadow: 0 1px 2px rgba(16, 24, 40, .05); }
 .btn--ghost:hover { background: var(--surface-sunk); }
 .btn--ok { background: var(--ok); }
+.btn--ok:hover { background: color-mix(in srgb, var(--ok) 86%, #000); }
 .btn--danger { background: var(--c-berry-ink); color: #fff; }
-.btn--sm { padding: var(--s-2) var(--s-4); font-size: var(--fs-sm); }
+.btn--danger:hover { background: color-mix(in srgb, var(--c-berry-ink) 86%, #000); }
+.btn--sm { padding: 6px 12px; min-height: 34px; font-size: var(--fs-sm); border-radius: 8px; }
 /* Not opacity — 0.5 on a coloured button drops the label to ~2.3:1 and reads as
    broken rather than "not yet". Explicit muted colours stay legible. */
 .btn:disabled {
@@ -400,9 +405,9 @@ body.has-topmenu .sitechat__fab { display: none; }
 /* ---------- cards & panels ---------- */
 .card {
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--r-lg); box-shadow: var(--shadow-1);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-card, var(--shadow-1));
 }
-.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--s-5); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--s-5); box-shadow: var(--shadow-card, var(--shadow-1)); }
 
 /* ---------- menu / home ---------- */
 .home__head { margin-bottom: var(--s-5); }
@@ -1152,7 +1157,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
    footer and rhythm. Everything still comes from the app's tokens, so it
    follows theme (light / paper / dark) like every other screen. The one loud
    thing is the playable question card; everything around it stays quiet. */
-.btn--lg { padding: var(--s-4) var(--s-6); font-size: var(--fs-lg); }
+.btn--lg { padding: 13px 24px; min-height: 50px; font-size: 1.0625rem; border-radius: 12px; }
 
 .lp { position: relative; min-height: 100vh; display: flex; flex-direction: column; overflow-x: clip; }
 
@@ -1305,12 +1310,7 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
    cancel out against) — a known source of a stray sliver at one edge or a
    horizontal scrollbar. calc(50% - 50vw) sidesteps it by never computing an
    explicit width at all. */
-/* showcase: a real screenshot in a browser frame */
-.lp-frame {
-  margin: var(--s-6) 0 0; border-radius: 14px; overflow: hidden;
-  border: 1px solid var(--line-strong); background: var(--surface);
-  box-shadow: 0 1px 2px rgba(20,24,40,.06), 0 24px 60px -12px rgba(20,24,40,.22);
-}
+/* the browser-frame bar over the front page's app screenshot */
 .lp-frame__bar {
   display: flex; align-items: center; gap: 7px; padding: 10px 14px;
   background: var(--surface-sunk); border-bottom: 1px solid var(--line);
@@ -1320,8 +1320,6 @@ button.cal__cell:hover:not(:disabled) { background: var(--surface-sunk); }
   margin: 0 auto; padding: 2px 40px; border-radius: 6px; background: var(--surface);
   font-size: 11px; color: var(--ink-faint); letter-spacing: .02em;
 }
-.lp-frame img { display: block; width: 100%; height: auto; }
-@media (max-width: 640px) { .lp-frame { max-width: 340px; margin-left: auto; margin-right: auto; border-radius: 22px; } }
 
 /* sections */
 .lp-sec { padding: 56px 0 0; }

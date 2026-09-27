@@ -123,7 +123,7 @@ export function renderLeaderboard() {
         tag: t("share.rankTag"),
         headline: t("share.rankHeadline", { n: rank }),
         caption: plural(entry.questionsThisWeek, "leaderboard.questionOne", "leaderboard.questionMany"),
-        filename: "studify-rank.png",
+        filename: "pluggera-rank.png",
       }),
     }, [icon(ICONS.share, 14)]) : null;
 

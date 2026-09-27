@@ -110,7 +110,7 @@ function clamp(s, max) {
 
 /** Builds the card and opens the share/download modal. `filename` should be a
  *  plain .png name — nothing user-supplied goes into it. */
-export function shareCard({ emoji, headline, caption, tag, tone, filename = "studify.png" }) {
+export function shareCard({ emoji, headline, caption, tag, tone, filename = "pluggera.png" }) {
   const canvas = document.createElement("canvas");
   canvas.width = SIZE;
   canvas.height = SIZE;

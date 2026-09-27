@@ -82,7 +82,7 @@ export function siteHelpSystem() {
 What PluggEra offers, so you can point them to the right place:
 - Library: a ready-made practice library by grade and subject, one tap to add a set.
 - Create: build a new question set from pasted text, a PDF, a photo, or just a topic.
-- Solve: a photo of one problem gets a worked, step-by-step explanation; the same page also has one-tap ways to study - quiz me, explain, summarise, compare, word list, debate - for a topic or a page of pasted notes.
+- Solve: a photo of one problem gets a worked, step-by-step explanation; the same page also has one-tap ways to study - quiz me, explain, summarise, compare, word list, debate, and feedback on a text the student wrote themselves (strengths, what to improve, how it compares with the knowledge requirements) - for a topic or a page of pasted notes.
 - Study: the student's own sets — study them freely or take one as a timed test.
 - Inför provet (exam prep): a per-subject dashboard — countdown to the test, weak spots, a day-by-day plan, a mock exam.
 - Högskoleprovet: its own hub — delprov practice, a normed score prognosis, readiness per delprov, a study plan.

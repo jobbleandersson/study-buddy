@@ -990,7 +990,7 @@ store.init().then(() => {
         onAction: () => {
           const d = store.syncDiscard;
           if (d) {
-            downloadText(`studify-replaced-${localDayKey()}.json`, JSON.stringify(d.blob, null, 2));
+            downloadText(`pluggera-replaced-${localDayKey()}.json`, JSON.stringify(d.blob, null, 2));
             toast(t("set.backupDownloaded"));
           }
         },
@@ -1010,7 +1010,7 @@ store.init().then(() => {
       actionLabel: t("save.emergencyExport"),
       closeLabel: t("common.close"),
       onAction: () => {
-        downloadText(`studify-backup-${localDayKey()}.json`, store.exportJSON());
+        downloadText(`pluggera-backup-${localDayKey()}.json`, store.exportJSON());
         store.markBackedUp();
         toast(t("set.backupDownloaded"));
       },
@@ -1038,7 +1038,7 @@ function bootFailure(err) {
       el("button.btn", { type: "button", onclick: () => location.reload() }, t("boot.reload")),
       raw ? el("button.btn.btn--ghost", {
         type: "button",
-        onclick: () => downloadText(`studify-emergency-${new Date().toISOString().slice(0, 10)}.json`, raw),
+        onclick: () => downloadText(`pluggera-emergency-${new Date().toISOString().slice(0, 10)}.json`, raw),
       }, t("boot.downloadData")) : null,
     ].filter(Boolean)),
   ]));

@@ -1,5 +1,5 @@
 // The one-tap "ways to study" on the Solve page (#/solve?mode=...) and the home page's AI study
-// help strip: quiz me, explain, summarise, compare, word list, debate. Each is the same conversation
+// help strip: quiz me, explain, summarise, compare, word list, debate, feedback on a text. Each is the same conversation
 // with a different set of ground rules for the assistant, so a student who only types
 // "photosynthesis" and taps a mode gets a useful reply without knowing how to write a prompt.
 //

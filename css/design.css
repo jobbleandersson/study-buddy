@@ -36,33 +36,11 @@ h1, h2, h3, .display { letter-spacing: -.022em; }
 h1 { font-weight: 750; }
 .content h1 { font-size: clamp(1.6rem, 1.25rem + 1vw, 2rem); }
 
-/* ---------- buttons ---------- */
-.btn {
-  border-radius: var(--r-md);
-  padding: 10px 18px; min-height: 42px;
-  font-size: .95rem; font-weight: 600; letter-spacing: -.005em;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, .1), inset 0 1px 0 rgba(255, 255, 255, .12);
-  transition: background var(--dur-fast), border-color var(--dur-fast), box-shadow var(--dur-fast), color var(--dur-fast);
-}
-.btn:hover, .btn:active { transform: none; }
-.btn:hover { background: color-mix(in srgb, var(--brand) 86%, #000); box-shadow: 0 1px 2px rgba(16, 24, 40, .12); }
-.btn--ghost { box-shadow: 0 1px 2px rgba(16, 24, 40, .05); border-color: var(--line-strong); }
-.btn--ghost:hover { background: var(--surface-sunk); border-color: var(--line-strong); box-shadow: 0 1px 2px rgba(16, 24, 40, .05); }
-.btn--ok:hover { background: color-mix(in srgb, var(--ok) 86%, #000); }
-.btn--danger:hover { background: color-mix(in srgb, var(--c-berry-ink) 86%, #000); }
-.btn--sm { padding: 6px 12px; min-height: 34px; font-size: var(--fs-sm); border-radius: 8px; }
-.btn--lg { padding: 13px 24px; min-height: 50px; font-size: 1.0625rem; border-radius: 12px; }
-.btn:disabled, .btn:disabled:hover { box-shadow: none; }
-
-.iconbtn { width: 38px; height: 38px; border-radius: var(--r-md); border-color: var(--line); box-shadow: 0 1px 2px rgba(16, 24, 40, .04); }
-.iconbtn:hover { transform: none; border-color: var(--line-strong); }
-.iconbtn svg { stroke-width: 1.8; }
-.langbtn { padding: 0 10px; }
+/* ---------- buttons, icon buttons, panels ----------
+   Their new base look lives in app.css's own .btn / .iconbtn / .panel rules, not here: this file
+   loads last, so a base rule here would beat every later special case in app.css (the commute
+   mode's big buttons, .iconbtn--sm, the phone-size .btn--sm) at equal specificity. */
 .homebtn { border-radius: 8px; border-color: var(--line); }
-
-/* ---------- cards & panels ---------- */
-.card, .panel { border-radius: var(--r-lg); box-shadow: var(--shadow-card); }
-.panel { border-color: var(--line); }
 
 /* Set cards: subject shown as the tag's colour and a thin top edge, not a 6px stripe. */
 .acard {
@@ -81,8 +59,6 @@ h1 { font-weight: 750; }
 .acard--new:hover { box-shadow: none; }
 .acard__tag { border-radius: 6px; letter-spacing: .05em; }
 .acard__title { font-weight: 650; letter-spacing: -.015em; }
-/* The card's own ⋮ menu is positioned inside; don't let the clip hide it. */
-.acard:has(.acard__menu[aria-expanded="true"]), .acard:focus-within { overflow: visible; }
 
 /* The remaining left-edge stripes become an even hairline border. */
 .tile--resume { border-left-width: 1px; }
@@ -190,7 +166,7 @@ h1 { font-weight: 750; }
 @media (max-width: 620px) { .sitefooter__copy { margin-left: 0; width: 100%; } }
 
 /* The language button carries a flag and a code, so it keeps its own width. */
-.iconbtn.langbtn { width: auto; }
+.langbtn { width: auto; padding: 0 10px; }
 
 /* ---------- home ---------- */
 .home__head {

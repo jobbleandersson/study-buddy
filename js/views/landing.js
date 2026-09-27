@@ -159,10 +159,15 @@ function hero() {
     el("div.lp-stage", {}, [
       el("figure.lp-stage__shot", {}, [
         el("div.lp-frame__bar", { "aria-hidden": "true" }, [el("i"), el("i"), el("i"), el("span", {}, "pluggera")]),
-        el("img", {
-          src: `assets/shots/home-${lang}.jpg`, alt: t("lp.heroAlt"),
-          width: 2160, height: 1350, decoding: "async", fetchpriority: "high",
-        }),
+        // The shot is hidden below 900px (it would be unreadable); the empty source there keeps
+        // phones from downloading 180 KB they never see.
+        el("picture", {}, [
+          el("source", { media: "(max-width: 899.98px)", srcset: "data:image/gif;base64,R0lGODlhAQABAAAAACw=" }),
+          el("img", {
+            src: `assets/shots/home-${lang}.jpg`, alt: t("lp.heroAlt"),
+            width: 2160, height: 1350, decoding: "async", fetchpriority: "high",
+          }),
+        ]),
       ]),
       el("div.lp-stage__card", {}, [questionCard()]),
       el("div.lp-badge.lp-badge--hint", { "aria-hidden": "true" }, [
@@ -372,18 +377,18 @@ function subjects() {
 }
 
 function audiences() {
-  const card = (ic, title, body, link, onclick) => el("article.lp-aud", {}, [
+  const card = (ic, title, body, link, href, onclick) => el("article.lp-aud", {}, [
     el("span.lp-aud__ic", { "aria-hidden": "true" }, [icon(ic, 20)]),
     el("h3", {}, t(title)),
     el("p", {}, t(body)),
-    el("a.lp-more", { href: "#/welcome", onclick: (e) => { e.preventDefault(); onclick(); } }, [t(link), icon(ICONS.arrow, 15)]),
+    el("a.lp-more", { href, onclick: (e) => { e.preventDefault(); onclick(); } }, [t(link), icon(ICONS.arrow, 15)]),
   ]);
   return el("section.lp-sec", {}, [
     el("div.lp-sechead", {}, [el("h2.lp-h2", {}, t("lp.forTitle"))]),
     el("div.lp-auds", {}, [
-      card(ICONS.graduation, "lp.forStudentT", "lp.forStudentB", "lp.forStudentL", () => openWelcomeQuiz()),
-      card(ICONS.users, "lp.forParentT", "lp.forParentB", "lp.forParentL", () => enter("#/faq")),
-      card(ICONS.presentation, "lp.forTeacherT", "lp.forTeacherB", "lp.forTeacherL", () => { location.hash = "#/teachers"; }),
+      card(ICONS.graduation, "lp.forStudentT", "lp.forStudentB", "lp.forStudentL", "#/", () => openWelcomeQuiz()),
+      card(ICONS.users, "lp.forParentT", "lp.forParentB", "lp.forParentL", "#/faq", () => enter("#/faq")),
+      card(ICONS.presentation, "lp.forTeacherT", "lp.forTeacherB", "lp.forTeacherL", "#/teachers", () => { location.hash = "#/teachers"; }),
     ]),
   ]);
 }
@@ -453,10 +458,6 @@ export function stepsSection(titleKey, items) {
   ]);
 }
 
-function steps() {
-  return stepsSection("lp.stepsTitle", ["lp.s1", "lp.s2", "lp.s3"]);
-}
-
 /** Real reviews, newest first: approved ones from the server (written in #/rate) plus any added by
  *  hand in js/data/reviews.js. The section stays hidden until there is at least one — the server
  *  list arrives after first paint, so it fills in then. Each quote keeps the language it was
@@ -513,9 +514,14 @@ function closer() {
 }
 
 export function footer() {
+  // Links into the app itself go through enter(), like the page's own buttons, so the visitor
+  // counts as onboarded and the app's Home doesn't bounce them back to this page.
+  const APP_ROUTES = new Set(["#/solve", "#/hp", "#/exam-prep"]);
   const col = (title, links) => el("div.lp-foot__col", {}, [
     el("h4", {}, t(title)),
-    el("ul", {}, links.map(([href, key]) => el("li", {}, [el("a", { href }, t(key))]))),
+    el("ul", {}, links.map(([href, key]) => el("li", {}, [el("a", {
+      href, onclick: APP_ROUTES.has(href) ? (e) => { e.preventDefault(); enter(href); } : null,
+    }, t(key))]))),
   ]);
   return el("footer.lp-foot", {}, [
     el("div.lp-foot__inner", {}, [
