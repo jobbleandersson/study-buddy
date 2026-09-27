@@ -3298,7 +3298,7 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 
 .tonightcard { display: flex; align-items: center; gap: 14px; margin: 0 0 var(--s-5); padding: 14px 16px; text-decoration: none; transition: transform var(--dur-fast) var(--ease-spring); }
 .tonightcard:hover { transform: translateY(-1px); }
-.tonightcard__moon, .lp-trust__icon { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--brand-tint); color: var(--brand-ink); display: grid; place-items: center; }
+.tonightcard__moon { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--brand-tint); color: var(--brand-ink); display: grid; place-items: center; }
 .tonightcard__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .tonightcard__text strong { font-size: var(--fs-md); font-weight: 600; }
 .tonightcard__text span { font-size: 14px; color: var(--ink-soft); }
