@@ -265,7 +265,12 @@ export async function generateTalkScript({ material }) {
 
 // ---------- streaming tutor ----------
 
-export async function* tutorStream({ system, messages, signal, maxTokens = 800 }) {
+/** Known upstream mid-stream error types, mapped to an already-translated message — the raw Anthropic
+ *  text (e.g. "Overloaded") is English and not something to show a student. Falls through to the raw
+ *  message only for a type this doesn't recognise. */
+const STREAM_ERROR_KEYS = { overloaded_error: "err.upstream", rate_limit_error: "err.rateLimited" };
+
+export async function* tutorStream({ system, messages, signal, maxTokens = 800, onStop } = {}) {
   const res = await fetch(API_URL, {
     method: "POST",
     headers: headers(),
@@ -299,8 +304,11 @@ export async function* tutorStream({ system, messages, signal, maxTokens = 800 }
       try { json = JSON.parse(payload); } catch { continue; }
       if (json.type === "content_block_delta" && json.delta?.type === "text_delta") {
         yield json.delta.text;
+      } else if (json.type === "message_delta" && json.delta?.stop_reason) {
+        onStop?.(json.delta.stop_reason);
       } else if (json.type === "error") {
-        throw new ClaudeError(json.error?.message || t("err.network"));
+        const key = STREAM_ERROR_KEYS[json.error?.type];
+        throw new ClaudeError(key ? t(key) : json.error?.message || t("err.network"));
       }
     }
   }

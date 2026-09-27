@@ -40,6 +40,12 @@ describe("study-modes", () => {
     assert.match(studyModeRules("debate"), /OTHER side/);
   });
 
+  test("maths and arithmetic are explicitly in scope in every mode, not just the default persona", () => {
+    const sys = buildStudySystem("quiz");
+    assert.match(sys, /maths and arithmetic/i);
+    assert.match(sys, /never as off-topic/i);
+  });
+
   test("buildStudySystem = shared rules + mode rules + the reply-language line", () => {
     const sys = buildStudySystem("compare", "\n\nLANGUAGE: Swedish");
     assert.match(sys, /study assistant/);
