@@ -66,7 +66,7 @@ function draw(ctx, { emoji, headline, caption, tag, tone = "brand" }) {
 
   ctx.font = "700 42px Inter, Arial, sans-serif";
   ctx.globalAlpha = 0.85;
-  ctx.fillText("Studify", cx, wordmarkY);
+  ctx.fillText("PluggEra", cx, wordmarkY);
   ctx.globalAlpha = 1;
 
   // Measure every block first, then centre the whole group in the space
@@ -134,7 +134,7 @@ function openModal(blob, filename) {
 
   const shareBtn = canShareFile ? el("button.btn", {
     type: "button",
-    onclick: async () => { try { await navigator.share({ files: [file], title: "Studify" }); } catch {} },
+    onclick: async () => { try { await navigator.share({ files: [file], title: "PluggEra" }); } catch {} },
   }, [icon(ICONS.share, 16), t("share.shareButton")]) : null;
 
   const downloadLink = el("a.btn.btn--ghost", { href: url, download: filename, onclick: closeAll }, t("share.download"));

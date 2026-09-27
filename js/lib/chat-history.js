@@ -1,4 +1,4 @@
-// Studify AI chats and bookmarked answers, kept in this browser's localStorage. They are deliberately
+// PluggEra AI chats and bookmarked answers, kept in this browser's localStorage. They are deliberately
 // not part of the synced study state: a long chat can be big, and a device-local list is what the
 // history panel promises ("saved on this device"). Pure apart from the storage it is given, so it can
 // be unit-tested with a Map-backed stand-in.

@@ -64,7 +64,7 @@ export function header({ sections = false } = {}) {
     el("div.lp-head__inner", {}, [
       el("a.lp-brand", { href: "#/welcome" }, [
         el("img", { src: "assets/favicon.svg", alt: "", width: 28, height: 28 }),
-        el("span", {}, "Studify"),
+        el("span", {}, "PluggEra"),
       ]),
       el("nav.lp-nav", { "aria-label": t("lp.navAria") }, links),
       el("div.lp-head__actions", {}, [
@@ -158,7 +158,7 @@ function hero() {
     ]),
     el("div.lp-stage", {}, [
       el("figure.lp-stage__shot", {}, [
-        el("div.lp-frame__bar", { "aria-hidden": "true" }, [el("i"), el("i"), el("i"), el("span", {}, "studify")]),
+        el("div.lp-frame__bar", { "aria-hidden": "true" }, [el("i"), el("i"), el("i"), el("span", {}, "pluggera")]),
         el("img", {
           src: `assets/shots/home-${lang}.jpg`, alt: t("lp.heroAlt"),
           width: 2160, height: 1350, decoding: "async", fetchpriority: "high",
@@ -388,7 +388,7 @@ function audiences() {
   ]);
 }
 
-/** Why Studify is safe to use. Every line is a fact about how the app works today. */
+/** Why PluggEra is safe to use. Every line is a fact about how the app works today. */
 function trust() {
   const items = [[ICONS.book, 1], [ICONS.target, 2], [ICONS.shield, 3], [ICONS.lock, 4], [ICONS.flag, 5], [ICONS.users, 6]];
   return el("section.lp-sec", { id: "lp-trust" }, [
@@ -520,7 +520,7 @@ export function footer() {
   return el("footer.lp-foot", {}, [
     el("div.lp-foot__inner", {}, [
       el("div.lp-foot__about", {}, [
-        el("span.lp-foot__brand", {}, [el("img", { src: "assets/favicon.svg", alt: "", width: 24, height: 24 }), "Studify"]),
+        el("span.lp-foot__brand", {}, [el("img", { src: "assets/favicon.svg", alt: "", width: 24, height: 24 }), "PluggEra"]),
         el("p", {}, t("lp.footBlurb")),
         el("div.lp-foot__social", {}, [
           el("a.lp-foot__social-link", {
@@ -536,7 +536,7 @@ export function footer() {
       ]),
     ]),
     el("div.lp-foot__base", {}, [
-      el("span", {}, `© ${new Date().getFullYear()} Studify`),
+      el("span", {}, `© ${new Date().getFullYear()} PluggEra`),
       el("span", {}, t("footer.copy")),
     ]),
   ]);

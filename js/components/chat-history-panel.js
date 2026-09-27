@@ -1,4 +1,4 @@
-// The "Tidigare chattar" view inside Studify AI: past chats (searchable, grouped by day) and the
+// The "Tidigare chattar" view inside PluggEra AI: past chats (searchable, grouped by day) and the
 // answers you bookmarked. Data lives in lib/chat-history.js; this only draws it and reports clicks.
 
 import { el, clear, icon, ICONS } from "../lib/dom.js";

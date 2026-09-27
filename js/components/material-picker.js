@@ -1,4 +1,4 @@
-// "Välj material": the dialog behind the paperclip in Studify AI. Pick one of your own sets, or upload
+// "Välj material": the dialog behind the paperclip in PluggEra AI. Pick one of your own sets, or upload
 // a PDF / text file, and hand it back as chat material (lib/chat-material.js).
 
 import { el, clear, icon, ICONS, toast } from "../lib/dom.js";

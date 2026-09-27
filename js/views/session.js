@@ -1166,7 +1166,7 @@ function runSession(config) {
   function onLangSession() {
     const title = headTitle();
     headH2.textContent = title;
-    document.title = `${title} · Studify`;   // render() skips this on the chrome-only path
+    document.title = `${title} · PluggEra`;   // render() skips this on the chrome-only path
     badgeEl.textContent = badgeLabel(config);
     nextBtn.textContent = nextBtnLabel();
     skipBtn.textContent = t("session.skip");

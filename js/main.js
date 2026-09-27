@@ -711,7 +711,7 @@ function shell(contentNode) {
   const sidebar = el("nav.sidebar", { "aria-label": t("common.menu") }, [
     el("a.sidebar__brand", { href: "#/" }, [
       el("img", { src: "assets/favicon.svg", alt: "" }),
-      el("span.wordmark", {}, wordmark("Studify")),
+      el("span.wordmark", {}, wordmark("PluggEra")),
     ]),
     sidebarNav(),
     el("div.sidebar__foot", {}, [
@@ -727,7 +727,7 @@ function shell(contentNode) {
         el("div.topbar__inner", {}, [
           el("a.brand", { href: "#/", "aria-label": t("nav.home") }, [
             el("img", { src: "assets/favicon.svg", alt: "" }),
-            el("span.brand__name.wordmark", {}, wordmark("Studify")),
+            el("span.brand__name.wordmark", {}, wordmark("PluggEra")),
           ]),
           topSearch(),
           el("span.topbar__spacer"),
@@ -777,7 +777,7 @@ function siteFooter() {
       el("a", { href: "#/privacy" }, t("footer.privacy")),
       el("a", { href: `mailto:${CONTACT_EMAIL}` }, t("footer.contact")),
     ]),
-    el("span.sitefooter__copy", {}, `© ${new Date().getFullYear()} Studify`),
+    el("span.sitefooter__copy", {}, `© ${new Date().getFullYear()} PluggEra`),
   ]);
 }
 
@@ -839,8 +839,8 @@ async function render({ chromeOnly = false, softRefresh = false } = {}) {
     // should clear a scroll-hidden fab from whatever route came before it.
     if (!softRefresh) resetFabAway();
 
-    const title = result?.title || "Studify";
-    document.title = result?.title ? `${result.title} · Studify` : "Studify";
+    const title = result?.title || "PluggEra";
+    document.title = result?.title ? `${result.title} · PluggEra` : "PluggEra";
     window.scrollTo(0, keepY);
 
     // Deliberate focus + a single short announcement, rather than a live

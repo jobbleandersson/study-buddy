@@ -1,4 +1,4 @@
-// Study material attached to a Studify AI chat: one of the student's own sets (or a text file / PDF)
+// Study material attached to a PluggEra AI chat: one of the student's own sets (or a text file / PDF)
 // turned into a block of text the assistant answers from. Pure - no DOM, store or i18n.
 //
 // The set's questions are numbered F1, F2, ... and the assistant is asked to cite them as [F4]; the

@@ -1,4 +1,4 @@
-// "#/rate" — a signed-in student writes (or edits, or takes back) their one review of Studify.
+// "#/rate" — a signed-in student writes (or edits, or takes back) their one review of PluggEra.
 // Nothing goes public from here: the server keeps it as 'pending' until it's approved in
 // #/admin/reviews, and only then does it show on the front page. Server side: routes/reviews.js.
 

@@ -499,7 +499,7 @@ function backupPanel() {
   return panel;
 }
 
-/** "Gillar du Studify?" — asks a signed-in student with real history for a review (#/rate). Only
+/** "Gillar du PluggEra?" — asks a signed-in student with real history for a review (#/rate). Only
  *  once they've finished a few sessions, never if they already wrote one, and a dismissal keeps it
  *  away for 60 days on this device. Whether they have a review is asked once per page load (the
  *  home page re-renders on every store change); the panel starts hidden and shows once that's known. */

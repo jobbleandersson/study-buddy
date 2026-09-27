@@ -1,5 +1,5 @@
 // The public "for teachers" page at #/teachers — reachable from the main
-// front page's footer and closer, and from Studify's own site footer, so a
+// front page's footer and closer, and from PluggEra's own site footer, so a
 // teacher who's heard about the app (or a student pointing their teacher at
 // it) lands somewhere written for them specifically, not a repurposed
 // student pitch.
