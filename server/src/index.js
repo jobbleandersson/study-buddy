@@ -104,6 +104,20 @@ app.use((req, res, next) => {
   next();
 });
 
+// Once the site has its own domain, every other hostname it answers on (the .fly.dev address,
+// www.) permanently redirects there, so there is one copy of each page for search engines and one
+// origin for cookies/localStorage. Only page loads move: /api/* stays reachable on the old host so a
+// tab left open there keeps working until it's reloaded. Browsers carry the #/route fragment across
+// the redirect, so deep links survive. Unset (the default, and in local dev) = no redirect.
+const CANONICAL_HOST = process.env.CANONICAL_HOST;
+if (CANONICAL_HOST) {
+  app.use((req, res, next) => {
+    if ((req.method !== "GET" && req.method !== "HEAD") || req.path.startsWith("/api/")) return next();
+    if (req.get("host") === CANONICAL_HOST) return next();
+    res.redirect(301, `https://${CANONICAL_HOST}${req.originalUrl}`);
+  });
+}
+
 // Optional shared-password gate for private testing. Set SITE_PASSWORD in the
 // host's env to switch it on; unset (the default) leaves the site open. The
 // /api/* paths are exempt so Stripe webhooks and the app's own API — which have

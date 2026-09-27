@@ -78,7 +78,7 @@ later (`fly secrets unset SITE_PASSWORD`) when you're ready to actually publish.
 ### Optional: Sign in with Google
 
 1. [Google Cloud Console](https://console.cloud.google.com/) → APIs & Services → **OAuth consent screen**: External, add app name + support email, then **Publish app** (otherwise only test users can sign in).
-2. **Credentials → Create credentials → OAuth client ID → Web application.** Under *Authorized JavaScript origins* add `https://studybuddy-jobble.fly.dev` (and `http://localhost:8787` for local dev). No redirect URIs are needed.
+2. **Credentials → Create credentials → OAuth client ID → Web application.** Under *Authorized JavaScript origins* add `https://pluggera.se` (and `http://localhost:8787` for local dev). No redirect URIs are needed.
 3. Copy the Client ID (it is public, not a secret) and set it:
 
 ```bash
@@ -90,7 +90,7 @@ The Google button then appears on the sign-in screen. Unset = no button. A Googl
 ### Approving reviews
 
 Students write reviews at `#/rate`; none show on the front page until someone approves them at
-`https://studybuddy-jobble.fly.dev/#/admin/reviews`. That page asks for a key, which you pick once
+`https://pluggera.se/#/admin/reviews`. That page asks for a key, which you pick once
 and set here (anything long and random — both of you use the same one):
 
 ```bash
@@ -112,7 +112,7 @@ fly secrets set PUBLIC_INDEXING=true
 
 and remove the `<meta name="robots" content="noindex, nofollow">` line from `index.html`. Then add
 the site in [Google Search Console](https://search.google.com/search-console) and submit
-`https://studybuddy-jobble.fly.dev/sitemap.xml`.
+`https://pluggera.se/sitemap.xml`.
 
 ## 4. Deploy
 
@@ -148,18 +148,76 @@ fly deploy
 ...just works, using the `fly.toml` already in the repo — they don't create
 anything new, they're deploying to the same app you made in step 1.
 
-## 6. Custom domain
+## 6. Custom domain (pluggera.se)
 
-Once you have a domain:
+The code side is already done: the app builds every link from the address it's reached at, and
+`CANONICAL_HOST` (off until you set it) sends every other hostname to the real one. What's left is
+Fly, DNS, and two secrets — in this order, because the redirect must not go live before the
+certificate does.
+
+**Before (any time today):** deploy `main` as usual — `CANONICAL_HOST` is unset, so nothing changes
+yet. If the registrar lets you, lower the TTL on `pluggera.se` to 300 s so mistakes clear quickly.
+
+**1. Ask Fly for certificates**
 
 ```bash
-fly certs add yourdomain.com
+fly certs add pluggera.se
+fly certs add www.pluggera.se
 ```
 
-It prints the DNS records to add (A/AAAA, or a CNAME for something like
-`www`). Add those at your domain registrar, wait for DNS to propagate
-(minutes to a couple hours), and Fly issues and renews the HTTPS certificate
-automatically — no certbot, no manual renewal, ever.
+Each prints the exact DNS records it wants. Typically: for `pluggera.se` an **A** record (Fly's
+IPv4) and an **AAAA** record (the app's IPv6) — `fly ips list` shows both; a bare domain can't be a
+CNAME. For `www` a **CNAME** to `studybuddy-jobble.fly.dev`. If `fly ips list` shows no v6 address,
+run `fly ips allocate-v6` first. Follow what the command prints over this paragraph if they differ.
+
+**2. Add those records at the registrar** (Loopia / One.com / Binero / wherever `pluggera.se` is
+registered). Delete any existing A/AAAA records the registrar added for its parking page — they'll
+fight Fly's.
+
+**3. Wait for the certificate**
+
+```bash
+fly certs check pluggera.se        # repeat until it says the certificate is issued
+fly certs check www.pluggera.se
+curl -i https://pluggera.se/api/health    # expect 200 {"ok":true,...}
+```
+
+Minutes usually, a couple of hours at worst. Don't go on until `curl` works.
+
+**4. Make it the real address** (restarts the app — a few seconds):
+
+```bash
+fly secrets set CANONICAL_HOST=pluggera.se PUBLIC_URL=https://pluggera.se
+```
+
+`CANONICAL_HOST` turns on the 301 from `studybuddy-jobble.fly.dev` and `www.pluggera.se`;
+`PUBLIC_URL` is what verification/reset emails link to.
+
+**5. Check**
+
+```bash
+curl -sI https://studybuddy-jobble.fly.dev/ | grep -i -E "^HTTP|^location"   # 301 -> https://pluggera.se/
+curl -sI https://www.pluggera.se/        | grep -i -E "^HTTP|^location"   # 301 -> https://pluggera.se/
+```
+
+Then open `https://pluggera.se` on a phone and sign in.
+
+**6. Accounts that point at the old address**
+
+- Google sign-in (if on): add `https://pluggera.se` under *Authorized JavaScript origins* — otherwise
+  the Google button silently fails on the new domain.
+- Email (when you turn on Resend): verify `pluggera.se` as a sending domain in Resend (it gives you
+  a few DNS records), then `fly secrets set EMAIL_FROM="Studify <noreply@pluggera.se>"`.
+- Search Console, when you go public: add `pluggera.se` as a *Domain* property.
+
+**What people notice:** logins and on-device data belong to one web address, so everyone signs in
+once more on `pluggera.se` — their synced progress comes straight back. A guest who never made an
+account keeps their old progress only at the old address. An installed home-screen app from the old
+address opens the new one automatically.
+
+**Undo:** `fly secrets unset CANONICAL_HOST` stops the redirect within seconds. Browsers remember a
+301 for a while, so anyone who already got it keeps going to `pluggera.se` — fix forward there rather
+than trying to move back.
 
 ## Day to day, from here on
 

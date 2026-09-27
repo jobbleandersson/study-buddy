@@ -1,5 +1,6 @@
 import { test, describe, before, after } from "node:test";
 import assert from "node:assert/strict";
+import http from "node:http";
 import { startServer, makeClient } from "./harness.mjs";
 
 describe("security headers", () => {
@@ -27,6 +28,40 @@ describe("security headers", () => {
       const res = await fetch(`${server.baseUrl}${p}`);
       assert.equal(res.status, 404, `expected ${p} to be blocked`);
     }
+  });
+});
+
+describe("canonical host redirect", () => {
+  let server;
+  const raw = (p, init = {}) => fetch(`${server.baseUrl}${p}`, { redirect: "manual", ...init });
+  after(async () => { if (server) await server.stop(); });
+
+  test("off by default: pages are served on whatever host they're asked for", async () => {
+    server = await startServer({ CANONICAL_HOST: "" });
+    assert.equal((await raw("/")).status, 200);
+    await server.stop(); server = null;
+  });
+
+  test("when set, page loads on another host 301 to the same path on the canonical one", async () => {
+    server = await startServer({ CANONICAL_HOST: "pluggera.se" });
+    for (const p of ["/", "/ova/ak9-matematik?x=1", "/sitemap.xml"]) {
+      const res = await raw(p);
+      assert.equal(res.status, 301, p);
+      assert.equal(res.headers.get("location"), `https://pluggera.se${p}`);
+    }
+  });
+
+  test("API calls and non-GET requests are never redirected", async () => {
+    assert.equal((await raw("/api/health")).status, 200);
+    assert.notEqual((await raw("/", { method: "POST" })).status, 301);
+  });
+
+  test("a request already on the canonical host is served normally", async () => {
+    // fetch() won't send a custom Host header, so this one goes through node:http directly.
+    const status = await new Promise((resolve, reject) => {
+      http.get(`${server.baseUrl}/`, { headers: { host: "pluggera.se" } }, (res) => { res.resume(); resolve(res.statusCode); }).on("error", reject);
+    });
+    assert.equal(status, 200);
   });
 });
 
