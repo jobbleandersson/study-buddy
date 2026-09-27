@@ -47,10 +47,12 @@ describe("public practice pages (indexing off, the default)", () => {
     assert.match(set.body, /"@type":"BreadcrumbList"/);
   });
 
-  test("unknown subjects and sets fall through to the app, not a crash", async () => {
+  test("unknown subjects and sets answer a real, never-indexed 404 page, not a crash", async () => {
     for (const p of ["/ova/nope", "/ova/ak9-matematik/nope"]) {
       const { status, body } = await get(server.baseUrl, p);
-      assert.equal(status, 200, p);                 // the SPA fallback
+      assert.equal(status, 404, p);
+      assert.match(body, /Sidan hittades inte/, p);
+      assert.match(body, /<meta name="robots" content="noindex, nofollow"/, p);
       assert.doesNotMatch(body, /class="ova-q"/, p);
     }
   });
