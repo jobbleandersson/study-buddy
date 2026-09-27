@@ -2,6 +2,10 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8" />
+  <!-- Every asset/script/data path below is relative. Without this, a request that falls through
+       to this file from a deep path (a stale /ova/... link, a typo) resolves them against THAT
+       path instead of the site root — a blank, unstyled page with every request 404ing. -->
+  <base href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PluggEra</title>
   <meta name="description" content="Plugga smartare med PluggEra: färdiga övningsset för åk 7 till gymnasiet och högskoleprovet, en handledare som förklarar, och repetition precis innan du glömmer. Gratis och utan reklam." />

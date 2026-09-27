@@ -139,8 +139,8 @@ function questionHtml(q, i) {
   </li>`;
 }
 
-function page({ title, description, canonical, crumbs, body }) {
-  const robots = indexing() ? "index, follow" : "noindex, nofollow";
+function page({ title, description, canonical, crumbs, body, noindex = false }) {
+  const robots = indexing() && !noindex ? "index, follow" : "noindex, nofollow";
   const ld = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -201,6 +201,23 @@ function page({ title, description, canonical, crumbs, body }) {
 
 const origin = (req) => `${req.protocol}://${req.get("host")}`;
 
+// A stale/mistyped /ova/... link: answer a real 404 (never indexed, whatever PUBLIC_INDEXING says)
+// instead of falling through to the app shell, which a search engine would read as a live 200 page.
+function sendNotFound(req, res) {
+  const o = origin(req);
+  res.status(404);
+  send(res, page({
+    title: "Sidan hittades inte | PluggEra",
+    description: "Den här övningssidan finns inte, eller har flyttats.",
+    canonical: `${o}${req.path}`,
+    crumbs: [["Övningsfrågor", `${o}/ova`]],
+    noindex: true,
+    body: `<h1>Sidan hittades inte</h1>
+      <p class="ova-lead">Vi kunde inte hitta den övningssidan. Den kan ha tagits bort eller bytt namn.</p>
+      <p><a class="ova-btn" href="/ova">Se alla övningsämnen</a></p>`,
+  }));
+}
+
 function send(res, html) {
   // Private while SITE_PASSWORD gates the site: a shared proxy/CDN must not cache and replay an
   // authenticated response to a later visitor who hasn't entered the password.
@@ -232,10 +249,10 @@ practicePages.get(["/ova", "/ova/"], (req, res) => {
   }));
 });
 
-practicePages.get("/ova/:subject", (req, res, next) => {
+practicePages.get("/ova/:subject", (req, res) => {
   const { subjects, bySubject, levelById } = loadLibrary();
   const subject = subjects.find((s) => s.id === req.params.subject);
-  if (!subject) return next();
+  if (!subject) return sendNotFound(req, res);
   const level = levelById.get(subject.level);
   const o = origin(req);
   const sets = bySubject.get(subject.id);
@@ -252,12 +269,12 @@ practicePages.get("/ova/:subject", (req, res, next) => {
   }));
 });
 
-practicePages.get("/ova/:subject/:slug", (req, res, next) => {
+practicePages.get("/ova/:subject/:slug", (req, res) => {
   const { bySubject, subjects, levelById, byPath } = loadLibrary();
   const set = byPath.get(`/ova/${req.params.subject}/${req.params.slug}`);
-  if (!set) return next();
+  if (!set) return sendNotFound(req, res);
   const doc = readSet(set);
-  if (!doc) return next();
+  if (!doc) return sendNotFound(req, res);
   const subject = subjects.find((s) => s.id === set.subject);
   const level = levelById.get(subject.level);
   const o = origin(req);
