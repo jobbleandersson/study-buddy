@@ -34,11 +34,13 @@ import { homeButton } from "../components/nav.js";
 import { bindFileTargets } from "../components/file-drop.js";
 import { solveTabs } from "../components/solve-tabs.js";
 import { aiQuotaNote } from "../components/ai-gate.js";
-import { mascot, setMood } from "../components/mascot.js";
+import { aiHead } from "../components/ai-head.js";
+import { setMood } from "../components/mascot.js";
 import { openMaterialPicker } from "../components/material-picker.js";
 import { chatHistoryPanel } from "../components/chat-history-panel.js";
 import { materialSystemBlock, extractSourceRefs } from "../lib/chat-material.js";
 import { newChatId, saveChat, chatTitle, addSaved, removeSaved, findSaved } from "../lib/chat-history.js";
+import { setSessionActive } from "../lib/session-active.js";
 
 /** How much of a long pasted text is echoed back in the student's own bubble — the message
  *  sent to the model is never truncated, only what's shown (a page of notes shouldn't make
@@ -47,7 +49,9 @@ const ECHO_CHARS = 600;
 
 export function renderSolve(qs) {
   const root = el("div.solve");
-  const canChat = store.hasKey();
+  // Re-derived on every store "change" (a quota hit, a sign-in) by paintAvailability() — never a
+  // one-time snapshot, or the composer and mode tiles go stale until the student leaves and returns.
+  let canChat = store.hasKey();
   const state = {
     mode: isStudyMode(qs?.get?.("mode")) ? qs.get("mode") : null,   // null = the default "help with a problem" persona
     messages: [],       // Anthropic-format history for this conversation
@@ -61,9 +65,9 @@ export function renderSolve(qs) {
   // Built once; mutated directly from here on (streaming and attach
   // previews need to update in place without losing focus or typed text).
   let refs = null;
-  // The chat header's avatar — its mood follows the same busy/idle rhythm as the
-  // help-chat bubble's (site-chat.js), so the assistant visibly "thinks" while streaming.
-  const mascotEl = mascot("idle", 40);
+  // The shared identity strip (avatar + live/off status) — its mood follows the same busy/idle
+  // rhythm as the help-chat bubble's (site-chat.js), so the assistant visibly "thinks" while streaming.
+  let head = null;
 
   /** The default persona has its own strings (solve.*, unchanged from before the modes existed);
    *  each study mode has its own (chat.intro.<id> / chat.placeholder.<id>). */
@@ -121,6 +125,16 @@ export function renderSolve(qs) {
     return node;
   }
 
+  /** Brings a new reply's top edge into view once, then lets it grow downward without chasing every
+   *  streamed chunk to the bottom — a long answer used to always end up scrolled past its own start
+   *  by the time it finished, so the heading/first item was the one thing you had to scroll back for. */
+  function followReply(bubble) {
+    const log = refs.logEl;
+    const bubbleTop = bubble.getBoundingClientRect().top - log.getBoundingClientRect().top + log.scrollTop;
+    const maxScroll = Math.max(0, log.scrollHeight - log.clientHeight);
+    log.scrollTop = Math.min(maxScroll, bubbleTop);
+  }
+
   function appendWelcome() {
     // el() wants dot-separated classes in the tag string, not space-separated (a space in a single
     // token throws on classList.add) — appendBubble's `who` is always one plain word, so add the
@@ -175,17 +189,20 @@ export function renderSolve(qs) {
     refs.inputEl.value = "";
     autosize();
     refs.resetBtn.hidden = true;
-    refs.inputEl.disabled = !canChat;
-    refs.attachBtn.disabled = !canChat;
-    refs.materialBtn.disabled = !canChat;
+    paintAvailability();
     paintModes();
     paintMaterial();
     if (canChat) refs.inputEl.focus();
   }
 
   function pickMode(id) {
+    // Every finished exchange is already in "Tidigare chattar" (persist(), above) — so switching mode
+    // mid-conversation doesn't lose it, just leaves it. Say so, since starting a blank thread with no
+    // warning reads as if a running quiz just vanished.
+    const hadChat = state.messages.length > 0;
     state.mode = state.mode === id ? null : id;   // tap the active one again to go back to the default persona
     resetChat({ keepMaterial: true });            // a new thread, but "quiz me" on the set you attached is the point
+    if (hadChat) toast(t("solve.chatSavedToast"));
   }
 
   /** Open a saved chat: its mode, its material and every message, ready to carry on. */
@@ -212,9 +229,7 @@ export function renderSolve(qs) {
     refs.inputEl.value = "";
     autosize();
     refs.resetBtn.hidden = false;
-    refs.inputEl.disabled = !canChat;
-    refs.attachBtn.disabled = !canChat;
-    refs.materialBtn.disabled = !canChat;
+    paintAvailability();
     paintModes();
     paintMaterial();
     refs.logEl.scrollTop = refs.logEl.scrollHeight;
@@ -223,6 +238,26 @@ export function renderSolve(qs) {
   /** Once there is a conversation the page trades its chrome for room to read: see .solve.is-chatting. */
   function paintChatting() {
     root.classList.toggle("is-chatting", state.messages.length > 0);
+  }
+
+  /** Re-reads store.canUseAI() live — called at mount and again on every store "change" (a quota hit,
+   *  a sign-in), so the composer and mode tiles never go stale until the student leaves and returns. */
+  function paintAvailability() {
+    canChat = head.paint();
+    refs.inputEl.disabled = !canChat;
+    refs.attachBtn.disabled = !canChat;
+    refs.materialBtn.disabled = !canChat;
+    refs.sendBtn.disabled = !canChat;
+    for (const btn of refs.modeBtns) btn.disabled = !canChat;
+    paintGate();
+  }
+
+  /** The note above the log explaining why the AI is off (sign in / quota / no server) — a persistent
+   *  container so it can be swapped in and out live, not just decided once at build time. */
+  function paintGate() {
+    clear(refs.gateEl);
+    refs.gateEl.hidden = canChat;
+    if (!canChat) refs.gateEl.appendChild(gateNote());
   }
 
   /** The chip above the input: which set or file the answers come from, and how much of it fits. */
@@ -318,30 +353,48 @@ export function renderSolve(qs) {
     refs.inputEl.disabled = true;
     refs.attachBtn.disabled = true;
     refs.materialBtn.disabled = true;
-    setMood(mascotEl, "thinking");
+    refs.sendBtn.disabled = true;
+    setMood(head.mascotEl, "thinking");
     const bubble = appendBubble("ai", `<span class="typing"><span></span><span></span><span></span></span>`);
     state.abort = new AbortController();
     const mine = state.abort;
     let acc = "";
+    let stopReason = null;
     try {
       for await (const chunk of tutorStream({
         system: (state.mode ? studyChatSystem(state.mode) : solveChatSystem()) + materialSystemBlock(state.material),
         messages: trimHistory(state.messages),
         signal: mine.signal,
+        onStop: (r) => { stopReason = r; },
       })) {
         acc += chunk;
         renderReply(bubble, acc, false);
-        refs.logEl.scrollTop = refs.logEl.scrollHeight;
+        followReply(bubble);
       }
-      state.messages.push({ role: "assistant", content: acc || "…" });
-      renderReply(bubble, acc, true);
+      if (!acc.trim()) {
+        // A real (if unhelpful) reply, not an error — don't leave the typing dots spinning forever,
+        // and don't store an assistant turn that only ever said "…".
+        bubble.textContent = t("tutor.emptyReply");
+        bubble.classList.add("msg--error");
+      } else {
+        state.messages.push({ role: "assistant", content: acc });
+        renderReply(bubble, acc, true);
+        if (stopReason === "max_tokens") bubble.appendChild(el("p.msg__errnote", {}, t("tutor.truncated")));
+        announce(t("tutor.prefix", { text: acc }));
+      }
       persist();
-      announce(t("tutor.prefix", { text: acc }));
     } catch (e) {
       if (mine.signal.aborted) return;   // resetChat() already cleared this thread — nothing left to update
       const msg = e instanceof ClaudeError ? e.message : t("tutor.snag");
-      bubble.textContent = msg;
-      bubble.classList.add("msg--error");
+      if (acc.trim()) {
+        // Something real was under way when it broke — keep it on screen and note the error
+        // underneath, rather than wiping a partial answer the student could already read.
+        renderReply(bubble, acc, false);
+        bubble.appendChild(el("p.msg__errnote", {}, msg));
+      } else {
+        bubble.textContent = msg;
+        bubble.classList.add("msg--error");
+      }
       state.messages.pop();   // the failed question isn't part of the history; they can send it again
       paintChatting();
       persist();
@@ -349,10 +402,8 @@ export function renderSolve(qs) {
     } finally {
       if (state.abort === mine) {
         state.busy = false;
-        refs.inputEl.disabled = !canChat;
-        refs.attachBtn.disabled = !canChat;
-        refs.materialBtn.disabled = !canChat;
-        setMood(mascotEl, "idle");
+        paintAvailability();
+        setMood(head.mascotEl, "idle");
         if (canChat) refs.inputEl.focus();
       }
     }
@@ -420,12 +471,7 @@ export function renderSolve(qs) {
     // still keep the name for screen readers and as a tooltip.
     }, [icon(ICONS[m.icon] || ICONS.spark, 18), el("span.chatmode__label", {}, t(`chat.mode.${m.id}`))]));
 
-    if (!canChat) {
-      inputEl.disabled = true;
-      attachBtn.disabled = true;
-      materialBtn.disabled = true;
-      sendBtn.disabled = true;
-    }
+    const hintEl = el("span.solve-dock__hint", {}, t("solve.enterHint"));
 
     // One docked card: the seven ways to study on top, then the box, then attach + send.
     const formEl = el("form.solve-dock", { onsubmit: (e) => { e.preventDefault(); send(); } }, [
@@ -434,33 +480,31 @@ export function renderSolve(qs) {
       materialEl,
       pendingEl,
       inputEl,
-      el("div.solve-dock__row", {}, [attachBtn, materialBtn, el("span.solve-dock__hint", {}, t("solve.enterHint")), sendBtn]),
+      el("div.solve-dock__row", {}, [attachBtn, materialBtn, hintEl, sendBtn]),
     ]);
 
-    refs = { logEl, pendingEl, inputEl, attachBtn, materialBtn, materialEl, resetBtn, historyBtn, modeBtns, formEl, panel: null, history: null };
+    const gateEl = el("div.solve-gate", { hidden: true });
+    const tabsEl = solveTabs("help");
 
+    refs = {
+      logEl, pendingEl, inputEl, attachBtn, materialBtn, materialEl, sendBtn, hintEl,
+      resetBtn, historyBtn, modeBtns, gateEl, tabsEl, formEl, panel: null, history: null,
+    };
+
+    head = aiHead([resetBtn, historyBtn]);
     root.appendChild(homeButton({ grid: true }));
-    root.appendChild(el("div.solvehead", {}, [
-      mascotEl,
-      el("div.solvehead__id", {}, [
-        el("h1.solvehead__name", {}, t("solve.aiName")),
-        el("p.solvehead__status", {}, canChat
-          ? [el("i.solvehead__livedot", { "aria-hidden": "true" }), t("solve.aiStatus")]
-          : [el("i.solvehead__livedot.is-off", { "aria-hidden": "true" }), t("solve.aiOffline")]),
-      ]),
-      resetBtn,
-      historyBtn,
-    ]));
-    root.appendChild(solveTabs("help"));
+    root.appendChild(head.node);
+    root.appendChild(tabsEl);
     const panel = el("div.solve-chat.solve-chat__panel", {}, [
-      canChat ? null : gateNote(),
+      gateEl,
       logEl,
       formEl,
-      canChat ? el("div.solve-chat__drop", { "aria-hidden": "true" }, t("solve.dropHere")) : null,
-    ].filter(Boolean));
+      el("div.solve-chat__drop", { "aria-hidden": "true" }, t("solve.dropHere")),
+    ]);
     refs.panel = panel;
     root.appendChild(panel);
 
+    paintAvailability();
     paintModes();
     paintMaterial();
     if (canChat) appendWelcome();
@@ -469,18 +513,61 @@ export function renderSolve(qs) {
     // and the visitor loses the page) and answered with the reason instead.
     bindFileTargets(panel, {
       accept: "image/*", paste: canChat,
-      onFiles: canChat
-        ? ([file]) => attachImage(file)
-        : () => toast(blockedToast()),
+      // Drop is always caught (see the comment above), so it must check live availability, not the
+      // moment this listener was bound — otherwise signing in mid-page leaves it stuck on the toast.
+      onFiles: ([file]) => (canChat ? attachImage(file) : toast(blockedToast())),
       onReject: () => toast(t("err.imageType")),
     });
   }
 
+  /** A language switch (see main.js's "sb:langchange"): re-labels every piece of chrome in place —
+   *  mode tiles, tabs, hints, the gate note, the identity strip — without touching the conversation
+   *  itself. The welcome bubble is chrome too (it's the mode's own instructional opener, not something
+   *  the student wrote or the AI answered), so it's redrawn along with everything else, but only while
+   *  no real exchange has happened yet. */
+  function onLangSession() {
+    document.title = `${t("solve.pageTitle")} · PluggEra`;
+    for (const btn of refs.modeBtns) {
+      const label = t(`chat.mode.${btn.dataset.mode}`);
+      btn.title = label;
+      btn.querySelector(".chatmode__label").textContent = label;
+    }
+    refs.hintEl.textContent = t("solve.enterHint");
+    refs.resetBtn.textContent = t("solve.newChat");
+    refs.historyBtn.title = t("solve.historyOpen");
+    refs.historyBtn.setAttribute("aria-label", t("solve.historyOpen"));
+    refs.attachBtn.title = t("solve.uploadHint");
+    refs.attachBtn.setAttribute("aria-label", t("solve.attachLabel"));
+    refs.materialBtn.title = t("solve.attachMaterial");
+    refs.materialBtn.setAttribute("aria-label", t("solve.attachMaterial"));
+    refs.sendBtn.setAttribute("aria-label", t("tutor.send"));
+    const newTabs = solveTabs("help");
+    refs.tabsEl.replaceWith(newTabs);
+    refs.tabsEl = newTabs;
+    head.paint();
+    paintModes();
+    paintMaterial();
+    paintGate();
+    if (canChat && state.messages.length === 0 && !refs.history) {
+      clear(refs.logEl);
+      appendWelcome();
+    }
+    refs.history?.refresh();
+  }
+
   build();
+  window.addEventListener("sb:langsession", onLangSession);
+  store.addEventListener("change", paintAvailability);
+  setSessionActive(true);   // so a language switch relabels this page in place (see onLangSession) instead of rebuilding it
   return {
     title: t("solve.pageTitle"),
     node: root,
-    cleanup: () => state.abort?.abort(),
+    cleanup: () => {
+      state.abort?.abort();
+      window.removeEventListener("sb:langsession", onLangSession);
+      store.removeEventListener("change", paintAvailability);
+      setSessionActive(false);
+    },
   };
 }
 

@@ -19,6 +19,7 @@ import { budgetShare } from "../lib/check.js";
 import { homeButton } from "../components/nav.js";
 import { solveTabs } from "../components/solve-tabs.js";
 import { aiQuotaNote } from "../components/ai-gate.js";
+import { aiHead } from "../components/ai-head.js";
 import { bindFileTargets, pasteKey } from "../components/file-drop.js";
 
 export function renderCheck() {
@@ -71,8 +72,8 @@ export function renderCheck() {
     const canUse = store.hasKey();
     root.replaceChildren(...[
       homeButton({ grid: true }),
+      aiHead().node,
       solveTabs("check"),
-      el("h1", {}, t("check.title")),
       canUse ? null : gateNote(),
       st.phase === "intro" ? intro(canUse) : null,
       st.phase === "busy" ? busy() : null,

@@ -3315,8 +3315,10 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .solvetab:hover { color: var(--ink); }
 .solvetab.is-active { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-1); }
 
-.check { max-width: 680px; }
-.check > h1 { margin-bottom: var(--s-2); }
+/* Matches .solve's width so the two /solve tabs don't visibly jump size when you switch between
+   them; the actual reading content (intro, working, result) stays capped for legibility. */
+.check { width: 100%; max-width: 1180px; }
+.check-intro, .check-busy, .check-result { max-width: 760px; }
 .check-lead { margin: 0 0 var(--s-4); color: var(--ink-soft); line-height: 1.55; }
 .check-intro { display: flex; flex-direction: column; gap: var(--s-4); align-items: stretch; }
 .check-drop { width: 100%; min-height: 190px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 24px; border: 2px dashed var(--line-strong); border-radius: var(--r-lg); background: var(--surface); color: var(--ink); font: inherit; text-align: center; cursor: pointer; transition: border-color var(--dur-fast), background var(--dur-fast); }
@@ -3648,6 +3650,8 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .chatmode:hover { color: var(--ink); border-color: var(--brand-bright, var(--brand)); }
 .chatmode.is-on { color: var(--brand-ink, var(--brand)); background: var(--brand-tint); border-color: var(--brand); }
 .chatmode svg { flex: none; }
+.chatmode:disabled { opacity: .5; cursor: not-allowed; }
+.chatmode:disabled:hover { border-color: var(--line-strong); color: var(--ink-soft); }
 .home-panel--chat .chatmodes { margin: 6px 0 0; }
 .solve .msg.me { white-space: pre-wrap; overflow-wrap: anywhere; }
 /* Left-aligned with the page, wide, and the chat fills the screen: the composer sits at the bottom of
@@ -3969,6 +3973,9 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .msg__save:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); color: var(--ink); }
 .msg__save.is-on { color: var(--brand-ink); background: var(--brand-tint); }
 .msg__save.is-on svg { fill: currentColor; }
+/* A mid-stream error or truncation note, kept under whatever real text already streamed in rather
+   than replacing it — the answer stays readable, the note just explains why it stops there. */
+.msg__errnote { margin: var(--s-2) 0 0; font-size: var(--fs-sm); font-style: italic; color: var(--ink-faint); }
 
 .history { display: flex; flex-direction: column; gap: var(--s-3); flex: 1; min-height: 0; overflow-y: auto; }
 .history__top { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
