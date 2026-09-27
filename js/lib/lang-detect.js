@@ -91,7 +91,8 @@ export function segmentPrompt(text, targetCode) {
   // Text between quotes is judged a sentence at a time, so "Samma text. ¿Qué
   // hace Ana?" comes out as Swedish + Spanish rather than one muddle.
   const pushFrame = (s) => {
-    for (const sentence of s.split(/(?<=[.!?:])\s+/)) if (sentence.trim()) add(sentence.trim(), isTarget(sentence, false), false);
+    // Sentences by lookahead only (a lookbehind here is a SyntaxError on Safari before 16.4).
+    for (const sentence of s.match(/[\s\S]+?(?:[.!?:]+(?=\s|$)|$)/g) || []) if (sentence.trim()) add(sentence.trim(), isTarget(sentence, false), false);
   };
   let last = 0, m;
   const re = new RegExp(QUOTED.source, "g");
@@ -139,4 +140,116 @@ export function choicesAreTarget(choices, prompt, targetCode) {
   let g;
   while ((g = glossed.exec(p))) if (classify(g[1], targetCode) !== "ui") return true;
   return !segmentPrompt(p, targetCode).some((s) => s.quoted && s.target);
+}
+
+/* ---------------------------------------------------------------------------
+ * Which language is each PART of a text in? (no target language needed)
+ *
+ * Read-aloud must never voice Spanish in a Swedish voice or the reverse, and a sentence that mixes
+ * two languages has to change voice where the language changes. classify()/segmentPrompt() above
+ * answer that for a language set (the subject says what the target is); this answers it for any
+ * text - a tutor reply, a conversation line, a reading passage - across the five languages the
+ * word lists cover.
+ *
+ * Every word is labelled with the ONE language whose list holds it (a word in several lists, or
+ * one letter, says nothing), or with a language its spelling gives away (ñ, ß, å, ç ...). The path
+ * through the words that costs least is then the answer. So one stray word never flips the voice
+ * (the lists aren't perfect: Swedish "hund" is only in the German one); a foreign phrase inside a
+ * sentence needs about three words of evidence, a whole foreign sentence two (or one with a clear
+ * spelling), and a foreign word or phrase in quotes just one.
+ * ------------------------------------------------------------------------- */
+
+const CODES = ["sv", "en", "es", "de", "fr"];
+/** The locale to ask the device for, per language. */
+export const LANG_BCP = { sv: "sv-SE", en: "en-GB", es: "es-ES", de: "de-DE", fr: "fr-FR" };
+
+const WORD_LANG = new Map();
+{
+  const owners = new Map();
+  for (const c of CODES) for (const w of SETS[c]) owners.set(w, (owners.get(w) || []).concat(c));
+  for (const [w, cs] of owners) if (cs.length === 1 && w.length > 1) WORD_LANG.set(w, cs[0]);
+}
+// Characters only one of the five uses. Not é (French and Spanish), ä / ö (Swedish and German) or ü
+// (German and Spanish): those say nothing.
+const WORD_CUES = [["es", /[ñáíóú]/], ["fr", /[çœèêëàâîïôùû]/], ["de", /ß/], ["sv", /å/]];
+
+/** { lang, weight } for a word that points at one language, else null. Weight 1 is a word from that
+ *  language's list; 2 is a spelling only that language uses (ñ, ß, å ...), or both together - a word
+ *  like "dónde" is Spanish beyond doubt, while "hund" alone (it is Swedish too) is only a hint. */
+function wordLang(word) {
+  const w = word.toLowerCase();
+  if (w.length < 2) return null;
+  const listed = WORD_LANG.get(w) || null;
+  let cued = null;
+  for (const [lang, re] of WORD_CUES) if (re.test(w)) { cued = lang; break; }
+  if (listed && cued && listed !== cued) return { lang: listed, weight: 1 };
+  if (listed || cued) return { lang: listed || cued, weight: cued ? 2 : 1 };
+  return null;
+}
+
+const QUOTE_BETWEEN = /["“”«»„]/;                // a quoted word or phrase: set off, so cheap to switch
+const BREAK_BETWEEN = /[.!?…:;()\n\r—–]/;        // a sentence or clause break
+const OPENERS = /["“«„(¿¡]/;
+
+/**
+ * Split `text` into runs by language: [{ text, code }] with code one of sv / en / es / de / fr, in
+ * order, adjacent runs always different. `home` is the language assumed where there is no evidence
+ * (numbers, names, a run of unknown words). The runs joined together are exactly `text`.
+ */
+export function segmentByLanguage(text, home = "sv") {
+  const src = String(text ?? "");
+  const words = [];
+  for (const m of src.matchAll(/\p{L}+/gu)) {
+    const l = wordLang(m[0]);
+    words.push({ start: m.index, end: m.index + m[0].length, lang: l ? l.lang : null, weight: l ? l.weight : 0 });
+  }
+  const homeIx = Math.max(0, CODES.indexOf(home));
+  const homeCode = CODES[homeIx];
+  if (!words.length) return src.trim() ? [{ text: src, code: homeCode }] : [];
+
+  // Costs, in "words that disagree": a word of another language costs 2 x its weight. Changing language costs
+  // 0.1 at a quote. Mid-sentence, going INTO another language costs 3 and coming back to `home` costs 1, so a
+  // phrase inside a sentence needs three words (two would be a tie, which stays put) and one home-language word
+  // after it pulls the voice back. Across a sentence break, going into another language costs 2.2 - just more
+  // than one listed word is worth, so a foreign sentence needs two (or one with a clear spelling), and less
+  // than a mid-sentence switch, so the change lands at the break rather than at the first word we can
+  // identify - and coming back to `home` is free, so unmarked text after a foreign sentence isn't dragged
+  // along with it. Starting a text in a language other than `home` costs 2.5: two listed words, or one clear
+  // spelling.
+  const S = CODES.length, MISS = 2, INTO = 3, BACK_HOME = 1, BREAK_ENTER = 2.2, QUOTE_SWITCH = 0.1, START_OFF_HOME = 2.5;
+  const emit = (w, s) => (w.lang === null ? (s === homeIx ? 0 : 0.02) : (w.lang === CODES[s] ? 0 : MISS * w.weight));
+  const cost = words.map(() => new Array(S).fill(Infinity));
+  const back = words.map(() => new Array(S).fill(0));
+  for (let s = 0; s < S; s++) cost[0][s] = (s === homeIx ? 0 : START_OFF_HOME) + emit(words[0], s);
+  for (let i = 1; i < words.length; i++) {
+    const gap = src.slice(words[i - 1].end, words[i].start);
+    const kind = QUOTE_BETWEEN.test(gap) ? "quote" : BREAK_BETWEEN.test(gap) ? "break" : "word";
+    for (let s = 0; s < S; s++) {
+      let best = cost[i - 1][s] + emit(words[i], s), from = s;     // staying put wins a tie
+      const toHome = s === homeIx;
+      const change = kind === "quote" ? QUOTE_SWITCH : kind === "break" ? (toHome ? 0 : BREAK_ENTER) : (toHome ? BACK_HOME : INTO);
+      for (let p = 0; p < S; p++) {
+        if (p === s) continue;
+        const c = cost[i - 1][p] + change + emit(words[i], s);
+        if (c < best) { best = c; from = p; }
+      }
+      cost[i][s] = best; back[i][s] = from;
+    }
+  }
+  let s = 0;
+  for (let k = 1; k < S; k++) if (cost[words.length - 1][k] < cost[words.length - 1][s]) s = k;
+  const path = new Array(words.length);
+  for (let i = words.length - 1; i >= 0; i--) { path[i] = s; s = back[i][s]; }
+
+  const runs = [];
+  let cut = 0, cur = path[0];
+  for (let i = 1; i < words.length; i++) {
+    if (path[i] === cur) continue;
+    let at = words[i].start;
+    while (at > words[i - 1].end && OPENERS.test(src[at - 1])) at--;   // an opening quote goes with the run it opens
+    runs.push({ text: src.slice(cut, at), code: CODES[cur] });
+    cut = at; cur = path[i];
+  }
+  runs.push({ text: src.slice(cut), code: CODES[cur] });
+  return runs;
 }
