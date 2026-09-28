@@ -143,6 +143,10 @@ h1 { font-weight: 750; }
     flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
     font: inherit; font-size: 14px; color: var(--ink);
   }
+  /* The wrapper's :focus-within above already shows focus (border + background) —
+     without this, the input itself also picks up the global :focus-visible ring
+     (app.css), stacking a second, much heavier blue halo on top. */
+  .topsearch__input:focus-visible { box-shadow: none; }
   .topsearch__input::placeholder { color: var(--ink-faint); }
   .topsearch__input::-webkit-search-cancel-button { display: none; }
 }
