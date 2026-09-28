@@ -3869,6 +3869,12 @@ body:has(.empty--first) :is(.search, .filtertoggle, .filterdrawer, .tabs) { disp
 .auth__legal a { color: var(--ink-soft); text-decoration: none; display: inline-block; padding: 6px 2px; }
 .auth__legal a:hover { color: var(--ink); text-decoration: underline; }
 
+/* ---------- premium waitlist (#/premium) ---------- */
+.premium__card { max-width: 440px; }
+.premium__lead { margin: 0 0 var(--s-4); font-size: 1.05rem; line-height: 1.55; color: var(--ink-soft); }
+.premium__form { display: grid; gap: var(--s-4); }
+.premium__fine { margin: var(--s-3) 0 0; text-align: center; }
+
 /* the brand panel: headline, a question from the app, three facts — left-aligned */
 .auth__panel { display: none; }
 @media (min-width: 960px) {

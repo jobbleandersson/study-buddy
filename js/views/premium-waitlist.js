@@ -4,26 +4,33 @@
 // email against the day one does. No account needed: POSTs straight to
 // /api/waitlist/premium, same pattern as login.js's own form submit.
 
-import { el, toast } from "../lib/dom.js";
+import { el, icon, ICONS, toast } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { homeButton } from "../components/nav.js";
 import { serverMessage } from "../lib/server-errors.js";
 import { WAITLIST_PREMIUM_URL } from "../config.js";
 
+// Reuses the sign-in page's field/notice styling (.auth__field, .auth__control,
+// .auth__notice) for the same level of polish, without its full split-screen
+// layout — this is a lightweight pitch + email capture, not a sign-in flow.
 export function renderPremiumWaitlist() {
   const emailInput = el("input", { type: "email", required: true, autocomplete: "email", placeholder: t("login.emailPlaceholder") });
   const errorNote = el("p.note.note--warn", { hidden: true });
-  const submitBtn = el("button.btn", { type: "submit" }, t("set.premiumLink"));
+  const submitBtn = el("button.btn", { type: "submit" }, [t("set.premiumLink"), icon(ICONS.arrow, 18)]);
 
-  const form = el("form", { onsubmit: submit }, [
-    el("label.field", {}, [el("span", {}, t("login.email")), emailInput]),
+  const form = el("form.premium__form", { onsubmit: submit }, [
+    el("label.auth__field", {}, [
+      el("span", {}, t("login.email")),
+      el("div.auth__control", {}, [el("span.auth__icon", { "aria-hidden": "true" }, [icon(ICONS.mail, 18)]), emailInput]),
+    ]),
     errorNote,
     submitBtn,
   ]);
 
-  const panel = el("section.panel", {}, [
-    el("p.note", { style: { marginBottom: "16px" } }, t("premium.note")),
+  const panel = el("section.panel.premium__card", {}, [
+    el("p.premium__lead", {}, t("premium.lead")),
     form,
+    el("p.note.premium__fine", {}, t("premium.note")),
   ]);
 
   async function submit(e) {
@@ -40,7 +47,7 @@ export function renderPremiumWaitlist() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(serverMessage(data?.error?.message, t("login.somethingWrong")));
-      panel.replaceChildren(el("p.note", {}, t("premium.done")));
+      panel.replaceChildren(el("p.auth__notice", { role: "status" }, [icon(ICONS.check, 18), el("span", {}, t("premium.done"))]));
       toast(t("premium.done"));
     } catch (err) {
       errorNote.textContent = err.message;
@@ -54,7 +61,6 @@ export function renderPremiumWaitlist() {
     node: el("div.settings", {}, [
       homeButton({ grid: true }),
       el("h1", {}, t("premium.pageTitle")),
-      el("p.note", { style: { marginBottom: "16px" } }, t("premium.lead")),
       panel,
       el("a.btn.btn--ghost.pageback", { href: "#/", style: { marginTop: "8px", justifySelf: "start" } }, t("common.backToMenu")),
     ]),
