@@ -729,6 +729,13 @@ function shell(contentNode) {
             el("img", { src: "assets/favicon.svg", alt: "" }),
             el("span.brand__name.wordmark", {}, wordmark("PluggEra")),
           ]),
+          // Two equal spacers either side of the search bar center it in the
+          // space between the brand (hidden once the sidebar carries it, at
+          // >=900px) and the language/bell/account cluster, at any viewport
+          // width — a fixed padding on .topbar__inner can't do that, since the
+          // search bar's own natural position would otherwise sit wherever
+          // its flex-basis happens to land.
+          el("span.topbar__spacer"),
           topSearch(),
           el("span.topbar__spacer"),
           streakBadge(streak, atRisk),
