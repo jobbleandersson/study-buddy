@@ -2,6 +2,21 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8" />
+  <!-- pluggera.se is the only live domain. This file is also what GitHub Pages
+       serves at jobbleandersson.github.io/study-buddy/ (same repo, no server-side
+       redirect there) and the Fly app's fallback host, studybuddy-jobble.fly.dev
+       (which does have a server-side redirect already, but this covers the
+       edge case of served-from-cache / CDN-cached HTML on that host too) — bounce
+       both of those to the real domain before anything else loads. -->
+  <script>
+    if (location.hostname !== "pluggera.se") {
+      location.replace(
+        "https://pluggera.se" +
+        location.pathname.replace(/^\/study-buddy/, "") +
+        location.search + location.hash
+      );
+    }
+  </script>
   <!-- Every asset/script/data path below is relative. Without this, a request that falls through
        to this file from a deep path (a stale /ova/... link, a typo) resolves them against THAT
        path instead of the site root — a blank, unstyled page with every request 404ing. -->
