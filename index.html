@@ -9,7 +9,7 @@
        edge case of served-from-cache / CDN-cached HTML on that host too) — bounce
        both of those to the real domain before anything else loads. -->
   <script>
-    if (location.hostname !== "pluggera.se") {
+    if (location.hostname !== "pluggera.se" && !/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {
       location.replace(
         "https://pluggera.se" +
         location.pathname.replace(/^\/study-buddy/, "") +

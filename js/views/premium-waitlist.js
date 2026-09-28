@@ -18,7 +18,7 @@ export function renderPremiumWaitlist() {
   const errorNote = el("p.note.note--warn", { hidden: true });
   const submitBtn = el("button.btn", { type: "submit" }, [t("set.premiumLink"), icon(ICONS.arrow, 18)]);
 
-  const form = el("form.premium__form", { onsubmit: submit }, [
+  const form = el("form.formcard__form", { onsubmit: submit }, [
     el("label.auth__field", {}, [
       el("span", {}, t("login.email")),
       el("div.auth__control", {}, [el("span.auth__icon", { "aria-hidden": "true" }, [icon(ICONS.mail, 18)]), emailInput]),
@@ -27,10 +27,10 @@ export function renderPremiumWaitlist() {
     submitBtn,
   ]);
 
-  const panel = el("section.panel.premium__card", {}, [
-    el("p.premium__lead", {}, t("premium.lead")),
+  const panel = el("section.panel.formcard", {}, [
+    el("p.formcard__lead", {}, t("premium.lead")),
     form,
-    el("p.note.premium__fine", {}, t("premium.note")),
+    el("p.note.formcard__fine", {}, t("premium.note")),
   ]);
 
   async function submit(e) {

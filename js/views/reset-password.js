@@ -6,15 +6,19 @@ import { el, clear, icon, ICONS, toast } from "../lib/dom.js";
 import { t } from "../lib/i18n.js";
 import { passwordField } from "../components/password-field.js";
 
+// Reuses the sign-in page's field/error styling (.auth__field, .auth__control,
+// .auth__error) for the same polish, without its full split-screen layout —
+// same shared-card pattern as premium-waitlist.js (see .formcard in app.css).
 export function renderResetPassword(qs) {
   const token = qs?.get?.("token") || "";
   const body = el("div");
+  const fieldIcon = (input) => el("div.auth__control", {}, [el("span.auth__icon", { "aria-hidden": "true" }, [icon(ICONS.lock, 18)]), passwordField(input)]);
 
   function paintInvalid() {
     clear(body);
-    body.appendChild(el("p.note.note--warn", {}, t("reset.invalidTitle")));
-    body.appendChild(el("p.note", {}, t("reset.invalidBody")));
-    body.appendChild(el("a.btn", { href: "#/login", style: { marginTop: "var(--s-3)" } }, t("reset.requestNew")));
+    body.appendChild(el("p.auth__error", {}, t("reset.invalidTitle")));
+    body.appendChild(el("p.note", { style: { margin: "var(--s-3) 0 0" } }, t("reset.invalidBody")));
+    body.appendChild(el("a.btn", { href: "#/login", style: { marginTop: "var(--s-4)" } }, t("reset.requestNew")));
   }
 
   function paintForm() {
@@ -22,7 +26,7 @@ export function renderResetPassword(qs) {
     const passInput = el("input", { type: "password", placeholder: "••••••••" });
     const confirmInput = el("input", { type: "password", placeholder: "••••••••", autocomplete: "new-password" });
     const errorNote = el("p.note.note--warn", { hidden: true });
-    const submitBtn = el("button.btn", { type: "submit" }, t("reset.submit"));
+    const submitBtn = el("button.btn", { type: "submit" }, [t("reset.submit"), icon(ICONS.arrow, 18)]);
 
     async function submit(e) {
       e.preventDefault();
@@ -48,10 +52,10 @@ export function renderResetPassword(qs) {
       }
     }
 
-    body.appendChild(el("p.note", { style: { margin: "0 0 16px" } }, t("reset.body")));
-    body.appendChild(el("form", { onsubmit: submit }, [
-      el("label.field", {}, [el("span", {}, t("reset.newPassword")), passwordField(passInput)]),
-      el("label.field", {}, [el("span", {}, t("login.confirmPassword")), passwordField(confirmInput)]),
+    body.appendChild(el("p.formcard__lead", {}, t("reset.body")));
+    body.appendChild(el("form.formcard__form", { onsubmit: submit }, [
+      el("label.auth__field", {}, [el("span", {}, t("reset.newPassword")), fieldIcon(passInput)]),
+      el("label.auth__field", {}, [el("span", {}, t("login.confirmPassword")), fieldIcon(confirmInput)]),
       errorNote,
       submitBtn,
     ]));
@@ -61,7 +65,7 @@ export function renderResetPassword(qs) {
 
   const node = el("div.settings", {}, [
     el("h1", {}, t("reset.title")),
-    el("section.panel", {}, [body]),
+    el("section.panel.formcard", {}, [body]),
     el("a.btn.btn--ghost", { href: "#/login" }, [icon(ICONS.back, 16), t("login.back")]),
   ]);
 
