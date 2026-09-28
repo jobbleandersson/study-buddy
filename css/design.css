@@ -137,7 +137,7 @@ h1 { font-weight: 750; }
     background: var(--surface-sunk); color: var(--ink-faint);
     transition: border-color var(--dur-fast), background var(--dur-fast), box-shadow var(--dur-fast);
   }
-  .topsearch:focus-within { background: var(--surface); border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 18%, transparent); }
+  .topsearch:focus-within { background: var(--surface); border-color: var(--brand); }
   .topsearch svg { flex: none; stroke-width: 1.8; }
   .topsearch__input {
     flex: 1; min-width: 0; border: 0; outline: 0; background: transparent;
