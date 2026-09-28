@@ -17,13 +17,22 @@ const TRANSLATIONS_URL = "data/library/index.en.json";
 
 let cachedIndex = null;
 let cachedTranslations = null;
+let indexRequest = null;
 
+/** Concurrent first calls (e.g. fast typing in the top-bar search before the
+ *  index is cached) share one in-flight fetch instead of each starting their
+ *  own — cachedIndex alone only dedupes calls that arrive after it resolves. */
 export async function loadLibraryIndex() {
   if (cachedIndex) return cachedIndex;
-  const res = await fetch(INDEX_URL);
-  if (!res.ok) throw new Error(String(res.status));
-  cachedIndex = await res.json();
-  return cachedIndex;
+  if (!indexRequest) {
+    indexRequest = (async () => {
+      const res = await fetch(INDEX_URL);
+      if (!res.ok) throw new Error(String(res.status));
+      cachedIndex = await res.json();
+      return cachedIndex;
+    })().finally(() => { indexRequest = null; });
+  }
+  return indexRequest;
 }
 
 /** { levels: {[id]: label}, subjects: {[id]: {name, description}},

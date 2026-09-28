@@ -131,6 +131,7 @@ h1 { font-weight: 750; }
 .topsearch { display: none; }
 @media (min-width: 900px) {
   .topsearch {
+    position: relative;
     display: flex; align-items: center; gap: 8px;
     flex: 0 1 420px; height: 38px; padding: 0 12px;
     border: 1px solid var(--line); border-radius: var(--r-md);
@@ -149,6 +150,25 @@ h1 { font-weight: 750; }
   .topsearch__input:focus-visible { box-shadow: none; }
   .topsearch__input::placeholder { color: var(--ink-faint); }
   .topsearch__input::-webkit-search-cancel-button { display: none; }
+
+  /* The live suggestions dropdown — subjects/sets matching what's typed. */
+  .topsearch__results {
+    position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 30;
+    max-height: 360px; overflow-y: auto; padding: 6px;
+    background: var(--surface); border: 1px solid var(--line-strong);
+    border-radius: var(--r-md); box-shadow: var(--shadow-2);
+  }
+  .topsearch__row {
+    width: 100%; display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border: none; border-radius: var(--r-sm);
+    background: none; font: inherit; color: var(--ink); text-align: left; cursor: pointer;
+  }
+  .topsearch__row svg { flex: none; color: var(--ink-faint); }
+  .topsearch__row.is-sel { background: var(--brand-tint); }
+  .topsearch__row-text { display: flex; flex-direction: column; min-width: 0; }
+  .topsearch__row-text strong { font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .topsearch__row-text small { font-size: 12px; color: var(--ink-faint); }
+  .topsearch__empty { padding: 10px; font-size: 13px; color: var(--ink-faint); }
 }
 
 /* ---------- mobile shell ---------- */

@@ -11,6 +11,7 @@ import { openPopover, closePopover } from "./lib/popover.js";
 import { showAchievementUnlocks } from "./lib/achievement-toast.js";
 import { isSessionActive } from "./lib/session-active.js";
 import { mountUpgradePrompt } from "./components/upgrade-prompt.js";
+import { loadLibraryIndex } from "./lib/library-content.js";
 
 const app = document.getElementById("app");
 
@@ -751,22 +752,124 @@ function shell(contentNode) {
   ]);
 }
 
-/** Desktop top bar: search the whole practice library from any page. Hands the
- *  query to #/library?q=, which runs the same search as the library's own field. */
+/** Desktop top bar: search the whole practice library from any page. Submitting
+ *  (Enter with no suggestion highlighted) hands the query to #/library?q=, which
+ *  runs the same search as the library's own field — unchanged from before. New:
+ *  a live dropdown of matching subjects/sets appears while typing, so a query's
+ *  own existence is obvious before you even hit Enter; arrow keys move through
+ *  it, Enter picks the highlighted one, Escape closes it. */
 function topSearch() {
+  let libIndex = null;
+  let matches = [];
+  let sel = -1;
+  let blurTimer = null;
+
   const input = el("input.topsearch__input", {
     type: "search", name: "q", placeholder: t("nav.searchPlaceholder"), "aria-label": t("nav.searchAria"),
-    autocomplete: "off",
+    autocomplete: "off", role: "combobox", "aria-expanded": "false",
+    "aria-autocomplete": "list", "aria-controls": "topsearch-results",
   });
+  const results = el("div.topsearch__results#topsearch-results", { role: "listbox", hidden: true });
+
+  function close() {
+    results.hidden = true;
+    clear(results);
+    matches = []; sel = -1;
+    input.setAttribute("aria-expanded", "false");
+    input.removeAttribute("aria-activedescendant");
+  }
+
+  function go(hash) {
+    close();
+    input.blur();
+    location.hash = hash;
+  }
+
+  function highlightSel() {
+    [...results.children].forEach((row, i) => row.classList.toggle("is-sel", i === sel));
+    if (sel >= 0) { results.children[sel]?.scrollIntoView({ block: "nearest" }); input.setAttribute("aria-activedescendant", `topsearch-opt-${sel}`); }
+    else input.removeAttribute("aria-activedescendant");
+  }
+
+  function paint(q) {
+    clear(results);
+    sel = -1;
+    if (!matches.length) {
+      results.appendChild(el("p.topsearch__empty", {}, t("nav.searchNoHits", { q })));
+    } else {
+      matches.forEach((item, i) => results.appendChild(el("button.topsearch__row#topsearch-opt-" + i, {
+        type: "button", role: "option",
+        // Keeps the input focused through the click, so this row is still in
+        // the DOM by the time "click" fires — a mousedown-triggered blur would
+        // otherwise run close() first and the click would land on nothing.
+        onmousedown: (e) => e.preventDefault(),
+        onmousemove: () => { sel = i; highlightSel(); },
+        onclick: () => go(item.href),
+      }, [
+        icon(item.kind === "subject" ? ICONS.book : ICONS.fileText, 16),
+        el("span.topsearch__row-text", {}, [
+          el("strong", {}, item.label),
+          item.sub ? el("small", {}, item.sub) : null,
+        ].filter(Boolean)),
+      ])));
+    }
+    results.hidden = false;
+    input.setAttribute("aria-expanded", "true");
+  }
+
+  async function search() {
+    const raw = input.value.trim();
+    const q = raw.toLowerCase();
+    if (!q) { close(); return; }
+    if (!libIndex) {
+      try { libIndex = await loadLibraryIndex(); } catch { libIndex = { subjects: [], sets: [] }; }
+      // Bail if the query moved on, or the field lost focus, while this was loading —
+      // otherwise a blur that closed the (then-empty) dropdown gets silently undone
+      // once the fetch finally resolves, reopening it under an unfocused input.
+      if (input.value.trim().toLowerCase() !== q || document.activeElement !== input) return;
+    }
+    // Name starts with the query ranks above one that merely contains it.
+    const rank = (name) => {
+      const i = name.toLowerCase().indexOf(q);
+      return i < 0 ? null : i === 0 ? 0 : 1;
+    };
+    const subjectHits = libIndex.subjects
+      .map((s) => ({ r: rank(s.name), s }))
+      .filter((x) => x.r !== null)
+      .map(({ r, s }) => ({ r, kind: "subject", label: s.name, sub: t("nav.searchSubject"), href: `#/library?subject=${s.id}` }));
+    const setHits = libIndex.sets
+      .map((s) => ({ r: rank(s.title), s }))
+      .filter((x) => x.r !== null)
+      .map(({ r, s }) => ({
+        r, kind: "set", label: s.title,
+        sub: libIndex.subjects.find((sub) => sub.id === s.subject)?.name || "",
+        href: `#/library?q=${encodeURIComponent(s.title)}`,
+      }));
+    matches = [...subjectHits, ...setHits].sort((a, b) => a.r - b.r).slice(0, 8);
+    paint(raw);
+  }
+
+  input.addEventListener("input", search);
+  input.addEventListener("focus", () => {
+    clearTimeout(blurTimer);   // an earlier blur's pending close() must not fire after a fast refocus
+    if (input.value.trim()) search();
+  });
+  input.addEventListener("blur", () => { blurTimer = setTimeout(close, 120); });
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown" && matches.length) { e.preventDefault(); sel = sel < 0 ? 0 : (sel + 1) % matches.length; highlightSel(); }
+    else if (e.key === "ArrowUp" && matches.length) { e.preventDefault(); sel = sel < 0 ? matches.length - 1 : (sel - 1 + matches.length) % matches.length; highlightSel(); }
+    else if (e.key === "Escape") { close(); }
+    else if (e.key === "Enter" && sel >= 0 && matches[sel]) { e.preventDefault(); go(matches[sel].href); }
+  });
+
   return el("form.topsearch", {
     role: "search",
     onsubmit: (e) => {
       e.preventDefault();
       const q = input.value.trim();
-      location.hash = q ? `#/library?q=${encodeURIComponent(q)}` : "#/library";
-      input.blur();
+      go(q ? `#/library?q=${encodeURIComponent(q)}` : "#/library");
     },
-  }, [icon(ICONS.search, 16), input]);
+  }, [icon(ICONS.search, 16), input, results]);
 }
 
 /** Sits at the bottom of every page's content, inside .content so it shares
