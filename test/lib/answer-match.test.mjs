@@ -27,6 +27,18 @@ describe("answer-match.normalizeAnswer", () => {
     assert.equal(normalizeAnswer("2 880"), "2880");
   });
 
+  test("removes every thousands space in a multi-group number, not just the first", () => {
+    assert.equal(normalizeAnswer("1 234 567"), "1234567");
+  });
+
+  test("combines a thousands space and a decimal comma in the same number", () => {
+    assert.equal(normalizeAnswer("1 234,5"), "1234.5");
+  });
+
+  test("a negative multi-group number with a decimal comma", () => {
+    assert.equal(normalizeAnswer("-12 345,67"), "-12345.67");
+  });
+
   test("converts a Swedish decimal comma to a dot in numeric tokens", () => {
     assert.equal(normalizeAnswer("0,5"), "0.5");
   });

@@ -73,8 +73,15 @@ function isTableStart(lines, i) {
   return i + 1 < lines.length && lines[i].includes("|") && lines[i + 1].includes("|") && TABLE_SEP.test(lines[i + 1]);
 }
 
+// Placeholder swapped in for an escaped "\|" before splitting, and back to "|" after — splitting on
+// "a pipe not preceded by a backslash" needs a lookbehind assertion, which is a SyntaxError on Safari
+// < 16.4. \u0000 can't occur in real question text (it isn't typable, and JSON has no way to encode a
+// literal NUL in a string).
+const ESCAPED_PIPE = "\u0000";
 function tableCells(line) {
-  return line.trim().replace(/^\|/, "").replace(/\|$/, "").split(/(?<!\\)\|/).map((c) => c.replace(/\\\|/g, "|").trim());
+  return line.trim().replace(/^\|/, "").replace(/\|$/, "")
+    .replace(/\\\|/g, ESCAPED_PIPE).split("|")
+    .map((c) => c.split(ESCAPED_PIPE).join("|").trim());
 }
 
 /** Header, separator and every following line that has a pipe -> one scrollable table. */
