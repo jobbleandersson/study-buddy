@@ -212,7 +212,7 @@ a.streakbadge:hover {
      controls, floating top-right over the content — the sidebar carries
      brand/nav/streak, and the language switcher lives up here. */
   .topbar { background: transparent; backdrop-filter: none; border-bottom: none; }
-  .topbar__inner { justify-content: flex-end; padding-top: var(--s-4); padding-right: var(--s-6); }
+  .topbar__inner { justify-content: flex-end; padding-top: var(--s-4); padding-right: var(--s-6); padding-left: var(--s-7); }
   .topbar .brand,
   .topbar .streakbadge { display: none; }
 }
